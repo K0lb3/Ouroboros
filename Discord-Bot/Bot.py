@@ -15,23 +15,22 @@ from TAC_API import *
 
 #functions
 def loadFiles(files):
-    dir=os.path.dirname(os.path.realpath(__file__))+'\\res'
-    ret=[]
+    dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'res')
+    ret = []
     for file in files:
-        path = dir+'\\' + file
+        path = os.path.join(dir, file)
         if not os.path.exists(path):
             print(path, " was not found.")
             continue
-        
-        print (file)
+        print(file)
+
         try:
-            with open(path, "rt",encoding='utf8') as f:
-                ret.append(json.loads(f.read()))  
+            with open(path, "rt", encoding='utf8') as f:
+                ret.append(json.loads(f.read()))
         except ValueError:
-            with open(path, "rt",encoding='utf-8-sig') as f:
-                ret.append(json.loads(f.read())) 
-            
-    
+            with open(path, "rt", encoding='utf-8-sig') as f:
+                ret.append(json.loads(f.read()))
+
     return ret
 
 def elementColor(element):
@@ -92,7 +91,6 @@ def timeDif_hms(time):
 #global vars
 prefix='o?'
 bot = commands.Bot(command_prefix=prefix)
-dir=os.path.dirname(os.path.realpath(__file__))+'\\res'
 [units,drops,gears,jobs]=loadFiles(['units.json','drops.json','gear.json','jobs.json'])
 
     
