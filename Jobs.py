@@ -40,17 +40,13 @@ def job_stats(job,main):
 
 def main():  
     #load files from work dir\res
-    [gl, jp, loc, translation, wyte]=loadFiles(['MasterParam.json','MasterParamJP.json','LocalizedMasterParam.json','Translations.json','wytesong.json'])
+    [gl, jp, wyte]=loadFiles(['MasterParam.json','MasterParamJP.json','wytesong.json'])
+    loc=Translation()
     #compendium data
     Fan = FanTranslatedNames(wyte, jp, loc)
     wunit={}
     for unit in wyte['Units']:
         wunit[unit['Name']]=unit
-    #patching loc
-    translation=Translation_1()
-    for i in translation:
-        if i not in loc:
-            loc[i]=translation[i]
     
     #convert master parameters
     glc=convertMaster(gl)
@@ -76,8 +72,8 @@ def main():
                         'name': loc[job]['NAME'],
                         'japan': wunit[Fan[unit['iname']]['inofficial2']]['Job'+str(j)] if 'inofficial2' in Fan[unit['iname']] else "",
                         'kanji': jpc[job]['name'],
-                        'short description': "" if 'description' not in loc[job] else loc[job]['description'],
-                        'long description': "",
+                        'short description': "" if 'short des' not in loc[job] else loc[job]['short des'],
+                        'long description': "" if 'long des' not in loc[job] else loc[job]['long des'],
                         'icon': 'http://cdn.alchemistcodedb.com/images/jobs/icons/'+jpc[job]['mdl']+'.png',
                         'token': 'http://cdn.alchemistcodedb.com/images/items/icons/'+jpc[jpc[job]['ranks'][0]['eqid1']]['icon']+'.png',
                         'origin': loc[jpc[job]['origin']]['NAME'] if 'origin' in jpc[job] else "",
@@ -130,8 +126,8 @@ def main():
                         'name': "" if job not in loc else loc[job]['NAME'],
                         'japan': wunit[Fan[js['target_unit']]['inofficial2']]['JC'+str(j)],
                         'kanji': jpc[job]['name'],
-                        'short description': "" if 'description' not in loc[job] else loc[job]['description'],
-                        'long description': "",
+                        'short description': "" if 'short des' not in loc[job] else loc[job]['short des'],
+                        'long description': "" if 'long des' not in loc[job] else loc[job]['long des'],
                         'icon': icon,
                         'token': 'http://cdn.alchemistcodedb.com/images/items/icons/'+jpc[jpc[job]['ranks'][0]['eqid1']]['icon']+'.png',
                         'origin': loc[jpc[job]['origin']]['NAME'] if 'origin' in jpc[job] else "",
@@ -211,23 +207,6 @@ def main():
     #save to out
     path=cPath()+'\\out\\'
     saveAsJSON(path+'jobs.json',jobs)
-
-
-    translation={}
-    for i in jobs:
-        job=jobs[i]
-        translation[i]={
-            'iname' : i,
-            'name'  : job['name'],
-            'kanji' : job['kanji'],
-            'japan' : job['japan'],
-            'short des' :    job['short description'],
-            'long des'  :   job['long description'],
-            'units' : ' ,'.join(job['units'])
-        }
-    saveAsJSON(path+'translation2.json',translation)
-
-
         
     #GSSUpload(jobs,'Job1','1sAS44oeV_WBqZSireDT--73zmEVtCriG_RpUBu5jq5s')
 

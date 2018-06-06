@@ -87,24 +87,20 @@ def saveAsJSON(name, var):
     #    saveAsJSON(name,var)
     return 1    
     
-def Translation_1():
-    [loc]=loadFiles(['Translations_1.json'])
-    new={}
-    for i in loc:
-        name = loc[i]['NAME']
-        try:
-            index=name.index('(')
-            description= name[index+1:].replace(')','')
-            name=name[:index].rstrip(' ')
-        except ValueError:
-            name=name
-            description=""
+def Translation():
+    [loc, trans]=loadFiles(['LocalizedMasterParam.json','TranslationsS.json'])
+    copy=['']
+    for i in trans:
+        if i in loc:
+            loc[i].update(trans[i])
+        else:
+            loc[i]=trans[i]
+            loc[i]['NAME']=trans[i]['name']
+        
+        if len(loc[i]['long des'])==0:
+            loc[i]['long des']=loc[i]['short des']
 
-        new[i]={
-            'NAME':     name,
-            'description': description  
-        }
-    return new
+    return loc
 
 def convertMaster(master):
     ma={}

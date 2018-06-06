@@ -96,4 +96,4 @@ def gear():
 path=cPath()+'\\out\\'
 gears=gear()
 saveAsJSON(path+'gear.json',gears)  
-GSSUpload(gears,"gear") 
+#GSSUpload(gears,"gear") 

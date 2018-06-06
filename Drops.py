@@ -45,4 +45,4 @@ def drops():
 path=cPath()+'\\out\\'
 drop=drops()
 saveAsJSON(path+'drops.json',drop)
-GSSUpload(drop,"drops")
+#GSSUpload(drop,"drops")

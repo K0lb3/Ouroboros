@@ -16,7 +16,7 @@ def master_ability(unit,cMaster,loc):
     return text
 
     
-def main():
+def Units():
     global ParamTypes
     global birth
     
@@ -25,7 +25,8 @@ def main():
 
     
     #load files from work dir\res
-    [gl, jp, quest_jp, loc, translation,lore, wyte]=loadFiles(['MasterParam.json','MasterParamJP.json','QuestParamJP.json','LocalizedMasterParam.json','Translations.json','unit.json','wytesong.json'])
+    [gl, jp, quest_jp, lore, wyte]=loadFiles(['MasterParam.json','MasterParamJP.json','QuestParamJP.json','unit.json','wytesong.json'])
+    loc=Translation()
     #load drop list
     [drops]=loadOut(['drops.json'])
     pieces={}
@@ -51,10 +52,6 @@ def main():
 
     #patching loc
     FAN = FanTranslatedNames(wyte, jp, loc)
-    translation=Translation_1()
-    for i in translation:
-        if i not in loc:
-            loc[i]=translation[i]
     
     #convert master parameters
     glc=convertMaster(gl)
@@ -141,8 +138,8 @@ def main():
                 if i == js['cjob']:
                     try:
                         units[js['target_unit']]['jc '+str(j)]=loc[js['job']]['NAME']
-                        if 'description' in loc[js['job']] and len(loc[js['job']]['description'])>1:
-                            units[js['target_unit']]['jc '+str(j)]+='\n['+loc[js['job']]['description']+']'
+                        if 'short des' in loc[js['job']] and len(loc[js['job']]['short des'])>1:
+                            units[js['target_unit']]['jc '+str(j)]+='\n['+loc[js['job']]['short des']+']'
                     
                     except: # job:e not found, trying to create a name
                         je=(re_job.search(js['job']))
@@ -179,8 +176,8 @@ def main():
     path=cPath()+'\\out\\'
     saveAsJSON(path+'units.json',units)
       
-    GSSUpload(units,'units')
+    #GSSUpload(units,'units')
 
  
 # code ~~~~~~~~~~~~~~~~~~~~~~~~~~++++++++++++++++
-main()
+Units()
