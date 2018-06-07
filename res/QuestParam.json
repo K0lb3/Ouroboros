@@ -1618,7 +1618,7 @@
             "iname": "MULTI_SEISEKI_DJ",
             "name": "限定",
             "expr": "聖石の追憶",
-            "item": "quest_ev_seiseki4"
+            "item": "quest_ev_seiseki5"
         },
         {
             "iname": "MULTI_POK_SAM_EX",
@@ -21780,7 +21780,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ",
-            "hide": 1,
             "pt": 8,
             "pexp": 8,
             "uexp": 20,
@@ -21816,7 +21815,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_01"
             ],
@@ -21855,7 +21853,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_02"
             ],
@@ -21894,7 +21891,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_03"
             ],
@@ -21933,7 +21929,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_04"
             ],
@@ -21975,7 +21970,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_05"
             ],
@@ -22015,7 +22009,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_06"
             ],
@@ -22056,7 +22049,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_07"
             ],
@@ -22098,7 +22090,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_08"
             ],
@@ -22130,7 +22121,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_09"
             ],
@@ -22167,7 +22157,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_10"
             ],
@@ -22203,7 +22192,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ2",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_10"
             ],
@@ -22242,7 +22230,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ2",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_2_01"
             ],
@@ -22281,7 +22268,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ2",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_2_02"
             ],
@@ -22320,7 +22306,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ2",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_2_03"
             ],
@@ -22361,7 +22346,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ2",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_2_04"
             ],
@@ -22403,7 +22387,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ2",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_2_05"
             ],
@@ -22442,7 +22425,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ2",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_2_06"
             ],
@@ -22482,7 +22464,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ2",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_2_07"
             ],
@@ -22524,7 +22505,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ2",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_2_08"
             ],
@@ -22569,7 +22549,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ2",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_2_09"
             ],
@@ -22606,7 +22585,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ2",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_2_10"
             ],
@@ -22641,7 +22619,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ2",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_2_EX"
             ],
@@ -22679,7 +22656,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ3",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_2_10"
             ],
@@ -22719,7 +22695,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ3",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_3_01"
             ],
@@ -22759,7 +22734,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ3",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_3_02"
             ],
@@ -22799,7 +22773,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ3",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_3_03"
             ],
@@ -22839,7 +22812,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ3",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_3_04"
             ],
@@ -22880,7 +22852,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ3",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_3_05"
             ],
@@ -22921,7 +22892,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ3",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_3_06"
             ],
@@ -22962,7 +22932,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ3",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_3_07"
             ],
@@ -23004,7 +22973,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ3",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_3_08"
             ],
@@ -23045,7 +23013,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ3",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_3_09"
             ],
@@ -23083,7 +23050,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ3",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_3_10"
             ],
@@ -23118,7 +23084,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ3",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_3_10"
             ],
@@ -23161,7 +23126,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ4",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_3_10"
             ],
@@ -23194,7 +23158,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ4",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_4_01"
             ],
@@ -23242,7 +23205,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ4",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_4_02"
             ],
@@ -23275,7 +23237,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ4",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_4_03"
             ],
@@ -23320,7 +23281,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ4",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_4_04"
             ],
@@ -23366,7 +23326,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ4",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_4_05"
             ],
@@ -23410,7 +23369,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ4",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_4_06"
             ],
@@ -23455,7 +23413,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ4",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_4_07"
             ],
@@ -23498,7 +23455,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ4",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_4_08"
             ],
@@ -23538,7 +23494,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ4",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_4_09"
             ],
@@ -23577,7 +23532,6 @@
             "type": 5,
             "world": "WD_DAILY",
             "area": "AR_SEISEKI_DJ4",
-            "hide": 1,
             "cond_quests": [
                 "QE_EV_SEISEKI_DJ_4_10"
             ],
@@ -23593,6 +23547,436 @@
                 {
                     "scn": "bg_02_yama_003",
                     "set": "ev_seiseki_dj_4_ex_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0501"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_SEISEKI_DJ_5_01",
+            "title": "UnitLv75 JobLv11推奨",
+            "name": "聖石の追憶5-1　不穏なる来訪",
+            "expr": "聖石第5弾/1話",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_SEISEKI_DJ_5_01",
+            "drops": [
+                "IT_EQ_ATK_WOODENSWORD",
+                "IT_EQ_DIAGRAM_VEST",
+                "IT_EQ_DIAGRAM_PEN",
+                "IT_EQ_SPD_FEATHER",
+                "IT_EQ_LUK_SILVERCOIN",
+                "IT_EQ_CRI_NEEDLE"
+            ],
+            "type": 5,
+            "world": "WD_DAILY",
+            "area": "AR_SEISEKI_DJ5",
+            "cond_quests": [
+                "QE_EV_SEISEKI_DJ_4_10"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 200,
+            "gold": 2000,
+            "lv": 75,
+            "evst": "EQ_SEISEKI_05_01_a_2d",
+            "evw": "EQ_SEISEKI_05_01_b_2d",
+            "ticket": "IT_US_DJ_SKIP_TICKET",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_01_nukemiti_002_N",
+                    "set": "ev_seiseki_dj_5_01_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0500"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_SEISEKI_DJ_5_02",
+            "title": "UnitLv75 JobLv11推奨",
+            "name": "聖石の追憶5-2　邪推か否か",
+            "expr": "聖石第5弾/2話",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_SEISEKI_DJ_5_02",
+            "drops": [
+                "IT_EQ_ATK_MACE",
+                "IT_EQ_DIAGRAM_VEST",
+                "IT_EQ_MAG_BRANCH",
+                "IT_EQ_DIAGRAM_GROVE",
+                "IT_EQ_DIAGRAM_PEN",
+                "IT_EQ_HP_CAP"
+            ],
+            "type": 5,
+            "world": "WD_DAILY",
+            "area": "AR_SEISEKI_DJ5",
+            "cond_quests": [
+                "QE_EV_SEISEKI_DJ_5_01"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 250,
+            "gold": 2200,
+            "lv": 75,
+            "evst": "EQ_SEISEKI_05_02_a_2d",
+            "evw": "EQ_SEISEKI_05_02_b_2d",
+            "ticket": "IT_US_DJ_SKIP_TICKET",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_01_env_shiro_kairou_002_E",
+                    "set": "ev_seiseki_dj_5_02_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0500"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_SEISEKI_DJ_5_03",
+            "title": "UnitLv75 JobLv11推奨",
+            "name": "聖石の追憶5-3　消された希望",
+            "expr": "聖石第5弾/3話",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_SEISEKI_DJ_5_03",
+            "drops": [
+                "IT_EQ_PIECE_CANO_LOAD_EMBLEM",
+                "IT_EQ_DEF_MANTLE",
+                "IT_EQ_DEX_INK",
+                "IT_EQ_SPD_GEAR",
+                "IT_EQ_LUK_KEY",
+                "IT_EQ_CRI_NEEDLE"
+            ],
+            "type": 5,
+            "world": "WD_DAILY",
+            "area": "AR_SEISEKI_DJ5",
+            "cond_quests": [
+                "QE_EV_SEISEKI_DJ_5_02"
+            ],
+            "pt": 25,
+            "pexp": 25,
+            "uexp": 300,
+            "gold": 2400,
+            "lv": 75,
+            "evst": "EQ_SEISEKI_05_03_a_2d",
+            "ticket": "IT_US_DJ_SKIP_TICKET",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_01_iseki_003_N",
+                    "set": "ev_seiseki_dj_5_03_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0500",
+                    "ev": "EQ_SEISEKI_05_03_win"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_SEISEKI_DJ_5_04",
+            "title": "UnitLv75 JobLv11推奨",
+            "name": "聖石の追憶5-4　二つの太陽",
+            "expr": "聖石第5弾/4話",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_SEISEKI_DJ_5_04",
+            "drops": [
+                "IT_EQ_PIECE_CANO_LOAD_EMBLEM",
+                "IT_EQ_DEF_MANTLE",
+                "IT_EQ_DEX_INK",
+                "IT_EQ_MAG_WAND",
+                "IT_EQ_MND_MUFFLER",
+                "IT_EQ_DIAGRAM_EARRING"
+            ],
+            "type": 5,
+            "world": "WD_DAILY",
+            "area": "AR_SEISEKI_DJ5",
+            "cond_quests": [
+                "QE_EV_SEISEKI_DJ_5_03"
+            ],
+            "pt": 25,
+            "pexp": 25,
+            "uexp": 350,
+            "gold": 2600,
+            "lv": 75,
+            "evst": "EQ_SEISEKI_05_04_a_2d",
+            "ticket": "IT_US_DJ_SKIP_TICKET",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_01_iseki_004_N",
+                    "set": "ev_seiseki_dj_5_04_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0500"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_SEISEKI_DJ_5_05",
+            "title": "UnitLv75 JobLv11推奨",
+            "name": "聖石の追憶5-5　反逆の序章",
+            "expr": "聖石第5弾/5話",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_SEISEKI_DJ_5_05",
+            "drops": [
+                "IT_EQ_PIECE_CANO_LOAD_NECKLACE",
+                "IT_EQ_PIECE_SHELM",
+                "IT_EQ_DEX_INK",
+                "IT_EQ_DIAGRAM_GETA",
+                "IT_EQ_DIAGRAM_RABBIT",
+                "IT_EQ_CRI_DAGGER"
+            ],
+            "type": 5,
+            "world": "WD_DAILY",
+            "area": "AR_SEISEKI_DJ5",
+            "cond_quests": [
+                "QE_EV_SEISEKI_DJ_5_04"
+            ],
+            "pt": 30,
+            "pexp": 30,
+            "uexp": 400,
+            "gold": 2800,
+            "lv": 75,
+            "evst": "EQ_SEISEKI_05_05_a_2d",
+            "evw": "EQ_SEISEKI_05_05_b_2d",
+            "ticket": "IT_US_DJ_SKIP_TICKET",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_01_iseki_001_N",
+                    "set": "ev_seiseki_dj_5_05_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0500"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_SEISEKI_DJ_5_06",
+            "title": "UnitLv75 JobLv11推奨",
+            "name": "聖石の追憶5-6　哀しき友情",
+            "expr": "聖石第5弾/6話",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_SEISEKI_DJ_5_06",
+            "drops": [
+                "IT_EQ_PIECE_CANO_LOAD_NECKLACE",
+                "IT_EQ_PIECE_SHELM",
+                "IT_EQ_PIECE_FURO",
+                "IT_EQ_MAG_MAGICWAND",
+                "IT_EQ_MND_CHARM",
+                "IT_EQ_HP_CAP",
+                "IT_EQ_PIECE_SABER"
+            ],
+            "type": 5,
+            "world": "WD_DAILY",
+            "area": "AR_SEISEKI_DJ5",
+            "cond_quests": [
+                "QE_EV_SEISEKI_DJ_5_05"
+            ],
+            "pt": 30,
+            "pexp": 30,
+            "uexp": 450,
+            "gold": 3000,
+            "lv": 75,
+            "evst": "EQ_SEISEKI_05_06_a_2d",
+            "evw": "EQ_SEISEKI_05_06_b_2d",
+            "ticket": "IT_US_DJ_SKIP_TICKET",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_01_nukemiti_001_N",
+                    "set": "ev_seiseki_dj_5_06_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0500"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_SEISEKI_DJ_5_07",
+            "title": "UnitLv75 JobLv11推奨",
+            "name": "聖石の追憶5-7　正義の騎士",
+            "expr": "聖石第5弾/7話",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_SEISEKI_DJ_5_07",
+            "drops": [
+                "IT_EQ_PIECE_CANO_LOAD_NECKLACE",
+                "IT_EQ_PIECE_SHELM",
+                "IT_EQ_PIECE_FURO",
+                "IT_EQ_DIAGRAMPIECE_SHINOBI",
+                "IT_EQ_DIAGRAM_CHOKER",
+                "IT_EQ_CRI_DAGGER",
+                "IT_EQ_DIAGRAM_SMALL"
+            ],
+            "type": 5,
+            "world": "WD_DAILY",
+            "area": "AR_SEISEKI_DJ5",
+            "cond_quests": [
+                "QE_EV_SEISEKI_DJ_5_06"
+            ],
+            "pt": 35,
+            "pexp": 35,
+            "uexp": 500,
+            "gold": 3200,
+            "lv": 75,
+            "evst": "EQ_SEISEKI_05_07_a_2d",
+            "evw": "EQ_SEISEKI_05_07_b_2d",
+            "ticket": "IT_US_DJ_SKIP_TICKET",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "multi_SNK_0b_09",
+                    "set": "ev_seiseki_dj_5_07_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0500"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_SEISEKI_DJ_5_08",
+            "title": "UnitLv75 JobLv11推奨",
+            "name": "聖石の追憶5-8　いくつもの真実",
+            "expr": "聖石第5弾/8話",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_SEISEKI_DJ_5_08",
+            "drops": [
+                "IT_EQ_PIECE_CANO_LOAD_STATUE",
+                "IT_EQ_PIECE_SHIELD",
+                "IT_EQ_MAG_MAGICWAND",
+                "IT_EQ_MND_CHARM",
+                "IT_EQ_DIAGRAM_EARRING",
+                "IT_EQ_PIECE_HOURGLASS",
+                "IT_EQ_PIECE_FURO"
+            ],
+            "type": 5,
+            "world": "WD_DAILY",
+            "area": "AR_SEISEKI_DJ5",
+            "cond_quests": [
+                "QE_EV_SEISEKI_DJ_5_07"
+            ],
+            "pt": 35,
+            "pexp": 35,
+            "uexp": 500,
+            "gold": 3500,
+            "lv": 75,
+            "evst": "EQ_SEISEKI_05_08_a_2d",
+            "evw": "EQ_SEISEKI_05_08_b_2d",
+            "ticket": "IT_US_DJ_SKIP_TICKET",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_01_iseki_007_N",
+                    "set": "ev_seiseki_dj_5_08_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0500"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_SEISEKI_DJ_5_09",
+            "title": "UnitLv75 JobLv11推奨",
+            "name": "聖石の追憶5-9　ミカボシ",
+            "expr": "聖石第5弾/9話",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_SEISEKI_DJ_5_09",
+            "drops": [
+                "IT_EQ_PIECE_CANO_LOAD_STATUE",
+                "IT_EQ_PIECE_SWORD",
+                "IT_EQ_DIAGRAMPIECE_COMPASS",
+                "IT_EQ_DIAGRAMPIECE_MND_CAP",
+                "IT_EQ_PIECE_MACHINEWING",
+                "IT_EQ_PIECE_LANCE",
+                "IT_EQ_PIECE_ARMOR",
+                "IT_EQ_DIAGRAMPIECE_BELT",
+                "IT_EQ_PIECE_KAGU_DAI_04"
+            ],
+            "type": 5,
+            "world": "WD_DAILY",
+            "area": "AR_SEISEKI_DJ5",
+            "cond_quests": [
+                "QE_EV_SEISEKI_DJ_5_08"
+            ],
+            "pt": 40,
+            "pexp": 40,
+            "uexp": 600,
+            "gold": 3800,
+            "lv": 75,
+            "evst": "EQ_SEISEKI_05_09_a_2d",
+            "ticket": "IT_US_DJ_SKIP_TICKET",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_01_iseki_008_N",
+                    "set": "ev_seiseki_dj_5_09_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0500"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_SEISEKI_DJ_5_10",
+            "title": "UnitLv75JobMaster推奨",
+            "name": "聖石の追憶5-10　堕ちた太陽",
+            "expr": "聖石第5弾/10話",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_SEISEKI_DJ_5_10",
+            "drops": [
+                "IT_EQ_PIECE_CANO_LOAD_STATUE",
+                "IT_EQ_DIAGRAMPIECE_OTHI_ARMOR",
+                "IT_EQ_PIECE_SWORD",
+                "IT_EQ_DIAGRAMPIECE_COMPASS",
+                "IT_EQ_PIECE_LANCE",
+                "IT_EQ_PIECE_ARMOR"
+            ],
+            "type": 5,
+            "world": "WD_DAILY",
+            "area": "AR_SEISEKI_DJ5",
+            "cond_quests": [
+                "QE_EV_SEISEKI_DJ_5_09"
+            ],
+            "pt": 40,
+            "pexp": 40,
+            "uexp": 600,
+            "gold": 4000,
+            "lv": 80,
+            "evst": "EQ_SEISEKI_05_10_a_2d",
+            "evw": "EQ_SEISEKI_05_10_b_2d",
+            "ticket": "IT_US_DJ_SKIP_TICKET",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_01_iseki_008_N",
+                    "set": "ev_seiseki_dj_5_10_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0501"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_SEISEKI_DJ_5_EX",
+            "title": "高難易度コンティニュー不可",
+            "name": "【エクストラ】堕ちた太陽",
+            "expr": "聖石第5弾/エクストラ",
+            "cond": "ワギナオを倒せ！",
+            "mission": "OB_EV_SEISEKI_DJ_5_EX",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_OTHI_ARMOR",
+                "IT_EQ_PIECE_GEARROD",
+                "IT_EQ_PIECE_NOTEBOOK",
+                "IT_AF_ARMS_OTHI_01"
+            ],
+            "type": 5,
+            "world": "WD_DAILY",
+            "area": "AR_SEISEKI_DJ5",
+            "cond_quests": [
+                "QE_EV_SEISEKI_DJ_5_10"
+            ],
+            "pt": 50,
+            "pexp": 50,
+            "uexp": 400,
+            "gold": 5000,
+            "win": 1,
+            "lv": 85,
+            "aplv": 1,
+            "notcon": 1,
+            "map": [
+                {
+                    "scn": "tower_normal_0a_12",
+                    "set": "ev_seiseki_dj_5_ex_set",
                     "btl": "plain01",
                     "bgm": "BGM_0501"
                 }
@@ -55344,8 +55728,8 @@
         },
         {
             "iname": "CAP_AP_HALF_001",
-            "begin_at": "7/10/2016 12:00:00 PM",
-            "end_at": "9/10/2016 12:00:00 PM",
+            "begin_at": "6/7/2018",
+            "end_at": "6/13/2018 11:59:59 PM",
             "children": [
                 "CAC_AP_HALF_001_NORMAL",
                 "CAC_AP_HALF_001_HARD"

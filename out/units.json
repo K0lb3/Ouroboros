@@ -1397,7 +1397,7 @@
         "job 2": "Martial Artist",
         "job 3": "Ninja",
         "jc 1": "",
-        "jc 2": "",
+        "jc 2": "Holy Brawler : Senju\n[multi-hit]",
         "jc 3": "Ninja  : Genbu\n[move-based]",
         "inputs": [
             "Kazahaya"
@@ -7290,7 +7290,7 @@
             "JP: [32 AP] [Hard] Ch 3: Ep 3 [2-9]"
         ],
         "leader skill": "Water: +30% HP & +20% PATK",
-        "master ability": "",
+        "master ability": "+300 HP & +40 Initial Jewels",
         "link": "http://www.alchemistcodedb.com/jp/unit/yunagi",
         "job 1": "Dark Cavalier",
         "job 2": "Ninja",
@@ -7609,7 +7609,7 @@
             "JP: [32 AP] [Hard] Ch 3: Ep 4 [3-1]"
         ],
         "leader skill": "Thunder: +30 Magic ATK & +20% HP",
-        "master ability": "",
+        "master ability": "+300 HP & +40 DEX & +1 MOVE",
         "link": "http://www.alchemistcodedb.com/jp/unit/chao",
         "job 1": "Battle Mage",
         "job 2": "Twin-Blade Swordsman",
@@ -12470,6 +12470,51 @@
                 "name": "default",
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/cry_merl.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/cry_merl-closeup.png"
+            }
+        ]
+    },
+    "UN_V2_CRY_ARTHUR": {
+        "iname": "UN_V2_CRY_ARTHUR",
+        "name": "Arthur",
+        "inofficial": "",
+        "gender": "♂",
+        "element": "Fire",
+        "country": "Foreign World",
+        "collab": "Crystal Re:Union",
+        "collab short": "CR",
+        "rarity": "★★★★★",
+        "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/cry_arth.png",
+        "farm": [],
+        "leader skill": "Fire: +50% HP & +30% PATK & +10 Hit Rate",
+        "master ability": "",
+        "link": "http://www.alchemistcodedb.com/jp/unit/cry-arthur",
+        "job 1": "Investigator Hero",
+        "job 2": "Holy Brawler",
+        "job 3": "Holy Cavalier",
+        "jc 1": "",
+        "jc 2": "",
+        "jc 3": "Holy Cavalier : Porta\n[pierce resistance]",
+        "inputs": [
+            "Arthur",
+            "Arthur CR",
+            "CR Arthur"
+        ],
+        "PROFILE": "異世界のミッドガルドから導かれた清廉潔白な騎士。戦場においては常に慢心することなく堂々と勝利を目指し、卑怯な行為には怒りを向ける。争いのない平穏な世界を望んでおり、その実現の為なら己の身さえ省みない。",
+        "COUNTRY": "ミッドガルド",
+        "HEIGHT": "182cm",
+        "WEIGHT": "70kg",
+        "BIRTH": "12月10日",
+        "ZODIAC": "射手座",
+        "BLOOD": "A型",
+        "FAVORITE": "ティータイム",
+        "HOBBY": "街の視察",
+        "ILLUST": "だーくろ",
+        "CV": "岡本信彦",
+        "artworks": [
+            {
+                "name": "default",
+                "full": "http://cdn.alchemistcodedb.com/images/units/artworks/cry_arth.png",
+                "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/cry_arth-closeup.png"
             }
         ]
     }

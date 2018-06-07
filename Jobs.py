@@ -70,7 +70,7 @@ def main():
                     jobs[job]={
                         'iname':job,
                         'name': loc[job]['NAME'],
-                        'japan': wunit[Fan[unit['iname']]['inofficial2']]['Job'+str(j)] if 'inofficial2' in Fan[unit['iname']] else "",
+                        'japan': "",
                         'kanji': jpc[job]['name'],
                         'short description': "" if 'short des' not in loc[job] else loc[job]['short des'],
                         'long description': "" if 'long des' not in loc[job] else loc[job]['long des'],
@@ -100,7 +100,11 @@ def main():
                         },
                         'stats':job_stats(jpc[job],jpc),
                         'formula': dmg_formula(jpc[jpc[jpc[job]['atkskl']]['weapon']]),
-                    }
+                        }
+                    try:
+                        jobs[job]['japan']=wunit[Fan[unit['iname']]['inofficial2']]['Job'+str(j)]
+                    except KeyError:
+                        pass
                 jobs[job]['units'].append(name_collab(unit['iname'],loc)[0])
                 j+=1
                     
@@ -124,7 +128,7 @@ def main():
                     jobs[job]={
                         'iname':job,
                         'name': "" if job not in loc else loc[job]['NAME'],
-                        'japan': wunit[Fan[js['target_unit']]['inofficial2']]['JC'+str(j)],
+                        'japan':  "",
                         'kanji': jpc[job]['name'],
                         'short description': "" if 'short des' not in loc[job] else loc[job]['short des'],
                         'long description': "" if 'long des' not in loc[job] else loc[job]['long des'],
@@ -154,7 +158,12 @@ def main():
                             #"type": 1, 
                         },
                         'formula': dmg_formula(jpc[jpc[jpc[job]['atkskl']]['weapon']]),
-                    }
+                        }
+                    try:
+                        jobs[job]['japan']=wunit[Fan[js['target_unit']]['inofficial2']]['JC'+str(j)]
+                    except KeyError:
+                        pass
+
             else:
                 if jobs[job]['japan'] == "N/A":
                     jobs[job]['japan'] = wunit[Fan[js['target_unit']]['inofficial2']]['JC'+str(j)]

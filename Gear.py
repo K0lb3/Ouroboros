@@ -1,7 +1,8 @@
 from MainFunctions import *
 
 def gear():
-    [gl, jp, loc, translation,lore]=loadFiles(['MasterParam.json','MasterParamJP.json','LocalizedMasterParam.json','Translations.json','unit.json'])
+    [gl, jp,lore]=loadFiles(['MasterParam.json','MasterParamJP.json','unit.json'])
+    loc = Translation()
     gears = gl['Artifact']
     cmaster = convertMaster(gl)
     export={}

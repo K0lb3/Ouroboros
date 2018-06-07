@@ -2969,7 +2969,8 @@
             "Basheeny",
             "Daisy",
             "Lotia",
-            "Gerald"
+            "Gerald",
+            "Arthur"
         ],
         "jobe": [
             "Holy Brawler+",
@@ -3219,13 +3220,14 @@
             "Edwin",
             "Izayoi",
             "Teresa",
-            "Don Taras"
+            "Don Taras",
+            "Arthur"
         ],
         "jobe": [
             "Holy Cavalier : Magi",
             "Holy Cavalier : Ark",
-            "Holy Cavalier : Izaya",
             "Holy Cavalier : Porta",
+            "Holy Cavalier : Izaya",
             "Holy Cavalier : Pieta",
             "Holy Cavalier : Zayin"
         ],
@@ -12444,7 +12446,7 @@
     "JB_GUNL_WATER": {
         "iname": "JB_GUNL_WATER",
         "name": "Aqua Gun-Lancer",
-        "japan": "Blue Water Gunlance\n蒼水銃槍師",
+        "japan": "Fluid Gunlance\n蒼水銃槍師",
         "kanji": "蒼水銃槍師",
         "short description": "",
         "long description": "",
@@ -12830,6 +12832,70 @@
             "Merlinus",
             "Merlinus Hero of Falsehood",
             "Hero of Falsehood"
+        ]
+    },
+    "JB_CRY_ARTH01": {
+        "iname": "JB_CRY_ARTH01",
+        "name": "Investigator Hero",
+        "japan": "",
+        "kanji": "求道の英雄",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/cry_arth01.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ARM.png",
+        "origin": "Investigator Hero",
+        "units": [
+            "Arthur"
+        ],
+        "jobe": [],
+        "main": "",
+        "sub": "",
+        "reactives": "",
+        "passives": "",
+        "modifiers": {
+            "HP": 35,
+            "Max Jewels": 23,
+            "Initial Jewels": 25,
+            "PATK": 50,
+            "PDEF": 25,
+            "MATK": 0,
+            "MDEF": 0,
+            "DEX": 0,
+            "AGI": 25,
+            "LUCK": 0,
+            "CRIT": 0,
+            "AVOID": 0
+        },
+        "stats": {
+            "Move": 4,
+            "Jump": 2,
+            "PATK": 385,
+            "PDEF": 308,
+            "DEX": 209,
+            "AGI": 43,
+            "MATK": 55,
+            "LUCK": 81,
+            "CRIT": 117,
+            "HP": 510,
+            "Jewels Obtained": 30,
+            "MDEF": 43,
+            "Fire Res": 9,
+            "Water Res": 7,
+            "Thunder Res": 5,
+            "Wind Res": 22,
+            "Charm Res": 46,
+            "Sleep Res": 54,
+            "Slow Res": 36,
+            "Stun Res": 18,
+            "Paralyze Res": 18,
+            "Petrify Res": 18,
+            "Poison Res": 10
+        },
+        "formula": "140% PATK",
+        "inputs": [
+            "Arthur",
+            "Arthur Investigator Hero",
+            "Investigator Hero"
         ]
     },
     "JB_KUDH_LAN2": {
@@ -14366,7 +14432,8 @@
             "Gormalas",
             "Tomas",
             "Leonia",
-            "Yauras"
+            "Yauras",
+            "Kazahaya"
         ],
         "jobe": [],
         "main": "",
@@ -17650,7 +17717,7 @@
     "JB_SOL_WATER": {
         "iname": "JB_SOL_WATER",
         "name": "Twin-Blade Swordsman : Mist",
-        "japan": "Sagiri (Mist) Twin Blade\n狭霧の双剣士",
+        "japan": "Hazy Twin Blade\n狭霧の双剣士",
         "kanji": "狭霧の双剣士",
         "short description": "",
         "long description": "",
@@ -17708,6 +17775,71 @@
         "inputs": [
             "Ren Twin-Blade Swordsman : Mist",
             "Twin-Blade Swordsman : Mist"
+        ]
+    },
+    "JB_GUA_TYPE_ANTI_LANCE": {
+        "iname": "JB_GUA_TYPE_ANTI_LANCE",
+        "name": "Holy Cavalier : Porta",
+        "japan": "",
+        "kanji": "ホーリーナイト【ポルタ】",
+        "short description": "pierce resistance",
+        "long description": "pierce resistance",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/gua00.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_GUA_TYPE_ANTI_LANCE.png",
+        "origin": "Holy Cavalier",
+        "units": [
+            "Arthur",
+            "Teona",
+            "Lambert"
+        ],
+        "jobe": [],
+        "main": "",
+        "sub": "",
+        "reactives": "",
+        "passives": "",
+        "stats": {
+            "Move": 3,
+            "Jump": 1,
+            "PATK": 276,
+            "PDEF": 268,
+            "DEX": 242,
+            "AGI": 18,
+            "CRIT": 104,
+            "HP": 549,
+            "MATK": 72,
+            "MDEF": 65,
+            "Jewels Obtained": 48,
+            "LUCK": 124,
+            "Fire Res": 9,
+            "Water Res": 6,
+            "Thunder Res": 5,
+            "Wind Res": 7,
+            "Light Res": 4,
+            "Charm Res": 46,
+            "Sleep Res": 54,
+            "Slow Res": 36,
+            "Stun Res": 18,
+            "Paralyze Res": 18,
+            "Petrify Res": 18,
+            "Poison Res": 10
+        },
+        "modifiers": {
+            "HP": 32,
+            "Max Jewels": 0,
+            "Initial Jewels": 25,
+            "PATK": 10,
+            "PDEF": 25,
+            "MATK": -5,
+            "MDEF": 5,
+            "DEX": 0,
+            "AGI": 13,
+            "LUCK": 0,
+            "CRIT": 6,
+            "AVOID": 0
+        },
+        "formula": "140% PATK",
+        "inputs": [
+            "Holy Cavalier : Porta"
         ]
     },
     "JB_SNI_LONG_RANGE": {
@@ -19076,70 +19208,6 @@
             "Holy Cavalier : Izaya"
         ]
     },
-    "JB_GUA_TYPE_ANTI_LANCE": {
-        "iname": "JB_GUA_TYPE_ANTI_LANCE",
-        "name": "Holy Cavalier : Porta",
-        "japan": "Holy Knight: Porta \nホーリーナイト【ポルタ】",
-        "kanji": "ホーリーナイト【ポルタ】",
-        "short description": "pierce resistance",
-        "long description": "pierce resistance",
-        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/gua00.png",
-        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_GUA_TYPE_ANTI_LANCE.png",
-        "origin": "Holy Cavalier",
-        "units": [
-            "Teona",
-            "Lambert"
-        ],
-        "jobe": [],
-        "main": "",
-        "sub": "",
-        "reactives": "",
-        "passives": "",
-        "stats": {
-            "Move": 3,
-            "Jump": 1,
-            "PATK": 276,
-            "PDEF": 268,
-            "DEX": 242,
-            "AGI": 18,
-            "CRIT": 104,
-            "HP": 549,
-            "MATK": 72,
-            "MDEF": 65,
-            "Jewels Obtained": 48,
-            "LUCK": 124,
-            "Fire Res": 9,
-            "Water Res": 6,
-            "Thunder Res": 5,
-            "Wind Res": 7,
-            "Light Res": 4,
-            "Charm Res": 46,
-            "Sleep Res": 54,
-            "Slow Res": 36,
-            "Stun Res": 18,
-            "Paralyze Res": 18,
-            "Petrify Res": 18,
-            "Poison Res": 10
-        },
-        "modifiers": {
-            "HP": 32,
-            "Max Jewels": 0,
-            "Initial Jewels": 25,
-            "PATK": 10,
-            "PDEF": 25,
-            "MATK": -5,
-            "MDEF": 5,
-            "DEX": 0,
-            "AGI": 13,
-            "LUCK": 0,
-            "CRIT": 6,
-            "AVOID": 0
-        },
-        "formula": "140% PATK",
-        "inputs": [
-            "Holy Cavalier : Porta"
-        ]
-    },
     "JB_ZEKE_GUA_TYPE_ANTI_BLOW": {
         "iname": "JB_ZEKE_GUA_TYPE_ANTI_BLOW",
         "name": "Holy Cavalier : David",
@@ -19664,7 +19732,7 @@
     "JB_ENC_WATER": {
         "iname": "JB_ENC_WATER",
         "name": "Blue Water Enchanter",
-        "japan": "Blue Water Enhancer\n蒼水のエンハンサー",
+        "japan": "",
         "kanji": "蒼水のエンハンサー",
         "short description": "buff that increases water damage against fire",
         "long description": "buff that increases water damage against fire",
