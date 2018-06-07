@@ -1,4 +1,3 @@
-import asyncio
 import sys
 import uuid
 import http.client
@@ -7,6 +6,7 @@ import os
 import jellyfish
 import re
 import discord
+import asyncio
 from datetime import datetime
 from datetime import timedelta
 from discord.ext import commands
@@ -430,5 +430,5 @@ async def debug(ctx):
 
 
 BOT_TOKEN = os.environ.get('DISCORD_BOT_TOKEN')
-BOT_TOKEN="NDM3ODY4OTQ4MTMwNzU4NjY4.DdYvnw.UTWQMqytfyiu6YXzkY4iIw4CqJY"
+#BOT_TOKEN="NDM3ODY4OTQ4MTMwNzU4NjY4.DdYvnw.UTWQMqytfyiu6YXzkY4iIw4CqJY"
 bot.run(BOT_TOKEN)
