@@ -2,7 +2,7 @@
     "UN_V2_LOGI": {
         "iname": "UN_V2_LOGI",
         "name": "Logi",
-        "inofficial": "Rogi",
+        "inofficial": "",
         "gender": "♂",
         "element": "Light",
         "country": "Envylia",
@@ -27,8 +27,7 @@
         "jc 2": "Holy Cavalier+",
         "jc 3": "",
         "inputs": [
-            "Logi",
-            "Rogi"
+            "Logi"
         ],
         "PROFILE": "Logi is a Squire of Envylia's most powerful knight faction, the Blue Flame Guard. The Blue Flame Guard's Captain, Zeke Crowley is his father. Though he's proud to be the son of the Blue Flame Guard's Captain, part of him longs for peace, and this may make him a little too tender-hearted...",
         "COUNTRY": "Envylia",
@@ -57,7 +56,7 @@
     "UN_V2_DIOS": {
         "iname": "UN_V2_DIOS",
         "name": "Dias",
-        "inofficial": "Dios",
+        "inofficial": "",
         "gender": "♂",
         "element": "Dark",
         "country": "Envylia",
@@ -82,8 +81,7 @@
         "jc 2": "Dark Cavalier+  : Edgelord",
         "jc 3": "",
         "inputs": [
-            "Dias",
-            "Dios"
+            "Dias"
         ],
         "PROFILE": "Dias is a Squire of Envylia's most powerful knight faction, the Blue Flame Guard. The Blue Flame Guard's Captain, Zeke Crowley is his stepfather. As an orphan from the \"Dawn of Wrath\" War, he thinks one can change the world as long as one has power.",
         "COUNTRY": "Envylia",
@@ -112,7 +110,7 @@
     "UN_V2_EDGAR": {
         "iname": "UN_V2_EDGAR",
         "name": "Edgar",
-        "inofficial": "Edgar",
+        "inofficial": "",
         "gender": "♂",
         "element": "Thunder",
         "country": "Slothstein",
@@ -162,7 +160,7 @@
     "UN_V2_LIESBET": {
         "iname": "UN_V2_LIESBET",
         "name": "Lisbeth",
-        "inofficial": "Lizbeth",
+        "inofficial": "",
         "gender": "♀",
         "element": "Water",
         "country": "Lustburg",
@@ -186,8 +184,7 @@
         "jc 2": "Witch+",
         "jc 3": "",
         "inputs": [
-            "Lisbeth",
-            "Lizbeth"
+            "Lisbeth"
         ],
         "PROFILE": "Lisbeth is the daughter of the owner of a cheap bar in the outskirts of Lustburg. Having grown up around a bar, she doesn’t have much sense of gender distinction againt her own country's men. Though she’s entered the Academy of Magic, her student career hasn’t looked quite promising. Thanks to her straightforward and kind personality however, she’s been able to make good friends.",
         "COUNTRY": "Lustburg",
@@ -216,7 +213,7 @@
     "UN_V2_TINA": {
         "iname": "UN_V2_TINA",
         "name": "Tina",
-        "inofficial": "Tina",
+        "inofficial": "",
         "gender": "♀",
         "element": "Wind",
         "country": "Saga Region",
@@ -291,7 +288,7 @@
     "UN_V2_KAMUI": {
         "iname": "UN_V2_KAMUI",
         "name": "Kamui",
-        "inofficial": "Kamui",
+        "inofficial": "",
         "gender": "♂",
         "element": "Fire",
         "country": "Desert Zone",
@@ -334,7 +331,7 @@
     "UN_V2_ALAIA": {
         "iname": "UN_V2_ALAIA",
         "name": "Alaia",
-        "inofficial": "Alaia",
+        "inofficial": "",
         "gender": "♀",
         "element": "Water",
         "country": "Envylia",
@@ -384,7 +381,7 @@
     "UN_V2_LUCIDO": {
         "iname": "UN_V2_LUCIDO",
         "name": "Lucido",
-        "inofficial": "Lucido",
+        "inofficial": "",
         "gender": "♂",
         "element": "Thunder",
         "country": "Wratharis",
@@ -435,7 +432,7 @@
     "UN_V2_RIGARUTO": {
         "iname": "UN_V2_RIGARUTO",
         "name": "Rigalt",
-        "inofficial": "Regart",
+        "inofficial": "",
         "gender": "♂",
         "element": "Wind",
         "country": "Envylia",
@@ -462,8 +459,7 @@
         "jc 2": "Ranger : Wolf\n[bonus damage against monsters]",
         "jc 3": "",
         "inputs": [
-            "Rigalt",
-            "Regart"
+            "Rigalt"
         ],
         "PROFILE": "Rigalt is part of Envylia's National Secret Intel Faction. Since he enjoys the streets so much, he knows the roads in the country like the back of his hand. However, because he's the type that never stays put, he's not so well suited for intel work.",
         "COUNTRY": "Envylia",
@@ -487,7 +483,7 @@
     "UN_V2_RINN": {
         "iname": "UN_V2_RINN",
         "name": "Rin",
-        "inofficial": "Rin",
+        "inofficial": "",
         "gender": "♀",
         "element": "Water",
         "country": "Wadatsumi",
@@ -541,7 +537,7 @@
     "UN_V2_GAIN": {
         "iname": "UN_V2_GAIN",
         "name": "Gyan",
-        "inofficial": "Gain",
+        "inofficial": "",
         "gender": "♂",
         "element": "Wind",
         "country": "Wratharis",
@@ -567,8 +563,7 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Gyan",
-            "Gain"
+            "Gyan"
         ],
         "PROFILE": "Gyan is an orphan from Wratharis. He doesn't know much language because he was raised by wolves, but he's always grateful and warm-hearted towards anyone who offers him food. In battle, he can be as ferocious as a beast.",
         "COUNTRY": "Wratharis",
@@ -592,7 +587,7 @@
     "UN_V2_ALEXIS": {
         "iname": "UN_V2_ALEXIS",
         "name": "Alexis",
-        "inofficial": "Alexis",
+        "inofficial": "",
         "gender": "♂",
         "element": "Water",
         "country": "Saga Region",
@@ -646,7 +641,7 @@
     "UN_V2_POLLIN": {
         "iname": "UN_V2_POLLIN",
         "name": "Polin",
-        "inofficial": "Porin",
+        "inofficial": "",
         "gender": "♀",
         "element": "Wind",
         "country": "Lustburg",
@@ -671,8 +666,7 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Polin",
-            "Porin"
+            "Polin"
         ],
         "PROFILE": "Polin is a gentle girl who doesn't like violence. She's often treated like a little sister due to her nature and appearance, but she's happy to be thought of as family. She enjoys using magic to grow special types of flowers.",
         "COUNTRY": "Lustburg",
@@ -701,7 +695,7 @@
     "UN_V2_ANJOU": {
         "iname": "UN_V2_ANJOU",
         "name": "Ange",
-        "inofficial": "Anju",
+        "inofficial": "",
         "gender": "♀",
         "element": "Thunder",
         "country": "Desert Zone",
@@ -725,8 +719,7 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Ange",
-            "Anju"
+            "Ange"
         ],
         "PROFILE": "Ange is a young girl from a musical band called Mirage in the Desert Zone. She has the special power to heal people through dance. You can recognize her by her tanned skin. She looks younger than she is, maybe due to her physical build. In battle, she charms her opponents through her nimble dance art.",
         "COUNTRY": "Desert Zone",
@@ -750,7 +743,7 @@
     "UN_V2_MEILY": {
         "iname": "UN_V2_MEILY",
         "name": "Meily",
-        "inofficial": "Meili",
+        "inofficial": "",
         "gender": "♀",
         "element": "Thunder",
         "country": "Lustburg",
@@ -775,8 +768,7 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Meily",
-            "Meili"
+            "Meily"
         ],
         "PROFILE": "A girl of extraordinary intelligence, who skipped some grades to make it even to the Lustburg State University. Her mysterious aura and physical build often gets her mistaken for a boy. She really hates this, so she always makes it clear that she's a girl when meeting new people.",
         "COUNTRY": "Lustburg",
@@ -800,7 +792,7 @@
     "UN_V2_ALFRED": {
         "iname": "UN_V2_ALFRED",
         "name": "Alfred",
-        "inofficial": "Alfred",
+        "inofficial": "",
         "gender": "♂",
         "element": "Thunder",
         "country": "Envylia",
@@ -849,7 +841,7 @@
     "UN_V2_MELIA": {
         "iname": "UN_V2_MELIA",
         "name": "Melia",
-        "inofficial": "Meria",
+        "inofficial": "",
         "gender": "♀",
         "element": "Wind",
         "country": "Saga Region",
@@ -876,8 +868,7 @@
         "jc 2": "",
         "jc 3": "Professor : Honey\n[more charms and bind/daze skills]",
         "inputs": [
-            "Melia",
-            "Meria"
+            "Melia"
         ],
         "PROFILE": "Melia is a young girl from the Saga Region with a red hood featuring rabbit ears. She has the power to heal wounds, and she sometimes heals injured animals. As her appearance suggests, she leads a carefree gentle life alongside animals, surrendering herself to the flow of time without stress.",
         "COUNTRY": "Saga Region",
@@ -901,7 +892,7 @@
     "UN_V2_RUNBELL": {
         "iname": "UN_V2_RUNBELL",
         "name": "Lambert",
-        "inofficial": "Rambert",
+        "inofficial": "",
         "gender": "♂",
         "element": "Fire",
         "country": "Envylia",
@@ -926,8 +917,7 @@
         "jc 2": "",
         "jc 3": "Holy Cavalier : Porta\n[pierce resistance]",
         "inputs": [
-            "Lambert",
-            "Rambert"
+            "Lambert"
         ],
         "PROFILE": "Lambert is a mercenary from Envylia. He has wandered the whole continent, perfecting his own personal sword style. It is said he was once scouted by a knight faction of Envylia, but because he hates staying in one place, he supposedly refused the offer.",
         "COUNTRY": "Envylia",
@@ -951,7 +941,7 @@
     "UN_V2_GATH": {
         "iname": "UN_V2_GATH",
         "name": "Gato",
-        "inofficial": "Gath",
+        "inofficial": "",
         "gender": "♂",
         "element": "Water",
         "country": "Saga Region",
@@ -978,8 +968,7 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Gato",
-            "Gath"
+            "Gato"
         ],
         "PROFILE": "Gato is a bard who roams the grasslands of Saga. He speaks very slowly, and does everything at his own pace. When a conversation develops too quickly, he can't keep up with what's being said, but apparently, that's not because he's dumb, but rather because he always takes his time for things.",
         "COUNTRY": "Saga Region",
@@ -1049,7 +1038,7 @@
     "UN_V2_JAKE": {
         "iname": "UN_V2_JAKE",
         "name": "Jake",
-        "inofficial": "Jake",
+        "inofficial": "",
         "gender": "♂",
         "element": "Fire",
         "country": "Desert Zone",
@@ -1094,7 +1083,7 @@
     "UN_V2_RICHE": {
         "iname": "UN_V2_RICHE",
         "name": "Richie",
-        "inofficial": "Lish",
+        "inofficial": "",
         "gender": "♂",
         "element": "Fire",
         "country": "Slothstein",
@@ -1115,8 +1104,7 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Richie",
-            "Lish"
+            "Richie"
         ],
         "PROFILE": "Richie operates a small toy store in Slothstein. He loves spending time alone tinkering, and he never used to have the inclination to deal with other people. However, ever since seeing the Parade of Envylia, he has had the dream of touching other people's hearts with his toys.",
         "COUNTRY": "Slothstein",
@@ -1140,7 +1128,7 @@
     "UN_V2_ELAINE": {
         "iname": "UN_V2_ELAINE",
         "name": "Elaine",
-        "inofficial": "Elaine",
+        "inofficial": "",
         "gender": "♀",
         "element": "Water",
         "country": "Envylia",
@@ -1185,7 +1173,7 @@
     "UN_V2_VANEKIS": {
         "iname": "UN_V2_VANEKIS",
         "name": "Vanekis",
-        "inofficial": "Vanekis",
+        "inofficial": "",
         "gender": "♀",
         "element": "Thunder",
         "country": "Wratharis",
@@ -1236,7 +1224,7 @@
     "UN_V2_AMIS": {
         "iname": "UN_V2_AMIS",
         "name": "Amis",
-        "inofficial": "Amis",
+        "inofficial": "",
         "gender": "♀",
         "element": "Thunder",
         "country": "Slothstein",
@@ -1281,7 +1269,7 @@
     "UN_V2_ISHUNA": {
         "iname": "UN_V2_ISHUNA",
         "name": "Ishuna",
-        "inofficial": "Isyuna",
+        "inofficial": "",
         "gender": "♀",
         "element": "Thunder",
         "country": "Wratharis",
@@ -1308,8 +1296,7 @@
         "jc 2": "Ranger : Hawk\n[dodging and enemy accuracy down]",
         "jc 3": "",
         "inputs": [
-            "Ishuna",
-            "Isyuna"
+            "Ishuna"
         ],
         "PROFILE": "Ishuna is a thief from Wratharis, originally raised in the thieves band Unicorn Night. She tries to look like a grown-up, but she acts very prickly because her friends always treat her like a child. In battle however, she displays a certain kindness towards her enemies.",
         "COUNTRY": "Wratharis",
@@ -1333,7 +1320,7 @@
     "UN_V2_MIZUCHI": {
         "iname": "UN_V2_MIZUCHI",
         "name": "Mizuchi",
-        "inofficial": "Mizuchi",
+        "inofficial": "",
         "gender": "♂",
         "element": "Water",
         "country": "Wadatsumi",
@@ -1378,7 +1365,7 @@
     "UN_V2_KAZAHAYA": {
         "iname": "UN_V2_KAZAHAYA",
         "name": "Kazahaya",
-        "inofficial": "Kazahaya",
+        "inofficial": "",
         "gender": "♂",
         "element": "Wind",
         "country": "Wadatsumi",
@@ -1424,7 +1411,7 @@
     "UN_V2_CIEL": {
         "iname": "UN_V2_CIEL",
         "name": "Ciel",
-        "inofficial": "Ciel",
+        "inofficial": "",
         "gender": "♀",
         "element": "Fire",
         "country": "Desert Zone",
@@ -1472,7 +1459,7 @@
     "UN_V2_YUAN": {
         "iname": "UN_V2_YUAN",
         "name": "Yuan",
-        "inofficial": "Yuan",
+        "inofficial": "",
         "gender": "♂",
         "element": "Dark",
         "country": "Wratharis",
@@ -1515,7 +1502,7 @@
     "UN_V2_DECEL": {
         "iname": "UN_V2_DECEL",
         "name": "Decel",
-        "inofficial": "Decel",
+        "inofficial": "",
         "gender": "♂",
         "element": "Light",
         "country": "Envylia",
@@ -1560,7 +1547,7 @@
     "UN_V2_ENNIS": {
         "iname": "UN_V2_ENNIS",
         "name": "Ennis",
-        "inofficial": "Ennis",
+        "inofficial": "",
         "gender": "♀",
         "element": "Water",
         "country": "Lustburg",
@@ -1605,7 +1592,7 @@
     "UN_V2_ANNEROSE": {
         "iname": "UN_V2_ANNEROSE",
         "name": "Annerose",
-        "inofficial": "Anne Rose",
+        "inofficial": "",
         "gender": "♀",
         "element": "Dark",
         "country": "Wratharis",
@@ -1627,8 +1614,7 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Annerose",
-            "Anne Rose"
+            "Annerose"
         ],
         "PROFILE": "Annerose is the child of a great magician and an engineering specialist from Wratharis. She has so much talent in both these areas that she's made a name for herself in both. She received an elite education, and she feigns friendliness in front of adults. On the flipside of her feigned friendliness though, it is said that she sometimes succumbs to destructive urges.",
         "COUNTRY": "Wratharis",
@@ -1652,7 +1638,7 @@
     "UN_V2_GAYN": {
         "iname": "UN_V2_GAYN",
         "name": "Gane",
-        "inofficial": "Gein",
+        "inofficial": "",
         "gender": "♂",
         "element": "Water",
         "country": "Envylia",
@@ -1676,8 +1662,7 @@
         "jc 2": "Professor : Bio\n[stronger poison]",
         "jc 3": "",
         "inputs": [
-            "Gane",
-            "Gein"
+            "Gane"
         ],
         "PROFILE": "Gane doesn't come from the most honorable of families, but he's a knight who's said to come from a bloodline with control over hidden beasts. He's a calm young man, raised by his family according to ideals of loyalty and moderation. It is said however, that he actually has burning ambitions, and that he doesn't want to end up innocent and achieving nothing in life like his father.",
         "COUNTRY": "Envylia",
@@ -1701,7 +1686,7 @@
     "UN_V2_AYLLU": {
         "iname": "UN_V2_AYLLU",
         "name": "Alyu",
-        "inofficial": "Airyu",
+        "inofficial": "",
         "gender": "♀",
         "element": "Fire",
         "country": "Lustburg",
@@ -1722,8 +1707,7 @@
         "jc 2": "",
         "jc 3": "Professor : Mad\n[much stronger buffs]",
         "inputs": [
-            "Alyu",
-            "Airyu"
+            "Alyu"
         ],
         "PROFILE": "Alyu is a young girl who deals in magical ingredients in Lustburg. She's the grandchild of Michael, the oldest member of the Court Chamber of Magic. Though she's still young, she's already quite knowledgeable.",
         "COUNTRY": "Lustburg",
@@ -1747,7 +1731,7 @@
     "UN_V2_SARAUZU": {
         "iname": "UN_V2_SARAUZU",
         "name": "Strauss",
-        "inofficial": "Sarauz",
+        "inofficial": "",
         "gender": "♂",
         "element": "Water",
         "country": "Slothstein",
@@ -1768,8 +1752,7 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Strauss",
-            "Sarauz"
+            "Strauss"
         ],
         "PROFILE": "A young guy making his living in Slothstein as a jack-of-all-trades. He enjoys modifying weapons, but he's definitely not good at it. People make fun of him for his ridiculous creations, but he's the kind of mood maker that you could never dislike.",
         "COUNTRY": "Slothstein",
@@ -1793,7 +1776,7 @@
     "UN_V2_RION": {
         "iname": "UN_V2_RION",
         "name": "Leon",
-        "inofficial": "Rion",
+        "inofficial": "",
         "gender": "♂",
         "element": "Wind",
         "country": "Lustburg",
@@ -1814,8 +1797,7 @@
         "jc 2": "",
         "jc 3": "Magic Swordsman : Ixion\n[stronger thunder skills]",
         "inputs": [
-            "Leon",
-            "Rion"
+            "Leon"
         ],
         "PROFILE": "Leon is a wanderer from Lustburg. He's a peculiar guy, who rather than using words, answers people by sounding his tambourine. It's his hobby to collect peculiar musical instruments from different parts of the world.",
         "COUNTRY": "Lustburg",
@@ -1839,7 +1821,7 @@
     "UN_V2_PATTI": {
         "iname": "UN_V2_PATTI",
         "name": "Patty",
-        "inofficial": "Patty",
+        "inofficial": "",
         "gender": "♀",
         "element": "Wind",
         "country": "Envylia",
@@ -1885,7 +1867,7 @@
     "UN_V2_ALMILA": {
         "iname": "UN_V2_ALMILA",
         "name": "Almira",
-        "inofficial": "Almira",
+        "inofficial": "",
         "gender": "♀",
         "element": "Wind",
         "country": "Saga Region",
@@ -1936,7 +1918,7 @@
     "UN_V2_MICHAEL": {
         "iname": "UN_V2_MICHAEL",
         "name": "Michael",
-        "inofficial": "Michael",
+        "inofficial": "",
         "gender": "♂",
         "element": "Water",
         "country": "Lustburg",
@@ -1986,7 +1968,7 @@
     "UN_V2_ARKILL": {
         "iname": "UN_V2_ARKILL",
         "name": "Arkil",
-        "inofficial": "Aqil",
+        "inofficial": "",
         "gender": "♂",
         "element": "Fire",
         "country": "Desert Zone",
@@ -2007,8 +1989,7 @@
         "jc 2": "",
         "jc 3": "Magic Swordsman+",
         "inputs": [
-            "Arkil",
-            "Aqil"
+            "Arkil"
         ],
         "PROFILE": "Arkil is a free soul and lone wolf with his lair close to the main roads. His fancy appearance gives him credibility, and because he's a great scammer, his clients love him. But due to his compulsive sticky fingers, he even steals from his clients now and then.",
         "COUNTRY": "Desert Zone",
@@ -2032,7 +2013,7 @@
     "UN_V2_KUON": {
         "iname": "UN_V2_KUON",
         "name": "Kuon",
-        "inofficial": "Kuon",
+        "inofficial": "",
         "gender": "♀",
         "element": "Light",
         "country": "Wadatsumi",
@@ -2077,7 +2058,7 @@
     "UN_V2_MIANNU": {
         "iname": "UN_V2_MIANNU",
         "name": "Mianne",
-        "inofficial": "Miannu",
+        "inofficial": "",
         "gender": "♀",
         "element": "Fire",
         "country": "Envylia",
@@ -2096,8 +2077,7 @@
         "jc 2": "Sage : Carnac\n[stronger water skills]",
         "jc 3": "",
         "inputs": [
-            "Mianne",
-            "Miannu"
+            "Mianne"
         ],
         "PROFILE": "A girl who does research at the Magic Research Lab of Envylia. She commands excellent magical knowledge and ability, but because she's quite clumsy, things sometimes end up exploding because of her. But even so, thanks to her cheerful personality, she's well liked by everyone.",
         "COUNTRY": "Envylia",
@@ -2121,7 +2101,7 @@
     "UN_V2_MARE": {
         "iname": "UN_V2_MARE",
         "name": "Mia",
-        "inofficial": "Mea",
+        "inofficial": "",
         "gender": "♀",
         "element": "Dark",
         "country": "Wratharis",
@@ -2143,8 +2123,7 @@
         "jc 2": "",
         "jc 3": "Ninja : Byakko\n[evasion-based]",
         "inputs": [
-            "Mia",
-            "Mea"
+            "Mia"
         ],
         "PROFILE": "Mia lost her parents in the war and was raised by her mage grandmother. Having developed her own magical talents, she later entered the Academy for Magic. She hasn't been able to make any friends though, so her stuffed toys which she loves to carry around, are her only friends. She sometimes uses magic to play house with her stuffed toys.",
         "COUNTRY": "Wratharis",
@@ -2178,7 +2157,7 @@
     "UN_V2_CELINE": {
         "iname": "UN_V2_CELINE",
         "name": "Celine",
-        "inofficial": "Celine",
+        "inofficial": "",
         "gender": "♀",
         "element": "Wind",
         "country": "Lustburg",
@@ -2269,7 +2248,7 @@
     "UN_V2_DILGA": {
         "iname": "UN_V2_DILGA",
         "name": "Dilga",
-        "inofficial": "Dilga",
+        "inofficial": "",
         "gender": "♂",
         "element": "Thunder",
         "country": "Envylia",
@@ -2320,7 +2299,7 @@
     "UN_V2_SUTORIE": {
         "iname": "UN_V2_SUTORIE",
         "name": "Strie",
-        "inofficial": "Sutorie",
+        "inofficial": "",
         "gender": "♀",
         "element": "Fire",
         "country": "Desert Zone",
@@ -2341,8 +2320,7 @@
         "jc 2": "",
         "jc 3": "Magic Swordsman : Chimera\n[dark skill added]",
         "inputs": [
-            "Strie",
-            "Sutorie"
+            "Strie"
         ],
         "PROFILE": "Strie was born in a poor village in the Desert Zone. She spends her days full of excitement, stealing from bad guys and gambling. On the other hand, there's also a kind side to her. She wants to use this money to save her fellow villagers.",
         "COUNTRY": "Desert Zone",
@@ -2366,7 +2344,7 @@
     "UN_V2_CHIHAYA": {
         "iname": "UN_V2_CHIHAYA",
         "name": "Chihaya",
-        "inofficial": "Chihaya",
+        "inofficial": "",
         "gender": "♀",
         "element": "Fire",
         "country": "Wadatsumi",
@@ -2417,7 +2395,7 @@
     "UN_V2_ROFIA": {
         "iname": "UN_V2_ROFIA",
         "name": "Lofia",
-        "inofficial": "Rofia",
+        "inofficial": "",
         "gender": "♀",
         "element": "Water",
         "country": "Lustburg",
@@ -2439,8 +2417,7 @@
         "jc 2": "",
         "jc 3": "Chronomancer+",
         "inputs": [
-            "Lofia",
-            "Rofia"
+            "Lofia"
         ],
         "PROFILE": "Lofia is a girl who serves at the court of the Land of Magic, Lustburg. She's very knowledgeable, even on topics other than magic. At the age of 14, she became a member of the Royal Magi of Lustburg. She's highly philosophical for her age, but she enjoys a good reputation thanks to her nice personality.",
         "COUNTRY": "Lustburg",
@@ -2469,7 +2446,7 @@
     "UN_V2_LAMIA": {
         "iname": "UN_V2_LAMIA",
         "name": "Lamia",
-        "inofficial": "Lamia",
+        "inofficial": "",
         "gender": "♀",
         "element": "Water",
         "country": "Wratharis",
@@ -2515,7 +2492,7 @@
     "UN_V2_ZANGETSU": {
         "iname": "UN_V2_ZANGETSU",
         "name": "Zangetsu",
-        "inofficial": "Zangetsu",
+        "inofficial": "",
         "gender": "♂",
         "element": "Fire",
         "country": "Wadatsumi",
@@ -2561,7 +2538,7 @@
     "UN_V2_MEGISTOS": {
         "iname": "UN_V2_MEGISTOS",
         "name": "Megistos",
-        "inofficial": "Megistos",
+        "inofficial": "",
         "gender": "♂",
         "element": "Thunder",
         "country": "Slothstein",
@@ -2607,7 +2584,7 @@
     "UN_V2_LUCIA": {
         "iname": "UN_V2_LUCIA",
         "name": "Lucian",
-        "inofficial": "Lucia",
+        "inofficial": "",
         "gender": "♂",
         "element": "Wind",
         "country": "Desert Zone",
@@ -2629,8 +2606,7 @@
         "jc 2": "",
         "jc 3": "Holy Brawler+",
         "inputs": [
-            "Lucian",
-            "Lucia"
+            "Lucian"
         ],
         "PROFILE": "Lucian is a soldier from the Desert Zone. He's seen a lot of battles in his life, making a living as a mercenary. He has a cool and direct personality. He's the type who makes clean decisions in a detached way. Since he's seen many people die in front of his eyes, it may seem as if he judges things in a heartless way.",
         "COUNTRY": "Desert Zone",
@@ -2659,7 +2635,7 @@
     "UN_V2_CHALICE": {
         "iname": "UN_V2_CHALICE",
         "name": "Caris",
-        "inofficial": "Chalice",
+        "inofficial": "",
         "gender": "♀",
         "element": "Thunder",
         "country": "Slothstein",
@@ -2681,8 +2657,7 @@
         "jc 2": "",
         "jc 3": "Sniper+",
         "inputs": [
-            "Caris",
-            "Chalice"
+            "Caris"
         ],
         "PROFILE": "Caris is a gunner from Slothstein who rides a motorcycle powered by Alchemia. She turns into a trigger-happy speed maniac when she rides her bike, but she actually has a lot of sympathy as she takes great care of her beloved bike. Her accuracy on the job is a 100% flawless.",
         "COUNTRY": "Slothstein",
@@ -2763,7 +2738,7 @@
     "UN_V2_ANASTASIA": {
         "iname": "UN_V2_ANASTASIA",
         "name": "Anastasia",
-        "inofficial": "Anastasia",
+        "inofficial": "",
         "gender": "♀",
         "element": "Dark",
         "country": "Wratharis",
@@ -2814,7 +2789,7 @@
     "UN_V2_ZAHAR": {
         "iname": "UN_V2_ZAHAR",
         "name": "Zahar",
-        "inofficial": "Zahar",
+        "inofficial": "",
         "gender": "♂",
         "element": "Dark",
         "country": "Wratharis",
@@ -2865,7 +2840,7 @@
     "UN_V2_CLOE": {
         "iname": "UN_V2_CLOE",
         "name": "Chloe",
-        "inofficial": "Chloe",
+        "inofficial": "",
         "gender": "♀",
         "element": "Light",
         "country": "Envylia",
@@ -2926,7 +2901,7 @@
     "UN_V2_YOMI": {
         "iname": "UN_V2_YOMI",
         "name": "Yomi",
-        "inofficial": "Yomi",
+        "inofficial": "",
         "gender": "♀",
         "element": "Wind",
         "country": "Wadatsumi",
@@ -2977,7 +2952,7 @@
     "UN_V2_VETTEL": {
         "iname": "UN_V2_VETTEL",
         "name": "Vettel",
-        "inofficial": "Veteru",
+        "inofficial": "",
         "gender": "♂",
         "element": "Fire",
         "country": "Envylia",
@@ -2999,8 +2974,7 @@
         "jc 2": "Holy Cavalier : Izaya\n[slash resistance]",
         "jc 3": "",
         "inputs": [
-            "Vettel",
-            "Veteru"
+            "Vettel"
         ],
         "PROFILE": "Vettel is the former Captain of the Scarlet Flame Guard of Envylia. He injured his right eye during the war in a battle against Zahar, the Captain of the Knights of Wratharis. He's brave and has a strong sense for justice. Thanks to his bright personality, he's popular both among his subordinates and the citizens alike.",
         "COUNTRY": "Envylia",
@@ -3038,8 +3012,8 @@
         "gender": "♀",
         "element": "Light",
         "country": "Foreign World",
-        "collab": "",
-        "collab short": "",
+        "collab": "Phantom Of The Kill",
+        "collab short": "POTK",
         "rarity": "★☆☆☆☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/tyrh.png",
         "farm": [],
@@ -3053,7 +3027,9 @@
         "jc 2": "",
         "jc 3": "Holy Cavalier : Gear\n[very high AGI]",
         "inputs": [
-            "Tyrfing"
+            "Tyrfing",
+            "Tyrfing POTK",
+            "POTK Tyrfing"
         ],
         "PROFILE": "Tyrfing is a \"Killer Princess\" from the Church of Ragnarok who was guided to this world from the continent of Ragna. She shares her Killium with the weapon of the same name. She's a polite and serious girl, but in combat demonstrates an incredible power and energy that's totally at odds with her usual manner.",
         "COUNTRY": "Ragna",
@@ -3086,8 +3062,8 @@
         "gender": "♀",
         "element": "Thunder",
         "country": "Foreign World",
-        "collab": "",
-        "collab short": "",
+        "collab": "Phantom Of The Kill",
+        "collab short": "POTK",
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/laev.png",
         "farm": [],
@@ -3101,7 +3077,9 @@
         "jc 2": "Ninja : Kirin\n[AGI-based]",
         "jc 3": "Dark Cavalier+",
         "inputs": [
-            "Laevateinn"
+            "Laevateinn",
+            "Laevateinn POTK",
+            "POTK Laevateinn"
         ],
         "PROFILE": "Laevateinn is a \"Killer Princess\" of the Church of Ragnarok who was guided to this world from the continent of Ragna. She shares her Killium with the weapon of the same name. She's a terrible slacker, and finds everything incredibly tedious. When she can be bothered, though, she's a real force to be reckoned with in combat.",
         "COUNTRY": "Ragna",
@@ -3134,8 +3112,8 @@
         "gender": "♂",
         "element": "Fire",
         "country": "Foreign World",
-        "collab": "",
-        "collab short": "",
+        "collab": "Brave Frontier",
+        "collab short": "BF",
         "rarity": "★☆☆☆☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/varg.png",
         "farm": [],
@@ -3149,7 +3127,9 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Vargas"
+            "Vargas",
+            "Vargas BF",
+            "BF Vargas"
         ],
         "PROFILE": "Vargas is one of the fabled Six Heroes, guided to this world from the Agni Empire. He's been traveling all over the world as part of his training. Stories of his battles against strong adversaries in various parts of the world are legendary.",
         "COUNTRY": "Agni Empire",
@@ -3177,8 +3157,8 @@
         "gender": "♀",
         "element": "Water",
         "country": "Foreign World",
-        "collab": "",
-        "collab short": "",
+        "collab": "Brave Frontier",
+        "collab short": "BF",
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/sele.png",
         "farm": [],
@@ -3192,7 +3172,9 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Selena"
+            "Selena",
+            "Selena BF",
+            "BF Selena"
         ],
         "PROFILE": "Selena is one of the fabled Six Heroes, guided to this world from the Sama Kingdom. She's usually a cheerful and friendly person, but when it comes to combat, seeing her sword skills can literally give you the chills. Her friends are most precious to her, and she fights so she'll never have to lose a friend again.",
         "COUNTRY": "Sama Kingdom",
@@ -3216,7 +3198,7 @@
     "UN_V2_ELIZABETH": {
         "iname": "UN_V2_ELIZABETH",
         "name": "Elizabeth",
-        "inofficial": "Elizabeth",
+        "inofficial": "",
         "gender": "♀",
         "element": "Water",
         "country": "Envylia",
@@ -3267,7 +3249,7 @@
     "UN_V2_MAGNUS": {
         "iname": "UN_V2_MAGNUS",
         "name": "Magnus",
-        "inofficial": "Magnus",
+        "inofficial": "",
         "gender": "♂",
         "element": "Thunder",
         "country": "Wratharis",
@@ -3318,7 +3300,7 @@
     "UN_V2_FLAMEL": {
         "iname": "UN_V2_FLAMEL",
         "name": "Flamel",
-        "inofficial": "Flamel",
+        "inofficial": "",
         "gender": "♂",
         "element": "Wind",
         "country": "Lustburg",
@@ -3363,7 +3345,7 @@
     "UN_V2_BALT": {
         "iname": "UN_V2_BALT",
         "name": "Balt",
-        "inofficial": "Baruto",
+        "inofficial": "",
         "gender": "♂",
         "element": "Wind",
         "country": "Desert Zone",
@@ -3382,8 +3364,7 @@
         "jc 2": "",
         "jc 3": "Dark Cavalier : Seele\n[Drain Skills Bonus]",
         "inputs": [
-            "Balt",
-            "Baruto"
+            "Balt"
         ],
         "PROFILE": "Balt is the Vice-Captain of the Sand Hawks, a vigilante corps of the Desert Zone. From the sorrow of losing dear ones, he and his comrades set up this corps. He's foul-mouthed, but he cares about his comrades more than anyone. In order not to forget about the sorrow of losing his dear ones, he punishes himself by adding a chain to his left leg whenever he loses another comrade.",
         "COUNTRY": "Desert Zone",
@@ -3412,7 +3393,7 @@
     "UN_V2_MIELIKKI": {
         "iname": "UN_V2_MIELIKKI",
         "name": "Mielikki",
-        "inofficial": "Mierikki",
+        "inofficial": "",
         "gender": "♀",
         "element": "Light",
         "country": "Lustburg",
@@ -3431,8 +3412,7 @@
         "jc 2": "",
         "jc 3": "Bishop+",
         "inputs": [
-            "Mielikki",
-            "Mierikki"
+            "Mielikki"
         ],
         "PROFILE": "Mielikki is a girl from Lustburg, living alone with her mother in the countryside. Due to her love for butterflies and flowers, she's adept at magic that deals with the world of nature. Since her only conversation partner was her mother, her speech and behavior is very childlike. She would like to improve that, but she hasn't quite managed that yet.",
         "COUNTRY": "Lustburg",
@@ -3461,7 +3441,7 @@
     "UN_V2_MERDA": {
         "iname": "UN_V2_MERDA",
         "name": "Melda",
-        "inofficial": "Merda",
+        "inofficial": "",
         "gender": "♀",
         "element": "Fire",
         "country": "Saga Region",
@@ -3483,8 +3463,7 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Melda",
-            "Merda"
+            "Melda"
         ],
         "PROFILE": "Thanks to the joyful way she handles her whip, her high intensity manners and her excellent arresting skills, Melda from the Saga Region is also called The Empress. She seems to have a severe personality at first sight, but she actually looks after others a lot. She's also well respected for her strong leadership, and that's another reason why she's called Empress.",
         "COUNTRY": "Saga Region",
@@ -3551,7 +3530,7 @@
     "UN_V2_SABALETA": {
         "iname": "UN_V2_SABALETA",
         "name": "Sabareta",
-        "inofficial": "Sabareta",
+        "inofficial": "",
         "gender": "♂",
         "element": "Dark",
         "country": "Wratharis",
@@ -3594,7 +3573,7 @@
     "UN_V2_REGEN": {
         "iname": "UN_V2_REGEN",
         "name": "Reagan",
-        "inofficial": "Reagen",
+        "inofficial": "",
         "gender": "♂",
         "element": "Water",
         "country": "Slothstein",
@@ -3616,8 +3595,7 @@
         "jc 2": "Sniper : Barrel\n[very long range and increased minimum range]",
         "jc 3": "",
         "inputs": [
-            "Reagan",
-            "Reagen"
+            "Reagan"
         ],
         "PROFILE": "Reagan is a strange character from Slothstein who's immersed himself a little too much in mechanical engineering. He's already turned his right arm into a robotic arm, and he would like to do the same to his whole body some day. For his age and expertise, he's quite childish. He's had a habit of heavily tilting his head while thinking ever since he was a kid. So much that you'd think his neck would break.",
         "COUNTRY": "Slothstein",
@@ -3641,7 +3619,7 @@
     "UN_V2_ROSA": {
         "iname": "UN_V2_ROSA",
         "name": "Rosa",
-        "inofficial": "Roza",
+        "inofficial": "",
         "gender": "♀",
         "element": "Dark",
         "country": "Wratharis",
@@ -3662,8 +3640,7 @@
         "jc 2": "Dragon Cavalier : Vritra\n[long rang but low dmg]",
         "jc 3": "Ninja  : Genbu\n[move-based]",
         "inputs": [
-            "Rosa",
-            "Roza"
+            "Rosa"
         ],
         "PROFILE": "Rosa is the daughter of an old noble family of Wratharis. Ever since she set foot into the torture chambers in the estate basements, she's had an attraction to cruel weaponry. It is said that when she indulges in her sadistic excitement, the Alchemia concentration heightens in her right eye, making it shine.",
         "COUNTRY": "Wratharis",
@@ -3692,7 +3669,7 @@
     "UN_V2_EVE": {
         "iname": "UN_V2_EVE",
         "name": "Eve",
-        "inofficial": "Eve",
+        "inofficial": "",
         "gender": "♀",
         "element": "Fire",
         "country": "Lustburg",
@@ -3740,7 +3717,7 @@
     "UN_V2_FRAISE": {
         "iname": "UN_V2_FRAISE",
         "name": "Fraise",
-        "inofficial": "Frayze",
+        "inofficial": "",
         "gender": "♂",
         "element": "Light",
         "country": "Envylia",
@@ -3759,8 +3736,7 @@
         "jc 2": "",
         "jc 3": "Holy Cavalier : Izaya\n[slash resistance]",
         "inputs": [
-            "Fraise",
-            "Frayze"
+            "Fraise"
         ],
         "PROFILE": "Fraise is the young rising star of Envylia's Imperial Guard. As the disciple of Dilga and due to his ability and appearance, he enjoys a lot of attention from women. Fraise himself however, doesn't have much interest in love. He's much more concerned with his younger brother, whom he shared his childhood with in poverty.",
         "COUNTRY": "Envylia",
@@ -3784,7 +3760,7 @@
     "UN_V2_HAYATE": {
         "iname": "UN_V2_HAYATE",
         "name": "Hayate",
-        "inofficial": "Hayate",
+        "inofficial": "",
         "gender": "♂",
         "element": "Wind",
         "country": "Wadatsumi",
@@ -3834,7 +3810,7 @@
     "UN_V2_VELOZ": {
         "iname": "UN_V2_VELOZ",
         "name": "Veloz",
-        "inofficial": "Veros",
+        "inofficial": "",
         "gender": "♂",
         "element": "Fire",
         "country": "Slothstein",
@@ -3853,8 +3829,7 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Veloz",
-            "Veros"
+            "Veloz"
         ],
         "PROFILE": "Veloz is a young man working in a clock tower in Slothstein. He was once an excellent student, but he lost his drive after the death of his parents. One thing he does love is tinkering around with devices. Even today, he's still developing all kinds of robots that help him make his life easier.",
         "COUNTRY": "Slothstein",
@@ -3921,7 +3896,7 @@
     "UN_V2_SUZUKA": {
         "iname": "UN_V2_SUZUKA",
         "name": "Suzuka",
-        "inofficial": "Suzuka",
+        "inofficial": "",
         "gender": "♀",
         "element": "Light",
         "country": "Wadatsumi",
@@ -3976,7 +3951,7 @@
     "UN_V2_CANON": {
         "iname": "UN_V2_CANON",
         "name": "Kanon",
-        "inofficial": "Kanon",
+        "inofficial": "",
         "gender": "♀",
         "element": "Light",
         "country": "Envylia",
@@ -4024,7 +3999,7 @@
     "UN_V2_CADANOVA": {
         "iname": "UN_V2_CADANOVA",
         "name": "Cadanova",
-        "inofficial": "Kadanoba",
+        "inofficial": "",
         "gender": "♂",
         "element": "Fire",
         "country": "Northern Pride",
@@ -4043,8 +4018,7 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Cadanova",
-            "Kadanoba"
+            "Cadanova"
         ],
         "PROFILE": "Cadanova is an outstanding knight, and serves as the Captain of the 4th Regiment of the Holy Guard. He has an extraordinary talent for Alchemy. He seems almost cladded in flames when he dances around the battlefield, which earned him the nickname Flame Dragon King. He's a tough soul who will always enforce his sense of justice and beliefs; no matter what.",
         "COUNTRY": "Northern Pride",
@@ -4068,7 +4042,7 @@
     "UN_V2_FUNGLIU": {
         "iname": "UN_V2_FUNGLIU",
         "name": "Fung Liu",
-        "inofficial": "Feng Liu",
+        "inofficial": "",
         "gender": "♂",
         "element": "Water",
         "country": "Lustburg",
@@ -4089,8 +4063,7 @@
         "jc 2": "",
         "jc 3": "Blue Water Enchanter\n[buff that increases water damage against fire]",
         "inputs": [
-            "Fung Liu",
-            "Feng Liu"
+            "Fung Liu"
         ],
         "PROFILE": "Fung Liu is an undead being who has been resurrected countless times through occult magic. He was originally a young man fighting for the special forces of Greed Dike. He was a slaughter machine who had lost every trace of emotions. When he met Polin in Lustburg, he started regaining his humanity. Since he's extremely sensitive to cold, he has a really hard time in snowy regions.",
         "COUNTRY": "Lustburg",
@@ -4114,7 +4087,7 @@
     "UN_V2_RYLE": {
         "iname": "UN_V2_RYLE",
         "name": "Ryle",
-        "inofficial": "Lyle",
+        "inofficial": "",
         "gender": "♂",
         "element": "Light",
         "country": "Desert Zone",
@@ -4136,8 +4109,7 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Ryle",
-            "Lyle"
+            "Ryle"
         ],
         "PROFILE": "Ryle was originally an orphan boy from the slums, but through good fortune, he quickly turned into one of the richest people of the Desert Zone after becoming a guild leader. He's the lazy type who hates any sort of troublesome thing, but he has an amazing talent for orchestrating things in a way that he doesn't have to do anything himself.",
         "COUNTRY": "Desert Zone",
@@ -4166,7 +4138,7 @@
     "UN_V2_ALBELL": {
         "iname": "UN_V2_ALBELL",
         "name": "Albea",
-        "inofficial": "Arber",
+        "inofficial": "",
         "gender": "♀",
         "element": "Dark",
         "country": "Slothstein",
@@ -4187,8 +4159,7 @@
         "jc 2": "",
         "jc 3": "Sniper : Barrel\n[very long range and increased minimum range]",
         "inputs": [
-            "Albea",
-            "Arber"
+            "Albea"
         ],
         "PROFILE": "Albea has made a name for herself in Slothstein as a young machinery whiz. She's definitely skilled, but she's the type of artist who only really works when she feels like it. She's such a clean-freak that she always wears a gas mask. Because of the separation of her parents, it's said that she has a full-blood older brother whom she's never met. ",
         "COUNTRY": "Slothstein",
@@ -4217,7 +4188,7 @@
     "UN_V2_SHAYNA": {
         "iname": "UN_V2_SHAYNA",
         "name": "Shayna",
-        "inofficial": "Shayna",
+        "inofficial": "",
         "gender": "♀",
         "element": "Water",
         "country": "Envylia",
@@ -4267,7 +4238,7 @@
     "UN_V2_REIMEI": {
         "iname": "UN_V2_REIMEI",
         "name": "Reimei",
-        "inofficial": "Reimei",
+        "inofficial": "",
         "gender": "♂",
         "element": "Fire",
         "country": "Wadatsumi",
@@ -4312,7 +4283,7 @@
     "UN_V2_SOLEIL": {
         "iname": "UN_V2_SOLEIL",
         "name": "Soleil",
-        "inofficial": "Soreiyu",
+        "inofficial": "",
         "gender": "♀",
         "element": "Light",
         "country": "Lustburg",
@@ -4333,8 +4304,7 @@
         "jc 2": "",
         "jc 3": "Zero Enchanter\n[buff dispeller]",
         "inputs": [
-            "Soleil",
-            "Soreiyu"
+            "Soleil"
         ],
         "PROFILE": "Soleil is a medical expert from Lustburg who spends even her holidays reading medical books. She's very sweet and devoted, but she's the type who cannot decide anything by herself. For this, she can count on Muncle, a white spirit, as her advisor. Every day, she worries about her younger sister Luruna who fled home.",
         "COUNTRY": "Lustburg",
@@ -4358,7 +4328,7 @@
     "UN_V2_MILIS": {
         "iname": "UN_V2_MILIS",
         "name": "Milis",
-        "inofficial": "Milish",
+        "inofficial": "",
         "gender": "♀",
         "element": "Wind",
         "country": "Saga Region",
@@ -4377,8 +4347,7 @@
         "jc 2": "",
         "jc 3": "Ranger : Wolf\n[bonus damage against monsters]",
         "inputs": [
-            "Milis",
-            "Milish"
+            "Milis"
         ],
         "PROFILE": "Milis is a child of nature living in the prairies with her old grandmother. She spends her days chasing delicious meat, and is the type of girl who doesn't spend much time thinking about difficult issues. She aspires to become a real lady. Running into Lofia in Lustburg by chance, she now sees Lofia as her example and mentor.",
         "COUNTRY": "Saga Region",
@@ -4434,7 +4403,7 @@
     "UN_V2_SHENMEI": {
         "iname": "UN_V2_SHENMEI",
         "name": "Shenmei",
-        "inofficial": "Shenmei",
+        "inofficial": "",
         "gender": "♀",
         "element": "Water",
         "country": "Greed Dike",
@@ -4479,7 +4448,7 @@
     "UN_V2_TAMAMO": {
         "iname": "UN_V2_TAMAMO",
         "name": "Tamamo",
-        "inofficial": "Tamamo",
+        "inofficial": "",
         "gender": "♀",
         "element": "Wind",
         "country": "Wadatsumi",
@@ -4529,7 +4498,7 @@
     "UN_V2_KURAJU": {
         "iname": "UN_V2_KURAJU",
         "name": "Courage",
-        "inofficial": "Courage",
+        "inofficial": "",
         "gender": "♀",
         "element": "Fire",
         "country": "Slothstein",
@@ -4574,7 +4543,7 @@
     "UN_V2_KAGURA": {
         "iname": "UN_V2_KAGURA",
         "name": "Kagura",
-        "inofficial": "Kagura",
+        "inofficial": "",
         "gender": "♀",
         "element": "Fire",
         "country": "Wadatsumi",
@@ -4622,7 +4591,7 @@
     "UN_V2_KUDHANSTEIN": {
         "iname": "UN_V2_KUDHANSTEIN",
         "name": "Kudanstein",
-        "inofficial": "Kudhanstein",
+        "inofficial": "",
         "gender": "♂",
         "element": "Dark",
         "country": "Wratharis",
@@ -4641,8 +4610,7 @@
         "jc 2": "Holy Brawler : Shura\n[5x PATK buff]",
         "jc 3": "",
         "inputs": [
-            "Kudanstein",
-            "Kudhanstein"
+            "Kudanstein"
         ],
         "PROFILE": "Kudan is a Spearman serving as the Captain of the 4th Regiment of the Holy Guard. He got promoted from Vice-Captain to Captain after Cadanova's death. He helped Kagura during the destruction of Wadatsumi, so he has a gentle side as well, but Cadanova has warned him that he's vulnerable to evil because of his desire for power.",
         "COUNTRY": "Wratharis",
@@ -4675,8 +4643,8 @@
         "gender": "♀",
         "element": "Wind",
         "country": "Foreign World",
-        "collab": "",
-        "collab short": "",
+        "collab": "Etrian Odyssey",
+        "collab short": "EO",
         "rarity": "★★★☆☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/fenc.png",
         "farm": [],
@@ -4690,7 +4658,9 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Fencer"
+            "Fencer",
+            "Fencer EO",
+            "EO Fencer"
         ],
         "PROFILE": "",
         "COUNTRY": "Arcadia",
@@ -4718,8 +4688,8 @@
         "gender": "♂",
         "element": "Dark",
         "country": "Foreign World",
-        "collab": "",
-        "collab short": "",
+        "collab": "Etrian Odyssey",
+        "collab short": "EO",
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/reap.png",
         "farm": [],
@@ -4733,7 +4703,9 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Reaper"
+            "Reaper",
+            "Reaper EO",
+            "EO Reaper"
         ],
         "PROFILE": "",
         "COUNTRY": "Arcadia",
@@ -4761,8 +4733,8 @@
         "gender": "♀",
         "element": "Light",
         "country": "Foreign World",
-        "collab": "",
-        "collab short": "",
+        "collab": "Etrian Odyssey",
+        "collab short": "EO",
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/sher.png",
         "farm": [],
@@ -4776,7 +4748,9 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Shaman"
+            "Shaman",
+            "Shaman EO",
+            "EO Shaman"
         ],
         "PROFILE": "",
         "COUNTRY": "Arcadia",
@@ -4844,7 +4818,7 @@
     "UN_V2_GORMALAS": {
         "iname": "UN_V2_GORMALAS",
         "name": "Gormalas",
-        "inofficial": "Golmaras",
+        "inofficial": "",
         "gender": "♂",
         "element": "Dark",
         "country": "Saga Region",
@@ -4865,8 +4839,7 @@
         "jc 2": "",
         "jc 3": "Holy Brawler : Senju\n[multi-hit]",
         "inputs": [
-            "Gormalas",
-            "Golmaras"
+            "Gormalas"
         ],
         "PROFILE": "Gormalas is the leader of the Black Keels, the pirate crew controlling the Northern Seas. He strongly believes that he's meant to obtain anything which is obtainable by man. He has a rough and highly tyrannical personality, but somehow, people rarely dislike him at first sight.",
         "COUNTRY": "Saga Region",
@@ -4895,7 +4868,7 @@
     "UN_V2_SHEHERAZADE": {
         "iname": "UN_V2_SHEHERAZADE",
         "name": "Scheherazade",
-        "inofficial": "Scheherazāde",
+        "inofficial": "",
         "gender": "♀",
         "element": "Wind",
         "country": "Desert Zone",
@@ -4916,8 +4889,7 @@
         "jc 2": "",
         "jc 3": "Magic Swordsman : Ifrit\n[stronger fire skills]",
         "inputs": [
-            "Scheherazade",
-            "Scheherazāde"
+            "Scheherazade"
         ],
         "PROFILE": "Scheherazade used to be the court painter of the Desert Zone Palace during the times that it was still prosperous. She has a cheerful personality, and she enjoys conversations with just about anyone. On the flipside however, she's more fussy about art than anyone. Though she won't openly negate another person, it is said that she can't deal with people not accepting her ideas.",
         "COUNTRY": "Desert Zone",
@@ -4941,7 +4913,7 @@
     "UN_V2_SEIDA": {
         "iname": "UN_V2_SEIDA",
         "name": "Seida",
-        "inofficial": "Seda",
+        "inofficial": "",
         "gender": "♀",
         "element": "Wind",
         "country": "Saga Region",
@@ -4960,8 +4932,7 @@
         "jc 2": "Ranger : Hawk\n[dodging and enemy accuracy down]",
         "jc 3": "",
         "inputs": [
-            "Seida",
-            "Seda"
+            "Seida"
         ],
         "PROFILE": "Seida is a member of the 2nd regiment of the Holy Guard. She's the grandchild of the head of the Alize People of Saga. Her unparalleled archery skills and wind-reading capabilities make her one of the best archers of the Holy Guard. She hates inefficiency in word and deed, so she spends a lot of time arguing with Monzein.",
         "COUNTRY": "Saga Region",
@@ -4985,7 +4956,7 @@
     "UN_V2_MONZEIN": {
         "iname": "UN_V2_MONZEIN",
         "name": "Monzein",
-        "inofficial": "Monzein",
+        "inofficial": "",
         "gender": "♂",
         "element": "Thunder",
         "country": "Envylia",
@@ -5083,7 +5054,7 @@
     "UN_V2_VINCENT": {
         "iname": "UN_V2_VINCENT",
         "name": "Vincent",
-        "inofficial": "Vincent",
+        "inofficial": "",
         "gender": "♂",
         "element": "Thunder",
         "country": "Slothstein",
@@ -5128,7 +5099,7 @@
     "UN_V2_DENEB": {
         "iname": "UN_V2_DENEB",
         "name": "Deneb",
-        "inofficial": "Deneb",
+        "inofficial": "",
         "gender": "♀",
         "element": "Thunder",
         "country": "Lustburg",
@@ -5173,7 +5144,7 @@
     "UN_V2_GLANZ": {
         "iname": "UN_V2_GLANZ",
         "name": "Glanz",
-        "inofficial": "Grantz",
+        "inofficial": "",
         "gender": "♀",
         "element": "Dark",
         "country": "Wratharis",
@@ -5194,8 +5165,7 @@
         "jc 2": "Dark Cavalier : Gernika\n[One Slash Cav]",
         "jc 3": "",
         "inputs": [
-            "Glanz",
-            "Grantz"
+            "Glanz"
         ],
         "PROFILE": "Glanz is an assassin from Wratharis. Even after the downfall of Wratharis, she's still been active all over the continent as a mercenary and assassin. She became an expensive mercenary, and an assassin even, in order to take care of her immature older sister. Because of a trauma involving her father, she hates men. She likes petite, cute girls.",
         "COUNTRY": "Wratharis",
@@ -5224,7 +5194,7 @@
     "UN_V2_PERIDOT": {
         "iname": "UN_V2_PERIDOT",
         "name": "Peridot",
-        "inofficial": "Peridot",
+        "inofficial": "",
         "gender": "♀",
         "element": "Light",
         "country": "Saga Region",
@@ -5267,7 +5237,7 @@
     "UN_V2_YAULAS": {
         "iname": "UN_V2_YAULAS",
         "name": "Yauras",
-        "inofficial": "Yauras",
+        "inofficial": "",
         "gender": "♀",
         "element": "Water",
         "country": "Lustburg",
@@ -5315,7 +5285,7 @@
     "UN_V2_ZAYIN": {
         "iname": "UN_V2_ZAYIN",
         "name": "Zain",
-        "inofficial": "Zain",
+        "inofficial": "",
         "gender": "♂",
         "element": "Light",
         "country": "Envylia",
@@ -5358,7 +5328,7 @@
     "UN_V2_LUPINUS": {
         "iname": "UN_V2_LUPINUS",
         "name": "Lupinus",
-        "inofficial": "Lupinus",
+        "inofficial": "",
         "gender": "♀",
         "element": "Fire",
         "country": "Lustburg",
@@ -5453,7 +5423,7 @@
     "UN_V2_OTHIMA": {
         "iname": "UN_V2_OTHIMA",
         "name": "Othima",
-        "inofficial": "Autima",
+        "inofficial": "",
         "gender": "♂",
         "element": "Water",
         "country": "Lustburg",
@@ -5472,8 +5442,7 @@
         "jc 2": "Blue Water Enchanter\n[buff that increases water damage against fire]",
         "jc 3": "",
         "inputs": [
-            "Othima",
-            "Autima"
+            "Othima"
         ],
         "PROFILE": "Othima is the captain of the 6th regiment of the Holy Guard. Due to his ability to foresee the future, he was abhorred as a child of the devil from a young age, and attempts were made on his life. After being saved by Zain, Othima joined the Holy Guard. He's frivolous and does things at his own pace, but he's an Alchemy genius with many inventions under his belt.",
         "COUNTRY": "Lustburg",
@@ -5497,7 +5466,7 @@
     "UN_V2_ARUBA": {
         "iname": "UN_V2_ARUBA",
         "name": "Aruba",
-        "inofficial": "Alba",
+        "inofficial": "",
         "gender": "♂",
         "element": "Thunder",
         "country": "Saga Region",
@@ -5518,8 +5487,7 @@
         "jc 2": "",
         "jc 3": "Dragon Cavalier : Garuda\n[low range but high dmg]",
         "inputs": [
-            "Aruba",
-            "Alba"
+            "Aruba"
         ],
         "PROFILE": "Aruba is a young boy who found a mythical beast named Leoferes, who asserts that they can change the world. His parents got killed by an organization that was going after mythical beasts, so he was raised instead alongside Leoferes’ two whelps, Kiki and Adel. The two of them are like siblings to him, so spending time with them always produces excitement.",
         "COUNTRY": "Saga Region",
@@ -5543,7 +5511,7 @@
     "UN_V2_CHIRURU": {
         "iname": "UN_V2_CHIRURU",
         "name": "Chiruru",
-        "inofficial": "Chiruru",
+        "inofficial": "",
         "gender": "♀",
         "element": "Water",
         "country": "Saga Region",
@@ -5592,8 +5560,8 @@
         "gender": "♀",
         "element": "Fire",
         "country": "Foreign World",
-        "collab": "",
-        "collab short": "",
+        "collab": "Phantom Of The Kill",
+        "collab short": "POTK",
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/shek.png",
         "farm": [],
@@ -5607,7 +5575,9 @@
         "jc 2": "",
         "jc 3": "Holy Brawler : Maitreya\n[12% regen &  5% jewel regen buff]",
         "inputs": [
-            "Shekinah"
+            "Shekinah",
+            "Shekinah POTK",
+            "POTK Shekinah"
         ],
         "PROFILE": "Shekinah is a \"Killer Princess\" from the Church of Ragnarok, guided to this world from the continent of Ragna. She shares her name with her Killium weapon. She always maintains a dignified appearance and a strict manner, which gives her a strange impactful presence. She's very reliable, but utterly unforgiving of those who break the rules.",
         "COUNTRY": "Ragna",
@@ -5640,8 +5610,8 @@
         "gender": "♀",
         "element": "Wind",
         "country": "Foreign World",
-        "collab": "",
-        "collab short": "",
+        "collab": "Phantom Of The Kill",
+        "collab short": "POTK",
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/sita.png",
         "farm": [],
@@ -5656,7 +5626,9 @@
         "jc 3": "",
         "inputs": [
             "Cita",
-            "Sita"
+            "Sita",
+            "Cita POTK",
+            "POTK Cita"
         ],
         "PROFILE": "Cita is a \"Killer Princess\" from the Church of Ragnarok, guided to this world from the continent of Ragna. She shares her name with her Killium weapon. She's a healing presence brimming with benevolence, soothing those around her with her gentle smile. In battle however, she's utterly cruel, as if she's flipping a switch.",
         "COUNTRY": "Ragna",
@@ -5684,8 +5656,8 @@
         "gender": "♀",
         "element": "Fire",
         "country": "Foreign World",
-        "collab": "",
-        "collab short": "",
+        "collab": "Phantom Of The Kill",
+        "collab short": "POTK",
         "rarity": "★★★☆☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/masa.png",
         "farm": [],
@@ -5699,7 +5671,9 @@
         "jc 2": "",
         "jc 3": "Dark Cavalier : Faust\n[Suicidal Nuker]",
         "inputs": [
-            "Masamune"
+            "Masamune",
+            "Masamune POTK",
+            "POTK Masamune"
         ],
         "PROFILE": "Masamune is a \"Killer Princess\" from the Church of Ragnarok, guided to this world from the continent of Ragna. She shares her name with her Killium weapon. She lives by an honorable and devout samurai code. Strict to both herself and to others, she despises any dishonesty, and fights in a straightforward manner.",
         "COUNTRY": "Ragna",
@@ -5723,7 +5697,7 @@
     "UN_V2_TEONA": {
         "iname": "UN_V2_TEONA",
         "name": "Teona",
-        "inofficial": "Theona",
+        "inofficial": "",
         "gender": "♀",
         "element": "Thunder",
         "country": "Gluttony Foss",
@@ -5744,8 +5718,7 @@
         "jc 2": "",
         "jc 3": "Holy Cavalier : Porta\n[pierce resistance]",
         "inputs": [
-            "Teona",
-            "Theona"
+            "Teona"
         ],
         "PROFILE": "Teona is the most popular female swordfighter in Gluttony Foss. She hates it though that she’s often compared to her deceased older brother, or that people look down on her because she’s a girl. On a daily basis, she exhibits this competitive spirit of hers at the arena. Once she puts down her blade, she spends a lot of time in front of the mirror, so there’s also a girly side to her.",
         "COUNTRY": "Gluttony Foss",
@@ -5774,7 +5747,7 @@
     "UN_V2_RAMESES": {
         "iname": "UN_V2_RAMESES",
         "name": "Ramses",
-        "inofficial": "Ramesses",
+        "inofficial": "",
         "gender": "♂",
         "element": "Wind",
         "country": "Desert Zone",
@@ -5795,8 +5768,7 @@
         "jc 2": "Dark Cavalier : Faust\n[Suicidal Nuker]",
         "jc 3": "",
         "inputs": [
-            "Ramses",
-            "Ramesses"
+            "Ramses"
         ],
         "PROFILE": "Ramses is an aristocrat from the Desert Zone. He’s a typical spoiled brat. He loves flashy things and hates it whenever people tell him what to do. He asserts that he’s the ‘Successor of the Sun’, and he doesn’t care what people think of that. In secret, he puts in all the effort needed to give his words credibility. On the other hand, he never disobeys his sisters, and he also easily gives in to flattery.",
         "COUNTRY": "Desert Zone",
@@ -5820,7 +5792,7 @@
     "UN_V2_DOROTHEA": {
         "iname": "UN_V2_DOROTHEA",
         "name": "Dorothea",
-        "inofficial": "Dorothia",
+        "inofficial": "",
         "gender": "♀",
         "element": "Fire",
         "country": "Wratharis",
@@ -5841,8 +5813,7 @@
         "jc 2": "Magic Swordsman : Ifrit\n[stronger fire skills]",
         "jc 3": "",
         "inputs": [
-            "Dorothea",
-            "Dorothia"
+            "Dorothea"
         ],
         "PROFILE": "Dorothea is a girl who fights for the sake of love. She has the habit of falling in love on the battlefield. She once accidentally killed the person she loved in battle, and from this experience, she's now looking for a partner strong enough to withstand her attacks. Apparently, she's recently fallen in love with a certain knight from Envylia. ",
         "COUNTRY": "Wratharis",
@@ -5866,7 +5837,7 @@
     "UN_V2_REIDA": {
         "iname": "UN_V2_REIDA",
         "name": "Reida",
-        "inofficial": "Leida",
+        "inofficial": "",
         "gender": "♀",
         "element": "Dark",
         "country": "Wadatsumi",
@@ -5888,8 +5859,7 @@
         "jc 2": "Sage : Obelisk\n[stronger fire skills]",
         "jc 3": "Ninja : Kirin\n[AGI-based]",
         "inputs": [
-            "Reida",
-            "Leida"
+            "Reida"
         ],
         "PROFILE": "Reida is the daughter of a family of samurai. She's been living side by side with her sickly older brother, and she loves him even more than her parents. If no treatment were to be effective to save her brother, she's prepared to offer him a painless death herself. As a principle, she thoroughly seeks to annihilate anyone who threatens her brother or herself.",
         "COUNTRY": "Wadatsumi",
@@ -5913,7 +5883,7 @@
     "UN_V2_ERURIKE": {
         "iname": "UN_V2_ERURIKE",
         "name": "Elrike",
-        "inofficial": "Ellique",
+        "inofficial": "",
         "gender": "♀",
         "element": "Water",
         "country": "Envylia",
@@ -5932,8 +5902,7 @@
         "jc 2": "",
         "jc 3": "Merchant : Charming Daruma\n[jewel drain and charm around self]",
         "inputs": [
-            "Elrike",
-            "Ellique"
+            "Elrike"
         ],
         "PROFILE": "Elrike is a merchant from Envylia, and she's amazed at seeing the value of all sorts of items. Because of her good heart however, she offers her goods for very cheap prices, so she doesn't earn much. She's helpful to most people, but she doesn't have any mercy for anyone who intends to abuse her good will from the get-go.",
         "COUNTRY": "Envylia",
@@ -5957,7 +5926,7 @@
     "UN_V2_ASUWADO": {
         "iname": "UN_V2_ASUWADO",
         "name": "Aswald",
-        "inofficial": "Aswad",
+        "inofficial": "",
         "gender": "♀",
         "element": "Dark",
         "country": "Desert Zone",
@@ -5978,8 +5947,7 @@
         "jc 2": "Twin-Blade Swordsman : Demon Hunter\n[increased damage against beasts]",
         "jc 3": "",
         "inputs": [
-            "Aswald",
-            "Aswad"
+            "Aswald"
         ],
         "PROFILE": "Aswald is an assassin of the mysterious dark cult \"Zalam Gaim.\" As one of the top class members, she bears the code name \"Najam,\" which means Star. She's such a force that she even gets targeted within her own organization, but she has trouble seeing any meaning to her existence apart from her duties, and that troubles her.",
         "COUNTRY": "Desert Zone",
@@ -6008,7 +5976,7 @@
     "UN_V2_SOPHIA": {
         "iname": "UN_V2_SOPHIA",
         "name": "Sophia",
-        "inofficial": "Sophia",
+        "inofficial": "",
         "gender": "♀",
         "element": "Water",
         "country": "Lustburg",
@@ -6053,7 +6021,7 @@
     "UN_V2_KYARORU": {
         "iname": "UN_V2_KYARORU",
         "name": "Carol",
-        "inofficial": "Carol",
+        "inofficial": "",
         "gender": "♀",
         "element": "Light",
         "country": "Slothstein",
@@ -6103,7 +6071,7 @@
     "UN_V2_SETSUNA": {
         "iname": "UN_V2_SETSUNA",
         "name": "Setsuna",
-        "inofficial": "Setsuna",
+        "inofficial": "",
         "gender": "♀",
         "element": "Wind",
         "country": "Wadatsumi",
@@ -6148,7 +6116,7 @@
     "UN_V2_HAZEL": {
         "iname": "UN_V2_HAZEL",
         "name": "Hazel",
-        "inofficial": "Hazel",
+        "inofficial": "",
         "gender": "♀",
         "element": "Fire",
         "country": "Slothstein",
@@ -6198,7 +6166,7 @@
     "UN_V2_EIZAN": {
         "iname": "UN_V2_EIZAN",
         "name": "Eizan",
-        "inofficial": "Eizen",
+        "inofficial": "",
         "gender": "♂",
         "element": "Thunder",
         "country": "Wadatsumi",
@@ -6219,8 +6187,7 @@
         "jc 2": "",
         "jc 3": "Holy Brawler : Fudo\n[more damage at lower health]",
         "inputs": [
-            "Eizan",
-            "Eizen"
+            "Eizan"
         ],
         "PROFILE": "Eizan is an outstanding blacksmith from Wadatsumi. He's stubborn and fastidious, so he dislikes being called the ultimate blacksmith. He's often requested for crafting jobs, but he only sells his goods to clients who meet his standards. On the other hand, there's also a certain kindness to him. Once he's approved of someone, he will go all the way with them.",
         "COUNTRY": "Wadatsumi",
@@ -6249,7 +6216,7 @@
     "UN_V2_THILLIE": {
         "iname": "UN_V2_THILLIE",
         "name": "Thillie",
-        "inofficial": "Thillie",
+        "inofficial": "",
         "gender": "♀",
         "element": "Wind",
         "country": "Saga Region",
@@ -6294,12 +6261,12 @@
     "UN_V2_SABER": {
         "iname": "UN_V2_SABER",
         "name": "Saber",
-        "inofficial": "Saber",
+        "inofficial": "",
         "gender": "♀",
         "element": "Wind",
         "country": "Foreign World",
-        "collab": "",
-        "collab short": "",
+        "collab": "Fate/Stay Night [UBW]",
+        "collab short": "Fate",
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/sabe.png",
         "farm": [],
@@ -6313,7 +6280,9 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Saber"
+            "Saber",
+            "Saber Fate",
+            "Fate Saber"
         ],
         "PROFILE": "",
         "COUNTRY": "─",
@@ -6341,8 +6310,8 @@
         "gender": "♂",
         "element": "Thunder",
         "country": "Foreign World",
-        "collab": "",
-        "collab short": "",
+        "collab": "Fate/Stay Night [UBW]",
+        "collab short": "Fate",
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/gilg.png",
         "farm": [],
@@ -6356,7 +6325,9 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Gilgamesh"
+            "Gilgamesh",
+            "Gilgamesh Fate",
+            "Fate Gilgamesh"
         ],
         "PROFILE": "",
         "COUNTRY": "─",
@@ -6380,12 +6351,12 @@
     "UN_V2_TOSAKA_RINN": {
         "iname": "UN_V2_TOSAKA_RINN",
         "name": "Rin Tohsaka",
-        "inofficial": "Rin Tohsaka",
+        "inofficial": "",
         "gender": "♀",
         "element": "Fire",
         "country": "Foreign World",
-        "collab": "",
-        "collab short": "",
+        "collab": "Fate/Stay Night [UBW]",
+        "collab short": "Fate",
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/tosa.png",
         "farm": [],
@@ -6399,7 +6370,9 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Rin Tohsaka"
+            "Rin Tohsaka",
+            "Rin Tohsaka Fate",
+            "Fate Rin Tohsaka"
         ],
         "PROFILE": "",
         "COUNTRY": "─",
@@ -6427,8 +6400,8 @@
         "gender": "♀",
         "element": "Water",
         "country": "Foreign World",
-        "collab": "",
-        "collab short": "",
+        "collab": "Fate/Stay Night [UBW]",
+        "collab short": "Fate",
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/iriy.png",
         "farm": [],
@@ -6442,7 +6415,9 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Illyasviel"
+            "Illyasviel",
+            "Illyasviel Fate",
+            "Fate Illyasviel"
         ],
         "PROFILE": "",
         "COUNTRY": "─",
@@ -6466,12 +6441,12 @@
     "UN_V2_ARCHER": {
         "iname": "UN_V2_ARCHER",
         "name": "Archer",
-        "inofficial": "Archer",
+        "inofficial": "",
         "gender": "♂",
         "element": "Dark",
         "country": "Foreign World",
-        "collab": "",
-        "collab short": "",
+        "collab": "Fate/Stay Night [UBW]",
+        "collab short": "Fate",
         "rarity": "★★★☆☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/arch.png",
         "farm": [],
@@ -6485,7 +6460,9 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Archer"
+            "Archer",
+            "Archer Fate",
+            "Fate Archer"
         ],
         "PROFILE": "",
         "COUNTRY": "─",
@@ -6641,7 +6618,7 @@
     "UN_V2_RENA": {
         "iname": "UN_V2_RENA",
         "name": "Rena",
-        "inofficial": "Rena",
+        "inofficial": "",
         "gender": "♀",
         "element": "Dark",
         "country": "Wratharis",
@@ -6689,7 +6666,7 @@
     "UN_V2_ZEKE": {
         "iname": "UN_V2_ZEKE",
         "name": "Zeke",
-        "inofficial": "Sieg",
+        "inofficial": "",
         "gender": "♂",
         "element": "Light",
         "country": "Envylia",
@@ -6708,8 +6685,7 @@
         "jc 2": "Dark Cavalier : Faust\n[Suicidal Nuker]",
         "jc 3": "Holy Cavalier : David\n[strike resistance]",
         "inputs": [
-            "Zeke",
-            "Sieg"
+            "Zeke"
         ],
         "PROFILE": "Zeke is the captain of Envylia's most powerful knight faction, the Blue Flame Guard. He's Logi's father, and Dias and Agatha's foster father. He's not only good with a sword. Thanks to his great discernment and leadership, he is well loved. In order to put an end to the battle at the Dawn of Wrath, he was very thorough in exterminating his enemies. This earned him his nickname, the Blood Wolf.",
         "COUNTRY": "Envylia",
@@ -6738,7 +6714,7 @@
     "UN_V2_MIUNA": {
         "iname": "UN_V2_MIUNA",
         "name": "Miuna",
-        "inofficial": "Miuna",
+        "inofficial": "",
         "gender": "♀",
         "element": "Fire",
         "country": "Slothstein",
@@ -6825,7 +6801,7 @@
     },
     "UN_V2_S_YOMI": {
         "iname": "UN_V2_S_YOMI",
-        "name": "Yomi",
+        "name": "Dark Princess Yomi",
         "inofficial": "Abyss Princess Yomi",
         "gender": "♀",
         "element": "Dark",
@@ -6845,9 +6821,10 @@
         "jc 2": "",
         "jc 3": "Merchant : Scheming Tanuki\n[randomly give 50 CT to any units on map]",
         "inputs": [
+            "Dark Princess Yomi",
             "Abyss Princess Yomi",
-            "Yomi SN",
-            "SN Yomi"
+            "Dark Princess Yomi SN",
+            "SN Dark Princess Yomi"
         ],
         "PROFILE": "Yomi is a samurai, guided to this world from Zipangu, whose supernatural abilities allow her to wield an infernal dark power. Despite her cute, fresh-faced appearance, she's in fact been alive for a near-eternity. If she doesn't like something she'll quickly start sulking, and will sometimes show a dark, scary side. However, she also has an innocent side that she shows to those she takes a liking to.",
         "COUNTRY": "Zipangu",
@@ -6875,8 +6852,8 @@
         "gender": "♀",
         "element": "Water",
         "country": "Foreign World",
-        "collab": "",
-        "collab short": "",
+        "collab": "Phantom Of The Kill",
+        "collab short": "POTK",
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/folc.png",
         "farm": [],
@@ -6890,7 +6867,9 @@
         "jc 2": "",
         "jc 3": "Holy Brawler : Maitreya\n[12% regen &  5% jewel regen buff]",
         "inputs": [
-            "Forcas"
+            "Forcas",
+            "Forcas POTK",
+            "POTK Forcas"
         ],
         "PROFILE": "Forcas is a \"Killer Princess\" of the Church of Ragnarok who was guided to this world from the continent of Ragna. She shares her Killium with the weapon of the same name. She's a hardworking and honest girl, and prefers to let actions speak louder than words. Given that her Killium comes from a demonic weapon, it's no surprise that she possesses awesome destructive power.",
         "COUNTRY": "Ragna",
@@ -6918,8 +6897,8 @@
         "gender": "♀",
         "element": "Wind",
         "country": "Foreign World",
-        "collab": "",
-        "collab short": "",
+        "collab": "Phantom Of The Kill",
+        "collab short": "POTK",
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/basy.png",
         "farm": [],
@@ -6934,7 +6913,9 @@
         "jc 3": "Sniper : Barrel\n[very long range and increased minimum range]",
         "inputs": [
             "Bashosen",
-            "Bashousen"
+            "Bashousen",
+            "Bashosen POTK",
+            "POTK Bashosen"
         ],
         "PROFILE": "Bashosen is a \"Killer Princess\" of the Church of Ragnarok who was guided to this world from the continent of Ragna. She shares her Killium with the weapon of the same name. She's fundamentally an arrogant and overbearing person, but also has an earnest side that she only shows to the man she loves. She's powerful enough to fell any foe with one blow, and if anyone tries to get in her way, she definitely won't hold back.",
         "COUNTRY": "Ragna",
@@ -6958,7 +6939,7 @@
     "UN_V2_MIKOTO": {
         "iname": "UN_V2_MIKOTO",
         "name": "Mikoto",
-        "inofficial": "Mikoto",
+        "inofficial": "",
         "gender": "♀",
         "element": "Water",
         "country": "Wadatsumi",
@@ -7003,7 +6984,7 @@
     "UN_V2_MARGARET": {
         "iname": "UN_V2_MARGARET",
         "name": "Margaret",
-        "inofficial": "Margaret",
+        "inofficial": "",
         "gender": "♀",
         "element": "Light",
         "country": "Envylia",
@@ -7048,7 +7029,7 @@
     "UN_V2_MEIFAN": {
         "iname": "UN_V2_MEIFAN",
         "name": "Mei Fang",
-        "inofficial": "Meifan",
+        "inofficial": "",
         "gender": "♀",
         "element": "Thunder",
         "country": "Greed Dike",
@@ -7069,8 +7050,7 @@
         "jc 2": "",
         "jc 3": "Dark Cavalier : Jaeger\n[Sacrifice Skills Bonus]",
         "inputs": [
-            "Mei Fang",
-            "Meifan"
+            "Mei Fang"
         ],
         "PROFILE": "Mei Fang has made a name for herself across Babel as a notorious strategist with supreme command over Greed Dike's navy. She doesn't trust other people, since she can see that the people around her only want to use her for their own benefit. Her only friend is Vivi, whom she met through an unexpected encounter.",
         "COUNTRY": "Greed Dike",
@@ -7094,7 +7074,7 @@
     "UN_V2_VIVI": {
         "iname": "UN_V2_VIVI",
         "name": "Vivi",
-        "inofficial": "ViVi",
+        "inofficial": "",
         "gender": "♀",
         "element": "Fire",
         "country": "Wratharis",
@@ -7115,8 +7095,7 @@
         "jc 2": "",
         "jc 3": "Sage  : Rosetta\n[stronger wind skills]",
         "inputs": [
-            "Vivi",
-            "ViVi"
+            "Vivi"
         ],
         "PROFILE": "Vivi is a highly competent member of Wratharis's National Secret Ops. Her communication skills are such that she can become friends with just about anyone. She's even close with Mei Fang, who doesn't usually trust anyone. She has a habit of yelling out \"You're amazing, Vivi!,\" whenever she has a good idea.",
         "COUNTRY": "Wratharis",
@@ -7183,7 +7162,7 @@
     "UN_V2_BASINI": {
         "iname": "UN_V2_BASINI",
         "name": "Basheeny",
-        "inofficial": "Bashini",
+        "inofficial": "",
         "gender": "♂",
         "element": "Dark",
         "country": "Desert Zone",
@@ -7202,8 +7181,7 @@
         "jc 2": "Twin-Blade Swordsman : Demon Hunter\n[increased damage against beasts]",
         "jc 3": "",
         "inputs": [
-            "Basheeny",
-            "Bashini"
+            "Basheeny"
         ],
         "PROFILE": "Basheeny is an apprentice of the Holy Guard. As a boy without any relatives, he found happiness in feeling needed by Waginau, and entered the Holy Guard as a spy. Meeting Kanon however made him change his mind, and caused him to put his trust in her instead. He now fights for Kanon and the Holy Guard.  ",
         "COUNTRY": "Desert Zone",
@@ -7227,7 +7205,7 @@
     "UN_V2_NEICA": {
         "iname": "UN_V2_NEICA",
         "name": "Neica",
-        "inofficial": "Neika",
+        "inofficial": "",
         "gender": "♀",
         "element": "Light",
         "country": "Gluttony Foss",
@@ -7248,8 +7226,7 @@
         "jc 2": "Magic Swordsman : Pegasus\n[light skill added]",
         "jc 3": "Sage  : Rosetta\n[stronger wind skills]",
         "inputs": [
-            "Neica",
-            "Neika"
+            "Neica"
         ],
         "PROFILE": "Neica is one of the most outstanding Alchemia Mages in the whole of Babel. Because she's always felt a lot of pressure from her surroundings, she's extremely shy and withdrawn. She's actually quite fascinated by other people, but she can't bear meeting people face to face. Observing them from afar is the best she can manage. She feels most at ease in solitude.",
         "COUNTRY": "Gluttony Foss",
@@ -7278,7 +7255,7 @@
     "UN_V2_YUNAGI": {
         "iname": "UN_V2_YUNAGI",
         "name": "Yunagi",
-        "inofficial": "Yuunagi",
+        "inofficial": "",
         "gender": "♀",
         "element": "Water",
         "country": "Wadatsumi",
@@ -7299,8 +7276,7 @@
         "jc 2": "",
         "jc 3": "Warrior : Titan\n[water nuke]",
         "inputs": [
-            "Yunagi",
-            "Yuunagi"
+            "Yunagi"
         ],
         "PROFILE": "Yunagi is from Wadatsumi, and is Kazahaya's actual older sister. In order to save a little fishing village that lacked able men, she took it upon herself to take care of a lot of physical work, making her monstrously strong. She likes chatting and helping people out, and even though she's verbally pretty rough, she has a certain kindness about her, so she's well-liked by most people.",
         "COUNTRY": "Wadatsumi",
@@ -7324,7 +7300,7 @@
     "UN_V2_MARIANNU": {
         "iname": "UN_V2_MARIANNU",
         "name": "Mirianne",
-        "inofficial": "Marianne",
+        "inofficial": "",
         "gender": "♀",
         "element": "Dark",
         "country": "Wratharis",
@@ -7345,8 +7321,7 @@
         "jc 2": "",
         "jc 3": "Merchant : Grace Crane\n[stronger heal delivery and full leverage +15 jewels]",
         "inputs": [
-            "Mirianne",
-            "Marianne"
+            "Mirianne"
         ],
         "PROFILE": "Marianne is a gemstone merchant from Wratharis. By sensing the hidden powers in gemstones, she can offer her customers exactly what they're looking for. She has a very polite tone, but she's also very direct. She's got an amazing eye for aesthetics though, and whenever she says something harsh, there's always sense in her words. So actually, people put a lot of trust in her.",
         "COUNTRY": "Wratharis",
@@ -7370,7 +7345,7 @@
     "UN_V2_DIS_KILLIA": {
         "iname": "UN_V2_DIS_KILLIA",
         "name": "Killia",
-        "inofficial": "Kiria",
+        "inofficial": "",
         "gender": "♂",
         "element": "Dark",
         "country": "Foreign World",
@@ -7390,7 +7365,6 @@
         "jc 3": "Shadow Assassin : Night\n[buff dispeller]",
         "inputs": [
             "Killia",
-            "Kiria",
             "Killia DIS",
             "DIS Killia"
         ],
@@ -7461,7 +7435,7 @@
     "UN_V2_DIS_REDMAGNUS": {
         "iname": "UN_V2_DIS_REDMAGNUS",
         "name": "Redmagnus",
-        "inofficial": "Red Magnus",
+        "inofficial": "",
         "gender": "♂",
         "element": "Fire",
         "country": "Foreign World",
@@ -7481,7 +7455,6 @@
         "jc 3": "",
         "inputs": [
             "Redmagnus",
-            "Red Magnus",
             "Redmagnus DIS",
             "DIS Redmagnus"
         ],
@@ -7552,7 +7525,7 @@
     "UN_V2_DIS_USALIA": {
         "iname": "UN_V2_DIS_USALIA",
         "name": "Usalia",
-        "inofficial": "Usalia",
+        "inofficial": "",
         "gender": "♀",
         "element": "Thunder",
         "country": "Foreign World",
@@ -7597,7 +7570,7 @@
     "UN_V2_CHAO": {
         "iname": "UN_V2_CHAO",
         "name": "Chao",
-        "inofficial": "Chao",
+        "inofficial": "",
         "gender": "♂",
         "element": "Thunder",
         "country": "Greed Dike",
@@ -7642,7 +7615,7 @@
     "UN_V2_DAISY": {
         "iname": "UN_V2_DAISY",
         "name": "Daisy",
-        "inofficial": "Daisy",
+        "inofficial": "",
         "gender": "♀",
         "element": "Fire",
         "country": "Slothstein",
@@ -7687,7 +7660,7 @@
     "UN_V2_NASARIO": {
         "iname": "UN_V2_NASARIO",
         "name": "Nasario",
-        "inofficial": "Nasario",
+        "inofficial": "",
         "gender": "♂",
         "element": "Wind",
         "country": "Northern Pride",
@@ -7732,11 +7705,11 @@
     "UN_V2_LIZARDMEN_HAT": {
         "iname": "UN_V2_LIZARDMEN_HAT",
         "name": "Lizardmen Hat",
-        "inofficial": "Lizardman",
+        "inofficial": "",
         "gender": "♀",
         "element": "Wind",
         "country": "Foreign World",
-        "collab": "",
+        "collab": "April Fools",
         "collab short": "",
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/liz_hat.png",
@@ -7751,8 +7724,7 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Lizardmen Hat",
-            "Lizardman"
+            "Lizardmen Hat"
         ],
         "artworks": [
             {
@@ -7765,7 +7737,7 @@
     "UN_V2_DIS_LAHAR": {
         "iname": "UN_V2_DIS_LAHAR",
         "name": "Lahar",
-        "inofficial": "Laharl",
+        "inofficial": "",
         "gender": "♂",
         "element": "Fire",
         "country": "Foreign World",
@@ -7785,7 +7757,6 @@
         "jc 3": "",
         "inputs": [
             "Lahar",
-            "Laharl",
             "Lahar DIS",
             "DIS Lahar"
         ],
@@ -7811,7 +7782,7 @@
     "UN_V2_DIS_ETONA": {
         "iname": "UN_V2_DIS_ETONA",
         "name": "Etona",
-        "inofficial": "Etna",
+        "inofficial": "",
         "gender": "♀",
         "element": "Light",
         "country": "Foreign World",
@@ -7831,7 +7802,6 @@
         "jc 3": "",
         "inputs": [
             "Etona",
-            "Etna",
             "Etona DIS",
             "DIS Etona"
         ],
@@ -7992,7 +7962,7 @@
     "UN_V2_LAVINA": {
         "iname": "UN_V2_LAVINA",
         "name": "Lavina",
-        "inofficial": "Lavina",
+        "inofficial": "",
         "gender": "♀",
         "element": "Water",
         "country": "Lustburg",
@@ -8035,7 +8005,7 @@
     "UN_V2_SUIRAN": {
         "iname": "UN_V2_SUIRAN",
         "name": "Suiran",
-        "inofficial": "Suiran",
+        "inofficial": "",
         "gender": "♀",
         "element": "Wind",
         "country": "Wadatsumi",
@@ -8078,7 +8048,7 @@
     "UN_V2_BLANCHETT": {
         "iname": "UN_V2_BLANCHETT",
         "name": "Blanchett",
-        "inofficial": "Blanchett",
+        "inofficial": "",
         "gender": "♀",
         "element": "Dark",
         "country": "Wratharis",
@@ -8121,7 +8091,7 @@
     "UN_V2_ZIN": {
         "iname": "UN_V2_ZIN",
         "name": "Zin",
-        "inofficial": "Jin",
+        "inofficial": "",
         "gender": "♂",
         "element": "Dark",
         "country": "Wadatsumi",
@@ -8140,8 +8110,7 @@
         "jc 2": "",
         "jc 3": "Warrior : Gigantes\n[dark attack with huge self buff]",
         "inputs": [
-            "Zin",
-            "Jin"
+            "Zin"
         ],
         "PROFILE": "Jin is a young man from a warrior family that has lived in Wadatsumi for generations. He is Yomi's half-brother, and the elder of the two. When it was time for the head of the family to change, the family argued over whether direct descendent Yomi or mistress's son Jin should take over, which culminated in Jin killing his father and the rest of the family. Deep down he is a gentle soul, like his birth mother, but his harsh, rigorous training has steeled him and turned his heart cold.",
         "COUNTRY": "Wadatsumi",
@@ -8170,7 +8139,7 @@
     "UN_V2_NOAH": {
         "iname": "UN_V2_NOAH",
         "name": "Noah",
-        "inofficial": "Noah",
+        "inofficial": "",
         "gender": "♀",
         "element": "Fire",
         "country": "Lustburg",
@@ -8218,7 +8187,7 @@
     "UN_V2_ZOPHIE": {
         "iname": "UN_V2_ZOPHIE",
         "name": "Zophie",
-        "inofficial": "Zophie",
+        "inofficial": "",
         "gender": "♀",
         "element": "Thunder",
         "country": "Gluttony Foss",
@@ -8261,7 +8230,7 @@
     "UN_V2_OLGA": {
         "iname": "UN_V2_OLGA",
         "name": "Olga",
-        "inofficial": "Olga",
+        "inofficial": "",
         "gender": "♀",
         "element": "Light",
         "country": "Saga Region",
@@ -8304,7 +8273,7 @@
     "UN_V2_CHATNOIR": {
         "iname": "UN_V2_CHATNOIR",
         "name": "Chatnoir",
-        "inofficial": "Chat Noir",
+        "inofficial": "",
         "gender": "♂",
         "element": "Water",
         "country": "Slothstein",
@@ -8323,8 +8292,7 @@
         "jc 2": "",
         "jc 3": "Dark Cavalier : Move\n[Faster Dark Cav]",
         "inputs": [
-            "Chatnoir",
-            "Chat Noir"
+            "Chatnoir"
         ],
         "PROFILE": "Chat Noir is a phantom thief with a cat-cyborg appearance whose name is known across the continent. The only thing that's really known about him is that he always sends a warning letter with a cat mark on it before stealing works of art. He's taken something of a liking to Justin of the Civil Guard, and makes a point of teasing him.",
         "COUNTRY": "Slothstein",
@@ -8348,7 +8316,7 @@
     "UN_V2_JUSTIN": {
         "iname": "UN_V2_JUSTIN",
         "name": "Justin",
-        "inofficial": "Justin",
+        "inofficial": "",
         "gender": "♂",
         "element": "Thunder",
         "country": "Slothstein",
@@ -8391,7 +8359,7 @@
     "UN_V2_FF15_NOCTIS": {
         "iname": "UN_V2_FF15_NOCTIS",
         "name": "Noctis",
-        "inofficial": "Noctis",
+        "inofficial": "",
         "gender": "♂",
         "element": "Water",
         "country": "Foreign World",
@@ -8436,7 +8404,7 @@
     "UN_V2_FF15_IGNIS": {
         "iname": "UN_V2_FF15_IGNIS",
         "name": "Ignis",
-        "inofficial": "Ignis",
+        "inofficial": "",
         "gender": "♂",
         "element": "Wind",
         "country": "Foreign World",
@@ -8481,7 +8449,7 @@
     "UN_V2_FF15_GLADIOLUS": {
         "iname": "UN_V2_FF15_GLADIOLUS",
         "name": "Gladiolus",
-        "inofficial": "Gladiolus",
+        "inofficial": "",
         "gender": "♂",
         "element": "Fire",
         "country": "Foreign World",
@@ -8526,7 +8494,7 @@
     "UN_V2_FF15_PROMPUTO": {
         "iname": "UN_V2_FF15_PROMPUTO",
         "name": "Promputo",
-        "inofficial": "Prompto",
+        "inofficial": "",
         "gender": "♂",
         "element": "Thunder",
         "country": "Foreign World",
@@ -8546,7 +8514,6 @@
         "jc 3": "",
         "inputs": [
             "Promputo",
-            "Prompto",
             "Promputo FF",
             "FF Promputo"
         ],
@@ -8572,7 +8539,7 @@
     "UN_V2_FF15_ARANEA": {
         "iname": "UN_V2_FF15_ARANEA",
         "name": "Aranea",
-        "inofficial": "Aranea",
+        "inofficial": "",
         "gender": "♀",
         "element": "Dark",
         "country": "Foreign World",
@@ -8617,7 +8584,7 @@
     "UN_V2_KLIMA": {
         "iname": "UN_V2_KLIMA",
         "name": "Klima",
-        "inofficial": "Creema",
+        "inofficial": "",
         "gender": "♀",
         "element": "Water",
         "country": "Wratharis",
@@ -8636,8 +8603,7 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Klima",
-            "Creema"
+            "Klima"
         ],
         "PROFILE": "Klima is a young girl who grew up in the remote countryside of Wratharis and has a strong sensitivity to Alchemia that occurs in the natural world. Ever since a young age she has possessed the ability to manipulate the Alchemia in the atmosphere and the weather. Because she grew up in such a quiet and peaceful place, despite her astonishing powers she has a very carefree and easygoing personality.",
         "COUNTRY": "Wratharis",
@@ -8661,7 +8627,7 @@
     "UN_V2_LEONIA": {
         "iname": "UN_V2_LEONIA",
         "name": "Leonia",
-        "inofficial": "Leonia",
+        "inofficial": "",
         "gender": "♀",
         "element": "Wind",
         "country": "Envylia",
@@ -8704,7 +8670,7 @@
     "UN_V2_ACHAD": {
         "iname": "UN_V2_ACHAD",
         "name": "Achad",
-        "inofficial": "Acht",
+        "inofficial": "",
         "gender": "♀",
         "element": "Wind",
         "country": "Foreign World",
@@ -8723,8 +8689,7 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Achad",
-            "Acht"
+            "Achad"
         ],
         "PROFILE": "Ahato is a young girl who is known as the Veda Ten's \"Number Eight.\" It was the group's leader, Sol, who gave her the hope to live, and she never leaves his side, even outside of battle. She was a war orphan, which has left her with a strong aversion to being hungry: so much so that she says she \"hates hunger more than any physical or emotional pain.\"",
         "COUNTRY": "Lost Blue",
@@ -8748,7 +8713,7 @@
     "UN_V2_VIER": {
         "iname": "UN_V2_VIER",
         "name": "Vier",
-        "inofficial": "Vier",
+        "inofficial": "",
         "gender": "♀",
         "element": "Thunder",
         "country": "Foreign World",
@@ -8791,7 +8756,7 @@
     "UN_V2_FAIRLILY": {
         "iname": "UN_V2_FAIRLILY",
         "name": "Fairlily",
-        "inofficial": "Fealily",
+        "inofficial": "",
         "gender": "♀",
         "element": "Light",
         "country": "Envylia",
@@ -8810,8 +8775,7 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Fairlily",
-            "Fealily"
+            "Fairlily"
         ],
         "PROFILE": "Fairily is a plant enthusiast from Envylia. She's a bright, cheerful girl, and possesses Alchemia that instantly revitalizes any plant she touches. She is still studying how to use her power correctly, though. She used it on her companion Nube, a Mandragora, who became her friend as a result.",
         "COUNTRY": "Envylia",
@@ -8835,7 +8799,7 @@
     "UN_V2_EDWIN": {
         "iname": "UN_V2_EDWIN",
         "name": "Edwin",
-        "inofficial": "Edwin",
+        "inofficial": "",
         "gender": "♂",
         "element": "Dark",
         "country": "Lustburg",
@@ -8878,7 +8842,7 @@
     "UN_V2_RH_STOCK": {
         "iname": "UN_V2_RH_STOCK",
         "name": "Stock",
-        "inofficial": "Stocke",
+        "inofficial": "",
         "gender": "♂",
         "element": "Fire",
         "country": "Foreign World",
@@ -8898,7 +8862,6 @@
         "jc 3": "",
         "inputs": [
             "Stock",
-            "Stocke",
             "Stock RH",
             "RH Stock"
         ],
@@ -8924,7 +8887,7 @@
     "UN_V2_RH_ERUKA": {
         "iname": "UN_V2_RH_ERUKA",
         "name": "Eruka",
-        "inofficial": "Eruca",
+        "inofficial": "",
         "gender": "♀",
         "element": "Light",
         "country": "Foreign World",
@@ -8944,7 +8907,6 @@
         "jc 3": "",
         "inputs": [
             "Eruka",
-            "Eruca",
             "Eruka RH",
             "RH Eruka"
         ],
@@ -8970,7 +8932,7 @@
     "UN_V2_RH_ATO": {
         "iname": "UN_V2_RH_ATO",
         "name": "Ato",
-        "inofficial": "Aht",
+        "inofficial": "",
         "gender": "♀",
         "element": "Wind",
         "country": "Foreign World",
@@ -8990,7 +8952,6 @@
         "jc 3": "",
         "inputs": [
             "Ato",
-            "Aht",
             "Ato RH",
             "RH Ato"
         ],
@@ -9016,7 +8977,7 @@
     "UN_V2_RH_RAINY": {
         "iname": "UN_V2_RH_RAINY",
         "name": "Rainy",
-        "inofficial": "Raynie",
+        "inofficial": "",
         "gender": "♀",
         "element": "Water",
         "country": "Foreign World",
@@ -9036,7 +8997,6 @@
         "jc 3": "",
         "inputs": [
             "Rainy",
-            "Raynie",
             "Rainy RH",
             "RH Rainy"
         ],
@@ -9062,7 +9022,7 @@
     "UN_V2_ANNIKA": {
         "iname": "UN_V2_ANNIKA",
         "name": "Annika",
-        "inofficial": "Annika",
+        "inofficial": "",
         "gender": "♀",
         "element": "Water",
         "country": "Saga Region",
@@ -9105,7 +9065,7 @@
     "UN_V2_HUGO": {
         "iname": "UN_V2_HUGO",
         "name": "Hugo",
-        "inofficial": "Hugo",
+        "inofficial": "",
         "gender": "♂",
         "element": "Light",
         "country": "Wratharis",
@@ -9148,7 +9108,7 @@
     "UN_V2_CELLIERS": {
         "iname": "UN_V2_CELLIERS",
         "name": "Celliers",
-        "inofficial": "Celliaz",
+        "inofficial": "",
         "gender": "♂",
         "element": "Light",
         "country": "Lustburg",
@@ -9167,8 +9127,7 @@
         "jc 2": "",
         "jc 3": "Ninja : Byakko\n[evasion-based]",
         "inputs": [
-            "Celliers",
-            "Celliaz"
+            "Celliers"
         ],
         "PROFILE": "Celliers is a young boy who was secretly used in experiments carried out beneath Lustburg that attempted to \"understand curses.\" His physical appearance is that of an artificial human--half man and half crystal--and he has the ability to crystallize things that he touches. He underwent various experiments involving insects, which has left him with a fierce hatred of them.",
         "COUNTRY": "Lustburg",
@@ -9192,7 +9151,7 @@
     "UN_V2_POK_EROS": {
         "iname": "UN_V2_POK_EROS",
         "name": "Eros",
-        "inofficial": "Eros",
+        "inofficial": "",
         "gender": "♀",
         "element": "Light",
         "country": "Foreign World",
@@ -9242,7 +9201,7 @@
     "UN_V2_S_AMATERASU": {
         "iname": "UN_V2_S_AMATERASU",
         "name": "Amaterasu",
-        "inofficial": "Amaterasu",
+        "inofficial": "",
         "gender": "♀",
         "element": "Light",
         "country": "Foreign World",
@@ -9292,7 +9251,7 @@
     "UN_V2_S_YURI": {
         "iname": "UN_V2_S_YURI",
         "name": "Yuri",
-        "inofficial": "Yuri",
+        "inofficial": "",
         "gender": "♀",
         "element": "Thunder",
         "country": "Foreign World",
@@ -9342,7 +9301,7 @@
     "UN_V2_PRISCILA": {
         "iname": "UN_V2_PRISCILA",
         "name": "Priscila",
-        "inofficial": "Priscilla",
+        "inofficial": "",
         "gender": "♀",
         "element": "Dark",
         "country": "Envylia",
@@ -9361,8 +9320,7 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Priscila",
-            "Priscilla"
+            "Priscila"
         ],
         "PROFILE": "Priscilla is a member of the Royal Knighthood who serves as a lance instructor in Envylia. Her skill with a lance is said to be unmatched, but inside she's torn between her hatred of war and the sense of thrill that battle inspires in her. When she's focused she has a habit of losing sight of everything else around her, but her superiors love her for her passion.",
         "COUNTRY": "Envylia",
@@ -9386,7 +9344,7 @@
     "UN_V2_FUJICA": {
         "iname": "UN_V2_FUJICA",
         "name": "Fujica",
-        "inofficial": "Fujika",
+        "inofficial": "",
         "gender": "♀",
         "element": "Thunder",
         "country": "Wadatsumi",
@@ -9405,8 +9363,7 @@
         "jc 2": "Roaring Thunder Enchanter\n[buff that increases thunder damage against water]",
         "jc 3": "",
         "inputs": [
-            "Fujica",
-            "Fujika"
+            "Fujica"
         ],
         "PROFILE": "Fujika is the only daughter of a great family of calligraphers from Wadatsumi. Her works, which contain words of blessing, are said to possess the power to grant good fortune--so much so that there are people who wish to extort her talents for their own profit. She hasn't actually yet decided whether calligraphy will be her life's true path, though. At the moment she's very interested in all the cute fashion styles found outside of Wadatsumi.",
         "COUNTRY": "Wadatsumi",
@@ -9430,7 +9387,7 @@
     "UN_V2_ZYVA": {
         "iname": "UN_V2_ZYVA",
         "name": "Zyva",
-        "inofficial": "Zierva",
+        "inofficial": "",
         "gender": "♀",
         "element": "Light",
         "country": "Foreign World",
@@ -9449,8 +9406,7 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Zyva",
-            "Zierva"
+            "Zyva"
         ],
         "PROFILE": "Zuiva is a young woman who is known as the Veda Ten's \"Number Seven.\" Her feelings towards Yauras, who once saved her life, are complicated, and she's aware of these feelings herself, too. She loves all things dazzling and gorgeous, and collects beautiful objects--to her despair, though, she has an allergy to roses.",
         "COUNTRY": "Lost Blue",
@@ -9474,7 +9430,7 @@
     "UN_V2_NOIN": {
         "iname": "UN_V2_NOIN",
         "name": "Noin",
-        "inofficial": "Neun",
+        "inofficial": "",
         "gender": "♂",
         "element": "Dark",
         "country": "Foreign World",
@@ -9493,8 +9449,7 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Noin",
-            "Neun"
+            "Noin"
         ],
         "PROFILE": "Noin is a man who is known as the Veda Ten's \"Number Nine.\" His appearance and physical ability are not those of a human, but he has no memory or knowledge of who he is or where he came from. Although he cares greatly for his comrades, in battle he follows his own unique set of beliefs and values--for instance, he won't offer his allies assistance until they're literally on the verge of death.",
         "COUNTRY": "Lost Blue",
@@ -9518,7 +9473,7 @@
     "UN_V2_FURY": {
         "iname": "UN_V2_FURY",
         "name": "Fury",
-        "inofficial": "Fuelie",
+        "inofficial": "",
         "gender": "♀",
         "element": "Fire",
         "country": "Foreign World",
@@ -9537,8 +9492,7 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Fury",
-            "Fuelie"
+            "Fury"
         ],
         "PROFILE": "Fury is a young girl who is known as the Veda Ten's \"Number Five.\" She is a member of one of the leading occultist families in Wadatsumi, and had a bright and promising future until she was forced to flee after the invasion. She despaired of a world with no justice, and when she gave into these feelings of despair, she gained immense power and her occult arts became more effective.",
         "COUNTRY": "Lost Blue",
@@ -9562,7 +9516,7 @@
     "UN_V2_FEIRIN": {
         "iname": "UN_V2_FEIRIN",
         "name": "Feirin",
-        "inofficial": "Faylin",
+        "inofficial": "",
         "gender": "♀",
         "element": "Wind",
         "country": "Greed Dike",
@@ -9581,8 +9535,7 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Feirin",
-            "Faylin"
+            "Feirin"
         ],
         "PROFILE": "Fayrene is a famous musician from Greed Dike who plays an instrument called a Pipa. The graceful, ladylike image that she projects to the world is a façade; she's actually extremely lazy, and a heavy drinker. She's highly adept at telling things about people from their tone of voice alone--a skill that she also uses in her side job as an assassin.",
         "COUNTRY": "Greed Dike",
@@ -9606,7 +9559,7 @@
     "UN_V2_TOMAS": {
         "iname": "UN_V2_TOMAS",
         "name": "Tomas",
-        "inofficial": "Thomas",
+        "inofficial": "",
         "gender": "♂",
         "element": "Light",
         "country": "Saga Region",
@@ -9625,8 +9578,7 @@
         "jc 2": "Holy Brawler : Senju\n[multi-hit]",
         "jc 3": "Warrior : Goliath\n[light tank]",
         "inputs": [
-            "Tomas",
-            "Thomas"
+            "Tomas"
         ],
         "PROFILE": "Tomas is a young boy who lives in a village in a mountain valley to the west of the Saga Region. He lives together with two Tigferes creatures, Fons and Rivus, and the two are like brothers to him. He's an active boy who loves running around the nearby hills and fields, but is always being scolded by the village elder for entering a forbidden area that is said to be a holy place.",
         "COUNTRY": "Saga Region",
@@ -9650,7 +9602,7 @@
     "UN_V2_TETIS": {
         "iname": "UN_V2_TETIS",
         "name": "Tetis",
-        "inofficial": "Thetis",
+        "inofficial": "",
         "gender": "♀",
         "element": "Water",
         "country": "Gluttony Foss",
@@ -9669,8 +9621,7 @@
         "jc 2": "Ninja : Kirin\n[AGI-based]",
         "jc 3": "",
         "inputs": [
-            "Tetis",
-            "Thetis"
+            "Tetis"
         ],
         "PROFILE": "Tethys is the daughter of a famous family that legend says are descended from merpeople. She is able to communicate with the ocean, and because of this some people say that she is in fact the sea incarnate. She's extremely fussy about hygiene, and dislikes being touched, even by her parents. The one exception to this seems to be a person called Perez, who she can sometimes be seen walking around holding hands with.",
         "COUNTRY": "Gluttony Foss",
@@ -9873,7 +9824,7 @@
     "UN_V2_LUCILLE": {
         "iname": "UN_V2_LUCILLE",
         "name": "Lucille",
-        "inofficial": "Rusha",
+        "inofficial": "",
         "gender": "♀",
         "element": "Thunder",
         "country": "Greed Dike",
@@ -9892,8 +9843,7 @@
         "jc 2": "",
         "jc 3": "Dark Cavalier : Move\n[Faster Dark Cav]",
         "inputs": [
-            "Lucille",
-            "Rusha"
+            "Lucille"
         ],
         "PROFILE": "Lucia is a blacksmith from Greed Dike. She possesses a miraculous ability that allows her to picture a finished weapon in her mind and then transform the materials into that weapon. She loves making weapons, but only has a vague understanding of their actual use, and this can have disastrous results for some clients...",
         "COUNTRY": "Greed Dike",
@@ -9917,7 +9867,7 @@
     "UN_V2_EMA": {
         "iname": "UN_V2_EMA",
         "name": "Ema",
-        "inofficial": "Emma",
+        "inofficial": "",
         "gender": "♀",
         "element": "Fire",
         "country": "Lustburg",
@@ -9936,8 +9886,7 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Ema",
-            "Emma"
+            "Ema"
         ],
         "PROFILE": "Emma is Noah's classmate at the Academy of Magic in Lustburg. In order to escape from a life of poverty and hardship she studied and studied and received a scholarship for the academy. She acts like she's lazy and doesn't like putting in effort so as to keep her dark past a secret.",
         "COUNTRY": "Lustburg",
@@ -9966,7 +9915,7 @@
     "UN_V2_HISHARMU": {
         "iname": "UN_V2_HISHARMU",
         "name": "Hisharmu",
-        "inofficial": "Hishamu",
+        "inofficial": "",
         "gender": "♂",
         "element": "Light",
         "country": "Desert Zone",
@@ -9985,8 +9934,7 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Hisharmu",
-            "Hishamu"
+            "Hisharmu"
         ],
         "PROFILE": "Hisham is a man who grew up in a particularly dry and arid desert region. He travels alone, using his ability to find underground water sources to bring water to different desert regions. He has a habit of staying silent--a reflex learned in order to prevent his mouth from drying out--but in fact has great communication skills and lots of things to talk about.",
         "COUNTRY": "Desert Zone",
@@ -10010,7 +9958,7 @@
     "UN_V2_LEYDOW": {
         "iname": "UN_V2_LEYDOW",
         "name": "Leydow",
-        "inofficial": "Reidou",
+        "inofficial": "",
         "gender": "♂",
         "element": "Dark",
         "country": "Wadatsumi",
@@ -10029,8 +9977,7 @@
         "jc 2": "Magic Swordsman : Chimera\n[dark skill added]",
         "jc 3": "",
         "inputs": [
-            "Leydow",
-            "Reidou"
+            "Leydow"
         ],
         "PROFILE": "Reido is Reida's older brother; the eldest son of a samurai family from Wadatsumi. He's a gentle-mannered young man who lives a quiet life. He possesses a gift for warfare, but his poor health means that he's unable to fight, which has left him with a sense of self-loathing. On nights when he's feeling fit, he turns, showing a horrific, murderous side and using his trusty blade to kill.",
         "COUNTRY": "Wadatsumi",
@@ -10054,7 +10001,7 @@
     "UN_V2_IZAYOI": {
         "iname": "UN_V2_IZAYOI",
         "name": "Izayoi",
-        "inofficial": "Izayoi",
+        "inofficial": "",
         "gender": "♀",
         "element": "Wind",
         "country": "Wadatsumi",
@@ -10097,7 +10044,7 @@
     "UN_V2_DARTAGNAN": {
         "iname": "UN_V2_DARTAGNAN",
         "name": "Dartagnan",
-        "inofficial": "D'Artagnan",
+        "inofficial": "",
         "gender": "♀",
         "element": "Water",
         "country": "Envylia",
@@ -10116,8 +10063,7 @@
         "jc 2": "Ninja : Seiryu\n[attack-based]",
         "jc 3": "",
         "inputs": [
-            "Dartagnan",
-            "D'Artagnan"
+            "Dartagnan"
         ],
         "PROFILE": "D'Artagnan is the vice-captain of the Scarlet Flame Guard of Envylia Kingdom. Because of their scarcity, people are unfamiliar with beast-people, and they often shun or avoid them--so D'Artagnan is grateful to the knighthood, who welcomed her with open arms. She's a devout knight, but when not on a mission she will return to her original, carefree personality and spend her time wandering around playfully.",
         "COUNTRY": "Envylia",
@@ -10141,7 +10087,7 @@
     "UN_V2_WON": {
         "iname": "UN_V2_WON",
         "name": "Won",
-        "inofficial": "Wong",
+        "inofficial": "",
         "gender": "♂",
         "element": "Light",
         "country": "Greed Dike",
@@ -10160,8 +10106,7 @@
         "jc 2": "Holy Brawler : Maitreya\n[12% regen &  5% jewel regen buff]",
         "jc 3": "",
         "inputs": [
-            "Won",
-            "Wong"
+            "Won"
         ],
         "PROFILE": "自由に生きることがモットーのちゃらんぽらんな“なんでも屋”の青年。厳しい鍛錬の末、独自の拳術“虎王拳(コオウケン)”を生み出した。お金に目がなく、拳で片付けられるなら、いくら危険な仕事でも引き受け解決する。",
         "COUNTRY": "グリードダイク",
@@ -10185,7 +10130,7 @@
     "UN_V2_INES": {
         "iname": "UN_V2_INES",
         "name": "Ines",
-        "inofficial": "Ines",
+        "inofficial": "",
         "gender": "♀",
         "element": "Fire",
         "country": "Northern Pride",
@@ -10228,7 +10173,7 @@
     "UN_V2_UZUMA": {
         "iname": "UN_V2_UZUMA",
         "name": "Uzuma",
-        "inofficial": "Uzuma",
+        "inofficial": "",
         "gender": "♀",
         "element": "Wind",
         "country": "Desert Zone",
@@ -10271,7 +10216,7 @@
     "UN_V2_BLITZ": {
         "iname": "UN_V2_BLITZ",
         "name": "Blitz",
-        "inofficial": "Blitz",
+        "inofficial": "",
         "gender": "♂",
         "element": "Thunder",
         "country": "Envylia",
@@ -10314,7 +10259,7 @@
     "UN_V2_BIRGITTA": {
         "iname": "UN_V2_BIRGITTA",
         "name": "Birgitta",
-        "inofficial": "Birgitta",
+        "inofficial": "",
         "gender": "♀",
         "element": "Dark",
         "country": "Saga Region",
@@ -10357,7 +10302,7 @@
     "UN_V2_FA_EDWARD": {
         "iname": "UN_V2_FA_EDWARD",
         "name": "Edward",
-        "inofficial": "Edward Elric",
+        "inofficial": "",
         "gender": "♂",
         "element": "Wind",
         "country": "Foreign World",
@@ -10377,7 +10322,6 @@
         "jc 3": "",
         "inputs": [
             "Edward",
-            "Edward Elric",
             "Edward FA",
             "FA Edward"
         ],
@@ -10403,7 +10347,7 @@
     "UN_V2_FA_PRIDE": {
         "iname": "UN_V2_FA_PRIDE",
         "name": "Pride",
-        "inofficial": "Pride",
+        "inofficial": "",
         "gender": "♀",
         "element": "Dark",
         "country": "Foreign World",
@@ -10448,7 +10392,7 @@
     "UN_V2_FA_ALPHONSE": {
         "iname": "UN_V2_FA_ALPHONSE",
         "name": "Alphonse",
-        "inofficial": "Alphonse Elric",
+        "inofficial": "",
         "gender": "♂",
         "element": "Light",
         "country": "Foreign World",
@@ -10468,7 +10412,6 @@
         "jc 3": "",
         "inputs": [
             "Alphonse",
-            "Alphonse Elric",
             "Alphonse FA",
             "FA Alphonse"
         ],
@@ -10494,7 +10437,7 @@
     "UN_V2_FA_MUSTANG": {
         "iname": "UN_V2_FA_MUSTANG",
         "name": "Mustang",
-        "inofficial": "Roy Mustang",
+        "inofficial": "",
         "gender": "♂",
         "element": "Fire",
         "country": "Foreign World",
@@ -10514,7 +10457,6 @@
         "jc 3": "",
         "inputs": [
             "Mustang",
-            "Roy Mustang",
             "Mustang FA",
             "FA Mustang"
         ],
@@ -10540,7 +10482,7 @@
     "UN_V2_FA_HAWKEYE": {
         "iname": "UN_V2_FA_HAWKEYE",
         "name": "Hawkeye",
-        "inofficial": "Riza Hawkeye",
+        "inofficial": "",
         "gender": "♀",
         "element": "Water",
         "country": "Foreign World",
@@ -10560,7 +10502,6 @@
         "jc 3": "",
         "inputs": [
             "Hawkeye",
-            "Riza Hawkeye",
             "Hawkeye FA",
             "FA Hawkeye"
         ],
@@ -10586,7 +10527,7 @@
     "UN_V2_FA_WRATH": {
         "iname": "UN_V2_FA_WRATH",
         "name": "Wrath",
-        "inofficial": "King Bradley",
+        "inofficial": "",
         "gender": "♂",
         "element": "Thunder",
         "country": "Foreign World",
@@ -10606,7 +10547,6 @@
         "jc 3": "",
         "inputs": [
             "Wrath",
-            "King Bradley",
             "Wrath FA",
             "FA Wrath"
         ],
@@ -10632,7 +10572,7 @@
     "UN_V2_FA_ENVY": {
         "iname": "UN_V2_FA_ENVY",
         "name": "Envy",
-        "inofficial": "Envy",
+        "inofficial": "",
         "gender": "♀",
         "element": "Wind",
         "country": "Foreign World",
@@ -10677,12 +10617,12 @@
     "UN_V2_TORITOH": {
         "iname": "UN_V2_TORITOH",
         "name": "Toritoh",
-        "inofficial": "Tlitor",
+        "inofficial": "",
         "gender": "♀",
         "element": "Light",
         "country": "Northern Pride",
-        "collab": "",
-        "collab short": "",
+        "collab": "Fullmetal Alchemist",
+        "collab short": "FA",
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/tori.png",
         "farm": [],
@@ -10697,7 +10637,8 @@
         "jc 3": "Martial Master : Human Hitman\n[Anti-Human Skills]",
         "inputs": [
             "Toritoh",
-            "Tlitor"
+            "Toritoh FA",
+            "FA Toritoh"
         ],
         "PROFILE": "バベル聖教会で“将軍”と呼ばれる存在。教会内部で隔離されて育てられた為、教会以外の物事に疎く、特に感情を表に出すのが不得手。だが、守りたいものや大切だと感じられたことには、迷わず命を懸けるほどの実直さを持つ。",
         "COUNTRY": "ノーザンブライド",
@@ -10721,7 +10662,7 @@
     "UN_V2_CORDELIA": {
         "iname": "UN_V2_CORDELIA",
         "name": "Cordelia",
-        "inofficial": "Cordelia",
+        "inofficial": "",
         "gender": "♀",
         "element": "Wind",
         "country": "Lustburg",
@@ -10764,7 +10705,7 @@
     "UN_V2_ITSUKI": {
         "iname": "UN_V2_ITSUKI",
         "name": "Itsuki",
-        "inofficial": "Itsuki",
+        "inofficial": "",
         "gender": "♀",
         "element": "Water",
         "country": "Wadatsumi",
@@ -10807,7 +10748,7 @@
     "UN_V2_TSANGLEI": {
         "iname": "UN_V2_TSANGLEI",
         "name": "Tsanglei",
-        "inofficial": "Tsang Lei",
+        "inofficial": "",
         "gender": "♂",
         "element": "Thunder",
         "country": "Greed Dike",
@@ -10826,8 +10767,7 @@
         "jc 2": "Zero Enchanter\n[buff dispeller]",
         "jc 3": "",
         "inputs": [
-            "Tsanglei",
-            "Tsang Lei"
+            "Tsanglei"
         ],
         "PROFILE": "グリードダイク出身の破戒僧。幼い頃から力こそ正義を信念に修行に明け暮れており、強い相手と闘いたいという一心で召喚術をも習得した異端者。戦闘になると周囲の状況お構いなしに暴れる為、敵味方関係なく恐れられている。",
         "COUNTRY": "グリードダイク",
@@ -10851,7 +10791,7 @@
     "UN_V2_POK_LONGINUS": {
         "iname": "UN_V2_POK_LONGINUS",
         "name": "Longinus",
-        "inofficial": "Longinus",
+        "inofficial": "",
         "gender": "♀",
         "element": "Water",
         "country": "Foreign World",
@@ -10896,7 +10836,7 @@
     "UN_V2_POK_ARTEMIS": {
         "iname": "UN_V2_POK_ARTEMIS",
         "name": "Artemis",
-        "inofficial": "Artemis",
+        "inofficial": "",
         "gender": "♀",
         "element": "Wind",
         "country": "Foreign World",
@@ -10941,7 +10881,7 @@
     "UN_V2_ZENN": {
         "iname": "UN_V2_ZENN",
         "name": "Zenn",
-        "inofficial": "Zehn",
+        "inofficial": "",
         "gender": "♂",
         "element": "Water",
         "country": "Foreign World",
@@ -10960,8 +10900,7 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Zenn",
-            "Zehn"
+            "Zenn"
         ],
         "PROFILE": "『ヴェーダ十戒衆』の“10番”を冠する男性。“真理”に至れば、失った妻と娘を取り戻せるはずと半ば祈るように刀を振るい続けている。その狂気にも似た信念で、誰の依頼も受けないとされる“伝説の鍛冶師”の心をも動かした。",
         "COUNTRY": "ロストブルー",
@@ -10985,7 +10924,7 @@
     "UN_V2_BELTA": {
         "iname": "UN_V2_BELTA",
         "name": "Belta",
-        "inofficial": "Belta",
+        "inofficial": "",
         "gender": "♀",
         "element": "Dark",
         "country": "Envylia",
@@ -11074,7 +11013,7 @@
     "UN_V2_LOTIA": {
         "iname": "UN_V2_LOTIA",
         "name": "Lotia",
-        "inofficial": "Lotia",
+        "inofficial": "",
         "gender": "♀",
         "element": "Thunder",
         "country": "Gluttony Foss",
@@ -11117,7 +11056,7 @@
     "UN_V2_KEVIN": {
         "iname": "UN_V2_KEVIN",
         "name": "Kevin",
-        "inofficial": "Kevin",
+        "inofficial": "",
         "gender": "♂",
         "element": "Water",
         "country": "Wratharis",
@@ -11160,7 +11099,7 @@
     "UN_V2_AISHA": {
         "iname": "UN_V2_AISHA",
         "name": "Aisha",
-        "inofficial": "Aisha",
+        "inofficial": "",
         "gender": "♀",
         "element": "Light",
         "country": "Slothstein",
@@ -11203,7 +11142,7 @@
     "UN_V2_GUILDFORD": {
         "iname": "UN_V2_GUILDFORD",
         "name": "Guildford",
-        "inofficial": "Gilford",
+        "inofficial": "",
         "gender": "♂",
         "element": "Fire",
         "country": "Northern Pride",
@@ -11222,8 +11161,7 @@
         "jc 2": "",
         "jc 3": "Dark Cavalier : Seele\n[Drain Skills Bonus]",
         "inputs": [
-            "Guildford",
-            "Gilford"
+            "Guildford"
         ],
         "PROFILE": "バベル聖教会付きの異端審問官。“マグナ・コード”に違反すれば友人であっても告発し、裁きを下す。厳しい尋問や強引な家宅捜索等の強硬な捜査方針で有名。人を判断する際、まずは相手の“靴”を観察するのが彼のセオリー。",
         "COUNTRY": "ノーザンブライド",
@@ -11247,7 +11185,7 @@
     "UN_V2_TERESA": {
         "iname": "UN_V2_TERESA",
         "name": "Teresa",
-        "inofficial": "Teresa",
+        "inofficial": "",
         "gender": "♀",
         "element": "Dark",
         "country": "Wratharis",
@@ -11290,7 +11228,7 @@
     "UN_V2_SHIRMA": {
         "iname": "UN_V2_SHIRMA",
         "name": "Shirma",
-        "inofficial": "Silma",
+        "inofficial": "",
         "gender": "♀",
         "element": "Wind",
         "country": "Wratharis",
@@ -11309,8 +11247,7 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Shirma",
-            "Silma"
+            "Shirma"
         ],
         "PROFILE": "潜在能力の高さを見込まれ、ラーストリス騎士団の寄宿学校に在籍していたスピカの妹。明るすぎる性格だが、もとは両親を失った悲しみを隠す強がりから作られたもの。スピカは大好きな姉であり、唯一の甘えられる相手でもある。",
         "COUNTRY": "ラーストリス",
@@ -11334,7 +11271,7 @@
     "UN_V2_KURT": {
         "iname": "UN_V2_KURT",
         "name": "Kurt",
-        "inofficial": "Kureto",
+        "inofficial": "",
         "gender": "♂",
         "element": "Fire",
         "country": "Wadatsumi",
@@ -11353,8 +11290,7 @@
         "jc 2": "Shadow Assassin : Night\n[buff dispeller]",
         "jc 3": "Dragon Cavalier : Vritra\n[long rang but low dmg]",
         "inputs": [
-            "Kurt",
-            "Kureto"
+            "Kurt"
         ],
         "PROFILE": "正義感に熱いワダツミの剣士。レイメイが受け継いだ“柴閃光”の兄弟流派にあたり活人剣を標榜する“双閃光”の継承者。殺生を好まぬ為、レイメイの生業には否定的だが、その剣筋に正道を見たことで認める気持ちも持っている。",
         "COUNTRY": "ワダツミ",
@@ -11378,7 +11314,7 @@
     "UN_V2_FF15_REGIS": {
         "iname": "UN_V2_FF15_REGIS",
         "name": "Regis",
-        "inofficial": "Regis",
+        "inofficial": "",
         "gender": "♂",
         "element": "Thunder",
         "country": "Foreign World",
@@ -11423,7 +11359,7 @@
     "UN_V2_FF15_COR": {
         "iname": "UN_V2_FF15_COR",
         "name": "Cor",
-        "inofficial": "Cor",
+        "inofficial": "",
         "gender": "♂",
         "element": "Light",
         "country": "Foreign World",
@@ -11468,7 +11404,7 @@
     "UN_V2_FF15_IRIS": {
         "iname": "UN_V2_FF15_IRIS",
         "name": "Iris",
-        "inofficial": "Iris",
+        "inofficial": "",
         "gender": "♀",
         "element": "Fire",
         "country": "Foreign World",
@@ -11558,7 +11494,7 @@
     "UN_V2_POK_PARASHU": {
         "iname": "UN_V2_POK_PARASHU",
         "name": "Parashu",
-        "inofficial": "Parashu",
+        "inofficial": "",
         "gender": "♀",
         "element": "Wind",
         "country": "Foreign World",
@@ -11603,7 +11539,7 @@
     "UN_V2_POK_FREIKUGEL": {
         "iname": "UN_V2_POK_FREIKUGEL",
         "name": "Freikugel",
-        "inofficial": "Freikugel",
+        "inofficial": "",
         "gender": "♀",
         "element": "Thunder",
         "country": "Foreign World",
@@ -11648,7 +11584,7 @@
     "UN_V2_S_TSUKUYOMI": {
         "iname": "UN_V2_S_TSUKUYOMI",
         "name": "Tsukuyomi",
-        "inofficial": "Tsukuyomi",
+        "inofficial": "",
         "gender": "♀",
         "element": "Dark",
         "country": "Foreign World",
@@ -11693,7 +11629,7 @@
     "UN_V2_FIONA": {
         "iname": "UN_V2_FIONA",
         "name": "Fiona",
-        "inofficial": "Fiona",
+        "inofficial": "",
         "gender": "♀",
         "element": "Light",
         "country": "Slothstein",
@@ -11736,7 +11672,7 @@
     "UN_V2_GERALD": {
         "iname": "UN_V2_GERALD",
         "name": "Gerald",
-        "inofficial": "Gerald",
+        "inofficial": "",
         "gender": "♂",
         "element": "Thunder",
         "country": "Envylia",
@@ -11779,7 +11715,7 @@
     "UN_V2_NATALIE": {
         "iname": "UN_V2_NATALIE",
         "name": "Natalie",
-        "inofficial": "Natalie",
+        "inofficial": "",
         "gender": "♀",
         "element": "Wind",
         "country": "Envylia",
@@ -11822,7 +11758,7 @@
     "UN_V2_L_UROB": {
         "iname": "UN_V2_L_UROB",
         "name": "Little Urob",
-        "inofficial": "Lil Uroboros",
+        "inofficial": "",
         "gender": "♀",
         "element": "Dark",
         "country": "Foreign World",
@@ -11841,8 +11777,7 @@
         "jc 2": "Sage : Pandora\n[stronger skills via passive]",
         "jc 3": "",
         "inputs": [
-            "Little Urob",
-            "Lil Uroboros"
+            "Little Urob"
         ],
         "PROFILE": "人間をより間近で観察したいというウロボロスの欲求から誕生した分離体。ウロボロスの力から切り出された一幻影兵レベルの存在の為か、心身ともに幼さが残る。ウロボロス本体に憧れを持ち、その振る舞いを真似したがる一面も。",
         "COUNTRY": "？",
@@ -11866,7 +11801,7 @@
     "UN_V2_NINA": {
         "iname": "UN_V2_NINA",
         "name": "Nina",
-        "inofficial": "Nina",
+        "inofficial": "",
         "gender": "♀",
         "element": "Light",
         "country": "Saga Region",
@@ -11909,7 +11844,7 @@
     "UN_V2_REN": {
         "iname": "UN_V2_REN",
         "name": "Ren",
-        "inofficial": "Ren",
+        "inofficial": "",
         "gender": "♂",
         "element": "Water",
         "country": "Wadatsumi",
@@ -11952,7 +11887,7 @@
     "UN_V2_THOL": {
         "iname": "UN_V2_THOL",
         "name": "Thol",
-        "inofficial": "Sol",
+        "inofficial": "",
         "gender": "♂",
         "element": "Dark",
         "country": "Foreign World",
@@ -11971,8 +11906,7 @@
         "jc 2": "",
         "jc 3": "Shadow Assassin : Night\n[buff dispeller]",
         "inputs": [
-            "Thol",
-            "Sol"
+            "Thol"
         ],
         "PROFILE": "『ヴェーダ十戒衆』のリーダーであり、虐げられし場所『ロストブルー』の救済を目指す男。異次元空間で強大な力を得た代償として恐怖の感情が欠落。感情の一部がない自覚から、仲間を、自分の行動をも戒律で縛ることを選ぶ。",
         "COUNTRY": "ロストブルー",
@@ -11996,7 +11930,7 @@
     "UN_V2_LETICIA": {
         "iname": "UN_V2_LETICIA",
         "name": "Leticia",
-        "inofficial": "Leticia",
+        "inofficial": "",
         "gender": "♀",
         "element": "Water",
         "country": "Wratharis",
@@ -12039,7 +11973,7 @@
     "UN_V2_NIGURU": {
         "iname": "UN_V2_NIGURU",
         "name": "Niguru",
-        "inofficial": "Niggle",
+        "inofficial": "",
         "gender": "♂",
         "element": "Thunder",
         "country": "Slothstein",
@@ -12058,8 +11992,7 @@
         "jc 2": "",
         "jc 3": "Dark Cavalier : Seele\n[Drain Skills Bonus]",
         "inputs": [
-            "Niguru",
-            "Niggle"
+            "Niguru"
         ],
         "PROFILE": "レオンハート家の元暗殺者。最小限の殺しで、新たな秩序を築く野望を抱き、その美しい夢を実現させる相棒として、ザハルとともに歩む道を選ぶ。スキットルに満たした蒸留酒を嗜みつつ、冷めた目で世を眺めているところがある。",
         "COUNTRY": "スロウスシュタイン",
@@ -12083,7 +12016,7 @@
     "UN_V2_IRA": {
         "iname": "UN_V2_IRA",
         "name": "Ira",
-        "inofficial": "Ira",
+        "inofficial": "",
         "gender": "♀",
         "element": "Fire",
         "country": "Wratharis",
@@ -12126,7 +12059,7 @@
     "UN_V2_CARLA": {
         "iname": "UN_V2_CARLA",
         "name": "Carla",
-        "inofficial": "Karla",
+        "inofficial": "",
         "gender": "♀",
         "element": "Fire",
         "country": "Desert Zone",
@@ -12145,8 +12078,7 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Carla",
-            "Karla"
+            "Carla"
         ],
         "PROFILE": "砂漠の自警団「熱砂の鷹」の立ち上げメンバーにして団長。義理人情に厚く、何事も真っ先に行動する性格な為、良くも悪くも周囲を引きつけてやまない。普段は強気一辺倒だが、落ち込むとなかなか立ち直れない一面がある。",
         "COUNTRY": "砂漠地帯",
@@ -12170,7 +12102,7 @@
     "UN_V2_ANKH": {
         "iname": "UN_V2_ANKH",
         "name": "Ankh",
-        "inofficial": "Ankh",
+        "inofficial": "",
         "gender": "♂",
         "element": "Water",
         "country": "Desert Zone",
@@ -12213,7 +12145,7 @@
     "UN_V2_NEFERTY": {
         "iname": "UN_V2_NEFERTY",
         "name": "Neferty",
-        "inofficial": "Neferti",
+        "inofficial": "",
         "gender": "♀",
         "element": "Wind",
         "country": "Desert Zone",
@@ -12232,8 +12164,7 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Neferty",
-            "Neferti"
+            "Neferty"
         ],
         "PROFILE": "砂漠の貴族でラメセスの長姉。頭の回転が速く知識も豊富だが謎めいた秘密主義者であり、笑顔で相手を煙に巻くことがよくある。一方、敵に対しては花のように美しくも苛烈な戦いを見せ“デザートリリー”の名で恐れられる。",
         "COUNTRY": "砂漠地帯",
@@ -12343,7 +12274,7 @@
     "UN_V2_ORION": {
         "iname": "UN_V2_ORION",
         "name": "Orion",
-        "inofficial": "Orion",
+        "inofficial": "",
         "gender": "♂",
         "element": "Thunder",
         "country": "Greed Dike",
@@ -12431,7 +12362,7 @@
     "UN_V2_CRY_MERLINUS": {
         "iname": "UN_V2_CRY_MERLINUS",
         "name": "Merlinus",
-        "inofficial": "Merlinus",
+        "inofficial": "",
         "gender": "♀",
         "element": "Water",
         "country": "Foreign World",

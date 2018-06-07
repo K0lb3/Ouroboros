@@ -446,8 +446,8 @@ def FanTranslatedNames(wyte,master,loc):
                 'japanese': unit['name']
                 }
             try:
-                c['inofficial']: ReBr.sub('',wunit[unit['name']]['Name']).rstrip(' ')
-                c['inofficial2']: wunit[unit['name']]['Name']
+                c['inofficial']= ReBr.sub('',wunit[unit['name']]['Name']).rstrip(' ')
+                c['inofficial2']= wunit[unit['name']]['Name']
                 if c['collab']=="":
                     [c['collab_short'],c['collab']]=get_collab(wunit[unit['name']]['Acquire'])
                 found[unit['iname']]=c
