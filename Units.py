@@ -66,17 +66,16 @@ def Units():
             break         
         
         iname=unit['iname']
-        [u_name,u_collab,u_collab_short] = name_collab(unit['iname'],loc)
-        
+
         units[iname]={
             'iname'     : iname,
-            'name'      : u_name,
+            'name'      : FAN[iname]['official'],
             'inofficial': FAN[iname]['inofficial'] if iname in FAN else "",
             'gender'    : "♀" if (unit['sex']-1) else "♂" if (unit['sex']) else "/",
             'element'   : element(unit['elem']).title() if 'elem' in unit else "/",
             'country'   : birth[unit['birth']] if 'birth' in unit else "/",
-            'collab'    : u_collab,
-            'collab short': u_collab_short,
+            'collab'    :  FAN[iname]['collab'],
+            'collab short': FAN[iname]['collab_short'],
             'rarity'    : rarity(unit['rare'],unit['raremax']),
             'icon'      : 'http://cdn.alchemistcodedb.com/images/units/profiles/' + unit["img"] + ".png",
             'farm'      : pieces[unit['piece']] if ('piece' in unit and unit['piece'] in pieces) else [],

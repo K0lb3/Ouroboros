@@ -408,34 +408,52 @@ def FanTranslatedNames(wyte,master,loc):
     for unit in wyte['Units']:
         wunit[unit['Name JPN']]=unit
 
+    def get_collab(acquire):
+        #acquire
+        collabs={
+            'BF Collab':            ['BF'   , 'Brave Frontier'],
+            'POTK':                 ['POTK' ,'Phantom Of The Kill'],
+            'Shinobina':            ['SN'   ,'Shinobi Nightmare'],
+            'EO Collab':            ['EO'   ,'Etrian Odyssey'],
+            'Fate Collab':          ['Fate' ,'Fate/Stay Night [UBW]'],
+            'EO Mystery Dungeon':   ['EMD'  ,'Etrian Mystery Dungeon'],
+            'Fullmetal Alchemist':  ['FA'   ,'Fullmetal Alchemist'],
+            'Radiant Historia':     ['RH'   ,'Radiant Historia'],
+            'FFXV':                 ['FF'   ,'Final Fantasy 15'],
+            'Disgaea':              ['DIS'  ,'Disgea'],
+            'April Fools':          [''     ,'April Fools'],
+            'Crystal of Reunion' :  ['CR'   ,'Crystal Re:Union']
+            }
+        for c in collabs:
+            if c in acquire:
+                return collabs[c]
+        return ["",""]
+
+        
 
     found={}
     none={}
     for unit in master['Unit']:
         if unit['ai'] == "AI_PLAYER":
             [name,collab,collab_short]=name_collab(unit['iname'],loc)
+            c={
+                'iname':unit['iname'], 
+                'official': loc[unit['iname']]['NAME'] if unit['iname'] in loc else name,
+                'generated': name,
+                'inofficial': "",
+                'collab': collab,
+                'collab_short':collab_short,
+                'japanese': unit['name']
+                }
             try:
-                found[unit['iname']]={
-                    'iname':unit['iname'], 
-                    'official': loc[unit['iname']]['NAME'] if unit['iname'] in loc else name,
-                    'generated': name,
-                    'inofficial': ReBr.sub('',wunit[unit['name']]['Name']).rstrip(' '),
-                    'inofficial2': wunit[unit['name']]['Name'],
-                    'collab': collab,
-                    'collab_short':collab_short,
-                    'japanese': unit['name']
-                    }
+                c['inofficial']: ReBr.sub('',wunit[unit['name']]['Name']).rstrip(' ')
+                c['inofficial2']: wunit[unit['name']]['Name']
+                if c['collab']=="":
+                    [c['collab_short'],c['collab']]=get_collab(wunit[unit['name']]['Acquire'])
+                found[unit['iname']]=c
                 del wunit[unit['name']]
             except:
-                none[unit['iname']]={
-                    'iname':unit['iname'], 
-                    'official': loc[unit['iname']]['NAME'] if unit['iname'] in loc else name,
-                    'generated': name,
-                    'inofficial': "",
-                    'collab': collab,
-                    'collab_short':collab_short,
-                    'japanese': unit['name']
-                    }
+                none[unit['iname']]=c
         else:
             break
 
@@ -454,6 +472,9 @@ def FanTranslatedNames(wyte,master,loc):
                         'inofficial2': wunit[left]['Name'],
                         'japanese2': wunit[left]['Name JPN']
                     })
+                    if none[unit]['collab']=="":
+                        [found[none[unit]['iname']]['collab_short'],found[none[unit]['iname']]['collab']]=get_collab(wunit[left]['Acquire'])
+
                     del wunit[left]
                     delete.append(unit)
                     break
