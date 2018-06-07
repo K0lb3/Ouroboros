@@ -24,6 +24,13 @@ ELEMENT_COLOR = {
 }
 DEFAULT_ELEMENT_COLOR = 0x7F7F7F
 
+GEAR_COLOR = {
+    1: 16711680,
+    2: 2631935,
+    3: 32512,
+}
+DEFAULT_GEAR_COLOR = 8355711
+
 
 #functions
 def loadFiles(files):
@@ -44,13 +51,6 @@ def loadFiles(files):
                 ret.append(json.loads(f.read()))
 
     return ret
-
-
-def gearColor(typ):
-    if typ == 1: return(16711680)
-    if typ == 3: return(32512)
-    if typ == 2: return(2631935)
-    return(8355711)
 
 def find_best(command,dic,ctx):
     inp=ctx.message.content[(len(command)+1):].title()
@@ -114,12 +114,15 @@ async def gear(ctx):
     command=prefix+'gear'
     gear=find_best(command,gears,ctx)
     #start embed - title
-    embed = discord.Embed(title=gear['name']+' '+gear['rarity'], description="", url=gear['link'], color=gearColor(gear['type']))
+    embed = discord.Embed(
+        title=gear['name']+' '+gear['rarity'], 
+        description="", 
+        url=gear['link'], 
+        color=GEAR_COLOR.get(gear['type'], DEFAULT_GEAR_COLOR)
+        )
     #icon
     embed.set_thumbnail(url=gear['icon'])
-    #gear data
-    #embed.add_field(name="effect",value=gear['expr'].replace('<br>','\n'),inline=False)
-    #embed.add_field(name="rarity",value=gear['rarity'],inline=False)
+#gear data
     #stats
     stats=""
     for s in gear['stats']:
