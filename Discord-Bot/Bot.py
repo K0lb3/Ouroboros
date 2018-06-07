@@ -13,6 +13,18 @@ from discord.ext import commands
 from TAC_API import *
 
 
+# Constants
+ELEMENT_COLOR = {
+    'Fire': 0xFF0000,
+    'Wind': 0x007F00,
+    'Water': 0x2828FF,
+    'Thunder': 0xFFCC00,
+    'Light': 0xFFFFFF,
+    'Dark': 0x140014,
+}
+DEFAULT_ELEMENT_COLOR = 0x7F7F7F
+
+
 #functions
 def loadFiles(files):
     dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'res')
@@ -33,14 +45,6 @@ def loadFiles(files):
 
     return ret
 
-def elementColor(element):
-    if element == "Fire": return(16711680)
-    if element == "Wind": return(32512)
-    if element == "Water": return(2631935)
-    if element == "Thunder": return(16763904)
-    if element == "Light": return(16777215)
-    if element == "Dark": return(1310740)
-    return(8355711)
 
 def gearColor(typ):
     if typ == 1: return(16711680)
@@ -207,7 +211,12 @@ async def unit(ctx):
     unit=find_best(command,units,ctx)
 
     #start embed - title
-    embed = discord.Embed(title=unit['name'], description="", url=unit['link'], color=elementColor(unit['element']))
+    embed = discord.Embed(
+        title=unit['name'],
+        description="",
+        url=unit['link'],
+        color=ELEMENT_COLOR.get(unit['element'], DEFAULT_ELEMENT_COLOR),
+    )
     #icon
     embed.set_thumbnail(url=unit['icon'])
     #unit data
@@ -243,7 +252,12 @@ async def lore(ctx):
     command=prefix+'lore'
     unit=find_best(command,units,ctx)
     #start embed - title
-    embed = discord.Embed(title=unit['name'], description="", url=unit['link'], color=elementColor(unit['element']))
+    embed = discord.Embed(
+        title=unit['name'],
+        description="",
+        url=unit['link'],
+        color=ELEMENT_COLOR.get(unit['element'], DEFAULT_ELEMENT_COLOR),
+    )
     #icon
     embed.set_thumbnail(url=unit['icon'])
     #unit data
@@ -270,7 +284,12 @@ async def art(ctx):
 
     for a in unit['artworks']:
         #start embed - title
-        embed = discord.Embed(title=unit['name'] + ' - ' + a['name'], description="", url=unit['link'], color=elementColor(unit['element']))
+        embed = discord.Embed(
+            title=unit['name'] + ' - ' + a['name'],
+            description="",
+            url=unit['link'],
+            color=ELEMENT_COLOR.get(unit['element'], DEFAULT_ELEMENT_COLOR),
+        )
         #icon
         embed.set_thumbnail(url=a['closeup'])
         #image
@@ -358,7 +377,12 @@ async def debug(ctx):
     unit=find_best(command,units,ctx)
 
     #start embed - title
-    embed = discord.Embed(title=unit['name'], description="", url=unit['link'], color=elementColor(unit['element']))
+    embed = discord.Embed(
+        title=unit['name'],
+        description="",
+        url=unit['link'],
+        color=ELEMENT_COLOR.get(unit['element'], DEFAULT_ELEMENT_COLOR),
+    )
     #icon
     embed.set_thumbnail(url=unit['icon'])
     #unit data
