@@ -411,7 +411,8 @@ def FanTranslatedNames(wyte,master,loc):
     def get_collab(acquire):
         #acquire
         collabs={
-            'BF Collab':            ['BF'   , 'Brave Frontier'],
+            'Sacred Stone':         ['SSM'  ,'Sacred Stone Memories'],
+            'BF Collab':            ['BF'   ,'Brave Frontier'],
             'POTK':                 ['POTK' ,'Phantom Of The Kill'],
             'Shinobina':            ['SN'   ,'Shinobi Nightmare'],
             'EO Collab':            ['EO'   ,'Etrian Odyssey'],
