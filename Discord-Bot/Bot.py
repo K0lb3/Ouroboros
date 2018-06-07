@@ -63,6 +63,9 @@ def find_best(command,dic,ctx):
             if sim > max:
                     max=sim
                     best=d
+                    if sim==1:
+                        break
+
     print('Jaro-Winkler \t'+ dic[best]['name'] + " | "+str(max))
     return(dic[best])
 
