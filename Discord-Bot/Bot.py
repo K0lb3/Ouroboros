@@ -326,11 +326,17 @@ async def arena(ctx):
 @bot.command() #  artwork
 async def tierlist(ctx):
     #start embed - title
-    embed = discord.Embed(title="GL Tierlist", description="", color=0xeee657)
+    embed = discord.Embed(
+        title="GL Tierlist", 
+        description="", 
+        color=0xeee657,
+        footer= {"text": "Tierlist by Game, Visualisation by Ｅｉｋｅ/アイケ"},
+        )
     #icon
     #embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/453970242914353167/453978923844239362/Chibi_Lucian.png")
     #image
     embed.set_image(url="https://i.imgur.com/crlzqAL.jpg")
+    
     await ctx.send(embed=embed) 
     
 @bot.command()

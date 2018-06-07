@@ -79,7 +79,7 @@
         "job 2": "Dark Knight",
         "job 3": "",
         "jc 1": "",
-        "jc 2": "Dark Cavalier+ : Edgelord",
+        "jc 2": "Dark Cavalier+  : Edgelord",
         "jc 3": "",
         "inputs": [
             "Dias",
@@ -409,7 +409,7 @@
         "job 3": "Ninja",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Ninja: Kirin\n[AGI-based]",
+        "jc 3": "Ninja : Kirin\n[AGI-based]",
         "inputs": [
             "Lucido"
         ],
@@ -459,7 +459,7 @@
         "job 2": "Hunter",
         "job 3": "Pirate",
         "jc 1": "",
-        "jc 2": "Ranger: Wolf\n[bonus damage against monsters]",
+        "jc 2": "Ranger : Wolf\n[bonus damage against monsters]",
         "jc 3": "",
         "inputs": [
             "Rigalt",
@@ -508,7 +508,7 @@
         "job 1": "Mage",
         "job 2": "Priest",
         "job 3": "Chronomancer",
-        "jc 1": "Sage: Carnac\n[stronger water skills]",
+        "jc 1": "Sage : Carnac\n[stronger water skills]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -615,7 +615,7 @@
         "job 3": "Bishop",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Bishop+",
+        "jc 3": "Bishop+\n[Bishop+ : Quack Doctor]",
         "inputs": [
             "Alexis"
         ],
@@ -771,7 +771,7 @@
         "job 1": "Mage",
         "job 2": "Priest",
         "job 3": "Bishop",
-        "jc 1": "Sage: Monolith\n[stronger thunder skills]",
+        "jc 1": "Sage : Monolith\n[stronger thunder skills]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -874,7 +874,7 @@
         "job 3": "Chemist",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Professor: Honey\n[more charms, bind/daze skills]",
+        "jc 3": "Professor : Honey\n[more charms and bind/daze skills]",
         "inputs": [
             "Melia",
             "Meria"
@@ -924,7 +924,7 @@
         "job 3": "Holy Knight",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Cavalier: Porta\n[pierce resistance]",
+        "jc 3": "Holy Cavalier : Porta\n[pierce resistance]",
         "inputs": [
             "Lambert",
             "Rambert"
@@ -1022,7 +1022,7 @@
         "job 2": "Professor",
         "job 3": "Enchanter",
         "jc 1": "",
-        "jc 2": "Professor: Aid\n[cures will heal as well]",
+        "jc 2": "Professor : Aid\n[cures will heal as well]",
         "jc 3": "Tender Wind Enchanter\n[buff that increases wind damage against thunder]",
         "inputs": [
             "Hazuki"
@@ -1068,7 +1068,7 @@
         "job 3": "Chemist",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Professor: Aid\n[cures will heal as well]",
+        "jc 3": "Professor : Aid\n[cures will heal as well]",
         "inputs": [
             "Jake"
         ],
@@ -1305,7 +1305,7 @@
         "job 2": "Hunter",
         "job 3": "Martial Artist",
         "jc 1": "",
-        "jc 2": "Ranger: Hawk\n[dodging and enemy accuracy down]",
+        "jc 2": "Ranger : Hawk\n[dodging and enemy accuracy down]",
         "jc 3": "",
         "inputs": [
             "Ishuna",
@@ -1352,7 +1352,7 @@
         "job 3": "Ninja",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Ninja: Suzaku\n[jump-based]",
+        "jc 3": "Ninja : Suzaku\n[jump-based]",
         "inputs": [
             "Mizuchi"
         ],
@@ -1397,8 +1397,8 @@
         "job 2": "Martial Artist",
         "job 3": "Ninja",
         "jc 1": "",
-        "jc 2": "",
-        "jc 3": "Ninja : Genbu\n[move-based]",
+        "jc 2": "Holy Brawler : Senju\n[multi-hit]",
+        "jc 3": "Ninja  : Genbu\n[move-based]",
         "inputs": [
             "Kazahaya"
         ],
@@ -1444,7 +1444,7 @@
         "job 1": "Thief",
         "job 2": "Shrine Maiden",
         "job 3": "Bishop",
-        "jc 1": "Shadow Assassin: Evening\n[spell evasion and resistance]",
+        "jc 1": "Shadow Assassin : Evening\n[spell evasion and resistance]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -1487,9 +1487,9 @@
         "job 1": "Hunter",
         "job 2": "Thief",
         "job 3": "Ninja",
-        "jc 1": "Ranger: Wolf\n[bonus damage against monsters]",
+        "jc 1": "Ranger : Wolf\n[bonus damage against monsters]",
         "jc 2": "",
-        "jc 3": "Ninja+ : Shinobi",
+        "jc 3": "Ninja+  : Shinobi",
         "inputs": [
             "Yuan"
         ],
@@ -1534,7 +1534,7 @@
         "job 3": "Chemist",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Professor: Aid\n[cures will heal as well]",
+        "jc 3": "Professor : Aid\n[cures will heal as well]",
         "inputs": [
             "Decel"
         ],
@@ -1578,7 +1578,7 @@
         "job 2": "Chemist",
         "job 3": "Dancer",
         "jc 1": "",
-        "jc 2": "Professor: Aid\n[cures will heal as well]",
+        "jc 2": "Professor : Aid\n[cures will heal as well]",
         "jc 3": "",
         "inputs": [
             "Ennis"
@@ -1623,7 +1623,7 @@
         "job 1": "Mage",
         "job 2": "Crafter",
         "job 3": "Bishop",
-        "jc 1": "Sage : Rosetta\n[stronger wind skills]",
+        "jc 1": "Sage  : Rosetta\n[stronger wind skills]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -1673,7 +1673,7 @@
         "job 2": "Professor",
         "job 3": "Holy Knight",
         "jc 1": "",
-        "jc 2": "Professor: Bio\n[stronger poison]",
+        "jc 2": "Professor : Bio\n[stronger poison]",
         "jc 3": "",
         "inputs": [
             "Gane",
@@ -1720,7 +1720,7 @@
         "job 3": "Chemist",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Professor: Mad\n[much stronger buffs]",
+        "jc 3": "Professor : Mad\n[much stronger buffs]",
         "inputs": [
             "Alyu",
             "Airyu"
@@ -1812,7 +1812,7 @@
         "job 3": "Magic Swordsman",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Magic Swordsman: Ixion\n[stronger thunder skills]",
+        "jc 3": "Magic Swordsman : Ixion\n[stronger thunder skills]",
         "inputs": [
             "Leon",
             "Rion"
@@ -1905,7 +1905,7 @@
         "job 3": "Sniper",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Sniper: Scope\n[charge up for snipers]",
+        "jc 3": "Sniper : Scope\n[charge up for snipers]",
         "inputs": [
             "Almira"
         ],
@@ -2050,7 +2050,7 @@
         "job 2": "Chemist",
         "job 3": "Shrine Maiden",
         "jc 1": "",
-        "jc 2": "Professor: Bio\n[stronger poison]",
+        "jc 2": "Professor : Bio\n[stronger poison]",
         "jc 3": "",
         "inputs": [
             "Kuon"
@@ -2093,7 +2093,7 @@
         "job 2": "Mage",
         "job 3": "Bishop",
         "jc 1": "",
-        "jc 2": "Sage: Carnac\n[stronger water skills]",
+        "jc 2": "Sage : Carnac\n[stronger water skills]",
         "jc 3": "",
         "inputs": [
             "Mianne",
@@ -2141,7 +2141,7 @@
         "job 3": "Ninja",
         "jc 1": "Sage+",
         "jc 2": "",
-        "jc 3": "Ninja: Byakko\n[evasion-based]",
+        "jc 3": "Ninja : Byakko\n[evasion-based]",
         "inputs": [
             "Mia",
             "Mea"
@@ -2195,7 +2195,7 @@
         "job 1": "Mage",
         "job 2": "Bishop",
         "job 3": "Chronomancer",
-        "jc 1": "Sage: Monolith\n[stronger thunder skills]",
+        "jc 1": "Sage : Monolith\n[stronger thunder skills]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -2243,7 +2243,7 @@
         "job 3": "Dragon Knight",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dragon Cavalier+ : Dragon Slayer",
+        "jc 3": "Dragon Cavalier+  : Dragon Slayer",
         "inputs": [
             "Freed"
         ],
@@ -2337,9 +2337,9 @@
         "job 1": "Thief",
         "job 2": "Gunner",
         "job 3": "Magic Swordsman",
-        "jc 1": "Assasin+: Charm",
+        "jc 1": "Assasin+ : Charm",
         "jc 2": "",
-        "jc 3": "Magic Swordsman: Chimera\n[dark skill added]",
+        "jc 3": "Magic Swordsman : Chimera\n[dark skill added]",
         "inputs": [
             "Strie",
             "Sutorie"
@@ -2384,7 +2384,7 @@
         "job 1": "Dancer",
         "job 2": "Samurai",
         "job 3": "Chronomancer",
-        "jc 1": "Dancer+",
+        "jc 1": "Dancer+\n[Dancer+ : Odori Dancer]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -2534,8 +2534,8 @@
         "job 2": "Martial Artist",
         "job 3": "Dragon Cavalier",
         "jc 1": "",
-        "jc 2": "Holy Brawler: Senju\n[multi-hit]",
-        "jc 3": "Dragon Cavalier: Rudra\n[teleportation skills]",
+        "jc 2": "Holy Brawler : Senju\n[multi-hit]",
+        "jc 3": "Dragon Cavalier : Rudra\n[teleportation skills]",
         "inputs": [
             "Zangetsu"
         ],
@@ -2781,7 +2781,7 @@
         "job 1": "Dark Knight",
         "job 2": "Crafter",
         "job 3": "Dark Cavalier",
-        "jc 1": "Dark Cavalier: Spion\n[increased move and move +1 buff]",
+        "jc 1": "Dark Cavalier : Spion\n[Faster Dark Cav]",
         "jc 2": "",
         "jc 3": "Dark Cavalier+",
         "inputs": [
@@ -2833,8 +2833,8 @@
         "job 2": "Dragon Knight",
         "job 3": "Dark Cavalier",
         "jc 1": "",
-        "jc 2": "Dragon Cavalier: Garuda\n[lower-range, high damage attacks compared to Vritra]",
-        "jc 3": "Dark Cavalier: Seele\n[defense ignoring hp and jewel drains]",
+        "jc 2": "Dragon Cavalier : Garuda\n[low range but high dmg]",
+        "jc 3": "Dark Cavalier : Seele\n[Drain Skills Bonus]",
         "inputs": [
             "Zahar"
         ],
@@ -2885,7 +2885,7 @@
         "job 3": "Holy Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Cavalier: Pieta\n[healing]",
+        "jc 3": "Holy Cavalier : Pieta\n[healing]",
         "inputs": [
             "Chloe"
         ],
@@ -2946,7 +2946,7 @@
         "job 3": "Holy Brawler",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Brawler: Maitreya\n[12% regen, 5% jewel regen buff]",
+        "jc 3": "Holy Brawler : Maitreya\n[12% regen &  5% jewel regen buff]",
         "inputs": [
             "Yomi"
         ],
@@ -2995,8 +2995,8 @@
         "job 1": "Magic Swordsman",
         "job 2": "Holy Cavalier",
         "job 3": "Samurai",
-        "jc 1": "Magic Swordsman: Ifrit\n[stronger fire skills]",
-        "jc 2": "Holy Cavalier: Izaya\n[slash resistance]",
+        "jc 1": "Magic Swordsman : Ifrit\n[stronger fire skills]",
+        "jc 2": "Holy Cavalier : Izaya\n[slash resistance]",
         "jc 3": "",
         "inputs": [
             "Vettel",
@@ -3051,7 +3051,7 @@
         "job 3": "Holy Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Cavalier: Gear\n[very high AGI]",
+        "jc 3": "Holy Cavalier : Gear\n[very high AGI]",
         "inputs": [
             "Tyrfing"
         ],
@@ -3098,7 +3098,7 @@
         "job 2": "Ninja",
         "job 3": "Dark Cavalier",
         "jc 1": "",
-        "jc 2": "Ninja: Kirin\n[AGI-based]",
+        "jc 2": "Ninja : Kirin\n[AGI-based]",
         "jc 3": "Dark Cavalier+",
         "inputs": [
             "Laevateinn"
@@ -3234,7 +3234,7 @@
         "job 1": "Professor",
         "job 2": "Chronomancer",
         "job 3": "Bishop",
-        "jc 1": "Professor: Honey\n[more charms, bind/daze skills]",
+        "jc 1": "Professor : Honey\n[more charms and bind/daze skills]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -3287,7 +3287,7 @@
         "job 3": "Ninja",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Ninja : Genbu\n[move-based]",
+        "jc 3": "Ninja  : Genbu\n[move-based]",
         "inputs": [
             "Magnus"
         ],
@@ -3336,7 +3336,7 @@
         "job 2": "Magic Swordsman",
         "job 3": "Beast Tamer",
         "jc 1": "",
-        "jc 2": "Magic Swordsman: Pegasus\n[light skill added]",
+        "jc 2": "Magic Swordsman : Pegasus\n[light skill added]",
         "jc 3": "Beast Tamer+",
         "inputs": [
             "Flamel"
@@ -3378,9 +3378,9 @@
         "job 1": "Twin-Blade Swordsman",
         "job 2": "Thief",
         "job 3": "Dark Cavalier",
-        "jc 1": "Twin-Blade Swordsman+",
+        "jc 1": "Twin-Blade Swordsman+\n[Twin-Blade Swordsman+ : Desert Storm]",
         "jc 2": "",
-        "jc 3": "Dark Cavalier: Seele\n[defense ignoring hp and jewel drains]",
+        "jc 3": "Dark Cavalier : Seele\n[Drain Skills Bonus]",
         "inputs": [
             "Balt",
             "Baruto"
@@ -3525,7 +3525,7 @@
         "job 3": "Twin-Blade Swordsman",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Twin-Blade Swordsman: Ogre Exterminator\n[increased damage against humans]",
+        "jc 3": "Twin-Blade Swordsman : Ogre Exterminator\n[increased damage against humans]",
         "inputs": [
             "Retzius"
         ],
@@ -3566,8 +3566,8 @@
         "job 1": "Thief",
         "job 2": "Hunter",
         "job 3": "Dark Knight",
-        "jc 1": "Shadow Assassin: Night\n[buff dispeller]",
-        "jc 2": "Ranger: Hawk\n[dodging and enemy accuracy down]",
+        "jc 1": "Shadow Assassin : Night\n[buff dispeller]",
+        "jc 2": "Ranger : Hawk\n[dodging and enemy accuracy down]",
         "jc 3": "",
         "inputs": [
             "Sabareta"
@@ -3613,7 +3613,7 @@
         "job 2": "Sniper",
         "job 3": "Chronomancer",
         "jc 1": "",
-        "jc 2": "Sniper: Barrel\n[very long range, increased minimum range]",
+        "jc 2": "Sniper : Barrel\n[very long range and increased minimum range]",
         "jc 3": "",
         "inputs": [
             "Reagan",
@@ -3659,8 +3659,8 @@
         "job 2": "Dragon Cavalier",
         "job 3": "Ninja",
         "jc 1": "",
-        "jc 2": "Dragon Cavalier: Vritra\n[longer-ranged, lower damage attacks compared to Garuda]",
-        "jc 3": "Ninja : Genbu\n[move-based]",
+        "jc 2": "Dragon Cavalier : Vritra\n[long rang but low dmg]",
+        "jc 3": "Ninja  : Genbu\n[move-based]",
         "inputs": [
             "Rosa",
             "Roza"
@@ -3709,7 +3709,7 @@
         "job 3": "Holy Brawler",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Brawler: Senju\n[multi-hit]",
+        "jc 3": "Holy Brawler : Senju\n[multi-hit]",
         "inputs": [
             "Eve"
         ],
@@ -3757,7 +3757,7 @@
         "job 3": "Holy Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Cavalier: Izaya\n[slash resistance]",
+        "jc 3": "Holy Cavalier : Izaya\n[slash resistance]",
         "inputs": [
             "Fraise",
             "Frayze"
@@ -3803,7 +3803,7 @@
         "job 3": "Ninja",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Spy+ : Genin",
+        "jc 3": "Spy+  : Genin",
         "inputs": [
             "Hayate"
         ],
@@ -3895,7 +3895,7 @@
         "job 3": "Professor",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Professor: Honey\n[more charms, bind/daze skills]",
+        "jc 3": "Professor : Honey\n[more charms and bind/daze skills]",
         "inputs": [
             "Lucretia"
         ],
@@ -3939,8 +3939,8 @@
         "job 2": "Ninja",
         "job 3": "Dark Cavalier",
         "jc 1": "",
-        "jc 2": "Ninja: Seiryu\n[attack-based]",
-        "jc 3": "Dark Cavalier: Gernika\n[juggernaut becomes high damage nuke with no hp cost]",
+        "jc 2": "Ninja : Seiryu\n[attack-based]",
+        "jc 3": "Dark Cavalier : Gernika\n[One Slash Cav]",
         "inputs": [
             "Suzuka"
         ],
@@ -4132,7 +4132,7 @@
         "job 1": "Ranger",
         "job 2": "Twin-Blade Swordsman",
         "job 3": "Beast Tamer",
-        "jc 1": "Ranger: Hawk\n[dodging and enemy accuracy down]",
+        "jc 1": "Ranger : Hawk\n[dodging and enemy accuracy down]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -4185,7 +4185,7 @@
         "job 3": "Sniper",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Sniper: Barrel\n[very long range, increased minimum range]",
+        "jc 3": "Sniper : Barrel\n[very long range and increased minimum range]",
         "inputs": [
             "Albea",
             "Arber"
@@ -4234,7 +4234,7 @@
         "job 1": "Holy Brawler",
         "job 2": "Dragon Knight",
         "job 3": "Chronomancer",
-        "jc 1": "Holy Brawler: Shura\n[5x PATK buff]",
+        "jc 1": "Holy Brawler : Shura\n[5x PATK buff]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -4284,9 +4284,9 @@
         "job 1": "Ninja",
         "job 2": "Martial Artist",
         "job 3": "Samurai",
-        "jc 1": "Ninja: Suzaku\n[jump-based]",
+        "jc 1": "Ninja : Suzaku\n[jump-based]",
         "jc 2": "",
-        "jc 3": "Blademaster+ : Mifune",
+        "jc 3": "Blademaster+  : Mifune",
         "inputs": [
             "Reimei"
         ],
@@ -4329,7 +4329,7 @@
         "job 1": "Sage",
         "job 2": "Bishop",
         "job 3": "Enchanter",
-        "jc 1": "Sage: Carnac\n[stronger water skills]",
+        "jc 1": "Sage : Carnac\n[stronger water skills]",
         "jc 2": "",
         "jc 3": "Zero Enchanter\n[buff dispeller]",
         "inputs": [
@@ -4375,7 +4375,7 @@
         "job 3": "Ranger",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Ranger: Wolf\n[bonus damage against monsters]",
+        "jc 3": "Ranger : Wolf\n[bonus damage against monsters]",
         "inputs": [
             "Milis",
             "Milish"
@@ -4452,7 +4452,7 @@
         "job 2": "Thief",
         "job 3": "Crafter",
         "jc 1": "",
-        "jc 2": "Shadow Assassin: Evening\n[spell evasion and resistance]",
+        "jc 2": "Shadow Assassin : Evening\n[spell evasion and resistance]",
         "jc 3": "",
         "inputs": [
             "Shenmei"
@@ -4498,7 +4498,7 @@
         "job 3": "Ranger",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Ranger: Snake\n[jewel damage]",
+        "jc 3": "Ranger : Snake\n[jewel damage]",
         "inputs": [
             "Tamamo"
         ],
@@ -4546,7 +4546,7 @@
         "job 1": "Sniper",
         "job 2": "Crafter",
         "job 3": "Dark Knight",
-        "jc 1": "Sniper: Scope\n[charge up for snipers]",
+        "jc 1": "Sniper : Scope\n[charge up for snipers]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -4589,7 +4589,7 @@
         "job 1": "Mage",
         "job 2": "Flame Orb Princess",
         "job 3": "Blaze Orb Princess",
-        "jc 1": "Sage: Obelisk\n[stronger fire skills]",
+        "jc 1": "Sage : Obelisk\n[stronger fire skills]",
         "jc 2": "",
         "jc 3": "Blaze Orb Princess+",
         "inputs": [
@@ -4638,7 +4638,7 @@
         "job 2": "Martial Artist",
         "job 3": "Dark Cavalier",
         "jc 1": "Demonic Spearman+",
-        "jc 2": "Holy Brawler: Shura\n[5x PATK buff]",
+        "jc 2": "Holy Brawler : Shura\n[5x PATK buff]",
         "jc 3": "",
         "inputs": [
             "Kudanstein",
@@ -4863,7 +4863,7 @@
         "job 3": "Holy Brawler",
         "jc 1": "Pirate+",
         "jc 2": "",
-        "jc 3": "Holy Brawler: Senju\n[multi-hit]",
+        "jc 3": "Holy Brawler : Senju\n[multi-hit]",
         "inputs": [
             "Gormalas",
             "Golmaras"
@@ -4912,9 +4912,9 @@
         "job 1": "Sage",
         "job 2": "Dancer",
         "job 3": "Magic Swordsman",
-        "jc 1": "Sage : Rosetta\n[stronger wind skills]",
+        "jc 1": "Sage  : Rosetta\n[stronger wind skills]",
         "jc 2": "",
-        "jc 3": "Magic Swordsman: Ifrit\n[stronger fire skills]",
+        "jc 3": "Magic Swordsman : Ifrit\n[stronger fire skills]",
         "inputs": [
             "Scheherazade",
             "Scheherazāde"
@@ -4957,7 +4957,7 @@
         "job 2": "Hunter",
         "job 3": "Ninja",
         "jc 1": "Venom Archer+",
-        "jc 2": "Ranger: Hawk\n[dodging and enemy accuracy down]",
+        "jc 2": "Ranger : Hawk\n[dodging and enemy accuracy down]",
         "jc 3": "",
         "inputs": [
             "Seida",
@@ -5002,7 +5002,7 @@
         "job 3": "Holy Cavalier",
         "jc 1": "Indomitable Axe Knight+",
         "jc 2": "",
-        "jc 3": "Holy Cavalier: Izaya\n[slash resistance]",
+        "jc 3": "Holy Cavalier : Izaya\n[slash resistance]",
         "inputs": [
             "Monzein"
         ],
@@ -5045,9 +5045,9 @@
         "job 1": "Warrior",
         "job 2": "Thief",
         "job 3": "Dragon Cavalier",
-        "jc 1": "Warrior: Goliath\n[light tank]",
+        "jc 1": "Warrior : Goliath\n[light tank]",
         "jc 2": "",
-        "jc 3": "Dragon Cavalier: Garuda\n[lower-range, high damage attacks compared to Vritra]",
+        "jc 3": "Dragon Cavalier : Garuda\n[low range but high dmg]",
         "inputs": [
             "Spica"
         ],
@@ -5100,9 +5100,9 @@
         "job 1": "Sage",
         "job 2": "Bard",
         "job 3": "Professor",
-        "jc 1": "Sage: Monolith\n[stronger thunder skills]",
+        "jc 1": "Sage : Monolith\n[stronger thunder skills]",
         "jc 2": "",
-        "jc 3": "Professor: Mad\n[much stronger buffs]",
+        "jc 3": "Professor : Mad\n[much stronger buffs]",
         "inputs": [
             "Vincent"
         ],
@@ -5145,9 +5145,9 @@
         "job 1": "Astrologer",
         "job 2": "Crafter",
         "job 3": "Magic Swordsman",
-        "jc 1": "Astrologer+ : Moirai",
+        "jc 1": "Astrologer+  : Moirai",
         "jc 2": "",
-        "jc 3": "Magic Swordsman: Ixion\n[stronger thunder skills]",
+        "jc 3": "Magic Swordsman : Ixion\n[stronger thunder skills]",
         "inputs": [
             "Deneb"
         ],
@@ -5190,8 +5190,8 @@
         "job 1": "Ninja",
         "job 2": "Dark Cavalier",
         "job 3": "Samurai",
-        "jc 1": "Ninja: Suzaku\n[jump-based]",
-        "jc 2": "Dark Cavalier: Gernika\n[juggernaut becomes high damage nuke with no hp cost]",
+        "jc 1": "Ninja : Suzaku\n[jump-based]",
+        "jc 2": "Dark Cavalier : Gernika\n[One Slash Cav]",
         "jc 3": "",
         "inputs": [
             "Glanz",
@@ -5241,7 +5241,7 @@
         "job 3": "Sage",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Sage: Monolith\n[stronger thunder skills]",
+        "jc 3": "Sage : Monolith\n[stronger thunder skills]",
         "inputs": [
             "Peridot"
         ],
@@ -5283,7 +5283,7 @@
         "job 2": "Martial Artist",
         "job 3": "Twin-Blade Swordsman",
         "jc 1": "Twin-Blade Knight+",
-        "jc 2": "Holy Brawler: Senju\n[multi-hit]",
+        "jc 2": "Holy Brawler : Senju\n[multi-hit]",
         "jc 3": "",
         "inputs": [
             "Yauras"
@@ -5332,7 +5332,7 @@
         "job 3": "Holy Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Cavalier: Zayin",
+        "jc 3": "Holy Cavalier : Zayin",
         "inputs": [
             "Zain"
         ],
@@ -5377,7 +5377,7 @@
         "job 3": "Sage",
         "jc 1": "Summoner of Agartha\n[strong non-elemental damage]",
         "jc 2": "",
-        "jc 3": "Sage: Obelisk\n[stronger fire skills]",
+        "jc 3": "Sage : Obelisk\n[stronger fire skills]",
         "inputs": [
             "Lupinus"
         ],
@@ -5420,8 +5420,8 @@
         "job 1": "Holy Cavalier",
         "job 2": "Ninja",
         "job 3": "Twin-Blade Swordsman",
-        "jc 1": "Holy Cavalier: Magi\n[magic resistance]",
-        "jc 2": "Ninja: Kirin\n[AGI-based]",
+        "jc 1": "Holy Cavalier : Magi\n[magic resistance]",
+        "jc 2": "Ninja : Kirin\n[AGI-based]",
         "jc 3": "",
         "inputs": [
             "Victor"
@@ -5516,7 +5516,7 @@
         "job 3": "Dragon Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dragon Cavalier: Garuda\n[lower-range, high damage attacks compared to Vritra]",
+        "jc 3": "Dragon Cavalier : Garuda\n[low range but high dmg]",
         "inputs": [
             "Aruba",
             "Alba"
@@ -5562,7 +5562,7 @@
         "job 3": "Sage",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Sage: Carnac\n[stronger water skills]",
+        "jc 3": "Sage : Carnac\n[stronger water skills]",
         "inputs": [
             "Chiruru"
         ],
@@ -5603,9 +5603,9 @@
         "job 1": "Ranger",
         "job 2": "Hunter",
         "job 3": "Holy Brawler",
-        "jc 1": "Ranger: Snake\n[jewel damage]",
+        "jc 1": "Ranger : Snake\n[jewel damage]",
         "jc 2": "",
-        "jc 3": "Holy Brawler: Maitreya\n[12% regen, 5% jewel regen buff]",
+        "jc 3": "Holy Brawler : Maitreya\n[12% regen &  5% jewel regen buff]",
         "inputs": [
             "Shekinah"
         ],
@@ -5651,8 +5651,8 @@
         "job 1": "Warrior",
         "job 2": "Martial Artist",
         "job 3": "Pirate",
-        "jc 1": "Warrior: Argos\n[wind nuke]",
-        "jc 2": "Holy Brawler: Shura\n[5x PATK buff]",
+        "jc 1": "Warrior : Argos\n[wind nuke]",
+        "jc 2": "Holy Brawler : Shura\n[5x PATK buff]",
         "jc 3": "",
         "inputs": [
             "Cita",
@@ -5697,7 +5697,7 @@
         "job 3": "Dark Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dark Cavalier: Faust\n[hp cost skills cost more and do more damage]",
+        "jc 3": "Dark Cavalier : Faust\n[Suicidal Nuker]",
         "inputs": [
             "Masamune"
         ],
@@ -5742,7 +5742,7 @@
         "job 3": "Holy Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Cavalier: Porta\n[pierce resistance]",
+        "jc 3": "Holy Cavalier : Porta\n[pierce resistance]",
         "inputs": [
             "Teona",
             "Theona"
@@ -5791,8 +5791,8 @@
         "job 1": "Dragon Cavalier",
         "job 2": "Dark Cavalier",
         "job 3": "Thief",
-        "jc 1": "Dragon Cavalier: Rudra\n[teleportation skills]",
-        "jc 2": "Dark Cavalier: Faust\n[hp cost skills cost more and do more damage]",
+        "jc 1": "Dragon Cavalier : Rudra\n[teleportation skills]",
+        "jc 2": "Dark Cavalier : Faust\n[Suicidal Nuker]",
         "jc 3": "",
         "inputs": [
             "Ramses",
@@ -5838,7 +5838,7 @@
         "job 2": "Magic Swordsman",
         "job 3": "Warrior",
         "jc 1": "",
-        "jc 2": "Magic Swordsman: Ifrit\n[stronger fire skills]",
+        "jc 2": "Magic Swordsman : Ifrit\n[stronger fire skills]",
         "jc 3": "",
         "inputs": [
             "Dorothea",
@@ -5885,8 +5885,8 @@
         "job 2": "Sage",
         "job 3": "Ninja",
         "jc 1": "",
-        "jc 2": "Sage: Obelisk\n[stronger fire skills]",
-        "jc 3": "Ninja: Kirin\n[AGI-based]",
+        "jc 2": "Sage : Obelisk\n[stronger fire skills]",
+        "jc 3": "Ninja : Kirin\n[AGI-based]",
         "inputs": [
             "Reida",
             "Leida"
@@ -5930,7 +5930,7 @@
         "job 3": "Merchant",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Merchant: Charming Daruma\n[jewel drain and charm around self]",
+        "jc 3": "Merchant : Charming Daruma\n[jewel drain and charm around self]",
         "inputs": [
             "Elrike",
             "Ellique"
@@ -5974,8 +5974,8 @@
         "job 1": "Shadow Assassin",
         "job 2": "Twin-Blade Swordsman",
         "job 3": "Gunner",
-        "jc 1": "Shadow Assassin: Evening\n[spell evasion and resistance]",
-        "jc 2": "Twin-Blade Swordsman: Demon Hunter\n[increased damage against beasts]",
+        "jc 1": "Shadow Assassin : Evening\n[spell evasion and resistance]",
+        "jc 2": "Twin-Blade Swordsman : Demon Hunter\n[increased damage against beasts]",
         "jc 3": "",
         "inputs": [
             "Aswald",
@@ -6072,7 +6072,7 @@
         "job 3": "Merchant",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Merchant+ : Armored Battle Maid",
+        "jc 3": "Merchant+  : Armored Battle Maid",
         "inputs": [
             "Carol"
         ],
@@ -6122,7 +6122,7 @@
         "job 3": "Shadow Assassin",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Shadow Assassin: Night\n[buff dispeller]",
+        "jc 3": "Shadow Assassin : Night\n[buff dispeller]",
         "inputs": [
             "Setsuna"
         ],
@@ -6166,8 +6166,8 @@
         "job 2": "Magic Swordsman",
         "job 3": "Ranger",
         "jc 1": "",
-        "jc 2": "Magic Swordsman: Sylphid\n[stronger wind skills]",
-        "jc 3": "Ranger: Hawk\n[dodging and enemy accuracy down]",
+        "jc 2": "Magic Swordsman : Sylphid\n[stronger wind skills]",
+        "jc 3": "Ranger : Hawk\n[dodging and enemy accuracy down]",
         "inputs": [
             "Hazel"
         ],
@@ -6217,7 +6217,7 @@
         "job 3": "Holy Brawler",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Brawler: Fudo\n[more damage at lower health]",
+        "jc 3": "Holy Brawler : Fudo\n[more damage at lower health]",
         "inputs": [
             "Eizan",
             "Eizen"
@@ -6267,8 +6267,8 @@
         "job 2": "Sage",
         "job 3": "Ninja",
         "jc 1": "",
-        "jc 2": "Sage: Pandora\n[passive that upgrades all mega and cross skills]",
-        "jc 3": "Ninja: Seiryu\n[attack-based]",
+        "jc 2": "Sage : Pandora\n[stronger skills via passive]",
+        "jc 3": "Ninja : Seiryu\n[attack-based]",
         "inputs": [
             "Thillie"
         ],
@@ -6705,8 +6705,8 @@
         "job 2": "Dark Cavalier",
         "job 3": "Holy Cavalier",
         "jc 1": "",
-        "jc 2": "Dark Cavalier: Faust\n[hp cost skills cost more and do more damage]",
-        "jc 3": "Holy Cavalier: David\n[strike resistance]",
+        "jc 2": "Dark Cavalier : Faust\n[Suicidal Nuker]",
+        "jc 3": "Holy Cavalier : David\n[strike resistance]",
         "inputs": [
             "Zeke",
             "Sieg"
@@ -6753,9 +6753,9 @@
         "job 1": "Master Blacksmith",
         "job 2": "Thief",
         "job 3": "Holy Cavalier",
-        "jc 1": "Blacksmith+ ",
+        "jc 1": "Blacksmith+        ",
         "jc 2": "",
-        "jc 3": "Holy Cavalier: Pieta\n[healing]",
+        "jc 3": "Holy Cavalier : Pieta\n[healing]",
         "inputs": [
             "Miuna"
         ],
@@ -6797,7 +6797,7 @@
         "job 2": "Ninja",
         "job 3": "Warrior",
         "jc 1": "",
-        "jc 2": "Ninja: Seiryu\n[attack-based]",
+        "jc 2": "Ninja : Seiryu\n[attack-based]",
         "jc 3": "",
         "inputs": [
             "Sakura",
@@ -6841,9 +6841,9 @@
         "job 1": "Ranger",
         "job 2": "Samurai",
         "job 3": "Merchant",
-        "jc 1": "Ranger: Snake\n[jewel damage]",
+        "jc 1": "Ranger : Snake\n[jewel damage]",
         "jc 2": "",
-        "jc 3": "Merchant: Scheming Tanuki\n[randomly give 50 CT to any units on map]",
+        "jc 3": "Merchant : Scheming Tanuki\n[randomly give 50 CT to any units on map]",
         "inputs": [
             "Abyss Princess Yomi",
             "Yomi SN",
@@ -6888,7 +6888,7 @@
         "job 3": "Holy Brawler",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Brawler: Maitreya\n[12% regen, 5% jewel regen buff]",
+        "jc 3": "Holy Brawler : Maitreya\n[12% regen &  5% jewel regen buff]",
         "inputs": [
             "Forcas"
         ],
@@ -6930,8 +6930,8 @@
         "job 2": "Ninja",
         "job 3": "Sniper",
         "jc 1": "",
-        "jc 2": "Ninja: Suzaku\n[jump-based]",
-        "jc 3": "Sniper: Barrel\n[very long range, increased minimum range]",
+        "jc 2": "Ninja : Suzaku\n[jump-based]",
+        "jc 3": "Sniper : Barrel\n[very long range and increased minimum range]",
         "inputs": [
             "Bashosen",
             "Bashousen"
@@ -6976,7 +6976,7 @@
         "job 2": "Ninja",
         "job 3": "Valkyrie",
         "jc 1": "",
-        "jc 2": "Ninja: Byakko\n[evasion-based]",
+        "jc 2": "Ninja : Byakko\n[evasion-based]",
         "jc 3": "",
         "inputs": [
             "Mikoto"
@@ -7020,8 +7020,8 @@
         "job 1": "Merchant",
         "job 2": "Magic Swordsman",
         "job 3": "Sage",
-        "jc 1": "Merchant: Grace Crane\n[stronger heal delivery and full leverage +15 jewels]",
-        "jc 2": "Magic Swordsman: Fenrir\n[stronger water skills]",
+        "jc 1": "Merchant : Grace Crane\n[stronger heal delivery and full leverage +15 jewels]",
+        "jc 2": "Magic Swordsman : Fenrir\n[stronger water skills]",
         "jc 3": "",
         "inputs": [
             "Margaret"
@@ -7065,9 +7065,9 @@
         "job 1": "Martial Master",
         "job 2": "Thief",
         "job 3": "Dark Cavalier",
-        "jc 1": "Martial Master: Mecha Masher",
+        "jc 1": "Martial Master : Mecha Masher\n[Anti-Machine Skills]",
         "jc 2": "",
-        "jc 3": "Dark Cavalier: Jaeger\n[hp cost skills have higher damage]",
+        "jc 3": "Dark Cavalier : Jaeger\n[Sacrifice Skills Bonus]",
         "inputs": [
             "Mei Fang",
             "Meifan"
@@ -7111,9 +7111,9 @@
         "job 1": "Magia Gunslinger",
         "job 2": "Gunner",
         "job 3": "Sage",
-        "jc 1": "Magia Gunslinger: Horus\n[improved fire skills and healing]",
+        "jc 1": "Magia Gunslinger : Horus\n[improved fire skills and healing]",
         "jc 2": "",
-        "jc 3": "Sage : Rosetta\n[stronger wind skills]",
+        "jc 3": "Sage  : Rosetta\n[stronger wind skills]",
         "inputs": [
             "Vivi",
             "ViVi"
@@ -7157,7 +7157,7 @@
         "job 3": "Warrior",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Warrior: Muspell\n[fire attack with huge self buff]",
+        "jc 3": "Warrior : Muspell\n[fire attack with huge self buff]",
         "inputs": [
             "Yuto"
         ],
@@ -7199,7 +7199,7 @@
         "job 2": "Twin-Blade Swordsman",
         "job 3": "Holy Brawler",
         "jc 1": "",
-        "jc 2": "Twin-Blade Swordsman: Demon Hunter\n[increased damage against beasts]",
+        "jc 2": "Twin-Blade Swordsman : Demon Hunter\n[increased damage against beasts]",
         "jc 3": "",
         "inputs": [
             "Basheeny",
@@ -7245,8 +7245,8 @@
         "job 2": "Magic Swordsman",
         "job 3": "Sage",
         "jc 1": "",
-        "jc 2": "Magic Swordsman: Pegasus\n[light skill added]",
-        "jc 3": "Sage : Rosetta\n[stronger wind skills]",
+        "jc 2": "Magic Swordsman : Pegasus\n[light skill added]",
+        "jc 3": "Sage  : Rosetta\n[stronger wind skills]",
         "inputs": [
             "Neica",
             "Neika"
@@ -7290,14 +7290,14 @@
             "JP: [32 AP] [Hard] Ch 3: Ep 3 [2-9]"
         ],
         "leader skill": "Water: +30% HP & +20% PATK",
-        "master ability": "",
+        "master ability": "+300 HP & +40 Initial Jewels",
         "link": "http://www.alchemistcodedb.com/jp/unit/yunagi",
         "job 1": "Dark Cavalier",
         "job 2": "Ninja",
         "job 3": "Warrior",
-        "jc 1": "Dark Cavalier: Gernika\n[juggernaut becomes high damage nuke with no hp cost]",
+        "jc 1": "Dark Cavalier : Gernika\n[One Slash Cav]",
         "jc 2": "",
-        "jc 3": "Warrior: Titan\n[water nuke]",
+        "jc 3": "Warrior : Titan\n[water nuke]",
         "inputs": [
             "Yunagi",
             "Yuunagi"
@@ -7343,7 +7343,7 @@
         "job 3": "Merchant",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Merchant: Grace Crane\n[stronger heal delivery and full leverage +15 jewels]",
+        "jc 3": "Merchant : Grace Crane\n[stronger heal delivery and full leverage +15 jewels]",
         "inputs": [
             "Mirianne",
             "Marianne"
@@ -7387,7 +7387,7 @@
         "job 3": "Shadow Assassin",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Shadow Assassin: Night\n[buff dispeller]",
+        "jc 3": "Shadow Assassin : Night\n[buff dispeller]",
         "inputs": [
             "Killia",
             "Kiria",
@@ -7433,7 +7433,7 @@
         "job 3": "Magia Gunslinger",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Magia Gunslinger: Isis\n[improved water damage and multi-hit]",
+        "jc 3": "Magia Gunslinger : Isis\n[improved water damage and multi-hit]",
         "inputs": [
             "Seraphina",
             "Seraphina DIS",
@@ -7523,7 +7523,7 @@
         "job 2": "Hunter",
         "job 3": "Felynn",
         "jc 1": "",
-        "jc 2": "Ranger: Snake\n[jewel damage]",
+        "jc 2": "Ranger : Snake\n[jewel damage]",
         "jc 3": "",
         "inputs": [
             "D.Rin",
@@ -7609,13 +7609,13 @@
             "JP: [32 AP] [Hard] Ch 3: Ep 4 [3-1]"
         ],
         "leader skill": "Thunder: +30 Magic ATK & +20% HP",
-        "master ability": "",
+        "master ability": "+300 HP & +40 DEX & +1 MOVE",
         "link": "http://www.alchemistcodedb.com/jp/unit/chao",
         "job 1": "Battle Mage",
         "job 2": "Twin-Blade Swordsman",
         "job 3": "Astrologer",
         "jc 1": "",
-        "jc 2": "Twin-Blade Swordsman: Ogre Exterminator\n[increased damage against humans]",
+        "jc 2": "Twin-Blade Swordsman : Ogre Exterminator\n[increased damage against humans]",
         "jc 3": "",
         "inputs": [
             "Chao"
@@ -7661,7 +7661,7 @@
         "job 3": "Holy Brawler",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Brawler: Fudo\n[more damage at lower health]",
+        "jc 3": "Holy Brawler : Fudo\n[more damage at lower health]",
         "inputs": [
             "Daisy"
         ],
@@ -7705,7 +7705,7 @@
         "job 2": "Magic Swordsman",
         "job 3": "Enchanter",
         "jc 1": "Summoner of Tir Na Nog\n[increased damage against dark]",
-        "jc 2": "Magic Swordsman: Sylphid\n[stronger wind skills]",
+        "jc 2": "Magic Swordsman : Sylphid\n[stronger wind skills]",
         "jc 3": "",
         "inputs": [
             "Nasario"
@@ -7827,7 +7827,7 @@
         "job 2": "Ninja",
         "job 3": "Blademaster",
         "jc 1": "",
-        "jc 2": "Ninja: Suzaku\n[jump-based]",
+        "jc 2": "Ninja : Suzaku\n[jump-based]",
         "jc 3": "",
         "inputs": [
             "Etona",
@@ -8007,9 +8007,9 @@
         "job 1": "Magia Gunslinger",
         "job 2": "Thief",
         "job 3": "Dark Cavalier",
-        "jc 1": "Magia Gunslinger: Isis\n[improved water damage and multi-hit]",
+        "jc 1": "Magia Gunslinger : Isis\n[improved water damage and multi-hit]",
         "jc 2": "",
-        "jc 3": "Dark Cavalier: Move",
+        "jc 3": "Dark Cavalier : Move\n[Faster Dark Cav]",
         "inputs": [
             "Lavina"
         ],
@@ -8093,9 +8093,9 @@
         "job 1": "Twin-Blade Swordsman",
         "job 2": "Samurai",
         "job 3": "Martial Artist",
-        "jc 1": "Twin-Blade Swordsman: Demon Hunter\n[increased damage against beasts]",
+        "jc 1": "Twin-Blade Swordsman : Demon Hunter\n[increased damage against beasts]",
         "jc 2": "",
-        "jc 3": "Holy Brawler: Fudo\n[more damage at lower health]",
+        "jc 3": "Holy Brawler : Fudo\n[more damage at lower health]",
         "inputs": [
             "Blanchett"
         ],
@@ -8136,9 +8136,9 @@
         "job 1": "Spy",
         "job 2": "Samurai",
         "job 3": "Warrior",
-        "jc 1": "Spy+: Ronin",
+        "jc 1": "Spy+ : Ronin",
         "jc 2": "",
-        "jc 3": "Warrior: Gigantes\n[dark attack with huge self buff]",
+        "jc 3": "Warrior : Gigantes\n[dark attack with huge self buff]",
         "inputs": [
             "Zin",
             "Jin"
@@ -8185,8 +8185,8 @@
         "job 1": "Battle Mage",
         "job 2": "Chemist",
         "job 3": "Pirate",
-        "jc 1": "Battle Mage+ : Magical Honor Student",
-        "jc 2": "Professor: Mad\n[much stronger buffs]",
+        "jc 1": "Battle Mage+  : Magical Honor Student",
+        "jc 2": "Professor : Mad\n[much stronger buffs]",
         "jc 3": "",
         "inputs": [
             "Noah"
@@ -8235,7 +8235,7 @@
         "job 3": "Dark Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dark Cavalier: Faust\n[hp cost skills cost more and do more damage]",
+        "jc 3": "Dark Cavalier : Faust\n[Suicidal Nuker]",
         "inputs": [
             "Zophie"
         ],
@@ -8276,7 +8276,7 @@
         "job 1": "Martial Master",
         "job 2": "Magic Swordsman",
         "job 3": "Spy",
-        "jc 1": "Martial Master: Demon Destroyer",
+        "jc 1": "Martial Master : Demon Destroyer\n[Anti-Demon Skills]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -8319,9 +8319,9 @@
         "job 1": "Shadow Assassin",
         "job 2": "Thief",
         "job 3": "Dark Cavalier",
-        "jc 1": "Shadow Assassin: Night\n[buff dispeller]",
+        "jc 1": "Shadow Assassin : Night\n[buff dispeller]",
         "jc 2": "",
-        "jc 3": "Dark Cavalier: Move",
+        "jc 3": "Dark Cavalier : Move\n[Faster Dark Cav]",
         "inputs": [
             "Chatnoir",
             "Chat Noir"
@@ -8365,7 +8365,7 @@
         "job 3": "Sniper",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Sniper: Scope\n[charge up for snipers]",
+        "jc 3": "Sniper : Scope\n[charge up for snipers]",
         "inputs": [
             "Justin"
         ],
@@ -8453,7 +8453,7 @@
         "job 3": "Shadow Assassin",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Shadow Assassin: Evening\n[spell evasion and resistance]",
+        "jc 3": "Shadow Assassin : Evening\n[spell evasion and resistance]",
         "inputs": [
             "Ignis",
             "Ignis FF",
@@ -8498,7 +8498,7 @@
         "job 3": "Holy Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Cavalier: Magi\n[magic resistance]",
+        "jc 3": "Holy Cavalier : Magi\n[magic resistance]",
         "inputs": [
             "Gladiolus",
             "Gladiolus FF",
@@ -8677,8 +8677,8 @@
         "job 2": "Martial Artist",
         "job 3": "Dark Cavalier",
         "jc 1": "",
-        "jc 2": "Holy Brawler: Senju\n[multi-hit]",
-        "jc 3": "Dark Cavalier: Jaeger\n[hp cost skills have higher damage]",
+        "jc 2": "Holy Brawler : Senju\n[multi-hit]",
+        "jc 3": "Dark Cavalier : Jaeger\n[Sacrifice Skills Bonus]",
         "inputs": [
             "Leonia"
         ],
@@ -8850,9 +8850,9 @@
         "job 1": "Holy Cavalier",
         "job 2": "Magic Swordsman",
         "job 3": "Warrior",
-        "jc 1": "Holy Cavalier: Ark\n[AoE resistance]",
+        "jc 1": "Holy Cavalier : Ark\n[AoE resistance]",
         "jc 2": "",
-        "jc 3": "Warrior: Gigantes\n[dark attack with huge self buff]",
+        "jc 3": "Warrior : Gigantes\n[dark attack with huge self buff]",
         "inputs": [
             "Edwin"
         ],
@@ -9079,7 +9079,7 @@
         "job 3": "Dark Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dark Cavalier: Seele\n[defense ignoring hp and jewel drains]",
+        "jc 3": "Dark Cavalier : Seele\n[Drain Skills Bonus]",
         "inputs": [
             "Annika"
         ],
@@ -9120,9 +9120,9 @@
         "job 1": "Sniper",
         "job 2": "Twin-Blade Swordsman",
         "job 3": "Magia Gunslinger",
-        "jc 1": "Sniper: Magnum\n[massive close range hits]",
+        "jc 1": "Sniper : Magnum\n[massive close range hits]",
         "jc 2": "",
-        "jc 3": "Magia Gunslinger : Ra\n[improved thunder skills and wide aoe]",
+        "jc 3": "Magia Gunslinger  : Ra\n[improved thunder skills and wide aoe]",
         "inputs": [
             "Hugo"
         ],
@@ -9163,9 +9163,9 @@
         "job 1": "Dragon Cavalier",
         "job 2": "Thief",
         "job 3": "Ninja",
-        "jc 1": "Dragon Cavalier: Rudra\n[teleportation skills]",
+        "jc 1": "Dragon Cavalier : Rudra\n[teleportation skills]",
         "jc 2": "",
-        "jc 3": "Ninja: Byakko\n[evasion-based]",
+        "jc 3": "Ninja : Byakko\n[evasion-based]",
         "inputs": [
             "Celliers",
             "Celliaz"
@@ -9207,9 +9207,9 @@
         "job 1": "Ranger",
         "job 2": "Thief",
         "job 3": "Sniper",
-        "jc 1": "Ranger: Wolf\n[bonus damage against monsters]",
+        "jc 1": "Ranger : Wolf\n[bonus damage against monsters]",
         "jc 2": "",
-        "jc 3": "Sniper: Scope\n[charge up for snipers]",
+        "jc 3": "Sniper : Scope\n[charge up for snipers]",
         "inputs": [
             "Eros",
             "Eros POTK",
@@ -9258,7 +9258,7 @@
         "job 2": "Professor",
         "job 3": "Priestess",
         "jc 1": "",
-        "jc 2": "Professor: Aid\n[cures will heal as well]",
+        "jc 2": "Professor : Aid\n[cures will heal as well]",
         "jc 3": "",
         "inputs": [
             "Amaterasu",
@@ -9308,7 +9308,7 @@
         "job 2": "Ninja",
         "job 3": "Machinist",
         "jc 1": "",
-        "jc 2": "Ninja: Suzaku\n[jump-based]",
+        "jc 2": "Ninja : Suzaku\n[jump-based]",
         "jc 3": "",
         "inputs": [
             "Yuri",
@@ -9622,8 +9622,8 @@
         "job 2": "Martial Artist",
         "job 3": "Warrior",
         "jc 1": "",
-        "jc 2": "Holy Brawler: Senju\n[multi-hit]",
-        "jc 3": "Warrior: Goliath\n[light tank]",
+        "jc 2": "Holy Brawler : Senju\n[multi-hit]",
+        "jc 3": "Warrior : Goliath\n[light tank]",
         "inputs": [
             "Tomas",
             "Thomas"
@@ -9665,8 +9665,8 @@
         "job 1": "Martial Master",
         "job 2": "Ninja",
         "job 3": "Necromancer",
-        "jc 1": "Martial Master: Human Hitman",
-        "jc 2": "Ninja: Kirin\n[AGI-based]",
+        "jc 1": "Martial Master : Human Hitman\n[Anti-Human Skills]",
+        "jc 2": "Ninja : Kirin\n[AGI-based]",
         "jc 3": "",
         "inputs": [
             "Tetis",
@@ -9890,7 +9890,7 @@
         "job 3": "Dark Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dark Cavalier: Move",
+        "jc 3": "Dark Cavalier : Move\n[Faster Dark Cav]",
         "inputs": [
             "Lucille",
             "Rusha"
@@ -10026,7 +10026,7 @@
         "job 2": "Magic Swordsman",
         "job 3": "Sage",
         "jc 1": "",
-        "jc 2": "Magic Swordsman: Chimera\n[dark skill added]",
+        "jc 2": "Magic Swordsman : Chimera\n[dark skill added]",
         "jc 3": "",
         "inputs": [
             "Leydow",
@@ -10071,7 +10071,7 @@
         "job 3": "Holy Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Cavalier: Pieta\n[healing]",
+        "jc 3": "Holy Cavalier : Pieta\n[healing]",
         "inputs": [
             "Izayoi"
         ],
@@ -10113,7 +10113,7 @@
         "job 2": "Ninja",
         "job 3": "Valkyrie",
         "jc 1": "",
-        "jc 2": "Ninja: Seiryu\n[attack-based]",
+        "jc 2": "Ninja : Seiryu\n[attack-based]",
         "jc 3": "",
         "inputs": [
             "Dartagnan",
@@ -10157,7 +10157,7 @@
         "job 2": "Martial Artist",
         "job 3": "Pirate",
         "jc 1": "",
-        "jc 2": "Holy Brawler: Maitreya\n[12% regen, 5% jewel regen buff]",
+        "jc 2": "Holy Brawler : Maitreya\n[12% regen &  5% jewel regen buff]",
         "jc 3": "",
         "inputs": [
             "Won",
@@ -10202,7 +10202,7 @@
         "job 3": "Sage",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Sage: Pandora\n[passive that upgrades all mega and cross skills]",
+        "jc 3": "Sage : Pandora\n[stronger skills via passive]",
         "inputs": [
             "Ines"
         ],
@@ -10245,7 +10245,7 @@
         "job 3": "Magia Gunslinger",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Magia Gunslinger: Set\n[improved wind skills and melee attacks]",
+        "jc 3": "Magia Gunslinger : Set\n[improved wind skills and melee attacks]",
         "inputs": [
             "Uzuma"
         ],
@@ -10288,7 +10288,7 @@
         "job 3": "Dark Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dark Cavalier: Seele\n[defense ignoring hp and jewel drains]",
+        "jc 3": "Dark Cavalier : Seele\n[Drain Skills Bonus]",
         "inputs": [
             "Blitz"
         ],
@@ -10460,7 +10460,7 @@
         "leader skill": "Light: +50% HP",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/fa-alphonse",
-        "job 1": "Armored Alchemist ",
+        "job 1": "Armored Alchemist        ",
         "job 2": "Thief",
         "job 3": "Holy Knight",
         "jc 1": "",
@@ -10694,7 +10694,7 @@
         "job 3": "Martial Master",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Martial Master: Human Hitman",
+        "jc 3": "Martial Master : Human Hitman\n[Anti-Human Skills]",
         "inputs": [
             "Toritoh",
             "Tlitor"
@@ -10738,7 +10738,7 @@
         "job 3": "Dark Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dark Cavalier: Move",
+        "jc 3": "Dark Cavalier : Move\n[Faster Dark Cav]",
         "inputs": [
             "Cordelia"
         ],
@@ -10780,8 +10780,8 @@
         "job 2": "Martial Artist",
         "job 3": "Dark Cavalier",
         "jc 1": "",
-        "jc 2": "Holy Brawler: Fudo\n[more damage at lower health]",
-        "jc 3": "Dark Cavalier: Jaeger\n[hp cost skills have higher damage]",
+        "jc 2": "Holy Brawler : Fudo\n[more damage at lower health]",
+        "jc 3": "Dark Cavalier : Jaeger\n[Sacrifice Skills Bonus]",
         "inputs": [
             "Itsuki"
         ],
@@ -10868,7 +10868,7 @@
         "job 3": "Dragon Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dragon Cavalier: Rudra\n[teleportation skills]",
+        "jc 3": "Dragon Cavalier : Rudra\n[teleportation skills]",
         "inputs": [
             "Longinus",
             "Longinus POTK",
@@ -10911,7 +10911,7 @@
         "job 1": "Ranger",
         "job 2": "Dancer",
         "job 3": "Machinist",
-        "jc 1": "Ranger: Hawk\n[dodging and enemy accuracy down]",
+        "jc 1": "Ranger : Hawk\n[dodging and enemy accuracy down]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -11002,7 +11002,7 @@
         "job 3": "Ranger",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Ranger: Snake\n[jewel damage]",
+        "jc 3": "Ranger : Snake\n[jewel damage]",
         "inputs": [
             "Belta"
         ],
@@ -11040,12 +11040,12 @@
         "leader skill": "Light: +40% HP & +30% PATK",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/pok-blk-tyrhung",
-        "job 1": "Black Killer: Avarice",
+        "job 1": "Black Killer : Avarice",
         "job 2": "Dragon Knight",
         "job 3": "Warrior",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Warrior: Goliath\n[light tank]",
+        "jc 3": "Warrior : Goliath\n[light tank]",
         "inputs": [
             "Black Killer Tyrhung",
             "Black Killer's Tyrfing",
@@ -11091,7 +11091,7 @@
         "job 3": "Holy Brawler",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Brawler: Shura\n[5x PATK buff]",
+        "jc 3": "Holy Brawler : Shura\n[5x PATK buff]",
         "inputs": [
             "Lotia"
         ],
@@ -11133,7 +11133,7 @@
         "job 2": "Ninja",
         "job 3": "Psionic",
         "jc 1": "",
-        "jc 2": "Ninja : Genbu\n[move-based]",
+        "jc 2": "Ninja  : Genbu\n[move-based]",
         "jc 3": "",
         "inputs": [
             "Kevin"
@@ -11176,7 +11176,7 @@
         "job 2": "Sage",
         "job 3": "Shadow Assassin",
         "jc 1": "",
-        "jc 2": "Sage: Obelisk\n[stronger fire skills]",
+        "jc 2": "Sage : Obelisk\n[stronger fire skills]",
         "jc 3": "",
         "inputs": [
             "Aisha"
@@ -11220,7 +11220,7 @@
         "job 3": "Dark Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dark Cavalier: Seele\n[defense ignoring hp and jewel drains]",
+        "jc 3": "Dark Cavalier : Seele\n[Drain Skills Bonus]",
         "inputs": [
             "Guildford",
             "Gilford"
@@ -11264,7 +11264,7 @@
         "job 3": "Holy Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Cavalier: Magi\n[magic resistance]",
+        "jc 3": "Holy Cavalier : Magi\n[magic resistance]",
         "inputs": [
             "Teresa"
         ],
@@ -11305,7 +11305,7 @@
         "job 1": "Martial Master",
         "job 2": "Martial Artist",
         "job 3": "Machinist",
-        "jc 1": "Martial Master: Demon Destroyer",
+        "jc 1": "Martial Master : Demon Destroyer\n[Anti-Demon Skills]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -11350,8 +11350,8 @@
         "job 2": "Shadow Assassin",
         "job 3": "Dragon Cavalier",
         "jc 1": "",
-        "jc 2": "Shadow Assassin: Night\n[buff dispeller]",
-        "jc 3": "Dragon Cavalier: Vritra\n[longer-ranged, lower damage attacks compared to Garuda]",
+        "jc 2": "Shadow Assassin : Night\n[buff dispeller]",
+        "jc 3": "Dragon Cavalier : Vritra\n[long rang but low dmg]",
         "inputs": [
             "Kurt",
             "Kureto"
@@ -11525,11 +11525,11 @@
         "leader skill": "Thunder: +30% HP & +20 Slash ATK & +20% Max Jewels",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/pok-blk-laevateinn",
-        "job 1": "Black Killer: Sloth",
+        "job 1": "Black Killer : Sloth",
         "job 2": "Twin-Blade Swordsman",
         "job 3": "Dark Cavalier",
         "jc 1": "",
-        "jc 2": "Twin-Blade Swordsman: Ogre Exterminator\n[increased damage against humans]",
+        "jc 2": "Twin-Blade Swordsman : Ogre Exterminator\n[increased damage against humans]",
         "jc 3": "",
         "inputs": [
             "Black Killer Laevateinn",
@@ -11575,7 +11575,7 @@
         "job 3": "Warrior",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Warrior: Argos\n[wind nuke]",
+        "jc 3": "Warrior : Argos\n[wind nuke]",
         "inputs": [
             "Parashu",
             "Parashu POTK",
@@ -11618,7 +11618,7 @@
         "job 1": "Magia Gunslinger",
         "job 2": "Thief",
         "job 3": "Cannoneer",
-        "jc 1": "Magia Gunslinger : Ra\n[improved thunder skills and wide aoe]",
+        "jc 1": "Magia Gunslinger  : Ra\n[improved thunder skills and wide aoe]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -11665,7 +11665,7 @@
         "job 3": "Sage",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Sage: Monolith\n[stronger thunder skills]",
+        "jc 3": "Sage : Monolith\n[stronger thunder skills]",
         "inputs": [
             "Tsukuyomi",
             "Tsukuyomi SN",
@@ -11753,7 +11753,7 @@
         "job 3": "Dragon Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dragon Cavalier: Rudra\n[teleportation skills]",
+        "jc 3": "Dragon Cavalier : Rudra\n[teleportation skills]",
         "inputs": [
             "Gerald"
         ],
@@ -11794,7 +11794,7 @@
         "job 1": "Professor",
         "job 2": "Bishop",
         "job 3": "Battle Mage",
-        "jc 1": "Professor: Mad\n[much stronger buffs]",
+        "jc 1": "Professor : Mad\n[much stronger buffs]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -11838,7 +11838,7 @@
         "job 2": "Sage",
         "job 3": "Abyss Gazer",
         "jc 1": "",
-        "jc 2": "Sage: Pandora\n[passive that upgrades all mega and cross skills]",
+        "jc 2": "Sage : Pandora\n[stronger skills via passive]",
         "jc 3": "",
         "inputs": [
             "Little Urob",
@@ -11925,7 +11925,7 @@
         "job 2": "Twin-Blade Swordsman",
         "job 3": "Spy",
         "jc 1": "",
-        "jc 2": "Twin-Blade Swordsman: Mist",
+        "jc 2": "Twin-Blade Swordsman : Mist",
         "jc 3": "",
         "inputs": [
             "Ren"
@@ -11969,7 +11969,7 @@
         "job 3": "Shadow Assassin",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Shadow Assassin: Night\n[buff dispeller]",
+        "jc 3": "Shadow Assassin : Night\n[buff dispeller]",
         "inputs": [
             "Thol",
             "Sol"
@@ -12012,7 +12012,7 @@
         "job 2": "Merchant",
         "job 3": "Templar",
         "jc 1": "",
-        "jc 2": "Merchant: Scheming Tanuki\n[randomly give 50 CT to any units on map]",
+        "jc 2": "Merchant : Scheming Tanuki\n[randomly give 50 CT to any units on map]",
         "jc 3": "",
         "inputs": [
             "Leticia"
@@ -12054,9 +12054,9 @@
         "job 1": "Shadow Assassin",
         "job 2": "Blademaster",
         "job 3": "Dark Cavalier",
-        "jc 1": "Shadow Assassin: Evening\n[spell evasion and resistance]",
+        "jc 1": "Shadow Assassin : Evening\n[spell evasion and resistance]",
         "jc 2": "",
-        "jc 3": "Dark Cavalier: Seele\n[defense ignoring hp and jewel drains]",
+        "jc 3": "Dark Cavalier : Seele\n[Drain Skills Bonus]",
         "inputs": [
             "Niguru",
             "Niggle"
@@ -12099,7 +12099,7 @@
         "job 2": "Ninja",
         "job 3": "Magia Gunslinger",
         "jc 1": "",
-        "jc 2": "Ninja: Byakko\n[evasion-based]",
+        "jc 2": "Ninja : Byakko\n[evasion-based]",
         "jc 3": "",
         "inputs": [
             "Ira"
@@ -12187,7 +12187,7 @@
         "job 3": "Dark Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dark Cavalier: Faust\n[hp cost skills cost more and do more damage]",
+        "jc 3": "Dark Cavalier : Faust\n[Suicidal Nuker]",
         "inputs": [
             "Ankh"
         ],
@@ -12228,7 +12228,7 @@
         "job 1": "Sage",
         "job 2": "Battle Mage",
         "job 3": "Master of Weather",
-        "jc 1": "Sage : Rosetta\n[stronger wind skills]",
+        "jc 1": "Sage  : Rosetta\n[stronger wind skills]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -12317,7 +12317,7 @@
         "job 3": "Holy Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Cavalier: Ark\n[AoE resistance]",
+        "jc 3": "Holy Cavalier : Ark\n[AoE resistance]",
         "inputs": [
             "Don Taras"
         ],
@@ -12360,7 +12360,7 @@
         "job 3": "Warrior",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Warrior: Atlas\n[thunder tank]",
+        "jc 3": "Warrior : Atlas\n[thunder tank]",
         "inputs": [
             "Orion"
         ],
@@ -12398,11 +12398,11 @@
         "leader skill": "Wind: +50% HP & +40 Missile ATK & +5 Jewels Obtained",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/pok-blk-artemis",
-        "job 1": "Black Killer: Lust",
+        "job 1": "Black Killer : Lust",
         "job 2": "Sniper",
         "job 3": "Magia Operator",
         "jc 1": "",
-        "jc 2": "Sniper: Scope\n[charge up for snipers]",
+        "jc 2": "Sniper : Scope\n[charge up for snipers]",
         "jc 3": "",
         "inputs": [
             "Black Killer Artemis",
@@ -12448,7 +12448,7 @@
         "job 3": "Dark Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dark Cavalier: Move",
+        "jc 3": "Dark Cavalier : Move\n[Faster Dark Cav]",
         "inputs": [
             "Merlinus",
             "Merlinus CR",
@@ -12470,6 +12470,51 @@
                 "name": "default",
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/cry_merl.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/cry_merl-closeup.png"
+            }
+        ]
+    },
+    "UN_V2_CRY_ARTHUR": {
+        "iname": "UN_V2_CRY_ARTHUR",
+        "name": "Arthur",
+        "inofficial": "",
+        "gender": "♂",
+        "element": "Fire",
+        "country": "Foreign World",
+        "collab": "Crystal Re:Union",
+        "collab short": "CR",
+        "rarity": "★★★★★",
+        "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/cry_arth.png",
+        "farm": [],
+        "leader skill": "Fire: +50% HP & +30% PATK & +10 Hit Rate",
+        "master ability": "",
+        "link": "http://www.alchemistcodedb.com/jp/unit/cry-arthur",
+        "job 1": "Investigator Hero",
+        "job 2": "Holy Brawler",
+        "job 3": "Holy Cavalier",
+        "jc 1": "",
+        "jc 2": "",
+        "jc 3": "Holy Cavalier : Porta\n[pierce resistance]",
+        "inputs": [
+            "Arthur",
+            "Arthur CR",
+            "CR Arthur"
+        ],
+        "PROFILE": "異世界のミッドガルドから導かれた清廉潔白な騎士。戦場においては常に慢心することなく堂々と勝利を目指し、卑怯な行為には怒りを向ける。争いのない平穏な世界を望んでおり、その実現の為なら己の身さえ省みない。",
+        "COUNTRY": "ミッドガルド",
+        "HEIGHT": "182cm",
+        "WEIGHT": "70kg",
+        "BIRTH": "12月10日",
+        "ZODIAC": "射手座",
+        "BLOOD": "A型",
+        "FAVORITE": "ティータイム",
+        "HOBBY": "街の視察",
+        "ILLUST": "だーくろ",
+        "CV": "岡本信彦",
+        "artworks": [
+            {
+                "name": "default",
+                "full": "http://cdn.alchemistcodedb.com/images/units/artworks/cry_arth.png",
+                "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/cry_arth-closeup.png"
             }
         ]
     }

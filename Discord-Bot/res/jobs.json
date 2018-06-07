@@ -201,7 +201,7 @@
             "Dias"
         ],
         "jobe": [
-            "Dark Cavalier+ : Edgelord"
+            "Dark Cavalier+  : Edgelord"
         ],
         "main": "",
         "sub": "",
@@ -949,7 +949,7 @@
             "Neferty"
         ],
         "jobe": [
-            "Battle Mage+ : Magical Honor Student"
+            "Battle Mage+  : Magical Honor Student"
         ],
         "main": "",
         "sub": "",
@@ -1035,9 +1035,9 @@
             "Liz"
         ],
         "jobe": [
-            "Ranger: Snake",
-            "Ranger: Hawk",
-            "Ranger: Wolf"
+            "Ranger : Snake",
+            "Ranger : Hawk",
+            "Ranger : Wolf"
         ],
         "main": "",
         "sub": "",
@@ -1202,13 +1202,13 @@
             "Ira"
         ],
         "jobe": [
-            "Ninja+ : Shinobi",
-            "Spy+ : Genin",
-            "Ninja : Genbu",
-            "Ninja: Suzaku",
-            "Ninja: Byakko",
-            "Ninja: Seiryu",
-            "Ninja: Kirin"
+            "Ninja+  : Shinobi",
+            "Spy+  : Genin",
+            "Ninja  : Genbu",
+            "Ninja : Suzaku",
+            "Ninja : Byakko",
+            "Ninja : Seiryu",
+            "Ninja : Kirin"
         ],
         "main": "",
         "sub": "",
@@ -1305,8 +1305,8 @@
             "Freikugel"
         ],
         "jobe": [
-            "Shadow Assassin: Evening",
-            "Assasin+: Charm"
+            "Shadow Assassin : Evening",
+            "Assasin+ : Charm"
         ],
         "main": "",
         "sub": "",
@@ -1464,10 +1464,10 @@
         ],
         "jobe": [
             "Sage+",
-            "Sage : Rosetta",
-            "Sage: Monolith",
-            "Sage: Carnac",
-            "Sage: Obelisk"
+            "Sage  : Rosetta",
+            "Sage : Monolith",
+            "Sage : Carnac",
+            "Sage : Obelisk"
         ],
         "main": "",
         "sub": "",
@@ -1936,10 +1936,10 @@
         ],
         "jobe": [
             "Professor+",
-            "Professor: Mad",
-            "Professor: Aid",
-            "Professor: Honey",
-            "Professor: Bio"
+            "Professor : Mad",
+            "Professor : Aid",
+            "Professor : Honey",
+            "Professor : Bio"
         ],
         "main": "",
         "sub": "",
@@ -2014,7 +2014,7 @@
         ],
         "jobe": [
             "Holy Cavalier+",
-            "Holy Cavalier: Porta"
+            "Holy Cavalier : Porta"
         ],
         "main": "",
         "sub": "",
@@ -2173,10 +2173,10 @@
             "Natalie"
         ],
         "jobe": [
-            "Professor: Mad",
-            "Professor: Aid",
-            "Professor: Bio",
-            "Professor: Honey"
+            "Professor : Mad",
+            "Professor : Aid",
+            "Professor : Bio",
+            "Professor : Honey"
         ],
         "main": "",
         "sub": "",
@@ -2349,10 +2349,10 @@
             "Shirma"
         ],
         "jobe": [
-            "Holy Brawler: Senju",
-            "Holy Brawler: Shura",
-            "Holy Brawler: Fudo",
-            "Holy Brawler: Maitreya"
+            "Holy Brawler : Senju",
+            "Holy Brawler : Shura",
+            "Holy Brawler : Fudo",
+            "Holy Brawler : Maitreya"
         ],
         "main": "",
         "sub": "",
@@ -2512,13 +2512,13 @@
             "Thol"
         ],
         "jobe": [
-            "Magic Swordsman: Chimera",
+            "Magic Swordsman : Chimera",
             "Magic Swordsman+",
-            "Magic Swordsman: Ifrit",
-            "Magic Swordsman: Fenrir",
-            "Magic Swordsman: Sylphid",
-            "Magic Swordsman: Ixion",
-            "Magic Swordsman: Pegasus"
+            "Magic Swordsman : Ifrit",
+            "Magic Swordsman : Fenrir",
+            "Magic Swordsman : Sylphid",
+            "Magic Swordsman : Ixion",
+            "Magic Swordsman : Pegasus"
         ],
         "main": "",
         "sub": "",
@@ -2594,9 +2594,9 @@
         ],
         "jobe": [
             "Sniper+",
-            "Sniper: Scope",
-            "Sniper: Barrel",
-            "Sniper: Magnum"
+            "Sniper : Scope",
+            "Sniper : Barrel",
+            "Sniper : Magnum"
         ],
         "main": "",
         "sub": "",
@@ -2672,9 +2672,9 @@
             "Black Killer Tyrhung"
         ],
         "jobe": [
-            "Dragon Cavalier+ : Dragon Slayer",
+            "Dragon Cavalier+  : Dragon Slayer",
             "Dragon Cavalier+",
-            "Dragon Cavalier: Garuda"
+            "Dragon Cavalier : Garuda"
         ],
         "main": "",
         "sub": "",
@@ -2757,7 +2757,7 @@
             "Parashu"
         ],
         "jobe": [
-            "Blademaster+ : Mifune"
+            "Blademaster+  : Mifune"
         ],
         "main": "",
         "sub": "",
@@ -2894,9 +2894,9 @@
             "Gerald"
         ],
         "jobe": [
-            "Dragon Cavalier: Rudra",
-            "Dragon Cavalier: Vritra",
-            "Dragon Cavalier: Garuda"
+            "Dragon Cavalier : Rudra",
+            "Dragon Cavalier : Vritra",
+            "Dragon Cavalier : Garuda"
         ],
         "main": "",
         "sub": "",
@@ -2969,14 +2969,15 @@
             "Basheeny",
             "Daisy",
             "Lotia",
-            "Gerald"
+            "Gerald",
+            "Arthur"
         ],
         "jobe": [
             "Holy Brawler+",
-            "Holy Brawler: Shura",
-            "Holy Brawler: Maitreya",
-            "Holy Brawler: Fudo",
-            "Holy Brawler: Senju"
+            "Holy Brawler : Shura",
+            "Holy Brawler : Maitreya",
+            "Holy Brawler : Fudo",
+            "Holy Brawler : Senju"
         ],
         "main": "",
         "sub": "",
@@ -3047,7 +3048,7 @@
             "Longinus"
         ],
         "jobe": [
-            "Dark Cavalier: Spion"
+            "Dark Cavalier : Spion"
         ],
         "main": "",
         "sub": "",
@@ -3103,8 +3104,8 @@
         "name": "Dark Cavalier",
         "japan": "Dark Knight\nダークナイト",
         "kanji": "ダークナイト",
-        "short description": "",
-        "long description": "",
+        "short description": "Glass Cannon",
+        "long description": "Class With A Very High Attack But Very Low Defense",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/baa.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_BAA.png",
         "origin": "Dark Cavalier",
@@ -3140,11 +3141,11 @@
         ],
         "jobe": [
             "Dark Cavalier+",
-            "Dark Cavalier: Move",
-            "Dark Cavalier: Jaeger",
-            "Dark Cavalier: Seele",
-            "Dark Cavalier: Faust",
-            "Dark Cavalier: Gernika"
+            "Dark Cavalier : Move",
+            "Dark Cavalier : Jaeger",
+            "Dark Cavalier : Seele",
+            "Dark Cavalier : Faust",
+            "Dark Cavalier : Gernika"
         ],
         "main": "",
         "sub": "",
@@ -3219,15 +3220,16 @@
             "Edwin",
             "Izayoi",
             "Teresa",
-            "Don Taras"
+            "Don Taras",
+            "Arthur"
         ],
         "jobe": [
-            "Holy Cavalier: Magi",
-            "Holy Cavalier: Ark",
-            "Holy Cavalier: Izaya",
-            "Holy Cavalier: Porta",
-            "Holy Cavalier: Pieta",
-            "Holy Cavalier: Zayin"
+            "Holy Cavalier : Magi",
+            "Holy Cavalier : Ark",
+            "Holy Cavalier : Porta",
+            "Holy Cavalier : Izaya",
+            "Holy Cavalier : Pieta",
+            "Holy Cavalier : Zayin"
         ],
         "main": "",
         "sub": "",
@@ -3417,7 +3419,7 @@
             "Tyrfing"
         ],
         "jobe": [
-            "Holy Cavalier: Gear"
+            "Holy Cavalier : Gear"
         ],
         "main": "",
         "sub": "",
@@ -3545,7 +3547,7 @@
             "Laevateinn"
         ],
         "jobe": [
-            "Ninja: Kirin"
+            "Ninja : Kirin"
         ],
         "main": "",
         "sub": "",
@@ -4149,9 +4151,9 @@
         ],
         "jobe": [
             "Twin-Blade Swordsman+",
-            "Twin-Blade Swordsman: Mist",
-            "Twin-Blade Swordsman: Ogre Exterminator",
-            "Twin-Blade Swordsman: Demon Hunter"
+            "Twin-Blade Swordsman : Mist",
+            "Twin-Blade Swordsman : Ogre Exterminator",
+            "Twin-Blade Swordsman : Demon Hunter"
         ],
         "main": "",
         "sub": "",
@@ -4215,7 +4217,7 @@
             "Sabareta"
         ],
         "jobe": [
-            "Shadow Assassin: Night"
+            "Shadow Assassin : Night"
         ],
         "main": "",
         "sub": "",
@@ -4728,8 +4730,8 @@
         "name": "Sage",
         "japan": "Sage\n賢者",
         "kanji": "賢者",
-        "short description": "",
-        "long description": "",
+        "short description": "Magic Attacker",
+        "long description": "Direct Upgrade Of Mage",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/dai.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_DAI.png",
         "origin": "Sage",
@@ -4757,11 +4759,11 @@
             "Neferty"
         ],
         "jobe": [
-            "Sage: Obelisk",
-            "Sage: Monolith",
-            "Sage: Pandora",
-            "Sage : Rosetta",
-            "Sage: Carnac"
+            "Sage : Obelisk",
+            "Sage : Monolith",
+            "Sage : Pandora",
+            "Sage  : Rosetta",
+            "Sage : Carnac"
         ],
         "main": "",
         "sub": "",
@@ -4837,9 +4839,9 @@
             "Belta"
         ],
         "jobe": [
-            "Ranger: Hawk",
-            "Ranger: Snake",
-            "Ranger: Wolf"
+            "Ranger : Hawk",
+            "Ranger : Snake",
+            "Ranger : Wolf"
         ],
         "main": "",
         "sub": "",
@@ -5962,12 +5964,12 @@
             "Orion"
         ],
         "jobe": [
-            "Warrior: Atlas",
-            "Warrior: Gigantes",
-            "Warrior: Argos",
-            "Warrior: Titan",
-            "Warrior: Goliath",
-            "Warrior: Muspell"
+            "Warrior : Atlas",
+            "Warrior : Gigantes",
+            "Warrior : Argos",
+            "Warrior : Titan",
+            "Warrior : Goliath",
+            "Warrior : Muspell"
         ],
         "main": "",
         "sub": "",
@@ -6036,7 +6038,7 @@
             "Ema"
         ],
         "jobe": [
-            "Astrologer+ : Moirai"
+            "Astrologer+  : Moirai"
         ],
         "main": "",
         "sub": "",
@@ -6384,10 +6386,10 @@
             "Leticia"
         ],
         "jobe": [
-            "Merchant+ : Armored Battle Maid",
-            "Merchant: Scheming Tanuki",
-            "Merchant: Charming Daruma",
-            "Merchant: Grace Crane"
+            "Merchant+  : Armored Battle Maid",
+            "Merchant : Scheming Tanuki",
+            "Merchant : Charming Daruma",
+            "Merchant : Grace Crane"
         ],
         "main": "",
         "sub": "",
@@ -6604,8 +6606,8 @@
             "Niguru"
         ],
         "jobe": [
-            "Shadow Assassin: Night",
-            "Shadow Assassin: Evening"
+            "Shadow Assassin : Night",
+            "Shadow Assassin : Evening"
         ],
         "main": "",
         "sub": "",
@@ -7580,7 +7582,7 @@
             "Zeke"
         ],
         "jobe": [
-            "Holy Cavalier: David"
+            "Holy Cavalier : David"
         ],
         "main": "",
         "sub": "",
@@ -7645,7 +7647,7 @@
             "Miuna"
         ],
         "jobe": [
-            "Blacksmith+ "
+            "Blacksmith+        "
         ],
         "main": "",
         "sub": "",
@@ -7782,9 +7784,9 @@
             "Shirma"
         ],
         "jobe": [
-            "Martial Master: Human Hitman",
-            "Martial Master: Demon Destroyer",
-            "Martial Master: Mecha Masher"
+            "Martial Master : Human Hitman",
+            "Martial Master : Demon Destroyer",
+            "Martial Master : Mecha Masher"
         ],
         "main": "",
         "sub": "",
@@ -7855,10 +7857,10 @@
             "Ira"
         ],
         "jobe": [
-            "Magia Gunslinger : Ra",
-            "Magia Gunslinger: Isis",
-            "Magia Gunslinger: Horus",
-            "Magia Gunslinger: Set"
+            "Magia Gunslinger  : Ra",
+            "Magia Gunslinger : Isis",
+            "Magia Gunslinger : Horus",
+            "Magia Gunslinger : Set"
         ],
         "main": "",
         "sub": "",
@@ -9104,7 +9106,7 @@
             "Ren"
         ],
         "jobe": [
-            "Spy+: Ronin"
+            "Spy+ : Ronin"
         ],
         "main": "",
         "sub": "",
@@ -9885,7 +9887,7 @@
         "japan": "Specint Spy\n密偵",
         "kanji": "密偵",
         "short description": "Radiant Historia",
-        "long description": "",
+        "long description": "Radiant Historia",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/rh_rain.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_RH_RAIN.png",
         "origin": "Spy",
@@ -10283,7 +10285,7 @@
         "japan": "Paladin\nパラディン",
         "kanji": "パラディン",
         "short description": "EO",
-        "long description": "",
+        "long description": "EO",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/sq_pal.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ARM.png",
         "origin": "Paladin",
@@ -10346,7 +10348,7 @@
         "japan": "Princess\nプリンセス",
         "kanji": "プリンセス",
         "short description": "EO",
-        "long description": "",
+        "long description": "EO",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/sq_pri.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ARM.png",
         "origin": "Princess",
@@ -10412,7 +10414,7 @@
         "japan": "Dancer (E.O.)\nダンサー(世界樹）",
         "kanji": "ダンサー",
         "short description": "EO",
-        "long description": "",
+        "long description": "EO",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/sq_dan.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ARM.png",
         "origin": "Dancer",
@@ -10476,7 +10478,7 @@
         "japan": "Gunner（E.O.) \nガンナー(世界樹）",
         "kanji": "ガンナー（世界樹）",
         "short description": "EO",
-        "long description": "",
+        "long description": "EO",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/sq_shen_gun.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_SQ_GUN.png",
         "origin": "Gunner",
@@ -10540,7 +10542,7 @@
         "japan": "Gunner（E.O.) \nガンナー(世界樹）",
         "kanji": "ガンナー（世界樹）",
         "short description": "EO",
-        "long description": "",
+        "long description": "EO",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/sq_gun.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_SQ_GUN.png",
         "origin": "Gunner",
@@ -10868,14 +10870,14 @@
     },
     "JB_FA_ALPH01": {
         "iname": "JB_FA_ALPH01",
-        "name": "Armored Alchemist ",
+        "name": "Armored Alchemist        ",
         "japan": "Armor Alchemist\n鎧の錬金術師",
         "kanji": "鎧の錬金術師",
         "short description": "",
         "long description": "",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/fa_alph01.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ARM.png",
-        "origin": "Armored Alchemist ",
+        "origin": "Armored Alchemist        ",
         "units": [
             "Alphonse"
         ],
@@ -10928,8 +10930,8 @@
         "formula": "140% PATK",
         "inputs": [
             "Alphonse",
-            "Alphonse Armored Alchemist ",
-            "Armored Alchemist "
+            "Alphonse Armored Alchemist        ",
+            "Armored Alchemist        "
         ]
     },
     "JB_FA_MAST01": {
@@ -11335,8 +11337,8 @@
         "name": "Cannoneer",
         "japan": "Cannoneer\n仕掛砲師",
         "kanji": "仕掛砲師",
-        "short description": "",
-        "long description": "",
+        "short description": "Ranged AOE",
+        "long description": "Ranged Unit That Can Push and Pull Enemies Around In An Area",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/art.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ART.png",
         "origin": "Cannoneer",
@@ -11396,14 +11398,14 @@
     },
     "JB_POK_B_TYRH01": {
         "iname": "JB_POK_B_TYRH01",
-        "name": "Black Killer: Avarice",
+        "name": "Black Killer : Avarice",
         "japan": "Black Sword Princess\n黒剣姫",
         "kanji": "黒剣姫",
         "short description": "",
         "long description": "",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/pok_b_tyrh01.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_SEI.png",
-        "origin": "Black Killer: Avarice",
+        "origin": "Black Killer : Avarice",
         "units": [
             "Black Killer Tyrhung"
         ],
@@ -11456,8 +11458,8 @@
         "formula": "140% PATK",
         "inputs": [
             "Black Killer Tyrhung",
-            "Black Killer Tyrhung Black Killer: Avarice",
-            "Black Killer: Avarice"
+            "Black Killer Tyrhung Black Killer : Avarice",
+            "Black Killer : Avarice"
         ]
     },
     "JB_BERS": {
@@ -11856,14 +11858,14 @@
     },
     "JB_POK_B_LAEV01": {
         "iname": "JB_POK_B_LAEV01",
-        "name": "Black Killer: Sloth",
+        "name": "Black Killer : Sloth",
         "japan": "Black Blade Princess\n黒刃姫",
         "kanji": "黒刃姫",
         "short description": "",
         "long description": "",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/pok_b_laev01.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_SEI.png",
-        "origin": "Black Killer: Sloth",
+        "origin": "Black Killer : Sloth",
         "units": [
             "Black Killer Laevateinn"
         ],
@@ -11916,8 +11918,8 @@
         "formula": "150% PATK",
         "inputs": [
             "Black Killer Laevateinn",
-            "Black Killer Laevateinn Black Killer: Sloth",
-            "Black Killer: Sloth"
+            "Black Killer Laevateinn Black Killer : Sloth",
+            "Black Killer : Sloth"
         ]
     },
     "JB_FIONA01": {
@@ -12444,7 +12446,7 @@
     "JB_GUNL_WATER": {
         "iname": "JB_GUNL_WATER",
         "name": "Aqua Gun-Lancer",
-        "japan": "Blue Water Gunlance\n蒼水銃槍師",
+        "japan": "Fluid Gunlance\n蒼水銃槍師",
         "kanji": "蒼水銃槍師",
         "short description": "",
         "long description": "",
@@ -12701,14 +12703,14 @@
     },
     "JB_POK_B_ARTE01": {
         "iname": "JB_POK_B_ARTE01",
-        "name": "Black Killer: Lust",
+        "name": "Black Killer : Lust",
         "japan": "Black Archer Princess\n黒弓姫",
         "kanji": "黒弓姫",
         "short description": "",
         "long description": "",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/pok_b_arte01.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_RAN.png",
-        "origin": "Black Killer: Lust",
+        "origin": "Black Killer : Lust",
         "units": [
             "Black Killer Artemis"
         ],
@@ -12760,8 +12762,8 @@
         "formula": "75% (PATK + DEX)",
         "inputs": [
             "Black Killer Artemis",
-            "Black Killer Artemis Black Killer: Lust",
-            "Black Killer: Lust"
+            "Black Killer Artemis Black Killer : Lust",
+            "Black Killer : Lust"
         ]
     },
     "JB_CRY_MERL01": {
@@ -12830,6 +12832,70 @@
             "Merlinus",
             "Merlinus Hero of Falsehood",
             "Hero of Falsehood"
+        ]
+    },
+    "JB_CRY_ARTH01": {
+        "iname": "JB_CRY_ARTH01",
+        "name": "Investigator Hero",
+        "japan": "",
+        "kanji": "求道の英雄",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/cry_arth01.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ARM.png",
+        "origin": "Investigator Hero",
+        "units": [
+            "Arthur"
+        ],
+        "jobe": [],
+        "main": "",
+        "sub": "",
+        "reactives": "",
+        "passives": "",
+        "modifiers": {
+            "HP": 35,
+            "Max Jewels": 23,
+            "Initial Jewels": 25,
+            "PATK": 50,
+            "PDEF": 25,
+            "MATK": 0,
+            "MDEF": 0,
+            "DEX": 0,
+            "AGI": 25,
+            "LUCK": 0,
+            "CRIT": 0,
+            "AVOID": 0
+        },
+        "stats": {
+            "Move": 4,
+            "Jump": 2,
+            "PATK": 385,
+            "PDEF": 308,
+            "DEX": 209,
+            "AGI": 43,
+            "MATK": 55,
+            "LUCK": 81,
+            "CRIT": 117,
+            "HP": 510,
+            "Jewels Obtained": 30,
+            "MDEF": 43,
+            "Fire Res": 9,
+            "Water Res": 7,
+            "Thunder Res": 5,
+            "Wind Res": 22,
+            "Charm Res": 46,
+            "Sleep Res": 54,
+            "Slow Res": 36,
+            "Stun Res": 18,
+            "Paralyze Res": 18,
+            "Petrify Res": 18,
+            "Poison Res": 10
+        },
+        "formula": "140% PATK",
+        "inputs": [
+            "Arthur",
+            "Arthur Investigator Hero",
+            "Investigator Hero"
         ]
     },
     "JB_KUDH_LAN2": {
@@ -13098,7 +13164,7 @@
     },
     "JB_DIOS_BAA": {
         "iname": "JB_DIOS_BAA",
-        "name": "Dark Cavalier+ : Edgelord",
+        "name": "Dark Cavalier+  : Edgelord",
         "japan": "Dark Knight+\nダークナイト+",
         "kanji": "ダークナイト＋",
         "short description": "",
@@ -13157,8 +13223,8 @@
         "formula": "150% PATK",
         "inputs": [
             "Dias",
-            "Dias Dark Cavalier+ : Edgelord",
-            "Dark Cavalier+ : Edgelord"
+            "Dias Dark Cavalier+  : Edgelord",
+            "Dark Cavalier+  : Edgelord"
         ]
     },
     "JB_LEAV_BAA_2": {
@@ -13364,8 +13430,8 @@
         "name": "Bishop+",
         "japan": "Wonder Doctor\nワンダードクトル",
         "kanji": "ワンダードクトル",
-        "short description": "",
-        "long description": "",
+        "short description": "Bishop+ : Quack Doctor",
+        "long description": "Bishop J+ With More Healing Abilities and An 8 Hit Magic Attack",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/alex_pri.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ALEX_PRI.png",
         "origin": "Bishop",
@@ -13560,11 +13626,11 @@
     },
     "JB_KIL_ANTI_MAGIC": {
         "iname": "JB_KIL_ANTI_MAGIC",
-        "name": "Shadow Assassin: Evening",
+        "name": "Shadow Assassin : Evening",
         "japan": "Assasin [Evening]\n暗殺者【宵】",
         "kanji": "暗殺者【宵】",
         "short description": "spell evasion and resistance",
-        "long description": "",
+        "long description": "spell evasion and resistance",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/kil00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_KIL_ANTI_MAGIC.png",
         "origin": "Shadow Assassin",
@@ -13623,12 +13689,12 @@
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "inputs": [
-            "Shadow Assassin: Evening"
+            "Shadow Assassin : Evening"
         ]
     },
     "JB_YUAN_NIN": {
         "iname": "JB_YUAN_NIN",
-        "name": "Ninja+ : Shinobi",
+        "name": "Ninja+  : Shinobi",
         "japan": "Ninja[+]\n忍者[+]",
         "kanji": "忍者＋",
         "short description": "",
@@ -13687,8 +13753,8 @@
         "formula": "70% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "inputs": [
             "Yuan",
-            "Yuan Ninja+ : Shinobi",
-            "Ninja+ : Shinobi"
+            "Yuan Ninja+  : Shinobi",
+            "Ninja+  : Shinobi"
         ]
     },
     "JB_MARE_DAI": {
@@ -13759,7 +13825,7 @@
     },
     "JB_FREE_DGN": {
         "iname": "JB_FREE_DGN",
-        "name": "Dragon Cavalier+ : Dragon Slayer",
+        "name": "Dragon Cavalier+  : Dragon Slayer",
         "japan": "Dragon Knight+\nドラゴンナイト",
         "kanji": "ドラゴンナイト＋",
         "short description": "",
@@ -13819,8 +13885,8 @@
         "formula": "140% PATK",
         "inputs": [
             "Freed",
-            "Freed Dragon Cavalier+ : Dragon Slayer",
-            "Dragon Cavalier+ : Dragon Slayer"
+            "Freed Dragon Cavalier+  : Dragon Slayer",
+            "Dragon Cavalier+  : Dragon Slayer"
         ]
     },
     "JB_DILG_GUA": {
@@ -13890,7 +13956,7 @@
     },
     "JB_SUTORIE_KIL": {
         "iname": "JB_SUTORIE_KIL",
-        "name": "Assasin+: Charm",
+        "name": "Assasin+ : Charm",
         "japan": "Assassin+\n暗殺者+",
         "kanji": "暗殺者＋",
         "short description": "",
@@ -13951,17 +14017,17 @@
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "inputs": [
             "Strie",
-            "Strie Assasin+: Charm",
-            "Assasin+: Charm"
+            "Strie Assasin+ : Charm",
+            "Assasin+ : Charm"
         ]
     },
     "JB_MAH_DARK": {
         "iname": "JB_MAH_DARK",
-        "name": "Magic Swordsman: Chimera",
+        "name": "Magic Swordsman : Chimera",
         "japan": "Magic Knight: Chimera\n魔法剣士【キマイラ】",
         "kanji": "魔法剣士【キマイラ】",
         "short description": "dark skill added",
-        "long description": "",
+        "long description": "dark skill added",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/mah00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_MAH_DARK.png",
         "origin": "Magic Swordsman",
@@ -14016,7 +14082,7 @@
         },
         "formula": "90% (PATK + MATK)",
         "inputs": [
-            "Magic Swordsman: Chimera"
+            "Magic Swordsman : Chimera"
         ]
     },
     "JB_MICH_DOC": {
@@ -14092,8 +14158,8 @@
         "name": "Dancer+",
         "japan": "Dancer+\n踊り子+",
         "kanji": "踊り子＋",
-        "short description": "",
-        "long description": "",
+        "short description": "Dancer+ : Odori Dancer",
+        "long description": "Gains A Map-Wide Enemy Stat Debuff That Also Boosts Own AGI",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/chih_odo.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_CHIH_ODO.png",
         "origin": "Dancer",
@@ -14352,11 +14418,11 @@
     },
     "JB_STR_SENJYU": {
         "iname": "JB_STR_SENJYU",
-        "name": "Holy Brawler: Senju",
+        "name": "Holy Brawler : Senju",
         "japan": "Saint of Fist: Senju\n拳聖【千手】",
         "kanji": "拳聖【千手】",
         "short description": "multi-hit",
-        "long description": "",
+        "long description": "multi-hit",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/str00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_STR_SENJYU.png",
         "origin": "Holy Brawler",
@@ -14366,7 +14432,8 @@
             "Gormalas",
             "Tomas",
             "Leonia",
-            "Yauras"
+            "Yauras",
+            "Kazahaya"
         ],
         "jobe": [],
         "main": "",
@@ -14414,7 +14481,7 @@
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "inputs": [
-            "Holy Brawler: Senju"
+            "Holy Brawler : Senju"
         ]
     },
     "JB_LUCA_STR": {
@@ -14681,11 +14748,11 @@
     },
     "JB_BAA_TYPE_MOVE_ANA": {
         "iname": "JB_BAA_TYPE_MOVE_ANA",
-        "name": "Dark Cavalier: Spion",
+        "name": "Dark Cavalier : Spion",
         "japan": "Dark Knight: Spion\nダークナイト【シュピオン】",
         "kanji": "ダークナイト【シュピオン】",
-        "short description": "increased move and move +1 buff",
-        "long description": "",
+        "short description": "Faster Dark Cav",
+        "long description": "Move Boosting Skill With An Agi And Dodge Boosting Passive",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/baa00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_BAA_TYPE_MOVE.png",
         "origin": "Dark Cavalier",
@@ -14740,8 +14807,8 @@
         },
         "formula": "150% PATK",
         "inputs": [
-            "Anastasia Dark Cavalier: Spion",
-            "Dark Cavalier: Spion"
+            "Anastasia Dark Cavalier : Spion",
+            "Dark Cavalier : Spion"
         ]
     },
     "JB_ANAS_BAA": {
@@ -14750,7 +14817,7 @@
         "japan": "Battlefield Blossom\n戦場のブロッサム",
         "kanji": "戦場のブロッサム",
         "short description": "",
-        "long description": "",
+        "long description": "Dark Cavalier J+ with Attack Focus And Direct Max HP Cutdown",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/anas_baa.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ANAS_BAA.png",
         "origin": "Dark Cavalier",
@@ -14879,8 +14946,8 @@
         "name": "Twin-Blade Swordsman+",
         "japan": "Scorching Sand's Peerless Duo\n熱砂の覇双",
         "kanji": "熱砂の覇双",
-        "short description": "",
-        "long description": "",
+        "short description": "Twin-Blade Swordsman+ : Desert Storm",
+        "long description": "Twin-Blade Swordsman+",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/balt_sol.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_BALT_SOL.png",
         "origin": "Twin-Blade Swordsman",
@@ -15074,7 +15141,7 @@
     },
     "JB_DENEB_SEN": {
         "iname": "JB_DENEB_SEN",
-        "name": "Astrologer+ : Moirai",
+        "name": "Astrologer+  : Moirai",
         "japan": "Astrologist+\n占星術師+",
         "kanji": "占星術師＋",
         "short description": "",
@@ -15135,13 +15202,13 @@
         "formula": "90% MATK",
         "inputs": [
             "Deneb",
-            "Deneb Astrologer+ : Moirai",
-            "Astrologer+ : Moirai"
+            "Deneb Astrologer+  : Moirai",
+            "Astrologer+  : Moirai"
         ]
     },
     "JB_SHN_FINANCIAL_KYARORU": {
         "iname": "JB_SHN_FINANCIAL_KYARORU",
-        "name": "Merchant+ : Armored Battle Maid",
+        "name": "Merchant+  : Armored Battle Maid",
         "japan": "Armored Battle Maid\n機鎧バトルメイド",
         "kanji": "機鎧バトルメイド",
         "short description": "",
@@ -15200,13 +15267,13 @@
         "formula": "50% (PATK + LUCK)",
         "inputs": [
             "Carol",
-            "Carol Merchant+ : Armored Battle Maid",
-            "Merchant+ : Armored Battle Maid"
+            "Carol Merchant+  : Armored Battle Maid",
+            "Merchant+  : Armored Battle Maid"
         ]
     },
     "JB_ZIN_ONM": {
         "iname": "JB_ZIN_ONM",
-        "name": "Spy+: Ronin",
+        "name": "Spy+ : Ronin",
         "japan": "Dark Shadow's Karma\n宿業の闇影",
         "kanji": "宿業の闇影",
         "short description": "",
@@ -15268,17 +15335,17 @@
         "formula": "90% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "inputs": [
             "Zin",
-            "Zin Spy+: Ronin",
-            "Spy+: Ronin"
+            "Zin Spy+ : Ronin",
+            "Spy+ : Ronin"
         ]
     },
     "JB_DOC_TYPE_BUFF": {
         "iname": "JB_DOC_TYPE_BUFF",
-        "name": "Professor: Mad",
+        "name": "Professor : Mad",
         "japan": "Professor: Mad\nプロフェッサー【マッド】",
         "kanji": "プロフェッサー【マッド】",
         "short description": "much stronger buffs",
-        "long description": "",
+        "long description": "much stronger buffs",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/doc00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_DOC_TYPE_BUFF.png",
         "origin": "Professor",
@@ -15336,12 +15403,12 @@
         },
         "formula": "55% (MATK + DEX/2 + LUCK/2)",
         "inputs": [
-            "Professor: Mad"
+            "Professor : Mad"
         ]
     },
     "JB_NOAH_HWIZ": {
         "iname": "JB_NOAH_HWIZ",
-        "name": "Battle Mage+ : Magical Honor Student",
+        "name": "Battle Mage+  : Magical Honor Student",
         "japan": "Magical Honor Student\nマジカル優等生",
         "kanji": "マジカル優等生",
         "short description": "",
@@ -15403,8 +15470,8 @@
         "formula": "90% MATK",
         "inputs": [
             "Noah",
-            "Noah Battle Mage+ : Magical Honor Student",
-            "Battle Mage+ : Magical Honor Student"
+            "Noah Battle Mage+  : Magical Honor Student",
+            "Battle Mage+  : Magical Honor Student"
         ]
     },
     "JB_MONZ_WOR2": {
@@ -15670,7 +15737,7 @@
     },
     "JB_REIMEI_MFEN": {
         "iname": "JB_REIMEI_MFEN",
-        "name": "Blademaster+ : Mifune",
+        "name": "Blademaster+  : Mifune",
         "japan": "Sword Master[+]\n剣豪[+]",
         "kanji": "剣豪＋",
         "short description": "",
@@ -15728,13 +15795,13 @@
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "inputs": [
             "Reimei",
-            "Reimei Blademaster+ : Mifune",
-            "Blademaster+ : Mifune"
+            "Reimei Blademaster+  : Mifune",
+            "Blademaster+  : Mifune"
         ]
     },
     "JB_MIUN_KAJ_CC": {
         "iname": "JB_MIUN_KAJ_CC",
-        "name": "Blacksmith+ ",
+        "name": "Blacksmith+        ",
         "japan": "Craftsman[+]\n匠鍛師[+]",
         "kanji": "匠鍛師＋",
         "short description": "",
@@ -15793,13 +15860,13 @@
         "formula": "140% PATK",
         "inputs": [
             "Miuna",
-            "Miuna Blacksmith+ ",
-            "Blacksmith+ "
+            "Miuna Blacksmith+        ",
+            "Blacksmith+        "
         ]
     },
     "JB_HAYA_ONM": {
         "iname": "JB_HAYA_ONM",
-        "name": "Spy+ : Genin",
+        "name": "Spy+  : Genin",
         "japan": "Spy+\n隠密+",
         "kanji": "隠密＋",
         "short description": "",
@@ -15859,17 +15926,17 @@
         "formula": "90% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "inputs": [
             "Hayate",
-            "Hayate Spy+ : Genin",
-            "Spy+ : Genin"
+            "Hayate Spy+  : Genin",
+            "Spy+  : Genin"
         ]
     },
     "JB_BLA_TYPE_TK_HUMAN": {
         "iname": "JB_BLA_TYPE_TK_HUMAN",
-        "name": "Martial Master: Human Hitman",
+        "name": "Martial Master : Human Hitman",
         "japan": "Martial Master: Human Mediator\n残人・マーシャルマスター",
         "kanji": "残人・マーシャルマスター",
-        "short description": "",
-        "long description": "",
+        "short description": "Anti-Human Skills",
+        "long description": "Adds A Clock-Stop Inflicting Move and Does Bonus Damage To Human Type Enemies",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/bla00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_BLA_TYPE_TK_HUMAN.png",
         "origin": "Martial Master",
@@ -15923,16 +15990,16 @@
         },
         "formula": "150% PATK",
         "inputs": [
-            "Martial Master: Human Hitman"
+            "Martial Master : Human Hitman"
         ]
     },
     "JB_BAA_TYPE_MOVE": {
         "iname": "JB_BAA_TYPE_MOVE",
-        "name": "Dark Cavalier: Move",
+        "name": "Dark Cavalier : Move",
         "japan": "Dark Knight: Spion\nダークナイト【シュピオン】",
         "kanji": "ダークナイト【シュピオン】",
-        "short description": "",
-        "long description": "",
+        "short description": "Faster Dark Cav",
+        "long description": "Move Boosting Skill With An Agi And Dodge Boosting Passive",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/baa00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_BAA_TYPE_MOVE.png",
         "origin": "Dark Cavalier",
@@ -15991,16 +16058,16 @@
         },
         "formula": "150% PATK",
         "inputs": [
-            "Dark Cavalier: Move"
+            "Dark Cavalier : Move"
         ]
     },
     "JB_BAA_TYPE_ATTAK": {
         "iname": "JB_BAA_TYPE_ATTAK",
-        "name": "Dark Cavalier: Jaeger",
+        "name": "Dark Cavalier : Jaeger",
         "japan": "Dark Knight: Jaeger\nダークナイト【イェーガー】",
         "kanji": "ダークナイト【イェーガー】",
-        "short description": "hp cost skills have higher damage",
-        "long description": "",
+        "short description": "Sacrifice Skills Bonus",
+        "long description": "HP cost skills Gain more damage And HP Passive Boosts ATK Instead",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/baa00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_BAA_TYPE_ATTAK.png",
         "origin": "Dark Cavalier",
@@ -16057,16 +16124,16 @@
         },
         "formula": "150% PATK",
         "inputs": [
-            "Dark Cavalier: Jaeger"
+            "Dark Cavalier : Jaeger"
         ]
     },
     "JB_DGN_RUDRA": {
         "iname": "JB_DGN_RUDRA",
-        "name": "Dragon Cavalier: Rudra",
+        "name": "Dragon Cavalier : Rudra",
         "japan": "Dragon Knight [Rudra]\nドラゴンナイト【ルドラ】",
         "kanji": "ドラゴンナイト【ルドラ】",
         "short description": "teleportation skills",
-        "long description": "",
+        "long description": "teleportation skills",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/dgn00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_DGN_RUDRA.png",
         "origin": "Dragon Cavalier",
@@ -16124,16 +16191,16 @@
         },
         "formula": "140% PATK",
         "inputs": [
-            "Dragon Cavalier: Rudra"
+            "Dragon Cavalier : Rudra"
         ]
     },
     "JB_RAN_TYPE_AVOID": {
         "iname": "JB_RAN_TYPE_AVOID",
-        "name": "Ranger: Hawk",
+        "name": "Ranger : Hawk",
         "japan": "Ranger: Hawk\nレンジャー【鷹】",
         "kanji": "レンジャー【鷹】",
         "short description": "dodging and enemy accuracy down",
-        "long description": "",
+        "long description": "dodging and enemy accuracy down",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/ran00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_RAN_TYPE_AVOID.png",
         "origin": "Ranger",
@@ -16193,16 +16260,16 @@
         },
         "formula": "65% (PATK + DEX)",
         "inputs": [
-            "Ranger: Hawk"
+            "Ranger : Hawk"
         ]
     },
     "JB_RAN_TYPE_JEWELDAMEGE": {
         "iname": "JB_RAN_TYPE_JEWELDAMEGE",
-        "name": "Ranger: Snake",
+        "name": "Ranger : Snake",
         "japan": "Ranger: Snake\nレンジャー【蛇】",
         "kanji": "レンジャー【蛇】",
         "short description": "jewel damage",
-        "long description": "",
+        "long description": "jewel damage",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/ran00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_RAN_TYPE_JEWELDAMEGE.png",
         "origin": "Ranger",
@@ -16261,16 +16328,16 @@
         },
         "formula": "65% (PATK + DEX)",
         "inputs": [
-            "Ranger: Snake"
+            "Ranger : Snake"
         ]
     },
     "JB_STR_SYURA": {
         "iname": "JB_STR_SYURA",
-        "name": "Holy Brawler: Shura",
+        "name": "Holy Brawler : Shura",
         "japan": "Saint of Fist: Shura\n拳聖【修羅】",
         "kanji": "拳聖【修羅】",
         "short description": "5x PATK buff",
-        "long description": "",
+        "long description": "5x PATK buff",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/str00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_STR_SYURA.png",
         "origin": "Holy Brawler",
@@ -16326,16 +16393,16 @@
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "inputs": [
-            "Holy Brawler: Shura"
+            "Holy Brawler : Shura"
         ]
     },
     "JB_NIN_GENBU": {
         "iname": "JB_NIN_GENBU",
-        "name": "Ninja : Genbu",
+        "name": "Ninja  : Genbu",
         "japan": "Ninja: Genbu\n忍者【玄武】",
         "kanji": "忍者【玄武】",
         "short description": "move-based",
-        "long description": "",
+        "long description": "move-based",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/nin00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_NIN_GENBU.png",
         "origin": "Ninja",
@@ -16392,16 +16459,16 @@
         },
         "formula": "70% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "inputs": [
-            "Ninja : Genbu"
+            "Ninja  : Genbu"
         ]
     },
     "JB_DAI_FIRE": {
         "iname": "JB_DAI_FIRE",
-        "name": "Sage: Obelisk",
+        "name": "Sage : Obelisk",
         "japan": "Sage: Obelisk\n賢者【オベリスク】",
         "kanji": "賢者【オベリスク】",
         "short description": "stronger fire skills",
-        "long description": "",
+        "long description": "stronger fire skills",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/dai00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_DAI_FIRE.png",
         "origin": "Sage",
@@ -16459,16 +16526,16 @@
         },
         "formula": "90% MATK",
         "inputs": [
-            "Sage: Obelisk"
+            "Sage : Obelisk"
         ]
     },
     "JB_BAA_TYPE_DRAIN": {
         "iname": "JB_BAA_TYPE_DRAIN",
-        "name": "Dark Cavalier: Seele",
+        "name": "Dark Cavalier : Seele",
         "japan": "Dark Knight: Seele\nダークナイト【ゼーレ】",
         "kanji": "ダークナイト【ゼーレ】",
-        "short description": "defense ignoring hp and jewel drains",
-        "long description": "",
+        "short description": "Drain Skills Bonus",
+        "long description": "Gains Defense Ignoring HP and Jewel Drain Skills",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/baa00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_BAA_TYPE_DRAIN.png",
         "origin": "Dark Cavalier",
@@ -16528,16 +16595,16 @@
         },
         "formula": "150% PATK",
         "inputs": [
-            "Dark Cavalier: Seele"
+            "Dark Cavalier : Seele"
         ]
     },
     "JB_BLA_TYPE_TK_MONS": {
         "iname": "JB_BLA_TYPE_TK_MONS",
-        "name": "Martial Master: Demon Destroyer",
+        "name": "Martial Master : Demon Destroyer",
         "japan": "Martial Master: Beast Render\n破獣・マーシャルマスター",
         "kanji": "破獣・マーシャルマスター",
-        "short description": "",
-        "long description": "",
+        "short description": "Anti-Demon Skills",
+        "long description": "Adds A Sleep Inflicting Move and Does Bonus Damage To Beast Type Enemies",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/bla00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_BLA_TYPE_TK_MONS.png",
         "origin": "Martial Master",
@@ -16591,16 +16658,16 @@
         },
         "formula": "150% PATK",
         "inputs": [
-            "Martial Master: Demon Destroyer"
+            "Martial Master : Demon Destroyer"
         ]
     },
     "JB_DGN_VRITRA": {
         "iname": "JB_DGN_VRITRA",
-        "name": "Dragon Cavalier: Vritra",
+        "name": "Dragon Cavalier : Vritra",
         "japan": "Dragon Knight: Vritra\nドラゴンナイト【ヴリトラ】",
         "kanji": "ドラゴンナイト【ヴリトラ】",
-        "short description": "longer-ranged, lower damage attacks compared to Garuda",
-        "long description": "",
+        "short description": "long rang but low dmg",
+        "long description": "longer-ranged and lower damager compared to Garuda",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/dgn00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_DGN_VRITRA.png",
         "origin": "Dragon Cavalier",
@@ -16655,16 +16722,16 @@
         },
         "formula": "140% PATK",
         "inputs": [
-            "Dragon Cavalier: Vritra"
+            "Dragon Cavalier : Vritra"
         ]
     },
     "JB_KIL_SCOUT": {
         "iname": "JB_KIL_SCOUT",
-        "name": "Shadow Assassin: Night",
+        "name": "Shadow Assassin : Night",
         "japan": "Assassin: Night\n暗殺者【闇】",
         "kanji": "暗殺者【闇】",
         "short description": "buff dispeller",
-        "long description": "",
+        "long description": "buff dispeller",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/kil00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_KIL_SCOUT.png",
         "origin": "Shadow Assassin",
@@ -16722,16 +16789,16 @@
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "inputs": [
-            "Shadow Assassin: Night"
+            "Shadow Assassin : Night"
         ]
     },
     "JB_GUA_TYPE_ANTI_MAGIC": {
         "iname": "JB_GUA_TYPE_ANTI_MAGIC",
-        "name": "Holy Cavalier: Magi",
+        "name": "Holy Cavalier : Magi",
         "japan": "Holy Knight: Magi\nホーリーナイト【マギ】",
         "kanji": "ホーリーナイト【マギ】",
         "short description": "magic resistance",
-        "long description": "",
+        "long description": "magic resistance",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/gua00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_GUA_TYPE_ANTI_MAGIC.png",
         "origin": "Holy Cavalier",
@@ -16786,16 +16853,16 @@
         },
         "formula": "140% PATK",
         "inputs": [
-            "Holy Cavalier: Magi"
+            "Holy Cavalier : Magi"
         ]
     },
     "JB_MAJ_THUNDER": {
         "iname": "JB_MAJ_THUNDER",
-        "name": "Magia Gunslinger : Ra",
+        "name": "Magia Gunslinger  : Ra",
         "japan": "Magic Shooter [Ra]\nラー・マギアシューター",
         "kanji": "ラー・マギアシューター",
         "short description": "improved thunder skills and wide aoe",
-        "long description": "",
+        "long description": "improved thunder skills and wide aoe",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/maj00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_MAJ_THUNDER.png",
         "origin": "Magia Gunslinger",
@@ -16851,16 +16918,16 @@
         },
         "formula": "120% MATK",
         "inputs": [
-            "Magia Gunslinger : Ra"
+            "Magia Gunslinger  : Ra"
         ]
     },
     "JB_DAI_THUNDER": {
         "iname": "JB_DAI_THUNDER",
-        "name": "Sage: Monolith",
+        "name": "Sage : Monolith",
         "japan": "Sage: Monolith\n賢者【モノリス】",
         "kanji": "賢者【モノリス】",
         "short description": "stronger thunder skills",
-        "long description": "",
+        "long description": "stronger thunder skills",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/dai00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_DAI_THUNDER.png",
         "origin": "Sage",
@@ -16919,16 +16986,16 @@
         },
         "formula": "90% MATK",
         "inputs": [
-            "Sage: Monolith"
+            "Sage : Monolith"
         ]
     },
     "JB_NIN_SUZAKU": {
         "iname": "JB_NIN_SUZAKU",
-        "name": "Ninja: Suzaku",
+        "name": "Ninja : Suzaku",
         "japan": "Ninja: Suzaku\n忍者【朱雀】",
         "kanji": "忍者【朱雀】",
         "short description": "jump-based",
-        "long description": "",
+        "long description": "jump-based",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/nin00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_NIN_SUZAKU.png",
         "origin": "Ninja",
@@ -16987,16 +17054,16 @@
         },
         "formula": "70% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "inputs": [
-            "Ninja: Suzaku"
+            "Ninja : Suzaku"
         ]
     },
     "JB_MAJ_WATER": {
         "iname": "JB_MAJ_WATER",
-        "name": "Magia Gunslinger: Isis",
+        "name": "Magia Gunslinger : Isis",
         "japan": "Isis: Magia Shooter\nイシス・マギアシューター",
         "kanji": "イシス・マギアシューター",
         "short description": "improved water damage and multi-hit",
-        "long description": "",
+        "long description": "improved water damage and multi-hit",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/maj00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_MAJ_WATER.png",
         "origin": "Magia Gunslinger",
@@ -17052,16 +17119,16 @@
         },
         "formula": "120% MATK",
         "inputs": [
-            "Magia Gunslinger: Isis"
+            "Magia Gunslinger : Isis"
         ]
     },
     "JB_DAI_POWER": {
         "iname": "JB_DAI_POWER",
-        "name": "Sage: Pandora",
+        "name": "Sage : Pandora",
         "japan": "Sage: Pandora\n賢者【パンドラ】",
         "kanji": "賢者【パンドラ】",
-        "short description": "passive that upgrades all mega and cross skills",
-        "long description": "",
+        "short description": "stronger skills via passive",
+        "long description": "passive that upgrades all mega and cross skills",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/dai00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_DAI_POWER.png",
         "origin": "Sage",
@@ -17118,16 +17185,16 @@
         },
         "formula": "90% MATK",
         "inputs": [
-            "Sage: Pandora"
+            "Sage : Pandora"
         ]
     },
     "JB_SHN_CT": {
         "iname": "JB_SHN_CT",
-        "name": "Merchant: Scheming Tanuki",
+        "name": "Merchant : Scheming Tanuki",
         "japan": "Merchant 【Scheming Tanuki】\n商人【計り狸】",
         "kanji": "商人【計り狸】",
         "short description": "randomly give 50 CT to any units on map",
-        "long description": "",
+        "long description": "randomly give 50 CT to any units on map",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/shn00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_SHN_RUCK_CT_PLUS.png",
         "origin": "Merchant",
@@ -17180,16 +17247,16 @@
         },
         "formula": "50% (PATK + LUCK)",
         "inputs": [
-            "Merchant: Scheming Tanuki"
+            "Merchant : Scheming Tanuki"
         ]
     },
     "JB_NIN_BYACO": {
         "iname": "JB_NIN_BYACO",
-        "name": "Ninja: Byakko",
+        "name": "Ninja : Byakko",
         "japan": "Ninja: Byakko\n忍者【白虎】",
         "kanji": "忍者【白虎】",
         "short description": "evasion-based",
-        "long description": "",
+        "long description": "evasion-based",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/nin00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_NIN_BYACO.png",
         "origin": "Ninja",
@@ -17246,16 +17313,16 @@
         },
         "formula": "70% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "inputs": [
-            "Ninja: Byakko"
+            "Ninja : Byakko"
         ]
     },
     "JB_BAA_TYPE_RISKY": {
         "iname": "JB_BAA_TYPE_RISKY",
-        "name": "Dark Cavalier: Faust",
+        "name": "Dark Cavalier : Faust",
         "japan": "Dark Knight: Faust\nダークナイト【ファウスト】",
         "kanji": "ダークナイト【ファウスト】",
-        "short description": "hp cost skills cost more and do more damage",
-        "long description": "",
+        "short description": "Suicidal Nuker",
+        "long description": "Higher HP Costs For More Damage With A More Powerful HP Passive",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/baa00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_BAA_TYPE_RISKY.png",
         "origin": "Dark Cavalier",
@@ -17314,16 +17381,16 @@
         },
         "formula": "150% PATK",
         "inputs": [
-            "Dark Cavalier: Faust"
+            "Dark Cavalier : Faust"
         ]
     },
     "JB_GUA_TYPE_AREA_GUARD": {
         "iname": "JB_GUA_TYPE_AREA_GUARD",
-        "name": "Holy Cavalier: Ark",
+        "name": "Holy Cavalier : Ark",
         "japan": "Holy Knight: Ark\nホーリーナイト【アーク】",
         "kanji": "ホーリーナイト【アーク】",
         "short description": "AoE resistance",
-        "long description": "",
+        "long description": "AoE resistance",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/gua00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_GUA_TYPE_ANTI_WIDE_ATK.png",
         "origin": "Holy Cavalier",
@@ -17377,16 +17444,16 @@
         },
         "formula": "140% PATK",
         "inputs": [
-            "Holy Cavalier: Ark"
+            "Holy Cavalier : Ark"
         ]
     },
     "JB_DAI_WIND": {
         "iname": "JB_DAI_WIND",
-        "name": "Sage : Rosetta",
+        "name": "Sage  : Rosetta",
         "japan": "Sage: Rosetta\n賢者【ロゼッタ】",
         "kanji": "賢者【ロゼッタ】",
         "short description": "stronger wind skills",
-        "long description": "",
+        "long description": "stronger wind skills",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/dai00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_DAI_WIND.png",
         "origin": "Sage",
@@ -17445,16 +17512,16 @@
         },
         "formula": "90% MATK",
         "inputs": [
-            "Sage : Rosetta"
+            "Sage  : Rosetta"
         ]
     },
     "JB_WOR_ATLAS": {
         "iname": "JB_WOR_ATLAS",
-        "name": "Warrior: Atlas",
+        "name": "Warrior : Atlas",
         "japan": "Axe Warrior: Atlas\nウォーリア【アトラス】",
         "kanji": "ウォーリア【アトラス】",
         "short description": "thunder tank",
-        "long description": "",
+        "long description": "thunder tank",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/wor00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_WOR_ATLAS.png",
         "origin": "Warrior",
@@ -17508,8 +17575,8 @@
         },
         "formula": "140% PATK",
         "inputs": [
-            "Orion Warrior: Atlas",
-            "Warrior: Atlas"
+            "Orion Warrior : Atlas",
+            "Warrior : Atlas"
         ]
     },
     "JB_CANO_LORD_CC": {
@@ -17580,11 +17647,11 @@
     },
     "JB_SNI_SNIPE": {
         "iname": "JB_SNI_SNIPE",
-        "name": "Sniper: Scope",
+        "name": "Sniper : Scope",
         "japan": "Sniper: Scope\nスナイパー【スコープ】",
         "kanji": "スナイパー【スコープ】",
         "short description": "charge up for snipers",
-        "long description": "",
+        "long description": "charge up for snipers",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/sni00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_SNI_SNIPE.png",
         "origin": "Sniper",
@@ -17644,13 +17711,13 @@
         },
         "formula": "70% (PATK + DEX)",
         "inputs": [
-            "Sniper: Scope"
+            "Sniper : Scope"
         ]
     },
     "JB_SOL_WATER": {
         "iname": "JB_SOL_WATER",
-        "name": "Twin-Blade Swordsman: Mist",
-        "japan": "Sagiri (Mist) Twin Blade\n狭霧の双剣士",
+        "name": "Twin-Blade Swordsman : Mist",
+        "japan": "Hazy Twin Blade\n狭霧の双剣士",
         "kanji": "狭霧の双剣士",
         "short description": "",
         "long description": "",
@@ -17706,17 +17773,82 @@
         },
         "formula": "140% PATK",
         "inputs": [
-            "Ren Twin-Blade Swordsman: Mist",
-            "Twin-Blade Swordsman: Mist"
+            "Ren Twin-Blade Swordsman : Mist",
+            "Twin-Blade Swordsman : Mist"
+        ]
+    },
+    "JB_GUA_TYPE_ANTI_LANCE": {
+        "iname": "JB_GUA_TYPE_ANTI_LANCE",
+        "name": "Holy Cavalier : Porta",
+        "japan": "",
+        "kanji": "ホーリーナイト【ポルタ】",
+        "short description": "pierce resistance",
+        "long description": "pierce resistance",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/gua00.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_GUA_TYPE_ANTI_LANCE.png",
+        "origin": "Holy Cavalier",
+        "units": [
+            "Arthur",
+            "Teona",
+            "Lambert"
+        ],
+        "jobe": [],
+        "main": "",
+        "sub": "",
+        "reactives": "",
+        "passives": "",
+        "stats": {
+            "Move": 3,
+            "Jump": 1,
+            "PATK": 276,
+            "PDEF": 268,
+            "DEX": 242,
+            "AGI": 18,
+            "CRIT": 104,
+            "HP": 549,
+            "MATK": 72,
+            "MDEF": 65,
+            "Jewels Obtained": 48,
+            "LUCK": 124,
+            "Fire Res": 9,
+            "Water Res": 6,
+            "Thunder Res": 5,
+            "Wind Res": 7,
+            "Light Res": 4,
+            "Charm Res": 46,
+            "Sleep Res": 54,
+            "Slow Res": 36,
+            "Stun Res": 18,
+            "Paralyze Res": 18,
+            "Petrify Res": 18,
+            "Poison Res": 10
+        },
+        "modifiers": {
+            "HP": 32,
+            "Max Jewels": 0,
+            "Initial Jewels": 25,
+            "PATK": 10,
+            "PDEF": 25,
+            "MATK": -5,
+            "MDEF": 5,
+            "DEX": 0,
+            "AGI": 13,
+            "LUCK": 0,
+            "CRIT": 6,
+            "AVOID": 0
+        },
+        "formula": "140% PATK",
+        "inputs": [
+            "Holy Cavalier : Porta"
         ]
     },
     "JB_SNI_LONG_RANGE": {
         "iname": "JB_SNI_LONG_RANGE",
-        "name": "Sniper: Barrel",
+        "name": "Sniper : Barrel",
         "japan": "Sniper: Barrel\nスナイパー【バレル】",
         "kanji": "スナイパー【バレル】",
-        "short description": "very long range, increased minimum range",
-        "long description": "",
+        "short description": "very long range and increased minimum range",
+        "long description": "very long range and increased minimum range",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/sni00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_SNI_LONG_RANGE.png",
         "origin": "Sniper",
@@ -17774,16 +17906,16 @@
         },
         "formula": "70% (PATK + DEX)",
         "inputs": [
-            "Sniper: Barrel"
+            "Sniper : Barrel"
         ]
     },
     "JB_SNI_ZERO_RANGE": {
         "iname": "JB_SNI_ZERO_RANGE",
-        "name": "Sniper: Magnum",
+        "name": "Sniper : Magnum",
         "japan": "Sniper: Magnum\nスナイパー【マグナム】",
         "kanji": "スナイパー【マグナム】",
         "short description": "massive close range hits",
-        "long description": "",
+        "long description": "massive close range hits",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/sni00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_SNI_ZERO_RANGE.png",
         "origin": "Sniper",
@@ -17840,17 +17972,17 @@
         "formula": "70% (PATK + DEX)",
         "inputs": [
             "Hugo",
-            "Hugo Sniper: Magnum",
-            "Sniper: Magnum"
+            "Hugo Sniper : Magnum",
+            "Sniper : Magnum"
         ]
     },
     "JB_MAJ_FIRE": {
         "iname": "JB_MAJ_FIRE",
-        "name": "Magia Gunslinger: Horus",
+        "name": "Magia Gunslinger : Horus",
         "japan": "Horus: Magia Shooter\nホルス・マギアシューター",
         "kanji": "ホルス・マギアシューター",
         "short description": "improved fire skills and healing",
-        "long description": "",
+        "long description": "improved fire skills and healing",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/maj00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_MAJ_FIRE.png",
         "origin": "Magia Gunslinger",
@@ -17906,17 +18038,17 @@
         "formula": "120% MATK",
         "inputs": [
             "Vivi",
-            "Vivi Magia Gunslinger: Horus",
-            "Magia Gunslinger: Horus"
+            "Vivi Magia Gunslinger : Horus",
+            "Magia Gunslinger : Horus"
         ]
     },
     "JB_MAJ_WIND": {
         "iname": "JB_MAJ_WIND",
-        "name": "Magia Gunslinger: Set",
+        "name": "Magia Gunslinger : Set",
         "japan": "Set: Magia Shooter\nセト・マギアシューター",
         "kanji": "セト・マギアシューター",
         "short description": "improved wind skills and melee attacks",
-        "long description": "",
+        "long description": "improved wind skills and melee attacks",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/maj00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_MAJ_WIND.png",
         "origin": "Magia Gunslinger",
@@ -17972,17 +18104,17 @@
         "formula": "120% MATK",
         "inputs": [
             "Uzuma",
-            "Uzuma Magia Gunslinger: Set",
-            "Magia Gunslinger: Set"
+            "Uzuma Magia Gunslinger : Set",
+            "Magia Gunslinger : Set"
         ]
     },
     "JB_DOC_TYPE_HEALING": {
         "iname": "JB_DOC_TYPE_HEALING",
-        "name": "Professor: Aid",
+        "name": "Professor : Aid",
         "japan": "Professor: AID\nプロフェッサー【エイド】",
         "kanji": "プロフェッサー【エイド】",
         "short description": "cures will heal as well",
-        "long description": "",
+        "long description": "cures will heal as well",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/doc00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_DOC_TYPE_HEALING.png",
         "origin": "Professor",
@@ -18041,16 +18173,16 @@
         },
         "formula": "55% (MATK + DEX/2 + LUCK/2)",
         "inputs": [
-            "Professor: Aid"
+            "Professor : Aid"
         ]
     },
     "JB_NIN_SEIRYU": {
         "iname": "JB_NIN_SEIRYU",
-        "name": "Ninja: Seiryu",
+        "name": "Ninja : Seiryu",
         "japan": "Ninja: Seiryu\n忍者【青龍】",
         "kanji": "忍者【青龍】",
         "short description": "attack-based",
-        "long description": "",
+        "long description": "attack-based",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/nin00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_NIN_SEIRYU.png",
         "origin": "Ninja",
@@ -18107,16 +18239,16 @@
         },
         "formula": "70% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "inputs": [
-            "Ninja: Seiryu"
+            "Ninja : Seiryu"
         ]
     },
     "JB_NIN_KIRIN": {
         "iname": "JB_NIN_KIRIN",
-        "name": "Ninja: Kirin",
+        "name": "Ninja : Kirin",
         "japan": "Ninja: Kirin\n忍者【麒麟】",
         "kanji": "忍者【麒麟】",
         "short description": "AGI-based",
-        "long description": "",
+        "long description": "AGI-based",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/nin00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_NIN_KIRIN.png",
         "origin": "Ninja",
@@ -18174,16 +18306,16 @@
         },
         "formula": "70% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "inputs": [
-            "Ninja: Kirin"
+            "Ninja : Kirin"
         ]
     },
     "JB_STR_MILOKU": {
         "iname": "JB_STR_MILOKU",
-        "name": "Holy Brawler: Maitreya",
+        "name": "Holy Brawler : Maitreya",
         "japan": "Saint of Fist: Maitreya\n拳聖【弥勒】",
         "kanji": "拳聖【弥勒】",
-        "short description": "12% regen, 5% jewel regen buff",
-        "long description": "",
+        "short description": "12% regen &  5% jewel regen buff",
+        "long description": "12% regen &  5% jewel regen buff",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/str00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_STR_MILOKU.png",
         "origin": "Holy Brawler",
@@ -18239,16 +18371,16 @@
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "inputs": [
-            "Holy Brawler: Maitreya"
+            "Holy Brawler : Maitreya"
         ]
     },
     "JB_MAH_FIRE": {
         "iname": "JB_MAH_FIRE",
-        "name": "Magic Swordsman: Ifrit",
+        "name": "Magic Swordsman : Ifrit",
         "japan": "Magic Knight: Ifrit\n魔法剣士【イフリート】",
         "kanji": "魔法剣士【イフリート】",
         "short description": "stronger fire skills",
-        "long description": "",
+        "long description": "stronger fire skills",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/mah00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_MAH_FIRE.png",
         "origin": "Magic Swordsman",
@@ -18302,16 +18434,16 @@
         },
         "formula": "90% (PATK + MATK)",
         "inputs": [
-            "Magic Swordsman: Ifrit"
+            "Magic Swordsman : Ifrit"
         ]
     },
     "JB_MAH_WATER": {
         "iname": "JB_MAH_WATER",
-        "name": "Magic Swordsman: Fenrir",
+        "name": "Magic Swordsman : Fenrir",
         "japan": "Magic Knight: Fenrir\n魔法剣士【フェンリル】",
         "kanji": "魔法剣士【フェンリル】",
         "short description": "stronger water skills",
-        "long description": "",
+        "long description": "stronger water skills",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/mah00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_MAH_WATER.png",
         "origin": "Magic Swordsman",
@@ -18365,17 +18497,17 @@
         "formula": "90% (PATK + MATK)",
         "inputs": [
             "Margaret",
-            "Margaret Magic Swordsman: Fenrir",
-            "Magic Swordsman: Fenrir"
+            "Margaret Magic Swordsman : Fenrir",
+            "Magic Swordsman : Fenrir"
         ]
     },
     "JB_MAH_WIND": {
         "iname": "JB_MAH_WIND",
-        "name": "Magic Swordsman: Sylphid",
+        "name": "Magic Swordsman : Sylphid",
         "japan": "Magic Knight: Sylphid\n魔法剣士【シルフィード】",
         "kanji": "魔法剣士【シルフィード】",
         "short description": "stronger wind skills",
-        "long description": "",
+        "long description": "stronger wind skills",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/mah00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_MAH_WIND.png",
         "origin": "Magic Swordsman",
@@ -18429,16 +18561,16 @@
         },
         "formula": "90% (PATK + MATK)",
         "inputs": [
-            "Magic Swordsman: Sylphid"
+            "Magic Swordsman : Sylphid"
         ]
     },
     "JB_MAH_THUNDER": {
         "iname": "JB_MAH_THUNDER",
-        "name": "Magic Swordsman: Ixion",
+        "name": "Magic Swordsman : Ixion",
         "japan": "Magic Knight: Ixion\n魔法剣士【イクシオン】",
         "kanji": "魔法剣士【イクシオン】",
         "short description": "stronger thunder skills",
-        "long description": "",
+        "long description": "stronger thunder skills",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/mah00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_MAH_THUNDER.png",
         "origin": "Magic Swordsman",
@@ -18492,16 +18624,16 @@
         },
         "formula": "90% (PATK + MATK)",
         "inputs": [
-            "Magic Swordsman: Ixion"
+            "Magic Swordsman : Ixion"
         ]
     },
     "JB_MAH_SHINE": {
         "iname": "JB_MAH_SHINE",
-        "name": "Magic Swordsman: Pegasus",
+        "name": "Magic Swordsman : Pegasus",
         "japan": "Magic Knight: Pegasus\n魔法剣士【ペガサス】",
         "kanji": "魔法剣士【ペガサス】",
         "short description": "light skill added",
-        "long description": "",
+        "long description": "light skill added",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/mah00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_MAH_SHINE.png",
         "origin": "Magic Swordsman",
@@ -18556,16 +18688,16 @@
         },
         "formula": "90% (PATK + MATK)",
         "inputs": [
-            "Magic Swordsman: Pegasus"
+            "Magic Swordsman : Pegasus"
         ]
     },
     "JB_DAI_WATER": {
         "iname": "JB_DAI_WATER",
-        "name": "Sage: Carnac",
+        "name": "Sage : Carnac",
         "japan": "Sage: Carnac\n賢者【カルナック】",
         "kanji": "賢者【カルナック】",
         "short description": "stronger water skills",
-        "long description": "",
+        "long description": "stronger water skills",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/dai00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_DAI_WATER.png",
         "origin": "Sage",
@@ -18623,16 +18755,16 @@
         },
         "formula": "90% MATK",
         "inputs": [
-            "Sage: Carnac"
+            "Sage : Carnac"
         ]
     },
     "JB_SHN_CHARM": {
         "iname": "JB_SHN_CHARM",
-        "name": "Merchant: Charming Daruma",
+        "name": "Merchant : Charming Daruma",
         "japan": "Merchant: Charming Daruma\n商人【誘い達磨】",
         "kanji": "商人【誘い達磨】",
         "short description": "jewel drain and charm around self",
-        "long description": "",
+        "long description": "jewel drain and charm around self",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/shn00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_SHN_RUCK_CHARM.png",
         "origin": "Merchant",
@@ -18685,17 +18817,17 @@
         "formula": "50% (PATK + LUCK)",
         "inputs": [
             "Elrike",
-            "Elrike Merchant: Charming Daruma",
-            "Merchant: Charming Daruma"
+            "Elrike Merchant : Charming Daruma",
+            "Merchant : Charming Daruma"
         ]
     },
     "JB_SHN_HEEL": {
         "iname": "JB_SHN_HEEL",
-        "name": "Merchant: Grace Crane",
+        "name": "Merchant : Grace Crane",
         "japan": "Merchant: Grace Crane\n商人【恵み鶴】",
         "kanji": "商人【恵み鶴】",
         "short description": "stronger heal delivery and full leverage +15 jewels",
-        "long description": "",
+        "long description": "stronger heal delivery and full leverage +15 jewels",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/shn00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_SHN_RUCK_HEEL.png",
         "origin": "Merchant",
@@ -18748,16 +18880,16 @@
         },
         "formula": "50% (PATK + LUCK)",
         "inputs": [
-            "Merchant: Grace Crane"
+            "Merchant : Grace Crane"
         ]
     },
     "JB_RAN_TYPE_MONS": {
         "iname": "JB_RAN_TYPE_MONS",
-        "name": "Ranger: Wolf",
+        "name": "Ranger : Wolf",
         "japan": "Ranger: Wolf\nレンジャー【狼】",
         "kanji": "レンジャー【狼】",
         "short description": "bonus damage against monsters",
-        "long description": "",
+        "long description": "bonus damage against monsters",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/ran00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_RAN_TYPE_MONS.png",
         "origin": "Ranger",
@@ -18815,16 +18947,16 @@
         },
         "formula": "65% (PATK + DEX)",
         "inputs": [
-            "Ranger: Wolf"
+            "Ranger : Wolf"
         ]
     },
     "JB_GUA_TYPE_GEAR_TYRHUNG": {
         "iname": "JB_GUA_TYPE_GEAR_TYRHUNG",
-        "name": "Holy Cavalier: Gear",
+        "name": "Holy Cavalier : Gear",
         "japan": "Holy Knight: Gear \nホーリーナイト【ギア】",
         "kanji": "ホーリーナイト【ギア】",
         "short description": "very high AGI",
-        "long description": "",
+        "long description": "very high AGI",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/gua00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_GUA_TYPE_SPEED.png",
         "origin": "Holy Cavalier",
@@ -18877,17 +19009,17 @@
         },
         "formula": "140% PATK",
         "inputs": [
-            "Tyrfing Holy Cavalier: Gear",
-            "Holy Cavalier: Gear"
+            "Tyrfing Holy Cavalier : Gear",
+            "Holy Cavalier : Gear"
         ]
     },
     "JB_STR_FUDOU": {
         "iname": "JB_STR_FUDOU",
-        "name": "Holy Brawler: Fudo",
+        "name": "Holy Brawler : Fudo",
         "japan": "Saint of Fist: Fudo\n拳聖【不動】",
         "kanji": "拳聖【不動】",
         "short description": "more damage at lower health",
-        "long description": "",
+        "long description": "more damage at lower health",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/str00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_STR_FUDOU.png",
         "origin": "Holy Brawler",
@@ -18943,16 +19075,16 @@
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "inputs": [
-            "Holy Brawler: Fudo"
+            "Holy Brawler : Fudo"
         ]
     },
     "JB_DGN_GARUDA": {
         "iname": "JB_DGN_GARUDA",
-        "name": "Dragon Cavalier: Garuda",
+        "name": "Dragon Cavalier : Garuda",
         "japan": "Dragon Knight: Garuda\nドラゴンナイト【ガルダ】",
         "kanji": "ドラゴンナイト【ガルダ】",
-        "short description": "lower-range, high damage attacks compared to Vritra",
-        "long description": "",
+        "short description": "low range but high dmg",
+        "long description": "lower-range and higher damage compared to Vritra",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/dgn00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_DGN_GARUDA.png",
         "origin": "Dragon Cavalier",
@@ -19008,16 +19140,16 @@
         },
         "formula": "140% PATK",
         "inputs": [
-            "Dragon Cavalier: Garuda"
+            "Dragon Cavalier : Garuda"
         ]
     },
     "JB_GUA_TYPE_ANTI_SWORD": {
         "iname": "JB_GUA_TYPE_ANTI_SWORD",
-        "name": "Holy Cavalier: Izaya",
+        "name": "Holy Cavalier : Izaya",
         "japan": "Holy Knight: Izaya\nホーリーナイト【イザヤ】",
         "kanji": "ホーリーナイト【イザヤ】",
         "short description": "slash resistance",
-        "long description": "",
+        "long description": "slash resistance",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/gua00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_GUA_TYPE_ANTI_SWORD.png",
         "origin": "Holy Cavalier",
@@ -19073,80 +19205,16 @@
         },
         "formula": "140% PATK",
         "inputs": [
-            "Holy Cavalier: Izaya"
-        ]
-    },
-    "JB_GUA_TYPE_ANTI_LANCE": {
-        "iname": "JB_GUA_TYPE_ANTI_LANCE",
-        "name": "Holy Cavalier: Porta",
-        "japan": "Holy Knight: Porta \nホーリーナイト【ポルタ】",
-        "kanji": "ホーリーナイト【ポルタ】",
-        "short description": "pierce resistance",
-        "long description": "",
-        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/gua00.png",
-        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_GUA_TYPE_ANTI_LANCE.png",
-        "origin": "Holy Cavalier",
-        "units": [
-            "Teona",
-            "Lambert"
-        ],
-        "jobe": [],
-        "main": "",
-        "sub": "",
-        "reactives": "",
-        "passives": "",
-        "stats": {
-            "Move": 3,
-            "Jump": 1,
-            "PATK": 276,
-            "PDEF": 268,
-            "DEX": 242,
-            "AGI": 18,
-            "CRIT": 104,
-            "HP": 549,
-            "MATK": 72,
-            "MDEF": 65,
-            "Jewels Obtained": 48,
-            "LUCK": 124,
-            "Fire Res": 9,
-            "Water Res": 6,
-            "Thunder Res": 5,
-            "Wind Res": 7,
-            "Light Res": 4,
-            "Charm Res": 46,
-            "Sleep Res": 54,
-            "Slow Res": 36,
-            "Stun Res": 18,
-            "Paralyze Res": 18,
-            "Petrify Res": 18,
-            "Poison Res": 10
-        },
-        "modifiers": {
-            "HP": 32,
-            "Max Jewels": 0,
-            "Initial Jewels": 25,
-            "PATK": 10,
-            "PDEF": 25,
-            "MATK": -5,
-            "MDEF": 5,
-            "DEX": 0,
-            "AGI": 13,
-            "LUCK": 0,
-            "CRIT": 6,
-            "AVOID": 0
-        },
-        "formula": "140% PATK",
-        "inputs": [
-            "Holy Cavalier: Porta"
+            "Holy Cavalier : Izaya"
         ]
     },
     "JB_ZEKE_GUA_TYPE_ANTI_BLOW": {
         "iname": "JB_ZEKE_GUA_TYPE_ANTI_BLOW",
-        "name": "Holy Cavalier: David",
+        "name": "Holy Cavalier : David",
         "japan": "Holy Knight: David\nホーリーナイト【ダビデ】",
         "kanji": "ホーリーナイト【ダビデ】",
         "short description": "strike resistance",
-        "long description": "",
+        "long description": "strike resistance",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/gua00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_GUA_TYPE_ANTI_BLOW.png",
         "origin": "Holy Cavalier",
@@ -19200,17 +19268,17 @@
         },
         "formula": "140% PATK",
         "inputs": [
-            "Zeke Holy Cavalier: David",
-            "Holy Cavalier: David"
+            "Zeke Holy Cavalier : David",
+            "Holy Cavalier : David"
         ]
     },
     "JB_GUA_TYPE_HEALING": {
         "iname": "JB_GUA_TYPE_HEALING",
-        "name": "Holy Cavalier: Pieta",
+        "name": "Holy Cavalier : Pieta",
         "japan": "Holy Knight: Pietà\nホーリーナイト【ピエタ】",
         "kanji": "ホーリーナイト【ピエタ】",
         "short description": "healing",
-        "long description": "",
+        "long description": "healing",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/gua00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_GUA_TYPE_HEALING.png",
         "origin": "Holy Cavalier",
@@ -19265,12 +19333,12 @@
         },
         "formula": "140% PATK",
         "inputs": [
-            "Holy Cavalier: Pieta"
+            "Holy Cavalier : Pieta"
         ]
     },
     "JB_GUA_TYPE_ZAYI": {
         "iname": "JB_GUA_TYPE_ZAYI",
-        "name": "Holy Cavalier: Zayin",
+        "name": "Holy Cavalier : Zayin",
         "japan": "Holy Knight: Gear\nホーリーナイト【ギア】",
         "kanji": "ホーリーナイト【ギア】",
         "short description": "",
@@ -19327,17 +19395,17 @@
         },
         "formula": "140% PATK",
         "inputs": [
-            "Zain Holy Cavalier: Zayin",
-            "Holy Cavalier: Zayin"
+            "Zain Holy Cavalier : Zayin",
+            "Holy Cavalier : Zayin"
         ]
     },
     "JB_DOC_TYPE_POISON": {
         "iname": "JB_DOC_TYPE_POISON",
-        "name": "Professor: Bio",
+        "name": "Professor : Bio",
         "japan": "Professor: BIO\nプロフェッサー【バイオ】",
         "kanji": "プロフェッサー【バイオ】",
         "short description": "stronger poison",
-        "long description": "",
+        "long description": "stronger poison",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/doc00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_DOC_TYPE_POISON.png",
         "origin": "Professor",
@@ -19394,16 +19462,16 @@
         },
         "formula": "55% (MATK + DEX/2 + LUCK/2)",
         "inputs": [
-            "Professor: Bio"
+            "Professor : Bio"
         ]
     },
     "JB_DOC_TYPE_CHARM": {
         "iname": "JB_DOC_TYPE_CHARM",
-        "name": "Professor: Honey",
+        "name": "Professor : Honey",
         "japan": "Professor: Honey\nプロフェッサー【ハニー】",
         "kanji": "プロフェッサー【ハニー】",
-        "short description": "more charms, bind/daze skills",
-        "long description": "",
+        "short description": "more charms and bind/daze skills",
+        "long description": "more charms and bind/daze skills",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/doc00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_DOC_TYPE_CHARM.png",
         "origin": "Professor",
@@ -19460,16 +19528,16 @@
         },
         "formula": "55% (MATK + DEX/2 + LUCK/2)",
         "inputs": [
-            "Professor: Honey"
+            "Professor : Honey"
         ]
     },
     "JB_BLA_TYPE_TK_MECHA": {
         "iname": "JB_BLA_TYPE_TK_MECHA",
-        "name": "Martial Master: Mecha Masher",
+        "name": "Martial Master : Mecha Masher",
         "japan": "Martial Master: Machine Destroyer\n機壊・マーシャルマスター",
         "kanji": "機壊・マーシャルマスター",
-        "short description": "",
-        "long description": "",
+        "short description": "Anti-Machine Skills",
+        "long description": "Adds A Daze Inflicting Move and Does Bonus Damage To Machine Type Enemies",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/bla00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_BLA_TYPE_TK_MECHA.png",
         "origin": "Martial Master",
@@ -19523,17 +19591,17 @@
         "formula": "150% PATK",
         "inputs": [
             "Mei Fang",
-            "Mei Fang Martial Master: Mecha Masher",
-            "Martial Master: Mecha Masher"
+            "Mei Fang Martial Master : Mecha Masher",
+            "Martial Master : Mecha Masher"
         ]
     },
     "JB_BAA_TYPE_ITIGEKI": {
         "iname": "JB_BAA_TYPE_ITIGEKI",
-        "name": "Dark Cavalier: Gernika",
+        "name": "Dark Cavalier : Gernika",
         "japan": "Dark Knight: Gernika\nダークナイト【ゲルニカ】",
         "kanji": "ダークナイト【ゲルニカ】",
-        "short description": "juggernaut becomes high damage nuke with no hp cost",
-        "long description": "",
+        "short description": "One Slash Cav",
+        "long description": "Juggernaught Becomes Twice As Strong Without An HP Cost",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/baa00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_BAA_TYPE_ITIGEKI.png",
         "origin": "Dark Cavalier",
@@ -19590,7 +19658,7 @@
         },
         "formula": "150% PATK",
         "inputs": [
-            "Dark Cavalier: Gernika"
+            "Dark Cavalier : Gernika"
         ]
     },
     "JB_ENC_ANTI_BUFF": {
@@ -19599,7 +19667,7 @@
         "japan": "Zero Enhancer\n零のエンハンサー",
         "kanji": "零のエンハンサー",
         "short description": "buff dispeller",
-        "long description": "",
+        "long description": "buff dispeller",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/enc00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ENC_ANTI_BUFF.png",
         "origin": "Enchanter",
@@ -19664,10 +19732,10 @@
     "JB_ENC_WATER": {
         "iname": "JB_ENC_WATER",
         "name": "Blue Water Enchanter",
-        "japan": "Blue Water Enhancer\n蒼水のエンハンサー",
+        "japan": "",
         "kanji": "蒼水のエンハンサー",
         "short description": "buff that increases water damage against fire",
-        "long description": "",
+        "long description": "buff that increases water damage against fire",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/enc00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ENC_WATER.png",
         "origin": "Enchanter",
@@ -19732,7 +19800,7 @@
         "japan": "Tender Wind Enhancer\n翠風のエンハンサー",
         "kanji": "翠風のエンハンサー",
         "short description": "buff that increases wind damage against thunder",
-        "long description": "",
+        "long description": "buff that increases wind damage against thunder",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/enc00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ENC_WIND.png",
         "origin": "Enchanter",
@@ -19796,7 +19864,7 @@
         "japan": "Roaring Thunder Enhancer\n轟雷のエンハンサー",
         "kanji": "轟雷のエンハンサー",
         "short description": "buff that increases thunder damage against water",
-        "long description": "",
+        "long description": "buff that increases thunder damage against water",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/enc00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ENC_THUNDER.png",
         "origin": "Enchanter",
@@ -19860,7 +19928,7 @@
         "japan": "Summoner of Agartha\nアガルタの召喚師",
         "kanji": "アガルタの召喚師",
         "short description": "strong non-elemental damage",
-        "long description": "",
+        "long description": "strong non-elemental damage",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/syo00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_SYO_AGA.png",
         "origin": "Summoner",
@@ -19925,7 +19993,7 @@
         "japan": "Summoner of Tir Na Nog\nティルナノグの召喚師",
         "kanji": "ティルナノグの召喚師",
         "short description": "increased damage against dark",
-        "long description": "",
+        "long description": "increased damage against dark",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/syo00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_SYO_TIR.png",
         "origin": "Summoner",
@@ -19989,7 +20057,7 @@
         "japan": "Summoner of Hellheim\nヘルヘイムの召喚師",
         "kanji": "ヘルヘイムの召喚師",
         "short description": "increased damage against light",
-        "long description": "",
+        "long description": "increased damage against light",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/syo00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_SYO_HEL.png",
         "origin": "Summoner",
@@ -20051,11 +20119,11 @@
     },
     "JB_SOL_ATK": {
         "iname": "JB_SOL_ATK",
-        "name": "Twin-Blade Swordsman: Ogre Exterminator",
+        "name": "Twin-Blade Swordsman : Ogre Exterminator",
         "japan": "Twin Bladed Ogre Exterminator\n鬼滅の双剣士",
         "kanji": "鬼滅の双剣士",
         "short description": "increased damage against humans",
-        "long description": "",
+        "long description": "increased damage against humans",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/sol00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_SOL_ATK.png",
         "origin": "Twin-Blade Swordsman",
@@ -20110,16 +20178,16 @@
         },
         "formula": "140% PATK",
         "inputs": [
-            "Twin-Blade Swordsman: Ogre Exterminator"
+            "Twin-Blade Swordsman : Ogre Exterminator"
         ]
     },
     "JB_SOL_MONS": {
         "iname": "JB_SOL_MONS",
-        "name": "Twin-Blade Swordsman: Demon Hunter",
+        "name": "Twin-Blade Swordsman : Demon Hunter",
         "japan": "Twin Bladed Demon Hunter\n魔狩の双剣士",
         "kanji": "魔狩の双剣士",
         "short description": "increased damage against beasts",
-        "long description": "",
+        "long description": "increased damage against beasts",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/sol00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_SOL_MONS.png",
         "origin": "Twin-Blade Swordsman",
@@ -20174,16 +20242,16 @@
         },
         "formula": "140% PATK",
         "inputs": [
-            "Twin-Blade Swordsman: Demon Hunter"
+            "Twin-Blade Swordsman : Demon Hunter"
         ]
     },
     "JB_WOR_GIGANTES": {
         "iname": "JB_WOR_GIGANTES",
-        "name": "Warrior: Gigantes",
+        "name": "Warrior : Gigantes",
         "japan": "Axe Warrior : Gigantes\nウォーリア【ギガンテス】",
         "kanji": "ウォーリア【ギガンテス】",
         "short description": "dark attack with huge self buff",
-        "long description": "",
+        "long description": "dark attack with huge self buff",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/wor00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_WOR_GIGANTES.png",
         "origin": "Warrior",
@@ -20238,16 +20306,16 @@
         },
         "formula": "140% PATK",
         "inputs": [
-            "Warrior: Gigantes"
+            "Warrior : Gigantes"
         ]
     },
     "JB_WOR_ARGOS": {
         "iname": "JB_WOR_ARGOS",
-        "name": "Warrior: Argos",
+        "name": "Warrior : Argos",
         "japan": "Axe Warrior: Argos\nウォーリア【アルゴス】",
         "kanji": "ウォーリア【アルゴス】",
         "short description": "wind nuke",
-        "long description": "",
+        "long description": "wind nuke",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/wor00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_WOR_ARGOS.png",
         "origin": "Warrior",
@@ -20302,16 +20370,16 @@
         },
         "formula": "140% PATK",
         "inputs": [
-            "Warrior: Argos"
+            "Warrior : Argos"
         ]
     },
     "JB_WOR_TITAN": {
         "iname": "JB_WOR_TITAN",
-        "name": "Warrior: Titan",
+        "name": "Warrior : Titan",
         "japan": "Axe Warrior: Titan\nウォーリア【ティターン】",
         "kanji": "ウォーリア【ティターン】",
         "short description": "water nuke",
-        "long description": "",
+        "long description": "water nuke",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/wor00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_WOR_TITAN.png",
         "origin": "Warrior",
@@ -20366,17 +20434,17 @@
         "formula": "140% PATK",
         "inputs": [
             "Yunagi",
-            "Yunagi Warrior: Titan",
-            "Warrior: Titan"
+            "Yunagi Warrior : Titan",
+            "Warrior : Titan"
         ]
     },
     "JB_WOR_GOLIATH": {
         "iname": "JB_WOR_GOLIATH",
-        "name": "Warrior: Goliath",
+        "name": "Warrior : Goliath",
         "japan": "Axe Warrior: Goliath\nウォーリア【ゴリアテ】",
         "kanji": "ウォーリア【ゴリアテ】",
         "short description": "light tank",
-        "long description": "",
+        "long description": "light tank",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/wor00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_WOR_GOLIATH.png",
         "origin": "Warrior",
@@ -20433,16 +20501,16 @@
         },
         "formula": "140% PATK",
         "inputs": [
-            "Warrior: Goliath"
+            "Warrior : Goliath"
         ]
     },
     "JB_WOR_MUSPELL": {
         "iname": "JB_WOR_MUSPELL",
-        "name": "Warrior: Muspell",
+        "name": "Warrior : Muspell",
         "japan": "Axe Warrior: Muspell\nウォーリア【ムスペル】",
         "kanji": "ウォーリア【ムスペル】",
         "short description": "fire attack with huge self buff",
-        "long description": "",
+        "long description": "fire attack with huge self buff",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/wor00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_WOR_MUSPELL.png",
         "origin": "Warrior",
@@ -20497,8 +20565,8 @@
         "formula": "140% PATK",
         "inputs": [
             "Yuto",
-            "Yuto Warrior: Muspell",
-            "Warrior: Muspell"
+            "Yuto Warrior : Muspell",
+            "Warrior : Muspell"
         ]
     }
 }
