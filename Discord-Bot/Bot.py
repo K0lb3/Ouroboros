@@ -385,5 +385,5 @@ async def debug(ctx):
     await ctx.send(embed=embed) 
 
 
-
-bot.run('NDM3ODY4OTQ4MTMwNzU4NjY4.DdYvnw.UTWQMqytfyiu6YXzkY4iIw4CqJY')
+BOT_TOKEN = os.environ.get('DISCORD_BOT_TOKEN')
+bot.run(BOT_TOKEN)
