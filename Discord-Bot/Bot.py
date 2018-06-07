@@ -13,35 +13,38 @@ from discord.ext import commands
 from TAC_API import *
 
 
+# Constants
+ELEMENT_COLOR = {
+    'Fire': 0xFF0000,
+    'Wind': 0x007F00,
+    'Water': 0x2828FF,
+    'Thunder': 0xFFCC00,
+    'Light': 0xFFFFFF,
+    'Dark': 0x140014,
+}
+DEFAULT_ELEMENT_COLOR = 0x7F7F7F
+
+
 #functions
 def loadFiles(files):
-    dir=os.path.dirname(os.path.realpath(__file__))+'\\res'
-    ret=[]
+    dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'res')
+    ret = []
     for file in files:
-        path = dir+'\\' + file
+        path = os.path.join(dir, file)
         if not os.path.exists(path):
             print(path, " was not found.")
             continue
-        
-        print (file)
+        print(file)
+
         try:
-            with open(path, "rt",encoding='utf8') as f:
-                ret.append(json.loads(f.read()))  
+            with open(path, "rt", encoding='utf8') as f:
+                ret.append(json.loads(f.read()))
         except ValueError:
-            with open(path, "rt",encoding='utf-8-sig') as f:
-                ret.append(json.loads(f.read())) 
-            
-    
+            with open(path, "rt", encoding='utf-8-sig') as f:
+                ret.append(json.loads(f.read()))
+
     return ret
 
-def elementColor(element):
-    if element == "Fire": return(16711680)
-    if element == "Wind": return(32512)
-    if element == "Water": return(2631935)
-    if element == "Thunder": return(16763904)
-    if element == "Light": return(16777215)
-    if element == "Dark": return(1310740)
-    return(8355711)
 
 def gearColor(typ):
     if typ == 1: return(16711680)
@@ -92,7 +95,6 @@ def timeDif_hms(time):
 #global vars
 prefix='o?'
 bot = commands.Bot(command_prefix=prefix)
-dir=os.path.dirname(os.path.realpath(__file__))+'\\res'
 [units,drops,gears,jobs]=loadFiles(['units.json','drops.json','gear.json','jobs.json'])
 
     
@@ -209,7 +211,12 @@ async def unit(ctx):
     unit=find_best(command,units,ctx)
 
     #start embed - title
-    embed = discord.Embed(title=unit['name'], description="", url=unit['link'], color=elementColor(unit['element']))
+    embed = discord.Embed(
+        title=unit['name'],
+        description="",
+        url=unit['link'],
+        color=ELEMENT_COLOR.get(unit['element'], DEFAULT_ELEMENT_COLOR),
+    )
     #icon
     embed.set_thumbnail(url=unit['icon'])
     #unit data
@@ -245,7 +252,12 @@ async def lore(ctx):
     command=prefix+'lore'
     unit=find_best(command,units,ctx)
     #start embed - title
-    embed = discord.Embed(title=unit['name'], description="", url=unit['link'], color=elementColor(unit['element']))
+    embed = discord.Embed(
+        title=unit['name'],
+        description="",
+        url=unit['link'],
+        color=ELEMENT_COLOR.get(unit['element'], DEFAULT_ELEMENT_COLOR),
+    )
     #icon
     embed.set_thumbnail(url=unit['icon'])
     #unit data
@@ -272,7 +284,12 @@ async def art(ctx):
 
     for a in unit['artworks']:
         #start embed - title
-        embed = discord.Embed(title=unit['name'] + ' - ' + a['name'], description="", url=unit['link'], color=elementColor(unit['element']))
+        embed = discord.Embed(
+            title=unit['name'] + ' - ' + a['name'],
+            description="",
+            url=unit['link'],
+            color=ELEMENT_COLOR.get(unit['element'], DEFAULT_ELEMENT_COLOR),
+        )
         #icon
         embed.set_thumbnail(url=a['closeup'])
         #image
@@ -368,7 +385,12 @@ async def debug(ctx):
     unit=find_best(command,units,ctx)
 
     #start embed - title
-    embed = discord.Embed(title=unit['name'], description="", url=unit['link'], color=elementColor(unit['element']))
+    embed = discord.Embed(
+        title=unit['name'],
+        description="",
+        url=unit['link'],
+        color=ELEMENT_COLOR.get(unit['element'], DEFAULT_ELEMENT_COLOR),
+    )
     #icon
     embed.set_thumbnail(url=unit['icon'])
     #unit data
@@ -395,5 +417,5 @@ async def debug(ctx):
     await ctx.send(embed=embed) 
 
 
-
-bot.run('NDM3ODY4OTQ4MTMwNzU4NjY4.DdYvnw.UTWQMqytfyiu6YXzkY4iIw4CqJY')
+BOT_TOKEN = os.environ.get('DISCORD_BOT_TOKEN')
+bot.run(BOT_TOKEN)
