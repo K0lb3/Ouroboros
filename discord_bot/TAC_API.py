@@ -33,11 +33,13 @@ api_jp={
     }
 
 api=api_gl
+con=http.client.HTTPSConnection(api['con'])
 ###########code#########################################
 
 def api_connect(url, body={}):
     global api
     global ticket
+    global con
 
     def get_default_headers(body):
         global access_token
@@ -66,11 +68,13 @@ def api_connect(url, body={}):
     body['ticket']=ticket
     headers = get_default_headers(body)
 
-    con = http.client.HTTPSConnection(api['con'])
-    con.connect()
+    if con.host != api['con']:
+        con = http.client.HTTPSConnection(api['con'])
+        con.connect()
+
     con.request("POST", url, json.dumps(body), headers)
     res_body = con.getresponse().read()
-    con.close()
+
     json_res= json.loads(res_body)
 
     if json_res['stat'] == 5002:
@@ -114,5 +118,6 @@ def req_arena_ranking():
         print(res_body)
         ret = ""
     
+    con.close()
     return ret
 

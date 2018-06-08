@@ -319,7 +319,7 @@ async def arena(ctx):
     field=[[],[]]
     for i in range(0,25):
         field[0].append(str(i+1)+": " + arena[i]['name'])
-        field[1].append(str(i+25)+": " + arena[i+25]['name'])
+        field[1].append(str(i+26)+": " + arena[i+25]['name'])
 
     embed.add_field(name="Rank  1-25",    value='\n'.join(field[0]),    inline=True)
     embed.add_field(name="Rank 26-50",    value='\n'.join(field[1]),    inline=True)
