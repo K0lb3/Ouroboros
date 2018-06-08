@@ -11,6 +11,7 @@ from datetime import datetime
 from datetime import timedelta
 from discord.ext import commands
 from TAC_API import *
+from discord_bot.model import Unit
 
 
 # Constants
@@ -52,6 +53,7 @@ def loadFiles(files):
 
     return ret
 
+
 def find_best(source, text):
     """
     Given a dictionary and a text, find the best matched item from the dictionary using the name
@@ -83,6 +85,7 @@ def find_best(source, text):
         name=best_match.get('name'), input=text, score=score
     ))
     return best_match
+
 
 def fix_fields(fields):
     remove=[]
@@ -128,6 +131,7 @@ async def on_ready():
 @bot.command()
 async def gear(ctx, *, name):
     gear = find_best(gears, name)
+
     #start embed - title
     embed = discord.Embed(
         title=gear['name']+' '+gear['rarity'], 
@@ -167,6 +171,7 @@ async def gear(ctx, *, name):
 @bot.command()
 async def farm(ctx, *, name):
     item = find_best(drops, name)
+
     #start embed - title
     embed = discord.Embed(title=item['name'], description="", url=item['link'])
     #icon
@@ -214,45 +219,15 @@ async def job(ctx, *, name):
 
     await ctx.send(embed=embed) 
 
+
 # unit commands
-@bot.command() # info
+@bot.command()  # info
 async def unit(ctx, *, name):
-    unit = find_best(units, name)
+    unit_dict = find_best(units, name)
+    unit = Unit(source=unit_dict)
 
-    #start embed - title
-    embed = discord.Embed(
-        title=unit['name'],
-        description="",
-        url=unit['link'],
-        color=ELEMENT_COLOR.get(unit['element'], DEFAULT_ELEMENT_COLOR),
-    )
-    #icon
-    embed.set_thumbnail(url=unit['icon'])
-    #unit data
-    embed.add_field(name="gender",      value=unit['gender'],     inline=True)
-    embed.add_field(name="rarity",      value=unit['rarity'],     inline=True)
-    embed.add_field(name="country",     value=unit['country'],    inline=True)
-    if unit['collab'] != "":
-        embed.add_field(name="collab",      value=unit['collab'],     inline=True)
-    if unit['master ability'] != "":
-        embed.add_field(name="master ability",value=unit['master ability'],inline=False)
-    embed.add_field(name="leader skill",value=unit['leader skill'],inline=False)
-    embed.add_field(name="Job 1",       value=unit['job 1'],      inline=True)
-    embed.add_field(name="Job 2",       value=unit['job 2'],      inline=True)
-    if unit['job 3'] != "":
-        embed.add_field(name="Job 3",       value=unit['job 3'],      inline=False)
-    if unit['jc 1'] != "":
-        embed.add_field(name="Job Change 1",value=unit['jc 1'],       inline=True)
-    if unit['jc 2'] != "":
-        embed.add_field(name="Job Change 2",value=unit['jc 2'],       inline=True)
-    if unit['jc 3'] != "":
-        embed.add_field(name="Job Change 3",value=unit['jc 3'],       inline=True)
+    await ctx.send(embed=unit.to_unit_embed())
 
-    if len(unit['farm'])!=0:
-        embed.add_field(name='Shard HQs',      value='\n'.join(unit['farm']),     inline=False)
-
-
-    await ctx.send(embed=embed) 
 
 @bot.command() # lore
 async def lore(ctx, *, name):
