@@ -314,7 +314,7 @@ async def arena(ctx):
         color=16711680
         )
     #icon
-    embed.set_thumbnail(url="http://cdn.alchemistcodedb.com/images/jobs/icons/gua00.png")
+    embed.set_thumbnail(url="https://drive.google.com/uc?export=download&id=1W369kdS_4ISgJgOcHAgNxoidJRqWNNsl")
     #fields
     field=[[],[]]
     for i in range(0,25):
