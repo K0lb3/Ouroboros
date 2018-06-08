@@ -52,22 +52,37 @@ def loadFiles(files):
 
     return ret
 
-def find_best(command,dic,ctx):
-    inp=ctx.message.content[(len(command)+1):].title()
-    print(command+'\n\t'+inp)
-    best=""
-    max=0
-    for d in dic: 
-        for i in dic[d]['inputs']:
-            sim=jellyfish.jaro_winkler(inp, i.title())
-            if sim > max:
-                    max=sim
-                    best=d
-                    if sim==1:
-                        break
+def find_best(source, text):
+    """
+    Given a dictionary and a text, find the best matched item from the dictionary using the name
 
-    print('Jaro-Winkler \t'+ dic[best]['name'] + " | "+str(max))
-    return(dic[best])
+    :param source: The dictionary to search from (i.e. units, gears, jobs, etc)
+    :type source: dict
+    :param text: String to find the match
+    :type text: str
+    :return: The best matched item from the dictionary
+    :rtype: dict
+    """
+    # XXX: Purposely shadowing the text parameter
+    text = text.title()
+
+    # Calculate the match score for each key in the source dictionary using the input text.
+    # Then, create a list of (key, the best score) tuples.
+    similarities = [
+        (key, max(jellyfish.jaro_winkler(text, i.title()) for i in value.get('inputs', [])))
+        for key, value in source.items()
+    ]
+    # Find the key with the highest score (This is the best matched key)
+    key, score = max(similarities, key=lambda s: s[1])
+
+    # XXX: If needed, implement a minimum threshold here
+
+    # Return the actual best-matched value
+    best_match = source[key]
+    print("{name} is the best match for input '{input}' with score of {score}".format(
+        name=best_match.get('name'), input=text, score=score
+    ))
+    return best_match
 
 def fix_fields(fields):
     remove=[]
@@ -111,11 +126,8 @@ async def on_ready():
 
 #gear
 @bot.command()
-async def gear(ctx):
-    global gears
-    global prefix
-    command=prefix+'gear'
-    gear=find_best(command,gears,ctx)
+async def gear(ctx, *, name):
+    gear = find_best(gears, name)
     #start embed - title
     embed = discord.Embed(
         title=gear['name']+' '+gear['rarity'], 
@@ -153,11 +165,8 @@ async def gear(ctx):
 
 #drops
 @bot.command()
-async def farm(ctx):
-    global drops
-    global prefix
-    command=prefix+'farm'
-    item=find_best(command,drops,ctx)
+async def farm(ctx, *, name):
+    item = find_best(drops, name)
     #start embed - title
     embed = discord.Embed(title=item['name'], description="", url=item['link'])
     #icon
@@ -171,11 +180,8 @@ async def farm(ctx):
 
 #jobs
 @bot.command()
-async def job(ctx):
-    global jobs
-    global prefix
-    command=prefix+'job'
-    job=find_best(command,jobs,ctx)
+async def job(ctx, *, name):
+    job = find_best(jobs, name)
     #start embed - title
     embed = discord.Embed(title=job['name'], description="", url="")
     #icon
@@ -210,11 +216,8 @@ async def job(ctx):
 
 # unit commands
 @bot.command() # info
-async def unit(ctx):
-    global units
-    global prefix
-    command=prefix+'unit'
-    unit=find_best(command,units,ctx)
+async def unit(ctx, *, name):
+    unit = find_best(units, name)
 
     #start embed - title
     embed = discord.Embed(
@@ -252,11 +255,8 @@ async def unit(ctx):
     await ctx.send(embed=embed) 
 
 @bot.command() # lore
-async def lore(ctx):
-    global units
-    global prefix
-    command=prefix+'lore'
-    unit=find_best(command,units,ctx)
+async def lore(ctx, *, name):
+    unit = find_best(units, name)
     #start embed - title
     embed = discord.Embed(
         title=unit['name'],
@@ -282,11 +282,8 @@ async def lore(ctx):
     await ctx.send(embed=embed) 
 
 @bot.command() #  artwork
-async def art(ctx):
-    global units
-    global prefix
-    command=prefix+'art'
-    unit=find_best(command,units,ctx)
+async def art(ctx, *, name):
+    unit = find_best(units, name)
 
     for a in unit['artworks']:
         #start embed - title
@@ -390,11 +387,8 @@ async def help(ctx):
     await ctx.send(embed=embed)
 
 @bot.command() # info
-async def debug(ctx):
-    global units
-    global prefix
-    command=prefix+'unit'
-    unit=find_best(command,units,ctx)
+async def debug(ctx, *, name):
+    unit = find_best(units, name)
 
     #start embed - title
     embed = discord.Embed(
