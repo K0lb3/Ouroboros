@@ -2578,6 +2578,10 @@ SRPG_QuestParam_QE_MULTI_SEISEKI_DJ_3_EX_TITLE	[Limited Time]
 SRPG_QuestParam_QE_MULTI_SEISEKI_DJ_4_EX_NAME	Inherited Cause [EX]
 SRPG_QuestParam_QE_MULTI_SEISEKI_DJ_4_EX_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_MULTI_SEISEKI_DJ_4_EX_TITLE	[Limited Time]
+SRPG_QuestParam_QE_MULTI_SEISEKI_DJ_5_EX_NAME	Fallen Sun [EX]
+SRPG_QuestParam_QE_MULTI_SEISEKI_DJ_5_EX_EXPR	Sacred Stone Ep 5 - Extra Multiplay
+SRPG_QuestParam_QE_MULTI_SEISEKI_DJ_5_EX_COND	Defeat Waginau!
+SRPG_QuestParam_QE_MULTI_SEISEKI_DJ_5_EX_TITLE	[Limited Time]
 SRPG_QuestParam_QE_MULTI_WA_CLOE_4_NAME	Call of the Scarlet Flame [Hard]
 SRPG_QuestParam_QE_MULTI_WA_CLOE_4_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_MULTI_WA_CLOE_4_TITLE	[Limited Time]

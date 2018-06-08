@@ -15501,12 +15501,45 @@ SRPG_ItemParam_IT_US_GL_4STAR_GEAR_TICKET_POTK_MAY2018_FLAVOR
 SRPG_ItemParam_IT_US_GL_5STAR_25SOUL_TICKET_POTK_MAY2018_NAME	[For Whom The Princess Weeps] 5★ 25-Soul Shard Ticket
 SRPG_ItemParam_IT_US_GL_5STAR_25SOUL_TICKET_POTK_MAY2018_EXPR	Use this ticket to obtain 25 Soul Shards of a 5★ unit from the worlds of Phantom of the Kill and Shinobi Nightmare.
 SRPG_ItemParam_IT_US_GL_5STAR_25SOUL_TICKET_POTK_MAY2018_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_5STAR_25SOUL_TICKET_SS5_NAME	[Sacred Stone Memories] 5★ Soul Shard 25-Summon Ticket
+SRPG_ItemParam_IT_US_GL_5STAR_25SOUL_TICKET_SS5_EXPR	Use this ticket to summon 25 Soul Shards.
+SRPG_ItemParam_IT_US_GL_5STAR_25SOUL_TICKET_SS5_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_B12SS5_NAME	5★ Unit Summon Ticket
+SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_B12SS5_EXPR	Use this ticket to summon one 5★ unit.
+SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_B12SS5_FLAVOR	 
+SRPG_ItemParam_IT_SU_GL_5STAR_UNIT_TICKET_SS5_NAME	[Sacred Stone Memories] 5★ Unit Selector
+SRPG_ItemParam_IT_SU_GL_5STAR_UNIT_TICKET_SS5_EXPR	Use this ticket to summon the 5★ Sacred Stone Memories unit of your choice.
+SRPG_ItemParam_IT_SU_GL_5STAR_UNIT_TICKET_SS5_FLAVOR	 
+SRPG_ItemParam_IT_SI_GL_5STAR_50SOUL_TICKET_SS5_NAME	[Sacred Stone Memories] 5★ 50-Soul Shard Selector
+SRPG_ItemParam_IT_SI_GL_5STAR_50SOUL_TICKET_SS5_EXPR	Use this ticket to summon the 50 Soul Shards of your choice for 5★ Sacred Stone Memories units.
+SRPG_ItemParam_IT_SI_GL_5STAR_50SOUL_TICKET_SS5_FLAVOR	 
+SRPG_ItemParam_IT_SI_GL_5STAR_25SOUL_TICKET_SS5_NAME	[Sacred Stone Memories] 5★ 25-Soul Shard Selector
+SRPG_ItemParam_IT_SI_GL_5STAR_25SOUL_TICKET_SS5_EXPR	Use this ticket to summon the 25 Soul Shards of your choice for 5★ Sacred Stone Memories units.
+SRPG_ItemParam_IT_SI_GL_5STAR_25SOUL_TICKET_SS5_FLAVOR	 
+SRPG_ItemParam_IT_SA_GL_4STAR_GEAR_TICKET_S01_NAME	4★ Gear Selector
+SRPG_ItemParam_IT_SA_GL_4STAR_GEAR_TICKET_S01_EXPR	Use this ticket to summon the 4★ gear item of your choice.
+SRPG_ItemParam_IT_SA_GL_4STAR_GEAR_TICKET_S01_FLAVOR	 
+SRPG_ItemParam_IT_SA_GL_4STAR_GEAR_TICKET_S02_NAME	4★ Gear Selector
+SRPG_ItemParam_IT_SA_GL_4STAR_GEAR_TICKET_S02_EXPR	Use this ticket to summon the 4★ gear item of your choice.
+SRPG_ItemParam_IT_SA_GL_4STAR_GEAR_TICKET_S02_FLAVOR	 
+SRPG_ItemParam_IT_SA_GL_4STAR_GEAR_TICKET_S03_NAME	4★ Gear Selector
+SRPG_ItemParam_IT_SA_GL_4STAR_GEAR_TICKET_S03_EXPR	Use this ticket to summon the 4★ gear item of your choice.
+SRPG_ItemParam_IT_SA_GL_4STAR_GEAR_TICKET_S03_FLAVOR	 
+SRPG_ItemParam_IT_SA_GL_4STAR_GEAR_TICKET_S04_NAME	4★ Gear Selector
+SRPG_ItemParam_IT_SA_GL_4STAR_GEAR_TICKET_S04_EXPR	Use this ticket to summon the 4★ gear item of your choice.
+SRPG_ItemParam_IT_SA_GL_4STAR_GEAR_TICKET_S04_FLAVOR	 
+SRPG_ItemParam_IT_SA_GL_4STAR_GEAR_TICKET_S05_NAME	4★ Gear Selector
+SRPG_ItemParam_IT_SA_GL_4STAR_GEAR_TICKET_S05_EXPR	Use this ticket to summon the 4★ gear item of your choice.
+SRPG_ItemParam_IT_SA_GL_4STAR_GEAR_TICKET_S05_FLAVOR	 
 SRPG_ItemParam_IT_SI_GL_25SOUL_TICKET_PotkExist_NAME	[PotK Players] 4★ 25-Soul Shard Selector
 SRPG_ItemParam_IT_SI_GL_25SOUL_TICKET_PotkExist_EXPR	For existing players of Phantom of the Kill. Use this ticket to summon 25 4★ Soul Shards of your choice.
 SRPG_ItemParam_IT_SI_GL_25SOUL_TICKET_PotkExist_FLAVOR	 
 SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_Default_NAME	5★ Unit Summon Ticket
 SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_Default_EXPR	Use this ticket to summon one 5★ unit.
 SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_Default_FLAVOR	 
+SRPG_ItemParam_IT_SET_OTHI_01_NAME	Othima Specific Equipment Set
+SRPG_ItemParam_IT_SET_OTHI_01_EXPR	This set contains rare equipment required for Othima. (Jobs: Phantom Master, Enchanter, and Sage.)
+SRPG_ItemParam_IT_SET_OTHI_01_FLAVOR	 
 SRPG_ItemParam_IT_SI_GL_25ELEMENT_SOUL_NAME	25-Elemental Soul Shard Selector
 SRPG_ItemParam_IT_SI_GL_25ELEMENT_SOUL_EXPR	Use this ticket to summon 25 Soul Shards of the element of your choice.
 SRPG_ItemParam_IT_SI_GL_25ELEMENT_SOUL_FLAVOR	 
@@ -16579,7 +16612,7 @@ SRPG_ArtifactParam_AF_SKIN_CHAL_SWIM_NAME	Swimsuit Skin
 SRPG_ArtifactParam_AF_SKIN_CHAL_SWIM_EXPR	 
 SRPG_ArtifactParam_AF_SKIN_CHAL_SWIM_SPEC	 
 SRPG_ArtifactParam_AF_SKIN_CHAL_SWIM_FLAVOR	 
-SRPG_ArtifactParam_AF_SKIN_CLOE_SWIM_NAME	Child Skin
+SRPG_ArtifactParam_AF_SKIN_CLOE_SWIM_NAME	Childhood Skin
 SRPG_ArtifactParam_AF_SKIN_CLOE_SWIM_EXPR	 
 SRPG_ArtifactParam_AF_SKIN_CLOE_SWIM_SPEC	 
 SRPG_ArtifactParam_AF_SKIN_CLOE_SWIM_FLAVOR	 
@@ -18731,6 +18764,11 @@ SRPG_TrophyParam_GL_MM_02_04June_NAME	[Monday] Level up any Ability
 SRPG_TrophyParam_GL_MM_03_04June_NAME	[Monday] Raise any unit's Job Level once
 SRPG_TrophyParam_GL_MM_04_04June_NAME	[Monday] Clear any Multiplay Quest once
 SRPG_TrophyParam_GL_MM_05_04June_NAME	[Monday] Clear any quest with a mercenary once
+SRPG_TrophyParam_GL_MM_01_11June_NAME	[Monday] Level up any Unit
+SRPG_TrophyParam_GL_MM_02_11June_NAME	[Monday] Level up any Ability
+SRPG_TrophyParam_GL_MM_03_11June_NAME	[Monday] Raise any unit's Job Level once
+SRPG_TrophyParam_GL_MM_04_11June_NAME	[Monday] Clear any Multiplay Quest once
+SRPG_TrophyParam_GL_MM_05_11June_NAME	[Monday] Clear any quest with a mercenary once
 SRPG_TrophyParam_GL_POK_SAM_DAILY_01_NAME	[Daily] [For Whom the Princess Weeps] Defeat three Soldier Eldritches
 SRPG_TrophyParam_GL_POK_SAM_DAILY_02_NAME	[Daily] [For Whom the Princess Weeps] Defeat five Eerie Puppets
 SRPG_TrophyParam_GL_POK_SAM_DAILY_03_NAME	[Daily] [For Whom the Princess Weeps] Clear an Event Quest once

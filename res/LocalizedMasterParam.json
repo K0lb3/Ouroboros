@@ -30032,6 +30032,56 @@
         "EXPR": "Use this ticket to obtain 25 Soul Shards of a 5★ unit from the worlds of Phantom of the Kill and Shinobi Nightmare.",
         "FLAVOR": " "
     },
+    "IT_US_GL_5STAR_25SOUL_TICKET_SS5": {
+        "NAME": "[Sacred Stone Memories] 5★ Soul Shard 25-Summon Ticket",
+        "EXPR": "Use this ticket to summon 25 Soul Shards.",
+        "FLAVOR": " "
+    },
+    "IT_US_GL_5STAR_UNIT_TICKET_B12SS5": {
+        "NAME": "5★ Unit Summon Ticket",
+        "EXPR": "Use this ticket to summon one 5★ unit.",
+        "FLAVOR": " "
+    },
+    "IT_SU_GL_5STAR_UNIT_TICKET_SS5": {
+        "NAME": "[Sacred Stone Memories] 5★ Unit Selector",
+        "EXPR": "Use this ticket to summon the 5★ Sacred Stone Memories unit of your choice.",
+        "FLAVOR": " "
+    },
+    "IT_SI_GL_5STAR_50SOUL_TICKET_SS5": {
+        "NAME": "[Sacred Stone Memories] 5★ 50-Soul Shard Selector",
+        "EXPR": "Use this ticket to summon the 50 Soul Shards of your choice for 5★ Sacred Stone Memories units.",
+        "FLAVOR": " "
+    },
+    "IT_SI_GL_5STAR_25SOUL_TICKET_SS5": {
+        "NAME": "[Sacred Stone Memories] 5★ 25-Soul Shard Selector",
+        "EXPR": "Use this ticket to summon the 25 Soul Shards of your choice for 5★ Sacred Stone Memories units.",
+        "FLAVOR": " "
+    },
+    "IT_SA_GL_4STAR_GEAR_TICKET_S01": {
+        "NAME": "4★ Gear Selector",
+        "EXPR": "Use this ticket to summon the 4★ gear item of your choice.",
+        "FLAVOR": " "
+    },
+    "IT_SA_GL_4STAR_GEAR_TICKET_S02": {
+        "NAME": "4★ Gear Selector",
+        "EXPR": "Use this ticket to summon the 4★ gear item of your choice.",
+        "FLAVOR": " "
+    },
+    "IT_SA_GL_4STAR_GEAR_TICKET_S03": {
+        "NAME": "4★ Gear Selector",
+        "EXPR": "Use this ticket to summon the 4★ gear item of your choice.",
+        "FLAVOR": " "
+    },
+    "IT_SA_GL_4STAR_GEAR_TICKET_S04": {
+        "NAME": "4★ Gear Selector",
+        "EXPR": "Use this ticket to summon the 4★ gear item of your choice.",
+        "FLAVOR": " "
+    },
+    "IT_SA_GL_4STAR_GEAR_TICKET_S05": {
+        "NAME": "4★ Gear Selector",
+        "EXPR": "Use this ticket to summon the 4★ gear item of your choice.",
+        "FLAVOR": " "
+    },
     "IT_SI_GL_25SOUL_TICKET_PotkExist": {
         "NAME": "[PotK Players] 4★ 25-Soul Shard Selector",
         "EXPR": "For existing players of Phantom of the Kill. Use this ticket to summon 25 4★ Soul Shards of your choice.",
@@ -30040,6 +30090,11 @@
     "IT_US_GL_5STAR_UNIT_TICKET_Default": {
         "NAME": "5★ Unit Summon Ticket",
         "EXPR": "Use this ticket to summon one 5★ unit.",
+        "FLAVOR": " "
+    },
+    "IT_SET_OTHI_01": {
+        "NAME": "Othima Specific Equipment Set",
+        "EXPR": "This set contains rare equipment required for Othima. (Jobs: Phantom Master, Enchanter, and Sage.)",
         "FLAVOR": " "
     },
     "IT_SI_GL_25ELEMENT_SOUL": {
@@ -31687,7 +31742,7 @@
         "FLAVOR": " "
     },
     "AF_SKIN_CLOE_SWIM": {
-        "NAME": "Child Skin",
+        "NAME": "Childhood Skin",
         "EXPR": " ",
         "SPEC": " ",
         "FLAVOR": " "
@@ -37816,6 +37871,21 @@
         "NAME": "[Monday] Clear any Multiplay Quest once"
     },
     "GL_MM_05_04June": {
+        "NAME": "[Monday] Clear any quest with a mercenary once"
+    },
+    "GL_MM_01_11June": {
+        "NAME": "[Monday] Level up any Unit"
+    },
+    "GL_MM_02_11June": {
+        "NAME": "[Monday] Level up any Ability"
+    },
+    "GL_MM_03_11June": {
+        "NAME": "[Monday] Raise any unit's Job Level once"
+    },
+    "GL_MM_04_11June": {
+        "NAME": "[Monday] Clear any Multiplay Quest once"
+    },
+    "GL_MM_05_11June": {
         "NAME": "[Monday] Clear any quest with a mercenary once"
     },
     "GL_POK_SAM_DAILY_01": {

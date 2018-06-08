@@ -4435,6 +4435,12 @@
         "COND": "Defeat all enemy units!",
         "TITLE": "[Limited Time]"
     },
+    "QE_MULTI_SEISEKI_DJ_5_EX": {
+        "NAME": "Fallen Sun [EX]",
+        "EXPR": "Sacred Stone Ep 5 - Extra Multiplay",
+        "COND": "Defeat Waginau!",
+        "TITLE": "[Limited Time]"
+    },
     "QE_MULTI_WA_CLOE_4": {
         "NAME": "Call of the Scarlet Flame [Hard]",
         "COND": "Defeat all enemy units!",

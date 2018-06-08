@@ -408,6 +408,14 @@ def main():
     url = "https://script.google.com/macros/s/AKfycbzMqkHxhLsiMWqtFDmMHzqgT4a1R8yhBAxHN6YRkeN1lotYmsfg/exec?id="+SSID
     wyte = download(url,'utf8')
     saveAsJSON('wytesong.json',json.loads(wyte))
+
+#Game's tierlist
+    print('Game\'s tierlist')
+    SSID='1DWeFk0wiPaDKAYEcmf_9LnMFYy1nBy2lPTNAX52LkPU' #https://docs.google.com/spreadsheets/d/1DWeFk0wiPaDKAYEcmf_9LnMFYy1nBy2lPTNAX52LkPU
+    url = "https://script.google.com/macros/s/AKfycbzMqkHxhLsiMWqtFDmMHzqgT4a1R8yhBAxHN6YRkeN1lotYmsfg/exec?type=array&id="+SSID
+    game = download(url,'utf8')
+    saveAsJSON('tierlist_gl.json',json.loads(game))
+
         
 #code ################################       
         
