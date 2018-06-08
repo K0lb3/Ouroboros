@@ -4036,8 +4036,8 @@
         "gender": "♂",
         "element": "Fire",
         "country": "Northern Pride",
-        "collab": "",
-        "collab short": "",
+        "collab": "Sacred Stone Memories",
+        "collab short": "SSM",
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/cada.png",
         "farm": [],
@@ -4052,7 +4052,9 @@
         "jc 3": "",
         "inputs": [
             "Cadanova",
-            "Kadanoba"
+            "Kadanoba",
+            "Cadanova SSM",
+            "SSM Cadanova"
         ],
         "PROFILE": "Cadanova is an outstanding knight, and serves as the Captain of the 4th Regiment of the Holy Guard. He has an extraordinary talent for Alchemy. He seems almost cladded in flames when he dances around the battlefield, which earned him the nickname Flame Dragon King. He's a tough soul who will always enforce his sense of justice and beliefs; no matter what.",
         "COUNTRY": "Northern Pride",
@@ -4634,8 +4636,8 @@
         "gender": "♂",
         "element": "Dark",
         "country": "Wratharis",
-        "collab": "",
-        "collab short": "",
+        "collab": "Sacred Stone Memories",
+        "collab short": "SSM",
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/kudh.png",
         "farm": [],
@@ -4650,7 +4652,9 @@
         "jc 3": "",
         "inputs": [
             "Kudanstein",
-            "Kudhanstein"
+            "Kudhanstein",
+            "Kudanstein SSM",
+            "SSM Kudanstein"
         ],
         "PROFILE": "Kudan is a Spearman serving as the Captain of the 4th Regiment of the Holy Guard. He got promoted from Vice-Captain to Captain after Cadanova's death. He helped Kagura during the destruction of Wadatsumi, so he has a gentle side as well, but Cadanova has warned him that he's vulnerable to evil because of his desire for power.",
         "COUNTRY": "Wratharis",
@@ -4959,8 +4963,8 @@
         "gender": "♀",
         "element": "Wind",
         "country": "Saga Region",
-        "collab": "",
-        "collab short": "",
+        "collab": "Sacred Stone Memories",
+        "collab short": "SSM",
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/seda.png",
         "farm": [],
@@ -4975,7 +4979,9 @@
         "jc 3": "",
         "inputs": [
             "Seida",
-            "Seda"
+            "Seda",
+            "Seida SSM",
+            "SSM Seida"
         ],
         "PROFILE": "Seida is a member of the 2nd regiment of the Holy Guard. She's the grandchild of the head of the Alize People of Saga. Her unparalleled archery skills and wind-reading capabilities make her one of the best archers of the Holy Guard. She hates inefficiency in word and deed, so she spends a lot of time arguing with Monzein.",
         "COUNTRY": "Saga Region",
@@ -5003,8 +5009,8 @@
         "gender": "♂",
         "element": "Thunder",
         "country": "Envylia",
-        "collab": "",
-        "collab short": "",
+        "collab": "Sacred Stone Memories",
+        "collab short": "SSM",
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/monz.png",
         "farm": [],
@@ -5018,7 +5024,9 @@
         "jc 2": "",
         "jc 3": "Holy Cavalier : Izaya\n[slash resistance]",
         "inputs": [
-            "Monzein"
+            "Monzein",
+            "Monzein SSM",
+            "SSM Monzein"
         ],
         "PROFILE": "Monzein is the vice-captain of the 2nd regiment of the Holy Guard. Since the position of captain is currently unfilled, he enjoys being called the next captain. He's a hot-blooded and single-minded man, always acting from his own sense of justice and chivalry. His combat skills combined with his large constitution make him a powerful and reliable force on the battlefield. ",
         "COUNTRY": "Envylia",
@@ -5285,8 +5293,8 @@
         "gender": "♀",
         "element": "Water",
         "country": "Lustburg",
-        "collab": "",
-        "collab short": "",
+        "collab": "Sacred Stone Memories",
+        "collab short": "SSM",
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/yaul.png",
         "farm": [],
@@ -5300,7 +5308,9 @@
         "jc 2": "Holy Brawler : Senju\n[multi-hit]",
         "jc 3": "",
         "inputs": [
-            "Yauras"
+            "Yauras",
+            "Yauras SSM",
+            "SSM Yauras"
         ],
         "PROFILE": "Yauras is the captain of the 1st regiment of the Holy Guard. She's an amazing swordfighter, boasting both intelligence and beauty. Though she hasn't realized this herself, it's said that she has a lot of hidden fans among the Guard, regardless of gender. She secretly fell in love with her rival Cadanova, and she's still endeavoring to keep up with him.",
         "COUNTRY": "Lustburg",
@@ -5333,8 +5343,8 @@
         "gender": "♂",
         "element": "Light",
         "country": "Envylia",
-        "collab": "",
-        "collab short": "",
+        "collab": "Sacred Stone Memories",
+        "collab short": "SSM",
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/zayi.png",
         "farm": [],
@@ -5348,7 +5358,9 @@
         "jc 2": "",
         "jc 3": "Holy Cavalier : Zayin",
         "inputs": [
-            "Zain"
+            "Zain",
+            "Zain SSM",
+            "SSM Zain"
         ],
         "PROFILE": "Zain is the Lord Commander of the Holy Guard. As the Light in him is strong, having watched his war comrade Cadanova resort to the power of Darkness, he kept on keeping him on the side of the Light. He's a very compassionate and broad-minded person, having watched over Kagura and Othima in their respective hardships.",
         "COUNTRY": "Envylia",
@@ -5471,8 +5483,8 @@
         "gender": "♂",
         "element": "Water",
         "country": "Lustburg",
-        "collab": "",
-        "collab short": "",
+        "collab": "Sacred Stone Memories",
+        "collab short": "SSM",
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/othi.png",
         "farm": [],
@@ -5487,7 +5499,9 @@
         "jc 3": "",
         "inputs": [
             "Othima",
-            "Autima"
+            "Autima",
+            "Othima SSM",
+            "SSM Othima"
         ],
         "PROFILE": "Othima is the captain of the 6th regiment of the Holy Guard. Due to his ability to foresee the future, he was abhorred as a child of the devil from a young age, and attempts were made on his life. After being saved by Zain, Othima joined the Holy Guard. He's frivolous and does things at his own pace, but he's an Alchemy genius with many inventions under his belt.",
         "COUNTRY": "Lustburg",
@@ -6772,8 +6786,8 @@
         "gender": "♀",
         "element": "Fire",
         "country": "Slothstein",
-        "collab": "",
-        "collab short": "",
+        "collab": "Sacred Stone Memories",
+        "collab short": "SSM",
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/miun.png",
         "farm": [],
@@ -6787,7 +6801,9 @@
         "jc 2": "",
         "jc 3": "Holy Cavalier : Pieta\n[healing]",
         "inputs": [
-            "Miuna"
+            "Miuna",
+            "Miuna SSM",
+            "SSM Miuna"
         ],
         "PROFILE": "Miuna is a descendant from the People of Ku, who forged Excalibur. Miuna inherited her father's trade as well, making her an excellent blacksmith. She can be quite emotional, but once you've earned her trust, she's a reliable ally who will never betray you. Miuna looks up to Zain and Cadanova like older brothers, since they often visited her father.",
         "COUNTRY": "Slothstein",
@@ -7222,8 +7238,8 @@
         "gender": "♂",
         "element": "Dark",
         "country": "Desert Zone",
-        "collab": "",
-        "collab short": "",
+        "collab": "Sacred Stone Memories",
+        "collab short": "SSM",
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/basi.png",
         "farm": [],
@@ -7238,7 +7254,9 @@
         "jc 3": "",
         "inputs": [
             "Basheeny",
-            "Bashini"
+            "Bashini",
+            "Basheeny SSM",
+            "SSM Basheeny"
         ],
         "PROFILE": "Basheeny is an apprentice of the Holy Guard. As a boy without any relatives, he found happiness in feeling needed by Waginau, and entered the Holy Guard as a spy. Meeting Kanon however made him change his mind, and caused him to put his trust in her instead. He now fights for Kanon and the Holy Guard.  ",
         "COUNTRY": "Desert Zone",
@@ -8743,8 +8761,8 @@
         "gender": "♀",
         "element": "Wind",
         "country": "Foreign World",
-        "collab": "",
-        "collab short": "",
+        "collab": "Sacred Stone Memories",
+        "collab short": "SSM",
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/acha.png",
         "farm": [],
@@ -8759,7 +8777,9 @@
         "jc 3": "",
         "inputs": [
             "Achad",
-            "Acht"
+            "Acht",
+            "Achad SSM",
+            "SSM Achad"
         ],
         "PROFILE": "Ahato is a young girl who is known as the Veda Ten's \"Number Eight.\" It was the group's leader, Sol, who gave her the hope to live, and she never leaves his side, even outside of battle. She was a war orphan, which has left her with a strong aversion to being hungry: so much so that she says she \"hates hunger more than any physical or emotional pain.\"",
         "COUNTRY": "Lost Blue",
@@ -8787,8 +8807,8 @@
         "gender": "♀",
         "element": "Thunder",
         "country": "Foreign World",
-        "collab": "",
-        "collab short": "",
+        "collab": "Sacred Stone Memories",
+        "collab short": "SSM",
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/vier.png",
         "farm": [],
@@ -8802,7 +8822,9 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Vier"
+            "Vier",
+            "Vier SSM",
+            "SSM Vier"
         ],
         "PROFILE": "Fier is a young girl who is known as the Veda Ten's \"Number Four.\" She's a Dark Elf, a very scarce people, and never talks about her past or where she came from. She has an erratic personality, and on top of that takes great pleasure in confusing and misleading people. However, when she's acting in her role as a fortuneteller, she never, ever lies.",
         "COUNTRY": "Lost Blue",
@@ -9469,8 +9491,8 @@
         "gender": "♀",
         "element": "Light",
         "country": "Foreign World",
-        "collab": "",
-        "collab short": "",
+        "collab": "Sacred Stone Memories",
+        "collab short": "SSM",
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/zyva.png",
         "farm": [],
@@ -9485,7 +9507,9 @@
         "jc 3": "",
         "inputs": [
             "Zyva",
-            "Zierva"
+            "Zierva",
+            "Zyva SSM",
+            "SSM Zyva"
         ],
         "PROFILE": "Zuiva is a young woman who is known as the Veda Ten's \"Number Seven.\" Her feelings towards Yauras, who once saved her life, are complicated, and she's aware of these feelings herself, too. She loves all things dazzling and gorgeous, and collects beautiful objects--to her despair, though, she has an allergy to roses.",
         "COUNTRY": "Lost Blue",
@@ -9513,8 +9537,8 @@
         "gender": "♂",
         "element": "Dark",
         "country": "Foreign World",
-        "collab": "",
-        "collab short": "",
+        "collab": "Sacred Stone Memories",
+        "collab short": "SSM",
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/noin.png",
         "farm": [],
@@ -9529,7 +9553,9 @@
         "jc 3": "",
         "inputs": [
             "Noin",
-            "Neun"
+            "Neun",
+            "Noin SSM",
+            "SSM Noin"
         ],
         "PROFILE": "Noin is a man who is known as the Veda Ten's \"Number Nine.\" His appearance and physical ability are not those of a human, but he has no memory or knowledge of who he is or where he came from. Although he cares greatly for his comrades, in battle he follows his own unique set of beliefs and values--for instance, he won't offer his allies assistance until they're literally on the verge of death.",
         "COUNTRY": "Lost Blue",
@@ -9557,8 +9583,8 @@
         "gender": "♀",
         "element": "Fire",
         "country": "Foreign World",
-        "collab": "",
-        "collab short": "",
+        "collab": "Sacred Stone Memories",
+        "collab short": "SSM",
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/fury.png",
         "farm": [],
@@ -9573,7 +9599,9 @@
         "jc 3": "",
         "inputs": [
             "Fury",
-            "Fuelie"
+            "Fuelie",
+            "Fury SSM",
+            "SSM Fury"
         ],
         "PROFILE": "Fury is a young girl who is known as the Veda Ten's \"Number Five.\" She is a member of one of the leading occultist families in Wadatsumi, and had a bright and promising future until she was forced to flee after the invasion. She despaired of a world with no justice, and when she gave into these feelings of despair, she gained immense power and her occult arts became more effective.",
         "COUNTRY": "Lost Blue",
@@ -10982,8 +11010,8 @@
         "gender": "♂",
         "element": "Water",
         "country": "Foreign World",
-        "collab": "",
-        "collab short": "",
+        "collab": "Sacred Stone Memories",
+        "collab short": "SSM",
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/zenn.png",
         "farm": [],
@@ -10998,7 +11026,9 @@
         "jc 3": "",
         "inputs": [
             "Zenn",
-            "Zehn"
+            "Zehn",
+            "Zenn SSM",
+            "SSM Zenn"
         ],
         "PROFILE": "『ヴェーダ十戒衆』の“10番”を冠する男性。“真理”に至れば、失った妻と娘を取り戻せるはずと半ば祈るように刀を振るい続けている。その狂気にも似た信念で、誰の依頼も受けないとされる“伝説の鍛冶師”の心をも動かした。",
         "COUNTRY": "ロストブルー",
@@ -11993,8 +12023,8 @@
         "gender": "♂",
         "element": "Dark",
         "country": "Foreign World",
-        "collab": "",
-        "collab short": "",
+        "collab": "Sacred Stone Memories",
+        "collab short": "SSM",
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/thol.png",
         "farm": [],
@@ -12009,7 +12039,9 @@
         "jc 3": "Shadow Assassin : Night\n[buff dispeller]",
         "inputs": [
             "Thol",
-            "Sol"
+            "Sol",
+            "Thol SSM",
+            "SSM Thol"
         ],
         "PROFILE": "『ヴェーダ十戒衆』のリーダーであり、虐げられし場所『ロストブルー』の救済を目指す男。異次元空間で強大な力を得た代償として恐怖の感情が欠落。感情の一部がない自覚から、仲間を、自分の行動をも戒律で縛ることを選ぶ。",
         "COUNTRY": "ロストブルー",
@@ -12480,7 +12512,7 @@
         "leader skill": "Water: +50% HP & +30% MATK & +20% MDEF",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/cry-merlinus",
-        "job 1": "Hero of Falsehood",
+        "job 1": "Hero of Duality",
         "job 2": "Bard",
         "job 3": "Dark Cavalier",
         "jc 1": "",

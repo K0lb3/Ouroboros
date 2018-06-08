@@ -12768,14 +12768,14 @@
     },
     "JB_CRY_MERL01": {
         "iname": "JB_CRY_MERL01",
-        "name": "Hero of Falsehood",
+        "name": "Hero of Duality",
         "japan": "Heroine of Truth or Falsehood\n虚実の英雄",
         "kanji": "虚実の英雄",
         "short description": "",
         "long description": "",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/cry_merl01.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ARM.png",
-        "origin": "Hero of Falsehood",
+        "origin": "Hero of Duality",
         "units": [
             "Merlinus"
         ],
@@ -12830,8 +12830,8 @@
         "formula": "90% MATK",
         "inputs": [
             "Merlinus",
-            "Merlinus Hero of Falsehood",
-            "Hero of Falsehood"
+            "Merlinus Hero of Duality",
+            "Hero of Duality"
         ]
     },
     "JB_CRY_ARTH01": {
