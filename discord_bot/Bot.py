@@ -225,29 +225,33 @@ async def unit(ctx):
     )
     #icon
     embed.set_thumbnail(url=unit['icon'])
+    #add tierlist ranking
+    if 'tierlist' in unit:
+        tl = unit['tierlist']
+        for i in tl:
+            if tl[i]!="" and i in unit:
+                unit[i]+= " ["+tl[i]+"]"
+        embed.title+=" ["+tl['total']+"]"
     #unit data
-    embed.add_field(name="gender",      value=unit['gender'],     inline=True)
-    embed.add_field(name="rarity",      value=unit['rarity'],     inline=True)
-    embed.add_field(name="country",     value=unit['country'],    inline=True)
-    if unit['collab'] != "":
-        embed.add_field(name="collab",      value=unit['collab'],     inline=True)
-    if unit['master ability'] != "":
-        embed.add_field(name="master ability",value=unit['master ability'],inline=False)
-    embed.add_field(name="leader skill",value=unit['leader skill'],inline=False)
-    embed.add_field(name="Job 1",       value=unit['job 1'],      inline=True)
-    embed.add_field(name="Job 2",       value=unit['job 2'],      inline=True)
-    if unit['job 3'] != "":
-        embed.add_field(name="Job 3",       value=unit['job 3'],      inline=False)
-    if unit['jc 1'] != "":
-        embed.add_field(name="Job Change 1",value=unit['jc 1'],       inline=True)
-    if unit['jc 2'] != "":
-        embed.add_field(name="Job Change 2",value=unit['jc 2'],       inline=True)
-    if unit['jc 3'] != "":
-        embed.add_field(name="Job Change 3",value=unit['jc 3'],       inline=True)
+    fields=[
+        {'name':"gender",      'value':unit['gender'],     'inline':True},
+        {'name':"rarity",      'value':unit['rarity'],     'inline':True},
+        {'name':"country",     'value':unit['country'],    'inline':True},
+        {'name':"collab",      'value':unit['collab'],     'inline':True},
+        {'name':"master ability",'value':unit['master ability'],'inline':False},
+        {'name':"leader skill",'value':unit['leader skill'],'inline':False},
+        {'name':"Job 1",       'value':unit['job 1'],      'inline':True},
+        {'name':"Job 2",       'value':unit['job 2'],      'inline':True},
+        {'name':"Job 3",       'value':unit['job 3'],      'inline':False},
+        {'name':"Job Change 1",'value':unit['jc 1'],       'inline':True},
+        {'name':"Job Change 2",'value':unit['jc 2'],       'inline':True},
+        {'name':"Job Change 3",'value':unit['jc 3'],       'inline':True},
+        {'name':'Shard HQs',      'value':'\n'.join(unit['farm']),     'inline':False}
+        ]
 
-    if len(unit['farm'])!=0:
-        embed.add_field(name='Shard HQs',      value='\n'.join(unit['farm']),     inline=False)
-
+    fields=fix_fields(fields)
+    for i in fields:
+        embed.add_field(name=i["name"],      value=i['value'],     inline=i['inline'])
 
     await ctx.send(embed=embed) 
 
@@ -332,6 +336,7 @@ async def tierlist(ctx):
     embed = discord.Embed(
         title="GL Tierlist", 
         description="", 
+        url='https://docs.google.com/spreadsheets/d/1DWeFk0wiPaDKAYEcmf_9LnMFYy1nBy2lPTNAX52LkPU/edit#gid=1081890459',
         color=0xeee657,
         )
     #icon

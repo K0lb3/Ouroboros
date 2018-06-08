@@ -1,4 +1,5 @@
 from MainFunctions import *
+import jellyfish
     
 def master_ability(unit,cMaster,loc):
     skill = cMaster[cMaster[unit['ability']]['skl1']]
@@ -15,7 +16,66 @@ def master_ability(unit,cMaster,loc):
     
     return text
 
-    
+def add_tierlist(units):
+    [tierlist]=loadFiles(['tierlist_gl.json'])
+    #convert tierlist
+    tierlist=tierlist['Tier List']
+
+    rating=["","D","C","B","A","S","SS"]
+
+    tl={}
+    for row in range(1,len(tierlist)):
+        for i in range(0,4):
+            j=i*7
+            tl[tierlist[row][j]]={
+                'job 1' : tierlist[row][j+1],
+                'job 2' : tierlist[row][j+2],
+                'job 3' : tierlist[row][j+3],
+                'jc'    : tierlist[row][j+4],
+                'total' : ""
+                }
+    #add total
+    for i in tl:
+        best=0
+        for j in tl[i]:
+            try:
+                index = rating.index(tl[i][j])
+                if index>best:
+                    best=index
+            except:
+                pass
+        tl[i]['total']=rating[best]
+
+
+
+
+    #add tierlist to units
+    for i in tl:
+        if len(i)>30:
+            continue
+
+        found=0
+        for u in units:
+            if units[u]['name']==i:
+                units[u]['tierlist']=tl[i]
+                found=1
+                break
+        if found==0:
+            max=0
+            best=""
+            for u in units:
+                if 'tierlist' in units[u]:
+                    continue
+                sim = jellyfish.jaro_winkler(i, units[u]['name'])
+                if sim > max:
+                    max = sim
+                    best = u
+            if max>0.85:
+                units[best]['tierlist']=tl[i]
+                print(i + ' to ' + best + ' sim: ' + str(max))
+
+    return units
+
 def Units():
     global ParamTypes
     global birth
@@ -156,7 +216,11 @@ def Units():
     #Gilg, Yomi, Selena,Vargas, eo1
 
     #add weapon abilities
-        
+
+    #add tierlist
+    units=add_tierlist(units)    
+
+    #add possible inputs
     export={}
     for u in units:
         unit=units[u]
