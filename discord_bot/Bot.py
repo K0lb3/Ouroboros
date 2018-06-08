@@ -125,7 +125,7 @@ async def gear(ctx):
         )
     #icon
     embed.set_thumbnail(url=gear['icon'])
-#gear data
+    #gear data
     #stats
     stats=""
     for s in gear['stats']:
@@ -352,7 +352,8 @@ async def collabs(ctx):
         'FF   : Final Fantasy 15 \n'+
         'DIS  : Disgea \n'+
         'EO   : Etrian Odyssey \n'+
-        'EMD  : Etrian Mystery Dungeon',
+        'EMD  : Etrian Mystery Dungeon \n'+
+        'CR   : Crystal Re:Union',
         color=8355711)
 
     await ctx.send(embed=embed)
@@ -387,6 +388,7 @@ async def help(ctx):
     embed.add_field(name="o?info", value="some informations about the bot", inline=False)
 
     await ctx.send(embed=embed)
+
 
 BOT_TOKEN = os.environ.get('DISCORD_BOT_TOKEN')
 #BOT_TOKEN="NDM3ODY4OTQ4MTMwNzU4NjY4.DdYvnw.UTWQMqytfyiu6YXzkY4iIw4CqJY"
