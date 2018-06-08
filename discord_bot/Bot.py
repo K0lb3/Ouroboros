@@ -388,46 +388,6 @@ async def help(ctx):
 
     await ctx.send(embed=embed)
 
-@bot.command() # info
-async def debug(ctx):
-    global units
-    global prefix
-    command=prefix+'unit'
-    unit=find_best(command,units,ctx)
-
-    #start embed - title
-    embed = discord.Embed(
-        title=unit['name'],
-        description="",
-        url=unit['link'],
-        color=ELEMENT_COLOR.get(unit['element'], DEFAULT_ELEMENT_COLOR),
-    )
-    #icon
-    embed.set_thumbnail(url=unit['icon'])
-    #unit data
-    embed.add_field(name="gender",      value=unit['gender'],     inline=True)
-    embed.add_field(name="rarity",      value=unit['rarity'],     inline=True)
-    embed.add_field(name="country",     value=unit['country'],    inline=True)
-    if unit['collab'] != "":
-        embed.add_field(name="collab",      value=unit['collab'],     inline=True)
-    if unit['master ability'] != "":
-        embed.add_field(name="master ability",value=unit['master ability'],inline=False)
-    embed.add_field(name="leader skill",value=unit['leader skill'],inline=False)
-    embed.add_field(name="Job 1",       value=unit['job 1'],      inline=True)
-    embed.add_field(name="Job 2",       value=unit['job 2'],      inline=True)
-    if unit['job 3'] != "":
-        embed.add_field(name="Job 3",       value=unit['job 3'],      inline=False)
-    if unit['jc 1'] != "":
-        embed.add_field(name="Job Change 1",value=unit['jc 1'],       inline=True)
-    if unit['jc 2'] != "":
-        embed.add_field(name="Job Change 2",value=unit['jc 2'],       inline=True)
-    if unit['jc 3'] != "":
-        embed.add_field(name="Job Change 3",value=unit['jc 3'],       inline=True)
-
-    embed.set_image(url=unit['artworks'][0]['full'])
-    await ctx.send(embed=embed) 
-
-
 BOT_TOKEN = os.environ.get('DISCORD_BOT_TOKEN')
 #BOT_TOKEN="NDM3ODY4OTQ4MTMwNzU4NjY4.DdYvnw.UTWQMqytfyiu6YXzkY4iIw4CqJY"
 bot.run(BOT_TOKEN)
