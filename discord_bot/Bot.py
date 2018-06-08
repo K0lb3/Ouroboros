@@ -305,13 +305,12 @@ async def tierlist(ctx):
         title="GL Tierlist", 
         description="", 
         color=0xeee657,
-        footer= {"text": "Tierlist by Game, Visualisation by Ｅｉｋｅ/アイケ"},
         )
     #icon
     #embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/453970242914353167/453978923844239362/Chibi_Lucian.png")
     #image
     embed.set_image(url="https://i.imgur.com/crlzqAL.jpg")
-    
+    embed.set_footer(text='Tierlist by Game, Visualisation by Ｅｉｋｅ/アイケ', icon_url='')
     await ctx.send(embed=embed) 
     
 @bot.command()
