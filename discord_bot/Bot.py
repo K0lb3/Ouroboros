@@ -11,6 +11,7 @@ from datetime import datetime
 from datetime import timedelta
 from discord.ext import commands
 from TAC_API import *
+from discord_bot.model import Unit
 
 
 # Constants
@@ -52,22 +53,39 @@ def loadFiles(files):
 
     return ret
 
-def find_best(command,dic,ctx):
-    inp=ctx.message.content[(len(command)+1):].title()
-    print(command+'\n\t'+inp)
-    best=""
-    max=0
-    for d in dic: 
-        for i in dic[d]['inputs']:
-            sim=jellyfish.jaro_winkler(inp, i.title())
-            if sim > max:
-                    max=sim
-                    best=d
-                    if sim==1:
-                        break
 
-    print('Jaro-Winkler \t'+ dic[best]['name'] + " | "+str(max))
-    return(dic[best])
+def find_best(source, text):
+    """
+    Given a dictionary and a text, find the best matched item from the dictionary using the name
+
+    :param source: The dictionary to search from (i.e. units, gears, jobs, etc)
+    :type source: dict
+    :param text: String to find the match
+    :type text: str
+    :return: The best matched item from the dictionary
+    :rtype: dict
+    """
+    # XXX: Purposely shadowing the text parameter
+    text = text.title()
+
+    # Calculate the match score for each key in the source dictionary using the input text.
+    # Then, create a list of (key, the best score) tuples.
+    similarities = [
+        (key, max(jellyfish.jaro_winkler(text, i.title()) for i in value.get('inputs', [])))
+        for key, value in source.items()
+    ]
+    # Find the key with the highest score (This is the best matched key)
+    key, score = max(similarities, key=lambda s: s[1])
+
+    # XXX: If needed, implement a minimum threshold here
+
+    # Return the actual best-matched value
+    best_match = source[key]
+    print("{name} is the best match for input '{input}' with score of {score}".format(
+        name=best_match.get('name'), input=text, score=score
+    ))
+    return best_match
+
 
 def fix_fields(fields):
     remove=[]
@@ -111,11 +129,9 @@ async def on_ready():
 
 #gear
 @bot.command()
-async def gear(ctx):
-    global gears
-    global prefix
-    command=prefix+'gear'
-    gear=find_best(command,gears,ctx)
+async def gear(ctx, *, name):
+    gear = find_best(gears, name)
+
     #start embed - title
     embed = discord.Embed(
         title=gear['name']+' '+gear['rarity'], 
@@ -153,11 +169,9 @@ async def gear(ctx):
 
 #drops
 @bot.command()
-async def farm(ctx):
-    global drops
-    global prefix
-    command=prefix+'farm'
-    item=find_best(command,drops,ctx)
+async def farm(ctx, *, name):
+    item = find_best(drops, name)
+
     #start embed - title
     embed = discord.Embed(title=item['name'], description="", url=item['link'])
     #icon
@@ -171,11 +185,8 @@ async def farm(ctx):
 
 #jobs
 @bot.command()
-async def job(ctx):
-    global jobs
-    global prefix
-    command=prefix+'job'
-    job=find_best(command,jobs,ctx)
+async def job(ctx, *, name):
+    job = find_best(jobs, name)
     #start embed - title
     embed = discord.Embed(title=job['name'], description="", url="")
     #icon
@@ -208,55 +219,19 @@ async def job(ctx):
 
     await ctx.send(embed=embed) 
 
+
 # unit commands
-@bot.command() # info
-async def unit(ctx):
-    global units
-    global prefix
-    command=prefix+'unit'
-    unit=find_best(command,units,ctx)
+@bot.command()  # info
+async def unit(ctx, *, name):
+    unit_dict = find_best(units, name)
+    unit = Unit(source=unit_dict)
 
-    #start embed - title
-    embed = discord.Embed(
-        title=unit['name'],
-        description="",
-        url=unit['link'],
-        color=ELEMENT_COLOR.get(unit['element'], DEFAULT_ELEMENT_COLOR),
-    )
-    #icon
-    embed.set_thumbnail(url=unit['icon'])
-    #unit data
-    embed.add_field(name="gender",      value=unit['gender'],     inline=True)
-    embed.add_field(name="rarity",      value=unit['rarity'],     inline=True)
-    embed.add_field(name="country",     value=unit['country'],    inline=True)
-    if unit['collab'] != "":
-        embed.add_field(name="collab",      value=unit['collab'],     inline=True)
-    if unit['master ability'] != "":
-        embed.add_field(name="master ability",value=unit['master ability'],inline=False)
-    embed.add_field(name="leader skill",value=unit['leader skill'],inline=False)
-    embed.add_field(name="Job 1",       value=unit['job 1'],      inline=True)
-    embed.add_field(name="Job 2",       value=unit['job 2'],      inline=True)
-    if unit['job 3'] != "":
-        embed.add_field(name="Job 3",       value=unit['job 3'],      inline=False)
-    if unit['jc 1'] != "":
-        embed.add_field(name="Job Change 1",value=unit['jc 1'],       inline=True)
-    if unit['jc 2'] != "":
-        embed.add_field(name="Job Change 2",value=unit['jc 2'],       inline=True)
-    if unit['jc 3'] != "":
-        embed.add_field(name="Job Change 3",value=unit['jc 3'],       inline=True)
+    await ctx.send(embed=unit.to_unit_embed())
 
-    if len(unit['farm'])!=0:
-        embed.add_field(name='Shard HQs',      value='\n'.join(unit['farm']),     inline=False)
-
-
-    await ctx.send(embed=embed) 
 
 @bot.command() # lore
-async def lore(ctx):
-    global units
-    global prefix
-    command=prefix+'lore'
-    unit=find_best(command,units,ctx)
+async def lore(ctx, *, name):
+    unit = find_best(units, name)
     #start embed - title
     embed = discord.Embed(
         title=unit['name'],
@@ -282,11 +257,8 @@ async def lore(ctx):
     await ctx.send(embed=embed) 
 
 @bot.command() #  artwork
-async def art(ctx):
-    global units
-    global prefix
-    command=prefix+'art'
-    unit=find_best(command,units,ctx)
+async def art(ctx, *, name):
+    unit = find_best(units, name)
 
     for a in unit['artworks']:
         #start embed - title
@@ -390,11 +362,8 @@ async def help(ctx):
     await ctx.send(embed=embed)
 
 @bot.command() # info
-async def debug(ctx):
-    global units
-    global prefix
-    command=prefix+'unit'
-    unit=find_best(command,units,ctx)
+async def debug(ctx, *, name):
+    unit = find_best(units, name)
 
     #start embed - title
     embed = discord.Embed(
