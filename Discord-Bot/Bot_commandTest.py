@@ -30,7 +30,9 @@ async def on_reaction_add(reaction, user):
 
 @bot.command()
 async def test2(ctx):
-    await ctx.send('on reaction add')
+    msg = await ctx.send('on reaction add')
+    await msg.add_reaction('⬅️')
+    await msg.add_reaction('➡️')
 
 @bot.command()
 async def test(ctx):
