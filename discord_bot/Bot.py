@@ -352,7 +352,8 @@ async def collabs(ctx):
         'FF   : Final Fantasy 15 \n'+
         'DIS  : Disgea \n'+
         'EO   : Etrian Odyssey \n'+
-        'EMD  : Etrian Mystery Dungeon',
+        'EMD  : Etrian Mystery Dungeon \n'+
+        'CR   : Crystal Re:Union',
         color=8355711)
 
     await ctx.send(embed=embed)
