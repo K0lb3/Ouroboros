@@ -201,7 +201,11 @@ async def job(ctx):
     command=prefix+'job'
     job=find_best(command,jobs,ctx)
     #start embed - title
-    embed = discord.Embed(title=job['name'], description="", url="")
+    embed = discord.Embed(
+        title=job['name'], 
+        description="", 
+        url=job['link']
+        )
     #icon
     if ':' in job['name'] or len(job['short description'])>5:
         embed.set_thumbnail(url=job['token'])
