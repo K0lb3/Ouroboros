@@ -136,7 +136,8 @@ def jobs():
                     except KeyError:
                         pass
                 #add unit to list
-                jobs[job]['units'].append(name_collab(unit['iname'], loc)[0])
+                n_c=name_collab(unit['iname'], loc)
+                jobs[job]['units'].append((n_c[0]+' '+n_c[2]).rstrip(' '))
 
                 #add link
                 if len(jobs[job]['link'])<30:
@@ -188,7 +189,11 @@ def jobs():
                 if jobs[job]['japan'] == "N/A":
                     jobs[job]['japan'] = wunit[Fan[js['target_unit']]['inofficial2']]['JC'+str(j)]
 
-            jobs[job]['units'].append(name_collab(js['target_unit'], loc)[0])
+            #add units to list
+            n_c=name_collab(js['target_unit'], loc)
+            jobs[job]['units'].append((n_c[0]+' '+n_c[2]).rstrip(' '))
+
+            #add je to basic job
             if jobs[job]['name'] not in jobs[js['ljob1']]['jobe']:
                 jobs[js['ljob1']]['jobe'].append(jobs[job]['name'])
 
