@@ -180,10 +180,12 @@ def Units():
             for i in unit['jobsets']:
                 job = jpc[i]['job']
                 
-                if not job in loc:
+                if job not in loc:
                     mjob[job]={'unit':iname,'NAME':""}
                     
                 units[iname]['job '+str(j)]= job if not job in loc else loc[job]['NAME']
+                if job not in glc:
+                    units[iname]['job '+str(j)]+='ᴶ'
                 
                 j+=1
                     
