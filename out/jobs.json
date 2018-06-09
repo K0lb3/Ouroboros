@@ -120,7 +120,9 @@
         },
         "formula": "140% PATK",
         "inputs": [
-            "Logi Holy Knight"
+            "Logi Holy Knight",
+            "Logi",
+            "Logi Saint Knight"
         ]
     },
     "JB_DIOS_ARM": {
@@ -245,7 +247,9 @@
         },
         "formula": "150% PATK",
         "inputs": [
-            "Dias Dark Knight"
+            "Dias Dark Knight",
+            "Dias",
+            "Dias Shadow Knight"
         ]
     },
     "JB_EDGA_GUN": {
@@ -694,7 +698,9 @@
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "inputs": [
             "Kamui",
-            "Kamui Holy Brawler"
+            "Kamui Holy Brawler",
+            "Kamui",
+            "Kamui Saint of Fist"
         ]
     },
     "JB_KAMUI01_KAMUI": {
@@ -756,7 +762,9 @@
         "formula": "90% (PATK + MATK)",
         "inputs": [
             "Kamui Spiral Style Master",
-            "Spiral Style Master"
+            "Spiral Style Master",
+            "Kamui Spirit Alchemist",
+            "Spirit Alchemist"
         ]
     },
     "JB_BAR": {
@@ -983,8 +991,7 @@
         },
         "formula": "90% MATK",
         "inputs": [
-            "Battle Mage",
-            "Armored Mage"
+            "Battle Mage"
         ]
     },
     "JB_HUN": {
@@ -1068,8 +1075,7 @@
         },
         "formula": "65% (PATK + DEX)",
         "inputs": [
-            "Hunter",
-            "Archer"
+            "Hunter"
         ]
     },
     "JB_ARM": {
@@ -3351,7 +3357,9 @@
         },
         "formula": "140% PATK",
         "inputs": [
-            "Tyrfing Holy Knight"
+            "Tyrfing Holy Knight",
+            "Tyrfing",
+            "Tyrfing Saint Knight"
         ]
     },
     "JB_TYRH_GUA": {
@@ -3477,7 +3485,9 @@
         },
         "formula": "150% PATK",
         "inputs": [
-            "Laevateinn Dark Knight"
+            "Laevateinn Dark Knight",
+            "Laevateinn",
+            "Laevateinn Shadow Knight"
         ]
     },
     "JB_LEAV_NIN": {
@@ -3730,7 +3740,10 @@
         "formula": "150% PATK",
         "inputs": [
             "Vargas Pyromancer",
-            "Pyromancer"
+            "Pyromancer",
+            "Vargas",
+            "Vargas Flame Hero",
+            "Flame Hero"
         ]
     },
     "JB_VARG_VARG2": {
@@ -3794,7 +3807,9 @@
         "formula": "150% PATK",
         "inputs": [
             "Vargas Great Pyromancer",
-            "Great Pyromancer"
+            "Great Pyromancer",
+            "Vargas Shining Flame Hero",
+            "Shining Flame Hero"
         ]
     },
     "JB_SELE_SELE1": {
@@ -3918,7 +3933,9 @@
         },
         "formula": "90% (PATK + MATK)",
         "inputs": [
-            "Selena Magic Swordsman"
+            "Selena Magic Swordsman",
+            "Selena",
+            "Selena Magic Knight"
         ]
     },
     "JB_SELE_SELE2": {
@@ -4397,7 +4414,10 @@
         "inputs": [
             "Kanon",
             "Kanon Apprentice Paladin",
-            "Apprentice Paladin"
+            "Apprentice Paladin",
+            "Kanon",
+            "Kanon Sacred Knight Apprentice",
+            "Sacred Knight Apprentice"
         ]
     },
     "JB_CANO_SEI": {
@@ -4461,7 +4481,9 @@
         "formula": "140% PATK",
         "inputs": [
             "Kanon Paladin",
-            "Paladin"
+            "Paladin",
+            "Kanon Sacred Knight",
+            "Sacred Knight"
         ]
     },
     "JB_CANO_LORD": {
@@ -4527,7 +4549,9 @@
         "formula": "140% PATK",
         "inputs": [
             "Kanon Elite Knight",
-            "Elite Knight"
+            "Elite Knight",
+            "Kanon Lord Knight",
+            "Lord Knight"
         ]
     },
     "JB_CADA_SEI": {
@@ -4654,7 +4678,10 @@
         "formula": "140% PATK",
         "inputs": [
             "Cadanova Flame Dragon King",
-            "Flame Dragon King"
+            "Flame Dragon King",
+            "Cadanova",
+            "Cadanova Blazing Dragon King",
+            "Blazing Dragon King"
         ]
     },
     "JB_DAI": {
@@ -4881,7 +4908,10 @@
         "formula": "90% MATK",
         "inputs": [
             "Kagura Flame Orb Princess",
-            "Flame Orb Princess"
+            "Flame Orb Princess",
+            "Kagura",
+            "Kagura Blazing Pearl Princess",
+            "Blazing Pearl Princess"
         ]
     },
     "JB_KAGU_DAI": {
@@ -4947,7 +4977,9 @@
         "formula": "90% MATK",
         "inputs": [
             "Kagura Blaze Orb Princess",
-            "Blaze Orb Princess"
+            "Blaze Orb Princess",
+            "Kagura Scorching Pearl Princess",
+            "Scorching Pearl Princess"
         ]
     },
     "JB_KUDH_LAN": {
@@ -5012,7 +5044,10 @@
         "formula": "140% PATK",
         "inputs": [
             "Kudanstein Demonic Spearman",
-            "Demonic Spearman"
+            "Demonic Spearman",
+            "Kudanstein",
+            "Kudanstein Masou Knight (Devil Spear)",
+            "Masou Knight (Devil Spear)"
         ]
     },
     "JB_FEN": {
@@ -5137,7 +5172,10 @@
         "formula": "130% PATK",
         "inputs": [
             "Fencer Illusory Swordsman",
-            "Illusory Swordsman"
+            "Illusory Swordsman",
+            "Fencer",
+            "Fencer Phantom Fencer",
+            "Phantom Fencer"
         ]
     },
     "JB_FEN_N": {
@@ -5201,7 +5239,9 @@
         "formula": "130% PATK",
         "inputs": [
             "Fencer Thunder Swordsman",
-            "Thunder Swordsman"
+            "Thunder Swordsman",
+            "Fencer Lightening Fencer",
+            "Lightening Fencer"
         ]
     },
     "JB_REA": {
@@ -5330,7 +5370,10 @@
         "formula": "150% PATK",
         "inputs": [
             "Reaper Death-Spreading Reaper",
-            "Death-Spreading Reaper"
+            "Death-Spreading Reaper",
+            "Reaper",
+            "Reaper Death Scattering Shinigami",
+            "Death Scattering Shinigami"
         ]
     },
     "JB_DK_REA": {
@@ -5393,7 +5436,9 @@
         "formula": "150% PATK",
         "inputs": [
             "Reaper Death-Delaying Reaper",
-            "Death-Delaying Reaper"
+            "Death-Delaying Reaper",
+            "Reaper Death Preventing Shinigami",
+            "Death Preventing Shinigami"
         ]
     },
     "JB_SHE": {
@@ -5519,7 +5564,10 @@
         "formula": "90% MATK",
         "inputs": [
             "Shaman Maiden of Divine Punishment",
-            "Maiden of Divine Punishment"
+            "Maiden of Divine Punishment",
+            "Shaman",
+            "Shaman Shaman:Divine Punishment",
+            "Shaman:Divine Punishment"
         ]
     },
     "JB_SHE_N": {
@@ -5584,7 +5632,9 @@
         "formula": "90% MATK",
         "inputs": [
             "Shaman Maiden of Divine Blessing",
-            "Maiden of Divine Blessing"
+            "Maiden of Divine Blessing",
+            "Shaman Shaman:Divine Affection",
+            "Shaman:Divine Affection"
         ]
     },
     "JB_DGO": {
@@ -5649,7 +5699,10 @@
         "inputs": [
             "Chloe",
             "Chloe Dragoon",
-            "Dragoon"
+            "Dragoon",
+            "Chloe",
+            "Chloe Dragoon [Collab] Ranged",
+            "Dragoon [Collab] Ranged"
         ]
     },
     "JB_MAS": {
@@ -5776,7 +5829,10 @@
         "formula": "65% (PATK + DEX)",
         "inputs": [
             "Seida Venom Archer",
-            "Venom Archer"
+            "Venom Archer",
+            "Seida",
+            "Seida Swift Bowman",
+            "Swift Bowman"
         ]
     },
     "JB_MONZ_WOR": {
@@ -5841,7 +5897,10 @@
         "formula": "140% PATK",
         "inputs": [
             "Monzein Indomitable Axe Knight ",
-            "Indomitable Axe Knight "
+            "Indomitable Axe Knight ",
+            "Monzein",
+            "Monzein Strong Axe Knight",
+            "Strong Axe Knight"
         ]
     },
     "JB_WOR": {
@@ -6060,7 +6119,10 @@
         "formula": "130% PATK",
         "inputs": [
             "Yauras Twin-Blade Knight",
-            "Twin-Blade Knight"
+            "Twin-Blade Knight",
+            "Yauras",
+            "Yauras Twin Blade Knight",
+            "Twin Blade Knight"
         ]
     },
     "JB_ZAYI_LORD": {
@@ -6125,7 +6187,10 @@
         "inputs": [
             "Zain",
             "Zain Lord Commander",
-            "Lord Commander"
+            "Lord Commander",
+            "Zain",
+            "Zain Lord Master",
+            "Lord Master"
         ]
     },
     "JB_SYO": {
@@ -6555,8 +6620,7 @@
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "inputs": [
-            "Shadow Assassin",
-            "Assassin"
+            "Shadow Assassin"
         ]
     },
     "JB_MFEN": {
@@ -6625,8 +6689,7 @@
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "inputs": [
-            "Blademaster",
-            "Sword Master"
+            "Blademaster"
         ]
     },
     "JB_KAJ": {
@@ -6817,7 +6880,10 @@
         "inputs": [
             "Gilgamesh",
             "Gilgamesh Hero King",
-            "Hero King"
+            "Hero King",
+            "Gilgamesh",
+            "Gilgamesh King of Heroes [F/SN]",
+            "King of Heroes [F/SN]"
         ]
     },
     "JB_FATE_TMAG": {
@@ -6881,7 +6947,10 @@
         "inputs": [
             "Rin Tohsaka",
             "Rin Tohsaka Jewel Magician",
-            "Jewel Magician"
+            "Jewel Magician",
+            "Rin Tohsaka",
+            "Rin Tohsaka Jewel Magus [F/SN]",
+            "Jewel Magus [F/SN]"
         ]
     },
     "JB_FATE_IMAG": {
@@ -6945,7 +7014,10 @@
         "inputs": [
             "Illyasviel",
             "Illyasviel Master Magician",
-            "Master Magician"
+            "Master Magician",
+            "Illyasviel",
+            "Illyasviel Magus Trainee [F/SN]",
+            "Magus Trainee [F/SN]"
         ]
     },
     "JB_FATE_EMIYA": {
@@ -7008,7 +7080,11 @@
         },
         "formula": "140% PATK",
         "inputs": [
-            "Archer Archer"
+            "Archer",
+            "Archer Archer",
+            "Archer",
+            "Archer Archer [F/SN]",
+            "Archer [F/SN]"
         ]
     },
     "JB_FATE_RIDR": {
@@ -7072,7 +7148,10 @@
         "inputs": [
             "Yomi",
             "Yomi Rider",
-            "Rider"
+            "Rider",
+            "Yomi",
+            "Yomi Rider [F/SN]",
+            "Rider [F/SN]"
         ]
     },
     "JB_FATE_CAS": {
@@ -7135,7 +7214,9 @@
         "formula": "90% MATK",
         "inputs": [
             "Yomi Caster",
-            "Caster"
+            "Caster",
+            "Yomi Caster [F/SN]",
+            "Caster [F/SN]"
         ]
     },
     "JB_FATE_ASS": {
@@ -7197,7 +7278,11 @@
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "inputs": [
-            "Lamia Assassin"
+            "Lamia Assassin",
+            "Assassin",
+            "Lamia",
+            "Lamia Assassin [F/SN]",
+            "Assassin [F/SN]"
         ]
     },
     "JB_FATE_ARCH": {
@@ -7261,7 +7346,9 @@
         "formula": "140% PATK",
         "inputs": [
             "Zahar",
-            "Zahar Archer"
+            "Zahar Archer",
+            "Zahar",
+            "Zahar Archer [F/SN]"
         ]
     },
     "JB_FATE_BSKR": {
@@ -7322,7 +7409,9 @@
         },
         "formula": "150% PATK",
         "inputs": [
-            "Zahar Berserker"
+            "Zahar Berserker",
+            "Zahar Berserker [F/SN]",
+            "Berserker [F/SN]"
         ]
     },
     "JB_FATE_LAN": {
@@ -7385,7 +7474,9 @@
         "formula": "140% PATK",
         "inputs": [
             "Zahar Lancer",
-            "Lancer"
+            "Lancer",
+            "Zahar Lancer [F/SN]",
+            "Lancer [F/SN]"
         ]
     },
     "JB_ACT_F": {
@@ -7578,7 +7669,10 @@
         "formula": "140% PATK",
         "inputs": [
             "Miuna Master Blacksmith",
-            "Master Blacksmith"
+            "Master Blacksmith",
+            "Miuna",
+            "Miuna Craftsman",
+            "Craftsman"
         ]
     },
     "JB_KAM": {
@@ -7918,7 +8012,10 @@
         "inputs": [
             "Killia",
             "Killia Tyrant Overlord",
-            "Tyrant Overlord"
+            "Tyrant Overlord",
+            "Killia",
+            "Killia Wandering Devil",
+            "Wandering Devil"
         ]
     },
     "JB_DIS_SERA": {
@@ -8573,7 +8670,10 @@
         "inputs": [
             "Prinny",
             "Prinny Private Prinny",
-            "Private Prinny"
+            "Private Prinny",
+            "Prinny",
+            "Prinny Prinny Squadron",
+            "Prinny Squadron"
         ]
     },
     "JB_DIS_PRIN3": {
@@ -8636,7 +8736,9 @@
         "formula": "130% PATK",
         "inputs": [
             "Prinny General Prinny",
-            "General Prinny"
+            "General Prinny",
+            "Prinny Prinny General",
+            "Prinny General"
         ]
     },
     "JB_DIS_PRIN1": {
@@ -8700,7 +8802,9 @@
         "formula": "130% PATK",
         "inputs": [
             "Prinny Prinny Kami",
-            "Prinny Kami"
+            "Prinny Kami",
+            "Prinny Prinny God",
+            "Prinny God"
         ]
     },
     "JB_DIS_THI": {
@@ -9102,7 +9206,10 @@
         "inputs": [
             "Noctis",
             "Noctis Lucian's Heir",
-            "Lucian's Heir"
+            "Lucian's Heir",
+            "Noctis",
+            "Noctis Lucis Prince",
+            "Lucis Prince"
         ]
     },
     "JB_FF15_INGI": {
@@ -9167,7 +9274,10 @@
         "inputs": [
             "Ignis",
             "Ignis Prince's Hand",
-            "Prince's Hand"
+            "Prince's Hand",
+            "Ignis",
+            "Ignis Prince's Aide",
+            "Prince's Aide"
         ]
     },
     "JB_FF15_GLAD": {
@@ -9231,7 +9341,10 @@
         "inputs": [
             "Gladiolus",
             "Gladiolus Prince's Shield",
-            "Prince's Shield"
+            "Prince's Shield",
+            "Gladiolus",
+            "Gladiolus Prince's Escort",
+            "Prince's Escort"
         ]
     },
     "JB_FF15_PROM": {
@@ -9362,7 +9475,10 @@
         "inputs": [
             "Aranea",
             "Aranea Commodore",
-            "Commodore"
+            "Commodore",
+            "Aranea",
+            "Aranea Brigadier General",
+            "Brigadier General"
         ]
     },
     "JB_WEA": {
@@ -9496,7 +9612,10 @@
         "inputs": [
             "Achad",
             "Achad 7 Styles Master",
-            "7 Styles Master"
+            "7 Styles Master",
+            "Achad",
+            "Achad 7 Arts Master",
+            "7 Arts Master"
         ]
     },
     "JB_VIER_WIZ": {
@@ -9563,7 +9682,10 @@
         "inputs": [
             "Vier",
             "Vier Pheremone Master",
-            "Pheremone Master"
+            "Pheremone Master",
+            "Vier",
+            "Vier Aromatic Illusionist",
+            "Aromatic Illusionist"
         ]
     },
     "JB_RH_STOC": {
@@ -9628,7 +9750,10 @@
         "inputs": [
             "Stock",
             "Stock Intelligence Agent",
-            "Intelligence Agent"
+            "Intelligence Agent",
+            "Stock",
+            "Stock Specint Agent",
+            "Specint Agent"
         ]
     },
     "JB_RH_ERUK": {
@@ -9694,7 +9819,10 @@
         "inputs": [
             "Eruka",
             "Eruka Princess Of Granorg",
-            "Princess Of Granorg"
+            "Princess Of Granorg",
+            "Eruka",
+            "Eruka Granorg Princess",
+            "Granorg Princess"
         ]
     },
     "JB_RH_ATO": {
@@ -9760,7 +9888,10 @@
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "inputs": [
             "Ato",
-            "Ato Shaman"
+            "Ato Shaman",
+            "Ato",
+            "Ato Vanoss Entertainer",
+            "Vanoss Entertainer"
         ]
     },
     "JB_RH_RAIN": {
@@ -9827,7 +9958,10 @@
         "formula": "120% PATK",
         "inputs": [
             "Rainy",
-            "Rainy Spy"
+            "Rainy Spy",
+            "Rainy",
+            "Rainy Specint Spy",
+            "Specint Spy"
         ]
     },
     "JB_HUU": {
@@ -9938,7 +10072,10 @@
         "inputs": [
             "Zyva",
             "Zyva Twin Blade Master",
-            "Twin Blade Master"
+            "Twin Blade Master",
+            "Zyva",
+            "Zyva Twin Sword Master",
+            "Twin Sword Master"
         ]
     },
     "JB_NOIN01": {
@@ -10003,7 +10140,10 @@
         "inputs": [
             "Noin",
             "Noin Explosives Master",
-            "Explosives Master"
+            "Explosives Master",
+            "Noin",
+            "Noin Explosive Master",
+            "Explosive Master"
         ]
     },
     "JB_FURY01": {
@@ -10070,7 +10210,10 @@
         "inputs": [
             "Fury",
             "Fury Spell Master",
-            "Spell Master"
+            "Spell Master",
+            "Fury",
+            "Fury Curse Mantra Master",
+            "Curse Mantra Master"
         ]
     },
     "JB_MOU": {
@@ -10331,7 +10474,10 @@
         "formula": "95% (PATK + DEX/2 + LUCK/2)",
         "inputs": [
             "Shenmei",
-            "Shenmei Dancer"
+            "Shenmei Dancer",
+            "Shenmei",
+            "Shenmei Dancer (E.O.)",
+            "Dancer (E.O.)"
         ]
     },
     "JB_SQ_SHEN_GUN": {
@@ -10395,7 +10541,9 @@
         },
         "formula": "65% (PATK + DEX)",
         "inputs": [
-            "Shenmei Gunner"
+            "Shenmei Gunner",
+            "Shenmei Gunner（E.O.) ",
+            "Gunner（E.O.) "
         ]
     },
     "JB_SQ_GUN": {
@@ -10459,7 +10607,9 @@
         },
         "formula": "65% (PATK + DEX)",
         "inputs": [
-            "Gunner Gunner"
+            "Gunner Gunner",
+            "Gunner",
+            "Gunner Gunner（E.O.) "
         ]
     },
     "JB_MAD": {
@@ -10529,8 +10679,7 @@
         },
         "formula": "75% (MATK + DEX)",
         "inputs": [
-            "Magia Operator",
-            ""
+            "Magia Operator"
         ]
     },
     "JB_PSI": {
@@ -10729,7 +10878,10 @@
         "inputs": [
             "Pride",
             "Pride Homunculus of Pride",
-            "Homunculus of Pride"
+            "Homunculus of Pride",
+            "Pride",
+            "Pride Pride: Homunculus",
+            "Pride: Homunculus"
         ]
     },
     "JB_FA_ALPH01": {
@@ -10795,7 +10947,10 @@
         "inputs": [
             "Alphonse",
             "Alphonse Armored Alchemist        ",
-            "Armored Alchemist        "
+            "Armored Alchemist        ",
+            "Alphonse",
+            "Alphonse Armor Alchemist",
+            "Armor Alchemist"
         ]
     },
     "JB_FA_MAST01": {
@@ -10926,7 +11081,10 @@
         "inputs": [
             "Hawkeye",
             "Hawkeye Firearms Lieutenant",
-            "Firearms Lieutenant"
+            "Firearms Lieutenant",
+            "Hawkeye",
+            "Hawkeye Amestrain Lieutanant",
+            "Amestrain Lieutanant"
         ]
     },
     "JB_FA_WRAT01": {
@@ -10993,7 +11151,10 @@
         "inputs": [
             "Wrath",
             "Wrath Homunculus of Wrath",
-            "Homunculus of Wrath"
+            "Homunculus of Wrath",
+            "Wrath",
+            "Wrath Wrath: Homunculus",
+            "Wrath: Homunculus"
         ]
     },
     "JB_FA_ENVY01": {
@@ -11061,7 +11222,10 @@
         "inputs": [
             "Envy",
             "Envy Homunculus of Envy",
-            "Homunculus of Envy"
+            "Homunculus of Envy",
+            "Envy",
+            "Envy Envy: Homunculus",
+            "Envy: Homunculus"
         ]
     },
     "JB_TEM": {
@@ -11127,7 +11291,8 @@
         },
         "formula": "90% (PATK + MATK)",
         "inputs": [
-            "Templar"
+            "Templar",
+            ""
         ]
     },
     "JB_ZENN01": {
@@ -11192,7 +11357,11 @@
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "inputs": [
             "Zenn",
-            "Zenn Sword Master"
+            "Zenn Sword Master",
+            "Sword Master",
+            "Zenn",
+            "Zenn Sword Saint",
+            "Sword Saint"
         ]
     },
     "JB_ART": {
@@ -11322,7 +11491,10 @@
         "inputs": [
             "Black Killer Tyrhung",
             "Black Killer Tyrhung Black Killer : Avarice",
-            "Black Killer : Avarice"
+            "Black Killer : Avarice",
+            "Black Killer Tyrhung",
+            "Black Killer Tyrhung Black Sword Princess",
+            "Black Sword Princess"
         ]
     },
     "JB_BERS": {
@@ -11453,7 +11625,10 @@
         "inputs": [
             "Regis",
             "Regis King Of Lucis",
-            "King Of Lucis"
+            "King Of Lucis",
+            "Regis",
+            "Regis King of Lucis",
+            "King of Lucis"
         ]
     },
     "JB_FF15_REGI02_GEN": {
@@ -11518,7 +11693,8 @@
         },
         "formula": "90% MATK",
         "inputs": [
-            "Regis Chronomancer"
+            "Regis Chronomancer",
+            "Regis Illusionist"
         ]
     },
     "JB_FF15_REGI03_HWIZ": {
@@ -11584,7 +11760,8 @@
         },
         "formula": "90% MATK",
         "inputs": [
-            "Regis Armored Mage"
+            "Regis Armored Mage",
+            "Armored Mage"
         ]
     },
     "JB_FF15_COR01": {
@@ -11650,7 +11827,10 @@
         "inputs": [
             "Cor",
             "Cor Crownsguard Commander",
-            "Crownsguard Commander"
+            "Crownsguard Commander",
+            "Cor",
+            "Cor Capital Guard Corps Commander",
+            "Capital Guard Corps Commander"
         ]
     },
     "JB_FF15_IRIS01": {
@@ -11716,7 +11896,10 @@
         "inputs": [
             "Iris",
             "Iris Prince's Friend",
-            "Prince's Friend"
+            "Prince's Friend",
+            "Iris",
+            "Iris King's Childhood Friend",
+            "King's Childhood Friend"
         ]
     },
     "JB_POK_B_LAEV01": {
@@ -11782,7 +11965,10 @@
         "inputs": [
             "Black Killer Laevateinn",
             "Black Killer Laevateinn Black Killer : Sloth",
-            "Black Killer : Sloth"
+            "Black Killer : Sloth",
+            "Black Killer Laevateinn",
+            "Black Killer Laevateinn Black Blade Princess",
+            "Black Blade Princess"
         ]
     },
     "JB_FIONA01": {
@@ -11910,7 +12096,10 @@
         "inputs": [
             "Gerald",
             "Gerald Gun-Lancer",
-            "Gun-Lancer"
+            "Gun-Lancer",
+            "Gerald",
+            "Gerald Gunlance",
+            "Gunlance"
         ]
     },
     "JB_LUROB01": {
@@ -11975,7 +12164,10 @@
         "inputs": [
             "Little Urob",
             "Little Urob Continental Observer",
-            "Continental Observer"
+            "Continental Observer",
+            "Little Urob",
+            "Little Urob Observer of the Continent",
+            "Observer of the Continent"
         ]
     },
     "JB_LUROB03": {
@@ -12104,7 +12296,10 @@
         "inputs": [
             "Ren",
             "Ren Azure Blademaster",
-            "Azure Blademaster"
+            "Azure Blademaster",
+            "Ren",
+            "Ren Fluid Swift Sword",
+            "Fluid Swift Sword"
         ]
     },
     "JB_THOL01": {
@@ -12172,7 +12367,10 @@
         "inputs": [
             "Thol",
             "Thol Truth Master",
-            "Truth Master"
+            "Truth Master",
+            "Thol",
+            "Thol Truth Manipulator",
+            "Truth Manipulator"
         ]
     },
     "JB_HENC_WATER": {
@@ -12238,7 +12436,10 @@
         "inputs": [
             "Leticia",
             "Leticia Water Elemental",
-            "Water Elemental"
+            "Water Elemental",
+            "Leticia",
+            "Leticia Water Spirit Controller",
+            "Water Spirit Controller"
         ]
     },
     "JB_STRB": {
@@ -12303,7 +12504,10 @@
         "inputs": [
             "Carla",
             "Carla Desert Inferno",
-            "Desert Inferno"
+            "Desert Inferno",
+            "Carla",
+            "Carla Inferno Rakshasa",
+            "Inferno Rakshasa"
         ]
     },
     "JB_GUNL_WATER": {
@@ -12367,7 +12571,10 @@
         "inputs": [
             "Ankh",
             "Ankh Aqua Gun-Lancer",
-            "Aqua Gun-Lancer"
+            "Aqua Gun-Lancer",
+            "Ankh",
+            "Ankh Fluid Gunlance",
+            "Fluid Gunlance"
         ]
     },
     "JB_APR_LIZ": {
@@ -12561,7 +12768,10 @@
         "inputs": [
             "Orion",
             "Orion Emperor",
-            "Emperor"
+            "Emperor",
+            "Orion",
+            "Orion Lion King",
+            "Lion King"
         ]
     },
     "JB_POK_B_ARTE01": {
@@ -12626,7 +12836,10 @@
         "inputs": [
             "Black Killer Artemis",
             "Black Killer Artemis Black Killer : Lust",
-            "Black Killer : Lust"
+            "Black Killer : Lust",
+            "Black Killer Artemis",
+            "Black Killer Artemis Black Archer Princess",
+            "Black Archer Princess"
         ]
     },
     "JB_CRY_MERL01": {
@@ -12694,7 +12907,10 @@
         "inputs": [
             "Merlinus",
             "Merlinus Hero of Duality",
-            "Hero of Duality"
+            "Hero of Duality",
+            "Merlinus",
+            "Merlinus Heroine of Truth or Falsehood",
+            "Heroine of Truth or Falsehood"
         ]
     },
     "JB_CRY_ARTH01": {
@@ -12823,7 +13039,9 @@
         "inputs": [
             "Kudanstein",
             "Kudanstein Demonic Spearman+",
-            "Demonic Spearman+"
+            "Demonic Spearman+",
+            "Kudanstein Demonic Lancer",
+            "Demonic Lancer"
         ]
     },
     "JB_OTHI_WIZ_CC": {
@@ -12956,7 +13174,9 @@
         "inputs": [
             "Kagura",
             "Kagura Blaze Orb Princess+",
-            "Blaze Orb Princess+"
+            "Blaze Orb Princess+",
+            "Kagura Scorching Pearl Princess+",
+            "Scorching Pearl Princess+"
         ]
     },
     "JB_LOGI_GUA": {
@@ -13020,7 +13240,9 @@
         "formula": "140% PATK",
         "inputs": [
             "Logi",
-            "Logi Holy Cavalier+"
+            "Logi Holy Cavalier+",
+            "Logi Holy Knight+",
+            "Holy Knight+"
         ]
     },
     "JB_DIOS_BAA": {
@@ -13085,7 +13307,8 @@
         "inputs": [
             "Dias",
             "Dias Dark Cavalier+  : Edgelord",
-            "Dark Cavalier+  : Edgelord"
+            "Dark Cavalier+  : Edgelord",
+            "Dias Dark Knight+"
         ]
     },
     "JB_LEAV_BAA_2": {
@@ -13149,7 +13372,8 @@
         "formula": "150% PATK",
         "inputs": [
             "Laevateinn",
-            "Laevateinn Dark Cavalier+"
+            "Laevateinn Dark Cavalier+",
+            "Laevateinn Dark Knight+"
         ]
     },
     "JB_EDGA_DRI2": {
@@ -13346,7 +13570,10 @@
         "formula": "90% MATK",
         "inputs": [
             "Alexis",
-            "Alexis Bishop+"
+            "Alexis Bishop+",
+            "Alexis",
+            "Alexis Wonder Doctor",
+            "Wonder Doctor"
         ]
     },
     "JB_VANE_DAI": {
@@ -13413,7 +13640,9 @@
         "formula": "90% MATK",
         "inputs": [
             "Vanekis",
-            "Vanekis Sage+"
+            "Vanekis Sage+",
+            "Vanekis Sage[+]",
+            "Sage[+]"
         ]
     },
     "JB_POLLIN_BAR": {
@@ -13610,7 +13839,9 @@
         "inputs": [
             "Yuan",
             "Yuan Ninja+  : Shinobi",
-            "Ninja+  : Shinobi"
+            "Ninja+  : Shinobi",
+            "Yuan Ninja[+]",
+            "Ninja[+]"
         ]
     },
     "JB_MARE_DAI": {
@@ -13674,7 +13905,10 @@
         "formula": "90% MATK",
         "inputs": [
             "Mia",
-            "Mia Sage+"
+            "Mia Sage+",
+            "Mia",
+            "Mia Nightmare Witch",
+            "Nightmare Witch"
         ]
     },
     "JB_FREE_DGN": {
@@ -13740,7 +13974,9 @@
         "inputs": [
             "Freed",
             "Freed Dragon Cavalier+  : Dragon Slayer",
-            "Dragon Cavalier+  : Dragon Slayer"
+            "Dragon Cavalier+  : Dragon Slayer",
+            "Freed Dragon Knight+",
+            "Dragon Knight+"
         ]
     },
     "JB_DILG_GUA": {
@@ -13803,7 +14039,10 @@
         "formula": "140% PATK",
         "inputs": [
             "Dilga",
-            "Dilga Holy Cavalier+"
+            "Dilga Holy Cavalier+",
+            "Dilga",
+            "Dilga Muscle Paladin",
+            "Muscle Paladin"
         ]
     },
     "JB_SUTORIE_KIL": {
@@ -13870,7 +14109,9 @@
         "inputs": [
             "Strie",
             "Strie Assasin+ : Charm",
-            "Assasin+ : Charm"
+            "Assasin+ : Charm",
+            "Strie Assassin+",
+            "Assassin+"
         ]
     },
     "JB_MAH_DARK": {
@@ -14132,7 +14373,9 @@
         "inputs": [
             "Arkil",
             "Arkil Magic Swordsman+",
-            "Magic Swordsman+"
+            "Magic Swordsman+",
+            "Arkil Magic Knight[+]",
+            "Magic Knight[+]"
         ]
     },
     "JB_ROFI_GEN": {
@@ -14196,7 +14439,10 @@
         "formula": "90% MATK",
         "inputs": [
             "Lofia",
-            "Lofia Chronomancer+"
+            "Lofia Chronomancer+",
+            "Lofia",
+            "Lofia Sugar Wizard",
+            "Sugar Wizard"
         ]
     },
     "JB_LAMI_DGN": {
@@ -14260,7 +14506,8 @@
         "inputs": [
             "Lamia",
             "Lamia Dragon Cavalier+",
-            "Dragon Cavalier+"
+            "Dragon Cavalier+",
+            "Lamia "
         ]
     },
     "JB_STR_SENJYU": {
@@ -14392,7 +14639,9 @@
         "inputs": [
             "Lucian",
             "Lucian Holy Brawler+",
-            "Holy Brawler+"
+            "Holy Brawler+",
+            "Lucian Saint of Fist+",
+            "Saint of Fist+"
         ]
     },
     "JB_CHAL_SNI": {
@@ -14456,7 +14705,10 @@
         "inputs": [
             "Caris",
             "Caris Sniper+",
-            "Sniper+"
+            "Sniper+",
+            "Caris",
+            "Caris Excel Sniper",
+            "Excel Sniper"
         ]
     },
     "JB_MEGI_LNC": {
@@ -14522,7 +14774,9 @@
         "inputs": [
             "Megistos",
             "Megistos Machinist+",
-            "Machinist+"
+            "Machinist+",
+            "Megistos Machinery[+]",
+            "Machinery[+]"
         ]
     },
     "JB_RAHU_GEN": {
@@ -14586,7 +14840,9 @@
         "formula": "90% MATK",
         "inputs": [
             "Rahu",
-            "Rahu Chronomancer+"
+            "Rahu Chronomancer+",
+            "Rahu Illusionist[+]",
+            "Illusionist[+]"
         ]
     },
     "JB_BAA_TYPE_MOVE_ANA": {
@@ -14651,7 +14907,9 @@
         "formula": "150% PATK",
         "inputs": [
             "Anastasia Dark Cavalier : Spion",
-            "Dark Cavalier : Spion"
+            "Dark Cavalier : Spion",
+            "Anastasia",
+            "Anastasia Dark Knight: Spion"
         ]
     },
     "JB_ANAS_BAA": {
@@ -14715,7 +14973,9 @@
         "formula": "150% PATK",
         "inputs": [
             "Anastasia",
-            "Anastasia Dark Cavalier+"
+            "Anastasia Dark Cavalier+",
+            "Anastasia Battlefield Blossom",
+            "Battlefield Blossom"
         ]
     },
     "JB_FLAM_KEM": {
@@ -14779,7 +15039,10 @@
         "inputs": [
             "Flamel",
             "Flamel Beast Tamer+",
-            "Beast Tamer+"
+            "Beast Tamer+",
+            "Flamel",
+            "Flamel Spirit Tamer",
+            "Spirit Tamer"
         ]
     },
     "JB_BALT_SOL": {
@@ -14843,7 +15106,10 @@
         "inputs": [
             "Balt",
             "Balt Twin-Blade Swordsman+",
-            "Twin-Blade Swordsman+"
+            "Twin-Blade Swordsman+",
+            "Balt",
+            "Balt Scorching Sand's Peerless Duo",
+            "Scorching Sand's Peerless Duo"
         ]
     },
     "JB_CADA_GUA_CC": {
@@ -14909,7 +15175,9 @@
         "inputs": [
             "Cadanova",
             "Cadanova Dragon Slayer+",
-            "Dragon Slayer+"
+            "Dragon Slayer+",
+            "Cadanova Blazing Dragon God",
+            "Blazing Dragon God"
         ]
     },
     "JB_SEDA_RAN2": {
@@ -14975,7 +15243,9 @@
         "inputs": [
             "Seida",
             "Seida Venom Archer+",
-            "Venom Archer+"
+            "Venom Archer+",
+            "Seida Swift Bowman+",
+            "Swift Bowman+"
         ]
     },
     "JB_DENEB_SEN": {
@@ -15042,7 +15312,9 @@
         "inputs": [
             "Deneb",
             "Deneb Astrologer+  : Moirai",
-            "Astrologer+  : Moirai"
+            "Astrologer+  : Moirai",
+            "Deneb Astrologist+",
+            "Astrologist+"
         ]
     },
     "JB_SHN_FINANCIAL_KYARORU": {
@@ -15107,7 +15379,10 @@
         "inputs": [
             "Carol",
             "Carol Merchant+  : Armored Battle Maid",
-            "Merchant+  : Armored Battle Maid"
+            "Merchant+  : Armored Battle Maid",
+            "Carol",
+            "Carol Armored Battle Maid",
+            "Armored Battle Maid"
         ]
     },
     "JB_ZIN_ONM": {
@@ -15175,7 +15450,10 @@
         "inputs": [
             "Zin",
             "Zin Spy+ : Ronin",
-            "Spy+ : Ronin"
+            "Spy+ : Ronin",
+            "Zin",
+            "Zin Dark Shadow's Karma",
+            "Dark Shadow's Karma"
         ]
     },
     "JB_DOC_TYPE_BUFF": {
@@ -15311,7 +15589,10 @@
         "inputs": [
             "Noah",
             "Noah Battle Mage+  : Magical Honor Student",
-            "Battle Mage+  : Magical Honor Student"
+            "Battle Mage+  : Magical Honor Student",
+            "Noah",
+            "Noah Magical Honor Student",
+            "Magical Honor Student"
         ]
     },
     "JB_MONZ_WOR2": {
@@ -15376,7 +15657,9 @@
         "inputs": [
             "Monzein",
             "Monzein Indomitable Axe Knight+",
-            "Indomitable Axe Knight+"
+            "Indomitable Axe Knight+",
+            "Monzein Ferocious Axe General",
+            "Ferocious Axe General"
         ]
     },
     "JB_YAUL_SOL2": {
@@ -15441,7 +15724,9 @@
         "inputs": [
             "Yauras",
             "Yauras Twin-Blade Knight+",
-            "Twin-Blade Knight+"
+            "Twin-Blade Knight+",
+            "Yauras Beautiful Twin Bladed General",
+            "Beautiful Twin Bladed General"
         ]
     },
     "JB_MIEL_PRI": {
@@ -15507,7 +15792,9 @@
         "formula": "90% MATK",
         "inputs": [
             "Mielikki",
-            "Mielikki Bishop+"
+            "Mielikki Bishop+",
+            "Mielikki Bishop[+]",
+            "Bishop[+]"
         ]
     },
     "JB_GORM_KAI": {
@@ -15572,7 +15859,9 @@
         "inputs": [
             "Gormalas",
             "Gormalas Pirate+",
-            "Pirate+"
+            "Pirate+",
+            "Gormalas Pirate[+]",
+            "Pirate[+]"
         ]
     },
     "JB_REIMEI_MFEN": {
@@ -15636,7 +15925,9 @@
         "inputs": [
             "Reimei",
             "Reimei Blademaster+  : Mifune",
-            "Blademaster+  : Mifune"
+            "Blademaster+  : Mifune",
+            "Reimei Sword Master[+]",
+            "Sword Master[+]"
         ]
     },
     "JB_MIUN_KAJ_CC": {
@@ -15701,7 +15992,9 @@
         "inputs": [
             "Miuna",
             "Miuna Blacksmith+        ",
-            "Blacksmith+        "
+            "Blacksmith+        ",
+            "Miuna Craftsman[+]",
+            "Craftsman[+]"
         ]
     },
     "JB_HAYA_ONM": {
@@ -15767,7 +16060,9 @@
         "inputs": [
             "Hayate",
             "Hayate Spy+  : Genin",
-            "Spy+  : Genin"
+            "Spy+  : Genin",
+            "Hayate Spy+",
+            "Spy+"
         ]
     },
     "JB_BLA_TYPE_TK_HUMAN": {
@@ -17440,7 +17735,9 @@
         "formula": "140% PATK",
         "inputs": [
             "Orion Warrior : Atlas",
-            "Warrior : Atlas"
+            "Warrior : Atlas",
+            "Orion Axe Warrior: Atlas",
+            "Axe Warrior: Atlas"
         ]
     },
     "JB_CANO_LORD_CC": {
@@ -17506,7 +17803,8 @@
         },
         "formula": "140% PATK",
         "inputs": [
-            "Kanon Lord Commander"
+            "Kanon Lord Commander",
+            "Kanon Lord Master"
         ]
     },
     "JB_SNI_SNIPE": {
@@ -17639,7 +17937,9 @@
         "formula": "140% PATK",
         "inputs": [
             "Ren Twin-Blade Swordsman : Mist",
-            "Twin-Blade Swordsman : Mist"
+            "Twin-Blade Swordsman : Mist",
+            "Ren Hazy Twin Blade",
+            "Hazy Twin Blade"
         ]
     },
     "JB_GUA_TYPE_ANTI_LANCE": {
@@ -17839,7 +18139,10 @@
         "inputs": [
             "Hugo",
             "Hugo Sniper : Magnum",
-            "Sniper : Magnum"
+            "Sniper : Magnum",
+            "Hugo",
+            "Hugo Sniper: Magnum",
+            "Sniper: Magnum"
         ]
     },
     "JB_MAJ_FIRE": {
@@ -17905,7 +18208,10 @@
         "inputs": [
             "Vivi",
             "Vivi Magia Gunslinger : Horus",
-            "Magia Gunslinger : Horus"
+            "Magia Gunslinger : Horus",
+            "Vivi",
+            "Vivi Horus: Magia Shooter",
+            "Horus: Magia Shooter"
         ]
     },
     "JB_MAJ_WIND": {
@@ -17971,7 +18277,10 @@
         "inputs": [
             "Uzuma",
             "Uzuma Magia Gunslinger : Set",
-            "Magia Gunslinger : Set"
+            "Magia Gunslinger : Set",
+            "Uzuma",
+            "Uzuma Set: Magia Shooter",
+            "Set: Magia Shooter"
         ]
     },
     "JB_DOC_TYPE_HEALING": {
@@ -18369,7 +18678,10 @@
         "inputs": [
             "Margaret",
             "Margaret Magic Swordsman : Fenrir",
-            "Magic Swordsman : Fenrir"
+            "Magic Swordsman : Fenrir",
+            "Margaret",
+            "Margaret Magic Knight: Fenrir",
+            "Magic Knight: Fenrir"
         ]
     },
     "JB_MAH_WIND": {
@@ -18693,7 +19005,10 @@
         "inputs": [
             "Elrike",
             "Elrike Merchant : Charming Daruma",
-            "Merchant : Charming Daruma"
+            "Merchant : Charming Daruma",
+            "Elrike",
+            "Elrike Merchant: Charming Daruma",
+            "Merchant: Charming Daruma"
         ]
     },
     "JB_SHN_HEEL": {
@@ -18887,7 +19202,9 @@
         "formula": "140% PATK",
         "inputs": [
             "Tyrfing Holy Cavalier : Gear",
-            "Holy Cavalier : Gear"
+            "Holy Cavalier : Gear",
+            "Tyrfing Holy Knight: Gear ",
+            "Holy Knight: Gear "
         ]
     },
     "JB_STR_FUDOU": {
@@ -19149,7 +19466,10 @@
         "formula": "140% PATK",
         "inputs": [
             "Zeke Holy Cavalier : David",
-            "Holy Cavalier : David"
+            "Holy Cavalier : David",
+            "Zeke",
+            "Zeke Holy Knight: David",
+            "Holy Knight: David"
         ]
     },
     "JB_GUA_TYPE_HEALING": {
@@ -19277,7 +19597,9 @@
         "formula": "140% PATK",
         "inputs": [
             "Zain Holy Cavalier : Zayin",
-            "Holy Cavalier : Zayin"
+            "Holy Cavalier : Zayin",
+            "Zain Holy Knight: Gear",
+            "Holy Knight: Gear"
         ]
     },
     "JB_DOC_TYPE_POISON": {
@@ -19475,7 +19797,10 @@
         "inputs": [
             "Mei Fang",
             "Mei Fang Martial Master : Mecha Masher",
-            "Martial Master : Mecha Masher"
+            "Martial Master : Mecha Masher",
+            "Mei Fang",
+            "Mei Fang Martial Master: Machine Destroyer",
+            "Martial Master: Machine Destroyer"
         ]
     },
     "JB_BAA_TYPE_ITIGEKI": {
@@ -20326,7 +20651,10 @@
         "inputs": [
             "Yunagi",
             "Yunagi Warrior : Titan",
-            "Warrior : Titan"
+            "Warrior : Titan",
+            "Yunagi",
+            "Yunagi Axe Warrior: Titan",
+            "Axe Warrior: Titan"
         ]
     },
     "JB_WOR_GOLIATH": {
@@ -20458,7 +20786,10 @@
         "inputs": [
             "Yuto",
             "Yuto Warrior : Muspell",
-            "Warrior : Muspell"
+            "Warrior : Muspell",
+            "Yuto",
+            "Yuto Axe Warrior: Muspell",
+            "Axe Warrior: Muspell"
         ]
     }
 }

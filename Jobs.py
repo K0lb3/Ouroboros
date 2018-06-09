@@ -219,11 +219,47 @@ def jobs():
             jobs[export[job['name']]]['inputs'].remove(job['name'])
         export[job['name']] = j
 
+    jexport={}
+    for j in jobs:
         # fan translation
-        japan=job['japan'].split('\n')[0]
+        job = jobs[j]
+        japan=jobs[j]['japan']
+        if len(japan)<2:
+            continue
+        if '\n' in japan:
+            japan=jobs[j]['japan'][:jobs[j]['japan'].index('\n')]
         if japan not in export:
+            # job +
+            if '+' in japan:
+                #unit + job
+                jobs[j]['inputs'].append(job['units'][0] + ' ' + japan)
+                # job name
+                if japan not in jexport:
+                    jobs[j]['inputs'].append(japan)
+                    jexport[japan] = j
+                else:
+                    jobs[jexport[japan]]['inputs'].remove(japan)
+                continue
+
+            # unique job (more or less, Zeke HC, MC first jobs)
+            if len(job['units']) == 1:
+                # unit name
+                if job['units'][0] not in jexport:
+                    jobs[j]['inputs'].append(job['units'][0])
+                    jexport[job['units'][0]] = j
+                #unit + job
+                jobs[j]['inputs'].append(job['units'][0] + ' ' + japan)
+                # job name
+                if japan not in jexport:
+                    jobs[j]['inputs'].append(japan)
+                    jexport[japan] = j
+                continue
+
+            # common job
             jobs[j]['inputs'].append(japan)
-            export[japan]=j
+            if japan in jexport:
+                jobs[jexport[japan]]['inputs'].remove(japan)
+            jexport[japan] = j
 
     #add jp tag
     for j in jobs:
