@@ -149,9 +149,8 @@ def Units():
             'jc 1' : "",
             'jc 2' : "",
             'jc 3' : "",
-            'inputs': []
+            'inputs': [],
             }
-          
         #add lore
         if iname in lore:
             units[iname].update(lore[iname])
@@ -188,6 +187,10 @@ def Units():
                 
                 j+=1
                     
+    
+    #add tierlist
+    units=add_tierlist(units)    
+
     #add j+ and j/e    
     for js in jp['JobSet']:
         if 'cjob' in js:
@@ -196,29 +199,34 @@ def Units():
                 j+=1
                 if i == js['cjob']:
                     try:
-                        units[js['target_unit']]['jc '+str(j)]=loc[js['job']]['NAME']
+                        jname=loc[js['job']]['NAME']
+                        if js['iname'] in glc:
+                            if 'tierlist' in units[js['target_unit']] and units[js['target_unit']]['tierlist']['jc'] != "":
+                                units[js['target_unit']]['tierlist']['jc '+str(j)]=units[js['target_unit']]['tierlist']['jc']
+                                del units[js['target_unit']]['tierlist']['jc']
+                        else:
+                            jname+='ᴶ'
+
                         if 'short des' in loc[js['job']] and len(loc[js['job']]['short des'])>1:
-                            units[js['target_unit']]['jc '+str(j)]+='\n['+loc[js['job']]['short des']+']'
+                            jname+='\n['+loc[js['job']]['short des']+']'
                     
                     except: # job:e not found, trying to create a name
                         je=(re_job.search(js['job']))
                         
                         jem= je.group(2) if (je.group(1)+'_'+je.group(2)) not in loc else loc[je.group(1)+'_'+je.group(2)]['NAME']
-                        units[js['target_unit']]['jc '+str(j)] = (jem + ': ' + je.group(3)).replace('_',' ').title()
+                        jname = (jem + ': ' + je.group(3)).replace('_',' ').title()
                         
-                        if units[js['target_unit']]['jc '+str(j)] not in jobe:
-                            jobe[js['job']]={'generic':(units[js['target_unit']]['jc '+str(j)]),'NAME':""}
-                            print (units[js['target_unit']]['jc '+str(j)])
+                        if jname not in jobe:
+                            jobe[js['job']]={'generic':(jname),'NAME':""}
+                            print (jname)
                     
+                    units[js['target_unit']]['jc '+str(j)] = jname
                     break
 
     #add collabs
     #Gilg, Yomi, Selena,Vargas, eo1
 
     #add weapon abilities
-
-    #add tierlist
-    units=add_tierlist(units)    
 
     #add possible inputs
     export={}
@@ -234,6 +242,12 @@ def Units():
         if len(unit['collab short'])>1:
             units[u]['inputs'].append(unit['name'] + ' ' + unit['collab short'])
             units[u]['inputs'].append(unit['collab short'] + ' ' + unit['name'])
+
+
+    #add jp tag
+    for u in units:
+        if u not in glc:
+            units[u]['name']+='ᴶ'
 
     #save to out
     path=cPath()+'\\out\\'

@@ -24,7 +24,7 @@
         "job 2": "Holy Knight",
         "job 3": "",
         "jc 1": "",
-        "jc 2": "Holy Cavalier+",
+        "jc 2": "Holy Cavalier+ᴶ",
         "jc 3": "",
         "inputs": [
             "Logi",
@@ -86,7 +86,7 @@
         "job 2": "Dark Knight",
         "job 3": "",
         "jc 1": "",
-        "jc 2": "Dark Cavalier+  : Edgelord",
+        "jc 2": "Dark Cavalier+  : Edgelordᴶ",
         "jc 3": "",
         "inputs": [
             "Dias",
@@ -149,7 +149,7 @@
         "job 2": "Drifter",
         "job 3": "",
         "jc 1": "",
-        "jc 2": "Drifter+",
+        "jc 2": "Drifter+ᴶ",
         "jc 3": "",
         "inputs": [
             "Edgar"
@@ -204,7 +204,7 @@
         "job 2": "Witch",
         "job 3": "",
         "jc 1": "",
-        "jc 2": "Witch+",
+        "jc 2": "Witch+ᴶ",
         "jc 3": "",
         "inputs": [
             "Lisbeth",
@@ -437,7 +437,7 @@
         "job 3": "Ninja",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Ninja : Kirin\n[AGI-based]",
+        "jc 3": "Ninja : Kirinᴶ\n[AGI-based]",
         "inputs": [
             "Lucido"
         ],
@@ -487,7 +487,7 @@
         "job 2": "Hunter",
         "job 3": "Pirate",
         "jc 1": "",
-        "jc 2": "Ranger : Wolf\n[bonus damage against monsters]",
+        "jc 2": "Ranger : Wolfᴶ\n[bonus damage against monsters]",
         "jc 3": "",
         "inputs": [
             "Rigalt",
@@ -536,7 +536,7 @@
         "job 1": "Mage",
         "job 2": "Priest",
         "job 3": "Chronomancer",
-        "jc 1": "Sage : Carnac\n[stronger water skills]",
+        "jc 1": "Sage : Carnacᴶ\n[stronger water skills]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -643,7 +643,7 @@
         "job 3": "Bishop",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Bishop+\n[Bishop+ : Quack Doctor]",
+        "jc 3": "Bishop+ᴶ\n[Bishop+ : Quack Doctor]",
         "inputs": [
             "Alexis"
         ],
@@ -729,8 +729,8 @@
             "job 1": "B",
             "job 2": "C",
             "job 3": "C",
-            "jc": "A",
-            "total": "A"
+            "total": "A",
+            "jc 1": "A"
         }
     },
     "UN_V2_ANJOU": {
@@ -806,7 +806,7 @@
         "job 1": "Mage",
         "job 2": "Priest",
         "job 3": "Bishop",
-        "jc 1": "Sage : Monolith\n[stronger thunder skills]",
+        "jc 1": "Sage : Monolithᴶ\n[stronger thunder skills]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -909,7 +909,7 @@
         "job 3": "Chemist",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Professor : Honey\n[more charms and bind/daze skills]",
+        "jc 3": "Professor : Honeyᴶ\n[more charms and bind/daze skills]",
         "inputs": [
             "Melia",
             "Meria"
@@ -966,7 +966,7 @@
         "job 3": "Holy Knight",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Cavalier : Porta\n[pierce resistance]",
+        "jc 3": "Holy Cavalier : Portaᴶ\n[pierce resistance]",
         "inputs": [
             "Lambert",
             "Rambert"
@@ -1071,8 +1071,8 @@
         "job 2": "Professor",
         "job 3": "Enchanter",
         "jc 1": "",
-        "jc 2": "Professor : Aid\n[cures will heal as well]",
-        "jc 3": "Tender Wind Enchanter\n[buff that increases wind damage against thunder]",
+        "jc 2": "Professor : Aidᴶ\n[cures will heal as well]",
+        "jc 3": "Tender Wind Enchanterᴶ\n[buff that increases wind damage against thunder]",
         "inputs": [
             "Hazuki"
         ],
@@ -1124,7 +1124,7 @@
         "job 3": "Chemist",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Professor : Aid\n[cures will heal as well]",
+        "jc 3": "Professor : Aidᴶ\n[cures will heal as well]",
         "inputs": [
             "Jake"
         ],
@@ -1267,8 +1267,8 @@
         "job 2": "Mage",
         "job 3": "Enchanter",
         "jc 1": "",
-        "jc 2": "Sage+",
-        "jc 3": "Roaring Thunder Enchanter\n[buff that increases thunder damage against water]",
+        "jc 2": "Sage+ᴶ",
+        "jc 3": "Roaring Thunder Enchanterᴶ\n[buff that increases thunder damage against water]",
         "inputs": [
             "Vanekis"
         ],
@@ -1375,7 +1375,7 @@
         "job 2": "Hunter",
         "job 3": "Martial Artist",
         "jc 1": "",
-        "jc 2": "Ranger : Hawk\n[dodging and enemy accuracy down]",
+        "jc 2": "Ranger : Hawkᴶ\n[dodging and enemy accuracy down]",
         "jc 3": "",
         "inputs": [
             "Ishuna",
@@ -1422,7 +1422,7 @@
         "job 3": "Ninja",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Ninja : Suzaku\n[jump-based]",
+        "jc 3": "Ninja : Suzakuᴶ\n[jump-based]",
         "inputs": [
             "Mizuchi"
         ],
@@ -1474,8 +1474,8 @@
         "job 2": "Martial Artist",
         "job 3": "Ninja",
         "jc 1": "",
-        "jc 2": "Holy Brawler : Senju\n[multi-hit]",
-        "jc 3": "Ninja  : Genbu\n[move-based]",
+        "jc 2": "Holy Brawler : Senjuᴶ\n[multi-hit]",
+        "jc 3": "Ninja  : Genbuᴶ\n[move-based]",
         "inputs": [
             "Kazahaya"
         ],
@@ -1528,7 +1528,7 @@
         "job 1": "Thief",
         "job 2": "Shrine Maiden",
         "job 3": "Bishop",
-        "jc 1": "Shadow Assassin : Evening\n[spell evasion and resistance]",
+        "jc 1": "Shadow Assassin : Eveningᴶ\n[spell evasion and resistance]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -1571,9 +1571,9 @@
         "job 1": "Hunter",
         "job 2": "Thief",
         "job 3": "Ninja",
-        "jc 1": "Ranger : Wolf\n[bonus damage against monsters]",
+        "jc 1": "Ranger : Wolfᴶ\n[bonus damage against monsters]",
         "jc 2": "",
-        "jc 3": "Ninja+  : Shinobi",
+        "jc 3": "Ninja+  : Shinobiᴶ",
         "inputs": [
             "Yuan"
         ],
@@ -1618,7 +1618,7 @@
         "job 3": "Chemist",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Professor : Aid\n[cures will heal as well]",
+        "jc 3": "Professor : Aidᴶ\n[cures will heal as well]",
         "inputs": [
             "Decel"
         ],
@@ -1662,7 +1662,7 @@
         "job 2": "Chemist",
         "job 3": "Dancer",
         "jc 1": "",
-        "jc 2": "Professor : Aid\n[cures will heal as well]",
+        "jc 2": "Professor : Aidᴶ\n[cures will heal as well]",
         "jc 3": "",
         "inputs": [
             "Ennis"
@@ -1707,7 +1707,7 @@
         "job 1": "Mage",
         "job 2": "Crafter",
         "job 3": "Bishop",
-        "jc 1": "Sage  : Rosetta\n[stronger wind skills]",
+        "jc 1": "Sage  : Rosettaᴶ\n[stronger wind skills]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -1764,7 +1764,7 @@
         "job 2": "Professor",
         "job 3": "Holy Knight",
         "jc 1": "",
-        "jc 2": "Professor : Bio\n[stronger poison]",
+        "jc 2": "Professor : Bioᴶ\n[stronger poison]",
         "jc 3": "",
         "inputs": [
             "Gane",
@@ -1818,7 +1818,7 @@
         "job 3": "Chemist",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Professor : Mad\n[much stronger buffs]",
+        "jc 3": "Professor : Madᴶ\n[much stronger buffs]",
         "inputs": [
             "Alyu",
             "Airyu"
@@ -1917,7 +1917,7 @@
         "job 3": "Magic Swordsman",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Magic Swordsman : Ixion\n[stronger thunder skills]",
+        "jc 3": "Magic Swordsman : Ixionᴶ\n[stronger thunder skills]",
         "inputs": [
             "Leon",
             "Rion"
@@ -1964,7 +1964,7 @@
         "job 3": "Enchanter",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Tender Wind Enchanter\n[buff that increases wind damage against thunder]",
+        "jc 3": "Tender Wind Enchanterᴶ\n[buff that increases wind damage against thunder]",
         "inputs": [
             "Patty"
         ],
@@ -2010,7 +2010,7 @@
         "job 3": "Sniper",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Sniper : Scope\n[charge up for snipers]",
+        "jc 3": "Sniper : Scopeᴶ\n[charge up for snipers]",
         "inputs": [
             "Almira"
         ],
@@ -2098,8 +2098,8 @@
             "job 1": "D",
             "job 2": "D",
             "job 3": "A",
-            "jc": "S",
-            "total": "S"
+            "total": "S",
+            "jc 2": "S"
         }
     },
     "UN_V2_ARKILL": {
@@ -2124,7 +2124,7 @@
         "job 3": "Magic Swordsman",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Magic Swordsman+",
+        "jc 3": "Magic Swordsman+ᴶ",
         "inputs": [
             "Arkil",
             "Aqil"
@@ -2169,7 +2169,7 @@
         "job 2": "Chemist",
         "job 3": "Shrine Maiden",
         "jc 1": "",
-        "jc 2": "Professor : Bio\n[stronger poison]",
+        "jc 2": "Professor : Bioᴶ\n[stronger poison]",
         "jc 3": "",
         "inputs": [
             "Kuon"
@@ -2212,7 +2212,7 @@
         "job 2": "Mage",
         "job 3": "Bishop",
         "jc 1": "",
-        "jc 2": "Sage : Carnac\n[stronger water skills]",
+        "jc 2": "Sage : Carnacᴶ\n[stronger water skills]",
         "jc 3": "",
         "inputs": [
             "Mianne",
@@ -2265,9 +2265,9 @@
         "job 1": "Mage",
         "job 2": "Bishop",
         "job 3": "Ninja",
-        "jc 1": "Sage+",
+        "jc 1": "Sage+ᴶ",
         "jc 2": "",
-        "jc 3": "Ninja : Byakko\n[evasion-based]",
+        "jc 3": "Ninja : Byakkoᴶ\n[evasion-based]",
         "inputs": [
             "Mia",
             "Mea"
@@ -2328,7 +2328,7 @@
         "job 1": "Mage",
         "job 2": "Bishop",
         "job 3": "Chronomancer",
-        "jc 1": "Sage : Monolith\n[stronger thunder skills]",
+        "jc 1": "Sage : Monolithᴶ\n[stronger thunder skills]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -2383,7 +2383,7 @@
         "job 3": "Dragon Knight",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dragon Cavalier+  : Dragon Slayer",
+        "jc 3": "Dragon Cavalier+  : Dragon Slayerᴶ",
         "inputs": [
             "Freed"
         ],
@@ -2491,9 +2491,9 @@
         "job 1": "Thief",
         "job 2": "Gunner",
         "job 3": "Magic Swordsman",
-        "jc 1": "Assasin+ : Charm",
+        "jc 1": "Assasin+ : Charmᴶ",
         "jc 2": "",
-        "jc 3": "Magic Swordsman : Chimera\n[dark skill added]",
+        "jc 3": "Magic Swordsman : Chimeraᴶ\n[dark skill added]",
         "inputs": [
             "Strie",
             "Sutorie"
@@ -2545,7 +2545,7 @@
         "job 1": "Dancer",
         "job 2": "Samurai",
         "job 3": "Chronomancer",
-        "jc 1": "Dancer+\n[Dancer+ : Odori Dancer]",
+        "jc 1": "Dancer+ᴶ\n[Dancer+ : Odori Dancer]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -2637,8 +2637,8 @@
             "job 1": "A",
             "job 2": "A",
             "job 3": "S",
-            "jc": "SS",
-            "total": "SS"
+            "total": "SS",
+            "jc 3": "SS"
         }
     },
     "UN_V2_LAMIA": {
@@ -2690,8 +2690,8 @@
             "job 1": "C",
             "job 2": "C",
             "job 3": "B",
-            "jc": "A",
-            "total": "A"
+            "total": "A",
+            "jc 3": "A"
         }
     },
     "UN_V2_ZANGETSU": {
@@ -2716,8 +2716,8 @@
         "job 2": "Martial Artist",
         "job 3": "Dragon Cavalier",
         "jc 1": "",
-        "jc 2": "Holy Brawler : Senju\n[multi-hit]",
-        "jc 3": "Dragon Cavalier : Rudra\n[teleportation skills]",
+        "jc 2": "Holy Brawler : Senjuᴶ\n[multi-hit]",
+        "jc 3": "Dragon Cavalier : Rudraᴶ\n[teleportation skills]",
         "inputs": [
             "Zangetsu"
         ],
@@ -2768,7 +2768,7 @@
         "job 1": "Crafter",
         "job 2": "Bishop",
         "job 3": "Gunner",
-        "jc 1": "Machinist+",
+        "jc 1": "Machinist+ᴶ",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -2823,7 +2823,7 @@
         "job 3": "Holy Brawler",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Brawler+",
+        "jc 3": "Holy Brawler+ᴶ",
         "inputs": [
             "Lucian",
             "Lucia"
@@ -2914,8 +2914,8 @@
             "job 1": "B",
             "job 2": "A",
             "job 3": "S",
-            "jc": "SS",
-            "total": "SS"
+            "total": "SS",
+            "jc 3": "SS"
         }
     },
     "UN_V2_RAHU": {
@@ -2941,7 +2941,7 @@
         "job 3": "Enchanter",
         "jc 1": "Chronomancer+",
         "jc 2": "",
-        "jc 3": "Zero Enchanter\n[buff dispeller]",
+        "jc 3": "Zero Enchanterᴶ\n[buff dispeller]",
         "inputs": [
             "Rahu",
             "Rafu"
@@ -2973,8 +2973,8 @@
             "job 1": "S",
             "job 2": "S",
             "job 3": "S",
-            "jc": "SS",
-            "total": "SS"
+            "total": "SS",
+            "jc 1": "SS"
         }
     },
     "UN_V2_ANASTASIA": {
@@ -2998,7 +2998,7 @@
         "job 1": "Dark Knight",
         "job 2": "Crafter",
         "job 3": "Dark Cavalier",
-        "jc 1": "Dark Cavalier : Spion\n[Faster Dark Cav]",
+        "jc 1": "Dark Cavalier : Spionᴶ\n[Faster Dark Cav]",
         "jc 2": "",
         "jc 3": "Dark Cavalier+",
         "inputs": [
@@ -3031,8 +3031,8 @@
             "job 1": "B",
             "job 2": "C",
             "job 3": "A",
-            "jc": "S",
-            "total": "S"
+            "total": "S",
+            "jc 3": "S"
         }
     },
     "UN_V2_ZAHAR": {
@@ -3057,8 +3057,8 @@
         "job 2": "Dragon Knight",
         "job 3": "Dark Cavalier",
         "jc 1": "",
-        "jc 2": "Dragon Cavalier : Garuda\n[low range but high dmg]",
-        "jc 3": "Dark Cavalier : Seele\n[Drain Skills Bonus]",
+        "jc 2": "Dragon Cavalier : Garudaᴶ\n[low range but high dmg]",
+        "jc 3": "Dark Cavalier : Seeleᴶ\n[Drain Skills Bonus]",
         "inputs": [
             "Zahar"
         ],
@@ -3116,7 +3116,7 @@
         "job 3": "Holy Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Cavalier : Pieta\n[healing]",
+        "jc 3": "Holy Cavalier : Pietaᴶ\n[healing]",
         "inputs": [
             "Chloe"
         ],
@@ -3184,7 +3184,7 @@
         "job 3": "Holy Brawler",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Brawler : Maitreya\n[12% regen &  5% jewel regen buff]",
+        "jc 3": "Holy Brawler : Maitreyaᴶ\n[12% regen &  5% jewel regen buff]",
         "inputs": [
             "Yomi"
         ],
@@ -3240,8 +3240,8 @@
         "job 1": "Magic Swordsman",
         "job 2": "Holy Cavalier",
         "job 3": "Samurai",
-        "jc 1": "Magic Swordsman : Ifrit\n[stronger fire skills]",
-        "jc 2": "Holy Cavalier : Izaya\n[slash resistance]",
+        "jc 1": "Magic Swordsman : Ifritᴶ\n[stronger fire skills]",
+        "jc 2": "Holy Cavalier : Izayaᴶ\n[slash resistance]",
         "jc 3": "",
         "inputs": [
             "Vettel",
@@ -3303,7 +3303,7 @@
         "job 3": "Holy Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Cavalier : Gear\n[very high AGI]",
+        "jc 3": "Holy Cavalier : Gearᴶ\n[very high AGI]",
         "inputs": [
             "Tyrfing",
             "Tyrfing POTK",
@@ -3359,7 +3359,7 @@
         "job 2": "Ninja",
         "job 3": "Dark Cavalier",
         "jc 1": "",
-        "jc 2": "Ninja : Kirin\n[AGI-based]",
+        "jc 2": "Ninja : Kirinᴶ\n[AGI-based]",
         "jc 3": "Dark Cavalier+",
         "inputs": [
             "Laevateinn",
@@ -3393,8 +3393,8 @@
             "job 1": "B",
             "job 2": "A",
             "job 3": "S",
-            "jc": "S",
-            "total": "S"
+            "total": "S",
+            "jc 3": "S"
         }
     },
     "UN_V2_VARGAS": {
@@ -3522,7 +3522,7 @@
         "job 1": "Professor",
         "job 2": "Chronomancer",
         "job 3": "Bishop",
-        "jc 1": "Professor : Honey\n[more charms and bind/daze skills]",
+        "jc 1": "Professor : Honeyᴶ\n[more charms and bind/daze skills]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -3582,7 +3582,7 @@
         "job 3": "Ninja",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Ninja  : Genbu\n[move-based]",
+        "jc 3": "Ninja  : Genbuᴶ\n[move-based]",
         "inputs": [
             "Magnus"
         ],
@@ -3638,7 +3638,7 @@
         "job 2": "Magic Swordsman",
         "job 3": "Beast Tamer",
         "jc 1": "",
-        "jc 2": "Magic Swordsman : Pegasus\n[light skill added]",
+        "jc 2": "Magic Swordsman : Pegasusᴶ\n[light skill added]",
         "jc 3": "Beast Tamer+",
         "inputs": [
             "Flamel"
@@ -3665,8 +3665,8 @@
             "job 1": "C",
             "job 2": "A",
             "job 3": "A",
-            "jc": "S",
-            "total": "S"
+            "total": "S",
+            "jc 3": "S"
         }
     },
     "UN_V2_BALT": {
@@ -3689,7 +3689,7 @@
         "job 3": "Dark Cavalier",
         "jc 1": "Twin-Blade Swordsman+\n[Twin-Blade Swordsman+ : Desert Storm]",
         "jc 2": "",
-        "jc 3": "Dark Cavalier : Seele\n[Drain Skills Bonus]",
+        "jc 3": "Dark Cavalier : Seeleᴶ\n[Drain Skills Bonus]",
         "inputs": [
             "Balt",
             "Baruto"
@@ -3721,8 +3721,8 @@
             "job 1": "B",
             "job 2": "C",
             "job 3": "S",
-            "jc": "SS",
-            "total": "SS"
+            "total": "SS",
+            "jc 1": "SS"
         }
     },
     "UN_V2_MIELIKKI": {
@@ -3743,9 +3743,9 @@
         "job 1": "Enchanter",
         "job 2": "Mage",
         "job 3": "Bishop",
-        "jc 1": "Zero Enchanter\n[buff dispeller]",
+        "jc 1": "Zero Enchanterᴶ\n[buff dispeller]",
         "jc 2": "",
-        "jc 3": "Bishop+",
+        "jc 3": "Bishop+ᴶ",
         "inputs": [
             "Mielikki",
             "Mierikki"
@@ -3855,7 +3855,7 @@
         "job 3": "Twin-Blade Swordsman",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Twin-Blade Swordsman : Ogre Exterminator\n[increased damage against humans]",
+        "jc 3": "Twin-Blade Swordsman : Ogre Exterminatorᴶ\n[increased damage against humans]",
         "inputs": [
             "Retzius"
         ],
@@ -3903,8 +3903,8 @@
         "job 1": "Thief",
         "job 2": "Hunter",
         "job 3": "Dark Knight",
-        "jc 1": "Shadow Assassin : Night\n[buff dispeller]",
-        "jc 2": "Ranger : Hawk\n[dodging and enemy accuracy down]",
+        "jc 1": "Shadow Assassin : Nightᴶ\n[buff dispeller]",
+        "jc 2": "Ranger : Hawkᴶ\n[dodging and enemy accuracy down]",
         "jc 3": "",
         "inputs": [
             "Sabareta"
@@ -3957,7 +3957,7 @@
         "job 2": "Sniper",
         "job 3": "Chronomancer",
         "jc 1": "",
-        "jc 2": "Sniper : Barrel\n[very long range and increased minimum range]",
+        "jc 2": "Sniper : Barrelᴶ\n[very long range and increased minimum range]",
         "jc 3": "",
         "inputs": [
             "Reagan",
@@ -4010,8 +4010,8 @@
         "job 2": "Dragon Cavalier",
         "job 3": "Ninja",
         "jc 1": "",
-        "jc 2": "Dragon Cavalier : Vritra\n[long rang but low dmg]",
-        "jc 3": "Ninja  : Genbu\n[move-based]",
+        "jc 2": "Dragon Cavalier : Vritraᴶ\n[long rang but low dmg]",
+        "jc 3": "Ninja  : Genbuᴶ\n[move-based]",
         "inputs": [
             "Rosa",
             "Roza"
@@ -4067,7 +4067,7 @@
         "job 3": "Holy Brawler",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Brawler : Senju\n[multi-hit]",
+        "jc 3": "Holy Brawler : Senjuᴶ\n[multi-hit]",
         "inputs": [
             "Eve"
         ],
@@ -4122,7 +4122,7 @@
         "job 3": "Holy Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Cavalier : Izaya\n[slash resistance]",
+        "jc 3": "Holy Cavalier : Izayaᴶ\n[slash resistance]",
         "inputs": [
             "Fraise",
             "Frayze"
@@ -4175,7 +4175,7 @@
         "job 3": "Ninja",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Spy+  : Genin",
+        "jc 3": "Spy+  : Geninᴶ",
         "inputs": [
             "Hayate"
         ],
@@ -4281,7 +4281,7 @@
         "job 3": "Professor",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Professor : Honey\n[more charms and bind/daze skills]",
+        "jc 3": "Professor : Honeyᴶ\n[more charms and bind/daze skills]",
         "inputs": [
             "Lucretia"
         ],
@@ -4332,8 +4332,8 @@
         "job 2": "Ninja",
         "job 3": "Dark Cavalier",
         "jc 1": "",
-        "jc 2": "Ninja : Seiryu\n[attack-based]",
-        "jc 3": "Dark Cavalier : Gernika\n[One Slash Cav]",
+        "jc 2": "Ninja : Seiryuᴶ\n[attack-based]",
+        "jc 3": "Dark Cavalier : Gernikaᴶ\n[One Slash Cav]",
         "inputs": [
             "Suzuka"
         ],
@@ -4393,7 +4393,7 @@
         "job 3": "Elite Knight",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Lord Commander",
+        "jc 3": "Lord Commanderᴶ",
         "inputs": [
             "Kanon"
         ],
@@ -4446,7 +4446,7 @@
         "job 1": "Dragon Slayer",
         "job 2": "Dragon Knight",
         "job 3": "Flame Dragon King",
-        "jc 1": "Dragon Slayer+",
+        "jc 1": "Dragon Slayer+ᴶ",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -4503,7 +4503,7 @@
         "job 3": "Enchanter",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Blue Water Enchanter\n[buff that increases water damage against fire]",
+        "jc 3": "Blue Water Enchanterᴶ\n[buff that increases water damage against fire]",
         "inputs": [
             "Fung Liu",
             "Feng Liu"
@@ -4555,7 +4555,7 @@
         "job 1": "Ranger",
         "job 2": "Twin-Blade Swordsman",
         "job 3": "Beast Tamer",
-        "jc 1": "Ranger : Hawk\n[dodging and enemy accuracy down]",
+        "jc 1": "Ranger : Hawkᴶ\n[dodging and enemy accuracy down]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -4615,7 +4615,7 @@
         "job 3": "Sniper",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Sniper : Barrel\n[very long range and increased minimum range]",
+        "jc 3": "Sniper : Barrelᴶ\n[very long range and increased minimum range]",
         "inputs": [
             "Albea",
             "Arber"
@@ -4671,7 +4671,7 @@
         "job 1": "Holy Brawler",
         "job 2": "Dragon Knight",
         "job 3": "Chronomancer",
-        "jc 1": "Holy Brawler : Shura\n[5x PATK buff]",
+        "jc 1": "Holy Brawler : Shuraᴶ\n[5x PATK buff]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -4728,9 +4728,9 @@
         "job 1": "Ninja",
         "job 2": "Martial Artist",
         "job 3": "Samurai",
-        "jc 1": "Ninja : Suzaku\n[jump-based]",
+        "jc 1": "Ninja : Suzakuᴶ\n[jump-based]",
         "jc 2": "",
-        "jc 3": "Blademaster+  : Mifune",
+        "jc 3": "Blademaster+  : Mifuneᴶ",
         "inputs": [
             "Reimei"
         ],
@@ -4780,9 +4780,9 @@
         "job 1": "Sage",
         "job 2": "Bishop",
         "job 3": "Enchanter",
-        "jc 1": "Sage : Carnac\n[stronger water skills]",
+        "jc 1": "Sage : Carnacᴶ\n[stronger water skills]",
         "jc 2": "",
-        "jc 3": "Zero Enchanter\n[buff dispeller]",
+        "jc 3": "Zero Enchanterᴶ\n[buff dispeller]",
         "inputs": [
             "Soleil",
             "Soreiyu"
@@ -4833,7 +4833,7 @@
         "job 3": "Ranger",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Ranger : Wolf\n[bonus damage against monsters]",
+        "jc 3": "Ranger : Wolfᴶ\n[bonus damage against monsters]",
         "inputs": [
             "Milis",
             "Milish"
@@ -4866,7 +4866,7 @@
     },
     "UN_V2_KYUUBI": {
         "iname": "UN_V2_KYUUBI",
-        "name": "Kyuubi",
+        "name": "Kyuubiᴶ",
         "inofficial": "",
         "gender": "♀",
         "element": "Thunder",
@@ -4917,7 +4917,7 @@
         "job 2": "Thief",
         "job 3": "Crafter",
         "jc 1": "",
-        "jc 2": "Shadow Assassin : Evening\n[spell evasion and resistance]",
+        "jc 2": "Shadow Assassin : Eveningᴶ\n[spell evasion and resistance]",
         "jc 3": "",
         "inputs": [
             "Shenmei"
@@ -4950,7 +4950,7 @@
     },
     "UN_V2_TAMAMO": {
         "iname": "UN_V2_TAMAMO",
-        "name": "Tamamo",
+        "name": "Tamamoᴶ",
         "inofficial": "Tamamo",
         "gender": "♀",
         "element": "Wind",
@@ -4970,7 +4970,7 @@
         "job 3": "Ranger",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Ranger : Snake\n[jewel damage]",
+        "jc 3": "Ranger : Snakeᴶ\n[jewel damage]",
         "inputs": [
             "Tamamo"
         ],
@@ -5018,7 +5018,7 @@
         "job 1": "Sniper",
         "job 2": "Crafter",
         "job 3": "Dark Knight",
-        "jc 1": "Sniper : Scope\n[charge up for snipers]",
+        "jc 1": "Sniper : Scopeᴶ\n[charge up for snipers]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -5068,9 +5068,9 @@
         "job 1": "Mage",
         "job 2": "Flame Orb Princess",
         "job 3": "Blaze Orb Princess",
-        "jc 1": "Sage : Obelisk\n[stronger fire skills]",
+        "jc 1": "Sage : Obeliskᴶ\n[stronger fire skills]",
         "jc 2": "",
-        "jc 3": "Blaze Orb Princess+",
+        "jc 3": "Blaze Orb Princess+ᴶ",
         "inputs": [
             "Kagura"
         ],
@@ -5123,8 +5123,8 @@
         "job 1": "Demonic Spearman",
         "job 2": "Martial Artist",
         "job 3": "Dark Cavalier",
-        "jc 1": "Demonic Spearman+",
-        "jc 2": "Holy Brawler : Shura\n[5x PATK buff]",
+        "jc 1": "Demonic Spearman+ᴶ",
+        "jc 2": "Holy Brawler : Shuraᴶ\n[5x PATK buff]",
         "jc 3": "",
         "inputs": [
             "Kudanstein",
@@ -5165,7 +5165,7 @@
     },
     "UN_V2_FENCER": {
         "iname": "UN_V2_FENCER",
-        "name": "Fencer",
+        "name": "Fencerᴶ",
         "inofficial": "Fencer",
         "gender": "♀",
         "element": "Wind",
@@ -5210,7 +5210,7 @@
     },
     "UN_V2_REAPER": {
         "iname": "UN_V2_REAPER",
-        "name": "Reaper",
+        "name": "Reaperᴶ",
         "inofficial": "Reaper",
         "gender": "♂",
         "element": "Dark",
@@ -5255,7 +5255,7 @@
     },
     "UN_V2_SHERMAN": {
         "iname": "UN_V2_SHERMAN",
-        "name": "Shaman",
+        "name": "Shamanᴶ",
         "inofficial": "Shaman",
         "gender": "♀",
         "element": "Light",
@@ -5300,7 +5300,7 @@
     },
     "UN_V2_SEK_CLOE": {
         "iname": "UN_V2_SEK_CLOE",
-        "name": "Chloe",
+        "name": "Chloeᴶ",
         "inofficial": "Chloe",
         "gender": "♀",
         "element": "Light",
@@ -5362,9 +5362,9 @@
         "job 1": "Pirate",
         "job 2": "Dragon Knight",
         "job 3": "Holy Brawler",
-        "jc 1": "Pirate+",
+        "jc 1": "Pirate+ᴶ",
         "jc 2": "",
-        "jc 3": "Holy Brawler : Senju\n[multi-hit]",
+        "jc 3": "Holy Brawler : Senjuᴶ\n[multi-hit]",
         "inputs": [
             "Gormalas",
             "Golmaras"
@@ -5402,7 +5402,7 @@
     },
     "UN_V2_SHEHERAZADE": {
         "iname": "UN_V2_SHEHERAZADE",
-        "name": "Scheherazade",
+        "name": "Scheherazadeᴶ",
         "inofficial": "Scheherazāde",
         "gender": "♀",
         "element": "Wind",
@@ -5420,9 +5420,9 @@
         "job 1": "Sage",
         "job 2": "Dancer",
         "job 3": "Magic Swordsman",
-        "jc 1": "Sage  : Rosetta\n[stronger wind skills]",
+        "jc 1": "Sage  : Rosettaᴶ\n[stronger wind skills]",
         "jc 2": "",
-        "jc 3": "Magic Swordsman : Ifrit\n[stronger fire skills]",
+        "jc 3": "Magic Swordsman : Ifritᴶ\n[stronger fire skills]",
         "inputs": [
             "Scheherazade",
             "Scheherazāde"
@@ -5464,8 +5464,8 @@
         "job 1": "Venom Archer",
         "job 2": "Hunter",
         "job 3": "Ninja",
-        "jc 1": "Venom Archer+",
-        "jc 2": "Ranger : Hawk\n[dodging and enemy accuracy down]",
+        "jc 1": "Venom Archer+ᴶ",
+        "jc 2": "Ranger : Hawkᴶ\n[dodging and enemy accuracy down]",
         "jc 3": "",
         "inputs": [
             "Seida",
@@ -5517,9 +5517,9 @@
         "job 1": "Indomitable Axe Knight ",
         "job 2": "Dragon Knight",
         "job 3": "Holy Cavalier",
-        "jc 1": "Indomitable Axe Knight+",
+        "jc 1": "Indomitable Axe Knight+ᴶ",
         "jc 2": "",
-        "jc 3": "Holy Cavalier : Izaya\n[slash resistance]",
+        "jc 3": "Holy Cavalier : Izayaᴶ\n[slash resistance]",
         "inputs": [
             "Monzein",
             "Monzein SSM",
@@ -5571,9 +5571,9 @@
         "job 1": "Warrior",
         "job 2": "Thief",
         "job 3": "Dragon Cavalier",
-        "jc 1": "Warrior : Goliath\n[light tank]",
+        "jc 1": "Warrior : Goliathᴶ\n[light tank]",
         "jc 2": "",
-        "jc 3": "Dragon Cavalier : Garuda\n[low range but high dmg]",
+        "jc 3": "Dragon Cavalier : Garudaᴶ\n[low range but high dmg]",
         "inputs": [
             "Spica"
         ],
@@ -5633,9 +5633,9 @@
         "job 1": "Sage",
         "job 2": "Bard",
         "job 3": "Professor",
-        "jc 1": "Sage : Monolith\n[stronger thunder skills]",
+        "jc 1": "Sage : Monolithᴶ\n[stronger thunder skills]",
         "jc 2": "",
-        "jc 3": "Professor : Mad\n[much stronger buffs]",
+        "jc 3": "Professor : Madᴶ\n[much stronger buffs]",
         "inputs": [
             "Vincent"
         ],
@@ -5685,9 +5685,9 @@
         "job 1": "Astrologer",
         "job 2": "Crafter",
         "job 3": "Magic Swordsman",
-        "jc 1": "Astrologer+  : Moirai",
+        "jc 1": "Astrologer+  : Moiraiᴶ",
         "jc 2": "",
-        "jc 3": "Magic Swordsman : Ixion\n[stronger thunder skills]",
+        "jc 3": "Magic Swordsman : Ixionᴶ\n[stronger thunder skills]",
         "inputs": [
             "Deneb"
         ],
@@ -5737,8 +5737,8 @@
         "job 1": "Ninja",
         "job 2": "Dark Cavalier",
         "job 3": "Samurai",
-        "jc 1": "Ninja : Suzaku\n[jump-based]",
-        "jc 2": "Dark Cavalier : Gernika\n[One Slash Cav]",
+        "jc 1": "Ninja : Suzakuᴶ\n[jump-based]",
+        "jc 2": "Dark Cavalier : Gernikaᴶ\n[One Slash Cav]",
         "jc 3": "",
         "inputs": [
             "Glanz",
@@ -5795,7 +5795,7 @@
         "job 3": "Sage",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Sage : Monolith\n[stronger thunder skills]",
+        "jc 3": "Sage : Monolithᴶ\n[stronger thunder skills]",
         "inputs": [
             "Peridot"
         ],
@@ -5843,8 +5843,8 @@
         "job 1": "Twin-Blade Knight",
         "job 2": "Martial Artist",
         "job 3": "Twin-Blade Swordsman",
-        "jc 1": "Twin-Blade Knight+",
-        "jc 2": "Holy Brawler : Senju\n[multi-hit]",
+        "jc 1": "Twin-Blade Knight+ᴶ",
+        "jc 2": "Holy Brawler : Senjuᴶ\n[multi-hit]",
         "jc 3": "",
         "inputs": [
             "Yauras",
@@ -5902,7 +5902,7 @@
         "job 3": "Holy Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Cavalier : Zayin",
+        "jc 3": "Holy Cavalier : Zayinᴶ",
         "inputs": [
             "Zain",
             "Zain SSM",
@@ -5954,9 +5954,9 @@
         "job 1": "Summoner",
         "job 2": "Chronomancer",
         "job 3": "Sage",
-        "jc 1": "Summoner of Agartha\n[strong non-elemental damage]",
+        "jc 1": "Summoner of Agarthaᴶ\n[strong non-elemental damage]",
         "jc 2": "",
-        "jc 3": "Sage : Obelisk\n[stronger fire skills]",
+        "jc 3": "Sage : Obeliskᴶ\n[stronger fire skills]",
         "inputs": [
             "Lupinus"
         ],
@@ -6006,8 +6006,8 @@
         "job 1": "Holy Cavalier",
         "job 2": "Ninja",
         "job 3": "Twin-Blade Swordsman",
-        "jc 1": "Holy Cavalier : Magi\n[magic resistance]",
-        "jc 2": "Ninja : Kirin\n[AGI-based]",
+        "jc 1": "Holy Cavalier : Magiᴶ\n[magic resistance]",
+        "jc 2": "Ninja : Kirinᴶ\n[AGI-based]",
         "jc 3": "",
         "inputs": [
             "Victor"
@@ -6061,8 +6061,8 @@
         "job 1": "Phantom Master",
         "job 2": "Enchanter",
         "job 3": "Sage",
-        "jc 1": "Phantom Master+",
-        "jc 2": "Blue Water Enchanter\n[buff that increases water damage against fire]",
+        "jc 1": "Phantom Master+ᴶ",
+        "jc 2": "Blue Water Enchanterᴶ\n[buff that increases water damage against fire]",
         "jc 3": "",
         "inputs": [
             "Othima",
@@ -6118,7 +6118,7 @@
         "job 3": "Dragon Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dragon Cavalier : Garuda\n[low range but high dmg]",
+        "jc 3": "Dragon Cavalier : Garudaᴶ\n[low range but high dmg]",
         "inputs": [
             "Aruba",
             "Alba"
@@ -6151,7 +6151,7 @@
     },
     "UN_V2_CHIRURU": {
         "iname": "UN_V2_CHIRURU",
-        "name": "Chiruru",
+        "name": "Chiruruᴶ",
         "inofficial": "Chiruru",
         "gender": "♀",
         "element": "Water",
@@ -6171,7 +6171,7 @@
         "job 3": "Sage",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Sage : Carnac\n[stronger water skills]",
+        "jc 3": "Sage : Carnacᴶ\n[stronger water skills]",
         "inputs": [
             "Chiruru"
         ],
@@ -6212,9 +6212,9 @@
         "job 1": "Ranger",
         "job 2": "Hunter",
         "job 3": "Holy Brawler",
-        "jc 1": "Ranger : Snake\n[jewel damage]",
+        "jc 1": "Ranger : Snakeᴶ\n[jewel damage]",
         "jc 2": "",
-        "jc 3": "Holy Brawler : Maitreya\n[12% regen &  5% jewel regen buff]",
+        "jc 3": "Holy Brawler : Maitreyaᴶ\n[12% regen &  5% jewel regen buff]",
         "inputs": [
             "Shekinah",
             "Shekinah POTK",
@@ -6269,8 +6269,8 @@
         "job 1": "Warrior",
         "job 2": "Martial Artist",
         "job 3": "Pirate",
-        "jc 1": "Warrior : Argos\n[wind nuke]",
-        "jc 2": "Holy Brawler : Shura\n[5x PATK buff]",
+        "jc 1": "Warrior : Argosᴶ\n[wind nuke]",
+        "jc 2": "Holy Brawler : Shuraᴶ\n[5x PATK buff]",
         "jc 3": "",
         "inputs": [
             "Cita",
@@ -6324,7 +6324,7 @@
         "job 3": "Dark Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dark Cavalier : Faust\n[Suicidal Nuker]",
+        "jc 3": "Dark Cavalier : Faustᴶ\n[Suicidal Nuker]",
         "inputs": [
             "Masamune",
             "Masamune POTK",
@@ -6378,7 +6378,7 @@
         "job 3": "Holy Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Cavalier : Porta\n[pierce resistance]",
+        "jc 3": "Holy Cavalier : Portaᴶ\n[pierce resistance]",
         "inputs": [
             "Teona",
             "Theona"
@@ -6434,8 +6434,8 @@
         "job 1": "Dragon Cavalier",
         "job 2": "Dark Cavalier",
         "job 3": "Thief",
-        "jc 1": "Dragon Cavalier : Rudra\n[teleportation skills]",
-        "jc 2": "Dark Cavalier : Faust\n[Suicidal Nuker]",
+        "jc 1": "Dragon Cavalier : Rudraᴶ\n[teleportation skills]",
+        "jc 2": "Dark Cavalier : Faustᴶ\n[Suicidal Nuker]",
         "jc 3": "",
         "inputs": [
             "Ramses",
@@ -6488,7 +6488,7 @@
         "job 2": "Magic Swordsman",
         "job 3": "Warrior",
         "jc 1": "",
-        "jc 2": "Magic Swordsman : Ifrit\n[stronger fire skills]",
+        "jc 2": "Magic Swordsman : Ifritᴶ\n[stronger fire skills]",
         "jc 3": "",
         "inputs": [
             "Dorothea",
@@ -6542,8 +6542,8 @@
         "job 2": "Sage",
         "job 3": "Ninja",
         "jc 1": "",
-        "jc 2": "Sage : Obelisk\n[stronger fire skills]",
-        "jc 3": "Ninja : Kirin\n[AGI-based]",
+        "jc 2": "Sage : Obeliskᴶ\n[stronger fire skills]",
+        "jc 3": "Ninja : Kirinᴶ\n[AGI-based]",
         "inputs": [
             "Reida",
             "Leida"
@@ -6594,7 +6594,7 @@
         "job 3": "Merchant",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Merchant : Charming Daruma\n[jewel drain and charm around self]",
+        "jc 3": "Merchant : Charming Darumaᴶ\n[jewel drain and charm around self]",
         "inputs": [
             "Elrike",
             "Ellique"
@@ -6645,8 +6645,8 @@
         "job 1": "Shadow Assassin",
         "job 2": "Twin-Blade Swordsman",
         "job 3": "Gunner",
-        "jc 1": "Shadow Assassin : Evening\n[spell evasion and resistance]",
-        "jc 2": "Twin-Blade Swordsman : Demon Hunter\n[increased damage against beasts]",
+        "jc 1": "Shadow Assassin : Eveningᴶ\n[spell evasion and resistance]",
+        "jc 2": "Twin-Blade Swordsman : Demon Hunterᴶ\n[increased damage against beasts]",
         "jc 3": "",
         "inputs": [
             "Aswald",
@@ -6685,7 +6685,7 @@
     },
     "UN_V2_SOPHIA": {
         "iname": "UN_V2_SOPHIA",
-        "name": "Sophia",
+        "name": "Sophiaᴶ",
         "inofficial": "Sophia",
         "gender": "♀",
         "element": "Water",
@@ -6705,7 +6705,7 @@
         "job 3": "Enchanter",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Blue Water Enchanter\n[buff that increases water damage against fire]",
+        "jc 3": "Blue Water Enchanterᴶ\n[buff that increases water damage against fire]",
         "inputs": [
             "Sophia"
         ],
@@ -6750,7 +6750,7 @@
         "job 3": "Merchant",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Merchant+  : Armored Battle Maid",
+        "jc 3": "Merchant+  : Armored Battle Maidᴶ",
         "inputs": [
             "Carol"
         ],
@@ -6787,7 +6787,7 @@
     },
     "UN_V2_SETSUNA": {
         "iname": "UN_V2_SETSUNA",
-        "name": "Setsuna",
+        "name": "Setsunaᴶ",
         "inofficial": "Setsuna",
         "gender": "♀",
         "element": "Wind",
@@ -6807,7 +6807,7 @@
         "job 3": "Shadow Assassin",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Shadow Assassin : Night\n[buff dispeller]",
+        "jc 3": "Shadow Assassin : Nightᴶ\n[buff dispeller]",
         "inputs": [
             "Setsuna"
         ],
@@ -6851,8 +6851,8 @@
         "job 2": "Magic Swordsman",
         "job 3": "Ranger",
         "jc 1": "",
-        "jc 2": "Magic Swordsman : Sylphid\n[stronger wind skills]",
-        "jc 3": "Ranger : Hawk\n[dodging and enemy accuracy down]",
+        "jc 2": "Magic Swordsman : Sylphidᴶ\n[stronger wind skills]",
+        "jc 3": "Ranger : Hawkᴶ\n[dodging and enemy accuracy down]",
         "inputs": [
             "Hazel"
         ],
@@ -6889,7 +6889,7 @@
     },
     "UN_V2_EIZAN": {
         "iname": "UN_V2_EIZAN",
-        "name": "Eizan",
+        "name": "Eizanᴶ",
         "inofficial": "Eizen",
         "gender": "♂",
         "element": "Thunder",
@@ -6909,7 +6909,7 @@
         "job 3": "Holy Brawler",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Brawler : Fudo\n[more damage at lower health]",
+        "jc 3": "Holy Brawler : Fudoᴶ\n[more damage at lower health]",
         "inputs": [
             "Eizan",
             "Eizen"
@@ -6940,7 +6940,7 @@
     },
     "UN_V2_THILLIE": {
         "iname": "UN_V2_THILLIE",
-        "name": "Thillie",
+        "name": "Thillieᴶ",
         "inofficial": "Thillie",
         "gender": "♀",
         "element": "Wind",
@@ -6959,8 +6959,8 @@
         "job 2": "Sage",
         "job 3": "Ninja",
         "jc 1": "",
-        "jc 2": "Sage : Pandora\n[stronger skills via passive]",
-        "jc 3": "Ninja : Seiryu\n[attack-based]",
+        "jc 2": "Sage : Pandoraᴶ\n[stronger skills via passive]",
+        "jc 3": "Ninja : Seiryuᴶ\n[attack-based]",
         "inputs": [
             "Thillie"
         ],
@@ -7398,7 +7398,7 @@
     },
     "UN_V2_RENA": {
         "iname": "UN_V2_RENA",
-        "name": "Rena",
+        "name": "Renaᴶ",
         "inofficial": "Rena",
         "gender": "♀",
         "element": "Dark",
@@ -7463,8 +7463,8 @@
         "job 2": "Dark Cavalier",
         "job 3": "Holy Cavalier",
         "jc 1": "",
-        "jc 2": "Dark Cavalier : Faust\n[Suicidal Nuker]",
-        "jc 3": "Holy Cavalier : David\n[strike resistance]",
+        "jc 2": "Dark Cavalier : Faustᴶ\n[Suicidal Nuker]",
+        "jc 3": "Holy Cavalier : Davidᴶ\n[strike resistance]",
         "inputs": [
             "Zeke",
             "Sieg"
@@ -7502,7 +7502,7 @@
     },
     "UN_V2_MIUNA": {
         "iname": "UN_V2_MIUNA",
-        "name": "Miuna",
+        "name": "Miunaᴶ",
         "inofficial": "Miuna",
         "gender": "♀",
         "element": "Fire",
@@ -7518,9 +7518,9 @@
         "job 1": "Master Blacksmith",
         "job 2": "Thief",
         "job 3": "Holy Cavalier",
-        "jc 1": "Blacksmith+        ",
+        "jc 1": "Blacksmith+        ᴶ",
         "jc 2": "",
-        "jc 3": "Holy Cavalier : Pieta\n[healing]",
+        "jc 3": "Holy Cavalier : Pietaᴶ\n[healing]",
         "inputs": [
             "Miuna",
             "Miuna SSM",
@@ -7564,7 +7564,7 @@
         "job 2": "Ninja",
         "job 3": "Warrior",
         "jc 1": "",
-        "jc 2": "Ninja : Seiryu\n[attack-based]",
+        "jc 2": "Ninja : Seiryuᴶ\n[attack-based]",
         "jc 3": "",
         "inputs": [
             "Sakura",
@@ -7615,9 +7615,9 @@
         "job 1": "Ranger",
         "job 2": "Samurai",
         "job 3": "Merchant",
-        "jc 1": "Ranger : Snake\n[jewel damage]",
+        "jc 1": "Ranger : Snakeᴶ\n[jewel damage]",
         "jc 2": "",
-        "jc 3": "Merchant : Scheming Tanuki\n[randomly give 50 CT to any units on map]",
+        "jc 3": "Merchant : Scheming Tanukiᴶ\n[randomly give 50 CT to any units on map]",
         "inputs": [
             "Dark Princess Yomi",
             "Abyss Princess Yomi",
@@ -7670,7 +7670,7 @@
         "job 3": "Holy Brawler",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Brawler : Maitreya\n[12% regen &  5% jewel regen buff]",
+        "jc 3": "Holy Brawler : Maitreyaᴶ\n[12% regen &  5% jewel regen buff]",
         "inputs": [
             "Forcas",
             "Forcas POTK",
@@ -7721,8 +7721,8 @@
         "job 2": "Ninja",
         "job 3": "Sniper",
         "jc 1": "",
-        "jc 2": "Ninja : Suzaku\n[jump-based]",
-        "jc 3": "Sniper : Barrel\n[very long range and increased minimum range]",
+        "jc 2": "Ninja : Suzakuᴶ\n[jump-based]",
+        "jc 3": "Sniper : Barrelᴶ\n[very long range and increased minimum range]",
         "inputs": [
             "Bashosen",
             "Bashousen",
@@ -7757,7 +7757,7 @@
     },
     "UN_V2_MIKOTO": {
         "iname": "UN_V2_MIKOTO",
-        "name": "Mikoto",
+        "name": "Mikotoᴶ",
         "inofficial": "Mikoto",
         "gender": "♀",
         "element": "Water",
@@ -7776,7 +7776,7 @@
         "job 2": "Ninja",
         "job 3": "Valkyrie",
         "jc 1": "",
-        "jc 2": "Ninja : Byakko\n[evasion-based]",
+        "jc 2": "Ninja : Byakkoᴶ\n[evasion-based]",
         "jc 3": "",
         "inputs": [
             "Mikoto"
@@ -7820,8 +7820,8 @@
         "job 1": "Merchant",
         "job 2": "Magic Swordsman",
         "job 3": "Sage",
-        "jc 1": "Merchant : Grace Crane\n[stronger heal delivery and full leverage +15 jewels]",
-        "jc 2": "Magic Swordsman : Fenrir\n[stronger water skills]",
+        "jc 1": "Merchant : Grace Craneᴶ\n[stronger heal delivery and full leverage +15 jewels]",
+        "jc 2": "Magic Swordsman : Fenrirᴶ\n[stronger water skills]",
         "jc 3": "",
         "inputs": [
             "Margaret"
@@ -7872,9 +7872,9 @@
         "job 1": "Martial Master",
         "job 2": "Thief",
         "job 3": "Dark Cavalier",
-        "jc 1": "Martial Master : Mecha Masher\n[Anti-Machine Skills]",
+        "jc 1": "Martial Master : Mecha Masherᴶ\n[Anti-Machine Skills]",
         "jc 2": "",
-        "jc 3": "Dark Cavalier : Jaeger\n[Sacrifice Skills Bonus]",
+        "jc 3": "Dark Cavalier : Jaegerᴶ\n[Sacrifice Skills Bonus]",
         "inputs": [
             "Mei Fang",
             "Meifan"
@@ -7925,9 +7925,9 @@
         "job 1": "Magia Gunslinger",
         "job 2": "Gunner",
         "job 3": "Sage",
-        "jc 1": "Magia Gunslinger : Horus\n[improved fire skills and healing]",
+        "jc 1": "Magia Gunslinger : Horusᴶ\n[improved fire skills and healing]",
         "jc 2": "",
-        "jc 3": "Sage  : Rosetta\n[stronger wind skills]",
+        "jc 3": "Sage  : Rosettaᴶ\n[stronger wind skills]",
         "inputs": [
             "Vivi",
             "ViVi"
@@ -7960,7 +7960,7 @@
     },
     "UN_V2_YUTO": {
         "iname": "UN_V2_YUTO",
-        "name": "Yuto",
+        "name": "Yutoᴶ",
         "inofficial": "Yuto",
         "gender": "♂",
         "element": "Fire",
@@ -7978,7 +7978,7 @@
         "job 3": "Warrior",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Warrior : Muspell\n[fire attack with huge self buff]",
+        "jc 3": "Warrior : Muspellᴶ\n[fire attack with huge self buff]",
         "inputs": [
             "Yuto"
         ],
@@ -8003,7 +8003,7 @@
     },
     "UN_V2_BASINI": {
         "iname": "UN_V2_BASINI",
-        "name": "Basheeny",
+        "name": "Basheenyᴶ",
         "inofficial": "Bashini",
         "gender": "♂",
         "element": "Dark",
@@ -8020,7 +8020,7 @@
         "job 2": "Twin-Blade Swordsman",
         "job 3": "Holy Brawler",
         "jc 1": "",
-        "jc 2": "Twin-Blade Swordsman : Demon Hunter\n[increased damage against beasts]",
+        "jc 2": "Twin-Blade Swordsman : Demon Hunterᴶ\n[increased damage against beasts]",
         "jc 3": "",
         "inputs": [
             "Basheeny",
@@ -8068,8 +8068,8 @@
         "job 2": "Magic Swordsman",
         "job 3": "Sage",
         "jc 1": "",
-        "jc 2": "Magic Swordsman : Pegasus\n[light skill added]",
-        "jc 3": "Sage  : Rosetta\n[stronger wind skills]",
+        "jc 2": "Magic Swordsman : Pegasusᴶ\n[light skill added]",
+        "jc 3": "Sage  : Rosettaᴶ\n[stronger wind skills]",
         "inputs": [
             "Neica",
             "Neika"
@@ -8107,7 +8107,7 @@
     },
     "UN_V2_YUNAGI": {
         "iname": "UN_V2_YUNAGI",
-        "name": "Yunagi",
+        "name": "Yunagiᴶ",
         "inofficial": "Yuunagi",
         "gender": "♀",
         "element": "Water",
@@ -8125,9 +8125,9 @@
         "job 1": "Dark Cavalier",
         "job 2": "Ninja",
         "job 3": "Warrior",
-        "jc 1": "Dark Cavalier : Gernika\n[One Slash Cav]",
+        "jc 1": "Dark Cavalier : Gernikaᴶ\n[One Slash Cav]",
         "jc 2": "",
-        "jc 3": "Warrior : Titan\n[water nuke]",
+        "jc 3": "Warrior : Titanᴶ\n[water nuke]",
         "inputs": [
             "Yunagi",
             "Yuunagi"
@@ -8153,7 +8153,7 @@
     },
     "UN_V2_MARIANNU": {
         "iname": "UN_V2_MARIANNU",
-        "name": "Mirianne",
+        "name": "Mirianneᴶ",
         "inofficial": "Marianne",
         "gender": "♀",
         "element": "Dark",
@@ -8173,7 +8173,7 @@
         "job 3": "Merchant",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Merchant : Grace Crane\n[stronger heal delivery and full leverage +15 jewels]",
+        "jc 3": "Merchant : Grace Craneᴶ\n[stronger heal delivery and full leverage +15 jewels]",
         "inputs": [
             "Mirianne",
             "Marianne"
@@ -8199,7 +8199,7 @@
     },
     "UN_V2_DIS_KILLIA": {
         "iname": "UN_V2_DIS_KILLIA",
-        "name": "Killia",
+        "name": "Killiaᴶ",
         "inofficial": "Kiria",
         "gender": "♂",
         "element": "Dark",
@@ -8217,7 +8217,7 @@
         "job 3": "Shadow Assassin",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Shadow Assassin : Night\n[buff dispeller]",
+        "jc 3": "Shadow Assassin : Nightᴶ\n[buff dispeller]",
         "inputs": [
             "Killia",
             "Kiria",
@@ -8245,7 +8245,7 @@
     },
     "UN_V2_DIS_SERAPHINA": {
         "iname": "UN_V2_DIS_SERAPHINA",
-        "name": "Seraphina",
+        "name": "Seraphinaᴶ",
         "inofficial": "Seraphina",
         "gender": "♀",
         "element": "Light",
@@ -8263,7 +8263,7 @@
         "job 3": "Magia Gunslinger",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Magia Gunslinger : Isis\n[improved water damage and multi-hit]",
+        "jc 3": "Magia Gunslinger : Isisᴶ\n[improved water damage and multi-hit]",
         "inputs": [
             "Seraphina",
             "Seraphina DIS",
@@ -8290,7 +8290,7 @@
     },
     "UN_V2_DIS_REDMAGNUS": {
         "iname": "UN_V2_DIS_REDMAGNUS",
-        "name": "Redmagnus",
+        "name": "Redmagnusᴶ",
         "inofficial": "Red Magnus",
         "gender": "♂",
         "element": "Fire",
@@ -8336,7 +8336,7 @@
     },
     "UN_V2_DIS_RINN": {
         "iname": "UN_V2_DIS_RINN",
-        "name": "Rin",
+        "name": "Rinᴶ",
         "inofficial": "D.Rin",
         "gender": "♀",
         "element": "Water",
@@ -8353,7 +8353,7 @@
         "job 2": "Hunter",
         "job 3": "Felynn",
         "jc 1": "",
-        "jc 2": "Ranger : Snake\n[jewel damage]",
+        "jc 2": "Ranger : Snakeᴶ\n[jewel damage]",
         "jc 3": "",
         "inputs": [
             "D.Rin",
@@ -8381,7 +8381,7 @@
     },
     "UN_V2_DIS_USALIA": {
         "iname": "UN_V2_DIS_USALIA",
-        "name": "Usalia",
+        "name": "Usaliaᴶ",
         "inofficial": "Usalia",
         "gender": "♀",
         "element": "Thunder",
@@ -8426,7 +8426,7 @@
     },
     "UN_V2_CHAO": {
         "iname": "UN_V2_CHAO",
-        "name": "Chao",
+        "name": "Chaoᴶ",
         "inofficial": "Chao",
         "gender": "♂",
         "element": "Thunder",
@@ -8445,7 +8445,7 @@
         "job 2": "Twin-Blade Swordsman",
         "job 3": "Astrologer",
         "jc 1": "",
-        "jc 2": "Twin-Blade Swordsman : Ogre Exterminator\n[increased damage against humans]",
+        "jc 2": "Twin-Blade Swordsman : Ogre Exterminatorᴶ\n[increased damage against humans]",
         "jc 3": "",
         "inputs": [
             "Chao"
@@ -8471,7 +8471,7 @@
     },
     "UN_V2_DAISY": {
         "iname": "UN_V2_DAISY",
-        "name": "Daisy",
+        "name": "Daisyᴶ",
         "inofficial": "Daisy",
         "gender": "♀",
         "element": "Fire",
@@ -8491,7 +8491,7 @@
         "job 3": "Holy Brawler",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Brawler : Fudo\n[more damage at lower health]",
+        "jc 3": "Holy Brawler : Fudoᴶ\n[more damage at lower health]",
         "inputs": [
             "Daisy"
         ],
@@ -8516,7 +8516,7 @@
     },
     "UN_V2_NASARIO": {
         "iname": "UN_V2_NASARIO",
-        "name": "Nasario",
+        "name": "Nasarioᴶ",
         "inofficial": "Nasario",
         "gender": "♂",
         "element": "Wind",
@@ -8534,8 +8534,8 @@
         "job 1": "Summoner",
         "job 2": "Magic Swordsman",
         "job 3": "Enchanter",
-        "jc 1": "Summoner of Tir Na Nog\n[increased damage against dark]",
-        "jc 2": "Magic Swordsman : Sylphid\n[stronger wind skills]",
+        "jc 1": "Summoner of Tir Na Nogᴶ\n[increased damage against dark]",
+        "jc 2": "Magic Swordsman : Sylphidᴶ\n[stronger wind skills]",
         "jc 3": "",
         "inputs": [
             "Nasario"
@@ -8561,7 +8561,7 @@
     },
     "UN_V2_LIZARDMEN_HAT": {
         "iname": "UN_V2_LIZARDMEN_HAT",
-        "name": "Lizardmen Hat",
+        "name": "Lizardmen Hatᴶ",
         "inofficial": "Lizardman",
         "gender": "♀",
         "element": "Wind",
@@ -8594,7 +8594,7 @@
     },
     "UN_V2_DIS_LAHAR": {
         "iname": "UN_V2_DIS_LAHAR",
-        "name": "Lahar",
+        "name": "Laharᴶ",
         "inofficial": "Laharl",
         "gender": "♂",
         "element": "Fire",
@@ -8640,7 +8640,7 @@
     },
     "UN_V2_DIS_ETONA": {
         "iname": "UN_V2_DIS_ETONA",
-        "name": "Etona",
+        "name": "Etonaᴶ",
         "inofficial": "Etna",
         "gender": "♀",
         "element": "Light",
@@ -8657,7 +8657,7 @@
         "job 2": "Ninja",
         "job 3": "Blademaster",
         "jc 1": "",
-        "jc 2": "Ninja : Suzaku\n[jump-based]",
+        "jc 2": "Ninja : Suzakuᴶ\n[jump-based]",
         "jc 3": "",
         "inputs": [
             "Etona",
@@ -8686,7 +8686,7 @@
     },
     "UN_V2_DIS_PRINNY": {
         "iname": "UN_V2_DIS_PRINNY",
-        "name": "Prinny",
+        "name": "Prinnyᴶ",
         "inofficial": "Prinny",
         "gender": "♀",
         "element": "Water",
@@ -8731,7 +8731,7 @@
     },
     "UN_V2_DIS_ALMILA": {
         "iname": "UN_V2_DIS_ALMILA",
-        "name": "Almira",
+        "name": "Almiraᴶ",
         "inofficial": "D.Almira",
         "gender": "♀",
         "element": "Wind",
@@ -8776,7 +8776,7 @@
     },
     "UN_V2_DIS_ROSA": {
         "iname": "UN_V2_DIS_ROSA",
-        "name": "Rosa",
+        "name": "Rosaᴶ",
         "inofficial": "D.Rosa",
         "gender": "♀",
         "element": "Dark",
@@ -8793,7 +8793,7 @@
         "job 2": "Enchanter",
         "job 3": "Netherworld Witch",
         "jc 1": "",
-        "jc 2": "Zero Enchanter\n[buff dispeller]",
+        "jc 2": "Zero Enchanterᴶ\n[buff dispeller]",
         "jc 3": "",
         "inputs": [
             "D.Rosa",
@@ -8821,7 +8821,7 @@
     },
     "UN_V2_LAVINA": {
         "iname": "UN_V2_LAVINA",
-        "name": "Lavina",
+        "name": "Lavinaᴶ",
         "inofficial": "Lavina",
         "gender": "♀",
         "element": "Water",
@@ -8837,9 +8837,9 @@
         "job 1": "Magia Gunslinger",
         "job 2": "Thief",
         "job 3": "Dark Cavalier",
-        "jc 1": "Magia Gunslinger : Isis\n[improved water damage and multi-hit]",
+        "jc 1": "Magia Gunslinger : Isisᴶ\n[improved water damage and multi-hit]",
         "jc 2": "",
-        "jc 3": "Dark Cavalier : Move\n[Faster Dark Cav]",
+        "jc 3": "Dark Cavalier : Moveᴶ\n[Faster Dark Cav]",
         "inputs": [
             "Lavina"
         ],
@@ -8864,7 +8864,7 @@
     },
     "UN_V2_SUIRAN": {
         "iname": "UN_V2_SUIRAN",
-        "name": "Suiran",
+        "name": "Suiranᴶ",
         "inofficial": "Suiran",
         "gender": "♀",
         "element": "Wind",
@@ -8907,7 +8907,7 @@
     },
     "UN_V2_BLANCHETT": {
         "iname": "UN_V2_BLANCHETT",
-        "name": "Blanchett",
+        "name": "Blanchettᴶ",
         "inofficial": "Blanchett",
         "gender": "♀",
         "element": "Dark",
@@ -8923,9 +8923,9 @@
         "job 1": "Twin-Blade Swordsman",
         "job 2": "Samurai",
         "job 3": "Martial Artist",
-        "jc 1": "Twin-Blade Swordsman : Demon Hunter\n[increased damage against beasts]",
+        "jc 1": "Twin-Blade Swordsman : Demon Hunterᴶ\n[increased damage against beasts]",
         "jc 2": "",
-        "jc 3": "Holy Brawler : Fudo\n[more damage at lower health]",
+        "jc 3": "Holy Brawler : Fudoᴶ\n[more damage at lower health]",
         "inputs": [
             "Blanchett"
         ],
@@ -8950,7 +8950,7 @@
     },
     "UN_V2_ZIN": {
         "iname": "UN_V2_ZIN",
-        "name": "Zin",
+        "name": "Zinᴶ",
         "inofficial": "Jin",
         "gender": "♂",
         "element": "Dark",
@@ -8966,9 +8966,9 @@
         "job 1": "Spy",
         "job 2": "Samurai",
         "job 3": "Warrior",
-        "jc 1": "Spy+ : Ronin",
+        "jc 1": "Spy+ : Roninᴶ",
         "jc 2": "",
-        "jc 3": "Warrior : Gigantes\n[dark attack with huge self buff]",
+        "jc 3": "Warrior : Gigantesᴶ\n[dark attack with huge self buff]",
         "inputs": [
             "Zin",
             "Jin"
@@ -8999,7 +8999,7 @@
     },
     "UN_V2_NOAH": {
         "iname": "UN_V2_NOAH",
-        "name": "Noah",
+        "name": "Noahᴶ",
         "inofficial": "Noah",
         "gender": "♀",
         "element": "Fire",
@@ -9015,8 +9015,8 @@
         "job 1": "Battle Mage",
         "job 2": "Chemist",
         "job 3": "Pirate",
-        "jc 1": "Battle Mage+  : Magical Honor Student",
-        "jc 2": "Professor : Mad\n[much stronger buffs]",
+        "jc 1": "Battle Mage+  : Magical Honor Studentᴶ",
+        "jc 2": "Professor : Madᴶ\n[much stronger buffs]",
         "jc 3": "",
         "inputs": [
             "Noah"
@@ -9047,7 +9047,7 @@
     },
     "UN_V2_ZOPHIE": {
         "iname": "UN_V2_ZOPHIE",
-        "name": "Zophie",
+        "name": "Zophieᴶ",
         "inofficial": "Zophie",
         "gender": "♀",
         "element": "Thunder",
@@ -9065,7 +9065,7 @@
         "job 3": "Dark Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dark Cavalier : Faust\n[Suicidal Nuker]",
+        "jc 3": "Dark Cavalier : Faustᴶ\n[Suicidal Nuker]",
         "inputs": [
             "Zophie"
         ],
@@ -9090,7 +9090,7 @@
     },
     "UN_V2_OLGA": {
         "iname": "UN_V2_OLGA",
-        "name": "Olga",
+        "name": "Olgaᴶ",
         "inofficial": "Olga",
         "gender": "♀",
         "element": "Light",
@@ -9106,7 +9106,7 @@
         "job 1": "Martial Master",
         "job 2": "Magic Swordsman",
         "job 3": "Spy",
-        "jc 1": "Martial Master : Demon Destroyer\n[Anti-Demon Skills]",
+        "jc 1": "Martial Master : Demon Destroyerᴶ\n[Anti-Demon Skills]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -9133,7 +9133,7 @@
     },
     "UN_V2_CHATNOIR": {
         "iname": "UN_V2_CHATNOIR",
-        "name": "Chatnoir",
+        "name": "Chatnoirᴶ",
         "inofficial": "Chat Noir",
         "gender": "♂",
         "element": "Water",
@@ -9149,9 +9149,9 @@
         "job 1": "Shadow Assassin",
         "job 2": "Thief",
         "job 3": "Dark Cavalier",
-        "jc 1": "Shadow Assassin : Night\n[buff dispeller]",
+        "jc 1": "Shadow Assassin : Nightᴶ\n[buff dispeller]",
         "jc 2": "",
-        "jc 3": "Dark Cavalier : Move\n[Faster Dark Cav]",
+        "jc 3": "Dark Cavalier : Moveᴶ\n[Faster Dark Cav]",
         "inputs": [
             "Chatnoir",
             "Chat Noir"
@@ -9177,7 +9177,7 @@
     },
     "UN_V2_JUSTIN": {
         "iname": "UN_V2_JUSTIN",
-        "name": "Justin",
+        "name": "Justinᴶ",
         "inofficial": "Justin",
         "gender": "♂",
         "element": "Thunder",
@@ -9195,7 +9195,7 @@
         "job 3": "Sniper",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Sniper : Scope\n[charge up for snipers]",
+        "jc 3": "Sniper : Scopeᴶ\n[charge up for snipers]",
         "inputs": [
             "Justin"
         ],
@@ -9220,7 +9220,7 @@
     },
     "UN_V2_FF15_NOCTIS": {
         "iname": "UN_V2_FF15_NOCTIS",
-        "name": "Noctis",
+        "name": "Noctisᴶ",
         "inofficial": "Noctis",
         "gender": "♂",
         "element": "Water",
@@ -9265,7 +9265,7 @@
     },
     "UN_V2_FF15_IGNIS": {
         "iname": "UN_V2_FF15_IGNIS",
-        "name": "Ignis",
+        "name": "Ignisᴶ",
         "inofficial": "Ignis",
         "gender": "♂",
         "element": "Wind",
@@ -9283,7 +9283,7 @@
         "job 3": "Shadow Assassin",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Shadow Assassin : Evening\n[spell evasion and resistance]",
+        "jc 3": "Shadow Assassin : Eveningᴶ\n[spell evasion and resistance]",
         "inputs": [
             "Ignis",
             "Ignis FF",
@@ -9310,7 +9310,7 @@
     },
     "UN_V2_FF15_GLADIOLUS": {
         "iname": "UN_V2_FF15_GLADIOLUS",
-        "name": "Gladiolus",
+        "name": "Gladiolusᴶ",
         "inofficial": "Gladiolus",
         "gender": "♂",
         "element": "Fire",
@@ -9328,7 +9328,7 @@
         "job 3": "Holy Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Cavalier : Magi\n[magic resistance]",
+        "jc 3": "Holy Cavalier : Magiᴶ\n[magic resistance]",
         "inputs": [
             "Gladiolus",
             "Gladiolus FF",
@@ -9355,7 +9355,7 @@
     },
     "UN_V2_FF15_PROMPUTO": {
         "iname": "UN_V2_FF15_PROMPUTO",
-        "name": "Promputo",
+        "name": "Promputoᴶ",
         "inofficial": "Prompto",
         "gender": "♂",
         "element": "Thunder",
@@ -9401,7 +9401,7 @@
     },
     "UN_V2_FF15_ARANEA": {
         "iname": "UN_V2_FF15_ARANEA",
-        "name": "Aranea",
+        "name": "Araneaᴶ",
         "inofficial": "Aranea",
         "gender": "♀",
         "element": "Dark",
@@ -9446,7 +9446,7 @@
     },
     "UN_V2_KLIMA": {
         "iname": "UN_V2_KLIMA",
-        "name": "Klima",
+        "name": "Klimaᴶ",
         "inofficial": "Creema",
         "gender": "♀",
         "element": "Water",
@@ -9490,7 +9490,7 @@
     },
     "UN_V2_LEONIA": {
         "iname": "UN_V2_LEONIA",
-        "name": "Leonia",
+        "name": "Leoniaᴶ",
         "inofficial": "Leonia",
         "gender": "♀",
         "element": "Wind",
@@ -9507,8 +9507,8 @@
         "job 2": "Martial Artist",
         "job 3": "Dark Cavalier",
         "jc 1": "",
-        "jc 2": "Holy Brawler : Senju\n[multi-hit]",
-        "jc 3": "Dark Cavalier : Jaeger\n[Sacrifice Skills Bonus]",
+        "jc 2": "Holy Brawler : Senjuᴶ\n[multi-hit]",
+        "jc 3": "Dark Cavalier : Jaegerᴶ\n[Sacrifice Skills Bonus]",
         "inputs": [
             "Leonia"
         ],
@@ -9533,7 +9533,7 @@
     },
     "UN_V2_ACHAD": {
         "iname": "UN_V2_ACHAD",
-        "name": "Achad",
+        "name": "Achadᴶ",
         "inofficial": "Acht",
         "gender": "♀",
         "element": "Wind",
@@ -9579,7 +9579,7 @@
     },
     "UN_V2_VIER": {
         "iname": "UN_V2_VIER",
-        "name": "Vier",
+        "name": "Vierᴶ",
         "inofficial": "Vier",
         "gender": "♀",
         "element": "Thunder",
@@ -9624,7 +9624,7 @@
     },
     "UN_V2_FAIRLILY": {
         "iname": "UN_V2_FAIRLILY",
-        "name": "Fairlily",
+        "name": "Fairlilyᴶ",
         "inofficial": "Fealily",
         "gender": "♀",
         "element": "Light",
@@ -9668,7 +9668,7 @@
     },
     "UN_V2_EDWIN": {
         "iname": "UN_V2_EDWIN",
-        "name": "Edwin",
+        "name": "Edwinᴶ",
         "inofficial": "Edwin",
         "gender": "♂",
         "element": "Dark",
@@ -9684,9 +9684,9 @@
         "job 1": "Holy Cavalier",
         "job 2": "Magic Swordsman",
         "job 3": "Warrior",
-        "jc 1": "Holy Cavalier : Ark\n[AoE resistance]",
+        "jc 1": "Holy Cavalier : Arkᴶ\n[AoE resistance]",
         "jc 2": "",
-        "jc 3": "Warrior : Gigantes\n[dark attack with huge self buff]",
+        "jc 3": "Warrior : Gigantesᴶ\n[dark attack with huge self buff]",
         "inputs": [
             "Edwin"
         ],
@@ -9711,7 +9711,7 @@
     },
     "UN_V2_RH_STOCK": {
         "iname": "UN_V2_RH_STOCK",
-        "name": "Stock",
+        "name": "Stockᴶ",
         "inofficial": "Stocke",
         "gender": "♂",
         "element": "Fire",
@@ -9757,7 +9757,7 @@
     },
     "UN_V2_RH_ERUKA": {
         "iname": "UN_V2_RH_ERUKA",
-        "name": "Eruka",
+        "name": "Erukaᴶ",
         "inofficial": "Eruca",
         "gender": "♀",
         "element": "Light",
@@ -9803,7 +9803,7 @@
     },
     "UN_V2_RH_ATO": {
         "iname": "UN_V2_RH_ATO",
-        "name": "Ato",
+        "name": "Atoᴶ",
         "inofficial": "Aht",
         "gender": "♀",
         "element": "Wind",
@@ -9849,7 +9849,7 @@
     },
     "UN_V2_RH_RAINY": {
         "iname": "UN_V2_RH_RAINY",
-        "name": "Rainy",
+        "name": "Rainyᴶ",
         "inofficial": "Raynie",
         "gender": "♀",
         "element": "Water",
@@ -9895,7 +9895,7 @@
     },
     "UN_V2_ANNIKA": {
         "iname": "UN_V2_ANNIKA",
-        "name": "Annika",
+        "name": "Annikaᴶ",
         "inofficial": "Annika",
         "gender": "♀",
         "element": "Water",
@@ -9913,7 +9913,7 @@
         "job 3": "Dark Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dark Cavalier : Seele\n[Drain Skills Bonus]",
+        "jc 3": "Dark Cavalier : Seeleᴶ\n[Drain Skills Bonus]",
         "inputs": [
             "Annika"
         ],
@@ -9938,7 +9938,7 @@
     },
     "UN_V2_HUGO": {
         "iname": "UN_V2_HUGO",
-        "name": "Hugo",
+        "name": "Hugoᴶ",
         "inofficial": "Hugo",
         "gender": "♂",
         "element": "Light",
@@ -9954,9 +9954,9 @@
         "job 1": "Sniper",
         "job 2": "Twin-Blade Swordsman",
         "job 3": "Magia Gunslinger",
-        "jc 1": "Sniper : Magnum\n[massive close range hits]",
+        "jc 1": "Sniper : Magnumᴶ\n[massive close range hits]",
         "jc 2": "",
-        "jc 3": "Magia Gunslinger  : Ra\n[improved thunder skills and wide aoe]",
+        "jc 3": "Magia Gunslinger  : Raᴶ\n[improved thunder skills and wide aoe]",
         "inputs": [
             "Hugo"
         ],
@@ -9981,7 +9981,7 @@
     },
     "UN_V2_CELLIERS": {
         "iname": "UN_V2_CELLIERS",
-        "name": "Celliers",
+        "name": "Celliersᴶ",
         "inofficial": "Celliaz",
         "gender": "♂",
         "element": "Light",
@@ -9997,9 +9997,9 @@
         "job 1": "Dragon Cavalier",
         "job 2": "Thief",
         "job 3": "Ninja",
-        "jc 1": "Dragon Cavalier : Rudra\n[teleportation skills]",
+        "jc 1": "Dragon Cavalier : Rudraᴶ\n[teleportation skills]",
         "jc 2": "",
-        "jc 3": "Ninja : Byakko\n[evasion-based]",
+        "jc 3": "Ninja : Byakkoᴶ\n[evasion-based]",
         "inputs": [
             "Celliers",
             "Celliaz"
@@ -10025,7 +10025,7 @@
     },
     "UN_V2_POK_EROS": {
         "iname": "UN_V2_POK_EROS",
-        "name": "Eros",
+        "name": "Erosᴶ",
         "inofficial": "Eros",
         "gender": "♀",
         "element": "Light",
@@ -10041,9 +10041,9 @@
         "job 1": "Ranger",
         "job 2": "Thief",
         "job 3": "Sniper",
-        "jc 1": "Ranger : Wolf\n[bonus damage against monsters]",
+        "jc 1": "Ranger : Wolfᴶ\n[bonus damage against monsters]",
         "jc 2": "",
-        "jc 3": "Sniper : Scope\n[charge up for snipers]",
+        "jc 3": "Sniper : Scopeᴶ\n[charge up for snipers]",
         "inputs": [
             "Eros",
             "Eros POTK",
@@ -10075,7 +10075,7 @@
     },
     "UN_V2_S_AMATERASU": {
         "iname": "UN_V2_S_AMATERASU",
-        "name": "Amaterasu",
+        "name": "Amaterasuᴶ",
         "inofficial": "Amaterasu",
         "gender": "♀",
         "element": "Light",
@@ -10092,7 +10092,7 @@
         "job 2": "Professor",
         "job 3": "Priestess",
         "jc 1": "",
-        "jc 2": "Professor : Aid\n[cures will heal as well]",
+        "jc 2": "Professor : Aidᴶ\n[cures will heal as well]",
         "jc 3": "",
         "inputs": [
             "Amaterasu",
@@ -10125,7 +10125,7 @@
     },
     "UN_V2_S_YURI": {
         "iname": "UN_V2_S_YURI",
-        "name": "Yuri",
+        "name": "Yuriᴶ",
         "inofficial": "Yuri",
         "gender": "♀",
         "element": "Thunder",
@@ -10142,7 +10142,7 @@
         "job 2": "Ninja",
         "job 3": "Machinist",
         "jc 1": "",
-        "jc 2": "Ninja : Suzaku\n[jump-based]",
+        "jc 2": "Ninja : Suzakuᴶ\n[jump-based]",
         "jc 3": "",
         "inputs": [
             "Yuri",
@@ -10175,7 +10175,7 @@
     },
     "UN_V2_PRISCILA": {
         "iname": "UN_V2_PRISCILA",
-        "name": "Priscila",
+        "name": "Priscilaᴶ",
         "inofficial": "Priscilla",
         "gender": "♀",
         "element": "Dark",
@@ -10219,7 +10219,7 @@
     },
     "UN_V2_FUJICA": {
         "iname": "UN_V2_FUJICA",
-        "name": "Fujica",
+        "name": "Fujicaᴶ",
         "inofficial": "Fujika",
         "gender": "♀",
         "element": "Thunder",
@@ -10236,7 +10236,7 @@
         "job 2": "Enchanter",
         "job 3": "Battle Mage",
         "jc 1": "",
-        "jc 2": "Roaring Thunder Enchanter\n[buff that increases thunder damage against water]",
+        "jc 2": "Roaring Thunder Enchanterᴶ\n[buff that increases thunder damage against water]",
         "jc 3": "",
         "inputs": [
             "Fujica",
@@ -10263,7 +10263,7 @@
     },
     "UN_V2_ZYVA": {
         "iname": "UN_V2_ZYVA",
-        "name": "Zyva",
+        "name": "Zyvaᴶ",
         "inofficial": "Zierva",
         "gender": "♀",
         "element": "Light",
@@ -10309,7 +10309,7 @@
     },
     "UN_V2_NOIN": {
         "iname": "UN_V2_NOIN",
-        "name": "Noin",
+        "name": "Noinᴶ",
         "inofficial": "Neun",
         "gender": "♂",
         "element": "Dark",
@@ -10355,7 +10355,7 @@
     },
     "UN_V2_FURY": {
         "iname": "UN_V2_FURY",
-        "name": "Fury",
+        "name": "Furyᴶ",
         "inofficial": "Fuelie",
         "gender": "♀",
         "element": "Fire",
@@ -10401,7 +10401,7 @@
     },
     "UN_V2_FEIRIN": {
         "iname": "UN_V2_FEIRIN",
-        "name": "Feirin",
+        "name": "Feirinᴶ",
         "inofficial": "Faylin",
         "gender": "♀",
         "element": "Wind",
@@ -10445,7 +10445,7 @@
     },
     "UN_V2_TOMAS": {
         "iname": "UN_V2_TOMAS",
-        "name": "Tomas",
+        "name": "Tomasᴶ",
         "inofficial": "Thomas",
         "gender": "♂",
         "element": "Light",
@@ -10462,8 +10462,8 @@
         "job 2": "Martial Artist",
         "job 3": "Warrior",
         "jc 1": "",
-        "jc 2": "Holy Brawler : Senju\n[multi-hit]",
-        "jc 3": "Warrior : Goliath\n[light tank]",
+        "jc 2": "Holy Brawler : Senjuᴶ\n[multi-hit]",
+        "jc 3": "Warrior : Goliathᴶ\n[light tank]",
         "inputs": [
             "Tomas",
             "Thomas"
@@ -10489,7 +10489,7 @@
     },
     "UN_V2_TETIS": {
         "iname": "UN_V2_TETIS",
-        "name": "Tetis",
+        "name": "Tetisᴶ",
         "inofficial": "Thetis",
         "gender": "♀",
         "element": "Water",
@@ -10505,8 +10505,8 @@
         "job 1": "Martial Master",
         "job 2": "Ninja",
         "job 3": "Necromancer",
-        "jc 1": "Martial Master : Human Hitman\n[Anti-Human Skills]",
-        "jc 2": "Ninja : Kirin\n[AGI-based]",
+        "jc 1": "Martial Master : Human Hitmanᴶ\n[Anti-Human Skills]",
+        "jc 2": "Ninja : Kirinᴶ\n[AGI-based]",
         "jc 3": "",
         "inputs": [
             "Tetis",
@@ -10533,7 +10533,7 @@
     },
     "UN_V2_SQ_PALADIN": {
         "iname": "UN_V2_SQ_PALADIN",
-        "name": "Paladin",
+        "name": "Paladinᴶ",
         "inofficial": "Paladin",
         "gender": "♀",
         "element": "Light",
@@ -10578,7 +10578,7 @@
     },
     "UN_V2_SQ_PRINCESS": {
         "iname": "UN_V2_SQ_PRINCESS",
-        "name": "Princess",
+        "name": "Princessᴶ",
         "inofficial": "Princess",
         "gender": "♀",
         "element": "Thunder",
@@ -10623,7 +10623,7 @@
     },
     "UN_V2_SQ_SHENMEI": {
         "iname": "UN_V2_SQ_SHENMEI",
-        "name": "Shenmei",
+        "name": "Shenmeiᴶ",
         "inofficial": "Shenmei",
         "gender": "♀",
         "element": "Water",
@@ -10667,7 +10667,7 @@
     },
     "UN_V2_SQ_GUNNER": {
         "iname": "UN_V2_SQ_GUNNER",
-        "name": "Gunner",
+        "name": "Gunnerᴶ",
         "inofficial": "Gunner",
         "gender": "♀",
         "element": "Water",
@@ -10712,7 +10712,7 @@
     },
     "UN_V2_LUCILLE": {
         "iname": "UN_V2_LUCILLE",
-        "name": "Lucille",
+        "name": "Lucilleᴶ",
         "inofficial": "Rusha",
         "gender": "♀",
         "element": "Thunder",
@@ -10730,7 +10730,7 @@
         "job 3": "Dark Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dark Cavalier : Move\n[Faster Dark Cav]",
+        "jc 3": "Dark Cavalier : Moveᴶ\n[Faster Dark Cav]",
         "inputs": [
             "Lucille",
             "Rusha"
@@ -10756,7 +10756,7 @@
     },
     "UN_V2_EMA": {
         "iname": "UN_V2_EMA",
-        "name": "Ema",
+        "name": "Emaᴶ",
         "inofficial": "Emma",
         "gender": "♀",
         "element": "Fire",
@@ -10805,7 +10805,7 @@
     },
     "UN_V2_HISHARMU": {
         "iname": "UN_V2_HISHARMU",
-        "name": "Hisharmu",
+        "name": "Hisharmuᴶ",
         "inofficial": "Hishamu",
         "gender": "♂",
         "element": "Light",
@@ -10849,7 +10849,7 @@
     },
     "UN_V2_LEYDOW": {
         "iname": "UN_V2_LEYDOW",
-        "name": "Leydow",
+        "name": "Leydowᴶ",
         "inofficial": "Reidou",
         "gender": "♂",
         "element": "Dark",
@@ -10866,7 +10866,7 @@
         "job 2": "Magic Swordsman",
         "job 3": "Sage",
         "jc 1": "",
-        "jc 2": "Magic Swordsman : Chimera\n[dark skill added]",
+        "jc 2": "Magic Swordsman : Chimeraᴶ\n[dark skill added]",
         "jc 3": "",
         "inputs": [
             "Leydow",
@@ -10893,7 +10893,7 @@
     },
     "UN_V2_IZAYOI": {
         "iname": "UN_V2_IZAYOI",
-        "name": "Izayoi",
+        "name": "Izayoiᴶ",
         "inofficial": "Izayoi",
         "gender": "♀",
         "element": "Wind",
@@ -10911,7 +10911,7 @@
         "job 3": "Holy Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Cavalier : Pieta\n[healing]",
+        "jc 3": "Holy Cavalier : Pietaᴶ\n[healing]",
         "inputs": [
             "Izayoi"
         ],
@@ -10936,7 +10936,7 @@
     },
     "UN_V2_DARTAGNAN": {
         "iname": "UN_V2_DARTAGNAN",
-        "name": "Dartagnan",
+        "name": "Dartagnanᴶ",
         "inofficial": "D'Artagnan",
         "gender": "♀",
         "element": "Water",
@@ -10953,7 +10953,7 @@
         "job 2": "Ninja",
         "job 3": "Valkyrie",
         "jc 1": "",
-        "jc 2": "Ninja : Seiryu\n[attack-based]",
+        "jc 2": "Ninja : Seiryuᴶ\n[attack-based]",
         "jc 3": "",
         "inputs": [
             "Dartagnan",
@@ -10980,7 +10980,7 @@
     },
     "UN_V2_WON": {
         "iname": "UN_V2_WON",
-        "name": "Won",
+        "name": "Wonᴶ",
         "inofficial": "Wong",
         "gender": "♂",
         "element": "Light",
@@ -10997,7 +10997,7 @@
         "job 2": "Martial Artist",
         "job 3": "Pirate",
         "jc 1": "",
-        "jc 2": "Holy Brawler : Maitreya\n[12% regen &  5% jewel regen buff]",
+        "jc 2": "Holy Brawler : Maitreyaᴶ\n[12% regen &  5% jewel regen buff]",
         "jc 3": "",
         "inputs": [
             "Won",
@@ -11024,7 +11024,7 @@
     },
     "UN_V2_INES": {
         "iname": "UN_V2_INES",
-        "name": "Ines",
+        "name": "Inesᴶ",
         "inofficial": "Ines",
         "gender": "♀",
         "element": "Fire",
@@ -11042,7 +11042,7 @@
         "job 3": "Sage",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Sage : Pandora\n[stronger skills via passive]",
+        "jc 3": "Sage : Pandoraᴶ\n[stronger skills via passive]",
         "inputs": [
             "Ines"
         ],
@@ -11067,7 +11067,7 @@
     },
     "UN_V2_UZUMA": {
         "iname": "UN_V2_UZUMA",
-        "name": "Uzuma",
+        "name": "Uzumaᴶ",
         "inofficial": "Uzuma",
         "gender": "♀",
         "element": "Wind",
@@ -11085,7 +11085,7 @@
         "job 3": "Magia Gunslinger",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Magia Gunslinger : Set\n[improved wind skills and melee attacks]",
+        "jc 3": "Magia Gunslinger : Setᴶ\n[improved wind skills and melee attacks]",
         "inputs": [
             "Uzuma"
         ],
@@ -11110,7 +11110,7 @@
     },
     "UN_V2_BLITZ": {
         "iname": "UN_V2_BLITZ",
-        "name": "Blitz",
+        "name": "Blitzᴶ",
         "inofficial": "Blitz",
         "gender": "♂",
         "element": "Thunder",
@@ -11128,7 +11128,7 @@
         "job 3": "Dark Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dark Cavalier : Seele\n[Drain Skills Bonus]",
+        "jc 3": "Dark Cavalier : Seeleᴶ\n[Drain Skills Bonus]",
         "inputs": [
             "Blitz"
         ],
@@ -11153,7 +11153,7 @@
     },
     "UN_V2_BIRGITTA": {
         "iname": "UN_V2_BIRGITTA",
-        "name": "Birgitta",
+        "name": "Birgittaᴶ",
         "inofficial": "Birgitta",
         "gender": "♀",
         "element": "Dark",
@@ -11169,7 +11169,7 @@
         "job 1": "Summoner",
         "job 2": "Beast Master",
         "job 3": "Battle Mage",
-        "jc 1": "Summoner of Hellheim\n[increased damage against light]",
+        "jc 1": "Summoner of Hellheimᴶ\n[increased damage against light]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -11196,7 +11196,7 @@
     },
     "UN_V2_FA_EDWARD": {
         "iname": "UN_V2_FA_EDWARD",
-        "name": "Edward",
+        "name": "Edwardᴶ",
         "inofficial": "Edward Elric",
         "gender": "♂",
         "element": "Wind",
@@ -11242,7 +11242,7 @@
     },
     "UN_V2_FA_PRIDE": {
         "iname": "UN_V2_FA_PRIDE",
-        "name": "Pride",
+        "name": "Prideᴶ",
         "inofficial": "Pride",
         "gender": "♀",
         "element": "Dark",
@@ -11287,7 +11287,7 @@
     },
     "UN_V2_FA_ALPHONSE": {
         "iname": "UN_V2_FA_ALPHONSE",
-        "name": "Alphonse",
+        "name": "Alphonseᴶ",
         "inofficial": "Alphonse Elric",
         "gender": "♂",
         "element": "Light",
@@ -11333,7 +11333,7 @@
     },
     "UN_V2_FA_MUSTANG": {
         "iname": "UN_V2_FA_MUSTANG",
-        "name": "Mustang",
+        "name": "Mustangᴶ",
         "inofficial": "Roy Mustang",
         "gender": "♂",
         "element": "Fire",
@@ -11379,7 +11379,7 @@
     },
     "UN_V2_FA_HAWKEYE": {
         "iname": "UN_V2_FA_HAWKEYE",
-        "name": "Hawkeye",
+        "name": "Hawkeyeᴶ",
         "inofficial": "Riza Hawkeye",
         "gender": "♀",
         "element": "Water",
@@ -11425,7 +11425,7 @@
     },
     "UN_V2_FA_WRATH": {
         "iname": "UN_V2_FA_WRATH",
-        "name": "Wrath",
+        "name": "Wrathᴶ",
         "inofficial": "King Bradley",
         "gender": "♂",
         "element": "Thunder",
@@ -11471,7 +11471,7 @@
     },
     "UN_V2_FA_ENVY": {
         "iname": "UN_V2_FA_ENVY",
-        "name": "Envy",
+        "name": "Envyᴶ",
         "inofficial": "Envy",
         "gender": "♀",
         "element": "Wind",
@@ -11516,7 +11516,7 @@
     },
     "UN_V2_TORITOH": {
         "iname": "UN_V2_TORITOH",
-        "name": "Toritoh",
+        "name": "Toritohᴶ",
         "inofficial": "Tlitor",
         "gender": "♀",
         "element": "Light",
@@ -11534,7 +11534,7 @@
         "job 3": "Martial Master",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Martial Master : Human Hitman\n[Anti-Human Skills]",
+        "jc 3": "Martial Master : Human Hitmanᴶ\n[Anti-Human Skills]",
         "inputs": [
             "Toritoh",
             "Tlitor",
@@ -11562,7 +11562,7 @@
     },
     "UN_V2_CORDELIA": {
         "iname": "UN_V2_CORDELIA",
-        "name": "Cordelia",
+        "name": "Cordeliaᴶ",
         "inofficial": "Cordelia",
         "gender": "♀",
         "element": "Wind",
@@ -11580,7 +11580,7 @@
         "job 3": "Dark Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dark Cavalier : Move\n[Faster Dark Cav]",
+        "jc 3": "Dark Cavalier : Moveᴶ\n[Faster Dark Cav]",
         "inputs": [
             "Cordelia"
         ],
@@ -11605,7 +11605,7 @@
     },
     "UN_V2_ITSUKI": {
         "iname": "UN_V2_ITSUKI",
-        "name": "Itsuki",
+        "name": "Itsukiᴶ",
         "inofficial": "Itsuki",
         "gender": "♀",
         "element": "Water",
@@ -11622,8 +11622,8 @@
         "job 2": "Martial Artist",
         "job 3": "Dark Cavalier",
         "jc 1": "",
-        "jc 2": "Holy Brawler : Fudo\n[more damage at lower health]",
-        "jc 3": "Dark Cavalier : Jaeger\n[Sacrifice Skills Bonus]",
+        "jc 2": "Holy Brawler : Fudoᴶ\n[more damage at lower health]",
+        "jc 3": "Dark Cavalier : Jaegerᴶ\n[Sacrifice Skills Bonus]",
         "inputs": [
             "Itsuki"
         ],
@@ -11648,7 +11648,7 @@
     },
     "UN_V2_TSANGLEI": {
         "iname": "UN_V2_TSANGLEI",
-        "name": "Tsanglei",
+        "name": "Tsangleiᴶ",
         "inofficial": "Tsang Lei",
         "gender": "♂",
         "element": "Thunder",
@@ -11664,8 +11664,8 @@
         "job 1": "Summoner",
         "job 2": "Enchanter",
         "job 3": "Geomancer",
-        "jc 1": "Summoner of Hellheim\n[increased damage against light]",
-        "jc 2": "Zero Enchanter\n[buff dispeller]",
+        "jc 1": "Summoner of Hellheimᴶ\n[increased damage against light]",
+        "jc 2": "Zero Enchanterᴶ\n[buff dispeller]",
         "jc 3": "",
         "inputs": [
             "Tsanglei",
@@ -11692,7 +11692,7 @@
     },
     "UN_V2_POK_LONGINUS": {
         "iname": "UN_V2_POK_LONGINUS",
-        "name": "Longinus",
+        "name": "Longinusᴶ",
         "inofficial": "Longinus",
         "gender": "♀",
         "element": "Water",
@@ -11710,7 +11710,7 @@
         "job 3": "Dragon Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dragon Cavalier : Rudra\n[teleportation skills]",
+        "jc 3": "Dragon Cavalier : Rudraᴶ\n[teleportation skills]",
         "inputs": [
             "Longinus",
             "Longinus POTK",
@@ -11737,7 +11737,7 @@
     },
     "UN_V2_POK_ARTEMIS": {
         "iname": "UN_V2_POK_ARTEMIS",
-        "name": "Artemis",
+        "name": "Artemisᴶ",
         "inofficial": "Artemis",
         "gender": "♀",
         "element": "Wind",
@@ -11753,7 +11753,7 @@
         "job 1": "Ranger",
         "job 2": "Dancer",
         "job 3": "Machinist",
-        "jc 1": "Ranger : Hawk\n[dodging and enemy accuracy down]",
+        "jc 1": "Ranger : Hawkᴶ\n[dodging and enemy accuracy down]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -11782,7 +11782,7 @@
     },
     "UN_V2_ZENN": {
         "iname": "UN_V2_ZENN",
-        "name": "Zenn",
+        "name": "Zennᴶ",
         "inofficial": "Zehn",
         "gender": "♂",
         "element": "Water",
@@ -11828,7 +11828,7 @@
     },
     "UN_V2_BELTA": {
         "iname": "UN_V2_BELTA",
-        "name": "Belta",
+        "name": "Beltaᴶ",
         "inofficial": "Belta",
         "gender": "♀",
         "element": "Dark",
@@ -11846,7 +11846,7 @@
         "job 3": "Ranger",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Ranger : Snake\n[jewel damage]",
+        "jc 3": "Ranger : Snakeᴶ\n[jewel damage]",
         "inputs": [
             "Belta"
         ],
@@ -11871,7 +11871,7 @@
     },
     "UN_V2_POK_BLK_TYRHUNG": {
         "iname": "UN_V2_POK_BLK_TYRHUNG",
-        "name": "Black Killer Tyrhung",
+        "name": "Black Killer Tyrhungᴶ",
         "inofficial": "Black Killer's Tyrfing",
         "gender": "♀",
         "element": "Light",
@@ -11889,7 +11889,7 @@
         "job 3": "Warrior",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Warrior : Goliath\n[light tank]",
+        "jc 3": "Warrior : Goliathᴶ\n[light tank]",
         "inputs": [
             "Black Killer Tyrhung",
             "Black Killer's Tyrfing",
@@ -11917,7 +11917,7 @@
     },
     "UN_V2_LOTIA": {
         "iname": "UN_V2_LOTIA",
-        "name": "Lotia",
+        "name": "Lotiaᴶ",
         "inofficial": "Lotia",
         "gender": "♀",
         "element": "Thunder",
@@ -11935,7 +11935,7 @@
         "job 3": "Holy Brawler",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Brawler : Shura\n[5x PATK buff]",
+        "jc 3": "Holy Brawler : Shuraᴶ\n[5x PATK buff]",
         "inputs": [
             "Lotia"
         ],
@@ -11960,7 +11960,7 @@
     },
     "UN_V2_KEVIN": {
         "iname": "UN_V2_KEVIN",
-        "name": "Kevin",
+        "name": "Kevinᴶ",
         "inofficial": "Kevin",
         "gender": "♂",
         "element": "Water",
@@ -11977,7 +11977,7 @@
         "job 2": "Ninja",
         "job 3": "Psionic",
         "jc 1": "",
-        "jc 2": "Ninja  : Genbu\n[move-based]",
+        "jc 2": "Ninja  : Genbuᴶ\n[move-based]",
         "jc 3": "",
         "inputs": [
             "Kevin"
@@ -12003,7 +12003,7 @@
     },
     "UN_V2_AISHA": {
         "iname": "UN_V2_AISHA",
-        "name": "Aisha",
+        "name": "Aishaᴶ",
         "inofficial": "Aisha",
         "gender": "♀",
         "element": "Light",
@@ -12020,7 +12020,7 @@
         "job 2": "Sage",
         "job 3": "Shadow Assassin",
         "jc 1": "",
-        "jc 2": "Sage : Obelisk\n[stronger fire skills]",
+        "jc 2": "Sage : Obeliskᴶ\n[stronger fire skills]",
         "jc 3": "",
         "inputs": [
             "Aisha"
@@ -12046,7 +12046,7 @@
     },
     "UN_V2_GUILDFORD": {
         "iname": "UN_V2_GUILDFORD",
-        "name": "Guildford",
+        "name": "Guildfordᴶ",
         "inofficial": "Gilford",
         "gender": "♂",
         "element": "Fire",
@@ -12064,7 +12064,7 @@
         "job 3": "Dark Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dark Cavalier : Seele\n[Drain Skills Bonus]",
+        "jc 3": "Dark Cavalier : Seeleᴶ\n[Drain Skills Bonus]",
         "inputs": [
             "Guildford",
             "Gilford"
@@ -12090,7 +12090,7 @@
     },
     "UN_V2_TERESA": {
         "iname": "UN_V2_TERESA",
-        "name": "Teresa",
+        "name": "Teresaᴶ",
         "inofficial": "Teresa",
         "gender": "♀",
         "element": "Dark",
@@ -12108,7 +12108,7 @@
         "job 3": "Holy Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Cavalier : Magi\n[magic resistance]",
+        "jc 3": "Holy Cavalier : Magiᴶ\n[magic resistance]",
         "inputs": [
             "Teresa"
         ],
@@ -12133,7 +12133,7 @@
     },
     "UN_V2_SHIRMA": {
         "iname": "UN_V2_SHIRMA",
-        "name": "Shirma",
+        "name": "Shirmaᴶ",
         "inofficial": "Silma",
         "gender": "♀",
         "element": "Wind",
@@ -12149,7 +12149,7 @@
         "job 1": "Martial Master",
         "job 2": "Martial Artist",
         "job 3": "Machinist",
-        "jc 1": "Martial Master : Demon Destroyer\n[Anti-Demon Skills]",
+        "jc 1": "Martial Master : Demon Destroyerᴶ\n[Anti-Demon Skills]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -12177,7 +12177,7 @@
     },
     "UN_V2_KURT": {
         "iname": "UN_V2_KURT",
-        "name": "Kurt",
+        "name": "Kurtᴶ",
         "inofficial": "Kureto",
         "gender": "♂",
         "element": "Fire",
@@ -12194,8 +12194,8 @@
         "job 2": "Shadow Assassin",
         "job 3": "Dragon Cavalier",
         "jc 1": "",
-        "jc 2": "Shadow Assassin : Night\n[buff dispeller]",
-        "jc 3": "Dragon Cavalier : Vritra\n[long rang but low dmg]",
+        "jc 2": "Shadow Assassin : Nightᴶ\n[buff dispeller]",
+        "jc 3": "Dragon Cavalier : Vritraᴶ\n[long rang but low dmg]",
         "inputs": [
             "Kurt",
             "Kureto"
@@ -12221,7 +12221,7 @@
     },
     "UN_V2_FF15_REGIS": {
         "iname": "UN_V2_FF15_REGIS",
-        "name": "Regis",
+        "name": "Regisᴶ",
         "inofficial": "Regis",
         "gender": "♂",
         "element": "Thunder",
@@ -12266,7 +12266,7 @@
     },
     "UN_V2_FF15_COR": {
         "iname": "UN_V2_FF15_COR",
-        "name": "Cor",
+        "name": "Corᴶ",
         "inofficial": "Cor",
         "gender": "♂",
         "element": "Light",
@@ -12311,7 +12311,7 @@
     },
     "UN_V2_FF15_IRIS": {
         "iname": "UN_V2_FF15_IRIS",
-        "name": "Iris",
+        "name": "Irisᴶ",
         "inofficial": "Iris",
         "gender": "♀",
         "element": "Fire",
@@ -12356,7 +12356,7 @@
     },
     "UN_V2_POK_BLK_LAEVATEINN": {
         "iname": "UN_V2_POK_BLK_LAEVATEINN",
-        "name": "Black Killer Laevateinn",
+        "name": "Black Killer Laevateinnᴶ",
         "inofficial": "Black Killer Laevateinn",
         "gender": "♀",
         "element": "Thunder",
@@ -12373,7 +12373,7 @@
         "job 2": "Twin-Blade Swordsman",
         "job 3": "Dark Cavalier",
         "jc 1": "",
-        "jc 2": "Twin-Blade Swordsman : Ogre Exterminator\n[increased damage against humans]",
+        "jc 2": "Twin-Blade Swordsman : Ogre Exterminatorᴶ\n[increased damage against humans]",
         "jc 3": "",
         "inputs": [
             "Black Killer Laevateinn",
@@ -12401,7 +12401,7 @@
     },
     "UN_V2_POK_PARASHU": {
         "iname": "UN_V2_POK_PARASHU",
-        "name": "Parashu",
+        "name": "Parashuᴶ",
         "inofficial": "Parashu",
         "gender": "♀",
         "element": "Wind",
@@ -12419,7 +12419,7 @@
         "job 3": "Warrior",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Warrior : Argos\n[wind nuke]",
+        "jc 3": "Warrior : Argosᴶ\n[wind nuke]",
         "inputs": [
             "Parashu",
             "Parashu POTK",
@@ -12446,7 +12446,7 @@
     },
     "UN_V2_POK_FREIKUGEL": {
         "iname": "UN_V2_POK_FREIKUGEL",
-        "name": "Freikugel",
+        "name": "Freikugelᴶ",
         "inofficial": "Freikugel",
         "gender": "♀",
         "element": "Thunder",
@@ -12462,7 +12462,7 @@
         "job 1": "Magia Gunslinger",
         "job 2": "Thief",
         "job 3": "Cannoneer",
-        "jc 1": "Magia Gunslinger  : Ra\n[improved thunder skills and wide aoe]",
+        "jc 1": "Magia Gunslinger  : Raᴶ\n[improved thunder skills and wide aoe]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -12491,7 +12491,7 @@
     },
     "UN_V2_S_TSUKUYOMI": {
         "iname": "UN_V2_S_TSUKUYOMI",
-        "name": "Tsukuyomi",
+        "name": "Tsukuyomiᴶ",
         "inofficial": "Tsukuyomi",
         "gender": "♀",
         "element": "Dark",
@@ -12509,7 +12509,7 @@
         "job 3": "Sage",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Sage : Monolith\n[stronger thunder skills]",
+        "jc 3": "Sage : Monolithᴶ\n[stronger thunder skills]",
         "inputs": [
             "Tsukuyomi",
             "Tsukuyomi SN",
@@ -12536,7 +12536,7 @@
     },
     "UN_V2_FIONA": {
         "iname": "UN_V2_FIONA",
-        "name": "Fiona",
+        "name": "Fionaᴶ",
         "inofficial": "Fiona",
         "gender": "♀",
         "element": "Light",
@@ -12579,7 +12579,7 @@
     },
     "UN_V2_GERALD": {
         "iname": "UN_V2_GERALD",
-        "name": "Gerald",
+        "name": "Geraldᴶ",
         "inofficial": "Gerald",
         "gender": "♂",
         "element": "Thunder",
@@ -12597,7 +12597,7 @@
         "job 3": "Dragon Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dragon Cavalier : Rudra\n[teleportation skills]",
+        "jc 3": "Dragon Cavalier : Rudraᴶ\n[teleportation skills]",
         "inputs": [
             "Gerald"
         ],
@@ -12622,7 +12622,7 @@
     },
     "UN_V2_NATALIE": {
         "iname": "UN_V2_NATALIE",
-        "name": "Natalie",
+        "name": "Natalieᴶ",
         "inofficial": "Natalie",
         "gender": "♀",
         "element": "Wind",
@@ -12638,7 +12638,7 @@
         "job 1": "Professor",
         "job 2": "Bishop",
         "job 3": "Battle Mage",
-        "jc 1": "Professor : Mad\n[much stronger buffs]",
+        "jc 1": "Professor : Madᴶ\n[much stronger buffs]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -12665,7 +12665,7 @@
     },
     "UN_V2_L_UROB": {
         "iname": "UN_V2_L_UROB",
-        "name": "Little Urob",
+        "name": "Little Urobᴶ",
         "inofficial": "Lil Uroboros",
         "gender": "♀",
         "element": "Dark",
@@ -12682,7 +12682,7 @@
         "job 2": "Sage",
         "job 3": "Abyss Gazer",
         "jc 1": "",
-        "jc 2": "Sage : Pandora\n[stronger skills via passive]",
+        "jc 2": "Sage : Pandoraᴶ\n[stronger skills via passive]",
         "jc 3": "",
         "inputs": [
             "Little Urob",
@@ -12709,7 +12709,7 @@
     },
     "UN_V2_NINA": {
         "iname": "UN_V2_NINA",
-        "name": "Nina",
+        "name": "Ninaᴶ",
         "inofficial": "Nina",
         "gender": "♀",
         "element": "Light",
@@ -12725,7 +12725,7 @@
         "job 1": "Summoner",
         "job 2": "Battle Mage",
         "job 3": "Magia Operator",
-        "jc 1": "Summoner of Tir Na Nog\n[increased damage against dark]",
+        "jc 1": "Summoner of Tir Na Nogᴶ\n[increased damage against dark]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -12752,7 +12752,7 @@
     },
     "UN_V2_REN": {
         "iname": "UN_V2_REN",
-        "name": "Ren",
+        "name": "Renᴶ",
         "inofficial": "Ren",
         "gender": "♂",
         "element": "Water",
@@ -12769,7 +12769,7 @@
         "job 2": "Twin-Blade Swordsman",
         "job 3": "Spy",
         "jc 1": "",
-        "jc 2": "Twin-Blade Swordsman : Mist",
+        "jc 2": "Twin-Blade Swordsman : Mistᴶ",
         "jc 3": "",
         "inputs": [
             "Ren"
@@ -12795,7 +12795,7 @@
     },
     "UN_V2_THOL": {
         "iname": "UN_V2_THOL",
-        "name": "Thol",
+        "name": "Tholᴶ",
         "inofficial": "Sol",
         "gender": "♂",
         "element": "Dark",
@@ -12813,7 +12813,7 @@
         "job 3": "Shadow Assassin",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Shadow Assassin : Night\n[buff dispeller]",
+        "jc 3": "Shadow Assassin : Nightᴶ\n[buff dispeller]",
         "inputs": [
             "Thol",
             "Sol",
@@ -12841,7 +12841,7 @@
     },
     "UN_V2_LETICIA": {
         "iname": "UN_V2_LETICIA",
-        "name": "Leticia",
+        "name": "Leticiaᴶ",
         "inofficial": "Leticia",
         "gender": "♀",
         "element": "Water",
@@ -12858,7 +12858,7 @@
         "job 2": "Merchant",
         "job 3": "Templar",
         "jc 1": "",
-        "jc 2": "Merchant : Scheming Tanuki\n[randomly give 50 CT to any units on map]",
+        "jc 2": "Merchant : Scheming Tanukiᴶ\n[randomly give 50 CT to any units on map]",
         "jc 3": "",
         "inputs": [
             "Leticia"
@@ -12884,7 +12884,7 @@
     },
     "UN_V2_NIGURU": {
         "iname": "UN_V2_NIGURU",
-        "name": "Niguru",
+        "name": "Niguruᴶ",
         "inofficial": "Niggle",
         "gender": "♂",
         "element": "Thunder",
@@ -12900,9 +12900,9 @@
         "job 1": "Shadow Assassin",
         "job 2": "Blademaster",
         "job 3": "Dark Cavalier",
-        "jc 1": "Shadow Assassin : Evening\n[spell evasion and resistance]",
+        "jc 1": "Shadow Assassin : Eveningᴶ\n[spell evasion and resistance]",
         "jc 2": "",
-        "jc 3": "Dark Cavalier : Seele\n[Drain Skills Bonus]",
+        "jc 3": "Dark Cavalier : Seeleᴶ\n[Drain Skills Bonus]",
         "inputs": [
             "Niguru",
             "Niggle"
@@ -12928,7 +12928,7 @@
     },
     "UN_V2_IRA": {
         "iname": "UN_V2_IRA",
-        "name": "Ira",
+        "name": "Iraᴶ",
         "inofficial": "Ira",
         "gender": "♀",
         "element": "Fire",
@@ -12945,7 +12945,7 @@
         "job 2": "Ninja",
         "job 3": "Magia Gunslinger",
         "jc 1": "",
-        "jc 2": "Ninja : Byakko\n[evasion-based]",
+        "jc 2": "Ninja : Byakkoᴶ\n[evasion-based]",
         "jc 3": "",
         "inputs": [
             "Ira"
@@ -12971,7 +12971,7 @@
     },
     "UN_V2_CARLA": {
         "iname": "UN_V2_CARLA",
-        "name": "Carla",
+        "name": "Carlaᴶ",
         "inofficial": "Karla",
         "gender": "♀",
         "element": "Fire",
@@ -13015,7 +13015,7 @@
     },
     "UN_V2_ANKH": {
         "iname": "UN_V2_ANKH",
-        "name": "Ankh",
+        "name": "Ankhᴶ",
         "inofficial": "Ankh",
         "gender": "♂",
         "element": "Water",
@@ -13033,7 +13033,7 @@
         "job 3": "Dark Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dark Cavalier : Faust\n[Suicidal Nuker]",
+        "jc 3": "Dark Cavalier : Faustᴶ\n[Suicidal Nuker]",
         "inputs": [
             "Ankh"
         ],
@@ -13058,7 +13058,7 @@
     },
     "UN_V2_NEFERTY": {
         "iname": "UN_V2_NEFERTY",
-        "name": "Neferty",
+        "name": "Nefertyᴶ",
         "inofficial": "Neferti",
         "gender": "♀",
         "element": "Wind",
@@ -13074,7 +13074,7 @@
         "job 1": "Sage",
         "job 2": "Battle Mage",
         "job 3": "Master of Weather",
-        "jc 1": "Sage  : Rosetta\n[stronger wind skills]",
+        "jc 1": "Sage  : Rosettaᴶ\n[stronger wind skills]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -13102,7 +13102,7 @@
     },
     "UN_V2_APR_LIZ": {
         "iname": "UN_V2_APR_LIZ",
-        "name": "Liz",
+        "name": "Lizᴶ",
         "inofficial": "",
         "gender": "♀",
         "element": "Wind",
@@ -13145,7 +13145,7 @@
     },
     "UN_V2_DON_TARAS": {
         "iname": "UN_V2_DON_TARAS",
-        "name": "Don Taras",
+        "name": "Don Tarasᴶ",
         "inofficial": "Don Taras",
         "gender": "♂",
         "element": "Fire",
@@ -13163,7 +13163,7 @@
         "job 3": "Holy Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Cavalier : Ark\n[AoE resistance]",
+        "jc 3": "Holy Cavalier : Arkᴶ\n[AoE resistance]",
         "inputs": [
             "Don Taras"
         ],
@@ -13188,7 +13188,7 @@
     },
     "UN_V2_ORION": {
         "iname": "UN_V2_ORION",
-        "name": "Orion",
+        "name": "Orionᴶ",
         "inofficial": "Orion",
         "gender": "♂",
         "element": "Thunder",
@@ -13206,7 +13206,7 @@
         "job 3": "Warrior",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Warrior : Atlas\n[thunder tank]",
+        "jc 3": "Warrior : Atlasᴶ\n[thunder tank]",
         "inputs": [
             "Orion"
         ],
@@ -13231,7 +13231,7 @@
     },
     "UN_V2_POK_BLK_ARTEMIS": {
         "iname": "UN_V2_POK_BLK_ARTEMIS",
-        "name": "Black Killer Artemis",
+        "name": "Black Killer Artemisᴶ",
         "inofficial": "Black Killer Artemis",
         "gender": "♀",
         "element": "Wind",
@@ -13248,7 +13248,7 @@
         "job 2": "Sniper",
         "job 3": "Magia Operator",
         "jc 1": "",
-        "jc 2": "Sniper : Scope\n[charge up for snipers]",
+        "jc 2": "Sniper : Scopeᴶ\n[charge up for snipers]",
         "jc 3": "",
         "inputs": [
             "Black Killer Artemis",
@@ -13276,7 +13276,7 @@
     },
     "UN_V2_CRY_MERLINUS": {
         "iname": "UN_V2_CRY_MERLINUS",
-        "name": "Merlinus",
+        "name": "Merlinusᴶ",
         "inofficial": "Merlinus",
         "gender": "♀",
         "element": "Water",
@@ -13294,7 +13294,7 @@
         "job 3": "Dark Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dark Cavalier : Move\n[Faster Dark Cav]",
+        "jc 3": "Dark Cavalier : Moveᴶ\n[Faster Dark Cav]",
         "inputs": [
             "Merlinus",
             "Merlinus CR",
@@ -13321,7 +13321,7 @@
     },
     "UN_V2_CRY_ARTHUR": {
         "iname": "UN_V2_CRY_ARTHUR",
-        "name": "Arthur",
+        "name": "Arthurᴶ",
         "inofficial": "",
         "gender": "♂",
         "element": "Fire",
@@ -13339,7 +13339,7 @@
         "job 3": "Holy Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Cavalier : Porta\n[pierce resistance]",
+        "jc 3": "Holy Cavalier : Portaᴶ\n[pierce resistance]",
         "inputs": [
             "Arthur",
             "Arthur CR",
