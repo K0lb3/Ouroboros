@@ -31,6 +31,19 @@ GEAR_COLOR = {
 }
 DEFAULT_GEAR_COLOR = 8355711
 
+PRESENCES=[
+        'WIP Job: o?job',
+        'Collabs: o?collabs',
+        'Unit: o?unit',
+        'Lore: o?lore',
+        'Art:  o?art',
+        'Gear: o?gear',
+        'Farm: o?farm',
+        'Ranking: o?arena',
+        'Tierlist: o?tierlist',
+        'Info: o?info',
+        'Help: o?help'
+        ]
 
 #functions
 def loadFiles(files):
@@ -100,6 +113,16 @@ prefix='o?'
 bot = commands.Bot(command_prefix=prefix)
 [units,drops,gears,jobs]=loadFiles(['units.json','drops.json','gear.json','jobs.json'])
 
+
+
+
+async def status_task(presences):
+    while True:
+        for p in presences:
+            game = discord.Game(p)
+            await bot.change_presence(status=discord.Status.online, activity=game)
+            await asyncio.sleep(10)
+
     
 @bot.event
 async def on_ready():
@@ -108,6 +131,7 @@ async def on_ready():
     print(bot.user.id)
     print(bot.guilds)
     print('------')
+    bot.loop.create_task(status_task(PRESENCES))
 
 #gear
 @bot.command()
@@ -125,7 +149,7 @@ async def gear(ctx):
         )
     #icon
     embed.set_thumbnail(url=gear['icon'])
-#gear data
+    #gear data
     #stats
     stats=""
     for s in gear['stats']:
@@ -393,46 +417,6 @@ async def help(ctx):
     embed.add_field(name="o?info", value="some informations about the bot", inline=False)
 
     await ctx.send(embed=embed)
-
-@bot.command() # info
-async def debug(ctx):
-    global units
-    global prefix
-    command=prefix+'unit'
-    unit=find_best(command,units,ctx)
-
-    #start embed - title
-    embed = discord.Embed(
-        title=unit['name'],
-        description="",
-        url=unit['link'],
-        color=ELEMENT_COLOR.get(unit['element'], DEFAULT_ELEMENT_COLOR),
-    )
-    #icon
-    embed.set_thumbnail(url=unit['icon'])
-    #unit data
-    embed.add_field(name="gender",      value=unit['gender'],     inline=True)
-    embed.add_field(name="rarity",      value=unit['rarity'],     inline=True)
-    embed.add_field(name="country",     value=unit['country'],    inline=True)
-    if unit['collab'] != "":
-        embed.add_field(name="collab",      value=unit['collab'],     inline=True)
-    if unit['master ability'] != "":
-        embed.add_field(name="master ability",value=unit['master ability'],inline=False)
-    embed.add_field(name="leader skill",value=unit['leader skill'],inline=False)
-    embed.add_field(name="Job 1",       value=unit['job 1'],      inline=True)
-    embed.add_field(name="Job 2",       value=unit['job 2'],      inline=True)
-    if unit['job 3'] != "":
-        embed.add_field(name="Job 3",       value=unit['job 3'],      inline=False)
-    if unit['jc 1'] != "":
-        embed.add_field(name="Job Change 1",value=unit['jc 1'],       inline=True)
-    if unit['jc 2'] != "":
-        embed.add_field(name="Job Change 2",value=unit['jc 2'],       inline=True)
-    if unit['jc 3'] != "":
-        embed.add_field(name="Job Change 3",value=unit['jc 3'],       inline=True)
-
-    embed.set_image(url=unit['artworks'][0]['full'])
-    await ctx.send(embed=embed) 
-
 
 BOT_TOKEN = os.environ.get('DISCORD_BOT_TOKEN')
 #BOT_TOKEN="NDM3ODY4OTQ4MTMwNzU4NjY4.DdYvnw.UTWQMqytfyiu6YXzkY4iIw4CqJY"
