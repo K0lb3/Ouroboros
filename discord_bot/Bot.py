@@ -206,6 +206,7 @@ async def job(ctx):
         description="", 
         url=job['link']
         )
+    embed.set_footer(text='ᴶ - japan only', icon_url='')
     #icon
     if ':' in job['name'] or len(job['short description'])>5:
         embed.set_thumbnail(url=job['token'])
@@ -251,6 +252,7 @@ async def unit(ctx):
         url=unit['link'],
         color=ELEMENT_COLOR.get(unit['element'], DEFAULT_ELEMENT_COLOR),
     )
+    embed.set_footer(text='ᴶ - japan only', icon_url='')
     #icon
     embed.set_thumbnail(url=unit['icon'])
     #add tierlist ranking
