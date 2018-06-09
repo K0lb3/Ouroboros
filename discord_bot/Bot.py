@@ -254,7 +254,12 @@ async def unit(ctx):
         tl = unit['tierlist']
         for i in tl:
             if tl[i]!="" and i in unit:
-                unit[i]+= " ["+tl[i]+"]"
+                if '\n' not in unit[i]:
+                    unit[i]+= " ["+tl[i]+"]"
+                else:
+                    index=unit[i].index('\n')
+                    unit[i]= unit[i][:index] + ' ['+tl[i]+']' + unit[i][index:]
+                    
         embed.title+=" ["+tl['total']+"]"
     #unit data
     fields=[
