@@ -40,7 +40,14 @@ def job_stats(job, main):
     return(stats)
 
 
-def job_create(job, mainc, loc):
+def job_create(job, glc, jpc, loc):
+    #decide which main to use
+    if job in glc:
+        mainc=glc
+        region='GL'
+    else:
+        mainc=jpc
+        region='JP'
     j=mainc[job]
     #small modifier fix
     mod=j
@@ -79,6 +86,8 @@ def job_create(job, mainc, loc):
             },
         'stats': job_stats(j, mainc),
         'formula': dmg_formula(mainc[mainc[j['atkskl']]['weapon']]),
+        'link':"",
+        'region':region,
         }
 
 
@@ -98,7 +107,10 @@ def jobs():
     jpc = convertMaster(jp)
     jpS = json.dumps(jp)
 
-    # real code
+    # code
+    def create_link(unit_in,job_na):
+        return 'http://www.alchemistcodedb.com/unit/'+unit_in[6:].replace('_','').lower()+'#'+job_na.replace(' ','-').lower()
+
     jobs = {}
 
     for unit in jp['Unit']:
@@ -108,29 +120,31 @@ def jobs():
 
         # add jobs
         j = 1
+        l = unit['iname'] in glc and 'vce' in glc[unit['iname']]
+        jpc[unit['iname']]['l']=l
+
         if 'jobsets' in unit:
             for i in unit['jobsets']:
                 job = jpc[i]['job']
                 if job not in jobs:
-                    #decide which main to use
-                    if job in glc:
-                        main=glc
-                        region='GL'
-                    else:
-                        main=jpc
-                        region='JP'
-
                     #create job from data
-                    jobs[job] = job_create(job, main, loc)
-                    jobs[job]['region']=region
+                    jobs[job] = job_create(job, glc, jpc, loc)
 
                     #add Fan translation
                     try:
                         jobs[job]['japan'] = wunit[Fan[unit['iname']]['inofficial2']]['Job'+str(j)]
                     except KeyError:
                         pass
-
+                #add unit to list
                 jobs[job]['units'].append(name_collab(unit['iname'], loc)[0])
+
+                #add link
+                if len(jobs[job]['link'])<30:
+                    if l and jobs[job]['region']=='GL':
+                        jobs[job]['link']=create_link(unit['iname'],jobs[job]['name'])
+                    else:
+                        jobs[job]['link']=unit['iname']
+
                 j += 1
 
     # add j+ and j/e
@@ -144,17 +158,8 @@ def jobs():
 
             job = js['job']
             if job not in jobs:
-                #decide which main to use
-                if job in glc:
-                    main=glc
-                    region='GL'
-                else:
-                    main=jpc
-                    region='JP'
-
                 #create job from data
-                jobs[job] = job_create(job, main, loc)
-                jobs[job]['region']=region
+                jobs[job] = job_create(job, glc, jpc, loc)
 
                 #fix icon'
                 icon = 'http://cdn.alchemistcodedb.com/images/jobs/icons/'
@@ -164,6 +169,16 @@ def jobs():
                     icon += jpc[job]['mdl']+'.png'
                 jobs[job]['icon']=icon
                 
+                #add link
+                if len(jobs[job]['link'])<30:
+                    if jpc[js['target_unit']]['l'] and jobs[job]['region']=='GL':
+                        jobs[job]['link']=create_link(js['target_unit'],jobs[job]['name'])
+                    else:
+                        jobs[job]['link']=js['target_unit']
+
+
+
+                #add fan translation
                 try:
                     jobs[job]['japan'] = wunit[Fan[js['target_unit']]['inofficial2']]['JC'+str(j)]
                 except KeyError:
@@ -176,6 +191,12 @@ def jobs():
             jobs[job]['units'].append(name_collab(js['target_unit'], loc)[0])
             if jobs[job]['name'] not in jobs[js['ljob1']]['jobe']:
                 jobs[js['ljob1']]['jobe'].append(jobs[job]['name'])
+
+    # add missing links
+    for j in jobs:
+        if len(jobs[j]['link'])<30:
+            jobs[j]['link']='http://www.alchemistcodedb.com/jp/unit/'+jobs[j]['link'][6:].replace('_','-').lower()+'#'+jobs[j]['kanji'].replace(' ','-').lower()
+
 
     #add inputs
     export = {}

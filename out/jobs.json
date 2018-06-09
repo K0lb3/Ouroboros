@@ -56,6 +56,7 @@
             "Charm Res": 3
         },
         "formula": "130% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/logi#soldier",
         "inputs": [
             "Logi Soldier"
         ]
@@ -119,6 +120,7 @@
             "Charm Res": 3
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/logi#holy-knight",
         "inputs": [
             "Logi Holy Knight",
             "Logi",
@@ -182,6 +184,7 @@
             "Charm Res": 3
         },
         "formula": "130% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/dios#soldier",
         "inputs": [
             "Dias Soldier"
         ]
@@ -246,6 +249,7 @@
             "Charm Res": 3
         },
         "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/dios#dark-knight",
         "inputs": [
             "Dias Dark Knight",
             "Dias",
@@ -310,6 +314,7 @@
             "Charm Res": 3
         },
         "formula": "65% (PATK + DEX)",
+        "link": "http://www.alchemistcodedb.com/unit/edgar#gunner",
         "inputs": [
             "Edgar Gunner"
         ]
@@ -374,6 +379,7 @@
             "Charm Res": 3
         },
         "formula": "65% (PATK + DEX)",
+        "link": "http://www.alchemistcodedb.com/unit/edgar#drifter",
         "inputs": [
             "Edgar Drifter",
             "Drifter"
@@ -437,6 +443,7 @@
             "Blind Res": 3
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/unit/liesbet#apprentice-witch",
         "inputs": [
             "Lisbeth Apprentice Witch",
             "Apprentice Witch"
@@ -503,6 +510,7 @@
             "Charm Res": 3
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/unit/liesbet#witch",
         "inputs": [
             "Lisbeth Witch",
             "Witch"
@@ -568,6 +576,7 @@
             "Charm Res": 10
         },
         "formula": "65% (PATK + DEX)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/tina#弓使い",
         "inputs": [
             "Tina",
             "Tina Hunter"
@@ -633,6 +642,7 @@
             "Blind Res": 10
         },
         "formula": "70% (PATK + DEX)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/tina#風法力使い",
         "inputs": [
             "Tina Wind Shaman",
             "Wind Shaman"
@@ -696,6 +706,7 @@
             "Poison Res": 10
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/kamui#拳聖",
         "inputs": [
             "Kamui",
             "Kamui Holy Brawler",
@@ -760,6 +771,7 @@
             "Poison Res": 20
         },
         "formula": "90% (PATK + MATK)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/kamui#練精術師",
         "inputs": [
             "Kamui Spiral Style Master",
             "Spiral Style Master",
@@ -842,6 +854,7 @@
             "Poison Res": 3
         },
         "formula": "60% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/unit/alaia#bard",
         "inputs": [
             "Bard"
         ]
@@ -913,6 +926,7 @@
             "Poison Res": 3
         },
         "formula": "60% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/unit/alaia#dancer",
         "inputs": [
             "Dancer"
         ]
@@ -990,6 +1004,7 @@
             "Poison Res": 3
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/unit/alaia#battle-mage",
         "inputs": [
             "Battle Mage"
         ]
@@ -1074,6 +1089,7 @@
             "Charm Res": 3
         },
         "formula": "65% (PATK + DEX)",
+        "link": "http://www.alchemistcodedb.com/unit/lucido#hunter",
         "inputs": [
             "Hunter"
         ]
@@ -1141,6 +1157,7 @@
             "Charm Res": 3
         },
         "formula": "130% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/lucido#soldier",
         "inputs": [
             "Soldier"
         ]
@@ -1241,6 +1258,7 @@
             "Charm Res": 3
         },
         "formula": "70% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/unit/lucido#ninja",
         "inputs": [
             "Ninja"
         ]
@@ -1337,6 +1355,7 @@
             "Charm Res": 3
         },
         "formula": "65% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/unit/rigaruto#thief",
         "inputs": [
             "Thief"
         ]
@@ -1408,6 +1427,7 @@
             "Charm Res": 3
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/rigaruto#pirate",
         "inputs": [
             "Pirate"
         ]
@@ -1497,6 +1517,7 @@
             "Light Res": 1
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/unit/rinn#mage",
         "inputs": [
             "Mage"
         ]
@@ -1568,6 +1589,7 @@
             "Blind Res": 3
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/unit/rinn#priest",
         "inputs": [
             "Priest"
         ]
@@ -1651,6 +1673,7 @@
             "Light Res": 1
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/unit/rinn#chronomancer",
         "inputs": [
             "Chronomancer",
             "Illusionist"
@@ -1728,6 +1751,7 @@
             "Charm Res": 3
         },
         "formula": "70% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/unit/gain#beast-tamer",
         "inputs": [
             "Beast Tamer"
         ]
@@ -1807,6 +1831,7 @@
             "Blind Res": 3
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/unit/alexis#bishop",
         "inputs": [
             "Bishop"
         ]
@@ -1880,6 +1905,7 @@
             "Charm Res": 3
         },
         "formula": "65% (PATK + DEX)",
+        "link": "http://www.alchemistcodedb.com/unit/alfred#gunner",
         "inputs": [
             "Gunner"
         ]
@@ -1956,6 +1982,7 @@
             "Charm Res": 3
         },
         "formula": "55% (MATK + DEX/2 + LUCK/2)",
+        "link": "http://www.alchemistcodedb.com/unit/melia#chemist",
         "inputs": [
             "Chemist",
             "Pharmacist"
@@ -2029,6 +2056,7 @@
             "Charm Res": 3
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/runbell#holy-knight",
         "inputs": [
             "Holy Knight",
             "Saint Knight"
@@ -2116,6 +2144,7 @@
             "Light Res": 1
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/unit/gath#enchanter",
         "inputs": [
             "Enchanter",
             "Enhancer"
@@ -2192,6 +2221,7 @@
             "Charm Res": 3
         },
         "formula": "55% (MATK + DEX/2 + LUCK/2)",
+        "link": "http://www.alchemistcodedb.com/unit/hazuki#professor",
         "inputs": [
             "Professor"
         ]
@@ -2272,6 +2302,7 @@
             "Charm Res": 3
         },
         "formula": "65% (PATK + DEX)",
+        "link": "http://www.alchemistcodedb.com/unit/riche#crafter",
         "inputs": [
             "Crafter"
         ]
@@ -2363,6 +2394,7 @@
             "Charm Res": 3
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/unit/ishuna#martial-artist",
         "inputs": [
             "Martial Artist",
             "Monk"
@@ -2435,6 +2467,7 @@
             "Charm Res": 3
         },
         "formula": "70% (MATK + LUCK)",
+        "link": "http://www.alchemistcodedb.com/unit/ciel#shrine-maiden",
         "inputs": [
             "Shrine Maiden"
         ]
@@ -2527,6 +2560,7 @@
             "Charm Res": 3
         },
         "formula": "90% (PATK + MATK)",
+        "link": "http://www.alchemistcodedb.com/unit/rion#magic-swordsman",
         "inputs": [
             "Magic Swordsman",
             "Magic Knight"
@@ -2607,6 +2641,7 @@
             "Charm Res": 3
         },
         "formula": "70% (PATK + DEX)",
+        "link": "http://www.alchemistcodedb.com/unit/almila#sniper",
         "inputs": [
             "Sniper"
         ]
@@ -2682,6 +2717,7 @@
             "Charm Res": 3
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/freed#dragon-knight",
         "inputs": [
             "Dragon Knight",
             "Dragon Warrior"
@@ -2765,6 +2801,7 @@
             "Charm Res": 3
         },
         "formula": "75% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/unit/chihaya#samurai",
         "inputs": [
             "Samurai"
         ]
@@ -2828,6 +2865,7 @@
             "Charm Res": 3
         },
         "formula": "120% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/lamia#spearman",
         "inputs": [
             "Spearman"
         ]
@@ -2902,6 +2940,7 @@
             "Charm Res": 3
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/zangetsu#dragon-cavalier",
         "inputs": [
             "Dragon Cavalier"
         ]
@@ -2981,6 +3020,7 @@
             "Charm Res": 3
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/unit/lucia#holy-brawler",
         "inputs": [
             "Holy Brawler",
             "Saint of Fist"
@@ -3053,6 +3093,7 @@
             "Charm Res": 3
         },
         "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/anastasia#dark-knight",
         "inputs": [
             "Dark Knight",
             "Shadow Knight"
@@ -3151,6 +3192,7 @@
             "Charm Res": 3
         },
         "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/anastasia#dark-cavalier",
         "inputs": [
             "Dark Cavalier"
         ]
@@ -3233,6 +3275,7 @@
             "Charm Res": 3
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/cloe#holy-cavalier",
         "inputs": [
             "Holy Cavalier"
         ]
@@ -3294,6 +3337,7 @@
             "Charm Res": 3
         },
         "formula": "130% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/tyrhung#soldier",
         "inputs": [
             "Tyrfing",
             "Tyrfing Soldier"
@@ -3356,6 +3400,7 @@
             "Charm Res": 3
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/tyrhung#holy-knight",
         "inputs": [
             "Tyrfing Holy Knight",
             "Tyrfing",
@@ -3422,6 +3467,7 @@
             "Charm Res": 3
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/tyrhung#holy-cavalier",
         "inputs": [
             "Tyrfing Holy Cavalier"
         ]
@@ -3484,6 +3530,7 @@
             "Charm Res": 3
         },
         "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/laevateinn#dark-knight",
         "inputs": [
             "Laevateinn Dark Knight",
             "Laevateinn",
@@ -3549,6 +3596,7 @@
             "Charm Res": 3
         },
         "formula": "70% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/unit/laevateinn#ninja",
         "inputs": [
             "Laevateinn Ninja"
         ]
@@ -3614,6 +3662,7 @@
             "Charm Res": 3
         },
         "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/laevateinn#dark-cavalier",
         "inputs": [
             "Laevateinn Dark Cavalier"
         ]
@@ -3675,6 +3724,7 @@
             "Charm Res": 3
         },
         "formula": "130% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/vargas#soldier",
         "inputs": [
             "Vargas",
             "Vargas Soldier"
@@ -3738,6 +3788,7 @@
             "Charm Res": 3
         },
         "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/vargas#pyromancer",
         "inputs": [
             "Vargas Pyromancer",
             "Pyromancer",
@@ -3805,6 +3856,7 @@
             "Charm Res": 3
         },
         "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/vargas#great-pyromancer",
         "inputs": [
             "Vargas Great Pyromancer",
             "Great Pyromancer",
@@ -3869,6 +3921,7 @@
             "Charm Res": 3
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/selena#ice-swordsman",
         "inputs": [
             "Selena",
             "Selena Ice Swordsman",
@@ -3932,6 +3985,7 @@
             "Charm Res": 3
         },
         "formula": "90% (PATK + MATK)",
+        "link": "http://www.alchemistcodedb.com/unit/selena#magic-swordsman",
         "inputs": [
             "Selena Magic Swordsman",
             "Selena",
@@ -3996,6 +4050,7 @@
             "Charm Res": 3
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/selena#ice-princess",
         "inputs": [
             "Selena Ice Princess",
             "Ice Princess"
@@ -4068,6 +4123,7 @@
             "Charm Res": 3
         },
         "formula": "80% (PATK + DEX)",
+        "link": "http://www.alchemistcodedb.com/unit/magnus#machinist",
         "inputs": [
             "Machinist",
             "Machinery"
@@ -4154,6 +4210,7 @@
             "Charm Res": 3
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/balt#twin-blade-swordsman",
         "inputs": [
             "Twin-Blade Swordsman",
             "Twin Blade"
@@ -4218,6 +4275,7 @@
             "Charm Res": 3
         },
         "formula": "65% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/unit/sabaleta#thief",
         "inputs": [
             "Sabareta",
             "Sabareta Thief"
@@ -4283,6 +4341,7 @@
             "Poison Res": 3
         },
         "formula": "100% (PATK + MATK)",
+        "link": "http://www.alchemistcodedb.com/unit/eve#bride",
         "inputs": [
             "Bride",
             "Bride (Flower Knight)"
@@ -4347,6 +4406,7 @@
             "Poison Res": 3
         },
         "formula": "100% (PATK + MATK)",
+        "link": "http://www.alchemistcodedb.com/unit/fraise#bridegroom",
         "inputs": [
             "Bridegroom",
             "Groom (Flower Knight)"
@@ -4411,6 +4471,7 @@
             "Charm Res": 3
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/canon#apprentice-paladin",
         "inputs": [
             "Kanon",
             "Kanon Apprentice Paladin",
@@ -4479,6 +4540,7 @@
             "Poison Res": 3
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/canon#paladin",
         "inputs": [
             "Kanon Paladin",
             "Paladin",
@@ -4547,6 +4609,7 @@
             "Poison Res": 3
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/canon#elite-knight",
         "inputs": [
             "Kanon Elite Knight",
             "Elite Knight",
@@ -4613,6 +4676,7 @@
             "Charm Res": 3
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/cadanova#dragon-slayer",
         "inputs": [
             "Cadanova Dragon Slayer",
             "Dragon Slayer"
@@ -4676,6 +4740,7 @@
             "Charm Res": 3
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/cadanova#flame-dragon-king",
         "inputs": [
             "Cadanova Flame Dragon King",
             "Flame Dragon King",
@@ -4768,6 +4833,7 @@
             "Light Res": 1
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/unit/fungliu#sage",
         "inputs": [
             "Sage"
         ]
@@ -4843,6 +4909,7 @@
             "Charm Res": 3
         },
         "formula": "65% (PATK + DEX)",
+        "link": "http://www.alchemistcodedb.com/unit/ryle#ranger",
         "inputs": [
             "Ranger",
             "Ranger (Advanced)"
@@ -4906,6 +4973,7 @@
             "Light Res": 1
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/unit/kagura#flame-orb-princess",
         "inputs": [
             "Kagura Flame Orb Princess",
             "Flame Orb Princess",
@@ -4975,6 +5043,7 @@
             "Light Res": 1
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/unit/kagura#blaze-orb-princess",
         "inputs": [
             "Kagura Blaze Orb Princess",
             "Blaze Orb Princess",
@@ -5042,6 +5111,7 @@
             "Charm Res": 3
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/kudhanstein#demonic-spearman",
         "inputs": [
             "Kudanstein Demonic Spearman",
             "Demonic Spearman",
@@ -5108,6 +5178,7 @@
             "Charm Res": 3
         },
         "formula": "130% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/sek-cloe#フェンサー",
         "inputs": [
             "Fencer"
         ]
@@ -5170,6 +5241,7 @@
             "Charm Res": 3
         },
         "formula": "130% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/fencer#幻影の剣士",
         "inputs": [
             "Fencer Illusory Swordsman",
             "Illusory Swordsman",
@@ -5237,6 +5309,7 @@
             "Charm Res": 3
         },
         "formula": "130% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/fencer#迅雷の剣士",
         "inputs": [
             "Fencer Thunder Swordsman",
             "Thunder Swordsman",
@@ -5304,6 +5377,7 @@
             "Charm Res": 3
         },
         "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/reaper#リーパー",
         "inputs": [
             "Reaper",
             "Reaper Reaper"
@@ -5368,6 +5442,7 @@
             "Charm Res": 3
         },
         "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/reaper#死を振り撒く死神",
         "inputs": [
             "Reaper Death-Spreading Reaper",
             "Death-Spreading Reaper",
@@ -5434,6 +5509,7 @@
             "Charm Res": 3
         },
         "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/reaper#死を遠ざける死神",
         "inputs": [
             "Reaper Death-Delaying Reaper",
             "Death-Delaying Reaper",
@@ -5499,6 +5575,7 @@
             "Light Res": 1
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/sherman#シャーマン",
         "inputs": [
             "Shaman",
             "Shaman Shaman"
@@ -5562,6 +5639,7 @@
             "Light Res": 1
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/sherman#天譴を下す巫子",
         "inputs": [
             "Shaman Maiden of Divine Punishment",
             "Maiden of Divine Punishment",
@@ -5630,6 +5708,7 @@
             "Light Res": 1
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/sherman#天寵を告げし巫子",
         "inputs": [
             "Shaman Maiden of Divine Blessing",
             "Maiden of Divine Blessing",
@@ -5696,6 +5775,7 @@
             "Charm Res": 3
         },
         "formula": "70% (PATK + DEX)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/sek-cloe#ドラグーン",
         "inputs": [
             "Chloe",
             "Chloe Dragoon",
@@ -5762,6 +5842,7 @@
             "Charm Res": 3
         },
         "formula": "75% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/sek-cloe#マスラオ",
         "inputs": [
             "Chloe Masurao",
             "Masurao"
@@ -5827,6 +5908,7 @@
             "Charm Res": 3
         },
         "formula": "65% (PATK + DEX)",
+        "link": "http://www.alchemistcodedb.com/unit/seida#venom-archer",
         "inputs": [
             "Seida Venom Archer",
             "Venom Archer",
@@ -5895,6 +5977,7 @@
             "Charm Res": 3
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/monzein#indomitable-axe-knight ",
         "inputs": [
             "Monzein Indomitable Axe Knight ",
             "Indomitable Axe Knight ",
@@ -5983,6 +6066,7 @@
             "Charm Res": 3
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/spica#warrior",
         "inputs": [
             "Warrior",
             "Axe Warrior"
@@ -6052,6 +6136,7 @@
             "Light Res": 1
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/unit/deneb#astrologer",
         "inputs": [
             "Astrologer",
             "Astrologist"
@@ -6117,6 +6202,7 @@
             "Charm Res": 3
         },
         "formula": "130% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/yaulas#twin-blade-knight",
         "inputs": [
             "Yauras Twin-Blade Knight",
             "Twin-Blade Knight",
@@ -6184,6 +6270,7 @@
             "Charm Res": 3
         },
         "formula": "90% (PATK + MATK)",
+        "link": "http://www.alchemistcodedb.com/unit/zayin#lord-commander",
         "inputs": [
             "Zain",
             "Zain Lord Commander",
@@ -6261,6 +6348,7 @@
             "Blind Res": 3
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/unit/lupinus#summoner",
         "inputs": [
             "Summoner"
         ]
@@ -6326,6 +6414,7 @@
             "Light Res": 1
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/unit/othima#phantom-master",
         "inputs": [
             "Othima Phantom Master",
             "Phantom Master"
@@ -6402,6 +6491,7 @@
             "Charm Res": 3
         },
         "formula": "50% (PATK + LUCK)",
+        "link": "http://www.alchemistcodedb.com/unit/aruba#merchant",
         "inputs": [
             "Merchant"
         ]
@@ -6474,6 +6564,7 @@
             "Charm Res": 3
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/teona#valkyrie",
         "inputs": [
             "Valkyrie"
         ]
@@ -6546,6 +6637,7 @@
             "Charm Res": 3
         },
         "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/dorothea#necromancer",
         "inputs": [
             "Necromancer"
         ]
@@ -6619,6 +6711,7 @@
             "Charm Res": 3
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/unit/asuwado#shadow-assassin",
         "inputs": [
             "Shadow Assassin"
         ]
@@ -6688,6 +6781,7 @@
             "Charm Res": 3
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/unit/ssakura#blademaster",
         "inputs": [
             "Blademaster"
         ]
@@ -6751,6 +6845,7 @@
             "Charm Res": 3
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/zenn#鍛冶師",
         "inputs": [
             "Blacksmith"
         ]
@@ -6814,6 +6909,7 @@
             "Charm Res": 3
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/saber#saber",
         "inputs": [
             "Saber",
             "Saber [F/SN]"
@@ -6877,6 +6973,7 @@
             "Charm Res": 3
         },
         "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/gilgamesh#hero-king",
         "inputs": [
             "Gilgamesh",
             "Gilgamesh Hero King",
@@ -6944,6 +7041,7 @@
             "Light Res": 1
         },
         "formula": "120% MATK",
+        "link": "http://www.alchemistcodedb.com/unit/tosakarinn#jewel-magician",
         "inputs": [
             "Rin Tohsaka",
             "Rin Tohsaka Jewel Magician",
@@ -7011,6 +7109,7 @@
             "Light Res": 1
         },
         "formula": "120% MATK",
+        "link": "http://www.alchemistcodedb.com/unit/iriya#master-magician",
         "inputs": [
             "Illyasviel",
             "Illyasviel Master Magician",
@@ -7079,6 +7178,7 @@
             "Charm Res": 3
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/archer#archer",
         "inputs": [
             "Archer",
             "Archer Archer",
@@ -7145,6 +7245,7 @@
             "Charm Res": 3
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/unit/fateyomi#rider",
         "inputs": [
             "Yomi",
             "Yomi Rider",
@@ -7212,6 +7313,7 @@
             "Blind Res": 3
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/unit/fateyomi#caster",
         "inputs": [
             "Yomi Caster",
             "Caster",
@@ -7277,6 +7379,7 @@
             "Charm Res": 3
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/unit/fatelamia#assassin",
         "inputs": [
             "Lamia Assassin",
             "Assassin",
@@ -7344,6 +7447,7 @@
             "Charm Res": 3
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/fatezahar#archer",
         "inputs": [
             "Zahar",
             "Zahar Archer",
@@ -7408,6 +7512,7 @@
             "Charm Res": 3
         },
         "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/fatezahar#berserker",
         "inputs": [
             "Zahar Berserker",
             "Zahar Berserker [F/SN]",
@@ -7472,6 +7577,7 @@
             "Charm Res": 3
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/fatezahar#lancer",
         "inputs": [
             "Zahar Lancer",
             "Lancer",
@@ -7537,6 +7643,7 @@
             "Light Res": 1
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/rena#女優",
         "inputs": [
             "Rena",
             "Rena Actress",
@@ -7603,6 +7710,7 @@
             "Charm Res": 3
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/zeke#holy-cavalier",
         "inputs": [
             "Zeke",
             "Zeke Holy Cavalier"
@@ -7667,6 +7775,7 @@
             "Charm Res": 3
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/miuna#匠鍛師",
         "inputs": [
             "Miuna Master Blacksmith",
             "Master Blacksmith",
@@ -7737,6 +7846,7 @@
             "Charm Res": 3
         },
         "formula": "70% (MATK + LUCK)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/ines#神子",
         "inputs": [
             "Priestess",
             "Miko"
@@ -7808,6 +7918,7 @@
             "Charm Res": 3
         },
         "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/meifan#martial-master",
         "inputs": [
             "Martial Master"
         ]
@@ -7881,6 +7992,7 @@
             "Light Res": 1
         },
         "formula": "120% MATK",
+        "link": "http://www.alchemistcodedb.com/unit/vivi#magia-gunslinger",
         "inputs": [
             "Magia Gunslinger",
             "Magia Shooter"
@@ -7945,6 +8057,7 @@
             "Charm Res": 3
         },
         "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/basini#機動騎士",
         "inputs": [
             "Basheeny",
             "Basheeny Mobile Knight",
@@ -8009,6 +8122,7 @@
             "Poison Res": 10
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/dis-killia#さすらいの悪魔",
         "inputs": [
             "Killia",
             "Killia Tyrant Overlord",
@@ -8078,6 +8192,7 @@
             "Charm Res": 10
         },
         "formula": "70% (PATK + DEX)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/dis-seraphina#絢爛魔界姫魔王",
         "inputs": [
             "Seraphina",
             "Seraphina Gorgeous Overlord",
@@ -8143,6 +8258,7 @@
             "Poison Res": 10
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/dis-redmagnus#灼熱魔界魔王",
         "inputs": [
             "Redmagnus",
             "Redmagnus Scorching Flame Overlord",
@@ -8209,6 +8325,7 @@
             "Charm Res": 10
         },
         "formula": "80% (PATK + DEX)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/dis-rinn#魔界アーチャー",
         "inputs": [
             "Rin",
             "Rin Netherworld Archer",
@@ -8274,6 +8391,7 @@
             "Poison Res": 20
         },
         "formula": "90% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/dis-rinn#猫娘族",
         "inputs": [
             "Rin Felynn",
             "Felynn"
@@ -8338,6 +8456,7 @@
             "Poison Res": 10
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/dis-usalia#兎兎魔界魔王",
         "inputs": [
             "Usalia",
             "Usalia Toto Bunny Overlord",
@@ -8408,6 +8527,7 @@
             "Poison Res": 10
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/orion#聖槍将",
         "inputs": [
             "Holy Spearman",
             "Holy Spear General"
@@ -8471,6 +8591,7 @@
             "Poison Res": 10
         },
         "formula": "120% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/lizardmen-hat#槍術士",
         "inputs": [
             "Lizardmen Hat",
             "Lizardmen Hat Lizardman Lancer",
@@ -8536,6 +8657,7 @@
             "Poison Res": 10
         },
         "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/dis-lahar#魔王",
         "inputs": [
             "Lahar",
             "Lahar Overlord",
@@ -8602,6 +8724,7 @@
             "Poison Res": 10
         },
         "formula": "130% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/dis-etona#魔王の家来",
         "inputs": [
             "Etona",
             "Etona Overlord's Vassal",
@@ -8667,6 +8790,7 @@
             "Poison Res": 10
         },
         "formula": "130% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/dis-prinny#プリニー隊",
         "inputs": [
             "Prinny",
             "Prinny Private Prinny",
@@ -8734,6 +8858,7 @@
             "Poison Res": 10
         },
         "formula": "130% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/dis-prinny#プリニー将軍",
         "inputs": [
             "Prinny General Prinny",
             "General Prinny",
@@ -8800,6 +8925,7 @@
             "Poison Res": 10
         },
         "formula": "130% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/dis-prinny#プリニー神",
         "inputs": [
             "Prinny Prinny Kami",
             "Prinny Kami",
@@ -8868,6 +8994,7 @@
             "Charm Res": 10
         },
         "formula": "75% (PATK + DEX)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/dis-almila#魔界盗賊",
         "inputs": [
             "Almira",
             "Almira Netherworld Thief",
@@ -8932,6 +9059,7 @@
             "Poison Res": 10
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/dis-almila#魔界侍",
         "inputs": [
             "Almira Netherworld Samurai",
             "Netherworld Samurai"
@@ -8997,6 +9125,7 @@
             "Charm Res": 10
         },
         "formula": "150% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/dis-rosa#夜魔族",
         "inputs": [
             "Rosa",
             "Rosa Succubus",
@@ -9064,6 +9193,7 @@
             "Light Res": 1
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/dis-rosa#魔界魔法使い",
         "inputs": [
             "Rosa Netherworld Witch",
             "Netherworld Witch"
@@ -9139,6 +9269,7 @@
             "Charm Res": 10
         },
         "formula": "90% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/ren#隠密",
         "inputs": [
             "Spy"
         ]
@@ -9203,6 +9334,7 @@
             "Charm Res": 10
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/ff15-noctis#ルシスの王子",
         "inputs": [
             "Noctis",
             "Noctis Lucian's Heir",
@@ -9271,6 +9403,7 @@
             "Poison Res": 20
         },
         "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/ff15-ignis#王子の側付き",
         "inputs": [
             "Ignis",
             "Ignis Prince's Hand",
@@ -9338,6 +9471,7 @@
             "Poison Res": 10
         },
         "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/ff15-gladiolus#王子の護衛",
         "inputs": [
             "Gladiolus",
             "Gladiolus Prince's Shield",
@@ -9407,6 +9541,7 @@
             "Charm Res": 10
         },
         "formula": "65% (PATK + DEX)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/ff15-promputo#王子の親友",
         "inputs": [
             "Promputo",
             "Promputo Prince's Best Friend",
@@ -9472,6 +9607,7 @@
             "Poison Res": 10
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/ff15-aranea#帝国准将",
         "inputs": [
             "Aranea",
             "Aranea Commodore",
@@ -9546,6 +9682,7 @@
             "Blind Res": 10
         },
         "formula": "70% (MATK + LUCK)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/neferty#天候師",
         "inputs": [
             "Master of Weather",
             "Forecaster"
@@ -9609,6 +9746,7 @@
             "Poison Res": 10
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/achad#七闘術師",
         "inputs": [
             "Achad",
             "Achad 7 Styles Master",
@@ -9679,6 +9817,7 @@
             "Light Res": 1
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/vier#香幻術師",
         "inputs": [
             "Vier",
             "Vier Pheremone Master",
@@ -9747,6 +9886,7 @@
             "Light Res": 1
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/rh-stock#諜報員",
         "inputs": [
             "Stock",
             "Stock Intelligence Agent",
@@ -9816,6 +9956,7 @@
             "Light Res": 1
         },
         "formula": "80% (MATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/rh-eruka#グランオルグ王女",
         "inputs": [
             "Eruka",
             "Eruka Princess Of Granorg",
@@ -9886,6 +10027,7 @@
             "Charm Res": 10
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/rh-ato#旅芸人",
         "inputs": [
             "Ato",
             "Ato Shaman",
@@ -9956,6 +10098,7 @@
             "Charm Res": 10
         },
         "formula": "120% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/rh-rainy#密偵",
         "inputs": [
             "Rainy",
             "Rainy Spy",
@@ -10004,6 +10147,7 @@
             "HP": 1584
         },
         "formula": "0% (MATK + LUCK)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/tsanglei#風水士",
         "inputs": [
             "Geomancer",
             "Feng Shui"
@@ -10069,6 +10213,7 @@
             "Poison Res": 10
         },
         "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/zyva#双刀術師",
         "inputs": [
             "Zyva",
             "Zyva Twin Blade Master",
@@ -10137,6 +10282,7 @@
             "Poison Res": 10
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/noin#爆力術師",
         "inputs": [
             "Noin",
             "Noin Explosives Master",
@@ -10207,6 +10353,7 @@
             "Charm Res": 10
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/fury#呪砲術師",
         "inputs": [
             "Fury",
             "Fury Spell Master",
@@ -10280,6 +10427,7 @@
             "Charm Res": 10
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/teresa#猛獣使い",
         "inputs": [
             "Beast Master"
         ]
@@ -10343,6 +10491,7 @@
             "Poison Res": 10
         },
         "formula": "140% PDEF",
+        "link": "http://www.alchemistcodedb.com/jp/unit/sq-paladin#パラディン",
         "inputs": [
             "Paladin Paladin"
         ]
@@ -10408,6 +10557,7 @@
             "Light Res": 1
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/sq-princess#プリンセス",
         "inputs": [
             "Princess",
             "Princess Princess"
@@ -10472,6 +10622,7 @@
             "Poison Res": 10
         },
         "formula": "95% (PATK + DEX/2 + LUCK/2)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/sq-shenmei#ダンサー",
         "inputs": [
             "Shenmei",
             "Shenmei Dancer",
@@ -10540,6 +10691,7 @@
             "Charm Res": 10
         },
         "formula": "65% (PATK + DEX)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/sq-shenmei#ガンナー（世界樹）",
         "inputs": [
             "Shenmei Gunner",
             "Shenmei Gunner（E.O.) ",
@@ -10606,6 +10758,7 @@
             "Charm Res": 10
         },
         "formula": "65% (PATK + DEX)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/sq-gunner#ガンナー（世界樹）",
         "inputs": [
             "Gunner Gunner",
             "Gunner",
@@ -10678,6 +10831,7 @@
             "Poison Res": 10
         },
         "formula": "75% (MATK + DEX)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/pok-blk-artemis#魔弾操師",
         "inputs": [
             "Magia Operator"
         ]
@@ -10745,6 +10899,7 @@
             "Petrify Res": 28
         },
         "formula": "150% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/kevin#念動師",
         "inputs": [
             "Psionic",
             "Telekine"
@@ -10809,6 +10964,7 @@
             "Poison Res": 20
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/fa-edward#鋼の錬金術師",
         "inputs": [
             "Edward",
             "Edward Fullmetal Alchemist",
@@ -10875,6 +11031,7 @@
             "Dark Res": 1
         },
         "formula": "140% MDEF",
+        "link": "http://www.alchemistcodedb.com/jp/unit/fa-pride#傲慢のホムンクルス",
         "inputs": [
             "Pride",
             "Pride Homunculus of Pride",
@@ -10944,6 +11101,7 @@
             "Petrify Res": 10
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/fa-alphonse#鎧の錬金術師",
         "inputs": [
             "Alphonse",
             "Alphonse Armored Alchemist        ",
@@ -11012,6 +11170,7 @@
             "Dark Res": 1
         },
         "formula": "150% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/fa-mustang#焔の錬金術師",
         "inputs": [
             "Mustang",
             "Mustang Flame Alchemist",
@@ -11078,6 +11237,7 @@
             "Charm Res": 10
         },
         "formula": "70% (PATK + DEX)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/fa-hawkeye#アメストリス軍中尉",
         "inputs": [
             "Hawkeye",
             "Hawkeye Firearms Lieutenant",
@@ -11148,6 +11308,7 @@
             "Poison Res": 10
         },
         "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/fa-wrath#憤怒のホムンクルス",
         "inputs": [
             "Wrath",
             "Wrath Homunculus of Wrath",
@@ -11219,6 +11380,7 @@
             "Blind Res": 10
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/fa-envy#嫉妬のホムンクルス",
         "inputs": [
             "Envy",
             "Envy Homunculus of Envy",
@@ -11290,6 +11452,7 @@
             "Blind Res": 10
         },
         "formula": "90% (PATK + MATK)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/leticia#神殿騎士",
         "inputs": [
             "Templar",
             ""
@@ -11355,6 +11518,7 @@
             "Charm Res": 10
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/zenn#刀剣術師",
         "inputs": [
             "Zenn",
             "Zenn Sword Master",
@@ -11424,6 +11588,7 @@
             "Charm Res": 10
         },
         "formula": "80% (PATK + DEX)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/pok-freikugel#仕掛砲師",
         "inputs": [
             "Cannoneer"
         ]
@@ -11488,6 +11653,7 @@
             "Blind Res": 10
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/pok-blk-tyrhung#黒剣姫",
         "inputs": [
             "Black Killer Tyrhung",
             "Black Killer Tyrhung Black Killer : Avarice",
@@ -11557,6 +11723,7 @@
             "Poison Res": 20
         },
         "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/pok-parashu#ベルセルク",
         "inputs": [
             "Berserker",
             "Berserk"
@@ -11622,6 +11789,7 @@
             "Charm Res": 10
         },
         "formula": "150% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/ff15-regis#ルシスの国王",
         "inputs": [
             "Regis",
             "Regis King Of Lucis",
@@ -11692,6 +11860,7 @@
             "Light Res": 1
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/ff15-regis#奇術師",
         "inputs": [
             "Regis Chronomancer",
             "Regis Illusionist"
@@ -11759,6 +11928,7 @@
             "Poison Res": 10
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/ff15-regis#鎧魔道師",
         "inputs": [
             "Regis Armored Mage",
             "Armored Mage"
@@ -11824,6 +11994,7 @@
             "Poison Res": 10
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/ff15-cor#王都警護隊隊長",
         "inputs": [
             "Cor",
             "Cor Crownsguard Commander",
@@ -11893,6 +12064,7 @@
             "Charm Res": 10
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/ff15-iris#王の幼馴染",
         "inputs": [
             "Iris",
             "Iris Prince's Friend",
@@ -11962,6 +12134,7 @@
             "Blind Res": 10
         },
         "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/pok-blk-laevateinn#黒刃姫",
         "inputs": [
             "Black Killer Laevateinn",
             "Black Killer Laevateinn Black Killer : Sloth",
@@ -12029,6 +12202,7 @@
             "Light Res": 1
         },
         "formula": "55% (MATK + DEX/2 + LUCK/2)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/fiona#お嬢様",
         "inputs": [
             "Fiona",
             "Fiona Lady",
@@ -12093,6 +12267,7 @@
             "Poison Res": 10
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/gerald#轟雷銃槍師",
         "inputs": [
             "Gerald",
             "Gerald Gun-Lancer",
@@ -12161,6 +12336,7 @@
             "Charm Res": 10
         },
         "formula": "150% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/l-urob#大陸の観測者",
         "inputs": [
             "Little Urob",
             "Little Urob Continental Observer",
@@ -12230,6 +12406,7 @@
             "Poison Res": 10
         },
         "formula": "150% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/l-urob#深淵を覗く者",
         "inputs": [
             "Little Urob Abyss Gazer",
             "Abyss Gazer"
@@ -12293,6 +12470,7 @@
             "Poison Res": 20
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/ren#蒼水の瞬剣",
         "inputs": [
             "Ren",
             "Ren Azure Blademaster",
@@ -12364,6 +12542,7 @@
             "Blind Res": 10
         },
         "formula": "80% (PATK + MATK)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/thol#真理術師",
         "inputs": [
             "Thol",
             "Thol Truth Master",
@@ -12433,6 +12612,7 @@
             "Blind Res": 10
         },
         "formula": "80% (MATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/leticia#水精霊彩師",
         "inputs": [
             "Leticia",
             "Leticia Water Elemental",
@@ -12501,6 +12681,7 @@
             "Poison Res": 10
         },
         "formula": "95% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/carla#烈火羅刹",
         "inputs": [
             "Carla",
             "Carla Desert Inferno",
@@ -12568,6 +12749,7 @@
             "Poison Res": 10
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/ankh#蒼水銃槍師",
         "inputs": [
             "Ankh",
             "Ankh Aqua Gun-Lancer",
@@ -12636,6 +12818,7 @@
             "Light Res": 1
         },
         "formula": "120% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/apr-liz#リザードマン",
         "inputs": [
             "Liz",
             "Liz Lizardman",
@@ -12700,6 +12883,7 @@
             "Poison Res": 10
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/don-taras#リトルヘブンのドン",
         "inputs": [
             "Don Taras",
             "Don Taras Little Heaven's Don",
@@ -12765,6 +12949,7 @@
             "Poison Res": 10
         },
         "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/orion#獅子王",
         "inputs": [
             "Orion",
             "Orion Emperor",
@@ -12833,6 +13018,7 @@
             "Dark Res": 1
         },
         "formula": "75% (PATK + DEX)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/pok-blk-artemis#黒弓姫",
         "inputs": [
             "Black Killer Artemis",
             "Black Killer Artemis Black Killer : Lust",
@@ -12904,6 +13090,7 @@
             "Poison Res": 10
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/cry-merlinus#虚実の英雄",
         "inputs": [
             "Merlinus",
             "Merlinus Hero of Duality",
@@ -12971,6 +13158,7 @@
             "Poison Res": 10
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/cry-arthur#求道の英雄",
         "inputs": [
             "Arthur",
             "Arthur Investigator Hero",
@@ -13036,6 +13224,7 @@
             "Charm Res": 3
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/kudhanstein#demonic-spearman+",
         "inputs": [
             "Kudanstein",
             "Kudanstein Demonic Spearman+",
@@ -13105,6 +13294,7 @@
             "Light Res": 3
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/othima#ファントムマスター＋",
         "inputs": [
             "Othima",
             "Othima Phantom Master+",
@@ -13171,6 +13361,7 @@
             "Max Jewels": 15
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/unit/kagura#blaze-orb-princess+",
         "inputs": [
             "Kagura",
             "Kagura Blaze Orb Princess+",
@@ -13238,6 +13429,7 @@
             "Dark Res": 2
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/logi#holy-cavalier+",
         "inputs": [
             "Logi",
             "Logi Holy Cavalier+",
@@ -13304,6 +13496,7 @@
             "Light Res": 1
         },
         "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/dios#ダークナイト＋",
         "inputs": [
             "Dias",
             "Dias Dark Cavalier+  : Edgelord",
@@ -13370,6 +13563,7 @@
             "Poison Res": 3
         },
         "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/laevateinn#dark-cavalier+",
         "inputs": [
             "Laevateinn",
             "Laevateinn Dark Cavalier+",
@@ -13436,6 +13630,7 @@
             "Charm Res": 16
         },
         "formula": "65% (PATK + DEX)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/edgar#ドリフター＋",
         "inputs": [
             "Edgar",
             "Edgar Drifter+",
@@ -13503,6 +13698,7 @@
             "Blind Res": 10
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/liesbet#魔法使い＋",
         "inputs": [
             "Lisbeth",
             "Lisbeth Witch+",
@@ -13568,6 +13764,7 @@
             "Poison Res": 16
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/unit/alexis#bishop+",
         "inputs": [
             "Alexis",
             "Alexis Bishop+",
@@ -13638,6 +13835,7 @@
             "Charm Res": 75
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/vanekis#賢者＋",
         "inputs": [
             "Vanekis",
             "Vanekis Sage+",
@@ -13702,6 +13900,7 @@
             "Poison Res": 3
         },
         "formula": "60% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/unit/pollin#bard+",
         "inputs": [
             "Polin",
             "Polin Bard+",
@@ -13772,6 +13971,7 @@
             "Charm Res": 10
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/ciel#暗殺者【宵】",
         "inputs": [
             "Shadow Assassin : Evening",
             "Assasin [Evening]"
@@ -13836,6 +14036,7 @@
             "Charm Res": 37
         },
         "formula": "70% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/yuan#忍者＋",
         "inputs": [
             "Yuan",
             "Yuan Ninja+  : Shinobi",
@@ -13903,6 +14104,7 @@
             "Blind Res": 3
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/unit/mare#sage+",
         "inputs": [
             "Mia",
             "Mia Sage+",
@@ -13971,6 +14173,7 @@
             "Poison Res": 10
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/freed#ドラゴンナイト＋",
         "inputs": [
             "Freed",
             "Freed Dragon Cavalier+  : Dragon Slayer",
@@ -14037,6 +14240,7 @@
             "Poison Res": 3
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/dilga#holy-cavalier+",
         "inputs": [
             "Dilga",
             "Dilga Holy Cavalier+",
@@ -14106,6 +14310,7 @@
             "Stop Res": 16
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/sutorie#暗殺者＋",
         "inputs": [
             "Strie",
             "Strie Assasin+ : Charm",
@@ -14174,6 +14379,7 @@
             "Poison Res": 10
         },
         "formula": "90% (PATK + MATK)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/sutorie#魔法剣士【キマイラ】",
         "inputs": [
             "Magic Swordsman : Chimera",
             "Magic Knight: Chimera"
@@ -14239,6 +14445,7 @@
             "Charm Res": 7
         },
         "formula": "55% (MATK + DEX/2 + LUCK/2)",
+        "link": "http://www.alchemistcodedb.com/unit/michael#professor+",
         "inputs": [
             "Michael",
             "Michael Professor+",
@@ -14304,6 +14511,7 @@
             "Poison Res": 3
         },
         "formula": "60% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/unit/chihaya#dancer+",
         "inputs": [
             "Chihaya",
             "Chihaya Dancer+",
@@ -14370,6 +14578,7 @@
             "Dark Res": 4
         },
         "formula": "90% (PATK + MATK)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/arkill#魔法剣士＋",
         "inputs": [
             "Arkil",
             "Arkil Magic Swordsman+",
@@ -14437,6 +14646,7 @@
             "Light Res": 2
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/unit/rofia#chronomancer+",
         "inputs": [
             "Lofia",
             "Lofia Chronomancer+",
@@ -14503,6 +14713,7 @@
             "Charm Res": 3
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/lamia#dragon-cavalier+",
         "inputs": [
             "Lamia",
             "Lamia Dragon Cavalier+",
@@ -14574,6 +14785,7 @@
             "Poison Res": 10
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/zangetsu#拳聖【千手】",
         "inputs": [
             "Holy Brawler : Senju",
             "Saint of Fist: Senju"
@@ -14636,6 +14848,7 @@
             "Poison Res": 3
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/unit/lucia#holy-brawler+",
         "inputs": [
             "Lucian",
             "Lucian Holy Brawler+",
@@ -14702,6 +14915,7 @@
             "Charm Res": 3
         },
         "formula": "70% (PATK + DEX)",
+        "link": "http://www.alchemistcodedb.com/unit/chalice#sniper+",
         "inputs": [
             "Caris",
             "Caris Sniper+",
@@ -14771,6 +14985,7 @@
             "Poison Res": 8
         },
         "formula": "80% (PATK + DEX)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/megistos#マシーナリー＋",
         "inputs": [
             "Megistos",
             "Megistos Machinist+",
@@ -14838,6 +15053,7 @@
             "Light Res": 3
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/unit/rahu#chronomancer+",
         "inputs": [
             "Rahu",
             "Rahu Chronomancer+",
@@ -14905,6 +15121,7 @@
             "Poison Res": 10
         },
         "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/anastasia#ダークナイト【シュピオン】",
         "inputs": [
             "Anastasia Dark Cavalier : Spion",
             "Dark Cavalier : Spion",
@@ -14971,6 +15188,7 @@
             "Charm Res": 3
         },
         "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/anastasia#dark-cavalier+",
         "inputs": [
             "Anastasia",
             "Anastasia Dark Cavalier+",
@@ -15036,6 +15254,7 @@
             "Charm Res": 3
         },
         "formula": "70% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/unit/flamel#beast-tamer+",
         "inputs": [
             "Flamel",
             "Flamel Beast Tamer+",
@@ -15103,6 +15322,7 @@
             "Charm Res": 3
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/balt#twin-blade-swordsman+",
         "inputs": [
             "Balt",
             "Balt Twin-Blade Swordsman+",
@@ -15172,6 +15392,7 @@
             "Poison Res": 12
         },
         "formula": "90% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/cadanova#焔竜神",
         "inputs": [
             "Cadanova",
             "Cadanova Dragon Slayer+",
@@ -15240,6 +15461,7 @@
             "Poison Res": 10
         },
         "formula": "70% (PATK + DEX)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/seida#疾弓騎士＋",
         "inputs": [
             "Seida",
             "Seida Venom Archer+",
@@ -15309,6 +15531,7 @@
             "Light Res": 8
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/deneb#占星術師＋",
         "inputs": [
             "Deneb",
             "Deneb Astrologer+  : Moirai",
@@ -15376,6 +15599,7 @@
             "Poison Res": 12
         },
         "formula": "50% (PATK + LUCK)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/kyaroru#機鎧バトルメイド",
         "inputs": [
             "Carol",
             "Carol Merchant+  : Armored Battle Maid",
@@ -15447,6 +15671,7 @@
             "Poison Res": 36
         },
         "formula": "90% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/zin#宿業の闇影",
         "inputs": [
             "Zin",
             "Zin Spy+ : Ronin",
@@ -15519,6 +15744,7 @@
             "Charm Res": 10
         },
         "formula": "55% (MATK + DEX/2 + LUCK/2)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/noah#プロフェッサー【マッド】",
         "inputs": [
             "Professor : Mad",
             "Professor: Mad"
@@ -15586,6 +15812,7 @@
             "Poison Res": 24
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/noah#マジカル優等生",
         "inputs": [
             "Noah",
             "Noah Battle Mage+  : Magical Honor Student",
@@ -15654,6 +15881,7 @@
             "Poison Res": 10
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/monzein#剛斧猛将",
         "inputs": [
             "Monzein",
             "Monzein Indomitable Axe Knight+",
@@ -15721,6 +15949,7 @@
             "Slow Res": 12
         },
         "formula": "130% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/yaulas#双剣麗将",
         "inputs": [
             "Yauras",
             "Yauras Twin-Blade Knight+",
@@ -15790,6 +16019,7 @@
             "Silence Res": 12
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/mielikki#ビショップ＋",
         "inputs": [
             "Mielikki",
             "Mielikki Bishop+",
@@ -15856,6 +16086,7 @@
             "Max Jewels": 15
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/gormalas#海賊＋",
         "inputs": [
             "Gormalas",
             "Gormalas Pirate+",
@@ -15922,6 +16153,7 @@
             "Poison Res": 10
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/reimei#剣豪＋",
         "inputs": [
             "Reimei",
             "Reimei Blademaster+  : Mifune",
@@ -15989,6 +16221,7 @@
             "Poison Res": 12
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/miuna#匠鍛師＋",
         "inputs": [
             "Miuna",
             "Miuna Blacksmith+        ",
@@ -16057,6 +16290,7 @@
             "Charm Res": 12
         },
         "formula": "90% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/hayate#隠密＋",
         "inputs": [
             "Hayate",
             "Hayate Spy+  : Genin",
@@ -16124,6 +16358,7 @@
             "Poison Res": 20
         },
         "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/toritoh#残人・マーシャルマスター",
         "inputs": [
             "Martial Master : Human Hitman",
             "Martial Master: Human Mediator"
@@ -16193,6 +16428,7 @@
             "Poison Res": 10
         },
         "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/cordelia#ダークナイト【シュピオン】",
         "inputs": [
             "Dark Cavalier : Move",
             "Dark Knight: Spion"
@@ -16260,6 +16496,7 @@
             "Poison Res": 10
         },
         "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/itsuki#ダークナイト【イェーガー】",
         "inputs": [
             "Dark Cavalier : Jaeger",
             "Dark Knight: Jaeger"
@@ -16328,6 +16565,7 @@
             "Poison Res": 10
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/pok-longinus#ドラゴンナイト【ルドラ】",
         "inputs": [
             "Dragon Cavalier : Rudra",
             "Dragon Knight [Rudra]"
@@ -16398,6 +16636,7 @@
             "Charm Res": 10
         },
         "formula": "65% (PATK + DEX)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/pok-artemis#レンジャー【鷹】",
         "inputs": [
             "Ranger : Hawk",
             "Ranger: Hawk"
@@ -16467,6 +16706,7 @@
             "Charm Res": 10
         },
         "formula": "65% (PATK + DEX)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/belta#レンジャー【蛇】",
         "inputs": [
             "Ranger : Snake",
             "Ranger: Snake"
@@ -16533,6 +16773,7 @@
             "Poison Res": 10
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/lotia#拳聖【修羅】",
         "inputs": [
             "Holy Brawler : Shura",
             "Saint of Fist: Shura"
@@ -16600,6 +16841,7 @@
             "Charm Res": 10
         },
         "formula": "70% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/kevin#忍者【玄武】",
         "inputs": [
             "Ninja  : Genbu",
             "Ninja: Genbu"
@@ -16668,6 +16910,7 @@
             "Light Res": 1
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/aisha#賢者【オベリスク】",
         "inputs": [
             "Sage : Obelisk",
             "Sage: Obelisk"
@@ -16738,6 +16981,7 @@
             "Poison Res": 10
         },
         "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/guildford#ダークナイト【ゼーレ】",
         "inputs": [
             "Dark Cavalier : Seele",
             "Dark Knight: Seele"
@@ -16802,6 +17046,7 @@
             "Poison Res": 20
         },
         "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/shirma#破獣・マーシャルマスター",
         "inputs": [
             "Martial Master : Demon Destroyer",
             "Martial Master: Beast Render"
@@ -16867,6 +17112,7 @@
             "Poison Res": 10
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/kurt#ドラゴンナイト【ヴリトラ】",
         "inputs": [
             "Dragon Cavalier : Vritra",
             "Dragon Knight: Vritra"
@@ -16935,6 +17181,7 @@
             "Charm Res": 10
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/kurt#暗殺者【闇】",
         "inputs": [
             "Shadow Assassin : Night",
             "Assassin: Night"
@@ -17000,6 +17247,7 @@
             "Poison Res": 10
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/teresa#ホーリーナイト【マギ】",
         "inputs": [
             "Holy Cavalier : Magi",
             "Holy Knight: Magi"
@@ -17066,6 +17314,7 @@
             "Light Res": 1
         },
         "formula": "120% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/pok-freikugel#ラー・マギアシューター",
         "inputs": [
             "Magia Gunslinger  : Ra",
             "Magic Shooter [Ra]"
@@ -17135,6 +17384,7 @@
             "Light Res": 1
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/s-tsukuyomi#賢者【モノリス】",
         "inputs": [
             "Sage : Monolith",
             "Sage: Monolith"
@@ -17204,6 +17454,7 @@
             "Charm Res": 10
         },
         "formula": "70% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/dis-etona#忍者【朱雀】",
         "inputs": [
             "Ninja : Suzaku",
             "Ninja: Suzaku"
@@ -17270,6 +17521,7 @@
             "Light Res": 1
         },
         "formula": "120% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/dis-seraphina#イシス・マギアシューター",
         "inputs": [
             "Magia Gunslinger : Isis",
             "Isis: Magia Shooter"
@@ -17337,6 +17589,7 @@
             "Light Res": 1
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/l-urob#賢者【パンドラ】",
         "inputs": [
             "Sage : Pandora",
             "Sage: Pandora"
@@ -17400,6 +17653,7 @@
             "Poison Res": 10
         },
         "formula": "50% (PATK + LUCK)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/leticia#商人【計り狸】",
         "inputs": [
             "Merchant : Scheming Tanuki",
             "Merchant 【Scheming Tanuki】"
@@ -17467,6 +17721,7 @@
             "Charm Res": 10
         },
         "formula": "70% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/ira#忍者【白虎】",
         "inputs": [
             "Ninja : Byakko",
             "Ninja: Byakko"
@@ -17536,6 +17791,7 @@
             "Poison Res": 10
         },
         "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/ankh#ダークナイト【ファウスト】",
         "inputs": [
             "Dark Cavalier : Faust",
             "Dark Knight: Faust"
@@ -17600,6 +17856,7 @@
             "Poison Res": 10
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/don-taras#ホーリーナイト【アーク】",
         "inputs": [
             "Holy Cavalier : Ark",
             "Holy Knight: Ark"
@@ -17669,6 +17926,7 @@
             "Light Res": 1
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/neferty#賢者【ロゼッタ】",
         "inputs": [
             "Sage  : Rosetta",
             "Sage: Rosetta"
@@ -17733,6 +17991,7 @@
             "Poison Res": 10
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/orion#ウォーリア【アトラス】",
         "inputs": [
             "Orion Warrior : Atlas",
             "Warrior : Atlas",
@@ -17802,6 +18061,7 @@
             "Poison Res": 12
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/canon#ロードマスター",
         "inputs": [
             "Kanon Lord Commander",
             "Kanon Lord Master"
@@ -17872,6 +18132,7 @@
             "Charm Res": 10
         },
         "formula": "70% (PATK + DEX)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/pok-blk-artemis#スナイパー【スコープ】",
         "inputs": [
             "Sniper : Scope",
             "Sniper: Scope"
@@ -17935,6 +18196,7 @@
             "Poison Res": 10
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/ren#狭霧の双剣士",
         "inputs": [
             "Ren Twin-Blade Swordsman : Mist",
             "Twin-Blade Swordsman : Mist",
@@ -18003,6 +18265,7 @@
             "Poison Res": 10
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/cry-arthur#ホーリーナイト【ポルタ】",
         "inputs": [
             "Holy Cavalier : Porta"
         ]
@@ -18070,6 +18333,7 @@
             "Charm Res": 10
         },
         "formula": "70% (PATK + DEX)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/regen#スナイパー【バレル】",
         "inputs": [
             "Sniper : Barrel",
             "Sniper: Barrel"
@@ -18136,6 +18400,7 @@
             "Charm Res": 10
         },
         "formula": "70% (PATK + DEX)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/hugo#スナイパー【マグナム】",
         "inputs": [
             "Hugo",
             "Hugo Sniper : Magnum",
@@ -18205,6 +18470,7 @@
             "Light Res": 1
         },
         "formula": "120% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/vivi#ホルス・マギアシューター",
         "inputs": [
             "Vivi",
             "Vivi Magia Gunslinger : Horus",
@@ -18274,6 +18540,7 @@
             "Light Res": 1
         },
         "formula": "120% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/uzuma#セト・マギアシューター",
         "inputs": [
             "Uzuma",
             "Uzuma Magia Gunslinger : Set",
@@ -18347,6 +18614,7 @@
             "Charm Res": 10
         },
         "formula": "55% (MATK + DEX/2 + LUCK/2)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/s-amaterasu#プロフェッサー【エイド】",
         "inputs": [
             "Professor : Aid",
             "Professor: AID"
@@ -18414,6 +18682,7 @@
             "Charm Res": 10
         },
         "formula": "70% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/s-sakura#忍者【青龍】",
         "inputs": [
             "Ninja : Seiryu",
             "Ninja: Seiryu"
@@ -18482,6 +18751,7 @@
             "Charm Res": 10
         },
         "formula": "70% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/laevateinn#忍者【麒麟】",
         "inputs": [
             "Ninja : Kirin",
             "Ninja: Kirin"
@@ -18548,6 +18818,7 @@
             "Poison Res": 10
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/shekinah#拳聖【弥勒】",
         "inputs": [
             "Holy Brawler : Maitreya",
             "Saint of Fist: Maitreya"
@@ -18612,6 +18883,7 @@
             "Poison Res": 10
         },
         "formula": "90% (PATK + MATK)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/dorothea#魔法剣士【イフリート】",
         "inputs": [
             "Magic Swordsman : Ifrit",
             "Magic Knight: Ifrit"
@@ -18675,6 +18947,7 @@
             "Poison Res": 10
         },
         "formula": "90% (PATK + MATK)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/margaret#魔法剣士【フェンリル】",
         "inputs": [
             "Margaret",
             "Margaret Magic Swordsman : Fenrir",
@@ -18743,6 +19016,7 @@
             "Poison Res": 10
         },
         "formula": "90% (PATK + MATK)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/nasario#魔法剣士【シルフィード】",
         "inputs": [
             "Magic Swordsman : Sylphid",
             "Magic Knight: Sylphid"
@@ -18807,6 +19081,7 @@
             "Poison Res": 10
         },
         "formula": "90% (PATK + MATK)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/rion#魔法剣士【イクシオン】",
         "inputs": [
             "Magic Swordsman : Ixion",
             "Magic Knight: Ixion"
@@ -18872,6 +19147,7 @@
             "Poison Res": 10
         },
         "formula": "90% (PATK + MATK)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/neica#魔法剣士【ペガサス】",
         "inputs": [
             "Magic Swordsman : Pegasus",
             "Magic Knight: Pegasus"
@@ -18940,6 +19216,7 @@
             "Light Res": 1
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/soleil#賢者【カルナック】",
         "inputs": [
             "Sage : Carnac",
             "Sage: Carnac"
@@ -19002,6 +19279,7 @@
             "Poison Res": 10
         },
         "formula": "50% (PATK + LUCK)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/erurike#商人【誘い達磨】",
         "inputs": [
             "Elrike",
             "Elrike Merchant : Charming Daruma",
@@ -19069,6 +19347,7 @@
             "Poison Res": 10
         },
         "formula": "50% (PATK + LUCK)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/mariannu#商人【恵み鶴】",
         "inputs": [
             "Merchant : Grace Crane",
             "Merchant: Grace Crane"
@@ -19137,6 +19416,7 @@
             "Charm Res": 10
         },
         "formula": "65% (PATK + DEX)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/pok-eros#レンジャー【狼】",
         "inputs": [
             "Ranger : Wolf",
             "Ranger: Wolf"
@@ -19200,6 +19480,7 @@
             "Poison Res": 10
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/tyrhung#ホーリーナイト【ギア】",
         "inputs": [
             "Tyrfing Holy Cavalier : Gear",
             "Holy Cavalier : Gear",
@@ -19268,6 +19549,7 @@
             "Poison Res": 10
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/eizan#拳聖【不動】",
         "inputs": [
             "Holy Brawler : Fudo",
             "Saint of Fist: Fudo"
@@ -19334,6 +19616,7 @@
             "Poison Res": 10
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/aruba#ドラゴンナイト【ガルダ】",
         "inputs": [
             "Dragon Cavalier : Garuda",
             "Dragon Knight: Garuda"
@@ -19400,6 +19683,7 @@
             "Poison Res": 10
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/vettel#ホーリーナイト【イザヤ】",
         "inputs": [
             "Holy Cavalier : Izaya",
             "Holy Knight: Izaya"
@@ -19464,6 +19748,7 @@
             "Poison Res": 10
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/zeke#ホーリーナイト【ダビデ】",
         "inputs": [
             "Zeke Holy Cavalier : David",
             "Holy Cavalier : David",
@@ -19532,6 +19817,7 @@
             "Poison Res": 10
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/cloe#ホーリーナイト【ピエタ】",
         "inputs": [
             "Holy Cavalier : Pieta",
             "Holy Knight: Pietà"
@@ -19595,6 +19881,7 @@
             "Poison Res": 10
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/zayin#ホーリーナイト【ギア】",
         "inputs": [
             "Zain Holy Cavalier : Zayin",
             "Holy Cavalier : Zayin",
@@ -19664,6 +19951,7 @@
             "Charm Res": 10
         },
         "formula": "55% (MATK + DEX/2 + LUCK/2)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/gayn#プロフェッサー【バイオ】",
         "inputs": [
             "Professor : Bio",
             "Professor: BIO"
@@ -19731,6 +20019,7 @@
             "Blind Res": 10
         },
         "formula": "55% (MATK + DEX/2 + LUCK/2)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/elizabeth#プロフェッサー【ハニー】",
         "inputs": [
             "Professor : Honey",
             "Professor: Honey"
@@ -19794,6 +20083,7 @@
             "Poison Res": 20
         },
         "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/meifan#機壊・マーシャルマスター",
         "inputs": [
             "Mei Fang",
             "Mei Fang Martial Master : Mecha Masher",
@@ -19865,6 +20155,7 @@
             "Poison Res": 10
         },
         "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/yunagi#ダークナイト【ゲルニカ】",
         "inputs": [
             "Dark Cavalier : Gernika",
             "Dark Knight: Gernika"
@@ -19934,6 +20225,7 @@
             "Light Res": 1
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/rahu#零のエンハンサー",
         "inputs": [
             "Zero Enchanter",
             "Zero Enhancer"
@@ -20000,6 +20292,7 @@
             "Light Res": 1
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/sophia#蒼水のエンハンサー",
         "inputs": [
             "Blue Water Enchanter"
         ]
@@ -20064,6 +20357,7 @@
             "Light Res": 1
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/hazuki#翠風のエンハンサー",
         "inputs": [
             "Tender Wind Enchanter",
             "Tender Wind Enhancer"
@@ -20129,6 +20423,7 @@
             "Light Res": 1
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/fujica#轟雷のエンハンサー",
         "inputs": [
             "Roaring Thunder Enchanter",
             "Roaring Thunder Enhancer"
@@ -20193,6 +20488,7 @@
             "Blind Res": 10
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/lupinus#アガルタの召喚師",
         "inputs": [
             "Lupinus",
             "Lupinus Summoner of Agartha",
@@ -20259,6 +20555,7 @@
             "Blind Res": 10
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/nina#ティルナノグの召喚師",
         "inputs": [
             "Summoner of Tir Na Nog"
         ]
@@ -20325,6 +20622,7 @@
             "Blind Res": 10
         },
         "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/birgitta#ヘルヘイムの召喚師",
         "inputs": [
             "Summoner of Hellheim"
         ]
@@ -20389,6 +20687,7 @@
             "Poison Res": 10
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/chao#鬼滅の双剣士",
         "inputs": [
             "Twin-Blade Swordsman : Ogre Exterminator",
             "Twin Bladed Ogre Exterminator"
@@ -20454,6 +20753,7 @@
             "Poison Res": 10
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/blanchett#魔狩の双剣士",
         "inputs": [
             "Twin-Blade Swordsman : Demon Hunter",
             "Twin Bladed Demon Hunter"
@@ -20519,6 +20819,7 @@
             "Poison Res": 10
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/edwin#ウォーリア【ギガンテス】",
         "inputs": [
             "Warrior : Gigantes",
             "Axe Warrior : Gigantes"
@@ -20584,6 +20885,7 @@
             "Poison Res": 10
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/sita#ウォーリア【アルゴス】",
         "inputs": [
             "Warrior : Argos",
             "Axe Warrior: Argos"
@@ -20648,6 +20950,7 @@
             "Poison Res": 10
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/yunagi#ウォーリア【ティターン】",
         "inputs": [
             "Yunagi",
             "Yunagi Warrior : Titan",
@@ -20719,6 +21022,7 @@
             "Poison Res": 10
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/spica#ウォーリア【ゴリアテ】",
         "inputs": [
             "Warrior : Goliath",
             "Axe Warrior: Goliath"
@@ -20783,6 +21087,7 @@
             "Poison Res": 10
         },
         "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/yuto#ウォーリア【ムスペル】",
         "inputs": [
             "Yuto",
             "Yuto Warrior : Muspell",
