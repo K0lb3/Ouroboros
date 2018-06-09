@@ -805,8 +805,8 @@
             "Chiruru",
             "Elrike",
             "Ines",
-            "Iris",
-            "Merlinus"
+            "Iris FF",
+            "Merlinus CR"
         ],
         "jobe": [
             "Bard+"
@@ -876,9 +876,9 @@
             "Patty",
             "Chihaya",
             "Scheherazade",
-            "Ato",
+            "Ato RH",
             "Feirin",
-            "Artemis"
+            "Artemis POTK"
         ],
         "jobe": [
             "Dancer+"
@@ -946,7 +946,7 @@
             "Neica",
             "Chao",
             "Noah",
-            "Noctis",
+            "Noctis FF",
             "Fujica",
             "Birgitta",
             "Kevin",
@@ -1036,8 +1036,8 @@
             "Seida",
             "Shekinah",
             "Carol",
-            "Rin",
-            "Gunner",
+            "Rin DIS",
+            "Gunner EMD",
             "Liz"
         ],
         "jobe": [
@@ -1189,21 +1189,21 @@
             "Victor",
             "Reida",
             "Thillie",
-            "Lamia",
+            "Lamia Fate",
             "Rena",
-            "Sakura",
+            "Sakura SN",
             "Bashosen",
             "Mikoto",
             "Yunagi",
-            "Etona",
+            "Etona DIS",
             "Achad",
             "Celliers",
-            "Yuri",
+            "Yuri SN",
             "Tetis",
             "Dartagnan",
-            "Mustang",
+            "Mustang FA",
             "Kevin",
-            "Cor",
+            "Cor FF",
             "Ira"
         ],
         "jobe": [
@@ -1300,13 +1300,13 @@
             "Elrike",
             "Miuna",
             "Mei Fang",
-            "Usalia",
+            "Usalia DIS",
             "Lavina",
             "Chatnoir",
             "Celliers",
-            "Eros",
-            "Alphonse",
-            "Freikugel"
+            "Eros POTK",
+            "Alphonse FA",
+            "Freikugel POTK"
         ],
         "jobe": [
             "Shadow Assassin : Evening",
@@ -1617,12 +1617,12 @@
             "Shayna",
             "Lupinus",
             "Illyasviel",
-            "Usalia",
+            "Usalia DIS",
             "Vier",
-            "Eruka",
+            "Eruka RH",
             "Annika",
             "Fujica",
-            "Tsukuyomi",
+            "Tsukuyomi SN",
             "Fiona"
         ],
         "jobe": [
@@ -1702,7 +1702,7 @@
             "Thillie",
             "Yuto",
             "Suiran",
-            "Paladin",
+            "Paladin EMD",
             "Lucille"
         ],
         "jobe": [
@@ -1857,8 +1857,8 @@
             "Aswald",
             "Vivi",
             "Justin",
-            "Promputo",
-            "Hawkeye"
+            "Promputo FF",
+            "Hawkeye FA"
         ],
         "jobe": [],
         "main": "",
@@ -2006,8 +2006,8 @@
             "Chloe",
             "Saber",
             "Zeke",
-            "Promputo",
-            "Alphonse"
+            "Promputo FF",
+            "Alphonse FA"
         ],
         "jobe": [
             "Holy Cavalier+",
@@ -2086,10 +2086,10 @@
             "Sophia",
             "Illyasviel",
             "Nasario",
-            "Rosa",
-            "Rainy",
+            "Rosa DIS",
+            "Rainy RH",
             "Fujica",
-            "Princess",
+            "Princess EMD",
             "Ema",
             "Tsanglei",
             "Fiona"
@@ -2166,7 +2166,7 @@
             "Elizabeth",
             "Lucretia",
             "Vincent",
-            "Amaterasu",
+            "Amaterasu SN",
             "Fury",
             "Natalie"
         ],
@@ -2248,10 +2248,10 @@
             "Shenmei",
             "Courage",
             "Deneb",
-            "Seraphina",
+            "Seraphina DIS",
             "Daisy",
-            "Ignis",
-            "Gunner",
+            "Ignis FF",
+            "Gunner EMD",
             "Hisharmu",
             "Belta"
         ],
@@ -2331,16 +2331,16 @@
             "Cita",
             "Setsuna",
             "Rin Tohsaka",
-            "Killia",
+            "Killia DIS",
             "Blanchett",
-            "Gladiolus",
+            "Gladiolus FF",
             "Leonia",
-            "Stock",
+            "Stock RH",
             "Zyva",
             "Tomas",
             "Won",
-            "Edward",
-            "Envy",
+            "Edward FA",
+            "Envy FA",
             "Cordelia",
             "Itsuki",
             "Shirma"
@@ -2418,7 +2418,7 @@
             "Tamamo",
             "Reida",
             "Fairlily",
-            "Amaterasu",
+            "Amaterasu SN",
             "Uzuma"
         ],
         "jobe": [],
@@ -2499,13 +2499,13 @@
             "Margaret",
             "Neica",
             "Nasario",
-            "Lahar",
+            "Lahar DIS",
             "Olga",
-            "Noctis",
+            "Noctis FF",
             "Edwin",
-            "Rainy",
+            "Rainy RH",
             "Leydow",
-            "Pride",
+            "Pride FA",
             "Thol"
         ],
         "jobe": [
@@ -2584,11 +2584,11 @@
             "Courage",
             "Bashosen",
             "Justin",
-            "Eruka",
+            "Eruka RH",
             "Hugo",
-            "Eros",
-            "Hawkeye",
-            "Black Killer Artemis"
+            "Eros POTK",
+            "Hawkeye FA",
+            "Black Killer Artemis POTK"
         ],
         "jobe": [
             "Sniper+",
@@ -2665,8 +2665,8 @@
             "Gormalas",
             "Monzein",
             "Teona",
-            "Redmagnus",
-            "Black Killer Tyrhung"
+            "Redmagnus DIS",
+            "Black Killer Tyrhung POTK"
         ],
         "jobe": [
             "Dragon Cavalier+  : Dragon Slayer",
@@ -2744,7 +2744,7 @@
             "Glanz",
             "Masamune",
             "Eizan",
-            "Yomi",
+            "Yomi SN",
             "Blanchett",
             "Zin",
             "Justin",
@@ -2752,7 +2752,7 @@
             "Noin",
             "Feirin",
             "Izayoi",
-            "Parashu"
+            "Parashu POTK"
         ],
         "jobe": [
             "Blademaster+  : Mifune"
@@ -2887,7 +2887,7 @@
             "Aruba",
             "Ramses",
             "Celliers",
-            "Longinus",
+            "Longinus POTK",
             "Kurt",
             "Gerald"
         ],
@@ -2968,7 +2968,7 @@
             "Daisy",
             "Lotia",
             "Gerald",
-            "Arthur"
+            "Arthur CR"
         ],
         "jobe": [
             "Holy Brawler+",
@@ -3043,8 +3043,8 @@
             "Rosa",
             "Courage",
             "Mirianne",
-            "Envy",
-            "Longinus"
+            "Envy FA",
+            "Longinus POTK"
         ],
         "jobe": [
             "Dark Cavalier : Spion"
@@ -3125,19 +3125,19 @@
             "Lavina",
             "Zophie",
             "Chatnoir",
-            "Aranea",
+            "Aranea FF",
             "Leonia",
             "Annika",
             "Lucille",
             "Blitz",
-            "Wrath",
+            "Wrath FA",
             "Cordelia",
             "Itsuki",
             "Guildford",
-            "Black Killer Laevateinn",
+            "Black Killer Laevateinn POTK",
             "Niguru",
             "Ankh",
-            "Merlinus"
+            "Merlinus CR"
         ],
         "jobe": [
             "Dark Cavalier+",
@@ -3216,12 +3216,12 @@
             "Victor",
             "Teona",
             "Miuna",
-            "Gladiolus",
+            "Gladiolus FF",
             "Edwin",
             "Izayoi",
             "Teresa",
             "Don Taras",
-            "Arthur"
+            "Arthur CR"
         ],
         "jobe": [
             "Holy Cavalier : Magi",
@@ -4073,9 +4073,9 @@
             "Hazel",
             "Bashosen",
             "Suiran",
-            "Yuri",
-            "Pride",
-            "Artemis",
+            "Yuri SN",
+            "Pride FA",
+            "Artemis POTK",
             "Shirma"
         ],
         "jobe": [],
@@ -4153,11 +4153,11 @@
             "Chao",
             "Blanchett",
             "Zophie",
-            "Aranea",
+            "Aranea FF",
             "Hugo",
-            "Wrath",
+            "Wrath FA",
             "Lotia",
-            "Black Killer Laevateinn",
+            "Black Killer Laevateinn POTK",
             "Ren"
         ],
         "jobe": [
@@ -4778,7 +4778,7 @@
             "Leydow",
             "Ines",
             "Aisha",
-            "Tsukuyomi",
+            "Tsukuyomi SN",
             "Little Urob",
             "Neferty"
         ],
@@ -4855,9 +4855,9 @@
             "Shekinah",
             "Hazel",
             "Archer",
-            "Yomi",
-            "Eros",
-            "Artemis",
+            "Yomi SN",
+            "Eros POTK",
+            "Artemis POTK",
             "Belta"
         ],
         "jobe": [
@@ -5132,7 +5132,7 @@
         "origin": "Fencer",
         "units": [
             "Fencer",
-            "Chloe"
+            "Chloe EO"
         ],
         "jobe": [],
         "main": "",
@@ -5727,7 +5727,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_SNI.png",
         "origin": "Dragoon",
         "units": [
-            "Chloe"
+            "Chloe EO"
         ],
         "jobe": [],
         "main": "",
@@ -5777,11 +5777,11 @@
         "formula": "70% (PATK + DEX)",
         "link": "http://www.alchemistcodedb.com/jp/unit/sek-cloe#ドラグーン",
         "inputs": [
-            "Chloe",
-            "Chloe Dragoon",
+            "Chloe EO",
+            "Chloe EO Dragoon",
             "Dragoon",
-            "Chloe",
-            "Chloe Dragoon [Collab] Ranged",
+            "Chloe EO",
+            "Chloe EO Dragoon [Collab] Ranged",
             "Dragoon [Collab] Ranged"
         ]
     },
@@ -5796,7 +5796,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_MAS.png",
         "origin": "Masurao",
         "units": [
-            "Chloe"
+            "Chloe EO"
         ],
         "jobe": [],
         "main": "",
@@ -5844,7 +5844,7 @@
         "formula": "75% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "link": "http://www.alchemistcodedb.com/jp/unit/sek-cloe#マスラオ",
         "inputs": [
-            "Chloe Masurao",
+            "Chloe EO Masurao",
             "Masurao"
         ]
     },
@@ -6000,16 +6000,16 @@
             "Spica",
             "Cita",
             "Dorothea",
-            "Sakura",
+            "Sakura SN",
             "Yuto",
             "Yunagi",
-            "Redmagnus",
+            "Redmagnus DIS",
             "Zin",
             "Edwin",
             "Noin",
             "Tomas",
-            "Black Killer Tyrhung",
-            "Parashu",
+            "Black Killer Tyrhung POTK",
+            "Parashu POTK",
             "Liz",
             "Don Taras",
             "Orion"
@@ -6434,12 +6434,12 @@
             "Aruba",
             "Elrike",
             "Carol",
-            "Yomi",
+            "Yomi SN",
             "Margaret",
             "Mirianne",
             "Fairlily",
-            "Shenmei",
-            "Iris",
+            "Shenmei EMD",
+            "Iris FF",
             "Leticia"
         ],
         "jobe": [
@@ -6511,9 +6511,9 @@
             "Saber",
             "Forcas",
             "Mikoto",
-            "Almira",
+            "Almira DIS",
             "Achad",
-            "Paladin",
+            "Paladin EMD",
             "Dartagnan",
             "Cordelia",
             "Carla"
@@ -6581,9 +6581,9 @@
         "origin": "Necromancer",
         "units": [
             "Dorothea",
-            "Yomi",
+            "Yomi Fate",
             "Mirianne",
-            "Lahar",
+            "Lahar DIS",
             "Zophie",
             "Feirin",
             "Tetis",
@@ -6655,9 +6655,9 @@
         "units": [
             "Aswald",
             "Setsuna",
-            "Killia",
+            "Killia DIS",
             "Chatnoir",
-            "Ignis",
+            "Ignis FF",
             "Fury",
             "Aisha",
             "Kurt",
@@ -6728,13 +6728,13 @@
         "origin": "Blademaster",
         "units": [
             "Setsuna",
-            "Sakura",
-            "Etona",
-            "Yuri",
+            "Sakura SN",
+            "Etona DIS",
+            "Yuri SN",
             "Zyva",
-            "Edward",
+            "Edward FA",
             "Zenn",
-            "Cor",
+            "Cor FF",
             "Niguru"
         ],
         "jobe": [],
@@ -6862,7 +6862,7 @@
         "origin": "Soldier",
         "units": [
             "Saber",
-            "Lamia"
+            "Lamia Fate"
         ],
         "jobe": [],
         "main": "",
@@ -7198,7 +7198,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_OTHI_WIZ.png",
         "origin": "Shadow Assassin",
         "units": [
-            "Yomi"
+            "Yomi Fate"
         ],
         "jobe": [],
         "main": "",
@@ -7247,11 +7247,11 @@
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "link": "http://www.alchemistcodedb.com/unit/fateyomi#rider",
         "inputs": [
-            "Yomi",
-            "Yomi Rider",
+            "Yomi Fate",
+            "Yomi Fate Rider",
             "Rider",
-            "Yomi",
-            "Yomi Rider [F/SN]",
+            "Yomi Fate",
+            "Yomi Fate Rider [F/SN]",
             "Rider [F/SN]"
         ]
     },
@@ -7266,7 +7266,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_FATE_CAS.png",
         "origin": "Caster",
         "units": [
-            "Yomi"
+            "Yomi Fate"
         ],
         "jobe": [],
         "main": "",
@@ -7315,9 +7315,9 @@
         "formula": "90% MATK",
         "link": "http://www.alchemistcodedb.com/unit/fateyomi#caster",
         "inputs": [
-            "Yomi Caster",
+            "Yomi Fate Caster",
             "Caster",
-            "Yomi Caster [F/SN]",
+            "Yomi Fate Caster [F/SN]",
             "Caster [F/SN]"
         ]
     },
@@ -7332,7 +7332,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_FATE_ASS.png",
         "origin": "Samurai",
         "units": [
-            "Lamia"
+            "Lamia Fate"
         ],
         "jobe": [],
         "main": "",
@@ -7381,10 +7381,11 @@
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "link": "http://www.alchemistcodedb.com/unit/fatelamia#assassin",
         "inputs": [
-            "Lamia Assassin",
+            "Lamia Fate",
+            "Lamia Fate Assassin",
             "Assassin",
-            "Lamia",
-            "Lamia Assassin [F/SN]",
+            "Lamia Fate",
+            "Lamia Fate Assassin [F/SN]",
             "Assassin [F/SN]"
         ]
     },
@@ -7399,7 +7400,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_OTHI_WIZ.png",
         "origin": "Twin-Blade Swordsman",
         "units": [
-            "Zahar"
+            "Zahar Fate"
         ],
         "jobe": [],
         "main": "",
@@ -7449,10 +7450,10 @@
         "formula": "140% PATK",
         "link": "http://www.alchemistcodedb.com/unit/fatezahar#archer",
         "inputs": [
-            "Zahar",
-            "Zahar Archer",
-            "Zahar",
-            "Zahar Archer [F/SN]"
+            "Zahar Fate",
+            "Zahar Fate Archer",
+            "Zahar Fate",
+            "Zahar Fate Archer [F/SN]"
         ]
     },
     "JB_FATE_BSKR": {
@@ -7466,7 +7467,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_FATE_BSKR.png",
         "origin": "Berserker",
         "units": [
-            "Zahar"
+            "Zahar Fate"
         ],
         "jobe": [],
         "main": "",
@@ -7514,8 +7515,8 @@
         "formula": "150% PATK",
         "link": "http://www.alchemistcodedb.com/unit/fatezahar#berserker",
         "inputs": [
-            "Zahar Berserker",
-            "Zahar Berserker [F/SN]",
+            "Zahar Fate Berserker",
+            "Zahar Fate Berserker [F/SN]",
             "Berserker [F/SN]"
         ]
     },
@@ -7530,7 +7531,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_FATE_LAN.png",
         "origin": "Spearman",
         "units": [
-            "Zahar"
+            "Zahar Fate"
         ],
         "jobe": [],
         "main": "",
@@ -7579,9 +7580,9 @@
         "formula": "140% PATK",
         "link": "http://www.alchemistcodedb.com/unit/fatezahar#lancer",
         "inputs": [
-            "Zahar Lancer",
+            "Zahar Fate Lancer",
             "Lancer",
-            "Zahar Lancer [F/SN]",
+            "Zahar Fate Lancer [F/SN]",
             "Lancer [F/SN]"
         ]
     },
@@ -7796,8 +7797,8 @@
         "origin": "Shrine Maiden",
         "units": [
             "Mikoto",
-            "Ato",
-            "Amaterasu",
+            "Ato RH",
+            "Amaterasu SN",
             "Ines"
         ],
         "jobe": [],
@@ -7935,11 +7936,11 @@
         "origin": "Magia Gunslinger",
         "units": [
             "Vivi",
-            "Seraphina",
+            "Seraphina DIS",
             "Lavina",
             "Hugo",
             "Uzuma",
-            "Freikugel",
+            "Freikugel POTK",
             "Ira"
         ],
         "jobe": [
@@ -8075,7 +8076,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_STR.png",
         "origin": "Tyrant Overlord",
         "units": [
-            "Killia"
+            "Killia DIS"
         ],
         "jobe": [],
         "main": "",
@@ -8124,11 +8125,11 @@
         "formula": "140% PATK",
         "link": "http://www.alchemistcodedb.com/jp/unit/dis-killia#さすらいの悪魔",
         "inputs": [
-            "Killia",
-            "Killia Tyrant Overlord",
+            "Killia DIS",
+            "Killia DIS Tyrant Overlord",
             "Tyrant Overlord",
-            "Killia",
-            "Killia Wandering Devil",
+            "Killia DIS",
+            "Killia DIS Wandering Devil",
             "Wandering Devil"
         ]
     },
@@ -8143,7 +8144,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_GUN.png",
         "origin": "Gorgeous Overlord",
         "units": [
-            "Seraphina"
+            "Seraphina DIS"
         ],
         "jobe": [],
         "main": "",
@@ -8194,8 +8195,8 @@
         "formula": "70% (PATK + DEX)",
         "link": "http://www.alchemistcodedb.com/jp/unit/dis-seraphina#絢爛魔界姫魔王",
         "inputs": [
-            "Seraphina",
-            "Seraphina Gorgeous Overlord",
+            "Seraphina DIS",
+            "Seraphina DIS Gorgeous Overlord",
             "Gorgeous Overlord"
         ]
     },
@@ -8210,7 +8211,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_WOR.png",
         "origin": "Scorching Flame Overlord",
         "units": [
-            "Redmagnus"
+            "Redmagnus DIS"
         ],
         "jobe": [],
         "main": "",
@@ -8260,8 +8261,8 @@
         "formula": "140% PATK",
         "link": "http://www.alchemistcodedb.com/jp/unit/dis-redmagnus#灼熱魔界魔王",
         "inputs": [
-            "Redmagnus",
-            "Redmagnus Scorching Flame Overlord",
+            "Redmagnus DIS",
+            "Redmagnus DIS Scorching Flame Overlord",
             "Scorching Flame Overlord"
         ]
     },
@@ -8276,7 +8277,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_RAN.png",
         "origin": "Netherworld Archer",
         "units": [
-            "Rin"
+            "Rin DIS"
         ],
         "jobe": [],
         "main": "",
@@ -8327,8 +8328,8 @@
         "formula": "80% (PATK + DEX)",
         "link": "http://www.alchemistcodedb.com/jp/unit/dis-rinn#魔界アーチャー",
         "inputs": [
-            "Rin",
-            "Rin Netherworld Archer",
+            "Rin DIS",
+            "Rin DIS Netherworld Archer",
             "Netherworld Archer"
         ]
     },
@@ -8343,7 +8344,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_DIS_CAT.png",
         "origin": "Felynn",
         "units": [
-            "Rin"
+            "Rin DIS"
         ],
         "jobe": [],
         "main": "",
@@ -8393,7 +8394,7 @@
         "formula": "90% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "link": "http://www.alchemistcodedb.com/jp/unit/dis-rinn#猫娘族",
         "inputs": [
-            "Rin Felynn",
+            "Rin DIS Felynn",
             "Felynn"
         ]
     },
@@ -8408,7 +8409,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_KAJ.png",
         "origin": "Toto Bunny Overlord",
         "units": [
-            "Usalia"
+            "Usalia DIS"
         ],
         "jobe": [],
         "main": "",
@@ -8458,8 +8459,8 @@
         "formula": "140% PATK",
         "link": "http://www.alchemistcodedb.com/jp/unit/dis-usalia#兎兎魔界魔王",
         "inputs": [
-            "Usalia",
-            "Usalia Toto Bunny Overlord",
+            "Usalia DIS",
+            "Usalia DIS Toto Bunny Overlord",
             "Toto Bunny Overlord"
         ]
     },
@@ -8478,7 +8479,7 @@
             "Leonia",
             "Priscila",
             "Dartagnan",
-            "Longinus",
+            "Longinus POTK",
             "Orion"
         ],
         "jobe": [],
@@ -8609,7 +8610,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_DIS_LAHA.png",
         "origin": "Overlord",
         "units": [
-            "Lahar"
+            "Lahar DIS"
         ],
         "jobe": [],
         "main": "",
@@ -8659,8 +8660,8 @@
         "formula": "150% PATK",
         "link": "http://www.alchemistcodedb.com/jp/unit/dis-lahar#魔王",
         "inputs": [
-            "Lahar",
-            "Lahar Overlord",
+            "Lahar DIS",
+            "Lahar DIS Overlord",
             "Overlord"
         ]
     },
@@ -8675,7 +8676,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_DIS_ETON.png",
         "origin": "Spearman",
         "units": [
-            "Etona"
+            "Etona DIS"
         ],
         "jobe": [],
         "main": "",
@@ -8726,8 +8727,8 @@
         "formula": "130% PATK",
         "link": "http://www.alchemistcodedb.com/jp/unit/dis-etona#魔王の家来",
         "inputs": [
-            "Etona",
-            "Etona Overlord's Vassal",
+            "Etona DIS",
+            "Etona DIS Overlord's Vassal",
             "Overlord's Vassal"
         ]
     },
@@ -8742,7 +8743,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_DIS_PRIN2.png",
         "origin": "Private Prinny",
         "units": [
-            "Prinny"
+            "Prinny DIS"
         ],
         "jobe": [],
         "main": "",
@@ -8792,11 +8793,11 @@
         "formula": "130% PATK",
         "link": "http://www.alchemistcodedb.com/jp/unit/dis-prinny#プリニー隊",
         "inputs": [
-            "Prinny",
-            "Prinny Private Prinny",
+            "Prinny DIS",
+            "Prinny DIS Private Prinny",
             "Private Prinny",
-            "Prinny",
-            "Prinny Prinny Squadron",
+            "Prinny DIS",
+            "Prinny DIS Prinny Squadron",
             "Prinny Squadron"
         ]
     },
@@ -8811,7 +8812,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_DIS_PRIN3.png",
         "origin": "General Prinny",
         "units": [
-            "Prinny"
+            "Prinny DIS"
         ],
         "jobe": [],
         "main": "",
@@ -8860,9 +8861,9 @@
         "formula": "130% PATK",
         "link": "http://www.alchemistcodedb.com/jp/unit/dis-prinny#プリニー将軍",
         "inputs": [
-            "Prinny General Prinny",
+            "Prinny DIS General Prinny",
             "General Prinny",
-            "Prinny Prinny General",
+            "Prinny DIS Prinny General",
             "Prinny General"
         ]
     },
@@ -8877,7 +8878,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_DIS_PRIN1.png",
         "origin": "Prinny Kami",
         "units": [
-            "Prinny"
+            "Prinny DIS"
         ],
         "jobe": [],
         "main": "",
@@ -8927,9 +8928,9 @@
         "formula": "130% PATK",
         "link": "http://www.alchemistcodedb.com/jp/unit/dis-prinny#プリニー神",
         "inputs": [
-            "Prinny Prinny Kami",
+            "Prinny DIS Prinny Kami",
             "Prinny Kami",
-            "Prinny Prinny God",
+            "Prinny DIS Prinny God",
             "Prinny God"
         ]
     },
@@ -8944,7 +8945,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_DIS_THI.png",
         "origin": "Netherworld Thief",
         "units": [
-            "Almira"
+            "Almira DIS"
         ],
         "jobe": [],
         "main": "",
@@ -8996,8 +8997,8 @@
         "formula": "75% (PATK + DEX)",
         "link": "http://www.alchemistcodedb.com/jp/unit/dis-almila#魔界盗賊",
         "inputs": [
-            "Almira",
-            "Almira Netherworld Thief",
+            "Almira DIS",
+            "Almira DIS Netherworld Thief",
             "Netherworld Thief"
         ]
     },
@@ -9012,7 +9013,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_DIS_SAM.png",
         "origin": "Netherworld Samurai",
         "units": [
-            "Almira"
+            "Almira DIS"
         ],
         "jobe": [],
         "main": "",
@@ -9061,7 +9062,7 @@
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "link": "http://www.alchemistcodedb.com/jp/unit/dis-almila#魔界侍",
         "inputs": [
-            "Almira Netherworld Samurai",
+            "Almira DIS Netherworld Samurai",
             "Netherworld Samurai"
         ]
     },
@@ -9076,7 +9077,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_DIS_DEMON.png",
         "origin": "Succubus",
         "units": [
-            "Rosa"
+            "Rosa DIS"
         ],
         "jobe": [],
         "main": "",
@@ -9127,8 +9128,8 @@
         "formula": "150% MATK",
         "link": "http://www.alchemistcodedb.com/jp/unit/dis-rosa#夜魔族",
         "inputs": [
-            "Rosa",
-            "Rosa Succubus",
+            "Rosa DIS",
+            "Rosa DIS Succubus",
             "Succubus"
         ]
     },
@@ -9143,7 +9144,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_DIS_WIZ.png",
         "origin": "Netherworld Witch",
         "units": [
-            "Rosa"
+            "Rosa DIS"
         ],
         "jobe": [],
         "main": "",
@@ -9195,7 +9196,7 @@
         "formula": "90% MATK",
         "link": "http://www.alchemistcodedb.com/jp/unit/dis-rosa#魔界魔法使い",
         "inputs": [
-            "Rosa Netherworld Witch",
+            "Rosa DIS Netherworld Witch",
             "Netherworld Witch"
         ]
     },
@@ -9212,7 +9213,7 @@
         "units": [
             "Zin",
             "Olga",
-            "Stock",
+            "Stock RH",
             "Priscila",
             "Won",
             "Blitz",
@@ -9285,7 +9286,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ARM.png",
         "origin": "Lucian's Heir",
         "units": [
-            "Noctis"
+            "Noctis FF"
         ],
         "jobe": [],
         "main": "",
@@ -9336,11 +9337,11 @@
         "formula": "140% PATK",
         "link": "http://www.alchemistcodedb.com/jp/unit/ff15-noctis#ルシスの王子",
         "inputs": [
-            "Noctis",
-            "Noctis Lucian's Heir",
+            "Noctis FF",
+            "Noctis FF Lucian's Heir",
             "Lucian's Heir",
-            "Noctis",
-            "Noctis Lucis Prince",
+            "Noctis FF",
+            "Noctis FF Lucis Prince",
             "Lucis Prince"
         ]
     },
@@ -9355,7 +9356,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ARM.png",
         "origin": "Prince's Hand",
         "units": [
-            "Ignis"
+            "Ignis FF"
         ],
         "jobe": [],
         "main": "",
@@ -9405,11 +9406,11 @@
         "formula": "150% PATK",
         "link": "http://www.alchemistcodedb.com/jp/unit/ff15-ignis#王子の側付き",
         "inputs": [
-            "Ignis",
-            "Ignis Prince's Hand",
+            "Ignis FF",
+            "Ignis FF Prince's Hand",
             "Prince's Hand",
-            "Ignis",
-            "Ignis Prince's Aide",
+            "Ignis FF",
+            "Ignis FF Prince's Aide",
             "Prince's Aide"
         ]
     },
@@ -9424,7 +9425,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ARM.png",
         "origin": "Prince's Shield",
         "units": [
-            "Gladiolus"
+            "Gladiolus FF"
         ],
         "jobe": [],
         "main": "",
@@ -9473,11 +9474,11 @@
         "formula": "150% PATK",
         "link": "http://www.alchemistcodedb.com/jp/unit/ff15-gladiolus#王子の護衛",
         "inputs": [
-            "Gladiolus",
-            "Gladiolus Prince's Shield",
+            "Gladiolus FF",
+            "Gladiolus FF Prince's Shield",
             "Prince's Shield",
-            "Gladiolus",
-            "Gladiolus Prince's Escort",
+            "Gladiolus FF",
+            "Gladiolus FF Prince's Escort",
             "Prince's Escort"
         ]
     },
@@ -9492,7 +9493,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_FF15_PROM.png",
         "origin": "Prince's Best Friend",
         "units": [
-            "Promputo"
+            "Promputo FF"
         ],
         "jobe": [],
         "main": "",
@@ -9543,8 +9544,8 @@
         "formula": "65% (PATK + DEX)",
         "link": "http://www.alchemistcodedb.com/jp/unit/ff15-promputo#王子の親友",
         "inputs": [
-            "Promputo",
-            "Promputo Prince's Best Friend",
+            "Promputo FF",
+            "Promputo FF Prince's Best Friend",
             "Prince's Best Friend"
         ]
     },
@@ -9559,7 +9560,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ARM.png",
         "origin": "Commodore",
         "units": [
-            "Aranea"
+            "Aranea FF"
         ],
         "jobe": [],
         "main": "",
@@ -9609,11 +9610,11 @@
         "formula": "140% PATK",
         "link": "http://www.alchemistcodedb.com/jp/unit/ff15-aranea#帝国准将",
         "inputs": [
-            "Aranea",
-            "Aranea Commodore",
+            "Aranea FF",
+            "Aranea FF Commodore",
             "Commodore",
-            "Aranea",
-            "Aranea Brigadier General",
+            "Aranea FF",
+            "Aranea FF Brigadier General",
             "Brigadier General"
         ]
     },
@@ -9630,9 +9631,9 @@
         "units": [
             "Klima",
             "Fairlily",
-            "Princess",
+            "Princess EMD",
             "Ema",
-            "Tsukuyomi",
+            "Tsukuyomi SN",
             "Neferty"
         ],
         "jobe": [],
@@ -9838,7 +9839,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ARM.png",
         "origin": "Intelligence Agent",
         "units": [
-            "Stock"
+            "Stock RH"
         ],
         "jobe": [],
         "main": "",
@@ -9888,11 +9889,11 @@
         "formula": "140% PATK",
         "link": "http://www.alchemistcodedb.com/jp/unit/rh-stock#諜報員",
         "inputs": [
-            "Stock",
-            "Stock Intelligence Agent",
+            "Stock RH",
+            "Stock RH Intelligence Agent",
             "Intelligence Agent",
-            "Stock",
-            "Stock Specint Agent",
+            "Stock RH",
+            "Stock RH Specint Agent",
             "Specint Agent"
         ]
     },
@@ -9907,7 +9908,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ARM.png",
         "origin": "Princess Of Granorg",
         "units": [
-            "Eruka"
+            "Eruka RH"
         ],
         "jobe": [],
         "main": "",
@@ -9958,11 +9959,11 @@
         "formula": "80% (MATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "link": "http://www.alchemistcodedb.com/jp/unit/rh-eruka#グランオルグ王女",
         "inputs": [
-            "Eruka",
-            "Eruka Princess Of Granorg",
+            "Eruka RH",
+            "Eruka RH Princess Of Granorg",
             "Princess Of Granorg",
-            "Eruka",
-            "Eruka Granorg Princess",
+            "Eruka RH",
+            "Eruka RH Granorg Princess",
             "Granorg Princess"
         ]
     },
@@ -9977,7 +9978,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ARM.png",
         "origin": "Shaman",
         "units": [
-            "Ato"
+            "Ato RH"
         ],
         "jobe": [],
         "main": "",
@@ -10029,10 +10030,10 @@
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "link": "http://www.alchemistcodedb.com/jp/unit/rh-ato#旅芸人",
         "inputs": [
-            "Ato",
-            "Ato Shaman",
-            "Ato",
-            "Ato Vanoss Entertainer",
+            "Ato RH",
+            "Ato RH Shaman",
+            "Ato RH",
+            "Ato RH Vanoss Entertainer",
             "Vanoss Entertainer"
         ]
     },
@@ -10047,7 +10048,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_RH_RAIN.png",
         "origin": "Spy",
         "units": [
-            "Rainy"
+            "Rainy RH"
         ],
         "jobe": [],
         "main": "",
@@ -10100,10 +10101,10 @@
         "formula": "120% PATK",
         "link": "http://www.alchemistcodedb.com/jp/unit/rh-rainy#密偵",
         "inputs": [
-            "Rainy",
-            "Rainy Spy",
-            "Rainy",
-            "Rainy Specint Spy",
+            "Rainy RH",
+            "Rainy RH Spy",
+            "Rainy RH",
+            "Rainy RH Specint Spy",
             "Specint Spy"
         ]
     },
@@ -10443,7 +10444,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ARM.png",
         "origin": "Paladin",
         "units": [
-            "Paladin"
+            "Paladin EMD"
         ],
         "jobe": [],
         "main": "",
@@ -10493,7 +10494,8 @@
         "formula": "140% PDEF",
         "link": "http://www.alchemistcodedb.com/jp/unit/sq-paladin#パラディン",
         "inputs": [
-            "Paladin Paladin"
+            "Paladin EMD",
+            "Paladin EMD Paladin"
         ]
     },
     "JB_SQ_PRI": {
@@ -10507,7 +10509,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ARM.png",
         "origin": "Princess",
         "units": [
-            "Princess"
+            "Princess EMD"
         ],
         "jobe": [],
         "main": "",
@@ -10559,8 +10561,9 @@
         "formula": "90% MATK",
         "link": "http://www.alchemistcodedb.com/jp/unit/sq-princess#プリンセス",
         "inputs": [
-            "Princess",
-            "Princess Princess"
+            "Princess EMD",
+            "Princess EMD Princess",
+            "Princess"
         ]
     },
     "JB_SQ_DAN": {
@@ -10574,7 +10577,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ARM.png",
         "origin": "Dancer",
         "units": [
-            "Shenmei"
+            "Shenmei EMD"
         ],
         "jobe": [],
         "main": "",
@@ -10624,10 +10627,10 @@
         "formula": "95% (PATK + DEX/2 + LUCK/2)",
         "link": "http://www.alchemistcodedb.com/jp/unit/sq-shenmei#ダンサー",
         "inputs": [
-            "Shenmei",
-            "Shenmei Dancer",
-            "Shenmei",
-            "Shenmei Dancer (E.O.)",
+            "Shenmei EMD",
+            "Shenmei EMD Dancer",
+            "Shenmei EMD",
+            "Shenmei EMD Dancer (E.O.)",
             "Dancer (E.O.)"
         ]
     },
@@ -10642,7 +10645,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_SQ_GUN.png",
         "origin": "Gunner",
         "units": [
-            "Shenmei"
+            "Shenmei EMD"
         ],
         "jobe": [],
         "main": "",
@@ -10693,8 +10696,8 @@
         "formula": "65% (PATK + DEX)",
         "link": "http://www.alchemistcodedb.com/jp/unit/sq-shenmei#ガンナー（世界樹）",
         "inputs": [
-            "Shenmei Gunner",
-            "Shenmei Gunner（E.O.) ",
+            "Shenmei EMD Gunner",
+            "Shenmei EMD Gunner（E.O.) ",
             "Gunner（E.O.) "
         ]
     },
@@ -10709,7 +10712,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_SQ_GUN.png",
         "origin": "Gunner",
         "units": [
-            "Gunner"
+            "Gunner EMD"
         ],
         "jobe": [],
         "main": "",
@@ -10760,9 +10763,10 @@
         "formula": "65% (PATK + DEX)",
         "link": "http://www.alchemistcodedb.com/jp/unit/sq-gunner#ガンナー（世界樹）",
         "inputs": [
-            "Gunner Gunner",
-            "Gunner",
-            "Gunner Gunner（E.O.) "
+            "Gunner EMD",
+            "Gunner EMD Gunner",
+            "Gunner EMD",
+            "Gunner EMD Gunner（E.O.) "
         ]
     },
     "JB_MAD": {
@@ -10781,7 +10785,7 @@
             "Aisha",
             "Nina",
             "Ira",
-            "Black Killer Artemis"
+            "Black Killer Artemis POTK"
         ],
         "jobe": [],
         "main": "",
@@ -10849,7 +10853,7 @@
         "units": [
             "Uzuma",
             "Blitz",
-            "Mustang",
+            "Mustang FA",
             "Kevin"
         ],
         "jobe": [],
@@ -10916,7 +10920,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ARM.png",
         "origin": "Fullmetal Alchemist",
         "units": [
-            "Edward"
+            "Edward FA"
         ],
         "jobe": [],
         "main": "",
@@ -10966,8 +10970,8 @@
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "link": "http://www.alchemistcodedb.com/jp/unit/fa-edward#鋼の錬金術師",
         "inputs": [
-            "Edward",
-            "Edward Fullmetal Alchemist",
+            "Edward FA",
+            "Edward FA Fullmetal Alchemist",
             "Fullmetal Alchemist"
         ]
     },
@@ -10982,7 +10986,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ARM.png",
         "origin": "Homunculus of Pride",
         "units": [
-            "Pride"
+            "Pride FA"
         ],
         "jobe": [],
         "main": "",
@@ -11033,11 +11037,11 @@
         "formula": "140% MDEF",
         "link": "http://www.alchemistcodedb.com/jp/unit/fa-pride#傲慢のホムンクルス",
         "inputs": [
-            "Pride",
-            "Pride Homunculus of Pride",
+            "Pride FA",
+            "Pride FA Homunculus of Pride",
             "Homunculus of Pride",
-            "Pride",
-            "Pride Pride: Homunculus",
+            "Pride FA",
+            "Pride FA Pride: Homunculus",
             "Pride: Homunculus"
         ]
     },
@@ -11052,7 +11056,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ARM.png",
         "origin": "Armored Alchemist        ",
         "units": [
-            "Alphonse"
+            "Alphonse FA"
         ],
         "jobe": [],
         "main": "",
@@ -11103,11 +11107,11 @@
         "formula": "140% PATK",
         "link": "http://www.alchemistcodedb.com/jp/unit/fa-alphonse#鎧の錬金術師",
         "inputs": [
-            "Alphonse",
-            "Alphonse Armored Alchemist        ",
+            "Alphonse FA",
+            "Alphonse FA Armored Alchemist        ",
             "Armored Alchemist        ",
-            "Alphonse",
-            "Alphonse Armor Alchemist",
+            "Alphonse FA",
+            "Alphonse FA Armor Alchemist",
             "Armor Alchemist"
         ]
     },
@@ -11122,7 +11126,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ARM.png",
         "origin": "Flame Alchemist",
         "units": [
-            "Mustang"
+            "Mustang FA"
         ],
         "jobe": [],
         "main": "",
@@ -11172,8 +11176,8 @@
         "formula": "150% MATK",
         "link": "http://www.alchemistcodedb.com/jp/unit/fa-mustang#焔の錬金術師",
         "inputs": [
-            "Mustang",
-            "Mustang Flame Alchemist",
+            "Mustang FA",
+            "Mustang FA Flame Alchemist",
             "Flame Alchemist"
         ]
     },
@@ -11188,7 +11192,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ARM.png",
         "origin": "Firearms Lieutenant",
         "units": [
-            "Hawkeye"
+            "Hawkeye FA"
         ],
         "jobe": [],
         "main": "",
@@ -11239,11 +11243,11 @@
         "formula": "70% (PATK + DEX)",
         "link": "http://www.alchemistcodedb.com/jp/unit/fa-hawkeye#アメストリス軍中尉",
         "inputs": [
-            "Hawkeye",
-            "Hawkeye Firearms Lieutenant",
+            "Hawkeye FA",
+            "Hawkeye FA Firearms Lieutenant",
             "Firearms Lieutenant",
-            "Hawkeye",
-            "Hawkeye Amestrain Lieutanant",
+            "Hawkeye FA",
+            "Hawkeye FA Amestrain Lieutanant",
             "Amestrain Lieutanant"
         ]
     },
@@ -11258,7 +11262,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ARM.png",
         "origin": "Homunculus of Wrath",
         "units": [
-            "Wrath"
+            "Wrath FA"
         ],
         "jobe": [],
         "main": "",
@@ -11310,11 +11314,11 @@
         "formula": "150% PATK",
         "link": "http://www.alchemistcodedb.com/jp/unit/fa-wrath#憤怒のホムンクルス",
         "inputs": [
-            "Wrath",
-            "Wrath Homunculus of Wrath",
+            "Wrath FA",
+            "Wrath FA Homunculus of Wrath",
             "Homunculus of Wrath",
-            "Wrath",
-            "Wrath Wrath: Homunculus",
+            "Wrath FA",
+            "Wrath FA Wrath: Homunculus",
             "Wrath: Homunculus"
         ]
     },
@@ -11329,7 +11333,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_FA_ENVY01.png",
         "origin": "Homunculus of Envy",
         "units": [
-            "Envy"
+            "Envy FA"
         ],
         "jobe": [],
         "main": "",
@@ -11382,11 +11386,11 @@
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "link": "http://www.alchemistcodedb.com/jp/unit/fa-envy#嫉妬のホムンクルス",
         "inputs": [
-            "Envy",
-            "Envy Homunculus of Envy",
+            "Envy FA",
+            "Envy FA Homunculus of Envy",
             "Homunculus of Envy",
-            "Envy",
-            "Envy Envy: Homunculus",
+            "Envy FA",
+            "Envy FA Envy: Homunculus",
             "Envy: Homunculus"
         ]
     },
@@ -11540,7 +11544,7 @@
         "origin": "Cannoneer",
         "units": [
             "Belta",
-            "Freikugel"
+            "Freikugel POTK"
         ],
         "jobe": [],
         "main": "",
@@ -11604,7 +11608,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_SEI.png",
         "origin": "Black Killer : Avarice",
         "units": [
-            "Black Killer Tyrhung"
+            "Black Killer Tyrhung POTK"
         ],
         "jobe": [],
         "main": "",
@@ -11655,11 +11659,11 @@
         "formula": "140% PATK",
         "link": "http://www.alchemistcodedb.com/jp/unit/pok-blk-tyrhung#黒剣姫",
         "inputs": [
-            "Black Killer Tyrhung",
-            "Black Killer Tyrhung Black Killer : Avarice",
+            "Black Killer Tyrhung POTK",
+            "Black Killer Tyrhung POTK Black Killer : Avarice",
             "Black Killer : Avarice",
-            "Black Killer Tyrhung",
-            "Black Killer Tyrhung Black Sword Princess",
+            "Black Killer Tyrhung POTK",
+            "Black Killer Tyrhung POTK Black Sword Princess",
             "Black Sword Princess"
         ]
     },
@@ -11675,7 +11679,7 @@
         "origin": "Berserker",
         "units": [
             "Teresa",
-            "Parashu"
+            "Parashu POTK"
         ],
         "jobe": [],
         "main": "",
@@ -11740,7 +11744,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ARM.png",
         "origin": "King Of Lucis",
         "units": [
-            "Regis"
+            "Regis FF"
         ],
         "jobe": [],
         "main": "",
@@ -11791,11 +11795,11 @@
         "formula": "150% MATK",
         "link": "http://www.alchemistcodedb.com/jp/unit/ff15-regis#ルシスの国王",
         "inputs": [
-            "Regis",
-            "Regis King Of Lucis",
+            "Regis FF",
+            "Regis FF King Of Lucis",
             "King Of Lucis",
-            "Regis",
-            "Regis King of Lucis",
+            "Regis FF",
+            "Regis FF King of Lucis",
             "King of Lucis"
         ]
     },
@@ -11810,7 +11814,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_GEN.png",
         "origin": "Chronomancer",
         "units": [
-            "Regis"
+            "Regis FF"
         ],
         "jobe": [],
         "main": "",
@@ -11862,8 +11866,8 @@
         "formula": "90% MATK",
         "link": "http://www.alchemistcodedb.com/jp/unit/ff15-regis#奇術師",
         "inputs": [
-            "Regis Chronomancer",
-            "Regis Illusionist"
+            "Regis FF Chronomancer",
+            "Regis FF Illusionist"
         ]
     },
     "JB_FF15_REGI03_HWIZ": {
@@ -11877,7 +11881,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_HWIZ.png",
         "origin": "Battle Mage",
         "units": [
-            "Regis"
+            "Regis FF"
         ],
         "jobe": [],
         "main": "",
@@ -11930,7 +11934,7 @@
         "formula": "90% MATK",
         "link": "http://www.alchemistcodedb.com/jp/unit/ff15-regis#鎧魔道師",
         "inputs": [
-            "Regis Armored Mage",
+            "Regis FF Armored Mage",
             "Armored Mage"
         ]
     },
@@ -11945,7 +11949,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ARM.png",
         "origin": "Crownsguard Commander",
         "units": [
-            "Cor"
+            "Cor FF"
         ],
         "jobe": [],
         "main": "",
@@ -11996,11 +12000,11 @@
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "link": "http://www.alchemistcodedb.com/jp/unit/ff15-cor#王都警護隊隊長",
         "inputs": [
-            "Cor",
-            "Cor Crownsguard Commander",
+            "Cor FF",
+            "Cor FF Crownsguard Commander",
             "Crownsguard Commander",
-            "Cor",
-            "Cor Capital Guard Corps Commander",
+            "Cor FF",
+            "Cor FF Capital Guard Corps Commander",
             "Capital Guard Corps Commander"
         ]
     },
@@ -12015,7 +12019,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ARM.png",
         "origin": "Prince's Friend",
         "units": [
-            "Iris"
+            "Iris FF"
         ],
         "jobe": [],
         "main": "",
@@ -12066,11 +12070,11 @@
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "link": "http://www.alchemistcodedb.com/jp/unit/ff15-iris#王の幼馴染",
         "inputs": [
-            "Iris",
-            "Iris Prince's Friend",
+            "Iris FF",
+            "Iris FF Prince's Friend",
             "Prince's Friend",
-            "Iris",
-            "Iris King's Childhood Friend",
+            "Iris FF",
+            "Iris FF King's Childhood Friend",
             "King's Childhood Friend"
         ]
     },
@@ -12085,7 +12089,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_SEI.png",
         "origin": "Black Killer : Sloth",
         "units": [
-            "Black Killer Laevateinn"
+            "Black Killer Laevateinn POTK"
         ],
         "jobe": [],
         "main": "",
@@ -12136,11 +12140,11 @@
         "formula": "150% PATK",
         "link": "http://www.alchemistcodedb.com/jp/unit/pok-blk-laevateinn#黒刃姫",
         "inputs": [
-            "Black Killer Laevateinn",
-            "Black Killer Laevateinn Black Killer : Sloth",
+            "Black Killer Laevateinn POTK",
+            "Black Killer Laevateinn POTK Black Killer : Sloth",
             "Black Killer : Sloth",
-            "Black Killer Laevateinn",
-            "Black Killer Laevateinn Black Blade Princess",
+            "Black Killer Laevateinn POTK",
+            "Black Killer Laevateinn POTK Black Blade Princess",
             "Black Blade Princess"
         ]
     },
@@ -12970,7 +12974,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_RAN.png",
         "origin": "Black Killer : Lust",
         "units": [
-            "Black Killer Artemis"
+            "Black Killer Artemis POTK"
         ],
         "jobe": [],
         "main": "",
@@ -13020,11 +13024,11 @@
         "formula": "75% (PATK + DEX)",
         "link": "http://www.alchemistcodedb.com/jp/unit/pok-blk-artemis#黒弓姫",
         "inputs": [
-            "Black Killer Artemis",
-            "Black Killer Artemis Black Killer : Lust",
+            "Black Killer Artemis POTK",
+            "Black Killer Artemis POTK Black Killer : Lust",
             "Black Killer : Lust",
-            "Black Killer Artemis",
-            "Black Killer Artemis Black Archer Princess",
+            "Black Killer Artemis POTK",
+            "Black Killer Artemis POTK Black Archer Princess",
             "Black Archer Princess"
         ]
     },
@@ -13039,7 +13043,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ARM.png",
         "origin": "Hero of Duality",
         "units": [
-            "Merlinus"
+            "Merlinus CR"
         ],
         "jobe": [],
         "main": "",
@@ -13092,11 +13096,11 @@
         "formula": "90% MATK",
         "link": "http://www.alchemistcodedb.com/jp/unit/cry-merlinus#虚実の英雄",
         "inputs": [
-            "Merlinus",
-            "Merlinus Hero of Duality",
+            "Merlinus CR",
+            "Merlinus CR Hero of Duality",
             "Hero of Duality",
-            "Merlinus",
-            "Merlinus Heroine of Truth or Falsehood",
+            "Merlinus CR",
+            "Merlinus CR Heroine of Truth or Falsehood",
             "Heroine of Truth or Falsehood"
         ]
     },
@@ -13111,7 +13115,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ARM.png",
         "origin": "Investigator Hero",
         "units": [
-            "Arthur"
+            "Arthur CR"
         ],
         "jobe": [],
         "main": "",
@@ -13160,8 +13164,8 @@
         "formula": "140% PATK",
         "link": "http://www.alchemistcodedb.com/jp/unit/cry-arthur#求道の英雄",
         "inputs": [
-            "Arthur",
-            "Arthur Investigator Hero",
+            "Arthur CR",
+            "Arthur CR Investigator Hero",
             "Investigator Hero"
         ]
     },
@@ -13920,7 +13924,7 @@
         "units": [
             "Ciel",
             "Niguru",
-            "Ignis",
+            "Ignis FF",
             "Aswald",
             "Shenmei"
         ],
@@ -14718,6 +14722,7 @@
             "Lamia",
             "Lamia Dragon Cavalier+",
             "Dragon Cavalier+",
+            "Lamia",
             "Lamia "
         ]
     },
@@ -16376,7 +16381,7 @@
         "origin": "Dark Cavalier",
         "units": [
             "Cordelia",
-            "Merlinus",
+            "Merlinus CR",
             "Lavina",
             "Chatnoir",
             "Lucille"
@@ -16513,7 +16518,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_DGN_RUDRA.png",
         "origin": "Dragon Cavalier",
         "units": [
-            "Longinus",
+            "Longinus POTK",
             "Gerald",
             "Zangetsu",
             "Celliers",
@@ -16582,7 +16587,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_RAN_TYPE_AVOID.png",
         "origin": "Ranger",
         "units": [
-            "Artemis",
+            "Artemis POTK",
             "Hazel",
             "Ryle",
             "Sabareta",
@@ -16654,8 +16659,8 @@
         "origin": "Ranger",
         "units": [
             "Belta",
-            "Rin",
-            "Yomi",
+            "Rin DIS",
+            "Yomi SN",
             "Shekinah",
             "Tamamo"
         ],
@@ -17130,7 +17135,7 @@
         "origin": "Shadow Assassin",
         "units": [
             "Kurt",
-            "Killia",
+            "Killia DIS",
             "Thol",
             "Setsuna",
             "Chatnoir",
@@ -17199,7 +17204,7 @@
         "origin": "Holy Cavalier",
         "units": [
             "Teresa",
-            "Gladiolus",
+            "Gladiolus FF",
             "Victor"
         ],
         "jobe": [],
@@ -17264,7 +17269,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_MAJ_THUNDER.png",
         "origin": "Magia Gunslinger",
         "units": [
-            "Freikugel",
+            "Freikugel POTK",
             "Hugo"
         ],
         "jobe": [],
@@ -17331,7 +17336,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_DAI_THUNDER.png",
         "origin": "Sage",
         "units": [
-            "Tsukuyomi",
+            "Tsukuyomi SN",
             "Peridot",
             "Vincent",
             "Celine",
@@ -17401,8 +17406,8 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_NIN_SUZAKU.png",
         "origin": "Ninja",
         "units": [
-            "Etona",
-            "Yuri",
+            "Etona DIS",
+            "Yuri SN",
             "Bashosen",
             "Mizuchi",
             "Glanz",
@@ -17471,7 +17476,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_MAJ_WATER.png",
         "origin": "Magia Gunslinger",
         "units": [
-            "Seraphina",
+            "Seraphina DIS",
             "Lavina"
         ],
         "jobe": [],
@@ -17607,7 +17612,7 @@
         "origin": "Merchant",
         "units": [
             "Leticia",
-            "Yomi"
+            "Yomi SN"
         ],
         "jobe": [],
         "main": "",
@@ -18078,11 +18083,11 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_SNI_SNIPE.png",
         "origin": "Sniper",
         "units": [
-            "Black Killer Artemis",
+            "Black Killer Artemis POTK",
             "Courage",
             "Almira",
             "Justin",
-            "Eros"
+            "Eros POTK"
         ],
         "jobe": [],
         "main": "",
@@ -18215,7 +18220,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_GUA_TYPE_ANTI_LANCE.png",
         "origin": "Holy Cavalier",
         "units": [
-            "Arthur",
+            "Arthur CR",
             "Teona",
             "Lambert"
         ],
@@ -18561,7 +18566,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_DOC_TYPE_HEALING.png",
         "origin": "Professor",
         "units": [
-            "Amaterasu",
+            "Amaterasu SN",
             "Hazuki",
             "Decel",
             "Jake",
@@ -18631,7 +18636,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_NIN_SEIRYU.png",
         "origin": "Ninja",
         "units": [
-            "Sakura",
+            "Sakura SN",
             "Thillie",
             "Dartagnan",
             "Suzuka"
@@ -19364,7 +19369,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_RAN_TYPE_MONS.png",
         "origin": "Ranger",
         "units": [
-            "Eros",
+            "Eros POTK",
             "Milis",
             "Rigalt",
             "Yuan"
@@ -20174,7 +20179,7 @@
         "units": [
             "Rahu",
             "Tsanglei",
-            "Rosa",
+            "Rosa DIS",
             "Soleil",
             "Mielikki"
         ],
@@ -20640,7 +20645,7 @@
         "units": [
             "Chao",
             "Retzius",
-            "Black Killer Laevateinn"
+            "Black Killer Laevateinn POTK"
         ],
         "jobe": [],
         "main": "",
@@ -20837,7 +20842,7 @@
         "origin": "Warrior",
         "units": [
             "Cita",
-            "Parashu"
+            "Parashu POTK"
         ],
         "jobe": [],
         "main": "",
@@ -20973,7 +20978,7 @@
         "units": [
             "Spica",
             "Tomas",
-            "Black Killer Tyrhung"
+            "Black Killer Tyrhung POTK"
         ],
         "jobe": [],
         "main": "",
