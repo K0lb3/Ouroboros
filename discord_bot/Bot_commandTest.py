@@ -1,8 +1,7 @@
+import os
 import asyncio
-import sys
 import discord
 from discord.ext import commands
-from discord.utils import get
 
 
 #functions
@@ -54,4 +53,5 @@ async def test(ctx):
     except asyncio.TimeoutError:
         await ctx.send('TimeoutError')
 
-bot.run('NDU0MDQ5MTYyMTQ1NjkzNjk2.Dfnxwg.nEcjc4TqBb00V41IGRyPeYa0lJ8')
+BOT_TOKEN = os.environ.get('DISCORD_BOT_TOKEN')
+bot.run(BOT_TOKEN)
