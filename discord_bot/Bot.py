@@ -201,44 +201,11 @@ async def farm(ctx, *, name):
 #jobs
 @bot.command()
 async def job(ctx, *, name):
-    job = find_best(jobs, name)
-    #start embed - title
-    embed = discord.Embed(
-        title=job['name'], 
-        description="", 
-        url=job['link']
-        )
-    embed.set_footer(text='ᴶ - japan only', icon_url='')
-    #icon
-    if ':' in job['name'] or len(job['short description'])>5:
-        embed.set_thumbnail(url=job['token'])
-    else:
-        embed.set_thumbnail(url=job['icon'])
-    #unit data
-    modifiers=""
-    for i in job['modifiers']:
-        if job['modifiers'][i] != 0:
-            modifiers+= i +': '+str(job['modifiers'][i])+'%, '
-    stats=""
-    for i in job['stats']:
-        stats+= i +': '+str(job['stats'][i])+' \n'
+    job_dict = find_best(jobs, name)
+    job = Job(source=job_dict)
 
-    fields=[
-        {'name':'formula'               ,'value': job['formula']            ,'inline':False},
-        {'name':'origin'                ,'value': job['origin']             ,'inline':False},
-        {'name':'short description'     ,'value': job['short description']  ,'inline':False},
-        {'name':'long description'      ,'value': job['long description']   ,'inline':False},
-        {'name':'modifiers'             ,'value': modifiers                 ,'inline':False},
-        {'name':'stats'                 ,'value': stats                     ,'inline':True},
-        {'name':'units'                 ,'value': '\n'.join(job['units'])   ,'inline':True},
-        {'name':'job:e'                 ,'value': '\n'.join(job['jobe'])    ,'inline':True},
-    ]
-    fields=fix_fields(fields)
-    for i in fields:
-        embed.add_field(name=i["name"],      value=i['value'],     inline=i['inline'])
-
-    await ctx.send(embed=embed) 
-
+    await ctx.send(embed=job.to_job_embed())
+    
 # unit commands
 @bot.command() # info
 async def unit(ctx, *, name):

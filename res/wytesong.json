@@ -401,7 +401,7 @@
     ],
     "Units": [
         {
-            " ": 1,
+            " unitid": 1,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Rogi",
             "Name JPN": "ロギ",
@@ -431,7 +431,7 @@
             "icon url": "http://i.imgur.com/NAsA7HL.png"
         },
         {
-            " ": 2,
+            " unitid": 2,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Rambert",
             "Name JPN": "ランベル",
@@ -461,7 +461,7 @@
             "icon url": "http://i.imgur.com/A8u7lHS.png"
         },
         {
-            " ": 3,
+            " unitid": 3,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Meria",
             "Name JPN": "メリア",
@@ -491,7 +491,7 @@
             "icon url": "http://i.imgur.com/SBbUCYX.png"
         },
         {
-            " ": 4,
+            " unitid": 4,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Alaia",
             "Name JPN": "アライア",
@@ -521,7 +521,7 @@
             "icon url": "http://i.imgur.com/2KCiiPM.png"
         },
         {
-            " ": 5,
+            " unitid": 5,
             "Icon": "=image(\"http://i.imgur.com/4cAvkBJ.png\")",
             "Name": "Rin",
             "Name JPN": "リン",
@@ -551,7 +551,7 @@
             "icon url": "http://i.imgur.com/pts3xQ7.png"
         },
         {
-            " ": 6,
+            " unitid": 6,
             "Icon": "=image(\"http://i.imgur.com/ImR3Oph.png\")",
             "Name": "Alexis",
             "Name JPN": "アレクシス",
@@ -581,7 +581,7 @@
             "icon url": "http://i.imgur.com/OZHSeLJ.png"
         },
         {
-            " ": 7,
+            " unitid": 7,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Regart",
             "Name JPN": "リガルト",
@@ -611,7 +611,7 @@
             "icon url": "http://i.imgur.com/qbFnjVa.png"
         },
         {
-            " ": 8,
+            " unitid": 8,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Gain",
             "Name JPN": "ガイン",
@@ -641,7 +641,7 @@
             "icon url": "http://i.imgur.com/L1OdT68.png"
         },
         {
-            " ": 9,
+            " unitid": 9,
             "Icon": "=IMAGE(\"http://i.imgur.com/fh7Xf3U.png\")",
             "Name": "Porin",
             "Name JPN": "ポリン",
@@ -671,7 +671,7 @@
             "icon url": "http://i.imgur.com/XDPqObg.png"
         },
         {
-            " ": 10,
+            " unitid": 10,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Lucido",
             "Name JPN": "ルシード",
@@ -701,7 +701,7 @@
             "icon url": "http://i.imgur.com/TnMNZ1L.png"
         },
         {
-            " ": 11,
+            " unitid": 11,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Dios",
             "Name JPN": "ディオス",
@@ -731,7 +731,7 @@
             "icon url": "http://i.imgur.com/qCSRL08.png"
         },
         {
-            " ": 12,
+            " unitid": 12,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Anju",
             "Name JPN": "アンジュ",
@@ -761,7 +761,7 @@
             "icon url": "http://i.imgur.com/5idbd9e.png"
         },
         {
-            " ": 13,
+            " unitid": 13,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Meili",
             "Name JPN": "メイリィ",
@@ -791,7 +791,7 @@
             "icon url": "http://i.imgur.com/SCAjeMA.png"
         },
         {
-            " ": 14,
+            " unitid": 14,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Alfred",
             "Name JPN": "アルフレッド",
@@ -821,7 +821,7 @@
             "icon url": "http://i.imgur.com/U2LzGNP.png"
         },
         {
-            " ": 15,
+            " unitid": 15,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Isyuna",
             "Name JPN": "イシュナ",
@@ -851,7 +851,7 @@
             "icon url": "http://i.imgur.com/4sXv5bG.png"
         },
         {
-            " ": 16,
+            " unitid": 16,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Gath",
             "Name JPN": "ガト",
@@ -881,7 +881,7 @@
             "icon url": "http://i.imgur.com/fWEx9NL.png"
         },
         {
-            " ": 17,
+            " unitid": 17,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Ciel",
             "Name JPN": "シエル",
@@ -911,7 +911,7 @@
             "icon url": "http://i.imgur.com/utE96Zw.png"
         },
         {
-            " ": 18,
+            " unitid": 18,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Airyu",
             "Name JPN": "アイリュ",
@@ -941,7 +941,7 @@
             "icon url": "http://i.imgur.com/uw4vMAF.png"
         },
         {
-            " ": 19,
+            " unitid": 19,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Aqil",
             "Name JPN": "アーキル",
@@ -971,7 +971,7 @@
             "icon url": "http://i.imgur.com/VLPDp2o.png"
         },
         {
-            " ": 20,
+            " unitid": 20,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Sarauz",
             "Name JPN": "サラウズ",
@@ -1001,7 +1001,7 @@
             "icon url": "http://i.imgur.com/e6KolIO.png"
         },
         {
-            " ": 21,
+            " unitid": 21,
             "Icon": "=IMAGE(\"http://i.imgur.com/EJfkXLk.png\")",
             "Name": "Michael",
             "Name JPN": "ミハエル",
@@ -1031,7 +1031,7 @@
             "icon url": "http://i.imgur.com/QqGQofJ.png"
         },
         {
-            " ": 22,
+            " unitid": 22,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Rion",
             "Name JPN": "リオン",
@@ -1061,7 +1061,7 @@
             "icon url": "http://i.imgur.com/ctqkkTb.png"
         },
         {
-            " ": 23,
+            " unitid": 23,
             "Icon": "=IMAGE(\"http://i.imgur.com/EbJcT85.png\")",
             "Name": "Almira",
             "Name JPN": "アルミラ",
@@ -1091,7 +1091,7 @@
             "icon url": "http://i.imgur.com/WdXr85i.png"
         },
         {
-            " ": 24,
+            " unitid": 24,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Patty",
             "Name JPN": "パティ",
@@ -1121,7 +1121,7 @@
             "icon url": "http://i.imgur.com/N3C98dZ.png"
         },
         {
-            " ": 25,
+            " unitid": 25,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Ennis",
             "Name JPN": "エニス",
@@ -1151,7 +1151,7 @@
             "icon url": "http://i.imgur.com/5lfXUCS.png"
         },
         {
-            " ": 26,
+            " unitid": 26,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Kuon",
             "Name JPN": "クオン",
@@ -1181,7 +1181,7 @@
             "icon url": "http://i.imgur.com/laLABxO.png"
         },
         {
-            " ": 27,
+            " unitid": 27,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Yuan",
             "Name JPN": "ユアン",
@@ -1211,7 +1211,7 @@
             "icon url": "http://i.imgur.com/tnAjNkL.png"
         },
         {
-            " ": 28,
+            " unitid": 28,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Jake",
             "Name JPN": "ジェイク",
@@ -1241,7 +1241,7 @@
             "icon url": "http://i.imgur.com/8ZnkaVI.png"
         },
         {
-            " ": 29,
+            " unitid": 29,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Lish",
             "Name JPN": "リッシュ",
@@ -1271,7 +1271,7 @@
             "icon url": "http://i.imgur.com/hudyDNC.png"
         },
         {
-            " ": 30,
+            " unitid": 30,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Elaine",
             "Name JPN": "エレイン",
@@ -1301,7 +1301,7 @@
             "icon url": "http://i.imgur.com/pfCcvO6.png"
         },
         {
-            " ": 31,
+            " unitid": 31,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Mizuchi",
             "Name JPN": "ミズチ",
@@ -1331,7 +1331,7 @@
             "icon url": "http://i.imgur.com/LCFJ9uF.png"
         },
         {
-            " ": 32,
+            " unitid": 32,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Kazahaya",
             "Name JPN": "カザハヤ",
@@ -1361,7 +1361,7 @@
             "icon url": "http://i.imgur.com/FIbs7Um.png"
         },
         {
-            " ": 33,
+            " unitid": 33,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Vanekis",
             "Name JPN": "ヴァネキス",
@@ -1391,7 +1391,7 @@
             "icon url": "http://i.imgur.com/2vcTihx.png"
         },
         {
-            " ": 34,
+            " unitid": 34,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Amis",
             "Name JPN": "アミス",
@@ -1421,7 +1421,7 @@
             "icon url": "http://i.imgur.com/42ghRxO.png"
         },
         {
-            " ": 35,
+            " unitid": 35,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Decel",
             "Name JPN": "デセル",
@@ -1451,7 +1451,7 @@
             "icon url": "http://i.imgur.com/vRdl7aq.png"
         },
         {
-            " ": 36,
+            " unitid": 36,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Anne Rose",
             "Name JPN": "アンネローズ",
@@ -1481,7 +1481,7 @@
             "icon url": "http://i.imgur.com/f7xIBGa.png"
         },
         {
-            " ": 37,
+            " unitid": 37,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Zangetsu",
             "Name JPN": "ザンゲツ",
@@ -1511,7 +1511,7 @@
             "icon url": "http://i.imgur.com/Ldjvd7i.png"
         },
         {
-            " ": 38,
+            " unitid": 38,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Lamia",
             "Name JPN": "ラミア",
@@ -1541,7 +1541,7 @@
             "icon url": "http://i.imgur.com/j2y1Qwy.png"
         },
         {
-            " ": 39,
+            " unitid": 39,
             "Icon": "=image(\"http://i.imgur.com/vzz1vtl.png\")",
             "Name": "Rofia",
             "Name JPN": "ロフィア",
@@ -1571,7 +1571,7 @@
             "icon url": "http://i.imgur.com/hC9DnZV.png"
         },
         {
-            " ": 40,
+            " unitid": 40,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Lucia",
             "Name JPN": "ルシア",
@@ -1601,7 +1601,7 @@
             "icon url": "http://i.imgur.com/wmCfTAk.png"
         },
         {
-            " ": 41,
+            " unitid": 41,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Megistos",
             "Name JPN": "メギストス",
@@ -1631,7 +1631,7 @@
             "icon url": "http://i.imgur.com/FsdOpC0.png"
         },
         {
-            " ": 42,
+            " unitid": 42,
             "Icon": "=image(\"http://i.imgur.com/r1sTVor.png\")",
             "Name": "Chalice",
             "Name JPN": "カリス",
@@ -1661,7 +1661,7 @@
             "icon url": "http://i.imgur.com/4FEQFS1.png"
         },
         {
-            " ": 43,
+            " unitid": 43,
             "Icon": "=IMAGE(\"http://i.imgur.com/EllFvEn.png\")",
             "Name": "Rafu",
             "Name JPN": "ラッフ",
@@ -1691,7 +1691,7 @@
             "icon url": "http://i.imgur.com/KnCLXq8.png"
         },
         {
-            " ": 44,
+            " unitid": 44,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Miannu",
             "Name JPN": "ミアンヌ",
@@ -1721,7 +1721,7 @@
             "icon url": "http://i.imgur.com/J9Cw8hr.png"
         },
         {
-            " ": 45,
+            " unitid": 45,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Sutorie",
             "Name JPN": "ストリエ",
@@ -1751,7 +1751,7 @@
             "icon url": "http://i.imgur.com/iydFFrO.png"
         },
         {
-            " ": 46,
+            " unitid": 46,
             "Icon": "=image(\"http://i.imgur.com/Pgl8TkN.png\")",
             "Name": "Chihaya",
             "Name JPN": "チハヤ",
@@ -1781,7 +1781,7 @@
             "icon url": "http://i.imgur.com/jAHRIeg.png"
         },
         {
-            " ": 47,
+            " unitid": 47,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Celine",
             "Name JPN": "セリーヌ",
@@ -1811,7 +1811,7 @@
             "icon url": "http://i.imgur.com/lBhpYVG.png"
         },
         {
-            " ": 48,
+            " unitid": 48,
             "Icon": "=IMAGE(\"http://i.imgur.com/cOIC1n4.png\")",
             "Name": "Dilga",
             "Name JPN": "ディルガ",
@@ -1841,7 +1841,7 @@
             "icon url": "http://i.imgur.com/IIucdt3.png"
         },
         {
-            " ": 49,
+            " unitid": 49,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Freed",
             "Name JPN": "フリエド",
@@ -1871,7 +1871,7 @@
             "icon url": "http://i.imgur.com/Ai6lnP7.png"
         },
         {
-            " ": 50,
+            " unitid": 50,
             "Icon": "=IMAGE(\"http://i.imgur.com/K9AvRNs.png\")",
             "Name": "Mea",
             "Name JPN": "メア",
@@ -1901,7 +1901,7 @@
             "icon url": "http://i.imgur.com/a0v7Den.png"
         },
         {
-            " ": 51,
+            " unitid": 51,
             "Icon": "=IMAGE(\"http://i.imgur.com/JhZlcBJ.png\")",
             "Name": "Chloe",
             "Name JPN": "クロエ",
@@ -1931,7 +1931,7 @@
             "icon url": "http://i.imgur.com/C8gEiNJ.png"
         },
         {
-            " ": 52,
+            " unitid": 52,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Zahar",
             "Name JPN": "ザハル",
@@ -1961,7 +1961,7 @@
             "icon url": "http://i.imgur.com/3wN5BaS.png"
         },
         {
-            " ": 53,
+            " unitid": 53,
             "Icon": "=image(\"http://i.imgur.com/OzjzmBr.png\")",
             "Name": "Yomi",
             "Name JPN": "ヨミ",
@@ -1991,7 +1991,7 @@
             "icon url": "http://i.imgur.com/09tusmH.png"
         },
         {
-            " ": 54,
+            " unitid": 54,
             "Icon": "=image(\"http://i.imgur.com/c07Pvca.png\")",
             "Name": "Veteru",
             "Name JPN": "ヴェテル",
@@ -2021,7 +2021,7 @@
             "icon url": "http://i.imgur.com/35Gv5w2.png"
         },
         {
-            " ": 55,
+            " unitid": 55,
             "Icon": "=image(\"http://i.imgur.com/dYuFq1X.png\")",
             "Name": "Elizabeth",
             "Name JPN": "エリザベス",
@@ -2051,7 +2051,7 @@
             "icon url": "http://i.imgur.com/avP1AK3.png"
         },
         {
-            " ": 56,
+            " unitid": 56,
             "Icon": "=image(\"http://i.imgur.com/l8se5pp.png\")",
             "Name": "Anastasia",
             "Name JPN": "アナスタシア",
@@ -2081,7 +2081,7 @@
             "icon url": "http://i.imgur.com/tEYFrnP.png"
         },
         {
-            " ": 57,
+            " unitid": 57,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Hazuki",
             "Name JPN": "ハズキ",
@@ -2111,7 +2111,7 @@
             "icon url": "http://i.imgur.com/fJMCIaJ.png"
         },
         {
-            " ": 58,
+            " unitid": 58,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Gein",
             "Name JPN": "ゲイン",
@@ -2141,7 +2141,7 @@
             "icon url": "http://i.imgur.com/eAAVhbT.png"
         },
         {
-            " ": 59,
+            " unitid": 59,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Selena\n[Brave Frontier]",
             "Name JPN": "セレナ[ブレフロ]",
@@ -2171,7 +2171,7 @@
             "icon url": "http://i.imgur.com/LHXKoH3.png"
         },
         {
-            " ": 60,
+            " unitid": 60,
             "Icon": "=IMAGE(\"http://i.imgur.com/SAW4Iry.png\")",
             "Name": "Laevateinn\n[POTK]",
             "Name JPN": "レーヴァテイン[ファンキル]",
@@ -2201,7 +2201,7 @@
             "icon url": "http://i.imgur.com/xSLWh6d.png"
         },
         {
-            " ": 61,
+            " unitid": 61,
             "Icon": "=image(\"http://i.imgur.com/rgVpkED.png\")",
             "Name": "Tyrfing\n[POTK]",
             "Name JPN": "ティルフィング[ファンキル]",
@@ -2231,7 +2231,7 @@
             "icon url": "http://i.imgur.com/uPM8Nrc.png"
         },
         {
-            " ": 62,
+            " unitid": 62,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Vargas\n[Brave Frontier]",
             "Name JPN": "ヴァルガス[ブレフロ]",
@@ -2261,7 +2261,7 @@
             "icon url": "http://i.imgur.com/1xvLItl.png"
         },
         {
-            " ": 63,
+            " unitid": 63,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Flamel",
             "Name JPN": "フラメル",
@@ -2291,7 +2291,7 @@
             "icon url": "http://i.imgur.com/qLfL4Yf.png"
         },
         {
-            " ": 64,
+            " unitid": 64,
             "Icon": "=image(\"http://i.imgur.com/gcp0EYG.png\")",
             "Name": "Magnus",
             "Name JPN": "マグヌス",
@@ -2321,7 +2321,7 @@
             "icon url": "http://i.imgur.com/z4YcrA2.png"
         },
         {
-            " ": 65,
+            " unitid": 65,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Retzius",
             "Name JPN": "レシヴス",
@@ -2351,7 +2351,7 @@
             "icon url": "http://i.imgur.com/EEXP0WA.png"
         },
         {
-            " ": 66,
+            " unitid": 66,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Baruto",
             "Name JPN": "バルト",
@@ -2381,7 +2381,7 @@
             "icon url": "http://i.imgur.com/XYABYbh.png"
         },
         {
-            " ": 67,
+            " unitid": 67,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Mierikki",
             "Name JPN": "ミエリッキ",
@@ -2411,7 +2411,7 @@
             "icon url": "http://i.imgur.com/BkjWlRD.png"
         },
         {
-            " ": 68,
+            " unitid": 68,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Merda",
             "Name JPN": "メルダ",
@@ -2441,7 +2441,7 @@
             "icon url": "http://i.imgur.com/iqR8iMW.png"
         },
         {
-            " ": 69,
+            " unitid": 69,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Edgar",
             "Name JPN": "エドガー",
@@ -2471,7 +2471,7 @@
             "icon url": "http://i.imgur.com/0AFPKVZ.png"
         },
         {
-            " ": 70,
+            " unitid": 70,
             "Icon": "=image(\"http://i.imgur.com/8h65E7h.png\")",
             "Name": "Roza",
             "Name JPN": "ローザ",
@@ -2501,7 +2501,7 @@
             "icon url": "http://i.imgur.com/0oBoEpR.png"
         },
         {
-            " ": 71,
+            " unitid": 71,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Reagen",
             "Name JPN": "レーゲン",
@@ -2531,7 +2531,7 @@
             "icon url": "http://i.imgur.com/fDgbht2.png"
         },
         {
-            " ": 72,
+            " unitid": 72,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Sabareta",
             "Name JPN": "サバレタ",
@@ -2561,7 +2561,7 @@
             "icon url": "http://i.imgur.com/1a0SlSi.png"
         },
         {
-            " ": 73,
+            " unitid": 73,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Hayate",
             "Name JPN": "ハヤテ",
@@ -2591,7 +2591,7 @@
             "icon url": "http://i.imgur.com/UdXgAGS.png"
         },
         {
-            " ": 74,
+            " unitid": 74,
             "Icon": "=IMAGE(\"http://i.imgur.com/p7nxjDH.png\")",
             "Name": "Eve",
             "Name JPN": "イヴ",
@@ -2621,7 +2621,7 @@
             "icon url": "http://i.imgur.com/klYqpyw.png"
         },
         {
-            " ": 75,
+            " unitid": 75,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Frayze",
             "Name JPN": "フレイズ",
@@ -2651,7 +2651,7 @@
             "icon url": "http://i.imgur.com/X8ew6xT.png"
         },
         {
-            " ": 76,
+            " unitid": 76,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Veros",
             "Name JPN": "ヴェロス",
@@ -2681,7 +2681,7 @@
             "icon url": "http://i.imgur.com/lP2QzSG.png"
         },
         {
-            " ": 77,
+            " unitid": 77,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Lucretia",
             "Name JPN": "ルクレシア",
@@ -2711,7 +2711,7 @@
             "icon url": "http://i.imgur.com/2GwPbTf.png"
         },
         {
-            " ": 78,
+            " unitid": 78,
             "Icon": "=image(\"http://i.imgur.com/3qo0rzl.png\")",
             "Name": "Suzuka",
             "Name JPN": "スズカ",
@@ -2741,7 +2741,7 @@
             "icon url": "http://i.imgur.com/ZWiRETA.png"
         },
         {
-            " ": 79,
+            " unitid": 79,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Feng Liu",
             "Name JPN": "フォン・リウ",
@@ -2771,7 +2771,7 @@
             "icon url": "http://i.imgur.com/wK21LBo.png"
         },
         {
-            " ": 80,
+            " unitid": 80,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Kadanoba",
             "Name JPN": "カダノバ",
@@ -2801,7 +2801,7 @@
             "icon url": "http://i.imgur.com/DZwiavf.png"
         },
         {
-            " ": 81,
+            " unitid": 81,
             "Icon": "=image(\"http://i.imgur.com/EdAtDCV.png\")",
             "Name": "Kanon",
             "Name JPN": "カノン",
@@ -2831,7 +2831,7 @@
             "icon url": "http://i.imgur.com/Cbv7jqX.png"
         },
         {
-            " ": 82,
+            " unitid": 82,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Lyle",
             "Name JPN": "ライル",
@@ -2861,7 +2861,7 @@
             "icon url": "http://i.imgur.com/vNijfou.png"
         },
         {
-            " ": 83,
+            " unitid": 83,
             "Icon": "=image(\"http://i.imgur.com/MhinPRA.png\")",
             "Name": "Arber",
             "Name JPN": "アルベル",
@@ -2891,7 +2891,7 @@
             "icon url": "http://i.imgur.com/WfMANOc.png"
         },
         {
-            " ": 84,
+            " unitid": 84,
             "Icon": "=image(\"http://i.imgur.com/yHEd50v.png\")",
             "Name": "Shayna",
             "Name JPN": "シェイナ",
@@ -2921,7 +2921,7 @@
             "icon url": "http://i.imgur.com/IwKseYQ.png"
         },
         {
-            " ": 85,
+            " unitid": 85,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Milish",
             "Name JPN": "ミリシュ",
@@ -2951,7 +2951,7 @@
             "icon url": "http://i.imgur.com/FFzQks1.png"
         },
         {
-            " ": 86,
+            " unitid": 86,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Reimei",
             "Name JPN": "レイメイ",
@@ -2981,9 +2981,9 @@
             "icon url": "http://i.imgur.com/rJzowIp.png"
         },
         {
-            " ": 87,
+            " unitid": 87,
             "Icon": "=IMAGE(R[0]C[26])",
-            "Name": "Soreiyu",
+            "Name": "Soleil",
             "Name JPN": "ソレイユ",
             "Romanji": "soreiyu",
             "Rarity": "★★★★☆",
@@ -3011,7 +3011,7 @@
             "icon url": "http://i.imgur.com/NlERj8w.png"
         },
         {
-            " ": 88,
+            " unitid": 88,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Shenmei",
             "Name JPN": "シェンメイ",
@@ -3041,7 +3041,7 @@
             "icon url": "http://i.imgur.com/yq3M0HN.png"
         },
         {
-            " ": 89,
+            " unitid": 89,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Tamamo",
             "Name JPN": "タマモ",
@@ -3071,7 +3071,7 @@
             "icon url": "http://i.imgur.com/xSugto9.png"
         },
         {
-            " ": 90,
+            " unitid": 90,
             "Icon": "=IMAGE(\"http://i.imgur.com/2Qcs4sF.png\")",
             "Name": "Kudhanstein",
             "Name JPN": "クダンシュタイン",
@@ -3101,7 +3101,7 @@
             "icon url": "http://i.imgur.com/yh9wa1P.png"
         },
         {
-            " ": 91,
+            " unitid": 91,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Courage",
             "Name JPN": "クラージュ",
@@ -3131,7 +3131,7 @@
             "icon url": "http://i.imgur.com/1aJnCaC.png"
         },
         {
-            " ": 92,
+            " unitid": 92,
             "Icon": "=image(\"http://i.imgur.com/FhClLmn.png\")",
             "Name": "Kagura",
             "Name JPN": "カグラ",
@@ -3161,7 +3161,7 @@
             "icon url": "http://i.imgur.com/yH9GYTC.png"
         },
         {
-            " ": 93,
+            " unitid": 93,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Fencer [E.O.]",
             "Name JPN": "フェンサー[世界樹]",
@@ -3191,7 +3191,7 @@
             "icon url": "http://i.imgur.com/1m12kSR.png"
         },
         {
-            " ": 94,
+            " unitid": 94,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Chloe [E.O.]",
             "Name JPN": "クロエ[世界樹]",
@@ -3221,7 +3221,7 @@
             "icon url": "http://i.imgur.com/EORpPOk.png"
         },
         {
-            " ": 95,
+            " unitid": 95,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Reaper [E.O.]",
             "Name JPN": "リーパー[世界樹]",
@@ -3251,7 +3251,7 @@
             "icon url": "http://i.imgur.com/ZjYQ1NG.png"
         },
         {
-            " ": 96,
+            " unitid": 96,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Shaman \n[E.O.]",
             "Name JPN": "シャーマン[世界樹]",
@@ -3281,7 +3281,7 @@
             "icon url": "http://i.imgur.com/sghczGx.png"
         },
         {
-            " ": 97,
+            " unitid": 97,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Golmaras",
             "Name JPN": "ゴルマラス",
@@ -3311,7 +3311,7 @@
             "icon url": "http://i.imgur.com/Ngxcq6L.png"
         },
         {
-            " ": 98,
+            " unitid": 98,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Scheherazāde",
             "Name JPN": "シェヘラザーデ",
@@ -3341,7 +3341,7 @@
             "icon url": "http://i.imgur.com/WXnlutF.png"
         },
         {
-            " ": 99,
+            " unitid": 99,
             "Icon": "=IMAGE(\"http://i.imgur.com/RhCGqHh.png\")",
             "Name": "Spica",
             "Name JPN": "スビカ",
@@ -3371,7 +3371,7 @@
             "icon url": "http://i.imgur.com/TiQobry.png"
         },
         {
-            " ": 100,
+            " unitid": 100,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Monzein",
             "Name JPN": "モンゼイン",
@@ -3401,7 +3401,7 @@
             "icon url": "http://i.imgur.com/gzUtxRz.png"
         },
         {
-            " ": 101,
+            " unitid": 101,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Seda",
             "Name JPN": "セーダ",
@@ -3431,7 +3431,7 @@
             "icon url": "http://i.imgur.com/aRxwg44.png"
         },
         {
-            " ": 102,
+            " unitid": 102,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Vincent",
             "Name JPN": "ヴィンセント",
@@ -3461,7 +3461,7 @@
             "icon url": "http://i.imgur.com/8pk5a7O.png"
         },
         {
-            " ": 103,
+            " unitid": 103,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Peridot",
             "Name JPN": "ペリドット",
@@ -3491,7 +3491,7 @@
             "icon url": "http://i.imgur.com/1bDWr3r.png"
         },
         {
-            " ": 104,
+            " unitid": 104,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Deneb",
             "Name JPN": "デネブ",
@@ -3521,7 +3521,7 @@
             "icon url": "http://i.imgur.com/DTBsuFK.png"
         },
         {
-            " ": 105,
+            " unitid": 105,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Grantz",
             "Name JPN": "グランツ",
@@ -3551,7 +3551,7 @@
             "icon url": "http://i.imgur.com/WutrH7g.png"
         },
         {
-            " ": 106,
+            " unitid": 106,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Lupinus",
             "Name JPN": "ルピナス",
@@ -3581,7 +3581,7 @@
             "icon url": "http://i.imgur.com/suy4fM1.png"
         },
         {
-            " ": 107,
+            " unitid": 107,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Victor",
             "Name JPN": "ヴィクタ―",
@@ -3611,7 +3611,7 @@
             "icon url": "http://i.imgur.com/HFiIXuW.png"
         },
         {
-            " ": 108,
+            " unitid": 108,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Zain",
             "Name JPN": "ザイン",
@@ -3641,7 +3641,7 @@
             "icon url": "http://i.imgur.com/olTKI8Y.png"
         },
         {
-            " ": 109,
+            " unitid": 109,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Yauras",
             "Name JPN": "ヤウラス",
@@ -3671,7 +3671,7 @@
             "icon url": "http://i.imgur.com/rgFErp5.png"
         },
         {
-            " ": 110,
+            " unitid": 110,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Alba",
             "Name JPN": "アルバ",
@@ -3701,7 +3701,7 @@
             "icon url": "http://i.imgur.com/wKDxQ7m.png"
         },
         {
-            " ": 111,
+            " unitid": 111,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Chiruru",
             "Name JPN": "チルル",
@@ -3731,7 +3731,7 @@
             "icon url": "http://i.imgur.com/InG8Gys.png"
         },
         {
-            " ": 112,
+            " unitid": 112,
             "Icon": "=image(\"http://i.imgur.com/rUmrDdc.png\")",
             "Name": "Sieg",
             "Name JPN": "ジーク",
@@ -3761,7 +3761,7 @@
             "icon url": "http://i.imgur.com/upi0VJh.png"
         },
         {
-            " ": 113,
+            " unitid": 113,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Masamune\n[POTK]",
             "Name JPN": "マサムネ[ファンキル]",
@@ -3791,7 +3791,7 @@
             "icon url": "http://i.imgur.com/gnVXHZx.png"
         },
         {
-            " ": 114,
+            " unitid": 114,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Theona",
             "Name JPN": "テオナ",
@@ -3821,7 +3821,7 @@
             "icon url": "http://i.imgur.com/euQFy3B.png"
         },
         {
-            " ": 115,
+            " unitid": 115,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Sita [POTK]",
             "Name JPN": "シタ[ファンキル]",
@@ -3851,7 +3851,7 @@
             "icon url": "http://i.imgur.com/xI1qdeA.png"
         },
         {
-            " ": 116,
+            " unitid": 116,
             "Icon": "=image(\"http://i.imgur.com/KPbHH7i.png\")",
             "Name": "Shekinah\n[POTK]",
             "Name JPN": "シェキナー[ファンキル]",
@@ -3881,7 +3881,7 @@
             "icon url": "http://i.imgur.com/AgYrk2y.png"
         },
         {
-            " ": 117,
+            " unitid": 117,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Lizbeth",
             "Name JPN": "リズベット",
@@ -3911,7 +3911,7 @@
             "icon url": "http://i.imgur.com/iOQpD4f.png"
         },
         {
-            " ": 118,
+            " unitid": 118,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Ramesses",
             "Name JPN": "ラメセス",
@@ -3941,7 +3941,7 @@
             "icon url": "http://i.imgur.com/UCGUlSQ.png"
         },
         {
-            " ": 119,
+            " unitid": 119,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Dorothia",
             "Name JPN": "ドロシア",
@@ -3971,7 +3971,7 @@
             "icon url": "http://i.imgur.com/VOSuTdK.png"
         },
         {
-            " ": 120,
+            " unitid": 120,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Leida",
             "Name JPN": "レイダ",
@@ -4001,7 +4001,7 @@
             "icon url": "http://i.imgur.com/8819fqk.png"
         },
         {
-            " ": 121,
+            " unitid": 121,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Autima",
             "Name JPN": "オーティマ",
@@ -4031,7 +4031,7 @@
             "icon url": "http://i.imgur.com/ok3lZ7W.png"
         },
         {
-            " ": 122,
+            " unitid": 122,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Aswad",
             "Name JPN": "アスワド",
@@ -4061,7 +4061,7 @@
             "icon url": "http://i.imgur.com/p95DZCI.png"
         },
         {
-            " ": 123,
+            " unitid": 123,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Sophia",
             "Name JPN": "ソフィア",
@@ -4091,7 +4091,7 @@
             "icon url": "http://i.imgur.com/J4GmoO1.png"
         },
         {
-            " ": 124,
+            " unitid": 124,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Carol",
             "Name JPN": "キャロル",
@@ -4121,7 +4121,7 @@
             "icon url": "http://i.imgur.com/J1jh0db.png"
         },
         {
-            " ": 125,
+            " unitid": 125,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Eizen",
             "Name JPN": "エイザン",
@@ -4151,7 +4151,7 @@
             "icon url": "http://i.imgur.com/Jc4qRcH.png"
         },
         {
-            " ": 126,
+            " unitid": 126,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Thillie",
             "Name JPN": "ティリエ",
@@ -4181,7 +4181,7 @@
             "icon url": "http://i.imgur.com/iUypM4v.png"
         },
         {
-            " ": 127,
+            " unitid": 127,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Ellique",
             "Name JPN": "エルリケ",
@@ -4211,7 +4211,7 @@
             "icon url": "http://i.imgur.com/14ztDM6.png"
         },
         {
-            " ": 128,
+            " unitid": 128,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Archer [F/SN]",
             "Name JPN": "アーチャー",
@@ -4241,7 +4241,7 @@
             "icon url": "http://i.imgur.com/q8GP8UA.png"
         },
         {
-            " ": 129,
+            " unitid": 129,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Saber [F/SN]",
             "Name JPN": "セイバー",
@@ -4271,7 +4271,7 @@
             "icon url": "http://i.imgur.com/fRsVUMw.png"
         },
         {
-            " ": 130,
+            " unitid": 130,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Rin Tohsaka \n[F/SN]",
             "Name JPN": "遠坂凛",
@@ -4301,7 +4301,7 @@
             "icon url": "http://i.imgur.com/ajG1Wrj.png"
         },
         {
-            " ": 131,
+            " unitid": 131,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Hazel",
             "Name JPN": "ヘイゼル",
@@ -4331,7 +4331,7 @@
             "icon url": "http://i.imgur.com/htWIylW.png"
         },
         {
-            " ": 132,
+            " unitid": 132,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Setsuna ",
             "Name JPN": "セツナ",
@@ -4361,7 +4361,7 @@
             "icon url": "http://i.imgur.com/mNqTDIs.png"
         },
         {
-            " ": 133,
+            " unitid": 133,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Illyasviel \n[F/SN]",
             "Name JPN": "イリヤスフィール[F/SN]",
@@ -4391,7 +4391,7 @@
             "icon url": "http://i.imgur.com/y9JQ3dZ.png"
         },
         {
-            " ": 134,
+            " unitid": 134,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Lamia [F/SN]",
             "Name JPN": "セイバーラミア[F/SN]",
@@ -4421,7 +4421,7 @@
             "icon url": "http://i.imgur.com/0luvMp3.png"
         },
         {
-            " ": 135,
+            " unitid": 135,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Zahar [F/SN]",
             "Name JPN": "アーチャーザハル[F/SN]",
@@ -4451,7 +4451,7 @@
             "icon url": "http://i.imgur.com/MCmvgpl.png"
         },
         {
-            " ": 136,
+            " unitid": 136,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Gilgamesh [F/SN]",
             "Name JPN": "ギルガメッシュ[F/SN]",
@@ -4481,7 +4481,7 @@
             "icon url": "http://i.imgur.com/jADHc4X.png"
         },
         {
-            " ": 137,
+            " unitid": 137,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Yomi [F/SN]",
             "Name JPN": "ヨミ[F/SN]",
@@ -4511,7 +4511,7 @@
             "icon url": "http://i.imgur.com/bXLVpog.png"
         },
         {
-            " ": 138,
+            " unitid": 138,
             "Icon": "=IMAGE(\"http://i.imgur.com/t416hNL.png\")",
             "Name": "Rena",
             "Name JPN": "レナ",
@@ -4541,7 +4541,7 @@
             "icon url": "http://i.imgur.com/8cyaZDD.png"
         },
         {
-            " ": 139,
+            " unitid": 139,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Meifan",
             "Name JPN": "メイファン",
@@ -4571,7 +4571,7 @@
             "icon url": "http://i.imgur.com/GTwNzyw.png"
         },
         {
-            " ": 140,
+            " unitid": 140,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "ViVi",
             "Name JPN": "ヴィヴィ",
@@ -4601,7 +4601,7 @@
             "icon url": "http://i.imgur.com/K0eJvH6.png"
         },
         {
-            " ": 141,
+            " unitid": 141,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Sakura\n[Shinobina]",
             "Name JPN": "サクラ[シノビナ]",
@@ -4631,7 +4631,7 @@
             "icon url": "http://i.imgur.com/L4rD0lp.png"
         },
         {
-            " ": 142,
+            " unitid": 142,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Forcas \n[POTK]",
             "Name JPN": "フォルカス[ファンキル]",
@@ -4661,7 +4661,7 @@
             "icon url": "http://i.imgur.com/iHGMebC.png"
         },
         {
-            " ": 143,
+            " unitid": 143,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Miuna",
             "Name JPN": "ミウナ",
@@ -4691,7 +4691,7 @@
             "icon url": "http://i.imgur.com/W2QS8HG.png"
         },
         {
-            " ": 144,
+            " unitid": 144,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Bashousen  \n[POTK]",
             "Name JPN": "芭蕉扇[ファンキル]",
@@ -4721,7 +4721,7 @@
             "icon url": "http://i.imgur.com/bYhmqnz.png"
         },
         {
-            " ": 145,
+            " unitid": 145,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Abyss Princess Yomi \n[Shinobina]",
             "Name JPN": "深淵冥姫ヨミ[シノビナ]",
@@ -4751,7 +4751,7 @@
             "icon url": "http://i.imgur.com/KboLipm.png"
         },
         {
-            " ": 146,
+            " unitid": 146,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Mikoto",
             "Name JPN": "ミコト",
@@ -4781,7 +4781,7 @@
             "icon url": "http://i.imgur.com/nVApeXj.png"
         },
         {
-            " ": 147,
+            " unitid": 147,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Margaret",
             "Name JPN": "マーガレット",
@@ -4811,7 +4811,7 @@
             "icon url": "http://i.imgur.com/tJCogJ8.png"
         },
         {
-            " ": 148,
+            " unitid": 148,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Yuto",
             "Name JPN": "ユト",
@@ -4841,7 +4841,7 @@
             "icon url": "http://i.imgur.com/BkpQcPZ.png"
         },
         {
-            " ": 149,
+            " unitid": 149,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Neika",
             "Name JPN": "ネイカ",
@@ -4871,7 +4871,7 @@
             "icon url": "http://i.imgur.com/mcG3Yfd.png"
         },
         {
-            " ": 150,
+            " unitid": 150,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Yuunagi",
             "Name JPN": "ユウナギ",
@@ -4901,7 +4901,7 @@
             "icon url": "http://i.imgur.com/ZMirFRe.png"
         },
         {
-            " ": 151,
+            " unitid": 151,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Marianne",
             "Name JPN": "マリアンヌ",
@@ -4931,7 +4931,7 @@
             "icon url": "http://i.imgur.com/sOLKdLd.png"
         },
         {
-            " ": 152,
+            " unitid": 152,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Bashini",
             "Name JPN": "バシーニ",
@@ -4961,7 +4961,7 @@
             "icon url": "http://i.imgur.com/D2tFMtk.png"
         },
         {
-            " ": 153,
+            " unitid": 153,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Kiria",
             "Name JPN": "キリア",
@@ -4991,7 +4991,7 @@
             "icon url": "http://i.imgur.com/iqxH2xm.png"
         },
         {
-            " ": 154,
+            " unitid": 154,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Seraphina",
             "Name JPN": "セラフィ―ヌ",
@@ -5021,7 +5021,7 @@
             "icon url": "http://i.imgur.com/HwccbKH.png"
         },
         {
-            " ": 155,
+            " unitid": 155,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Red Magnus",
             "Name JPN": "レッドマグナス",
@@ -5051,7 +5051,7 @@
             "icon url": "http://i.imgur.com/ODuWaGH.png"
         },
         {
-            " ": 156,
+            " unitid": 156,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Usalia",
             "Name JPN": "ウサリア",
@@ -5081,7 +5081,7 @@
             "icon url": "http://i.imgur.com/nZO1CEi.png"
         },
         {
-            " ": 157,
+            " unitid": 157,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "D.Rin",
             "Name JPN": "リン（アーチャーver）",
@@ -5111,7 +5111,7 @@
             "icon url": "http://i.imgur.com/HNsaE6w.png"
         },
         {
-            " ": 158,
+            " unitid": 158,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Chao",
             "Name JPN": "チャオ",
@@ -5141,7 +5141,7 @@
             "icon url": "http://i.imgur.com/vOYAmT9.png"
         },
         {
-            " ": 159,
+            " unitid": 159,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Daisy",
             "Name JPN": "デイジー",
@@ -5171,7 +5171,7 @@
             "icon url": "http://i.imgur.com/FLvItKQ.png"
         },
         {
-            " ": 160,
+            " unitid": 160,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Nasario",
             "Name JPN": "ナサリオ",
@@ -5201,7 +5201,7 @@
             "icon url": "http://i.imgur.com/KQJtYtF.png"
         },
         {
-            " ": 161,
+            " unitid": 161,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Laharl",
             "Name JPN": "ラハール",
@@ -5231,7 +5231,7 @@
             "icon url": "http://i.imgur.com/cZrF55M.png"
         },
         {
-            " ": 162,
+            " unitid": 162,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Etna",
             "Name JPN": "エトナ",
@@ -5261,7 +5261,7 @@
             "icon url": "http://i.imgur.com/r404bLS.png"
         },
         {
-            " ": 163,
+            " unitid": 163,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "D.Rosa",
             "Name JPN": "ローザ（夜魔族ver）",
@@ -5291,7 +5291,7 @@
             "icon url": "http://i.imgur.com/jmhTcJY.png"
         },
         {
-            " ": 164,
+            " unitid": 164,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "D.Almira",
             "Name JPN": "アルミラ（盗賊ver）",
@@ -5321,7 +5321,7 @@
             "icon url": "http://i.imgur.com/ZopBOym.png"
         },
         {
-            " ": 165,
+            " unitid": 165,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Prinny",
             "Name JPN": "プリ二―",
@@ -5351,7 +5351,7 @@
             "icon url": "http://i.imgur.com/PEGx7Zg.png"
         },
         {
-            " ": 166,
+            " unitid": 166,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Lavina",
             "Name JPN": "ラヴィーナ",
@@ -5381,7 +5381,7 @@
             "icon url": "http://i.imgur.com/RFKxCpE.png"
         },
         {
-            " ": 167,
+            " unitid": 167,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Suiran",
             "Name JPN": "スイラン",
@@ -5411,7 +5411,7 @@
             "icon url": "http://i.imgur.com/uMQWcCi.png"
         },
         {
-            " ": 168,
+            " unitid": 168,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Blanchett",
             "Name JPN": "ブランシェット",
@@ -5441,7 +5441,7 @@
             "icon url": "http://i.imgur.com/kknju1E.png"
         },
         {
-            " ": 169,
+            " unitid": 169,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Jin",
             "Name JPN": "ジン",
@@ -5471,7 +5471,7 @@
             "icon url": "http://i.imgur.com/gLrcZBW.png"
         },
         {
-            " ": 170,
+            " unitid": 170,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Zophie",
             "Name JPN": "ゾフィー",
@@ -5501,7 +5501,7 @@
             "icon url": "http://i.imgur.com/4gKCyw1.png"
         },
         {
-            " ": 171,
+            " unitid": 171,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Noah",
             "Name JPN": "ノア",
@@ -5531,7 +5531,7 @@
             "icon url": "http://i.imgur.com/b0TFYU9.png"
         },
         {
-            " ": 172,
+            " unitid": 172,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Olga",
             "Name JPN": "オルガ",
@@ -5561,7 +5561,7 @@
             "icon url": "http://i.imgur.com/RG1LqQ7.png"
         },
         {
-            " ": 173,
+            " unitid": 173,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Chat Noir",
             "Name JPN": "シャノワール",
@@ -5591,7 +5591,7 @@
             "icon url": "http://i.imgur.com/7A5kg2d.png"
         },
         {
-            " ": 174,
+            " unitid": 174,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Justin",
             "Name JPN": "ジャスティン",
@@ -5621,7 +5621,7 @@
             "icon url": "http://i.imgur.com/8mPgW7C.png"
         },
         {
-            " ": 175,
+            " unitid": 175,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Noctis",
             "Name JPN": "ノクティス",
@@ -5651,7 +5651,7 @@
             "icon url": "http://i.imgur.com/8GTaoPa.png"
         },
         {
-            " ": 176,
+            " unitid": 176,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Prompto",
             "Name JPN": "プロンプト",
@@ -5681,7 +5681,7 @@
             "icon url": "http://i.imgur.com/vJAEeuX.png"
         },
         {
-            " ": 177,
+            " unitid": 177,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Ignis",
             "Name JPN": "イグニス",
@@ -5711,7 +5711,7 @@
             "icon url": "http://i.imgur.com/iZzvXyg.png"
         },
         {
-            " ": 178,
+            " unitid": 178,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Gladiolus",
             "Name JPN": "グラディオラス",
@@ -5741,7 +5741,7 @@
             "icon url": "http://i.imgur.com/JGh2beT.png"
         },
         {
-            " ": 179,
+            " unitid": 179,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Aranea",
             "Name JPN": "アラネア",
@@ -5771,7 +5771,7 @@
             "icon url": "http://i.imgur.com/STBqVSV.png"
         },
         {
-            " ": 180,
+            " unitid": 180,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Creema",
             "Name JPN": "クリーマ",
@@ -5801,7 +5801,7 @@
             "icon url": "http://i.imgur.com/Brh5tkp.png"
         },
         {
-            " ": 181,
+            " unitid": 181,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Leonia",
             "Name JPN": "レオニア",
@@ -5831,7 +5831,7 @@
             "icon url": "http://i.imgur.com/1ifFPhl.png"
         },
         {
-            " ": 182,
+            " unitid": 182,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Acht (#8)",
             "Name JPN": "アハト",
@@ -5861,7 +5861,7 @@
             "icon url": "http://i.imgur.com/bxnR6nB.png"
         },
         {
-            " ": 183,
+            " unitid": 183,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Vier (#4)",
             "Name JPN": "フィーア",
@@ -5891,7 +5891,7 @@
             "icon url": "http://i.imgur.com/9jFOibq.png"
         },
         {
-            " ": 184,
+            " unitid": 184,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Fealily",
             "Name JPN": "フェアリリィ",
@@ -5921,7 +5921,7 @@
             "icon url": "http://i.imgur.com/JiwXVHg.png"
         },
         {
-            " ": 185,
+            " unitid": 185,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Edwin",
             "Name JPN": "エドウィン",
@@ -5951,7 +5951,7 @@
             "icon url": "http://i.imgur.com/9Bh0wbu.png"
         },
         {
-            " ": 186,
+            " unitid": 186,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Stocke",
             "Name JPN": "ストック",
@@ -5981,7 +5981,7 @@
             "icon url": "http://i.imgur.com/Wldc9Ye.png"
         },
         {
-            " ": 187,
+            " unitid": 187,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Eruca",
             "Name JPN": "エルーカ",
@@ -6011,7 +6011,7 @@
             "icon url": "http://i.imgur.com/7LCqAOK.png"
         },
         {
-            " ": 188,
+            " unitid": 188,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Aht",
             "Name JPN": "アト",
@@ -6041,7 +6041,7 @@
             "icon url": "http://i.imgur.com/rOpEQ9J.png"
         },
         {
-            " ": 189,
+            " unitid": 189,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Raynie",
             "Name JPN": "レイニー",
@@ -6071,7 +6071,7 @@
             "icon url": "http://i.imgur.com/haB5TBw.png"
         },
         {
-            " ": 190,
+            " unitid": 190,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Annika",
             "Name JPN": "アンニカ",
@@ -6101,7 +6101,7 @@
             "icon url": "http://i.imgur.com/7ExLeRz.png"
         },
         {
-            " ": 191,
+            " unitid": 191,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Hugo",
             "Name JPN": "ヒューゴ",
@@ -6131,7 +6131,7 @@
             "icon url": "http://i.imgur.com/5Nnro7f.png"
         },
         {
-            " ": 192,
+            " unitid": 192,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Celliaz",
             "Name JPN": "セリアズ",
@@ -6161,7 +6161,7 @@
             "icon url": "http://i.imgur.com/k7qdJO7.png"
         },
         {
-            " ": 193,
+            " unitid": 193,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Eros",
             "Name JPN": "エロース",
@@ -6191,7 +6191,7 @@
             "icon url": "http://i.imgur.com/qtFnmAa.png"
         },
         {
-            " ": 194,
+            " unitid": 194,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Yuri",
             "Name JPN": "ユリ",
@@ -6221,7 +6221,7 @@
             "icon url": "http://i.imgur.com/fiHAu6g.png"
         },
         {
-            " ": 195,
+            " unitid": 195,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Amaterasu",
             "Name JPN": "アマテラス",
@@ -6251,7 +6251,7 @@
             "icon url": "http://i.imgur.com/BLC5xQe.png"
         },
         {
-            " ": 196,
+            " unitid": 196,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Priscilla",
             "Name JPN": "プリシラ",
@@ -6281,7 +6281,7 @@
             "icon url": "http://i.imgur.com/1hhOtfk.png"
         },
         {
-            " ": 197,
+            " unitid": 197,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Fujika",
             "Name JPN": "フジカ",
@@ -6311,7 +6311,7 @@
             "icon url": "http://i.imgur.com/oDlgNFP.png"
         },
         {
-            " ": 198,
+            " unitid": 198,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Zierva (#7)",
             "Name JPN": "ズィーヴァ",
@@ -6341,7 +6341,7 @@
             "icon url": "http://i.imgur.com/qCFsN4d.png"
         },
         {
-            " ": 199,
+            " unitid": 199,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Neun (#9)",
             "Name JPN": "ノイン",
@@ -6371,7 +6371,7 @@
             "icon url": "http://i.imgur.com/y7IZfim.png"
         },
         {
-            " ": 200,
+            " unitid": 200,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Fuelie (#5)",
             "Name JPN": "フューリー",
@@ -6401,7 +6401,7 @@
             "icon url": "http://i.imgur.com/I2P2qN1.png"
         },
         {
-            " ": 201,
+            " unitid": 201,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Tina",
             "Name JPN": "ティナ",
@@ -6431,7 +6431,7 @@
             "icon url": "http://i.imgur.com/TG4VMjW.png"
         },
         {
-            " ": 202,
+            " unitid": 202,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Faylin",
             "Name JPN": "フェイリン",
@@ -6461,7 +6461,7 @@
             "icon url": "http://i.imgur.com/HMb03cm.png"
         },
         {
-            " ": 203,
+            " unitid": 203,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Thomas",
             "Name JPN": "トマス",
@@ -6491,7 +6491,7 @@
             "icon url": "http://i.imgur.com/VYJvCgn.png"
         },
         {
-            " ": 204,
+            " unitid": 204,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Thetis",
             "Name JPN": "テティス",
@@ -6521,7 +6521,7 @@
             "icon url": "http://i.imgur.com/JSHsB62.png"
         },
         {
-            " ": 205,
+            " unitid": 205,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Paladin",
             "Name JPN": "パラディン[世界樹]",
@@ -6551,7 +6551,7 @@
             "icon url": "http://i.imgur.com/zjTxf5s.png"
         },
         {
-            " ": 206,
+            " unitid": 206,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Gunner",
             "Name JPN": "ガンナー[世界樹]",
@@ -6581,7 +6581,7 @@
             "icon url": "http://i.imgur.com/7JaJiCg.png"
         },
         {
-            " ": 207,
+            " unitid": 207,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Princess",
             "Name JPN": "プリンセス[世界樹]",
@@ -6611,7 +6611,7 @@
             "icon url": "http://i.imgur.com/mGhBxe7.png"
         },
         {
-            " ": 208,
+            " unitid": 208,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Shenmei [E.O.]",
             "Name JPN": "シェンメイ[世界樹]",
@@ -6641,7 +6641,7 @@
             "icon url": "http://i.imgur.com/XDDCqPF.png"
         },
         {
-            " ": 209,
+            " unitid": 209,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Rusha",
             "Name JPN": "ルーシャ",
@@ -6671,7 +6671,7 @@
             "icon url": "http://i.imgur.com/FGqeRqg.png"
         },
         {
-            " ": 210,
+            " unitid": 210,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Emma",
             "Name JPN": "エマ",
@@ -6701,7 +6701,7 @@
             "icon url": "http://i.imgur.com/sgHLHW0.png"
         },
         {
-            " ": 211,
+            " unitid": 211,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Hishamu",
             "Name JPN": "ヒシャーム",
@@ -6731,7 +6731,7 @@
             "icon url": "http://i.imgur.com/Q1NtpWj.png"
         },
         {
-            " ": 212,
+            " unitid": 212,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Reidou",
             "Name JPN": "レイドウ",
@@ -6761,7 +6761,7 @@
             "icon url": "https://i.imgur.com/oNWkoak.png"
         },
         {
-            " ": 213,
+            " unitid": 213,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Izayoi",
             "Name JPN": "イザヨイ",
@@ -6791,7 +6791,7 @@
             "icon url": "https://i.imgur.com/JP5BLzB.png"
         },
         {
-            " ": 214,
+            " unitid": 214,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "D'Artagnan",
             "Name JPN": "ダルタニアン",
@@ -6821,7 +6821,7 @@
             "icon url": "https://i.imgur.com/F15AWOD.png"
         },
         {
-            " ": 215,
+            " unitid": 215,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Uzuma",
             "Name JPN": "ウズマ",
@@ -6851,7 +6851,7 @@
             "icon url": "https://i.imgur.com/SfPfRmP.png"
         },
         {
-            " ": 216,
+            " unitid": 216,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Wong",
             "Name JPN": "ウォン",
@@ -6881,7 +6881,7 @@
             "icon url": "https://i.imgur.com/wdzQEK0.png"
         },
         {
-            " ": 217,
+            " unitid": 217,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Ines",
             "Name JPN": "イネス",
@@ -6911,7 +6911,7 @@
             "icon url": "https://i.imgur.com/g9SUIRP.png"
         },
         {
-            " ": 218,
+            " unitid": 218,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Blitz",
             "Name JPN": "ブリッツ",
@@ -6941,7 +6941,7 @@
             "icon url": "https://i.imgur.com/xCrMUP9.png"
         },
         {
-            " ": 219,
+            " unitid": 219,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Birgitta",
             "Name JPN": "ビルギッタ",
@@ -6971,7 +6971,7 @@
             "icon url": "https://i.imgur.com/Rswu1d3.png"
         },
         {
-            " ": 220,
+            " unitid": 220,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Edward Elric",
             "Name JPN": "エドワード",
@@ -7001,7 +7001,7 @@
             "icon url": "https://i.imgur.com/sjeSUG6.png"
         },
         {
-            " ": 221,
+            " unitid": 221,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Alphonse Elric",
             "Name JPN": "アルフォンス",
@@ -7031,7 +7031,7 @@
             "icon url": "https://i.imgur.com/6rxQsAE.png"
         },
         {
-            " ": 222,
+            " unitid": 222,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Tlitor",
             "Name JPN": "トリトー",
@@ -7061,7 +7061,7 @@
             "icon url": "https://i.imgur.com/UJAwuKU.png"
         },
         {
-            " ": 223,
+            " unitid": 223,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Roy Mustang",
             "Name JPN": "ロイ・マスタング",
@@ -7091,7 +7091,7 @@
             "icon url": "https://i.imgur.com/n7GjnVU.png"
         },
         {
-            " ": 224,
+            " unitid": 224,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Riza Hawkeye",
             "Name JPN": "リザ・ホークアイ",
@@ -7121,7 +7121,7 @@
             "icon url": "https://i.imgur.com/0oP93v8.png"
         },
         {
-            " ": 225,
+            " unitid": 225,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Cordelia",
             "Name JPN": "コーデリア",
@@ -7151,7 +7151,7 @@
             "icon url": "https://i.imgur.com/QYNPONY.png"
         },
         {
-            " ": 226,
+            " unitid": 226,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Pride",
             "Name JPN": "プライド",
@@ -7181,7 +7181,7 @@
             "icon url": "https://i.imgur.com/Ah52AC9.png"
         },
         {
-            " ": 227,
+            " unitid": 227,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "King Bradley\n[Wrath]",
             "Name JPN": "ブラッドレイ",
@@ -7211,7 +7211,7 @@
             "icon url": "https://i.imgur.com/NxzDuBW.png"
         },
         {
-            " ": 228,
+            " unitid": 228,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Envy",
             "Name JPN": "エンヴィー",
@@ -7241,7 +7241,7 @@
             "icon url": "https://i.imgur.com/g4AtSEl.png"
         },
         {
-            " ": 229,
+            " unitid": 229,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Itsuki",
             "Name JPN": "イツキ",
@@ -7271,7 +7271,7 @@
             "icon url": "https://i.imgur.com/FxdjBGy.png"
         },
         {
-            " ": 230,
+            " unitid": 230,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Tsang Lei",
             "Name JPN": "ツァンレイ",
@@ -7301,7 +7301,7 @@
             "icon url": "https://i.imgur.com/fzie3x7.png"
         },
         {
-            " ": 231,
+            " unitid": 231,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Longinus",
             "Name JPN": "ロンギヌス",
@@ -7331,7 +7331,7 @@
             "icon url": "https://i.imgur.com/dZxZTth.png"
         },
         {
-            " ": 232,
+            " unitid": 232,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Artemis",
             "Name JPN": "アルテミス",
@@ -7361,7 +7361,7 @@
             "icon url": "https://i.imgur.com/HPgpssi.png"
         },
         {
-            " ": 233,
+            " unitid": 233,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Zehn (#10)",
             "Name JPN": "ゼン",
@@ -7391,7 +7391,7 @@
             "icon url": "https://i.imgur.com/w1gQX93.png"
         },
         {
-            " ": 234,
+            " unitid": 234,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Black Killer's Tyrfing",
             "Name JPN": "ブラックキラーズ『ティルフィング』",
@@ -7421,7 +7421,7 @@
             "icon url": "https://i.imgur.com/ddgxOUU.png"
         },
         {
-            " ": 235,
+            " unitid": 235,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Belta",
             "Name JPN": "ベルタ",
@@ -7451,7 +7451,7 @@
             "icon url": "https://i.imgur.com/yyqE3p8.png"
         },
         {
-            " ": 236,
+            " unitid": 236,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Lotia",
             "Name JPN": "ローティア",
@@ -7481,7 +7481,7 @@
             "icon url": "https://i.imgur.com/MxtTQAu.png"
         },
         {
-            " ": 237,
+            " unitid": 237,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Aisha",
             "Name JPN": "アイシャ",
@@ -7511,7 +7511,7 @@
             "icon url": "https://i.imgur.com/vVUY5GV.png"
         },
         {
-            " ": 238,
+            " unitid": 238,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Kevin",
             "Name JPN": "ケヴィン",
@@ -7541,7 +7541,7 @@
             "icon url": "https://i.imgur.com/75BHB0D.png"
         },
         {
-            " ": 239,
+            " unitid": 239,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Gilford",
             "Name JPN": "ギルフォード",
@@ -7571,7 +7571,7 @@
             "icon url": "https://i.imgur.com/9hrmy58.png"
         },
         {
-            " ": 240,
+            " unitid": 240,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Regis",
             "Name JPN": "レギス",
@@ -7601,7 +7601,7 @@
             "icon url": "https://i.imgur.com/AIzlWdP.png"
         },
         {
-            " ": 241,
+            " unitid": 241,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Cor",
             "Name JPN": "コル",
@@ -7631,7 +7631,7 @@
             "icon url": "https://i.imgur.com/wxj88t9.png"
         },
         {
-            " ": 242,
+            " unitid": 242,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Iris",
             "Name JPN": "イリス",
@@ -7661,7 +7661,7 @@
             "icon url": "https://i.imgur.com/s1OskDE.png"
         },
         {
-            " ": 243,
+            " unitid": 243,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Teresa",
             "Name JPN": "テレサ",
@@ -7691,7 +7691,7 @@
             "icon url": "https://i.imgur.com/3wV7Trp.png"
         },
         {
-            " ": 244,
+            " unitid": 244,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Silma",
             "Name JPN": "シルマ",
@@ -7721,7 +7721,7 @@
             "icon url": "https://i.imgur.com/lbSfnSI.png"
         },
         {
-            " ": 245,
+            " unitid": 245,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Kureto",
             "Name JPN": "クレト",
@@ -7751,7 +7751,7 @@
             "icon url": "https://i.imgur.com/y3tgkWx.png"
         },
         {
-            " ": 246,
+            " unitid": 246,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Black Killer Laevateinn",
             "Name JPN": "ブラックキラーズ『レーヴァテイン』",
@@ -7781,7 +7781,7 @@
             "icon url": "https://i.imgur.com/T0pgwLw.png"
         },
         {
-            " ": 247,
+            " unitid": 247,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Tsukuyomi",
             "Name JPN": "ツクヨミ",
@@ -7811,7 +7811,7 @@
             "icon url": "https://i.imgur.com/ihk071K.png"
         },
         {
-            " ": 248,
+            " unitid": 248,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Freikugel",
             "Name JPN": "フライクーゲル",
@@ -7841,7 +7841,7 @@
             "icon url": "https://i.imgur.com/S16Ji3E.png"
         },
         {
-            " ": 249,
+            " unitid": 249,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Parashu",
             "Name JPN": "パラシュ",
@@ -7871,7 +7871,7 @@
             "icon url": "https://i.imgur.com/GinBTCW.png"
         },
         {
-            " ": 250,
+            " unitid": 250,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Fiona",
             "Name JPN": "フィオナ",
@@ -7901,7 +7901,7 @@
             "icon url": "https://i.imgur.com/A7lICkV.png"
         },
         {
-            " ": 251,
+            " unitid": 251,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Gerald",
             "Name JPN": "ジェラルド",
@@ -7931,7 +7931,7 @@
             "icon url": "https://i.imgur.com/SsuNCDN.png"
         },
         {
-            " ": 252,
+            " unitid": 252,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Natalie",
             "Name JPN": "ナタリー",
@@ -7961,7 +7961,7 @@
             "icon url": "https://i.imgur.com/3JqOEj5.png"
         },
         {
-            " ": 253,
+            " unitid": 253,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Lil Uroboros",
             "Name JPN": "リル＝ウロボロス",
@@ -7991,7 +7991,7 @@
             "icon url": "https://i.imgur.com/poUjOdc.png"
         },
         {
-            " ": 254,
+            " unitid": 254,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Sol (#0)",
             "Name JPN": "ソル",
@@ -8021,7 +8021,7 @@
             "icon url": "https://i.imgur.com/fY2fHJS.png"
         },
         {
-            " ": 255,
+            " unitid": 255,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Nina",
             "Name JPN": "ニーナ",
@@ -8051,7 +8051,7 @@
             "icon url": "https://i.imgur.com/4ad2BZA.png"
         },
         {
-            " ": 256,
+            " unitid": 256,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Leticia",
             "Name JPN": "レティシア",
@@ -8081,7 +8081,7 @@
             "icon url": "https://i.imgur.com/GyzQTyL.png"
         },
         {
-            " ": 257,
+            " unitid": 257,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Ira",
             "Name JPN": "イーラ",
@@ -8111,7 +8111,7 @@
             "icon url": "https://i.imgur.com/9hHNJWg.png"
         },
         {
-            " ": 258,
+            " unitid": 258,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Niggle",
             "Name JPN": "ニグル",
@@ -8141,7 +8141,7 @@
             "icon url": "https://i.imgur.com/dBvbP7s.png"
         },
         {
-            " ": 259,
+            " unitid": 259,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Karla",
             "Name JPN": "カルラ",
@@ -8171,7 +8171,7 @@
             "icon url": "https://i.imgur.com/4YhfHen.png"
         },
         {
-            " ": 260,
+            " unitid": 260,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Ankh",
             "Name JPN": "アンク",
@@ -8201,7 +8201,7 @@
             "icon url": "https://i.imgur.com/zNCc5dQ.png"
         },
         {
-            " ": 261,
+            " unitid": 261,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Lizardman",
             "Name JPN": "リザードマン",
@@ -8231,7 +8231,7 @@
             "icon url": "https://i.imgur.com/q8LvW2b.png"
         },
         {
-            " ": 262,
+            " unitid": 262,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Neferti",
             "Name JPN": "ネフェルティ",
@@ -8261,7 +8261,7 @@
             "icon url": "https://i.imgur.com/MPOP7eL.png"
         },
         {
-            " ": 263,
+            " unitid": 263,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Don Taras",
             "Name JPN": "ドン・タラス",
@@ -8291,7 +8291,7 @@
             "icon url": "https://i.imgur.com/wUfs5kc.png"
         },
         {
-            " ": 264,
+            " unitid": 264,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Black Killer Artemis",
             "Name JPN": "ブラックキラーズ『アルテミス』",
@@ -8321,7 +8321,7 @@
             "icon url": "https://i.imgur.com/NqRs9NF.png"
         },
         {
-            " ": 265,
+            " unitid": 265,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Orion",
             "Name JPN": "オライオン",
@@ -8351,7 +8351,7 @@
             "icon url": "https://i.imgur.com/Cnu03Gw.png"
         },
         {
-            " ": 266,
+            " unitid": 266,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Merlinus",
             "Name JPN": "メルリヌス",
@@ -8381,7 +8381,7 @@
             "icon url": "https://i.imgur.com/wdHS7QY.png"
         },
         {
-            " ": 267,
+            " unitid": 267,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Kamui",
             "Name JPN": "カムイ",
@@ -8411,7 +8411,7 @@
             "icon url": "https://i.imgur.com/CWZvBzo.png"
         },
         {
-            " ": 268,
+            " unitid": 268,
             "Icon": "=IMAGE(R[0]C[26])",
             "Name": "Ren",
             "Name JPN": "レン",
@@ -8439,6 +8439,36 @@
             "Original": "=IMAGE(R[0]C[-6])",
             "baseicon": "=IMAGE(R[0]C[1])",
             "icon url": "https://i.imgur.com/3w4gT1h.png"
+        },
+        {
+            " unitid": 269,
+            "Icon": "=IMAGE(R[0]C[26])",
+            "Name": "Arthur",
+            "Name JPN": "アーサー",
+            "Romanji": "asaa",
+            "Rarity": "★★★★★",
+            "Element": "Fire",
+            "LeaderSkill": "Fire: HP+50% / PATK+30% / Accuracy+10%",
+            "Job1": "Truth Seeking Hero\n求道の英雄",
+            "Job2": "Saint of Fist\n拳聖",
+            "Job3": "Holy Knight\nホーリーナイト",
+            "JC1": "N/A",
+            "JC2": "N/A",
+            "JC3": "Holy Knight: Porta \nホーリーナイト【ポルタ】",
+            "ELB": "N/A",
+            "Acquire": "Crystal of Reunion Collab Gacha:\r\n7 June 2018",
+            "Origin": "Midgard",
+            "Builds/Strategy": "・おすすめジョブ：求道の英雄\n・おすすめ基本アビリティ：基本求道技（第1ジョブ：求道の英雄）\n・おすすめリアクションアビリティ：反攻の一撃（第1ジョブ：求道の英雄）\n・おすすめサポートアビリティ：騎士道精神（第1ジョブ：求道の英雄）\n・おすすめサポートアビリティ：ランスガーディアン（第3ジョブ：ホーリーナイト【ポルタ】）",
+            "Details": "https://al.fg-games.co.jp/news/wp-content/uploads/2018/06/e180618_explain_1.png",
+            "Portait URL": "https://i.imgur.com/8M6JXZ5.png",
+            "Source": "https://al.fg-games.co.jp/news/22591/",
+            "Keyword": "arthur;アーサー",
+            "Hard Quest": "",
+            "Event": "",
+            "Skin": "",
+            "Original": "=IMAGE(R[0]C[-6])",
+            "baseicon": "=IMAGE(R[0]C[1])",
+            "icon url": "https://i.imgur.com/U0XoXpl.png"
         }
     ],
     "Global": [
@@ -44034,7 +44064,7 @@
             "Fighting Technique 戦技": ""
         },
         {
-            "Warrior (Bronze)\n戦士": "",
+            "Warrior (Bronze)\n戦士": "Karla's 1st Job",
             "": "",
             "Fighting Technique 戦技": ""
         },
@@ -47496,7 +47526,7 @@
             "Spear Technique 槍術": ""
         },
         {
-            "Speaman (Silver)\n槍術士": "",
+            "Speaman (Silver)\n槍術士": "Ankh's 1st Job",
             "": "",
             "Spear Technique 槍術": ""
         },
@@ -47846,7 +47876,7 @@
             "Spear Technique 槍術": ""
         },
         {
-            "Speaman (Silver)\n槍術士": "",
+            "Speaman (Silver)\n槍術士": "Lizardman's 1st Job",
             "": "",
             "Spear Technique 槍術": ""
         },
@@ -60221,9 +60251,9 @@
             "Truth or Falsehood Technique 虚実技": ""
         },
         {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
+            "Heroine of Truth or Falsehood\n虚実の英雄": "Truth Seeking Hero\n求道の英雄",
             "": "",
-            "Truth or Falsehood Technique 虚実技": ""
+            "Truth or Falsehood Technique 虚実技": "Truth Seeking Technique 求道技"
         },
         {
             "Heroine of Truth or Falsehood\n虚実の英雄": "",
@@ -60231,8 +60261,8 @@
             "Truth or Falsehood Technique 虚実技": ""
         },
         {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
+            "Heroine of Truth or Falsehood\n虚実の英雄": "=IMAGE(\"https://i.imgur.com/aTzKZ1F.png\")",
+            "": "王護の焔刃",
             "Truth or Falsehood Technique 虚実技": "Name"
         },
         {
@@ -60296,7 +60326,7 @@
             "Truth or Falsehood Technique 虚実技": ""
         },
         {
-            "Heroine of Truth or Falsehood\n虚実の英雄": "",
+            "Heroine of Truth or Falsehood\n虚実の英雄": "Arthur's 1st Job",
             "": "",
             "Truth or Falsehood Technique 虚実技": ""
         },
@@ -60327,7 +60357,7 @@
         },
         {
             "Heroine of Truth or Falsehood\n虚実の英雄": "",
-            "": "",
+            "": "指定範囲内の対象に火属性の斬撃攻撃\r\n[射程:2,範囲:横5マス,高低差:2]",
             "Truth or Falsehood Technique 虚実技": "Effect"
         },
         {
@@ -60363,7 +60393,7 @@
         {
             "Heroine of Truth or Falsehood\n虚実の英雄": "Starting Jewel",
             "": "",
-            "Truth or Falsehood Technique 虚実技": ""
+            "Truth or Falsehood Technique 虚実技": "Basic Truth Seeking Technique 基本求道技"
         },
         {
             "Heroine of Truth or Falsehood\n虚実の英雄": "Weapon Type",
@@ -97813,6 +97843,14 @@
             "Notes": ""
         },
         {
+            "INDEX": "2018-06-09T14:00:00.000Z",
+            "Compendium": "New Update",
+            "Reason": "Update",
+            "Units": "Arthur",
+            "Jobs": "Truth Seeking Hero",
+            "Notes": "New Unit: Arthur\nhttps://al.fg-games.co.jp/news/22591"
+        },
+        {
             "INDEX": "2018-06-01T14:00:00.000Z",
             "Compendium": "New Update",
             "Reason": "Update",
@@ -99612,7 +99650,7 @@
         },
         {
             "Return to Index": "=Units!R[0]C[1]",
-            "Name": "Soreiyu",
+            "Name": "Soleil",
             "Rarity": "★★★★☆",
             "Element": "Light",
             "LeaderSkill": "Light: 30% HP+",
