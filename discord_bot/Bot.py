@@ -1,16 +1,12 @@
-import sys
-import uuid
-import http.client
-import json
 import os
 import jellyfish
-import re
 import discord
 import asyncio
 from datetime import datetime
 from datetime import timedelta
 from discord.ext import commands
-from TAC_API import *
+from discord_bot.TAC_API import *
+from discord_bot.model import Unit
 
 
 # Constants
@@ -65,22 +61,37 @@ def loadFiles(files):
 
     return ret
 
-def find_best(command,dic,ctx):
-    inp=ctx.message.content[(len(command)+1):].title()
-    print(command+'\n\t'+inp)
-    best=""
-    max=0
-    for d in dic: 
-        for i in dic[d]['inputs']:
-            sim=jellyfish.jaro_winkler(inp, i.title())
-            if sim > max:
-                    max=sim
-                    best=d
-                    if sim==1:
-                        break
+def find_best(source, text):
+    """
+    Given a dictionary and a text, find the best matched item from the dictionary using the name
+    :param source: The dictionary to search from (i.e. units, gears, jobs, etc)
+    :type source: dict
+    :param text: String to find the match
+    :type text: str
+    :return: The best matched item from the dictionary
+    :rtype: dict
+    """
+    # XXX: Purposely shadowing the text parameter
+    text = text.title()
 
-    print('Jaro-Winkler \t'+ dic[best]['name'] + " | "+str(max))
-    return(dic[best])
+    # Calculate the match score for each key in the source dictionary using the input text.
+    # Then, create a list of (key, the best score) tuples.
+    similarities = [
+        (key, max(jellyfish.jaro_winkler(text, i.title()) for i in value.get('inputs', [])))
+        for key, value in source.items()
+    ]
+    # Find the key with the highest score (This is the best matched key)
+    key, score = max(similarities, key=lambda s: s[1])
+
+    # XXX: If needed, implement a minimum threshold here
+
+    # Return the actual best-matched value
+    best_match = source[key]
+    print("{name} is the best match for input '{input}' with score of {score}".format(
+        name=best_match.get('name'), input=text, score=score
+    ))
+    return best_match
+
 
 def fix_fields(fields):
     remove=[]
@@ -135,11 +146,8 @@ async def on_ready():
 
 #gear
 @bot.command()
-async def gear(ctx):
-    global gears
-    global prefix
-    command=prefix+'gear'
-    gear=find_best(command,gears,ctx)
+async def gear(ctx, *, name):
+    gear = find_best(gears, name)
     #start embed - title
     embed = discord.Embed(
         title=gear['name']+' '+gear['rarity'], 
@@ -177,11 +185,8 @@ async def gear(ctx):
 
 #drops
 @bot.command()
-async def farm(ctx):
-    global drops
-    global prefix
-    command=prefix+'farm'
-    item=find_best(command,drops,ctx)
+async def farm(ctx, *, name):
+    item = find_best(drops, name)
     #start embed - title
     embed = discord.Embed(title=item['name'], description="", url=item['link'])
     #icon
@@ -195,11 +200,8 @@ async def farm(ctx):
 
 #jobs
 @bot.command()
-async def job(ctx):
-    global jobs
-    global prefix
-    command=prefix+'job'
-    job=find_best(command,jobs,ctx)
+async def job(ctx, *, name):
+    job = find_best(jobs, name)
     #start embed - title
     embed = discord.Embed(
         title=job['name'], 
@@ -239,107 +241,26 @@ async def job(ctx):
 
 # unit commands
 @bot.command() # info
-async def unit(ctx):
-    global units
-    global prefix
-    command=prefix+'unit'
-    unit=find_best(command,units,ctx)
+async def unit(ctx, *, name):
+    unit_dict = find_best(units, name)
+    unit = Unit(source=unit_dict)
 
-    #start embed - title
-    embed = discord.Embed(
-        title=unit['name'],
-        description="",
-        url=unit['link'],
-        color=ELEMENT_COLOR.get(unit['element'], DEFAULT_ELEMENT_COLOR),
-    )
-    embed.set_footer(text='ᴶ - japan only', icon_url='')
-    #icon
-    embed.set_thumbnail(url=unit['icon'])
-    #add tierlist ranking
-    if 'tierlist' in unit:
-        tl = unit['tierlist']
-        for i in tl:
-            if tl[i]!="" and i in unit:
-                if '\n' not in unit[i]:
-                    unit[i]+= " ["+tl[i]+"]"
-                else:
-                    index=unit[i].index('\n')
-                    unit[i]= unit[i][:index] + ' ['+tl[i]+']' + unit[i][index:]
-                    
-        embed.title+=" ["+tl['total']+"]"
-    #unit data
-    fields=[
-        {'name':"gender",      'value':unit['gender'],     'inline':True},
-        {'name':"rarity",      'value':unit['rarity'],     'inline':True},
-        {'name':"country",     'value':unit['country'],    'inline':True},
-        {'name':"collab",      'value':unit['collab'],     'inline':True},
-        {'name':"master ability",'value':unit['master ability'],'inline':False},
-        {'name':"leader skill",'value':unit['leader skill'],'inline':False},
-        {'name':"Job 1",       'value':unit['job 1'],      'inline':True},
-        {'name':"Job 2",       'value':unit['job 2'],      'inline':True},
-        {'name':"Job 3",       'value':unit['job 3'],      'inline':False},
-        {'name':"Job Change 1",'value':unit['jc 1'],       'inline':True},
-        {'name':"Job Change 2",'value':unit['jc 2'],       'inline':True},
-        {'name':"Job Change 3",'value':unit['jc 3'],       'inline':True},
-        {'name':'Shard HQs',      'value':'\n'.join(unit['farm']),     'inline':False}
-        ]
-
-    fields=fix_fields(fields)
-    for i in fields:
-        embed.add_field(name=i["name"],      value=i['value'],     inline=i['inline'])
-
-    await ctx.send(embed=embed) 
+    await ctx.send(embed=unit.to_unit_embed())
 
 @bot.command() # lore
-async def lore(ctx):
-    global units
-    global prefix
-    command=prefix+'lore'
-    unit=find_best(command,units,ctx)
-    #start embed - title
-    embed = discord.Embed(
-        title=unit['name'],
-        description="",
-        url=unit['link'],
-        color=ELEMENT_COLOR.get(unit['element'], DEFAULT_ELEMENT_COLOR),
-    )
-    #icon
-    embed.set_thumbnail(url=unit['icon'])
-    #unit data
-    embed.add_field(name="birthday",    value=unit['BIRTH'],    inline=True)
-    embed.add_field(name="country",     value=unit['COUNTRY'],  inline=True)
-    embed.add_field(name="height",      value=unit['HEIGHT'],   inline=True)
-    embed.add_field(name="weight",      value=unit['WEIGHT'],   inline=True)
-    embed.add_field(name="zodiac",      value=unit['ZODIAC'],   inline=True)
-    embed.add_field(name="blood",       value=unit['BLOOD'],    inline=True)
-    embed.add_field(name="favorite",    value=unit['FAVORITE'], inline=True)
-    embed.add_field(name="hobby",       value=unit['HOBBY'],    inline=True)
-    embed.add_field(name="illustrator", value=unit['ILLUST'],   inline=True)
-    embed.add_field(name="cv",          value=unit['CV'],       inline=True)
-    embed.add_field(name="profile",     value=unit['PROFILE'],  inline=True)
+async def lore(ctx, *, name):
+    unit_dict = find_best(units, name)
+    unit = Unit(source=unit_dict)
 
-    await ctx.send(embed=embed) 
+    await ctx.send(embed=unit.to_lore_embed())
 
 @bot.command() #  artwork
-async def art(ctx):
-    global units
-    global prefix
-    command=prefix+'art'
-    unit=find_best(command,units,ctx)
+async def art(ctx, *, name):
+    unit_dict = find_best(units, name)
+    unit = Unit(source=unit_dict)
 
-    for a in unit['artworks']:
-        #start embed - title
-        embed = discord.Embed(
-            title=unit['name'] + ' - ' + a['name'],
-            description="",
-            url=unit['link'],
-            color=ELEMENT_COLOR.get(unit['element'], DEFAULT_ELEMENT_COLOR),
-        )
-        #icon
-        embed.set_thumbnail(url=a['closeup'])
-        #image
-        embed.set_image(url=a['full'])
-        await ctx.send(embed=embed) 
+    for embed in unit.to_art_embeds():
+        await ctx.send(embed=embed)
 
 #arena
 @bot.command()
