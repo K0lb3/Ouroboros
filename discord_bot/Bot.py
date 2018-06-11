@@ -430,5 +430,4 @@ async def help(ctx):
     await ctx.send(embed=embed)
 
 BOT_TOKEN = os.environ.get('DISCORD_BOT_TOKEN')
-#BOT_TOKEN="NDM3ODY4OTQ4MTMwNzU4NjY4.DdYvnw.UTWQMqytfyiu6YXzkY4iIw4CqJY"
 bot.run(BOT_TOKEN)
