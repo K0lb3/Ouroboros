@@ -33,8 +33,9 @@ class Unit(Model):
             name = "job {index}".format(index=i)
             if hasattr(self, name):
                 value = getattr(self, name)
-                if name in self.tierlist:
+                if hasattr(self, 'tierlist') and name in self.tierlist:
                     value += " [{tier}]".format(tier=self.tierlist.get(name))
+
 
                 fields.append({'name': name, 'value': value, 'inline': i != Unit.MAX_JOB_COUNT})
 
@@ -42,8 +43,12 @@ class Unit(Model):
             name = "jc {index}".format(index=i)
             if hasattr(self, name):
                 value = getattr(self, name)
-                if name in self.tierlist:
-                    value += " [{tier}]".format(tier=self.tierlist.get(name))
+                if hasattr(self, 'tierlist') and name in self.tierlist:
+                    if '\n' in value:
+                        nindex=value.index('\n')
+                        value = value[:nindex] + " [{tier}]".format(tier=self.tierlist.get(name)) + value[nindex:]
+                    else:
+                        value += " [{tier}]".format(tier=self.tierlist.get(name))
 
                 fields.append({
                     'name': "job change {index}".format(index=i),
@@ -62,7 +67,7 @@ class Unit(Model):
         embed = self.to_embed(fields=fields)
         embed.set_footer(text='ᴶ - japan only', icon_url='')
 
-        if 'total' in self.tierlist:
+        if hasattr(self, 'tierlist') and 'total' in self.tierlist:
             embed.title += " [{tier}]".format(tier=self.tierlist.get('total'))
 
         return embed

@@ -2,11 +2,11 @@ import os
 import jellyfish
 import discord
 import asyncio
+import json
 from datetime import datetime
 from datetime import timedelta
 from discord.ext import commands
-from discord_bot.TAC_API import *
-from discord_bot.model import Unit
+from model import *
 
 
 # Constants
