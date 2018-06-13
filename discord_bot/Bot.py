@@ -10,13 +10,6 @@ from model import *
 
 
 # Constants
-GEAR_COLOR = {
-    1: 16711680,
-    2: 2631935,
-    3: 32512,
-}
-DEFAULT_GEAR_COLOR = 8355711
-
 PRESENCES=[
         'WIP Job: o?job',
         'Collabs: o?collabs',
@@ -137,41 +130,11 @@ async def on_ready():
 #gear
 @bot.command()
 async def gear(ctx, *, name):
-    gear = find_best(gears, name)
-    #start embed - title
-    embed = discord.Embed(
-        title=gear['name']+' '+gear['rarity'],
-        description="",
-        url=gear['link'],
-        color=GEAR_COLOR.get(gear['type'], DEFAULT_GEAR_COLOR)
-        )
-    #icon
-    embed.set_thumbnail(url=gear['icon'])
-    #gear data
-    #stats
-    stats=""
-    for s in gear['stats']:
-        stats+= s+'★: ' + gear['stats'][s] + '\n'
-    embed.add_field(name='Max Stats:',      value=stats,     inline=False)
-    #on attack
-    atk_buff=""
-    for s in gear['atk_buff']:
-        atk_buff+= s+'★: ' + gear['atk_buff'][s] + '\n'
-    if len(atk_buff)>1:
-        embed.add_field(name='Max Attack (De)Buff:',      value=atk_buff,     inline=False)
+    gear_dict = find_best(gears, name)
+    gear_obj = Gear(source=gear_dict)
 
-    #abilities
-    if len(gear['ability']):
-        for a in gear['ability']:
-            link = 'http://www.alchemistcodedb.com/skill/'+a['iname'].lower().replace('_','-')
-            if len(a['restriction'])>1:
-                embed.add_field(name='Ability: '+a['NAME'],      value='restriction: '+a['restriction']+'\n'+a['EXPR']+'\n [link](<'+link+'>)',     inline=False)
-            else:
-                embed.add_field(name='Ability: '+a['NAME'],      value=a['EXPR']+'\n [link](<'+link+'>)',     inline=False)
+    await ctx.send(embed=gear_obj.to_gear_embed())
 
-    embed.add_field(name="flavor",value=gear['flavor'],inline=False)
-
-    await ctx.send(embed=embed)
 
 #drops
 @bot.command()
