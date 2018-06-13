@@ -51,7 +51,7 @@ class Gear(Model):
             fields.append({'name': 'Max Attack (De)Buff', 'value': '\n'.join(buffs), 'inline': False})
 
         abilities = [str(Ability(source=a)) for a in self.ability]
-        fields.append({'name': 'Ability', 'value': "\n".join(abilities), 'inline': False})
+        fields.append({'name': 'Ability', 'value': "\n\n".join(abilities), 'inline': False})
 
         fields.append({'name': 'Flavor Text', 'value': self.flavor, 'inline': False})
 
