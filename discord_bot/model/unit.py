@@ -36,8 +36,8 @@ class Unit(Model):
         for i in range(1, Unit.MAX_JOB_COUNT + 1):
             name = "job {index}".format(index=i)
             value = getattr(self, name, None)
-            if value:
-                if name in self.tierlist:
+            if value and len(value)>1:
+                if hasattr(self, 'tierlist') and name in self.tierlist:
                     value += " [{tier}]".format(tier=self.tierlist.get(name))
 
                 fields.append({'name': name, 'value': value, 'inline': i != Unit.MAX_JOB_COUNT})
@@ -45,8 +45,8 @@ class Unit(Model):
         for i in range(1, Unit.MAX_JOB_COUNT + 1):
             name = "jc {index}".format(index=i)
             value = getattr(self, name, None)
-            if value:
-                if name in self.tierlist:
+            if value and len(value)>1:                   
+                if hasattr(self, 'tierlist') and name in self.tierlist:
                     if '\n' in value:
                         job_name, job_desc = value.split('\n')
                         value = "{name} [{tier}]\n{desc}".format(
