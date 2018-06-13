@@ -33,7 +33,6 @@ api_jp={
     }
 
 api=api_gl
-con=http.client.HTTPSConnection(api['con'])
 ###########code#########################################
 
 def api_connect(url, body={}):
@@ -65,15 +64,16 @@ def api_connect(url, body={}):
         
         return(header)
     
+    
     body['ticket']=ticket
     headers = get_default_headers(body)
 
-    if con.host != api['con']:
-        con = http.client.HTTPSConnection(api['con'])
-        con.connect()
+    con = http.client.HTTPSConnection(api['con'])
+    con.connect()
 
     con.request("POST", url, json.dumps(body), headers)
     res_body = con.getresponse().read()
+    con.close()
 
     json_res= json.loads(res_body)
 
@@ -118,6 +118,9 @@ def req_arena_ranking():
         print(res_body)
         ret = ""
     
-    con.close()
     return ret
 
+print(req_arena_ranking())
+print(req_arena_ranking())
+print(req_arena_ranking())
+print(req_arena_ranking())
