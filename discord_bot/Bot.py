@@ -192,31 +192,31 @@ async def farm(ctx, *, name):
 @bot.command()
 async def job(ctx, *, name):
     job_dict = find_best(jobs, name)
-    job = Job(source=job_dict)
+    job_obj = Job(source=job_dict)
 
-    await ctx.send(embed=job.to_job_embed())
+    await ctx.send(embed=job_obj.to_job_embed())
 
 # unit commands
 @bot.command() # info
 async def unit(ctx, *, name):
     unit_dict = find_best(units, name)
-    unit = Unit(source=unit_dict)
+    unit_obj = Unit(source=unit_dict)
 
-    await ctx.send(embed=unit.to_unit_embed())
+    await ctx.send(embed=unit_obj.to_unit_embed())
 
 @bot.command() # lore
 async def lore(ctx, *, name):
     unit_dict = find_best(units, name)
-    unit = Unit(source=unit_dict)
+    unit_obj = Unit(source=unit_dict)
 
-    await ctx.send(embed=unit.to_lore_embed())
+    await ctx.send(embed=unit_obj.to_lore_embed())
 
 @bot.command() #  artwork
 async def art(ctx, *, name):
     unit_dict = find_best(units, name)
-    unit = Unit(source=unit_dict)
+    unit_obj = Unit(source=unit_dict)
 
-    for embed in unit.to_art_embeds():
+    for embed in unit_obj.to_art_embeds():
         await ctx.send(embed=embed)
 
 #arena
