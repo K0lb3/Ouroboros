@@ -42,7 +42,6 @@ def api_connect(url, body={}):
     global con
 
     def get_default_headers(body):
-        global access_token
         content_len=len(json.dumps(body))
         header = {
             #"x-app-ver": networkver,
@@ -56,8 +55,7 @@ def api_connect(url, body={}):
             "Content-Length": content_len
             }
         if url!="/gauth/accesstoken":
-            if access_token=="":
-                access_token=req_accesstoken()
+            access_token = req_accesstoken()
             if api['con'] == "app.alcww.gumi.sg":
                 header["Authorization"] = "gumi " + access_token
             if api['con'] == "alchemist.gu3.jp":
@@ -78,7 +76,6 @@ def api_connect(url, body={}):
     json_res= json.loads(res_body)
 
     if json_res['stat'] == 5002:
-        access_token=""
         json_res = api_connect(url, body)
 
     ticket+=1
