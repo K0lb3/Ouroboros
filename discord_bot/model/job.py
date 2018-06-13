@@ -2,46 +2,40 @@ from __future__ import absolute_import
 from .model import Model
 
 class Job(Model):
-    def to_embed(self, title_key='name', url_key='link', fields=[]):
-        embed = super(Job, self).to_embed(
-            title_key=title_key, url_key=url_key, fields=fields
-        )
-        #embed.color = Unit.ELEMENT_COLOR.get(self.element, Unit.DEFAULT_ELEMENT_COLOR)
-
-        return embed
+    _IGNORE_STATS = ['move', 'jump']
 
     def to_job_embed(self):
-        
-        modifiers=""
-        for i in self.modifiers:
-            if self.modifiers[i] != 0:
-                modifiers+= i +': '+str(self.modifiers[i])+'% | '
+        modifiers = [
+            "{key}: {value}%".format(key=key, value=value)
+            for key, value in self.modifiers.items()
+            if value != 0
+        ]
 
-        stats=""
-        for s in self.stats:
-            if s not in ['Move','Jump']:
-                stats+= s +': ' + str(self.stats.get(s)) +'\n'
+        stats = [
+            "{key}: {value}".format(key=key, value=value)
+            for key, value in self.stats.items()
+            if key.lower() not in Job._IGNORE_STATS
+        ]
 
         fields = [
-            {'name': 'description', 'value': getattr(self,'long description'), 'inline': False},
+            {'name': 'description', 'value': getattr(self, 'long description'), 'inline': False},
             'formula', 'origin',
-            {'name': 'move',        'value': self.stats['Move']},
-            {'name': 'jump',        'value': self.stats['Jump']},
-            {'name': 'modifiers',   'value': modifiers, 'inline': False},
-            {'name': 'stats',       'value': stats},
-            {'name': 'units',       'value': '\n'.join(self.units)},
+            {'name': 'move', 'value': self.stats['Move']},
+            {'name': 'jump', 'value': self.stats['Jump']},
+            {'name': 'modifiers', 'value': ' | '.join(modifiers), 'inline': False},
+            {'name': 'stats', 'value': '\n'.join(stats)},
+            {'name': 'units', 'value': '\n'.join(self.units)},
         ]
 
         embed = self.to_embed(fields=fields)
 
-        #select thubnail
-        if ':' in self.name or len(getattr(self,'short description'))>5:
+        # select thubnail
+        if ':' in self.name or len(getattr(self, 'short description')) > 5:
             embed.set_thumbnail(url=self.token)
         else:
             embed.set_thumbnail(url=self.icon)
 
-        #footer
+        # footer
         embed.set_footer(text='ᴶ - japan only', icon_url='')
-
 
         return embed
