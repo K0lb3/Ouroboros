@@ -41,7 +41,7 @@ class Gear(Model):
                 "{key}★: {value}".format(key=key, value=value)
                 for key, value in self.stats.items()
             ]
-            fields.append({'name': 'Max Stats', 'value': '\n\n'.join(stats), 'inline': False})
+            fields.append({'name': 'Max Stats', 'value': '\n'.join(stats), 'inline': False})
 
         if self.atk_buff:
             buffs = [
