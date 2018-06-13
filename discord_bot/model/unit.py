@@ -14,6 +14,10 @@ class Unit(Model):
     }
     DEFAULT_ELEMENT_COLOR = 0x7F7F7F
 
+    @property
+    def tierlist(self):
+        return self._source.get('tierlist', {})
+
     def to_embed(self, title_key='name', thumbnail_key='icon', url_key='link', fields=[]):
         embed = super(Unit, self).to_embed(
             title_key=title_key, thumbnail_key=thumbnail_key, url_key=url_key, fields=fields
@@ -31,22 +35,23 @@ class Unit(Model):
 
         for i in range(1, Unit.MAX_JOB_COUNT + 1):
             name = "job {index}".format(index=i)
-            if hasattr(self, name):
-                value = getattr(self, name)
-                if hasattr(self, 'tierlist') and name in self.tierlist:
+            value = getattr(self, name, None)
+            if value:
+                if name in self.tierlist:
                     value += " [{tier}]".format(tier=self.tierlist.get(name))
-
 
                 fields.append({'name': name, 'value': value, 'inline': i != Unit.MAX_JOB_COUNT})
 
         for i in range(1, Unit.MAX_JOB_COUNT + 1):
             name = "jc {index}".format(index=i)
-            if hasattr(self, name):
-                value = getattr(self, name)
-                if hasattr(self, 'tierlist') and name in self.tierlist:
+            value = getattr(self, name, None)
+            if value:
+                if name in self.tierlist:
                     if '\n' in value:
-                        nindex=value.index('\n')
-                        value = value[:nindex] + " [{tier}]".format(tier=self.tierlist.get(name)) + value[nindex:]
+                        job_name, job_desc = value.split('\n')
+                        value = "{name} [{tier}]\n{desc}".format(
+                            name=job_name, tier=self.tierlist.get(name), desc=job_desc
+                        )
                     else:
                         value += " [{tier}]".format(tier=self.tierlist.get(name))
 
@@ -67,7 +72,7 @@ class Unit(Model):
         embed = self.to_embed(fields=fields)
         embed.set_footer(text='ᴶ - japan only', icon_url='')
 
-        if hasattr(self, 'tierlist') and 'total' in self.tierlist:
+        if 'total' in self.tierlist:
             embed.title += " [{tier}]".format(tier=self.tierlist.get('total'))
 
         return embed
