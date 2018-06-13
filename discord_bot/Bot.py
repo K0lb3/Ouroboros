@@ -10,16 +10,6 @@ from model import *
 
 
 # Constants
-ELEMENT_COLOR = {
-    'Fire': 0xFF0000,
-    'Wind': 0x007F00,
-    'Water': 0x2828FF,
-    'Thunder': 0xFFCC00,
-    'Light': 0xFFFFFF,
-    'Dark': 0x140014,
-}
-DEFAULT_ELEMENT_COLOR = 0x7F7F7F
-
 GEAR_COLOR = {
     1: 16711680,
     2: 2631935,
@@ -116,7 +106,7 @@ def timeDif_hms(time):
     #minutes, seconds = divmod(remainder, 60)
     # If you want to take into account fractions of a second
     #seconds += tdelta.microseconds / 1e6
-    
+
     return str(tdelta)
 
 #global vars
@@ -134,7 +124,7 @@ async def status_task(presences):
             await bot.change_presence(status=discord.Status.online, activity=game)
             await asyncio.sleep(10)
 
-    
+
 @bot.event
 async def on_ready():
     print('Logged in as')
@@ -150,9 +140,9 @@ async def gear(ctx, *, name):
     gear = find_best(gears, name)
     #start embed - title
     embed = discord.Embed(
-        title=gear['name']+' '+gear['rarity'], 
-        description="", 
-        url=gear['link'], 
+        title=gear['name']+' '+gear['rarity'],
+        description="",
+        url=gear['link'],
         color=GEAR_COLOR.get(gear['type'], DEFAULT_GEAR_COLOR)
         )
     #icon
@@ -181,7 +171,7 @@ async def gear(ctx, *, name):
 
     embed.add_field(name="flavor",value=gear['flavor'],inline=False)
 
-    await ctx.send(embed=embed) 
+    await ctx.send(embed=embed)
 
 #drops
 @bot.command()
@@ -196,7 +186,7 @@ async def farm(ctx, *, name):
     for m in array:
         embed.add_field(name=m["name"],      value="\n".join(m['drops']),     inline=False)
 
-    await ctx.send(embed=embed) 
+    await ctx.send(embed=embed)
 
 #jobs
 @bot.command()
@@ -205,7 +195,7 @@ async def job(ctx, *, name):
     job = Job(source=job_dict)
 
     await ctx.send(embed=job.to_job_embed())
-    
+
 # unit commands
 @bot.command() # info
 async def unit(ctx, *, name):
@@ -235,9 +225,9 @@ async def arena(ctx):
     arena = req_arena_ranking()
     #start embed - title
     embed = discord.Embed(
-        title="Top 50", 
-        description="ranking in:  " + timeDif_hms("06:00:00") + "\n" + "reset in:    " + timeDif_hms("10:00:00"), 
-        url="", 
+        title="Top 50",
+        description="ranking in:  " + timeDif_hms("06:00:00") + "\n" + "reset in:    " + timeDif_hms("10:00:00"),
+        url="",
         color=16711680
         )
     #icon
@@ -257,8 +247,8 @@ async def arena(ctx):
 async def tierlist(ctx):
     #start embed - title
     embed = discord.Embed(
-        title="GL Tierlist", 
-        description="", 
+        title="GL Tierlist",
+        description="",
         url='https://docs.google.com/spreadsheets/d/1DWeFk0wiPaDKAYEcmf_9LnMFYy1nBy2lPTNAX52LkPU/edit#gid=1081890459',
         color=0xeee657,
         )
@@ -267,8 +257,8 @@ async def tierlist(ctx):
     #image
     embed.set_image(url="https://i.imgur.com/crlzqAL.jpg")
     embed.set_footer(text='Tierlist by Game, Visualisation by Ｅｉｋｅ/アイケ', icon_url='')
-    await ctx.send(embed=embed) 
-    
+    await ctx.send(embed=embed)
+
 @bot.command()
 async def collabs(ctx):
     embed = discord.Embed(title="Collab Codes", description="for unit commands \n \n"+
