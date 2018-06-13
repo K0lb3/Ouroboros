@@ -33,6 +33,9 @@ class Unit(Model):
             name = "job {index}".format(index=i)
             if hasattr(self, name):
                 value = getattr(self, name)
+                if len(value)<2:
+                    continue
+
                 if hasattr(self, 'tierlist') and name in self.tierlist:
                     value += " [{tier}]".format(tier=self.tierlist.get(name))
 
@@ -43,6 +46,9 @@ class Unit(Model):
             name = "jc {index}".format(index=i)
             if hasattr(self, name):
                 value = getattr(self, name)
+                if len(value)<2:
+                    continue
+                    
                 if hasattr(self, 'tierlist') and name in self.tierlist:
                     if '\n' in value:
                         nindex=value.index('\n')
