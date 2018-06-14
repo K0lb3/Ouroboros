@@ -5,13 +5,14 @@ def gear():
     loc = Translation()
     gears = gl['Artifact']
     cmaster = convertMaster(gl)
+    cjp= convertMaster(jp)
     export={}
 
     gear={}
     for g in gears:
         if not 'icon' in g or not 'equip5' in g:
             continue
-
+        
         iname = g['iname']
         c={'iname':iname,'type':g['type']} #current
         if iname in loc:
@@ -19,18 +20,20 @@ def gear():
                 c[i.lower()]=loc[iname][i]
         else:
             try:
-                c={
+                c.update({
                     'name'      :   g['name'],
                     'expression':   g['expr'],
                     'flavor'    :   g['flavor']
-                }
+                })
             except KeyError:
-                c={'name':"/",'expression':"/",'flavor':'/'}
+                c.update({'name':"/",'expression':"/",'flavor':'/'})
 
-        c['rarity']=rarity(g['rini'],g['rmax'])
-        c['link']='http://www.alchemistcodedb.com/gear/'+iname.replace('_','-').lower()
-        c['icon']='http://cdn.alchemistcodedb.com/images/items/icons/'+g['icon']+'.png'
-        c['inputs']=[]
+        c.update({
+            'rarity': rarity(g['rini'],g['rmax']),
+            'link':'http://www.alchemistcodedb.com/gear/'+iname.replace('_','-').lower(),
+            'icon':'http://cdn.alchemistcodedb.com/images/items/icons/'+g['icon']+'.png',
+            'inputs':[]
+            })
 
         c['ability']=[]
         if 'abils' in g:
@@ -40,7 +43,7 @@ def gear():
                 if 'units' in ability:
                     aunits=[]
                     for u in ability['units']:
-                        uname=loc[u]['NAME']
+                        uname=name_collab(u,loc)[0]
                         aunits.append(uname)
                         if uname not in export:
                             c['inputs'].append(uname)
@@ -53,7 +56,7 @@ def gear():
                 if 'sex' in ability:
                     restriction+= 'female' if (ability['sex']-1) else 'male'
 
-                locA=loc[ability['skl1']]
+                locA=loc[ability['skl1']] if ability['skl1'] in loc else {'NAME':cjp[ability['skl1']]['name'],'EXPR':cjp[ability['skl1']]['name']}
                 locA.update({'restriction':restriction,'iname':ability['skl1']})
 
                 c['ability'].append(locA)
