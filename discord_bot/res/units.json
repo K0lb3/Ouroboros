@@ -24,7 +24,7 @@
         "job 2": "Holy Knight",
         "job 3": "",
         "jc 1": "",
-        "jc 2": "Holy Cavalier+ᴶ",
+        "jc 2": "Holy Cavalier+",
         "jc 3": "",
         "inputs": [
             "Logi",
@@ -86,7 +86,7 @@
         "job 2": "Dark Knight",
         "job 3": "",
         "jc 1": "",
-        "jc 2": "Dark Cavalier+  : Edgelordᴶ",
+        "jc 2": "Dark Cavalier+ᴶ",
         "jc 3": "",
         "inputs": [
             "Dias",
@@ -198,7 +198,7 @@
             "JP: [16 AP] [Hard] Ch 3: Ep 3 [1-1]"
         ],
         "leader skill": "Water: +20% PATK",
-        "master ability": "+50 PDEF & +50 MDEF",
+        "master ability": "Amazing Grace\n+50 PDEF & +50 MDEF",
         "link": "http://www.alchemistcodedb.com/unit/liesbet",
         "job 1": "Apprentice Witch",
         "job 2": "Witch",
@@ -228,7 +228,7 @@
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/lies-closeup.png"
             },
             {
-                "name": "Swim",
+                "name": "Swimsuit Skin",
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/lies_swim.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/lies_swim-closeup.png"
             }
@@ -254,10 +254,10 @@
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/tina.png",
         "farm": [],
         "leader skill": "+30% HP & +10% PATK & +10% DEX",
-        "master ability": "+100 Evasion Rate",
+        "master ability": "Power of Foresight\n+100 Evasion Rate",
         "link": "http://www.alchemistcodedb.com/unit/tina",
-        "job 1": "Hunterᴶ",
-        "job 2": "Wind Shamanᴶ",
+        "job 1": "Hunter",
+        "job 2": "Wind Wielder",
         "job 3": "",
         "jc 1": "",
         "jc 2": "",
@@ -372,6 +372,8 @@
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/alai.png",
         "farm": [
             "GL: [16 AP] [Hard] Ch 1: Ep 1 [2-4]",
+            "GL: [24 AP] [Hard] Ch 1: Ep 2 [3-1]",
+            "GL: [32 AP] [Hard] Ch 1: Ep 4 [1-6]",
             "GL: [32 AP] [Hard] Ch 1: Ep 5 [2-7]",
             "GL: [40 AP] [Hard] Ch 2: Ep 2 [2-4]",
             "GL: [40 AP] [Hard] Ch 2: Ep 3 [3-9]",
@@ -437,7 +439,7 @@
         "job 3": "Ninja",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Ninja : Kirinᴶ\n[AGI-based]",
+        "jc 3": "Ninja [Giraffe]ᴶ\n[AGI-based]",
         "inputs": [
             "Lucido"
         ],
@@ -473,6 +475,7 @@
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/riga.png",
         "farm": [
             "GL: [16 AP] [Hard] Ch 1: Ep 1 [1-10]",
+            "GL: [24 AP] [Hard] Ch 1: Ep 2 [2-10]",
             "GL: [32 AP] [Hard] Ch 1: Ep 3 [3-10]",
             "GL: [32 AP] [Hard] Ch 1: Ep 5 [2-4]",
             "GL: [40 AP] [Hard] Ch 2: Ep 1 [3-10]",
@@ -487,7 +490,7 @@
         "job 2": "Hunter",
         "job 3": "Pirate",
         "jc 1": "",
-        "jc 2": "Ranger : Wolfᴶ\n[bonus damage against monsters]",
+        "jc 2": "Ranger [Lupus]ᴶ\n[bonus damage against monsters]",
         "jc 3": "",
         "inputs": [
             "Rigalt",
@@ -525,6 +528,7 @@
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/rinn.png",
         "farm": [
             "GL: [16 AP] [Hard] Ch 1: Ep 1 [2-5]",
+            "GL: [32 AP] [Hard] Ch 1: Ep 5 [2-10]",
             "GL: [40 AP] [Hard] Ch 2: Ep 2 [2-5]",
             "GL: [40 AP] [Hard] Ch 2: Ep 4 [1-10]",
             "JP: [16 AP] [Hard] Ch 1: Ep 1 [2-5]",
@@ -579,6 +583,7 @@
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/gain.png",
         "farm": [
             "GL: [16 AP] [Hard] Ch 1: Ep 1 [3-2]",
+            "GL: [24 AP] [Hard] Ch 1: Ep 3 [1-9]",
             "GL: [40 AP] [Hard] Ch 1: Ep 5 [3-10]",
             "GL: [40 AP] [Hard] Ch 2: Ep 2 [3-2]",
             "GL: [40 AP] [Hard] Ch 2: Ep 4 [2-10]",
@@ -795,7 +800,9 @@
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/meil.png",
         "farm": [
             "GL: [24 AP] [Hard] Ch 1: Ep 2 [2-5]",
+            "GL: [24 AP] [Hard] Ch 1: Ep 3 [3-7]",
             "GL: [32 AP] [Hard] Ch 1: Ep 5 [1-5]",
+            "GL: [40 AP] [Hard] Ch 2: Ep 1 [3-2]",
             "GL: [40 AP] [Hard] Ch 2: Ep 3 [2-10]",
             "JP: [20 AP] [Hard] Ch 1: Ep 5 [1-5]",
             "JP: [32 AP] [Hard] Ch 3: Ep 4 [2-7]"
@@ -846,6 +853,8 @@
         "farm": [
             "GL: [20 AP] [Hard] Ch 1: Ep 2 [2-4]",
             "GL: [24 AP] [Hard] Ch 1: Ep 3 [3-2]",
+            "GL: [32 AP] [Hard] Ch 1: Ep 5 [1-4]",
+            "GL: [40 AP] [Hard] Ch 2: Ep 1 [3-1]",
             "GL: [40 AP] [Hard] Ch 2: Ep 3 [2-9]",
             "JP: [20 AP] [Hard] Ch 1: Ep 2 [2-4]",
             "JP: [32 AP] [Hard] Ch 2: Ep 3 [2-9]"
@@ -894,6 +903,7 @@
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/meli.png",
         "farm": [
             "GL: [20 AP] [Hard] Ch 1: Ep 1 [3-9]",
+            "GL: [24 AP] [Hard] Ch 1: Ep 3 [1-10]",
             "GL: [32 AP] [Hard] Ch 1: Ep 4 [3-4]",
             "GL: [40 AP] [Hard] Ch 2: Ep 3 [1-10]",
             "GL: [40 AP] [Hard] Ch 2: Ep 4 [3-9]",
@@ -909,7 +919,7 @@
         "job 3": "Chemist",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Professor : Honeyᴶ\n[more charms and bind/daze skills]",
+        "jc 3": "Professor [Honey]ᴶ\n[more charms and bind/daze skills]",
         "inputs": [
             "Melia",
             "Meria"
@@ -953,6 +963,9 @@
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/runb.png",
         "farm": [
             "GL: [20 AP] [Hard] Ch 1: Ep 1 [3-10]",
+            "GL: [24 AP] [Hard] Ch 1: Ep 3 [2-9]",
+            "GL: [32 AP] [Hard] Ch 1: Ep 4 [3-6]",
+            "GL: [40 AP] [Hard] Ch 2: Ep 1 [2-9]",
             "GL: [40 AP] [Hard] Ch 2: Ep 3 [2-4]",
             "GL: [40 AP] [Hard] Ch 2: Ep 4 [3-10]",
             "JP: [20 AP] [Hard] Ch 1: Ep 1 [3-10]",
@@ -966,7 +979,7 @@
         "job 3": "Holy Knight",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Cavalier : Portaᴶ\n[pierce resistance]",
+        "jc 3": "Holy Cavalier [Porta]ᴶ\n[pierce resistance]",
         "inputs": [
             "Lambert",
             "Rambert"
@@ -1061,7 +1074,6 @@
         "rarity": "★★★★☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/hazu.png",
         "farm": [
-            "GL: [24 AP] [Hard] Ch 1: Ep 2 [3-1]",
             "JP: [28 AP] [Hard] Ch 1: Ep 2 [3-1]"
         ],
         "leader skill": "Wind: +20% PATK",
@@ -1071,7 +1083,7 @@
         "job 2": "Professor",
         "job 3": "Enchanter",
         "jc 1": "",
-        "jc 2": "Professor : Aidᴶ\n[cures will heal as well]",
+        "jc 2": "Professor [Aid]ᴶ\n[cures will heal as well]",
         "jc 3": "Tender Wind Enchanterᴶ\n[buff that increases wind damage against thunder]",
         "inputs": [
             "Hazuki"
@@ -1124,7 +1136,7 @@
         "job 3": "Chemist",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Professor : Aidᴶ\n[cures will heal as well]",
+        "jc 3": "Professor [Aid]ᴶ\n[cures will heal as well]",
         "inputs": [
             "Jake"
         ],
@@ -1159,6 +1171,7 @@
         "rarity": "★★★☆☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/rich.png",
         "farm": [
+            "GL: [40 AP] [Hard] Ch 3: Ep 1 [2-4]",
             "JP: [24 AP] [Hard] Ch 3: Ep 1 [2-4]"
         ],
         "leader skill": "+10 Missile ATK",
@@ -1205,6 +1218,7 @@
         "rarity": "★★★☆☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/elai.png",
         "farm": [
+            "GL: [40 AP] [Hard] Ch 3: Ep 1 [2-9]",
             "JP: [24 AP] [Hard] Ch 3: Ep 1 [2-9]"
         ],
         "leader skill": "+10 Missile ATK",
@@ -1257,7 +1271,6 @@
         "rarity": "★★★☆☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/vane.png",
         "farm": [
-            "GL: [40 AP] [Hard] Ch 2: Ep 1 [3-1]",
             "JP: [24 AP] [Hard] Ch 2: Ep 1 [3-1]"
         ],
         "leader skill": "+10 Magic ATK",
@@ -1290,7 +1303,7 @@
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/vane-closeup.png"
             },
             {
-                "name": "Is_Marr",
+                "name": "Wedding Skin",
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/vane_marr.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/vane_marr-closeup.png"
             }
@@ -1375,7 +1388,7 @@
         "job 2": "Hunter",
         "job 3": "Martial Artist",
         "jc 1": "",
-        "jc 2": "Ranger : Hawkᴶ\n[dodging and enemy accuracy down]",
+        "jc 2": "Ranger [Falcon]ᴶ\n[dodging and enemy accuracy down]",
         "jc 3": "",
         "inputs": [
             "Ishuna",
@@ -1422,7 +1435,7 @@
         "job 3": "Ninja",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Ninja : Suzakuᴶ\n[jump-based]",
+        "jc 3": "Ninja [Vermillion Bird]ᴶ\n[jump-based]",
         "inputs": [
             "Mizuchi"
         ],
@@ -1464,7 +1477,6 @@
         "rarity": "★★★☆☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/kaza.png",
         "farm": [
-            "GL: [40 AP] [Hard] Ch 2: Ep 1 [3-2]",
             "JP: [24 AP] [Hard] Ch 2: Ep 1 [3-2]"
         ],
         "leader skill": "+10 Strike ATK",
@@ -1474,8 +1486,8 @@
         "job 2": "Martial Artist",
         "job 3": "Ninja",
         "jc 1": "",
-        "jc 2": "Holy Brawler : Senjuᴶ\n[multi-hit]",
-        "jc 3": "Ninja  : Genbuᴶ\n[move-based]",
+        "jc 2": "Holy Brawler [Senju]ᴶ\n[multi-hit]",
+        "jc 3": "Ninja [Black Tortoise]ᴶ\n[move-based]",
         "inputs": [
             "Kazahaya"
         ],
@@ -1571,9 +1583,9 @@
         "job 1": "Hunter",
         "job 2": "Thief",
         "job 3": "Ninja",
-        "jc 1": "Ranger : Wolfᴶ\n[bonus damage against monsters]",
+        "jc 1": "Ranger [Lupus]ᴶ\n[bonus damage against monsters]",
         "jc 2": "",
-        "jc 3": "Ninja+  : Shinobiᴶ",
+        "jc 3": "Ninja+ᴶ",
         "inputs": [
             "Yuan"
         ],
@@ -1618,7 +1630,7 @@
         "job 3": "Chemist",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Professor : Aidᴶ\n[cures will heal as well]",
+        "jc 3": "Professor [Aid]ᴶ\n[cures will heal as well]",
         "inputs": [
             "Decel"
         ],
@@ -1662,7 +1674,7 @@
         "job 2": "Chemist",
         "job 3": "Dancer",
         "jc 1": "",
-        "jc 2": "Professor : Aidᴶ\n[cures will heal as well]",
+        "jc 2": "Professor [Aid]ᴶ\n[cures will heal as well]",
         "jc 3": "",
         "inputs": [
             "Ennis"
@@ -1698,7 +1710,6 @@
         "rarity": "★★★☆☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/anne.png",
         "farm": [
-            "GL: [40 AP] [Hard] Ch 2: Ep 1 [2-9]",
             "JP: [24 AP] [Hard] Ch 2: Ep 1 [2-9]"
         ],
         "leader skill": "+5 Magic ATK",
@@ -1764,7 +1775,7 @@
         "job 2": "Professor",
         "job 3": "Holy Knight",
         "jc 1": "",
-        "jc 2": "Professor : Bioᴶ\n[stronger poison]",
+        "jc 2": "Professor [Bio]ᴶ\n[stronger poison]",
         "jc 3": "",
         "inputs": [
             "Gane",
@@ -1818,7 +1829,7 @@
         "job 3": "Chemist",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Professor : Madᴶ\n[much stronger buffs]",
+        "jc 3": "Professor [Mud]ᴶ\n[much stronger buffs]",
         "inputs": [
             "Alyu",
             "Airyu"
@@ -1999,7 +2010,6 @@
         "rarity": "★★★☆☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/almi.png",
         "farm": [
-            "GL: [32 AP] [Hard] Ch 1: Ep 5 [2-10]",
             "JP: [24 AP] [Hard] Ch 1: Ep 5 [2-10]"
         ],
         "leader skill": "+10 Missile ATK",
@@ -2169,7 +2179,7 @@
         "job 2": "Chemist",
         "job 3": "Shrine Maiden",
         "jc 1": "",
-        "jc 2": "Professor : Bioᴶ\n[stronger poison]",
+        "jc 2": "Professor [Bio]ᴶ\n[stronger poison]",
         "jc 3": "",
         "inputs": [
             "Kuon"
@@ -2267,7 +2277,7 @@
         "job 3": "Ninja",
         "jc 1": "Sage+ᴶ",
         "jc 2": "",
-        "jc 3": "Ninja : Byakkoᴶ\n[evasion-based]",
+        "jc 3": "Ninja [White Tiger]ᴶ\n[evasion-based]",
         "inputs": [
             "Mia",
             "Mea"
@@ -2320,6 +2330,7 @@
         "rarity": "★★★★☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/celi.png",
         "farm": [
+            "GL: [40 AP] [Hard] Ch 3: Ep 1 [2-10]",
             "JP: [28 AP] [Hard] Ch 3: Ep 1 [2-10]"
         ],
         "leader skill": "All: +30% MATK & +10 Magic ATK",
@@ -2373,6 +2384,7 @@
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/free.png",
         "farm": [
             "GL: [40 AP] [Hard] Ch 2: Ep 2 [3-1]",
+            "GL: [40 AP] [Hard] Ch 3: Ep 1 [2-5]",
             "JP: [28 AP] [Hard] Ch 3: Ep 1 [2-5]"
         ],
         "leader skill": "+20 Pierce ATK",
@@ -2383,7 +2395,7 @@
         "job 3": "Dragon Knight",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dragon Cavalier+  : Dragon Slayerᴶ",
+        "jc 3": "Dragon Cavalier+ᴶ",
         "inputs": [
             "Freed"
         ],
@@ -2425,7 +2437,6 @@
         "rarity": "★★★★☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/dilg.png",
         "farm": [
-            "GL: [24 AP] [Hard] Ch 1: Ep 2 [2-10]",
             "JP: [28 AP] [Hard] Ch 1: Ep 2 [2-10]"
         ],
         "leader skill": "+20 Slash ATK",
@@ -2491,7 +2502,7 @@
         "job 1": "Thief",
         "job 2": "Gunner",
         "job 3": "Magic Swordsman",
-        "jc 1": "Assasin+ : Charmᴶ",
+        "jc 1": "Shadow Assassin+ᴶ",
         "jc 2": "",
         "jc 3": "Magic Swordsman : Chimeraᴶ\n[dark skill added]",
         "inputs": [
@@ -2545,7 +2556,7 @@
         "job 1": "Dancer",
         "job 2": "Samurai",
         "job 3": "Chronomancer",
-        "jc 1": "Dancer+ᴶ\n[Dancer+ : Odori Dancer]",
+        "jc 1": "Dancer+\n[Dancer+ : Odori Dancer]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -2716,8 +2727,8 @@
         "job 2": "Martial Artist",
         "job 3": "Dragon Cavalier",
         "jc 1": "",
-        "jc 2": "Holy Brawler : Senjuᴶ\n[multi-hit]",
-        "jc 3": "Dragon Cavalier : Rudraᴶ\n[teleportation skills]",
+        "jc 2": "Holy Brawler [Senju]ᴶ\n[multi-hit]",
+        "jc 3": "Dragon Cavalier [Rudra]ᴶ\n[teleportation skills]",
         "inputs": [
             "Zangetsu"
         ],
@@ -2759,7 +2770,6 @@
         "rarity": "★★★★☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/megi.png",
         "farm": [
-            "GL: [32 AP] [Hard] Ch 1: Ep 4 [1-6]",
             "JP: [28 AP] [Hard] Ch 1: Ep 4 [1-6]"
         ],
         "leader skill": "+20 Missile ATK",
@@ -2846,7 +2856,7 @@
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/luca-closeup.png"
             },
             {
-                "name": "Batl",
+                "name": "Dark Cloak ver.",
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/luca_batl.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/luca_batl-closeup.png"
             }
@@ -3057,8 +3067,8 @@
         "job 2": "Dragon Knight",
         "job 3": "Dark Cavalier",
         "jc 1": "",
-        "jc 2": "Dragon Cavalier : Garudaᴶ\n[low range but high dmg]",
-        "jc 3": "Dark Cavalier : Seeleᴶ\n[Drain Skills Bonus]",
+        "jc 2": "Dragon Cavalier [Garuda]ᴶ\n[low range but high dmg]",
+        "jc 3": "Dark Cavalier [Zeele]ᴶ\n[Drain Skills Bonus]",
         "inputs": [
             "Zahar"
         ],
@@ -3116,7 +3126,7 @@
         "job 3": "Holy Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Cavalier : Pietaᴶ\n[healing]",
+        "jc 3": "Holy Cavalier [Pieta]ᴶ\n[healing]",
         "inputs": [
             "Chloe"
         ],
@@ -3173,7 +3183,6 @@
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/yomi.png",
         "farm": [
-            "GL: [24 AP] [Hard] Ch 1: Ep 3 [3-7]",
             "JP: [32 AP] [Hard] Ch 1: Ep 3 [3-7]"
         ],
         "leader skill": "+30 Strike ATK",
@@ -3184,7 +3193,7 @@
         "job 3": "Holy Brawler",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Brawler : Maitreyaᴶ\n[12% regen &  5% jewel regen buff]",
+        "jc 3": "Holy Brawler [Miroku]ᴶ\n[12% regen &  5% jewel regen buff]",
         "inputs": [
             "Yomi"
         ],
@@ -3231,7 +3240,6 @@
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/vett.png",
         "farm": [
-            "GL: [24 AP] [Hard] Ch 1: Ep 3 [1-10]",
             "JP: [32 AP] [Hard] Ch 1: Ep 3 [1-10]"
         ],
         "leader skill": "+30 Slash ATK",
@@ -3241,7 +3249,7 @@
         "job 2": "Holy Cavalier",
         "job 3": "Samurai",
         "jc 1": "Magic Swordsman : Ifritᴶ\n[stronger fire skills]",
-        "jc 2": "Holy Cavalier : Izayaᴶ\n[slash resistance]",
+        "jc 2": "Holy Cavalier [Isaiyah]ᴶ\n[slash resistance]",
         "jc 3": "",
         "inputs": [
             "Vettel",
@@ -3303,7 +3311,7 @@
         "job 3": "Holy Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Cavalier : Gearᴶ\n[very high AGI]",
+        "jc 3": "Holy Cavalier [Ghia]ᴶ\n[very high AGI]",
         "inputs": [
             "Tyrfing",
             "Tyrfing POTK",
@@ -3359,7 +3367,7 @@
         "job 2": "Ninja",
         "job 3": "Dark Cavalier",
         "jc 1": "",
-        "jc 2": "Ninja : Kirinᴶ\n[AGI-based]",
+        "jc 2": "Ninja [Giraffe]ᴶ\n[AGI-based]",
         "jc 3": "Dark Cavalier+",
         "inputs": [
             "Laevateinn",
@@ -3513,7 +3521,6 @@
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/eliz.png",
         "farm": [
-            "GL: [24 AP] [Hard] Ch 1: Ep 3 [1-9]",
             "JP: [32 AP] [Hard] Ch 1: Ep 3 [1-9]"
         ],
         "leader skill": "Water: +20% PDEF & +10% HP",
@@ -3522,7 +3529,7 @@
         "job 1": "Professor",
         "job 2": "Chronomancer",
         "job 3": "Bishop",
-        "jc 1": "Professor : Honeyᴶ\n[more charms and bind/daze skills]",
+        "jc 1": "Professor [Honey]ᴶ\n[more charms and bind/daze skills]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -3571,7 +3578,6 @@
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/magn.png",
         "farm": [
-            "GL: [24 AP] [Hard] Ch 1: Ep 3 [2-9]",
             "JP: [32 AP] [Hard] Ch 1: Ep 3 [2-9]"
         ],
         "leader skill": "Thunder: +20% PDEF & +10% HP",
@@ -3582,7 +3588,7 @@
         "job 3": "Ninja",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Ninja  : Genbuᴶ\n[move-based]",
+        "jc 3": "Ninja [Black Tortoise]ᴶ\n[move-based]",
         "inputs": [
             "Magnus"
         ],
@@ -3689,7 +3695,7 @@
         "job 3": "Dark Cavalier",
         "jc 1": "Twin-Blade Swordsman+\n[Twin-Blade Swordsman+ : Desert Storm]",
         "jc 2": "",
-        "jc 3": "Dark Cavalier : Seeleᴶ\n[Drain Skills Bonus]",
+        "jc 3": "Dark Cavalier [Zeele]ᴶ\n[Drain Skills Bonus]",
         "inputs": [
             "Balt",
             "Baruto"
@@ -3768,7 +3774,7 @@
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/miel-closeup.png"
             },
             {
-                "name": "Swim",
+                "name": "Swimsuit Skin",
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/miel_swim.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/miel_swim-closeup.png"
             }
@@ -3793,7 +3799,6 @@
         "rarity": "★★★★☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/merd.png",
         "farm": [
-            "GL: [32 AP] [Hard] Ch 1: Ep 5 [1-4]",
             "JP: [28 AP] [Hard] Ch 1: Ep 5 [1-4]"
         ],
         "leader skill": "Fire: +20% PATK",
@@ -3904,7 +3909,7 @@
         "job 2": "Hunter",
         "job 3": "Dark Knight",
         "jc 1": "Shadow Assassin : Nightᴶ\n[buff dispeller]",
-        "jc 2": "Ranger : Hawkᴶ\n[dodging and enemy accuracy down]",
+        "jc 2": "Ranger [Falcon]ᴶ\n[dodging and enemy accuracy down]",
         "jc 3": "",
         "inputs": [
             "Sabareta"
@@ -4010,8 +4015,8 @@
         "job 2": "Dragon Cavalier",
         "job 3": "Ninja",
         "jc 1": "",
-        "jc 2": "Dragon Cavalier : Vritraᴶ\n[long rang but low dmg]",
-        "jc 3": "Ninja  : Genbuᴶ\n[move-based]",
+        "jc 2": "Dragon Cavalier [Vritra]ᴶ\n[long rang but low dmg]",
+        "jc 3": "Ninja [Black Tortoise]ᴶ\n[move-based]",
         "inputs": [
             "Rosa",
             "Roza"
@@ -4065,9 +4070,9 @@
         "job 1": "Bride",
         "job 2": "Chronomancer",
         "job 3": "Holy Brawler",
-        "jc 1": "",
+        "jc 1": "Shine: Wed F",
         "jc 2": "",
-        "jc 3": "Holy Brawler : Senjuᴶ\n[multi-hit]",
+        "jc 3": "Holy Brawler [Senju]ᴶ\n[multi-hit]",
         "inputs": [
             "Eve"
         ],
@@ -4115,14 +4120,14 @@
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/frai.png",
         "farm": [],
         "leader skill": "Light: +30% PATK",
-        "master ability": "+50 MATK & +15 AGI & +30 Magic Res",
+        "master ability": "Gentleman's Honor\n+50 MATK & +15 AGI & +30 Magic Res",
         "link": "http://www.alchemistcodedb.com/unit/fraise",
         "job 1": "Bridegroom",
         "job 2": "Samurai",
         "job 3": "Holy Cavalier",
-        "jc 1": "",
+        "jc 1": "Shine: Wed M",
         "jc 2": "",
-        "jc 3": "Holy Cavalier : Izayaᴶ\n[slash resistance]",
+        "jc 3": "Holy Cavalier [Isaiyah]ᴶ\n[slash resistance]",
         "inputs": [
             "Fraise",
             "Frayze"
@@ -4175,7 +4180,7 @@
         "job 3": "Ninja",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Spy+  : Geninᴶ",
+        "jc 3": "Spy+ᴶ",
         "inputs": [
             "Hayate"
         ],
@@ -4197,7 +4202,7 @@
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/haya-closeup.png"
             },
             {
-                "name": "A_Hallo",
+                "name": "Halloween Skin",
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/haya_hall.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/haya_hall-closeup.png"
             }
@@ -4230,7 +4235,7 @@
         "job 3": "Bridegroom",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "",
+        "jc 3": "Fire: Wed M",
         "inputs": [
             "Veloz",
             "Veros"
@@ -4274,14 +4279,14 @@
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/lucr.png",
         "farm": [],
         "leader skill": "Thunder: +50% PATK",
-        "master ability": "+30 Magic ATK & Auto Jewel ",
+        "master ability": "Brilliant Dress\n+30 Magic ATK & Auto Jewel ",
         "link": "http://www.alchemistcodedb.com/unit/lucretia",
         "job 1": "Bride",
         "job 2": "Mage",
         "job 3": "Professor",
-        "jc 1": "",
+        "jc 1": "Lucre: Wed F",
         "jc 2": "",
-        "jc 3": "Professor : Honeyᴶ\n[more charms and bind/daze skills]",
+        "jc 3": "Professor [Honey]ᴶ\n[more charms and bind/daze skills]",
         "inputs": [
             "Lucretia"
         ],
@@ -4326,14 +4331,14 @@
             "JP: [32 AP] [Hard] Ch 1: Ep 3 [3-9]"
         ],
         "leader skill": "Light: +50% PATK",
-        "master ability": "+10 AGI & +150 HP",
+        "master ability": "Cute Is Superior\n+10 AGI & +150 HP",
         "link": "http://www.alchemistcodedb.com/unit/suzuka",
         "job 1": "Samurai",
         "job 2": "Ninja",
         "job 3": "Dark Cavalier",
         "jc 1": "",
-        "jc 2": "Ninja : Seiryuᴶ\n[attack-based]",
-        "jc 3": "Dark Cavalier : Gernikaᴶ\n[One Slash Cav]",
+        "jc 2": "Ninja [Azure Dragon]ᴶ\n[attack-based]",
+        "jc 3": "Dark Cavalier [Guernica]ᴶ\n[One Slash Cav]",
         "inputs": [
             "Suzuka"
         ],
@@ -4496,7 +4501,7 @@
             "JP: [32 AP] [Hard] Ch 1: Ep 3 [3-2]"
         ],
         "leader skill": "Water: +30% MATK & +20% PDEF",
-        "master ability": "+15 Magic ATK & +20 Guts",
+        "master ability": "Fatigue Attack\n+15 Magic ATK & +20 Guts",
         "link": "http://www.alchemistcodedb.com/unit/fungliu",
         "job 1": "Mage",
         "job 2": "Sage",
@@ -4546,16 +4551,15 @@
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/ryle.png",
         "farm": [
-            "GL: [32 AP] [Hard] Ch 1: Ep 4 [3-6]",
             "JP: [32 AP] [Hard] Ch 1: Ep 4 [3-6]"
         ],
         "leader skill": "Light: +30% PATK & +20% HP",
-        "master ability": "+20 Missile ATK & +20 Hit Rate",
+        "master ability": "Desert Broom\n+20 Missile ATK & +20 Hit Rate",
         "link": "http://www.alchemistcodedb.com/unit/ryle",
         "job 1": "Ranger",
         "job 2": "Twin-Blade Swordsman",
         "job 3": "Beast Tamer",
-        "jc 1": "Ranger : Hawkᴶ\n[dodging and enemy accuracy down]",
+        "jc 1": "Ranger [Falcon]ᴶ\n[dodging and enemy accuracy down]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -4608,7 +4612,7 @@
             "JP: [32 AP] [Hard] Ch 1: Ep 4 [3-4]"
         ],
         "leader skill": "Dark: +50% PATK",
-        "master ability": "+100 HP",
+        "master ability": "Reactive Wall\n+100 HP",
         "link": "http://www.alchemistcodedb.com/unit/albell",
         "job 1": "Machinist",
         "job 2": "Thief",
@@ -4666,12 +4670,12 @@
             "JP: [32 AP] [Hard] Ch 1: Ep 4 [3-10]"
         ],
         "leader skill": "Water: +50% PATK",
-        "master ability": "+15 Strike ATK & +1 MOVE",
+        "master ability": "Cute Is Justice\n+15 Strike ATK & +1 MOVE",
         "link": "http://www.alchemistcodedb.com/unit/shayna",
         "job 1": "Holy Brawler",
         "job 2": "Dragon Knight",
         "job 3": "Chronomancer",
-        "jc 1": "Holy Brawler : Shuraᴶ\n[5x PATK buff]",
+        "jc 1": "Holy Brawler [Shura]ᴶ\n[5x PATK buff]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -4723,14 +4727,14 @@
             "JP: [32 AP] [Hard] Ch 1: Ep 5 [2-4]"
         ],
         "leader skill": "Fire: +50% PATK",
-        "master ability": "+25 Slash Res & +100 HP",
+        "master ability": "Dark Belief\n+25 Slash Res & +100 HP",
         "link": "http://www.alchemistcodedb.com/unit/reimei",
         "job 1": "Ninja",
         "job 2": "Martial Artist",
         "job 3": "Samurai",
-        "jc 1": "Ninja : Suzakuᴶ\n[jump-based]",
+        "jc 1": "Ninja [Vermillion Bird]ᴶ\n[jump-based]",
         "jc 2": "",
-        "jc 3": "Blademaster+  : Mifuneᴶ",
+        "jc 3": "Blademaster+ᴶ",
         "inputs": [
             "Reimei"
         ],
@@ -4763,7 +4767,7 @@
     "UN_V2_SOLEIL": {
         "iname": "UN_V2_SOLEIL",
         "name": "Soleil",
-        "inofficial": "Soreiyu",
+        "inofficial": "Soleil",
         "gender": "♀",
         "element": "Light",
         "country": "Lustburg",
@@ -4784,8 +4788,7 @@
         "jc 2": "",
         "jc 3": "Zero Enchanterᴶ\n[buff dispeller]",
         "inputs": [
-            "Soleil",
-            "Soreiyu"
+            "Soleil"
         ],
         "PROFILE": "Soleil is a medical expert from Lustburg who spends even her holidays reading medical books. She's very sweet and devoted, but she's the type who cannot decide anything by herself. For this, she can count on Muncle, a white spirit, as her advisor. Every day, she worries about her younger sister Luruna who fled home.",
         "COUNTRY": "Lustburg",
@@ -4833,7 +4836,7 @@
         "job 3": "Ranger",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Ranger : Wolfᴶ\n[bonus damage against monsters]",
+        "jc 3": "Ranger [Lupus]ᴶ\n[bonus damage against monsters]",
         "inputs": [
             "Milis",
             "Milish"
@@ -4866,7 +4869,7 @@
     },
     "UN_V2_KYUUBI": {
         "iname": "UN_V2_KYUUBI",
-        "name": "Kyuubiᴶ",
+        "name": "Kyubiᴶ",
         "inofficial": "",
         "gender": "♀",
         "element": "Thunder",
@@ -4886,7 +4889,7 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Kyuubi"
+            "Kyubi"
         ],
         "artworks": [
             {
@@ -4911,7 +4914,7 @@
             "JP: [32 AP] [Hard] Ch 2: Ep 2 [2-4]"
         ],
         "leader skill": "Water: +50% PATK",
-        "master ability": "+100 PATK & +100 HP & +50 PDEF",
+        "master ability": "Hard starboard!\n+100 PATK & +100 HP & +50 PDEF",
         "link": "http://www.alchemistcodedb.com/unit/shenmei",
         "job 1": "Pirate",
         "job 2": "Thief",
@@ -4950,7 +4953,7 @@
     },
     "UN_V2_TAMAMO": {
         "iname": "UN_V2_TAMAMO",
-        "name": "Tamamoᴶ",
+        "name": "Tamamo",
         "inofficial": "Tamamo",
         "gender": "♀",
         "element": "Wind",
@@ -4963,14 +4966,14 @@
             "JP: [32 AP] [Hard] Ch 2: Ep 1 [2-10]"
         ],
         "leader skill": "Wind: +50% PATK",
-        "master ability": "+1 MOVE & +10 AGI & +25 Damage",
-        "link": "http://www.alchemistcodedb.com/jp/unit/tamamo",
+        "master ability": "Fox Day\n+1 MOVE & +10 AGI & +25 Damage",
+        "link": "http://www.alchemistcodedb.com/unit/tamamo",
         "job 1": "Shrine Maiden",
         "job 2": "Mage",
         "job 3": "Ranger",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Ranger : Snakeᴶ\n[jewel damage]",
+        "jc 3": "Ranger [Serpent]ᴶ\n[jewel damage]",
         "inputs": [
             "Tamamo"
         ],
@@ -4992,7 +4995,7 @@
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/tama-closeup.png"
             },
             {
-                "name": "O_Marr",
+                "name": "Wedding Skin",
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/tama_marr.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/tama_marr-closeup.png"
             }
@@ -5124,7 +5127,7 @@
         "job 2": "Martial Artist",
         "job 3": "Dark Cavalier",
         "jc 1": "Demonic Spearman+ᴶ",
-        "jc 2": "Holy Brawler : Shuraᴶ\n[5x PATK buff]",
+        "jc 2": "Holy Brawler [Shura]ᴶ\n[5x PATK buff]",
         "jc 3": "",
         "inputs": [
             "Kudanstein",
@@ -5150,7 +5153,7 @@
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/kudh-closeup.png"
             },
             {
-                "name": "Kudanstein Dark Cell ver.",
+                "name": "Dark Cell ver.",
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/kudh_dark_kudh.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/kudh_dark_kudh-closeup.png"
             }
@@ -5357,14 +5360,14 @@
             "JP: [32 AP] [Hard] Ch 1: Ep 5 [3-1]"
         ],
         "leader skill": "Dark: +50% PATK",
-        "master ability": "+10 Initial Jewels & +10 Elemental Res",
+        "master ability": "Legendary Pirate's Trace\n+10 Initial Jewels & +10 Elemental Res",
         "link": "http://www.alchemistcodedb.com/unit/gormalas",
         "job 1": "Pirate",
         "job 2": "Dragon Knight",
         "job 3": "Holy Brawler",
         "jc 1": "Pirate+ᴶ",
         "jc 2": "",
-        "jc 3": "Holy Brawler : Senjuᴶ\n[multi-hit]",
+        "jc 3": "Holy Brawler [Senju]ᴶ\n[multi-hit]",
         "inputs": [
             "Gormalas",
             "Golmaras"
@@ -5387,7 +5390,7 @@
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/gorm-closeup.png"
             },
             {
-                "name": "Swim",
+                "name": "Swimsuit Skin",
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/gorm_swim.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/gorm_swim-closeup.png"
             }
@@ -5402,7 +5405,7 @@
     },
     "UN_V2_SHEHERAZADE": {
         "iname": "UN_V2_SHEHERAZADE",
-        "name": "Scheherazadeᴶ",
+        "name": "Scheherazade",
         "inofficial": "Scheherazāde",
         "gender": "♀",
         "element": "Wind",
@@ -5416,7 +5419,7 @@
         ],
         "leader skill": "Wind: +30% PATK",
         "master ability": "",
-        "link": "http://www.alchemistcodedb.com/jp/unit/sheherazade",
+        "link": "http://www.alchemistcodedb.com/unit/sheherazade",
         "job 1": "Sage",
         "job 2": "Dancer",
         "job 3": "Magic Swordsman",
@@ -5465,7 +5468,7 @@
         "job 2": "Hunter",
         "job 3": "Ninja",
         "jc 1": "Venom Archer+ᴶ",
-        "jc 2": "Ranger : Hawkᴶ\n[dodging and enemy accuracy down]",
+        "jc 2": "Ranger [Falcon]ᴶ\n[dodging and enemy accuracy down]",
         "jc 3": "",
         "inputs": [
             "Seida",
@@ -5517,9 +5520,9 @@
         "job 1": "Indomitable Axe Knight ",
         "job 2": "Dragon Knight",
         "job 3": "Holy Cavalier",
-        "jc 1": "Indomitable Axe Knight+ᴶ",
+        "jc 1": "Indomitable Axe Knight +ᴶ",
         "jc 2": "",
-        "jc 3": "Holy Cavalier : Izayaᴶ\n[slash resistance]",
+        "jc 3": "Holy Cavalier [Isaiyah]ᴶ\n[slash resistance]",
         "inputs": [
             "Monzein",
             "Monzein SSM",
@@ -5566,14 +5569,14 @@
             "JP: [32 AP] [Hard] Ch 1: Ep 5 [3-4]"
         ],
         "leader skill": "Light: +30% HP & +20% PATK",
-        "master ability": "+150 HP & +100 PATK & -5 Reduced Jewel Cost",
+        "master ability": "Fragile Happiness\n+150 HP & +100 PATK & -5 Reduced Jewel Cost",
         "link": "http://www.alchemistcodedb.com/unit/spica",
         "job 1": "Warrior",
         "job 2": "Thief",
         "job 3": "Dragon Cavalier",
         "jc 1": "Warrior : Goliathᴶ\n[light tank]",
         "jc 2": "",
-        "jc 3": "Dragon Cavalier : Garudaᴶ\n[low range but high dmg]",
+        "jc 3": "Dragon Cavalier [Garuda]ᴶ\n[low range but high dmg]",
         "inputs": [
             "Spica"
         ],
@@ -5635,7 +5638,7 @@
         "job 3": "Professor",
         "jc 1": "Sage : Monolithᴶ\n[stronger thunder skills]",
         "jc 2": "",
-        "jc 3": "Professor : Madᴶ\n[much stronger buffs]",
+        "jc 3": "Professor [Mud]ᴶ\n[much stronger buffs]",
         "inputs": [
             "Vincent"
         ],
@@ -5680,12 +5683,12 @@
             "JP: [32 AP] [Hard] Ch 2: Ep 4 [2-4]"
         ],
         "leader skill": "Thunder: +30% MATK & +20% PDEF",
-        "master ability": "+100 HP & +10 AGI & -33 Cast Time Ratio",
+        "master ability": "Wish to the First Star\n+100 HP & +10 AGI & -33 Cast Time Ratio",
         "link": "http://www.alchemistcodedb.com/unit/deneb",
         "job 1": "Astrologer",
         "job 2": "Crafter",
         "job 3": "Magic Swordsman",
-        "jc 1": "Astrologer+  : Moiraiᴶ",
+        "jc 1": "Astrologer+ᴶ",
         "jc 2": "",
         "jc 3": "Magic Swordsman : Ixionᴶ\n[stronger thunder skills]",
         "inputs": [
@@ -5737,14 +5740,14 @@
         "job 1": "Ninja",
         "job 2": "Dark Cavalier",
         "job 3": "Samurai",
-        "jc 1": "Ninja : Suzakuᴶ\n[jump-based]",
-        "jc 2": "Dark Cavalier : Gernikaᴶ\n[One Slash Cav]",
+        "jc 1": "Ninja [Vermillion Bird]ᴶ\n[jump-based]",
+        "jc 2": "Dark Cavalier [Guernica]ᴶ\n[One Slash Cav]",
         "jc 3": "",
         "inputs": [
             "Glanz",
             "Grantz"
         ],
-        "PROFILE": "Glanz is an assassin from Wratharis. Even after the downfall of Wratharis, she's still been active all over the continent as a mercenary and assassin. She became an expensive mercenary, and an assassin even, in order to take care of her immature older sister. Because of a trauma involving her father, she hates men. She likes petite, cute girls.",
+        "PROFILE": "Glanz is an assassin from Wratharis. Even after the downfall of Wratharis, she's still been active all over the continent as a mercenary and assassin. She became an expensive mercenary, and an assassin even, in order to take care of her younger sister. Because of a trauma involving her father, she hates men. She likes petite, cute girls.",
         "COUNTRY": "Wratharis",
         "HEIGHT": "166cm",
         "WEIGHT": "53kg",
@@ -5762,7 +5765,7 @@
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/glan-closeup.png"
             },
             {
-                "name": "Swim",
+                "name": "Swimsuit Skin",
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/glan_swim.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/glan_swim-closeup.png"
             }
@@ -5844,7 +5847,7 @@
         "job 2": "Martial Artist",
         "job 3": "Twin-Blade Swordsman",
         "jc 1": "Twin-Blade Knight+ᴶ",
-        "jc 2": "Holy Brawler : Senjuᴶ\n[multi-hit]",
+        "jc 2": "Holy Brawler [Senju]ᴶ\n[multi-hit]",
         "jc 3": "",
         "inputs": [
             "Yauras",
@@ -5869,7 +5872,7 @@
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/yaul-closeup.png"
             },
             {
-                "name": "Swim",
+                "name": "Swimsuit Skin",
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/yaul_swim.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/yaul_swim-closeup.png"
             }
@@ -5902,7 +5905,7 @@
         "job 3": "Holy Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Cavalier : Zayinᴶ",
+        "jc 3": "Holy Cavalier [Ghia]ᴶ",
         "inputs": [
             "Zain",
             "Zain SSM",
@@ -5949,7 +5952,7 @@
             "JP: [32 AP] [Hard] Ch 2: Ep 4 [3-1]"
         ],
         "leader skill": "Fire: +30% HP & +20% MATK",
-        "master ability": "+20 Magic ATK & +15 AGI",
+        "master ability": "Brave Invocation\n+20 Magic ATK & +15 AGI",
         "link": "http://www.alchemistcodedb.com/unit/lupinus",
         "job 1": "Summoner",
         "job 2": "Chronomancer",
@@ -6006,8 +6009,8 @@
         "job 1": "Holy Cavalier",
         "job 2": "Ninja",
         "job 3": "Twin-Blade Swordsman",
-        "jc 1": "Holy Cavalier : Magiᴶ\n[magic resistance]",
-        "jc 2": "Ninja : Kirinᴶ\n[AGI-based]",
+        "jc 1": "Holy Cavalier [Magi]ᴶ\n[magic resistance]",
+        "jc 2": "Ninja [Giraffe]ᴶ\n[AGI-based]",
         "jc 3": "",
         "inputs": [
             "Victor"
@@ -6111,14 +6114,14 @@
             "JP: [32 AP] [Hard] Ch 2: Ep 4 [2-10]"
         ],
         "leader skill": "Thunder: +30% HP & +20% PATK",
-        "master ability": "+70 Initial Jewels & +1 Skill Use Count",
+        "master ability": "Nature's Ensemble\n+70 Initial Jewels & +1 Skill Use Count",
         "link": "http://www.alchemistcodedb.com/unit/aruba",
         "job 1": "Merchant",
         "job 2": "Beast Tamer",
         "job 3": "Dragon Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dragon Cavalier : Garudaᴶ\n[low range but high dmg]",
+        "jc 3": "Dragon Cavalier [Garuda]ᴶ\n[low range but high dmg]",
         "inputs": [
             "Aruba",
             "Alba"
@@ -6151,7 +6154,7 @@
     },
     "UN_V2_CHIRURU": {
         "iname": "UN_V2_CHIRURU",
-        "name": "Chiruruᴶ",
+        "name": "Chiruru",
         "inofficial": "Chiruru",
         "gender": "♀",
         "element": "Water",
@@ -6165,7 +6168,7 @@
         ],
         "leader skill": "Water: +150 HP & -5 Charge Time Ratio",
         "master ability": "",
-        "link": "http://www.alchemistcodedb.com/jp/unit/chiruru",
+        "link": "http://www.alchemistcodedb.com/unit/chiruru",
         "job 1": "Astrologer",
         "job 2": "Bard",
         "job 3": "Sage",
@@ -6212,9 +6215,9 @@
         "job 1": "Ranger",
         "job 2": "Hunter",
         "job 3": "Holy Brawler",
-        "jc 1": "Ranger : Snakeᴶ\n[jewel damage]",
+        "jc 1": "Ranger [Serpent]ᴶ\n[jewel damage]",
         "jc 2": "",
-        "jc 3": "Holy Brawler : Maitreyaᴶ\n[12% regen &  5% jewel regen buff]",
+        "jc 3": "Holy Brawler [Miroku]ᴶ\n[12% regen &  5% jewel regen buff]",
         "inputs": [
             "Shekinah",
             "Shekinah POTK",
@@ -6270,7 +6273,7 @@
         "job 2": "Martial Artist",
         "job 3": "Pirate",
         "jc 1": "Warrior : Argosᴶ\n[wind nuke]",
-        "jc 2": "Holy Brawler : Shuraᴶ\n[5x PATK buff]",
+        "jc 2": "Holy Brawler [Shura]ᴶ\n[5x PATK buff]",
         "jc 3": "",
         "inputs": [
             "Cita",
@@ -6324,7 +6327,7 @@
         "job 3": "Dark Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dark Cavalier : Faustᴶ\n[Suicidal Nuker]",
+        "jc 3": "Dark Cavalier [Faust]ᴶ\n[Suicidal Nuker]",
         "inputs": [
             "Masamune",
             "Masamune POTK",
@@ -6371,14 +6374,14 @@
             "JP: [32 AP] [Hard] Ch 2: Ep 4 [3-2]"
         ],
         "leader skill": "Thunder: +20% HP & +30% PATK",
-        "master ability": "+15 Initial Jewels & +100 PATK",
+        "master ability": "Glorious Colosseum\n+15 Initial Jewels & +100 PATK",
         "link": "http://www.alchemistcodedb.com/unit/teona",
         "job 1": "Valkyrie",
         "job 2": "Dragon Knight",
         "job 3": "Holy Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Cavalier : Portaᴶ\n[pierce resistance]",
+        "jc 3": "Holy Cavalier [Porta]ᴶ\n[pierce resistance]",
         "inputs": [
             "Teona",
             "Theona"
@@ -6401,7 +6404,7 @@
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/teon-closeup.png"
             },
             {
-                "name": "Swim",
+                "name": "Swimsuit Skin",
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/teon_swim.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/teon_swim-closeup.png"
             }
@@ -6434,8 +6437,8 @@
         "job 1": "Dragon Cavalier",
         "job 2": "Dark Cavalier",
         "job 3": "Thief",
-        "jc 1": "Dragon Cavalier : Rudraᴶ\n[teleportation skills]",
-        "jc 2": "Dark Cavalier : Faustᴶ\n[Suicidal Nuker]",
+        "jc 1": "Dragon Cavalier [Rudra]ᴶ\n[teleportation skills]",
+        "jc 2": "Dark Cavalier [Faust]ᴶ\n[Suicidal Nuker]",
         "jc 3": "",
         "inputs": [
             "Ramses",
@@ -6543,7 +6546,7 @@
         "job 3": "Ninja",
         "jc 1": "",
         "jc 2": "Sage : Obeliskᴶ\n[stronger fire skills]",
-        "jc 3": "Ninja : Kirinᴶ\n[AGI-based]",
+        "jc 3": "Ninja [Giraffe]ᴶ\n[AGI-based]",
         "inputs": [
             "Reida",
             "Leida"
@@ -6670,7 +6673,7 @@
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/asuw-closeup.png"
             },
             {
-                "name": "Marr",
+                "name": "Wedding Skin",
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/asuw_marr.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/asuw_marr-closeup.png"
             }
@@ -6685,7 +6688,7 @@
     },
     "UN_V2_SOPHIA": {
         "iname": "UN_V2_SOPHIA",
-        "name": "Sophiaᴶ",
+        "name": "Sophia",
         "inofficial": "Sophia",
         "gender": "♀",
         "element": "Water",
@@ -6699,7 +6702,7 @@
         ],
         "leader skill": "Water: +30% MATK & +20% HP",
         "master ability": "+300 HP & +50 MATK & +1 Skill Use Count",
-        "link": "http://www.alchemistcodedb.com/jp/unit/sophia",
+        "link": "http://www.alchemistcodedb.com/unit/sophia",
         "job 1": "Astrologer",
         "job 2": "Bishop",
         "job 3": "Enchanter",
@@ -6787,7 +6790,7 @@
     },
     "UN_V2_SETSUNA": {
         "iname": "UN_V2_SETSUNA",
-        "name": "Setsunaᴶ",
+        "name": "Setsuna",
         "inofficial": "Setsuna",
         "gender": "♀",
         "element": "Wind",
@@ -6801,7 +6804,7 @@
         ],
         "leader skill": "Wind: +30 Slash ATK & +20% HP",
         "master ability": "+100 PATK & +50 Counter Res",
-        "link": "http://www.alchemistcodedb.com/jp/unit/setsuna",
+        "link": "http://www.alchemistcodedb.com/unit/setsuna",
         "job 1": "Blademaster",
         "job 2": "Martial Artist",
         "job 3": "Shadow Assassin",
@@ -6852,7 +6855,7 @@
         "job 3": "Ranger",
         "jc 1": "",
         "jc 2": "Magic Swordsman : Sylphidᴶ\n[stronger wind skills]",
-        "jc 3": "Ranger : Hawkᴶ\n[dodging and enemy accuracy down]",
+        "jc 3": "Ranger [Falcon]ᴶ\n[dodging and enemy accuracy down]",
         "inputs": [
             "Hazel"
         ],
@@ -6889,7 +6892,7 @@
     },
     "UN_V2_EIZAN": {
         "iname": "UN_V2_EIZAN",
-        "name": "Eizanᴶ",
+        "name": "Eizan",
         "inofficial": "Eizen",
         "gender": "♂",
         "element": "Thunder",
@@ -6903,13 +6906,13 @@
         ],
         "leader skill": "Thunder: +50% PATK",
         "master ability": "+25 Initial Jewels & +15 Strike ATK",
-        "link": "http://www.alchemistcodedb.com/jp/unit/eizan",
+        "link": "http://www.alchemistcodedb.com/unit/eizan",
         "job 1": "Blacksmith",
         "job 2": "Samurai",
         "job 3": "Holy Brawler",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Brawler : Fudoᴶ\n[more damage at lower health]",
+        "jc 3": "Holy Brawler [Fudo]ᴶ\n[more damage at lower health]",
         "inputs": [
             "Eizan",
             "Eizen"
@@ -6940,7 +6943,7 @@
     },
     "UN_V2_THILLIE": {
         "iname": "UN_V2_THILLIE",
-        "name": "Thillieᴶ",
+        "name": "Thillie",
         "inofficial": "Thillie",
         "gender": "♀",
         "element": "Wind",
@@ -6954,13 +6957,13 @@
         ],
         "leader skill": "Wind: +30% HP",
         "master ability": "",
-        "link": "http://www.alchemistcodedb.com/jp/unit/thillie",
+        "link": "http://www.alchemistcodedb.com/unit/thillie",
         "job 1": "Beast Tamer",
         "job 2": "Sage",
         "job 3": "Ninja",
         "jc 1": "",
         "jc 2": "Sage : Pandoraᴶ\n[stronger skills via passive]",
-        "jc 3": "Ninja : Seiryuᴶ\n[attack-based]",
+        "jc 3": "Ninja [Azure Dragon]ᴶ\n[attack-based]",
         "inputs": [
             "Thillie"
         ],
@@ -7009,14 +7012,14 @@
             "Saber Fate",
             "Fate Saber"
         ],
-        "PROFILE": "",
+        "PROFILE": "This Heroic Spirit is a beautiful swordfighter who was summoned and contracted to Shirou Emiya in the Fifth Holy Grail War. She may seem like a cute blonde blue-eyed girl, but she's in fact the most powerful Servant. She has an honest and serious personality. There's also a girly side to her, since she does like cute things.",
         "COUNTRY": "─",
         "HEIGHT": "154cm",
         "WEIGHT": "42kg",
         "BIRTH": "─",
         "ZODIAC": "─",
         "BLOOD": "─",
-        "FAVORITE": "",
+        "FAVORITE": "Meticulously prepared food dishes",
         "HOBBY": "─",
         "ILLUST": "─",
         "CV": "川澄綾子",
@@ -7061,14 +7064,14 @@
             "Gilgamesh Fate",
             "Fate Gilgamesh"
         ],
-        "PROFILE": "",
+        "PROFILE": "The Hero King who made the whole world his dominion as the most ancient king of human kind. He entered the fray of the Fifth Holy Grail War as an unidentified blonde Servant. He has an arrogant, defiant, self-centered personality. He calls himself the one and true king, and he sees humans as mongrels.",
         "COUNTRY": "─",
         "HEIGHT": "182cm",
         "WEIGHT": "68kg",
         "BIRTH": "─",
         "ZODIAC": "─",
         "BLOOD": "─",
-        "FAVORITE": "",
+        "FAVORITE": "Himself, having authority",
         "HOBBY": "─",
         "ILLUST": "─",
         "CV": "関智一",
@@ -7113,14 +7116,14 @@
             "Rin Tohsaka Fate",
             "Fate Rin Tohsaka"
         ],
-        "PROFILE": "",
+        "PROFILE": "Rin is a mage who entered the War of the Holy Grail to defend the name of the Tohsaka Family. The mages in her family lineage are known for governing evergreen trees. At school, she's an overall genius in both literary and combat arts, priding herself in both beauty and intelligence. ...Or that's what she acts like anyway. Some people however, seem to be able to see through her act.",
         "COUNTRY": "─",
         "HEIGHT": "159cm",
         "WEIGHT": "47kg",
         "BIRTH": "─",
         "ZODIAC": "─",
         "BLOOD": "─",
-        "FAVORITE": "",
+        "FAVORITE": "Polishing jewelry",
         "HOBBY": "─",
         "ILLUST": "─",
         "CV": "植田佳奈",
@@ -7165,14 +7168,14 @@
             "Illyasviel Fate",
             "Fate Illyasviel"
         ],
-        "PROFILE": "",
+        "PROFILE": "Her true name is Illyasviel von Einzbern. She's a petite girl who made a contract with Berserker. You can recognize her by her silver hair and red eyes. The Einzbern family are renowned alchemists. Illya is in fact a homunculus (an artificial human), the greatest creation of her family.",
         "COUNTRY": "─",
-        "HEIGHT": "",
+        "HEIGHT": "133cm",
         "WEIGHT": "34kg",
         "BIRTH": "─",
         "ZODIAC": "─",
         "BLOOD": "─",
-        "FAVORITE": "",
+        "FAVORITE": "Snow",
         "HOBBY": "─",
         "ILLUST": "─",
         "CV": "門脇舞以",
@@ -7217,14 +7220,14 @@
             "Archer Fate",
             "Fate Archer"
         ],
-        "PROFILE": "",
+        "PROFILE": "This Heroic Spirit was summoned and contracted to Rin Tohsaka in the Fifth Holy Grail War. He appears as a guy in a red coat with slightly tanned skin, but his real identity is unknown. He's a realist with a sarcastic personality. For an archer, he's great at close combat.",
         "COUNTRY": "─",
         "HEIGHT": "187cm",
         "WEIGHT": "78kg",
         "BIRTH": "─",
         "ZODIAC": "─",
         "BLOOD": "─",
-        "FAVORITE": "",
+        "FAVORITE": "Domestic Chores (though he will deny it)",
         "HOBBY": "─",
         "ILLUST": "─",
         "CV": "諏訪部順一",
@@ -7268,7 +7271,7 @@
             "Yomi Fate",
             "Fate Yomi"
         ],
-        "PROFILE": "",
+        "PROFILE": "This being was summoned through a catalyst, mixed up with the mental energies of Yomi, who left a strong presence of Alchemia in the area where the catalyst was found. The catalyst, a pair of chained metal stake-style swords from a parallel universe, was excavated from the Wadatsumi Mountains. The powers of the catalyst lend her the appearance, as well as the abilities of Rider.",
         "COUNTRY": "Wadatsumi",
         "HEIGHT": "157cm",
         "WEIGHT": "51.5kg",
@@ -7319,7 +7322,7 @@
             "Lamia Fate",
             "Fate Lamia"
         ],
-        "PROFILE": "",
+        "PROFILE": "This being was summoned through a catalyst, mixed up with the mental energies of Lamia, who left a strong presence of Alchemia in the area where the catalyst was found. The catalyst, a sacred sword with an ancient name from a parallel universe, was excavated from the castle ruins of Wratharis. The powers of the catalyst lend her the appearance, as well as the abilities of Saber.",
         "COUNTRY": "Wratharis",
         "HEIGHT": "160cm",
         "WEIGHT": "49kg",
@@ -7370,7 +7373,7 @@
             "Zahar Fate",
             "Fate Zahar"
         ],
-        "PROFILE": "",
+        "PROFILE": "This being was summoned through a catalyst, mixed up with the mental energies of Zahar, who left a strong presence of Alchemia in the area where the catalyst was found. The catalyst, a pendant with a red gem from a parallel universe, was excavated from the outskirts of Wratharis. The powers of the catalyst lend him the appearance, as well as the abilities of Archer.",
         "COUNTRY": "Wratharis",
         "HEIGHT": "178cm",
         "WEIGHT": "57kg",
@@ -7398,7 +7401,7 @@
     },
     "UN_V2_RENA": {
         "iname": "UN_V2_RENA",
-        "name": "Renaᴶ",
+        "name": "Rena",
         "inofficial": "Rena",
         "gender": "♀",
         "element": "Dark",
@@ -7410,7 +7413,7 @@
         "farm": [],
         "leader skill": "+20 Magic ATK",
         "master ability": "",
-        "link": "http://www.alchemistcodedb.com/jp/unit/rena",
+        "link": "http://www.alchemistcodedb.com/unit/rena",
         "job 1": "Actress",
         "job 2": "Mage",
         "job 3": "Ninja",
@@ -7463,8 +7466,8 @@
         "job 2": "Dark Cavalier",
         "job 3": "Holy Cavalier",
         "jc 1": "",
-        "jc 2": "Dark Cavalier : Faustᴶ\n[Suicidal Nuker]",
-        "jc 3": "Holy Cavalier : Davidᴶ\n[strike resistance]",
+        "jc 2": "Dark Cavalier [Faust]ᴶ\n[Suicidal Nuker]",
+        "jc 3": "Holy Cavalier [David]ᴶ\n[strike resistance]",
         "inputs": [
             "Zeke",
             "Sieg"
@@ -7502,7 +7505,7 @@
     },
     "UN_V2_MIUNA": {
         "iname": "UN_V2_MIUNA",
-        "name": "Miunaᴶ",
+        "name": "Miuna",
         "inofficial": "Miuna",
         "gender": "♀",
         "element": "Fire",
@@ -7514,13 +7517,13 @@
         "farm": [],
         "leader skill": "Fire: +30% PATK & +10 Fire",
         "master ability": "",
-        "link": "http://www.alchemistcodedb.com/jp/unit/miuna",
+        "link": "http://www.alchemistcodedb.com/unit/miuna",
         "job 1": "Master Blacksmith",
         "job 2": "Thief",
         "job 3": "Holy Cavalier",
-        "jc 1": "Blacksmith+        ᴶ",
+        "jc 1": "Master Blacksmith+ᴶ",
         "jc 2": "",
-        "jc 3": "Holy Cavalier : Pietaᴶ\n[healing]",
+        "jc 3": "Holy Cavalier [Pieta]ᴶ\n[healing]",
         "inputs": [
             "Miuna",
             "Miuna SSM",
@@ -7564,7 +7567,7 @@
         "job 2": "Ninja",
         "job 3": "Warrior",
         "jc 1": "",
-        "jc 2": "Ninja : Seiryuᴶ\n[attack-based]",
+        "jc 2": "Ninja [Azure Dragon]ᴶ\n[attack-based]",
         "jc 3": "",
         "inputs": [
             "Sakura",
@@ -7615,7 +7618,7 @@
         "job 1": "Ranger",
         "job 2": "Samurai",
         "job 3": "Merchant",
-        "jc 1": "Ranger : Snakeᴶ\n[jewel damage]",
+        "jc 1": "Ranger [Serpent]ᴶ\n[jewel damage]",
         "jc 2": "",
         "jc 3": "Merchant : Scheming Tanukiᴶ\n[randomly give 50 CT to any units on map]",
         "inputs": [
@@ -7670,7 +7673,7 @@
         "job 3": "Holy Brawler",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Brawler : Maitreyaᴶ\n[12% regen &  5% jewel regen buff]",
+        "jc 3": "Holy Brawler [Miroku]ᴶ\n[12% regen &  5% jewel regen buff]",
         "inputs": [
             "Forcas",
             "Forcas POTK",
@@ -7721,7 +7724,7 @@
         "job 2": "Ninja",
         "job 3": "Sniper",
         "jc 1": "",
-        "jc 2": "Ninja : Suzakuᴶ\n[jump-based]",
+        "jc 2": "Ninja [Vermillion Bird]ᴶ\n[jump-based]",
         "jc 3": "Sniper : Barrelᴶ\n[very long range and increased minimum range]",
         "inputs": [
             "Bashosen",
@@ -7757,7 +7760,7 @@
     },
     "UN_V2_MIKOTO": {
         "iname": "UN_V2_MIKOTO",
-        "name": "Mikotoᴶ",
+        "name": "Mikoto",
         "inofficial": "Mikoto",
         "gender": "♀",
         "element": "Water",
@@ -7771,12 +7774,12 @@
         ],
         "leader skill": "Water: +50% HP",
         "master ability": "-5 Reduced Jewel Cost",
-        "link": "http://www.alchemistcodedb.com/jp/unit/mikoto",
+        "link": "http://www.alchemistcodedb.com/unit/mikoto",
         "job 1": "Priestess",
         "job 2": "Ninja",
         "job 3": "Valkyrie",
         "jc 1": "",
-        "jc 2": "Ninja : Byakkoᴶ\n[evasion-based]",
+        "jc 2": "Ninja [White Tiger]ᴶ\n[evasion-based]",
         "jc 3": "",
         "inputs": [
             "Mikoto"
@@ -7872,9 +7875,9 @@
         "job 1": "Martial Master",
         "job 2": "Thief",
         "job 3": "Dark Cavalier",
-        "jc 1": "Martial Master : Mecha Masherᴶ\n[Anti-Machine Skills]",
+        "jc 1": "Martial Master [Dark Tinker]ᴶ\n[Anti-Machine Skills]",
         "jc 2": "",
-        "jc 3": "Dark Cavalier : Jaegerᴶ\n[Sacrifice Skills Bonus]",
+        "jc 3": "Dark Cavalier [Jaeger]ᴶ\n[Sacrifice Skills Bonus]",
         "inputs": [
             "Mei Fang",
             "Meifan"
@@ -7960,7 +7963,7 @@
     },
     "UN_V2_YUTO": {
         "iname": "UN_V2_YUTO",
-        "name": "Yutoᴶ",
+        "name": "Yuto",
         "inofficial": "Yuto",
         "gender": "♂",
         "element": "Fire",
@@ -7972,7 +7975,7 @@
         "farm": [],
         "leader skill": "Fire: +5 Jewels Obtained",
         "master ability": "",
-        "link": "http://www.alchemistcodedb.com/jp/unit/yuto",
+        "link": "http://www.alchemistcodedb.com/unit/yuto",
         "job 1": "Beast Tamer",
         "job 2": "Twin-Blade Swordsman",
         "job 3": "Warrior",
@@ -8003,7 +8006,7 @@
     },
     "UN_V2_BASINI": {
         "iname": "UN_V2_BASINI",
-        "name": "Basheenyᴶ",
+        "name": "Basheeny",
         "inofficial": "Bashini",
         "gender": "♂",
         "element": "Dark",
@@ -8015,7 +8018,7 @@
         "farm": [],
         "leader skill": "Dark: +50% HP",
         "master ability": "",
-        "link": "http://www.alchemistcodedb.com/jp/unit/basini",
+        "link": "http://www.alchemistcodedb.com/unit/basini",
         "job 1": "Mobile Knight",
         "job 2": "Twin-Blade Swordsman",
         "job 3": "Holy Brawler",
@@ -8092,7 +8095,7 @@
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/neic-closeup.png"
             },
             {
-                "name": "C_Hallo",
+                "name": "Halloween Skin",
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/neic_hall.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/neic_hall-closeup.png"
             }
@@ -8107,7 +8110,7 @@
     },
     "UN_V2_YUNAGI": {
         "iname": "UN_V2_YUNAGI",
-        "name": "Yunagiᴶ",
+        "name": "Yunagi",
         "inofficial": "Yuunagi",
         "gender": "♀",
         "element": "Water",
@@ -8121,11 +8124,11 @@
         ],
         "leader skill": "Water: +30% HP & +20% PATK",
         "master ability": "+300 HP & +40 Initial Jewels",
-        "link": "http://www.alchemistcodedb.com/jp/unit/yunagi",
+        "link": "http://www.alchemistcodedb.com/unit/yunagi",
         "job 1": "Dark Cavalier",
         "job 2": "Ninja",
         "job 3": "Warrior",
-        "jc 1": "Dark Cavalier : Gernikaᴶ\n[One Slash Cav]",
+        "jc 1": "Dark Cavalier [Guernica]ᴶ\n[One Slash Cav]",
         "jc 2": "",
         "jc 3": "Warrior : Titanᴶ\n[water nuke]",
         "inputs": [
@@ -8153,7 +8156,7 @@
     },
     "UN_V2_MARIANNU": {
         "iname": "UN_V2_MARIANNU",
-        "name": "Mirianneᴶ",
+        "name": "Mirianne",
         "inofficial": "Marianne",
         "gender": "♀",
         "element": "Dark",
@@ -8167,7 +8170,7 @@
         ],
         "leader skill": "Dark: +5 Jewels Obtained & +20% HP",
         "master ability": "",
-        "link": "http://www.alchemistcodedb.com/jp/unit/mariannu",
+        "link": "http://www.alchemistcodedb.com/unit/mariannu",
         "job 1": "Necromancer",
         "job 2": "Dark Knight",
         "job 3": "Merchant",
@@ -8178,7 +8181,7 @@
             "Mirianne",
             "Marianne"
         ],
-        "PROFILE": "Marianne is a gemstone merchant from Wratharis. By sensing the hidden powers in gemstones, she can offer her customers exactly what they're looking for. She has a very polite tone, but she's also very direct. She's got an amazing eye for aesthetics though, and whenever she says something harsh, there's always sense in her words. So actually, people put a lot of trust in her.",
+        "PROFILE": "Mirianne is a gemstone merchant from Wratharis. By sensing the hidden powers in gemstones, she can offer her customers exactly what they're looking for. She has a very polite tone, but she's also very direct. She's got an amazing eye for aesthetics though, and whenever she says something harsh, there's always sense in her words. So actually, people put a lot of trust in her.",
         "COUNTRY": "Wratharis",
         "HEIGHT": "164cm",
         "WEIGHT": "51kg",
@@ -8212,7 +8215,7 @@
         "leader skill": "Dark: +40% HP & +10 Light Res",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/dis-killia",
-        "job 1": "Tyrant Overlordᴶ",
+        "job 1": "Tyrant Overlord",
         "job 2": "Martial Artist",
         "job 3": "Shadow Assassin",
         "jc 1": "",
@@ -8258,7 +8261,7 @@
         "leader skill": "Light: +30 Missile ATK & +20% DEX",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/dis-seraphina",
-        "job 1": "Gorgeous Overlordᴶ",
+        "job 1": "Gorgeous Overlord",
         "job 2": "Crafter",
         "job 3": "Magia Gunslinger",
         "jc 1": "",
@@ -8303,7 +8306,7 @@
         "leader skill": "Fire: +30 Missile Res",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/dis-redmagnus",
-        "job 1": "Scorching Flame Overlordᴶ",
+        "job 1": "Scorching Flame Overlord",
         "job 2": "Dragon Knight",
         "job 3": "Warrior",
         "jc 1": "",
@@ -8349,11 +8352,11 @@
         "leader skill": "Water: +30% PATK & +20 Hit Rate",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/dis-rinn",
-        "job 1": "Netherworld Archerᴶ",
+        "job 1": "Netherworld Archer",
         "job 2": "Hunter",
-        "job 3": "Felynnᴶ",
+        "job 3": "Felynn",
         "jc 1": "",
-        "jc 2": "Ranger : Snakeᴶ\n[jewel damage]",
+        "jc 2": "Ranger [Serpent]ᴶ\n[jewel damage]",
         "jc 3": "",
         "inputs": [
             "D.Rin",
@@ -8394,7 +8397,7 @@
         "leader skill": "All: +25% PDEF",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/dis-usalia",
-        "job 1": "Toto Bunny Overlordᴶ",
+        "job 1": "Toto Bunny Overlord",
         "job 2": "Thief",
         "job 3": "Chronomancer",
         "jc 1": "",
@@ -8486,12 +8489,12 @@
         "leader skill": "Fire: +30 Pierce ATK & +20% HP",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/daisy",
-        "job 1": "Holy Spearmanᴶ",
+        "job 1": "Sacred Lancer",
         "job 2": "Crafter",
         "job 3": "Holy Brawler",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Brawler : Fudoᴶ\n[more damage at lower health]",
+        "jc 3": "Holy Brawler [Fudo]ᴶ\n[more damage at lower health]",
         "inputs": [
             "Daisy"
         ],
@@ -8561,7 +8564,7 @@
     },
     "UN_V2_LIZARDMEN_HAT": {
         "iname": "UN_V2_LIZARDMEN_HAT",
-        "name": "Lizardmen Hatᴶ",
+        "name": "Lizardmanᴶ",
         "inofficial": "Lizardman",
         "gender": "♀",
         "element": "Wind",
@@ -8574,14 +8577,13 @@
         "leader skill": "+20 Guts",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/lizardmen-hat",
-        "job 1": "Lizardman Lancerᴶ",
+        "job 1": "Spearman",
         "job 2": "",
         "job 3": "",
         "jc 1": "",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Lizardmen Hat",
             "Lizardman"
         ],
         "artworks": [
@@ -8607,7 +8609,7 @@
         "leader skill": "Fire: +30 Slash ATK & +20% HP",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/dis-lahar",
-        "job 1": "Overlordᴶ",
+        "job 1": "Overlord",
         "job 2": "Magic Swordsman",
         "job 3": "Necromancer",
         "jc 1": "",
@@ -8653,11 +8655,11 @@
         "leader skill": "Light: +20% HP & +30 Pierce ATK",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/dis-etona",
-        "job 1": "Overlord's Vassalᴶ",
+        "job 1": "Overlord's Vassal",
         "job 2": "Ninja",
         "job 3": "Blademaster",
         "jc 1": "",
-        "jc 2": "Ninja : Suzakuᴶ\n[jump-based]",
+        "jc 2": "Ninja [Vermillion Bird]ᴶ\n[jump-based]",
         "jc 3": "",
         "inputs": [
             "Etona",
@@ -8699,9 +8701,9 @@
         "leader skill": "Foreign World: +20% PATK & +20% MATK",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/dis-prinny",
-        "job 1": "Private Prinnyᴶ",
-        "job 2": "General Prinnyᴶ",
-        "job 3": "Prinny Kamiᴶ",
+        "job 1": "Private Prinny",
+        "job 2": "General Prinny",
+        "job 3": "Prinny Kami",
         "jc 1": "",
         "jc 2": "",
         "jc 3": "",
@@ -8744,9 +8746,9 @@
         "leader skill": "Wind: +50% HP",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/dis-almila",
-        "job 1": "Netherworld Thiefᴶ",
+        "job 1": "Netherworld Thief",
         "job 2": "Valkyrie",
-        "job 3": "Netherworld Samuraiᴶ",
+        "job 3": "Netherworld Samurai",
         "jc 1": "",
         "jc 2": "",
         "jc 3": "",
@@ -8789,9 +8791,9 @@
         "leader skill": "Dark: +40% HP & -10 Charge Time Ratio",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/dis-rosa",
-        "job 1": "Succubusᴶ",
+        "job 1": "Succubus",
         "job 2": "Enchanter",
-        "job 3": "Netherworld Witchᴶ",
+        "job 3": "Netherworld Witch",
         "jc 1": "",
         "jc 2": "Zero Enchanterᴶ\n[buff dispeller]",
         "jc 3": "",
@@ -8821,7 +8823,7 @@
     },
     "UN_V2_LAVINA": {
         "iname": "UN_V2_LAVINA",
-        "name": "Lavinaᴶ",
+        "name": "Ravinaᴶ",
         "inofficial": "Lavina",
         "gender": "♀",
         "element": "Water",
@@ -8839,8 +8841,9 @@
         "job 3": "Dark Cavalier",
         "jc 1": "Magia Gunslinger : Isisᴶ\n[improved water damage and multi-hit]",
         "jc 2": "",
-        "jc 3": "Dark Cavalier : Moveᴶ\n[Faster Dark Cav]",
+        "jc 3": "Dark Cavalier [Espion]ᴶ\n[Faster Dark Cav]",
         "inputs": [
+            "Ravina",
             "Lavina"
         ],
         "PROFILE": "Ravina is a young girl from Lustburg who possesses magical energy and a high concentration of Alchemia. She hates anything and everything hot, and on warm days will apparently sleep during the day and get up at night instead. She lost her home after her powers ran wild, but thanks to Michael and the others her wounded heart is gradually healing.",
@@ -8907,7 +8910,7 @@
     },
     "UN_V2_BLANCHETT": {
         "iname": "UN_V2_BLANCHETT",
-        "name": "Blanchettᴶ",
+        "name": "Blanshettᴶ",
         "inofficial": "Blanchett",
         "gender": "♀",
         "element": "Dark",
@@ -8925,8 +8928,9 @@
         "job 3": "Martial Artist",
         "jc 1": "Twin-Blade Swordsman : Demon Hunterᴶ\n[increased damage against beasts]",
         "jc 2": "",
-        "jc 3": "Holy Brawler : Fudoᴶ\n[more damage at lower health]",
+        "jc 3": "Holy Brawler [Fudo]ᴶ\n[more damage at lower health]",
         "inputs": [
+            "Blanshett",
             "Blanchett"
         ],
         "PROFILE": "Blanshett is a young girl who is the sole survivor of a village destroyed by war. The codename of the group that destroyed it was \"WOLF,\" and as a result she hates anything and everything related to wolves. She's usually cheerful, but if wolves somehow become involved she'll instantly change and unleash a furious, raw power.",
@@ -8950,7 +8954,7 @@
     },
     "UN_V2_ZIN": {
         "iname": "UN_V2_ZIN",
-        "name": "Zinᴶ",
+        "name": "Jinᴶ",
         "inofficial": "Jin",
         "gender": "♂",
         "element": "Dark",
@@ -8963,14 +8967,13 @@
         "leader skill": "Dark: +40% HP & +5 Evasion Rate",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/zin",
-        "job 1": "Spyᴶ",
+        "job 1": "Spy",
         "job 2": "Samurai",
         "job 3": "Warrior",
         "jc 1": "Spy+ : Roninᴶ",
         "jc 2": "",
         "jc 3": "Warrior : Gigantesᴶ\n[dark attack with huge self buff]",
         "inputs": [
-            "Zin",
             "Jin"
         ],
         "PROFILE": "Jin is a young man from a warrior family that has lived in Wadatsumi for generations. He is Yomi's half-brother, and the elder of the two. When it was time for the head of the family to change, the family argued over whether direct descendent Yomi or mistress's son Jin should take over, which culminated in Jin killing his father and the rest of the family. Deep down he is a gentle soul, like his birth mother, but his harsh, rigorous training has steeled him and turned his heart cold.",
@@ -9016,7 +9019,7 @@
         "job 2": "Chemist",
         "job 3": "Pirate",
         "jc 1": "Battle Mage+  : Magical Honor Studentᴶ",
-        "jc 2": "Professor : Madᴶ\n[much stronger buffs]",
+        "jc 2": "Professor [Mud]ᴶ\n[much stronger buffs]",
         "jc 3": "",
         "inputs": [
             "Noah"
@@ -9047,7 +9050,7 @@
     },
     "UN_V2_ZOPHIE": {
         "iname": "UN_V2_ZOPHIE",
-        "name": "Zophieᴶ",
+        "name": "Zofiaᴶ",
         "inofficial": "Zophie",
         "gender": "♀",
         "element": "Thunder",
@@ -9065,8 +9068,9 @@
         "job 3": "Dark Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dark Cavalier : Faustᴶ\n[Suicidal Nuker]",
+        "jc 3": "Dark Cavalier [Faust]ᴶ\n[Suicidal Nuker]",
         "inputs": [
+            "Zofia",
             "Zophie"
         ],
         "PROFILE": "Zofia is a young girl who was found abandoned in a graveyard in Gluttony Foss and raised there as its guardian. Because she grew up in a graveyard, she considers dead bodies to be her \"fwends.\" She hasn't had a formal education, so her language is a little broken and she's bad at interacting with people; she also has a very different moral compass than that of most people.",
@@ -9105,8 +9109,8 @@
         "link": "http://www.alchemistcodedb.com/jp/unit/olga",
         "job 1": "Martial Master",
         "job 2": "Magic Swordsman",
-        "job 3": "Spyᴶ",
-        "jc 1": "Martial Master : Demon Destroyerᴶ\n[Anti-Demon Skills]",
+        "job 3": "Spy",
+        "jc 1": "Martial Master [Beast]ᴶ\n[Anti-Demon Skills]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -9133,7 +9137,7 @@
     },
     "UN_V2_CHATNOIR": {
         "iname": "UN_V2_CHATNOIR",
-        "name": "Chatnoirᴶ",
+        "name": "Chat Noirᴶ",
         "inofficial": "Chat Noir",
         "gender": "♂",
         "element": "Water",
@@ -9151,9 +9155,8 @@
         "job 3": "Dark Cavalier",
         "jc 1": "Shadow Assassin : Nightᴶ\n[buff dispeller]",
         "jc 2": "",
-        "jc 3": "Dark Cavalier : Moveᴶ\n[Faster Dark Cav]",
+        "jc 3": "Dark Cavalier [Espion]ᴶ\n[Faster Dark Cav]",
         "inputs": [
-            "Chatnoir",
             "Chat Noir"
         ],
         "PROFILE": "Chat Noir is a phantom thief with a cat-cyborg appearance whose name is known across the continent. The only thing that's really known about him is that he always sends a warning letter with a cat mark on it before stealing works of art. He's taken something of a liking to Justin of the Civil Guard, and makes a point of teasing him.",
@@ -9233,7 +9236,7 @@
         "leader skill": "Water: +40% HP & -10 Cast Time Ratio",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/ff15-noctis",
-        "job 1": "Lucian's Heirᴶ",
+        "job 1": "Lucian's Heir",
         "job 2": "Magic Swordsman",
         "job 3": "Battle Mage",
         "jc 1": "",
@@ -9278,7 +9281,7 @@
         "leader skill": "Wind: +40% PATK & +10 CRIT Rate",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/ff15-ignis",
-        "job 1": "Prince's Handᴶ",
+        "job 1": "Prince's Hand",
         "job 2": "Crafter",
         "job 3": "Shadow Assassin",
         "jc 1": "",
@@ -9323,12 +9326,12 @@
         "leader skill": "Fire: +20% HP & +30% PATK",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/ff15-gladiolus",
-        "job 1": "Prince's Shieldᴶ",
+        "job 1": "Prince's Shield",
         "job 2": "Martial Artist",
         "job 3": "Holy Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Cavalier : Magiᴶ\n[magic resistance]",
+        "jc 3": "Holy Cavalier [Magi]ᴶ\n[magic resistance]",
         "inputs": [
             "Gladiolus",
             "Gladiolus FF",
@@ -9370,7 +9373,7 @@
         "link": "http://www.alchemistcodedb.com/jp/unit/ff15-promputo",
         "job 1": "Gunner",
         "job 2": "Holy Knight",
-        "job 3": "Prince's Best Friendᴶ",
+        "job 3": "Prince's Best Friend",
         "jc 1": "",
         "jc 2": "",
         "jc 3": "",
@@ -9414,7 +9417,7 @@
         "leader skill": "Dark: +30 Pierce ATK & +20% HP",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/ff15-aranea",
-        "job 1": "Commodoreᴶ",
+        "job 1": "Commodore",
         "job 2": "Twin-Blade Swordsman",
         "job 3": "Dark Cavalier",
         "jc 1": "",
@@ -9459,7 +9462,7 @@
         "leader skill": "Water: +40% HP & +10% LUCK",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/klima",
-        "job 1": "Master of Weatherᴶ",
+        "job 1": "Diviner",
         "job 2": "Bride",
         "job 3": "Sage",
         "jc 1": "",
@@ -9490,7 +9493,7 @@
     },
     "UN_V2_LEONIA": {
         "iname": "UN_V2_LEONIA",
-        "name": "Leoniaᴶ",
+        "name": "Leoniazᴶ",
         "inofficial": "Leonia",
         "gender": "♀",
         "element": "Wind",
@@ -9503,13 +9506,14 @@
         "leader skill": "Wind: +40% HP & +5 Jewels Obtained",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/leonia",
-        "job 1": "Holy Spearmanᴶ",
+        "job 1": "Sacred Lancer",
         "job 2": "Martial Artist",
         "job 3": "Dark Cavalier",
         "jc 1": "",
-        "jc 2": "Holy Brawler : Senjuᴶ\n[multi-hit]",
-        "jc 3": "Dark Cavalier : Jaegerᴶ\n[Sacrifice Skills Bonus]",
+        "jc 2": "Holy Brawler [Senju]ᴶ\n[multi-hit]",
+        "jc 3": "Dark Cavalier [Jaeger]ᴶ\n[Sacrifice Skills Bonus]",
         "inputs": [
+            "Leoniaz",
             "Leonia"
         ],
         "PROFILE": "Leoniaz is a female knight who is known in Envylia as the \"pure white lion.\" She considers it her duty to act the joker around the ever-serious Lucretia in order to deflate the tension. Her elegant appearance and bravery have won her many female fans, and she is often showered with the shrieks and cries of her supporters.",
@@ -9533,7 +9537,7 @@
     },
     "UN_V2_ACHAD": {
         "iname": "UN_V2_ACHAD",
-        "name": "Achadᴶ",
+        "name": "Ahatoᴶ",
         "inofficial": "Acht",
         "gender": "♀",
         "element": "Wind",
@@ -9546,17 +9550,17 @@
         "leader skill": "Wind: +30% HP & +20% PATK & +20% PDEF",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/achad",
-        "job 1": "7 Styles Masterᴶ",
+        "job 1": "7 Tactics Master",
         "job 2": "Valkyrie",
         "job 3": "Ninja",
         "jc 1": "",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Achad",
+            "Ahato",
             "Acht",
-            "Achad SSM",
-            "SSM Achad"
+            "Ahato SSM",
+            "SSM Ahato"
         ],
         "PROFILE": "Ahato is a young girl who is known as the Veda Ten's \"Number Eight.\" It was the group's leader, Sol, who gave her the hope to live, and she never leaves his side, even outside of battle. She was a war orphan, which has left her with a strong aversion to being hungry: so much so that she says she \"hates hunger more than any physical or emotional pain.\"",
         "COUNTRY": "Lost Blue",
@@ -9579,7 +9583,7 @@
     },
     "UN_V2_VIER": {
         "iname": "UN_V2_VIER",
-        "name": "Vierᴶ",
+        "name": "Fierᴶ",
         "inofficial": "Vier",
         "gender": "♀",
         "element": "Thunder",
@@ -9592,16 +9596,17 @@
         "leader skill": "Thunder: +40% HP & +10 Water Res & +5 Evasion Rate",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/vier",
-        "job 1": "Pheremone Masterᴶ",
+        "job 1": "Phantom Master",
         "job 2": "Chronomancer",
         "job 3": "Summoner",
         "jc 1": "",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
+            "Fier",
             "Vier",
-            "Vier SSM",
-            "SSM Vier"
+            "Fier SSM",
+            "SSM Fier"
         ],
         "PROFILE": "Fier is a young girl who is known as the Veda Ten's \"Number Four.\" She's a Dark Elf, a very scarce people, and never talks about her past or where she came from. She has an erratic personality, and on top of that takes great pleasure in confusing and misleading people. However, when she's acting in her role as a fortuneteller, she never, ever lies.",
         "COUNTRY": "Lost Blue",
@@ -9624,7 +9629,7 @@
     },
     "UN_V2_FAIRLILY": {
         "iname": "UN_V2_FAIRLILY",
-        "name": "Fairlilyᴶ",
+        "name": "Fairilyᴶ",
         "inofficial": "Fealily",
         "gender": "♀",
         "element": "Light",
@@ -9637,14 +9642,14 @@
         "leader skill": "Light: +40% HP & +10% Max Jewels",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/fairlily",
-        "job 1": "Master of Weatherᴶ",
+        "job 1": "Diviner",
         "job 2": "Shrine Maiden",
         "job 3": "Merchant",
         "jc 1": "",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Fairlily",
+            "Fairily",
             "Fealily"
         ],
         "PROFILE": "Fairily is a plant enthusiast from Envylia. She's a bright, cheerful girl, and possesses Alchemia that instantly revitalizes any plant she touches. She is still studying how to use her power correctly, though. She used it on her companion Nube, a Mandragora, who became her friend as a result.",
@@ -9684,7 +9689,7 @@
         "job 1": "Holy Cavalier",
         "job 2": "Magic Swordsman",
         "job 3": "Warrior",
-        "jc 1": "Holy Cavalier : Arkᴶ\n[AoE resistance]",
+        "jc 1": "Holy Cavalier [Ark]ᴶ\n[AoE resistance]",
         "jc 2": "",
         "jc 3": "Warrior : Gigantesᴶ\n[dark attack with huge self buff]",
         "inputs": [
@@ -9724,9 +9729,9 @@
         "leader skill": "Fire: +40% PATK & +10 Wind Res",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/rh-stock",
-        "job 1": "Intelligence Agentᴶ",
+        "job 1": "Intelligence Agent",
         "job 2": "Martial Artist",
-        "job 3": "Spyᴶ",
+        "job 3": "Spy",
         "jc 1": "",
         "jc 2": "",
         "jc 3": "",
@@ -9736,13 +9741,13 @@
             "Stock RH",
             "RH Stock"
         ],
-        "PROFILE": "Stocke is the top swordsman in Alistel's Special Intelligence program. He doesn't really show his emotions much, but inside him surges a burning passion, and he hates seeing harm come to his comrades more than anything else in the world. He's a talented agent, and has completed numerous crucial and dangerous missions. On one mission, he is given the \"White Chronicle.\"",
-        "COUNTRY": "Alistel",
+        "PROFILE": "アリステル情報部随一の剣士。感情をあまり表に出さないが、内には熱い思いを秘めており、仲間が傷つくことを誰よりも嫌う。優秀な諜報員として、危険で重要な仕事を数々こなしていく。とある任務で「白示録」を手に入れる。",
+        "COUNTRY": "アリステル",
         "HEIGHT": "─cm",
         "WEIGHT": "─kg",
         "BIRTH": "─",
         "ZODIAC": "─",
-        "BLOOD": "Type -",
+        "BLOOD": "─型",
         "FAVORITE": "─",
         "HOBBY": "─",
         "ILLUST": "─",
@@ -9770,7 +9775,7 @@
         "leader skill": "Light: +30% MATK & +20% HP",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/rh-eruka",
-        "job 1": "Princess Of Granorgᴶ",
+        "job 1": "Princess Of Granorg",
         "job 2": "Chronomancer",
         "job 3": "Sniper",
         "jc 1": "",
@@ -9782,13 +9787,13 @@
             "Eruka RH",
             "RH Eruka"
         ],
-        "PROFILE": "Eruca is the princess of Granorg, and the first heir to the throne. She possesses both the grace and nobility of royalty and a kind, caring heart. She cares deeply for her people--she feels a very strong sense of duty towards them, and a responsibility to make her country a better place for them to live. She has an equally rash and reckless side, though, and despite being a princess always wants to fight on the frontlines herself.",
-        "COUNTRY": "Granorg",
+        "PROFILE": "グランオルグの王女であり、第一王位継承者。王族の気高さと民を思う心を兼ね備え、王族としての責任感、民の為に国を変えるという使命感が非常に強い。その分無鉄砲なところもあり、王女でありながら前線に出ようとしたがる。",
+        "COUNTRY": "グランオルグ",
         "HEIGHT": "─cm",
         "WEIGHT": "─kg",
         "BIRTH": "─",
         "ZODIAC": "─",
-        "BLOOD": "Type -",
+        "BLOOD": "─型",
         "FAVORITE": "─",
         "HOBBY": "─",
         "ILLUST": "─",
@@ -9816,7 +9821,7 @@
         "leader skill": "Wind: +40% HP & +10% Max Jewels",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/rh-ato",
-        "job 1": "Shamanᴶ",
+        "job 1": "Shaman",
         "job 2": "Dancer",
         "job 3": "Priestess",
         "jc 1": "",
@@ -9828,13 +9833,13 @@
             "Ato RH",
             "RH Ato"
         ],
-        "PROFILE": "Aht is one the Satyros, a tribe of beast-people, and travels across the land as a member of a performing troupe. Known as a \"Shaman,\" she possesses mysterious powers, and is a central figure among the Satyros, also serving as a holy shrine maiden who watches over all souls.",
-        "COUNTRY": "Celestia",
+        "PROFILE": "獣人の一種族・サテュロス族の少女。芸人一座の一員として各地を旅している。“シャーマン”と呼ばれ不思議な力を宿しており、サテュロス族の中でも中心的な存在であり、あらゆる魂を見守る神聖な巫女としても知られる。",
+        "COUNTRY": "セレスティア",
         "HEIGHT": "─cm",
         "WEIGHT": "─kg",
         "BIRTH": "─",
         "ZODIAC": "─",
-        "BLOOD": "Type -",
+        "BLOOD": "─型",
         "FAVORITE": "─",
         "HOBBY": "─",
         "ILLUST": "─",
@@ -9864,7 +9869,7 @@
         "link": "http://www.alchemistcodedb.com/jp/unit/rh-rainy",
         "job 1": "Magic Swordsman",
         "job 2": "Enchanter",
-        "job 3": "Spyᴶ",
+        "job 3": "Spy",
         "jc 1": "",
         "jc 2": "",
         "jc 3": "",
@@ -9874,13 +9879,13 @@
             "Rainy RH",
             "RH Rainy"
         ],
-        "PROFILE": "Raynie is a spy for Alistel's Special Intelligence program. She often accompanies Stocke on missions to assist him. She's an upfront, frank person with an extremely strong sense of duty and a willingness to do something about it. However, she also has an impulsive and hasty side. She's a skilled spear user, and can also use attack magic.",
-        "COUNTRY": "Alistel",
+        "PROFILE": "アリステル情報部の密偵の一人。ストックの任務に部下として同行することが多い。さばさばした性格で正義感が非常に強く行動力があるが、直情径行型で短絡的な一面も。槍術を得意としており、さらに攻撃系魔法も使いこなす。",
+        "COUNTRY": "アリステル",
         "HEIGHT": "─cm",
         "WEIGHT": "─kg",
         "BIRTH": "─",
         "ZODIAC": "─",
-        "BLOOD": "Type -",
+        "BLOOD": "─型",
         "FAVORITE": "─",
         "HOBBY": "─",
         "ILLUST": "─",
@@ -9913,7 +9918,7 @@
         "job 3": "Dark Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dark Cavalier : Seeleᴶ\n[Drain Skills Bonus]",
+        "jc 3": "Dark Cavalier [Zeele]ᴶ\n[Drain Skills Bonus]",
         "inputs": [
             "Annika"
         ],
@@ -9997,9 +10002,9 @@
         "job 1": "Dragon Cavalier",
         "job 2": "Thief",
         "job 3": "Ninja",
-        "jc 1": "Dragon Cavalier : Rudraᴶ\n[teleportation skills]",
+        "jc 1": "Dragon Cavalier [Rudra]ᴶ\n[teleportation skills]",
         "jc 2": "",
-        "jc 3": "Ninja : Byakkoᴶ\n[evasion-based]",
+        "jc 3": "Ninja [White Tiger]ᴶ\n[evasion-based]",
         "inputs": [
             "Celliers",
             "Celliaz"
@@ -10041,7 +10046,7 @@
         "job 1": "Ranger",
         "job 2": "Thief",
         "job 3": "Sniper",
-        "jc 1": "Ranger : Wolfᴶ\n[bonus damage against monsters]",
+        "jc 1": "Ranger [Lupus]ᴶ\n[bonus damage against monsters]",
         "jc 2": "",
         "jc 3": "Sniper : Scopeᴶ\n[charge up for snipers]",
         "inputs": [
@@ -10067,7 +10072,7 @@
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/pok_eros-closeup.png"
             },
             {
-                "name": "Swim",
+                "name": "Swimsuit Skin",
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/pok_eros_swim.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/pok_eros_swim-closeup.png"
             }
@@ -10092,7 +10097,7 @@
         "job 2": "Professor",
         "job 3": "Priestess",
         "jc 1": "",
-        "jc 2": "Professor : Aidᴶ\n[cures will heal as well]",
+        "jc 2": "Professor [Aid]ᴶ\n[cures will heal as well]",
         "jc 3": "",
         "inputs": [
             "Amaterasu",
@@ -10117,7 +10122,7 @@
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/s_amat-closeup.png"
             },
             {
-                "name": "Swim",
+                "name": "Swimsuit Skin",
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/s_amat_swim.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/s_amat_swim-closeup.png"
             }
@@ -10142,7 +10147,7 @@
         "job 2": "Ninja",
         "job 3": "Machinist",
         "jc 1": "",
-        "jc 2": "Ninja : Suzakuᴶ\n[jump-based]",
+        "jc 2": "Ninja [Vermillion Bird]ᴶ\n[jump-based]",
         "jc 3": "",
         "inputs": [
             "Yuri",
@@ -10167,7 +10172,7 @@
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/s_yuri-closeup.png"
             },
             {
-                "name": "Swim",
+                "name": "Swimsuit Skin",
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/s_yuri_swim.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/s_yuri_swim-closeup.png"
             }
@@ -10175,7 +10180,7 @@
     },
     "UN_V2_PRISCILA": {
         "iname": "UN_V2_PRISCILA",
-        "name": "Priscilaᴶ",
+        "name": "Priscillaᴶ",
         "inofficial": "Priscilla",
         "gender": "♀",
         "element": "Dark",
@@ -10188,14 +10193,13 @@
         "leader skill": "Dark: +30 Pierce ATK & +20% HP",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/priscila",
-        "job 1": "Holy Spearmanᴶ",
+        "job 1": "Sacred Lancer",
         "job 2": "Samurai",
-        "job 3": "Spyᴶ",
+        "job 3": "Spy",
         "jc 1": "",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Priscila",
             "Priscilla"
         ],
         "PROFILE": "Priscilla is a member of the Royal Knighthood who serves as a lance instructor in Envylia. Her skill with a lance is said to be unmatched, but inside she's torn between her hatred of war and the sense of thrill that battle inspires in her. When she's focused she has a habit of losing sight of everything else around her, but her superiors love her for her passion.",
@@ -10219,7 +10223,7 @@
     },
     "UN_V2_FUJICA": {
         "iname": "UN_V2_FUJICA",
-        "name": "Fujicaᴶ",
+        "name": "Fujikaᴶ",
         "inofficial": "Fujika",
         "gender": "♀",
         "element": "Thunder",
@@ -10239,7 +10243,6 @@
         "jc 2": "Roaring Thunder Enchanterᴶ\n[buff that increases thunder damage against water]",
         "jc 3": "",
         "inputs": [
-            "Fujica",
             "Fujika"
         ],
         "PROFILE": "Fujika is the only daughter of a great family of calligraphers from Wadatsumi. Her works, which contain words of blessing, are said to possess the power to grant good fortune--so much so that there are people who wish to extort her talents for their own profit. She hasn't actually yet decided whether calligraphy will be her life's true path, though. At the moment she's very interested in all the cute fashion styles found outside of Wadatsumi.",
@@ -10263,7 +10266,7 @@
     },
     "UN_V2_ZYVA": {
         "iname": "UN_V2_ZYVA",
-        "name": "Zyvaᴶ",
+        "name": "Zuivaᴶ",
         "inofficial": "Zierva",
         "gender": "♀",
         "element": "Light",
@@ -10276,17 +10279,17 @@
         "leader skill": "Light: +30% HP & +20% PATK & +5 Evasion Rate",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/zyva",
-        "job 1": "Twin Blade Masterᴶ",
+        "job 1": "Twin-Blade Master",
         "job 2": "Martial Artist",
         "job 3": "Blademaster",
         "jc 1": "",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Zyva",
+            "Zuiva",
             "Zierva",
-            "Zyva SSM",
-            "SSM Zyva"
+            "Zuiva SSM",
+            "SSM Zuiva"
         ],
         "PROFILE": "Zuiva is a young woman who is known as the Veda Ten's \"Number Seven.\" Her feelings towards Yauras, who once saved her life, are complicated, and she's aware of these feelings herself, too. She loves all things dazzling and gorgeous, and collects beautiful objects--to her despair, though, she has an allergy to roses.",
         "COUNTRY": "Lost Blue",
@@ -10322,7 +10325,7 @@
         "leader skill": "Dark: +30% HP & +20% PATK & +20% PDEF",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/noin",
-        "job 1": "Explosives Masterᴶ",
+        "job 1": "Explosive Master",
         "job 2": "Samurai",
         "job 3": "Warrior",
         "jc 1": "",
@@ -10368,7 +10371,7 @@
         "leader skill": "Fire: +30% HP & +20% MATK & +20% PDEF",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/fury",
-        "job 1": "Spell Masterᴶ",
+        "job 1": "Cursed Cannon Master",
         "job 2": "Professor",
         "job 3": "Shadow Assassin",
         "jc 1": "",
@@ -10401,7 +10404,7 @@
     },
     "UN_V2_FEIRIN": {
         "iname": "UN_V2_FEIRIN",
-        "name": "Feirinᴶ",
+        "name": "Fayreneᴶ",
         "inofficial": "Faylin",
         "gender": "♀",
         "element": "Wind",
@@ -10421,7 +10424,7 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Feirin",
+            "Fayrene",
             "Faylin"
         ],
         "PROFILE": "Fayrene is a famous musician from Greed Dike who plays an instrument called a Pipa. The graceful, ladylike image that she projects to the world is a façade; she's actually extremely lazy, and a heavy drinker. She's highly adept at telling things about people from their tone of voice alone--a skill that she also uses in her side job as an assassin.",
@@ -10458,11 +10461,11 @@
         "leader skill": "Light: +40% HP & -10 Charge Time Ratio",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/tomas",
-        "job 1": "Beast Masterᴶ",
+        "job 1": "Wild Beast Tamer",
         "job 2": "Martial Artist",
         "job 3": "Warrior",
         "jc 1": "",
-        "jc 2": "Holy Brawler : Senjuᴶ\n[multi-hit]",
+        "jc 2": "Holy Brawler [Senju]ᴶ\n[multi-hit]",
         "jc 3": "Warrior : Goliathᴶ\n[light tank]",
         "inputs": [
             "Tomas",
@@ -10489,7 +10492,7 @@
     },
     "UN_V2_TETIS": {
         "iname": "UN_V2_TETIS",
-        "name": "Tetisᴶ",
+        "name": "Tethysᴶ",
         "inofficial": "Thetis",
         "gender": "♀",
         "element": "Water",
@@ -10505,11 +10508,11 @@
         "job 1": "Martial Master",
         "job 2": "Ninja",
         "job 3": "Necromancer",
-        "jc 1": "Martial Master : Human Hitmanᴶ\n[Anti-Human Skills]",
-        "jc 2": "Ninja : Kirinᴶ\n[AGI-based]",
+        "jc 1": "Martial Master [Survivor]ᴶ\n[Anti-Human Skills]",
+        "jc 2": "Ninja [Giraffe]ᴶ\n[AGI-based]",
         "jc 3": "",
         "inputs": [
-            "Tetis",
+            "Tethys",
             "Thetis"
         ],
         "PROFILE": "Tethys is the daughter of a famous family that legend says are descended from merpeople. She is able to communicate with the ocean, and because of this some people say that she is in fact the sea incarnate. She's extremely fussy about hygiene, and dislikes being touched, even by her parents. The one exception to this seems to be a person called Perez, who she can sometimes be seen walking around holding hands with.",
@@ -10546,7 +10549,7 @@
         "leader skill": "Light: +50% PDEF",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/sq-paladin",
-        "job 1": "Paladinᴶ",
+        "job 1": "Paladin",
         "job 2": "Beast Tamer",
         "job 3": "Valkyrie",
         "jc 1": "",
@@ -10591,9 +10594,9 @@
         "leader skill": "Thunder: +40% HP & -10 Cast Time Ratio",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/sq-princess",
-        "job 1": "Princessᴶ",
+        "job 1": "Princess",
         "job 2": "Enchanter",
-        "job 3": "Master of Weatherᴶ",
+        "job 3": "Diviner",
         "jc 1": "",
         "jc 2": "",
         "jc 3": "",
@@ -10636,9 +10639,9 @@
         "leader skill": "Water: +40% HP & +10% Max Jewels",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/sq-shenmei",
-        "job 1": "Dancerᴶ",
+        "job 1": "Dancer",
         "job 2": "Merchant",
-        "job 3": "Gunnerᴶ",
+        "job 3": "Gunner",
         "jc 1": "",
         "jc 2": "",
         "jc 3": "",
@@ -10682,7 +10685,7 @@
         "link": "http://www.alchemistcodedb.com/jp/unit/sq-gunner",
         "job 1": "Hunter",
         "job 2": "Crafter",
-        "job 3": "Gunnerᴶ",
+        "job 3": "Gunner",
         "jc 1": "",
         "jc 2": "",
         "jc 3": "",
@@ -10712,7 +10715,7 @@
     },
     "UN_V2_LUCILLE": {
         "iname": "UN_V2_LUCILLE",
-        "name": "Lucilleᴶ",
+        "name": "Luciaᴶ",
         "inofficial": "Rusha",
         "gender": "♀",
         "element": "Thunder",
@@ -10725,14 +10728,13 @@
         "leader skill": "Thunder: +40% MATK & +10 Water Res",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/lucille",
-        "job 1": "Magia Operatorᴶ",
+        "job 1": "Magic Marksman",
         "job 2": "Beast Tamer",
         "job 3": "Dark Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dark Cavalier : Moveᴶ\n[Faster Dark Cav]",
+        "jc 3": "Dark Cavalier [Espion]ᴶ\n[Faster Dark Cav]",
         "inputs": [
-            "Lucille",
             "Rusha"
         ],
         "PROFILE": "Lucia is a blacksmith from Greed Dike. She possesses a miraculous ability that allows her to picture a finished weapon in her mind and then transform the materials into that weapon. She loves making weapons, but only has a vague understanding of their actual use, and this can have disastrous results for some clients...",
@@ -10756,7 +10758,7 @@
     },
     "UN_V2_EMA": {
         "iname": "UN_V2_EMA",
-        "name": "Emaᴶ",
+        "name": "Emmaᴶ",
         "inofficial": "Emma",
         "gender": "♀",
         "element": "Fire",
@@ -10769,14 +10771,13 @@
         "leader skill": "Fire: +30% HP & +20% Max Jewels",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/ema",
-        "job 1": "Master of Weatherᴶ",
+        "job 1": "Diviner",
         "job 2": "Enchanter",
         "job 3": "Astrologer",
         "jc 1": "",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Ema",
             "Emma"
         ],
         "PROFILE": "Emma is Noah's classmate at the Academy of Magic in Lustburg. In order to escape from a life of poverty and hardship she studied and studied and received a scholarship for the academy. She acts like she's lazy and doesn't like putting in effort so as to keep her dark past a secret.",
@@ -10805,7 +10806,7 @@
     },
     "UN_V2_HISHARMU": {
         "iname": "UN_V2_HISHARMU",
-        "name": "Hisharmuᴶ",
+        "name": "Hishamᴶ",
         "inofficial": "Hishamu",
         "gender": "♂",
         "element": "Light",
@@ -10825,7 +10826,7 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            "Hisharmu",
+            "Hisham",
             "Hishamu"
         ],
         "PROFILE": "Hisham is a man who grew up in a particularly dry and arid desert region. He travels alone, using his ability to find underground water sources to bring water to different desert regions. He has a habit of staying silent--a reflex learned in order to prevent his mouth from drying out--but in fact has great communication skills and lots of things to talk about.",
@@ -10849,7 +10850,7 @@
     },
     "UN_V2_LEYDOW": {
         "iname": "UN_V2_LEYDOW",
-        "name": "Leydowᴶ",
+        "name": "Raydoᴶ",
         "inofficial": "Reidou",
         "gender": "♂",
         "element": "Dark",
@@ -10862,14 +10863,14 @@
         "leader skill": "Dark: +30% HP & +20 Light Res",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/leydow",
-        "job 1": "Magia Operatorᴶ",
+        "job 1": "Magic Marksman",
         "job 2": "Magic Swordsman",
         "job 3": "Sage",
         "jc 1": "",
         "jc 2": "Magic Swordsman : Chimeraᴶ\n[dark skill added]",
         "jc 3": "",
         "inputs": [
-            "Leydow",
+            "Raydo",
             "Reidou"
         ],
         "PROFILE": "Reido is Reida's older brother; the eldest son of a samurai family from Wadatsumi. He's a gentle-mannered young man who lives a quiet life. He possesses a gift for warfare, but his poor health means that he's unable to fight, which has left him with a sense of self-loathing. On nights when he's feeling fit, he turns, showing a horrific, murderous side and using his trusty blade to kill.",
@@ -10906,12 +10907,12 @@
         "leader skill": "Wind: +40% HP & -10 Charge Time Ratio",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/izayoi",
-        "job 1": "Beast Masterᴶ",
+        "job 1": "Wild Beast Tamer",
         "job 2": "Samurai",
         "job 3": "Holy Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Cavalier : Pietaᴶ\n[healing]",
+        "jc 3": "Holy Cavalier [Pieta]ᴶ\n[healing]",
         "inputs": [
             "Izayoi"
         ],
@@ -10936,7 +10937,7 @@
     },
     "UN_V2_DARTAGNAN": {
         "iname": "UN_V2_DARTAGNAN",
-        "name": "Dartagnanᴶ",
+        "name": "D'Artagnanᴶ",
         "inofficial": "D'Artagnan",
         "gender": "♀",
         "element": "Water",
@@ -10949,14 +10950,13 @@
         "leader skill": "Envylia: +30% PATK & +10 Evasion Rate",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/dartagnan",
-        "job 1": "Holy Spearmanᴶ",
+        "job 1": "Sacred Lancer",
         "job 2": "Ninja",
         "job 3": "Valkyrie",
         "jc 1": "",
-        "jc 2": "Ninja : Seiryuᴶ\n[attack-based]",
+        "jc 2": "Ninja [Azure Dragon]ᴶ\n[attack-based]",
         "jc 3": "",
         "inputs": [
-            "Dartagnan",
             "D'Artagnan"
         ],
         "PROFILE": "D'Artagnan is the vice-captain of the Scarlet Flame Guard of Envylia Kingdom. Because of their scarcity, people are unfamiliar with beast-people, and they often shun or avoid them--so D'Artagnan is grateful to the knighthood, who welcomed her with open arms. She's a devout knight, but when not on a mission she will return to her original, carefree personality and spend her time wandering around playfully.",
@@ -10993,25 +10993,25 @@
         "leader skill": "Light: +30% HP & +20 Dark Res",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/won",
-        "job 1": "Spyᴶ",
+        "job 1": "Spy",
         "job 2": "Martial Artist",
         "job 3": "Pirate",
         "jc 1": "",
-        "jc 2": "Holy Brawler : Maitreyaᴶ\n[12% regen &  5% jewel regen buff]",
+        "jc 2": "Holy Brawler [Miroku]ᴶ\n[12% regen &  5% jewel regen buff]",
         "jc 3": "",
         "inputs": [
             "Won",
             "Wong"
         ],
-        "PROFILE": "自由に生きることがモットーのちゃらんぽらんな“なんでも屋”の青年。厳しい鍛錬の末、独自の拳術“虎王拳(コオウケン)”を生み出した。お金に目がなく、拳で片付けられるなら、いくら危険な仕事でも引き受け解決する。",
-        "COUNTRY": "グリードダイク",
+        "PROFILE": "Won is a foolhardy young man; a jack of all trades who believes in living free above all else. Through a long period of arduous training he developed his own combat technique--the Tiger-King Fist. He loves money, and will take on any job, no matter how dangerous, and see it through with his fists alone.",
+        "COUNTRY": "Greed Dike",
         "HEIGHT": "169cm",
         "WEIGHT": "63kg",
-        "BIRTH": "1月11日",
-        "ZODIAC": "光騎士の月",
-        "BLOOD": "Kn型",
-        "FAVORITE": "金",
-        "HOBBY": "酒を飲むこと",
+        "BIRTH": "Jan 11",
+        "ZODIAC": "Moon of the Bright Knight",
+        "BLOOD": "Type Kn",
+        "FAVORITE": "Money",
+        "HOBBY": "Drinking alcohol",
         "ILLUST": "杏虎太郎",
         "CV": "梶原岳人",
         "artworks": [
@@ -11046,15 +11046,15 @@
         "inputs": [
             "Ines"
         ],
-        "PROFILE": "国の祭礼などを司るハイエルフ。神子の能力が非常に高い上流階級の女性だが、ズボラな性格で、壮絶な寝癖を付けて人前に出ることもある。それすらもお茶目に振る舞っていると好意的に捉えられ、お嬢様扱いされるのが悩み。",
-        "COUNTRY": "ノーザンブライド",
+        "PROFILE": "Ines is a High Elf who is in charge of ritual festivals and so forth. She's an extremely powerful divine medium, and part of the High Elf elite, but has something of a messy disposition and can often be seen at important events with terrible bed hair. Even when this happens, though, everyone will laugh it off as charmingly quirky. She doesn't like this at all, as she hates being treated like a spoiled princess.",
+        "COUNTRY": "Northern Pride",
         "HEIGHT": "163cm",
         "WEIGHT": "58kg",
-        "BIRTH": "4月9日",
-        "ZODIAC": "火炎王の月",
-        "BLOOD": "Kn型",
-        "FAVORITE": "新しいこと",
-        "HOBBY": "ゴロ寝",
+        "BIRTH": "Apr 9",
+        "ZODIAC": "Moon of the Flame King",
+        "BLOOD": "Type Kn",
+        "FAVORITE": "New things",
+        "HOBBY": "Dozing",
         "ILLUST": "しぶ彦",
         "CV": "吉岡麻耶",
         "artworks": [
@@ -11080,7 +11080,7 @@
         "leader skill": "Wind: +30% MATK & +20% HP & +10 Thunder Res",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/uzuma",
-        "job 1": "Psionicᴶ",
+        "job 1": "Telekinetic Artist",
         "job 2": "Shrine Maiden",
         "job 3": "Magia Gunslinger",
         "jc 1": "",
@@ -11089,15 +11089,15 @@
         "inputs": [
             "Uzuma"
         ],
-        "PROFILE": "砂漠地帯出身の高名な占い師。鈍くさく身体能力も非常に低いが、他人の運命を見る予知能力を持っている。自分の力を理解するまでは、予知したことをなんでも口に出してしまっており、人の死ですら言い当てて恐れられていた。",
-        "COUNTRY": "砂漠地帯",
+        "PROFILE": "Uzuma is a renowned fortune-teller from a desert region. She's physically weak, and very clumsy, but possesses the ability to see into people's futures. Before she understood her powers properly, she would voice all her premonitions immediately--including people's forthcoming deaths--and as a result she was feared by those around her.",
+        "COUNTRY": "Desert Zone",
         "HEIGHT": "168cm",
         "WEIGHT": "48kg",
-        "BIRTH": "8月9日",
-        "ZODIAC": "風迅艇の月",
-        "BLOOD": "Pa型",
-        "FAVORITE": "花の綿毛",
-        "HOBBY": "入浴（長湯）",
+        "BIRTH": "Aug 9",
+        "ZODIAC": "Moon of the Rapid Wind",
+        "BLOOD": "Type Pa",
+        "FAVORITE": "Fluffy flower heads",
+        "HOBBY": "Long baths",
         "ILLUST": "keypot",
         "CV": "原田彩楓",
         "artworks": [
@@ -11123,24 +11123,24 @@
         "leader skill": "Thunder: +30% HP & +20% PDEF & +20% MDEF",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/blitz",
-        "job 1": "Psionicᴶ",
-        "job 2": "Spyᴶ",
+        "job 1": "Telekinetic Artist",
+        "job 2": "Spy",
         "job 3": "Dark Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dark Cavalier : Seeleᴶ\n[Drain Skills Bonus]",
+        "jc 3": "Dark Cavalier [Zeele]ᴶ\n[Drain Skills Bonus]",
         "inputs": [
             "Blitz"
         ],
-        "PROFILE": "世界を旅しながら人を笑顔にする風来坊。お人好しな性格で、困っている人を見ると助けずにはいられない。電気を吸い寄せる特殊なアルケミィを使って、敵を感電させたり、自身の筋肉を活性化させて体術を強化したりできる",
-        "COUNTRY": "エンヴィリア",
+        "PROFILE": "Blitz is a wanderer who travels the world putting smiles on people's faces. He's extremely kind-hearted, and can never pass by someone in need without offering a helping hand. He uses special Alchemia to attract and accumulate electrical energy, which he then discharges to electrocute his opponents or uses to stimulate his own muscles, boosting his physical attack power.",
+        "COUNTRY": "Envylia",
         "HEIGHT": "182cm",
         "WEIGHT": "70kg",
-        "BIRTH": "5月12日",
-        "ZODIAC": "雷鳴帝の月",
-        "BLOOD": "Kn型",
-        "FAVORITE": "笑顔",
-        "HOBBY": "人を笑顔にすること",
+        "BIRTH": "May 12",
+        "ZODIAC": "Moon of the Thunderous Emperor",
+        "BLOOD": "Type Kn",
+        "FAVORITE": "Smiles",
+        "HOBBY": "Making people smile",
         "ILLUST": "―",
         "CV": "赤羽根健治",
         "artworks": [
@@ -11167,7 +11167,7 @@
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/birgitta",
         "job 1": "Summoner",
-        "job 2": "Beast Masterᴶ",
+        "job 2": "Wild Beast Tamer",
         "job 3": "Battle Mage",
         "jc 1": "Summoner of Hellheimᴶ\n[increased damage against light]",
         "jc 2": "",
@@ -11175,15 +11175,15 @@
         "inputs": [
             "Birgitta"
         ],
-        "PROFILE": "見た目に反してしっかりと歳を重ねている流しの祈祷師。世話好きな性格で、子供や動物たちについつい食べ物をあげてしまう。体が成長しないのは、動物と対話する能力が高いことと関係があると言われているが、定かではない。",
-        "COUNTRY": "サガ地方",
+        "PROFILE": "Birgitta is a wandering witch who, despite her childlike appearance, is actually pretty long in the tooth. She's an inherently friendly and generous person, and can never resist giving little treats to any children or animals that she comes across. The fact that she doesn't age physically is said to be somehow related to her ability to communicate with animals, but whether this is true or not is uncertain.",
+        "COUNTRY": "Saga Region",
         "HEIGHT": "140cm",
         "WEIGHT": "30kg",
-        "BIRTH": "12月19日",
-        "ZODIAC": "闇夢楼の月",
-        "BLOOD": "Pa型",
-        "FAVORITE": "バター茶",
-        "HOBBY": "刺繍・手織物",
+        "BIRTH": "Dec 19",
+        "ZODIAC": "Moon of the Nightmare Cherry Blossom",
+        "BLOOD": "Type Pa",
+        "FAVORITE": "Butter tea",
+        "HOBBY": "Embroidery and weaving",
         "ILLUST": "渡り棒",
         "CV": "下地紫野",
         "artworks": [
@@ -11209,7 +11209,7 @@
         "leader skill": "Wind: +30% HP & +20 Debuff Res",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/fa-edward",
-        "job 1": "Fullmetal Alchemistᴶ",
+        "job 1": "Fullmetal Alchemist",
         "job 2": "Martial Artist",
         "job 3": "Blademaster",
         "jc 1": "",
@@ -11255,7 +11255,7 @@
         "leader skill": "Dark: +50% MDEF",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/fa-pride",
-        "job 1": "Homunculus of Prideᴶ",
+        "job 1": "Homunculus of Pride",
         "job 2": "Magic Swordsman",
         "job 3": "Machinist",
         "jc 1": "",
@@ -11300,7 +11300,7 @@
         "leader skill": "Light: +50% HP",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/fa-alphonse",
-        "job 1": "Armored Alchemist        ᴶ",
+        "job 1": "Armored Alchemist        ",
         "job 2": "Thief",
         "job 3": "Holy Knight",
         "jc 1": "",
@@ -11346,9 +11346,9 @@
         "leader skill": "Fire: +30% MATK & -10 Cast Time Ratio",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/fa-mustang",
-        "job 1": "Flame Alchemistᴶ",
+        "job 1": "Flame Alchemist",
         "job 2": "Ninja",
-        "job 3": "Psionicᴶ",
+        "job 3": "Telekinetic Artist",
         "jc 1": "",
         "jc 2": "",
         "jc 3": "",
@@ -11392,7 +11392,7 @@
         "leader skill": "Water: +30% PATK & +20 Missile ATK",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/fa-hawkeye",
-        "job 1": "Firearms Lieutenantᴶ",
+        "job 1": "Firearms Lieutenant",
         "job 2": "Gunner",
         "job 3": "Sniper",
         "jc 1": "",
@@ -11438,7 +11438,7 @@
         "leader skill": "Thunder: +30 Slash ATK & +10 Slash Evasion Rate",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/fa-wrath",
-        "job 1": "Homunculus of Wrathᴶ",
+        "job 1": "Homunculus of Wrath",
         "job 2": "Twin-Blade Swordsman",
         "job 3": "Dark Cavalier",
         "jc 1": "",
@@ -11486,7 +11486,7 @@
         "link": "http://www.alchemistcodedb.com/jp/unit/fa-envy",
         "job 1": "Dark Knight",
         "job 2": "Martial Artist",
-        "job 3": "Homunculus of Envyᴶ",
+        "job 3": "Homunculus of Envy",
         "jc 1": "",
         "jc 2": "",
         "jc 3": "",
@@ -11529,27 +11529,27 @@
         "leader skill": "Light: +30% HP & +20 Slash ATK & +20% MDEF",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/toritoh",
-        "job 1": "Templarᴶ",
+        "job 1": "Sacred Knight",
         "job 2": "Bishop",
         "job 3": "Martial Master",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Martial Master : Human Hitmanᴶ\n[Anti-Human Skills]",
+        "jc 3": "Martial Master [Survivor]ᴶ\n[Anti-Human Skills]",
         "inputs": [
             "Toritoh",
             "Tlitor",
             "Toritoh FA",
             "FA Toritoh"
         ],
-        "PROFILE": "バベル聖教会で“将軍”と呼ばれる存在。教会内部で隔離されて育てられた為、教会以外の物事に疎く、特に感情を表に出すのが不得手。だが、守りたいものや大切だと感じられたことには、迷わず命を懸けるほどの実直さを持つ。",
-        "COUNTRY": "ノーザンブライド",
+        "PROFILE": "Toritoh is known among the Holy Order of Babel as \"the General.\" She was raised entirely inside the church, and as a result has little understanding of outside affairs and is bad at expressing her emotions. When she feels that something is important to her or that she wants to protect it, however, she will put her life on the line in an instant.",
+        "COUNTRY": "Northern Pride",
         "HEIGHT": "166cm",
         "WEIGHT": "47kg",
-        "BIRTH": "7月31日",
-        "ZODIAC": "光揺籠の月",
-        "BLOOD": "Pa型",
-        "FAVORITE": "楽しい演奏",
-        "HOBBY": "探し中",
+        "BIRTH": "Jul 31",
+        "ZODIAC": "Moon of the Shimmering Dragon",
+        "BLOOD": "Type Pa",
+        "FAVORITE": "Pleasant music",
+        "HOBBY": "Still looking...",
         "ILLUST": "RINZO",
         "CV": "三上枝織",
         "artworks": [
@@ -11580,19 +11580,19 @@
         "job 3": "Dark Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dark Cavalier : Moveᴶ\n[Faster Dark Cav]",
+        "jc 3": "Dark Cavalier [Espion]ᴶ\n[Faster Dark Cav]",
         "inputs": [
             "Cordelia"
         ],
-        "PROFILE": "ルストブルグに住む、吸血鬼と噂される気弱で病弱な女性。噂を信じる者の襲撃のせいで戦闘技術は磨かれたが、心ない噂や好奇の視線のせいでビクビクしている。しかし体調が良い夜には、少し強気になり散歩を楽しむことも。",
-        "COUNTRY": "ルストブルグ",
+        "PROFILE": "Cordelia is a timid and feeble woman who lives in Lustburg and is rumored to be a vampire. She has honed her combat skills in order to fend off attacks from those who believe the rumors about her, but is still unable to deal with the curious stares and nasty gossip. When she feels well enough to do so she enjoys going on midnight walks.",
+        "COUNTRY": "Lustburg",
         "HEIGHT": "165cm",
         "WEIGHT": "50kg",
-        "BIRTH": "8月5日",
-        "ZODIAC": "風迅艇の月",
-        "BLOOD": "Ki型",
-        "FAVORITE": "トマトジュース",
-        "HOBBY": "夜の散歩",
+        "BIRTH": "Aug 5",
+        "ZODIAC": "Moon of the Rapid Wind",
+        "BLOOD": "Type Ki",
+        "FAVORITE": "Tomato juice",
+        "HOBBY": "Nighttime walks",
         "ILLUST": "―",
         "CV": "川岸上子",
         "artworks": [
@@ -11618,24 +11618,24 @@
         "leader skill": "Water: +40% HP & +5 Evasion Rate",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/itsuki",
-        "job 1": "Spyᴶ",
+        "job 1": "Spy",
         "job 2": "Martial Artist",
         "job 3": "Dark Cavalier",
         "jc 1": "",
-        "jc 2": "Holy Brawler : Fudoᴶ\n[more damage at lower health]",
-        "jc 3": "Dark Cavalier : Jaegerᴶ\n[Sacrifice Skills Bonus]",
+        "jc 2": "Holy Brawler [Fudo]ᴶ\n[more damage at lower health]",
+        "jc 3": "Dark Cavalier [Jaeger]ᴶ\n[Sacrifice Skills Bonus]",
         "inputs": [
             "Itsuki"
         ],
-        "PROFILE": "ワダツミで“鬼”と呼ばれていた少女。人間に迫害されていた過去があり、人目を避けるように裏の社会に足を踏み入れた。人の世で生きる術として「陽気で愛想の良い“フリ”をしている」と本人は言い張るが、地の性格である。",
-        "COUNTRY": "ワダツミ",
+        "PROFILE": "Itsuki is a young girl who was known in Wadatsumi as a \"demon.\" In the past she was persecuted by humans, and it was to keep herself hidden that she first set foot in the underworld. She claims that her cheerful, amiable personality is all an act; a persona that she assumes in order to get by in the human world--it actually is in fact her natural disposition, though.",
+        "COUNTRY": "Wadatsumi",
         "HEIGHT": "154cm",
         "WEIGHT": "46kg",
-        "BIRTH": "9月4日",
-        "ZODIAC": "水氷狼の月",
-        "BLOOD": "Qe型",
-        "FAVORITE": "激辛料理",
-        "HOBBY": "街歩き・鬼ごっこ",
+        "BIRTH": "Sep 4",
+        "ZODIAC": "Moon of the Ice Water Wolf",
+        "BLOOD": "Type Qe",
+        "FAVORITE": "Super-spicy food",
+        "HOBBY": "Walking around town, playing tag",
         "ILLUST": "みかんあめ",
         "CV": "古川かおり",
         "artworks": [
@@ -11648,7 +11648,7 @@
     },
     "UN_V2_TSANGLEI": {
         "iname": "UN_V2_TSANGLEI",
-        "name": "Tsangleiᴶ",
+        "name": "Tsang Leiᴶ",
         "inofficial": "Tsang Lei",
         "gender": "♂",
         "element": "Thunder",
@@ -11668,18 +11668,17 @@
         "jc 2": "Zero Enchanterᴶ\n[buff dispeller]",
         "jc 3": "",
         "inputs": [
-            "Tsanglei",
             "Tsang Lei"
         ],
-        "PROFILE": "グリードダイク出身の破戒僧。幼い頃から力こそ正義を信念に修行に明け暮れており、強い相手と闘いたいという一心で召喚術をも習得した異端者。戦闘になると周囲の状況お構いなしに暴れる為、敵味方関係なく恐れられている。",
-        "COUNTRY": "グリードダイク",
+        "PROFILE": "Tsang Lei is a heretic monk from Greed Dike. Ever since a young age he immersed himself in training, firmly believing that \"power alone is justice.\" In his constant quest to do battle with powerful opponents, he also studied forbidden summoning arts. In combat he rampages violently with no regard for his surroundings, and as a result is feared by foes and allies alike.",
+        "COUNTRY": "Greed Dike",
         "HEIGHT": "190cm",
         "WEIGHT": "82kg",
-        "BIRTH": "11月5日",
-        "ZODIAC": "雷獅獣の月",
-        "BLOOD": "Pa型",
-        "FAVORITE": "強さ",
-        "HOBBY": "瞑想",
+        "BIRTH": "Nov 5",
+        "ZODIAC": "Moon of the Thunder Beast",
+        "BLOOD": "Type Pa",
+        "FAVORITE": "Power",
+        "HOBBY": "Meditation",
         "ILLUST": "だーくろ",
         "CV": "鶴岡聡",
         "artworks": [
@@ -11705,26 +11704,26 @@
         "leader skill": "Water: +40% PATK & +10 CRIT Rate",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/pok-longinus",
-        "job 1": "Holy Spearmanᴶ",
+        "job 1": "Sacred Lancer",
         "job 2": "Dark Knight",
         "job 3": "Dragon Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dragon Cavalier : Rudraᴶ\n[teleportation skills]",
+        "jc 3": "Dragon Cavalier [Rudra]ᴶ\n[teleportation skills]",
         "inputs": [
             "Longinus",
             "Longinus POTK",
             "POTK Longinus"
         ],
-        "PROFILE": "異世界のラグナ大陸から導かれたラグナロク教会の“キラープリンセス”。名前と同じ武器のキラーズを持つ。人見知りで内気な性格だが、信心深く、たとえ敵であっても命を落とした者に祈りを欠かさない優しい心の持ち主。",
-        "COUNTRY": "ラグナ大陸",
+        "PROFILE": "Longinus is a \"Killer Princess\" from the Church of Ragnarok who was guided to this world from the continent of Ragna. She shares her Killium with the weapon of the same name. She's shy and introverted, but devoutly religious and kindhearted, and will always say a prayer for any fallen foes.",
+        "COUNTRY": "Ragna",
         "HEIGHT": "148cm",
         "WEIGHT": "40kg",
-        "BIRTH": "4月13日",
-        "ZODIAC": "おひつじ座",
-        "BLOOD": "AB型",
-        "FAVORITE": "トマトジュース",
-        "HOBBY": "人の為になること",
+        "BIRTH": "Apr 13",
+        "ZODIAC": "Aries",
+        "BLOOD": "Type AB",
+        "FAVORITE": "Tomato juice",
+        "HOBBY": "Helping others",
         "ILLUST": "渡り棒",
         "CV": "花澤香菜",
         "artworks": [
@@ -11753,7 +11752,7 @@
         "job 1": "Ranger",
         "job 2": "Dancer",
         "job 3": "Machinist",
-        "jc 1": "Ranger : Hawkᴶ\n[dodging and enemy accuracy down]",
+        "jc 1": "Ranger [Falcon]ᴶ\n[dodging and enemy accuracy down]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -11761,15 +11760,15 @@
             "Artemis POTK",
             "POTK Artemis"
         ],
-        "PROFILE": "異世界のラグナ大陸から導かれたラグナロク教会の“キラープリンセス”。名前と同じ武器のキラーズを持つ。物静かでクールな性格で、冷静に物事を分析・判断できる。常にキリッとした姿を崩さないが、唯一、朝には極端に弱い。",
-        "COUNTRY": "ラグナ大陸",
+        "PROFILE": "Artemis is a \"Killer Princess\" from the Church of Ragnarok who was guided to this world from the continent of Ragna. She shares her Killium with the weapon of the same name. She's always cool and collected, and is able to calmly analyze situations in order to find solutions. She maintains a very smart appearance, but isn't a morning person at all.",
+        "COUNTRY": "Ragna",
         "HEIGHT": "168cm",
         "WEIGHT": "54kg",
-        "BIRTH": "7月4日",
-        "ZODIAC": "かに座",
-        "BLOOD": "A型",
-        "FAVORITE": "月夜",
-        "HOBBY": "くまグッズ集め",
+        "BIRTH": "Jul 4",
+        "ZODIAC": "Cancer",
+        "BLOOD": "Type A",
+        "FAVORITE": "Moonlit nights",
+        "HOBBY": "Collecting bear-related things",
         "ILLUST": "RINZO",
         "CV": "佐藤利奈",
         "artworks": [
@@ -11807,15 +11806,15 @@
             "Zenn SSM",
             "SSM Zenn"
         ],
-        "PROFILE": "『ヴェーダ十戒衆』の“10番”を冠する男性。“真理”に至れば、失った妻と娘を取り戻せるはずと半ば祈るように刀を振るい続けている。その狂気にも似た信念で、誰の依頼も受けないとされる“伝説の鍛冶師”の心をも動かした。",
-        "COUNTRY": "ロストブルー",
+        "PROFILE": "Zehn is a man who is known as the Veda Ten's \"Number Ten.\" He continues to fight out of the half-belief, half-hope that he will be able to get back his wife and daughter if he discovers \"the truth.\" This almost delusion-like conviction is what won him the help of the \"legendary blacksmith\" who was said to take orders from no one.",
+        "COUNTRY": "Lost Blue",
         "HEIGHT": "183cm",
         "WEIGHT": "78kg",
-        "BIRTH": "9月3日",
-        "ZODIAC": "水氷狼の月",
-        "BLOOD": "Kn型",
-        "FAVORITE": "妻と娘",
-        "HOBBY": "瞑想",
+        "BIRTH": "Sep 3",
+        "ZODIAC": "Moon of the Ice Water Wolf",
+        "BLOOD": "Type Kn",
+        "FAVORITE": "His wife and daughter",
+        "HOBBY": "Meditation",
         "ILLUST": "RINZO",
         "CV": "竹内良太",
         "artworks": [
@@ -11846,19 +11845,19 @@
         "job 3": "Ranger",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Ranger : Snakeᴶ\n[jewel damage]",
+        "jc 3": "Ranger [Serpent]ᴶ\n[jewel damage]",
         "inputs": [
             "Belta"
         ],
-        "PROFILE": "エンヴィリアの女性砲撃手。元気で可愛らしい為、隊ではマスコット扱いだが、計算能力と判断に優れ、驚異の命中率を叩き出す才を持つ。音楽が好きで音楽隊とも仲が良い。空砲を用いた演奏の際には奏者として参加することも。",
-        "COUNTRY": "エンヴィリア",
+        "PROFILE": "Berta is a female gunner from Envylia. Her cute and cheerful character has earned her a team mascot-like position among her squadron, but she in fact possesses both exceptional decision-making ability and incredible aim and accuracy. She loves music, and is also close with Envylia's national band. Sometimes she'll even perform together with them, using an unloaded cannon as her instrument.",
+        "COUNTRY": "Envylia",
         "HEIGHT": "149cm",
         "WEIGHT": "42kg",
-        "BIRTH": "6月3日",
-        "ZODIAC": "闇魔竜の月",
-        "BLOOD": "Qe型",
-        "FAVORITE": "大砲",
-        "HOBBY": "音楽・気象観測",
+        "BIRTH": "Jun 3",
+        "ZODIAC": "Moon of the Dark Magic Dragon",
+        "BLOOD": "Type Qe",
+        "FAVORITE": "Cannons",
+        "HOBBY": "Music, weather observation",
         "ILLUST": "みかんあめ",
         "CV": "結名美月",
         "artworks": [
@@ -11896,16 +11895,16 @@
             "Black Killer Tyrhung POTK",
             "POTK Black Killer Tyrhung"
         ],
-        "PROFILE": "異世界のラグナ大陸から導かれた“強欲”の大罪を背負うブラックキラーズ。性格は真面目で、どこか達観している。常に威圧感で周りを萎縮させる存在。そんな彼女が笑顔になるのは、自分の力を思う存分振る舞える戦場でのみ。",
-        "COUNTRY": "ラグナ大陸",
+        "PROFILE": "One of the \"Dark Killers\" guided to this world from the continent of Ragna. Each of the Dark Killers represent one of the seven deadly sins, and Tyrfing represents greed. A serious girl, and somewhat detached, she has an intimidating air about her, and tends to make people nervous. The only time there's a smile on her face is when she's able to freely unleash her full power on the battlefield...",
+        "COUNTRY": "Ragna",
         "HEIGHT": "160cm",
         "WEIGHT": "45kg",
-        "BIRTH": "3月1日",
-        "ZODIAC": "うお座",
-        "BLOOD": "A型",
-        "FAVORITE": "願い事",
-        "HOBBY": "─",
-        "ILLUST": "gg2 Art Team",
+        "BIRTH": "Mar 1",
+        "ZODIAC": "Pisces",
+        "BLOOD": "Type A",
+        "FAVORITE": "Making wishes",
+        "HOBBY": "Dressing up Dulyn",
+        "ILLUST": "―",
         "CV": "雨宮天",
         "artworks": [
             {
@@ -11930,24 +11929,24 @@
         "leader skill": "Thunder: +30% HP & +40% PATK",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/lotia",
-        "job 1": "Beast Masterᴶ",
+        "job 1": "Wild Beast Tamer",
         "job 2": "Twin-Blade Swordsman",
         "job 3": "Holy Brawler",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Brawler : Shuraᴶ\n[5x PATK buff]",
+        "jc 3": "Holy Brawler [Shura]ᴶ\n[5x PATK buff]",
         "inputs": [
             "Lotia"
         ],
-        "PROFILE": "闘技場の猛獣調教師である女性。調教中は厳しい面を見せるが普段はおっとりとした性格のまま猛獣を可愛がる。その為、彼らが傷つくと怒りを露にすることも。また無類の甘い物好きで、ケーキ屋巡りを趣味としている。",
-        "COUNTRY": "グラトニー＝フォス",
+        "PROFILE": "Lotiyah is a female beast trainer whose animals fight in the arena. During training she's strict and stern, but the rest of the time she's very gentle and cares deeply for her animals. As a result, when one of them is injured she can quickly become overcome with rage. She's also a huge lover of sweet things, and her favorite pastime is going around different cake shops.",
+        "COUNTRY": "Gluttony Foss",
         "HEIGHT": "159cm",
         "WEIGHT": "56kg",
-        "BIRTH": "5月14日",
-        "ZODIAC": "雷鳴帝の月",
-        "BLOOD": "Ki型",
-        "FAVORITE": "獣と甘いもの",
-        "HOBBY": "ケーキ屋巡り",
+        "BIRTH": "May 14",
+        "ZODIAC": "Moon of the Thunderous Emperor",
+        "BLOOD": "Type Ki",
+        "FAVORITE": "Wild animals, sweet things",
+        "HOBBY": "Looking in cake shops",
         "ILLUST": "大盛よしを",
         "CV": "牧野由依",
         "artworks": [
@@ -11975,22 +11974,22 @@
         "link": "http://www.alchemistcodedb.com/jp/unit/kevin",
         "job 1": "Battle Mage",
         "job 2": "Ninja",
-        "job 3": "Psionicᴶ",
+        "job 3": "Telekinetic Artist",
         "jc 1": "",
-        "jc 2": "Ninja  : Genbuᴶ\n[move-based]",
+        "jc 2": "Ninja [Black Tortoise]ᴶ\n[move-based]",
         "jc 3": "",
         "inputs": [
             "Kevin"
         ],
-        "PROFILE": "母を笑顔に出来なかった後悔を胸に、女性を笑顔にすることにすべてを捧げる念動師。己の力の意味に悩んでいたが、ある宝石商の叱咤で自分の原点を思い出した。強力な念動力を持つが、戦闘より女性の笑顔の為に使うことを好む。",
-        "COUNTRY": "ラーストリス",
+        "PROFILE": "Kevin is a telekinetic who considers making girls and women smile to be more important than anything else. This stems from his inability to put a smile on his mother's face. He once agonized over what purpose his powers served, but a certain gem dealer motivated him to remember his true calling once more. He possesses powerful telekinetic abilities, but rather than using them in combat he far prefers using them to bring a smile to a lady's face.",
+        "COUNTRY": "Wratharis",
         "HEIGHT": "178cm",
         "WEIGHT": "64kg",
-        "BIRTH": "9月27日",
-        "ZODIAC": "水氷狼の月",
-        "BLOOD": "Pa型",
-        "FAVORITE": "女の子の笑顔",
-        "HOBBY": "ナンパ",
+        "BIRTH": "Sep 27",
+        "ZODIAC": "Moon of the Ice Water Wolf",
+        "BLOOD": "Type Pa",
+        "FAVORITE": "Girls' smiles",
+        "HOBBY": "Approaching girls",
         "ILLUST": "やもり",
         "CV": "森久保祥太郎",
         "artworks": [
@@ -12016,7 +12015,7 @@
         "leader skill": "Light: +50% MATK & +20% HP",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/aisha",
-        "job 1": "Magia Operatorᴶ",
+        "job 1": "Magic Marksman",
         "job 2": "Sage",
         "job 3": "Shadow Assassin",
         "jc 1": "",
@@ -12025,15 +12024,15 @@
         "inputs": [
             "Aisha"
         ],
-        "PROFILE": "スロウスシュタインにあるカジノのディーラーで、その実態はシャノワールの仕事を補佐する裏稼業に身を置く女性。ダイスやカードが好きで、裏のある華やかな世界にぴったりな印象だが、実は言動もきちんとしている真面目な子。",
-        "COUNTRY": "スロウスシュタイン",
+        "PROFILE": "Aisha is a dealer from a casino in Slothstein--however, this is in fact a cover for her work as the Chat Noir's assistant. She loves dice and cards, and would seem perfectly suited to the glamorous casino life, but is in fact a polite, serious, and dutiful young lady.",
+        "COUNTRY": "Slothstein",
         "HEIGHT": "158cm",
         "WEIGHT": "50kg",
-        "BIRTH": "7月13日",
-        "ZODIAC": "光揺籠の月",
-        "BLOOD": "Pa型",
-        "FAVORITE": "ダイス",
-        "HOBBY": "カード占い",
+        "BIRTH": "Jul 13",
+        "ZODIAC": "Moon of the Shimmering Dragon",
+        "BLOOD": "Type Pa",
+        "FAVORITE": "Dice",
+        "HOBBY": "Card reading",
         "ILLUST": "yuui",
         "CV": "一杉佳澄",
         "artworks": [
@@ -12059,26 +12058,26 @@
         "leader skill": "+20% HP & +20% MDEF & +10 Magic Res",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/guildford",
-        "job 1": "Templarᴶ",
+        "job 1": "Sacred Knight",
         "job 2": "Battle Mage",
         "job 3": "Dark Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dark Cavalier : Seeleᴶ\n[Drain Skills Bonus]",
+        "jc 3": "Dark Cavalier [Zeele]ᴶ\n[Drain Skills Bonus]",
         "inputs": [
             "Guildford",
             "Gilford"
         ],
-        "PROFILE": "バベル聖教会付きの異端審問官。“マグナ・コード”に違反すれば友人であっても告発し、裁きを下す。厳しい尋問や強引な家宅捜索等の強硬な捜査方針で有名。人を判断する際、まずは相手の“靴”を観察するのが彼のセオリー。",
-        "COUNTRY": "ノーザンブライド",
+        "PROFILE": "",
+        "COUNTRY": "Northern Pride",
         "HEIGHT": "183cm",
         "WEIGHT": "85kg",
-        "BIRTH": "4月24日",
-        "ZODIAC": "火炎王の月",
-        "BLOOD": "Ki型",
-        "FAVORITE": "秩序・平和",
-        "HOBBY": "靴磨き",
-        "ILLUST": "gg2 Art Team",
+        "BIRTH": "Apr 24",
+        "ZODIAC": "Moon of the Flame King",
+        "BLOOD": "Type Ki",
+        "FAVORITE": "",
+        "HOBBY": "",
+        "ILLUST": "―",
         "CV": "三上哲",
         "artworks": [
             {
@@ -12104,24 +12103,24 @@
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/teresa",
         "job 1": "Berserkerᴶ",
-        "job 2": "Beast Masterᴶ",
+        "job 2": "Wild Beast Tamer",
         "job 3": "Holy Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Cavalier : Magiᴶ\n[magic resistance]",
+        "jc 3": "Holy Cavalier [Magi]ᴶ\n[magic resistance]",
         "inputs": [
             "Teresa"
         ],
-        "PROFILE": "ラーストリスの騎士でありながら“戦い”を激しく憎むラミアの師匠。戦場においてあらゆるものを破壊し尽くす様から“朽為（くちなし）”と呼ばれる。だが戦いを離れれば、穏やかに花を愛でたり人をからかったりする一面も。",
-        "COUNTRY": "ラーストリス",
+        "PROFILE": "",
+        "COUNTRY": "Wratharis",
         "HEIGHT": "164cm",
         "WEIGHT": "51kg",
-        "BIRTH": "12月8日",
-        "ZODIAC": "闇夢楼の月",
-        "BLOOD": "Pa型",
-        "FAVORITE": "平穏・ポピーの花",
-        "HOBBY": "静かに花を愛でること",
-        "ILLUST": "だーくろ\t\t",
+        "BIRTH": "Dec 8",
+        "ZODIAC": "Moon of the Nightmare Cherry Blossom",
+        "BLOOD": "Type Pa",
+        "FAVORITE": "",
+        "HOBBY": "",
+        "ILLUST": "だーくろ",
         "CV": "椎名へきる",
         "artworks": [
             {
@@ -12149,23 +12148,23 @@
         "job 1": "Martial Master",
         "job 2": "Martial Artist",
         "job 3": "Machinist",
-        "jc 1": "Martial Master : Demon Destroyerᴶ\n[Anti-Demon Skills]",
+        "jc 1": "Martial Master [Beast]ᴶ\n[Anti-Demon Skills]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
             "Shirma",
             "Silma"
         ],
-        "PROFILE": "潜在能力の高さを見込まれ、ラーストリス騎士団の寄宿学校に在籍していたスピカの妹。明るすぎる性格だが、もとは両親を失った悲しみを隠す強がりから作られたもの。スピカは大好きな姉であり、唯一の甘えられる相手でもある。",
-        "COUNTRY": "ラーストリス",
+        "PROFILE": "",
+        "COUNTRY": "Wratharis",
         "HEIGHT": "153cm",
         "WEIGHT": "42kg",
-        "BIRTH": "8月7日",
-        "ZODIAC": "風迅艇の月",
-        "BLOOD": "Qe型",
-        "FAVORITE": "お姉ちゃん",
-        "HOBBY": "高いところに上ること",
-        "ILLUST": "RINZO\t",
+        "BIRTH": "Aug 7",
+        "ZODIAC": "Moon of the Rapid Wind",
+        "BLOOD": "Type Qe",
+        "FAVORITE": "",
+        "HOBBY": "",
+        "ILLUST": "RINZO",
         "CV": "天海玖美",
         "artworks": [
             {
@@ -12190,26 +12189,26 @@
         "leader skill": "Fire: +50% HP & +20 JUMP ATK",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/kurt",
-        "job 1": "Spyᴶ",
+        "job 1": "Spy",
         "job 2": "Shadow Assassin",
         "job 3": "Dragon Cavalier",
         "jc 1": "",
         "jc 2": "Shadow Assassin : Nightᴶ\n[buff dispeller]",
-        "jc 3": "Dragon Cavalier : Vritraᴶ\n[long rang but low dmg]",
+        "jc 3": "Dragon Cavalier [Vritra]ᴶ\n[long rang but low dmg]",
         "inputs": [
             "Kurt",
             "Kureto"
         ],
-        "PROFILE": "正義感に熱いワダツミの剣士。レイメイが受け継いだ“柴閃光”の兄弟流派にあたり活人剣を標榜する“双閃光”の継承者。殺生を好まぬ為、レイメイの生業には否定的だが、その剣筋に正道を見たことで認める気持ちも持っている。",
-        "COUNTRY": "ワダツミ",
+        "PROFILE": "",
+        "COUNTRY": "Wadatsumi",
         "HEIGHT": "184cm",
         "WEIGHT": "77kg",
-        "BIRTH": "4月15日",
-        "ZODIAC": "火炎王の月",
-        "BLOOD": "Kn型",
-        "FAVORITE": "おにぎり",
-        "HOBBY": "剣を教えること",
-        "ILLUST": "しぶ彦\t",
+        "BIRTH": "Apr 15",
+        "ZODIAC": "Moon of the Flame King",
+        "BLOOD": "Type Kn",
+        "FAVORITE": "",
+        "HOBBY": "",
+        "ILLUST": "しぶ彦",
         "CV": "相合谷由馬",
         "artworks": [
             {
@@ -12380,14 +12379,14 @@
             "Black Killer Laevateinn POTK",
             "POTK Black Killer Laevateinn"
         ],
-        "PROFILE": "異世界のラグナ大陸から導かれた“怠惰”の大罪を背負うブラックキラーズ。性格は真面目で、どこか達観している。常に気だるげにしているが戦闘時は別。「めんどうだからとりあえず滅ぼす」という考えのもと、積極性を見せる。",
-        "COUNTRY": "ラグナ大陸",
+        "PROFILE": "",
+        "COUNTRY": "Ragna",
         "HEIGHT": "164cm",
         "WEIGHT": "45kg",
-        "BIRTH": "9月9日",
-        "ZODIAC": "おとめ座",
-        "BLOOD": "B型",
-        "FAVORITE": "難題に踊らされる人の観察",
+        "BIRTH": "Sep 9",
+        "ZODIAC": "Virgo",
+        "BLOOD": "Type B",
+        "FAVORITE": "─",
         "HOBBY": "─",
         "ILLUST": "だーくろ",
         "CV": "ゆかな",
@@ -12425,15 +12424,15 @@
             "Parashu POTK",
             "POTK Parashu"
         ],
-        "PROFILE": "異世界のラグナ大陸から導かれたラグナロク教会の“キラープリンセス”。名前と同じ武器のキラーズを持つ。思い描く理想高い姿に近づくために頑張る真面目な努力家。ゆえに頑張らない者を嫌っており、当たりも相当強くなる。",
-        "COUNTRY": "ラグナ大陸",
+        "PROFILE": "",
+        "COUNTRY": "Ragna",
         "HEIGHT": "152cm",
         "WEIGHT": "42kg",
-        "BIRTH": "7月21日",
-        "ZODIAC": "かに座",
-        "BLOOD": "A型",
-        "FAVORITE": "薔薇、数字の２１",
-        "HOBBY": "理想像のイメトレ",
+        "BIRTH": "Jul 21",
+        "ZODIAC": "Cancer",
+        "BLOOD": "Type A",
+        "FAVORITE": "",
+        "HOBBY": "",
         "ILLUST": "渡り棒",
         "CV": "伊瀬茉莉也",
         "artworks": [
@@ -12470,15 +12469,15 @@
             "Freikugel POTK",
             "POTK Freikugel"
         ],
-        "PROFILE": "異世界のラグナ大陸から導かれたラグナロク教会の“キラープリンセス”。名前と同じ武器のキラーズを持つ。独特な喋り方が特徴的で、常に動き回っている。戦闘中はテンションが上がりすぎてトリガーハッピーになる悪癖を持つ。",
-        "COUNTRY": "ラグナ大陸",
+        "PROFILE": "",
+        "COUNTRY": "Ragna",
         "HEIGHT": "156cm",
         "WEIGHT": "46kg",
-        "BIRTH": "6月3日",
-        "ZODIAC": "ふたご座",
-        "BLOOD": "O型",
-        "FAVORITE": "森",
-        "HOBBY": "物々交換",
+        "BIRTH": "Jun 3",
+        "ZODIAC": "",
+        "BLOOD": "Type O",
+        "FAVORITE": "",
+        "HOBBY": "",
         "ILLUST": "moeto",
         "CV": "釘宮理恵",
         "artworks": [
@@ -12504,7 +12503,7 @@
         "leader skill": "Dark: +30% HP & +30% MATK & -10 Cast Time Ratio",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/s-tsukuyomi",
-        "job 1": "Master of Weatherᴶ",
+        "job 1": "Diviner",
         "job 2": "Chronomancer",
         "job 3": "Sage",
         "jc 1": "",
@@ -12515,15 +12514,15 @@
             "Tsukuyomi SN",
             "SN Tsukuyomi"
         ],
-        "PROFILE": "異世界のジパングから導かれたサムライで、自分の姉弟をこよなく愛する女性。普段は笑みを絶やさずのほほんとしているが、その力は強大で、姉弟を模した人形をバカにされると、にこやかな笑みはそのままに破壊の力を発揮する。",
-        "COUNTRY": "ジパング",
+        "PROFILE": "",
+        "COUNTRY": "Zipangu",
         "HEIGHT": "155cm",
         "WEIGHT": "48kg",
-        "BIRTH": "9月29日",
-        "ZODIAC": "てんびん座",
-        "BLOOD": "―型",
-        "FAVORITE": "姉と弟",
-        "HOBBY": "人形遊び",
+        "BIRTH": "Sep 29",
+        "ZODIAC": "",
+        "BLOOD": "",
+        "FAVORITE": "",
+        "HOBBY": "",
         "ILLUST": "しぶ彦",
         "CV": "伊瀬茉莉也",
         "artworks": [
@@ -12558,17 +12557,17 @@
         "inputs": [
             "Fiona"
         ],
-        "PROFILE": "前レジントン市長エドワード・エルレスターの娘。ウロボロスの力を介した触媒により、その時の記憶をもとに召喚された。常に揺るがぬ信念を持ち、前向きに取り組む姿勢で、仲間たちからも頼りにされる真面目で優しい女性。",
-        "COUNTRY": "スロウスシュタイン",
+        "PROFILE": "",
+        "COUNTRY": "Slothstein",
         "HEIGHT": "156cm",
         "WEIGHT": "48kg",
-        "BIRTH": "1月2日",
-        "ZODIAC": "光騎士の月座",
-        "BLOOD": "Kn型",
-        "FAVORITE": "花・アルちゃん",
-        "HOBBY": "刺繍・手芸",
+        "BIRTH": "Jan 2",
+        "ZODIAC": "",
+        "BLOOD": "Type Kn",
+        "FAVORITE": "",
+        "HOBBY": "",
         "ILLUST": "RINZO",
-        "CV": "\t赤司よしか",
+        "CV": " ",
         "artworks": [
             {
                 "name": "default",
@@ -12597,19 +12596,19 @@
         "job 3": "Dragon Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dragon Cavalier : Rudraᴶ\n[teleportation skills]",
+        "jc 3": "Dragon Cavalier [Rudra]ᴶ\n[teleportation skills]",
         "inputs": [
             "Gerald"
         ],
-        "PROFILE": "緋炎騎士団創立メンバーで、ヴェテルを支える副団長。わざと攻撃を受けて間合いを詰める無茶な戦い方を好み、いつも幼なじみのナタリーに怒られている。本人は、ナタリーに治療して貰えばいい、と戦法を改める気はないらしい。",
-        "COUNTRY": "エンヴィリア",
+        "PROFILE": "",
+        "COUNTRY": "Envylia",
         "HEIGHT": "183cm",
         "WEIGHT": "73kg",
-        "BIRTH": "5月18日",
-        "ZODIAC": "雷鳴帝の月",
-        "BLOOD": "Kn型",
-        "FAVORITE": "仲間と笑い合える瞬間",
-        "HOBBY": "読書・稽古",
+        "BIRTH": "May 18",
+        "ZODIAC": "Moon of the Thunderous Emperor",
+        "BLOOD": "Type Kn",
+        "FAVORITE": "",
+        "HOBBY": "",
         "ILLUST": "RINZO",
         "CV": "泰勇気",
         "artworks": [
@@ -12638,21 +12637,21 @@
         "job 1": "Professor",
         "job 2": "Bishop",
         "job 3": "Battle Mage",
-        "jc 1": "Professor : Madᴶ\n[much stronger buffs]",
+        "jc 1": "Professor [Mud]ᴶ\n[much stronger buffs]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
             "Natalie"
         ],
-        "PROFILE": "緋炎騎士団機動支援隊隊長。ヴェテルとジェラルドの幼なじみとして、緋炎騎士団設立前からずっと彼らを支えてきた。普段は優しい姉御肌だが、知らないものを見ると、すぐに解剖しようとする好奇心旺盛すぎな一面が表に出る。",
-        "COUNTRY": "エンヴィリア",
+        "PROFILE": "",
+        "COUNTRY": "Envylia",
         "HEIGHT": "157cm",
         "WEIGHT": "47kg",
-        "BIRTH": "8月20日",
-        "ZODIAC": "風迅艇の月",
-        "BLOOD": "Qe型",
-        "FAVORITE": "人と笑い合うこと",
-        "HOBBY": "未知との遭遇",
+        "BIRTH": "Aug 20",
+        "ZODIAC": "Moon of the Rapid Wind",
+        "BLOOD": "Type Qe",
+        "FAVORITE": "",
+        "HOBBY": "",
         "ILLUST": "だーくろ",
         "CV": "明坂聡美",
         "artworks": [
@@ -12688,15 +12687,15 @@
             "Little Urob",
             "Lil Uroboros"
         ],
-        "PROFILE": "人間をより間近で観察したいというウロボロスの欲求から誕生した分離体。ウロボロスの力から切り出された一幻影兵レベルの存在の為か、心身ともに幼さが残る。ウロボロス本体に憧れを持ち、その振る舞いを真似したがる一面も。",
-        "COUNTRY": "？",
+        "PROFILE": "",
+        "COUNTRY": "",
         "HEIGHT": "127cm",
         "WEIGHT": "27kg",
         "BIRTH": "？",
-        "ZODIAC": "？",
-        "BLOOD": "?型",
-        "FAVORITE": "意志ある者・甘味",
-        "HOBBY": "人間を試す",
+        "ZODIAC": "",
+        "BLOOD": "Type A",
+        "FAVORITE": "",
+        "HOBBY": "",
         "ILLUST": "RINZO",
         "CV": "堀江由衣",
         "artworks": [
@@ -12724,22 +12723,22 @@
         "link": "http://www.alchemistcodedb.com/jp/unit/nina",
         "job 1": "Summoner",
         "job 2": "Battle Mage",
-        "job 3": "Magia Operatorᴶ",
+        "job 3": "Magic Marksman",
         "jc 1": "Summoner of Tir Na Nogᴶ\n[increased damage against dark]",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
             "Nina"
         ],
-        "PROFILE": "ナガオウサギの獣人少女。優れた聴覚を持っているがゆえに、周囲の物音に過剰反応しがち。だが戦闘になれば勇敢に戦う。換毛期には自身から抜けた毛を素材に、最高の触り心地で見た目が微妙なぬいぐるみを作りあげる。",
-        "COUNTRY": "サガ地方",
+        "PROFILE": "",
+        "COUNTRY": "Saga Region",
         "HEIGHT": "134cm",
         "WEIGHT": "33kg",
-        "BIRTH": "1月4日",
-        "ZODIAC": "光騎士の月",
-        "BLOOD": "Ki型",
-        "FAVORITE": "りんご・ぎゅってされる",
-        "HOBBY": "ぬいぐるみ作り",
+        "BIRTH": "Jan 4",
+        "ZODIAC": "Moon of the Bright Knight",
+        "BLOOD": "Type Ki",
+        "FAVORITE": "",
+        "HOBBY": "",
         "ILLUST": "やもり",
         "CV": "大関英里",
         "artworks": [
@@ -12767,7 +12766,7 @@
         "link": "http://www.alchemistcodedb.com/jp/unit/ren",
         "job 1": "Azure Blademasterᴶ",
         "job 2": "Twin-Blade Swordsman",
-        "job 3": "Spyᴶ",
+        "job 3": "Spy",
         "jc 1": "",
         "jc 2": "Twin-Blade Swordsman : Mistᴶ",
         "jc 3": "",
@@ -12820,15 +12819,15 @@
             "Thol SSM",
             "SSM Thol"
         ],
-        "PROFILE": "『ヴェーダ十戒衆』のリーダーであり、虐げられし場所『ロストブルー』の救済を目指す男。異次元空間で強大な力を得た代償として恐怖の感情が欠落。感情の一部がない自覚から、仲間を、自分の行動をも戒律で縛ることを選ぶ。",
-        "COUNTRY": "ロストブルー",
+        "PROFILE": "",
+        "COUNTRY": "Lost Blue",
         "HEIGHT": "179cm",
         "WEIGHT": "71kg",
-        "BIRTH": "12月31日",
-        "ZODIAC": "闇夢楼の月",
-        "BLOOD": "Pa型",
-        "FAVORITE": "偉人の名言",
-        "HOBBY": "読書（特に哲学書）",
+        "BIRTH": "Dec 31",
+        "ZODIAC": "Moon of the Nightmare Cherry Blossom",
+        "BLOOD": "Type Pa",
+        "FAVORITE": "",
+        "HOBBY": "",
         "ILLUST": "RINZO",
         "CV": "櫻井孝宏",
         "artworks": [
@@ -12856,22 +12855,22 @@
         "link": "http://www.alchemistcodedb.com/jp/unit/leticia",
         "job 1": "Water Elementalᴶ",
         "job 2": "Merchant",
-        "job 3": "Templarᴶ",
+        "job 3": "Sacred Knight",
         "jc 1": "",
         "jc 2": "Merchant : Scheming Tanukiᴶ\n[randomly give 50 CT to any units on map]",
         "jc 3": "",
         "inputs": [
             "Leticia"
         ],
-        "PROFILE": "自分の夢をザハルの中に見出したダークエルフの女性。ザハルと彼が描く夢以外に興味はなく、どこか超然とした性格。あらゆる音から“声”を感じ取る力を持ち、風や大地が奏でる旋律を聞いて、ひとり楽しんでいる。",
-        "COUNTRY": "ラーストリス",
+        "PROFILE": "",
+        "COUNTRY": "Wratharis",
         "HEIGHT": "158cm",
         "WEIGHT": "47kg",
-        "BIRTH": "9月28日",
-        "ZODIAC": "水氷狼の月",
-        "BLOOD": "Kn型",
-        "FAVORITE": "自然の声",
-        "HOBBY": "旋律を聞くこと",
+        "BIRTH": "Sep 28",
+        "ZODIAC": "Moon of the Ice Water Wolf",
+        "BLOOD": "Type Kn",
+        "FAVORITE": "",
+        "HOBBY": "",
         "ILLUST": "しぶ彦",
         "CV": "緒乃冬華",
         "artworks": [
@@ -12902,20 +12901,20 @@
         "job 3": "Dark Cavalier",
         "jc 1": "Shadow Assassin : Eveningᴶ\n[spell evasion and resistance]",
         "jc 2": "",
-        "jc 3": "Dark Cavalier : Seeleᴶ\n[Drain Skills Bonus]",
+        "jc 3": "Dark Cavalier [Zeele]ᴶ\n[Drain Skills Bonus]",
         "inputs": [
             "Niguru",
             "Niggle"
         ],
-        "PROFILE": "レオンハート家の元暗殺者。最小限の殺しで、新たな秩序を築く野望を抱き、その美しい夢を実現させる相棒として、ザハルとともに歩む道を選ぶ。スキットルに満たした蒸留酒を嗜みつつ、冷めた目で世を眺めているところがある。",
-        "COUNTRY": "スロウスシュタイン",
+        "PROFILE": "",
+        "COUNTRY": "Slothstein",
         "HEIGHT": "180cm",
         "WEIGHT": "72kg",
-        "BIRTH": "11月7日",
-        "ZODIAC": "雷獅獣の月",
-        "BLOOD": "Kn型",
-        "FAVORITE": "アーモンド、蒸留酒",
-        "HOBBY": "ナイフの手遊び",
+        "BIRTH": "Nov 7",
+        "ZODIAC": "Moon of the Thunder Beast",
+        "BLOOD": "Type Kn",
+        "FAVORITE": "",
+        "HOBBY": "",
         "ILLUST": "杏虎太郎",
         "CV": "子安武人",
         "artworks": [
@@ -12941,24 +12940,24 @@
         "leader skill": "Fire: +50% MATK & +20% HP",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/ira",
-        "job 1": "Magia Operatorᴶ",
+        "job 1": "Magic Marksman",
         "job 2": "Ninja",
         "job 3": "Magia Gunslinger",
         "jc 1": "",
-        "jc 2": "Ninja : Byakkoᴶ\n[evasion-based]",
+        "jc 2": "Ninja [White Tiger]ᴶ\n[evasion-based]",
         "jc 3": "",
         "inputs": [
             "Ira"
         ],
-        "PROFILE": "戦争で家族を失い、苦難の中で成長してきた戦災孤児の少女。大切なものを奪っていった“大人”に復讐を誓っている。乱暴な口調もあって粗暴な性格に見られがちだが、無垢な子供は守るべき対象と見ている優しい一面もある。",
-        "COUNTRY": "ラーストリス",
+        "PROFILE": "",
+        "COUNTRY": "Wratharis",
         "HEIGHT": "139cm",
         "WEIGHT": "39kg",
-        "BIRTH": "10月14日",
-        "ZODIAC": "火皇穹の月",
-        "BLOOD": "Qe型",
-        "FAVORITE": "リンゴ",
-        "HOBBY": "月見",
+        "BIRTH": "Oct 14",
+        "ZODIAC": "Moon of the Imperial Fire Vault",
+        "BLOOD": "Type Qe",
+        "FAVORITE": "",
+        "HOBBY": "",
         "ILLUST": "トマル",
         "CV": "藤村歩",
         "artworks": [
@@ -13033,7 +13032,7 @@
         "job 3": "Dark Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dark Cavalier : Faustᴶ\n[Suicidal Nuker]",
+        "jc 3": "Dark Cavalier [Faust]ᴶ\n[Suicidal Nuker]",
         "inputs": [
             "Ankh"
         ],
@@ -13073,7 +13072,7 @@
         "link": "http://www.alchemistcodedb.com/jp/unit/neferty",
         "job 1": "Sage",
         "job 2": "Battle Mage",
-        "job 3": "Master of Weatherᴶ",
+        "job 3": "Diviner",
         "jc 1": "Sage  : Rosettaᴶ\n[stronger wind skills]",
         "jc 2": "",
         "jc 3": "",
@@ -13163,7 +13162,7 @@
         "job 3": "Holy Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Cavalier : Arkᴶ\n[AoE resistance]",
+        "jc 3": "Holy Cavalier [Ark]ᴶ\n[AoE resistance]",
         "inputs": [
             "Don Taras"
         ],
@@ -13202,7 +13201,7 @@
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/orion",
         "job 1": "Emperorᴶ",
-        "job 2": "Holy Spearmanᴶ",
+        "job 2": "Sacred Lancer",
         "job 3": "Warrior",
         "jc 1": "",
         "jc 2": "",
@@ -13246,7 +13245,7 @@
         "link": "http://www.alchemistcodedb.com/jp/unit/pok-blk-artemis",
         "job 1": "Black Killer : Lustᴶ",
         "job 2": "Sniper",
-        "job 3": "Magia Operatorᴶ",
+        "job 3": "Magic Marksman",
         "jc 1": "",
         "jc 2": "Sniper : Scopeᴶ\n[charge up for snipers]",
         "jc 3": "",
@@ -13294,7 +13293,7 @@
         "job 3": "Dark Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Dark Cavalier : Moveᴶ\n[Faster Dark Cav]",
+        "jc 3": "Dark Cavalier [Espion]ᴶ\n[Faster Dark Cav]",
         "inputs": [
             "Merlinus",
             "Merlinus CR",
@@ -13322,7 +13321,7 @@
     "UN_V2_CRY_ARTHUR": {
         "iname": "UN_V2_CRY_ARTHUR",
         "name": "Arthurᴶ",
-        "inofficial": "",
+        "inofficial": "Arthur",
         "gender": "♂",
         "element": "Fire",
         "country": "Foreign World",
@@ -13339,7 +13338,7 @@
         "job 3": "Holy Cavalier",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Cavalier : Portaᴶ\n[pierce resistance]",
+        "jc 3": "Holy Cavalier [Porta]ᴶ\n[pierce resistance]",
         "inputs": [
             "Arthur",
             "Arthur CR",
@@ -13361,6 +13360,49 @@
                 "name": "default",
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/cry_arth.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/cry_arth-closeup.png"
+            }
+        ]
+    },
+    "UN_V2_MORE": {
+        "iname": "UN_V2_MORE",
+        "name": "Moreᴶ",
+        "inofficial": "",
+        "gender": "♀",
+        "element": "Light",
+        "country": "Lustburg",
+        "collab": "",
+        "collab short": "",
+        "rarity": "★★★★★",
+        "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/more.png",
+        "farm": [],
+        "leader skill": "Light: +50% HP & +30% PATK & +20 Dark DMG",
+        "master ability": "",
+        "link": "http://www.alchemistcodedb.com/jp/unit/more",
+        "job 1": "JB_STRB_SHINEᴶ",
+        "job 2": "Wild Beast Tamer",
+        "job 3": "Warrior",
+        "jc 1": "",
+        "jc 2": "",
+        "jc 3": "Warrior : Titanᴶ\n[water nuke]",
+        "inputs": [
+            "More"
+        ],
+        "PROFILE": "“愛”は国の呪いをも越える幸せだと信じるイヴの従姉妹。それを証明する為にあらゆる手段で他人の恋愛を成就させようとする様から“狂気のキューピッド”と呼ばれる。人の恋路を邪魔するものはイヴ直伝の体術で排除する。",
+        "COUNTRY": "ルストブルグ",
+        "HEIGHT": "151cm",
+        "WEIGHT": "43kg",
+        "BIRTH": "1月6日",
+        "ZODIAC": "光騎士の月",
+        "BLOOD": "Kn型",
+        "FAVORITE": "恋",
+        "HOBBY": "キューピッド活動",
+        "ILLUST": "渡り棒",
+        "CV": "木野日菜",
+        "artworks": [
+            {
+                "name": "default",
+                "full": "http://cdn.alchemistcodedb.com/images/units/artworks/more.png",
+                "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/more-closeup.png"
             }
         ]
     }

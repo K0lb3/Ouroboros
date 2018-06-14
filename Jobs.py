@@ -54,13 +54,25 @@ def job_create(job, glc, jpc, loc):
     if 'hp' not in mod:
         mod=mod['ranks'][-1]
 
+    def locFunc(iname):
+        try:
+            return loc[job]['NAME']
+        except:
+            print (job)
+            jb=job.split('_')
+            base=jb[0]+'_'+jb[1]
+            if base in loc:
+                return loc[base]['NAME']+': '+' '.join(jb[2:])
+            else:
+                return job[3:].replace('_',' ').title()
+
     return {
         'iname': job,
-        'name': loc[job]['NAME'],
+        'name': locFunc(job),
         'japan': "",
         'kanji': j['name'],
-        'short description': "" if 'short des' not in loc[job] else loc[job]['short des'],
-        'long description': "" if 'long des' not in loc[job] else loc[job]['long des'],
+        'short description': loc[job]['short des'] if job in loc and 'short des' in loc[job] else "",
+        'long description':  loc[job]['long des']  if job in loc and 'long des'  in loc[job] else "",
         'icon': 'http://cdn.alchemistcodedb.com/images/jobs/icons/'+j['mdl']+'.png',
         'token': 'http://cdn.alchemistcodedb.com/images/items/icons/'+mainc[j['ranks'][0]['eqid1']]['icon']+'.png',
         'origin': loc[j['origin']]['NAME'] if 'origin' in j else "",
@@ -222,7 +234,10 @@ def jobs():
                 jobs[j]['inputs'].append(job['name'])
                 export[job['name']] = j
             else:
-                jobs[export[job['name']]]['inputs'].remove(job['name'])
+                try:
+                    jobs[export[job['name']]]['inputs'].remove(job['name'])
+                except:
+                    pass
             continue
 
         # unique job (more or less, Zeke HC, MC first jobs)
