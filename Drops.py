@@ -1,16 +1,34 @@
 from MainFunctions import *
 
-def loc_drops(drops,loc):
-    ret = []
-    for d in drops:
-        ret.append(loc[d]['NAME'])
-    return(ret)
+
 
 def drops():
-    [quests,master,loc,locQ]=loadFiles(['QuestParam.json','MasterParam.json','LocalizedMasterParam.json','LocalizedQuestParam.json'])
+    [quests,master, jp,locM,locQ]=loadFiles(['QuestParam.json','MasterParam.json','MasterParamJP.json','LocalizedMasterParam.json','LocalizedQuestParam.json'])
     quest = quests['quests']
     master = convertMaster(master)
+    jp = convertMaster(jp)
     export={}
+
+    def loc(iname):
+        if iname in locM:
+            return(locM[iname]['NAME'])
+        else:
+            return(iname[6:].replace('_',' ').title())
+
+    def loc_drops(drops,loc):
+        ret = []
+        for d in drops:
+            ret.append(loc(d))
+        return(ret)
+
+    def icon(iname):
+        if iname in master:
+            return master[d]['icon'] 
+        elif d in jp:
+            return jp[d]['icon']
+        
+        return iname
+
 
     drop = {}
     for  q in quest:
@@ -19,21 +37,21 @@ def drops():
                 if d not in drop:
                     drop[d]={
                         'iname' :    d, 
-                        'name'  :    loc[d]['NAME'],
-                        'link'  :    'http://www.alchemistcodedb.com/item/'+d.replace('_', '-').lower(),
-                        'icon'  :    'http://cdn.alchemistcodedb.com/images/items/icons/'+master[d]['icon']+'.png', 
+                        'name'  :    loc(d),
+                        'link'  :    'http://www.alchemistcodedb.com/item/{iname}'.format(iname=d.replace('_', '-').lower()),
+                        'icon'  :    'http://cdn.alchemistcodedb.com/images/items/icons/{icon}.png'.format(icon=icon(d)), 
                         'story' :    [], 
                         'event' :    []
                     }
 
                 if (q['iname'] in locQ) and ('Ch ' in locQ[q['iname']]['TITLE']):
                     drop[d]['story'].append({
-                        'name': '['+str(q['pt'])+' AP] '+locQ[q['iname']]['TITLE'],
+                        'name': '[{cost} AP] {title}'.format(cost=str(q['pt']),title=locQ[q['iname']]['TITLE']),
                         'drops':loc_drops(q['drops'],loc)
                         })   
                 else:
                     drop[d]['event'].append({
-                        'name': '['+str(q['pt'])+' AP] '+('MP ' if 'multi' in q else "") + (locQ[q['iname']]['NAME'] if (q['iname'] in locQ) else q['iname']), 
+                        'name': '[{cost} AP] {MP} {title}'.format(cost=str(q['pt']), MP='MP' if 'multi' in q else "", title=locQ[q['iname']]['NAME'] if q['iname'] in locQ else q['iname']),
                         'drops':loc_drops(q['drops'],loc)
                         })
     #print(json.dumps(drop, indent=4)) 

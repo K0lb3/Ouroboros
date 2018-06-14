@@ -20,7 +20,7 @@ UN_V2_DIOS_FAVORITE	Agatha and Logi
 UN_V2_DIOS_HOBBY	Sword training
 UN_V2_DIOS_ILLUST	RINZO
 UN_V2_DIOS_CV	石川界人
-UN_V2_MARIANNU_PROFILE	Marianne is a gemstone merchant from Wratharis. By sensing the hidden powers in gemstones, she can offer her customers exactly what they're looking for. She has a very polite tone, but she's also very direct. She's got an amazing eye for aesthetics though, and whenever she says something harsh, there's always sense in her words. So actually, people put a lot of trust in her.
+UN_V2_MARIANNU_PROFILE	Mirianne is a gemstone merchant from Wratharis. By sensing the hidden powers in gemstones, she can offer her customers exactly what they're looking for. She has a very polite tone, but she's also very direct. She's got an amazing eye for aesthetics though, and whenever she says something harsh, there's always sense in her words. So actually, people put a lot of trust in her.
 UN_V2_MARIANNU_COUNTRY	Wratharis
 UN_V2_MARIANNU_HEIGHT	164cm
 UN_V2_MARIANNU_WEIGHT	51kg
@@ -1065,6 +1065,39 @@ UN_V2_KURAJU_FAVORITE	The glimmering of metal
 UN_V2_KURAJU_HOBBY	All sorts of ornaments
 UN_V2_KURAJU_ILLUST	―
 UN_V2_KURAJU_CV	仙台エリ
+UN_V2_FENCER_PROFILE	
+UN_V2_FENCER_COUNTRY	Arcadia
+UN_V2_FENCER_HEIGHT	―cm
+UN_V2_FENCER_WEIGHT	―kg
+UN_V2_FENCER_BIRTH	―
+UN_V2_FENCER_ZODIAC	―
+UN_V2_FENCER_BLOOD	―
+UN_V2_FENCER_FAVORITE	―
+UN_V2_FENCER_HOBBY	―
+UN_V2_FENCER_ILLUST	日向悠二
+UN_V2_FENCER_CV	瀬戸麻沙美
+UN_V2_REAPER_PROFILE	
+UN_V2_REAPER_COUNTRY	Arcadia
+UN_V2_REAPER_HEIGHT	―cm
+UN_V2_REAPER_WEIGHT	―kg
+UN_V2_REAPER_BIRTH	―
+UN_V2_REAPER_ZODIAC	―
+UN_V2_REAPER_BLOOD	―
+UN_V2_REAPER_FAVORITE	―
+UN_V2_REAPER_HOBBY	―
+UN_V2_REAPER_ILLUST	日向悠二
+UN_V2_REAPER_CV	斎賀みつき
+UN_V2_SHERMAN_PROFILE	
+UN_V2_SHERMAN_COUNTRY	Arcadia
+UN_V2_SHERMAN_HEIGHT	―cm
+UN_V2_SHERMAN_WEIGHT	―kg
+UN_V2_SHERMAN_BIRTH	―
+UN_V2_SHERMAN_ZODIAC	―
+UN_V2_SHERMAN_BLOOD	―
+UN_V2_SHERMAN_FAVORITE	―
+UN_V2_SHERMAN_HOBBY	―
+UN_V2_SHERMAN_ILLUST	日向悠二
+UN_V2_SHERMAN_CV	久野美咲
 UN_V2_SEK_CLOE_PROFILE	Chloe was summoned when the two worlds crossed over, and influenced by both Arcadia and Babel. The form that she inherited was more strongly influenced by that of an adventurer from Arcadia than a member of the knighthood, and she is also able to use the adventurer's powers.
 UN_V2_SEK_CLOE_COUNTRY	Envylia
 UN_V2_SEK_CLOE_HEIGHT	156cm
@@ -1153,7 +1186,7 @@ UN_V2_DENEB_FAVORITE	Fortunetelling in general
 UN_V2_DENEB_HOBBY	Brewing delicious tea
 UN_V2_DENEB_ILLUST	―
 UN_V2_DENEB_CV	清都ありさ
-UN_V2_GLANZ_PROFILE	Glanz is an assassin from Wratharis. Even after the downfall of Wratharis, she's still been active all over the continent as a mercenary and assassin. She became an expensive mercenary, and an assassin even, in order to take care of her immature older sister. Because of a trauma involving her father, she hates men. She likes petite, cute girls.
+UN_V2_GLANZ_PROFILE	Glanz is an assassin from Wratharis. Even after the downfall of Wratharis, she's still been active all over the continent as a mercenary and assassin. She became an expensive mercenary, and an assassin even, in order to take care of her younger sister. Because of a trauma involving her father, she hates men. She likes petite, cute girls.
 UN_V2_GLANZ_COUNTRY	Wratharis
 UN_V2_GLANZ_HEIGHT	166cm
 UN_V2_GLANZ_WEIGHT	53kg
@@ -1835,50 +1868,6 @@ UN_V2_VIER_FAVORITE	Interesting things
 UN_V2_VIER_HOBBY	Fortunetelling, playing with Ahato
 UN_V2_VIER_ILLUST	RINZO
 UN_V2_VIER_CV	川﨑芽衣子
-UN_V2_RH_STOCK_PROFILE	Stocke is the top swordsman in Alistel's Special Intelligence program. He doesn't really show his emotions much, but inside him surges a burning passion, and he hates seeing harm come to his comrades more than anything else in the world. He's a talented agent, and has completed numerous crucial and dangerous missions. On one mission, he is given the "White Chronicle."
-UN_V2_RH_STOCK_COUNTRY	Alistel
-UN_V2_RH_STOCK_HEIGHT	─cm
-UN_V2_RH_STOCK_WEIGHT	─kg
-UN_V2_RH_STOCK_BIRTH	─
-UN_V2_RH_STOCK_ZODIAC	─
-UN_V2_RH_STOCK_BLOOD	Type -
-UN_V2_RH_STOCK_FAVORITE	─
-UN_V2_RH_STOCK_HOBBY	─
-UN_V2_RH_STOCK_ILLUST	─
-UN_V2_RH_STOCK_CV	小西克幸
-UN_V2_RH_ERUKA_PROFILE	Eruca is the princess of Granorg, and the first heir to the throne. She possesses both the grace and nobility of royalty and a kind, caring heart. She cares deeply for her people--she feels a very strong sense of duty towards them, and a responsibility to make her country a better place for them to live. She has an equally rash and reckless side, though, and despite being a princess always wants to fight on the frontlines herself.
-UN_V2_RH_ERUKA_COUNTRY	Granorg
-UN_V2_RH_ERUKA_HEIGHT	─cm
-UN_V2_RH_ERUKA_WEIGHT	─kg
-UN_V2_RH_ERUKA_BIRTH	─
-UN_V2_RH_ERUKA_ZODIAC	─
-UN_V2_RH_ERUKA_BLOOD	Type -
-UN_V2_RH_ERUKA_FAVORITE	─
-UN_V2_RH_ERUKA_HOBBY	─
-UN_V2_RH_ERUKA_ILLUST	─
-UN_V2_RH_ERUKA_CV	高橋李依
-UN_V2_RH_ATO_PROFILE	Aht is one the Satyros, a tribe of beast-people, and travels across the land as a member of a performing troupe. Known as a "Shaman," she possesses mysterious powers, and is a central figure among the Satyros, also serving as a holy shrine maiden who watches over all souls.
-UN_V2_RH_ATO_COUNTRY	Celestia
-UN_V2_RH_ATO_HEIGHT	─cm
-UN_V2_RH_ATO_WEIGHT	─kg
-UN_V2_RH_ATO_BIRTH	─
-UN_V2_RH_ATO_ZODIAC	─
-UN_V2_RH_ATO_BLOOD	Type -
-UN_V2_RH_ATO_FAVORITE	─
-UN_V2_RH_ATO_HOBBY	─
-UN_V2_RH_ATO_ILLUST	─
-UN_V2_RH_ATO_CV	黒沢ともよ
-UN_V2_RH_RAINY_PROFILE	Raynie is a spy for Alistel's Special Intelligence program. She often accompanies Stocke on missions to assist him. She's an upfront, frank person with an extremely strong sense of duty and a willingness to do something about it. However, she also has an impulsive and hasty side. She's a skilled spear user, and can also use attack magic.
-UN_V2_RH_RAINY_COUNTRY	Alistel
-UN_V2_RH_RAINY_HEIGHT	─cm
-UN_V2_RH_RAINY_WEIGHT	─kg
-UN_V2_RH_RAINY_BIRTH	─
-UN_V2_RH_RAINY_ZODIAC	─
-UN_V2_RH_RAINY_BLOOD	Type -
-UN_V2_RH_RAINY_FAVORITE	─
-UN_V2_RH_RAINY_HOBBY	─
-UN_V2_RH_RAINY_ILLUST	─
-UN_V2_RH_RAINY_CV	佐倉綾音
 UN_V2_ANNIKA_PROFILE	Annika is a young girl from the Saga Region who serves a shrine maiden-like role. She's adept at sensing the flow of energy in the land, and is in charge of her clan's affairs. The reason she's always dressed so close to her birthday suit is that she doesn't like placing fabric between her skin and nature. Aside from these exhibitionist tendencies, though, in all other respects she's as shy as the next girl.
 UN_V2_ANNIKA_COUNTRY	Saga Region
 UN_V2_ANNIKA_HEIGHT	155cm
@@ -2110,124 +2099,377 @@ UN_V2_DARTAGNAN_FAVORITE	Fast things, all kinds of meat
 UN_V2_DARTAGNAN_HOBBY	Exercise, food, naps
 UN_V2_DARTAGNAN_ILLUST	keypot
 UN_V2_DARTAGNAN_CV	鈴木美咲
-UN_V2_FENCER_PROFILE
-UN_V2_FENCER_COUNTRY	Arcadia
-UN_V2_FENCER_HEIGHT	―cm
-UN_V2_FENCER_WEIGHT	―kg
-UN_V2_FENCER_BIRTH	―
-UN_V2_FENCER_ZODIAC	―
-UN_V2_FENCER_BLOOD	―
-UN_V2_FENCER_FAVORITE	―
-UN_V2_FENCER_HOBBY	―
-UN_V2_FENCER_ILLUST	日向悠二
-UN_V2_FENCER_CV	瀬戸麻沙美
-UN_V2_REAPER_PROFILE
-UN_V2_REAPER_COUNTRY	Arcadia
-UN_V2_REAPER_HEIGHT	―cm
-UN_V2_REAPER_WEIGHT	―kg
-UN_V2_REAPER_BIRTH	―
-UN_V2_REAPER_ZODIAC	―
-UN_V2_REAPER_BLOOD	―
-UN_V2_REAPER_FAVORITE	―
-UN_V2_REAPER_HOBBY	―
-UN_V2_REAPER_ILLUST	日向悠二
-UN_V2_REAPER_CV	斎賀みつき
-UN_V2_SHERMAN_PROFILE
-UN_V2_SHERMAN_COUNTRY	Arcadia
-UN_V2_SHERMAN_HEIGHT	―cm
-UN_V2_SHERMAN_WEIGHT	―kg
-UN_V2_SHERMAN_BIRTH	―
-UN_V2_SHERMAN_ZODIAC	―
-UN_V2_SHERMAN_BLOOD	―
-UN_V2_SHERMAN_FAVORITE	―
-UN_V2_SHERMAN_HOBBY	―
-UN_V2_SHERMAN_ILLUST	日向悠二
-UN_V2_SHERMAN_CV	久野美咲
-UN_V2_SABER_PROFILE
-UN_V2_SABER_COUNTRY	─
-UN_V2_SABER_HEIGHT	154cm
-UN_V2_SABER_WEIGHT	42kg
-UN_V2_SABER_BIRTH	─
-UN_V2_SABER_ZODIAC	─
-UN_V2_SABER_BLOOD	─
-UN_V2_SABER_FAVORITE
-UN_V2_SABER_HOBBY	─
-UN_V2_SABER_ILLUST	─
-UN_V2_SABER_CV	川澄綾子
-UN_V2_GILGAMESH_PROFILE
-UN_V2_GILGAMESH_COUNTRY	─
-UN_V2_GILGAMESH_HEIGHT	182cm
-UN_V2_GILGAMESH_WEIGHT	68kg
-UN_V2_GILGAMESH_BIRTH	─
-UN_V2_GILGAMESH_ZODIAC	─
-UN_V2_GILGAMESH_BLOOD	─
-UN_V2_GILGAMESH_FAVORITE
-UN_V2_GILGAMESH_HOBBY	─
-UN_V2_GILGAMESH_ILLUST	─
-UN_V2_GILGAMESH_CV	関智一
-UN_V2_TOSAKA_RINN_PROFILE
-UN_V2_TOSAKA_RINN_COUNTRY	─
-UN_V2_TOSAKA_RINN_HEIGHT	159cm
-UN_V2_TOSAKA_RINN_WEIGHT	47kg
-UN_V2_TOSAKA_RINN_BIRTH	─
-UN_V2_TOSAKA_RINN_ZODIAC	─
-UN_V2_TOSAKA_RINN_BLOOD	─
-UN_V2_TOSAKA_RINN_FAVORITE
-UN_V2_TOSAKA_RINN_HOBBY	─
-UN_V2_TOSAKA_RINN_ILLUST	─
-UN_V2_TOSAKA_RINN_CV	植田佳奈
-UN_V2_IRIYA_PROFILE
-UN_V2_IRIYA_COUNTRY	─
-UN_V2_IRIYA_HEIGHT
-UN_V2_IRIYA_WEIGHT	34kg
-UN_V2_IRIYA_BIRTH	─
-UN_V2_IRIYA_ZODIAC	─
-UN_V2_IRIYA_BLOOD	─
-UN_V2_IRIYA_FAVORITE
-UN_V2_IRIYA_HOBBY	─
-UN_V2_IRIYA_ILLUST	─
-UN_V2_IRIYA_CV	門脇舞以
-UN_V2_ARCHER_PROFILE
-UN_V2_ARCHER_COUNTRY	─
-UN_V2_ARCHER_HEIGHT	187cm
-UN_V2_ARCHER_WEIGHT	78kg
-UN_V2_ARCHER_BIRTH	─
-UN_V2_ARCHER_ZODIAC	─
-UN_V2_ARCHER_BLOOD	─
-UN_V2_ARCHER_FAVORITE
-UN_V2_ARCHER_HOBBY	─
-UN_V2_ARCHER_ILLUST	─
-UN_V2_ARCHER_CV	諏訪部順一
-UN_V2_FATE_YOMI_PROFILE
-UN_V2_FATE_YOMI_COUNTRY	Wadatsumi
-UN_V2_FATE_YOMI_HEIGHT	157cm
-UN_V2_FATE_YOMI_WEIGHT	51.5kg
-UN_V2_FATE_YOMI_BIRTH	Feb 28
-UN_V2_FATE_YOMI_ZODIAC	Moon of the Wind Goddess
-UN_V2_FATE_YOMI_BLOOD	Type Kn
-UN_V2_FATE_YOMI_FAVORITE	─
-UN_V2_FATE_YOMI_HOBBY	─
-UN_V2_FATE_YOMI_ILLUST	だーくろ
-UN_V2_FATE_YOMI_CV	藤田咲
-UN_V2_FATE_LAMIA_PROFILE
-UN_V2_FATE_LAMIA_COUNTRY	Wratharis
-UN_V2_FATE_LAMIA_HEIGHT	160cm
-UN_V2_FATE_LAMIA_WEIGHT	49kg
-UN_V2_FATE_LAMIA_BIRTH	Sep 25
-UN_V2_FATE_LAMIA_ZODIAC	Moon of the Ice Water Wolf
-UN_V2_FATE_LAMIA_BLOOD	Type Kn
-UN_V2_FATE_LAMIA_FAVORITE	─
-UN_V2_FATE_LAMIA_HOBBY	─
-UN_V2_FATE_LAMIA_ILLUST	だーくろ
-UN_V2_FATE_LAMIA_CV	池澤春菜
-UN_V2_FATE_ZAHAR_PROFILE
-UN_V2_FATE_ZAHAR_COUNTRY	Wratharis
-UN_V2_FATE_ZAHAR_HEIGHT	178cm
-UN_V2_FATE_ZAHAR_WEIGHT	57kg
-UN_V2_FATE_ZAHAR_BIRTH	Jun 9
-UN_V2_FATE_ZAHAR_ZODIAC	Moon of the Dark Magic Dragon
-UN_V2_FATE_ZAHAR_BLOOD	Type Qe
-UN_V2_FATE_ZAHAR_FAVORITE	─
-UN_V2_FATE_ZAHAR_HOBBY	─
-UN_V2_FATE_ZAHAR_ILLUST	RINZO
-UN_V2_FATE_ZAHAR_CV	緑川光
+UN_V2_UZUMA_PROFILE	Uzuma is a renowned fortune-teller from a desert region. She's physically weak, and very clumsy, but possesses the ability to see into people's futures. Before she understood her powers properly, she would voice all her premonitions immediately--including people's forthcoming deaths--and as a result she was feared by those around her.
+UN_V2_UZUMA_COUNTRY	Desert Zone
+UN_V2_UZUMA_HEIGHT	168cm
+UN_V2_UZUMA_WEIGHT	48kg
+UN_V2_UZUMA_BIRTH	Aug 9
+UN_V2_UZUMA_ZODIAC	Moon of the Rapid Wind
+UN_V2_UZUMA_BLOOD	Type Pa
+UN_V2_UZUMA_FAVORITE	Fluffy flower heads
+UN_V2_UZUMA_HOBBY	Long baths
+UN_V2_UZUMA_ILLUST	keypot
+UN_V2_UZUMA_CV	原田彩楓
+UN_V2_WON_PROFILE	Won is a foolhardy young man; a jack of all trades who believes in living free above all else. Through a long period of arduous training he developed his own combat technique--the Tiger-King Fist. He loves money, and will take on any job, no matter how dangerous, and see it through with his fists alone.
+UN_V2_WON_COUNTRY	Greed Dike
+UN_V2_WON_HEIGHT	169cm
+UN_V2_WON_WEIGHT	63kg
+UN_V2_WON_BIRTH	Jan 11
+UN_V2_WON_ZODIAC	Moon of the Bright Knight
+UN_V2_WON_BLOOD	Type Kn
+UN_V2_WON_FAVORITE	Money
+UN_V2_WON_HOBBY	Drinking alcohol
+UN_V2_WON_ILLUST	杏虎太郎
+UN_V2_WON_CV	梶原岳人
+UN_V2_INES_PROFILE	Ines is a High Elf who is in charge of ritual festivals and so forth. She's an extremely powerful divine medium, and part of the High Elf elite, but has something of a messy disposition and can often be seen at important events with terrible bed hair. Even when this happens, though, everyone will laugh it off as charmingly quirky. She doesn't like this at all, as she hates being treated like a spoiled princess.
+UN_V2_INES_COUNTRY	Northern Pride
+UN_V2_INES_HEIGHT	163cm
+UN_V2_INES_WEIGHT	58kg
+UN_V2_INES_BIRTH	Apr 9
+UN_V2_INES_ZODIAC	Moon of the Flame King
+UN_V2_INES_BLOOD	Type Kn
+UN_V2_INES_FAVORITE	New things
+UN_V2_INES_HOBBY	Dozing
+UN_V2_INES_ILLUST	しぶ彦
+UN_V2_INES_CV	吉岡麻耶
+UN_V2_BLITZ_PROFILE	Blitz is a wanderer who travels the world putting smiles on people's faces. He's extremely kind-hearted, and can never pass by someone in need without offering a helping hand. He uses special Alchemia to attract and accumulate electrical energy, which he then discharges to electrocute his opponents or uses to stimulate his own muscles, boosting his physical attack power.
+UN_V2_BLITZ_COUNTRY	Envylia
+UN_V2_BLITZ_HEIGHT	182cm
+UN_V2_BLITZ_WEIGHT	70kg
+UN_V2_BLITZ_BIRTH	May 12
+UN_V2_BLITZ_ZODIAC	Moon of the Thunderous Emperor
+UN_V2_BLITZ_BLOOD	Type Kn
+UN_V2_BLITZ_FAVORITE	Smiles
+UN_V2_BLITZ_HOBBY	Making people smile
+UN_V2_BLITZ_ILLUST	―
+UN_V2_BLITZ_CV	赤羽根健治
+UN_V2_BIRGITTA_PROFILE	Birgitta is a wandering witch who, despite her childlike appearance, is actually pretty long in the tooth. She's an inherently friendly and generous person, and can never resist giving little treats to any children or animals that she comes across. The fact that she doesn't age physically is said to be somehow related to her ability to communicate with animals, but whether this is true or not is uncertain.
+UN_V2_BIRGITTA_COUNTRY	Saga Region
+UN_V2_BIRGITTA_HEIGHT	140cm
+UN_V2_BIRGITTA_WEIGHT	30kg
+UN_V2_BIRGITTA_BIRTH	Dec 19
+UN_V2_BIRGITTA_ZODIAC	Moon of the Nightmare Cherry Blossom
+UN_V2_BIRGITTA_BLOOD	Type Pa
+UN_V2_BIRGITTA_FAVORITE	Butter tea
+UN_V2_BIRGITTA_HOBBY	Embroidery and weaving
+UN_V2_BIRGITTA_ILLUST	渡り棒
+UN_V2_BIRGITTA_CV	下地紫野
+UN_V2_TORITOH_PROFILE	Toritoh is known among the Holy Order of Babel as "the General." She was raised entirely inside the church, and as a result has little understanding of outside affairs and is bad at expressing her emotions. When she feels that something is important to her or that she wants to protect it, however, she will put her life on the line in an instant.
+UN_V2_TORITOH_COUNTRY	Northern Pride
+UN_V2_TORITOH_HEIGHT	166cm
+UN_V2_TORITOH_WEIGHT	47kg
+UN_V2_TORITOH_BIRTH	Jul 31
+UN_V2_TORITOH_ZODIAC	Moon of the Shimmering Dragon
+UN_V2_TORITOH_BLOOD	Type Pa
+UN_V2_TORITOH_FAVORITE	Pleasant music
+UN_V2_TORITOH_HOBBY	Still looking...
+UN_V2_TORITOH_ILLUST	RINZO
+UN_V2_TORITOH_CV	三上枝織
+UN_V2_CORDELIA_PROFILE	Cordelia is a timid and feeble woman who lives in Lustburg and is rumored to be a vampire. She has honed her combat skills in order to fend off attacks from those who believe the rumors about her, but is still unable to deal with the curious stares and nasty gossip. When she feels well enough to do so she enjoys going on midnight walks.
+UN_V2_CORDELIA_COUNTRY	Lustburg
+UN_V2_CORDELIA_HEIGHT	165cm
+UN_V2_CORDELIA_WEIGHT	50kg
+UN_V2_CORDELIA_BIRTH	Aug 5
+UN_V2_CORDELIA_ZODIAC	Moon of the Rapid Wind
+UN_V2_CORDELIA_BLOOD	Type Ki
+UN_V2_CORDELIA_FAVORITE	Tomato juice
+UN_V2_CORDELIA_HOBBY	Nighttime walks
+UN_V2_CORDELIA_ILLUST	―
+UN_V2_CORDELIA_CV	川岸上子
+UN_V2_ITSUKI_PROFILE	Itsuki is a young girl who was known in Wadatsumi as a "demon." In the past she was persecuted by humans, and it was to keep herself hidden that she first set foot in the underworld. She claims that her cheerful, amiable personality is all an act; a persona that she assumes in order to get by in the human world--it actually is in fact her natural disposition, though.
+UN_V2_ITSUKI_COUNTRY	Wadatsumi
+UN_V2_ITSUKI_HEIGHT	154cm
+UN_V2_ITSUKI_WEIGHT	46kg
+UN_V2_ITSUKI_BIRTH	Sep 4
+UN_V2_ITSUKI_ZODIAC	Moon of the Ice Water Wolf
+UN_V2_ITSUKI_BLOOD	Type Qe
+UN_V2_ITSUKI_FAVORITE	Super-spicy food
+UN_V2_ITSUKI_HOBBY	Walking around town, playing tag
+UN_V2_ITSUKI_ILLUST	みかんあめ
+UN_V2_ITSUKI_CV	古川かおり
+UN_V2_TSANGLEI_PROFILE	Tsang Lei is a heretic monk from Greed Dike. Ever since a young age he immersed himself in training, firmly believing that "power alone is justice." In his constant quest to do battle with powerful opponents, he also studied forbidden summoning arts. In combat he rampages violently with no regard for his surroundings, and as a result is feared by foes and allies alike.
+UN_V2_TSANGLEI_COUNTRY	Greed Dike
+UN_V2_TSANGLEI_HEIGHT	190cm
+UN_V2_TSANGLEI_WEIGHT	82kg
+UN_V2_TSANGLEI_BIRTH	Nov 5
+UN_V2_TSANGLEI_ZODIAC	Moon of the Thunder Beast
+UN_V2_TSANGLEI_BLOOD	Type Pa
+UN_V2_TSANGLEI_FAVORITE	Power
+UN_V2_TSANGLEI_HOBBY	Meditation
+UN_V2_TSANGLEI_ILLUST	だーくろ
+UN_V2_TSANGLEI_CV	鶴岡聡
+UN_V2_POK_LONGINUS_PROFILE	Longinus is a "Killer Princess" from the Church of Ragnarok who was guided to this world from the continent of Ragna. She shares her Killium with the weapon of the same name. She's shy and introverted, but devoutly religious and kindhearted, and will always say a prayer for any fallen foes.
+UN_V2_POK_LONGINUS_COUNTRY	Ragna
+UN_V2_POK_LONGINUS_HEIGHT	148cm
+UN_V2_POK_LONGINUS_WEIGHT	40kg
+UN_V2_POK_LONGINUS_BIRTH	Apr 13
+UN_V2_POK_LONGINUS_ZODIAC	Aries
+UN_V2_POK_LONGINUS_BLOOD	Type AB
+UN_V2_POK_LONGINUS_FAVORITE	Tomato juice
+UN_V2_POK_LONGINUS_HOBBY	Helping others
+UN_V2_POK_LONGINUS_ILLUST	渡り棒
+UN_V2_POK_LONGINUS_CV	花澤香菜
+UN_V2_POK_ARTEMIS_PROFILE	Artemis is a "Killer Princess" from the Church of Ragnarok who was guided to this world from the continent of Ragna. She shares her Killium with the weapon of the same name. She's always cool and collected, and is able to calmly analyze situations in order to find solutions. She maintains a very smart appearance, but isn't a morning person at all.
+UN_V2_POK_ARTEMIS_COUNTRY	Ragna
+UN_V2_POK_ARTEMIS_HEIGHT	168cm
+UN_V2_POK_ARTEMIS_WEIGHT	54kg
+UN_V2_POK_ARTEMIS_BIRTH	Jul 4
+UN_V2_POK_ARTEMIS_ZODIAC	Cancer
+UN_V2_POK_ARTEMIS_BLOOD	Type A
+UN_V2_POK_ARTEMIS_FAVORITE	Moonlit nights
+UN_V2_POK_ARTEMIS_HOBBY	Collecting bear-related things
+UN_V2_POK_ARTEMIS_ILLUST	RINZO
+UN_V2_POK_ARTEMIS_CV	佐藤利奈
+UN_V2_POK_BLK_TYRHUNG_PROFILE	One of the "Dark Killers" guided to this world from the continent of Ragna. Each of the Dark Killers represent one of the seven deadly sins, and Tyrfing represents greed. A serious girl, and somewhat detached, she has an intimidating air about her, and tends to make people nervous. The only time there's a smile on her face is when she's able to freely unleash her full power on the battlefield...
+UN_V2_POK_BLK_TYRHUNG_COUNTRY	Ragna
+UN_V2_POK_BLK_TYRHUNG_HEIGHT	160cm
+UN_V2_POK_BLK_TYRHUNG_WEIGHT	45kg
+UN_V2_POK_BLK_TYRHUNG_BIRTH	Mar 1
+UN_V2_POK_BLK_TYRHUNG_ZODIAC	Pisces
+UN_V2_POK_BLK_TYRHUNG_BLOOD	Type A
+UN_V2_POK_BLK_TYRHUNG_FAVORITE	Making wishes
+UN_V2_POK_BLK_TYRHUNG_HOBBY	Dressing up Dulyn
+UN_V2_POK_BLK_TYRHUNG_ILLUST	―
+UN_V2_POK_BLK_TYRHUNG_CV	雨宮天
+UN_V2_BELTA_PROFILE	Berta is a female gunner from Envylia. Her cute and cheerful character has earned her a team mascot-like position among her squadron, but she in fact possesses both exceptional decision-making ability and incredible aim and accuracy. She loves music, and is also close with Envylia's national band. Sometimes she'll even perform together with them, using an unloaded cannon as her instrument.
+UN_V2_BELTA_COUNTRY	Envylia
+UN_V2_BELTA_HEIGHT	149cm
+UN_V2_BELTA_WEIGHT	42kg
+UN_V2_BELTA_BIRTH	Jun 3
+UN_V2_BELTA_ZODIAC	Moon of the Dark Magic Dragon
+UN_V2_BELTA_BLOOD	Type Qe
+UN_V2_BELTA_FAVORITE	Cannons
+UN_V2_BELTA_HOBBY	Music, weather observation
+UN_V2_BELTA_ILLUST	みかんあめ
+UN_V2_BELTA_CV	結名美月
+UN_V2_ZENN_PROFILE	Zehn is a man who is known as the Veda Ten's "Number Ten." He continues to fight out of the half-belief, half-hope that he will be able to get back his wife and daughter if he discovers "the truth." This almost delusion-like conviction is what won him the help of the "legendary blacksmith" who was said to take orders from no one.
+UN_V2_ZENN_COUNTRY	Lost Blue
+UN_V2_ZENN_HEIGHT	183cm
+UN_V2_ZENN_WEIGHT	78kg
+UN_V2_ZENN_BIRTH	Sep 3
+UN_V2_ZENN_ZODIAC	Moon of the Ice Water Wolf
+UN_V2_ZENN_BLOOD	Type Kn
+UN_V2_ZENN_FAVORITE	His wife and daughter
+UN_V2_ZENN_HOBBY	Meditation
+UN_V2_ZENN_ILLUST	RINZO
+UN_V2_ZENN_CV	竹内良太
+UN_V2_LOTIA_PROFILE	Lotiyah is a female beast trainer whose animals fight in the arena. During training she's strict and stern, but the rest of the time she's very gentle and cares deeply for her animals. As a result, when one of them is injured she can quickly become overcome with rage. She's also a huge lover of sweet things, and her favorite pastime is going around different cake shops.
+UN_V2_LOTIA_COUNTRY	Gluttony Foss
+UN_V2_LOTIA_HEIGHT	159cm
+UN_V2_LOTIA_WEIGHT	56kg
+UN_V2_LOTIA_BIRTH	May 14
+UN_V2_LOTIA_ZODIAC	Moon of the Thunderous Emperor
+UN_V2_LOTIA_BLOOD	Type Ki
+UN_V2_LOTIA_FAVORITE	Wild animals, sweet things
+UN_V2_LOTIA_HOBBY	Looking in cake shops
+UN_V2_LOTIA_ILLUST	大盛よしを
+UN_V2_LOTIA_CV	牧野由依
+UN_V2_KEVIN_PROFILE	Kevin is a telekinetic who considers making girls and women smile to be more important than anything else. This stems from his inability to put a smile on his mother's face. He once agonized over what purpose his powers served, but a certain gem dealer motivated him to remember his true calling once more. He possesses powerful telekinetic abilities, but rather than using them in combat he far prefers using them to bring a smile to a lady's face.
+UN_V2_KEVIN_COUNTRY	Wratharis
+UN_V2_KEVIN_HEIGHT	178cm
+UN_V2_KEVIN_WEIGHT	64kg
+UN_V2_KEVIN_BIRTH	Sep 27
+UN_V2_KEVIN_ZODIAC	Moon of the Ice Water Wolf
+UN_V2_KEVIN_BLOOD	Type Pa
+UN_V2_KEVIN_FAVORITE	Girls' smiles
+UN_V2_KEVIN_HOBBY	Approaching girls
+UN_V2_KEVIN_ILLUST	やもり
+UN_V2_KEVIN_CV	森久保祥太郎
+UN_V2_AISHA_PROFILE	Aisha is a dealer from a casino in Slothstein--however, this is in fact a cover for her work as the Chat Noir's assistant. She loves dice and cards, and would seem perfectly suited to the glamorous casino life, but is in fact a polite, serious, and dutiful young lady.
+UN_V2_AISHA_COUNTRY	Slothstein
+UN_V2_AISHA_HEIGHT	158cm
+UN_V2_AISHA_WEIGHT	50kg
+UN_V2_AISHA_BIRTH	Jul 13
+UN_V2_AISHA_ZODIAC	Moon of the Shimmering Dragon
+UN_V2_AISHA_BLOOD	Type Pa
+UN_V2_AISHA_FAVORITE	Dice
+UN_V2_AISHA_HOBBY	Card reading
+UN_V2_AISHA_ILLUST	yuui
+UN_V2_AISHA_CV	一杉佳澄
+UN_V2_GUILDFORD_PROFILE	
+UN_V2_GUILDFORD_COUNTRY	Northern Pride
+UN_V2_GUILDFORD_HEIGHT	183cm
+UN_V2_GUILDFORD_WEIGHT	85kg
+UN_V2_GUILDFORD_BIRTH	Apr 24
+UN_V2_GUILDFORD_ZODIAC	Moon of the Flame King
+UN_V2_GUILDFORD_BLOOD	Type Ki
+UN_V2_GUILDFORD_FAVORITE	
+UN_V2_GUILDFORD_HOBBY	
+UN_V2_GUILDFORD_ILLUST	―
+UN_V2_GUILDFORD_CV	三上哲
+UN_V2_SHIRMA_PROFILE	
+UN_V2_SHIRMA_COUNTRY	Wratharis
+UN_V2_SHIRMA_HEIGHT	153cm
+UN_V2_SHIRMA_WEIGHT	42kg
+UN_V2_SHIRMA_BIRTH	Aug 7
+UN_V2_SHIRMA_ZODIAC	Moon of the Rapid Wind
+UN_V2_SHIRMA_BLOOD	Type Qe
+UN_V2_SHIRMA_FAVORITE	
+UN_V2_SHIRMA_HOBBY	
+UN_V2_SHIRMA_ILLUST	RINZO
+UN_V2_SHIRMA_CV	天海玖美
+UN_V2_KURT_PROFILE	
+UN_V2_KURT_COUNTRY	Wadatsumi
+UN_V2_KURT_HEIGHT	184cm
+UN_V2_KURT_WEIGHT	77kg
+UN_V2_KURT_BIRTH	Apr 15
+UN_V2_KURT_ZODIAC	Moon of the Flame King
+UN_V2_KURT_BLOOD	Type Kn
+UN_V2_KURT_FAVORITE	
+UN_V2_KURT_HOBBY	
+UN_V2_KURT_ILLUST	しぶ彦
+UN_V2_KURT_CV	相合谷由馬
+UN_V2_TERESA_PROFILE	
+UN_V2_TERESA_COUNTRY	Wratharis
+UN_V2_TERESA_HEIGHT	164cm
+UN_V2_TERESA_WEIGHT	51kg
+UN_V2_TERESA_BIRTH	Dec 8
+UN_V2_TERESA_ZODIAC	Moon of the Nightmare Cherry Blossom
+UN_V2_TERESA_BLOOD	Type Pa
+UN_V2_TERESA_FAVORITE	
+UN_V2_TERESA_HOBBY	
+UN_V2_TERESA_ILLUST	だーくろ
+UN_V2_TERESA_CV	椎名へきる
+UN_V2_POK_BLK_LAEVATEINN_PROFILE	
+UN_V2_POK_BLK_LAEVATEINN_COUNTRY	Ragna
+UN_V2_POK_BLK_LAEVATEINN_HEIGHT	164cm
+UN_V2_POK_BLK_LAEVATEINN_WEIGHT	45kg
+UN_V2_POK_BLK_LAEVATEINN_BIRTH	Sep 9
+UN_V2_POK_BLK_LAEVATEINN_ZODIAC	Virgo
+UN_V2_POK_BLK_LAEVATEINN_BLOOD	Type B
+UN_V2_POK_BLK_LAEVATEINN_FAVORITE	─
+UN_V2_POK_BLK_LAEVATEINN_HOBBY	─
+UN_V2_POK_BLK_LAEVATEINN_ILLUST	だーくろ
+UN_V2_POK_BLK_LAEVATEINN_CV	ゆかな
+UN_V2_POK_PARASHU_PROFILE	
+UN_V2_POK_PARASHU_COUNTRY	Ragna
+UN_V2_POK_PARASHU_HEIGHT	152cm
+UN_V2_POK_PARASHU_WEIGHT	42kg
+UN_V2_POK_PARASHU_BIRTH	Jul 21
+UN_V2_POK_PARASHU_ZODIAC	Cancer
+UN_V2_POK_PARASHU_BLOOD	Type A
+UN_V2_POK_PARASHU_FAVORITE	
+UN_V2_POK_PARASHU_HOBBY	
+UN_V2_POK_PARASHU_ILLUST	渡り棒
+UN_V2_POK_PARASHU_CV	伊瀬茉莉也
+UN_V2_POK_FREIKUGEL_PROFILE	
+UN_V2_POK_FREIKUGEL_COUNTRY	Ragna
+UN_V2_POK_FREIKUGEL_HEIGHT	156cm
+UN_V2_POK_FREIKUGEL_WEIGHT	46kg
+UN_V2_POK_FREIKUGEL_BIRTH	Jun 3
+UN_V2_POK_FREIKUGEL_ZODIAC	
+UN_V2_POK_FREIKUGEL_BLOOD	Type O
+UN_V2_POK_FREIKUGEL_FAVORITE	
+UN_V2_POK_FREIKUGEL_HOBBY	
+UN_V2_POK_FREIKUGEL_ILLUST	moeto
+UN_V2_POK_FREIKUGEL_CV	釘宮理恵
+UN_V2_S_TSUKUYOMI_PROFILE	
+UN_V2_S_TSUKUYOMI_COUNTRY	Zipangu
+UN_V2_S_TSUKUYOMI_HEIGHT	155cm
+UN_V2_S_TSUKUYOMI_WEIGHT	48kg
+UN_V2_S_TSUKUYOMI_BIRTH	Sep 29
+UN_V2_S_TSUKUYOMI_ZODIAC	
+UN_V2_S_TSUKUYOMI_BLOOD	
+UN_V2_S_TSUKUYOMI_FAVORITE	
+UN_V2_S_TSUKUYOMI_HOBBY	
+UN_V2_S_TSUKUYOMI_ILLUST	しぶ彦
+UN_V2_S_TSUKUYOMI_CV	伊瀬茉莉也
+UN_V2_FIONA_PROFILE	
+UN_V2_FIONA_COUNTRY	Slothstein
+UN_V2_FIONA_HEIGHT	156cm
+UN_V2_FIONA_WEIGHT	48kg
+UN_V2_FIONA_BIRTH	Jan 2
+UN_V2_FIONA_ZODIAC	
+UN_V2_FIONA_BLOOD	Type Kn
+UN_V2_FIONA_FAVORITE	
+UN_V2_FIONA_HOBBY	
+UN_V2_FIONA_ILLUST	RINZO
+UN_V2_FIONA_CV	 
+UN_V2_L_UROB_PROFILE	
+UN_V2_L_UROB_COUNTRY	
+UN_V2_L_UROB_HEIGHT	127cm
+UN_V2_L_UROB_WEIGHT	27kg
+UN_V2_L_UROB_BIRTH	？
+UN_V2_L_UROB_ZODIAC	
+UN_V2_L_UROB_BLOOD	Type A
+UN_V2_L_UROB_FAVORITE	
+UN_V2_L_UROB_HOBBY	
+UN_V2_L_UROB_ILLUST	RINZO
+UN_V2_L_UROB_CV	堀江由衣
+UN_V2_GERALD_PROFILE	
+UN_V2_GERALD_COUNTRY	Envylia
+UN_V2_GERALD_HEIGHT	183cm
+UN_V2_GERALD_WEIGHT	73kg
+UN_V2_GERALD_BIRTH	May 18
+UN_V2_GERALD_ZODIAC	Moon of the Thunderous Emperor
+UN_V2_GERALD_BLOOD	Type Kn
+UN_V2_GERALD_FAVORITE	
+UN_V2_GERALD_HOBBY	
+UN_V2_GERALD_ILLUST	RINZO
+UN_V2_GERALD_CV	泰勇気
+UN_V2_NATALIE_PROFILE	
+UN_V2_NATALIE_COUNTRY	Envylia
+UN_V2_NATALIE_HEIGHT	157cm
+UN_V2_NATALIE_WEIGHT	47kg
+UN_V2_NATALIE_BIRTH	Aug 20
+UN_V2_NATALIE_ZODIAC	Moon of the Rapid Wind
+UN_V2_NATALIE_BLOOD	Type Qe
+UN_V2_NATALIE_FAVORITE	
+UN_V2_NATALIE_HOBBY	
+UN_V2_NATALIE_ILLUST	だーくろ
+UN_V2_NATALIE_CV	明坂聡美
+UN_V2_NINA_PROFILE	
+UN_V2_NINA_COUNTRY	Saga Region
+UN_V2_NINA_HEIGHT	134cm
+UN_V2_NINA_WEIGHT	33kg
+UN_V2_NINA_BIRTH	Jan 4
+UN_V2_NINA_ZODIAC	Moon of the Bright Knight
+UN_V2_NINA_BLOOD	Type Ki
+UN_V2_NINA_FAVORITE	
+UN_V2_NINA_HOBBY	
+UN_V2_NINA_ILLUST	やもり
+UN_V2_NINA_CV	大関英里
+UN_V2_THOL_PROFILE	
+UN_V2_THOL_COUNTRY	Lost Blue
+UN_V2_THOL_HEIGHT	179cm
+UN_V2_THOL_WEIGHT	71kg
+UN_V2_THOL_BIRTH	Dec 31
+UN_V2_THOL_ZODIAC	Moon of the Nightmare Cherry Blossom
+UN_V2_THOL_BLOOD	Type Pa
+UN_V2_THOL_FAVORITE	
+UN_V2_THOL_HOBBY	
+UN_V2_THOL_ILLUST	RINZO
+UN_V2_THOL_CV	櫻井孝宏
+UN_V2_LETICIA_PROFILE	
+UN_V2_LETICIA_COUNTRY	Wratharis
+UN_V2_LETICIA_HEIGHT	158cm
+UN_V2_LETICIA_WEIGHT	47kg
+UN_V2_LETICIA_BIRTH	Sep 28
+UN_V2_LETICIA_ZODIAC	Moon of the Ice Water Wolf
+UN_V2_LETICIA_BLOOD	Type Kn
+UN_V2_LETICIA_FAVORITE	
+UN_V2_LETICIA_HOBBY	
+UN_V2_LETICIA_ILLUST	しぶ彦
+UN_V2_LETICIA_CV	緒乃冬華
+UN_V2_NIGURU_PROFILE	
+UN_V2_NIGURU_COUNTRY	Slothstein
+UN_V2_NIGURU_HEIGHT	180cm
+UN_V2_NIGURU_WEIGHT	72kg
+UN_V2_NIGURU_BIRTH	Nov 7
+UN_V2_NIGURU_ZODIAC	Moon of the Thunder Beast
+UN_V2_NIGURU_BLOOD	Type Kn
+UN_V2_NIGURU_FAVORITE	
+UN_V2_NIGURU_HOBBY	
+UN_V2_NIGURU_ILLUST	杏虎太郎
+UN_V2_NIGURU_CV	子安武人
+UN_V2_IRA_PROFILE	
+UN_V2_IRA_COUNTRY	Wratharis
+UN_V2_IRA_HEIGHT	139cm
+UN_V2_IRA_WEIGHT	39kg
+UN_V2_IRA_BIRTH	Oct 14
+UN_V2_IRA_ZODIAC	Moon of the Imperial Fire Vault
+UN_V2_IRA_BLOOD	Type Qe
+UN_V2_IRA_FAVORITE	
+UN_V2_IRA_HOBBY	
+UN_V2_IRA_ILLUST	トマル
+UN_V2_IRA_CV	藤村歩

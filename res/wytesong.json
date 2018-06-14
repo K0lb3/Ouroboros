@@ -241,7 +241,7 @@
         {
             "タガタメ[EN/日本語]": "Global Unit Information:",
             "": "=IMAGE(\"https://i.imgur.com/0ApOV4J.png\")",
-            "Welcome to For Whom the Alchemist Exists Compendium": "Explosive Master\n爆力術師"
+            "Welcome to For Whom the Alchemist Exists Compendium": "Demolition Master\n爆力術師"
         },
         {
             "タガタメ[EN/日本語]": "Discord GL Players:",
@@ -6349,7 +6349,7 @@
             "Rarity": "★★★★★",
             "Element": "Dark",
             "LeaderSkill": "Dark: HP+30% / PATK+20% / PDEF+20%",
-            "Job1": "Explosive Master\n爆力術師",
+            "Job1": "Demolition Master\n爆力術師",
             "Job2": "Samurai\n侍",
             "Job3": "Axe Warrior\nウォーリア",
             "JC1": "N/A",
@@ -68740,9 +68740,9 @@
             "Sacred Sword 聖教剣": ""
         },
         {
-            "Sacred Knight Apprentice\n聖教騎士見習い": "Explosive Master [Explosive Tech User]\n爆力術師",
+            "Sacred Knight Apprentice\n聖教騎士見習い": "Demolition Master\n爆力術師",
             "": "",
-            "Sacred Sword 聖教剣": " Explosion Technique 爆力術"
+            "Sacred Sword 聖教剣": " Demolition Technique 爆力術"
         },
         {
             "Sacred Knight Apprentice\n聖教騎士見習い": "",
@@ -68882,7 +68882,7 @@
         {
             "Sacred Knight Apprentice\n聖教騎士見習い": "Starting Jewel",
             "": "",
-            "Sacred Sword 聖教剣": "Basic Explosion Technique 基本爆力術"
+            "Sacred Sword 聖教剣": "Basic Demolition Technique 基本爆力術"
         },
         {
             "Sacred Knight Apprentice\n聖教騎士見習い": "Weapon Type",
