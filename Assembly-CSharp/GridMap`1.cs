@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: GridMap`1
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 public class GridMap<T>
@@ -69,6 +69,13 @@ public class GridMap<T>
     this._data[x + y * this._w] = src;
   }
 
+  public void set(int idx, T src)
+  {
+    if (this._data == null || idx < 0 || idx >= this._data.Length)
+      return;
+    this._data[idx] = src;
+  }
+
   public void resize(int cx, int cy)
   {
     this._w = cx;
@@ -84,6 +91,11 @@ public class GridMap<T>
 
   public GridMap<T> clone()
   {
-    return new GridMap<T>() { _w = this._w, _h = this._h, _data = (T[]) this._data.Clone() };
+    return new GridMap<T>()
+    {
+      _w = this._w,
+      _h = this._h,
+      _data = (T[]) this._data.Clone()
+    };
   }
 }

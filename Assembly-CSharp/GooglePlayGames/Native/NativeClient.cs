@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: GooglePlayGames.Native.NativeClient
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GooglePlayGames.BasicApi;
@@ -348,20 +348,20 @@ namespace GooglePlayGames.Native
             {
               // ISSUE: object of a compiler-generated type is created
               // ISSUE: variable of a compiler-generated type
-              NativeClient.\u003CHandleAuthTransition\u003Ec__AnonStorey10E transitionCAnonStorey10E = new NativeClient.\u003CHandleAuthTransition\u003Ec__AnonStorey10E();
+              NativeClient.\u003CHandleAuthTransition\u003Ec__AnonStorey182 transitionCAnonStorey182 = new NativeClient.\u003CHandleAuthTransition\u003Ec__AnonStorey182();
               // ISSUE: reference to a compiler-generated field
-              transitionCAnonStorey10E.\u003C\u003Ef__this = this;
+              transitionCAnonStorey182.\u003C\u003Ef__this = this;
               if (this.mSilentAuthCallbacks != null)
               {
                 this.mPendingAuthCallbacks += this.mSilentAuthCallbacks;
                 this.mSilentAuthCallbacks = (Action<bool>) null;
               }
               // ISSUE: reference to a compiler-generated field
-              transitionCAnonStorey10E.currentAuthGeneration = this.mAuthGeneration;
+              transitionCAnonStorey182.currentAuthGeneration = this.mAuthGeneration;
               // ISSUE: reference to a compiler-generated method
-              this.mServices.AchievementManager().FetchAll(new Action<GooglePlayGames.Native.PInvoke.AchievementManager.FetchAllResponse>(transitionCAnonStorey10E.\u003C\u003Em__20));
+              this.mServices.AchievementManager().FetchAll(new Action<GooglePlayGames.Native.PInvoke.AchievementManager.FetchAllResponse>(transitionCAnonStorey182.\u003C\u003Em__69));
               // ISSUE: reference to a compiler-generated method
-              this.mServices.PlayerManager().FetchSelf(new Action<GooglePlayGames.Native.PInvoke.PlayerManager.FetchSelfResponse>(transitionCAnonStorey10E.\u003C\u003Em__21));
+              this.mServices.PlayerManager().FetchSelf(new Action<GooglePlayGames.Native.PInvoke.PlayerManager.FetchSelfResponse>(transitionCAnonStorey182.\u003C\u003Em__6A));
               break;
             }
             if (this.mAuthState == NativeClient.AuthState.SilentPending)

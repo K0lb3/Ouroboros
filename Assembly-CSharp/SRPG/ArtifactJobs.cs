@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.ArtifactJobs
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -26,7 +26,7 @@ namespace SRPG
 
     private void Start()
     {
-      if (Object.op_Inequality((Object) this.ListItem, (Object) null) && this.ListItem.get_activeInHierarchy())
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ListItem, (UnityEngine.Object) null) && this.ListItem.get_activeInHierarchy())
         this.ListItem.SetActive(false);
       if (this.mUpdated)
         return;
@@ -35,7 +35,7 @@ namespace SRPG
 
     public void UpdateValue()
     {
-      if (Object.op_Equality((Object) this.ListItem, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.ListItem, (UnityEngine.Object) null))
         return;
       ArtifactData dataOfClass = DataSource.FindDataOfClass<ArtifactData>(((Component) this).get_gameObject(), (ArtifactData) null);
       ArtifactParam artifactParam = dataOfClass == null ? DataSource.FindDataOfClass<ArtifactParam>(((Component) this).get_gameObject(), (ArtifactParam) null) : dataOfClass.ArtifactParam;
@@ -69,7 +69,7 @@ namespace SRPG
               {
                 if (this.mJobListItems.Count <= index1)
                 {
-                  GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.ListItem);
+                  GameObject gameObject = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.ListItem);
                   gameObject.get_transform().SetParent(transform, false);
                   this.mJobListItems.Add(gameObject);
                   this.mCurrentJobs.Add((JobParam) null);
@@ -92,7 +92,7 @@ namespace SRPG
         }
         for (int index2 = index1; index2 < this.mJobListItems.Count; ++index2)
           this.mJobListItems[index2].SetActive(false);
-        if (Object.op_Inequality((Object) this.AnyJob, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AnyJob, (UnityEngine.Object) null))
           this.AnyJob.SetActive(index1 == 0);
         this.mUpdated = true;
       }

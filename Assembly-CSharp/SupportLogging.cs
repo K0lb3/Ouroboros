@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SupportLogging
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Text;
@@ -43,7 +43,7 @@ public class SupportLogging : MonoBehaviour
   private void LogBasics()
   {
     StringBuilder stringBuilder = new StringBuilder();
-    stringBuilder.AppendFormat("SupportLogger Info: PUN {0}: ", (object) "1.80");
+    stringBuilder.AppendFormat("SupportLogger Info: PUN {0}: ", (object) "1.81");
     stringBuilder.AppendFormat("AppID: {0}*** GameVersion: {1} ", (object) PhotonNetwork.networkingPeer.AppId.Substring(0, 8), (object) PhotonNetwork.networkingPeer.AppVersion);
     stringBuilder.AppendFormat("Server: {0}. Region: {1} ", (object) PhotonNetwork.ServerAddress, (object) PhotonNetwork.networkingPeer.CloudRegion);
     stringBuilder.AppendFormat("HostType: {0} ", (object) PhotonNetwork.PhotonServerSettings.HostType);

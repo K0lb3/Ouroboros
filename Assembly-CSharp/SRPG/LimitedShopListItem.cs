@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.LimitedShopListItem
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -21,6 +21,7 @@ namespace SRPG
     private float mRefreshInterval;
     public Image banner;
     public string banner_sprite;
+    public bool btn_update;
     public string LimitedShopSpritePath;
 
     public LimitedShopListItem()
@@ -61,16 +62,20 @@ namespace SRPG
             jsonShopMsgResponse = (Json_ShopMsgResponse) null;
           }
           if (jsonShopMsgResponse != null)
+          {
             this.banner_sprite = jsonShopMsgResponse.banner;
+            if (jsonShopMsgResponse.update != null)
+              this.btn_update = jsonShopMsgResponse.update.Equals("on");
+          }
         }
       }
       GachaTabSprites gachaTabSprites = AssetManager.Load<GachaTabSprites>(this.LimitedShopSpritePath);
-      if (!Object.op_Inequality((Object) gachaTabSprites, (Object) null) || gachaTabSprites.Sprites == null || gachaTabSprites.Sprites.Length <= 0)
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) gachaTabSprites, (UnityEngine.Object) null) || gachaTabSprites.Sprites == null || gachaTabSprites.Sprites.Length <= 0)
         return;
       Sprite[] sprites = gachaTabSprites.Sprites;
       for (int index = 0; index < sprites.Length; ++index)
       {
-        if (Object.op_Inequality((Object) sprites[index], (Object) null) && ((Object) sprites[index]).get_name() == this.banner_sprite)
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) sprites[index], (UnityEngine.Object) null) && ((UnityEngine.Object) sprites[index]).get_name() == this.banner_sprite)
           this.banner.set_sprite(sprites[index]);
       }
     }
@@ -79,13 +84,13 @@ namespace SRPG
     {
       if (this.mEndTime <= 0L)
       {
-        if (!Object.op_Inequality((Object) this.Body, (Object) null))
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Body, (UnityEngine.Object) null))
           return;
         this.Body.SetActive(false);
       }
       else
       {
-        if (Object.op_Inequality((Object) this.Body, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Body, (UnityEngine.Object) null))
           this.Body.SetActive(true);
         TimeSpan timeSpan = TimeManager.FromUnixTime(this.mEndTime) - TimeManager.ServerTime;
         string str;
@@ -104,7 +109,7 @@ namespace SRPG
           {
             (object) Mathf.Max(timeSpan.Minutes, 0)
           });
-        if (!Object.op_Inequality((Object) this.Timer, (Object) null) || !(this.Timer.get_text() != str))
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Timer, (UnityEngine.Object) null) || !(this.Timer.get_text() != str))
           return;
         this.Timer.set_text(str);
       }

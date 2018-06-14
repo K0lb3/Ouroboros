@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.BackgroundDownloader
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -37,11 +37,14 @@ namespace SRPG
     {
       get
       {
-        if (Object.op_Equality((Object) BackgroundDownloader.instance, (Object) null))
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) BackgroundDownloader.instance, (UnityEngine.Object) null))
         {
-          GameObject gameObject = new GameObject(typeof (BackgroundDownloader).Name, new System.Type[1]{ typeof (BackgroundDownloader) });
+          GameObject gameObject = new GameObject(typeof (BackgroundDownloader).Name, new System.Type[1]
+          {
+            typeof (BackgroundDownloader)
+          });
           BackgroundDownloader.instance = (BackgroundDownloader) gameObject.GetComponent<BackgroundDownloader>();
-          Object.DontDestroyOnLoad((Object) gameObject);
+          UnityEngine.Object.DontDestroyOnLoad((UnityEngine.Object) gameObject);
         }
         return BackgroundDownloader.instance;
       }
@@ -83,21 +86,27 @@ namespace SRPG
       if (tutorialStep == "tutorial_start")
       {
         AssetManager.PrepareAssets("PortraitsM/urob");
+        AssetManager.PrepareAssets("UI/QuestAssets");
+        AssetManager.PrepareAssets("SkillSplash/splash_base");
+        AssetManager.PrepareAssets("SGDevelopment/Tutorial/Tutorial_Guidance");
+        AssetManager.PrepareAssets("StreamingAssets/BGM_0011.acb");
+        AssetManager.PrepareAssets("StreamingAssets/BGM_0011.awb");
+        AssetManager.PrepareAssets("StreamingAssets/BGM_0001.acb");
+        AssetManager.PrepareAssets("StreamingAssets/BGM_0001.awb");
+        GameManager instance = MonoSingleton<GameManager>.Instance;
+        if (instance.HasTutorialDLAssets)
+          instance.DownloadTutorialAssetsByFolder("Effects/");
         if ((long) GlobalVars.BtlID == 0L)
         {
           AssetManager.PrepareAssets("tutorial_start");
+          AssetManager.PrepareAssets("UI/FullScreenMovieDemo");
+          DebugUtility.LogWarning("Downloaded tutorial start");
         }
         else
         {
-          AssetManager.PrepareAssets("UI/QuestAssets");
-          AssetManager.PrepareAssets("SkillSplash/splash_base");
-          AssetManager.PrepareAssets("SGDevelopment/Tutorial/Tutorial_Guidance");
           AssetManager.PrepareAssets("CHM/F_cmn_jumploop0");
           AssetManager.PrepareAssets("CHM/M_cmn_jumploop0");
           AssetManager.PrepareAssets("CHM/MM_cmn_jumploop0");
-          GameManager instance = MonoSingleton<GameManager>.Instance;
-          if (instance.HasTutorialDLAssets)
-            instance.DownloadTutorialAssetsByFolder("Effects/");
           if ((long) GlobalVars.BtlID != 200L)
             return;
           AssetManager.PrepareAssets("StreamingAssets/BGM_0028.acb");
@@ -108,8 +117,6 @@ namespace SRPG
       {
         GameManager instance = MonoSingleton<GameManager>.Instance;
         AssetManager.PrepareAssets("op0002exit");
-        AssetManager.PrepareAssets("StreamingAssets/tut001b.acb");
-        AssetManager.PrepareAssets("StreamingAssets/tut001b.awb");
         AssetManager.PrepareAssets("StreamingAssets/BGM_0002.acb");
         AssetManager.PrepareAssets("StreamingAssets/BGM_0002.awb");
         AssetManager.PrepareAssets("CHM/F_cmn_jumploop0");
@@ -118,8 +125,6 @@ namespace SRPG
       else if (tutorialStep == "op0005exit")
       {
         AssetManager.PrepareAssets("op0005exit");
-        AssetManager.PrepareAssets("StreamingAssets/0_6b_2d.acb");
-        AssetManager.PrepareAssets("StreamingAssets/0_6b_2d.awb");
         AssetManager.PrepareAssets("StreamingAssets/BGM_0002.acb");
         AssetManager.PrepareAssets("StreamingAssets/BGM_0002.awb");
         AssetManager.PrepareAssets("StreamingAssets/BGM_0000.acb");
@@ -151,8 +156,6 @@ namespace SRPG
         if (!(tutorialStep == "op0006exit"))
           return;
         AssetManager.PrepareAssets("op0006exit");
-        AssetManager.PrepareAssets("StreamingAssets/0_8_2d.acb");
-        AssetManager.PrepareAssets("StreamingAssets/0_8_2d.awb");
       }
     }
 
@@ -160,17 +163,17 @@ namespace SRPG
     {
       if (tutorialStep == "tutorial_start")
         this.requiredDownloadStep = 1;
-      if (tutorialStep == "QE_OP_0002")
+      if (tutorialStep == "QE_OP_0002" || tutorialStep == "tut001a")
         this.requiredDownloadStep = 2;
       if (tutorialStep == "tut001b")
         this.requiredDownloadStep = 3;
-      if (tutorialStep == "QE_OP_0003")
+      if (tutorialStep == "QE_OP_0003" || tutorialStep == "tut002a")
         this.requiredDownloadStep = 4;
-      if (tutorialStep == "QE_OP_0004")
+      if (tutorialStep == "QE_OP_0004" || tutorialStep == "tut003a")
         this.requiredDownloadStep = 5;
       if (tutorialStep == "QE_OP_0006")
         this.requiredDownloadStep = 6;
-      if (!(tutorialStep == "op0006exit"))
+      if (!(tutorialStep == "op0006exit") && !(tutorialStep == "tut004a"))
         return;
       this.requiredDownloadStep = 7;
     }
@@ -179,7 +182,10 @@ namespace SRPG
     private IEnumerator BackgroundDLAsync()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new BackgroundDownloader.\u003CBackgroundDLAsync\u003Ec__IteratorC() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new BackgroundDownloader.\u003CBackgroundDLAsync\u003Ec__Iterator2B()
+      {
+        \u003C\u003Ef__this = this
+      };
     }
   }
 }

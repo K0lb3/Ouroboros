@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.EventAction_PlayAnimation2
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections;
@@ -13,6 +13,7 @@ namespace SRPG
   [EventActionInfo("New/アクター/アニメーション再生", "ユニットにアニメーションを再生させます。", 6702148, 11158596)]
   public class EventAction_PlayAnimation2 : EventAction
   {
+    public float Interp = 0.1f;
     [StringIsActorList]
     public string ActorID;
     [HideInInspector]
@@ -22,6 +23,8 @@ namespace SRPG
     [HideInInspector]
     public bool Loop;
     public bool Async;
+    [HideInInspector]
+    public bool ApplyRootBoneAtEnd;
     private string mAnimationID;
     private TacticsUnitController mController;
 
@@ -37,7 +40,7 @@ namespace SRPG
     public override IEnumerator PreloadAssets()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new EventAction_PlayAnimation2.\u003CPreloadAssets\u003Ec__Iterator64() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new EventAction_PlayAnimation2.\u003CPreloadAssets\u003Ec__Iterator9E() { \u003C\u003Ef__this = this };
     }
 
     public override void OnActivate()
@@ -54,7 +57,7 @@ namespace SRPG
           if ((double) this.Delay <= 0.0)
           {
             this.mController.RootMotionMode = AnimationPlayer.RootMotionModes.Velocity;
-            this.mController.PlayAnimation(this.mAnimationID, this.Loop, 0.1f, 0.0f);
+            this.mController.PlayAnimation(this.mAnimationID, this.Loop, this.Interp, 0.0f);
           }
           if (!this.Async)
             return;
@@ -89,7 +92,7 @@ namespace SRPG
         if (!string.IsNullOrEmpty(this.mAnimationID) && this.AnimationType == EventAction_PlayAnimation2.AnimationTypes.Custom && !string.IsNullOrEmpty(this.AnimationName))
         {
           this.mController.RootMotionMode = AnimationPlayer.RootMotionModes.Velocity;
-          this.mController.PlayAnimation(this.mAnimationID, this.Loop, 0.1f, 0.0f);
+          this.mController.PlayAnimation(this.mAnimationID, this.Loop, this.Interp, 0.0f);
         }
         else
         {
@@ -106,6 +109,15 @@ namespace SRPG
       {
         if ((double) this.mController.GetRemainingTime(this.mAnimationID) > 0.0)
           return;
+        if (this.ApplyRootBoneAtEnd && !this.Loop)
+        {
+          this.mController.StopAnimation(this.mAnimationID);
+          Transform childRecursively = GameUtility.findChildRecursively(((Component) this.mController).get_transform(), this.mController.RootMotionBoneName);
+          ((Component) this.mController).get_transform().set_position(childRecursively.get_position());
+          childRecursively.set_localPosition(new Vector3(0.0f, 0.0f, 0.0f));
+          ((Component) this.mController).get_transform().set_rotation(Quaternion.op_Multiply(childRecursively.get_rotation(), Quaternion.Euler(90f, 0.0f, 0.0f)));
+          childRecursively.set_localRotation(Quaternion.Euler(270f, 0.0f, 0.0f));
+        }
         if (!this.Async)
           this.ActivateNext();
         else

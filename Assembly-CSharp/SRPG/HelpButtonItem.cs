@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.HelpButtonItem
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -33,11 +33,11 @@ namespace SRPG
     private void UpdateParam(int Idx)
     {
       HelpWindow componentInParent = (HelpWindow) ((Component) ((Component) this).get_transform()).GetComponentInParent<HelpWindow>();
-      if (Object.op_Equality((Object) componentInParent, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) componentInParent, (UnityEngine.Object) null))
         return;
       int num1 = Idx;
       Transform child = ((Component) this).get_transform().FindChild("Label");
-      if (Object.op_Inequality((Object) child, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) child, (UnityEngine.Object) null))
       {
         LText component = (LText) ((Component) child).GetComponent<LText>();
         if (componentInParent.MiddleHelp)
@@ -66,7 +66,7 @@ namespace SRPG
       Button component1 = (Button) ((Component) ((Component) this).get_transform()).GetComponent<Button>();
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: method pointer
-      Func<int, UnityAction> func = (Func<int, UnityAction>) (n => new UnityAction((object) new HelpButtonItem.\u003CUpdateParam\u003Ec__AnonStorey250() { n = n, \u003C\u003Ef__this = this }, __methodptr(\u003C\u003Em__29B)));
+      Func<int, UnityAction> func = (Func<int, UnityAction>) (n => new UnityAction((object) new HelpButtonItem.\u003CUpdateParam\u003Ec__AnonStorey33B() { n = n, \u003C\u003Ef__this = this }, __methodptr(\u003C\u003Em__390)));
       ((UnityEventBase) component1.get_onClick()).RemoveAllListeners();
       ((UnityEvent) component1.get_onClick()).AddListener(func(num1));
     }
@@ -74,7 +74,7 @@ namespace SRPG
     private void OnSelectMenu(int MenuID)
     {
       HelpWindow componentInParent = (HelpWindow) ((Component) ((Component) this).get_transform()).GetComponentInParent<HelpWindow>();
-      if (Object.op_Equality((Object) componentInParent, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) componentInParent, (UnityEngine.Object) null))
         return;
       if (componentInParent.MiddleHelp)
         componentInParent.CreateMainWindow(MenuID);

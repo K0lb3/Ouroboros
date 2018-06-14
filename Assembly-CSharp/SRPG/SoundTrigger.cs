@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.SoundTrigger
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -27,7 +27,7 @@ namespace SRPG
       for (int index = 0; index < this.VoiceNames.Length; ++index)
       {
         if (!string.IsNullOrEmpty(this.VoiceNames[index]))
-          this.mVoices[index] = new MySound.Voice(this.VoiceNames[index], (string) null, (string) null);
+          this.mVoices[index] = new MySound.Voice(this.VoiceNames[index], (string) null, (string) null, false);
       }
     }
 
@@ -57,7 +57,7 @@ namespace SRPG
       {
         if (this.VoiceNames[index] == str && this.mVoices[index] != null)
         {
-          this.mVoices[index].Play(cueID1, 0.0f);
+          this.mVoices[index].Play(cueID1, 0.0f, false);
           break;
         }
       }

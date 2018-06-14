@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_MultiPlayContinueCoin
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -11,8 +11,8 @@ namespace SRPG
 {
   [FlowNode.Pin(3, "Continue", FlowNode.PinTypes.Input, 3)]
   [FlowNode.NodeType("Multi/MultiPlayContinueCoin", 32741)]
-  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
   [FlowNode.Pin(0, "Revive", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
   [FlowNode.Pin(2, "コインが足りない", FlowNode.PinTypes.Output, 2)]
   public class FlowNode_MultiPlayContinueCoin : FlowNode_Network
   {
@@ -20,7 +20,10 @@ namespace SRPG
     {
       if (pinID != 0 && pinID != 3)
         return;
+      SceneBattle instance = SceneBattle.Instance;
       int coin = (int) (pinID != 0 ? MonoSingleton<GameManager>.Instance.MasterParam.FixParam.ContinueCoinCost : MonoSingleton<GameManager>.Instance.MasterParam.FixParam.ContinueCoinCostMulti);
+      if (Object.op_Inequality((Object) instance, (Object) null) && instance.Battle != null && instance.Battle.IsMultiTower)
+        coin = (int) MonoSingleton<GameManager>.Instance.MasterParam.FixParam.ContinueCoinCostMultiTower;
       if (MonoSingleton<GameManager>.Instance.Player.Coin < coin)
       {
         ((Behaviour) this).set_enabled(false);
@@ -39,7 +42,7 @@ namespace SRPG
       else
       {
         BattleCore.Record questRecord = SceneBattle.Instance.Battle.GetQuestRecord();
-        this.ExecRequest((WebAPI) new ReqBtlComCont(SceneBattle.Instance.Battle.BtlID, questRecord, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback), true));
+        this.ExecRequest((WebAPI) new ReqBtlComCont(SceneBattle.Instance.Battle.BtlID, questRecord, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback), true, SceneBattle.Instance.Battle.IsMultiTower));
         ((Behaviour) this).set_enabled(true);
       }
     }
@@ -82,7 +85,11 @@ namespace SRPG
           else
           {
             Network.RemoveAPI();
-            AnalyticsManager.TrackSpendCoin("ContinueMultiQuest", (int) MonoSingleton<GameManager>.Instance.MasterParam.FixParam.ContinueCoinCostMulti);
+            SceneBattle instance = SceneBattle.Instance;
+            int num = (int) MonoSingleton<GameManager>.Instance.MasterParam.FixParam.ContinueCoinCostMulti;
+            if (Object.op_Inequality((Object) instance, (Object) null) && instance.Battle != null && instance.Battle.IsMultiTower)
+              num = (int) MonoSingleton<GameManager>.Instance.MasterParam.FixParam.ContinueCoinCostMultiTower;
+            AnalyticsManager.TrackOriginalCurrencyUse(ESaleType.Coin, (int) MonoSingleton<GameManager>.Instance.MasterParam.FixParam.ContinueCoinCostMulti, "ContinueMultiQuest");
             this.Success();
           }
         }

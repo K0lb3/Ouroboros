@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.EventAction_PlayAnimation3
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections;
@@ -17,6 +17,7 @@ namespace SRPG
     private const string DEMO_PATH = "Demo/";
     [StringIsActorList]
     public string ActorID;
+    [HideInInspector]
     public EventAction_PlayAnimation3.PREFIX_PATH Path;
     [HideInInspector]
     public string AnimationName;
@@ -40,7 +41,7 @@ namespace SRPG
     public override IEnumerator PreloadAssets()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new EventAction_PlayAnimation3.\u003CPreloadAssets\u003Ec__Iterator65() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new EventAction_PlayAnimation3.\u003CPreloadAssets\u003Ec__Iterator9F() { \u003C\u003Ef__this = this };
     }
 
     public override void OnActivate()
@@ -61,7 +62,7 @@ namespace SRPG
           }
           if (!this.Async)
             return;
-          this.ActivateNext();
+          this.ActivateNext(true);
           return;
         }
         if (this.AnimationType == EventAction_PlayAnimation3.AnimationTypes.Idle)
@@ -127,6 +128,7 @@ namespace SRPG
     {
       Demo,
       Movie,
+      Default,
     }
 
     public enum AnimationTypes

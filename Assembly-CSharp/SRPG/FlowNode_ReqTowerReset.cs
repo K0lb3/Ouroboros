@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_ReqTowerReset
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -72,8 +72,9 @@ namespace SRPG
       this.rtime = jsonObject.body.rtime;
       Json_PlayerData json = new Json_PlayerData();
       json.coin = new Json_Coin();
-      json.coin.free = jsonObject.body.free_coin;
-      json.coin.paid = jsonObject.body.paid_coin;
+      json.coin.free = jsonObject.body.coin.free;
+      json.coin.paid = jsonObject.body.coin.paid;
+      json.coin.com = jsonObject.body.coin.com;
       this.round = jsonObject.body.round;
       if (jsonObject.body.rank != null)
       {
@@ -92,11 +93,10 @@ namespace SRPG
 
     public class Json_ReqTowerReset
     {
-      public int free_coin;
-      public int paid_coin;
       public long rtime;
       public byte round;
       public JSON_ReqTowerResuponse.Json_RankStatus rank;
+      public JSON_ReqTowerResuponse.Json_UserCoin coin;
     }
   }
 }

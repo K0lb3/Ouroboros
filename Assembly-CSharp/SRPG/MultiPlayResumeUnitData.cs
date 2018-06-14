@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.MultiPlayResumeUnitData
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -36,14 +36,22 @@ namespace SRPG
     public int turncnt;
     public int trgcnt;
     public int killcnt;
+    public int[] etr;
     public int aiindex;
     public int aiturn;
     public int aipatrol;
     public int search;
     public int entry;
-    public Grid targetgrid;
+    public int to_dying;
+    public int paralyse;
+    public int ctx;
+    public int cty;
+    public string boi;
+    public int boc;
+    public int own;
     public MultiPlayResumeBuff[] buff;
     public MultiPlayResumeBuff[] cond;
+    public MultiPlayResumeShield[] shields;
     public string[] skillname;
     public int[] skillcnt;
   }

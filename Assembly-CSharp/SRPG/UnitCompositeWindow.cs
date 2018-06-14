@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.UnitCompositeWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -14,7 +14,9 @@ namespace SRPG
   public class UnitCompositeWindow : MonoBehaviour, IFlowInterface
   {
     public RectTransform ItemLayoutParent;
+    public RectTransform CommonItemLayoutParent;
     public GameObject ItemTemplate;
+    public GameObject CommonItemTemplate;
     private ItemParam mItemParam;
     private List<GameObject> mConsumeObjects;
 
@@ -48,7 +50,8 @@ namespace SRPG
       int cost = 0;
       bool is_ikkatsu = false;
       Dictionary<string, int> consumes = (Dictionary<string, int>) null;
-      MonoSingleton<GameManager>.Instance.Player.CheckEnableCreateItem(this.mItemParam, ref is_ikkatsu, ref cost, ref consumes);
+      NeedEquipItemList item_list = new NeedEquipItemList();
+      MonoSingleton<GameManager>.Instance.Player.CheckEnableCreateItem(this.mItemParam, ref is_ikkatsu, ref cost, ref consumes, item_list);
       for (int index = 0; index < this.mConsumeObjects.Count; ++index)
         this.mConsumeObjects[index].get_gameObject().SetActive(false);
       if (consumes != null)
@@ -76,8 +79,54 @@ namespace SRPG
           }
         }
       }
+      using (Dictionary<byte, NeedEquipItemDictionary>.KeyCollection.Enumerator enumerator = item_list.CommonNeedNum.Keys.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+        {
+          byte current = enumerator.Current;
+          NeedEquipItemDictionary equipItemDictionary = item_list.CommonNeedNum[current];
+          ItemParam commonItemParam = equipItemDictionary.CommonItemParam;
+          if (commonItemParam != null)
+          {
+            for (int index = 0; index < equipItemDictionary.list.Count; ++index)
+            {
+              ItemParam itemParam = equipItemDictionary.list[index].Param;
+              if (itemParam != null)
+              {
+                if ((int) itemParam.cmn_type - 1 == 2)
+                {
+                  GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.ItemTemplate);
+                  gameObject.get_gameObject().SetActive(true);
+                  gameObject.get_transform().SetParent((Transform) this.ItemLayoutParent, false);
+                  ItemData itemData = this.CreateItemData(itemParam.iname, 1);
+                  DataSource.Bind<ItemData>(gameObject, itemData);
+                }
+                else
+                {
+                  GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.CommonItemTemplate);
+                  gameObject.get_gameObject().SetActive(true);
+                  gameObject.get_transform().SetParent((Transform) this.CommonItemLayoutParent, false);
+                  ItemData data = MonoSingleton<GameManager>.Instance.Player.FindItemDataByItemID(itemParam.iname) ?? this.CreateItemData(commonItemParam.iname, 0);
+                  ItemData cmmon_data = MonoSingleton<GameManager>.Instance.Player.FindItemDataByItemID(commonItemParam.iname) ?? this.CreateItemData(commonItemParam.iname, 0);
+                  ((CommonConvertItem) gameObject.GetComponent<CommonConvertItem>()).Bind(data, cmmon_data, equipItemDictionary.list[index].NeedPiece);
+                }
+              }
+            }
+          }
+        }
+      }
       DataSource.Bind<ItemParam>(((Component) this).get_gameObject(), this.mItemParam);
       GameParameter.UpdateAll(((Component) this).get_gameObject());
+    }
+
+    public ItemData CreateItemData(string iname, int num)
+    {
+      Json_Item json = new Json_Item();
+      json.iname = iname;
+      json.num = num;
+      ItemData itemData = new ItemData();
+      itemData.Deserialize(json);
+      return itemData;
     }
   }
 }

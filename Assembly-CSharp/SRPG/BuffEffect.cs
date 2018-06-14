@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.BuffEffect
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -67,7 +67,7 @@ namespace SRPG
               this.targets[index].buffType = rankValue <= 0 ? BuffTypes.Buff : BuffTypes.Debuff;
               break;
             default:
-              if (type != ParamTypes.UsedJewelRate)
+              if (type != ParamTypes.UsedJewelRate && type != ParamTypes.UsedJewel)
               {
                 this.targets[index].buffType = rankValue >= 0 ? BuffTypes.Buff : BuffTypes.Debuff;
                 break;
@@ -137,16 +137,26 @@ namespace SRPG
       return flag;
     }
 
-    private void SetBuffValue(BuffTypes type, ref OInt param, int value)
+    private BuffMethodTypes GetBuffMethodType(BuffTypes buff, SkillParamCalcTypes calc)
+    {
+      if (calc != SkillParamCalcTypes.Scale)
+        return BuffMethodTypes.Add;
+      return buff == BuffTypes.Buff ? BuffMethodTypes.Highest : BuffMethodTypes.Lowest;
+    }
+
+    private void SetBuffValue(BuffMethodTypes type, ref OInt param, int value)
     {
       switch (type)
       {
-        case BuffTypes.Buff:
+        case BuffMethodTypes.Add:
+          param = (OInt) ((int) param + value);
+          break;
+        case BuffMethodTypes.Highest:
           if ((int) param >= value)
             break;
           param = (OInt) value;
           break;
-        case BuffTypes.Debuff:
+        case BuffMethodTypes.Lowest:
           if ((int) param <= value)
             break;
           param = (OInt) value;
@@ -154,19 +164,452 @@ namespace SRPG
       }
     }
 
-    private void SetBuffValue(BuffTypes type, ref OShort param, int value)
+    private void SetBuffValue(BuffMethodTypes type, ref OShort param, int value)
     {
       switch (type)
       {
-        case BuffTypes.Buff:
+        case BuffMethodTypes.Add:
+          param = (OShort) ((int) param + value);
+          break;
+        case BuffMethodTypes.Highest:
           if ((int) param >= value)
             break;
           param = (OShort) value;
           break;
-        case BuffTypes.Debuff:
+        case BuffMethodTypes.Lowest:
           if ((int) param <= value)
             break;
           param = (OShort) value;
+          break;
+      }
+    }
+
+    public void SetBuffValues(ParamTypes param_type, BuffMethodTypes method_type, ref BaseStatus status, int value)
+    {
+      switch (param_type)
+      {
+        case ParamTypes.Hp:
+          this.SetBuffValue(method_type, ref status.param.values_hp, value);
+          break;
+        case ParamTypes.HpMax:
+          this.SetBuffValue(method_type, ref status.param.values_hp, value);
+          break;
+        case ParamTypes.Mp:
+          this.SetBuffValue(method_type, ref status.param.values[0], value);
+          break;
+        case ParamTypes.MpIni:
+          this.SetBuffValue(method_type, ref status.param.values[1], value);
+          break;
+        case ParamTypes.Atk:
+          this.SetBuffValue(method_type, ref status.param.values[2], value);
+          break;
+        case ParamTypes.Def:
+          this.SetBuffValue(method_type, ref status.param.values[3], value);
+          break;
+        case ParamTypes.Mag:
+          this.SetBuffValue(method_type, ref status.param.values[4], value);
+          break;
+        case ParamTypes.Mnd:
+          this.SetBuffValue(method_type, ref status.param.values[5], value);
+          break;
+        case ParamTypes.Rec:
+          this.SetBuffValue(method_type, ref status.param.values[6], value);
+          break;
+        case ParamTypes.Dex:
+          this.SetBuffValue(method_type, ref status.param.values[7], value);
+          break;
+        case ParamTypes.Spd:
+          this.SetBuffValue(method_type, ref status.param.values[8], value);
+          break;
+        case ParamTypes.Cri:
+          this.SetBuffValue(method_type, ref status.param.values[9], value);
+          break;
+        case ParamTypes.Luk:
+          this.SetBuffValue(method_type, ref status.param.values[10], value);
+          break;
+        case ParamTypes.Mov:
+          this.SetBuffValue(method_type, ref status.param.values[11], value);
+          break;
+        case ParamTypes.Jmp:
+          this.SetBuffValue(method_type, ref status.param.values[12], value);
+          break;
+        case ParamTypes.EffectRange:
+          this.SetBuffValue(method_type, ref status.bonus.values[0], value);
+          break;
+        case ParamTypes.EffectScope:
+          this.SetBuffValue(method_type, ref status.bonus.values[1], value);
+          break;
+        case ParamTypes.EffectHeight:
+          this.SetBuffValue(method_type, ref status.bonus.values[2], value);
+          break;
+        case ParamTypes.Assist_Fire:
+          this.SetBuffValue(method_type, ref status.element_assist.values[1], value);
+          break;
+        case ParamTypes.Assist_Water:
+          this.SetBuffValue(method_type, ref status.element_assist.values[2], value);
+          break;
+        case ParamTypes.Assist_Wind:
+          this.SetBuffValue(method_type, ref status.element_assist.values[3], value);
+          break;
+        case ParamTypes.Assist_Thunder:
+          this.SetBuffValue(method_type, ref status.element_assist.values[4], value);
+          break;
+        case ParamTypes.Assist_Shine:
+          this.SetBuffValue(method_type, ref status.element_assist.values[5], value);
+          break;
+        case ParamTypes.Assist_Dark:
+          this.SetBuffValue(method_type, ref status.element_assist.values[6], value);
+          break;
+        case ParamTypes.Assist_Poison:
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[0], value);
+          break;
+        case ParamTypes.Assist_Paralysed:
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[1], value);
+          break;
+        case ParamTypes.Assist_Stun:
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[2], value);
+          break;
+        case ParamTypes.Assist_Sleep:
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[3], value);
+          break;
+        case ParamTypes.Assist_Charm:
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[4], value);
+          break;
+        case ParamTypes.Assist_Stone:
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[5], value);
+          break;
+        case ParamTypes.Assist_Blind:
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[6], value);
+          break;
+        case ParamTypes.Assist_DisableSkill:
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[7], value);
+          break;
+        case ParamTypes.Assist_DisableMove:
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[8], value);
+          break;
+        case ParamTypes.Assist_DisableAttack:
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[9], value);
+          break;
+        case ParamTypes.Assist_Zombie:
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[10], value);
+          break;
+        case ParamTypes.Assist_DeathSentence:
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[11], value);
+          break;
+        case ParamTypes.Assist_Berserk:
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[12], value);
+          break;
+        case ParamTypes.Assist_Knockback:
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[13], value);
+          break;
+        case ParamTypes.Assist_ResistBuff:
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[14], value);
+          break;
+        case ParamTypes.Assist_ResistDebuff:
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[15], value);
+          break;
+        case ParamTypes.Assist_Stop:
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[16], value);
+          break;
+        case ParamTypes.Assist_Fast:
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[17], value);
+          break;
+        case ParamTypes.Assist_Slow:
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[18], value);
+          break;
+        case ParamTypes.Assist_AutoHeal:
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[19], value);
+          break;
+        case ParamTypes.Assist_Donsoku:
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[20], value);
+          break;
+        case ParamTypes.Assist_Rage:
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[21], value);
+          break;
+        case ParamTypes.Assist_GoodSleep:
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[22], value);
+          break;
+        case ParamTypes.Assist_ConditionAll:
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[0], value);
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[1], value);
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[2], value);
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[3], value);
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[4], value);
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[5], value);
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[6], value);
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[7], value);
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[8], value);
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[9], value);
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[11], value);
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[12], value);
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[16], value);
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[17], value);
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[18], value);
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[20], value);
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[21], value);
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[24], value);
+          break;
+        case ParamTypes.Resist_Fire:
+          this.SetBuffValue(method_type, ref status.element_resist.values[1], value);
+          break;
+        case ParamTypes.Resist_Water:
+          this.SetBuffValue(method_type, ref status.element_resist.values[2], value);
+          break;
+        case ParamTypes.Resist_Wind:
+          this.SetBuffValue(method_type, ref status.element_resist.values[3], value);
+          break;
+        case ParamTypes.Resist_Thunder:
+          this.SetBuffValue(method_type, ref status.element_resist.values[4], value);
+          break;
+        case ParamTypes.Resist_Shine:
+          this.SetBuffValue(method_type, ref status.element_resist.values[5], value);
+          break;
+        case ParamTypes.Resist_Dark:
+          this.SetBuffValue(method_type, ref status.element_resist.values[6], value);
+          break;
+        case ParamTypes.Resist_Poison:
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[0], value);
+          break;
+        case ParamTypes.Resist_Paralysed:
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[1], value);
+          break;
+        case ParamTypes.Resist_Stun:
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[2], value);
+          break;
+        case ParamTypes.Resist_Sleep:
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[3], value);
+          break;
+        case ParamTypes.Resist_Charm:
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[4], value);
+          break;
+        case ParamTypes.Resist_Stone:
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[5], value);
+          break;
+        case ParamTypes.Resist_Blind:
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[6], value);
+          break;
+        case ParamTypes.Resist_DisableSkill:
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[7], value);
+          break;
+        case ParamTypes.Resist_DisableMove:
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[8], value);
+          break;
+        case ParamTypes.Resist_DisableAttack:
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[9], value);
+          break;
+        case ParamTypes.Resist_Zombie:
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[10], value);
+          break;
+        case ParamTypes.Resist_DeathSentence:
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[11], value);
+          break;
+        case ParamTypes.Resist_Berserk:
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[12], value);
+          break;
+        case ParamTypes.Resist_Knockback:
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[13], value);
+          break;
+        case ParamTypes.Resist_ResistBuff:
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[14], value);
+          break;
+        case ParamTypes.Resist_ResistDebuff:
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[15], value);
+          break;
+        case ParamTypes.Resist_Stop:
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[16], value);
+          break;
+        case ParamTypes.Resist_Fast:
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[17], value);
+          break;
+        case ParamTypes.Resist_Slow:
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[18], value);
+          break;
+        case ParamTypes.Resist_AutoHeal:
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[19], value);
+          break;
+        case ParamTypes.Resist_Donsoku:
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[20], value);
+          break;
+        case ParamTypes.Resist_Rage:
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[21], value);
+          break;
+        case ParamTypes.Resist_GoodSleep:
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[22], value);
+          break;
+        case ParamTypes.Resist_ConditionAll:
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[0], value);
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[1], value);
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[2], value);
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[3], value);
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[4], value);
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[5], value);
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[6], value);
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[7], value);
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[8], value);
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[9], value);
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[11], value);
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[12], value);
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[16], value);
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[18], value);
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[20], value);
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[21], value);
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[24], value);
+          break;
+        case ParamTypes.HitRate:
+          this.SetBuffValue(method_type, ref status.bonus.values[3], value);
+          break;
+        case ParamTypes.AvoidRate:
+          this.SetBuffValue(method_type, ref status.bonus.values[4], value);
+          break;
+        case ParamTypes.CriticalRate:
+          this.SetBuffValue(method_type, ref status.bonus.values[5], value);
+          break;
+        case ParamTypes.GainJewel:
+          this.SetBuffValue(method_type, ref status.bonus.values[13], value);
+          break;
+        case ParamTypes.UsedJewelRate:
+          this.SetBuffValue(method_type, ref status.bonus.values[14], value);
+          break;
+        case ParamTypes.ActionCount:
+          this.SetBuffValue(method_type, ref status.bonus.values[15], value);
+          break;
+        case ParamTypes.SlashAttack:
+          this.SetBuffValue(method_type, ref status.bonus.values[6], value);
+          break;
+        case ParamTypes.PierceAttack:
+          this.SetBuffValue(method_type, ref status.bonus.values[7], value);
+          break;
+        case ParamTypes.BlowAttack:
+          this.SetBuffValue(method_type, ref status.bonus.values[8], value);
+          break;
+        case ParamTypes.ShotAttack:
+          this.SetBuffValue(method_type, ref status.bonus.values[9], value);
+          break;
+        case ParamTypes.MagicAttack:
+          this.SetBuffValue(method_type, ref status.bonus.values[10], value);
+          break;
+        case ParamTypes.ReactionAttack:
+          this.SetBuffValue(method_type, ref status.bonus.values[11], value);
+          break;
+        case ParamTypes.JumpAttack:
+          this.SetBuffValue(method_type, ref status.bonus.values[12], value);
+          break;
+        case ParamTypes.GutsRate:
+          this.SetBuffValue(method_type, ref status.bonus.values[16], value);
+          break;
+        case ParamTypes.AutoJewel:
+          this.SetBuffValue(method_type, ref status.bonus.values[17], value);
+          break;
+        case ParamTypes.ChargeTimeRate:
+          this.SetBuffValue(method_type, ref status.bonus.values[18], value);
+          break;
+        case ParamTypes.CastTimeRate:
+          this.SetBuffValue(method_type, ref status.bonus.values[19], value);
+          break;
+        case ParamTypes.BuffTurn:
+          this.SetBuffValue(method_type, ref status.bonus.values[20], value);
+          break;
+        case ParamTypes.DebuffTurn:
+          this.SetBuffValue(method_type, ref status.bonus.values[21], value);
+          break;
+        case ParamTypes.CombinationRange:
+          this.SetBuffValue(method_type, ref status.bonus.values[22], value);
+          break;
+        case ParamTypes.HpCostRate:
+          this.SetBuffValue(method_type, ref status.bonus.values[23], value);
+          break;
+        case ParamTypes.SkillUseCount:
+          this.SetBuffValue(method_type, ref status.bonus.values[24], value);
+          break;
+        case ParamTypes.PoisonDamage:
+          this.SetBuffValue(method_type, ref status.bonus.values[25], value);
+          break;
+        case ParamTypes.PoisonTurn:
+          this.SetBuffValue(method_type, ref status.bonus.values[26], value);
+          break;
+        case ParamTypes.Assist_AutoJewel:
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[23], value);
+          break;
+        case ParamTypes.Resist_AutoJewel:
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[23], value);
+          break;
+        case ParamTypes.Assist_DisableHeal:
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[24], value);
+          break;
+        case ParamTypes.Resist_DisableHeal:
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[24], value);
+          break;
+        case ParamTypes.Resist_Slash:
+          this.SetBuffValue(method_type, ref status.bonus.values[27], value);
+          break;
+        case ParamTypes.Resist_Pierce:
+          this.SetBuffValue(method_type, ref status.bonus.values[28], value);
+          break;
+        case ParamTypes.Resist_Blow:
+          this.SetBuffValue(method_type, ref status.bonus.values[29], value);
+          break;
+        case ParamTypes.Resist_Shot:
+          this.SetBuffValue(method_type, ref status.bonus.values[30], value);
+          break;
+        case ParamTypes.Resist_Magic:
+          this.SetBuffValue(method_type, ref status.bonus.values[31], value);
+          break;
+        case ParamTypes.Resist_Reaction:
+          this.SetBuffValue(method_type, ref status.bonus.values[32], value);
+          break;
+        case ParamTypes.Resist_Jump:
+          this.SetBuffValue(method_type, ref status.bonus.values[33], value);
+          break;
+        case ParamTypes.Avoid_Slash:
+          this.SetBuffValue(method_type, ref status.bonus.values[34], value);
+          break;
+        case ParamTypes.Avoid_Pierce:
+          this.SetBuffValue(method_type, ref status.bonus.values[35], value);
+          break;
+        case ParamTypes.Avoid_Blow:
+          this.SetBuffValue(method_type, ref status.bonus.values[36], value);
+          break;
+        case ParamTypes.Avoid_Shot:
+          this.SetBuffValue(method_type, ref status.bonus.values[37], value);
+          break;
+        case ParamTypes.Avoid_Magic:
+          this.SetBuffValue(method_type, ref status.bonus.values[38], value);
+          break;
+        case ParamTypes.Avoid_Reaction:
+          this.SetBuffValue(method_type, ref status.bonus.values[39], value);
+          break;
+        case ParamTypes.Avoid_Jump:
+          this.SetBuffValue(method_type, ref status.bonus.values[40], value);
+          break;
+        case ParamTypes.GainJewelRate:
+          this.SetBuffValue(method_type, ref status.bonus.values[41], value);
+          break;
+        case ParamTypes.UsedJewel:
+          this.SetBuffValue(method_type, ref status.bonus.values[42], value);
+          break;
+        case ParamTypes.Assist_SingleAttack:
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[25], value);
+          break;
+        case ParamTypes.Assist_AreaAttack:
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[26], value);
+          break;
+        case ParamTypes.Resist_SingleAttack:
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[25], value);
+          break;
+        case ParamTypes.Resist_AreaAttack:
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[26], value);
+          break;
+        case ParamTypes.Assist_DecCT:
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[27], value);
+          break;
+        case ParamTypes.Assist_IncCT:
+          this.SetBuffValue(method_type, ref status.enchant_assist.values[28], value);
+          break;
+        case ParamTypes.Resist_DecCT:
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[27], value);
+          break;
+        case ParamTypes.Resist_IncCT:
+          this.SetBuffValue(method_type, ref status.enchant_resist.values[28], value);
           break;
       }
     }
@@ -178,406 +621,10 @@ namespace SRPG
         BuffEffect.BuffTarget target = this.targets[index];
         if (target.buffType == buffType && target.calcType == calcType)
         {
+          BuffMethodTypes buffMethodType = this.GetBuffMethodType(target.buffType, calcType);
           ParamTypes paramType = target.paramType;
           int num = (int) target.value;
-          switch (paramType)
-          {
-            case ParamTypes.Hp:
-              this.SetBuffValue(buffType, ref status.param.values_hp, num);
-              continue;
-            case ParamTypes.HpMax:
-              this.SetBuffValue(buffType, ref status.param.values_hp, num);
-              continue;
-            case ParamTypes.Mp:
-              this.SetBuffValue(buffType, ref status.param.values[0], num);
-              continue;
-            case ParamTypes.MpIni:
-              this.SetBuffValue(buffType, ref status.param.values[1], num);
-              continue;
-            case ParamTypes.Atk:
-              this.SetBuffValue(buffType, ref status.param.values[2], num);
-              continue;
-            case ParamTypes.Def:
-              this.SetBuffValue(buffType, ref status.param.values[3], num);
-              continue;
-            case ParamTypes.Mag:
-              this.SetBuffValue(buffType, ref status.param.values[4], num);
-              continue;
-            case ParamTypes.Mnd:
-              this.SetBuffValue(buffType, ref status.param.values[5], num);
-              continue;
-            case ParamTypes.Rec:
-              this.SetBuffValue(buffType, ref status.param.values[6], num);
-              continue;
-            case ParamTypes.Dex:
-              this.SetBuffValue(buffType, ref status.param.values[7], num);
-              continue;
-            case ParamTypes.Spd:
-              this.SetBuffValue(buffType, ref status.param.values[8], num);
-              continue;
-            case ParamTypes.Cri:
-              this.SetBuffValue(buffType, ref status.param.values[9], num);
-              continue;
-            case ParamTypes.Luk:
-              this.SetBuffValue(buffType, ref status.param.values[10], num);
-              continue;
-            case ParamTypes.Mov:
-              this.SetBuffValue(buffType, ref status.param.values[11], num);
-              continue;
-            case ParamTypes.Jmp:
-              this.SetBuffValue(buffType, ref status.param.values[12], num);
-              continue;
-            case ParamTypes.EffectRange:
-              this.SetBuffValue(buffType, ref status.bonus.values[0], num);
-              continue;
-            case ParamTypes.EffectScope:
-              this.SetBuffValue(buffType, ref status.bonus.values[1], num);
-              continue;
-            case ParamTypes.EffectHeight:
-              this.SetBuffValue(buffType, ref status.bonus.values[2], num);
-              continue;
-            case ParamTypes.Assist_Fire:
-              this.SetBuffValue(buffType, ref status.element_assist.values[1], num);
-              continue;
-            case ParamTypes.Assist_Water:
-              this.SetBuffValue(buffType, ref status.element_assist.values[2], num);
-              continue;
-            case ParamTypes.Assist_Wind:
-              this.SetBuffValue(buffType, ref status.element_assist.values[3], num);
-              continue;
-            case ParamTypes.Assist_Thunder:
-              this.SetBuffValue(buffType, ref status.element_assist.values[4], num);
-              continue;
-            case ParamTypes.Assist_Shine:
-              this.SetBuffValue(buffType, ref status.element_assist.values[5], num);
-              continue;
-            case ParamTypes.Assist_Dark:
-              this.SetBuffValue(buffType, ref status.element_assist.values[6], num);
-              continue;
-            case ParamTypes.Assist_Poison:
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[0], num);
-              continue;
-            case ParamTypes.Assist_Paralysed:
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[1], num);
-              continue;
-            case ParamTypes.Assist_Stun:
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[2], num);
-              continue;
-            case ParamTypes.Assist_Sleep:
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[3], num);
-              continue;
-            case ParamTypes.Assist_Charm:
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[4], num);
-              continue;
-            case ParamTypes.Assist_Stone:
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[5], num);
-              continue;
-            case ParamTypes.Assist_Blind:
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[6], num);
-              continue;
-            case ParamTypes.Assist_DisableSkill:
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[7], num);
-              continue;
-            case ParamTypes.Assist_DisableMove:
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[8], num);
-              continue;
-            case ParamTypes.Assist_DisableAttack:
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[9], num);
-              continue;
-            case ParamTypes.Assist_Zombie:
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[10], num);
-              continue;
-            case ParamTypes.Assist_DeathSentence:
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[11], num);
-              continue;
-            case ParamTypes.Assist_Berserk:
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[12], num);
-              continue;
-            case ParamTypes.Assist_Knockback:
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[13], num);
-              continue;
-            case ParamTypes.Assist_ResistBuff:
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[14], num);
-              continue;
-            case ParamTypes.Assist_ResistDebuff:
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[15], num);
-              continue;
-            case ParamTypes.Assist_Stop:
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[16], num);
-              continue;
-            case ParamTypes.Assist_Fast:
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[17], num);
-              continue;
-            case ParamTypes.Assist_Slow:
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[18], num);
-              continue;
-            case ParamTypes.Assist_AutoHeal:
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[19], num);
-              continue;
-            case ParamTypes.Assist_Donsoku:
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[20], num);
-              continue;
-            case ParamTypes.Assist_Rage:
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[21], num);
-              continue;
-            case ParamTypes.Assist_GoodSleep:
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[22], num);
-              continue;
-            case ParamTypes.Assist_ConditionAll:
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[0], num);
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[1], num);
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[2], num);
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[3], num);
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[4], num);
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[5], num);
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[6], num);
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[7], num);
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[8], num);
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[9], num);
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[11], num);
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[12], num);
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[16], num);
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[17], num);
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[18], num);
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[20], num);
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[21], num);
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[24], num);
-              continue;
-            case ParamTypes.Resist_Fire:
-              this.SetBuffValue(buffType, ref status.element_resist.values[1], num);
-              continue;
-            case ParamTypes.Resist_Water:
-              this.SetBuffValue(buffType, ref status.element_resist.values[2], num);
-              continue;
-            case ParamTypes.Resist_Wind:
-              this.SetBuffValue(buffType, ref status.element_resist.values[3], num);
-              continue;
-            case ParamTypes.Resist_Thunder:
-              this.SetBuffValue(buffType, ref status.element_resist.values[4], num);
-              continue;
-            case ParamTypes.Resist_Shine:
-              this.SetBuffValue(buffType, ref status.element_resist.values[5], num);
-              continue;
-            case ParamTypes.Resist_Dark:
-              this.SetBuffValue(buffType, ref status.element_resist.values[6], num);
-              continue;
-            case ParamTypes.Resist_Poison:
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[0], num);
-              continue;
-            case ParamTypes.Resist_Paralysed:
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[1], num);
-              continue;
-            case ParamTypes.Resist_Stun:
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[2], num);
-              continue;
-            case ParamTypes.Resist_Sleep:
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[3], num);
-              continue;
-            case ParamTypes.Resist_Charm:
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[4], num);
-              continue;
-            case ParamTypes.Resist_Stone:
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[5], num);
-              continue;
-            case ParamTypes.Resist_Blind:
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[6], num);
-              continue;
-            case ParamTypes.Resist_DisableSkill:
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[7], num);
-              continue;
-            case ParamTypes.Resist_DisableMove:
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[8], num);
-              continue;
-            case ParamTypes.Resist_DisableAttack:
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[9], num);
-              continue;
-            case ParamTypes.Resist_Zombie:
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[10], num);
-              continue;
-            case ParamTypes.Resist_DeathSentence:
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[11], num);
-              continue;
-            case ParamTypes.Resist_Berserk:
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[12], num);
-              continue;
-            case ParamTypes.Resist_Knockback:
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[13], num);
-              continue;
-            case ParamTypes.Resist_ResistBuff:
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[14], num);
-              continue;
-            case ParamTypes.Resist_ResistDebuff:
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[15], num);
-              continue;
-            case ParamTypes.Resist_Stop:
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[16], num);
-              continue;
-            case ParamTypes.Resist_Fast:
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[17], num);
-              continue;
-            case ParamTypes.Resist_Slow:
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[18], num);
-              continue;
-            case ParamTypes.Resist_AutoHeal:
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[19], num);
-              continue;
-            case ParamTypes.Resist_Donsoku:
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[20], num);
-              continue;
-            case ParamTypes.Resist_Rage:
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[21], num);
-              continue;
-            case ParamTypes.Resist_GoodSleep:
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[22], num);
-              continue;
-            case ParamTypes.Resist_ConditionAll:
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[0], num);
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[1], num);
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[2], num);
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[3], num);
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[4], num);
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[5], num);
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[6], num);
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[7], num);
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[8], num);
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[9], num);
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[11], num);
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[12], num);
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[16], num);
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[18], num);
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[20], num);
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[21], num);
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[24], num);
-              continue;
-            case ParamTypes.HitRate:
-              this.SetBuffValue(buffType, ref status.bonus.values[3], num);
-              continue;
-            case ParamTypes.AvoidRate:
-              this.SetBuffValue(buffType, ref status.bonus.values[4], num);
-              continue;
-            case ParamTypes.CriticalRate:
-              this.SetBuffValue(buffType, ref status.bonus.values[5], num);
-              continue;
-            case ParamTypes.GainJewel:
-              this.SetBuffValue(buffType, ref status.bonus.values[13], num);
-              continue;
-            case ParamTypes.UsedJewelRate:
-              this.SetBuffValue(buffType, ref status.bonus.values[14], num);
-              continue;
-            case ParamTypes.ActionCount:
-              this.SetBuffValue(buffType, ref status.bonus.values[15], num);
-              continue;
-            case ParamTypes.SlashAttack:
-              this.SetBuffValue(buffType, ref status.bonus.values[6], num);
-              continue;
-            case ParamTypes.PierceAttack:
-              this.SetBuffValue(buffType, ref status.bonus.values[7], num);
-              continue;
-            case ParamTypes.BlowAttack:
-              this.SetBuffValue(buffType, ref status.bonus.values[8], num);
-              continue;
-            case ParamTypes.ShotAttack:
-              this.SetBuffValue(buffType, ref status.bonus.values[9], num);
-              continue;
-            case ParamTypes.MagicAttack:
-              this.SetBuffValue(buffType, ref status.bonus.values[10], num);
-              continue;
-            case ParamTypes.ReactionAttack:
-              this.SetBuffValue(buffType, ref status.bonus.values[11], num);
-              continue;
-            case ParamTypes.JumpAttack:
-              this.SetBuffValue(buffType, ref status.bonus.values[12], num);
-              continue;
-            case ParamTypes.GutsRate:
-              this.SetBuffValue(buffType, ref status.bonus.values[16], num);
-              continue;
-            case ParamTypes.AutoJewel:
-              this.SetBuffValue(buffType, ref status.bonus.values[17], num);
-              continue;
-            case ParamTypes.ChargeTimeRate:
-              this.SetBuffValue(buffType, ref status.bonus.values[18], num);
-              continue;
-            case ParamTypes.CastTimeRate:
-              this.SetBuffValue(buffType, ref status.bonus.values[19], num);
-              continue;
-            case ParamTypes.BuffTurn:
-              this.SetBuffValue(buffType, ref status.bonus.values[20], num);
-              continue;
-            case ParamTypes.DebuffTurn:
-              this.SetBuffValue(buffType, ref status.bonus.values[21], num);
-              continue;
-            case ParamTypes.CombinationRange:
-              this.SetBuffValue(buffType, ref status.bonus.values[22], num);
-              continue;
-            case ParamTypes.HpCostRate:
-              this.SetBuffValue(buffType, ref status.bonus.values[23], num);
-              continue;
-            case ParamTypes.SkillUseCount:
-              this.SetBuffValue(buffType, ref status.bonus.values[24], num);
-              continue;
-            case ParamTypes.PoisonDamage:
-              this.SetBuffValue(buffType, ref status.bonus.values[25], num);
-              continue;
-            case ParamTypes.PoisonTurn:
-              this.SetBuffValue(buffType, ref status.bonus.values[26], num);
-              continue;
-            case ParamTypes.Assist_AutoJewel:
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[23], num);
-              continue;
-            case ParamTypes.Resist_AutoJewel:
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[23], num);
-              continue;
-            case ParamTypes.Assist_DisableHeal:
-              this.SetBuffValue(buffType, ref status.enchant_assist.values[24], num);
-              continue;
-            case ParamTypes.Resist_DisableHeal:
-              this.SetBuffValue(buffType, ref status.enchant_resist.values[24], num);
-              continue;
-            case ParamTypes.Resist_Slash:
-              this.SetBuffValue(buffType, ref status.bonus.values[27], num);
-              continue;
-            case ParamTypes.Resist_Pierce:
-              this.SetBuffValue(buffType, ref status.bonus.values[28], num);
-              continue;
-            case ParamTypes.Resist_Blow:
-              this.SetBuffValue(buffType, ref status.bonus.values[29], num);
-              continue;
-            case ParamTypes.Resist_Shot:
-              this.SetBuffValue(buffType, ref status.bonus.values[30], num);
-              continue;
-            case ParamTypes.Resist_Magic:
-              this.SetBuffValue(buffType, ref status.bonus.values[31], num);
-              continue;
-            case ParamTypes.Resist_Reaction:
-              this.SetBuffValue(buffType, ref status.bonus.values[32], num);
-              continue;
-            case ParamTypes.Resist_Jump:
-              this.SetBuffValue(buffType, ref status.bonus.values[33], num);
-              continue;
-            case ParamTypes.Avoid_Slash:
-              this.SetBuffValue(buffType, ref status.bonus.values[34], num);
-              continue;
-            case ParamTypes.Avoid_Pierce:
-              this.SetBuffValue(buffType, ref status.bonus.values[35], num);
-              continue;
-            case ParamTypes.Avoid_Blow:
-              this.SetBuffValue(buffType, ref status.bonus.values[36], num);
-              continue;
-            case ParamTypes.Avoid_Shot:
-              this.SetBuffValue(buffType, ref status.bonus.values[37], num);
-              continue;
-            case ParamTypes.Avoid_Magic:
-              this.SetBuffValue(buffType, ref status.bonus.values[38], num);
-              continue;
-            case ParamTypes.Avoid_Reaction:
-              this.SetBuffValue(buffType, ref status.bonus.values[39], num);
-              continue;
-            case ParamTypes.Avoid_Jump:
-              this.SetBuffValue(buffType, ref status.bonus.values[40], num);
-              continue;
-            default:
-              continue;
-          }
+          this.SetBuffValues(paramType, buffMethodType, ref status, num);
         }
       }
     }

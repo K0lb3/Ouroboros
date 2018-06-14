@@ -1,20 +1,19 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_SelectParty
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
-using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.Pin(100, "Out", FlowNode.PinTypes.Output, 1001)]
-  [FlowNode.Pin(151, "SaveTeamID", FlowNode.PinTypes.Input, 151)]
   [FlowNode.Pin(1000, "ApplyToPlayerData", FlowNode.PinTypes.Input, 1000)]
+  [FlowNode.Pin(150, "LoadTeamID", FlowNode.PinTypes.Input, 150)]
+  [FlowNode.Pin(151, "SaveTeamID", FlowNode.PinTypes.Input, 151)]
   [FlowNode.NodeType("UI/SelectParty", 32741)]
   [FlowNode.Pin(1, "Select Team", FlowNode.PinTypes.Input, 1)]
-  [FlowNode.Pin(150, "LoadTeamID", FlowNode.PinTypes.Input, 150)]
+  [FlowNode.Pin(100, "Out", FlowNode.PinTypes.Output, 1001)]
   public class FlowNode_SelectParty : FlowNode
   {
     public FlowNode_SelectParty.PartyTypes PartyType;
@@ -48,18 +47,18 @@ namespace SRPG
       switch (type)
       {
         case FlowNode_SelectParty.PartyTypes.Normal:
-          int num1 = !PlayerPrefs.HasKey(PlayerData.TEAM_ID_KEY) ? 0 : PlayerPrefs.GetInt(PlayerData.TEAM_ID_KEY);
-          int num2 = num1 < 0 || num1 >= 8 ? 0 : num1;
+          int num1 = PlayerPrefsUtility.GetInt(PlayerPrefsUtility.TEAM_ID_KEY, 0);
+          int num2 = num1 < 0 || num1 >= 9 ? 0 : num1;
           GlobalVars.SelectedPartyIndex.Set(num2);
           break;
         case FlowNode_SelectParty.PartyTypes.Multi:
-          int num3 = !PlayerPrefs.HasKey(PlayerData.MULTI_PLAY_TEAM_ID_KEY) ? 0 : PlayerPrefs.GetInt(PlayerData.MULTI_PLAY_TEAM_ID_KEY);
-          int num4 = num3 < 0 || num3 >= 8 ? 0 : num3;
+          int num3 = PlayerPrefsUtility.GetInt(PlayerPrefsUtility.MULTI_PLAY_TEAM_ID_KEY, 0);
+          int num4 = num3 < 0 || num3 >= 9 ? 0 : num3;
           GlobalVars.SelectedPartyIndex.Set(num4);
           break;
         case FlowNode_SelectParty.PartyTypes.Arena:
-          int num5 = !PlayerPrefs.HasKey(PlayerData.ARENA_TEAM_ID_KEY) ? 0 : PlayerPrefs.GetInt(PlayerData.ARENA_TEAM_ID_KEY);
-          int num6 = num5 < 0 || num5 >= 8 ? 0 : num5;
+          int num5 = PlayerPrefsUtility.GetInt(PlayerPrefsUtility.ARENA_TEAM_ID_KEY, 0);
+          int num6 = num5 < 0 || num5 >= 9 ? 0 : num5;
           GlobalVars.SelectedPartyIndex.Set(num6);
           break;
         case FlowNode_SelectParty.PartyTypes.ArenaDefense:
@@ -74,13 +73,13 @@ namespace SRPG
       switch (this.PartyType)
       {
         case FlowNode_SelectParty.PartyTypes.Normal:
-          PlayerPrefs.SetInt(PlayerData.TEAM_ID_KEY, (int) GlobalVars.SelectedPartyIndex);
+          PlayerPrefsUtility.SetInt(PlayerPrefsUtility.TEAM_ID_KEY, (int) GlobalVars.SelectedPartyIndex, false);
           break;
         case FlowNode_SelectParty.PartyTypes.Multi:
-          PlayerPrefs.SetInt(PlayerData.MULTI_PLAY_TEAM_ID_KEY, (int) GlobalVars.SelectedPartyIndex);
+          PlayerPrefsUtility.SetInt(PlayerPrefsUtility.MULTI_PLAY_TEAM_ID_KEY, (int) GlobalVars.SelectedPartyIndex, false);
           break;
         case FlowNode_SelectParty.PartyTypes.Arena:
-          PlayerPrefs.SetInt(PlayerData.ARENA_TEAM_ID_KEY, (int) GlobalVars.SelectedPartyIndex);
+          PlayerPrefsUtility.SetInt(PlayerPrefsUtility.ARENA_TEAM_ID_KEY, (int) GlobalVars.SelectedPartyIndex, false);
           break;
         case FlowNode_SelectParty.PartyTypes.ArenaDefense:
           MonoSingleton<GameManager>.Instance.Player.SetDefenseParty((int) GlobalVars.SelectedPartyIndex);

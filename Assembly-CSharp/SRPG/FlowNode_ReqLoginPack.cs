@@ -1,18 +1,19 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_ReqLoginPack
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.Pin(10, "Success", FlowNode.PinTypes.Output, 10)]
-  [FlowNode.Pin(1, "Start", FlowNode.PinTypes.Input, 0)]
   [FlowNode.NodeType("System/ReqLoginPack", 32741)]
+  [FlowNode.Pin(1, "Start", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(10, "Success", FlowNode.PinTypes.Output, 10)]
   public class FlowNode_ReqLoginPack : FlowNode_Network
   {
     public override void OnActivate(int pinID)
@@ -21,7 +22,7 @@ namespace SRPG
         return;
       if (Network.Mode == Network.EConnectMode.Online)
       {
-        this.ExecRequest((WebAPI) new ReqLoginPack(new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+        this.ExecRequest((WebAPI) new ReqLoginPack(new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback), MonoSingleton<GameManager>.Instance.IsRelogin));
         ((Behaviour) this).set_enabled(true);
       }
       else
@@ -39,39 +40,32 @@ namespace SRPG
     {
       if (trophy_progs == null)
         return;
+      Dictionary<int, List<JSON_TrophyProgress>> progs = new Dictionary<int, List<JSON_TrophyProgress>>();
       GameManager instance = MonoSingleton<GameManager>.Instance;
-      for (int index1 = 0; index1 < trophy_progs.Length; ++index1)
+      for (int index = 0; index < trophy_progs.Length; ++index)
       {
-        JSON_TrophyProgress trophyProg = trophy_progs[index1];
+        JSON_TrophyProgress trophyProg = trophy_progs[index];
         if (trophyProg != null)
         {
-          if (instance.MasterParam.GetTrophy(trophyProg.iname) == null)
+          TrophyParam trophy = instance.MasterParam.GetTrophy(trophyProg.iname);
+          if (trophy == null)
           {
             DebugUtility.LogWarning("存在しないミッション:" + trophyProg.iname);
           }
           else
           {
-            TrophyState trophyCounter = instance.Player.GetTrophyCounter(instance.MasterParam.GetTrophy(trophyProg.iname));
-            for (int index2 = 0; index2 < trophyProg.pts.Length && index2 < trophyCounter.Count.Length; ++index2)
-              trophyCounter.Count[index2] = trophyProg.pts[index2];
-            trophyCounter.StartYMD = trophyProg.ymd;
-            trophyCounter.IsEnded = trophyProg.rewarded_at != 0;
-            if (trophyProg.rewarded_at != 0)
+            if (trophy.Objectives[0].type.IsExtraClear())
             {
-              try
-              {
-                trophyCounter.RewardedAt = trophyProg.rewarded_at.FromYMD();
-              }
-              catch
-              {
-                trophyCounter.RewardedAt = DateTime.MinValue;
-              }
+              int type = (int) trophy.Objectives[0].type;
+              if (!progs.ContainsKey(type))
+                progs[type] = new List<JSON_TrophyProgress>();
+              progs[type].Add(trophy_progs[index]);
             }
-            else
-              trophyCounter.RewardedAt = DateTime.MinValue;
+            instance.Player.RegistTrophyStateDictByProg(instance.MasterParam.GetTrophy(trophyProg.iname), trophyProg);
           }
         }
       }
+      instance.Player.CreateInheritingExtraTrophy(progs);
     }
 
     private void reflectLoginTrophyProgs()
@@ -86,7 +80,7 @@ namespace SRPG
       {
         if (trophiesOfType[index] != null)
         {
-          TrophyState trophyCounter = player.GetTrophyCounter(trophiesOfType[index].Param);
+          TrophyState trophyCounter = player.GetTrophyCounter(trophiesOfType[index].Param, false);
           if (trophyCounter != null && !(trophyCounter.Count == null | trophyCounter.Count.Length < 1))
           {
             trophyCounter.Count[0] = loginCount;
@@ -112,19 +106,30 @@ namespace SRPG
         else
         {
           GameManager instance = MonoSingleton<GameManager>.Instance;
-          instance.ResetJigenQuests();
+          instance.Player.ResetQuestChallenges();
+          instance.ResetJigenQuests(true);
           if (!instance.Deserialize(jsonObject.body.quests))
           {
             this.OnFailed();
           }
           else
           {
+            if (instance.IsRelogin)
+            {
+              instance.Player.DeleteTrophies(jsonObject.body.trophyprogs);
+              instance.Player.DeleteTrophies(jsonObject.body.bingoprogs);
+            }
             this.reflectTrophyProgs(jsonObject.body.trophyprogs);
             this.reflectTrophyProgs(jsonObject.body.bingoprogs);
             this.reflectLoginTrophyProgs();
-            GlobalVars.CurrentChatChannel.Set(jsonObject.body.channel);
-            GlobalVars.SelectedSupportUnitUniqueID.Set(jsonObject.body.support);
+            if (jsonObject.body.channel != 0)
+              GlobalVars.CurrentChatChannel.Set(jsonObject.body.channel);
+            if (jsonObject.body.support != 0L)
+              GlobalVars.SelectedSupportUnitUniqueID.Set(jsonObject.body.support);
+            FlowNode_Variable.Set("SHOW_CHAPTER", "0");
             Network.RemoveAPI();
+            instance.Player.OnLogin();
+            instance.IsRelogin = false;
             this.Success();
           }
         }

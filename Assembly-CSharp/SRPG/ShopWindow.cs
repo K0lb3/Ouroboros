@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.ShopWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -60,7 +60,7 @@ namespace SRPG
     {
       if (MonoSingleton<GameManager>.Instance.Player.CheckEnableConvertGold())
         FlowNode_GameObject.ActivateOutputLinks((Component) this, 10);
-      if (Object.op_Inequality((Object) this.ImgNPC, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ImgNPC, (UnityEngine.Object) null))
       {
         EShopType npcRand = this.NpcRandArray[Random.Range(0, this.NpcRandArray.Length)];
         this.ImgNPC.set_texture((Texture) AssetManager.Load<Texture2D>(ShopWindow.ImgPathPrefix + (object) npcRand));
@@ -74,7 +74,7 @@ namespace SRPG
 
     private void OnDestroy()
     {
-      if (!Object.op_Inequality((Object) MonoSingleton<GameManager>.GetInstanceDirect(), (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) MonoSingleton<GameManager>.GetInstanceDirect(), (UnityEngine.Object) null))
         return;
       MonoSingleton<GameManager>.GetInstanceDirect().OnSceneChange -= new GameManager.SceneChangeEvent(this.OnGoOutShop);
     }

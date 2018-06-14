@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: YuremonoInstance
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections.Generic;
@@ -174,7 +174,7 @@ public class YuremonoInstance : MonoBehaviour
       Transform childRecursively = GameUtility.findChildRecursively(transform, this.Param.Targets[index].TargetName);
       if (Object.op_Equality((Object) childRecursively, (Object) null))
       {
-        Debug.LogWarning((object) ("Target '" + this.Param.Targets[index].TargetName + "' not found."));
+        DebugUtility.LogError("Target '" + this.Param.Targets[index].TargetName + "' not found.");
       }
       else
       {
@@ -229,7 +229,8 @@ public class YuremonoInstance : MonoBehaviour
     this.SkirtLateUpdate();
     Vector3 lossyScale = ((Component) this).get_transform().get_lossyScale();
     float scale = (float) (((double) Mathf.Abs((float) lossyScale.x) + (double) Mathf.Abs((float) lossyScale.y) + (double) Mathf.Abs((float) lossyScale.z)) / 3.0);
-    Vector3 vector3_1 = Vector3.op_Multiply(Physics.get_gravity(), Time.get_deltaTime());
+    float deltaTime = Time.get_deltaTime();
+    Vector3 vector3_1 = Vector3.op_Multiply(Physics.get_gravity(), deltaTime);
     for (int index = this.mStates.Count - 1; index >= 0; --index)
     {
       YuremonoInstance.TargetState mState = this.mStates[index];
@@ -239,13 +240,13 @@ public class YuremonoInstance : MonoBehaviour
         Vector3 vector3_3 = mState.CalcScaledBaseTailPos(scale);
         mState.DesiredTailPos = Vector3.Lerp(vector3_3, vector3_2, mState.Param.Kinematic);
         YuremonoInstance.TargetState targetState1 = mState;
-        targetState1.Velocity = Vector3.op_Multiply(targetState1.Velocity, (float) (1.0 - (double) mState.Param.Damping * (double) Time.get_deltaTime()));
+        targetState1.Velocity = Vector3.op_Multiply(targetState1.Velocity, (float) (1.0 - (double) mState.Param.Damping * (double) deltaTime));
         Vector3 vector3_4 = YuremonoInstance.CalcConstrainedPos(mState.TailPos, mState.Transform.get_position(), mState.Param.Length * scale);
         Vector3 vector3_5 = Vector3.op_Subtraction(mState.DesiredTailPos, vector3_4);
-        Vector3 vector3_6 = Vector3.op_Addition(mState.Velocity, Vector3.op_Multiply(Vector3.op_Multiply(vector3_5, Time.get_deltaTime()), mState.Param.Acceleration));
+        Vector3 vector3_6 = Vector3.op_Addition(mState.Velocity, Vector3.op_Multiply(Vector3.op_Multiply(vector3_5, deltaTime), mState.Param.Acceleration));
         mState.Velocity = vector3_6;
         YuremonoInstance.TargetState targetState2 = mState;
-        targetState2.TailPos = Vector3.op_Addition(targetState2.TailPos, Vector3.op_Addition(Vector3.op_Multiply(mState.Velocity, Time.get_deltaTime()), Vector3.op_Multiply(vector3_1, mState.Param.Gravity)));
+        targetState2.TailPos = Vector3.op_Addition(targetState2.TailPos, Vector3.op_Addition(Vector3.op_Multiply(mState.Velocity, deltaTime), Vector3.op_Multiply(vector3_1, mState.Param.Gravity)));
         mState.TailPos = YuremonoInstance.CalcConstrainedPos(mState.TailPos, mState.Transform.get_position(), mState.Param.Length * scale);
         if ((double) mState.Param.AngularLimit > 0.0)
         {

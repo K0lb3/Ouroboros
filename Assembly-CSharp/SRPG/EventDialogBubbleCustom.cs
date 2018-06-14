@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.EventDialogBubbleCustom
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -82,7 +82,7 @@ namespace SRPG
       for (int index = EventDialogBubbleCustom.Instances.Count - 1; index >= 0; --index)
       {
         if (!((Component) EventDialogBubbleCustom.Instances[index]).get_gameObject().get_activeInHierarchy())
-          Object.Destroy((Object) ((Component) EventDialogBubbleCustom.Instances[index]).get_gameObject());
+          UnityEngine.Object.Destroy((UnityEngine.Object) ((Component) EventDialogBubbleCustom.Instances[index]).get_gameObject());
         else
           EventDialogBubbleCustom.Instances[index].mCloseAndDestroy = true;
       }
@@ -92,7 +92,7 @@ namespace SRPG
     private void Awake()
     {
       EventDialogBubbleCustom.Instances.Add(this);
-      if (!Object.op_Inequality((Object) this.BodyText, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BodyText, (UnityEngine.Object) null))
         return;
       RectTransform transform1 = ((Component) this).get_transform() as RectTransform;
       RectTransform transform2 = ((Component) this.BodyText).get_transform() as RectTransform;
@@ -119,6 +119,14 @@ namespace SRPG
       this.mVoice = (MySound.Voice) null;
     }
 
+    public void StopVoice()
+    {
+      if (this.mVoice == null)
+        return;
+      this.mVoice.StopAll(0.0f);
+      this.mVoice = (MySound.Voice) null;
+    }
+
     public bool IsPrinting
     {
       get
@@ -142,7 +150,7 @@ namespace SRPG
 
     public void AdjustWidth(string bodyText)
     {
-      if (Object.op_Equality((Object) this.BodyText, (Object) null) || !this.AutoExpandWidth)
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.BodyText, (UnityEngine.Object) null) || !this.AutoExpandWidth)
         return;
       EventDialogBubbleCustom.Element[] elementArray = EventDialogBubbleCustom.SplitTags(bodyText);
       StringBuilder stringBuilder = new StringBuilder(elementArray.Length);
@@ -160,7 +168,7 @@ namespace SRPG
 
     public void SetName(string name)
     {
-      if (!Object.op_Inequality((Object) this.NameText, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.NameText, (UnityEngine.Object) null))
         return;
       this.NameText.set_text(name);
     }
@@ -257,14 +265,14 @@ namespace SRPG
         this.mCharacters = new EventDialogBubbleCustom.Character[mTextQueue.Length * 2];
       string str = "REPLACE_PLAYER_NAME";
       string newValue = string.Empty;
-      if (Object.op_Inequality((Object) MonoSingleton<GameManager>.GetInstanceDirect(), (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) MonoSingleton<GameManager>.GetInstanceDirect(), (UnityEngine.Object) null))
         newValue = MonoSingleton<GameManager>.GetInstanceDirect().Player.Name;
       string s = mTextQueue.Replace("<p_name>", str).Replace("<br>", "\n");
       EventAction_Dialog.TextSpeedTypes speed = EventAction_Dialog.TextSpeedTypes.Normal;
       int n = 0;
       EventDialogBubbleCustom.Ctx ctx = new EventDialogBubbleCustom.Ctx();
       ctx.Interval = speed.ToFloat();
-      ctx.Color = Color32.op_Implicit(!Object.op_Inequality((Object) this.BodyText, (Object) null) ? Color.get_black() : ((Graphic) this.BodyText).get_color());
+      ctx.Color = Color32.op_Implicit(!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BodyText, (UnityEngine.Object) null) ? Color.get_black() : ((Graphic) this.BodyText).get_color());
       this.mNumCharacters = 0;
       EventDialogBubbleCustom.Element[] c = EventDialogBubbleCustom.SplitTags(s);
       for (int index = 0; index < c.Length; ++index)
@@ -273,7 +281,7 @@ namespace SRPG
           c[index].Value = c[index].Value.Replace(str, newValue);
       }
       this.Parse(c, ref n, (string) null, ctx);
-      if (Object.op_Inequality((Object) this.BodyText, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BodyText, (UnityEngine.Object) null))
         this.BodyText.set_text(string.Empty);
       this.mStartTime = Time.get_time() + this.FadeInTime;
       this.mTextNeedsUpdate = this.mNumCharacters > 0;
@@ -284,8 +292,8 @@ namespace SRPG
       }
       else
       {
-        this.mVoice = new MySound.Voice(this.VoiceSheetName, (string) null, (string) null);
-        this.mVoice.Play(this.VoiceCueName, 0.0f);
+        this.mVoice = new MySound.Voice(this.VoiceSheetName, (string) null, (string) null, EventAction.IsUnManagedAssets(this.VoiceSheetName, false));
+        this.mVoice.Play(this.VoiceCueName, 0.0f, false);
         this.VoiceCueName = (string) null;
       }
     }
@@ -390,7 +398,7 @@ namespace SRPG
           else
             break;
         }
-        if (Object.op_Inequality((Object) this.BodyText, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BodyText, (UnityEngine.Object) null))
           this.BodyText.set_text(stringBuilder.ToString());
         if ((double) this.mStartTime + (double) this.mCharacters[this.mNumCharacters - 1].TimeOffset > (double) time)
           return;
@@ -411,7 +419,7 @@ namespace SRPG
           stringBuilder.Append(this.mCharacters[index].Code);
           stringBuilder.Append("</color>");
         }
-        if (Object.op_Inequality((Object) this.BodyText, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BodyText, (UnityEngine.Object) null))
           this.BodyText.set_text(stringBuilder.ToString());
         if ((double) this.mStartTime + (double) this.mCharacters[this.mNumCharacters - 1].TimeOffset > (double) time)
           return;
@@ -421,7 +429,7 @@ namespace SRPG
 
     private void UpdateStateBool()
     {
-      if (!Object.op_Inequality((Object) this.BubbleAnimator, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BubbleAnimator, (UnityEngine.Object) null))
         return;
       this.BubbleAnimator.SetBool(this.VisibilityBoolName, this.mShouldOpen);
     }
@@ -431,21 +439,21 @@ namespace SRPG
       if (this.mCloseAndDestroy)
       {
         this.mShouldOpen = false;
-        if (Object.op_Inequality((Object) this.BubbleAnimator, (Object) null) && !string.IsNullOrEmpty(this.ClosedStateName))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BubbleAnimator, (UnityEngine.Object) null) && !string.IsNullOrEmpty(this.ClosedStateName))
         {
           this.UpdateStateBool();
           AnimatorStateInfo animatorStateInfo = this.BubbleAnimator.GetCurrentAnimatorStateInfo(0);
           // ISSUE: explicit reference operation
           if (!((AnimatorStateInfo) @animatorStateInfo).IsName(this.ClosedStateName))
             return;
-          Object.Destroy((Object) ((Component) this).get_gameObject());
+          UnityEngine.Object.Destroy((UnityEngine.Object) ((Component) this).get_gameObject());
         }
         else
-          Object.Destroy((Object) ((Component) this).get_gameObject());
+          UnityEngine.Object.Destroy((UnityEngine.Object) ((Component) this).get_gameObject());
       }
       else
       {
-        if (Object.op_Inequality((Object) this.BubbleAnimator, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BubbleAnimator, (UnityEngine.Object) null))
         {
           this.UpdateStateBool();
           if (!this.mShouldOpen && !string.IsNullOrEmpty(this.ClosedStateName))

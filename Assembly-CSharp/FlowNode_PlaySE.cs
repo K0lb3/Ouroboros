@@ -1,15 +1,15 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: FlowNode_PlaySE
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
 using UnityEngine;
 
 [FlowNode.Pin(100, "OneShot", FlowNode.PinTypes.Input, 0)]
-[FlowNode.NodeType("Sound/PlaySE", 32741)]
 [FlowNode.Pin(1, "Output", FlowNode.PinTypes.Output, 1)]
+[FlowNode.NodeType("Sound/PlaySE", 32741)]
 public class FlowNode_PlaySE : FlowNode
 {
   public MySound.EType Type = MySound.EType.SE;
@@ -84,7 +84,7 @@ public class FlowNode_PlaySE : FlowNode
     }
     else
     {
-      this.mHandle = MySound.CueSheetHandle.Create(this.mSheetName, this.Type, true, true, false);
+      this.mHandle = MySound.CueSheetHandle.Create(this.mSheetName, this.Type, true, true, false, false);
       if (this.mHandle != null)
       {
         if (this.UseCustomPlay)
@@ -94,7 +94,7 @@ public class FlowNode_PlaySE : FlowNode
         else
         {
           this.mHandle.CreateDefaultOneShotSource();
-          this.mHandle.PlayDefaultOneShot(this.cueID, false, 0.0f);
+          this.mHandle.PlayDefaultOneShot(this.cueID, false, 0.0f, false);
         }
       }
     }

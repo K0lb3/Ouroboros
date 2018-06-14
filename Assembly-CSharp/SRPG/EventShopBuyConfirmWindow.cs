@@ -1,12 +1,13 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.EventShopBuyConfirmWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace SRPG
 {
@@ -16,6 +17,9 @@ namespace SRPG
     public RectTransform UnitLayoutParent;
     public GameObject UnitTemplate;
     public GameObject EnableEquipUnitWindow;
+    public GameObject limited_item;
+    public GameObject no_limited_item;
+    public Text SoldNum;
     private List<GameObject> mUnits;
 
     public EventShopBuyConfirmWindow()
@@ -50,6 +54,12 @@ namespace SRPG
       for (int index = 0; index < this.mUnits.Count; ++index)
         this.mUnits[index].get_gameObject().SetActive(false);
       EventShopItem data1 = MonoSingleton<GameManager>.Instance.Player.GetEventShopData().items[GlobalVars.ShopBuyIndex];
+      if (Object.op_Inequality((Object) this.limited_item, (Object) null))
+        this.limited_item.SetActive(!data1.IsNotLimited);
+      if (Object.op_Inequality((Object) this.no_limited_item, (Object) null))
+        this.no_limited_item.SetActive(data1.IsNotLimited);
+      if (Object.op_Inequality((Object) this.SoldNum, (Object) null))
+        this.SoldNum.set_text(data1.remaining_num.ToString());
       ItemData itemDataByItemId = MonoSingleton<GameManager>.Instance.Player.FindItemDataByItemID(data1.iname);
       if (Object.op_Inequality((Object) this.EnableEquipUnitWindow, (Object) null))
       {

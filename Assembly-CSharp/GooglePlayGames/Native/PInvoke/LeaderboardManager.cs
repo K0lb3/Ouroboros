@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: GooglePlayGames.Native.PInvoke.LeaderboardManager
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using AOT;
@@ -53,20 +53,20 @@ namespace GooglePlayGames.Native.PInvoke
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      LeaderboardManager.\u003CLoadLeaderboardData\u003Ec__AnonStorey164 dataCAnonStorey164 = new LeaderboardManager.\u003CLoadLeaderboardData\u003Ec__AnonStorey164();
+      LeaderboardManager.\u003CLoadLeaderboardData\u003Ec__AnonStorey1D8 dataCAnonStorey1D8 = new LeaderboardManager.\u003CLoadLeaderboardData\u003Ec__AnonStorey1D8();
       // ISSUE: reference to a compiler-generated field
-      dataCAnonStorey164.playerId = playerId;
+      dataCAnonStorey1D8.playerId = playerId;
       // ISSUE: reference to a compiler-generated field
-      dataCAnonStorey164.rowCount = rowCount;
+      dataCAnonStorey1D8.rowCount = rowCount;
       // ISSUE: reference to a compiler-generated field
-      dataCAnonStorey164.callback = callback;
+      dataCAnonStorey1D8.callback = callback;
       // ISSUE: reference to a compiler-generated field
-      dataCAnonStorey164.\u003C\u003Ef__this = this;
+      dataCAnonStorey1D8.\u003C\u003Ef__this = this;
       NativeScorePageToken nativeScorePageToken = new NativeScorePageToken(GooglePlayGames.Native.Cwrapper.LeaderboardManager.LeaderboardManager_ScorePageToken(this.mServices.AsHandle(), leaderboardId, (Types.LeaderboardStart) start, (Types.LeaderboardTimeSpan) timeSpan, (Types.LeaderboardCollection) collection));
       // ISSUE: reference to a compiler-generated field
-      dataCAnonStorey164.token = new ScorePageToken((object) nativeScorePageToken, leaderboardId, collection, timeSpan);
+      dataCAnonStorey1D8.token = new ScorePageToken((object) nativeScorePageToken, leaderboardId, collection, timeSpan);
       // ISSUE: reference to a compiler-generated method
-      GooglePlayGames.Native.Cwrapper.LeaderboardManager.LeaderboardManager_Fetch(this.mServices.AsHandle(), Types.DataSource.CACHE_OR_NETWORK, leaderboardId, new GooglePlayGames.Native.Cwrapper.LeaderboardManager.FetchCallback(LeaderboardManager.InternalFetchCallback), Callbacks.ToIntPtr<FetchResponse>(new Action<FetchResponse>(dataCAnonStorey164.\u003C\u003Em__A1), new Func<IntPtr, FetchResponse>(FetchResponse.FromPointer)));
+      GooglePlayGames.Native.Cwrapper.LeaderboardManager.LeaderboardManager_Fetch(this.mServices.AsHandle(), Types.DataSource.CACHE_OR_NETWORK, leaderboardId, new GooglePlayGames.Native.Cwrapper.LeaderboardManager.FetchCallback(LeaderboardManager.InternalFetchCallback), Callbacks.ToIntPtr<FetchResponse>(new Action<FetchResponse>(dataCAnonStorey1D8.\u003C\u003Em__EA), new Func<IntPtr, FetchResponse>(FetchResponse.FromPointer)));
     }
 
     [MonoPInvokeCallback(typeof (GooglePlayGames.Native.Cwrapper.LeaderboardManager.FetchCallback))]
@@ -79,39 +79,39 @@ namespace GooglePlayGames.Native.PInvoke
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      LeaderboardManager.\u003CHandleFetch\u003Ec__AnonStorey165 fetchCAnonStorey165 = new LeaderboardManager.\u003CHandleFetch\u003Ec__AnonStorey165();
+      LeaderboardManager.\u003CHandleFetch\u003Ec__AnonStorey1D9 fetchCAnonStorey1D9 = new LeaderboardManager.\u003CHandleFetch\u003Ec__AnonStorey1D9();
       // ISSUE: reference to a compiler-generated field
-      fetchCAnonStorey165.selfPlayerId = selfPlayerId;
+      fetchCAnonStorey1D9.selfPlayerId = selfPlayerId;
       // ISSUE: reference to a compiler-generated field
-      fetchCAnonStorey165.maxResults = maxResults;
+      fetchCAnonStorey1D9.maxResults = maxResults;
       // ISSUE: reference to a compiler-generated field
-      fetchCAnonStorey165.token = token;
+      fetchCAnonStorey1D9.token = token;
       // ISSUE: reference to a compiler-generated field
-      fetchCAnonStorey165.callback = callback;
+      fetchCAnonStorey1D9.callback = callback;
       // ISSUE: reference to a compiler-generated field
-      fetchCAnonStorey165.\u003C\u003Ef__this = this;
+      fetchCAnonStorey1D9.\u003C\u003Ef__this = this;
       // ISSUE: reference to a compiler-generated field
       // ISSUE: reference to a compiler-generated field
-      fetchCAnonStorey165.data = new LeaderboardScoreData(fetchCAnonStorey165.token.LeaderboardId, (GooglePlayGames.BasicApi.ResponseStatus) response.GetStatus());
+      fetchCAnonStorey1D9.data = new LeaderboardScoreData(fetchCAnonStorey1D9.token.LeaderboardId, (GooglePlayGames.BasicApi.ResponseStatus) response.GetStatus());
       if (response.GetStatus() != CommonErrorStatus.ResponseStatus.VALID && response.GetStatus() != CommonErrorStatus.ResponseStatus.VALID_BUT_STALE)
       {
         Logger.w("Error returned from fetch: " + (object) response.GetStatus());
         // ISSUE: reference to a compiler-generated field
         // ISSUE: reference to a compiler-generated field
-        fetchCAnonStorey165.callback(fetchCAnonStorey165.data);
+        fetchCAnonStorey1D9.callback(fetchCAnonStorey1D9.data);
       }
       else
       {
         // ISSUE: reference to a compiler-generated field
-        fetchCAnonStorey165.data.Title = response.Leaderboard().Title();
+        fetchCAnonStorey1D9.data.Title = response.Leaderboard().Title();
         // ISSUE: reference to a compiler-generated field
         // ISSUE: reference to a compiler-generated field
-        fetchCAnonStorey165.data.Id = fetchCAnonStorey165.token.LeaderboardId;
+        fetchCAnonStorey1D9.data.Id = fetchCAnonStorey1D9.token.LeaderboardId;
         // ISSUE: reference to a compiler-generated field
         // ISSUE: reference to a compiler-generated field
         // ISSUE: reference to a compiler-generated field
         // ISSUE: reference to a compiler-generated method
-        GooglePlayGames.Native.Cwrapper.LeaderboardManager.LeaderboardManager_FetchScoreSummary(this.mServices.AsHandle(), Types.DataSource.CACHE_OR_NETWORK, fetchCAnonStorey165.token.LeaderboardId, (Types.LeaderboardTimeSpan) fetchCAnonStorey165.token.TimeSpan, (Types.LeaderboardCollection) fetchCAnonStorey165.token.Collection, new GooglePlayGames.Native.Cwrapper.LeaderboardManager.FetchScoreSummaryCallback(LeaderboardManager.InternalFetchSummaryCallback), Callbacks.ToIntPtr<FetchScoreSummaryResponse>(new Action<FetchScoreSummaryResponse>(fetchCAnonStorey165.\u003C\u003Em__A2), new Func<IntPtr, FetchScoreSummaryResponse>(FetchScoreSummaryResponse.FromPointer)));
+        GooglePlayGames.Native.Cwrapper.LeaderboardManager.LeaderboardManager_FetchScoreSummary(this.mServices.AsHandle(), Types.DataSource.CACHE_OR_NETWORK, fetchCAnonStorey1D9.token.LeaderboardId, (Types.LeaderboardTimeSpan) fetchCAnonStorey1D9.token.TimeSpan, (Types.LeaderboardCollection) fetchCAnonStorey1D9.token.Collection, new GooglePlayGames.Native.Cwrapper.LeaderboardManager.FetchScoreSummaryCallback(LeaderboardManager.InternalFetchSummaryCallback), Callbacks.ToIntPtr<FetchScoreSummaryResponse>(new Action<FetchScoreSummaryResponse>(fetchCAnonStorey1D9.\u003C\u003Em__EB), new Func<IntPtr, FetchScoreSummaryResponse>(FetchScoreSummaryResponse.FromPointer)));
       }
     }
 

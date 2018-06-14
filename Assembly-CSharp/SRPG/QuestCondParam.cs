@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.QuestCondParam
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -18,6 +18,7 @@ namespace SRPG
     public int[] elem;
     public bool isElemLimit;
     public string[] job;
+    public PartyCondType party_type;
     public string[] unit;
     public ESex sex;
     public int rmax;
@@ -81,6 +82,7 @@ namespace SRPG
         for (int index4 = 0; index4 < this.birth.Length; ++index4)
           this.birth[index4] = json.birth[index4];
       }
+      this.party_type = !Enum.IsDefined(typeof (PartyCondType), (object) json.party_type) ? PartyCondType.None : (PartyCondType) json.party_type;
       return true;
     }
   }

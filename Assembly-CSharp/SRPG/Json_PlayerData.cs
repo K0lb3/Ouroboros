@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.Json_PlayerData
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 namespace SRPG
@@ -23,6 +23,7 @@ namespace SRPG
     public int cnt_buygold;
     public string cuid;
     public string fuid;
+    public int paying;
     public int logincont;
     public int mail_unread;
     public int mail_f_unread;
@@ -43,6 +44,7 @@ namespace SRPG
     public Json_Friends friends;
     public int newgame_at;
     public string selected_award;
+    public Json_MultiOption multi;
     public string language;
     public int mail_count;
   }

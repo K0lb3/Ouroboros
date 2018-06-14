@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.AbilityRankUpPanel
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -18,6 +18,8 @@ namespace SRPG
     public Text RecoveryTimeText;
     public SRPG_Button ResetButton;
     public AbilityRankUpPanel.ResetAbilityRankUpCountEvent OnAbilityRankUpCountReset;
+    public string AB_RANKUP_ADD_WINDOW_PATH;
+    private int UseCoin;
 
     public AbilityRankUpPanel()
     {
@@ -28,14 +30,14 @@ namespace SRPG
     {
       this.UpdateValue();
       this.Update();
-      if (Object.op_Inequality((Object) this.ResetButton, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ResetButton, (UnityEngine.Object) null))
         this.ResetButton.AddListener(new SRPG_Button.ButtonClickEvent(this.Clicked));
       MonoSingleton<GameManager>.Instance.OnAbilityRankUpCountChange += new GameManager.RankUpCountChangeEvent(this.OnAbilityRankUpCountChange);
     }
 
     private void OnDestroy()
     {
-      if (!Object.op_Inequality((Object) MonoSingleton<GameManager>.GetInstanceDirect(), (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) MonoSingleton<GameManager>.GetInstanceDirect(), (UnityEngine.Object) null))
         return;
       MonoSingleton<GameManager>.Instance.OnAbilityRankUpCountChange -= new GameManager.RankUpCountChangeEvent(this.OnAbilityRankUpCountChange);
     }
@@ -48,12 +50,34 @@ namespace SRPG
 
     private void Clicked(SRPG_Button button)
     {
-      if (!((Selectable) button).IsInteractable())
+      if (!((Selectable) button).IsInteractable() || string.IsNullOrEmpty(this.AB_RANKUP_ADD_WINDOW_PATH))
         return;
-      UIUtility.ConfirmBox(LocalizedText.Get("sys.RESTORE_ABILITY_RANKUP_NUM", new object[1]
+      GameObject gameObject1 = AssetManager.Load<GameObject>(this.AB_RANKUP_ADD_WINDOW_PATH);
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) gameObject1, (UnityEngine.Object) null))
+        return;
+      GameObject gameObject2 = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) gameObject1);
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) gameObject2, (UnityEngine.Object) null))
+        return;
+      AbilityRankUpPointAddWindow componentInChildren = (AbilityRankUpPointAddWindow) gameObject2.GetComponentInChildren<AbilityRankUpPointAddWindow>();
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) componentInChildren, (UnityEngine.Object) null))
+        return;
+      componentInChildren.OnDecide = new AbilityRankUpPointAddWindow.DecideEvent(this.OnDecide);
+      componentInChildren.OnCancel = (AbilityRankUpPointAddWindow.CancelEvent) null;
+    }
+
+    private void OnDecide(int value)
+    {
+      GameManager instance = MonoSingleton<GameManager>.Instance;
+      if (instance.Player.Coin < (int) instance.MasterParam.FixParam.AbilityRankupPointCoinRate * value)
       {
-        (object) MonoSingleton<GameManager>.Instance.MasterParam.FixParam.AbilityRankUpCountCoin
-      }), new UIUtility.DialogResultEvent(this.OnAccept), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1);
+        instance.ConfirmBuyCoin((GameManager.BuyCoinEvent) null, (GameManager.BuyCoinEvent) null);
+      }
+      else
+      {
+        instance.OnAbilityRankUpCountPreReset(0);
+        this.UseCoin = value;
+        Network.RequestAPI((WebAPI) new ReqItemAbilPointPaid(value, new Network.ResponseCallback(this.OnRequestResult)), false);
+      }
     }
 
     private void OnAccept(GameObject go)
@@ -102,7 +126,7 @@ namespace SRPG
           FlowNode_Network.Retry();
           return;
         }
-        AnalyticsManager.TrackSpendCoin("AbilityPoint", (int) MonoSingleton<GameManager>.Instance.MasterParam.FixParam.AbilityRankUpCountCoin);
+        AnalyticsManager.TrackOriginalCurrencyUse(ESaleType.Coin, (int) MonoSingleton<GameManager>.Instance.MasterParam.FixParam.AbilityRankUpCountCoin, "AbilityPoint");
         this.UpdateValue();
         this.Success();
       }
@@ -120,26 +144,26 @@ namespace SRPG
     public void UpdateValue()
     {
       PlayerData player = MonoSingleton<GameManager>.Instance.Player;
-      if (Object.op_Inequality((Object) this.RemainingCount, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RemainingCount, (UnityEngine.Object) null))
         this.RemainingCount.set_text(LocalizedText.Get("sys.AB_RANKUPCOUNT", new object[1]
         {
           (object) player.AbilityRankUpCountNum
         }));
-      if (!Object.op_Inequality((Object) this.ResetButton, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ResetButton, (UnityEngine.Object) null))
         return;
-      ((Selectable) this.ResetButton).set_interactable(player.AbilityRankUpCountNum <= 0);
+      ((Selectable) this.ResetButton).set_interactable(player.AbilityRankUpCountNum < (int) MonoSingleton<GameManager>.Instance.MasterParam.FixParam.AbilityRankUpPointMax && player.Coin > 0);
     }
 
     private void Update()
     {
       long countRecoverySec = MonoSingleton<GameManager>.Instance.Player.GetNextAbilityRankUpCountRecoverySec();
-      if (Object.op_Inequality((Object) this.RecoveryTimeText, (Object) null) && countRecoverySec > 0L)
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RecoveryTimeText, (UnityEngine.Object) null) && countRecoverySec > 0L)
       {
         string minSecString = TimeManager.ToMinSecString(countRecoverySec);
         if (this.RecoveryTimeText.get_text() != minSecString)
           this.RecoveryTimeText.set_text(minSecString);
       }
-      if (!Object.op_Inequality((Object) this.RecoveryTimeParent, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RecoveryTimeParent, (UnityEngine.Object) null))
         return;
       this.RecoveryTimeParent.SetActive(countRecoverySec > 0L);
     }

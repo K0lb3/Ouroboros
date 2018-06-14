@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: LoadBalancingPeer
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using ExitGames.Client.Photon;
@@ -180,6 +180,29 @@ internal class LoadBalancingPeer : PhotonPeer
     if (becomeInactive)
       dictionary[(byte) 233] = (object) becomeInactive;
     return this.OpCustom((byte) 254, dictionary, true);
+  }
+
+  public virtual bool OpGetGameList(TypedLobby lobby, string queryData)
+  {
+    if (this.DebugOut >= 3)
+      this.get_Listener().DebugReturn((DebugLevel) 3, "OpGetGameList()");
+    if (lobby == null)
+    {
+      if (this.DebugOut >= 3)
+        this.get_Listener().DebugReturn((DebugLevel) 3, "OpGetGameList not sent. Lobby cannot be null.");
+      return false;
+    }
+    if (lobby.Type != LobbyType.SqlLobby)
+    {
+      if (this.DebugOut >= 3)
+        this.get_Listener().DebugReturn((DebugLevel) 3, "OpGetGameList not sent. LobbyType must be SqlLobby.");
+      return false;
+    }
+    Dictionary<byte, object> dictionary = new Dictionary<byte, object>();
+    dictionary[(byte) 213] = (object) lobby.Name;
+    dictionary[(byte) 212] = (object) lobby.Type;
+    dictionary[(byte) 245] = (object) queryData;
+    return this.OpCustom((byte) 217, dictionary, true);
   }
 
   public virtual bool OpFindFriends(string[] friendsToFind)

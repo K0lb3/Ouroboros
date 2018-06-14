@@ -1,13 +1,13 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: UIEventListener
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class UIEventListener : MonoBehaviour, IPointerDownHandler, IPointerClickHandler, IDragHandler, IBeginDragHandler, ISelectHandler, IPointerUpHandler, IDropHandler, IEndDragHandler, IPointerExitHandler, IEventSystemHandler, IPointerEnterHandler, IScrollHandler, IUpdateSelectedHandler, IDeselectHandler, IMoveHandler
+public class UIEventListener : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IScrollHandler, IPointerDownHandler, IPointerClickHandler, ISelectHandler, IPointerUpHandler, IDropHandler, IPointerExitHandler, IEventSystemHandler, IPointerEnterHandler, IUpdateSelectedHandler, IDeselectHandler, IMoveHandler
 {
   public UIEventListener.PointerEvent onPointerEnter;
   public UIEventListener.PointerEvent onPointerExit;

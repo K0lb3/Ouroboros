@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.ArtifactWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -14,16 +14,14 @@ using UnityEngine.UI;
 
 namespace SRPG
 {
-  [FlowNode.Pin(601, "Sell Begin", FlowNode.PinTypes.Output, 601)]
-  [FlowNode.Pin(700, "Reset Sending Request", FlowNode.PinTypes.Input, 700)]
-  [FlowNode.Pin(5, "Refresh", FlowNode.PinTypes.Input, 5)]
-  [FlowNode.Pin(6, "Refresh Exp Items", FlowNode.PinTypes.Input, 6)]
-  [FlowNode.Pin(11, "Show Selection", FlowNode.PinTypes.Input, 7)]
-  [FlowNode.Pin(10, "Flush Requests", FlowNode.PinTypes.Input, 10)]
-  [FlowNode.Pin(100, "Finalize", FlowNode.PinTypes.Input, 100)]
-  [FlowNode.Pin(101, "Finalize Begin", FlowNode.PinTypes.Output, 101)]
   [FlowNode.Pin(102, "Finalize End", FlowNode.PinTypes.Output, 102)]
   [FlowNode.Pin(151, "AddExp Begin", FlowNode.PinTypes.Output, 151)]
+  [FlowNode.Pin(101, "Finalize Begin", FlowNode.PinTypes.Output, 101)]
+  [FlowNode.Pin(100, "Finalize", FlowNode.PinTypes.Input, 100)]
+  [FlowNode.Pin(10, "Flush Requests", FlowNode.PinTypes.Input, 10)]
+  [FlowNode.Pin(11, "Show Selection", FlowNode.PinTypes.Input, 7)]
+  [FlowNode.Pin(6, "Refresh Exp Items", FlowNode.PinTypes.Input, 6)]
+  [FlowNode.Pin(5, "Refresh", FlowNode.PinTypes.Input, 5)]
   [FlowNode.Pin(152, "AddExp End", FlowNode.PinTypes.Output, 152)]
   [FlowNode.Pin(200, "Rarity Up", FlowNode.PinTypes.Input, 200)]
   [FlowNode.Pin(201, "Rarity Up End", FlowNode.PinTypes.Output, 201)]
@@ -35,9 +33,12 @@ namespace SRPG
   [FlowNode.Pin(401, "Decompose End", FlowNode.PinTypes.Output, 402)]
   [FlowNode.Pin(500, "Equip", FlowNode.PinTypes.Output, 500)]
   [FlowNode.Pin(600, "Sell", FlowNode.PinTypes.Input, 600)]
+  [FlowNode.Pin(601, "Sell Begin", FlowNode.PinTypes.Output, 601)]
   [FlowNode.Pin(602, "Sell End", FlowNode.PinTypes.Output, 602)]
+  [FlowNode.Pin(700, "Reset Sending Request", FlowNode.PinTypes.Input, 700)]
   public class ArtifactWindow : MonoBehaviour, IFlowInterface
   {
+    private static readonly string ARTIFACT_EXPMAX_UI_PATH = "UI/ArtifactLevelUpWindow";
     public ArtifactList ArtifactList;
     [StringIsGameObjectID]
     public string ArtifactListID;
@@ -65,6 +66,7 @@ namespace SRPG
     public GameObject KyokaList;
     public GameObject KyokaListItem;
     public string KyokaSE;
+    public SRPG_Button ExpMaxLvupBtn;
     [Space(16f)]
     public StatusList Status;
     public ExpPanel ExpPanel;
@@ -161,9 +163,11 @@ namespace SRPG
     private float mFlushTimer;
     private bool mBusy;
     private bool mDisableFlushRequest;
+    private int mUseEnhanceItemNum;
     private UnitData mCurrentArtifactOwner;
     private JobData mCurrentArtifactOwnerJob;
     private ArtifactData[] mCachedArtifacts;
+    private List<ItemData> mTmpItems;
     private ArtifactWindow.StatusCache mStatusCache;
     private ArtifactTypes mSelectArtifactSlot;
 
@@ -225,6 +229,14 @@ namespace SRPG
       }
     }
 
+    public List<ItemData> TmpItems
+    {
+      get
+      {
+        return this.mTmpItems;
+      }
+    }
+
     public ArtifactTypes SelectArtifactSlot
     {
       get
@@ -240,23 +252,25 @@ namespace SRPG
     private void Start()
     {
       GameManager instanceDirect = MonoSingleton<GameManager>.GetInstanceDirect();
-      if (Object.op_Inequality((Object) instanceDirect, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) instanceDirect, (UnityEngine.Object) null))
         instanceDirect.OnSceneChange += new GameManager.SceneChangeEvent(this.OnSceneCHange);
-      if (Object.op_Inequality((Object) this.ExpPanel, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ExpPanel, (UnityEngine.Object) null))
       {
         this.ExpPanel.SetDelegate(new ExpPanel.CalcEvent(ArtifactData.StaticCalcExpFromLevel), new ExpPanel.CalcEvent(ArtifactData.StaticCalcLevelFromExp));
         this.ExpPanel.OnLevelChange = new ExpPanel.LevelChangeEvent(this.OnLevelChange);
         this.ExpPanel.OnFinish = new ExpPanel.ExpPanelEvent(this.OnKyokaEnd);
       }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ExpMaxLvupBtn, (UnityEngine.Object) null))
+        this.ExpMaxLvupBtn.AddListener(new SRPG_Button.ButtonClickEvent(this.OnExpMaxOpen));
       if (!string.IsNullOrEmpty(this.ArtifactListID))
         this.ArtifactList = GameObjectID.FindGameObject<ArtifactList>(this.ArtifactListID);
-      if (Object.op_Inequality((Object) this.ArtifactList, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ArtifactList, (UnityEngine.Object) null))
         this.ArtifactList.OnSelectionChange += new ArtifactList.SelectionChangeEvent(this.OnArtifactSelect);
-      if (Object.op_Inequality((Object) this.KyokaListItem, (Object) null) && this.KyokaListItem.get_activeInHierarchy())
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.KyokaListItem, (UnityEngine.Object) null) && this.KyokaListItem.get_activeInHierarchy())
         this.KyokaListItem.SetActive(false);
-      if (Object.op_Inequality((Object) this.SelectionListItem, (Object) null) && ((Component) this.SelectionListItem).get_gameObject().get_activeSelf())
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.SelectionListItem, (UnityEngine.Object) null) && ((Component) this.SelectionListItem).get_gameObject().get_activeSelf())
         ((Component) this.SelectionListItem).get_gameObject().SetActive(false);
-      if (Object.op_Inequality((Object) this.ArtifactSlot, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ArtifactSlot, (UnityEngine.Object) null))
         this.ArtifactSlot.SetSlotData<ArtifactData>((ArtifactData) null);
       this.mCurrentArtifact = DataSource.FindDataOfClass<ArtifactData>(((Component) this).get_gameObject(), (ArtifactData) null);
       if (this.mCurrentArtifact != null)
@@ -270,19 +284,19 @@ namespace SRPG
     private void OnDestroy()
     {
       GameManager instanceDirect = MonoSingleton<GameManager>.GetInstanceDirect();
-      if (Object.op_Inequality((Object) instanceDirect, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) instanceDirect, (UnityEngine.Object) null))
         instanceDirect.OnSceneChange -= new GameManager.SceneChangeEvent(this.OnSceneCHange);
-      if (Object.op_Inequality((Object) this.mDetailWindow, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mDetailWindow, (UnityEngine.Object) null))
       {
-        Object.Destroy((Object) this.mDetailWindow.get_gameObject());
+        UnityEngine.Object.Destroy((UnityEngine.Object) this.mDetailWindow.get_gameObject());
         this.mDetailWindow = (GameObject) null;
       }
-      if (Object.op_Inequality((Object) this.mResultWindow, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mResultWindow, (UnityEngine.Object) null))
       {
-        Object.Destroy((Object) this.mResultWindow);
+        UnityEngine.Object.Destroy((UnityEngine.Object) this.mResultWindow);
         this.mResultWindow = (GameObject) null;
       }
-      if (!Object.op_Inequality((Object) this.ArtifactList, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ArtifactList, (UnityEngine.Object) null))
         return;
       this.ArtifactList.OnSelectionChange -= new ArtifactList.SelectionChangeEvent(this.OnArtifactSelect);
     }
@@ -296,9 +310,7 @@ namespace SRPG
           WebAPI api = this.mRequests[0].Compose();
           this.mRequests.RemoveAt(0);
           if (Network.Mode == Network.EConnectMode.Online)
-          {
-            int num = (int) Network.RequestAPIImmediate(api, true);
-          }
+            Network.RequestAPIImmediate(api, true);
         }
       }
       else
@@ -366,7 +378,7 @@ namespace SRPG
 
     public void RefreshKyokaList()
     {
-      if (Object.op_Equality((Object) this.KyokaList, (Object) null) || Object.op_Equality((Object) this.KyokaListItem, (Object) null) || (Object.op_Equality((Object) this.KyokaList, (Object) this.KyokaListItem) || this.KyokaList.get_transform().IsChildOf(this.KyokaListItem.get_transform())))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.KyokaList, (UnityEngine.Object) null) || UnityEngine.Object.op_Equality((UnityEngine.Object) this.KyokaListItem, (UnityEngine.Object) null) || (UnityEngine.Object.op_Equality((UnityEngine.Object) this.KyokaList, (UnityEngine.Object) this.KyokaListItem) || this.KyokaList.get_transform().IsChildOf(this.KyokaListItem.get_transform())))
         return;
       List<ItemData> items = MonoSingleton<GameManager>.Instance.Player.Items;
       int index1 = 0;
@@ -375,24 +387,31 @@ namespace SRPG
       {
         if (items[index2].ItemType == EItemType.ExpUpArtifact)
         {
+          ItemData data = new ItemData();
+          data.Setup(items[index2].UniqueID, items[index2].Param, items[index2].NumNonCap);
           GameObject root;
           if (this.mKyokaItems.Count <= index1)
           {
-            root = (GameObject) Object.Instantiate<GameObject>((M0) this.KyokaListItem);
-            if (Object.op_Inequality((Object) root, (Object) null))
+            root = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.KyokaListItem);
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) root, (UnityEngine.Object) null))
             {
               this.mKyokaItems.Add(root);
               root.get_transform().SetParent(transform, false);
               ListItemEvents component = (ListItemEvents) root.GetComponent<ListItemEvents>();
-              if (Object.op_Inequality((Object) component, (Object) null))
+              if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
                 component.OnSelect = new ListItemEvents.ListItemEvent(this.OnKyokaItemSelect);
             }
           }
           else
+          {
             root = this.mKyokaItems[index1];
-          DataSource.Bind<ItemData>(root, items[index2]);
+            data = this.mTmpItems[index1];
+          }
+          DataSource.Bind<ItemData>(root, data);
           root.SetActive(true);
           GameParameter.UpdateAll(root);
+          if (!this.mTmpItems.Contains(data))
+            this.mTmpItems.Add(data);
           ++index1;
         }
       }
@@ -403,14 +422,55 @@ namespace SRPG
 
     private void OnKyokaItemSelect(GameObject go)
     {
-      if (this.IsBusy || this.mCurrentArtifact == null)
-        return;
       ItemData dataOfClass = DataSource.FindDataOfClass<ItemData>(go, (ItemData) null);
       if (dataOfClass == null || dataOfClass.Num <= 0)
         return;
+      this.RequestUseAddExpItem(dataOfClass, go);
+    }
+
+    private void OnArtifactBulkLevelUp(Dictionary<string, int> data)
+    {
+      List<ItemData> itemDataList = new List<ItemData>();
+      using (Dictionary<string, int>.Enumerator enumerator = data.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+        {
+          KeyValuePair<string, int> current = enumerator.Current;
+          // ISSUE: object of a compiler-generated type is created
+          // ISSUE: variable of a compiler-generated type
+          ArtifactWindow.\u003COnArtifactBulkLevelUp\u003Ec__AnonStorey2FE upCAnonStorey2Fe = new ArtifactWindow.\u003COnArtifactBulkLevelUp\u003Ec__AnonStorey2FE();
+          // ISSUE: reference to a compiler-generated field
+          upCAnonStorey2Fe.iname = current.Key;
+          int num = current.Value;
+          // ISSUE: reference to a compiler-generated method
+          ItemData itemData = this.mTmpItems.Find(new Predicate<ItemData>(upCAnonStorey2Fe.\u003C\u003Em__30B));
+          if (itemData != null)
+          {
+            for (int index = 0; index < num; ++index)
+              itemDataList.Add(itemData);
+          }
+        }
+      }
+      if (itemDataList.Count <= 0)
+        return;
+      this.RequestUseAddExpItem((IEnumerable<ItemData>) itemDataList, (GameObject) null);
+    }
+
+    private void RequestUseAddExpItem(ItemData item, GameObject updataTarget)
+    {
+      this.RequestUseAddExpItem((IEnumerable<ItemData>) new List<ItemData>()
+      {
+        item
+      }, updataTarget);
+    }
+
+    private void RequestUseAddExpItem(IEnumerable<ItemData> itemList, GameObject updataTarget)
+    {
+      if (this.IsBusy || this.mCurrentArtifact == null)
+        return;
       if ((int) this.mCurrentArtifact.Lv >= this.mCurrentArtifact.GetLevelCap())
       {
-        if (!Object.op_Inequality((Object) this.ExpPanel, (Object) null) || this.ExpPanel.IsBusy)
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ExpPanel, (UnityEngine.Object) null) || this.ExpPanel.IsBusy)
           return;
         UIUtility.NegativeSystemMessage((string) null, LocalizedText.Get((int) this.mCurrentArtifact.Rarity < (int) this.mCurrentArtifact.RarityCap ? "sys.ARTI_EXPFULL1" : "sys.ARTI_EXPFULL2"), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1);
       }
@@ -435,7 +495,7 @@ namespace SRPG
           this.mStatusCache = new ArtifactWindow.StatusCache();
           UnitData unit = (UnitData) null;
           int job_index = -1;
-          if (Object.op_Inequality((Object) this.OwnerSlot, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.OwnerSlot, (UnityEngine.Object) null))
           {
             JobData job = (JobData) null;
             if (MonoSingleton<GameManager>.Instance.Player.FindOwner(this.mCurrentArtifact, out unit, out job))
@@ -449,11 +509,16 @@ namespace SRPG
           this.mCurrentArtifact.GetHomePassiveBuffStatus(ref this.mStatusCache.BaseAdd, ref this.mStatusCache.BaseMul, (UnitData) null, 0, true);
           this.mCurrentArtifact.GetHomePassiveBuffStatus(ref this.mStatusCache.UnitAdd, ref this.mStatusCache.UnitMul, unit, job_index, true);
         }
-        requestAddExp.Items.Add(dataOfClass.Param);
-        this.mCurrentArtifact.GainExp((int) dataOfClass.Param.value);
-        MonoSingleton<GameManager>.Instance.Player.GainItem(dataOfClass.Param.iname, -1);
-        GameParameter.UpdateAll(go);
-        if (Object.op_Inequality((Object) this.ExpPanel, (Object) null))
+        foreach (ItemData itemData in itemList)
+        {
+          requestAddExp.Items.Add(itemData.Param);
+          this.mCurrentArtifact.GainExp((int) itemData.Param.value);
+          itemData.Used(1);
+          ++this.mUseEnhanceItemNum;
+        }
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) updataTarget, (UnityEngine.Object) null))
+          GameParameter.UpdateAll(updataTarget);
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ExpPanel, (UnityEngine.Object) null))
           this.ExpPanel.AnimateTo(this.mCurrentArtifact.Exp);
         else
           this.OnKyokaEnd();
@@ -479,6 +544,15 @@ namespace SRPG
         }
         else
         {
+          int beforeLevel = -1;
+          long iid = -1;
+          if (this.mCurrentArtifact != null)
+          {
+            iid = (long) this.mCurrentArtifact.UniqueID;
+            ArtifactData artifactByUniqueId = MonoSingleton<GameManager>.Instance.Player.FindArtifactByUniqueID(iid);
+            if (artifactByUniqueId != null)
+              beforeLevel = (int) artifactByUniqueId.Lv;
+          }
           try
           {
             MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.player);
@@ -496,14 +570,16 @@ namespace SRPG
             this.RefreshArtifactList();
           Network.RemoveAPI();
           this.mSendingRequests = false;
-          MonoSingleton<GameManager>.Instance.Player.OnArtifactStrength(this.mCurrentArtifactParam.iname);
+          ArtifactData artifactByUniqueId1 = MonoSingleton<GameManager>.Instance.Player.FindArtifactByUniqueID(iid);
+          MonoSingleton<GameManager>.Instance.Player.OnArtifactStrength(this.mCurrentArtifactParam.iname, this.mUseEnhanceItemNum, beforeLevel, (int) artifactByUniqueId1.Lv);
+          this.mUseEnhanceItemNum = 0;
         }
       }
     }
 
     public void RefreshArtifactList()
     {
-      if (!Object.op_Inequality((Object) this.ArtifactList, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ArtifactList, (UnityEngine.Object) null))
         return;
       this.ArtifactList.Refresh();
     }
@@ -519,7 +595,7 @@ namespace SRPG
       }
       else
       {
-        if (Object.op_Inequality((Object) this.SellPrice, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.SellPrice, (UnityEngine.Object) null))
         {
           for (int index = 0; index < selection.Length; ++index)
           {
@@ -529,7 +605,7 @@ namespace SRPG
               this.mTotalSellPrice += (long) ((ArtifactParam) selection[index]).sell;
           }
         }
-        if (Object.op_Inequality((Object) this.DecomposeCostTotal, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.DecomposeCostTotal, (UnityEngine.Object) null))
         {
           long num = 0;
           for (int index = 0; index < selection.Length; ++index)
@@ -575,17 +651,17 @@ namespace SRPG
         }
         this.Rebind();
         this.RefreshWindow();
-        if (!Object.op_Inequality((Object) list, (Object) null) || list.GetAutoSelected(true))
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) list, (UnityEngine.Object) null) || list.GetAutoSelected(true))
           return;
         if (this.mCurrentArtifact.CheckEnableRarityUp() == ArtifactData.RarityUpResults.Success)
         {
-          if (!Object.op_Inequality((Object) this.ProcessToggle_Evolution, (Object) null))
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ProcessToggle_Evolution, (UnityEngine.Object) null))
             return;
           this.ProcessToggle_Evolution.set_isOn(true);
         }
         else
         {
-          if (!Object.op_Inequality((Object) this.ProcessToggle_Enhance, (Object) null))
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ProcessToggle_Enhance, (UnityEngine.Object) null))
             return;
           this.ProcessToggle_Enhance.set_isOn(true);
         }
@@ -594,13 +670,15 @@ namespace SRPG
 
     public void RefreshAbilities()
     {
-      if (this.mCurrentArtifact == null || Object.op_Equality((Object) this.AbilityListItem, (Object) null))
+      if (this.mCurrentArtifact == null || UnityEngine.Object.op_Equality((UnityEngine.Object) this.AbilityListItem, (UnityEngine.Object) null))
         return;
-      if (Object.op_Inequality((Object) this.OwnerSlot, (Object) null))
+      DataSource.Bind<AbilityParam>(this.AbilityListItem, (AbilityParam) null);
+      DataSource.Bind<AbilityData>(this.AbilityListItem, (AbilityData) null);
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.OwnerSlot, (UnityEngine.Object) null))
       {
         UnitData unit = (UnitData) null;
         int num = -1;
-        if (Object.op_Inequality((Object) this.OwnerSlot, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.OwnerSlot, (UnityEngine.Object) null))
         {
           JobData job = (JobData) null;
           if (MonoSingleton<GameManager>.Instance.Player.FindOwner(this.mCurrentArtifact, out unit, out job))
@@ -628,16 +706,17 @@ namespace SRPG
             if (abilityParam != null)
             {
               GameObject gameObject1;
-              if (Object.op_Equality((Object) this.AbilityList, (Object) null))
+              if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.AbilityList, (UnityEngine.Object) null))
               {
-                DataSource.Bind<AbilityParam>(this.AbilityListItem, abilityParam);
+                if (DataSource.FindDataOfClass<AbilityParam>(this.AbilityListItem, (AbilityParam) null) == null && DataSource.FindDataOfClass<AbilityData>(this.AbilityListItem, (AbilityData) null) == null)
+                  DataSource.Bind<AbilityParam>(this.AbilityListItem, abilityParam);
                 gameObject1 = this.AbilityListItem;
               }
               else
               {
                 if (this.mAbilityItems.Count <= index1)
                 {
-                  GameObject gameObject2 = (GameObject) Object.Instantiate<GameObject>((M0) this.AbilityListItem);
+                  GameObject gameObject2 = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.AbilityListItem);
                   gameObject2.get_transform().SetParent(this.AbilityList.get_transform(), false);
                   this.mAbilityItems.Add(gameObject2);
                 }
@@ -647,9 +726,9 @@ namespace SRPG
               }
               DataSource.Bind<AbilityData>(gameObject1, (AbilityData) null);
               Animator component = (Animator) gameObject1.GetComponent<Animator>();
-              if (Object.op_Inequality((Object) component, (Object) null) && learningAbilities != null && !string.IsNullOrEmpty(this.AbilityListItemState))
+              bool flag = false;
+              if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null) && learningAbilities != null && !string.IsNullOrEmpty(this.AbilityListItemState))
               {
-                bool flag = false;
                 if (learningAbilities != null)
                 {
                   for (int index3 = 0; index3 < learningAbilities.Count; ++index3)
@@ -669,16 +748,19 @@ namespace SRPG
                   component.SetInteger(this.AbilityListItemState, this.AbilityListItem_Hidden);
               }
               ++index1;
-              if (Object.op_Equality((Object) this.AbilityList, (Object) null))
+              if (flag)
                 break;
             }
           }
         }
       }
-      if (Object.op_Equality((Object) this.AbilityList, (Object) null) && index1 == 0)
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.AbilityList, (UnityEngine.Object) null) && index1 == 0)
       {
         DataSource.Bind<AbilityParam>(this.AbilityListItem, (AbilityParam) null);
         DataSource.Bind<AbilityData>(this.AbilityListItem, (AbilityData) null);
+        Animator component = (Animator) this.AbilityListItem.GetComponent<Animator>();
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null) && !string.IsNullOrEmpty(this.AbilityListItemState))
+          component.SetInteger(this.AbilityListItemState, this.AbilityListItem_Hidden);
       }
       for (; index1 < this.mAbilityItems.Count; ++index1)
         this.mAbilityItems[index1].SetActive(false);
@@ -686,19 +768,19 @@ namespace SRPG
 
     public void ShowSelection()
     {
-      if (Object.op_Equality((Object) this.SelectionListItem, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.SelectionListItem, (UnityEngine.Object) null))
         return;
       for (int index = 0; index < this.mSelectionItems.Count; ++index)
-        Object.Destroy((Object) ((Component) this.mSelectionItems[index]).get_gameObject());
+        UnityEngine.Object.Destroy((UnityEngine.Object) ((Component) this.mSelectionItems[index]).get_gameObject());
       this.mSelectionItems.Clear();
       if (this.mSelectedArtifacts == null)
         return;
-      if (Object.op_Inequality((Object) this.SelectionNum, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.SelectionNum, (UnityEngine.Object) null))
         this.SelectionNum.set_text(this.mSelectedArtifacts.Length.ToString());
-      Transform transform = !Object.op_Equality((Object) this.SelectionList, (Object) null) ? this.SelectionList.get_transform() : ((Component) this.SelectionListItem).get_transform().get_parent();
+      Transform transform = !UnityEngine.Object.op_Equality((UnityEngine.Object) this.SelectionList, (UnityEngine.Object) null) ? this.SelectionList.get_transform() : ((Component) this.SelectionListItem).get_transform().get_parent();
       for (int index = 0; index < this.mSelectedArtifacts.Length; ++index)
       {
-        ArtifactIcon artifactIcon = (ArtifactIcon) Object.Instantiate<ArtifactIcon>((M0) this.SelectionListItem);
+        ArtifactIcon artifactIcon = (ArtifactIcon) UnityEngine.Object.Instantiate<ArtifactIcon>((M0) this.SelectionListItem);
         this.mSelectionItems.Add(artifactIcon);
         DataSource.Bind(((Component) artifactIcon).get_gameObject(), this.mSelectedArtifacts[index].GetType(), this.mSelectedArtifacts[index]);
         ((Component) artifactIcon).get_transform().SetParent(transform, false);
@@ -711,7 +793,7 @@ namespace SRPG
       PlayerData player = MonoSingleton<GameManager>.Instance.Player;
       UnitData unit = (UnitData) null;
       int job_index = 0;
-      if (Object.op_Inequality((Object) this.OwnerSlot, (Object) null) && this.mCurrentArtifact != null)
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.OwnerSlot, (UnityEngine.Object) null) && this.mCurrentArtifact != null)
       {
         JobData job = (JobData) null;
         if (player.FindOwner(this.mCurrentArtifact, out unit, out job))
@@ -722,7 +804,7 @@ namespace SRPG
         unit = this.mOwnerUnitData;
         job_index = this.mOwnerUnitJobIndex;
       }
-      if (Object.op_Inequality((Object) this.Status, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Status, (UnityEngine.Object) null))
       {
         if (this.mCurrentArtifact != null)
         {
@@ -740,7 +822,7 @@ namespace SRPG
           this.Status.SetValues(baseStatus, baseStatus);
         }
       }
-      if (Object.op_Inequality((Object) this.OwnerSlot, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.OwnerSlot, (UnityEngine.Object) null))
       {
         this.OwnerSlot.SetSlotData<UnitData>(unit);
         if (unit != null && job_index != -1)
@@ -753,12 +835,12 @@ namespace SRPG
       this.RefreshTransmuteInfo();
       this.RefreshRarityUpInfo();
       this.RefreshAbilities();
-      if (Object.op_Inequality((Object) this.DetailMaterial, (Object) null) && this.mCurrentArtifact != null)
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.DetailMaterial, (UnityEngine.Object) null) && this.mCurrentArtifact != null)
         this.DetailMaterial.SetMaterial(0, this.mCurrentArtifact.Kakera);
-      if (Object.op_Inequality((Object) this.KyokaPanel, (Object) null) && this.mCurrentArtifact != null)
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.KyokaPanel, (UnityEngine.Object) null) && this.mCurrentArtifact != null)
       {
         Animator component = (Animator) this.KyokaPanel.GetComponent<Animator>();
-        if (Object.op_Inequality((Object) component, (Object) null) && !string.IsNullOrEmpty(this.KyokaPanelState))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null) && !string.IsNullOrEmpty(this.KyokaPanelState))
         {
           if ((int) this.mCurrentArtifact.Lv >= (int) this.mCurrentArtifact.LvCap)
           {
@@ -771,12 +853,12 @@ namespace SRPG
             component.SetInteger(this.KyokaPanelState, this.KyokaPanel_Enable);
         }
       }
-      if (Object.op_Inequality((Object) this.SellPrice, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.SellPrice, (UnityEngine.Object) null))
         this.SellPrice.set_text(this.mTotalSellPrice.ToString());
-      if (Object.op_Inequality((Object) this.RarityUpCost, (Object) null) && this.mCurrentArtifact != null)
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RarityUpCost, (UnityEngine.Object) null) && this.mCurrentArtifact != null)
       {
         Animator component = (Animator) ((Component) this.RarityUpCost).GetComponent<Animator>();
-        if (Object.op_Inequality((Object) component, (Object) null) && !string.IsNullOrEmpty(this.RarityUpCostState))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null) && !string.IsNullOrEmpty(this.RarityUpCostState))
         {
           if ((int) this.mCurrentArtifact.RarityParam.ArtifactRarityUpCost <= player.Gold)
             component.SetInteger(this.RarityUpCostState, this.RarityUpCost_Normal);
@@ -784,12 +866,12 @@ namespace SRPG
             component.SetInteger(this.RarityUpCostState, this.RarityUpCost_NoGold);
         }
       }
-      if (Object.op_Inequality((Object) this.ExpPanel, (Object) null) && this.mCurrentArtifact != null)
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ExpPanel, (UnityEngine.Object) null) && this.mCurrentArtifact != null)
       {
         this.ExpPanel.LevelCap = this.mCurrentArtifact.GetLevelCap();
         this.ExpPanel.Exp = this.mCurrentArtifact.Exp;
       }
-      if (!Object.op_Inequality((Object) this.WindowBody, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.WindowBody, (UnityEngine.Object) null))
         return;
       GameParameter.UpdateAll(this.WindowBody.get_gameObject());
     }
@@ -803,7 +885,7 @@ namespace SRPG
       UnitData unit = (UnitData) null;
       int job_index = 0;
       PlayerData player = MonoSingleton<GameManager>.Instance.Player;
-      if (Object.op_Inequality((Object) this.OwnerSlot, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.OwnerSlot, (UnityEngine.Object) null))
       {
         JobData job = (JobData) null;
         if (player.FindOwner(this.mCurrentArtifact, out unit, out job))
@@ -827,7 +909,7 @@ namespace SRPG
 
     public void AddRarity()
     {
-      if (this.IsBusy || this.mCurrentArtifact == null || (int) this.mCurrentArtifact.Rarity >= (int) this.mCurrentArtifact.RarityCap || Object.op_Inequality((Object) this.ExpPanel, (Object) null) && this.ExpPanel.IsBusy)
+      if (this.IsBusy || this.mCurrentArtifact == null || (int) this.mCurrentArtifact.Rarity >= (int) this.mCurrentArtifact.RarityCap || UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ExpPanel, (UnityEngine.Object) null) && this.ExpPanel.IsBusy)
         return;
       ArtifactData.RarityUpResults rarityUpResults = this.mCurrentArtifact.CheckEnableRarityUp();
       if (rarityUpResults == ArtifactData.RarityUpResults.Success)
@@ -835,7 +917,7 @@ namespace SRPG
         UIUtility.ConfirmBox(LocalizedText.Get("sys.ARTI_RARITYUP_CONFIRM", new object[1]
         {
           (object) this.mCurrentArtifactParam.name
-        }), new UIUtility.DialogResultEvent(this.OnAddRarityAccept), new UIUtility.DialogResultEvent(this.OnAddRarityCancel), (GameObject) null, false, -1);
+        }), new UIUtility.DialogResultEvent(this.OnAddRarityAccept), new UIUtility.DialogResultEvent(this.OnAddRarityCancel), (GameObject) null, false, -1, (string) null, (string) null);
       }
       else
       {
@@ -939,7 +1021,7 @@ namespace SRPG
     private IEnumerator AddRareAsync()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new ArtifactWindow.\u003CAddRareAsync\u003Ec__Iterator9B() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new ArtifactWindow.\u003CAddRareAsync\u003Ec__IteratorDE() { \u003C\u003Ef__this = this };
     }
 
     private void AddAsyncRequest(ArtifactWindow.Request req)
@@ -996,10 +1078,10 @@ namespace SRPG
     {
       if (this.mCurrentArtifact == null || (long) this.mCurrentArtifact.UniqueID == 0L)
         return;
-      if (Object.op_Inequality((Object) this.DecomposePanel, (Object) null) && !string.IsNullOrEmpty(this.DecomposePanelState))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.DecomposePanel, (UnityEngine.Object) null) && !string.IsNullOrEmpty(this.DecomposePanelState))
       {
         Animator component = (Animator) this.DecomposePanel.GetComponent<Animator>();
-        if (Object.op_Inequality((Object) component, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
         {
           if (this.mCurrentArtifact.Kakera != null)
             component.SetInteger(this.DecomposePanelState, this.DecomposePanel_Normal);
@@ -1009,16 +1091,16 @@ namespace SRPG
       }
       if (this.mCurrentArtifact.Kakera != null)
       {
-        if (Object.op_Inequality((Object) this.DecomposeHelp, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.DecomposeHelp, (UnityEngine.Object) null))
           this.DecomposeHelp.set_text(LocalizedText.Get("sys.ARTI_DECOMPOSE_HELP", (object) this.mCurrentArtifact.ArtifactParam.name, (object) this.mCurrentArtifact.Kakera.name, (object) this.mCurrentArtifact.GetKakeraChangeNum()));
-        if (Object.op_Inequality((Object) this.DecomposeCost, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.DecomposeCost, (UnityEngine.Object) null))
         {
           long num = (long) Math.Abs((int) this.mCurrentArtifact.RarityParam.ArtifactChangeCost);
           this.DecomposeCost.set_text(num.ToString());
           if (!string.IsNullOrEmpty(this.DecomposeCostState))
           {
             Animator component = (Animator) ((Component) this.DecomposeCost).GetComponent<Animator>();
-            if (Object.op_Inequality((Object) component, (Object) null))
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
             {
               if ((long) MonoSingleton<GameManager>.Instance.Player.Gold >= num)
                 component.SetInteger(this.DecomposeCostState, this.DecomposeCost_Normal);
@@ -1027,15 +1109,15 @@ namespace SRPG
             }
           }
         }
-        if (Object.op_Inequality((Object) this.DecomposeItem, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.DecomposeItem, (UnityEngine.Object) null))
           this.DecomposeItem.SetMaterial(this.mCurrentArtifact.GetKakeraChangeNum(), this.mCurrentArtifact.Kakera);
         int itemAmount = MonoSingleton<GameManager>.Instance.Player.GetItemAmount(this.mCurrentArtifact.Kakera.iname);
-        if (Object.op_Inequality((Object) this.DecomposeKakeraNumOld, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.DecomposeKakeraNumOld, (UnityEngine.Object) null))
           this.DecomposeKakeraNumOld.set_text(itemAmount.ToString());
-        if (Object.op_Inequality((Object) this.DecomposeKakeraNumNew, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.DecomposeKakeraNumNew, (UnityEngine.Object) null))
           this.DecomposeKakeraNumNew.set_text(Mathf.Min(itemAmount + this.mCurrentArtifact.GetKakeraChangeNum(), (int) this.mCurrentArtifact.Kakera.cap).ToString());
       }
-      if (!Object.op_Inequality((Object) this.DecomposeWarning, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.DecomposeWarning, (UnityEngine.Object) null))
         return;
       bool flag = false;
       if (this.mSelectedArtifacts != null)
@@ -1056,10 +1138,10 @@ namespace SRPG
     {
       if (this.mCurrentArtifactParam == null)
         return;
-      if (Object.op_Inequality((Object) this.TransmutePanel, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TransmutePanel, (UnityEngine.Object) null))
       {
         Animator component = (Animator) this.TransmutePanel.GetComponent<Animator>();
-        if (Object.op_Inequality((Object) component, (Object) null) && !string.IsNullOrEmpty(this.TransmutePanelState))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null) && !string.IsNullOrEmpty(this.TransmutePanelState))
         {
           if (this.mCurrentArtifactParam.is_create)
             component.SetInteger(this.TransmutePanelState, this.TransmutePanel_Normal);
@@ -1070,11 +1152,11 @@ namespace SRPG
       GameManager instance = MonoSingleton<GameManager>.Instance;
       RarityParam rarityParam = instance.MasterParam.GetRarityParam(this.mCurrentArtifactParam.rareini);
       ItemParam itemParam = instance.GetItemParam(this.mCurrentArtifactParam.kakera);
-      if (Object.op_Inequality((Object) this.TransmuteMaterial, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TransmuteMaterial, (UnityEngine.Object) null))
         this.TransmuteMaterial.SetMaterial((int) rarityParam.ArtifactCreatePieceNum, itemParam);
-      if (Object.op_Inequality((Object) this.TransmuteCost, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TransmuteCost, (UnityEngine.Object) null))
         this.TransmuteCost.set_text((int) rarityParam.ArtifactCreateCost.ToString());
-      if (!Object.op_Inequality((Object) this.TransmuteCondition, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TransmuteCondition, (UnityEngine.Object) null))
         return;
       int kakeraCreateNum = this.mCurrentArtifact.GetKakeraCreateNum();
       if (itemParam == null || kakeraCreateNum <= 0)
@@ -1087,22 +1169,22 @@ namespace SRPG
       if (this.mCurrentArtifact == null)
         return;
       bool flag = this.mCurrentArtifact.CheckEnableRarityUp() == ArtifactData.RarityUpResults.Success;
-      if (Object.op_Inequality((Object) this.RarityUpPanel, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RarityUpPanel, (UnityEngine.Object) null))
       {
         Animator component = (Animator) this.RarityUpPanel.GetComponent<Animator>();
-        if (Object.op_Inequality((Object) component, (Object) null) && !string.IsNullOrEmpty(this.RarityUpPanelState))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null) && !string.IsNullOrEmpty(this.RarityUpPanelState))
         {
           if ((int) this.mCurrentArtifact.Rarity < (int) this.mCurrentArtifact.RarityCap)
           {
             // ISSUE: object of a compiler-generated type is created
             // ISSUE: variable of a compiler-generated type
-            ArtifactWindow.\u003CRefreshRarityUpInfo\u003Ec__AnonStorey230 infoCAnonStorey230 = new ArtifactWindow.\u003CRefreshRarityUpInfo\u003Ec__AnonStorey230();
+            ArtifactWindow.\u003CRefreshRarityUpInfo\u003Ec__AnonStorey2FF infoCAnonStorey2Ff = new ArtifactWindow.\u003CRefreshRarityUpInfo\u003Ec__AnonStorey2FF();
             // ISSUE: reference to a compiler-generated field
-            infoCAnonStorey230.hasKakera = false;
+            infoCAnonStorey2Ff.hasKakera = false;
             // ISSUE: reference to a compiler-generated method
-            this.mCurrentArtifact.GetKakeraDataListForRarityUp().ForEach(new Action<ItemData>(infoCAnonStorey230.\u003C\u003Em__23E));
+            this.mCurrentArtifact.GetKakeraDataListForRarityUp().ForEach(new Action<ItemData>(infoCAnonStorey2Ff.\u003C\u003Em__30C));
             // ISSUE: reference to a compiler-generated field
-            if (infoCAnonStorey230.hasKakera)
+            if (infoCAnonStorey2Ff.hasKakera)
               component.SetInteger(this.RarityUpPanelState, this.RarityUpPanel_Normal);
             else
               component.SetInteger(this.RarityUpPanelState, this.RarityUpPanel_NoItem);
@@ -1111,19 +1193,19 @@ namespace SRPG
             component.SetInteger(this.RarityUpPanelState, this.RarityUpPanel_MaxRarity);
         }
       }
-      if (Object.op_Inequality((Object) this.RarityUpButton, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RarityUpButton, (UnityEngine.Object) null))
         ((Selectable) this.RarityUpButton).set_interactable(flag);
-      if (Object.op_Inequality((Object) this.RarityUpHilit, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RarityUpHilit, (UnityEngine.Object) null))
         this.RarityUpHilit.SetActive(flag);
-      if (Object.op_Inequality((Object) this.RarityUpIconRoot, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RarityUpIconRoot, (UnityEngine.Object) null))
         this.RarityUpIconRoot.SetActive(flag);
       if ((int) this.mCurrentArtifact.Rarity >= (int) this.mCurrentArtifact.RarityCap)
         return;
-      if (Object.op_Inequality((Object) this.RarityUpCost, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RarityUpCost, (UnityEngine.Object) null))
         this.RarityUpCost.set_text((int) this.mCurrentArtifact.RarityParam.ArtifactRarityUpCost.ToString());
-      if (Object.op_Inequality((Object) this.RarityUpIconRoot, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RarityUpIconRoot, (UnityEngine.Object) null))
         this.RarityUpIconRoot.SetActive(flag);
-      if (!Object.op_Inequality((Object) this.RarityUpList, (Object) null) || !Object.op_Inequality((Object) this.RarityUpListItem, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RarityUpList, (UnityEngine.Object) null) || !UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RarityUpListItem, (UnityEngine.Object) null))
         return;
       List<ItemData> dataListForRarityUp = this.mCurrentArtifact.GetKakeraDataListForRarityUp();
       int index1 = 0;
@@ -1135,8 +1217,8 @@ namespace SRPG
         GameObject root;
         if (this.mRarityUpItems.Count <= index1)
         {
-          root = (GameObject) Object.Instantiate<GameObject>((M0) this.RarityUpListItem);
-          if (Object.op_Inequality((Object) root, (Object) null))
+          root = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.RarityUpListItem);
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) root, (UnityEngine.Object) null))
           {
             this.mRarityUpItems.Add(root);
             root.get_transform().SetParent(transform, false);
@@ -1151,7 +1233,7 @@ namespace SRPG
           if (reqNum > 0)
           {
             MaterialPanel component = (MaterialPanel) root.GetComponent<MaterialPanel>();
-            if (Object.op_Inequality((Object) component, (Object) null))
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
               component.SetMaterial(reqNum, dataListForRarityUp[index2].Param);
             root.SetActive(true);
           }
@@ -1197,7 +1279,7 @@ namespace SRPG
           UIUtility.ConfirmBox(LocalizedText.Get("sys.ARTI_TRANSMUTE_CONFIRM", new object[1]
           {
             (object) this.mCurrentArtifactParam.name
-          }), new UIUtility.DialogResultEvent(this.OnTransmuteAccept), new UIUtility.DialogResultEvent(this.OnTransmuteCancel), (GameObject) null, false, -1);
+          }), new UIUtility.DialogResultEvent(this.OnTransmuteAccept), new UIUtility.DialogResultEvent(this.OnTransmuteCancel), (GameObject) null, false, -1, (string) null, (string) null);
       }
     }
 
@@ -1207,7 +1289,7 @@ namespace SRPG
       RarityParam rarityParam = MonoSingleton<GameManager>.Instance.GetRarityParam(this.mCurrentArtifactParam.rareini);
       this.mCachedArtifacts = player.Artifacts.ToArray();
       player.GainGold(-(int) rarityParam.ArtifactCreateCost);
-      AnalyticsManager.TrackCurrencyUse(AnalyticsManager.CurrencyType.Zeni, AnalyticsManager.CurrencySubType.FREE, (long) (int) rarityParam.ArtifactCreateCost, "Transmute Equip", (Dictionary<string, object>) null);
+      AnalyticsManager.TrackNonPremiumCurrencyUse(AnalyticsManager.NonPremiumCurrencyType.Zeni, (long) (int) rarityParam.ArtifactCreateCost, "Transmute Equip", (string) null);
       GlobalEvent.Invoke(PredefinedGlobalEvents.REFRESH_GOLD_STATUS.ToString(), (object) this);
       FlowNode_GameObject.ActivateOutputLinks((Component) this, 301);
       if (Network.Mode == Network.EConnectMode.Online)
@@ -1315,12 +1397,12 @@ namespace SRPG
     private IEnumerator ShowTransmuteResultAsync(ChangeListData[] changeset)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new ArtifactWindow.\u003CShowTransmuteResultAsync\u003Ec__Iterator9C() { changeset = changeset, \u003C\u0024\u003Echangeset = changeset, \u003C\u003Ef__this = this };
+      return (IEnumerator) new ArtifactWindow.\u003CShowTransmuteResultAsync\u003Ec__IteratorDF() { changeset = changeset, \u003C\u0024\u003Echangeset = changeset, \u003C\u003Ef__this = this };
     }
 
     private ArtifactData[] GetSelectedArtifacts()
     {
-      if (Object.op_Equality((Object) this.ArtifactList, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.ArtifactList, (UnityEngine.Object) null))
         return new ArtifactData[0];
       object[] selection = this.ArtifactList.Selection;
       List<ArtifactData> artifactDataList = new List<ArtifactData>(selection.Length);
@@ -1363,7 +1445,7 @@ namespace SRPG
       if (MonoSingleton<GameManager>.Instance.Player.Gold < num)
         UIUtility.NegativeSystemMessage((string) null, LocalizedText.Get("sys.ARTI_DECOMPOSE_NOGOLD"), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1);
       else
-        UIUtility.ConfirmBox(LocalizedText.Get("sys.ARTI_DECOMPOSE_CONFIRM"), new UIUtility.DialogResultEvent(this.OnDecomposeAccept), new UIUtility.DialogResultEvent(this.OnDecomposeCancel), (GameObject) null, false, -1);
+        UIUtility.ConfirmBox(LocalizedText.Get("sys.ARTI_DECOMPOSE_CONFIRM"), new UIUtility.DialogResultEvent(this.OnDecomposeAccept), new UIUtility.DialogResultEvent(this.OnDecomposeCancel), (GameObject) null, false, -1, (string) null, (string) null);
     }
 
     private void OnDecomposeAccept(GameObject go)
@@ -1382,7 +1464,7 @@ namespace SRPG
         }
       }
       if (flag)
-        UIUtility.ConfirmBox(LocalizedText.Get("sys.ARTI_DECOMPOSE_CONFIRM2"), new UIUtility.DialogResultEvent(this.OnDecomposeAccept2), new UIUtility.DialogResultEvent(this.OnDecomposeCancel), (GameObject) null, false, -1);
+        UIUtility.ConfirmBox(LocalizedText.Get("sys.ARTI_DECOMPOSE_CONFIRM2"), new UIUtility.DialogResultEvent(this.OnDecomposeAccept2), new UIUtility.DialogResultEvent(this.OnDecomposeCancel), (GameObject) null, false, -1, (string) null, (string) null);
       else
         this.OnDecomposeAccept2(go);
     }
@@ -1397,7 +1479,7 @@ namespace SRPG
         num += Math.Abs((int) selectedArtifact.RarityParam.ArtifactChangeCost);
       }
       instance.Player.GainGold(-num);
-      AnalyticsManager.TrackCurrencyUse(AnalyticsManager.CurrencyType.Zeni, AnalyticsManager.CurrencySubType.FREE, (long) num, "Disassemble Equip", (Dictionary<string, object>) null);
+      AnalyticsManager.TrackNonPremiumCurrencyUse(AnalyticsManager.NonPremiumCurrencyType.Zeni, (long) num, "Disassemble Equip", (string) null);
       GlobalEvent.Invoke(PredefinedGlobalEvents.REFRESH_GOLD_STATUS.ToString(), (object) this);
       if (!string.IsNullOrEmpty(this.DecomposeSE))
         MonoSingleton<MySound>.Instance.PlaySEOneShot(this.DecomposeSE, 0.0f);
@@ -1488,19 +1570,19 @@ namespace SRPG
     private IEnumerator ShowDecomposeResultAsync()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new ArtifactWindow.\u003CShowDecomposeResultAsync\u003Ec__Iterator9D() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new ArtifactWindow.\u003CShowDecomposeResultAsync\u003Ec__IteratorE0() { \u003C\u003Ef__this = this };
     }
 
     public void SellArtifacts()
     {
       if (this.IsBusy)
         return;
-      if (Object.op_Equality((Object) this.ArtifactList, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.ArtifactList, (UnityEngine.Object) null))
         DebugUtility.LogWarning("ArtifactList is not set");
       else if (this.GetSelectedArtifacts().Length <= 0)
         UIUtility.NegativeSystemMessage((string) null, LocalizedText.Get("sys.ARTI_NOTHING2SELL"), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1);
       else
-        UIUtility.ConfirmBox(LocalizedText.Get("sys.ARTI_SELL_CONFIRM"), new UIUtility.DialogResultEvent(this.OnSellAccept), new UIUtility.DialogResultEvent(this.OnSellCancel), (GameObject) null, false, -1);
+        UIUtility.ConfirmBox(LocalizedText.Get("sys.ARTI_SELL_CONFIRM"), new UIUtility.DialogResultEvent(this.OnSellAccept), new UIUtility.DialogResultEvent(this.OnSellCancel), (GameObject) null, false, -1, (string) null, (string) null);
     }
 
     private void OnSellAccept(GameObject go)
@@ -1518,7 +1600,7 @@ namespace SRPG
         }
       }
       if (flag)
-        UIUtility.ConfirmBox(LocalizedText.Get("sys.ARTI_SELL_CONFIRM2"), new UIUtility.DialogResultEvent(this.OnSellAccept2), new UIUtility.DialogResultEvent(this.OnSellCancel), (GameObject) null, false, -1);
+        UIUtility.ConfirmBox(LocalizedText.Get("sys.ARTI_SELL_CONFIRM2"), new UIUtility.DialogResultEvent(this.OnSellAccept2), new UIUtility.DialogResultEvent(this.OnSellCancel), (GameObject) null, false, -1, (string) null, (string) null);
       else
         this.OnSellAccept2(go);
     }
@@ -1598,14 +1680,14 @@ namespace SRPG
     {
       FlowNode_GameObject.ActivateOutputLinks((Component) this, 602);
       GlobalEvent.Invoke(PredefinedGlobalEvents.REFRESH_GOLD_STATUS.ToString(), (object) this);
-      if (Object.op_Inequality((Object) this.SellResult, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.SellResult, (UnityEngine.Object) null))
       {
-        ChangeList componentInChildren = (ChangeList) ((GameObject) Object.Instantiate<GameObject>((M0) this.SellResult)).GetComponentInChildren<ChangeList>();
-        if (Object.op_Inequality((Object) componentInChildren, (Object) null))
+        ChangeList componentInChildren = (ChangeList) ((GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.SellResult)).GetComponentInChildren<ChangeList>();
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) componentInChildren, (UnityEngine.Object) null))
           componentInChildren.SetData(this.mChangeSet.ToArray());
       }
       this.mChangeSet = (List<ChangeListData>) null;
-      if (!Object.op_Inequality((Object) this.ArtifactList, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ArtifactList, (UnityEngine.Object) null))
         return;
       this.ArtifactList.ClearSelection();
       this.ArtifactList.Refresh();
@@ -1676,7 +1758,7 @@ namespace SRPG
 
     public void EquipArtifact()
     {
-      if (this.IsBusy || Object.op_Equality((Object) this.ArtifactList, (Object) null))
+      if (this.IsBusy || UnityEngine.Object.op_Equality((UnityEngine.Object) this.ArtifactList, (UnityEngine.Object) null))
         return;
       ArtifactData[] selectedArtifacts = this.GetSelectedArtifacts();
       if (selectedArtifacts.Length <= 0)
@@ -1693,7 +1775,7 @@ namespace SRPG
         else if (this.mOwnerUnitData != null && !selectedArtifacts[0].CheckEnableEquip(this.mOwnerUnitData, this.mOwnerUnitJobIndex))
           UIUtility.NegativeSystemMessage((string) null, LocalizedText.Get("sys.ARTI_CANT_EQUIP"), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1);
         else if (owner && (unit.UniqueID != this.mOwnerUnitData.UniqueID || this.mOwnerUnitData.Jobs[this.mOwnerUnitJobIndex].UniqueID != job.UniqueID))
-          UIUtility.ConfirmBox(LocalizedText.Get("sys.ARTI_EQUIP_CONFIRM", (object) unit.UnitParam.name, (object) job.Name), new UIUtility.DialogResultEvent(this.OnEquipArtifactAccept), new UIUtility.DialogResultEvent(this.OnEquipArtifactCancel), (GameObject) null, false, -1);
+          UIUtility.ConfirmBox(LocalizedText.Get("sys.ARTI_EQUIP_CONFIRM", (object) unit.UnitParam.name, (object) job.Name), new UIUtility.DialogResultEvent(this.OnEquipArtifactAccept), new UIUtility.DialogResultEvent(this.OnEquipArtifactCancel), (GameObject) null, false, -1, (string) null, (string) null);
         else
           this.OnEquipArtifactAccept((GameObject) null);
       }
@@ -1740,7 +1822,7 @@ namespace SRPG
 
     public void ShowDetail()
     {
-      if (Object.op_Inequality((Object) this.mDetailWindow, (Object) null) || this.mCurrentArtifact == null || Object.op_Equality((Object) this.DetailWindow, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mDetailWindow, (UnityEngine.Object) null) || this.mCurrentArtifact == null || UnityEngine.Object.op_Equality((UnityEngine.Object) this.DetailWindow, (UnityEngine.Object) null))
         return;
       this.StartCoroutine(this.ShowDetailAsync());
     }
@@ -1749,7 +1831,7 @@ namespace SRPG
     private IEnumerator ShowDetailAsync()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new ArtifactWindow.\u003CShowDetailAsync\u003Ec__Iterator9E() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new ArtifactWindow.\u003CShowDetailAsync\u003Ec__IteratorE1() { \u003C\u003Ef__this = this };
     }
 
     private bool OnSceneCHange()
@@ -1765,7 +1847,7 @@ namespace SRPG
     private IEnumerator OnSceneChangeAsync()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new ArtifactWindow.\u003COnSceneChangeAsync\u003Ec__Iterator9F() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new ArtifactWindow.\u003COnSceneChangeAsync\u003Ec__IteratorE2() { \u003C\u003Ef__this = this };
     }
 
     private void SyncArtifactData()
@@ -1784,7 +1866,7 @@ namespace SRPG
     {
       this.mCurrentArtifactOwner = (UnitData) null;
       this.mCurrentArtifactOwnerJob = (JobData) null;
-      if (Object.op_Equality((Object) this.ArtifactOwnerSlot, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.ArtifactOwnerSlot, (UnityEngine.Object) null))
         return;
       if (this.mCurrentArtifact == null)
       {
@@ -1806,9 +1888,9 @@ namespace SRPG
     private void Rebind()
     {
       this.UpdateArtifactOwner();
-      if (Object.op_Inequality((Object) this.ArtifactSlot, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ArtifactSlot, (UnityEngine.Object) null))
         this.ArtifactSlot.SetSlotData<ArtifactData>(this.mCurrentArtifact);
-      if (!Object.op_Inequality((Object) this.WindowBody, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.WindowBody, (UnityEngine.Object) null))
         return;
       DataSource.Bind<ArtifactData>(this.WindowBody, this.mCurrentArtifact);
       DataSource.Bind<UnitData>(this.WindowBody, this.mCurrentArtifactOwner);
@@ -1822,6 +1904,36 @@ namespace SRPG
         if (!this.mSceneChanging)
           return this.mBusy;
         return true;
+      }
+    }
+
+    public void SetArtifactData()
+    {
+      if (this.mCurrentArtifact == null)
+        return;
+      GlobalVars.ConditionJobs = this.mCurrentArtifact.ArtifactParam.condition_jobs;
+    }
+
+    public void OnExpMaxOpen(SRPG_Button button)
+    {
+      if ((int) this.mCurrentArtifact.Lv >= this.mCurrentArtifact.GetLevelCap())
+      {
+        UIUtility.NegativeSystemMessage((string) null, LocalizedText.Get("sys.LEVEL_CAPPED"), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1);
+      }
+      else
+      {
+        GameObject gameObject = AssetManager.Load<GameObject>(ArtifactWindow.ARTIFACT_EXPMAX_UI_PATH);
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) gameObject, (UnityEngine.Object) null))
+          return;
+        GameObject root = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) gameObject);
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) root, (UnityEngine.Object) null))
+          return;
+        ArtifactLevelUpWindow componentInChildren = (ArtifactLevelUpWindow) root.GetComponentInChildren<ArtifactLevelUpWindow>();
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) componentInChildren, (UnityEngine.Object) null))
+          componentInChildren.OnDecideEvent = new ArtifactLevelUpWindow.OnArtifactLevelupEvent(this.OnArtifactBulkLevelUp);
+        DataSource.Bind<ArtifactData>(root, this.mCurrentArtifact);
+        DataSource.Bind<ArtifactWindow>(root, this);
+        GameParameter.UpdateAll(root);
       }
     }
 

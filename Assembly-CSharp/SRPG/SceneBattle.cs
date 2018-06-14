@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.SceneBattle
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -24,14 +24,19 @@ namespace SRPG
     private List<BattleSceneSettings> mBattleScenes = new List<BattleSceneSettings>();
     private List<TacticsUnitController> mTacticsUnits = new List<TacticsUnitController>(20);
     private SceneBattle.CloseBattleUIWindow mCloseBattleUIWindow = new SceneBattle.CloseBattleUIWindow();
-    private List<SceneBattle.TreasureSpawnInfo> mDroppedTreasures = new List<SceneBattle.TreasureSpawnInfo>(8);
     public SceneBattle.QuestEndEvent OnQuestEnd = (SceneBattle.QuestEndEvent) (() => {});
     private List<TacticsUnitController> mUnitsInBattle = new List<TacticsUnitController>();
-    private Vector3 mDesiredCameraOffset = Vector3.get_zero();
+    private bool IsStoppedWeatherEffect = true;
     private readonly float MULTI_PLAY_INPUT_TIME_LIMIT_SEC = 10f;
     private readonly float MULTI_PLAY_INPUT_EXT_MOVE = 10f;
     private readonly float MULTI_PLAY_INPUT_EXT_SELECT = 10f;
     private readonly float SEND_TURN_SEC = 1f;
+    public readonly float SYNC_INTERVAL = 0.1f;
+    public readonly float RESUME_REQUEST_INTERVAL = 0.1f;
+    public readonly float RESUME_SUCCESS_INTERVAL = 0.1f;
+    private int mPrevGridX = -1;
+    private int mPrevGridY = -1;
+    private EUnitDirection mPrevDir = EUnitDirection.Auto;
     private List<SceneBattle.MultiPlayRecvData> mRecvBattle = new List<SceneBattle.MultiPlayRecvData>();
     private List<SceneBattle.MultiPlayRecvData> mRecvCheck = new List<SceneBattle.MultiPlayRecvData>();
     private List<SceneBattle.MultiPlayRecvData> mRecvGoodJob = new List<SceneBattle.MultiPlayRecvData>();
@@ -39,11 +44,14 @@ namespace SRPG
     private List<SceneBattle.MultiPlayRecvData> mRecvIgnoreMyDisconnect = new List<SceneBattle.MultiPlayRecvData>();
     private List<SceneBattle.MultiPlayRecvData> mRecvResume = new List<SceneBattle.MultiPlayRecvData>();
     private List<SceneBattle.MultiPlayRecvData> mRecvResumeRequest = new List<SceneBattle.MultiPlayRecvData>();
+    private List<SceneBattle.MultiPlayRecvData> mAudienceDisconnect = new List<SceneBattle.MultiPlayRecvData>();
     private Dictionary<int, SceneBattle.MultiPlayRecvData> mRecvCheckData = new Dictionary<int, SceneBattle.MultiPlayRecvData>();
     private Dictionary<int, SceneBattle.MultiPlayRecvData> mRecvCheckMyData = new Dictionary<int, SceneBattle.MultiPlayRecvData>();
     private List<SceneBattle.MultiPlayCheck> mMultiPlayCheckList = new List<SceneBattle.MultiPlayCheck>();
     private List<int> mResumeAlreadyStartPlayer = new List<int>();
     private string mPhotonErrString = string.Empty;
+    public List<SceneBattle.ReqCreateBreakObjUc> ReqCreateBreakObjUcLists = new List<SceneBattle.ReqCreateBreakObjUc>();
+    private Dictionary<string, GameObject> mTrickMarkerDics = new Dictionary<string, GameObject>();
     private GemParticle[] mGemDrainEffect_Front = new GemParticle[32];
     private GemParticle[] mGemDrainEffect_Side = new GemParticle[32];
     private GemParticle[] mGemDrainEffect_Back = new GemParticle[32];
@@ -62,6 +70,7 @@ namespace SRPG
     private const float MinLoadSkillTime = 0.75f;
     private const uint CHARGE_TARGET_ATTR_GRN = 1;
     private const uint CHARGE_TARGET_ATTR_RED = 2;
+    private const float UPVIEW_CAMERADISTANCE_BASE = 5f;
     private const int GRIDLAYER_MOVABLE = 0;
     private const int GRIDLAYER_SHATEI = 1;
     private const int GRIDLAYER_KOUKA = 2;
@@ -101,15 +110,19 @@ namespace SRPG
     private bool mDownloadTutorialAssets;
     private string mEventName;
     private int mNumHotTargets;
-    private int mArenaEndFinish;
+    private bool mIsRankingQuestNewScore;
+    private bool mIsRankingQuestJoinReward;
+    private int mRankingQuestNewRank;
+    private SceneBattle.eArenaSubmitMode mArenaSubmitMode;
     private int mCurrentUnitStartX;
     private int mCurrentUnitStartY;
+    private List<JSON_MyPhotonPlayerParam> mAudiencePlayers;
+    private bool mQuestStart;
     private SceneBattle.StateTransitionRequest mOnRequestStateChange;
     private Json_Unit mEditorSupportUnit;
     private bool mIsFirstPlay;
     private bool mIsFirstWin;
     private bool mBattleStarted;
-    private eDamageDispType mSkillDamageDispType;
     private GridMap<float> mHeightMap;
     private float mWorldPosZ;
     private bool mMapReady;
@@ -121,6 +134,7 @@ namespace SRPG
     public int GoldCount;
     [NonSerialized]
     public int TreasureCount;
+    public int DispTreasureCount;
     [NonSerialized]
     public SceneBattle.ExitRequests ExitRequest;
     private FlowNode_Network mReqSubmit;
@@ -128,6 +142,7 @@ namespace SRPG
     private bool mQuestResultSent;
     private int mFirstContact;
     private bool mRevertQuestNewIfRetire;
+    private bool mIsForceEndQuest;
     private QuestResultData mSavedResult;
     private bool mSceneExiting;
     private int mPauseReqCount;
@@ -139,28 +154,41 @@ namespace SRPG
     private bool mIsInstigatorSubUnit;
     private SkillSplashCollabo mSkillSplashCollabo;
     private bool isScreenMirroring;
-    private TargetCamera mTargetCamera;
-    private bool mAllowCameraRotation;
-    private bool mAllowCameraTranslation;
-    private float mCameraAngle;
-    private float mCameraYawMin;
-    private float mCameraYawMax;
-    private Vector2 mCameraTranslation;
-    private float mDesiredCameraDistance;
-    private bool _mUpdateCameraPosition;
-    private Vector3 mCameraTarget;
-    private Vector3 mBaseCameraOffset;
-    private bool mDesiredCameraOffsetSet;
-    private Vector3 mDesiredCameraTarget;
-    private bool mDesiredCameraTargetSet;
-    private float mDesiredCameraAngle;
-    private bool mDesiredCameraAngleSet;
-    private float mCameraAngleStart;
-    private float mCameraRotateTime;
-    private float mCameraRotateTimeMax;
+    private GameObject GoWeatherEffect;
+    private bool IsSetWeatherEffect;
+    private SceneBattle.CameraMode m_CameraMode;
+    private float m_CameraYaw;
+    private bool m_NewCamera;
+    private bool m_FullRotationCamera;
+    private TargetCamera m_TargetCamera;
+    private float m_CameraYawMin;
+    private float m_CameraYawMax;
+    private float m_DefaultCameraYawMin;
+    private float m_DefaultCameraYawMax;
+    private bool m_UpdateCamera;
+    private bool m_BattleCamera;
+    private bool m_AllowCameraRotation;
+    private bool m_AllowCameraTranslation;
+    private float m_CameraAngle;
+    private Vector3 m_CameraPosition;
+    private bool m_TargetCameraDistanceInterp;
+    private float m_TargetCameraDistance;
+    private bool m_TargetCameraPositionInterp;
+    private Vector3 m_TargetCameraPosition;
+    private bool m_TargetCameraAngleInterp;
+    private float m_TargetCameraAngle;
+    private float m_TargetCameraAngleStart;
+    private float m_TargetCameraAngleTime;
+    private float m_TargetCameraAngleTimeMax;
+    public float mRestSyncInterval;
+    public float mRestResumeRequestInterval;
+    public float mRestResumeSuccessInterval;
     private List<SceneBattle.MultiPlayInput> mSendList;
     private float mSendTime;
     private bool mBeginMultiPlay;
+    private bool mAudiencePause;
+    private bool mAudienceSkip;
+    private SceneBattle.MultiPlayRecvData mAudienceRetire;
     private SceneBattle.EDisconnectType mDisconnectType;
     private List<SceneBattle.MultiPlayer> mMultiPlayer;
     private List<SceneBattle.MultiPlayerUnit> mMultiPlayerUnit;
@@ -169,9 +197,9 @@ namespace SRPG
     private bool mResumeOnlyPlayer;
     private bool mResumeSuccess;
     private bool mMapViewMode;
-    private bool mRetireComfirm;
     private bool mAlreadyEndBattle;
     private bool mCheater;
+    private bool mAudienceForceEnd;
     private int mCurrentSendInputUnitID;
     private int mMultiPlaySendID;
     private bool mExecDisconnected;
@@ -186,6 +214,7 @@ namespace SRPG
     private EventScript.Sequence mEventSequence;
     private UnitGauge GaugeOverlayTemplate;
     private UnitGauge EnemyGaugeOverlayTemplate;
+    private GameObject mContinueWindowRes;
     [NonSerialized]
     private Unit mSelectedTarget;
     [NonSerialized]
@@ -193,6 +222,7 @@ namespace SRPG
     [NonSerialized]
     public AbilityData UIParam_CurrentAbility;
     private bool mIsWaitingForBattleSignal;
+    private bool mIsUnitChgActive;
     private SceneBattle.TargetSelectorParam mTargetSelectorParam;
     private EUnitDirection mSkillDirectionByKouka;
     private bool mIsBackSelectSkill;
@@ -202,6 +232,8 @@ namespace SRPG
     private GameObject mRenkeiChargeEffect;
     private GameObject mRenkeiHitEffect;
     private GameObject mSummonUnitEffect;
+    private GameObject mUnitChangeEffect;
+    private GameObject mWithdrawUnitEffect;
     private DamagePopup mDamageTemplate;
     private DamageDsgPopup mDamageDsgTemplate;
     private DamagePopup mHpHealTemplate;
@@ -214,6 +246,7 @@ namespace SRPG
     private GameObject mChargeGrnTargetUnitEffect;
     private GameObject mChargeRedTargetUnitEffect;
     private GameObject mKnockBackEffect;
+    private GameObject mTrickMarker;
     private SkillNamePlate mSkillNamePlate;
     private SkillTargetWindow mSkillTargetWindow;
     private GameObject mJumpSpotEffectTemplate;
@@ -225,12 +258,14 @@ namespace SRPG
     private GameObject mPerfectAvoidPopup;
     private GameObject mWeakPopup;
     private GameObject mResistPopup;
+    private GameObject mGutsPopup;
     private GameObject mUnitOwnerIndex;
     private GameObject mGemDrainHitEffect;
     private GameObject mTargetMarkerTemplate;
     private GameObject mAssistMarkerTemplate;
     private GameObject mBlockedGridMarker;
     private bool mDisplayBlockedGridMarker;
+    private Grid mGridDisplayBlockedGridMarker;
     private GameObject[] mUnitMarkerTemplates;
     private List<GameObject>[] mUnitMarkers;
     private bool mLoadedAllUI;
@@ -241,6 +276,7 @@ namespace SRPG
     private SceneBattle.UnitClickEvent mOnUnitClick;
     private SceneBattle.UnitFocusEvent mOnUnitFocus;
     private TacticsUnitController mFocusedUnit;
+    private TacticsUnitController mMapModeFocusedUnit;
     private SceneBattle.ScreenClickEvent mOnScreenClick;
     private float mLoadProgress_UI;
     private float mLoadProgress_Scene;
@@ -266,11 +302,21 @@ namespace SRPG
       }
     }
 
+    public FlowNode_BattleUI BattleUI
+    {
+      get
+      {
+        return this.mBattleUI;
+      }
+    }
+
     public GameObject CurrentScene
     {
       get
       {
-        return ((Component) this.mTacticsSceneRoot).get_gameObject();
+        if (UnityEngine.Object.op_Implicit((UnityEngine.Object) this.mTacticsSceneRoot))
+          return ((Component) this.mTacticsSceneRoot).get_gameObject();
+        return (GameObject) null;
       }
     }
 
@@ -282,6 +328,38 @@ namespace SRPG
       }
     }
 
+    public bool IsRankingQuestNewScore
+    {
+      get
+      {
+        return this.mIsRankingQuestNewScore;
+      }
+    }
+
+    public bool IsRankingQuestJoinReward
+    {
+      get
+      {
+        return this.mIsRankingQuestJoinReward;
+      }
+    }
+
+    public int RankingQuestNewRank
+    {
+      get
+      {
+        return this.mRankingQuestNewRank;
+      }
+    }
+
+    public bool ValidateRankingQuestRank
+    {
+      get
+      {
+        return this.mRankingQuestNewRank > 0;
+      }
+    }
+
     public BattleCore Battle
     {
       get
@@ -290,15 +368,23 @@ namespace SRPG
       }
     }
 
-    public int ArenaEndFinish
+    public List<JSON_MyPhotonPlayerParam> AudiencePlayer
     {
       get
       {
-        return this.mArenaEndFinish;
+        return this.mAudiencePlayers;
+      }
+    }
+
+    public bool QuestStart
+    {
+      get
+      {
+        return this.mQuestStart;
       }
       set
       {
-        this.mArenaEndFinish = value;
+        this.mQuestStart = value;
       }
     }
 
@@ -311,36 +397,39 @@ namespace SRPG
         {
           for (int index = 0; index < this.mBattleScenes.Count; ++index)
           {
-            if (((Object) this.mBattleScenes[index]).get_name() == sceneName)
+            if (((UnityEngine.Object) this.mBattleScenes[index]).get_name() == sceneName)
             {
               battleSceneSettings = this.mBattleScenes[index];
               break;
             }
           }
         }
-        if (Object.op_Equality((Object) battleSceneSettings, (Object) null))
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) battleSceneSettings, (UnityEngine.Object) null))
           battleSceneSettings = this.mDefaultBattleScene;
         this.mBattleSceneRoot = battleSceneSettings;
       }
-      if (Object.op_Inequality((Object) this.mBattleSceneRoot, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mBattleSceneRoot, (UnityEngine.Object) null))
         ((Component) this.mBattleSceneRoot).get_gameObject().SetActive(visible);
-      if (Object.op_Inequality((Object) this.mTacticsSceneRoot, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mTacticsSceneRoot, (UnityEngine.Object) null))
         ((Component) this.mTacticsSceneRoot).get_gameObject().SetActive(!visible);
       RenderPipeline component = (RenderPipeline) ((Component) Camera.get_main()).GetComponent<RenderPipeline>();
-      if (!Object.op_Inequality((Object) component, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
         return;
       component.EnableVignette = !visible;
     }
 
     private void ToggleUserInterface(bool isEnabled)
     {
-      string[] strArray = new string[4]{ this.mBattleUI.QueueObjectID, this.mBattleUI.CameraControllerID, this.mBattleUI.QuestStatusID, this.mBattleUI.MapHeightID };
+      string[] strArray = new string[5]{ this.mBattleUI.QueueObjectID, this.mBattleUI.QuestStatusID, this.mBattleUI.MapHeightID, this.mBattleUI.ElementDiagram, this.mBattleUI.FukanCameraID };
       foreach (string name in strArray)
       {
         Canvas gameObject = GameObjectID.FindGameObject<Canvas>(name);
-        if (Object.op_Inequality((Object) gameObject, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) gameObject, (UnityEngine.Object) null))
           ((Behaviour) gameObject).set_enabled(isEnabled);
       }
+      BattleCameraControl gameObject1 = GameObjectID.FindGameObject<BattleCameraControl>(this.mBattleUI.CameraControllerID);
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) gameObject1, (UnityEngine.Object) null))
+        gameObject1.SetDisp(isEnabled);
       if (!this.Battle.IsMultiVersus)
         return;
       List<Unit> units = this.Battle.Units;
@@ -349,7 +438,7 @@ namespace SRPG
       for (int index = 0; index < units.Count; ++index)
       {
         TacticsUnitController unitController = this.FindUnitController(units[index]);
-        if (Object.op_Inequality((Object) unitController, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
           unitController.ShowVersusCursor(isEnabled);
       }
     }
@@ -381,6 +470,8 @@ namespace SRPG
         this.mUnitMarkers[index] = new List<GameObject>(12);
       this.mBattle = new BattleCore();
       this.mState = new StateMachine<SceneBattle>(this);
+      SceneBattle.SimpleEvent.Clear();
+      SceneBattle.SimpleEvent.Add(SceneBattle.TreasureEvent.GROUP, (SceneBattle.SimpleEvent.Interface) new SceneBattle.TreasureEvent());
       if (!this.mStartQuestCalled)
         this.GotoState<SceneBattle.State_ReqBtlComReq>();
       this.mStartCalled = true;
@@ -418,14 +509,14 @@ namespace SRPG
 
     private void OnEnable()
     {
-      if (!Object.op_Equality((Object) SceneBattle.Instance, (Object) null))
+      if (!UnityEngine.Object.op_Equality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null))
         return;
       SceneBattle.Instance = this;
     }
 
     private void OnDisable()
     {
-      if (!Object.op_Equality((Object) SceneBattle.Instance, (Object) this))
+      if (!UnityEngine.Object.op_Equality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) this))
         return;
       SceneBattle.Instance = (SceneBattle) null;
     }
@@ -433,9 +524,9 @@ namespace SRPG
     private void OnDestroy()
     {
       LocalizedText.UnloadTable(SceneBattle.QUEST_TEXTTABLE);
-      if (Object.op_Inequality((Object) this.mNavigation, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mNavigation, (UnityEngine.Object) null))
       {
-        Object.Destroy((Object) this.mNavigation.get_gameObject());
+        UnityEngine.Object.Destroy((UnityEngine.Object) this.mNavigation.get_gameObject());
         this.mNavigation = (GameObject) null;
         this.mTutorialTriggers = (FlowNode_TutorialTrigger[]) null;
       }
@@ -451,14 +542,23 @@ namespace SRPG
     private void OnLoadTacticsScene(GameObject root)
     {
       TacticsSceneSettings component1 = (TacticsSceneSettings) root.GetComponent<TacticsSceneSettings>();
-      if (Object.op_Equality((Object) component1, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) component1, (UnityEngine.Object) null))
         return;
       SceneAwakeObserver.RemoveListener(new SceneAwakeObserver.SceneEvent(this.OnLoadTacticsScene));
       CriticalSection.Leave(CriticalSections.SceneChange);
       GameUtility.DeactivateActiveChildComponents<Camera>((Component) component1);
       this.mTacticsSceneRoot = component1;
+      for (int index = 0; index < root.get_transform().get_childCount(); ++index)
+      {
+        Transform child = root.get_transform().GetChild(index);
+        if (((UnityEngine.Object) child).get_name() == "light")
+        {
+          UnityEngine.Object.Destroy((UnityEngine.Object) ((Component) child).get_gameObject());
+          break;
+        }
+      }
       RenderPipeline component2 = (RenderPipeline) ((Component) Camera.get_main()).GetComponent<RenderPipeline>();
-      if (Object.op_Inequality((Object) component2, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component2, (UnityEngine.Object) null))
       {
         component2.BackgroundImage = (Texture) component1.BackgroundImage;
         component2.ScreenFilter = (Texture) component1.ScreenFilter;
@@ -481,7 +581,7 @@ namespace SRPG
       if (unit == null)
         return;
       TacticsUnitController unitController = this.FindUnitController(unit);
-      if (Object.op_Equality((Object) unitController, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
         return;
       GameSettings instance = GameSettings.Instance;
       ObjectAnimator.Get((Component) Camera.get_main()).AnimateTo(Vector3.op_Addition(((Component) unitController).get_transform().get_position(), ((Component) instance.Quest.UnitCamera).get_transform().get_position()), ((Component) instance.Quest.UnitCamera).get_transform().get_rotation(), 0.3f, ObjectAnimator.CurveType.EaseOut);
@@ -519,9 +619,9 @@ namespace SRPG
       for (int index = 0; index < this.mTacticsUnits.Count; ++index)
       {
         TacticsUnitController mTacticsUnit = this.mTacticsUnits[index];
-        if (!Object.op_Equality((Object) mTacticsUnit, (Object) null))
+        if (!UnityEngine.Object.op_Equality((UnityEngine.Object) mTacticsUnit, (UnityEngine.Object) null))
         {
-          if (Object.op_Inequality((Object) tacticsUnitController, (Object) null) && this.CalcCoord(tacticsUnitController.CenterPosition) == this.CalcCoord(mTacticsUnit.CenterPosition) && !mTacticsUnit.Unit.IsGimmick)
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) tacticsUnitController, (UnityEngine.Object) null) && this.CalcCoord(tacticsUnitController.CenterPosition) == this.CalcCoord(mTacticsUnit.CenterPosition) && !mTacticsUnit.Unit.IsGimmick)
           {
             tacticsUnitController = mTacticsUnit;
           }
@@ -542,7 +642,7 @@ namespace SRPG
     public int GetDisplayHeight(Unit unit)
     {
       TacticsUnitController unitController = this.FindUnitController(unit);
-      if (Object.op_Inequality((Object) unitController, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
       {
         IntVector2 intVector2 = this.CalcCoord(unitController.CenterPosition);
         Grid current = this.mBattle.CurrentMap[intVector2.x, intVector2.y];
@@ -559,12 +659,21 @@ namespace SRPG
 
     public Vector3 CalcGridCenter(Grid grid)
     {
+      if (grid == null)
+        return Vector3.get_zero();
       return new Vector3((float) grid.x + 0.5f, this.mHeightMap.get(grid.x, grid.y), (float) grid.y + 0.5f);
     }
 
     public Vector3 CalcGridCenter(int x, int y)
     {
       return this.CalcGridCenter(this.mBattle.CurrentMap[x, y]);
+    }
+
+    public EUnitDirection UnitDirectionFromPosition(Vector3 self, Vector3 target)
+    {
+      IntVector2 intVector2_1 = this.CalcCoord(self);
+      IntVector2 intVector2_2 = this.CalcCoord(target);
+      return this.mBattle.UnitDirectionFromGrid(this.mBattle.CurrentMap[intVector2_1.x, intVector2_1.y], this.mBattle.CurrentMap[intVector2_2.x, intVector2_2.y]);
     }
 
     public void RemoveLog()
@@ -577,6 +686,7 @@ namespace SRPG
     private void Update()
     {
       this.UpdateMultiPlayer();
+      this.UpdateAudiencePlayer();
       if (this.mState != null && this.Battle.ResumeState != BattleCore.RESUME_STATE.WAIT)
         this.mState.Update();
       this.UpdateCameraControl(false);
@@ -598,7 +708,7 @@ namespace SRPG
     private IEnumerator DownloadNextQuestAsync()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new SceneBattle.\u003CDownloadNextQuestAsync\u003Ec__Iterator32() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new SceneBattle.\u003CDownloadNextQuestAsync\u003Ec__Iterator55() { \u003C\u003Ef__this = this };
     }
 
     public void GotoState<StateType>() where StateType : State<SceneBattle>, new()
@@ -615,7 +725,7 @@ namespace SRPG
     private IEnumerator DownloadQuestAsync(QuestParam quest)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new SceneBattle.\u003CDownloadQuestAsync\u003Ec__Iterator33() { quest = quest, \u003C\u0024\u003Equest = quest, \u003C\u003Ef__this = this };
+      return (IEnumerator) new SceneBattle.\u003CDownloadQuestAsync\u003Ec__Iterator56() { quest = quest, \u003C\u0024\u003Equest = quest, \u003C\u003Ef__this = this };
     }
 
     public void StartQuest(string questID, BattleCore.Json_Battle json)
@@ -624,21 +734,39 @@ namespace SRPG
       this.StartCoroutine(this.StartQuestAsync(questID, json));
     }
 
+    public bool IsFirstWin
+    {
+      get
+      {
+        return this.mIsFirstWin;
+      }
+    }
+
+    public bool IsPlayLastDemo
+    {
+      get
+      {
+        if (this.mBattle != null && this.mCurrentQuest != null && (this.mBattle.GetQuestResult() == BattleCore.QuestResult.Win && !string.IsNullOrEmpty(this.mCurrentQuest.event_clear)))
+          return this.mIsFirstWin;
+        return false;
+      }
+    }
+
     [DebuggerHidden]
     private IEnumerator StartQuestAsync(string questID, BattleCore.Json_Battle jsonBtl)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new SceneBattle.\u003CStartQuestAsync\u003Ec__Iterator34() { questID = questID, jsonBtl = jsonBtl, \u003C\u0024\u003EquestID = questID, \u003C\u0024\u003EjsonBtl = jsonBtl, \u003C\u003Ef__this = this };
+      return (IEnumerator) new SceneBattle.\u003CStartQuestAsync\u003Ec__Iterator57() { questID = questID, jsonBtl = jsonBtl, \u003C\u0024\u003EquestID = questID, \u003C\u0024\u003EjsonBtl = jsonBtl, \u003C\u003Ef__this = this };
     }
 
     public void PlayBGM()
     {
-      MonoSingleton<MySound>.Instance.PlayBGM(this.mBattle.CurrentMap.BGMName, (string) null);
+      MonoSingleton<MySound>.Instance.PlayBGM(this.mBattle.CurrentMap.BGMName, (string) null, false);
     }
 
     public void StopBGM()
     {
-      MonoSingleton<MySound>.Instance.PlayBGM((string) null, (string) null);
+      MonoSingleton<MySound>.Instance.PlayBGM((string) null, (string) null, false);
     }
 
     private void UpdateBGM()
@@ -675,7 +803,7 @@ namespace SRPG
     private IEnumerator LoadMapAsync()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new SceneBattle.\u003CLoadMapAsync\u003Ec__Iterator35() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new SceneBattle.\u003CLoadMapAsync\u003Ec__Iterator58() { \u003C\u003Ef__this = this };
     }
 
     private bool IsUnitLoading
@@ -709,13 +837,12 @@ namespace SRPG
       {
         if (this.Battle.IsMultiVersus)
           this.ArenaActionCountSet(this.Battle.RemainVersusTurnCount);
+        this.RankingQuestActionCountEnable(this.Battle.IsRankingQuest);
+        if (this.Battle.IsRankingQuest)
+          this.RankingQuestActionCountSet((uint) this.Battle.ActionCount);
+        this.Battle.MapStart();
         if (this.Battle.CheckEnableSuspendStart() && this.Battle.LoadSuspendData())
-        {
-          if (!this.Battle.SuspendStart())
-            return;
-        }
-        else
-          this.Battle.MapStart();
+          this.Battle.RelinkTrickGimmickEvents();
         bool pc_enable = false;
         bool ec_enable = false;
         int num1 = 0;
@@ -749,7 +876,7 @@ namespace SRPG
       {
         Unit unit2 = this.mBattle.Units[index];
         TacticsUnitController unitController = this.FindUnitController(unit2);
-        if (!Object.op_Equality((Object) unitController, (Object) null))
+        if (!UnityEngine.Object.op_Equality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
         {
           Vector3 vector3 = GameUtility.DeformPosition(((Component) unitController).get_transform().get_position(), (float) position.z);
           Vector3 screenPoint = main.WorldToScreenPoint(vector3);
@@ -790,7 +917,7 @@ namespace SRPG
       if (unit == null)
         return;
       TacticsUnitController unitController = this.FindUnitController(unit);
-      if (Object.op_Equality((Object) unitController, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
         return;
       unitController.ShowCursor(this.UnitCursor, color);
     }
@@ -800,7 +927,7 @@ namespace SRPG
       if (unit == null)
         return;
       TacticsUnitController unitController = this.FindUnitController(unit);
-      if (Object.op_Equality((Object) unitController, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
         return;
       unitController.HideCursor(false);
     }
@@ -813,28 +940,30 @@ namespace SRPG
 
     private void CloseBattleUI()
     {
-      if (Object.op_Inequality((Object) this.mBattleUI, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mBattleUI, (UnityEngine.Object) null))
       {
         this.mBattleUI.OnInputTimeLimit();
-        if (Object.op_Inequality((Object) this.mBattleUI.TargetMain, (Object) null))
-          this.mBattleUI.TargetMain.ForceClose();
-        if (Object.op_Inequality((Object) this.mBattleUI.TargetSub, (Object) null))
-          this.mBattleUI.TargetSub.ForceClose();
-        if (Object.op_Inequality((Object) this.mBattleUI.TargetObjectSub, (Object) null))
-          this.mBattleUI.TargetObjectSub.ForceClose();
-        if (Object.op_Inequality((Object) this.mBattleUI.CommandWindow, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mBattleUI.TargetMain, (UnityEngine.Object) null))
+          this.mBattleUI.TargetMain.ForceClose(true);
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mBattleUI.TargetSub, (UnityEngine.Object) null))
+          this.mBattleUI.TargetSub.ForceClose(true);
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mBattleUI.TargetObjectSub, (UnityEngine.Object) null))
+          this.mBattleUI.TargetObjectSub.ForceClose(true);
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mBattleUI.TargetTrickSub, (UnityEngine.Object) null))
+          this.mBattleUI.TargetTrickSub.ForceClose(true);
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mBattleUI.CommandWindow, (UnityEngine.Object) null))
           this.mBattleUI.CommandWindow.OnCommandSelect = (UnitCommands.CommandEvent) null;
-        if (Object.op_Inequality((Object) this.mBattleUI.ItemWindow, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mBattleUI.ItemWindow, (UnityEngine.Object) null))
           this.mBattleUI.ItemWindow.OnSelectItem = (BattleInventory.SelectEvent) null;
-        if (Object.op_Inequality((Object) this.mBattleUI.SkillWindow, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mBattleUI.SkillWindow, (UnityEngine.Object) null))
           this.mBattleUI.SkillWindow.OnSelectSkill = (UnitAbilitySkillList.SelectSkillEvent) null;
-        if (Object.op_Inequality((Object) this.mSkillTargetWindow, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSkillTargetWindow, (UnityEngine.Object) null))
           this.mSkillTargetWindow.ForceHide();
         if (this.mTacticsUnits != null)
         {
           for (int index = 0; index < this.mTacticsUnits.Count; ++index)
           {
-            if (!Object.op_Equality((Object) this.mTacticsUnits[index], (Object) null))
+            if (!UnityEngine.Object.op_Equality((UnityEngine.Object) this.mTacticsUnits[index], (UnityEngine.Object) null))
               this.mTacticsUnits[index].SetHPGaugeMode(TacticsUnitController.HPGaugeModes.Normal, (SkillData) null, (Unit) null);
           }
         }
@@ -883,6 +1012,8 @@ namespace SRPG
 
     private void InternalShowCastSkill()
     {
+      if (MonoSingleton<GameManager>.Instance.AudienceMode)
+        return;
       List<Unit> unitList = new List<Unit>();
       using (List<BattleCore.OrderData>.Enumerator enumerator = this.mBattle.Order.GetEnumerator())
       {
@@ -893,7 +1024,7 @@ namespace SRPG
             unitList.Add(current.Unit);
         }
       }
-      if (this.mBattle.CurrentUnit != null && this.mBattle.CurrentUnit.CastSkill != null && !unitList.Contains(this.mBattle.CurrentUnit))
+      if (this.mBattle.CurrentUnit != null && this.mBattle.CurrentUnit.CastSkill != null && (!unitList.Contains(this.mBattle.CurrentUnit) && this.mBattle.CurrentUnit.Side == EUnitSide.Player))
         unitList.Add(this.mBattle.CurrentUnit);
       if (unitList.Count <= 0)
         return;
@@ -904,31 +1035,31 @@ namespace SRPG
       GridMap<Color32> grid2 = new GridMap<Color32>(this.mBattle.CurrentMap.Width, this.mBattle.CurrentMap.Height);
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      SceneBattle.\u003CInternalShowCastSkill\u003Ec__AnonStorey1C1 skillCAnonStorey1C1 = new SceneBattle.\u003CInternalShowCastSkill\u003Ec__AnonStorey1C1();
+      SceneBattle.\u003CInternalShowCastSkill\u003Ec__AnonStorey257 skillCAnonStorey257 = new SceneBattle.\u003CInternalShowCastSkill\u003Ec__AnonStorey257();
       using (List<Unit>.Enumerator enumerator = unitList.GetEnumerator())
       {
         while (enumerator.MoveNext())
         {
           // ISSUE: reference to a compiler-generated field
-          skillCAnonStorey1C1.unit = enumerator.Current;
+          skillCAnonStorey257.unit = enumerator.Current;
           bool flag = false;
           // ISSUE: reference to a compiler-generated field
-          if (skillCAnonStorey1C1.unit.CastSkill.IsAdvantage())
+          if (skillCAnonStorey257.unit.CastSkill.IsAdvantage())
             flag = true;
           int num1 = 0;
           int num2 = 0;
           // ISSUE: reference to a compiler-generated field
-          if (skillCAnonStorey1C1.unit.UnitTarget != null)
+          if (skillCAnonStorey257.unit.UnitTarget != null)
           {
             // ISSUE: reference to a compiler-generated field
-            num1 = skillCAnonStorey1C1.unit.UnitTarget.x;
+            num1 = skillCAnonStorey257.unit.UnitTarget.x;
             // ISSUE: reference to a compiler-generated field
-            num2 = skillCAnonStorey1C1.unit.UnitTarget.y;
+            num2 = skillCAnonStorey257.unit.UnitTarget.y;
             // ISSUE: reference to a compiler-generated field
-            if (skillCAnonStorey1C1.unit.UnitTarget == this.mBattle.CurrentUnit)
+            if (skillCAnonStorey257.unit.UnitTarget == this.mBattle.CurrentUnit)
             {
               // ISSUE: reference to a compiler-generated field
-              IntVector2 intVector2 = this.CalcCoord(this.FindUnitController(skillCAnonStorey1C1.unit.UnitTarget).CenterPosition);
+              IntVector2 intVector2 = this.CalcCoord(this.FindUnitController(skillCAnonStorey257.unit.UnitTarget).CenterPosition);
               num1 = intVector2.x;
               num2 = intVector2.y;
             }
@@ -936,23 +1067,27 @@ namespace SRPG
           else
           {
             // ISSUE: reference to a compiler-generated field
-            if (skillCAnonStorey1C1.unit.GridTarget != null)
+            if (skillCAnonStorey257.unit.GridTarget != null)
             {
               // ISSUE: reference to a compiler-generated field
-              num1 = skillCAnonStorey1C1.unit.GridTarget.x;
+              num1 = skillCAnonStorey257.unit.GridTarget.x;
               // ISSUE: reference to a compiler-generated field
-              num2 = skillCAnonStorey1C1.unit.GridTarget.y;
+              num2 = skillCAnonStorey257.unit.GridTarget.y;
             }
           }
           // ISSUE: reference to a compiler-generated field
           // ISSUE: reference to a compiler-generated field
           // ISSUE: reference to a compiler-generated field
           // ISSUE: reference to a compiler-generated field
-          GridMap<bool> scopeGridMap = this.mBattle.CreateScopeGridMap(skillCAnonStorey1C1.unit, skillCAnonStorey1C1.unit.x, skillCAnonStorey1C1.unit.y, num1, num2, skillCAnonStorey1C1.unit.CastSkill);
+          GridMap<bool> scopeGridMap = this.mBattle.CreateScopeGridMap(skillCAnonStorey257.unit, skillCAnonStorey257.unit.x, skillCAnonStorey257.unit.y, num1, num2, skillCAnonStorey257.unit.CastSkill);
           // ISSUE: reference to a compiler-generated field
           // ISSUE: reference to a compiler-generated field
-          if (skillCAnonStorey1C1.unit.CastSkill.SkillParam.select_scope == ESelectType.Laser && skillCAnonStorey1C1.unit.UnitTarget != null)
+          if (SkillParam.IsTypeLaser(skillCAnonStorey257.unit.CastSkill.SkillParam.select_scope) && skillCAnonStorey257.unit.UnitTarget != null)
             scopeGridMap.set(num1, num2, true);
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: reference to a compiler-generated field
+          if (skillCAnonStorey257.unit.CastSkill.TeleportType == eTeleportType.Only || skillCAnonStorey257.unit.CastSkill.TeleportType == eTeleportType.AfterSkill)
+            scopeGridMap.set(num1, num2, false);
           for (int x = 0; x < scopeGridMap.w; ++x)
           {
             if (x < grid1.w)
@@ -962,10 +1097,10 @@ namespace SRPG
                 if (y < grid1.h && scopeGridMap.get(x, y))
                 {
                   // ISSUE: reference to a compiler-generated field
-                  if (skillCAnonStorey1C1.unit.UnitTarget != null && x == num1 && y == num2)
+                  if (skillCAnonStorey257.unit.UnitTarget != null && x == num1 && y == num2)
                   {
                     // ISSUE: reference to a compiler-generated method
-                    SceneBattle.ChargeTarget chargeTarget = chargeTargetList.Find(new Predicate<SceneBattle.ChargeTarget>(skillCAnonStorey1C1.\u003C\u003Em__162));
+                    SceneBattle.ChargeTarget chargeTarget = chargeTargetList.Find(new Predicate<SceneBattle.ChargeTarget>(skillCAnonStorey257.\u003C\u003Em__1D7));
                     if (chargeTarget != null)
                     {
                       chargeTarget.AddAttr(!flag ? 2U : 1U);
@@ -973,7 +1108,7 @@ namespace SRPG
                     else
                     {
                       // ISSUE: reference to a compiler-generated field
-                      chargeTargetList.Add(new SceneBattle.ChargeTarget(skillCAnonStorey1C1.unit.UnitTarget, !flag ? 2U : 1U));
+                      chargeTargetList.Add(new SceneBattle.ChargeTarget(skillCAnonStorey257.unit.UnitTarget, !flag ? 2U : 1U));
                     }
                   }
                   if (flag)
@@ -994,7 +1129,7 @@ namespace SRPG
         {
           SceneBattle.ChargeTarget current = enumerator.Current;
           TacticsUnitController unitController = this.FindUnitController(current.mUnit);
-          if (Object.op_Inequality((Object) unitController, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
           {
             if (((int) current.mAttr & 1) != 0)
               unitController.EnableChargeTargetUnit(this.mChargeGrnTargetUnitEffect, true);
@@ -1067,7 +1202,7 @@ namespace SRPG
       for (int index = this.mBattle.Units.Count - 1; index >= 0; --index)
       {
         Unit unit2 = this.mBattle.Units[index];
-        if (!unit2.IsDead && unit2.IsEntry && (!unit2.IsSub && unit2.Side == targetSide) && (map.isValid(unit2.x, unit2.y) && map.get(unit2.x, unit2.y)))
+        if ((!unit2.IsGimmick || unit2.IsBreakObj) && (!unit2.IsDead && unit2.IsEntry) && (!unit2.IsSub && (unit2.Side == targetSide || this.Battle.IsTargetBreakUnit(current, unit2, skill))) && (map.isValid(unit2.x, unit2.y) && map.get(unit2.x, unit2.y)))
         {
           int x = unit2.x;
           int y = unit2.y;
@@ -1140,7 +1275,7 @@ namespace SRPG
     {
       Unit currentUnit = this.mBattle.CurrentUnit;
       TacticsUnitController unitController = this.FindUnitController(currentUnit);
-      if (Object.op_Inequality((Object) unitController, (Object) null) && !currentUnit.IsUnitFlag(EUnitFlag.Moved))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null) && !currentUnit.IsUnitFlag(EUnitFlag.Moved))
       {
         IntVector2 intVector2 = this.CalcCoord(unitController.CenterPosition);
         EUnitDirection direction = unitController.CalcUnitDirectionFromRotation();
@@ -1154,7 +1289,7 @@ namespace SRPG
             DebugUtility.LogError("移動に失敗");
             return false;
           }
-          this.SendInputGridXY(this.Battle.CurrentUnit, intVector2.x, intVector2.y, currentUnit.Direction);
+          this.SendInputGridXY(this.Battle.CurrentUnit, intVector2.x, intVector2.y, currentUnit.Direction, true);
           this.SendInputMoveEnd(this.Battle.CurrentUnit, false);
         }
         else if (currentUnit.Direction != direction)
@@ -1172,7 +1307,7 @@ namespace SRPG
         return;
       if (this.Battle.IsMultiPlay)
         this.SendInputEntryBattle(EBattleCommand.Attack, this.Battle.CurrentUnit, this.mSelectedTarget, (SkillData) null, (ItemData) null, x, y, bUnitLockTarget);
-      if (!this.Battle.UseSkill(currentUnit, x, y, skill, bUnitLockTarget, 0, 0))
+      if (!this.Battle.UseSkill(currentUnit, x, y, skill, bUnitLockTarget, 0, 0, false))
         DebugUtility.LogError("failed use skill. Unit:" + currentUnit.UnitName + ", x:" + (object) x + ", y:" + (object) y + ", skill:" + (object) currentUnit.GetAttackSkill());
       else
         this.GotoState<SceneBattle.State_WaitForLog>();
@@ -1196,7 +1331,7 @@ namespace SRPG
     {
       Unit currentUnit = this.mBattle.CurrentUnit;
       TacticsUnitController unitController = this.FindUnitController(currentUnit);
-      if (!Object.op_Inequality((Object) unitController, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
         return;
       Grid unitGridPosition = this.mBattle.GetUnitGridPosition(currentUnit);
       ((Component) unitController).get_transform().set_position(this.CalcGridCenter(unitGridPosition));
@@ -1215,7 +1350,7 @@ namespace SRPG
 
     private void HideGrid()
     {
-      if (!Object.op_Inequality((Object) this.mTacticsSceneRoot, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mTacticsSceneRoot, (UnityEngine.Object) null))
         return;
       this.mTacticsSceneRoot.HideGridLayers();
       this.HideCastSkill(true);
@@ -1313,6 +1448,17 @@ namespace SRPG
       this.TreasureCount += num;
     }
 
+    private void AddDispTreasureCount(int num)
+    {
+      this.DispTreasureCount += num;
+    }
+
+    public void RestoreTreasureCount(int num)
+    {
+      this.TreasureCount = num;
+      this.DispTreasureCount = num;
+    }
+
     public TacticsUnitController[] GetActiveUnits()
     {
       return this.mUnitsInBattle.ToArray();
@@ -1332,9 +1478,9 @@ namespace SRPG
     {
       Unit currentUnit = this.mBattle.CurrentUnit;
       TacticsUnitController unitController = this.FindUnitController(currentUnit);
-      if (Object.op_Inequality((Object) unitController, (Object) null) && unitController.IsJumpCant())
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null) && unitController.IsJumpCant())
       {
-        this.mBattle.CommandWait();
+        this.mBattle.CommandWait(false);
         this.GotoState_WaitSignal<SceneBattle.State_WaitForLog>();
       }
       else
@@ -1348,15 +1494,18 @@ namespace SRPG
           }
           else
           {
-            this.mBattle.CommandWait();
+            this.mBattle.CommandWait(false);
             this.GotoState_WaitSignal<SceneBattle.State_WaitForLog>();
           }
         }
         else
         {
           for (int index = 0; index < this.mTacticsUnits.Count; ++index)
+          {
             this.mTacticsUnits[index].AutoUpdateRotation = true;
-          if (currentUnit.IsControl && this.mAutoActivateGimmick && (!currentUnit.IsUnitFlag(EUnitFlag.Action) && this.mBattle.CheckGridEventTrigger(currentUnit, EEventTrigger.ExecuteOnGrid, false)))
+            this.mTacticsUnits[index].ResetHPGauge();
+          }
+          if (currentUnit.IsControl && this.mAutoActivateGimmick && (!currentUnit.IsUnitFlag(EUnitFlag.Action) && this.mBattle.CheckGridEventTrigger(currentUnit, EEventTrigger.ExecuteOnGrid)))
           {
             this.mAutoActivateGimmick = false;
             this.GotoState_WaitSignal<SceneBattle.State_SelectGridEventV2>();
@@ -1385,7 +1534,7 @@ namespace SRPG
             }
             else if (!currentUnit.IsEnableSelectDirectionCondition())
             {
-              this.mBattle.CommandWait();
+              this.mBattle.CommandWait(false);
               this.GotoState_WaitSignal<SceneBattle.State_WaitForLog>();
             }
             else if (this.Battle.IsMultiPlay && currentUnit.OwnerPlayerIndex != this.Battle.MyPlayerIndex)
@@ -1407,24 +1556,27 @@ namespace SRPG
 
     private void GotoMapEnd()
     {
-      if (Object.op_Inequality((Object) this.mBattleUI, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mBattleUI, (UnityEngine.Object) null))
       {
         this.mBattleUI.OnQuestEnd();
         this.mBattleUI.OnMapEnd();
       }
       this.mBattleUI.OnMapEnd();
-      if (Object.op_Inequality((Object) this.mBattleUI_MultiPlay, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mBattleUI_MultiPlay, (UnityEngine.Object) null))
         this.mBattleUI_MultiPlay.OnMapEnd();
       this.EndMultiPlayer();
-      this.GotoState_WaitSignal<SceneBattle.State_MapEndV2>();
+      if (MonoSingleton<GameManager>.Instance.AudienceMode)
+        this.GotoState_WaitSignal<SceneBattle.State_AudienceEnd>();
+      else
+        this.GotoState_WaitSignal<SceneBattle.State_MapEndV2>();
     }
 
     private void TriggerWinEvent()
     {
-      if (this.Battle.GetQuestResult() == BattleCore.QuestResult.Win && Object.op_Inequality((Object) this.mEventScript, (Object) null))
+      if (this.Battle.GetQuestResult() == BattleCore.QuestResult.Win && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mEventScript, (UnityEngine.Object) null))
       {
         this.mEventSequence = this.mEventScript.OnQuestWin();
-        if (Object.op_Inequality((Object) this.mEventSequence, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mEventSequence, (UnityEngine.Object) null))
         {
           this.GotoState<SceneBattle.State_WaitEvent<SceneBattle.State_PreQuestResult>>();
           return;
@@ -1463,6 +1615,18 @@ namespace SRPG
       }
     }
 
+    public void OnColoRankModify()
+    {
+      string errMsg = Network.ErrMsg;
+      Network.RemoveAPI();
+      Network.ResetError();
+      UIUtility.SystemMessage((string) null, errMsg, (UIUtility.DialogResultEvent) (go =>
+      {
+        this.mQuestResultSent = true;
+        this.mArenaSubmitMode = SceneBattle.eArenaSubmitMode.FAILED;
+      }), (GameObject) null, true, -1);
+    }
+
     private void SubmitResultCallbackImpl(WWWResult www, bool isArenaType = false)
     {
       if (FlowNode_Network.HasCommonError(www) || this.Battle.QuestType == QuestTypes.Tower && TowerErrorHandle.Error((FlowNode_Network) null))
@@ -1473,6 +1637,16 @@ namespace SRPG
         {
           case Network.EErrCode.QuestEnd:
           case Network.EErrCode.ColoNoBattle:
+            FlowNode_Network.Failed();
+            break;
+          case Network.EErrCode.ColoRankLower:
+          case Network.EErrCode.ColoRankModify:
+          case Network.EErrCode.ColoMyRankModify:
+            if (isArenaType)
+            {
+              this.OnColoRankModify();
+              break;
+            }
             FlowNode_Network.Failed();
             break;
           default:
@@ -1528,7 +1702,14 @@ namespace SRPG
         else
         {
           WebAPI.JSON_BodyResponse<Json_BtlComEnd> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_BtlComEnd>>(www.text);
+          MonoSingleton<GameManager>.Instance.Player.RegistTrophyStateDictByProgExtra(jsonObject.body.trophyprogs);
           json = jsonObject.body.quests;
+          if (jsonObject.body.quest_ranking != null)
+          {
+            this.mIsRankingQuestNewScore = jsonObject.body.quest_ranking.IsNewScore;
+            this.mRankingQuestNewRank = jsonObject.body.quest_ranking.rank;
+            this.mIsRankingQuestJoinReward = jsonObject.body.quest_ranking.IsJoinReward;
+          }
           jsonBodyResponse = new WebAPI.JSON_BodyResponse<Json_PlayerDataAll>();
           jsonBodyResponse.body = (Json_PlayerDataAll) jsonObject.body;
         }
@@ -1540,19 +1721,32 @@ namespace SRPG
         {
           try
           {
-            int multiCoin1 = MonoSingleton<GameManager>.Instance.Player.MultiCoin;
-            MonoSingleton<GameManager>.Instance.Deserialize(jsonBodyResponse.body.player);
-            MonoSingleton<GameManager>.Instance.Deserialize(jsonBodyResponse.body.units);
-            MonoSingleton<GameManager>.Instance.Deserialize(jsonBodyResponse.body.items);
+            GameManager instance = MonoSingleton<GameManager>.Instance;
+            VersusCoinParam versusCoinParam = instance.GetVersusCoinParam(this.CurrentQuest.iname);
+            int multiCoin1 = instance.Player.MultiCoin;
+            int num = 0;
+            if (versusCoinParam != null)
+              num = MonoSingleton<GameManager>.Instance.Player.GetItemAmount(versusCoinParam.coin_iname);
+            instance.Deserialize(jsonBodyResponse.body.player);
+            instance.Deserialize(jsonBodyResponse.body.units);
+            instance.Deserialize(jsonBodyResponse.body.items);
             if (json != null)
               MonoSingleton<GameManager>.Instance.Deserialize(json);
             if (jsonBodyResponse.body.mails != null)
               MonoSingleton<GameManager>.Instance.Deserialize(jsonBodyResponse.body.mails);
-            if (jsonBodyResponse.body.fuids != null && this.mCurrentQuest.type == QuestTypes.Multi)
+            if (jsonBodyResponse.body.fuids != null && (this.mCurrentQuest.type == QuestTypes.Multi || this.mCurrentQuest.IsMultiTower))
               MonoSingleton<GameManager>.Instance.Deserialize(jsonBodyResponse.body.fuids);
             int multiCoin2 = MonoSingleton<GameManager>.Instance.Player.MultiCoin;
             if (this.Battle.IsMultiPlay)
-              this.Battle.GetQuestRecord().multicoin = (OInt) (multiCoin2 - multiCoin1);
+            {
+              BattleCore.Record questRecord = this.Battle.GetQuestRecord();
+              questRecord.multicoin = (OInt) (multiCoin2 - multiCoin1);
+              if (versusCoinParam != null)
+              {
+                int itemAmount = MonoSingleton<GameManager>.Instance.Player.GetItemAmount(versusCoinParam.coin_iname);
+                questRecord.pvpcoin = (OInt) (itemAmount - num);
+              }
+            }
           }
           catch (Exception ex)
           {
@@ -1571,7 +1765,7 @@ namespace SRPG
             ArenaBattleResponse arenaBattleResponse = new ArenaBattleResponse();
             arenaBattleResponse.Deserialize(jsonObject.body.btlres);
             GlobalVars.ResultArenaBattleResponse = arenaBattleResponse;
-            this.ArenaEndFinish = 2;
+            this.mArenaSubmitMode = SceneBattle.eArenaSubmitMode.SUCCESS;
           }
           if (this.mBattle.IsAutoBattle)
             GameUtility.SetDefaultSleepSetting();
@@ -1580,6 +1774,9 @@ namespace SRPG
           MonoSingleton<GameManager>.Instance.ServerSyncTrophyExecEnd(www);
           this.mQuestResultSent = true;
           Network.RemoveAPI();
+          this.TrophyLvupCheck();
+          if (this.mIsForceEndQuest)
+            MonoSingleton<GameManager>.Instance.Player.SetQuestMissionFlags(this.mCurrentQuest.iname, this.mBattle.GetQuestRecord().bonusFlags);
           BattleCore.RemoveSuspendData();
         }
       }
@@ -1633,7 +1830,7 @@ namespace SRPG
       int[] goldSteals = new int[questRecord.gold_steals.Length];
       for (int index = 0; index < questRecord.gold_steals.Length; ++index)
         goldSteals[index] = (int) questRecord.gold_steals[index];
-      int[] missions = new int[3];
+      int[] missions = new int[questRecord.bonusCount];
       for (int index = 0; index < missions.Length; ++index)
         missions[index] = (questRecord.bonusFlags & 1 << index) == 0 ? 0 : 1;
       this.UpdateTrophy();
@@ -1642,7 +1839,10 @@ namespace SRPG
       MonoSingleton<GameManager>.Instance.ServerSyncTrophyExecStart(out trophy_progs, out bingo_progs);
       string maxdata = string.Format("\"hpleveldamage\": [ {0}, {1}, {2} ]", (object) GlobalVars.MaxHpInBattle, (object) GlobalVars.MaxLevelInBattle, (object) GlobalVars.MaxDamageInBattle);
       if (quest.type == QuestTypes.Arena)
-        Network.RequestAPI((WebAPI) new ReqBtlComEnd(btlid, time, result, beats, itemSteals, goldSteals, missions, (string[]) null, questRecord.used_items, new Network.ResponseCallback(this.SubmitArenaResultCallback), BtlEndTypes.colo, trophy_progs, bingo_progs, maxdata), false);
+      {
+        ArenaPlayer selectedArenaPlayer = (ArenaPlayer) GlobalVars.SelectedArenaPlayer;
+        Network.RequestAPI((WebAPI) new ReqBtlComEnd(selectedArenaPlayer.FUID, selectedArenaPlayer.ArenaRank, MonoSingleton<GameManager>.Instance.Player.ArenaRank, result, beats, itemSteals, goldSteals, missions, (string[]) null, questRecord.used_items, new Network.ResponseCallback(this.SubmitArenaResultCallback), BtlEndTypes.colo, trophy_progs, bingo_progs), false);
+      }
       else if (quest.type == QuestTypes.Tower)
       {
         GameManager instance = MonoSingleton<GameManager>.Instance;
@@ -1655,13 +1855,16 @@ namespace SRPG
       {
         // ISSUE: object of a compiler-generated type is created
         // ISSUE: variable of a compiler-generated type
-        SceneBattle.\u003CSubmitBattleResult\u003Ec__AnonStorey1C2 resultCAnonStorey1C2 = new SceneBattle.\u003CSubmitBattleResult\u003Ec__AnonStorey1C2();
+        SceneBattle.\u003CSubmitBattleResult\u003Ec__AnonStorey258 resultCAnonStorey258 = new SceneBattle.\u003CSubmitBattleResult\u003Ec__AnonStorey258();
         // ISSUE: reference to a compiler-generated field
-        resultCAnonStorey1C2.pt = PunMonoSingleton<MyPhoton>.Instance;
+        resultCAnonStorey258.pt = PunMonoSingleton<MyPhoton>.Instance;
         // ISSUE: reference to a compiler-generated field
         // ISSUE: reference to a compiler-generated method
-        JSON_MyPhotonPlayerParam photonPlayerParam = resultCAnonStorey1C2.pt.GetMyPlayersStarted().Find(new Predicate<JSON_MyPhotonPlayerParam>(resultCAnonStorey1C2.\u003C\u003Em__163));
-        Network.RequestAPI((WebAPI) new ReqVersusEnd(btlid, time, result, beats, photonPlayerParam.UID, photonPlayerParam.FUID, new Network.ResponseCallback(this.SubmitResultCallback), GlobalVars.SelectedMultiPlayVersusType, trophy_progs, bingo_progs, maxdata), false);
+        JSON_MyPhotonPlayerParam photonPlayerParam = resultCAnonStorey258.pt.GetMyPlayersStarted().Find(new Predicate<JSON_MyPhotonPlayerParam>(resultCAnonStorey258.\u003C\u003Em__1D9));
+        List<int> finishHp1 = this.Battle.GetFinishHp(EUnitSide.Player);
+        List<int> finishHp2 = this.Battle.GetFinishHp(EUnitSide.Enemy);
+        int deadCount = this.Battle.GetDeadCount(EUnitSide.Enemy);
+        Network.RequestAPI((WebAPI) new ReqVersusEnd(btlid, result, photonPlayerParam.UID, photonPlayerParam.FUID, this.Battle.VersusTurnCount, finishHp1.ToArray(), finishHp2.ToArray(), this.Battle.TotalDamages, this.Battle.TotalDamagesTaken, this.Battle.TotalHeal, deadCount, new Network.ResponseCallback(this.SubmitResultCallback), GlobalVars.SelectedMultiPlayVersusType, trophy_progs, bingo_progs), false);
       }
       else
       {
@@ -1679,31 +1882,48 @@ namespace SRPG
               fuid[num++] = photonPlayerParam.FUID;
           }
         }
-        Network.RequestAPI((WebAPI) new ReqBtlComEnd(btlid, time, result, beats, itemSteals, goldSteals, missions, fuid, questRecord.used_items, new Network.ResponseCallback(this.SubmitResultCallback), !isMultiPlay ? BtlEndTypes.com : BtlEndTypes.multi, trophy_progs, bingo_progs, maxdata), false);
+        SupportData supportData = MonoSingleton<GameManager>.Instance.Player.Supports.Find((Predicate<SupportData>) (f => f.FUID == GlobalVars.SelectedFriendID));
+        if (this.Battle.IsMultiTower)
+        {
+          List<int> finishHp = this.Battle.GetFinishHp(EUnitSide.Player);
+          List<string> playerName = this.Battle.GetPlayerName();
+          Network.RequestAPI((WebAPI) new ReqBtlMultiTwEnd(btlid, time, result, finishHp.ToArray(), playerName.ToArray(), fuid, new Network.ResponseCallback(this.SubmitResultCallback), trophy_progs, bingo_progs), false);
+        }
+        else if (this.Battle.IsRankingQuest && questRecord.result == BattleCore.QuestResult.Win)
+        {
+          RankingQuestParam rankingQuestParam = this.Battle.GetRankingQuestParam();
+          int main_score = 0;
+          if (rankingQuestParam.type == RankingQuestType.ActionCount)
+            main_score = this.Battle.ActionCount;
+          int sub_score = this.Battle.CalcPlayerUnitsTotalParameter();
+          string rankingQuestEndParam = ReqBtlComEnd.CreateRankingQuestEndParam(main_score, sub_score);
+          Network.RequestAPI((WebAPI) new ReqBtlComEnd(btlid, time, result, beats, itemSteals, goldSteals, missions, fuid, questRecord.used_items, new Network.ResponseCallback(this.SubmitResultCallback), !isMultiPlay ? BtlEndTypes.com : BtlEndTypes.multi, trophy_progs, bingo_progs, supportData == null ? 0 : (int) supportData.UnitElement, rankingQuestEndParam), false);
+        }
+        else
+          Network.RequestAPI((WebAPI) new ReqBtlComEnd(btlid, time, result, beats, itemSteals, goldSteals, missions, fuid, questRecord.used_items, new Network.ResponseCallback(this.SubmitResultCallback), !isMultiPlay ? BtlEndTypes.com : BtlEndTypes.multi, trophy_progs, bingo_progs, supportData == null ? 0 : (int) supportData.UnitElement, (string) null), false);
       }
       MonoSingleton<GameManager>.Instance.Player.ResetMissionClearAt();
     }
 
     private void SubmitScenarioResult(long btlid)
     {
-      Network.RequestAPI((WebAPI) new ReqBtlComEnd(btlid, 0, BtlResultTypes.Win, (int[]) null, (int[]) null, (int[]) null, (int[]) null, (string[]) null, (Dictionary<OString, OInt>) null, new Network.ResponseCallback(this.SubmitResultCallback), BtlEndTypes.com, (string) null, (string) null, (string) null), false);
+      Network.RequestAPI((WebAPI) new ReqBtlComEnd(btlid, 0, BtlResultTypes.Win, (int[]) null, (int[]) null, (int[]) null, (int[]) null, (string[]) null, (Dictionary<OString, OInt>) null, new Network.ResponseCallback(this.SubmitResultCallback), BtlEndTypes.com, (string) null, (string) null, 0, (string) null), false);
       MonoSingleton<GameManager>.Instance.Player.MarkQuestCleared(this.mCurrentQuest.iname);
     }
 
     public void ForceEndQuest()
     {
+      this.mIsForceEndQuest = true;
       this.mExecDisconnected = true;
-      if (this.Battle.GetQuestResult() == BattleCore.QuestResult.Pending && this.Battle.IsMultiVersus)
+      if (this.Battle.IsMultiTower)
       {
-        this.SendRetire();
-        this.GotoState<SceneBattle.State_RetireComfirm>();
+        MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) instance, (UnityEngine.Object) null))
+          instance.Disconnect();
       }
-      else
-      {
-        if (this.IsInState<SceneBattle.State_ExitQuest>())
-          return;
-        this.GotoState<SceneBattle.State_ExitQuest>();
-      }
+      if (this.IsInState<SceneBattle.State_ExitQuest>())
+        return;
+      this.GotoState<SceneBattle.State_ExitQuest>();
     }
 
     private void UpdateTrophy()
@@ -1713,7 +1933,7 @@ namespace SRPG
       if (this.mCurrentQuest.type == QuestTypes.Arena)
       {
         if (this.mBattle.GetQuestRecord().result == BattleCore.QuestResult.Win)
-          player.OnQuestWin(this.mCurrentQuest.iname);
+          player.OnQuestWin(this.mCurrentQuest.iname, (BattleCore.Record) null);
         else
           player.OnQuestLose(this.mCurrentQuest.iname);
       }
@@ -1722,30 +1942,51 @@ namespace SRPG
         switch (questResult)
         {
           case BattleCore.QuestResult.Win:
-            player.OnQuestWin(this.mCurrentQuest.iname);
             BattleCore.Record questRecord = this.Battle.GetQuestRecord();
+            player.OnQuestWin(this.mCurrentQuest.iname, questRecord);
             for (int index = 0; index < questRecord.items.Count; ++index)
-              player.OnItemQuantityChange(questRecord.items[index].iname, 1);
-            if ((int) questRecord.gold > 0)
-              player.OnGoldChange((int) questRecord.gold);
-            if (this.mStartPlayerLevel >= player.Lv)
-              break;
-            player.OnPlayerLevelChange(player.Lv - this.mStartPlayerLevel);
+              player.OnItemQuantityChange(questRecord.items[index].mItemParam.iname, 1);
             break;
           case BattleCore.QuestResult.Lose:
             player.OnQuestLose(this.mCurrentQuest.iname);
             break;
         }
+        if (!this.mCurrentQuest.IsMultiTower)
+          return;
+        MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
+        int mtClearedMaxFloor = MonoSingleton<GameManager>.Instance.GetMTClearedMaxFloor();
+        int selectedMultiTowerFloor = GlobalVars.SelectedMultiTowerFloor;
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) instance, (UnityEngine.Object) null))
+          return;
+        List<MyPhoton.MyPlayer> roomPlayerList = instance.GetRoomPlayerList();
+        if (roomPlayerList == null)
+          return;
+        for (int index = 0; index < roomPlayerList.Count; ++index)
+        {
+          JSON_MyPhotonPlayerParam photonPlayerParam = JSON_MyPhotonPlayerParam.Parse(roomPlayerList[index].json);
+          if (photonPlayerParam != null && photonPlayerParam.playerIndex != instance.MyPlayerIndex && (selectedMultiTowerFloor <= mtClearedMaxFloor && selectedMultiTowerFloor > photonPlayerParam.mtClearedFloor))
+            player.OnMultiTowerHelp();
+        }
       }
+    }
+
+    private void TrophyLvupCheck()
+    {
+      PlayerData player = MonoSingleton<GameManager>.Instance.Player;
+      if (this.mStartPlayerLevel >= player.Lv)
+        return;
+      player.OnPlayerLevelChange(player.Lv - this.mStartPlayerLevel);
     }
 
     public void ForceEndQuestInArena()
     {
       if (this.Battle.IsArenaSkip)
         return;
-      this.Battle.IsArenaSkip = true;
       this.Pause(false);
       GlobalEvent.Invoke("CLOSE_QUESTMENU", (object) this);
+      if (this.Battle.GetQuestResult() != BattleCore.QuestResult.Pending)
+        return;
+      this.Battle.IsArenaSkip = true;
       SRPG_TouchInputModule.LockInput();
       this.GotoState_WaitSignal<SceneBattle.State_ArenaSkipWait>();
     }
@@ -1760,7 +2001,7 @@ namespace SRPG
 
     private void SaveResult()
     {
-      this.mSavedResult = new QuestResultData(MonoSingleton<GameManager>.Instance.Player, (int) this.mCurrentQuest.clear_missions, this.mBattle.GetQuestRecord(), this.Battle.AllUnits, this.mIsFirstWin);
+      this.mSavedResult = new QuestResultData(MonoSingleton<GameManager>.Instance.Player, this.mCurrentQuest.clear_missions, this.mBattle.GetQuestRecord(), this.Battle.AllUnits, this.mIsFirstWin);
     }
 
     private void OFFLINE_APPLY_QUEST_RESULT()
@@ -1781,7 +2022,7 @@ namespace SRPG
         if (questRecord.items != null)
         {
           for (int index = 0; index < questRecord.items.Count; ++index)
-            player.GainItem(questRecord.items[index].iname, 1);
+            player.GainItem(questRecord.items[index].mItemParam.iname, 1);
         }
         MonoSingleton<GameManager>.Instance.Player.MarkQuestCleared(this.mCurrentQuest.iname);
         MonoSingleton<GameManager>.Instance.Player.SetQuestMissionFlags(this.mCurrentQuest.iname, questRecord.bonusFlags);
@@ -1820,7 +2061,8 @@ namespace SRPG
     public void CleanUpMultiPlay()
     {
       this.CleanupGoodJob();
-      PunMonoSingleton<MyPhoton>.Instance.Reset();
+      if (!this.Battle.IsMultiTower)
+        PunMonoSingleton<MyPhoton>.Instance.Reset();
       DebugUtility.Log("CleanUpMultiPlay done.");
     }
 
@@ -1838,7 +2080,72 @@ namespace SRPG
       if (this.mBattle.IsUnitAuto(this.mBattle.CurrentUnit) || this.mBattle.EntryBattleMultiPlayTimeUp)
         this.HideGrid();
       this.CancelMapViewMode();
-      this.GotoState<SceneBattle.State_WaitGC<SceneBattle.State_PrepareSkill>>();
+      BattleCameraFukan gameObject = GameObjectID.FindGameObject<BattleCameraFukan>(this.mBattleUI.FukanCameraID);
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) gameObject, (UnityEngine.Object) null))
+      {
+        gameObject.SetCameraMode(SceneBattle.CameraMode.DEFAULT);
+        gameObject.SetDisp(false);
+      }
+      if (!this.mBattle.IsSkillDirection)
+      {
+        if (peek != null && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mEventScript, (UnityEngine.Object) null))
+        {
+          TacticsUnitController unitController1 = this.FindUnitController(peek.self);
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController1, (UnityEngine.Object) null) && peek.targets != null && peek.targets.Count != 0)
+          {
+            List<TacticsUnitController> TargetLists = new List<TacticsUnitController>();
+            using (List<LogSkill.Target>.Enumerator enumerator = peek.targets.GetEnumerator())
+            {
+              while (enumerator.MoveNext())
+              {
+                TacticsUnitController unitController2 = this.FindUnitController(enumerator.Current.target);
+                if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController2, (UnityEngine.Object) null))
+                  TargetLists.Add(unitController2);
+              }
+            }
+            if (TargetLists.Count != 0)
+            {
+              this.mEventSequence = this.mEventScript.OnUseSkill(EventScript.SkillTiming.BEFORE, unitController1, peek.skill, TargetLists, this.mIsFirstPlay);
+              if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mEventSequence, (UnityEngine.Object) null))
+              {
+                this.GotoState<SceneBattle.State_WaitEvent<SceneBattle.State_WaitGC<SceneBattle.State_DirectionOffSkill>>>();
+                return;
+              }
+            }
+          }
+        }
+        this.GotoState<SceneBattle.State_WaitGC<SceneBattle.State_DirectionOffSkill>>();
+      }
+      else
+      {
+        if (peek != null && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mEventScript, (UnityEngine.Object) null))
+        {
+          TacticsUnitController unitController1 = this.FindUnitController(peek.self);
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController1, (UnityEngine.Object) null) && peek.targets != null && peek.targets.Count != 0)
+          {
+            List<TacticsUnitController> TargetLists = new List<TacticsUnitController>();
+            using (List<LogSkill.Target>.Enumerator enumerator = peek.targets.GetEnumerator())
+            {
+              while (enumerator.MoveNext())
+              {
+                TacticsUnitController unitController2 = this.FindUnitController(enumerator.Current.target);
+                if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController2, (UnityEngine.Object) null))
+                  TargetLists.Add(unitController2);
+              }
+            }
+            if (TargetLists.Count != 0)
+            {
+              this.mEventSequence = this.mEventScript.OnUseSkill(EventScript.SkillTiming.BEFORE, unitController1, peek.skill, TargetLists, this.mIsFirstPlay);
+              if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mEventSequence, (UnityEngine.Object) null))
+              {
+                this.GotoState<SceneBattle.State_WaitEvent<SceneBattle.State_WaitGC<SceneBattle.State_PrepareSkill>>>();
+                return;
+              }
+            }
+          }
+        }
+        this.GotoState<SceneBattle.State_WaitGC<SceneBattle.State_PrepareSkill>>();
+      }
     }
 
     private void CancelMapViewMode()
@@ -1851,12 +2158,7 @@ namespace SRPG
         this.mTacticsUnits[index].SetHPChangeYosou(this.mTacticsUnits[index].VisibleHPValue);
       }
       this.mBattleUI.OnCommandSelect();
-      if (Object.op_Inequality((Object) this.mBattleUI.TargetMain, (Object) null))
-        this.mBattleUI.TargetMain.Close();
-      if (Object.op_Inequality((Object) this.mBattleUI.TargetSub, (Object) null))
-        this.mBattleUI.TargetSub.Close();
-      if (Object.op_Inequality((Object) this.mBattleUI.TargetObjectSub, (Object) null))
-        this.mBattleUI.TargetObjectSub.Close();
+      this.mBattleUI.HideTargetWindows();
       this.InterpCameraDistance(GameSettings.Instance.GameCamera_DefaultDistance);
       this.mBattleUI.OnMapViewEnd();
       this.VersusMapView = false;
@@ -1866,7 +2168,7 @@ namespace SRPG
     {
       get
       {
-        if (Object.op_Implicit((Object) this.mCollaboTargetTuc))
+        if (UnityEngine.Object.op_Implicit((UnityEngine.Object) this.mCollaboTargetTuc))
           return this.mCollaboTargetTuc.Unit;
         return (Unit) null;
       }
@@ -1895,48 +2197,200 @@ namespace SRPG
     private void SetScreenMirroring(bool mirror)
     {
       RenderPipeline component = (RenderPipeline) ((Component) Camera.get_main()).GetComponent<RenderPipeline>();
-      if (!Object.op_Inequality((Object) component, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
         return;
       component.FlipHorizontally = mirror;
       this.isScreenMirroring = mirror;
     }
 
-    private void InitCamera()
+    private bool FindChangedShield(out TacticsUnitController tuc, out TacticsUnitController.ShieldState shield)
     {
-      GameSettings instance = GameSettings.Instance;
-      CameraHook.AddPreCullEventListener(new CameraHook.PreCullEvent(this.OnCameraPreCull));
-      RenderPipeline.Setup(Camera.get_main());
-      this.mTargetCamera = GameUtility.RequireComponent<TargetCamera>(((Component) Camera.get_main()).get_gameObject());
-      this.mTargetCamera.Pitch = instance.GameCamera_AngleX;
-      this.mCameraYawMin = instance.GameCamera_YawMin;
-      this.mCameraYawMax = instance.GameCamera_YawMax;
-      this.mCameraAngle = instance.GameCamera_YawMin;
-      this.mDesiredCameraDistance = instance.GameCamera_DefaultDistance;
+      List<SceneBattle.FindShield> l = new List<SceneBattle.FindShield>();
+      for (int index1 = 0; index1 < this.mTacticsUnits.Count; ++index1)
+      {
+        for (int index2 = 0; index2 < this.mTacticsUnits[index1].Shields.Count; ++index2)
+        {
+          if (this.mTacticsUnits[index1].Shields[index2].Dirty)
+            l.Add(new SceneBattle.FindShield(this.mTacticsUnits[index1], this.mTacticsUnits[index1].Shields[index2]));
+        }
+        if (l.Count != 0)
+          break;
+      }
+      tuc = (TacticsUnitController) null;
+      shield = (TacticsUnitController.ShieldState) null;
+      if (l.Count == 0)
+        return false;
+      if (l.Count > 1)
+        MySort<SceneBattle.FindShield>.Sort(l, (Comparison<SceneBattle.FindShield>) ((src, dst) =>
+        {
+          if ((int) src.mShield.Target.hp != (int) dst.mShield.Target.hp)
+          {
+            if ((int) src.mShield.Target.hp < (int) dst.mShield.Target.hp)
+              return -1;
+            if ((int) src.mShield.Target.hp > (int) dst.mShield.Target.hp)
+              return 1;
+          }
+          return 0;
+        }));
+      SceneBattle.FindShield findShield = l[0];
+      tuc = findShield.mTuc;
+      shield = findShield.mShield;
+      return true;
     }
 
-    private void DestroyCamera()
+    [DebuggerHidden]
+    private IEnumerator SetWeatherEffect(WeatherData wd)
     {
-      CameraHook.RemovePreCullEventListener(new CameraHook.PreCullEvent(this.OnCameraPreCull));
+      // ISSUE: object of a compiler-generated type is created
+      return (IEnumerator) new SceneBattle.\u003CSetWeatherEffect\u003Ec__Iterator59() { wd = wd, \u003C\u0024\u003Ewd = wd, \u003C\u003Ef__this = this };
     }
 
-    private void OnCameraPreCull(Camera cam)
+    [DebuggerHidden]
+    private IEnumerator StopWeatherEffect(bool is_immidiate = false)
     {
-      if (!(((Component) cam).get_tag() == "MainCamera") || ((Component) cam).get_gameObject().get_layer() != GameUtility.LayerDefault)
-        return;
-      this.LayoutPopups(cam);
-      this.LayoutGauges(cam);
+      // ISSUE: object of a compiler-generated type is created
+      return (IEnumerator) new SceneBattle.\u003CStopWeatherEffect\u003Ec__Iterator5A() { is_immidiate = is_immidiate, \u003C\u0024\u003Eis_immidiate = is_immidiate, \u003C\u003Ef__this = this };
+    }
+
+    public bool isUpView
+    {
+      get
+      {
+        return this.m_CameraMode == SceneBattle.CameraMode.UPVIEW;
+      }
+    }
+
+    public bool isNewCamera
+    {
+      get
+      {
+        return this.m_NewCamera;
+      }
+    }
+
+    public bool isFullRotationCamera
+    {
+      get
+      {
+        return this.m_FullRotationCamera;
+      }
     }
 
     public bool mUpdateCameraPosition
     {
-      get
-      {
-        return this._mUpdateCameraPosition;
-      }
       set
       {
-        this._mUpdateCameraPosition = value;
+        this.m_UpdateCamera = value;
       }
+      get
+      {
+        return this.m_UpdateCamera;
+      }
+    }
+
+    public bool isBattleCamera
+    {
+      get
+      {
+        return this.m_BattleCamera;
+      }
+    }
+
+    public TargetCamera targetCamera
+    {
+      get
+      {
+        return this.m_TargetCamera;
+      }
+    }
+
+    private bool IsCameraMoving
+    {
+      get
+      {
+        return ObjectAnimator.Get((Component) Camera.get_main()).isMoving || this.mUpdateCameraPosition && (this.m_TargetCameraPositionInterp || this.m_TargetCameraDistanceInterp);
+      }
+    }
+
+    public bool isCameraLeftMove
+    {
+      get
+      {
+        if (this.isFullRotationCamera)
+          return true;
+        return (double) this.m_CameraAngle - (double) this.m_CameraYawMin > 0.00999999977648258;
+      }
+    }
+
+    public bool isCameraRightMove
+    {
+      get
+      {
+        if (this.isFullRotationCamera)
+          return true;
+        return (double) this.m_CameraYawMax - (double) this.m_CameraAngle > 0.00999999977648258;
+      }
+    }
+
+    private Vector3 mCameraTarget
+    {
+      set
+      {
+        this.m_CameraPosition = value;
+      }
+      get
+      {
+        return this.m_CameraPosition;
+      }
+    }
+
+    private bool mAllowCameraRotation
+    {
+      set
+      {
+        this.m_AllowCameraRotation = value;
+      }
+      get
+      {
+        return this.m_AllowCameraRotation;
+      }
+    }
+
+    private bool mAllowCameraTranslation
+    {
+      set
+      {
+        this.m_AllowCameraTranslation = value;
+      }
+      get
+      {
+        return this.m_AllowCameraTranslation;
+      }
+    }
+
+    private bool mDesiredCameraTargetSet
+    {
+      set
+      {
+        this.m_TargetCameraPositionInterp = value;
+      }
+      get
+      {
+        return this.m_TargetCameraPositionInterp;
+      }
+    }
+
+    public float CameraYawRatio
+    {
+      get
+      {
+        return Mathf.Clamp01((float) (((double) this.m_CameraAngle - (double) this.m_CameraYawMin) / ((double) this.m_CameraYawMax - (double) this.m_CameraYawMin)));
+      }
+    }
+
+    public void SetMoveCamera()
+    {
+      this.ResetMoveCamera();
     }
 
     private void SetCameraOffset(Transform transform)
@@ -1947,22 +2401,290 @@ namespace SRPG
     {
     }
 
+    private void InitCamera()
+    {
+      GameSettings instance = GameSettings.Instance;
+      CameraHook.AddPreCullEventListener(new CameraHook.PreCullEvent(this.OnCameraPreCull));
+      RenderPipeline.Setup(Camera.get_main());
+      this.m_TargetCamera = GameUtility.RequireComponent<TargetCamera>(((Component) Camera.get_main()).get_gameObject());
+      this.m_TargetCamera.Pitch = instance.GameCamera_AngleX;
+      this.m_DefaultCameraYawMin = instance.GameCamera_YawMin;
+      this.m_DefaultCameraYawMax = instance.GameCamera_YawMax;
+      this.m_CameraYawMin = this.m_DefaultCameraYawMin;
+      this.m_CameraYawMax = this.m_DefaultCameraYawMax;
+      this.m_CameraAngle = this.m_DefaultCameraYawMin;
+      this.m_TargetCameraDistance = instance.GameCamera_DefaultDistance;
+      this.m_TargetCameraDistanceInterp = true;
+      this.m_NewCamera = false;
+      this.SetFullRotationCamera(true);
+    }
+
+    private void DestroyCamera()
+    {
+      CameraHook.RemovePreCullEventListener(new CameraHook.PreCullEvent(this.OnCameraPreCull));
+    }
+
+    public void ResetCameraTarget()
+    {
+      this.m_TargetCamera.Reset();
+      this.m_CameraAngle = this.m_TargetCamera.Yaw;
+      this.m_TargetCameraDistance = this.m_TargetCamera.CameraDistance;
+      this.m_TargetCameraDistanceInterp = false;
+      this.m_CameraPosition = this.m_TargetCamera.TargetPosition;
+      // ISSUE: explicit reference operation
+      // ISSUE: variable of a reference type
+      Vector3& local = @this.m_CameraPosition;
+      // ISSUE: explicit reference operation
+      // ISSUE: explicit reference operation
+      (^local).y = (__Null) ((^local).y - (double) GameSettings.Instance.GameCamera_UnitHeightOffset);
+    }
+
+    public void ResetMoveCamera()
+    {
+      this.InterpCameraTarget((Component) ((Component) this.FindUnitController(this.mBattle.CurrentUnit)).get_transform());
+      this.m_TargetCamera.Pitch = GameSettings.Instance.GameCamera_AngleX;
+    }
+
+    private void UpdateCameraControl(bool immediate = false)
+    {
+      if (this.isBattleCamera)
+        return;
+      if (this.isUpView)
+      {
+        this.UpdateCameraControlUpView(immediate);
+      }
+      else
+      {
+        Camera main = Camera.get_main();
+        Transform transform = !UnityEngine.Object.op_Inequality((UnityEngine.Object) main, (UnityEngine.Object) null) ? (Transform) null : ((Component) main).get_transform();
+        GameSettings instance = GameSettings.Instance;
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mTacticsSceneRoot, (UnityEngine.Object) null) && ((Component) this.mTacticsSceneRoot).get_gameObject().get_activeInHierarchy())
+          main.set_fieldOfView(GameSettings.Instance.GameCamera_TacticsSceneFOV);
+        else if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mBattleSceneRoot, (UnityEngine.Object) null) && ((Component) this.mBattleSceneRoot).get_gameObject().get_activeInHierarchy())
+          main.set_fieldOfView(GameSettings.Instance.GameCamera_BattleSceneFOV);
+        if (!ObjectAnimator.Get((Component) main).isMoving && this.mUpdateCameraPosition)
+        {
+          bool flag = this.UpdateCameraRotationInterp(immediate);
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mTouchController, (UnityEngine.Object) null))
+          {
+            this.UpdateCameraRotationTouchMove(!flag, immediate);
+            this.UpdateCameraPositionTouchMove(transform.get_right(), transform.get_forward());
+          }
+          this.UpdateCameraPositionInterp(immediate);
+          if (this.m_TargetCameraDistanceInterp)
+          {
+            float num = !immediate ? Time.get_deltaTime() * 8f : 1f;
+            float targetCameraDistance = this.m_TargetCameraDistance;
+            this.m_TargetCamera.CameraDistance = Mathf.Lerp(this.m_TargetCamera.CameraDistance, targetCameraDistance, num);
+            if ((double) Mathf.Abs(targetCameraDistance - this.m_TargetCamera.CameraDistance) <= 0.00999999977648258)
+            {
+              this.m_TargetCamera.CameraDistance = targetCameraDistance;
+              this.m_TargetCameraDistanceInterp = false;
+            }
+          }
+          this.m_TargetCamera.SetPositionYaw(Vector3.op_Addition(this.m_CameraPosition, Vector3.op_Multiply(Vector3.get_up(), instance.GameCamera_UnitHeightOffset)), this.m_CameraAngle);
+        }
+        this.OnCameraForcus();
+      }
+    }
+
+    private bool UpdateCameraRotationTouchMove(bool isEnable, bool immediate)
+    {
+      bool flag = false;
+      if (isEnable && this.m_AllowCameraRotation)
+      {
+        float num1 = (float) -this.mTouchController.AngularVelocity.x * (float) (1.0 / (double) Screen.get_width() * 180.0);
+        if (!this.isNewCamera)
+        {
+          float cameraYawSoftLimit = GameSettings.Instance.GameCamera_YawSoftLimit;
+          float num2 = 2f;
+          if ((double) this.m_CameraAngle < (double) this.m_CameraYawMin && (double) num1 < 0.0)
+          {
+            float num3 = Mathf.Pow(1f - Mathf.Clamp01((float) -((double) this.m_CameraAngle - (double) this.m_CameraYawMin) / cameraYawSoftLimit), num2);
+            num1 *= num3;
+          }
+          else if ((double) this.m_CameraAngle > (double) this.m_CameraYawMax && (double) num1 > 0.0)
+          {
+            float num3 = Mathf.Pow(1f - Mathf.Clamp01((this.m_CameraAngle - this.m_CameraYawMax) / cameraYawSoftLimit), num2);
+            num1 *= num3;
+          }
+          this.m_CameraAngle += num1;
+          if (!SRPG_TouchInputModule.IsMultiTouching)
+          {
+            float num3 = !immediate ? Time.get_deltaTime() * 10f : 1f;
+            if ((double) this.m_CameraAngle < (double) this.m_CameraYawMin)
+              this.m_CameraAngle = (double) Mathf.Abs(this.m_CameraAngle - this.m_CameraYawMin) >= 0.00999999977648258 ? Mathf.Lerp(this.m_CameraAngle, this.m_CameraYawMin, num3) : this.m_CameraYawMin;
+            else if ((double) this.m_CameraAngle > (double) this.m_CameraYawMax)
+              this.m_CameraAngle = (double) Mathf.Abs(this.m_CameraAngle - this.m_CameraYawMax) >= 0.00999999977648258 ? Mathf.Lerp(this.m_CameraAngle, this.m_CameraYawMax, num3) : this.m_CameraYawMax;
+          }
+        }
+        else
+        {
+          this.m_CameraAngle += num1;
+          if (!this.isFullRotationCamera)
+          {
+            if ((double) this.m_CameraAngle < (double) this.m_CameraYawMin)
+              this.m_CameraAngle = this.m_CameraYawMin;
+            else if ((double) this.m_CameraAngle > (double) this.m_CameraYawMax)
+              this.m_CameraAngle = this.m_CameraYawMax;
+          }
+        }
+        flag = true;
+      }
+      this.mTouchController.AngularVelocity = Vector2.get_zero();
+      return flag;
+    }
+
+    private bool UpdateCameraPositionTouchMove(Vector3 xAxis, Vector3 yAxis)
+    {
+      Camera main = Camera.get_main();
+      bool flag = false;
+      // ISSUE: explicit reference operation
+      if (this.m_AllowCameraTranslation && (double) ((Vector2) @this.mTouchController.Velocity).get_magnitude() > 0.0)
+      {
+        Vector2 velocity = this.mTouchController.Velocity;
+        yAxis.y = (__Null) 0.0;
+        // ISSUE: explicit reference operation
+        ((Vector3) @yAxis).Normalize();
+        xAxis.y = (__Null) 0.0;
+        // ISSUE: explicit reference operation
+        ((Vector3) @xAxis).Normalize();
+        Vector3 screenPoint = main.WorldToScreenPoint(this.m_CameraPosition);
+        Vector2 vector2 = Vector2.op_Implicit(Vector3.op_Subtraction(main.WorldToScreenPoint(Vector3.op_Addition(Vector3.op_Addition(this.m_CameraPosition, xAxis), yAxis)), screenPoint));
+        // ISSUE: explicit reference operation
+        // ISSUE: variable of a reference type
+        Vector2& local1 = @velocity;
+        // ISSUE: explicit reference operation
+        // ISSUE: explicit reference operation
+        (^local1).x = (__Null) ((^local1).x / (double) Mathf.Abs((float) vector2.x));
+        // ISSUE: explicit reference operation
+        // ISSUE: variable of a reference type
+        Vector2& local2 = @velocity;
+        // ISSUE: explicit reference operation
+        // ISSUE: explicit reference operation
+        (^local2).y = (__Null) ((^local2).y / (double) Mathf.Abs((float) vector2.y));
+        // ISSUE: explicit reference operation
+        ((Vector2) @velocity).\u002Ector((float) (xAxis.x * velocity.x + yAxis.x * velocity.y), (float) (xAxis.z * velocity.x + yAxis.z * velocity.y));
+        // ISSUE: explicit reference operation
+        // ISSUE: variable of a reference type
+        Vector3& local3 = @this.m_CameraPosition;
+        // ISSUE: explicit reference operation
+        // ISSUE: explicit reference operation
+        (^local3).x = (^local3).x - velocity.x;
+        // ISSUE: explicit reference operation
+        // ISSUE: variable of a reference type
+        Vector3& local4 = @this.m_CameraPosition;
+        // ISSUE: explicit reference operation
+        // ISSUE: explicit reference operation
+        (^local4).z = (^local4).z - velocity.y;
+        this.m_CameraPosition.x = (__Null) (double) Mathf.Clamp((float) this.m_CameraPosition.x, 0.1f, (float) this.mBattle.CurrentMap.Width - 0.1f);
+        this.m_CameraPosition.z = (__Null) (double) Mathf.Clamp((float) this.m_CameraPosition.z, 0.1f, (float) this.mBattle.CurrentMap.Height - 0.1f);
+        this.m_CameraPosition.y = (__Null) (double) this.CalcHeight((float) this.m_CameraPosition.x, (float) this.m_CameraPosition.z);
+        flag = true;
+      }
+      this.mTouchController.Velocity = Vector2.get_zero();
+      return flag;
+    }
+
+    private bool UpdateCameraRotationInterp(bool immediate)
+    {
+      if (!this.m_TargetCameraAngleInterp)
+        return false;
+      this.m_TargetCameraAngleTime = !immediate ? Mathf.Min(this.m_TargetCameraAngleTime + Time.get_deltaTime(), this.m_TargetCameraAngleTimeMax) : this.m_TargetCameraAngleTimeMax;
+      this.m_CameraAngle = Mathf.Lerp(this.m_TargetCameraAngleStart, this.m_TargetCameraAngle, Mathf.Sin((float) (1.57079637050629 * ((double) this.m_TargetCameraAngleTime / (double) this.m_TargetCameraAngleTimeMax))));
+      if ((double) this.m_TargetCameraAngleTime >= (double) this.m_TargetCameraAngleTimeMax)
+        this.m_TargetCameraAngleInterp = false;
+      return true;
+    }
+
+    private bool UpdateCameraPositionInterp(bool immediate)
+    {
+      float num = !immediate ? Time.get_deltaTime() * 8f : 1f;
+      if (!this.m_TargetCameraPositionInterp)
+        return false;
+      this.m_CameraPosition = Vector3.Lerp(this.m_CameraPosition, this.m_TargetCameraPosition, num);
+      Vector3 vector3 = Vector3.op_Subtraction(this.m_TargetCameraPosition, this.m_CameraPosition);
+      // ISSUE: explicit reference operation
+      if ((double) ((Vector3) @vector3).get_magnitude() <= 0.00999999977648258)
+      {
+        this.m_CameraPosition = this.m_TargetCameraPosition;
+        this.m_TargetCameraPositionInterp = false;
+      }
+      return true;
+    }
+
+    public void SetBattleCamera(bool value)
+    {
+      this.m_BattleCamera = value;
+    }
+
+    public void SetNewCamera(TacticsSceneCamera camera)
+    {
+      this.m_NewCamera = true;
+      this.m_FullRotationCamera = camera.allRange.enable;
+      if (!this.m_FullRotationCamera && camera.moveRange.isOverride)
+      {
+        this.m_CameraYawMin = 360f - camera.moveRange.min;
+        this.m_CameraYawMax = 360f - camera.moveRange.max;
+        this.m_CameraAngle = 360f - camera.moveRange.start;
+        if ((double) this.m_CameraYawMin <= (double) this.m_CameraYawMax)
+          return;
+        float cameraYawMin = this.m_CameraYawMin;
+        this.m_CameraYawMin = this.m_CameraYawMax;
+        this.m_CameraYawMax = cameraYawMin;
+      }
+      else
+      {
+        this.m_CameraYawMin = this.m_DefaultCameraYawMin;
+        this.m_CameraYawMax = this.m_DefaultCameraYawMax;
+        this.m_CameraAngle = this.m_DefaultCameraYawMin;
+      }
+    }
+
+    public void SetFullRotationCamera(bool value)
+    {
+      if (value)
+      {
+        this.m_NewCamera = true;
+      }
+      else
+      {
+        this.m_CameraYawMin = this.m_DefaultCameraYawMin;
+        this.m_CameraYawMax = this.m_DefaultCameraYawMax;
+        this.m_CameraAngle = this.m_DefaultCameraYawMin;
+        this.m_NewCamera = false;
+      }
+      this.m_FullRotationCamera = value;
+    }
+
+    public float GetCameraDistance()
+    {
+      return this.m_TargetCameraDistance;
+    }
+
+    private void SetCameraTarget(Vector3 position)
+    {
+      this.m_CameraPosition = position;
+      this.m_TargetCameraPositionInterp = false;
+    }
+
     private void SetCameraTarget(Component position)
     {
       this.SetCameraTarget(position.get_transform().get_position());
     }
 
-    private void SetCameraTarget(Vector3 position)
-    {
-      this.mCameraTarget = position;
-      this.mDesiredCameraTargetSet = false;
-    }
-
     private void SetCameraTarget(float x, float y)
     {
-      this.mCameraTarget.x = (__Null) (double) x;
-      this.mCameraTarget.y = (__Null) (double) this.CalcHeight(x, y);
-      this.mCameraTarget.z = (__Null) (double) y;
+      this.m_CameraPosition.x = (__Null) (double) x;
+      this.m_CameraPosition.y = (__Null) (double) this.CalcHeight(x, y);
+      this.m_CameraPosition.z = (__Null) (double) y;
+    }
+
+    private void InterpCameraTarget(Vector3 position)
+    {
+      this.m_TargetCameraPosition = position;
+      this.m_TargetCameraPositionInterp = true;
+      this.mUpdateCameraPosition = true;
     }
 
     private void InterpCameraTarget(Component position)
@@ -1970,179 +2692,170 @@ namespace SRPG
       this.InterpCameraTarget(position.get_transform().get_position());
     }
 
-    private void InterpCameraTarget(Vector3 position)
-    {
-      this.mDesiredCameraTarget = position;
-      this.mDesiredCameraTargetSet = true;
-      this.mUpdateCameraPosition = true;
-    }
-
     private void InterpCameraTargetToCurrent()
     {
       TacticsUnitController unitController = this.FindUnitController(this.mBattle.CurrentUnit);
-      if (!Object.op_Inequality((Object) unitController, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
         return;
       this.InterpCameraTarget((Component) unitController);
     }
 
-    private void InterpCameraDistance(float distance)
+    public void InterpCameraDistance(float distance)
     {
-      if (GameUtility.Config_SkillAnimation)
-        return;
-      this.mDesiredCameraDistance = GameSettings.Instance.GameCamera_DefaultDistance;
+      this.m_TargetCameraDistance = distance;
+      if (!GameUtility.Config_SkillAnimation)
+        this.m_TargetCameraDistance = GameSettings.Instance.GameCamera_DefaultDistance;
+      this.m_TargetCameraDistanceInterp = true;
     }
 
     public void SetCameraYawRange(float min, float max)
     {
-      this.mCameraYawMin = min;
-      this.mCameraYawMax = max;
+      this.m_DefaultCameraYawMin = min;
+      this.m_DefaultCameraYawMax = max;
     }
 
     public void RotateCamera(float delta, float duration)
     {
-      if (GlobalVars.SelectedQuestID == "QE_OP_0002" && !MonoSingleton<GameManager>.Instance.BattleGuidanceComplete())
+      if (!this.mUpdateCameraPosition || this.isBattleCamera || (this.isUpView || ObjectAnimator.Get((Component) Camera.get_main()).isMoving))
         return;
-      float num = this.mCameraYawMax - this.mCameraYawMin;
-      this.mCameraAngleStart = this.mCameraAngle;
-      this.mDesiredCameraAngleSet = true;
-      this.mDesiredCameraAngle = this.mCameraAngle + delta * num;
-      this.mDesiredCameraAngle = Mathf.Clamp(this.mDesiredCameraAngle, this.mCameraYawMin, this.mCameraYawMax);
-      this.mCameraRotateTime = 0.0f;
-      this.mCameraRotateTimeMax = duration;
-    }
-
-    public float CameraYawRatio
-    {
-      get
+      float num1 = this.isNewCamera ? ((double) delta >= 0.0 ? 45f : -45f) : delta * (this.m_CameraYawMax - this.m_CameraYawMin);
+      if (this.m_TargetCameraAngleInterp)
       {
-        return Mathf.Clamp01((float) (((double) this.mCameraAngle - (double) this.mCameraYawMin) / ((double) this.mCameraYawMax - (double) this.mCameraYawMin)));
+        this.m_TargetCameraAngleStart = this.m_CameraAngle;
+        this.m_TargetCameraAngle += num1;
       }
+      else
+      {
+        this.m_TargetCameraAngleStart = this.m_CameraAngle;
+        this.m_TargetCameraAngleInterp = true;
+        this.m_TargetCameraAngle = this.m_CameraAngle + num1;
+      }
+      if (this.isNewCamera)
+      {
+        if ((double) num1 > 0.0)
+          this.m_TargetCameraAngle = (float) Mathf.FloorToInt((float) (((double) this.m_TargetCameraAngle + 1.0) / 45.0)) * 45f;
+        else if ((double) num1 < 0.0)
+          this.m_TargetCameraAngle = (float) Mathf.CeilToInt((float) (((double) this.m_TargetCameraAngle - 1.0) / 45.0)) * 45f;
+      }
+      float num2 = duration;
+      duration = Mathf.Abs(this.m_TargetCameraAngle - this.m_TargetCameraAngleStart) * (duration / 45f);
+      if ((double) duration > (double) num2)
+        duration = num2;
+      else if ((double) duration < 0.100000001490116)
+        duration = 0.1f;
+      if (!this.isNewCamera)
+        this.m_TargetCameraAngle = Mathf.Clamp(this.m_TargetCameraAngle, this.m_CameraYawMin, this.m_CameraYawMax);
+      else if (!this.isFullRotationCamera)
+        this.m_TargetCameraAngle = Mathf.Clamp(this.m_TargetCameraAngle, this.m_CameraYawMin, this.m_CameraYawMax);
+      else if ((double) this.m_TargetCameraAngle >= 360.0)
+      {
+        this.m_CameraAngle -= 360f;
+        this.m_TargetCameraAngleStart -= 360f;
+        this.m_TargetCameraAngle -= 360f;
+      }
+      else if ((double) this.m_TargetCameraAngle < 0.0)
+      {
+        this.m_CameraAngle += 360f;
+        this.m_TargetCameraAngleStart += 360f;
+        this.m_TargetCameraAngle += 360f;
+      }
+      this.m_TargetCameraAngleTime = 0.0f;
+      this.m_TargetCameraAngleTimeMax = duration;
     }
 
-    private void UpdateCameraControl(bool immediate = false)
+    public float GetCameraAngle()
     {
-      GameSettings instance = GameSettings.Instance;
+      return this.m_CameraAngle;
+    }
+
+    public void GetCameraTargetView(out Vector3 center, out float distance, Vector3[] targets)
+    {
       Camera main = Camera.get_main();
-      Transform transform = !Object.op_Inequality((Object) main, (Object) null) ? (Transform) null : ((Component) main).get_transform();
-      if (Object.op_Inequality((Object) this.mTacticsSceneRoot, (Object) null) && ((Component) this.mTacticsSceneRoot).get_gameObject().get_activeInHierarchy())
-        main.set_fieldOfView(GameSettings.Instance.GameCamera_TacticsSceneFOV);
-      else if (Object.op_Inequality((Object) this.mBattleSceneRoot, (Object) null) && ((Component) this.mBattleSceneRoot).get_gameObject().get_activeInHierarchy())
-        main.set_fieldOfView(GameSettings.Instance.GameCamera_BattleSceneFOV);
-      if (Object.op_Inequality((Object) this.mTouchController, (Object) null) && !ObjectAnimator.Get((Component) main).isMoving && this.mUpdateCameraPosition)
+      float cameraDistance = this.m_TargetCamera.CameraDistance;
+      Vector3 targetPosition = this.m_TargetCamera.TargetPosition;
+      distance = cameraDistance;
+      if (targets.Length == 1)
       {
-        if (this.mDesiredCameraAngleSet)
+        center = targets[0];
+      }
+      else
+      {
+        // ISSUE: explicit reference operation
+        ((Vector3) @center).\u002Ector(0.0f, float.MaxValue, 0.0f);
+        for (int index = 0; index < targets.Length; ++index)
         {
-          this.mCameraRotateTime = !immediate ? Mathf.Min(this.mCameraRotateTime + Time.get_deltaTime(), this.mCameraRotateTimeMax) : this.mCameraRotateTimeMax;
-          this.mCameraAngle = Mathf.Lerp(this.mCameraAngleStart, this.mDesiredCameraAngle, Mathf.Sin((float) (1.57079637050629 * ((double) this.mCameraRotateTime / (double) this.mCameraRotateTimeMax))));
-          if ((double) this.mCameraRotateTime >= (double) this.mCameraRotateTimeMax)
-            this.mDesiredCameraAngleSet = false;
-        }
-        else if (this.mAllowCameraRotation)
-        {
-          float num1 = (float) -this.mTouchController.AngularVelocity.x * (float) (1.0 / (double) Screen.get_width() * 180.0);
-          float cameraYawSoftLimit = instance.GameCamera_YawSoftLimit;
-          float num2 = 2f;
-          if ((double) this.mCameraAngle < (double) this.mCameraYawMin && (double) num1 < 0.0)
-          {
-            float num3 = Mathf.Pow(1f - Mathf.Clamp01((float) -((double) this.mCameraAngle - (double) this.mCameraYawMin) / cameraYawSoftLimit), num2);
-            num1 *= num3;
-          }
-          else if ((double) this.mCameraAngle > (double) this.mCameraYawMax && (double) num1 > 0.0)
-          {
-            float num3 = Mathf.Pow(1f - Mathf.Clamp01((this.mCameraAngle - this.mCameraYawMax) / cameraYawSoftLimit), num2);
-            num1 *= num3;
-          }
-          this.mCameraAngle += num1;
-          if (!SRPG_TouchInputModule.IsMultiTouching)
-          {
-            float num3 = !immediate ? Time.get_deltaTime() * 10f : 1f;
-            if ((double) this.mCameraAngle < (double) this.mCameraYawMin)
-              this.mCameraAngle = Mathf.Lerp(this.mCameraAngle, this.mCameraYawMin, num3);
-            else if ((double) this.mCameraAngle > (double) this.mCameraYawMax)
-              this.mCameraAngle = Mathf.Lerp(this.mCameraAngle, this.mCameraYawMax, num3);
-          }
+          // ISSUE: explicit reference operation
+          // ISSUE: variable of a reference type
+          Vector3& local1 = @center;
+          // ISSUE: explicit reference operation
+          // ISSUE: explicit reference operation
+          (^local1).x = (^local1).x + targets[index].x;
+          // ISSUE: explicit reference operation
+          // ISSUE: variable of a reference type
+          Vector3& local2 = @center;
+          // ISSUE: explicit reference operation
+          // ISSUE: explicit reference operation
+          (^local2).z = (^local2).z + targets[index].z;
+          center.y = (__Null) (double) Mathf.Min((float) targets[index].y, (float) center.y);
         }
         // ISSUE: explicit reference operation
-        if (this.mAllowCameraTranslation && (double) ((Vector2) @this.mTouchController.Velocity).get_magnitude() > 0.0)
+        // ISSUE: variable of a reference type
+        Vector3& local3 = @center;
+        // ISSUE: explicit reference operation
+        // ISSUE: explicit reference operation
+        (^local3).x = (__Null) ((^local3).x / (double) targets.Length);
+        // ISSUE: explicit reference operation
+        // ISSUE: variable of a reference type
+        Vector3& local4 = @center;
+        // ISSUE: explicit reference operation
+        // ISSUE: explicit reference operation
+        (^local4).y = (__Null) ((^local4).y - 0.5);
+        // ISSUE: explicit reference operation
+        // ISSUE: variable of a reference type
+        Vector3& local5 = @center;
+        // ISSUE: explicit reference operation
+        // ISSUE: explicit reference operation
+        (^local5).z = (__Null) ((^local5).z / (double) targets.Length);
+        bool flag;
+        do
         {
-          Vector2 velocity = this.mTouchController.Velocity;
-          Vector3 forward = transform.get_forward();
-          Vector3 right = transform.get_right();
-          forward.y = (__Null) 0.0;
-          // ISSUE: explicit reference operation
-          ((Vector3) @forward).Normalize();
-          right.y = (__Null) 0.0;
-          // ISSUE: explicit reference operation
-          ((Vector3) @right).Normalize();
-          Vector3 screenPoint = main.WorldToScreenPoint(this.mCameraTarget);
-          Vector2 vector2 = Vector2.op_Implicit(Vector3.op_Subtraction(main.WorldToScreenPoint(Vector3.op_Addition(Vector3.op_Addition(this.mCameraTarget, right), forward)), screenPoint));
-          // ISSUE: explicit reference operation
-          // ISSUE: variable of a reference type
-          Vector2& local1 = @velocity;
-          // ISSUE: explicit reference operation
-          // ISSUE: explicit reference operation
-          (^local1).x = (__Null) ((^local1).x / (double) Mathf.Abs((float) vector2.x));
-          // ISSUE: explicit reference operation
-          // ISSUE: variable of a reference type
-          Vector2& local2 = @velocity;
-          // ISSUE: explicit reference operation
-          // ISSUE: explicit reference operation
-          (^local2).y = (__Null) ((^local2).y / (double) Mathf.Abs((float) vector2.y));
-          // ISSUE: explicit reference operation
-          ((Vector2) @velocity).\u002Ector((float) (right.x * velocity.x + forward.x * velocity.y), (float) (right.z * velocity.x + forward.z * velocity.y));
-          // ISSUE: explicit reference operation
-          // ISSUE: variable of a reference type
-          Vector3& local3 = @this.mCameraTarget;
-          // ISSUE: explicit reference operation
-          // ISSUE: explicit reference operation
-          (^local3).x = (^local3).x - velocity.x;
-          // ISSUE: explicit reference operation
-          // ISSUE: variable of a reference type
-          Vector3& local4 = @this.mCameraTarget;
-          // ISSUE: explicit reference operation
-          // ISSUE: explicit reference operation
-          (^local4).z = (^local4).z - velocity.y;
-          this.mCameraTarget.x = (__Null) (double) Mathf.Clamp((float) this.mCameraTarget.x, 0.1f, (float) this.mBattle.CurrentMap.Width - 0.1f);
-          this.mCameraTarget.z = (__Null) (double) Mathf.Clamp((float) this.mCameraTarget.z, 0.1f, (float) this.mBattle.CurrentMap.Height - 0.1f);
-          this.mCameraTarget.y = (__Null) (double) this.CalcHeight((float) this.mCameraTarget.x, (float) this.mCameraTarget.z);
-        }
-        this.mTouchController.AngularVelocity = Vector2.get_zero();
-        this.mTouchController.Velocity = Vector2.get_zero();
-      }
-      if (this.mUpdateCameraPosition)
-      {
-        float num = !immediate ? Time.get_deltaTime() * 8f : 1f;
-        if (this.mDesiredCameraOffsetSet)
-        {
-          this.mBaseCameraOffset = Vector3.Lerp(this.mBaseCameraOffset, this.mDesiredCameraOffset, num);
-          Vector3 vector3 = Vector3.op_Subtraction(this.mDesiredCameraOffset, this.mBaseCameraOffset);
-          // ISSUE: explicit reference operation
-          if ((double) ((Vector3) @vector3).get_magnitude() <= 0.00999999977648258)
+          flag = false;
+          this.m_TargetCamera.CameraDistance = distance;
+          this.m_TargetCamera.SetPositionYaw(center, this.m_CameraAngle);
+          for (int index = 0; index < targets.Length; ++index)
           {
-            this.mBaseCameraOffset = this.mDesiredCameraOffset;
-            this.mDesiredCameraOffsetSet = false;
+            Vector3 viewportPoint = main.WorldToViewportPoint(targets[index]);
+            if (viewportPoint.x < 0.0 || viewportPoint.x > 1.0 || (viewportPoint.y < 0.0 || viewportPoint.y > 0.899999976158142))
+            {
+              ++distance;
+              flag = true;
+              break;
+            }
           }
         }
-        if (this.mDesiredCameraTargetSet)
-        {
-          this.mCameraTarget = Vector3.Lerp(this.mCameraTarget, this.mDesiredCameraTarget, num);
-          Vector3 vector3 = Vector3.op_Subtraction(this.mDesiredCameraTarget, this.mCameraTarget);
-          // ISSUE: explicit reference operation
-          if ((double) ((Vector3) @vector3).get_magnitude() <= 0.00999999977648258)
-          {
-            this.mCameraTarget = this.mDesiredCameraTarget;
-            this.mDesiredCameraTargetSet = false;
-          }
-        }
-        this.mTargetCamera.CameraDistance = Mathf.Lerp(this.mTargetCamera.CameraDistance, this.mDesiredCameraDistance, num);
-        this.mTargetCamera.SetPositionYaw(Vector3.op_Addition(this.mCameraTarget, Vector3.op_Multiply(Vector3.get_up(), instance.GameCamera_UnitHeightOffset)), this.mCameraAngle);
+        while (flag && (double) distance < (double) GameSettings.Instance.GameCamera_MaxDistance);
+        center = Vector3.op_Subtraction(center, Vector3.op_Multiply(Vector3.get_up(), GameSettings.Instance.GameCamera_UnitHeightOffset));
+        this.m_TargetCamera.CameraDistance = cameraDistance;
+        this.m_TargetCamera.TargetPosition = targetPosition;
       }
+    }
+
+    private void OnCameraPreCull(Camera cam)
+    {
+      if (!(((Component) cam).get_tag() == "MainCamera") || ((Component) cam).get_gameObject().get_layer() != GameUtility.LayerDefault)
+        return;
+      this.LayoutPopups(cam);
+      this.LayoutGauges(cam);
+    }
+
+    private void OnCameraForcus()
+    {
       if (this.mOnUnitFocus != null)
       {
-        if (this.mDesiredCameraTargetSet)
+        if (this.m_TargetCameraPositionInterp)
           return;
-        TacticsUnitController closestUnitController = this.FindClosestUnitController(this.mCameraTarget, 1f);
-        if (!Object.op_Inequality((Object) this.mFocusedUnit, (Object) closestUnitController))
+        TacticsUnitController closestUnitController = this.FindClosestUnitController(this.m_CameraPosition, 1f);
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mFocusedUnit, (UnityEngine.Object) closestUnitController))
           return;
         DebugUtility.Log("Focus:" + (object) closestUnitController);
         this.mFocusedUnit = closestUnitController;
@@ -2152,38 +2865,101 @@ namespace SRPG
         this.mFocusedUnit = (TacticsUnitController) null;
     }
 
-    private void ResetCameraTarget()
+    private void UpdateCameraControlUpView(bool immediate = false)
     {
-      this.mTargetCamera.Reset();
-      this.mCameraAngle = this.mTargetCamera.Yaw;
-      this.mDesiredCameraDistance = this.mTargetCamera.CameraDistance;
-      this.mCameraTarget = this.mTargetCamera.TargetPosition;
-      // ISSUE: explicit reference operation
-      // ISSUE: variable of a reference type
-      Vector3& local = @this.mCameraTarget;
-      // ISSUE: explicit reference operation
-      // ISSUE: explicit reference operation
-      (^local).y = (__Null) ((^local).y - (double) GameSettings.Instance.GameCamera_UnitHeightOffset);
+      Camera main = Camera.get_main();
+      Transform transform = !UnityEngine.Object.op_Inequality((UnityEngine.Object) main, (UnityEngine.Object) null) ? (Transform) null : ((Component) main).get_transform();
+      GameSettings instance = GameSettings.Instance;
+      main.set_fieldOfView(GameSettings.Instance.GameCamera_TacticsSceneFOV);
+      if (this.mUpdateCameraPosition)
+      {
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mTouchController, (UnityEngine.Object) null) && !ObjectAnimator.Get((Component) main).isMoving)
+          this.UpdateCameraPositionTouchMove(transform.get_right(), transform.get_up());
+        this.UpdateCameraPositionInterp(immediate);
+        if (this.m_TargetCameraDistanceInterp)
+        {
+          float num1 = !immediate ? Time.get_deltaTime() * 8f : 1f;
+          float num2 = 5f + this.m_TargetCameraDistance;
+          this.m_TargetCamera.CameraDistance = Mathf.Lerp(this.m_TargetCamera.CameraDistance, num2, num1);
+          if ((double) Mathf.Abs(num2 - this.m_TargetCamera.CameraDistance) <= 0.00999999977648258)
+          {
+            this.m_TargetCamera.CameraDistance = num2;
+            this.m_TargetCameraDistanceInterp = false;
+          }
+        }
+        this.m_TargetCamera.SetPositionYawPitch(Vector3.op_Addition(this.m_CameraPosition, Vector3.op_Multiply(Vector3.get_up(), instance.GameCamera_UnitHeightOffset)), 90f, 270f);
+      }
+      this.OnCameraForcus();
     }
 
-    private bool IsCameraMoving
+    public void OnCameraModeChange(SceneBattle.CameraMode nextMode)
     {
-      get
+      if (this.m_CameraMode == nextMode)
+        return;
+      GameSettings instance = GameSettings.Instance;
+      this.m_CameraMode = nextMode;
+      if (this.m_TargetCameraPositionInterp)
       {
-        return ObjectAnimator.Get((Component) Camera.get_main()).isMoving || this.mUpdateCameraPosition && (this.mDesiredCameraOffsetSet || this.mDesiredCameraTargetSet);
+        this.m_CameraPosition = this.m_TargetCameraPosition;
+        this.m_TargetCameraPositionInterp = false;
+      }
+      if (this.m_TargetCameraAngleInterp)
+      {
+        this.m_CameraAngle = this.m_TargetCameraAngle;
+        this.m_TargetCameraAngleInterp = false;
+      }
+      if (nextMode == SceneBattle.CameraMode.DEFAULT)
+      {
+        this.m_CameraAngle = this.m_CameraYaw;
+        this.m_TargetCameraDistanceInterp = false;
+        this.m_TargetCamera.CameraDistance = this.m_TargetCameraDistance;
+        this.m_TargetCamera.SetPositionYawPitch(Vector3.op_Addition(this.m_CameraPosition, Vector3.op_Multiply(Vector3.get_up(), instance.GameCamera_UnitHeightOffset)), this.m_CameraAngle, instance.GameCamera_AngleX);
+      }
+      else
+      {
+        if (nextMode != SceneBattle.CameraMode.UPVIEW)
+          return;
+        this.m_CameraYaw = this.m_CameraAngle;
+        this.m_TargetCameraDistanceInterp = false;
+        this.m_TargetCamera.CameraDistance = 5f + this.m_TargetCameraDistance;
+        this.m_TargetCamera.SetPositionYawPitch(Vector3.op_Addition(this.m_CameraPosition, Vector3.op_Multiply(Vector3.get_up(), instance.GameCamera_UnitHeightOffset)), 90f, 270f);
       }
     }
 
-    public void SetMoveCamera()
+    public bool AudiencePause
     {
-      TacticsUnitController unitController = this.FindUnitController(this.mBattle.CurrentUnit);
-      this.InterpCameraOffset(GameSettings.Instance.Quest.MoveCamera);
-      this.InterpCameraTarget((Component) ((Component) unitController).get_transform());
-      this.mTargetCamera.Pitch = GameSettings.Instance.GameCamera_AngleX;
+      get
+      {
+        return this.mAudiencePause;
+      }
+      set
+      {
+        this.mAudiencePause = value;
+      }
+    }
+
+    public bool AudienceSkip
+    {
+      get
+      {
+        return this.mAudienceSkip;
+      }
+      set
+      {
+        this.mAudienceSkip = value;
+      }
     }
 
     private void MultiPlayLog(string str)
     {
+    }
+
+    public int MultiPlayerCount
+    {
+      get
+      {
+        return this.mMultiPlayer.Count;
+      }
     }
 
     private float MultiPlayInputTimeLimit { get; set; }
@@ -2226,14 +3002,6 @@ namespace SRPG
       }
     }
 
-    public bool IsRetireComfirm
-    {
-      get
-      {
-        return this.mRetireComfirm;
-      }
-    }
-
     public bool AlreadyEndBattle
     {
       get
@@ -2253,6 +3021,18 @@ namespace SRPG
         if (this.mRecvResumeRequest != null)
           return this.mRecvResumeRequest.Count > 0;
         return false;
+      }
+    }
+
+    public bool AudienceForceEnd
+    {
+      get
+      {
+        return this.mAudienceForceEnd;
+      }
+      set
+      {
+        this.mAudienceForceEnd = value;
       }
     }
 
@@ -2293,18 +3073,18 @@ namespace SRPG
       {
         // ISSUE: object of a compiler-generated type is created
         // ISSUE: variable of a compiler-generated type
-        SceneBattle.\u003CCreateMultiPlayer\u003Ec__AnonStorey1C3 playerCAnonStorey1C3 = new SceneBattle.\u003CCreateMultiPlayer\u003Ec__AnonStorey1C3();
+        SceneBattle.\u003CCreateMultiPlayer\u003Ec__AnonStorey259 playerCAnonStorey259 = new SceneBattle.\u003CCreateMultiPlayer\u003Ec__AnonStorey259();
         Unit allUnit = this.Battle.AllUnits[unitID];
         if (allUnit != null)
         {
           // ISSUE: reference to a compiler-generated field
-          playerCAnonStorey1C3.playerIndex = allUnit.OwnerPlayerIndex;
+          playerCAnonStorey259.playerIndex = allUnit.OwnerPlayerIndex;
           // ISSUE: reference to a compiler-generated field
           // ISSUE: reference to a compiler-generated field
-          if (playerCAnonStorey1C3.playerIndex != instance.MyPlayerIndex && playerCAnonStorey1C3.playerIndex > 0)
+          if (playerCAnonStorey259.playerIndex != instance.MyPlayerIndex && playerCAnonStorey259.playerIndex > 0)
           {
             // ISSUE: reference to a compiler-generated method
-            SceneBattle.MultiPlayer owner = this.mMultiPlayer.Find(new Predicate<SceneBattle.MultiPlayer>(playerCAnonStorey1C3.\u003C\u003Em__164));
+            SceneBattle.MultiPlayer owner = this.mMultiPlayer.Find(new Predicate<SceneBattle.MultiPlayer>(playerCAnonStorey259.\u003C\u003Em__1DC));
             if (owner != null)
               this.mMultiPlayerUnit.Add(new SceneBattle.MultiPlayerUnit(this, unitID, allUnit, owner));
           }
@@ -2315,11 +3095,46 @@ namespace SRPG
       this.mResumeAlreadyStartPlayer.Clear();
     }
 
+    private void CreateAudiencePlayer()
+    {
+      if (!MonoSingleton<GameManager>.Instance.AudienceMode)
+        return;
+      this.mMultiPlayer = new List<SceneBattle.MultiPlayer>();
+      List<JSON_MyPhotonPlayerParam> mAudiencePlayers = this.mAudiencePlayers;
+      for (int index = 0; index < mAudiencePlayers.Count; ++index)
+      {
+        JSON_MyPhotonPlayerParam photonPlayerParam = mAudiencePlayers[index];
+        this.mMultiPlayer.Add(new SceneBattle.MultiPlayer(this, photonPlayerParam.playerIndex, photonPlayerParam.playerID));
+      }
+      this.mMultiPlayerUnit = new List<SceneBattle.MultiPlayerUnit>();
+      for (int unitID = 0; unitID < this.Battle.AllUnits.Count; ++unitID)
+      {
+        // ISSUE: object of a compiler-generated type is created
+        // ISSUE: variable of a compiler-generated type
+        SceneBattle.\u003CCreateAudiencePlayer\u003Ec__AnonStorey25A playerCAnonStorey25A = new SceneBattle.\u003CCreateAudiencePlayer\u003Ec__AnonStorey25A();
+        Unit allUnit = this.Battle.AllUnits[unitID];
+        if (allUnit != null)
+        {
+          // ISSUE: reference to a compiler-generated field
+          playerCAnonStorey25A.playerIndex = allUnit.OwnerPlayerIndex;
+          // ISSUE: reference to a compiler-generated field
+          if (playerCAnonStorey25A.playerIndex > 0)
+          {
+            // ISSUE: reference to a compiler-generated method
+            SceneBattle.MultiPlayer owner = this.mMultiPlayer.Find(new Predicate<SceneBattle.MultiPlayer>(playerCAnonStorey25A.\u003C\u003Em__1DD));
+            if (owner != null)
+              this.mMultiPlayerUnit.Add(new SceneBattle.MultiPlayerUnit(this, unitID, allUnit, owner));
+          }
+        }
+      }
+      this.mSendList = new List<SceneBattle.MultiPlayInput>();
+    }
+
     private void BeginMultiPlayer()
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      SceneBattle.\u003CBeginMultiPlayer\u003Ec__AnonStorey1C4 playerCAnonStorey1C4 = new SceneBattle.\u003CBeginMultiPlayer\u003Ec__AnonStorey1C4();
+      SceneBattle.\u003CBeginMultiPlayer\u003Ec__AnonStorey25B playerCAnonStorey25B = new SceneBattle.\u003CBeginMultiPlayer\u003Ec__AnonStorey25B();
       if (!this.Battle.IsMultiPlay)
         return;
       if (this.mBeginMultiPlay)
@@ -2336,25 +3151,38 @@ namespace SRPG
         this.MultiPlayExtSelectInputTime = false;
         this.Battle.EntryBattleMultiPlayTimeUp = false;
         this.Battle.MultiPlayDisconnectAutoBattle = false;
+        this.mPrevGridX = -1;
+        this.mPrevGridY = -1;
+        this.mPrevDir = EUnitDirection.Auto;
         // ISSUE: reference to a compiler-generated field
-        playerCAnonStorey1C4.unit = this.Battle.CurrentUnit;
+        playerCAnonStorey25B.unit = this.Battle.CurrentUnit;
         // ISSUE: reference to a compiler-generated method
-        this.mCurrentSendInputUnitID = this.Battle.AllUnits.FindIndex(new Predicate<Unit>(playerCAnonStorey1C4.\u003C\u003Em__165));
+        this.mCurrentSendInputUnitID = this.Battle.AllUnits.FindIndex(new Predicate<Unit>(playerCAnonStorey25B.\u003C\u003Em__1DE));
         this.MultiPlayLog("[PUN]BeginMultiPlayer********** turn:" + (object) this.UnitStartCountTotal + " unitID:" + (object) this.mCurrentSendInputUnitID + " sqID:" + (object) this.mMultiPlaySendID);
         // ISSUE: reference to a compiler-generated method
-        SceneBattle.MultiPlayer multiPlayer = this.mMultiPlayer.Find(new Predicate<SceneBattle.MultiPlayer>(playerCAnonStorey1C4.\u003C\u003Em__166));
+        SceneBattle.MultiPlayer multiPlayer = this.mMultiPlayer.Find(new Predicate<SceneBattle.MultiPlayer>(playerCAnonStorey25B.\u003C\u003Em__1DF));
         if (multiPlayer != null)
           multiPlayer.Begin(this);
         // ISSUE: reference to a compiler-generated method
-        SceneBattle.MultiPlayerUnit multiPlayerUnit = this.mMultiPlayerUnit.Find(new Predicate<SceneBattle.MultiPlayerUnit>(playerCAnonStorey1C4.\u003C\u003Em__167));
+        SceneBattle.MultiPlayerUnit multiPlayerUnit = this.mMultiPlayerUnit.Find(new Predicate<SceneBattle.MultiPlayerUnit>(playerCAnonStorey25B.\u003C\u003Em__1E0));
         if (multiPlayerUnit != null)
           multiPlayerUnit.Begin(this);
         // ISSUE: reference to a compiler-generated field
-        if (playerCAnonStorey1C4.unit.OwnerPlayerIndex == this.Battle.MyPlayerIndex)
+        if (playerCAnonStorey25B.unit.OwnerPlayerIndex == this.Battle.MyPlayerIndex)
           this.MultiPlayInputTimeLimit = this.MULTI_PLAY_INPUT_TIME_LIMIT_SEC;
-        if (!this.Battle.IsMultiVersus)
+        if (this.Battle.IsMultiVersus)
+          this.CloseBattleUI();
+        MyPhoton instance1 = PunMonoSingleton<MyPhoton>.Instance;
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) instance1, (UnityEngine.Object) null) && multiPlayer != null && (instance1.IsOldestPlayer() && multiPlayer.Disconnected))
+          this.SendOtherPlayerDisconnect(multiPlayer.PlayerIndex);
+        GameManager instance2 = MonoSingleton<GameManager>.Instance;
+        if (!instance2.AudienceMode)
           return;
-        this.CloseBattleUI();
+        if (multiPlayer != null)
+          multiPlayer.Disconnected = false;
+        if (!instance2.AudienceManager.IsSkipEnd)
+          return;
+        this.mBattleUI_MultiPlay.OnAudienceMode();
       }
     }
 
@@ -2378,11 +3206,172 @@ namespace SRPG
       }
     }
 
+    private byte[] CreateSendBinary(SceneBattle.EMultiPlayRecvDataHeader header, int unitID, List<SceneBattle.MultiPlayInput> sendList)
+    {
+      // ISSUE: object of a compiler-generated type is created
+      // ISSUE: variable of a compiler-generated type
+      SceneBattle.\u003CCreateSendBinary\u003Ec__AnonStorey25D binaryCAnonStorey25D = new SceneBattle.\u003CCreateSendBinary\u003Ec__AnonStorey25D();
+      MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
+      MyPhoton.MyPlayer myPlayer = instance.GetMyPlayer();
+      int myPlayerIndex = instance.MyPlayerIndex;
+      int num = myPlayer != null ? myPlayer.playerID : 0;
+      if (sendList == null)
+        sendList = new List<SceneBattle.MultiPlayInput>();
+      if (sendList.Count <= 0)
+        sendList.Add(new SceneBattle.MultiPlayInput()
+        {
+          c = 0
+        });
+      List<SceneBattle.MultiPlayInput> multiPlayInputList1 = new List<SceneBattle.MultiPlayInput>();
+      if (header == SceneBattle.EMultiPlayRecvDataHeader.INPUT)
+      {
+        List<SceneBattle.MultiPlayInput> multiPlayInputList2 = new List<SceneBattle.MultiPlayInput>();
+        SceneBattle.MultiPlayInput multiPlayInput = (SceneBattle.MultiPlayInput) null;
+        using (List<SceneBattle.MultiPlayInput>.Enumerator enumerator = sendList.GetEnumerator())
+        {
+          while (enumerator.MoveNext())
+          {
+            SceneBattle.MultiPlayInput current = enumerator.Current;
+            if (current.c == 2)
+            {
+              multiPlayInput = current;
+            }
+            else
+            {
+              if (multiPlayInput != null)
+              {
+                multiPlayInputList2.Add(multiPlayInput);
+                multiPlayInput = (SceneBattle.MultiPlayInput) null;
+              }
+              multiPlayInputList2.Add(current);
+            }
+          }
+        }
+        // ISSUE: object of a compiler-generated type is created
+        // ISSUE: variable of a compiler-generated type
+        SceneBattle.\u003CCreateSendBinary\u003Ec__AnonStorey25C binaryCAnonStorey25C = new SceneBattle.\u003CCreateSendBinary\u003Ec__AnonStorey25C();
+        using (List<SceneBattle.MultiPlayInput>.Enumerator enumerator = sendList.GetEnumerator())
+        {
+          while (enumerator.MoveNext())
+          {
+            // ISSUE: reference to a compiler-generated field
+            binaryCAnonStorey25C.input = enumerator.Current;
+            // ISSUE: reference to a compiler-generated field
+            if (binaryCAnonStorey25C.input.c == 6)
+            {
+              // ISSUE: reference to a compiler-generated field
+              multiPlayInputList1.Add(binaryCAnonStorey25C.input);
+            }
+            else
+            {
+              // ISSUE: reference to a compiler-generated method
+              multiPlayInputList1.RemoveAll(new Predicate<SceneBattle.MultiPlayInput>(binaryCAnonStorey25C.\u003C\u003Em__1E1));
+              // ISSUE: reference to a compiler-generated field
+              multiPlayInputList1.Add(binaryCAnonStorey25C.input);
+            }
+          }
+        }
+        if (multiPlayInput != null)
+        {
+          multiPlayInputList2.Add(multiPlayInput);
+          this.MultiPlayLog("send lastMove x:" + (object) multiPlayInput.x + " z:" + (object) multiPlayInput.z);
+        }
+        sendList = multiPlayInputList1;
+      }
+      SceneBattle.MultiPlayRecvData multiPlayRecvData = new SceneBattle.MultiPlayRecvData();
+      // ISSUE: reference to a compiler-generated field
+      binaryCAnonStorey25D.def = new SceneBattle.MultiPlayInput();
+      multiPlayRecvData.h = (int) header;
+      multiPlayRecvData.b = this.UnitStartCountTotal;
+      multiPlayRecvData.sq = this.mMultiPlaySendID;
+      multiPlayRecvData.pidx = myPlayerIndex;
+      multiPlayRecvData.pid = num;
+      multiPlayRecvData.uid = unitID;
+      // ISSUE: reference to a compiler-generated method
+      if (sendList.Find(new Predicate<SceneBattle.MultiPlayInput>(binaryCAnonStorey25D.\u003C\u003Em__1E2)) != null)
+      {
+        multiPlayRecvData.c = new int[sendList.Count];
+        for (int index = 0; index < sendList.Count; ++index)
+          multiPlayRecvData.c[index] = sendList[index].c;
+      }
+      // ISSUE: reference to a compiler-generated method
+      if (sendList.Find(new Predicate<SceneBattle.MultiPlayInput>(binaryCAnonStorey25D.\u003C\u003Em__1E3)) != null)
+      {
+        multiPlayRecvData.u = new int[sendList.Count];
+        for (int index = 0; index < sendList.Count; ++index)
+          multiPlayRecvData.u[index] = sendList[index].u;
+      }
+      // ISSUE: reference to a compiler-generated method
+      if (sendList.Find(new Predicate<SceneBattle.MultiPlayInput>(binaryCAnonStorey25D.\u003C\u003Em__1E4)) != null)
+      {
+        multiPlayRecvData.s = new string[sendList.Count];
+        for (int index = 0; index < sendList.Count; ++index)
+          multiPlayRecvData.s[index] = sendList[index].s;
+      }
+      // ISSUE: reference to a compiler-generated method
+      if (sendList.Find(new Predicate<SceneBattle.MultiPlayInput>(binaryCAnonStorey25D.\u003C\u003Em__1E5)) != null)
+      {
+        multiPlayRecvData.i = new string[sendList.Count];
+        for (int index = 0; index < sendList.Count; ++index)
+          multiPlayRecvData.i[index] = sendList[index].i;
+      }
+      // ISSUE: reference to a compiler-generated method
+      if (sendList.Find(new Predicate<SceneBattle.MultiPlayInput>(binaryCAnonStorey25D.\u003C\u003Em__1E6)) != null)
+      {
+        multiPlayRecvData.gx = new int[sendList.Count];
+        for (int index = 0; index < sendList.Count; ++index)
+          multiPlayRecvData.gx[index] = sendList[index].gx;
+      }
+      // ISSUE: reference to a compiler-generated method
+      if (sendList.Find(new Predicate<SceneBattle.MultiPlayInput>(binaryCAnonStorey25D.\u003C\u003Em__1E7)) != null)
+      {
+        multiPlayRecvData.gy = new int[sendList.Count];
+        for (int index = 0; index < sendList.Count; ++index)
+          multiPlayRecvData.gy[index] = sendList[index].gy;
+      }
+      // ISSUE: reference to a compiler-generated method
+      if (sendList.Find(new Predicate<SceneBattle.MultiPlayInput>(binaryCAnonStorey25D.\u003C\u003Em__1E8)) != null)
+      {
+        multiPlayRecvData.ul = new int[sendList.Count];
+        for (int index = 0; index < sendList.Count; ++index)
+          multiPlayRecvData.ul[index] = sendList[index].ul;
+      }
+      // ISSUE: reference to a compiler-generated method
+      if (sendList.Find(new Predicate<SceneBattle.MultiPlayInput>(binaryCAnonStorey25D.\u003C\u003Em__1E9)) != null)
+      {
+        multiPlayRecvData.d = new int[sendList.Count];
+        for (int index = 0; index < sendList.Count; ++index)
+          multiPlayRecvData.d[index] = sendList[index].d;
+      }
+      // ISSUE: reference to a compiler-generated method
+      if (sendList.Find(new Predicate<SceneBattle.MultiPlayInput>(binaryCAnonStorey25D.\u003C\u003Em__1EA)) != null)
+      {
+        multiPlayRecvData.x = new float[sendList.Count];
+        for (int index = 0; index < sendList.Count; ++index)
+          multiPlayRecvData.x[index] = sendList[index].x;
+      }
+      // ISSUE: reference to a compiler-generated method
+      if (sendList.Find(new Predicate<SceneBattle.MultiPlayInput>(binaryCAnonStorey25D.\u003C\u003Em__1EB)) != null)
+      {
+        multiPlayRecvData.z = new float[sendList.Count];
+        for (int index = 0; index < sendList.Count; ++index)
+          multiPlayRecvData.z[index] = sendList[index].z;
+      }
+      // ISSUE: reference to a compiler-generated method
+      if (sendList.Find(new Predicate<SceneBattle.MultiPlayInput>(binaryCAnonStorey25D.\u003C\u003Em__1EC)) != null)
+      {
+        multiPlayRecvData.r = new float[sendList.Count];
+        for (int index = 0; index < sendList.Count; ++index)
+          multiPlayRecvData.r[index] = sendList[index].r;
+      }
+      return GameUtility.Object2Binary<SceneBattle.MultiPlayRecvData>(multiPlayRecvData);
+    }
+
     private string CreateMultiPlayInputList(SceneBattle.EMultiPlayRecvDataHeader header, int unitID, List<SceneBattle.MultiPlayInput> sendList)
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      SceneBattle.\u003CCreateMultiPlayInputList\u003Ec__AnonStorey1C6 listCAnonStorey1C6 = new SceneBattle.\u003CCreateMultiPlayInputList\u003Ec__AnonStorey1C6();
+      SceneBattle.\u003CCreateMultiPlayInputList\u003Ec__AnonStorey25F listCAnonStorey25F = new SceneBattle.\u003CCreateMultiPlayInputList\u003Ec__AnonStorey25F();
       MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
       int myPlayerIndex = instance.MyPlayerIndex;
       MyPhoton.MyPlayer myPlayer = instance.GetMyPlayer();
@@ -2421,25 +3410,25 @@ namespace SRPG
         }
         // ISSUE: object of a compiler-generated type is created
         // ISSUE: variable of a compiler-generated type
-        SceneBattle.\u003CCreateMultiPlayInputList\u003Ec__AnonStorey1C5 listCAnonStorey1C5 = new SceneBattle.\u003CCreateMultiPlayInputList\u003Ec__AnonStorey1C5();
+        SceneBattle.\u003CCreateMultiPlayInputList\u003Ec__AnonStorey25E listCAnonStorey25E = new SceneBattle.\u003CCreateMultiPlayInputList\u003Ec__AnonStorey25E();
         using (List<SceneBattle.MultiPlayInput>.Enumerator enumerator = sendList.GetEnumerator())
         {
           while (enumerator.MoveNext())
           {
             // ISSUE: reference to a compiler-generated field
-            listCAnonStorey1C5.input = enumerator.Current;
+            listCAnonStorey25E.input = enumerator.Current;
             // ISSUE: reference to a compiler-generated field
-            if (listCAnonStorey1C5.input.c == 6)
+            if (listCAnonStorey25E.input.c == 6)
             {
               // ISSUE: reference to a compiler-generated field
-              multiPlayInputList1.Add(listCAnonStorey1C5.input);
+              multiPlayInputList1.Add(listCAnonStorey25E.input);
             }
             else
             {
               // ISSUE: reference to a compiler-generated method
-              multiPlayInputList1.RemoveAll(new Predicate<SceneBattle.MultiPlayInput>(listCAnonStorey1C5.\u003C\u003Em__168));
+              multiPlayInputList1.RemoveAll(new Predicate<SceneBattle.MultiPlayInput>(listCAnonStorey25E.\u003C\u003Em__1ED));
               // ISSUE: reference to a compiler-generated field
-              multiPlayInputList1.Add(listCAnonStorey1C5.input);
+              multiPlayInputList1.Add(listCAnonStorey25E.input);
             }
           }
         }
@@ -2451,11 +3440,11 @@ namespace SRPG
         sendList = multiPlayInputList1;
       }
       // ISSUE: reference to a compiler-generated field
-      listCAnonStorey1C6.def = new SceneBattle.MultiPlayInput();
+      listCAnonStorey25F.def = new SceneBattle.MultiPlayInput();
       ++this.mMultiPlaySendID;
       string str1 = "{\"h\":" + (object) header + ",\"b\":" + (object) this.UnitStartCountTotal + ",\"sq\":" + (object) this.mMultiPlaySendID + ",\"pidx\":" + (object) myPlayerIndex + ",\"pid\":" + (object) num1 + ",\"uid\":" + (object) unitID;
       // ISSUE: reference to a compiler-generated method
-      if (sendList.Find(new Predicate<SceneBattle.MultiPlayInput>(listCAnonStorey1C6.\u003C\u003Em__169)) != null)
+      if (sendList.Find(new Predicate<SceneBattle.MultiPlayInput>(listCAnonStorey25F.\u003C\u003Em__1EE)) != null)
       {
         string str2 = str1 + ",\"c\":[";
         for (int index = 0; index < sendList.Count; ++index)
@@ -2463,7 +3452,7 @@ namespace SRPG
         str1 = str2 + "]";
       }
       // ISSUE: reference to a compiler-generated method
-      if (sendList.Find(new Predicate<SceneBattle.MultiPlayInput>(listCAnonStorey1C6.\u003C\u003Em__16A)) != null)
+      if (sendList.Find(new Predicate<SceneBattle.MultiPlayInput>(listCAnonStorey25F.\u003C\u003Em__1EF)) != null)
       {
         string str2 = str1 + ",\"u\":[";
         for (int index = 0; index < sendList.Count; ++index)
@@ -2471,7 +3460,7 @@ namespace SRPG
         str1 = str2 + "]";
       }
       // ISSUE: reference to a compiler-generated method
-      if (sendList.Find(new Predicate<SceneBattle.MultiPlayInput>(listCAnonStorey1C6.\u003C\u003Em__16B)) != null)
+      if (sendList.Find(new Predicate<SceneBattle.MultiPlayInput>(listCAnonStorey25F.\u003C\u003Em__1F0)) != null)
       {
         string str2 = str1 + ",\"s\":[";
         for (int index = 0; index < sendList.Count; ++index)
@@ -2479,7 +3468,7 @@ namespace SRPG
         str1 = str2 + "]";
       }
       // ISSUE: reference to a compiler-generated method
-      if (sendList.Find(new Predicate<SceneBattle.MultiPlayInput>(listCAnonStorey1C6.\u003C\u003Em__16C)) != null)
+      if (sendList.Find(new Predicate<SceneBattle.MultiPlayInput>(listCAnonStorey25F.\u003C\u003Em__1F1)) != null)
       {
         string str2 = str1 + ",\"i\":[";
         for (int index = 0; index < sendList.Count; ++index)
@@ -2487,7 +3476,7 @@ namespace SRPG
         str1 = str2 + "]";
       }
       // ISSUE: reference to a compiler-generated method
-      if (sendList.Find(new Predicate<SceneBattle.MultiPlayInput>(listCAnonStorey1C6.\u003C\u003Em__16D)) != null)
+      if (sendList.Find(new Predicate<SceneBattle.MultiPlayInput>(listCAnonStorey25F.\u003C\u003Em__1F2)) != null)
       {
         string str2 = str1 + ",\"gx\":[";
         for (int index = 0; index < sendList.Count; ++index)
@@ -2495,7 +3484,7 @@ namespace SRPG
         str1 = str2 + "]";
       }
       // ISSUE: reference to a compiler-generated method
-      if (sendList.Find(new Predicate<SceneBattle.MultiPlayInput>(listCAnonStorey1C6.\u003C\u003Em__16E)) != null)
+      if (sendList.Find(new Predicate<SceneBattle.MultiPlayInput>(listCAnonStorey25F.\u003C\u003Em__1F3)) != null)
       {
         string str2 = str1 + ",\"gy\":[";
         for (int index = 0; index < sendList.Count; ++index)
@@ -2503,7 +3492,7 @@ namespace SRPG
         str1 = str2 + "]";
       }
       // ISSUE: reference to a compiler-generated method
-      if (sendList.Find(new Predicate<SceneBattle.MultiPlayInput>(listCAnonStorey1C6.\u003C\u003Em__16F)) != null)
+      if (sendList.Find(new Predicate<SceneBattle.MultiPlayInput>(listCAnonStorey25F.\u003C\u003Em__1F4)) != null)
       {
         string str2 = str1 + ",\"ul\":[";
         for (int index = 0; index < sendList.Count; ++index)
@@ -2511,7 +3500,7 @@ namespace SRPG
         str1 = str2 + "]";
       }
       // ISSUE: reference to a compiler-generated method
-      if (sendList.Find(new Predicate<SceneBattle.MultiPlayInput>(listCAnonStorey1C6.\u003C\u003Em__170)) != null)
+      if (sendList.Find(new Predicate<SceneBattle.MultiPlayInput>(listCAnonStorey25F.\u003C\u003Em__1F5)) != null)
       {
         string str2 = str1 + ",\"d\":[";
         for (int index = 0; index < sendList.Count; ++index)
@@ -2519,7 +3508,7 @@ namespace SRPG
         str1 = str2 + "]";
       }
       // ISSUE: reference to a compiler-generated method
-      if (sendList.Find(new Predicate<SceneBattle.MultiPlayInput>(listCAnonStorey1C6.\u003C\u003Em__171)) != null)
+      if (sendList.Find(new Predicate<SceneBattle.MultiPlayInput>(listCAnonStorey25F.\u003C\u003Em__1F6)) != null)
       {
         string str2 = str1 + ",\"x\":[";
         for (int index = 0; index < sendList.Count; ++index)
@@ -2527,7 +3516,7 @@ namespace SRPG
         str1 = str2 + "]";
       }
       // ISSUE: reference to a compiler-generated method
-      if (sendList.Find(new Predicate<SceneBattle.MultiPlayInput>(listCAnonStorey1C6.\u003C\u003Em__172)) != null)
+      if (sendList.Find(new Predicate<SceneBattle.MultiPlayInput>(listCAnonStorey25F.\u003C\u003Em__1F7)) != null)
       {
         string str2 = str1 + ",\"z\":[";
         for (int index = 0; index < sendList.Count; ++index)
@@ -2535,7 +3524,7 @@ namespace SRPG
         str1 = str2 + "]";
       }
       // ISSUE: reference to a compiler-generated method
-      if (sendList.Find(new Predicate<SceneBattle.MultiPlayInput>(listCAnonStorey1C6.\u003C\u003Em__173)) != null)
+      if (sendList.Find(new Predicate<SceneBattle.MultiPlayInput>(listCAnonStorey25F.\u003C\u003Em__1F8)) != null)
       {
         string str2 = str1 + ",\"r\":[";
         for (int index = 0; index < sendList.Count; ++index)
@@ -2550,6 +3539,7 @@ namespace SRPG
         while (num2 < sendList.Count)
           ++num2;
       }
+      Debug.LogWarning((object) ("SendJson:" + (object) str3.Length));
       return str3;
     }
 
@@ -2561,7 +3551,7 @@ namespace SRPG
       if (currentUnit.CastSkill != null && currentUnit.CastSkill.CastType == ECastTypes.Jump)
         return false;
       TacticsUnitController unitController = this.FindUnitController(currentUnit);
-      if (Object.op_Inequality((Object) unitController, (Object) null) && unitController.IsJumpCant())
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null) && unitController.IsJumpCant())
         return false;
       string s = FlowNode_Variable.Get("DisableTimeLimit");
       return (string.IsNullOrEmpty(s) || long.Parse(s) == 0L) && currentUnit.IsControl;
@@ -2570,7 +3560,7 @@ namespace SRPG
     private TacticsUnitController ResetMultiPlayerTransform(Unit unit)
     {
       TacticsUnitController tacticsUnitController = unit != null ? this.FindUnitController(unit) : (TacticsUnitController) null;
-      if (Object.op_Equality((Object) tacticsUnitController, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) tacticsUnitController, (UnityEngine.Object) null))
         return (TacticsUnitController) null;
       ((Component) tacticsUnitController).get_transform().set_position(this.CalcGridCenter(unit.startX, unit.startY));
       tacticsUnitController.CancelAction();
@@ -2653,18 +3643,19 @@ namespace SRPG
     private void RecvEvent()
     {
       MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
-      if (Object.op_Equality((Object) instance, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) instance, (UnityEngine.Object) null))
         return;
       List<MyPhoton.MyEvent> events = instance.GetEvents();
       if (events == null)
         return;
       while (events.Count > 0)
       {
+        Debug.LogWarning((object) events[0].code);
         if (this.mResumeMultiPlay)
         {
           if (events[0].code == MyPhoton.SEND_TYPE.Resume)
           {
-            this.RecvResume(events[0].json);
+            this.RecvResume(events[0].binary);
             if (!this.mResumeMultiPlay)
             {
               this.mResumeSend = false;
@@ -2678,33 +3669,37 @@ namespace SRPG
           {
             // ISSUE: object of a compiler-generated type is created
             // ISSUE: variable of a compiler-generated type
-            SceneBattle.\u003CRecvEvent\u003Ec__AnonStorey1C8 eventCAnonStorey1C8 = new SceneBattle.\u003CRecvEvent\u003Ec__AnonStorey1C8();
-            string json = events[0].json;
+            SceneBattle.\u003CRecvEvent\u003Ec__AnonStorey261 eventCAnonStorey261 = new SceneBattle.\u003CRecvEvent\u003Ec__AnonStorey261();
             // ISSUE: reference to a compiler-generated field
-            eventCAnonStorey1C8.data = !string.IsNullOrEmpty(json) ? JSONParser.parseJSONObject<SceneBattle.MultiPlayRecvData>(json) : (SceneBattle.MultiPlayRecvData) null;
-            // ISSUE: reference to a compiler-generated method
-            SceneBattle.MultiPlayer mp = this.mMultiPlayer.Find(new Predicate<SceneBattle.MultiPlayer>(eventCAnonStorey1C8.\u003C\u003Em__176));
+            eventCAnonStorey261.data = (SceneBattle.MultiPlayRecvData) null;
             // ISSUE: reference to a compiler-generated field
-            if (eventCAnonStorey1C8.data.h == 4)
+            if (GameUtility.Binary2Object<SceneBattle.MultiPlayRecvData>(out eventCAnonStorey261.data, events[0].binary))
             {
+              // ISSUE: reference to a compiler-generated method
+              // ISSUE: reference to a compiler-generated method
+              SceneBattle.MultiPlayer mp = this.mMultiPlayer.Find(new Predicate<SceneBattle.MultiPlayer>(eventCAnonStorey261.\u003C\u003Em__1FB)) ?? this.mMultiPlayer.Find(new Predicate<SceneBattle.MultiPlayer>(eventCAnonStorey261.\u003C\u003Em__1FC));
               // ISSUE: reference to a compiler-generated field
-              this.mRecvContinue.Add(eventCAnonStorey1C8.data);
-            }
-            else
-            {
-              // ISSUE: reference to a compiler-generated field
-              if (eventCAnonStorey1C8.data.h == 6)
+              if (eventCAnonStorey261.data.h == 4)
               {
-                if (mp != null)
-                  mp.FinishLoad = true;
+                // ISSUE: reference to a compiler-generated field
+                this.mRecvContinue.Add(eventCAnonStorey261.data);
               }
               else
               {
                 // ISSUE: reference to a compiler-generated field
-                if (eventCAnonStorey1C8.data.h == 9)
+                if (eventCAnonStorey261.data.h == 6)
+                {
+                  if (mp != null)
+                    mp.FinishLoad = true;
+                }
+                else
                 {
                   // ISSUE: reference to a compiler-generated field
-                  this.RecvResumeSuccess(mp, eventCAnonStorey1C8.data);
+                  if (eventCAnonStorey261.data.h == 9)
+                  {
+                    // ISSUE: reference to a compiler-generated field
+                    this.RecvResumeSuccess(mp, eventCAnonStorey261.data);
+                  }
                 }
               }
             }
@@ -2714,72 +3709,87 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          SceneBattle.\u003CRecvEvent\u003Ec__AnonStorey1C9 eventCAnonStorey1C9 = new SceneBattle.\u003CRecvEvent\u003Ec__AnonStorey1C9();
-          string json = events[0].json;
+          SceneBattle.\u003CRecvEvent\u003Ec__AnonStorey262 eventCAnonStorey262 = new SceneBattle.\u003CRecvEvent\u003Ec__AnonStorey262();
+          if (events[0].binary == null)
+          {
+            events.RemoveAt(0);
+            continue;
+          }
           // ISSUE: reference to a compiler-generated field
-          eventCAnonStorey1C9.data = !string.IsNullOrEmpty(json) ? JSONParser.parseJSONObject<SceneBattle.MultiPlayRecvData>(json) : (SceneBattle.MultiPlayRecvData) null;
-          // ISSUE: reference to a compiler-generated method
-          SceneBattle.MultiPlayer mp = this.mMultiPlayer.Find(new Predicate<SceneBattle.MultiPlayer>(eventCAnonStorey1C9.\u003C\u003Em__177));
+          eventCAnonStorey262.data = (SceneBattle.MultiPlayRecvData) null;
+          SceneBattle.MultiPlayer mp = (SceneBattle.MultiPlayer) null;
           // ISSUE: reference to a compiler-generated field
-          // ISSUE: reference to a compiler-generated field
-          // ISSUE: reference to a compiler-generated field
-          // ISSUE: reference to a compiler-generated field
-          // ISSUE: reference to a compiler-generated field
-          this.MultiPlayLog("[PUN] recv packet sq:" + (object) eventCAnonStorey1C9.data.sq + " pid:" + (object) eventCAnonStorey1C9.data.pid + " pidx:" + (object) eventCAnonStorey1C9.data.pidx + " h:" + (object) (SceneBattle.EMultiPlayRecvDataHeader) eventCAnonStorey1C9.data.h + " b:" + (object) eventCAnonStorey1C9.data.b + "/" + (object) this.UnitStartCountTotal);
-          // ISSUE: reference to a compiler-generated field
-          if (eventCAnonStorey1C9.data != null)
+          if (GameUtility.Binary2Object<SceneBattle.MultiPlayRecvData>(out eventCAnonStorey262.data, events[0].binary))
+          {
+            // ISSUE: reference to a compiler-generated method
+            // ISSUE: reference to a compiler-generated method
+            mp = this.mMultiPlayer.Find(new Predicate<SceneBattle.MultiPlayer>(eventCAnonStorey262.\u003C\u003Em__1FD)) ?? this.mMultiPlayer.Find(new Predicate<SceneBattle.MultiPlayer>(eventCAnonStorey262.\u003C\u003Em__1FE));
+            // ISSUE: reference to a compiler-generated field
+            // ISSUE: reference to a compiler-generated field
+            // ISSUE: reference to a compiler-generated field
+            // ISSUE: reference to a compiler-generated field
+            // ISSUE: reference to a compiler-generated field
+            this.MultiPlayLog("[PUN] recv packet sq:" + (object) eventCAnonStorey262.data.sq + " pid:" + (object) eventCAnonStorey262.data.pid + " pidx:" + (object) eventCAnonStorey262.data.pidx + " h:" + (object) (SceneBattle.EMultiPlayRecvDataHeader) eventCAnonStorey262.data.h + " b:" + (object) eventCAnonStorey262.data.b + "/" + (object) this.UnitStartCountTotal);
+          }
+          else
           {
             // ISSUE: reference to a compiler-generated field
-            if (eventCAnonStorey1C9.data.h == 4)
+            eventCAnonStorey262.data = (SceneBattle.MultiPlayRecvData) null;
+          }
+          // ISSUE: reference to a compiler-generated field
+          if (eventCAnonStorey262.data != null)
+          {
+            // ISSUE: reference to a compiler-generated field
+            if (eventCAnonStorey262.data.h == 4)
             {
               // ISSUE: reference to a compiler-generated field
-              this.mRecvContinue.Add(eventCAnonStorey1C9.data);
+              this.mRecvContinue.Add(eventCAnonStorey262.data);
             }
             else
             {
               // ISSUE: reference to a compiler-generated field
-              if (eventCAnonStorey1C9.data.h == 3)
+              if (eventCAnonStorey262.data.h == 3)
               {
                 // ISSUE: reference to a compiler-generated field
-                this.mRecvGoodJob.Add(eventCAnonStorey1C9.data);
+                this.mRecvGoodJob.Add(eventCAnonStorey262.data);
               }
               else
               {
                 // ISSUE: reference to a compiler-generated field
-                if (eventCAnonStorey1C9.data.h == 2)
+                if (eventCAnonStorey262.data.h == 2)
                 {
                   // ISSUE: reference to a compiler-generated method
-                  this.mRecvCheck.RemoveAll(new Predicate<SceneBattle.MultiPlayRecvData>(eventCAnonStorey1C9.\u003C\u003Em__178));
+                  this.mRecvCheck.RemoveAll(new Predicate<SceneBattle.MultiPlayRecvData>(eventCAnonStorey262.\u003C\u003Em__1FF));
                   // ISSUE: reference to a compiler-generated field
-                  this.mRecvCheck.Add(eventCAnonStorey1C9.data);
+                  this.mRecvCheck.Add(eventCAnonStorey262.data);
                   // ISSUE: reference to a compiler-generated field
-                  if (!this.mRecvCheckData.ContainsKey(eventCAnonStorey1C9.data.b))
+                  if (!this.mRecvCheckData.ContainsKey(eventCAnonStorey262.data.b))
                   {
                     // ISSUE: reference to a compiler-generated field
                     // ISSUE: reference to a compiler-generated field
-                    this.mRecvCheckData.Add(eventCAnonStorey1C9.data.b, eventCAnonStorey1C9.data);
+                    this.mRecvCheckData.Add(eventCAnonStorey262.data.b, eventCAnonStorey262.data);
                   }
                 }
                 else
                 {
                   // ISSUE: reference to a compiler-generated field
-                  if (eventCAnonStorey1C9.data.h == 1)
+                  if (eventCAnonStorey262.data.h == 1)
                   {
                     // ISSUE: reference to a compiler-generated field
-                    this.mRecvBattle.Add(eventCAnonStorey1C9.data);
+                    this.mRecvBattle.Add(eventCAnonStorey262.data);
                   }
                   else
                   {
                     // ISSUE: reference to a compiler-generated field
-                    if (eventCAnonStorey1C9.data.h == 5)
+                    if (eventCAnonStorey262.data.h == 5)
                     {
                       // ISSUE: reference to a compiler-generated field
-                      this.mRecvIgnoreMyDisconnect.Add(eventCAnonStorey1C9.data);
+                      this.mRecvIgnoreMyDisconnect.Add(eventCAnonStorey262.data);
                     }
                     else
                     {
                       // ISSUE: reference to a compiler-generated field
-                      if (eventCAnonStorey1C9.data.h == 6)
+                      if (eventCAnonStorey262.data.h == 6)
                       {
                         if (mp != null)
                           mp.FinishLoad = true;
@@ -2787,10 +3797,10 @@ namespace SRPG
                       else
                       {
                         // ISSUE: reference to a compiler-generated field
-                        if (eventCAnonStorey1C9.data.h == 7)
+                        if (eventCAnonStorey262.data.h == 7)
                         {
                           // ISSUE: reference to a compiler-generated method
-                          if (this.mRecvResumeRequest.Find(new Predicate<SceneBattle.MultiPlayRecvData>(eventCAnonStorey1C9.\u003C\u003Em__179)) == null)
+                          if (this.mRecvResumeRequest.Find(new Predicate<SceneBattle.MultiPlayRecvData>(eventCAnonStorey262.\u003C\u003Em__200)) == null)
                           {
                             this.Battle.ResumeState = BattleCore.RESUME_STATE.REQUEST;
                             this.mResumeSend = false;
@@ -2798,21 +3808,21 @@ namespace SRPG
                             Debug.Log((object) "ResumeRequest!!");
                             Debug.Log((object) "*********************");
                             // ISSUE: reference to a compiler-generated field
-                            this.mRecvResumeRequest.Add(eventCAnonStorey1C9.data);
+                            this.mRecvResumeRequest.Add(eventCAnonStorey262.data);
                           }
                         }
                         else
                         {
                           // ISSUE: reference to a compiler-generated field
-                          if (eventCAnonStorey1C9.data.h == 9)
+                          if (eventCAnonStorey262.data.h == 9)
                           {
                             // ISSUE: reference to a compiler-generated field
-                            this.RecvResumeSuccess(mp, eventCAnonStorey1C9.data);
+                            this.RecvResumeSuccess(mp, eventCAnonStorey262.data);
                           }
                           else
                           {
                             // ISSUE: reference to a compiler-generated field
-                            if (eventCAnonStorey1C9.data.h == 10)
+                            if (eventCAnonStorey262.data.h == 10)
                             {
                               if (mp != null)
                                 mp.SyncWait = true;
@@ -2820,7 +3830,7 @@ namespace SRPG
                             else
                             {
                               // ISSUE: reference to a compiler-generated field
-                              if (eventCAnonStorey1C9.data.h == 11)
+                              if (eventCAnonStorey262.data.h == 11)
                               {
                                 if (mp != null)
                                   mp.SyncResumeWait = true;
@@ -2828,66 +3838,42 @@ namespace SRPG
                               else
                               {
                                 // ISSUE: reference to a compiler-generated field
-                                if (eventCAnonStorey1C9.data.h == 12)
+                                // ISSUE: reference to a compiler-generated field
+                                // ISSUE: reference to a compiler-generated field
+                                // ISSUE: reference to a compiler-generated field
+                                if ((eventCAnonStorey262.data.h == 14 || eventCAnonStorey262.data.h == 15 || eventCAnonStorey262.data.h == 16) && (eventCAnonStorey262.data.uid == instance.MyPlayerIndex && !this.mCheater))
                                 {
-                                  if (mp != null)
-                                    mp.NotifyDisconnected = true;
-                                  this.Battle.IsVSForceWin = true;
-                                  this.SendRetireComfirm();
-                                  if (!this.IsInState<SceneBattle.State_RetireComfirm>())
+                                  int type = 0;
+                                  Unit unit = (Unit) null;
+                                  for (int index = 0; index < this.Battle.AllUnits.Count; ++index)
                                   {
-                                    this.mBattleUI_MultiPlay.OnForceWin();
-                                    this.GotoState<SceneBattle.State_ForceWinComfirm>();
-                                  }
-                                }
-                                else
-                                {
-                                  // ISSUE: reference to a compiler-generated field
-                                  if (eventCAnonStorey1C9.data.h == 13)
-                                  {
-                                    this.mRetireComfirm = true;
-                                  }
-                                  else
-                                  {
-                                    // ISSUE: reference to a compiler-generated field
-                                    // ISSUE: reference to a compiler-generated field
-                                    // ISSUE: reference to a compiler-generated field
-                                    // ISSUE: reference to a compiler-generated field
-                                    if ((eventCAnonStorey1C9.data.h == 14 || eventCAnonStorey1C9.data.h == 15 || eventCAnonStorey1C9.data.h == 16) && (eventCAnonStorey1C9.data.uid == instance.MyPlayerIndex && !this.mCheater))
+                                    if (this.Battle.AllUnits[index].OwnerPlayerIndex == instance.MyPlayerIndex)
                                     {
-                                      int type = 0;
-                                      Unit unit = (Unit) null;
-                                      for (int index = 0; index < this.Battle.AllUnits.Count; ++index)
-                                      {
-                                        if (this.Battle.AllUnits[index].OwnerPlayerIndex == instance.MyPlayerIndex)
-                                        {
-                                          unit = this.Battle.AllUnits[index];
-                                          break;
-                                        }
-                                      }
-                                      string val = string.Empty;
-                                      if (unit != null)
-                                      {
-                                        val = "unit = " + unit.UnitParam.iname;
-                                        // ISSUE: reference to a compiler-generated field
-                                        if (eventCAnonStorey1C9.data.h == 15)
-                                        {
-                                          List<SkillData> battleSkills = unit.BattleSkills;
-                                          if (battleSkills != null)
-                                          {
-                                            for (int index = 0; index < battleSkills.Count; ++index)
-                                            {
-                                              int cost = battleSkills[index].Cost;
-                                              int hpCostRate = battleSkills[index].HpCostRate;
-                                              val = val + "[" + (object) index + "]:" + battleSkills[index].SkillParam.iname + "cost(mp):" + (object) cost + "cost(hp):" + (object) hpCostRate + ",";
-                                            }
-                                          }
-                                        }
-                                      }
-                                      Network.RequestAPI((WebAPI) new ReqMultiCheat(type, val, new Network.ResponseCallback(this.OnSuccessCheat)), false);
-                                      this.mCheater = true;
+                                      unit = this.Battle.AllUnits[index];
+                                      break;
                                     }
                                   }
+                                  string val = string.Empty;
+                                  if (unit != null)
+                                  {
+                                    val = "unit = " + unit.UnitParam.iname;
+                                    // ISSUE: reference to a compiler-generated field
+                                    if (eventCAnonStorey262.data.h == 15)
+                                    {
+                                      List<SkillData> battleSkills = unit.BattleSkills;
+                                      if (battleSkills != null)
+                                      {
+                                        for (int index = 0; index < battleSkills.Count; ++index)
+                                        {
+                                          int cost = battleSkills[index].Cost;
+                                          int hpCostRate = battleSkills[index].HpCostRate;
+                                          val = val + "[" + (object) index + "]:" + battleSkills[index].SkillParam.iname + "cost(mp):" + (object) cost + "cost(hp):" + (object) hpCostRate + ",";
+                                        }
+                                      }
+                                    }
+                                  }
+                                  Network.RequestAPI((WebAPI) new ReqMultiCheat(type, val, new Network.ResponseCallback(this.OnSuccessCheat)), false);
+                                  this.mCheater = true;
                                 }
                               }
                             }
@@ -2908,7 +3894,7 @@ namespace SRPG
     private bool DisconnetEvent()
     {
       MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
-      if (instance.CurrentState == MyPhoton.MyState.ROOM || !Object.op_Inequality((Object) this.mBattleUI_MultiPlay, (Object) null))
+      if (this.mExecDisconnected && this.Battle.IsMultiTower || (instance.CurrentState == MyPhoton.MyState.ROOM || !UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mBattleUI_MultiPlay, (UnityEngine.Object) null)))
         return false;
       if (!this.mExecDisconnected && !this.mIsWaitingForBattleSignal && !BlockInterrupt.IsBlocked(BlockInterrupt.EType.PHOTON_DISCONNECTED))
       {
@@ -2951,7 +3937,7 @@ namespace SRPG
 
     private void ShowTimeLimit()
     {
-      if (!Object.op_Inequality((Object) this.mBattleUI_MultiPlay, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mBattleUI_MultiPlay, (UnityEngine.Object) null))
         return;
       bool flag = false;
       if (this.mBeginMultiPlay && this.Battle.CurrentUnit != null && (this.Battle.CurrentUnit.OwnerPlayerIndex == this.Battle.MyPlayerIndex && this.GainMultiPlayInputTimeLimit()))
@@ -2976,7 +3962,7 @@ namespace SRPG
 
     private void ShowThinking()
     {
-      if (!Object.op_Inequality((Object) this.mBattleUI_MultiPlay, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mBattleUI_MultiPlay, (UnityEngine.Object) null))
         return;
       int num = 0;
       if ((this.IsInState<SceneBattle.State_MapCommandMultiPlay>() || this.IsInState<SceneBattle.State_MapCommandVersus>() || this.IsInState<SceneBattle.State_SelectTargetV2>()) && (this.Battle.CurrentUnit != null && this.Battle.CurrentUnit.OwnerPlayerIndex > 0))
@@ -2985,6 +3971,8 @@ namespace SRPG
         if (string.IsNullOrEmpty(s) || long.Parse(s) == 0L)
           num = this.Battle.CurrentUnit.OwnerPlayerIndex;
       }
+      if (MonoSingleton<GameManager>.Instance.AudienceMode && this.Battle.CurrentUnit != null && this.Battle.CurrentUnit.OwnerPlayerIndex > 0)
+        num = this.Battle.CurrentUnit.OwnerPlayerIndex;
       if (num != this.mThinkingPlayerIndex)
       {
         if (num <= 0 || this.Battle.CurrentUnit.OwnerPlayerIndex == this.Battle.MyPlayerIndex)
@@ -3003,85 +3991,82 @@ namespace SRPG
       List<MyPhoton.MyPlayer> roomPlayerList1 = instance.GetRoomPlayerList();
       if (roomPlayerList1 != null)
       {
-        // ISSUE: object of a compiler-generated type is created
-        // ISSUE: variable of a compiler-generated type
-        SceneBattle.\u003COtherPlayerDisconnect\u003Ec__AnonStorey1CA disconnectCAnonStorey1Ca = new SceneBattle.\u003COtherPlayerDisconnect\u003Ec__AnonStorey1CA();
         using (List<SceneBattle.MultiPlayer>.Enumerator enumerator = this.mMultiPlayer.GetEnumerator())
         {
           while (enumerator.MoveNext())
           {
-            // ISSUE: reference to a compiler-generated field
-            disconnectCAnonStorey1Ca.mp = enumerator.Current;
-            // ISSUE: reference to a compiler-generated method
-            if (roomPlayerList1 != null && roomPlayerList1.Find(new Predicate<MyPhoton.MyPlayer>(disconnectCAnonStorey1Ca.\u003C\u003Em__17A)) == null)
+            SceneBattle.MultiPlayer current = enumerator.Current;
+            if (roomPlayerList1 != null && instance.FindPlayer(roomPlayerList1, current.PlayerID, current.PlayerIndex) == null)
             {
-              // ISSUE: reference to a compiler-generated field
-              disconnectCAnonStorey1Ca.mp.Disconnected = true;
+              if (instance.IsOldestPlayer() && !current.Disconnected)
+                this.SendOtherPlayerDisconnect(current.PlayerIndex);
+              current.Disconnected = true;
             }
           }
         }
       }
-      if (Object.op_Inequality((Object) this.mBattleUI_MultiPlay, (Object) null) && !this.mIsWaitingForBattleSignal && (!BlockInterrupt.IsBlocked(BlockInterrupt.EType.PHOTON_DISCONNECTED) && this.CurrentNotifyDisconnectedPlayer == null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mBattleUI_MultiPlay, (UnityEngine.Object) null) && !this.mIsWaitingForBattleSignal && (!BlockInterrupt.IsBlocked(BlockInterrupt.EType.PHOTON_DISCONNECTED) && this.CurrentNotifyDisconnectedPlayer == null))
       {
         List<JSON_MyPhotonPlayerParam> myPlayersStarted = instance.GetMyPlayersStarted();
         MyPhoton.MyPlayer myPlayer = instance.GetMyPlayer();
         // ISSUE: object of a compiler-generated type is created
         // ISSUE: variable of a compiler-generated type
-        SceneBattle.\u003COtherPlayerDisconnect\u003Ec__AnonStorey1CB disconnectCAnonStorey1Cb = new SceneBattle.\u003COtherPlayerDisconnect\u003Ec__AnonStorey1CB();
+        SceneBattle.\u003COtherPlayerDisconnect\u003Ec__AnonStorey263 disconnectCAnonStorey263 = new SceneBattle.\u003COtherPlayerDisconnect\u003Ec__AnonStorey263();
         using (List<SceneBattle.MultiPlayer>.Enumerator enumerator1 = this.mMultiPlayer.GetEnumerator())
         {
           while (enumerator1.MoveNext())
           {
             // ISSUE: reference to a compiler-generated field
-            disconnectCAnonStorey1Cb.mp = enumerator1.Current;
+            disconnectCAnonStorey263.mp = enumerator1.Current;
+            // ISSUE: reference to a compiler-generated field
+            // ISSUE: reference to a compiler-generated field
             // ISSUE: reference to a compiler-generated field
             // ISSUE: reference to a compiler-generated method
-            // ISSUE: reference to a compiler-generated method
-            if (myPlayersStarted != null && roomPlayerList1 != null && (myPlayer != null && !disconnectCAnonStorey1Cb.mp.NotifyDisconnected) && (roomPlayerList1.Find(new Predicate<MyPhoton.MyPlayer>(disconnectCAnonStorey1Cb.\u003C\u003Em__17B)) == null && this.mRecvIgnoreMyDisconnect.Find(new Predicate<SceneBattle.MultiPlayRecvData>(disconnectCAnonStorey1Cb.\u003C\u003Em__17C)) == null))
+            if (myPlayersStarted != null && roomPlayerList1 != null && (myPlayer != null && !disconnectCAnonStorey263.mp.NotifyDisconnected) && (instance.FindPlayer(roomPlayerList1, disconnectCAnonStorey263.mp.PlayerID, disconnectCAnonStorey263.mp.PlayerIndex) == null && this.mRecvIgnoreMyDisconnect.Find(new Predicate<SceneBattle.MultiPlayRecvData>(disconnectCAnonStorey263.\u003C\u003Em__201)) == null))
             {
               // ISSUE: reference to a compiler-generated method
-              this.CurrentNotifyDisconnectedPlayer = myPlayersStarted != null ? myPlayersStarted.Find(new Predicate<JSON_MyPhotonPlayerParam>(disconnectCAnonStorey1Cb.\u003C\u003Em__17D)) : (JSON_MyPhotonPlayerParam) null;
+              this.CurrentNotifyDisconnectedPlayer = myPlayersStarted != null ? myPlayersStarted.Find(new Predicate<JSON_MyPhotonPlayerParam>(disconnectCAnonStorey263.\u003C\u003Em__202)) : (JSON_MyPhotonPlayerParam) null;
               int num1 = 0;
               int num2 = 0;
               // ISSUE: object of a compiler-generated type is created
               // ISSUE: variable of a compiler-generated type
-              SceneBattle.\u003COtherPlayerDisconnect\u003Ec__AnonStorey1CC disconnectCAnonStorey1Cc = new SceneBattle.\u003COtherPlayerDisconnect\u003Ec__AnonStorey1CC();
+              SceneBattle.\u003COtherPlayerDisconnect\u003Ec__AnonStorey264 disconnectCAnonStorey264 = new SceneBattle.\u003COtherPlayerDisconnect\u003Ec__AnonStorey264();
               using (List<JSON_MyPhotonPlayerParam>.Enumerator enumerator2 = myPlayersStarted.GetEnumerator())
               {
                 while (enumerator2.MoveNext())
                 {
                   // ISSUE: reference to a compiler-generated field
-                  disconnectCAnonStorey1Cc.sp = enumerator2.Current;
+                  disconnectCAnonStorey264.sp = enumerator2.Current;
                   // ISSUE: reference to a compiler-generated method
-                  SceneBattle.MultiPlayer multiPlayer = this.mMultiPlayer.Find(new Predicate<SceneBattle.MultiPlayer>(disconnectCAnonStorey1Cc.\u003C\u003Em__17E));
+                  SceneBattle.MultiPlayer multiPlayer = this.mMultiPlayer.Find(new Predicate<SceneBattle.MultiPlayer>(disconnectCAnonStorey264.\u003C\u003Em__203));
                   if (multiPlayer == null || !multiPlayer.NotifyDisconnected)
                   {
                     // ISSUE: reference to a compiler-generated field
-                    if (disconnectCAnonStorey1Cc.sp.playerIndex < num1 || num1 == 0)
+                    if (disconnectCAnonStorey264.sp.playerIndex < num1 || num1 == 0)
                     {
                       // ISSUE: reference to a compiler-generated field
-                      num1 = disconnectCAnonStorey1Cc.sp.playerIndex;
+                      num1 = disconnectCAnonStorey264.sp.playerIndex;
                     }
                     // ISSUE: reference to a compiler-generated field
                     // ISSUE: reference to a compiler-generated field
                     // ISSUE: reference to a compiler-generated field
-                    if (disconnectCAnonStorey1Cc.sp.playerIndex != disconnectCAnonStorey1Cb.mp.PlayerIndex && (disconnectCAnonStorey1Cc.sp.playerIndex < num2 || num2 == 0))
+                    if (disconnectCAnonStorey264.sp.playerIndex != disconnectCAnonStorey263.mp.PlayerIndex && (disconnectCAnonStorey264.sp.playerIndex < num2 || num2 == 0))
                     {
                       // ISSUE: reference to a compiler-generated field
-                      num2 = disconnectCAnonStorey1Cc.sp.playerIndex;
+                      num2 = disconnectCAnonStorey264.sp.playerIndex;
                     }
                   }
                 }
               }
               // ISSUE: reference to a compiler-generated field
-              this.CurrentNotifyDisconnectedPlayerType = num1 == disconnectCAnonStorey1Cb.mp.PlayerIndex ? (num2 != instance.MyPlayerIndex ? SceneBattle.ENotifyDisconnectedPlayerType.OWNER : SceneBattle.ENotifyDisconnectedPlayerType.OWNER_AND_I_AM_OWNER) : SceneBattle.ENotifyDisconnectedPlayerType.NORMAL;
+              this.CurrentNotifyDisconnectedPlayerType = num1 == disconnectCAnonStorey263.mp.PlayerIndex ? (num2 != instance.MyPlayerIndex ? SceneBattle.ENotifyDisconnectedPlayerType.OWNER : SceneBattle.ENotifyDisconnectedPlayerType.OWNER_AND_I_AM_OWNER) : SceneBattle.ENotifyDisconnectedPlayerType.NORMAL;
               if (this.CurrentResumePlayer != null)
                 this.mBattleUI_MultiPlay.OnOtherPlayerResumeClose();
               this.mBattleUI_MultiPlay.OnMyPlayerResumeClose();
               // ISSUE: reference to a compiler-generated field
-              disconnectCAnonStorey1Cb.mp.NotifyDisconnected = true;
+              disconnectCAnonStorey263.mp.NotifyDisconnected = true;
               // ISSUE: reference to a compiler-generated field
-              disconnectCAnonStorey1Cb.mp.RecvInputNum = 0;
+              disconnectCAnonStorey263.mp.RecvInputNum = 0;
               this.mBattleUI_MultiPlay.OnOtherDisconnected();
               break;
             }
@@ -3095,7 +4080,7 @@ namespace SRPG
       {
         // ISSUE: object of a compiler-generated type is created
         // ISSUE: reference to a compiler-generated method
-        if (roomPlayerList2.Find(new Predicate<MyPhoton.MyPlayer>(new SceneBattle.\u003COtherPlayerDisconnect\u003Ec__AnonStorey1CD() { data = this.mRecvResumeRequest[index] }.\u003C\u003Em__17F)) == null)
+        if (roomPlayerList2.Find(new Predicate<MyPhoton.MyPlayer>(new SceneBattle.\u003COtherPlayerDisconnect\u003Ec__AnonStorey265() { data = this.mRecvResumeRequest[index] }.\u003C\u003Em__204)) == null)
           this.mRecvResumeRequest.RemoveAt(index);
       }
       if (this.mRecvResumeRequest.Count != 0)
@@ -3110,14 +4095,14 @@ namespace SRPG
       if (this.mRecvResume.Count <= 0)
         return;
       List<JSON_MyPhotonPlayerParam> myPlayersStarted = PunMonoSingleton<MyPhoton>.Instance.GetMyPlayersStarted();
-      if (!Object.op_Inequality((Object) this.mBattleUI_MultiPlay, (Object) null) || this.mIsWaitingForBattleSignal || (BlockInterrupt.IsBlocked(BlockInterrupt.EType.PHOTON_DISCONNECTED) || this.CurrentResumePlayer != null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mBattleUI_MultiPlay, (UnityEngine.Object) null) || this.mIsWaitingForBattleSignal || (BlockInterrupt.IsBlocked(BlockInterrupt.EType.PHOTON_DISCONNECTED) || this.CurrentResumePlayer != null))
         return;
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: reference to a compiler-generated method
-      this.CurrentResumePlayer = myPlayersStarted != null ? myPlayersStarted.Find(new Predicate<JSON_MyPhotonPlayerParam>(new SceneBattle.\u003COtherPlayerResume\u003Ec__AnonStorey1CE()
+      this.CurrentResumePlayer = myPlayersStarted != null ? myPlayersStarted.Find(new Predicate<JSON_MyPhotonPlayerParam>(new SceneBattle.\u003COtherPlayerResume\u003Ec__AnonStorey266()
       {
         data = this.mRecvResume[0]
-      }.\u003C\u003Em__180)) : (JSON_MyPhotonPlayerParam) null;
+      }.\u003C\u003Em__205)) : (JSON_MyPhotonPlayerParam) null;
       if (this.CurrentNotifyDisconnectedPlayer != null)
         this.mBattleUI_MultiPlay.OnOtherDisconnectedForce();
       this.mBattleUI_MultiPlay.OnMyPlayerResumeClose();
@@ -3162,15 +4147,34 @@ namespace SRPG
           bool flag = false;
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          SceneBattle.\u003CCheckStart\u003Ec__AnonStorey1CF startCAnonStorey1Cf = new SceneBattle.\u003CCheckStart\u003Ec__AnonStorey1CF();
+          SceneBattle.\u003CCheckStart\u003Ec__AnonStorey267 startCAnonStorey267 = new SceneBattle.\u003CCheckStart\u003Ec__AnonStorey267();
           using (List<int>.Enumerator enumerator = this.mResumeAlreadyStartPlayer.GetEnumerator())
           {
             while (enumerator.MoveNext())
             {
               // ISSUE: reference to a compiler-generated field
-              startCAnonStorey1Cf.playerID = enumerator.Current;
+              startCAnonStorey267.playerID = enumerator.Current;
               // ISSUE: reference to a compiler-generated method
-              flag |= roomPlayerList.Find(new Predicate<MyPhoton.MyPlayer>(startCAnonStorey1Cf.\u003C\u003Em__181)) != null;
+              flag |= roomPlayerList.Find(new Predicate<MyPhoton.MyPlayer>(startCAnonStorey267.\u003C\u003Em__206)) != null;
+            }
+          }
+          if (this.Battle.IsMultiTower)
+          {
+            MyPhoton.MyRoom currentRoom = instance.GetCurrentRoom();
+            if (currentRoom != null && !currentRoom.battle)
+            {
+              flag = false;
+              this.mExecDisconnected = true;
+              instance.Disconnect();
+              using (List<SceneBattle.MultiPlayerUnit>.Enumerator enumerator = this.mMultiPlayerUnit.GetEnumerator())
+              {
+                while (enumerator.MoveNext())
+                {
+                  SceneBattle.MultiPlayerUnit current = enumerator.Current;
+                  if (current != null && current.Owner.PlayerIndex != instance.MyPlayerIndex)
+                    current.Owner.Disconnected = true;
+                }
+              }
             }
           }
           this.mResumeMultiPlay = flag;
@@ -3189,39 +4193,81 @@ namespace SRPG
       {
         // ISSUE: object of a compiler-generated type is created
         // ISSUE: variable of a compiler-generated type
-        SceneBattle.\u003CUpdateMultiBattleInfo\u003Ec__AnonStorey1D0 infoCAnonStorey1D0 = new SceneBattle.\u003CUpdateMultiBattleInfo\u003Ec__AnonStorey1D0();
+        SceneBattle.\u003CUpdateMultiBattleInfo\u003Ec__AnonStorey268 infoCAnonStorey268 = new SceneBattle.\u003CUpdateMultiBattleInfo\u003Ec__AnonStorey268();
         // ISSUE: reference to a compiler-generated field
-        infoCAnonStorey1D0.data = this.mRecvBattle[0];
+        infoCAnonStorey268.data = this.mRecvBattle[0];
         // ISSUE: reference to a compiler-generated field
-        if (infoCAnonStorey1D0.data.b > this.UnitStartCountTotal)
+        if (infoCAnonStorey268.data.b > this.UnitStartCountTotal)
         {
           // ISSUE: reference to a compiler-generated field
           // ISSUE: reference to a compiler-generated field
           // ISSUE: reference to a compiler-generated field
           // ISSUE: reference to a compiler-generated method
-          DebugUtility.LogWarning("[PUN] new turn data. sq:" + (object) infoCAnonStorey1D0.data.sq + " h:" + (object) (SceneBattle.EMultiPlayRecvDataHeader) infoCAnonStorey1D0.data.h + " b:" + (object) infoCAnonStorey1D0.data.b + "/" + (object) this.UnitStartCountTotal + " test:" + (object) this.mRecvBattle.FindIndex(new Predicate<SceneBattle.MultiPlayRecvData>(infoCAnonStorey1D0.\u003C\u003Em__182)));
+          DebugUtility.LogWarning("[PUN] new turn data. sq:" + (object) infoCAnonStorey268.data.sq + " h:" + (object) (SceneBattle.EMultiPlayRecvDataHeader) infoCAnonStorey268.data.h + " b:" + (object) infoCAnonStorey268.data.b + "/" + (object) this.UnitStartCountTotal + " test:" + (object) this.mRecvBattle.FindIndex(new Predicate<SceneBattle.MultiPlayRecvData>(infoCAnonStorey268.\u003C\u003Em__207)));
           break;
         }
         // ISSUE: reference to a compiler-generated field
-        if (infoCAnonStorey1D0.data.b < this.UnitStartCountTotal)
+        if (infoCAnonStorey268.data.b < this.UnitStartCountTotal)
         {
           // ISSUE: reference to a compiler-generated field
           // ISSUE: reference to a compiler-generated field
           // ISSUE: reference to a compiler-generated field
-          DebugUtility.LogWarning("[PUN] old turn data. sq:" + (object) infoCAnonStorey1D0.data.sq + " h:" + (object) (SceneBattle.EMultiPlayRecvDataHeader) infoCAnonStorey1D0.data.h + " b:" + (object) infoCAnonStorey1D0.data.b + "/" + (object) this.UnitStartCountTotal);
+          DebugUtility.LogWarning("[PUN] old turn data. sq:" + (object) infoCAnonStorey268.data.sq + " h:" + (object) (SceneBattle.EMultiPlayRecvDataHeader) infoCAnonStorey268.data.h + " b:" + (object) infoCAnonStorey268.data.b + "/" + (object) this.UnitStartCountTotal);
         }
         else
         {
           // ISSUE: reference to a compiler-generated field
-          if (infoCAnonStorey1D0.data.h == 1)
+          if (infoCAnonStorey268.data.h == 1)
           {
             // ISSUE: reference to a compiler-generated method
-            // ISSUE: reference to a compiler-generated field
-            this.mMultiPlayerUnit.Find(new Predicate<SceneBattle.MultiPlayerUnit>(infoCAnonStorey1D0.\u003C\u003Em__183)).RecvInput(this, infoCAnonStorey1D0.data);
+            SceneBattle.MultiPlayerUnit multiPlayerUnit = this.mMultiPlayerUnit.Find(new Predicate<SceneBattle.MultiPlayerUnit>(infoCAnonStorey268.\u003C\u003Em__208));
+            if (multiPlayerUnit != null)
+            {
+              // ISSUE: reference to a compiler-generated field
+              multiPlayerUnit.RecvInput(this, infoCAnonStorey268.data);
+            }
           }
         }
         this.mRecvBattle.RemoveAt(0);
       }
+      if (!MonoSingleton<GameManager>.Instance.AudienceMode)
+        return;
+      // ISSUE: object of a compiler-generated type is created
+      // ISSUE: variable of a compiler-generated type
+      SceneBattle.\u003CUpdateMultiBattleInfo\u003Ec__AnonStorey269 infoCAnonStorey269 = new SceneBattle.\u003CUpdateMultiBattleInfo\u003Ec__AnonStorey269();
+      // ISSUE: reference to a compiler-generated field
+      infoCAnonStorey269.\u003C\u003Ef__this = this;
+      // ISSUE: reference to a compiler-generated field
+      // ISSUE: reference to a compiler-generated field
+      // ISSUE: reference to a compiler-generated field
+      for (infoCAnonStorey269.i = 0; infoCAnonStorey269.i < this.mAudienceDisconnect.Count; ++infoCAnonStorey269.i)
+      {
+        // ISSUE: reference to a compiler-generated field
+        if (this.mAudienceDisconnect[infoCAnonStorey269.i].b == this.UnitStartCountTotal)
+        {
+          // ISSUE: reference to a compiler-generated method
+          SceneBattle.MultiPlayer multiPlayer = this.mMultiPlayer.Find(new Predicate<SceneBattle.MultiPlayer>(infoCAnonStorey269.\u003C\u003Em__209));
+          if (multiPlayer != null && multiPlayer.StartBegin)
+          {
+            multiPlayer.Disconnected = true;
+            List<SceneBattle.MultiPlayRecvData> audienceDisconnect = this.mAudienceDisconnect;
+            int i;
+            // ISSUE: reference to a compiler-generated field
+            // ISSUE: reference to a compiler-generated field
+            infoCAnonStorey269.i = (i = infoCAnonStorey269.i) - 1;
+            int index = i;
+            audienceDisconnect.RemoveAt(index);
+          }
+        }
+      }
+      if (this.mAudienceRetire == null || this.mAudienceRetire.b != this.UnitStartCountTotal || this.mRecvBattle.Count > 0)
+        return;
+      SceneBattle.MultiPlayer multiPlayer1 = this.mMultiPlayer.Find((Predicate<SceneBattle.MultiPlayer>) (p => p.PlayerID == this.mAudienceRetire.pid));
+      if (multiPlayer1 != null)
+        multiPlayer1.NotifyDisconnected = true;
+      this.mAudienceRetire = (SceneBattle.MultiPlayRecvData) null;
+      this.Battle.IsVSForceWin = true;
+      this.GotoState_WaitSignal<SceneBattle.State_AudienceRetire>();
     }
 
     private bool CheckInputTimeLimit()
@@ -3243,6 +4289,8 @@ namespace SRPG
 
     private void SendTimeLimit()
     {
+      if (MonoSingleton<GameManager>.Instance.AudienceMode)
+        return;
       if (this.mIsWaitingForBattleSignal)
       {
         this.MultiPlayLog("[PUN]TimeUp but waiting for battle signal...");
@@ -3260,12 +4308,12 @@ namespace SRPG
           if (!this.Battle.CurrentUnit.IsUnitFlag(EUnitFlag.Moved))
           {
             TacticsUnitController tacticsUnitController = this.ResetMultiPlayerTransform(this.Battle.CurrentUnit);
-            if (Object.op_Inequality((Object) tacticsUnitController, (Object) null))
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) tacticsUnitController, (UnityEngine.Object) null))
               this.SetCameraTarget(((Component) tacticsUnitController).get_transform().get_position());
             this.SendInputMoveEnd(this.Battle.CurrentUnit, true);
           }
           this.SendInputUnitTimeLimit(this.Battle.CurrentUnit);
-          this.SendInputFlush();
+          this.SendInputFlush(false);
           this.CloseBattleUI();
           this.Battle.EntryBattleMultiPlayTimeUp = true;
           this.GotoMapCommand();
@@ -3279,17 +4327,17 @@ namespace SRPG
       bool flag = true;
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      SceneBattle.\u003CCheckSync\u003Ec__AnonStorey1D1 syncCAnonStorey1D1 = new SceneBattle.\u003CCheckSync\u003Ec__AnonStorey1D1();
+      SceneBattle.\u003CCheckSync\u003Ec__AnonStorey26A syncCAnonStorey26A = new SceneBattle.\u003CCheckSync\u003Ec__AnonStorey26A();
       using (List<MyPhoton.MyPlayer>.Enumerator enumerator = roomPlayerList.GetEnumerator())
       {
         while (enumerator.MoveNext())
         {
           // ISSUE: reference to a compiler-generated field
-          syncCAnonStorey1D1.player = enumerator.Current;
+          syncCAnonStorey26A.player = enumerator.Current;
           // ISSUE: reference to a compiler-generated method
-          SceneBattle.MultiPlayer multiPlayer = this.mMultiPlayer.Find(new Predicate<SceneBattle.MultiPlayer>(syncCAnonStorey1D1.\u003C\u003Em__184));
+          SceneBattle.MultiPlayer multiPlayer = this.mMultiPlayer.Find(new Predicate<SceneBattle.MultiPlayer>(syncCAnonStorey26A.\u003C\u003Em__20B));
           // ISSUE: reference to a compiler-generated field
-          if (syncCAnonStorey1D1.player.start && multiPlayer != null && !multiPlayer.NotifyDisconnected)
+          if (syncCAnonStorey26A.player.start && multiPlayer != null && !multiPlayer.NotifyDisconnected)
           {
             flag &= multiPlayer.SyncWait;
             Debug.Log((object) (multiPlayer.SyncWait.ToString() + "/" + (object) multiPlayer.PlayerIndex));
@@ -3318,17 +4366,17 @@ namespace SRPG
       bool flag = true;
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      SceneBattle.\u003CCheckResumeSync\u003Ec__AnonStorey1D2 syncCAnonStorey1D2 = new SceneBattle.\u003CCheckResumeSync\u003Ec__AnonStorey1D2();
+      SceneBattle.\u003CCheckResumeSync\u003Ec__AnonStorey26B syncCAnonStorey26B = new SceneBattle.\u003CCheckResumeSync\u003Ec__AnonStorey26B();
       using (List<MyPhoton.MyPlayer>.Enumerator enumerator = roomPlayerList.GetEnumerator())
       {
         while (enumerator.MoveNext())
         {
           // ISSUE: reference to a compiler-generated field
-          syncCAnonStorey1D2.player = enumerator.Current;
+          syncCAnonStorey26B.player = enumerator.Current;
           // ISSUE: reference to a compiler-generated method
-          SceneBattle.MultiPlayer multiPlayer = this.mMultiPlayer.Find(new Predicate<SceneBattle.MultiPlayer>(syncCAnonStorey1D2.\u003C\u003Em__185));
+          SceneBattle.MultiPlayer multiPlayer = this.mMultiPlayer.Find(new Predicate<SceneBattle.MultiPlayer>(syncCAnonStorey26B.\u003C\u003Em__20C));
           // ISSUE: reference to a compiler-generated field
-          if (syncCAnonStorey1D2.player.start && multiPlayer != null && !multiPlayer.NotifyDisconnected)
+          if (syncCAnonStorey26B.player.start && multiPlayer != null && !multiPlayer.NotifyDisconnected)
             flag &= multiPlayer.SyncResumeWait;
         }
       }
@@ -3337,8 +4385,9 @@ namespace SRPG
 
     private void UpdateMultiPlayer()
     {
-      if (!this.Battle.IsMultiPlay || !this.Battle.FinishLoad)
+      if (MonoSingleton<GameManager>.Instance.AudienceMode || !this.Battle.IsMultiPlay || !this.Battle.FinishLoad)
         return;
+      this.UpdateInterval();
       this.RecvEvent();
       if (this.DisconnetEvent())
         return;
@@ -3360,19 +4409,284 @@ namespace SRPG
         this.mMultiPlayerUnit[index].Update(this);
       this.mSendTime += Time.get_deltaTime();
       if ((double) this.mSendTime >= (double) this.SEND_TURN_SEC)
-        this.SendInputFlush();
+        this.SendInputFlush(false);
       if (this.CheckInputTimeLimit())
         return;
       this.SendTimeLimit();
     }
 
-    private void SendInputFlush()
+    private bool RecvEventAudience(bool isSkip = false)
     {
+      GameManager instance = MonoSingleton<GameManager>.Instance;
+      int num1 = -1;
+      int num2 = -1;
+      int cnt = 0;
+      bool flag = true;
+      bool check = false;
+      while (true)
+      {
+        // ISSUE: variable of a compiler-generated type
+        SceneBattle.\u003CRecvEventAudience\u003Ec__AnonStorey26C audienceCAnonStorey26C;
+        // ISSUE: reference to a compiler-generated field
+        // ISSUE: reference to a compiler-generated field
+        do
+        {
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: reference to a compiler-generated field
+          do
+          {
+            // ISSUE: object of a compiler-generated type is created
+            audienceCAnonStorey26C = new SceneBattle.\u003CRecvEventAudience\u003Ec__AnonStorey26C();
+            if (isSkip && instance.AudienceManager.IsSkipEnd)
+            {
+              flag = false;
+              goto label_20;
+            }
+            else
+            {
+              // ISSUE: reference to a compiler-generated field
+              audienceCAnonStorey26C.data = (SceneBattle.MultiPlayRecvData) null;
+              // ISSUE: reference to a compiler-generated field
+              audienceCAnonStorey26C.data = instance.AudienceManager.GetData();
+              ++cnt;
+              // ISSUE: reference to a compiler-generated field
+              if (audienceCAnonStorey26C.data == null)
+                goto label_20;
+            }
+          }
+          while (audienceCAnonStorey26C.data.b == 0 || audienceCAnonStorey26C.data.h == 10 || (audienceCAnonStorey26C.data.h == 11 || audienceCAnonStorey26C.data.h == 9));
+          // ISSUE: reference to a compiler-generated field
+          if (isSkip && num2 >= 0 && audienceCAnonStorey26C.data.b != num2)
+          {
+            instance.AudienceManager.Restore();
+            goto label_20;
+          }
+          else
+          {
+            // ISSUE: reference to a compiler-generated field
+            num2 = audienceCAnonStorey26C.data.b;
+            // ISSUE: reference to a compiler-generated method
+            SceneBattle.MultiPlayer multiPlayer = this.mMultiPlayer.Find(new Predicate<SceneBattle.MultiPlayer>(audienceCAnonStorey26C.\u003C\u003Em__20D));
+            if (multiPlayer != null && !isSkip)
+            {
+              if (num1 == -1)
+                num1 = multiPlayer.PlayerID;
+              else if (num1 != multiPlayer.PlayerID)
+              {
+                instance.AudienceManager.Restore();
+                goto label_20;
+              }
+            }
+            // ISSUE: reference to a compiler-generated field
+            if (audienceCAnonStorey26C.data.h == 1)
+            {
+              // ISSUE: reference to a compiler-generated field
+              this.mRecvBattle.Add(audienceCAnonStorey26C.data);
+            }
+            else
+            {
+              // ISSUE: reference to a compiler-generated field
+              if (audienceCAnonStorey26C.data.h == 12)
+              {
+                // ISSUE: reference to a compiler-generated field
+                this.mAudienceRetire = audienceCAnonStorey26C.data;
+              }
+              else
+              {
+                // ISSUE: reference to a compiler-generated field
+                if (audienceCAnonStorey26C.data.h == 17)
+                {
+                  // ISSUE: reference to a compiler-generated field
+                  this.mAudienceDisconnect.Add(audienceCAnonStorey26C.data);
+                }
+              }
+            }
+          }
+        }
+        while (audienceCAnonStorey26C.data == null || audienceCAnonStorey26C.data.h != 2);
+        check = true;
+      }
+label_20:
+      return flag & this.CheckSkipLogEnd(isSkip, cnt, check);
+    }
+
+    private bool CheckSkipLogEnd(bool isSkip, int cnt, bool check)
+    {
+      if (isSkip)
+      {
+        GameManager instance = MonoSingleton<GameManager>.Instance;
+        if (!check)
+        {
+          for (int index = 0; index < cnt; ++index)
+            instance.AudienceManager.Restore();
+          this.mRecvBattle.Clear();
+        }
+      }
+      return check;
+    }
+
+    private void UpdateAudiencePlayer()
+    {
+      bool flag = false;
+      GameManager instance = MonoSingleton<GameManager>.Instance;
+      if (!instance.AudienceMode || !this.Battle.FinishLoad || !this.QuestStart)
+        return;
+      this.RecvEventAudience(false);
+      this.ShowThinking();
+      this.UpdateMultiBattleInfo();
+      for (int index = 0; index < this.mMultiPlayerUnit.Count; ++index)
+      {
+        this.mMultiPlayerUnit[index].Update(this);
+        flag |= this.mMultiPlayerUnit[index].IsExistRecvData;
+      }
+      if (!instance.AudienceManager.IsEnd || flag || ((int) this.Battle.RemainVersusTurnCount == 0 || this.IsInState<SceneBattle.State_AudienceForceEnd>()) || (this.IsInState<SceneBattle.State_AudienceEnd>() || this.IsInState<SceneBattle.State_AudienceRetire>() || (this.IsInState<SceneBattle.State_ExitQuest>() || this.CheckAudienceResult() != BattleCore.QuestResult.Pending)))
+        return;
+      this.GotoState<SceneBattle.State_AudienceForceEnd>();
+    }
+
+    public void SkipLog()
+    {
+      if (this.ReqCreateBreakObjUcLists.Count != 0)
+        return;
+      GameManager instance = MonoSingleton<GameManager>.Instance;
+      if (!this.RecvEventAudience(true))
+      {
+        this.Battle.FinishLoad = true;
+        instance.AudienceManager.SkipMode = false;
+        this.Battle.StartOrder(false, false, true);
+        this.Battle.RemainVersusTurnCount = (uint) this.UnitStartCountTotal;
+        this.ArenaActionCountSet(this.Battle.RemainVersusTurnCount);
+      }
+      else
+      {
+        ++this.mUnitStartCount;
+        ++this.mUnitStartCountTotal;
+        this.Battle.UnitStart();
+        this.BeginMultiPlayer();
+        for (int index = 0; index < this.mTacticsUnits.Count; ++index)
+        {
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mTacticsUnits[index], (UnityEngine.Object) null))
+            this.mTacticsUnits[index].UpdateBadStatus();
+        }
+        this.UpdateMultiBattleInfo();
+        for (int index = 0; index < this.mMultiPlayerUnit.Count; ++index)
+          this.mMultiPlayerUnit[index].UpdateSkip(this);
+        this.Battle.CommandWait(false);
+        if (this.Battle.GetQuestResult() == BattleCore.QuestResult.Pending)
+          this.Battle.UnitEnd();
+        for (BattleCore.OrderData currentOrderData = this.Battle.CurrentOrderData; currentOrderData != null && currentOrderData.IsCastSkill; currentOrderData = this.Battle.CurrentOrderData)
+        {
+          Unit currentUnit = this.Battle.CurrentUnit;
+          SkillData castSkill = currentUnit.CastSkill;
+          int x = 0;
+          int y = 0;
+          if (castSkill != null)
+          {
+            if (currentUnit.UnitTarget != null)
+            {
+              x = currentUnit.UnitTarget.x;
+              y = currentUnit.UnitTarget.y;
+            }
+            if (currentUnit.GridTarget != null)
+            {
+              x = currentUnit.GridTarget.x;
+              y = currentUnit.GridTarget.y;
+            }
+          }
+          this.Battle.CastSkillStart();
+          this.Battle.CastSkillEnd();
+          if (castSkill != null && castSkill.IsSetBreakObjSkill())
+          {
+            Unit gimmickAtGrid = this.Battle.FindGimmickAtGrid(x, y, false);
+            if (gimmickAtGrid != null && gimmickAtGrid.IsBreakObj)
+              this.ReqCreateBreakObjUcLists.Add(new SceneBattle.ReqCreateBreakObjUc(castSkill, gimmickAtGrid));
+          }
+        }
+        for (int index = 0; index < this.Battle.AllUnits.Count; ++index)
+        {
+          TacticsUnitController unitController = this.FindUnitController(this.Battle.AllUnits[index]);
+          if (!UnityEngine.Object.op_Equality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
+          {
+            if (this.Battle.AllUnits[index].IsGimmick && !this.Battle.AllUnits[index].IsBreakObj)
+            {
+              if (this.Battle.AllUnits[index].IsDisableGimmick())
+                ((Component) unitController).get_gameObject().SetActive(false);
+            }
+            else
+            {
+              if (this.Battle.AllUnits[index].IsBreakObj)
+                unitController.ReflectDispModel();
+              if (unitController.Unit.IsDead)
+              {
+                ((Component) unitController).get_gameObject().SetActive(false);
+                unitController.ShowHPGauge(false);
+                unitController.ShowVersusCursor(false);
+                this.mTacticsUnits.Remove(unitController);
+              }
+            }
+          }
+        }
+        for (int index = this.mTacticsUnits.Count - 1; index >= 0; --index)
+        {
+          // ISSUE: object of a compiler-generated type is created
+          // ISSUE: variable of a compiler-generated type
+          SceneBattle.\u003CSkipLog\u003Ec__AnonStorey26D logCAnonStorey26D = new SceneBattle.\u003CSkipLog\u003Ec__AnonStorey26D();
+          // ISSUE: reference to a compiler-generated field
+          logCAnonStorey26D.tuc = this.mTacticsUnits[index];
+          // ISSUE: reference to a compiler-generated field
+          if (UnityEngine.Object.op_Implicit((UnityEngine.Object) logCAnonStorey26D.tuc))
+          {
+            // ISSUE: reference to a compiler-generated method
+            if (this.Battle.AllUnits.Find(new Predicate<Unit>(logCAnonStorey26D.\u003C\u003Em__20E)) == null)
+            {
+              // ISSUE: reference to a compiler-generated field
+              ((Component) logCAnonStorey26D.tuc).get_gameObject().SetActive(false);
+              // ISSUE: reference to a compiler-generated field
+              logCAnonStorey26D.tuc.ShowHPGauge(false);
+              // ISSUE: reference to a compiler-generated field
+              logCAnonStorey26D.tuc.ShowVersusCursor(false);
+            }
+            else
+              continue;
+          }
+          this.mTacticsUnits.RemoveAt(index);
+        }
+        if (this.ReqCreateBreakObjUcLists.Count != 0)
+        {
+          for (int index = 0; index < this.ReqCreateBreakObjUcLists.Count; ++index)
+          {
+            // ISSUE: object of a compiler-generated type is created
+            // ISSUE: variable of a compiler-generated type
+            SceneBattle.\u003CSkipLog\u003Ec__AnonStorey26E logCAnonStorey26E = new SceneBattle.\u003CSkipLog\u003Ec__AnonStorey26E();
+            // ISSUE: reference to a compiler-generated field
+            logCAnonStorey26E.\u003C\u003Ef__this = this;
+            // ISSUE: reference to a compiler-generated field
+            logCAnonStorey26E.rcb = this.ReqCreateBreakObjUcLists[index];
+            // ISSUE: reference to a compiler-generated field
+            logCAnonStorey26E.rcb.mIsLoad = true;
+            // ISSUE: reference to a compiler-generated field
+            // ISSUE: reference to a compiler-generated method
+            this.StartCoroutine(SceneBattle.State_PrepareSkill.loadBreakObjUnit(this, logCAnonStorey26E.rcb.mTargetUnit, new Action(logCAnonStorey26E.\u003C\u003Em__20F)));
+          }
+        }
+        this.Battle.Logs.Reset();
+        this.EndMultiPlayer();
+      }
+    }
+
+    private void SendInputFlush(bool force = false)
+    {
+      if (MonoSingleton<GameManager>.Instance.AudienceMode)
+        return;
       MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
       if (this.mSendList.Count > 0)
       {
-        string multiPlayInputList = this.CreateMultiPlayInputList(SceneBattle.EMultiPlayRecvDataHeader.INPUT, this.mCurrentSendInputUnitID, this.mSendList);
-        instance.SendRoomMessage(true, multiPlayInputList, MyPhoton.SEND_TYPE.Normal);
+        byte[] sendBinary = this.CreateSendBinary(SceneBattle.EMultiPlayRecvDataHeader.INPUT, this.mCurrentSendInputUnitID, this.mSendList);
+        instance.SendRoomMessageBinary(true, sendBinary, MyPhoton.SEND_TYPE.Normal, false);
+        if (force)
+          instance.SendFlush();
       }
       this.mSendList.Clear();
       this.mSendTime = 0.0f;
@@ -3380,24 +4694,11 @@ namespace SRPG
 
     private void SendInputMove(Unit unit, TacticsUnitController controller)
     {
-      if (!this.Battle.IsMultiPlay || this.Battle.EntryBattleMultiPlayTimeUp)
-        return;
-      Vector3 position = ((Component) controller).get_transform().get_position();
-      Quaternion rotation = ((Component) controller).get_transform().get_rotation();
-      // ISSUE: explicit reference operation
-      float y = (float) ((Quaternion) @rotation).get_eulerAngles().y;
-      this.mSendList.Add(new SceneBattle.MultiPlayInput()
-      {
-        c = 2,
-        x = (float) position.x,
-        z = (float) position.z,
-        r = y
-      });
     }
 
-    private void SendInputGridXY(Unit unit, int gridX, int gridY, EUnitDirection dir)
+    private void SendInputGridXY(Unit unit, int gridX, int gridY, EUnitDirection dir, bool send = true)
     {
-      if (!this.Battle.IsMultiPlay || this.Battle.EntryBattleMultiPlayTimeUp)
+      if (MonoSingleton<GameManager>.Instance.AudienceMode || !this.Battle.IsMultiPlay || this.Battle.EntryBattleMultiPlayTimeUp || this.mPrevGridX == gridX && this.mPrevGridY == gridY && this.mPrevDir == dir)
         return;
       this.mSendList.Add(new SceneBattle.MultiPlayInput()
       {
@@ -3407,21 +4708,28 @@ namespace SRPG
         d = (int) dir
       });
       this.MultiPlayLog("[PUN] SendInputGridXY x:" + (object) gridX + " y:" + (object) gridY);
+      if (send)
+        this.SendInputFlush(true);
+      this.mPrevGridX = gridX;
+      this.mPrevGridY = gridY;
+      this.mPrevDir = dir;
     }
 
     private void SendInputMoveStart(Unit unit)
     {
-      if (!this.Battle.IsMultiPlay || this.Battle.EntryBattleMultiPlayTimeUp)
+      if (MonoSingleton<GameManager>.Instance.AudienceMode || !this.Battle.IsMultiPlay || this.Battle.EntryBattleMultiPlayTimeUp)
         return;
       this.mSendList.Add(new SceneBattle.MultiPlayInput()
       {
-        c = 1
+        c = 1,
+        gx = unit.x,
+        gy = unit.y
       });
     }
 
     private void SendInputMoveEnd(Unit unit, bool cancel)
     {
-      if (!this.Battle.IsMultiPlay || this.Battle.EntryBattleMultiPlayTimeUp)
+      if (MonoSingleton<GameManager>.Instance.AudienceMode || !this.Battle.IsMultiPlay || this.Battle.EntryBattleMultiPlayTimeUp)
         return;
       this.mSendList.Add(new SceneBattle.MultiPlayInput()
       {
@@ -3435,7 +4743,7 @@ namespace SRPG
 
     private void SendInputEntryBattle(EBattleCommand type, Unit unit, Unit enemy, SkillData skill, ItemData item, int gx, int gy, bool bUnitLockTarget)
     {
-      if (!this.Battle.IsMultiPlay || this.Battle.EntryBattleMultiPlayTimeUp)
+      if (MonoSingleton<GameManager>.Instance.AudienceMode || !this.Battle.IsMultiPlay || this.Battle.EntryBattleMultiPlayTimeUp)
         return;
       this.SendInputUnitXYDir(unit, unit.x, unit.y, unit.Direction);
       SceneBattle.MultiPlayInput multiPlayInput = new SceneBattle.MultiPlayInput();
@@ -3456,11 +4764,12 @@ namespace SRPG
       multiPlayInput.ul = !bUnitLockTarget ? 0 : 1;
       this.mSendList.Add(multiPlayInput);
       this.MultiPlayLog("[PUN] SendInputEntryBattle (" + (object) unit.x + "," + (object) unit.y + ")" + (object) unit.Direction + "(" + (enemy != null ? (object) enemy.UnitName : (object) "null") + "[" + (object) multiPlayInput.u + "]," + (skill != null ? (object) skill.SkillID : (object) "null") + "," + (item != null ? (object) item.ItemID : (object) "null") + ")");
+      this.SendInputFlush(false);
     }
 
     private void SendInputGridEvent(Unit unit)
     {
-      if (!this.Battle.IsMultiPlay || this.Battle.EntryBattleMultiPlayTimeUp)
+      if (MonoSingleton<GameManager>.Instance.AudienceMode || !this.Battle.IsMultiPlay || this.Battle.EntryBattleMultiPlayTimeUp)
         return;
       if (!this.Battle.CurrentUnit.IsUnitFlag(EUnitFlag.Moved))
         DebugUtility.LogWarning("SendInputGridEvent not moved");
@@ -3476,7 +4785,7 @@ namespace SRPG
 
     private void SendInputUnitEnd(Unit unit, EUnitDirection dir)
     {
-      if (!this.Battle.IsMultiPlay || this.Battle.EntryBattleMultiPlayTimeUp)
+      if (MonoSingleton<GameManager>.Instance.AudienceMode || !this.Battle.IsMultiPlay || this.Battle.EntryBattleMultiPlayTimeUp)
         return;
       if (!this.Battle.CurrentUnit.IsUnitFlag(EUnitFlag.Moved))
         DebugUtility.LogWarning("SendInputUnitEnd not moved");
@@ -3488,12 +4797,13 @@ namespace SRPG
         d = (int) dir
       });
       this.MultiPlayLog("[PUN] SendInputUnitEnd");
+      this.SendInputFlush(false);
       this.MultiPlayInputTimeLimit = 0.0f;
     }
 
     private void SendInputUnitTimeLimit(Unit unit)
     {
-      if (!this.Battle.IsMultiPlay || this.Battle.EntryBattleMultiPlayTimeUp)
+      if (MonoSingleton<GameManager>.Instance.AudienceMode || !this.Battle.IsMultiPlay || this.Battle.EntryBattleMultiPlayTimeUp)
         return;
       this.mSendList.Add(new SceneBattle.MultiPlayInput()
       {
@@ -3507,7 +4817,7 @@ namespace SRPG
 
     private void SendInputUnitXYDir(Unit unit, int gridX, int gridY, EUnitDirection dir)
     {
-      if (!this.Battle.IsMultiPlay || this.Battle.EntryBattleMultiPlayTimeUp)
+      if (MonoSingleton<GameManager>.Instance.AudienceMode || !this.Battle.IsMultiPlay || this.Battle.EntryBattleMultiPlayTimeUp)
         return;
       this.mSendList.Add(new SceneBattle.MultiPlayInput()
       {
@@ -3521,14 +4831,25 @@ namespace SRPG
 
     private bool SendIgnoreMyDisconnect()
     {
-      if (!this.Battle.IsMultiPlay)
+      if (MonoSingleton<GameManager>.Instance.AudienceMode || !this.Battle.IsMultiPlay)
         return true;
-      string multiPlayInputList = this.CreateMultiPlayInputList(SceneBattle.EMultiPlayRecvDataHeader.IGNORE_MY_DISCONNECT, 0, (List<SceneBattle.MultiPlayInput>) null);
+      byte[] sendBinary = this.CreateSendBinary(SceneBattle.EMultiPlayRecvDataHeader.IGNORE_MY_DISCONNECT, 0, (List<SceneBattle.MultiPlayInput>) null);
       MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
-      instance.SendRoomMessage(true, multiPlayInputList, MyPhoton.SEND_TYPE.Normal);
+      instance.SendRoomMessageBinary(true, sendBinary, MyPhoton.SEND_TYPE.Normal, false);
       instance.SendFlush();
       this.MultiPlayLog("[PUN]SendIgnoreMyDisconnect");
       return true;
+    }
+
+    public void SendOtherPlayerDisconnect(int uid)
+    {
+      if (MonoSingleton<GameManager>.Instance.AudienceMode || !this.Battle.IsMultiPlay)
+        return;
+      byte[] sendBinary = this.CreateSendBinary(SceneBattle.EMultiPlayRecvDataHeader.OTHERPLAYER_DISCONNECT, uid, (List<SceneBattle.MultiPlayInput>) null);
+      MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
+      instance.SendRoomMessageBinary(true, sendBinary, MyPhoton.SEND_TYPE.Normal, false);
+      instance.SendFlush();
+      this.MultiPlayLog("[PUN]SendIgnoreMyDisconnect");
     }
 
     public void ResetCheckData()
@@ -3541,11 +4862,11 @@ namespace SRPG
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      SceneBattle.\u003CSendCheckMultiPlay\u003Ec__AnonStorey1D4 playCAnonStorey1D4 = new SceneBattle.\u003CSendCheckMultiPlay\u003Ec__AnonStorey1D4();
-      if (!this.Battle.IsMultiPlay)
+      SceneBattle.\u003CSendCheckMultiPlay\u003Ec__AnonStorey270 playCAnonStorey270 = new SceneBattle.\u003CSendCheckMultiPlay\u003Ec__AnonStorey270();
+      if (MonoSingleton<GameManager>.Instance.AudienceMode || !this.Battle.IsMultiPlay)
         return true;
       MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
-      bool flag = !Object.op_Equality((Object) this.mBattleUI_MultiPlay, (Object) null) && this.mBattleUI_MultiPlay.CheckRandCheat;
+      bool flag = !UnityEngine.Object.op_Equality((UnityEngine.Object) this.mBattleUI_MultiPlay, (UnityEngine.Object) null) && this.mBattleUI_MultiPlay.CheckRandCheat;
       List<SceneBattle.MultiPlayInput> sendList = new List<SceneBattle.MultiPlayInput>();
       for (int index = 0; index < this.Battle.AllUnits.Count; ++index)
       {
@@ -3562,24 +4883,31 @@ namespace SRPG
         multiPlayInput.s = num1.ToString() + " / " + num2.ToString();
         sendList.Add(multiPlayInput);
       }
-      string multiPlayInputList = this.CreateMultiPlayInputList(SceneBattle.EMultiPlayRecvDataHeader.CHECK, 0, sendList);
+      byte[] sendBinary = this.CreateSendBinary(SceneBattle.EMultiPlayRecvDataHeader.CHECK, 0, sendList);
       if (instance.IsOldestPlayer())
-        instance.SendRoomMessage(true, multiPlayInputList, MyPhoton.SEND_TYPE.Normal);
-      // ISSUE: reference to a compiler-generated field
-      playCAnonStorey1D4.data = JSONParser.parseJSONObject<SceneBattle.MultiPlayRecvData>(multiPlayInputList);
-      // ISSUE: reference to a compiler-generated method
-      this.mRecvCheck.RemoveAll(new Predicate<SceneBattle.MultiPlayRecvData>(playCAnonStorey1D4.\u003C\u003Em__187));
-      // ISSUE: reference to a compiler-generated field
-      this.mRecvCheck.Add(playCAnonStorey1D4.data);
-      // ISSUE: reference to a compiler-generated field
-      if (!this.mRecvCheckMyData.ContainsKey(playCAnonStorey1D4.data.b))
       {
-        // ISSUE: reference to a compiler-generated field
-        // ISSUE: reference to a compiler-generated field
-        this.mRecvCheckMyData.Add(playCAnonStorey1D4.data.b, playCAnonStorey1D4.data);
+        instance.SendRoomMessageBinary(true, sendBinary, MyPhoton.SEND_TYPE.Normal, false);
+        instance.SendFlush();
       }
       // ISSUE: reference to a compiler-generated field
-      Debug.Log((object) ("*****SendCheckData******::" + (object) playCAnonStorey1D4.data.b));
+      playCAnonStorey270.data = (SceneBattle.MultiPlayRecvData) null;
+      // ISSUE: reference to a compiler-generated field
+      if (GameUtility.Binary2Object<SceneBattle.MultiPlayRecvData>(out playCAnonStorey270.data, sendBinary))
+      {
+        // ISSUE: reference to a compiler-generated method
+        this.mRecvCheck.RemoveAll(new Predicate<SceneBattle.MultiPlayRecvData>(playCAnonStorey270.\u003C\u003Em__211));
+        // ISSUE: reference to a compiler-generated field
+        this.mRecvCheck.Add(playCAnonStorey270.data);
+        // ISSUE: reference to a compiler-generated field
+        if (!this.mRecvCheckMyData.ContainsKey(playCAnonStorey270.data.b))
+        {
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: reference to a compiler-generated field
+          this.mRecvCheckMyData.Add(playCAnonStorey270.data.b, playCAnonStorey270.data);
+        }
+      }
+      // ISSUE: reference to a compiler-generated field
+      Debug.Log((object) ("*****SendCheckData******::" + (object) playCAnonStorey270.data.b));
       return true;
     }
 
@@ -3644,7 +4972,7 @@ namespace SRPG
     private SRPG_TouchInputModule GetTouchInputModule()
     {
       GameObject gameObject = GameObject.Find("EVENTSYSTEM");
-      if (Object.op_Equality((Object) gameObject, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) gameObject, (UnityEngine.Object) null))
         return (SRPG_TouchInputModule) null;
       return (SRPG_TouchInputModule) gameObject.GetComponent<SRPG_TouchInputModule>();
     }
@@ -3654,7 +4982,7 @@ namespace SRPG
       if (this.mSetupGoodJob)
         return;
       SRPG_TouchInputModule touchInputModule = this.GetTouchInputModule();
-      if (Object.op_Equality((Object) touchInputModule, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) touchInputModule, (UnityEngine.Object) null))
         return;
       touchInputModule.OnDoubleTap += new SRPG_TouchInputModule.OnDoubleTapDelegate(this.OnDoubleTap);
       this.mSetupGoodJob = true;
@@ -3665,7 +4993,7 @@ namespace SRPG
       if (!this.mSetupGoodJob)
         return;
       SRPG_TouchInputModule touchInputModule = this.GetTouchInputModule();
-      if (Object.op_Equality((Object) touchInputModule, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) touchInputModule, (UnityEngine.Object) null))
         return;
       touchInputModule.OnDoubleTap -= new SRPG_TouchInputModule.OnDoubleTapDelegate(this.OnDoubleTap);
       this.mSetupGoodJob = false;
@@ -3678,10 +5006,13 @@ namespace SRPG
       this.mGoodJobWait = 1f;
       if (gx < 0 || gx >= this.Battle.CurrentMap.Width || (gy < 0 || gy >= this.Battle.CurrentMap.Height))
         return;
-      BattleStamp battleStamp = !Object.op_Equality((Object) this.mBattleUI_MultiPlay, (Object) null) ? this.mBattleUI_MultiPlay.StampWindow : (BattleStamp) null;
-      string multiPlayInputList = this.CreateMultiPlayInputList(SceneBattle.EMultiPlayRecvDataHeader.GOODJOB, unitID, new List<SceneBattle.MultiPlayInput>() { new SceneBattle.MultiPlayInput() { gx = gx, gy = gy, c = !Object.op_Equality((Object) battleStamp, (Object) null) ? battleStamp.SelectStampID : -1 } });
-      PunMonoSingleton<MyPhoton>.Instance.SendRoomMessage(true, multiPlayInputList, MyPhoton.SEND_TYPE.Normal);
-      this.mRecvGoodJob.Add(JSONParser.parseJSONObject<SceneBattle.MultiPlayRecvData>(multiPlayInputList));
+      BattleStamp battleStamp = !UnityEngine.Object.op_Equality((UnityEngine.Object) this.mBattleUI_MultiPlay, (UnityEngine.Object) null) ? this.mBattleUI_MultiPlay.StampWindow : (BattleStamp) null;
+      byte[] sendBinary = this.CreateSendBinary(SceneBattle.EMultiPlayRecvDataHeader.GOODJOB, unitID, new List<SceneBattle.MultiPlayInput>() { new SceneBattle.MultiPlayInput() { gx = gx, gy = gy, c = !UnityEngine.Object.op_Equality((UnityEngine.Object) battleStamp, (UnityEngine.Object) null) ? battleStamp.SelectStampID : -1 } });
+      PunMonoSingleton<MyPhoton>.Instance.SendRoomMessageBinary(true, sendBinary, MyPhoton.SEND_TYPE.Normal, false);
+      SceneBattle.MultiPlayRecvData buffer = (SceneBattle.MultiPlayRecvData) null;
+      if (!GameUtility.Binary2Object<SceneBattle.MultiPlayRecvData>(out buffer, sendBinary))
+        return;
+      this.mRecvGoodJob.Add(buffer);
     }
 
     public void OnDoubleTap(Vector2 pos)
@@ -3697,7 +5028,7 @@ namespace SRPG
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: reference to a compiler-generated method
-      int index = this.Battle.AllUnits.FindIndex(new Predicate<Unit>(new SceneBattle.\u003COnGoodJobClickUnit\u003Ec__AnonStorey1D5() { unit = controller.Unit }.\u003C\u003Em__188));
+      int index = this.Battle.AllUnits.FindIndex(new Predicate<Unit>(new SceneBattle.\u003COnGoodJobClickUnit\u003Ec__AnonStorey271() { unit = controller.Unit }.\u003C\u003Em__212));
       if (index < 0)
         return;
       this.AddGoodJob(0, 0, index);
@@ -3709,7 +5040,7 @@ namespace SRPG
         return;
       if ((double) this.mGoodJobWait > 0.0)
         this.mGoodJobWait -= Time.get_deltaTime();
-      if (Object.op_Inequality((Object) this.mBattleUI_MultiPlay, (Object) null) && this.mBattleUI_MultiPlay.StampWindowIsOpened)
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mBattleUI_MultiPlay, (UnityEngine.Object) null) && this.mBattleUI_MultiPlay.StampWindowIsOpened)
       {
         if (this.mOnGridClick == null)
           this.mOnGridClick = new SceneBattle.GridClickEvent(this.OnGoodJobClickGrid);
@@ -3741,9 +5072,9 @@ namespace SRPG
           if (this.Battle.CurrentMap != null && this.mHeightMap != null && (0 <= index2 && index2 < this.Battle.CurrentMap.Width) && (0 <= index3 && index3 < this.Battle.CurrentMap.Height))
           {
             Vector3 position = this.CalcGridCenter(this.Battle.CurrentMap[index2, index3]);
-            BattleStamp battleStamp = !Object.op_Equality((Object) this.mBattleUI_MultiPlay, (Object) null) ? this.mBattleUI_MultiPlay.StampWindow : (BattleStamp) null;
-            Sprite sprite = Object.op_Equality((Object) battleStamp, (Object) null) || battleStamp.Sprites == null || (index1 < 0 || index1 >= battleStamp.Sprites.Length) ? (Sprite) null : battleStamp.Sprites[index1];
-            GameObject prefab = Object.op_Equality((Object) battleStamp, (Object) null) || battleStamp.Prefabs == null || (index1 < 0 || index1 >= battleStamp.Prefabs.Length) ? (GameObject) null : battleStamp.Prefabs[index1];
+            BattleStamp battleStamp = !UnityEngine.Object.op_Equality((UnityEngine.Object) this.mBattleUI_MultiPlay, (UnityEngine.Object) null) ? this.mBattleUI_MultiPlay.StampWindow : (BattleStamp) null;
+            Sprite sprite = UnityEngine.Object.op_Equality((UnityEngine.Object) battleStamp, (UnityEngine.Object) null) || battleStamp.Sprites == null || (index1 < 0 || index1 >= battleStamp.Sprites.Length) ? (Sprite) null : battleStamp.Sprites[index1];
+            GameObject prefab = UnityEngine.Object.op_Equality((UnityEngine.Object) battleStamp, (UnityEngine.Object) null) || battleStamp.Prefabs == null || (index1 < 0 || index1 >= battleStamp.Prefabs.Length) ? (GameObject) null : battleStamp.Prefabs[index1];
             this.PopupGoodJob(position, prefab, sprite);
           }
         }
@@ -3755,14 +5086,16 @@ namespace SRPG
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      SceneBattle.\u003CSendFinishLoad\u003Ec__AnonStorey1D6 loadCAnonStorey1D6 = new SceneBattle.\u003CSendFinishLoad\u003Ec__AnonStorey1D6();
+      SceneBattle.\u003CSendFinishLoad\u003Ec__AnonStorey272 loadCAnonStorey272 = new SceneBattle.\u003CSendFinishLoad\u003Ec__AnonStorey272();
+      if (MonoSingleton<GameManager>.Instance.AudienceMode)
+        return true;
       MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
       // ISSUE: reference to a compiler-generated field
-      loadCAnonStorey1D6.me = instance.GetMyPlayer();
+      loadCAnonStorey272.me = instance.GetMyPlayer();
       // ISSUE: reference to a compiler-generated method
-      SceneBattle.MultiPlayer multiPlayer = this.mMultiPlayer.Find(new Predicate<SceneBattle.MultiPlayer>(loadCAnonStorey1D6.\u003C\u003Em__189));
-      string multiPlayInputList = this.CreateMultiPlayInputList(SceneBattle.EMultiPlayRecvDataHeader.FINISH_LOAD, 0, (List<SceneBattle.MultiPlayInput>) null);
-      bool flag = instance.SendRoomMessage(true, multiPlayInputList, MyPhoton.SEND_TYPE.Normal);
+      SceneBattle.MultiPlayer multiPlayer = this.mMultiPlayer.Find(new Predicate<SceneBattle.MultiPlayer>(loadCAnonStorey272.\u003C\u003Em__213));
+      byte[] sendBinary = this.CreateSendBinary(SceneBattle.EMultiPlayRecvDataHeader.FINISH_LOAD, 0, (List<SceneBattle.MultiPlayInput>) null);
+      bool flag = instance.SendRoomMessageBinary(true, sendBinary, MyPhoton.SEND_TYPE.Normal, false);
       if (multiPlayer != null)
         multiPlayer.FinishLoad = true;
       return flag;
@@ -3770,35 +5103,37 @@ namespace SRPG
 
     public void SendResumeSuccess()
     {
-      if (this.mResumeSend)
+      if (MonoSingleton<GameManager>.Instance.AudienceMode || this.mResumeSend || (double) this.mRestResumeSuccessInterval > 0.0)
         return;
-      this.mResumeSend = PunMonoSingleton<MyPhoton>.Instance.SendRoomMessage(true, this.CreateMultiPlayInputList(SceneBattle.EMultiPlayRecvDataHeader.RESUME_SUCCESS, 0, (List<SceneBattle.MultiPlayInput>) null), MyPhoton.SEND_TYPE.Normal);
+      this.mRestResumeSuccessInterval = this.RESUME_SUCCESS_INTERVAL;
+      PunMonoSingleton<MyPhoton>.Instance.SendRoomMessageBinary(true, this.CreateSendBinary(SceneBattle.EMultiPlayRecvDataHeader.RESUME_SUCCESS, 0, (List<SceneBattle.MultiPlayInput>) null), MyPhoton.SEND_TYPE.Normal, false);
     }
 
     public void SendRequestResume()
     {
-      if (!this.mResumeMultiPlay || this.mResumeSend)
+      if (MonoSingleton<GameManager>.Instance.AudienceMode || !this.mResumeMultiPlay || (this.mResumeSend || (double) this.mRestResumeRequestInterval > 0.0))
         return;
+      this.mRestResumeRequestInterval = this.RESUME_REQUEST_INTERVAL;
       MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
-      string multiPlayInputList = this.CreateMultiPlayInputList(SceneBattle.EMultiPlayRecvDataHeader.REQUEST_RESUME, 0, (List<SceneBattle.MultiPlayInput>) null);
-      this.mResumeSend = instance.SendRoomMessage(true, multiPlayInputList, MyPhoton.SEND_TYPE.Normal);
+      byte[] sendBinary = this.CreateSendBinary(SceneBattle.EMultiPlayRecvDataHeader.REQUEST_RESUME, 0, (List<SceneBattle.MultiPlayInput>) null);
+      instance.SendRoomMessageBinary(true, sendBinary, MyPhoton.SEND_TYPE.Normal, false);
       List<MyPhoton.MyPlayer> roomPlayerList = instance.GetRoomPlayerList();
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      SceneBattle.\u003CSendRequestResume\u003Ec__AnonStorey1D7 resumeCAnonStorey1D7 = new SceneBattle.\u003CSendRequestResume\u003Ec__AnonStorey1D7();
+      SceneBattle.\u003CSendRequestResume\u003Ec__AnonStorey273 resumeCAnonStorey273 = new SceneBattle.\u003CSendRequestResume\u003Ec__AnonStorey273();
       using (List<MyPhoton.MyPlayer>.Enumerator enumerator = roomPlayerList.GetEnumerator())
       {
         while (enumerator.MoveNext())
         {
           // ISSUE: reference to a compiler-generated field
-          resumeCAnonStorey1D7.player = enumerator.Current;
+          resumeCAnonStorey273.player = enumerator.Current;
           // ISSUE: reference to a compiler-generated method
-          SceneBattle.MultiPlayer multiPlayer = this.mMultiPlayer.Find(new Predicate<SceneBattle.MultiPlayer>(resumeCAnonStorey1D7.\u003C\u003Em__18A));
+          SceneBattle.MultiPlayer multiPlayer = this.mMultiPlayer.Find(new Predicate<SceneBattle.MultiPlayer>(resumeCAnonStorey273.\u003C\u003Em__214));
           // ISSUE: reference to a compiler-generated field
-          if (resumeCAnonStorey1D7.player.start)
+          if (resumeCAnonStorey273.player.start)
           {
             // ISSUE: reference to a compiler-generated field
-            this.mResumeAlreadyStartPlayer.Add(resumeCAnonStorey1D7.player.playerID);
+            this.mResumeAlreadyStartPlayer.Add(resumeCAnonStorey273.player.playerID);
             if (multiPlayer != null)
               multiPlayer.FinishLoad = true;
           }
@@ -3820,9 +5155,19 @@ namespace SRPG
 
     public void SendResumeInfo()
     {
+      if (MonoSingleton<GameManager>.Instance.AudienceMode)
+        return;
       MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
       if (!this.Battle.IsResume || !instance.IsHost() || (this.mResumeSend || this.mRecvResumeRequest.Count <= 0))
         return;
+      byte[] sendResumeInfo = this.CreateSendResumeInfo();
+      if (sendResumeInfo != null)
+        this.mResumeSend = instance.SendRoomMessageBinary(true, sendResumeInfo, MyPhoton.SEND_TYPE.Resume, false);
+      Debug.Log((object) "Send ResumeInfo!!!");
+    }
+
+    private byte[] CreateSendResumeInfo()
+    {
       MultiPlayResumeParam multiPlayResumeParam = new MultiPlayResumeParam();
       multiPlayResumeParam.unit = new MultiPlayResumeUnitData[this.Battle.AllUnits.Count];
       string msg = string.Empty;
@@ -3831,7 +5176,6 @@ namespace SRPG
         Unit allUnit = this.Battle.AllUnits[index1];
         if (allUnit != null)
         {
-          TacticsUnitController unitController = this.FindUnitController(this.Battle.AllUnits[index1]);
           multiPlayResumeParam.unit[index1] = new MultiPlayResumeUnitData();
           BaseStatus currentStatus = allUnit.CurrentStatus;
           MultiPlayResumeUnitData playResumeUnitData = multiPlayResumeParam.unit[index1];
@@ -3861,7 +5205,8 @@ namespace SRPG
               for (int index2 = 0; index2 < allUnit.CastSkillGridMap.data.Length; ++index2)
                 playResumeUnitData.castgrid[index2] = !allUnit.CastSkillGridMap.data[index2] ? 0 : 1;
             }
-            playResumeUnitData.targetgrid = allUnit.GridTarget;
+            playResumeUnitData.ctx = allUnit.GridTarget == null ? -1 : allUnit.GridTarget.x;
+            playResumeUnitData.cty = allUnit.GridTarget == null ? -1 : allUnit.GridTarget.y;
             playResumeUnitData.casttarget = this.SearchUnitIndex(allUnit.UnitTarget);
           }
           playResumeUnitData.chargetime = (int) allUnit.ChargeTime;
@@ -3871,13 +5216,24 @@ namespace SRPG
           playResumeUnitData.waitturn = allUnit.WaitClock;
           playResumeUnitData.moveturn = allUnit.WaitMoveTurn;
           playResumeUnitData.actcnt = allUnit.ActionCount;
-          playResumeUnitData.turncnt = !Object.op_Inequality((Object) unitController, (Object) null) ? 0 : unitController.TurnCount;
+          playResumeUnitData.turncnt = allUnit.TurnCount;
           playResumeUnitData.search = !allUnit.IsUnitFlag(EUnitFlag.Searched) ? 0 : 1;
-          playResumeUnitData.entry = !allUnit.IsUnitFlag(EUnitFlag.Entried) ? 0 : 1;
+          playResumeUnitData.entry = !allUnit.IsUnitFlag(EUnitFlag.Reinforcement) ? 0 : 1;
+          playResumeUnitData.to_dying = !allUnit.IsUnitFlag(EUnitFlag.ToDying) ? 0 : 1;
+          playResumeUnitData.paralyse = !allUnit.IsUnitFlag(EUnitFlag.Paralysed) ? 0 : 1;
           playResumeUnitData.trgcnt = 0;
           if (allUnit.EventTrigger != null)
             playResumeUnitData.trgcnt = allUnit.EventTrigger.Count;
           playResumeUnitData.killcnt = allUnit.KillCount;
+          playResumeUnitData.boi = allUnit.CreateBreakObjId;
+          playResumeUnitData.boc = allUnit.CreateBreakObjClock;
+          playResumeUnitData.own = allUnit.OwnerPlayerIndex;
+          if (allUnit.EntryTriggers != null)
+          {
+            playResumeUnitData.etr = new int[allUnit.EntryTriggers.Count];
+            for (int index2 = 0; index2 < allUnit.EntryTriggers.Count; ++index2)
+              playResumeUnitData.etr[index2] = !allUnit.EntryTriggers[index2].on ? 0 : 1;
+          }
           Dictionary<SkillData, OInt> skillUseCount = allUnit.GetSkillUseCount();
           int count = skillUseCount.Keys.Count;
           if (count > 0)
@@ -3893,23 +5249,28 @@ namespace SRPG
           List<BuffAttachment> buffAttachments = allUnit.BuffAttachments;
           if (buffAttachments.Count > 0)
           {
-            playResumeUnitData.buff = new MultiPlayResumeBuff[buffAttachments.Count];
+            List<MultiPlayResumeBuff> multiPlayResumeBuffList = new List<MultiPlayResumeBuff>();
             for (int index2 = 0; index2 < buffAttachments.Count; ++index2)
             {
-              playResumeUnitData.buff[index2] = new MultiPlayResumeBuff();
-              playResumeUnitData.buff[index2].unitindex = this.SearchUnitIndex(buffAttachments[index2].user);
-              playResumeUnitData.buff[index2].checkunit = this.SearchUnitIndex(buffAttachments[index2].CheckTarget);
-              playResumeUnitData.buff[index2].timing = (int) buffAttachments[index2].CheckTiming;
-              playResumeUnitData.buff[index2].condition = (int) buffAttachments[index2].UseCondition;
-              playResumeUnitData.buff[index2].turn = (int) buffAttachments[index2].turn;
-              playResumeUnitData.buff[index2].passive = (bool) buffAttachments[index2].IsPassive;
-              playResumeUnitData.buff[index2].type = (int) buffAttachments[index2].BuffType;
-              playResumeUnitData.buff[index2].calc = (int) buffAttachments[index2].CalcType;
-              playResumeUnitData.buff[index2].skilltarget = (int) buffAttachments[index2].skilltarget;
-              playResumeUnitData.buff[index2].iname = (string) null;
-              if (buffAttachments[index2].skill != null)
-                playResumeUnitData.buff[index2].iname = buffAttachments[index2].skill.SkillParam.iname;
+              if (buffAttachments[index2].CheckTiming != EffectCheckTimings.Moment && buffAttachments[index2].CheckTiming != EffectCheckTimings.MomentStart)
+              {
+                MultiPlayResumeBuff multiPlayResumeBuff = new MultiPlayResumeBuff();
+                multiPlayResumeBuff.unitindex = this.SearchUnitIndex(buffAttachments[index2].user);
+                multiPlayResumeBuff.checkunit = this.SearchUnitIndex(buffAttachments[index2].CheckTarget);
+                multiPlayResumeBuff.timing = (int) buffAttachments[index2].CheckTiming;
+                multiPlayResumeBuff.condition = (int) buffAttachments[index2].UseCondition;
+                multiPlayResumeBuff.turn = (int) buffAttachments[index2].turn;
+                multiPlayResumeBuff.passive = (bool) buffAttachments[index2].IsPassive;
+                multiPlayResumeBuff.type = (int) buffAttachments[index2].BuffType;
+                multiPlayResumeBuff.calc = (int) buffAttachments[index2].CalcType;
+                multiPlayResumeBuff.skilltarget = (int) buffAttachments[index2].skilltarget;
+                multiPlayResumeBuff.iname = (string) null;
+                if (buffAttachments[index2].skill != null)
+                  multiPlayResumeBuff.iname = buffAttachments[index2].skill.SkillParam.iname;
+                multiPlayResumeBuffList.Add(multiPlayResumeBuff);
+              }
             }
+            playResumeUnitData.buff = multiPlayResumeBuffList.ToArray();
           }
           List<CondAttachment> condAttachments = allUnit.CondAttachments;
           if (condAttachments.Count > 0)
@@ -3930,6 +5291,22 @@ namespace SRPG
               playResumeUnitData.cond[index2].iname = (string) null;
               if (condAttachments[index2].skill != null)
                 playResumeUnitData.cond[index2].iname = condAttachments[index2].skill.SkillParam.iname;
+            }
+          }
+          if (allUnit.Shields != null && allUnit.Shields.Count != 0)
+          {
+            playResumeUnitData.shields = new MultiPlayResumeShield[allUnit.Shields.Count];
+            for (int index2 = 0; index2 < allUnit.Shields.Count; ++index2)
+            {
+              Unit.UnitShield shield = allUnit.Shields[index2];
+              playResumeUnitData.shields[index2] = new MultiPlayResumeShield();
+              playResumeUnitData.shields[index2].inm = shield.skill_param.iname;
+              playResumeUnitData.shields[index2].nhp = (int) shield.hp;
+              playResumeUnitData.shields[index2].mhp = (int) shield.hpMax;
+              playResumeUnitData.shields[index2].ntu = (int) shield.turn;
+              playResumeUnitData.shields[index2].mtu = (int) shield.turnMax;
+              playResumeUnitData.shields[index2].drt = (int) shield.damage_rate;
+              playResumeUnitData.shields[index2].dvl = (int) shield.damage_value;
             }
           }
           msg = msg + allUnit.UnitName + "- pos:" + (object) allUnit.x + "," + (object) allUnit.y;
@@ -3953,60 +5330,126 @@ namespace SRPG
       multiPlayResumeParam.unitstartcount = this.UnitStartCountTotal;
       multiPlayResumeParam.treasurecount = this.TreasureCount;
       multiPlayResumeParam.versusturn = this.Battle.VersusTurnCount;
-      multiPlayResumeParam.resumeID = this.mRecvResumeRequest[0].pidx;
+      multiPlayResumeParam.ctm = this.Battle.ClockTime;
+      multiPlayResumeParam.ctt = this.Battle.ClockTimeTotal;
+      if (this.mRecvResumeRequest != null && this.mRecvResumeRequest.Count > 0)
+        multiPlayResumeParam.resumeID = this.mRecvResumeRequest[0].pidx;
       if (this.mRecvResumeRequest.Count > 1)
       {
         multiPlayResumeParam.otherresume = new int[this.mRecvResumeRequest.Count - 1];
         for (int index = 1; index < this.mRecvResumeRequest.Count; ++index)
           multiPlayResumeParam.otherresume[index - 1] = this.mRecvResumeRequest[index].pidx;
       }
-      string json = JsonUtility.ToJson((object) multiPlayResumeParam);
-      this.mResumeSend = instance.SendRoomMessage(true, json, MyPhoton.SEND_TYPE.Resume);
-      Debug.Log((object) "Send ResumeInfo!!!");
+      List<GimmickEvent> gimmickEventList = this.Battle.GimmickEventList;
+      if (gimmickEventList.Count > 0)
+      {
+        multiPlayResumeParam.gimmick = new MultiPlayGimmickEventParam[gimmickEventList.Count];
+        for (int index = 0; index < gimmickEventList.Count; ++index)
+        {
+          multiPlayResumeParam.gimmick[index] = new MultiPlayGimmickEventParam();
+          multiPlayResumeParam.gimmick[index].count = gimmickEventList[index].count;
+          multiPlayResumeParam.gimmick[index].completed = !gimmickEventList[index].IsCompleted ? 0 : 1;
+        }
+      }
+      List<TrickData> effectAll = TrickData.GetEffectAll();
+      if (effectAll.Count > 0)
+      {
+        multiPlayResumeParam.trick = new MultiPlayTrickParam[effectAll.Count];
+        for (int index = 0; index < effectAll.Count; ++index)
+        {
+          multiPlayResumeParam.trick[index] = new MultiPlayTrickParam();
+          multiPlayResumeParam.trick[index].tid = effectAll[index].TrickParam.Iname;
+          multiPlayResumeParam.trick[index].val = (bool) effectAll[index].Valid;
+          multiPlayResumeParam.trick[index].cun = this.SearchUnitIndex(effectAll[index].CreateUnit);
+          multiPlayResumeParam.trick[index].rnk = (int) effectAll[index].Rank;
+          multiPlayResumeParam.trick[index].rcp = (int) effectAll[index].RankCap;
+          multiPlayResumeParam.trick[index].grx = (int) effectAll[index].GridX;
+          multiPlayResumeParam.trick[index].gry = (int) effectAll[index].GridY;
+          multiPlayResumeParam.trick[index].rac = (int) effectAll[index].RestActionCount;
+          multiPlayResumeParam.trick[index].ccl = (int) effectAll[index].CreateClock;
+          multiPlayResumeParam.trick[index].tag = effectAll[index].Tag;
+        }
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mEventScript, (UnityEngine.Object) null) && this.mEventScript.mSequences != null && this.mEventScript.mSequences.Length != 0)
+      {
+        multiPlayResumeParam.scr_ev_trg = new bool[this.mEventScript.mSequences.Length];
+        for (int index = 0; index < this.mEventScript.mSequences.Length; ++index)
+          multiPlayResumeParam.scr_ev_trg[index] = this.mEventScript.mSequences[index].Triggered;
+      }
+      multiPlayResumeParam.wti.wid = (string) null;
+      WeatherData currentWeatherData = WeatherData.CurrentWeatherData;
+      if (currentWeatherData != null)
+      {
+        multiPlayResumeParam.wti.wid = currentWeatherData.WeatherParam.Iname;
+        multiPlayResumeParam.wti.mun = this.SearchUnitIndex(currentWeatherData.ModifyUnit);
+        multiPlayResumeParam.wti.rnk = (int) currentWeatherData.Rank;
+        multiPlayResumeParam.wti.rcp = (int) currentWeatherData.RankCap;
+        multiPlayResumeParam.wti.ccl = (int) currentWeatherData.ChangeClock;
+      }
+      return GameUtility.Object2Binary<MultiPlayResumeParam>(multiPlayResumeParam);
     }
 
-    private void RecvResume(string json)
+    private void RecvResume(byte[] resumedata)
     {
       MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
-      MultiPlayResumeParam multiPlayResumeParam = (MultiPlayResumeParam) JsonUtility.FromJson<MultiPlayResumeParam>(json);
-      if (multiPlayResumeParam.resumeID != instance.MyPlayerIndex)
+      MultiPlayResumeParam buffer = (MultiPlayResumeParam) null;
+      if (!GameUtility.Binary2Object<MultiPlayResumeParam>(out buffer, resumedata) || buffer.resumeID != instance.MyPlayerIndex)
         return;
       List<MultiPlayResumeSkillData> buffskill = new List<MultiPlayResumeSkillData>();
       List<MultiPlayResumeSkillData> condskill = new List<MultiPlayResumeSkillData>();
-      for (int index1 = 0; index1 < multiPlayResumeParam.unit.Length; ++index1)
+      for (int count = this.Battle.AllUnits.Count; count < buffer.unit.Length; ++count)
       {
-        if (multiPlayResumeParam.unit[index1] != null)
+        MultiPlayResumeUnitData playResumeUnitData = buffer.unit[count];
+        if (!string.IsNullOrEmpty(playResumeUnitData.boi))
         {
-          Unit target = multiPlayResumeParam.unit[index1].target == -1 ? (Unit) null : this.Battle.AllUnits[multiPlayResumeParam.unit[index1].target];
-          Unit rage = multiPlayResumeParam.unit[index1].ragetarget == -1 ? (Unit) null : this.Battle.AllUnits[multiPlayResumeParam.unit[index1].ragetarget];
-          Unit casttarget = multiPlayResumeParam.unit[index1].casttarget == -1 ? (Unit) null : this.Battle.AllUnits[multiPlayResumeParam.unit[index1].casttarget];
+          Unit unit = this.Battle.BreakObjCreate(playResumeUnitData.boi, playResumeUnitData.x, playResumeUnitData.y, (Unit) null, (LogSkill) null, playResumeUnitData.own);
+          if (unit != null)
+            unit.SetUnitFlag(EUnitFlag.Entried, false);
+        }
+      }
+      for (int index1 = 0; index1 < buffer.unit.Length; ++index1)
+      {
+        if (buffer.unit[index1] != null)
+        {
+          Unit target = buffer.unit[index1].target == -1 ? (Unit) null : this.Battle.AllUnits[buffer.unit[index1].target];
+          Unit rage = buffer.unit[index1].ragetarget == -1 ? (Unit) null : this.Battle.AllUnits[buffer.unit[index1].ragetarget];
+          Unit casttarget = buffer.unit[index1].casttarget == -1 ? (Unit) null : this.Battle.AllUnits[buffer.unit[index1].casttarget];
           buffskill.Clear();
-          for (int index2 = 0; index2 < multiPlayResumeParam.unit[index1].buff.Length; ++index2)
+          if (buffer.unit[index1].buff != null)
           {
-            MultiPlayResumeBuff multiPlayResumeBuff = multiPlayResumeParam.unit[index1].buff[index2];
-            MultiPlayResumeSkillData playResumeSkillData = new MultiPlayResumeSkillData();
-            playResumeSkillData.user = multiPlayResumeBuff.unitindex == -1 ? (Unit) null : this.Battle.AllUnits[multiPlayResumeBuff.unitindex];
-            playResumeSkillData.check = multiPlayResumeBuff.checkunit == -1 ? (Unit) null : this.Battle.AllUnits[multiPlayResumeBuff.checkunit];
-            playResumeSkillData.skill = playResumeSkillData.user == null ? (SkillData) null : playResumeSkillData.user.GetSkillData(multiPlayResumeBuff.iname);
-            buffskill.Add(playResumeSkillData);
+            for (int index2 = 0; index2 < buffer.unit[index1].buff.Length; ++index2)
+            {
+              MultiPlayResumeBuff multiPlayResumeBuff = buffer.unit[index1].buff[index2];
+              MultiPlayResumeSkillData playResumeSkillData = new MultiPlayResumeSkillData();
+              playResumeSkillData.user = multiPlayResumeBuff.unitindex == -1 ? (Unit) null : this.Battle.AllUnits[multiPlayResumeBuff.unitindex];
+              playResumeSkillData.check = multiPlayResumeBuff.checkunit == -1 ? (Unit) null : this.Battle.AllUnits[multiPlayResumeBuff.checkunit];
+              playResumeSkillData.skill = playResumeSkillData.user == null ? (SkillData) null : playResumeSkillData.user.GetSkillData(multiPlayResumeBuff.iname);
+              if (playResumeSkillData.skill == null)
+                playResumeSkillData.skill = playResumeSkillData.user == null ? (SkillData) null : playResumeSkillData.user.SearchArtifactSkill(multiPlayResumeBuff.iname);
+              buffskill.Add(playResumeSkillData);
+            }
           }
           condskill.Clear();
-          for (int index2 = 0; index2 < multiPlayResumeParam.unit[index1].cond.Length; ++index2)
+          if (buffer.unit[index1].cond != null)
           {
-            MultiPlayResumeBuff multiPlayResumeBuff = multiPlayResumeParam.unit[index1].cond[index2];
-            MultiPlayResumeSkillData playResumeSkillData = new MultiPlayResumeSkillData();
-            playResumeSkillData.user = multiPlayResumeBuff.unitindex == -1 ? (Unit) null : this.Battle.AllUnits[multiPlayResumeBuff.unitindex];
-            playResumeSkillData.check = multiPlayResumeBuff.checkunit == -1 ? (Unit) null : this.Battle.AllUnits[multiPlayResumeBuff.checkunit];
-            playResumeSkillData.skill = playResumeSkillData.user == null ? (SkillData) null : playResumeSkillData.user.GetSkillData(multiPlayResumeBuff.iname);
-            condskill.Add(playResumeSkillData);
+            for (int index2 = 0; index2 < buffer.unit[index1].cond.Length; ++index2)
+            {
+              MultiPlayResumeBuff multiPlayResumeBuff = buffer.unit[index1].cond[index2];
+              MultiPlayResumeSkillData playResumeSkillData = new MultiPlayResumeSkillData();
+              playResumeSkillData.user = multiPlayResumeBuff.unitindex == -1 ? (Unit) null : this.Battle.AllUnits[multiPlayResumeBuff.unitindex];
+              playResumeSkillData.check = multiPlayResumeBuff.checkunit == -1 ? (Unit) null : this.Battle.AllUnits[multiPlayResumeBuff.checkunit];
+              playResumeSkillData.skill = playResumeSkillData.user == null ? (SkillData) null : playResumeSkillData.user.GetSkillData(multiPlayResumeBuff.iname);
+              if (playResumeSkillData.skill == null)
+                playResumeSkillData.skill = playResumeSkillData.user == null ? (SkillData) null : playResumeSkillData.user.SearchArtifactSkill(multiPlayResumeBuff.iname);
+              condskill.Add(playResumeSkillData);
+            }
           }
           if (this.Battle.AllUnits[index1] != null)
           {
-            this.Battle.AllUnits[index1].SetupResume(multiPlayResumeParam.unit[index1], target, rage, casttarget, buffskill, condskill);
+            this.Battle.AllUnits[index1].SetupResume(buffer.unit[index1], target, rage, casttarget, buffskill, condskill);
             TacticsUnitController unitController = this.FindUnitController(this.Battle.AllUnits[index1]);
-            if (Object.op_Inequality((Object) unitController, (Object) null))
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
             {
-              unitController.TurnCount = multiPlayResumeParam.unit[index1].turncnt;
               if (this.Battle.AllUnits[index1].IsDead)
               {
                 this.Battle.ResumeDead(this.Battle.AllUnits[index1]);
@@ -4015,50 +5458,103 @@ namespace SRPG
                 unitController.ShowVersusCursor(false);
                 this.mTacticsUnits.Remove(unitController);
               }
-              else if (unitController.IsJumpCant())
-                unitController.SetCastJump();
-              if (this.Battle.AllUnits[index1].IsGimmick && this.Battle.AllUnits[index1].IsDisableGimmick())
-                ((Component) unitController).get_gameObject().SetActive(false);
+              else
+              {
+                if (unitController.IsJumpCant())
+                  unitController.SetCastJump();
+                unitController.UpdateShields(true);
+                unitController.ClearBadStatusLocks();
+                unitController.UpdateBadStatus();
+              }
+              if (this.Battle.AllUnits[index1].IsGimmick)
+              {
+                if (this.Battle.AllUnits[index1].IsBreakObj)
+                  unitController.ReflectDispModel();
+                if (this.Battle.AllUnits[index1].IsDisableGimmick())
+                  ((Component) unitController).get_gameObject().SetActive(false);
+              }
             }
             this.ResetMultiPlayerTransform(this.Battle.AllUnits[index1]);
           }
         }
       }
-      Unit.UNIT_CAST_INDEX = (OInt) multiPlayResumeParam.unitcastindex;
-      for (int index = 0; index < multiPlayResumeParam.rndseed.Length; ++index)
-        this.Battle.SetRandSeed(index, multiPlayResumeParam.rndseed[index]);
-      for (int index = 0; index < multiPlayResumeParam.dmgrndseed.Length; ++index)
-        this.Battle.SetRandDamageSeed(index, multiPlayResumeParam.dmgrndseed[index]);
-      this.Battle.DamageSeed = multiPlayResumeParam.damageseed;
-      this.Battle.Seed = multiPlayResumeParam.seed;
-      this.mUnitStartCountTotal = multiPlayResumeParam.unitstartcount;
-      this.TreasureCount = multiPlayResumeParam.treasurecount;
-      this.Battle.VersusTurnCount = multiPlayResumeParam.versusturn;
+      Unit.UNIT_CAST_INDEX = (OInt) buffer.unitcastindex;
+      for (int index = 0; index < buffer.rndseed.Length; ++index)
+        this.Battle.SetRandSeed(index, buffer.rndseed[index]);
+      for (int index = 0; index < buffer.dmgrndseed.Length; ++index)
+        this.Battle.SetRandDamageSeed(index, buffer.dmgrndseed[index]);
+      this.Battle.DamageSeed = buffer.damageseed;
+      this.Battle.Seed = buffer.seed;
+      this.mUnitStartCountTotal = buffer.unitstartcount;
+      this.RestoreTreasureCount(buffer.treasurecount);
+      this.Battle.VersusTurnCount = buffer.versusturn;
       if (this.Battle.IsMultiVersus)
         this.ArenaActionCountSet(this.Battle.RemainVersusTurnCount);
-      GameObject gameObject = GameObjectID.FindGameObject("UI_TREASURE");
-      if (Object.op_Inequality((Object) gameObject, (Object) null))
-        GameParameter.UpdateAll(gameObject);
-      this.Battle.StartOrder(true, true);
-      this.RefreshJumpSpots();
-      if (multiPlayResumeParam.otherresume != null)
+      if (buffer.gimmick != null && buffer.gimmick.Length == this.Battle.GimmickEventList.Count)
       {
-        for (int index = 0; index < multiPlayResumeParam.otherresume.Length; ++index)
+        for (int index = 0; index < buffer.gimmick.Length; ++index)
+        {
+          this.Battle.GimmickEventList[index].count = buffer.gimmick[index].count;
+          this.Battle.GimmickEventList[index].IsCompleted = buffer.gimmick[index].completed == 1;
+        }
+      }
+      if (buffer.trick != null)
+      {
+        TrickData.ClearEffect();
+        for (int index = 0; index < buffer.trick.Length; ++index)
+        {
+          Unit creator = buffer.trick[index].cun == -1 ? (Unit) null : this.Battle.AllUnits[buffer.trick[index].cun];
+          TrickData.SuspendEffect(buffer.trick[index].tid, buffer.trick[index].grx, buffer.trick[index].gry, buffer.trick[index].tag, creator, buffer.trick[index].ccl, buffer.trick[index].rnk, buffer.trick[index].rcp, buffer.trick[index].rac);
+        }
+        if (buffer.trick.Length != 0)
+          this.Battle.RelinkTrickGimmickEvents();
+        TrickData.UpdateMarker();
+      }
+      else
+      {
+        TrickData.ClearEffect();
+        TrickData.UpdateMarker();
+      }
+      if (buffer.scr_ev_trg != null && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mEventScript, (UnityEngine.Object) null) && (this.mEventScript.mSequences != null && this.mEventScript.mSequences.Length == buffer.scr_ev_trg.Length))
+      {
+        for (int index = 0; index < buffer.scr_ev_trg.Length; ++index)
+          this.mEventScript.mSequences[index].Triggered = buffer.scr_ev_trg[index];
+      }
+      MultiPlayResumeParam.WeatherInfo wti = buffer.wti;
+      if (!string.IsNullOrEmpty(wti.wid))
+      {
+        Unit modify_unit = 0 > wti.mun || wti.mun >= this.Battle.Units.Count ? (Unit) null : this.Battle.Units[wti.mun];
+        WeatherData.SuspendWeather(wti.wid, this.Battle.Units, modify_unit, wti.rnk, wti.rcp, wti.ccl);
+      }
+      GameObject gameObject = GameObjectID.FindGameObject("UI_TREASURE");
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) gameObject, (UnityEngine.Object) null))
+        GameParameter.UpdateAll(gameObject);
+      this.Battle.StartOrder(true, true, false);
+      this.RefreshJumpSpots();
+      this.Battle.ClockTime = buffer.ctm;
+      this.Battle.ClockTimeTotal = buffer.ctt;
+      this.ReflectWeatherInfo((WeatherData) null);
+      WeatherData currentWeatherData = WeatherData.CurrentWeatherData;
+      if (currentWeatherData != null)
+        this.StartCoroutine(this.RestoreWeather(currentWeatherData));
+      if (buffer.otherresume != null)
+      {
+        for (int index = 0; index < buffer.otherresume.Length; ++index)
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          SceneBattle.\u003CRecvResume\u003Ec__AnonStorey1D8 resumeCAnonStorey1D8 = new SceneBattle.\u003CRecvResume\u003Ec__AnonStorey1D8();
+          SceneBattle.\u003CRecvResume\u003Ec__AnonStorey274 resumeCAnonStorey274 = new SceneBattle.\u003CRecvResume\u003Ec__AnonStorey274();
           // ISSUE: reference to a compiler-generated field
-          resumeCAnonStorey1D8.data = new SceneBattle.MultiPlayRecvData();
+          resumeCAnonStorey274.data = new SceneBattle.MultiPlayRecvData();
           // ISSUE: reference to a compiler-generated field
-          resumeCAnonStorey1D8.data.pidx = multiPlayResumeParam.otherresume[index];
+          resumeCAnonStorey274.data.pidx = buffer.otherresume[index];
           // ISSUE: reference to a compiler-generated method
-          if (this.mRecvResumeRequest.Find(new Predicate<SceneBattle.MultiPlayRecvData>(resumeCAnonStorey1D8.\u003C\u003Em__18B)) == null)
+          if (this.mRecvResumeRequest.Find(new Predicate<SceneBattle.MultiPlayRecvData>(resumeCAnonStorey274.\u003C\u003Em__215)) == null)
           {
             // ISSUE: reference to a compiler-generated field
-            this.mRecvResumeRequest.Add(resumeCAnonStorey1D8.data);
+            this.mRecvResumeRequest.Add(resumeCAnonStorey274.data);
             // ISSUE: reference to a compiler-generated field
-            Debug.Log((object) ("OtherPlayerResume:" + (object) resumeCAnonStorey1D8.data.pidx));
+            Debug.Log((object) ("OtherPlayerResume:" + (object) resumeCAnonStorey274.data.pidx));
           }
         }
         this.Battle.ResumeState = BattleCore.RESUME_STATE.REQUEST;
@@ -4066,24 +5562,69 @@ namespace SRPG
       this.mResumeMultiPlay = false;
     }
 
-    public void SendRetire()
+    [DebuggerHidden]
+    private IEnumerator RestoreWeather(WeatherData wth_data)
     {
-      PunMonoSingleton<MyPhoton>.Instance.SendRoomMessage(true, this.CreateMultiPlayInputList(SceneBattle.EMultiPlayRecvDataHeader.VS_RETIRE, 0, (List<SceneBattle.MultiPlayInput>) null), MyPhoton.SEND_TYPE.Normal);
-    }
-
-    public void SendRetireComfirm()
-    {
-      PunMonoSingleton<MyPhoton>.Instance.SendRoomMessage(true, this.CreateMultiPlayInputList(SceneBattle.EMultiPlayRecvDataHeader.VS_RETIRE_COMFIRM, 0, (List<SceneBattle.MultiPlayInput>) null), MyPhoton.SEND_TYPE.Normal);
+      // ISSUE: object of a compiler-generated type is created
+      return (IEnumerator) new SceneBattle.\u003CRestoreWeather\u003Ec__Iterator5B() { wth_data = wth_data, \u003C\u0024\u003Ewth_data = wth_data, \u003C\u003Ef__this = this };
     }
 
     public void SendCheat(SceneBattle.CHEAT_TYPE type, int uid)
     {
-      PunMonoSingleton<MyPhoton>.Instance.SendRoomMessage(true, this.CreateMultiPlayInputList((SceneBattle.EMultiPlayRecvDataHeader) (14 + type), uid, (List<SceneBattle.MultiPlayInput>) null), MyPhoton.SEND_TYPE.Normal);
+      if (MonoSingleton<GameManager>.Instance.AudienceMode)
+        return;
+      PunMonoSingleton<MyPhoton>.Instance.SendRoomMessageBinary(true, this.CreateSendBinary((SceneBattle.EMultiPlayRecvDataHeader) (14 + type), uid, (List<SceneBattle.MultiPlayInput>) null), MyPhoton.SEND_TYPE.Normal, false);
+    }
+
+    public BattleCore.QuestResult CheckAudienceResult()
+    {
+      BattleCore.QuestResult questResult = BattleCore.QuestResult.Pending;
+      if (this.Battle.IsVSForceWin)
+      {
+        using (List<SceneBattle.MultiPlayer>.Enumerator enumerator = this.mMultiPlayer.GetEnumerator())
+        {
+          while (enumerator.MoveNext())
+          {
+            SceneBattle.MultiPlayer current = enumerator.Current;
+            if (current != null && current.NotifyDisconnected)
+            {
+              questResult = current.PlayerIndex != 1 ? BattleCore.QuestResult.Win : BattleCore.QuestResult.Lose;
+              break;
+            }
+          }
+        }
+      }
+      else
+        questResult = this.Battle.GetQuestResult();
+      return questResult;
+    }
+
+    private void UpdateInterval()
+    {
+      this.mRestSyncInterval = Mathf.Max(this.mRestSyncInterval - Time.get_deltaTime(), 0.0f);
+      this.mRestResumeRequestInterval = Mathf.Max(this.mRestResumeRequestInterval - Time.get_deltaTime(), 0.0f);
+      this.mRestResumeSuccessInterval = Mathf.Max(this.mRestResumeSuccessInterval - Time.get_deltaTime(), 0.0f);
+    }
+
+    public EventScript EventScript
+    {
+      get
+      {
+        return this.mEventScript;
+      }
+    }
+
+    public GameObject continueWindowRes
+    {
+      get
+      {
+        return this.mContinueWindowRes;
+      }
     }
 
     private UnitGauge GetGaugeTemplateFor(Unit unit)
     {
-      if (unit.Side == EUnitSide.Enemy && Object.op_Inequality((Object) this.EnemyGaugeOverlayTemplate, (Object) null))
+      if ((unit.Side == EUnitSide.Enemy || unit.IsBreakObj) && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.EnemyGaugeOverlayTemplate, (UnityEngine.Object) null))
         return this.EnemyGaugeOverlayTemplate;
       return this.GaugeOverlayTemplate;
     }
@@ -4095,9 +5636,9 @@ namespace SRPG
       for (int index = 0; index < this.mBattle.Units.Count; ++index)
       {
         TacticsUnitController unitController = this.FindUnitController(this.mBattle.Units[index]);
-        if (!Object.op_Equality((Object) unitController, (Object) null))
+        if (!UnityEngine.Object.op_Equality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
         {
-          if (this.mBattle.Units[index].IsGimmick && !this.mBattle.Units[index].IsDisableGimmick())
+          if (this.mBattle.Units[index].IsGimmick && !this.mBattle.Units[index].IsDisableGimmick() && !this.mBattle.Units[index].IsBreakObj)
             tacticsUnitControllerList2.Add(unitController);
           else if (!this.mBattle.Units[index].IsDead)
             tacticsUnitControllerList1.Add(unitController);
@@ -4111,7 +5652,7 @@ namespace SRPG
         for (int index2 = 0; index2 < tacticsUnitControllerList2.Count; ++index2)
         {
           TacticsUnitController tacticsUnitController2 = tacticsUnitControllerList2[index2];
-          if (!Object.op_Equality((Object) tacticsUnitController1, (Object) tacticsUnitController2))
+          if (!UnityEngine.Object.op_Equality((UnityEngine.Object) tacticsUnitController1, (UnityEngine.Object) tacticsUnitController2))
           {
             IntVector2 intVector2_2 = this.CalcCoord(tacticsUnitController2.CenterPosition);
             if (intVector2_1 == intVector2_2)
@@ -4145,7 +5686,7 @@ namespace SRPG
         if (!this.mBattle.Units[index].IsGimmick)
         {
           TacticsUnitController unitController = this.FindUnitController(this.mBattle.Units[index]);
-          if (Object.op_Inequality((Object) unitController, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
             unitController.DeleteGimmickIconAll();
         }
       }
@@ -4154,7 +5695,7 @@ namespace SRPG
     private void SetUnitUiHeight(Unit FocusUnit)
     {
       MapHeight gameObject = GameObjectID.FindGameObject<MapHeight>(this.mBattleUI.MapHeightID);
-      if (!Object.op_Inequality((Object) gameObject, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) gameObject, (UnityEngine.Object) null))
         return;
       gameObject.FocusUnit = FocusUnit;
     }
@@ -4162,7 +5703,7 @@ namespace SRPG
     private void SetUiHeight(int Height)
     {
       MapHeight gameObject = GameObjectID.FindGameObject<MapHeight>(this.mBattleUI.MapHeightID);
-      if (!Object.op_Inequality((Object) gameObject, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) gameObject, (UnityEngine.Object) null))
         return;
       gameObject.FocusUnit = (Unit) null;
       gameObject.Height = Height;
@@ -4171,7 +5712,7 @@ namespace SRPG
     private void ArenaActionCountEnable(bool enable)
     {
       GameObject gameObject = GameObjectID.FindGameObject(this.mBattleUI.ArenaActionCountID);
-      if (!Object.op_Implicit((Object) gameObject))
+      if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) gameObject))
         return;
       gameObject.SetActive(enable);
     }
@@ -4179,7 +5720,7 @@ namespace SRPG
     private void ArenaActionCountSet(uint count)
     {
       ArenaActionCount gameObject = GameObjectID.FindGameObject<ArenaActionCount>(this.mBattleUI.ArenaActionCountID);
-      if (!Object.op_Implicit((Object) gameObject) || (int) gameObject.ActionCount == (int) count)
+      if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) gameObject) || (int) gameObject.ActionCount == (int) count)
         return;
       gameObject.ActionCount = count;
       gameObject.PlayEffect();
@@ -4188,10 +5729,10 @@ namespace SRPG
     private void RemainingActionCountEnable(bool pc_enable, bool ec_enable)
     {
       GameObject gameObject1 = GameObjectID.FindGameObject(this.mBattleUI.PlayerActionCountID);
-      if (Object.op_Implicit((Object) gameObject1))
+      if (UnityEngine.Object.op_Implicit((UnityEngine.Object) gameObject1))
         gameObject1.SetActive(pc_enable);
       GameObject gameObject2 = GameObjectID.FindGameObject(this.mBattleUI.EnemyActionCountID);
-      if (!Object.op_Implicit((Object) gameObject2))
+      if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) gameObject2))
         return;
       gameObject2.SetActive(ec_enable);
     }
@@ -4199,16 +5740,56 @@ namespace SRPG
     private void RemainingActionCountSet(uint pc_count, uint ec_count)
     {
       ArenaActionCount gameObject1 = GameObjectID.FindGameObject<ArenaActionCount>(this.mBattleUI.PlayerActionCountID);
-      if (Object.op_Inequality((Object) gameObject1, (Object) null) && ((Behaviour) gameObject1).get_isActiveAndEnabled() && (int) gameObject1.ActionCount != (int) pc_count)
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) gameObject1, (UnityEngine.Object) null) && ((Behaviour) gameObject1).get_isActiveAndEnabled() && (int) gameObject1.ActionCount != (int) pc_count)
       {
         gameObject1.ActionCount = pc_count;
         gameObject1.PlayEffect();
       }
       ArenaActionCount gameObject2 = GameObjectID.FindGameObject<ArenaActionCount>(this.mBattleUI.EnemyActionCountID);
-      if (!Object.op_Inequality((Object) gameObject2, (Object) null) || !((Behaviour) gameObject2).get_isActiveAndEnabled() || (int) gameObject2.ActionCount == (int) ec_count)
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) gameObject2, (UnityEngine.Object) null) || !((Behaviour) gameObject2).get_isActiveAndEnabled() || (int) gameObject2.ActionCount == (int) ec_count)
         return;
       gameObject2.ActionCount = ec_count;
       gameObject2.PlayEffect();
+    }
+
+    private void ReflectWeatherInfo(WeatherData wd = null)
+    {
+      if (wd == null)
+        wd = WeatherData.CurrentWeatherData;
+      WeatherInfo gameObject = GameObjectID.FindGameObject<WeatherInfo>(this.mBattleUI.WeatherInfoID);
+      if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) gameObject))
+        return;
+      gameObject.Refresh(wd);
+    }
+
+    private GameObject GetWeatherEffectAttach()
+    {
+      return GameObjectID.FindGameObject(this.mBattleUI.WeatherAttachID);
+    }
+
+    private void EnableWeatherEffect(bool is_enable)
+    {
+      GameObject weatherEffectAttach = this.GetWeatherEffectAttach();
+      if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) weatherEffectAttach))
+        return;
+      weatherEffectAttach.SetActive(is_enable);
+    }
+
+    private void RankingQuestActionCountEnable(bool enable)
+    {
+      GameObject gameObject = GameObjectID.FindGameObject(this.mBattleUI.RankingQuestActionCountID);
+      if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) gameObject))
+        return;
+      gameObject.SetActive(enable);
+    }
+
+    private void RankingQuestActionCountSet(uint count)
+    {
+      RankingQuestActionCount gameObject = GameObjectID.FindGameObject<RankingQuestActionCount>(this.mBattleUI.RankingQuestActionCountID);
+      if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) gameObject) || (int) gameObject.ActionCount == (int) count)
+        return;
+      gameObject.ActionCount = count;
+      gameObject.PlayEffect();
     }
 
     private void StepToNear(Unit unit)
@@ -4222,6 +5803,44 @@ namespace SRPG
     private void GotoState_WaitSignal<T>() where T : State<SceneBattle>, new()
     {
       this.GotoState<SceneBattle.State_WaitSignal<T>>();
+    }
+
+    private void ReflectUnitChgButton(Unit unit, bool is_update = false)
+    {
+      bool is_active;
+      if (!is_update)
+      {
+        this.mIsUnitChgActive = false;
+        if (unit.Side == EUnitSide.Player && !unit.IsUnitFlag(EUnitFlag.DisableUnitChange) && (!unit.IsUnitFlag(EUnitFlag.Moved | EUnitFlag.Action) && this.mBattle.Player != null))
+        {
+          using (List<Unit>.Enumerator enumerator = this.mBattle.Player.GetEnumerator())
+          {
+            while (enumerator.MoveNext())
+            {
+              if (!this.mBattle.StartingMembers.Contains(enumerator.Current))
+              {
+                this.mIsUnitChgActive = true;
+                break;
+              }
+            }
+          }
+        }
+        is_active = this.mIsUnitChgActive;
+      }
+      else
+      {
+        if (!this.mBattle.IsUnitChange || !this.mIsUnitChgActive || !this.mBattleUI.CommandWindow.IsEnableUnitChgButton)
+          return;
+        is_active = true;
+        TacticsUnitController unitController = this.FindUnitController(this.mBattle.CurrentUnit);
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
+        {
+          IntVector2 intVector2 = this.CalcCoord(unitController.CenterPosition);
+          if (intVector2.x != unit.x || intVector2.y != unit.y)
+            is_active = false;
+        }
+      }
+      this.mBattleUI.CommandWindow.EnableUnitChgButton(this.mBattle.IsUnitChange, is_active);
     }
 
     private void RefreshMapCommands()
@@ -4245,7 +5864,7 @@ namespace SRPG
           buttonTypes1 |= UnitCommands.ButtonTypes.Skill;
       }
       UnitCommands.ButtonTypes buttonTypes2 = buttonTypes1 | UnitCommands.ButtonTypes.Misc | UnitCommands.ButtonTypes.Map;
-      if (!Object.op_Inequality((Object) this.mBattleUI.CommandWindow, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mBattleUI.CommandWindow, (UnityEngine.Object) null))
         return;
       this.mBattleUI.CommandWindow.CancelButton.SetActive(true);
       this.mBattleUI.CommandWindow.OKButton.SetActive(true);
@@ -4255,7 +5874,7 @@ namespace SRPG
     private void RefreshOnlyMapCommand()
     {
       UnitCommands.ButtonTypes buttonTypes = (UnitCommands.ButtonTypes) (0 | 256);
-      if (!Object.op_Inequality((Object) this.mBattleUI.CommandWindow, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mBattleUI.CommandWindow, (UnityEngine.Object) null))
         return;
       this.mBattleUI.CommandWindow.CancelButton.SetActive(false);
       this.mBattleUI.CommandWindow.OKButton.SetActive(false);
@@ -4271,7 +5890,7 @@ namespace SRPG
     private void GotoItemSelect()
     {
       this.mBattleUI.OnItemSelectStart();
-      if (Object.op_Inequality((Object) this.mBattleUI.ItemWindow, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mBattleUI.ItemWindow, (UnityEngine.Object) null))
         this.mBattleUI.ItemWindow.Refresh();
       this.GotoState_WaitSignal<SceneBattle.State_SelectItemV2>();
     }
@@ -4290,8 +5909,32 @@ namespace SRPG
       else
       {
         this.mBattle.UseItem(this.mBattle.CurrentUnit, x, y, item);
+        this.mBattle.SetManualPlayFlag();
         this.GotoState_WaitSignal<SceneBattle.State_WaitForLog>();
       }
+    }
+
+    private void GotoUnitChgSelect(bool is_back = false)
+    {
+      this.mBattleUI.OnUnitChgSelectStart();
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mBattleUI.UnitChgWindow, (UnityEngine.Object) null))
+        this.mBattleUI.UnitChgWindow.Refresh();
+      if (!is_back)
+      {
+        this.HideGrid();
+        TacticsUnitController unitController = this.FindUnitController(this.Battle.CurrentUnit);
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
+        {
+          IntVector2 intVector2 = this.CalcCoord(unitController.CenterPosition);
+          GridMap<Color32> grid1 = new GridMap<Color32>(this.Battle.CurrentMap.Width, this.Battle.CurrentMap.Height);
+          grid1.set(intVector2.x, intVector2.y, Color32.op_Implicit(GameSettings.Instance.Colors.AttackArea));
+          GridMap<Color32> grid2 = new GridMap<Color32>(this.Battle.CurrentMap.Width, this.Battle.CurrentMap.Height);
+          grid2.set(intVector2.x, intVector2.y, Color32.op_Implicit(GameSettings.Instance.Colors.AttackArea2));
+          this.mTacticsSceneRoot.ShowGridLayer(1, grid1, true);
+          this.mTacticsSceneRoot.ShowGridLayer(2, grid2, false);
+        }
+      }
+      this.GotoState_WaitSignal<SceneBattle.State_SelectUnitChgV2>();
     }
 
     private void GotoSelectTarget(SkillData skill, SceneBattle.SelectTargetCallback cancel, SceneBattle.SelectTargetPositionWithSkill accept, Unit defaultTarget = null, bool allowTargetChange = true)
@@ -4333,20 +5976,18 @@ namespace SRPG
       this.GotoState_WaitSignal<SceneBattle.State_PreSelectTargetV2>();
     }
 
-    private EUnitDirection GetSkillDirectionByTargetArea(Unit unit, GridMap<bool> targetArea)
+    private EUnitDirection GetSkillDirectionByTargetArea(Unit unit, int curX, int curY, GridMap<bool> targetArea)
     {
       int x1 = 0;
       int y1 = 0;
-      int x2 = unit.x;
-      int y2 = unit.y;
-      for (int y3 = 0; y3 < targetArea.h; ++y3)
+      for (int y2 = 0; y2 < targetArea.h; ++y2)
       {
-        for (int x3 = 0; x3 < targetArea.w; ++x3)
+        for (int x2 = 0; x2 < targetArea.w; ++x2)
         {
-          if (targetArea.get(x3, y3))
+          if (targetArea.get(x2, y2))
           {
-            x1 += x3 - x2;
-            y1 += y3 - y2;
+            x1 += x2 - curX;
+            y1 += y2 - curY;
           }
         }
       }
@@ -4356,7 +5997,7 @@ namespace SRPG
     private void GotoSkillSelect()
     {
       UnitAbilitySkillList skillWindow = this.mBattleUI.SkillWindow;
-      if (Object.op_Inequality((Object) skillWindow, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) skillWindow, (UnityEngine.Object) null))
       {
         DataSource.Bind<AbilityData>(((Component) skillWindow).get_gameObject(), this.UIParam_CurrentAbility);
         skillWindow.Refresh(this.mBattle.CurrentUnit);
@@ -4378,9 +6019,9 @@ namespace SRPG
       if (this.Battle.IsMultiPlay)
         this.SendInputEntryBattle(EBattleCommand.Skill, this.Battle.CurrentUnit, this.mSelectedTarget, skill, (ItemData) null, x, y, bUnitLockTarget);
       if (skill.EffectType == SkillEffectTypes.Throw)
-        this.mBattle.UseSkill(this.mBattle.CurrentUnit, x, y, skill, bUnitLockTarget, this.mSelectedTarget.x, this.mSelectedTarget.y);
+        this.mBattle.UseSkill(this.mBattle.CurrentUnit, x, y, skill, bUnitLockTarget, this.mSelectedTarget.x, this.mSelectedTarget.y, false);
       else
-        this.mBattle.UseSkill(this.mBattle.CurrentUnit, x, y, skill, bUnitLockTarget, 0, 0);
+        this.mBattle.UseSkill(this.mBattle.CurrentUnit, x, y, skill, bUnitLockTarget, 0, 0, false);
       this.GotoState_WaitSignal<SceneBattle.State_WaitForLog>();
     }
 
@@ -4392,11 +6033,27 @@ namespace SRPG
       }
     }
 
+    public GameObject TrickMarker
+    {
+      get
+      {
+        return this.mTrickMarker;
+      }
+    }
+
+    public Dictionary<string, GameObject> TrickMarkerDics
+    {
+      get
+      {
+        return this.mTrickMarkerDics;
+      }
+    }
+
     private Canvas OverlayCanvas
     {
       get
       {
-        if (Object.op_Inequality((Object) this.mTouchController, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mTouchController, (UnityEngine.Object) null))
           return (Canvas) ((Component) this.mTouchController).GetComponent<Canvas>();
         return (Canvas) null;
       }
@@ -4406,6 +6063,7 @@ namespace SRPG
     {
       this.ShowPlayerHPGauges();
       this.ShowEnemyHPGauges();
+      this.ShowBreakObjHPGauges();
     }
 
     private bool IsHPGaugeChanging
@@ -4451,9 +6109,22 @@ namespace SRPG
       }
     }
 
+    private void ShowBreakObjHPGauges()
+    {
+      using (List<TacticsUnitController>.Enumerator enumerator = this.mTacticsUnits.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+        {
+          TacticsUnitController current = enumerator.Current;
+          if (current.Unit.IsBreakObj)
+            current.ShowHPGauge(true);
+        }
+      }
+    }
+
     private void RefreshUnitStatus(Unit unit)
     {
-      if (!Object.op_Inequality((Object) UnitQueue.Instance, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) UnitQueue.Instance, (UnityEngine.Object) null))
         return;
       UnitQueue.Instance.Refresh(unit);
     }
@@ -4550,7 +6221,7 @@ namespace SRPG
             num1 = magnitude;
           }
         }
-        if (Object.op_Inequality((Object) controller, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) controller, (UnityEngine.Object) null))
           this.mOnUnitClick(controller);
       }
       if (this.mOnScreenClick == null)
@@ -4558,9 +6229,9 @@ namespace SRPG
       this.mOnScreenClick(screenPosition);
     }
 
-    private T InstantiateSafe<T>(Object obj) where T : Object
+    private T InstantiateSafe<T>(UnityEngine.Object obj) where T : UnityEngine.Object
     {
-      return (T) Object.Instantiate(obj);
+      return (T) UnityEngine.Object.Instantiate(obj);
     }
 
     private void UpdateLoadProgress()
@@ -4572,7 +6243,7 @@ namespace SRPG
     private IEnumerator LoadUIAsync()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new SceneBattle.\u003CLoadUIAsync\u003Ec__Iterator36() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new SceneBattle.\u003CLoadUIAsync\u003Ec__Iterator5C() { \u003C\u003Ef__this = this };
     }
 
     private void InitTouchArea()
@@ -4591,7 +6262,7 @@ namespace SRPG
       BadStatusEffects.UnloadEffects();
       GameUtility.DestroyGameObject((Component) this.mSkillTargetWindow);
       this.mSkillTargetWindow = (SkillTargetWindow) null;
-      if (Object.op_Inequality((Object) this.mTouchController, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mTouchController, (UnityEngine.Object) null))
       {
         this.mTouchController.OnDragDelegate -= new TouchController.DragEvent(this.OnDrag);
         this.mTouchController.OnDragEndDelegate -= new TouchController.DragEvent(this.OnDragEnd);
@@ -4599,7 +6270,7 @@ namespace SRPG
       GameUtility.DestroyGameObject((Component) this.mBattleUI);
       this.mBattleUI = (FlowNode_BattleUI) null;
       this.mBattleSceneRoot = (BattleSceneSettings) null;
-      if (Object.op_Inequality((Object) this.mDefaultBattleScene, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mDefaultBattleScene, (UnityEngine.Object) null))
       {
         GameUtility.DestroyGameObject((Component) this.mDefaultBattleScene);
         this.mDefaultBattleScene = (BattleSceneSettings) null;
@@ -4635,14 +6306,14 @@ namespace SRPG
     private void HideUnitMarkers(Unit unit)
     {
       TacticsUnitController unitController = this.FindUnitController(unit);
-      if (Object.op_Equality((Object) unitController, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
         return;
       Transform transform = ((Component) unitController).get_transform();
       for (int index1 = this.mUnitMarkers.Length - 1; index1 >= 0; --index1)
       {
         for (int index2 = this.mUnitMarkers[index1].Count - 1; index2 >= 0; --index2)
         {
-          if (Object.op_Equality((Object) this.mUnitMarkers[index1][index2].get_transform().get_parent(), (Object) transform))
+          if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mUnitMarkers[index1][index2].get_transform().get_parent(), (UnityEngine.Object) transform))
           {
             GameUtility.SetLayer(this.mUnitMarkers[index1][index2], GameUtility.LayerHidden, true);
             this.mUnitMarkers[index1][index2].get_transform().SetParent((Transform) null, false);
@@ -4660,13 +6331,13 @@ namespace SRPG
     private void ShowUnitMarker(Unit unit, SceneBattle.UnitMarkerTypes markerType)
     {
       TacticsUnitController unitController = this.FindUnitController(unit);
-      if (Object.op_Equality((Object) unitController, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
         return;
       Transform transform = ((Component) unitController).get_transform();
       List<GameObject> mUnitMarker = this.mUnitMarkers[(int) markerType];
       for (int index = mUnitMarker.Count - 1; index >= 0; --index)
       {
-        if (mUnitMarker[index].get_layer() != GameUtility.LayerHidden && Object.op_Equality((Object) mUnitMarker[index].get_transform().get_parent(), (Object) transform))
+        if (mUnitMarker[index].get_layer() != GameUtility.LayerHidden && UnityEngine.Object.op_Equality((UnityEngine.Object) mUnitMarker[index].get_transform().get_parent(), (UnityEngine.Object) transform))
           return;
       }
       for (int index = mUnitMarker.Count - 1; index >= 0; --index)
@@ -4679,7 +6350,7 @@ namespace SRPG
           return;
         }
       }
-      GameObject go = Object.Instantiate((Object) this.mUnitMarkerTemplates[(int) markerType], Vector3.get_zero(), Quaternion.get_identity()) as GameObject;
+      GameObject go = UnityEngine.Object.Instantiate((UnityEngine.Object) this.mUnitMarkerTemplates[(int) markerType], Vector3.get_zero(), Quaternion.get_identity()) as GameObject;
       go.get_transform().SetParent(((Component) unitController).get_transform(), false);
       go.get_transform().set_localPosition(Vector3.op_Multiply(Vector3.get_up(), 2f));
       GameUtility.SetLayer(go, GameUtility.LayerUI, true);
@@ -4709,55 +6380,53 @@ namespace SRPG
       }
     }
 
-    public void PopupDamageNumber(Vector3 position, int number)
+    public GameObject PopupDamageNumber(Vector3 position, int number)
     {
-      this.PopupNumber(position, number, Color.get_white(), this.mDamageTemplate);
+      return this.PopupNumber(position, number, Color.get_white(), this.mDamageTemplate);
     }
 
-    public void PopupHpHealNumber(Vector3 position, int number)
+    public GameObject PopupHpHealNumber(Vector3 position, int number)
     {
-      this.PopupNumber(position, number, Color.get_white(), this.mHpHealTemplate);
+      return this.PopupNumber(position, number, Color.get_white(), this.mHpHealTemplate);
     }
 
-    public void PopupMpHealNumber(Vector3 position, int number)
+    public GameObject PopupMpHealNumber(Vector3 position, int number)
     {
-      this.PopupNumber(position, number, Color.get_white(), this.mMpHealTemplate);
+      return this.PopupNumber(position, number, Color.get_white(), this.mMpHealTemplate);
     }
 
-    public void PopupNumber(Vector3 position, int number, Color color, DamagePopup popup)
+    public GameObject PopupNumber(Vector3 position, int number, Color color, DamagePopup popup)
     {
-      if (Object.op_Equality((Object) popup, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) popup, (UnityEngine.Object) null))
       {
         Debug.LogError((object) "mDamageTemplate == null");
+        return (GameObject) null;
       }
-      else
-      {
-        DamagePopup damagePopup = (DamagePopup) Object.Instantiate<DamagePopup>((M0) popup);
-        damagePopup.Value = number;
-        damagePopup.DigitColor = color;
-        SceneBattle.Popup2D(((Component) damagePopup).get_gameObject(), position, 1, 0.0f);
-      }
+      DamagePopup damagePopup = (DamagePopup) UnityEngine.Object.Instantiate<DamagePopup>((M0) popup);
+      damagePopup.Value = number;
+      damagePopup.DigitColor = color;
+      SceneBattle.Popup2D(((Component) damagePopup).get_gameObject(), position, 1, 0.0f);
+      return ((Component) damagePopup).get_gameObject();
     }
 
-    public void PopupDamageDsgNumber(Vector3 position, int number, eDamageDispType ddt)
+    public GameObject PopupDamageDsgNumber(Vector3 position, int number, eDamageDispType ddt)
     {
-      if (!Object.op_Implicit((Object) this.mDamageDsgTemplate))
+      if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) this.mDamageDsgTemplate))
       {
         Debug.LogError((object) "mDamageDsgTemplate == null");
+        return (GameObject) null;
       }
-      else
-      {
-        DamageDsgPopup damageDsgPopup = (DamageDsgPopup) Object.Instantiate<DamageDsgPopup>((M0) this.mDamageDsgTemplate);
-        damageDsgPopup.Setup(number, Color.get_white(), ddt);
-        SceneBattle.Popup2D(((Component) damageDsgPopup).get_gameObject(), position, 1, 0.0f);
-      }
+      DamageDsgPopup damageDsgPopup = (DamageDsgPopup) UnityEngine.Object.Instantiate<DamageDsgPopup>((M0) this.mDamageDsgTemplate);
+      damageDsgPopup.Setup(number, Color.get_white(), ddt);
+      SceneBattle.Popup2D(((Component) damageDsgPopup).get_gameObject(), position, 1, 0.0f);
+      return ((Component) damageDsgPopup).get_gameObject();
     }
 
     public bool HasMissPopup
     {
       get
       {
-        return Object.op_Inequality((Object) this.mMissPopup, (Object) null);
+        return UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mMissPopup, (UnityEngine.Object) null);
       }
     }
 
@@ -4765,7 +6434,7 @@ namespace SRPG
     {
       get
       {
-        return Object.op_Inequality((Object) this.mPerfectAvoidPopup, (Object) null);
+        return UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mPerfectAvoidPopup, (UnityEngine.Object) null);
       }
     }
 
@@ -4773,7 +6442,7 @@ namespace SRPG
     {
       get
       {
-        return Object.op_Inequality((Object) this.mGuardPopup, (Object) null);
+        return UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mGuardPopup, (UnityEngine.Object) null);
       }
     }
 
@@ -4781,7 +6450,7 @@ namespace SRPG
     {
       get
       {
-        return Object.op_Inequality((Object) this.mAbsorbPopup, (Object) null);
+        return UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mAbsorbPopup, (UnityEngine.Object) null);
       }
     }
 
@@ -4789,7 +6458,7 @@ namespace SRPG
     {
       get
       {
-        return Object.op_Inequality((Object) this.mCriticalPopup, (Object) null);
+        return UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mCriticalPopup, (UnityEngine.Object) null);
       }
     }
 
@@ -4797,7 +6466,7 @@ namespace SRPG
     {
       get
       {
-        return Object.op_Inequality((Object) this.mBackstabPopup, (Object) null);
+        return UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mBackstabPopup, (UnityEngine.Object) null);
       }
     }
 
@@ -4805,7 +6474,7 @@ namespace SRPG
     {
       get
       {
-        return Object.op_Inequality((Object) this.mWeakPopup, (Object) null);
+        return UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mWeakPopup, (UnityEngine.Object) null);
       }
     }
 
@@ -4813,91 +6482,133 @@ namespace SRPG
     {
       get
       {
-        return Object.op_Inequality((Object) this.mResistPopup, (Object) null);
+        return UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mResistPopup, (UnityEngine.Object) null);
+      }
+    }
+
+    public bool HasGutsPopup
+    {
+      get
+      {
+        return UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mGutsPopup, (UnityEngine.Object) null);
       }
     }
 
     public void PopupMiss(Vector3 position, float yOffset = 0)
     {
-      if (!Object.op_Inequality((Object) this.mMissPopup, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mMissPopup, (UnityEngine.Object) null))
         return;
-      SceneBattle.Popup2D((GameObject) Object.Instantiate<GameObject>((M0) this.mMissPopup), position, 0, yOffset);
+      SceneBattle.Popup2D((GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.mMissPopup), position, 0, yOffset);
     }
 
     public void PopupPefectAvoid(Vector3 position, float yOffset = 0)
     {
-      if (!Object.op_Inequality((Object) this.mPerfectAvoidPopup, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mPerfectAvoidPopup, (UnityEngine.Object) null))
         return;
-      SceneBattle.Popup2D((GameObject) Object.Instantiate<GameObject>((M0) this.mPerfectAvoidPopup), position, 0, yOffset);
+      SceneBattle.Popup2D((GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.mPerfectAvoidPopup), position, 0, yOffset);
     }
 
     public void PopupGuard(Vector3 position, float yOffset = 0)
     {
-      if (!Object.op_Inequality((Object) this.mGuardPopup, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mGuardPopup, (UnityEngine.Object) null))
         return;
-      SceneBattle.Popup2D((GameObject) Object.Instantiate<GameObject>((M0) this.mGuardPopup), position, 0, yOffset);
+      SceneBattle.Popup2D((GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.mGuardPopup), position, 0, yOffset);
     }
 
     public void PopupAbsorb(Vector3 position, float yOffset = 0)
     {
-      if (!Object.op_Inequality((Object) this.mAbsorbPopup, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mAbsorbPopup, (UnityEngine.Object) null))
         return;
-      SceneBattle.Popup2D((GameObject) Object.Instantiate<GameObject>((M0) this.mAbsorbPopup), position, 0, yOffset);
+      SceneBattle.Popup2D((GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.mAbsorbPopup), position, 0, yOffset);
     }
 
     public void PopupCritical(Vector3 position, float yOffset = 0)
     {
-      if (!Object.op_Inequality((Object) this.mCriticalPopup, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mCriticalPopup, (UnityEngine.Object) null))
         return;
-      SceneBattle.Popup2D((GameObject) Object.Instantiate<GameObject>((M0) this.mCriticalPopup), position, 0, yOffset);
+      SceneBattle.Popup2D((GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.mCriticalPopup), position, 0, yOffset);
     }
 
     public void PopupBackstab(Vector3 position, float yOffset = 0)
     {
-      if (!Object.op_Inequality((Object) this.mBackstabPopup, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mBackstabPopup, (UnityEngine.Object) null))
         return;
-      SceneBattle.Popup2D((GameObject) Object.Instantiate<GameObject>((M0) this.mBackstabPopup), position, 0, yOffset);
+      SceneBattle.Popup2D((GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.mBackstabPopup), position, 0, yOffset);
     }
 
     public void PopupWeak(Vector3 position, float yOffset = 0)
     {
-      if (!Object.op_Inequality((Object) this.mWeakPopup, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mWeakPopup, (UnityEngine.Object) null))
         return;
-      SceneBattle.Popup2D((GameObject) Object.Instantiate<GameObject>((M0) this.mWeakPopup), position, 0, yOffset);
+      SceneBattle.Popup2D((GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.mWeakPopup), position, 0, yOffset);
     }
 
     public void PopupResist(Vector3 position, float yOffset = 0)
     {
-      if (!Object.op_Inequality((Object) this.mResistPopup, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mResistPopup, (UnityEngine.Object) null))
         return;
-      SceneBattle.Popup2D((GameObject) Object.Instantiate<GameObject>((M0) this.mResistPopup), position, 0, yOffset);
+      SceneBattle.Popup2D((GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.mResistPopup), position, 0, yOffset);
+    }
+
+    public void PopupGuts(Vector3 position, float yOffset = 0)
+    {
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mGutsPopup, (UnityEngine.Object) null))
+        return;
+      SceneBattle.Popup2D((GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.mGutsPopup), position, 0, yOffset);
     }
 
     public void PopupGoodJob(Vector3 position, GameObject prefab, Sprite sprite = null)
     {
-      if (Object.op_Equality((Object) prefab, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) prefab, (UnityEngine.Object) null))
         return;
-      GameObject go = (GameObject) Object.Instantiate<GameObject>((M0) prefab);
-      if (Object.op_Equality((Object) go, (Object) null))
+      GameObject go = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) prefab);
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) go, (UnityEngine.Object) null))
         return;
-      Image image = !Object.op_Equality((Object) sprite, (Object) null) ? (Image) go.GetComponentInChildren<Image>() : (Image) null;
-      if (Object.op_Inequality((Object) image, (Object) null))
+      Image image = !UnityEngine.Object.op_Equality((UnityEngine.Object) sprite, (UnityEngine.Object) null) ? (Image) go.GetComponentInChildren<Image>() : (Image) null;
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) image, (UnityEngine.Object) null))
         image.set_sprite(sprite);
       SceneBattle.Popup2D(go, position, 0, 0.0f);
     }
 
     private Transform CreateParamChangeEffect(ParamTypes type, bool isDebuff)
     {
-      if (Object.op_Equality((Object) this.mParamChangeEffectTemplate, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mParamChangeEffectTemplate, (UnityEngine.Object) null))
         return (Transform) null;
-      GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.mParamChangeEffectTemplate);
+      GameObject gameObject = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.mParamChangeEffectTemplate);
       BuffEffectText component = (BuffEffectText) gameObject.GetComponent<BuffEffectText>();
-      if (Object.op_Inequality((Object) component, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
         component.SetText(type, isDebuff);
       return gameObject.get_transform();
     }
 
-    public void PopupParamChange(Vector3 position, BuffBit buff, BuffBit debuff)
+    private Transform CreateEffectChangeCT(int val)
+    {
+      if (val == 0)
+        return (Transform) null;
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mParamChangeEffectTemplate, (UnityEngine.Object) null))
+        return (Transform) null;
+      GameObject gameObject = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.mParamChangeEffectTemplate);
+      if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) gameObject))
+        return (Transform) null;
+      BuffEffectText component = (BuffEffectText) gameObject.GetComponent<BuffEffectText>();
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null) && UnityEngine.Object.op_Inequality((UnityEngine.Object) component.Text, (UnityEngine.Object) null))
+      {
+        string key = "quest.POP_INC_CT";
+        component.Text.BottomColor = GameSettings.Instance.Buff_TextBottomColor;
+        component.Text.TopColor = GameSettings.Instance.Buff_TextTopColor;
+        if (val < 0)
+        {
+          val *= -1;
+          key = "quest.POP_DEC_CT";
+          component.Text.BottomColor = GameSettings.Instance.Debuff_TextBottomColor;
+          component.Text.TopColor = GameSettings.Instance.Debuff_TextTopColor;
+        }
+        component.Text.text = string.Format(LocalizedText.Get(key), (object) val);
+      }
+      return gameObject.get_transform();
+    }
+
+    public void PopupParamChange(Vector3 position, BuffBit buff, BuffBit debuff, int ct_change_val = 0)
     {
       if (buff == null || debuff == null)
         return;
@@ -4909,26 +6620,33 @@ namespace SRPG
         if (buff.CheckBit(type))
         {
           Transform paramChangeEffect = this.CreateParamChangeEffect(type, false);
-          if (Object.op_Inequality((Object) paramChangeEffect, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) paramChangeEffect, (UnityEngine.Object) null))
             paramChangeEffect.SetParent(transform, false);
         }
         if (debuff.CheckBit(type))
         {
           Transform paramChangeEffect = this.CreateParamChangeEffect(type, true);
-          if (Object.op_Inequality((Object) paramChangeEffect, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) paramChangeEffect, (UnityEngine.Object) null))
             paramChangeEffect.SetParent(transform, false);
         }
+      }
+      int val = ct_change_val / 10;
+      if (val != 0)
+      {
+        Transform effectChangeCt = this.CreateEffectChangeCT(val);
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) effectChangeCt, (UnityEngine.Object) null))
+          effectChangeCt.SetParent(transform, false);
       }
       SceneBattle.Popup2D(go, position, 0, 0.0f);
     }
 
     private Transform CreateConditionChangeEffect(EUnitCondition condition)
     {
-      if (Object.op_Equality((Object) this.mConditionChangeEffectTemplate, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mConditionChangeEffectTemplate, (UnityEngine.Object) null))
         return (Transform) null;
-      GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.mConditionChangeEffectTemplate);
+      GameObject gameObject = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.mConditionChangeEffectTemplate);
       CondEffectText component = (CondEffectText) gameObject.GetComponent<CondEffectText>();
-      if (Object.op_Inequality((Object) component, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
         component.SetText(condition);
       return gameObject.get_transform();
     }
@@ -4943,47 +6661,66 @@ namespace SRPG
         if ((condition & fails) != (EUnitCondition) 0)
         {
           Transform conditionChangeEffect = this.CreateConditionChangeEffect(condition);
-          if (Object.op_Inequality((Object) conditionChangeEffect, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) conditionChangeEffect, (UnityEngine.Object) null))
             conditionChangeEffect.SetParent(transform, false);
         }
       }
       SceneBattle.Popup2D(go, position, 0, 0.0f);
     }
 
-    public void ShowSkillNamePlate(string skillName)
+    public void ShowSkillNamePlate(Unit unit, SkillData skill, string skill_name = "", float speed = 1f)
     {
-      this.mSkillNamePlate.SetSkillName(skillName);
-      this.mSkillNamePlate.Open();
+      if (skill == null)
+        this.mSkillNamePlate.SetSkillName(skill_name, unit.Side, EElement.None, AttackDetailTypes.None, AttackTypes.None);
+      else
+        this.mSkillNamePlate.SetSkillName(skill.Name, unit.Side, skill.ElementType, skill.AttackDetailType, skill.AttackType);
+      this.mSkillNamePlate.Open(speed);
       ((Component) this.mSkillNamePlate).get_transform().SetParent(((Component) this.OverlayCanvas).get_transform(), false);
+    }
+
+    public void ShowSkillNamePlate(string skill_name, EUnitSide side = EUnitSide.Player, float speed = 1f)
+    {
+      this.mSkillNamePlate.SetSkillName(skill_name, side, EElement.None, AttackDetailTypes.None, AttackTypes.None);
+      this.mSkillNamePlate.Open(speed);
+      ((Component) this.mSkillNamePlate).get_transform().SetParent(((Component) this.OverlayCanvas).get_transform(), false);
+    }
+
+    public bool IsClosedSkillNamePlate()
+    {
+      return this.mSkillNamePlate.IsClosed();
     }
 
     public static void Popup2D(GameObject go, Vector3 position, int priority = 0, float yOffset = 0)
     {
-      if (!Object.op_Inequality((Object) SceneBattle.Instance, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null))
         return;
       SceneBattle.Instance.InternalPopup2D(go, position, priority, yOffset);
     }
 
     private void InternalPopup2D(GameObject go, Vector3 position, int priority, float yOffset = 0)
     {
-      if (Object.op_Equality((Object) go, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) go, (UnityEngine.Object) null))
         return;
       this.mPopups.Add(new KeyValuePair<SceneBattle.PupupData, GameObject>(new SceneBattle.PupupData(position, priority, yOffset), go));
       go.get_transform().SetParent(((Component) this.OverlayCanvas).get_transform(), false);
       this.mPopupPositionCache.Clear();
+      RectTransform transform = go.get_transform() as RectTransform;
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) transform, (UnityEngine.Object) null))
+        return;
+      transform.set_anchoredPosition(new Vector2((float) -Screen.get_width(), (float) -Screen.get_height()));
     }
 
     private void LayoutPopups(Camera cam)
     {
       Canvas overlayCanvas = this.OverlayCanvas;
-      if (Object.op_Equality((Object) overlayCanvas, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) overlayCanvas, (UnityEngine.Object) null))
         return;
       RectTransform transform1 = ((Component) overlayCanvas).get_transform() as RectTransform;
       int[] array = new int[this.mPopups.Count];
       for (int index = 0; index < this.mPopups.Count; ++index)
       {
         GameObject gameObject = this.mPopups[index].Value;
-        if (Object.op_Inequality((Object) gameObject, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) gameObject, (UnityEngine.Object) null))
           array[index] = gameObject.get_transform().GetSiblingIndex();
       }
       Array.Sort<int>(array);
@@ -4991,7 +6728,7 @@ namespace SRPG
       GameObject[] gameObjectArray = new GameObject[this.mPopups.Count];
       for (int index = 0; index < this.mPopups.Count; ++index)
       {
-        if (Object.op_Inequality((Object) this.mPopups[index].Value, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mPopups[index].Value, (UnityEngine.Object) null))
         {
           numArray[index] = this.mPopups[index].Key.priority;
           gameObjectArray[index] = this.mPopups[index].Value;
@@ -5014,13 +6751,13 @@ namespace SRPG
       }
       for (int index = 0; index < gameObjectArray.Length; ++index)
       {
-        if (Object.op_Inequality((Object) gameObjectArray[index], (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) gameObjectArray[index], (UnityEngine.Object) null))
           gameObjectArray[index].get_transform().SetSiblingIndex(array[index]);
       }
       for (int index1 = 0; index1 < this.mPopups.Count; ++index1)
       {
         GameObject gameObject = this.mPopups[index1].Value;
-        if (Object.op_Equality((Object) gameObject, (Object) null))
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) gameObject, (UnityEngine.Object) null))
         {
           List<KeyValuePair<SceneBattle.PupupData, GameObject>> mPopups = this.mPopups;
           int index2 = index1;
@@ -5078,14 +6815,17 @@ namespace SRPG
           this.mPopupPositionCache[transform2] = screenPoint;
         }
       }
-      if (!Object.op_Inequality((Object) this.mBlockedGridMarker, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mBlockedGridMarker, (UnityEngine.Object) null))
         return;
       if (this.mDisplayBlockedGridMarker)
       {
         TacticsUnitController unitController = this.FindUnitController(this.mBattle.CurrentUnit);
-        if (Object.op_Inequality((Object) unitController, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
         {
-          Vector3 screenPoint = cam.WorldToScreenPoint(unitController.CenterPosition);
+          Vector3 vector3 = unitController.CenterPosition;
+          if (this.mGridDisplayBlockedGridMarker != null)
+            vector3 = Vector3.op_Addition(this.CalcGridCenter(this.mGridDisplayBlockedGridMarker), Vector3.op_Multiply(Vector3.get_up(), unitController.Height * 0.5f));
+          Vector3 screenPoint = cam.WorldToScreenPoint(vector3);
           Vector2 vector2;
           RectTransformUtility.ScreenPointToLocalPointInRectangle(this.mTouchController.GetRectTransform(), Vector2.op_Implicit(screenPoint), (Camera) null, ref vector2);
           RectTransform component = (RectTransform) this.mBlockedGridMarker.GetComponent<RectTransform>();
@@ -5104,7 +6844,7 @@ namespace SRPG
     private void LayoutGauges(Camera cam)
     {
       Canvas overlayCanvas = this.OverlayCanvas;
-      if (Object.op_Equality((Object) overlayCanvas, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) overlayCanvas, (UnityEngine.Object) null))
         return;
       List<TacticsUnitController> instances = TacticsUnitController.Instances;
       RectTransform transform = ((Component) overlayCanvas).get_transform() as RectTransform;
@@ -5114,10 +6854,10 @@ namespace SRPG
       {
         TacticsUnitController tacticsUnitController = instances[index];
         RectTransform hpGaugeTransform = tacticsUnitController.HPGaugeTransform;
-        if (!Object.op_Equality((Object) hpGaugeTransform, (Object) null) && ((Component) hpGaugeTransform).get_gameObject().get_activeInHierarchy())
+        if (!UnityEngine.Object.op_Equality((UnityEngine.Object) hpGaugeTransform, (UnityEngine.Object) null) && ((Component) hpGaugeTransform).get_gameObject().get_activeInHierarchy())
         {
           Vector3 vector3 = Vector3.op_Addition(((Component) tacticsUnitController).get_transform().get_position(), Vector3.get_up());
-          if (Object.op_Inequality((Object) ((Transform) hpGaugeTransform).get_parent(), (Object) transform))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) ((Transform) hpGaugeTransform).get_parent(), (UnityEngine.Object) transform))
             ((Transform) hpGaugeTransform).SetParent((Transform) transform, false);
           Vector3 screenPoint = cam.WorldToScreenPoint(vector3);
           // ISSUE: explicit reference operation
@@ -5186,11 +6926,11 @@ namespace SRPG
 
     private void SetPrioritizedUnit(TacticsUnitController controller)
     {
-      if (Object.op_Inequality((Object) controller, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) controller, (UnityEngine.Object) null))
         controller.AlwaysUpdate = true;
       for (int index = 0; index < this.mTacticsUnits.Count; ++index)
       {
-        if (Object.op_Inequality((Object) this.mTacticsUnits[index], (Object) controller))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mTacticsUnits[index], (UnityEngine.Object) controller))
           this.mTacticsUnits[index].AlwaysUpdate = false;
       }
     }
@@ -5222,7 +6962,7 @@ namespace SRPG
         if (helperUnits.Count > 0)
         {
           TacticsUnitController unitController = this.FindUnitController(this.mBattle.CurrentUnit);
-          if (Object.op_Inequality((Object) unitController, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
             unitController.SetRenkeiAura(this.mRenkeiAuraEffect);
           for (int index = 0; index < this.mTacticsUnits.Count; ++index)
           {
@@ -5238,13 +6978,13 @@ namespace SRPG
 
     private void OnDrag()
     {
-      if (MonoSingleton<GameManager>.Instance.IsTutorial() && Object.op_Inequality((Object) SGHighlightObject.Instance(), (Object) null) || (!this.mBattle.IsMapCommand || this.mBattle.IsUnitAuto(this.mBattle.CurrentUnit)))
+      if (MonoSingleton<GameManager>.Instance.IsTutorial() && UnityEngine.Object.op_Inequality((UnityEngine.Object) SGHighlightObject.Instance(), (UnityEngine.Object) null) || (!this.mBattle.IsMapCommand || this.mBattle.IsUnitAuto(this.mBattle.CurrentUnit)))
         return;
       TacticsUnitController unitController = this.FindUnitController(this.mBattle.CurrentUnit);
-      if (Object.op_Inequality((Object) unitController, (Object) null) && unitController.IsStartSkill())
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null) && unitController.IsStartSkill())
         return;
       VirtualStick2 virtualStick = this.mBattleUI.VirtualStick;
-      if (!Object.op_Inequality((Object) virtualStick, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) virtualStick, (UnityEngine.Object) null))
         return;
       virtualStick.Visible = true;
       virtualStick.SetPosition(this.mTouchController.DragStart);
@@ -5256,10 +6996,10 @@ namespace SRPG
       if (!this.mBattle.IsMapCommand || this.mBattle.IsUnitAuto(this.mBattle.CurrentUnit))
         return;
       TacticsUnitController unitController = this.FindUnitController(this.mBattle.CurrentUnit);
-      if (Object.op_Inequality((Object) unitController, (Object) null) && unitController.IsStartSkill())
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null) && unitController.IsStartSkill())
         return;
       VirtualStick2 virtualStick = this.mBattleUI.VirtualStick;
-      if (!Object.op_Inequality((Object) virtualStick, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) virtualStick, (UnityEngine.Object) null))
         return;
       virtualStick.Visible = false;
     }
@@ -5272,12 +7012,12 @@ namespace SRPG
 
     private void RefreshJumpSpots()
     {
-      if (Object.op_Equality((Object) this.mJumpSpotEffectTemplate, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mJumpSpotEffectTemplate, (UnityEngine.Object) null))
         return;
       for (int index1 = 0; index1 < this.mBattle.Units.Count; ++index1)
       {
         Unit unit = this.mBattle.Units[index1];
-        if (!unit.IsDead && unit.CastSkill != null && unit.CastSkill.CastType == ECastTypes.Jump)
+        if (!unit.IsDead && unit.CastSkill != null && (unit.CastSkill.CastType == ECastTypes.Jump || unit.CastSkill.TeleportType != eTeleportType.None))
         {
           bool flag = false;
           for (int index2 = 0; index2 < this.mJumpSpotEffects.Count; ++index2)
@@ -5290,7 +7030,14 @@ namespace SRPG
           }
           if (!flag)
           {
-            GameObject gameObject = Object.Instantiate((Object) this.mJumpSpotEffectTemplate, this.CalcGridCenter(unit.x, unit.y), Quaternion.get_identity()) as GameObject;
+            int x = unit.x;
+            int y = unit.y;
+            if (unit.CastSkill.TeleportType != eTeleportType.None)
+            {
+              x = unit.GridTarget.x;
+              y = unit.GridTarget.y;
+            }
+            GameObject gameObject = UnityEngine.Object.Instantiate((UnityEngine.Object) this.mJumpSpotEffectTemplate, this.CalcGridCenter(x, y), Quaternion.get_identity()) as GameObject;
             this.mJumpSpotEffects.Add(new KeyValuePair<Unit, GameObject>(unit, gameObject));
           }
         }
@@ -5298,7 +7045,7 @@ namespace SRPG
       for (int index = this.mJumpSpotEffects.Count - 1; index >= 0; --index)
       {
         Unit key = this.mJumpSpotEffects[index].Key;
-        if (key.IsDead || key.CastSkill == null || key.CastSkill.CastType != ECastTypes.Jump)
+        if (key.IsDead || key.CastSkill == null || key.CastSkill.CastType != ECastTypes.Jump && key.CastSkill.TeleportType == eTeleportType.None)
         {
           GameUtility.StopEmitters(this.mJumpSpotEffects[index].Value);
           this.mJumpSpotEffects[index].Value.AddComponent<OneShotParticle>();
@@ -5316,7 +7063,7 @@ namespace SRPG
         Unit unit = allUnits[index1];
         for (int index2 = 0; index2 < unit.Shields.Count; ++index2)
         {
-          SkillParam skillParam = unit.Shields[index2].skill.SkillParam;
+          SkillParam skillParam = unit.Shields[index2].skill_param;
           if (!string.IsNullOrEmpty(skillParam.defend_effect) && !this.mShieldEffects.ContainsKey(skillParam))
           {
             if (skills == null)
@@ -5337,7 +7084,7 @@ namespace SRPG
     private IEnumerator LoadShieldEffectsAsync(List<SkillParam> skills)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new SceneBattle.\u003CLoadShieldEffectsAsync\u003Ec__Iterator37() { skills = skills, \u003C\u0024\u003Eskills = skills, \u003C\u003Ef__this = this };
+      return (IEnumerator) new SceneBattle.\u003CLoadShieldEffectsAsync\u003Ec__Iterator5D() { skills = skills, \u003C\u0024\u003Eskills = skills, \u003C\u003Ef__this = this };
     }
 
     private GameObject SpawnShieldEffect(TacticsUnitController unit, SkillParam skill, int value, int valueMax, int turn, int turnMax)
@@ -5345,18 +7092,26 @@ namespace SRPG
       if (!this.mShieldEffects.ContainsKey(skill))
         return (GameObject) null;
       GameObject mShieldEffect = this.mShieldEffects[skill];
-      if (Object.op_Equality((Object) mShieldEffect, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) mShieldEffect, (UnityEngine.Object) null))
         return (GameObject) null;
-      GameObject gameObject = Object.Instantiate((Object) mShieldEffect, ((Component) unit).get_transform().get_position(), Quaternion.get_identity()) as GameObject;
+      GameObject gameObject = UnityEngine.Object.Instantiate((UnityEngine.Object) mShieldEffect, ((Component) unit).get_transform().get_position(), Quaternion.get_identity()) as GameObject;
       Animator component = (Animator) gameObject.GetComponent<Animator>();
-      if (Object.op_Inequality((Object) component, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
       {
         component.SetInteger("shield_val", value);
         if (valueMax > 0)
+        {
           component.SetFloat("shield_val_norm", (float) value / (float) valueMax);
+          float num = (float) value * 100f / (float) valueMax;
+          component.SetInteger("shield_val_per", (double) num >= 50.0 ? Mathf.FloorToInt(num) : Mathf.CeilToInt(num));
+        }
         component.SetInteger("shield_turn", turn);
         if (turnMax > 0)
+        {
           component.SetFloat("shield_turn_norm", (float) turn / (float) turnMax);
+          float num = (float) turn * 100f / (float) turnMax;
+          component.SetInteger("shield_turn_per", (double) num >= 50.0 ? Mathf.FloorToInt(num) : Mathf.CeilToInt(num));
+        }
       }
       return gameObject;
     }
@@ -5400,6 +7155,53 @@ namespace SRPG
       public delegate void TargetSelectEvent(Unit unit);
     }
 
+    public class SimpleEvent
+    {
+      private static Dictionary<int, SceneBattle.SimpleEvent.Interface> m_Group = new Dictionary<int, SceneBattle.SimpleEvent.Interface>();
+
+      public static void Clear()
+      {
+        SceneBattle.SimpleEvent.m_Group.Clear();
+      }
+
+      public static bool HasGroup(int group)
+      {
+        return SceneBattle.SimpleEvent.m_Group.ContainsKey(group);
+      }
+
+      public static void Send(int group, string key, object obj)
+      {
+        SceneBattle.SimpleEvent.Interface nterface = (SceneBattle.SimpleEvent.Interface) null;
+        if (!SceneBattle.SimpleEvent.m_Group.TryGetValue(group, out nterface))
+          return;
+        nterface.OnEvent(key, obj);
+      }
+
+      public static void Add(int group, SceneBattle.SimpleEvent.Interface inst)
+      {
+        if (SceneBattle.SimpleEvent.HasGroup(group))
+          return;
+        SceneBattle.SimpleEvent.m_Group.Add(group, inst);
+      }
+
+      public static void Remove(int group)
+      {
+        SceneBattle.SimpleEvent.m_Group.Remove(group);
+      }
+
+      public interface Interface
+      {
+        void OnEvent(string key, object obj);
+      }
+    }
+
+    private enum eArenaSubmitMode
+    {
+      BUSY,
+      SUCCESS,
+      FAILED,
+    }
+
     public enum StateTransitionTypes
     {
       Forward,
@@ -5411,6 +7213,7 @@ namespace SRPG
       private GUIStyle mItemStyle = new GUIStyle();
       private int mSelectChangeUnitIndex = -1;
       private bool[] mEnableUnitTypeToggle = new bool[4];
+      private string mUnitFilter = string.Empty;
       private int mSelectChangeInventoryIndex = -1;
       private int mSelectChangeArtifactUnitIndex = -1;
       private int mSelectChangeArtifactJobIndex = -1;
@@ -5426,6 +7229,7 @@ namespace SRPG
       private bool mShowParty;
       private Vector2 mPartyScrollPos;
       private UnitData[] mPartyUnits;
+      private int mUnitDispType;
       private bool mShowInventory;
       private Vector2 mInventoryScrollPos;
       private bool mShowArtifact;
@@ -5441,15 +7245,15 @@ namespace SRPG
 
       public override void End(SceneBattle self)
       {
-        if (!Object.op_Inequality((Object) this.mGUIEvent, (Object) null))
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mGUIEvent, (UnityEngine.Object) null))
           return;
-        Object.Destroy((Object) this.mGUIEvent);
+        UnityEngine.Object.Destroy((UnityEngine.Object) this.mGUIEvent);
         this.mGUIEvent = (GUIEventListener) null;
       }
 
       public override void Update(SceneBattle self)
       {
-        if (!string.IsNullOrEmpty(GlobalVars.SelectedQuestID) || !Object.op_Equality((Object) this.mGUIEvent, (Object) null) || Network.Mode != Network.EConnectMode.Offline)
+        if (!string.IsNullOrEmpty(GlobalVars.SelectedQuestID) || !UnityEngine.Object.op_Equality((UnityEngine.Object) this.mGUIEvent, (UnityEngine.Object) null) || Network.Mode != Network.EConnectMode.Offline)
           return;
         this.mGUIEvent = (GUIEventListener) ((Component) self).get_gameObject().AddComponent<GUIEventListener>();
         this.mGUIEvent.Listeners = new GUIEventListener.GUIEvent(this.OnGUI);
@@ -5561,7 +7365,7 @@ namespace SRPG
       private IEnumerator LoadAndExecuteEvent(string eventName)
       {
         // ISSUE: object of a compiler-generated type is created
-        return (IEnumerator) new SceneBattle.State_Start.\u003CLoadAndExecuteEvent\u003Ec__Iterator38() { eventName = eventName, \u003C\u0024\u003EeventName = eventName, \u003C\u003Ef__this = this };
+        return (IEnumerator) new SceneBattle.State_Start.\u003CLoadAndExecuteEvent\u003Ec__Iterator5E() { eventName = eventName, \u003C\u0024\u003EeventName = eventName, \u003C\u003Ef__this = this };
       }
 
       private void GotoNextState()
@@ -5609,6 +7413,23 @@ namespace SRPG
 
     private class State_WaitForLog : State<SceneBattle>
     {
+      private bool CheckShieldEffect()
+      {
+        TacticsUnitController unitController = this.self.FindUnitController(this.self.Battle.CurrentUnit);
+        if (UnityEngine.Object.op_Implicit((UnityEngine.Object) unitController))
+        {
+          unitController.UpdateShields(true);
+          TacticsUnitController tuc;
+          TacticsUnitController.ShieldState shield;
+          if (this.self.FindChangedShield(out tuc, out shield))
+          {
+            this.self.GotoState<SceneBattle.State_SpawnShieldEffects>();
+            return true;
+          }
+        }
+        return false;
+      }
+
       public override void Update(SceneBattle self)
       {
         BattleLogServer logs = self.Battle.Logs;
@@ -5630,7 +7451,7 @@ namespace SRPG
             ++self.mUnitStartCount;
             ++self.mUnitStartCountTotal;
             self.mBattleUI.OnUnitStart();
-            if (!Object.op_Equality((Object) self.mBattleUI_MultiPlay, (Object) null))
+            if (!UnityEngine.Object.op_Equality((UnityEngine.Object) self.mBattleUI_MultiPlay, (UnityEngine.Object) null))
             {
               if (self.Battle.CurrentUnit.OwnerPlayerIndex > 0 && self.Battle.CurrentUnit.OwnerPlayerIndex == self.Battle.MyPlayerIndex)
               {
@@ -5646,7 +7467,6 @@ namespace SRPG
                   self.mBattleUI_MultiPlay.OnEnemyUnitStart();
               }
             }
-            self.mSkillDamageDispType = eDamageDispType.Standard;
             self.GotoState<SceneBattle.State_PreUnitStart>();
             break;
           }
@@ -5655,19 +7475,33 @@ namespace SRPG
             self.GotoState<SceneBattle.State_SpawnUnit>();
             break;
           }
+          if (peek is LogUnitWithdraw)
+          {
+            self.GotoState<SceneBattle.State_UnitWithdraw>();
+            break;
+          }
+          if (peek is LogWeather)
+          {
+            self.GotoState<SceneBattle.State_Weather>();
+            break;
+          }
           if (peek is LogMapCommand)
           {
+            if (this.CheckShieldEffect())
+              break;
             self.RemoveLog();
             self.GotoMapCommand();
             break;
           }
           if (peek is LogMapWait)
           {
+            self.Battle.SetManualPlayFlag();
             self.GotoState<SceneBattle.State_MapWait>();
             break;
           }
           if (peek is LogMapMove)
           {
+            self.Battle.SetManualPlayFlag();
             self.GotoState<SceneBattle.State_AnimateMove>();
             break;
           }
@@ -5680,11 +7514,14 @@ namespace SRPG
           {
             if (peek is LogSkill)
             {
+              if (((LogSkill) peek).skill.AttackType == AttackTypes.MagAttack)
+                self.Battle.SetManualPlayFlag();
               self.GotoPrepareSkill();
               break;
             }
             if (peek is LogCastSkillStart)
             {
+              self.mBattleUI.OnCastSkillStart();
               self.GotoState<SceneBattle.State_CastSkillStart>();
               break;
             }
@@ -5693,9 +7530,16 @@ namespace SRPG
               self.GotoState<SceneBattle.State_CastSkillEnd>();
               break;
             }
+            if (peek is LogMapTrick)
+            {
+              self.GotoState<SceneBattle.State_MapTrick>();
+              break;
+            }
             if (peek is LogUnitEnd)
             {
-              if (!Object.op_Equality((Object) self.mBattleUI_MultiPlay, (Object) null))
+              if (this.CheckShieldEffect())
+                break;
+              if (!UnityEngine.Object.op_Equality((UnityEngine.Object) self.mBattleUI_MultiPlay, (UnityEngine.Object) null))
               {
                 if (self.Battle.CurrentUnit.OwnerPlayerIndex > 0 && self.Battle.CurrentUnit.OwnerPlayerIndex == self.Battle.MyPlayerIndex)
                 {
@@ -5716,12 +7560,14 @@ namespace SRPG
                 self.Battle.RemainVersusTurnCount = (uint) self.UnitStartCountTotal;
                 self.ArenaActionCountSet(self.Battle.RemainVersusTurnCount);
               }
+              LogUnitEnd logUnitEnd = peek as LogUnitEnd;
+              if (logUnitEnd.self != null)
+              {
+                TacticsUnitController unitController = self.FindUnitController(logUnitEnd.self);
+                if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
+                  unitController.ClearBadStatusLocks();
+              }
               self.GotoState<SceneBattle.State_UnitEnd>();
-              break;
-            }
-            if (peek is LogTurnEnd)
-            {
-              self.GotoState<SceneBattle.State_TurnEnd>();
               break;
             }
             if (peek is LogMapEnd)
@@ -5735,7 +7581,7 @@ namespace SRPG
             {
               if (!self.Battle.IsBattle)
               {
-                self.GotoState<SceneBattle.State_MapDead>();
+                self.GotoState<SceneBattle.State_EventMapDead>();
                 break;
               }
               self.GotoState<SceneBattle.State_BattleDead>();
@@ -5748,11 +7594,6 @@ namespace SRPG
                 self.GotoState<SceneBattle.State_MapRevive>();
                 break;
               }
-              self.RemoveLog();
-            }
-            else if (peek is LogHeal)
-            {
-              DebugUtility.LogWarning("warning heal.");
               self.RemoveLog();
             }
             else if (peek is LogDamage)
@@ -5768,7 +7609,19 @@ namespace SRPG
                 break;
               }
               if (peek is LogFailCondition)
+              {
+                LogFailCondition logFailCondition = peek as LogFailCondition;
+                if (logFailCondition.self != null)
+                {
+                  TacticsUnitController unitController = self.FindUnitController(logFailCondition.self);
+                  if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
+                  {
+                    unitController.UnlockUpdateBadStatus(logFailCondition.condition);
+                    unitController.UpdateBadStatus();
+                  }
+                }
                 self.RemoveLog();
+              }
               else if (peek is LogCureCondition)
               {
                 self.RemoveLog();
@@ -5777,6 +7630,7 @@ namespace SRPG
               {
                 if (peek is LogCast)
                 {
+                  self.Battle.SetManualPlayFlag();
                   self.GotoState<SceneBattle.State_PrepareCast>();
                   break;
                 }
@@ -5862,7 +7716,7 @@ namespace SRPG
       public override void Begin(SceneBattle self)
       {
         TacticsUnitController unitController = self.FindUnitController(self.mBattle.CurrentUnit);
-        if (!Object.op_Inequality((Object) unitController, (Object) null))
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
           return;
         unitController.HideCursor(false);
       }
@@ -5890,7 +7744,7 @@ namespace SRPG
       {
         self.ShowAllHPGauges();
         TacticsUnitController unitController = self.FindUnitController(self.mBattle.CurrentUnit);
-        if (!Object.op_Inequality((Object) unitController, (Object) null))
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
           return;
         unitController.HideCursor(false);
       }
@@ -5902,7 +7756,7 @@ namespace SRPG
       private void SyncCameraPosition(SceneBattle self)
       {
         TacticsUnitController unitController = self.FindUnitController(self.mBattle.CurrentUnit);
-        if (Object.op_Equality((Object) unitController, (Object) null))
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
           return;
         GameSettings instance = GameSettings.Instance;
         Transform transform = ((Component) Camera.get_main()).get_transform();
@@ -5928,13 +7782,13 @@ namespace SRPG
 
       public void Add(GameObject go)
       {
-        if (Object.op_Equality((Object) go, (Object) null))
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) go, (UnityEngine.Object) null))
           return;
         Win_Btn_Decide_Title_Flx component1 = (Win_Btn_Decide_Title_Flx) go.GetComponent<Win_Btn_Decide_Title_Flx>();
-        if (Object.op_Inequality((Object) component1, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component1, (UnityEngine.Object) null))
           this.mMsgBox.Add(component1);
         Win_Btn_DecideCancel_FL_C component2 = (Win_Btn_DecideCancel_FL_C) go.GetComponent<Win_Btn_DecideCancel_FL_C>();
-        if (!Object.op_Inequality((Object) component2, (Object) null))
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component2, (UnityEngine.Object) null))
           return;
         this.mYesNoDlg.Add(component2);
       }
@@ -5982,6 +7836,19 @@ namespace SRPG
 
       public override void Update(SceneBattle self)
       {
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mEventScript, (UnityEngine.Object) null))
+        {
+          TacticsUnitController unitController = self.FindUnitController(self.mBattle.CurrentUnit);
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
+          {
+            self.mEventSequence = self.mEventScript.OnStandbyGrid(unitController, self.mIsFirstPlay);
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mEventSequence, (UnityEngine.Object) null))
+            {
+              self.GotoState<SceneBattle.State_WaitEvent<SceneBattle.State_WaitForLog>>();
+              return;
+            }
+          }
+        }
         self.GotoState<SceneBattle.State_WaitForLog>();
       }
 
@@ -6064,7 +7931,7 @@ namespace SRPG
               this.mClickedOK = true;
               this.mController.HideCursor(false);
               ((Component) this.mController).get_transform().set_position(this.mScene.CalcGridCenter(current));
-              this.mScene.SendInputGridXY(this.mScene.Battle.CurrentUnit, this.mDestX, this.mDestY, this.mScene.Battle.CurrentUnit.Direction);
+              this.mScene.SendInputGridXY(this.mScene.Battle.CurrentUnit, this.mDestX, this.mDestY, this.mScene.Battle.CurrentUnit.Direction, true);
               this.mScene.SendInputMoveEnd(this.mScene.Battle.CurrentUnit, false);
               this.mScene.mBattleUI.OnInputMoveEnd();
               if (current == this.mStartGrid)
@@ -6182,7 +8049,7 @@ namespace SRPG
       {
         get
         {
-          if (Object.op_Inequality((Object) VirtualStick.Instance, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) VirtualStick.Instance, (UnityEngine.Object) null))
             return VirtualStick.Instance.GetVelocity(((Component) Camera.get_main()).get_transform());
           return Vector2.get_zero();
         }
@@ -6214,13 +8081,13 @@ namespace SRPG
           }
           else
           {
-            self.SendInputGridXY(currentUnit, currentUnit.x, currentUnit.y, currentUnit.Direction);
+            self.SendInputGridXY(currentUnit, currentUnit.x, currentUnit.y, currentUnit.Direction, true);
             self.SendInputMove(currentUnit, this.mController);
             self.SendInputMoveEnd(currentUnit, false);
             DebugUtility.Log("MoveEnd x:" + (object) currentUnit.x + " y:" + (object) currentUnit.y + " action:" + (object) this.mController.IsPlayingFieldAction);
           }
           self.SendInputUnitTimeLimit(currentUnit);
-          self.SendInputFlush();
+          self.SendInputFlush(false);
           self.Battle.EntryBattleMultiPlayTimeUp = true;
           this.mClickedOK = true;
           self.CloseBattleUI();
@@ -6265,7 +8132,6 @@ namespace SRPG
               this.mDestY = Mathf.FloorToInt((float) this.mBasePos.y);
               bool battleMultiPlayTimeUp = this.mScene.Battle.EntryBattleMultiPlayTimeUp;
               self.Battle.EntryBattleMultiPlayTimeUp = false;
-              self.SendInputGridXY(self.Battle.CurrentUnit, this.mDestX, this.mDestY, self.Battle.CurrentUnit.Direction);
               self.Battle.EntryBattleMultiPlayTimeUp = battleMultiPlayTimeUp;
             }
             Vector2 inputDir = this.Velocity;
@@ -6305,6 +8171,8 @@ namespace SRPG
                   Grid current = self.mBattle.CurrentMap[this.mDestX, this.mDestY];
                   this.mController.StepTo(self.CalcGridCenter(current));
                   this.mGridSnapping = true;
+                  if (self.Battle.CurrentUnit != null)
+                    self.SendInputGridXY(self.Battle.CurrentUnit, this.mDestX, this.mDestY, self.Battle.CurrentUnit.Direction, true);
                 }
               }
             }
@@ -6380,7 +8248,7 @@ namespace SRPG
                   this.mJumping = true;
                   bool battleMultiPlayTimeUp = this.mScene.Battle.EntryBattleMultiPlayTimeUp;
                   self.Battle.EntryBattleMultiPlayTimeUp = false;
-                  self.SendInputGridXY(self.Battle.CurrentUnit, this.mDestX, this.mDestY, self.Battle.CurrentUnit.Direction);
+                  self.SendInputGridXY(self.Battle.CurrentUnit, this.mDestX, this.mDestY, self.Battle.CurrentUnit.Direction, true);
                   self.Battle.EntryBattleMultiPlayTimeUp = battleMultiPlayTimeUp;
                 }
                 else
@@ -6487,100 +8355,558 @@ namespace SRPG
       }
     }
 
-    private class State_MapDead : State<SceneBattle>
+    private class State_EventMapDead : State<SceneBattle>
     {
       private TacticsUnitController mController;
-      private bool mIsPlayDead;
-      private DeadTypes mDeadType;
-      private bool mIsCountDownStart;
+
+      public override void Begin(SceneBattle self)
+      {
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mEventScript, (UnityEngine.Object) null))
+        {
+          LogDead peek = self.mBattle.Logs.Peek as LogDead;
+          if (peek != null)
+          {
+            List<TacticsUnitController> tacticsUnitControllerList = new List<TacticsUnitController>();
+            using (List<LogDead.Param>.Enumerator enumerator = peek.list_normal.GetEnumerator())
+            {
+              while (enumerator.MoveNext())
+              {
+                LogDead.Param current = enumerator.Current;
+                TacticsUnitController unitController = self.FindUnitController(current.self);
+                if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
+                  tacticsUnitControllerList.Add(unitController);
+              }
+            }
+            using (List<LogDead.Param>.Enumerator enumerator = peek.list_sentence.GetEnumerator())
+            {
+              while (enumerator.MoveNext())
+              {
+                LogDead.Param current = enumerator.Current;
+                TacticsUnitController unitController = self.FindUnitController(current.self);
+                if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
+                  tacticsUnitControllerList.Add(unitController);
+              }
+            }
+            using (List<TacticsUnitController>.Enumerator enumerator = tacticsUnitControllerList.GetEnumerator())
+            {
+              while (enumerator.MoveNext())
+              {
+                TacticsUnitController current = enumerator.Current;
+                self.mEventSequence = self.mEventScript.OnUnitDead(current, self.mIsFirstPlay);
+                if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mEventSequence, (UnityEngine.Object) null))
+                {
+                  this.mController = current;
+                  self.InterpCameraDistance(GameSettings.Instance.GameCamera_DefaultDistance);
+                  self.InterpCameraTarget((Component) this.mController);
+                  return;
+                }
+              }
+            }
+          }
+        }
+        self.GotoState<SceneBattle.State_MapDead>();
+      }
+
+      public override void Update(SceneBattle self)
+      {
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mController, (UnityEngine.Object) null) && self.IsCameraMoving)
+          return;
+        self.GotoState<SceneBattle.State_WaitEvent<SceneBattle.State_EventMapDead>>();
+      }
+    }
+
+    private class State_MapDead : State<SceneBattle>
+    {
+      private List<SceneBattle.State_MapDead.DirectionBase> mList = new List<SceneBattle.State_MapDead.DirectionBase>();
+
+      public List<SceneBattle.State_MapDead.DirectionBase> list
+      {
+        get
+        {
+          return this.mList;
+        }
+      }
 
       public override void Begin(SceneBattle self)
       {
         LogDead peek = (LogDead) self.mBattle.Logs.Peek;
-        this.mController = self.FindUnitController(peek.self);
-        if (Object.op_Inequality((Object) this.mController, (Object) null))
+        List<Vector3> vector3List = new List<Vector3>();
+        for (int index = 0; index < peek.list_normal.Count; ++index)
         {
-          this.mController.LoadDeathAnimation(TacticsUnitController.DeathAnimationTypes.Normal);
-          if (peek.self.Side == EUnitSide.Enemy && peek.self.Drop != null && peek.self.Drop.IsEnableDrop())
-            self.mDroppedTreasures.Add(new SceneBattle.TreasureSpawnInfo()
-            {
-              Drop = peek.self.Drop,
-              Position = ((Component) this.mController).get_transform().get_position()
-            });
-          this.mDeadType = peek.type;
-          if (this.mDeadType == DeadTypes.DeathSentence)
-            this.OnDeathSentenceEnd();
+          LogDead.Param obj = peek.list_normal[index];
+          TacticsUnitController unitController = self.FindUnitController(obj.self);
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
+          {
+            SceneBattle.State_MapDead.Dead.Normal normal = new SceneBattle.State_MapDead.Dead.Normal(self, this);
+            normal.Initialize(10, unitController, obj.type);
+            this.mList.Add((SceneBattle.State_MapDead.DirectionBase) normal);
+            vector3List.Add(unitController.CenterPosition);
+          }
+        }
+        if (vector3List.Count > 0)
+        {
+          SceneBattle.State_MapDead.Camera.Normal normal = new SceneBattle.State_MapDead.Camera.Normal(self, this);
+          normal.Initialize(0, vector3List.ToArray());
+          this.mList.Add((SceneBattle.State_MapDead.DirectionBase) normal);
+        }
+        for (int index = 0; index < peek.list_sentence.Count; ++index)
+        {
+          LogDead.Param obj = peek.list_sentence[index];
+          TacticsUnitController unitController = self.FindUnitController(obj.self);
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
+          {
+            SceneBattle.State_MapDead.Dead.CameraForcus cameraForcus = new SceneBattle.State_MapDead.Dead.CameraForcus(self, this);
+            cameraForcus.Initialize(100 + index, unitController, obj.type);
+            this.mList.Add((SceneBattle.State_MapDead.DirectionBase) cameraForcus);
+          }
         }
         self.RemoveLog();
       }
 
       public override void Update(SceneBattle self)
       {
-        if (Object.op_Inequality((Object) this.mController, (Object) null))
+        for (int index = 0; index < this.mList.Count; ++index)
         {
-          if (this.mController.IsLoading)
-            return;
-          if (this.mDeadType == DeadTypes.DeathSentence)
+          SceneBattle.State_MapDead.DirectionBase m = this.mList[index];
+          if (!m.Update())
           {
-            this.OnDeathSentenceUpdate();
-            if (!this.mIsCountDownStart || this.mController.IsDeathSentenceCountDownPlaying())
-              return;
-          }
-          if (!this.mIsPlayDead)
-          {
-            this.mController.PlayDead(TacticsUnitController.DeathAnimationTypes.Normal);
-            self.OnUnitDeath(this.mController.Unit);
-            self.mTacticsUnits.Remove(this.mController);
-            this.mIsPlayDead = true;
-            this.mController.ShowHPGauge(false);
-            this.mController.ShowVersusCursor(false);
+            m.Release();
+            this.mList.RemoveAt(index);
+            --index;
           }
         }
-        else if (this.mIsPlayDead)
-          self.OnGimmickUpdate();
-        else
-          self.GotoState<SceneBattle.State_WaitGC<SceneBattle.State_WaitForLog>>();
-        if (self.mDroppedTreasures.Count > 0)
+        if (this.mList.Count != 0)
+          return;
+        self.InterpCameraDistance(GameSettings.Instance.GameCamera_DefaultDistance);
+        self.OnGimmickUpdate();
+        self.RefreshJumpSpots();
+        self.GotoState<SceneBattle.State_WaitGC<SceneBattle.State_WaitForLog>>();
+      }
+
+      public override void End(SceneBattle self)
+      {
+        for (int index = 0; index < this.mList.Count; ++index)
+          this.mList[index].Release();
+        this.mList.Clear();
+      }
+
+      public class DirectionBase
+      {
+        private SceneBattle mSceneBattle;
+        private SceneBattle.State_MapDead mState;
+        private int mPriority;
+        private bool mDeleteFlag;
+        private SceneBattle.State_MapDead.DirectionBase.Proc mProc;
+        private int mProcCount;
+
+        public DirectionBase(SceneBattle self, SceneBattle.State_MapDead state)
         {
-          self.GotoState<SceneBattle.State_WaitGC<SceneBattle.State_Treasure>>();
+          this.mSceneBattle = self;
+          this.mState = state;
+          this.SetProc(SceneBattle.State_MapDead.DirectionBase.Proc.PREPARE);
         }
-        else
+
+        public SceneBattle scene
         {
-          if (!this.mIsPlayDead || !Object.op_Equality((Object) this.mController, (Object) null))
-            return;
-          self.GotoState<SceneBattle.State_WaitGC<SceneBattle.State_WaitForLog>>();
+          get
+          {
+            return this.mSceneBattle;
+          }
+        }
+
+        public SceneBattle.State_MapDead state
+        {
+          get
+          {
+            return this.mState;
+          }
+        }
+
+        public bool Update()
+        {
+          if (this.GetPriority() >= 0)
+          {
+            List<SceneBattle.State_MapDead.DirectionBase> list = this.mState.list;
+            for (int index = 0; index < list.Count; ++index)
+            {
+              if (list[index].GetPriority() < this.GetPriority())
+                return true;
+            }
+          }
+          switch (this.mProc)
+          {
+            case SceneBattle.State_MapDead.DirectionBase.Proc.PREPARE:
+              this.OnPrepare();
+              this.SetProc(SceneBattle.State_MapDead.DirectionBase.Proc.BEGIN);
+              break;
+            case SceneBattle.State_MapDead.DirectionBase.Proc.BEGIN:
+              if (!this.OnLoading())
+              {
+                this.OnBegin();
+                this.SetProc(SceneBattle.State_MapDead.DirectionBase.Proc.MAIN);
+                break;
+              }
+              break;
+            case SceneBattle.State_MapDead.DirectionBase.Proc.MAIN:
+              if (!this.OnMain())
+              {
+                this.Delete();
+                break;
+              }
+              break;
+          }
+          if (this.mDeleteFlag)
+          {
+            this.SetProc(SceneBattle.State_MapDead.DirectionBase.Proc.END);
+            this.OnEnd();
+          }
+          return !this.mDeleteFlag;
+        }
+
+        public void Delete()
+        {
+          this.mDeleteFlag = true;
+        }
+
+        public void SetPriority(int pri)
+        {
+          this.mPriority = pri;
+        }
+
+        public int GetPriority()
+        {
+          return this.mPriority;
+        }
+
+        protected void SetProc(SceneBattle.State_MapDead.DirectionBase.Proc proc)
+        {
+          this.mProc = proc;
+          this.mProcCount = 0;
+        }
+
+        protected SceneBattle.State_MapDead.DirectionBase.Proc GetProc()
+        {
+          return this.mProc;
+        }
+
+        protected int GetProcCount()
+        {
+          return this.mProcCount;
+        }
+
+        protected void SetProcCount(int value)
+        {
+          this.mProcCount = value;
+        }
+
+        protected void IncProcCount()
+        {
+          ++this.mProcCount;
+        }
+
+        protected void DecProcCount()
+        {
+          --this.mProcCount;
+        }
+
+        public virtual void Initialize(int priority)
+        {
+          this.mPriority = priority;
+        }
+
+        public virtual void Release()
+        {
+        }
+
+        protected virtual void OnPrepare()
+        {
+        }
+
+        protected virtual bool OnLoading()
+        {
+          return false;
+        }
+
+        protected virtual void OnBegin()
+        {
+        }
+
+        protected virtual bool OnMain()
+        {
+          return false;
+        }
+
+        protected virtual void OnEnd()
+        {
+        }
+
+        protected enum Proc
+        {
+          PREPARE,
+          BEGIN,
+          MAIN,
+          END,
         }
       }
 
-      private void OnDeathSentenceEnd()
+      public class Camera : SceneBattle.State_MapDead.DirectionBase
       {
-        this.self.InterpCameraDistance(GameSettings.Instance.GameCamera_DefaultDistance);
-        this.self.InterpCameraTarget((Component) this.mController);
+        protected Vector3 m_Center;
+        protected float m_Distance;
+
+        public Camera(SceneBattle self, SceneBattle.State_MapDead state)
+          : base(self, state)
+        {
+        }
+
+        public void Initialize(int priority, Vector3[] targets)
+        {
+          this.Initialize(priority);
+          this.scene.GetCameraTargetView(out this.m_Center, out this.m_Distance, targets);
+        }
+
+        protected override void OnBegin()
+        {
+          this.scene.InterpCameraDistance(this.m_Distance);
+          this.scene.InterpCameraTarget(this.m_Center);
+        }
+
+        protected override bool OnMain()
+        {
+          Vector3 vector3 = Vector3.op_Subtraction(this.scene.mCameraTarget, this.m_Center);
+          vector3.y = (__Null) 0.0;
+          // ISSUE: explicit reference operation
+          // ISSUE: explicit reference operation
+          return (double) ((Vector3) @vector3).get_magnitude() * (double) ((Vector3) @vector3).get_magnitude() >= 0.25;
+        }
+
+        public class Normal : SceneBattle.State_MapDead.Camera
+        {
+          public Normal(SceneBattle self, SceneBattle.State_MapDead state)
+            : base(self, state)
+          {
+          }
+        }
       }
 
-      private void OnDeathSentenceUpdate()
+      public class Dead : SceneBattle.State_MapDead.DirectionBase
       {
-        if (this.mIsCountDownStart)
-          return;
-        Vector3 vector3 = Vector3.op_Subtraction(this.self.mCameraTarget, ((Component) this.mController).get_transform().get_position());
-        vector3.y = (__Null) 0.0;
-        // ISSUE: explicit reference operation
-        // ISSUE: explicit reference operation
-        if ((double) ((Vector3) @vector3).get_magnitude() * (double) ((Vector3) @vector3).get_magnitude() >= 0.25)
-          return;
-        this.mController.DeathSentenceCountDown(true, 1f);
-        this.mIsCountDownStart = true;
+        protected TacticsUnitController mController;
+        protected Unit mUnit;
+        protected DeadTypes mDeadType;
+
+        public Dead(SceneBattle self, SceneBattle.State_MapDead state)
+          : base(self, state)
+        {
+        }
+
+        public TacticsUnitController controller
+        {
+          get
+          {
+            return this.mController;
+          }
+        }
+
+        public Unit unit
+        {
+          get
+          {
+            return this.mUnit;
+          }
+        }
+
+        public DeadTypes deadType
+        {
+          get
+          {
+            return this.mDeadType;
+          }
+        }
+
+        public void Initialize(int priority, TacticsUnitController controller, DeadTypes deadType)
+        {
+          this.Initialize(priority);
+          this.mController = controller;
+          this.mUnit = controller.Unit;
+          this.mDeadType = deadType;
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mController, (UnityEngine.Object) null))
+            return;
+          this.mController.ReflectDispModel();
+          this.mController.LoadDeathAnimation(TacticsUnitController.DeathAnimationTypes.Normal);
+          if (this.mUnit == null || this.mUnit.Drop == null || this.mUnit.Side != EUnitSide.Enemy && !this.mUnit.IsBreakObj || !this.mUnit.Drop.IsEnableDrop())
+            return;
+          SceneBattle.State_MapDead.TreasureDrop.Normal normal = new SceneBattle.State_MapDead.TreasureDrop.Normal(this.scene, this.state);
+          normal.Initialize(this.GetPriority() + 1, this.mUnit, this.mUnit.Drop, ((Component) controller).get_transform().get_position());
+          this.state.list.Add((SceneBattle.State_MapDead.DirectionBase) normal);
+        }
+
+        protected override bool OnLoading()
+        {
+          return this.mController.IsLoading;
+        }
+
+        protected override void OnBegin()
+        {
+          this.mController.PlayDead(TacticsUnitController.DeathAnimationTypes.Normal);
+          this.scene.OnUnitDeath(this.mController.Unit);
+          this.scene.mTacticsUnits.Remove(this.mController);
+          this.mController.ShowHPGauge(false);
+          this.mController.ShowVersusCursor(false);
+        }
+
+        protected override bool OnMain()
+        {
+          return !UnityEngine.Object.op_Equality((UnityEngine.Object) this.mController, (UnityEngine.Object) null);
+        }
+
+        public class Normal : SceneBattle.State_MapDead.Dead
+        {
+          public Normal(SceneBattle self, SceneBattle.State_MapDead state)
+            : base(self, state)
+          {
+          }
+        }
+
+        public class CameraForcus : SceneBattle.State_MapDead.Dead
+        {
+          public CameraForcus(SceneBattle self, SceneBattle.State_MapDead state)
+            : base(self, state)
+          {
+          }
+
+          protected override void OnPrepare()
+          {
+            this.scene.InterpCameraDistance(GameSettings.Instance.GameCamera_DefaultDistance);
+            this.scene.InterpCameraTarget((Component) this.mController);
+          }
+
+          protected override bool OnLoading()
+          {
+            if (base.OnLoading())
+              return true;
+            switch (this.GetProcCount())
+            {
+              case 0:
+                Vector3 vector3 = Vector3.op_Subtraction(this.scene.mCameraTarget, ((Component) this.mController).get_transform().get_position());
+                vector3.y = (__Null) 0.0;
+                // ISSUE: explicit reference operation
+                // ISSUE: explicit reference operation
+                if ((double) ((Vector3) @vector3).get_magnitude() * (double) ((Vector3) @vector3).get_magnitude() < 0.25)
+                {
+                  this.mController.DeathSentenceCountDown(true, 1f);
+                  this.IncProcCount();
+                  break;
+                }
+                break;
+              case 1:
+                if (this.mController.IsDeathSentenceCountDownPlaying())
+                  return true;
+                break;
+            }
+            return false;
+          }
+        }
+      }
+
+      public class TreasureDrop : SceneBattle.State_MapDead.DirectionBase
+      {
+        protected Unit m_Owner;
+        protected Unit.UnitDrop m_Drop;
+        protected TreasureBox m_TreasureBox;
+
+        public TreasureDrop(SceneBattle self, SceneBattle.State_MapDead state)
+          : base(self, state)
+        {
+        }
+
+        public void Initialize(int priority, Unit owner, Unit.UnitDrop drop, Vector3 pos)
+        {
+          this.Initialize(priority);
+          this.m_Owner = owner;
+          if (this.m_Owner != null)
+            this.m_Owner.BeginDropDirection();
+          this.m_Drop = drop;
+          this.m_TreasureBox = (TreasureBox) UnityEngine.Object.Instantiate<TreasureBox>((M0) this.scene.mTreasureBoxTemplate);
+          this.m_TreasureBox.owner = owner;
+          ((Component) this.m_TreasureBox).get_transform().set_parent(((Component) this.scene).get_transform());
+          ((Component) this.m_TreasureBox).get_transform().set_position(pos);
+          ((Component) this.m_TreasureBox).get_gameObject().SetActive(false);
+        }
+
+        protected override void OnBegin()
+        {
+          Unit.DropItem DropItem = (Unit.DropItem) null;
+          for (int index = this.m_Drop.items.Count - 1; index >= 0; --index)
+          {
+            if (this.m_Drop.items[index] != null && this.m_Drop.items[index].param != null && (int) this.m_Drop.items[index].num != 0)
+            {
+              DropItem = this.m_Drop.items[index];
+              break;
+            }
+          }
+          SceneBattle.Instance.AddTreasureCount(1);
+          this.m_TreasureBox.Open(DropItem, this.scene.mTreasureDropTemplate, (int) this.m_Drop.gold, this.scene.mTreasureGoldTemplate);
+        }
+
+        protected override bool OnMain()
+        {
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_TreasureBox, (UnityEngine.Object) null))
+            return false;
+          if (!((Component) this.m_TreasureBox).get_gameObject().get_activeInHierarchy())
+            ((Component) this.m_TreasureBox).get_gameObject().SetActive(true);
+          return true;
+        }
+
+        public class Normal : SceneBattle.State_MapDead.TreasureDrop
+        {
+          public Normal(SceneBattle self, SceneBattle.State_MapDead state)
+            : base(self, state)
+          {
+          }
+        }
+      }
+    }
+
+    public class TreasureEvent : SceneBattle.SimpleEvent.Interface
+    {
+      public static int GROUP = nameof (TreasureEvent).GetHashCode();
+
+      public void OnEvent(string key, object obj)
+      {
+        if (key == "DropItemEffect.End")
+        {
+          DropItemEffect dropItemEffect = obj as DropItemEffect;
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) dropItemEffect, (UnityEngine.Object) null))
+            return;
+          Unit dropOwner = dropItemEffect.DropOwner;
+          if (dropOwner != null)
+            dropOwner.EndDropDirection();
+          SceneBattle.Instance.AddDispTreasureCount(1);
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) dropItemEffect, (UnityEngine.Object) null) || !UnityEngine.Object.op_Inequality((UnityEngine.Object) dropItemEffect.TargetRect, (UnityEngine.Object) null))
+            return;
+          GameParameter.UpdateAll(((Component) dropItemEffect.TargetRect).get_gameObject());
+        }
+        else
+        {
+          if (!(key == "DropGoldEffect.End"))
+            return;
+          DropGoldEffect dropGoldEffect = obj as DropGoldEffect;
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) dropGoldEffect, (UnityEngine.Object) null))
+            return;
+          Unit dropOwner = dropGoldEffect.DropOwner;
+          if (dropOwner != null)
+            dropOwner.EndDropDirection();
+          SceneBattle.Instance.AddGoldCount(dropGoldEffect.Gold);
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) dropGoldEffect.TargetRect, (UnityEngine.Object) null))
+            return;
+          GameParameter.UpdateAll(((Component) dropGoldEffect.TargetRect).get_gameObject());
+        }
       }
     }
 
     private class State_MapRevive : SceneBattle.State_SpawnUnit
     {
-      protected override Unit ReadLog()
-      {
-        Unit self = ((LogRevive) this.self.mBattle.Logs.Peek).self;
-        this.self.RemoveLog();
-        return self;
-      }
     }
 
     private class State_PickupGimmick : State<SceneBattle>
@@ -6601,13 +8927,15 @@ namespace SRPG
         this.mScene = self;
         this.mGimmickController = self.FindUnitController(this.mLog.target);
         this.mUnitController = self.FindUnitController(this.mLog.self);
-        if (Object.op_Equality((Object) this.mUnitController, (Object) null))
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mUnitController, (UnityEngine.Object) null))
         {
           self.RemoveLog();
           self.GotoState<SceneBattle.State_WaitForLog>();
         }
         else
         {
+          if (this.mLog.target != null)
+            this.mLog.target.BeginDropDirection();
           self.mUpdateCameraPosition = true;
           self.SetCameraOffset(((Component) GameSettings.Instance.Quest.UnitCamera).get_transform());
           self.InterpCameraTarget((Component) this.mUnitController);
@@ -6615,19 +8943,9 @@ namespace SRPG
           this.mDrop = this.mLog.target.Drop;
           if (this.mDrop != null)
           {
-            self.AddGoldCount((int) this.mDrop.gold);
-            this.mItemDrop = this.mGimmickController.Unit != null && this.mGimmickController.Unit.CheckItemDrop();
+            this.mItemDrop = this.mGimmickController.Unit != null && this.mGimmickController.Unit.CheckItemDrop(false);
             if (this.mItemDrop)
-            {
-              for (int index = this.mDrop.items.Count - 1; index >= 0; --index)
-              {
-                if (this.mDrop.items[index] != null && this.mDrop.items[index].param != null && (int) this.mDrop.items[index].num != 0)
-                {
-                  self.AddTreasureCount(1);
-                  break;
-                }
-              }
-            }
+              SceneBattle.Instance.AddTreasureCount(1);
           }
           this.mUnitController.BeginLoadPickupAnimation();
           this.mPickup = (MapPickup) ((Component) this.mGimmickController).GetComponentInChildren<MapPickup>();
@@ -6635,8 +8953,8 @@ namespace SRPG
           this.mGimmickController.BeginLoadPickupAnimation();
           if (!this.mItemDrop || this.mDrop == null || this.mDrop.items.Count <= 0)
             return;
-          this.mDropItemEffect = Object.Instantiate((Object) this.mScene.mTreasureDropTemplate, Vector3.op_Addition(((Component) this.mGimmickController).get_transform().get_position(), this.mPickup.DropEffectOffset), (Quaternion) null) as DropItemEffect;
-          if (!Object.op_Inequality((Object) this.mDropItemEffect, (Object) null))
+          this.mDropItemEffect = UnityEngine.Object.Instantiate((UnityEngine.Object) this.mScene.mTreasureDropTemplate, Vector3.op_Addition(((Component) this.mGimmickController).get_transform().get_position(), this.mPickup.DropEffectOffset), (Quaternion) null) as DropItemEffect;
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mDropItemEffect, (UnityEngine.Object) null))
             return;
           ((Component) this.mDropItemEffect).get_transform().SetParent(((Component) self.OverlayCanvas).get_transform(), false);
           ((ItemIcon) ((Component) this.mDropItemEffect).get_gameObject().GetComponent<ItemIcon>()).UpdateValue();
@@ -6672,6 +8990,9 @@ namespace SRPG
         this.mGimmickController.UnloadPickupAnimation();
         ((Component) this.mGimmickController).get_gameObject().SetActive(false);
         self.RefreshUnitStatus(this.mUnitController.Unit);
+        if (this.mLog.target == null)
+          return;
+        this.mLog.target.EndDropDirection();
       }
 
       private void OnPickupDone()
@@ -6682,10 +9003,15 @@ namespace SRPG
         {
           Vector3 position = ((Component) this.mGimmickController).get_transform().get_position();
           if ((int) this.mDrop.gold > 0)
-            (Object.Instantiate((Object) this.mScene.mTreasureGoldTemplate, position, Quaternion.get_identity()) as DropGoldEffect).Gold = (int) this.mDrop.gold;
+          {
+            DropGoldEffect dropGoldEffect = UnityEngine.Object.Instantiate((UnityEngine.Object) this.mScene.mTreasureGoldTemplate, position, Quaternion.get_identity()) as DropGoldEffect;
+            dropGoldEffect.DropOwner = this.mLog.target;
+            dropGoldEffect.Gold = (int) this.mDrop.gold;
+          }
           if (this.mDrop.items.Count > 0 && this.mItemDrop)
           {
             ((Component) this.mDropItemEffect).get_gameObject().SetActive(true);
+            this.mDropItemEffect.DropOwner = this.mLog.target;
             this.mDropItemEffect.DropItem = this.mDrop.items[this.mDrop.items.Count - 1];
           }
           if ((int) this.mDrop.gems > 0)
@@ -6698,62 +9024,7 @@ namespace SRPG
       private IEnumerator GemPramChangePopup()
       {
         // ISSUE: object of a compiler-generated type is created
-        return (IEnumerator) new SceneBattle.State_PickupGimmick.\u003CGemPramChangePopup\u003Ec__Iterator3A() { \u003C\u003Ef__this = this };
-      }
-    }
-
-    private struct TreasureSpawnInfo
-    {
-      public Vector3 Position;
-      public Unit.UnitDrop Drop;
-    }
-
-    private class State_Treasure : State<SceneBattle>
-    {
-      private float mDelay;
-      private TreasureBox mTreasureBox;
-
-      public override void Begin(SceneBattle self)
-      {
-        this.mDelay = GameSettings.Instance.Quest.TreasureTime;
-        for (int index1 = self.mDroppedTreasures.Count - 1; index1 >= 0; --index1)
-        {
-          Unit.UnitDrop drop = self.mDroppedTreasures[index1].Drop;
-          TreasureBox treasureBox = (TreasureBox) Object.Instantiate<TreasureBox>((M0) self.mTreasureBoxTemplate);
-          ((Component) treasureBox).get_transform().set_parent(((Component) self).get_transform());
-          ((Component) treasureBox).get_transform().set_position(self.mDroppedTreasures[index1].Position);
-          Unit.DropItem DropItem = (Unit.DropItem) null;
-          if (0 < drop.items.Count)
-            DropItem = drop.items[drop.items.Count - 1];
-          treasureBox.Open(DropItem, self.mTreasureDropTemplate, (int) drop.gold, self.mTreasureGoldTemplate);
-          for (int index2 = 0; index2 < drop.items.Count; ++index2)
-          {
-            if (drop.items[index2] != null && drop.items[index1].param != null && (int) drop.items[index1].num != 0)
-            {
-              self.AddTreasureCount(1);
-              break;
-            }
-          }
-          self.AddGoldCount((int) drop.gold);
-          this.mTreasureBox = treasureBox;
-          ((Component) this.mTreasureBox).get_gameObject().SetActive(false);
-        }
-        self.mDroppedTreasures.Clear();
-      }
-
-      public override void Update(SceneBattle self)
-      {
-        this.mDelay -= Time.get_deltaTime();
-        if ((double) this.mDelay > 0.0)
-          return;
-        if (Object.op_Inequality((Object) this.mTreasureBox, (Object) null))
-        {
-          if (((Component) this.mTreasureBox).get_gameObject().get_activeInHierarchy())
-            return;
-          ((Component) this.mTreasureBox).get_gameObject().SetActive(true);
-        }
-        else
-          self.GotoState<SceneBattle.State_WaitForLog>();
+        return (IEnumerator) new SceneBattle.State_PickupGimmick.\u003CGemPramChangePopup\u003Ec__Iterator60() { \u003C\u003Ef__this = this };
       }
     }
 
@@ -6761,12 +9032,22 @@ namespace SRPG
     {
       public override void Begin(SceneBattle self)
       {
-        Unit self1 = ((LogDead) self.mBattle.Logs.Peek).self;
-        self.OnUnitDeath(self1);
-        self.HideUnitMarkers(self1);
-        TacticsUnitController unitController = self.FindUnitController(self1);
-        self.mTacticsUnits.Remove(unitController);
-        Object.Destroy((Object) ((Component) unitController).get_gameObject());
+        LogDead peek = (LogDead) self.mBattle.Logs.Peek;
+        List<LogDead.Param> objList = new List<LogDead.Param>();
+        objList.AddRange((IEnumerable<LogDead.Param>) peek.list_normal);
+        objList.AddRange((IEnumerable<LogDead.Param>) peek.list_sentence);
+        using (List<LogDead.Param>.Enumerator enumerator = objList.GetEnumerator())
+        {
+          while (enumerator.MoveNext())
+          {
+            Unit self1 = enumerator.Current.self;
+            self.OnUnitDeath(self1);
+            self.HideUnitMarkers(self1);
+            TacticsUnitController unitController = self.FindUnitController(self1);
+            self.mTacticsUnits.Remove(unitController);
+            UnityEngine.Object.Destroy((UnityEngine.Object) ((Component) unitController).get_gameObject());
+          }
+        }
         self.RemoveLog();
         self.GotoState<SceneBattle.State_WaitForLog>();
       }
@@ -6796,9 +9077,9 @@ namespace SRPG
             return;
           }
           this.mCasterController.ChargeIcon.Close();
+          if (castSkill.EffectType == SkillEffectTypes.Changing)
+            self.GotoState<SceneBattle.State_CastSkillStartChange>();
         }
-        if (castSkill.EffectType == SkillEffectTypes.Changing)
-          self.GotoState<SceneBattle.State_CastSkillStartChange>();
         self.Battle.CastSkillStart();
         self.RemoveLog();
         self.GotoState<SceneBattle.State_WaitForLog>();
@@ -6814,7 +9095,7 @@ namespace SRPG
         this.mCasterController = self.FindUnitController(self.mBattle.CurrentUnit);
         self.Battle.CastSkillStart();
         self.RemoveLog();
-        if (Object.op_Inequality((Object) this.mCasterController, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mCasterController, (UnityEngine.Object) null))
         {
           LogSkill peek = self.mBattle.Logs.Peek as LogSkill;
           IntVector2 pos = peek.pos;
@@ -6836,7 +9117,7 @@ namespace SRPG
         this.mCasterController = self.FindUnitController(self.mBattle.CurrentUnit);
         self.Battle.CastSkillStart();
         self.RemoveLog();
-        if (!Object.op_Inequality((Object) this.mCasterController, (Object) null))
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mCasterController, (UnityEngine.Object) null))
           ;
         self.GotoState<SceneBattle.State_WaitForLog>();
       }
@@ -6856,12 +9137,253 @@ namespace SRPG
       }
     }
 
+    private class State_MapTrick : State<SceneBattle>
+    {
+      private List<SceneBattle.State_MapTrick.TucMapTrick> mTucMapTrickLists = new List<SceneBattle.State_MapTrick.TucMapTrick>();
+      private List<GameObject> mGoEffectLists = new List<GameObject>();
+      private List<GameObject> mGoPopupLists = new List<GameObject>();
+      private SceneBattle.State_MapTrick.eSeqState mSeqState;
+      private LogMapTrick mLog;
+      private LoadRequest mLoadReqEffect;
+      private bool mIsAction;
+      private bool mIsDamaged;
+
+      public override void Begin(SceneBattle self)
+      {
+        this.mLog = self.Battle.Logs.Peek as LogMapTrick;
+        if (this.mLog != null && this.mLog.TrickData != null)
+        {
+          this.mTucMapTrickLists.Clear();
+          using (List<LogMapTrick.TargetInfo>.Enumerator enumerator = this.mLog.TargetInfoLists.GetEnumerator())
+          {
+            while (enumerator.MoveNext())
+            {
+              LogMapTrick.TargetInfo current = enumerator.Current;
+              TacticsUnitController unitController = self.FindUnitController(current.Target);
+              if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
+                this.mTucMapTrickLists.Add(new SceneBattle.State_MapTrick.TucMapTrick(unitController, current));
+            }
+          }
+          if (this.mTucMapTrickLists.Count != 0)
+          {
+            if (!string.IsNullOrEmpty(this.mLog.TrickData.TrickParam.EffectName))
+              this.mLoadReqEffect = AssetManager.LoadAsync<GameObject>(AssetPath.TrickEffect(this.mLog.TrickData.TrickParam.EffectName));
+            using (List<SceneBattle.State_MapTrick.TucMapTrick>.Enumerator enumerator = this.mTucMapTrickLists.GetEnumerator())
+            {
+              while (enumerator.MoveNext())
+              {
+                SceneBattle.State_MapTrick.TucMapTrick current = enumerator.Current;
+                LogMapTrick.TargetInfo mTargetInfo = current.mTargetInfo;
+                if (mTargetInfo.Damage != 0 || mTargetInfo.Heal != 0 || mTargetInfo.KnockBackGrid != null)
+                {
+                  if (mTargetInfo.Damage != 0)
+                    current.mController.LoadDamageAnimations();
+                  this.mIsAction = true;
+                }
+              }
+            }
+            if (this.mLoadReqEffect != null || this.mIsAction)
+            {
+              this.mSeqState = SceneBattle.State_MapTrick.eSeqState.INIT;
+              return;
+            }
+          }
+        }
+        this.mSeqState = SceneBattle.State_MapTrick.eSeqState.EXIT;
+      }
+
+      public override void Update(SceneBattle self)
+      {
+        if (this.mLog == null || this.mLog.TrickData == null || this.mTucMapTrickLists.Count == 0)
+          this.mSeqState = SceneBattle.State_MapTrick.eSeqState.EXIT;
+        switch (this.mSeqState)
+        {
+          case SceneBattle.State_MapTrick.eSeqState.INIT:
+            if (this.mLoadReqEffect != null)
+            {
+              this.mSeqState = SceneBattle.State_MapTrick.eSeqState.EFF_LOAD;
+              break;
+            }
+            this.mSeqState = SceneBattle.State_MapTrick.eSeqState.ACT_INIT;
+            break;
+          case SceneBattle.State_MapTrick.eSeqState.EFF_LOAD:
+            if (this.mLoadReqEffect != null)
+            {
+              if (!this.mLoadReqEffect.isDone)
+                break;
+              this.mGoEffectLists.Clear();
+              GameObject asset = this.mLoadReqEffect.asset as GameObject;
+              if (UnityEngine.Object.op_Implicit((UnityEngine.Object) asset))
+              {
+                using (List<SceneBattle.State_MapTrick.TucMapTrick>.Enumerator enumerator = this.mTucMapTrickLists.GetEnumerator())
+                {
+                  while (enumerator.MoveNext())
+                  {
+                    SceneBattle.State_MapTrick.TucMapTrick current = enumerator.Current;
+                    GameObject go = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) asset);
+                    if (UnityEngine.Object.op_Implicit((UnityEngine.Object) go))
+                    {
+                      go.get_transform().SetParent(((Component) current.mController).get_transform(), false);
+                      GameUtility.RequireComponent<OneShotParticle>(go);
+                      this.mGoEffectLists.Add(go);
+                    }
+                  }
+                }
+              }
+              this.mLoadReqEffect = (LoadRequest) null;
+              this.mSeqState = SceneBattle.State_MapTrick.eSeqState.EFF_PLAY;
+              break;
+            }
+            this.mSeqState = SceneBattle.State_MapTrick.eSeqState.ACT_INIT;
+            break;
+          case SceneBattle.State_MapTrick.eSeqState.EFF_PLAY:
+            bool flag1 = false;
+            if (this.mGoEffectLists.Count != 0)
+            {
+              for (int index = 0; index < this.mGoEffectLists.Count; ++index)
+              {
+                if (UnityEngine.Object.op_Implicit((UnityEngine.Object) this.mGoEffectLists[index]))
+                {
+                  flag1 = true;
+                  break;
+                }
+                this.mGoEffectLists[index] = (GameObject) null;
+              }
+            }
+            if (flag1)
+              break;
+            this.mGoEffectLists.Clear();
+            this.mSeqState = SceneBattle.State_MapTrick.eSeqState.ACT_INIT;
+            break;
+          case SceneBattle.State_MapTrick.eSeqState.ACT_INIT:
+            if (this.mIsAction)
+            {
+              bool flag2 = false;
+              using (List<SceneBattle.State_MapTrick.TucMapTrick>.Enumerator enumerator = this.mTucMapTrickLists.GetEnumerator())
+              {
+                while (enumerator.MoveNext())
+                {
+                  if (enumerator.Current.mController.IsLoading)
+                  {
+                    flag2 = true;
+                    break;
+                  }
+                }
+              }
+              if (flag2)
+                break;
+              this.mGoPopupLists.Clear();
+              using (List<SceneBattle.State_MapTrick.TucMapTrick>.Enumerator enumerator = this.mTucMapTrickLists.GetEnumerator())
+              {
+                while (enumerator.MoveNext())
+                {
+                  SceneBattle.State_MapTrick.TucMapTrick current = enumerator.Current;
+                  TacticsUnitController mController = current.mController;
+                  LogMapTrick.TargetInfo mTargetInfo = current.mTargetInfo;
+                  GameObject gameObject = (GameObject) null;
+                  if (mTargetInfo.Damage != 0)
+                  {
+                    gameObject = self.PopupDamageNumber(mController.CenterPosition, mTargetInfo.Damage);
+                    mController.PlayDamage(HitReactionTypes.Normal);
+                    MonoSingleton<GameManager>.Instance.Player.OnDamageToEnemy(this.mLog.TrickData.CreateUnit, mTargetInfo.Target, mTargetInfo.Damage);
+                    this.mIsDamaged = true;
+                  }
+                  else if (mTargetInfo.Heal != 0)
+                    gameObject = self.PopupHpHealNumber(mController.CenterPosition, mTargetInfo.Heal);
+                  if (UnityEngine.Object.op_Implicit((UnityEngine.Object) gameObject))
+                    this.mGoPopupLists.Add(gameObject);
+                  if (mTargetInfo.KnockBackGrid != null)
+                  {
+                    mController.KnockBackGrid = mTargetInfo.KnockBackGrid;
+                    mController.PlayTrickKnockBack(false);
+                  }
+                }
+              }
+              this.mSeqState = SceneBattle.State_MapTrick.eSeqState.ACT_PLAY;
+              break;
+            }
+            this.mSeqState = SceneBattle.State_MapTrick.eSeqState.EXIT;
+            break;
+          case SceneBattle.State_MapTrick.eSeqState.ACT_PLAY:
+            bool flag3 = false;
+            if (this.mGoPopupLists.Count != 0)
+            {
+              for (int index = 0; index < this.mGoPopupLists.Count; ++index)
+              {
+                if (UnityEngine.Object.op_Implicit((UnityEngine.Object) this.mGoPopupLists[index]))
+                {
+                  flag3 = true;
+                  break;
+                }
+                this.mGoPopupLists[index] = (GameObject) null;
+              }
+            }
+            using (List<SceneBattle.State_MapTrick.TucMapTrick>.Enumerator enumerator = this.mTucMapTrickLists.GetEnumerator())
+            {
+              while (enumerator.MoveNext())
+              {
+                if (enumerator.Current.mController.IsBusy)
+                {
+                  flag3 = true;
+                  break;
+                }
+              }
+            }
+            if (flag3)
+              break;
+            this.mGoPopupLists.Clear();
+            using (List<SceneBattle.State_MapTrick.TucMapTrick>.Enumerator enumerator = this.mTucMapTrickLists.GetEnumerator())
+            {
+              while (enumerator.MoveNext())
+                enumerator.Current.mController.UnloadBattleAnimations();
+            }
+            this.mSeqState = SceneBattle.State_MapTrick.eSeqState.EXIT;
+            break;
+          case SceneBattle.State_MapTrick.eSeqState.EXIT:
+            TrickData.CheckRemoveMarker(this.mLog.TrickData);
+            self.RefreshJumpSpots();
+            this.mLog = (LogMapTrick) null;
+            self.RemoveLog();
+            if (this.mIsDamaged)
+            {
+              self.GotoState<SceneBattle.State_TriggerHPEvents>();
+              break;
+            }
+            self.GotoState<SceneBattle.State_WaitForLog>();
+            break;
+        }
+      }
+
+      private enum eSeqState
+      {
+        INIT,
+        EFF_LOAD,
+        EFF_PLAY,
+        ACT_INIT,
+        ACT_PLAY,
+        EXIT,
+      }
+
+      private class TucMapTrick
+      {
+        public TacticsUnitController mController;
+        public LogMapTrick.TargetInfo mTargetInfo;
+
+        public TucMapTrick(TacticsUnitController tuc, LogMapTrick.TargetInfo ti)
+        {
+          this.mController = tuc;
+          this.mTargetInfo = ti;
+        }
+      }
+    }
+
     private class State_UnitEnd : State<SceneBattle>
     {
       private bool mIsPopDamage;
       private bool mIsShakeStart;
       private Unit mCurrentUnit;
       private TacticsUnitController mController;
+      private bool mIsDamaged;
 
       public override void Begin(SceneBattle self)
       {
@@ -6869,10 +9391,10 @@ namespace SRPG
         if (self.mTutorialTriggers != null)
         {
           TacticsUnitController unitController = self.FindUnitController(self.mBattle.CurrentUnit);
-          if (Object.op_Inequality((Object) unitController, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
           {
             for (int index = 0; index < self.mTutorialTriggers.Length; ++index)
-              self.mTutorialTriggers[index].OnUnitEnd(self.mBattle.CurrentUnit, unitController.TurnCount);
+              self.mTutorialTriggers[index].OnUnitEnd(self.mBattle.CurrentUnit, unitController.Unit.TurnCount);
           }
         }
         if (self.Battle.CurrentUnit.OwnerPlayerIndex > 0)
@@ -6880,14 +9402,14 @@ namespace SRPG
         self.HideUnitCursor(((LogUnitEnd) self.mBattle.Logs.Peek).self);
         if (self.mBattle.IsUnitAuto(self.mBattle.CurrentUnit))
           self.HideGrid();
-        if (Object.op_Inequality((Object) self.mTouchController, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mTouchController, (UnityEngine.Object) null))
           self.mTouchController.IgnoreCurrentTouch();
         VirtualStick2 virtualStick = self.mBattleUI.VirtualStick;
-        if (Object.op_Inequality((Object) virtualStick, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) virtualStick, (UnityEngine.Object) null))
           virtualStick.Visible = false;
         this.mCurrentUnit = self.Battle.CurrentUnit;
         this.mController = self.FindUnitController(this.mCurrentUnit);
-        if (Object.op_Inequality((Object) null, (Object) this.mController))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) null, (UnityEngine.Object) this.mController))
         {
           this.mController.InitShake(((Component) this.mController).get_transform().get_position(), this.mCurrentUnit.Direction.ToVector());
           if (self.Battle.IsMultiVersus)
@@ -6900,7 +9422,7 @@ namespace SRPG
       {
         if (self.IsHPGaugeChanging)
           return;
-        if (Object.op_Equality((Object) null, (Object) this.mController))
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) null, (UnityEngine.Object) this.mController))
         {
           if (self.Battle.IsMultiPlay)
             self.EndMultiPlayer();
@@ -6920,13 +9442,25 @@ namespace SRPG
             if (self.IsPlayingArenaQuest)
               self.ArenaActionCountSet(self.Battle.ArenaActionCount);
             LogDamage peek = self.Battle.Logs.Peek as LogDamage;
-            if (peek != null && this.mCurrentUnit.IsUnitConditionDamage() && !this.mCurrentUnit.IsDead)
+            if (peek != null && !this.mCurrentUnit.IsDead)
             {
               this.mController.ShakeStart = true;
               return;
             }
             if (peek != null && isDead != this.mCurrentUnit.IsDead)
+            {
               self.PopupDamageNumber(((Component) this.mController).get_transform().get_position(), peek.damage);
+              this.mController.ReflectDispModel();
+              this.mIsDamaged = true;
+              for (int index = 0; index < this.mCurrentUnit.CondAttachments.Count; ++index)
+              {
+                if (this.mCurrentUnit.CondAttachments[index].user != null)
+                {
+                  MonoSingleton<GameManager>.Instance.Player.OnDamageToEnemy(this.mCurrentUnit.CondAttachments[index].user, this.mCurrentUnit, peek.damage);
+                  break;
+                }
+              }
+            }
           }
           else
           {
@@ -6935,15 +9469,25 @@ namespace SRPG
             {
               this.mIsPopDamage = true;
               LogDamage peek = self.Battle.Logs.Peek as LogDamage;
-              if (self.mSkillDamageDispType != eDamageDispType.Standard)
-                SceneBattle.Instance.PopupDamageDsgNumber(((Component) this.mController).get_transform().get_position(), peek.damage, self.mSkillDamageDispType);
-              else
-                self.PopupDamageNumber(((Component) this.mController).get_transform().get_position(), peek.damage);
+              self.PopupDamageNumber(((Component) this.mController).get_transform().get_position(), peek.damage);
+              this.mController.ReflectDispModel();
+              this.mIsDamaged = true;
+              for (int index = 0; index < this.mCurrentUnit.CondAttachments.Count; ++index)
+              {
+                if (this.mCurrentUnit.CondAttachments[index].user != null)
+                {
+                  MonoSingleton<GameManager>.Instance.Player.OnDamageToEnemy(this.mCurrentUnit.CondAttachments[index].user, this.mCurrentUnit, peek.damage);
+                  break;
+                }
+              }
             }
             if (!this.mController.IsShakeEnd())
               return;
           }
-          self.GotoState<SceneBattle.State_WaitForLog>();
+          if (this.mIsDamaged)
+            self.GotoState<SceneBattle.State_TriggerHPEvents>();
+          else
+            self.GotoState<SceneBattle.State_WaitForLog>();
         }
       }
 
@@ -6953,27 +9497,6 @@ namespace SRPG
         if (self.mFirstTurn)
           self.mFirstTurn = false;
         self.DeleteOnGimmickIcon();
-      }
-    }
-
-    private class State_TurnEnd : State<SceneBattle>
-    {
-      public override void Begin(SceneBattle self)
-      {
-        self.SendCheckMultiPlay();
-        self.RemoveLog();
-      }
-
-      public override void Update(SceneBattle self)
-      {
-        if (self.Battle.IsMultiPlay)
-          self.GotoState<SceneBattle.State_MultiPlayRevive>();
-        else
-          self.GotoState<SceneBattle.State_WaitForLog>();
-      }
-
-      public override void End(SceneBattle self)
-      {
       }
     }
 
@@ -6994,7 +9517,7 @@ namespace SRPG
               break;
             }
             DebugUtility.Log(">>>>>>>>>>>>" + self.Battle.QuestID);
-            AnalyticsManager.SetFirstMissionClear(self.Battle.QuestID);
+            AnalyticsManager.TrackMissionAnalyticsEvent(self.Battle.QuestID);
             self.TriggerWinEvent();
             break;
           default:
@@ -7016,8 +9539,8 @@ namespace SRPG
       public override void Begin(SceneBattle self)
       {
         SRPG_TouchInputModule.UnlockInput(false);
-        self.RemoveLog();
-        if (Object.op_Inequality((Object) self.mBattleUI, (Object) null))
+        self.Battle.Logs.Reset();
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mBattleUI, (UnityEngine.Object) null))
         {
           self.mBattleUI.OnQuestEnd();
           self.mBattleUI.OnMapEnd();
@@ -7035,6 +9558,13 @@ namespace SRPG
         {
           self.SaveResult();
           GlobalVars.LastQuestResult.Set(questResult);
+        }
+        bool flag1 = self.Battle.IsMultiPlay && !self.Battle.IsMultiTower && !self.Battle.IsMultiVersus;
+        if (self.Battle.IsMultiTower || flag1)
+        {
+          MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) instance, (UnityEngine.Object) null))
+            instance.ForceCloseRoom();
         }
         switch (questResult)
         {
@@ -7073,7 +9603,7 @@ namespace SRPG
               if (unit != null)
                 unit.PlayBattleVoice("battle_0029");
             }
-            if (Object.op_Inequality((Object) self.mBattleUI_MultiPlay, (Object) null))
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mBattleUI_MultiPlay, (UnityEngine.Object) null))
             {
               if (!self.Battle.IsMultiVersus)
                 self.mBattleUI_MultiPlay.OnQuestWin();
@@ -7096,7 +9626,7 @@ namespace SRPG
               self.mBattleUI.OnVersusLose();
             else
               self.mBattleUI.OnQuestLose();
-            if (Object.op_Inequality((Object) self.mBattleUI_MultiPlay, (Object) null) && !self.Battle.IsMultiVersus)
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mBattleUI_MultiPlay, (UnityEngine.Object) null) && !self.Battle.IsMultiVersus)
               self.mBattleUI_MultiPlay.OnQuestLose();
             MonoSingleton<MySound>.Instance.PlayJingle("JIN_0003", 0.0f, (string) null);
             if (self.Battle.IsMultiPlay)
@@ -7131,10 +9661,18 @@ namespace SRPG
                 if (unit != null)
                   unit.PlayBattleVoice("battle_0028");
               }
+              GameUtility.SetDefaultSleepSetting();
               self.GotoState_WaitSignal<SceneBattle.State_Result>();
               break;
             }
-            if (!self.CurrentQuest.CheckDisableContinue())
+            bool flag2 = !self.CurrentQuest.CheckDisableContinue();
+            if (flag2)
+            {
+              BattleMap currentMap = self.Battle.CurrentMap;
+              if (currentMap != null)
+                flag2 = !self.Battle.CheckMonitorActionCount(currentMap.LoseMonitorCondition);
+            }
+            if (flag2)
             {
               self.GotoState_WaitSignal<SceneBattle.State_ConfirmContinue>();
               break;
@@ -7153,7 +9691,7 @@ namespace SRPG
             self.GotoState_WaitSignal<SceneBattle.State_Result>();
             break;
           default:
-            if (Object.op_Inequality((Object) self.mBattleUI_MultiPlay, (Object) null))
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mBattleUI_MultiPlay, (UnityEngine.Object) null))
               self.mBattleUI_MultiPlay.OnQuestRetreat();
             GameUtility.FadeOut(2f);
             self.GotoState<SceneBattle.State_ExitQuest>();
@@ -7172,7 +9710,7 @@ namespace SRPG
         if (self.IsPlayingArenaQuest)
         {
           this.mOnResult = true;
-          MonoSingleton<MySound>.Instance.PlayBGM("BGM_0006", (string) null);
+          MonoSingleton<MySound>.Instance.PlayBGM("BGM_0006", (string) null, false);
           self.mBattleUI.OnResult_Arena();
         }
         else
@@ -7190,16 +9728,16 @@ namespace SRPG
               {
                 // ISSUE: object of a compiler-generated type is created
                 // ISSUE: variable of a compiler-generated type
-                SceneBattle.State_Result.\u003CBegin\u003Ec__AnonStorey1DB beginCAnonStorey1Db = new SceneBattle.State_Result.\u003CBegin\u003Ec__AnonStorey1DB();
+                SceneBattle.State_Result.\u003CBegin\u003Ec__AnonStorey277 beginCAnonStorey277 = new SceneBattle.State_Result.\u003CBegin\u003Ec__AnonStorey277();
                 // ISSUE: reference to a compiler-generated field
-                beginCAnonStorey1Db.startedPlayer = myPlayersStarted[index];
+                beginCAnonStorey277.startedPlayer = myPlayersStarted[index];
                 // ISSUE: reference to a compiler-generated field
                 // ISSUE: reference to a compiler-generated field
                 // ISSUE: reference to a compiler-generated field
-                if (beginCAnonStorey1Db.startedPlayer != null && beginCAnonStorey1Db.startedPlayer.playerIndex != instance.MyPlayerIndex && !string.IsNullOrEmpty(beginCAnonStorey1Db.startedPlayer.FUID))
+                if (beginCAnonStorey277.startedPlayer != null && beginCAnonStorey277.startedPlayer.playerIndex != instance.MyPlayerIndex && !string.IsNullOrEmpty(beginCAnonStorey277.startedPlayer.FUID))
                 {
                   // ISSUE: reference to a compiler-generated method
-                  MultiFuid multiFuid = multiFuids != null ? multiFuids.Find(new Predicate<MultiFuid>(beginCAnonStorey1Db.\u003C\u003Em__193)) : (MultiFuid) null;
+                  MultiFuid multiFuid = multiFuids != null ? multiFuids.Find(new Predicate<MultiFuid>(beginCAnonStorey277.\u003C\u003Em__21D)) : (MultiFuid) null;
                   if (multiFuid != null && multiFuid.status.Equals("follower"))
                   {
                     flag1 = true;
@@ -7210,7 +9748,7 @@ namespace SRPG
               flag2 = instance.IsMultiVersus;
             }
           }
-          if (!questRecord.IsZero || flag1 || (self.CurrentQuest.type == QuestTypes.Tower || flag2))
+          if (!questRecord.IsZero || flag1 || (self.CurrentQuest.type == QuestTypes.Tower || flag2) || self.Battle.IsMultiTower)
             return;
           self.ExitRequest = SceneBattle.ExitRequests.End;
         }
@@ -7221,11 +9759,13 @@ namespace SRPG
         if (this.mOnResult)
           return;
         this.mOnResult = true;
-        MonoSingleton<MySound>.Instance.PlayBGM("BGM_0006", (string) null);
+        MonoSingleton<MySound>.Instance.PlayBGM("BGM_0006", (string) null, false);
         if (this.self.Battle.IsMultiPlay)
         {
           if (this.self.Battle.IsMultiVersus)
             this.self.mBattleUI.OnResult_Versus();
+          else if (GlobalVars.SelectedMultiPlayRoomType == JSON_MyPhotonRoomParam.EType.TOWER)
+            this.self.mBattleUI.OnResult_MultiTower();
           else
             this.self.mBattleUI.OnResult_MP();
         }
@@ -7290,7 +9830,7 @@ namespace SRPG
         BattleCore.Record questRecord = self.Battle.GetQuestRecord();
         if (Network.Mode == Network.EConnectMode.Online)
         {
-          Network.RequestAPI((WebAPI) new ReqBtlComCont(self.Battle.BtlID, questRecord, new Network.ResponseCallback(this.OnSuccess), PunMonoSingleton<MyPhoton>.Instance.IsMultiPlay), false);
+          Network.RequestAPI((WebAPI) new ReqBtlComCont(self.Battle.BtlID, questRecord, new Network.ResponseCallback(this.OnSuccess), PunMonoSingleton<MyPhoton>.Instance.IsMultiPlay, self.Battle.IsMultiTower), false);
         }
         else
         {
@@ -7331,7 +9871,7 @@ namespace SRPG
           else
           {
             Network.RemoveAPI();
-            AnalyticsManager.TrackSpendCoin("ContinueQuest", (int) MonoSingleton<GameManager>.Instance.MasterParam.FixParam.ContinueCoinCost);
+            AnalyticsManager.TrackOriginalCurrencyUse(ESaleType.Coin, (int) MonoSingleton<GameManager>.Instance.MasterParam.FixParam.ContinueCoinCost, "ContinueQuest");
             this.ResBtlComCont(jsonObject.body);
           }
         }
@@ -7346,19 +9886,36 @@ namespace SRPG
         for (int index = 0; index < player.Count; ++index)
         {
           TacticsUnitController unitController = this.mScene.FindUnitController(player[index]);
-          if (!Object.op_Equality((Object) unitController, (Object) null) && unitController.Unit.IsDead)
+          if (!UnityEngine.Object.op_Equality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
           {
-            this.mScene.mTacticsUnits.Remove(unitController);
-            GameUtility.DestroyGameObject(((Component) unitController).get_gameObject());
+            if (player[index].IsJump)
+              unitController.SetVisible(true);
+            if (unitController.Unit.IsDead)
+            {
+              this.mScene.mTacticsUnits.Remove(unitController);
+              GameUtility.DestroyGameObject(((Component) unitController).get_gameObject());
+            }
           }
         }
         GameUtility.FadeIn(1f);
         this.mScene.mUnitStartCount = 0;
-        this.mScene.Battle.ContinueStart(response.btlid, response.btlinfo.seed);
+        using (List<Unit>.Enumerator enumerator = this.mScene.Battle.ContinueStart(response.btlid, response.btlinfo.seed).GetEnumerator())
+        {
+          while (enumerator.MoveNext())
+          {
+            TacticsUnitController unitController = this.mScene.FindUnitController(enumerator.Current);
+            if (!UnityEngine.Object.op_Equality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
+            {
+              this.mScene.mTacticsUnits.Remove(unitController);
+              GameUtility.DestroyGameObject(((Component) unitController).get_gameObject());
+            }
+          }
+        }
+        this.mScene.RefreshJumpSpots();
         for (int index = 0; index < player.Count; ++index)
         {
           TacticsUnitController unitController = this.mScene.FindUnitController(player[index]);
-          if (!Object.op_Equality((Object) unitController, (Object) null))
+          if (!UnityEngine.Object.op_Equality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
             unitController.UpdateBadStatus();
         }
         UnitQueue.Instance.Refresh(0);
@@ -7370,7 +9927,7 @@ namespace SRPG
     {
       public override void Begin(SceneBattle self)
       {
-        if (!self.mQuestResultSent)
+        if (!self.mQuestResultSent && !MonoSingleton<GameManager>.Instance.AudienceMode)
           self.SubmitResult();
         self.mPauseReqCount = 0;
         TimeManager.SetTimeScale(TimeManager.TimeScaleGroups.Game, 1f);
@@ -7381,7 +9938,7 @@ namespace SRPG
       private IEnumerator ExitAsync()
       {
         // ISSUE: object of a compiler-generated type is created
-        return (IEnumerator) new SceneBattle.State_ExitQuest.\u003CExitAsync\u003Ec__Iterator3B() { \u003C\u003Ef__this = this };
+        return (IEnumerator) new SceneBattle.State_ExitQuest.\u003CExitAsync\u003Ec__Iterator61() { \u003C\u003Ef__this = this };
       }
     }
 
@@ -7446,7 +10003,9 @@ namespace SRPG
 
       private void Confirm()
       {
-        UIUtility.ConfirmBox(LocalizedText.Get("sys.CONFIRM_CONTINUE", (object) MonoSingleton<GameManager>.Instance.Player.Coin, (object) MonoSingleton<GameManager>.Instance.MasterParam.FixParam.ContinueCoinCost), (string) null, new UIUtility.DialogResultEvent(this.OnDecide), new UIUtility.DialogResultEvent(this.OnCancel), (GameObject) null, false, -1);
+        if (ContinueWindow.Create(this.self.mContinueWindowRes, new ContinueWindow.ResultEvent(this.OnDecide), new ContinueWindow.ResultEvent(this.OnCancel)))
+          return;
+        this.OnCancel((GameObject) null);
       }
     }
 
@@ -7523,7 +10082,7 @@ namespace SRPG
             return;
           if (this.mState == SceneBattle.State_AutoHeal.State.EffectStart)
             this.StartEffect();
-          if (!Object.op_Equality((Object) this.mHealEffect, (Object) null) || this.mController.IsHPGaugeChanging)
+          if (!UnityEngine.Object.op_Equality((UnityEngine.Object) this.mHealEffect, (UnityEngine.Object) null) || this.mController.IsHPGaugeChanging)
             return;
           if (this.mLog.type == LogAutoHeal.HealType.Jewel)
             UnitQueue.Instance.Refresh(this.mLog.self);
@@ -7535,22 +10094,23 @@ namespace SRPG
       private IEnumerator Wait(float wait)
       {
         // ISSUE: object of a compiler-generated type is created
-        return (IEnumerator) new SceneBattle.State_AutoHeal.\u003CWait\u003Ec__Iterator3C() { wait = wait, \u003C\u0024\u003Ewait = wait, \u003C\u003Ef__this = this };
+        return (IEnumerator) new SceneBattle.State_AutoHeal.\u003CWait\u003Ec__Iterator62() { wait = wait, \u003C\u0024\u003Ewait = wait, \u003C\u003Ef__this = this };
       }
 
       private void StartEffect()
       {
         GameObject gameObject = this.mLog.type != LogAutoHeal.HealType.Hp ? this.self.mMapAddGemEffectTemplate : this.self.mAutoHealEffectTemplate;
-        if (Object.op_Inequality((Object) gameObject, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) gameObject, (UnityEngine.Object) null))
         {
-          this.mHealEffect = Object.Instantiate((Object) gameObject, ((Component) this.mController).get_transform().get_position(), Quaternion.get_identity()) as GameObject;
-          if (Object.op_Inequality((Object) this.mHealEffect, (Object) null))
+          this.mHealEffect = UnityEngine.Object.Instantiate((UnityEngine.Object) gameObject, ((Component) this.mController).get_transform().get_position(), Quaternion.get_identity()) as GameObject;
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mHealEffect, (UnityEngine.Object) null))
           {
             this.mHealEffect.get_transform().SetParent(((Component) this.mController).get_transform());
             this.mHealEffect.RequireComponent<OneShotParticle>();
           }
         }
         SceneBattle.Instance.PopupHpHealNumber(this.mController.CenterPosition, this.mLog.value);
+        this.mController.ReflectDispModel();
         if (this.mLog.type != LogAutoHeal.HealType.Jewel)
           this.mController.UpdateHPRelative(this.mLog.value, 0.5f);
         this.mState = SceneBattle.State_AutoHeal.State.Effect;
@@ -7592,15 +10152,18 @@ namespace SRPG
       private void EnterChant(LogCast Log)
       {
         TacticsUnitController unitController = this.self.FindUnitController(Log.self);
-        if (!Object.op_Inequality((Object) unitController, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
+          unitController.ChargeIcon.Open();
+        if (Log.self == null || Log.self.CastSkill == null || Log.self.CastSkill.TeleportType == eTeleportType.None)
           return;
-        unitController.ChargeIcon.Open();
+        this.self.RefreshJumpSpots();
       }
     }
 
     private class State_JumpCastStart : State<SceneBattle>
     {
       private float WaitTime = 1f;
+      private bool mDirection = true;
       private TacticsUnitController mCasterController;
       private float CountTime;
 
@@ -7609,25 +10172,36 @@ namespace SRPG
         LogCast peek = self.Battle.Logs.Peek as LogCast;
         this.mCasterController = self.FindUnitController(peek.self);
         self.RemoveLog();
+        this.mDirection = self.Battle.IsSkillDirection;
+        if (!this.mDirection)
+          return;
         self.mUpdateCameraPosition = true;
-        self.SetCameraOffset(((Component) GameSettings.Instance.Quest.UnitCamera).get_transform());
         self.InterpCameraTarget((Component) this.mCasterController);
         self.InterpCameraDistance(GameSettings.Instance.GameCamera_SkillCameraDistance);
       }
 
       public override void Update(SceneBattle self)
       {
-        if ((double) this.WaitTime > (double) this.CountTime)
+        if (!this.mDirection)
         {
-          this.CountTime += Time.get_deltaTime();
-          if ((double) this.WaitTime > (double) this.CountTime)
-            return;
-          this.mCasterController.CastJump();
+          this.mCasterController.SetVisible(false);
           this.mCasterController.ChargeIcon.Open();
+          self.GotoState<SceneBattle.State_WaitForLog>();
         }
-        if (!this.mCasterController.IsCastJumpStartComplete())
-          return;
-        self.GotoState<SceneBattle.State_WaitForLog>();
+        else
+        {
+          if ((double) this.WaitTime > (double) this.CountTime)
+          {
+            this.CountTime += Time.get_deltaTime();
+            if ((double) this.WaitTime > (double) this.CountTime)
+              return;
+            this.mCasterController.CastJump();
+            this.mCasterController.ChargeIcon.Open();
+          }
+          if (!this.mCasterController.IsCastJumpStartComplete())
+            return;
+          self.GotoState<SceneBattle.State_WaitForLog>();
+        }
       }
 
       public override void End(SceneBattle self)
@@ -7650,6 +10224,8 @@ namespace SRPG
     {
       private bool mLoadSplash;
       private float mWaitCount;
+      private bool mIsLoadTransformUnit;
+      private bool mIsLoadBreakObjUnit;
 
       public override void Begin(SceneBattle self)
       {
@@ -7661,19 +10237,34 @@ namespace SRPG
         }
         else
         {
-          self.mSkillDamageDispType = skill.SkillParam.DamageDispType;
           this.mLoadSplash = !peek.is_append;
           self.LoadShieldEffects();
           Unit self1 = peek.self;
           TacticsUnitController unitController = self.FindUnitController(self1);
+          this.mIsLoadTransformUnit = skill.IsTransformSkill();
+          if (this.mIsLoadTransformUnit)
+          {
+            if (peek.targets != null && peek.targets.Count != 0)
+              self.StartCoroutine(SceneBattle.State_PrepareSkill.loadTransformUnit(self, peek.targets[0].target, unitController, (Action) (() => this.mIsLoadTransformUnit = false)));
+            else
+              this.mIsLoadTransformUnit = false;
+          }
+          this.mIsLoadBreakObjUnit = skill.IsSetBreakObjSkill();
+          if (this.mIsLoadBreakObjUnit)
+          {
+            if (peek.targets != null && peek.targets.Count != 0)
+              self.StartCoroutine(SceneBattle.State_PrepareSkill.loadBreakObjUnit(self, peek.targets[0].target, (Action) (() => this.mIsLoadBreakObjUnit = false)));
+            else
+              this.mIsLoadBreakObjUnit = false;
+          }
           if ((int) skill.SkillParam.absorb_damage_rate > 0)
           {
-            if (Object.op_Inequality((Object) self.mDrainMpEffectTemplate, (Object) null) && skill.SkillParam.IsJewelAttack())
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mDrainMpEffectTemplate, (UnityEngine.Object) null) && skill.SkillParam.IsJewelAttack())
               unitController.SetDrainEffect(self.mDrainMpEffectTemplate);
-            else if (Object.op_Inequality((Object) self.mDrainHpEffectTemplate, (Object) null))
+            else if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mDrainHpEffectTemplate, (UnityEngine.Object) null))
               unitController.SetDrainEffect(self.mDrainHpEffectTemplate);
           }
-          if (self.Battle.IsUnitAuto(self1) || self.Battle.EntryBattleMultiPlayTimeUp)
+          if ((self.Battle.IsUnitAuto(self1) || self.Battle.EntryBattleMultiPlayTimeUp) && !skill.IsTransformSkill())
           {
             IntVector2 intVector2 = self.CalcCoord(unitController.CenterPosition);
             GridMap<bool> selectGridMap = self.Battle.CreateSelectGridMap(self1, intVector2.x, intVector2.y, skill);
@@ -7710,18 +10301,20 @@ namespace SRPG
       private IEnumerator PrepareSkill(Unit unit, SkillData skill)
       {
         // ISSUE: object of a compiler-generated type is created
-        return (IEnumerator) new SceneBattle.State_PrepareSkill.\u003CPrepareSkill\u003Ec__Iterator3D() { skill = skill, unit = unit, \u003C\u0024\u003Eskill = skill, \u003C\u0024\u003Eunit = unit, \u003C\u003Ef__this = this };
+        return (IEnumerator) new SceneBattle.State_PrepareSkill.\u003CPrepareSkill\u003Ec__Iterator63() { skill = skill, unit = unit, \u003C\u0024\u003Eskill = skill, \u003C\u0024\u003Eunit = unit, \u003C\u003Ef__this = this };
       }
 
       [DebuggerHidden]
       private IEnumerator cutinVoice(Unit unit, SkillData skill)
       {
         // ISSUE: object of a compiler-generated type is created
-        return (IEnumerator) new SceneBattle.State_PrepareSkill.\u003CcutinVoice\u003Ec__Iterator3E() { unit = unit, skill = skill, \u003C\u0024\u003Eunit = unit, \u003C\u0024\u003Eskill = skill, \u003C\u003Ef__this = this };
+        return (IEnumerator) new SceneBattle.State_PrepareSkill.\u003CcutinVoice\u003Ec__Iterator64() { unit = unit, skill = skill, \u003C\u0024\u003Eunit = unit, \u003C\u0024\u003Eskill = skill, \u003C\u003Ef__this = this };
       }
 
       public override void Update(SceneBattle self)
       {
+        if (this.mIsLoadTransformUnit || this.mIsLoadBreakObjUnit)
+          return;
         this.mWaitCount -= GameSettings.Instance.AiUnit_SkillWait * Time.get_deltaTime();
         if (0.0 < (double) this.mWaitCount)
           return;
@@ -7754,8 +10347,23 @@ namespace SRPG
         else
         {
           self.mBattleUI.OnBattleStart();
+          self.mBattleUI.OnCommandSelect();
           self.GotoState_WaitSignal<SceneBattle.State_Battle_PrepareSkill>();
         }
+      }
+
+      [DebuggerHidden]
+      public static IEnumerator loadTransformUnit(SceneBattle self, Unit unit, TacticsUnitController bef_tuc = null, Action callback = null)
+      {
+        // ISSUE: object of a compiler-generated type is created
+        return (IEnumerator) new SceneBattle.State_PrepareSkill.\u003CloadTransformUnit\u003Ec__Iterator65() { unit = unit, self = self, bef_tuc = bef_tuc, callback = callback, \u003C\u0024\u003Eunit = unit, \u003C\u0024\u003Eself = self, \u003C\u0024\u003Ebef_tuc = bef_tuc, \u003C\u0024\u003Ecallback = callback };
+      }
+
+      [DebuggerHidden]
+      public static IEnumerator loadBreakObjUnit(SceneBattle self, Unit unit, Action callback = null)
+      {
+        // ISSUE: object of a compiler-generated type is created
+        return (IEnumerator) new SceneBattle.State_PrepareSkill.\u003CloadBreakObjUnit\u003Ec__Iterator66() { unit = unit, self = self, callback = callback, \u003C\u0024\u003Eunit = unit, \u003C\u0024\u003Eself = self, \u003C\u0024\u003Ecallback = callback };
       }
     }
 
@@ -7777,7 +10385,7 @@ namespace SRPG
         if (!string.IsNullOrEmpty(peek.skill.SkillParam.effect))
           this.mInstigator.LoadSkillEffect(peek.skill.SkillParam.effect, self.mIsInstigatorSubUnit);
         self.mUnitsInBattle.Add(this.mInstigator);
-        if (Object.op_Inequality((Object) self.mCollaboTargetTuc, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mCollaboTargetTuc, (UnityEngine.Object) null))
         {
           self.mCollaboTargetTuc.AutoUpdateRotation = false;
           self.mCollaboTargetTuc.LoadSkillSequence(peek.skill.SkillParam, false, true, (bool) peek.skill.IsCollabo, !self.mIsInstigatorSubUnit);
@@ -7788,7 +10396,7 @@ namespace SRPG
         if (0 < (int) this.mSkill.hp_cost)
         {
           this.mInstigator.SetHpCostSkill(peek.skill.GetHpCost(peek.self));
-          if (Object.op_Inequality((Object) self.mCollaboTargetTuc, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mCollaboTargetTuc, (UnityEngine.Object) null))
             self.mCollaboTargetTuc.SetHpCostSkill(peek.skill.GetHpCost(peek.self));
         }
         for (int index = 0; index < peek.targets.Count; ++index)
@@ -7796,12 +10404,24 @@ namespace SRPG
           LogSkill.Target target = peek.targets[index];
           TacticsUnitController unitController = self.FindUnitController(target.target);
           this.mTargets.Add(unitController);
+          if (this.mSkill.IsTransformSkill())
+          {
+            string nameTransformSkill = this.mInstigator.GetAnmNameTransformSkill();
+            if (!string.IsNullOrEmpty(nameTransformSkill))
+              unitController.LoadTransformAnimation(nameTransformSkill);
+          }
           if (flag)
           {
             if (peek.targets[index].IsAvoid())
+            {
               unitController.LoadDodgeAnimation();
+            }
             else
+            {
+              if (peek.targets[index].IsCombo() && peek.targets[index].IsAvoidJustOne())
+                unitController.LoadDodgeAnimation();
               unitController.LoadDamageAnimations();
+            }
           }
           unitController.AutoUpdateRotation = false;
           self.mUnitsInBattle.Add(unitController);
@@ -7826,6 +10446,7 @@ namespace SRPG
         self.mUpdateCameraPosition = false;
         self.SetScreenMirroring(this.mInstigator.IsSkillMirror());
         self.ToggleBattleScene(true, peek.skill.SkillParam.SceneName);
+        self.EnableWeatherEffect(false);
         Vector3 vector3_1 = self.mBattleSceneRoot.PlayerStart2.get_position();
         Vector3 vector3_2 = self.mBattleSceneRoot.PlayerStart2.get_position();
         Vector3 vector3_3 = self.mBattleSceneRoot.PlayerStart1.get_position();
@@ -7845,40 +10466,60 @@ namespace SRPG
         ((Component) this.mInstigator).get_transform().set_position(vector3_1);
         ((Component) this.mInstigator).get_transform().set_rotation(Quaternion.LookRotation(Vector3.op_Subtraction(self.mBattleSceneRoot.PlayerStart1.get_position(), self.mBattleSceneRoot.PlayerStart2.get_position())));
         ((Component) this.mInstigator).get_transform().SetParent(((Component) self.mBattleSceneRoot).get_transform(), false);
-        if (Object.op_Inequality((Object) self.mCollaboTargetTuc, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mCollaboTargetTuc, (UnityEngine.Object) null))
         {
           ((Component) self.mCollaboTargetTuc).get_transform().set_position(vector3_2);
           ((Component) self.mCollaboTargetTuc).get_transform().set_rotation(Quaternion.LookRotation(Vector3.op_Subtraction(self.mBattleSceneRoot.PlayerStart1.get_position(), self.mBattleSceneRoot.PlayerStart2.get_position())));
           ((Component) self.mCollaboTargetTuc).get_transform().SetParent(((Component) self.mBattleSceneRoot).get_transform(), false);
         }
-        if (this.mTargets.Count == 1 && Object.op_Inequality((Object) this.mTargets[0], (Object) this.mInstigator))
+        if (this.mTargets.Count == 1 && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mTargets[0], (UnityEngine.Object) this.mInstigator))
         {
-          ((Component) this.mTargets[0]).get_transform().set_position(vector3_3);
-          ((Component) this.mTargets[0]).get_transform().set_rotation(Quaternion.LookRotation(Vector3.op_Subtraction(self.mBattleSceneRoot.PlayerStart2.get_position(), self.mBattleSceneRoot.PlayerStart1.get_position())));
-          ((Component) this.mTargets[0]).get_transform().SetParent(((Component) self.mBattleSceneRoot).get_transform(), false);
+          TacticsUnitController mTarget = this.mTargets[0];
+          if (peek.skill.IsTransformSkill())
+          {
+            ((Component) mTarget).get_transform().set_position(vector3_1);
+            ((Component) mTarget).get_transform().set_rotation(Quaternion.LookRotation(Vector3.op_Subtraction(self.mBattleSceneRoot.PlayerStart1.get_position(), self.mBattleSceneRoot.PlayerStart2.get_position())));
+            ((Component) mTarget).get_transform().SetParent(((Component) self.mBattleSceneRoot).get_transform(), false);
+          }
+          else
+          {
+            ((Component) mTarget).get_transform().set_position(vector3_3);
+            ((Component) mTarget).get_transform().set_rotation(Quaternion.LookRotation(Vector3.op_Subtraction(self.mBattleSceneRoot.PlayerStart2.get_position(), self.mBattleSceneRoot.PlayerStart1.get_position())));
+            ((Component) mTarget).get_transform().SetParent(((Component) self.mBattleSceneRoot).get_transform(), false);
+          }
         }
         Transform transform = ((Component) Camera.get_main()).get_transform();
         transform.set_position(Vector3.op_Addition(GameSettings.Instance.Quest.BattleCamera.get_position(), self.mBattleSceneRoot.PlayerStart2.get_position()));
         transform.set_rotation(GameSettings.Instance.Quest.BattleCamera.get_rotation());
         this.mInstigator.SetHitInfoSelf(peek.self_effect);
-        if (Object.op_Inequality((Object) self.mCollaboTargetTuc, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mCollaboTargetTuc, (UnityEngine.Object) null))
           self.mCollaboTargetTuc.SetHitInfoSelf(new LogSkill.Target());
         for (int index = 0; index < peek.targets.Count; ++index)
-          self.FindUnitController(peek.targets[index].target).SetHitInfo(peek.targets[index]);
+        {
+          TacticsUnitController unitController = self.FindUnitController(peek.targets[index].target);
+          LogSkill.Target target = peek.targets[index];
+          unitController.ShouldDodgeHits = target.IsAvoid();
+          unitController.ShouldPerfectDodge = target.IsPerfectAvoid();
+          unitController.SetHitInfo(peek.targets[index]);
+        }
         self.ToggleJumpSpots(false);
-        this.mInstigator.StartSkillWithAnimationOption(self.CalcGridCenter(peek.pos.x, peek.pos.y), Camera.get_main(), this.mTargets.ToArray(), (Vector3[]) null, this.mSkill, GameUtility.Config_SkillAnimation);
-        if (Object.op_Inequality((Object) self.mCollaboTargetTuc, (Object) null))
+        if (peek.skill.CastType == ECastTypes.Jump)
+          this.mInstigator.SetLandingGrid(peek.landing);
+        if (peek.skill.TeleportType != eTeleportType.None)
+          this.mInstigator.SetTeleportGrid(peek.TeleportGrid);
+        this.mInstigator.StartSkill(self.CalcGridCenter(peek.pos.x, peek.pos.y), Camera.get_main(), this.mTargets.ToArray(), (Vector3[]) null, this.mSkill);
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mCollaboTargetTuc, (UnityEngine.Object) null))
           self.mCollaboTargetTuc.StartSkill(self.CalcGridCenter(self.mCollaboTargetTuc.Unit.x, self.mCollaboTargetTuc.Unit.y), Camera.get_main(), this.mTargets.ToArray(), (Vector3[]) null, this.mSkill);
         GameUtility.FadeIn(0.2f);
-        if (Object.op_Inequality((Object) self.mSkillSplash, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mSkillSplash, (UnityEngine.Object) null))
         {
-          if (Object.op_Implicit((Object) self.mSkillSplash))
+          if (UnityEngine.Object.op_Implicit((UnityEngine.Object) self.mSkillSplash))
             self.mSkillSplash.Close();
           self.mSkillSplash = (SkillSplash) null;
         }
-        if (Object.op_Inequality((Object) self.mSkillSplashCollabo, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mSkillSplashCollabo, (UnityEngine.Object) null))
         {
-          if (Object.op_Implicit((Object) self.mSkillSplashCollabo))
+          if (UnityEngine.Object.op_Implicit((UnityEngine.Object) self.mSkillSplashCollabo))
             self.mSkillSplashCollabo.Close();
           self.mSkillSplashCollabo = (SkillSplashCollabo) null;
         }
@@ -7902,8 +10543,14 @@ namespace SRPG
 
     private class State_Battle_EndSkill : State<SceneBattle>
     {
+      private bool mIsBusy;
+      private SkillData mSkillData;
+      private LogSkill mLogSkill;
+
       public override void Begin(SceneBattle self)
       {
+        this.mIsBusy = true;
+        this.mLogSkill = self.mBattle.Logs.Peek as LogSkill;
         self.StartCoroutine(this.AsyncUpdate());
       }
 
@@ -7916,7 +10563,7 @@ namespace SRPG
           if (delta != 0)
           {
             TacticsUnitController unitController = this.self.FindUnitController(peek.targets[index].target);
-            if (Object.op_Inequality((Object) unitController, (Object) null))
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
               unitController.UpdateHPRelative(delta, 0.5f);
           }
         }
@@ -7926,71 +10573,137 @@ namespace SRPG
       private IEnumerator AsyncUpdate()
       {
         // ISSUE: object of a compiler-generated type is created
-        return (IEnumerator) new SceneBattle.State_Battle_EndSkill.\u003CAsyncUpdate\u003Ec__Iterator3F() { \u003C\u003Ef__this = this };
+        return (IEnumerator) new SceneBattle.State_Battle_EndSkill.\u003CAsyncUpdate\u003Ec__Iterator67() { \u003C\u003Ef__this = this };
+      }
+
+      public override void Update(SceneBattle self)
+      {
+        if (this.mIsBusy)
+          return;
+        if (this.mSkillData != null && this.mSkillData.IsTransformSkill())
+        {
+          self.InterpCameraDistance(GameSettings.Instance.GameCamera_DefaultDistance);
+          self.GotoState<SceneBattle.State_WaitGC<SceneBattle.State_WaitForLog>>();
+        }
+        else
+        {
+          if (this.mLogSkill != null && UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mEventScript, (UnityEngine.Object) null))
+          {
+            TacticsUnitController unitController1 = self.FindUnitController(this.mLogSkill.self);
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController1, (UnityEngine.Object) null) && this.mLogSkill.targets != null && this.mLogSkill.targets.Count != 0)
+            {
+              List<TacticsUnitController> TargetLists = new List<TacticsUnitController>();
+              using (List<LogSkill.Target>.Enumerator enumerator = this.mLogSkill.targets.GetEnumerator())
+              {
+                while (enumerator.MoveNext())
+                {
+                  LogSkill.Target current = enumerator.Current;
+                  TacticsUnitController unitController2 = self.FindUnitController(current.target);
+                  if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController2, (UnityEngine.Object) null))
+                    TargetLists.Add(unitController2);
+                }
+              }
+              if (TargetLists.Count != 0)
+              {
+                self.mEventSequence = self.mEventScript.OnUseSkill(EventScript.SkillTiming.AFTER, unitController1, this.mLogSkill.skill, TargetLists, self.mIsFirstPlay);
+                if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mEventSequence, (UnityEngine.Object) null))
+                {
+                  self.GotoState_WaitSignal<SceneBattle.State_WaitEvent<SceneBattle.State_SpawnShieldEffects>>();
+                  return;
+                }
+              }
+            }
+          }
+          self.GotoState_WaitSignal<SceneBattle.State_SpawnShieldEffects>();
+        }
       }
     }
 
     private class State_Map_PrepareSkill : State<SceneBattle>
     {
+      private TacticsUnitController controller;
+      private LogSkill log;
+
       public override void Begin(SceneBattle self)
       {
-        LogSkill peek = self.mBattle.Logs.Peek as LogSkill;
-        LogSkill Act = peek;
-        SkillParam skillParam = Act.skill.SkillParam;
-        TacticsUnitController unitController1 = self.FindUnitController(Act.self);
+        this.log = self.mBattle.Logs.Peek as LogSkill;
+        LogSkill log = this.log;
+        SkillParam skillParam = log.skill.SkillParam;
+        this.controller = self.FindUnitController(log.self);
         self.mUnitsInBattle.Clear();
-        self.mUnitsInBattle.Add(unitController1);
-        unitController1.AutoUpdateRotation = false;
-        unitController1.LoadSkillSequence(skillParam, false, false, (bool) Act.skill.IsCollabo, self.mIsInstigatorSubUnit);
+        self.mUnitsInBattle.Add(this.controller);
+        this.controller.AutoUpdateRotation = false;
+        this.controller.LoadSkillSequence(skillParam, false, false, (bool) log.skill.IsCollabo, self.mIsInstigatorSubUnit);
         if (!string.IsNullOrEmpty(skillParam.effect))
-          unitController1.LoadSkillEffect(skillParam.effect, false);
-        if (Object.op_Inequality((Object) self.mCollaboTargetTuc, (Object) null))
+          this.controller.LoadSkillEffect(skillParam.effect, false);
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mCollaboTargetTuc, (UnityEngine.Object) null))
         {
-          self.mCollaboTargetTuc.LoadSkillSequence(skillParam, false, false, (bool) Act.skill.IsCollabo, !self.mIsInstigatorSubUnit);
+          self.mCollaboTargetTuc.LoadSkillSequence(skillParam, false, false, (bool) log.skill.IsCollabo, !self.mIsInstigatorSubUnit);
           if (!string.IsNullOrEmpty(skillParam.effect))
             self.mCollaboTargetTuc.LoadSkillEffect(skillParam.effect, !self.mIsInstigatorSubUnit);
           self.mUnitsInBattle.Add(self.mCollaboTargetTuc);
         }
         if (0 < (int) skillParam.hp_cost)
         {
-          unitController1.SetHpCostSkill(Act.skill.GetHpCost(Act.self));
-          if (Object.op_Inequality((Object) self.mCollaboTargetTuc, (Object) null))
-            self.mCollaboTargetTuc.SetHpCostSkill(Act.skill.GetHpCost(Act.self));
+          this.controller.SetHpCostSkill(log.skill.GetHpCost(log.self));
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mCollaboTargetTuc, (UnityEngine.Object) null))
+            self.mCollaboTargetTuc.SetHpCostSkill(log.skill.GetHpCost(log.self));
         }
-        for (int index = 0; index < Act.targets.Count; ++index)
+        for (int index = 0; index < log.targets.Count; ++index)
         {
-          TacticsUnitController unitController2 = self.FindUnitController(Act.targets[index].target);
-          if (Act.targets[index].IsAvoid())
-            unitController2.LoadDodgeAnimation();
+          TacticsUnitController unitController = self.FindUnitController(log.targets[index].target);
+          if (skillParam.IsTransformSkill())
+          {
+            string nameTransformSkill = this.controller.GetAnmNameTransformSkill();
+            if (!string.IsNullOrEmpty(nameTransformSkill))
+              unitController.LoadTransformAnimation(nameTransformSkill);
+          }
+          if (log.targets[index].IsAvoid())
+          {
+            unitController.LoadDodgeAnimation();
+          }
           else
-            unitController2.LoadDamageAnimations();
-          self.mUnitsInBattle.Add(unitController2);
+          {
+            if (log.targets[index].IsCombo() && log.targets[index].IsAvoidJustOne())
+              unitController.LoadDodgeAnimation();
+            unitController.LoadDamageAnimations();
+          }
+          self.mUnitsInBattle.Add(unitController);
         }
-        if (self.Battle.IsUnitAuto(Act.self))
+      }
+
+      public override void Update(SceneBattle self)
+      {
+        LogSkill log = this.log;
+        if (!string.IsNullOrEmpty(log.skill.SkillParam.effect) && !this.controller.IsFinishedLoadSkillEffect())
+          return;
+        if (self.Battle.IsUnitAuto(log.self) || self.Battle.IsMultiPlay && self.Battle.CurrentUnit.OwnerPlayerIndex != self.Battle.MyPlayerIndex || log.skill.IsCastSkill())
         {
-          IntVector2 intVector2 = self.CalcCoord(unitController1.CenterPosition);
-          GridMap<bool> scopeGridMap = self.mBattle.CreateScopeGridMap(self.mBattle.CurrentUnit, intVector2.x, intVector2.y, Act.pos.x, Act.pos.y, Act.skill);
-          self.mSkillDirectionByKouka = self.GetSkillDirectionByTargetArea(self.Battle.CurrentUnit, scopeGridMap);
+          IntVector2 intVector2 = self.CalcCoord(this.controller.CenterPosition);
+          GridMap<bool> scopeGridMap = self.mBattle.CreateScopeGridMap(this.controller.Unit, intVector2.x, intVector2.y, log.pos.x, log.pos.y, log.skill);
+          if (scopeGridMap != null)
+            scopeGridMap.set(log.pos.x, log.pos.y, true);
+          self.mSkillDirectionByKouka = self.GetSkillDirectionByTargetArea(this.controller.Unit, intVector2.x, intVector2.y, scopeGridMap);
         }
-        unitController1.SkillTurn(Act, self.mSkillDirectionByKouka);
-        if (Object.op_Inequality((Object) self.mCollaboTargetTuc, (Object) null))
-          self.mCollaboTargetTuc.SkillTurn(Act, self.mSkillDirectionByKouka);
+        this.controller.SkillTurn(log, self.mSkillDirectionByKouka);
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mCollaboTargetTuc, (UnityEngine.Object) null))
+          self.mCollaboTargetTuc.SkillTurn(log, self.mSkillDirectionByKouka);
         self.SetPrioritizedUnits(self.mUnitsInBattle);
-        bool flag = peek.IsRenkei();
+        bool flag = this.log.IsRenkei();
         self.mAllowCameraRotation = false;
         self.mAllowCameraTranslation = false;
         if (flag)
         {
-          if (Object.op_Inequality((Object) unitController1, (Object) null))
-            unitController1.LoadGenkidamaAnimation(true);
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.controller, (UnityEngine.Object) null))
+            this.controller.LoadGenkidamaAnimation(true);
           self.GotoState<SceneBattle.State_Map_LoadSkill_Renkei1>();
         }
         else
         {
-          if (Object.op_Inequality((Object) unitController1, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.controller, (UnityEngine.Object) null))
           {
             self.SetCameraOffset(((Component) GameSettings.Instance.Quest.UnitCamera).get_transform());
-            self.InterpCameraTarget((Component) unitController1);
+            self.InterpCameraTarget((Component) this.controller);
             self.InterpCameraDistance(GameSettings.Instance.GameCamera_SkillCameraDistance);
           }
           self.GotoState<SceneBattle.State_Map_LoadSkill>();
@@ -8020,17 +10733,17 @@ namespace SRPG
         }
         if (self.mLoadingShieldEffects || (double) this.mWaitTime > 0.0)
           return;
-        if (Object.op_Inequality((Object) self.mSkillSplash, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mSkillSplash, (UnityEngine.Object) null))
         {
-          if (Object.op_Implicit((Object) self.mSkillSplash))
+          if (UnityEngine.Object.op_Implicit((UnityEngine.Object) self.mSkillSplash))
             self.mSkillSplash.Close();
           if (self.mWaitSkillSplashClose)
             return;
           self.mSkillSplash = (SkillSplash) null;
         }
-        if (Object.op_Inequality((Object) self.mSkillSplashCollabo, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mSkillSplashCollabo, (UnityEngine.Object) null))
         {
-          if (Object.op_Implicit((Object) self.mSkillSplashCollabo))
+          if (UnityEngine.Object.op_Implicit((UnityEngine.Object) self.mSkillSplashCollabo))
             self.mSkillSplashCollabo.Close();
           if (self.mWaitSkillSplashClose)
             return;
@@ -8038,8 +10751,11 @@ namespace SRPG
         }
         LogSkill peek = self.mBattle.Logs.Peek as LogSkill;
         TacticsUnitController unitController = self.FindUnitController(peek.self);
-        if (Object.op_Inequality((Object) unitController, (Object) null) && unitController.HasPreSkillAnimation)
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null) && unitController.HasPreSkillAnimation)
+        {
+          self.mBattleUI.OnCommandSelect();
           self.GotoState<SceneBattle.State_Map_PlayPreSkillAnim>();
+        }
         else
           self.GotoState<SceneBattle.State_Map_PlayPreDodge>();
       }
@@ -8056,6 +10772,7 @@ namespace SRPG
         this.mInstigator = self.FindUnitController(peek.self);
         self.SetScreenMirroring(this.mInstigator.IsSkillMirror());
         self.ToggleBattleScene(true, peek.skill.SkillParam.SceneName);
+        self.EnableWeatherEffect(false);
         Vector3 vector3_1 = self.mBattleSceneRoot.PlayerStart2.get_position();
         Vector3 vector3_2 = self.mBattleSceneRoot.PlayerStart2.get_position();
         if (this.mInstigator.IsPreSkillParentPosZero)
@@ -8070,7 +10787,7 @@ namespace SRPG
         transform1.set_position(vector3_1);
         transform1.set_rotation(Quaternion.LookRotation(Vector3.op_Subtraction(self.mBattleSceneRoot.PlayerStart1.get_position(), self.mBattleSceneRoot.PlayerStart2.get_position())));
         transform1.SetParent(((Component) self.mBattleSceneRoot).get_transform(), false);
-        if (Object.op_Inequality((Object) self.mCollaboTargetTuc, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mCollaboTargetTuc, (UnityEngine.Object) null))
         {
           ((Component) self.mCollaboTargetTuc).get_transform().set_position(vector3_2);
           ((Component) self.mCollaboTargetTuc).get_transform().set_rotation(Quaternion.LookRotation(Vector3.op_Subtraction(self.mBattleSceneRoot.PlayerStart1.get_position(), self.mBattleSceneRoot.PlayerStart2.get_position())));
@@ -8095,7 +10812,7 @@ namespace SRPG
       private IEnumerator AsyncWork()
       {
         // ISSUE: object of a compiler-generated type is created
-        return (IEnumerator) new SceneBattle.State_Map_PlayPreSkillAnim.\u003CAsyncWork\u003Ec__Iterator40() { \u003C\u003Ef__this = this };
+        return (IEnumerator) new SceneBattle.State_Map_PlayPreSkillAnim.\u003CAsyncWork\u003Ec__Iterator68() { \u003C\u003Ef__this = this };
       }
     }
 
@@ -8122,7 +10839,7 @@ namespace SRPG
         if (this.mRenkeiUnitIndex < self.mBattle.HelperUnits.Count)
         {
           TacticsUnitController unitController = self.FindUnitController(self.mBattle.HelperUnits[this.mRenkeiUnitIndex]);
-          if (Object.op_Inequality((Object) unitController, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
           {
             self.SetCameraOffset(((Component) GameSettings.Instance.Quest.UnitCamera).get_transform());
             self.InterpCameraTarget((Component) unitController);
@@ -8151,7 +10868,7 @@ namespace SRPG
       public override void Begin(SceneBattle self)
       {
         TacticsUnitController unitController = self.FindUnitController(self.mBattle.CurrentUnit);
-        if (Object.op_Inequality((Object) unitController, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
         {
           self.SetCameraOffset(((Component) GameSettings.Instance.Quest.UnitCamera).get_transform());
           self.InterpCameraTarget((Component) unitController);
@@ -8179,15 +10896,15 @@ namespace SRPG
             if (self.mUnitsInBattle[index].IsLoading || !self.mUnitsInBattle[index].isIdle)
               return;
           }
-          if (Object.op_Inequality((Object) self.mSkillSplash, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mSkillSplash, (UnityEngine.Object) null))
           {
-            if (Object.op_Implicit((Object) self.mSkillSplash))
+            if (UnityEngine.Object.op_Implicit((UnityEngine.Object) self.mSkillSplash))
               self.mSkillSplash.Close();
             self.mSkillSplash = (SkillSplash) null;
           }
-          if (Object.op_Inequality((Object) self.mSkillSplashCollabo, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mSkillSplashCollabo, (UnityEngine.Object) null))
           {
-            if (Object.op_Implicit((Object) self.mSkillSplashCollabo))
+            if (UnityEngine.Object.op_Implicit((UnityEngine.Object) self.mSkillSplashCollabo))
               self.mSkillSplashCollabo.Close();
             self.mSkillSplashCollabo = (SkillSplashCollabo) null;
           }
@@ -8269,6 +10986,11 @@ namespace SRPG
           self.mUpdateCameraPosition = true;
           self.InterpCameraDistance(GameSettings.Instance.GameCamera_DefaultDistance);
         }
+        else if (this.mInstigator.GetSkillCameraType() == SkillSequence.MapCameraTypes.MoreFarDistance)
+        {
+          self.mUpdateCameraPosition = true;
+          self.InterpCameraDistance(GameSettings.Instance.GameCamera_MoreFarDistance);
+        }
         SkillData skill = this.mActionInfo.skill;
         SkillParam skillParam = skill.SkillParam;
         List<Vector3> vector3List = (List<Vector3>) null;
@@ -8295,7 +11017,7 @@ namespace SRPG
           self.InterpCameraDistance(GameSettings.Instance.GameCamera_SkillCameraDistance);
         }
         this.mInstigator.SetHitInfoSelf(this.mActionInfo.self_effect);
-        if (Object.op_Inequality((Object) self.mCollaboTargetTuc, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mCollaboTargetTuc, (UnityEngine.Object) null))
           self.mCollaboTargetTuc.SetHitInfoSelf(new LogSkill.Target());
         TacticsUnitController[] targets = new TacticsUnitController[this.mActionInfo.targets.Count];
         for (int index = 0; index < this.mActionInfo.targets.Count; ++index)
@@ -8312,7 +11034,7 @@ namespace SRPG
             unitController.ShowCriticalEffectOnHit = target.IsCritical();
             unitController.ShowBackstabEffectOnHit = (target.hitType & LogSkill.EHitTypes.BackAttack) != (LogSkill.EHitTypes) 0 && skill.IsNormalAttack();
             unitController.ShouldDefendHits = target.IsDefend();
-            unitController.ShowElementEffectOnHit = !target.IsNormalEffectElement() ? (!target.IsEffectiveElement() ? TacticsUnitController.EElementEffectTypes.NotEffective : TacticsUnitController.EElementEffectTypes.Effective) : TacticsUnitController.EElementEffectTypes.Normal;
+            unitController.ShowElementEffectOnHit = !target.IsNormalEffectElement() ? (!target.IsWeakEffectElement() ? TacticsUnitController.EElementEffectTypes.NotEffective : TacticsUnitController.EElementEffectTypes.Effective) : TacticsUnitController.EElementEffectTypes.Normal;
           }
           else
           {
@@ -8349,11 +11071,15 @@ namespace SRPG
           explosionSound.IsCritical = false;
         if (this.mActionInfo.skill.IsNormalAttack() && loadedSkillEffect.ExplosionSounds.Length > 0)
           loadedSkillEffect.ExplosionSounds[0].IsCritical = flag;
-        this.mInstigator.StartSkillWithAnimationOption(self.CalcGridCenter(this.mActionInfo.pos.x, this.mActionInfo.pos.y), Camera.get_main(), targets, vector3List == null ? (Vector3[]) null : vector3List.ToArray(), skill.SkillParam, GameUtility.Config_SkillAnimation);
-        if (Object.op_Inequality((Object) self.mCollaboTargetTuc, (Object) null))
+        if (this.mActionInfo.skill.CastType == ECastTypes.Jump)
+          this.mInstigator.SetLandingGrid(this.mActionInfo.landing);
+        if (this.mActionInfo.skill.TeleportType != eTeleportType.None)
+          this.mInstigator.SetTeleportGrid(this.mActionInfo.TeleportGrid);
+        this.mInstigator.StartSkill(self.CalcGridCenter(this.mActionInfo.pos.x, this.mActionInfo.pos.y), Camera.get_main(), targets, vector3List == null ? (Vector3[]) null : vector3List.ToArray(), skill.SkillParam);
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mCollaboTargetTuc, (UnityEngine.Object) null))
           self.mCollaboTargetTuc.StartSkill(self.CalcGridCenter(this.mActionInfo.pos.x, this.mActionInfo.pos.y), Camera.get_main(), targets, vector3List == null ? (Vector3[]) null : vector3List.ToArray(), skill.SkillParam);
         if (skill.SkillType == ESkillType.Skill || skill.SkillType == ESkillType.Reaction)
-          self.ShowSkillNamePlate(skill.Name);
+          self.ShowSkillNamePlate(this.mActionInfo.self, skill, string.Empty, 1f);
         this.mEndWait = GameSettings.Instance.Quest.BattleTurnEndWait;
         self.RemoveLog();
       }
@@ -8378,14 +11104,14 @@ namespace SRPG
         }
         else
         {
-          if (Object.op_Inequality((Object) self.mCollaboTargetTuc, (Object) null) && !self.mCollaboTargetTuc.isIdle)
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mCollaboTargetTuc, (UnityEngine.Object) null) && !self.mCollaboTargetTuc.isIdle)
             return;
           using (List<TacticsUnitController>.Enumerator enumerator = this.mTargets.GetEnumerator())
           {
             while (enumerator.MoveNext())
             {
               TacticsUnitController current = enumerator.Current;
-              if (Object.op_Implicit((Object) current) && current.IsBusy)
+              if (UnityEngine.Object.op_Implicit((UnityEngine.Object) current) && current.IsBusy)
                 return;
             }
           }
@@ -8406,12 +11132,14 @@ namespace SRPG
               this.mTargets[index].ShowCriticalEffectOnHit = false;
               this.mTargets[index].ShowBackstabEffectOnHit = false;
               this.mTargets[index].DrainGemsOnHit = 0;
+              this.mTargets[index].ShowElementEffectOnHit = TacticsUnitController.EElementEffectTypes.Normal;
             }
             if (this.mActionInfo.IsRenkei())
               self.ToggleRenkeiAura(false);
             self.RefreshJumpSpots();
+            TrickData.AddMarker();
             this.mInstigator.AnimateVessel(0.0f, 0.5f);
-            if (Object.op_Inequality((Object) self.mCollaboTargetTuc, (Object) null))
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mCollaboTargetTuc, (UnityEngine.Object) null))
               self.mCollaboTargetTuc.AnimateVessel(0.0f, 0.5f);
             FadeController.Instance.BeginSceneFade(Color.get_white(), 0.5f, self.mUnitsInBattle.ToArray(), (TacticsUnitController[]) null);
             self.RefreshUnitStatus(this.mInstigator.Unit);
@@ -8424,9 +11152,67 @@ namespace SRPG
             }
             self.mSkillNamePlate.Close();
             self.ResetCameraTarget();
-            self.GotoState<SceneBattle.State_SpawnShieldEffects>();
+            if (this.mActionInfo.skill.IsTransformSkill())
+            {
+              self.HideUnitMarkers(this.mInstigator.Unit);
+              self.mTacticsUnits.Remove(this.mInstigator);
+              UnityEngine.Object.Destroy((UnityEngine.Object) ((Component) this.mInstigator).get_gameObject());
+              this.mInstigator = (TacticsUnitController) null;
+              if (this.mTargets.Count != 0)
+                this.mTargets[0].SetVisible(true);
+              self.InterpCameraDistance(GameSettings.Instance.GameCamera_DefaultDistance);
+              self.GotoState<SceneBattle.State_WaitGC<SceneBattle.State_WaitForLog>>();
+            }
+            else
+            {
+              if (this.mActionInfo.skill.IsSetBreakObjSkill() && this.mTargets.Count != 0)
+              {
+                this.mTargets[0].SetVisible(true);
+                self.OnGimmickUpdate();
+              }
+              if (this.mActionInfo != null && UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mEventScript, (UnityEngine.Object) null))
+              {
+                TacticsUnitController unitController1 = self.FindUnitController(this.mActionInfo.self);
+                if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController1, (UnityEngine.Object) null) && this.mActionInfo.targets != null && this.mActionInfo.targets.Count != 0)
+                {
+                  List<TacticsUnitController> TargetLists = new List<TacticsUnitController>();
+                  using (List<LogSkill.Target>.Enumerator enumerator = this.mActionInfo.targets.GetEnumerator())
+                  {
+                    while (enumerator.MoveNext())
+                    {
+                      LogSkill.Target current = enumerator.Current;
+                      TacticsUnitController unitController2 = self.FindUnitController(current.target);
+                      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController2, (UnityEngine.Object) null))
+                        TargetLists.Add(unitController2);
+                    }
+                  }
+                  if (TargetLists.Count != 0)
+                  {
+                    self.mEventSequence = self.mEventScript.OnUseSkill(EventScript.SkillTiming.AFTER, unitController1, this.mActionInfo.skill, TargetLists, self.mIsFirstPlay);
+                    if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mEventSequence, (UnityEngine.Object) null))
+                    {
+                      self.GotoState<SceneBattle.State_WaitEvent<SceneBattle.State_SpawnShieldEffects>>();
+                      return;
+                    }
+                  }
+                }
+              }
+              self.GotoState<SceneBattle.State_SpawnShieldEffects>();
+            }
           }
         }
+      }
+    }
+
+    private class FindShield
+    {
+      public TacticsUnitController mTuc;
+      public TacticsUnitController.ShieldState mShield;
+
+      public FindShield(TacticsUnitController tuc, TacticsUnitController.ShieldState shield)
+      {
+        this.mTuc = tuc;
+        this.mShield = shield;
       }
     }
 
@@ -8434,41 +11220,35 @@ namespace SRPG
     {
       private TacticsUnitController mUnit;
       private TacticsUnitController.ShieldState mShield;
+      private bool mIsFinished;
 
       public override void Begin(SceneBattle self)
       {
         for (int index = 0; index < self.mTacticsUnits.Count; ++index)
-          self.mTacticsUnits[index].UpdateShields();
-        if (!this.FindChangedShield(out this.mUnit, out this.mShield))
-          self.GotoState<SceneBattle.State_TriggerHPEvents>();
-        else
-          self.StartCoroutine(this.SpawnEffectsAsync());
-      }
-
-      private bool FindChangedShield(out TacticsUnitController unit, out TacticsUnitController.ShieldState shield)
-      {
-        for (int index1 = 0; index1 < this.self.mTacticsUnits.Count; ++index1)
+          self.mTacticsUnits[index].UpdateShields(false);
+        if (!self.FindChangedShield(out this.mUnit, out this.mShield))
         {
-          for (int index2 = 0; index2 < this.self.mTacticsUnits[index1].Shields.Count; ++index2)
-          {
-            if (this.self.mTacticsUnits[index1].Shields[index2].Dirty)
-            {
-              unit = this.self.mTacticsUnits[index1];
-              shield = this.self.mTacticsUnits[index1].Shields[index2];
-              return true;
-            }
-          }
+          self.GotoState<SceneBattle.State_TriggerHPEvents>();
         }
-        unit = (TacticsUnitController) null;
-        shield = (TacticsUnitController.ShieldState) null;
-        return false;
+        else
+        {
+          this.mIsFinished = false;
+          self.StartCoroutine(this.SpawnEffectsAsync());
+        }
       }
 
       [DebuggerHidden]
       private IEnumerator SpawnEffectsAsync()
       {
         // ISSUE: object of a compiler-generated type is created
-        return (IEnumerator) new SceneBattle.State_SpawnShieldEffects.\u003CSpawnEffectsAsync\u003Ec__Iterator41() { \u003C\u003Ef__this = this };
+        return (IEnumerator) new SceneBattle.State_SpawnShieldEffects.\u003CSpawnEffectsAsync\u003Ec__Iterator69() { \u003C\u003Ef__this = this };
+      }
+
+      public override void Update(SceneBattle self)
+      {
+        if (!this.mIsFinished)
+          return;
+        self.GotoState<SceneBattle.State_TriggerHPEvents>();
       }
     }
 
@@ -8476,15 +11256,28 @@ namespace SRPG
     {
       public override void Begin(SceneBattle self)
       {
-        if (Object.op_Inequality((Object) self.mEventScript, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mEventScript, (UnityEngine.Object) null))
         {
           for (int index = 0; index < self.mTacticsUnits.Count; ++index)
           {
             self.mEventSequence = self.mEventScript.OnUnitHPChange(self.mTacticsUnits[index]);
-            if (Object.op_Inequality((Object) self.mEventSequence, (Object) null))
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mEventSequence, (UnityEngine.Object) null))
             {
               self.GotoState<SceneBattle.State_WaitEvent<SceneBattle.State_TriggerHPEvents>>();
               return;
+            }
+          }
+          using (List<TacticsUnitController>.Enumerator enumerator = self.mTacticsUnits.GetEnumerator())
+          {
+            while (enumerator.MoveNext())
+            {
+              TacticsUnitController current = enumerator.Current;
+              self.mEventSequence = self.mEventScript.OnUnitRestHP(current, self.mIsFirstPlay);
+              if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mEventSequence, (UnityEngine.Object) null))
+              {
+                self.GotoState<SceneBattle.State_WaitEvent<SceneBattle.State_TriggerHPEvents>>();
+                return;
+              }
             }
           }
         }
@@ -8499,39 +11292,120 @@ namespace SRPG
 
       public override void Begin(SceneBattle self)
       {
-        this.mAsyncOp = AssetManager.UnloadUnusedAssets();
       }
 
       public override void Update(SceneBattle self)
       {
-        if (!this.mAsyncOp.get_isDone())
-          return;
         self.GotoState<NextState>();
+      }
+    }
+
+    private class State_Weather : State<SceneBattle>
+    {
+      private LogWeather mLog;
+      private bool mIsFinished;
+
+      public override void Begin(SceneBattle self)
+      {
+        this.mLog = self.Battle.Logs.Peek as LogWeather;
+        if (this.mLog == null || this.mLog.WeatherData == null)
+          return;
+        this.mIsFinished = false;
+        self.StartCoroutine(this.AsyncWeather());
+      }
+
+      [DebuggerHidden]
+      private IEnumerator AsyncWeather()
+      {
+        // ISSUE: object of a compiler-generated type is created
+        return (IEnumerator) new SceneBattle.State_Weather.\u003CAsyncWeather\u003Ec__Iterator6A() { \u003C\u003Ef__this = this };
+      }
+
+      public override void Update(SceneBattle self)
+      {
+        if (!this.mIsFinished)
+          return;
+        this.mLog = (LogWeather) null;
+        self.RemoveLog();
+        self.GotoState<SceneBattle.State_WaitForLog>();
       }
     }
 
     private class State_SpawnUnit : State<SceneBattle>
     {
       private LoadRequest mLoadRequest;
-
-      protected virtual Unit ReadLog()
-      {
-        Unit self = (this.self.mBattle.Logs.Peek as LogUnitEntry).self;
-        this.self.RemoveLog();
-        return self;
-      }
+      private SceneBattle mScene;
+      private bool mIsFinished;
+      private Unit mSpawnUnit;
 
       public override void Begin(SceneBattle self)
       {
-        Unit unit = this.ReadLog();
-        self.StartCoroutine(this.AsyncWork(unit));
+        this.mScene = self;
+        this.mIsFinished = true;
+        LogUnitEntry peek = self.mBattle.Logs.Peek as LogUnitEntry;
+        if (peek == null)
+          return;
+        this.mIsFinished = false;
+        this.mSpawnUnit = peek.self;
+        self.StartCoroutine(this.AsyncWork(peek.self, peek.kill_unit));
+        self.RemoveLog();
+      }
+
+      [DebuggerHidden]
+      private IEnumerator AsyncWork(Unit unit, Unit kill_unit)
+      {
+        // ISSUE: object of a compiler-generated type is created
+        return (IEnumerator) new SceneBattle.State_SpawnUnit.\u003CAsyncWork\u003Ec__Iterator5F() { unit = unit, kill_unit = kill_unit, \u003C\u0024\u003Eunit = unit, \u003C\u0024\u003Ekill_unit = kill_unit, \u003C\u003Ef__this = this };
+      }
+
+      public override void Update(SceneBattle self)
+      {
+        if (!this.mIsFinished)
+          return;
+        if (this.mSpawnUnit != null && UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mEventScript, (UnityEngine.Object) null))
+        {
+          TacticsUnitController unitController = self.FindUnitController(this.mSpawnUnit);
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
+          {
+            self.mEventSequence = self.mEventScript.OnUnitAppear(unitController, self.mIsFirstPlay);
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mEventSequence, (UnityEngine.Object) null))
+            {
+              self.GotoState<SceneBattle.State_WaitEvent<SceneBattle.State_WaitGC<SceneBattle.State_WaitForLog>>>();
+              return;
+            }
+          }
+        }
+        self.GotoState<SceneBattle.State_WaitGC<SceneBattle.State_WaitForLog>>();
+      }
+    }
+
+    private class State_UnitWithdraw : State<SceneBattle>
+    {
+      private bool mIsFinished;
+
+      public override void Begin(SceneBattle self)
+      {
+        this.mIsFinished = true;
+        LogUnitWithdraw peek = self.mBattle.Logs.Peek as LogUnitWithdraw;
+        if (peek == null)
+          return;
+        this.mIsFinished = false;
+        self.StartCoroutine(this.AsyncWork(peek.self));
       }
 
       [DebuggerHidden]
       private IEnumerator AsyncWork(Unit unit)
       {
         // ISSUE: object of a compiler-generated type is created
-        return (IEnumerator) new SceneBattle.State_SpawnUnit.\u003CAsyncWork\u003Ec__Iterator39() { unit = unit, \u003C\u0024\u003Eunit = unit, \u003C\u003Ef__this = this };
+        return (IEnumerator) new SceneBattle.State_UnitWithdraw.\u003CAsyncWork\u003Ec__Iterator6B() { unit = unit, \u003C\u0024\u003Eunit = unit, \u003C\u003Ef__this = this };
+      }
+
+      public override void Update(SceneBattle self)
+      {
+        if (!this.mIsFinished)
+          return;
+        self.RemoveLog();
+        self.GotoState<SceneBattle.State_WaitGC<SceneBattle.State_WaitForLog>>();
       }
     }
 
@@ -8557,11 +11431,114 @@ namespace SRPG
       private IEnumerator sendResultStartReplay(SceneBattle self)
       {
         // ISSUE: object of a compiler-generated type is created
-        return (IEnumerator) new SceneBattle.State_ArenaCalc.\u003CsendResultStartReplay\u003Ec__Iterator42() { self = self, \u003C\u0024\u003Eself = self };
+        return (IEnumerator) new SceneBattle.State_ArenaCalc.\u003CsendResultStartReplay\u003Ec__Iterator6C() { self = self, \u003C\u0024\u003Eself = self };
       }
     }
 
-    private enum EMultiPlayCommand
+    private class State_DirectionOffSkill : State<SceneBattle>
+    {
+      private List<TacticsUnitController> mTargets = new List<TacticsUnitController>();
+      private IEnumerator mTask;
+      private IEnumerator mTaskNext;
+      private LogSkill mActionInfo;
+      private TacticsUnitController mInstigator;
+
+      private void ResetTask()
+      {
+        this.mTask = (IEnumerator) null;
+        this.mTaskNext = (IEnumerator) null;
+      }
+
+      private void SetTask(IEnumerator enumrator)
+      {
+        this.mTaskNext = enumrator;
+      }
+
+      private bool NextTask()
+      {
+        if (this.mTaskNext == null)
+          return false;
+        this.mTask = this.mTaskNext;
+        this.mTaskNext = (IEnumerator) null;
+        return true;
+      }
+
+      public override void Begin(SceneBattle self)
+      {
+        LogSkill peek = self.mBattle.Logs.Peek as LogSkill;
+        this.ResetTask();
+        if (peek.skill == null)
+        {
+          self.RemoveLog();
+          DebugUtility.LogError("SkillParam が存在しません。");
+        }
+        else
+        {
+          this.mActionInfo = peek;
+          this.mInstigator = self.FindUnitController(this.mActionInfo.self);
+          this.SetTask(this.Task_PrepareSkill(self));
+          self.RemoveLog();
+        }
+      }
+
+      public override void Update(SceneBattle self)
+      {
+        bool flag = !this.NextTask();
+        if (this.mTask != null)
+          flag = !this.mTask.MoveNext() && !this.NextTask();
+        if (!flag)
+          return;
+        this.mTask = (IEnumerator) null;
+      }
+
+      public override void End(SceneBattle self)
+      {
+      }
+
+      [DebuggerHidden]
+      private IEnumerator Task_PrepareSkill(SceneBattle self)
+      {
+        // ISSUE: object of a compiler-generated type is created
+        return (IEnumerator) new SceneBattle.State_DirectionOffSkill.\u003CTask_PrepareSkill\u003Ec__Iterator6D() { self = self, \u003C\u0024\u003Eself = self, \u003C\u003Ef__this = this };
+      }
+
+      [DebuggerHidden]
+      private IEnumerator Task_MapPrepareSkill(SceneBattle self)
+      {
+        // ISSUE: object of a compiler-generated type is created
+        return (IEnumerator) new SceneBattle.State_DirectionOffSkill.\u003CTask_MapPrepareSkill\u003Ec__Iterator6E() { self = self, \u003C\u0024\u003Eself = self, \u003C\u003Ef__this = this };
+      }
+
+      [DebuggerHidden]
+      private IEnumerator Task_MapPlaySkill(SceneBattle self)
+      {
+        // ISSUE: object of a compiler-generated type is created
+        return (IEnumerator) new SceneBattle.State_DirectionOffSkill.\u003CTask_MapPlaySkill\u003Ec__Iterator6F() { self = self, \u003C\u0024\u003Eself = self, \u003C\u003Ef__this = this };
+      }
+
+      [DebuggerHidden]
+      private IEnumerator Task_Execute(SceneBattle self)
+      {
+        // ISSUE: object of a compiler-generated type is created
+        return (IEnumerator) new SceneBattle.State_DirectionOffSkill.\u003CTask_Execute\u003Ec__Iterator70() { self = self, \u003C\u0024\u003Eself = self, \u003C\u003Ef__this = this };
+      }
+
+      private enum EndGotoState
+      {
+        NONE,
+        WAIT_FOR_LOG,
+        WAITEVENT_SPAWN_SHIELD_EFFECT,
+        SPAWN_SHIELD_EFFECT,
+      }
+    }
+
+    public enum CameraMode
+    {
+      DEFAULT,
+      UPVIEW,
+    }
+
+    public enum EMultiPlayCommand
     {
       NOP,
       MOVE_START,
@@ -8577,7 +11554,7 @@ namespace SRPG
       NUM,
     }
 
-    private class MultiPlayInput
+    public class MultiPlayInput
     {
       public int u = -1;
       public string s = string.Empty;
@@ -8608,7 +11585,7 @@ namespace SRPG
       }
     }
 
-    private enum EMultiPlayRecvDataHeader
+    public enum EMultiPlayRecvDataHeader
     {
       NOP,
       INPUT,
@@ -8627,6 +11604,7 @@ namespace SRPG
       CHEAT_MOVE,
       CHEAT_MP,
       CHEAT_RANGE,
+      OTHERPLAYER_DISCONNECT,
       NUM,
     }
 
@@ -8637,7 +11615,7 @@ namespace SRPG
       RANGE,
     }
 
-    private class MultiPlayRecvData
+    public class MultiPlayRecvData
     {
       public int sq;
       public int h;
@@ -8738,511 +11716,25 @@ namespace SRPG
       SEQUENCE_ERROR,
     }
 
-    private class MultiPlayer
-    {
-      public MultiPlayer(SceneBattle self, int playerIndex, int playerID)
-      {
-        this.PlayerIndex = playerIndex;
-        this.PlayerID = playerID;
-        this.NotifyDisconnected = false;
-        this.Disconnected = false;
-        self.MultiPlayLog("[PUN] new MultiPlayer playerIndex:" + (object) playerIndex + " playerID:" + (object) playerID);
-      }
-
-      public int PlayerIndex { get; private set; }
-
-      public int PlayerID { get; private set; }
-
-      public bool NotifyDisconnected { get; set; }
-
-      public bool Disconnected { get; set; }
-
-      public int RecvInputNum { get; set; }
-
-      public bool FinishLoad { get; set; }
-
-      public bool SyncWait { get; set; }
-
-      public bool SyncResumeWait { get; set; }
-
-      public void Begin(SceneBattle self)
-      {
-      }
-
-      public void Update(SceneBattle self)
-      {
-      }
-
-      public void End(SceneBattle self)
-      {
-      }
-    }
-
-    private class MultiPlayerUnit
-    {
-      private EUnitDirection mDir = EUnitDirection.NegativeX;
-      private List<SceneBattle.MultiPlayInput> mRecv = new List<SceneBattle.MultiPlayInput>();
-      private Unit mUnit;
-      private int mGridX;
-      private int mGridY;
-      private Vector3 mTargetPos3D;
-      private Quaternion mTargetRot;
-      private SceneBattle.MultiPlayerUnit.EGridSnap mGridSnap;
-      private bool mIsRunning;
-      private float mStopTime;
-      private int mRecvTurnNum;
-      private int mCurrentTurn;
-      private float mTurnSec;
-      private int mTurnCmdNum;
-      private int mTurnCmdDoneNum;
-      private GridMap<int> mMoveGrid;
-      private bool mBegin;
-
-      public MultiPlayerUnit(SceneBattle self, int unitID, Unit unit, SceneBattle.MultiPlayer owner)
-      {
-        this.Owner = owner;
-        this.UnitID = unitID;
-        this.mUnit = unit;
-        self.MultiPlayLog("[PUN] new MultiPlayerUnit unitID:" + (object) unitID + " name:" + unit.UnitName + " ownerPlayerIndex:" + (object) (owner != null ? owner.PlayerIndex : 0));
-      }
-
-      public SceneBattle.MultiPlayer Owner { get; private set; }
-
-      public int UnitID { get; private set; }
-
-      public Unit Unit
-      {
-        get
-        {
-          return this.mUnit;
-        }
-      }
-
-      public bool IsMoveCompleted(SceneBattle self, int x, int y, TacticsUnitController controller)
-      {
-        if (!this.mBegin)
-          return true;
-        if (this.mGridSnap != SceneBattle.MultiPlayerUnit.EGridSnap.DONE || this.mIsRunning)
-          return false;
-        IntVector2 intVector2 = self.CalcCoord(((Component) controller).get_transform().get_position());
-        return intVector2.x == x && intVector2.y == y;
-      }
-
-      public void RecvInput(SceneBattle self, SceneBattle.MultiPlayRecvData data)
-      {
-        int num = Math.Max(Math.Max(Math.Max(Math.Max(Math.Max(Math.Max(Math.Max(Math.Max(Math.Max(Math.Max(0, data.c != null ? data.c.Length : 0), data.u != null ? data.u.Length : 0), data.s != null ? data.s.Length : 0), data.i != null ? data.i.Length : 0), data.gx != null ? data.gx.Length : 0), data.gy != null ? data.gy.Length : 0), data.d != null ? data.d.Length : 0), data.x != null ? data.x.Length : 0), data.z != null ? data.z.Length : 0), data.r != null ? data.r.Length : 0);
-        for (int index = 0; index < num; ++index)
-        {
-          if (data.c[index] != 0)
-          {
-            SceneBattle.MultiPlayInput multiPlayInput = new SceneBattle.MultiPlayInput();
-            multiPlayInput.b = data.b;
-            multiPlayInput.t = this.mRecvTurnNum;
-            multiPlayInput.c = data.c == null || index >= data.c.Length ? multiPlayInput.c : data.c[index];
-            multiPlayInput.u = data.u == null || index >= data.u.Length ? multiPlayInput.u : data.u[index];
-            multiPlayInput.s = data.s == null || index >= data.s.Length ? multiPlayInput.s : data.s[index];
-            multiPlayInput.i = data.i == null || index >= data.i.Length ? multiPlayInput.i : data.i[index];
-            multiPlayInput.gx = data.gx == null || index >= data.gx.Length ? multiPlayInput.gx : data.gx[index];
-            multiPlayInput.gy = data.gy == null || index >= data.gy.Length ? multiPlayInput.gy : data.gy[index];
-            multiPlayInput.ul = data.ul == null || index >= data.ul.Length ? multiPlayInput.ul : data.ul[index];
-            multiPlayInput.d = data.d == null || index >= data.d.Length ? multiPlayInput.d : data.d[index];
-            multiPlayInput.x = data.x == null || index >= data.x.Length ? multiPlayInput.x : data.x[index];
-            multiPlayInput.z = data.z == null || index >= data.z.Length ? multiPlayInput.z : data.z[index];
-            multiPlayInput.r = data.r == null || index >= data.r.Length ? multiPlayInput.r : data.r[index];
-            if (!multiPlayInput.IsValid(self))
-            {
-              DebugUtility.LogError("[PUN] illegal input recv.");
-            }
-            else
-            {
-              if (multiPlayInput.c == 4)
-                self.MultiPlayLog("[PUN] recv MOVE_END");
-              else if (multiPlayInput.c == 6)
-                self.MultiPlayLog("[PUN] recv ENTRY_BATTLE");
-              else if (multiPlayInput.c == 7)
-                self.MultiPlayLog("[PUN] recv GRID_EVENT");
-              else if (multiPlayInput.c == 8)
-                self.MultiPlayLog("[PUN] recv UNIT_END");
-              else if (multiPlayInput.c == 9)
-                self.MultiPlayLog("[PUN] recv TIME_LIMIT");
-              this.mRecv.Add(multiPlayInput);
-            }
-          }
-        }
-        ++this.mRecvTurnNum;
-        self.MultiPlayLog("[PUN]RecvInput from unitID:" + (object) this.UnitID + " " + (object) this.mRecvTurnNum + " sq:" + (object) data.sq + " b:" + (object) data.b + "/" + (object) self.UnitStartCountTotal);
-      }
-
-      public void Begin(SceneBattle self)
-      {
-        if (this.mBegin)
-          return;
-        this.mBegin = true;
-        this.mRecvTurnNum = 0;
-        this.mCurrentTurn = 0;
-        this.mTurnSec = 0.0f;
-        this.mTurnCmdNum = -1;
-        this.mTurnCmdDoneNum = 0;
-        this.mRecv.RemoveAll((Predicate<SceneBattle.MultiPlayInput>) (r => r.b < self.mUnitStartCountTotal));
-        this.mTargetPos3D = self.CalcGridCenter(this.mUnit.x, this.mUnit.y);
-        TacticsUnitController unitController = self.FindUnitController(this.mUnit);
-        self.MultiPlayLog("[PUN]Begin MultiPlayer unitID: " + (object) this.UnitID + " name:" + this.mUnit.UnitName + " ux:" + (object) this.mUnit.x + " uy:" + (object) this.mUnit.y + " dir:" + (object) this.mUnit.Direction + " sx:" + (object) this.mUnit.startX + " sy:" + (object) this.mUnit.startY);
-        if (Object.op_Equality((Object) unitController, (Object) null) || this.mUnit.IsDead)
-          return;
-        this.mTargetRot = ((Component) unitController).get_transform().get_rotation();
-        unitController.AutoUpdateRotation = false;
-        this.mGridSnap = SceneBattle.MultiPlayerUnit.EGridSnap.DONE;
-        this.mIsRunning = false;
-        this.mStopTime = 0.0f;
-        this.mGridX = this.mUnit.x;
-        this.mGridY = this.mUnit.y;
-        unitController.WalkableField = self.CreateCurrentAccessMap();
-        if (!self.Battle.IsMultiVersus)
-          unitController.ShowOwnerIndexUI(true);
-        this.mMoveGrid = self.CreateCurrentAccessMap();
-      }
-
-      public void End(SceneBattle self)
-      {
-        if (!this.mBegin)
-          return;
-        this.mBegin = false;
-        TacticsUnitController unitController = self.FindUnitController(this.mUnit);
-        if (Object.op_Inequality((Object) unitController, (Object) null))
-        {
-          if (this.mIsRunning)
-          {
-            this.mIsRunning = false;
-            unitController.StopRunning();
-          }
-          ((Component) unitController).get_transform().set_position(self.CalcGridCenter(this.mUnit.x, this.mUnit.y));
-          unitController.AutoUpdateRotation = true;
-          unitController.WalkableField = (GridMap<int>) null;
-          unitController.ShowOwnerIndexUI(false);
-        }
-        self.MultiPlayLog("MultiPlayerEnd. ux:" + (object) this.mUnit.x + " uy:" + (object) this.mUnit.y + " gx:" + (object) this.mGridX + " gy:" + (object) this.mGridY);
-      }
-
-      private Vector3 GetPosition3D(SceneBattle self, float x, float z)
-      {
-        Vector3 position;
-        // ISSUE: explicit reference operation
-        ((Vector3) @position).\u002Ector(x, 0.0f, z);
-        IntVector2 intVector2 = self.CalcCoord(position);
-        Vector3 vector3 = self.CalcGridCenter(intVector2.x, intVector2.y);
-        position.y = vector3.y;
-        return position;
-      }
-
-      private bool CheckMoveable(int x, int y)
-      {
-        if (this.mMoveGrid != null)
-          return this.mMoveGrid.get(x, y) >= 0;
-        return true;
-      }
-
-      public void Update(SceneBattle self)
-      {
-        if (!this.mBegin)
-          return;
-        TacticsUnitController unitController = self.FindUnitController(this.mUnit);
-        if (Object.op_Equality((Object) unitController, (Object) null) || this.mUnit.IsDead || !self.IsInState<SceneBattle.State_MapCommandMultiPlay>() && !self.IsInState<SceneBattle.State_MapCommandVersus>() && !self.IsInState<SceneBattle.State_SelectTargetV2>())
-          return;
-        unitController.AutoUpdateRotation = false;
-        if (this.mGridSnap == SceneBattle.MultiPlayerUnit.EGridSnap.ACTIVE)
-        {
-          if (!unitController.isIdle)
-            return;
-          this.mGridSnap = SceneBattle.MultiPlayerUnit.EGridSnap.DONE;
-        }
-        if (unitController.IsPlayingFieldAction)
-          return;
-        if (this.mRecv.Count <= 0)
-        {
-          if (this.Owner != null && this.IsMoveCompleted(self, this.mGridX, this.mGridY, unitController))
-          {
-            MyPhoton.MyPlayer myPlayer = PunMonoSingleton<MyPhoton>.Instance.GetRoomPlayerList().Find((Predicate<MyPhoton.MyPlayer>) (p => p.playerID == this.Owner.PlayerID));
-            if (myPlayer == null || !myPlayer.start && this.Owner.Disconnected)
-            {
-              ((Component) unitController).get_transform().set_position(this.mTargetPos3D = self.CalcGridCenter(this.mUnit.x, this.mUnit.y));
-              unitController.CancelAction();
-              ((Component) unitController).get_transform().set_rotation(this.mTargetRot = this.mUnit.Direction.ToRotation());
-              unitController.AutoUpdateRotation = true;
-              self.Battle.EntryBattleMultiPlayTimeUp = true;
-              self.Battle.MultiPlayDisconnectAutoBattle = true;
-              self.GotoMapCommand();
-              DebugUtility.LogWarning("[PUN] detect player disconnected");
-            }
-          }
-        }
-        else if (this.Owner != null)
-        {
-          this.mTurnSec += Time.get_deltaTime();
-          if (this.mTurnCmdNum < 0)
-          {
-            this.mTurnCmdNum = 0;
-            int t = this.mRecv[0].t;
-            if (t > this.mCurrentTurn)
-              DebugUtility.LogError("[PUN] illegal send turn:" + (object) t + " <> " + (object) this.mCurrentTurn);
-            else if (t < this.mCurrentTurn)
-              DebugUtility.LogWarning("[PUN] skip send turn:" + (object) t + " <> " + (object) this.mCurrentTurn);
-            while (this.mTurnCmdNum < this.mRecv.Count && this.mRecv[this.mTurnCmdNum].t == t)
-              ++this.mTurnCmdNum;
-            self.MultiPlayLog("[PUN] start send turn:" + (object) t + "/" + (object) this.mCurrentTurn + " cmdNum:" + (object) this.mTurnCmdNum + " recvTurnNum:" + (object) this.mRecvTurnNum + " recvCount:" + (object) this.mRecv.Count);
-          }
-          int num1 = Math.Min(this.mTurnCmdNum, (int) ((double) this.mTurnSec * (double) this.mTurnCmdNum / (double) self.SEND_TURN_SEC));
-          while (this.mTurnCmdDoneNum < num1)
-          {
-            int num2 = 0;
-            SceneBattle.MultiPlayInput multiPlayInput = this.mRecv[0];
-            if (multiPlayInput.c != 0)
-            {
-              if (multiPlayInput.c == 3)
-              {
-                this.mGridX = multiPlayInput.gx;
-                this.mGridY = multiPlayInput.gy;
-                this.mDir = (EUnitDirection) multiPlayInput.d;
-                self.MultiPlayLog("recv GRID_XY:" + (object) this.mGridX + " " + (object) this.mGridY);
-              }
-              else if (multiPlayInput.c != 1)
-              {
-                if (multiPlayInput.c == 4)
-                {
-                  self.MultiPlayLog("recv MOVE_END:" + (object) this.mGridX + " " + (object) this.mGridY);
-                  if (this.mGridX != multiPlayInput.gx || this.mGridY != multiPlayInput.gy)
-                    DebugUtility.LogWarning("move pos not match gx:" + (object) this.mGridX + " gy:" + (object) this.mGridY + " tx:" + (object) multiPlayInput.gx + " ty:" + (object) multiPlayInput.gy);
-                  self.Battle.MoveMultiPlayer(this.mUnit, this.mGridX, this.mGridY, this.mDir);
-                  if (!this.CheckMoveable(this.mGridX, this.mGridY))
-                    self.SendCheat(SceneBattle.CHEAT_TYPE.MOVE, this.Owner.PlayerIndex);
-                }
-                else if (multiPlayInput.c == 5)
-                {
-                  this.mGridX = this.mUnit.startX;
-                  this.mGridY = this.mUnit.startY;
-                  this.mDir = this.mUnit.startDir;
-                  self.ResetMultiPlayerTransform(this.mUnit);
-                  this.mTargetPos3D = ((Component) unitController).get_transform().get_position();
-                  this.mTargetRot = ((Component) unitController).get_transform().get_rotation();
-                  this.mGridSnap = SceneBattle.MultiPlayerUnit.EGridSnap.DONE;
-                  self.MultiPlayLog("[PUN] recv MOVE_CANCEL (" + (object) this.mGridX + "," + (object) this.mGridY + ")" + (object) this.mDir);
-                }
-                else if (multiPlayInput.c == 2)
-                {
-                  this.mTargetPos3D = this.GetPosition3D(self, multiPlayInput.x, multiPlayInput.z);
-                  this.mTargetRot = Quaternion.AngleAxis(multiPlayInput.r, Vector3.get_up());
-                }
-                else if (multiPlayInput.c == 6)
-                {
-                  EBattleCommand d = (EBattleCommand) multiPlayInput.d;
-                  if (d == EBattleCommand.Wait)
-                  {
-                    self.Battle.MapCommandEnd(this.mUnit);
-                  }
-                  else
-                  {
-                    Unit enemy = multiPlayInput.u >= 0 ? self.Battle.AllUnits[multiPlayInput.u] : (Unit) null;
-                    SkillData skillData = this.mUnit.GetSkillData(multiPlayInput.s);
-                    if (skillData != null && !this.mUnit.CheckEnableUseSkill(skillData, true))
-                      self.SendCheat(SceneBattle.CHEAT_TYPE.MP, this.Owner.PlayerIndex);
-                    ItemData inventoryByItemId = MonoSingleton<GameManager>.Instance.Player.FindInventoryByItemID(multiPlayInput.i);
-                    int gx = multiPlayInput.gx;
-                    int gy = multiPlayInput.gy;
-                    bool unitLockTarget = multiPlayInput.ul != 0;
-                    if (!this.IsMoveCompleted(self, this.mUnit.x, this.mUnit.y, unitController))
-                    {
-                      self.MultiPlayLog("[PUN]waiting move completed for ENTRY_BATTLE... SNAP:" + (object) this.mGridSnap + " RUN:" + (object) this.mIsRunning + " ux:" + (object) this.mUnit.x + " uy:" + (object) this.mUnit.y);
-                      break;
-                    }
-                    if (skillData != null && !self.Battle.CreateSelectGridMap(this.mUnit, gx, gy, skillData).get(gx, gy))
-                      self.SendCheat(SceneBattle.CHEAT_TYPE.RANGE, this.Owner.PlayerIndex);
-                    self.MultiPlayLog("[PUN]MultiPlayerUnit ENTRY_BATTLE");
-                    self.HideAllHPGauges();
-                    self.HideAllUnitOwnerIndex();
-                    self.Battle.EntryBattleMultiPlay(d, this.mUnit, enemy, skillData, inventoryByItemId, gx, gy, unitLockTarget);
-                    num2 = 1;
-                    this.mDir = this.mUnit.Direction;
-                    this.mTargetRot = this.mDir.ToRotation();
-                    this.mGridX = this.mUnit.x;
-                    this.mGridY = this.mUnit.y;
-                    this.mTargetPos3D = self.CalcGridCenter(this.mGridX, this.mGridY);
-                  }
-                }
-                else if (multiPlayInput.c == 7)
-                {
-                  if (this.mGridX != multiPlayInput.gx || this.mGridY != multiPlayInput.gy)
-                    DebugUtility.LogWarning("GRID_EVENT move pos not match gx:" + (object) this.mGridX + " gy:" + (object) this.mGridY + " tx:" + (object) multiPlayInput.gx + " ty:" + (object) multiPlayInput.gy);
-                  if (!this.IsMoveCompleted(self, this.mUnit.x, this.mUnit.y, unitController))
-                  {
-                    self.MultiPlayLog("[PUN]waiting move completed for GRID_EVENT...begin:" + (object) this.mBegin + " run:" + (object) this.mIsRunning + " snap:" + (object) this.mGridSnap + " ux:" + (object) this.mUnit.x + " uy:" + (object) this.mUnit.y);
-                    break;
-                  }
-                  self.MultiPlayLog("[PUN]MultiPlayerUnit GRID_EVENT");
-                  self.Battle.ExecuteEventTriggerOnGrid(this.mUnit, EEventTrigger.ExecuteOnGrid, false);
-                  num2 = 1;
-                }
-                else if (multiPlayInput.c == 8)
-                {
-                  if (this.mGridX != multiPlayInput.gx || this.mGridY != multiPlayInput.gy)
-                  {
-                    DebugUtility.LogWarning("UNIT_END move pos not match gx:" + (object) this.mGridX + " gy:" + (object) this.mGridY + " tx:" + (object) multiPlayInput.gx + " ty:" + (object) multiPlayInput.gy);
-                    this.mGridX = multiPlayInput.gx;
-                    this.mGridY = multiPlayInput.gy;
-                    this.mTargetPos3D = self.CalcGridCenter(this.mGridX, this.mGridY);
-                    break;
-                  }
-                  if (!this.IsMoveCompleted(self, this.mUnit.x, this.mUnit.y, unitController))
-                  {
-                    self.MultiPlayLog("[PUN]waiting move completed for UNIT_END...begin:" + (object) this.mBegin + " run:" + (object) this.mIsRunning + " snap:" + (object) this.mGridSnap + " ux:" + (object) this.mUnit.x + " uy:" + (object) this.mUnit.y);
-                    break;
-                  }
-                  self.MultiPlayLog("[PUN]MultiPlayerUnit UNIT_END");
-                  self.Battle.CommandWait((EUnitDirection) multiPlayInput.d);
-                  num2 = 1;
-                }
-                else if (multiPlayInput.c == 9)
-                {
-                  if (this.mGridX != multiPlayInput.gx || this.mGridY != multiPlayInput.gy)
-                  {
-                    DebugUtility.LogWarning("UNIT_TIME_LIMIT move pos not match gx:" + (object) this.mGridX + " gy:" + (object) this.mGridY + " tx:" + (object) multiPlayInput.gx + " ty:" + (object) multiPlayInput.gy);
-                    this.mGridX = multiPlayInput.gx;
-                    this.mGridY = multiPlayInput.gy;
-                    this.mTargetPos3D = self.CalcGridCenter(this.mGridX, this.mGridY);
-                    break;
-                  }
-                  if (!this.IsMoveCompleted(self, this.mUnit.x, this.mUnit.y, unitController))
-                  {
-                    self.MultiPlayLog("[PUN]waiting move completed for UNIT_TIME_LIMIT...begin:" + (object) this.mBegin + " run:" + (object) this.mIsRunning + " snap:" + (object) this.mGridSnap + " ux:" + (object) this.mUnit.x + " uy:" + (object) this.mUnit.y);
-                    break;
-                  }
-                  this.mUnit.Direction = (EUnitDirection) multiPlayInput.d;
-                  num2 = 2;
-                  self.MultiPlayLog("[PUN]UnitTimeUp!");
-                }
-                else if (multiPlayInput.c == 10)
-                {
-                  this.mUnit.x = this.mGridX = multiPlayInput.gx;
-                  this.mUnit.y = this.mGridY = multiPlayInput.gy;
-                  this.mUnit.Direction = this.mDir = (EUnitDirection) multiPlayInput.d;
-                  self.MultiPlayLog("recv UNIT_XYDIR:" + (object) this.mGridX + " " + (object) this.mGridY + " " + (object) this.mDir);
-                }
-              }
-            }
-            this.mRecv.RemoveAt(0);
-            ++this.mTurnCmdDoneNum;
-            switch (num2)
-            {
-              case 1:
-                unitController.AutoUpdateRotation = true;
-                self.GotoState<SceneBattle.State_WaitForLog>();
-                goto label_71;
-              case 2:
-                unitController.AutoUpdateRotation = true;
-                self.Battle.EntryBattleMultiPlayTimeUp = true;
-                self.GotoMapCommand();
-                goto label_71;
-              default:
-                continue;
-            }
-          }
-label_71:
-          if (this.mTurnCmdDoneNum >= this.mTurnCmdNum)
-          {
-            self.MultiPlayLog("[PUN] done send turn:" + (object) this.mCurrentTurn + " cmdNum:" + (object) this.mTurnCmdNum + " recvTurnNum:" + (object) this.mRecvTurnNum + " recvCount:" + (object) this.mRecv.Count);
-            ++this.mCurrentTurn;
-            this.mTurnSec = 0.0f;
-            this.mTurnCmdDoneNum = 0;
-            this.mTurnCmdNum = -1;
-          }
-        }
-        if (unitController.AutoUpdateRotation)
-          return;
-        int num3 = 2;
-        Vector3 vector3 = Vector3.op_Subtraction(this.mTargetPos3D, ((Component) unitController).get_transform().get_position());
-        vector3.y = (__Null) 0.0;
-        // ISSUE: explicit reference operation
-        float num4 = ((Vector3) @vector3).get_magnitude();
-        // ISSUE: explicit reference operation
-        float num5 = (float) (((Component) unitController).get_transform().get_eulerAngles().y - ((Quaternion) @this.mTargetRot).get_eulerAngles().y);
-        while ((double) num5 < -180.0)
-          num5 += 360f;
-        while ((double) num5 > 180.0)
-          num5 -= 360f;
-        if ((double) num4 >= 0.00999999977648258)
-        {
-          this.mGridSnap = SceneBattle.MultiPlayerUnit.EGridSnap.NOP;
-        }
-        else
-        {
-          ((Component) unitController).get_transform().set_position(this.mTargetPos3D);
-          num4 = 0.0f;
-          --num3;
-        }
-        if ((double) Math.Abs(num5) < 1.0)
-        {
-          ((Component) unitController).get_transform().set_rotation(this.mTargetRot);
-          --num3;
-        }
-        if (num3 <= 0)
-        {
-          this.mStopTime += Time.get_deltaTime();
-          this.mStopTime = Math.Min(this.mStopTime, 1f);
-        }
-        else
-        {
-          Vector3 velocity = Vector3.op_Subtraction(this.mTargetPos3D, ((Component) unitController).get_transform().get_position());
-          if (unitController.TriggerFieldAction(velocity, false))
-          {
-            this.mIsRunning = false;
-            this.mTargetPos3D = this.GetPosition3D(self, (float) unitController.FieldActionPoint.x, (float) unitController.FieldActionPoint.y);
-            self.MultiPlayLog("start jump gx:" + (object) this.mGridX + " gy:" + (object) this.mGridY + " tgt:(" + (object) (float) this.mTargetPos3D.x + "," + (object) (float) this.mTargetPos3D.y + "," + (object) (float) this.mTargetPos3D.z + ") pos:(" + (object) (float) ((Component) unitController).get_transform().get_position().x + "," + (object) (float) ((Component) unitController).get_transform().get_position().y + "," + (object) (float) ((Component) unitController).get_transform().get_position().z + ")");
-          }
-          else
-          {
-            Transform transform = ((Component) unitController).get_transform();
-            transform.set_position(Vector3.op_Addition(transform.get_position(), Vector3.op_Multiply(Vector3.op_Multiply(velocity, GameSettings.Instance.Quest.MapRunSpeedMax), Time.get_deltaTime())));
-            if ((double) num4 > 0.0 && !this.mIsRunning)
-            {
-              unitController.StartRunning();
-              this.mIsRunning = true;
-            }
-          }
-          ((Component) unitController).get_transform().set_rotation(Quaternion.Slerp(((Component) unitController).get_transform().get_rotation(), this.mTargetRot, Math.Min(1f, Time.get_deltaTime() * 10f)));
-          this.mStopTime = 0.0f;
-        }
-        if ((double) this.mStopTime < 0.5)
-          return;
-        if (this.mIsRunning)
-        {
-          unitController.StopRunning();
-          this.mIsRunning = false;
-        }
-        if (this.mGridSnap != SceneBattle.MultiPlayerUnit.EGridSnap.NOP)
-        {
-          self.MultiPlayLog("skip snap gx:" + (object) this.mGridX + " gy:" + (object) this.mGridY + " tgt:(" + (object) (float) this.mTargetPos3D.x + "," + (object) (float) this.mTargetPos3D.y + "," + (object) (float) this.mTargetPos3D.z + ") pos:(" + (object) (float) ((Component) unitController).get_transform().get_position().x + "," + (object) (float) ((Component) unitController).get_transform().get_position().y + "," + (object) (float) ((Component) unitController).get_transform().get_position().z + ")");
-        }
-        else
-        {
-          this.mTargetPos3D = self.CalcGridCenter(this.mGridX, this.mGridY);
-          unitController.StepTo(this.mTargetPos3D);
-          this.mGridSnap = SceneBattle.MultiPlayerUnit.EGridSnap.ACTIVE;
-          self.MultiPlayLog("start snap gx:" + (object) this.mGridX + " gy:" + (object) this.mGridY + " tgt:(" + (object) (float) this.mTargetPos3D.x + "," + (object) (float) this.mTargetPos3D.y + "," + (object) (float) this.mTargetPos3D.z + ") pos:(" + (object) (float) ((Component) unitController).get_transform().get_position().x + "," + (object) (float) ((Component) unitController).get_transform().get_position().y + "," + (object) (float) ((Component) unitController).get_transform().get_position().z + ")");
-        }
-      }
-
-      private enum EGridSnap
-      {
-        NOP,
-        ACTIVE,
-        DONE,
-        NUM,
-      }
-    }
-
     public enum ENotifyDisconnectedPlayerType
     {
       NORMAL,
       OWNER,
       OWNER_AND_I_AM_OWNER,
+    }
+
+    public class ReqCreateBreakObjUc
+    {
+      public SkillData mSkill;
+      public Unit mTargetUnit;
+      public bool mIsLoad;
+
+      public ReqCreateBreakObjUc(SkillData skill, Unit target_unit)
+      {
+        this.mSkill = skill;
+        this.mTargetUnit = target_unit;
+        this.mIsLoad = false;
+      }
     }
 
     private class State_Disconnected : State<SceneBattle>
@@ -9284,8 +11776,8 @@ label_71:
               u = units[index]
             });
         }
-        string multiPlayInputList = self.CreateMultiPlayInputList(SceneBattle.EMultiPlayRecvDataHeader.CONTINUE, !flag ? 0 : 1, sendList);
-        instance.SendRoomMessage(true, multiPlayInputList, MyPhoton.SEND_TYPE.Normal);
+        byte[] sendBinary = self.CreateSendBinary(SceneBattle.EMultiPlayRecvDataHeader.CONTINUE, !flag ? 0 : 1, sendList);
+        instance.SendRoomMessageBinary(true, sendBinary, MyPhoton.SEND_TYPE.Normal, false);
         SceneBattle.State_MultiPlayContinueBase.MultiPlayContinueRequest playContinueRequest = new SceneBattle.State_MultiPlayContinueBase.MultiPlayContinueRequest();
         playContinueRequest.playerID = myPlayer.playerID;
         playContinueRequest.flag = flag;
@@ -9300,16 +11792,16 @@ label_71:
       {
         // ISSUE: object of a compiler-generated type is created
         // ISSUE: variable of a compiler-generated type
-        SceneBattle.State_MultiPlayContinueBase.\u003CUpdate\u003Ec__AnonStorey1DE updateCAnonStorey1De = new SceneBattle.State_MultiPlayContinueBase.\u003CUpdate\u003Ec__AnonStorey1DE();
+        SceneBattle.State_MultiPlayContinueBase.\u003CUpdate\u003Ec__AnonStorey279 updateCAnonStorey279 = new SceneBattle.State_MultiPlayContinueBase.\u003CUpdate\u003Ec__AnonStorey279();
         // ISSUE: reference to a compiler-generated field
-        updateCAnonStorey1De.\u003C\u003Ef__this = this;
+        updateCAnonStorey279.\u003C\u003Ef__this = this;
         MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
         // ISSUE: reference to a compiler-generated field
-        updateCAnonStorey1De.me = instance.GetMyPlayer();
+        updateCAnonStorey279.me = instance.GetMyPlayer();
         List<MyPhoton.MyPlayer> roomPlayerList = instance.GetRoomPlayerList();
         List<JSON_MyPhotonPlayerParam> myPlayersStarted = instance.GetMyPlayersStarted();
         // ISSUE: reference to a compiler-generated field
-        if (updateCAnonStorey1De.me == null || roomPlayerList == null || (myPlayersStarted == null || Object.op_Equality((Object) self.mBattleUI_MultiPlay, (Object) null)))
+        if (updateCAnonStorey279.me == null || roomPlayerList == null || (myPlayersStarted == null || UnityEngine.Object.op_Equality((UnityEngine.Object) self.mBattleUI_MultiPlay, (UnityEngine.Object) null)))
         {
           this.Cancel();
         }
@@ -9322,71 +11814,71 @@ label_71:
             this.mReqPool.Clear();
             this.mRoomOwnerPlayerID = instance.GetOldestPlayer();
             // ISSUE: reference to a compiler-generated field
-            this.OpenUI(this.mRoomOwnerPlayerID == updateCAnonStorey1De.me.playerID);
+            this.OpenUI(this.mRoomOwnerPlayerID == updateCAnonStorey279.me.playerID);
             this.mInitFlag = true;
           }
           while (self.mRecvContinue.Count > 0)
           {
             // ISSUE: object of a compiler-generated type is created
             // ISSUE: variable of a compiler-generated type
-            SceneBattle.State_MultiPlayContinueBase.\u003CUpdate\u003Ec__AnonStorey1DD updateCAnonStorey1Dd = new SceneBattle.State_MultiPlayContinueBase.\u003CUpdate\u003Ec__AnonStorey1DD();
+            SceneBattle.State_MultiPlayContinueBase.\u003CUpdate\u003Ec__AnonStorey278 updateCAnonStorey278 = new SceneBattle.State_MultiPlayContinueBase.\u003CUpdate\u003Ec__AnonStorey278();
             // ISSUE: reference to a compiler-generated field
-            updateCAnonStorey1Dd.data = self.mRecvContinue[0];
+            updateCAnonStorey278.data = self.mRecvContinue[0];
             // ISSUE: reference to a compiler-generated field
-            if (updateCAnonStorey1Dd.data.b > self.UnitStartCountTotal)
+            if (updateCAnonStorey278.data.b > self.UnitStartCountTotal)
             {
               // ISSUE: reference to a compiler-generated field
               // ISSUE: reference to a compiler-generated field
               // ISSUE: reference to a compiler-generated field
               // ISSUE: reference to a compiler-generated method
-              DebugUtility.LogWarning("[PUN] new turn data. sq:" + (object) updateCAnonStorey1Dd.data.sq + " h:" + (object) (SceneBattle.EMultiPlayRecvDataHeader) updateCAnonStorey1Dd.data.h + " b:" + (object) updateCAnonStorey1Dd.data.b + "/" + (object) self.UnitStartCountTotal + " test:" + (object) self.mRecvBattle.FindIndex(new Predicate<SceneBattle.MultiPlayRecvData>(updateCAnonStorey1Dd.\u003C\u003Em__196)));
+              DebugUtility.LogWarning("[PUN] new turn data. sq:" + (object) updateCAnonStorey278.data.sq + " h:" + (object) (SceneBattle.EMultiPlayRecvDataHeader) updateCAnonStorey278.data.h + " b:" + (object) updateCAnonStorey278.data.b + "/" + (object) self.UnitStartCountTotal + " test:" + (object) self.mRecvBattle.FindIndex(new Predicate<SceneBattle.MultiPlayRecvData>(updateCAnonStorey278.\u003C\u003Em__222)));
               break;
             }
             // ISSUE: reference to a compiler-generated field
-            if (updateCAnonStorey1Dd.data.b < self.UnitStartCountTotal)
+            if (updateCAnonStorey278.data.b < self.UnitStartCountTotal)
             {
               // ISSUE: reference to a compiler-generated field
               // ISSUE: reference to a compiler-generated field
               // ISSUE: reference to a compiler-generated field
-              DebugUtility.LogWarning("[PUN] old turn data. sq:" + (object) updateCAnonStorey1Dd.data.sq + " h:" + (object) (SceneBattle.EMultiPlayRecvDataHeader) updateCAnonStorey1Dd.data.h + " b:" + (object) updateCAnonStorey1Dd.data.b + "/" + (object) self.UnitStartCountTotal);
+              DebugUtility.LogWarning("[PUN] old turn data. sq:" + (object) updateCAnonStorey278.data.sq + " h:" + (object) (SceneBattle.EMultiPlayRecvDataHeader) updateCAnonStorey278.data.h + " b:" + (object) updateCAnonStorey278.data.b + "/" + (object) self.UnitStartCountTotal);
             }
             else
             {
               // ISSUE: reference to a compiler-generated field
-              if (updateCAnonStorey1Dd.data.h == 4)
+              if (updateCAnonStorey278.data.h == 4)
               {
                 // ISSUE: reference to a compiler-generated method
-                this.mReqPool.RemoveAll(new Predicate<SceneBattle.State_MultiPlayContinueBase.MultiPlayContinueRequest>(updateCAnonStorey1Dd.\u003C\u003Em__197));
+                this.mReqPool.RemoveAll(new Predicate<SceneBattle.State_MultiPlayContinueBase.MultiPlayContinueRequest>(updateCAnonStorey278.\u003C\u003Em__223));
                 SceneBattle.State_MultiPlayContinueBase.MultiPlayContinueRequest playContinueRequest = new SceneBattle.State_MultiPlayContinueBase.MultiPlayContinueRequest();
                 // ISSUE: reference to a compiler-generated field
-                playContinueRequest.playerID = updateCAnonStorey1Dd.data.pid;
+                playContinueRequest.playerID = updateCAnonStorey278.data.pid;
                 // ISSUE: reference to a compiler-generated field
-                playContinueRequest.flag = updateCAnonStorey1Dd.data.uid != 0;
+                playContinueRequest.flag = updateCAnonStorey278.data.uid != 0;
                 // ISSUE: reference to a compiler-generated field
                 // ISSUE: reference to a compiler-generated field
-                if (updateCAnonStorey1Dd.data.i != null && updateCAnonStorey1Dd.data.i.Length > 0)
+                if (updateCAnonStorey278.data.i != null && updateCAnonStorey278.data.i.Length > 0)
                 {
                   // ISSUE: reference to a compiler-generated field
-                  long.TryParse(updateCAnonStorey1Dd.data.i[0], out playContinueRequest.btlid);
+                  long.TryParse(updateCAnonStorey278.data.i[0], out playContinueRequest.btlid);
                 }
                 // ISSUE: reference to a compiler-generated field
                 // ISSUE: reference to a compiler-generated field
-                if (updateCAnonStorey1Dd.data.s != null && updateCAnonStorey1Dd.data.s.Length > 0)
+                if (updateCAnonStorey278.data.s != null && updateCAnonStorey278.data.s.Length > 0)
                 {
                   // ISSUE: reference to a compiler-generated field
-                  int.TryParse(updateCAnonStorey1Dd.data.s[0], out playContinueRequest.seed);
+                  int.TryParse(updateCAnonStorey278.data.s[0], out playContinueRequest.seed);
                 }
                 // ISSUE: reference to a compiler-generated field
-                if (updateCAnonStorey1Dd.data.u != null)
+                if (updateCAnonStorey278.data.u != null)
                 {
                   // ISSUE: reference to a compiler-generated field
-                  for (int index = 0; index < updateCAnonStorey1Dd.data.u.Length; ++index)
+                  for (int index = 0; index < updateCAnonStorey278.data.u.Length; ++index)
                   {
                     // ISSUE: reference to a compiler-generated field
-                    if (updateCAnonStorey1Dd.data.u[index] >= 0)
+                    if (updateCAnonStorey278.data.u[index] >= 0)
                     {
                       // ISSUE: reference to a compiler-generated field
-                      playContinueRequest.units.Add(updateCAnonStorey1Dd.data.u[index]);
+                      playContinueRequest.units.Add(updateCAnonStorey278.data.u[index]);
                     }
                   }
                 }
@@ -9396,20 +11888,20 @@ label_71:
             self.mRecvContinue.RemoveAt(0);
           }
           // ISSUE: reference to a compiler-generated method
-          if (this.mReqPool.Count == 0 && roomPlayerList.Find(new Predicate<MyPhoton.MyPlayer>(updateCAnonStorey1De.\u003C\u003Em__198)) == null)
+          if (this.mReqPool.Count == 0 && roomPlayerList.Find(new Predicate<MyPhoton.MyPlayer>(updateCAnonStorey279.\u003C\u003Em__224)) == null)
           {
             this.mInitFlag = false;
             // ISSUE: reference to a compiler-generated field
-            this.CloseUI(this.mRoomOwnerPlayerID == updateCAnonStorey1De.me.playerID, false);
+            this.CloseUI(this.mRoomOwnerPlayerID == updateCAnonStorey279.me.playerID, false);
           }
           else
           {
             // ISSUE: reference to a compiler-generated method
-            SceneBattle.State_MultiPlayContinueBase.MultiPlayContinueRequest playContinueRequest1 = this.mReqPool.Find(new Predicate<SceneBattle.State_MultiPlayContinueBase.MultiPlayContinueRequest>(updateCAnonStorey1De.\u003C\u003Em__199));
+            SceneBattle.State_MultiPlayContinueBase.MultiPlayContinueRequest playContinueRequest1 = this.mReqPool.Find(new Predicate<SceneBattle.State_MultiPlayContinueBase.MultiPlayContinueRequest>(updateCAnonStorey279.\u003C\u003Em__225));
             if (playContinueRequest1 == null)
             {
               // ISSUE: reference to a compiler-generated field
-              if (updateCAnonStorey1De.me.playerID == this.mRoomOwnerPlayerID)
+              if (updateCAnonStorey279.me.playerID == this.mRoomOwnerPlayerID)
               {
                 if (GlobalVars.SelectedMultiPlayContinue == GlobalVars.EMultiPlayContinue.PENDING)
                   return;
@@ -9424,7 +11916,7 @@ label_71:
               {
                 // ISSUE: object of a compiler-generated type is created
                 // ISSUE: reference to a compiler-generated method
-                SceneBattle.State_MultiPlayContinueBase.MultiPlayContinueRequest playContinueRequest2 = this.mReqPool.Find(new Predicate<SceneBattle.State_MultiPlayContinueBase.MultiPlayContinueRequest>(new SceneBattle.State_MultiPlayContinueBase.\u003CUpdate\u003Ec__AnonStorey1DF() { roomOwnerPlayerID = instance.GetOldestPlayer() }.\u003C\u003Em__19A));
+                SceneBattle.State_MultiPlayContinueBase.MultiPlayContinueRequest playContinueRequest2 = this.mReqPool.Find(new Predicate<SceneBattle.State_MultiPlayContinueBase.MultiPlayContinueRequest>(new SceneBattle.State_MultiPlayContinueBase.\u003CUpdate\u003Ec__AnonStorey27A() { roomOwnerPlayerID = instance.GetOldestPlayer() }.\u003C\u003Em__226));
                 if (playContinueRequest2 == null)
                   return;
                 this.BtlID = playContinueRequest2.btlid;
@@ -9434,16 +11926,16 @@ label_71:
             }
             // ISSUE: object of a compiler-generated type is created
             // ISSUE: variable of a compiler-generated type
-            SceneBattle.State_MultiPlayContinueBase.\u003CUpdate\u003Ec__AnonStorey1E0 updateCAnonStorey1E0 = new SceneBattle.State_MultiPlayContinueBase.\u003CUpdate\u003Ec__AnonStorey1E0();
+            SceneBattle.State_MultiPlayContinueBase.\u003CUpdate\u003Ec__AnonStorey27B updateCAnonStorey27B = new SceneBattle.State_MultiPlayContinueBase.\u003CUpdate\u003Ec__AnonStorey27B();
             using (List<MyPhoton.MyPlayer>.Enumerator enumerator = roomPlayerList.GetEnumerator())
             {
               while (enumerator.MoveNext())
               {
                 // ISSUE: reference to a compiler-generated field
-                updateCAnonStorey1E0.player = enumerator.Current;
+                updateCAnonStorey27B.player = enumerator.Current;
                 // ISSUE: reference to a compiler-generated field
                 // ISSUE: reference to a compiler-generated method
-                if (updateCAnonStorey1E0.player.start && this.mReqPool.Find(new Predicate<SceneBattle.State_MultiPlayContinueBase.MultiPlayContinueRequest>(updateCAnonStorey1E0.\u003C\u003Em__19B)) == null)
+                if (updateCAnonStorey27B.player.start && this.mReqPool.Find(new Predicate<SceneBattle.State_MultiPlayContinueBase.MultiPlayContinueRequest>(updateCAnonStorey27B.\u003C\u003Em__227)) == null)
                   return;
               }
             }
@@ -9456,13 +11948,13 @@ label_71:
                 {
                   this.mInitFlag = false;
                   // ISSUE: reference to a compiler-generated field
-                  this.CloseUI(this.mRoomOwnerPlayerID == updateCAnonStorey1De.me.playerID, false);
+                  this.CloseUI(this.mRoomOwnerPlayerID == updateCAnonStorey279.me.playerID, false);
                   return;
                 }
               }
             }
             // ISSUE: reference to a compiler-generated field
-            this.CloseUI(this.mRoomOwnerPlayerID == updateCAnonStorey1De.me.playerID, true);
+            this.CloseUI(this.mRoomOwnerPlayerID == updateCAnonStorey279.me.playerID, true);
             if (!playContinueRequest1.flag)
             {
               this.Cancel();
@@ -9602,7 +12094,7 @@ label_71:
           self.mBattleUI.OnMPSelectContinueWaitingEnd();
           this.mOpenMenu = this.mOpenMenuReq;
         }
-        else if (!this.mOpenMenu && this.mOpenMenuReq && Object.op_Equality((Object) ((Component) self.mBattleUI).get_gameObject().get_transform().Find("quest_lose(Clone)"), (Object) null))
+        else if (!this.mOpenMenu && this.mOpenMenuReq && UnityEngine.Object.op_Equality((UnityEngine.Object) ((Component) self.mBattleUI).get_gameObject().get_transform().Find("quest_lose(Clone)"), (UnityEngine.Object) null))
         {
           self.mBattleUI.OnMPSelectContinueWaitingStart();
           this.mOpenMenu = this.mOpenMenuReq;
@@ -9615,7 +12107,26 @@ label_71:
         if (this.mOpenMenu)
           this.self.mBattleUI.OnMPSelectContinueWaitingEnd();
         this.self.MultiPlayLog("[MultiPlayContinue] btlid:" + (object) this.self.Battle.BtlID + " > " + (object) this.BtlID + ", seed:" + (object) this.Seed);
-        this.self.Battle.ContinueStart(this.self.Battle.BtlID, this.Seed);
+        List<Unit> unitList = this.self.Battle.ContinueStart(this.self.Battle.BtlID, this.Seed);
+        MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
+        if (instance.IsHost())
+        {
+          bool isMultiTower = this.self.Battle.IsMultiTower;
+          instance.OpenRoom(isMultiTower, true);
+        }
+        using (List<Unit>.Enumerator enumerator = unitList.GetEnumerator())
+        {
+          while (enumerator.MoveNext())
+          {
+            TacticsUnitController unitController = this.self.FindUnitController(enumerator.Current);
+            if (!UnityEngine.Object.op_Equality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
+            {
+              this.self.mTacticsUnits.Remove(unitController);
+              GameUtility.DestroyGameObject(((Component) unitController).get_gameObject());
+            }
+          }
+        }
+        this.self.RefreshJumpSpots();
         UnitQueue.Instance.Refresh(0);
         this.self.GotoState<SceneBattle.State_WaitForLog>();
       }
@@ -9652,10 +12163,9 @@ label_71:
         if (!self.CheckSync() && !self.CheckResumeSync())
           return;
         self.ResetSync();
-        self.mBattleUI_MultiPlay.OnOtherPlayerSyncEnd();
         if (self.ResumeSuccess)
         {
-          self.Battle.StartOrder(false, false);
+          self.Battle.StartOrder(false, false, true);
           self.ResumeSuccess = false;
         }
         if (self.IsExistResume)
@@ -9664,7 +12174,10 @@ label_71:
           self.GotoState<SceneBattle.State_SyncResume>();
         }
         else
+        {
+          self.mBattleUI_MultiPlay.OnOtherPlayerSyncEnd();
           self.GotoState<SceneBattle.State_WaitForLog>();
+        }
       }
 
       public override void End(SceneBattle self)
@@ -9673,18 +12186,20 @@ label_71:
 
       private void SendSync()
       {
+        if (MonoSingleton<GameManager>.Instance.AudienceMode || (double) this.self.mRestSyncInterval > 0.0)
+          return;
+        this.self.mRestSyncInterval = this.self.SYNC_INTERVAL;
         MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
-        string empty = string.Empty;
         if (this.self.Battle.ResumeState != BattleCore.RESUME_STATE.NONE)
         {
-          string multiPlayInputList = this.self.CreateMultiPlayInputList(SceneBattle.EMultiPlayRecvDataHeader.SYNC_RESUME, 0, (List<SceneBattle.MultiPlayInput>) null);
-          this.mSend = instance.SendRoomMessage(true, multiPlayInputList, MyPhoton.SEND_TYPE.Normal);
+          byte[] sendBinary = this.self.CreateSendBinary(SceneBattle.EMultiPlayRecvDataHeader.SYNC_RESUME, 0, (List<SceneBattle.MultiPlayInput>) null);
+          instance.SendRoomMessageBinary(true, sendBinary, MyPhoton.SEND_TYPE.Normal, false);
           this.mSendResume = true;
         }
         else
         {
-          string multiPlayInputList = this.self.CreateMultiPlayInputList(SceneBattle.EMultiPlayRecvDataHeader.SYNC, 0, (List<SceneBattle.MultiPlayInput>) null);
-          this.mSend = instance.SendRoomMessage(true, multiPlayInputList, MyPhoton.SEND_TYPE.Normal);
+          byte[] sendBinary = this.self.CreateSendBinary(SceneBattle.EMultiPlayRecvDataHeader.SYNC, 0, (List<SceneBattle.MultiPlayInput>) null);
+          instance.SendRoomMessageBinary(true, sendBinary, MyPhoton.SEND_TYPE.Normal, false);
         }
         if (!this.self.ResumeSuccess)
           return;
@@ -9700,6 +12215,7 @@ label_71:
     {
       public override void Begin(SceneBattle self)
       {
+        self.mBattleUI_MultiPlay.OnOtherPlayerSyncStart();
       }
 
       public override void Update(SceneBattle self)
@@ -9718,20 +12234,25 @@ label_71:
     {
       public override void Begin(SceneBattle self)
       {
-        if (Object.op_Inequality((Object) self.mBattleUI.CommandWindow, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mBattleUI.CommandWindow, (UnityEngine.Object) null))
           self.mBattleUI.CommandWindow.OnCommandSelect = new UnitCommands.CommandEvent(this.OnCommandSelect);
         self.ShowAllHPGauges();
         TacticsUnitController unitController = self.FindUnitController(self.mBattle.CurrentUnit);
-        if (Object.op_Inequality((Object) unitController, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
           unitController.HideCursor(false);
-        if (Object.op_Inequality((Object) self.mBattleUI.TargetMain, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mBattleUI.TargetMain, (UnityEngine.Object) null))
           self.mBattleUI.TargetMain.Close();
-        if (Object.op_Inequality((Object) self.mBattleUI.TargetSub, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mBattleUI.TargetSub, (UnityEngine.Object) null))
           self.mBattleUI.TargetSub.Close();
-        if (Object.op_Inequality((Object) self.mBattleUI.TargetObjectSub, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mBattleUI.TargetObjectSub, (UnityEngine.Object) null))
           self.mBattleUI.TargetObjectSub.Close();
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mBattleUI.TargetTrickSub, (UnityEngine.Object) null))
+          self.mBattleUI.TargetTrickSub.Close();
         self.InterpCameraDistance(GameSettings.Instance.GameCamera_DefaultDistance);
         self.VersusMapView = false;
+        if (!MonoSingleton<GameManager>.Instance.AudienceMode)
+          return;
+        self.AudiencePause = false;
       }
 
       public override void Update(SceneBattle self)
@@ -9744,7 +12265,7 @@ label_71:
 
       public override void End(SceneBattle self)
       {
-        if (!Object.op_Inequality((Object) self.mBattleUI.CommandWindow, (Object) null))
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mBattleUI.CommandWindow, (UnityEngine.Object) null))
           return;
         self.mBattleUI.CommandWindow.OnCommandSelect = (UnitCommands.CommandEvent) null;
       }
@@ -9752,13 +12273,14 @@ label_71:
       private void SyncCameraPosition(SceneBattle self)
       {
         TacticsUnitController unitController = self.FindUnitController(self.mBattle.CurrentUnit);
-        if (Object.op_Equality((Object) unitController, (Object) null))
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
           return;
         GameSettings instance = GameSettings.Instance;
         Transform transform = ((Component) Camera.get_main()).get_transform();
         transform.set_position(Vector3.op_Addition(((Component) unitController).get_transform().get_position(), ((Component) instance.Quest.MoveCamera).get_transform().get_position()));
         transform.set_rotation(((Component) instance.Quest.MoveCamera).get_transform().get_rotation());
-        self.SetCameraTarget((Component) ((Component) unitController).get_transform());
+        Vector3 position = ((Component) unitController).get_transform().get_position();
+        self.SetCameraTarget((float) position.x, (float) position.z);
         self.mUpdateCameraPosition = true;
       }
 
@@ -9769,47 +12291,9 @@ label_71:
           return;
         this.self.VersusMapView = true;
         this.self.GotoMapViewMode();
-      }
-    }
-
-    private class State_RetireComfirm : State<SceneBattle>
-    {
-      public override void Begin(SceneBattle self)
-      {
-      }
-
-      public override void Update(SceneBattle self)
-      {
-        MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
-        bool flag = false;
-        if (Object.op_Inequality((Object) instance, (Object) null))
-        {
-          // ISSUE: object of a compiler-generated type is created
-          // ISSUE: variable of a compiler-generated type
-          SceneBattle.State_RetireComfirm.\u003CUpdate\u003Ec__AnonStorey1E1 updateCAnonStorey1E1 = new SceneBattle.State_RetireComfirm.\u003CUpdate\u003Ec__AnonStorey1E1();
-          MyPhoton.MyRoom currentRoom = instance.GetCurrentRoom();
-          if (currentRoom != null)
-            flag = currentRoom.playerCount == 1;
-          // ISSUE: reference to a compiler-generated field
-          updateCAnonStorey1E1.me = instance.GetMyPlayer();
-          List<MyPhoton.MyPlayer> roomPlayerList = instance.GetRoomPlayerList();
-          // ISSUE: reference to a compiler-generated field
-          if (roomPlayerList != null && updateCAnonStorey1E1.me != null)
-          {
-            // ISSUE: reference to a compiler-generated method
-            MyPhoton.MyPlayer myPlayer = roomPlayerList.Find(new Predicate<MyPhoton.MyPlayer>(updateCAnonStorey1E1.\u003C\u003Em__19C));
-            if (myPlayer != null)
-              flag = !myPlayer.start;
-          }
-        }
-        if (!self.IsRetireComfirm && !self.Battle.IsVSForceWin && !flag)
+        if (!MonoSingleton<GameManager>.Instance.AudienceMode)
           return;
-        self.mBattleUI_MultiPlay.OnForceWinClose();
-        self.GotoState<SceneBattle.State_ExitQuest>();
-      }
-
-      public override void End(SceneBattle self)
-      {
+        this.self.AudiencePause = true;
       }
     }
 
@@ -9856,12 +12340,650 @@ label_71:
         if (!self.Battle.IsVSForceWinComfirm)
           return;
         self.mBattleUI.OnCommandSelect();
-        self.Battle.StartOrder(false, false);
+        self.Battle.StartOrder(false, false, true);
         self.GotoState<SceneBattle.State_WaitForLog>();
       }
 
       public override void End(SceneBattle self)
       {
+      }
+    }
+
+    private class State_AudienceRetire : State<SceneBattle>
+    {
+      private bool mClose;
+
+      public override void Begin(SceneBattle self)
+      {
+        string msg = string.Format(LocalizedText.Get("sys.MULTI_VERSUS_AUDIENCE_RETIRE"), self.CheckAudienceResult() != BattleCore.QuestResult.Win ? (object) "1P" : (object) "2P");
+        this.mClose = false;
+        UIUtility.SystemMessage(string.Empty, msg, new UIUtility.DialogResultEvent(this.ClickEvent), (GameObject) null, false, 0);
+      }
+
+      public override void Update(SceneBattle self)
+      {
+        if (!this.mClose)
+          return;
+        self.GotoState<SceneBattle.State_AudienceEnd>();
+      }
+
+      public void ClickEvent(GameObject go)
+      {
+        this.mClose = true;
+      }
+    }
+
+    private class State_AudienceEnd : State<SceneBattle>
+    {
+      public override void Begin(SceneBattle self)
+      {
+        switch (self.CheckAudienceResult())
+        {
+          case BattleCore.QuestResult.Win:
+          case BattleCore.QuestResult.Lose:
+            self.mBattleUI.OnAudienceWin();
+            break;
+          default:
+            self.mBattleUI.OnVersusDraw();
+            break;
+        }
+        self.GotoState_WaitSignal<SceneBattle.State_ExitQuest>();
+        Network.Abort();
+      }
+    }
+
+    private class State_AudienceForceEnd : State<SceneBattle>
+    {
+      private bool mClose;
+
+      public override void Begin(SceneBattle self)
+      {
+        string msg = LocalizedText.Get("sys.MULTI_VERSUS_AUDIENCE_END");
+        this.mClose = false;
+        UIUtility.SystemMessage(string.Empty, msg, new UIUtility.DialogResultEvent(this.ClickEvent), (GameObject) null, false, 0);
+        Network.ResetError();
+      }
+
+      public override void Update(SceneBattle self)
+      {
+        if (!this.mClose)
+          return;
+        self.GotoState<SceneBattle.State_ExitQuest>();
+      }
+
+      public void ClickEvent(GameObject go)
+      {
+        this.mClose = true;
+      }
+    }
+
+    private class MultiPlayer
+    {
+      public MultiPlayer(SceneBattle self, int playerIndex, int playerID)
+      {
+        this.PlayerIndex = playerIndex;
+        this.PlayerID = playerID;
+        this.NotifyDisconnected = false;
+        this.Disconnected = false;
+        self.MultiPlayLog("[PUN] new MultiPlayer playerIndex:" + (object) playerIndex + " playerID:" + (object) playerID);
+      }
+
+      public int PlayerIndex { get; private set; }
+
+      public int PlayerID { get; private set; }
+
+      public bool NotifyDisconnected { get; set; }
+
+      public bool Disconnected { get; set; }
+
+      public int RecvInputNum { get; set; }
+
+      public bool FinishLoad { get; set; }
+
+      public bool SyncWait { get; set; }
+
+      public bool SyncResumeWait { get; set; }
+
+      public bool StartBegin { get; set; }
+
+      public void Begin(SceneBattle self)
+      {
+        this.StartBegin = true;
+      }
+
+      public void Update(SceneBattle self)
+      {
+      }
+
+      public void End(SceneBattle self)
+      {
+        this.StartBegin = false;
+      }
+    }
+
+    private class MultiPlayerUnit
+    {
+      private EUnitDirection mDir = EUnitDirection.NegativeX;
+      private List<SceneBattle.MultiPlayInput> mRecv = new List<SceneBattle.MultiPlayInput>();
+      private Unit mUnit;
+      private int mGridX;
+      private int mGridY;
+      private int mTargetX;
+      private int mTargetY;
+      private SceneBattle.MultiPlayerUnit.EGridSnap mGridSnap;
+      private bool mIsRunning;
+      private int mRecvTurnNum;
+      private int mCurrentTurn;
+      private float mTurnSec;
+      private int mTurnCmdNum;
+      private int mTurnCmdDoneNum;
+      private GridMap<int> mMoveGrid;
+      private bool mBegin;
+
+      public MultiPlayerUnit(SceneBattle self, int unitID, Unit unit, SceneBattle.MultiPlayer owner)
+      {
+        this.Owner = owner;
+        this.UnitID = unitID;
+        this.mUnit = unit;
+        self.MultiPlayLog("[PUN] new MultiPlayerUnit unitID:" + (object) unitID + " name:" + unit.UnitName + " ownerPlayerIndex:" + (object) (owner != null ? owner.PlayerIndex : 0));
+      }
+
+      public SceneBattle.MultiPlayer Owner { get; private set; }
+
+      public int UnitID { get; private set; }
+
+      public Unit Unit
+      {
+        get
+        {
+          return this.mUnit;
+        }
+      }
+
+      public bool IsMoveCompleted(SceneBattle self, int x, int y, TacticsUnitController controller)
+      {
+        if (!this.mBegin)
+          return true;
+        if (this.mGridSnap != SceneBattle.MultiPlayerUnit.EGridSnap.DONE || this.mIsRunning)
+          return false;
+        IntVector2 intVector2 = self.CalcCoord(((Component) controller).get_transform().get_position());
+        return intVector2.x == x && intVector2.y == y;
+      }
+
+      public bool IsExistRecvData
+      {
+        get
+        {
+          return this.mRecv.Count > 0;
+        }
+      }
+
+      public void RecvInput(SceneBattle self, SceneBattle.MultiPlayRecvData data)
+      {
+        int num = Math.Max(Math.Max(Math.Max(Math.Max(Math.Max(Math.Max(Math.Max(Math.Max(Math.Max(Math.Max(0, data.c != null ? data.c.Length : 0), data.u != null ? data.u.Length : 0), data.s != null ? data.s.Length : 0), data.i != null ? data.i.Length : 0), data.gx != null ? data.gx.Length : 0), data.gy != null ? data.gy.Length : 0), data.d != null ? data.d.Length : 0), data.x != null ? data.x.Length : 0), data.z != null ? data.z.Length : 0), data.r != null ? data.r.Length : 0);
+        for (int index = 0; index < num; ++index)
+        {
+          if (data.c[index] != 0)
+          {
+            SceneBattle.MultiPlayInput multiPlayInput = new SceneBattle.MultiPlayInput();
+            multiPlayInput.b = data.b;
+            multiPlayInput.t = this.mRecvTurnNum;
+            multiPlayInput.c = data.c == null || index >= data.c.Length ? multiPlayInput.c : data.c[index];
+            multiPlayInput.u = data.u == null || index >= data.u.Length ? multiPlayInput.u : data.u[index];
+            multiPlayInput.s = data.s == null || index >= data.s.Length ? multiPlayInput.s : data.s[index];
+            multiPlayInput.i = data.i == null || index >= data.i.Length ? multiPlayInput.i : data.i[index];
+            multiPlayInput.gx = data.gx == null || index >= data.gx.Length ? multiPlayInput.gx : data.gx[index];
+            multiPlayInput.gy = data.gy == null || index >= data.gy.Length ? multiPlayInput.gy : data.gy[index];
+            multiPlayInput.ul = data.ul == null || index >= data.ul.Length ? multiPlayInput.ul : data.ul[index];
+            multiPlayInput.d = data.d == null || index >= data.d.Length ? multiPlayInput.d : data.d[index];
+            multiPlayInput.x = data.x == null || index >= data.x.Length ? multiPlayInput.x : data.x[index];
+            multiPlayInput.z = data.z == null || index >= data.z.Length ? multiPlayInput.z : data.z[index];
+            multiPlayInput.r = data.r == null || index >= data.r.Length ? multiPlayInput.r : data.r[index];
+            if (!multiPlayInput.IsValid(self))
+            {
+              DebugUtility.LogError("[PUN] illegal input recv.");
+            }
+            else
+            {
+              if (multiPlayInput.c == 4)
+                self.MultiPlayLog("[PUN] recv MOVE_END");
+              else if (multiPlayInput.c == 6)
+                self.MultiPlayLog("[PUN] recv ENTRY_BATTLE");
+              else if (multiPlayInput.c == 7)
+                self.MultiPlayLog("[PUN] recv GRID_EVENT");
+              else if (multiPlayInput.c == 8)
+                self.MultiPlayLog("[PUN] recv UNIT_END");
+              else if (multiPlayInput.c == 9)
+                self.MultiPlayLog("[PUN] recv TIME_LIMIT");
+              this.mRecv.Add(multiPlayInput);
+            }
+          }
+        }
+        ++this.mRecvTurnNum;
+        self.MultiPlayLog("[PUN]RecvInput from unitID:" + (object) this.UnitID + " " + (object) this.mRecvTurnNum + " sq:" + (object) data.sq + " b:" + (object) data.b + "/" + (object) self.UnitStartCountTotal);
+      }
+
+      public void Begin(SceneBattle self)
+      {
+        if (this.mBegin)
+          return;
+        this.mBegin = true;
+        this.mRecvTurnNum = 0;
+        this.mCurrentTurn = 0;
+        this.mTurnSec = 0.0f;
+        this.mTurnCmdNum = -1;
+        this.mTurnCmdDoneNum = 0;
+        this.mRecv.RemoveAll((Predicate<SceneBattle.MultiPlayInput>) (r => r.b < self.mUnitStartCountTotal));
+        TacticsUnitController unitController = self.FindUnitController(this.mUnit);
+        self.MultiPlayLog("[PUN]Begin MultiPlayer unitID: " + (object) this.UnitID + " name:" + this.mUnit.UnitName + " ux:" + (object) this.mUnit.x + " uy:" + (object) this.mUnit.y + " dir:" + (object) this.mUnit.Direction + " sx:" + (object) this.mUnit.startX + " sy:" + (object) this.mUnit.startY);
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) unitController, (UnityEngine.Object) null) || this.mUnit.IsDead)
+          return;
+        unitController.AutoUpdateRotation = false;
+        this.mGridSnap = SceneBattle.MultiPlayerUnit.EGridSnap.DONE;
+        this.mIsRunning = false;
+        this.mGridX = this.mTargetX = this.mUnit.x;
+        this.mGridY = this.mTargetY = this.mUnit.y;
+        unitController.WalkableField = self.CreateCurrentAccessMap();
+        if (!self.Battle.IsMultiVersus)
+          unitController.ShowOwnerIndexUI(true);
+        this.mMoveGrid = self.CreateCurrentAccessMap();
+      }
+
+      public void End(SceneBattle self)
+      {
+        if (!this.mBegin)
+          return;
+        this.mBegin = false;
+        TacticsUnitController unitController = self.FindUnitController(this.mUnit);
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
+        {
+          if (this.mIsRunning)
+          {
+            this.mIsRunning = false;
+            unitController.StopRunning();
+          }
+          ((Component) unitController).get_transform().set_position(self.CalcGridCenter(this.mUnit.x, this.mUnit.y));
+          unitController.AutoUpdateRotation = true;
+          unitController.WalkableField = (GridMap<int>) null;
+          unitController.ShowOwnerIndexUI(false);
+        }
+        self.MultiPlayLog("MultiPlayerEnd. ux:" + (object) this.mUnit.x + " uy:" + (object) this.mUnit.y + " gx:" + (object) this.mGridX + " gy:" + (object) this.mGridY);
+      }
+
+      private Vector3 GetPosition3D(SceneBattle self, float x, float z)
+      {
+        Vector3 position;
+        // ISSUE: explicit reference operation
+        ((Vector3) @position).\u002Ector(x, 0.0f, z);
+        IntVector2 intVector2 = self.CalcCoord(position);
+        Vector3 vector3 = self.CalcGridCenter(intVector2.x, intVector2.y);
+        position.y = vector3.y;
+        return position;
+      }
+
+      private bool CheckMoveable(int x, int y)
+      {
+        if (this.mMoveGrid != null)
+          return this.mMoveGrid.get(x, y) >= 0;
+        return true;
+      }
+
+      public void Update(SceneBattle self)
+      {
+        if (!this.mBegin)
+          return;
+        TacticsUnitController unitController = self.FindUnitController(this.mUnit);
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) unitController, (UnityEngine.Object) null) || this.mUnit.IsDead || !self.IsInState<SceneBattle.State_MapCommandMultiPlay>() && !self.IsInState<SceneBattle.State_MapCommandVersus>() && !self.IsInState<SceneBattle.State_SelectTargetV2>())
+          return;
+        unitController.AutoUpdateRotation = false;
+        if (unitController.IsPlayingFieldAction)
+          return;
+        bool audienceMode = MonoSingleton<GameManager>.Instance.AudienceMode;
+        if (this.mRecv.Count <= 0 && !audienceMode || audienceMode && this.Owner.Disconnected && this.mRecv.Count <= 0)
+        {
+          if (this.Owner != null && this.IsMoveCompleted(self, this.mGridX, this.mGridY, unitController))
+          {
+            MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
+            List<MyPhoton.MyPlayer> roomPlayerList = instance.GetRoomPlayerList();
+            MyPhoton.MyPlayer player = instance.FindPlayer(roomPlayerList, this.Owner.PlayerID, this.Owner.PlayerIndex);
+            if (player == null || !player.start && this.Owner.Disconnected)
+            {
+              ((Component) unitController).get_transform().set_position(self.CalcGridCenter(this.mUnit.x, this.mUnit.y));
+              unitController.CancelAction();
+              ((Component) unitController).get_transform().set_rotation(this.mUnit.Direction.ToRotation());
+              unitController.AutoUpdateRotation = true;
+              self.Battle.EntryBattleMultiPlayTimeUp = true;
+              self.Battle.MultiPlayDisconnectAutoBattle = true;
+              self.GotoMapCommand();
+              DebugUtility.LogWarning("[PUN] detect player disconnected");
+            }
+          }
+        }
+        else if (this.Owner != null)
+        {
+          this.mTurnSec += Time.get_deltaTime();
+          if (this.mTurnCmdNum < 0 && this.mRecv.Count > 0)
+          {
+            this.mTurnCmdNum = 0;
+            int t = this.mRecv[0].t;
+            while (this.mTurnCmdNum < this.mRecv.Count && this.mRecv[this.mTurnCmdNum].t == t)
+              ++this.mTurnCmdNum;
+            self.MultiPlayLog("[PUN] start send turn:" + (object) t + "/" + (object) this.mCurrentTurn + " cmdNum:" + (object) this.mTurnCmdNum + " recvTurnNum:" + (object) this.mRecvTurnNum + " recvCount:" + (object) this.mRecv.Count);
+          }
+          int num1 = Math.Min(this.mTurnCmdNum, (int) ((double) this.mTurnSec * (double) this.mTurnCmdNum) + 1);
+          while (this.mTurnCmdDoneNum < num1 && this.mRecv.Count > 0)
+          {
+            int num2 = 0;
+            SceneBattle.MultiPlayInput multiPlayInput = this.mRecv[0];
+            if (multiPlayInput.c == 4 || multiPlayInput.c == 3 || (multiPlayInput.c == 7 || multiPlayInput.c == 8))
+            {
+              if (multiPlayInput.c != 4 && multiPlayInput.c != 8 || !unitController.isMoving)
+              {
+                IntVector2 intVector2 = self.CalcCoord(((Component) unitController).get_transform().get_position());
+                if (this.mGridX != intVector2.x || this.mGridY != intVector2.y)
+                {
+                  this.mGridX = intVector2.x;
+                  this.mGridY = intVector2.y;
+                }
+                this.mTargetX = multiPlayInput.gx;
+                this.mTargetY = multiPlayInput.gy;
+                if (this.mTargetX != this.mGridX || this.mTargetY != this.mGridY)
+                {
+                  if (multiPlayInput.c == 3)
+                  {
+                    this.mDir = (EUnitDirection) multiPlayInput.d;
+                    this.mRecv.RemoveAt(0);
+                    break;
+                  }
+                  break;
+                }
+              }
+              else
+                break;
+            }
+            if (multiPlayInput.c != 0)
+            {
+              if (multiPlayInput.c == 3)
+              {
+                this.mDir = (EUnitDirection) multiPlayInput.d;
+                self.MultiPlayLog("recv GRID_XY:" + (object) this.mGridX + " " + (object) this.mGridY);
+              }
+              else if (multiPlayInput.c != 1)
+              {
+                if (multiPlayInput.c == 4)
+                {
+                  self.MultiPlayLog("recv MOVE_END:" + (object) this.mGridX + " " + (object) this.mGridY);
+                  if (this.mGridX != multiPlayInput.gx || this.mGridY != multiPlayInput.gy)
+                    DebugUtility.LogWarning("move pos not match gx:" + (object) this.mGridX + " gy:" + (object) this.mGridY + " tx:" + (object) multiPlayInput.gx + " ty:" + (object) multiPlayInput.gy);
+                  self.Battle.MoveMultiPlayer(this.mUnit, this.mGridX, this.mGridY, this.mDir);
+                  if (!this.CheckMoveable(this.mGridX, this.mGridY))
+                    self.SendCheat(SceneBattle.CHEAT_TYPE.MOVE, this.Owner.PlayerIndex);
+                }
+                else if (multiPlayInput.c == 5)
+                {
+                  this.mGridX = this.mTargetX = this.mUnit.startX;
+                  this.mGridY = this.mTargetY = this.mUnit.startY;
+                  this.mDir = this.mUnit.startDir;
+                  self.ResetMultiPlayerTransform(this.mUnit);
+                  self.MultiPlayLog("[PUN] recv MOVE_CANCEL (" + (object) this.mGridX + "," + (object) this.mGridY + ")" + (object) this.mDir);
+                }
+                else if (multiPlayInput.c != 2)
+                {
+                  if (multiPlayInput.c == 6)
+                  {
+                    EBattleCommand d = (EBattleCommand) multiPlayInput.d;
+                    if (d == EBattleCommand.Wait)
+                      self.Battle.MapCommandEnd(this.mUnit);
+                    else if (!unitController.isMoving)
+                    {
+                      Unit enemy = multiPlayInput.u >= 0 ? self.Battle.AllUnits[multiPlayInput.u] : (Unit) null;
+                      SkillData skillData = this.mUnit.GetSkillData(multiPlayInput.s);
+                      if (skillData != null && !this.mUnit.CheckEnableUseSkill(skillData, true))
+                        self.SendCheat(SceneBattle.CHEAT_TYPE.MP, this.Owner.PlayerIndex);
+                      ItemData inventoryByItemId = MonoSingleton<GameManager>.Instance.Player.FindInventoryByItemID(multiPlayInput.i);
+                      int gx = multiPlayInput.gx;
+                      int gy = multiPlayInput.gy;
+                      bool unitLockTarget = multiPlayInput.ul != 0;
+                      if (!this.IsMoveCompleted(self, this.mUnit.x, this.mUnit.y, unitController))
+                      {
+                        self.MultiPlayLog("[PUN]waiting move completed for ENTRY_BATTLE... SNAP:" + (object) this.mGridSnap + " RUN:" + (object) this.mIsRunning + " ux:" + (object) this.mUnit.x + " uy:" + (object) this.mUnit.y);
+                        IntVector2 intVector2 = self.CalcCoord(((Component) unitController).get_transform().get_position());
+                        this.mGridX = intVector2.x;
+                        this.mGridY = intVector2.y;
+                        break;
+                      }
+                      if (skillData != null && !self.Battle.CreateSelectGridMap(this.mUnit, this.mUnit.x, this.mUnit.y, skillData).get(gx, gy))
+                        self.SendCheat(SceneBattle.CHEAT_TYPE.RANGE, this.Owner.PlayerIndex);
+                      self.MultiPlayLog("[PUN]MultiPlayerUnit ENTRY_BATTLE");
+                      self.HideAllHPGauges();
+                      self.HideAllUnitOwnerIndex();
+                      self.Battle.EntryBattleMultiPlay(d, this.mUnit, enemy, skillData, inventoryByItemId, gx, gy, unitLockTarget);
+                      num2 = 1;
+                      this.mDir = this.mUnit.Direction;
+                      this.mGridX = this.mTargetX = this.mUnit.x;
+                      this.mGridY = this.mTargetY = this.mUnit.y;
+                    }
+                    else
+                      break;
+                  }
+                  else if (multiPlayInput.c == 7)
+                  {
+                    if (this.mGridX != multiPlayInput.gx || this.mGridY != multiPlayInput.gy)
+                      DebugUtility.LogWarning("GRID_EVENT move pos not match gx:" + (object) this.mGridX + " gy:" + (object) this.mGridY + " tx:" + (object) multiPlayInput.gx + " ty:" + (object) multiPlayInput.gy);
+                    if (!this.IsMoveCompleted(self, this.mUnit.x, this.mUnit.y, unitController))
+                    {
+                      self.MultiPlayLog("[PUN]waiting move completed for GRID_EVENT...begin:" + (object) this.mBegin + " run:" + (object) this.mIsRunning + " snap:" + (object) this.mGridSnap + " ux:" + (object) this.mUnit.x + " uy:" + (object) this.mUnit.y);
+                      break;
+                    }
+                    self.MultiPlayLog("[PUN]MultiPlayerUnit GRID_EVENT");
+                    self.Battle.ExecuteEventTriggerOnGrid(this.mUnit, EEventTrigger.ExecuteOnGrid);
+                    num2 = 1;
+                  }
+                  else if (multiPlayInput.c == 8)
+                  {
+                    if (this.mGridX != multiPlayInput.gx || this.mGridY != multiPlayInput.gy)
+                    {
+                      DebugUtility.LogWarning("UNIT_END move pos not match gx:" + (object) this.mGridX + " gy:" + (object) this.mGridY + " tx:" + (object) multiPlayInput.gx + " ty:" + (object) multiPlayInput.gy);
+                      this.mGridX = multiPlayInput.gx;
+                      this.mGridY = multiPlayInput.gy;
+                      break;
+                    }
+                    if (!this.IsMoveCompleted(self, this.mUnit.x, this.mUnit.y, unitController))
+                    {
+                      self.MultiPlayLog("[PUN]waiting move completed for UNIT_END...begin:" + (object) this.mBegin + " run:" + (object) this.mIsRunning + " snap:" + (object) this.mGridSnap + " ux:" + (object) this.mUnit.x + " uy:" + (object) this.mUnit.y);
+                      break;
+                    }
+                    self.MultiPlayLog("[PUN]MultiPlayerUnit UNIT_END");
+                    self.Battle.CommandWait((EUnitDirection) multiPlayInput.d);
+                    num2 = 1;
+                  }
+                  else if (multiPlayInput.c == 9)
+                  {
+                    unitController.StopRunning();
+                    this.mUnit.x = this.mGridX = this.mTargetX = multiPlayInput.gx;
+                    this.mUnit.y = this.mGridY = this.mTargetY = multiPlayInput.gy;
+                    ((Component) unitController).get_transform().set_position(self.CalcGridCenter(multiPlayInput.gx, multiPlayInput.gy));
+                    if (!this.IsMoveCompleted(self, this.mUnit.x, this.mUnit.y, unitController))
+                    {
+                      self.MultiPlayLog("[PUN]waiting move completed for UNIT_TIME_LIMIT...begin:" + (object) this.mBegin + " run:" + (object) this.mIsRunning + " snap:" + (object) this.mGridSnap + " ux:" + (object) this.mUnit.x + " uy:" + (object) this.mUnit.y);
+                      break;
+                    }
+                    this.mUnit.Direction = (EUnitDirection) multiPlayInput.d;
+                    num2 = 2;
+                    self.MultiPlayLog("[PUN]UnitTimeUp!");
+                  }
+                  else if (multiPlayInput.c == 10)
+                  {
+                    this.mUnit.x = this.mGridX = multiPlayInput.gx;
+                    this.mUnit.y = this.mGridY = multiPlayInput.gy;
+                    this.mUnit.Direction = this.mDir = (EUnitDirection) multiPlayInput.d;
+                    self.MultiPlayLog("recv UNIT_XYDIR:" + (object) this.mGridX + " " + (object) this.mGridY + " " + (object) this.mDir);
+                  }
+                }
+              }
+            }
+            this.mRecv.RemoveAt(0);
+            ++this.mTurnCmdDoneNum;
+            switch (num2)
+            {
+              case 1:
+                unitController.AutoUpdateRotation = true;
+                self.GotoState<SceneBattle.State_WaitForLog>();
+                goto label_70;
+              case 2:
+                unitController.AutoUpdateRotation = true;
+                self.Battle.EntryBattleMultiPlayTimeUp = true;
+                self.GotoMapCommand();
+                goto label_70;
+              default:
+                continue;
+            }
+          }
+label_70:
+          if (this.mTurnCmdDoneNum >= this.mTurnCmdNum)
+          {
+            self.MultiPlayLog("[PUN] done send turn:" + (object) this.mCurrentTurn + " cmdNum:" + (object) this.mTurnCmdNum + " recvTurnNum:" + (object) this.mRecvTurnNum + " recvCount:" + (object) this.mRecv.Count);
+            ++this.mCurrentTurn;
+            this.mTurnSec = 0.0f;
+            this.mTurnCmdDoneNum = 0;
+            this.mTurnCmdNum = -1;
+          }
+        }
+        if (unitController.AutoUpdateRotation)
+          return;
+        this.Move(self, this.mTargetX, this.mTargetY);
+      }
+
+      private void Move(SceneBattle self, int tx, int ty)
+      {
+        if (tx == this.mGridX && ty == this.mGridY)
+          return;
+        this.mMoveGrid = self.CreateCurrentAccessMap();
+        TacticsUnitController unitController = self.FindUnitController(this.mUnit);
+        Vector3[] path = self.FindPath(this.mGridX, this.mGridY, tx, ty, this.mUnit.DisableMoveGridHeight, this.mMoveGrid);
+        if (path != null && UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
+        {
+          double num = (double) unitController.StartMove(path, -1f);
+          this.mGridX = tx;
+          this.mGridY = ty;
+        }
+        else
+        {
+          this.mGridX = tx;
+          this.mGridY = ty;
+        }
+      }
+
+      public void UpdateSkip(SceneBattle self)
+      {
+        if (!this.mBegin)
+          return;
+        TacticsUnitController unitController = self.FindUnitController(this.mUnit);
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) unitController, (UnityEngine.Object) null) || this.mUnit.IsDead)
+          return;
+        unitController.AutoUpdateRotation = false;
+        if (this.mRecv.Count <= 0)
+        {
+          if (!this.Owner.Disconnected && this.mUnit.IsControl)
+            return;
+          do
+            ;
+          while (self.Battle.UpdateMapAI(false));
+          ((Component) unitController).get_transform().set_position(self.CalcGridCenter(this.mUnit.x, this.mUnit.y));
+        }
+        else
+        {
+          if (this.Owner == null)
+            return;
+          if (!this.mUnit.IsControl)
+          {
+            do
+              ;
+            while (self.Battle.UpdateMapAI(false) && !this.mUnit.IsControl);
+            ((Component) unitController).get_transform().set_position(self.CalcGridCenter(this.mUnit.x, this.mUnit.y));
+          }
+          while (this.mRecv.Count > 0)
+          {
+            SceneBattle.MultiPlayInput multiPlayInput = this.mRecv[0];
+            if (multiPlayInput.c == 4 || multiPlayInput.c == 3 || (multiPlayInput.c == 7 || multiPlayInput.c == 8))
+            {
+              this.mUnit.x = this.mGridX = this.mTargetX = multiPlayInput.gx;
+              this.mUnit.y = this.mGridY = this.mTargetY = multiPlayInput.gy;
+              ((Component) unitController).get_transform().set_position(self.CalcGridCenter(multiPlayInput.gx, multiPlayInput.gy));
+            }
+            if (multiPlayInput.c == 3)
+              this.mDir = (EUnitDirection) multiPlayInput.d;
+            else if (multiPlayInput.c == 4)
+              self.Battle.MoveMultiPlayer(this.mUnit, this.mGridX, this.mGridY, this.mDir);
+            else if (multiPlayInput.c == 5)
+            {
+              this.mGridX = this.mTargetX = this.mUnit.startX;
+              this.mGridY = this.mTargetY = this.mUnit.startY;
+              this.mDir = this.mUnit.startDir;
+              self.ResetMultiPlayerTransform(this.mUnit);
+            }
+            else if (multiPlayInput.c == 6)
+            {
+              EBattleCommand d = (EBattleCommand) multiPlayInput.d;
+              if (d == EBattleCommand.Wait)
+              {
+                self.Battle.MapCommandEnd(this.mUnit);
+              }
+              else
+              {
+                Unit enemy = multiPlayInput.u >= 0 ? self.Battle.AllUnits[multiPlayInput.u] : (Unit) null;
+                SkillData skillData = this.mUnit.GetSkillData(multiPlayInput.s);
+                ItemData inventoryByItemId = MonoSingleton<GameManager>.Instance.Player.FindInventoryByItemID(multiPlayInput.i);
+                int gx = multiPlayInput.gx;
+                int gy = multiPlayInput.gy;
+                bool unitLockTarget = multiPlayInput.ul != 0;
+                self.Battle.EntryBattleMultiPlay(d, this.mUnit, enemy, skillData, inventoryByItemId, gx, gy, unitLockTarget);
+                if (skillData != null && skillData.IsSetBreakObjSkill())
+                {
+                  Unit gimmickAtGrid = self.Battle.FindGimmickAtGrid(gx, gy, false);
+                  if (gimmickAtGrid != null && gimmickAtGrid.IsBreakObj)
+                    self.ReqCreateBreakObjUcLists.Add(new SceneBattle.ReqCreateBreakObjUc(skillData, gimmickAtGrid));
+                }
+                this.mDir = this.mUnit.Direction;
+                this.mGridX = this.mTargetX = this.mUnit.x;
+                this.mGridY = this.mTargetY = this.mUnit.y;
+              }
+            }
+            else if (multiPlayInput.c == 7)
+              self.Battle.ExecuteEventTriggerOnGrid(this.mUnit, EEventTrigger.ExecuteOnGrid);
+            else if (multiPlayInput.c == 8)
+              this.mUnit.Direction = (EUnitDirection) multiPlayInput.d;
+            else if (multiPlayInput.c == 9)
+            {
+              unitController.StopRunning();
+              this.mGridX = this.mTargetX = multiPlayInput.gx;
+              this.mGridY = this.mTargetY = multiPlayInput.gy;
+              ((Component) unitController).get_transform().set_position(self.CalcGridCenter(multiPlayInput.gx, multiPlayInput.gy));
+              this.mUnit.Direction = (EUnitDirection) multiPlayInput.d;
+            }
+            else if (multiPlayInput.c == 10)
+            {
+              this.mUnit.x = this.mGridX = multiPlayInput.gx;
+              this.mUnit.y = this.mGridY = multiPlayInput.gy;
+              this.mUnit.Direction = this.mDir = (EUnitDirection) multiPlayInput.d;
+            }
+            this.mRecv.RemoveAt(0);
+          }
+          if (!this.Owner.Disconnected && this.mUnit.IsControl)
+            return;
+          do
+            ;
+          while (self.Battle.UpdateMapAI(false));
+          ((Component) unitController).get_transform().set_position(self.CalcGridCenter(this.mUnit.x, this.mUnit.y));
+        }
+      }
+
+      private enum EGridSnap
+      {
+        NOP,
+        ACTIVE,
+        DONE,
+        NUM,
       }
     }
 
@@ -9911,27 +13033,42 @@ label_71:
           return;
         if (!this.mReady)
         {
-          if (self.Battle.IsMultiPlay)
+          GameManager instance1 = MonoSingleton<GameManager>.Instance;
+          if (self.Battle.IsMultiPlay && !instance1.AudienceMode)
           {
             if (!self.Battle.FinishLoad)
             {
-              MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
+              MyPhoton instance2 = PunMonoSingleton<MyPhoton>.Instance;
               self.Battle.FinishLoad = self.SendFinishLoad();
-              if (!instance.IsConnected())
+              if (!instance2.IsConnected())
                 self.Battle.FinishLoad = true;
             }
             if (!self.Battle.SyncStart)
               return;
           }
+          else if (instance1.AudienceMode && !self.Battle.FinishLoad)
+          {
+            if (self.AudienceSkip)
+            {
+              self.SkipLog();
+              return;
+            }
+            self.AudienceSkip = true;
+            instance1.AudienceManager.FinishLoad();
+            instance1.AudienceManager.SkipMode = true;
+            return;
+          }
           this.mReady = true;
           GameUtility.SetDefaultSleepSetting();
-          ProgressWindow.Close();
           GameUtility.FadeOut(1f);
         }
         if (GameUtility.IsScreenFading)
           return;
+        ProgressWindow.SetDestroyDelay(0.0f);
+        ProgressWindow.Close();
         self.StartDownloadNextQuestAsync();
-        if (Object.op_Inequality((Object) self.mEventScript, (Object) null) && Object.op_Inequality((Object) (self.mEventSequence = self.mEventScript.OnPostMapLoad()), (Object) null))
+        GlobalEvent.Invoke("BATTLE_MAP_LOADED", (object) null);
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mEventScript, (UnityEngine.Object) null) && UnityEngine.Object.op_Inequality((UnityEngine.Object) (self.mEventSequence = self.mEventScript.OnPostMapLoad()), (UnityEngine.Object) null))
         {
           self.GotoState<SceneBattle.State_WaitEvent<SceneBattle.State_StartEvent>>();
         }
@@ -9949,14 +13086,14 @@ label_71:
 
       public override void Begin(SceneBattle self)
       {
-        if (Object.op_Equality((Object) self.mEventScript, (Object) null))
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) self.mEventScript, (UnityEngine.Object) null))
         {
           this.Finish();
         }
         else
         {
-          this.mSequence = self.mEventScript.OnStart(0);
-          if (Object.op_Equality((Object) this.mSequence, (Object) null))
+          this.mSequence = self.mEventScript.OnStart(0, true);
+          if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mSequence, (UnityEngine.Object) null))
             this.Finish();
           else
             self.mUpdateCameraPosition = false;
@@ -9967,7 +13104,7 @@ label_71:
       {
         if (this.mSequence.IsPlaying)
           return;
-        Object.Destroy((Object) this.mSequence);
+        UnityEngine.Object.Destroy((UnityEngine.Object) this.mSequence);
         self.ResetCameraTarget();
         this.Finish();
       }
@@ -9976,11 +13113,13 @@ label_71:
       {
         if (this.self.IsPlayingArenaQuest)
           this.self.mBattleUI.OnQuestStart_Arena();
+        else if (this.self.Battle.IsMultiVersus)
+          this.self.mBattleUI.OnQuestStart_VS();
         else if (string.IsNullOrEmpty(this.self.mCurrentQuest.cond))
           this.self.mBattleUI.OnQuestStart_Short();
         else
           this.self.mBattleUI.OnQuestStart();
-        if (Object.op_Inequality((Object) this.self.mBattleUI_MultiPlay, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.self.mBattleUI_MultiPlay, (UnityEngine.Object) null))
           this.self.mBattleUI_MultiPlay.OnMapStart();
         this.self.GotoState_WaitSignal<SceneBattle.State_MapStartV2>();
       }
@@ -9990,47 +13129,48 @@ label_71:
     {
       public override void Begin(SceneBattle self)
       {
+        self.QuestStart = true;
         self.GotoState<SceneBattle.State_WaitForLog>();
       }
     }
 
     private class State_PreUnitStart : State<SceneBattle>
     {
+      private IEnumerator m_Task;
+
+      [DebuggerHidden]
+      private IEnumerator Task_Begin(SceneBattle self)
+      {
+        // ISSUE: object of a compiler-generated type is created
+        return (IEnumerator) new SceneBattle.State_PreUnitStart.\u003CTask_Begin\u003Ec__Iterator71() { self = self, \u003C\u0024\u003Eself = self };
+      }
+
       public override void Begin(SceneBattle self)
       {
         self.RemoveLog();
-        self.Battle.UnitStart();
-        BattleMap currentMap = self.Battle.CurrentMap;
-        if (currentMap != null)
-        {
-          int remainingActionCount1 = self.Battle.GetRemainingActionCount(currentMap.WinMonitorCondition);
-          int remainingActionCount2 = self.Battle.GetRemainingActionCount(currentMap.LoseMonitorCondition);
-          self.RemainingActionCountSet((uint) remainingActionCount1, (uint) remainingActionCount2);
-        }
-        TacticsUnitController unitController = self.FindUnitController(self.mBattle.CurrentUnit);
-        if (Object.op_Inequality((Object) unitController, (Object) null))
-        {
-          ++unitController.TurnCount;
-          if (self.Battle.IsMultiVersus)
-            unitController.PlayVersusCursor(true);
-        }
-        self.SetUnitUiHeight(self.mBattle.CurrentUnit);
+        this.m_Task = this.Task_Begin(self);
       }
 
       public override void Update(SceneBattle self)
       {
+        if (this.m_Task != null)
+        {
+          if (this.m_Task.MoveNext())
+            return;
+          this.m_Task = (IEnumerator) null;
+        }
         for (int index = 0; index < self.mTacticsUnits.Count; ++index)
         {
-          if (Object.op_Inequality((Object) self.mTacticsUnits[index], (Object) null) && self.mTacticsUnits[index].IsHPGaugeChanging)
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mTacticsUnits[index], (UnityEngine.Object) null) && self.mTacticsUnits[index].IsHPGaugeChanging)
             return;
         }
         for (int index = 0; index < self.mTacticsUnits.Count; ++index)
         {
-          if (Object.op_Inequality((Object) self.mTacticsUnits[index], (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mTacticsUnits[index], (UnityEngine.Object) null))
             self.mTacticsUnits[index].ResetHPGauge();
         }
         TacticsUnitController unitController = self.FindUnitController(self.mBattle.CurrentUnit);
-        if (Object.op_Inequality((Object) self.mEventScript, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mEventScript, (UnityEngine.Object) null))
           self.mEventSequence = self.mEventScript.OnUnitStart(unitController);
         self.GotoState<SceneBattle.State_WaitEvent<SceneBattle.State_UnitStartV2>>();
       }
@@ -10042,12 +13182,12 @@ label_71:
       {
         TacticsUnitController unitController = self.FindUnitController(self.mBattle.CurrentUnit);
         self.mAutoActivateGimmick = false;
-        if (self.mTutorialTriggers != null && Object.op_Inequality((Object) unitController, (Object) null))
+        if (self.mTutorialTriggers != null && UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
         {
           for (int index = 0; index < self.mTutorialTriggers.Length; ++index)
-            self.mTutorialTriggers[index].OnUnitStart(self.mBattle.CurrentUnit, unitController.TurnCount);
+            self.mTutorialTriggers[index].OnUnitStart(self.mBattle.CurrentUnit, unitController.Unit.TurnCount);
         }
-        if (Object.op_Inequality((Object) unitController, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
         {
           self.SetPrioritizedUnit(unitController);
           Unit currentUnit = self.Battle.CurrentUnit;
@@ -10055,14 +13195,19 @@ label_71:
           {
             self.InterpCameraDistance(GameSettings.Instance.GameCamera_DefaultDistance);
             self.InterpCameraTarget((Component) unitController);
-            if (currentUnit.UniqueName == "logi" && unitController.TurnCount == 2)
-              AnalyticsManager.TrackTutorialCustomEvent("funnel.tutorial.guide_battle_freeplay", new Dictionary<string, object>()
+            if (GlobalVars.SelectedQuestID == "QE_OP_0002" && currentUnit.UniqueName == "logi")
+            {
+              if (currentUnit.TurnCount == 2)
               {
-                {
-                  "step_number",
-                  (object) "7.6"
-                }
-              });
+                GlobalEvent.Invoke("SGMATutorial", (object) null);
+                AnalyticsManager.TrackTutorialAnalyticsEvent("guide_battle_freeplay");
+              }
+              if (currentUnit.TurnCount == 1)
+              {
+                MonoSingleton<GameManager>.Instance.CompleteTutorialStep();
+                GlobalEvent.Invoke("SGBattleTutorial1", (object) null);
+              }
+            }
           }
           else
             Debug.Log((object) "[PUN]I'm dead or null...");
@@ -10082,7 +13227,10 @@ label_71:
         {
           if (self.IsCameraMoving)
             return;
-          if (Object.op_Inequality((Object) self.mBattleUI.CommandWindow, (Object) null))
+          TacticsUnitController unitController = self.FindUnitController(currentUnit);
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
+            unitController.ResetRotation();
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mBattleUI.CommandWindow, (UnityEngine.Object) null))
           {
             List<AbilityData> abilityDataList1 = new List<AbilityData>((IEnumerable<AbilityData>) currentUnit.BattleAbilitys);
             List<AbilityData> abilityDataList2 = new List<AbilityData>();
@@ -10099,14 +13247,21 @@ label_71:
             if (abilityDataList2.Count > 0)
               abilityDataList1.Add((AbilityData) AbilityData.ToMix(abilityDataList2.ToArray(), self.mBattleUI.CommandWindow.OtherSkillName, self.mBattleUI.CommandWindow.OtherSkillIconName));
             self.mBattleUI.CommandWindow.SetAbilities(abilityDataList1.ToArray(), currentUnit);
+            self.ReflectUnitChgButton(currentUnit, false);
           }
         }
         for (int index = 0; index < self.mTacticsUnits.Count; ++index)
         {
-          if (Object.op_Inequality((Object) self.mTacticsUnits[index], (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mTacticsUnits[index], (UnityEngine.Object) null))
             self.mTacticsUnits[index].UpdateBadStatus();
         }
-        self.GotoState<SceneBattle.State_WaitForLog>();
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mEventScript, (UnityEngine.Object) null))
+        {
+          TacticsUnitController unitController = self.FindUnitController(currentUnit);
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
+            self.mEventSequence = self.mEventScript.OnUnitTurnStart(unitController, self.mIsFirstPlay);
+        }
+        self.GotoState<SceneBattle.State_WaitEvent<SceneBattle.State_WaitForLog>>();
       }
     }
 
@@ -10129,9 +13284,9 @@ label_71:
     {
       public override void Begin(SceneBattle self)
       {
-        if (Object.op_Inequality((Object) self.mEventSequence, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mEventSequence, (UnityEngine.Object) null))
         {
-          if (Object.op_Inequality((Object) self.mBattleUI, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mBattleUI, (UnityEngine.Object) null))
             self.mBattleUI.Hide();
           self.mUpdateCameraPosition = false;
           self.SetPrioritizedUnit((TacticsUnitController) null);
@@ -10146,34 +13301,26 @@ label_71:
 
       public override void End(SceneBattle self)
       {
-        if (!Object.op_Inequality((Object) self.mBattleUI, (Object) null))
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mBattleUI, (UnityEngine.Object) null))
           return;
         self.mBattleUI.Show();
       }
 
       public override void Update(SceneBattle self)
       {
-        if (Object.op_Inequality((Object) self.mEventSequence, (Object) null) && self.IsCameraMoving || !Object.op_Equality((Object) self.mEventSequence, (Object) null) && self.mEventSequence.IsPlaying)
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mEventSequence, (UnityEngine.Object) null) && self.IsCameraMoving || !UnityEngine.Object.op_Equality((UnityEngine.Object) self.mEventSequence, (UnityEngine.Object) null) && self.mEventSequence.IsPlaying)
           return;
         for (int index = 0; index < self.mTacticsUnits.Count; ++index)
           self.mTacticsUnits[index].AutoUpdateRotation = true;
         self.ResetCameraTarget();
         self.mUpdateCameraPosition = true;
-        if (Object.op_Inequality((Object) self.mEventSequence, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mEventSequence, (UnityEngine.Object) null))
         {
-          Object.DestroyImmediate((Object) ((Component) self.mEventSequence).get_gameObject());
+          UnityEngine.Object.DestroyImmediate((UnityEngine.Object) ((Component) self.mEventSequence).get_gameObject());
           self.mEventSequence = (EventScript.Sequence) null;
         }
         MonoSingleton<GameManager>.Instance.EnableAnimationFrameSkipping = true;
         self.GotoState<T>();
-      }
-    }
-
-    private class State_PostUnitStart : State<SceneBattle>
-    {
-      public override void Begin(SceneBattle self)
-      {
-        self.GotoMapCommand();
       }
     }
 
@@ -10195,15 +13342,17 @@ label_71:
         this.mCurrentUnit = self.mBattle.CurrentUnit;
         this.mStartX = this.mCurrentUnit.x;
         this.mStartY = this.mCurrentUnit.y;
-        self.InterpCameraOffset(GameSettings.Instance.Quest.MoveCamera);
         self.InterpCameraTarget((Component) self.FindUnitController(this.mCurrentUnit));
         self.mTouchController.IgnoreCurrentTouch();
         this.mCurrentController = self.FindUnitController(this.mCurrentUnit);
         this.mCurrentController.ResetHPGauge();
-        if (Object.op_Inequality((Object) self.mBattleUI.CommandWindow, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mBattleUI.CommandWindow, (UnityEngine.Object) null))
+        {
           self.mBattleUI.CommandWindow.OnCommandSelect = new UnitCommands.CommandEvent(this.OnCommandSelect);
-        self.mAllowCameraRotation = true;
-        self.mAllowCameraTranslation = false;
+          self.mBattleUI.CommandWindow.OnUnitChgSelect = new UnitCommands.UnitChgEvent(this.OnUnitChgSelect);
+        }
+        self.m_AllowCameraRotation = true;
+        self.m_AllowCameraTranslation = false;
         self.ShowAllHPGauges();
         if (!this.mCurrentUnit.IsUnitFlag(EUnitFlag.Moved))
           self.ShowWalkableGrids(self.CreateCurrentAccessMap(), 0);
@@ -10227,9 +13376,9 @@ label_71:
           self.mMoveInput.End();
           self.mMoveInput = (SceneBattle.MoveInput) null;
         }
-        self.mAllowCameraRotation = false;
-        self.mAllowCameraTranslation = false;
-        if (!Object.op_Inequality((Object) self.mBattleUI.CommandWindow, (Object) null))
+        self.m_AllowCameraRotation = false;
+        self.m_AllowCameraTranslation = false;
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mBattleUI.CommandWindow, (UnityEngine.Object) null))
           return;
         self.mBattleUI.CommandWindow.OnCommandSelect = (UnitCommands.CommandEvent) null;
       }
@@ -10239,14 +13388,15 @@ label_71:
         if (self.mMoveInput != null)
         {
           self.mMoveInput.Update();
+          self.ReflectUnitChgButton(self.mBattle.CurrentUnit, true);
           IntVector2 intVector2 = self.CalcCoord(this.mCurrentController.CenterPosition);
           if (!this.mMoved && (intVector2.x != this.mStartX || intVector2.y != this.mStartY))
           {
             TacticsUnitController unitController = self.FindUnitController(self.mBattle.CurrentUnit);
-            if (Object.op_Inequality((Object) unitController, (Object) null) && self.mTutorialTriggers != null)
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null) && self.mTutorialTriggers != null)
             {
               for (int index = 0; index < self.mTutorialTriggers.Length; ++index)
-                self.mTutorialTriggers[index].OnUnitMoveStart(this.mCurrentUnit, unitController.TurnCount);
+                self.mTutorialTriggers[index].OnUnitMoveStart(this.mCurrentUnit, unitController.Unit.TurnCount);
             }
             this.mMoved = true;
             if (self.Battle.IsMultiPlay)
@@ -10255,10 +13405,10 @@ label_71:
           if (self.mNumHotTargets != this.mHotTargets)
           {
             TacticsUnitController unitController = self.FindUnitController(self.mBattle.CurrentUnit);
-            if (Object.op_Inequality((Object) unitController, (Object) null) && self.mTutorialTriggers != null && self.mNumHotTargets > 0)
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null) && self.mTutorialTriggers != null && self.mNumHotTargets > 0)
             {
               for (int index = 0; index < self.mTutorialTriggers.Length; ++index)
-                self.mTutorialTriggers[index].OnHotTargetsChange(this.mCurrentUnit, unitController.TurnCount);
+                self.mTutorialTriggers[index].OnHotTargetsChange(this.mCurrentUnit, unitController.Unit.TurnCount);
             }
             this.mHotTargets = self.mNumHotTargets;
           }
@@ -10272,7 +13422,7 @@ label_71:
             if (self.Battle.IsAutoBattle)
             {
               TacticsUnitController unitController = self.FindUnitController(self.mBattle.CurrentUnit);
-              if (Object.op_Inequality((Object) unitController, (Object) null))
+              if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
               {
                 ((Component) unitController).get_transform().set_position(self.CalcGridCenter(self.mBattle.CurrentUnit.x, self.mBattle.CurrentUnit.y));
                 self.InterpCameraTarget((Component) unitController);
@@ -10346,7 +13496,9 @@ label_71:
       {
         Unit currentUnit = this.self.mBattle.CurrentUnit;
         SkillData attackSkill = currentUnit.GetAttackSkill();
-        IntVector2 intVector2 = this.self.CalcCoord(this.self.FindUnitController(currentUnit).CenterPosition);
+        TacticsUnitController unitController = this.self.FindUnitController(currentUnit);
+        IntVector2 intVector2 = this.self.CalcCoord(unitController.CenterPosition);
+        unitController.Unit.RefleshMomentBuff(this.self.mBattle.Units, true, intVector2.x, intVector2.y);
         GridMap<bool> selectGridMap = this.self.mBattle.CreateSelectGridMap(currentUnit, intVector2.x, intVector2.y, attackSkill);
         if (!selectGridMap.isValid(target.x, target.y) || !selectGridMap.get(target.x, target.y) || !this.self.mBattle.CheckSkillTarget(currentUnit, target, attackSkill))
           return;
@@ -10368,12 +13520,13 @@ label_71:
               break;
           }
         }
+        Unit currentUnit = this.self.mBattle.CurrentUnit;
+        IntVector2 intVector2 = this.self.CalcCoord(this.self.FindUnitController(currentUnit).CenterPosition);
+        currentUnit.RefleshMomentBuff(this.self.mBattle.Units, true, intVector2.x, intVector2.y);
         if (command == UnitCommands.CommandTypes.Gimmick)
         {
-          Unit currentUnit = this.self.mBattle.CurrentUnit;
-          IntVector2 intVector2 = this.self.CalcCoord(this.self.FindUnitController(currentUnit).CenterPosition);
           Grid current = this.self.mBattle.CurrentMap[intVector2.x, intVector2.y];
-          if (!this.self.mBattle.CheckGridEventTrigger(currentUnit, current, EEventTrigger.ExecuteOnGrid, false))
+          if (!this.self.mBattle.CheckGridEventTrigger(currentUnit, current, EEventTrigger.ExecuteOnGrid))
             return;
         }
         this.self.mBattleUI.OnCommandSelect();
@@ -10420,6 +13573,15 @@ label_71:
         else
           this.SelectCommand(command, ability);
       }
+
+      private void OnUnitChgSelect()
+      {
+        this.self.ReflectUnitChgButton(this.self.mBattle.CurrentUnit, true);
+        if (!this.self.mBattleUI.CommandWindow.IsEnableUnitChgButton || !this.self.mBattleUI.CommandWindow.IsActiveUnitChgButton)
+          return;
+        this.self.mBattleUI.OnCommandSelect();
+        this.self.GotoUnitChgSelect(false);
+      }
     }
 
     private class State_SelectItemV2 : State<SceneBattle>
@@ -10427,7 +13589,7 @@ label_71:
       public override void Begin(SceneBattle self)
       {
         self.InterpCameraTargetToCurrent();
-        if (Object.op_Inequality((Object) self.mBattleUI.ItemWindow, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mBattleUI.ItemWindow, (UnityEngine.Object) null))
           self.mBattleUI.ItemWindow.OnSelectItem = new BattleInventory.SelectEvent(this.OnSelectItem);
         self.mOnRequestStateChange = new SceneBattle.StateTransitionRequest(this.OnStateChange);
         self.StepToNear(self.Battle.CurrentUnit);
@@ -10435,7 +13597,7 @@ label_71:
 
       public override void End(SceneBattle self)
       {
-        if (Object.op_Inequality((Object) self.mBattleUI.ItemWindow, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mBattleUI.ItemWindow, (UnityEngine.Object) null))
           self.mBattleUI.ItemWindow.OnSelectItem = (BattleInventory.SelectEvent) null;
         self.mOnRequestStateChange = (SceneBattle.StateTransitionRequest) null;
       }
@@ -10452,6 +13614,162 @@ label_71:
           return;
         this.self.mBattleUI.OnItemSelectEnd();
         this.self.GotoMapCommand();
+      }
+    }
+
+    private class State_SelectUnitChgV2 : State<SceneBattle>
+    {
+      private List<Unit> mTargets = new List<Unit>(2);
+      private Unit mUnitChgTo;
+
+      public override void Begin(SceneBattle self)
+      {
+        self.InterpCameraTargetToCurrent();
+        this.mTargets.Clear();
+        using (List<Unit>.Enumerator enumerator = self.Battle.Player.GetEnumerator())
+        {
+          while (enumerator.MoveNext())
+          {
+            Unit current = enumerator.Current;
+            if (!self.Battle.StartingMembers.Contains(current) && !current.IsDead && (current.IsEntry && current.IsSub))
+              this.mTargets.Add(current);
+          }
+        }
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mBattleUI.UnitChgWindow, (UnityEngine.Object) null))
+          self.mBattleUI.UnitChgWindow.OnSelectUnit = new BattleUnitChg.SelectEvent(this.OnSelectUnit);
+        self.mOnRequestStateChange = new SceneBattle.StateTransitionRequest(this.OnStateChange);
+        self.StepToNear(self.Battle.CurrentUnit);
+      }
+
+      public override void End(SceneBattle self)
+      {
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mBattleUI.TargetSub, (UnityEngine.Object) null))
+        {
+          self.mBattleUI.TargetSub.SetNextTargetArrowActive(false);
+          self.mBattleUI.TargetSub.SetPrevTargetArrowActive(false);
+        }
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mBattleUI.UnitChgWindow, (UnityEngine.Object) null))
+          self.mBattleUI.UnitChgWindow.OnSelectUnit = (BattleUnitChg.SelectEvent) null;
+        self.mOnRequestStateChange = (SceneBattle.StateTransitionRequest) null;
+      }
+
+      private void OnSelectUnit(Unit unit_chg_to)
+      {
+        this.self.mBattleUI.OnUnitChgSelectEnd();
+        this.mUnitChgTo = unit_chg_to;
+        Unit currentUnit = this.self.mBattle.CurrentUnit;
+        TacticsUnitController unitController = this.self.FindUnitController(currentUnit);
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
+        {
+          this.self.HideUnitMarkers(false);
+          this.self.ShowUnitMarker(currentUnit, SceneBattle.UnitMarkerTypes.Target);
+          unitController.SetHPGaugeMode(TacticsUnitController.HPGaugeModes.Change, (SkillData) null, (Unit) null);
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.self.mBattleUI.TargetMain, (UnityEngine.Object) null))
+          {
+            this.self.mBattleUI.TargetMain.ResetHpGauge(currentUnit.Side, (int) currentUnit.CurrentStatus.param.hp, (int) currentUnit.MaximumStatus.param.hp);
+            this.self.mBattleUI.TargetMain.SetNoAction(currentUnit, (List<LogSkill.Target.CondHit>) null);
+            this.self.mBattleUI.TargetMain.Open();
+          }
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.self.mBattleUI.TargetSub, (UnityEngine.Object) null))
+          {
+            this.self.mBattleUI.TargetSub.ResetHpGauge(unit_chg_to.Side, (int) unit_chg_to.CurrentStatus.param.hp, (int) unit_chg_to.MaximumStatus.param.hp);
+            if (this.mTargets.Count > 1)
+            {
+              this.self.mBattleUI.TargetSub.ActivateNextTargetArrow(new ButtonExt.ButtonClickEvent(this.OnNextTargetClick));
+              this.self.mBattleUI.TargetSub.ActivatePrevTargetArrow(new ButtonExt.ButtonClickEvent(this.OnPrevTargetClick));
+            }
+            else
+            {
+              this.self.mBattleUI.TargetSub.SetNextTargetArrowActive(false);
+              this.self.mBattleUI.TargetSub.SetPrevTargetArrowActive(false);
+            }
+            this.self.mBattleUI.TargetSub.SetNoAction(unit_chg_to, (List<LogSkill.Target.CondHit>) null);
+            this.self.mBattleUI.TargetSub.Open();
+          }
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.self.mBattleUI.TargetObjectSub, (UnityEngine.Object) null))
+            this.self.mBattleUI.TargetObjectSub.Close();
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.self.mBattleUI.TargetTrickSub, (UnityEngine.Object) null))
+            this.self.mBattleUI.TargetTrickSub.Close();
+          this.self.mBattleUI.OnVersusStart();
+        }
+        this.self.mBattleUI.CommandWindow.OnYesNoSelect += new UnitCommands.YesNoEvent(this.OnYesNoSelect);
+        this.self.mBattleUI.OnUnitChgConfirmStart();
+      }
+
+      private void OnStateChange(SceneBattle.StateTransitionTypes req)
+      {
+        if (req == SceneBattle.StateTransitionTypes.Forward)
+          return;
+        this.self.mBattleUI.OnUnitChgSelectEnd();
+        this.self.HideGrid();
+        this.self.GotoMapCommand();
+      }
+
+      private void ShiftTarget(int delta)
+      {
+        if (this.mTargets.Count == 0 || !UnityEngine.Object.op_Inequality((UnityEngine.Object) this.self.mBattleUI.TargetSub, (UnityEngine.Object) null))
+          return;
+        int num = this.mTargets.IndexOf(this.mUnitChgTo);
+        if (num < 0)
+          num = 0;
+        this.mUnitChgTo = this.mTargets[(num + delta + this.mTargets.Count) % this.mTargets.Count];
+        this.self.mBattleUI.TargetSub.ResetHpGauge(this.mUnitChgTo.Side, (int) this.mUnitChgTo.CurrentStatus.param.hp, (int) this.mUnitChgTo.MaximumStatus.param.hp);
+        this.self.mBattleUI.TargetSub.SetNoAction(this.mUnitChgTo, (List<LogSkill.Target.CondHit>) null);
+        this.self.mBattleUI.TargetSub.Open();
+      }
+
+      private void OnNextTargetClick(GameObject go)
+      {
+        this.ShiftTarget(1);
+      }
+
+      private void OnPrevTargetClick(GameObject go)
+      {
+        this.ShiftTarget(-1);
+      }
+
+      private void OnYesNoSelect(bool yes)
+      {
+        this.self.mBattleUI.CommandWindow.OnYesNoSelect -= new UnitCommands.YesNoEvent(this.OnYesNoSelect);
+        this.self.mBattleUI.OnUnitChgConfirmEnd();
+        Unit currentUnit = this.self.Battle.CurrentUnit;
+        Unit mUnitChgTo = this.mUnitChgTo;
+        TacticsUnitController unitController1 = this.self.FindUnitController(currentUnit);
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController1, (UnityEngine.Object) null))
+        {
+          this.self.HideUnitMarkers(UnityEngine.Object.op_Implicit((UnityEngine.Object) unitController1));
+          unitController1.SetHPGaugeMode(TacticsUnitController.HPGaugeModes.Normal, (SkillData) null, (Unit) null);
+        }
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.self.mBattleUI.TargetMain, (UnityEngine.Object) null))
+          this.self.mBattleUI.TargetMain.ForceClose(true);
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.self.mBattleUI.TargetSub, (UnityEngine.Object) null))
+        {
+          this.self.mBattleUI.TargetSub.SetNextTargetArrowActive(false);
+          this.self.mBattleUI.TargetSub.SetPrevTargetArrowActive(false);
+          this.self.mBattleUI.TargetSub.ForceClose(true);
+        }
+        this.self.mBattleUI.OnVersusEnd();
+        if (yes)
+        {
+          this.self.HideGrid();
+          if (currentUnit != null)
+          {
+            IntVector2 intVector2 = new IntVector2(currentUnit.x, currentUnit.y);
+            EUnitDirection dir = currentUnit.Direction;
+            TacticsUnitController unitController2 = this.self.FindUnitController(currentUnit);
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController2, (UnityEngine.Object) null))
+            {
+              intVector2 = this.self.CalcCoord(unitController2.CenterPosition);
+              dir = unitController2.CalcUnitDirectionFromRotation();
+            }
+            this.self.Battle.UnitChange(currentUnit, intVector2.x, intVector2.y, dir, mUnitChgTo);
+          }
+          this.self.Battle.MapCommandEnd(this.self.Battle.CurrentUnit);
+          this.self.Battle.CommandWait(true);
+          this.self.GotoState_WaitSignal<SceneBattle.State_WaitForLog>();
+        }
+        else
+          this.self.GotoUnitChgSelect(true);
       }
     }
 
@@ -10535,11 +13853,17 @@ label_71:
           {
             if (this.mTargetGrids.get(x, y))
             {
-              Unit unitAtGrid = self.Battle.FindUnitAtGrid(self.Battle.CurrentMap[x, y]);
-              if (unitAtGrid != null && unitAtGrid != currentUnit && (unitAtGrid.IsThrow && unitAtGrid.IsNormalSize) && !unitAtGrid.IsJump)
+              Unit unit = self.Battle.FindUnitAtGrid(self.Battle.CurrentMap[x, y]);
+              if (unit == null)
               {
-                TacticsUnitController unitController2 = self.FindUnitController(unitAtGrid);
-                if (Object.op_Implicit((Object) unitController2))
+                unit = self.Battle.FindGimmickAtGrid(self.Battle.CurrentMap[x, y], false, (Unit) null);
+                if (unit == null || !unit.IsBreakObj)
+                  continue;
+              }
+              if (unit != currentUnit && unit.IsThrow && (unit.IsNormalSize && !unit.IsJump))
+              {
+                TacticsUnitController unitController2 = self.FindUnitController(unit);
+                if (UnityEngine.Object.op_Implicit((UnityEngine.Object) unitController2))
                   this.mTargets.Add(unitController2);
               }
             }
@@ -10552,12 +13876,12 @@ label_71:
         }
         self.mOnUnitClick = new SceneBattle.UnitClickEvent(this.OnClickUnit);
         self.mOnUnitFocus = new SceneBattle.UnitFocusEvent(this.OnFocus);
-        self.mAllowCameraRotation = flag;
-        self.mAllowCameraTranslation = flag;
+        self.m_AllowCameraRotation = flag;
+        self.m_AllowCameraTranslation = flag;
         if (self.mTargetSelectorParam.DefaultThrowTarget != null)
         {
           TacticsUnitController unitController2 = self.FindUnitController(self.mTargetSelectorParam.DefaultThrowTarget);
-          if (Object.op_Inequality((Object) unitController2, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController2, (UnityEngine.Object) null))
             this.OnFocus(unitController2);
           self.InterpCameraTarget((Component) unitController2);
           this.SetYesButtonEnable(true);
@@ -10565,7 +13889,7 @@ label_71:
         self.mBattleUI.CommandWindow.OnYesNoSelect += new UnitCommands.YesNoEvent(this.OnYesNoSelect);
         self.mTouchController.OnDragDelegate += new TouchController.DragEvent(this.OnDrag);
         self.mTouchController.OnDragEndDelegate += new TouchController.DragEvent(this.OnDragEnd);
-        if (Object.op_Implicit((Object) self.mBattleUI.TargetSub))
+        if (UnityEngine.Object.op_Implicit((UnityEngine.Object) self.mBattleUI.TargetSub))
         {
           if (this.mTargets.Count >= 2)
           {
@@ -10607,7 +13931,7 @@ label_71:
 
       public override void End(SceneBattle self)
       {
-        if (Object.op_Implicit((Object) self.mBattleUI.TargetSub))
+        if (UnityEngine.Object.op_Implicit((UnityEngine.Object) self.mBattleUI.TargetSub))
         {
           self.mBattleUI.TargetSub.DeactivateNextTargetArrow(new ButtonExt.ButtonClickEvent(this.OnNextTargetClick));
           self.mBattleUI.TargetSub.DeactivatePrevTargetArrow(new ButtonExt.ButtonClickEvent(this.OnPrevTargetClick));
@@ -10617,8 +13941,8 @@ label_71:
         self.mTouchController.OnDragDelegate -= new TouchController.DragEvent(this.OnDrag);
         self.mTouchController.OnDragEndDelegate -= new TouchController.DragEvent(this.OnDragEnd);
         self.HideUnitMarkers(false);
-        self.mAllowCameraRotation = false;
-        self.mAllowCameraTranslation = false;
+        self.m_AllowCameraRotation = false;
+        self.m_AllowCameraTranslation = false;
         self.mOnUnitFocus = (SceneBattle.UnitFocusEvent) null;
         self.mOnUnitClick = (SceneBattle.UnitClickEvent) null;
         self.mOnGridClick = (SceneBattle.GridClickEvent) null;
@@ -10629,20 +13953,9 @@ label_71:
       private void SetYesButtonEnable(bool enable)
       {
         Selectable component = (Selectable) this.self.mBattleUI.CommandWindow.OKButton.GetComponent<Selectable>();
-        if (!Object.op_Inequality((Object) component, (Object) null))
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
           return;
         component.set_interactable(enable);
-      }
-
-      private void HideTargetWindows()
-      {
-        if (Object.op_Inequality((Object) this.self.mBattleUI.TargetMain, (Object) null))
-          this.self.mBattleUI.TargetMain.Close();
-        if (Object.op_Inequality((Object) this.self.mBattleUI.TargetSub, (Object) null))
-          this.self.mBattleUI.TargetSub.Close();
-        if (!Object.op_Inequality((Object) this.self.mBattleUI.TargetObjectSub, (Object) null))
-          return;
-        this.self.mBattleUI.TargetObjectSub.Close();
       }
 
       private void OnYesNoSelect(bool yes)
@@ -10656,13 +13969,13 @@ label_71:
         if (yes)
         {
           this.self.mTargetSelectorParam.ThrowTarget = this.mSelectedTarget.Unit;
-          this.HideTargetWindows();
+          this.self.mBattleUI.HideTargetWindows();
           this.self.GotoState_WaitSignal<SceneBattle.State_PreSelectTargetV2>();
         }
         else
         {
           this.self.mTargetSelectorParam.OnCancel();
-          this.HideTargetWindows();
+          this.self.mBattleUI.HideTargetWindows();
         }
       }
 
@@ -10673,8 +13986,14 @@ label_71:
         bool flag = this.mTargetGrids.get(x, y);
         if (flag)
         {
-          Unit unitAtGrid = this.self.Battle.FindUnitAtGrid(this.self.Battle.CurrentMap[x, y]);
-          if (unitAtGrid != null && (unitAtGrid == this.self.mBattle.CurrentUnit || !unitAtGrid.IsThrow || (!unitAtGrid.IsNormalSize || unitAtGrid.IsJump)))
+          Unit unit = this.self.Battle.FindUnitAtGrid(this.self.Battle.CurrentMap[x, y]);
+          if (unit == null)
+          {
+            unit = this.self.Battle.FindGimmickAtGrid(this.self.Battle.CurrentMap[x, y], false, (Unit) null);
+            if (unit != null && !unit.IsBreakObj)
+              unit = (Unit) null;
+          }
+          if (unit == null || unit == this.self.mBattle.CurrentUnit || (!unit.IsThrow || !unit.IsNormalSize) || unit.IsJump)
             flag = false;
         }
         return flag;
@@ -10686,7 +14005,7 @@ label_71:
           return false;
         int x = unit.x;
         int y = unit.y;
-        if (Object.op_Inequality((Object) this.self.mFocusedUnit, (Object) null) && this.self.mFocusedUnit.Unit != null && this.self.mFocusedUnit.Unit == unit)
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.self.mFocusedUnit, (UnityEngine.Object) null) && this.self.mFocusedUnit.Unit != null && this.self.mFocusedUnit.Unit == unit)
         {
           IntVector2 intVector2 = this.self.CalcCoord(this.self.mFocusedUnit.CenterPosition);
           x = intVector2.x;
@@ -10697,9 +14016,9 @@ label_71:
 
       private void OnFocus(TacticsUnitController controller)
       {
-        if (!Object.op_Implicit((Object) controller) || controller.Unit.IsGimmick)
+        if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) controller) || controller.Unit.IsGimmick && !this.self.Battle.IsTargetBreakUnit(this.self.mBattle.CurrentUnit, controller.Unit, (SkillData) null))
           return;
-        if (Object.op_Inequality((Object) this.mSelectedTarget, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSelectedTarget, (UnityEngine.Object) null))
           this.self.HideUnitMarkers(this.mSelectedTarget.Unit);
         this.self.ShowUnitMarker(controller.Unit, SceneBattle.UnitMarkerTypes.Target);
         this.mSelectedTarget = controller;
@@ -10719,7 +14038,7 @@ label_71:
         for (int index = 0; index < this.self.mTacticsUnits.Count; ++index)
         {
           this.self.mTacticsUnits[index].SetHPGaugeMode(TacticsUnitController.HPGaugeModes.Normal, (SkillData) null, (Unit) null);
-          if (0 >= YosokuDamageHp || !Object.op_Equality((Object) this.self.mTacticsUnits[index], (Object) controller))
+          if (0 >= YosokuDamageHp || !UnityEngine.Object.op_Equality((UnityEngine.Object) this.self.mTacticsUnits[index], (UnityEngine.Object) controller))
             this.self.mTacticsUnits[index].SetHPChangeYosou(this.self.mTacticsUnits[index].VisibleHPValue);
         }
         if (this.IsGridSelectable(this.self.mSelectedTarget))
@@ -10731,28 +14050,30 @@ label_71:
           this.self.mTacticsSceneRoot.ShowGridLayer(2, grid, Color32.op_Implicit(GameSettings.Instance.Colors.AttackArea2), false);
         }
         this.SetYesButtonEnable(this.self.UIParam_TargetValid);
-        if (Object.op_Inequality((Object) this.self.mBattleUI.TargetMain, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.self.mBattleUI.TargetMain, (UnityEngine.Object) null))
         {
-          this.self.mBattleUI.TargetMain.SetNoAction(this.self.mBattle.CurrentUnit);
+          this.self.mBattleUI.TargetMain.SetNoAction(this.self.mBattle.CurrentUnit, (List<LogSkill.Target.CondHit>) null);
           this.self.mBattleUI.TargetMain.Open();
         }
-        if (Object.op_Inequality((Object) this.self.mBattleUI.TargetSub, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.self.mBattleUI.TargetSub, (UnityEngine.Object) null))
         {
           if (this.self.UIParam_TargetValid)
           {
-            this.self.mBattleUI.TargetSub.SetNoAction(this.self.mSelectedTarget);
+            this.self.mBattleUI.TargetSub.SetNoAction(this.self.mSelectedTarget, (List<LogSkill.Target.CondHit>) null);
             this.self.mBattleUI.TargetSub.Open();
           }
-          else if (this.self.mSelectedTarget.UnitType == EUnitType.Unit || this.self.mSelectedTarget.UnitType == EUnitType.EventUnit)
+          else if (this.self.mSelectedTarget.UnitType == EUnitType.Unit || this.self.mSelectedTarget.UnitType == EUnitType.EventUnit || this.self.mSelectedTarget.IsBreakObj && this.self.mSelectedTarget.IsBreakDispUI)
           {
-            this.self.mBattleUI.TargetSub.SetNoAction(this.self.mSelectedTarget);
+            this.self.mBattleUI.TargetSub.SetNoAction(this.self.mSelectedTarget, (List<LogSkill.Target.CondHit>) null);
             this.self.mBattleUI.TargetSub.Open();
           }
           else
-            this.self.mBattleUI.TargetSub.Close();
+            this.self.mBattleUI.TargetSub.ForceClose(false);
         }
-        if (Object.op_Inequality((Object) this.self.mBattleUI.TargetObjectSub, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.self.mBattleUI.TargetObjectSub, (UnityEngine.Object) null))
           this.self.mBattleUI.TargetObjectSub.Close();
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.self.mBattleUI.TargetTrickSub, (UnityEngine.Object) null))
+          this.self.mBattleUI.TargetTrickSub.Close();
         this.self.OnGimmickUpdate();
         this.self.SetUnitUiHeight(controller.Unit);
       }
@@ -10788,7 +14109,7 @@ label_71:
       {
         if (!this.mIgnoreDragVelocity)
           this.mDragY += (float) this.self.mTouchController.DragDelta.y;
-        if (this.mTargets == null)
+        if (this.mTargets.Count == 0)
           return;
         this.mDragScroll = true;
       }
@@ -10826,12 +14147,12 @@ label_71:
     private class State_SelectTargetV2 : State<SceneBattle>
     {
       private bool mSelectGrid = true;
+      private List<TacticsUnitController> mTargets = new List<TacticsUnitController>(32);
       private SceneBattle mScene;
       private TacticsUnitController mSelectedTarget;
       private GridMap<bool> mTargetGrids;
       private GridMap<bool> mTargetAreaGridMap;
       private IntVector2 mTargetPosition;
-      private List<TacticsUnitController> mTargets;
       private bool mDragScroll;
       private float mYScrollPos;
       private bool mIgnoreDragVelocity;
@@ -10847,10 +14168,11 @@ label_71:
         Unit currentUnit = self.mBattle.CurrentUnit;
         TacticsUnitController unitController1 = self.FindUnitController(currentUnit);
         IntVector2 intVector2_1 = self.CalcCoord(unitController1.CenterPosition);
+        this.mTargets.Clear();
         if (skill != null)
         {
           this.mSelectGrid = skill.SkillParam.IsAreaSkill();
-          if (skill.IsTargetGridNoUnit)
+          if (skill.IsTargetGridNoUnit || skill.IsTargetValidGrid)
             this.mSelectGrid = true;
           this.mTargetGrids = self.Battle.CreateSelectGridMap(currentUnit, intVector2_1.x, intVector2_1.y, self.mTargetSelectorParam.Skill);
           if (!this.mSelectGrid)
@@ -10862,11 +14184,10 @@ label_71:
             List<Unit> attackTargetsAi = self.mBattle.CreateAttackTargetsAI(currentUnit, self.mTargetSelectorParam.Skill, false);
             if (attackTargetsAi.Count > 0)
             {
-              this.mTargets = new List<TacticsUnitController>(32);
               for (int index = 0; index < attackTargetsAi.Count; ++index)
               {
                 TacticsUnitController unitController2 = self.FindUnitController(attackTargetsAi[index]);
-                if (Object.op_Inequality((Object) unitController2, (Object) null) && this.mTargetGrids.get(attackTargetsAi[index].x, attackTargetsAi[index].y))
+                if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController2, (UnityEngine.Object) null) && this.mTargetGrids.get(attackTargetsAi[index].x, attackTargetsAi[index].y) && (!unitController2.Unit.IsBreakObj || unitController2.Unit.IsBreakDispUI))
                   this.mTargets.Add(unitController2);
               }
               flag1 = false;
@@ -10913,6 +14234,7 @@ label_71:
                 }
                 break;
               case ESkillTarget.GridNoUnit:
+              case ESkillTarget.ValidGrid:
                 unit = currentUnit;
                 break;
             }
@@ -10921,7 +14243,7 @@ label_71:
           }
           self.mTacticsSceneRoot.ShowGridLayer(1, grid, true);
           self.ShowCastSkill();
-          if (self.mTargetSelectorParam.AllowTargetChange && !flag2)
+          if (self.mTargetSelectorParam.AllowTargetChange && !flag2 && (self.mTargetSelectorParam.DefaultTarget == null || !self.mTargetSelectorParam.DefaultTarget.IsBreakObj || self.mTargetSelectorParam.DefaultTarget.IsBreakDispUI))
             this.OnFocusGrid(self.Battle.CurrentMap[intVector2_1.x, intVector2_1.y]);
         }
         else
@@ -10937,32 +14259,45 @@ label_71:
           this.HilitNormalAttack(self.mBattle.CurrentUnit, false);
           self.InterpCameraDistance(GameSettings.Instance.GameCamera_MapDistance);
           this.OnFocusGrid(self.Battle.CurrentMap[self.mSelectedTarget.x, self.mSelectedTarget.y]);
+          using (List<Unit>.Enumerator enumerator = self.mBattle.Units.GetEnumerator())
+          {
+            while (enumerator.MoveNext())
+            {
+              Unit current = enumerator.Current;
+              if (!current.IsGimmick || current.IsBreakObj)
+              {
+                TacticsUnitController unitController2 = self.FindUnitController(current);
+                if (UnityEngine.Object.op_Implicit((UnityEngine.Object) unitController2))
+                  this.mTargets.Add(unitController2);
+              }
+            }
+          }
         }
         if (self.mTargetSelectorParam.AllowTargetChange)
         {
           if (this.mSelectGrid)
           {
             self.mOnGridClick = new SceneBattle.GridClickEvent(this.OnClickGrid);
-            this.mTargetPosition.x = Mathf.FloorToInt((float) self.mCameraTarget.x);
-            this.mTargetPosition.y = Mathf.FloorToInt((float) self.mCameraTarget.y);
+            this.mTargetPosition.x = Mathf.FloorToInt((float) self.m_CameraPosition.x);
+            this.mTargetPosition.y = Mathf.FloorToInt((float) self.m_CameraPosition.y);
           }
           else
           {
             self.mOnUnitClick = new SceneBattle.UnitClickEvent(this.OnClickUnit);
             self.mOnUnitFocus = new SceneBattle.UnitFocusEvent(this.OnFocus);
           }
-          self.mAllowCameraRotation = flag1;
-          self.mAllowCameraTranslation = flag1;
+          self.m_AllowCameraRotation = flag1;
+          self.m_AllowCameraTranslation = flag1;
         }
         else
         {
-          self.mAllowCameraRotation = false;
-          self.mAllowCameraTranslation = false;
+          self.m_AllowCameraRotation = false;
+          self.m_AllowCameraTranslation = false;
         }
         if (self.mTargetSelectorParam.DefaultTarget != null)
         {
           TacticsUnitController unitController2 = self.FindUnitController(self.mTargetSelectorParam.DefaultTarget);
-          if (Object.op_Inequality((Object) unitController2, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController2, (UnityEngine.Object) null))
           {
             this.OnFocus(unitController2);
             IntVector2 intVector2_2 = self.CalcCoord(unitController2.CenterPosition);
@@ -10970,18 +14305,32 @@ label_71:
             this.HilitArea(current.x, current.y);
           }
           self.InterpCameraTarget((Component) unitController2);
-          bool enable = true;
+          bool flag2 = true;
           if (skill.IsTargetGridNoUnit)
-            enable = false;
-          this.SetYesButtonEnable(enable);
+            flag2 = false;
+          else if (skill.IsTargetValidGrid)
+          {
+            self.mFocusedUnit = unitController2;
+            self.mMapModeFocusedUnit = self.mFocusedUnit;
+            flag2 = this.IsGridSelectable(self.mTargetSelectorParam.DefaultTarget);
+          }
+          if (skill.IsTargetTeleport && self.mTargetSelectorParam.DefaultTarget != null)
+          {
+            bool is_teleport = false;
+            self.mBattle.GetTeleportGrid(currentUnit, intVector2_1.x, intVector2_1.y, self.mTargetSelectorParam.DefaultTarget, skill, ref is_teleport);
+            if (!is_teleport)
+              flag2 = false;
+          }
+          self.UIParam_TargetValid = flag2;
+          this.SetYesButtonEnable(self.UIParam_TargetValid);
         }
         self.mBattleUI.CommandWindow.OnYesNoSelect += new UnitCommands.YesNoEvent(this.OnYesNoSelect);
         self.mBattleUI.CommandWindow.OnMapExitSelect += new UnitCommands.MapExitEvent(this.OnMapExitSelect);
         self.mTouchController.OnDragDelegate += new TouchController.DragEvent(this.OnDrag);
         self.mTouchController.OnDragEndDelegate += new TouchController.DragEvent(this.OnDragEnd);
-        if (Object.op_Implicit((Object) self.mBattleUI.TargetSub))
+        if (UnityEngine.Object.op_Implicit((UnityEngine.Object) self.mBattleUI.TargetSub))
         {
-          if (this.mTargets != null && this.mTargets.Count >= 2)
+          if (this.mTargets.Count >= 2)
           {
             self.mBattleUI.TargetSub.ActivateNextTargetArrow(new ButtonExt.ButtonClickEvent(this.OnNextTargetClick));
             self.mBattleUI.TargetSub.ActivatePrevTargetArrow(new ButtonExt.ButtonClickEvent(this.OnPrevTargetClick));
@@ -10998,14 +14347,14 @@ label_71:
 
       public override void End(SceneBattle self)
       {
-        if (Object.op_Implicit((Object) self.mBattleUI.TargetSub))
+        if (UnityEngine.Object.op_Implicit((UnityEngine.Object) self.mBattleUI.TargetSub))
         {
           self.mBattleUI.TargetSub.DeactivateNextTargetArrow(new ButtonExt.ButtonClickEvent(this.OnNextTargetClick));
           self.mBattleUI.TargetSub.DeactivatePrevTargetArrow(new ButtonExt.ButtonClickEvent(this.OnPrevTargetClick));
         }
-        if (Object.op_Inequality((Object) this.mGUIEvent, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mGUIEvent, (UnityEngine.Object) null))
         {
-          Object.Destroy((Object) this.mGUIEvent);
+          UnityEngine.Object.Destroy((UnityEngine.Object) this.mGUIEvent);
           this.mGUIEvent = (GUIEventListener) null;
         }
         this.SetYesButtonEnable(true);
@@ -11014,11 +14363,17 @@ label_71:
         self.mTouchController.OnDragDelegate -= new TouchController.DragEvent(this.OnDrag);
         self.mTouchController.OnDragEndDelegate -= new TouchController.DragEvent(this.OnDragEnd);
         self.HideUnitMarkers(false);
-        self.mAllowCameraRotation = false;
-        self.mAllowCameraTranslation = false;
+        self.m_AllowCameraRotation = false;
+        self.m_AllowCameraTranslation = false;
         self.mOnUnitFocus = (SceneBattle.UnitFocusEvent) null;
         self.mOnUnitClick = (SceneBattle.UnitClickEvent) null;
         self.mOnGridClick = (SceneBattle.GridClickEvent) null;
+        SkillData skill = self.mTargetSelectorParam.Skill;
+        if (skill != null && skill.IsTargetTeleport)
+        {
+          self.mDisplayBlockedGridMarker = false;
+          self.mGridDisplayBlockedGridMarker = (Grid) null;
+        }
         if (self.mIsBackSelectSkill)
         {
           self.mTacticsSceneRoot.HideGridLayer(0);
@@ -11072,7 +14427,7 @@ label_71:
       {
         if (!this.mIgnoreDragVelocity)
           this.mDragY += (float) this.self.mTouchController.DragDelta.y;
-        if (this.mTargets == null)
+        if (this.mTargets.Count == 0)
           return;
         this.mDragScroll = true;
       }
@@ -11080,7 +14435,7 @@ label_71:
       private void SetYesButtonEnable(bool enable)
       {
         Selectable component = (Selectable) this.self.mBattleUI.CommandWindow.OKButton.GetComponent<Selectable>();
-        if (!Object.op_Inequality((Object) component, (Object) null))
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
           return;
         component.set_interactable(enable);
       }
@@ -11100,34 +14455,39 @@ label_71:
             {
               this.self.mBattleUI.OnTargetSelectEnd();
               ((SceneBattle.SelectTargetPositionWithItem) this.self.mTargetSelectorParam.OnAccept)(this.mTargetPosition.x, this.mTargetPosition.y, this.self.mTargetSelectorParam.Item);
-              this.HideTargetWindows();
+              this.self.mBattleUI.HideTargetWindows();
             }
             else
             {
-              Unit currentUnit = this.self.Battle.CurrentUnit;
+              Unit currentUnit1 = this.self.Battle.CurrentUnit;
               bool flag = false;
               if (this.self.mTargetSelectorParam.Skill.EffectType == SkillEffectTypes.Changing)
               {
-                IntVector2 intVector2 = this.self.CalcCoord(this.self.FindUnitController(currentUnit).CenterPosition);
-                if (currentUnit.x == intVector2.x && currentUnit.y == intVector2.y)
+                IntVector2 intVector2 = this.self.CalcCoord(this.self.FindUnitController(currentUnit1).CenterPosition);
+                if (currentUnit1.x == intVector2.x && currentUnit1.y == intVector2.y)
                   flag = true;
               }
-              if (this.NeedsTargetKakunin(currentUnit))
+              if (this.NeedsTargetKakunin(currentUnit1))
               {
                 this.StartTargetKakunin();
               }
               else
               {
                 this.self.mBattleUI.OnTargetSelectEnd();
-                ((SceneBattle.SelectTargetPositionWithSkill) this.self.mTargetSelectorParam.OnAccept)(this.mTargetPosition.x, this.mTargetPosition.y, this.self.mTargetSelectorParam.Skill, false);
-                this.HideTargetWindows();
+                bool bUnitTarget = false;
+                SkillData skill = this.self.mTargetSelectorParam.Skill;
+                if (skill != null && skill.IsForceUnitLock() && (int) skill.SkillParam.range_max == 0)
+                  bUnitTarget = true;
+                ((SceneBattle.SelectTargetPositionWithSkill) this.self.mTargetSelectorParam.OnAccept)(this.mTargetPosition.x, this.mTargetPosition.y, skill, bUnitTarget);
+                this.self.mBattleUI.HideTargetWindows();
               }
               if (flag)
               {
-                this.self.mCurrentUnitStartX = currentUnit.x;
-                this.self.mCurrentUnitStartY = currentUnit.y;
+                this.self.mCurrentUnitStartX = currentUnit1.x;
+                this.self.mCurrentUnitStartY = currentUnit1.y;
               }
-              this.self.mSkillDirectionByKouka = this.self.GetSkillDirectionByTargetArea(this.self.Battle.CurrentUnit, this.mTargetAreaGridMap);
+              Unit currentUnit2 = this.self.Battle.CurrentUnit;
+              this.self.mSkillDirectionByKouka = this.self.GetSkillDirectionByTargetArea(currentUnit2, currentUnit2.x, currentUnit2.y, this.mTargetAreaGridMap);
             }
           }
         }
@@ -11138,20 +14498,9 @@ label_71:
             this.self.GotoState_WaitSignal<SceneBattle.State_PreThrowTargetSelect>();
           else
             this.self.mTargetSelectorParam.OnCancel();
-          this.HideTargetWindows();
+          this.self.mBattleUI.HideTargetWindows();
         }
         this.self.mBattleUI.OnVersusEnd();
-      }
-
-      private void HideTargetWindows()
-      {
-        if (Object.op_Inequality((Object) this.self.mBattleUI.TargetMain, (Object) null))
-          this.self.mBattleUI.TargetMain.Close();
-        if (Object.op_Inequality((Object) this.self.mBattleUI.TargetSub, (Object) null))
-          this.self.mBattleUI.TargetSub.Close();
-        if (!Object.op_Inequality((Object) this.self.mBattleUI.TargetObjectSub, (Object) null))
-          return;
-        this.self.mBattleUI.TargetObjectSub.Close();
       }
 
       private void StartTargetKakunin()
@@ -11171,7 +14520,7 @@ label_71:
         this.self.mSkillTargetWindow.Hide();
         this.self.mBattleUI.OnTargetSelectEnd();
         ((SceneBattle.SelectTargetPositionWithSkill) this.self.mTargetSelectorParam.OnAccept)(this.mTargetPosition.x, this.mTargetPosition.y, this.self.mTargetSelectorParam.Skill, !targetIsGrid);
-        this.HideTargetWindows();
+        this.self.mBattleUI.HideTargetWindows();
       }
 
       private void OnMapExitSelect()
@@ -11183,12 +14532,7 @@ label_71:
         }
         this.self.mBattleUI.OnTargetSelectEnd();
         this.self.mTargetSelectorParam.OnCancel();
-        if (Object.op_Inequality((Object) this.self.mBattleUI.TargetMain, (Object) null))
-          this.self.mBattleUI.TargetMain.Close();
-        if (Object.op_Inequality((Object) this.self.mBattleUI.TargetSub, (Object) null))
-          this.self.mBattleUI.TargetSub.Close();
-        if (Object.op_Inequality((Object) this.self.mBattleUI.TargetObjectSub, (Object) null))
-          this.self.mBattleUI.TargetObjectSub.Close();
+        this.self.mBattleUI.HideTargetWindows();
         this.self.InterpCameraDistance(GameSettings.Instance.GameCamera_DefaultDistance);
         this.self.mBattleUI.OnMapViewEnd();
       }
@@ -11199,6 +14543,8 @@ label_71:
           return;
         IntVector2 intVector2 = this.self.CalcCoord(this.self.FindUnitController(this.self.mBattle.CurrentUnit).CenterPosition);
         this.mTargetAreaGridMap = this.self.mBattle.CreateScopeGridMap(this.self.mBattle.CurrentUnit, intVector2.x, intVector2.y, x, y, this.self.mTargetSelectorParam.Skill);
+        if (SkillParam.IsTypeLaser(this.self.mTargetSelectorParam.Skill.SkillParam.select_scope) && !this.mTargetAreaGridMap.get(x, y))
+          this.mTargetAreaGridMap.fill(false);
         this.self.mTacticsSceneRoot.ShowGridLayer(2, this.mTargetAreaGridMap, Color32.op_Implicit(GameSettings.Instance.Colors.AttackArea2), false);
       }
 
@@ -11224,6 +14570,7 @@ label_71:
       {
         this.self.InterpCameraTarget((Component) controller);
         this.self.mFocusedUnit = controller;
+        this.self.mMapModeFocusedUnit = this.self.mFocusedUnit;
         this.OnFocus(controller);
       }
 
@@ -11242,17 +14589,19 @@ label_71:
         if (unitAtGrid != null)
         {
           TacticsUnitController unitController2 = this.self.FindUnitController(unitAtGrid);
-          if (Object.op_Inequality((Object) unitController2, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController2, (UnityEngine.Object) null))
           {
             this.self.mFocusedUnit = unitController2;
+            this.self.mMapModeFocusedUnit = this.self.mFocusedUnit;
             this.OnFocus(unitController2);
           }
         }
         else if (this.self.mTargetSelectorParam.Skill != null && this.self.mTargetSelectorParam.Skill.IsAllEffect())
         {
-          if (Object.op_Inequality((Object) unitController1, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController1, (UnityEngine.Object) null))
           {
             this.self.mFocusedUnit = unitController1;
+            this.self.mMapModeFocusedUnit = this.self.mFocusedUnit;
             this.OnFocus(unitController1);
           }
         }
@@ -11266,7 +14615,7 @@ label_71:
             this.self.mTacticsUnits[index].SetHPChangeYosou(this.self.mTacticsUnits[index].VisibleHPValue);
           }
           SkillData skill = this.self.mTargetSelectorParam.Skill;
-          Unit unit = (Unit) null;
+          Unit unit1 = (Unit) null;
           if (skill != null)
           {
             int hpCost = skill.GetHpCost(currentUnit);
@@ -11275,80 +14624,133 @@ label_71:
             this.self.mBattleUI.TargetMain.UpdateHpGauge();
             if (this.self.mTargetSelectorParam.OnAccept != null && this.mTargetGrids.get(grid.x, grid.y))
             {
-              BattleCore.CommandResult commandResult = this.self.mBattle.GetCommandResult(currentUnit, intVector2_2.x, intVector2_2.y, grid.x, grid.y, skill);
-              if (commandResult != null && commandResult.targets != null)
+              bool flag = true;
+              if (skill.IsTargetGridNoUnit)
               {
-                for (int index = 0; index < commandResult.targets.Count; ++index)
+                Unit unit2 = this.self.mBattle.FindUnitAtGrid(grid);
+                if (unit2 == null)
                 {
-                  TacticsUnitController unitController2 = this.self.FindUnitController(commandResult.targets[index].unit);
-                  if (commandResult.skill.IsDamagedSkill())
+                  unit2 = this.self.mBattle.FindGimmickAtGrid(grid, false, (Unit) null);
+                  if (unit2 != null && !unit2.IsBreakObj)
+                    unit2 = (Unit) null;
+                }
+                flag = unit2 == null;
+              }
+              if (flag)
+              {
+                BattleCore.CommandResult commandResult = this.self.mBattle.GetCommandResult(currentUnit, intVector2_2.x, intVector2_2.y, grid.x, grid.y, skill);
+                if (commandResult != null && commandResult.targets != null)
+                {
+                  for (int index = 0; index < commandResult.targets.Count; ++index)
                   {
-                    unitController2.SetHPGaugeMode(TacticsUnitController.HPGaugeModes.Attack, skill, currentUnit);
-                    unitController2.SetHPChangeYosou((int) commandResult.targets[index].unit.CurrentStatus.param.hp - commandResult.targets[index].hp_damage);
-                    this.self.mBattleUI.TargetSub.SetHpGaugeParam(commandResult.targets[index].unit.Side, (int) commandResult.targets[index].unit.CurrentStatus.param.hp, (int) commandResult.targets[index].unit.MaximumStatus.param.hp, commandResult.targets[index].hp_damage, 0);
+                    TacticsUnitController unitController2 = this.self.FindUnitController(commandResult.targets[index].unit);
+                    if (commandResult.skill.IsDamagedSkill())
+                    {
+                      unitController2.SetHPGaugeMode(TacticsUnitController.HPGaugeModes.Attack, skill, currentUnit);
+                      unitController2.SetHPChangeYosou((int) commandResult.targets[index].unit.CurrentStatus.param.hp - commandResult.targets[index].hp_damage);
+                      this.self.mBattleUI.TargetSub.SetHpGaugeParam(commandResult.targets[index].unit.Side, (int) commandResult.targets[index].unit.CurrentStatus.param.hp, (int) commandResult.targets[index].unit.MaximumStatus.param.hp, commandResult.targets[index].hp_damage, 0);
+                    }
+                    else
+                    {
+                      unitController2.SetHPGaugeMode(TacticsUnitController.HPGaugeModes.Target, (SkillData) null, (Unit) null);
+                      unitController2.SetHPChangeYosou((int) commandResult.targets[index].unit.CurrentStatus.param.hp + commandResult.targets[index].hp_heal);
+                      this.self.mBattleUI.TargetSub.SetHpGaugeParam(commandResult.targets[index].unit.Side, (int) commandResult.targets[index].unit.CurrentStatus.param.hp, (int) commandResult.targets[index].unit.MaximumStatus.param.hp, 0, commandResult.targets[index].hp_heal);
+                    }
+                    this.self.mBattleUI.TargetSub.UpdateHpGauge();
+                    this.self.UIParam_TargetValid = true;
                   }
-                  else
-                  {
-                    unitController2.SetHPGaugeMode(TacticsUnitController.HPGaugeModes.Target, (SkillData) null, (Unit) null);
-                    unitController2.SetHPChangeYosou((int) commandResult.targets[index].unit.CurrentStatus.param.hp + commandResult.targets[index].hp_heal);
-                    this.self.mBattleUI.TargetSub.SetHpGaugeParam(commandResult.targets[index].unit.Side, (int) commandResult.targets[index].unit.CurrentStatus.param.hp, (int) commandResult.targets[index].unit.MaximumStatus.param.hp, 0, commandResult.targets[index].hp_heal);
-                  }
-                  this.self.mBattleUI.TargetSub.UpdateHpGauge();
-                  this.self.UIParam_TargetValid = true;
                 }
               }
               if (skill.IsTargetGridNoUnit)
-                this.self.UIParam_TargetValid = !this.self.UIParam_TargetValid;
+              {
+                this.self.UIParam_TargetValid = flag;
+                if (this.self.UIParam_TargetValid && skill.EffectType == SkillEffectTypes.SetTrick)
+                {
+                  TrickData trickData = TrickData.SearchEffect(grid.x, grid.y);
+                  if (trickData != null && (bool) trickData.TrickParam.IsNoOverWrite)
+                    this.self.UIParam_TargetValid = false;
+                }
+              }
+              else if (skill.IsTargetValidGrid)
+                this.self.UIParam_TargetValid = true;
               else if (skill.IsCastSkill() && !this.self.UIParam_TargetValid)
                 this.self.UIParam_TargetValid = true;
             }
           }
           else
-            unit = this.self.mBattle.FindGimmickAtGrid(grid, false);
+            unit1 = this.self.mBattle.FindGimmickAtGrid(grid, false, (Unit) null);
           this.mTargetPosition.x = grid.x;
           this.mTargetPosition.y = grid.y;
           this.SetYesButtonEnable(this.self.UIParam_TargetValid);
-          if (Object.op_Inequality((Object) this.self.mBattleUI.TargetMain, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.self.mBattleUI.TargetMain, (UnityEngine.Object) null))
           {
             if (skill == null)
             {
-              this.self.mBattleUI.TargetMain.SetNoAction(this.self.mBattle.CurrentUnit);
+              this.self.mBattleUI.TargetMain.SetNoAction(this.self.mBattle.CurrentUnit, (List<LogSkill.Target.CondHit>) null);
               this.self.mBattleUI.TargetMain.Close();
             }
             else
             {
               if (!this.self.UIParam_TargetValid)
-                this.self.mBattleUI.TargetMain.SetNoAction(this.self.mBattle.CurrentUnit);
+                this.self.mBattleUI.TargetMain.SetNoAction(this.self.mBattle.CurrentUnit, (List<LogSkill.Target.CondHit>) null);
               this.self.mBattleUI.TargetMain.Open();
             }
           }
-          if (Object.op_Inequality((Object) this.self.mBattleUI.TargetSub, (Object) null))
+          this.self.mBattleUI.ClearEnableAll();
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.self.mBattleUI.TargetSub, (UnityEngine.Object) null))
           {
             if (skill == null)
             {
-              if (unit != null)
+              if (unit1 != null)
               {
-                this.self.mBattleUI.OnMapViewSelectGrid();
-                this.self.mBattleUI.TargetSub.Close();
+                if (unit1.IsBreakObj && unit1.IsBreakDispUI)
+                {
+                  this.self.mBattleUI.TargetSub.ResetHpGauge(unit1.Side, (int) unit1.CurrentStatus.param.hp, (int) unit1.MaximumStatus.param.hp);
+                  this.self.mBattleUI.TargetSub.SetNoAction(unit1, (List<LogSkill.Target.CondHit>) null);
+                  this.self.mBattleUI.TargetSub.Open();
+                  this.self.mBattleUI.OnMapViewSelectUnit();
+                  this.self.mBattleUI.IsEnableUnit = true;
+                }
+                else
+                {
+                  this.self.mBattleUI.OnMapViewSelectGrid();
+                  this.self.mBattleUI.TargetSub.ForceClose(false);
+                }
               }
               else
               {
                 this.self.mBattleUI.OnMapViewSelectGrid();
-                this.self.mBattleUI.TargetSub.Close();
+                this.self.mBattleUI.TargetSub.ForceClose(false);
               }
             }
             else
-              this.self.mBattleUI.TargetSub.Close();
+            {
+              unit1 = this.self.mBattle.FindGimmickAtGrid(grid, false, (Unit) null);
+              if (unit1 != null && unit1.IsBreakObj && unit1.IsBreakDispUI)
+              {
+                this.self.mBattleUI.TargetSub.ResetHpGauge(unit1.Side, (int) unit1.CurrentStatus.param.hp, (int) unit1.MaximumStatus.param.hp);
+                this.self.mBattleUI.TargetSub.SetNoAction(unit1, (List<LogSkill.Target.CondHit>) null);
+                this.self.mBattleUI.TargetSub.Open();
+              }
+              else
+                this.self.mBattleUI.TargetSub.ForceClose(false);
+            }
           }
-          if (Object.op_Inequality((Object) this.self.mBattleUI.TargetObjectSub, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.self.mBattleUI.TargetObjectSub, (UnityEngine.Object) null))
           {
             if (skill == null)
             {
-              if (unit != null)
+              if (unit1 != null)
               {
-                this.self.mBattleUI.TargetObjectSub.SetNoAction(unit);
-                this.self.mBattleUI.TargetObjectSub.Open();
-                this.self.mBattleUI.OnMapViewSelectGrid();
+                if (!unit1.IsBreakObj)
+                {
+                  this.self.mBattleUI.TargetObjectSub.SetNoAction(unit1, (List<LogSkill.Target.CondHit>) null);
+                  this.self.mBattleUI.TargetObjectSub.Open();
+                  this.self.mBattleUI.OnMapViewSelectGrid();
+                  this.self.mBattleUI.IsEnableGimmick = true;
+                }
+                else
+                  this.self.mBattleUI.TargetObjectSub.Close();
               }
               else
               {
@@ -11359,6 +14761,33 @@ label_71:
             else
               this.self.mBattleUI.TargetObjectSub.Close();
           }
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.self.mBattleUI.TargetTrickSub, (UnityEngine.Object) null))
+          {
+            if (skill == null)
+            {
+              TrickData trickData = TrickData.SearchEffect(grid.x, grid.y);
+              if (trickData != null && trickData.IsVisualized())
+              {
+                this.self.mBattleUI.TargetTrickSub.SetTrick(trickData.TrickParam);
+                this.self.mBattleUI.IsEnableTrick = true;
+              }
+              if (this.self.mBattleUI.IsEnableTrick && unit1 == null)
+                this.self.mBattleUI.TargetTrickSub.Open();
+              else
+                this.self.mBattleUI.TargetTrickSub.Close();
+              if (unit1 == null || !unit1.IsBreakObj)
+                this.self.mBattleUI.OnMapViewSelectGrid();
+            }
+            else
+              this.self.mBattleUI.TargetTrickSub.Close();
+          }
+          bool is_enable = this.self.mBattleUI.IsNeedFlip();
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.self.mBattleUI.TargetSub, (UnityEngine.Object) null))
+            this.self.mBattleUI.TargetSub.SetEnableFlipButton(is_enable);
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.self.mBattleUI.TargetObjectSub, (UnityEngine.Object) null))
+            this.self.mBattleUI.TargetObjectSub.SetEnableFlipButton(is_enable);
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.self.mBattleUI.TargetTrickSub, (UnityEngine.Object) null))
+            this.self.mBattleUI.TargetTrickSub.SetEnableFlipButton(is_enable);
           this.self.OnGimmickUpdate();
           this.self.SetUiHeight(grid.height);
         }
@@ -11375,7 +14804,7 @@ label_71:
       {
         int x = unit.x;
         int y = unit.y;
-        if (Object.op_Inequality((Object) this.mScene.mFocusedUnit, (Object) null) && this.mScene.mFocusedUnit.Unit != null && this.mScene.mFocusedUnit.Unit == unit)
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mScene.mFocusedUnit, (UnityEngine.Object) null) && this.mScene.mFocusedUnit.Unit != null && this.mScene.mFocusedUnit.Unit == unit)
         {
           IntVector2 intVector2 = this.mScene.CalcCoord(this.mScene.mFocusedUnit.CenterPosition);
           x = intVector2.x;
@@ -11393,211 +14822,280 @@ label_71:
 
       private void OnFocus(TacticsUnitController controller)
       {
-        if (!Object.op_Inequality((Object) controller, (Object) null))
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) controller, (UnityEngine.Object) null))
           return;
         SkillData skill = this.self.mTargetSelectorParam.Skill;
-        if (skill != null)
+        if (skill == null && controller.Unit.IsGimmick)
         {
-          if (skill.IsAllEffect())
-            controller = this.self.FindUnitController(this.self.mBattle.CurrentUnit);
-          else if (!this.IsValidSkillTarget(controller.Unit))
-          {
-            for (int index = 0; index < this.self.mTacticsUnits.Count; ++index)
-            {
-              if (Object.op_Inequality((Object) this.self.mTacticsUnits[index], (Object) controller) && this.self.mTacticsUnits[index].Unit.x == controller.Unit.x && (this.self.mTacticsUnits[index].Unit.y == controller.Unit.y && this.IsValidSkillTarget(this.self.mTacticsUnits[index].Unit)))
-              {
-                controller = this.self.mTacticsUnits[index];
-                break;
-              }
-            }
-          }
+          if (this.self.mBattle.CurrentMap == null)
+            return;
+          this.OnFocusGrid(this.self.Battle.CurrentMap[controller.Unit.x, controller.Unit.y]);
         }
-        if (controller.Unit.IsGimmick && controller.Unit.IsDisableGimmick())
-          return;
-        if (!this.mSelectGrid)
+        else
         {
-          if (Object.op_Inequality((Object) this.mSelectedTarget, (Object) null))
-            this.self.HideUnitMarkers(this.mSelectedTarget.Unit);
-          this.self.ShowUnitMarker(controller.Unit, SceneBattle.UnitMarkerTypes.Target);
-        }
-        this.mSelectedTarget = controller;
-        IntVector2 intVector2_1 = this.self.CalcCoord(controller.CenterPosition);
-        this.mTargetPosition.x = intVector2_1.x;
-        this.mTargetPosition.y = intVector2_1.y;
-        this.self.mSelectedTarget = controller.Unit;
-        this.self.UIParam_TargetValid = false;
-        Unit currentUnit = this.self.mBattle.CurrentUnit;
-        TacticsUnitController unitController1 = this.self.FindUnitController(currentUnit);
-        int YosokuDamageHp = skill == null ? 0 : skill.GetHpCost(currentUnit);
-        if (skill == null)
-          this.self.ShowWalkableGrids(this.self.mBattle.CreateMoveMap(controller.Unit, (int) controller.Unit.CurrentStatus.param.mov), 0);
-        unitController1.SetHPChangeYosou((int) currentUnit.CurrentStatus.param.hp - YosokuDamageHp);
-        this.self.mBattleUI.TargetMain.SetHpGaugeParam(currentUnit.Side, (int) currentUnit.CurrentStatus.param.hp, (int) currentUnit.MaximumStatus.param.hp, YosokuDamageHp, 0);
-        this.self.mBattleUI.TargetMain.UpdateHpGauge();
-        this.self.mBattleUI.TargetSub.ResetHpGauge(this.self.mSelectedTarget.Side, (int) this.self.mSelectedTarget.CurrentStatus.param.hp, (int) this.self.mSelectedTarget.MaximumStatus.param.hp);
-        bool flag1 = false;
-        BattleCore.UnitResult unitResult = (BattleCore.UnitResult) null;
-        if (this.self.mTargetSelectorParam.Skill != null)
-        {
-          if (Object.op_Inequality((Object) controller, (Object) null) && this.self.mTutorialTriggers != null)
+          if (skill != null)
           {
-            for (int index = 0; index < this.self.mTutorialTriggers.Length; ++index)
-              this.self.mTutorialTriggers[index].OnTargetChange(this.mSelectedTarget.Unit, controller.TurnCount);
-          }
-          for (int index = 0; index < this.self.mTacticsUnits.Count; ++index)
-          {
-            this.self.mTacticsUnits[index].SetHPGaugeMode(TacticsUnitController.HPGaugeModes.Normal, (SkillData) null, (Unit) null);
-            if (0 >= YosokuDamageHp || !Object.op_Equality((Object) this.self.mTacticsUnits[index], (Object) controller))
-              this.self.mTacticsUnits[index].SetHPChangeYosou(this.self.mTacticsUnits[index].VisibleHPValue);
-          }
-          if (this.self.mTargetSelectorParam.OnAccept != null && this.IsGridSelectable(this.self.mSelectedTarget))
-          {
-            IntVector2 intVector2_2 = this.self.CalcCoord(unitController1.CenterPosition);
-            int x = this.self.mSelectedTarget.x;
-            int y = this.self.mSelectedTarget.y;
-            if (currentUnit == this.self.mSelectedTarget)
+            if (skill.IsAllEffect())
+              controller = this.self.FindUnitController(this.self.mBattle.CurrentUnit);
+            else if (!this.IsValidSkillTarget(controller.Unit))
             {
-              x = intVector2_2.x;
-              y = intVector2_2.y;
-            }
-            if (!this.mSelectGrid)
-              this.HilitArea(x, y);
-            BattleCore.CommandResult commandResult = this.self.mBattle.GetCommandResult(currentUnit, intVector2_2.x, intVector2_2.y, x, y, skill);
-            if (commandResult != null && commandResult.targets != null)
-            {
-              for (int index = 0; index < commandResult.reactions.Count; ++index)
+              for (int index = 0; index < this.self.mTacticsUnits.Count; ++index)
               {
-                if (this.self.mSelectedTarget == commandResult.reactions[index].react_unit)
+                if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.self.mTacticsUnits[index], (UnityEngine.Object) controller) && this.self.mTacticsUnits[index].Unit.x == controller.Unit.x && (this.self.mTacticsUnits[index].Unit.y == controller.Unit.y && this.IsValidSkillTarget(this.self.mTacticsUnits[index].Unit)))
                 {
-                  unitResult = commandResult.reactions[index];
+                  controller = this.self.mTacticsUnits[index];
                   break;
                 }
               }
-              for (int index = 0; index < commandResult.targets.Count; ++index)
+            }
+          }
+          if (controller.Unit.IsGimmick && controller.Unit.IsDisableGimmick())
+            return;
+          if (!this.mSelectGrid)
+          {
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSelectedTarget, (UnityEngine.Object) null))
+              this.self.HideUnitMarkers(this.mSelectedTarget.Unit);
+            this.self.ShowUnitMarker(controller.Unit, SceneBattle.UnitMarkerTypes.Target);
+          }
+          this.mSelectedTarget = controller;
+          IntVector2 intVector2_1 = this.self.CalcCoord(controller.CenterPosition);
+          this.mTargetPosition.x = intVector2_1.x;
+          this.mTargetPosition.y = intVector2_1.y;
+          this.self.mSelectedTarget = controller.Unit;
+          this.self.UIParam_TargetValid = false;
+          Unit currentUnit = this.self.mBattle.CurrentUnit;
+          TacticsUnitController unitController1 = this.self.FindUnitController(currentUnit);
+          int YosokuDamageHp = skill == null ? 0 : skill.GetHpCost(currentUnit);
+          if (skill == null)
+            this.self.ShowWalkableGrids(this.self.mBattle.CreateMoveMap(controller.Unit, (int) controller.Unit.CurrentStatus.param.mov), 0);
+          else if (skill.IsTargetTeleport)
+          {
+            this.self.mTacticsSceneRoot.HideGridLayer(0);
+            this.self.mDisplayBlockedGridMarker = false;
+            this.self.mGridDisplayBlockedGridMarker = (Grid) null;
+          }
+          unitController1.SetHPChangeYosou((int) currentUnit.CurrentStatus.param.hp - YosokuDamageHp);
+          this.self.mBattleUI.TargetMain.SetHpGaugeParam(currentUnit.Side, (int) currentUnit.CurrentStatus.param.hp, (int) currentUnit.MaximumStatus.param.hp, YosokuDamageHp, 0);
+          this.self.mBattleUI.TargetMain.UpdateHpGauge();
+          this.self.mBattleUI.TargetSub.ResetHpGauge(this.self.mSelectedTarget.Side, (int) this.self.mSelectedTarget.CurrentStatus.param.hp, (int) this.self.mSelectedTarget.MaximumStatus.param.hp);
+          bool flag1 = false;
+          BattleCore.UnitResult unitResult = (BattleCore.UnitResult) null;
+          if (this.self.mTargetSelectorParam.Skill != null)
+          {
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) controller, (UnityEngine.Object) null) && this.self.mTutorialTriggers != null)
+            {
+              for (int index = 0; index < this.self.mTutorialTriggers.Length; ++index)
+                this.self.mTutorialTriggers[index].OnTargetChange(this.mSelectedTarget.Unit, controller.Unit.TurnCount);
+            }
+            for (int index = 0; index < this.self.mTacticsUnits.Count; ++index)
+            {
+              this.self.mTacticsUnits[index].SetHPGaugeMode(TacticsUnitController.HPGaugeModes.Normal, (SkillData) null, (Unit) null);
+              if (0 >= YosokuDamageHp || !UnityEngine.Object.op_Equality((UnityEngine.Object) this.self.mTacticsUnits[index], (UnityEngine.Object) controller))
+                this.self.mTacticsUnits[index].SetHPChangeYosou(this.self.mTacticsUnits[index].VisibleHPValue);
+            }
+            if (this.self.mTargetSelectorParam.OnAccept != null && this.IsGridSelectable(this.self.mSelectedTarget))
+            {
+              IntVector2 intVector2_2 = this.self.CalcCoord(unitController1.CenterPosition);
+              int x = this.self.mSelectedTarget.x;
+              int y = this.self.mSelectedTarget.y;
+              if (currentUnit == this.self.mSelectedTarget)
               {
-                TacticsUnitController unitController2 = this.self.FindUnitController(commandResult.targets[index].unit);
-                if (commandResult.skill.IsDamagedSkill())
+                x = intVector2_2.x;
+                y = intVector2_2.y;
+              }
+              if (!this.mSelectGrid)
+                this.HilitArea(x, y);
+              if (!skill.IsTargetGridNoUnit)
+              {
+                if (skill.IsTargetValidGrid)
                 {
-                  unitController2.SetHPGaugeMode(TacticsUnitController.HPGaugeModes.Attack, skill, currentUnit);
-                  unitController2.SetHPChangeYosou((int) commandResult.targets[index].unit.CurrentStatus.param.hp - commandResult.targets[index].hp_damage);
+                  this.self.UIParam_TargetValid = true;
                 }
                 else
                 {
-                  unitController2.SetHPGaugeMode(TacticsUnitController.HPGaugeModes.Target, (SkillData) null, (Unit) null);
-                  unitController2.SetHPChangeYosou((int) commandResult.targets[index].unit.CurrentStatus.param.hp + commandResult.targets[index].hp_heal);
-                }
-              }
-              if (commandResult.self_effect.hp_damage > 0 || commandResult.self_effect.hp_heal > 0)
-              {
-                int newHP = Mathf.Min((int) currentUnit.CurrentStatus.param.hp - commandResult.self_effect.hp_damage + commandResult.self_effect.hp_heal - YosokuDamageHp, (int) currentUnit.MaximumStatus.param.hp);
-                unitController1.SetHPChangeYosou(newHP);
-                this.self.mBattleUI.TargetMain.SetHpGaugeParam(currentUnit.Side, (int) currentUnit.CurrentStatus.param.hp, (int) currentUnit.MaximumStatus.param.hp, commandResult.self_effect.hp_damage + YosokuDamageHp, commandResult.self_effect.hp_heal);
-                this.self.mBattleUI.TargetMain.UpdateHpGauge();
-              }
-              if (commandResult.targets.Count > 0)
-              {
-                bool flag2 = skill.IsNormalAttack();
-                int index = commandResult.targets.FindIndex((Predicate<BattleCore.UnitResult>) (p => p.unit == this.self.mSelectedTarget));
-                if (index != -1 && Object.op_Inequality((Object) this.self.mBattleUI.TargetMain, (Object) null))
-                {
-                  BattleCore.UnitResult target = commandResult.targets[index];
-                  EUnitSide side = commandResult.targets[index].unit.Side;
-                  int hp1 = (int) commandResult.targets[index].unit.CurrentStatus.param.hp;
-                  int hp2 = (int) commandResult.targets[index].unit.MaximumStatus.param.hp;
-                  if (skill.SkillParam.IsHealSkill())
+                  BattleCore.CommandResult commandResult = this.self.mBattle.GetCommandResult(currentUnit, intVector2_2.x, intVector2_2.y, x, y, skill);
+                  if (commandResult != null && commandResult.targets != null)
                   {
-                    this.self.mBattleUI.TargetMain.SetHealAction(this.self.mBattle.CurrentUnit, target.hp_heal, target.critical, target.avoid);
-                    this.self.mBattleUI.TargetSub.SetHpGaugeParam(side, hp1, hp2, 0, commandResult.targets[index].hp_heal);
+                    for (int index = 0; index < commandResult.reactions.Count; ++index)
+                    {
+                      if (this.self.mSelectedTarget == commandResult.reactions[index].react_unit)
+                      {
+                        unitResult = commandResult.reactions[index];
+                        break;
+                      }
+                    }
+                    for (int index = 0; index < commandResult.targets.Count; ++index)
+                    {
+                      TacticsUnitController unitController2 = this.self.FindUnitController(commandResult.targets[index].unit);
+                      if (commandResult.skill.IsDamagedSkill())
+                      {
+                        unitController2.SetHPGaugeMode(TacticsUnitController.HPGaugeModes.Attack, skill, currentUnit);
+                        unitController2.SetHPChangeYosou((int) commandResult.targets[index].unit.CurrentStatus.param.hp - commandResult.targets[index].hp_damage);
+                      }
+                      else
+                      {
+                        unitController2.SetHPGaugeMode(TacticsUnitController.HPGaugeModes.Target, (SkillData) null, (Unit) null);
+                        unitController2.SetHPChangeYosou((int) commandResult.targets[index].unit.CurrentStatus.param.hp + commandResult.targets[index].hp_heal);
+                      }
+                    }
+                    if (commandResult.self_effect.hp_damage > 0 || commandResult.self_effect.hp_heal > 0)
+                    {
+                      int newHP = Mathf.Min((int) currentUnit.CurrentStatus.param.hp - commandResult.self_effect.hp_damage + commandResult.self_effect.hp_heal - YosokuDamageHp, (int) currentUnit.MaximumStatus.param.hp);
+                      unitController1.SetHPChangeYosou(newHP);
+                      this.self.mBattleUI.TargetMain.SetHpGaugeParam(currentUnit.Side, (int) currentUnit.CurrentStatus.param.hp, (int) currentUnit.MaximumStatus.param.hp, commandResult.self_effect.hp_damage + YosokuDamageHp, commandResult.self_effect.hp_heal);
+                      this.self.mBattleUI.TargetMain.UpdateHpGauge();
+                    }
+                    if (commandResult.targets.Count > 0)
+                    {
+                      bool flag2 = skill.IsNormalAttack();
+                      int index = commandResult.targets.FindIndex((Predicate<BattleCore.UnitResult>) (p => p.unit == this.self.mSelectedTarget));
+                      if (index != -1 && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.self.mBattleUI.TargetMain, (UnityEngine.Object) null))
+                      {
+                        BattleCore.UnitResult target = commandResult.targets[index];
+                        EUnitSide side = commandResult.targets[index].unit.Side;
+                        int hp1 = (int) commandResult.targets[index].unit.CurrentStatus.param.hp;
+                        int hp2 = (int) commandResult.targets[index].unit.MaximumStatus.param.hp;
+                        if (skill.SkillParam.IsHealSkill())
+                        {
+                          this.self.mBattleUI.TargetMain.SetHealAction(this.self.mBattle.CurrentUnit, target.hp_heal, target.critical, target.avoid);
+                          this.self.mBattleUI.TargetSub.SetHpGaugeParam(side, hp1, hp2, 0, commandResult.targets[index].hp_heal);
+                        }
+                        else if (skill.SkillParam.IsDamagedSkill() || skill.SkillParam.effect_type == SkillEffectTypes.Debuff)
+                        {
+                          if (flag2)
+                            this.self.mBattleUI.TargetMain.SetAttackAction(this.self.mBattle.CurrentUnit, target.hp_damage, target.critical, 100 - target.avoid, target.cond_hit_lists);
+                          else
+                            this.self.mBattleUI.TargetMain.SetSkillAction(this.self.mBattle.CurrentUnit, target.hp_damage <= 0 ? target.mp_damage : target.hp_damage, target.critical, 100 - target.avoid, target.cond_hit_lists);
+                          this.self.mBattleUI.TargetSub.SetHpGaugeParam(side, hp1, hp2, commandResult.targets[index].hp_damage, 0);
+                        }
+                        else
+                          this.self.mBattleUI.TargetMain.SetNoAction(this.self.mBattle.CurrentUnit, target.cond_hit_lists);
+                        this.self.mBattleUI.TargetSub.UpdateHpGauge();
+                        flag1 = true;
+                      }
+                      this.self.UIParam_TargetValid = true;
+                      if (!skill.IsAreaSkill() && this.self.mSelectedTarget != null)
+                        this.self.UIParam_TargetValid = this.self.Battle.CheckSkillTarget(currentUnit, this.self.mSelectedTarget, skill);
+                      if (skill.IsTargetTeleport && this.self.mSelectedTarget != null)
+                      {
+                        bool is_teleport = false;
+                        Grid teleportGrid = this.self.mBattle.GetTeleportGrid(currentUnit, intVector2_2.x, intVector2_2.y, this.self.mSelectedTarget, skill, ref is_teleport);
+                        if (teleportGrid != null && this.self.mBattle.CurrentMap != null)
+                        {
+                          BattleMap currentMap = this.self.mBattle.CurrentMap;
+                          GridMap<int> accessMap = new GridMap<int>(currentMap.Width, currentMap.Height);
+                          accessMap.fill(-1);
+                          accessMap.set(teleportGrid.x, teleportGrid.y, 0);
+                          this.self.ShowWalkableGrids(accessMap, 0);
+                        }
+                        if (!is_teleport)
+                        {
+                          this.self.mDisplayBlockedGridMarker = true;
+                          this.self.mGridDisplayBlockedGridMarker = teleportGrid;
+                          this.self.UIParam_TargetValid = false;
+                        }
+                      }
+                    }
                   }
-                  else if (skill.SkillParam.IsDamagedSkill() || skill.SkillParam.effect_type == SkillEffectTypes.Debuff)
-                  {
-                    if (flag2)
-                      this.self.mBattleUI.TargetMain.SetAttackAction(this.self.mBattle.CurrentUnit, target.hp_damage, target.critical, 100 - target.avoid);
-                    else
-                      this.self.mBattleUI.TargetMain.SetSkillAction(this.self.mBattle.CurrentUnit, target.hp_damage <= 0 ? target.mp_damage : target.hp_damage, target.critical, 100 - target.avoid);
-                    this.self.mBattleUI.TargetSub.SetHpGaugeParam(side, hp1, hp2, commandResult.targets[index].hp_damage, 0);
-                  }
-                  else
-                    this.self.mBattleUI.TargetMain.SetNoAction(this.self.mBattle.CurrentUnit);
-                  this.self.mBattleUI.TargetSub.UpdateHpGauge();
-                  flag1 = true;
                 }
-                this.self.UIParam_TargetValid = true;
-                if (!skill.IsAreaSkill() && this.self.mSelectedTarget != null)
-                  this.self.UIParam_TargetValid = this.self.Battle.CheckSkillTarget(currentUnit, this.self.mSelectedTarget, skill);
               }
             }
           }
-        }
-        else
-          this.HilitNormalAttack(controller.Unit, false);
-        this.SetYesButtonEnable(this.self.UIParam_TargetValid);
-        if (Object.op_Inequality((Object) this.self.mBattleUI.TargetMain, (Object) null))
-        {
-          if (skill == null)
-          {
-            this.self.mBattleUI.TargetMain.SetNoAction(this.self.mBattle.CurrentUnit);
-            this.self.mBattleUI.TargetMain.Close();
-          }
           else
+            this.HilitNormalAttack(controller.Unit, false);
+          this.SetYesButtonEnable(this.self.UIParam_TargetValid);
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.self.mBattleUI.TargetMain, (UnityEngine.Object) null))
           {
-            if (!flag1)
-              this.self.mBattleUI.TargetMain.SetNoAction(this.self.mBattle.CurrentUnit);
-            this.self.mBattleUI.TargetMain.Open();
-          }
-        }
-        if (Object.op_Inequality((Object) this.self.mBattleUI.TargetSub, (Object) null))
-        {
-          if (skill == null)
-          {
-            if (controller.Unit.IsGimmick)
+            if (skill == null)
             {
-              this.self.mBattleUI.TargetSub.Close();
-              this.self.mBattleUI.OnMapViewSelectGrid();
+              this.self.mBattleUI.TargetMain.SetNoAction(this.self.mBattle.CurrentUnit, (List<LogSkill.Target.CondHit>) null);
+              this.self.mBattleUI.TargetMain.Close();
             }
             else
             {
-              this.self.mBattleUI.TargetSub.SetNoAction(this.self.mSelectedTarget);
+              if (!flag1)
+                this.self.mBattleUI.TargetMain.SetNoAction(this.self.mBattle.CurrentUnit, (List<LogSkill.Target.CondHit>) null);
+              this.self.mBattleUI.TargetMain.Open();
+            }
+          }
+          this.self.mBattleUI.ClearEnableAll();
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.self.mBattleUI.TargetSub, (UnityEngine.Object) null))
+          {
+            if (skill == null)
+            {
+              if (controller.Unit.IsGimmick)
+              {
+                this.self.mBattleUI.TargetSub.ForceClose(false);
+                this.self.mBattleUI.OnMapViewSelectGrid();
+              }
+              else
+              {
+                this.self.mBattleUI.TargetSub.SetNoAction(this.self.mSelectedTarget, (List<LogSkill.Target.CondHit>) null);
+                this.self.mBattleUI.TargetSub.Open();
+                this.self.mBattleUI.OnMapViewSelectUnit();
+                this.self.mBattleUI.IsEnableUnit = true;
+              }
+            }
+            else if (flag1)
+            {
+              if (!this.self.mSelectedTarget.IsBreakObj || this.self.mSelectedTarget.IsBreakDispUI)
+              {
+                if (unitResult != null)
+                  this.self.mBattleUI.TargetSub.SetAttackAction(this.self.mSelectedTarget, unitResult.hp_damage <= 0 ? unitResult.mp_damage : unitResult.hp_damage, 0, 100 - unitResult.avoid, unitResult.cond_hit_lists);
+                else
+                  this.self.mBattleUI.TargetSub.SetNoAction(this.self.mSelectedTarget, (List<LogSkill.Target.CondHit>) null);
+                this.self.mBattleUI.TargetSub.Open();
+              }
+              else
+                this.self.mBattleUI.TargetSub.ForceClose(false);
+            }
+            else if (this.self.mSelectedTarget.UnitType == EUnitType.Unit || this.self.mSelectedTarget.UnitType == EUnitType.EventUnit || this.self.mSelectedTarget.IsBreakObj && this.self.mSelectedTarget.IsBreakDispUI)
+            {
+              this.self.mBattleUI.TargetSub.SetNoAction(this.self.mSelectedTarget, (List<LogSkill.Target.CondHit>) null);
               this.self.mBattleUI.TargetSub.Open();
-              this.self.mBattleUI.OnMapViewSelectUnit();
-            }
-          }
-          else if (flag1)
-          {
-            if (unitResult != null)
-              this.self.mBattleUI.TargetSub.SetAttackAction(this.self.mSelectedTarget, unitResult.hp_damage <= 0 ? unitResult.mp_damage : unitResult.hp_damage, 0, 100 - unitResult.avoid);
-            else
-              this.self.mBattleUI.TargetSub.SetNoAction(this.self.mSelectedTarget);
-            this.self.mBattleUI.TargetSub.Open();
-          }
-          else if (this.self.mSelectedTarget.UnitType == EUnitType.Unit || this.self.mSelectedTarget.UnitType == EUnitType.EventUnit)
-          {
-            this.self.mBattleUI.TargetSub.SetNoAction(this.self.mSelectedTarget);
-            this.self.mBattleUI.TargetSub.Open();
-          }
-          else
-            this.self.mBattleUI.TargetSub.Close();
-        }
-        if (Object.op_Inequality((Object) this.self.mBattleUI.TargetObjectSub, (Object) null))
-        {
-          if (skill == null)
-          {
-            if (controller.Unit.IsGimmick && !controller.Unit.IsDisableGimmick())
-            {
-              this.self.mBattleUI.OnMapViewSelectGrid();
-              this.self.mBattleUI.TargetObjectSub.Open();
             }
             else
+              this.self.mBattleUI.TargetSub.ForceClose(false);
+          }
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.self.mBattleUI.TargetObjectSub, (UnityEngine.Object) null))
+          {
+            if (skill == null)
             {
-              this.self.mBattleUI.OnMapViewSelectUnit();
+              if (controller.Unit.IsGimmick && !controller.Unit.IsDisableGimmick())
+              {
+                this.self.mBattleUI.OnMapViewSelectGrid();
+                this.self.mBattleUI.TargetObjectSub.Open();
+                this.self.mBattleUI.IsEnableGimmick = true;
+              }
+              else
+              {
+                this.self.mBattleUI.OnMapViewSelectUnit();
+                this.self.mBattleUI.TargetObjectSub.Close();
+              }
+            }
+            else
               this.self.mBattleUI.TargetObjectSub.Close();
-            }
           }
-          else
-            this.self.mBattleUI.TargetObjectSub.Close();
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.self.mBattleUI.TargetTrickSub, (UnityEngine.Object) null))
+          {
+            TrickData trickData = TrickData.SearchEffect(controller.Unit.x, controller.Unit.y);
+            if (trickData != null && trickData.IsVisualized())
+            {
+              this.self.mBattleUI.TargetTrickSub.SetTrick(trickData.TrickParam);
+              this.self.mBattleUI.IsEnableTrick = true;
+            }
+            this.self.mBattleUI.TargetTrickSub.Close();
+          }
+          bool is_enable = this.self.mBattleUI.IsNeedFlip();
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.self.mBattleUI.TargetSub, (UnityEngine.Object) null))
+            this.self.mBattleUI.TargetSub.SetEnableFlipButton(is_enable);
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.self.mBattleUI.TargetObjectSub, (UnityEngine.Object) null))
+            this.self.mBattleUI.TargetObjectSub.SetEnableFlipButton(is_enable);
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.self.mBattleUI.TargetTrickSub, (UnityEngine.Object) null))
+            this.self.mBattleUI.TargetTrickSub.SetEnableFlipButton(is_enable);
+          this.self.OnGimmickUpdate();
+          this.self.SetUnitUiHeight(controller.Unit);
         }
-        this.self.OnGimmickUpdate();
-        this.self.SetUnitUiHeight(controller.Unit);
       }
 
       public override void Update(SceneBattle self)
@@ -11611,19 +15109,21 @@ label_71:
           {
             this.mYScrollPos = 0.0f;
             this.mIgnoreDragVelocity = true;
-            this.ShiftTarget(-1);
+            if (self.mTargetSelectorParam.Skill != null)
+              this.ShiftTarget(-1);
           }
           else if ((double) this.mYScrollPos >= 1.0)
           {
             this.mYScrollPos = 0.0f;
             this.mIgnoreDragVelocity = true;
-            this.ShiftTarget(1);
+            if (self.mTargetSelectorParam.Skill != null)
+              this.ShiftTarget(1);
           }
         }
-        if (!this.mSelectGrid || self.mDesiredCameraTargetSet)
+        if (!this.mSelectGrid || self.m_TargetCameraPositionInterp)
           return;
-        int index1 = Mathf.Clamp(Mathf.FloorToInt((float) self.mCameraTarget.x), 0, self.mBattle.CurrentMap.Width);
-        int index2 = Mathf.Clamp(Mathf.FloorToInt((float) self.mCameraTarget.z), 0, self.mBattle.CurrentMap.Height);
+        int index1 = Mathf.Clamp(Mathf.FloorToInt((float) self.m_CameraPosition.x), 0, self.mBattle.CurrentMap.Width);
+        int index2 = Mathf.Clamp(Mathf.FloorToInt((float) self.m_CameraPosition.z), 0, self.mBattle.CurrentMap.Height);
         if (this.mTargetPosition.x == index1 && this.mTargetPosition.y == index2)
           return;
         Grid current = self.mBattle.CurrentMap[index1, index2];
@@ -11636,10 +15136,16 @@ label_71:
       {
         if (this.mTargets.Count == 0)
           return;
-        int num = this.mTargets.IndexOf(this.self.mFocusedUnit);
+        TacticsUnitController tacticsUnitController = this.self.mFocusedUnit;
+        if (this.self.mTargetSelectorParam.Skill == null)
+          tacticsUnitController = this.self.mMapModeFocusedUnit;
+        int num = this.mTargets.IndexOf(tacticsUnitController);
         if (num < 0)
           num = 0;
         this.OnClickUnit(this.mTargets[(num + delta + this.mTargets.Count) % this.mTargets.Count]);
+        if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) BattleUnitDetail.Instance))
+          return;
+        BattleUnitDetail.Instance.Refresh(this.self.mFocusedUnit.Unit);
       }
     }
 
@@ -11660,17 +15166,21 @@ label_71:
         this.mController.AutoUpdateRotation = true;
         self.ToggleRenkeiAura(false);
         TacticsUnitController unitController = self.FindUnitController(self.mBattle.CurrentUnit);
-        if (Object.op_Inequality((Object) unitController, (Object) null) && self.mTutorialTriggers != null)
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
         {
-          for (int index = 0; index < self.mTutorialTriggers.Length; ++index)
-            self.mTutorialTriggers[index].OnSelectDirectionStart(this.mCurrentUnit, unitController.TurnCount);
+          if (self.mTutorialTriggers != null)
+          {
+            for (int index = 0; index < self.mTutorialTriggers.Length; ++index)
+              self.mTutorialTriggers[index].OnSelectDirectionStart(this.mCurrentUnit, unitController.Unit.TurnCount);
+          }
+          if (GlobalVars.SelectedQuestID == "QE_OP_0002" && this.mCurrentUnit.UniqueName == "logi" && this.mCurrentUnit.TurnCount == 1)
+            GlobalEvent.Invoke("SGDirectionSelectTutorial", (object) null);
         }
-        self.InterpCameraOffset(GameSettings.Instance.Quest.MoveCamera);
         self.InterpCameraTarget((Component) this.mController);
         self.HideAllHPGauges();
         self.HideAllUnitOwnerIndex();
         Selectable component = (Selectable) self.mBattleUI.CommandWindow.CancelButton.GetComponent<Selectable>();
-        if (Object.op_Inequality((Object) component, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
         {
           this.mCancelButtonActive = component.get_interactable();
           if (!this.mCurrentUnit.IsEnableActionCondition() && !this.mCurrentUnit.IsEnableMoveCondition(false))
@@ -11692,7 +15202,7 @@ label_71:
         {
           Quaternion rotation = ((EUnitDirection) index).ToRotation();
           Vector3 vector3 = Quaternion.op_Multiply(rotation, ((Component) this.self.DirectionArrowTemplate).get_transform().get_position());
-          this.mArrows[index] = Object.Instantiate((Object) this.self.DirectionArrowTemplate, Vector3.op_Addition(((Component) this.mController).get_transform().get_position(), vector3), rotation) as DirectionArrow;
+          this.mArrows[index] = UnityEngine.Object.Instantiate((UnityEngine.Object) this.self.DirectionArrowTemplate, Vector3.op_Addition(((Component) this.mController).get_transform().get_position(), vector3), rotation) as DirectionArrow;
         }
         this.UpdateArrows();
         this.self.mOnRequestStateChange = new SceneBattle.StateTransitionRequest(this.OnStateChange);
@@ -11757,7 +15267,7 @@ label_71:
         }
         else
         {
-          if (!Object.op_Inequality((Object) self.mTouchController, (Object) null))
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mTouchController, (UnityEngine.Object) null))
             return;
           Vector2 worldSpaceVelocity = self.mTouchController.WorldSpaceVelocity;
           // ISSUE: explicit reference operation
@@ -11775,11 +15285,11 @@ label_71:
         self.mBattleUI.CommandWindow.OnYesNoSelect -= new UnitCommands.YesNoEvent(this.OnYesNoSelect);
         for (int index = 0; index < 4; ++index)
         {
-          if (Object.op_Inequality((Object) this.mArrows[index], (Object) null) && index != this.mSelectedDirection)
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mArrows[index], (UnityEngine.Object) null) && index != this.mSelectedDirection)
             this.mArrows[index].State = DirectionArrow.ArrowStates.Close;
         }
         Selectable component = (Selectable) self.mBattleUI.CommandWindow.CancelButton.GetComponent<Selectable>();
-        if (Object.op_Inequality((Object) component, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
           component.set_interactable(this.mCancelButtonActive);
         self.mOnScreenClick = (SceneBattle.ScreenClickEvent) null;
         self.mOnRequestStateChange = (SceneBattle.StateTransitionRequest) null;
@@ -11804,7 +15314,7 @@ label_71:
         }
         if (num2 == -1)
           return;
-        if (MonoSingleton<GameManager>.Instance.IsTutorial() && Object.op_Inequality((Object) SGHighlightObject.Instance(), (Object) null))
+        if (MonoSingleton<GameManager>.Instance.IsTutorial() && UnityEngine.Object.op_Inequality((UnityEngine.Object) SGHighlightObject.Instance(), (UnityEngine.Object) null))
           SGHighlightObject.Instance().GridSelected(-1, -1);
         this.SelectDirection((EUnitDirection) num2);
       }
@@ -11819,7 +15329,7 @@ label_71:
         if (this.self.Battle.IsMultiPlay)
         {
           this.self.SendInputUnitEnd(this.self.Battle.CurrentUnit, dir);
-          this.self.SendInputFlush();
+          this.self.SendInputFlush(false);
         }
         this.self.mBattle.CommandWait(dir);
         this.self.GotoState_WaitSignal<SceneBattle.State_WaitForLog>();
@@ -11847,7 +15357,7 @@ label_71:
         EUnitDirection direction = unitController.CalcUnitDirectionFromRotation();
         ((Component) unitController).get_transform().set_rotation(direction.ToRotation());
         self.mOnRequestStateChange = new SceneBattle.StateTransitionRequest(this.OnStateChange);
-        if (Object.op_Inequality((Object) this.mSkillList, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSkillList, (UnityEngine.Object) null))
           this.mSkillList.OnSelectSkill = new UnitAbilitySkillList.SelectSkillEvent(this.OnSelectSkill);
         self.StepToNear(currentUnit);
       }
@@ -11855,7 +15365,7 @@ label_71:
       public override void End(SceneBattle self)
       {
         self.mOnRequestStateChange = (SceneBattle.StateTransitionRequest) null;
-        if (!Object.op_Inequality((Object) this.mSkillList, (Object) null))
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSkillList, (UnityEngine.Object) null))
           return;
         this.mSkillList.OnSelectSkill = (UnitAbilitySkillList.SelectSkillEvent) null;
       }
@@ -11900,7 +15410,7 @@ label_71:
         {
           if (!this.self.ApplyUnitMovement(false))
             return;
-          if (this.self.Battle.ExecuteEventTriggerOnGrid(this.self.Battle.CurrentUnit, EEventTrigger.ExecuteOnGrid, false))
+          if (this.self.Battle.ExecuteEventTriggerOnGrid(this.self.Battle.CurrentUnit, EEventTrigger.ExecuteOnGrid))
             this.self.SendInputGridEvent(this.self.Battle.CurrentUnit);
           this.self.GotoState_WaitSignal<SceneBattle.State_WaitForLog>();
         }
@@ -11982,7 +15492,7 @@ label_71:
 
       public override void Start()
       {
-        this.SceneOwner.mAllowCameraTranslation = false;
+        this.SceneOwner.m_AllowCameraTranslation = false;
         this.mController = this.SceneOwner.FindUnitController(this.SceneOwner.Battle.CurrentUnit);
         this.mController.AutoUpdateRotation = false;
         this.SceneOwner.ShowUnitCursorOnCurrent();
@@ -11999,7 +15509,7 @@ label_71:
         this.mBasePos.x = (__Null) ((double) intVector2.x + 0.5);
         this.mBasePos.y = (__Null) ((double) intVector2.y + 0.5);
         this.mTargetPos = this.mBasePos;
-        this.SceneOwner.SetMoveCamera();
+        this.SceneOwner.ResetMoveCamera();
         this.SceneOwner.SendInputMoveStart(this.SceneOwner.Battle.CurrentUnit);
         this.SceneOwner.mTouchController.OnClick += new TouchController.ClickEvent(this.OnClick);
         this.SceneOwner.mTouchController.OnDragDelegate += new TouchController.DragEvent(this.OnDrag);
@@ -12012,7 +15522,7 @@ label_71:
         this.SceneOwner.mTouchController.OnClick -= new TouchController.ClickEvent(this.OnClick);
         this.SceneOwner.mTouchController.OnDragDelegate -= new TouchController.DragEvent(this.OnDrag);
         this.SceneOwner.mTouchController.OnDragEndDelegate -= new TouchController.DragEvent(this.OnDragEnd);
-        this.SceneOwner.mAllowCameraTranslation = true;
+        this.SceneOwner.m_AllowCameraTranslation = true;
         this.SceneOwner.mDisplayBlockedGridMarker = false;
         List<TacticsUnitController> mTacticsUnits = this.SceneOwner.mTacticsUnits;
         for (int index = 0; index < mTacticsUnits.Count; ++index)
@@ -12034,6 +15544,7 @@ label_71:
 
       private void OnDragEnd()
       {
+        this.SceneOwner.SendInputGridXY(this.SceneOwner.Battle.CurrentUnit, this.mDestX, this.mDestY, this.SceneOwner.Battle.CurrentUnit.Direction, true);
       }
 
       private void OnClick(Vector2 screenPos)
@@ -12057,13 +15568,13 @@ label_71:
           for (int index = 0; index < this.SceneOwner.mTacticsUnits.Count; ++index)
           {
             TacticsUnitController mTacticsUnit = this.SceneOwner.mTacticsUnits[index];
-            if (!Object.op_Equality((Object) mTacticsUnit, (Object) null))
+            if (!UnityEngine.Object.op_Equality((UnityEngine.Object) mTacticsUnit, (UnityEngine.Object) null))
             {
               Unit unit3 = mTacticsUnit.Unit;
               if (unit3 != null)
               {
                 RectTransform hpGaugeTransform = mTacticsUnit.HPGaugeTransform;
-                if (!Object.op_Equality((Object) hpGaugeTransform, (Object) null) && ((Component) hpGaugeTransform).get_gameObject().get_activeInHierarchy() && (this.mShateiGrid.isValid(unit3.x, unit3.y) && this.mShateiGrid.get(unit3.x, unit3.y)) && this.SceneOwner.mBattle.CheckSkillTarget(unit1, unit3, attackSkill))
+                if (!UnityEngine.Object.op_Equality((UnityEngine.Object) hpGaugeTransform, (UnityEngine.Object) null) && ((Component) hpGaugeTransform).get_gameObject().get_activeInHierarchy() && (this.mShateiGrid.isValid(unit3.x, unit3.y) && this.mShateiGrid.get(unit3.x, unit3.y)) && this.SceneOwner.mBattle.CheckSkillTarget(unit1, unit3, attackSkill))
                 {
                   Vector2 vector2_3 = Vector2.op_Subtraction(hpGaugeTransform.get_anchoredPosition(), vector2_1);
                   // ISSUE: explicit reference operation
@@ -12087,7 +15598,7 @@ label_71:
         IntVector2 intVector2_2 = this.SceneOwner.CalcCoord(((Component) this.mController).get_transform().get_position());
         if (!(intVector2_2 != intVector2_1) || this.mController.IsPlayingFieldAction)
           return;
-        if (MonoSingleton<GameManager>.Instance.IsTutorial() && Object.op_Inequality((Object) SGHighlightObject.Instance(), (Object) null))
+        if (MonoSingleton<GameManager>.Instance.IsTutorial() && UnityEngine.Object.op_Inequality((UnityEngine.Object) SGHighlightObject.Instance(), (UnityEngine.Object) null))
         {
           if (!(intVector2_1 == SGHighlightObject.Instance().highlightedGrid))
             return;
@@ -12105,6 +15616,7 @@ label_71:
         this.mGridSnapping = false;
         this.mDestX = intVector2_1.x;
         this.mDestY = intVector2_1.y;
+        this.SceneOwner.SendInputGridXY(this.SceneOwner.Battle.CurrentUnit, intVector2_1.x, intVector2_1.y, this.SceneOwner.Battle.CurrentUnit.Direction, true);
       }
 
       private void UpdateBlockMarker()
@@ -12204,17 +15716,17 @@ label_71:
         {
           Camera main = Camera.get_main();
           VirtualStick2 virtualStick = this.SceneOwner.mBattleUI.VirtualStick;
-          if (!Object.op_Inequality((Object) main, (Object) null) || !Object.op_Inequality((Object) virtualStick, (Object) null))
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) main, (UnityEngine.Object) null) || !UnityEngine.Object.op_Inequality((UnityEngine.Object) virtualStick, (UnityEngine.Object) null))
             return Vector2.get_zero();
           Transform transform = ((Component) main).get_transform();
-          Vector3 forward = transform.get_forward();
+          Vector3 vector3 = !this.SceneOwner.isUpView ? transform.get_forward() : transform.get_up();
           Vector3 right = transform.get_right();
-          forward.y = (__Null) 0.0;
-          ((Vector3) @forward).Normalize();
+          vector3.y = (__Null) 0.0;
+          ((Vector3) @vector3).Normalize();
           right.y = (__Null) 0.0;
           ((Vector3) @right).Normalize();
           Vector2 velocity = virtualStick.Velocity;
-          return new Vector2((float) (right.x * velocity.x + forward.x * velocity.y), (float) (right.z * velocity.x + forward.z * velocity.y));
+          return new Vector2((float) (right.x * velocity.x + vector3.x * velocity.y), (float) (right.z * velocity.x + vector3.z * velocity.y));
         }
       }
 
@@ -12254,17 +15766,17 @@ label_71:
               this.SceneOwner.SendInputMove(this.SceneOwner.Battle.CurrentUnit, this.mController);
             }
             Transform transform = ((Component) this.mController).get_transform();
-            Vector3 position = this.mController.CenterPosition;
+            Vector3 pos = this.mController.CenterPosition;
             bool flag1 = false;
             Vector2 vector2;
             // ISSUE: explicit reference operation
-            ((Vector2) @vector2).\u002Ector((float) position.x, (float) position.z);
+            ((Vector2) @vector2).\u002Ector((float) pos.x, (float) pos.z);
             if (this.mTargetSet && this.GridEqualIn2D(vector2, this.mTargetPos))
             {
               this.mBasePos = this.mTargetPos;
               this.mDestX = Mathf.FloorToInt((float) this.mBasePos.x);
               this.mDestY = Mathf.FloorToInt((float) this.mBasePos.y);
-              this.SceneOwner.SendInputGridXY(this.SceneOwner.Battle.CurrentUnit, this.mDestX, this.mDestY, this.SceneOwner.Battle.CurrentUnit.Direction);
+              this.SceneOwner.SendInputGridXY(this.SceneOwner.Battle.CurrentUnit, this.mDestX, this.mDestY, this.SceneOwner.Battle.CurrentUnit.Direction, false);
             }
             Vector2 velocity1 = this.Velocity;
             if (this.mRouteSet)
@@ -12281,16 +15793,13 @@ label_71:
               this.mTargetSet = false;
               this.mGridSnapping = false;
               this.mController.StopRunning();
-              IntVector2 intVector2_1 = this.SceneOwner.CalcCoord(this.mController.CenterPosition);
-              this.mDestX = intVector2_1.x;
-              this.mDestY = intVector2_1.y;
+              IntVector2 intVector2 = this.SceneOwner.CalcCoord(this.mController.CenterPosition);
+              this.mDestX = intVector2.x;
+              this.mDestY = intVector2.y;
               this.mBasePos.x = (__Null) ((double) this.mDestX + 0.5);
               this.mBasePos.y = (__Null) ((double) this.mDestY + 0.5);
 label_17:
               this.UpdateBlockMarker();
-              IntVector2 intVector2_2 = this.SceneOwner.CalcCoord(this.mController.CenterPosition);
-              this.SceneOwner.SendInputGridXY(this.SceneOwner.Battle.CurrentUnit, intVector2_2.x, intVector2_2.y, this.SceneOwner.Battle.CurrentUnit.Direction);
-              this.SceneOwner.SendInputMove(this.SceneOwner.Battle.CurrentUnit, this.mController);
             }
             else
             {
@@ -12329,6 +15838,8 @@ label_17:
                   {
                     this.mController.StepTo(this.SceneOwner.CalcGridCenter(this.SceneOwner.mBattle.CurrentMap[this.mDestX, this.mDestY]));
                     this.mGridSnapping = true;
+                    if (this.SceneOwner.Battle.CurrentUnit != null)
+                      this.SceneOwner.SendInputGridXY(this.SceneOwner.Battle.CurrentUnit, this.mDestX, this.mDestY, this.SceneOwner.Battle.CurrentUnit.Direction, true);
                   }
                 }
               }
@@ -12402,17 +15913,37 @@ label_17:
                     this.mHasDesiredRotation = false;
                     this.mTargetSet = false;
                     this.mJumping = true;
-                    this.SceneOwner.SendInputGridXY(this.SceneOwner.Battle.CurrentUnit, this.mDestX, this.mDestY, this.SceneOwner.Battle.CurrentUnit.Direction);
+                    this.mRouteSet = true;
                   }
                   else
                   {
-                    position = Vector3.op_Addition(position, Vector3.op_Multiply(velocity2, Time.get_deltaTime()));
+                    pos = Vector3.op_Addition(pos, Vector3.op_Multiply(velocity2, Time.get_deltaTime()));
                     flag1 = true;
+                    for (int index1 = -1; index1 <= 1; ++index1)
+                    {
+                      for (int index2 = -1; index2 <= 1; ++index2)
+                      {
+                        if ((index2 != 0 || index1 != 0) && this.IsGridBlocked((float) Mathf.FloorToInt((float) (pos.x + (double) index2 * 0.300000011920929)), (float) Mathf.FloorToInt((float) (pos.z + (double) index1 * 0.300000011920929))))
+                        {
+                          if (index2 < 0)
+                            this.mController.AdjustMovePos(EUnitDirection.NegativeX, ref pos);
+                          if (index2 > 0)
+                            this.mController.AdjustMovePos(EUnitDirection.PositiveX, ref pos);
+                          if (index1 < 0)
+                            this.mController.AdjustMovePos(EUnitDirection.NegativeY, ref pos);
+                          if (index1 > 0)
+                            this.mController.AdjustMovePos(EUnitDirection.PositiveY, ref pos);
+                        }
+                      }
+                    }
                   }
                 }
                 this.SceneOwner.SendInputMove(this.SceneOwner.Battle.CurrentUnit, this.mController);
               }
-              IntVector2 intVector2 = this.SceneOwner.CalcCoord(position);
+              IntVector2 intVector2 = this.SceneOwner.CalcCoord(pos);
+              BattleMap currentMap = this.SceneOwner.Battle.CurrentMap;
+              intVector2.x = Math.Min(Math.Max(0, intVector2.x), currentMap.Width - 1);
+              intVector2.y = Math.Min(Math.Max(0, intVector2.y), currentMap.Height - 1);
               if (intVector2.x != this.mCurrentX || intVector2.y != this.mCurrentY)
               {
                 this.mCurrentX = intVector2.x;
@@ -12421,7 +15952,7 @@ label_17:
               }
               if (flag1)
               {
-                transform.set_position(position);
+                transform.set_position(pos);
                 this.UpdateBlockMarker();
                 this.mStopTime = 0.0f;
                 this.HideShatei();
@@ -12436,6 +15967,7 @@ label_17:
                     this.SceneOwner.mTacticsSceneRoot.ShowGridLayer(1, this.mShateiGrid, Color32.op_Implicit(GameSettings.Instance.Colors.AttackArea), true);
                   this.mShateiVisible = true;
                   this.SceneOwner.ShowCastSkill();
+                  this.mController.Unit.RefleshMomentBuff(this.SceneOwner.Battle.Units, true, intVector2.x, intVector2.y);
                 }
               }
               this.SyncCameraPosition();
@@ -12456,6 +15988,7 @@ label_17:
         Unit unit1 = this.mController.Unit;
         if (!unit1.IsEnableAttackCondition(false))
           return;
+        this.mController.Unit.RefleshMomentBuff(this.SceneOwner.Battle.Units, true, this.mCurrentX, this.mCurrentY);
         SkillData attackSkill = unit1.GetAttackSkill();
         this.mUpdateShateiGrid = true;
         this.mShateiGrid = this.SceneOwner.Battle.CreateSelectGridMap(unit1, this.mCurrentX, this.mCurrentY, attackSkill);
@@ -12464,7 +15997,7 @@ label_17:
         for (int index1 = 0; index1 < units.Count; ++index1)
         {
           TacticsUnitController unitController1 = this.SceneOwner.FindUnitController(units[index1]);
-          if (!Object.op_Equality((Object) unitController1, (Object) null))
+          if (!UnityEngine.Object.op_Equality((UnityEngine.Object) unitController1, (UnityEngine.Object) null))
           {
             if (this.mShateiGrid.isValid(units[index1].x, units[index1].y) && this.mShateiGrid.get(units[index1].x, units[index1].y) && this.SceneOwner.mBattle.CheckSkillTarget(unit1, units[index1], attackSkill))
             {
@@ -12476,12 +16009,12 @@ label_17:
                 {
                   Unit unit2 = commandResult.targets[index2].unit;
                   TacticsUnitController unitController2 = this.SceneOwner.FindUnitController(unit2);
-                  if (!Object.op_Equality((Object) unitController2, (Object) null))
+                  if (!UnityEngine.Object.op_Equality((UnityEngine.Object) unitController2, (UnityEngine.Object) null))
                   {
                     unitController2.SetHPChangeYosou((int) unit2.CurrentStatus.param.hp - commandResult.targets[index2].hp_damage);
                     unitController2.SetHPGaugeMode(TacticsUnitController.HPGaugeModes.Attack, attackSkill, unit1);
                     ++this.SceneOwner.mNumHotTargets;
-                    if (Object.op_Equality((Object) unitController1, (Object) unitController2))
+                    if (UnityEngine.Object.op_Equality((UnityEngine.Object) unitController1, (UnityEngine.Object) unitController2))
                       flag = true;
                   }
                 }
@@ -12490,6 +16023,11 @@ label_17:
                   unitController1.SetHPGaugeMode(TacticsUnitController.HPGaugeModes.Normal, (SkillData) null, (Unit) null);
                   unitController1.SetHPChangeYosou(unitController1.VisibleHPValue);
                 }
+              }
+              else
+              {
+                unitController1.SetHPGaugeMode(TacticsUnitController.HPGaugeModes.Normal, (SkillData) null, (Unit) null);
+                unitController1.SetHPChangeYosou(unitController1.VisibleHPValue);
               }
             }
             else

@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.AbilityParam
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -62,12 +62,36 @@ namespace SRPG
       this.lvcap = (OInt) Math.Max(json.cap, 1);
       this.is_fixed = json.fix != 0;
       int length = 0;
-      string[] strArray = new string[10]{ json.skl1, json.skl2, json.skl3, json.skl4, json.skl5, json.skl6, json.skl7, json.skl8, json.skl9, json.skl10 };
+      string[] strArray = new string[10]
+      {
+        json.skl1,
+        json.skl2,
+        json.skl3,
+        json.skl4,
+        json.skl5,
+        json.skl6,
+        json.skl7,
+        json.skl8,
+        json.skl9,
+        json.skl10
+      };
       for (int index = 0; index < strArray.Length && !string.IsNullOrEmpty(strArray[index]); ++index)
         ++length;
       if (length > 0)
       {
-        int[] numArray = new int[10]{ json.lv1, json.lv2, json.lv3, json.lv4, json.lv5, json.lv6, json.lv7, json.lv8, json.lv9, json.lv10 };
+        int[] numArray = new int[10]
+        {
+          json.lv1,
+          json.lv2,
+          json.lv3,
+          json.lv4,
+          json.lv5,
+          json.lv6,
+          json.lv7,
+          json.lv8,
+          json.lv9,
+          json.lv10
+        };
         this.skills = new LearningSkill[length];
         for (int index = 0; index < length; ++index)
         {
@@ -107,38 +131,38 @@ namespace SRPG
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      AbilityParam.\u003CCheckEnableUseAbility\u003Ec__AnonStorey17D abilityCAnonStorey17D = new AbilityParam.\u003CCheckEnableUseAbility\u003Ec__AnonStorey17D();
+      AbilityParam.\u003CCheckEnableUseAbility\u003Ec__AnonStorey208 abilityCAnonStorey208 = new AbilityParam.\u003CCheckEnableUseAbility\u003Ec__AnonStorey208();
       // ISSUE: reference to a compiler-generated field
-      abilityCAnonStorey17D.self = self;
+      abilityCAnonStorey208.self = self;
       // ISSUE: reference to a compiler-generated method
-      if (this.condition_units != null && Array.Find<string>(this.condition_units, new Predicate<string>(abilityCAnonStorey17D.\u003C\u003Em__118)) == null)
+      if (this.condition_units != null && Array.Find<string>(this.condition_units, new Predicate<string>(abilityCAnonStorey208.\u003C\u003Em__17D)) == null)
         return false;
       if (this.condition_jobs != null)
       {
         // ISSUE: object of a compiler-generated type is created
         // ISSUE: variable of a compiler-generated type
-        AbilityParam.\u003CCheckEnableUseAbility\u003Ec__AnonStorey17E abilityCAnonStorey17E = new AbilityParam.\u003CCheckEnableUseAbility\u003Ec__AnonStorey17E();
+        AbilityParam.\u003CCheckEnableUseAbility\u003Ec__AnonStorey209 abilityCAnonStorey209 = new AbilityParam.\u003CCheckEnableUseAbility\u003Ec__AnonStorey209();
         // ISSUE: reference to a compiler-generated field
         // ISSUE: reference to a compiler-generated field
-        abilityCAnonStorey17E.job = abilityCAnonStorey17D.self.GetJobData(job_index);
+        abilityCAnonStorey209.job = abilityCAnonStorey208.self.GetJobData(job_index);
         // ISSUE: reference to a compiler-generated field
-        if (abilityCAnonStorey17E.job == null)
+        if (abilityCAnonStorey209.job == null)
           return false;
         // ISSUE: reference to a compiler-generated method
-        if (Array.Find<string>(this.condition_jobs, new Predicate<string>(abilityCAnonStorey17E.\u003C\u003Em__119)) == null)
+        if (Array.Find<string>(this.condition_jobs, new Predicate<string>(abilityCAnonStorey209.\u003C\u003Em__17E)) == null)
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          AbilityParam.\u003CCheckEnableUseAbility\u003Ec__AnonStorey17F abilityCAnonStorey17F = new AbilityParam.\u003CCheckEnableUseAbility\u003Ec__AnonStorey17F();
+          AbilityParam.\u003CCheckEnableUseAbility\u003Ec__AnonStorey20A abilityCAnonStorey20A = new AbilityParam.\u003CCheckEnableUseAbility\u003Ec__AnonStorey20A();
           // ISSUE: reference to a compiler-generated field
-          if (string.IsNullOrEmpty(abilityCAnonStorey17E.job.Param.origin))
+          if (string.IsNullOrEmpty(abilityCAnonStorey209.job.Param.origin))
             return false;
           // ISSUE: reference to a compiler-generated field
           // ISSUE: reference to a compiler-generated field
-          abilityCAnonStorey17F.originJobParam = MonoSingleton<GameManager>.GetInstanceDirect().GetJobParam(abilityCAnonStorey17E.job.Param.origin);
+          abilityCAnonStorey20A.originJobParam = MonoSingleton<GameManager>.GetInstanceDirect().GetJobParam(abilityCAnonStorey209.job.Param.origin);
           // ISSUE: reference to a compiler-generated field
           // ISSUE: reference to a compiler-generated method
-          if (abilityCAnonStorey17F.originJobParam == null || Array.Find<string>(this.condition_jobs, new Predicate<string>(abilityCAnonStorey17F.\u003C\u003Em__11A)) == null)
+          if (abilityCAnonStorey20A.originJobParam == null || Array.Find<string>(this.condition_jobs, new Predicate<string>(abilityCAnonStorey20A.\u003C\u003Em__17F)) == null)
             return false;
         }
       }
@@ -147,7 +171,7 @@ namespace SRPG
       // ISSUE: reference to a compiler-generated field
       // ISSUE: reference to a compiler-generated field
       // ISSUE: reference to a compiler-generated field
-      return (string.IsNullOrEmpty(this.condition_birth) || !((string) abilityCAnonStorey17D.self.UnitParam.birth != this.condition_birth)) && (this.condition_sex == ESex.Unknown || abilityCAnonStorey17D.self.UnitParam.sex == this.condition_sex) && (this.condition_element == EElement.None || abilityCAnonStorey17D.self.Element == this.condition_element) && ((int) this.condition_raremax == 0 || (int) this.condition_raremin <= abilityCAnonStorey17D.self.Rarity && (int) this.condition_raremax >= abilityCAnonStorey17D.self.Rarity && (int) this.condition_raremax >= (int) this.condition_raremin);
+      return (string.IsNullOrEmpty(this.condition_birth) || !((string) abilityCAnonStorey208.self.UnitParam.birth != this.condition_birth)) && (this.condition_sex == ESex.Unknown || abilityCAnonStorey208.self.UnitParam.sex == this.condition_sex) && (this.condition_element == EElement.None || abilityCAnonStorey208.self.Element == this.condition_element) && ((int) this.condition_raremax == 0 || (int) this.condition_raremin <= abilityCAnonStorey208.self.Rarity && (int) this.condition_raremax >= abilityCAnonStorey208.self.Rarity && (int) this.condition_raremax >= (int) this.condition_raremin);
     }
   }
 }

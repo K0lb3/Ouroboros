@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.ShopData
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -14,6 +14,7 @@ namespace SRPG
   {
     public List<ShopItem> items = new List<ShopItem>();
     public int UpdateCount;
+    public bool btn_update;
 
     public static ESaleType String2SaleType(string type)
     {
@@ -21,10 +22,10 @@ namespace SRPG
       if (key != null)
       {
         // ISSUE: reference to a compiler-generated field
-        if (ShopData.\u003C\u003Ef__switch\u0024mapB == null)
+        if (ShopData.\u003C\u003Ef__switch\u0024map13 == null)
         {
           // ISSUE: reference to a compiler-generated field
-          ShopData.\u003C\u003Ef__switch\u0024mapB = new Dictionary<string, int>(8)
+          ShopData.\u003C\u003Ef__switch\u0024map13 = new Dictionary<string, int>(8)
           {
             {
               "gold",
@@ -62,7 +63,7 @@ namespace SRPG
         }
         int num;
         // ISSUE: reference to a compiler-generated field
-        if (ShopData.\u003C\u003Ef__switch\u0024mapB.TryGetValue(key, out num))
+        if (ShopData.\u003C\u003Ef__switch\u0024map13.TryGetValue(key, out num))
         {
           switch (num)
           {
@@ -93,6 +94,9 @@ namespace SRPG
       if (response.shopitems == null || !this.Deserialize(response.shopitems))
         return false;
       this.UpdateCount = response.relcnt;
+      this.btn_update = true;
+      if (!string.IsNullOrEmpty(response.msg) && response.msg.StartsWith("{"))
+        this.btn_update = JSONParser.parseJSONObject<Json_ShopMsgResponse>(response.msg).update.Equals("on");
       return true;
     }
 

@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.ProductList
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using UnityEngine;
@@ -9,10 +9,10 @@ using UnityEngine.UI;
 
 namespace SRPG
 {
-  [FlowNode.Pin(0, "表示", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(101, "LimitReached", FlowNode.PinTypes.Output, 0)]
-  [FlowNode.Pin(100, "選択された", FlowNode.PinTypes.Output, 0)]
   [AddComponentMenu("Payment/ProductList")]
+  [FlowNode.Pin(100, "選択された", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(0, "表示", FlowNode.PinTypes.Input, 0)]
   public class ProductList : MonoBehaviour, IFlowInterface
   {
     [Description("リストアイテムとして使用するゲームオブジェクト")]
@@ -50,12 +50,12 @@ namespace SRPG
 
     private void Start()
     {
-      this.RefreshItems();
+      this.RefreshItems(true);
     }
 
     public void Refresh()
     {
-      this.RefreshItems();
+      this.RefreshItems(false);
       if (!Object.op_Inequality((Object) this.ScrollRect, (Object) null))
         return;
       ListExtras component = (ListExtras) ((Component) this.ScrollRect).GetComponent<ListExtras>();
@@ -65,7 +65,7 @@ namespace SRPG
         this.ScrollRect.set_normalizedPosition(Vector2.get_one());
     }
 
-    private void RefreshItems()
+    private void RefreshItems(bool is_start)
     {
       Transform transform = ((Component) this).get_transform();
       for (int index = transform.get_childCount() - 1; index >= 0; --index)
@@ -82,12 +82,15 @@ namespace SRPG
         GameObject gameObject = !products[index].productID.Contains("sub") ? (GameObject) Object.Instantiate<GameObject>((M0) this.ItemTemplate) : (GameObject) Object.Instantiate<GameObject>((M0) this.ItemVipTemplate);
         ((Object) gameObject).set_hideFlags((HideFlags) 52);
         DataSource.Bind<PaymentManager.Product>(gameObject, products[index]);
-        ListItemEvents component = (ListItemEvents) gameObject.GetComponent<ListItemEvents>();
-        if (Object.op_Inequality((Object) component, (Object) null))
+        if (!is_start)
         {
-          component.OnSelect = new ListItemEvents.ListItemEvent(this.OnSelectItem);
-          component.OnOpenDetail = new ListItemEvents.ListItemEvent(this.OnOpenItemDetail);
-          component.OnCloseDetail = new ListItemEvents.ListItemEvent(this.OnCloseItemDetail);
+          ListItemEvents component = (ListItemEvents) gameObject.GetComponent<ListItemEvents>();
+          if (Object.op_Inequality((Object) component, (Object) null))
+          {
+            component.OnSelect = new ListItemEvents.ListItemEvent(this.OnSelectItem);
+            component.OnOpenDetail = new ListItemEvents.ListItemEvent(this.OnOpenItemDetail);
+            component.OnCloseDetail = new ListItemEvents.ListItemEvent(this.OnCloseItemDetail);
+          }
         }
         gameObject.get_transform().SetParent(transform, false);
         gameObject.get_gameObject().SetActive(true);

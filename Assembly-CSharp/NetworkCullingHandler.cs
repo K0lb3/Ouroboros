@@ -1,14 +1,14 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: NetworkCullingHandler
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof (PhotonView))]
-public class NetworkCullingHandler : MonoBehaviour
+public class NetworkCullingHandler : MonoBehaviour, IPunObservable
 {
   private int orderIndex;
   private CullArea cullArea;
@@ -49,10 +49,7 @@ public class NetworkCullingHandler : MonoBehaviour
       PhotonNetwork.SetSendingEnabled(this.cullArea.FIRST_GROUP_ID, true);
     }
     else
-    {
-      this.CheckGroupsChanged();
-      this.InvokeRepeating("UpdateActiveGroup", 0.0f, 1f / (float) PhotonNetwork.sendRateOnSerialize);
-    }
+      this.pView.ObservedComponents.Add((Component) this);
   }
 
   private void Update()
@@ -61,85 +58,9 @@ public class NetworkCullingHandler : MonoBehaviour
       return;
     this.lastPosition = this.currentPosition;
     this.currentPosition = ((Component) this).get_transform().get_position();
-    if (!Vector3.op_Inequality(this.currentPosition, this.lastPosition))
+    if (!Vector3.op_Inequality(this.currentPosition, this.lastPosition) || !this.HaveActiveCellsChanged())
       return;
-    this.CheckGroupsChanged();
-  }
-
-  private void OnDisable()
-  {
-    this.CancelInvoke();
-  }
-
-  private void CheckGroupsChanged()
-  {
-    if (this.cullArea.NumberOfSubdivisions == 0)
-      return;
-    this.previousActiveCells = new List<int>((IEnumerable<int>) this.activeCells);
-    this.activeCells = this.cullArea.GetActiveCells(((Component) this).get_transform().get_position());
-    if (this.activeCells.Count != this.previousActiveCells.Count)
-    {
-      this.UpdateInterestGroups();
-    }
-    else
-    {
-      using (List<int>.Enumerator enumerator = this.activeCells.GetEnumerator())
-      {
-        while (enumerator.MoveNext())
-        {
-          if (!this.previousActiveCells.Contains(enumerator.Current))
-          {
-            this.UpdateInterestGroups();
-            break;
-          }
-        }
-      }
-    }
-  }
-
-  private void UpdateInterestGroups()
-  {
-    using (List<int>.Enumerator enumerator = this.previousActiveCells.GetEnumerator())
-    {
-      while (enumerator.MoveNext())
-      {
-        int current = enumerator.Current;
-        PhotonNetwork.SetReceivingEnabled(current, false);
-        PhotonNetwork.SetSendingEnabled(current, false);
-      }
-    }
-    using (List<int>.Enumerator enumerator = this.activeCells.GetEnumerator())
-    {
-      while (enumerator.MoveNext())
-      {
-        int current = enumerator.Current;
-        PhotonNetwork.SetReceivingEnabled(current, true);
-        PhotonNetwork.SetSendingEnabled(current, true);
-      }
-    }
-  }
-
-  private void UpdateActiveGroup()
-  {
-    while (this.activeCells.Count <= this.cullArea.NumberOfSubdivisions)
-      this.activeCells.Add(this.cullArea.FIRST_GROUP_ID);
-    if (this.cullArea.NumberOfSubdivisions == 1)
-    {
-      this.orderIndex = ++this.orderIndex % this.cullArea.SUBDIVISION_FIRST_LEVEL_ORDER.Length;
-      this.pView.group = this.activeCells[this.cullArea.SUBDIVISION_FIRST_LEVEL_ORDER[this.orderIndex]];
-    }
-    else if (this.cullArea.NumberOfSubdivisions == 2)
-    {
-      this.orderIndex = ++this.orderIndex % this.cullArea.SUBDIVISION_SECOND_LEVEL_ORDER.Length;
-      this.pView.group = this.activeCells[this.cullArea.SUBDIVISION_SECOND_LEVEL_ORDER[this.orderIndex]];
-    }
-    else
-    {
-      if (this.cullArea.NumberOfSubdivisions != 3)
-        return;
-      this.orderIndex = ++this.orderIndex % this.cullArea.SUBDIVISION_THIRD_LEVEL_ORDER.Length;
-      this.pView.group = this.activeCells[this.cullArea.SUBDIVISION_THIRD_LEVEL_ORDER[this.orderIndex]];
-    }
+    this.UpdateInterestGroups();
   }
 
   private void OnGUI()
@@ -168,5 +89,55 @@ public class NetworkCullingHandler : MonoBehaviour
     guiStyle3.set_fontSize(16);
     GUIStyle guiStyle4 = guiStyle3;
     GUI.Label(rect2, str4, guiStyle4);
+  }
+
+  private bool HaveActiveCellsChanged()
+  {
+    if (this.cullArea.NumberOfSubdivisions == 0)
+      return false;
+    this.previousActiveCells = new List<int>((IEnumerable<int>) this.activeCells);
+    this.activeCells = this.cullArea.GetActiveCells(((Component) this).get_transform().get_position());
+    while (this.activeCells.Count <= this.cullArea.NumberOfSubdivisions)
+      this.activeCells.Add(this.cullArea.FIRST_GROUP_ID);
+    return this.activeCells.Count != this.previousActiveCells.Count || this.activeCells[this.cullArea.NumberOfSubdivisions] != this.previousActiveCells[this.cullArea.NumberOfSubdivisions];
+  }
+
+  private void UpdateInterestGroups()
+  {
+    List<int> intList = new List<int>(0);
+    using (List<int>.Enumerator enumerator = this.previousActiveCells.GetEnumerator())
+    {
+      while (enumerator.MoveNext())
+      {
+        int current = enumerator.Current;
+        if (!this.activeCells.Contains(current))
+          intList.Add(current);
+      }
+    }
+    PhotonNetwork.SetReceivingEnabled(this.activeCells.ToArray(), intList.ToArray());
+    PhotonNetwork.SetSendingEnabled(this.activeCells.ToArray(), intList.ToArray());
+  }
+
+  public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+  {
+    while (this.activeCells.Count <= this.cullArea.NumberOfSubdivisions)
+      this.activeCells.Add(this.cullArea.FIRST_GROUP_ID);
+    if (this.cullArea.NumberOfSubdivisions == 1)
+    {
+      this.orderIndex = ++this.orderIndex % this.cullArea.SUBDIVISION_FIRST_LEVEL_ORDER.Length;
+      this.pView.group = this.activeCells[this.cullArea.SUBDIVISION_FIRST_LEVEL_ORDER[this.orderIndex]];
+    }
+    else if (this.cullArea.NumberOfSubdivisions == 2)
+    {
+      this.orderIndex = ++this.orderIndex % this.cullArea.SUBDIVISION_SECOND_LEVEL_ORDER.Length;
+      this.pView.group = this.activeCells[this.cullArea.SUBDIVISION_SECOND_LEVEL_ORDER[this.orderIndex]];
+    }
+    else
+    {
+      if (this.cullArea.NumberOfSubdivisions != 3)
+        return;
+      this.orderIndex = ++this.orderIndex % this.cullArea.SUBDIVISION_THIRD_LEVEL_ORDER.Length;
+      this.pView.group = this.activeCells[this.cullArea.SUBDIVISION_THIRD_LEVEL_ORDER[this.orderIndex]];
+    }
   }
 }

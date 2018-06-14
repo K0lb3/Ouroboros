@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.ArtifactData
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -198,6 +198,14 @@ namespace SRPG
       }
     }
 
+    public bool Setup(long iid, string iname)
+    {
+      this.mArtifactParam = MonoSingleton<GameManager>.GetInstanceDirect().MasterParam.GetArtifactParam(iname);
+      DebugUtility.Assert(this.mArtifactParam != null, "Failed ArtifactParam iname \"" + iname + "\" not found.");
+      this.mUniqueID = (OLong) iid;
+      return true;
+    }
+
     public void Reset()
     {
       this.mArtifactParam = (ArtifactParam) null;
@@ -239,21 +247,21 @@ namespace SRPG
       {
         // ISSUE: object of a compiler-generated type is created
         // ISSUE: variable of a compiler-generated type
-        ArtifactData.\u003CUpdateLearningAbilities\u003Ec__AnonStorey1E8 abilitiesCAnonStorey1E8 = new ArtifactData.\u003CUpdateLearningAbilities\u003Ec__AnonStorey1E8();
+        ArtifactData.\u003CUpdateLearningAbilities\u003Ec__AnonStorey282 abilitiesCAnonStorey282 = new ArtifactData.\u003CUpdateLearningAbilities\u003Ec__AnonStorey282();
         if ((int) this.mLv >= this.mArtifactParam.abil_levels[index] && (int) this.mRarity >= this.mArtifactParam.abil_rareties[index])
         {
           // ISSUE: reference to a compiler-generated field
-          abilitiesCAnonStorey1E8.param = instanceDirect.GetAbilityParam(this.mArtifactParam.abil_inames[index]);
+          abilitiesCAnonStorey282.param = instanceDirect.GetAbilityParam(this.mArtifactParam.abil_inames[index]);
           // ISSUE: reference to a compiler-generated field
-          if (abilitiesCAnonStorey1E8.param != null)
+          if (abilitiesCAnonStorey282.param != null)
           {
             // ISSUE: reference to a compiler-generated method
-            AbilityData abilityData1 = this.mLearningAbilities.Find(new Predicate<AbilityData>(abilitiesCAnonStorey1E8.\u003C\u003Em__1A4));
+            AbilityData abilityData1 = this.mLearningAbilities.Find(new Predicate<AbilityData>(abilitiesCAnonStorey282.\u003C\u003Em__231));
             if (abilityData1 == null)
             {
               AbilityData abilityData2 = new AbilityData();
               // ISSUE: reference to a compiler-generated field
-              abilityData2.Setup((UnitData) null, 0L, abilitiesCAnonStorey1E8.param.iname, (int) this.mRarity);
+              abilityData2.Setup((UnitData) null, 0L, abilitiesCAnonStorey282.param.iname, (int) this.mRarity);
               abilityData2.IsNoneCategory = true;
               abilityData2.IsHideList = this.mArtifactParam.abil_shows[index] == 0;
               this.mLearningAbilities.Add(abilityData2);
@@ -261,7 +269,7 @@ namespace SRPG
             else if (bRarityUp)
             {
               // ISSUE: reference to a compiler-generated field
-              abilityData1.Setup((UnitData) null, 0L, abilitiesCAnonStorey1E8.param.iname, (int) this.mRarity);
+              abilityData1.Setup((UnitData) null, 0L, abilitiesCAnonStorey282.param.iname, (int) this.mRarity);
             }
           }
         }
@@ -401,6 +409,11 @@ namespace SRPG
       this.LevelUp();
     }
 
+    public int GetGainExpCap()
+    {
+      return this.GetTotalExpFromLevel(this.GetLevelCap());
+    }
+
     public void LevelUp()
     {
       this.UpdateEquipEffect();
@@ -438,32 +451,32 @@ namespace SRPG
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      ArtifactData.\u003CGetKakeraNumForRarityUp\u003Ec__AnonStorey1E9 upCAnonStorey1E9 = new ArtifactData.\u003CGetKakeraNumForRarityUp\u003Ec__AnonStorey1E9();
+      ArtifactData.\u003CGetKakeraNumForRarityUp\u003Ec__AnonStorey283 upCAnonStorey283 = new ArtifactData.\u003CGetKakeraNumForRarityUp\u003Ec__AnonStorey283();
       // ISSUE: reference to a compiler-generated field
-      upCAnonStorey1E9.result = 0;
+      upCAnonStorey283.result = 0;
       // ISSUE: reference to a compiler-generated method
-      Action<ItemData> action = new Action<ItemData>(upCAnonStorey1E9.\u003C\u003Em__1A5);
+      Action<ItemData> action = new Action<ItemData>(upCAnonStorey283.\u003C\u003Em__232);
       action(this.KakeraData);
       action(this.RarityKakeraData);
       action(this.CommonKakeraData);
       // ISSUE: reference to a compiler-generated field
-      return upCAnonStorey1E9.result;
+      return upCAnonStorey283.result;
     }
 
     public List<ItemData> GetKakeraDataListForRarityUp()
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      ArtifactData.\u003CGetKakeraDataListForRarityUp\u003Ec__AnonStorey1EA upCAnonStorey1Ea = new ArtifactData.\u003CGetKakeraDataListForRarityUp\u003Ec__AnonStorey1EA();
+      ArtifactData.\u003CGetKakeraDataListForRarityUp\u003Ec__AnonStorey284 upCAnonStorey284 = new ArtifactData.\u003CGetKakeraDataListForRarityUp\u003Ec__AnonStorey284();
       // ISSUE: reference to a compiler-generated field
-      upCAnonStorey1Ea.result = new List<ItemData>();
+      upCAnonStorey284.result = new List<ItemData>();
       // ISSUE: reference to a compiler-generated method
-      Action<ItemData> action = new Action<ItemData>(upCAnonStorey1Ea.\u003C\u003Em__1A6);
+      Action<ItemData> action = new Action<ItemData>(upCAnonStorey284.\u003C\u003Em__233);
       action(this.KakeraData);
       action(this.RarityKakeraData);
       action(this.CommonKakeraData);
       // ISSUE: reference to a compiler-generated field
-      return upCAnonStorey1Ea.result;
+      return upCAnonStorey284.result;
     }
 
     public ArtifactData.RarityUpResults CheckEnableRarityUp()
@@ -494,7 +507,6 @@ namespace SRPG
           if (val2 >= 1)
           {
             int num1 = Math.Min(itemDataArray[index].Num, val2);
-            itemDataArray[index].Used(num1);
             val2 -= num1;
           }
           else

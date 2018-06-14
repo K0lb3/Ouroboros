@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.StatusEffect
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -23,7 +23,7 @@ namespace SRPG
 
     private void Start()
     {
-      this.mNowConditions = new bool[(int) Unit.MAX_UNIT_CONDITION];
+      this.mNowConditions = new bool[(int) Unit.MAX_UNIT_CONDITION + 1];
       this.Reset();
     }
 
@@ -54,13 +54,28 @@ namespace SRPG
           if (index1 < this.StatusSlot.Length)
           {
             this.StatusSlot[index1].SetActive(true);
-            ((ImageArray) this.StatusSlot[index1].GetComponent<ImageArray>()).ImageIndex = index2;
+            ImageArray component = (ImageArray) this.StatusSlot[index1].GetComponent<ImageArray>();
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null) && index2 < component.Images.Length)
+              component.ImageIndex = index2;
             ++index1;
           }
         }
         else
           this.mNowConditions[index2] = false;
       }
+      int length = values.Length;
+      if (length >= this.mNowConditions.Length)
+        return;
+      this.mNowConditions[length] = false;
+      if (unit.Shields.Count == 0)
+        return;
+      this.mNowConditions[length] = true;
+      ++this.mActiveParamCount;
+      this.StatusSlot[index1].SetActive(true);
+      ImageArray component1 = (ImageArray) this.StatusSlot[index1].GetComponent<ImageArray>();
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component1, (UnityEngine.Object) null) && length < component1.Images.Length)
+        component1.ImageIndex = length;
+      int num = index1 + 1;
     }
 
     private void Update()
@@ -86,7 +101,9 @@ namespace SRPG
             else
             {
               this.StatusSlot[index1].SetActive(true);
-              ((ImageArray) this.StatusSlot[index1].GetComponent<ImageArray>()).ImageIndex = index2;
+              ImageArray component = (ImageArray) this.StatusSlot[index1].GetComponent<ImageArray>();
+              if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null) && index2 < component.Images.Length)
+                component.ImageIndex = index2;
               if (++index1 >= this.StatusSlot.Length)
                 break;
             }

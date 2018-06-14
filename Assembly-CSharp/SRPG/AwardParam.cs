@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.AwardParam
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -22,6 +22,7 @@ namespace SRPG
     public DateTime start_at;
     public int grade;
     public int hash;
+    public int tab;
 
     protected void localizeFields(string language)
     {
@@ -58,6 +59,7 @@ namespace SRPG
         DateTime.TryParse(json.start_at, out this.start_at);
       this.grade = json.grade;
       this.hash = json.iname.GetHashCode();
+      this.tab = json.tab;
       return true;
     }
 
@@ -88,6 +90,13 @@ namespace SRPG
       Grade4,
       Grade5,
       GradeEx,
+    }
+
+    public enum Tab
+    {
+      None = -1,
+      Normal = 0,
+      Extra = 1,
     }
   }
 }

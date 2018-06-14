@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: StaticBatchGroup
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -245,16 +245,16 @@ public class StaticBatchGroup : MonoBehaviour
   {
     // ISSUE: object of a compiler-generated type is created
     // ISSUE: variable of a compiler-generated type
-    StaticBatchGroup.\u003CStart\u003Ec__AnonStorey206 startCAnonStorey206 = new StaticBatchGroup.\u003CStart\u003Ec__AnonStorey206();
+    StaticBatchGroup.\u003CStart\u003Ec__AnonStorey2B8 startCAnonStorey2B8 = new StaticBatchGroup.\u003CStart\u003Ec__AnonStorey2B8();
     if (Object.op_Inequality((Object) this, (Object) StaticBatchGroup.mInstances[StaticBatchGroup.mInstances.Count - 1]))
       return;
     // ISSUE: reference to a compiler-generated field
-    startCAnonStorey206.meshes = StaticBatchGroup.GenerateBatch();
+    startCAnonStorey2B8.meshes = StaticBatchGroup.GenerateBatch();
     // ISSUE: reference to a compiler-generated field
-    if (startCAnonStorey206.meshes == null)
+    if (startCAnonStorey2B8.meshes == null)
       return;
     // ISSUE: reference to a compiler-generated method
-    ((DestroyEventListener) ((Component) this).get_gameObject().AddComponent<DestroyEventListener>()).Listeners += new DestroyEventListener.DestroyEvent(startCAnonStorey206.\u003C\u003Em__1DB);
+    ((DestroyEventListener) ((Component) this).get_gameObject().AddComponent<DestroyEventListener>()).Listeners += new DestroyEventListener.DestroyEvent(startCAnonStorey2B8.\u003C\u003Em__284);
   }
 
   private class Section

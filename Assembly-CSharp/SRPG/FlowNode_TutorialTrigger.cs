@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_TutorialTrigger
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using UnityEngine;
@@ -9,10 +9,10 @@ using UnityEngine;
 namespace SRPG
 {
   [FlowNode.Pin(0, "Activate", FlowNode.PinTypes.Input, 0)]
-  [FlowNode.NodeType("Event/Tutorial Trigger", 58751)]
   [AddComponentMenu("")]
-  [FlowNode.Pin(10, "Triggered", FlowNode.PinTypes.Output, 10)]
+  [FlowNode.NodeType("Event/Tutorial Trigger", 58751)]
   [FlowNode.Pin(1, "Deactivate", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(10, "Triggered", FlowNode.PinTypes.Output, 10)]
   public class FlowNode_TutorialTrigger : FlowNode
   {
     [BitMask]

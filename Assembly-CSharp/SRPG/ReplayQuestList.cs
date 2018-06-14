@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.ReplayQuestList
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -40,7 +40,7 @@ namespace SRPG
       base.Start();
       ((Action<GameObject, bool>) ((lie, value) =>
       {
-        if (!Object.op_Inequality((Object) lie, (Object) null) || !lie.get_activeInHierarchy())
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) lie, (UnityEngine.Object) null) || !lie.get_activeInHierarchy())
           return;
         lie.SetActive(value);
       }))(this.ItemTemplate, false);
@@ -54,7 +54,7 @@ namespace SRPG
       if (this.mListItemTemplates.ContainsKey(param.ItemLayout))
         return this.mListItemTemplates[param.ItemLayout];
       GameObject gameObject = AssetManager.Load<GameObject>("QuestListItems/" + param.ItemLayout);
-      if (Object.op_Inequality((Object) gameObject, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) gameObject, (UnityEngine.Object) null))
         this.mListItemTemplates.Add(param.ItemLayout, gameObject);
       return gameObject;
     }
@@ -68,7 +68,7 @@ namespace SRPG
       this.chapterName = (string) GlobalVars.ReplaySelectedChapter;
       this.RefreshQuests();
       this.RefreshItems();
-      if (!Object.op_Inequality((Object) this.ScrollRect, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ScrollRect, (UnityEngine.Object) null))
         return;
       this.ScrollRect.set_normalizedPosition(Vector2.get_one());
     }
@@ -91,7 +91,7 @@ namespace SRPG
     private void RefreshItems()
     {
       this.ClearItems();
-      if (Object.op_Equality((Object) this.ItemTemplate, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.ItemTemplate, (UnityEngine.Object) null))
         return;
       QuestParam[] array = this.mQuests.ToArray();
       if (this.Descending)
@@ -102,12 +102,12 @@ namespace SRPG
         GameObject gameObject1 = (GameObject) null;
         if (!string.IsNullOrEmpty(data.ItemLayout))
           gameObject1 = this.LoadQuestListItem(data);
-        if (Object.op_Equality((Object) gameObject1, (Object) null))
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) gameObject1, (UnityEngine.Object) null))
           gameObject1 = this.ItemTemplate;
-        if (!Object.op_Equality((Object) gameObject1, (Object) null))
+        if (!UnityEngine.Object.op_Equality((UnityEngine.Object) gameObject1, (UnityEngine.Object) null))
         {
-          GameObject gameObject2 = (GameObject) Object.Instantiate<GameObject>((M0) gameObject1);
-          ((Object) gameObject2).set_hideFlags((HideFlags) 52);
+          GameObject gameObject2 = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) gameObject1);
+          ((UnityEngine.Object) gameObject2).set_hideFlags((HideFlags) 52);
           DataSource.Bind<QuestParam>(gameObject2, data);
           ListItemEvents component = (ListItemEvents) gameObject2.GetComponent<ListItemEvents>();
           component.OnSelect = new ListItemEvents.ListItemEvent(this.OnSelectItem);
@@ -122,16 +122,16 @@ namespace SRPG
 
     private void SetQuestTimerActive(Transform obj, bool value)
     {
-      if (Object.op_Equality((Object) obj, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) obj, (UnityEngine.Object) null))
         return;
       QuestTimeLimit component = (QuestTimeLimit) ((Component) obj).GetComponent<QuestTimeLimit>();
-      if (Object.op_Inequality((Object) component, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
         ((Behaviour) component).set_enabled(value);
       Transform child1 = obj.FindChild("bg");
-      if (!Object.op_Inequality((Object) child1, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) child1, (UnityEngine.Object) null))
         return;
       Transform child2 = child1.FindChild("timer_base");
-      if (!Object.op_Inequality((Object) child2, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) child2, (UnityEngine.Object) null))
         return;
       ((Component) child2).get_gameObject().SetActive(value);
     }

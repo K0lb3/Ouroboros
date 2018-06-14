@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.NavigationWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using UnityEngine;
@@ -29,17 +29,24 @@ namespace SRPG
 
     public static void DiscardCurrent()
     {
-      if (!Object.op_Inequality((Object) NavigationWindow.mCurrent, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) NavigationWindow.mCurrent, (UnityEngine.Object) null))
         return;
-      Object.Destroy((Object) ((Component) NavigationWindow.mCurrent).get_gameObject(), NavigationWindow.mCurrent.DestroyDelay);
-      if (Object.op_Inequality((Object) NavigationWindow.mCurrent.mAnimator, (Object) null) && !string.IsNullOrEmpty(NavigationWindow.mCurrent.HideTrigger))
+      UnityEngine.Object.Destroy((UnityEngine.Object) ((Component) NavigationWindow.mCurrent).get_gameObject(), NavigationWindow.mCurrent.DestroyDelay);
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) NavigationWindow.mCurrent.mAnimator, (UnityEngine.Object) null) && !string.IsNullOrEmpty(NavigationWindow.mCurrent.HideTrigger))
         NavigationWindow.mCurrent.mAnimator.SetTrigger(NavigationWindow.mCurrent.HideTrigger);
       NavigationWindow.mCurrent = (NavigationWindow) null;
     }
 
+    public static void DiscardByTxt(string text)
+    {
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) NavigationWindow.mCurrent, (UnityEngine.Object) null) || !(NavigationWindow.mCurrent.Text.get_text() == text))
+        return;
+      NavigationWindow.DiscardCurrent();
+    }
+
     public static void Show(NavigationWindow template, string text, NavigationWindow.Alignment align)
     {
-      if (Object.op_Equality((Object) template, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) template, (UnityEngine.Object) null))
         return;
       if (NavigationWindow.mNumNavigations == 0)
       {
@@ -51,9 +58,9 @@ namespace SRPG
         Canvas component = (Canvas) NavigationWindow.mNavigationCanvas.GetComponent<Canvas>();
         component.set_renderMode((RenderMode) 0);
         component.set_sortingOrder(5000);
-        Object.DontDestroyOnLoad((Object) NavigationWindow.mNavigationCanvas);
+        UnityEngine.Object.DontDestroyOnLoad((UnityEngine.Object) NavigationWindow.mNavigationCanvas);
       }
-      NavigationWindow navigationWindow = (NavigationWindow) Object.Instantiate<NavigationWindow>((M0) template);
+      NavigationWindow navigationWindow = (NavigationWindow) UnityEngine.Object.Instantiate<NavigationWindow>((M0) template);
       navigationWindow.SetAlignment(align);
       navigationWindow.SetText(text);
       ((Component) navigationWindow).get_transform().SetParent(NavigationWindow.mNavigationCanvas.get_transform(), false);
@@ -77,7 +84,7 @@ namespace SRPG
       --NavigationWindow.mNumNavigations;
       if (NavigationWindow.mNumNavigations != 0)
         return;
-      Object.Destroy((Object) NavigationWindow.mNavigationCanvas.get_gameObject());
+      UnityEngine.Object.Destroy((UnityEngine.Object) NavigationWindow.mNavigationCanvas.get_gameObject());
       NavigationWindow.mNavigationCanvas = (GameObject) null;
     }
 

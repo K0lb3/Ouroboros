@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.EventAction_MoveActor2
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -12,8 +12,8 @@ namespace SRPG
   [EventActionInfo("New/アクター/移動", "アクターを指定パスに沿って移動させます。", 6702148, 11158596)]
   public class EventAction_MoveActor2 : EventAction
   {
-    [HideInInspector]
     [SerializeField]
+    [HideInInspector]
     private IntVector2[] mPoints = new IntVector2[1];
     [SerializeField]
     public Vector3[] m_WayPoints = new Vector3[1];
@@ -25,27 +25,27 @@ namespace SRPG
     public bool GroundSnap = true;
     [Tooltip("移動速度")]
     public float RunSpeed = 4f;
-    private float BackupRunSpeed = 4f;
+    protected float BackupRunSpeed = 4f;
     [StringIsActorList]
     public string ActorID;
     public float Delay;
     public bool Async;
     public bool GotoRealPosition;
     public bool m_StartActorPos;
-    private TacticsUnitController mController;
+    protected TacticsUnitController mController;
     [Tooltip("移動する時に向きを固定化するか")]
     public bool LockRotation;
     [Tooltip("移動する時にモーションを固定化するか")]
     public bool LockMotion;
     private int mMoveIndex;
-    private bool mMoving;
-    private bool mFinishMove;
-    private bool mActorCollideGround;
-    private bool mReady;
+    protected bool mMoving;
+    protected bool mFinishMove;
+    protected bool mActorCollideGround;
+    protected bool mReady;
 
-    private void StartMove()
+    protected void StartMove()
     {
-      if (this.GotoRealPosition && Object.op_Inequality((Object) this.mController, (Object) null) && this.mController.Unit != null)
+      if (this.GotoRealPosition && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mController, (UnityEngine.Object) null) && this.mController.Unit != null)
       {
         Array.Resize<Vector3>(ref this.m_WayPoints, this.m_WayPoints.Length + 1);
         this.m_WayPoints[this.m_WayPoints.Length - 1] = new Vector3((float) this.mController.Unit.x, 0.0f, (float) this.mController.Unit.y);
@@ -55,7 +55,7 @@ namespace SRPG
       Vector3[] route = new Vector3[this.m_WayPoints.Length];
       for (int index = 0; index < this.m_WayPoints.Length; ++index)
         route[index] = this.m_WayPoints[index];
-      if (this.m_StartActorPos && Object.op_Inequality((Object) this.mController, (Object) null))
+      if (this.m_StartActorPos && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mController, (UnityEngine.Object) null))
       {
         Transform transform = ((Component) this.mController).get_transform();
         route[0] = transform.get_position();
@@ -76,7 +76,7 @@ namespace SRPG
     private TacticsUnitController GetController()
     {
       TacticsUnitController tacticsUnitController = TacticsUnitController.FindByUniqueName(this.ActorID);
-      if (Object.op_Equality((Object) tacticsUnitController, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) tacticsUnitController, (UnityEngine.Object) null))
         tacticsUnitController = TacticsUnitController.FindByUnitID(this.ActorID);
       return tacticsUnitController;
     }
@@ -84,7 +84,7 @@ namespace SRPG
     public override void OnActivate()
     {
       this.mController = this.GetController();
-      if (Object.op_Equality((Object) this.mController, (Object) null) || this.mPoints.Length == 0)
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mController, (UnityEngine.Object) null) || this.mPoints.Length == 0)
       {
         this.ActivateNext();
       }
@@ -101,7 +101,7 @@ namespace SRPG
     {
       if (!this.mReady)
       {
-        if (Object.op_Inequality((Object) this.mController, (Object) null) && this.mController.IsLoading)
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mController, (UnityEngine.Object) null) && this.mController.IsLoading)
           return;
         if (this.Async)
           this.ActivateNext(true);
@@ -147,10 +147,10 @@ namespace SRPG
       }
     }
 
-    private bool UpdateMove()
+    protected bool UpdateMove()
     {
       bool flag = true;
-      if (!Object.op_Implicit((Object) this.mController))
+      if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) this.mController))
         return false;
       if (this.m_WayPoints.Length > this.mMoveIndex)
       {

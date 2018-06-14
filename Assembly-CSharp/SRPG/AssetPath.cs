@@ -1,9 +1,10 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.AssetPath
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
+using GR;
 using System.Text;
 
 namespace SRPG
@@ -17,6 +18,8 @@ namespace SRPG
     {
       if (job == null)
         return AssetPath.JobResourceID_None;
+      if (!string.IsNullOrEmpty(job.ac2d))
+        return job.ac2d;
       return job.model;
     }
 
@@ -208,14 +211,28 @@ namespace SRPG
     {
       if (param != null)
       {
-        if (param.type != EItemType.ArtifactPiece)
-          return AssetPath.ItemIcon((string) param.icon);
-        if (!string.IsNullOrEmpty((string) param.icon))
+        switch (param.type)
         {
-          AssetPath.mSB.Length = 0;
-          AssetPath.mSB.Append("ArtiIcon/");
-          AssetPath.mSB.Append((string) param.icon);
-          return AssetPath.mSB.ToString();
+          case EItemType.ArtifactPiece:
+            if (!string.IsNullOrEmpty((string) param.icon))
+            {
+              AssetPath.mSB.Length = 0;
+              AssetPath.mSB.Append("ArtiIcon/");
+              AssetPath.mSB.Append((string) param.icon);
+              return AssetPath.mSB.ToString();
+            }
+            break;
+          case EItemType.Unit:
+            if (!string.IsNullOrEmpty((string) param.icon))
+            {
+              UnitParam unitParam = MonoSingleton<GameManager>.Instance.MasterParam.GetUnitParam(param.iname);
+              if (unitParam != null)
+                return AssetPath.UnitIconSmall(unitParam, unitParam.GetJobId(0));
+              break;
+            }
+            break;
+          default:
+            return AssetPath.ItemIcon((string) param.icon);
         }
       }
       return (string) null;
@@ -244,6 +261,42 @@ namespace SRPG
       AssetPath.mSB.Length = 0;
       AssetPath.mSB.Append("SkillBG/");
       AssetPath.mSB.Append(sceneName);
+      return AssetPath.mSB.ToString();
+    }
+
+    public static string TrickEffect(string effect_name)
+    {
+      AssetPath.mSB.Length = 0;
+      AssetPath.mSB.Append("MapGimmicks/");
+      AssetPath.mSB.Append(effect_name);
+      return AssetPath.mSB.ToString();
+    }
+
+    public static string TrickIconUI(string marker_name)
+    {
+      AssetPath.mSB.Length = 0;
+      AssetPath.mSB.Append("PortraitsM/panel");
+      if (!string.IsNullOrEmpty(marker_name))
+      {
+        AssetPath.mSB.Append("_");
+        AssetPath.mSB.Append(marker_name);
+      }
+      return AssetPath.mSB.ToString();
+    }
+
+    public static string WeatherIcon(string icon_name)
+    {
+      AssetPath.mSB.Length = 0;
+      AssetPath.mSB.Append("Weathers/");
+      AssetPath.mSB.Append(icon_name);
+      return AssetPath.mSB.ToString();
+    }
+
+    public static string WeatherEffect(string effect_name)
+    {
+      AssetPath.mSB.Length = 0;
+      AssetPath.mSB.Append("Weathers/");
+      AssetPath.mSB.Append(effect_name);
       return AssetPath.mSB.ToString();
     }
 

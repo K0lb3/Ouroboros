@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.EUnitFlag
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 namespace SRPG
@@ -26,5 +26,11 @@ namespace SRPG
     DisableFirstVoice = 32768, // 0x00008000
     DamagedActionStart = 65536, // 0x00010000
     TriggeredAutoSkills = 131072, // 0x00020000
+    DisableUnitChange = 262144, // 0x00040000
+    UnitChanged = 524288, // 0x00080000
+    UnitWithdraw = 1048576, // 0x00100000
+    CreatedBreakObj = 2097152, // 0x00200000
+    Reinforcement = 4194304, // 0x00400000
+    ToDying = 8388608, // 0x00800000
   }
 }

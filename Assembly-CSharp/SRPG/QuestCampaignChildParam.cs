@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.QuestCampaignChildParam
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -42,8 +42,16 @@ namespace SRPG
 
     public QuestCampaignData[] MakeData()
     {
-      if (this.scope == QuestCampaignScopes.Unit || this.scope == QuestCampaignScopes.UnitAndQuest)
-        return new QuestCampaignData[1]{ new QuestCampaignData() { type = QuestCampaignValueTypes.ExpUnit, unit = this.unit, value = this.expUnit } };
+      QuestCampaignData questCampaignData = new QuestCampaignData();
+      if (this.scope == QuestCampaignScopes.Unit)
+      {
+        questCampaignData.type = QuestCampaignValueTypes.ExpUnit;
+        questCampaignData.unit = this.unit;
+        questCampaignData.value = this.expUnit;
+        return new QuestCampaignData[1]{ questCampaignData };
+      }
+      if (this.scope == QuestCampaignScopes.UnitAndQuest)
+        questCampaignData.unit = this.unit;
       int length = 0;
       if (this.apRate != 100)
         ++length;
@@ -59,47 +67,37 @@ namespace SRPG
       int index = length - 1;
       if (this.apRate != 100)
       {
-        questCampaignDataArray[index] = new QuestCampaignData()
-        {
-          type = QuestCampaignValueTypes.Ap,
-          value = this.apRate
-        };
+        questCampaignData.type = QuestCampaignValueTypes.Ap;
+        questCampaignData.value = this.apRate;
+        questCampaignDataArray[index] = questCampaignData;
         --index;
       }
       if (this.expUnit != 100)
       {
-        questCampaignDataArray[index] = new QuestCampaignData()
-        {
-          type = QuestCampaignValueTypes.ExpUnit,
-          value = this.expUnit
-        };
+        questCampaignData.type = QuestCampaignValueTypes.ExpUnit;
+        questCampaignData.value = this.expUnit;
+        questCampaignDataArray[index] = questCampaignData;
         --index;
       }
       if (this.expPlayer != 100)
       {
-        questCampaignDataArray[index] = new QuestCampaignData()
-        {
-          type = QuestCampaignValueTypes.ExpPlayer,
-          value = this.expPlayer
-        };
+        questCampaignData.type = QuestCampaignValueTypes.ExpPlayer;
+        questCampaignData.value = this.expPlayer;
+        questCampaignDataArray[index] = questCampaignData;
         --index;
       }
       if (this.dropNum != 100)
       {
-        questCampaignDataArray[index] = new QuestCampaignData()
-        {
-          type = QuestCampaignValueTypes.DropNum,
-          value = this.dropNum
-        };
+        questCampaignData.type = QuestCampaignValueTypes.DropNum;
+        questCampaignData.value = this.dropNum;
+        questCampaignDataArray[index] = questCampaignData;
         --index;
       }
       if (this.dropRate != 100)
       {
-        questCampaignDataArray[index] = new QuestCampaignData()
-        {
-          type = QuestCampaignValueTypes.DropRate,
-          value = this.dropRate
-        };
+        questCampaignData.type = QuestCampaignValueTypes.DropRate;
+        questCampaignData.value = this.dropRate;
+        questCampaignDataArray[index] = questCampaignData;
         int num = index - 1;
       }
       return questCampaignDataArray;

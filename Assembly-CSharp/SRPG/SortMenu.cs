@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.SortMenu
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -12,8 +12,8 @@ using UnityEngine.UI;
 
 namespace SRPG
 {
-  [FlowNode.Pin(1, "Open", FlowNode.PinTypes.Output, 1)]
   [FlowNode.Pin(2, "Restore State", FlowNode.PinTypes.Input, 2)]
+  [FlowNode.Pin(1, "Open", FlowNode.PinTypes.Output, 1)]
   public class SortMenu : MonoBehaviour, IFlowInterface
   {
     public bool LocalizeCaption;
@@ -44,19 +44,19 @@ namespace SRPG
     {
       for (int index = 0; index < this.Items.Length; ++index)
       {
-        if (Object.op_Inequality((Object) this.Items[index].Toggle, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Items[index].Toggle, (UnityEngine.Object) null))
           GameUtility.SetToggle(this.Items[index].Toggle, false);
       }
     }
 
     private void Start()
     {
-      if (Object.op_Inequality((Object) this.ToggleFiltersOff, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ToggleFiltersOff, (UnityEngine.Object) null))
       {
         // ISSUE: method pointer
         ((UnityEvent) this.ToggleFiltersOff.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(SetAllFiltersOff)));
       }
-      if (!Object.op_Inequality((Object) this.ToggleFiltersOn, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ToggleFiltersOn, (UnityEngine.Object) null))
         return;
       // ISSUE: method pointer
       ((UnityEvent) this.ToggleFiltersOn.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(SetAllFiltersOn)));
@@ -66,7 +66,7 @@ namespace SRPG
     {
       for (int index = 0; index < this.Filters.Length; ++index)
       {
-        if (Object.op_Inequality((Object) this.Filters[index].Toggle, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Filters[index].Toggle, (UnityEngine.Object) null))
           GameUtility.SetToggle(this.Filters[index].Toggle, true);
       }
     }
@@ -75,7 +75,7 @@ namespace SRPG
     {
       for (int index = 0; index < this.Filters.Length; ++index)
       {
-        if (Object.op_Inequality((Object) this.Filters[index].Toggle, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Filters[index].Toggle, (UnityEngine.Object) null))
           GameUtility.SetToggle(this.Filters[index].Toggle, false);
       }
     }
@@ -91,12 +91,12 @@ namespace SRPG
       this.mSelectedAscending = this.IsAscending;
       for (int index = 0; index < this.Items.Length; ++index)
       {
-        if (Object.op_Inequality((Object) this.Items[index].Toggle, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Items[index].Toggle, (UnityEngine.Object) null))
           this.Items[index].LastState = this.Items[index].Toggle.get_isOn();
       }
       for (int index = 0; index < this.Filters.Length; ++index)
       {
-        if (Object.op_Inequality((Object) this.Filters[index].Toggle, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Filters[index].Toggle, (UnityEngine.Object) null))
           this.Filters[index].LastState = this.Filters[index].Toggle.get_isOn();
       }
     }
@@ -106,12 +106,12 @@ namespace SRPG
       this.IsAscending = this.mSelectedAscending;
       for (int index = 0; index < this.Items.Length; ++index)
       {
-        if (Object.op_Inequality((Object) this.Items[index].Toggle, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Items[index].Toggle, (UnityEngine.Object) null))
           GameUtility.SetToggle(this.Items[index].Toggle, this.Items[index].LastState);
       }
       for (int index = 0; index < this.Filters.Length; ++index)
       {
-        if (Object.op_Inequality((Object) this.Filters[index].Toggle, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Filters[index].Toggle, (UnityEngine.Object) null))
           GameUtility.SetToggle(this.Filters[index].Toggle, this.Filters[index].LastState);
       }
     }
@@ -130,7 +130,7 @@ namespace SRPG
       {
         for (int index = 0; index < this.Items.Length; ++index)
         {
-          if (Object.op_Inequality((Object) this.Items[index].Toggle, (Object) null) && this.Items[index].Toggle.get_isOn())
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Items[index].Toggle, (UnityEngine.Object) null) && this.Items[index].Toggle.get_isOn())
           {
             if (this.LocalizeCaption)
               return LocalizedText.Get(this.Items[index].Caption);
@@ -141,7 +141,7 @@ namespace SRPG
         {
           for (int index = 0; index < this.Filters.Length; ++index)
           {
-            if (Object.op_Inequality((Object) this.Filters[index].Toggle, (Object) null) && this.Filters[index].Toggle.get_isOn())
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Filters[index].Toggle, (UnityEngine.Object) null) && this.Filters[index].Toggle.get_isOn())
             {
               if (this.LocalizeCaption)
                 return LocalizedText.Get(this.Filters[index].Caption);
@@ -161,7 +161,7 @@ namespace SRPG
       {
         for (int index = 0; index < this.Items.Length; ++index)
         {
-          if (Object.op_Inequality((Object) this.Items[index].Toggle, (Object) null) && this.Items[index].Toggle.get_isOn())
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Items[index].Toggle, (UnityEngine.Object) null) && this.Items[index].Toggle.get_isOn())
             return this.Items[index].Method;
         }
         return (string) null;
@@ -170,7 +170,7 @@ namespace SRPG
       {
         for (int index = 0; index < this.Items.Length; ++index)
         {
-          if (Object.op_Inequality((Object) this.Items[index].Toggle, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Items[index].Toggle, (UnityEngine.Object) null))
             GameUtility.SetToggle(this.Items[index].Toggle, this.Items[index].Method == value);
         }
       }
@@ -192,15 +192,15 @@ namespace SRPG
     {
       get
       {
-        if (Object.op_Inequality((Object) this.Ascending, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Ascending, (UnityEngine.Object) null))
           return !this.Ascending.get_isOn();
         return false;
       }
       set
       {
-        if (Object.op_Inequality((Object) this.Ascending, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Ascending, (UnityEngine.Object) null))
           GameUtility.SetToggle(this.Ascending, !value);
-        if (!Object.op_Inequality((Object) this.Descending, (Object) null))
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Descending, (UnityEngine.Object) null))
           return;
         GameUtility.SetToggle(this.Descending, value);
       }
@@ -223,7 +223,7 @@ namespace SRPG
       {
         for (int index = 0; index < this.Filters.Length; ++index)
         {
-          if (Object.op_Inequality((Object) this.Filters[index].Toggle, (Object) null) && !this.Filters[index].Toggle.get_isOn())
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Filters[index].Toggle, (UnityEngine.Object) null) && !this.Filters[index].Toggle.get_isOn())
             stringList.Add(this.Filters[index].Method);
         }
         if (stringList.Count == 0)
@@ -233,7 +233,7 @@ namespace SRPG
       {
         for (int index = 0; index < this.Filters.Length; ++index)
         {
-          if (Object.op_Inequality((Object) this.Filters[index].Toggle, (Object) null) && this.Filters[index].Toggle.get_isOn())
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Filters[index].Toggle, (UnityEngine.Object) null) && this.Filters[index].Toggle.get_isOn())
             stringList.Add(this.Filters[index].Method);
         }
         if (this.Filters.Length == stringList.Count)
@@ -255,7 +255,7 @@ namespace SRPG
       {
         for (int index = 0; index < this.Filters.Length; ++index)
         {
-          if (!string.IsNullOrEmpty(this.Filters[index].Method) && Object.op_Inequality((Object) this.Filters[index].Toggle, (Object) null))
+          if (!string.IsNullOrEmpty(this.Filters[index].Method) && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Filters[index].Toggle, (UnityEngine.Object) null))
           {
             bool flag = Array.IndexOf<string>(filters, this.Filters[index].Method) >= 0;
             if (invert)

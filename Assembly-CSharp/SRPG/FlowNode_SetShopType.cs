@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_SetShopType
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -9,18 +9,18 @@ using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.NodeType("System/SetShopType", 32741)]
-  [FlowNode.Pin(100, "Normal", FlowNode.PinTypes.Input, 0)]
-  [FlowNode.Pin(101, "Tabi", FlowNode.PinTypes.Input, 1)]
-  [FlowNode.Pin(102, "Kimagure", FlowNode.PinTypes.Input, 2)]
-  [FlowNode.Pin(103, "Monozuki", FlowNode.PinTypes.Input, 3)]
   [FlowNode.Pin(104, "Arena", FlowNode.PinTypes.Input, 4)]
-  [FlowNode.Pin(105, "Tour", FlowNode.PinTypes.Input, 5)]
+  [FlowNode.Pin(102, "Kimagure", FlowNode.PinTypes.Input, 2)]
   [FlowNode.Pin(106, "Multi", FlowNode.PinTypes.Input, 6)]
-  [FlowNode.Pin(107, "AwakePiece", FlowNode.PinTypes.Input, 7)]
-  [FlowNode.Pin(108, "Artifact", FlowNode.PinTypes.Input, 8)]
+  [FlowNode.Pin(101, "Tabi", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(105, "Tour", FlowNode.PinTypes.Input, 5)]
+  [FlowNode.Pin(103, "Monozuki", FlowNode.PinTypes.Input, 3)]
   [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 10)]
   [FlowNode.Pin(109, "Artifact", FlowNode.PinTypes.Input, 9)]
+  [FlowNode.NodeType("System/SetShopType", 32741)]
+  [FlowNode.Pin(100, "Normal", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(108, "Artifact", FlowNode.PinTypes.Input, 8)]
+  [FlowNode.Pin(107, "AwakePiece", FlowNode.PinTypes.Input, 7)]
   public class FlowNode_SetShopType : FlowNode
   {
     public override void OnActivate(int pinID)

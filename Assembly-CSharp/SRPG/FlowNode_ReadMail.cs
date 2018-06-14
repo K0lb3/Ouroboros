@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_ReadMail
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -11,13 +11,13 @@ using UnityEngine;
 
 namespace SRPG
 {
+  [FlowNode.Pin(20, "一件受け取り完了", FlowNode.PinTypes.Output, 20)]
+  [FlowNode.Pin(21, "全件受け取り完了", FlowNode.PinTypes.Output, 21)]
   [FlowNode.Pin(22, "いくつか受け取れなかった", FlowNode.PinTypes.Output, 22)]
+  [FlowNode.Pin(23, "何も受け取れなかった", FlowNode.PinTypes.Output, 23)]
   [FlowNode.NodeType("System/ReadMail", 32741)]
   [FlowNode.Pin(10, "一件既読", FlowNode.PinTypes.Input, 10)]
   [FlowNode.Pin(11, "全件既読", FlowNode.PinTypes.Input, 11)]
-  [FlowNode.Pin(20, "一件受け取り完了", FlowNode.PinTypes.Output, 20)]
-  [FlowNode.Pin(21, "全件受け取り完了", FlowNode.PinTypes.Output, 21)]
-  [FlowNode.Pin(23, "何も受け取れなかった", FlowNode.PinTypes.Output, 23)]
   public class FlowNode_ReadMail : FlowNode_Network
   {
     private FlowNode_ReadMail.RecieveStatus mRecieveStatus;
@@ -73,7 +73,7 @@ namespace SRPG
         case 10:
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          FlowNode_ReadMail.\u003COnActivate\u003Ec__AnonStorey211 activateCAnonStorey211 = new FlowNode_ReadMail.\u003COnActivate\u003Ec__AnonStorey211();
+          FlowNode_ReadMail.\u003COnActivate\u003Ec__AnonStorey2CF activateCAnonStorey2Cf = new FlowNode_ReadMail.\u003COnActivate\u003Ec__AnonStorey2CF();
           if (((Behaviour) this).get_enabled())
             break;
           if (Network.Mode == Network.EConnectMode.Offline)
@@ -83,10 +83,10 @@ namespace SRPG
             break;
           }
           // ISSUE: reference to a compiler-generated field
-          activateCAnonStorey211.mailid = (long) GlobalVars.SelectedMailUniqueID;
+          activateCAnonStorey2Cf.mailid = (long) GlobalVars.SelectedMailUniqueID;
           int selectedMailPeriod = (int) GlobalVars.SelectedMailPeriod;
           // ISSUE: reference to a compiler-generated method
-          MailData mailData = MonoSingleton<GameManager>.Instance.Player.Mails.Find(new Predicate<MailData>(activateCAnonStorey211.\u003C\u003Em__201));
+          MailData mailData = MonoSingleton<GameManager>.Instance.Player.Mails.Find(new Predicate<MailData>(activateCAnonStorey2Cf.\u003C\u003Em__2B6));
           this.RefreshCurrentNums();
           if (!this.CheckRecievable(mailData))
           {
@@ -98,7 +98,7 @@ namespace SRPG
           // ISSUE: reference to a compiler-generated field
           this.ExecRequest((WebAPI) new ReqMailRead(new long[1]
           {
-            activateCAnonStorey211.mailid
+            activateCAnonStorey2Cf.mailid
           }, new int[1]{ selectedMailPeriod }, 0, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
           ((Behaviour) this).set_enabled(true);
           break;

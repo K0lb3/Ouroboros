@@ -1,12 +1,12 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.GachaHistoryWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
-using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,7 +14,7 @@ namespace SRPG
 {
   public class GachaHistoryWindow : MonoBehaviour
   {
-    public static readonly int MAX_VIEW = 1;
+    public static readonly int NODE_VIEW_MAX = 10;
     [SerializeField]
     private RectTransform Root;
     [SerializeField]
@@ -29,13 +29,17 @@ namespace SRPG
     private Text TitleText;
     [SerializeField]
     private Text DropAtText;
-    private GachaHistoryData[] mHistorys;
+    [SerializeField]
+    private GameObject NodeTemplate;
     private string mTitleName;
     private long mDropAt;
     private Json_GachaHistoryLocalisedTitle mLocalisedTitle;
     private GameObject[] mLists;
     private bool IsDataSet;
     private bool IsView;
+    private List<GachaHistoryData[]> mHistorySets;
+    private List<GachaHistoryData> mCacheHistorys;
+    private List<GameObject> mListObjects;
 
     public GachaHistoryWindow()
     {
@@ -52,9 +56,11 @@ namespace SRPG
         this.ArtifactTemp.SetActive(false);
       if (Object.op_Inequality((Object) this.Cauntion, (Object) null))
         this.Cauntion.SetActive(false);
-      if (!Object.op_Inequality((Object) this.TitleText, (Object) null))
+      if (Object.op_Inequality((Object) this.TitleText, (Object) null))
+        ((Component) ((Component) this.TitleText).get_transform().get_parent()).get_gameObject().SetActive(false);
+      if (!Object.op_Inequality((Object) this.NodeTemplate, (Object) null))
         return;
-      ((Component) ((Component) this.TitleText).get_transform().get_parent()).get_gameObject().SetActive(false);
+      this.NodeTemplate.SetActive(false);
     }
 
     private void Start()
@@ -80,132 +86,81 @@ namespace SRPG
       this.mTitleName = historys.title;
       this.mDropAt = historys.drop_at;
       this.mLocalisedTitle = historys.multi_title;
+      List<GachaHistoryData> source = new List<GachaHistoryData>();
       if (historys.drops != null && historys.drops.Length > 0)
       {
-        this.mHistorys = new GachaHistoryData[historys.drops.Length];
         for (int index = 0; index < historys.drops.Length; ++index)
         {
           GachaHistoryData gachaHistoryData = new GachaHistoryData();
           if (gachaHistoryData.Deserialize(historys.drops[index]))
-            this.mHistorys[index] = gachaHistoryData;
+            source.Add(gachaHistoryData);
+        }
+      }
+      if (historys.drops != null && historys.drops.Length > 0)
+      {
+        this.mHistorySets.Clear();
+        this.mCacheHistorys.Clear();
+        int num = Mathf.Max(1, historys.drops.Length / GachaHistoryWindow.NODE_VIEW_MAX);
+        for (int index = 0; index < num; ++index)
+        {
+          this.mCacheHistorys.Clear();
+          this.mCacheHistorys.AddRange(source.Skip<GachaHistoryData>(index * GachaHistoryWindow.NODE_VIEW_MAX).Take<GachaHistoryData>(GachaHistoryWindow.NODE_VIEW_MAX));
+          if (this.mCacheHistorys != null && this.mCacheHistorys.Count > 0)
+            this.mHistorySets.Add(this.mCacheHistorys.ToArray());
         }
       }
       this.IsDataSet = true;
       return true;
     }
 
-    private bool Refresh()
+    private void Refresh()
     {
-      if (this.mHistorys == null || this.mHistorys.Length <= 0)
+      this.InializeHistoryList();
+    }
+
+    private bool InializeHistoryList()
+    {
+      if (this.mHistorySets == null || this.mHistorySets.Count < 0)
       {
-        DebugUtility.LogError(((object) this).GetType().FullName + " Error: mHistory is Null or Length < 0!");
-        if (Object.op_Inequality((Object) this.Cauntion, (Object) null))
-          this.Cauntion.SetActive(true);
+        DebugUtility.LogError("召喚履歴が存在しません");
         return false;
       }
-      if (Object.op_Inequality((Object) this.TitleText, (Object) null))
+      if (Object.op_Equality((Object) this.NodeTemplate, (Object) null))
       {
-        ((Component) ((Component) this.TitleText).get_transform().get_parent()).get_gameObject().SetActive(true);
-        this.TitleText.set_text(this.mTitleName + (object) ' ' + LocalizedText.Get("sys.TEXT_GACHA_HISTORY_FOOTER"));
-        string configLanguage = GameUtility.Config_Language;
-        if (configLanguage != null)
-        {
-          // ISSUE: reference to a compiler-generated field
-          if (GachaHistoryWindow.\u003C\u003Ef__switch\u0024map10 == null)
-          {
-            // ISSUE: reference to a compiler-generated field
-            GachaHistoryWindow.\u003C\u003Ef__switch\u0024map10 = new Dictionary<string, int>(3)
-            {
-              {
-                "french",
-                0
-              },
-              {
-                "spanish",
-                1
-              },
-              {
-                "german",
-                2
-              }
-            };
-          }
-          int num;
-          // ISSUE: reference to a compiler-generated field
-          if (GachaHistoryWindow.\u003C\u003Ef__switch\u0024map10.TryGetValue(configLanguage, out num))
-          {
-            switch (num)
-            {
-              case 0:
-                this.TitleText.set_text(this.mLocalisedTitle.fr);
-                goto label_14;
-              case 1:
-                this.TitleText.set_text(this.mLocalisedTitle.es);
-                goto label_14;
-              case 2:
-                this.TitleText.set_text(this.mLocalisedTitle.de);
-                goto label_14;
-            }
-          }
-        }
-        this.TitleText.set_text(this.mLocalisedTitle.en);
+        DebugUtility.LogError("召喚履歴ノードの指定されていません");
+        return false;
       }
-label_14:
-      if (Object.op_Inequality((Object) this.DropAtText, (Object) null))
-        this.DropAtText.set_text(GameUtility.UnixtimeToLocalTime(this.mDropAt).ToString(GameUtility.Localized_TimePattern_Short, (IFormatProvider) GameUtility.CultureSetting));
-      this.RefreshHistoryList();
-      return true;
-    }
-
-    private bool RefreshHistoryList()
-    {
-      this.mLists = new GameObject[this.mHistorys.Length];
-      for (int index = 0; index < this.mHistorys.Length; ++index)
+      this.mListObjects.Clear();
+      for (int index = 0; index < this.mHistorySets.Count; ++index)
       {
-        GachaHistoryData mHistory = this.mHistorys[index];
-        if (mHistory != null)
+        GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.NodeTemplate);
+        if (Object.op_Inequality((Object) gameObject, (Object) null))
         {
-          GameObject root = (GameObject) null;
-          if (mHistory.type == GachaDropData.Type.Unit)
+          gameObject.SetActive(true);
+          GachaHistoryItemData data = new GachaHistoryItemData(this.mHistorySets[index], this.mTitleName, this.mDropAt);
+          if (data == null)
           {
-            root = (GameObject) Object.Instantiate<GameObject>((M0) this.UnitTemp);
-            root.get_transform().SetParent(this.UnitTemp.get_transform().get_parent(), false);
-            DataSource.Bind<UnitData>(root, this.CreateUnitData(mHistory.unit));
+            DebugUtility.LogError("GachaHistoryItemDataの生成に失敗しました");
           }
-          else if (mHistory.type == GachaDropData.Type.Item)
+          else
           {
-            root = (GameObject) Object.Instantiate<GameObject>((M0) this.ItemTemp);
-            root.get_transform().SetParent(this.ItemTemp.get_transform().get_parent(), false);
-            DataSource.Bind<ItemData>(root, this.CreateItemData(mHistory.item, mHistory.num));
-          }
-          else if (mHistory.type == GachaDropData.Type.Artifact)
-          {
-            root = (GameObject) Object.Instantiate<GameObject>((M0) this.ArtifactTemp);
-            root.get_transform().SetParent(this.ArtifactTemp.get_transform().get_parent(), false);
-            DataSource.Bind<ArtifactData>(root, this.CreateArtifactData(mHistory.artifact));
-          }
-          if (!Object.op_Equality((Object) root, (Object) null))
-          {
-            Transform transform = root.get_transform().Find("body/status/new");
-            if (Object.op_Inequality((Object) transform, (Object) null))
-              ((Component) transform).get_gameObject().SetActive(mHistory.isNew);
-            this.mLists[index] = root;
-            root.SetActive(true);
-            GameParameter.UpdateAll(root);
+            DataSource.Bind<GachaHistoryItemData>(gameObject, data);
+            gameObject.get_transform().SetParent(this.NodeTemplate.get_transform().get_parent(), false);
+            this.mListObjects.Add(gameObject);
           }
         }
       }
       return true;
     }
 
-    private ItemData CreateItemData(ItemParam param, int num = 0)
+    public static ItemData CreateItemData(ItemParam param, int num = 0)
     {
       ItemData itemData = new ItemData();
       itemData.Setup(0L, param, num);
       return itemData;
     }
 
-    private ArtifactData CreateArtifactData(ArtifactParam param)
+    public static ArtifactData CreateArtifactData(ArtifactParam param, int rarity)
     {
       ArtifactData artifactData = new ArtifactData();
       artifactData.Deserialize(new Json_Artifact()
@@ -214,12 +169,12 @@ label_14:
         exp = 0,
         iname = param.iname,
         fav = 0,
-        rare = param.rareini
+        rare = rarity
       });
       return artifactData;
     }
 
-    private UnitData CreateUnitData(UnitParam param)
+    public static UnitData CreateUnitData(UnitParam param)
     {
       UnitData unitData = new UnitData();
       Json_Unit json = new Json_Unit();

@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.InGameMenu
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using UnityEngine;
@@ -20,7 +20,9 @@ namespace SRPG
     public const int PINID_CLOSE_GIVEUP_WINDOW = 100;
     public GameObject MissionButton;
     public GameObject ExitButton;
+    public GameObject OptionButton;
     public GameObject DebugButton;
+    public GameObject ArenaSkipButton;
     public Button AutoPlayOn;
     public Button AutoPlayOff;
     public Toggle AutoPlay;
@@ -62,7 +64,7 @@ namespace SRPG
             ((Component) this.AutoPlay).get_gameObject().SetActive(true);
             GameUtility.SetToggle(this.AutoPlay, instance.Battle.RequestAutoBattle);
             // ISSUE: method pointer
-            ((UnityEvent<bool>) this.AutoPlay.onValueChanged).AddListener(new UnityAction<bool>((object) this, __methodptr(\u003CStart\u003Em__1C9)));
+            ((UnityEvent<bool>) this.AutoPlay.onValueChanged).AddListener(new UnityAction<bool>((object) this, __methodptr(\u003CStart\u003Em__261)));
           }
           if (Object.op_Inequality((Object) this.AutoMode_Parent, (Object) null))
             this.AutoMode_Parent.get_gameObject().SetActive(instance.Battle.RequestAutoBattle);
@@ -85,9 +87,11 @@ namespace SRPG
             this.AutoMode_Treasure.SetActive(false);
           if (Object.op_Inequality((Object) this.AutoMode_Skill, (Object) null))
             this.AutoMode_Skill.SetActive(false);
+          if (SceneBattle.Instance.IsPlayingArenaQuest && Object.op_Inequality((Object) this.ArenaSkipButton, (Object) null))
+            this.ArenaSkipButton.SetActive(true);
         }
       }
-      if (Object.op_Inequality((Object) this.DebugButton, (Object) null) && !GameUtility.IsDebugBuild)
+      if (Object.op_Inequality((Object) this.DebugButton, (Object) null))
         this.DebugButton.SetActive(false);
       if (Object.op_Inequality((Object) this.MissionButton, (Object) null) && questParam != null)
       {
@@ -123,6 +127,7 @@ namespace SRPG
       if (Object.op_Inequality((Object) SceneBattle.Instance, (Object) null))
       {
         SceneBattle.Instance.Battle.RequestAutoBattle = enable;
+        GameUtility.Config_UseAutoPlay.Value = enable;
         if (enable)
           GameUtility.SetNeverSleep();
         else
@@ -171,7 +176,7 @@ namespace SRPG
           string text = LocalizedText.Get("sys.CONFIRM_GIVEUP");
           if (Object.op_Inequality((Object) SceneBattle.Instance, (Object) null) && SceneBattle.Instance.IsPlayingArenaQuest)
             text = LocalizedText.Get("sys.CONFIRM_GIVEUP_ARENA");
-          this.mGiveUpWindow = UIUtility.ConfirmBox(text, new UIUtility.DialogResultEvent(this.OnGiveUp), (UIUtility.DialogResultEvent) null, (GameObject) null, true, 1);
+          this.mGiveUpWindow = UIUtility.ConfirmBox(text, new UIUtility.DialogResultEvent(this.OnGiveUp), (UIUtility.DialogResultEvent) null, (GameObject) null, true, 1, (string) null, (string) null);
           break;
         case 100:
           if (!Object.op_Inequality((Object) this.mGiveUpWindow, (Object) null))
@@ -191,7 +196,7 @@ namespace SRPG
       else
         SceneBattle.Instance.ForceEndQuest();
       CanvasGroup component = (CanvasGroup) ((Component) this).GetComponent<CanvasGroup>();
-      if (!Object.op_Inequality((Object) component, (Object) null))
+      if (!Object.op_Inequality((Object) component, (Object) null) || !Object.op_Equality((Object) this.ArenaSkipButton, (Object) null))
         return;
       component.set_blocksRaycasts(false);
     }

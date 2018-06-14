@@ -1,10 +1,11 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.GachaDropData
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
+using System;
 using System.Collections.Generic;
 
 namespace SRPG
@@ -19,19 +20,17 @@ namespace SRPG
     public UnitParam unitOrigin;
     public bool isNew;
     public int[] excites;
+    private int rarity;
 
     public int Rare
     {
       get
       {
-        int num = 1;
-        if (this.type == GachaDropData.Type.Unit)
-          num = (int) this.unit.rare;
-        else if (this.type == GachaDropData.Type.Item)
-          num = (int) this.item.rare;
-        else if (this.type == GachaDropData.Type.Artifact)
-          num = this.artifact.rareini;
-        return num;
+        return this.rarity;
+      }
+      set
+      {
+        this.rarity = value;
       }
     }
 
@@ -44,6 +43,7 @@ namespace SRPG
       this.num = 0;
       this.unitOrigin = (UnitParam) null;
       this.isNew = false;
+      this.rarity = 0;
       this.excites = new int[3];
     }
 
@@ -56,10 +56,10 @@ namespace SRPG
       if (type != null)
       {
         // ISSUE: reference to a compiler-generated field
-        if (GachaDropData.\u003C\u003Ef__switch\u0024map5 == null)
+        if (GachaDropData.\u003C\u003Ef__switch\u0024mapD == null)
         {
           // ISSUE: reference to a compiler-generated field
-          GachaDropData.\u003C\u003Ef__switch\u0024map5 = new Dictionary<string, int>(3)
+          GachaDropData.\u003C\u003Ef__switch\u0024mapD = new Dictionary<string, int>(3)
           {
             {
               "item",
@@ -77,20 +77,42 @@ namespace SRPG
         }
         int num;
         // ISSUE: reference to a compiler-generated field
-        if (GachaDropData.\u003C\u003Ef__switch\u0024map5.TryGetValue(type, out num))
+        if (GachaDropData.\u003C\u003Ef__switch\u0024mapD.TryGetValue(type, out num))
         {
           switch (num)
           {
             case 0:
               this.type = GachaDropData.Type.Item;
               this.item = MonoSingleton<GameManager>.Instance.GetItemParam(json.iname);
+              if (this.item == null)
+              {
+                DebugUtility.LogError("iname:" + json.iname + " => Not ItemParam!");
+                return false;
+              }
+              this.rarity = (int) this.item.rare;
               break;
             case 1:
               this.unit = MonoSingleton<GameManager>.Instance.GetUnitParam(json.iname);
+              if (this.unit == null)
+              {
+                DebugUtility.LogError("iname:" + json.iname + " => Not UnitParam!");
+                return false;
+              }
+              this.rarity = (int) this.unit.rare;
               this.type = GachaDropData.Type.Unit;
               break;
             case 2:
               this.artifact = MonoSingleton<GameManager>.Instance.MasterParam.GetArtifactParam(json.iname);
+              if (this.artifact == null)
+              {
+                DebugUtility.LogError("iname:" + json.iname + " => Not ArtifactParam!");
+                return false;
+              }
+              if (json.rare != -1 && json.rare > this.artifact.raremax)
+                DebugUtility.LogError("武具:" + this.artifact.name + "の最大レアリティより大きい値が設定されています.");
+              else if (json.rare != -1 && json.rare < this.artifact.rareini)
+                DebugUtility.LogError("武具:" + this.artifact.name + "の初期レアリティより小さい値が設定されています.");
+              this.rarity = json.rare <= -1 ? this.artifact.rareini : Math.Min(Math.Max(this.artifact.rareini, json.rare), this.artifact.raremax);
               this.type = GachaDropData.Type.Artifact;
               break;
           }

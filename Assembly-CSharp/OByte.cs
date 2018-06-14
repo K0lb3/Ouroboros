@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: OByte
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using CodeStage.AntiCheat.ObscuredTypes;
@@ -32,11 +32,23 @@ public struct OByte
 
   public static OByte operator ++(OByte value)
   {
-    return new OByte((byte) ((uint) (byte) value + 1U));
+    // ISSUE: explicit reference operation
+    // ISSUE: variable of a reference type
+    OByte& local = @value;
+    // ISSUE: explicit reference operation
+    // ISSUE: explicit reference operation
+    (^local).value = (ObscuredByte) ((byte) ((uint) (byte) (^local).value + 1U));
+    return value;
   }
 
   public static OByte operator --(OByte value)
   {
-    return new OByte((byte) ((uint) (byte) value - 1U));
+    // ISSUE: explicit reference operation
+    // ISSUE: variable of a reference type
+    OByte& local = @value;
+    // ISSUE: explicit reference operation
+    // ISSUE: explicit reference operation
+    (^local).value = (ObscuredByte) ((byte) ((uint) (byte) (^local).value - 1U));
+    return value;
   }
 }

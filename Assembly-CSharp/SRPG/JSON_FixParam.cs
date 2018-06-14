@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.JSON_FixParam
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -11,6 +11,7 @@ namespace SRPG
   [Serializable]
   public class JSON_FixParam
   {
+    public int cmb_rate = 50;
     public int mincri;
     public int maxcri;
     public int mulcri;
@@ -77,6 +78,7 @@ namespace SRPG
     public int[] shop_update_time;
     public int continue_cost;
     public int continue_cost_multi;
+    public int continue_cost_multitower;
     public int avoid_rate;
     public int avoid_scale;
     public int avoid_rate_max;
@@ -114,6 +116,10 @@ namespace SRPG
     public int ct_gsl;
     public int ct_aje;
     public int ct_dhe;
+    public int ct_dsa;
+    public int ct_daa;
+    public int ct_ddc;
+    public int ct_dic;
     public int yuragi;
     public int ct_max;
     public int ct_wait;
@@ -144,6 +150,7 @@ namespace SRPG
     public int ptnum_chq;
     public int ptnum_tow;
     public int ptnum_vs;
+    public int ptnum_mt;
     public int notsus;
     public int sus_int;
     public int jobms;
@@ -155,5 +162,18 @@ namespace SRPG
     public int th_gh;
     public string[] art_rare_pi;
     public string art_cmn_pi;
+    public string[] soul_rare;
+    public string[] equ_rare_pi;
+    public int[] equ_rare_pi_use;
+    public int[] equ_rare_cost;
+    public int aud_max;
+    public string[] equip_cmn;
+    public int ab_rankup_max;
+    public int ab_rankup_addmax;
+    public int ab_coin_convert;
+    public int firstfriend_max;
+    public int firstfriend_coin;
+    public int weak_up;
+    public int resist_dw;
   }
 }

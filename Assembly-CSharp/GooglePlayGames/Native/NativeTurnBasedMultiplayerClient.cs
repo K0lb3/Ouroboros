@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: GooglePlayGames.Native.NativeTurnBasedMultiplayerClient
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GooglePlayGames.BasicApi.Multiplayer;
@@ -208,15 +208,15 @@ namespace GooglePlayGames.Native
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      NativeTurnBasedMultiplayerClient.\u003CHandleMatchEvent\u003Ec__AnonStorey154 eventCAnonStorey154 = new NativeTurnBasedMultiplayerClient.\u003CHandleMatchEvent\u003Ec__AnonStorey154();
+      NativeTurnBasedMultiplayerClient.\u003CHandleMatchEvent\u003Ec__AnonStorey1C8 eventCAnonStorey1C8 = new NativeTurnBasedMultiplayerClient.\u003CHandleMatchEvent\u003Ec__AnonStorey1C8();
       // ISSUE: reference to a compiler-generated field
-      eventCAnonStorey154.match = match;
+      eventCAnonStorey1C8.match = match;
       // ISSUE: reference to a compiler-generated field
-      eventCAnonStorey154.\u003C\u003Ef__this = this;
+      eventCAnonStorey1C8.\u003C\u003Ef__this = this;
       // ISSUE: reference to a compiler-generated field
-      eventCAnonStorey154.currentDelegate = this.mMatchDelegate;
+      eventCAnonStorey1C8.currentDelegate = this.mMatchDelegate;
       // ISSUE: reference to a compiler-generated field
-      if (eventCAnonStorey154.currentDelegate == null)
+      if (eventCAnonStorey1C8.currentDelegate == null)
         return;
       if (eventType == Types.MultiplayerEvent.REMOVED)
       {
@@ -225,11 +225,11 @@ namespace GooglePlayGames.Native
       else
       {
         // ISSUE: reference to a compiler-generated field
-        eventCAnonStorey154.shouldAutolaunch = eventType == Types.MultiplayerEvent.UPDATED_FROM_APP_LAUNCH;
+        eventCAnonStorey1C8.shouldAutolaunch = eventType == Types.MultiplayerEvent.UPDATED_FROM_APP_LAUNCH;
         // ISSUE: reference to a compiler-generated field
-        eventCAnonStorey154.match.ReferToMe();
+        eventCAnonStorey1C8.match.ReferToMe();
         // ISSUE: reference to a compiler-generated method
-        Callbacks.AsCoroutine(this.WaitForLogin(new Action(eventCAnonStorey154.\u003C\u003Em__7E)));
+        Callbacks.AsCoroutine(this.WaitForLogin(new Action(eventCAnonStorey1C8.\u003C\u003Em__C7)));
       }
     }
 
@@ -237,7 +237,7 @@ namespace GooglePlayGames.Native
     private IEnumerator WaitForLogin(Action method)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new NativeTurnBasedMultiplayerClient.\u003CWaitForLogin\u003Ec__Iterator6() { method = method, \u003C\u0024\u003Emethod = method, \u003C\u003Ef__this = this };
+      return (IEnumerator) new NativeTurnBasedMultiplayerClient.\u003CWaitForLogin\u003Ec__Iterator25() { method = method, \u003C\u0024\u003Emethod = method, \u003C\u003Ef__this = this };
     }
 
     public void TakeTurn(GooglePlayGames.BasicApi.Multiplayer.TurnBasedMatch match, byte[] data, string pendingParticipantId, Action<bool> callback)

@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_ExecGacha
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -12,15 +12,15 @@ using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.Pin(20, "レアガチャ", FlowNode.PinTypes.Input, 20)]
-  [FlowNode.NodeType("System/ExecGacha", 32741)]
-  [FlowNode.Pin(10, "ノーマルガチャ", FlowNode.PinTypes.Input, 10)]
-  [FlowNode.Pin(11, "ノーマルガチャ10連", FlowNode.PinTypes.Input, 11)]
-  [FlowNode.Pin(21, "レアガチャ10連", FlowNode.PinTypes.Input, 21)]
   [FlowNode.Pin(30, "VIPガチャ", FlowNode.PinTypes.Input, 30)]
+  [FlowNode.Pin(21, "レアガチャ10連", FlowNode.PinTypes.Input, 21)]
+  [FlowNode.Pin(20, "レアガチャ", FlowNode.PinTypes.Input, 20)]
+  [FlowNode.Pin(11, "ノーマルガチャ10連", FlowNode.PinTypes.Input, 11)]
+  [FlowNode.Pin(10, "ノーマルガチャ", FlowNode.PinTypes.Input, 10)]
+  [FlowNode.NodeType("System/ExecGacha", 32741)]
   [FlowNode.Pin(4, "Success", FlowNode.PinTypes.Output, 4)]
-  [FlowNode.Pin(5, "Failed", FlowNode.PinTypes.Output, 5)]
   [FlowNode.Pin(6, "ゴールド不足", FlowNode.PinTypes.Output, 6)]
+  [FlowNode.Pin(5, "Failed", FlowNode.PinTypes.Output, 5)]
   [FlowNode.Pin(7, "コイン不足", FlowNode.PinTypes.Output, 7)]
   public class FlowNode_ExecGacha : FlowNode_Network
   {
@@ -274,13 +274,13 @@ namespace SRPG
     private IEnumerator StartGachaSceneAsync(FlowNode_ExecGacha.GachaModes mode)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new FlowNode_ExecGacha.\u003CStartGachaSceneAsync\u003Ec__Iterator84() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new FlowNode_ExecGacha.\u003CStartGachaSceneAsync\u003Ec__IteratorC3() { \u003C\u003Ef__this = this };
     }
 
     private void OnGachaSceneLoad(GameObject scene)
     {
       this.mGachaScene = (GachaScene) scene.GetComponent<GachaScene>();
-      if (Object.op_Inequality((Object) this.mGachaScene, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mGachaScene, (UnityEngine.Object) null))
         SceneAwakeObserver.RemoveListener(new SceneAwakeObserver.SceneEvent(this.OnGachaSceneLoad));
       CriticalSection.Leave(CriticalSections.SceneChange);
     }

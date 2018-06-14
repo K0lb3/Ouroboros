@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.NewsWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -36,7 +36,7 @@ namespace SRPG
       Debug.Log((object) "[NewsWindow]Start");
       if (!MonoSingleton<DebugManager>.Instance.IsWebViewEnable())
       {
-        if (Object.op_Inequality((Object) this.CloseButton, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.CloseButton, (UnityEngine.Object) null))
           ((Selectable) this.CloseButton).set_interactable(true);
         Debug.Log((object) "[NewsWindow]Not WebView Enable");
       }
@@ -72,7 +72,7 @@ namespace SRPG
           }
         }
         this.mWebView = (UniWebView) ((Component) this).GetComponent<UniWebView>();
-        if (Object.op_Inequality((Object) this.WebViewContainer, (Object) null) && Object.op_Equality((Object) this.mWebView, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.WebViewContainer, (UnityEngine.Object) null) && UnityEngine.Object.op_Equality((UnityEngine.Object) this.mWebView, (UnityEngine.Object) null))
         {
           this.WebViewContainer.get_rect();
           this.mWebView = (UniWebView) new GameObject("UniWebView").AddComponent<UniWebView>();
@@ -90,7 +90,7 @@ namespace SRPG
           this.mWebView.url = str;
           this.mWebView.Load();
         }
-        if (!Object.op_Inequality((Object) this.CloseButton, (Object) null))
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.CloseButton, (UnityEngine.Object) null))
           return;
         ((Selectable) this.CloseButton).set_interactable(false);
       }
@@ -103,9 +103,9 @@ namespace SRPG
         if (allowChangeScene == new_scene)
         {
           GameObject gameObject = GameObject.Find("Config_Home(Clone)");
-          if (Object.op_Inequality((Object) gameObject, (Object) null))
-            Object.Destroy((Object) gameObject);
-          Object.Destroy((Object) ((Component) this).get_gameObject());
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) gameObject, (UnityEngine.Object) null))
+            UnityEngine.Object.Destroy((UnityEngine.Object) gameObject);
+          UnityEngine.Object.Destroy((UnityEngine.Object) ((Component) this).get_gameObject());
           GlobalEvent.Invoke(new_scene, (object) this);
           break;
         }
@@ -131,7 +131,7 @@ namespace SRPG
         this.mWebView.Show(false, UniWebViewTransitionEdge.None, 0.4f, (Action) null);
       else
         Debug.LogError((object) ("Something wrong in webview loading: " + errorMessage));
-      if (!Object.op_Inequality((Object) this.CloseButton, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.CloseButton, (UnityEngine.Object) null))
         return;
       ((Selectable) this.CloseButton).set_interactable(true);
     }

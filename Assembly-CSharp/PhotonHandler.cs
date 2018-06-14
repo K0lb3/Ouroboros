@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: PhotonHandler
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using ExitGames.Client.Photon;
@@ -126,7 +126,7 @@ internal class PhotonHandler : MonoBehaviour
 
   public static bool FallbackSendAckThread()
   {
-    if (PhotonHandler.sendThreadShouldRun && PhotonNetwork.networkingPeer != null)
+    if (PhotonHandler.sendThreadShouldRun && !PhotonNetwork.offlineMode && PhotonNetwork.networkingPeer != null)
     {
       if (PhotonHandler.timerToStopConnectionInBackground != null && (double) PhotonNetwork.BackgroundTimeout > 0.100000001490116 && (double) PhotonHandler.timerToStopConnectionInBackground.ElapsedMilliseconds > (double) PhotonNetwork.BackgroundTimeout * 1000.0)
       {
@@ -169,6 +169,10 @@ internal class PhotonHandler : MonoBehaviour
   internal IEnumerator PingAvailableRegionsCoroutine(bool connectToBest)
   {
     // ISSUE: object of a compiler-generated type is created
-    return (IEnumerator) new PhotonHandler.\u003CPingAvailableRegionsCoroutine\u003Ec__Iterator8() { connectToBest = connectToBest, \u003C\u0024\u003EconnectToBest = connectToBest };
+    return (IEnumerator) new PhotonHandler.\u003CPingAvailableRegionsCoroutine\u003Ec__Iterator27()
+    {
+      connectToBest = connectToBest,
+      \u003C\u0024\u003EconnectToBest = connectToBest
+    };
   }
 }

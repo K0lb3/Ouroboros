@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.ChatPlayerWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -74,7 +74,7 @@ namespace SRPG
 
     private void Awake()
     {
-      if (!Object.op_Inequality((Object) this.Award, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Award, (UnityEngine.Object) null))
         return;
       this.Award.SetActive(false);
     }
@@ -84,9 +84,9 @@ namespace SRPG
       if (this.mPlayer == null)
         return;
       GlobalVars.SelectedFriendID = this.mPlayer.fuid;
-      if (Object.op_Inequality((Object) this.UserName, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.UserName, (UnityEngine.Object) null))
         this.UserName.set_text(this.mPlayer.name);
-      if (Object.op_Inequality((Object) this.LastLogin, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.LastLogin, (UnityEngine.Object) null))
       {
         TimeSpan timeSpan = TimeManager.ServerTime - GameUtility.UnixtimeToLocalTime(this.mPlayer.lastlogin);
         int days = timeSpan.Days;
@@ -110,9 +110,9 @@ namespace SRPG
         else
           this.LastLogin.set_text(LocalizedText.Get("sys.CHAT_POSTAT_NOW"));
       }
-      if (Object.op_Inequality((Object) this.UserLv, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.UserLv, (UnityEngine.Object) null))
         this.UserLv.text = this.mPlayer.lv.ToString();
-      if (Object.op_Inequality((Object) this.Add, (Object) null) && Object.op_Inequality((Object) this.Remove, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Add, (UnityEngine.Object) null) && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Remove, (UnityEngine.Object) null))
       {
         if (FlowNode_Variable.Get("IsBlackList").Contains("1"))
         {
@@ -125,12 +125,12 @@ namespace SRPG
           this.Add.SetActive(true);
         }
       }
-      if (Object.op_Inequality((Object) this.FriendAdd, (Object) null) && Object.op_Inequality((Object) this.FriendRemove, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.FriendAdd, (UnityEngine.Object) null) && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.FriendRemove, (UnityEngine.Object) null))
       {
         this.FriendRemove.SetActive((int) this.mPlayer.is_friend != 0);
         this.FriendAdd.SetActive((int) this.mPlayer.is_friend == 0);
         Button component = (Button) this.FriendRemove.GetComponent<Button>();
-        if (Object.op_Inequality((Object) component, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
           ((Selectable) component).set_interactable(!this.mPlayer.IsFavorite);
       }
       UnitData unit = this.mPlayer.unit;
@@ -139,7 +139,7 @@ namespace SRPG
       if (this.mPlayer != null)
       {
         DataSource.Bind<ChatPlayerData>(((Component) this).get_gameObject(), this.mPlayer);
-        if (Object.op_Inequality((Object) this.Award, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Award, (UnityEngine.Object) null))
           this.Award.SetActive(true);
       }
       this.FriendAdd.SetActive(!this.mPlayer.IsFriend);

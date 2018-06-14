@@ -1,10 +1,11 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.UnitGaugeMark
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace SRPG
@@ -19,7 +20,7 @@ namespace SRPG
     public UnitGaugeMark.EMarkType MarkType;
     public GameObject MapChest;
     public UnitGaugeGemIcon MapGem;
-    private UnitGaugeMark.ObjectAnim[] mActiveMarks;
+    private List<UnitGaugeMark.ObjectAnim> mActiveMarkLists;
     private bool mIsGaugeUpdate;
     private bool mIsUnitDead;
     private bool mIsUseSkill;
@@ -27,6 +28,14 @@ namespace SRPG
     public UnitGaugeMark()
     {
       base.\u002Ector();
+    }
+
+    public UnitGaugeMark.EGemIcon GemIconType
+    {
+      get
+      {
+        return this.mGemIconType;
+      }
     }
 
     public bool IsGaugeUpdate
@@ -84,16 +93,16 @@ namespace SRPG
       switch (this.MarkType)
       {
         case UnitGaugeMark.EMarkType.MapChest:
-          if (Object.op_Implicit((Object) this.MapChest))
+          if (UnityEngine.Object.op_Implicit((UnityEngine.Object) this.MapChest))
           {
-            gameObject = Object.Instantiate((Object) this.MapChest, ((Component) this).get_transform().get_position(), ((Component) this).get_transform().get_rotation()) as GameObject;
+            gameObject = UnityEngine.Object.Instantiate((UnityEngine.Object) this.MapChest, ((Component) this).get_transform().get_position(), ((Component) this).get_transform().get_rotation()) as GameObject;
             break;
           }
           break;
         case UnitGaugeMark.EMarkType.MapGem:
-          if (Object.op_Implicit((Object) this.MapGem))
+          if (UnityEngine.Object.op_Implicit((UnityEngine.Object) this.MapGem))
           {
-            UnitGaugeGemIcon unitGaugeGemIcon = Object.Instantiate((Object) this.MapGem, ((Component) this).get_transform().get_position(), ((Component) this).get_transform().get_rotation()) as UnitGaugeGemIcon;
+            UnitGaugeGemIcon unitGaugeGemIcon = UnityEngine.Object.Instantiate((UnityEngine.Object) this.MapGem, ((Component) this).get_transform().get_position(), ((Component) this).get_transform().get_rotation()) as UnitGaugeGemIcon;
             unitGaugeGemIcon.IconImages.ImageIndex = (int) this.mGemIconType;
             gameObject = ((Component) unitGaugeGemIcon).get_gameObject();
             break;
@@ -103,35 +112,33 @@ namespace SRPG
       return gameObject;
     }
 
+    private void SetEndAnimation(UnitGaugeMark.ObjectAnim mark)
+    {
+      if (mark == null || UnityEngine.Object.op_Equality((UnityEngine.Object) mark.Animator, (UnityEngine.Object) null) || mark.IsEnd)
+        return;
+      mark.IsEnd = true;
+      mark.Animator.SetInteger(this.EndTriggerName, this.EndTriggerValue);
+    }
+
     public void SetEndAnimation(UnitGaugeMark.EMarkType Type)
     {
-      if (this.mActiveMarks == null)
-        return;
-      UnitGaugeMark.ObjectAnim mActiveMark = this.mActiveMarks[(int) Type];
-      if (mActiveMark == null || Object.op_Equality((Object) mActiveMark.Animator, (Object) null) || mActiveMark.IsEnd)
-        return;
-      mActiveMark.IsEnd = true;
-      mActiveMark.Animator.SetInteger(this.EndTriggerName, this.EndTriggerValue);
+      using (List<UnitGaugeMark.ObjectAnim>.Enumerator enumerator = this.mActiveMarkLists.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+        {
+          UnitGaugeMark.ObjectAnim current = enumerator.Current;
+          if (current.MarkType == Type)
+            this.SetEndAnimation(current);
+        }
+      }
     }
 
     public void SetEndAnimationAll()
     {
-      if (this.mActiveMarks == null)
-        return;
-      for (int index = 0; index < this.mActiveMarks.Length; ++index)
-        this.SetEndAnimation((UnitGaugeMark.EMarkType) index);
-    }
-
-    public void SetEndByUnitType(EUnitType Type)
-    {
-      switch (Type)
+      using (List<UnitGaugeMark.ObjectAnim>.Enumerator enumerator = this.mActiveMarkLists.GetEnumerator())
       {
-        case EUnitType.Treasure:
-          this.SetEndAnimation(UnitGaugeMark.EMarkType.MapChest);
-          break;
-        case EUnitType.Gem:
-          this.SetEndAnimation(UnitGaugeMark.EMarkType.MapGem);
-          break;
+        while (enumerator.MoveNext())
+          this.SetEndAnimation(enumerator.Current);
       }
     }
 
@@ -146,6 +153,7 @@ namespace SRPG
           this.MarkType = UnitGaugeMark.EMarkType.MapGem;
           break;
       }
+      this.mGemIconType = UnitGaugeMark.EGemIcon.Normal;
     }
 
     public void SetGemIcon(EEventGimmick EventType)
@@ -173,69 +181,58 @@ namespace SRPG
 
     public void DeleteIconAll()
     {
-      if (this.mActiveMarks == null)
-        return;
-      for (int index = 0; index < this.mActiveMarks.Length; ++index)
+      int num;
+      for (int index1 = 0; index1 < this.mActiveMarkLists.Count; index1 = num + 1)
       {
-        UnitGaugeMark.ObjectAnim mActiveMark = this.mActiveMarks[index];
-        if (mActiveMark != null)
-        {
-          mActiveMark.Release();
-          this.mActiveMarks[index] = (UnitGaugeMark.ObjectAnim) null;
-        }
+        UnitGaugeMark.ObjectAnim mActiveMarkList = this.mActiveMarkLists[index1];
+        if (mActiveMarkList != null)
+          mActiveMarkList.Release();
+        List<UnitGaugeMark.ObjectAnim> mActiveMarkLists = this.mActiveMarkLists;
+        int index2 = index1;
+        num = index2 - 1;
+        mActiveMarkLists.RemoveAt(index2);
       }
-    }
-
-    private void Start()
-    {
-      this.mActiveMarks = new UnitGaugeMark.ObjectAnim[Enum.GetNames(typeof (UnitGaugeMark.EMarkType)).Length];
     }
 
     private void Update()
     {
-      if (this.mActiveMarks == null)
-        return;
-      for (int index = 0; index < this.mActiveMarks.Length; ++index)
+      for (int index = 0; index < this.mActiveMarkLists.Count; ++index)
       {
-        UnitGaugeMark.ObjectAnim mActiveMark = this.mActiveMarks[index];
-        if (mActiveMark != null)
+        UnitGaugeMark.ObjectAnim mActiveMarkList = this.mActiveMarkLists[index];
+        if (!this.IsUpdatable(mActiveMarkList.MarkType))
+          mActiveMarkList.Object.SetActive(false);
+        else if (!mActiveMarkList.Object.get_activeInHierarchy())
         {
-          if (!this.IsUpdatable((UnitGaugeMark.EMarkType) index))
+          mActiveMarkList.Release();
+          this.mActiveMarkLists.RemoveAt(index--);
+        }
+        else if (mActiveMarkList.Object.get_activeInHierarchy() && UnityEngine.Object.op_Inequality((UnityEngine.Object) mActiveMarkList.Animator, (UnityEngine.Object) null))
+        {
+          AnimatorStateInfo animatorStateInfo = mActiveMarkList.Animator.GetCurrentAnimatorStateInfo(0);
+          // ISSUE: explicit reference operation
+          // ISSUE: explicit reference operation
+          if (((AnimatorStateInfo) @animatorStateInfo).IsName(this.EndAnimationName) && !mActiveMarkList.Animator.IsInTransition(0) && (double) ((AnimatorStateInfo) @animatorStateInfo).get_normalizedTime() >= 1.0)
           {
-            mActiveMark.Object.SetActive(false);
-          }
-          else
-          {
-            if (!mActiveMark.Object.get_activeInHierarchy())
-            {
-              this.mActiveMarks[index] = (UnitGaugeMark.ObjectAnim) null;
-              mActiveMark.Release();
-              break;
-            }
-            if (mActiveMark.Object.get_activeInHierarchy() && Object.op_Inequality((Object) mActiveMark.Animator, (Object) null))
-            {
-              AnimatorStateInfo animatorStateInfo = mActiveMark.Animator.GetCurrentAnimatorStateInfo(0);
-              // ISSUE: explicit reference operation
-              // ISSUE: explicit reference operation
-              if (((AnimatorStateInfo) @animatorStateInfo).IsName(this.EndAnimationName) && !mActiveMark.Animator.IsInTransition(0) && (double) ((AnimatorStateInfo) @animatorStateInfo).get_normalizedTime() >= 1.0)
-              {
-                this.mActiveMarks[index] = (UnitGaugeMark.ObjectAnim) null;
-                mActiveMark.Release();
-              }
-            }
+            mActiveMarkList.Release();
+            this.mActiveMarkLists.RemoveAt(index--);
           }
         }
       }
-      if (this.IsUpdatable(this.MarkType) && this.MarkType != UnitGaugeMark.EMarkType.None && this.mActiveMarks[(int) this.MarkType] == null)
+      if (this.MarkType != UnitGaugeMark.EMarkType.None && this.IsUpdatable(this.MarkType) && this.mActiveMarkLists.Find((Predicate<UnitGaugeMark.ObjectAnim>) (am =>
+      {
+        if (am.MarkType == this.MarkType)
+          return am.GemIconType == this.mGemIconType;
+        return false;
+      })) == null)
       {
         GameObject markObject = this.CreateMarkObject();
-        if (Object.op_Inequality((Object) markObject, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) markObject, (UnityEngine.Object) null))
         {
           markObject.get_transform().SetParent(((Component) this).get_transform());
-          markObject.get_transform().SetAsFirstSibling();
+          markObject.get_transform().SetAsLastSibling();
           Animator component = (Animator) markObject.GetComponent<Animator>();
           component.SetInteger(this.EndTriggerName, 0);
-          this.mActiveMarks[(int) this.MarkType] = new UnitGaugeMark.ObjectAnim(markObject, component);
+          this.mActiveMarkLists.Add(new UnitGaugeMark.ObjectAnim(markObject, component, this.MarkType, this.mGemIconType));
         }
       }
       this.MarkType = UnitGaugeMark.EMarkType.None;
@@ -246,20 +243,24 @@ namespace SRPG
       public GameObject Object;
       public Animator Animator;
       public bool IsEnd;
+      public UnitGaugeMark.EMarkType MarkType;
+      public UnitGaugeMark.EGemIcon GemIconType;
 
-      public ObjectAnim(GameObject Object, Animator Animator)
+      public ObjectAnim(GameObject Object, Animator Animator, UnitGaugeMark.EMarkType mark_type, UnitGaugeMark.EGemIcon gem_icon)
       {
         this.Object = Object;
         this.Animator = Animator;
+        this.MarkType = mark_type;
+        this.GemIconType = gem_icon;
         this.IsEnd = false;
       }
 
       public void Release()
       {
         this.Animator = (Animator) null;
-        if (!Object.op_Inequality((Object) this.Object, (Object) null))
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Object, (UnityEngine.Object) null))
           return;
-        Object.Destroy((Object) this.Object);
+        UnityEngine.Object.Destroy((UnityEngine.Object) this.Object);
       }
     }
 

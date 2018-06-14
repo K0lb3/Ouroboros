@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.LimitedShopBuySetConfirmWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -17,7 +17,19 @@ namespace SRPG
     [Description("リストアイテムとして使用するゲームオブジェクト")]
     public GameObject ItemTemplate;
     public GameObject ItemParent;
+    public GameObject ItemWindow;
+    public GameObject ArtifactWindow;
     private List<LimitedShopSetItemListElement> limited_shop_item_set_list;
+    public StatusList ArtifactStatus;
+    private ArtifactParam mArtifactParam;
+    private bool mIsShowArtifactJob;
+    public GameObject ArtifactAbility;
+    public Animator ArtifactAbilityAnimation;
+    public string AbilityListItemState;
+    public int AbilityListItem_Hidden;
+    public int AbilityListItem_Unlocked;
+    public UnityEngine.UI.Text AmountNum;
+    public GameObject Sold;
 
     public LimitedShopBuySetConfirmWindow()
     {
@@ -43,37 +55,111 @@ namespace SRPG
     private void Refresh()
     {
       LimitedShopItem data = MonoSingleton<GameManager>.Instance.Player.GetLimitedShopData().items[GlobalVars.ShopBuyIndex];
-      ItemData itemDataByItemId = MonoSingleton<GameManager>.Instance.Player.FindItemDataByItemID(data.iname);
-      this.limited_shop_item_set_list.Clear();
-      if (data.IsSet)
+      this.ItemWindow.SetActive(!data.IsArtifact);
+      this.ArtifactWindow.SetActive(data.IsArtifact);
+      if (Object.op_Inequality((Object) this.AmountNum, (Object) null))
+        this.AmountNum.set_text(data.remaining_num.ToString());
+      if (Object.op_Inequality((Object) this.Sold, (Object) null))
+        this.Sold.SetActive(!data.IsNotLimited);
+      if (data.IsArtifact)
       {
-        for (int index = 0; index < data.children.Length; ++index)
+        ArtifactParam artifactParam = MonoSingleton<GameManager>.Instance.MasterParam.GetArtifactParam(data.iname);
+        DataSource.Bind<ArtifactParam>(((Component) this).get_gameObject(), artifactParam);
+        this.mArtifactParam = artifactParam;
+        ArtifactData artifactData = new ArtifactData();
+        artifactData.Deserialize(new Json_Artifact()
         {
-          GameObject gameObject = index >= this.limited_shop_item_set_list.Count ? (GameObject) Object.Instantiate<GameObject>((M0) this.ItemTemplate) : ((Component) this.limited_shop_item_set_list[index]).get_gameObject();
-          if (Object.op_Inequality((Object) gameObject, (Object) null))
+          iname = artifactParam.iname,
+          rare = artifactParam.rareini
+        });
+        BaseStatus fixed_status = new BaseStatus();
+        BaseStatus scale_status = new BaseStatus();
+        artifactData.GetHomePassiveBuffStatus(ref fixed_status, ref scale_status, (UnitData) null, 0, true);
+        this.ArtifactStatus.SetValues(fixed_status, scale_status);
+        if (artifactParam.abil_inames != null && artifactParam.abil_inames.Length > 0)
+        {
+          AbilityParam abilityParam = MonoSingleton<GameManager>.Instance.MasterParam.GetAbilityParam(artifactParam.abil_inames[0]);
+          List<AbilityData> learningAbilities = artifactData.LearningAbilities;
+          bool flag = false;
+          if (learningAbilities != null)
           {
-            gameObject.SetActive(true);
-            Vector3 localScale = gameObject.get_transform().get_localScale();
-            gameObject.get_transform().SetParent(this.ItemParent.get_transform());
-            gameObject.get_transform().set_localScale(localScale);
-            LimitedShopSetItemListElement component = (LimitedShopSetItemListElement) gameObject.GetComponent<LimitedShopSetItemListElement>();
-            ItemData itemData = new ItemData();
-            itemData.Setup(0L, data.children[index].iname, data.children[index].num);
-            StringBuilder stringBuilder = GameUtility.GetStringBuilder();
-            if (itemData != null)
-              stringBuilder.Append(itemData.Param.name);
-            stringBuilder.Append(" × ");
-            stringBuilder.Append(data.children[index].num.ToString());
-            component.itemName.set_text(stringBuilder.ToString());
-            component.itemData = itemData;
-            this.limited_shop_item_set_list.Add(component);
+            for (int index = 0; index < learningAbilities.Count; ++index)
+            {
+              AbilityData abilityData = learningAbilities[index];
+              if (abilityData != null && abilityParam.iname == abilityData.Param.iname)
+              {
+                flag = true;
+                break;
+              }
+            }
+          }
+          DataSource.Bind<AbilityParam>(this.ArtifactAbility, abilityParam);
+          if (flag)
+            this.ArtifactAbilityAnimation.SetInteger(this.AbilityListItemState, this.AbilityListItem_Unlocked);
+          else
+            this.ArtifactAbilityAnimation.SetInteger(this.AbilityListItemState, this.AbilityListItem_Hidden);
+        }
+        else
+          this.ArtifactAbilityAnimation.SetInteger(this.AbilityListItemState, this.AbilityListItem_Hidden);
+      }
+      else
+      {
+        ItemData itemDataByItemId = MonoSingleton<GameManager>.Instance.Player.FindItemDataByItemID(data.iname);
+        this.limited_shop_item_set_list.Clear();
+        if (data.IsSet)
+        {
+          for (int index = 0; index < data.children.Length; ++index)
+          {
+            GameObject gameObject = index >= this.limited_shop_item_set_list.Count ? (GameObject) Object.Instantiate<GameObject>((M0) this.ItemTemplate) : ((Component) this.limited_shop_item_set_list[index]).get_gameObject();
+            if (Object.op_Inequality((Object) gameObject, (Object) null))
+            {
+              gameObject.SetActive(true);
+              Vector3 localScale = gameObject.get_transform().get_localScale();
+              gameObject.get_transform().SetParent(this.ItemParent.get_transform());
+              gameObject.get_transform().set_localScale(localScale);
+              LimitedShopSetItemListElement component = (LimitedShopSetItemListElement) gameObject.GetComponent<LimitedShopSetItemListElement>();
+              StringBuilder stringBuilder = GameUtility.GetStringBuilder();
+              if (data.children[index].IsArtifact)
+              {
+                ArtifactParam artifactParam = MonoSingleton<GameManager>.Instance.MasterParam.GetArtifactParam(data.children[index].iname);
+                if (artifactParam != null)
+                  stringBuilder.Append(artifactParam.name);
+                component.ArtifactParam = artifactParam;
+              }
+              else
+              {
+                ItemData itemData = new ItemData();
+                itemData.Setup(0L, data.children[index].iname, data.children[index].num);
+                if (itemData != null)
+                  stringBuilder.Append(itemData.Param.name);
+                component.itemData = itemData;
+              }
+              stringBuilder.Append(" × ");
+              stringBuilder.Append(data.children[index].num.ToString());
+              component.itemName.set_text(stringBuilder.ToString());
+              component.SetShopItemDesc(data.children[index]);
+              this.limited_shop_item_set_list.Add(component);
+            }
           }
         }
+        DataSource.Bind<ItemData>(((Component) this).get_gameObject(), itemDataByItemId);
+        DataSource.Bind<ItemParam>(((Component) this).get_gameObject(), MonoSingleton<GameManager>.Instance.GetItemParam(data.iname));
       }
       DataSource.Bind<LimitedShopItem>(((Component) this).get_gameObject(), data);
-      DataSource.Bind<ItemData>(((Component) this).get_gameObject(), itemDataByItemId);
-      DataSource.Bind<ItemParam>(((Component) this).get_gameObject(), MonoSingleton<GameManager>.Instance.GetItemParam(data.iname));
       GameParameter.UpdateAll(((Component) this).get_gameObject());
+    }
+
+    public void ShowJobList()
+    {
+      if (this.mIsShowArtifactJob || this.mArtifactParam == null)
+        return;
+      GlobalVars.ConditionJobs = this.mArtifactParam.condition_jobs;
+      this.mIsShowArtifactJob = true;
+    }
+
+    public void CloseJobList()
+    {
+      this.mIsShowArtifactJob = false;
     }
   }
 }

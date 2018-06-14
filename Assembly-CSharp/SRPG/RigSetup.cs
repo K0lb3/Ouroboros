@@ -1,10 +1,11 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.RigSetup
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace SRPG
@@ -14,7 +15,10 @@ namespace SRPG
     public string RootBoneName;
     public RigSetup.SkeletonInfo[] Skeletons;
     public string LeftHand;
+    public List<string> LeftHandChangeLists;
     public string RightHand;
+    public List<string> RightHandChangeLists;
+    public List<string> OptionAttachLists;
     public float EquipmentScale;
     [Description("この骨格の基準となる身長です")]
     public float Height;

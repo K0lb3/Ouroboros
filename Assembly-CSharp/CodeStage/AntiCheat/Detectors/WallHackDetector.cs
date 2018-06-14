@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: CodeStage.AntiCheat.Detectors.WallHackDetector
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -20,20 +20,20 @@ namespace CodeStage.AntiCheat.Detectors
     [SerializeField]
     [Tooltip("Check for the \"walk through the walls\" kind of cheats made via Rigidbody hacks?")]
     private bool checkRigidbody = true;
-    [SerializeField]
     [Tooltip("Check for the \"walk through the walls\" kind of cheats made via Character Controller hacks?")]
-    private bool checkController = true;
     [SerializeField]
+    private bool checkController = true;
     [Tooltip("Check for the \"see through the walls\" kind of cheats made via shader or driver hacks (wireframe, color alpha, etc.)?")]
+    [SerializeField]
     private bool checkWireframe = true;
     [Tooltip("Check for the \"shoot through the walls\" kind of cheats made via Raycast hacks?")]
     [SerializeField]
     private bool checkRaycast = true;
-    [Range(1f, 60f)]
     [Tooltip("Delay between Wireframe module checks, from 1 up to 60 secs.")]
-    public int wireframeDelay = 10;
     [Range(1f, 60f)]
+    public int wireframeDelay = 10;
     [Tooltip("Delay between Raycast module checks, from 1 up to 60 secs.")]
+    [Range(1f, 60f)]
     public int raycastDelay = 10;
     [Tooltip("Maximum false positives in a row for each detection module before registering a wall hack.")]
     public byte maxFalsePositives = 3;
@@ -531,7 +531,7 @@ namespace CodeStage.AntiCheat.Detectors
     private IEnumerator InitDetector()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new WallHackDetector.\u003CInitDetector\u003Ec__Iterator0() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new WallHackDetector.\u003CInitDetector\u003Ec__Iterator2() { \u003C\u003Ef__this = this };
     }
 
     private void StartRigidModule()
@@ -601,7 +601,7 @@ namespace CodeStage.AntiCheat.Detectors
     private IEnumerator CaptureFrame()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new WallHackDetector.\u003CCaptureFrame\u003Ec__Iterator1() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new WallHackDetector.\u003CCaptureFrame\u003Ec__Iterator3() { \u003C\u003Ef__this = this };
     }
 
     private void StartRaycastModule()

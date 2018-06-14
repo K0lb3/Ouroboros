@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: OnClickDestroy
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using Photon;
@@ -22,11 +22,14 @@ public class OnClickDestroy : MonoBehaviour
       this.photonView.RPC("DestroyRpc", PhotonTargets.AllBuffered);
   }
 
-  [PunRPC]
   [DebuggerHidden]
+  [PunRPC]
   public IEnumerator DestroyRpc()
   {
     // ISSUE: object of a compiler-generated type is created
-    return (IEnumerator) new OnClickDestroy.\u003CDestroyRpc\u003Ec__IteratorB() { \u003C\u003Ef__this = this };
+    return (IEnumerator) new OnClickDestroy.\u003CDestroyRpc\u003Ec__Iterator2A()
+    {
+      \u003C\u003Ef__this = this
+    };
   }
 }

@@ -1,21 +1,21 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_SaveParty
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
 
 namespace SRPG
 {
-  [FlowNode.Pin(2, "Reset", FlowNode.PinTypes.Input, 2)]
-  [FlowNode.Pin(50, "SaveWithID", FlowNode.PinTypes.Input, 50)]
-  [FlowNode.Pin(100, "Out", FlowNode.PinTypes.Output, 100)]
-  [FlowNode.Pin(51, "ResetWithID", FlowNode.PinTypes.Input, 51)]
   [FlowNode.Pin(201, "OutResetWithID", FlowNode.PinTypes.Output, 201)]
+  [FlowNode.Pin(50, "SaveWithID", FlowNode.PinTypes.Input, 50)]
+  [FlowNode.Pin(51, "ResetWithID", FlowNode.PinTypes.Input, 51)]
+  [FlowNode.Pin(100, "Out", FlowNode.PinTypes.Output, 100)]
   [FlowNode.Pin(200, "OutSaveWithID", FlowNode.PinTypes.Output, 200)]
   [FlowNode.NodeType("UI/SaveParty", 32741)]
   [FlowNode.Pin(1, "Save", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(2, "Reset", FlowNode.PinTypes.Input, 2)]
   public class FlowNode_SaveParty : FlowNode
   {
     private ItemData[] mSavedInventory = new ItemData[5];
@@ -26,7 +26,7 @@ namespace SRPG
     {
       PlayerData player = MonoSingleton<GameManager>.Instance.Player;
       PartyData partyCurrent = MonoSingleton<GameManager>.Instance.Player.GetPartyCurrent();
-      for (int index1 = 0; index1 < 8; ++index1)
+      for (int index1 = 0; index1 < 9; ++index1)
       {
         for (int index2 = 0; index2 < partyCurrent.MAX_UNIT; ++index2)
           this.mSavedUnits[index1, index2] = player.Partys[index1].GetUnitUniqueID(index2);
@@ -37,7 +37,7 @@ namespace SRPG
     {
       PlayerData player = MonoSingleton<GameManager>.Instance.Player;
       PartyData partyCurrent = MonoSingleton<GameManager>.Instance.Player.GetPartyCurrent();
-      for (int index1 = 0; index1 < 8; ++index1)
+      for (int index1 = 0; index1 < 9; ++index1)
       {
         for (int index2 = 0; index2 < partyCurrent.MAX_UNIT; ++index2)
           player.Partys[index1].SetUnitUniqueID(index2, this.mSavedUnits[index1, index2]);

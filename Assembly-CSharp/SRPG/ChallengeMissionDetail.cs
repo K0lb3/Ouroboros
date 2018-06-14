@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.ChallengeMissionDetail
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -12,8 +12,17 @@ using UnityEngine.UI;
 
 namespace SRPG
 {
+  [FlowNode.Pin(1007, "イベントクエスト選択へ移動", FlowNode.PinTypes.Output, 1007)]
+  [FlowNode.Pin(1006, "エリートクエスト選択へ移動", FlowNode.PinTypes.Output, 1006)]
+  [FlowNode.Pin(1005, "マルチプレイへ移動", FlowNode.PinTypes.Output, 1005)]
+  [FlowNode.Pin(1003, "装備強化画面へ移動", FlowNode.PinTypes.Output, 1004)]
+  [FlowNode.Pin(1001, "クエスト選択へ移動", FlowNode.PinTypes.Output, 1001)]
+  [FlowNode.Pin(1000, "ガチャへ移動", FlowNode.PinTypes.Output, 1000)]
+  [FlowNode.Pin(100, "キャンセル", FlowNode.PinTypes.Output, 100)]
+  [FlowNode.Pin(0, "表示", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(1002, "アビリティ強化画面へ移動", FlowNode.PinTypes.Output, 1003)]
   [FlowNode.Pin(1004, "ゴールド購入画面へ移動", FlowNode.PinTypes.Output, 1002)]
+  [FlowNode.Pin(1028, "初心者イベントクエスト選択へ移動", FlowNode.PinTypes.Output, 1028)]
   [FlowNode.Pin(1027, "対戦へ移動", FlowNode.PinTypes.Output, 1027)]
   [FlowNode.Pin(1026, "塔へ移動", FlowNode.PinTypes.Output, 1026)]
   [FlowNode.Pin(1025, "FgGID画面へ移動", FlowNode.PinTypes.Output, 1025)]
@@ -32,16 +41,8 @@ namespace SRPG
   [FlowNode.Pin(1012, "ユニット選択へ移動", FlowNode.PinTypes.Output, 1012)]
   [FlowNode.Pin(1011, "ユニットジョブ画面へ移動", FlowNode.PinTypes.Output, 1011)]
   [FlowNode.Pin(1010, "ユニットアビリティセット画面へ移動", FlowNode.PinTypes.Output, 1010)]
-  [FlowNode.Pin(0, "表示", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(1009, "ユニット強化画面へ移動", FlowNode.PinTypes.Output, 1009)]
   [FlowNode.Pin(1008, "アリーナへ移動", FlowNode.PinTypes.Output, 1008)]
-  [FlowNode.Pin(100, "キャンセル", FlowNode.PinTypes.Output, 100)]
-  [FlowNode.Pin(1000, "ガチャへ移動", FlowNode.PinTypes.Output, 1000)]
-  [FlowNode.Pin(1007, "イベントクエスト選択へ移動", FlowNode.PinTypes.Output, 1007)]
-  [FlowNode.Pin(1006, "エリートクエスト選択へ移動", FlowNode.PinTypes.Output, 1006)]
-  [FlowNode.Pin(1005, "マルチプレイへ移動", FlowNode.PinTypes.Output, 1005)]
-  [FlowNode.Pin(1001, "クエスト選択へ移動", FlowNode.PinTypes.Output, 1001)]
-  [FlowNode.Pin(1003, "装備強化画面へ移動", FlowNode.PinTypes.Output, 1004)]
   public class ChallengeMissionDetail : MonoBehaviour, IFlowInterface
   {
     public const int PIN_OPEN = 0;
@@ -74,6 +75,7 @@ namespace SRPG
     public const int PIN_GOTO_FGGID = 1025;
     public const int PIN_GOTO_TOWER = 1026;
     public const int PIN_GOTO_VERSUS = 1027;
+    public const int PIN_GOTO_EVENT_BEGINEER = 1028;
     private QuestTypes g_quest_type;
     public RawImage ImageItem;
     public RawImage ImageExp;
@@ -97,7 +99,7 @@ namespace SRPG
 
     private void Start()
     {
-      if (Object.op_Equality((Object) this.ButtonCancel, (Object) null) || Object.op_Equality((Object) this.ButtonTry, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.ButtonCancel, (UnityEngine.Object) null) || UnityEngine.Object.op_Equality((UnityEngine.Object) this.ButtonTry, (UnityEngine.Object) null))
       {
         ((Behaviour) this).set_enabled(false);
       }
@@ -163,17 +165,17 @@ namespace SRPG
             str = string.Format(LocalizedText.Get("sys.CHALLENGE_DETAIL_REWARD"), (object) data.name, (object) trophy.Items[0].Num);
         }
       }
-      if (Object.op_Inequality((Object) this.ImageItem, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ImageItem, (UnityEngine.Object) null))
         ((Component) this.ImageItem).get_gameObject().SetActive(flag1);
-      if (Object.op_Inequality((Object) this.ImageExp, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ImageExp, (UnityEngine.Object) null))
         ((Component) this.ImageExp).get_gameObject().SetActive(flag2);
-      if (Object.op_Inequality((Object) this.ImageGold, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ImageGold, (UnityEngine.Object) null))
         ((Component) this.ImageGold).get_gameObject().SetActive(flag3);
-      if (Object.op_Inequality((Object) this.ImageStamina, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ImageStamina, (UnityEngine.Object) null))
         ((Component) this.ImageStamina).get_gameObject().SetActive(flag4);
       if (data != null)
         DataSource.Bind<ItemParam>(((Component) this).get_gameObject(), data);
-      if (!Object.op_Inequality((Object) this.TextReward, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TextReward, (UnityEngine.Object) null))
         return;
       this.TextReward.set_text(str);
     }
@@ -200,27 +202,33 @@ namespace SRPG
           case TrophyConditionTypes.winquestsoldier:
           case TrophyConditionTypes.losequest:
             QuestTypes quest_type1 = QuestTypes.Story;
-            if (!questParam.TransSectionGotoQuest(dataOfClass.Objectives[0].sval, out quest_type1, new UIUtility.DialogResultEvent(this.MsgBoxJumpToQuest)))
+            if (!questParam.TransSectionGotoQuest(dataOfClass.Objectives[0].sval_base, out quest_type1, new UIUtility.DialogResultEvent(this.MsgBoxJumpToQuest)))
             {
               this.g_quest_type = quest_type1;
               break;
             }
-            QuestTypes questTypes = quest_type1;
-            switch (questTypes)
+            QuestTypes questTypes1 = quest_type1;
+            switch (questTypes1)
             {
               case QuestTypes.Event:
+              case QuestTypes.Gps:
                 FlowNode_GameObject.ActivateOutputLinks((Component) this, 1007);
                 return;
               case QuestTypes.Tower:
                 FlowNode_GameObject.ActivateOutputLinks((Component) this, 1026);
                 return;
               default:
-                if (questTypes == QuestTypes.Multi)
+                if (questTypes1 != QuestTypes.Multi)
                 {
-                  FlowNode_GameObject.ActivateOutputLinks((Component) this, 1005);
+                  if (questTypes1 == QuestTypes.Beginner)
+                  {
+                    FlowNode_GameObject.ActivateOutputLinks((Component) this, 1028);
+                    return;
+                  }
+                  FlowNode_GameObject.ActivateOutputLinks((Component) this, 1001);
                   return;
                 }
-                FlowNode_GameObject.ActivateOutputLinks((Component) this, 1001);
+                FlowNode_GameObject.ActivateOutputLinks((Component) this, 1005);
                 return;
             }
           case TrophyConditionTypes.killenemy:
@@ -246,6 +254,7 @@ namespace SRPG
             break;
           case TrophyConditionTypes.winevent:
           case TrophyConditionTypes.loseevent:
+            questParam.GotoEventListQuest((string) null, (string) null);
             FlowNode_GameObject.ActivateOutputLinks((Component) this, 1007);
             break;
           case TrophyConditionTypes.gacha:
@@ -317,15 +326,25 @@ namespace SRPG
           case TrophyConditionTypes.wintower:
           case TrophyConditionTypes.losetower:
             QuestTypes quest_type2 = QuestTypes.Story;
-            if (!questParam.TransSectionGotoTower(dataOfClass.Objectives[0].sval, out quest_type2))
+            if (!questParam.TransSectionGotoTower(dataOfClass.Objectives[0].sval_base, out quest_type2))
               break;
-            if (quest_type2 == QuestTypes.Event)
+            QuestTypes questTypes2 = quest_type2;
+            switch (questTypes2)
             {
-              FlowNode_GameObject.ActivateOutputLinks((Component) this, 1007);
-              break;
+              case QuestTypes.Gps:
+                FlowNode_GameObject.ActivateOutputLinks((Component) this, 1007);
+                return;
+              case QuestTypes.Beginner:
+                FlowNode_GameObject.ActivateOutputLinks((Component) this, 1028);
+                return;
+              default:
+                if (questTypes2 != QuestTypes.Event)
+                {
+                  FlowNode_GameObject.ActivateOutputLinks((Component) this, 1026);
+                  return;
+                }
+                goto case QuestTypes.Gps;
             }
-            FlowNode_GameObject.ActivateOutputLinks((Component) this, 1026);
-            break;
           case TrophyConditionTypes.vs:
           case TrophyConditionTypes.vswin:
             if (player.CheckUnlock(UnlockTargets.MultiVS))
@@ -347,10 +366,10 @@ namespace SRPG
     {
       PlayerData player = MonoSingleton<GameManager>.Instance.Player;
       EShopType type = EShopType.Normal;
-      if (!string.IsNullOrEmpty(trophy.Objectives[0].sval))
+      if (!string.IsNullOrEmpty(trophy.Objectives[0].sval_base))
       {
         char[] chArray = new char[1]{ ',' };
-        string[] strArray = trophy.Objectives[0].sval.Split(chArray);
+        string[] strArray = trophy.Objectives[0].sval_base.Split(chArray);
         type = !string.IsNullOrEmpty(strArray[0]) ? (EShopType) MonoSingleton<GameManager>.Instance.MasterParam.GetShopType(strArray[0]) : EShopType.Normal;
       }
       if (type >= EShopType.Normal && player.CheckUnlockShopType(type))
@@ -406,18 +425,24 @@ namespace SRPG
       switch (gQuestType)
       {
         case QuestTypes.Event:
+        case QuestTypes.Gps:
           FlowNode_GameObject.ActivateOutputLinks((Component) this, 1007);
           break;
         case QuestTypes.Tower:
           FlowNode_GameObject.ActivateOutputLinks((Component) this, 1026);
           break;
         default:
-          if (gQuestType == QuestTypes.Multi)
+          if (gQuestType != QuestTypes.Multi)
           {
-            FlowNode_GameObject.ActivateOutputLinks((Component) this, 1005);
+            if (gQuestType == QuestTypes.Beginner)
+            {
+              FlowNode_GameObject.ActivateOutputLinks((Component) this, 1028);
+              break;
+            }
+            FlowNode_GameObject.ActivateOutputLinks((Component) this, 1001);
             break;
           }
-          FlowNode_GameObject.ActivateOutputLinks((Component) this, 1001);
+          FlowNode_GameObject.ActivateOutputLinks((Component) this, 1005);
           break;
       }
     }

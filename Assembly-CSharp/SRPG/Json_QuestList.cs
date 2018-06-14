@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.Json_QuestList
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 namespace SRPG
@@ -21,5 +21,14 @@ namespace SRPG
     public JSON_TowerRoundRewardParam[] towerRoundRewards;
     public JSON_TowerParam[] towers;
     public JSON_VersusTowerParam[] versusTowerFloor;
+    public JSON_VersusSchedule[] versusschedule;
+    public JSON_VersusCoin[] versuscoin;
+    public JSON_MultiTowerFloorParam[] multitowerFloor;
+    public JSON_MultiTowerRewardParam[] multitowerRewards;
+    public JSON_MapEffectParam[] MapEffect;
+    public JSON_WeatherSetParam[] WeatherSet;
+    public JSON_RankingQuestParam[] rankingQuests;
+    public JSON_RankingQuestScheduleParam[] rankingQuestSchedule;
+    public JSON_RankingQuestRewardParam[] rankingQuestRewards;
   }
 }

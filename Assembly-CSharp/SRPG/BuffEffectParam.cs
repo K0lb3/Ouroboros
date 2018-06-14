@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.BuffEffectParam
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -24,6 +24,7 @@ namespace SRPG
     public EAppType mAppType;
     public int mAppMct;
     public EEffRange mEffRange;
+    public BuffFlags mFlags;
     public BuffEffectParam.Buff[] buffs;
 
     public BuffEffectParam.Buff this[ParamTypes type]
@@ -54,6 +55,9 @@ namespace SRPG
       this.mAppType = (EAppType) json.app_type;
       this.mAppMct = json.app_mct;
       this.mEffRange = (EEffRange) json.eff_range;
+      this.mFlags = (BuffFlags) 0;
+      if (json.is_up_rep != 0)
+        this.mFlags |= BuffFlags.UpReplenish;
       ParamTypes type1 = (ParamTypes) json.type1;
       ParamTypes type2 = (ParamTypes) json.type2;
       ParamTypes type3 = (ParamTypes) json.type3;
@@ -181,6 +185,14 @@ namespace SRPG
         }
       }
       return true;
+    }
+
+    public bool IsUpReplenish
+    {
+      get
+      {
+        return (this.mFlags & BuffFlags.UpReplenish) != (BuffFlags) 0;
+      }
     }
 
     public class Buff

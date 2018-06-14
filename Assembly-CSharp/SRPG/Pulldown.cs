@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.Pulldown
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -13,7 +13,7 @@ using UnityEngine.UI;
 
 namespace SRPG
 {
-  public class Pulldown : Selectable, IDragHandler, IBeginDragHandler, IEndDragHandler, IEventSystemHandler
+  public class Pulldown : Selectable, IBeginDragHandler, IDragHandler, IEndDragHandler, IEventSystemHandler
   {
     public Pulldown.SetupPulldownItemEvent OnSetupPulldownItem;
     public Pulldown.UpdateSelectionEvent OnUpdateSelection;
@@ -32,7 +32,7 @@ namespace SRPG
     private bool mOpened;
     private bool mAutoClose;
     private bool mTrackTouchPosititon;
-    private List<Pulldown.PulldownItem> mItems;
+    private List<PulldownItem> mItems;
     private bool mPulldownItemInitialized;
     private bool mPollMouseUp;
 
@@ -52,6 +52,11 @@ namespace SRPG
         if (this.mSelectionIndex == value || value < 0 || value >= this.mItems.Count)
           return;
         this.mSelectionIndex = value;
+        for (int index = 0; index < this.mItems.Count; ++index)
+        {
+          if (Object.op_Inequality((Object) this.mItems[index].Overray, (Object) null))
+            ((Component) this.mItems[index].Overray).get_gameObject().SetActive(index == this.mSelectionIndex);
+        }
         if (Object.op_Inequality((Object) this.mItems[this.mSelectionIndex].Text, (Object) null))
           this.SelectionText.set_text(this.mItems[this.mSelectionIndex].Text.get_text());
         if (this.OnUpdateSelection != null)
@@ -100,24 +105,24 @@ namespace SRPG
       this.TriggerItemChange();
     }
 
-    protected virtual Pulldown.PulldownItem SetupPulldownItem(GameObject itemObject)
+    protected virtual PulldownItem SetupPulldownItem(GameObject itemObject)
     {
-      return (Pulldown.PulldownItem) itemObject.AddComponent<Pulldown.PulldownItem>();
+      return (PulldownItem) itemObject.AddComponent<PulldownItem>();
     }
 
-    public virtual Pulldown.PulldownItem AddItem(string label, int value)
+    public virtual PulldownItem AddItem(string label, int value)
     {
       if (Object.op_Equality((Object) this.PulldownItemTemplate, (Object) null))
-        return (Pulldown.PulldownItem) null;
+        return (PulldownItem) null;
       if (!this.mPulldownItemInitialized)
       {
         this.mPulldownItemInitialized = true;
-        Pulldown.PulldownItem pulldownItem = this.OnSetupPulldownItem == null ? this.SetupPulldownItem(this.PulldownItemTemplate) : this.OnSetupPulldownItem(this.PulldownItemTemplate);
+        PulldownItem pulldownItem = this.OnSetupPulldownItem == null ? this.SetupPulldownItem(this.PulldownItemTemplate) : this.OnSetupPulldownItem(this.PulldownItemTemplate);
         pulldownItem.Text = this.PulldownText;
         pulldownItem.Graphic = this.PulldownGraphic;
       }
       GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.PulldownItemTemplate);
-      Pulldown.PulldownItem component = (Pulldown.PulldownItem) gameObject.GetComponent<Pulldown.PulldownItem>();
+      PulldownItem component = (PulldownItem) gameObject.GetComponent<PulldownItem>();
       if (Object.op_Inequality((Object) component.Text, (Object) null))
         component.Text.set_text(label);
       component.Value = value;
@@ -276,11 +281,11 @@ namespace SRPG
     {
     }
 
-    public Pulldown.PulldownItem GetItemAt(int index)
+    public PulldownItem GetItemAt(int index)
     {
       if (0 <= index && index < this.mItems.Count)
         return this.mItems[index];
-      return (Pulldown.PulldownItem) null;
+      return (PulldownItem) null;
     }
 
     public int ItemCount
@@ -291,19 +296,12 @@ namespace SRPG
       }
     }
 
-    public class PulldownItem : MonoBehaviour
+    public PulldownItem GetCurrentSelection()
     {
-      public Text Text;
-      public Graphic Graphic;
-      public int Value;
-
-      public PulldownItem()
-      {
-        base.\u002Ector();
-      }
+      return this.GetItemAt(this.mSelectionIndex);
     }
 
-    public delegate Pulldown.PulldownItem SetupPulldownItemEvent(GameObject go);
+    public delegate PulldownItem SetupPulldownItemEvent(GameObject go);
 
     public delegate void UpdateSelectionEvent();
 

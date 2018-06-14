@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.ArtifactParam
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -214,6 +214,31 @@ namespace SRPG
           return false;
       }
       return true;
+    }
+
+    public int GetBuyNum(ESaleType type)
+    {
+      switch (type)
+      {
+        case ESaleType.Gold:
+          return this.buy;
+        case ESaleType.Coin:
+          return this.kcoin;
+        case ESaleType.TourCoin:
+          return this.tcoin;
+        case ESaleType.ArenaCoin:
+          return this.acoin;
+        case ESaleType.PiecePoint:
+          return this.pcoin;
+        case ESaleType.MultiCoin:
+          return this.mcoin;
+        case ESaleType.EventCoin:
+          return 0;
+        case ESaleType.Coin_P:
+          return this.kcoin;
+        default:
+          return 0;
+      }
     }
   }
 }

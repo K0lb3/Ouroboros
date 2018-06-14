@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.ShopSellWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -13,9 +13,9 @@ using UnityEngine.UI;
 
 namespace SRPG
 {
-  [FlowNode.Pin(2, "Open", FlowNode.PinTypes.Input, 1)]
   [FlowNode.Pin(101, "売却数の選択", FlowNode.PinTypes.Output, 101)]
   [FlowNode.Pin(1, "Refresh", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(2, "Open", FlowNode.PinTypes.Input, 1)]
   [FlowNode.Pin(100, "売却", FlowNode.PinTypes.Output, 100)]
   public class ShopSellWindow : SRPG_FixedList, IFlowInterface
   {
@@ -60,7 +60,7 @@ namespace SRPG
     {
       get
       {
-        if (Object.op_Inequality((Object) this.ItemLayoutParent, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ItemLayoutParent, (UnityEngine.Object) null))
           return (RectTransform) ((Component) this.ItemLayoutParent).GetComponent<RectTransform>();
         return (RectTransform) null;
       }
@@ -69,52 +69,52 @@ namespace SRPG
     protected override void Start()
     {
       base.Start();
-      if (Object.op_Inequality((Object) this.ItemTemplate, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ItemTemplate, (UnityEngine.Object) null))
       {
         this.ItemTemplate.get_transform().SetSiblingIndex(0);
         this.ItemTemplate.SetActive(false);
       }
-      if (Object.op_Inequality((Object) this.ToggleShowAll, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ToggleShowAll, (UnityEngine.Object) null))
       {
         // ISSUE: method pointer
-        ((UnityEvent<bool>) this.ToggleShowAll.onValueChanged).AddListener(new UnityAction<bool>((object) this, __methodptr(\u003CStart\u003Em__2E0)));
+        ((UnityEvent<bool>) this.ToggleShowAll.onValueChanged).AddListener(new UnityAction<bool>((object) this, __methodptr(\u003CStart\u003Em__411)));
       }
-      if (Object.op_Inequality((Object) this.ToggleShowUsed, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ToggleShowUsed, (UnityEngine.Object) null))
       {
         // ISSUE: method pointer
-        ((UnityEvent<bool>) this.ToggleShowUsed.onValueChanged).AddListener(new UnityAction<bool>((object) this, __methodptr(\u003CStart\u003Em__2E1)));
+        ((UnityEvent<bool>) this.ToggleShowUsed.onValueChanged).AddListener(new UnityAction<bool>((object) this, __methodptr(\u003CStart\u003Em__412)));
       }
-      if (Object.op_Inequality((Object) this.ToggleShowEquip, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ToggleShowEquip, (UnityEngine.Object) null))
       {
         // ISSUE: method pointer
-        ((UnityEvent<bool>) this.ToggleShowEquip.onValueChanged).AddListener(new UnityAction<bool>((object) this, __methodptr(\u003CStart\u003Em__2E2)));
+        ((UnityEvent<bool>) this.ToggleShowEquip.onValueChanged).AddListener(new UnityAction<bool>((object) this, __methodptr(\u003CStart\u003Em__413)));
       }
-      if (Object.op_Inequality((Object) this.ToggleShowUnitPierce, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ToggleShowUnitPierce, (UnityEngine.Object) null))
       {
         // ISSUE: method pointer
-        ((UnityEvent<bool>) this.ToggleShowUnitPierce.onValueChanged).AddListener(new UnityAction<bool>((object) this, __methodptr(\u003CStart\u003Em__2E3)));
+        ((UnityEvent<bool>) this.ToggleShowUnitPierce.onValueChanged).AddListener(new UnityAction<bool>((object) this, __methodptr(\u003CStart\u003Em__414)));
       }
-      if (Object.op_Inequality((Object) this.ToggleShowItemPierce, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ToggleShowItemPierce, (UnityEngine.Object) null))
       {
         // ISSUE: method pointer
-        ((UnityEvent<bool>) this.ToggleShowItemPierce.onValueChanged).AddListener(new UnityAction<bool>((object) this, __methodptr(\u003CStart\u003Em__2E4)));
+        ((UnityEvent<bool>) this.ToggleShowItemPierce.onValueChanged).AddListener(new UnityAction<bool>((object) this, __methodptr(\u003CStart\u003Em__415)));
       }
-      if (Object.op_Inequality((Object) this.ToggleShowMaterial, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ToggleShowMaterial, (UnityEngine.Object) null))
       {
         // ISSUE: method pointer
-        ((UnityEvent<bool>) this.ToggleShowMaterial.onValueChanged).AddListener(new UnityAction<bool>((object) this, __methodptr(\u003CStart\u003Em__2E5)));
+        ((UnityEvent<bool>) this.ToggleShowMaterial.onValueChanged).AddListener(new UnityAction<bool>((object) this, __methodptr(\u003CStart\u003Em__416)));
       }
-      if (Object.op_Inequality((Object) this.BtnSort, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BtnSort, (UnityEngine.Object) null))
       {
         // ISSUE: method pointer
         ((UnityEvent) this.BtnSort.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OnSort)));
       }
-      if (Object.op_Inequality((Object) this.BtnCleared, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BtnCleared, (UnityEngine.Object) null))
       {
         // ISSUE: method pointer
         ((UnityEvent) this.BtnCleared.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OnCleared)));
       }
-      if (Object.op_Inequality((Object) this.BtnSell, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BtnSell, (UnityEngine.Object) null))
       {
         // ISSUE: method pointer
         ((UnityEvent) this.BtnSell.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OnSell)));
@@ -146,22 +146,22 @@ namespace SRPG
 
     protected override GameObject CreateItem()
     {
-      return (GameObject) Object.Instantiate<GameObject>((M0) this.ItemTemplate);
+      return (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.ItemTemplate);
     }
 
     private bool isSellNGUnit(ItemData item)
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      ShopSellWindow.\u003CisSellNGUnit\u003Ec__AnonStorey271 unitCAnonStorey271 = new ShopSellWindow.\u003CisSellNGUnit\u003Ec__AnonStorey271();
+      ShopSellWindow.\u003CisSellNGUnit\u003Ec__AnonStorey37C unitCAnonStorey37C = new ShopSellWindow.\u003CisSellNGUnit\u003Ec__AnonStorey37C();
       List<UnitData> units = MonoSingleton<GameManager>.Instance.Player.Units;
       // ISSUE: reference to a compiler-generated field
-      unitCAnonStorey271.uParam = MonoSingleton<GameManager>.Instance.MasterParam.GetUnitParamForPiece(item.ItemID, false);
+      unitCAnonStorey37C.uParam = MonoSingleton<GameManager>.Instance.MasterParam.GetUnitParamForPiece(item.ItemID, false);
       // ISSUE: reference to a compiler-generated field
-      if (unitCAnonStorey271.uParam == null)
+      if (unitCAnonStorey37C.uParam == null)
         return true;
       // ISSUE: reference to a compiler-generated method
-      UnitData unitData = units.Find(new Predicate<UnitData>(unitCAnonStorey271.\u003C\u003Em__2E6));
+      UnitData unitData = units.Find(new Predicate<UnitData>(unitCAnonStorey37C.\u003C\u003Em__417));
       return unitData == null || unitData.GetRarityCap() > unitData.Rarity || unitData.AwakeLv < (int) MonoSingleton<GameManager>.GetInstanceDirect().MasterParam.GetRarityParam(unitData.GetRarityCap()).UnitAwakeLvCap;
     }
 
@@ -201,7 +201,7 @@ namespace SRPG
           while (enumerator1.MoveNext())
           {
             ItemData current1 = enumerator1.Current;
-            if (current1.Num > 0 && current1.ItemType != EItemType.Other && current1.ItemType != EItemType.EventCoin)
+            if (current1.Num > 0 && current1.ItemType != EItemType.Other && (current1.ItemType != EItemType.EventCoin && !current1.Param.is_valuables))
             {
               if (filterItemType != null)
               {
@@ -294,7 +294,7 @@ namespace SRPG
       GameObject gameObject = this.CreateItem();
       gameObject.get_transform().SetParent((Transform) this.ListParent, false);
       ListItemEvents component = (ListItemEvents) gameObject.GetComponent<ListItemEvents>();
-      if (Object.op_Inequality((Object) component, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
         component.OnSelect = new ListItemEvents.ListItemEvent(this.OnSelect);
       return gameObject;
     }
@@ -334,14 +334,14 @@ namespace SRPG
         {
           ItemData current = enumerator.Current;
           GameObject gameObject = this.CreateItem();
-          if (Object.op_Equality((Object) gameObject, (Object) null))
+          if (UnityEngine.Object.op_Equality((UnityEngine.Object) gameObject, (UnityEngine.Object) null))
           {
             DebugUtility.LogError("CreateItem returned NULL");
             return;
           }
           gameObject.get_transform().SetParent((Transform) this.ListParent, false);
           ListItemEvents component = (ListItemEvents) gameObject.GetComponent<ListItemEvents>();
-          if (Object.op_Inequality((Object) component, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
             component.OnSelect = new ListItemEvents.ListItemEvent(this.OnSelect);
           if (current.ItemType != EItemType.Other)
           {
@@ -359,9 +359,9 @@ namespace SRPG
     {
       List<ItemData> currentItem = this.getCurrentItem();
       this.UpdateDispalyItem(currentItem);
-      if (Object.op_Inequality((Object) this.TxtSort, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TxtSort, (UnityEngine.Object) null))
         this.TxtSort.set_text(LocalizedText.Get(ShopSellWindow.SortTypeTexts[(int) this.sortType]));
-      if (Object.op_Inequality((Object) this.ListConfig.EmptyTemplate, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ListConfig.EmptyTemplate, (UnityEngine.Object) null))
         this.ListConfig.EmptyTemplate.SetActive(this.ListConfig.ShowEmpty && currentItem.Count == 0);
       this.UpdateSellIndex();
       DataSource.Bind<List<SellItem>>(((Component) this).get_gameObject(), this.mSellItemListSelected);
@@ -373,7 +373,7 @@ namespace SRPG
 
     public override void UpdatePage()
     {
-      if (Object.op_Inequality((Object) this.PageScrollBar, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.PageScrollBar, (UnityEngine.Object) null))
       {
         if (this.mMaxPages >= 2)
         {
@@ -386,13 +386,13 @@ namespace SRPG
           this.PageScrollBar.set_value(0.0f);
         }
       }
-      if (Object.op_Inequality((Object) this.PageIndex, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.PageIndex, (UnityEngine.Object) null))
         this.PageIndex.set_text(Mathf.Min(this.mPage + 1, this.mMaxPages).ToString());
-      if (Object.op_Inequality((Object) this.PageIndexMax, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.PageIndexMax, (UnityEngine.Object) null))
         this.PageIndexMax.set_text(this.mMaxPages.ToString());
-      if (Object.op_Inequality((Object) this.ForwardButton, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ForwardButton, (UnityEngine.Object) null))
         ((Selectable) this.ForwardButton).set_interactable(this.mPage < this.mMaxPages - 1);
-      if (!Object.op_Inequality((Object) this.BackButton, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BackButton, (UnityEngine.Object) null))
         return;
       ((Selectable) this.BackButton).set_interactable(this.mPage > 0);
     }

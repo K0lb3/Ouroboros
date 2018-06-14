@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: RenderPipeline
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using SRPG;
@@ -119,7 +119,7 @@ public class RenderPipeline : MonoBehaviour
     RenderTexture targetTexture = this.mCamera.get_targetTexture();
     int width;
     int height;
-    if (Object.op_Inequality((Object) targetTexture, (Object) null))
+    if (UnityEngine.Object.op_Inequality((UnityEngine.Object) targetTexture, (UnityEngine.Object) null))
     {
       width = targetTexture.get_width();
       height = targetTexture.get_height();
@@ -131,7 +131,7 @@ public class RenderPipeline : MonoBehaviour
     }
     int num1 = Mathf.FloorToInt((float) width * w);
     int num2 = Mathf.FloorToInt((float) height * h);
-    if (Object.op_Equality((Object) rt, (Object) null) || rt.get_width() != num1 || rt.get_height() != num2)
+    if (UnityEngine.Object.op_Equality((UnityEngine.Object) rt, (UnityEngine.Object) null) || rt.get_width() != num1 || rt.get_height() != num2)
     {
       if (!SystemInfo.SupportsRenderTextureFormat(format) && format == 16)
         format = (RenderTextureFormat) 7;
@@ -150,14 +150,14 @@ public class RenderPipeline : MonoBehaviour
 
   private void CreatePass(ref GameObject pass, string name, int priority, CameraCallback.CameraEvent onPreCull, CameraCallback.CameraEvent onPreRender, CameraCallback.CameraEvent onPostRender, CameraCallback.RenderImageEvent onRenderImage, int cullingMask, bool clearDepth)
   {
-    if (Object.op_Equality((Object) pass, (Object) null))
+    if (UnityEngine.Object.op_Equality((UnityEngine.Object) pass, (UnityEngine.Object) null))
     {
       pass = new GameObject(name, new System.Type[2]
       {
         typeof (Camera),
         typeof (CameraCallback)
       });
-      ((Object) pass).set_hideFlags((HideFlags) 52);
+      ((UnityEngine.Object) pass).set_hideFlags((HideFlags) 52);
       pass.get_transform().set_parent(((Component) this).get_transform());
       CameraCallback component = (CameraCallback) pass.GetComponent<CameraCallback>();
       component.OnCameraPreCull = onPreCull;
@@ -175,12 +175,12 @@ public class RenderPipeline : MonoBehaviour
 
   private void DestroyPass(ref GameObject pass)
   {
-    if (Object.op_Inequality((Object) pass, (Object) null))
+    if (UnityEngine.Object.op_Inequality((UnityEngine.Object) pass, (UnityEngine.Object) null))
     {
       if (Application.get_isPlaying())
-        Object.Destroy((Object) pass);
+        UnityEngine.Object.Destroy((UnityEngine.Object) pass);
       else
-        Object.DestroyImmediate((Object) pass);
+        UnityEngine.Object.DestroyImmediate((UnityEngine.Object) pass);
     }
     pass = (GameObject) null;
   }
@@ -193,7 +193,7 @@ public class RenderPipeline : MonoBehaviour
   private Material LoadShader(string path)
   {
     Shader shader = Shader.Find(path);
-    if (Object.op_Equality((Object) shader, (Object) null))
+    if (UnityEngine.Object.op_Equality((UnityEngine.Object) shader, (UnityEngine.Object) null))
       throw new Exception("Can't find shader " + path);
     return new Material(shader);
   }
@@ -223,34 +223,44 @@ public class RenderPipeline : MonoBehaviour
 
   private void OnDisable()
   {
-    Object.DestroyImmediate((Object) this.mUberPostEffect);
+    UnityEngine.Object.DestroyImmediate((UnityEngine.Object) this.mUberPostEffect);
     this.mUberPostEffect = (Material) null;
-    Object.DestroyImmediate((Object) this.mBlitCopy);
+    UnityEngine.Object.DestroyImmediate((UnityEngine.Object) this.mBlitCopy);
     this.mBlitCopy = (Material) null;
-    Object.DestroyImmediate((Object) this.mBlitAdd);
+    UnityEngine.Object.DestroyImmediate((UnityEngine.Object) this.mBlitAdd);
     this.mBlitAdd = (Material) null;
-    Object.DestroyImmediate((Object) this.mBlitDodge);
+    UnityEngine.Object.DestroyImmediate((UnityEngine.Object) this.mBlitDodge);
     this.mBlitDodge = (Material) null;
-    Object.DestroyImmediate((Object) this.mBlurEffect);
+    UnityEngine.Object.DestroyImmediate((UnityEngine.Object) this.mBlurEffect);
     this.mBlurEffect = (Material) null;
-    Object.DestroyImmediate((Object) this.mBlendX);
+    UnityEngine.Object.DestroyImmediate((UnityEngine.Object) this.mBlendX);
     this.mBlendX = (Material) null;
-    Object.DestroyImmediate((Object) this.mDilateErode);
+    UnityEngine.Object.DestroyImmediate((UnityEngine.Object) this.mDilateErode);
     this.mDilateErode = (Material) null;
-    Object.DestroyImmediate((Object) this.mBlitFunc);
+    UnityEngine.Object.DestroyImmediate((UnityEngine.Object) this.mBlitFunc);
     this.mBlitFunc = (Material) null;
-    Object.DestroyImmediate((Object) this.mGradientFill);
+    UnityEngine.Object.DestroyImmediate((UnityEngine.Object) this.mGradientFill);
     this.mGradientFill = (Material) null;
-    Object.DestroyImmediate((Object) this.mBGImage);
+    UnityEngine.Object.DestroyImmediate((UnityEngine.Object) this.mBGImage);
     this.mBGImage = (Material) null;
-    Object.DestroyImmediate((Object) this.mBloomPrePass);
+    UnityEngine.Object.DestroyImmediate((UnityEngine.Object) this.mBloomPrePass);
     this.mBloomPrePass = (Material) null;
   }
 
   private void OnPreCull()
   {
     this.mOldRotation = ((Component) this).get_transform().get_rotation();
-    this.mCamera.set_cullingMask(-1 & ~(GameUtility.LayerMaskEffect | GameUtility.LayerMaskHidden | GameUtility.LayerMaskUI));
+    if (this.RenderMode != RenderPipeline.RenderModes.None)
+    {
+      this.mCamera.set_cullingMask(-1 & ~(GameUtility.LayerMaskEffect | GameUtility.LayerMaskHidden | GameUtility.LayerMaskUI));
+    }
+    else
+    {
+      Camera mCamera = this.mCamera;
+      mCamera.set_cullingMask(mCamera.get_cullingMask() | (GameUtility.LayerMaskEffect | GameUtility.LayerMaskHidden | GameUtility.LayerMaskUI));
+    }
+    this.mCamera.set_clearFlags((CameraClearFlags) 3);
+    this.mCamera.set_backgroundColor(new Color(0.0f, 0.0f, 0.0f));
   }
 
   private RenderTexture GetTemporaryRT(float scaleFactor, RenderTextureFormat format, int depthBpp)
@@ -260,87 +270,118 @@ public class RenderPipeline : MonoBehaviour
 
   private void OnPreRender()
   {
-    float scaleFactor = 0.75f;
-    float num = 0.25f;
-    this.mRTBase = this.GetTemporaryRT(scaleFactor, (RenderTextureFormat) 7, 16);
-    this.mRTBloom0 = this.GetTemporaryRT(scaleFactor * num, (RenderTextureFormat) 7, 0);
-    this.mRTBloom1 = this.GetTemporaryRT(scaleFactor * num, (RenderTextureFormat) 7, 0);
-    this.mRTComposite = this.GetTemporaryRT(scaleFactor, (RenderTextureFormat) 7, 0);
-    this.mCamera.SetTargetBuffers(this.mRTBase.get_colorBuffer(), this.mRTBase.get_depthBuffer());
-    Graphics.SetRenderTarget(this.mRTBase);
-    GL.Clear(false, true, new Color(0.0f, 0.0f, 0.0f, 0.0f));
-    Shader.EnableKeyword("BGMASK_ON");
-    Graphics.SetRenderTarget(this.mRTBase);
-    this.mBlitCopy.SetColor("_color", CameraHook.ColorMod);
-    this.mBlitCopy.EnableKeyword("USE_COLOR");
-    Graphics.Blit(this.BackgroundImage, this.mBlitCopy);
-    this.mBlitCopy.DisableKeyword("USE_COLOR");
-    this.mCamera.set_clearFlags((CameraClearFlags) 3);
-    Shader.SetGlobalTexture("_bgTex", this.BackgroundImage);
+    if (this.RenderMode != RenderPipeline.RenderModes.None)
+    {
+      float scaleFactor = 0.75f;
+      float num = 0.25f;
+      this.mRTBase = this.GetTemporaryRT(scaleFactor, (RenderTextureFormat) 7, 16);
+      this.mRTBloom0 = this.GetTemporaryRT(scaleFactor * num, (RenderTextureFormat) 7, 0);
+      this.mRTBloom1 = this.GetTemporaryRT(scaleFactor * num, (RenderTextureFormat) 7, 0);
+      this.mRTComposite = this.GetTemporaryRT(scaleFactor, (RenderTextureFormat) 7, 0);
+      this.mCamera.SetTargetBuffers(this.mRTBase.get_colorBuffer(), this.mRTBase.get_depthBuffer());
+      Graphics.SetRenderTarget(this.mRTBase);
+      GL.Clear(false, true, new Color(0.0f, 0.0f, 0.0f, 0.0f));
+      Shader.EnableKeyword("BGMASK_ON");
+      Graphics.SetRenderTarget(this.mRTBase);
+      this.mBlitCopy.SetColor("_color", CameraHook.ColorMod);
+      this.mBlitCopy.EnableKeyword("USE_COLOR");
+      Graphics.Blit(this.BackgroundImage, this.mBlitCopy);
+      this.mBlitCopy.DisableKeyword("USE_COLOR");
+      this.mCamera.set_clearFlags((CameraClearFlags) 3);
+      Shader.SetGlobalTexture("_bgTex", this.BackgroundImage);
+    }
+    else
+    {
+      this.mRTBase = this.GetTemporaryRT(0.75f, (RenderTextureFormat) 7, 16);
+      this.mCamera.SetTargetBuffers(this.mRTBase.get_colorBuffer(), this.mRTBase.get_depthBuffer());
+      Graphics.SetRenderTarget(this.mRTBase);
+      GL.Clear(false, true, new Color(0.0f, 0.0f, 0.0f, 0.0f));
+      Graphics.SetRenderTarget(this.mRTBase);
+      this.mBlitCopy.SetColor("_color", CameraHook.ColorMod);
+      this.mBlitCopy.EnableKeyword("USE_COLOR");
+      Graphics.Blit(this.BackgroundImage, this.mBlitCopy);
+      this.mBlitCopy.DisableKeyword("USE_COLOR");
+      this.mCamera.set_clearFlags((CameraClearFlags) 3);
+    }
   }
 
   private void OnPostRender()
   {
-    Shader.DisableKeyword("BGMASK_ON");
-    if (this.mApplyBloom)
+    if (this.RenderMode != RenderPipeline.RenderModes.None)
     {
-      Texture texture = this.ApplyBloom();
-      this.mUberPostEffect.SetFloat("_bloomStrength", this.mBloomStrength);
-      this.mUberPostEffect.SetTexture("_bloomTex", texture);
-      this.mUberPostEffect.SetTexture("_vignette", this.ScreenFilter);
-      this.mUberPostEffect.EnableKeyword("BLOOM_ON");
+      Shader.DisableKeyword("BGMASK_ON");
+      if (this.mApplyBloom)
+      {
+        Texture texture = this.ApplyBloom();
+        this.mUberPostEffect.SetFloat("_bloomStrength", this.mBloomStrength);
+        this.mUberPostEffect.SetTexture("_bloomTex", texture);
+        this.mUberPostEffect.SetTexture("_vignette", this.ScreenFilter);
+        this.mUberPostEffect.EnableKeyword("BLOOM_ON");
+      }
+      else
+        this.mUberPostEffect.DisableKeyword("BLOOM_ON");
+      if (this.EnableVignette)
+        this.mUberPostEffect.EnableKeyword("VIGNETTE_ON");
+      else
+        this.mUberPostEffect.DisableKeyword("VIGNETTE_ON");
+      Graphics.Blit((Texture) this.mRTBase, this.mRTComposite, this.mUberPostEffect);
+      GameObject gameObject = new GameObject();
+      Camera tempCam = (Camera) gameObject.AddComponent<Camera>();
+      tempCam.CopyFrom(this.mCamera);
+      RenderPipeline.RenderCamera(tempCam, GameUtility.LayerMaskEffect, this.mRTComposite.get_colorBuffer(), this.mRTBase.get_depthBuffer());
+      RenderPipeline.RenderCamera(tempCam, GameUtility.LayerMaskUI, this.mRTComposite.get_colorBuffer(), this.mRTBase.get_depthBuffer());
+      UnityEngine.Object.DestroyImmediate((UnityEngine.Object) gameObject);
+      if (this.FlipHorizontally)
+        this.mBlitCopy.SetVector("_scaleOffset", new Vector4(-1f, 1f, 1f, 0.0f));
+      else
+        this.mBlitCopy.SetVector("_scaleOffset", new Vector4(1f, 1f, 0.0f, 0.0f));
+      Material material = (Material) null;
+      switch (this.SwapEffect)
+      {
+        case RenderPipeline.SwapEffects.Copy:
+          material = this.mBlitCopy;
+          break;
+        case RenderPipeline.SwapEffects.Dodge:
+          material = this.mBlitDodge;
+          material.SetFloat("_opacity", this.SwapEffectOpacity);
+          break;
+      }
+      Graphics.SetRenderTarget((RenderTexture) null);
+      GL.Viewport(new Rect(0.0f, 0.0f, (float) Screen.get_width(), (float) Screen.get_height()));
+      switch (this.RenderMode)
+      {
+        case RenderPipeline.RenderModes.Default:
+          Graphics.Blit((Texture) this.mRTComposite, material);
+          break;
+        case RenderPipeline.RenderModes.Base:
+          Graphics.Blit((Texture) this.mRTBase, material);
+          break;
+        case RenderPipeline.RenderModes.Bloom0:
+          Graphics.Blit((Texture) this.mRTBloom0, material);
+          break;
+        case RenderPipeline.RenderModes.Bloom1:
+          Graphics.Blit((Texture) this.mRTBloom1, material);
+          break;
+      }
+      RenderTexture.ReleaseTemporary(this.mRTBase);
+      RenderTexture.ReleaseTemporary(this.mRTBloom0);
+      RenderTexture.ReleaseTemporary(this.mRTBloom1);
+      RenderTexture.ReleaseTemporary(this.mRTComposite);
+      GL.Clear(true, false, new Color(1f, 1f, 1f, 1f));
+      ((Component) this).get_transform().set_rotation(this.mOldRotation);
+      this.mCamera.set_targetTexture((RenderTexture) null);
     }
     else
-      this.mUberPostEffect.DisableKeyword("BLOOM_ON");
-    if (this.EnableVignette)
-      this.mUberPostEffect.EnableKeyword("VIGNETTE_ON");
-    else
-      this.mUberPostEffect.DisableKeyword("VIGNETTE_ON");
-    Graphics.Blit((Texture) this.mRTBase, this.mRTComposite, this.mUberPostEffect);
-    GameObject gameObject = new GameObject();
-    Camera tempCam = (Camera) gameObject.AddComponent<Camera>();
-    tempCam.CopyFrom(this.mCamera);
-    RenderPipeline.RenderCamera(tempCam, GameUtility.LayerMaskEffect, this.mRTComposite.get_colorBuffer(), this.mRTBase.get_depthBuffer());
-    RenderPipeline.RenderCamera(tempCam, GameUtility.LayerMaskUI, this.mRTComposite.get_colorBuffer(), this.mRTBase.get_depthBuffer());
-    Object.DestroyImmediate((Object) gameObject);
-    if (this.FlipHorizontally)
-      this.mBlitCopy.SetVector("_scaleOffset", new Vector4(-1f, 1f, 1f, 0.0f));
-    else
+    {
+      Graphics.SetRenderTarget((RenderTexture) null);
+      GL.Viewport(new Rect(0.0f, 0.0f, (float) Screen.get_width(), (float) Screen.get_height()));
       this.mBlitCopy.SetVector("_scaleOffset", new Vector4(1f, 1f, 0.0f, 0.0f));
-    Material material = (Material) null;
-    switch (this.SwapEffect)
-    {
-      case RenderPipeline.SwapEffects.Copy:
-        material = this.mBlitCopy;
-        break;
-      case RenderPipeline.SwapEffects.Dodge:
-        material = this.mBlitDodge;
-        material.SetFloat("_opacity", this.SwapEffectOpacity);
-        break;
+      Graphics.Blit((Texture) this.mRTBase, this.mBlitCopy);
+      RenderTexture.ReleaseTemporary(this.mRTBase);
+      GL.Clear(true, false, new Color(1f, 1f, 1f, 1f));
+      ((Component) this).get_transform().set_rotation(this.mOldRotation);
+      this.mCamera.set_targetTexture((RenderTexture) null);
     }
-    Graphics.SetRenderTarget((RenderTexture) null);
-    GL.Viewport(new Rect(0.0f, 0.0f, (float) Screen.get_width(), (float) Screen.get_height()));
-    switch (this.RenderMode)
-    {
-      case RenderPipeline.RenderModes.Default:
-        Graphics.Blit((Texture) this.mRTComposite, material);
-        break;
-      case RenderPipeline.RenderModes.Base:
-        Graphics.Blit((Texture) this.mRTBase, material);
-        break;
-      case RenderPipeline.RenderModes.Bloom0:
-        Graphics.Blit((Texture) this.mRTBloom0, material);
-        break;
-      case RenderPipeline.RenderModes.Bloom1:
-        Graphics.Blit((Texture) this.mRTBloom1, material);
-        break;
-    }
-    RenderTexture.ReleaseTemporary(this.mRTBase);
-    RenderTexture.ReleaseTemporary(this.mRTBloom0);
-    RenderTexture.ReleaseTemporary(this.mRTBloom1);
-    RenderTexture.ReleaseTemporary(this.mRTComposite);
-    ((Component) this).get_transform().set_rotation(this.mOldRotation);
-    this.mCamera.set_targetTexture((RenderTexture) null);
   }
 
   private static void RenderCamera(Camera tempCam, int cullingMask, RenderBuffer colorBuffer, RenderBuffer depthBuffer)
@@ -401,6 +442,7 @@ public class RenderPipeline : MonoBehaviour
     Base,
     Bloom0,
     Bloom1,
+    None,
   }
 
   public enum SwapEffects

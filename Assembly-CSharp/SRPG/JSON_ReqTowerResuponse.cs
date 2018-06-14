@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.JSON_ReqTowerResuponse
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections.Generic;
@@ -36,8 +36,8 @@ namespace SRPG
           string state = this.state;
           if (state != null)
           {
-            if (JSON_ReqTowerResuponse.Json_TowerStatus.\u003C\u003Ef__switch\u0024mapD == null)
-              JSON_ReqTowerResuponse.Json_TowerStatus.\u003C\u003Ef__switch\u0024mapD = new Dictionary<string, int>(4)
+            if (JSON_ReqTowerResuponse.Json_TowerStatus.\u003C\u003Ef__switch\u0024map15 == null)
+              JSON_ReqTowerResuponse.Json_TowerStatus.\u003C\u003Ef__switch\u0024map15 = new Dictionary<string, int>(4)
               {
                 {
                   "win",
@@ -57,7 +57,7 @@ namespace SRPG
                 }
               };
             int num;
-            if (JSON_ReqTowerResuponse.Json_TowerStatus.\u003C\u003Ef__switch\u0024mapD.TryGetValue(state, out num))
+            if (JSON_ReqTowerResuponse.Json_TowerStatus.\u003C\u003Ef__switch\u0024map15.TryGetValue(state, out num))
             {
               if (num == 0)
                 return QuestStates.Cleared;
@@ -81,6 +81,12 @@ namespace SRPG
           }
         }
       }
+    }
+
+    public class Json_TowerProg
+    {
+      public string iname;
+      public int is_open;
     }
 
     public class Json_TowerPlayerUnit
@@ -109,6 +115,13 @@ namespace SRPG
       public int tec_score;
       public int ret_score;
       public int rcv_score;
+    }
+
+    public class Json_UserCoin
+    {
+      public int free;
+      public int paid;
+      public int com;
     }
   }
 }

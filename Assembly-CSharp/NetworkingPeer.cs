@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: NetworkingPeer
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using ExitGames.Client.Photon;
@@ -94,7 +94,7 @@ internal class NetworkingPeer : LoadBalancingPeer, IPhotonPeerListener
   {
     get
     {
-      return string.Format("{0}_{1}", (object) PhotonNetwork.gameVersion, (object) "1.80");
+      return string.Format("{0}_{1}", (object) PhotonNetwork.gameVersion, (object) "1.81");
     }
   }
 
@@ -723,6 +723,8 @@ internal class NetworkingPeer : LoadBalancingPeer, IPhotonPeerListener
       if (((Dictionary<byte, object>) evLeave.Parameters).ContainsKey((byte) 233))
       {
         playerWithId.IsInactive = (bool) ((Dictionary<byte, object>) evLeave.Parameters)[(byte) 233];
+        if (playerWithId.IsInactive != isInactive)
+          NetworkingPeer.SendMonoMessage(PhotonNetworkingMessage.OnPhotonPlayerActivityChanged, (object) playerWithId);
         if (playerWithId.IsInactive && isInactive)
         {
           Debug.LogWarning((object) ("HandleEventLeave for player ID: " + (object) actorID + " isInactive: " + (object) playerWithId.IsInactive + ". Stopping handling if inactive."));
@@ -919,6 +921,27 @@ internal class NetworkingPeer : LoadBalancingPeer, IPhotonPeerListener
       byte operationCode = (byte) operationResponse.OperationCode;
       switch (operationCode)
       {
+        case 217:
+          if (operationResponse.ReturnCode != null)
+          {
+            this.DebugReturn((DebugLevel) 1, "GetGameList failed: " + operationResponse.ToStringFull());
+            break;
+          }
+          this.mGameList = new Dictionary<string, RoomInfo>();
+          Hashtable hashtable = (Hashtable) operationResponse.get_Item((byte) 222);
+          using (Dictionary<object, object>.KeyCollection.Enumerator enumerator = ((Dictionary<object, object>) hashtable).Keys.GetEnumerator())
+          {
+            while (enumerator.MoveNext())
+            {
+              object current = enumerator.Current;
+              string roomName = (string) current;
+              this.mGameList[roomName] = new RoomInfo(roomName, (Hashtable) hashtable.get_Item(current));
+            }
+          }
+          this.mGameListCopy = new RoomInfo[this.mGameList.Count];
+          this.mGameList.Values.CopyTo(this.mGameListCopy, 0);
+          NetworkingPeer.SendMonoMessage(PhotonNetworkingMessage.OnReceivedRoomListUpdate);
+          break;
         case 219:
           NetworkingPeer.SendMonoMessage(PhotonNetworkingMessage.OnWebRpcResponse, (object) operationResponse);
           break;
@@ -1435,20 +1458,21 @@ internal class NetworkingPeer : LoadBalancingPeer, IPhotonPeerListener
           break;
         }
         if (PhotonNetwork.logLevel == PhotonLogLevel.Informational)
-          Debug.Log((object) ("Ev OwnershipRequest " + (object) photonView2.ownershipTransfer + ". ActorNr: " + (object) index1 + " takes from: " + (object) num3 + ". Current owner: " + (object) photonView2.ownerId + " isOwnerActive: " + (object) photonView2.isOwnerActive + ". MasterClient: " + (object) this.mMasterClientId + ". This client's player: " + PhotonNetwork.player.ToStringFull()));
+          Debug.Log((object) ("Ev OwnershipRequest " + (object) photonView2.ownershipTransfer + ". ActorNr: " + (object) index1 + " takes from: " + (object) num3 + ". local RequestedView.ownerId: " + (object) photonView2.ownerId + " isOwnerActive: " + (object) photonView2.isOwnerActive + ". MasterClient: " + (object) this.mMasterClientId + ". This client's player: " + PhotonNetwork.player.ToStringFull()));
         switch (photonView2.ownershipTransfer)
         {
           case OwnershipOption.Fixed:
             Debug.LogWarning((object) "Ownership mode == fixed. Ignoring request.");
             return;
           case OwnershipOption.Takeover:
-            if (num3 != photonView2.ownerId && (num3 != 0 || photonView2.ownerId != this.mMasterClientId))
+            if (num3 != photonView2.ownerId && (num3 != 0 || photonView2.ownerId != this.mMasterClientId) && photonView2.ownerId != 0)
               return;
             photonView2.OwnerShipWasTransfered = true;
+            PhotonPlayer playerWithId = this.GetPlayerWithId(photonView2.ownerId);
             photonView2.ownerId = index1;
-            if (PhotonNetwork.logLevel != PhotonLogLevel.Informational)
-              return;
-            Debug.LogWarning((object) (photonView2.ToString() + " ownership transfered to: " + (object) index1));
+            if (PhotonNetwork.logLevel >= PhotonLogLevel.Informational)
+              Debug.LogWarning((object) (photonView2.ToString() + " ownership transfered to: " + (object) index1));
+            NetworkingPeer.SendMonoMessage(PhotonNetworkingMessage.OnOwnershipTransfered, (object) photonView2, (object) photonPlayer, (object) playerWithId);
             return;
           case OwnershipOption.Request:
             if (num3 != PhotonNetwork.player.ID && !PhotonNetwork.player.IsMasterClient || photonView2.ownerId != PhotonNetwork.player.ID && (!PhotonNetwork.player.IsMasterClient || photonView2.isOwnerActive))
@@ -1460,14 +1484,17 @@ internal class NetworkingPeer : LoadBalancingPeer, IPhotonPeerListener
         }
       case 210:
         int[] parameter2 = (int[]) ((Dictionary<byte, object>) photonEvent.Parameters)[(byte) 245];
-        Debug.Log((object) ("Ev OwnershipTransfer. ViewID " + (object) parameter2[0] + " to: " + (object) parameter2[1] + " Time: " + (object) (Environment.TickCount % 1000)));
+        if (PhotonNetwork.logLevel >= PhotonLogLevel.Informational)
+          Debug.Log((object) ("Ev OwnershipTransfer. ViewID " + (object) parameter2[0] + " to: " + (object) parameter2[1] + " Time: " + (object) (Environment.TickCount % 1000)));
         int viewID2 = parameter2[0];
-        int num4 = parameter2[1];
+        int ID = parameter2[1];
         PhotonView photonView3 = PhotonView.Find(viewID2);
         if (!Object.op_Inequality((Object) photonView3, (Object) null))
           break;
+        int ownerId = photonView3.ownerId;
         photonView3.OwnerShipWasTransfered = true;
-        photonView3.ownerId = num4;
+        photonView3.ownerId = ID;
+        NetworkingPeer.SendMonoMessage(PhotonNetworkingMessage.OnOwnershipTransfered, (object) photonView3, (object) PhotonPlayer.Find(ID), (object) PhotonPlayer.Find(ownerId));
         break;
       case 223:
         if (this.AuthValues == null)
@@ -1560,6 +1587,7 @@ internal class NetworkingPeer : LoadBalancingPeer, IPhotonPeerListener
             this.HandleEventLeave(index1, photonEvent);
             return;
           case byte.MaxValue:
+            bool flag = false;
             Hashtable properties = (Hashtable) photonEvent.get_Item((byte) 249);
             if (photonPlayer == null)
             {
@@ -1569,6 +1597,7 @@ internal class NetworkingPeer : LoadBalancingPeer, IPhotonPeerListener
             }
             else
             {
+              flag = photonPlayer.IsInactive;
               photonPlayer.InternalCacheProperties(properties);
               photonPlayer.IsInactive = false;
             }
@@ -1581,6 +1610,9 @@ internal class NetworkingPeer : LoadBalancingPeer, IPhotonPeerListener
               return;
             }
             NetworkingPeer.SendMonoMessage(PhotonNetworkingMessage.OnPhotonPlayerConnected, (object) this.mActors[index1]);
+            if (!flag)
+              return;
+            NetworkingPeer.SendMonoMessage(PhotonNetworkingMessage.OnPhotonPlayerActivityChanged, (object) this.mActors[index1]);
             return;
           default:
             if (photonEvent.Code >= 200)
@@ -1790,7 +1822,10 @@ internal class NetworkingPeer : LoadBalancingPeer, IPhotonPeerListener
                   else if (cachedParemeters.Length == 1 && cachedParemeters[0].ParameterType.IsArray)
                   {
                     ++num2;
-                    object obj = mo.Invoke((object) rpcMonoBehaviour, new object[1]{ (object) parameters1 });
+                    object obj = mo.Invoke((object) rpcMonoBehaviour, new object[1]
+                    {
+                      (object) parameters1
+                    });
                     if (PhotonNetwork.StartRpcsAsCoroutine && (object) mo.ReturnType == (object) typeof (IEnumerator))
                       rpcMonoBehaviour.StartCoroutine((IEnumerator) obj);
                   }
@@ -2075,7 +2110,11 @@ internal class NetworkingPeer : LoadBalancingPeer, IPhotonPeerListener
   {
     Hashtable hashtable1 = new Hashtable();
     hashtable1.set_Item((object) (byte) 7, (object) instantiateId);
-    RaiseEventOptions raiseEventOptions1 = new RaiseEventOptions() { CachingOption = EventCaching.RemoveFromRoomCache, TargetActors = new int[1]{ creatorId } };
+    RaiseEventOptions raiseEventOptions1 = new RaiseEventOptions()
+    {
+      CachingOption = EventCaching.RemoveFromRoomCache,
+      TargetActors = new int[1]{ creatorId }
+    };
     this.OpRaiseEvent((byte) 202, (object) hashtable1, true, raiseEventOptions1);
     Hashtable hashtable2 = new Hashtable();
     hashtable2.set_Item((object) (byte) 0, (object) instantiateId);
@@ -2235,7 +2274,10 @@ internal class NetworkingPeer : LoadBalancingPeer, IPhotonPeerListener
   {
     Hashtable hashtable = new Hashtable();
     hashtable.set_Item((object) (byte) 0, (object) view.viewID);
-    RaiseEventOptions raiseEventOptions = new RaiseEventOptions() { CachingOption = EventCaching.RemoveFromRoomCache };
+    RaiseEventOptions raiseEventOptions = new RaiseEventOptions()
+    {
+      CachingOption = EventCaching.RemoveFromRoomCache
+    };
     this.OpRaiseEvent((byte) 200, (object) hashtable, true, raiseEventOptions);
   }
 
@@ -2285,7 +2327,11 @@ internal class NetworkingPeer : LoadBalancingPeer, IPhotonPeerListener
       }
       else
       {
-        RaiseEventOptions raiseEventOptions = new RaiseEventOptions() { TargetActors = new int[1]{ player.ID }, Encrypt = encrypt };
+        RaiseEventOptions raiseEventOptions = new RaiseEventOptions()
+        {
+          TargetActors = new int[1]{ player.ID },
+          Encrypt = encrypt
+        };
         this.OpRaiseEvent((byte) 200, (object) rpcData, true, raiseEventOptions);
       }
     }
@@ -2294,12 +2340,20 @@ internal class NetworkingPeer : LoadBalancingPeer, IPhotonPeerListener
       switch (target)
       {
         case PhotonTargets.All:
-          RaiseEventOptions raiseEventOptions1 = new RaiseEventOptions() { InterestGroup = (byte) view.group, Encrypt = encrypt };
+          RaiseEventOptions raiseEventOptions1 = new RaiseEventOptions()
+          {
+            InterestGroup = (byte) view.group,
+            Encrypt = encrypt
+          };
           this.OpRaiseEvent((byte) 200, (object) rpcData, true, raiseEventOptions1);
           this.ExecuteRpc(rpcData, this.LocalPlayer);
           break;
         case PhotonTargets.Others:
-          RaiseEventOptions raiseEventOptions2 = new RaiseEventOptions() { InterestGroup = (byte) view.group, Encrypt = encrypt };
+          RaiseEventOptions raiseEventOptions2 = new RaiseEventOptions()
+          {
+            InterestGroup = (byte) view.group,
+            Encrypt = encrypt
+          };
           this.OpRaiseEvent((byte) 200, (object) rpcData, true, raiseEventOptions2);
           break;
         case PhotonTargets.MasterClient:
@@ -2308,27 +2362,50 @@ internal class NetworkingPeer : LoadBalancingPeer, IPhotonPeerListener
             this.ExecuteRpc(rpcData, this.LocalPlayer);
             break;
           }
-          RaiseEventOptions raiseEventOptions3 = new RaiseEventOptions() { Receivers = ReceiverGroup.MasterClient, Encrypt = encrypt };
+          RaiseEventOptions raiseEventOptions3 = new RaiseEventOptions()
+          {
+            Receivers = ReceiverGroup.MasterClient,
+            Encrypt = encrypt
+          };
           this.OpRaiseEvent((byte) 200, (object) rpcData, true, raiseEventOptions3);
           break;
         case PhotonTargets.AllBuffered:
-          RaiseEventOptions raiseEventOptions4 = new RaiseEventOptions() { CachingOption = EventCaching.AddToRoomCache, Encrypt = encrypt };
+          RaiseEventOptions raiseEventOptions4 = new RaiseEventOptions()
+          {
+            CachingOption = EventCaching.AddToRoomCache,
+            Encrypt = encrypt
+          };
           this.OpRaiseEvent((byte) 200, (object) rpcData, true, raiseEventOptions4);
           this.ExecuteRpc(rpcData, this.LocalPlayer);
           break;
         case PhotonTargets.OthersBuffered:
-          RaiseEventOptions raiseEventOptions5 = new RaiseEventOptions() { CachingOption = EventCaching.AddToRoomCache, Encrypt = encrypt };
+          RaiseEventOptions raiseEventOptions5 = new RaiseEventOptions()
+          {
+            CachingOption = EventCaching.AddToRoomCache,
+            Encrypt = encrypt
+          };
           this.OpRaiseEvent((byte) 200, (object) rpcData, true, raiseEventOptions5);
           break;
         case PhotonTargets.AllViaServer:
-          RaiseEventOptions raiseEventOptions6 = new RaiseEventOptions() { InterestGroup = (byte) view.group, Receivers = ReceiverGroup.All, Encrypt = encrypt };
+          RaiseEventOptions raiseEventOptions6 = new RaiseEventOptions()
+          {
+            InterestGroup = (byte) view.group,
+            Receivers = ReceiverGroup.All,
+            Encrypt = encrypt
+          };
           this.OpRaiseEvent((byte) 200, (object) rpcData, true, raiseEventOptions6);
           if (!PhotonNetwork.offlineMode)
             break;
           this.ExecuteRpc(rpcData, this.LocalPlayer);
           break;
         case PhotonTargets.AllBufferedViaServer:
-          RaiseEventOptions raiseEventOptions7 = new RaiseEventOptions() { InterestGroup = (byte) view.group, Receivers = ReceiverGroup.All, CachingOption = EventCaching.AddToRoomCache, Encrypt = encrypt };
+          RaiseEventOptions raiseEventOptions7 = new RaiseEventOptions()
+          {
+            InterestGroup = (byte) view.group,
+            Receivers = ReceiverGroup.All,
+            CachingOption = EventCaching.AddToRoomCache,
+            Encrypt = encrypt
+          };
           this.OpRaiseEvent((byte) 200, (object) rpcData, true, raiseEventOptions7);
           if (!PhotonNetwork.offlineMode)
             break;
@@ -2804,6 +2881,16 @@ internal class NetworkingPeer : LoadBalancingPeer, IPhotonPeerListener
 
   public bool WebRpc(string uriPath, object parameters)
   {
-    return this.OpCustom((byte) 219, new Dictionary<byte, object>() { { (byte) 209, (object) uriPath }, { (byte) 208, parameters } }, true);
+    return this.OpCustom((byte) 219, new Dictionary<byte, object>()
+    {
+      {
+        (byte) 209,
+        (object) uriPath
+      },
+      {
+        (byte) 208,
+        parameters
+      }
+    }, true);
   }
 }

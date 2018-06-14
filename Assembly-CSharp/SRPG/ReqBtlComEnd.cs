@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.ReqBtlComEnd
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections.Generic;
@@ -11,17 +11,42 @@ namespace SRPG
 {
   public class ReqBtlComEnd : WebAPI
   {
-    public ReqBtlComEnd(long btlid, int time, BtlResultTypes result, int[] beats, int[] itemSteals, int[] goldSteals, int[] missions, string[] fuid, Dictionary<OString, OInt> usedItems, Network.ResponseCallback response, BtlEndTypes apiType, string trophyprog = null, string bingoprog = null, string maxdata = null)
+    public ReqBtlComEnd(string req_fuid, int opp_rank, int my_rank, BtlResultTypes result, int[] beats, int[] itemSteals, int[] goldSteals, int[] missions, string[] fuid, Dictionary<OString, OInt> usedItems, Network.ResponseCallback response, BtlEndTypes apiType, string trophyprog = null, string bingoprog = null)
+    {
+      this.name = "btl/colo/exec";
+      StringBuilder stringBuilder = WebAPI.GetStringBuilder();
+      stringBuilder.Append("\"fuid\":\"");
+      stringBuilder.Append(req_fuid);
+      stringBuilder.Append("\"");
+      stringBuilder.Append(",\"opp_rank\":");
+      stringBuilder.Append(opp_rank);
+      stringBuilder.Append(",\"my_rank\":");
+      stringBuilder.Append(my_rank);
+      this.body = WebAPI.GetRequestString(stringBuilder.ToString() + "," + this.makeBody(true, 0L, 0, result, beats, itemSteals, goldSteals, missions, fuid, usedItems, response, apiType, trophyprog, bingoprog, 0, (string) null));
+      this.callback = response;
+    }
+
+    public ReqBtlComEnd(long btlid, int time, BtlResultTypes result, int[] beats, int[] itemSteals, int[] goldSteals, int[] missions, string[] fuid, Dictionary<OString, OInt> usedItems, Network.ResponseCallback response, BtlEndTypes apiType, string trophyprog = null, string bingoprog = null, int elem = 0, string rankingQuestEndParam = null)
     {
       StringBuilder stringBuilder = WebAPI.GetStringBuilder();
       stringBuilder.Append("btl/");
       stringBuilder.Append(apiType.ToString());
       stringBuilder.Append("/end");
       this.name = stringBuilder.ToString();
+      this.body = WebAPI.GetRequestString(this.makeBody(false, btlid, time, result, beats, itemSteals, goldSteals, missions, fuid, usedItems, response, apiType, trophyprog, bingoprog, elem, rankingQuestEndParam));
+      this.callback = response;
+    }
+
+    private string makeBody(bool is_arena, long btlid, int time, BtlResultTypes result, int[] beats, int[] itemSteals, int[] goldSteals, int[] missions, string[] fuid, Dictionary<OString, OInt> usedItems, Network.ResponseCallback response, BtlEndTypes apiType, string trophyprog, string bingoprog, int elem = 0, string rankingQuestEndParam = null)
+    {
+      StringBuilder stringBuilder = WebAPI.GetStringBuilder();
       stringBuilder.Length = 0;
-      stringBuilder.Append("\"btlid\":");
-      stringBuilder.Append(btlid);
-      stringBuilder.Append(',');
+      if (!is_arena)
+      {
+        stringBuilder.Append("\"btlid\":");
+        stringBuilder.Append(btlid);
+        stringBuilder.Append(',');
+      }
       stringBuilder.Append("\"btlendparam\":{");
       stringBuilder.Append("\"time\":");
       stringBuilder.Append(time);
@@ -136,6 +161,11 @@ namespace SRPG
         stringBuilder.Append(JsonEscape.Escape(GlobalVars.SelectedMultiPlayRoomName));
         stringBuilder.Append("\",");
       }
+      if (!string.IsNullOrEmpty(rankingQuestEndParam))
+      {
+        stringBuilder.Append(rankingQuestEndParam);
+        stringBuilder.Append(",");
+      }
       if ((int) stringBuilder[stringBuilder.Length - 1] == 44)
         --stringBuilder.Length;
       stringBuilder.Append('}');
@@ -165,13 +195,27 @@ namespace SRPG
         stringBuilder.Append(",");
         stringBuilder.Append(bingoprog);
       }
-      if (!string.IsNullOrEmpty(maxdata))
+      if (elem != 0)
       {
         stringBuilder.Append(",");
-        stringBuilder.Append(maxdata);
+        stringBuilder.Append("\"support_elem\":\"");
+        stringBuilder.Append(elem);
+        stringBuilder.Append("\"");
       }
-      this.body = WebAPI.GetRequestString(stringBuilder.ToString());
-      this.callback = response;
+      return stringBuilder.ToString();
+    }
+
+    public static string CreateRankingQuestEndParam(int main_score, int sub_score)
+    {
+      StringBuilder stringBuilder = new StringBuilder(128);
+      stringBuilder.Append("\"score\":{");
+      stringBuilder.Append("\"main_score\":");
+      stringBuilder.Append(main_score);
+      stringBuilder.Append(",");
+      stringBuilder.Append("\"sub_score\":");
+      stringBuilder.Append(sub_score);
+      stringBuilder.Append("}");
+      return stringBuilder.ToString();
     }
   }
 }

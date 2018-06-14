@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.GachaManager
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -133,7 +133,7 @@ namespace SRPG
     {
       if (!this.mInitalize)
         return;
-      int num = !Object.op_Equality((Object) button, (Object) this.NextGachaButton) ? 1 : -1;
+      int num = !UnityEngine.Object.op_Equality((UnityEngine.Object) button, (UnityEngine.Object) this.NextGachaButton) ? 1 : -1;
       int count = this.GachaList.Count;
       this.StartCoroutine(this.ShiftGachaAsync((this.mCurrentGachaIndex + num + count) % count));
     }
@@ -142,7 +142,7 @@ namespace SRPG
     private IEnumerator ShiftGachaAsync(int index)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new GachaManager.\u003CShiftGachaAsync\u003Ec__Iterator51() { index = index, \u003C\u0024\u003Eindex = index, \u003C\u003Ef__this = this };
+      return (IEnumerator) new GachaManager.\u003CShiftGachaAsync\u003Ec__Iterator89() { index = index, \u003C\u0024\u003Eindex = index, \u003C\u003Ef__this = this };
     }
 
     private void SetupGachaList2(GachaParam[] gparams)
@@ -183,17 +183,17 @@ namespace SRPG
       {
         // ISSUE: object of a compiler-generated type is created
         // ISSUE: variable of a compiler-generated type
-        GachaManager.\u003CSetupGachaList\u003Ec__AnonStorey1F3 listCAnonStorey1F3 = new GachaManager.\u003CSetupGachaList\u003Ec__AnonStorey1F3();
+        GachaManager.\u003CSetupGachaList\u003Ec__AnonStorey291 listCAnonStorey291 = new GachaManager.\u003CSetupGachaList\u003Ec__AnonStorey291();
         // ISSUE: reference to a compiler-generated field
-        listCAnonStorey1F3.group = gparams[index1].group;
+        listCAnonStorey291.group = gparams[index1].group;
         int index2 = 0;
         GachaTopParam gachaTopParam;
         // ISSUE: reference to a compiler-generated field
         // ISSUE: reference to a compiler-generated method
-        if (this.GachaList != null && !string.IsNullOrEmpty(listCAnonStorey1F3.group) && this.GachaList.FindIndex(new Predicate<GachaTopParam>(listCAnonStorey1F3.\u003C\u003Em__1B9)) != -1)
+        if (this.GachaList != null && !string.IsNullOrEmpty(listCAnonStorey291.group) && this.GachaList.FindIndex(new Predicate<GachaTopParam>(listCAnonStorey291.\u003C\u003Em__24D)) != -1)
         {
           // ISSUE: reference to a compiler-generated method
-          gachaTopParam = this.GachaList[this.GachaList.FindIndex(new Predicate<GachaTopParam>(listCAnonStorey1F3.\u003C\u003Em__1BA))];
+          gachaTopParam = this.GachaList[this.GachaList.FindIndex(new Predicate<GachaTopParam>(listCAnonStorey291.\u003C\u003Em__24E))];
           index2 = Array.IndexOf<string>(gachaTopParam.iname, (string) null);
         }
         else
@@ -217,7 +217,7 @@ namespace SRPG
         gachaTopParam.asset_bg = string.IsNullOrEmpty(gparams[index1].asset_bg) ? string.Empty : gparams[index1].asset_bg;
         gachaTopParam.asset_title = string.IsNullOrEmpty(gparams[index1].asset_title) ? string.Empty : gparams[index1].asset_title;
         // ISSUE: reference to a compiler-generated field
-        gachaTopParam.group = listCAnonStorey1F3.group;
+        gachaTopParam.group = listCAnonStorey291.group;
         gachaTopParam.btext[index2] = gparams[index1].btext;
         gachaTopParam.confirm[index2] = gparams[index1].confirm;
         if (gachaTopParam.coin_p[index2] > 0)

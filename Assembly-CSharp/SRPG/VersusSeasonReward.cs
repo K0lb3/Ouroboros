@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.VersusSeasonReward
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -23,6 +23,7 @@ namespace SRPG
     public Text floorEffTxt;
     public Text rewardTxt;
     public Text okTxt;
+    public Text getTxt;
     public string openAnim;
     public string nextAnim;
     public string resultAnim;
@@ -77,7 +78,8 @@ namespace SRPG
       switch (this.mMode)
       {
         case VersusSeasonReward.MODE.REQ:
-          this.SetData(this.mNow, true, (GameObject) null);
+          while (!this.SetData(this.mNow, true, (GameObject) null))
+            ++this.mNow;
           this.mMode = VersusSeasonReward.MODE.COUNTDOWN;
           this.mWaitTime = this.WAIT_TIME;
           break;
@@ -102,24 +104,29 @@ namespace SRPG
       }
     }
 
-    private void SetData(int idx, bool bPlay = false, GameObject obj = null)
+    private bool SetData(int idx, bool bPlay = false, GameObject obj = null)
     {
       GameManager instance = MonoSingleton<GameManager>.Instance;
       GameObject gameObject = !Object.op_Inequality((Object) obj, (Object) null) ? this.item : obj;
       VersusTowerParam versusTowerParam = instance.GetCurrentVersusTowerParam(-1);
-      if (versusTowerParam != null && versusTowerParam.SeasonIteminame != null && (!string.IsNullOrEmpty((string) versusTowerParam.SeasonIteminame[idx]) && Object.op_Inequality((Object) gameObject, (Object) null)))
+      if (versusTowerParam != null && versusTowerParam.SeasonIteminame != null && !string.IsNullOrEmpty((string) versusTowerParam.SeasonIteminame[idx]))
       {
-        gameObject.SetActive(true);
-        VersusTowerRewardItem component = (VersusTowerRewardItem) gameObject.GetComponent<VersusTowerRewardItem>();
-        if (Object.op_Inequality((Object) component, (Object) null))
-          component.SetData(VersusTowerRewardItem.REWARD_TYPE.Season, idx);
-        if (bPlay)
-          this.ReqAnim(this.openAnim);
-        this.SetRewardName(idx, versusTowerParam);
+        if (versusTowerParam.SeasonItemType[idx] == VERSUS_ITEM_TYPE.award && instance.Player.IsHaveAward((string) versusTowerParam.SeasonIteminame[idx]))
+          return false;
+        if (Object.op_Inequality((Object) gameObject, (Object) null))
+        {
+          gameObject.SetActive(true);
+          VersusTowerRewardItem component = (VersusTowerRewardItem) gameObject.GetComponent<VersusTowerRewardItem>();
+          if (Object.op_Inequality((Object) component, (Object) null))
+            component.SetData(VersusTowerRewardItem.REWARD_TYPE.Season, idx);
+          if (bPlay)
+            this.ReqAnim(this.openAnim);
+          this.SetRewardName(idx, versusTowerParam);
+        }
       }
-      if (!Object.op_Inequality((Object) this.arrival, (Object) null))
-        return;
-      this.arrival.SetActive(false);
+      if (Object.op_Inequality((Object) this.arrival, (Object) null))
+        this.arrival.SetActive(false);
+      return true;
     }
 
     private void SetRewardName(int idx, VersusTowerParam param)
@@ -128,30 +135,31 @@ namespace SRPG
       int num = (int) param.SeasonItemnum[idx];
       string key = (string) param.SeasonIteminame[idx];
       VERSUS_ITEM_TYPE versusItemType = param.SeasonItemType[idx];
+      string str1 = LocalizedText.Get("sys.MULTI_VERSUS_REWARD_GET_MSG");
       if (!Object.op_Inequality((Object) this.rewardTxt, (Object) null))
         return;
-      string str = string.Empty;
+      string str2 = string.Empty;
       switch (versusItemType)
       {
         case VERSUS_ITEM_TYPE.item:
           ItemParam itemParam = instance.GetItemParam(key);
           if (itemParam != null)
           {
-            str = itemParam.name + string.Format(LocalizedText.Get("sys.CROSS_NUM"), (object) num);
+            str2 = itemParam.name + string.Format(LocalizedText.Get("sys.CROSS_NUM"), (object) num);
             break;
           }
           break;
         case VERSUS_ITEM_TYPE.gold:
-          str = num.ToString() + LocalizedText.Get("sys.GOLD");
+          str2 = num.ToString() + LocalizedText.Get("sys.GOLD");
           break;
         case VERSUS_ITEM_TYPE.coin:
-          str = string.Format(LocalizedText.Get("sys.CHALLENGE_REWARD_COIN"), (object) num);
+          str2 = string.Format(LocalizedText.Get("sys.CHALLENGE_REWARD_COIN"), (object) num);
           break;
         case VERSUS_ITEM_TYPE.unit:
           UnitParam unitParam = instance.GetUnitParam(key);
           if (unitParam != null)
           {
-            str = unitParam.name;
+            str2 = unitParam.name;
             break;
           }
           break;
@@ -159,12 +167,21 @@ namespace SRPG
           ArtifactParam artifactParam = instance.MasterParam.GetArtifactParam(key);
           if (artifactParam != null)
           {
-            str = artifactParam.name;
+            str2 = artifactParam.name;
             break;
           }
           break;
+        case VERSUS_ITEM_TYPE.award:
+          AwardParam awardParam = instance.GetAwardParam(key);
+          if (awardParam != null)
+            str2 = awardParam.name;
+          str1 = LocalizedText.Get("sys.MULTI_VERSUS_REWARD_GET_AWARD");
+          break;
       }
-      this.rewardTxt.set_text(string.Format(LocalizedText.Get("sys.MULTI_VERSUS_REWARD_NAME"), (object) str));
+      this.rewardTxt.set_text(string.Format(LocalizedText.Get("sys.MULTI_VERSUS_REWARD_NAME"), (object) str2));
+      if (!Object.op_Inequality((Object) this.getTxt, (Object) null))
+        return;
+      this.getTxt.set_text(str1);
     }
 
     private void ReqAnim(string anim)
@@ -189,9 +206,13 @@ namespace SRPG
         {
           DataSource.Bind<VersusTowerParam>(gameObject, versusTowerParam);
           gameObject.SetActive(true);
-          this.SetData(idx, false, gameObject);
-          if (Object.op_Inequality((Object) this.parent, (Object) null))
-            gameObject.get_transform().SetParent(this.parent.get_transform(), false);
+          if (this.SetData(idx, false, gameObject))
+          {
+            if (Object.op_Inequality((Object) this.parent, (Object) null))
+              gameObject.get_transform().SetParent(this.parent.get_transform(), false);
+          }
+          else
+            gameObject.SetActive(false);
         }
       }
       this.template.SetActive(false);
@@ -210,11 +231,8 @@ namespace SRPG
         }
         else
         {
-          if (this.mMax != 1)
-          {
-            this.CreateResult();
-            this.ReqAnim(this.resultAnim);
-          }
+          this.CreateResult();
+          this.ReqAnim(this.resultAnim);
           this.SetButtonText(false);
           this.mMode = VersusSeasonReward.MODE.FINISH;
         }

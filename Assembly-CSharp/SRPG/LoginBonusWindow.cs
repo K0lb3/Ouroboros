@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.LoginBonusWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -134,24 +134,12 @@ namespace SRPG
                 if (loginBonusData != null && loginBonusData.Param != null)
                 {
                   if (loginBonusData.Param.type == EItemType.Ticket)
-                    AnalyticsManager.TrackCurrencyObtain(AnalyticsManager.CurrencyType.SummonTicket, AnalyticsManager.CurrencySubType.FREE, (long) loginBonusData.Num, "Login Bonus", new Dictionary<string, object>()
-                    {
-                      {
-                        "ticket_id",
-                        (object) loginBonusData.ItemID
-                      }
-                    });
+                    AnalyticsManager.TrackNonPremiumCurrencyObtain(AnalyticsManager.NonPremiumCurrencyType.SummonTicket, (long) loginBonusData.Num, "Login Bonus", loginBonusData.ItemID);
                   else
-                    AnalyticsManager.TrackCurrencyObtain(AnalyticsManager.CurrencyType.Item, AnalyticsManager.CurrencySubType.FREE, (long) loginBonusData.Num, "Login Bonus", new Dictionary<string, object>()
-                    {
-                      {
-                        "item_id",
-                        (object) loginBonusData.ItemID
-                      }
-                    });
+                    AnalyticsManager.TrackNonPremiumCurrencyObtain(AnalyticsManager.NonPremiumCurrencyType.Item, (long) loginBonusData.Num, "Login Bonus", loginBonusData.ItemID);
                 }
                 if (string.IsNullOrEmpty(key) && jsonLoginBonusArray[index].coin > 0)
-                  AnalyticsManager.TrackCurrencyObtain(AnalyticsManager.CurrencyType.Gem, AnalyticsManager.CurrencySubType.FREE, (long) jsonLoginBonusArray[index].coin, "Login Bonus", (Dictionary<string, object>) null);
+                  AnalyticsManager.TrackFreePremiumCurrencyObtain((long) jsonLoginBonusArray[index].coin, "Login Bonus");
               }
               else if (index == this.mLoginBonusCount)
                 itemData2 = (ItemData) loginBonusData;
@@ -237,7 +225,7 @@ namespace SRPG
     private IEnumerator WaitLoadAsync()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new LoginBonusWindow.\u003CWaitLoadAsync\u003Ec__IteratorBB() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new LoginBonusWindow.\u003CWaitLoadAsync\u003Ec__IteratorFE() { \u003C\u003Ef__this = this };
     }
 
     public void Activated(int pinID)

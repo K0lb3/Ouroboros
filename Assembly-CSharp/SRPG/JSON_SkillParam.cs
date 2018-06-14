@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.JSON_SkillParam
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -97,6 +97,7 @@ namespace SRPG
     public int shield_turn_max;
     public int shield_ini;
     public int shield_max;
+    public int shield_reset;
     public string job;
     public int combo_num;
     public int combo_rate;
@@ -109,6 +110,8 @@ namespace SRPG
     public int cs_height;
     public int kb_rate;
     public int kb_val;
+    public int kb_dir;
+    public int kb_ds;
     public int dmg_dt;
     public string[] rp_tgt_ids;
     public string[] rp_chg_ids;
@@ -116,5 +119,23 @@ namespace SRPG
     public string[] ab_rp_chg_ids;
     public string cs_voice;
     public int cs_vp_df;
+    public int tl_type;
+    public int tl_target;
+    public int tl_height;
+    public int tl_is_mov;
+    public int sub_actuate;
+    public int is_fixed;
+    public string tr_id;
+    public int tr_set;
+    public int f_ulock;
+    public int ad_react;
+    public int ig_elem;
+    public string bo_id;
+    public string me_desc;
+    public int wth_rate;
+    public string wth_id;
+    public int elem_tk;
+    public int is_pre_apply;
+    public int max_dmg;
   }
 }

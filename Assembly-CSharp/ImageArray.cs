@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: ImageArray
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using UnityEngine;
@@ -11,6 +11,7 @@ using UnityEngine.UI;
 public class ImageArray : Image
 {
   public Sprite[] Images;
+  private int mImageIndex;
 
   public ImageArray()
   {
@@ -19,10 +20,17 @@ public class ImageArray : Image
 
   public int ImageIndex
   {
+    get
+    {
+      return this.mImageIndex;
+    }
     set
     {
       if (0 <= value && value < this.Images.Length)
+      {
         this.set_sprite(this.Images[value]);
+        this.mImageIndex = value;
+      }
       else
         Debug.LogError((object) "範囲外のインデックスが指定されました。");
     }

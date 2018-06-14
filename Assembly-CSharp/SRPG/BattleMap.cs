@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.BattleMap
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -12,11 +12,15 @@ namespace SRPG
 {
   public class BattleMap
   {
+    public static readonly int MAX_GRID_WIDTH = 20;
+    public static readonly int MAX_GRID_HEIGHT = 20;
     public static readonly int MAX_GRID_MOVING = 16;
     public static readonly int MAP_FLOOR_HEIGHT = 2;
     private static int[] ADJ_OFFSETS = new int[8]{ 1, 0, 0, 1, -1, 0, 0, -1 };
+    private List<UnitSubSetting> mPartyUnitSubSettings = new List<UnitSubSetting>();
     private QuestMonitorCondition mWinMonitorCondition = new QuestMonitorCondition();
     private QuestMonitorCondition mLoseMonitorCondition = new QuestMonitorCondition();
+    private List<TrickSetting> mTrickSettings = new List<TrickSetting>();
     private List<Grid> mMoveRoutes = new List<Grid>(BattleMap.MAX_GRID_MOVING);
     private Grid[] mCheckGrids = new Grid[4];
     public string MapSceneName;
@@ -26,11 +30,12 @@ namespace SRPG
     private List<UnitSetting> mPartyUnitSettings;
     private List<NPCSetting> mNPCUnitSettings;
     private List<UnitSetting> mArenaUnitSettings;
-    private List<JSON_GimmickSkill> mGimmickSkills;
+    private List<JSON_GimmickEvent> mGimmickEvents;
     private BattleCore mBattle;
     private int mWidth;
     private int mHeight;
     private Grid[,] mGrid;
+    private BattleMapRoot mRoot;
     private int mMoveStep;
     public RandDeckResult[] mRandDeckResult;
 
@@ -39,6 +44,14 @@ namespace SRPG
       get
       {
         return this.mPartyUnitSettings;
+      }
+    }
+
+    public List<UnitSubSetting> PartyUnitSubSettings
+    {
+      get
+      {
+        return this.mPartyUnitSubSettings;
       }
     }
 
@@ -74,11 +87,19 @@ namespace SRPG
       }
     }
 
-    public List<JSON_GimmickSkill> GimmickSkills
+    public List<JSON_GimmickEvent> GimmickEvents
     {
       get
       {
-        return this.mGimmickSkills;
+        return this.mGimmickEvents;
+      }
+    }
+
+    public List<TrickSetting> TrickSettings
+    {
+      get
+      {
+        return this.mTrickSettings;
       }
     }
 
@@ -174,8 +195,26 @@ namespace SRPG
         for (int index = 0; index < jsonObject.party.Length; ++index)
           this.mPartyUnitSettings.Add(new UnitSetting(jsonObject.party[index]));
       }
+      if (jsonObject.party_subs != null && jsonObject.party_subs.Length != 0)
+      {
+        this.mPartyUnitSubSettings = new List<UnitSubSetting>(jsonObject.party_subs.Length);
+        foreach (JSON_MapPartySubCT partySub in jsonObject.party_subs)
+          this.mPartyUnitSubSettings.Add(new UnitSubSetting(partySub));
+      }
+      if (jsonObject.tricks != null && jsonObject.tricks.Length != 0)
+      {
+        this.mTrickSettings = new List<TrickSetting>(jsonObject.tricks.Length);
+        foreach (JSON_MapTrick trick in jsonObject.tricks)
+          this.mTrickSettings.Add(new TrickSetting(trick));
+      }
       if ((int) jsonObject.is_rand == 1)
+      {
+        List<JSON_MapEnemyUnit> randFixedUnit = jsonObject.GetRandFixedUnit();
         jsonObject.enemy = this.GetRandUnit(core.GetQuest(), jsonObject, this.mRandDeckResult);
+        List<JSON_MapEnemyUnit> jsonMapEnemyUnitList = new List<JSON_MapEnemyUnit>((IEnumerable<JSON_MapEnemyUnit>) jsonObject.enemy);
+        jsonMapEnemyUnitList.AddRange((IEnumerable<JSON_MapEnemyUnit>) randFixedUnit);
+        jsonObject.enemy = jsonMapEnemyUnitList.ToArray();
+      }
       if (jsonObject.enemy != null)
       {
         this.mNPCUnitSettings = new List<NPCSetting>(jsonObject.enemy.Length);
@@ -196,6 +235,8 @@ namespace SRPG
           unitSetting.waitEntryClock = (OInt) jsonObject.arena[index].wait_e;
           unitSetting.waitMoveTurn = (OInt) jsonObject.arena[index].wait_m;
           unitSetting.waitExitTurn = (OInt) jsonObject.arena[index].wait_exit;
+          unitSetting.startCtCalc = (eMapUnitCtCalcType) jsonObject.arena[index].ct_calc;
+          unitSetting.startCtVal = (OInt) jsonObject.arena[index].ct_val;
           unitSetting.DisableFirceVoice = jsonObject.arena[index].fvoff != 0;
           unitSetting.side = (OInt) 1;
           unitSetting.ai_pos.x = (OInt) jsonObject.arena[index].ai_x;
@@ -215,7 +256,7 @@ namespace SRPG
       if (jsonObject.l_cond != null)
         jsonObject.l_cond.CopyTo(this.mLoseMonitorCondition);
       if (jsonObject.gs != null)
-        this.mGimmickSkills = new List<JSON_GimmickSkill>((IEnumerable<JSON_GimmickSkill>) jsonObject.gs);
+        this.mGimmickEvents = new List<JSON_GimmickEvent>((IEnumerable<JSON_GimmickEvent>) jsonObject.gs);
       return true;
     }
 
@@ -241,6 +282,8 @@ namespace SRPG
           this.mGrid[index2, index1] = grid;
         }
       }
+      this.mRoot = new BattleMapRoot();
+      this.mRoot.Initialize(this.mWidth, this.mHeight, this.mGrid);
       this.ResetMoveRoutes();
       return true;
     }
@@ -259,6 +302,11 @@ namespace SRPG
         this.mMoveRoutes = (List<Grid>) null;
       }
       this.mMoveStep = 0;
+      if (this.mRoot != null)
+      {
+        this.mRoot.Release();
+        this.mRoot = (BattleMapRoot) null;
+      }
       if (this.mGrid == null)
         return;
       for (int index1 = 0; index1 < this.mHeight; ++index1)
@@ -274,7 +322,7 @@ namespace SRPG
       return src.y == dsc.y && src.x - 1 == dsc.x || src.y == dsc.y && src.x + 1 == dsc.x || (src.x == dsc.x && src.y - 1 == dsc.y || src.x == dsc.x && src.y + 1 == dsc.y);
     }
 
-    public bool CheckEnableMove(Unit self, Grid grid, bool bSurinuke)
+    public bool CheckEnableMove(Unit self, Grid grid, bool bSurinuke, bool ignoreObject = false)
     {
       if (self == null || grid == null)
         return false;
@@ -289,18 +337,50 @@ namespace SRPG
           GeoParam geo = grid1.geo;
           if (geo != null && ((bool) geo.DisableStopped || (int) geo.cost > moveCount))
             return false;
-          Unit gimmickAtGrid = this.mBattle.FindGimmickAtGrid(grid1, false);
+          Unit gimmickAtGrid = this.mBattle.FindGimmickAtGrid(grid1, false, self);
           if (gimmickAtGrid != null && !gimmickAtGrid.IsIntoUnit)
             return false;
-          Unit unitAtGrid = this.mBattle.FindUnitAtGrid(grid1);
-          if (unitAtGrid != null && self != unitAtGrid)
+          if (!ignoreObject)
           {
-            if (bSurinuke)
+            Unit unitAtGrid = this.mBattle.FindUnitAtGrid(grid1);
+            if (unitAtGrid != null && self != unitAtGrid)
             {
-              if (self.Side != unitAtGrid.Side)
+              if (bSurinuke)
+              {
+                if (self.Side != unitAtGrid.Side)
+                  return false;
+              }
+              else if (!unitAtGrid.IsIntoUnit)
                 return false;
             }
-            else if (!unitAtGrid.IsIntoUnit)
+          }
+        }
+      }
+      return true;
+    }
+
+    public bool CheckEnableMoveTeleport(Unit self, Grid grid, SkillData skill)
+    {
+      if (self == null || grid == null)
+        return false;
+      bool isTargetTeleport = skill.IsTargetTeleport;
+      for (int index1 = 0; index1 < self.SizeX; ++index1)
+      {
+        for (int index2 = 0; index2 < self.SizeY; ++index2)
+        {
+          Grid grid1 = this[grid.x + index1, grid.y + index2];
+          if (grid1 == null)
+            return false;
+          GeoParam geo = grid1.geo;
+          if (geo != null && (bool) geo.DisableStopped)
+            return false;
+          Unit gimmickAtGrid = this.mBattle.FindGimmickAtGrid(grid1, false, (Unit) null);
+          if (gimmickAtGrid != null && !gimmickAtGrid.IsIntoUnit)
+            return false;
+          if (!isTargetTeleport)
+          {
+            Unit unitAtGrid = this.mBattle.FindUnitAtGrid(grid1);
+            if (unitAtGrid != null && self != unitAtGrid && !unitAtGrid.IsIntoUnit)
               return false;
           }
         }
@@ -344,6 +424,12 @@ namespace SRPG
       }
       if (!walkableField.isValid(startX, startY) || !walkableField.isValid(goalX, goalY) || (walkableField.get(startX, startY) < 0 || walkableField.get(goalX, goalY) < 0))
         return (Grid[]) null;
+      if (this.mRoot.CalcRoot(startX, startY, goalX, goalY, disableHeight, walkableField))
+      {
+        Grid[] root = this.mRoot.GetRoot();
+        if (root != null)
+          return root;
+      }
       GridMap<int> gridMap = new GridMap<int>(this.mWidth, this.mHeight);
       gridMap.fill(int.MaxValue);
       int num1 = this.mWidth * this.mHeight;
@@ -465,7 +551,7 @@ namespace SRPG
         this.mCheckGrids[index] = (Grid) null;
     }
 
-    public bool CalcMoveSteps(Unit unit, Grid target)
+    public bool CalcMoveSteps(Unit unit, Grid target, bool ignoreObject = false)
     {
       if (unit == null)
         return false;
@@ -489,7 +575,7 @@ namespace SRPG
               for (int index3 = 0; index3 < this.mCheckGrids.Length; ++index3)
               {
                 Grid mCheckGrid = this.mCheckGrids[index3];
-                if (mCheckGrid != null && (int) mCheckGrid.step > (int) num + 1 && (this.CheckEnableMoveHeight(unit, this[index2, index1], mCheckGrid) && this.CheckEnableMove(unit, mCheckGrid, true)))
+                if (mCheckGrid != null && (int) mCheckGrid.step > (int) num + 1 && (this.CheckEnableMoveHeight(unit, this[index2, index1], mCheckGrid) && this.CheckEnableMove(unit, mCheckGrid, true, ignoreObject)))
                 {
                   mCheckGrid.step = (byte) Math.Min((int) num + mCheckGrid.cost, (int) mCheckGrid.step);
                   val1 = Math.Max(Math.Min(val1, mCheckGrid.cost), 1);
@@ -530,7 +616,7 @@ namespace SRPG
         if (this.mCheckGrids[index] != null)
         {
           byte step = this.mCheckGrids[index].step;
-          if ((int) step != (int) sbyte.MaxValue && (int) step < (int) num && (this.CheckEnableMoveHeight(self, current, this.mCheckGrids[index]) && this.CheckEnableMove(self, this.mCheckGrids[index], true)) && (!last || self.AI == null || (!self.AI.CheckFlag(AIFlags.CastSkillFriendlyFire) || !this.mBattle.CheckFriendlyFireOnGridMap(self, this.mCheckGrids[index]))))
+          if ((int) step != (int) sbyte.MaxValue && (int) step < (int) num && (this.CheckEnableMoveHeight(self, current, this.mCheckGrids[index]) && this.CheckEnableMove(self, this.mCheckGrids[index], true, false)) && (!last || self.AI == null || (!self.AI.CheckFlag(AIFlags.CastSkillFriendlyFire) || !this.mBattle.CheckFriendlyFireOnGridMap(self, this.mCheckGrids[index]))))
           {
             grid = this.mCheckGrids[index];
             num = step;
@@ -563,7 +649,7 @@ namespace SRPG
       }
       for (int index = this.mMoveRoutes.Count - 1; index > 0; --index)
       {
-        if (!this.CheckEnableMove(self, this.mMoveRoutes[index], false))
+        if (!this.CheckEnableMove(self, this.mMoveRoutes[index], false, false))
           this.mMoveRoutes.RemoveAt(index);
         else if (self.AI != null && self.AI.CheckFlag(AIFlags.CastSkillFriendlyFire) && this.mBattle.CheckFriendlyFireOnGridMap(self, this.mMoveRoutes[index]))
           this.mMoveRoutes.RemoveAt(index);
@@ -580,10 +666,12 @@ namespace SRPG
       List<JSON_MapEnemyUnit> jsonMapEnemyUnitList = new List<JSON_MapEnemyUnit>();
       for (int index = 0; index < result.Length; ++index)
       {
-        JSON_MapEnemyUnit jsonMapEnemyUnit = map.deck[result[index].id];
-        jsonMapEnemyUnit.x = result[index].x;
-        jsonMapEnemyUnit.y = result[index].y;
-        jsonMapEnemyUnitList.Add(jsonMapEnemyUnit);
+        JSON_MapEnemyUnit jsonMapEnemyUnit1 = map.deck[result[index].id];
+        JSON_MapEnemyUnit jsonMapEnemyUnit2 = map.enemy[result[index].set_id];
+        jsonMapEnemyUnit1.x = jsonMapEnemyUnit2.x;
+        jsonMapEnemyUnit1.y = jsonMapEnemyUnit2.y;
+        jsonMapEnemyUnit1.dir = jsonMapEnemyUnit2.dir;
+        jsonMapEnemyUnitList.Add(jsonMapEnemyUnit1);
       }
       return jsonMapEnemyUnitList.ToArray();
     }

@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.EnchantParam
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -11,8 +11,8 @@ namespace SRPG
   public class EnchantParam
   {
     public static readonly OInt MAX_ENCHANGT = (OInt) Enum.GetNames(typeof (EnchantTypes)).Length;
-    public static readonly ParamTypes[] ConvertAssistParamTypes = new ParamTypes[25]{ ParamTypes.Assist_Poison, ParamTypes.Assist_Paralysed, ParamTypes.Assist_Stun, ParamTypes.Assist_Sleep, ParamTypes.Assist_Charm, ParamTypes.Assist_Stone, ParamTypes.Assist_Blind, ParamTypes.Assist_DisableSkill, ParamTypes.Assist_DisableMove, ParamTypes.Assist_DisableAttack, ParamTypes.Assist_Zombie, ParamTypes.Assist_DeathSentence, ParamTypes.Assist_Berserk, ParamTypes.Assist_Knockback, ParamTypes.Assist_ResistBuff, ParamTypes.Assist_ResistDebuff, ParamTypes.Assist_Stun, ParamTypes.Assist_Fast, ParamTypes.Assist_Slow, ParamTypes.Assist_AutoHeal, ParamTypes.Assist_Donsoku, ParamTypes.Assist_Rage, ParamTypes.Assist_GoodSleep, ParamTypes.Assist_AutoJewel, ParamTypes.Assist_DisableHeal };
-    public static readonly ParamTypes[] ConvertResistParamTypes = new ParamTypes[25]{ ParamTypes.Resist_Poison, ParamTypes.Resist_Paralysed, ParamTypes.Resist_Stun, ParamTypes.Resist_Sleep, ParamTypes.Resist_Charm, ParamTypes.Resist_Stone, ParamTypes.Resist_Blind, ParamTypes.Resist_DisableSkill, ParamTypes.Resist_DisableMove, ParamTypes.Resist_DisableAttack, ParamTypes.Resist_Zombie, ParamTypes.Resist_DeathSentence, ParamTypes.Resist_Berserk, ParamTypes.Resist_Knockback, ParamTypes.Resist_ResistBuff, ParamTypes.Resist_ResistDebuff, ParamTypes.Resist_Stun, ParamTypes.Resist_Fast, ParamTypes.Resist_Slow, ParamTypes.Resist_AutoHeal, ParamTypes.Resist_Donsoku, ParamTypes.Resist_Rage, ParamTypes.Resist_GoodSleep, ParamTypes.Resist_AutoJewel, ParamTypes.Resist_DisableHeal };
+    public static readonly ParamTypes[] ConvertAssistParamTypes = new ParamTypes[29]{ ParamTypes.Assist_Poison, ParamTypes.Assist_Paralysed, ParamTypes.Assist_Stun, ParamTypes.Assist_Sleep, ParamTypes.Assist_Charm, ParamTypes.Assist_Stone, ParamTypes.Assist_Blind, ParamTypes.Assist_DisableSkill, ParamTypes.Assist_DisableMove, ParamTypes.Assist_DisableAttack, ParamTypes.Assist_Zombie, ParamTypes.Assist_DeathSentence, ParamTypes.Assist_Berserk, ParamTypes.Assist_Knockback, ParamTypes.Assist_ResistBuff, ParamTypes.Assist_ResistDebuff, ParamTypes.Assist_Stun, ParamTypes.Assist_Fast, ParamTypes.Assist_Slow, ParamTypes.Assist_AutoHeal, ParamTypes.Assist_Donsoku, ParamTypes.Assist_Rage, ParamTypes.Assist_GoodSleep, ParamTypes.Assist_AutoJewel, ParamTypes.Assist_DisableHeal, ParamTypes.Assist_SingleAttack, ParamTypes.Assist_AreaAttack, ParamTypes.Assist_DecCT, ParamTypes.Assist_IncCT };
+    public static readonly ParamTypes[] ConvertResistParamTypes = new ParamTypes[29]{ ParamTypes.Resist_Poison, ParamTypes.Resist_Paralysed, ParamTypes.Resist_Stun, ParamTypes.Resist_Sleep, ParamTypes.Resist_Charm, ParamTypes.Resist_Stone, ParamTypes.Resist_Blind, ParamTypes.Resist_DisableSkill, ParamTypes.Resist_DisableMove, ParamTypes.Resist_DisableAttack, ParamTypes.Resist_Zombie, ParamTypes.Resist_DeathSentence, ParamTypes.Resist_Berserk, ParamTypes.Resist_Knockback, ParamTypes.Resist_ResistBuff, ParamTypes.Resist_ResistDebuff, ParamTypes.Resist_Stun, ParamTypes.Resist_Fast, ParamTypes.Resist_Slow, ParamTypes.Resist_AutoHeal, ParamTypes.Resist_Donsoku, ParamTypes.Resist_Rage, ParamTypes.Resist_GoodSleep, ParamTypes.Resist_AutoJewel, ParamTypes.Resist_DisableHeal, ParamTypes.Resist_SingleAttack, ParamTypes.Resist_AreaAttack, ParamTypes.Resist_DecCT, ParamTypes.Resist_IncCT };
     public OInt[] values = new OInt[(int) EnchantParam.MAX_ENCHANGT];
 
     public OInt this[EnchantTypes type]
@@ -324,6 +324,54 @@ namespace SRPG
       set
       {
         this.values[24] = value;
+      }
+    }
+
+    public OInt single_attack
+    {
+      get
+      {
+        return this.values[25];
+      }
+      set
+      {
+        this.values[25] = value;
+      }
+    }
+
+    public OInt area_attack
+    {
+      get
+      {
+        return this.values[26];
+      }
+      set
+      {
+        this.values[26] = value;
+      }
+    }
+
+    public OInt dec_ct
+    {
+      get
+      {
+        return this.values[27];
+      }
+      set
+      {
+        this.values[27] = value;
+      }
+    }
+
+    public OInt inc_ct
+    {
+      get
+      {
+        return this.values[28];
+      }
+      set
+      {
+        this.values[28] = value;
       }
     }
 

@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: DownloadObserver
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections;
@@ -65,7 +65,10 @@ public class DownloadObserver
   private IEnumerator RunDownloadTask()
   {
     // ISSUE: object of a compiler-generated type is created
-    return (IEnumerator) new DownloadObserver.\u003CRunDownloadTask\u003Ec__Iterator49() { \u003C\u003Ef__this = this };
+    return (IEnumerator) new DownloadObserver.\u003CRunDownloadTask\u003Ec__Iterator7C()
+    {
+      \u003C\u003Ef__this = this
+    };
   }
 
   private void AddDownloadObserve()
@@ -134,7 +137,10 @@ public class DownloadObserver
   private IEnumerator AllStopObserve()
   {
     // ISSUE: object of a compiler-generated type is created
-    return (IEnumerator) new DownloadObserver.\u003CAllStopObserve\u003Ec__Iterator4A() { \u003C\u003Ef__this = this };
+    return (IEnumerator) new DownloadObserver.\u003CAllStopObserve\u003Ec__Iterator7D()
+    {
+      \u003C\u003Ef__this = this
+    };
   }
 
   private void SuccessEvent(DownloadObseve observe, string identificationKey, byte[] bytes, int size, double downloadTime)

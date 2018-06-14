@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_StreamingMovie
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -11,25 +11,20 @@ using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.Pin(3, "Success", FlowNode.PinTypes.Output, 100)]
-  [FlowNode.Pin(1000, "Play (Auto)", FlowNode.PinTypes.Input, 1000)]
   [FlowNode.Pin(5, "Finished", FlowNode.PinTypes.Output, 102)]
   [FlowNode.Pin(4, "Failed", FlowNode.PinTypes.Output, 101)]
+  [FlowNode.Pin(3, "Success", FlowNode.PinTypes.Output, 100)]
+  [FlowNode.Pin(1000, "Play", FlowNode.PinTypes.Input, 0)]
   [FlowNode.NodeType("UI/StreamingMovie", 32741)]
-  [FlowNode.Pin(1, "Play(Wifi)", FlowNode.PinTypes.Input, 0)]
-  [FlowNode.Pin(2, "Play(Carrier)", FlowNode.PinTypes.Input, 1)]
   public class FlowNode_StreamingMovie : FlowNode
   {
     public Color FadeColor = Color.get_black();
-    private const int PIN_ID_PLAY_WIFI = 1;
-    private const int PIN_ID_PLAY_CARRIER = 2;
     private const int PIN_ID_SUCCESS = 3;
     private const int PIN_ID_FAILED = 4;
     private const int PIN_ID_FINISHED = 5;
     private const int PIN_ID_PLAY = 1000;
     private const float FadeTime = 1f;
-    public string WifiFileName;
-    public string CarrierFileName;
+    public string FileName;
     private MySound.VolumeHandle hBGMVolume;
     private MySound.VolumeHandle hVoiceVolume;
     public string ReplayText;
@@ -40,37 +35,25 @@ namespace SRPG
     {
       switch (pinID)
       {
-        case 1:
-          this.Play(this.WifiFileName);
-          break;
-        case 2:
-          this.Play(this.CarrierFileName);
-          break;
         case 1000:
-          switch ((int) Application.get_internetReachability())
+          if (Application.get_internetReachability() == null)
           {
-            case 1:
-              this.Play(this.CarrierFileName);
-              return;
-            case 2:
-              this.Play(this.WifiFileName);
-              return;
-            default:
-              if (!string.IsNullOrEmpty(this.RetryText))
-              {
-                UIUtility.ConfirmBox(LocalizedText.Get(this.RetryText), new UIUtility.DialogResultEvent(this.OnRetry), new UIUtility.DialogResultEvent(this.OnCancelRetry), (GameObject) null, true, -1);
-                return;
-              }
-              this.ActivateOutputLinks(4);
-              this.ActivateOutputLinks(5);
-              return;
+            if (!string.IsNullOrEmpty(this.RetryText))
+            {
+              UIUtility.ConfirmBox(LocalizedText.Get(this.RetryText), new UIUtility.DialogResultEvent(this.OnRetry), new UIUtility.DialogResultEvent(this.OnCancelRetry), (GameObject) null, true, -1, (string) null, (string) null);
+              break;
+            }
+            this.ActivateOutputLinks(4);
+            this.ActivateOutputLinks(5);
+            break;
           }
+          this.Play(this.FileName);
+          break;
       }
     }
 
     private void Play(string fileName)
     {
-      fileName = MonoSingleton<GameManager>.Instance.MasterParam.TranslateMoviePath(fileName);
       ((Behaviour) this).set_enabled(true);
       this.hBGMVolume = new MySound.VolumeHandle(MySound.EType.BGM);
       this.hBGMVolume.SetVolume(0.0f, 0.0f);
@@ -104,7 +87,7 @@ namespace SRPG
       if (!string.IsNullOrEmpty(this.ReplayText))
       {
         ((Behaviour) this).set_enabled(false);
-        UIUtility.ConfirmBox(LocalizedText.Get(this.ReplayText), new UIUtility.DialogResultEvent(this.OnRetry), new UIUtility.DialogResultEvent(this.OnCancelReplay), (GameObject) null, true, -1);
+        UIUtility.ConfirmBox(LocalizedText.Get(this.ReplayText), new UIUtility.DialogResultEvent(this.OnRetry), new UIUtility.DialogResultEvent(this.OnCancelReplay), (GameObject) null, true, -1, (string) null, (string) null);
       }
       else
       {
@@ -135,7 +118,7 @@ namespace SRPG
     private IEnumerator PlayDelayed(string filename, StreamingMovie.OnFinished callback)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new FlowNode_StreamingMovie.\u003CPlayDelayed\u003Ec__Iterator92() { filename = filename, callback = callback, \u003C\u0024\u003Efilename = filename, \u003C\u0024\u003Ecallback = callback };
+      return (IEnumerator) new FlowNode_StreamingMovie.\u003CPlayDelayed\u003Ec__IteratorD4() { filename = filename, callback = callback, \u003C\u0024\u003Efilename = filename, \u003C\u0024\u003Ecallback = callback };
     }
   }
 }

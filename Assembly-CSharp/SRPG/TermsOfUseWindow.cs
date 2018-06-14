@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.TermsOfUseWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -29,7 +29,7 @@ namespace SRPG
       Debug.Log((object) "[WebviewWindow]Start");
       if (!MonoSingleton<DebugManager>.Instance.IsWebViewEnable())
       {
-        if (Object.op_Inequality((Object) this.CloseButton, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.CloseButton, (UnityEngine.Object) null))
           ((Selectable) this.CloseButton).set_interactable(true);
         Debug.Log((object) "[WebviewWindow]WebView not Enabled");
       }
@@ -49,10 +49,10 @@ namespace SRPG
             if (configLanguage != null)
             {
               // ISSUE: reference to a compiler-generated field
-              if (TermsOfUseWindow.\u003C\u003Ef__switch\u0024map4 == null)
+              if (TermsOfUseWindow.\u003C\u003Ef__switch\u0024mapA == null)
               {
                 // ISSUE: reference to a compiler-generated field
-                TermsOfUseWindow.\u003C\u003Ef__switch\u0024map4 = new Dictionary<string, int>(3)
+                TermsOfUseWindow.\u003C\u003Ef__switch\u0024mapA = new Dictionary<string, int>(3)
                 {
                   {
                     "french",
@@ -70,7 +70,7 @@ namespace SRPG
               }
               int num;
               // ISSUE: reference to a compiler-generated field
-              if (TermsOfUseWindow.\u003C\u003Ef__switch\u0024map4.TryGetValue(configLanguage, out num))
+              if (TermsOfUseWindow.\u003C\u003Ef__switch\u0024mapA.TryGetValue(configLanguage, out num))
               {
                 switch (num)
                 {
@@ -98,7 +98,7 @@ label_17:
           str += "?lang=es";
         Debug.Log((object) ("[WebviewWindow]WebView opening " + str));
         this.mWebView = (UniWebView) ((Component) this).GetComponent<UniWebView>();
-        if (!Object.op_Inequality((Object) this.WebViewContainer, (Object) null) || !Object.op_Equality((Object) this.mWebView, (Object) null))
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.WebViewContainer, (UnityEngine.Object) null) || !UnityEngine.Object.op_Equality((UnityEngine.Object) this.mWebView, (UnityEngine.Object) null))
           return;
         this.WebViewContainer.get_rect();
         this.mWebView = (UniWebView) new GameObject("UniWebView").AddComponent<UniWebView>();
@@ -130,7 +130,7 @@ label_17:
         this.mWebView.Show(false, UniWebViewTransitionEdge.None, 0.4f, (Action) null);
       else
         Debug.LogError((object) ("Something wrong in webview loading: " + errorMessage));
-      if (!Object.op_Inequality((Object) this.CloseButton, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.CloseButton, (UnityEngine.Object) null))
         return;
       ((Selectable) this.CloseButton).set_interactable(true);
     }

@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.TowerFloorParam
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -39,6 +39,11 @@ namespace SRPG
     public bool DownLoaded;
     public byte[] rand_tag;
     public string error_messarge;
+    public byte is_unit_chg;
+    public string me_id;
+    public int is_wth_no_chg;
+    public string wth_set_id;
+    public int naut;
 
     protected void localizeFields(string language)
     {
@@ -101,11 +106,16 @@ namespace SRPG
           btl = this.map[index].battleSceneName,
           ev = this.map[index].eventSceneName
         };
+      json.naut = this.naut;
       json.area = original.ChapterID;
       json.type = 7;
       json.notcon = 1;
       json.notitm = 1;
       json.gold = 0;
+      json.is_unit_chg = (int) this.is_unit_chg;
+      json.me_id = this.me_id;
+      json.is_wth_no_chg = this.is_wth_no_chg;
+      json.wth_set_id = this.wth_set_id;
       TowerRewardParam towerReward = MonoSingleton<GameManager>.Instance.FindTowerReward(this.reward_id);
       if (towerReward != null)
       {
@@ -141,12 +151,17 @@ namespace SRPG
       this.rdy_cnd = json.rdy_cnd;
       this.reward_id = json.reward_id;
       this.floor = json.floor;
+      this.is_unit_chg = json.is_unit_chg;
+      this.me_id = json.me_id;
+      this.is_wth_no_chg = json.is_wth_no_chg;
+      this.wth_set_id = json.wth_set_id;
       if (json.rand_tag != null)
       {
         this.rand_tag = new byte[json.rand_tag.Length];
         for (int index = 0; index < json.rand_tag.Length; ++index)
           this.rand_tag[index] = (byte) json.rand_tag[index];
       }
+      this.naut = json.naut;
       this.map.Clear();
       if (json.map != null)
       {

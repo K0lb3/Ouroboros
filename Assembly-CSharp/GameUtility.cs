@@ -1,16 +1,18 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: GameUtility
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
+using MsgPack;
 using SRPG;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -19,28 +21,192 @@ public static class GameUtility
 {
   private static Toggle.ToggleEvent nullToggleEvent = new Toggle.ToggleEvent();
   private static StringBuilder mSB = new StringBuilder(128);
-  private static string CONFIG_SOUNDVOLUME = "SoundVolume";
-  private static string CONFIG_MUSICVOLUME = "MusicVolume";
-  private static string CONFIG_VOICEVOLUME = "VoiceVolume";
-  private static string CONFIG_INPUTMETHOD = "InputMethod";
-  private static string CONFIG_OKYAKUSAMACODE = "CUID";
   private static string LOGININFO_ALREADY_READ = "LoginInfoRead";
   private static string CONFIG_DEVSETTING = "DevServerSetting_SG";
-  public static GameUtility.BooleanConfig Config_UseAssetBundles = new GameUtility.BooleanConfig("UseAssetBundles", false);
-  public static GameUtility.BooleanConfig Config_UseDevServer = new GameUtility.BooleanConfig("UseDevServer", false);
-  public static GameUtility.BooleanConfig Config_UseStgServer = new GameUtility.BooleanConfig("UseStgServer", false);
-  public static GameUtility.BooleanConfig Config_UseAwsServer = new GameUtility.BooleanConfig("UseAwsServer", false);
-  public static GameUtility.BooleanConfig Config_NewGame = new GameUtility.BooleanConfig("NewGame", false);
-  public static GameUtility.BooleanConfig Config_UseLocalData = new GameUtility.BooleanConfig("LocalData", false);
-  public static GameUtility.BooleanConfig Config_UseAutoPlay = new GameUtility.BooleanConfig("UseAutoPlay", false);
-  public static GameUtility.BooleanConfig Config_AutoMode_Treasure = new GameUtility.BooleanConfig("UseAutoTreasure", false);
-  public static GameUtility.BooleanConfig Config_AutoMode_DisableSkill = new GameUtility.BooleanConfig("UseAutoDisableSkill", false);
-  public static GameUtility.BooleanConfig Config_UsePushStamina = new GameUtility.BooleanConfig("UsePushStamina", true);
-  public static GameUtility.BooleanConfig Config_UsePushNews = new GameUtility.BooleanConfig("UsePushNews", false);
-  public static GameUtility.BooleanConfig Config_ChatState = new GameUtility.BooleanConfig("ChatState", true);
-  public static GameUtility.BooleanConfig Config_ChargeDisp = new GameUtility.BooleanConfig("CONFIG_CHARGE_DISP", true);
-  private static GameUtility.UnitShowSetting[] UnitShowSettings = new GameUtility.UnitShowSetting[29]{ new GameUtility.UnitShowSetting() { on = 1, key = "FILTER_FIRE" }, new GameUtility.UnitShowSetting() { on = 1, key = "FILTER_WATER" }, new GameUtility.UnitShowSetting() { on = 1, key = "FILTER_WIND" }, new GameUtility.UnitShowSetting() { on = 1, key = "FILTER_THUNDER" }, new GameUtility.UnitShowSetting() { on = 1, key = "FILTER_SHINE" }, new GameUtility.UnitShowSetting() { on = 1, key = "FILTER_DARK" }, new GameUtility.UnitShowSetting() { on = 1, key = "FILTER_ZENEI" }, new GameUtility.UnitShowSetting() { on = 1, key = "FILTER_TYUEI" }, new GameUtility.UnitShowSetting() { on = 1, key = "FILTER_KOUEI" }, new GameUtility.UnitShowSetting() { on = 1, key = "FILTER_RARE1" }, new GameUtility.UnitShowSetting() { on = 1, key = "FILTER_RARE2" }, new GameUtility.UnitShowSetting() { on = 1, key = "FILTER_RARE3" }, new GameUtility.UnitShowSetting() { on = 1, key = "FILTER_RARE4" }, new GameUtility.UnitShowSetting() { on = 1, key = "FILTER_RARE5" }, new GameUtility.UnitShowSetting() { on = 1, key = "FILTER_RARE6" }, new GameUtility.UnitShowSetting() { on = 0, key = "SORT_SYOJUN" }, new GameUtility.UnitShowSetting() { on = 1, key = "SORT_KOUJUN" }, new GameUtility.UnitShowSetting() { on = 1, key = "SORT_LEVEL" }, new GameUtility.UnitShowSetting() { on = 0, key = "SORT_FAVORITE" }, new GameUtility.UnitShowSetting() { on = 0, key = "SORT_JOBRANK" }, new GameUtility.UnitShowSetting() { on = 0, key = "SORT_HP" }, new GameUtility.UnitShowSetting() { on = 0, key = "SORT_ATK" }, new GameUtility.UnitShowSetting() { on = 0, key = "SORT_DEF" }, new GameUtility.UnitShowSetting() { on = 0, key = "SORT_MAG" }, new GameUtility.UnitShowSetting() { on = 0, key = "SORT_MND" }, new GameUtility.UnitShowSetting() { on = 0, key = "SORT_SPD" }, new GameUtility.UnitShowSetting() { on = 0, key = "SORT_TOTAL" }, new GameUtility.UnitShowSetting() { on = 0, key = "SORT_AWAKE" }, new GameUtility.UnitShowSetting() { on = 0, key = "SORT_COMBINATION" } };
-  public static readonly GameUtility.UnitSortModes[] UnitSortMenuItems = new GameUtility.UnitSortModes[13]{ GameUtility.UnitSortModes.Time, GameUtility.UnitSortModes.Level, GameUtility.UnitSortModes.JobRank, GameUtility.UnitSortModes.HP, GameUtility.UnitSortModes.Atk, GameUtility.UnitSortModes.Def, GameUtility.UnitSortModes.Mag, GameUtility.UnitSortModes.Mnd, GameUtility.UnitSortModes.Spd, GameUtility.UnitSortModes.Total, GameUtility.UnitSortModes.Awake, GameUtility.UnitSortModes.Combination, GameUtility.UnitSortModes.Rarity };
+  private static float m_sound_volume = -1f;
+  private static float m_music_volume = -1f;
+  private static float m_voice_volume = -1f;
+  public static GameUtility.BooleanConfig Config_UseAssetBundles = new GameUtility.BooleanConfig(PlayerPrefsUtility.USE_ASSETBUNDLES, false);
+  public static GameUtility.BooleanConfig Config_UseDevServer = new GameUtility.BooleanConfig(PlayerPrefsUtility.DEBUG_USE_DEV_SERVER, false);
+  public static GameUtility.BooleanConfig Config_UseAwsServer = new GameUtility.BooleanConfig(PlayerPrefsUtility.DEBUG_USE_AWS_SERVER, false);
+  public static GameUtility.BooleanConfig Config_NewGame = new GameUtility.BooleanConfig(PlayerPrefsUtility.DEBUG_NEWGAME, false);
+  public static GameUtility.BooleanConfig Config_UseLocalData = new GameUtility.BooleanConfig(PlayerPrefsUtility.DEBUG_USE_LOCAL_DATA, false);
+  public static GameUtility.BooleanConfig Config_AutoPlayMark = new GameUtility.BooleanConfig(PlayerPrefsUtility.DEBUG_AUTO_MARK, false);
+  public static GameUtility.BooleanConfig Config_AutoPlay = new GameUtility.BooleanConfig(PlayerPrefsUtility.DEBUG_AUTOPLAY, false);
+  public static GameUtility.BooleanConfig Config_UseAutoPlay = new GameUtility.BooleanConfig(PlayerPrefsUtility.CONFIG_USE_AUTO_PLAY, false);
+  public static GameUtility.BooleanConfig Config_AutoMode_Treasure = new GameUtility.BooleanConfig(PlayerPrefsUtility.CONFIG_USE_AUTOMODE_TREASURE, false);
+  public static GameUtility.BooleanConfig Config_AutoMode_DisableSkill = new GameUtility.BooleanConfig(PlayerPrefsUtility.CONFIG_USE_AUTOMODE_DISABLE_SKILL, false);
+  public static GameUtility.BooleanConfig Config_DirectionCut = new GameUtility.BooleanConfig(PlayerPrefsUtility.CONFIG_USE_DIRECTIONCUT, true);
+  public static GameUtility.BooleanConfig Config_UsePushStamina = new GameUtility.BooleanConfig(PlayerPrefsUtility.CONFIG_USE_PUSH_STAMINA, true);
+  public static GameUtility.BooleanConfig Config_UsePushNews = new GameUtility.BooleanConfig(PlayerPrefsUtility.CONFIG_USE_PUSH_NEWS, false);
+  public static GameUtility.BooleanConfig Config_ChatState = new GameUtility.BooleanConfig(PlayerPrefsUtility.CONFIG_USE_CHAT_STATE, true);
+  public static GameUtility.BooleanConfig Config_MultiState = new GameUtility.BooleanConfig(PlayerPrefsUtility.CONFIG_USE_STAMP_STATE, true);
+  public static GameUtility.BooleanConfig Config_ChargeDisp = new GameUtility.BooleanConfig(PlayerPrefsUtility.CONFIG_USE_CHARGE_DISP, true);
+  private static ObjectPacker Packer = new ObjectPacker();
+  private static GameUtility.UnitShowSetting[] UnitShowSettings = new GameUtility.UnitShowSetting[29]
+  {
+    new GameUtility.UnitShowSetting()
+    {
+      on = 1,
+      key = "FILTER_FIRE"
+    },
+    new GameUtility.UnitShowSetting()
+    {
+      on = 1,
+      key = "FILTER_WATER"
+    },
+    new GameUtility.UnitShowSetting()
+    {
+      on = 1,
+      key = "FILTER_WIND"
+    },
+    new GameUtility.UnitShowSetting()
+    {
+      on = 1,
+      key = "FILTER_THUNDER"
+    },
+    new GameUtility.UnitShowSetting()
+    {
+      on = 1,
+      key = "FILTER_SHINE"
+    },
+    new GameUtility.UnitShowSetting()
+    {
+      on = 1,
+      key = "FILTER_DARK"
+    },
+    new GameUtility.UnitShowSetting()
+    {
+      on = 1,
+      key = "FILTER_ZENEI"
+    },
+    new GameUtility.UnitShowSetting()
+    {
+      on = 1,
+      key = "FILTER_TYUEI"
+    },
+    new GameUtility.UnitShowSetting()
+    {
+      on = 1,
+      key = "FILTER_KOUEI"
+    },
+    new GameUtility.UnitShowSetting()
+    {
+      on = 1,
+      key = "FILTER_RARE1"
+    },
+    new GameUtility.UnitShowSetting()
+    {
+      on = 1,
+      key = "FILTER_RARE2"
+    },
+    new GameUtility.UnitShowSetting()
+    {
+      on = 1,
+      key = "FILTER_RARE3"
+    },
+    new GameUtility.UnitShowSetting()
+    {
+      on = 1,
+      key = "FILTER_RARE4"
+    },
+    new GameUtility.UnitShowSetting()
+    {
+      on = 1,
+      key = "FILTER_RARE5"
+    },
+    new GameUtility.UnitShowSetting()
+    {
+      on = 1,
+      key = "FILTER_RARE6"
+    },
+    new GameUtility.UnitShowSetting()
+    {
+      on = 0,
+      key = "SORT_SYOJUN"
+    },
+    new GameUtility.UnitShowSetting()
+    {
+      on = 1,
+      key = "SORT_KOUJUN"
+    },
+    new GameUtility.UnitShowSetting()
+    {
+      on = 1,
+      key = "SORT_LEVEL"
+    },
+    new GameUtility.UnitShowSetting()
+    {
+      on = 0,
+      key = "SORT_FAVORITE"
+    },
+    new GameUtility.UnitShowSetting()
+    {
+      on = 0,
+      key = "SORT_JOBRANK"
+    },
+    new GameUtility.UnitShowSetting()
+    {
+      on = 0,
+      key = "SORT_HP"
+    },
+    new GameUtility.UnitShowSetting()
+    {
+      on = 0,
+      key = "SORT_ATK"
+    },
+    new GameUtility.UnitShowSetting()
+    {
+      on = 0,
+      key = "SORT_DEF"
+    },
+    new GameUtility.UnitShowSetting()
+    {
+      on = 0,
+      key = "SORT_MAG"
+    },
+    new GameUtility.UnitShowSetting()
+    {
+      on = 0,
+      key = "SORT_MND"
+    },
+    new GameUtility.UnitShowSetting()
+    {
+      on = 0,
+      key = "SORT_SPD"
+    },
+    new GameUtility.UnitShowSetting()
+    {
+      on = 0,
+      key = "SORT_TOTAL"
+    },
+    new GameUtility.UnitShowSetting()
+    {
+      on = 0,
+      key = "SORT_AWAKE"
+    },
+    new GameUtility.UnitShowSetting()
+    {
+      on = 0,
+      key = "SORT_COMBINATION"
+    }
+  };
+  public static readonly GameUtility.UnitSortModes[] UnitSortMenuItems = new GameUtility.UnitSortModes[13]
+  {
+    GameUtility.UnitSortModes.Time,
+    GameUtility.UnitSortModes.Level,
+    GameUtility.UnitSortModes.JobRank,
+    GameUtility.UnitSortModes.HP,
+    GameUtility.UnitSortModes.Atk,
+    GameUtility.UnitSortModes.Def,
+    GameUtility.UnitSortModes.Mag,
+    GameUtility.UnitSortModes.Mnd,
+    GameUtility.UnitSortModes.Spd,
+    GameUtility.UnitSortModes.Total,
+    GameUtility.UnitSortModes.Awake,
+    GameUtility.UnitSortModes.Combination,
+    GameUtility.UnitSortModes.Rarity
+  };
   public static readonly Color32 Color32_White = new Color32(byte.MaxValue, byte.MaxValue, byte.MaxValue, byte.MaxValue);
   public static readonly Color32 Color32_Black = new Color32((byte) 0, (byte) 0, (byte) 0, byte.MaxValue);
   private static Color mFadeInColor = new Color(0.0f, 0.0f, 0.0f, 0.0f);
@@ -65,10 +231,13 @@ public static class GameUtility
   public const string Lang_none = "None";
   public const float SmallNumber = 0.0001f;
   private static CultureInfo _cultureSetting;
+  public static bool ShowEnumOnly;
+  public static bool ForceLanguageSelection;
   private static Application.LogCallback mLogCallbacks;
   private static bool mATCTextureSupport;
   private static bool mDXTTextureSupport;
   private static bool mPVRTextureSupport;
+  private static bool mASTCTextureSupport;
   private static string[] mGLExtensions;
   private static int mLayerBG;
   private static int mLayerCH;
@@ -94,8 +263,8 @@ public static class GameUtility
         string configLanguage = GameUtility.Config_Language;
         if (configLanguage != null)
         {
-          if (GameUtility.\u003C\u003Ef__switch\u0024map1 == null)
-            GameUtility.\u003C\u003Ef__switch\u0024map1 = new Dictionary<string, int>(4)
+          if (GameUtility.\u003C\u003Ef__switch\u0024map6 == null)
+            GameUtility.\u003C\u003Ef__switch\u0024map6 = new Dictionary<string, int>(4)
             {
               {
                 "english",
@@ -115,7 +284,7 @@ public static class GameUtility
               }
             };
           int num;
-          if (GameUtility.\u003C\u003Ef__switch\u0024map1.TryGetValue(configLanguage, out num))
+          if (GameUtility.\u003C\u003Ef__switch\u0024map6.TryGetValue(configLanguage, out num))
           {
             switch (num)
             {
@@ -216,10 +385,10 @@ public static class GameUtility
     if (key != null)
     {
       // ISSUE: reference to a compiler-generated field
-      if (GameUtility.\u003C\u003Ef__switch\u0024map2 == null)
+      if (GameUtility.\u003C\u003Ef__switch\u0024map7 == null)
       {
         // ISSUE: reference to a compiler-generated field
-        GameUtility.\u003C\u003Ef__switch\u0024map2 = new Dictionary<string, int>(5)
+        GameUtility.\u003C\u003Ef__switch\u0024map7 = new Dictionary<string, int>(5)
         {
           {
             "english",
@@ -245,7 +414,7 @@ public static class GameUtility
       }
       int num;
       // ISSUE: reference to a compiler-generated field
-      if (GameUtility.\u003C\u003Ef__switch\u0024map2.TryGetValue(key, out num))
+      if (GameUtility.\u003C\u003Ef__switch\u0024map7.TryGetValue(key, out num))
       {
         switch (num)
         {
@@ -263,6 +432,53 @@ public static class GameUtility
             break;
           case 4:
             str = "es";
+            break;
+        }
+      }
+    }
+    return str;
+  }
+
+  public static string SceneNameHome()
+  {
+    string str = "Home";
+    string configLanguage = GameUtility.Config_Language;
+    if (configLanguage != null)
+    {
+      // ISSUE: reference to a compiler-generated field
+      if (GameUtility.\u003C\u003Ef__switch\u0024map8 == null)
+      {
+        // ISSUE: reference to a compiler-generated field
+        GameUtility.\u003C\u003Ef__switch\u0024map8 = new Dictionary<string, int>(3)
+        {
+          {
+            "french",
+            0
+          },
+          {
+            "spanish",
+            1
+          },
+          {
+            "german",
+            2
+          }
+        };
+      }
+      int num;
+      // ISSUE: reference to a compiler-generated field
+      if (GameUtility.\u003C\u003Ef__switch\u0024map8.TryGetValue(configLanguage, out num))
+      {
+        switch (num)
+        {
+          case 0:
+            str = "Home_fr";
+            break;
+          case 1:
+            str = "Home_es";
+            break;
+          case 2:
+            str = "Home_de";
             break;
         }
       }
@@ -293,7 +509,7 @@ public static class GameUtility
   {
     get
     {
-      return Object.op_Inequality((Object) Resources.Load<TextAsset>("strip"), (Object) null);
+      return UnityEngine.Object.op_Inequality((UnityEngine.Object) Resources.Load<TextAsset>("strip"), (UnityEngine.Object) null);
     }
   }
 
@@ -309,7 +525,7 @@ public static class GameUtility
       return;
     for (int index = 0; index < objects.Count; ++index)
     {
-      if (Object.op_Inequality((Object) (object) objects[index], (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) (object) objects[index], (UnityEngine.Object) null))
         objects[index].get_transform().SetParent(newParent, false);
     }
   }
@@ -320,7 +536,7 @@ public static class GameUtility
       return;
     for (int index = 0; index < objects.Count; ++index)
     {
-      if (Object.op_Inequality((Object) objects[index], (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) objects[index], (UnityEngine.Object) null))
         objects[index].get_transform().SetParent(newParent, false);
     }
   }
@@ -335,13 +551,11 @@ public static class GameUtility
   {
     get
     {
-      if (!PlayerPrefs.HasKey(GameUtility.CONFIG_SOUNDVOLUME))
-        return MoveInputMethods.VirtualStick;
-      return (MoveInputMethods) PlayerPrefs.GetInt(GameUtility.CONFIG_INPUTMETHOD);
+      return (MoveInputMethods) PlayerPrefsUtility.GetInt(PlayerPrefsUtility.CONFIG_INPUTMETHOD, 0);
     }
     set
     {
-      PlayerPrefs.SetInt(GameUtility.CONFIG_INPUTMETHOD, (int) value);
+      PlayerPrefsUtility.SetInt(PlayerPrefsUtility.CONFIG_INPUTMETHOD, (int) value, false);
     }
   }
 
@@ -349,13 +563,15 @@ public static class GameUtility
   {
     get
     {
-      if (!PlayerPrefs.HasKey(GameUtility.CONFIG_SOUNDVOLUME))
-        return 1f;
-      return PlayerPrefs.GetFloat(GameUtility.CONFIG_SOUNDVOLUME);
+      if (0.0 <= (double) GameUtility.m_sound_volume)
+        return GameUtility.m_sound_volume;
+      GameUtility.m_sound_volume = PlayerPrefsUtility.GetFloat(PlayerPrefsUtility.CONFIG_SOUNDVOLUME, 1f);
+      return GameUtility.m_sound_volume;
     }
     set
     {
-      PlayerPrefs.SetFloat(GameUtility.CONFIG_SOUNDVOLUME, value);
+      GameUtility.m_sound_volume = value;
+      PlayerPrefsUtility.SetFloat(PlayerPrefsUtility.CONFIG_SOUNDVOLUME, value, false);
     }
   }
 
@@ -363,13 +579,15 @@ public static class GameUtility
   {
     get
     {
-      if (!PlayerPrefs.HasKey(GameUtility.CONFIG_MUSICVOLUME))
-        return 1f;
-      return PlayerPrefs.GetFloat(GameUtility.CONFIG_MUSICVOLUME);
+      if (0.0 <= (double) GameUtility.m_music_volume)
+        return GameUtility.m_music_volume;
+      GameUtility.m_music_volume = PlayerPrefsUtility.GetFloat(PlayerPrefsUtility.CONFIG_MUSICVOLUME, 1f);
+      return GameUtility.m_music_volume;
     }
     set
     {
-      PlayerPrefs.SetFloat(GameUtility.CONFIG_MUSICVOLUME, value);
+      GameUtility.m_music_volume = value;
+      PlayerPrefsUtility.SetFloat(PlayerPrefsUtility.CONFIG_MUSICVOLUME, value, false);
     }
   }
 
@@ -377,13 +595,15 @@ public static class GameUtility
   {
     get
     {
-      if (!PlayerPrefs.HasKey(GameUtility.CONFIG_VOICEVOLUME))
-        return 1f;
-      return PlayerPrefs.GetFloat(GameUtility.CONFIG_VOICEVOLUME);
+      if (0.0 <= (double) GameUtility.m_voice_volume)
+        return GameUtility.m_voice_volume;
+      GameUtility.m_voice_volume = PlayerPrefsUtility.GetFloat(PlayerPrefsUtility.CONFIG_VOICEVOLUME, 1f);
+      return GameUtility.m_voice_volume;
     }
     set
     {
-      PlayerPrefs.SetFloat(GameUtility.CONFIG_VOICEVOLUME, value);
+      GameUtility.m_voice_volume = value;
+      PlayerPrefsUtility.SetFloat(PlayerPrefsUtility.CONFIG_VOICEVOLUME, value, false);
     }
   }
 
@@ -391,14 +611,11 @@ public static class GameUtility
   {
     get
     {
-      if (!PlayerPrefs.HasKey(GameUtility.CONFIG_OKYAKUSAMACODE))
-        return (string) null;
-      return PlayerPrefs.GetString(GameUtility.CONFIG_OKYAKUSAMACODE);
+      return PlayerPrefsUtility.GetString(PlayerPrefsUtility.CONFIG_OKYAKUSAMACODE, (string) null);
     }
     set
     {
-      PlayerPrefs.SetString(GameUtility.CONFIG_OKYAKUSAMACODE, value);
-      PlayerPrefs.Save();
+      PlayerPrefsUtility.SetString(PlayerPrefsUtility.CONFIG_OKYAKUSAMACODE, value, true);
     }
   }
 
@@ -411,7 +628,7 @@ public static class GameUtility
   public static void setLoginInfoRead(string value)
   {
     string str = (string) MonoSingleton<UserInfoManager>.Instance.GetValue(GameUtility.LOGININFO_ALREADY_READ);
-    if (string.IsNullOrEmpty(value) || !(str != value))
+    if (value == null || !(str != value))
       return;
     MonoSingleton<UserInfoManager>.Instance.SetValue(GameUtility.LOGININFO_ALREADY_READ, (object) value, true);
   }
@@ -421,7 +638,7 @@ public static class GameUtility
     string loginInfoRead = GameUtility.getLoginInfoRead();
     if (string.IsNullOrEmpty(loginInfoRead))
       return true;
-    return TimeManager.Now() > TimeManager.FromDateTime(DateTime.Parse(loginInfoRead).AddDays(1.0));
+    return TimeManager.FromDateTime(TimeManager.ServerTime) > TimeManager.FromDateTime(DateTime.Parse(loginInfoRead).AddDays(1.0));
   }
 
   public static string DevServerSetting
@@ -430,8 +647,8 @@ public static class GameUtility
     {
       if (PlayerPrefs.HasKey(GameUtility.CONFIG_DEVSETTING))
         return PlayerPrefs.GetString(GameUtility.CONFIG_DEVSETTING);
-      PlayerPrefs.SetString(GameUtility.CONFIG_DEVSETTING, "http://stg02-app.alcww.gumi.sg/");
-      return "http://stg02-app.alcww.gumi.sg/";
+      PlayerPrefs.SetString(GameUtility.CONFIG_DEVSETTING, "http://dev06-app.alcww.gumi.sg/");
+      return "http://dev06-app.alcww.gumi.sg/";
     }
     set
     {
@@ -444,16 +661,16 @@ public static class GameUtility
   {
     if (index < 0 || index >= GameUtility.UnitShowSettings.Length)
       return false;
-    if (!PlayerPrefs.HasKey(GameUtility.UnitShowSettings[index].key))
+    if (!PlayerPrefsUtility.HasKey(GameUtility.UnitShowSettings[index].key))
       return GameUtility.UnitShowSettings[index].on != 0;
-    return PlayerPrefs.GetInt(GameUtility.UnitShowSettings[index].key) != 0;
+    return PlayerPrefsUtility.GetInt(GameUtility.UnitShowSettings[index].key, 0) != 0;
   }
 
   public static void SetUnitShowSetting(int index, bool value)
   {
     if (index < 0 || index >= GameUtility.UnitShowSettings.Length)
       return;
-    PlayerPrefs.SetInt(GameUtility.UnitShowSettings[index].key, !value ? 0 : 1);
+    PlayerPrefsUtility.SetInt(GameUtility.UnitShowSettings[index].key, !value ? 0 : 1, false);
   }
 
   public static void ResetUnitShowSetting()
@@ -466,7 +683,7 @@ public static class GameUtility
   {
     // ISSUE: object of a compiler-generated type is created
     // ISSUE: variable of a compiler-generated type
-    GameUtility.\u003CSortUnits\u003Ec__AnonStorey172 unitsCAnonStorey172 = new GameUtility.\u003CSortUnits\u003Ec__AnonStorey172();
+    GameUtility.\u003CSortUnits\u003Ec__AnonStorey1E7 unitsCAnonStorey1E7 = new GameUtility.\u003CSortUnits\u003Ec__AnonStorey1E7();
     List<SortKeyValue<UnitData, int>> sortKeyValueList = new List<SortKeyValue<UnitData, int>>(units.Count);
     for (int index = 0; index < units.Count; ++index)
       sortKeyValueList.Add(new SortKeyValue<UnitData, int>()
@@ -475,19 +692,19 @@ public static class GameUtility
       });
     sortValues = new int[units.Count];
     // ISSUE: reference to a compiler-generated field
-    unitsCAnonStorey172.compares = new List<Func<UnitData, UnitData, int>>();
+    unitsCAnonStorey1E7.compares = new List<Func<UnitData, UnitData, int>>();
     // ISSUE: reference to a compiler-generated field
-    unitsCAnonStorey172.compares.Clear();
+    unitsCAnonStorey1E7.compares.Clear();
     // ISSUE: reference to a compiler-generated field
-    unitsCAnonStorey172.compares.Add(new Func<UnitData, UnitData, int>(UnitData.CompareTo_Lv));
+    unitsCAnonStorey1E7.compares.Add(new Func<UnitData, UnitData, int>(UnitData.CompareTo_Lv));
     // ISSUE: reference to a compiler-generated field
-    unitsCAnonStorey172.compares.Add(new Func<UnitData, UnitData, int>(UnitData.CompareTo_Rarity));
+    unitsCAnonStorey1E7.compares.Add(new Func<UnitData, UnitData, int>(UnitData.CompareTo_Rarity));
     // ISSUE: reference to a compiler-generated field
-    unitsCAnonStorey172.compares.Add(new Func<UnitData, UnitData, int>(UnitData.CompareTo_JobRank));
+    unitsCAnonStorey1E7.compares.Add(new Func<UnitData, UnitData, int>(UnitData.CompareTo_JobRank));
     // ISSUE: reference to a compiler-generated field
-    unitsCAnonStorey172.compares.Add(new Func<UnitData, UnitData, int>(UnitData.CompareTo_RarityMax));
+    unitsCAnonStorey1E7.compares.Add(new Func<UnitData, UnitData, int>(UnitData.CompareTo_RarityMax));
     // ISSUE: reference to a compiler-generated field
-    unitsCAnonStorey172.compares.Add(new Func<UnitData, UnitData, int>(UnitData.CompareTo_RarityInit));
+    unitsCAnonStorey1E7.compares.Add(new Func<UnitData, UnitData, int>(UnitData.CompareTo_RarityInit));
     switch (type)
     {
       case GameUtility.UnitSortModes.Time:
@@ -496,13 +713,13 @@ public static class GameUtility
         for (int index = 0; index < units.Count; ++index)
           sortKeyValueList[index].mKey = units[index].Lv;
         // ISSUE: reference to a compiler-generated field
-        unitsCAnonStorey172.compares.Remove(new Func<UnitData, UnitData, int>(UnitData.CompareTo_Lv));
+        unitsCAnonStorey1E7.compares.Remove(new Func<UnitData, UnitData, int>(UnitData.CompareTo_Lv));
         break;
       case GameUtility.UnitSortModes.JobRank:
         for (int index = 0; index < units.Count; ++index)
           sortKeyValueList[index].mKey = units[index].CurrentJob.Rank;
         // ISSUE: reference to a compiler-generated field
-        unitsCAnonStorey172.compares.Remove(new Func<UnitData, UnitData, int>(UnitData.CompareTo_JobRank));
+        unitsCAnonStorey1E7.compares.Remove(new Func<UnitData, UnitData, int>(UnitData.CompareTo_JobRank));
         break;
       case GameUtility.UnitSortModes.HP:
         for (int index = 0; index < units.Count; ++index)
@@ -553,15 +770,15 @@ public static class GameUtility
         for (int index = 0; index < units.Count; ++index)
           sortKeyValueList[index].mKey = units[index].Rarity;
         // ISSUE: reference to a compiler-generated field
-        unitsCAnonStorey172.compares.Remove(new Func<UnitData, UnitData, int>(UnitData.CompareTo_Rarity));
+        unitsCAnonStorey1E7.compares.Remove(new Func<UnitData, UnitData, int>(UnitData.CompareTo_Rarity));
         break;
     }
     for (int index = 0; index < units.Count; ++index)
       sortValues[index] = sortKeyValueList[index].mKey;
     // ISSUE: reference to a compiler-generated field
-    unitsCAnonStorey172.compareResult = 0;
+    unitsCAnonStorey1E7.compareResult = 0;
     // ISSUE: reference to a compiler-generated method
-    sortKeyValueList.Sort(new Comparison<SortKeyValue<UnitData, int>>(unitsCAnonStorey172.\u003C\u003Em__EE));
+    sortKeyValueList.Sort(new Comparison<SortKeyValue<UnitData, int>>(unitsCAnonStorey1E7.\u003C\u003Em__138));
     if (outputSortedValues)
     {
       for (int index = 0; index < sortKeyValueList.Count; ++index)
@@ -791,13 +1008,13 @@ public static class GameUtility
   public static GameUtility.EScene GetCurrentScene()
   {
     GameUtility.EScene escene = GameUtility.EScene.UNKNOWN;
-    if (Object.op_Inequality((Object) SceneBattle.Instance, (Object) null))
+    if (UnityEngine.Object.op_Inequality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null))
       escene = !PunMonoSingleton<MyPhoton>.Instance.IsMultiPlay ? GameUtility.EScene.BATTLE : GameUtility.EScene.BATTLE_MULTI;
-    else if (Object.op_Inequality((Object) GameObject.Find("SRPG_HOME_MULTIPLAY"), (Object) null))
+    else if (UnityEngine.Object.op_Inequality((UnityEngine.Object) GameObject.Find("SRPG_HOME_MULTIPLAY"), (UnityEngine.Object) null))
       escene = GameUtility.EScene.HOME_MULTI;
-    else if (Object.op_Inequality((Object) GameObject.Find("SRPG_MAINMENU"), (Object) null))
+    else if (UnityEngine.Object.op_Inequality((UnityEngine.Object) GameObject.Find("SRPG_MAINMENU"), (UnityEngine.Object) null))
       escene = GameUtility.EScene.HOME;
-    else if (Object.op_Inequality((Object) GameObject.Find("SRPG_TITLE"), (Object) null))
+    else if (UnityEngine.Object.op_Inequality((UnityEngine.Object) GameObject.Find("SRPG_TITLE"), (UnityEngine.Object) null))
       escene = GameUtility.EScene.TITLE;
     return escene;
   }
@@ -846,8 +1063,8 @@ public static class GameUtility
         }
         return string.Empty;
       case EMissionType.LimitedUnitID:
-        UnitParam unitParam = MonoSingleton<GameManager>.Instance.MasterParam.GetUnitParam(bonus.TypeParam);
-        return string.Format(LocalizedText.Get("sys.BONUS_LIMITUNIT"), unitParam == null ? (object) string.Empty : (object) unitParam.name);
+        UnitParam unitParam1 = MonoSingleton<GameManager>.Instance.MasterParam.GetUnitParam(bonus.TypeParam);
+        return string.Format(LocalizedText.Get("sys.BONUS_LIMITUNIT"), unitParam1 == null ? (object) string.Empty : (object) unitParam1.name);
       case EMissionType.NoMercenary:
         return LocalizedText.Get("sys.BONUS_NOMERCENARY");
       case EMissionType.Killstreak:
@@ -858,14 +1075,14 @@ public static class GameUtility
         return string.Format(LocalizedText.Get("sys.BONUS_TOTALHEALMAX"), (object) bonus.TypeParam);
       case EMissionType.TotalHealHPMin:
         return string.Format(LocalizedText.Get("sys.BONUS_TOTALHEALMIN"), (object) bonus.TypeParam);
-      case EMissionType.TotalDamagesTakenMin:
-        return string.Format(LocalizedText.Get("sys.BONUS_TOTALDAMAGESTAKENMIN"), (object) bonus.TypeParam);
       case EMissionType.TotalDamagesTakenMax:
         return string.Format(LocalizedText.Get("sys.BONUS_TOTALDAMAGESTAKENMAX"), (object) bonus.TypeParam);
-      case EMissionType.TotalDamagesMin:
-        return string.Format(LocalizedText.Get("sys.BONUS_TOTALDAMAGESMIN"), (object) bonus.TypeParam);
+      case EMissionType.TotalDamagesTakenMin:
+        return string.Format(LocalizedText.Get("sys.BONUS_TOTALDAMAGESTAKENMIN"), (object) bonus.TypeParam);
       case EMissionType.TotalDamagesMax:
         return string.Format(LocalizedText.Get("sys.BONUS_TOTALDAMAGESMAX"), (object) bonus.TypeParam);
+      case EMissionType.TotalDamagesMin:
+        return string.Format(LocalizedText.Get("sys.BONUS_TOTALDAMAGESMIN"), (object) bonus.TypeParam);
       case EMissionType.LimitedCT:
         return string.Format(LocalizedText.Get("sys.BONUS_CTMAX"), (object) bonus.TypeParam);
       case EMissionType.LimitedContinue:
@@ -874,6 +1091,173 @@ public static class GameUtility
         return string.Format(LocalizedText.Get("sys.BONUS_CONTINUEMAX"), (object) bonus.TypeParam);
       case EMissionType.NoNpcDeath:
         return LocalizedText.Get("sys.BONUS_NONPCDEATH");
+      case EMissionType.TargetKillstreak:
+        string[] strArray1 = bonus.TypeParam.Split(',');
+        string str1 = "XXXX";
+        try
+        {
+          str1 = MonoSingleton<GameManager>.Instance.GetUnitParam(strArray1[0].Trim()).name;
+        }
+        catch (Exception ex)
+        {
+          DebugUtility.LogError(ex.ToString());
+        }
+        string str2 = strArray1.Length <= 1 ? "X" : strArray1[1].Trim();
+        return string.Format(LocalizedText.Get("sys.BONUS_TARGETKILLSTREAK"), (object) str1, (object) str2);
+      case EMissionType.NoTargetDeath:
+        string str3 = "XXXX";
+        try
+        {
+          str3 = MonoSingleton<GameManager>.Instance.GetUnitParam(bonus.TypeParam.Trim()).name;
+        }
+        catch (Exception ex)
+        {
+          DebugUtility.LogError(ex.ToString());
+        }
+        return string.Format(LocalizedText.Get("sys.BONUS_NOTARGETDEATH"), (object) str3);
+      case EMissionType.BreakObjClashMax:
+        string str4 = string.Empty;
+        string str5 = "1";
+        string[] strArray2 = bonus.TypeParam.Split(',');
+        if (strArray2 != null)
+        {
+          if (strArray2.Length >= 1)
+            str4 = MonoSingleton<GameManager>.Instance.GetUnitParam(strArray2[0].Trim()).name;
+          if (strArray2.Length >= 2)
+            str5 = strArray2[1].Trim();
+        }
+        return string.Format(LocalizedText.Get("sys.BONUS_BREAKOBJCLASHMAX"), (object) str4, (object) str5);
+      case EMissionType.BreakObjClashMin:
+        string str6 = string.Empty;
+        string str7 = "1";
+        string[] strArray3 = bonus.TypeParam.Split(',');
+        if (strArray3 != null)
+        {
+          if (strArray3.Length >= 1)
+            str6 = MonoSingleton<GameManager>.Instance.GetUnitParam(strArray3[0].Trim()).name;
+          if (strArray3.Length >= 2)
+            str7 = strArray3[1].Trim();
+        }
+        return string.Format(LocalizedText.Get("sys.BONUS_BREAKOBJCLASHMIN"), (object) str6, (object) str7);
+      case EMissionType.WithdrawUnit:
+        return string.Format(LocalizedText.Get("sys.BONUS_WITHDRAWUNIT"), (object) MonoSingleton<GameManager>.Instance.GetUnitParam(bonus.TypeParam).name);
+      case EMissionType.UseMercenary:
+        return string.Format(LocalizedText.Get("sys.BONUS_USEMERCENARY"));
+      case EMissionType.LimitedUnitID_MainOnly:
+        UnitParam unitParam2 = MonoSingleton<GameManager>.Instance.MasterParam.GetUnitParam(bonus.TypeParam);
+        return string.Format(LocalizedText.Get("sys.BONUS_LIMITEDUNITID_MAINONLY"), unitParam2 == null ? (object) string.Empty : (object) unitParam2.name);
+      case EMissionType.MissionAllCompleteAtOnce:
+        return string.Format(LocalizedText.Get("sys.BONUS_MISSIONALLCOMPLETEATONCE"));
+      case EMissionType.OnlyTargetArtifactType:
+        string empty1 = string.Empty;
+        string[] strArray4 = bonus.TypeParam.Split(',');
+        for (int index = 0; index < strArray4.Length; ++index)
+        {
+          empty1 += strArray4[index];
+          if (strArray4.Length > index + 1)
+            empty1 += "、";
+        }
+        return string.Format(LocalizedText.Get("sys.BONUS_ONLYTARGETARTIFACTTYPE"), (object) empty1);
+      case EMissionType.OnlyTargetArtifactType_MainOnly:
+        string empty2 = string.Empty;
+        string[] strArray5 = bonus.TypeParam.Split(',');
+        for (int index = 0; index < strArray5.Length; ++index)
+        {
+          empty2 += strArray5[index];
+          if (strArray5.Length > index + 1)
+            empty2 += "、";
+        }
+        return string.Format(LocalizedText.Get("sys.BONUS_ONLYTARGETARTIFACTTYPE_MAINONLY"), (object) empty2);
+      case EMissionType.OnlyTargetJobs:
+        string empty3 = string.Empty;
+        string[] strArray6 = bonus.TypeParam.Split(',');
+        for (int index = 0; index < strArray6.Length; ++index)
+        {
+          empty3 += MonoSingleton<GameManager>.Instance.GetJobParam(strArray6[index]).name;
+          if (strArray6.Length > index + 1)
+            empty3 += "、";
+        }
+        return string.Format(LocalizedText.Get("sys.BONUS_ONLYTARGETJOBS"), (object) empty3);
+      case EMissionType.OnlyTargetJobs_MainOnly:
+        string empty4 = string.Empty;
+        string[] strArray7 = bonus.TypeParam.Split(',');
+        for (int index = 0; index < strArray7.Length; ++index)
+        {
+          empty4 += MonoSingleton<GameManager>.Instance.GetJobParam(strArray7[index]).name;
+          if (strArray7.Length > index + 1)
+            empty4 += "、";
+        }
+        return string.Format(LocalizedText.Get("sys.BONUS_ONLYTARGETJOBS_MAINONLY"), (object) empty4);
+      case EMissionType.OnlyTargetUnitBirthplace:
+        return string.Format(LocalizedText.Get("sys.BONUS_ONLYTARGETUNITBIRTHPLACE"), (object) bonus.TypeParam);
+      case EMissionType.OnlyTargetUnitBirthplace_MainOnly:
+        return string.Format(LocalizedText.Get("sys.BONUS_ONLYTARGETUNITBIRTHPLACE_MAINONLY"), (object) bonus.TypeParam);
+      case EMissionType.OnlyTargetSex:
+        return string.Format(LocalizedText.Get("sys.BONUS_ONLYTARGETSEX"), (object) LocalizedText.Get("sys.SEX_" + bonus.TypeParam));
+      case EMissionType.OnlyTargetSex_MainOnly:
+        return string.Format(LocalizedText.Get("sys.BONUS_ONLYTARGETSEX_MAINONLY"), (object) LocalizedText.Get("sys.SEX_" + bonus.TypeParam));
+      case EMissionType.OnlyHeroUnit:
+        return string.Format(LocalizedText.Get("sys.BONUS_ONLYHEROUNIT"));
+      case EMissionType.OnlyHeroUnit_MainOnly:
+        return string.Format(LocalizedText.Get("sys.BONUS_ONLYHEROUNIT_MAINONLY"));
+      case EMissionType.Finisher:
+        UnitParam unitParam3 = MonoSingleton<GameManager>.Instance.MasterParam.GetUnitParam(bonus.TypeParam);
+        return string.Format(LocalizedText.Get("sys.BONUS_FINISHER"), unitParam3 == null ? (object) string.Empty : (object) unitParam3.name);
+      case EMissionType.TotalGetTreasureCount:
+        return string.Format(LocalizedText.Get("sys.BONUS_TOTALGETTREASURECOUNT"), (object) bonus.TypeParam);
+      case EMissionType.KillstreakByUsingTargetItem:
+        ItemParam itemParam = MonoSingleton<GameManager>.Instance.MasterParam.GetItemParam(bonus.TypeParam);
+        return string.Format(LocalizedText.Get("sys.BONUS_KILLSTREAKBYUSINGTARGETITEM"), itemParam == null ? (object) string.Empty : (object) itemParam.name);
+      case EMissionType.KillstreakByUsingTargetSkill:
+        SkillParam skillParam1 = MonoSingleton<GameManager>.Instance.MasterParam.GetSkillParam(bonus.TypeParam);
+        return string.Format(LocalizedText.Get("sys.BONUS_KILLSTREAKBYUSINGTARGETSKILL"), skillParam1 == null ? (object) string.Empty : (object) skillParam1.name);
+      case EMissionType.MaxPartySize_IgnoreFriend:
+        return string.Format(LocalizedText.Get("sys.BONUS_MAXPARTYSIZE_IGNOREFRIEND"), (object) bonus.TypeParam);
+      case EMissionType.NoAutoMode:
+        return string.Format(LocalizedText.Get("sys.BONUS_NOAUTOMODE"));
+      case EMissionType.NoDeath_NoContinue:
+        return string.Format(LocalizedText.Get("sys.BONUS_NODEATH_NOCONTINUE"));
+      case EMissionType.OnlyTargetUnits:
+        string empty5 = string.Empty;
+        string[] strArray8 = bonus.TypeParam.Split(',');
+        for (int index = 0; index < strArray8.Length; ++index)
+        {
+          empty5 += MonoSingleton<GameManager>.Instance.GetUnitParam(strArray8[index]).name;
+          if (strArray8.Length > index + 1)
+            empty5 += "、";
+        }
+        return string.Format(LocalizedText.Get("sys.BONUS_ONLYTARGETUNITS"), (object) empty5);
+      case EMissionType.OnlyTargetUnits_MainOnly:
+        string empty6 = string.Empty;
+        string[] strArray9 = bonus.TypeParam.Split(',');
+        for (int index = 0; index < strArray9.Length; ++index)
+        {
+          empty6 += MonoSingleton<GameManager>.Instance.GetUnitParam(strArray9[index]).name;
+          if (strArray9.Length > index + 1)
+            empty6 += "、";
+        }
+        return string.Format(LocalizedText.Get("sys.BONUS_ONLYTARGETUNITS_MAINONLY"), (object) empty6);
+      case EMissionType.LimitedTurn_Leader:
+        return string.Format(LocalizedText.Get("sys.BONUS_LIMITEDTURN_LEADER"), (object) bonus.TypeParam);
+      case EMissionType.NoDeathTargetNpcUnits:
+        string empty7 = string.Empty;
+        string[] strArray10 = bonus.TypeParam.Split(',');
+        for (int index = 0; index < strArray10.Length; ++index)
+        {
+          empty7 += MonoSingleton<GameManager>.Instance.GetUnitParam(strArray10[index]).name;
+          if (strArray10.Length > index + 1)
+            empty7 += "、";
+        }
+        return string.Format(LocalizedText.Get("sys.BONUS_NODEATHTARGETNPCUNITS"), (object) empty7);
+      case EMissionType.UseTargetSkill:
+        SkillParam skillParam2 = MonoSingleton<GameManager>.Instance.MasterParam.GetSkillParam(bonus.TypeParam);
+        return string.Format(LocalizedText.Get("sys.BONUS_USETARGETSKILL"), skillParam2 == null ? (object) string.Empty : (object) skillParam2.name);
+      case EMissionType.TotalKillstreakCount:
+        return string.Format(LocalizedText.Get("sys.BONUS_TOTALKILLSTREAKCOUNT"), (object) bonus.TypeParam);
+      case EMissionType.TotalGetGemCount_Over:
+        return string.Format(LocalizedText.Get("sys.BONUS_TOTALGETGEMCOUNT_OVER"), (object) bonus.TypeParam);
+      case EMissionType.TotalGetGemCount_Less:
+        return string.Format(LocalizedText.Get("sys.BONUS_TOTALGETGEMCOUNT_LESS"), (object) bonus.TypeParam);
       default:
         return bonus.Type.ToString();
     }
@@ -882,7 +1266,7 @@ public static class GameUtility
   public static string ComposeCharacterQuestMainUnitConditionText(UnitData unit, QuestParam param)
   {
     string str = string.Format(LocalizedText.Get("sys.QUEST_CHARACTER_CONDITION"), (object) unit.UnitParam.name, (object) Mathf.Max(param.EntryConditionCh.ulvmin, 1));
-    List<string> questConditionsCh = param.GetEntryQuestConditionsCh(true);
+    List<string> questConditionsCh = param.GetEntryQuestConditionsCh(true, true, true);
     List<string> unlockConditions = unit.GetQuestUnlockConditions(param);
     if (unlockConditions != null && unlockConditions.Count >= 1 || questConditionsCh != null && questConditionsCh.Count >= 2)
       str += LocalizedText.Get("sys.QUEST_CHARACTER_CONDITION_OTHER");
@@ -1030,13 +1414,13 @@ public static class GameUtility
   public static void RemoveDuplicatedMainCamera()
   {
     Camera main = Camera.get_main();
-    if (Object.op_Equality((Object) main, (Object) null))
+    if (UnityEngine.Object.op_Equality((UnityEngine.Object) main, (UnityEngine.Object) null))
       return;
-    Camera[] objectsOfType = (Camera[]) Object.FindObjectsOfType<Camera>();
+    Camera[] objectsOfType = (Camera[]) UnityEngine.Object.FindObjectsOfType<Camera>();
     for (int index = objectsOfType.Length - 1; index >= 0; --index)
     {
-      if (Object.op_Inequality((Object) objectsOfType[index], (Object) main) && ((Component) objectsOfType[index]).CompareTag("MainCamera"))
-        Object.DestroyImmediate((Object) ((Component) objectsOfType[index]).get_gameObject());
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) objectsOfType[index], (UnityEngine.Object) main) && ((Component) objectsOfType[index]).CompareTag("MainCamera"))
+        UnityEngine.Object.DestroyImmediate((UnityEngine.Object) ((Component) objectsOfType[index]).get_gameObject());
     }
   }
 
@@ -1064,6 +1448,15 @@ public static class GameUtility
     {
       GameUtility.CacheGLExtensions();
       return GameUtility.mPVRTextureSupport;
+    }
+  }
+
+  public static bool IsASTCTextureSupported
+  {
+    get
+    {
+      GameUtility.CacheGLExtensions();
+      return GameUtility.mASTCTextureSupport;
     }
   }
 
@@ -1095,6 +1488,7 @@ public static class GameUtility
     GameUtility.mPVRTextureSupport = GameUtility.IsGLExtensionSupported("GL_IMG_texture_compression_pvrtc");
     GameUtility.mDXTTextureSupport = GameUtility.IsGLExtensionSupported("GL_EXT_texture_compression_s3tc");
     GameUtility.mATCTextureSupport = GameUtility.IsGLExtensionSupported("GL_AMD_compressed_ATC_texture");
+    GameUtility.mASTCTextureSupport = GameUtility.IsGLExtensionSupported("GL_OES_texture_compression_astc");
   }
 
   [DllImport("NativePlugin")]
@@ -1155,27 +1549,27 @@ public static class GameUtility
 
   public static bool ValidateAnimator(Animator animator)
   {
-    if (Object.op_Inequality((Object) animator, (Object) null))
+    if (UnityEngine.Object.op_Inequality((UnityEngine.Object) animator, (UnityEngine.Object) null))
       return animator.get_layerCount() > 0;
     return false;
   }
 
   public static void EnableBehaviour<T>(GameObject go, bool enable) where T : Behaviour
   {
-    if (Object.op_Equality((Object) go, (Object) null))
+    if (UnityEngine.Object.op_Equality((UnityEngine.Object) go, (UnityEngine.Object) null))
       return;
     Behaviour component = (Behaviour) (object) (T) go.GetComponent(typeof (T));
-    if (!Object.op_Inequality((Object) component, (Object) null))
+    if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
       return;
     component.set_enabled(enable);
   }
 
   public static void EnableBehaviour<T>(Component go, bool enable) where T : Behaviour
   {
-    if (Object.op_Equality((Object) go, (Object) null))
+    if (UnityEngine.Object.op_Equality((UnityEngine.Object) go, (UnityEngine.Object) null))
       return;
     Behaviour component = (Behaviour) (object) (T) go.GetComponent(typeof (T));
-    if (!Object.op_Inequality((Object) component, (Object) null))
+    if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
       return;
     component.set_enabled(enable);
   }
@@ -1397,7 +1791,7 @@ public static class GameUtility
   {
     get
     {
-      if (Object.op_Equality((Object) GameUtility.mTransparentTexture, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) GameUtility.mTransparentTexture, (UnityEngine.Object) null))
       {
         GameUtility.mTransparentTexture = new Texture2D(1, 1, (TextureFormat) 4, false);
         GameUtility.mTransparentTexture.SetPixel(0, 0, Color.get_clear());
@@ -1448,7 +1842,7 @@ public static class GameUtility
 
   public static void SetLayer(GameObject go, int layer, bool changeChildren)
   {
-    if (Object.op_Equality((Object) go, (Object) null))
+    if (UnityEngine.Object.op_Equality((UnityEngine.Object) go, (UnityEngine.Object) null))
       return;
     if (changeChildren)
     {
@@ -1461,21 +1855,21 @@ public static class GameUtility
 
   public static void SetLayer(Component go, int layer, bool changeChildren)
   {
-    if (Object.op_Equality((Object) go, (Object) null))
+    if (UnityEngine.Object.op_Equality((UnityEngine.Object) go, (UnityEngine.Object) null))
       return;
     GameUtility.SetLayer(go.get_gameObject(), layer, changeChildren);
   }
 
   public static void SetGameObjectActive(GameObject obj, bool active)
   {
-    if (!Object.op_Inequality((Object) obj, (Object) null))
+    if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) obj, (UnityEngine.Object) null))
       return;
     obj.SetActive(active);
   }
 
   public static void SetGameObjectActive(Component go, bool active)
   {
-    if (!Object.op_Inequality((Object) go, (Object) null))
+    if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) go, (UnityEngine.Object) null))
       return;
     go.get_gameObject().SetActive(active);
   }
@@ -1506,24 +1900,24 @@ public static class GameUtility
 
   public static void DestroyGameObject(GameObject go)
   {
-    if (!Object.op_Inequality((Object) go, (Object) null))
+    if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) go, (UnityEngine.Object) null))
       return;
-    Object.Destroy((Object) go.get_gameObject());
+    UnityEngine.Object.Destroy((UnityEngine.Object) go.get_gameObject());
   }
 
   public static void DestroyGameObject(Component go)
   {
-    if (!Object.op_Inequality((Object) go, (Object) null))
+    if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) go, (UnityEngine.Object) null))
       return;
     GameUtility.DestroyGameObject(go.get_gameObject());
   }
 
   public static bool IsAnimatorRunning(GameObject go)
   {
-    if (Object.op_Equality((Object) go, (Object) null))
+    if (UnityEngine.Object.op_Equality((UnityEngine.Object) go, (UnityEngine.Object) null))
       return false;
     Animator component = (Animator) go.GetComponent<Animator>();
-    if (Object.op_Equality((Object) component, (Object) null))
+    if (UnityEngine.Object.op_Equality((UnityEngine.Object) component, (UnityEngine.Object) null))
       return false;
     AnimatorStateInfo animatorStateInfo = component.GetCurrentAnimatorStateInfo(0);
     // ISSUE: explicit reference operation
@@ -1554,57 +1948,57 @@ public static class GameUtility
 
   public static void SetAnimatorTrigger(GameObject go, string trigger)
   {
-    if (!Object.op_Inequality((Object) go, (Object) null))
+    if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) go, (UnityEngine.Object) null))
       return;
     Animator component = (Animator) go.GetComponent<Animator>();
-    if (!Object.op_Inequality((Object) component, (Object) null))
+    if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
       return;
     component.SetTrigger(trigger);
   }
 
   public static void SetAnimatorTrigger(Component go, string trigger)
   {
-    if (!Object.op_Inequality((Object) go, (Object) null))
+    if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) go, (UnityEngine.Object) null))
       return;
     GameUtility.SetAnimatorTrigger(go.get_gameObject(), trigger);
   }
 
   public static void SetAnimatorBool(Component go, string name, bool value)
   {
-    if (!Object.op_Inequality((Object) go, (Object) null))
+    if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) go, (UnityEngine.Object) null))
       return;
     Animator component = (Animator) go.GetComponent<Animator>();
-    if (!Object.op_Inequality((Object) component, (Object) null))
+    if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
       return;
     component.SetBool(name, value);
   }
 
   public static void RemoveComponent<T>(GameObject go) where T : Component
   {
-    if (Object.op_Equality((Object) go, (Object) null))
+    if (UnityEngine.Object.op_Equality((UnityEngine.Object) go, (UnityEngine.Object) null))
       return;
     Component component;
-    while (Object.op_Inequality((Object) (component = go.GetComponent(typeof (T))), (Object) null))
-      Object.DestroyImmediate((Object) component);
+    while (UnityEngine.Object.op_Inequality((UnityEngine.Object) (component = go.GetComponent(typeof (T))), (UnityEngine.Object) null))
+      UnityEngine.Object.DestroyImmediate((UnityEngine.Object) component);
   }
 
   public static T RequireComponent<T>(GameObject go) where T : Component
   {
-    if (Object.op_Equality((Object) go, (Object) null))
+    if (UnityEngine.Object.op_Equality((UnityEngine.Object) go, (UnityEngine.Object) null))
       return (T) null;
     T obj = go.GetComponent<T>();
-    if (Object.op_Equality((Object) (object) obj, (Object) null))
+    if (UnityEngine.Object.op_Equality((UnityEngine.Object) (object) obj, (UnityEngine.Object) null))
       obj = go.AddComponent<T>();
     return obj;
   }
 
   public static GameObject SpawnParticle(GameObject prefab, Vector3 position, Quaternion rotation, GameObject parentScene)
   {
-    if (Object.op_Equality((Object) prefab, (Object) null))
+    if (UnityEngine.Object.op_Equality((UnityEngine.Object) prefab, (UnityEngine.Object) null))
       return (GameObject) null;
-    GameObject go = Object.Instantiate((Object) prefab, position, rotation) as GameObject;
+    GameObject go = UnityEngine.Object.Instantiate((UnityEngine.Object) prefab, position, rotation) as GameObject;
     go.RequireComponent<OneShotParticle>();
-    if (Object.op_Inequality((Object) parentScene, (Object) null))
+    if (UnityEngine.Object.op_Inequality((UnityEngine.Object) parentScene, (UnityEngine.Object) null))
       go.get_transform().SetParent(parentScene.get_transform(), true);
     return go;
   }
@@ -1629,7 +2023,7 @@ public static class GameUtility
   public static LoadRequest LoadResourceAsyncChecked(string path)
   {
     LoadRequest loadRequest = AssetManager.LoadAsync(path);
-    if (loadRequest.isDone && Object.op_Equality(loadRequest.asset, (Object) null))
+    if (loadRequest.isDone && UnityEngine.Object.op_Equality(loadRequest.asset, (UnityEngine.Object) null))
       Debug.LogError((object) ("Failed to load resource [" + path + "]"));
     return loadRequest;
   }
@@ -1637,7 +2031,7 @@ public static class GameUtility
   public static LoadRequest LoadResourceAsyncChecked<T>(string path)
   {
     LoadRequest loadRequest = AssetManager.LoadAsync(path, typeof (T));
-    if (loadRequest.isDone && Object.op_Equality(loadRequest.asset, (Object) null))
+    if (loadRequest.isDone && UnityEngine.Object.op_Equality(loadRequest.asset, (UnityEngine.Object) null))
       Debug.LogError((object) ("Failed to load resource [" + path + "]"));
     return loadRequest;
   }
@@ -1659,9 +2053,9 @@ public static class GameUtility
 
   public static void SetAnimationClip(Animation animation, AnimationClip clip)
   {
-    if (Object.op_Inequality((Object) animation.GetClip(((Object) clip).get_name()), (Object) null))
-      animation.RemoveClip(((Object) clip).get_name());
-    animation.AddClip(clip, ((Object) clip).get_name());
+    if (UnityEngine.Object.op_Inequality((UnityEngine.Object) animation.GetClip(((UnityEngine.Object) clip).get_name()), (UnityEngine.Object) null))
+      animation.RemoveClip(((UnityEngine.Object) clip).get_name());
+    animation.AddClip(clip, ((UnityEngine.Object) clip).get_name());
   }
 
   public static void Reparent(Transform child, Transform newParent)
@@ -1715,7 +2109,7 @@ public static class GameUtility
     for (int index = 0; index < parent.get_childCount(); ++index)
     {
       Transform parent1 = parent.GetChild(index);
-      if (((Object) parent1).get_name() == name || Object.op_Inequality((Object) (parent1 = GameUtility.findChildRecursively(parent1, name)), (Object) null))
+      if (((UnityEngine.Object) parent1).get_name() == name || UnityEngine.Object.op_Inequality((UnityEngine.Object) (parent1 = GameUtility.findChildRecursively(parent1, name)), (UnityEngine.Object) null))
         return parent1;
     }
     return (Transform) null;
@@ -1821,6 +2215,44 @@ public static class GameUtility
     Screen.set_sleepTimeout(-2);
   }
 
+  public static byte[] Object2Binary<T>(T obj)
+  {
+    if ((object) obj == null)
+      return (byte[]) null;
+    if (GameUtility.Packer == null)
+      return (byte[]) null;
+    return GameUtility.Packer.Pack((object) obj);
+  }
+
+  public static bool Binary2Object<T>(out T buffer, byte[] data)
+  {
+    if (data != null)
+    {
+      if (GameUtility.Packer != null)
+      {
+        try
+        {
+          buffer = GameUtility.Packer.Unpack<T>(data);
+          return true;
+        }
+        catch (Exception ex)
+        {
+          DebugUtility.LogError(ex.Message);
+          buffer = default (T);
+          return false;
+        }
+      }
+    }
+    buffer = default (T);
+    return false;
+  }
+
+  public static string HalfNum2FullNum(string str)
+  {
+    string empty = string.Empty;
+    return Regex.Replace(str, "[0-9]", (MatchEvaluator) (m => ((char) (65296 + ((int) m.Value[0] - 48))).ToString()));
+  }
+
   public static int GetSDKLevel()
   {
     IntPtr num = AndroidJNI.FindClass("android.os.Build$VERSION");
@@ -1843,13 +2275,13 @@ public static class GameUtility
     {
       get
       {
-        if (!PlayerPrefs.HasKey(this.mKey))
+        if (!PlayerPrefsUtility.HasKey(this.mKey))
           return this.mDefaultValue;
-        return PlayerPrefs.GetInt(this.mKey) != 0;
+        return PlayerPrefsUtility.GetInt(this.mKey, 0) != 0;
       }
       set
       {
-        PlayerPrefs.SetInt(this.mKey, !value ? 0 : 1);
+        PlayerPrefsUtility.SetInt(this.mKey, !value ? 0 : 1, false);
       }
     }
   }

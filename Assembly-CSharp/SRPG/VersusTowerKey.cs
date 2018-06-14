@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.VersusTowerKey
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -14,10 +14,10 @@ using UnityEngine.UI;
 
 namespace SRPG
 {
+  [FlowNode.Pin(3, "到達報酬", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(100, "演出終了", FlowNode.PinTypes.Output, 100)]
   [FlowNode.Pin(1, "鍵の更新", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(2, "階層更新", FlowNode.PinTypes.Input, 0)]
-  [FlowNode.Pin(3, "到達報酬", FlowNode.PinTypes.Input, 0)]
   public class VersusTowerKey : MonoBehaviour, IFlowInterface
   {
     public Text floortxt;
@@ -39,6 +39,8 @@ namespace SRPG
     public GameObject ArrivalInfoRoot;
     public GameObject ClearInfoRoot;
     public GameObject RightRoot;
+    public GameObject infoText;
+    public Text infoLastText;
     public Image frameObj;
     public Sprite coinBase;
     public Sprite goldBase;
@@ -52,6 +54,8 @@ namespace SRPG
     public string trriggerIn;
     public string trriggerOut;
     public string trriggerRewardIn;
+    public string trriggerInLastFloor;
+    public string trriggerInLastFloorOut;
     public Color rankDownColor;
     public Texture CoinTex;
     public Texture GoldTex;
@@ -88,12 +92,12 @@ namespace SRPG
           DataSource.Bind<UnitData>(((Component) this).get_gameObject(), unitDataByUniqueId);
       }
       int versusTowerFloor = player.VersusTowerFloor;
-      if (Object.op_Inequality((Object) this.floortxt, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.floortxt, (UnityEngine.Object) null))
         this.floortxt.set_text(versusTowerFloor.ToString());
-      if (Object.op_Inequality((Object) this.floorEfftxt, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.floorEfftxt, (UnityEngine.Object) null))
         this.floorEfftxt.set_text(versusTowerFloor.ToString());
       int versusTowerKey = player.VersusTowerKey;
-      if (Object.op_Inequality((Object) this.key, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.key, (UnityEngine.Object) null))
       {
         VersusTowerParam versusTowerParam = instance1.GetCurrentVersusTowerParam(-1);
         if (versusTowerParam != null)
@@ -101,10 +105,10 @@ namespace SRPG
           int num1 = 0;
           while (num1 < (int) versusTowerParam.RankupNum)
           {
-            GameObject go = (GameObject) Object.Instantiate<GameObject>((M0) this.key);
-            if (Object.op_Inequality((Object) go, (Object) null))
+            GameObject go = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.key);
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) go, (UnityEngine.Object) null))
             {
-              if (Object.op_Inequality((Object) this.parent, (Object) null))
+              if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.parent, (UnityEngine.Object) null))
                 go.get_transform().SetParent(this.parent.get_transform(), false);
               if (versusTowerKey > 0)
                 GameUtility.SetAnimatorTrigger(go, this.keyDefAnim);
@@ -115,7 +119,7 @@ namespace SRPG
           }
           this.key.SetActive(false);
           SceneBattle instance2 = SceneBattle.Instance;
-          if (Object.op_Inequality((Object) instance2, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) instance2, (UnityEngine.Object) null))
           {
             BattleCore battle = instance2.Battle;
             if (battle != null)
@@ -130,10 +134,10 @@ namespace SRPG
                 this.mBattleRes = VersusTowerKey.RESULT.WIN;
                 if (this.mUpdateFloor)
                 {
-                  if (Object.op_Inequality((Object) this.arrivalNumText, (Object) null))
-                    this.arrivalNumText.set_text(towerMatchEndParam.floor.ToString());
-                  if (Object.op_Inequality((Object) this.arrivalEffNumText, (Object) null))
-                    this.arrivalEffNumText.set_text(towerMatchEndParam.floor.ToString());
+                  if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.arrivalNumText, (UnityEngine.Object) null))
+                    this.arrivalNumText.set_text(towerMatchEndParam.floor.ToString() + LocalizedText.Get("sys.MULTI_VERSUS_FLOOR"));
+                  if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.arrivalEffNumText, (UnityEngine.Object) null))
+                    this.arrivalEffNumText.set_text(towerMatchEndParam.floor.ToString() + LocalizedText.Get("sys.MULTI_VERSUS_FLOOR"));
                 }
               }
               else if (questRecord.result == BattleCore.QuestResult.Lose && (int) versusTowerParam.LoseNum > 0)
@@ -142,13 +146,15 @@ namespace SRPG
                 this.mMaxKeyCount = Math.Max(towerMatchEndParam.key, 0);
                 this.mUpdateFloor = this.mAnimKeyIndex < 0 && (int) versusTowerParam.DownFloor > 0;
                 this.mBattleRes = VersusTowerKey.RESULT.LOSE;
-                if (this.mUpdateFloor && Object.op_Inequality((Object) this.arrivalNumText, (Object) null))
+                if (this.mUpdateFloor && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.arrivalNumText, (UnityEngine.Object) null))
                   this.arrivalNumText.set_text(Math.Max(towerMatchEndParam.floor, 1).ToString());
               }
               else
                 this.mBattleRes = VersusTowerKey.RESULT.DRAW;
             }
           }
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.infoText, (UnityEngine.Object) null))
+            this.infoText.SetActive(this.mBattleRes == VersusTowerKey.RESULT.WIN && (int) versusTowerParam.RankupNum > 0);
         }
       }
       if (!this.mUpdateFloor)
@@ -158,7 +164,7 @@ namespace SRPG
 
     private void SetButtonText(bool bNext)
     {
-      if (!Object.op_Inequality((Object) this.okText, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.okText, (UnityEngine.Object) null))
         return;
       this.okText.set_text(LocalizedText.Get(!bNext ? "sys.CMD_OK" : "sys.BTN_NEXT"));
     }
@@ -168,13 +174,13 @@ namespace SRPG
       GameManager instance = MonoSingleton<GameManager>.Instance;
       VsTowerMatchEndParam towerMatchEndParam = instance.GetVsTowerMatchEndParam();
       VersusTowerParam versusTowerParam = instance.GetCurrentVersusTowerParam(towerMatchEndParam.floor);
-      if (versusTowerParam == null || string.IsNullOrEmpty((string) versusTowerParam.ArrivalIteminame) || Object.op_Equality((Object) this.rewardObj, (Object) null))
+      if (versusTowerParam == null || string.IsNullOrEmpty((string) versusTowerParam.ArrivalIteminame) || UnityEngine.Object.op_Equality((UnityEngine.Object) this.rewardObj, (UnityEngine.Object) null))
         return;
       DataSource.Bind<VersusTowerParam>(this.rewardObj, versusTowerParam);
       VersusTowerRewardItem component = (VersusTowerRewardItem) this.rewardObj.GetComponent<VersusTowerRewardItem>();
-      if (!Object.op_Inequality((Object) component, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
         return;
-      component.Refresh();
+      component.Refresh(VersusTowerRewardItem.REWARD_TYPE.Arrival, 0);
     }
 
     public void Activated(int pinID)
@@ -213,35 +219,43 @@ namespace SRPG
     public virtual IEnumerator UpdateKeyAnim()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new VersusTowerKey.\u003CUpdateKeyAnim\u003Ec__IteratorF2() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new VersusTowerKey.\u003CUpdateKeyAnim\u003Ec__Iterator140() { \u003C\u003Ef__this = this };
     }
 
     [DebuggerHidden]
     public virtual IEnumerator UpdateLostKeyAnim()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new VersusTowerKey.\u003CUpdateLostKeyAnim\u003Ec__IteratorF3() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new VersusTowerKey.\u003CUpdateLostKeyAnim\u003Ec__Iterator141() { \u003C\u003Ef__this = this };
     }
 
     [DebuggerHidden]
     public virtual IEnumerator UpdateFloorAnim()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new VersusTowerKey.\u003CUpdateFloorAnim\u003Ec__IteratorF4() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new VersusTowerKey.\u003CUpdateFloorAnim\u003Ec__Iterator142() { \u003C\u003Ef__this = this };
     }
 
     [DebuggerHidden]
     public virtual IEnumerator UpdateRewardAnim()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new VersusTowerKey.\u003CUpdateRewardAnim\u003Ec__IteratorF5() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new VersusTowerKey.\u003CUpdateRewardAnim\u003Ec__Iterator143() { \u003C\u003Ef__this = this };
     }
 
-    private void ReqAnim(string trrigger)
+    private void ReqAnim(string trrigger, bool isAnimator = false)
     {
-      if (!Object.op_Inequality((Object) this.RightRoot, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RightRoot, (UnityEngine.Object) null))
         return;
-      GameUtility.SetAnimatorTrigger(this.RightRoot, trrigger);
+      if (isAnimator)
+      {
+        Animator component = (Animator) this.RightRoot.GetComponent<Animator>();
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
+          return;
+        component.Play(trrigger);
+      }
+      else
+        GameUtility.SetAnimatorTrigger(this.RightRoot, trrigger);
     }
 
     public void OnClickNextButton()

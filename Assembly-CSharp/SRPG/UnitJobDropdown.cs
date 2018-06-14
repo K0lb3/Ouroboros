@@ -1,18 +1,21 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.UnitJobDropdown
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace SRPG
 {
+  [FlowNode.Pin(11, "Job Change&Close", FlowNode.PinTypes.Output, 11)]
   [FlowNode.Pin(1, "Apply Job", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(10, "Job Change(TmpUnit)", FlowNode.PinTypes.Output, 10)]
   public class UnitJobDropdown : Pulldown, IFlowInterface
   {
     public static UnitJobDropdown.JobChangeEvent OnJobChange = (UnitJobDropdown.JobChangeEvent) (unitUniqueID => {});
@@ -20,15 +23,19 @@ namespace SRPG
     public RawImage JobIcon;
     public RawImage ItemJobIcon;
     public GameObject GameParamterRoot;
+    public UnitJobDropdown.ParentObjectEvent UpdateValue;
     private bool mRequestSent;
     private UnitData mTargetUnit;
     private string mOriginalJobID;
 
     public void Activated(int pinID)
     {
-      if (pinID != 1 || this.mTargetUnit == null || !(this.mTargetUnit.CurrentJob.JobID != this.mOriginalJobID))
+      if (pinID != 1)
         return;
-      this.RequestJobChange(false);
+      if (this.mTargetUnit != null && this.mTargetUnit.CurrentJob.JobID != this.mOriginalJobID)
+        this.RequestJobChange(false);
+      else
+        FlowNode_GameObject.ActivateOutputLinks((Component) this, 11);
     }
 
     protected override void Start()
@@ -53,9 +60,7 @@ namespace SRPG
       UnitJobDropdown.OnJobChange(this.mTargetUnit.UniqueID);
       ReqUnitJob reqUnitJob = (this.mTargetUnit.TempFlags & UnitData.TemporaryFlags.TemporaryUnitData) != (UnitData.TemporaryFlags) 0 ? new ReqUnitJob(this.mTargetUnit.UniqueID, this.mTargetUnit.CurrentJob.UniqueID, PartyData.GetStringFromPartyType(dataOfClass), new Network.ResponseCallback(this.JobChangeResult)) : new ReqUnitJob(this.mTargetUnit.UniqueID, this.mTargetUnit.CurrentJob.UniqueID, new Network.ResponseCallback(this.JobChangeResult));
       if (immediate)
-      {
-        int num = (int) Network.RequestAPIImmediate((WebAPI) reqUnitJob, true);
-      }
+        Network.RequestAPIImmediate((WebAPI) reqUnitJob, true);
       else
         Network.RequestAPI((WebAPI) reqUnitJob, false);
     }
@@ -100,10 +105,38 @@ namespace SRPG
     private void PostJobChange()
     {
       this.mRequestSent = false;
-      if (this.mTargetUnit == null)
-        return;
-      MonoSingleton<GameManager>.Instance.Player.OnJobChange(this.mTargetUnit.UnitID);
-      this.mOriginalJobID = this.mTargetUnit.CurrentJob.JobID;
+      if (this.mTargetUnit != null)
+      {
+        MonoSingleton<GameManager>.Instance.Player.OnJobChange(this.mTargetUnit.UnitID);
+        this.mOriginalJobID = this.mTargetUnit.CurrentJob.JobID;
+        if (this.UpdateValue != null)
+          this.UpdateValue();
+        if (DataSource.FindDataOfClass<PlayerPartyTypes>(((Component) this).get_gameObject(), PlayerPartyTypes.Max) == PlayerPartyTypes.MultiTower)
+        {
+          int lastSelectionIndex = 0;
+          List<PartyEditData> teams = PartyUtility.LoadTeamPresets(PartyWindow2.EditPartyTypes.MultiTower, out lastSelectionIndex);
+          if (teams != null && lastSelectionIndex >= 0)
+          {
+            for (int index1 = 0; index1 < teams.Count; ++index1)
+            {
+              if (teams[index1] != null)
+              {
+                for (int index2 = 0; index2 < teams[index1].Units.Length; ++index2)
+                {
+                  if (teams[index1].Units[index2] != null && teams[index1].Units[index2].UnitParam.iname == this.mTargetUnit.UnitParam.iname)
+                  {
+                    teams[index1].Units[index2] = this.mTargetUnit;
+                    break;
+                  }
+                }
+              }
+            }
+            PartyUtility.SaveTeamPresets(PartyWindow2.EditPartyTypes.MultiTower, lastSelectionIndex, teams);
+            GlobalEvent.Invoke("SELECT_PARTY_END", (object) null);
+          }
+        }
+      }
+      FlowNode_GameObject.ActivateOutputLinks((Component) this, 11);
     }
 
     private void OnApplicationPause(bool pausing)
@@ -125,9 +158,9 @@ namespace SRPG
       if (this.mTargetUnit == null || value == this.mTargetUnit.JobIndex)
         return;
       this.mTargetUnit.SetJobIndex(value);
-      if (!Object.op_Inequality((Object) this.GameParamterRoot, (Object) null))
-        return;
-      GameParameter.UpdateAll(this.GameParamterRoot);
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.GameParamterRoot, (UnityEngine.Object) null))
+        GameParameter.UpdateAll(this.GameParamterRoot);
+      FlowNode_GameObject.ActivateOutputLinks((Component) this, 10);
     }
 
     public void Refresh()
@@ -143,7 +176,7 @@ namespace SRPG
         if (this.mTargetUnit.Jobs[index].IsActivated)
         {
           UnitJobDropdown.JobPulldownItem jobPulldownItem = this.AddItem(this.mTargetUnit.Jobs[index].Name, index) as UnitJobDropdown.JobPulldownItem;
-          if (Object.op_Inequality((Object) jobPulldownItem.JobIcon, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) jobPulldownItem.JobIcon, (UnityEngine.Object) null))
           {
             string name = AssetPath.JobIconSmall(this.mTargetUnit.Jobs[index].Param);
             if (!string.IsNullOrEmpty(name))
@@ -155,29 +188,31 @@ namespace SRPG
       }
     }
 
-    protected override Pulldown.PulldownItem SetupPulldownItem(GameObject itemObject)
+    protected override PulldownItem SetupPulldownItem(GameObject itemObject)
     {
       UnitJobDropdown.JobPulldownItem jobPulldownItem = (UnitJobDropdown.JobPulldownItem) itemObject.AddComponent<UnitJobDropdown.JobPulldownItem>();
       jobPulldownItem.JobIcon = this.ItemJobIcon;
-      return (Pulldown.PulldownItem) jobPulldownItem;
+      return (PulldownItem) jobPulldownItem;
     }
 
     protected override void UpdateSelection()
     {
-      if (!Object.op_Inequality((Object) this.JobIcon, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.JobIcon, (UnityEngine.Object) null))
         return;
       UnitJobDropdown.JobPulldownItem itemAt = this.GetItemAt(this.Selection) as UnitJobDropdown.JobPulldownItem;
-      if (!Object.op_Inequality((Object) itemAt, (Object) null) || !Object.op_Inequality((Object) itemAt.JobIcon, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) itemAt, (UnityEngine.Object) null) || !UnityEngine.Object.op_Inequality((UnityEngine.Object) itemAt.JobIcon, (UnityEngine.Object) null))
         return;
       this.JobIcon.set_texture(itemAt.JobIcon.get_texture());
     }
 
-    public class JobPulldownItem : Pulldown.PulldownItem
+    public class JobPulldownItem : PulldownItem
     {
       public string JobID;
       public RawImage JobIcon;
     }
 
     public delegate void JobChangeEvent(long unitUniqueID);
+
+    public delegate void ParentObjectEvent();
   }
 }

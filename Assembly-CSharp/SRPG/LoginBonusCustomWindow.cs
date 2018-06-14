@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.LoginBonusCustomWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -70,9 +70,9 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          LoginBonusCustomWindow.\u003CStart\u003Ec__AnonStorey253 startCAnonStorey253 = new LoginBonusCustomWindow.\u003CStart\u003Ec__AnonStorey253();
+          LoginBonusCustomWindow.\u003CStart\u003Ec__AnonStorey342 startCAnonStorey342 = new LoginBonusCustomWindow.\u003CStart\u003Ec__AnonStorey342();
           // ISSUE: reference to a compiler-generated field
-          startCAnonStorey253.\u003C\u003Ef__this = this;
+          startCAnonStorey342.\u003C\u003Ef__this = this;
           string key = jsonLoginBonusArray[index].iname;
           int num = jsonLoginBonusArray[index].num;
           if (string.IsNullOrEmpty(key) && jsonLoginBonusArray[index].coin > 0)
@@ -91,58 +91,46 @@ namespace SRPG
               {
                 ListItemEvents listItemEvents = index >= this.mLoginBonusCount - 1 ? this.Item_Normal : this.Item_Taken;
                 // ISSUE: reference to a compiler-generated field
-                startCAnonStorey253.item = (ListItemEvents) Object.Instantiate<ListItemEvents>((M0) listItemEvents);
+                startCAnonStorey342.item = (ListItemEvents) Object.Instantiate<ListItemEvents>((M0) listItemEvents);
                 // ISSUE: reference to a compiler-generated field
-                DataSource.Bind<ItemData>(((Component) startCAnonStorey253.item).get_gameObject(), (ItemData) loginBonusData);
+                DataSource.Bind<ItemData>(((Component) startCAnonStorey342.item).get_gameObject(), (ItemData) loginBonusData);
                 if (Object.op_Equality((Object) listItemEvents, (Object) this.Item_Normal) && Object.op_Inequality((Object) this.VIPBadge, (Object) null) && (jsonLoginBonusArray[index].vip != null && jsonLoginBonusArray[index].vip.lv > 0))
                 {
                   LoginBonusVIPBadge loginBonusVipBadge = (LoginBonusVIPBadge) Object.Instantiate<LoginBonusVIPBadge>((M0) this.VIPBadge);
                   if (Object.op_Inequality((Object) loginBonusVipBadge.VIPRank, (Object) null))
                     loginBonusVipBadge.VIPRank.set_text(jsonLoginBonusArray[index].vip.lv.ToString());
                   // ISSUE: reference to a compiler-generated field
-                  ((Component) loginBonusVipBadge).get_transform().SetParent(((Component) startCAnonStorey253.item).get_transform(), false);
+                  ((Component) loginBonusVipBadge).get_transform().SetParent(((Component) startCAnonStorey342.item).get_transform(), false);
                   ((RectTransform) ((Component) loginBonusVipBadge).get_transform()).set_anchoredPosition(Vector2.get_zero());
                   ((Component) loginBonusVipBadge).get_gameObject().SetActive(true);
                 }
                 if (Object.op_Inequality((Object) this.TodayBadge, (Object) null) && index == this.mLoginBonusCount - 1)
                 {
                   // ISSUE: reference to a compiler-generated field
-                  ((Transform) this.TodayBadge).SetParent(((Component) startCAnonStorey253.item).get_transform(), false);
+                  ((Transform) this.TodayBadge).SetParent(((Component) startCAnonStorey342.item).get_transform(), false);
                   this.TodayBadge.set_anchoredPosition(Vector2.get_zero());
                   ((Component) this.TodayBadge).get_gameObject().SetActive(true);
                 }
                 else if (Object.op_Inequality((Object) this.TommorowBadge, (Object) null) && index == this.mLoginBonusCount)
                 {
                   // ISSUE: reference to a compiler-generated field
-                  ((Transform) this.TommorowBadge).SetParent(((Component) startCAnonStorey253.item).get_transform(), false);
+                  ((Transform) this.TommorowBadge).SetParent(((Component) startCAnonStorey342.item).get_transform(), false);
                   this.TommorowBadge.set_anchoredPosition(Vector2.get_zero());
                   ((Component) this.TommorowBadge).get_gameObject().SetActive(true);
                 }
                 if (index == this.mLoginBonusCount - 1)
                 {
                   if (loginBonusData.Param.type == EItemType.Ticket)
-                    AnalyticsManager.TrackCurrencyObtain(AnalyticsManager.CurrencyType.SummonTicket, AnalyticsManager.CurrencySubType.FREE, (long) loginBonusData.Num, "Login Bonus", new Dictionary<string, object>()
-                    {
-                      {
-                        "ticket_id",
-                        (object) loginBonusData.ItemID
-                      }
-                    });
+                    AnalyticsManager.TrackNonPremiumCurrencyObtain(AnalyticsManager.NonPremiumCurrencyType.SummonTicket, (long) loginBonusData.Num, "Login Bonus", loginBonusData.ItemID);
                   else
-                    AnalyticsManager.TrackCurrencyObtain(AnalyticsManager.CurrencyType.Item, AnalyticsManager.CurrencySubType.FREE, (long) loginBonusData.Num, "Login Bonus", new Dictionary<string, object>()
-                    {
-                      {
-                        "item_id",
-                        (object) loginBonusData.ItemID
-                      }
-                    });
+                    AnalyticsManager.TrackNonPremiumCurrencyObtain(AnalyticsManager.NonPremiumCurrencyType.Item, (long) loginBonusData.Num, "Login Bonus", loginBonusData.ItemID);
                   if (string.IsNullOrEmpty(key) && jsonLoginBonusArray[index].coin > 0)
-                    AnalyticsManager.TrackCurrencyObtain(AnalyticsManager.CurrencyType.Gem, AnalyticsManager.CurrencySubType.FREE, (long) jsonLoginBonusArray[index].coin, "Login Bonus", (Dictionary<string, object>) null);
+                    AnalyticsManager.TrackFreePremiumCurrencyObtain((long) jsonLoginBonusArray[index].coin, "Login Bonus");
                 }
                 if (index < this.mLoginBonusCount - 1)
                 {
                   // ISSUE: reference to a compiler-generated field
-                  Transform child = ((Component) startCAnonStorey253.item).get_transform().FindChild(this.CheckName);
+                  Transform child = ((Component) startCAnonStorey342.item).get_transform().FindChild(this.CheckName);
                   if (Object.op_Inequality((Object) child, (Object) null))
                   {
                     Animator component = (Animator) ((Component) child).GetComponent<Animator>();
@@ -151,18 +139,18 @@ namespace SRPG
                   }
                 }
                 // ISSUE: reference to a compiler-generated field
-                Button component1 = (Button) ((Component) ((Component) startCAnonStorey253.item).get_transform()).GetComponent<Button>();
+                Button component1 = (Button) ((Component) ((Component) startCAnonStorey342.item).get_transform()).GetComponent<Button>();
                 if (Object.op_Inequality((Object) component1, (Object) null))
                 {
                   // ISSUE: method pointer
-                  ((UnityEvent) component1.get_onClick()).AddListener(new UnityAction((object) startCAnonStorey253, __methodptr(\u003C\u003Em__29E)));
+                  ((UnityEvent) component1.get_onClick()).AddListener(new UnityAction((object) startCAnonStorey342, __methodptr(\u003C\u003Em__399)));
                 }
                 // ISSUE: reference to a compiler-generated field
-                ((Component) startCAnonStorey253.item).get_transform().SetParent(transform, false);
+                ((Component) startCAnonStorey342.item).get_transform().SetParent(transform, false);
                 // ISSUE: reference to a compiler-generated field
-                ((Component) startCAnonStorey253.item).get_gameObject().SetActive(true);
+                ((Component) startCAnonStorey342.item).get_gameObject().SetActive(true);
                 // ISSUE: reference to a compiler-generated field
-                this.mItems.Add(startCAnonStorey253.item);
+                this.mItems.Add(startCAnonStorey342.item);
               }
             }
           }
@@ -211,8 +199,8 @@ namespace SRPG
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      LoginBonusCustomWindow.\u003CWaitLoadAsync\u003Ec__IteratorBA asyncCIteratorBa = new LoginBonusCustomWindow.\u003CWaitLoadAsync\u003Ec__IteratorBA();
-      return (IEnumerator) asyncCIteratorBa;
+      LoginBonusCustomWindow.\u003CWaitLoadAsync\u003Ec__IteratorFD asyncCIteratorFd = new LoginBonusCustomWindow.\u003CWaitLoadAsync\u003Ec__IteratorFD();
+      return (IEnumerator) asyncCIteratorFd;
     }
 
     public void Activated(int pinID)
@@ -223,39 +211,39 @@ namespace SRPG
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      LoginBonusCustomWindow.\u003CFlipTodaysItem\u003Ec__AnonStorey254 itemCAnonStorey254 = new LoginBonusCustomWindow.\u003CFlipTodaysItem\u003Ec__AnonStorey254();
+      LoginBonusCustomWindow.\u003CFlipTodaysItem\u003Ec__AnonStorey343 itemCAnonStorey343 = new LoginBonusCustomWindow.\u003CFlipTodaysItem\u003Ec__AnonStorey343();
       // ISSUE: reference to a compiler-generated field
-      itemCAnonStorey254.\u003C\u003Ef__this = this;
+      itemCAnonStorey343.\u003C\u003Ef__this = this;
       if (this.mLoginBonusCount < 0 || this.mItems.Count < this.mLoginBonusCount)
         return;
       int index = this.mLoginBonusCount - 1;
       ListItemEvents mItem = this.mItems[index];
       ItemData dataOfClass = DataSource.FindDataOfClass<ItemData>(((Component) mItem).get_gameObject(), (ItemData) null);
       // ISSUE: reference to a compiler-generated field
-      itemCAnonStorey254.newItem = (ListItemEvents) Object.Instantiate<ListItemEvents>((M0) this.Item_Taken);
+      itemCAnonStorey343.newItem = (ListItemEvents) Object.Instantiate<ListItemEvents>((M0) this.Item_Taken);
       // ISSUE: reference to a compiler-generated field
-      DataSource.Bind<ItemData>(((Component) itemCAnonStorey254.newItem).get_gameObject(), dataOfClass);
+      DataSource.Bind<ItemData>(((Component) itemCAnonStorey343.newItem).get_gameObject(), dataOfClass);
       // ISSUE: reference to a compiler-generated field
-      ((Component) itemCAnonStorey254.newItem).get_transform().SetParent(((Component) mItem).get_transform().get_parent(), false);
+      ((Component) itemCAnonStorey343.newItem).get_transform().SetParent(((Component) mItem).get_transform().get_parent(), false);
       // ISSUE: reference to a compiler-generated field
-      ((Component) itemCAnonStorey254.newItem).get_transform().SetSiblingIndex(((Component) mItem).get_transform().GetSiblingIndex());
+      ((Component) itemCAnonStorey343.newItem).get_transform().SetSiblingIndex(((Component) mItem).get_transform().GetSiblingIndex());
       // ISSUE: reference to a compiler-generated field
-      Button component = (Button) ((Component) ((Component) itemCAnonStorey254.newItem).get_transform()).GetComponent<Button>();
+      Button component = (Button) ((Component) ((Component) itemCAnonStorey343.newItem).get_transform()).GetComponent<Button>();
       if (Object.op_Inequality((Object) component, (Object) null))
       {
         // ISSUE: method pointer
-        ((UnityEvent) component.get_onClick()).AddListener(new UnityAction((object) itemCAnonStorey254, __methodptr(\u003C\u003Em__29F)));
+        ((UnityEvent) component.get_onClick()).AddListener(new UnityAction((object) itemCAnonStorey343, __methodptr(\u003C\u003Em__39A)));
       }
       if (Object.op_Inequality((Object) this.TodayBadge, (Object) null))
       {
         // ISSUE: reference to a compiler-generated field
-        ((Transform) this.TodayBadge).SetParent(((Component) itemCAnonStorey254.newItem).get_transform(), false);
+        ((Transform) this.TodayBadge).SetParent(((Component) itemCAnonStorey343.newItem).get_transform(), false);
       }
       Object.Destroy((Object) ((Component) mItem).get_gameObject());
       // ISSUE: reference to a compiler-generated field
-      ((Component) itemCAnonStorey254.newItem).get_gameObject().SetActive(true);
+      ((Component) itemCAnonStorey343.newItem).get_gameObject().SetActive(true);
       // ISSUE: reference to a compiler-generated field
-      this.mItems[index] = itemCAnonStorey254.newItem;
+      this.mItems[index] = itemCAnonStorey343.newItem;
     }
   }
 }

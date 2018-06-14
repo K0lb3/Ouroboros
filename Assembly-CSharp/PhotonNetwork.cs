@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: PhotonNetwork
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using ExitGames.Client.Photon;
@@ -36,7 +36,7 @@ public static class PhotonNetwork
   internal static int lastUsedViewSubId = 0;
   internal static int lastUsedViewSubIdStatic = 0;
   internal static List<int> manuallyAllocatedViewIds = new List<int>();
-  public const string versionPUN = "1.80";
+  public const string versionPUN = "1.81";
   internal const string serverSettingsAssetFile = "PhotonServerSettings";
   internal const string serverSettingsAssetPath = "Assets/Photon Unity Networking/Resources/PhotonServerSettings.asset";
   internal static readonly PhotonHandler photonMono;
@@ -71,7 +71,7 @@ public static class PhotonNetwork
       {
         // ISSUE: reference to a compiler-generated field
         // ISSUE: method pointer
-        PhotonNetwork.\u003C\u003Ef__am\u0024cache20 = new SupportClass.IntegerMillisecondsDelegate((object) null, __methodptr(\u003CPhotonNetwork\u003Em__E5));
+        PhotonNetwork.\u003C\u003Ef__am\u0024cache20 = new SupportClass.IntegerMillisecondsDelegate((object) null, __methodptr(\u003CPhotonNetwork\u003Em__12E));
       }
       // ISSUE: reference to a compiler-generated field
       SupportClass.IntegerMillisecondsDelegate fAmCache20 = PhotonNetwork.\u003C\u003Ef__am\u0024cache20;
@@ -658,8 +658,10 @@ label_7:
       Debug.LogError((object) "You did not select a Hosting Type in your PhotonServerSettings. Please set it up or don't use ConnectUsingSettings().");
       return false;
     }
-    PhotonNetwork.logLevel = PhotonNetwork.PhotonServerSettings.PunLogging;
-    PhotonNetwork.networkingPeer.DebugOut = (__Null) PhotonNetwork.PhotonServerSettings.NetworkLogging;
+    if (PhotonNetwork.logLevel == PhotonLogLevel.ErrorsOnly)
+      PhotonNetwork.logLevel = PhotonNetwork.PhotonServerSettings.PunLogging;
+    if (PhotonNetwork.networkingPeer.DebugOut == 1)
+      PhotonNetwork.networkingPeer.DebugOut = (__Null) PhotonNetwork.PhotonServerSettings.NetworkLogging;
     PhotonNetwork.SwitchToProtocol(PhotonNetwork.PhotonServerSettings.Protocol);
     PhotonNetwork.networkingPeer.SetApp(PhotonNetwork.PhotonServerSettings.AppID, gameVersion);
     if (PhotonNetwork.PhotonServerSettings.HostType == ServerSettings.HostingOption.OfflineMode)
@@ -898,7 +900,13 @@ label_7:
       return false;
     }
     typedLobby = typedLobby ?? (!PhotonNetwork.networkingPeer.insideLobby ? (TypedLobby) null : PhotonNetwork.networkingPeer.lobby);
-    return PhotonNetwork.networkingPeer.OpCreateGame(new EnterRoomParams() { RoomName = roomName, RoomOptions = roomOptions, Lobby = typedLobby, ExpectedUsers = expectedUsers });
+    return PhotonNetwork.networkingPeer.OpCreateGame(new EnterRoomParams()
+    {
+      RoomName = roomName,
+      RoomOptions = roomOptions,
+      Lobby = typedLobby,
+      ExpectedUsers = expectedUsers
+    });
   }
 
   public static bool JoinRoom(string roomName)
@@ -928,7 +936,11 @@ label_7:
       Debug.LogError((object) "JoinRoom failed. A roomname is required. If you don't know one, how will you join?");
       return false;
     }
-    return PhotonNetwork.networkingPeer.OpJoinRoom(new EnterRoomParams() { RoomName = roomName, ExpectedUsers = expectedUsers });
+    return PhotonNetwork.networkingPeer.OpJoinRoom(new EnterRoomParams()
+    {
+      RoomName = roomName,
+      ExpectedUsers = expectedUsers
+    });
   }
 
   public static bool JoinOrCreateRoom(string roomName, RoomOptions roomOptions, TypedLobby typedLobby)
@@ -959,7 +971,15 @@ label_7:
       return false;
     }
     typedLobby = typedLobby ?? (!PhotonNetwork.networkingPeer.insideLobby ? (TypedLobby) null : PhotonNetwork.networkingPeer.lobby);
-    return PhotonNetwork.networkingPeer.OpJoinRoom(new EnterRoomParams() { RoomName = roomName, RoomOptions = roomOptions, Lobby = typedLobby, CreateIfNotExists = true, PlayerProperties = PhotonNetwork.player.CustomProperties, ExpectedUsers = expectedUsers });
+    return PhotonNetwork.networkingPeer.OpJoinRoom(new EnterRoomParams()
+    {
+      RoomName = roomName,
+      RoomOptions = roomOptions,
+      Lobby = typedLobby,
+      CreateIfNotExists = true,
+      PlayerProperties = PhotonNetwork.player.CustomProperties,
+      ExpectedUsers = expectedUsers
+    });
   }
 
   public static bool JoinRandomRoom()
@@ -990,7 +1010,15 @@ label_7:
       return false;
     }
     typedLobby = typedLobby ?? (!PhotonNetwork.networkingPeer.insideLobby ? (TypedLobby) null : PhotonNetwork.networkingPeer.lobby);
-    return PhotonNetwork.networkingPeer.OpJoinRandomRoom(new OpJoinRandomRoomParams() { ExpectedCustomRoomProperties = expectedCustomRoomProperties, ExpectedMaxPlayers = expectedMaxPlayers, MatchingType = matchingType, TypedLobby = typedLobby, SqlLobbyFilter = sqlLobbyFilter, ExpectedUsers = expectedUsers });
+    return PhotonNetwork.networkingPeer.OpJoinRandomRoom(new OpJoinRandomRoomParams()
+    {
+      ExpectedCustomRoomProperties = expectedCustomRoomProperties,
+      ExpectedMaxPlayers = expectedMaxPlayers,
+      MatchingType = matchingType,
+      TypedLobby = typedLobby,
+      SqlLobbyFilter = sqlLobbyFilter,
+      ExpectedUsers = expectedUsers
+    });
   }
 
   public static bool ReJoinRoom(string roomName)
@@ -1010,7 +1038,12 @@ label_7:
       Debug.LogError((object) "ReJoinRoom failed. A roomname is required. If you don't know one, how will you join?");
       return false;
     }
-    return PhotonNetwork.networkingPeer.OpJoinRoom(new EnterRoomParams() { RoomName = roomName, RejoinOnly = true, PlayerProperties = PhotonNetwork.player.CustomProperties });
+    return PhotonNetwork.networkingPeer.OpJoinRoom(new EnterRoomParams()
+    {
+      RoomName = roomName,
+      RejoinOnly = true,
+      PlayerProperties = PhotonNetwork.player.CustomProperties
+    });
   }
 
   private static void EnterOfflineRoom(string roomName, RoomOptions roomOptions, bool createdRoom)
@@ -1058,6 +1091,11 @@ label_7:
     if (PhotonNetwork.room == null)
       Debug.LogWarning((object) ("PhotonNetwork.room is null. You don't have to call LeaveRoom() when you're not in one. State: " + (object) PhotonNetwork.connectionStateDetailed));
     return PhotonNetwork.networkingPeer.OpLeave();
+  }
+
+  public static bool GetCustomRoomList(TypedLobby typedLobby, string sqlLobbyFilter)
+  {
+    return PhotonNetwork.networkingPeer.OpGetGameList(typedLobby, sqlLobbyFilter);
   }
 
   public static RoomInfo[] GetRoomList()
@@ -1296,7 +1334,10 @@ label_7:
       Debug.LogError((object) "CloseConnection: No such player connected!");
       return false;
     }
-    RaiseEventOptions raiseEventOptions = new RaiseEventOptions() { TargetActors = new int[1]{ kickPlayer.ID } };
+    RaiseEventOptions raiseEventOptions = new RaiseEventOptions()
+    {
+      TargetActors = new int[1]{ kickPlayer.ID }
+    };
     return PhotonNetwork.networkingPeer.OpRaiseEvent((byte) 203, (object) null, true, raiseEventOptions);
   }
 

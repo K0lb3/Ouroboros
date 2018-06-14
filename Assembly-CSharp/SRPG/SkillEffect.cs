@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.SkillEffect
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -52,6 +52,14 @@ namespace SRPG
     public float MapTrajectoryTimeScale;
     public SkillEffect.MapHitEffectTypes MapHitEffectType;
     public float MapHitEffectIntervals;
+    [Tooltip("瞬間移動用として、ProjectileFrameを\n固定時間＆HitEffectなしで動作させるモード")]
+    [Space(10f)]
+    public bool IsTeleportMode;
+    [Space(10f)]
+    [Tooltip("レーザー系の際、ProjectileFrameの\nターゲット位置を指定")]
+    public SkillEffect.eTargetTypeForLaser TargetTypeForLaser;
+    [Tooltip("TargetTypeForLaser=StepFrontの際、\n前方のグリッド数を指定")]
+    public int StepFrontTypeForLaser;
     [HideInInspector]
     public AnimationCurve PointDistribution;
     [HideInInspector]
@@ -65,7 +73,7 @@ namespace SRPG
     public void SpawnExplosionEffect(int index, Vector3 position, Quaternion rotation)
     {
       GameObject arrayElementSafe = GameUtility.GetArrayElementSafe<GameObject>(this.ExplosionEffects, index);
-      if (!Object.op_Inequality((Object) arrayElementSafe, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) arrayElementSafe, (UnityEngine.Object) null))
         return;
       GameUtility.SpawnParticle(arrayElementSafe, position, rotation, (GameObject) null);
     }
@@ -107,6 +115,13 @@ namespace SRPG
       Directional,
       EachHits,
       InstigatorRadial,
+    }
+
+    public enum eTargetTypeForLaser
+    {
+      Default,
+      StepFront,
+      FrontCenter,
     }
   }
 }

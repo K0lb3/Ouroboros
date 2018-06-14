@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: GooglePlayGames.Native.NativeRealtimeMultiplayerClient
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GooglePlayGames.BasicApi.Multiplayer;
@@ -47,60 +47,60 @@ namespace GooglePlayGames.Native
       {
         // ISSUE: object of a compiler-generated type is created
         // ISSUE: variable of a compiler-generated type
-        NativeRealtimeMultiplayerClient.\u003CCreateQuickGame\u003Ec__AnonStorey129 gameCAnonStorey129 = new NativeRealtimeMultiplayerClient.\u003CCreateQuickGame\u003Ec__AnonStorey129();
+        NativeRealtimeMultiplayerClient.\u003CCreateQuickGame\u003Ec__AnonStorey19D gameCAnonStorey19D = new NativeRealtimeMultiplayerClient.\u003CCreateQuickGame\u003Ec__AnonStorey19D();
         // ISSUE: reference to a compiler-generated field
-        gameCAnonStorey129.\u003C\u003Ef__this = this;
+        gameCAnonStorey19D.\u003C\u003Ef__this = this;
         // ISSUE: reference to a compiler-generated field
-        gameCAnonStorey129.newSession = new NativeRealtimeMultiplayerClient.RoomSession(this.mRealtimeManager, listener);
+        gameCAnonStorey19D.newSession = new NativeRealtimeMultiplayerClient.RoomSession(this.mRealtimeManager, listener);
         if (this.mCurrentSession.IsActive())
         {
           Logger.e("Received attempt to create a new room without cleaning up the old one.");
           // ISSUE: reference to a compiler-generated field
-          gameCAnonStorey129.newSession.LeaveRoom();
+          gameCAnonStorey19D.newSession.LeaveRoom();
         }
         else
         {
           // ISSUE: reference to a compiler-generated field
-          this.mCurrentSession = gameCAnonStorey129.newSession;
+          this.mCurrentSession = gameCAnonStorey19D.newSession;
           Logger.d("QuickGame: Setting MinPlayersToStart = " + (object) minOpponents);
           this.mCurrentSession.MinPlayersToStart = minOpponents;
           using (RealtimeRoomConfigBuilder roomConfigBuilder = RealtimeRoomConfigBuilder.Create())
           {
             // ISSUE: object of a compiler-generated type is created
             // ISSUE: variable of a compiler-generated type
-            NativeRealtimeMultiplayerClient.\u003CCreateQuickGame\u003Ec__AnonStorey127 gameCAnonStorey127 = new NativeRealtimeMultiplayerClient.\u003CCreateQuickGame\u003Ec__AnonStorey127();
+            NativeRealtimeMultiplayerClient.\u003CCreateQuickGame\u003Ec__AnonStorey19B gameCAnonStorey19B = new NativeRealtimeMultiplayerClient.\u003CCreateQuickGame\u003Ec__AnonStorey19B();
             // ISSUE: reference to a compiler-generated field
-            gameCAnonStorey127.\u003C\u003Ef__this = this;
+            gameCAnonStorey19B.\u003C\u003Ef__this = this;
             // ISSUE: reference to a compiler-generated field
-            gameCAnonStorey127.config = roomConfigBuilder.SetMinimumAutomatchingPlayers(minOpponents).SetMaximumAutomatchingPlayers(maxOpponents).SetVariant(variant).SetExclusiveBitMask(exclusiveBitMask).Build();
+            gameCAnonStorey19B.config = roomConfigBuilder.SetMinimumAutomatchingPlayers(minOpponents).SetMaximumAutomatchingPlayers(maxOpponents).SetVariant(variant).SetExclusiveBitMask(exclusiveBitMask).Build();
             // ISSUE: reference to a compiler-generated field
-            using (gameCAnonStorey127.config)
+            using (gameCAnonStorey19B.config)
             {
               // ISSUE: object of a compiler-generated type is created
               // ISSUE: variable of a compiler-generated type
-              NativeRealtimeMultiplayerClient.\u003CCreateQuickGame\u003Ec__AnonStorey128 gameCAnonStorey128 = new NativeRealtimeMultiplayerClient.\u003CCreateQuickGame\u003Ec__AnonStorey128();
+              NativeRealtimeMultiplayerClient.\u003CCreateQuickGame\u003Ec__AnonStorey19C gameCAnonStorey19C = new NativeRealtimeMultiplayerClient.\u003CCreateQuickGame\u003Ec__AnonStorey19C();
               // ISSUE: reference to a compiler-generated field
-              gameCAnonStorey128.\u003C\u003Ef__ref\u0024297 = gameCAnonStorey129;
+              gameCAnonStorey19C.\u003C\u003Ef__ref\u0024413 = gameCAnonStorey19D;
               // ISSUE: reference to a compiler-generated field
-              gameCAnonStorey128.\u003C\u003Ef__ref\u0024295 = gameCAnonStorey127;
+              gameCAnonStorey19C.\u003C\u003Ef__ref\u0024411 = gameCAnonStorey19B;
               // ISSUE: reference to a compiler-generated field
-              gameCAnonStorey128.\u003C\u003Ef__this = this;
+              gameCAnonStorey19C.\u003C\u003Ef__this = this;
               // ISSUE: reference to a compiler-generated field
               // ISSUE: reference to a compiler-generated field
-              gameCAnonStorey128.helper = NativeRealtimeMultiplayerClient.HelperForSession(gameCAnonStorey129.newSession);
+              gameCAnonStorey19C.helper = NativeRealtimeMultiplayerClient.HelperForSession(gameCAnonStorey19D.newSession);
               try
               {
                 // ISSUE: reference to a compiler-generated field
                 // ISSUE: reference to a compiler-generated method
-                gameCAnonStorey129.newSession.StartRoomCreation(this.mNativeClient.GetUserId(), new Action(gameCAnonStorey128.\u003C\u003Em__3F));
+                gameCAnonStorey19D.newSession.StartRoomCreation(this.mNativeClient.GetUserId(), new Action(gameCAnonStorey19C.\u003C\u003Em__88));
               }
               finally
               {
                 // ISSUE: reference to a compiler-generated field
-                if (gameCAnonStorey128.helper != null)
+                if (gameCAnonStorey19C.helper != null)
                 {
                   // ISSUE: reference to a compiler-generated field
-                  gameCAnonStorey128.helper.Dispose();
+                  gameCAnonStorey19C.helper.Dispose();
                 }
               }
             }
@@ -126,35 +126,35 @@ namespace GooglePlayGames.Native
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      NativeRealtimeMultiplayerClient.\u003CCreateWithInvitationScreen\u003Ec__AnonStorey12C screenCAnonStorey12C = new NativeRealtimeMultiplayerClient.\u003CCreateWithInvitationScreen\u003Ec__AnonStorey12C();
+      NativeRealtimeMultiplayerClient.\u003CCreateWithInvitationScreen\u003Ec__AnonStorey1A0 screenCAnonStorey1A0 = new NativeRealtimeMultiplayerClient.\u003CCreateWithInvitationScreen\u003Ec__AnonStorey1A0();
       // ISSUE: reference to a compiler-generated field
-      screenCAnonStorey12C.variant = variant;
+      screenCAnonStorey1A0.variant = variant;
       // ISSUE: reference to a compiler-generated field
-      screenCAnonStorey12C.\u003C\u003Ef__this = this;
+      screenCAnonStorey1A0.\u003C\u003Ef__this = this;
       lock (this.mSessionLock)
       {
         // ISSUE: object of a compiler-generated type is created
         // ISSUE: variable of a compiler-generated type
-        NativeRealtimeMultiplayerClient.\u003CCreateWithInvitationScreen\u003Ec__AnonStorey12B screenCAnonStorey12B = new NativeRealtimeMultiplayerClient.\u003CCreateWithInvitationScreen\u003Ec__AnonStorey12B();
+        NativeRealtimeMultiplayerClient.\u003CCreateWithInvitationScreen\u003Ec__AnonStorey19F screenCAnonStorey19F = new NativeRealtimeMultiplayerClient.\u003CCreateWithInvitationScreen\u003Ec__AnonStorey19F();
         // ISSUE: reference to a compiler-generated field
-        screenCAnonStorey12B.\u003C\u003Ef__ref\u0024300 = screenCAnonStorey12C;
+        screenCAnonStorey19F.\u003C\u003Ef__ref\u0024416 = screenCAnonStorey1A0;
         // ISSUE: reference to a compiler-generated field
-        screenCAnonStorey12B.\u003C\u003Ef__this = this;
+        screenCAnonStorey19F.\u003C\u003Ef__this = this;
         // ISSUE: reference to a compiler-generated field
-        screenCAnonStorey12B.newRoom = new NativeRealtimeMultiplayerClient.RoomSession(this.mRealtimeManager, listener);
+        screenCAnonStorey19F.newRoom = new NativeRealtimeMultiplayerClient.RoomSession(this.mRealtimeManager, listener);
         if (this.mCurrentSession.IsActive())
         {
           Logger.e("Received attempt to create a new room without cleaning up the old one.");
           // ISSUE: reference to a compiler-generated field
-          screenCAnonStorey12B.newRoom.LeaveRoom();
+          screenCAnonStorey19F.newRoom.LeaveRoom();
         }
         else
         {
           // ISSUE: reference to a compiler-generated field
-          this.mCurrentSession = screenCAnonStorey12B.newRoom;
+          this.mCurrentSession = screenCAnonStorey19F.newRoom;
           this.mCurrentSession.ShowingUI = true;
           // ISSUE: reference to a compiler-generated method
-          this.mRealtimeManager.ShowPlayerSelectUI(minOpponents, maxOppponents, true, new Action<PlayerSelectUIResponse>(screenCAnonStorey12B.\u003C\u003Em__44));
+          this.mRealtimeManager.ShowPlayerSelectUI(minOpponents, maxOppponents, true, new Action<PlayerSelectUIResponse>(screenCAnonStorey19F.\u003C\u003Em__8D));
         }
       }
     }
@@ -193,24 +193,24 @@ namespace GooglePlayGames.Native
       {
         // ISSUE: object of a compiler-generated type is created
         // ISSUE: variable of a compiler-generated type
-        NativeRealtimeMultiplayerClient.\u003CAcceptFromInbox\u003Ec__AnonStorey130 inboxCAnonStorey130 = new NativeRealtimeMultiplayerClient.\u003CAcceptFromInbox\u003Ec__AnonStorey130();
+        NativeRealtimeMultiplayerClient.\u003CAcceptFromInbox\u003Ec__AnonStorey1A4 inboxCAnonStorey1A4 = new NativeRealtimeMultiplayerClient.\u003CAcceptFromInbox\u003Ec__AnonStorey1A4();
         // ISSUE: reference to a compiler-generated field
-        inboxCAnonStorey130.\u003C\u003Ef__this = this;
+        inboxCAnonStorey1A4.\u003C\u003Ef__this = this;
         // ISSUE: reference to a compiler-generated field
-        inboxCAnonStorey130.newRoom = new NativeRealtimeMultiplayerClient.RoomSession(this.mRealtimeManager, listener);
+        inboxCAnonStorey1A4.newRoom = new NativeRealtimeMultiplayerClient.RoomSession(this.mRealtimeManager, listener);
         if (this.mCurrentSession.IsActive())
         {
           Logger.e("Received attempt to accept invitation without cleaning up active session.");
           // ISSUE: reference to a compiler-generated field
-          inboxCAnonStorey130.newRoom.LeaveRoom();
+          inboxCAnonStorey1A4.newRoom.LeaveRoom();
         }
         else
         {
           // ISSUE: reference to a compiler-generated field
-          this.mCurrentSession = inboxCAnonStorey130.newRoom;
+          this.mCurrentSession = inboxCAnonStorey1A4.newRoom;
           this.mCurrentSession.ShowingUI = true;
           // ISSUE: reference to a compiler-generated method
-          this.mRealtimeManager.ShowRoomInboxUI(new Action<RealtimeManager.RoomInboxUIResponse>(inboxCAnonStorey130.\u003C\u003Em__46));
+          this.mRealtimeManager.ShowRoomInboxUI(new Action<RealtimeManager.RoomInboxUIResponse>(inboxCAnonStorey1A4.\u003C\u003Em__8F));
         }
       }
     }
@@ -219,34 +219,34 @@ namespace GooglePlayGames.Native
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      NativeRealtimeMultiplayerClient.\u003CAcceptInvitation\u003Ec__AnonStorey134 invitationCAnonStorey134 = new NativeRealtimeMultiplayerClient.\u003CAcceptInvitation\u003Ec__AnonStorey134();
+      NativeRealtimeMultiplayerClient.\u003CAcceptInvitation\u003Ec__AnonStorey1A8 invitationCAnonStorey1A8 = new NativeRealtimeMultiplayerClient.\u003CAcceptInvitation\u003Ec__AnonStorey1A8();
       // ISSUE: reference to a compiler-generated field
-      invitationCAnonStorey134.invitationId = invitationId;
+      invitationCAnonStorey1A8.invitationId = invitationId;
       // ISSUE: reference to a compiler-generated field
-      invitationCAnonStorey134.\u003C\u003Ef__this = this;
+      invitationCAnonStorey1A8.\u003C\u003Ef__this = this;
       lock (this.mSessionLock)
       {
         // ISSUE: object of a compiler-generated type is created
         // ISSUE: variable of a compiler-generated type
-        NativeRealtimeMultiplayerClient.\u003CAcceptInvitation\u003Ec__AnonStorey133 invitationCAnonStorey133 = new NativeRealtimeMultiplayerClient.\u003CAcceptInvitation\u003Ec__AnonStorey133();
+        NativeRealtimeMultiplayerClient.\u003CAcceptInvitation\u003Ec__AnonStorey1A7 invitationCAnonStorey1A7 = new NativeRealtimeMultiplayerClient.\u003CAcceptInvitation\u003Ec__AnonStorey1A7();
         // ISSUE: reference to a compiler-generated field
-        invitationCAnonStorey133.\u003C\u003Ef__ref\u0024308 = invitationCAnonStorey134;
+        invitationCAnonStorey1A7.\u003C\u003Ef__ref\u0024424 = invitationCAnonStorey1A8;
         // ISSUE: reference to a compiler-generated field
-        invitationCAnonStorey133.\u003C\u003Ef__this = this;
+        invitationCAnonStorey1A7.\u003C\u003Ef__this = this;
         // ISSUE: reference to a compiler-generated field
-        invitationCAnonStorey133.newRoom = new NativeRealtimeMultiplayerClient.RoomSession(this.mRealtimeManager, listener);
+        invitationCAnonStorey1A7.newRoom = new NativeRealtimeMultiplayerClient.RoomSession(this.mRealtimeManager, listener);
         if (this.mCurrentSession.IsActive())
         {
           Logger.e("Received attempt to accept invitation without cleaning up active session.");
           // ISSUE: reference to a compiler-generated field
-          invitationCAnonStorey133.newRoom.LeaveRoom();
+          invitationCAnonStorey1A7.newRoom.LeaveRoom();
         }
         else
         {
           // ISSUE: reference to a compiler-generated field
-          this.mCurrentSession = invitationCAnonStorey133.newRoom;
+          this.mCurrentSession = invitationCAnonStorey1A7.newRoom;
           // ISSUE: reference to a compiler-generated method
-          this.mRealtimeManager.FetchInvitations(new Action<RealtimeManager.FetchInvitationsResponse>(invitationCAnonStorey133.\u003C\u003Em__47));
+          this.mRealtimeManager.FetchInvitations(new Action<RealtimeManager.FetchInvitationsResponse>(invitationCAnonStorey1A7.\u003C\u003Em__90));
         }
       }
     }
@@ -972,7 +972,7 @@ namespace GooglePlayGames.Native
       {
         // ISSUE: object of a compiler-generated type is created
         // ISSUE: variable of a compiler-generated type
-        NativeRealtimeMultiplayerClient.ActiveState.\u003CHandleConnectedSetChanged\u003Ec__AnonStorey13E changedCAnonStorey13E = new NativeRealtimeMultiplayerClient.ActiveState.\u003CHandleConnectedSetChanged\u003Ec__AnonStorey13E();
+        NativeRealtimeMultiplayerClient.ActiveState.\u003CHandleConnectedSetChanged\u003Ec__AnonStorey1B2 changedCAnonStorey1B2 = new NativeRealtimeMultiplayerClient.ActiveState.\u003CHandleConnectedSetChanged\u003Ec__AnonStorey1B2();
         List<string> source1 = new List<string>();
         List<string> source2 = new List<string>();
         Dictionary<string, GooglePlayGames.Native.PInvoke.MultiplayerParticipant> dictionary = room.Participants().ToDictionary<GooglePlayGames.Native.PInvoke.MultiplayerParticipant, string>((Func<GooglePlayGames.Native.PInvoke.MultiplayerParticipant, string>) (p => p.Id()));
@@ -1000,22 +1000,22 @@ namespace GooglePlayGames.Native
         if (source2.Contains(this.GetSelf().ParticipantId))
           Logger.w("Player was disconnected from the multiplayer session.");
         // ISSUE: reference to a compiler-generated field
-        changedCAnonStorey13E.selfId = this.GetSelf().ParticipantId;
+        changedCAnonStorey1B2.selfId = this.GetSelf().ParticipantId;
         // ISSUE: reference to a compiler-generated method
-        List<string> list1 = source1.Where<string>(new Func<string, bool>(changedCAnonStorey13E.\u003C\u003Em__5E)).ToList<string>();
+        List<string> list1 = source1.Where<string>(new Func<string, bool>(changedCAnonStorey1B2.\u003C\u003Em__A7)).ToList<string>();
         // ISSUE: reference to a compiler-generated method
-        List<string> list2 = source2.Where<string>(new Func<string, bool>(changedCAnonStorey13E.\u003C\u003Em__5F)).ToList<string>();
+        List<string> list2 = source2.Where<string>(new Func<string, bool>(changedCAnonStorey1B2.\u003C\u003Em__A8)).ToList<string>();
         if (list1.Count > 0)
         {
           list1.Sort();
           // ISSUE: reference to a compiler-generated method
-          this.mSession.OnGameThreadListener().PeersConnected(list1.Where<string>(new Func<string, bool>(changedCAnonStorey13E.\u003C\u003Em__60)).ToArray<string>());
+          this.mSession.OnGameThreadListener().PeersConnected(list1.Where<string>(new Func<string, bool>(changedCAnonStorey1B2.\u003C\u003Em__A9)).ToArray<string>());
         }
         if (list2.Count <= 0)
           return;
         list2.Sort();
         // ISSUE: reference to a compiler-generated method
-        this.mSession.OnGameThreadListener().PeersDisconnected(list2.Where<string>(new Func<string, bool>(changedCAnonStorey13E.\u003C\u003Em__61)).ToArray<string>());
+        this.mSession.OnGameThreadListener().PeersDisconnected(list2.Where<string>(new Func<string, bool>(changedCAnonStorey1B2.\u003C\u003Em__AA)).ToArray<string>());
       }
 
       internal override void LeaveRoom()

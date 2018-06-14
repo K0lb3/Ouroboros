@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: AssetDownloader
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using SRPG;
@@ -20,15 +20,21 @@ public class AssetDownloader : MonoBehaviour
 {
   public static string DownloadURL = string.Empty;
   public static string StreamingURL = string.Empty;
+  public static string ExDownloadURL = string.Empty;
   private static List<string> mRequestIDs = new List<string>();
+  private static List<string> mRequestUnmanagedAssets = new List<string>();
   private static bool mDownloadedText = false;
   private static float mDownloadProgress = 0.0f;
   private static long totalDownloadSize = 0;
   private static long currentDownloadSize = 0;
   private static long downloadedSize = 0;
+  public static string DownloadBaseURL = string.Empty;
+  private static List<string> mRequestBaseAssetIDs = new List<string>();
   private static float mAverageDownloadSpeed = 1048576f;
   public static long UnZipFileSize = 0;
   public static List<AssetDownloader.ExistAssetList> mExistFile = new List<AssetDownloader.ExistAssetList>();
+  public static string mExitFilePath = string.Empty;
+  public static List<string> mUnmanagedExistFile = new List<string>();
   public static bool BatchDownload = true;
   public const string FileListName = "ASSETS";
   private const string MetaExt = ".meta";
@@ -40,12 +46,17 @@ public class AssetDownloader : MonoBehaviour
   public readonly string FileAssetListName;
   public readonly string FileRevisionName;
   public readonly string FileExistName;
+  public readonly string FileUnManagedExistName;
+  public readonly string FileUnManagedAssetListName;
+  public readonly int SaveExistFileSize;
+  public readonly int SaveExistFileNum;
   private static AssetDownloader mInstance;
   private Dictionary<string, int> itemCompressedSize;
   private static Coroutine mCoroutine;
   private static bool mHasError;
   private static bool mRetryOnError;
   private static AssetManager.AssetFormats oldFormat;
+  public readonly string FileBaseAssetName;
   private float[] mSpeedHistory;
   private int mSpeedHistorySize;
   private int mSpeedHistoryPos;
@@ -61,10 +72,14 @@ public class AssetDownloader : MonoBehaviour
   private float mCompareHashProgressShared;
   private static float mCompareHashProgress;
   private DownloadObserver mDownloadObserver;
+  public int mExistFileDownloadSize;
+  public int mExistFileDownloadCount;
   private static AssetDownloader.DownloadPhases mPhase;
   private string mLog;
+  private bool mWWWError;
   private static string mCachePath;
   private static string mTextCachePath;
+  private static string mDemoCachePath;
 
   public AssetDownloader()
   {
@@ -84,9 +99,11 @@ public class AssetDownloader : MonoBehaviour
     AssetDownloader.mHasError = false;
     AssetDownloader.mCoroutine = (Coroutine) null;
     AssetDownloader.mRequestIDs.Clear();
-    if (!Object.op_Inequality((Object) AssetDownloader.mInstance, (Object) null))
+    AssetDownloader.mRequestBaseAssetIDs.Clear();
+    AssetDownloader.mRequestUnmanagedAssets.Clear();
+    if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) AssetDownloader.mInstance, (UnityEngine.Object) null))
       return;
-    Object.Destroy((Object) ((Component) AssetDownloader.mInstance).get_gameObject());
+    UnityEngine.Object.Destroy((UnityEngine.Object) ((Component) AssetDownloader.mInstance).get_gameObject());
     AssetDownloader.mInstance = (AssetDownloader) null;
   }
 
@@ -115,14 +132,22 @@ public class AssetDownloader : MonoBehaviour
   {
     get
     {
-      if (Object.op_Equality((Object) AssetDownloader.mInstance, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) AssetDownloader.mInstance, (UnityEngine.Object) null))
       {
-        GameObject gameObject = new GameObject(typeof (AssetDownloader).Name, new System.Type[1]{ typeof (AssetDownloader) });
+        GameObject gameObject = new GameObject(typeof (AssetDownloader).Name, new System.Type[1]
+        {
+          typeof (AssetDownloader)
+        });
         AssetDownloader.mInstance = (AssetDownloader) gameObject.GetComponent<AssetDownloader>();
-        Object.DontDestroyOnLoad((Object) gameObject);
+        UnityEngine.Object.DontDestroyOnLoad((UnityEngine.Object) gameObject);
       }
       return AssetDownloader.mInstance;
     }
+  }
+
+  public static void SetBaseDownloadURL(string url)
+  {
+    AssetDownloader.DownloadBaseURL = url;
   }
 
   private void Awake()
@@ -132,6 +157,7 @@ public class AssetDownloader : MonoBehaviour
     this.mMutexAcquired = true;
     this.mUnzipSignal = new AutoResetEvent(false);
     AssetDownloader.oldFormat = AssetManager.Format;
+    AssetDownloader.mExitFilePath = AssetDownloader.CachePath + this.FileExistName;
   }
 
   private void Shutdown()
@@ -211,88 +237,6 @@ public class AssetDownloader : MonoBehaviour
     this.mUnzipThread = (Thread) null;
   }
 
-  private void BeginUnzip(byte[] bytes, int size, string dest, List<string> requestIDs, AssetList assetList)
-  {
-    if (!this.mMutexAcquired)
-    {
-      this.mMutex.WaitOne();
-      this.mMutexAcquired = true;
-    }
-    AssetDownloader.UnzipJob unzipJob = new AssetDownloader.UnzipJob();
-    unzipJob.Bytes = bytes;
-    unzipJob.Size = size;
-    unzipJob.Dest = dest;
-    unzipJob.nodes = new List<AssetDownloader.UnzipJob.Node>();
-    using (List<string>.Enumerator enumerator = requestIDs.GetEnumerator())
-    {
-      while (enumerator.MoveNext())
-      {
-        string current = enumerator.Current;
-        AssetList.Item itemById = assetList.FindItemByID(current);
-        unzipJob.nodes.Add(new AssetDownloader.UnzipJob.Node()
-        {
-          ID = current,
-          hash = itemById.Hash
-        });
-      }
-    }
-    this.mUnzipJobs.Add(unzipJob);
-    if (size <= 0)
-      unzipJob.State = AssetDownloader.UnzipJobState.Error;
-    this.mMutex.ReleaseMutex();
-    this.mMutexAcquired = false;
-    this.mUnzipSignal.Set();
-  }
-
-  private void UnzipThread()
-  {
-label_1:
-    while (true)
-    {
-      this.mUnzipSignal.WaitOne();
-      this.mMutex.WaitOne();
-      if (!this.mShuttingDown)
-      {
-        if (this.mUnzipJobs == null)
-          this.mMutex.ReleaseMutex();
-        else
-          goto label_5;
-      }
-      else
-        break;
-    }
-    this.mMutex.ReleaseMutex();
-    return;
-label_5:
-    AssetDownloader.UnzipJob[] array = this.mUnzipJobs.ToArray();
-    for (int index = 0; index < array.Length; ++index)
-    {
-      if (array[index].State == AssetDownloader.UnzipJobState.Waiting)
-        array[index].State = AssetDownloader.UnzipJobState.Extracting;
-    }
-    this.mMutex.ReleaseMutex();
-    for (int index = 0; index < array.Length; ++index)
-    {
-      AssetDownloader.UnzipJob unzipJob = array[index];
-      if (unzipJob.State == AssetDownloader.UnzipJobState.Extracting)
-      {
-        if (NativePlugin.UnZip(unzipJob.Dest, unzipJob.Bytes, unzipJob.Size) != 0)
-        {
-          this.mMutex.WaitOne();
-          unzipJob.State = AssetDownloader.UnzipJobState.Error;
-          this.mMutex.ReleaseMutex();
-        }
-        else
-        {
-          this.mMutex.WaitOne();
-          unzipJob.State = AssetDownloader.UnzipJobState.Finished;
-          this.mMutex.ReleaseMutex();
-        }
-      }
-    }
-    goto label_1;
-  }
-
   private void UnzipThread2()
   {
     AssetDownloader.UnzipThread2Arg mUnzipThreadArg = this.mUnzipThreadArg;
@@ -336,16 +280,17 @@ label_5:
           {
             Debug.Log((object) ex.ToString());
           }
-          File.WriteAllBytes(AssetDownloader.CachePath + unzipJob.nodes[0].ID, unzipJob.Bytes);
+          string path1 = AssetDownloader.CachePath + unzipJob.nodes[0].ID;
+          File.WriteAllBytes(path1, unzipJob.Bytes);
           if ((unzipJob.nodes[0].Item.Flags & AssetBundleFlags.IsCombined) != (AssetBundleFlags) 0)
           {
             int size = 0;
-            string path = AssetDownloader.CachePath + unzipJob.nodes[0].ID;
+            string path2 = AssetDownloader.CachePath + unzipJob.nodes[0].ID;
             if ((unzipJob.nodes[0].Item.Flags & AssetBundleFlags.Compressed) != (AssetBundleFlags) 0)
             {
-              IntPtr num1 = NativePlugin.DecompressFile(path, out size);
+              IntPtr num1 = NativePlugin.DecompressFile(path2, out size);
               if (num1 == IntPtr.Zero)
-                throw new Exception("Failed to decompress file [" + path + "]");
+                throw new Exception("Failed to decompress file [" + path2 + "]");
               byte[] numArray = new byte[size];
               Marshal.Copy(num1, numArray, 0, size);
               using (BinaryReader binaryReader = new BinaryReader((Stream) new MemoryStream(numArray)))
@@ -363,11 +308,11 @@ label_5:
                 }
               }
               NativePlugin.FreePtr(num1);
-              File.Delete(path + ".tmp");
+              File.Delete(path2 + ".tmp");
             }
             else
             {
-              using (BinaryReader binaryReader = new BinaryReader((Stream) File.Open(path, FileMode.Open)))
+              using (BinaryReader binaryReader = new BinaryReader((Stream) File.Open(path2, FileMode.Open)))
               {
                 int num = binaryReader.ReadInt32();
                 for (int index2 = 0; index2 < num; ++index2)
@@ -383,32 +328,21 @@ label_5:
               }
             }
           }
-          using (List<AssetDownloader.UnzipJob.Node>.Enumerator enumerator = unzipJob.nodes.GetEnumerator())
+          if (!File.Exists(path1))
           {
-            while (enumerator.MoveNext())
-            {
-              AssetDownloader.UnzipJob.Node current = enumerator.Current;
-              if (!File.Exists(unzipJob.Dest + current.ID))
-              {
-                flag = true;
-                break;
-              }
-            }
-          }
-          if (!flag)
-          {
-            using (List<AssetDownloader.UnzipJob.Node>.Enumerator enumerator = unzipJob.nodes.GetEnumerator())
-            {
-              while (enumerator.MoveNext())
-              {
-                AssetDownloader.UnzipJob.Node current = enumerator.Current;
-                current.Item.Exist = true;
-                AssetDownloader.mExistFile.Add(new AssetDownloader.ExistAssetList(current.Item.ID, mUnzipThreadArg.assetlist.SearchItemIdx(current.Item.ID)));
-              }
-            }
-          }
-          else
+            flag = true;
             break;
+          }
+          unzipJob.nodes[0].Item.Exist = true;
+          AssetDownloader.mExistFile.Add(new AssetDownloader.ExistAssetList(unzipJob.nodes[0].Item.ID, mUnzipThreadArg.assetlist.SearchItemIdx(unzipJob.nodes[0].Item.ID)));
+          this.mExistFileDownloadSize += unzipJob.nodes[0].Item.Size;
+          ++this.mExistFileDownloadCount;
+          if (this.mExistFileDownloadSize > this.SaveExistFileSize || this.mExistFileDownloadCount > this.SaveExistFileNum)
+          {
+            this.mExistFileDownloadSize = 0;
+            this.mExistFileDownloadCount = 0;
+            this.CreateExistFile();
+          }
         }
         try
         {
@@ -424,12 +358,9 @@ label_5:
         {
           for (int index = 0; index < unzipJob.nodes.Count; ++index)
           {
-            string path1 = unzipJob.Dest + unzipJob.nodes[index].ID;
-            if (File.Exists(path1))
-              File.Delete(path1);
-            string path2 = unzipJob.Dest + unzipJob.nodes[index].ID + ".meta";
-            if (!File.Exists(path2))
-              File.Delete(path2);
+            string path = unzipJob.Dest + unzipJob.nodes[index].ID;
+            if (File.Exists(path))
+              File.Delete(path);
             unzipJob.nodes[index].Item.Exist = false;
           }
         }
@@ -458,27 +389,35 @@ label_5:
     if (compareFileListHashArg == null || string.IsNullOrEmpty(compareFileListHashArg.cacheDir) || compareFileListHashArg.nodes == null)
       return;
     string cacheDir = compareFileListHashArg.cacheDir;
-    AssetList assetList = AssetManager.AssetList;
     if (compareFileListHashArg.dic.Count == 0)
     {
-      AssetDownloader.mExistFile.Clear();
       for (int index = 0; index < compareFileListHashArg.nodes.Count; ++index)
       {
+        // ISSUE: object of a compiler-generated type is created
+        // ISSUE: variable of a compiler-generated type
+        AssetDownloader.\u003CCompareFileListHashThread\u003Ec__AnonStorey285 threadCAnonStorey285 = new AssetDownloader.\u003CCompareFileListHashThread\u003Ec__AnonStorey285();
         this.mCompareHashMutex.WaitOne();
         this.mCompareHashProgressShared = (float) index / (float) compareFileListHashArg.nodes.Count;
         this.mCompareHashMutex.ReleaseMutex();
-        AssetDownloader.CompareFileListHashArg.Node node = compareFileListHashArg.nodes[index];
-        if (node != null && !string.IsNullOrEmpty(node.IDStr) && !string.IsNullOrEmpty(node.metaPath))
+        // ISSUE: reference to a compiler-generated field
+        threadCAnonStorey285.node = compareFileListHashArg.nodes[index];
+        // ISSUE: reference to a compiler-generated field
+        // ISSUE: reference to a compiler-generated field
+        // ISSUE: reference to a compiler-generated field
+        if (threadCAnonStorey285.node != null && !string.IsNullOrEmpty(threadCAnonStorey285.node.IDStr) && !string.IsNullOrEmpty(threadCAnonStorey285.node.metaPath))
         {
-          string path = cacheDir + node.IDStr;
-          string metaPath = node.metaPath;
+          // ISSUE: reference to a compiler-generated field
+          string path = cacheDir + threadCAnonStorey285.node.IDStr;
+          // ISSUE: reference to a compiler-generated field
+          string metaPath = threadCAnonStorey285.node.metaPath;
           bool flag1 = File.Exists(path);
           bool flag2 = false;
           if (File.Exists(metaPath))
           {
             if (flag1)
             {
-              if (AssetDownloader.GetFileSize(path) != (long) node.Size)
+              // ISSUE: reference to a compiler-generated field
+              if (AssetDownloader.GetFileSize(path) != (long) threadCAnonStorey285.node.Size)
               {
                 flag2 = true;
                 goto label_17;
@@ -489,7 +428,8 @@ label_5:
               using (FileStream fileStream = new FileStream(metaPath, FileMode.Open))
               {
                 uint num = new BinaryReader((Stream) fileStream).ReadUInt32();
-                if ((int) node.Hash != (int) num)
+                // ISSUE: reference to a compiler-generated field
+                if ((int) threadCAnonStorey285.node.Hash != (int) num)
                   flag2 = true;
               }
             }
@@ -501,19 +441,11 @@ label_17:
             if (flag2)
               File.Delete(metaPath);
           }
-          else
-            flag2 = true;
-          if (flag1)
+          // ISSUE: reference to a compiler-generated method
+          if (flag1 && AssetDownloader.mExistFile.Find(new Predicate<AssetDownloader.ExistAssetList>(threadCAnonStorey285.\u003C\u003Em__235)) != null)
           {
-            if (flag2)
-            {
-              File.Delete(path);
-            }
-            else
-            {
-              node.Item.Exist = true;
-              AssetDownloader.mExistFile.Add(new AssetDownloader.ExistAssetList(node.Item.ID, assetList.SearchItemIdx(node.Item.ID)));
-            }
+            // ISSUE: reference to a compiler-generated field
+            threadCAnonStorey285.node.Item.Exist = true;
           }
         }
       }
@@ -542,9 +474,25 @@ label_17:
 
   public static void Add(string assetID)
   {
-    if (AssetDownloader.mRequestIDs.Contains(assetID))
-      return;
-    AssetDownloader.mRequestIDs.Add(assetID);
+    AssetList.Item itemById = AssetManager.AssetList.FastFindItemByID(assetID);
+    if (string.IsNullOrEmpty(AssetDownloader.DownloadBaseURL))
+    {
+      if (AssetDownloader.mRequestIDs.Contains(assetID))
+        return;
+      AssetDownloader.mRequestIDs.Add(assetID);
+    }
+    else if ((itemById.Flags & AssetBundleFlags.DiffAsset) != (AssetBundleFlags) 0)
+    {
+      if (AssetDownloader.mRequestIDs.Contains(assetID))
+        return;
+      AssetDownloader.mRequestIDs.Add(assetID);
+    }
+    else
+    {
+      if (AssetDownloader.mRequestBaseAssetIDs.Contains(assetID))
+        return;
+      AssetDownloader.mRequestBaseAssetIDs.Add(assetID);
+    }
   }
 
   public static bool isDone
@@ -559,15 +507,15 @@ label_17:
   {
     get
     {
-      if (AssetDownloader.mCoroutine == null)
-        return AssetDownloader.mRequestIDs.Count == 0;
+      if (AssetDownloader.mCoroutine == null && AssetDownloader.mRequestIDs.Count == 0 && AssetDownloader.mRequestBaseAssetIDs.Count == 0)
+        return AssetDownloader.mRequestUnmanagedAssets.Count == 0;
       return false;
     }
   }
 
   public static AssetDownloader.DownloadState StartDownload(bool checkUpdates, bool canRetry = true, ThreadPriority threadPriority = ThreadPriority.Normal)
   {
-    if (AssetDownloader.mCoroutine != null || !checkUpdates && AssetDownloader.mRequestIDs.Count == 0)
+    if (AssetDownloader.mCoroutine != null || !checkUpdates && AssetDownloader.mRequestIDs.Count == 0 && AssetDownloader.mRequestBaseAssetIDs.Count == 0)
       return (AssetDownloader.DownloadState) null;
     if (AssetManager.Format == AssetManager.AssetFormats.Text)
     {
@@ -593,6 +541,80 @@ label_17:
     AssetDownloader.mRetryOnError = canRetry;
     AssetDownloader.mCoroutine = AssetDownloader.Instance.StartCoroutine(AssetDownloader.Instance.InternalDownloadAssets(state, checkUpdates, false, threadPriority));
     return state;
+  }
+
+  public static bool IsUnmanagedAssetsQueued()
+  {
+    return AssetDownloader.mRequestUnmanagedAssets.Count > 0;
+  }
+
+  public static void AddUnManagedData(string name)
+  {
+    if (AssetDownloader.mRequestUnmanagedAssets.Contains(name))
+      return;
+    int num = name.LastIndexOf('/');
+    string str = name;
+    if (num >= 0)
+      str = name.Substring(num + 1);
+    if (AssetDownloader.mUnmanagedExistFile.Contains(str))
+      return;
+    AssetDownloader.mRequestUnmanagedAssets.Add(name);
+  }
+
+  public static void DeleteOldUnmanagedData(int max)
+  {
+    if (AssetDownloader.mUnmanagedExistFile.Count <= max)
+      return;
+    while (AssetDownloader.mUnmanagedExistFile.Count > max)
+    {
+      string str = AssetDownloader.mUnmanagedExistFile[0];
+      int num = str.LastIndexOf('/');
+      if (num >= 0)
+        str = str.Substring(num + 1);
+      if (File.Exists(AssetDownloader.DemoCachePath + str))
+        File.Delete(AssetDownloader.DemoCachePath + str);
+      AssetDownloader.mUnmanagedExistFile.RemoveAt(0);
+    }
+  }
+
+  public static void StartDownloadUnmanagedData()
+  {
+    if (AssetDownloader.mRequestUnmanagedAssets.Count <= 0)
+      return;
+    AssetDownloader.mHasError = false;
+    AssetDownloader.mCoroutine = AssetDownloader.Instance.StartCoroutine(AssetDownloader.Instance.DonwoloadUnmanagedAsset(AssetDownloader.mRequestUnmanagedAssets, AssetDownloader.DemoCachePath));
+  }
+
+  public void RetryComfirmUnmanaged(bool retry)
+  {
+    if (retry)
+      AssetDownloader.Instance.StartCoroutine(AssetDownloader.Instance.DonwoloadUnmanagedAsset(AssetDownloader.mRequestUnmanagedAssets, AssetDownloader.DemoCachePath));
+    else
+      FlowNode_LoadScene.LoadBootScene();
+  }
+
+  [DebuggerHidden]
+  private IEnumerator ConfirmRetryUnmanaged()
+  {
+    // ISSUE: object of a compiler-generated type is created
+    return (IEnumerator) new AssetDownloader.\u003CConfirmRetryUnmanaged\u003Ec__Iterator74()
+    {
+      \u003C\u003Ef__this = this
+    };
+  }
+
+  [DebuggerHidden]
+  public IEnumerator DonwoloadUnmanagedAsset(List<string> RequestAssets, string cacheDir)
+  {
+    // ISSUE: object of a compiler-generated type is created
+    return (IEnumerator) new AssetDownloader.\u003CDonwoloadUnmanagedAsset\u003Ec__Iterator75()
+    {
+      RequestAssets = RequestAssets,
+      cacheDir = cacheDir,
+      \u003C\u0024\u003ERequestAssets = RequestAssets,
+      \u003C\u0024\u003EcacheDir = cacheDir,
+      \u003C\u003Ef__this = this
+    };
   }
 
   private string ComposeDownloadURI(string prefix, string[] fileID)
@@ -765,6 +787,12 @@ label_17:
       if (itemById != null && itemById.Exist)
         AssetDownloader.mRequestIDs.RemoveAt(index--);
     }
+    for (int index = 0; index < AssetDownloader.mRequestBaseAssetIDs.Count; ++index)
+    {
+      AssetList.Item itemById = assets.FindItemByID(AssetDownloader.mRequestBaseAssetIDs[index]);
+      if (itemById != null && itemById.Exist)
+        AssetDownloader.mRequestBaseAssetIDs.RemoveAt(index--);
+    }
   }
 
   private static ThreadPriority TranslateThreadPriority(ThreadPriority priority)
@@ -822,10 +850,23 @@ label_17:
   }
 
   [DebuggerHidden]
-  private IEnumerator ParallelDonwloading(AssetList assetList, ThreadPriority threadPriority, string prefix, string cacheDir, Dictionary<string, int> itemCompressedSize)
+  private IEnumerator ParallelDonwloading(AssetList assetList, ThreadPriority threadPriority, string prefix, string cacheDir, Dictionary<string, int> itemCompressedSize, List<string> requestID)
   {
     // ISSUE: object of a compiler-generated type is created
-    return (IEnumerator) new AssetDownloader.\u003CParallelDonwloading\u003Ec__Iterator43() { prefix = prefix, itemCompressedSize = itemCompressedSize, cacheDir = cacheDir, assetList = assetList, \u003C\u0024\u003Eprefix = prefix, \u003C\u0024\u003EitemCompressedSize = itemCompressedSize, \u003C\u0024\u003EcacheDir = cacheDir, \u003C\u0024\u003EassetList = assetList, \u003C\u003Ef__this = this };
+    return (IEnumerator) new AssetDownloader.\u003CParallelDonwloading\u003Ec__Iterator76()
+    {
+      prefix = prefix,
+      requestID = requestID,
+      itemCompressedSize = itemCompressedSize,
+      cacheDir = cacheDir,
+      assetList = assetList,
+      \u003C\u0024\u003Eprefix = prefix,
+      \u003C\u0024\u003ErequestID = requestID,
+      \u003C\u0024\u003EitemCompressedSize = itemCompressedSize,
+      \u003C\u0024\u003EcacheDir = cacheDir,
+      \u003C\u0024\u003EassetList = assetList,
+      \u003C\u003Ef__this = this
+    };
   }
 
   private void LoadExistFile()
@@ -862,11 +903,95 @@ label_17:
     }
   }
 
+  private void LoadBaseAsset()
+  {
+    if (File.Exists(AssetDownloader.BaseAssetFilePath))
+    {
+      using (StreamReader streamReader = new StreamReader((Stream) File.Open(AssetDownloader.BaseAssetFilePath, FileMode.Open)))
+      {
+        string str = streamReader.ReadLine();
+        AssetDownloader.DownloadBaseURL = AssetDownloader.DownloadBaseURL + str + "/";
+      }
+    }
+    else
+      AssetDownloader.DownloadBaseURL = (string) null;
+  }
+
+  private bool CheckDemoCacheDirectory()
+  {
+    string demoCachePath = AssetDownloader.DemoCachePath;
+    bool flag = true;
+    try
+    {
+      Directory.CreateDirectory(demoCachePath.Substring(0, demoCachePath.Length - 1));
+    }
+    catch (Exception ex)
+    {
+      DebugUtility.LogError("キャッシュディレクトリの生成に失敗しました。(" + ex.Message + ")");
+      flag = false;
+    }
+    return flag;
+  }
+
+  private void LoadUnmanagedExistFile()
+  {
+    AssetDownloader.mUnmanagedExistFile.Clear();
+    if (!File.Exists(AssetDownloader.UnmanagedExistFilePath))
+      return;
+    using (BinaryReader binaryReader = new BinaryReader((Stream) File.Open(AssetDownloader.UnmanagedExistFilePath, FileMode.Open)))
+    {
+      int num = binaryReader.ReadInt32();
+      for (int index = 0; index < num; ++index)
+        AssetDownloader.mUnmanagedExistFile.Add(binaryReader.ReadString());
+    }
+  }
+
+  private void CreateUnManagedExistFile()
+  {
+    if (AssetDownloader.mUnmanagedExistFile.Count <= 0)
+      return;
+    using (BinaryWriter binaryWriter = new BinaryWriter((Stream) File.Open(AssetDownloader.CachePath + this.FileUnManagedExistName, FileMode.Create)))
+    {
+      binaryWriter.Write(AssetDownloader.mUnmanagedExistFile.Count);
+      for (int index = 0; index < AssetDownloader.mUnmanagedExistFile.Count; ++index)
+        binaryWriter.Write(AssetDownloader.mUnmanagedExistFile[index]);
+    }
+  }
+
+  [DebuggerHidden]
+  private IEnumerator DownloadWWW(string prefix, string name, string writename, bool isError)
+  {
+    // ISSUE: object of a compiler-generated type is created
+    return (IEnumerator) new AssetDownloader.\u003CDownloadWWW\u003Ec__Iterator77()
+    {
+      prefix = prefix,
+      name = name,
+      isError = isError,
+      writename = writename,
+      \u003C\u0024\u003Eprefix = prefix,
+      \u003C\u0024\u003Ename = name,
+      \u003C\u0024\u003EisError = isError,
+      \u003C\u0024\u003Ewritename = writename,
+      \u003C\u003Ef__this = this
+    };
+  }
+
   [DebuggerHidden]
   private IEnumerator InternalDownloadAssets(AssetDownloader.DownloadState state, bool checkUpdates, bool isRetry, ThreadPriority threadPriority)
   {
     // ISSUE: object of a compiler-generated type is created
-    return (IEnumerator) new AssetDownloader.\u003CInternalDownloadAssets\u003Ec__Iterator44() { checkUpdates = checkUpdates, isRetry = isRetry, threadPriority = threadPriority, state = state, \u003C\u0024\u003EcheckUpdates = checkUpdates, \u003C\u0024\u003EisRetry = isRetry, \u003C\u0024\u003EthreadPriority = threadPriority, \u003C\u0024\u003Estate = state, \u003C\u003Ef__this = this };
+    return (IEnumerator) new AssetDownloader.\u003CInternalDownloadAssets\u003Ec__Iterator78()
+    {
+      checkUpdates = checkUpdates,
+      isRetry = isRetry,
+      threadPriority = threadPriority,
+      state = state,
+      \u003C\u0024\u003EcheckUpdates = checkUpdates,
+      \u003C\u0024\u003EisRetry = isRetry,
+      \u003C\u0024\u003EthreadPriority = threadPriority,
+      \u003C\u0024\u003Estate = state,
+      \u003C\u003Ef__this = this
+    };
   }
 
   public void FileCheckThread(object arg)
@@ -886,7 +1011,11 @@ label_17:
   private IEnumerator ConfirmRetry(AssetDownloader.RetryParam param)
   {
     // ISSUE: object of a compiler-generated type is created
-    return (IEnumerator) new AssetDownloader.\u003CConfirmRetry\u003Ec__Iterator45() { param = param, \u003C\u0024\u003Eparam = param };
+    return (IEnumerator) new AssetDownloader.\u003CConfirmRetry\u003Ec__Iterator79()
+    {
+      param = param,
+      \u003C\u0024\u003Eparam = param
+    };
   }
 
   public static AssetDownloader.DownloadPhases Phase
@@ -932,7 +1061,7 @@ label_17:
     get
     {
       if (AssetDownloader.mCachePath == null)
-        AssetDownloader.mCachePath = Application.get_persistentDataPath() + "/new_" + AssetManager.Format.ToPath();
+        AssetDownloader.mCachePath = AppPath.assetCachePath + "/new_" + AssetManager.Format.ToPath();
       return AssetDownloader.mCachePath;
     }
   }
@@ -951,7 +1080,17 @@ label_17:
   {
     get
     {
-      return Application.get_temporaryCachePath() + "/" + AssetManager.Format.ToPath();
+      return AppPath.assetCachePathOld + "/" + AssetManager.Format.ToPath();
+    }
+  }
+
+  public static string DemoCachePath
+  {
+    get
+    {
+      if (AssetDownloader.mDemoCachePath == null)
+        AssetDownloader.mDemoCachePath = AppPath.assetCachePath + "/new_" + AssetManager.Format.ToPath() + "cache/";
+      return AssetDownloader.mDemoCachePath;
     }
   }
 
@@ -959,7 +1098,7 @@ label_17:
   {
     get
     {
-      return Application.get_persistentDataPath() + "/" + AssetManager.Format.ToPath();
+      return AppPath.assetCachePath + "/" + AssetManager.Format.ToPath();
     }
   }
 
@@ -1051,6 +1190,30 @@ label_17:
     }
   }
 
+  public static string BaseAssetFilePath
+  {
+    get
+    {
+      return AssetDownloader.CachePath + "BASEHASH";
+    }
+  }
+
+  public static string UnmanagedListFilePath
+  {
+    get
+    {
+      return AssetDownloader.CachePath + "UnmanagedAssetList";
+    }
+  }
+
+  public static string UnmanagedExistFilePath
+  {
+    get
+    {
+      return AssetDownloader.CachePath + "UNMANAGEDEXISTLIST";
+    }
+  }
+
   public static string TxtExistFilePath
   {
     get
@@ -1089,6 +1252,10 @@ label_17:
       File.Delete(AssetDownloader.TxtAssetListPath);
     if (File.Exists(AssetDownloader.ExistFilePath))
       File.Delete(AssetDownloader.ExistFilePath);
+    if (File.Exists(AssetDownloader.UnmanagedExistFilePath))
+      File.Delete(AssetDownloader.UnmanagedExistFilePath);
+    if (Directory.Exists(AssetDownloader.DemoCachePath))
+      Directory.Delete(AssetDownloader.DemoCachePath, true);
     if (File.Exists(AssetDownloader.TxtExistFilePath))
       File.Delete(AssetDownloader.TxtExistFilePath);
     if (Directory.Exists(cachePath))
@@ -1121,7 +1288,12 @@ label_17:
   public IEnumerator DestroyAsset(AssetBundleFlags flags)
   {
     // ISSUE: object of a compiler-generated type is created
-    return (IEnumerator) new AssetDownloader.\u003CDestroyAsset\u003Ec__Iterator46() { flags = flags, \u003C\u0024\u003Eflags = flags, \u003C\u003Ef__this = this };
+    return (IEnumerator) new AssetDownloader.\u003CDestroyAsset\u003Ec__Iterator7A()
+    {
+      flags = flags,
+      \u003C\u0024\u003Eflags = flags,
+      \u003C\u003Ef__this = this
+    };
   }
 
   public enum DownloadPhases
@@ -1240,6 +1412,7 @@ label_17:
     public AssetDownloader.DownloadState state;
     public bool checkUpdates;
     public bool isRetry;
+    public string bodyText;
 
     public void RetryEvent(bool retry)
     {

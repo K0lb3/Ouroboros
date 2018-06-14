@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.CriticalSection
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections;
@@ -77,8 +77,8 @@ namespace SRPG
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      CriticalSection.\u003CWait\u003Ec__Iterator4D waitCIterator4D = new CriticalSection.\u003CWait\u003Ec__Iterator4D();
-      return (IEnumerator) waitCIterator4D;
+      CriticalSection.\u003CWait\u003Ec__Iterator80 waitCIterator80 = new CriticalSection.\u003CWait\u003Ec__Iterator80();
+      return (IEnumerator) waitCIterator80;
     }
   }
 }

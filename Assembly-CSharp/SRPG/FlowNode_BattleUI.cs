@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_BattleUI
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -9,8 +9,15 @@ using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.Pin(1036, "投げるターゲット選択終了", FlowNode.PinTypes.Output, 1036)]
+  [FlowNode.Pin(1050, "マップ確認開始", FlowNode.PinTypes.Output, 1050)]
   [FlowNode.ShowInInspector]
+  [FlowNode.Pin(7103, "ユニット交代確認終了", FlowNode.PinTypes.Output, 7103)]
+  [FlowNode.Pin(7102, "ユニット交代確認開始", FlowNode.PinTypes.Output, 7102)]
+  [FlowNode.Pin(7101, "ユニット交代選択終了", FlowNode.PinTypes.Output, 7101)]
+  [FlowNode.Pin(7100, "ユニット交代選択開始", FlowNode.PinTypes.Output, 7100)]
+  [FlowNode.Pin(7002, "パネルからターゲット切り替え", FlowNode.PinTypes.Input, 7002)]
+  [FlowNode.Pin(7001, "ギミックからターゲット切り替え", FlowNode.PinTypes.Input, 7001)]
+  [FlowNode.Pin(7000, "ユニットからターゲット切り替え", FlowNode.PinTypes.Input, 7000)]
   [FlowNode.Pin(6000, "フレンド選択", FlowNode.PinTypes.Output, 6000)]
   [FlowNode.Pin(5000, "購入ウインドウ表示", FlowNode.PinTypes.Output, 5000)]
   [FlowNode.Pin(2001, "バトル終了", FlowNode.PinTypes.Output, 2001)]
@@ -21,32 +28,33 @@ namespace SRPG
   [FlowNode.Pin(1503, "進行異常 (マルチプレイ)", FlowNode.PinTypes.Output, 1503)]
   [FlowNode.Pin(1502, "切断された (マルチプレイ)", FlowNode.PinTypes.Output, 1502)]
   [FlowNode.Pin(1501, "BANされた (マルチプレイ)", FlowNode.PinTypes.Output, 1501)]
-  [FlowNode.NodeType("Battle/Events")]
-  [FlowNode.Pin(1000, "クエスト開始", FlowNode.PinTypes.Output, 1000)]
-  [FlowNode.Pin(1001, "クエスト終了 (勝利)", FlowNode.PinTypes.Output, 1001)]
-  [FlowNode.Pin(1002, "クエスト終了 (敗亡)", FlowNode.PinTypes.Output, 1002)]
-  [FlowNode.Pin(1005, "マップ開始", FlowNode.PinTypes.Output, 1005)]
-  [FlowNode.Pin(1006, "マップ終了", FlowNode.PinTypes.Output, 1006)]
-  [FlowNode.Pin(1010, "コマンド選択開始", FlowNode.PinTypes.Output, 1010)]
-  [FlowNode.Pin(1020, "コマンドが選択された", FlowNode.PinTypes.Output, 1020)]
-  [FlowNode.Pin(1030, "ターゲット選択開始", FlowNode.PinTypes.Output, 1030)]
-  [FlowNode.Pin(1032, "ターゲット選択終了", FlowNode.PinTypes.Output, 1032)]
-  [FlowNode.Pin(1035, "投げるターゲット選択開始", FlowNode.PinTypes.Output, 1035)]
-  [FlowNode.Pin(1040, "移動先の選択開始", FlowNode.PinTypes.Output, 1040)]
-  [FlowNode.Pin(1041, "移動先の選択完了", FlowNode.PinTypes.Output, 1041)]
-  [FlowNode.Pin(1050, "マップ確認開始", FlowNode.PinTypes.Output, 1050)]
-  [FlowNode.Pin(1060, "ユニット行動開始", FlowNode.PinTypes.Output, 1060)]
-  [FlowNode.Pin(1100, "メインターゲット選択", FlowNode.PinTypes.Output, 1100)]
-  [FlowNode.Pin(1101, "メインターゲット選択解除", FlowNode.PinTypes.Output, 1101)]
-  [FlowNode.Pin(1110, "サブターゲット選択", FlowNode.PinTypes.Output, 1110)]
-  [FlowNode.Pin(1111, "サブターゲット選択解除", FlowNode.PinTypes.Output, 1111)]
-  [FlowNode.Pin(1200, "方向入力開始", FlowNode.PinTypes.Output, 1200)]
-  [FlowNode.Pin(1201, "方向入力完了", FlowNode.PinTypes.Output, 1201)]
-  [FlowNode.Pin(1300, "スキル選択開始", FlowNode.PinTypes.Output, 1300)]
-  [FlowNode.Pin(1301, "スキル選択終了", FlowNode.PinTypes.Output, 1301)]
-  [FlowNode.Pin(1400, "アイテム選択開始", FlowNode.PinTypes.Output, 1400)]
-  [FlowNode.Pin(1401, "アイテム選択終了", FlowNode.PinTypes.Output, 1401)]
   [FlowNode.Pin(1500, "入力打ち切り (マルチプレイ)", FlowNode.PinTypes.Output, 1500)]
+  [FlowNode.Pin(1401, "アイテム選択終了", FlowNode.PinTypes.Output, 1401)]
+  [FlowNode.Pin(1400, "アイテム選択開始", FlowNode.PinTypes.Output, 1400)]
+  [FlowNode.Pin(1301, "スキル選択終了", FlowNode.PinTypes.Output, 1301)]
+  [FlowNode.Pin(1300, "スキル選択開始", FlowNode.PinTypes.Output, 1300)]
+  [FlowNode.Pin(1201, "方向入力完了", FlowNode.PinTypes.Output, 1201)]
+  [FlowNode.Pin(1200, "方向入力開始", FlowNode.PinTypes.Output, 1200)]
+  [FlowNode.Pin(1111, "サブターゲット選択解除", FlowNode.PinTypes.Output, 1111)]
+  [FlowNode.Pin(1110, "サブターゲット選択", FlowNode.PinTypes.Output, 1110)]
+  [FlowNode.Pin(1101, "メインターゲット選択解除", FlowNode.PinTypes.Output, 1101)]
+  [FlowNode.Pin(1100, "メインターゲット選択", FlowNode.PinTypes.Output, 1100)]
+  [FlowNode.Pin(1070, "詠唱スキル発動", FlowNode.PinTypes.Output, 1070)]
+  [FlowNode.Pin(1060, "ユニット行動開始", FlowNode.PinTypes.Output, 1060)]
+  [FlowNode.Pin(1041, "移動先の選択完了", FlowNode.PinTypes.Output, 1041)]
+  [FlowNode.Pin(1040, "移動先の選択開始", FlowNode.PinTypes.Output, 1040)]
+  [FlowNode.Pin(1036, "投げるターゲット選択終了", FlowNode.PinTypes.Output, 1036)]
+  [FlowNode.Pin(1035, "投げるターゲット選択開始", FlowNode.PinTypes.Output, 1035)]
+  [FlowNode.Pin(1032, "ターゲット選択終了", FlowNode.PinTypes.Output, 1032)]
+  [FlowNode.Pin(1030, "ターゲット選択開始", FlowNode.PinTypes.Output, 1030)]
+  [FlowNode.Pin(1020, "コマンドが選択された", FlowNode.PinTypes.Output, 1020)]
+  [FlowNode.Pin(1010, "コマンド選択開始", FlowNode.PinTypes.Output, 1010)]
+  [FlowNode.Pin(1006, "マップ終了", FlowNode.PinTypes.Output, 1006)]
+  [FlowNode.Pin(1005, "マップ開始", FlowNode.PinTypes.Output, 1005)]
+  [FlowNode.Pin(1002, "クエスト終了 (敗亡)", FlowNode.PinTypes.Output, 1002)]
+  [FlowNode.Pin(1001, "クエスト終了 (勝利)", FlowNode.PinTypes.Output, 1001)]
+  [FlowNode.Pin(1000, "クエスト開始", FlowNode.PinTypes.Output, 1000)]
+  [FlowNode.NodeType("Battle/Events")]
   public class FlowNode_BattleUI : FlowNodePersistent
   {
     [StringIsGameObjectID]
@@ -64,32 +72,49 @@ namespace SRPG
     [StringIsGameObjectID]
     public string CameraControllerID;
     [StringIsGameObjectID]
+    public string FukanCameraID;
+    [StringIsGameObjectID]
     public string NextTargetButtonID;
     [StringIsGameObjectID]
     public string PrevTargetButtonID;
     [StringIsGameObjectID]
     public string MapHeightID;
     [StringIsGameObjectID]
+    public string ElementDiagram;
+    [StringIsGameObjectID]
     public string ArenaActionCountID;
     [StringIsGameObjectID]
     public string PlayerActionCountID;
     [StringIsGameObjectID]
     public string EnemyActionCountID;
+    [StringIsGameObjectID]
+    public string RankingQuestActionCountID;
+    [StringIsGameObjectID]
+    public string UnitChgListID;
+    [StringIsGameObjectID]
+    public string WeatherInfoID;
+    [StringIsGameObjectID]
+    public string WeatherAttachID;
     public TargetPlate Prefab_TargetMain;
     public TargetPlate Prefab_TargetSub;
     public TargetPlate Prefab_ObjectTarget;
+    public TargetPlate Prefab_TrickTarget;
     [NonSerialized]
     public TargetPlate TargetMain;
     [NonSerialized]
     public TargetPlate TargetSub;
     [NonSerialized]
     public TargetPlate TargetObjectSub;
+    [NonSerialized]
+    public TargetPlate TargetTrickSub;
     [StringIsLocalEventID]
     public string QuestStart;
     [StringIsLocalEventID]
     public string QuestStart_Short;
     [StringIsLocalEventID]
     public string QuestStart_Arena;
+    [StringIsLocalEventID]
+    public string QuestStart_VS;
     [StringIsLocalEventID]
     public string QuestEnd;
     [StringIsLocalEventID]
@@ -107,6 +132,8 @@ namespace SRPG
     [StringIsLocalEventID]
     public string QuestDraw_Versus;
     [StringIsLocalEventID]
+    public string QuestWin_Audience;
+    [StringIsLocalEventID]
     public string Result;
     [StringIsLocalEventID]
     public string Result_MP;
@@ -116,6 +143,8 @@ namespace SRPG
     public string Result_Tower;
     [StringIsLocalEventID]
     public string Result_Versus;
+    [StringIsLocalEventID]
+    public string Result_MultiTower;
     [StringIsLocalEventID]
     public string PlayAgain;
     [StringIsLocalEventID]
@@ -138,19 +167,23 @@ namespace SRPG
     private UnitAbilitySkillList mSkillListRef;
     private UnitCommands mCommandWindow;
     private BattleInventory mItemWindow;
+    private BattleUnitChg mUnitChgWindow;
+    public bool IsEnableUnit;
+    public bool IsEnableGimmick;
+    public bool IsEnableTrick;
 
     private T UpdateReference<T>(ref T obj, string path) where T : Component
     {
-      if (Object.op_Equality((Object) (object) obj, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) (object) obj, (UnityEngine.Object) null))
       {
         GameObject gameObject = GameObjectID.FindGameObject(path);
-        if (Object.op_Equality((Object) gameObject, (Object) null))
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) gameObject, (UnityEngine.Object) null))
         {
           Debug.LogError((object) (path + " は存在しません"));
           return (T) null;
         }
         obj = (T) gameObject.GetComponent(typeof (T));
-        if (Object.op_Equality((Object) (object) obj, (Object) null))
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) (object) obj, (UnityEngine.Object) null))
         {
           Debug.LogError((object) (path + " は " + (object) typeof (T) + " を含みません"));
           return (T) null;
@@ -191,6 +224,14 @@ namespace SRPG
       }
     }
 
+    public BattleUnitChg UnitChgWindow
+    {
+      get
+      {
+        return this.UpdateReference<BattleUnitChg>(ref this.mUnitChgWindow, this.UnitChgListID);
+      }
+    }
+
     private void Output(int pinID)
     {
       this.ActivateOutputLinks(pinID);
@@ -209,6 +250,11 @@ namespace SRPG
     public void OnQuestStart_Arena()
     {
       FlowNode_TriggerLocalEvent.TriggerLocalEvent((Component) this, this.QuestStart_Arena);
+    }
+
+    public void OnQuestStart_VS()
+    {
+      FlowNode_TriggerLocalEvent.TriggerLocalEvent((Component) this, this.QuestStart_VS);
     }
 
     public void OnQuestEnd()
@@ -251,6 +297,11 @@ namespace SRPG
       FlowNode_TriggerLocalEvent.TriggerLocalEvent((Component) this, this.QuestDraw_Versus);
     }
 
+    public void OnAudienceWin()
+    {
+      FlowNode_TriggerLocalEvent.TriggerLocalEvent((Component) this, this.QuestWin_Audience);
+    }
+
     public void OnResult()
     {
       FlowNode_TriggerLocalEvent.TriggerLocalEvent((Component) this, this.Result);
@@ -274,6 +325,11 @@ namespace SRPG
     public void OnResult_Versus()
     {
       FlowNode_TriggerLocalEvent.TriggerLocalEvent((Component) this, this.Result_Versus);
+    }
+
+    public void OnResult_MultiTower()
+    {
+      FlowNode_TriggerLocalEvent.TriggerLocalEvent((Component) this, this.Result_MultiTower);
     }
 
     public void OnMapViewStart()
@@ -329,6 +385,11 @@ namespace SRPG
     public void OnUnitStart()
     {
       this.Output(1060);
+    }
+
+    public void OnCastSkillStart()
+    {
+      this.Output(1070);
     }
 
     public void OnCommandSelectStart()
@@ -475,28 +536,53 @@ namespace SRPG
       FlowNode_TriggerLocalEvent.TriggerLocalEvent((Component) this, this.PlayAgain);
     }
 
+    public void OnUnitChgSelectStart()
+    {
+      this.Output(7100);
+    }
+
+    public void OnUnitChgSelectEnd()
+    {
+      this.Output(7101);
+    }
+
+    public void OnUnitChgConfirmStart()
+    {
+      this.Output(7102);
+    }
+
+    public void OnUnitChgConfirmEnd()
+    {
+      this.Output(7103);
+    }
+
     private void Start()
     {
-      if (Object.op_Inequality((Object) this.Prefab_TargetMain, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Prefab_TargetMain, (UnityEngine.Object) null))
       {
-        this.TargetMain = (TargetPlate) Object.Instantiate<TargetPlate>((M0) this.Prefab_TargetMain);
+        this.TargetMain = (TargetPlate) UnityEngine.Object.Instantiate<TargetPlate>((M0) this.Prefab_TargetMain);
         ((Component) this.TargetMain).get_transform().SetParent(((Component) this).get_transform(), false);
       }
-      if (Object.op_Inequality((Object) this.Prefab_TargetSub, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Prefab_TargetSub, (UnityEngine.Object) null))
       {
-        this.TargetSub = (TargetPlate) Object.Instantiate<TargetPlate>((M0) this.Prefab_TargetSub);
+        this.TargetSub = (TargetPlate) UnityEngine.Object.Instantiate<TargetPlate>((M0) this.Prefab_TargetSub);
         ((Component) this.TargetSub).get_transform().SetParent(((Component) this).get_transform(), false);
       }
-      if (!Object.op_Inequality((Object) this.Prefab_ObjectTarget, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Prefab_ObjectTarget, (UnityEngine.Object) null))
+      {
+        this.TargetObjectSub = (TargetPlate) UnityEngine.Object.Instantiate<TargetPlate>((M0) this.Prefab_ObjectTarget);
+        ((Component) this.TargetObjectSub).get_transform().SetParent(((Component) this).get_transform(), false);
+      }
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Prefab_TrickTarget, (UnityEngine.Object) null))
         return;
-      this.TargetObjectSub = (TargetPlate) Object.Instantiate<TargetPlate>((M0) this.Prefab_ObjectTarget);
-      ((Component) this.TargetObjectSub).get_transform().SetParent(((Component) this).get_transform(), false);
+      this.TargetTrickSub = (TargetPlate) UnityEngine.Object.Instantiate<TargetPlate>((M0) this.Prefab_TrickTarget);
+      ((Component) this.TargetTrickSub).get_transform().SetParent(((Component) this).get_transform(), false);
     }
 
     public void Hide()
     {
       CanvasGroup component = (CanvasGroup) ((Component) this).GetComponent<CanvasGroup>();
-      if (!Object.op_Inequality((Object) component, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
         return;
       component.set_alpha(0.0f);
       component.set_blocksRaycasts(false);
@@ -505,7 +591,7 @@ namespace SRPG
     public void Show()
     {
       CanvasGroup component = (CanvasGroup) ((Component) this).GetComponent<CanvasGroup>();
-      if (!Object.op_Inequality((Object) component, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
         return;
       component.set_alpha(1f);
       component.set_blocksRaycasts(true);
@@ -516,8 +602,68 @@ namespace SRPG
       this.Output(1550);
     }
 
+    public void HideTargetWindows()
+    {
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TargetMain, (UnityEngine.Object) null))
+        this.TargetMain.ForceClose(true);
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TargetSub, (UnityEngine.Object) null))
+        this.TargetSub.ForceClose(true);
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TargetObjectSub, (UnityEngine.Object) null))
+        this.TargetObjectSub.ForceClose(true);
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TargetTrickSub, (UnityEngine.Object) null))
+        return;
+      this.TargetTrickSub.ForceClose(true);
+    }
+
     public override void OnActivate(int pinID)
     {
+      switch (pinID)
+      {
+        case 7000:
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TargetSub, (UnityEngine.Object) null))
+            this.TargetSub.Close();
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TargetTrickSub, (UnityEngine.Object) null))
+            break;
+          this.TargetTrickSub.Open();
+          this.OnMapViewSelectGrid();
+          break;
+        case 7001:
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TargetObjectSub, (UnityEngine.Object) null))
+            this.TargetObjectSub.Close();
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TargetTrickSub, (UnityEngine.Object) null))
+            break;
+          this.TargetTrickSub.Open();
+          break;
+        case 7002:
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TargetTrickSub, (UnityEngine.Object) null))
+            this.TargetTrickSub.Close();
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TargetSub, (UnityEngine.Object) null) && this.IsEnableUnit)
+          {
+            this.TargetSub.Open();
+            this.OnMapViewSelectUnit();
+            break;
+          }
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TargetObjectSub, (UnityEngine.Object) null) || !this.IsEnableGimmick)
+            break;
+          this.TargetObjectSub.Open();
+          break;
+      }
+    }
+
+    public void ClearEnableAll()
+    {
+      this.IsEnableUnit = false;
+      this.IsEnableGimmick = false;
+      this.IsEnableTrick = false;
+    }
+
+    public bool IsNeedFlip()
+    {
+      if (!this.IsEnableTrick)
+        return false;
+      if (!this.IsEnableUnit)
+        return this.IsEnableGimmick;
+      return true;
     }
   }
 }

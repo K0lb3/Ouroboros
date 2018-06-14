@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.WebView
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -26,26 +26,26 @@ namespace SRPG
 
     public void BeginClose()
     {
-      Object.DestroyImmediate((Object) ((Component) this).get_gameObject());
+      UnityEngine.Object.DestroyImmediate((UnityEngine.Object) ((Component) this).get_gameObject());
     }
 
     private void OnClickButton(GameObject obj)
     {
-      if (Object.op_Equality((Object) obj, (Object) ((Component) this.Btn_Close).get_gameObject()) && Object.op_Inequality((Object) this.Btn_Close, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) obj, (UnityEngine.Object) ((Component) this.Btn_Close).get_gameObject()) && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Btn_Close, (UnityEngine.Object) null))
         this.OnClose(((Component) this).get_gameObject());
       this.BeginClose();
     }
 
     public void SetTitleText(string text)
     {
-      if (!Object.op_Inequality((Object) this.Text_Title, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Text_Title, (UnityEngine.Object) null))
         return;
       this.Text_Title.set_text(text);
     }
 
     private void Awake()
     {
-      if (!Object.op_Inequality((Object) this.Btn_Close, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Btn_Close, (UnityEngine.Object) null))
         return;
       UIUtility.AddEventListener(((Component) this.Btn_Close).get_gameObject(), (UnityEvent) this.Btn_Close.get_onClick(), new UIUtility.EventListener(this.OnClickButton));
     }
@@ -53,7 +53,7 @@ namespace SRPG
     public void SetHeaderField(string key, string value)
     {
       this.uniWebView = (UniWebView) ((Component) this).get_gameObject().GetComponent<UniWebView>();
-      if (Object.op_Equality((Object) this.uniWebView, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.uniWebView, (UnityEngine.Object) null))
         this.uniWebView = (UniWebView) ((Component) this).get_gameObject().AddComponent<UniWebView>();
       this.uniWebView.SetHeaderField(key, value);
     }
@@ -67,7 +67,7 @@ namespace SRPG
       if (GameUtility.Config_Language == "spanish")
         url += "?lang=es";
       this.uniWebView = (UniWebView) ((Component) this).get_gameObject().GetComponent<UniWebView>();
-      if (Object.op_Equality((Object) this.uniWebView, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.uniWebView, (UnityEngine.Object) null))
         this.uniWebView = (UniWebView) ((Component) this).get_gameObject().AddComponent<UniWebView>();
       this.uniWebView.OnLoadComplete += new UniWebView.LoadCompleteDelegate(this.OnLoadComplete);
       this.uniWebView.OnReceivedMessage += new UniWebView.ReceivedMessageDelegate(this.OnReceivedMessage);

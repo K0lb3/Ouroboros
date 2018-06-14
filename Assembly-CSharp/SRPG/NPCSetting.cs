@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.NPCSetting
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -27,6 +27,7 @@ namespace SRPG
     public EquipAbilitySetting[] abilities;
     public OString fskl;
     public OInt notice_damage;
+    public MapBreakObj break_obj;
 
     public NPCSetting()
     {
@@ -55,6 +56,8 @@ namespace SRPG
       this.waitEntryClock = (OInt) json.wait_e;
       this.waitMoveTurn = (OInt) json.wait_m;
       this.waitExitTurn = (OInt) json.wait_exit;
+      this.startCtCalc = (eMapUnitCtCalcType) json.ct_calc;
+      this.startCtVal = (OInt) json.ct_val;
       this.DisableFirceVoice = json.fvoff != 0;
       this.ai_type = (AIActionType) json.ai_type;
       this.ai_pos.x = (OInt) json.ai_x;
@@ -112,17 +115,28 @@ namespace SRPG
       {
         this.acttbl.actions.Clear();
         for (int index = 0; index < json.acttbl.actions.Length; ++index)
-          this.acttbl.actions.Add(new AIAction()
+        {
+          AIAction aiAction = new AIAction();
+          aiAction.skill = (OString) json.acttbl.actions[index].skill;
+          aiAction.type = (OInt) json.acttbl.actions[index].type;
+          aiAction.turn = (OInt) json.acttbl.actions[index].turn;
+          aiAction.notBlock = (OBool) (json.acttbl.actions[index].notBlock != 0);
+          if (json.acttbl.actions[index].cond != null && json.acttbl.actions[index].cond.type != 0)
           {
-            skill = (OString) json.acttbl.actions[index].skill,
-            type = (OInt) json.acttbl.actions[index].type,
-            turn = (OInt) json.acttbl.actions[index].turn
-          });
+            SkillLockCondition dsc = new SkillLockCondition();
+            json.acttbl.actions[index].cond.CopyTo(dsc);
+            aiAction.cond = dsc;
+          }
+          this.acttbl.actions.Add(aiAction);
+        }
         this.acttbl.looped = json.acttbl.looped;
       }
-      if (json.patrol == null || json.patrol.routes == null || json.patrol.routes.Length <= 0)
+      if (json.patrol != null && json.patrol.routes != null && json.patrol.routes.Length > 0)
+        json.patrol.CopyTo(this.patrol);
+      if (json.break_obj == null)
         return;
-      json.patrol.CopyTo(this.patrol);
+      this.break_obj = new MapBreakObj();
+      json.break_obj.CopyTo(this.break_obj);
     }
   }
 }

@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.AbilityData
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -16,6 +16,7 @@ namespace SRPG
     private OInt mExp = (OInt) 0;
     private OInt mRank = (OInt) 1;
     private OInt mRankCap = (OInt) 1;
+    public const long UNIQUE_ID_MAP_EFFECT = -1;
     private UnitData mOwner;
     private AbilityParam mAbilityParam;
     private List<SkillData> mSkills;
@@ -205,7 +206,7 @@ namespace SRPG
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      AbilityData.\u003CUpdateLearningsSkill\u003Ec__AnonStorey1E4 skillCAnonStorey1E4 = new AbilityData.\u003CUpdateLearningsSkill\u003Ec__AnonStorey1E4();
+      AbilityData.\u003CUpdateLearningsSkill\u003Ec__AnonStorey27F skillCAnonStorey27F = new AbilityData.\u003CUpdateLearningsSkill\u003Ec__AnonStorey27F();
       if (this.mSkills == null)
         return;
       AbilityParam abilityParam = this.Param;
@@ -213,67 +214,67 @@ namespace SRPG
       if (abilityParam == null || abilityParam.skills.Length == 0)
         return;
       // ISSUE: reference to a compiler-generated field
-      skillCAnonStorey1E4.unlocks = (QuestClearUnlockUnitDataParam[]) null;
+      skillCAnonStorey27F.unlocks = (QuestClearUnlockUnitDataParam[]) null;
       if (this.Owner != null)
       {
         // ISSUE: reference to a compiler-generated field
-        skillCAnonStorey1E4.unlocks = this.Owner.UnlockedSkills;
+        skillCAnonStorey27F.unlocks = this.Owner.UnlockedSkills;
       }
       for (int index1 = 0; index1 < abilityParam.skills.Length; ++index1)
       {
         // ISSUE: object of a compiler-generated type is created
         // ISSUE: variable of a compiler-generated type
-        AbilityData.\u003CUpdateLearningsSkill\u003Ec__AnonStorey1E3 skillCAnonStorey1E3 = new AbilityData.\u003CUpdateLearningsSkill\u003Ec__AnonStorey1E3();
+        AbilityData.\u003CUpdateLearningsSkill\u003Ec__AnonStorey27E skillCAnonStorey27E = new AbilityData.\u003CUpdateLearningsSkill\u003Ec__AnonStorey27E();
         if (!locked || (int) this.mRank >= abilityParam.skills[index1].locklv)
         {
           SkillData skillData = new SkillData();
           // ISSUE: reference to a compiler-generated field
-          skillCAnonStorey1E3.skillId = abilityParam.skills[index1].iname;
+          skillCAnonStorey27E.skillId = abilityParam.skills[index1].iname;
           // ISSUE: reference to a compiler-generated field
-          if (skillCAnonStorey1E4.unlocks != null)
+          if (skillCAnonStorey27F.unlocks != null)
           {
             // ISSUE: reference to a compiler-generated field
             // ISSUE: reference to a compiler-generated method
-            int index2 = Array.FindIndex<QuestClearUnlockUnitDataParam>(skillCAnonStorey1E4.unlocks, new Predicate<QuestClearUnlockUnitDataParam>(skillCAnonStorey1E3.\u003C\u003Em__19F));
+            int index2 = Array.FindIndex<QuestClearUnlockUnitDataParam>(skillCAnonStorey27F.unlocks, new Predicate<QuestClearUnlockUnitDataParam>(skillCAnonStorey27E.\u003C\u003Em__22D));
             // ISSUE: reference to a compiler-generated field
             // ISSUE: reference to a compiler-generated field
-            if (index2 != -1 && !skillCAnonStorey1E4.unlocks[index2].add && skillCAnonStorey1E4.unlocks[index2].parent_id == this.AbilityID)
+            if (index2 != -1 && !skillCAnonStorey27F.unlocks[index2].add && skillCAnonStorey27F.unlocks[index2].parent_id == this.AbilityID)
             {
               // ISSUE: reference to a compiler-generated field
               // ISSUE: reference to a compiler-generated field
-              skillCAnonStorey1E3.skillId = skillCAnonStorey1E4.unlocks[index2].new_id;
+              skillCAnonStorey27E.skillId = skillCAnonStorey27F.unlocks[index2].new_id;
             }
           }
           // ISSUE: reference to a compiler-generated field
-          skillData.Setup(skillCAnonStorey1E3.skillId, (int) this.mRank, (int) this.mRankCap, (MasterParam) null);
+          skillData.Setup(skillCAnonStorey27E.skillId, (int) this.mRank, (int) this.mRankCap, (MasterParam) null);
           this.mSkills.Add(skillData);
         }
       }
       // ISSUE: reference to a compiler-generated field
-      if (skillCAnonStorey1E4.unlocks == null)
+      if (skillCAnonStorey27F.unlocks == null)
         return;
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      AbilityData.\u003CUpdateLearningsSkill\u003Ec__AnonStorey1E5 skillCAnonStorey1E5 = new AbilityData.\u003CUpdateLearningsSkill\u003Ec__AnonStorey1E5();
+      AbilityData.\u003CUpdateLearningsSkill\u003Ec__AnonStorey280 skillCAnonStorey280 = new AbilityData.\u003CUpdateLearningsSkill\u003Ec__AnonStorey280();
       // ISSUE: reference to a compiler-generated field
-      skillCAnonStorey1E5.\u003C\u003Ef__ref\u0024484 = skillCAnonStorey1E4;
-      // ISSUE: reference to a compiler-generated field
-      // ISSUE: reference to a compiler-generated field
+      skillCAnonStorey280.\u003C\u003Ef__ref\u0024639 = skillCAnonStorey27F;
       // ISSUE: reference to a compiler-generated field
       // ISSUE: reference to a compiler-generated field
-      for (skillCAnonStorey1E5.i = 0; skillCAnonStorey1E5.i < skillCAnonStorey1E4.unlocks.Length; ++skillCAnonStorey1E5.i)
+      // ISSUE: reference to a compiler-generated field
+      // ISSUE: reference to a compiler-generated field
+      for (skillCAnonStorey280.i = 0; skillCAnonStorey280.i < skillCAnonStorey27F.unlocks.Length; ++skillCAnonStorey280.i)
       {
         // ISSUE: reference to a compiler-generated field
         // ISSUE: reference to a compiler-generated field
         // ISSUE: reference to a compiler-generated field
         // ISSUE: reference to a compiler-generated field
         // ISSUE: reference to a compiler-generated method
-        if (skillCAnonStorey1E4.unlocks[skillCAnonStorey1E5.i].add && !(skillCAnonStorey1E4.unlocks[skillCAnonStorey1E5.i].parent_id != this.AbilityID) && this.mSkills.Find(new Predicate<SkillData>(skillCAnonStorey1E5.\u003C\u003Em__1A0)) == null)
+        if (skillCAnonStorey27F.unlocks[skillCAnonStorey280.i].add && !(skillCAnonStorey27F.unlocks[skillCAnonStorey280.i].parent_id != this.AbilityID) && this.mSkills.Find(new Predicate<SkillData>(skillCAnonStorey280.\u003C\u003Em__22E)) == null)
         {
           SkillData skillData = new SkillData();
           // ISSUE: reference to a compiler-generated field
           // ISSUE: reference to a compiler-generated field
-          skillData.Setup(skillCAnonStorey1E4.unlocks[skillCAnonStorey1E5.i].new_id, (int) this.mRank, (int) this.mRankCap, (MasterParam) null);
+          skillData.Setup(skillCAnonStorey27F.unlocks[skillCAnonStorey280.i].new_id, (int) this.mRank, (int) this.mRankCap, (MasterParam) null);
           this.mSkills.Add(skillData);
         }
       }
@@ -284,23 +285,24 @@ namespace SRPG
       if (this.Param == null || this.Param.skills == null)
         return (List<string>) null;
       List<string> stringList = new List<string>();
-      // ISSUE: object of a compiler-generated type is created
-      // ISSUE: variable of a compiler-generated type
-      AbilityData.\u003CGetLearningSkillList2\u003Ec__AnonStorey1E6 list2CAnonStorey1E6 = new AbilityData.\u003CGetLearningSkillList2\u003Ec__AnonStorey1E6();
-      // ISSUE: reference to a compiler-generated field
-      list2CAnonStorey1E6.\u003C\u003Ef__this = this;
-      // ISSUE: reference to a compiler-generated field
-      // ISSUE: reference to a compiler-generated field
-      // ISSUE: reference to a compiler-generated field
-      for (list2CAnonStorey1E6.i = 0; list2CAnonStorey1E6.i < this.Param.skills.Length; ++list2CAnonStorey1E6.i)
+      for (int index1 = 0; index1 < this.Param.skills.Length; ++index1)
       {
-        // ISSUE: reference to a compiler-generated field
-        // ISSUE: reference to a compiler-generated method
-        // ISSUE: reference to a compiler-generated field
-        if (!string.IsNullOrEmpty(this.Param.skills[list2CAnonStorey1E6.i].iname) && this.Skills.FindIndex(new Predicate<SkillData>(list2CAnonStorey1E6.\u003C\u003Em__1A1)) == -1 && this.Param.skills[list2CAnonStorey1E6.i].locklv <= rank)
+        if (!string.IsNullOrEmpty(this.Param.skills[index1].iname))
         {
-          // ISSUE: reference to a compiler-generated field
-          stringList.Add(this.Param.skills[list2CAnonStorey1E6.i].iname);
+          bool flag = false;
+          for (int index2 = 0; index2 < this.Skills.Count; ++index2)
+          {
+            string str = this.Skills[index2].SkillParam.iname;
+            if (!string.IsNullOrEmpty(this.Skills[index2].ReplaceSkillId))
+              str = this.Skills[index2].ReplaceSkillId;
+            if (str == this.Param.skills[index1].iname)
+            {
+              flag = true;
+              break;
+            }
+          }
+          if (!flag && this.Param.skills[index1].locklv <= rank)
+            stringList.Add(this.Param.skills[index1].iname);
         }
       }
       return stringList;
@@ -368,18 +370,18 @@ namespace SRPG
       List<LearningSkill> learningSkillList = new List<LearningSkill>((IEnumerable<LearningSkill>) abilityParam.skills);
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      AbilityData.\u003CUpdateLearningsSkillCollabo\u003Ec__AnonStorey1E7 collaboCAnonStorey1E7 = new AbilityData.\u003CUpdateLearningsSkillCollabo\u003Ec__AnonStorey1E7();
+      AbilityData.\u003CUpdateLearningsSkillCollabo\u003Ec__AnonStorey281 collaboCAnonStorey281 = new AbilityData.\u003CUpdateLearningsSkillCollabo\u003Ec__AnonStorey281();
       foreach (Json_CollaboSkill skill in skills)
       {
         // ISSUE: reference to a compiler-generated field
-        collaboCAnonStorey1E7.cs = skill;
+        collaboCAnonStorey281.cs = skill;
         // ISSUE: reference to a compiler-generated field
         // ISSUE: reference to a compiler-generated method
-        if (!string.IsNullOrEmpty(collaboCAnonStorey1E7.cs.iname) && learningSkillList.Find(new Predicate<LearningSkill>(collaboCAnonStorey1E7.\u003C\u003Em__1A2)) != null)
+        if (!string.IsNullOrEmpty(collaboCAnonStorey281.cs.iname) && learningSkillList.Find(new Predicate<LearningSkill>(collaboCAnonStorey281.\u003C\u003Em__22F)) != null)
         {
           SkillData skillData = new SkillData();
           // ISSUE: reference to a compiler-generated field
-          skillData.Setup(collaboCAnonStorey1E7.cs.iname, (int) this.mRank, (int) this.mRankCap, (MasterParam) null);
+          skillData.Setup(collaboCAnonStorey281.cs.iname, (int) this.mRank, (int) this.mRankCap, (MasterParam) null);
           skillData.IsCollabo = (OBool) true;
           this.mSkills.Add(skillData);
         }

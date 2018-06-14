@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_ReqProductParam
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -11,10 +11,10 @@ using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.NodeType("System/ReqProductParam", 32741)]
   [FlowNode.Pin(2, "Failed", FlowNode.PinTypes.Output, 2)]
-  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
+  [FlowNode.NodeType("System/ReqProductParam", 32741)]
   [FlowNode.Pin(0, "Request", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
   public class FlowNode_ReqProductParam : FlowNode_Network
   {
     public bool IsLoginBefore = true;
@@ -77,7 +77,7 @@ namespace SRPG
     private IEnumerator CheckPaymentInit(ProductParamResponse param)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new FlowNode_ReqProductParam.\u003CCheckPaymentInit\u003Ec__Iterator8C() { param = param, \u003C\u0024\u003Eparam = param, \u003C\u003Ef__this = this };
+      return (IEnumerator) new FlowNode_ReqProductParam.\u003CCheckPaymentInit\u003Ec__IteratorCE() { param = param, \u003C\u0024\u003Eparam = param, \u003C\u003Ef__this = this };
     }
   }
 }

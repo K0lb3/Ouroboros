@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_DownloadTowerMapSets
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections;
@@ -11,8 +11,8 @@ using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 10)]
   [FlowNode.Pin(0, "ダウンロード開始", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 10)]
   [FlowNode.NodeType("System/DownloadTowerMapSets", 32741)]
   public class FlowNode_DownloadTowerMapSets : FlowNode
   {
@@ -47,20 +47,14 @@ namespace SRPG
     private IEnumerator DownloadFloorParams()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new FlowNode_DownloadTowerMapSets.\u003CDownloadFloorParams\u003Ec__Iterator82() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new FlowNode_DownloadTowerMapSets.\u003CDownloadFloorParams\u003Ec__IteratorC0() { \u003C\u003Ef__this = this };
     }
 
     [DebuggerHidden]
     private IEnumerator DownloadFloorParamAsync()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new FlowNode_DownloadTowerMapSets.\u003CDownloadFloorParamAsync\u003Ec__Iterator83() { \u003C\u003Ef__this = this };
-    }
-
-    public static void DownloadQuests(List<TowerFloorParam> floorParams)
-    {
-      for (int index = 0; index < floorParams.Count; ++index)
-        DownloadUtility.DownloadQuestMaps(floorParams[index].GetQuestParam());
+      return (IEnumerator) new FlowNode_DownloadTowerMapSets.\u003CDownloadFloorParamAsync\u003Ec__IteratorC1() { \u003C\u003Ef__this = this };
     }
 
     public static void DownloadMapSets(List<TowerFloorParam> floorParams)

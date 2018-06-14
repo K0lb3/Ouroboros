@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.GachaTabListItem
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -120,7 +120,7 @@ namespace SRPG
     private IEnumerator UpdateTimer()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new GachaTabListItem.\u003CUpdateTimer\u003Ec__IteratorAF() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new GachaTabListItem.\u003CUpdateTimer\u003Ec__IteratorF3() { \u003C\u003Ef__this = this };
     }
 
     private void SetUpdateTimer(float interval)
@@ -153,7 +153,7 @@ namespace SRPG
         dateTime = TimeManager.FromUnixTime(this.mEndAt);
         timeSpan = dateTime - serverTime;
         SRPG_Button component = (SRPG_Button) ((Component) this).GetComponent<SRPG_Button>();
-        if (Object.op_Inequality((Object) component, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
         {
           ((Selectable) component).set_interactable(true);
           this.Disabled = false;
@@ -164,19 +164,19 @@ namespace SRPG
       if (timeSpan.TotalDays >= 1.0)
         str = LocalizedText.Get(this.FormatKey + "D", new object[1]
         {
-          (object) Mathf.CeilToInt((float) timeSpan.TotalDays)
+          (object) timeSpan.Days
         });
       else if (timeSpan.TotalHours >= 1.0)
         str = LocalizedText.Get(this.FormatKey + "H", new object[1]
         {
-          (object) Mathf.CeilToInt((float) timeSpan.TotalHours)
+          (object) timeSpan.Hours
         });
       else
         str = LocalizedText.Get(this.FormatKey + "M", new object[1]
         {
-          (object) Mathf.Max(Mathf.CeilToInt((float) timeSpan.TotalMinutes), 1)
+          (object) Mathf.Max(timeSpan.Minutes, 0)
         });
-      if (Object.op_Inequality((Object) this.Value, (Object) null) && this.Value.get_text() != str)
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Value, (UnityEngine.Object) null) && this.Value.get_text() != str)
         this.Value.set_text(str);
       this.SetUpdateTimer(1f);
     }

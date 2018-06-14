@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_DebugReqReset
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -9,11 +9,11 @@ using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.Pin(2, "Success_Online", FlowNode.PinTypes.Output, 2)]
   [FlowNode.NodeType("Debug/サーバのデータを削除", 32741)]
   [FlowNode.Pin(0, "Reset", FlowNode.PinTypes.Input, 0)]
-  [FlowNode.Pin(1, "Success_Offline", FlowNode.PinTypes.Output, 1)]
   [FlowNode.Pin(2, "Error", FlowNode.PinTypes.Output, 3)]
+  [FlowNode.Pin(2, "Success_Online", FlowNode.PinTypes.Output, 2)]
+  [FlowNode.Pin(1, "Success_Offline", FlowNode.PinTypes.Output, 1)]
   public class FlowNode_DebugReqReset : FlowNode
   {
     private StateMachine<FlowNode_DebugReqReset> mStateMachine;
@@ -64,13 +64,13 @@ namespace SRPG
       else
       {
         bool flag1 = GameUtility.Config_UseAssetBundles.Value;
-        bool flag2 = GameUtility.Config_UseStgServer.Value;
-        bool flag3 = GameUtility.Config_UseDevServer.Value;
+        bool flag2 = GameUtility.Config_UseDevServer.Value;
+        bool flag3 = GameUtility.Config_UseLocalData.Value;
         string devServerSetting = GameUtility.DevServerSetting;
         GameUtility.ClearPreferences();
         GameUtility.Config_UseAssetBundles.Value = flag1;
-        GameUtility.Config_UseStgServer.Value = flag2;
-        GameUtility.Config_UseDevServer.Value = flag3;
+        GameUtility.Config_UseDevServer.Value = flag2;
+        GameUtility.Config_UseLocalData.Value = flag3;
         GameUtility.DevServerSetting = devServerSetting;
         DebugUtility.Assert(www.text != null, "res == null");
         MonoSingleton<GameManager>.Instance.ResetAuth();

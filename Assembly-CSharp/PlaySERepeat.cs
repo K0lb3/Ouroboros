@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: PlaySERepeat
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using UnityEngine;
@@ -37,7 +37,7 @@ public class PlaySERepeat : MonoBehaviour
     this.mUseCustomPlay = useCustom;
     this.mCustomLoopFlag = customLoopFlag;
     this.mCustomDelaySec = customDelaySec;
-    this.mHandle = MySound.CueSheetHandle.Create(sheetName, type, true, true, false);
+    this.mHandle = MySound.CueSheetHandle.Create(sheetName, type, true, true, false, false);
     this.mHandle.CreateDefaultOneShotSource();
   }
 
@@ -70,7 +70,7 @@ public class PlaySERepeat : MonoBehaviour
     if (this.mUseCustomPlay)
       this.mPlayHandle = this.mHandle.Play(this.mCueID, this.mCustomLoopFlag, false, this.mCustomDelaySec);
     else
-      this.mHandle.PlayDefaultOneShot(this.mCueID, false, 0.0f);
+      this.mHandle.PlayDefaultOneShot(this.mCueID, false, 0.0f, false);
     this.mRepeatWait = this.RepeatWait;
     --this.mPlayCount;
     if (this.mStop || this.mPlayCount > 0)

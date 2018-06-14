@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.VersusPartyWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -47,17 +47,17 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          VersusPartyWindow.\u003CPostForwardPressed\u003Ec__AnonStorey28D pressedCAnonStorey28D = new VersusPartyWindow.\u003CPostForwardPressed\u003Ec__AnonStorey28D();
+          VersusPartyWindow.\u003CPostForwardPressed\u003Ec__AnonStorey3A5 pressedCAnonStorey3A5 = new VersusPartyWindow.\u003CPostForwardPressed\u003Ec__AnonStorey3A5();
           // ISSUE: reference to a compiler-generated field
-          pressedCAnonStorey28D.idx = player.GetVersusPlacement(PlayerData.VERSUS_ID_KEY + (object) index);
+          pressedCAnonStorey3A5.idx = player.GetVersusPlacement(PlayerPrefsUtility.VERSUS_ID_KEY + (object) index);
           // ISSUE: reference to a compiler-generated method
-          if (intList.FindIndex(new Predicate<int>(pressedCAnonStorey28D.\u003C\u003Em__328)) != -1)
+          if (intList.FindIndex(new Predicate<int>(pressedCAnonStorey3A5.\u003C\u003Em__471)) != -1)
           {
             UIUtility.NegativeSystemMessage((string) null, LocalizedText.Get("sys.MULTI_VERSUS_SAME_POS"), (UIUtility.DialogResultEvent) (dialog => {}), (GameObject) null, false, -1);
             return;
           }
           // ISSUE: reference to a compiler-generated field
-          intList.Add(pressedCAnonStorey28D.idx);
+          intList.Add(pressedCAnonStorey3A5.idx);
         }
       }
       base.PostForwardPressed();

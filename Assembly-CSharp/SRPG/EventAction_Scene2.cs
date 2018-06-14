@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.EventAction_Scene2
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using UnityEngine;
 namespace SRPG
 {
   [EventActionInfo("New/シーン切り替え", "別シーンに切り替えます", 5592405, 4473992)]
-  public class EventAction_Scene2 : EventAction
+  public class EventAction_Scene2 : EventAction_SceneBase
   {
     [HideInInspector]
     public bool FadeIn = true;
@@ -20,7 +20,7 @@ namespace SRPG
     public float FadeInTime = 3f;
     [HideInInspector]
     public List<GameObject> SceneObject = new List<GameObject>();
-    [StringIsSceneID]
+    [StringIsSceneIDPopup]
     public string SceneID;
     private SceneRequest mAsyncOp;
     private GameObject mSceneRoot;

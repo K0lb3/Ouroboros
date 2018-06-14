@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.EventAction_SpawnActorWithAnime2
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections;
@@ -23,6 +23,7 @@ namespace SRPG
     public EventAction_SpawnActorWithAnime2.AnimeType m_AnimeType;
     private string m_AnimationID;
     [Tooltip("走りアニメーションを指定出来ます。")]
+    [HideInInspector]
     public string m_RunAnimation;
 
     public override bool IsPreloadAssets
@@ -37,7 +38,7 @@ namespace SRPG
     public override IEnumerator PreloadAssets()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new EventAction_SpawnActorWithAnime2.\u003CPreloadAssets\u003Ec__Iterator6C() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new EventAction_SpawnActorWithAnime2.\u003CPreloadAssets\u003Ec__IteratorA7() { \u003C\u003Ef__this = this };
     }
 
     public override void OnActivate()
@@ -48,6 +49,11 @@ namespace SRPG
         this.mController.CollideGround = this.GroundSnap;
         ((Component) this.mController).get_transform().set_rotation(Quaternion.Euler(this.RotationX, this.RotationY, this.RotationZ));
         this.mController.SetVisible(this.Display);
+        if (!this.Yuremono)
+        {
+          foreach (Behaviour componentsInChild in (YuremonoInstance[]) ((Component) this.mController).get_gameObject().GetComponentsInChildren<YuremonoInstance>())
+            componentsInChild.set_enabled(false);
+        }
         if (this.m_AnimeType == EventAction_SpawnActorWithAnime2.AnimeType.Custom && !string.IsNullOrEmpty(this.m_AnimationName))
         {
           this.mController.RootMotionMode = AnimationPlayer.RootMotionModes.Velocity;
@@ -55,7 +61,7 @@ namespace SRPG
         }
         else if (this.m_AnimeType == EventAction_SpawnActorWithAnime2.AnimeType.Idel)
           this.mController.PlayIdle(0.0f);
-        if (string.IsNullOrEmpty(this.m_RunAnimation))
+        if (!string.IsNullOrEmpty(this.m_RunAnimation))
           this.mController.SetRunAnimation(this.m_RunAnimation);
       }
       this.ActivateNext();
@@ -79,6 +85,7 @@ namespace SRPG
     {
       Demo,
       Movie,
+      Default,
     }
   }
 }

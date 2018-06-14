@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.UnitAbilityPicker
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -12,8 +12,8 @@ using UnityEngine.UI;
 
 namespace SRPG
 {
-  [FlowNode.Pin(0, "リスト更新", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(100, "アビリティが選択された", FlowNode.PinTypes.Output, 100)]
+  [FlowNode.Pin(0, "リスト更新", FlowNode.PinTypes.Input, 0)]
   public class UnitAbilityPicker : MonoBehaviour, IFlowInterface
   {
     public UnitData UnitData;
@@ -43,7 +43,7 @@ namespace SRPG
 
     private void Start()
     {
-      if (Object.op_Inequality((Object) this.ClearButton, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ClearButton, (UnityEngine.Object) null))
       {
         // ISSUE: method pointer
         ((UnityEvent) this.ClearButton.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OnClearSlot)));
@@ -99,7 +99,7 @@ namespace SRPG
 
     public void Refresh()
     {
-      if (Object.op_Equality((Object) this.ListBody, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.ListBody, (UnityEngine.Object) null))
         return;
       UnitData unitData = this.UnitData == null ? MonoSingleton<GameManager>.Instance.Player.FindUnitDataByUniqueID((long) GlobalVars.SelectedUnitUniqueID) : this.UnitData;
       if (unitData == null)
@@ -111,16 +111,16 @@ namespace SRPG
       EAbilitySlot slotType = JobData.ABILITY_SLOT_TYPES[index];
       this.ListBody.ShowFixedAbilities = index == 0;
       this.ListBody.DisplaySlotType(slotType, true);
-      if (Object.op_Inequality((Object) this.ClearButton, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ClearButton, (UnityEngine.Object) null))
       {
         if (!this.AlwaysShowClearButton)
           ((Component) this.ClearButton).get_gameObject().SetActive(unitData.CurrentJob.AbilitySlots[index] != 0L);
         else
           ((Component) this.ClearButton).get_gameObject().SetActive(true);
       }
-      if (Object.op_Inequality((Object) this.NoAbilityMessage, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.NoAbilityMessage, (UnityEngine.Object) null))
         this.NoAbilityMessage.SetActive(this.ListBody.IsEmpty);
-      if (!Object.op_Inequality((Object) this.YajirushiSlider, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.YajirushiSlider, (UnityEngine.Object) null))
         return;
       this.YajirushiSlider.set_value((float) index / 5f * this.YajirushiSlider.get_maxValue() + this.YajirushiSlider.get_minValue());
     }

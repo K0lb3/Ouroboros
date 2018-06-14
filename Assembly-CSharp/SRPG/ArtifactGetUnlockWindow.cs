@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.ArtifactGetUnlockWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -12,8 +12,8 @@ using UnityEngine;
 namespace SRPG
 {
   [FlowNode.Pin(1, "Refresh", FlowNode.PinTypes.Input, 1)]
-  [FlowNode.Pin(101, "Selected Quest", FlowNode.PinTypes.Output, 101)]
   [FlowNode.Pin(100, "Unlock", FlowNode.PinTypes.Output, 100)]
+  [FlowNode.Pin(101, "Selected Quest", FlowNode.PinTypes.Output, 101)]
   public class ArtifactGetUnlockWindow : MonoBehaviour, IFlowInterface
   {
     private ArtifactData UnlockArtifact;
@@ -50,7 +50,7 @@ namespace SRPG
       this.UnlockArtifact = artifactData;
       DataSource.Bind<ArtifactData>(((Component) this).get_gameObject(), this.UnlockArtifact);
       DataSource.Bind<ArtifactParam>(((Component) this).get_gameObject(), this.UnlockArtifact.ArtifactParam);
-      if (Object.op_Inequality((Object) this.AbilityListItem, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AbilityListItem, (UnityEngine.Object) null))
       {
         MasterParam masterParam = MonoSingleton<GameManager>.Instance.MasterParam;
         GameObject abilityListItem = this.AbilityListItem;
@@ -62,16 +62,16 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          ArtifactGetUnlockWindow.\u003CRefresh\u003Ec__AnonStorey22B refreshCAnonStorey22B = new ArtifactGetUnlockWindow.\u003CRefresh\u003Ec__AnonStorey22B();
+          ArtifactGetUnlockWindow.\u003CRefresh\u003Ec__AnonStorey2F6 refreshCAnonStorey2F6 = new ArtifactGetUnlockWindow.\u003CRefresh\u003Ec__AnonStorey2F6();
           AbilityParam data1 = (AbilityParam) null;
           // ISSUE: reference to a compiler-generated field
-          refreshCAnonStorey22B.abil_iname = (string) null;
+          refreshCAnonStorey2F6.abil_iname = (string) null;
           for (int index = 0; index < artifactParam.abil_inames.Length; ++index)
           {
             if (!string.IsNullOrEmpty(artifactParam.abil_inames[index]) && artifactParam.abil_shows[index] != 0)
             {
               // ISSUE: reference to a compiler-generated field
-              refreshCAnonStorey22B.abil_iname = artifactParam.abil_inames[index];
+              refreshCAnonStorey2F6.abil_iname = artifactParam.abil_inames[index];
               data1 = masterParam.GetAbilityParam(artifactParam.abil_inames[index]);
               if (data1 != null)
                 break;
@@ -86,10 +86,10 @@ namespace SRPG
           }
           DataSource.Bind<AbilityParam>(this.AbilityListItem, data1);
           DataSource.Bind<AbilityData>(abilityListItem, (AbilityData) null);
-          if (Object.op_Inequality((Object) component, (Object) null) && learningAbilities != null && learningAbilities != null)
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null) && learningAbilities != null && learningAbilities != null)
           {
             // ISSUE: reference to a compiler-generated method
-            AbilityData data2 = learningAbilities.Find(new Predicate<AbilityData>(refreshCAnonStorey22B.\u003C\u003Em__231));
+            AbilityData data2 = learningAbilities.Find(new Predicate<AbilityData>(refreshCAnonStorey2F6.\u003C\u003Em__2F7));
             if (data2 != null)
             {
               DataSource.Bind<AbilityData>(abilityListItem, data2);
@@ -107,6 +107,11 @@ namespace SRPG
       this.UnlockArtifact.GetHomePassiveBuffStatus(ref fixed_status, ref scale_status, (UnitData) null, 0, true);
       this.ArtifactStatus.SetValues(fixed_status, scale_status);
       GameParameter.UpdateAll(((Component) this).get_gameObject());
+    }
+
+    public void SetArtifactData()
+    {
+      GlobalVars.ConditionJobs = GlobalVars.ArtifactListItem.param.condition_jobs;
     }
   }
 }

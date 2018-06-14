@@ -1,13 +1,12 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.CollaboSkillParam
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace SRPG
 {
@@ -67,7 +66,7 @@ namespace SRPG
     public static void UpdateCollaboSkill(List<CollaboSkillParam> csp_lists)
     {
       GameManager instanceDirect = MonoSingleton<GameManager>.GetInstanceDirect();
-      if (Object.op_Equality((Object) instanceDirect, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) instanceDirect, (UnityEngine.Object) null))
         return;
       using (List<CollaboSkillParam>.Enumerator enumerator1 = csp_lists.GetEnumerator())
       {
@@ -78,11 +77,11 @@ namespace SRPG
           {
             // ISSUE: object of a compiler-generated type is created
             // ISSUE: variable of a compiler-generated type
-            CollaboSkillParam.\u003CUpdateCollaboSkill\u003Ec__AnonStorey225 skillCAnonStorey225 = new CollaboSkillParam.\u003CUpdateCollaboSkill\u003Ec__AnonStorey225();
+            CollaboSkillParam.\u003CUpdateCollaboSkill\u003Ec__AnonStorey2E7 skillCAnonStorey2E7 = new CollaboSkillParam.\u003CUpdateCollaboSkill\u003Ec__AnonStorey2E7();
             // ISSUE: reference to a compiler-generated field
-            skillCAnonStorey225.ls = current1.mLearnSkillLists[index];
+            skillCAnonStorey2E7.ls = current1.mLearnSkillLists[index];
             // ISSUE: reference to a compiler-generated field
-            if (!string.IsNullOrEmpty(skillCAnonStorey225.ls.QuestIname))
+            if (!string.IsNullOrEmpty(skillCAnonStorey2E7.ls.QuestIname))
             {
               AbilityParam abilityParam1 = instanceDirect.MasterParam.GetAbilityParam(current1.AbilityIname);
               if (abilityParam1 == null)
@@ -90,7 +89,7 @@ namespace SRPG
               else if (index < abilityParam1.skills.Length)
               {
                 // ISSUE: reference to a compiler-generated field
-                skillCAnonStorey225.ls.SkillIname = abilityParam1.skills[index].iname;
+                skillCAnonStorey2E7.ls.SkillIname = abilityParam1.skills[index].iname;
                 using (List<CollaboSkillParam>.Enumerator enumerator2 = csp_lists.GetEnumerator())
                 {
                   while (enumerator2.MoveNext())
@@ -100,10 +99,10 @@ namespace SRPG
                     {
                       AbilityParam abilityParam2 = instanceDirect.MasterParam.GetAbilityParam(current2.AbilityIname);
                       // ISSUE: reference to a compiler-generated method
-                      if (abilityParam2 != null && new List<LearningSkill>((IEnumerable<LearningSkill>) abilityParam2.skills).Find(new Predicate<LearningSkill>(skillCAnonStorey225.\u003C\u003Em__22A)) != null)
+                      if (abilityParam2 != null && new List<LearningSkill>((IEnumerable<LearningSkill>) abilityParam2.skills).Find(new Predicate<LearningSkill>(skillCAnonStorey2E7.\u003C\u003Em__2E8)) != null)
                       {
                         // ISSUE: reference to a compiler-generated field
-                        skillCAnonStorey225.ls.PartnerUnitIname = current2.UnitIname;
+                        skillCAnonStorey2E7.ls.PartnerUnitIname = current2.UnitIname;
                         break;
                       }
                     }
@@ -121,7 +120,7 @@ namespace SRPG
       if (string.IsNullOrEmpty(unit_iname) || string.IsNullOrEmpty(skill_iname))
         return (string) null;
       GameManager instanceDirect = MonoSingleton<GameManager>.GetInstanceDirect();
-      if (Object.op_Equality((Object) instanceDirect, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) instanceDirect, (UnityEngine.Object) null))
         return (string) null;
       CollaboSkillParam collaboSkillParam = instanceDirect.MasterParam.CollaboSkills.Find((Predicate<CollaboSkillParam>) (fcs => fcs.UnitIname == unit_iname));
       if (collaboSkillParam == null)
@@ -142,7 +141,7 @@ namespace SRPG
       if (string.IsNullOrEmpty(quest_iname) || string.IsNullOrEmpty(unit_iname))
         return stringList;
       GameManager instanceDirect = MonoSingleton<GameManager>.GetInstanceDirect();
-      if (Object.op_Equality((Object) instanceDirect, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) instanceDirect, (UnityEngine.Object) null))
         return stringList;
       CollaboSkillParam collaboSkillParam = instanceDirect.MasterParam.CollaboSkills.Find((Predicate<CollaboSkillParam>) (fcs => fcs.UnitIname == unit_iname));
       if (collaboSkillParam == null)
@@ -163,35 +162,35 @@ namespace SRPG
     {
       List<CollaboSkillParam.Pair> pairList = new List<CollaboSkillParam.Pair>();
       GameManager instanceDirect = MonoSingleton<GameManager>.GetInstanceDirect();
-      if (Object.op_Equality((Object) instanceDirect, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) instanceDirect, (UnityEngine.Object) null))
         return pairList;
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      CollaboSkillParam.\u003CGetPairLists\u003Ec__AnonStorey228 listsCAnonStorey228 = new CollaboSkillParam.\u003CGetPairLists\u003Ec__AnonStorey228();
+      CollaboSkillParam.\u003CGetPairLists\u003Ec__AnonStorey2EA listsCAnonStorey2Ea = new CollaboSkillParam.\u003CGetPairLists\u003Ec__AnonStorey2EA();
       using (List<CollaboSkillParam>.Enumerator enumerator1 = instanceDirect.MasterParam.CollaboSkills.GetEnumerator())
       {
         while (enumerator1.MoveNext())
         {
           // ISSUE: reference to a compiler-generated field
-          listsCAnonStorey228.csp = enumerator1.Current;
+          listsCAnonStorey2Ea.csp = enumerator1.Current;
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          CollaboSkillParam.\u003CGetPairLists\u003Ec__AnonStorey229 listsCAnonStorey229 = new CollaboSkillParam.\u003CGetPairLists\u003Ec__AnonStorey229();
+          CollaboSkillParam.\u003CGetPairLists\u003Ec__AnonStorey2EB listsCAnonStorey2Eb = new CollaboSkillParam.\u003CGetPairLists\u003Ec__AnonStorey2EB();
           // ISSUE: reference to a compiler-generated field
-          listsCAnonStorey229.\u003C\u003Ef__ref\u0024552 = listsCAnonStorey228;
+          listsCAnonStorey2Eb.\u003C\u003Ef__ref\u0024746 = listsCAnonStorey2Ea;
           // ISSUE: reference to a compiler-generated field
-          using (List<CollaboSkillParam.LearnSkill>.Enumerator enumerator2 = listsCAnonStorey228.csp.mLearnSkillLists.GetEnumerator())
+          using (List<CollaboSkillParam.LearnSkill>.Enumerator enumerator2 = listsCAnonStorey2Ea.csp.mLearnSkillLists.GetEnumerator())
           {
             while (enumerator2.MoveNext())
             {
               // ISSUE: reference to a compiler-generated field
-              listsCAnonStorey229.ls = enumerator2.Current;
+              listsCAnonStorey2Eb.ls = enumerator2.Current;
               // ISSUE: reference to a compiler-generated method
-              if (pairList.Find(new Predicate<CollaboSkillParam.Pair>(listsCAnonStorey229.\u003C\u003Em__22E)) == null)
+              if (pairList.Find(new Predicate<CollaboSkillParam.Pair>(listsCAnonStorey2Eb.\u003C\u003Em__2EC)) == null)
               {
                 // ISSUE: reference to a compiler-generated field
                 // ISSUE: reference to a compiler-generated field
-                pairList.Add(new CollaboSkillParam.Pair(instanceDirect.MasterParam.GetUnitParam(listsCAnonStorey228.csp.mUnitIname), instanceDirect.MasterParam.GetUnitParam(listsCAnonStorey229.ls.PartnerUnitIname)));
+                pairList.Add(new CollaboSkillParam.Pair(instanceDirect.MasterParam.GetUnitParam(listsCAnonStorey2Ea.csp.mUnitIname), instanceDirect.MasterParam.GetUnitParam(listsCAnonStorey2Eb.ls.PartnerUnitIname)));
               }
             }
           }

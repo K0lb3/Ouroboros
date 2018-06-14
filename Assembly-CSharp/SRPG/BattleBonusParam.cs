@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.BattleBonusParam
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -11,7 +11,7 @@ namespace SRPG
   public class BattleBonusParam
   {
     public static readonly OInt MAX_BATTLE_BONUS = (OInt) Enum.GetNames(typeof (BattleBonus)).Length;
-    public static readonly ParamTypes[] ConvertParamTypes = new ParamTypes[41]{ ParamTypes.EffectRange, ParamTypes.EffectScope, ParamTypes.EffectHeight, ParamTypes.HitRate, ParamTypes.AvoidRate, ParamTypes.CriticalRate, ParamTypes.SlashAttack, ParamTypes.PierceAttack, ParamTypes.BlowAttack, ParamTypes.ShotAttack, ParamTypes.MagicAttack, ParamTypes.ReactionAttack, ParamTypes.JumpAttack, ParamTypes.GainJewel, ParamTypes.UsedJewelRate, ParamTypes.ActionCount, ParamTypes.GutsRate, ParamTypes.AutoJewel, ParamTypes.ChargeTimeRate, ParamTypes.CastTimeRate, ParamTypes.BuffTurn, ParamTypes.DebuffTurn, ParamTypes.CombinationRange, ParamTypes.HpCostRate, ParamTypes.SkillUseCount, ParamTypes.PoisonDamage, ParamTypes.PoisonTurn, ParamTypes.Resist_Slash, ParamTypes.Resist_Pierce, ParamTypes.Resist_Blow, ParamTypes.Resist_Shot, ParamTypes.Resist_Magic, ParamTypes.Resist_Reaction, ParamTypes.Resist_Jump, ParamTypes.Avoid_Slash, ParamTypes.Avoid_Pierce, ParamTypes.Avoid_Blow, ParamTypes.Avoid_Shot, ParamTypes.Avoid_Magic, ParamTypes.Avoid_Reaction, ParamTypes.Avoid_Jump };
+    public static readonly ParamTypes[] ConvertParamTypes = new ParamTypes[43]{ ParamTypes.EffectRange, ParamTypes.EffectScope, ParamTypes.EffectHeight, ParamTypes.HitRate, ParamTypes.AvoidRate, ParamTypes.CriticalRate, ParamTypes.SlashAttack, ParamTypes.PierceAttack, ParamTypes.BlowAttack, ParamTypes.ShotAttack, ParamTypes.MagicAttack, ParamTypes.ReactionAttack, ParamTypes.JumpAttack, ParamTypes.GainJewel, ParamTypes.UsedJewelRate, ParamTypes.ActionCount, ParamTypes.GutsRate, ParamTypes.AutoJewel, ParamTypes.ChargeTimeRate, ParamTypes.CastTimeRate, ParamTypes.BuffTurn, ParamTypes.DebuffTurn, ParamTypes.CombinationRange, ParamTypes.HpCostRate, ParamTypes.SkillUseCount, ParamTypes.PoisonDamage, ParamTypes.PoisonTurn, ParamTypes.Resist_Slash, ParamTypes.Resist_Pierce, ParamTypes.Resist_Blow, ParamTypes.Resist_Shot, ParamTypes.Resist_Magic, ParamTypes.Resist_Reaction, ParamTypes.Resist_Jump, ParamTypes.Avoid_Slash, ParamTypes.Avoid_Pierce, ParamTypes.Avoid_Blow, ParamTypes.Avoid_Shot, ParamTypes.Avoid_Magic, ParamTypes.Avoid_Reaction, ParamTypes.Avoid_Jump, ParamTypes.GainJewelRate, ParamTypes.UsedJewel };
     public OInt[] values = new OInt[(int) BattleBonusParam.MAX_BATTLE_BONUS];
 
     public OInt this[BattleBonus type]

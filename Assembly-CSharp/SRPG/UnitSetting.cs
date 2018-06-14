@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.UnitSetting
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections.Generic;
@@ -18,6 +18,8 @@ namespace SRPG
     public OInt waitEntryClock;
     public OInt waitMoveTurn;
     public OInt waitExitTurn;
+    public eMapUnitCtCalcType startCtCalc;
+    public OInt startCtVal;
     public bool DisableFirceVoice;
     public AIActionType ai_type;
     public OIntVector2 ai_pos;
@@ -41,6 +43,8 @@ namespace SRPG
       this.waitEntryClock = (OInt) json.wait_e;
       this.waitMoveTurn = (OInt) json.wait_m;
       this.waitExitTurn = (OInt) json.wait_exit;
+      this.startCtCalc = (eMapUnitCtCalcType) json.ct_calc;
+      this.startCtVal = (OInt) json.ct_val;
       this.DisableFirceVoice = json.fvoff != 0;
       this.side = (OInt) 0;
       this.ai_type = (AIActionType) json.ai_type;

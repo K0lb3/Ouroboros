@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: UIUtility
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using SRPG;
@@ -19,7 +19,7 @@ public class UIUtility
 
   public static void InitParticleCanvas()
   {
-    if (!Object.op_Equality((Object) UIUtility.mParticleCanvas, (Object) null))
+    if (!UnityEngine.Object.op_Equality((UnityEngine.Object) UIUtility.mParticleCanvas, (UnityEngine.Object) null))
       return;
     GameObject gameObject = new GameObject("ParticleCanvas", new System.Type[3]
     {
@@ -27,7 +27,7 @@ public class UIUtility
       typeof (GraphicRaycaster),
       typeof (SRPG_CanvasScaler)
     });
-    Object.DontDestroyOnLoad((Object) gameObject);
+    UnityEngine.Object.DontDestroyOnLoad((UnityEngine.Object) gameObject);
     UIUtility.mParticleCanvas = (Canvas) gameObject.GetComponent<Canvas>();
     UIUtility.mParticleCanvas.set_renderMode((RenderMode) 0);
     UIUtility.mParticleCanvas.set_sortingOrder(30000);
@@ -44,10 +44,10 @@ public class UIUtility
 
   public static Canvas PushCanvas(bool systemModal = false, int systemModalPriority = -1)
   {
-    Canvas canvas = (Canvas) Object.Instantiate<Canvas>((M0) GameSettings.Instance.Canvas2D);
-    Object.DontDestroyOnLoad((Object) ((Component) canvas).get_gameObject());
+    Canvas canvas = (Canvas) UnityEngine.Object.Instantiate<Canvas>((M0) GameSettings.Instance.Canvas2D);
+    UnityEngine.Object.DontDestroyOnLoad((UnityEngine.Object) ((Component) canvas).get_gameObject());
     CanvasStack canvasStack = (CanvasStack) ((Component) canvas).GetComponent<CanvasStack>();
-    if (Object.op_Equality((Object) canvasStack, (Object) null))
+    if (UnityEngine.Object.op_Equality((UnityEngine.Object) canvasStack, (UnityEngine.Object) null))
       canvasStack = (CanvasStack) ((Component) canvas).get_gameObject().AddComponent<CanvasStack>();
     if (systemModal)
     {
@@ -66,17 +66,17 @@ public class UIUtility
 
   public static void PopCanvas(bool keepInstance)
   {
-    if (!Object.op_Inequality((Object) CanvasStack.Top, (Object) null))
+    if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) CanvasStack.Top, (UnityEngine.Object) null))
       return;
     if (!keepInstance)
-      Object.DestroyImmediate((Object) ((Component) CanvasStack.Top).get_gameObject());
+      UnityEngine.Object.DestroyImmediate((UnityEngine.Object) ((Component) CanvasStack.Top).get_gameObject());
     else
-      Object.DestroyImmediate((Object) ((Component) CanvasStack.Top).GetComponent<CanvasStack>());
+      UnityEngine.Object.DestroyImmediate((UnityEngine.Object) ((Component) CanvasStack.Top).GetComponent<CanvasStack>());
   }
 
   public static void PopCanvasAll()
   {
-    while (Object.op_Inequality((Object) CanvasStack.Top, (Object) null))
+    while (UnityEngine.Object.op_Inequality((UnityEngine.Object) CanvasStack.Top, (UnityEngine.Object) null))
       UIUtility.PopCanvas();
   }
 
@@ -90,15 +90,15 @@ public class UIUtility
   public static GameObject ConfirmBox(string text, string confirmID, UIUtility.DialogResultEvent okEventListener, UIUtility.DialogResultEvent cancelEventListener, GameObject parent = null, bool systemModal = false, int systemModalPriority = -1)
   {
     if (string.IsNullOrEmpty(confirmID))
-      return UIUtility.ConfirmBox(text, okEventListener, cancelEventListener, (GameObject) null, false, -1);
+      return UIUtility.ConfirmBox(text, okEventListener, cancelEventListener, (GameObject) null, false, -1, (string) null, (string) null);
     GameSettings instance = GameSettings.Instance;
-    if (PlayerPrefs.GetInt(confirmID, 0) != 0)
+    if (PlayerPrefsUtility.GetInt(confirmID, 0) != 0)
     {
       okEventListener((GameObject) null);
       return (GameObject) null;
     }
     Canvas canvas = UIUtility.PushCanvas(systemModal, systemModalPriority);
-    if (Object.op_Inequality((Object) parent, (Object) null))
+    if (UnityEngine.Object.op_Inequality((UnityEngine.Object) parent, (UnityEngine.Object) null))
       ((Component) canvas).get_transform().SetParent(parent.get_transform());
     Win_Btn_DecideCancel_FL_Check_C decideCancelFlCheckC = UIUtility.Instantiate<Win_Btn_DecideCancel_FL_Check_C>(instance.Dialogs.YesNoDialogWithCheckBox);
     ((Component) decideCancelFlCheckC).get_transform().SetParent(((Component) canvas).get_transform(), false);
@@ -111,34 +111,38 @@ public class UIUtility
     return ((Component) decideCancelFlCheckC).get_gameObject();
   }
 
-  public static GameObject ConfirmBox(string text, UIUtility.DialogResultEvent okEventListener, UIUtility.DialogResultEvent cancelEventListener, GameObject parent = null, bool systemModal = false, int systemModalPriority = -1)
+  public static GameObject ConfirmBox(string text, UIUtility.DialogResultEvent okEventListener, UIUtility.DialogResultEvent cancelEventListener, GameObject parent = null, bool systemModal = false, int systemModalPriority = -1, string yesText = null, string noText = null)
   {
     GameSettings instance = GameSettings.Instance;
     Canvas canvas = UIUtility.PushCanvas(systemModal, systemModalPriority);
-    if (Object.op_Inequality((Object) parent, (Object) null))
+    if (UnityEngine.Object.op_Inequality((UnityEngine.Object) parent, (UnityEngine.Object) null))
       ((Component) canvas).get_transform().SetParent(parent.get_transform());
     Win_Btn_DecideCancel_FL_C btnDecideCancelFlC = UIUtility.Instantiate<Win_Btn_DecideCancel_FL_C>(instance.Dialogs.YesNoDialog);
     ((Component) btnDecideCancelFlC).get_transform().SetParent(((Component) canvas).get_transform(), false);
     btnDecideCancelFlC.OnClickYes = okEventListener;
     btnDecideCancelFlC.OnClickNo = cancelEventListener;
     btnDecideCancelFlC.Text_Message.set_text(text);
+    if (yesText != null)
+      btnDecideCancelFlC.Txt_Yes.set_text(yesText);
+    if (noText != null)
+      btnDecideCancelFlC.Txt_No.set_text(noText);
     UIUtility.FixFont(((Component) btnDecideCancelFlC).get_gameObject());
     return ((Component) btnDecideCancelFlC).get_gameObject();
   }
 
   private static void FixFont(GameObject go)
   {
-    if (Object.op_Equality((Object) UIUtility.fontCache, (Object) null))
+    if (UnityEngine.Object.op_Equality((UnityEngine.Object) UIUtility.fontCache, (UnityEngine.Object) null))
       UIUtility.fontCache = (Font) Resources.Load<Font>("TT_ModeMinA-B");
     foreach (Text componentsInChild in (Text[]) go.GetComponentsInChildren<Text>())
       componentsInChild.set_font(UIUtility.fontCache);
   }
 
-  public static GameObject ConfirmBoxTitle(string title, string text, UIUtility.DialogResultEvent okEventListener, UIUtility.DialogResultEvent cancelEventListener, GameObject parent = null, bool systemModal = false, int systemModalPriority = -1)
+  public static GameObject ConfirmBoxTitle(string title, string text, UIUtility.DialogResultEvent okEventListener, UIUtility.DialogResultEvent cancelEventListener, GameObject parent = null, bool systemModal = false, int systemModalPriority = -1, string yesText = null, string noText = null)
   {
     GameSettings instance = GameSettings.Instance;
     Canvas canvas = UIUtility.PushCanvas(systemModal, systemModalPriority);
-    if (Object.op_Inequality((Object) parent, (Object) null))
+    if (UnityEngine.Object.op_Inequality((UnityEngine.Object) parent, (UnityEngine.Object) null))
       ((Component) canvas).get_transform().SetParent(parent.get_transform());
     Win_Btn_YN_Title_Flx winBtnYnTitleFlx = UIUtility.Instantiate<Win_Btn_YN_Title_Flx>(instance.Dialogs.YesNoDialogWithTitle);
     ((Component) winBtnYnTitleFlx).get_transform().SetParent(((Component) canvas).get_transform(), false);
@@ -146,6 +150,10 @@ public class UIUtility
     winBtnYnTitleFlx.OnClickNo = cancelEventListener;
     winBtnYnTitleFlx.Text_Title.set_text(title);
     winBtnYnTitleFlx.Text_Message.set_text(text);
+    if (yesText != null)
+      winBtnYnTitleFlx.Txt_Yes.set_text(yesText);
+    if (noText != null)
+      winBtnYnTitleFlx.Txt_No.set_text(noText);
     UIUtility.FixFont(((Component) winBtnYnTitleFlx).get_gameObject());
     return ((Component) winBtnYnTitleFlx).get_gameObject();
   }
@@ -154,7 +162,7 @@ public class UIUtility
   {
     GameSettings instance = GameSettings.Instance;
     Canvas canvas = UIUtility.PushCanvas(systemModal, systemModalPriority);
-    if (Object.op_Inequality((Object) parent, (Object) null))
+    if (UnityEngine.Object.op_Inequality((UnityEngine.Object) parent, (UnityEngine.Object) null))
       ((Component) canvas).get_transform().SetParent(parent.get_transform());
     Win_Btn_Decide_Title_Flx btnDecideTitleFlx = UIUtility.Instantiate<Win_Btn_Decide_Title_Flx>(instance.Dialogs.YesDialogWithTitle);
     ((Component) btnDecideTitleFlx).get_transform().SetParent(((Component) canvas).get_transform(), false);
@@ -165,45 +173,58 @@ public class UIUtility
     return ((Component) btnDecideTitleFlx).get_gameObject();
   }
 
+  public static GameObject SystemMessage(string msg, UIUtility.DialogResultEvent okEventListener, GameObject parent = null, bool systemModal = false, int systemModalPriority = -1)
+  {
+    GameSettings instance = GameSettings.Instance;
+    Canvas canvas = UIUtility.PushCanvas(systemModal, systemModalPriority);
+    if (UnityEngine.Object.op_Inequality((UnityEngine.Object) parent, (UnityEngine.Object) null))
+      ((Component) canvas).get_transform().SetParent(parent.get_transform());
+    Win_Btn_Decide_Flx winBtnDecideFlx = UIUtility.Instantiate<Win_Btn_Decide_Flx>(instance.Dialogs.YesDialog);
+    ((Component) winBtnDecideFlx).get_transform().SetParent(((Component) canvas).get_transform(), false);
+    winBtnDecideFlx.Text_Message.set_text(msg);
+    winBtnDecideFlx.OnClickYes = okEventListener;
+    return ((Component) winBtnDecideFlx).get_gameObject();
+  }
+
   public static GameObject NegativeSystemMessage(string title, string msg, UIUtility.DialogResultEvent okEventListener, GameObject parent = null, bool systemModal = false, int systemModalPriority = -1)
   {
     GameObject gameObject = UIUtility.SystemMessage(title, msg, okEventListener, parent, systemModal, systemModalPriority);
-    SystemSound systemSound = !Object.op_Equality((Object) gameObject, (Object) null) ? (SystemSound) gameObject.GetComponentInChildren<SystemSound>() : (SystemSound) null;
-    if (Object.op_Inequality((Object) systemSound, (Object) null))
+    SystemSound systemSound = !UnityEngine.Object.op_Equality((UnityEngine.Object) gameObject, (UnityEngine.Object) null) ? (SystemSound) gameObject.GetComponentInChildren<SystemSound>() : (SystemSound) null;
+    if (UnityEngine.Object.op_Inequality((UnityEngine.Object) systemSound, (UnityEngine.Object) null))
       systemSound.Cue = SystemSound.ECue.Tap;
     return gameObject;
   }
 
   public static void SetImage(GameObject obj, Texture tex)
   {
-    if (Object.op_Equality((Object) obj, (Object) null))
+    if (UnityEngine.Object.op_Equality((UnityEngine.Object) obj, (UnityEngine.Object) null))
       return;
     RawImage component = (RawImage) obj.GetComponent<RawImage>();
-    if (!Object.op_Inequality((Object) component, (Object) null))
+    if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
       return;
     component.set_texture(tex);
   }
 
   public static void SetImage(Component obj, Texture tex)
   {
-    if (Object.op_Equality((Object) obj, (Object) null))
+    if (UnityEngine.Object.op_Equality((UnityEngine.Object) obj, (UnityEngine.Object) null))
       return;
     UIUtility.SetImage(obj.get_gameObject(), tex);
   }
 
   public static void SetSprite(GameObject obj, Sprite tex)
   {
-    if (Object.op_Equality((Object) obj, (Object) null))
+    if (UnityEngine.Object.op_Equality((UnityEngine.Object) obj, (UnityEngine.Object) null))
       return;
     Image component = (Image) obj.GetComponent<Image>();
-    if (!Object.op_Inequality((Object) component, (Object) null))
+    if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
       return;
     component.set_sprite(tex);
   }
 
   public static void SetSprite(Component obj, Sprite tex)
   {
-    if (Object.op_Equality((Object) obj, (Object) null))
+    if (UnityEngine.Object.op_Equality((UnityEngine.Object) obj, (UnityEngine.Object) null))
       return;
     UIUtility.SetSprite(obj.get_gameObject(), tex);
   }
@@ -215,10 +236,10 @@ public class UIUtility
 
   public static GameObject Instantiate(GameObject prefab)
   {
-    if (Object.op_Equality((Object) CanvasStack.Top, (Object) null))
+    if (UnityEngine.Object.op_Equality((UnityEngine.Object) CanvasStack.Top, (UnityEngine.Object) null))
       UIUtility.PushCanvas(false, -1);
     RectTransform transform1 = (RectTransform) ((Component) CanvasStack.Top).get_transform();
-    GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) prefab);
+    GameObject gameObject = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) prefab);
     gameObject.get_transform().SetParent((Transform) transform1, false);
     RectTransform transform2 = (RectTransform) prefab.get_transform();
     RectTransform transform3 = (RectTransform) gameObject.get_transform();
@@ -267,7 +288,7 @@ public class UIUtility
     if (keepActive)
       return;
     UIDeactivator uiDeactivator = (UIDeactivator) go.GetComponent<UIDeactivator>();
-    if (Object.op_Equality((Object) uiDeactivator, (Object) null))
+    if (UnityEngine.Object.op_Equality((UnityEngine.Object) uiDeactivator, (UnityEngine.Object) null))
       uiDeactivator = (UIDeactivator) go.AddComponent<UIDeactivator>();
     if (!open)
       ((Behaviour) uiDeactivator).set_enabled(true);
@@ -292,7 +313,7 @@ public class UIUtility
 
   public static void SetText(GameObject go, string text)
   {
-    if (Object.op_Equality((Object) go, (Object) null))
+    if (UnityEngine.Object.op_Equality((UnityEngine.Object) go, (UnityEngine.Object) null))
       return;
     foreach (Text componentsInChild in (Text[]) go.GetComponentsInChildren<Text>(true))
       componentsInChild.set_text(text);
@@ -310,7 +331,7 @@ public class UIUtility
 
   public static void SpawnParticle(GameObject particleObject, RectTransform targetRect, Vector2 anchor)
   {
-    if (Object.op_Equality((Object) particleObject, (Object) null) || Object.op_Equality((Object) targetRect, (Object) null))
+    if (UnityEngine.Object.op_Equality((UnityEngine.Object) particleObject, (UnityEngine.Object) null) || UnityEngine.Object.op_Equality((UnityEngine.Object) targetRect, (UnityEngine.Object) null))
       return;
     Vector3[] vector3Array = new Vector3[4];
     targetRect.GetWorldCorners(vector3Array);
@@ -322,9 +343,9 @@ public class UIUtility
 
   public static void SpawnParticle(GameObject particleObject, Vector2 screenPosition)
   {
-    if (Object.op_Equality((Object) particleObject, (Object) null))
+    if (UnityEngine.Object.op_Equality((UnityEngine.Object) particleObject, (UnityEngine.Object) null))
       return;
-    GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) particleObject);
+    GameObject gameObject = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) particleObject);
     gameObject.AddComponent<OneShotParticle>();
     RectTransform transform = gameObject.get_transform() as RectTransform;
     ((Transform) transform).SetParent(((Component) UIUtility.ParticleCanvas).get_transform(), false);
@@ -337,13 +358,13 @@ public class UIUtility
   {
     get
     {
-      if (Object.op_Equality((Object) UIUtility.mUIPool, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) UIUtility.mUIPool, (UnityEngine.Object) null))
       {
         GameObject gameObject = new GameObject("UIPOOL", new System.Type[1]
         {
           typeof (RectTransform)
         });
-        Object.DontDestroyOnLoad((Object) gameObject);
+        UnityEngine.Object.DontDestroyOnLoad((UnityEngine.Object) gameObject);
         UIUtility.mUIPool = gameObject.get_transform() as RectTransform;
         UIUtility.mUIPool.set_sizeDelta(new Vector2((float) Screen.get_width(), (float) Screen.get_height()));
       }
@@ -355,55 +376,55 @@ public class UIUtility
   {
     // ISSUE: object of a compiler-generated type is created
     // ISSUE: method pointer
-    e.AddListener(new UnityAction((object) new UIUtility.\u003CAddEventListener\u003Ec__AnonStorey278()
+    e.AddListener(new UnityAction((object) new UIUtility.\u003CAddEventListener\u003Ec__AnonStorey383()
     {
       listener = listener,
       go = go
-    }, __methodptr(\u003C\u003Em__2FE)));
+    }, __methodptr(\u003C\u003Em__42E)));
   }
 
   public static void AddEventListener<T0>(GameObject go, UnityEvent<T0> e, UIUtility.EventListener1Arg<T0> listener)
   {
     // ISSUE: object of a compiler-generated type is created
     // ISSUE: method pointer
-    e.AddListener(new UnityAction<T0>((object) new UIUtility.\u003CAddEventListener\u003Ec__AnonStorey279<T0>()
+    e.AddListener(new UnityAction<T0>((object) new UIUtility.\u003CAddEventListener\u003Ec__AnonStorey384<T0>()
     {
       listener = listener,
       go = go
-    }, __methodptr(\u003C\u003Em__2FF)));
+    }, __methodptr(\u003C\u003Em__42F)));
   }
 
   public static void AddEventListener<T0, T1>(GameObject go, UnityEvent<T0, T1> e, UIUtility.EventListener2Arg<T0, T1> listener)
   {
     // ISSUE: object of a compiler-generated type is created
     // ISSUE: method pointer
-    e.AddListener(new UnityAction<T0, T1>((object) new UIUtility.\u003CAddEventListener\u003Ec__AnonStorey27A<T0, T1>()
+    e.AddListener(new UnityAction<T0, T1>((object) new UIUtility.\u003CAddEventListener\u003Ec__AnonStorey385<T0, T1>()
     {
       listener = listener,
       go = go
-    }, __methodptr(\u003C\u003Em__300)));
+    }, __methodptr(\u003C\u003Em__430)));
   }
 
   public static void AddEventListener<T0, T1, T2>(GameObject go, UnityEvent<T0, T1, T2> e, UIUtility.EventListener3Arg<T0, T1, T2> listener)
   {
     // ISSUE: object of a compiler-generated type is created
     // ISSUE: method pointer
-    e.AddListener(new UnityAction<T0, T1, T2>((object) new UIUtility.\u003CAddEventListener\u003Ec__AnonStorey27B<T0, T1, T2>()
+    e.AddListener(new UnityAction<T0, T1, T2>((object) new UIUtility.\u003CAddEventListener\u003Ec__AnonStorey386<T0, T1, T2>()
     {
       listener = listener,
       go = go
-    }, __methodptr(\u003C\u003Em__301)));
+    }, __methodptr(\u003C\u003Em__431)));
   }
 
   public static void AddEventListener<T0, T1, T2, T3>(GameObject go, UnityEvent<T0, T1, T2, T3> e, UIUtility.EventListener4Arg<T0, T1, T2, T3> listener)
   {
     // ISSUE: object of a compiler-generated type is created
     // ISSUE: method pointer
-    e.AddListener(new UnityAction<T0, T1, T2, T3>((object) new UIUtility.\u003CAddEventListener\u003Ec__AnonStorey27C<T0, T1, T2, T3>()
+    e.AddListener(new UnityAction<T0, T1, T2, T3>((object) new UIUtility.\u003CAddEventListener\u003Ec__AnonStorey387<T0, T1, T2, T3>()
     {
       listener = listener,
       go = go
-    }, __methodptr(\u003C\u003Em__302)));
+    }, __methodptr(\u003C\u003Em__432)));
   }
 
   public enum DialogResults

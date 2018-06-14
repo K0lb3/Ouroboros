@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.WindowController
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using UnityEngine;
@@ -9,12 +9,12 @@ using UnityEngine.EventSystems;
 
 namespace SRPG
 {
-  [FlowNode.Pin(20, "Close", FlowNode.PinTypes.Input, 2)]
-  [FlowNode.Pin(11, "Opened", FlowNode.PinTypes.Output, 10)]
-  [FlowNode.Pin(10, "Open", FlowNode.PinTypes.Input, 1)]
   [FlowNode.Pin(21, "Closed", FlowNode.PinTypes.Output, 11)]
-  [FlowNode.Pin(5, "Lock", FlowNode.PinTypes.Input, 5)]
+  [FlowNode.Pin(11, "Opened", FlowNode.PinTypes.Output, 10)]
   [FlowNode.Pin(6, "Unlock", FlowNode.PinTypes.Input, 6)]
+  [FlowNode.Pin(10, "Open", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(20, "Close", FlowNode.PinTypes.Input, 2)]
+  [FlowNode.Pin(5, "Lock", FlowNode.PinTypes.Input, 5)]
   public class WindowController : UIBehaviour, IFlowInterface
   {
     public WindowController.WindowStateChangeEvent OnWindowStateChange;
@@ -123,6 +123,35 @@ namespace SRPG
         this.SetCollision(false);
         this.UpdateAnimator(false);
       }
+    }
+
+    public void ForceOpen()
+    {
+      if (this.mDesiredState && this.mOpened)
+        return;
+      if (!this.mDesiredState && !this.mOpened)
+      {
+        this.Open();
+      }
+      else
+      {
+        if (this.mDesiredState)
+          return;
+        this.mPollState = false;
+        this.mDesiredState = true;
+        this.SetCollision(true);
+        this.UpdateAnimator(true);
+      }
+    }
+
+    public bool IsOpening()
+    {
+      return (this.mDesiredState || this.mOpened) && (!this.mDesiredState || !this.mOpened) && this.mDesiredState;
+    }
+
+    public bool IsClosing()
+    {
+      return (this.mDesiredState || this.mOpened) && (!this.mDesiredState || !this.mOpened) && !this.mDesiredState;
     }
 
     public void Activated(int pinID)

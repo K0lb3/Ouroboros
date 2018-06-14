@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: FlowNode_NaviVoice
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -10,8 +10,11 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[FlowNode.Pin(1, "Out", FlowNode.PinTypes.Output, 1)]
+[FlowNode.Pin(109, "設定画面", FlowNode.PinTypes.Input, 109)]
+[FlowNode.Pin(111, "レベルアップ", FlowNode.PinTypes.Input, 111)]
+[FlowNode.Pin(110, "招待ページ", FlowNode.PinTypes.Input, 110)]
 [FlowNode.NodeType("NaviVoice", 32741)]
+[FlowNode.Pin(1, "Out", FlowNode.PinTypes.Output, 1)]
 [FlowNode.Pin(2, "再生終了", FlowNode.PinTypes.Output, 2)]
 [FlowNode.Pin(101, "放置ON", FlowNode.PinTypes.Input, 101)]
 [FlowNode.Pin(102, "放置OFF", FlowNode.PinTypes.Input, 102)]
@@ -21,9 +24,6 @@ using UnityEngine;
 [FlowNode.Pin(106, "プレゼント画面", FlowNode.PinTypes.Input, 106)]
 [FlowNode.Pin(107, "アイテム画面", FlowNode.PinTypes.Input, 107)]
 [FlowNode.Pin(108, "ヘルプ画面", FlowNode.PinTypes.Input, 108)]
-[FlowNode.Pin(109, "設定画面", FlowNode.PinTypes.Input, 109)]
-[FlowNode.Pin(110, "招待ページ", FlowNode.PinTypes.Input, 110)]
-[FlowNode.Pin(111, "レベルアップ", FlowNode.PinTypes.Input, 111)]
 public class FlowNode_NaviVoice : FlowNodePersistent
 {
   private float IdleVoiceWaitTime = 30f;
@@ -113,7 +113,7 @@ public class FlowNode_NaviVoice : FlowNodePersistent
   {
     if (this.mVoice == null || MySound.Voice.IsCueSheetPlaying(this.mVoice.CharName) || string.IsNullOrEmpty(cueID))
       return;
-    this.mVoice.Play(cueID, 0.0f);
+    this.mVoice.Play(cueID, 0.0f, false);
   }
 
   private void Update()

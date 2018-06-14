@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_BuyGold
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -11,9 +11,9 @@ namespace SRPG
 {
   [FlowNode.NodeType("System/BuyGold", 32741)]
   [FlowNode.Pin(0, "Request", FlowNode.PinTypes.Input, 0)]
-  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
-  [FlowNode.Pin(2, "コインが足りない", FlowNode.PinTypes.Output, 2)]
   [FlowNode.Pin(3, "購入回数制限", FlowNode.PinTypes.Output, 3)]
+  [FlowNode.Pin(2, "コインが足りない", FlowNode.PinTypes.Output, 2)]
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
   public class FlowNode_BuyGold : FlowNode_Network
   {
     public static GameObject ConfirmBoxObj;
@@ -27,7 +27,7 @@ namespace SRPG
       if (this.Confirm)
       {
         FixParam fixParam = MonoSingleton<GameManager>.Instance.MasterParam.FixParam;
-        FlowNode_BuyGold.ConfirmBoxObj = UIUtility.ConfirmBox(LocalizedText.Get("sys.BUYGOLD", (object) fixParam.BuyGoldCost, (object) fixParam.BuyGoldAmount, (object) MonoSingleton<GameManager>.Instance.Player.PaidCoin, (object) MonoSingleton<GameManager>.Instance.Player.FreeCoin), new UIUtility.DialogResultEvent(this.OnBuy), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1);
+        FlowNode_BuyGold.ConfirmBoxObj = UIUtility.ConfirmBox(LocalizedText.Get("sys.BUYGOLD", (object) fixParam.BuyGoldCost, (object) fixParam.BuyGoldAmount, (object) MonoSingleton<GameManager>.Instance.Player.PaidCoin, (object) (MonoSingleton<GameManager>.Instance.Player.FreeCoin + MonoSingleton<GameManager>.Instance.Player.ComCoin)), new UIUtility.DialogResultEvent(this.OnBuy), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1, (string) null, (string) null);
       }
       else
         this.SendRequest();
@@ -51,7 +51,7 @@ namespace SRPG
 
     private void SendRequest()
     {
-      if (MonoSingleton<GameManager>.Instance.Player.FreeCoin < this.getRequiredCoin())
+      if (MonoSingleton<GameManager>.Instance.Player.FreeCoin + MonoSingleton<GameManager>.Instance.Player.ComCoin < this.getRequiredCoin())
       {
         if (this.ShowResult)
           this.OutOfCoin();
@@ -130,11 +130,12 @@ namespace SRPG
           else
           {
             Network.RemoveAPI();
-            AnalyticsManager.TrackSpendCoin("BuyGold", this.getRequiredCoin());
+            AnalyticsManager.TrackOriginalCurrencyUse(ESaleType.Coin, this.getRequiredCoin(), "BuyGold");
             if (this.ShowResult)
             {
               FixParam fixParam = MonoSingleton<GameManager>.Instance.MasterParam.FixParam;
               UIUtility.SystemMessage((string) null, LocalizedText.Get("sys.GOLDBOUGHT", (object) fixParam.BuyGoldCost, (object) fixParam.BuyGoldAmount), (UIUtility.DialogResultEvent) (go => {}), (GameObject) null, false, -1);
+              MonoSingleton<GameManager>.Instance.Player.OnGoldChange((int) fixParam.BuyGoldAmount);
             }
             this.Success();
           }

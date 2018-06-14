@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.JSON_UnitParam
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -81,6 +81,10 @@ namespace SRPG
     public int rcd;
     public int rdo;
     public int rra;
+    public int rsa;
+    public int raa;
+    public int rdc;
+    public int ric;
     public int mhp;
     public int mmp;
     public int matk;
@@ -124,6 +128,10 @@ namespace SRPG
     public int mrcd;
     public int mrdo;
     public int mrra;
+    public int mrsa;
+    public int mraa;
+    public int mrdc;
+    public int mric;
     public string ls1;
     public string ls2;
     public string ls3;
@@ -154,5 +162,6 @@ namespace SRPG
     public string[] jimgs;
     public string[] jvcs;
     public int no_trw;
+    public int no_kb;
   }
 }

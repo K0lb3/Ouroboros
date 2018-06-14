@@ -1,24 +1,27 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.QuestListV2
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace SRPG
 {
-  [AddComponentMenu("UI/リスト/クエスト一覧")]
-  [FlowNode.Pin(102, "鍵クエストを開ける", FlowNode.PinTypes.Output, 102)]
-  [FlowNode.Pin(103, "鍵クエストを閉じる", FlowNode.PinTypes.Output, 103)]
-  [FlowNode.Pin(0, "通常クエストを表示", FlowNode.PinTypes.Input, 0)]
-  [FlowNode.Pin(1, "エリートクエストを表示", FlowNode.PinTypes.Input, 1)]
   [FlowNode.Pin(10, "前回選択したクエストを表示", FlowNode.PinTypes.Input, 10)]
   [FlowNode.Pin(101, "シナリオクエストが選択された", FlowNode.PinTypes.Output, 101)]
+  [FlowNode.Pin(102, "鍵クエストを開ける", FlowNode.PinTypes.Output, 102)]
+  [FlowNode.Pin(2, "エクストラクエストを表示", FlowNode.PinTypes.Input, 2)]
+  [AddComponentMenu("UI/リスト/クエスト一覧")]
+  [FlowNode.Pin(103, "鍵クエストを閉じる", FlowNode.PinTypes.Output, 103)]
+  [FlowNode.Pin(104, "上の階層に戻る", FlowNode.PinTypes.Output, 104)]
+  [FlowNode.Pin(1, "エリートクエストを表示", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(0, "通常クエストを表示", FlowNode.PinTypes.Input, 0)]
   public class QuestListV2 : SRPG_ListBase, IFlowInterface, IWebHelp
   {
     private static Dictionary<int, float> mScrollPosCache = new Dictionary<int, float>();
@@ -30,12 +33,17 @@ namespace SRPG
     [Description("リストアイテムとして使用するゲームオブジェクト")]
     public GameObject ItemTemplate;
     public GameObject SpecialQuestItem;
+    public GameObject ExtraQuestItem;
     [Description("シナリオクエスト用のアイテムとして使用するゲームオブジェクト")]
     public GameObject ScenarioQuestItem;
     [Description("シナリオクエスト用のアイテムとして使用するゲームオブジェクト")]
     public GameObject EliteQuestItem;
     [Description("挑戦回数を使い果たしたエリートクエストのアイテムとして使用するゲームオブジェクト")]
     public GameObject EliteQuestDisAbleItem;
+    [Description("シナリオのエクストラクエスト用のアイテムとして使用するゲームオブジェクト")]
+    public GameObject StoryExtraQuestItem;
+    [Description("挑戦回数を使い果たしたシナリオのエクストラクエスト用のアイテムとして使用するゲームオブジェクト")]
+    public GameObject StoryExtraQuestDisableItem;
     [Description("挑戦回数ありのイベントリストアイテムとして使用するゲームオブジェクト")]
     public GameObject EventTemplateLimit;
     [Description("詳細画面として使用するゲームオブジェクト")]
@@ -44,12 +52,19 @@ namespace SRPG
     public GameObject BtnNormal;
     [Description("難易度選択ボタン (Elite)")]
     public GameObject BtnElite;
+    [Description("難易度選択ボタン (Extra)")]
+    public GameObject BtnExtra;
+    [Description("ハードクエストのブックマーク表示用ボタン")]
+    public GameObject BtnEliteBookmark;
+    [Description("ユニットランキング表示ボタン")]
+    public GameObject BtnUnitRanking;
     private GameObject mDetailInfo;
     public ScrollRect ScrollRect;
     public GameObject AreaInfo;
     [FourCC]
     public int ListID;
     public GameObject ChapterTimer;
+    public GameObject BackButton;
     private ChapterParam mCurrentChapter;
     private QuestDifficulties mDifficultyFilter;
     private int mSetScrollPos;
@@ -58,37 +73,48 @@ namespace SRPG
 
     public void Activated(int pinID)
     {
-      if (!((Component) this).get_gameObject().get_activeInHierarchy())
-        return;
+      bool flag = false;
       switch (pinID)
       {
         case 0:
-          this.Refresh(QuestDifficulties.Normal);
+          flag = this.Refresh(QuestDifficulties.Normal);
           break;
         case 1:
-          this.Refresh(QuestDifficulties.Elite);
+          flag = this.Refresh(QuestDifficulties.Elite);
+          break;
+        case 2:
+          flag = this.Refresh(QuestDifficulties.Extra);
           break;
         case 10:
-          this.Refresh(this.PlayingDifficultiy());
+          flag = this.Refresh(this.PlayingDifficultiy());
           break;
       }
+      if (flag)
+        return;
+      FlowNode_GameObject.ActivateOutputLinks((Component) this, 104);
     }
 
     protected override void Start()
     {
       base.Start();
-      if (Object.op_Inequality((Object) this.ItemTemplate, (Object) null) && this.ItemTemplate.get_gameObject().get_activeInHierarchy())
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ItemTemplate, (UnityEngine.Object) null) && this.ItemTemplate.get_gameObject().get_activeInHierarchy())
         this.ItemTemplate.SetActive(false);
-      if (Object.op_Inequality((Object) this.SpecialQuestItem, (Object) null) && this.SpecialQuestItem.get_gameObject().get_activeInHierarchy())
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.SpecialQuestItem, (UnityEngine.Object) null) && this.SpecialQuestItem.get_gameObject().get_activeInHierarchy())
         this.SpecialQuestItem.SetActive(false);
-      if (Object.op_Inequality((Object) this.DetailTemplate, (Object) null) && this.DetailTemplate.get_gameObject().get_activeInHierarchy())
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ExtraQuestItem, (UnityEngine.Object) null) && this.ExtraQuestItem.get_gameObject().get_activeInHierarchy())
+        this.ExtraQuestItem.SetActive(false);
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.DetailTemplate, (UnityEngine.Object) null) && this.DetailTemplate.get_gameObject().get_activeInHierarchy())
         this.DetailTemplate.SetActive(false);
-      if (Object.op_Inequality((Object) this.ScenarioQuestItem, (Object) null) && this.ScenarioQuestItem.get_gameObject().get_activeInHierarchy())
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ScenarioQuestItem, (UnityEngine.Object) null) && this.ScenarioQuestItem.get_gameObject().get_activeInHierarchy())
         this.ScenarioQuestItem.SetActive(false);
-      if (Object.op_Inequality((Object) this.EliteQuestItem, (Object) null) && this.EliteQuestItem.get_gameObject().get_activeInHierarchy())
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.EliteQuestItem, (UnityEngine.Object) null) && this.EliteQuestItem.get_gameObject().get_activeInHierarchy())
         this.EliteQuestItem.SetActive(false);
-      if (Object.op_Inequality((Object) this.EliteQuestDisAbleItem, (Object) null) && this.EliteQuestDisAbleItem.get_gameObject().get_activeInHierarchy())
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.EliteQuestDisAbleItem, (UnityEngine.Object) null) && this.EliteQuestDisAbleItem.get_gameObject().get_activeInHierarchy())
         this.EliteQuestDisAbleItem.SetActive(false);
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.StoryExtraQuestItem, (UnityEngine.Object) null) && this.StoryExtraQuestItem.get_gameObject().get_activeInHierarchy())
+        this.StoryExtraQuestItem.SetActive(false);
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.StoryExtraQuestDisableItem, (UnityEngine.Object) null) && this.StoryExtraQuestDisableItem.get_gameObject().get_activeInHierarchy())
+        this.StoryExtraQuestDisableItem.SetActive(false);
       if (this.RefreshOnStart)
       {
         this.RefreshQuests();
@@ -116,7 +142,7 @@ namespace SRPG
       if (this.mListItemTemplates.ContainsKey(param.ItemLayout))
         return this.mListItemTemplates[param.ItemLayout];
       GameObject gameObject = AssetManager.Load<GameObject>("QuestListItems/" + param.ItemLayout);
-      if (Object.op_Inequality((Object) gameObject, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) gameObject, (UnityEngine.Object) null))
         this.mListItemTemplates.Add(param.ItemLayout, gameObject);
       return gameObject;
     }
@@ -125,32 +151,44 @@ namespace SRPG
     {
       base.OnDestroy();
       GameManager instanceDirect = MonoSingleton<GameManager>.GetInstanceDirect();
-      if (!Object.op_Inequality((Object) instanceDirect, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) instanceDirect, (UnityEngine.Object) null))
         return;
       instanceDirect.OnPlayerLvChange -= new GameManager.PlayerLvChangeEvent(this.RefreshItems);
     }
 
-    public int CountQuests(QuestDifficulties difficulty)
+    public bool ExistsQuest(QuestDifficulties difficulty)
     {
-      int num = 0;
-      for (int index = 0; index < this.mQuests.Count; ++index)
-      {
-        if (this.mQuests[index].difficulty == difficulty)
-          ++num;
-      }
-      return num;
+      return this.mQuests.Any<QuestParam>((Func<QuestParam, bool>) (q => q.difficulty == difficulty));
     }
 
-    public void Refresh(QuestDifficulties difficulty)
+    private bool Refresh(QuestDifficulties difficulty)
     {
-      this.RefreshQuests();
-      if (difficulty == QuestDifficulties.Elite && this.CountQuests(QuestDifficulties.Elite) <= 0)
+      if (GlobalVars.RankingQuestSelected)
+      {
+        GlobalVars.RankingQuestSelected = false;
+        if (!this.RefreshRankingQuests())
+          return false;
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BackButton, (UnityEngine.Object) null))
+          this.BackButton.SetActive(false);
+      }
+      else
+      {
+        if (!this.RefreshQuests())
+          return false;
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BackButton, (UnityEngine.Object) null))
+          this.BackButton.SetActive(true);
+      }
+      if (difficulty == QuestDifficulties.Normal && !this.ExistsQuest(QuestDifficulties.Normal))
+        difficulty = QuestDifficulties.Elite;
+      if (difficulty == QuestDifficulties.Elite && !this.ExistsQuest(QuestDifficulties.Elite))
+        difficulty = QuestDifficulties.Extra;
+      if (difficulty == QuestDifficulties.Extra && !this.ExistsQuest(QuestDifficulties.Extra))
         difficulty = QuestDifficulties.Normal;
       this.mDifficultyFilter = difficulty;
       GlobalVars.QuestDifficulty = difficulty;
       this.isTriggeredRefresh = true;
       this.RefreshItems();
-      if (Object.op_Inequality((Object) this.ScrollRect, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ScrollRect, (UnityEngine.Object) null))
       {
         this.ScrollRect.set_normalizedPosition(Vector2.get_one());
         if (HomeWindow.GetRestorePoint() == RestorePoints.QuestList && !string.IsNullOrEmpty(GlobalVars.LastPlayedQuest.Get()) && ((QuestStates) GlobalVars.LastQuestState == QuestStates.Cleared && QuestListV2.mScrollPosCache.ContainsKey(this.ListID)))
@@ -162,20 +200,35 @@ namespace SRPG
         }
       }
       this.RefreshButtons(difficulty);
-      if (Object.op_Inequality((Object) this.BtnElite, (Object) null))
-        this.BtnElite.SetActive(true);
-      if (!Object.op_Inequality((Object) this.BtnNormal, (Object) null))
-        return;
-      this.BtnNormal.SetActive(true);
-      if (this.mQuests.Count <= 0 || this.CountQuests(QuestDifficulties.Elite) > 0)
-        return;
-      ((Selectable) this.BtnNormal.GetComponentInChildren<Button>()).set_interactable(false);
-      ((Behaviour) this.BtnNormal.GetComponentInChildren<Button>()).set_enabled(false);
-      M0 componentInChildren = this.BtnNormal.GetComponentInChildren<Image>();
-      ColorBlock colors = ((Selectable) this.BtnNormal.GetComponentInChildren<Button>()).get_colors();
-      // ISSUE: explicit reference operation
-      Color normalColor = ((ColorBlock) @colors).get_normalColor();
-      ((Graphic) componentInChildren).set_color(normalColor);
+      switch (difficulty)
+      {
+        case QuestDifficulties.Normal:
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BtnNormal, (UnityEngine.Object) null) && !this.ExistsQuest(QuestDifficulties.Elite) && !this.ExistsQuest(QuestDifficulties.Extra))
+          {
+            this.BtnEliteBookmark.SetActive(false);
+            this.BtnUnitRanking.SetActive(true);
+            break;
+          }
+          break;
+        case QuestDifficulties.Elite:
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BtnElite, (UnityEngine.Object) null) && !this.ExistsQuest(QuestDifficulties.Extra) && !this.ExistsQuest(QuestDifficulties.Normal))
+          {
+            this.BtnEliteBookmark.SetActive(false);
+            this.BtnUnitRanking.SetActive(true);
+            break;
+          }
+          break;
+        default:
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BtnExtra, (UnityEngine.Object) null) && !this.ExistsQuest(QuestDifficulties.Normal) && !this.ExistsQuest(QuestDifficulties.Elite))
+          {
+            this.BtnExtra.SetActive(false);
+            this.BtnEliteBookmark.SetActive(false);
+            this.BtnUnitRanking.SetActive(true);
+            break;
+          }
+          break;
+      }
+      return true;
     }
 
     private bool HasEliteQuest(QuestParam q)
@@ -189,7 +242,7 @@ namespace SRPG
       return false;
     }
 
-    private void RefreshQuests()
+    private bool RefreshQuests()
     {
       this.mCurrentChapter = MonoSingleton<GameManager>.Instance.FindArea((string) GlobalVars.SelectedChapter);
       this.mQuests.Clear();
@@ -197,19 +250,60 @@ namespace SRPG
       for (int index = 0; index < availableQuests.Length; ++index)
       {
         QuestParam questParam = availableQuests[index];
-        if (!availableQuests[index].IsMulti && (this.ShowAllQuests || this.mCurrentChapter != null && !(this.mCurrentChapter.iname != questParam.ChapterID)) && questParam.IsDateUnlock(-1L))
+        if (!availableQuests[index].IsMulti && (this.ShowAllQuests || this.mCurrentChapter != null && !(this.mCurrentChapter.iname != questParam.ChapterID)))
+        {
+          if (this.mCurrentChapter.IsGpsQuest())
+          {
+            if (!questParam.gps_enable || questParam.type != QuestTypes.Gps)
+              continue;
+          }
+          else if (questParam.type == QuestTypes.Gps)
+            continue;
+          if (questParam.IsDateUnlock(-1L))
+            this.mQuests.Add(questParam);
+        }
+      }
+      this.RefreshChapterTimer();
+      return this.mQuests.Count > 0;
+    }
+
+    private bool RefreshRankingQuests()
+    {
+      List<RankingQuestParam> rankingQuesstParams = MonoSingleton<GameManager>.Instance.AvailableRankingQuesstParams;
+      List<QuestParam> questParamList = new List<QuestParam>();
+      for (int index = 0; index < rankingQuesstParams.Count; ++index)
+      {
+        // ISSUE: object of a compiler-generated type is created
+        // ISSUE: variable of a compiler-generated type
+        QuestListV2.\u003CRefreshRankingQuests\u003Ec__AnonStorey36C questsCAnonStorey36C = new QuestListV2.\u003CRefreshRankingQuests\u003Ec__AnonStorey36C();
+        // ISSUE: reference to a compiler-generated field
+        questsCAnonStorey36C.quest = MonoSingleton<GameManager>.Instance.FindQuest(rankingQuesstParams[index].iname);
+        // ISSUE: reference to a compiler-generated field
+        // ISSUE: reference to a compiler-generated method
+        if (questsCAnonStorey36C.quest != null && questParamList.Find(new Predicate<QuestParam>(questsCAnonStorey36C.\u003C\u003Em__3EF)) == null)
+        {
+          // ISSUE: reference to a compiler-generated field
+          questParamList.Add(questsCAnonStorey36C.quest);
+        }
+      }
+      this.mQuests.Clear();
+      for (int index = 0; index < questParamList.Count; ++index)
+      {
+        QuestParam questParam = questParamList[index];
+        if (!questParamList[index].IsMulti && questParam.type != QuestTypes.Gps && (questParam.IsDateUnlock(-1L) && questParam.IsQuestCondition()))
           this.mQuests.Add(questParam);
       }
       this.RefreshChapterTimer();
+      return this.mQuests.Count > 0;
     }
 
     private void RefreshItems()
     {
       Transform transform = ((Component) this).get_transform();
       this.ClearItems();
-      if (Object.op_Equality((Object) this.ItemTemplate, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.ItemTemplate, (UnityEngine.Object) null))
         return;
-      if (Object.op_Inequality((Object) this.AreaInfo, (Object) null) && !string.IsNullOrEmpty((string) GlobalVars.SelectedSection))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AreaInfo, (UnityEngine.Object) null) && !string.IsNullOrEmpty((string) GlobalVars.SelectedSection))
         DataSource.Bind<ChapterParam>(this.AreaInfo, MonoSingleton<GameManager>.Instance.FindArea((string) GlobalVars.SelectedSection));
       QuestParam[] array = this.mQuests.ToArray();
       if (this.Descending)
@@ -226,12 +320,15 @@ namespace SRPG
           GameObject gameObject1 = (GameObject) null;
           if (!string.IsNullOrEmpty(questParam.ItemLayout))
             gameObject1 = this.LoadQuestListItem(questParam);
-          if (Object.op_Equality((Object) gameObject1, (Object) null))
-            gameObject1 = questParam.difficulty != QuestDifficulties.Elite ? (!questParam.IsScenario ? (!Object.op_Inequality((Object) this.SpecialQuestItem, (Object) null) || !this.HasEliteQuest(questParam) ? (questParam.GetChallangeLimit() <= 0 ? this.ItemTemplate : this.EventTemplateLimit) : this.SpecialQuestItem) : this.ScenarioQuestItem) : (!questParam.CheckEnableChallange() ? this.EliteQuestDisAbleItem : this.EliteQuestItem);
-          if (!Object.op_Equality((Object) gameObject1, (Object) null))
+          if (UnityEngine.Object.op_Equality((UnityEngine.Object) gameObject1, (UnityEngine.Object) null))
+            gameObject1 = questParam.difficulty != QuestDifficulties.Elite ? (questParam.difficulty != QuestDifficulties.Extra ? (!questParam.IsScenario ? (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.SpecialQuestItem, (UnityEngine.Object) null) || !this.HasEliteQuest(questParam) ? (questParam.GetChallangeLimit() <= 0 ? (!questParam.IsExtra ? this.ItemTemplate : this.ExtraQuestItem) : this.EventTemplateLimit) : this.SpecialQuestItem) : this.ScenarioQuestItem) : (!questParam.CheckEnableChallange() ? this.StoryExtraQuestDisableItem : this.StoryExtraQuestItem)) : (!questParam.CheckEnableChallange() ? this.EliteQuestDisAbleItem : this.EliteQuestItem);
+          if (!UnityEngine.Object.op_Equality((UnityEngine.Object) gameObject1, (UnityEngine.Object) null))
           {
-            GameObject gameObject2 = (GameObject) Object.Instantiate<GameObject>((M0) gameObject1);
-            ((Object) gameObject2).set_hideFlags((HideFlags) 52);
+            GameObject gameObject2 = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) gameObject1);
+            ((UnityEngine.Object) gameObject2).set_hideFlags((HideFlags) 52);
+            DataSource.Bind<QuestParam>(gameObject2, questParam);
+            RankingQuestParam availableRankingQuest = MonoSingleton<GameManager>.Instance.FindAvailableRankingQuest(questParam.iname);
+            DataSource.Bind<RankingQuestParam>(gameObject2, availableRankingQuest);
             DataSource.Bind<QuestParam>(gameObject2, questParam);
             QuestCampaignData[] questCampaigns = MonoSingleton<GameManager>.Instance.FindQuestCampaigns(questParam);
             DataSource.Bind<QuestCampaignData[]>(gameObject2, questCampaigns.Length != 0 ? questCampaigns : (QuestCampaignData[]) null);
@@ -255,7 +352,7 @@ namespace SRPG
 
     private void RefreshChapterTimer()
     {
-      if (!Object.op_Inequality((Object) this.ChapterTimer, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ChapterTimer, (UnityEngine.Object) null))
         return;
       bool flag = false;
       if (this.mCurrentChapter != null)
@@ -284,25 +381,56 @@ namespace SRPG
 
     private void RefreshButtons(QuestDifficulties difficulty)
     {
-      if (Object.op_Equality((Object) null, (Object) this.BtnNormal) || Object.op_Equality((Object) null, (Object) this.BtnElite))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) null, (UnityEngine.Object) this.BtnNormal) || UnityEngine.Object.op_Equality((UnityEngine.Object) null, (UnityEngine.Object) this.BtnElite) || UnityEngine.Object.op_Equality((UnityEngine.Object) null, (UnityEngine.Object) this.BtnExtra))
         return;
+      this.BtnNormal.SetActive(true);
+      this.BtnElite.SetActive(true);
       switch (difficulty)
       {
         case QuestDifficulties.Normal:
-          ((Selectable) this.BtnNormal.GetComponentInChildren<Button>()).set_interactable(true);
-          ((Selectable) this.BtnElite.GetComponentInChildren<Button>()).set_interactable(false);
+          this.BtnUnitRanking.SetActive(true);
+          this.BtnEliteBookmark.SetActive(false);
+          ((Selectable) this.BtnNormal.GetComponent<Button>()).set_interactable(false);
+          ((Behaviour) this.BtnNormal.GetComponent<Button>()).set_enabled(false);
+          M0 component1 = this.BtnNormal.GetComponent<Image>();
+          ColorBlock colors1 = ((Selectable) this.BtnNormal.GetComponent<Button>()).get_colors();
+          // ISSUE: explicit reference operation
+          Color normalColor1 = ((ColorBlock) @colors1).get_normalColor();
+          ((Graphic) component1).set_color(normalColor1);
+          ((Selectable) this.BtnElite.GetComponent<Button>()).set_interactable(true);
+          ((Behaviour) this.BtnElite.GetComponent<Button>()).set_enabled(true);
+          M0 component2 = this.BtnElite.GetComponent<Image>();
+          ColorBlock colors2 = ((Selectable) this.BtnElite.GetComponent<Button>()).get_colors();
+          // ISSUE: explicit reference operation
+          Color pressedColor1 = ((ColorBlock) @colors2).get_pressedColor();
+          ((Graphic) component2).set_color(pressedColor1);
           break;
         case QuestDifficulties.Elite:
-          ((Selectable) this.BtnNormal.GetComponentInChildren<Button>()).set_interactable(false);
-          ((Selectable) this.BtnElite.GetComponentInChildren<Button>()).set_interactable(true);
+          this.BtnUnitRanking.SetActive(false);
+          this.BtnEliteBookmark.SetActive(true);
+          ((Selectable) this.BtnNormal.GetComponentInChildren<Button>()).set_interactable(true);
+          ((Behaviour) this.BtnNormal.GetComponentInChildren<Button>()).set_enabled(true);
+          M0 component3 = this.BtnNormal.GetComponent<Image>();
+          ColorBlock colors3 = ((Selectable) this.BtnNormal.GetComponent<Button>()).get_colors();
+          // ISSUE: explicit reference operation
+          Color pressedColor2 = ((ColorBlock) @colors3).get_pressedColor();
+          ((Graphic) component3).set_color(pressedColor2);
+          ((Selectable) this.BtnElite.GetComponentInChildren<Button>()).set_interactable(false);
+          ((Behaviour) this.BtnElite.GetComponentInChildren<Button>()).set_enabled(false);
+          M0 component4 = this.BtnElite.GetComponent<Image>();
+          ColorBlock colors4 = ((Selectable) this.BtnElite.GetComponent<Button>()).get_colors();
+          // ISSUE: explicit reference operation
+          Color normalColor2 = ((ColorBlock) @colors4).get_normalColor();
+          ((Graphic) component4).set_color(normalColor2);
           break;
       }
     }
 
     private void OnSelectItem(GameObject go)
     {
-      if (Object.op_Inequality((Object) this.ScrollRect, (Object) null) && this.ListID != 0)
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ScrollRect, (UnityEngine.Object) null) && this.ListID != 0)
         QuestListV2.mScrollPosCache[this.ListID] = this.ScrollRect.get_verticalNormalizedPosition();
+      GlobalVars.SelectedRankingQuestParam = DataSource.FindDataOfClass<RankingQuestParam>(go, (RankingQuestParam) null);
       QuestParam dataOfClass = DataSource.FindDataOfClass<QuestParam>(go, (QuestParam) null);
       if (dataOfClass == null)
         return;
@@ -331,8 +459,8 @@ namespace SRPG
             {
               (object) dataOfClass.aplv
             }));
-          FlowNode_OnQuestSelect objectOfType = (FlowNode_OnQuestSelect) Object.FindObjectOfType<FlowNode_OnQuestSelect>();
-          if (!Object.op_Inequality((Object) objectOfType, (Object) null))
+          FlowNode_OnQuestSelect objectOfType = (FlowNode_OnQuestSelect) UnityEngine.Object.FindObjectOfType<FlowNode_OnQuestSelect>();
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) objectOfType, (UnityEngine.Object) null))
             return;
           objectOfType.Selected();
         }
@@ -346,18 +474,18 @@ namespace SRPG
 
     private void OnCloseItemDetail(GameObject go)
     {
-      if (!Object.op_Inequality((Object) this.mDetailInfo, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mDetailInfo, (UnityEngine.Object) null))
         return;
-      Object.DestroyImmediate((Object) this.mDetailInfo.get_gameObject());
+      UnityEngine.Object.DestroyImmediate((UnityEngine.Object) this.mDetailInfo.get_gameObject());
       this.mDetailInfo = (GameObject) null;
     }
 
     private void OnOpenItemDetail(GameObject go)
     {
       QuestParam dataOfClass = DataSource.FindDataOfClass<QuestParam>(go, (QuestParam) null);
-      if (!Object.op_Equality((Object) this.mDetailInfo, (Object) null) || dataOfClass == null)
+      if (!UnityEngine.Object.op_Equality((UnityEngine.Object) this.mDetailInfo, (UnityEngine.Object) null) || dataOfClass == null)
         return;
-      this.mDetailInfo = (GameObject) Object.Instantiate<GameObject>((M0) this.DetailTemplate);
+      this.mDetailInfo = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.DetailTemplate);
       DataSource.Bind<QuestParam>(this.mDetailInfo, dataOfClass);
       QuestCampaignData[] questCampaigns = MonoSingleton<GameManager>.Instance.FindQuestCampaigns(dataOfClass);
       DataSource.Bind<QuestCampaignData[]>(this.mDetailInfo, questCampaigns.Length != 0 ? questCampaigns : (QuestCampaignData[]) null);

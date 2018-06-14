@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: FlowNode
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -14,8 +14,8 @@ public abstract class FlowNode : MonoBehaviour
 {
   public const int DefaultNodeColor = 32741;
   public const int ListenerNodeColor = 58751;
-  [HideInInspector]
-  public Vector2 Position;
+  private string[] mLastKnownSimpleLines;
+  private string[] mLastKnownDetailedLines;
   [HideInInspector]
   public FlowNode.Link[] OutputLinks;
 
@@ -57,6 +57,31 @@ public abstract class FlowNode : MonoBehaviour
 
   public virtual string[] GetInfoLines()
   {
+    return this.mLastKnownSimpleLines;
+  }
+
+  public string[] GetInfoLinesInDetail()
+  {
+    return this.mLastKnownDetailedLines;
+  }
+
+  private List<string> GetDetailedInfoLines()
+  {
+    List<FieldInfo> fieldsExcludingLinks = FlowNode.GetFlowNodeEditableFieldsExcludingLinks((object) this);
+    List<string> stringList = new List<string>();
+    for (int index = 0; index < fieldsExcludingLinks.Count; ++index)
+    {
+      object obj = fieldsExcludingLinks[index].GetValue((object) this);
+      string str = string.Empty;
+      if (obj != null)
+        str = !obj.GetType().IsSubclassOf(typeof (Object)) || !Object.op_Inequality((Object) obj, (Object) null) ? obj.ToString() : ((Object) obj).get_name();
+      stringList.Add(fieldsExcludingLinks[index].Name + ": [" + str + "]");
+    }
+    return stringList;
+  }
+
+  private List<string> GetSimpleInfoLines()
+  {
     FieldInfo[] fields = ((object) this).GetType().GetFields();
     List<string> stringList = new List<string>();
     for (int index = 0; index < fields.Length; ++index)
@@ -75,7 +100,7 @@ public abstract class FlowNode : MonoBehaviour
         }
       }
     }
-    return stringList.ToArray();
+    return stringList;
   }
 
   protected virtual void Awake()
@@ -150,7 +175,7 @@ public abstract class FlowNode : MonoBehaviour
       srcPin = destPin;
       destPin = pin;
     }
-    for (int index = 0; index < this.OutputLinks.Length; ++index)
+    for (int index = 0; index < flowNode1.OutputLinks.Length; ++index)
     {
       if (flowNode1.OutputLinks[index].SrcPinID == srcPin.PinID && Object.op_Equality((Object) flowNode1.OutputLinks[index].Dest, (Object) flowNode2) && flowNode1.OutputLinks[index].DestPinID == destPin.PinID)
         return;
@@ -188,6 +213,28 @@ public abstract class FlowNode : MonoBehaviour
   public virtual bool OnDragPerform(object[] objectReferences)
   {
     return false;
+  }
+
+  private static List<FieldInfo> GetFlowNodeEditableFieldsExcludingLinks(object obj)
+  {
+    List<FieldInfo> fieldInfoList1 = new List<FieldInfo>((IEnumerable<FieldInfo>) obj.GetType().GetFields());
+    List<FieldInfo> fieldInfoList2 = new List<FieldInfo>((IEnumerable<FieldInfo>) obj.GetType().GetFields(BindingFlags.Instance | BindingFlags.NonPublic));
+    fieldInfoList1.RemoveAll((Predicate<FieldInfo>) (fInfo =>
+    {
+      if (!fInfo.IsNotSerialized && !fInfo.Name.Equals("Position"))
+        return fInfo.Name.Equals("OutputLinks");
+      return true;
+    }));
+    fieldInfoList2.RemoveAll((Predicate<FieldInfo>) (fInfo =>
+    {
+      if (fInfo.GetCustomAttributes(typeof (FlowNode.ShowInInfo), true).Length == 0)
+        return fInfo.GetCustomAttributes(typeof (SerializeField), true).Length == 0;
+      return false;
+    }));
+    List<FieldInfo> fieldInfoList3 = new List<FieldInfo>();
+    fieldInfoList3.AddRange((IEnumerable<FieldInfo>) fieldInfoList1);
+    fieldInfoList3.AddRange((IEnumerable<FieldInfo>) fieldInfoList2);
+    return fieldInfoList3;
   }
 
   public enum PinTypes
@@ -281,5 +328,20 @@ public abstract class FlowNode : MonoBehaviour
     public FlowNode Dest;
     public int SrcPinID;
     public int DestPinID;
+
+    public override string ToString()
+    {
+      return string.Format("[Link] Dest: {0}, SrcPinID: {1}, DestPinID: {2}", (object) this.Dest, (object) this.SrcPinID, (object) this.DestPinID);
+    }
+
+    public override bool Equals(object inObj)
+    {
+      if (inObj == null || !(inObj is FlowNode.Link))
+        return false;
+      FlowNode.Link link = (FlowNode.Link) inObj;
+      if (((object) this.Dest).GetType().Equals(((object) link.Dest).GetType()) && this.SrcPinID.Equals(link.SrcPinID))
+        return this.DestPinID.Equals(link.DestPinID);
+      return false;
+    }
   }
 }

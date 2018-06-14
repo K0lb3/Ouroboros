@@ -1,22 +1,22 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: FlowNode_AnimatorPoll
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using UnityEngine;
 
 [FlowNode.Pin(2, "NoAnim", FlowNode.PinTypes.Output, 3)]
+[FlowNode.Pin(1, "Output", FlowNode.PinTypes.Output, 2)]
+[FlowNode.Pin(11, "Cancel", FlowNode.PinTypes.Input, 1)]
 [FlowNode.NodeType("Animator/Poll", 32741)]
 [FlowNode.Pin(10, "Start", FlowNode.PinTypes.Input, 0)]
-[FlowNode.Pin(11, "Cancel", FlowNode.PinTypes.Input, 1)]
-[FlowNode.Pin(1, "Output", FlowNode.PinTypes.Output, 2)]
 public class FlowNode_AnimatorPoll : FlowNode
 {
   [FlowNode.ShowInInfo]
   public string StateName = string.Empty;
-  [FlowNode.ShowInInfo]
   [FlowNode.DropTarget(typeof (GameObject), true)]
+  [FlowNode.ShowInInfo]
   public GameObject Target;
   private Animator mAnimator;
 
@@ -41,6 +41,11 @@ public class FlowNode_AnimatorPoll : FlowNode
     {
       ((Behaviour) this).set_enabled(false);
       this.ActivateOutputLinks(2);
+    }
+    else if (Object.op_Equality((Object) this.mAnimator.get_runtimeAnimatorController(), (Object) null) || this.mAnimator.get_runtimeAnimatorController().get_animationClips() == null || this.mAnimator.get_runtimeAnimatorController().get_animationClips().Length == 0)
+    {
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(1);
     }
     else
     {

@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.UnitAttackRangeWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -28,9 +28,9 @@ namespace SRPG
 
     private void Start()
     {
-      if (Object.op_Inequality((Object) this.RangeTemplate, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RangeTemplate, (UnityEngine.Object) null))
         this.RangeTemplate.SetActive(false);
-      if (Object.op_Inequality((Object) this.SpaceTemplate, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.SpaceTemplate, (UnityEngine.Object) null))
         this.SpaceTemplate.SetActive(false);
       UnitData unitDataByUniqueId = MonoSingleton<GameManager>.Instance.Player.FindUnitDataByUniqueID((long) GlobalVars.SelectedUnitUniqueID);
       if (unitDataByUniqueId == null)
@@ -54,7 +54,7 @@ namespace SRPG
         int attackRangeMin = unitDataByUniqueId.GetAttackRangeMin(attackSkill);
         ESelectType selectRange = attackSkill.SkillParam.select_range;
         GridLayoutGroup component1 = (GridLayoutGroup) ((Component) this.Parent).GetComponent<GridLayoutGroup>();
-        if (Object.op_Equality((Object) component1, (Object) null))
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) component1, (UnityEngine.Object) null))
         {
           DebugUtility.Log("Parent is not attachment GridLayoutGroup");
         }
@@ -66,31 +66,31 @@ namespace SRPG
             component1.set_cellSize(new Vector2((float) this.BlockSize, (float) this.BlockSize));
             component1.set_spacing(new Vector2(5f, 5f));
           }
-          int num = component1.get_constraintCount() / 2;
+          int num1 = component1.get_constraintCount() / 2;
           List<string> stringList1 = new List<string>();
           List<string> stringList2;
           switch (selectRange)
           {
             case ESelectType.Diamond:
-              stringList2 = this.GetDiamondRange(new Vector2((float) num, (float) num), attackRangeMin, attackRangeMax);
+              stringList2 = this.GetDiamondRange(new Vector2((float) num1, (float) num1), attackRangeMin, attackRangeMax);
               break;
             case ESelectType.Square:
-              stringList2 = this.GetSquareRange(new Vector2((float) num, (float) num), attackRangeMin, attackRangeMax);
+              stringList2 = this.GetSquareRange(new Vector2((float) num1, (float) num1), attackRangeMin, attackRangeMax);
               break;
             case ESelectType.Laser:
-              stringList2 = this.GetLaserRange(new Vector2((float) num, (float) num), attackRangeMin, attackRangeMax);
+              stringList2 = this.GetLaserRange(new Vector2((float) num1, (float) num1), attackRangeMin, attackRangeMax);
               break;
             case ESelectType.All:
-              stringList2 = this.GetAllRange(new Vector2((float) num, (float) num), attackRangeMin, attackRangeMax);
+              stringList2 = this.GetAllRange(new Vector2((float) num1, (float) num1), attackRangeMin, attackRangeMax);
               break;
             case ESelectType.Bishop:
-              stringList2 = this.GetBishopRange(new Vector2((float) num, (float) num), attackRangeMin, attackRangeMax);
+              stringList2 = this.GetBishopRange(new Vector2((float) num1, (float) num1), attackRangeMin, attackRangeMax);
               break;
             case ESelectType.Horse:
-              stringList2 = this.GetHorseRange(new Vector2((float) num, (float) num), attackRangeMin, attackRangeMax);
+              stringList2 = this.GetHorseRange(new Vector2((float) num1, (float) num1), attackRangeMin, attackRangeMax);
               break;
             default:
-              stringList2 = this.GetCrossRange(new Vector2((float) num, (float) num), attackRangeMin, attackRangeMax);
+              stringList2 = this.GetCrossRange(new Vector2((float) num1, (float) num1), attackRangeMin, attackRangeMax);
               break;
           }
           for (int index1 = 0; index1 < component1.get_constraintCount(); ++index1)
@@ -99,24 +99,30 @@ namespace SRPG
             {
               string str = index2.ToString() + "," + index1.ToString();
               GameObject gameObject1 = this.SpaceTemplate;
-              if (stringList2.IndexOf(str) != -1 || index2 == num && index1 == num)
+              if (stringList2.IndexOf(str) != -1 || index2 == num1 && index1 == num1)
                 gameObject1 = this.RangeTemplate;
-              GameObject gameObject2 = (GameObject) Object.Instantiate<GameObject>((M0) gameObject1);
+              GameObject gameObject2 = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) gameObject1);
               gameObject2.get_transform().SetParent(this.Parent, false);
-              ((Object) gameObject2).set_name("Grid" + index2.ToString() + "-" + index1.ToString());
+              ((UnityEngine.Object) gameObject2).set_name("Grid" + index2.ToString() + "-" + index1.ToString());
               gameObject2.SetActive(true);
-              if (!Object.op_Equality((Object) gameObject1, (Object) this.SpaceTemplate))
+              if (!UnityEngine.Object.op_Equality((UnityEngine.Object) gameObject1, (UnityEngine.Object) this.SpaceTemplate))
               {
                 Image component2 = (Image) gameObject2.GetComponent<Image>();
-                if (index2 == num && index1 == num)
+                if (index2 == num1 && index1 == num1)
                   ((Graphic) component2).set_color(Color32.op_Implicit(new Color32((byte) 0, byte.MaxValue, byte.MaxValue, byte.MaxValue)));
                 else
                   ((Graphic) component2).set_color(Color32.op_Implicit(new Color32(byte.MaxValue, (byte) 0, (byte) 0, byte.MaxValue)));
               }
             }
           }
-          string str1 = LocalizedText.Get("sys.MINMAX_VALUE", (object) attackRangeMin.ToString(), (object) attackRangeMax.ToString());
-          if (!Object.op_Inequality((Object) this.RangeMinMax, (Object) null))
+          int num2 = attackRangeMin + 1;
+          string str1 = LocalizedText.Get("sys.TEXT_RANGE_DEFAULT", (object) num2.ToString(), (object) attackRangeMax.ToString());
+          if (num2 == attackRangeMax)
+            str1 = LocalizedText.Get("sys.TEXT_RANGE_MINMAX_EQUAL", new object[1]
+            {
+              (object) attackRangeMax
+            });
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RangeMinMax, (UnityEngine.Object) null))
             return;
           this.RangeMinMax.set_text(str1);
         }
@@ -146,7 +152,7 @@ namespace SRPG
       {
         for (int index2 = -max; index2 <= max; ++index2)
         {
-          if (Math.Abs(index2) + Math.Abs(index1) <= max && (min <= 0 || max <= 0 || Math.Abs(-index2) + Math.Abs(-index1) >= min))
+          if (Math.Abs(index2) + Math.Abs(index1) <= max && (min <= 0 || max <= 0 || Math.Abs(-index2) + Math.Abs(-index1) > min))
           {
             string str = ((float) target.x + (float) index2).ToString() + "," + ((float) target.y + (float) index1).ToString();
             stringList.Add(str);

@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_LoginMethod
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using Facebook.MiniJSON;
@@ -12,18 +12,18 @@ using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.Pin(16, "FB Already Linked", FlowNode.PinTypes.Output, 16)]
-  [FlowNode.Pin(0, "Guest Login", FlowNode.PinTypes.Input, 0)]
-  [FlowNode.Pin(1, "FB Login", FlowNode.PinTypes.Input, 1)]
-  [FlowNode.Pin(2, "FB Invite", FlowNode.PinTypes.Input, 2)]
-  [FlowNode.Pin(10, "Guest Login Success", FlowNode.PinTypes.Output, 10)]
   [FlowNode.Pin(11, "Guest Login Failed", FlowNode.PinTypes.Output, 11)]
   [FlowNode.Pin(12, "FB Login Success", FlowNode.PinTypes.Output, 12)]
   [FlowNode.Pin(13, "FB Login Failed", FlowNode.PinTypes.Output, 13)]
   [FlowNode.Pin(14, "Register FB To Device", FlowNode.PinTypes.Output, 14)]
   [FlowNode.Pin(15, "No Account", FlowNode.PinTypes.Output, 15)]
+  [FlowNode.Pin(16, "FB Already Linked", FlowNode.PinTypes.Output, 16)]
   [FlowNode.Pin(17, "Linked with other FB", FlowNode.PinTypes.Output, 17)]
   [FlowNode.Pin(18, "Logged out", FlowNode.PinTypes.Output, 18)]
+  [FlowNode.Pin(10, "Guest Login Success", FlowNode.PinTypes.Output, 10)]
+  [FlowNode.Pin(2, "FB Invite", FlowNode.PinTypes.Input, 2)]
+  [FlowNode.Pin(1, "FB Login", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(0, "Guest Login", FlowNode.PinTypes.Input, 0)]
   [FlowNode.NodeType("Network/Login_Method", 32741)]
   public class FlowNode_LoginMethod : FlowNode_Network
   {
@@ -103,7 +103,7 @@ namespace SRPG
     {
       this.Status = "Success - Check log for details";
       this.LastResponse = "Success Response: OnInitComplete Called\n";
-      Debug.LogError((object) string.Format("OnInitCompleteCalled IsLoggedIn='{0}' IsInitialized='{1}'", (object) FB.get_IsLoggedIn(), (object) FB.get_IsInitialized()));
+      string.Format("OnInitCompleteCalled IsLoggedIn='{0}' IsInitialized='{1}'", (object) FB.get_IsLoggedIn(), (object) FB.get_IsInitialized());
       this.CallFBLogin();
       this.Status = "Login called";
     }
@@ -112,7 +112,6 @@ namespace SRPG
     {
       this.Status = "Success - Check log for details";
       this.LastResponse = string.Format("Success Response: OnHideUnity Called {0}\n", (object) isGameShown);
-      Debug.Log((object) ("Is game shown: " + (object) isGameShown));
     }
 
     protected void HandleResult(IResult result)

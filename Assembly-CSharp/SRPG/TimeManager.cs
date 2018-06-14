@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.TimeManager
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -18,6 +18,7 @@ namespace SRPG
     public static long UTC2PST = 28800;
     public static readonly int DEFAULT_FRAME_RATE = 30;
     public static readonly float FPS = 1f / (float) TimeManager.DEFAULT_FRAME_RATE;
+    public static readonly string ISO_8601_FORMAT = "yyyy-MM-ddTHH:mm:ss.fffZ";
     private float mTimeScale = 1f;
     private float[] mTimeScales = new float[3]{ 1f, 1f, 1f };
     private float mDeltaTime;
@@ -100,7 +101,7 @@ namespace SRPG
     {
       if (!GameUtility.IsDebugBuild)
         Application.set_targetFrameRate(TimeManager.DEFAULT_FRAME_RATE);
-      Object.DontDestroyOnLoad((Object) this);
+      UnityEngine.Object.DontDestroyOnLoad((UnityEngine.Object) this);
     }
 
     private void Update()
@@ -174,6 +175,12 @@ namespace SRPG
       {
         return TimeManager.FromUnixTime(Network.GetServerTime());
       }
+    }
+
+    public static long GetUnixSec(DateTime targetTime)
+    {
+      targetTime = targetTime.ToUniversalTime();
+      return (long) (targetTime - TimeManager.UNIX_EPOCH).TotalSeconds;
     }
 
     public enum TimeScaleGroups

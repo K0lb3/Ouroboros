@@ -1,12 +1,13 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.GlobalVars
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using UnityEngine;
 
 namespace SRPG
 {
@@ -14,16 +15,20 @@ namespace SRPG
   {
     public static int BanStatus = 0;
     public static string CustomerID = string.Empty;
+    public static Vector2 Location = Vector2.get_zero();
     public static Dictionary<string, int> UsedArtifactExpItems = new Dictionary<string, int>();
     public static List<long> SellArtifactsList = new List<long>();
     public static List<long> ConvertArtifactsList = new List<long>();
     public static GlobalVars.GlobalVar<int> SelectedEquipmentSlot = new GlobalVars.GlobalVar<int>(-1);
+    public static List<ItemParam> SelectedItemParamTree = new List<ItemParam>();
     public static List<EventShopListItem> EventShopListItems = new List<EventShopListItem>();
     public static GlobalVars.CoinListSelectionType SelectionCoinListType = GlobalVars.CoinListSelectionType.None;
     public static Dictionary<long, int> AbilitiesRankUp = new Dictionary<long, int>();
     public static Dictionary<string, int> UsedUnitExpItems = new Dictionary<string, int>();
-    [GlobalVars.ResetOnLogin]
+    public static bool MultiInvitaionFlag = false;
+    public static string MultiInvitaionComment = string.Empty;
     public static GlobalVars.GlobalVar<int> CurrentChatChannel = new GlobalVars.GlobalVar<int>(-1);
+    public static long mDropTableGeneratedUnixTime = 0;
     [GlobalVars.ResetOnLogin]
     public static GlobalVars.GlobalVar<bool> IsEventShopOpen = new GlobalVars.GlobalVar<bool>(false);
     [GlobalVars.ResetOnLogin]
@@ -104,19 +109,32 @@ namespace SRPG
     public static VERSUS_TYPE SelectedMultiPlayVersusType;
     public static string MultiPlayVersusKey;
     public static bool VersusRoomReuse;
+    public static bool SelectedMultiPlayLimit;
+    public static bool MultiPlayClearOnly;
+    public static int MultiPlayJoinUnitLv;
+    public static string SelectedMultiTowerID;
+    public static int SelectedMultiTowerFloor;
+    public static bool CreateAutoMultiTower;
+    public static bool InvtationSameUser;
     public static GlobalVars.EMultiPlayContinue SelectedMultiPlayContinue;
     public static BattleCore.Json_BattleCont MultiPlayBattleCont;
     public static QuestDifficulties QuestDifficulty;
     public static int ResumeMultiplayPlayerID;
     public static int ResumeMultiplaySeatID;
+    public static int MultiInvitation;
+    public static string MultiInvitationRoomOwner;
+    public static bool MultiInvitationRoomLocked;
     public static int SelectedMultiPlayRoomID;
     public static string SelectedMultiPlayPhotonAppID;
+    public static int SelectedTowerMultiPartyIndex;
     public static string SelectedProductID;
     public static string SelectedProductPrice;
     public static string SelectedProductIcon;
     public static int EditedYear;
     public static int EditedMonth;
     public static int EditedDay;
+    public static int BeforeCoin;
+    public static int AfterCoin;
     public static bool IsTutorialEnd;
     public static bool DebugIsPlayTutorial;
     public static string PubHash;
@@ -140,9 +158,16 @@ namespace SRPG
     public static GlobalVars.GlobalVar<long> SelectedSupportUnitUniqueID;
     public static ItemSelectListItemData ItemSelectListItemData;
     public static ArtifactSelectListItemData ArtifactListItem;
+    public static string[] ConditionJobs;
     public static CollaboSkillParam.Pair SelectedCollaboSkillPair;
+    public static string TeamName;
+    public static GlobalVars.UserSelectionPartyData UserSelectionPartyDataInfo;
+    public static bool PartyUploadFinished;
+    public static bool RankingQuestSelected;
+    public static RankingQuestParam SelectedRankingQuestParam;
     public static TrophyType SelectedTrophyType;
     public static GlobalVars.PurchaseType SelectedPurchaseType;
+    public static GlobalVars.RecommendTeamSetting RecommendTeamSettingValue;
     public static string OAuth2AccessToken;
     public static string NewPlayerName;
     public static string NewPlayerLevel;
@@ -160,6 +185,21 @@ namespace SRPG
         if (interfaces != null && Array.IndexOf<System.Type>(interfaces, typeof (GlobalVars.IGlobalVar)) >= 0 && fields[index].GetValue((object) null) == null)
           fields[index].SetValue((object) null, Activator.CreateInstance(fields[index].FieldType));
       }
+    }
+
+    public static void SetDropTableGeneratedTime()
+    {
+      GlobalVars.mDropTableGeneratedUnixTime = Network.GetServerTime();
+    }
+
+    public static long GetDropTableGeneratedUnixTime()
+    {
+      return GlobalVars.mDropTableGeneratedUnixTime;
+    }
+
+    public static DateTime GetDropTableGeneratedDateTime()
+    {
+      return TimeManager.FromUnixTime(GlobalVars.mDropTableGeneratedUnixTime);
     }
 
     public static void ResetVarsWithAttribute(System.Type attrType)
@@ -204,6 +244,9 @@ namespace SRPG
     {
       EventQuest,
       KeyQuest,
+      Tower,
+      RankingQuest,
+      BeginnerQuest,
     }
 
     public enum PurchaseType
@@ -215,6 +258,44 @@ namespace SRPG
     public interface IGlobalVar
     {
       void Reset();
+    }
+
+    public enum RecommendType
+    {
+      Total,
+      Attack,
+      Defence,
+      Magic,
+      Mind,
+      Speed,
+      AttackTypeSlash,
+      AttackTypeStab,
+      AttackTypeBlow,
+      AttackTypeShot,
+      AttackTypeMagic,
+      AttackTypeNone,
+      Hp,
+    }
+
+    public class UserSelectionPartyData
+    {
+      public UnitData[] unitData;
+      public SupportData supportData;
+      public int[] achievements;
+      public ItemData[] usedItems;
+    }
+
+    [Serializable]
+    public class RecommendTeamSetting
+    {
+      public GlobalVars.RecommendType recommendedType;
+      public EElement recommendedElement;
+
+      public RecommendTeamSetting(GlobalVars.RecommendType type, EElement elem)
+      {
+        this.recommendedType = type;
+        this.recommendedElement = elem;
+      }
     }
 
     public class GlobalVar<T> : GlobalVars.IGlobalVar

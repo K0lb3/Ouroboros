@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: Win_Btn_DecideCancel_FL_Check_C
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -45,11 +45,11 @@ public class Win_Btn_DecideCancel_FL_Check_C : UIDraft
     if (this.ConfirmID != null && this.ConfirmID.Length > 0)
     {
       int num1 = 0;
-      if (PlayerPrefs.HasKey(this.ConfirmID))
-        num1 = PlayerPrefs.GetInt(this.ConfirmID);
+      if (PlayerPrefsUtility.HasKey(this.ConfirmID))
+        num1 = PlayerPrefsUtility.GetInt(this.ConfirmID, 0);
       int num2 = !this.Toggle.get_isOn() ? 0 : 1;
       if (num1 != num2)
-        PlayerPrefs.SetInt(this.ConfirmID, num2);
+        PlayerPrefsUtility.SetInt(this.ConfirmID, num2, false);
     }
     if (flag)
     {

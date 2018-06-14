@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.UnitCharacterQuestWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -56,21 +56,21 @@ namespace SRPG
 
     private void Start()
     {
-      if (Object.op_Inequality((Object) this.StoryQuestItemTemplate, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.StoryQuestItemTemplate, (UnityEngine.Object) null))
         this.StoryQuestItemTemplate.get_gameObject().SetActive(false);
       if (this.IsRestore)
       {
         // ISSUE: object of a compiler-generated type is created
         // ISSUE: variable of a compiler-generated type
-        UnitCharacterQuestWindow.\u003CStart\u003Ec__AnonStorey27D startCAnonStorey27D = new UnitCharacterQuestWindow.\u003CStart\u003Ec__AnonStorey27D();
+        UnitCharacterQuestWindow.\u003CStart\u003Ec__AnonStorey389 startCAnonStorey389 = new UnitCharacterQuestWindow.\u003CStart\u003Ec__AnonStorey389();
         // ISSUE: reference to a compiler-generated field
-        startCAnonStorey27D.lastQuestName = GlobalVars.LastPlayedQuest.Get();
+        startCAnonStorey389.lastQuestName = GlobalVars.LastPlayedQuest.Get();
         // ISSUE: reference to a compiler-generated field
         // ISSUE: reference to a compiler-generated field
-        if (startCAnonStorey27D.lastQuestName != null && !string.IsNullOrEmpty(startCAnonStorey27D.lastQuestName))
+        if (startCAnonStorey389.lastQuestName != null && !string.IsNullOrEmpty(startCAnonStorey389.lastQuestName))
         {
           // ISSUE: reference to a compiler-generated method
-          QuestParam questParam = Array.Find<QuestParam>(MonoSingleton<GameManager>.Instance.Quests, new Predicate<QuestParam>(startCAnonStorey27D.\u003C\u003Em__305));
+          QuestParam questParam = Array.Find<QuestParam>(MonoSingleton<GameManager>.Instance.Quests, new Predicate<QuestParam>(startCAnonStorey389.\u003C\u003Em__436));
           if (questParam != null && !string.IsNullOrEmpty(questParam.ChapterID))
             this.mIsStoryList = !(questParam.world == this.PieceQuestWorldId);
         }
@@ -87,44 +87,45 @@ namespace SRPG
       QuestParam[] availableQuests = MonoSingleton<GameManager>.Instance.Player.AvailableQuests;
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      UnitCharacterQuestWindow.\u003CCreateStoryList\u003Ec__AnonStorey27E listCAnonStorey27E = new UnitCharacterQuestWindow.\u003CCreateStoryList\u003Ec__AnonStorey27E();
+      UnitCharacterQuestWindow.\u003CCreateStoryList\u003Ec__AnonStorey38A listCAnonStorey38A = new UnitCharacterQuestWindow.\u003CCreateStoryList\u003Ec__AnonStorey38A();
       // ISSUE: reference to a compiler-generated field
-      listCAnonStorey27E.\u003C\u003Ef__this = this;
+      listCAnonStorey38A.\u003C\u003Ef__this = this;
       // ISSUE: reference to a compiler-generated field
       // ISSUE: reference to a compiler-generated field
       // ISSUE: reference to a compiler-generated field
-      for (listCAnonStorey27E.i = 0; listCAnonStorey27E.i < this.mQuestList.Count; ++listCAnonStorey27E.i)
+      for (listCAnonStorey38A.i = 0; listCAnonStorey38A.i < this.mQuestList.Count; ++listCAnonStorey38A.i)
       {
         // ISSUE: reference to a compiler-generated field
-        bool flag1 = this.mQuestList[listCAnonStorey27E.i].IsDateUnlock(-1L);
+        bool flag1 = this.mQuestList[listCAnonStorey38A.i].IsDateUnlock(-1L);
         // ISSUE: reference to a compiler-generated method
-        bool flag2 = Array.Find<QuestParam>(availableQuests, new Predicate<QuestParam>(listCAnonStorey27E.\u003C\u003Em__306)) != null;
+        bool flag2 = Array.Find<QuestParam>(availableQuests, new Predicate<QuestParam>(listCAnonStorey38A.\u003C\u003Em__437)) != null;
         // ISSUE: reference to a compiler-generated field
-        bool flag3 = this.mQuestList[listCAnonStorey27E.i].state == QuestStates.Cleared;
+        bool flag3 = this.mQuestList[listCAnonStorey38A.i].state == QuestStates.Cleared;
         // ISSUE: reference to a compiler-generated field
         // ISSUE: reference to a compiler-generated field
         // ISSUE: reference to a compiler-generated field
-        bool flag4 = charaEpisodeList[listCAnonStorey27E.i] != null && charaEpisodeList[listCAnonStorey27E.i].IsAvailable && this.CurrentUnit.IsChQuestParentUnlocked(this.mQuestList[listCAnonStorey27E.i]);
+        bool flag4 = charaEpisodeList[listCAnonStorey38A.i] != null && charaEpisodeList[listCAnonStorey38A.i].IsAvailable && this.CurrentUnit.IsChQuestParentUnlocked(this.mQuestList[listCAnonStorey38A.i]);
         bool flag5 = flag1 && flag2 && !flag3;
         GameObject gameObject;
         if (flag4 || flag3)
         {
-          gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.StoryQuestItemTemplate);
+          gameObject = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.StoryQuestItemTemplate);
           Button component = (Button) gameObject.GetComponent<Button>();
-          if (!Object.op_Equality((Object) component, (Object) null))
+          if (!UnityEngine.Object.op_Equality((UnityEngine.Object) component, (UnityEngine.Object) null))
             ((Selectable) component).set_interactable(flag5);
           else
             continue;
         }
         else
-          gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.StoryQuestDisableItemTemplate);
-        if (!Object.op_Equality((Object) gameObject, (Object) null))
+          gameObject = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.StoryQuestDisableItemTemplate);
+        if (!UnityEngine.Object.op_Equality((UnityEngine.Object) gameObject, (UnityEngine.Object) null))
         {
           gameObject.SetActive(true);
           gameObject.get_transform().SetParent(this.QuestList, false);
           // ISSUE: reference to a compiler-generated field
-          DataSource.Bind<QuestParam>(gameObject, this.mQuestList[listCAnonStorey27E.i]);
+          DataSource.Bind<QuestParam>(gameObject, this.mQuestList[listCAnonStorey38A.i]);
           DataSource.Bind<UnitData>(gameObject, this.CurrentUnit);
+          DataSource.Bind<UnitParam>(gameObject, this.CurrentUnit.UnitParam);
           ListItemEvents component = (ListItemEvents) gameObject.GetComponent<ListItemEvents>();
           component.OnSelect = new ListItemEvents.ListItemEvent(this.OnQuestSelect);
           component.OnOpenDetail = new ListItemEvents.ListItemEvent(this.OnOpenItemDetail);
@@ -136,7 +137,7 @@ namespace SRPG
 
     private void CreatePieceQuest()
     {
-      if (Object.op_Equality((Object) this.PieceQuestItemTemplate, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.PieceQuestItemTemplate, (UnityEngine.Object) null))
         return;
       GameManager instance = MonoSingleton<GameManager>.Instance;
       List<QuestParam> questParamList = new List<QuestParam>();
@@ -150,7 +151,7 @@ namespace SRPG
         return;
       for (int index = 0; index < questParamList.Count; ++index)
       {
-        GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.PieceQuestItemTemplate);
+        GameObject gameObject = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.PieceQuestItemTemplate);
         gameObject.SetActive(true);
         gameObject.get_transform().SetParent(this.QuestList, false);
         DataSource.Bind<QuestParam>(gameObject, questParamList[index]);
@@ -165,7 +166,7 @@ namespace SRPG
 
     private void RefreshQuestList()
     {
-      if (this.mListRefreshing || Object.op_Equality((Object) this.StoryQuestItemTemplate, (Object) null) || (Object.op_Equality((Object) this.StoryQuestDisableItemTemplate, (Object) null) || Object.op_Equality((Object) this.QuestList, (Object) null)))
+      if (this.mListRefreshing || UnityEngine.Object.op_Equality((UnityEngine.Object) this.StoryQuestItemTemplate, (UnityEngine.Object) null) || (UnityEngine.Object.op_Equality((UnityEngine.Object) this.StoryQuestDisableItemTemplate, (UnityEngine.Object) null) || UnityEngine.Object.op_Equality((UnityEngine.Object) this.QuestList, (UnityEngine.Object) null)))
         return;
       this.mListRefreshing = true;
       if (this.mStoryQuestListItems.Count <= 0)
@@ -176,7 +177,10 @@ namespace SRPG
         this.mStoryQuestListItems[index].SetActive(this.mIsStoryList);
       for (int index = 0; index < this.mPieceQuestListItems.Count; ++index)
         this.mPieceQuestListItems[index].SetActive(!this.mIsStoryList);
-      DataSource.Bind<UnitData>(this.CharacterImage, this.CurrentUnit);
+      UnitData data = new UnitData();
+      data.Setup(this.CurrentUnit);
+      data.SetJobSkinAll((string) null);
+      DataSource.Bind<UnitData>(this.CharacterImage, data);
       this.mListRefreshing = false;
     }
 
@@ -184,30 +188,30 @@ namespace SRPG
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      UnitCharacterQuestWindow.\u003COnQuestSelect\u003Ec__AnonStorey27F selectCAnonStorey27F = new UnitCharacterQuestWindow.\u003COnQuestSelect\u003Ec__AnonStorey27F();
+      UnitCharacterQuestWindow.\u003COnQuestSelect\u003Ec__AnonStorey38B selectCAnonStorey38B = new UnitCharacterQuestWindow.\u003COnQuestSelect\u003Ec__AnonStorey38B();
       List<GameObject> gameObjectList = !this.mIsStoryList ? this.mPieceQuestListItems : this.mStoryQuestListItems;
       int index = gameObjectList.IndexOf(button.get_gameObject());
       // ISSUE: reference to a compiler-generated field
-      selectCAnonStorey27F.quest = DataSource.FindDataOfClass<QuestParam>(gameObjectList[index], (QuestParam) null);
+      selectCAnonStorey38B.quest = DataSource.FindDataOfClass<QuestParam>(gameObjectList[index], (QuestParam) null);
       // ISSUE: reference to a compiler-generated field
-      if (selectCAnonStorey27F.quest == null)
+      if (selectCAnonStorey38B.quest == null)
         return;
       // ISSUE: reference to a compiler-generated field
-      if (!selectCAnonStorey27F.quest.IsDateUnlock(-1L))
+      if (!selectCAnonStorey38B.quest.IsDateUnlock(-1L))
       {
         UIUtility.NegativeSystemMessage((string) null, LocalizedText.Get("sys.DISABLE_QUEST_DATE_UNLOCK"), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1);
       }
       else
       {
         // ISSUE: reference to a compiler-generated method
-        if (Array.Find<QuestParam>(MonoSingleton<GameManager>.Instance.Player.AvailableQuests, new Predicate<QuestParam>(selectCAnonStorey27F.\u003C\u003Em__307)) == null)
+        if (Array.Find<QuestParam>(MonoSingleton<GameManager>.Instance.Player.AvailableQuests, new Predicate<QuestParam>(selectCAnonStorey38B.\u003C\u003Em__438)) == null)
         {
           UIUtility.NegativeSystemMessage((string) null, LocalizedText.Get("sys.DISABLE_QUEST_CHALLENGE"), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1);
         }
         else
         {
           // ISSUE: reference to a compiler-generated field
-          GlobalVars.SelectedQuestID = selectCAnonStorey27F.quest.iname;
+          GlobalVars.SelectedQuestID = selectCAnonStorey38B.quest.iname;
           FlowNode_GameObject.ActivateOutputLinks((Component) this, 100);
         }
       }
@@ -215,18 +219,18 @@ namespace SRPG
 
     private void OnCloseItemDetail(GameObject go)
     {
-      if (!Object.op_Inequality((Object) this.mQuestDetail, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mQuestDetail, (UnityEngine.Object) null))
         return;
-      Object.DestroyImmediate((Object) this.mQuestDetail.get_gameObject());
+      UnityEngine.Object.DestroyImmediate((UnityEngine.Object) this.mQuestDetail.get_gameObject());
       this.mQuestDetail = (GameObject) null;
     }
 
     private void OnOpenItemDetail(GameObject go)
     {
       QuestParam dataOfClass = DataSource.FindDataOfClass<QuestParam>(go, (QuestParam) null);
-      if (!Object.op_Equality((Object) this.mQuestDetail, (Object) null) || dataOfClass == null)
+      if (!UnityEngine.Object.op_Equality((UnityEngine.Object) this.mQuestDetail, (UnityEngine.Object) null) || dataOfClass == null)
         return;
-      this.mQuestDetail = (GameObject) Object.Instantiate<GameObject>((M0) this.QuestDetailTemplate);
+      this.mQuestDetail = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.QuestDetailTemplate);
       DataSource.Bind<QuestParam>(this.mQuestDetail, dataOfClass);
       DataSource.Bind<UnitData>(this.mQuestDetail, this.CurrentUnit);
       this.mQuestDetail.SetActive(true);
@@ -243,7 +247,7 @@ namespace SRPG
 
     private void UpdateToggleButton()
     {
-      if (!Object.op_Inequality((Object) this.ListToggleButton, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ListToggleButton, (UnityEngine.Object) null))
         return;
       this.ListToggleButton.set_sprite(!this.mIsStoryList ? this.PieceListSprite : this.StoryListSprite);
     }

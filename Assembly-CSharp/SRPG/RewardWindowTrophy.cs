@@ -1,9 +1,10 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.RewardWindowTrophy
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace SRPG
@@ -59,7 +60,19 @@ namespace SRPG
         for (int index = 0; index < dataOfClass.Items.Count; ++index)
         {
           ItemData data = dataOfClass.Items[index];
-          DataSource.Bind<ItemData>(data.ItemType != EItemType.EventCoin || Object.op_Equality((Object) parent2, (Object) null) ? this.AddRewardList(this.ItemTemplate, parent1) : this.AddRewardList(this.EventCoinTemplate, parent2), data);
+          DataSource.Bind<ItemData>(data.ItemType != EItemType.Unit || !Object.op_Inequality((Object) this.UnitTemplate, (Object) null) ? (data.ItemType != EItemType.EventCoin || Object.op_Equality((Object) parent2, (Object) null) ? this.AddRewardList(this.ItemTemplate, parent1) : this.AddRewardList(this.EventCoinTemplate, parent2)) : this.AddRewardList(this.UnitTemplate, parent1), data);
+        }
+      }
+      if (Object.op_Inequality((Object) this.ArtifactTemplate, (Object) null))
+      {
+        Transform parent = !Object.op_Inequality((Object) this.ItemList, (Object) null) ? this.ArtifactTemplate.get_transform().get_parent() : this.ItemList.get_transform();
+        using (List<ArtifactRewardData>.Enumerator enumerator = dataOfClass.Artifacts.GetEnumerator())
+        {
+          while (enumerator.MoveNext())
+          {
+            ArtifactRewardData current = enumerator.Current;
+            DataSource.Bind<ArtifactRewardData>(this.AddRewardList(this.ArtifactTemplate, parent), current);
+          }
         }
       }
       GameParameter.UpdateAll(((Component) this).get_gameObject());

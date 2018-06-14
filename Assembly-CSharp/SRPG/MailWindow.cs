@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.MailWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -14,25 +14,25 @@ using UnityEngine.UI;
 
 namespace SRPG
 {
-  [FlowNode.Pin(30, "一件開封", FlowNode.PinTypes.Input, 104)]
-  [FlowNode.Pin(2, "期限なし", FlowNode.PinTypes.Input, 52)]
-  [FlowNode.Pin(13, "次の頁", FlowNode.PinTypes.Input, 56)]
-  [FlowNode.Pin(12, "前の頁", FlowNode.PinTypes.Input, 55)]
-  [FlowNode.Pin(51, "初期化終了(未読なし)", FlowNode.PinTypes.Output, 3)]
-  [FlowNode.Pin(50, "初期化終了(未読あり)", FlowNode.PinTypes.Output, 2)]
-  [FlowNode.Pin(31, "頁内開封", FlowNode.PinTypes.Input, 105)]
-  [FlowNode.Pin(301, "アイテム選択アイテム", FlowNode.PinTypes.Output, 201)]
-  [FlowNode.Pin(52, "メールリスト更新", FlowNode.PinTypes.Output, 100)]
-  [FlowNode.Pin(302, "武具選択アイテム", FlowNode.PinTypes.Output, 202)]
-  [FlowNode.Pin(303, "武具選択アイテムで所持武具がいっぱい", FlowNode.PinTypes.Output, 203)]
-  [FlowNode.Pin(1, "初期化", FlowNode.PinTypes.Input, 1)]
-  [FlowNode.Pin(200, "ページ取得", FlowNode.PinTypes.Output, 102)]
-  [FlowNode.Pin(14, "再初期化", FlowNode.PinTypes.Input, 103)]
-  [FlowNode.Pin(4, "開封済み", FlowNode.PinTypes.Input, 54)]
-  [FlowNode.Pin(3, "期限あり", FlowNode.PinTypes.Input, 53)]
-  [FlowNode.Pin(60, "開封", FlowNode.PinTypes.Output, 106)]
-  [FlowNode.Pin(300, "ユニット選択アイテム", FlowNode.PinTypes.Output, 200)]
   [FlowNode.Pin(11, "現在の頁更新", FlowNode.PinTypes.Input, 101)]
+  [FlowNode.Pin(303, "武具選択アイテムで所持武具がいっぱい", FlowNode.PinTypes.Output, 203)]
+  [FlowNode.Pin(302, "武具選択アイテム", FlowNode.PinTypes.Output, 202)]
+  [FlowNode.Pin(301, "アイテム選択アイテム", FlowNode.PinTypes.Output, 201)]
+  [FlowNode.Pin(300, "ユニット選択アイテム", FlowNode.PinTypes.Output, 200)]
+  [FlowNode.Pin(60, "開封", FlowNode.PinTypes.Output, 106)]
+  [FlowNode.Pin(31, "頁内開封", FlowNode.PinTypes.Input, 105)]
+  [FlowNode.Pin(30, "一件開封", FlowNode.PinTypes.Input, 104)]
+  [FlowNode.Pin(14, "再初期化", FlowNode.PinTypes.Input, 103)]
+  [FlowNode.Pin(1, "初期化", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(50, "初期化終了(未読あり)", FlowNode.PinTypes.Output, 2)]
+  [FlowNode.Pin(51, "初期化終了(未読なし)", FlowNode.PinTypes.Output, 3)]
+  [FlowNode.Pin(2, "期限なし", FlowNode.PinTypes.Input, 52)]
+  [FlowNode.Pin(3, "期限あり", FlowNode.PinTypes.Input, 53)]
+  [FlowNode.Pin(4, "開封済み", FlowNode.PinTypes.Input, 54)]
+  [FlowNode.Pin(12, "前の頁", FlowNode.PinTypes.Input, 55)]
+  [FlowNode.Pin(13, "次の頁", FlowNode.PinTypes.Input, 56)]
+  [FlowNode.Pin(52, "メールリスト更新", FlowNode.PinTypes.Output, 100)]
+  [FlowNode.Pin(200, "ページ取得", FlowNode.PinTypes.Output, 102)]
   public class MailWindow : MonoBehaviour, IFlowInterface
   {
     private const int PIN_ID_INITIALIZE = 1;
@@ -114,7 +114,7 @@ namespace SRPG
     private IEnumerator CoroutineActivateOutputLinks(int pinID)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new MailWindow.\u003CCoroutineActivateOutputLinks\u003Ec__IteratorC0() { pinID = pinID, \u003C\u0024\u003EpinID = pinID, \u003C\u003Ef__this = this };
+      return (IEnumerator) new MailWindow.\u003CCoroutineActivateOutputLinks\u003Ec__Iterator103() { pinID = pinID, \u003C\u0024\u003EpinID = pinID, \u003C\u003Ef__this = this };
     }
 
     public void Activated(int pinID)
@@ -277,8 +277,8 @@ namespace SRPG
       int pageMax = this.currentTabData.currentPageData.pageMax;
       if (pageMax == 0)
         num = 0;
-      if (Object.op_Inequality((Object) this.scrollRect, (Object) null))
-        this.scrollRect.set_normalizedPosition(Vector2.get_one());
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.scrollRect, (UnityEngine.Object) null))
+        this.scrollRect.SetNormalizedPosition(Vector2.get_one(), true);
       this.currentPageText.text = num.ToString();
       this.maxPageText.text = pageMax.ToString();
       ((Selectable) this.nextPageButton).set_interactable(this.currentTabData.HasNext());

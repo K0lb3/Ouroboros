@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.EnhanceEquipDetailWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -13,9 +13,9 @@ using UnityEngine.UI;
 
 namespace SRPG
 {
-  [FlowNode.Pin(100, "強化", FlowNode.PinTypes.Output, 100)]
-  [FlowNode.Pin(2, "Reset", FlowNode.PinTypes.Input, 2)]
   [FlowNode.Pin(1, "Refresh", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(2, "Reset", FlowNode.PinTypes.Input, 2)]
+  [FlowNode.Pin(100, "強化", FlowNode.PinTypes.Output, 100)]
   public class EnhanceEquipDetailWindow : SRPG_FixedList, IFlowInterface
   {
     public GameObject Unit;
@@ -53,7 +53,7 @@ namespace SRPG
     {
       get
       {
-        if (Object.op_Inequality((Object) this.ItemLayoutParent, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ItemLayoutParent, (UnityEngine.Object) null))
           return (RectTransform) ((Component) this.ItemLayoutParent).GetComponent<RectTransform>();
         return (RectTransform) null;
       }
@@ -62,13 +62,13 @@ namespace SRPG
     protected override void Start()
     {
       base.Start();
-      if (Object.op_Equality((Object) this.ItemTemplate, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.ItemTemplate, (UnityEngine.Object) null))
         return;
       List<ItemData> items = MonoSingleton<GameManager>.Instance.Player.Items;
       this.mMaterialItems = new List<ItemData>(items.Count);
       for (int index = 0; index < items.Count; ++index)
       {
-        if (items[index].CheckEquipEnhanceMaterial())
+        if (items[index].CheckEquipEnhanceMaterial() && !items[index].Param.is_valuables)
           this.mMaterialItems.Add(items[index]);
       }
       this.mMaterialItems.Sort((Comparison<ItemData>) ((src, dsc) =>
@@ -90,44 +90,44 @@ namespace SRPG
       this.mEnhanceParameters = new List<GameObject>(5);
       this.mSelectedEquipItem = (GameObject) null;
       this.mSelectedMaterialItem = (GameObject) null;
-      if (Object.op_Inequality((Object) this.ItemTemplate, (Object) null) && this.ItemTemplate.get_activeInHierarchy())
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ItemTemplate, (UnityEngine.Object) null) && this.ItemTemplate.get_activeInHierarchy())
       {
         this.ItemTemplate.get_transform().SetSiblingIndex(0);
         this.ItemTemplate.SetActive(false);
       }
-      if (Object.op_Inequality((Object) this.BtnJob, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BtnJob, (UnityEngine.Object) null))
       {
         // ISSUE: method pointer
         ((UnityEvent) this.BtnJob.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OnJobChange)));
       }
-      if (Object.op_Inequality((Object) this.BtnAdd, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BtnAdd, (UnityEngine.Object) null))
       {
         // ISSUE: method pointer
         ((UnityEvent) this.BtnAdd.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OnAddMaterial)));
       }
-      if (Object.op_Inequality((Object) this.BtnSub, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BtnSub, (UnityEngine.Object) null))
       {
         // ISSUE: method pointer
         ((UnityEvent) this.BtnSub.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OnSubMaterial)));
       }
-      if (Object.op_Inequality((Object) this.BtnEnhance, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BtnEnhance, (UnityEngine.Object) null))
       {
         // ISSUE: method pointer
         ((UnityEvent) this.BtnEnhance.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OnEnhance)));
       }
-      if (Object.op_Inequality((Object) this.TxtComment, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TxtComment, (UnityEngine.Object) null))
         this.TxtComment.set_text(LocalizedText.Get("sys.ENHANCE_EQUIPMENT_MESSAGE"));
-      if (Object.op_Inequality((Object) this.TxtDisableEnhanceOnGauge, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TxtDisableEnhanceOnGauge, (UnityEngine.Object) null))
         this.TxtDisableEnhanceOnGauge.set_text(LocalizedText.Get("sys.DIABLE_ENHANCE_MESSAGE"));
       for (int index = 0; index < this.Equipments.Count; ++index)
       {
         // ISSUE: object of a compiler-generated type is created
         // ISSUE: method pointer
-        ((UnityEvent) this.Equipments[index].get_onClick()).AddListener(new UnityAction((object) new EnhanceEquipDetailWindow.\u003CStart\u003Ec__AnonStorey241()
+        ((UnityEvent) this.Equipments[index].get_onClick()).AddListener(new UnityAction((object) new EnhanceEquipDetailWindow.\u003CStart\u003Ec__AnonStorey324()
         {
           \u003C\u003Ef__this = this,
           slot = index
-        }, __methodptr(\u003C\u003Em__26E)));
+        }, __methodptr(\u003C\u003Em__359)));
       }
       this.RefreshData();
     }
@@ -174,7 +174,7 @@ namespace SRPG
         bool flag = equip != null && (equip.IsValid() && equip.IsEquiped());
         ((Selectable) this.Equipments[index]).set_interactable(flag);
         ((Component) this.EquipmentRawImages[index]).get_gameObject().SetActive(flag);
-        this.EquipmentCursors[index].SetActive(Object.op_Equality((Object) this.mSelectedEquipItem, (Object) ((Component) this.Equipments[index]).get_gameObject()));
+        this.EquipmentCursors[index].SetActive(UnityEngine.Object.op_Equality((UnityEngine.Object) this.mSelectedEquipItem, (UnityEngine.Object) ((Component) this.Equipments[index]).get_gameObject()));
       }
       this.mEnhanceEquipData.equip = (EquipData) null;
       this.mEnhanceEquipData.gainexp = 0;
@@ -182,23 +182,23 @@ namespace SRPG
       for (int index = 0; index < this.mEnhanceParameters.Count; ++index)
         this.mEnhanceParameters[index].SetActive(false);
       ((Selectable) this.BtnEnhance).set_interactable(false);
-      EquipData equipData = !Object.op_Inequality((Object) this.mSelectedEquipItem, (Object) null) ? (EquipData) null : DataSource.FindDataOfClass<EquipData>(this.mSelectedEquipItem, (EquipData) null);
+      EquipData equipData = !UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSelectedEquipItem, (UnityEngine.Object) null) ? (EquipData) null : DataSource.FindDataOfClass<EquipData>(this.mSelectedEquipItem, (EquipData) null);
       int num1 = 0;
       int num2 = 0;
       for (int index = 0; index < this.mMaterialItems.Count; ++index)
       {
         // ISSUE: object of a compiler-generated type is created
         // ISSUE: variable of a compiler-generated type
-        EnhanceEquipDetailWindow.\u003CRefreshData\u003Ec__AnonStorey242 dataCAnonStorey242 = new EnhanceEquipDetailWindow.\u003CRefreshData\u003Ec__AnonStorey242();
+        EnhanceEquipDetailWindow.\u003CRefreshData\u003Ec__AnonStorey325 dataCAnonStorey325 = new EnhanceEquipDetailWindow.\u003CRefreshData\u003Ec__AnonStorey325();
         // ISSUE: reference to a compiler-generated field
-        dataCAnonStorey242.item = this.mMaterialItems[index];
+        dataCAnonStorey325.item = this.mMaterialItems[index];
         // ISSUE: reference to a compiler-generated method
-        EnhanceMaterial enhanceMaterial1 = this.mEnhanceMaterials.Find(new Predicate<EnhanceMaterial>(dataCAnonStorey242.\u003C\u003Em__26F));
+        EnhanceMaterial enhanceMaterial1 = this.mEnhanceMaterials.Find(new Predicate<EnhanceMaterial>(dataCAnonStorey325.\u003C\u003Em__35A));
         if (enhanceMaterial1 == null)
         {
           EnhanceMaterial enhanceMaterial2 = new EnhanceMaterial();
           // ISSUE: reference to a compiler-generated field
-          enhanceMaterial2.item = dataCAnonStorey242.item;
+          enhanceMaterial2.item = dataCAnonStorey325.item;
           enhanceMaterial2.num = 0;
           this.mEnhanceMaterials.Add(enhanceMaterial2);
           enhanceMaterial1 = enhanceMaterial2;
@@ -206,20 +206,20 @@ namespace SRPG
         if (equipData != null)
         {
           // ISSUE: reference to a compiler-generated field
-          num1 += (int) dataCAnonStorey242.item.Param.enhace_cost * equipData.GetEnhanceCostScale() / 100 * enhanceMaterial1.num;
+          num1 += (int) dataCAnonStorey325.item.Param.enhace_cost * equipData.GetEnhanceCostScale() / 100 * enhanceMaterial1.num;
           // ISSUE: reference to a compiler-generated field
-          num2 += (int) dataCAnonStorey242.item.Param.enhace_point * enhanceMaterial1.num;
+          num2 += (int) dataCAnonStorey325.item.Param.enhace_point * enhanceMaterial1.num;
         }
       }
       bool flag1 = false;
-      if (Object.op_Inequality((Object) this.EquipSelectParent, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.EquipSelectParent, (UnityEngine.Object) null))
       {
         DataSource.Bind<EnhanceEquipData>(this.EquipSelectParent, (EnhanceEquipData) null);
         this.EquipSelectParent.get_gameObject().SetActive(false);
       }
-      if (Object.op_Inequality((Object) this.TxtComment, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TxtComment, (UnityEngine.Object) null))
         ((Component) this.TxtComment).get_gameObject().SetActive(false);
-      if (Object.op_Inequality((Object) this.mSelectedEquipItem, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSelectedEquipItem, (UnityEngine.Object) null))
       {
         this.mEnhanceEquipData.equip = equipData;
         this.mEnhanceEquipData.gainexp = num2;
@@ -233,7 +233,7 @@ namespace SRPG
               if (index >= this.mEnhanceParameters.Count)
               {
                 this.ParamUpTemplate.SetActive(true);
-                GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.ParamUpTemplate);
+                GameObject gameObject = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.ParamUpTemplate);
                 gameObject.get_transform().SetParent(this.ParamUpLayoutParent, false);
                 this.mEnhanceParameters.Add(gameObject);
                 this.ParamUpTemplate.SetActive(false);
@@ -249,7 +249,7 @@ namespace SRPG
           flag1 = true;
           if (equipData.Rank == equipData.GetRankCap())
           {
-            if (Object.op_Inequality((Object) this.TxtComment, (Object) null))
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TxtComment, (UnityEngine.Object) null))
             {
               this.TxtComment.set_text(LocalizedText.Get("sys.DIABLE_ENHANCE_RANKCAP_MESSAGE"));
               ((Component) this.TxtComment).get_gameObject().SetActive(true);
@@ -257,38 +257,38 @@ namespace SRPG
             flag1 = false;
           }
         }
-        if (Object.op_Inequality((Object) this.EquipSelectParent, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.EquipSelectParent, (UnityEngine.Object) null))
         {
           DataSource.Bind<EnhanceEquipData>(this.EquipSelectParent, this.mEnhanceEquipData);
           this.EquipSelectParent.get_gameObject().SetActive(true);
         }
       }
-      else if (Object.op_Inequality((Object) this.TxtComment, (Object) null))
+      else if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TxtComment, (UnityEngine.Object) null))
       {
         this.TxtComment.set_text(LocalizedText.Get("sys.ENHANCE_EQUIPMENT_MESSAGE"));
         ((Component) this.TxtComment).get_gameObject().SetActive(true);
       }
       this.mEnhanceEquipData.is_enhanced = flag1;
-      if (Object.op_Inequality((Object) this.SelectedParent, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.SelectedParent, (UnityEngine.Object) null))
       {
         DataSource.Bind<EnhanceEquipData>(this.SelectedParent, this.mEnhanceEquipData);
         this.SelectedParent.get_gameObject().SetActive(flag1);
       }
-      if (Object.op_Inequality((Object) this.TxtDisableEnhanceOnGauge, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TxtDisableEnhanceOnGauge, (UnityEngine.Object) null))
         ((Component) this.TxtDisableEnhanceOnGauge).get_gameObject().SetActive(!flag1);
-      if (Object.op_Inequality((Object) this.TxtCost, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TxtCost, (UnityEngine.Object) null))
         this.TxtCost.set_text(num1.ToString());
-      if (Object.op_Inequality((Object) this.TxtJob, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TxtJob, (UnityEngine.Object) null))
         this.TxtJob.set_text(jobData.Name);
       if (flag1)
       {
         int num3 = equipData.CalcRankFromExp(equipData.Exp + num2);
         ((Selectable) this.BtnEnhance).set_interactable(equipData != null && equipData.Rank < num3);
       }
-      if (Object.op_Inequality((Object) this.BtnAdd, (Object) null))
-        ((Selectable) this.BtnAdd).set_interactable(flag1 && Object.op_Inequality((Object) this.mSelectedMaterialItem, (Object) null));
-      if (Object.op_Inequality((Object) this.BtnSub, (Object) null))
-        ((Selectable) this.BtnSub).set_interactable(flag1 && Object.op_Inequality((Object) this.mSelectedMaterialItem, (Object) null));
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BtnAdd, (UnityEngine.Object) null))
+        ((Selectable) this.BtnAdd).set_interactable(flag1 && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSelectedMaterialItem, (UnityEngine.Object) null));
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BtnSub, (UnityEngine.Object) null))
+        ((Selectable) this.BtnSub).set_interactable(flag1 && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSelectedMaterialItem, (UnityEngine.Object) null));
       this.mEnableEnhanceMaterials.Clear();
       for (int index = 0; index < this.mEnhanceMaterials.Count; ++index)
       {
@@ -301,7 +301,7 @@ namespace SRPG
 
     protected override GameObject CreateItem()
     {
-      return (GameObject) Object.Instantiate<GameObject>((M0) this.ItemTemplate);
+      return (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.ItemTemplate);
     }
 
     protected override void OnUpdateItem(GameObject go, int index)
@@ -326,7 +326,7 @@ namespace SRPG
 
     private void OnSelectEquipment(int slot)
     {
-      if (Object.op_Equality((Object) this.mSelectedEquipItem, (Object) ((Component) this.Equipments[slot]).get_gameObject()))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mSelectedEquipItem, (UnityEngine.Object) ((Component) this.Equipments[slot]).get_gameObject()))
         return;
       this.ClearEnhancedMaterial();
       this.ClearMaterialSelect();
@@ -337,7 +337,7 @@ namespace SRPG
 
     protected override void OnItemSelect(GameObject go)
     {
-      if (!Object.op_Inequality((Object) this.mSelectedMaterialItem, (Object) go))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSelectedMaterialItem, (UnityEngine.Object) go))
         return;
       this.mSelectedMaterialItem = go;
       EnhanceMaterial dataOfClass = DataSource.FindDataOfClass<EnhanceMaterial>(this.mSelectedMaterialItem, (EnhanceMaterial) null);
@@ -351,7 +351,7 @@ namespace SRPG
 
     private void OnAddMaterial()
     {
-      if (Object.op_Equality((Object) this.mSelectedMaterialItem, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mSelectedMaterialItem, (UnityEngine.Object) null))
         return;
       EnhanceMaterial dataOfClass = DataSource.FindDataOfClass<EnhanceMaterial>(this.mSelectedMaterialItem, (EnhanceMaterial) null);
       if (dataOfClass != null)
@@ -369,7 +369,7 @@ namespace SRPG
 
     private void OnSubMaterial()
     {
-      if (Object.op_Equality((Object) this.mSelectedMaterialItem, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mSelectedMaterialItem, (UnityEngine.Object) null))
         return;
       EnhanceMaterial dataOfClass = DataSource.FindDataOfClass<EnhanceMaterial>(this.mSelectedMaterialItem, (EnhanceMaterial) null);
       if (dataOfClass != null)

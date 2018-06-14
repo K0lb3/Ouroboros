@@ -1,9 +1,10 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.MyEncrypt
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
+using System;
 using System.Text;
 
 namespace SRPG
@@ -28,6 +29,26 @@ namespace SRPG
         return (string) null;
       GUtility.Decrypt(data, data.Length);
       return Encoding.UTF8.GetString(data);
+    }
+
+    public static byte[] Encrypt(byte[] msg)
+    {
+      if (msg == null)
+        return (byte[]) null;
+      byte[] numArray = new byte[msg.Length];
+      Array.Copy((Array) msg, (Array) numArray, msg.Length);
+      GUtility.Encrypt(numArray, numArray.Length);
+      return numArray;
+    }
+
+    public static byte[] Decrypt(byte[] data)
+    {
+      if (data == null)
+        return (byte[]) null;
+      byte[] numArray = new byte[data.Length];
+      Array.Copy((Array) data, (Array) numArray, data.Length);
+      GUtility.Decrypt(numArray, numArray.Length);
+      return numArray;
     }
   }
 }

@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.ChatChannelWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -12,9 +12,9 @@ using UnityEngine.UI;
 
 namespace SRPG
 {
+  [FlowNode.Pin(1, "Request", FlowNode.PinTypes.Output, 1)]
   [FlowNode.Pin(99, "Close", FlowNode.PinTypes.Output, 99)]
   [FlowNode.Pin(2, "Request(PageIndex)", FlowNode.PinTypes.Output, 2)]
-  [FlowNode.Pin(1, "Request", FlowNode.PinTypes.Output, 1)]
   [FlowNode.Pin(0, "Refresh", FlowNode.PinTypes.Input, 0)]
   public class ChatChannelWindow : MonoBehaviour, IFlowInterface
   {
@@ -145,11 +145,11 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: method pointer
-          ((UnityEvent) component1.get_onClick()).AddListener(new UnityAction((object) new ChatChannelWindow.\u003CRefresh\u003Ec__AnonStorey23A()
+          ((UnityEvent) component1.get_onClick()).AddListener(new UnityAction((object) new ChatChannelWindow.\u003CRefresh\u003Ec__AnonStorey313()
           {
             \u003C\u003Ef__this = this,
             index = index1
-          }, __methodptr(\u003C\u003Em__251)));
+          }, __methodptr(\u003C\u003Em__32C)));
         }
         gameObject.SetActive(true);
       }

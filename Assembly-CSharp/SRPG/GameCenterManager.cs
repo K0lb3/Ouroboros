@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.GameCenterManager
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GooglePlayGames;
@@ -107,11 +107,28 @@ namespace SRPG
       Social.ReportScore(score, leader_board_id, (Action<bool>) (success => Debug.Log((object) "[GameCenter]ReportScore Success!!")));
     }
 
+    public static bool IsLogin
+    {
+      get
+      {
+        if (Social.get_localUser() != null)
+          return Social.get_localUser().get_authenticated();
+        DebugUtility.Log("[GameCenterManager]Login Error!");
+        return false;
+      }
+    }
+
     public static void SendAchievementProgress(string achievement_id, long progress)
     {
-      if (!PlayGamesPlatform.Instance.localUser.get_authenticated())
+      if (!GameCenterManager.IsLogin)
         return;
-      ((PlayGamesPlatform) Social.get_Active()).ReportProgress(achievement_id, (double) (int) progress, (Action<bool>) (success => Debug.Log((object) "[GameCenter]ReportProgress GooglePlayGameService Success!!")));
+      Social.ReportProgress(achievement_id, (double) progress, (Action<bool>) (success =>
+      {
+        if (success)
+          DebugUtility.Log("[Achievement]Send Success!(AchievementID:" + achievement_id + " Progress:" + (object) progress + ")");
+        else
+          DebugUtility.Log("[Achievement]Send Failed!(AchievementID:" + achievement_id + " Progress:" + (object) progress + ")");
+      }));
     }
 
     public static void GetLeaderboardData()
@@ -138,32 +155,44 @@ namespace SRPG
       return GameCenterManager.mAchievementList;
     }
 
-    public static string GetPlatformAchievementId(string iname)
+    private static AchievementParam GetAchievementParam(string iname)
     {
       List<AchievementParam> achievementData = GameCenterManager.GetAchievementData();
-      if (achievementData == null)
-        return string.Empty;
+      if (achievementData == null || achievementData.Count < 1)
+        return (AchievementParam) null;
       using (List<AchievementParam>.Enumerator enumerator = achievementData.GetEnumerator())
       {
         while (enumerator.MoveNext())
         {
           AchievementParam current = enumerator.Current;
           if (current.iname == iname)
-            return current.googleplay;
+            return current;
         }
       }
-      return string.Empty;
+      return (AchievementParam) null;
     }
 
     public static void SendAchievementProgress(string iname)
     {
-      Debug.Log((object) ("Call SendAchievementProgress:" + iname));
-      string platformAchievementId = GameCenterManager.GetPlatformAchievementId(iname);
-      if (string.IsNullOrEmpty(platformAchievementId))
+      AchievementParam achievementParam = GameCenterManager.GetAchievementParam(iname);
+      if (achievementParam == null)
         return;
-      Debug.Log((object) ("Exec SendAchievementProgress:" + platformAchievementId));
+      GameCenterManager.SendAchievementProgressInternal(achievementParam.AchievementID);
+    }
+
+    public static void SendAchievementProgress(AchievementParam param)
+    {
+      if (param == null)
+        return;
+      GameCenterManager.SendAchievementProgressInternal(param.AchievementID);
+    }
+
+    public static void SendAchievementProgressInternal(string achievementID)
+    {
+      if (string.IsNullOrEmpty(achievementID))
+        return;
       long progress = 100;
-      GameCenterManager.SendAchievementProgress(platformAchievementId, progress);
+      GameCenterManager.SendAchievementProgress(achievementID, progress);
     }
   }
 }

@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.BattleSpeedUpController
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using UnityEngine;
@@ -29,7 +29,7 @@ namespace SRPG
         if (GameUtility.GetCurrentScene() == GameUtility.EScene.BATTLE_MULTI)
           return false;
         QuestParam currentQuest = SceneBattle.Instance.CurrentQuest;
-        return currentQuest != null && currentQuest.CheckAllowedAutoBattle();
+        return currentQuest != null && currentQuest.CheckAllowedAutoBattle() || currentQuest.type == QuestTypes.Arena;
       }
     }
 
@@ -47,7 +47,7 @@ namespace SRPG
       else
         ((Component) this.speedUp).get_gameObject().SetActive(false);
       // ISSUE: method pointer
-      ((UnityEvent<bool>) this.speedUp.onValueChanged).AddListener(new UnityAction<bool>((object) this, __methodptr(\u003CStart\u003Em__148)));
+      ((UnityEvent<bool>) this.speedUp.onValueChanged).AddListener(new UnityAction<bool>((object) this, __methodptr(\u003CStart\u003Em__1B2)));
     }
 
     private void ToggleSpeedUp(bool enabled)

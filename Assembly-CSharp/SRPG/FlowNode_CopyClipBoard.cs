@@ -1,29 +1,37 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_CopyClipBoard
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
-using gu3.Device;
+using DeviceKit;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace SRPG
 {
-  [FlowNode.NodeType("System/CopyClipBoard", 32741)]
-  [FlowNode.Pin(2, "失敗", FlowNode.PinTypes.Output, 2)]
   [FlowNode.Pin(1, "成功", FlowNode.PinTypes.Output, 1)]
   [FlowNode.Pin(0, "コピー", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(2, "失敗", FlowNode.PinTypes.Output, 2)]
+  [FlowNode.NodeType("System/CopyClipBoard", 32741)]
   public class FlowNode_CopyClipBoard : FlowNode
   {
     [SerializeField]
     private Text Target;
+    public string LocalizeText;
 
     public override void OnActivate(int pinID)
     {
       if (pinID != 0)
         return;
-      if (this.CopyFrom(this.Target))
+      if (string.IsNullOrEmpty(this.LocalizeText))
+      {
+        if (this.CopyFrom(this.Target))
+          this.ActivateOutputLinks(1);
+        else
+          this.ActivateOutputLinks(2);
+      }
+      else if (this.CopyFrom(LocalizedText.Get(this.LocalizeText)))
         this.ActivateOutputLinks(1);
       else
         this.ActivateOutputLinks(2);
@@ -40,7 +48,8 @@ namespace SRPG
     {
       if (string.IsNullOrEmpty(text))
         return false;
-      Application.SetClipboard(text);
+      text = text.Replace("<br>", "\n");
+      App.SetClipboard(text);
       return true;
     }
   }

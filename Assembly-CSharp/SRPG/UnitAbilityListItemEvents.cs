@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.UnitAbilityListItemEvents
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -104,8 +104,8 @@ namespace SRPG
     public class ListItemTouchController : MonoBehaviour, IPointerDownHandler, IEventSystemHandler
     {
       private static readonly float FirstSpan = 0.3f;
-      private static readonly float SecondSpanMax = 1f;
-      private static readonly float SecondSpanMin = 0.2f;
+      private static readonly float SecondSpanMax = 0.3f;
+      private static readonly float SecondSpanMin = 0.1f;
       private static readonly float SecondSpanOffset = 0.1f;
       public UnitAbilityListItemEvents.ListItemTouchController.DelegateOnPointerDown OnPointerDownFunc;
       public UnitAbilityListItemEvents.ListItemTouchController.DelegateOnPointerUp OnPointerUpFunc;
@@ -158,23 +158,34 @@ namespace SRPG
         }
         else
         {
-          if (!this.Holding)
-            return;
-          this.HoldDuration += deltaTime;
-          if ((double) this.HoldDuration < (double) this.HoldSpan)
-            return;
-          this.HoldDuration -= this.HoldSpan;
-          if (!this.IsFirstDownFunc)
+          GameSettings instance = GameSettings.Instance;
+          float num = (float) (instance.HoldMargin * instance.HoldMargin);
+          Vector2 vector2 = Vector2.op_Subtraction(this.mDragStartPos, Vector2.op_Implicit(Input.get_mousePosition()));
+          // ISSUE: explicit reference operation
+          if ((double) this.HoldDuration < (double) this.HoldSpan && (double) ((Vector2) @vector2).get_sqrMagnitude() > (double) num)
           {
-            this.IsFirstDownFunc = true;
-            this.HoldSpan = UnitAbilityListItemEvents.ListItemTouchController.SecondSpanMax;
+            this.OnPointerUp();
           }
           else
           {
-            this.HoldSpan -= UnitAbilityListItemEvents.ListItemTouchController.SecondSpanOffset;
-            this.HoldSpan = Mathf.Max(UnitAbilityListItemEvents.ListItemTouchController.SecondSpanMin, this.HoldSpan);
+            if (!this.Holding)
+              return;
+            this.HoldDuration += deltaTime;
+            if ((double) this.HoldDuration < (double) this.HoldSpan)
+              return;
+            this.HoldDuration -= this.HoldSpan;
+            if (!this.IsFirstDownFunc)
+            {
+              this.IsFirstDownFunc = true;
+              this.HoldSpan = UnitAbilityListItemEvents.ListItemTouchController.SecondSpanMax;
+            }
+            else
+            {
+              this.HoldSpan -= UnitAbilityListItemEvents.ListItemTouchController.SecondSpanOffset;
+              this.HoldSpan = Mathf.Max(UnitAbilityListItemEvents.ListItemTouchController.SecondSpanMin, this.HoldSpan);
+            }
+            this.RankUpFunc(this);
           }
-          this.RankUpFunc(this);
         }
       }
 

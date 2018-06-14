@@ -1,10 +1,11 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.MultiPlayVersusReady
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -17,6 +18,8 @@ namespace SRPG
   public class MultiPlayVersusReady : MonoBehaviour
   {
     public TargetPlate TargetTemplate;
+    public TargetPlate TargetObjTemplate;
+    public TargetPlate TargetTrickTemplate;
     public GameObject TargetParent;
     public GameObject TargetMarker;
     public Button CameraRotateL;
@@ -24,7 +27,9 @@ namespace SRPG
     public TouchController TouchController;
     public Button GoButton;
     public GameObject QuestObj;
+    public bool TowerMode;
     private bool m_Ready;
+    private bool m_SyncLoad;
     private QuestParam m_CurrentQuest;
     private Vector3 m_CameraPos;
     private Vector3 m_CameraRot;
@@ -33,6 +38,8 @@ namespace SRPG
     private List<TacticsUnitController> m_Units;
     private TacticsSceneSettings m_SceneRoot;
     private TargetPlate m_Status;
+    private TargetPlate m_StatusObj;
+    private TargetPlate m_StatusTrick;
     private List<BattleMap> m_Map;
     private TargetCamera m_Camera;
     private readonly float CAM_ROTATE_TIME;
@@ -45,6 +52,9 @@ namespace SRPG
     private bool m_CamMove;
     private IntVector2 m_SelectGrid;
     private GameObject m_Marker;
+    private GameObject m_TrickMarkerObj;
+    private Dictionary<string, GameObject> m_TrickMarkers;
+    private List<MyPhoton.MyPlayer> m_Players;
 
     public MultiPlayVersusReady()
     {
@@ -63,13 +73,14 @@ namespace SRPG
 
     private void Start()
     {
+      GameManager instance = MonoSingleton<GameManager>.Instance;
       if (GameUtility.IsDebugBuild)
         ((GUIEventListener) ((Component) this).get_gameObject().AddComponent<GUIEventListener>()).Listeners = new GUIEventListener.GUIEvent(this.DebugPlacement);
       this.m_SelectParty = 0;
-      this.m_CurrentQuest = MonoSingleton<GameManager>.Instance.FindQuest(GlobalVars.SelectedQuestID);
-      if (this.m_CurrentQuest != null && Object.op_Inequality((Object) this.QuestObj, (Object) null))
+      this.m_CurrentQuest = instance.FindQuest(GlobalVars.SelectedQuestID);
+      if (this.m_CurrentQuest != null && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.QuestObj, (UnityEngine.Object) null))
         DataSource.Bind<QuestParam>(this.QuestObj, this.m_CurrentQuest);
-      if (Object.op_Inequality((Object) this.GoButton, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.GoButton, (UnityEngine.Object) null))
       {
         // ISSUE: method pointer
         ((UnityEvent) this.GoButton.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OnClickGo)));
@@ -82,7 +93,7 @@ namespace SRPG
 
     private void InitCamera()
     {
-      if (!Object.op_Inequality((Object) Camera.get_main(), (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) Camera.get_main(), (UnityEngine.Object) null))
         return;
       Camera main = Camera.get_main();
       GameSettings instance = GameSettings.Instance;
@@ -101,12 +112,12 @@ namespace SRPG
       ((Component) main).get_transform().set_rotation(Quaternion.Euler(this.m_CameraRot));
       main.set_fieldOfView(instance.GameCamera_TacticsSceneFOV);
       this.m_CamAngle = instance.GameCamera_YawMin;
-      if (Object.op_Inequality((Object) this.CameraRotateL, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.CameraRotateL, (UnityEngine.Object) null))
       {
         // ISSUE: method pointer
         ((UnityEvent) this.CameraRotateL.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OnCameraRotateL)));
       }
-      if (Object.op_Inequality((Object) this.CameraRotateR, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.CameraRotateR, (UnityEngine.Object) null))
       {
         // ISSUE: method pointer
         ((UnityEvent) this.CameraRotateR.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OnCameraRotateR)));
@@ -116,20 +127,42 @@ namespace SRPG
 
     private void InitStatusWindow()
     {
-      if (!Object.op_Inequality((Object) this.TargetTemplate, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TargetTemplate, (UnityEngine.Object) null))
+      {
+        this.m_Status = (TargetPlate) UnityEngine.Object.Instantiate<TargetPlate>((M0) this.TargetTemplate);
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_Status, (UnityEngine.Object) null))
+        {
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TargetParent, (UnityEngine.Object) null))
+            ((Component) this.m_Status).get_gameObject().get_transform().SetParent(((Component) this).get_transform(), false);
+          this.m_Status.ActivateNextTargetArrow(new ButtonExt.ButtonClickEvent(this.OnNextUnit));
+          this.m_Status.ActivatePrevTargetArrow(new ButtonExt.ButtonClickEvent(this.OnPrevUnit));
+        }
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TargetObjTemplate, (UnityEngine.Object) null))
+      {
+        this.m_StatusObj = (TargetPlate) UnityEngine.Object.Instantiate<TargetPlate>((M0) this.TargetObjTemplate);
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_StatusObj, (UnityEngine.Object) null))
+        {
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TargetParent, (UnityEngine.Object) null))
+            ((Component) this.m_StatusObj).get_gameObject().get_transform().SetParent(((Component) this).get_transform(), false);
+          this.m_StatusObj.ActivateNextTargetArrow(new ButtonExt.ButtonClickEvent(this.OnNextUnit));
+          this.m_StatusObj.ActivatePrevTargetArrow(new ButtonExt.ButtonClickEvent(this.OnPrevUnit));
+        }
+      }
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TargetTrickTemplate, (UnityEngine.Object) null))
         return;
-      this.m_Status = (TargetPlate) Object.Instantiate<TargetPlate>((M0) this.TargetTemplate);
-      if (!Object.op_Inequality((Object) this.m_Status, (Object) null))
+      this.m_StatusTrick = (TargetPlate) UnityEngine.Object.Instantiate<TargetPlate>((M0) this.TargetTrickTemplate);
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_StatusTrick, (UnityEngine.Object) null))
         return;
-      if (Object.op_Inequality((Object) this.TargetParent, (Object) null))
-        ((Component) this.m_Status).get_gameObject().get_transform().SetParent(((Component) this).get_transform(), false);
-      this.m_Status.ActivateNextTargetArrow(new ButtonExt.ButtonClickEvent(this.OnNextUnit));
-      this.m_Status.ActivatePrevTargetArrow(new ButtonExt.ButtonClickEvent(this.OnPrevUnit));
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TargetParent, (UnityEngine.Object) null))
+        ((Component) this.m_StatusTrick).get_gameObject().get_transform().SetParent(((Component) this).get_transform(), false);
+      this.m_StatusTrick.ActivateNextTargetArrow(new ButtonExt.ButtonClickEvent(this.OnNextUnit));
+      this.m_StatusTrick.ActivatePrevTargetArrow(new ButtonExt.ButtonClickEvent(this.OnPrevUnit));
     }
 
     private void InitTouchArea()
     {
-      if (!Object.op_Inequality((Object) this.TouchController, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TouchController, (UnityEngine.Object) null))
         return;
       this.TouchController.OnClick = new TouchController.ClickEvent(this.OnTouchClick);
     }
@@ -147,18 +180,82 @@ namespace SRPG
 
     private void InitTargetMarker()
     {
-      if (!Object.op_Inequality((Object) this.TargetMarker, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TargetMarker, (UnityEngine.Object) null))
         return;
-      this.m_Marker = Object.Instantiate((Object) this.TargetMarker, Vector3.get_zero(), Quaternion.get_identity()) as GameObject;
+      this.m_Marker = UnityEngine.Object.Instantiate((UnityEngine.Object) this.TargetMarker, Vector3.get_zero(), Quaternion.get_identity()) as GameObject;
       this.m_Marker.get_gameObject().SetActive(false);
       GameUtility.SetLayer(this.m_Marker, GameUtility.LayerUI, true);
+    }
+
+    private List<Unit> LoadMultiTower()
+    {
+      List<MyPhoton.MyPlayer> roomPlayerList = PunMonoSingleton<MyPhoton>.Instance.GetRoomPlayerList();
+      List<Unit> unitList = new List<Unit>();
+      if (this.m_Players == null)
+        this.m_Players = new List<MyPhoton.MyPlayer>((IEnumerable<MyPhoton.MyPlayer>) roomPlayerList);
+      for (int index1 = 0; index1 < roomPlayerList.Count; ++index1)
+      {
+        JSON_MyPhotonPlayerParam photonPlayerParam = JSON_MyPhotonPlayerParam.Parse(roomPlayerList[index1].json);
+        if (photonPlayerParam != null)
+        {
+          for (int index2 = 0; index2 < photonPlayerParam.units.Length; ++index2)
+          {
+            if (photonPlayerParam.units[index2] != null && photonPlayerParam.units[index2].sub == 0)
+            {
+              UnitData unitdata = new UnitData();
+              if (unitdata != null)
+              {
+                unitdata.Deserialize(photonPlayerParam.units[index2].unitJson);
+                DownloadUtility.DownloadUnit(unitdata.UnitParam, (JobData[]) null);
+                Unit unit = new Unit();
+                if (unit != null && unit.Setup(unitdata, this.CurrentMap.PartyUnitSettings[photonPlayerParam.units[index2].place], (Unit.DropItem) null, (Unit.DropItem) null))
+                {
+                  unit.OwnerPlayerIndex = photonPlayerParam.playerIndex;
+                  unitList.Add(unit);
+                }
+              }
+            }
+          }
+        }
+      }
+      int count = this.CurrentMap.NPCUnitSettings.Count;
+      List<NPCSetting> npcUnitSettings = this.CurrentMap.NPCUnitSettings;
+      for (int index = 0; index < count; ++index)
+      {
+        DownloadUtility.DownloadUnit(npcUnitSettings[index]);
+        Unit unit = new Unit();
+        if (unit.Setup((UnitData) null, (UnitSetting) npcUnitSettings[index], (Unit.DropItem) null, (Unit.DropItem) null))
+          unitList.Add(unit);
+      }
+      return unitList;
+    }
+
+    private List<Unit> LoadVersusParty()
+    {
+      PlayerData player = MonoSingleton<GameManager>.Instance.Player;
+      PartyData party = player.Partys[7];
+      List<Unit> unitList = new List<Unit>();
+      for (int index = 0; index < party.MAX_UNIT; ++index)
+      {
+        long unitUniqueId = party.GetUnitUniqueID(index);
+        if (unitUniqueId != 0L)
+        {
+          UnitData unitDataByUniqueId = player.FindUnitDataByUniqueID(unitUniqueId);
+          DownloadUtility.DownloadUnit(unitDataByUniqueId.UnitParam, (JobData[]) null);
+          Unit unit = new Unit();
+          int versusPlacement = player.GetVersusPlacement(PlayerPrefsUtility.VERSUS_ID_KEY + (object) index);
+          unit.Setup(unitDataByUniqueId, this.CurrentMap.PartyUnitSettings[versusPlacement], (Unit.DropItem) null, (Unit.DropItem) null);
+          unitList.Add(unit);
+        }
+      }
+      return unitList;
     }
 
     [DebuggerHidden]
     private IEnumerator LoadSceneAsync()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new MultiPlayVersusReady.\u003CLoadSceneAsync\u003Ec__IteratorC1() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new MultiPlayVersusReady.\u003CLoadSceneAsync\u003Ec__Iterator104() { \u003C\u003Ef__this = this };
     }
 
     private void Update()
@@ -166,12 +263,17 @@ namespace SRPG
       if (!this.m_Ready)
         return;
       this.UpdateCamera();
+      MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
+      if (!this.TowerMode || this.m_SyncLoad || !instance.IsUpdatePlayerProperty)
+        return;
+      instance.IsUpdatePlayerProperty = false;
+      this.SyncRoomPlayer();
     }
 
     private void UpdateCamera()
     {
       this.UpdateCameraRotate();
-      if (Object.op_Inequality((Object) this.TouchController, (Object) null) && Object.op_Inequality((Object) Camera.get_main(), (Object) null) && !this.m_CamMove)
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TouchController, (UnityEngine.Object) null) && UnityEngine.Object.op_Inequality((UnityEngine.Object) Camera.get_main(), (UnityEngine.Object) null) && !this.m_CamMove)
       {
         Camera main = Camera.get_main();
         // ISSUE: explicit reference operation
@@ -235,9 +337,9 @@ namespace SRPG
           }
         }
       }
-      if (Object.op_Inequality((Object) this.CameraRotateL, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.CameraRotateL, (UnityEngine.Object) null))
         ((Selectable) this.CameraRotateL).set_interactable((double) this.m_CamAngle > (double) this.m_CamYawMin);
-      if (!Object.op_Inequality((Object) this.CameraRotateR, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.CameraRotateR, (UnityEngine.Object) null))
         return;
       ((Selectable) this.CameraRotateR).set_interactable((double) this.m_CamAngle < (double) this.m_CamYawMax);
     }
@@ -270,13 +372,117 @@ namespace SRPG
       this.m_Camera.SetPositionYaw(Vector3.op_Addition(this.m_CameraPos, Vector3.op_Multiply(Vector3.get_up(), instance.GameCamera_UnitHeightOffset)), this.m_CamAngle);
     }
 
+    private void SyncRoomPlayer()
+    {
+      bool flag1 = false;
+      bool flag2 = false;
+      MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
+      List<MyPhoton.MyPlayer> roomPlayerList = instance.GetRoomPlayerList();
+      if (this.m_Players == null)
+        flag2 = true;
+      else if (roomPlayerList.Count != this.m_Players.Count)
+      {
+        flag2 = true;
+      }
+      else
+      {
+        for (int index1 = 0; index1 < roomPlayerList.Count; ++index1)
+        {
+          if (!roomPlayerList[index1].json.Equals(this.m_Players[index1].json))
+          {
+            JSON_MyPhotonPlayerParam photonPlayerParam1 = JSON_MyPhotonPlayerParam.Parse(this.m_Players[index1].json);
+            JSON_MyPhotonPlayerParam photonPlayerParam2 = JSON_MyPhotonPlayerParam.Parse(roomPlayerList[index1].json);
+            if (photonPlayerParam2 != null && photonPlayerParam1 != null && photonPlayerParam2.playerIndex != instance.MyPlayerIndex)
+            {
+              if (photonPlayerParam2.units.Length != photonPlayerParam1.units.Length)
+              {
+                flag2 = true;
+              }
+              else
+              {
+                for (int index2 = 0; index2 < photonPlayerParam2.units.Length; ++index2)
+                {
+                  UnitData unitData1 = new UnitData();
+                  UnitData unitData2 = new UnitData();
+                  unitData1.Deserialize(photonPlayerParam2.units[index2].unitJson);
+                  unitData2.Deserialize(photonPlayerParam1.units[index2].unitJson);
+                  if (unitData1.UnitParam.iname != unitData2.UnitParam.iname)
+                    flag2 = true;
+                  else if (photonPlayerParam2.units[index2].place != photonPlayerParam1.units[index2].place)
+                    flag1 = true;
+                }
+              }
+            }
+          }
+        }
+      }
+      this.m_Players = roomPlayerList;
+      if (flag2)
+      {
+        this.CloseUnitStatus();
+        this.m_SyncLoad = true;
+        this.StartCoroutine(this.LoadUnit());
+      }
+      else if (flag1)
+      {
+        for (int index1 = 0; index1 < roomPlayerList.Count; ++index1)
+        {
+          // ISSUE: object of a compiler-generated type is created
+          // ISSUE: variable of a compiler-generated type
+          MultiPlayVersusReady.\u003CSyncRoomPlayer\u003Ec__AnonStorey34E playerCAnonStorey34E = new MultiPlayVersusReady.\u003CSyncRoomPlayer\u003Ec__AnonStorey34E();
+          // ISSUE: reference to a compiler-generated field
+          playerCAnonStorey34E.param = JSON_MyPhotonPlayerParam.Parse(roomPlayerList[index1].json);
+          // ISSUE: reference to a compiler-generated field
+          if (playerCAnonStorey34E.param != null)
+          {
+            // ISSUE: reference to a compiler-generated field
+            for (int index2 = 0; index2 < playerCAnonStorey34E.param.units.Length; ++index2)
+            {
+              // ISSUE: object of a compiler-generated type is created
+              // ISSUE: variable of a compiler-generated type
+              MultiPlayVersusReady.\u003CSyncRoomPlayer\u003Ec__AnonStorey34D playerCAnonStorey34D = new MultiPlayVersusReady.\u003CSyncRoomPlayer\u003Ec__AnonStorey34D();
+              // ISSUE: reference to a compiler-generated field
+              playerCAnonStorey34D.\u003C\u003Ef__ref\u0024846 = playerCAnonStorey34E;
+              // ISSUE: reference to a compiler-generated field
+              playerCAnonStorey34D.unitData = new UnitData();
+              // ISSUE: reference to a compiler-generated field
+              if (playerCAnonStorey34D.unitData != null)
+              {
+                // ISSUE: reference to a compiler-generated field
+                // ISSUE: reference to a compiler-generated field
+                playerCAnonStorey34D.unitData.Deserialize(playerCAnonStorey34E.param.units[index2].unitJson);
+                // ISSUE: reference to a compiler-generated method
+                TacticsUnitController controller = this.m_Units.Find(new Predicate<TacticsUnitController>(playerCAnonStorey34D.\u003C\u003Em__3AF));
+                if (UnityEngine.Object.op_Inequality((UnityEngine.Object) controller, (UnityEngine.Object) null))
+                {
+                  // ISSUE: reference to a compiler-generated field
+                  OIntVector2 pos = this.CurrentMap.PartyUnitSettings[playerCAnonStorey34E.param.units[index2].place].pos;
+                  controller.Unit.x = (int) pos.x;
+                  controller.Unit.y = (int) pos.y;
+                  this.CalcPosition(controller);
+                }
+              }
+            }
+          }
+        }
+      }
+      this.UpdateGridColor();
+    }
+
+    [DebuggerHidden]
+    private IEnumerator LoadUnit()
+    {
+      // ISSUE: object of a compiler-generated type is created
+      return (IEnumerator) new MultiPlayVersusReady.\u003CLoadUnit\u003Ec__Iterator105() { \u003C\u003Ef__this = this };
+    }
+
     private void OnLoadScene(GameObject go)
     {
       this.m_SceneRoot = (TacticsSceneSettings) go.GetComponent<TacticsSceneSettings>();
-      if (Object.op_Inequality((Object) this.m_SceneRoot, (Object) null) && Object.op_Inequality((Object) Camera.get_main(), (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_SceneRoot, (UnityEngine.Object) null) && UnityEngine.Object.op_Inequality((UnityEngine.Object) Camera.get_main(), (UnityEngine.Object) null))
       {
         RenderPipeline component = (RenderPipeline) ((Component) Camera.get_main()).GetComponent<RenderPipeline>();
-        if (Object.op_Inequality((Object) component, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
         {
           component.BackgroundImage = (Texture) this.m_SceneRoot.BackgroundImage;
           component.ScreenFilter = (Texture) this.m_SceneRoot.ScreenFilter;
@@ -292,6 +498,7 @@ namespace SRPG
           this.m_CamYawMin = instance.GameCamera_YawMin;
           this.m_CamYawMax = instance.GameCamera_YawMax;
         }
+        this.m_SceneRoot.GenerateGridMesh(this.CurrentMap.Width, this.CurrentMap.Height);
       }
       go.SetActive(true);
     }
@@ -312,11 +519,27 @@ namespace SRPG
         this.m_SelectParty = 0;
       int selectParty = this.m_SelectParty;
       int hp = (int) this.m_Units[selectParty].Unit.CurrentStatus.param.hp;
-      this.m_Status.SetNoAction(this.m_Units[selectParty].Unit);
-      this.m_Status.SetHpGaugeParam(EUnitSide.Player, hp, hp, 0, 0);
-      this.m_Status.Open();
-      this.m_Status.UpdateHpGauge();
-      FlowNode_TriggerLocalEvent.TriggerLocalEvent((Component) this, "TARGET_STATUS_BUTTON_SHOW");
+      if (this.m_Units[selectParty].Unit.IsGimmick && !this.m_Units[selectParty].Unit.IsBreakObj)
+      {
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_Status, (UnityEngine.Object) null))
+          this.m_Status.Close();
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_StatusTrick, (UnityEngine.Object) null))
+          this.m_StatusTrick.Close();
+        this.m_StatusObj.SetNoAction(this.m_Units[selectParty].Unit, (List<LogSkill.Target.CondHit>) null);
+        this.m_StatusObj.Open();
+      }
+      else
+      {
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_StatusObj, (UnityEngine.Object) null))
+          this.m_StatusObj.Close();
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_StatusTrick, (UnityEngine.Object) null))
+          this.m_StatusTrick.Close();
+        this.m_Status.SetNoAction(this.m_Units[selectParty].Unit, (List<LogSkill.Target.CondHit>) null);
+        this.m_Status.SetHpGaugeParam(EUnitSide.Player, hp, hp, 0, 0);
+        this.m_Status.Open();
+        this.m_Status.UpdateHpGauge();
+        this.m_Status.HideButton();
+      }
       this.UpdateMarker(this.m_Units[selectParty]);
       if (lerp)
       {
@@ -341,12 +564,16 @@ namespace SRPG
 
     private void OnNextUnit(GameObject obj)
     {
+      if (this.m_SyncLoad)
+        return;
       this.UpdateUnitStatus(1, false);
       MonoSingleton<MySound>.Instance.PlaySEOneShot("SE_0002", 0.0f);
     }
 
     private void OnPrevUnit(GameObject obj)
     {
+      if (this.m_SyncLoad)
+        return;
       this.UpdateUnitStatus(-1, false);
       MonoSingleton<MySound>.Instance.PlaySEOneShot("SE_0002", 0.0f);
     }
@@ -354,7 +581,7 @@ namespace SRPG
     private void OnTouchClick(Vector2 screenPos)
     {
       RaycastHit raycastHit;
-      if (!Object.op_Inequality((Object) Camera.get_main(), (Object) null) || this.CurrentMap == null || !Physics.Raycast(Camera.get_main().ScreenPointToRay(Vector2.op_Implicit(screenPos)), ref raycastHit))
+      if (this.m_SyncLoad || !UnityEngine.Object.op_Inequality((UnityEngine.Object) Camera.get_main(), (UnityEngine.Object) null) || (this.CurrentMap == null || !Physics.Raycast(Camera.get_main().ScreenPointToRay(Vector2.op_Implicit(screenPos)), ref raycastHit)))
         return;
       // ISSUE: explicit reference operation
       this.m_SelectGrid.x = Mathf.FloorToInt((float) ((RaycastHit) @raycastHit).get_point().x);
@@ -363,24 +590,21 @@ namespace SRPG
       this.UpdateSelectGrid();
     }
 
-    private int CheckExistUnit(int x, int y)
+    private List<int> CheckExistUnit(int x, int y)
     {
-      int num = -1;
+      List<int> intList = new List<int>();
       for (int index = 0; index < this.m_Units.Count; ++index)
       {
         TacticsUnitController unit = this.m_Units[index];
         if (unit.Unit.x == x && unit.Unit.y == y)
-        {
-          num = index;
-          break;
-        }
+          intList.Add(index);
       }
-      return num;
+      return intList;
     }
 
     private void UpdateSelectGrid()
     {
-      if (this.m_SelectGrid.x < 0 || this.m_SelectGrid.y < 0)
+      if (this.m_SelectGrid.x < 0 || this.m_SelectGrid.y < 0 || !this.m_Ready)
         return;
       if (this.m_SelectParty < 0)
       {
@@ -399,27 +623,42 @@ namespace SRPG
       }
       else
       {
-        int num = this.CheckExistUnit(this.m_SelectGrid.x, this.m_SelectGrid.y);
-        if (num != -1)
+        MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
+        List<int> intList = this.CheckExistUnit(this.m_SelectGrid.x, this.m_SelectGrid.y);
+        if (intList.Count > 0)
         {
+          int num = intList[0];
+          for (int index = 0; index < intList.Count; ++index)
+          {
+            if (this.m_Units[intList[index]].Unit.OwnerPlayerIndex == instance.MyPlayerIndex)
+            {
+              num = intList[index];
+              break;
+            }
+          }
           this.m_SelectParty = num;
           this.UpdateUnitStatus(0, true);
           MonoSingleton<MySound>.Instance.PlaySEOneShot("SE_0005", 0.0f);
         }
         else
         {
+          if (this.TowerMode && (this.m_Units[this.m_SelectParty].Unit.Side != EUnitSide.Player || this.m_Units[this.m_SelectParty].Unit.OwnerPlayerIndex != instance.MyPlayerIndex))
+            return;
           using (List<UnitSetting>.Enumerator enumerator = this.CurrentMap.PartyUnitSettings.GetEnumerator())
           {
             while (enumerator.MoveNext())
             {
               UnitSetting current = enumerator.Current;
-              if (this.CheckExistUnit((int) current.pos.x, (int) current.pos.y) == -1 && (int) current.pos.x == this.m_SelectGrid.x && (int) current.pos.y == this.m_SelectGrid.y)
+              if (this.CheckExistUnit((int) current.pos.x, (int) current.pos.y).Count <= 0 && (int) current.pos.x == this.m_SelectGrid.x && (int) current.pos.y == this.m_SelectGrid.y)
               {
                 this.m_Units[this.m_SelectParty].Unit.x = (int) current.pos.x;
                 this.m_Units[this.m_SelectParty].Unit.y = (int) current.pos.y;
                 this.CalcPosition(this.m_Units[this.m_SelectParty]);
                 this.UpdateUnitStatus(0, true);
                 MonoSingleton<MySound>.Instance.PlaySEOneShot("SE_0002", 0.0f);
+                if (!this.TowerMode)
+                  break;
+                this.SendPlacementInfo();
                 break;
               }
             }
@@ -438,19 +677,22 @@ namespace SRPG
 
     private void UpdateMarker(TacticsUnitController controller = null)
     {
-      if (Object.op_Inequality((Object) controller, (Object) null) && Object.op_Inequality((Object) this.m_Marker, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) controller, (UnityEngine.Object) null) && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_Marker, (UnityEngine.Object) null))
       {
         this.m_Marker.get_transform().SetParent(((Component) controller).get_transform(), false);
         this.m_Marker.get_transform().set_localPosition(Vector3.op_Multiply(Vector3.get_up(), 1.5f));
         this.m_Marker.get_gameObject().SetActive(true);
       }
       else
+      {
         this.m_Marker.get_gameObject().SetActive(false);
+        this.m_Marker.get_transform().SetParent(((Component) this).get_transform(), false);
+      }
     }
 
     private void OnCameraRotateL()
     {
-      if (this.m_CamMove)
+      if (this.m_SyncLoad || this.m_CamMove)
         return;
       GameSettings instance = GameSettings.Instance;
       this.m_CamAngleStart = this.m_CamAngle;
@@ -461,7 +703,7 @@ namespace SRPG
 
     private void OnCameraRotateR()
     {
-      if (this.m_CamMove)
+      if (this.m_SyncLoad || this.m_CamMove)
         return;
       GameSettings instance = GameSettings.Instance;
       this.m_CamAngleStart = this.m_CamAngle;
@@ -502,18 +744,109 @@ namespace SRPG
 
     private void OnClickGo()
     {
+      if (this.m_SyncLoad)
+        return;
       if (this.IsSamePosition())
       {
         FlowNode_TriggerLocalEvent.TriggerLocalEvent((Component) this, "SAME_POSITION");
       }
       else
       {
+        this.m_Ready = false;
         PlayerData player = MonoSingleton<GameManager>.Instance.Player;
         for (int index = 0; index < this.m_Units.Count; ++index)
-          player.SetVersusPlacement(PlayerData.VERSUS_ID_KEY + (object) index, this.GetPlacementID(this.m_Units[index].Unit.x, this.m_Units[index].Unit.y));
+          player.SetVersusPlacement(PlayerPrefsUtility.VERSUS_ID_KEY + (object) index, this.GetPlacementID(this.m_Units[index].Unit.x, this.m_Units[index].Unit.y));
         player.SavePlayerPrefs();
         FlowNode_TriggerLocalEvent.TriggerLocalEvent((Component) this, "FINISH_PLACEMENT");
       }
+    }
+
+    private void SendPlacementInfo()
+    {
+      // ISSUE: object of a compiler-generated type is created
+      // ISSUE: variable of a compiler-generated type
+      MultiPlayVersusReady.\u003CSendPlacementInfo\u003Ec__AnonStorey34F infoCAnonStorey34F = new MultiPlayVersusReady.\u003CSendPlacementInfo\u003Ec__AnonStorey34F();
+      // ISSUE: reference to a compiler-generated field
+      infoCAnonStorey34F.pt = PunMonoSingleton<MyPhoton>.Instance;
+      // ISSUE: reference to a compiler-generated field
+      MyPhoton.MyPlayer myPlayer = infoCAnonStorey34F.pt.GetMyPlayer();
+      if (myPlayer == null)
+        return;
+      // ISSUE: reference to a compiler-generated field
+      infoCAnonStorey34F.param = JSON_MyPhotonPlayerParam.Parse(myPlayer.json);
+      // ISSUE: reference to a compiler-generated field
+      if (infoCAnonStorey34F.param.units != null)
+      {
+        // ISSUE: object of a compiler-generated type is created
+        // ISSUE: variable of a compiler-generated type
+        MultiPlayVersusReady.\u003CSendPlacementInfo\u003Ec__AnonStorey350 infoCAnonStorey350 = new MultiPlayVersusReady.\u003CSendPlacementInfo\u003Ec__AnonStorey350();
+        // ISSUE: reference to a compiler-generated field
+        infoCAnonStorey350.\u003C\u003Ef__ref\u0024847 = infoCAnonStorey34F;
+        // ISSUE: reference to a compiler-generated field
+        // ISSUE: reference to a compiler-generated field
+        // ISSUE: reference to a compiler-generated field
+        // ISSUE: reference to a compiler-generated field
+        for (infoCAnonStorey350.i = 0; infoCAnonStorey350.i < infoCAnonStorey34F.param.units.Length; ++infoCAnonStorey350.i)
+        {
+          // ISSUE: reference to a compiler-generated method
+          TacticsUnitController tacticsUnitController = this.m_Units.Find(new Predicate<TacticsUnitController>(infoCAnonStorey350.\u003C\u003Em__3B0));
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) tacticsUnitController, (UnityEngine.Object) null))
+          {
+            // ISSUE: reference to a compiler-generated field
+            // ISSUE: reference to a compiler-generated field
+            infoCAnonStorey34F.param.units[infoCAnonStorey350.i].place = this.GetPlacementID(tacticsUnitController.Unit.x, tacticsUnitController.Unit.y);
+            // ISSUE: reference to a compiler-generated field
+            // ISSUE: reference to a compiler-generated field
+            // ISSUE: reference to a compiler-generated field
+            PlayerPrefsUtility.SetInt(PlayerPrefsUtility.MULTITW_ID_KEY + (object) infoCAnonStorey350.i, infoCAnonStorey34F.param.units[infoCAnonStorey350.i].place, false);
+          }
+        }
+      }
+      PlayerPrefsUtility.Save();
+      // ISSUE: reference to a compiler-generated field
+      // ISSUE: reference to a compiler-generated field
+      infoCAnonStorey34F.pt.SetMyPlayerParam(infoCAnonStorey34F.param.Serialize());
+    }
+
+    private void UpdateGridColor()
+    {
+      if (this.CurrentMap == null)
+        return;
+      GameSettings instance1 = GameSettings.Instance;
+      GridMap<Color32> grid = new GridMap<Color32>(this.CurrentMap.Width, this.CurrentMap.Height);
+      MyPhoton instance2 = PunMonoSingleton<MyPhoton>.Instance;
+      if (this.CurrentMap.PartyUnitSettings != null)
+      {
+        using (List<UnitSetting>.Enumerator enumerator = this.CurrentMap.PartyUnitSettings.GetEnumerator())
+        {
+          while (enumerator.MoveNext())
+          {
+            UnitSetting current = enumerator.Current;
+            grid.set((int) current.pos.x, (int) current.pos.y, Color32.op_Implicit(instance1.Colors.WalkableArea));
+          }
+        }
+      }
+      using (List<TacticsUnitController>.Enumerator enumerator = this.m_Units.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+        {
+          TacticsUnitController current = enumerator.Current;
+          if (current.Unit.OwnerPlayerIndex != instance2.MyPlayerIndex)
+            grid.set(current.Unit.x, current.Unit.y, Color32.op_Implicit(instance1.Colors.Helper));
+        }
+      }
+      if (this.CurrentMap.NPCUnitSettings != null)
+      {
+        using (List<NPCSetting>.Enumerator enumerator = this.CurrentMap.NPCUnitSettings.GetEnumerator())
+        {
+          while (enumerator.MoveNext())
+          {
+            NPCSetting current = enumerator.Current;
+            grid.set((int) current.pos.x, (int) current.pos.y, Color32.op_Implicit(instance1.Colors.Enemy));
+          }
+        }
+      }
+      this.m_SceneRoot.ShowGridLayer(0, grid, true);
     }
 
     private string DebugSearchPos(int x, int y)
@@ -550,6 +883,8 @@ namespace SRPG
 
     private void DebugPlacement(GameObject go)
     {
+      if (this.m_Map == null || this.m_Map.Count == 0)
+        return;
       int width = this.CurrentMap.Width;
       int height = this.CurrentMap.Height;
       GUILayout.Box(string.Empty, new GUILayoutOption[2]

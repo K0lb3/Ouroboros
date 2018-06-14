@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.EventShopListItem
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -70,12 +70,12 @@ namespace SRPG
           this.btn_update = jsonShopMsgResponse.update.Equals("on");
       }
       GachaTabSprites gachaTabSprites = AssetManager.Load<GachaTabSprites>(this.EventShopSpritePath);
-      if (Object.op_Inequality((Object) gachaTabSprites, (Object) null) && gachaTabSprites.Sprites != null && gachaTabSprites.Sprites.Length > 0)
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) gachaTabSprites, (UnityEngine.Object) null) && gachaTabSprites.Sprites != null && gachaTabSprites.Sprites.Length > 0)
       {
         Sprite[] sprites = gachaTabSprites.Sprites;
         for (int index = 0; index < sprites.Length; ++index)
         {
-          if (Object.op_Inequality((Object) sprites[index], (Object) null) && ((Object) sprites[index]).get_name() == this.banner_sprite)
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) sprites[index], (UnityEngine.Object) null) && ((UnityEngine.Object) sprites[index]).get_name() == this.banner_sprite)
             this.banner.set_sprite(sprites[index]);
         }
       }
@@ -87,11 +87,11 @@ namespace SRPG
       }
       DataSource.Bind<ItemParam>(this.mPaidCoinIcon, data.param);
       DataSource.Bind<EventCoinData>(this.mPaidCoinNum, data);
-      if (shops.unlock == null || !Object.op_Inequality((Object) this.mLockObject, (Object) null) || !Object.op_Inequality((Object) this.mLockText, (Object) null))
+      if (shops.unlock == null || !UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mLockObject, (UnityEngine.Object) null) || !UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mLockText, (UnityEngine.Object) null))
         return;
       bool flag = shops.unlock.flg == 1;
       Button component = (Button) ((Component) this).GetComponent<Button>();
-      if (!Object.op_Implicit((Object) component))
+      if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) component))
         return;
       if (flag)
       {
@@ -111,13 +111,13 @@ namespace SRPG
     {
       if (this.mEndTime <= 0L)
       {
-        if (!Object.op_Inequality((Object) this.Body, (Object) null))
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Body, (UnityEngine.Object) null))
           return;
         this.Body.SetActive(false);
       }
       else
       {
-        if (Object.op_Inequality((Object) this.Body, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Body, (UnityEngine.Object) null))
           this.Body.SetActive(true);
         TimeSpan timeSpan = TimeManager.FromUnixTime(this.mEndTime) - TimeManager.ServerTime;
         string str;
@@ -136,7 +136,7 @@ namespace SRPG
           {
             (object) Mathf.Max(timeSpan.Minutes, 0)
           });
-        if (!Object.op_Inequality((Object) this.Timer, (Object) null) || !(this.Timer.get_text() != str))
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Timer, (UnityEngine.Object) null) || !(this.Timer.get_text() != str))
           return;
         this.Timer.set_text(str);
       }

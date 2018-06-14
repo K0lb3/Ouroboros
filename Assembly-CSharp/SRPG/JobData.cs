@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.JobData
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -455,16 +455,16 @@ namespace SRPG
       {
         // ISSUE: object of a compiler-generated type is created
         // ISSUE: variable of a compiler-generated type
-        JobData.\u003CJobRankUp\u003Ec__AnonStorey28E upCAnonStorey28E = new JobData.\u003CJobRankUp\u003Ec__AnonStorey28E();
+        JobData.\u003CJobRankUp\u003Ec__AnonStorey3A6 upCAnonStorey3A6 = new JobData.\u003CJobRankUp\u003Ec__AnonStorey3A6();
         // ISSUE: reference to a compiler-generated field
-        upCAnonStorey28E.abilityID = (string) learningAbilitys[index1];
+        upCAnonStorey3A6.abilityID = (string) learningAbilitys[index1];
         // ISSUE: reference to a compiler-generated field
         // ISSUE: reference to a compiler-generated method
-        if (!string.IsNullOrEmpty(upCAnonStorey28E.abilityID) && this.mLearnAbilitys.Find(new Predicate<AbilityData>(upCAnonStorey28E.\u003C\u003Em__330)) == null)
+        if (!string.IsNullOrEmpty(upCAnonStorey3A6.abilityID) && this.mLearnAbilitys.Find(new Predicate<AbilityData>(upCAnonStorey3A6.\u003C\u003Em__479)) == null)
         {
           AbilityData abilityData = new AbilityData();
           // ISSUE: reference to a compiler-generated field
-          string abilityId = upCAnonStorey28E.abilityID;
+          string abilityId = upCAnonStorey3A6.abilityID;
           List<AbilityData> learnedAbilities = this.mOwner.GetAllLearnedAbilities();
           long val1 = 0;
           int exp = 0;
@@ -489,14 +489,15 @@ namespace SRPG
       return JobParam.GetJobRankCap(self.Rarity);
     }
 
-    public bool CheckJobRankUp(UnitData self, bool canCreate = false)
+    public bool CheckJobRankUp(UnitData self, bool canCreate = false, bool useCommon = true)
     {
       if (this.Param == null || this.Rank >= this.GetJobRankCap(self))
         return false;
       PlayerData player = MonoSingleton<GameManager>.Instance.Player;
+      NeedEquipItemList needEquipItemList = new NeedEquipItemList();
       if (canCreate)
       {
-        if (!player.CheckEnableCreateEquipItemAll(self, this.mEquips))
+        if (!player.CheckEnableCreateEquipItemAll(self, this.mEquips, !useCommon ? (NeedEquipItemList) null : needEquipItemList) && !needEquipItemList.IsEnoughCommon())
           return false;
       }
       else
@@ -510,9 +511,16 @@ namespace SRPG
       return true;
     }
 
-    public bool CanAllEquip(ref int cost, ref Dictionary<string, int> equips, ref Dictionary<string, int> consumes)
+    public bool CanAllEquip(ref int cost, ref Dictionary<string, int> equips, ref Dictionary<string, int> consumes, ref int target_rank, ref bool can_jobmaster, ref bool can_jobmax, NeedEquipItemList item_list = null, bool all = false)
     {
-      return MonoSingleton<GameManager>.Instance.Player.CheckEnableCreateEquipItemAll(this.Owner, this.Equips, ref consumes, ref cost);
+      if (all)
+        return MonoSingleton<GameManager>.Instance.Player.CheckEnable2(this.Owner, this.Equips, ref consumes, ref cost, ref target_rank, ref can_jobmaster, ref can_jobmax, (NeedEquipItemList) null);
+      return MonoSingleton<GameManager>.Instance.Player.CheckEnableCreateEquipItemAll(this.Owner, this.Equips, ref consumes, ref cost, item_list);
+    }
+
+    public bool CanAllEquip(ref int cost, ref Dictionary<string, int> equips, ref Dictionary<string, int> consumes, NeedEquipItemList item_list = null)
+    {
+      return MonoSingleton<GameManager>.Instance.Player.CheckEnableCreateEquipItemAll(this.Owner, this.Equips, ref consumes, ref cost, item_list);
     }
 
     public int GetEnableEquipUnitLevel(int slot)
@@ -566,7 +574,8 @@ namespace SRPG
       int jobIndex = Array.IndexOf<JobData>(this.Owner.Jobs, this);
       if (jobIndex < 0 || !artifact.CheckEnableEquip(this.Owner, jobIndex))
         return false;
-      if (artifact.ArtifactParam.type == JobData.ARTIFACT_SLOT_TYPES[slot])
+      ArtifactParam artifactParam = artifact.ArtifactParam;
+      if (artifactParam.type == ArtifactTypes.Accessory || artifactParam.type == JobData.ARTIFACT_SLOT_TYPES[slot])
         return true;
       DebugUtility.LogError("ArtifactSlot mismatch");
       return false;

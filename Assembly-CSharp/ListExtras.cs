@@ -1,15 +1,15 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: ListExtras
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof (ScrollRect))]
 [DisallowMultipleComponent]
 [AddComponentMenu("UI/ListExtras")]
+[RequireComponent(typeof (ScrollRect))]
 public class ListExtras : MonoBehaviour
 {
   public Selectable PageUpButton;
@@ -31,6 +31,14 @@ public class ListExtras : MonoBehaviour
     if (!Object.op_Equality((Object) this.mScrollRect, (Object) null))
       return;
     ((Behaviour) this).set_enabled(false);
+  }
+
+  protected void Start()
+  {
+    if (this.mScrollRect.get_horizontal())
+      this.ScrollTo(0.0f);
+    else
+      this.ScrollTo(-1f);
   }
 
   protected void Update()

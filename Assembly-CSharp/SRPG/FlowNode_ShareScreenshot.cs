@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_ShareScreenshot
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections;
@@ -10,10 +10,10 @@ using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.Pin(0, "ShareScreenshot", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(10, "Success", FlowNode.PinTypes.Output, 10)]
-  [FlowNode.Pin(1, "ShareText", FlowNode.PinTypes.Input, 1)]
   [FlowNode.NodeType("System/ShareScreenshot", 32741)]
+  [FlowNode.Pin(0, "ShareScreenshot", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "ShareText", FlowNode.PinTypes.Input, 1)]
   public class FlowNode_ShareScreenshot : FlowNode
   {
     private static bool isSharingImage = true;
@@ -57,7 +57,10 @@ namespace SRPG
     private IEnumerator ShareScreenshot()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new FlowNode_ShareScreenshot.\u003CShareScreenshot\u003Ec__Iterator23() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new FlowNode_ShareScreenshot.\u003CShareScreenshot\u003Ec__Iterator43()
+      {
+        \u003C\u003Ef__this = this
+      };
     }
   }
 }

@@ -1,23 +1,23 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: FlowNode_ToggleCanvasGroup
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using UnityEngine;
 
-[FlowNode.NodeType("Toggle/CanvasGroup", 32741)]
-[FlowNode.Pin(3, "Show", FlowNode.PinTypes.Input, 3)]
-[FlowNode.Pin(4, "Hide", FlowNode.PinTypes.Input, 4)]
-[FlowNode.Pin(2, "Turn Off Block Raycasts", FlowNode.PinTypes.Input, 2)]
-[FlowNode.Pin(5, "Turn On interactive", FlowNode.PinTypes.Input, 5)]
 [FlowNode.Pin(1, "Turn On Block Raycasts", FlowNode.PinTypes.Input, 1)]
 [FlowNode.Pin(6, "Turn Off interactive", FlowNode.PinTypes.Input, 6)]
+[FlowNode.Pin(5, "Turn On interactive", FlowNode.PinTypes.Input, 5)]
+[FlowNode.Pin(4, "Hide", FlowNode.PinTypes.Input, 4)]
+[FlowNode.Pin(3, "Show", FlowNode.PinTypes.Input, 3)]
+[FlowNode.Pin(2, "Turn Off Block Raycasts", FlowNode.PinTypes.Input, 2)]
 [FlowNode.Pin(0, "Out", FlowNode.PinTypes.Output, 999)]
+[FlowNode.NodeType("Toggle/CanvasGroup", 32741)]
 public class FlowNode_ToggleCanvasGroup : FlowNode
 {
-  [FlowNode.DropTarget(typeof (CanvasGroup), true)]
   [FlowNode.ShowInInfo]
+  [FlowNode.DropTarget(typeof (CanvasGroup), true)]
   public CanvasGroup Target;
 
   public override void OnActivate(int pinID)

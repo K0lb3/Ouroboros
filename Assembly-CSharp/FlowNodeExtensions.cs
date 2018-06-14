@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: FlowNodeExtensions
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using UnityEngine;
@@ -51,6 +51,8 @@ public static class FlowNodeExtensions
 
   public static string ShortName(this FlowNode inFlowNode)
   {
+    if (Object.op_Equality((Object) inFlowNode, (Object) null))
+      return string.Empty;
     return ((Object) inFlowNode).ToString().ToLower().Replace("flownode_", string.Empty).Replace(((Object) inFlowNode).get_name().ToLower(), string.Empty);
   }
 }

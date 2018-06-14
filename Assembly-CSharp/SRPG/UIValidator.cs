@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.UIValidator
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -41,7 +41,7 @@ namespace SRPG
 
     private void Start()
     {
-      if (Object.op_Inequality((Object) this.Input, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Input, (UnityEngine.Object) null))
       {
         // ISSUE: method pointer
         ((UnityEvent<string>) this.Input.get_onValueChanged()).AddListener(new UnityAction<string>((object) this, __methodptr(OnInputFieldChange)));
@@ -50,16 +50,16 @@ namespace SRPG
       {
         // ISSUE: object of a compiler-generated type is created
         // ISSUE: variable of a compiler-generated type
-        UIValidator.\u003CStart\u003Ec__AnonStorey207 startCAnonStorey207 = new UIValidator.\u003CStart\u003Ec__AnonStorey207();
+        UIValidator.\u003CStart\u003Ec__AnonStorey2B9 startCAnonStorey2B9 = new UIValidator.\u003CStart\u003Ec__AnonStorey2B9();
         // ISSUE: reference to a compiler-generated field
-        startCAnonStorey207.\u003C\u003Ef__this = this;
+        startCAnonStorey2B9.\u003C\u003Ef__this = this;
         foreach (InputField inputField in this.ExtraInput)
         {
           // ISSUE: reference to a compiler-generated field
-          startCAnonStorey207.i = inputField;
+          startCAnonStorey2B9.i = inputField;
           // ISSUE: reference to a compiler-generated field
           // ISSUE: method pointer
-          ((UnityEvent<string>) startCAnonStorey207.i.get_onValueChanged()).AddListener(new UnityAction<string>((object) startCAnonStorey207, __methodptr(\u003C\u003Em__1DE)));
+          ((UnityEvent<string>) startCAnonStorey2B9.i.get_onValueChanged()).AddListener(new UnityAction<string>((object) startCAnonStorey2B9, __methodptr(\u003C\u003Em__287)));
         }
       }
       this.UpdateInteractable(CriticalSection.GetActive());
@@ -70,7 +70,7 @@ namespace SRPG
       bool flag = true;
       if ((csMask & this.Mask) != (CriticalSections) 0)
         flag = false;
-      if (Object.op_Inequality((Object) this.Input, (Object) null) && string.IsNullOrEmpty(this.Input.get_text()))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Input, (UnityEngine.Object) null) && string.IsNullOrEmpty(this.Input.get_text()))
         flag = false;
       if (this.ExtraInput != null)
       {
@@ -86,19 +86,19 @@ namespace SRPG
       if ((this.ToggleMask & UIValidator.ToggleMasks.Enable) != (UIValidator.ToggleMasks) 0)
       {
         Selectable component = (Selectable) ((Component) this).GetComponent<Selectable>();
-        if (Object.op_Inequality((Object) component, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
           ((Behaviour) component).set_enabled(flag);
       }
       if ((this.ToggleMask & UIValidator.ToggleMasks.Interactable) != (UIValidator.ToggleMasks) 0)
       {
         Selectable component = (Selectable) ((Component) this).GetComponent<Selectable>();
-        if (Object.op_Inequality((Object) component, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
           component.set_interactable(flag);
       }
       if ((this.ToggleMask & UIValidator.ToggleMasks.BlockRaycast) == (UIValidator.ToggleMasks) 0)
         return;
       CanvasGroup component1 = (CanvasGroup) ((Component) this).GetComponent<CanvasGroup>();
-      if (!Object.op_Inequality((Object) component1, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component1, (UnityEngine.Object) null))
         return;
       component1.set_blocksRaycasts(flag);
     }

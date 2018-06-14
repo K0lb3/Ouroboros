@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.TowerManager
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -15,13 +15,13 @@ using UnityEngine.UI;
 
 namespace SRPG
 {
-  [FlowNode.Pin(6, "リセット完了", FlowNode.PinTypes.Output, 6)]
-  [FlowNode.Pin(4, "リセット", FlowNode.PinTypes.Output, 4)]
-  [FlowNode.Pin(5, "リセット 幻晶石不足", FlowNode.PinTypes.Output, 5)]
-  [FlowNode.Pin(0, "初期化", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(1, "更新", FlowNode.PinTypes.Input, 1)]
-  [FlowNode.Pin(2, "回復", FlowNode.PinTypes.Output, 2)]
   [FlowNode.Pin(3, "回復 幻晶石不足", FlowNode.PinTypes.Output, 3)]
+  [FlowNode.Pin(2, "回復", FlowNode.PinTypes.Output, 2)]
+  [FlowNode.Pin(0, "初期化", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(6, "リセット完了", FlowNode.PinTypes.Output, 6)]
+  [FlowNode.Pin(5, "リセット 幻晶石不足", FlowNode.PinTypes.Output, 5)]
+  [FlowNode.Pin(4, "リセット", FlowNode.PinTypes.Output, 4)]
   public class TowerManager : MonoBehaviour, IFlowInterface
   {
     private const int PIN_ID_INITIALIZE = 0;
@@ -103,27 +103,29 @@ namespace SRPG
       this.mScrollAutoFit.OnScrollBegin.AddListener(new UnityAction((object) this, __methodptr(OnScrollBegin)));
       this.mTowerParam = MonoSingleton<GameManager>.Instance.FindTower(GlobalVars.SelectedTowerID);
       this.mRecoverTime = MonoSingleton<GameManager>.Instance.TowerResuponse.rtime;
-      if (this.mTowerParam != null && Object.op_Inequality((Object) this.RankingButton, (Object) null))
+      if (this.mTowerParam != null && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RankingButton, (UnityEngine.Object) null))
         this.RankingButton.SetActive(this.mTowerParam.is_view_ranking);
-      if (this.mTowerParam != null && Object.op_Inequality((Object) this.StatusButton, (Object) null))
+      if (this.mTowerParam != null && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.StatusButton, (UnityEngine.Object) null))
         this.StatusButton.SetActive(this.mTowerParam.is_view_ranking);
       if (this.mTowerParam != null && !string.IsNullOrEmpty(this.mTowerParam.eventURL))
         FlowNode_Variable.Set("CAPTION_TOWER_EVENT_DETAIL", this.mTowerParam.eventURL);
       this.initialized = true;
-      if (!this.is_reset)
-        return;
-      this.mTowerQuestList.ScrollToCurrentFloor(MonoSingleton<GameManager>.Instance.FindFirstTowerFloor(GlobalVars.SelectedTowerID));
-      this.RefreshUI();
-      this.mTowerQuestInfo.Refresh();
-      this.is_reset = false;
-      this.StartCoroutine(this.CheckLoadIcon());
+      if (this.is_reset)
+      {
+        this.mTowerQuestList.ScrollToCurrentFloor(MonoSingleton<GameManager>.Instance.FindFirstTowerFloor(GlobalVars.SelectedTowerID));
+        this.RefreshUI();
+        this.mTowerQuestInfo.Refresh();
+        this.is_reset = false;
+        this.StartCoroutine(this.CheckLoadIcon());
+      }
+      MonoSingleton<GameManager>.Instance.Player.UpdateTowerTrophyStates();
     }
 
     [DebuggerHidden]
     private IEnumerator CheckLoadIcon()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new TowerManager.\u003CCheckLoadIcon\u003Ec__IteratorD3() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new TowerManager.\u003CCheckLoadIcon\u003Ec__Iterator117() { \u003C\u003Ef__this = this };
     }
 
     private void OnScrollBegin()
@@ -133,7 +135,7 @@ namespace SRPG
 
     private void AddClickListener(Button button, Action clickListener)
     {
-      if (Object.op_Equality((Object) button, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) button, (UnityEngine.Object) null))
         return;
       // ISSUE: method pointer
       ((UnityEvent) button.get_onClick()).AddListener(new UnityAction((object) clickListener, __methodptr(Invoke)));
@@ -141,7 +143,7 @@ namespace SRPG
 
     private void RemoveClickListener(Button button, Action clickListener)
     {
-      if (Object.op_Equality((Object) button, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) button, (UnityEngine.Object) null))
         return;
       // ISSUE: method pointer
       ((UnityEvent) button.get_onClick()).RemoveListener(new UnityAction((object) clickListener, __methodptr(Invoke)));
@@ -151,15 +153,15 @@ namespace SRPG
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      TowerManager.\u003COnClick_RecoverButton\u003Ec__AnonStorey272 buttonCAnonStorey272 = new TowerManager.\u003COnClick_RecoverButton\u003Ec__AnonStorey272();
+      TowerManager.\u003COnClick_RecoverButton\u003Ec__AnonStorey37D buttonCAnonStorey37D = new TowerManager.\u003COnClick_RecoverButton\u003Ec__AnonStorey37D();
       // ISSUE: reference to a compiler-generated field
-      buttonCAnonStorey272.\u003C\u003Ef__this = this;
-      if (Object.op_Inequality((Object) this.mConfirmBox, (Object) null))
+      buttonCAnonStorey37D.\u003C\u003Ef__this = this;
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mConfirmBox, (UnityEngine.Object) null))
         return;
       // ISSUE: reference to a compiler-generated field
-      buttonCAnonStorey272.cost = MonoSingleton<GameManager>.Instance.TowerResuponse.CalcRecoverCost();
+      buttonCAnonStorey37D.cost = MonoSingleton<GameManager>.Instance.TowerResuponse.CalcRecoverCost();
       // ISSUE: reference to a compiler-generated field
-      if (MonoSingleton<GameManager>.Instance.Player.Coin < buttonCAnonStorey272.cost)
+      if (MonoSingleton<GameManager>.Instance.Player.Coin < buttonCAnonStorey37D.cost)
       {
         FlowNode_GameObject.ActivateOutputLinks((Component) this, 3);
       }
@@ -167,16 +169,16 @@ namespace SRPG
       {
         this.SetCanvasGroupIntaractable(false);
         // ISSUE: reference to a compiler-generated field
-        string text = LocalizedText.Get("sys.MSG_TOWER_RECOVER", new object[1]{ (object) buttonCAnonStorey272.cost });
+        string text = LocalizedText.Get("sys.MSG_TOWER_RECOVER", new object[1]{ (object) buttonCAnonStorey37D.cost });
         // ISSUE: reference to a compiler-generated method
         // ISSUE: reference to a compiler-generated method
-        this.mConfirmBox = UIUtility.ConfirmBoxTitle(string.Empty, text, new UIUtility.DialogResultEvent(buttonCAnonStorey272.\u003C\u003Em__2EB), new UIUtility.DialogResultEvent(buttonCAnonStorey272.\u003C\u003Em__2EC), (GameObject) null, true, -1);
+        this.mConfirmBox = UIUtility.ConfirmBoxTitle(string.Empty, text, new UIUtility.DialogResultEvent(buttonCAnonStorey37D.\u003C\u003Em__41C), new UIUtility.DialogResultEvent(buttonCAnonStorey37D.\u003C\u003Em__41D), (GameObject) null, true, -1, (string) null, (string) null);
       }
     }
 
     private void SetCanvasGroupIntaractable(bool value)
     {
-      if (!Object.op_Inequality((Object) this.mCanvasGroup, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mCanvasGroup, (UnityEngine.Object) null))
         return;
       this.mCanvasGroup.set_interactable(value);
     }
@@ -196,7 +198,7 @@ namespace SRPG
 
     private void OnClick_Reset()
     {
-      if (Object.op_Inequality((Object) this.mConfirmBox, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mConfirmBox, (UnityEngine.Object) null))
         return;
       int resetCost = (int) MonoSingleton<GameManager>.Instance.TowerResuponse.reset_cost;
       if (MonoSingleton<GameManager>.Instance.Player.Coin < resetCost)
@@ -212,6 +214,7 @@ namespace SRPG
         }), (UIUtility.DialogResultEvent) (go =>
         {
           ((Selectable) this.RecoverButton).set_interactable(false);
+          ((Selectable) this.ResetButton).set_interactable(false);
           this.mConfirmBox = (GameObject) null;
           FlowNode_GameObject.ActivateOutputLinks((Component) this, 4);
           this.SetCanvasGroupIntaractable(true);
@@ -220,7 +223,7 @@ namespace SRPG
         {
           this.mConfirmBox = (GameObject) null;
           this.SetCanvasGroupIntaractable(true);
-        }), (GameObject) null, true, -1);
+        }), (GameObject) null, true, -1, (string) null, (string) null);
       }
     }
 
@@ -253,24 +256,25 @@ namespace SRPG
     {
       QuestParam quest = MonoSingleton<GameManager>.Instance.FindQuest(GlobalVars.SelectedQuestID);
       this.mRecoverTime = MonoSingleton<GameManager>.Instance.TowerResuponse.rtime;
-      if (quest != null && Object.op_Inequality((Object) this.ChallengeButton, (Object) null))
+      if (quest != null && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ChallengeButton, (UnityEngine.Object) null))
       {
         DataSource.Bind<QuestParam>(((Component) this.ChallengeButton).get_gameObject(), quest);
         ((Selectable) this.ChallengeButton).set_interactable(quest.IsQuestCondition() && quest.state != QuestStates.Cleared);
         GameParameter.UpdateAll(((Component) this.ChallengeButton).get_gameObject());
       }
-      if (Object.op_Inequality((Object) this.RecoverButton, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RecoverButton, (UnityEngine.Object) null))
       {
         TowerResuponse towerResuponse = MonoSingleton<GameManager>.Instance.TowerResuponse;
         bool flag = towerResuponse.GetAvailableUnits().Count > 0 && towerResuponse.ExistDamagedUnit() || towerResuponse.GetDiedUnitNum() > 0;
         ((Selectable) this.RecoverButton).set_interactable(flag && !towerResuponse.is_reset);
-        if (Object.op_Inequality((Object) this.RecoverTimer, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RecoverTimer, (UnityEngine.Object) null))
           this.RecoverTimer.SetActive(flag);
       }
-      if (Object.op_Inequality((Object) this.ResetButton, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ResetButton, (UnityEngine.Object) null))
       {
         TowerResuponse towerResuponse = MonoSingleton<GameManager>.Instance.TowerResuponse;
         ((Component) this.ResetButton).get_gameObject().SetActive(towerResuponse.is_reset);
+        ((Selectable) this.ResetButton).set_interactable(towerResuponse.is_reset);
         ((Component) this.ChallengeButton).get_gameObject().SetActive(!towerResuponse.is_reset);
         this.ResetText.set_text(towerResuponse.reset_cost.ToString());
         bool flag = (int) towerResuponse.reset_cost == 0;
@@ -283,7 +287,7 @@ namespace SRPG
 
     private void SetAliveUnitsText()
     {
-      if (Object.op_Equality((Object) this.AliveUnits, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.AliveUnits, (UnityEngine.Object) null))
         return;
       TowerResuponse towerResuponse = MonoSingleton<GameManager>.Instance.TowerResuponse;
       List<UnitData> availableUnits = towerResuponse.GetAvailableUnits();
@@ -294,7 +298,7 @@ namespace SRPG
     private void SetRecoverText()
     {
       int num = MonoSingleton<GameManager>.Instance.TowerResuponse.CalcRecoverCost();
-      if (Object.op_Inequality((Object) this.RecoverCost, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RecoverCost, (UnityEngine.Object) null))
       {
         bool flag = num == 0;
         ((Component) this.RecoverCost).get_gameObject().SetActive(!flag);
@@ -302,7 +306,7 @@ namespace SRPG
         if (num > 0)
           this.RecoverCost.set_text(num.ToString());
       }
-      if (!Object.op_Inequality((Object) this.RecoverTimer, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RecoverTimer, (UnityEngine.Object) null))
         return;
       TimeSpan timeSpan = TimeManager.FromUnixTime(this.mRecoverTime).AddMinutes(-1.0) - TimeManager.ServerTime;
       if (timeSpan.TotalMinutes < 0.0)

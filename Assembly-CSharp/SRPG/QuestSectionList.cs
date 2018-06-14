@@ -1,21 +1,20 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.QuestSectionList
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace SRPG
 {
-  [FlowNode.Pin(1, "On right tap", FlowNode.PinTypes.Input, 0)]
-  [FlowNode.Pin(100, "アイテムが選択された", FlowNode.PinTypes.Output, 100)]
   [FlowNode.Pin(3, "Disable drag", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(2, "Enable drag", FlowNode.PinTypes.Input, 40)]
+  [FlowNode.Pin(1, "On right tap", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(100, "アイテムが選択された", FlowNode.PinTypes.Output, 100)]
   [FlowNode.Pin(0, "On left tap", FlowNode.PinTypes.Input, 40)]
   public class QuestSectionList : MonoBehaviour, IFlowInterface
   {
@@ -25,12 +24,6 @@ namespace SRPG
     public bool RefreshOnStart;
     private List<ListItemEvents> mItems;
     private int currentSectionID;
-    [SerializeField]
-    private GameObject leftButton;
-    [SerializeField]
-    private GameObject rightButton;
-    [SerializeField]
-    private ScrollAutoFit scrollRect;
 
     public QuestSectionList()
     {
@@ -39,41 +32,15 @@ namespace SRPG
 
     public void Activated(int pinID)
     {
-      switch (pinID)
-      {
-        case 0:
-          if (this.currentSectionID <= 0)
-            break;
-          --this.currentSectionID;
-          this.OnBannerSelect(((Component) this.mItems[this.currentSectionID]).get_gameObject());
-          break;
-        case 1:
-          if (this.currentSectionID >= this.mItems.Count - 1)
-            break;
-          ++this.currentSectionID;
-          this.OnBannerSelect(((Component) this.mItems[this.currentSectionID]).get_gameObject());
-          break;
-        case 2:
-          this.EnterChapter(true);
-          break;
-        case 3:
-          this.EnterChapter(false);
-          break;
-      }
     }
 
     private void Start()
     {
       if (Object.op_Inequality((Object) this.ItemTemplate, (Object) null))
         ((Component) this.ItemTemplate).get_gameObject().SetActive(false);
-      if (this.RefreshOnStart)
-        this.Refresh();
-      if (this.mItems.Count <= 1)
+      if (!this.RefreshOnStart)
         return;
-      this.scrollRect.set_horizontalNormalizedPosition((float) this.currentSectionID / (float) (this.mItems.Count - 1));
-      this.EnterChapter(false);
-      // ISSUE: method pointer
-      this.scrollRect.OnScrollStop.AddListener(new UnityAction((object) this, __methodptr(OnScrollStop)));
+      this.Refresh();
     }
 
     private void Refresh()
@@ -110,7 +77,6 @@ namespace SRPG
             StringBuilder stringBuilder = GameUtility.GetStringBuilder();
             stringBuilder.Append("QuestSections/");
             stringBuilder.Append(sectionParam.prefabPath);
-            stringBuilder.Append("_sg");
             listItemEvents1 = AssetManager.Load<ListItemEvents>(stringBuilder.ToString());
           }
           if (Object.op_Equality((Object) listItemEvents1, (Object) null))
@@ -119,6 +85,7 @@ namespace SRPG
           DataSource.Bind<UIQuestSectionData>(((Component) listItemEvents2).get_gameObject(), new UIQuestSectionData(sections[index]));
           ((Component) listItemEvents2).get_transform().SetParent(this.ItemContainer.get_transform(), false);
           ((Component) listItemEvents2).get_gameObject().SetActive(true);
+          listItemEvents2.OnSelect = new ListItemEvents.ListItemEvent(this.OnItemSelect);
           SGWorldBannerItem component = (SGWorldBannerItem) ((Component) listItemEvents2).GetComponent<SGWorldBannerItem>();
           if (Object.op_Inequality((Object) component, (Object) null))
           {
@@ -152,43 +119,6 @@ namespace SRPG
         }
       }
       FlowNode_GameObject.ActivateOutputLinks((Component) this, 100);
-    }
-
-    private void OnBannerSelect(GameObject go)
-    {
-      UIQuestSectionData dataOfClass = DataSource.FindDataOfClass<UIQuestSectionData>(go, (UIQuestSectionData) null);
-      GlobalVars.SelectedSection.Set(dataOfClass.SectionID);
-      FlowNode_GameObject.ActivateOutputLinks((Component) this, 100);
-    }
-
-    private void EnterChapter(bool enter)
-    {
-      this.leftButton.SetActive(enter);
-      this.rightButton.SetActive(enter);
-      this.scrollRect.set_horizontal(enter);
-      if (this.currentSectionID >= this.mItems.Count)
-        return;
-      SGWorldBannerItem component = (SGWorldBannerItem) ((Component) this.mItems[this.currentSectionID]).GetComponent<SGWorldBannerItem>();
-      if (!Object.op_Inequality((Object) component, (Object) null))
-        return;
-      if (!enter)
-      {
-        ChapterParam area = MonoSingleton<GameManager>.Instance.FindArea((string) GlobalVars.SelectedChapter);
-        if (area == null)
-          return;
-        component.SetChapterText(area.name);
-      }
-      else
-        component.SetChapterText(string.Empty);
-    }
-
-    private void OnScrollStop()
-    {
-      int num = Mathf.Abs(Mathf.RoundToInt((float) this.scrollRect.get_content().get_anchoredPosition().x / this.scrollRect.ItemScale));
-      if (num == this.currentSectionID)
-        return;
-      this.currentSectionID = num;
-      this.OnBannerSelect(((Component) this.mItems[this.currentSectionID]).get_gameObject());
     }
   }
 }

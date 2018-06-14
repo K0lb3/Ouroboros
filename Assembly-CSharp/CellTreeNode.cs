@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: CellTreeNode
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections.Generic;
@@ -41,48 +41,29 @@ public class CellTreeNode
   {
   }
 
-  public void GetAllLeafNodes(List<CellTreeNode> leafNodes)
+  public void GetActiveCells(List<int> activeCells, bool yIsUpAxis, Vector3 position)
   {
-    if (this.Childs != null)
-    {
-      using (List<CellTreeNode>.Enumerator enumerator = this.Childs.GetEnumerator())
-      {
-        while (enumerator.MoveNext())
-          enumerator.Current.GetAllLeafNodes(leafNodes);
-      }
-    }
-    else
-      leafNodes.Add(this);
-  }
-
-  public void GetInsideCells(List<int> insideCells, bool yIsUpAxis, Vector3 position)
-  {
-    if (!this.IsPointInsideCell(yIsUpAxis, position))
-      return;
-    insideCells.Add(this.Id);
-    if (this.Childs == null)
-      return;
-    using (List<CellTreeNode>.Enumerator enumerator = this.Childs.GetEnumerator())
-    {
-      while (enumerator.MoveNext())
-        enumerator.Current.GetInsideCells(insideCells, yIsUpAxis, position);
-    }
-  }
-
-  public void GetNearbyCells(List<int> nearbyCells, bool yIsUpAxis, Vector3 position)
-  {
-    if (!this.IsPointNearCell(yIsUpAxis, position))
-      return;
     if (this.NodeType != CellTreeNode.ENodeType.Leaf)
     {
       using (List<CellTreeNode>.Enumerator enumerator = this.Childs.GetEnumerator())
       {
         while (enumerator.MoveNext())
-          enumerator.Current.GetNearbyCells(nearbyCells, yIsUpAxis, position);
+          enumerator.Current.GetActiveCells(activeCells, yIsUpAxis, position);
       }
     }
     else
-      nearbyCells.Add(this.Id);
+    {
+      if (!this.IsPointNearCell(yIsUpAxis, position))
+        return;
+      if (this.IsPointInsideCell(yIsUpAxis, position))
+      {
+        activeCells.Insert(0, this.Id);
+        for (CellTreeNode parent = this.Parent; parent != null; parent = parent.Parent)
+          activeCells.Insert(0, parent.Id);
+      }
+      else
+        activeCells.Add(this.Id);
+    }
   }
 
   public bool IsPointInsideCell(bool yIsUpAxis, Vector3 point)

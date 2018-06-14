@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.ArtifactList
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -15,9 +15,9 @@ using UnityEngine.UI;
 namespace SRPG
 {
   [FlowNode.Pin(20, "Clear Selection", FlowNode.PinTypes.Input, 20)]
-  [FlowNode.Pin(201, "Update Selection", FlowNode.PinTypes.Input, 201)]
-  [FlowNode.Pin(200, "Refresh", FlowNode.PinTypes.Input, 200)]
   [FlowNode.Pin(101, "Detail Selected", FlowNode.PinTypes.Output, 101)]
+  [FlowNode.Pin(200, "Refresh", FlowNode.PinTypes.Input, 200)]
+  [FlowNode.Pin(201, "Update Selection", FlowNode.PinTypes.Input, 201)]
   [FlowNode.Pin(100, "Selected", FlowNode.PinTypes.Output, 100)]
   public class ArtifactList : UIBehaviour, IFlowInterface, ISortableList
   {
@@ -55,8 +55,6 @@ namespace SRPG
     public int Item_Normal;
     public int Item_Selected;
     public int Item_Disabled;
-    [FourCC]
-    public int IndexBadgeID;
     public Text NumSelection;
     public int MaxSelection;
     public bool ShowSelection;
@@ -80,6 +78,7 @@ namespace SRPG
     private bool mEmptyMessageChanged;
     private bool mAutoSelected;
     private List<object> mSelection;
+    public Scrollbar AbilityScrollBar;
     public ArtifactList.SelectionChangeEvent OnSelectionChange;
     public int MaxCellCount;
     private string[] mFiltersPriority;
@@ -133,7 +132,7 @@ namespace SRPG
         float num4;
         float num5;
         float num6;
-        if (this.UseGridLayout && Object.op_Inequality((Object) (component = (GridLayoutGroup) ((Component) this).GetComponent<GridLayoutGroup>()), (Object) null))
+        if (this.UseGridLayout && UnityEngine.Object.op_Inequality((UnityEngine.Object) (component = (GridLayoutGroup) ((Component) this).GetComponent<GridLayoutGroup>()), (UnityEngine.Object) null))
         {
           num1 = (float) component.get_cellSize().x;
           num2 = (float) component.get_cellSize().y;
@@ -181,9 +180,9 @@ namespace SRPG
     protected virtual void Start()
     {
       base.Start();
-      if (Object.op_Inequality((Object) this.ListItem, (Object) null) && this.ListItem.get_activeInHierarchy())
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ListItem, (UnityEngine.Object) null) && this.ListItem.get_activeInHierarchy())
         this.ListItem.SetActive(false);
-      if (Object.op_Inequality((Object) this.EmptyMessage, (Object) null) && !this.mEmptyMessageChanged)
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.EmptyMessage, (UnityEngine.Object) null) && !this.mEmptyMessageChanged)
       {
         this.mEmptyMessageChanged = true;
         this.EmptyMessage.SetActive(false);
@@ -225,7 +224,7 @@ namespace SRPG
     private bool IsCreatableArtifact(List<ArtifactData> artifactDataList)
     {
       GameManager instanceDirect = MonoSingleton<GameManager>.GetInstanceDirect();
-      if (Object.op_Equality((Object) instanceDirect, (Object) null) || instanceDirect.Player == null)
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) instanceDirect, (UnityEngine.Object) null) || instanceDirect.Player == null)
         return false;
       List<ItemData> all = instanceDirect.Player.Items.FindAll((Predicate<ItemData>) (i => i.ItemType == EItemType.ArtifactPiece));
       using (List<ArtifactData>.Enumerator enumerator = artifactDataList.GetEnumerator())
@@ -235,15 +234,15 @@ namespace SRPG
           ArtifactData current = enumerator.Current;
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          ArtifactList.\u003CIsCreatableArtifact\u003Ec__AnonStorey22C artifactCAnonStorey22C = new ArtifactList.\u003CIsCreatableArtifact\u003Ec__AnonStorey22C();
+          ArtifactList.\u003CIsCreatableArtifact\u003Ec__AnonStorey2F8 artifactCAnonStorey2F8 = new ArtifactList.\u003CIsCreatableArtifact\u003Ec__AnonStorey2F8();
           // ISSUE: reference to a compiler-generated field
-          artifactCAnonStorey22C.artifactParam = current.ArtifactParam;
+          artifactCAnonStorey2F8.artifactParam = current.ArtifactParam;
           // ISSUE: reference to a compiler-generated method
-          ItemData itemData = all.Find(new Predicate<ItemData>(artifactCAnonStorey22C.\u003C\u003Em__234));
+          ItemData itemData = all.Find(new Predicate<ItemData>(artifactCAnonStorey2F8.\u003C\u003Em__2FF));
           if (itemData != null)
           {
             // ISSUE: reference to a compiler-generated field
-            RarityParam rarityParam = MonoSingleton<GameManager>.Instance.GetRarityParam(artifactCAnonStorey22C.artifactParam.rareini);
+            RarityParam rarityParam = MonoSingleton<GameManager>.Instance.GetRarityParam(artifactCAnonStorey2F8.artifactParam.rareini);
             if (itemData.Num >= (int) rarityParam.ArtifactCreatePieceNum)
               return true;
           }
@@ -256,7 +255,7 @@ namespace SRPG
     {
       List<GenericBadge<ArtifactData>> genericBadgeList = new List<GenericBadge<ArtifactData>>();
       GameManager instanceDirect = MonoSingleton<GameManager>.GetInstanceDirect();
-      if (Object.op_Equality((Object) instanceDirect, (Object) null) || instanceDirect.Player == null)
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) instanceDirect, (UnityEngine.Object) null) || instanceDirect.Player == null)
         return genericBadgeList;
       List<ItemData> all = instanceDirect.Player.Items.FindAll((Predicate<ItemData>) (i => i.ItemType == EItemType.ArtifactPiece));
       using (List<ArtifactData>.Enumerator enumerator = artifactDataList.GetEnumerator())
@@ -266,11 +265,11 @@ namespace SRPG
           ArtifactData current = enumerator.Current;
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          ArtifactList.\u003CAddCreatableInfo\u003Ec__AnonStorey22D infoCAnonStorey22D = new ArtifactList.\u003CAddCreatableInfo\u003Ec__AnonStorey22D();
+          ArtifactList.\u003CAddCreatableInfo\u003Ec__AnonStorey2F9 infoCAnonStorey2F9 = new ArtifactList.\u003CAddCreatableInfo\u003Ec__AnonStorey2F9();
           // ISSUE: reference to a compiler-generated field
-          infoCAnonStorey22D.artifactParam = current.ArtifactParam;
+          infoCAnonStorey2F9.artifactParam = current.ArtifactParam;
           // ISSUE: reference to a compiler-generated method
-          ItemData itemData = all.Find(new Predicate<ItemData>(infoCAnonStorey22D.\u003C\u003Em__236));
+          ItemData itemData = all.Find(new Predicate<ItemData>(infoCAnonStorey2F9.\u003C\u003Em__301));
           if (itemData == null)
           {
             genericBadgeList.Add(new GenericBadge<ArtifactData>(current, false));
@@ -278,7 +277,7 @@ namespace SRPG
           else
           {
             // ISSUE: reference to a compiler-generated field
-            RarityParam rarityParam = MonoSingleton<GameManager>.Instance.GetRarityParam(infoCAnonStorey22D.artifactParam.rareini);
+            RarityParam rarityParam = MonoSingleton<GameManager>.Instance.GetRarityParam(infoCAnonStorey2F9.artifactParam.rareini);
             bool flag = itemData.Num >= (int) rarityParam.ArtifactCreatePieceNum;
             genericBadgeList.Add(new GenericBadge<ArtifactData>(current, flag));
           }
@@ -293,17 +292,17 @@ namespace SRPG
         this.mDataType = typeof (ArtifactData);
       else if (this.Source == ArtifactList.ListSource.Kakera)
         this.mDataType = typeof (ArtifactParam);
-      if (Object.op_Equality((Object) this.ListItem, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.ListItem, (UnityEngine.Object) null))
         return;
       this.mPageSize = this.CellCount;
       Transform transform = ((Component) this).get_transform();
       while (this.mItems.Count < this.mPageSize)
       {
-        GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.ListItem);
+        GameObject gameObject = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.ListItem);
         gameObject.get_transform().SetParent(transform, false);
         this.mItems.Add(gameObject);
         ListItemEvents component = (ListItemEvents) gameObject.GetComponent<ListItemEvents>();
-        if (Object.op_Inequality((Object) component, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
         {
           component.OnSelect = new ListItemEvents.ListItemEvent(this.OnItemSelect);
           component.OnOpenDetail = new ListItemEvents.ListItemEvent(this.OnItemDetail);
@@ -349,7 +348,7 @@ namespace SRPG
         artifacts = (object[]) artifactParamList.ToArray();
       }
       object[] objArray = this.mFiltersPriority == null || this.mFiltersPriority.Length <= 0 ? ArtifactList.FilterArtifacts(artifacts, this.mFilters) : ArtifactList.FilterArtifacts(artifacts, this.mFiltersPriority);
-      if (Object.op_Inequality((Object) this.EmptyMessage, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.EmptyMessage, (UnityEngine.Object) null))
       {
         this.mEmptyMessageChanged = true;
         this.EmptyMessage.SetActive(objArray == null || objArray.Length == 0);
@@ -414,9 +413,11 @@ namespace SRPG
       for (int index = 0; index < this.ExtraItems.Length; ++index)
       {
         int num = this.mPage * this.mPageSize + index;
-        if (Object.op_Inequality((Object) this.ExtraItems[index], (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ExtraItems[index], (UnityEngine.Object) null))
           this.ExtraItems[index].SetActive(0 <= num && num < this.ExtraItems.Length);
       }
+      if (objArray.Length == 0 && this.ExtraItems.Length > 0)
+        this.ExtraItems[0].SetActive(false);
       this.UpdateSelection();
       this.UpdatePage();
       if (!this.mInvokeSelChange)
@@ -431,7 +432,8 @@ namespace SRPG
         return artifacts;
       int num1 = 0;
       int num2 = 0;
-      bool flag = false;
+      bool flag1 = false;
+      List<string> stringList = new List<string>();
       string s = (string) null;
       for (int index = 0; index < filter.Length; ++index)
       {
@@ -455,18 +457,34 @@ namespace SRPG
           }
         }
         else if (ArtifactList.GetValue(filter[index], "FAV:", ref s))
-          flag = true;
+          flag1 = true;
+        else if (ArtifactList.GetValue(filter[index], "SAME:", ref s))
+          stringList.Add(s);
       }
       List<ArtifactData> artifactDataList = new List<ArtifactData>();
-      for (int index = artifacts.Length - 1; index >= 0; --index)
+      for (int index = 0; index < artifacts.Length; ++index)
         artifactDataList.Add(artifacts[index] as ArtifactData);
-      for (int index = artifactDataList.Count - 1; index >= 0; --index)
+      for (int index1 = artifactDataList.Count - 1; index1 >= 0; --index1)
       {
-        ArtifactData artifactData = artifactDataList[index];
-        if (flag && !artifactData.IsFavorite)
-          artifactDataList.RemoveAt(index);
-        else if ((1 << (int) artifactData.Rarity & num1) == 0 || (1 << (int) (artifactData.ArtifactParam.type & (ArtifactTypes) 31) & num2) == 0)
-          artifactDataList.RemoveAt(index);
+        ArtifactData artifactData = artifactDataList[index1];
+        if (flag1 && !artifactData.IsFavorite)
+        {
+          artifactDataList.RemoveAt(index1);
+        }
+        else
+        {
+          bool flag2 = false;
+          for (int index2 = 0; index2 < stringList.Count; ++index2)
+          {
+            if (artifactData.ArtifactParam.iname == stringList[index2])
+            {
+              flag2 = true;
+              break;
+            }
+          }
+          if (flag2 || (1 << (int) artifactData.Rarity & num1) == 0 || (1 << (int) (artifactData.ArtifactParam.type & (ArtifactTypes) 31) & num2) == 0)
+            artifactDataList.RemoveAt(index1);
+        }
       }
       return artifactDataList.ConvertAll<object>((Converter<ArtifactData, object>) (o => (object) o)).ToArray();
     }
@@ -507,9 +525,9 @@ namespace SRPG
         else if (obj is ArtifactData && this.MaxSelection > 0 && (obj as ArtifactData).IsFavorite)
           this.mSelection.RemoveAt(index);
       }
-      if (Object.op_Inequality((Object) this.NumSelection, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.NumSelection, (UnityEngine.Object) null))
         this.NumSelection.set_text(this.mSelection.Count.ToString());
-      List<SortBadge> sortBadgeList = (List<SortBadge>) null;
+      List<CheckBadge> checkBadgeList = new List<CheckBadge>();
       for (int index1 = 0; index1 < this.mItems.Count; ++index1)
       {
         int index2 = this.mPage * this.mPageSize + index1 - this.ExtraItems.Length;
@@ -517,31 +535,22 @@ namespace SRPG
         {
           int num = this.mSelection.IndexOf(this.mData[index2]);
           Animator component = (Animator) this.mItems[index1].GetComponent<Animator>();
-          if (Object.op_Inequality((Object) component, (Object) null) && !string.IsNullOrEmpty(this.SelectionState))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null) && !string.IsNullOrEmpty(this.SelectionState))
           {
             if (num >= 0)
               component.SetInteger(this.SelectionState, this.Item_Selected);
             else
               component.SetInteger(this.SelectionState, this.Item_Normal);
           }
-          if (this.IndexBadgeID != 0)
+          ((ArtifactIcon) this.mItems[index1].GetComponentInChildren<ArtifactIcon>(true)).ForceMask = this.mSelection.Count >= this.MaxSelection && num < 0;
+          GameParameter.UpdateAll(this.mItems[index1]);
+          this.mItems[index1].GetComponentsInChildren<CheckBadge>(true, (List<M0>) checkBadgeList);
+          for (int index3 = 0; index3 < checkBadgeList.Count; ++index3)
           {
-            if (sortBadgeList == null)
-              sortBadgeList = new List<SortBadge>(4);
-            this.mItems[index1].GetComponentsInChildren<SortBadge>(true, (List<M0>) sortBadgeList);
-            for (int index3 = 0; index3 < sortBadgeList.Count; ++index3)
-            {
-              if (sortBadgeList[index3].ID == this.IndexBadgeID)
-              {
-                if (num >= 0)
-                {
-                  sortBadgeList[index3].SetValue(num + 1);
-                  ((Component) sortBadgeList[index3]).get_gameObject().SetActive(true);
-                }
-                else
-                  ((Component) sortBadgeList[index3]).get_gameObject().SetActive(false);
-              }
-            }
+            if (num >= 0)
+              ((Component) checkBadgeList[index3]).get_gameObject().SetActive(true);
+            else
+              ((Component) checkBadgeList[index3]).get_gameObject().SetActive(false);
           }
         }
         else
@@ -549,7 +558,7 @@ namespace SRPG
       }
       if (this.Source == ArtifactList.ListSource.Normal)
       {
-        if (Object.op_Inequality((Object) this.TotalDecomposeCost, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TotalDecomposeCost, (UnityEngine.Object) null))
         {
           long num = 0;
           for (int index = 0; index < this.mSelection.Count; ++index)
@@ -560,7 +569,7 @@ namespace SRPG
           }
           this.TotalDecomposeCost.set_text(num.ToString());
         }
-        if (Object.op_Inequality((Object) this.TotalSellCost, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TotalSellCost, (UnityEngine.Object) null))
         {
           long num = 0;
           for (int index = 0; index < this.mSelection.Count; ++index)
@@ -573,7 +582,7 @@ namespace SRPG
           this.TotalSellCost.set_text(num.ToString());
         }
       }
-      if (!Object.op_Inequality((Object) this.ApplyButton, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ApplyButton, (UnityEngine.Object) null))
         return;
       ((Selectable) this.ApplyButton).set_interactable(this.mSelection.Count > 0);
     }
@@ -603,7 +612,7 @@ namespace SRPG
 
     public void UpdatePage()
     {
-      if (Object.op_Inequality((Object) this.PageScrollBar, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.PageScrollBar, (UnityEngine.Object) null))
       {
         if (this.mMaxPages >= 2)
         {
@@ -616,22 +625,22 @@ namespace SRPG
           this.PageScrollBar.set_value(0.0f);
         }
       }
-      if (Object.op_Inequality((Object) this.PageIndex, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.PageIndex, (UnityEngine.Object) null))
         this.PageIndex.set_text(Mathf.Min(this.mPage + 1, this.mMaxPages).ToString());
-      if (Object.op_Inequality((Object) this.PageIndexMax, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.PageIndexMax, (UnityEngine.Object) null))
         this.PageIndexMax.set_text(this.mMaxPages.ToString());
-      if (Object.op_Inequality((Object) this.ForwardButton, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ForwardButton, (UnityEngine.Object) null))
         ((Selectable) this.ForwardButton).set_interactable(this.mPage < this.mMaxPages - 1);
-      if (!Object.op_Inequality((Object) this.BackButton, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BackButton, (UnityEngine.Object) null))
         return;
       ((Selectable) this.BackButton).set_interactable(this.mPage > 0);
     }
 
     private void OnItemDetail(GameObject go)
     {
-      if (Object.op_Equality((Object) this.ArtifactDetail, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.ArtifactDetail, (UnityEngine.Object) null))
       {
-        if (!Object.op_Inequality((Object) this.ArtifactDetailRef, (Object) null))
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ArtifactDetailRef, (UnityEngine.Object) null))
           return;
         object dataOfClass = DataSource.FindDataOfClass(go, this.mDataType, (object) null);
         if (dataOfClass == null)
@@ -646,7 +655,7 @@ namespace SRPG
         object dataOfClass = DataSource.FindDataOfClass(go, this.mDataType, (object) null);
         if (dataOfClass == null)
           return;
-        GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.ArtifactDetail);
+        GameObject gameObject = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.ArtifactDetail);
         DataSource.Bind(gameObject, this.mDataType, dataOfClass);
         UnitData unit;
         JobData job;
@@ -705,6 +714,8 @@ namespace SRPG
     private void TriggerSelectionChange()
     {
       this.OnSelectionChange(this);
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AbilityScrollBar, (UnityEngine.Object) null))
+        this.AbilityScrollBar.set_value(1f);
       FlowNode_GameObject.ActivateOutputLinks((Component) this, 100);
     }
 
@@ -806,14 +817,14 @@ namespace SRPG
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      ArtifactList.\u003CSortItems\u003Ec__AnonStorey22E itemsCAnonStorey22E = new ArtifactList.\u003CSortItems\u003Ec__AnonStorey22E();
+      ArtifactList.\u003CSortItems\u003Ec__AnonStorey2FA itemsCAnonStorey2Fa = new ArtifactList.\u003CSortItems\u003Ec__AnonStorey2FA();
       ArtifactList.SortData[] array = new ArtifactList.SortData[items.Length];
       for (int index = 0; index < items.Length; ++index)
         array[index] = new ArtifactList.SortData(items[index], values[index]);
       // ISSUE: reference to a compiler-generated field
-      itemsCAnonStorey22E.result = 0;
+      itemsCAnonStorey2Fa.result = 0;
       // ISSUE: reference to a compiler-generated method
-      Array.Sort<ArtifactList.SortData>(array, new Comparison<ArtifactList.SortData>(itemsCAnonStorey22E.\u003C\u003Em__23C));
+      Array.Sort<ArtifactList.SortData>(array, new Comparison<ArtifactList.SortData>(itemsCAnonStorey2Fa.\u003C\u003Em__307));
       for (int index = 0; index < items.Length; ++index)
       {
         items[index] = array[index].mArtifact;

@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.AppealItemQuest
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -37,7 +37,7 @@ namespace SRPG
     protected override void Awake()
     {
       base.Awake();
-      if (!Object.op_Inequality((Object) this.AppealObject1, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AppealObject1, (UnityEngine.Object) null))
         return;
       ((Component) this.AppealObject1).get_gameObject().SetActive(false);
     }
@@ -63,10 +63,10 @@ namespace SRPG
 
     private void UpdateAppeal()
     {
-      if (Object.op_Equality((Object) this.mCurrentSprite, (Object) null) || Object.op_Equality((Object) this.mNextSprite, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mCurrentSprite, (UnityEngine.Object) null) || UnityEngine.Object.op_Equality((UnityEngine.Object) this.mNextSprite, (UnityEngine.Object) null))
         return;
       this.mWaitSwapeAppealTime -= Time.get_deltaTime();
-      if ((double) this.mWaitSwapeAppealTime >= 0.0 || !Object.op_Inequality((Object) this.AppealGroup0, (Object) null) || !Object.op_Inequality((Object) this.AppealGroup1, (Object) null))
+      if ((double) this.mWaitSwapeAppealTime >= 0.0 || !UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AppealGroup0, (UnityEngine.Object) null) || !UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AppealGroup1, (UnityEngine.Object) null))
         return;
       float deltaTime = Time.get_deltaTime();
       CanvasGroup appealGroup0 = this.AppealGroup0;
@@ -85,24 +85,24 @@ namespace SRPG
     {
       this.mCurrentSprite = this.mAppealIds.Length <= this.mCurrentIndex || !this.mCacheAppealSprites.ContainsKey(this.mAppealIds[this.mCurrentIndex]) ? this.mCacheAppealSprites[this.mAppealIds[0]] : this.mCacheAppealSprites[this.mAppealIds[this.mCurrentIndex]];
       this.mNextSprite = this.mAppealIds.Length <= this.mCurrentIndex + 1 || !this.mCacheAppealSprites.ContainsKey(this.mAppealIds[this.mCurrentIndex + 1]) ? (this.mAppealIds.Length != 1 ? this.mCacheAppealSprites[this.mAppealIds[0]] : (Sprite) null) : this.mCacheAppealSprites[this.mAppealIds[this.mCurrentIndex + 1]];
-      if (Object.op_Inequality((Object) this.AppealObject, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AppealObject, (UnityEngine.Object) null))
       {
         this.AppealObject.set_sprite(this.mCurrentSprite);
-        ((Component) this.AppealObject).get_gameObject().SetActive(Object.op_Inequality((Object) this.mCurrentSprite, (Object) null));
-        if (Object.op_Inequality((Object) this.AppealGroup0, (Object) null))
+        ((Component) this.AppealObject).get_gameObject().SetActive(UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mCurrentSprite, (UnityEngine.Object) null));
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AppealGroup0, (UnityEngine.Object) null))
           this.AppealGroup0.set_alpha(1f);
       }
-      if (Object.op_Inequality((Object) this.AppealObject1, (Object) null) && Object.op_Inequality((Object) this.mNextSprite, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AppealObject1, (UnityEngine.Object) null) && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mNextSprite, (UnityEngine.Object) null))
       {
         this.AppealObject1.set_sprite(this.mNextSprite);
-        ((Component) this.AppealObject1).get_gameObject().SetActive(Object.op_Inequality((Object) this.mNextSprite, (Object) null));
-        if (Object.op_Inequality((Object) this.AppealGroup1, (Object) null))
+        ((Component) this.AppealObject1).get_gameObject().SetActive(UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mNextSprite, (UnityEngine.Object) null));
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AppealGroup1, (UnityEngine.Object) null))
           this.AppealGroup1.set_alpha(0.0f);
       }
       ++this.mCurrentIndex;
       if (this.mCurrentIndex >= this.mAppealIds.Length)
         this.mCurrentIndex = 0;
-      this.IsUpdated = Object.op_Equality((Object) this.mNextSprite, (Object) null);
+      this.IsUpdated = UnityEngine.Object.op_Equality((UnityEngine.Object) this.mNextSprite, (UnityEngine.Object) null);
     }
 
     protected override void Destroy()
@@ -111,7 +111,7 @@ namespace SRPG
       using (Dictionary<string, Sprite>.KeyCollection.Enumerator enumerator = this.mCacheAppealSprites.Keys.GetEnumerator())
       {
         while (enumerator.MoveNext())
-          Resources.UnloadAsset((Object) this.mCacheAppealSprites[enumerator.Current]);
+          Resources.UnloadAsset((UnityEngine.Object) this.mCacheAppealSprites[enumerator.Current]);
       }
       this.mCacheAppealSprites = (Dictionary<string, Sprite>) null;
     }
@@ -157,7 +157,7 @@ namespace SRPG
     private IEnumerator LoadAppealResources()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new AppealItemQuest.\u003CLoadAppealResources\u003Ec__Iterator9A() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new AppealItemQuest.\u003CLoadAppealResources\u003Ec__IteratorDD() { \u003C\u003Ef__this = this };
     }
   }
 }

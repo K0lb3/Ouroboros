@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.AppealItemGacha
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -28,7 +28,7 @@ namespace SRPG
     protected override void Awake()
     {
       base.Awake();
-      if (!Object.op_Inequality((Object) this.Ballon, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Ballon, (UnityEngine.Object) null))
         return;
       this.Ballon.SetActive(false);
     }
@@ -44,12 +44,12 @@ namespace SRPG
     protected override void Update()
     {
       base.Update();
-      if (!this.IsLoaded || !Object.op_Equality((Object) this.AppealSprite, (Object) null) || !this.mCacheAppealSprites.ContainsKey(this.mAppealId))
+      if (!this.IsLoaded || !UnityEngine.Object.op_Equality((UnityEngine.Object) this.AppealSprite, (UnityEngine.Object) null) || !this.mCacheAppealSprites.ContainsKey(this.mAppealId))
         return;
       this.AppealSprite = this.mCacheAppealSprites[this.mAppealId];
-      if (Object.op_Inequality((Object) this.Ballon, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Ballon, (UnityEngine.Object) null))
       {
-        if (Object.op_Equality((Object) this.AppealSprite, (Object) null))
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.AppealSprite, (UnityEngine.Object) null))
           this.Ballon.SetActive(false);
         else
           this.Ballon.SetActive(this.IsNew);
@@ -63,7 +63,7 @@ namespace SRPG
       using (Dictionary<string, Sprite>.KeyCollection.Enumerator enumerator = this.mCacheAppealSprites.Keys.GetEnumerator())
       {
         while (enumerator.MoveNext())
-          Resources.UnloadAsset((Object) this.mCacheAppealSprites[enumerator.Current]);
+          Resources.UnloadAsset((UnityEngine.Object) this.mCacheAppealSprites[enumerator.Current]);
       }
       this.mCacheAppealSprites = (Dictionary<string, Sprite>) null;
     }
@@ -107,7 +107,7 @@ namespace SRPG
     private IEnumerator LoadAppealResources()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new AppealItemGacha.\u003CLoadAppealResources\u003Ec__Iterator98() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new AppealItemGacha.\u003CLoadAppealResources\u003Ec__IteratorDB() { \u003C\u003Ef__this = this };
     }
   }
 }

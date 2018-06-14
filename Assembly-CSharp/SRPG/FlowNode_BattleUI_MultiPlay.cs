@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_BattleUI_MultiPlay
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using UnityEngine;
@@ -9,46 +9,49 @@ using UnityEngine;
 namespace SRPG
 {
   [FlowNode.Pin(4011, "思考中隠す", FlowNode.PinTypes.Output, 0)]
-  [FlowNode.Pin(4030, "他人切断通知開始", FlowNode.PinTypes.Output, 0)]
-  [FlowNode.Pin(4031, "他人切断通知終了", FlowNode.PinTypes.Input, 0)]
-  [FlowNode.Pin(4032, "他人切断通知強制終了", FlowNode.PinTypes.Output, 0)]
-  [FlowNode.Pin(4050, "自分切断", FlowNode.PinTypes.Output, 0)]
-  [FlowNode.Pin(4100, "スタンプWindow開始通知", FlowNode.PinTypes.Input, 0)]
-  [FlowNode.Pin(4101, "スタンプWindow終了通知", FlowNode.PinTypes.Input, 0)]
-  [FlowNode.Pin(4201, "操作時間延長表示", FlowNode.PinTypes.Output, 0)]
-  [FlowNode.Pin(4300, "中断復帰開始通知", FlowNode.PinTypes.Output, 0)]
-  [FlowNode.Pin(4400, "同期待ち中開始", FlowNode.PinTypes.Output, 0)]
-  [FlowNode.Pin(4301, "中断復帰終了通知", FlowNode.PinTypes.Input, 0)]
-  [FlowNode.Pin(4001, "制限時間隠す", FlowNode.PinTypes.Output, 0)]
-  [FlowNode.Pin(1100, "復活選択開始", FlowNode.PinTypes.Output, 0)]
-  [FlowNode.Pin(1072, "敵ユニット行動終了", FlowNode.PinTypes.Output, 0)]
-  [FlowNode.Pin(4500, "強制勝利", FlowNode.PinTypes.Output, 0)]
-  [FlowNode.Pin(1071, "他人ユニット行動終了", FlowNode.PinTypes.Output, 0)]
-  [FlowNode.Pin(4501, "強制勝利ウィンドウ閉じ", FlowNode.PinTypes.Input, 0)]
-  [FlowNode.Pin(1070, "自分ユニット行動終了", FlowNode.PinTypes.Output, 0)]
-  [FlowNode.Pin(1062, "敵ユニット行動開始", FlowNode.PinTypes.Output, 0)]
-  [FlowNode.Pin(1061, "他人ユニット行動開始", FlowNode.PinTypes.Output, 0)]
-  [FlowNode.Pin(1060, "自分ユニット行動開始", FlowNode.PinTypes.Output, 0)]
-  [FlowNode.NodeType("Battle_MultiPlay/Events")]
-  [FlowNode.Pin(4303, "中断復帰通知強制終了", FlowNode.PinTypes.Output, 0)]
-  [FlowNode.Pin(4302, "自身の復帰完了通知", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(1101, "コンティニュー選択開始", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(1110, "復活選択待ち表示開始", FlowNode.PinTypes.Output, 0)]
   [FlowNode.Pin(1111, "復活選択待ち表示終了", FlowNode.PinTypes.Output, 0)]
   [FlowNode.Pin(1120, "コンティニュー選択待ち開始", FlowNode.PinTypes.Output, 0)]
   [FlowNode.Pin(1121, "コンティニュー選択待ち終了", FlowNode.PinTypes.Output, 0)]
   [FlowNode.Pin(1200, "クエスト勝利", FlowNode.PinTypes.Output, 0)]
   [FlowNode.Pin(1201, "クエスト敗北", FlowNode.PinTypes.Output, 0)]
   [FlowNode.Pin(1202, "クエスト中断", FlowNode.PinTypes.Output, 0)]
-  [FlowNode.Pin(4502, "強制勝利強制終了", FlowNode.PinTypes.Output, 0)]
   [FlowNode.Pin(1300, "マップ開始", FlowNode.PinTypes.Output, 0)]
-  [FlowNode.Pin(4401, "同期待ち中終了", FlowNode.PinTypes.Output, 0)]
   [FlowNode.Pin(1301, "マップ終了", FlowNode.PinTypes.Output, 0)]
   [FlowNode.Pin(4000, "制限時間表示", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(4001, "制限時間隠す", FlowNode.PinTypes.Output, 0)]
   [FlowNode.Pin(4010, "思考中表示", FlowNode.PinTypes.Output, 0)]
   [FlowNode.Pin(4600, "対戦終了済み", FlowNode.PinTypes.Output, 0)]
   [FlowNode.Pin(4601, "対戦終了済み終了", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(4700, "観戦モード", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(4701, "観戦モード強制終了", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(4702, "観戦モード強制終了確認完了", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(4502, "強制勝利強制終了", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(4501, "強制勝利ウィンドウ閉じ", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(4500, "強制勝利", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(4401, "同期待ち中終了", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(4400, "同期待ち中開始", FlowNode.PinTypes.Output, 0)]
   [FlowNode.Pin(4304, "自身の復帰通知強制終了", FlowNode.PinTypes.Output, 0)]
-  [FlowNode.Pin(1110, "復活選択待ち表示開始", FlowNode.PinTypes.Output, 0)]
-  [FlowNode.Pin(1101, "コンティニュー選択開始", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(4303, "中断復帰通知強制終了", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(4302, "自身の復帰完了通知", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(4301, "中断復帰終了通知", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(4300, "中断復帰開始通知", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(4201, "操作時間延長表示", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(4101, "スタンプWindow終了通知", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(4100, "スタンプWindow開始通知", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(4050, "自分切断", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(4032, "他人切断通知強制終了", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(4031, "他人切断通知終了", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(4030, "他人切断通知開始", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.NodeType("Battle_MultiPlay/Events")]
+  [FlowNode.Pin(1060, "自分ユニット行動開始", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(1061, "他人ユニット行動開始", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(1062, "敵ユニット行動開始", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(1070, "自分ユニット行動終了", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(1071, "他人ユニット行動終了", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(1072, "敵ユニット行動終了", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(1100, "復活選択開始", FlowNode.PinTypes.Output, 0)]
   public class FlowNode_BattleUI_MultiPlay : FlowNodePersistent
   {
     public float inputSec = 20f;
@@ -224,6 +227,16 @@ namespace SRPG
       this.ActivateOutputLinks(4600);
     }
 
+    public void OnAudienceMode()
+    {
+      this.ActivateOutputLinks(4700);
+    }
+
+    public void OnAudienceForceEnd()
+    {
+      this.ActivateOutputLinks(4701);
+    }
+
     public override void OnActivate(int pinID)
     {
       switch (pinID)
@@ -257,6 +270,12 @@ namespace SRPG
           if (!Object.op_Inequality((Object) instance4, (Object) null))
             break;
           instance4.AlreadyEndBattle = true;
+          break;
+        case 4702:
+          SceneBattle instance5 = SceneBattle.Instance;
+          if (!Object.op_Inequality((Object) instance5, (Object) null))
+            break;
+          instance5.AudienceForceEnd = true;
           break;
       }
     }

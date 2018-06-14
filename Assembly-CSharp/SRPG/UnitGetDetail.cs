@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.UnitGetDetail
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -59,7 +59,7 @@ namespace SRPG
 
     private void Awake()
     {
-      if (Object.op_Inequality((Object) this.mLeaderSkillDetailButton, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mLeaderSkillDetailButton, (UnityEngine.Object) null))
       {
         // ISSUE: method pointer
         ((UnityEvent) this.mLeaderSkillDetailButton.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OpenLeaderSkillDetail)));
@@ -84,20 +84,20 @@ namespace SRPG
 
     private void OnDestroy()
     {
-      if (Object.op_Inequality((Object) this.mCurrentPreview, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mCurrentPreview, (UnityEngine.Object) null))
       {
         GameUtility.DestroyGameObject((Component) this.mCurrentPreview);
         this.mCurrentPreview = (UnitPreview) null;
       }
       GameUtility.DestroyGameObjects<UnitPreview>(this.mPreviewControllers);
-      if (Object.op_Inequality((Object) this.mLeaderSkillDetail, (Object) null))
-        Object.Destroy((Object) this.mLeaderSkillDetail.get_gameObject());
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mLeaderSkillDetail, (UnityEngine.Object) null))
+        UnityEngine.Object.Destroy((UnityEngine.Object) this.mLeaderSkillDetail.get_gameObject());
       GameUtility.DestroyGameObjects(this.mAbilits);
     }
 
     private void Update()
     {
-      if ((double) this.mBGUnitImgFadeTime >= (double) this.mBGUnitImgFadeTimeMax || !Object.op_Inequality((Object) this.mBGUnitImage, (Object) null))
+      if ((double) this.mBGUnitImgFadeTime >= (double) this.mBGUnitImgFadeTimeMax || !UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mBGUnitImage, (UnityEngine.Object) null))
         return;
       this.mBGUnitImgFadeTime += Time.get_unscaledDeltaTime();
       float num = Mathf.Clamp01(this.mBGUnitImgFadeTime / this.mBGUnitImgFadeTimeMax);
@@ -163,18 +163,18 @@ namespace SRPG
 
     private void OpenLeaderSkillDetail()
     {
-      if (!Object.op_Equality((Object) this.mLeaderSkillDetail, (Object) null) || !Object.op_Inequality((Object) this.Prefab_LeaderSkillDetail, (Object) null))
+      if (!UnityEngine.Object.op_Equality((UnityEngine.Object) this.mLeaderSkillDetail, (UnityEngine.Object) null) || !UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Prefab_LeaderSkillDetail, (UnityEngine.Object) null))
         return;
       UnitData dataOfClass = DataSource.FindDataOfClass<UnitData>(((Component) this).get_gameObject(), (UnitData) null);
       if (dataOfClass == null)
         return;
-      this.mLeaderSkillDetail = (GameObject) Object.Instantiate<GameObject>((M0) this.Prefab_LeaderSkillDetail);
+      this.mLeaderSkillDetail = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.Prefab_LeaderSkillDetail);
       DataSource.Bind<UnitData>(this.mLeaderSkillDetail, dataOfClass);
     }
 
     private void RefreshAbilitList()
     {
-      if (Object.op_Equality((Object) this.mAbilityTemplate, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mAbilityTemplate, (UnityEngine.Object) null))
         return;
       GameUtility.DestroyGameObjects(this.mAbilits);
       this.mAbilits.Clear();
@@ -185,15 +185,18 @@ namespace SRPG
       List<AbilityData> learnedAbilities = dataOfClass.GetAllLearnedAbilities();
       for (int index = 0; index < learnedAbilities.Count; ++index)
       {
-        GameObject gameObject1 = (GameObject) Object.Instantiate<GameObject>((M0) this.mAbilityTemplate);
         AbilityData data = learnedAbilities[index];
-        GameObject gameObject2 = ((Component) gameObject1.get_transform().FindChild("icon")).get_gameObject();
-        ((Component) gameObject1.get_transform().FindChild("locked")).get_gameObject().SetActive(false);
-        ((ImageArray) gameObject2.GetComponent<ImageArray>()).ImageIndex = (int) data.SlotType;
-        gameObject1.get_transform().SetParent(parent, false);
-        DataSource.Bind<AbilityData>(gameObject1, data);
-        gameObject1.SetActive(true);
-        this.mAbilits.Add(gameObject1);
+        if (dataOfClass.MapEffectAbility != data)
+        {
+          GameObject gameObject1 = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.mAbilityTemplate);
+          GameObject gameObject2 = ((Component) gameObject1.get_transform().FindChild("icon")).get_gameObject();
+          ((Component) gameObject1.get_transform().FindChild("locked")).get_gameObject().SetActive(false);
+          ((ImageArray) gameObject2.GetComponent<ImageArray>()).ImageIndex = (int) data.SlotType;
+          gameObject1.get_transform().SetParent(parent, false);
+          DataSource.Bind<AbilityData>(gameObject1, data);
+          gameObject1.SetActive(true);
+          this.mAbilits.Add(gameObject1);
+        }
       }
       RarityParam rarityParam = MonoSingleton<GameManager>.Instance.GetRarityParam((int) dataOfClass.UnitParam.raremax);
       for (int lv = dataOfClass.CurrentJob.Rank + 1; lv < JobParam.MAX_JOB_RANK; ++lv)
@@ -207,7 +210,7 @@ namespace SRPG
             if (!string.IsNullOrEmpty(key))
             {
               AbilityParam abilityParam = MonoSingleton<GameManager>.Instance.GetAbilityParam(key);
-              GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.mAbilityTemplate);
+              GameObject gameObject = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.mAbilityTemplate);
               ((ImageArray) ((Component) gameObject.get_transform().FindChild("icon")).get_gameObject().GetComponent<ImageArray>()).ImageIndex = (int) abilityParam.slot;
               gameObject.get_transform().SetParent(parent, false);
               DataSource.Bind<AbilityParam>(gameObject, abilityParam);
@@ -241,7 +244,7 @@ namespace SRPG
     private void ReloadPreviewModels()
     {
       UnitData dataOfClass = DataSource.FindDataOfClass<UnitData>(((Component) this).get_gameObject(), (UnitData) null);
-      if (dataOfClass == null || Object.op_Equality((Object) this.mPreviewParent, (Object) null))
+      if (dataOfClass == null || UnityEngine.Object.op_Equality((UnityEngine.Object) this.mPreviewParent, (UnityEngine.Object) null))
         return;
       GameUtility.DestroyGameObjects<UnitPreview>(this.mPreviewControllers);
       this.mPreviewControllers.Clear();
@@ -261,7 +264,7 @@ namespace SRPG
         }
         this.mPreviewControllers.Add(unitPreview);
       }
-      if (!Object.op_Implicit((Object) this.mCurrentPreview))
+      if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) this.mCurrentPreview))
         return;
       GameObject gameObject1 = new GameObject("Preview", new System.Type[1]{ typeof (UnitPreview) });
       this.mCurrentPreview = (UnitPreview) gameObject1.GetComponent<UnitPreview>();
@@ -324,7 +327,7 @@ namespace SRPG
 
     private void SetUnitImageAlpha(float alpha)
     {
-      if (Object.op_Equality((Object) this.mBGUnitImage, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mBGUnitImage, (UnityEngine.Object) null))
         return;
       Color color = ((Graphic) this.mBGUnitImage).get_color();
       color.a = (__Null) (double) alpha;
@@ -335,14 +338,14 @@ namespace SRPG
     private IEnumerator UpdateFadeUnitImage()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new UnitGetDetail.\u003CUpdateFadeUnitImage\u003Ec__IteratorEE() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new UnitGetDetail.\u003CUpdateFadeUnitImage\u003Ec__Iterator136() { \u003C\u003Ef__this = this };
     }
 
     [DebuggerHidden]
     private IEnumerator RefreshUnitImage()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new UnitGetDetail.\u003CRefreshUnitImage\u003Ec__IteratorEF() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new UnitGetDetail.\u003CRefreshUnitImage\u003Ec__Iterator137() { \u003C\u003Ef__this = this };
     }
   }
 }

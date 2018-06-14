@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: MiniJSON.Json
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -328,8 +328,8 @@ label_8:
                       string nextWord = this.NextWord;
                       if (nextWord != null)
                       {
-                        if (Json.Parser.\u003C\u003Ef__switch\u0024mapE == null)
-                          Json.Parser.\u003C\u003Ef__switch\u0024mapE = new Dictionary<string, int>(3)
+                        if (Json.Parser.\u003C\u003Ef__switch\u0024map17 == null)
+                          Json.Parser.\u003C\u003Ef__switch\u0024map17 = new Dictionary<string, int>(3)
                           {
                             {
                               "false",
@@ -345,7 +345,7 @@ label_8:
                             }
                           };
                         int num;
-                        if (Json.Parser.\u003C\u003Ef__switch\u0024mapE.TryGetValue(nextWord, out num))
+                        if (Json.Parser.\u003C\u003Ef__switch\u0024map17.TryGetValue(nextWord, out num))
                         {
                           switch (num)
                           {

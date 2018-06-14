@@ -1,15 +1,14 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: UserInfoManager
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
-using MiniJSON;
+using SRPG;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using UnityEngine;
 
 public class UserInfoManager : MonoSingleton<UserInfoManager>
 {
@@ -19,7 +18,7 @@ public class UserInfoManager : MonoSingleton<UserInfoManager>
   {
     get
     {
-      string path = Application.get_temporaryCachePath() + "/user";
+      string path = AppPath.temporaryCachePath + "/user";
       try
       {
         if (!Directory.Exists(path))
@@ -56,7 +55,7 @@ public class UserInfoManager : MonoSingleton<UserInfoManager>
   {
     try
     {
-      return (Dictionary<string, object>) Json.Deserialize(System.IO.File.ReadAllText(this.InfoFilePath, Encoding.UTF8));
+      return (Dictionary<string, object>) MiniJSON.Json.Deserialize(System.IO.File.ReadAllText(this.InfoFilePath, Encoding.UTF8));
     }
     catch
     {
@@ -68,12 +67,19 @@ public class UserInfoManager : MonoSingleton<UserInfoManager>
   {
     try
     {
-      System.IO.File.WriteAllText(this.InfoFilePath, Json.Serialize((object) this.info), Encoding.UTF8);
+      System.IO.File.WriteAllText(this.InfoFilePath, MiniJSON.Json.Serialize((object) this.info), Encoding.UTF8);
       return true;
     }
     catch
     {
       return false;
     }
+  }
+
+  public void Delete()
+  {
+    if (!Directory.Exists(AppPath.temporaryCachePath + "/user") || !System.IO.File.Exists(this.InfoFilePath))
+      return;
+    System.IO.File.Delete(this.InfoFilePath);
   }
 }

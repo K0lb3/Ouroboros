@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_ReqHealAp
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -10,8 +10,8 @@ using UnityEngine;
 namespace SRPG
 {
   [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
-  [FlowNode.Pin(0, "ReqHealAp", FlowNode.PinTypes.Input, 0)]
   [FlowNode.NodeType("System/ReqHealAp", 32741)]
+  [FlowNode.Pin(0, "ReqHealAp", FlowNode.PinTypes.Input, 0)]
   public class FlowNode_ReqHealAp : FlowNode_Network
   {
     public override void OnSuccess(WWWResult www)

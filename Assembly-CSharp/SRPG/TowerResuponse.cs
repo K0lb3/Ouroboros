@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.TowerResuponse
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -233,13 +233,13 @@ namespace SRPG
         return;
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      TowerResuponse.\u003CSetQuestState\u003Ec__AnonStorey213 stateCAnonStorey213 = new TowerResuponse.\u003CSetQuestState\u003Ec__AnonStorey213();
+      TowerResuponse.\u003CSetQuestState\u003Ec__AnonStorey2D1 stateCAnonStorey2D1 = new TowerResuponse.\u003CSetQuestState\u003Ec__AnonStorey2D1();
       foreach (string condQuest in questParam.cond_quests)
       {
         // ISSUE: reference to a compiler-generated field
-        stateCAnonStorey213.iname = condQuest;
+        stateCAnonStorey2D1.iname = condQuest;
         // ISSUE: reference to a compiler-generated method
-        QuestParam questParam1 = referenceQuestList.Find(new Predicate<QuestParam>(stateCAnonStorey213.\u003C\u003Em__203));
+        QuestParam questParam1 = referenceQuestList.Find(new Predicate<QuestParam>(stateCAnonStorey2D1.\u003C\u003Em__2B9));
         this.SetQuestState(referenceQuestList, questParam1, state, cond_recursive);
       }
     }
@@ -255,21 +255,21 @@ namespace SRPG
         return;
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      TowerResuponse.\u003CCalcDamage\u003Ec__AnonStorey214 damageCAnonStorey214 = new TowerResuponse.\u003CCalcDamage\u003Ec__AnonStorey214();
+      TowerResuponse.\u003CCalcDamage\u003Ec__AnonStorey2D2 damageCAnonStorey2D2 = new TowerResuponse.\u003CCalcDamage\u003Ec__AnonStorey2D2();
       // ISSUE: reference to a compiler-generated field
-      damageCAnonStorey214.\u003C\u003Ef__this = this;
+      damageCAnonStorey2D2.\u003C\u003Ef__this = this;
       // ISSUE: reference to a compiler-generated field
       // ISSUE: reference to a compiler-generated field
       // ISSUE: reference to a compiler-generated field
-      for (damageCAnonStorey214.i = 0; damageCAnonStorey214.i < this.pdeck.Count; ++damageCAnonStorey214.i)
+      for (damageCAnonStorey2D2.i = 0; damageCAnonStorey2D2.i < this.pdeck.Count; ++damageCAnonStorey2D2.i)
       {
         // ISSUE: reference to a compiler-generated method
-        Unit unit = player.Find(new Predicate<Unit>(damageCAnonStorey214.\u003C\u003Em__204));
+        Unit unit = player.Find(new Predicate<Unit>(damageCAnonStorey2D2.\u003C\u003Em__2BA));
         if (unit != null)
         {
           // ISSUE: reference to a compiler-generated field
-          int num = Mathf.Min(this.pdeck[damageCAnonStorey214.i].dmg, (int) unit.MaximumStatus.param.hp - 1);
-          unit.Damage(num);
+          int num = Mathf.Min(this.pdeck[damageCAnonStorey2D2.i].dmg, (int) unit.MaximumStatus.param.hp - 1);
+          unit.Damage(num, false);
         }
       }
     }
@@ -285,26 +285,44 @@ namespace SRPG
       return (int) data.Status.param.hp - num;
     }
 
-    public void CalcEnemyDamage(List<Unit> enemy)
+    public void CalcEnemyDamage(List<Unit> enemy, bool is_menu = false)
     {
       if (this.edeck == null)
         return;
+      List<Unit> unitList = new List<Unit>();
       for (int index1 = 0; index1 < this.edeck.Count; ++index1)
       {
         int index2 = int.Parse(this.edeck[index1].eid);
         if (index2 >= 0 && enemy.Count > index2)
         {
           Unit unit = enemy[index2];
-          if (unit != null)
+          if (unit != null && (!is_menu || !unit.IsGimmick))
           {
-            unit.Damage((int) unit.MaximumStatus.param.hp - this.edeck[index1].hp);
-            unit.Gems = this.edeck[index1].jewel;
-            this.edeck[index1].id = unit.UnitData.UniqueID;
-            this.edeck[index1].iname = unit.UnitParam.iname;
+            if (unit.IsGimmick && this.edeck[index1].hp == 0)
+            {
+              unitList.Add(unit);
+            }
+            else
+            {
+              unit.Damage((int) unit.MaximumStatus.param.hp - this.edeck[index1].hp, false);
+              unit.Gems = this.edeck[index1].jewel;
+              this.edeck[index1].id = unit.UnitData.UniqueID;
+              this.edeck[index1].iname = unit.UnitParam.iname;
+            }
           }
         }
       }
-      enemy.RemoveAll((Predicate<Unit>) (x => (int) x.CurrentStatus.param.hp <= 0));
+      enemy.RemoveAll((Predicate<Unit>) (x =>
+      {
+        if (!x.IsGimmick)
+          return (int) x.CurrentStatus.param.hp <= 0;
+        return false;
+      }));
+      for (int index = 0; index < unitList.Count; ++index)
+      {
+        if (unitList[index] != null)
+          enemy.Remove(unitList[index]);
+      }
     }
 
     public int CalcRecoverCost()

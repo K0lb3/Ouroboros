@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: TargetCamera
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using UnityEngine;
@@ -73,6 +73,14 @@ public class TargetCamera : MonoBehaviour
   public void SetPositionYaw(Vector3 pos, float yaw)
   {
     this.mTargetPosition = pos;
+    this.mYawPitchRoll.y = (__Null) (double) yaw;
+    this.UpdatePosition();
+  }
+
+  public void SetPositionYawPitch(Vector3 pos, float yaw, float pitch)
+  {
+    this.mTargetPosition = pos;
+    this.mYawPitchRoll.x = (__Null) (double) pitch;
     this.mYawPitchRoll.y = (__Null) (double) yaw;
     this.UpdatePosition();
   }

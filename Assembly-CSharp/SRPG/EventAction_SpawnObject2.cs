@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.EventAction_SpawnObject2
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections;
@@ -15,7 +15,7 @@ namespace SRPG
   {
     public Vector3 Scale = Vector3.get_one();
     public const string ResourceDir = "EventAssets/";
-    [StringIsResourcePath(typeof (GameObject), "EventAssets/")]
+    [StringIsResourcePathPopup(typeof (GameObject), "EventAssets/")]
     public string ResourceID;
     [StringIsObjectList]
     public string ObjectID;
@@ -70,7 +70,7 @@ namespace SRPG
     public override IEnumerator PreloadAssets()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new EventAction_SpawnObject2.\u003CPreloadAssets\u003Ec__Iterator6E() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new EventAction_SpawnObject2.\u003CPreloadAssets\u003Ec__IteratorA9() { \u003C\u003Ef__this = this };
     }
   }
 }

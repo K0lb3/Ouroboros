@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.ItemList
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -9,13 +9,13 @@ using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.Pin(112, "攻撃アイテム表示", FlowNode.PinTypes.Input, 12)]
   [AddComponentMenu("SRPG/UI/アイテムリスト")]
-  [FlowNode.Pin(100, "アイテムリセット", FlowNode.PinTypes.Input, 0)]
-  [FlowNode.Pin(111, "回復アイテム表示", FlowNode.PinTypes.Input, 11)]
-  [FlowNode.Pin(101, "アイテム決定", FlowNode.PinTypes.Input, 1)]
   [FlowNode.Pin(150, "装備スロット解除", FlowNode.PinTypes.Input, 150)]
+  [FlowNode.Pin(112, "攻撃アイテム表示", FlowNode.PinTypes.Input, 12)]
+  [FlowNode.Pin(111, "回復アイテム表示", FlowNode.PinTypes.Input, 11)]
   [FlowNode.Pin(110, "全アイテム表示", FlowNode.PinTypes.Input, 10)]
+  [FlowNode.Pin(101, "アイテム決定", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(100, "アイテムリセット", FlowNode.PinTypes.Input, 0)]
   public class ItemList : SRPG_ListBase, IFlowInterface
   {
     private ItemData[] mInventoryCache = new ItemData[5];
@@ -131,6 +131,7 @@ label_10:
               case SkillEffectTypes.Debuff:
               case SkillEffectTypes.FailCondition:
               case SkillEffectTypes.RateDamage:
+              case SkillEffectTypes.RateDamageCurrent:
                 ((Component) listItemEvents).get_gameObject().SetActive(true);
                 continue;
               default:

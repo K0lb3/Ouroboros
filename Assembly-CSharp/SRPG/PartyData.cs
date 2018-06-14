@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.PartyData
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -38,6 +38,15 @@ namespace SRPG
         case PlayerPartyTypes.Versus:
           this.mMAX_UNIT = 5;
           this.mMAX_MAINMEMBER = 5;
+          this.mMAX_SUBMEMBER = this.MAX_UNIT - this.MAX_MAINMEMBER;
+          this.mMAINMEMBER_START = 0;
+          this.mMAINMEMBER_END = 0 + this.MAX_MAINMEMBER - 1;
+          this.mSUBMEMBER_START = this.MAX_MAINMEMBER;
+          this.mSUBMEMBER_END = this.SUBMEMBER_START + this.MAX_SUBMEMBER - 1;
+          break;
+        case PlayerPartyTypes.MultiTower:
+          this.mMAX_UNIT = 3;
+          this.mMAX_MAINMEMBER = 2;
           this.mMAX_SUBMEMBER = this.MAX_UNIT - this.MAX_MAINMEMBER;
           this.mMAINMEMBER_START = 0;
           this.mMAINMEMBER_END = 0 + this.MAX_MAINMEMBER - 1;
@@ -159,10 +168,10 @@ namespace SRPG
       if (key != null)
       {
         // ISSUE: reference to a compiler-generated field
-        if (PartyData.\u003C\u003Ef__switch\u0024map8 == null)
+        if (PartyData.\u003C\u003Ef__switch\u0024map10 == null)
         {
           // ISSUE: reference to a compiler-generated field
-          PartyData.\u003C\u003Ef__switch\u0024map8 = new Dictionary<string, int>(8)
+          PartyData.\u003C\u003Ef__switch\u0024map10 = new Dictionary<string, int>(9)
           {
             {
               "norm",
@@ -195,12 +204,16 @@ namespace SRPG
             {
               "vs",
               7
+            },
+            {
+              "multi_tw",
+              8
             }
           };
         }
         int num;
         // ISSUE: reference to a compiler-generated field
-        if (PartyData.\u003C\u003Ef__switch\u0024map8.TryGetValue(key, out num))
+        if (PartyData.\u003C\u003Ef__switch\u0024map10.TryGetValue(key, out num))
         {
           switch (num)
           {
@@ -220,6 +233,8 @@ namespace SRPG
               return PlayerPartyTypes.Tower;
             case 7:
               return PlayerPartyTypes.Versus;
+            case 8:
+              return PlayerPartyTypes.MultiTower;
           }
         }
       }
@@ -246,6 +261,8 @@ namespace SRPG
           return "tower";
         case PlayerPartyTypes.Versus:
           return "vs";
+        case PlayerPartyTypes.MultiTower:
+          return "multi_tw";
         default:
           return "norm";
       }

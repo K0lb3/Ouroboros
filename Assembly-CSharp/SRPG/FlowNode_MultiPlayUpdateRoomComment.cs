@@ -1,17 +1,15 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_MultiPlayUpdateRoomComment
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
-
-using UnityEngine;
 
 namespace SRPG
 {
+  [FlowNode.Pin(101, "Update", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.NodeType("Multi/MultiPlayUpdateRoomComment", 32741)]
   [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 0)]
   [FlowNode.Pin(2, "Failure", FlowNode.PinTypes.Output, 0)]
-  [FlowNode.NodeType("Multi/MultiPlayUpdateRoomComment", 32741)]
-  [FlowNode.Pin(101, "Update", FlowNode.PinTypes.Input, 0)]
   public class FlowNode_MultiPlayUpdateRoomComment : FlowNode
   {
     public override void OnActivate(int pinID)
@@ -42,6 +40,8 @@ namespace SRPG
           }
           else
           {
+            GlobalVars.SelectedMultiPlayRoomComment = GlobalVars.EditMultiPlayRoomComment;
+            myPhotonRoomParam.passCode = GlobalVars.EditMultiPlayRoomPassCode;
             myPhotonRoomParam.comment = GlobalVars.EditMultiPlayRoomComment;
             if (!MyMsgInput.isLegal(myPhotonRoomParam.comment))
             {
@@ -52,7 +52,7 @@ namespace SRPG
             {
               DebugUtility.Log("comment:" + myPhotonRoomParam.comment);
               instance.SetRoomParam(myPhotonRoomParam.Serialize());
-              PlayerPrefs.SetString(PlayerData.ROOM_COMMENT_KEY, myPhotonRoomParam.comment);
+              PlayerPrefsUtility.SetString(PlayerPrefsUtility.ROOM_COMMENT_KEY, myPhotonRoomParam.comment, false);
               this.ActivateOutputLinks(1);
             }
           }

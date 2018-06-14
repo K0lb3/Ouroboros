@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.LimitedShopData
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -17,6 +17,25 @@ namespace SRPG
 
     public bool Deserialize(Json_LimitedShopResponse response)
     {
+      if (response.shopitems == null || !this.Deserialize(response.shopitems))
+        return false;
+      this.UpdateCount = response.relcnt;
+      return true;
+    }
+
+    public bool Deserialize(Json_LimitedShopUpdateResponse response)
+    {
+      if (response.currencies == null)
+        return false;
+      try
+      {
+        MonoSingleton<GameManager>.Instance.Player.Deserialize(response.currencies);
+      }
+      catch (Exception ex)
+      {
+        DebugUtility.LogException(ex);
+        return false;
+      }
       if (response.shopitems == null || !this.Deserialize(response.shopitems))
         return false;
       this.UpdateCount = response.relcnt;

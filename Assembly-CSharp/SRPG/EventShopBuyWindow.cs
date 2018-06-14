@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.EventShopBuyWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -13,9 +13,11 @@ using UnityEngine.UI;
 
 namespace SRPG
 {
+  [FlowNode.Pin(100, "アイテム選択単品", FlowNode.PinTypes.Output, 100)]
+  [FlowNode.Pin(101, "アイテム選択セット", FlowNode.PinTypes.Output, 101)]
+  [FlowNode.Pin(102, "アイテム更新", FlowNode.PinTypes.Output, 102)]
+  [FlowNode.Pin(103, "武具選択単品", FlowNode.PinTypes.Output, 103)]
   [FlowNode.Pin(1, "Refresh", FlowNode.PinTypes.Input, 1)]
-  [FlowNode.Pin(101, "アイテム更新", FlowNode.PinTypes.Output, 101)]
-  [FlowNode.Pin(100, "アイテム選択", FlowNode.PinTypes.Output, 100)]
   public class EventShopBuyWindow : MonoBehaviour, IFlowInterface
   {
     public RectTransform ItemLayoutParent;
@@ -37,23 +39,23 @@ namespace SRPG
 
     private void Awake()
     {
-      if (Object.op_Inequality((Object) this.ItemTemplate, (Object) null) && this.ItemTemplate.get_activeInHierarchy())
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ItemTemplate, (UnityEngine.Object) null) && this.ItemTemplate.get_activeInHierarchy())
         this.ItemTemplate.SetActive(false);
-      if (Object.op_Inequality((Object) this.BtnUpdated, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BtnUpdated, (UnityEngine.Object) null))
       {
         // ISSUE: method pointer
         ((UnityEvent) this.BtnUpdated.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OnItemUpdated)));
       }
       bool btnUpdate = GlobalVars.EventShopItem.btn_update;
-      if (Object.op_Inequality((Object) this.ObjUpdateBtn, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ObjUpdateBtn, (UnityEngine.Object) null))
         this.ObjUpdateBtn.SetActive(btnUpdate);
-      if (Object.op_Inequality((Object) this.ObjUpdateTime, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ObjUpdateTime, (UnityEngine.Object) null))
         this.ObjUpdateTime.SetActive(btnUpdate);
-      if (Object.op_Inequality((Object) this.ObjLineup, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ObjLineup, (UnityEngine.Object) null))
         this.ObjLineup.SetActive(btnUpdate);
-      if (Object.op_Inequality((Object) this.ObjItemNumLimit, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ObjItemNumLimit, (UnityEngine.Object) null))
         this.ObjItemNumLimit.SetActive(!btnUpdate);
-      if (!Object.op_Inequality((Object) this.ShopName, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ShopName, (UnityEngine.Object) null))
         return;
       this.ShopName.set_text(LocalizedText.Get(GlobalVars.EventShopItem.shops.info.title));
     }
@@ -70,36 +72,44 @@ namespace SRPG
     private void Refresh()
     {
       MonoSingleton<GameManager>.Instance.Player.UpdateEventCoin();
-      if (Object.op_Equality((Object) this.ItemTemplate, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.ItemTemplate, (UnityEngine.Object) null))
         return;
       this.SetPossessionCoinParam();
-      PlayerData player = MonoSingleton<GameManager>.Instance.Player;
-      EventShopData eventShopData = player.GetEventShopData();
+      EventShopData eventShopData = MonoSingleton<GameManager>.Instance.Player.GetEventShopData();
       DebugUtility.Assert(eventShopData != null, "ショップ情報が存在しない");
       for (int index = 0; index < this.mBuyItems.Count; ++index)
         this.mBuyItems[index].get_gameObject().SetActive(false);
       int count = eventShopData.items.Count;
       for (int index = 0; index < count; ++index)
       {
-        EventShopItem data = eventShopData.items[index];
+        EventShopItem data1 = eventShopData.items[index];
         if (index >= this.mBuyItems.Count)
         {
-          GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.ItemTemplate);
+          GameObject gameObject = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.ItemTemplate);
           gameObject.get_transform().SetParent((Transform) this.ItemLayoutParent, false);
           this.mBuyItems.Add(gameObject);
         }
         GameObject mBuyItem = this.mBuyItems[index];
-        ((EventShopBuyList) mBuyItem.GetComponentInChildren<EventShopBuyList>()).eventShopItem = data;
-        DataSource.Bind<EventShopItem>(mBuyItem, data);
-        ItemData itemDataByItemId = player.FindItemDataByItemID(data.iname);
-        DataSource.Bind<ItemData>(mBuyItem, itemDataByItemId);
-        DataSource.Bind<ItemParam>(mBuyItem, MonoSingleton<GameManager>.Instance.GetItemParam(data.iname));
+        ((EventShopBuyList) mBuyItem.GetComponentInChildren<EventShopBuyList>()).eventShopItem = data1;
+        DataSource.Bind<EventShopItem>(mBuyItem, data1);
+        if (data1.IsArtifact)
+        {
+          ArtifactParam artifactParam = MonoSingleton<GameManager>.Instance.MasterParam.GetArtifactParam(data1.iname);
+          DataSource.Bind<ArtifactParam>(mBuyItem, artifactParam);
+        }
+        else
+        {
+          ItemData data2 = new ItemData();
+          data2.Setup(0L, data1.iname, data1.num);
+          DataSource.Bind<ItemData>(mBuyItem, data2);
+          DataSource.Bind<ItemParam>(mBuyItem, MonoSingleton<GameManager>.Instance.GetItemParam(data1.iname));
+        }
         ListItemEvents component1 = (ListItemEvents) mBuyItem.GetComponent<ListItemEvents>();
-        if (Object.op_Inequality((Object) component1, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component1, (UnityEngine.Object) null))
           component1.OnSelect = new ListItemEvents.ListItemEvent(this.OnSelect);
         Button component2 = (Button) mBuyItem.GetComponent<Button>();
-        if (Object.op_Inequality((Object) component2, (Object) null))
-          ((Selectable) component2).set_interactable(!data.is_soldout);
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component2, (UnityEngine.Object) null))
+          ((Selectable) component2).set_interactable(!data1.is_soldout);
         mBuyItem.SetActive(true);
       }
       GameParameter.UpdateAll(((Component) this).get_gameObject());
@@ -107,20 +117,26 @@ namespace SRPG
 
     private void OnSelect(GameObject go)
     {
-      GlobalVars.ShopBuyIndex = this.mBuyItems.FindIndex((Predicate<GameObject>) (p => Object.op_Equality((Object) p, (Object) go)));
-      FlowNode_GameObject.ActivateOutputLinks((Component) this, 100);
+      GlobalVars.ShopBuyIndex = this.mBuyItems.FindIndex((Predicate<GameObject>) (p => UnityEngine.Object.op_Equality((UnityEngine.Object) p, (UnityEngine.Object) go)));
+      EventShopBuyList component = (EventShopBuyList) this.mBuyItems[GlobalVars.ShopBuyIndex].GetComponent<EventShopBuyList>();
+      if (component.eventShopItem.IsArtifact)
+        FlowNode_GameObject.ActivateOutputLinks((Component) this, 103);
+      else if (!component.eventShopItem.IsSet)
+        FlowNode_GameObject.ActivateOutputLinks((Component) this, 100);
+      else
+        FlowNode_GameObject.ActivateOutputLinks((Component) this, 101);
     }
 
     private void OnItemUpdated()
     {
-      FlowNode_GameObject.ActivateOutputLinks((Component) this, 101);
+      FlowNode_GameObject.ActivateOutputLinks((Component) this, 102);
     }
 
     private void SetPossessionCoinParam()
     {
-      if (Object.op_Inequality((Object) this.ImgEventCoinType, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ImgEventCoinType, (UnityEngine.Object) null))
         DataSource.Bind<ItemParam>(this.ImgEventCoinType, MonoSingleton<GameManager>.Instance.GetItemParam(GlobalVars.EventShopItem.shop_cost_iname));
-      if (!Object.op_Inequality((Object) this.TxtPossessionCoinNum, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TxtPossessionCoinNum, (UnityEngine.Object) null))
         return;
       DataSource.Bind<EventCoinData>(((Component) this.TxtPossessionCoinNum).get_gameObject(), MonoSingleton<GameManager>.Instance.Player.EventCoinList.Find((Predicate<EventCoinData>) (f => f.iname.Equals(GlobalVars.EventShopItem.shop_cost_iname))));
     }

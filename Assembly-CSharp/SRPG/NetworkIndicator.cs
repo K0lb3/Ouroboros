@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.NetworkIndicator
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections.Generic;
@@ -75,10 +75,10 @@ namespace SRPG
       if (lang != null)
       {
         // ISSUE: reference to a compiler-generated field
-        if (NetworkIndicator.\u003C\u003Ef__switch\u0024map7 == null)
+        if (NetworkIndicator.\u003C\u003Ef__switch\u0024mapF == null)
         {
           // ISSUE: reference to a compiler-generated field
-          NetworkIndicator.\u003C\u003Ef__switch\u0024map7 = new Dictionary<string, int>(3)
+          NetworkIndicator.\u003C\u003Ef__switch\u0024mapF = new Dictionary<string, int>(3)
           {
             {
               "french",
@@ -96,7 +96,7 @@ namespace SRPG
         }
         int num;
         // ISSUE: reference to a compiler-generated field
-        if (NetworkIndicator.\u003C\u003Ef__switch\u0024map7.TryGetValue(lang, out num))
+        if (NetworkIndicator.\u003C\u003Ef__switch\u0024mapF.TryGetValue(lang, out num))
         {
           switch (num)
           {

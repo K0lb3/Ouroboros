@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.BlackList
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections.Generic;
@@ -11,11 +11,11 @@ using UnityEngine.UI;
 
 namespace SRPG
 {
-  [FlowNode.Pin(11, "BlackList Request", FlowNode.PinTypes.Output, 11)]
-  [FlowNode.Pin(10, "Detail Request", FlowNode.PinTypes.Output, 10)]
-  [FlowNode.Pin(0, "Refresh", FlowNode.PinTypes.Input, 0)]
-  [FlowNode.Pin(1, "Next", FlowNode.PinTypes.Input, 1)]
   [FlowNode.Pin(2, "Prev", FlowNode.PinTypes.Input, 2)]
+  [FlowNode.Pin(1, "Next", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(10, "Detail Request", FlowNode.PinTypes.Output, 10)]
+  [FlowNode.Pin(11, "BlackList Request", FlowNode.PinTypes.Output, 11)]
+  [FlowNode.Pin(0, "Refresh", FlowNode.PinTypes.Input, 0)]
   public class BlackList : MonoBehaviour, IFlowInterface
   {
     [SerializeField]
@@ -145,21 +145,21 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          BlackList.\u003CRefresh\u003Ec__AnonStorey234 refreshCAnonStorey234 = new BlackList.\u003CRefresh\u003Ec__AnonStorey234();
+          BlackList.\u003CRefresh\u003Ec__AnonStorey303 refreshCAnonStorey303 = new BlackList.\u003CRefresh\u003Ec__AnonStorey303();
           // ISSUE: reference to a compiler-generated field
-          refreshCAnonStorey234.\u003C\u003Ef__this = this;
+          refreshCAnonStorey303.\u003C\u003Ef__this = this;
           GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.ItemTemplate);
           gameObject.get_transform().SetParent(this.ItemRoot, false);
           BlackListItem component1 = (BlackListItem) gameObject.GetComponent<BlackListItem>();
           // ISSUE: reference to a compiler-generated field
-          refreshCAnonStorey234.param = this.mBlackList.lists[index];
+          refreshCAnonStorey303.param = this.mBlackList.lists[index];
           // ISSUE: reference to a compiler-generated field
-          component1.Refresh(refreshCAnonStorey234.param);
+          component1.Refresh(refreshCAnonStorey303.param);
           SRPG_Button component2 = (SRPG_Button) gameObject.GetComponent<SRPG_Button>();
           if (Object.op_Inequality((Object) component2, (Object) null))
           {
             // ISSUE: method pointer
-            ((UnityEvent) component2.get_onClick()).AddListener(new UnityAction((object) refreshCAnonStorey234, __methodptr(\u003C\u003Em__244)));
+            ((UnityEvent) component2.get_onClick()).AddListener(new UnityAction((object) refreshCAnonStorey303, __methodptr(\u003C\u003Em__312)));
           }
           gameObject.SetActive(true);
           this.mItems.Add(gameObject);

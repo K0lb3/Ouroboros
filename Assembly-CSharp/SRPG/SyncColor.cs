@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.SyncColor
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -39,7 +39,7 @@ namespace SRPG
 
     private void Sync()
     {
-      if (Object.op_Equality((Object) this.Source, (Object) null) || Object.op_Equality((Object) this.mGraphic, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.Source, (UnityEngine.Object) null) || UnityEngine.Object.op_Equality((UnityEngine.Object) this.mGraphic, (UnityEngine.Object) null))
         return;
       Color color1 = this.Source.GetColor();
       Color color2 = (Color) null;

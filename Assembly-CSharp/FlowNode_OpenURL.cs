@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: FlowNode_OpenURL
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using SRPG;
@@ -15,8 +15,18 @@ public class FlowNode_OpenURL : FlowNode
 {
   [SerializeField]
   private FlowNode_OpenURL.URL_Mode URLMode = FlowNode_OpenURL.URL_Mode.NewsHost;
+  [HideInInspector]
   [SerializeField]
   private string URL;
+  [HideInInspector]
+  [SerializeField]
+  private bool UseVariableURL;
+  [SerializeField]
+  [HideInInspector]
+  private bool ResetVariableValue;
+  [HideInInspector]
+  [SerializeField]
+  private string VariableName;
 
   public override void OnActivate(int pinID)
   {
@@ -41,10 +51,16 @@ public class FlowNode_OpenURL : FlowNode
 
   private void Open()
   {
+    string url = this.URL;
+    if (this.UseVariableURL)
+      url = FlowNode_Variable.Get(this.VariableName);
     if (this.URLMode == FlowNode_OpenURL.URL_Mode.Direct)
-      Application.OpenURL(this.URL);
+      Application.OpenURL(url);
     else
-      Application.OpenURL(new Uri(new Uri(this.BaseURL(this.URLMode)), this.URL).AbsoluteUri);
+      Application.OpenURL(new Uri(new Uri(this.BaseURL(this.URLMode)), url).AbsoluteUri);
+    if (!this.UseVariableURL || !this.ResetVariableValue)
+      return;
+    FlowNode_Variable.Set(this.VariableName, string.Empty);
   }
 
   public enum URL_Mode

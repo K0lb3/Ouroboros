@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.UnitProfileWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -28,7 +28,7 @@ namespace SRPG
       string skinVoiceSheetName = data.GetUnitSkinVoiceSheetName(-1);
       string sheetName = "VO_" + skinVoiceSheetName;
       string cueNamePrefix = data.GetUnitSkinVoiceCueName(-1) + "_";
-      this.mUnitVoice = new MySound.Voice(sheetName, skinVoiceSheetName, cueNamePrefix);
+      this.mUnitVoice = new MySound.Voice(sheetName, skinVoiceSheetName, cueNamePrefix, false);
       this.PlayProfileVoice();
       DataSource.Bind<UnitData>(((Component) this).get_gameObject(), data);
       GameParameter.UpdateAll(((Component) this).get_gameObject());
@@ -52,13 +52,16 @@ namespace SRPG
     {
       if (this.mUnitVoice == null)
         return;
-      this.mUnitVoice.Play("chara_0001", 0.0f);
+      this.mUnitVoice.Play("chara_0001", 0.0f, false);
     }
 
     private void OnDestroy()
     {
       if (this.mUnitVoice != null)
+      {
         this.mUnitVoice.StopAll(0.0f);
+        this.mUnitVoice.Cleanup();
+      }
       this.mUnitVoice = (MySound.Voice) null;
     }
   }

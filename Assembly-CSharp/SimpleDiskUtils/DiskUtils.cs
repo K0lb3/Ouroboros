@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SimpleDiskUtils.DiskUtils
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -15,17 +15,26 @@ namespace SimpleDiskUtils
   {
     public static int CheckAvailableSpace(bool isExternalStorage = true)
     {
-      return (int) ((AndroidJavaObject) new AndroidJavaClass("com.dikra.diskutils.DiskUtils")).CallStatic<int>("availableSpace", new object[1]{ (object) isExternalStorage });
+      return (int) ((AndroidJavaObject) new AndroidJavaClass("com.dikra.diskutils.DiskUtils")).CallStatic<int>("availableSpace", new object[1]
+      {
+        (object) isExternalStorage
+      });
     }
 
     public static int CheckTotalSpace(bool isExternalStorage = true)
     {
-      return (int) ((AndroidJavaObject) new AndroidJavaClass("com.dikra.diskutils.DiskUtils")).CallStatic<int>("totalSpace", new object[1]{ (object) isExternalStorage });
+      return (int) ((AndroidJavaObject) new AndroidJavaClass("com.dikra.diskutils.DiskUtils")).CallStatic<int>("totalSpace", new object[1]
+      {
+        (object) isExternalStorage
+      });
     }
 
     public static int CheckBusySpace(bool isExternalStorage = true)
     {
-      return (int) ((AndroidJavaObject) new AndroidJavaClass("com.dikra.diskutils.DiskUtils")).CallStatic<int>("busySpace", new object[1]{ (object) isExternalStorage });
+      return (int) ((AndroidJavaObject) new AndroidJavaClass("com.dikra.diskutils.DiskUtils")).CallStatic<int>("busySpace", new object[1]
+      {
+        (object) isExternalStorage
+      });
     }
 
     public static void DeleteFile(string filePath)

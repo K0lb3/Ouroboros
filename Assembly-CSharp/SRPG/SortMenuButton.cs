@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.SortMenuButton
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using UnityEngine;
@@ -32,11 +32,11 @@ namespace SRPG
       string sortMethod = menu.SortMethod;
       if (!string.IsNullOrEmpty(this.MenuID))
       {
-        PlayerPrefs.SetString(this.MenuID, sortMethod);
-        PlayerPrefs.SetInt(this.MenuID + "#", !this.mMenu.IsAscending ? 0 : 1);
+        PlayerPrefsUtility.SetString(this.MenuID, sortMethod, false);
+        PlayerPrefsUtility.SetInt(this.MenuID + "#", !this.mMenu.IsAscending ? 0 : 1, false);
         string[] filters = this.mMenu.GetFilters(true);
-        PlayerPrefs.SetString(this.MenuID + "&", filters == null ? string.Empty : string.Join("|", filters));
-        PlayerPrefs.Save();
+        PlayerPrefsUtility.SetString(this.MenuID + "&", filters == null ? string.Empty : string.Join("|", filters), false);
+        PlayerPrefsUtility.Save();
       }
       if (Object.op_Inequality((Object) this.Caption, (Object) null))
         this.Caption.set_text(this.mMenu.CurrentCaption);
@@ -73,14 +73,14 @@ namespace SRPG
       string method = (string) null;
       if (!string.IsNullOrEmpty(this.MenuID))
       {
-        string str1 = !PlayerPrefs.HasKey(this.MenuID) ? this.mMenu.SortMethod : PlayerPrefs.GetString(this.MenuID);
-        method = PlayerPrefs.GetString(this.MenuID);
-        this.mMenu.IsAscending = PlayerPrefs.GetInt(this.MenuID + "#", 0) != 0;
+        string str = !PlayerPrefsUtility.HasKey(this.MenuID) ? this.mMenu.SortMethod : PlayerPrefsUtility.GetString(this.MenuID, string.Empty);
+        method = PlayerPrefsUtility.GetString(this.MenuID, string.Empty);
+        this.mMenu.IsAscending = PlayerPrefsUtility.GetInt(this.MenuID + "#", 0) != 0;
         if (this.mMenu.Contains(method))
           this.mMenu.SortMethod = method;
-        string str2 = this.MenuID + "&";
-        if (PlayerPrefs.HasKey(str2))
-          this.mMenu.SetFilters(PlayerPrefs.GetString(str2).Split('|'), true);
+        string key = this.MenuID + "&";
+        if (PlayerPrefsUtility.HasKey(key))
+          this.mMenu.SetFilters(PlayerPrefsUtility.GetString(key, string.Empty).Split('|'), true);
       }
       this.mMenu.SaveState();
       if (Object.op_Inequality((Object) this.Caption, (Object) null))
@@ -88,7 +88,7 @@ namespace SRPG
       this.UpdateTarget(method, this.mMenu.IsAscending);
     }
 
-    private void UpdateFilterState(bool active)
+    protected virtual void UpdateFilterState(bool active)
     {
       if (string.IsNullOrEmpty(this.FilterActive))
         return;
@@ -134,17 +134,17 @@ namespace SRPG
     {
       if (!Application.get_isPlaying() || !Object.op_Inequality((Object) this.mMenu, (Object) null))
         return;
-      string str1 = (string) null;
+      string str = (string) null;
       if (!string.IsNullOrEmpty(this.MenuID))
       {
-        str1 = !PlayerPrefs.HasKey(this.MenuID) ? this.mMenu.SortMethod : PlayerPrefs.GetString(this.MenuID);
-        string method = PlayerPrefs.GetString(this.MenuID);
-        this.mMenu.IsAscending = PlayerPrefs.GetInt(this.MenuID + "#", 0) != 0;
+        str = !PlayerPrefsUtility.HasKey(this.MenuID) ? this.mMenu.SortMethod : PlayerPrefsUtility.GetString(this.MenuID, string.Empty);
+        string method = PlayerPrefsUtility.GetString(this.MenuID, string.Empty);
+        this.mMenu.IsAscending = PlayerPrefsUtility.GetInt(this.MenuID + "#", 0) != 0;
         if (this.mMenu.Contains(method))
           this.mMenu.SortMethod = method;
-        string str2 = this.MenuID + "&";
-        if (PlayerPrefs.HasKey(str2))
-          this.mMenu.SetFilters(PlayerPrefs.GetString(str2).Split('|'), true);
+        string key = this.MenuID + "&";
+        if (PlayerPrefsUtility.HasKey(key))
+          this.mMenu.SetFilters(PlayerPrefsUtility.GetString(key, string.Empty).Split('|'), true);
       }
       this.mMenu.SaveState();
       if (!Object.op_Inequality((Object) this.Caption, (Object) null))

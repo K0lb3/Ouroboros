@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.StatusList
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -23,14 +23,14 @@ namespace SRPG
 
     private void Start()
     {
-      if (!Object.op_Inequality((Object) this.ListItem, (Object) null) || !((Component) this.ListItem).get_gameObject().get_activeInHierarchy())
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ListItem, (UnityEngine.Object) null) || !((Component) this.ListItem).get_gameObject().get_activeInHierarchy())
         return;
       ((Component) this.ListItem).get_gameObject().SetActive(false);
     }
 
     public void SetValues(BaseStatus paramAdd, BaseStatus paramMul, BaseStatus modAdd, BaseStatus modMul)
     {
-      if (Object.op_Equality((Object) this.ListItem, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.ListItem, (UnityEngine.Object) null))
       {
         DebugUtility.LogWarning(((Component) this).get_gameObject().GetPath((GameObject) null) + ": ListItem not set");
       }
@@ -70,15 +70,15 @@ namespace SRPG
     {
       if (this.mItems.Count <= index)
       {
-        StatusListItem statusListItem = (StatusListItem) Object.Instantiate<StatusListItem>((M0) this.ListItem);
+        StatusListItem statusListItem = (StatusListItem) UnityEngine.Object.Instantiate<StatusListItem>((M0) this.ListItem);
         ((Component) statusListItem).get_transform().SetParent(((Component) this).get_transform(), false);
         this.mItems.Add(statusListItem);
       }
       StatusListItem mItem = this.mItems[index];
       ((Component) mItem).get_gameObject().SetActive(true);
-      if (Object.op_Inequality((Object) mItem.Label, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) mItem.Label, (UnityEngine.Object) null))
         mItem.Label.set_text(LocalizedText.Get("sys." + type));
-      if (Object.op_Inequality((Object) mItem.Value, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) mItem.Value, (UnityEngine.Object) null))
       {
         string str = value.ToString();
         if (this.ShowSign && value > 0)
@@ -87,7 +87,7 @@ namespace SRPG
           str += "%";
         mItem.Value.set_text(str);
       }
-      if (!Object.op_Inequality((Object) mItem.Bonus, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) mItem.Bonus, (UnityEngine.Object) null))
         return;
       if (bonus != 0)
       {
@@ -105,7 +105,7 @@ namespace SRPG
 
     public void SetDirectValues(BaseStatus old_status, BaseStatus new_status)
     {
-      if (Object.op_Equality((Object) this.ListItem, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.ListItem, (UnityEngine.Object) null))
       {
         DebugUtility.LogWarning(((Component) this).get_gameObject().GetPath((GameObject) null) + ": ListItem not set");
       }

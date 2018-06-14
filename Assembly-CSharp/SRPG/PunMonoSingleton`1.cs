@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.PunMonoSingleton`1
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using Photon;
@@ -17,19 +17,19 @@ namespace SRPG
     {
       get
       {
-        if (Object.op_Equality((Object) (object) PunMonoSingleton<T>.instance_, (Object) null))
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) (object) PunMonoSingleton<T>.instance_, (UnityEngine.Object) null))
         {
           System.Type type = typeof (T);
-          PunMonoSingleton<T>.instance_ = Object.FindObjectOfType(type) as T;
-          if (Object.op_Equality((Object) (object) PunMonoSingleton<T>.instance_, (Object) null))
+          PunMonoSingleton<T>.instance_ = UnityEngine.Object.FindObjectOfType(type) as T;
+          if (UnityEngine.Object.op_Equality((UnityEngine.Object) (object) PunMonoSingleton<T>.instance_, (UnityEngine.Object) null))
           {
             GameObject gameObject = new GameObject(type.ToString(), new System.Type[1]{ type });
-            if (!Object.op_Equality((Object) gameObject, (Object) null))
+            if (!UnityEngine.Object.op_Equality((UnityEngine.Object) gameObject, (UnityEngine.Object) null))
               ;
-            ((Object) gameObject.get_transform()).set_name(type.Name);
+            ((UnityEngine.Object) gameObject.get_transform()).set_name(type.Name);
             PunMonoSingleton<T>.instance_ = (T) gameObject.GetComponent<T>();
-            if (Object.op_Equality((Object) (object) PunMonoSingleton<T>.instance_, (Object) null))
-              Object.Destroy((Object) gameObject);
+            if (UnityEngine.Object.op_Equality((UnityEngine.Object) (object) PunMonoSingleton<T>.instance_, (UnityEngine.Object) null))
+              UnityEngine.Object.Destroy((UnityEngine.Object) gameObject);
           }
         }
         return PunMonoSingleton<T>.instance_;
@@ -38,8 +38,8 @@ namespace SRPG
 
     private void Awake()
     {
-      if (Object.op_Inequality((Object) (object) PunMonoSingleton<T>.Instance, (Object) this))
-        Object.Destroy((Object) this);
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) (object) PunMonoSingleton<T>.Instance, (UnityEngine.Object) this))
+        UnityEngine.Object.Destroy((UnityEngine.Object) this);
       else
         this.Initialize();
     }

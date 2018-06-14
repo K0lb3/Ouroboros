@@ -1,8 +1,10 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.GiftData
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
 
 namespace SRPG
 {
@@ -16,6 +18,15 @@ namespace SRPG
     public int multicoin;
     public int kakeracoin;
     public long giftTypes;
+    public int rarity;
+
+    public bool IsValidRarity
+    {
+      get
+      {
+        return this.rarity != -1;
+      }
+    }
 
     public bool NotSet
     {
@@ -91,6 +102,28 @@ namespace SRPG
           return;
         this.SetGiftTypeIncluded(GiftTypes.Award);
       }
+    }
+
+    public ArtifactData CreateArtifactData()
+    {
+      if (!this.CheckGiftTypeIncluded(GiftTypes.Artifact))
+      {
+        DebugUtility.LogError("このギフトは武具ではありません");
+        return (ArtifactData) null;
+      }
+      ArtifactParam artifactParam = MonoSingleton<GameManager>.Instance.MasterParam.GetArtifactParam(this.iname);
+      if (artifactParam == null)
+        return (ArtifactData) null;
+      ArtifactData artifactData = new ArtifactData();
+      artifactData.Deserialize(new Json_Artifact()
+      {
+        iid = 1L,
+        exp = 0,
+        iname = artifactParam.iname,
+        fav = 0,
+        rare = !this.IsValidRarity ? artifactParam.rareini : this.rarity
+      });
+      return artifactData;
     }
   }
 }

@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_FriendList
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -10,14 +10,20 @@ using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.Pin(0, "Request", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(2, "Request(フレンド申請も含む)", FlowNode.PinTypes.Input, 2)]
   [FlowNode.NodeType("Network/FriendList", 32741)]
+  [FlowNode.Pin(0, "Request", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
   public class FlowNode_FriendList : FlowNode_Network
   {
+    private bool IsFollower;
+
     public override void OnActivate(int pinID)
     {
-      if (pinID != 0 || ((Behaviour) this).get_enabled())
+      if (pinID != 0 && pinID != 2)
+        return;
+      this.IsFollower = pinID == 2;
+      if (((Behaviour) this).get_enabled())
         return;
       if (Network.Mode == Network.EConnectMode.Offline)
       {
@@ -25,7 +31,7 @@ namespace SRPG
       }
       else
       {
-        this.ExecRequest((WebAPI) new ReqFriendList(new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+        this.ExecRequest((WebAPI) new ReqFriendList(this.IsFollower, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
         ((Behaviour) this).set_enabled(true);
       }
     }
@@ -43,13 +49,22 @@ namespace SRPG
       }
       else
       {
-        WebAPI.JSON_BodyResponse<Json_PlayerDataAll> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_PlayerDataAll>>(www.text);
+        DebugMenu.Log("API", "friend:" + www.text);
+        WebAPI.JSON_BodyResponse<Json_FriendList> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_FriendList>>(www.text);
         DebugUtility.Assert(jsonObject != null, "res == null");
         Network.RemoveAPI();
         GameManager instance = MonoSingleton<GameManager>.Instance;
         try
         {
           instance.Deserialize(jsonObject.body.friends, FriendStates.Friend);
+          if (this.IsFollower)
+          {
+            instance.Player.FollowerNum = jsonObject.body.follower_count;
+            InnWindow componentInChildren = (InnWindow) ((Component) this).get_gameObject().GetComponentInChildren<InnWindow>();
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) componentInChildren, (UnityEngine.Object) null))
+              componentInChildren.Refresh();
+          }
+          instance.Player.FirstFriendCount = jsonObject.body.first_count;
           this.Success();
         }
         catch (Exception ex)

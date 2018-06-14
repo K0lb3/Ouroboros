@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: FlowNode_ShopVoice2
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using SRPG;
@@ -10,24 +10,24 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-[FlowNode.Pin(2004, "停止", FlowNode.PinTypes.Input, 2004)]
-[FlowNode.NodeType("Sound/ShopVoice2", 32741)]
-[FlowNode.Pin(1, "Out", FlowNode.PinTypes.Output, 1)]
-[FlowNode.Pin(2, "Played", FlowNode.PinTypes.Output, 2)]
-[FlowNode.Pin(3, "NotPlayed", FlowNode.PinTypes.Output, 3)]
-[FlowNode.Pin(4, "Yes", FlowNode.PinTypes.Output, 4)]
-[FlowNode.Pin(5, "No", FlowNode.PinTypes.Output, 5)]
 [FlowNode.Pin(100, "店タイプ設定", FlowNode.PinTypes.Input, 100)]
-[FlowNode.Pin(200, "現在の店と一致？", FlowNode.PinTypes.Input, 200)]
-[FlowNode.Pin(500, "再生中？", FlowNode.PinTypes.Input, 500)]
-[FlowNode.Pin(1000, "入店ボイス再生", FlowNode.PinTypes.Input, 1000)]
-[FlowNode.Pin(1001, "退出ボイス再生", FlowNode.PinTypes.Input, 1001)]
-[FlowNode.Pin(1002, "時報ボイス再生", FlowNode.PinTypes.Input, 1002)]
-[FlowNode.Pin(1003, "イベントボイス再生", FlowNode.PinTypes.Input, 1003)]
-[FlowNode.Pin(2000, "キュー再生", FlowNode.PinTypes.Input, 2000)]
-[FlowNode.Pin(2001, "再生終了してから指定時間たつまで待つ", FlowNode.PinTypes.Input, 2001)]
-[FlowNode.Pin(2002, "一時再生禁止", FlowNode.PinTypes.Input, 2002)]
+[FlowNode.Pin(2004, "停止", FlowNode.PinTypes.Input, 2004)]
 [FlowNode.Pin(2003, "一時再生禁止解除", FlowNode.PinTypes.Input, 2003)]
+[FlowNode.Pin(2002, "一時再生禁止", FlowNode.PinTypes.Input, 2002)]
+[FlowNode.Pin(2001, "再生終了してから指定時間たつまで待つ", FlowNode.PinTypes.Input, 2001)]
+[FlowNode.Pin(2000, "キュー再生", FlowNode.PinTypes.Input, 2000)]
+[FlowNode.Pin(1003, "イベントボイス再生", FlowNode.PinTypes.Input, 1003)]
+[FlowNode.Pin(1002, "時報ボイス再生", FlowNode.PinTypes.Input, 1002)]
+[FlowNode.Pin(1001, "退出ボイス再生", FlowNode.PinTypes.Input, 1001)]
+[FlowNode.Pin(1000, "入店ボイス再生", FlowNode.PinTypes.Input, 1000)]
+[FlowNode.Pin(500, "再生中？", FlowNode.PinTypes.Input, 500)]
+[FlowNode.Pin(200, "現在の店と一致？", FlowNode.PinTypes.Input, 200)]
+[FlowNode.Pin(5, "No", FlowNode.PinTypes.Output, 5)]
+[FlowNode.Pin(4, "Yes", FlowNode.PinTypes.Output, 4)]
+[FlowNode.Pin(3, "NotPlayed", FlowNode.PinTypes.Output, 3)]
+[FlowNode.Pin(2, "Played", FlowNode.PinTypes.Output, 2)]
+[FlowNode.Pin(1, "Out", FlowNode.PinTypes.Output, 1)]
+[FlowNode.NodeType("Sound/ShopVoice2", 32741)]
 public class FlowNode_ShopVoice2 : FlowNodePersistent
 {
   public float StopSec = 0.3f;
@@ -153,7 +153,7 @@ public class FlowNode_ShopVoice2 : FlowNodePersistent
     if (direct)
       this.mVoice.PlayDirect(cueID, delaySec);
     else
-      this.mVoice.Play(cueID, delaySec);
+      this.mVoice.Play(cueID, delaySec, false);
     FlowNode_ShopVoice2.sDelayCueID = (string) null;
     return true;
   }
@@ -181,7 +181,7 @@ public class FlowNode_ShopVoice2 : FlowNodePersistent
     if (FlowNode_ShopVoice2.sDelayCueIDDirect)
       this.mVoice.PlayDirect(FlowNode_ShopVoice2.sDelayCueID, 0.0f);
     else
-      this.mVoice.Play(FlowNode_ShopVoice2.sDelayCueID, 0.0f);
+      this.mVoice.Play(FlowNode_ShopVoice2.sDelayCueID, 0.0f, false);
     FlowNode_ShopVoice2.sDelayCueID = (string) null;
   }
 
@@ -207,7 +207,7 @@ public class FlowNode_ShopVoice2 : FlowNodePersistent
       else
       {
         TextAsset textAsset = (TextAsset) Resources.Load<TextAsset>(path);
-        s = !Object.op_Inequality((Object) textAsset, (Object) null) ? (string) null : textAsset.get_text();
+        s = !UnityEngine.Object.op_Inequality((UnityEngine.Object) textAsset, (UnityEngine.Object) null) ? (string) null : textAsset.get_text();
       }
       if (string.IsNullOrEmpty(s))
         return (string) null;

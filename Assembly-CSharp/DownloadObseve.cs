@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: DownloadObseve
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections;
@@ -78,7 +78,10 @@ public class DownloadObseve
   private IEnumerator Download()
   {
     // ISSUE: object of a compiler-generated type is created
-    return (IEnumerator) new DownloadObseve.\u003CDownload\u003Ec__Iterator4B() { \u003C\u003Ef__this = this };
+    return (IEnumerator) new DownloadObseve.\u003CDownload\u003Ec__Iterator7E()
+    {
+      \u003C\u003Ef__this = this
+    };
   }
 
   public DownloadObseve.DownloadInfo getDownloadInfo()
@@ -118,7 +121,10 @@ public class DownloadObseve
   public IEnumerator Abort()
   {
     // ISSUE: object of a compiler-generated type is created
-    return (IEnumerator) new DownloadObseve.\u003CAbort\u003Ec__Iterator4C() { \u003C\u003Ef__this = this };
+    return (IEnumerator) new DownloadObseve.\u003CAbort\u003Ec__Iterator7F()
+    {
+      \u003C\u003Ef__this = this
+    };
   }
 
   public void Dispose()

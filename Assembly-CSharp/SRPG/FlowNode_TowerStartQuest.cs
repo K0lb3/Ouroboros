@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_TowerStartQuest
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -9,8 +9,8 @@ using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.NodeType("System/Quest/TowerStart", 32741)]
   [FlowNode.Pin(7, "TowerError", FlowNode.PinTypes.Output, 7)]
+  [FlowNode.NodeType("System/Quest/TowerStart", 32741)]
   public class FlowNode_TowerStartQuest : FlowNode_StartQuest
   {
     private long btlID;
@@ -25,6 +25,7 @@ namespace SRPG
 
     public override void OnActivate(int pinID)
     {
+      MonoSingleton<GameManager>.Instance.AudienceMode = false;
       if (pinID == 10)
       {
         this.mResume = true;
@@ -109,15 +110,20 @@ namespace SRPG
         return false;
       if (Network.ErrCode == Network.EErrCode.NotExist_tower)
       {
-        GlobalVars.BtlID.Set(this.btlID);
-        CriticalSection.Leave(CriticalSections.SceneChange);
-        Network.RequestResult = Network.RequestResults.Back;
-        if (Network.IsImmediateMode)
+        if (this.mResume)
+        {
+          GlobalVars.BtlID.Set(this.btlID);
+          CriticalSection.Leave(CriticalSections.SceneChange);
+          Network.RequestResult = Network.RequestResults.Back;
+          if (Network.IsImmediateMode)
+            return true;
+          Network.RemoveAPI();
+          Network.ResetError();
+          ((Behaviour) this).set_enabled(false);
+          this.ActivateOutputLinks(7);
           return true;
-        Network.RemoveAPI();
-        Network.ResetError();
-        ((Behaviour) this).set_enabled(false);
-        this.ActivateOutputLinks(7);
+        }
+        this.OnFailed();
         return true;
       }
       Network.EErrCode errCode = Network.ErrCode;

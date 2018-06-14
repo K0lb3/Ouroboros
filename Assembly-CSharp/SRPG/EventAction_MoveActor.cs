@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.EventAction_MoveActor
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -28,7 +28,7 @@ namespace SRPG
 
     private void StartMove()
     {
-      if (this.GotoRealPosition && Object.op_Inequality((Object) this.mController, (Object) null) && this.mController.Unit != null)
+      if (this.GotoRealPosition && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mController, (UnityEngine.Object) null) && this.mController.Unit != null)
       {
         Array.Resize<IntVector2>(ref this.mPoints, this.mPoints.Length + 1);
         this.mPoints[this.mPoints.Length - 1] = new IntVector2(this.mController.Unit.x, this.mController.Unit.y);
@@ -44,7 +44,7 @@ namespace SRPG
     private TacticsUnitController GetController()
     {
       TacticsUnitController tacticsUnitController = TacticsUnitController.FindByUniqueName(this.ActorID);
-      if (Object.op_Equality((Object) tacticsUnitController, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) tacticsUnitController, (UnityEngine.Object) null))
         tacticsUnitController = TacticsUnitController.FindByUnitID(this.ActorID);
       return tacticsUnitController;
     }
@@ -52,7 +52,7 @@ namespace SRPG
     public override void OnActivate()
     {
       this.mController = this.GetController();
-      if (Object.op_Equality((Object) this.mController, (Object) null) || this.mPoints.Length == 0)
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mController, (UnityEngine.Object) null) || this.mPoints.Length == 0)
         this.ActivateNext();
       else
         this.mReady = false;
@@ -62,7 +62,7 @@ namespace SRPG
     {
       if (!this.mReady)
       {
-        if (Object.op_Inequality((Object) this.mController, (Object) null) && this.mController.IsLoading)
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mController, (UnityEngine.Object) null) && this.mController.IsLoading)
           return;
         if (this.Async)
           this.ActivateNext(true);
@@ -93,6 +93,18 @@ namespace SRPG
         else
           this.enabled = false;
       }
+    }
+
+    public override void GoToEndState()
+    {
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mController, (UnityEngine.Object) null))
+        this.mController = this.GetController();
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mController, (UnityEngine.Object) null) && this.mController.IsLoading)
+        return;
+      Debug.LogWarning((object) ("Target grid position: " + (object) this.mPoints[this.mPoints.Length - 1]));
+      Vector3 world = EventAction.PointToWorld(this.mPoints[this.mPoints.Length - 1]);
+      ((Component) this.mController).get_transform().set_position(world);
+      Debug.LogWarning((object) ("Setting unit " + this.mController.Unit.UnitName + " position: " + (object) world));
     }
   }
 }

@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_StartMultiPlay
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -11,11 +11,11 @@ using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 2)]
   [FlowNode.NodeType("Multi/StartMultiPlay", 32741)]
-  [FlowNode.Pin(100, "Start", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(101, "ResumeStart", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(100, "Start", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(2, "Failure", FlowNode.PinTypes.Output, 3)]
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 2)]
   public class FlowNode_StartMultiPlay : FlowNode
   {
     private StateMachine<FlowNode_StartMultiPlay> mStateMachine;
@@ -67,7 +67,7 @@ namespace SRPG
     private void FailureStartMulti()
     {
       MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
-      if (Object.op_Inequality((Object) instance, (Object) null) && instance.IsOldestPlayer())
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) instance, (UnityEngine.Object) null) && instance.IsOldestPlayer())
       {
         MyPhoton.MyRoom currentRoom = instance.GetCurrentRoom();
         if (currentRoom != null)
@@ -76,7 +76,7 @@ namespace SRPG
           myPhotonRoomParam.started = 0;
           instance.SetRoomParam(myPhotonRoomParam.Serialize());
         }
-        instance.OpenRoom();
+        instance.OpenRoom(true, false);
       }
       this.Failure();
     }
@@ -88,7 +88,7 @@ namespace SRPG
       this.mStateMachine.GotoState<StateType>();
     }
 
-    private class PlayerList
+    public class PlayerList
     {
       public JSON_MyPhotonPlayerParam[] players;
 
@@ -109,6 +109,14 @@ namespace SRPG
         }
         return str + "]}";
       }
+    }
+
+    public class RecvData
+    {
+      public int senderPlayerID;
+      public int version;
+      public Json_MyPhotonPlayerBinaryParam[] playerList;
+      public string playerListJson;
     }
 
     private class State_Start : State<FlowNode_StartMultiPlay>
@@ -292,8 +300,8 @@ namespace SRPG
 
     private class State_GameStart : State<FlowNode_StartMultiPlay>
     {
-      private FlowNode_StartMultiPlay.State_GameStart.RecvData mSend = new FlowNode_StartMultiPlay.State_GameStart.RecvData();
-      private List<FlowNode_StartMultiPlay.State_GameStart.RecvData> mRecvList = new List<FlowNode_StartMultiPlay.State_GameStart.RecvData>();
+      private FlowNode_StartMultiPlay.RecvData mSend = new FlowNode_StartMultiPlay.RecvData();
+      private List<FlowNode_StartMultiPlay.RecvData> mRecvList = new List<FlowNode_StartMultiPlay.RecvData>();
       private float mWait;
       private bool mConfirm;
       private float mStartWait;
@@ -366,8 +374,14 @@ namespace SRPG
                   {
                     while (enumerator.MoveNext())
                     {
-                      if (JSON_MyPhotonPlayerParam.Parse(enumerator.Current.json).state != 3)
+                      JSON_MyPhotonPlayerParam photonPlayerParam = JSON_MyPhotonPlayerParam.Parse(enumerator.Current.json);
+                      if (photonPlayerParam.state != 3)
                         return;
+                      if (photonPlayerParam.state < 2)
+                      {
+                        self.Failure();
+                        return;
+                      }
                     }
                   }
                   this.mStartWait = 0.1f;
@@ -377,7 +391,8 @@ namespace SRPG
                   MyPhoton.MyPlayer myPlayer = instance.GetMyPlayer();
                   if (this.mRecvList.Count <= 0)
                   {
-                    this.mSend.senderPlayerID = myPlayer.playerID;
+                    this.mSend.senderPlayerID = myPlayer.photonPlayerID;
+                    this.mSend.playerListJson = (string) null;
                     List<JSON_MyPhotonPlayerParam> photonPlayerParamList = new List<JSON_MyPhotonPlayerParam>();
                     for (int index = 0; index < roomPlayerList.Count; ++index)
                     {
@@ -385,53 +400,76 @@ namespace SRPG
                       photonPlayerParamList.Add(photonPlayerParam);
                     }
                     photonPlayerParamList.Sort((Comparison<JSON_MyPhotonPlayerParam>) ((a, b) => a.playerIndex - b.playerIndex));
-                    this.mSend.playerListJson = new FlowNode_StartMultiPlay.PlayerList()
+                    FlowNode_StartMultiPlay.PlayerList playerList = new FlowNode_StartMultiPlay.PlayerList();
+                    playerList.players = photonPlayerParamList.ToArray();
+                    Json_MyPhotonPlayerBinaryParam[] playerBinaryParamArray = new Json_MyPhotonPlayerBinaryParam[playerList.players.Length];
+                    for (int index = 0; index < playerList.players.Length; ++index)
                     {
-                      players = photonPlayerParamList.ToArray()
-                    }.Serialize();
-                    string msg = this.mSend.Serialize();
-                    DebugUtility.Log("[PUN] send started player list: " + msg);
-                    instance.SendRoomMessage(true, msg, MyPhoton.SEND_TYPE.Normal);
+                      playerList.players[index].CreateJsonUnitData();
+                      playerBinaryParamArray[index] = new Json_MyPhotonPlayerBinaryParam();
+                      playerBinaryParamArray[index].Set(playerList.players[index]);
+                    }
+                    this.mSend.playerList = playerBinaryParamArray;
+                    byte[] msg = GameUtility.Object2Binary<FlowNode_StartMultiPlay.RecvData>(this.mSend);
+                    instance.SendRoomMessageBinary(true, msg, MyPhoton.SEND_TYPE.Sync, false);
                     this.mRecvList.Add(this.mSend);
+                    this.mSend.playerListJson = playerList.Serialize();
                   }
                   List<MyPhoton.MyEvent> events = instance.GetEvents();
                   for (int index = events.Count - 1; index >= 0; --index)
                   {
-                    FlowNode_StartMultiPlay.State_GameStart.RecvData jsonObject = JSONParser.parseJSONObject<FlowNode_StartMultiPlay.State_GameStart.RecvData>(events[index].json);
-                    if (jsonObject == null || jsonObject.version < this.mSend.version)
+                    FlowNode_StartMultiPlay.RecvData buffer = (FlowNode_StartMultiPlay.RecvData) null;
+                    if (!GameUtility.Binary2Object<FlowNode_StartMultiPlay.RecvData>(out buffer, events[index].binary))
                     {
                       DebugUtility.LogError("[PUN] started player list version error: " + events[index].json);
                       instance.Disconnect();
                       return;
                     }
-                    if (jsonObject.version <= this.mSend.version)
+                    if (buffer == null || buffer.version < this.mSend.version)
                     {
-                      jsonObject.senderPlayerID = events[index].playerID;
+                      DebugUtility.LogError("[PUN] started player list version error: " + events[index].json);
+                      instance.Disconnect();
+                      return;
+                    }
+                    if (buffer.version <= this.mSend.version)
+                    {
+                      buffer.senderPlayerID = events[index].playerID;
                       DebugUtility.Log("[PUN] recv started player list: " + events[index].json);
-                      this.mRecvList.Add(jsonObject);
+                      this.mRecvList.Add(buffer);
                       events.Remove(events[index]);
                     }
                   }
                   // ISSUE: object of a compiler-generated type is created
                   // ISSUE: variable of a compiler-generated type
-                  FlowNode_StartMultiPlay.State_GameStart.\u003CUpdate\u003Ec__AnonStorey217 updateCAnonStorey217 = new FlowNode_StartMultiPlay.State_GameStart.\u003CUpdate\u003Ec__AnonStorey217();
+                  FlowNode_StartMultiPlay.State_GameStart.\u003CUpdate\u003Ec__AnonStorey2D5 updateCAnonStorey2D5 = new FlowNode_StartMultiPlay.State_GameStart.\u003CUpdate\u003Ec__AnonStorey2D5();
                   using (List<MyPhoton.MyPlayer>.Enumerator enumerator = roomPlayerList.GetEnumerator())
                   {
                     while (enumerator.MoveNext())
                     {
                       // ISSUE: reference to a compiler-generated field
-                      updateCAnonStorey217.p = enumerator.Current;
+                      updateCAnonStorey2D5.p = enumerator.Current;
                       // ISSUE: reference to a compiler-generated method
-                      if (this.mRecvList.FindIndex(new Predicate<FlowNode_StartMultiPlay.State_GameStart.RecvData>(updateCAnonStorey217.\u003C\u003Em__212)) < 0)
+                      if (this.mRecvList.FindIndex(new Predicate<FlowNode_StartMultiPlay.RecvData>(updateCAnonStorey2D5.\u003C\u003Em__2C8)) < 0)
                         return;
                     }
                   }
                   bool flag = true;
-                  using (List<FlowNode_StartMultiPlay.State_GameStart.RecvData>.Enumerator enumerator = this.mRecvList.GetEnumerator())
+                  using (List<FlowNode_StartMultiPlay.RecvData>.Enumerator enumerator = this.mRecvList.GetEnumerator())
                   {
                     while (enumerator.MoveNext())
                     {
-                      if (!enumerator.Current.playerListJson.Equals(this.mSend.playerListJson))
+                      FlowNode_StartMultiPlay.RecvData current = enumerator.Current;
+                      if (current.playerList.Length == this.mSend.playerList.Length)
+                      {
+                        for (int index = 0; index < this.mSend.playerList.Length; ++index)
+                        {
+                          if (!Json_MyPhotonPlayerBinaryParam.IsEqual(current.playerList[index], this.mSend.playerList[index]))
+                            flag = false;
+                        }
+                        if (!flag)
+                          break;
+                      }
+                      else
                       {
                         flag = false;
                         break;
@@ -474,18 +512,6 @@ namespace SRPG
 
       public override void End(FlowNode_StartMultiPlay self)
       {
-      }
-
-      private class RecvData
-      {
-        public int senderPlayerID;
-        public int version;
-        public string playerListJson;
-
-        public string Serialize()
-        {
-          return "{" + "\"version\":" + (object) this.version + ",\"playerListJson\":\"" + JsonEscape.Escape(this.playerListJson) + "\"" + "}";
-        }
       }
     }
   }

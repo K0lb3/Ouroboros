@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.ReplayQuestSectionList
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -13,9 +13,9 @@ using UnityEngine.UI;
 namespace SRPG
 {
   [FlowNode.Pin(12, "アイテムが選択された", FlowNode.PinTypes.Output, 102)]
+  [FlowNode.Pin(0, "更新", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(10, "閲覧可能なストーリーがある", FlowNode.PinTypes.Output, 100)]
   [FlowNode.Pin(11, "閲覧可能なストーリーがない", FlowNode.PinTypes.Output, 101)]
-  [FlowNode.Pin(0, "更新", FlowNode.PinTypes.Input, 0)]
   public class ReplayQuestSectionList : MonoBehaviour, IFlowInterface
   {
     private const int PIN_ID_REFRESH = 0;

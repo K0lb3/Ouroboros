@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.EventTrigger
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -70,14 +70,16 @@ namespace SRPG
       }
     }
 
-    public bool IsAdvantage
+    public bool IsTriggerWithdraw
     {
       get
       {
-        switch (this.mEventType)
+        switch (this.mTrigger)
         {
-          case EEventType.Treasure:
-          case EEventType.Gem:
+          case EEventTrigger.WdHpDownRate:
+          case EEventTrigger.WdHpDownValue:
+          case EEventTrigger.WdElapsedTurn:
+          case EEventTrigger.WdStandbyGrid:
             return true;
           default:
             return false;
@@ -118,13 +120,69 @@ namespace SRPG
       return true;
     }
 
+    public BuffAttachment MakeBuff(Unit gimmick, Unit target)
+    {
+      BuffAttachment buffAttachment = new BuffAttachment();
+      switch (this.GimmickType)
+      {
+        case EEventGimmick.AtkUp:
+        case EEventGimmick.DefUp:
+        case EEventGimmick.MagUp:
+        case EEventGimmick.MndUp:
+        case EEventGimmick.RecUp:
+        case EEventGimmick.SpdUp:
+        case EEventGimmick.CriUp:
+        case EEventGimmick.LukUp:
+        case EEventGimmick.MovUp:
+          FixParam fixParam = MonoSingleton<GameManager>.Instance.MasterParam.FixParam;
+          int gemsBuffValue = (int) fixParam.GemsBuffValue;
+          int gemsBuffTurn = (int) fixParam.GemsBuffTurn;
+          SkillParamCalcTypes skillParamCalcTypes = SkillParamCalcTypes.Scale;
+          if (this.GimmickType == EEventGimmick.AtkUp)
+            buffAttachment.status.param.atk = (OShort) gemsBuffValue;
+          if (this.GimmickType == EEventGimmick.DefUp)
+            buffAttachment.status.param.def = (OShort) gemsBuffValue;
+          if (this.GimmickType == EEventGimmick.MagUp)
+            buffAttachment.status.param.mag = (OShort) gemsBuffValue;
+          if (this.GimmickType == EEventGimmick.MndUp)
+            buffAttachment.status.param.mnd = (OShort) gemsBuffValue;
+          if (this.GimmickType == EEventGimmick.RecUp)
+            buffAttachment.status.param.rec = (OShort) gemsBuffValue;
+          if (this.GimmickType == EEventGimmick.SpdUp)
+            buffAttachment.status.param.spd = (OShort) gemsBuffValue;
+          if (this.GimmickType == EEventGimmick.CriUp)
+            buffAttachment.status.param.cri = (OShort) gemsBuffValue;
+          if (this.GimmickType == EEventGimmick.LukUp)
+            buffAttachment.status.param.luk = (OShort) gemsBuffValue;
+          if (this.GimmickType == EEventGimmick.MovUp)
+          {
+            buffAttachment.status.param.mov = (OShort) 2;
+            skillParamCalcTypes = SkillParamCalcTypes.Add;
+          }
+          buffAttachment.user = gimmick;
+          buffAttachment.BuffType = BuffTypes.Buff;
+          buffAttachment.CalcType = skillParamCalcTypes;
+          buffAttachment.CheckTarget = target;
+          buffAttachment.CheckTiming = EffectCheckTimings.ActionStart;
+          buffAttachment.UseCondition = ESkillCondition.None;
+          buffAttachment.IsPassive = (OBool) false;
+          buffAttachment.turn = (OInt) gemsBuffTurn;
+          break;
+      }
+      return buffAttachment;
+    }
+
     public void ExecuteGimmickEffect(Unit gimmick, Unit target, LogMapEvent log = null)
     {
       switch (this.GimmickType)
       {
         case EEventGimmick.Heal:
-          int hp = (int) target.MaximumStatus.param.hp;
-          int num = Math.Min(hp * this.IntValue / 100, hp - (int) target.CurrentStatus.param.hp);
+          int num = 0;
+          if (!target.IsUnitCondition(EUnitCondition.DisableHeal))
+          {
+            int hp = (int) target.MaximumStatus.param.hp;
+            num = Math.Min(hp * this.IntValue / 100, hp - (int) target.CurrentStatus.param.hp);
+          }
           target.Heal(num);
           if (log == null)
             break;
@@ -139,40 +197,7 @@ namespace SRPG
         case EEventGimmick.CriUp:
         case EEventGimmick.LukUp:
         case EEventGimmick.MovUp:
-          BuffAttachment buff = new BuffAttachment();
-          FixParam fixParam = MonoSingleton<GameManager>.Instance.MasterParam.FixParam;
-          int gemsBuffValue = (int) fixParam.GemsBuffValue;
-          int gemsBuffTurn = (int) fixParam.GemsBuffTurn;
-          SkillParamCalcTypes skillParamCalcTypes = SkillParamCalcTypes.Scale;
-          if (this.GimmickType == EEventGimmick.AtkUp)
-            buff.status.param.atk = (OShort) gemsBuffValue;
-          if (this.GimmickType == EEventGimmick.DefUp)
-            buff.status.param.def = (OShort) gemsBuffValue;
-          if (this.GimmickType == EEventGimmick.MagUp)
-            buff.status.param.mag = (OShort) gemsBuffValue;
-          if (this.GimmickType == EEventGimmick.MndUp)
-            buff.status.param.mnd = (OShort) gemsBuffValue;
-          if (this.GimmickType == EEventGimmick.RecUp)
-            buff.status.param.rec = (OShort) gemsBuffValue;
-          if (this.GimmickType == EEventGimmick.SpdUp)
-            buff.status.param.spd = (OShort) gemsBuffValue;
-          if (this.GimmickType == EEventGimmick.CriUp)
-            buff.status.param.cri = (OShort) gemsBuffValue;
-          if (this.GimmickType == EEventGimmick.LukUp)
-            buff.status.param.luk = (OShort) gemsBuffValue;
-          if (this.GimmickType == EEventGimmick.MovUp)
-          {
-            buff.status.param.mov = (OShort) 2;
-            skillParamCalcTypes = SkillParamCalcTypes.Add;
-          }
-          buff.user = gimmick;
-          buff.BuffType = BuffTypes.Buff;
-          buff.CalcType = skillParamCalcTypes;
-          buff.CheckTarget = target;
-          buff.CheckTiming = EffectCheckTimings.ActionStart;
-          buff.UseCondition = ESkillCondition.None;
-          buff.IsPassive = (OBool) false;
-          buff.turn = (OInt) gemsBuffTurn;
+          BuffAttachment buff = this.MakeBuff(gimmick, target);
           target.SetBuffAttachment(buff, false);
           if (log == null)
             break;

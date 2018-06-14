@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.UnitParam
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -65,6 +65,7 @@ namespace SRPG
     public OString[] job_images;
     public OString[] job_voices;
     public OBool is_throw;
+    public OBool is_knock_back;
     private JobSetParam[] mJobSetCache;
 
     protected void localizeFields(string language)
@@ -218,6 +219,10 @@ namespace SRPG
       this.ini_status.enchant_resist.slow = (OInt) json.rcd;
       this.ini_status.enchant_resist.donsoku = (OInt) json.rdo;
       this.ini_status.enchant_resist.rage = (OInt) json.rra;
+      this.ini_status.enchant_resist.single_attack = (OInt) json.rsa;
+      this.ini_status.enchant_resist.area_attack = (OInt) json.raa;
+      this.ini_status.enchant_resist.dec_ct = (OInt) json.rdc;
+      this.ini_status.enchant_resist.inc_ct = (OInt) json.ric;
       if (this.max_status == null)
         this.max_status = new BaseStatus();
       this.max_status.param.hp = (OInt) json.mhp;
@@ -251,6 +256,10 @@ namespace SRPG
       this.max_status.enchant_resist.slow = (OInt) json.mrcd;
       this.max_status.enchant_resist.donsoku = (OInt) json.mrdo;
       this.max_status.enchant_resist.rage = (OInt) json.mrra;
+      this.max_status.enchant_resist.single_attack = (OInt) json.mrsa;
+      this.max_status.enchant_resist.area_attack = (OInt) json.mraa;
+      this.max_status.enchant_resist.dec_ct = (OInt) json.mrdc;
+      this.max_status.enchant_resist.inc_ct = (OInt) json.mric;
       this.leader_skills[0] = json.ls1;
       this.leader_skills[1] = json.ls2;
       this.leader_skills[2] = json.ls3;
@@ -284,6 +293,7 @@ namespace SRPG
           this.job_voices[index] = (OString) json.jvcs[index];
       }
       this.is_throw = (OBool) (json.no_trw == 0);
+      this.is_knock_back = (OBool) (json.no_kb == 0);
       return true;
     }
 

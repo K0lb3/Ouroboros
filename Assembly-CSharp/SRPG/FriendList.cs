@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FriendList
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -12,11 +12,10 @@ using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.Pin(1, "Refresh", FlowNode.PinTypes.Input, 1)]
   [AddComponentMenu("UI/リスト/宿屋で表示するフレンドリスト")]
+  [FlowNode.Pin(1, "Refresh", FlowNode.PinTypes.Input, 1)]
   public class FriendList : MonoBehaviour, IFlowInterface
   {
-    private const string PREFS_KEY_FRIEND_SORT = "FRIENDLIST_SORTTYPE";
     [Description("リストアイテムとして使用するゲームオブジェクト")]
     public GameObject ItemTemplate;
     [Description("リストが空のときに表示するゲームオブジェクト")]
@@ -42,17 +41,17 @@ namespace SRPG
 
     private void Awake()
     {
-      if (Object.op_Inequality((Object) this.ItemTemplate, (Object) null) && this.ItemTemplate.get_activeInHierarchy())
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ItemTemplate, (UnityEngine.Object) null) && this.ItemTemplate.get_activeInHierarchy())
         this.ItemTemplate.SetActive(false);
       this.mCanvasGroup = (CanvasGroup) ((Component) this).GetComponent<CanvasGroup>();
-      if (!Object.op_Equality((Object) this.mCanvasGroup, (Object) null))
+      if (!UnityEngine.Object.op_Equality((UnityEngine.Object) this.mCanvasGroup, (UnityEngine.Object) null))
         return;
       this.mCanvasGroup = (CanvasGroup) ((Component) this).get_gameObject().AddComponent<CanvasGroup>();
     }
 
     private void Start()
     {
-      if (Object.op_Equality((Object) this.ItemTemplate, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.ItemTemplate, (UnityEngine.Object) null))
         return;
       this.SortPulldownInit();
       this.Refresh();
@@ -60,20 +59,20 @@ namespace SRPG
 
     private void Update()
     {
-      if (!Object.op_Inequality((Object) this.mCanvasGroup, (Object) null) || (double) this.mCanvasGroup.get_alpha() >= 1.0)
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mCanvasGroup, (UnityEngine.Object) null) || (double) this.mCanvasGroup.get_alpha() >= 1.0)
         return;
       this.mCanvasGroup.set_alpha(Mathf.Clamp01(this.mCanvasGroup.get_alpha() + Time.get_unscaledDeltaTime() * 3.333333f));
     }
 
     private void SortPulldownInit()
     {
-      if (!string.IsNullOrEmpty("FRIENDLIST_SORTTYPE") && PlayerPrefs.HasKey("FRIENDLIST_SORTTYPE"))
+      if (!string.IsNullOrEmpty(PlayerPrefsUtility.PREFS_KEY_FRIEND_SORT) && PlayerPrefsUtility.HasKey(PlayerPrefsUtility.PREFS_KEY_FRIEND_SORT))
       {
-        int num = PlayerPrefs.GetInt("FRIENDLIST_SORTTYPE");
+        int num = PlayerPrefsUtility.GetInt(PlayerPrefsUtility.PREFS_KEY_FRIEND_SORT, 0);
         if (0 <= num && num < 3)
           this.mSortType = (FriendList.eSortType) num;
       }
-      if (!Object.op_Inequality((Object) this.SortPulldown, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.SortPulldown, (UnityEngine.Object) null))
         return;
       this.SortPulldown.OnSelectionChangeDelegate = new Pulldown.SelectItemEvent(this.OnSortChange);
       this.SortPulldown.ClearItems();
@@ -88,13 +87,13 @@ namespace SRPG
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: reference to a compiler-generated method
-      lists.Sort(new Comparison<FriendData>(new FriendList.\u003CSortByEntryDate\u003Ec__AnonStorey247()
+      lists.Sort(new Comparison<FriendData>(new FriendList.\u003CSortByEntryDate\u003Ec__AnonStorey32E()
       {
         created_at1 = DateTime.Now,
         created_at2 = DateTime.Now,
         str_datetime_fmt = "yyyy-MM-ddTHH:mm:ss.fffZ",
         ci = new CultureInfo("en-US")
-      }.\u003C\u003Em__27F));
+      }.\u003C\u003Em__36F));
     }
 
     private void SortByLastLogin(List<FriendData> lists)
@@ -145,12 +144,12 @@ namespace SRPG
         while (enumerator.MoveNext())
         {
           FriendData current = enumerator.Current;
-          GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.ItemTemplate);
-          if (Object.op_Implicit((Object) gameObject))
+          GameObject gameObject = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.ItemTemplate);
+          if (UnityEngine.Object.op_Implicit((UnityEngine.Object) gameObject))
           {
             gameObject.get_transform().SetParent(transform, false);
             ListItemEvents component = (ListItemEvents) gameObject.GetComponent<ListItemEvents>();
-            if (Object.op_Inequality((Object) component, (Object) null))
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
               component.OnSelect = new ListItemEvents.ListItemEvent(this.OnSelectItem);
             DataSource.Bind<FriendData>(gameObject, current);
             DataSource.Bind<UnitData>(gameObject, current.Unit);
@@ -167,25 +166,24 @@ namespace SRPG
         return;
       this.mSortType = (FriendList.eSortType) idx;
       this.Refresh();
-      if (string.IsNullOrEmpty("FRIENDLIST_SORTTYPE"))
+      if (string.IsNullOrEmpty(PlayerPrefsUtility.PREFS_KEY_FRIEND_SORT))
         return;
-      PlayerPrefs.SetInt("FRIENDLIST_SORTTYPE", idx);
-      PlayerPrefs.Save();
+      PlayerPrefsUtility.SetInt(PlayerPrefsUtility.PREFS_KEY_FRIEND_SORT, idx, true);
     }
 
     private void Refresh()
     {
-      if (Object.op_Inequality((Object) this.mCanvasGroup, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mCanvasGroup, (UnityEngine.Object) null))
         this.mCanvasGroup.set_alpha(0.0f);
       for (int index = 0; index < this.mItems.Count; ++index)
       {
         GameObject mItem = this.mItems[index];
-        if (Object.op_Inequality((Object) mItem, (Object) null))
-          Object.Destroy((Object) mItem);
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) mItem, (UnityEngine.Object) null))
+          UnityEngine.Object.Destroy((UnityEngine.Object) mItem);
       }
       this.mItems.Clear();
       this.entryItems();
-      if (this.mItems.Count > 0 && Object.op_Inequality((Object) this.ItemEmpty, (Object) null))
+      if (this.mItems.Count > 0 && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ItemEmpty, (UnityEngine.Object) null))
         this.ItemEmpty.SetActive(false);
       else
         this.ItemEmpty.SetActive(true);
@@ -199,9 +197,9 @@ namespace SRPG
       GlobalVars.SelectedFriendID = dataOfClass.FUID;
       GlobalVars.SelectedFriend = dataOfClass;
       FlowNode_OnFriendSelect nodeOnFriendSelect = (FlowNode_OnFriendSelect) ((Component) this).GetComponentInParent<FlowNode_OnFriendSelect>();
-      if (Object.op_Equality((Object) nodeOnFriendSelect, (Object) null))
-        nodeOnFriendSelect = (FlowNode_OnFriendSelect) Object.FindObjectOfType<FlowNode_OnFriendSelect>();
-      if (!Object.op_Inequality((Object) nodeOnFriendSelect, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) nodeOnFriendSelect, (UnityEngine.Object) null))
+        nodeOnFriendSelect = (FlowNode_OnFriendSelect) UnityEngine.Object.FindObjectOfType<FlowNode_OnFriendSelect>();
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) nodeOnFriendSelect, (UnityEngine.Object) null))
         return;
       nodeOnFriendSelect.Selected();
     }

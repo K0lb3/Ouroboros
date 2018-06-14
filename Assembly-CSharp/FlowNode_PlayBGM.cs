@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: FlowNode_PlayBGM
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -30,7 +30,7 @@ public class FlowNode_PlayBGM : FlowNode
     else if (string.IsNullOrEmpty(this.BGMName))
       MonoSingleton<MySound>.Instance.StopBGM();
     else
-      MonoSingleton<MySound>.Instance.PlayBGM(this.BGMName, (string) null);
+      MonoSingleton<MySound>.Instance.PlayBGM(this.BGMName, (string) null, false);
     this.ActivateOutputLinks(1);
   }
 
@@ -42,11 +42,27 @@ public class FlowNode_PlayBGM : FlowNode
       string cueID = currentSectionParam != null ? currentSectionParam.bgm : (string) null;
       if (!string.IsNullOrEmpty(cueID))
       {
-        MonoSingleton<MySound>.Instance.PlayBGM(cueID, (string) null);
+        MonoSingleton<MySound>.Instance.PlayBGM(cueID, (string) null, false);
         return;
       }
     }
-    MonoSingleton<MySound>.Instance.PlayBGM("BGM_0027", (string) null);
+    MonoSingleton<MySound>.Instance.PlayBGM("BGM_0027", (string) null, false);
+  }
+
+  public static string[] GetHomeBGM()
+  {
+    string str = "BGM_0027";
+    if (Object.op_Inequality((Object) MonoSingleton<GameManager>.GetInstanceDirect(), (Object) null))
+    {
+      SectionParam currentSectionParam = MonoSingleton<GameManager>.Instance.GetCurrentSectionParam();
+      if (currentSectionParam != null && !string.IsNullOrEmpty(currentSectionParam.bgm))
+        str = currentSectionParam.bgm;
+    }
+    return new string[2]
+    {
+      "StreamingAssets/" + str + ".acb",
+      "StreamingAssets/" + str + ".awb"
+    };
   }
 
   public enum EType

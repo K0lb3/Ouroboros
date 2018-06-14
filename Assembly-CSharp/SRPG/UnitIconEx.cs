@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.UnitIconEx
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using UnityEngine;
@@ -20,7 +20,9 @@ namespace SRPG
       UnitData instanceData = this.GetInstanceData();
       if (instanceData == null)
         return;
-      DataSource.Bind<UnitData>((GameObject) Object.Instantiate<GameObject>((M0) AssetManager.Load<GameObject>(!string.IsNullOrEmpty(this.GeneralTooltipPath) ? this.GeneralTooltipPath : "UI/UnitTooltip.prefab")), instanceData);
+      GameObject root = (GameObject) Object.Instantiate<GameObject>((M0) AssetManager.Load<GameObject>(!string.IsNullOrEmpty(this.GeneralTooltipPath) ? this.GeneralTooltipPath : "UI/UnitTooltip.prefab"));
+      DataSource.Bind<UnitData>(root, instanceData);
+      GameParameter.UpdateAll(root);
     }
   }
 }

@@ -1,12 +1,13 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.MultiPlayUnitRank
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace SRPG
 {
@@ -91,13 +92,33 @@ namespace SRPG
       UnitParam unitParam = MonoSingleton<GameManager>.Instance.GetUnitParam(param.unit);
       JobParam jobParam = MonoSingleton<GameManager>.Instance.GetJobParam(param.job);
       Transform child4 = child1.FindChild("name");
-      if (!Object.op_Inequality((Object) child4, (Object) null))
+      if (Object.op_Inequality((Object) child4, (Object) null))
+      {
+        LText component = (LText) ((Component) child4).GetComponent<LText>();
+        if (Object.op_Inequality((Object) component, (Object) null))
+        {
+          string str = string.Format(LocalizedText.Get("sys.MULTI_CLEAR_UNIT_NAME"), (object) unitParam.name, (object) jobParam.name);
+          component.set_text(str);
+        }
+      }
+      this.SetIcon(child1, jobParam);
+    }
+
+    public void SetIcon(Transform body, JobParam job)
+    {
+      Transform child1 = body.FindChild("ui_uniticon");
+      if (Object.op_Equality((Object) child1, (Object) null))
         return;
-      LText component1 = (LText) ((Component) child4).GetComponent<LText>();
-      if (!Object.op_Inequality((Object) component1, (Object) null))
+      Transform child2 = child1.FindChild("unit");
+      if (Object.op_Equality((Object) child2, (Object) null))
         return;
-      string str1 = string.Format(LocalizedText.Get("sys.MULTI_CLEAR_UNIT_NAME"), (object) unitParam.name, (object) jobParam.name);
-      component1.set_text(str1);
+      Transform child3 = child2.FindChild(nameof (job));
+      if (Object.op_Equality((Object) child3, (Object) null))
+        return;
+      RawImage_Transparent component = (RawImage_Transparent) ((Component) child3).GetComponent<RawImage_Transparent>();
+      if (Object.op_Equality((Object) component, (Object) null))
+        return;
+      MonoSingleton<GameManager>.Instance.ApplyTextureAsync((RawImage) component, job == null ? (string) null : AssetPath.JobIconSmall(job));
     }
   }
 }

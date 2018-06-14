@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_BuyStamina
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -9,12 +9,12 @@ using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.Pin(4, "コインが足りなかった", FlowNode.PinTypes.Output, 4)]
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
   [FlowNode.NodeType("System/BuyStamina", 32741)]
   [FlowNode.Pin(0, "Request", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(5, "購入回数制限", FlowNode.PinTypes.Output, 5)]
-  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
   [FlowNode.Pin(3, "スタミナ満タン", FlowNode.PinTypes.Output, 3)]
+  [FlowNode.Pin(4, "コインが足りなかった", FlowNode.PinTypes.Output, 4)]
   public class FlowNode_BuyStamina : FlowNode_Network
   {
     public static GameObject ConfirmBoxObj;
@@ -29,7 +29,7 @@ namespace SRPG
       if (this.Confirm)
       {
         FixParam fixParam = MonoSingleton<GameManager>.Instance.MasterParam.FixParam;
-        FlowNode_BuyStamina.ConfirmBoxObj = UIUtility.ConfirmBox(LocalizedText.Get("sys.RESET_STAMINA", (object) player.GetStaminaRecoveryCost(false), (object) fixParam.StaminaAdd), new UIUtility.DialogResultEvent(this.OnBuy), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1);
+        FlowNode_BuyStamina.ConfirmBoxObj = UIUtility.ConfirmBox(LocalizedText.Get("sys.RESET_STAMINA", (object) player.GetStaminaRecoveryCost(false), (object) fixParam.StaminaAdd), new UIUtility.DialogResultEvent(this.OnBuy), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1, (string) null, (string) null);
       }
       else
         this.SendRequest();
@@ -132,7 +132,7 @@ namespace SRPG
           else
           {
             Network.RemoveAPI();
-            AnalyticsManager.TrackSpendCoin("BuyStamina", staminaRecoveryCost);
+            AnalyticsManager.TrackOriginalCurrencyUse(ESaleType.Coin, staminaRecoveryCost, "BuyStamina");
             if (this.ShowResult)
               UIUtility.SystemMessage((string) null, LocalizedText.Get("sys.STAMINARECOVERED", new object[1]
               {

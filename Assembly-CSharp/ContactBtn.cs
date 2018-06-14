@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: ContactBtn
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -36,19 +36,31 @@ public class ContactBtn : MonoBehaviour
 
   private void OpenMailer()
   {
-    string str1 = LocalizedText.Get("contact.CONTACT_ADDRESS");
-    string str2 = LocalizedText.Get("contact.CONTACT_SUBJECT_" + ((int) this.Subject).ToString("d2"));
-    if (string.IsNullOrEmpty(str2))
-      str2 = LocalizedText.Get("contact.CONTACT_SUBJECT");
-    string str3 = LocalizedText.Get("contact.CONTACT_BODY_TEMPLATE");
-    string okyakusamaCode = MonoSingleton<GameManager>.Instance.Player.OkyakusamaCode;
+    string mailto = LocalizedText.Get("contact.CONTACT_ADDRESS");
+    int subject1 = (int) this.Subject;
+    string subject2 = LocalizedText.Get("contact.CONTACT_SUBJECT_" + subject1.ToString("d2"));
+    if (string.IsNullOrEmpty(subject2))
+      subject2 = LocalizedText.Get("contact.CONTACT_SUBJECT");
+    string str1 = LocalizedText.Get("contact.CONTACT_BODY_OPTION_" + subject1.ToString("d2"));
+    string str2 = "CONTACT_BODY_OPTION_" + subject1.ToString("d2");
+    string str3 = LocalizedText.Get("contact.CONTACT_BODY_TEMPLATE", new object[1]
+    {
+      (object) (!(str1 == str2) ? str1 : string.Empty)
+    });
+    string str4 = MonoSingleton<GameManager>.Instance.Player.OkyakusamaCode;
+    if (string.IsNullOrEmpty(str4))
+    {
+      string configOkyakusamaCode = GameUtility.Config_OkyakusamaCode;
+      if (!string.IsNullOrEmpty(configOkyakusamaCode))
+        str4 = configOkyakusamaCode;
+    }
     string name = MonoSingleton<GameManager>.Instance.Player.Name;
     string bundleVersion = Application.GetBundleVersion();
-    string str4 = AssetManager.AssetRevision.ToString();
+    string str5 = AssetManager.AssetRevision.ToString();
     string deviceModel = SystemInfo.get_deviceModel();
     string operatingSystem = SystemInfo.get_operatingSystem();
-    string str5 = str3 + LocalizedText.Get("contact.CONTACT_PLAYER_DATA", (object) okyakusamaCode, (object) bundleVersion, (object) str4, (object) name, (object) deviceModel, (object) operatingSystem);
-    Application.LaunchMailer(str1, str2, str5);
+    string body = str3 + LocalizedText.Get("contact.CONTACT_PLAYER_DATA", (object) str4, (object) bundleVersion, (object) str5, (object) name, (object) deviceModel, (object) operatingSystem);
+    MailerUtility.Launch(mailto, subject2, body);
   }
 
   public enum SubjectType : byte

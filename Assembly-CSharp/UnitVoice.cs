@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: UnitVoice
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -82,7 +82,7 @@ public class UnitVoice : MonoBehaviour
         return;
     }
     SceneBattle instance = SceneBattle.Instance;
-    BattleCore battleCore = !Object.op_Equality((Object) instance, (Object) null) ? instance.Battle : (BattleCore) null;
+    BattleCore battleCore = !UnityEngine.Object.op_Equality((UnityEngine.Object) instance, (UnityEngine.Object) null) ? instance.Battle : (BattleCore) null;
     Unit unit = battleCore != null ? battleCore.CurrentUnit : (Unit) null;
     if (unit != null)
     {
@@ -105,15 +105,15 @@ public class UnitVoice : MonoBehaviour
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      UnitVoice.\u003CSearchUnitSkinVoiceName\u003Ec__AnonStorey208 nameCAnonStorey208 = new UnitVoice.\u003CSearchUnitSkinVoiceName\u003Ec__AnonStorey208();
+      UnitVoice.\u003CSearchUnitSkinVoiceName\u003Ec__AnonStorey2BA nameCAnonStorey2Ba = new UnitVoice.\u003CSearchUnitSkinVoiceName\u003Ec__AnonStorey2BA();
       JSON_MyPhotonPlayerParam multiPlayerParam = GlobalVars.SelectedMultiPlayerParam;
       // ISSUE: reference to a compiler-generated field
-      nameCAnonStorey208.slotID = !Object.op_Equality((Object) PartyUnitSlot.Active, (Object) null) ? PartyUnitSlot.Active.Index : -1;
+      nameCAnonStorey2Ba.slotID = !UnityEngine.Object.op_Equality((UnityEngine.Object) PartyUnitSlot.Active, (UnityEngine.Object) null) ? PartyUnitSlot.Active.Index : -1;
       // ISSUE: reference to a compiler-generated field
-      if (multiPlayerParam == null || multiPlayerParam.units == null || nameCAnonStorey208.slotID < 0)
+      if (multiPlayerParam == null || multiPlayerParam.units == null || nameCAnonStorey2Ba.slotID < 0)
         return;
       // ISSUE: reference to a compiler-generated method
-      JSON_MyPhotonPlayerParam.UnitDataElem unitDataElem = Array.Find<JSON_MyPhotonPlayerParam.UnitDataElem>(multiPlayerParam.units, new Predicate<JSON_MyPhotonPlayerParam.UnitDataElem>(nameCAnonStorey208.\u003C\u003Em__1DF));
+      JSON_MyPhotonPlayerParam.UnitDataElem unitDataElem = Array.Find<JSON_MyPhotonPlayerParam.UnitDataElem>(multiPlayerParam.units, new Predicate<JSON_MyPhotonPlayerParam.UnitDataElem>(nameCAnonStorey2Ba.\u003C\u003Em__288));
       UnitData unitData = unitDataElem != null ? unitDataElem.unit : (UnitData) null;
       if (unitData == null)
         return;
@@ -137,7 +137,7 @@ public class UnitVoice : MonoBehaviour
     if (this.CharType == UnitVoice.ECharType.BATTLE_SKILL)
     {
       SceneBattle instance = SceneBattle.Instance;
-      BattleCore battleCore = !Object.op_Equality((Object) instance, (Object) null) ? instance.Battle : (BattleCore) null;
+      BattleCore battleCore = !UnityEngine.Object.op_Equality((UnityEngine.Object) instance, (UnityEngine.Object) null) ? instance.Battle : (BattleCore) null;
       Unit unit = battleCore != null ? battleCore.CurrentUnit : (Unit) null;
       if (unit != null)
       {
@@ -146,7 +146,7 @@ public class UnitVoice : MonoBehaviour
         if (string.IsNullOrEmpty(sheetName) || this.mVoice != null && cueName.Equals(this.mCharName))
           return false;
         this.mCharName = cueName;
-        this.mVoice = new MySound.Voice("VO_" + sheetName, sheetName, cueName + "_");
+        this.mVoice = new MySound.Voice("VO_" + sheetName, sheetName, cueName + "_", false);
         this.SetupCueName();
         return true;
       }
@@ -169,7 +169,7 @@ public class UnitVoice : MonoBehaviour
       if (string.IsNullOrEmpty(sheetName) || this.mVoice != null && cueName.Equals(this.mCharName))
         return false;
       this.mCharName = cueName;
-      this.mVoice = new MySound.Voice("VO_" + sheetName, sheetName, cueName + "_");
+      this.mVoice = new MySound.Voice("VO_" + sheetName, sheetName, cueName + "_", false);
       this.SetupCueName();
       return true;
     }
@@ -178,7 +178,7 @@ public class UnitVoice : MonoBehaviour
       if (this.mVoice != null && cueName.Equals(this.mCharName))
         return false;
       this.mCharName = cueName;
-      this.mVoice = new MySound.Voice("VO_" + sheetName, sheetName, cueName + "_");
+      this.mVoice = new MySound.Voice("VO_" + sheetName, sheetName, cueName + "_", false);
       this.SetupCueName();
       return true;
     }

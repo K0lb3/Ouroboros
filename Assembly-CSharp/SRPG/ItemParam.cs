@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.ItemParam
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -39,6 +39,8 @@ namespace SRPG
     public OString skill;
     public string recipe;
     public string[] quests;
+    public bool is_valuables;
+    public byte cmn_type;
 
     protected void localizeFields(string language)
     {
@@ -71,6 +73,14 @@ namespace SRPG
       }
     }
 
+    public bool IsCommon
+    {
+      get
+      {
+        return (int) this.cmn_type > 0;
+      }
+    }
+
     public bool Deserialize(JSON_ItemParam json)
     {
       if (json == null)
@@ -98,6 +108,8 @@ namespace SRPG
       this.skill = (OString) json.skill;
       this.recipe = json.recipe;
       this.quests = (string[]) null;
+      this.is_valuables = json.is_valuables > 0;
+      this.cmn_type = json.cmn_type;
       if (json.quests != null)
       {
         this.quests = new string[json.quests.Length];
@@ -156,6 +168,31 @@ namespace SRPG
     public override string ToString()
     {
       return string.Format("{0} [ItemParam]", (object) this.iname);
+    }
+
+    public int GetBuyNum(ESaleType type)
+    {
+      switch (type)
+      {
+        case ESaleType.Gold:
+          return (int) this.buy;
+        case ESaleType.Coin:
+          return (int) this.coin;
+        case ESaleType.TourCoin:
+          return (int) this.tour_coin;
+        case ESaleType.ArenaCoin:
+          return (int) this.arena_coin;
+        case ESaleType.PiecePoint:
+          return (int) this.piece_point;
+        case ESaleType.MultiCoin:
+          return (int) this.multi_coin;
+        case ESaleType.EventCoin:
+          return 0;
+        case ESaleType.Coin_P:
+          return (int) this.coin;
+        default:
+          return 0;
+      }
     }
   }
 }

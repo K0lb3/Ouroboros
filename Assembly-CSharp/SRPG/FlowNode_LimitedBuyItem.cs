@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_LimitedBuyItem
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -10,18 +10,19 @@ using UnityEngine;
 namespace SRPG
 {
   [FlowNode.Pin(110, "アリーナコイン不足", FlowNode.PinTypes.Output, 20)]
-  [FlowNode.Pin(109, "遠征コイン不足", FlowNode.PinTypes.Output, 19)]
-  [FlowNode.Pin(108, "課金コイン不足", FlowNode.PinTypes.Output, 18)]
-  [FlowNode.Pin(107, "ゴールド不足", FlowNode.PinTypes.Output, 17)]
-  [FlowNode.Pin(106, "アイテム所持上限", FlowNode.PinTypes.Output, 16)]
-  [FlowNode.Pin(105, "購入済み", FlowNode.PinTypes.Output, 15)]
-  [FlowNode.Pin(104, "ショップ情報がない", FlowNode.PinTypes.Output, 14)]
-  [FlowNode.Pin(100, "Success", FlowNode.PinTypes.Output, 10)]
-  [FlowNode.Pin(1, "Request", FlowNode.PinTypes.Input, 0)]
   [FlowNode.NodeType("System/LimitedBuyItem", 32741)]
+  [FlowNode.Pin(1, "Request", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(100, "Success", FlowNode.PinTypes.Output, 10)]
+  [FlowNode.Pin(104, "ショップ情報がない", FlowNode.PinTypes.Output, 14)]
+  [FlowNode.Pin(105, "購入済み", FlowNode.PinTypes.Output, 15)]
+  [FlowNode.Pin(106, "アイテム所持上限", FlowNode.PinTypes.Output, 16)]
+  [FlowNode.Pin(107, "ゴールド不足", FlowNode.PinTypes.Output, 17)]
+  [FlowNode.Pin(108, "課金コイン不足", FlowNode.PinTypes.Output, 18)]
+  [FlowNode.Pin(109, "遠征コイン不足", FlowNode.PinTypes.Output, 19)]
   [FlowNode.Pin(111, "カケラポイント不足", FlowNode.PinTypes.Output, 21)]
   [FlowNode.Pin(112, "マルチコイン不足", FlowNode.PinTypes.Output, 22)]
   [FlowNode.Pin(113, "有償石不足", FlowNode.PinTypes.Output, 23)]
+  [FlowNode.Pin(114, "イベントコイン不足", FlowNode.PinTypes.Output, 24)]
   public class FlowNode_LimitedBuyItem : FlowNode_Network
   {
     private EShopType mShopType;
@@ -39,93 +40,72 @@ namespace SRPG
       }
       else
       {
-        LimitedShopItem limitedShopItem = limitedShopData.items[GlobalVars.ShopBuyIndex];
-        if (limitedShopItem.is_soldout)
+        LimitedShopItem shopitem = limitedShopData.items[GlobalVars.ShopBuyIndex];
+        if (shopitem.is_soldout)
         {
           this.ActivateOutputLinks(105);
         }
         else
         {
-          ItemParam itemParam = MonoSingleton<GameManager>.Instance.GetItemParam(limitedShopItem.iname);
-          if (!limitedShopItem.IsSet && !player.CheckItemCapacity(itemParam, limitedShopItem.num))
+          int buyNum;
+          if (shopitem.IsArtifact)
           {
-            this.ActivateOutputLinks(106);
+            buyNum = MonoSingleton<GameManager>.Instance.MasterParam.GetArtifactParam(shopitem.iname).GetBuyNum(shopitem.saleType);
           }
           else
           {
-            switch (limitedShopItem.saleType)
+            ItemParam itemParam = MonoSingleton<GameManager>.Instance.GetItemParam(shopitem.iname);
+            if (!shopitem.IsSet && !player.CheckItemCapacity(itemParam, shopitem.num))
             {
-              case ESaleType.Gold:
-                int num1 = !limitedShopItem.isSetSaleValue ? (int) itemParam.buy * limitedShopItem.num : limitedShopItem.saleValue;
-                if (player.Gold < num1)
-                {
-                  this.ActivateOutputLinks(107);
-                  return;
-                }
-                break;
-              case ESaleType.Coin:
-                int num2 = !limitedShopItem.isSetSaleValue ? (int) itemParam.coin * limitedShopItem.num : limitedShopItem.saleValue;
-                if (player.Coin < num2)
-                {
-                  this.ActivateOutputLinks(108);
-                  return;
-                }
-                break;
-              case ESaleType.TourCoin:
-                int num3 = !limitedShopItem.isSetSaleValue ? (int) itemParam.tour_coin * limitedShopItem.num : limitedShopItem.saleValue;
-                if (player.TourCoin < num3)
-                {
-                  this.ActivateOutputLinks(109);
-                  return;
-                }
-                break;
-              case ESaleType.ArenaCoin:
-                int num4 = !limitedShopItem.isSetSaleValue ? (int) itemParam.arena_coin * limitedShopItem.num : limitedShopItem.saleValue;
-                if (player.ArenaCoin < num4)
-                {
-                  this.ActivateOutputLinks(110);
-                  return;
-                }
-                break;
-              case ESaleType.PiecePoint:
-                int num5 = !limitedShopItem.isSetSaleValue ? (int) itemParam.piece_point * limitedShopItem.num : limitedShopItem.saleValue;
-                if (player.PiecePoint < num5)
-                {
-                  this.ActivateOutputLinks(111);
-                  return;
-                }
-                break;
-              case ESaleType.MultiCoin:
-                int num6 = !limitedShopItem.isSetSaleValue ? (int) itemParam.multi_coin * limitedShopItem.num : limitedShopItem.saleValue;
-                if (player.MultiCoin < num6)
-                {
-                  this.ActivateOutputLinks(112);
-                  return;
-                }
-                break;
-              case ESaleType.EventCoin:
-                this.ActivateOutputLinks(113);
+              this.ActivateOutputLinks(106);
+              return;
+            }
+            buyNum = itemParam.GetBuyNum(shopitem.saleType);
+          }
+          switch (shopitem.saleType)
+          {
+            case ESaleType.Gold:
+              if (!this.CheckCanBuy(shopitem, buyNum, player.Gold, 107))
                 return;
-              case ESaleType.Coin_P:
-                int num7 = !limitedShopItem.isSetSaleValue ? (int) itemParam.coin * limitedShopItem.num : limitedShopItem.saleValue;
-                if (player.PaidCoin < num7)
-                {
-                  this.ActivateOutputLinks(113);
-                  return;
-                }
-                break;
-            }
-            if (Network.Mode == Network.EConnectMode.Offline)
-            {
-              player.DEBUG_BUY_ITEM(GlobalVars.ShopType, GlobalVars.ShopBuyIndex);
-              this.Success();
-            }
-            else
-            {
-              this.mShopType = GlobalVars.ShopType;
-              this.ExecRequest((WebAPI) new ReqItemLimitedShopBuypaid(GlobalVars.LimitedShopItem.shops.gname, GlobalVars.ShopBuyIndex, 1, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
-              ((Behaviour) this).set_enabled(true);
-            }
+              break;
+            case ESaleType.Coin:
+              if (!this.CheckCanBuy(shopitem, buyNum, player.Coin, 108))
+                return;
+              break;
+            case ESaleType.TourCoin:
+              if (!this.CheckCanBuy(shopitem, buyNum, player.TourCoin, 109))
+                return;
+              break;
+            case ESaleType.ArenaCoin:
+              if (!this.CheckCanBuy(shopitem, buyNum, player.ArenaCoin, 110))
+                return;
+              break;
+            case ESaleType.PiecePoint:
+              if (!this.CheckCanBuy(shopitem, buyNum, player.PiecePoint, 111))
+                return;
+              break;
+            case ESaleType.MultiCoin:
+              if (!this.CheckCanBuy(shopitem, buyNum, player.MultiCoin, 112))
+                return;
+              break;
+            case ESaleType.EventCoin:
+              this.ActivateOutputLinks(113);
+              return;
+            case ESaleType.Coin_P:
+              if (!this.CheckCanBuy(shopitem, buyNum, player.PaidCoin, 113))
+                return;
+              break;
+          }
+          if (Network.Mode == Network.EConnectMode.Offline)
+          {
+            player.DEBUG_BUY_ITEM(GlobalVars.ShopType, GlobalVars.ShopBuyIndex);
+            this.Success();
+          }
+          else
+          {
+            this.mShopType = GlobalVars.ShopType;
+            this.ExecRequest((WebAPI) new ReqItemLimitedShopBuypaid(GlobalVars.LimitedShopItem.shops.gname, GlobalVars.ShopBuyIndex, 1, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+            ((Behaviour) this).set_enabled(true);
           }
         }
       }
@@ -177,50 +157,22 @@ namespace SRPG
             LimitedShopItem limitedShopItem = shop.items[GlobalVars.ShopBuyIndex];
             ItemParam itemParam = MonoSingleton<GameManager>.Instance.GetItemParam(limitedShopItem.iname);
             if (limitedShopItem.isSetSaleValue)
-            {
-              PlayerData player = MonoSingleton<GameManager>.Instance.Player;
-              AnalyticsManager.TrackSpendShop(limitedShopItem.saleType, this.mShopType, player.GetShopUpdateCost(this.mShopType, true));
-            }
-            else
-            {
-              int num = 0;
-              switch (limitedShopItem.saleType)
-              {
-                case ESaleType.Gold:
-                  num = (int) itemParam.buy * limitedShopItem.num;
-                  break;
-                case ESaleType.Coin:
-                  num = (int) itemParam.coin * limitedShopItem.num;
-                  break;
-                case ESaleType.TourCoin:
-                  num = (int) itemParam.tour_coin * limitedShopItem.num;
-                  break;
-                case ESaleType.ArenaCoin:
-                  num = (int) itemParam.arena_coin * limitedShopItem.num;
-                  break;
-                case ESaleType.PiecePoint:
-                  num = (int) itemParam.piece_point * limitedShopItem.num;
-                  break;
-                case ESaleType.MultiCoin:
-                  num = (int) itemParam.multi_coin * limitedShopItem.num;
-                  break;
-                case ESaleType.EventCoin:
-                  num = 0;
-                  break;
-                case ESaleType.Coin_P:
-                  num = (int) itemParam.coin * limitedShopItem.num;
-                  break;
-              }
-              if (num > 0)
-              {
-                PlayerData player = MonoSingleton<GameManager>.Instance.Player;
-                AnalyticsManager.TrackSpendShop(limitedShopItem.saleType, this.mShopType, player.GetShopUpdateCost(this.mShopType, true));
-              }
-            }
+              AnalyticsManager.TrackOriginalCurrencyUse(limitedShopItem.saleType, MonoSingleton<GameManager>.Instance.Player.GetShopUpdateCost(this.mShopType, true), "ShopBuy." + (object) this.mShopType);
+            else if ((!limitedShopItem.IsArtifact ? itemParam.GetBuyNum(limitedShopItem.saleType) * limitedShopItem.num : MonoSingleton<GameManager>.Instance.MasterParam.GetArtifactParam(limitedShopItem.iname).GetBuyNum(limitedShopItem.saleType) * limitedShopItem.num) > 0)
+              AnalyticsManager.TrackOriginalCurrencyUse(limitedShopItem.saleType, MonoSingleton<GameManager>.Instance.Player.GetShopUpdateCost(this.mShopType, true), "ShopBuy." + (object) this.mShopType);
             this.Success();
           }
         }
       }
+    }
+
+    public bool CheckCanBuy(LimitedShopItem shopitem, int buy, int check, int pin)
+    {
+      int num = !shopitem.isSetSaleValue ? buy * shopitem.num : shopitem.saleValue;
+      if (check >= num)
+        return true;
+      this.ActivateOutputLinks(pin);
+      return false;
     }
   }
 }

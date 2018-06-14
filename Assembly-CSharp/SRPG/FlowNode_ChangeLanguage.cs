@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_ChangeLanguage
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -9,15 +9,15 @@ using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.Pin(4, "Change To German", FlowNode.PinTypes.Input, 3)]
+  [FlowNode.Pin(1, "Change To English", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.NodeType("Localization/ChangeLanguage", 32741)]
   [FlowNode.Pin(10, "Finished", FlowNode.PinTypes.Output, 7)]
   [FlowNode.Pin(102, "Send API Set Language", FlowNode.PinTypes.Input, 6)]
   [FlowNode.Pin(101, "Change To System Language", FlowNode.PinTypes.Input, 5)]
   [FlowNode.Pin(5, "Change To Spanish", FlowNode.PinTypes.Input, 4)]
+  [FlowNode.Pin(4, "Change To German", FlowNode.PinTypes.Input, 3)]
   [FlowNode.Pin(3, "Change To French", FlowNode.PinTypes.Input, 2)]
   [FlowNode.Pin(2, "Change To Japanese", FlowNode.PinTypes.Input, 1)]
-  [FlowNode.Pin(1, "Change To English", FlowNode.PinTypes.Input, 0)]
-  [FlowNode.NodeType("Localization/ChangeLanguage", 32741)]
   public class FlowNode_ChangeLanguage : FlowNode_Network
   {
     public override void OnActivate(int pinID)

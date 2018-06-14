@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.UnitJobMasterWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -21,9 +21,9 @@ namespace SRPG
 
     protected override void Start()
     {
-      if (Object.op_Inequality((Object) this.StatusItemTemplate, (Object) null) && this.StatusItemTemplate.get_activeInHierarchy())
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.StatusItemTemplate, (UnityEngine.Object) null) && this.StatusItemTemplate.get_activeInHierarchy())
         this.StatusItemTemplate.SetActive(false);
-      if (!Object.op_Inequality((Object) this.NextButton, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.NextButton, (UnityEngine.Object) null))
         return;
       // ISSUE: method pointer
       ((UnityEvent) this.NextButton.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OnNextClick)));
@@ -69,23 +69,23 @@ namespace SRPG
 
     protected override GameObject CreateItem()
     {
-      return (GameObject) Object.Instantiate<GameObject>((M0) this.StatusItemTemplate);
+      return (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.StatusItemTemplate);
     }
 
     protected override void OnUpdateItem(GameObject go, int index)
     {
       StatusListItem component = (StatusListItem) go.GetComponent<StatusListItem>();
-      if (!Object.op_Inequality((Object) component, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
         return;
       string type = this.mStatusValues[index].type;
       int oldValue = this.mStatusValues[index].old_value;
       int newValue = this.mStatusValues[index].new_value;
       ((Component) component).get_gameObject().SetActive(true);
-      if (Object.op_Inequality((Object) component.Label, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component.Label, (UnityEngine.Object) null))
         component.Label.set_text(LocalizedText.Get("sys." + type));
-      if (Object.op_Inequality((Object) component.Value, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component.Value, (UnityEngine.Object) null))
         component.Value.set_text(oldValue.ToString());
-      if (!Object.op_Inequality((Object) component.Bonus, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component.Bonus, (UnityEngine.Object) null))
         return;
       if (newValue != 0)
       {

@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.UnitAbilitySkillList
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -56,11 +56,10 @@ namespace SRPG
         {
           this.isCommandTutorial = false;
           GameManager instance = MonoSingleton<GameManager>.Instance;
-          if ((instance.Player.TutorialFlags & 1L) == 0L && instance.GetNextTutorialStep() == "ShowAbilityCommand")
+          if ((instance.Player.TutorialFlags & 1L) == 0L && (instance.GetNextTutorialStep() == "ShowAbilityCommand" || instance.GetNextTutorialStep() == "ShowMACommand"))
           {
             instance.CompleteTutorialStep();
-            if (instance.GetNextTutorialStep() == "ShowSkillCommand")
-              this.isCommandTutorial = true;
+            this.isCommandTutorial = true;
           }
           this.ScrollViewRect.set_normalizedPosition(new Vector2(0.5f, 1f));
           GameParameter.UpdateAll(((Component) this).get_gameObject());
@@ -93,10 +92,18 @@ namespace SRPG
               component.SetSkillCount((int) this.mUnit.GetSkillUseCount(skill), (int) this.mUnit.GetSkillUseCountMax(skill), noLimit);
               component.SetCastSpeed(skill.CastSpeed);
             }
-            if (this.isCommandTutorial && skill.SkillID == "SK_SEI_SWORD_CRASH")
+            if (this.isCommandTutorial)
             {
-              SGHighlightObject.Instance().highlightedObject = ((Component) listItemEvents).get_gameObject();
-              SGHighlightObject.Instance().Highlight(string.Empty, "sg_tut_0.005", (SGHighlightObject.OnActivateCallback) null, EventDialogBubble.Anchors.TopLeft, false, false, false);
+              if (skill.SkillID == "SK_SEI_SWORD_CRASH")
+              {
+                SGHighlightObject.Instance().highlightedObject = ((Component) listItemEvents).get_gameObject();
+                SGHighlightObject.Instance().Highlight(string.Empty, "sg_tut_0.005", (SGHighlightObject.OnActivateCallback) null, EventDialogBubble.Anchors.TopLeft, false, false, false);
+              }
+              else if (skill.SkillID == "SK_SEI_SHINING_CROSS_TUTORIAL")
+              {
+                SGHighlightObject.Instance().highlightedObject = ((Component) listItemEvents).get_gameObject();
+                SGHighlightObject.Instance().Highlight(string.Empty, "sg_tut_0.009", (SGHighlightObject.OnActivateCallback) null, EventDialogBubble.Anchors.BottomLeft, false, false, false);
+              }
             }
           }
         }

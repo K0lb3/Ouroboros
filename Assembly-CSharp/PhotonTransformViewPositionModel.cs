@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: PhotonTransformViewPositionModel
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -17,7 +17,13 @@ public class PhotonTransformViewPositionModel
   public float InterpolateLerpSpeed = 1f;
   public float InterpolateMoveTowardsAcceleration = 2f;
   public float InterpolateMoveTowardsDeceleration = 2f;
-  public AnimationCurve InterpolateSpeedCurve = new AnimationCurve(new Keyframe[4]{ new Keyframe(-1f, 0.0f, 0.0f, float.PositiveInfinity), new Keyframe(0.0f, 1f, 0.0f, 0.0f), new Keyframe(1f, 1f, 0.0f, 1f), new Keyframe(4f, 4f, 1f, 0.0f) });
+  public AnimationCurve InterpolateSpeedCurve = new AnimationCurve(new Keyframe[4]
+  {
+    new Keyframe(-1f, 0.0f, 0.0f, float.PositiveInfinity),
+    new Keyframe(0.0f, 1f, 0.0f, 0.0f),
+    new Keyframe(1f, 1f, 0.0f, 1f),
+    new Keyframe(4f, 4f, 1f, 0.0f)
+  });
   public float ExtrapolateSpeed = 1f;
   public bool ExtrapolateIncludingRoundTripTime = true;
   public int ExtrapolateNumberOfStoredPositions = 1;

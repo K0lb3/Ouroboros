@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_PaymentRequestPurchase
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -9,13 +9,18 @@ using UnityEngine;
 
 namespace SRPG
 {
+  [FlowNode.Pin(100, "Success", FlowNode.PinTypes.Output, 100)]
+  [FlowNode.Pin(201, "AlreadyOwn", FlowNode.PinTypes.Output, 201)]
+  [FlowNode.Pin(202, "Deferred", FlowNode.PinTypes.Output, 202)]
+  [FlowNode.Pin(203, "Cancel", FlowNode.PinTypes.Output, 203)]
+  [FlowNode.Pin(204, "InsufficientBalances", FlowNode.PinTypes.Output, 204)]
+  [FlowNode.Pin(205, "OverLimited", FlowNode.PinTypes.Output, 205)]
+  [FlowNode.Pin(206, "NeedBirthday", FlowNode.PinTypes.Output, 206)]
+  [FlowNode.Pin(300, "ConnectingDialogOpen", FlowNode.PinTypes.Output, 300)]
+  [FlowNode.Pin(301, "ConnectingDialogClose", FlowNode.PinTypes.Output, 301)]
+  [FlowNode.NodeType("Payment/RequestPurchase", 32741)]
   [FlowNode.Pin(0, "Start", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(200, "Error", FlowNode.PinTypes.Output, 200)]
-  [FlowNode.Pin(201, "AlreadyOwn", FlowNode.PinTypes.Output, 201)]
-  [FlowNode.Pin(203, "Cancel", FlowNode.PinTypes.Output, 203)]
-  [FlowNode.NodeType("Payment/RequestPurchase", 32741)]
-  [FlowNode.Pin(100, "Success", FlowNode.PinTypes.Output, 100)]
-  [FlowNode.Pin(202, "Deferred", FlowNode.PinTypes.Output, 202)]
   public class FlowNode_PaymentRequestPurchase : FlowNode
   {
     private bool mSetDelegate;
@@ -25,6 +30,7 @@ namespace SRPG
       if (!this.mSetDelegate)
         return;
       MonoSingleton<PaymentManager>.Instance.OnRequestPurchase -= new PaymentManager.RequestPurchaseDelegate(this.OnRequestPurchase);
+      MonoSingleton<PaymentManager>.Instance.OnRequestProcessing -= new PaymentManager.RequestProcessingDelegate(this.OnRequestProcessing);
       this.mSetDelegate = false;
       DebugUtility.Log("PaymentRequestPurchase.RemoveDelegate");
     }
@@ -56,6 +62,7 @@ namespace SRPG
       if (!this.mSetDelegate)
       {
         MonoSingleton<PaymentManager>.Instance.OnRequestPurchase += new PaymentManager.RequestPurchaseDelegate(this.OnRequestPurchase);
+        MonoSingleton<PaymentManager>.Instance.OnRequestProcessing += new PaymentManager.RequestProcessingDelegate(this.OnRequestProcessing);
         this.mSetDelegate = true;
         DebugUtility.Log("PaymentRequestPurchase SetDelegate");
       }
@@ -71,6 +78,7 @@ namespace SRPG
       DebugUtility.LogWarning("RequestPurchase success");
       ((Behaviour) this).set_enabled(false);
       this.RemoveDelegate();
+      this.CloseProcessingDialog();
       this.ActivateOutputLinks(100);
     }
 
@@ -79,6 +87,7 @@ namespace SRPG
       DebugUtility.LogWarning("RequestPurchase error");
       ((Behaviour) this).set_enabled(false);
       this.RemoveDelegate();
+      this.CloseProcessingDialog();
       this.ActivateOutputLinks(200);
     }
 
@@ -87,6 +96,7 @@ namespace SRPG
       DebugUtility.LogWarning("RequestPurchase alreadyown");
       ((Behaviour) this).set_enabled(false);
       this.RemoveDelegate();
+      this.CloseProcessingDialog();
       this.ActivateOutputLinks(201);
     }
 
@@ -95,6 +105,7 @@ namespace SRPG
       DebugUtility.LogWarning("RequestPurchase deferred");
       ((Behaviour) this).set_enabled(false);
       this.RemoveDelegate();
+      this.CloseProcessingDialog();
       this.ActivateOutputLinks(202);
     }
 
@@ -103,7 +114,35 @@ namespace SRPG
       DebugUtility.LogWarning("RequestPurchase cancel");
       ((Behaviour) this).set_enabled(false);
       this.RemoveDelegate();
+      this.CloseProcessingDialog();
       this.ActivateOutputLinks(203);
+    }
+
+    private void InsufficientBalances()
+    {
+      DebugUtility.LogWarning("RequestPurchase insufficient balances");
+      ((Behaviour) this).set_enabled(false);
+      this.RemoveDelegate();
+      this.CloseProcessingDialog();
+      this.ActivateOutputLinks(204);
+    }
+
+    private void OverLimited()
+    {
+      DebugUtility.LogWarning("RequestPurchase over limited");
+      ((Behaviour) this).set_enabled(false);
+      this.RemoveDelegate();
+      this.CloseProcessingDialog();
+      this.ActivateOutputLinks(205);
+    }
+
+    private void NeedBirthday()
+    {
+      DebugUtility.LogWarning("RequestPurchase need birthday");
+      ((Behaviour) this).set_enabled(false);
+      this.RemoveDelegate();
+      this.CloseProcessingDialog();
+      this.ActivateOutputLinks(206);
     }
 
     public void OnRequestPurchase(PaymentManager.ERequestPurchaseResult result, PaymentManager.CoinRecord record = null)
@@ -128,10 +167,27 @@ namespace SRPG
         case PaymentManager.ERequestPurchaseResult.DEFERRED:
           this.Deferred();
           break;
+        case PaymentManager.ERequestPurchaseResult.INSUFFICIENT_BALANCES:
+          this.InsufficientBalances();
+          break;
+        case PaymentManager.ERequestPurchaseResult.OVER_LIMITED:
+          this.OverLimited();
+          break;
+        case PaymentManager.ERequestPurchaseResult.NEED_BIRTHDAY:
+          this.NeedBirthday();
+          break;
         default:
           this.Error();
           break;
       }
+    }
+
+    public void OnRequestProcessing()
+    {
+    }
+
+    public void CloseProcessingDialog()
+    {
     }
   }
 }

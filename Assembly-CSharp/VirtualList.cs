@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: VirtualList
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections.Generic;
@@ -20,7 +20,6 @@ public class VirtualList : UIBehaviour
   private bool mDestroyed;
   private float mLastScrollPosition;
   private int mNumVisibleItems;
-  private bool mForceRebuild;
   private bool mInitialized;
   public VirtualList.GetItemObjectEvent OnGetItemObject;
   public VirtualList.ListEvent OnPostListUpdate;
@@ -45,7 +44,6 @@ public class VirtualList : UIBehaviour
   public void ClearItems()
   {
     this.mItems.Clear();
-    this.mForceRebuild = true;
   }
 
   public int NumVisibleItems
@@ -281,7 +279,9 @@ public class VirtualList : UIBehaviour
       }
       // ISSUE: explicit reference operation
       // ISSUE: explicit reference operation
-      num2 = Mathf.FloorToInt(-this.HorizontalNormalizedPosition * (((Rect) @rect2).get_width() - ((Rect) @rect1).get_width()) / (float) this.ItemSize.x);
+      // ISSUE: explicit reference operation
+      // ISSUE: explicit reference operation
+      num2 = Mathf.FloorToInt(-this.HorizontalNormalizedPosition * ((double) ((Rect) @rect1).get_width() >= (double) ((Rect) @rect2).get_width() ? ((Rect) @rect2).get_width() - ((Rect) @rect1).get_width() : 0.0f) / (float) this.ItemSize.x);
       if ((double) this.mLastScrollPosition <= (double) this.HorizontalNormalizedPosition)
       {
         num3 = 0;
@@ -345,44 +345,21 @@ public class VirtualList : UIBehaviour
       }
       Vector2 sizeDelta = rectTr.get_sizeDelta();
       Vector2 pivot = rectTr.get_pivot();
-      float x = (float) ((double) num6 * this.ItemSize.x + sizeDelta.x * pivot.x);
-      float y = (float) ((double) -num7 * this.ItemSize.y - sizeDelta.y * pivot.y);
-      if (0 <= index2 && index2 < this.mItems.Count)
+      float num8 = (float) ((double) num6 * this.ItemSize.x + sizeDelta.x * pivot.x);
+      float num9 = (float) ((double) -num7 * this.ItemSize.y - sizeDelta.y * pivot.y);
+      if (0 <= index2 && index2 < this.mItems.Count && index1 < this.mItems.Count)
       {
-        if (!this.mForceRebuild)
-        {
-          int itemAtPosition = this.FindItemAtPosition(this.mItems[index2], x, y);
-          if (itemAtPosition >= 0 && itemAtPosition != index1)
-          {
-            VirtualList.ItemContainer mItemObject = this.mItemObjects[index1];
-            this.mItemObjects[index1] = this.mItemObjects[itemAtPosition];
-            this.mItemObjects[itemAtPosition] = mItemObject;
-            goto label_31;
-          }
-        }
-        VirtualList.ItemContainer itemContainer = this.FindItemContainer(this.mItems[index2]);
-        if (Object.op_Inequality((Object) itemContainer, (Object) null))
-        {
-          itemContainer.SetBodyActive(true);
-          this.SwapFast(itemContainer, this.mItemObjects[index1]);
-          flag = true;
-        }
-        else
-        {
-          VirtualList.ItemContainer mItemObject = this.mItemObjects[index1];
-          mItemObject.SetBodyActive(true);
-          this.FillContainer(mItemObject, this.mItems[index2]);
-        }
+        VirtualList.ItemContainer mItemObject = this.mItemObjects[index1];
+        mItemObject.SetBodyActive(true);
+        this.FillContainer(mItemObject, this.mItems[index2]);
       }
       else
         this.mItemObjects[index1].SetBodyActive(false);
-      rectTr.set_anchoredPosition(new Vector2(x, y));
-label_31:
+      rectTr.set_anchoredPosition(new Vector2(num8, num9));
       index1 += num5;
     }
     if (flag)
       this.ReparentItems();
-    this.mForceRebuild = false;
     if (this.OnPostListUpdate == null)
       return;
     this.OnPostListUpdate();

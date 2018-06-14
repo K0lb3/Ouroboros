@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: UniWebView
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using SRPG;
@@ -63,14 +63,14 @@ public class UniWebView : MonoBehaviour
   private void ForceUpdateInsetsInternal(UniWebViewEdgeInsets insets)
   {
     this._insets = insets;
-    UniWebViewPlugin.ChangeInsets(((Object) ((Component) this).get_gameObject()).get_name(), this.insets.top, this.insets.left, this.insets.bottom, this.insets.right);
+    UniWebViewPlugin.ChangeInsets(((UnityEngine.Object) ((Component) this).get_gameObject()).get_name(), this.insets.top, this.insets.left, this.insets.bottom, this.insets.right);
   }
 
   public string currentUrl
   {
     get
     {
-      return UniWebViewPlugin.GetCurrentUrl(((Object) ((Component) this).get_gameObject()).get_name());
+      return UniWebViewPlugin.GetCurrentUrl(((UnityEngine.Object) ((Component) this).get_gameObject()).get_name());
     }
   }
 
@@ -85,7 +85,7 @@ public class UniWebView : MonoBehaviour
       if (this._backButtonEnable == value)
         return;
       this._backButtonEnable = value;
-      UniWebViewPlugin.SetBackButtonEnable(((Object) ((Component) this).get_gameObject()).get_name(), this._backButtonEnable);
+      UniWebViewPlugin.SetBackButtonEnable(((UnityEngine.Object) ((Component) this).get_gameObject()).get_name(), this._backButtonEnable);
     }
   }
 
@@ -100,7 +100,7 @@ public class UniWebView : MonoBehaviour
       if (this._bouncesEnable == value)
         return;
       this._bouncesEnable = value;
-      UniWebViewPlugin.SetBounces(((Object) ((Component) this).get_gameObject()).get_name(), this._bouncesEnable);
+      UniWebViewPlugin.SetBounces(((UnityEngine.Object) ((Component) this).get_gameObject()).get_name(), this._bouncesEnable);
     }
   }
 
@@ -115,7 +115,7 @@ public class UniWebView : MonoBehaviour
       if (this._zoomEnable == value)
         return;
       this._zoomEnable = value;
-      UniWebViewPlugin.SetZoomEnable(((Object) ((Component) this).get_gameObject()).get_name(), this._zoomEnable);
+      UniWebViewPlugin.SetZoomEnable(((UnityEngine.Object) ((Component) this).get_gameObject()).get_name(), this._zoomEnable);
     }
   }
 
@@ -123,7 +123,7 @@ public class UniWebView : MonoBehaviour
   {
     get
     {
-      return UniWebViewPlugin.GetUserAgent(((Object) ((Component) this).get_gameObject()).get_name());
+      return UniWebViewPlugin.GetUserAgent(((UnityEngine.Object) ((Component) this).get_gameObject()).get_name());
     }
   }
 
@@ -131,11 +131,11 @@ public class UniWebView : MonoBehaviour
   {
     get
     {
-      return UniWebViewPlugin.GetAlpha(((Object) ((Component) this).get_gameObject()).get_name());
+      return UniWebViewPlugin.GetAlpha(((UnityEngine.Object) ((Component) this).get_gameObject()).get_name());
     }
     set
     {
-      UniWebViewPlugin.SetAlpha(((Object) ((Component) this).get_gameObject()).get_name(), Mathf.Clamp01(value));
+      UniWebViewPlugin.SetAlpha(((UnityEngine.Object) ((Component) this).get_gameObject()).get_name(), Mathf.Clamp01(value));
     }
   }
 
@@ -148,7 +148,7 @@ public class UniWebView : MonoBehaviour
     set
     {
       this._immersiveMode = value;
-      UniWebViewPlugin.SetImmersiveModeEnabled(((Object) ((Component) this).get_gameObject()).get_name(), this._immersiveMode);
+      UniWebViewPlugin.SetImmersiveModeEnabled(((UnityEngine.Object) ((Component) this).get_gameObject()).get_name(), this._immersiveMode);
     }
   }
 
@@ -164,7 +164,7 @@ public class UniWebView : MonoBehaviour
 
   public void Load()
   {
-    UniWebViewPlugin.Load(((Object) ((Component) this).get_gameObject()).get_name(), !string.IsNullOrEmpty(this.url) ? this.url.Trim() : "about:blank");
+    UniWebViewPlugin.Load(((UnityEngine.Object) ((Component) this).get_gameObject()).get_name(), !string.IsNullOrEmpty(this.url) ? this.url.Trim() : "about:blank");
   }
 
   public void Load(string aUrl)
@@ -175,24 +175,24 @@ public class UniWebView : MonoBehaviour
 
   public void LoadHTMLString(string htmlString, string baseUrl)
   {
-    UniWebViewPlugin.LoadHTMLString(((Object) ((Component) this).get_gameObject()).get_name(), htmlString, baseUrl);
+    UniWebViewPlugin.LoadHTMLString(((UnityEngine.Object) ((Component) this).get_gameObject()).get_name(), htmlString, baseUrl);
   }
 
   public void Reload()
   {
-    UniWebViewPlugin.Reload(((Object) ((Component) this).get_gameObject()).get_name());
+    UniWebViewPlugin.Reload(((UnityEngine.Object) ((Component) this).get_gameObject()).get_name());
   }
 
   public void Stop()
   {
-    UniWebViewPlugin.Stop(((Object) ((Component) this).get_gameObject()).get_name());
+    UniWebViewPlugin.Stop(((UnityEngine.Object) ((Component) this).get_gameObject()).get_name());
   }
 
   public void Show(bool fade = false, UniWebViewTransitionEdge direction = UniWebViewTransitionEdge.None, float duration = 0.4f, Action finishAction = null)
   {
     this._lastScreenHeight = UniWebViewHelper.screenHeight;
     this.ResizeInternal();
-    UniWebViewPlugin.Show(((Object) ((Component) this).get_gameObject()).get_name(), fade, (int) direction, duration);
+    UniWebViewPlugin.Show(((UnityEngine.Object) ((Component) this).get_gameObject()).get_name(), fade, (int) direction, duration);
     this._showTransitionAction = finishAction;
     if (!this.toolBarShow)
       return;
@@ -201,39 +201,39 @@ public class UniWebView : MonoBehaviour
 
   public void Hide(bool fade = false, UniWebViewTransitionEdge direction = UniWebViewTransitionEdge.None, float duration = 0.4f, Action finishAction = null)
   {
-    UniWebViewPlugin.Hide(((Object) ((Component) this).get_gameObject()).get_name(), fade, (int) direction, duration);
+    UniWebViewPlugin.Hide(((UnityEngine.Object) ((Component) this).get_gameObject()).get_name(), fade, (int) direction, duration);
     this._hideTransitionAction = finishAction;
   }
 
   public void EvaluatingJavaScript(string javaScript)
   {
-    UniWebViewPlugin.EvaluatingJavaScript(((Object) ((Component) this).get_gameObject()).get_name(), javaScript);
+    UniWebViewPlugin.EvaluatingJavaScript(((UnityEngine.Object) ((Component) this).get_gameObject()).get_name(), javaScript);
   }
 
   public void AddJavaScript(string javaScript)
   {
-    UniWebViewPlugin.AddJavaScript(((Object) ((Component) this).get_gameObject()).get_name(), javaScript);
+    UniWebViewPlugin.AddJavaScript(((UnityEngine.Object) ((Component) this).get_gameObject()).get_name(), javaScript);
   }
 
   public void CleanCache()
   {
-    UniWebViewPlugin.CleanCache(((Object) ((Component) this).get_gameObject()).get_name());
+    UniWebViewPlugin.CleanCache(((UnityEngine.Object) ((Component) this).get_gameObject()).get_name());
   }
 
   public void CleanCookie(string key = null)
   {
-    UniWebViewPlugin.CleanCookie(((Object) ((Component) this).get_gameObject()).get_name(), key);
+    UniWebViewPlugin.CleanCookie(((UnityEngine.Object) ((Component) this).get_gameObject()).get_name(), key);
   }
 
   [Obsolete("SetTransparentBackground is deprecated, please use SetBackgroundColor instead.")]
   public void SetTransparentBackground(bool transparent = true)
   {
-    UniWebViewPlugin.TransparentBackground(((Object) ((Component) this).get_gameObject()).get_name(), transparent);
+    UniWebViewPlugin.TransparentBackground(((UnityEngine.Object) ((Component) this).get_gameObject()).get_name(), transparent);
   }
 
   public void SetBackgroundColor(Color color)
   {
-    UniWebViewPlugin.SetBackgroundColor(((Object) ((Component) this).get_gameObject()).get_name(), (float) color.r, (float) color.g, (float) color.b, (float) color.a);
+    UniWebViewPlugin.SetBackgroundColor(((UnityEngine.Object) ((Component) this).get_gameObject()).get_name(), (float) color.r, (float) color.g, (float) color.b, (float) color.a);
   }
 
   public void ShowToolBar(bool animate)
@@ -246,57 +246,57 @@ public class UniWebView : MonoBehaviour
 
   public void SetShowSpinnerWhenLoading(bool show)
   {
-    UniWebViewPlugin.SetSpinnerShowWhenLoading(((Object) ((Component) this).get_gameObject()).get_name(), show);
+    UniWebViewPlugin.SetSpinnerShowWhenLoading(((UnityEngine.Object) ((Component) this).get_gameObject()).get_name(), show);
   }
 
   public void SetSpinnerLabelText(string text)
   {
-    UniWebViewPlugin.SetSpinnerText(((Object) ((Component) this).get_gameObject()).get_name(), text);
+    UniWebViewPlugin.SetSpinnerText(((UnityEngine.Object) ((Component) this).get_gameObject()).get_name(), text);
   }
 
   public void SetUseWideViewPort(bool use)
   {
-    UniWebViewPlugin.SetUseWideViewPort(((Object) ((Component) this).get_gameObject()).get_name(), use);
+    UniWebViewPlugin.SetUseWideViewPort(((UnityEngine.Object) ((Component) this).get_gameObject()).get_name(), use);
   }
 
   public bool CanGoBack()
   {
-    return UniWebViewPlugin.CanGoBack(((Object) ((Component) this).get_gameObject()).get_name());
+    return UniWebViewPlugin.CanGoBack(((UnityEngine.Object) ((Component) this).get_gameObject()).get_name());
   }
 
   public bool CanGoForward()
   {
-    return UniWebViewPlugin.CanGoForward(((Object) ((Component) this).get_gameObject()).get_name());
+    return UniWebViewPlugin.CanGoForward(((UnityEngine.Object) ((Component) this).get_gameObject()).get_name());
   }
 
   public void GoBack()
   {
-    UniWebViewPlugin.GoBack(((Object) ((Component) this).get_gameObject()).get_name());
+    UniWebViewPlugin.GoBack(((UnityEngine.Object) ((Component) this).get_gameObject()).get_name());
   }
 
   public void GoForward()
   {
-    UniWebViewPlugin.GoForward(((Object) ((Component) this).get_gameObject()).get_name());
+    UniWebViewPlugin.GoForward(((UnityEngine.Object) ((Component) this).get_gameObject()).get_name());
   }
 
   public void AddPermissionRequestTrustSite(string url)
   {
-    UniWebViewPlugin.AddPermissionRequestTrustSite(((Object) ((Component) this).get_gameObject()).get_name(), url);
+    UniWebViewPlugin.AddPermissionRequestTrustSite(((UnityEngine.Object) ((Component) this).get_gameObject()).get_name(), url);
   }
 
   public void AddUrlScheme(string scheme)
   {
-    UniWebViewPlugin.AddUrlScheme(((Object) ((Component) this).get_gameObject()).get_name(), scheme);
+    UniWebViewPlugin.AddUrlScheme(((UnityEngine.Object) ((Component) this).get_gameObject()).get_name(), scheme);
   }
 
   public void RemoveUrlScheme(string scheme)
   {
-    UniWebViewPlugin.RemoveUrlScheme(((Object) ((Component) this).get_gameObject()).get_name(), scheme);
+    UniWebViewPlugin.RemoveUrlScheme(((UnityEngine.Object) ((Component) this).get_gameObject()).get_name(), scheme);
   }
 
   public void SetHeaderField(string key, string value)
   {
-    UniWebViewPlugin.SetHeaderField(((Object) ((Component) this).get_gameObject()).get_name(), key, value);
+    UniWebViewPlugin.SetHeaderField(((UnityEngine.Object) ((Component) this).get_gameObject()).get_name(), key, value);
   }
 
   private bool OrientationChanged()
@@ -332,7 +332,7 @@ public class UniWebView : MonoBehaviour
     }
     else
     {
-      Debug.LogWarning((object) ("Web page load failed: " + ((Object) ((Component) this).get_gameObject()).get_name() + "; url: " + this.url + "; error:" + message));
+      Debug.LogWarning((object) ("Web page load failed: " + ((UnityEngine.Object) ((Component) this).get_gameObject()).get_name() + "; url: " + this.url + "; error:" + message));
       if (!flag2)
         return;
       this.OnLoadComplete(this, false, message);
@@ -398,7 +398,7 @@ public class UniWebView : MonoBehaviour
   private IEnumerator LoadFromJarPackage(string jarFilePath)
   {
     // ISSUE: object of a compiler-generated type is created
-    return (IEnumerator) new UniWebView.\u003CLoadFromJarPackage\u003Ec__IteratorF7()
+    return (IEnumerator) new UniWebView.\u003CLoadFromJarPackage\u003Ec__Iterator145()
     {
       jarFilePath = jarFilePath,
       \u003C\u0024\u003EjarFilePath = jarFilePath,
@@ -409,8 +409,8 @@ public class UniWebView : MonoBehaviour
   private void Awake()
   {
     this._currentGUID = Guid.NewGuid().ToString();
-    ((Object) ((Component) this).get_gameObject()).set_name(((Object) ((Component) this).get_gameObject()).get_name() + this._currentGUID);
-    UniWebViewPlugin.Init(((Object) ((Component) this).get_gameObject()).get_name(), this.insets.top, this.insets.left, this.insets.bottom, this.insets.right);
+    ((UnityEngine.Object) ((Component) this).get_gameObject()).set_name(((UnityEngine.Object) ((Component) this).get_gameObject()).get_name() + this._currentGUID);
+    UniWebViewPlugin.Init(((UnityEngine.Object) ((Component) this).get_gameObject()).get_name(), this.insets.top, this.insets.left, this.insets.bottom, this.insets.right);
     this._lastScreenHeight = UniWebViewHelper.screenHeight;
   }
 
@@ -424,8 +424,8 @@ public class UniWebView : MonoBehaviour
   private void OnDestroy()
   {
     this.RemoveAllListeners();
-    UniWebViewPlugin.Destroy(((Object) ((Component) this).get_gameObject()).get_name());
-    ((Object) ((Component) this).get_gameObject()).set_name(((Object) ((Component) this).get_gameObject()).get_name().Replace(this._currentGUID, string.Empty));
+    UniWebViewPlugin.Destroy(((UnityEngine.Object) ((Component) this).get_gameObject()).get_name());
+    ((UnityEngine.Object) ((Component) this).get_gameObject()).set_name(((UnityEngine.Object) ((Component) this).get_gameObject()).get_name().Replace(this._currentGUID, string.Empty));
   }
 
   private void RemoveAllListeners()

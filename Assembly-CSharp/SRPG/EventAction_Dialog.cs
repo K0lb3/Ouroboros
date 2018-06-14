@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.EventAction_Dialog
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections;
@@ -56,7 +56,7 @@ namespace SRPG
     public override IEnumerator PreloadAssets()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new EventAction_Dialog.\u003CPreloadAssets\u003Ec__Iterator61() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new EventAction_Dialog.\u003CPreloadAssets\u003Ec__Iterator99() { \u003C\u003Ef__this = this };
     }
 
     public override void PreStart()
@@ -144,7 +144,7 @@ namespace SRPG
       this.mBubble.SetName(this.mUnit == null ? "???" : this.mUnit.name);
       this.mBubble.SetBody(this.mTextData);
       if (!GlobalVars.IsTutorialEnd)
-        AnalyticsManager.TrackTutorialAnalyticsEvent(this.TextID, AnalyticsManager.TutorialTrackingEventType.EVENT_DIALOG);
+        AnalyticsManager.TrackTutorialAnalyticsEvent(this.TextID);
       if (this.mPortraitResource != null && this.mPortraitResource.isDone)
       {
         if (this.mPortraitResource.asset is PortraitSet)
@@ -191,9 +191,28 @@ namespace SRPG
       return false;
     }
 
+    public override void SkipImmediate()
+    {
+      if (!Object.op_Inequality((Object) this.mBubble, (Object) null))
+        return;
+      this.mBubble.Close();
+      this.OnFinish();
+    }
+
     protected virtual void OnFinish()
     {
       this.ActivateNext();
+    }
+
+    public override string[] GetUnManagedAssetListData()
+    {
+      if (!string.IsNullOrEmpty(this.TextID))
+      {
+        this.LoadTextData();
+        if (!string.IsNullOrEmpty(this.mVoiceID))
+          return EventAction.GetUnManagedStreamAssets(EventAction_Dialog.GetIDPair(this.mVoiceID), false);
+      }
+      return (string[]) null;
     }
 
     public enum TextSpeedTypes

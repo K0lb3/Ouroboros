@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: CustomSound3
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -60,16 +60,16 @@ public class CustomSound3 : MonoBehaviour
     if (playHandles == null)
       return;
     if (this.PlayFunction == CustomSound3.EPlayFunction.PlayBGM)
-      MonoSingleton<MySound>.Instance.PlayBGM(this.cueID, this.sheetName);
+      MonoSingleton<MySound>.Instance.PlayBGM(this.cueID, this.sheetName, false);
     else if (this.PlayFunction == CustomSound3.EPlayFunction.PlayBGMDelay)
       MonoSingleton<MySound>.Instance.PlayBGM(this.cueID, this.DelayPlaySec, this.sheetName);
     else if (this.PlayFunction == CustomSound3.EPlayFunction.PlayJingle)
       MonoSingleton<MySound>.Instance.PlayJingle(this.cueID, this.DelayPlaySec, this.sheetName);
     else if (this.PlayFunction == CustomSound3.EPlayFunction.VoicePlay)
     {
-      playHandles.mVoice = new MySound.Voice(this.sheetName, (string) null, (string) null);
+      playHandles.mVoice = new MySound.Voice(this.sheetName, (string) null, (string) null, false);
       if (playHandles.mVoice != null)
-        playHandles.mVoice.Play(this.cueID, this.DelayPlaySec);
+        playHandles.mVoice.Play(this.cueID, this.DelayPlaySec, false);
     }
     else if (this.PlayFunction == CustomSound3.EPlayFunction.PlaySEOneShot)
       MonoSingleton<MySound>.Instance.PlaySEOneShot(this.cueID, this.DelayPlaySec);
@@ -81,7 +81,7 @@ public class CustomSound3 : MonoBehaviour
       playHandles.mPlayHandle = MonoSingleton<MySound>.Instance.PlayLoop(this.sheetName, this.cueID, this.CueSheetHandlePlayCategory, this.DelayPlaySec);
     else if (this.PlayFunction == CustomSound3.EPlayFunction.CueSheetHandlePlay)
     {
-      playHandles.mCueSheetHandle = MySound.CueSheetHandle.Create(this.sheetName, this.CueSheetHandlePlayCategory, true, true, false);
+      playHandles.mCueSheetHandle = MySound.CueSheetHandle.Create(this.sheetName, this.CueSheetHandlePlayCategory, true, true, false, false);
       if (playHandles.mCueSheetHandle != null)
         playHandles.mPlayHandle = playHandles.mCueSheetHandle.Play(this.cueID, this.CueSheetHandlePlayLoopType, true, this.DelayPlaySec);
     }

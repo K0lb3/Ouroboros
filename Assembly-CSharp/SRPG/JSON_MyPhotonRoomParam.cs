@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.JSON_MyPhotonRoomParam
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -21,6 +21,10 @@ namespace SRPG
     public int isLINE;
     public int started;
     public int roomid;
+    public int audience;
+    public int audienceNum;
+    public int unitlv;
+    public int challegedMTFloor;
     public JSON_MyPhotonPlayerParam[] players;
 
     public static string GetMyCreatorFUID()
@@ -68,7 +72,7 @@ namespace SRPG
 
     public string Serialize()
     {
-      string str = "{" + "\"creatorName\":\"" + JsonEscape.Escape(this.creatorName) + "\"" + ",\"creatorLV\":" + (object) this.creatorLV + ",\"creatorFUID\":\"" + JsonEscape.Escape(this.creatorFUID) + "\"" + ",\"comment\":\"" + JsonEscape.Escape(this.comment) + "\"" + ",\"passCode\":\"" + JsonEscape.Escape(this.passCode) + "\"" + ",\"iname\":\"" + JsonEscape.Escape(this.iname) + "\"" + ",\"type\":" + (object) this.type + ",\"isLINE\":" + (object) this.isLINE + ",\"started\":" + (object) this.started + ",\"roomid\":" + (object) this.roomid + ",\"players\":[";
+      string str = "{" + "\"creatorName\":\"" + JsonEscape.Escape(this.creatorName) + "\"" + ",\"creatorLV\":" + (object) this.creatorLV + ",\"creatorFUID\":\"" + JsonEscape.Escape(this.creatorFUID) + "\"" + ",\"comment\":\"" + JsonEscape.Escape(this.comment) + "\"" + ",\"passCode\":\"" + JsonEscape.Escape(this.passCode) + "\"" + ",\"iname\":\"" + JsonEscape.Escape(this.iname) + "\"" + ",\"type\":" + (object) this.type + ",\"isLINE\":" + (object) this.isLINE + ",\"started\":" + (object) this.started + ",\"roomid\":" + (object) this.roomid + ",\"audience\":" + (object) this.audience + ",\"audienceNum\":" + (object) this.audienceNum + ",\"unitlv\":" + (object) this.unitlv + ",\"challegedMTFloor\":" + (object) GlobalVars.SelectedMultiTowerFloor + ",\"players\":[";
       if (this.players != null)
       {
         for (int index = 0; index < this.players.Length; ++index)
@@ -101,6 +105,7 @@ namespace SRPG
     {
       RAID,
       VERSUS,
+      TOWER,
       NUM,
     }
   }

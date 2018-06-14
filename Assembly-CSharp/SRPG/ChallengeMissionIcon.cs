@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.ChallengeMissionIcon
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -12,10 +12,10 @@ using UnityEngine.UI;
 
 namespace SRPG
 {
+  [FlowNode.Pin(0, "更新", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(1, "表示", FlowNode.PinTypes.Input, 1)]
   [FlowNode.Pin(2, "非表示", FlowNode.PinTypes.Input, 2)]
   [FlowNode.Pin(10, "進捗表示", FlowNode.PinTypes.Output, 10)]
-  [FlowNode.Pin(0, "更新", FlowNode.PinTypes.Input, 0)]
   public class ChallengeMissionIcon : MonoBehaviour, IFlowInterface
   {
     public GameObject Badge;
@@ -69,7 +69,7 @@ namespace SRPG
     private IEnumerator SetAsLastSibling()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new ChallengeMissionIcon.\u003CSetAsLastSibling\u003Ec__IteratorA2() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new ChallengeMissionIcon.\u003CSetAsLastSibling\u003Ec__IteratorE5() { \u003C\u003Ef__this = this };
     }
 
     private void Refresh()
@@ -78,15 +78,12 @@ namespace SRPG
         return;
       bool flag1 = false;
       bool flag2 = true;
-      foreach (TrophyParam rootTropy in ChallengeMission.GetRootTropies())
+      foreach (TrophyParam trophyParam in ChallengeMission.GetRootTrophiesSortedByPriority())
       {
-        if (!ChallengeMission.GetTrophyCounter(rootTropy).IsEnded)
+        if (!ChallengeMission.GetTrophyCounter(trophyParam).IsEnded)
         {
-          if (this.IsNotReceiveRewards(rootTropy))
-          {
+          if (this.IsNotReceiveRewards(trophyParam))
             flag1 = true;
-            this.UpdateTrophyCount(rootTropy);
-          }
           flag2 = false;
           break;
         }
@@ -100,28 +97,13 @@ namespace SRPG
 
     private bool IsNotReceiveRewards(TrophyParam rootTrophy)
     {
-      foreach (TrophyParam currentTrophy in ChallengeMission.GetCurrentTrophies(rootTrophy))
+      foreach (TrophyParam childeTrophy in ChallengeMission.GetChildeTrophies(rootTrophy))
       {
-        TrophyState trophyCounter = ChallengeMission.GetTrophyCounter(currentTrophy);
+        TrophyState trophyCounter = ChallengeMission.GetTrophyCounter(childeTrophy);
         if (trophyCounter.IsCompleted && !trophyCounter.IsEnded)
           return true;
       }
       return false;
-    }
-
-    private void UpdateTrophyCount(TrophyParam rootTrophy)
-    {
-      TrophyParam[] currentTrophies = ChallengeMission.GetCurrentTrophies(rootTrophy);
-      int num = 0;
-      foreach (TrophyParam trophy in currentTrophies)
-      {
-        TrophyState trophyCounter = ChallengeMission.GetTrophyCounter(trophy);
-        if (trophyCounter.IsCompleted && !trophyCounter.IsEnded)
-          ++num;
-      }
-      if (!Object.op_Inequality((Object) this.BadgeCount, (Object) null))
-        return;
-      this.BadgeCount.set_text(num.ToString());
     }
   }
 }

@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_ReqUpdateTrophy
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -11,9 +11,9 @@ using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
   [FlowNode.Pin(0, "Request", FlowNode.PinTypes.Input, 0)]
   [FlowNode.NodeType("System/ReqUpdateTrophy", 32741)]
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
   public class FlowNode_ReqUpdateTrophy : FlowNode_Network
   {
     private TrophyParam mTrophyParam;
@@ -32,7 +32,7 @@ namespace SRPG
         TrophyParam trophy = instance.MasterParam.GetTrophy((string) GlobalVars.SelectedTrophy);
         this.ExecRequest((WebAPI) new ReqUpdateTrophy(new List<TrophyState>()
         {
-          instance.Player.GetTrophyCounter(trophy)
+          instance.Player.GetTrophyCounter(trophy, false)
         }, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback), true));
         ((Behaviour) this).set_enabled(true);
       }), (UIUtility.DialogResultEvent) (go => ((Behaviour) this).set_enabled(false)), (GameObject) null, false, -1);
@@ -50,7 +50,7 @@ namespace SRPG
       GlobalVars.PlayerExpOld.Set(player.Exp);
       if (Network.Mode == Network.EConnectMode.Offline)
       {
-        instance.Player.DEBUG_ADD_COIN(trophy.Coin, 0);
+        instance.Player.DEBUG_ADD_COIN(trophy.Coin, 0, 0);
         instance.Player.DEBUG_ADD_GOLD(trophy.Gold);
         ((Behaviour) this).set_enabled(false);
         this.Success();
@@ -59,7 +59,7 @@ namespace SRPG
       {
         this.ExecRequest((WebAPI) new ReqUpdateTrophy(new List<TrophyState>()
         {
-          instance.Player.GetTrophyCounter(trophy)
+          instance.Player.GetTrophyCounter(trophy, true)
         }, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback), true));
         ((Behaviour) this).set_enabled(true);
       }
@@ -85,16 +85,16 @@ namespace SRPG
       {
         this.mTrophyParam
       });
-      if (Object.op_Inequality((Object) this.RewardWindow, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RewardWindow, (UnityEngine.Object) null))
       {
         RewardData data = new RewardData();
         data.Coin = this.mTrophyParam.Coin;
         data.Gold = this.mTrophyParam.Gold;
         data.Exp = this.mTrophyParam.Exp;
         if (data.Coin > 0)
-          AnalyticsManager.TrackCurrencyObtain(AnalyticsManager.CurrencyType.Gem, AnalyticsManager.CurrencySubType.FREE, (long) data.Coin, "Milestone Reward", (Dictionary<string, object>) null);
+          AnalyticsManager.TrackFreePremiumCurrencyObtain((long) data.Coin, "Milestone Reward");
         if (data.Gold > 0)
-          AnalyticsManager.TrackCurrencyObtain(AnalyticsManager.CurrencyType.Zeni, AnalyticsManager.CurrencySubType.FREE, (long) data.Gold, "Milestone Reward", (Dictionary<string, object>) null);
+          AnalyticsManager.TrackNonPremiumCurrencyObtain(AnalyticsManager.NonPremiumCurrencyType.Zeni, (long) data.Gold, "Milestone Reward", (string) null);
         GameManager instance = MonoSingleton<GameManager>.Instance;
         for (int index = 0; index < this.mTrophyParam.Items.Length; ++index)
         {
@@ -105,13 +105,7 @@ namespace SRPG
             ItemData itemDataByItemId = instance.Player.FindItemDataByItemID(itemData.Param.iname);
             int num = itemDataByItemId == null ? 0 : itemDataByItemId.Num;
             data.ItemsBeforeAmount.Add(num);
-            AnalyticsManager.TrackCurrencyObtain((AnalyticsManager.CurrencyType) (itemDataByItemId.Param.type != EItemType.Ticket ? 4 : 2), AnalyticsManager.CurrencySubType.FREE, (long) itemDataByItemId.Num, "Milestone Reward", new Dictionary<string, object>()
-            {
-              {
-                "ticket_id",
-                (object) itemDataByItemId.ItemID
-              }
-            });
+            AnalyticsManager.TrackNonPremiumCurrencyObtain(itemDataByItemId.Param.type != EItemType.Ticket ? AnalyticsManager.NonPremiumCurrencyType.Item : AnalyticsManager.NonPremiumCurrencyType.SummonTicket, (long) itemDataByItemId.Num, "Milestone Reward", itemDataByItemId.ItemID);
           }
         }
         DataSource.Bind<RewardData>(this.RewardWindow, data);
@@ -139,7 +133,7 @@ namespace SRPG
 
     public override void OnSuccess(WWWResult www)
     {
-      if (Object.op_Equality((Object) this, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this, (UnityEngine.Object) null))
         Network.RemoveAPI();
       else if (Network.IsError)
       {
@@ -161,7 +155,7 @@ namespace SRPG
         DebugUtility.Assert(jsonObject != null, "res == null");
         if (jsonObject.body == null)
         {
-          this.OnRetry();
+          this.OnFailed();
         }
         else
         {
@@ -173,7 +167,8 @@ namespace SRPG
           }
           catch (Exception ex)
           {
-            this.OnRetry(ex);
+            DebugUtility.LogException(ex);
+            this.OnFailed();
             return;
           }
           Network.RemoveAPI();

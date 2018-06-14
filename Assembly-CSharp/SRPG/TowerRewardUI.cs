@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.TowerRewardUI
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -22,6 +22,7 @@ namespace SRPG
     public Texture KakeraCoinImage;
     public Text ItemName;
     public Text ItemNameNumTex;
+    public GameObject ItemFrameObj;
 
     public TowerRewardUI()
     {
@@ -35,6 +36,8 @@ namespace SRPG
       if (dataOfClass == null)
         return;
       this.NumText.text = dataOfClass.num.ToString();
+      if (Object.op_Inequality((Object) this.ItemFrameObj, (Object) null))
+        this.ItemFrameObj.SetActive(true);
       switch (dataOfClass.type)
       {
         case TowerRewardItem.RewardType.Item:
@@ -76,6 +79,8 @@ namespace SRPG
           this.ItemName.set_text(LocalizedText.Get("sys.KakeraCoin"));
           break;
         case TowerRewardItem.RewardType.Artifact:
+          if (Object.op_Inequality((Object) this.ItemFrameObj, (Object) null))
+            this.ItemFrameObj.SetActive(false);
           ArtifactParam artifactParam = MonoSingleton<GameManager>.Instance.MasterParam.GetArtifactParam(dataOfClass.iname);
           if (artifactParam == null || !Object.op_Inequality((Object) this.ItemName, (Object) null))
             break;

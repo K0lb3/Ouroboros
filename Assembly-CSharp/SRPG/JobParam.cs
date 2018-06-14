@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.JobParam
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -15,10 +15,13 @@ namespace SRPG
     public string[] atkskill = new string[7];
     public JobRankParam[] ranks = new JobRankParam[JobParam.MAX_JOB_RANK + 1];
     private string localizedNameID;
+    private string localizedCharaDescID;
+    private string localizedOtherDescID;
     public string iname;
     public string name;
     public string expr;
     public string model;
+    public string ac2d;
     public string modelp;
     public string pet;
     public string buki;
@@ -32,16 +35,24 @@ namespace SRPG
     public string ai;
     public string master;
     public string fixed_ability;
+    public string MapEffectAbility;
+    public bool IsMapEffectRevReso;
+    public string DescCharacteristic;
+    public string DescOther;
 
     protected void localizeFields(string language)
     {
       this.init();
       this.name = LocalizedText.SGGet(language, GameUtility.LocalizedMasterParamFileName, this.localizedNameID);
+      this.DescCharacteristic = LocalizedText.SGGet(language, GameUtility.LocalizedMasterParamFileName, this.localizedCharaDescID);
+      this.DescOther = LocalizedText.SGGet(language, GameUtility.LocalizedMasterParamFileName, this.localizedOtherDescID);
     }
 
     protected void init()
     {
       this.localizedNameID = this.GetType().GenerateLocalizedID(this.iname, "NAME");
+      this.localizedCharaDescID = this.GetType().GenerateLocalizedID(this.iname, "CHARADESC");
+      this.localizedOtherDescID = this.GetType().GenerateLocalizedID(this.iname, "OTHERDESC");
     }
 
     public void Deserialize(string language, JSON_JobParam json)
@@ -58,6 +69,7 @@ namespace SRPG
       this.name = json.name;
       this.expr = json.expr;
       this.model = json.mdl;
+      this.ac2d = json.ac2d;
       this.modelp = json.mdlp;
       this.pet = json.pet;
       this.buki = json.buki;
@@ -78,6 +90,10 @@ namespace SRPG
       this.artifact = json.artifact;
       this.ai = json.ai;
       this.master = json.master;
+      this.MapEffectAbility = json.me_abl;
+      this.IsMapEffectRevReso = json.is_me_rr != 0;
+      this.DescCharacteristic = json.desc_ch;
+      this.DescOther = json.desc_ot;
       Array.Clear((Array) this.ranks, 0, this.ranks.Length);
       if (json.ranks != null)
       {
@@ -111,7 +127,7 @@ namespace SRPG
                 {
                   SkillData skillData = new SkillData();
                   skillData.Setup((string) itemParam.skill, 1, 1, master);
-                  skillData.BuffSkill(ESkillTiming.Passive, baseStatus, (BaseStatus) null, baseStatus, (BaseStatus) null, (RandXorshift) null, SkillEffectTargets.Target);
+                  skillData.BuffSkill(ESkillTiming.Passive, baseStatus, (BaseStatus) null, baseStatus, (BaseStatus) null, (RandXorshift) null, SkillEffectTargets.Target, false);
                 }
               }
             }

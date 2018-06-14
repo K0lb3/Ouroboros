@@ -1,13 +1,17 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: ShortcutMenu
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
 using SRPG;
 using UnityEngine;
 
+[FlowNode.Pin(110, "InputOFF_Output", FlowNode.PinTypes.Output, 0)]
+[FlowNode.Pin(101, "InputON", FlowNode.PinTypes.Input, 0)]
+[FlowNode.Pin(100, "InputOFF", FlowNode.PinTypes.Input, 0)]
+[FlowNode.Pin(111, "InputON_Output", FlowNode.PinTypes.Output, 0)]
 [FlowNode.Pin(1, "Close", FlowNode.PinTypes.Output, 0)]
 public class ShortcutMenu : MonoBehaviour, IFlowInterface
 {
@@ -17,6 +21,7 @@ public class ShortcutMenu : MonoBehaviour, IFlowInterface
   public GameObject Badge_Unit;
   public GameObject Badge_Gift;
   public GameObject Badge_DailyMission;
+  private bool IsInput;
 
   public ShortcutMenu()
   {
@@ -41,7 +46,7 @@ public class ShortcutMenu : MonoBehaviour, IFlowInterface
 
   private void Update()
   {
-    if (Input.GetMouseButtonDown(0))
+    if (this.IsInput && Input.GetMouseButtonDown(0))
     {
       Vector2 vector2;
       RectTransformUtility.ScreenPointToLocalPointInRectangle(this.mRectTransform, Vector2.op_Implicit(Input.get_mousePosition()), (Camera) null, ref vector2);
@@ -90,5 +95,17 @@ public class ShortcutMenu : MonoBehaviour, IFlowInterface
 
   public void Activated(int pinID)
   {
+    if (pinID == 100)
+    {
+      this.IsInput = false;
+      FlowNode_GameObject.ActivateOutputLinks((Component) this, 110);
+    }
+    else
+    {
+      if (pinID != 101)
+        return;
+      this.IsInput = true;
+      FlowNode_GameObject.ActivateOutputLinks((Component) this, 111);
+    }
   }
 }

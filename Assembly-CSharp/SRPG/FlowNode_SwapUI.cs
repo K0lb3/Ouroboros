@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_SwapUI
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using UnityEngine;
@@ -38,14 +38,14 @@ namespace SRPG
 
     private void SwapIn()
     {
-      if (Object.op_Equality((Object) this.mDummy, (Object) null) || Object.op_Equality((Object) this.Target, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mDummy, (UnityEngine.Object) null) || UnityEngine.Object.op_Equality((UnityEngine.Object) this.Target, (UnityEngine.Object) null))
         return;
       Transform transform1 = this.Target.get_transform();
       Transform transform2 = this.mDummy.get_transform();
       transform1.SetParent(transform2.get_parent(), false);
       transform1.SetSiblingIndex(transform2.GetSiblingIndex());
       ((DestroyEventListener) this.mDummy.GetComponent<DestroyEventListener>()).Listeners = (DestroyEventListener.DestroyEvent) null;
-      Object.Destroy((Object) this.mDummy.get_gameObject());
+      UnityEngine.Object.Destroy((UnityEngine.Object) this.mDummy.get_gameObject());
       this.mDummy = (GameObject) null;
       if (!this.Deactivate)
         return;
@@ -54,10 +54,10 @@ namespace SRPG
 
     private void SwapOut()
     {
-      if (Object.op_Inequality((Object) this.mDummy, (Object) null) || Object.op_Equality((Object) this.Target, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mDummy, (UnityEngine.Object) null) || UnityEngine.Object.op_Equality((UnityEngine.Object) this.Target, (UnityEngine.Object) null))
         return;
       Transform transform1 = this.Target.get_transform();
-      this.mDummy = new GameObject(((Object) this.Target).get_name() + "(Dummy)", new System.Type[1]
+      this.mDummy = new GameObject(((UnityEngine.Object) this.Target).get_name() + "(Dummy)", new System.Type[1]
       {
         typeof (DestroyEventListener)
       });
@@ -70,13 +70,13 @@ namespace SRPG
       {
         this.mDummyDestroyEvent.Listeners = (DestroyEventListener.DestroyEvent) null;
         this.mTargetDestroyEvent.Listeners = (DestroyEventListener.DestroyEvent) null;
-        Object.Destroy((Object) this.Target);
+        UnityEngine.Object.Destroy((UnityEngine.Object) this.Target);
       });
       this.mTargetDestroyEvent.Listeners = (DestroyEventListener.DestroyEvent) (go =>
       {
         this.mDummyDestroyEvent.Listeners = (DestroyEventListener.DestroyEvent) null;
         this.mTargetDestroyEvent.Listeners = (DestroyEventListener.DestroyEvent) null;
-        Object.Destroy((Object) this.mDummy);
+        UnityEngine.Object.Destroy((UnityEngine.Object) this.mDummy);
       });
       transform1.SetParent((Transform) UIUtility.Pool, false);
       if (!this.Deactivate)

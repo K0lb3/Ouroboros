@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_TutorialGacha
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -38,7 +38,7 @@ namespace SRPG
       if (this.UnitIndex < 0 || player.Units.Count <= this.UnitIndex)
         return;
       if (!GlobalVars.IsTutorialEnd)
-        AnalyticsManager.TrackTutorialAnalyticsEvent("0_6b_2d.017", AnalyticsManager.TutorialTrackingEventType.EVENT_DIALOG_2D);
+        AnalyticsManager.TrackTutorialAnalyticsEvent("0_6b_2d.017");
       ((Behaviour) this).set_enabled(true);
       this.StartCoroutine(this.PlayGachaAsync(player.Units[this.UnitIndex].UnitParam));
     }
@@ -47,7 +47,7 @@ namespace SRPG
     private IEnumerator PlayGachaAsync(UnitParam unit)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new FlowNode_TutorialGacha.\u003CPlayGachaAsync\u003Ec__Iterator93() { unit = unit, \u003C\u0024\u003Eunit = unit, \u003C\u003Ef__this = this };
+      return (IEnumerator) new FlowNode_TutorialGacha.\u003CPlayGachaAsync\u003Ec__IteratorD5() { unit = unit, \u003C\u0024\u003Eunit = unit, \u003C\u003Ef__this = this };
     }
   }
 }

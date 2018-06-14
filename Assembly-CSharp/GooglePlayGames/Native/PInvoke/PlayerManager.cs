@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: GooglePlayGames.Native.PInvoke.PlayerManager
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using AOT;
@@ -38,19 +38,19 @@ namespace GooglePlayGames.Native.PInvoke
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      PlayerManager.\u003CFetchList\u003Ec__AnonStorey167 listCAnonStorey167 = new PlayerManager.\u003CFetchList\u003Ec__AnonStorey167();
+      PlayerManager.\u003CFetchList\u003Ec__AnonStorey1DB listCAnonStorey1Db = new PlayerManager.\u003CFetchList\u003Ec__AnonStorey1DB();
       // ISSUE: reference to a compiler-generated field
-      listCAnonStorey167.\u003C\u003Ef__this = this;
+      listCAnonStorey1Db.\u003C\u003Ef__this = this;
       // ISSUE: reference to a compiler-generated field
-      listCAnonStorey167.coll = new PlayerManager.FetchResponseCollector();
+      listCAnonStorey1Db.coll = new PlayerManager.FetchResponseCollector();
       // ISSUE: reference to a compiler-generated field
-      listCAnonStorey167.coll.pendingCount = userIds.Length;
+      listCAnonStorey1Db.coll.pendingCount = userIds.Length;
       // ISSUE: reference to a compiler-generated field
-      listCAnonStorey167.coll.callback = callback;
+      listCAnonStorey1Db.coll.callback = callback;
       foreach (string userId in userIds)
       {
         // ISSUE: reference to a compiler-generated method
-        GooglePlayGames.Native.Cwrapper.PlayerManager.PlayerManager_Fetch(this.mGameServices.AsHandle(), Types.DataSource.CACHE_OR_NETWORK, userId, new GooglePlayGames.Native.Cwrapper.PlayerManager.FetchCallback(PlayerManager.InternalFetchCallback), Callbacks.ToIntPtr<PlayerManager.FetchResponse>(new Action<PlayerManager.FetchResponse>(listCAnonStorey167.\u003C\u003Em__D5), new Func<IntPtr, PlayerManager.FetchResponse>(PlayerManager.FetchResponse.FromPointer)));
+        GooglePlayGames.Native.Cwrapper.PlayerManager.PlayerManager_Fetch(this.mGameServices.AsHandle(), Types.DataSource.CACHE_OR_NETWORK, userId, new GooglePlayGames.Native.Cwrapper.PlayerManager.FetchCallback(PlayerManager.InternalFetchCallback), Callbacks.ToIntPtr<PlayerManager.FetchResponse>(new Action<PlayerManager.FetchResponse>(listCAnonStorey1Db.\u003C\u003Em__11E), new Func<IntPtr, PlayerManager.FetchResponse>(PlayerManager.FetchResponse.FromPointer)));
       }
     }
 

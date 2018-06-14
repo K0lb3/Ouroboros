@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.ChatPlayerData
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 namespace SRPG
@@ -51,6 +51,25 @@ namespace SRPG
       UnitData unitData = new UnitData();
       unitData.Deserialize(json.unit);
       this.unit = unitData;
+    }
+
+    public FriendData ToFriendData()
+    {
+      FriendData friendData = new FriendData();
+      friendData.FUID = this.fuid;
+      friendData.PlayerName = this.name;
+      friendData.PlayerLevel = this.lv;
+      friendData.LastLogin = this.lastlogin;
+      friendData.Unit = this.unit;
+      friendData.SelectAward = this.award;
+      friendData.IsFavorite = this.IsFavorite;
+      if (this.unit != null)
+      {
+        friendData.UnitID = this.unit.UnitID;
+        friendData.UnitLevel = this.unit.Lv;
+        friendData.UnitRarity = this.unit.Rarity;
+      }
+      return friendData;
     }
   }
 }

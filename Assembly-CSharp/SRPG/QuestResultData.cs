@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.QuestResultData
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -25,9 +25,9 @@ namespace SRPG
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      QuestResultData.\u003CQuestResultData\u003Ec__AnonStorey26A dataCAnonStorey26A = new QuestResultData.\u003CQuestResultData\u003Ec__AnonStorey26A();
+      QuestResultData.\u003CQuestResultData\u003Ec__AnonStorey372 dataCAnonStorey372 = new QuestResultData.\u003CQuestResultData\u003Ec__AnonStorey372();
       // ISSUE: reference to a compiler-generated field
-      dataCAnonStorey26A.units = units;
+      dataCAnonStorey372.units = units;
       this.CharacterQuest = new Dictionary<long, UnitData.CharacterQuestParam>();
       this.SkillUnlocks = new Dictionary<long, string>();
       this.CollaboSkillUnlocks = new Dictionary<long, string>();
@@ -39,20 +39,29 @@ namespace SRPG
       this.StartBonusFlags = bonusFlags;
       this.IsFirstWin = isFirstWin;
       if (this.Record.items != null)
-        this.GetUnits = new UnitGetParam(this.Record.items.ToArray());
+      {
+        ItemParam[] paramLsit = new ItemParam[0];
+        if (this.Record.items.Count != 0)
+        {
+          paramLsit = new ItemParam[this.Record.items.Count];
+          for (int index = 0; index < this.Record.items.Count; ++index)
+            paramLsit[index] = this.Record.items[index].mItemParam;
+        }
+        this.GetUnits = new UnitGetParam(paramLsit);
+      }
       // ISSUE: reference to a compiler-generated field
-      if (dataCAnonStorey26A.units.Count > 1)
+      if (dataCAnonStorey372.units.Count > 1)
       {
         // ISSUE: object of a compiler-generated type is created
         // ISSUE: variable of a compiler-generated type
-        QuestResultData.\u003CQuestResultData\u003Ec__AnonStorey26B dataCAnonStorey26B = new QuestResultData.\u003CQuestResultData\u003Ec__AnonStorey26B();
+        QuestResultData.\u003CQuestResultData\u003Ec__AnonStorey373 dataCAnonStorey373 = new QuestResultData.\u003CQuestResultData\u003Ec__AnonStorey373();
         // ISSUE: reference to a compiler-generated field
-        dataCAnonStorey26B.\u003C\u003Ef__ref\u0024618 = dataCAnonStorey26A;
-        // ISSUE: reference to a compiler-generated field
-        // ISSUE: reference to a compiler-generated field
+        dataCAnonStorey373.\u003C\u003Ef__ref\u0024882 = dataCAnonStorey372;
         // ISSUE: reference to a compiler-generated field
         // ISSUE: reference to a compiler-generated field
-        for (dataCAnonStorey26B.i = 0; dataCAnonStorey26B.i < dataCAnonStorey26A.units.Count; ++dataCAnonStorey26B.i)
+        // ISSUE: reference to a compiler-generated field
+        // ISSUE: reference to a compiler-generated field
+        for (dataCAnonStorey373.i = 0; dataCAnonStorey373.i < dataCAnonStorey372.units.Count; ++dataCAnonStorey373.i)
         {
           // ISSUE: reference to a compiler-generated field
           // ISSUE: reference to a compiler-generated field
@@ -61,16 +70,16 @@ namespace SRPG
           // ISSUE: reference to a compiler-generated field
           // ISSUE: reference to a compiler-generated field
           // ISSUE: reference to a compiler-generated method
-          if (dataCAnonStorey26A.units[dataCAnonStorey26B.i] != null && dataCAnonStorey26A.units[dataCAnonStorey26B.i].Side == EUnitSide.Player && (dataCAnonStorey26A.units[dataCAnonStorey26B.i].UnitType == EUnitType.Unit && player.Units.Find(new Predicate<UnitData>(dataCAnonStorey26B.\u003C\u003Em__2CD)) != null))
+          if (dataCAnonStorey372.units[dataCAnonStorey373.i] != null && dataCAnonStorey372.units[dataCAnonStorey373.i].Side == EUnitSide.Player && (dataCAnonStorey372.units[dataCAnonStorey373.i].UnitType == EUnitType.Unit && player.Units.Find(new Predicate<UnitData>(dataCAnonStorey373.\u003C\u003Em__3F7)) != null))
           {
             // ISSUE: reference to a compiler-generated field
             // ISSUE: reference to a compiler-generated field
-            UnitData.CharacterQuestParam charaEpisodeData = dataCAnonStorey26A.units[dataCAnonStorey26B.i].UnitData.GetCurrentCharaEpisodeData();
+            UnitData.CharacterQuestParam charaEpisodeData = dataCAnonStorey372.units[dataCAnonStorey373.i].UnitData.GetCurrentCharaEpisodeData();
             if (charaEpisodeData != null)
             {
               // ISSUE: reference to a compiler-generated field
               // ISSUE: reference to a compiler-generated field
-              this.CharacterQuest.Add(dataCAnonStorey26A.units[dataCAnonStorey26B.i].UnitData.UniqueID, charaEpisodeData);
+              this.CharacterQuest.Add(dataCAnonStorey372.units[dataCAnonStorey373.i].UnitData.UniqueID, charaEpisodeData);
             }
           }
         }

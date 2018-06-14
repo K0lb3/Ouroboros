@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.Event2dAction_StandChara2
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections;
@@ -34,8 +34,8 @@ namespace SRPG
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      Event2dAction_StandChara2.\u003CPreloadAssets\u003Ec__Iterator7C assetsCIterator7C = new Event2dAction_StandChara2.\u003CPreloadAssets\u003Ec__Iterator7C();
-      return (IEnumerator) assetsCIterator7C;
+      Event2dAction_StandChara2.\u003CPreloadAssets\u003Ec__IteratorBA assetsCIteratorBa = new Event2dAction_StandChara2.\u003CPreloadAssets\u003Ec__IteratorBA();
+      return (IEnumerator) assetsCIteratorBa;
     }
 
     public override void PreStart()

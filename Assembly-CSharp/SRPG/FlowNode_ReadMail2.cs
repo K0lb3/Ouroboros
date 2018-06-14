@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_ReadMail2
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -11,7 +11,6 @@ using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.Pin(6, "アイテム引き換え券", FlowNode.PinTypes.Input, 6)]
   [FlowNode.Pin(7, "武具引き換え券", FlowNode.PinTypes.Input, 7)]
   [FlowNode.Pin(0, "開封", FlowNode.PinTypes.Input, 1)]
   [FlowNode.Pin(20, "一件受け取り完了", FlowNode.PinTypes.Output, 20)]
@@ -19,6 +18,7 @@ namespace SRPG
   [FlowNode.Pin(22, "いくつか受け取れなかった", FlowNode.PinTypes.Output, 22)]
   [FlowNode.Pin(23, "何も受け取れなかった", FlowNode.PinTypes.Output, 23)]
   [FlowNode.Pin(5, "ユニット引き換え券", FlowNode.PinTypes.Input, 5)]
+  [FlowNode.Pin(6, "アイテム引き換え券", FlowNode.PinTypes.Input, 6)]
   [FlowNode.NodeType("System/ReadMail2", 32741)]
   public class FlowNode_ReadMail2 : FlowNode_Network
   {
@@ -31,7 +31,7 @@ namespace SRPG
         case 0:
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          FlowNode_ReadMail2.\u003COnActivate\u003Ec__AnonStorey212 activateCAnonStorey212 = new FlowNode_ReadMail2.\u003COnActivate\u003Ec__AnonStorey212();
+          FlowNode_ReadMail2.\u003COnActivate\u003Ec__AnonStorey2D0 activateCAnonStorey2D0 = new FlowNode_ReadMail2.\u003COnActivate\u003Ec__AnonStorey2D0();
           MailWindow.MailReadRequestData dataOfClass = DataSource.FindDataOfClass<MailWindow.MailReadRequestData>(((Component) this).get_gameObject(), (MailWindow.MailReadRequestData) null);
           if (Network.Mode == Network.EConnectMode.Offline)
           {
@@ -42,9 +42,9 @@ namespace SRPG
           List<MailData> currentMails = MonoSingleton<GameManager>.Instance.Player.CurrentMails;
           List<MailData> mailDataList = new List<MailData>();
           // ISSUE: reference to a compiler-generated field
-          activateCAnonStorey212.ids = new List<long>((IEnumerable<long>) dataOfClass.mailIDs);
+          activateCAnonStorey2D0.ids = new List<long>((IEnumerable<long>) dataOfClass.mailIDs);
           // ISSUE: reference to a compiler-generated method
-          List<MailData> all = currentMails.FindAll(new Predicate<MailData>(activateCAnonStorey212.\u003C\u003Em__202));
+          List<MailData> all = currentMails.FindAll(new Predicate<MailData>(activateCAnonStorey2D0.\u003C\u003Em__2B7));
           if (all.Count < 1)
           {
             this.ActivateOutputLinks(21);
@@ -241,7 +241,7 @@ namespace SRPG
           MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.units);
           MonoSingleton<GameManager>.Instance.Player.Deserialize(jsonObject.body.mails);
           if (jsonObject.body.artifacts != null)
-            MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.artifacts, false);
+            MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.artifacts, true);
           this.SetRewardData(jsonObject.body.processed);
           this.TrackGiftAnalytics(jsonObject.body.processed);
         }
@@ -265,9 +265,9 @@ namespace SRPG
         foreach (Json_Gift gift in inObtainedGift.gifts)
         {
           if (gift.coin > 0)
-            AnalyticsManager.TrackCurrencyObtain(AnalyticsManager.CurrencyType.Gem, AnalyticsManager.CurrencySubType.FREE, (long) gift.coin, "Gifts", (Dictionary<string, object>) null);
+            AnalyticsManager.TrackFreePremiumCurrencyObtain((long) gift.coin, "Gifts");
           else if (gift.gold > 0)
-            AnalyticsManager.TrackCurrencyObtain(AnalyticsManager.CurrencyType.Zeni, AnalyticsManager.CurrencySubType.FREE, (long) gift.gold, "Gifts", (Dictionary<string, object>) null);
+            AnalyticsManager.TrackNonPremiumCurrencyObtain(AnalyticsManager.NonPremiumCurrencyType.Zeni, (long) gift.gold, "Gifts", (string) null);
           else if (gift.num > 0 && !string.IsNullOrEmpty(gift.iname))
           {
             Debug.Log((object) (">>>>> others : " + gift.iname + ", amt : " + (object) gift.num));
@@ -283,21 +283,9 @@ namespace SRPG
       if (itemDataByItemId != null)
       {
         if (itemDataByItemId.ItemType == EItemType.Ticket)
-          AnalyticsManager.TrackCurrencyObtain(AnalyticsManager.CurrencyType.SummonTicket, AnalyticsManager.CurrencySubType.FREE, (long) inAmount, "Gifts", new Dictionary<string, object>()
-          {
-            {
-              "ticket_id",
-              (object) inItemName
-            }
-          });
+          AnalyticsManager.TrackNonPremiumCurrencyObtain(AnalyticsManager.NonPremiumCurrencyType.SummonTicket, (long) inAmount, "Gifts", (string) null);
         else
-          AnalyticsManager.TrackCurrencyObtain(AnalyticsManager.CurrencyType.Item, AnalyticsManager.CurrencySubType.FREE, (long) inAmount, "Gifts", new Dictionary<string, object>()
-          {
-            {
-              "item_id",
-              (object) inItemName
-            }
-          });
+          AnalyticsManager.TrackNonPremiumCurrencyObtain(AnalyticsManager.NonPremiumCurrencyType.Item, (long) inAmount, "Gifts", (string) null);
       }
       else
         Debug.LogWarning((object) "We have an unrecognized item ID.");

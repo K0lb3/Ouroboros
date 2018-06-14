@@ -1,20 +1,20 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: FlowNode_GUI
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using SRPG;
 using UnityEngine;
 using UnityEngine.UI;
 
-[FlowNode.Pin(1, "Created", FlowNode.PinTypes.Output, 10)]
-[AddComponentMenu("")]
 [FlowNode.NodeType("GUI", 32741)]
-[FlowNode.Pin(100, "Create", FlowNode.PinTypes.Input, 0)]
 [FlowNode.Pin(101, "Destroy", FlowNode.PinTypes.Input, 1)]
 [FlowNode.Pin(102, "Preload", FlowNode.PinTypes.Input, 2)]
 [FlowNode.Pin(2, "Destroyed", FlowNode.PinTypes.Output, 11)]
+[FlowNode.Pin(1, "Created", FlowNode.PinTypes.Output, 10)]
+[FlowNode.Pin(100, "Create", FlowNode.PinTypes.Input, 0)]
+[AddComponentMenu("")]
 public class FlowNode_GUI : FlowNode_ExternalLink
 {
   [StringIsResourcePath(typeof (GameObject))]
@@ -39,14 +39,14 @@ public class FlowNode_GUI : FlowNode_ExternalLink
   protected override void Awake()
   {
     base.Awake();
-    if (!Object.op_Inequality((Object) this.InstanceRef, (Object) null))
+    if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.InstanceRef, (UnityEngine.Object) null))
       return;
     ((Behaviour) this).set_enabled(true);
   }
 
   protected override void Start()
   {
-    if (!Object.op_Inequality((Object) this.InstanceRef, (Object) null))
+    if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.InstanceRef, (UnityEngine.Object) null))
       return;
     this.mInstance = this.InstanceRef;
     this.BindPins();
@@ -62,19 +62,19 @@ public class FlowNode_GUI : FlowNode_ExternalLink
 
   protected virtual void OnCreatePinActive()
   {
-    if (!Object.op_Equality((Object) this.Instance, (Object) null))
+    if (!UnityEngine.Object.op_Equality((UnityEngine.Object) this.Instance, (UnityEngine.Object) null))
       return;
-    if (!this.LoadImmediately && Object.op_Equality((Object) this.Target, (Object) null))
+    if (!this.LoadImmediately && UnityEngine.Object.op_Equality((UnityEngine.Object) this.Target, (UnityEngine.Object) null))
     {
       this.LoadResource();
       ((Behaviour) this).set_enabled(true);
     }
     else
     {
-      if (Object.op_Equality((Object) this.Target, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.Target, (UnityEngine.Object) null))
       {
         GameObject gameObject = AssetManager.Load<GameObject>(this.ResourcePath);
-        if (Object.op_Equality((Object) gameObject, (Object) null))
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) gameObject, (UnityEngine.Object) null))
         {
           Debug.LogError((object) ("Failed to load '" + this.ResourcePath + "'"));
           return;
@@ -94,12 +94,12 @@ public class FlowNode_GUI : FlowNode_ExternalLink
         this.OnCreatePinActive();
         break;
       case 101:
-        if (Object.op_Inequality((Object) this.mListener, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mListener, (UnityEngine.Object) null))
         {
           this.mListener.Listeners -= new DestroyEventListener.DestroyEvent(this.OnInstanceDestroyTrigger);
           this.mListener = (DestroyEventListener) null;
         }
-        if (Object.op_Inequality((Object) this.Instance, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Instance, (UnityEngine.Object) null))
         {
           ((Behaviour) this).set_enabled(false);
           this.DestroyInstance();
@@ -122,14 +122,14 @@ public class FlowNode_GUI : FlowNode_ExternalLink
 
   protected void OnInstanceDestroyTrigger(GameObject go)
   {
-    if (Object.op_Equality((Object) this.mInstance, (Object) null))
+    if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mInstance, (UnityEngine.Object) null))
       return;
     this.OnActivate(101);
   }
 
   protected override void OnDestroy()
   {
-    if (this.NoAutoDestruct && Object.op_Inequality((Object) this.mListener, (Object) null))
+    if (this.NoAutoDestruct && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mListener, (UnityEngine.Object) null))
     {
       this.mListener.Listeners -= new DestroyEventListener.DestroyEvent(this.OnInstanceDestroyTrigger);
       this.mListener = (DestroyEventListener) null;
@@ -139,7 +139,7 @@ public class FlowNode_GUI : FlowNode_ExternalLink
 
   protected override void OnInstanceDestroy()
   {
-    if (!Object.op_Inequality((Object) this.mListener, (Object) null))
+    if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mListener, (UnityEngine.Object) null))
       return;
     this.mListener.Listeners -= new DestroyEventListener.DestroyEvent(this.OnInstanceDestroyTrigger);
     this.mListener = (DestroyEventListener) null;
@@ -156,7 +156,7 @@ public class FlowNode_GUI : FlowNode_ExternalLink
     {
       if (!this.mResourceRequest.isDone)
         return;
-      if (Object.op_Equality(this.mResourceRequest.asset, (Object) null))
+      if (UnityEngine.Object.op_Equality(this.mResourceRequest.asset, (UnityEngine.Object) null))
       {
         Debug.LogError((object) ("Failed to load '" + this.ResourcePath + "'"));
         ((Behaviour) this).set_enabled(false);
@@ -176,9 +176,9 @@ public class FlowNode_GUI : FlowNode_ExternalLink
   protected override void OnInstanceCreate()
   {
     Canvas canvas = (Canvas) this.Instance.GetComponent<Canvas>();
-    if ((this.Modal || this.SystemModal) && Object.op_Inequality((Object) this.Instance, (Object) null))
+    if ((this.Modal || this.SystemModal) && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Instance, (UnityEngine.Object) null))
     {
-      if (Object.op_Equality((Object) this.Instance.GetComponent<Canvas>(), (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.Instance.GetComponent<Canvas>(), (UnityEngine.Object) null))
       {
         GameObject gameObject = new GameObject("ModalCanvas", new System.Type[5]
         {

@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.JSON_MasterParam
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 namespace SRPG
@@ -33,6 +33,8 @@ namespace SRPG
     public JSON_PlayerParam[] Player;
     public JSON_GrowParam[] Grow;
     public JSON_LocalNotificationParam[] LocalNotification;
+    public JSON_TrophyCategoryParam[] TrophyCategory;
+    public JSON_ChallengeCategoryParam[] ChallengeCategory;
     public JSON_TrophyParam[] Trophy;
     public JSON_TrophyParam[] Challenge;
     public JSON_UnlockParam[] Unlock;
@@ -45,10 +47,15 @@ namespace SRPG
     public JSON_AwardParam[] Award;
     public JSON_LoginInfoParam[] LoginInfo;
     public JSON_CollaboSkillParam[] CollaboSkill;
+    public JSON_TrickParam[] Trick;
+    public JSON_BreakObjParam[] BreakObj;
     public JSON_VersusMatchingParam[] VersusMatchKey;
     public JSON_VersusMatchCondParam[] VersusMatchCond;
     public JSON_TowerScore[] TowerScore;
     public int[] TowerRank;
+    public int[] MultilimitUnitLv;
+    public JSON_FriendPresentItemParam[] FriendPresentItem;
+    public JSON_WeatherParam[] Weather;
     public JSON_InitPlayer[] InitPlayer;
     public JSON_InitUnit[] InitUnit;
     public JSON_InitItem[] InitItem;

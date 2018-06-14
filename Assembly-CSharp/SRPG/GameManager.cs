@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.GameManager
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using Facebook.Unity;
@@ -27,13 +27,13 @@ namespace SRPG
   {
     private static string deviceID = string.Empty;
     private static readonly int SAVE_UPDATE_TROPHY_LIST_ENCODE_KEY = 41213;
-    private static readonly string SAVE_UPDATE_TROPHY_LIST_KEY = "gm_sutlist";
     private PlayerData mPlayer = new PlayerData();
     private OptionData mOption = new OptionData();
     private MasterParam mMasterParam = new MasterParam();
     private List<SectionParam> mWorlds = new List<SectionParam>();
     private List<ChapterParam> mAreas = new List<ChapterParam>();
     private List<QuestParam> mQuests = new List<QuestParam>();
+    private Dictionary<string, QuestParam> mQuestsDict = new Dictionary<string, QuestParam>();
     private List<ObjectiveParam> mObjectives = new List<ObjectiveParam>();
     private List<MagnificationParam> mMagnifications = new List<MagnificationParam>();
     private List<QuestCondParam> mConditions = new List<QuestCondParam>();
@@ -41,6 +41,7 @@ namespace SRPG
     private List<QuestCampaignChildParam> mCampaignChildren = new List<QuestCampaignChildParam>();
     private List<QuestParam> mTowerBaseQuests = new List<QuestParam>();
     private List<TowerFloorParam> mTowerFloors = new List<TowerFloorParam>();
+    private Dictionary<string, TowerFloorParam> mTowerFloorsDict = new Dictionary<string, TowerFloorParam>();
     private List<TowerRewardParam> mTowerRewards = new List<TowerRewardParam>();
     private List<TowerRoundRewardParam> mTowerRoundRewards = new List<TowerRoundRewardParam>();
     private List<TowerParam> mTowers = new List<TowerParam>();
@@ -52,8 +53,20 @@ namespace SRPG
     private List<ChatChannelMasterParam> mChatChannelMasters = new List<ChatChannelMasterParam>();
     private List<AchievementParam> mAchievement = new List<AchievementParam>();
     private List<MultiRanking> mMultiUnitRank = new List<MultiRanking>();
+    private Dictionary<string, RankingData> mUnitRanking = new Dictionary<string, RankingData>();
     private List<VersusTowerParam> mVersusTowerFloor = new List<VersusTowerParam>();
     private VsTowerMatchEndParam mVersusEndParam = new VsTowerMatchEndParam();
+    private List<VersusScheduleParam> mVersusScheduleParam = new List<VersusScheduleParam>();
+    private List<VersusCoinParam> mVersusCoinParam = new List<VersusCoinParam>();
+    private List<VersusFriendScore> mVersusFriendScore = new List<VersusFriendScore>();
+    private List<RankingQuestParam> mRankingQuestParam = new List<RankingQuestParam>();
+    private List<RankingQuestRewardParam> mRankingQuestRewardParam = new List<RankingQuestRewardParam>();
+    private List<RankingQuestScheduleParam> mRankingQuestScheduleParam = new List<RankingQuestScheduleParam>();
+    private List<RankingQuestParam> mAvailableRankingQuesstParams = new List<RankingQuestParam>();
+    private VersusAudienceManager mAudienceManager = new VersusAudienceManager();
+    private List<MultiTowerFloorParam> mMultiTowerFloor = new List<MultiTowerFloorParam>();
+    private List<MultiTowerRewardParam> mMultiTowerRewards = new List<MultiTowerRewardParam>();
+    private MultiTowerRoundParam mMultiTowerRound = new MultiTowerRoundParam();
     public GameManager.DayChangeEvent OnDayChange = (GameManager.DayChangeEvent) (() => {});
     public GameManager.StaminaChangeEvent OnStaminaChange = (GameManager.StaminaChangeEvent) (() => {});
     public GameManager.RankUpCountChangeEvent OnAbilityRankUpCountChange = (GameManager.RankUpCountChangeEvent) (n => {});
@@ -72,8 +85,11 @@ namespace SRPG
     private const float MaxFrameTime = 0.03f;
     private const float MinAnimationFrameTime = 0.001f;
     private const float MaxAnimationFrameTime = 0.006f;
+    private bool mRelogin;
     private List<UnitParam> mBadgeUnitUnlocks;
     private GameObject mNotifyList;
+    private List<SRPG.MapEffectParam> mMapEffectParam;
+    private List<WeatherSetParam> mWeatherSetParam;
     public ReqFgGAuth.eAuthStatus AuthStatus;
     public string FgGAuthHost;
     private string mReloadMasterDataError;
@@ -106,11 +122,12 @@ namespace SRPG
     private List<UnitData> mCharacterQuestUnits;
     private long mLimitedShopEndAt;
     private JSON_ShopListArray.Shops[] mLimitedShopList;
+    private bool mIsLimitedShopOpen;
     private GameManager.VersusRange[] mFreeMatchRange;
 
     private void TutorialOverride()
     {
-      GameSettings.Instance.Tutorial_Steps = new string[54]
+      GameSettings.Instance.Tutorial_Steps = new string[58]
       {
         "tutorial_start",
         "QE_OP_0002",
@@ -119,6 +136,9 @@ namespace SRPG
         "ShowSkillCommand",
         "ShowConfirmCommand",
         "ShowDirectionSelect",
+        "ShowMACommand",
+        "ShowMasterAbility",
+        "ShowConfirmCommand2",
         "QE_OP_0002",
         "op0002exit",
         "QE_OP_0003",
@@ -131,13 +151,14 @@ namespace SRPG
         "ShowShortcutMenu",
         "ShowMissionButton",
         "ShowMilestoneButton",
+        "ShowMissionFilter",
         "ShowCompleteMissionButton",
         "ShowCollectRewardButton",
         "CloseTrophyWindow",
         "ShowSummonButton",
         "ShowFreeGachaButton",
-        "ShowGachaList",
-        "ShowOKButton",
+        "ShowItemResult",
+        "ShowGachaResult",
         "ShowHomeButtonFromGacha",
         "ShowMissionDetailsButton",
         "ShowCollectGachaMissionReward",
@@ -172,6 +193,7 @@ namespace SRPG
     public void SGPostLogin()
     {
       AnalyticsManager.TrackAppLaunch();
+      AnalyticsManager.SetPlayerIsPaying(MonoSingleton<GameManager>.Instance.Player.PlayerPaidAmount > 0);
       VideoAdManager.Init();
       if (FB.get_IsInitialized())
         return;
@@ -320,7 +342,7 @@ namespace SRPG
         {
           if (trophy != null && !(trophy.iname != "CHALLENGE_01_07"))
           {
-            TrophyState trophyCounter = this.mPlayer.GetTrophyCounter(trophy);
+            TrophyState trophyCounter = this.mPlayer.GetTrophyCounter(trophy, false);
             if (trophyCounter.IsCompleted && trophyCounter.RewardedAt != DateTime.MinValue)
             {
               this.SetTutorialStep("ShowStartTutorialUnitsDialog");
@@ -335,7 +357,7 @@ namespace SRPG
         {
           if (!(trophy.iname != "CHALLENGE_01_07"))
           {
-            TrophyState trophyCounter = this.mPlayer.GetTrophyCounter(trophy);
+            TrophyState trophyCounter = this.mPlayer.GetTrophyCounter(trophy, false);
             if (trophyCounter.IsCompleted && trophyCounter.RewardedAt == DateTime.MinValue)
             {
               this.SetTutorialStep("ShowMissionDetailsButton");
@@ -344,13 +366,13 @@ namespace SRPG
           }
         }
       }
-      if (flag || this.mPlayer.TrophyStates == null)
+      if (flag || this.Trophies == null)
         return;
-      foreach (TrophyState trophyState in this.mPlayer.TrophyStates)
+      foreach (TrophyParam trophy in this.Trophies)
       {
-        if (!(trophyState.iname != "LOGIN_GLTUTOTIAL_01"))
+        if (trophy != null && !(trophy.iname != "LOGIN_GLTUTOTIAL_01"))
         {
-          if (trophyState.RewardedAt == DateTime.MinValue)
+          if (this.mPlayer.GetTrophyCounter(trophy, false).RewardedAt == DateTime.MinValue)
             break;
           this.SetTutorialStep("ShowSummonButton");
           break;
@@ -403,7 +425,10 @@ namespace SRPG
       this.mWorlds.Clear();
       this.mAreas.Clear();
       this.mObjectives.Clear();
+      this.mMagnifications.Clear();
+      this.mConditions.Clear();
       this.mQuests.Clear();
+      this.mQuestsDict.Clear();
       this.mMagnifications.Clear();
       this.mConditions.Clear();
       this.mCampaignParents.Clear();
@@ -411,6 +436,17 @@ namespace SRPG
       this.mTowerRewards.Clear();
       this.mTowerBaseQuests.Clear();
       this.mVersusTowerFloor.Clear();
+      this.mTowerFloors.Clear();
+      this.mTowerFloorsDict.Clear();
+      this.mVersusScheduleParam.Clear();
+      this.mVersusCoinParam.Clear();
+      this.mMultiTowerFloor.Clear();
+      this.mMultiTowerRewards.Clear();
+      this.mRankingQuestParam.Clear();
+      this.mRankingQuestRewardParam.Clear();
+      this.mRankingQuestScheduleParam.Clear();
+      this.mAvailableRankingQuesstParams.Clear();
+      DebugUtility.Verify((object) json, typeof (Json_QuestList));
       for (int index = 0; index < json.worlds.Length; ++index)
       {
         SectionParam sectionParam = new SectionParam();
@@ -431,7 +467,11 @@ namespace SRPG
         {
           ChapterParam area = this.FindArea(json.areas[index].iname);
           if (area != null)
+          {
             area.parent = this.FindArea(json.areas[index].parent);
+            if (area.parent != null)
+              area.parent.children.Add(area);
+          }
         }
       }
       for (int index = 0; index < json.objectives.Length; ++index)
@@ -463,6 +503,7 @@ namespace SRPG
         QuestParam questParam = new QuestParam();
         questParam.Deserialize(language, json.quests[index]);
         this.mQuests.Add(questParam);
+        this.mQuestsDict.Add(questParam.iname, questParam);
         if (!string.IsNullOrEmpty(questParam.ChapterID))
         {
           questParam.Chapter = this.FindArea(questParam.ChapterID);
@@ -533,6 +574,7 @@ namespace SRPG
           TowerFloorParam towerFloorParam = new TowerFloorParam();
           towerFloorParam.Deserialize(language, json.towerFloors[index]);
           this.mTowerFloors.Add(towerFloorParam);
+          this.mTowerFloorsDict.Add(towerFloorParam.iname, towerFloorParam);
         }
       }
       if (json.towers != null)
@@ -544,14 +586,108 @@ namespace SRPG
           this.mTowers.Add(towerParam);
         }
       }
-      if (json.versusTowerFloor == null)
-        return;
-      this.mVersusTowerFloor = new List<VersusTowerParam>(json.versusTowerFloor.Length);
-      for (int index = 0; index < json.versusTowerFloor.Length; ++index)
+      if (json.versusTowerFloor != null)
       {
-        VersusTowerParam versusTowerParam = new VersusTowerParam();
-        versusTowerParam.Deserialize(json.versusTowerFloor[index]);
-        this.mVersusTowerFloor.Add(versusTowerParam);
+        this.mVersusTowerFloor = new List<VersusTowerParam>(json.versusTowerFloor.Length);
+        for (int index = 0; index < json.versusTowerFloor.Length; ++index)
+        {
+          VersusTowerParam versusTowerParam = new VersusTowerParam();
+          versusTowerParam.Deserialize(json.versusTowerFloor[index]);
+          this.mVersusTowerFloor.Add(versusTowerParam);
+        }
+      }
+      if (json.versusschedule != null)
+      {
+        this.mVersusScheduleParam = new List<VersusScheduleParam>(json.versusschedule.Length);
+        for (int index = 0; index < json.versusschedule.Length; ++index)
+        {
+          VersusScheduleParam versusScheduleParam = new VersusScheduleParam();
+          versusScheduleParam.Deserialize(json.versusschedule[index]);
+          this.mVersusScheduleParam.Add(versusScheduleParam);
+        }
+      }
+      if (json.versuscoin != null)
+      {
+        this.mVersusCoinParam = new List<VersusCoinParam>(json.versuscoin.Length);
+        for (int index = 0; index < json.versuscoin.Length; ++index)
+        {
+          VersusCoinParam versusCoinParam = new VersusCoinParam();
+          versusCoinParam.Deserialize(json.versuscoin[index]);
+          this.mVersusCoinParam.Add(versusCoinParam);
+        }
+      }
+      if (json.multitowerFloor != null)
+      {
+        this.mMultiTowerFloor = new List<MultiTowerFloorParam>(json.multitowerFloor.Length);
+        for (int index = 0; index < json.multitowerFloor.Length; ++index)
+        {
+          MultiTowerFloorParam multiTowerFloorParam = new MultiTowerFloorParam();
+          multiTowerFloorParam.Deserialize(language, json.multitowerFloor[index]);
+          this.mMultiTowerFloor.Add(multiTowerFloorParam);
+        }
+      }
+      if (json.multitowerRewards != null)
+      {
+        for (int index = 0; index < json.multitowerRewards.Length; ++index)
+        {
+          MultiTowerRewardParam towerRewardParam = new MultiTowerRewardParam();
+          towerRewardParam.Deserialize(json.multitowerRewards[index]);
+          this.mMultiTowerRewards.Add(towerRewardParam);
+        }
+      }
+      if (json.MapEffect != null)
+      {
+        List<SRPG.MapEffectParam> mapEffectParamList = new List<SRPG.MapEffectParam>(json.MapEffect.Length);
+        for (int index = 0; index < json.MapEffect.Length; ++index)
+        {
+          SRPG.MapEffectParam mapEffectParam = new SRPG.MapEffectParam();
+          mapEffectParam.Deserialize(language, json.MapEffect[index]);
+          mapEffectParamList.Add(mapEffectParam);
+        }
+        this.mMapEffectParam = mapEffectParamList;
+        this.mMasterParam.MakeMapEffectHaveJobLists();
+      }
+      if (json.WeatherSet != null)
+      {
+        List<WeatherSetParam> weatherSetParamList = new List<WeatherSetParam>(json.WeatherSet.Length);
+        for (int index = 0; index < json.WeatherSet.Length; ++index)
+        {
+          WeatherSetParam weatherSetParam = new WeatherSetParam();
+          weatherSetParam.Deserialize(language, json.WeatherSet[index]);
+          weatherSetParamList.Add(weatherSetParam);
+        }
+        this.mWeatherSetParam = weatherSetParamList;
+      }
+      if (json.rankingQuestSchedule != null)
+      {
+        this.mRankingQuestScheduleParam = new List<RankingQuestScheduleParam>(json.rankingQuestSchedule.Length);
+        for (int index = 0; index < json.rankingQuestSchedule.Length; ++index)
+        {
+          RankingQuestScheduleParam questScheduleParam = new RankingQuestScheduleParam();
+          questScheduleParam.Deserialize(json.rankingQuestSchedule[index]);
+          this.mRankingQuestScheduleParam.Add(questScheduleParam);
+        }
+      }
+      if (json.rankingQuestRewards != null)
+      {
+        this.mRankingQuestRewardParam = new List<RankingQuestRewardParam>(json.rankingQuestRewards.Length);
+        for (int index = 0; index < json.rankingQuestRewards.Length; ++index)
+        {
+          RankingQuestRewardParam questRewardParam = new RankingQuestRewardParam();
+          questRewardParam.Deserialize(json.rankingQuestRewards[index]);
+          this.mRankingQuestRewardParam.Add(questRewardParam);
+        }
+      }
+      if (json.rankingQuests == null)
+        return;
+      this.mRankingQuestParam = new List<RankingQuestParam>(json.rankingQuests.Length);
+      for (int index = 0; index < json.rankingQuests.Length; ++index)
+      {
+        RankingQuestParam rankingQuestParam = new RankingQuestParam();
+        rankingQuestParam.Deserialize(json.rankingQuests[index]);
+        rankingQuestParam.rewardParam = RankingQuestRewardParam.FindByID(rankingQuestParam.reward_id);
+        rankingQuestParam.scheduleParam = RankingQuestScheduleParam.FindByID(rankingQuestParam.schedule_id);
+        this.mRankingQuestParam.Add(rankingQuestParam);
       }
     }
 
@@ -614,6 +750,18 @@ namespace SRPG
       }
     }
 
+    public bool IsRelogin
+    {
+      get
+      {
+        return this.mRelogin;
+      }
+      set
+      {
+        this.mRelogin = value;
+      }
+    }
+
     private string AgreedVer
     {
       get
@@ -634,35 +782,97 @@ namespace SRPG
 
     public long VersusTowerMatchEndAt { get; set; }
 
+    public int VersusCoinRemainCnt { get; set; }
+
+    public string VersusLastUid { get; set; }
+
     public string DigestHash { get; set; }
 
     public string PrevCheckHash { get; set; }
 
     public string AlterCheckHash { get; set; }
 
+    public List<SRPG.MapEffectParam> MapEffectParam
+    {
+      get
+      {
+        return this.mMapEffectParam;
+      }
+    }
+
+    public List<RankingQuestParam> RankingQuestParams
+    {
+      get
+      {
+        return this.mRankingQuestParam;
+      }
+    }
+
+    public List<RankingQuestRewardParam> RankingQuestRewardParams
+    {
+      get
+      {
+        return this.mRankingQuestRewardParam;
+      }
+    }
+
+    public List<RankingQuestScheduleParam> RankingQuestScheduleParams
+    {
+      get
+      {
+        return this.mRankingQuestScheduleParam;
+      }
+    }
+
+    public List<RankingQuestParam> AvailableRankingQuesstParams
+    {
+      get
+      {
+        return this.mAvailableRankingQuesstParams;
+      }
+    }
+
+    public bool AudienceMode { get; set; }
+
+    public MyPhoton.MyRoom AudienceRoom { get; set; }
+
+    public VersusAudienceManager AudienceManager
+    {
+      get
+      {
+        return this.mAudienceManager;
+      }
+    }
+
     protected override void Release()
     {
       GlobalEvent.RemoveListener("TOU_AGREE", new GlobalEvent.Delegate(this.OnAgreeTermsOfUse));
       SceneAwakeObserver.ClearListeners();
       CriticalSection.ForceReset();
+      ButtonEvent.Reset();
       CharacterDB.UnloadAll();
       AssetManager.UnloadAll();
       AssetDownloader.Reset();
       SkillSequence.UnloadAll();
       HomeWindow.SetRestorePoint(RestorePoints.Home);
-      if (Object.op_Inequality((Object) MonoSingleton<MySound>.GetInstanceDirect(), (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) MonoSingleton<MySound>.GetInstanceDirect(), (UnityEngine.Object) null))
         MonoSingleton<MySound>.Instance.StopBGM();
-      if (!Object.op_Inequality((Object) this.mNotifyList, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mNotifyList, (UnityEngine.Object) null))
         return;
       GameUtility.DestroyGameObject(this.mNotifyList);
       this.mNotifyList = (GameObject) null;
     }
 
+    public void ResetData()
+    {
+      this.Release();
+    }
+
     public void InitNotifyList(GameObject notifyListTemplate)
     {
-      if (Object.op_Equality((Object) notifyListTemplate, (Object) null) || !Object.op_Equality((Object) this.mNotifyList, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) notifyListTemplate, (UnityEngine.Object) null) || !UnityEngine.Object.op_Equality((UnityEngine.Object) this.mNotifyList, (UnityEngine.Object) null))
         return;
-      this.mNotifyList = (GameObject) Object.Instantiate<GameObject>((M0) notifyListTemplate);
+      this.mNotifyList = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) notifyListTemplate);
     }
 
     public SectionParam FindWorld(string iname)
@@ -687,16 +897,14 @@ namespace SRPG
 
     public QuestParam FindQuest(string iname)
     {
-      for (int index = this.mQuests.Count - 1; index >= 0; --index)
-      {
-        if (this.mQuests[index].iname == iname)
-          return this.mQuests[index];
-      }
-      for (int index = this.mTowerFloors.Count - 1; index >= 0; --index)
-      {
-        if (this.mTowerFloors[index].iname == iname)
-          return this.mTowerFloors[index].Clone((QuestParam) null, true);
-      }
+      if (string.IsNullOrEmpty(iname))
+        return (QuestParam) null;
+      QuestParam questParam;
+      if (this.mQuestsDict.TryGetValue(iname, out questParam))
+        return questParam;
+      TowerFloorParam towerFloor = this.FindTowerFloor(iname);
+      if (towerFloor != null)
+        return towerFloor.Clone((QuestParam) null, true);
       return (QuestParam) null;
     }
 
@@ -760,18 +968,18 @@ namespace SRPG
                 QuestCampaignData[] questCampaignDataArray = current.MakeData();
                 // ISSUE: object of a compiler-generated type is created
                 // ISSUE: variable of a compiler-generated type
-                GameManager.\u003CFindQuestCampaigns\u003Ec__AnonStorey174 campaignsCAnonStorey174 = new GameManager.\u003CFindQuestCampaigns\u003Ec__AnonStorey174();
+                GameManager.\u003CFindQuestCampaigns\u003Ec__AnonStorey1F7 campaignsCAnonStorey1F7 = new GameManager.\u003CFindQuestCampaigns\u003Ec__AnonStorey1F7();
                 foreach (QuestCampaignData questCampaignData1 in questCampaignDataArray)
                 {
                   // ISSUE: reference to a compiler-generated field
-                  campaignsCAnonStorey174.d = questCampaignData1;
+                  campaignsCAnonStorey1F7.d = questCampaignData1;
                   // ISSUE: reference to a compiler-generated method
-                  QuestCampaignData questCampaignData2 = questCampaignDataList.Find(new Predicate<QuestCampaignData>(campaignsCAnonStorey174.\u003C\u003Em__108));
+                  QuestCampaignData questCampaignData2 = questCampaignDataList.Find(new Predicate<QuestCampaignData>(campaignsCAnonStorey1F7.\u003C\u003Em__164));
                   // ISSUE: reference to a compiler-generated field
-                  if (questCampaignData2 == null || questCampaignData2.type == QuestCampaignValueTypes.ExpUnit && !(questCampaignData2.unit == campaignsCAnonStorey174.d.unit))
+                  if (questCampaignData2 == null || questCampaignData2.type == QuestCampaignValueTypes.ExpUnit && !(questCampaignData2.unit == campaignsCAnonStorey1F7.d.unit))
                   {
                     // ISSUE: reference to a compiler-generated field
-                    questCampaignDataList.Add(campaignsCAnonStorey174.d);
+                    questCampaignDataList.Add(campaignsCAnonStorey1F7.d);
                   }
                 }
                 break;
@@ -797,18 +1005,18 @@ namespace SRPG
             QuestCampaignData[] questCampaignDataArray = mCampaignChild.MakeData();
             // ISSUE: object of a compiler-generated type is created
             // ISSUE: variable of a compiler-generated type
-            GameManager.\u003CFindQuestCampaigns\u003Ec__AnonStorey175 campaignsCAnonStorey175 = new GameManager.\u003CFindQuestCampaigns\u003Ec__AnonStorey175();
+            GameManager.\u003CFindQuestCampaigns\u003Ec__AnonStorey1F8 campaignsCAnonStorey1F8 = new GameManager.\u003CFindQuestCampaigns\u003Ec__AnonStorey1F8();
             foreach (QuestCampaignData questCampaignData1 in questCampaignDataArray)
             {
               // ISSUE: reference to a compiler-generated field
-              campaignsCAnonStorey175.d = questCampaignData1;
+              campaignsCAnonStorey1F8.d = questCampaignData1;
               // ISSUE: reference to a compiler-generated method
-              QuestCampaignData questCampaignData2 = questCampaignDataList.Find(new Predicate<QuestCampaignData>(campaignsCAnonStorey175.\u003C\u003Em__109));
+              QuestCampaignData questCampaignData2 = questCampaignDataList.Find(new Predicate<QuestCampaignData>(campaignsCAnonStorey1F8.\u003C\u003Em__165));
               // ISSUE: reference to a compiler-generated field
-              if (questCampaignData2 == null || questCampaignData2.type == QuestCampaignValueTypes.ExpUnit && !(questCampaignData2.unit == campaignsCAnonStorey175.d.unit))
+              if (questCampaignData2 == null || questCampaignData2.type == QuestCampaignValueTypes.ExpUnit && !(questCampaignData2.unit == campaignsCAnonStorey1F8.d.unit))
               {
                 // ISSUE: reference to a compiler-generated field
-                questCampaignDataList.Add(campaignsCAnonStorey175.d);
+                questCampaignDataList.Add(campaignsCAnonStorey1F8.d);
               }
             }
           }
@@ -832,14 +1040,11 @@ namespace SRPG
 
     public TowerFloorParam FindTowerFloor(string iname)
     {
-      if (this.mTowerFloors != null)
-      {
-        for (int index = this.mTowerFloors.Count - 1; index >= 0; --index)
-        {
-          if (this.mTowerFloors[index].iname == iname)
-            return this.mTowerFloors[index];
-        }
-      }
+      if (string.IsNullOrEmpty(iname))
+        return (TowerFloorParam) null;
+      TowerFloorParam towerFloorParam;
+      if (this.mTowerFloorsDict.TryGetValue(iname, out towerFloorParam))
+        return towerFloorParam;
       return (TowerFloorParam) null;
     }
 
@@ -946,7 +1151,7 @@ namespace SRPG
       return questParamList;
     }
 
-    public TOWER_RANK CalcTowerRank(bool isNow = true)
+    public int CalcTowerScore(bool isNow = true)
     {
       TowerResuponse towerResuponse = this.TowerResuponse;
       int num1 = 0;
@@ -955,9 +1160,7 @@ namespace SRPG
       int num4 = !isNow ? towerResuponse.ret_score : towerResuponse.retire_num;
       int num5 = !isNow ? towerResuponse.rcv_score : towerResuponse.recover_num;
       int num6 = 0;
-      TOWER_RANK towerRank1 = TOWER_RANK.E_MINUS;
       TowerScoreParam[] towerScore = this.mMasterParam.TowerScore;
-      OInt[] towerRank2 = this.mMasterParam.TowerRank;
       for (int index = 0; index < towerScore.Length; ++index)
       {
         if (num2 <= (int) towerScore[index].TurnCnt && (num6 & 1) == 0)
@@ -986,10 +1189,17 @@ namespace SRPG
         if ((num6 & 1 << index) == 0)
           num1 += (int) towerScore[towerScore.Length - 1].Score;
       }
-      int num7 = num1 / 4;
+      return num1 / 4;
+    }
+
+    public TOWER_RANK CalcTowerRank(bool isNow = true)
+    {
+      int num = this.CalcTowerScore(isNow);
+      TOWER_RANK towerRank1 = TOWER_RANK.E_MINUS;
+      OInt[] towerRank2 = this.mMasterParam.TowerRank;
       for (int index = 0; index < towerRank2.Length; ++index)
       {
-        if (num7 <= (int) towerRank2[index])
+        if (num <= (int) towerRank2[index])
         {
           towerRank1 = (TOWER_RANK) index;
           break;
@@ -1203,15 +1413,25 @@ label_12:
       }
     }
 
+    public VersusFriendScore[] VersusFriendInfo
+    {
+      get
+      {
+        return this.mVersusFriendScore.ToArray();
+      }
+    }
+
     protected override void Initialize()
     {
       this.OnDayChange += new GameManager.DayChangeEvent(this.DayChanged);
       GlobalEvent.AddListener("TOU_AGREE", new GlobalEvent.Delegate(this.OnAgreeTermsOfUse));
-      Object.DontDestroyOnLoad((Object) this);
+      UnityEngine.Object.DontDestroyOnLoad((UnityEngine.Object) this);
     }
 
     public bool ReloadMasterData(string masterParam = null, string questParam = null)
     {
+      if (this.IsRelogin)
+        return true;
       try
       {
         if (masterParam == null)
@@ -1254,7 +1474,9 @@ label_12:
 
     private void Start()
     {
+      this.UpdateResolution();
       LogMonitor.Start();
+      DebugMenu.Start();
     }
 
     public bool Deserialize(JSON_MasterParam json)
@@ -1345,6 +1567,16 @@ label_12:
       this.mPlayer.Deserialize(json);
     }
 
+    public void Deserialize(FriendPresentWishList.Json[] json)
+    {
+      this.mPlayer.Deserialize(json);
+    }
+
+    public void Deserialize(FriendPresentReceiveList.Json[] json)
+    {
+      this.mPlayer.Deserialize(json);
+    }
+
     public void Deserialize(Json_Notify json)
     {
       if (json == null)
@@ -1367,6 +1599,7 @@ label_12:
       this.mMagnifications.Clear();
       this.mConditions.Clear();
       this.mQuests.Clear();
+      this.mQuestsDict.Clear();
       this.mMagnifications.Clear();
       this.mConditions.Clear();
       this.mCampaignParents.Clear();
@@ -1374,6 +1607,16 @@ label_12:
       this.mTowerRewards.Clear();
       this.mTowerBaseQuests.Clear();
       this.mVersusTowerFloor.Clear();
+      this.mTowerFloors.Clear();
+      this.mTowerFloorsDict.Clear();
+      this.mVersusScheduleParam.Clear();
+      this.mVersusCoinParam.Clear();
+      this.mMultiTowerFloor.Clear();
+      this.mMultiTowerRewards.Clear();
+      this.mRankingQuestParam.Clear();
+      this.mRankingQuestRewardParam.Clear();
+      this.mRankingQuestScheduleParam.Clear();
+      this.mAvailableRankingQuesstParams.Clear();
       DebugUtility.Verify((object) json, typeof (Json_QuestList));
       for (int index = 0; index < json.worlds.Length; ++index)
       {
@@ -1395,7 +1638,11 @@ label_12:
         {
           ChapterParam area = this.FindArea(json.areas[index].iname);
           if (area != null)
+          {
             area.parent = this.FindArea(json.areas[index].parent);
+            if (area.parent != null)
+              area.parent.children.Add(area);
+          }
         }
       }
       for (int index = 0; index < json.objectives.Length; ++index)
@@ -1427,6 +1674,7 @@ label_12:
         QuestParam questParam = new QuestParam();
         questParam.Deserialize(json.quests[index]);
         this.mQuests.Add(questParam);
+        this.mQuestsDict.Add(questParam.iname, questParam);
         if (!string.IsNullOrEmpty(questParam.ChapterID))
         {
           questParam.Chapter = this.FindArea(questParam.ChapterID);
@@ -1497,6 +1745,7 @@ label_12:
           TowerFloorParam towerFloorParam = new TowerFloorParam();
           towerFloorParam.Deserialize(json.towerFloors[index]);
           this.mTowerFloors.Add(towerFloorParam);
+          this.mTowerFloorsDict.Add(towerFloorParam.iname, towerFloorParam);
         }
       }
       if (json.towers != null)
@@ -1508,14 +1757,108 @@ label_12:
           this.mTowers.Add(towerParam);
         }
       }
-      if (json.versusTowerFloor == null)
-        return;
-      this.mVersusTowerFloor = new List<VersusTowerParam>(json.versusTowerFloor.Length);
-      for (int index = 0; index < json.versusTowerFloor.Length; ++index)
+      if (json.versusTowerFloor != null)
       {
-        VersusTowerParam versusTowerParam = new VersusTowerParam();
-        versusTowerParam.Deserialize(json.versusTowerFloor[index]);
-        this.mVersusTowerFloor.Add(versusTowerParam);
+        this.mVersusTowerFloor = new List<VersusTowerParam>(json.versusTowerFloor.Length);
+        for (int index = 0; index < json.versusTowerFloor.Length; ++index)
+        {
+          VersusTowerParam versusTowerParam = new VersusTowerParam();
+          versusTowerParam.Deserialize(json.versusTowerFloor[index]);
+          this.mVersusTowerFloor.Add(versusTowerParam);
+        }
+      }
+      if (json.versusschedule != null)
+      {
+        this.mVersusScheduleParam = new List<VersusScheduleParam>(json.versusschedule.Length);
+        for (int index = 0; index < json.versusschedule.Length; ++index)
+        {
+          VersusScheduleParam versusScheduleParam = new VersusScheduleParam();
+          versusScheduleParam.Deserialize(json.versusschedule[index]);
+          this.mVersusScheduleParam.Add(versusScheduleParam);
+        }
+      }
+      if (json.versuscoin != null)
+      {
+        this.mVersusCoinParam = new List<VersusCoinParam>(json.versuscoin.Length);
+        for (int index = 0; index < json.versuscoin.Length; ++index)
+        {
+          VersusCoinParam versusCoinParam = new VersusCoinParam();
+          versusCoinParam.Deserialize(json.versuscoin[index]);
+          this.mVersusCoinParam.Add(versusCoinParam);
+        }
+      }
+      if (json.multitowerFloor != null)
+      {
+        this.mMultiTowerFloor = new List<MultiTowerFloorParam>(json.multitowerFloor.Length);
+        for (int index = 0; index < json.multitowerFloor.Length; ++index)
+        {
+          MultiTowerFloorParam multiTowerFloorParam = new MultiTowerFloorParam();
+          multiTowerFloorParam.Deserialize(json.multitowerFloor[index]);
+          this.mMultiTowerFloor.Add(multiTowerFloorParam);
+        }
+      }
+      if (json.multitowerRewards != null)
+      {
+        for (int index = 0; index < json.multitowerRewards.Length; ++index)
+        {
+          MultiTowerRewardParam towerRewardParam = new MultiTowerRewardParam();
+          towerRewardParam.Deserialize(json.multitowerRewards[index]);
+          this.mMultiTowerRewards.Add(towerRewardParam);
+        }
+      }
+      if (json.MapEffect != null)
+      {
+        List<SRPG.MapEffectParam> mapEffectParamList = new List<SRPG.MapEffectParam>(json.MapEffect.Length);
+        for (int index = 0; index < json.MapEffect.Length; ++index)
+        {
+          SRPG.MapEffectParam mapEffectParam = new SRPG.MapEffectParam();
+          mapEffectParam.Deserialize(json.MapEffect[index]);
+          mapEffectParamList.Add(mapEffectParam);
+        }
+        this.mMapEffectParam = mapEffectParamList;
+        this.mMasterParam.MakeMapEffectHaveJobLists();
+      }
+      if (json.WeatherSet != null)
+      {
+        List<WeatherSetParam> weatherSetParamList = new List<WeatherSetParam>(json.WeatherSet.Length);
+        for (int index = 0; index < json.WeatherSet.Length; ++index)
+        {
+          WeatherSetParam weatherSetParam = new WeatherSetParam();
+          weatherSetParam.Deserialize(json.WeatherSet[index]);
+          weatherSetParamList.Add(weatherSetParam);
+        }
+        this.mWeatherSetParam = weatherSetParamList;
+      }
+      if (json.rankingQuestSchedule != null)
+      {
+        this.mRankingQuestScheduleParam = new List<RankingQuestScheduleParam>(json.rankingQuestSchedule.Length);
+        for (int index = 0; index < json.rankingQuestSchedule.Length; ++index)
+        {
+          RankingQuestScheduleParam questScheduleParam = new RankingQuestScheduleParam();
+          questScheduleParam.Deserialize(json.rankingQuestSchedule[index]);
+          this.mRankingQuestScheduleParam.Add(questScheduleParam);
+        }
+      }
+      if (json.rankingQuestRewards != null)
+      {
+        this.mRankingQuestRewardParam = new List<RankingQuestRewardParam>(json.rankingQuestRewards.Length);
+        for (int index = 0; index < json.rankingQuestRewards.Length; ++index)
+        {
+          RankingQuestRewardParam questRewardParam = new RankingQuestRewardParam();
+          questRewardParam.Deserialize(json.rankingQuestRewards[index]);
+          this.mRankingQuestRewardParam.Add(questRewardParam);
+        }
+      }
+      if (json.rankingQuests == null)
+        return;
+      this.mRankingQuestParam = new List<RankingQuestParam>(json.rankingQuests.Length);
+      for (int index = 0; index < json.rankingQuests.Length; ++index)
+      {
+        RankingQuestParam rankingQuestParam = new RankingQuestParam();
+        rankingQuestParam.Deserialize(json.rankingQuests[index]);
+        rankingQuestParam.rewardParam = RankingQuestRewardParam.FindByID(rankingQuestParam.reward_id);
+        rankingQuestParam.scheduleParam = RankingQuestScheduleParam.FindByID(rankingQuestParam.schedule_id);
+        this.mRankingQuestParam.Add(rankingQuestParam);
       }
     }
 
@@ -1528,16 +1871,39 @@ label_12:
       return true;
     }
 
-    public void ResetJigenQuests()
+    public void ResetJigenQuests(bool resetKeyQuest = false)
     {
       for (int index = 0; index < this.mQuests.Count; ++index)
       {
-        if (this.mQuests[index].hidden)
+        this.mQuests[index].start = 0L;
+        this.mQuests[index].end = 0L;
+        if (this.mQuests[index].IsKeyQuest && resetKeyQuest)
+          this.mQuests[index].Chapter.key_end = 0L;
+        this.mQuests[index].gps_enable = false;
+      }
+    }
+
+    public void ResetGpsQuests()
+    {
+      for (int index = 0; index < this.mQuests.Count; ++index)
+        this.mQuests[index].gps_enable = false;
+    }
+
+    public bool DeserializeGps(JSON_QuestProgress[] jsons)
+    {
+      if (jsons == null)
+        return false;
+      for (int index = 0; index < jsons.Length; ++index)
+      {
+        JSON_QuestProgress json = jsons[index];
+        if (json != null)
         {
-          this.mQuests[index].start = 0L;
-          this.mQuests[index].end = 0L;
+          QuestParam quest = this.FindQuest(json.i);
+          if (quest != null && quest.IsGps)
+            quest.gps_enable = true;
         }
       }
+      return true;
     }
 
     public bool Deserialize(JSON_QuestProgress[] json)
@@ -1560,7 +1926,7 @@ label_12:
       if (quest == null)
         return true;
       OInt m = (OInt) json.m;
-      quest.clear_missions = m;
+      quest.clear_missions = (int) m;
       quest.state = (QuestStates) json.t;
       quest.start = json.s;
       quest.end = json.e;
@@ -1571,12 +1937,12 @@ label_12:
         quest.Chapter.start = quest.Chapter.start > 0L ? Math.Min(quest.Chapter.start, json.s) : json.s;
         quest.Chapter.end = Math.Max(quest.Chapter.end, json.e);
         if (quest.Chapter.IsKeyQuest())
-          quest.Chapter.key_end = Math.Max(quest.Chapter.key_end, json.n);
+          quest.Chapter.key_end = json.e != 0L ? Math.Max(quest.Chapter.key_end, Math.Min(json.e, json.n)) : Math.Max(quest.Chapter.key_end, json.n);
       }
       if (json.d != null)
       {
-        quest.dailyCount = (OInt) json.d.num;
-        quest.dailyReset = (OInt) json.d.reset;
+        quest.dailyCount = CheckCast.to_short(json.d.num);
+        quest.dailyReset = CheckCast.to_short(json.d.reset);
       }
       return true;
     }
@@ -1603,7 +1969,7 @@ label_12:
       this.mPlayer.Deserialize(json.mails);
       if (json.artifacts == null)
         return;
-      this.mPlayer.Deserialize(json.artifacts, false);
+      this.mPlayer.Deserialize(json.artifacts, true);
     }
 
     public void Deserialize(Json_GoogleReview json)
@@ -1705,6 +2071,23 @@ label_12:
       return true;
     }
 
+    public bool Deserialize(Json_VersusFriendScore[] json)
+    {
+      if (json == null || this.mVersusFriendScore == null)
+        return false;
+      this.mVersusFriendScore.Clear();
+      for (int index = 0; index < json.Length; ++index)
+      {
+        VersusFriendScore versusFriendScore = new VersusFriendScore();
+        versusFriendScore.floor = json[index].floor;
+        versusFriendScore.name = json[index].name;
+        versusFriendScore.unit = new UnitData();
+        versusFriendScore.unit.Deserialize(json[index].unit);
+        this.mVersusFriendScore.Add(versusFriendScore);
+      }
+      return true;
+    }
+
     public bool SetVersusWinCount(int wincnt)
     {
       PlayerData player = this.Player;
@@ -1727,6 +2110,11 @@ label_12:
     public VsTowerMatchEndParam GetVsTowerMatchEndParam()
     {
       return this.mVersusEndParam;
+    }
+
+    public void SetAvailableRankingQuestParams(List<RankingQuestParam> value)
+    {
+      this.mAvailableRankingQuesstParams = value;
     }
 
     public UnitParam GetUnitParam(string key)
@@ -1873,6 +2261,12 @@ label_12:
 
     public void SaveAuth(string device_id)
     {
+      this.mMyGuid.SaveAuth(31221512, this.SecretKey, device_id, this.UdId);
+    }
+
+    public void SaveAuthWithKey(string device_id, string secretKey)
+    {
+      this.mMyGuid.SetSecretKey(secretKey);
       this.mMyGuid.SaveAuth(31221512, this.SecretKey, device_id, this.UdId);
     }
 
@@ -2041,14 +2435,14 @@ label_12:
     private IEnumerator UpdateUnitsBadges()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new GameManager.\u003CUpdateUnitsBadges\u003Ec__Iterator25() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new GameManager.\u003CUpdateUnitsBadges\u003Ec__Iterator45() { \u003C\u003Ef__this = this };
     }
 
     [DebuggerHidden]
     private IEnumerator UpdateUnitUnlockBadges()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new GameManager.\u003CUpdateUnitUnlockBadges\u003Ec__Iterator26() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new GameManager.\u003CUpdateUnitUnlockBadges\u003Ec__Iterator46() { \u003C\u003Ef__this = this };
     }
 
     public bool CheckEnableUnitUnlock(UnitParam unit)
@@ -2139,7 +2533,6 @@ label_12:
 
     private void Update()
     {
-      this.UpdateResolution();
       if (this.mHasLoggedIn)
       {
         DateTime serverTime = TimeManager.ServerTime;
@@ -2167,6 +2560,8 @@ label_12:
           this.OnPlayerCurrencyChange();
         }
         this.UpdateTrophy();
+        if (this.mAudienceManager != null)
+          this.mAudienceManager.Update();
       }
       this.EnableAnimationFrameSkipping = false;
       AnimationPlayer.MaxUpdateTime = !this.EnableAnimationFrameSkipping ? long.MaxValue : (long) ((double) Mathf.Lerp(1f / 1000f, 3f / 500f, 1f - Mathf.Clamp01((float) (((double) Time.get_unscaledDeltaTime() - 0.0260000005364418) / 0.00399999879300594))) * 10000000.0);
@@ -2251,7 +2646,7 @@ label_12:
           else
           {
             Network.RemoveAPI();
-            AnalyticsManager.TrackSpendCoin("BuyStamina", staminaRecoveryCost);
+            AnalyticsManager.TrackOriginalCurrencyUse(ESaleType.Coin, staminaRecoveryCost, "BuyStamina");
             UIUtility.SystemMessage((string) null, LocalizedText.Get("sys.STAMINARECOVERED", new object[1]
             {
               (object) MonoSingleton<GameManager>.Instance.MasterParam.FixParam.StaminaAdd
@@ -2290,9 +2685,9 @@ label_12:
     public void StartBuyCoinSequence()
     {
       GameObject dialogBuyCoin = GameSettings.Instance.Dialog_BuyCoin;
-      if (!Object.op_Inequality((Object) dialogBuyCoin, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) dialogBuyCoin, (UnityEngine.Object) null))
         return;
-      this.mBuyCoinWindow = (GameObject) Object.Instantiate<GameObject>((M0) dialogBuyCoin);
+      this.mBuyCoinWindow = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) dialogBuyCoin);
       this.mBuyCoinWindow.RequireComponent<DestroyEventListener>().Listeners += new DestroyEventListener.DestroyEvent(this.OnBuyCoinEnd);
     }
 
@@ -2300,7 +2695,7 @@ label_12:
     {
       get
       {
-        if (Object.op_Inequality((Object) this.mBuyCoinWindow, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mBuyCoinWindow, (UnityEngine.Object) null))
           return true;
         this.mBuyCoinWindow = (GameObject) null;
         return false;
@@ -2319,7 +2714,7 @@ label_12:
     private IEnumerator AsyncWaitForImportantJobs()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new GameManager.\u003CAsyncWaitForImportantJobs\u003Ec__Iterator27() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new GameManager.\u003CAsyncWaitForImportantJobs\u003Ec__Iterator47() { \u003C\u003Ef__this = this };
     }
 
     public bool IsImportantJobRunning
@@ -2342,11 +2737,11 @@ label_12:
 
     public void ApplyTextureAsync(RawImage target, string path)
     {
-      if (Object.op_Equality((Object) target, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) target, (UnityEngine.Object) null))
         return;
       for (int index = 0; index < this.mTextureRequests.Count; ++index)
       {
-        if (Object.op_Equality((Object) this.mTextureRequests[index].Target, (Object) target))
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mTextureRequests[index].Target, (UnityEngine.Object) target))
         {
           if (!(this.mTextureRequests[index].Path != path))
             return;
@@ -2391,7 +2786,7 @@ label_12:
     {
       for (int index = 0; index < this.mTextureRequests.Count; ++index)
       {
-        if (Object.op_Equality((Object) this.mTextureRequests[index].Target, (Object) target))
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mTextureRequests[index].Target, (UnityEngine.Object) target))
         {
           this.mTextureRequests.RemoveAt(index);
           break;
@@ -2403,7 +2798,7 @@ label_12:
     {
       for (int index = 0; index < this.mTextureRequests.Count; ++index)
       {
-        if (Object.op_Equality((Object) this.mTextureRequests[index].Target, (Object) null))
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mTextureRequests[index].Target, (UnityEngine.Object) null))
           this.mTextureRequests.RemoveAt(index--);
         else if (this.mTextureRequests[index].Request == null)
         {
@@ -2489,7 +2884,7 @@ label_12:
     private IEnumerator DownloadAndTransitSceneAsync(string sceneName)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new GameManager.\u003CDownloadAndTransitSceneAsync\u003Ec__Iterator28() { sceneName = sceneName, \u003C\u0024\u003EsceneName = sceneName };
+      return (IEnumerator) new GameManager.\u003CDownloadAndTransitSceneAsync\u003Ec__Iterator48() { sceneName = sceneName, \u003C\u0024\u003EsceneName = sceneName };
     }
 
     public void UpdateTutorialStep()
@@ -2552,10 +2947,11 @@ label_12:
       if (this.mScannedTutorialAssets)
         return;
       this.mScannedTutorialAssets = true;
+      GameManager instance = MonoSingleton<GameManager>.Instance;
       AssetList.Item[] assets = AssetManager.AssetList.Assets;
       for (int index = 0; index < assets.Length; ++index)
       {
-        if ((assets[index].Flags & AssetBundleFlags.Tutorial) != (AssetBundleFlags) 0 && ((assets[index].Flags & AssetBundleFlags.TutorialMovie) == (AssetBundleFlags) 0 || !GameUtility.IsDebugBuild || GlobalVars.DebugIsPlayTutorial))
+        if ((assets[index].Flags & AssetBundleFlags.Tutorial) != (AssetBundleFlags) 0 && ((assets[index].Flags & AssetBundleFlags.TutorialMovie) == (AssetBundleFlags) 0 || (!GameUtility.IsDebugBuild || GlobalVars.DebugIsPlayTutorial) && (instance.Player.TutorialFlags & 1L) == 0L))
         {
           string localizedObjectName = AssetManager.GetLocalizedObjectName(assets[index].Path, false);
           if (localizedObjectName != assets[index].Path)
@@ -2600,7 +2996,7 @@ label_12:
       {
         if (AssetManager.IsAssetInCache(this.mTutorialDLAssets[index].IDStr))
           this.mTutorialDLAssets.RemoveAt(index--);
-        else if (!this.mTutorialDLAssets[index].Path.Contains("CHM/"))
+        else if (!this.mTutorialDLAssets[index].Path.Contains("CHM/") && !this.mTutorialDLAssets[index].Path.Contains("BGM_"))
           AssetDownloader.Add(this.mTutorialDLAssets[index].IDStr);
       }
       this.mTutorialDLAssets.Clear();
@@ -2652,7 +3048,7 @@ label_12:
     private IEnumerator WaitDownloadAsync(List<AssetList.Item> queue, AssetDownloader.DownloadState state)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new GameManager.\u003CWaitDownloadAsync\u003Ec__Iterator29() { state = state, queue = queue, \u003C\u0024\u003Estate = state, \u003C\u0024\u003Equeue = queue, \u003C\u003Ef__this = this };
+      return (IEnumerator) new GameManager.\u003CWaitDownloadAsync\u003Ec__Iterator49() { state = state, queue = queue, \u003C\u0024\u003Estate = state, \u003C\u0024\u003Equeue = queue, \u003C\u003Ef__this = this };
     }
 
     private void OnApplicationFocus(bool focus)
@@ -2682,25 +3078,25 @@ label_12:
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          GameManager.\u003COnApplicationFocus\u003Ec__AnonStorey17A focusCAnonStorey17A = new GameManager.\u003COnApplicationFocus\u003Ec__AnonStorey17A();
+          GameManager.\u003COnApplicationFocus\u003Ec__AnonStorey1FD focusCAnonStorey1Fd = new GameManager.\u003COnApplicationFocus\u003Ec__AnonStorey1FD();
           using (List<LocalNotificationInfo>.Enumerator enumerator = localoNotifications.GetEnumerator())
           {
             while (enumerator.MoveNext())
             {
               // ISSUE: reference to a compiler-generated field
-              focusCAnonStorey17A.lparam = enumerator.Current;
+              focusCAnonStorey1Fd.lparam = enumerator.Current;
               // ISSUE: reference to a compiler-generated method
-              TrophyParam trophyParam = Array.Find<TrophyParam>(trophies, new Predicate<TrophyParam>(focusCAnonStorey17A.\u003C\u003Em__115));
+              TrophyParam trophyParam = Array.Find<TrophyParam>(trophies, new Predicate<TrophyParam>(focusCAnonStorey1Fd.\u003C\u003Em__171));
               // ISSUE: reference to a compiler-generated field
-              if (trophyParam != null && focusCAnonStorey17A.lparam.push_flg != 0)
+              if (trophyParam != null && focusCAnonStorey1Fd.lparam.push_flg != 0)
               {
                 // ISSUE: reference to a compiler-generated field
-                string pushWord = focusCAnonStorey17A.lparam.push_word;
+                string pushWord = focusCAnonStorey1Fd.lparam.push_word;
                 // ISSUE: reference to a compiler-generated field
-                string trophyIname = focusCAnonStorey17A.lparam.trophy_iname;
+                string trophyIname = focusCAnonStorey1Fd.lparam.trophy_iname;
                 for (int index = trophyParam.Objectives.Length - 1; index >= 0; --index)
                 {
-                  int hour = int.Parse(trophyParam.Objectives[index].sval.Substring(0, 2));
+                  int hour = int.Parse(trophyParam.Objectives[index].sval_base.Substring(0, 2));
                   MyLocalNotification.SetRegular(new RegularLocalNotificationParam(pushWord, trophyIname, hour, 0, 0), this.Player);
                 }
               }
@@ -2713,9 +3109,9 @@ label_12:
 
     public void LoadUpdateTrophyList()
     {
-      if (!PlayerPrefs.HasKey(GameManager.SAVE_UPDATE_TROPHY_LIST_KEY))
+      if (!PlayerPrefsUtility.HasKey(PlayerPrefsUtility.SAVE_UPDATE_TROPHY_LIST_KEY))
         return;
-      string s = PlayerPrefs.GetString(GameManager.SAVE_UPDATE_TROPHY_LIST_KEY);
+      string s = PlayerPrefsUtility.GetString(PlayerPrefsUtility.SAVE_UPDATE_TROPHY_LIST_KEY, string.Empty);
       byte[] data = !string.IsNullOrEmpty(s) ? Convert.FromBase64String(s) : (byte[]) null;
       string src;
       try
@@ -2761,7 +3157,7 @@ label_12:
               if (server != null && !this.IsSavedUpdateTrophyStateNeedToSend(server, jsonTrophyProgressArray[index1].ymd, jsonTrophyProgressArray[index1].pts, jsonTrophyProgressArray[index1].rewarded_at != 0))
                 continue;
             }
-            TrophyState trophyCounter = this.Player.GetTrophyCounter(trophy);
+            TrophyState trophyCounter = this.Player.GetTrophyCounter(trophy, false);
             if (trophyCounter != null)
             {
               trophyCounter.StartYMD = jsonTrophyProgressArray[index1].ymd;
@@ -2822,8 +3218,7 @@ label_12:
         return;
       byte[] inArray = !string.IsNullOrEmpty(msg) ? MyEncrypt.Encrypt(GameManager.SAVE_UPDATE_TROPHY_LIST_ENCODE_KEY, msg, false) : (byte[]) null;
       string str1 = inArray != null ? Convert.ToBase64String(inArray) : string.Empty;
-      PlayerPrefs.SetString(GameManager.SAVE_UPDATE_TROPHY_LIST_KEY, str1);
-      PlayerPrefs.Save();
+      PlayerPrefsUtility.SetString(PlayerPrefsUtility.SAVE_UPDATE_TROPHY_LIST_KEY, str1, true);
       this.mSavedUpdateTrophyListString = msg;
       DebugUtility.LogWarning("SaveTrophy:" + (msg ?? "null"));
     }
@@ -2993,7 +3388,7 @@ label_12:
             current.IsSending = false;
             if (current.IsCompleted)
             {
-              if (current.Param.Days == 1)
+              if (current.Param.IsDaily)
                 NotifyList.PushDailyTrophy(current.Param);
               else
                 NotifyList.PushTrophy(current.Param);
@@ -3011,28 +3406,33 @@ label_12:
       this.update_trophy_interval.SetSyncInterval();
       if (Network.IsError)
       {
-        FlowNode_Network.Retry();
-      }
-      else
-      {
-        using (List<TrophyState>.Enumerator enumerator = this.mUpdateChallengeList.GetEnumerator())
+        if (Network.ErrCode == Network.EErrCode.BingoOutofDateReceive)
         {
-          while (enumerator.MoveNext())
+          Network.ResetError();
+        }
+        else
+        {
+          FlowNode_Network.Retry();
+          return;
+        }
+      }
+      using (List<TrophyState>.Enumerator enumerator = this.mUpdateChallengeList.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+        {
+          TrophyState current = enumerator.Current;
+          current.IsSending = false;
+          if (current.IsCompleted)
           {
-            TrophyState current = enumerator.Current;
-            current.IsSending = false;
-            if (current.IsCompleted)
-            {
-              if (current.Param.Days == 1)
-                NotifyList.PushDailyTrophy(current.Param);
-              else
-                NotifyList.PushTrophy(current.Param);
-            }
+            if (current.Param.IsDaily)
+              NotifyList.PushDailyTrophy(current.Param);
+            else
+              NotifyList.PushTrophy(current.Param);
           }
         }
-        this.mUpdateChallengeList = (List<TrophyState>) null;
-        Network.RemoveAPI();
       }
+      this.mUpdateChallengeList = (List<TrophyState>) null;
+      Network.RemoveAPI();
     }
 
     private void UpdateTrophyAwardResponseCallback(WWWResult www)
@@ -3162,7 +3562,7 @@ label_12:
               current.IsSending = false;
               if (current.IsCompleted)
               {
-                if (current.Param.Days == 1)
+                if (current.Param.IsDaily)
                   NotifyList.PushDailyTrophy(current.Param);
                 else
                   NotifyList.PushTrophy(current.Param);
@@ -3238,21 +3638,21 @@ label_12:
     private IEnumerator ShowCharacterQuestPopupAsync(string template)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new GameManager.\u003CShowCharacterQuestPopupAsync\u003Ec__Iterator2A() { template = template, \u003C\u0024\u003Etemplate = template, \u003C\u003Ef__this = this };
+      return (IEnumerator) new GameManager.\u003CShowCharacterQuestPopupAsync\u003Ec__Iterator4A() { template = template, \u003C\u0024\u003Etemplate = template, \u003C\u003Ef__this = this };
     }
 
     [DebuggerHidden]
     public IEnumerator SkinUnlockPopup(ArtifactParam unlockSkin)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new GameManager.\u003CSkinUnlockPopup\u003Ec__Iterator2B() { unlockSkin = unlockSkin, \u003C\u0024\u003EunlockSkin = unlockSkin };
+      return (IEnumerator) new GameManager.\u003CSkinUnlockPopup\u003Ec__Iterator4B() { unlockSkin = unlockSkin, \u003C\u0024\u003EunlockSkin = unlockSkin };
     }
 
     [DebuggerHidden]
     public IEnumerator SkinUnlockPopup(ItemParam[] rewardItems)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new GameManager.\u003CSkinUnlockPopup\u003Ec__Iterator2C() { rewardItems = rewardItems, \u003C\u0024\u003ErewardItems = rewardItems };
+      return (IEnumerator) new GameManager.\u003CSkinUnlockPopup\u003Ec__Iterator4C() { rewardItems = rewardItems, \u003C\u0024\u003ErewardItems = rewardItems };
     }
 
     public long LimitedShopEndAt
@@ -3267,11 +3667,6 @@ label_12:
       }
     }
 
-    public bool IsLimitedShopOpen()
-    {
-      return Network.GetServerTime() < this.LimitedShopEndAt;
-    }
-
     public JSON_ShopListArray.Shops[] LimitedShopList
     {
       get
@@ -3281,6 +3676,18 @@ label_12:
       set
       {
         this.mLimitedShopList = value;
+      }
+    }
+
+    public bool IsLimitedShopOpen
+    {
+      set
+      {
+        this.mIsLimitedShopOpen = value;
+      }
+      get
+      {
+        return this.mIsLimitedShopOpen;
       }
     }
 
@@ -3300,11 +3707,31 @@ label_12:
         });
     }
 
+    public void Deserialize(RankingData[] datas)
+    {
+      if (this.mUnitRanking == null)
+        this.mUnitRanking = new Dictionary<string, RankingData>();
+      this.mUnitRanking.Clear();
+      for (int index = 0; index < datas.Length; ++index)
+      {
+        if (datas[index] != null)
+          this.mUnitRanking[datas[index].iname] = datas[index];
+      }
+    }
+
     public List<MultiRanking> MultiUnitRank
     {
       get
       {
         return this.mMultiUnitRank;
+      }
+    }
+
+    public Dictionary<string, RankingData> UnitRanking
+    {
+      get
+      {
+        return this.mUnitRanking;
       }
     }
 
@@ -3370,7 +3797,7 @@ label_12:
       VersusTowerParam[] versusTowerParam = this.GetVersusTowerParam();
       if (versusTowerParam == null || floor < 0 || floor >= versusTowerParam.Length)
         return;
-      if (bWin)
+      if (bWin && versusTowerParam[floor].WinIteminame != null)
       {
         for (int index = 0; index < versusTowerParam[floor].WinIteminame.Length; ++index)
         {
@@ -3380,6 +3807,8 @@ label_12:
       }
       else
       {
+        if (versusTowerParam[floor].JoinIteminame == null)
+          return;
         for (int index = 0; index < versusTowerParam[floor].JoinIteminame.Length; ++index)
         {
           Items.Add((string) versusTowerParam[floor].JoinIteminame[index]);
@@ -3409,17 +3838,17 @@ label_12:
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      GameManager.\u003CGetCurrentVersusTowerParam\u003Ec__AnonStorey17C paramCAnonStorey17C = new GameManager.\u003CGetCurrentVersusTowerParam\u003Ec__AnonStorey17C();
+      GameManager.\u003CGetCurrentVersusTowerParam\u003Ec__AnonStorey1FF paramCAnonStorey1Ff = new GameManager.\u003CGetCurrentVersusTowerParam\u003Ec__AnonStorey1FF();
       PlayerData player = MonoSingleton<GameManager>.Instance.Player;
       // ISSUE: reference to a compiler-generated field
-      paramCAnonStorey17C.floor = idx == -1 ? player.VersusTowerFloor : idx;
+      paramCAnonStorey1Ff.floor = idx == -1 ? player.VersusTowerFloor : idx;
       // ISSUE: reference to a compiler-generated field
-      paramCAnonStorey17C.iname = this.VersusTowerMatchName;
+      paramCAnonStorey1Ff.iname = this.VersusTowerMatchName;
       // ISSUE: reference to a compiler-generated field
-      if (!string.IsNullOrEmpty(paramCAnonStorey17C.iname))
+      if (!string.IsNullOrEmpty(paramCAnonStorey1Ff.iname))
       {
         // ISSUE: reference to a compiler-generated method
-        return this.mVersusTowerFloor.Find(new Predicate<VersusTowerParam>(paramCAnonStorey17C.\u003C\u003Em__117));
+        return this.mVersusTowerFloor.Find(new Predicate<VersusTowerParam>(paramCAnonStorey1Ff.\u003C\u003Em__173));
       }
       return (VersusTowerParam) null;
     }
@@ -3441,9 +3870,182 @@ label_12:
       if (string.IsNullOrEmpty(digest))
         return;
       this.DigestHash = digest;
-      if (!PlayerPrefs.HasKey("PREV_CHECK_HASH"))
+      if (!PlayerPrefsUtility.HasKey(PlayerPrefsUtility.ALTER_PREV_CHECK_HASH))
         return;
-      this.PrevCheckHash = PlayerPrefs.GetString("PREV_CHECK_HASH");
+      this.PrevCheckHash = PlayerPrefsUtility.GetString(PlayerPrefsUtility.ALTER_PREV_CHECK_HASH, string.Empty);
+    }
+
+    public VersusScheduleParam FindVersusTowerScheduleParam(string towerID)
+    {
+      if (string.IsNullOrEmpty(towerID))
+        return (VersusScheduleParam) null;
+      return this.mVersusScheduleParam.Find((Predicate<VersusScheduleParam>) (data => string.Equals(data.tower_iname, towerID)));
+    }
+
+    public bool ExistsOpenVersusTower(string towerID = null)
+    {
+      List<VersusScheduleParam> all = this.mVersusScheduleParam.FindAll((Predicate<VersusScheduleParam>) (data => data.IsOpen));
+      if (all.Count < 1)
+        return false;
+      if (string.IsNullOrEmpty(towerID))
+        return true;
+      return all.Find((Predicate<VersusScheduleParam>) (data => string.Equals(data.tower_iname, towerID))) != null;
+    }
+
+    public VersusCoinParam GetVersusCoinParam(string iname)
+    {
+      if (this.mVersusCoinParam != null)
+        return this.mVersusCoinParam.Find((Predicate<VersusCoinParam>) (x => x.iname == iname));
+      return (VersusCoinParam) null;
+    }
+
+    public VersusFriendScore[] GetVersusFriendScore(int floor)
+    {
+      VersusTowerParam versusTowerParam = this.GetCurrentVersusTowerParam(floor);
+      VersusFriendScore[] versusFriendInfo = this.VersusFriendInfo;
+      List<VersusFriendScore> versusFriendScoreList = new List<VersusFriendScore>();
+      if (versusTowerParam != null && versusFriendInfo != null)
+      {
+        for (int index = 0; index < versusFriendInfo.Length; ++index)
+        {
+          if (string.Compare((string) versusTowerParam.FloorName, versusFriendInfo[index].floor) == 0)
+            versusFriendScoreList.Add(versusFriendInfo[index]);
+        }
+      }
+      return versusFriendScoreList.ToArray();
+    }
+
+    public bool IsVersusMode()
+    {
+      MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
+      bool flag = true;
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) instance, (UnityEngine.Object) null))
+        flag &= instance.CurrentState == MyPhoton.MyState.ROOM;
+      return flag & GlobalVars.SelectedMultiPlayRoomType == JSON_MyPhotonRoomParam.EType.VERSUS & GlobalVars.SelectedMultiPlayVersusType != VERSUS_TYPE.Friend;
+    }
+
+    public List<MultiTowerFloorParam> GetMTAllFloorParam(string type)
+    {
+      List<MultiTowerFloorParam> multiTowerFloorParamList = new List<MultiTowerFloorParam>();
+      for (int index = 0; index < this.mMultiTowerFloor.Count; ++index)
+      {
+        if (this.mMultiTowerFloor[index].tower_id == type)
+          multiTowerFloorParamList.Add(this.mMultiTowerFloor[index]);
+      }
+      return multiTowerFloorParamList;
+    }
+
+    public MultiTowerFloorParam GetMTFloorParam(string type, int floor)
+    {
+      return this.mMultiTowerFloor.Find((Predicate<MultiTowerFloorParam>) (data =>
+      {
+        if ((int) data.floor == floor)
+          return data.tower_id == type;
+        return false;
+      }));
+    }
+
+    public MultiTowerFloorParam GetMTFloorParam(string iname)
+    {
+      if (string.IsNullOrEmpty(iname))
+        return (MultiTowerFloorParam) null;
+      int length = iname.LastIndexOf('_');
+      int result = -1;
+      if (int.TryParse(iname.Substring(length + 1), out result))
+        return this.GetMTFloorParam(iname.Substring(0, length), result);
+      return (MultiTowerFloorParam) null;
+    }
+
+    public List<MultiTowerRewardItem> GetMTFloorReward(string iname, int round)
+    {
+      MultiTowerRewardParam towerRewardParam = this.mMultiTowerRewards.Find((Predicate<MultiTowerRewardParam>) (data => data.iname == iname));
+      if (towerRewardParam != null)
+        return towerRewardParam.GetReward(round);
+      return (List<MultiTowerRewardItem>) null;
+    }
+
+    public int GetMTRound(int floor)
+    {
+      int index = floor - 1;
+      if (this.mMultiTowerRound == null || this.mMultiTowerRound.Round == null || this.mMultiTowerRound.Round.Count <= index)
+        return 1;
+      return this.mMultiTowerRound.Round[index] + 1;
+    }
+
+    public int GetMTClearedMaxFloor()
+    {
+      if (this.mMultiTowerRound == null)
+        return 0;
+      return this.mMultiTowerRound.Now;
+    }
+
+    public int GetMTChallengeFloor()
+    {
+      if (this.mMultiTowerRound == null)
+        return 1;
+      List<MultiTowerFloorParam> mtAllFloorParam = this.GetMTAllFloorParam(GlobalVars.SelectedMultiTowerID);
+      int num = this.mMultiTowerRound.Now + 1;
+      if (mtAllFloorParam != null && mtAllFloorParam.Count > 0)
+        num = Mathf.Clamp(num, 1, (int) mtAllFloorParam[mtAllFloorParam.Count - 1].floor);
+      return num;
+    }
+
+    public void AddMTQuest(string iname, QuestParam param)
+    {
+      if (this.mQuests == null || this.mQuestsDict == null || this.mQuestsDict.ContainsKey(iname))
+        return;
+      this.mQuests.Add(param);
+      this.mQuestsDict.Add(iname, param);
+    }
+
+    public void Deserialize(ReqMultiTwStatus.FloorParam[] param)
+    {
+      if (this.mMultiTowerRound == null)
+        this.mMultiTowerRound = new MultiTowerRoundParam();
+      this.mMultiTowerRound.Now = 0;
+      if (this.mMultiTowerRound.Round == null)
+        this.mMultiTowerRound.Round = new List<int>();
+      this.mMultiTowerRound.Round.Clear();
+      if (param == null)
+        return;
+      for (int index = 0; index < param.Length; ++index)
+        this.mMultiTowerRound.Round.Add(param[index].clear_count);
+      this.mMultiTowerRound.Now = param[param.Length - 1].floor;
+    }
+
+    public SRPG.MapEffectParam GetMapEffectParam(string iname)
+    {
+      if (string.IsNullOrEmpty(iname))
+        return (SRPG.MapEffectParam) null;
+      if (this.mMapEffectParam == null)
+      {
+        DebugUtility.Log(string.Format("<color=yellow>QuestParam/GetMapEffectParam no data!</color>"));
+        return (SRPG.MapEffectParam) null;
+      }
+      SRPG.MapEffectParam mapEffectParam = this.mMapEffectParam.Find((Predicate<SRPG.MapEffectParam>) (d => d.Iname == iname));
+      if (mapEffectParam == null)
+        DebugUtility.Log(string.Format("<color=yellow>QuestParam/GetMapEffectParam data not found! iname={0}</color>", (object) iname));
+      return mapEffectParam;
+    }
+
+    public WeatherSetParam GetWeatherSetParam(string iname)
+    {
+      if (string.IsNullOrEmpty(iname))
+        return (WeatherSetParam) null;
+      if (this.mWeatherSetParam == null)
+      {
+        DebugUtility.Log(string.Format("<color=yellow>QuestParam/GetWeatherSetParam no data!</color>"));
+        return (WeatherSetParam) null;
+      }
+      WeatherSetParam weatherSetParam = this.mWeatherSetParam.Find((Predicate<WeatherSetParam>) (d => d.Iname == iname));
+      if (weatherSetParam == null)
+        DebugUtility.Log(string.Format("<color=yellow>QuestParam/GetWeatherSetParam data not found! iname={0}</color>", (object) iname));
+      return weatherSetParam;
+    }
+
+    public RankingQuestParam FindAvailableRankingQuest(string iname)
+    {
+      return this.mAvailableRankingQuesstParams.Find((Predicate<RankingQuestParam>) (param => param.iname == iname));
     }
 
     [System.Flags]

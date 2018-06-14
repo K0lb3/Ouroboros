@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.LimitedShopTimeLimit
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -42,13 +42,13 @@ namespace SRPG
     {
       if (this.mEndTime <= 0L)
       {
-        if (!Object.op_Inequality((Object) this.Body, (Object) null))
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Body, (UnityEngine.Object) null))
           return;
         this.Body.SetActive(false);
       }
       else
       {
-        if (Object.op_Inequality((Object) this.Body, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Body, (UnityEngine.Object) null))
           this.Body.SetActive(true);
         TimeSpan timeSpan = TimeManager.FromUnixTime(this.mEndTime) - TimeManager.ServerTime;
         string str;
@@ -67,7 +67,7 @@ namespace SRPG
           {
             (object) Mathf.Max(timeSpan.Minutes, 0)
           });
-        if (!Object.op_Inequality((Object) this.Timer, (Object) null) || !(this.Timer.get_text() != str))
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Timer, (UnityEngine.Object) null) || !(this.Timer.get_text() != str))
           return;
         this.Timer.set_text(str);
       }

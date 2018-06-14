@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: OInt
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using CodeStage.AntiCheat.ObscuredTypes;
@@ -52,11 +52,23 @@ public struct OInt
 
   public static OInt operator ++(OInt value)
   {
-    return new OInt((int) value + 1);
+    // ISSUE: explicit reference operation
+    // ISSUE: variable of a reference type
+    OInt& local = @value;
+    // ISSUE: explicit reference operation
+    // ISSUE: explicit reference operation
+    (^local).value = (ObscuredInt) ((int) (^local).value + 1);
+    return value;
   }
 
   public static OInt operator --(OInt value)
   {
-    return new OInt((int) value - 1);
+    // ISSUE: explicit reference operation
+    // ISSUE: variable of a reference type
+    OInt& local = @value;
+    // ISSUE: explicit reference operation
+    // ISSUE: explicit reference operation
+    (^local).value = (ObscuredInt) ((int) (^local).value - 1);
+    return value;
   }
 }

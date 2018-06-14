@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: GooglePlayGames.Native.PInvoke.PInvokeUtilities
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -63,10 +63,10 @@ namespace GooglePlayGames.Native.PInvoke
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      PInvokeUtilities.\u003CToEnumerable\u003Ec__Iterator7<T> enumerableCIterator7 = new PInvokeUtilities.\u003CToEnumerable\u003Ec__Iterator7<T>() { size = size, getElement = getElement, \u003C\u0024\u003Esize = size, \u003C\u0024\u003EgetElement = getElement };
+      PInvokeUtilities.\u003CToEnumerable\u003Ec__Iterator26<T> enumerableCIterator26 = new PInvokeUtilities.\u003CToEnumerable\u003Ec__Iterator26<T>() { size = size, getElement = getElement, \u003C\u0024\u003Esize = size, \u003C\u0024\u003EgetElement = getElement };
       // ISSUE: reference to a compiler-generated field
-      enumerableCIterator7.\u0024PC = -2;
-      return (IEnumerable<T>) enumerableCIterator7;
+      enumerableCIterator26.\u0024PC = -2;
+      return (IEnumerable<T>) enumerableCIterator26;
     }
 
     internal static IEnumerator<T> ToEnumerator<T>(UIntPtr size, Func<UIntPtr, T> getElement)

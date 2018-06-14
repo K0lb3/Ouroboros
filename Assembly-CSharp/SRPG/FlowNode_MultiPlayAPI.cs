@@ -1,56 +1,81 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_MultiPlayAPI
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.Pin(12, "VersusRoomJoinID", FlowNode.PinTypes.Input, 12)]
-  [FlowNode.Pin(10, "VersusStart", FlowNode.PinTypes.Input, 10)]
-  [FlowNode.Pin(9, "CheckVersion", FlowNode.PinTypes.Input, 9)]
-  [FlowNode.Pin(8, "RoomJoinID", FlowNode.PinTypes.Input, 8)]
-  [FlowNode.Pin(7, "RoomUpdate", FlowNode.PinTypes.Input, 7)]
-  [FlowNode.Pin(6, "RoomJoinLINE", FlowNode.PinTypes.Input, 6)]
-  [FlowNode.Pin(5, "RoomLINE", FlowNode.PinTypes.Input, 5)]
-  [FlowNode.Pin(4, "RoomMakeLINE", FlowNode.PinTypes.Input, 4)]
-  [FlowNode.Pin(3, "RoomJoin", FlowNode.PinTypes.Input, 3)]
-  [FlowNode.Pin(2, "Room", FlowNode.PinTypes.Input, 2)]
-  [FlowNode.Pin(0, "RoomMake", FlowNode.PinTypes.Input, 0)]
-  [FlowNode.NodeType("Multi/MultiPlayAPI", 32741)]
-  [FlowNode.Pin(4801, "IllegalComment", FlowNode.PinTypes.Output, 4801)]
   [FlowNode.Pin(4800, "FailedMakeRoom", FlowNode.PinTypes.Output, 4800)]
-  [FlowNode.Pin(101, "Failure", FlowNode.PinTypes.Output, 101)]
-  [FlowNode.Pin(100, "Success", FlowNode.PinTypes.Output, 100)]
-  [FlowNode.Pin(19, "VersusRecvSeasonGift", FlowNode.PinTypes.Input, 19)]
-  [FlowNode.Pin(18, "VersusStatus", FlowNode.PinTypes.Input, 18)]
-  [FlowNode.Pin(17, "VersusLineJoin", FlowNode.PinTypes.Input, 17)]
-  [FlowNode.Pin(15, "VersusLineReq", FlowNode.PinTypes.Input, 15)]
-  [FlowNode.Pin(16, "VersusLineMake", FlowNode.PinTypes.Input, 16)]
-  [FlowNode.Pin(9000, "VersusNotPhotonID", FlowNode.PinTypes.Output, 9000)]
+  [FlowNode.Pin(11000, "NotChallengeFloor", FlowNode.PinTypes.Output, 11000)]
   [FlowNode.Pin(10000, "VersusFaildSeasonGift", FlowNode.PinTypes.Output, 10000)]
+  [FlowNode.Pin(9000, "VersusNotPhotonID", FlowNode.PinTypes.Output, 9000)]
   [FlowNode.Pin(8000, "VersusFailRoomID", FlowNode.PinTypes.Output, 8000)]
   [FlowNode.Pin(7000, "VersusNotLineRoom", FlowNode.PinTypes.Output, 7000)]
   [FlowNode.Pin(6000, "MultiMaintenance", FlowNode.PinTypes.Output, 6000)]
   [FlowNode.Pin(5000, "NoMatchVersion", FlowNode.PinTypes.Output, 5000)]
   [FlowNode.Pin(4900, "NoRoom", FlowNode.PinTypes.Output, 4900)]
-  [FlowNode.Pin(14, "VersusReset", FlowNode.PinTypes.Input, 14)]
-  [FlowNode.Pin(13, "VersusRoomUpdate", FlowNode.PinTypes.Input, 13)]
+  [FlowNode.Pin(4802, "OutOfDateQuest", FlowNode.PinTypes.Output, 4802)]
+  [FlowNode.Pin(4801, "IllegalComment", FlowNode.PinTypes.Output, 4801)]
+  [FlowNode.Pin(16, "VersusLineMake", FlowNode.PinTypes.Input, 16)]
+  [FlowNode.Pin(101, "Failure", FlowNode.PinTypes.Output, 101)]
+  [FlowNode.Pin(100, "Success", FlowNode.PinTypes.Output, 100)]
+  [FlowNode.Pin(56, "PassLock", FlowNode.PinTypes.Input, 56)]
+  [FlowNode.Pin(55, "PassRelease", FlowNode.PinTypes.Input, 55)]
+  [FlowNode.Pin(51, "RoomJoinInvitation", FlowNode.PinTypes.Input, 51)]
+  [FlowNode.Pin(50, "RoomInvitation", FlowNode.PinTypes.Input, 50)]
+  [FlowNode.Pin(29, "MultiTowerInRoom", FlowNode.PinTypes.Input, 29)]
+  [FlowNode.Pin(28, "MultiTowerJoinInvitation", FlowNode.PinTypes.Input, 28)]
+  [FlowNode.Pin(27, "MultiTowerStatus", FlowNode.PinTypes.Input, 27)]
+  [FlowNode.Pin(26, "MultiTowerRoomUpdate", FlowNode.PinTypes.Input, 26)]
+  [FlowNode.Pin(25, "MultiTowerRoomJoinID", FlowNode.PinTypes.Input, 25)]
+  [FlowNode.Pin(24, "MultiTowerRoomJoin", FlowNode.PinTypes.Input, 24)]
+  [FlowNode.Pin(23, "MultiTowerRoom", FlowNode.PinTypes.Input, 23)]
+  [FlowNode.Pin(22, "MultiTowerRoomMake", FlowNode.PinTypes.Input, 22)]
+  [FlowNode.Pin(21, "MultiTowerAutoCreate", FlowNode.PinTypes.Input, 21)]
+  [FlowNode.Pin(20, "VersusFriendScore", FlowNode.PinTypes.Input, 20)]
+  [FlowNode.Pin(19, "VersusRecvSeasonGift", FlowNode.PinTypes.Input, 19)]
+  [FlowNode.Pin(18, "VersusStatus", FlowNode.PinTypes.Input, 18)]
+  [FlowNode.Pin(17, "VersusLineJoin", FlowNode.PinTypes.Input, 17)]
+  [FlowNode.NodeType("Multi/MultiPlayAPI", 32741)]
+  [FlowNode.Pin(0, "RoomMake", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(2, "Room", FlowNode.PinTypes.Input, 2)]
+  [FlowNode.Pin(3, "RoomJoin", FlowNode.PinTypes.Input, 3)]
+  [FlowNode.Pin(4, "RoomMakeLINE", FlowNode.PinTypes.Input, 4)]
+  [FlowNode.Pin(5, "RoomLINE", FlowNode.PinTypes.Input, 5)]
+  [FlowNode.Pin(6, "RoomJoinLINE", FlowNode.PinTypes.Input, 6)]
+  [FlowNode.Pin(7, "RoomUpdate", FlowNode.PinTypes.Input, 7)]
+  [FlowNode.Pin(8, "RoomJoinID", FlowNode.PinTypes.Input, 8)]
+  [FlowNode.Pin(9, "CheckVersion", FlowNode.PinTypes.Input, 9)]
+  [FlowNode.Pin(10, "VersusStart", FlowNode.PinTypes.Input, 10)]
   [FlowNode.Pin(11, "VersusCreateRoom", FlowNode.PinTypes.Input, 11)]
+  [FlowNode.Pin(12, "VersusRoomJoinID", FlowNode.PinTypes.Input, 12)]
+  [FlowNode.Pin(13, "VersusRoomUpdate", FlowNode.PinTypes.Input, 13)]
+  [FlowNode.Pin(14, "VersusReset", FlowNode.PinTypes.Input, 14)]
+  [FlowNode.Pin(15, "VersusLineReq", FlowNode.PinTypes.Input, 15)]
   public class FlowNode_MultiPlayAPI : FlowNode_Network
   {
     public static readonly int ROOMID_VALIDATE_MAX = 99999;
+    private readonly int MULTI_TOWER_UNIT_MAX = 6;
     public static float RoomMakeTime;
     public static ReqMPRoom.Response RoomList;
     public static readonly int ROOMID_VALIDATE_MIN;
 
     private FlowNode_MultiPlayAPI.EAPI API { get; set; }
+
+    private void ResetPlacementParam()
+    {
+      for (int index = 0; index < this.MULTI_TOWER_UNIT_MAX; ++index)
+        PlayerPrefsUtility.SetInt(PlayerPrefsUtility.MULTITW_ID_KEY + (object) index, index, false);
+      PlayerPrefsUtility.Save();
+    }
 
     public override void OnActivate(int pinID)
     {
@@ -58,8 +83,10 @@ namespace SRPG
       {
         case 0:
         case 4:
+        case 22:
+          this.ResetPlacementParam();
           string empty1 = string.Empty;
-          string str1 = !PlayerPrefs.HasKey(PlayerData.ROOM_COMMENT_KEY) ? LocalizedText.Get("sys.DEFAULT_ROOM_COMMENT") : PlayerPrefs.GetString(PlayerData.ROOM_COMMENT_KEY);
+          string str1 = !PlayerPrefsUtility.HasKey(PlayerPrefsUtility.ROOM_COMMENT_KEY) ? LocalizedText.Get("sys.DEFAULT_ROOM_COMMENT") : PlayerPrefsUtility.GetString(PlayerPrefsUtility.ROOM_COMMENT_KEY, string.Empty);
           if (string.IsNullOrEmpty(str1))
             str1 = LocalizedText.Get("sys.DEFAULT_ROOM_COMMENT");
           if (!MyMsgInput.isLegal(str1))
@@ -81,8 +108,20 @@ namespace SRPG
             flag = true;
             DebugUtility.Log("MakeRoom for LINE Quest:" + GlobalVars.SelectedQuestID + " Type:" + (object) GlobalVars.SelectedMultiPlayRoomType + " PassCodeHash:" + GlobalVars.SelectedMultiPlayRoomPassCodeHash);
           }
+          GlobalVars.EditMultiPlayRoomPassCode = "0";
+          string s = FlowNode_Variable.Get("MultiPlayPasscode");
+          if (!string.IsNullOrEmpty(s))
+          {
+            int result = 0;
+            if (int.TryParse(s, out result))
+              GlobalVars.EditMultiPlayRoomPassCode = result.ToString();
+          }
           bool isPrivate = flag;
           FlowNode_MultiPlayAPI.RoomMakeTime = Time.get_realtimeSinceStartup();
+          bool limit = GlobalVars.SelectedMultiPlayLimit & GlobalVars.EditMultiPlayRoomPassCode == "0";
+          int unitlv = isPrivate || !limit ? 0 : GlobalVars.MultiPlayJoinUnitLv;
+          bool clear = !isPrivate && limit && GlobalVars.MultiPlayClearOnly;
+          int selectedMultiTowerFloor1 = GlobalVars.SelectedMultiTowerFloor;
           if (Network.Mode != Network.EConnectMode.Online)
           {
             GlobalVars.SelectedMultiPlayRoomID = (int) (DateTime.Now - new DateTime(1970, 1, 1, 0, 0, 0, 0)).TotalSeconds;
@@ -92,43 +131,77 @@ namespace SRPG
             this.Success();
             break;
           }
+          MultiInvitationSendWindow.ClearInvited();
           ((Behaviour) this).set_enabled(true);
           this.API = FlowNode_MultiPlayAPI.EAPI.MAKE;
-          this.ExecRequest((WebAPI) new ReqMPRoomMake(GlobalVars.SelectedQuestID, str1, GlobalVars.EditMultiPlayRoomPassCode, isPrivate, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+          if (pinID != 22)
+          {
+            this.ExecRequest((WebAPI) new ReqMPRoomMake(GlobalVars.SelectedQuestID, str1, GlobalVars.EditMultiPlayRoomPassCode, isPrivate, limit, unitlv, clear, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+            break;
+          }
+          this.ExecRequest((WebAPI) new ReqMultiTwRoomMake(GlobalVars.SelectedMultiTowerID, str1, GlobalVars.EditMultiPlayRoomPassCode, selectedMultiTowerFloor1, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
           break;
         case 2:
         case 5:
-          string fuid = pinID != 2 ? FlowNode_OnUrlSchemeLaunch.LINEParam_decided.creatorFUID : (string) null;
+        case 23:
+        case 50:
+          string fuid = (string) null;
+          if (pinID == 5)
+            fuid = FlowNode_OnUrlSchemeLaunch.LINEParam_decided.creatorFUID;
+          else if (pinID == 50)
+            fuid = GlobalVars.MultiInvitationRoomOwner;
           DebugUtility.Log("ListRoom FUID:" + fuid);
           if (Network.Mode != Network.EConnectMode.Online)
           {
             this.StartCoroutine(this.GetPhotonRoomList(fuid));
             break;
           }
-          if (pinID == 2)
-            GlobalVars.SelectedMultiPlayArea = (string) null;
           FlowNode_MultiPlayAPI.RoomList = (ReqMPRoom.Response) null;
+          string iname = string.Empty;
+          if (pinID == 2)
+            iname = GlobalVars.SelectedQuestID;
+          int selectedMultiTowerFloor2 = GlobalVars.SelectedMultiTowerFloor;
           ((Behaviour) this).set_enabled(true);
           this.API = FlowNode_MultiPlayAPI.EAPI.ROOM;
-          this.ExecRequest((WebAPI) new ReqMPRoom(fuid, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+          if (pinID != 23)
+          {
+            this.ExecRequest((WebAPI) new ReqMPRoom(fuid, iname, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+            break;
+          }
+          this.ExecRequest((WebAPI) new ReqMultiTwRoom(fuid, iname, selectedMultiTowerFloor2, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
           break;
         case 3:
         case 6:
+        case 24:
+        case 51:
           if (FlowNode_MultiPlayAPI.RoomList == null || FlowNode_MultiPlayAPI.RoomList.rooms == null || FlowNode_MultiPlayAPI.RoomList.rooms.Length <= 0)
           {
             this.Failure();
             break;
           }
+          this.ResetPlacementParam();
           bool LockRoom = false;
-          if (pinID == 6)
+          switch (pinID)
           {
-            if (FlowNode_MultiPlayAPI.RoomList.rooms.Length != 1 || FlowNode_MultiPlayAPI.RoomList.rooms[0] == null)
-            {
-              this.Failure();
+            case 6:
+              if (FlowNode_MultiPlayAPI.RoomList.rooms.Length != 1 || FlowNode_MultiPlayAPI.RoomList.rooms[0] == null)
+              {
+                this.Failure();
+                return;
+              }
+              GlobalVars.SelectedMultiPlayRoomID = FlowNode_MultiPlayAPI.RoomList.rooms[0].roomid;
+              DebugUtility.Log("JoinRoom for LINE RoomID:" + (object) GlobalVars.SelectedMultiPlayRoomID);
               break;
-            }
-            GlobalVars.SelectedMultiPlayRoomID = FlowNode_MultiPlayAPI.RoomList.rooms[0].roomid;
-            DebugUtility.Log("JoinRoom for LINE RoomID:" + (object) GlobalVars.SelectedMultiPlayRoomID);
+            case 51:
+              if (FlowNode_MultiPlayAPI.RoomList.rooms.Length != 1 || FlowNode_MultiPlayAPI.RoomList.rooms[0] == null)
+              {
+                this.Failure();
+                return;
+              }
+              LockRoom = GlobalVars.MultiInvitationRoomLocked;
+              GlobalVars.SelectedMultiPlayRoomID = FlowNode_MultiPlayAPI.RoomList.rooms[0].roomid;
+              DebugUtility.Log("JoinRoom for Invitation RoomID:" + (object) GlobalVars.SelectedMultiPlayRoomID);
+              break;
           }
           GlobalVars.ResumeMultiplayPlayerID = 0;
           GlobalVars.ResumeMultiplaySeatID = 0;
@@ -151,27 +224,56 @@ namespace SRPG
             this.StartCoroutine(this.GetPhotonRoomName());
             break;
           }
+          int selectedMultiTowerFloor3 = GlobalVars.SelectedMultiTowerFloor;
           ((Behaviour) this).set_enabled(true);
           this.API = FlowNode_MultiPlayAPI.EAPI.JOIN;
-          this.ExecRequest((WebAPI) new ReqMPRoomJoin(GlobalVars.SelectedMultiPlayRoomID, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback), LockRoom));
+          if (pinID != 24)
+          {
+            this.ExecRequest((WebAPI) new ReqMPRoomJoin(GlobalVars.SelectedMultiPlayRoomID, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback), LockRoom));
+            break;
+          }
+          this.ExecRequest((WebAPI) new ReqMultiTwRoomJoin(GlobalVars.SelectedMultiPlayRoomID, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback), LockRoom, selectedMultiTowerFloor3, false));
           break;
         case 7:
+        case 26:
+        case 55:
+        case 56:
           if (Network.Mode != Network.EConnectMode.Online)
           {
             this.Success();
             break;
           }
-          if (!MyMsgInput.isLegal(GlobalVars.EditMultiPlayRoomComment))
+          if (!string.IsNullOrEmpty(GlobalVars.EditMultiPlayRoomComment) && !MyMsgInput.isLegal(GlobalVars.EditMultiPlayRoomComment))
           {
             DebugUtility.Log("comment is not legal");
             this.ActivateOutputLinks(4801);
             break;
           }
+          switch (pinID)
+          {
+            case 55:
+              GlobalVars.EditMultiPlayRoomPassCode = "0";
+              GlobalVars.EditMultiPlayRoomComment = GlobalVars.SelectedMultiPlayRoomComment;
+              break;
+            case 56:
+              GlobalVars.EditMultiPlayRoomPassCode = "1";
+              GlobalVars.EditMultiPlayRoomComment = GlobalVars.SelectedMultiPlayRoomComment;
+              break;
+          }
           ((Behaviour) this).set_enabled(true);
           this.API = FlowNode_MultiPlayAPI.EAPI.UPDATE;
-          this.ExecRequest((WebAPI) new ReqMPRoomUpdate(GlobalVars.SelectedMultiPlayRoomID, GlobalVars.EditMultiPlayRoomComment, GlobalVars.EditMultiPlayRoomPassCode, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+          if (GlobalVars.SelectedMultiPlayRoomType != JSON_MyPhotonRoomParam.EType.TOWER)
+          {
+            this.ExecRequest((WebAPI) new ReqMPRoomUpdate(GlobalVars.SelectedMultiPlayRoomID, GlobalVars.EditMultiPlayRoomComment, GlobalVars.EditMultiPlayRoomPassCode, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+            break;
+          }
+          string selectedMultiTowerId = GlobalVars.SelectedMultiTowerID;
+          int selectedMultiTowerFloor4 = GlobalVars.SelectedMultiTowerFloor;
+          this.ExecRequest((WebAPI) new ReqMultiTwRoomUpdate(GlobalVars.SelectedMultiPlayRoomID, GlobalVars.EditMultiPlayRoomComment, GlobalVars.EditMultiPlayRoomPassCode, selectedMultiTowerId, selectedMultiTowerFloor4, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
           break;
         case 8:
+        case 25:
+        case 28:
           if (Network.Mode != Network.EConnectMode.Online)
           {
             this.Failure();
@@ -182,9 +284,18 @@ namespace SRPG
             this.Failure();
             break;
           }
+          this.ResetPlacementParam();
+          GlobalVars.ResumeMultiplayPlayerID = 0;
+          GlobalVars.ResumeMultiplaySeatID = 0;
           ((Behaviour) this).set_enabled(true);
           this.API = FlowNode_MultiPlayAPI.EAPI.JOIN;
-          this.ExecRequest((WebAPI) new ReqMPRoomJoin(GlobalVars.SelectedMultiPlayRoomID, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback), true));
+          if (pinID != 25 && pinID != 28)
+          {
+            this.ExecRequest((WebAPI) new ReqMPRoomJoin(GlobalVars.SelectedMultiPlayRoomID, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback), true));
+            break;
+          }
+          this.API = FlowNode_MultiPlayAPI.EAPI.MT_JOIN;
+          this.ExecRequest((WebAPI) new ReqMultiTwRoomJoin(GlobalVars.SelectedMultiPlayRoomID, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback), true, 0, pinID == 28));
           break;
         case 9:
           if (Network.Mode != Network.EConnectMode.Online)
@@ -218,7 +329,7 @@ namespace SRPG
             break;
           }
           string empty2 = string.Empty;
-          string str2 = !PlayerPrefs.HasKey(PlayerData.ROOM_COMMENT_KEY) ? LocalizedText.Get("sys.DEFAULT_ROOM_COMMENT") : PlayerPrefs.GetString(PlayerData.ROOM_COMMENT_KEY);
+          string str2 = !PlayerPrefsUtility.HasKey(PlayerPrefsUtility.ROOM_COMMENT_KEY) ? LocalizedText.Get("sys.DEFAULT_ROOM_COMMENT") : PlayerPrefsUtility.GetString(PlayerPrefsUtility.ROOM_COMMENT_KEY, string.Empty);
           if (string.IsNullOrEmpty(str2))
             str2 = LocalizedText.Get("sys.DEFAULT_ROOM_COMMENT");
           if (!MyMsgInput.isLegal(str2))
@@ -330,6 +441,77 @@ namespace SRPG
           this.API = FlowNode_MultiPlayAPI.EAPI.VERSUS_SEASON;
           this.ExecRequest((WebAPI) new ReqVersusSeason(new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
           break;
+        case 20:
+          if (Network.Mode != Network.EConnectMode.Online)
+          {
+            this.Failure();
+            break;
+          }
+          ((Behaviour) this).set_enabled(true);
+          this.API = FlowNode_MultiPlayAPI.EAPI.VERSUS_FRIEND;
+          this.ExecRequest((WebAPI) new ReqVersusFriendScore(new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+          break;
+        case 21:
+          GameManager instance1 = MonoSingleton<GameManager>.Instance;
+          MyPhoton instance2 = PunMonoSingleton<MyPhoton>.Instance;
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) instance2, (UnityEngine.Object) null) && instance2.IsConnectedInRoom())
+          {
+            GlobalVars.CreateAutoMultiTower = true;
+            if (instance2.IsCreatedRoom())
+            {
+              instance2.OpenRoom(true, false);
+              MyPhoton.MyRoom currentRoom = instance2.GetCurrentRoom();
+              if (currentRoom != null)
+              {
+                JSON_MyPhotonRoomParam myPhotonRoomParam = JSON_MyPhotonRoomParam.Parse(currentRoom.json);
+                if (myPhotonRoomParam != null)
+                {
+                  List<MultiTowerFloorParam> mtAllFloorParam = instance1.GetMTAllFloorParam(GlobalVars.SelectedMultiTowerID);
+                  if (mtAllFloorParam != null)
+                    GlobalVars.SelectedMultiTowerFloor = Mathf.Min(mtAllFloorParam.Count, GlobalVars.SelectedMultiTowerFloor + 1);
+                  myPhotonRoomParam.challegedMTFloor = GlobalVars.SelectedMultiTowerFloor;
+                  myPhotonRoomParam.iname = GlobalVars.SelectedMultiTowerID + "_" + myPhotonRoomParam.challegedMTFloor.ToString();
+                  instance2.SetRoomParam(myPhotonRoomParam.Serialize());
+                }
+              }
+            }
+            instance2.AddMyPlayerParam("BattleStart", (object) false);
+            instance2.AddMyPlayerParam("resume", (object) false);
+            MyPhoton.MyPlayer myPlayer = instance2.GetMyPlayer();
+            if (myPlayer != null)
+            {
+              JSON_MyPhotonPlayerParam photonPlayerParam = JSON_MyPhotonPlayerParam.Parse(myPlayer.json);
+              if (photonPlayerParam != null)
+              {
+                photonPlayerParam.mtChallengeFloor = instance1.GetMTChallengeFloor();
+                photonPlayerParam.mtClearedFloor = instance1.GetMTClearedMaxFloor();
+                instance2.SetMyPlayerParam(photonPlayerParam.Serialize());
+              }
+            }
+            this.Success();
+            break;
+          }
+          this.Failure();
+          break;
+        case 27:
+          if (Network.Mode != Network.EConnectMode.Online)
+          {
+            this.Failure();
+            break;
+          }
+          ((Behaviour) this).set_enabled(true);
+          this.API = FlowNode_MultiPlayAPI.EAPI.MT_STATUS;
+          this.ExecRequest((WebAPI) new ReqMultiTwStatus(GlobalVars.SelectedMultiTowerID, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+          break;
+        case 29:
+          MyPhoton instance3 = PunMonoSingleton<MyPhoton>.Instance;
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) instance3, (UnityEngine.Object) null) && instance3.IsConnectedInRoom())
+          {
+            this.Success();
+            break;
+          }
+          this.Failure();
+          break;
       }
     }
 
@@ -351,14 +533,14 @@ namespace SRPG
     private IEnumerator GetPhotonRoomList(string fuid)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new FlowNode_MultiPlayAPI.\u003CGetPhotonRoomList\u003Ec__Iterator88() { fuid = fuid, \u003C\u0024\u003Efuid = fuid, \u003C\u003Ef__this = this };
+      return (IEnumerator) new FlowNode_MultiPlayAPI.\u003CGetPhotonRoomList\u003Ec__IteratorC7() { fuid = fuid, \u003C\u0024\u003Efuid = fuid, \u003C\u003Ef__this = this };
     }
 
     [DebuggerHidden]
     private IEnumerator GetPhotonRoomName()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new FlowNode_MultiPlayAPI.\u003CGetPhotonRoomName\u003Ec__Iterator89() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new FlowNode_MultiPlayAPI.\u003CGetPhotonRoomName\u003Ec__IteratorC8() { \u003C\u003Ef__this = this };
     }
 
     public override void OnSuccess(WWWResult www)
@@ -370,9 +552,17 @@ namespace SRPG
         {
           case Network.EErrCode.MultiMaintenance:
           case Network.EErrCode.VsMaintenance:
+          case Network.EErrCode.MultiVersionMaintenance:
+          case Network.EErrCode.MultiTowerMaintenance:
             Network.RemoveAPI();
             ((Behaviour) this).set_enabled(false);
             this.ActivateOutputLinks(6000);
+            break;
+          case Network.EErrCode.OutOfDateQuest:
+            Network.RemoveAPI();
+            Network.ResetError();
+            ((Behaviour) this).set_enabled(false);
+            this.ActivateOutputLinks(4802);
             break;
           case Network.EErrCode.MultiVersionMismatch:
           case Network.EErrCode.VS_Version:
@@ -392,7 +582,7 @@ namespace SRPG
             if (this.API == FlowNode_MultiPlayAPI.EAPI.MAKE)
             {
               string str = LocalizedText.Get("sys.DEFAULT_ROOM_COMMENT");
-              PlayerPrefs.SetString(PlayerData.ROOM_COMMENT_KEY, str);
+              PlayerPrefsUtility.SetString(PlayerPrefsUtility.ROOM_COMMENT_KEY, str, false);
             }
             Network.RemoveAPI();
             Network.ResetError();
@@ -555,7 +745,10 @@ namespace SRPG
               instance.VersusTowerMatchReceipt = jsonObject.body.is_season_gift != 0;
               instance.VersusTowerMatchName = jsonObject.body.tower_iname;
               instance.VersusTowerMatchEndAt = jsonObject.body.end_at;
+              instance.VersusCoinRemainCnt = jsonObject.body.daycnt;
+              instance.VersusLastUid = jsonObject.body.last_enemyuid;
               GlobalVars.SelectedQuestID = jsonObject.body.vstower_id;
+              instance.Player.UpdateVersusTowerTrophyStates(jsonObject.body.tower_iname, jsonObject.body.floor);
             }
             else if (this.API == FlowNode_MultiPlayAPI.EAPI.VERSUS_SEASON)
             {
@@ -568,6 +761,63 @@ namespace SRPG
               PlayerData player = MonoSingleton<GameManager>.Instance.Player;
               player.VersusSeazonGiftReceipt = false;
               player.UnreadMailPeriod |= jsonObject.body.unreadmail == 1;
+            }
+            else if (this.API == FlowNode_MultiPlayAPI.EAPI.VERSUS_FRIEND)
+            {
+              WebAPI.JSON_BodyResponse<ReqVersusFriendScore.Response> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<ReqVersusFriendScore.Response>>(www.text);
+              if (jsonObject == null)
+              {
+                this.OnFailed();
+                return;
+              }
+              MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.friends);
+            }
+            else if (this.API == FlowNode_MultiPlayAPI.EAPI.MT_STATUS)
+            {
+              WebAPI.JSON_BodyResponse<ReqMultiTwStatus.Response> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<ReqMultiTwStatus.Response>>(www.text);
+              Debug.Log((object) www.text);
+              if (jsonObject == null)
+              {
+                this.OnFailed();
+                return;
+              }
+              GlobalVars.SelectedMultiPlayPhotonAppID = jsonObject.body.appid;
+              MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.floors);
+            }
+            else if (this.API == FlowNode_MultiPlayAPI.EAPI.MT_JOIN)
+            {
+              WebAPI.JSON_BodyResponse<ReqMultiTwRoomJoin.Response> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<ReqMultiTwRoomJoin.Response>>(www.text);
+              DebugUtility.Assert(jsonObject != null, "res == null");
+              if (jsonObject.body == null)
+              {
+                this.OnFailed();
+                return;
+              }
+              if (jsonObject.body.quest == null || string.IsNullOrEmpty(jsonObject.body.quest.iname))
+              {
+                this.OnFailed();
+                return;
+              }
+              GameManager instance = MonoSingleton<GameManager>.Instance;
+              if (instance.GetMTChallengeFloor() < jsonObject.body.quest.floor)
+              {
+                Network.RemoveAPI();
+                ((Behaviour) this).set_enabled(false);
+                this.ActivateOutputLinks(11000);
+                return;
+              }
+              GlobalVars.SelectedMultiTowerID = jsonObject.body.quest.iname;
+              GlobalVars.SelectedMultiTowerFloor = jsonObject.body.quest.floor;
+              GlobalVars.SelectedMultiPlayPhotonAppID = jsonObject.body.app_id;
+              GlobalVars.SelectedMultiPlayRoomName = jsonObject.body.token;
+              MultiTowerFloorParam mtFloorParam = instance.GetMTFloorParam(GlobalVars.SelectedMultiTowerID, GlobalVars.SelectedMultiTowerFloor);
+              if (mtFloorParam != null)
+              {
+                QuestParam questParam = mtFloorParam.GetQuestParam();
+                if (questParam != null)
+                  GlobalVars.SelectedQuestID = questParam.iname;
+              }
+              DebugUtility.Log("JoinRoom  AppID:" + GlobalVars.SelectedMultiPlayPhotonAppID + " Name:" + GlobalVars.SelectedMultiPlayRoomName);
             }
           }
         }
@@ -590,6 +840,9 @@ namespace SRPG
       VERSUS_LINE_MAKE,
       VERSUS_STATUS,
       VERSUS_SEASON,
+      VERSUS_FRIEND,
+      MT_STATUS,
+      MT_JOIN,
     }
   }
 }

@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_StartReplay
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -13,8 +13,8 @@ namespace SRPG
 {
   [FlowNode.Pin(0, "Load", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(11, "Failed", FlowNode.PinTypes.Output, 11)]
-  [FlowNode.NodeType("System/Replay/StartReplay", 32741)]
   [FlowNode.Pin(10, "Started", FlowNode.PinTypes.Output, 10)]
+  [FlowNode.NodeType("System/Replay/StartReplay", 32741)]
   public class FlowNode_StartReplay : FlowNode
   {
     private const int PIN_ID_LOAD = 0;
@@ -43,7 +43,7 @@ namespace SRPG
     private IEnumerator StartScene(QuestParam questParam)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new FlowNode_StartReplay.\u003CStartScene\u003Ec__Iterator91() { questParam = questParam, \u003C\u0024\u003EquestParam = questParam, \u003C\u003Ef__this = this };
+      return (IEnumerator) new FlowNode_StartReplay.\u003CStartScene\u003Ec__IteratorD3() { questParam = questParam, \u003C\u0024\u003EquestParam = questParam, \u003C\u003Ef__this = this };
     }
 
     private class QuestLauncher

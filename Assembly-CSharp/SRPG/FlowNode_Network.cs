@@ -1,22 +1,23 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_Network
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
+using GR;
 using System;
 using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.Pin(10006, "API呼び出しパラメータ不正", FlowNode.PinTypes.Output, 10006)]
   [FlowNode.Pin(10007, "リトライ", FlowNode.PinTypes.Output, 10007)]
-  [FlowNode.Pin(10008, "API呼び出し前の状態に戻る", FlowNode.PinTypes.Output, 10008)]
+  [FlowNode.Pin(10001, "タイムアウト", FlowNode.PinTypes.Output, 10001)]
   [FlowNode.Pin(10002, "通信エラー", FlowNode.PinTypes.Output, 10002)]
   [FlowNode.Pin(10003, "メンテナンス中", FlowNode.PinTypes.Output, 10003)]
   [FlowNode.Pin(10004, "バージョン不一致", FlowNode.PinTypes.Output, 10004)]
   [FlowNode.Pin(10005, "セッションID無効", FlowNode.PinTypes.Output, 10005)]
-  [FlowNode.Pin(10001, "タイムアウト", FlowNode.PinTypes.Output, 10001)]
+  [FlowNode.Pin(10006, "API呼び出しパラメータ不正", FlowNode.PinTypes.Output, 10006)]
+  [FlowNode.Pin(10008, "API呼び出し前の状態に戻る", FlowNode.PinTypes.Output, 10008)]
   public abstract class FlowNode_Network : FlowNode
   {
     public const string RetryWindowPrefabPath = "e/UI/NetworkRetryWindow";
@@ -61,10 +62,15 @@ namespace SRPG
         case Network.EErrCode.AssetVersion:
           FlowNode_Network.Failed();
           break;
-        case (Network.EErrCode) 4:
+        case Network.EErrCode.NoVersionDbg:
           FlowNode_Network.Version();
           break;
-        case (Network.EErrCode) 5:
+        case Network.EErrCode.Unknown | Network.EErrCode.NoVersionDbg:
+          FlowNode_Network.Failed();
+          break;
+        case Network.EErrCode.Version | Network.EErrCode.NoVersionDbg:
+label_18:
+          Network.IsNoVersion = true;
           FlowNode_Network.Failed();
           break;
         default:
@@ -72,7 +78,6 @@ namespace SRPG
           {
             case Network.EErrCode.NoSID:
             case Network.EErrCode.GauthNoSid:
-            case Network.EErrCode.ReturnForceTitle:
               FlowNode_Network.SessionID();
               break;
             case Network.EErrCode.Maintenance:
@@ -80,6 +85,11 @@ namespace SRPG
               break;
             case Network.EErrCode.IllegalParam:
               FlowNode_Network.Retry();
+              break;
+            case Network.EErrCode.NoVersion:
+              goto label_18;
+            case Network.EErrCode.ReturnForceTitle:
+              FlowNode_Network.Relogin();
               break;
             default:
               return false;
@@ -231,6 +241,15 @@ namespace SRPG
       GlobalEvent.Invoke(PredefinedGlobalEvents.ERROR_NETWORK.ToString(), (object) null);
     }
 
+    public static void Relogin()
+    {
+      MonoSingleton<GameManager>.Instance.IsRelogin = true;
+      Network.RequestResult = Network.RequestResults.InvalidSession;
+      Network.RemoveAPI();
+      Network.ResetError();
+      GlobalEvent.Invoke(PredefinedGlobalEvents.ERROR_NETWORK.ToString(), (object) null);
+    }
+
     public virtual void OnSessionID()
     {
       FlowNode_Network.SessionID();
@@ -263,7 +282,7 @@ namespace SRPG
       if (Network.IsImmediateMode)
         return;
       FlowNode_Network.CloseWebView();
-      NetworkRetryWindow networkRetryWindow = (NetworkRetryWindow) Object.Instantiate<NetworkRetryWindow>(Resources.Load<NetworkRetryWindow>("e/UI/NetworkRetryWindow"));
+      NetworkRetryWindow networkRetryWindow = (NetworkRetryWindow) UnityEngine.Object.Instantiate<NetworkRetryWindow>(Resources.Load<NetworkRetryWindow>("e/UI/NetworkRetryWindow"));
       networkRetryWindow.Delegate = new NetworkRetryWindow.RetryWindowEvent(FlowNode_Network.RetryEvent);
       networkRetryWindow.Body = Network.ErrMsg;
     }
@@ -280,6 +299,7 @@ namespace SRPG
       if (retry)
       {
         Network.ResetError();
+        Network.SetRetry();
       }
       else
       {
@@ -312,6 +332,21 @@ namespace SRPG
     }
 
     public abstract void OnSuccess(WWWResult www);
+
+    public static void ErrorAppQuit()
+    {
+      Network.RequestResult = Network.RequestResults.InvalidSession;
+      Network.RemoveAPI();
+      Network.ResetError();
+      GlobalEvent.Invoke(PredefinedGlobalEvents.ERROR_APP_QUIT.ToString(), (object) null);
+    }
+
+    public virtual void OnErrorAppQuit()
+    {
+      FlowNode_Network.SessionID();
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(this.OnSessionIDPinIndex);
+    }
 
     private class State_WaitForConnect : State<FlowNode_Network>
     {

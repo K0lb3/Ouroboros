@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: IListExtensions
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -34,37 +34,44 @@ internal static class IListExtensions
 
   public static string ListToString<T>(this IList<T> list, bool isNewLinePerElement = false, bool isNumbered = false, bool isNumberingFromOne = false, string inAlternateDelimiter = "", string inAlternateStartCap = "", string inAlternateEndCap = "")
   {
-    if (list == null || list.Count == 0)
-      return string.Empty;
     StringBuilder stringBuilder = new StringBuilder();
     if (string.IsNullOrEmpty(inAlternateStartCap))
       stringBuilder.Append(" [ ");
     else
       stringBuilder.Append(inAlternateStartCap);
-    for (int index = 0; index < list.Count; ++index)
+    if (list == null)
+      stringBuilder.Append("--NULL List--");
+    else if (list.Count == 0)
     {
-      if (isNumbered)
+      stringBuilder.Append("--EMPTY List--");
+    }
+    else
+    {
+      for (int index = 0; index < list.Count; ++index)
       {
-        if (isNumberingFromOne)
-          stringBuilder.Append(index + 1);
+        if (isNumbered)
+        {
+          if (isNumberingFromOne)
+            stringBuilder.Append(index + 1);
+          else
+            stringBuilder.Append(index);
+          stringBuilder.Append(": ");
+        }
+        if ((object) list[index] != null)
+          stringBuilder.Append(list[index].ToString());
         else
-          stringBuilder.Append(index);
-        stringBuilder.Append(": ");
-      }
-      if ((object) list[index] != null)
-        stringBuilder.Append(list[index].ToString());
-      else
-        stringBuilder.Append("--NULL--");
-      if (index < list.Count - 1)
-      {
-        stringBuilder.Append(" | ");
-        if (string.IsNullOrEmpty(inAlternateDelimiter))
+          stringBuilder.Append("--NULL--");
+        if (index < list.Count - 1)
+        {
           stringBuilder.Append(" | ");
-        else
-          stringBuilder.Append(inAlternateDelimiter);
+          if (string.IsNullOrEmpty(inAlternateDelimiter))
+            stringBuilder.Append(" | ");
+          else
+            stringBuilder.Append(inAlternateDelimiter);
+        }
+        if (isNewLinePerElement)
+          stringBuilder.Append('\n');
       }
-      if (isNewLinePerElement)
-        stringBuilder.Append('\n');
     }
     if (string.IsNullOrEmpty(inAlternateEndCap))
       stringBuilder.Append(" ] ");
@@ -80,8 +87,6 @@ internal static class IListExtensions
 
   public static Dictionary<T, string> ConvertValuesToString<T, K>(this Dictionary<T, K> inDictionary)
   {
-    if (inDictionary == null)
-      return (Dictionary<T, string>) null;
     Dictionary<T, string> dictionary = new Dictionary<T, string>();
     using (Dictionary<T, K>.Enumerator enumerator = inDictionary.GetEnumerator())
     {
@@ -96,31 +101,36 @@ internal static class IListExtensions
 
   public static string[] ListToStringArray<T>(this IList<T> list, bool isNewLinePerElement = false, bool isNumbered = false, bool isNumberingFromOne = false)
   {
-    if (list == null)
-      return (string[]) null;
-    if (list.Count == 0)
-      return (string[]) null;
     List<string> stringList = new List<string>();
-    for (int index = 0; index < list.Count; ++index)
+    if (list == null)
+      stringList.Add("--NULL List--");
+    else if (list.Count == 0)
     {
-      StringBuilder stringBuilder = new StringBuilder();
-      if (isNumbered)
+      stringList.Add("--EMPTY List--");
+    }
+    else
+    {
+      for (int index = 0; index < list.Count; ++index)
       {
-        if (isNumberingFromOne)
-          stringBuilder.Append(index + 1);
+        StringBuilder stringBuilder = new StringBuilder();
+        if (isNumbered)
+        {
+          if (isNumberingFromOne)
+            stringBuilder.Append(index + 1);
+          else
+            stringBuilder.Append(index);
+          stringBuilder.Append(": ");
+        }
+        if ((object) list[index] != null)
+        {
+          stringBuilder.Append(list[index].ToString());
+          stringList.Add(stringBuilder.ToString());
+        }
         else
-          stringBuilder.Append(index);
-        stringBuilder.Append(": ");
-      }
-      if ((object) list[index] != null)
-      {
-        stringBuilder.Append(list[index].ToString());
-        stringList.Add(stringBuilder.ToString());
-      }
-      else
-      {
-        stringBuilder.Append("--NULL--");
-        stringList.Add(stringBuilder.ToString());
+        {
+          stringBuilder.Append("--NULL--");
+          stringList.Add(stringBuilder.ToString());
+        }
       }
     }
     return stringList.ToArray();
@@ -135,7 +145,7 @@ internal static class IListExtensions
 
   public static T GetRandElementInListAndRemoveRandElement<T>(this IList<T> list, Random inRandom = null)
   {
-    if (list == null || list.Count == 0)
+    if (list.Count == 0)
       return default (T);
     if (inRandom == null)
       inRandom = new Random();
@@ -162,8 +172,6 @@ internal static class IListExtensions
 
   public static List<Vector3> DeepCopyWorldPositionsFromTransformList(this IList<Transform> list)
   {
-    if (list == null)
-      return (List<Vector3>) null;
     List<Vector3> vector3List = new List<Vector3>();
     using (IEnumerator<Transform> enumerator = ((IEnumerable<Transform>) list).GetEnumerator())
     {
@@ -178,8 +186,6 @@ internal static class IListExtensions
 
   public static List<Vector3> DeepCopyVector3List(this IList<Vector3> list)
   {
-    if (list == null)
-      return (List<Vector3>) null;
     if (((ICollection<Vector3>) list).Count <= 0)
       return (List<Vector3>) null;
     List<Vector3> vector3List = new List<Vector3>();
@@ -196,8 +202,6 @@ internal static class IListExtensions
 
   public static List<string> DeepCopyStringList(this IList<string> list)
   {
-    if (list == null)
-      return (List<string>) null;
     if (list.Count <= 0)
       return (List<string>) null;
     List<string> stringList = new List<string>();
@@ -208,8 +212,6 @@ internal static class IListExtensions
 
   public static List<int> DeepCopyIntList(this IList<int> list)
   {
-    if (list == null)
-      return (List<int>) null;
     if (list.Count <= 0)
       return (List<int>) null;
     List<int> intList = new List<int>();
@@ -220,8 +222,6 @@ internal static class IListExtensions
 
   public static int NumberOf<T>(this IList<T> list, Func<T, bool> inPredicate)
   {
-    if (list == null)
-      return 0;
     int num = 0;
     for (int index = 0; index < list.Count; ++index)
     {
@@ -233,8 +233,6 @@ internal static class IListExtensions
 
   public static int NumberOf<T>(this IList<T> list, T inItemWeAreLookingToBeEqualsTo)
   {
-    if (list == null)
-      return 0;
     int num = 0;
     for (int index = 0; index < list.Count; ++index)
     {

@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_ExecGacha2
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -14,17 +14,17 @@ using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.Pin(10, "Single Gacha", FlowNode.PinTypes.Input, 10)]
   [FlowNode.Pin(20, "Multi Gacha", FlowNode.PinTypes.Input, 20)]
-  [FlowNode.Pin(30, "Free Gacha", FlowNode.PinTypes.Input, 30)]
-  [FlowNode.Pin(40, "Comp Gacha", FlowNode.PinTypes.Input, 40)]
-  [FlowNode.Pin(4, "Success", FlowNode.PinTypes.Output, 4)]
-  [FlowNode.Pin(5, "Failed", FlowNode.PinTypes.Output, 5)]
-  [FlowNode.Pin(6, "ゼニー不足", FlowNode.PinTypes.Output, 6)]
-  [FlowNode.Pin(7, "幻晶石不足", FlowNode.PinTypes.Output, 7)]
-  [FlowNode.Pin(9, "有償召喚リセット待ち", FlowNode.PinTypes.Output, 9)]
-  [FlowNode.Pin(8, "有償幻晶石不足", FlowNode.PinTypes.Output, 8)]
   [FlowNode.NodeType("System/ExecGacha2", 32741)]
+  [FlowNode.Pin(7, "幻晶石不足", FlowNode.PinTypes.Output, 7)]
+  [FlowNode.Pin(6, "ゼニー不足", FlowNode.PinTypes.Output, 6)]
+  [FlowNode.Pin(5, "Failed", FlowNode.PinTypes.Output, 5)]
+  [FlowNode.Pin(4, "Success", FlowNode.PinTypes.Output, 4)]
+  [FlowNode.Pin(40, "Comp Gacha", FlowNode.PinTypes.Input, 40)]
+  [FlowNode.Pin(30, "Free Gacha", FlowNode.PinTypes.Input, 30)]
+  [FlowNode.Pin(10, "Single Gacha", FlowNode.PinTypes.Input, 10)]
+  [FlowNode.Pin(8, "有償幻晶石不足", FlowNode.PinTypes.Output, 8)]
+  [FlowNode.Pin(9, "有償召喚リセット待ち", FlowNode.PinTypes.Output, 9)]
   public class FlowNode_ExecGacha2 : FlowNode_Network
   {
     private FlowNode_ExecGacha2.GachaCostType mCurrentCostType = FlowNode_ExecGacha2.GachaCostType.gold;
@@ -85,13 +85,16 @@ namespace SRPG
         this.ExecGacha(iname, is_free, 0);
         if (type == "coin")
         {
-          AnalyticsManager.TrackCurrencyUse(AnalyticsManager.CurrencyType.Gem, !isPaid ? AnalyticsManager.CurrencySubType.FREE : AnalyticsManager.CurrencySubType.PAID, (long) cost, "Summons", (Dictionary<string, object>) null);
+          if (isPaid)
+            AnalyticsManager.TrackPaidPremiumCurrencyObtain((long) cost, "Summons");
+          else
+            AnalyticsManager.TrackFreePremiumCurrencyObtain((long) cost, "Summons");
         }
         else
         {
           if (!(type == "gold"))
             return;
-          AnalyticsManager.TrackCurrencyUse(AnalyticsManager.CurrencyType.Zeni, AnalyticsManager.CurrencySubType.FREE, (long) cost, "Summons", (Dictionary<string, object>) null);
+          AnalyticsManager.TrackNonPremiumCurrencyUse(AnalyticsManager.NonPremiumCurrencyType.Zeni, (long) cost, "Summons", (string) null);
         }
       }
       else if (input == "multiple")
@@ -126,13 +129,16 @@ namespace SRPG
         this.ExecGacha(iname, is_free, 0);
         if (type == "coin")
         {
-          AnalyticsManager.TrackCurrencyUse(AnalyticsManager.CurrencyType.Gem, !isPaid ? AnalyticsManager.CurrencySubType.FREE : AnalyticsManager.CurrencySubType.PAID, (long) cost, "Summons", (Dictionary<string, object>) null);
+          if (isPaid)
+            AnalyticsManager.TrackPaidPremiumCurrencyUse((long) cost, "Summons");
+          else
+            AnalyticsManager.TrackFreePremiumCurrencyObtain((long) cost, "Summons");
         }
         else
         {
           if (!(type == "gold"))
             return;
-          AnalyticsManager.TrackCurrencyUse(AnalyticsManager.CurrencyType.Zeni, AnalyticsManager.CurrencySubType.FREE, (long) cost, "Summons", (Dictionary<string, object>) null);
+          AnalyticsManager.TrackNonPremiumCurrencyUse(AnalyticsManager.NonPremiumCurrencyType.Zeni, (long) cost, "Summons", (string) null);
         }
       }
       else if (input == "charge")
@@ -152,13 +158,7 @@ namespace SRPG
       {
         if (!true)
           return;
-        AnalyticsManager.TrackCurrencyUse(AnalyticsManager.CurrencyType.SummonTicket, AnalyticsManager.CurrencySubType.FREE, (long) num, "Summon Gate", new Dictionary<string, object>()
-        {
-          {
-            "ticket_id",
-            (object) ticket
-          }
-        });
+        AnalyticsManager.TrackNonPremiumCurrencyUse(AnalyticsManager.NonPremiumCurrencyType.SummonTicket, (long) num, "Summon Gate", ticket);
         this.ExecGacha(iname, is_free, num);
       }
       else
@@ -285,7 +285,7 @@ namespace SRPG
         }
         GachaReceiptData a_receipt = new GachaReceiptData();
         a_receipt.Deserialize(jsonObject.body.receipt);
-        GachaResultData.Init(gachaDropDataList, a_dropMails, a_receipt);
+        GachaResultData.Init(gachaDropDataList, a_dropMails, a_receipt, false);
         CultureInfo.CurrentCulture.TextInfo.ToTitleCase(a_receipt.type);
         AnalyticsManager.TrackSummonComplete();
         MonoSingleton<GameManager>.Instance.Player.OnGacha(this.mCurrentGachaType, this.mCurrentNum);
@@ -297,7 +297,7 @@ namespace SRPG
     private IEnumerator AsyncGachaResultData(List<GachaDropData> drops)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new FlowNode_ExecGacha2.\u003CAsyncGachaResultData\u003Ec__Iterator85() { drops = drops, \u003C\u0024\u003Edrops = drops, \u003C\u003Ef__this = this };
+      return (IEnumerator) new FlowNode_ExecGacha2.\u003CAsyncGachaResultData\u003Ec__IteratorC4() { drops = drops, \u003C\u0024\u003Edrops = drops, \u003C\u003Ef__this = this };
     }
 
     public override void OnActivate(int pinID)

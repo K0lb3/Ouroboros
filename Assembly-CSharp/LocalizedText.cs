@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: LocalizedText
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -24,7 +24,7 @@ public static class LocalizedText
     if (string.IsNullOrEmpty(tableID))
       return tableID;
     string str = (LocalizedText.FindTable(tableID) ?? LocalizedText.InternalLoadTable(language, tableID, (LocalizedText.TextTable) null)).FindText(textID);
-    if (string.IsNullOrEmpty(str) || str.Equals(textID))
+    if (string.IsNullOrEmpty(str) || str.Equals(textID) || GameUtility.ShowEnumOnly)
       str = tableID + (object) '.' + textID;
     return str;
   }
@@ -56,7 +56,7 @@ public static class LocalizedText
     else
     {
       TextAsset textAsset = (TextAsset) Resources.Load<TextAsset>(path);
-      s = !Object.op_Inequality((Object) textAsset, (Object) null) ? (string) null : textAsset.get_text();
+      s = !UnityEngine.Object.op_Inequality((UnityEngine.Object) textAsset, (UnityEngine.Object) null) ? (string) null : textAsset.get_text();
     }
     if (s != null)
     {
@@ -142,7 +142,7 @@ public static class LocalizedText
     else
     {
       TextAsset textAsset = (TextAsset) Resources.Load<TextAsset>(path);
-      s = !Object.op_Inequality((Object) textAsset, (Object) null) ? (string) null : textAsset.get_text();
+      s = !UnityEngine.Object.op_Inequality((UnityEngine.Object) textAsset, (UnityEngine.Object) null) ? (string) null : textAsset.get_text();
     }
     if (s != null)
     {
@@ -233,17 +233,18 @@ public static class LocalizedText
     text = text.Replace("<fix:continue_cost_multi>", fixParam.ContinueCoinCostMulti.ToString());
     text = text.Replace("<fix:abilupcoin>", fixParam.AbilityRankUpCountCoin.ToString());
     PaymentManager.Product product = MonoSingleton<PaymentManager>.Instance.GetProduct(GlobalVars.SelectedProductID);
-    if (product != null && !string.IsNullOrEmpty(product.name))
-      text = text.Replace("<selected_product>", product.name);
-    PaymentManager.Bundle bundle = MonoSingleton<PaymentManager>.Instance.GetBundle(GlobalVars.SelectedProductID);
-    if (bundle != null && !string.IsNullOrEmpty(bundle.name))
+    if (product != null)
     {
-      string newValue = LocalizedText.Get("bundle." + bundle.name);
-      text = text.Replace("<selected_bundle>", newValue);
+      if (!string.IsNullOrEmpty(product.name))
+        text = text.Replace("<selected_product>", product.name);
+      if (!string.IsNullOrEmpty(product.desc))
+        text = text.Replace("<selecter_desc>", product.desc);
     }
+    text = text.Replace("<before_coin>", GlobalVars.BeforeCoin.ToString());
+    text = text.Replace("<after_coin>", GlobalVars.AfterCoin.ToString());
     string newValue1 = string.Format(LocalizedText.Get("sys.BIRTHDAY_FORMAT"), (object) GlobalVars.EditedYear, (object) GlobalVars.EditedMonth, (object) GlobalVars.EditedDay);
     text = text.Replace("<birthday>", newValue1);
-    if (Object.op_Inequality((Object) SceneBattle.Instance, (Object) null))
+    if (UnityEngine.Object.op_Inequality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null))
     {
       text = text.Replace("<photon_err>", SceneBattle.Instance.PhotonErrorString);
       text = text.Replace("<mp_first_contact>", SceneBattle.Instance.FirstContact.ToString());
@@ -260,7 +261,7 @@ public static class LocalizedText
 
   public static string Get(string key, ref bool success)
   {
-    if (string.IsNullOrEmpty(key))
+    if (string.IsNullOrEmpty(key) || GameUtility.ShowEnumOnly)
       return key;
     int length = key.IndexOf(".");
     if (length < 0)

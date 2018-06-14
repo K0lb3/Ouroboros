@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.SRPG_TouchInputModule
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections.Generic;
@@ -21,6 +21,8 @@ namespace SRPG
     private bool mTouchEffectPoolInitialized;
     public SRPG_TouchInputModule.OnDoubleTapDelegate OnDoubleTap;
     private float mDoubleTap1stReleasedTime;
+    private readonly int BUTTON_INDEX_MAX;
+    private int pressing_button_index;
     public static bool IsMultiTouching;
     private Vector2 m_LastMousePosition;
     private Vector2 m_MousePosition;
@@ -105,7 +107,7 @@ namespace SRPG
         return false;
       if (this.UseFakeInput())
       {
-        int num1 = Input.GetMouseButtonDown(0) ? 1 : 0;
+        int num1 = Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) ? (true ? 1 : 0) : (Input.GetMouseButtonDown(2) ? 1 : 0);
         Vector2 vector2 = Vector2.op_Subtraction(this.m_MousePosition, this.m_LastMousePosition);
         // ISSUE: explicit reference operation
         int num2 = (double) ((Vector2) @vector2).get_sqrMagnitude() > 0.0 ? 1 : 0;
@@ -167,12 +169,33 @@ namespace SRPG
     private void FakeTouches()
     {
       bool flag = false;
-      bool mouseButtonDown = Input.GetMouseButtonDown(0);
-      bool mouseButtonUp = Input.GetMouseButtonUp(0);
-      this.IsHandling = mouseButtonDown || mouseButtonUp;
+      bool pressed = false;
+      bool released = false;
+      if (this.pressing_button_index <= -1)
+      {
+        for (int index = 0; index < this.BUTTON_INDEX_MAX; ++index)
+        {
+          if (Input.GetMouseButtonDown(index))
+          {
+            this.pressing_button_index = index;
+            pressed = true;
+            break;
+          }
+        }
+      }
+      for (int index = 0; index < this.BUTTON_INDEX_MAX; ++index)
+      {
+        if (Input.GetMouseButtonUp(index) && this.pressing_button_index == index)
+        {
+          this.pressing_button_index = -1;
+          released = true;
+          break;
+        }
+      }
+      this.IsHandling = pressed || released;
       PointerEventData buttonData1 = (PointerEventData) this.GetMousePointerEventData().GetButtonState((PointerEventData.InputButton) 0).get_eventData().buttonData;
-      this.ProcessTouchPress(buttonData1, mouseButtonDown, mouseButtonUp);
-      if (Input.GetMouseButton(0))
+      this.ProcessTouchPress(buttonData1, pressed, released);
+      if (Input.GetMouseButton(0) || Input.GetMouseButton(1) || Input.GetMouseButton(2))
       {
         this.IsHandling = true;
         this.ProcessMove(buttonData1);

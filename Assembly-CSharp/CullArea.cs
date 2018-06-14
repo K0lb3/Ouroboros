@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: CullArea
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections.Generic;
@@ -146,19 +146,8 @@ public class CullArea : MonoBehaviour
 
   public List<int> GetActiveCells(Vector3 position)
   {
-    List<int> insideCells = new List<int>(0);
-    this.CellTree.RootNode.GetInsideCells(insideCells, this.YIsUpAxis, position);
-    List<int> nearbyCells = new List<int>(0);
-    this.CellTree.RootNode.GetNearbyCells(nearbyCells, this.YIsUpAxis, position);
-    using (List<int>.Enumerator enumerator = nearbyCells.GetEnumerator())
-    {
-      while (enumerator.MoveNext())
-      {
-        int current = enumerator.Current;
-        if (!insideCells.Contains(current))
-          insideCells.Add(current);
-      }
-    }
-    return insideCells;
+    List<int> activeCells = new List<int>(0);
+    this.CellTree.RootNode.GetActiveCells(activeCells, this.YIsUpAxis, position);
+    return activeCells;
   }
 }

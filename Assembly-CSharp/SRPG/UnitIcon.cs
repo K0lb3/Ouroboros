@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.UnitIcon
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -12,7 +12,8 @@ namespace SRPG
 {
   public class UnitIcon : BaseIcon
   {
-    private const string TooltipPath = "UI/UnitTooltip";
+    private bool mIsLvActive = true;
+    private const string TooltipPath = "UI/UnitTooltip_1";
     [Space(10f)]
     public GameParameter.UnitInstanceTypes InstanceType;
     public int InstanceIndex;
@@ -62,17 +63,39 @@ namespace SRPG
     {
       if (!this.Tooltip)
         return;
+      this.UpdatePartyWindow();
       UnitData instanceData = this.GetInstanceData();
       if (instanceData == null)
         return;
       PlayerPartyTypes dataOfClass = DataSource.FindDataOfClass<PlayerPartyTypes>(((Component) this).get_gameObject(), PlayerPartyTypes.Max);
-      GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) AssetManager.Load<GameObject>("UI/UnitTooltip"));
-      DataSource.Bind<UnitData>(gameObject, instanceData);
-      DataSource.Bind<PlayerPartyTypes>(gameObject, dataOfClass);
-      UnitJobDropdown componentInChildren = (UnitJobDropdown) gameObject.GetComponentInChildren<UnitJobDropdown>();
-      if (!Object.op_Inequality((Object) componentInChildren, (Object) null))
-        return;
-      ((Component) componentInChildren).get_gameObject().SetActive((instanceData.TempFlags & UnitData.TemporaryFlags.AllowJobChange) != (UnitData.TemporaryFlags) 0 && this.AllowJobChange && dataOfClass != PlayerPartyTypes.Max);
+      GameObject root = (GameObject) Object.Instantiate<GameObject>((M0) AssetManager.Load<GameObject>("UI/UnitTooltip_1"));
+      UnitData data = new UnitData();
+      data.Setup(instanceData);
+      data.TempFlags = instanceData.TempFlags;
+      DataSource.Bind<UnitData>(root, data);
+      DataSource.Bind<PlayerPartyTypes>(root, dataOfClass);
+      UnitJobDropdown componentInChildren1 = (UnitJobDropdown) root.GetComponentInChildren<UnitJobDropdown>();
+      if (Object.op_Inequality((Object) componentInChildren1, (Object) null))
+      {
+        bool flag = (instanceData.TempFlags & UnitData.TemporaryFlags.AllowJobChange) != (UnitData.TemporaryFlags) 0 && this.AllowJobChange && dataOfClass != PlayerPartyTypes.Max;
+        ((Component) componentInChildren1).get_gameObject().SetActive(true);
+        componentInChildren1.UpdateValue = new UnitJobDropdown.ParentObjectEvent(this.UpdateValue);
+        Selectable component1 = (Selectable) ((Component) componentInChildren1).get_gameObject().GetComponent<Selectable>();
+        if (Object.op_Inequality((Object) component1, (Object) null))
+          component1.set_interactable(flag);
+        Image component2 = (Image) ((Component) componentInChildren1).get_gameObject().GetComponent<Image>();
+        if (Object.op_Inequality((Object) component2, (Object) null))
+          ((Graphic) component2).set_color(!flag ? new Color(0.5f, 0.5f, 0.5f) : Color.get_white());
+      }
+      ArtifactSlots componentInChildren2 = (ArtifactSlots) root.GetComponentInChildren<ArtifactSlots>();
+      AbilitySlots componentInChildren3 = (AbilitySlots) root.GetComponentInChildren<AbilitySlots>();
+      if (Object.op_Inequality((Object) componentInChildren2, (Object) null) && Object.op_Inequality((Object) componentInChildren3, (Object) null))
+      {
+        bool enable = (instanceData.TempFlags & UnitData.TemporaryFlags.AllowJobChange) != (UnitData.TemporaryFlags) 0 && this.AllowJobChange && dataOfClass != PlayerPartyTypes.Max;
+        componentInChildren2.Refresh(enable);
+        componentInChildren3.Refresh(enable);
+      }
+      GameParameter.UpdateAll(root);
     }
 
     public override void UpdateValue()
@@ -81,6 +104,8 @@ namespace SRPG
       UnitData instanceData = this.GetInstanceData();
       if (Object.op_Inequality((Object) this.Icon, (Object) null))
         MonoSingleton<GameManager>.Instance.ApplyTextureAsync(this.Icon, instanceData == null ? (string) null : AssetPath.UnitSkinIconSmall(instanceData.UnitParam, instanceData.GetSelectedSkin(-1), instanceData.CurrentJobId));
+      if (Object.op_Inequality((Object) this.LvParent, (Object) null))
+        this.LvParent.SetActive(this.mIsLvActive);
       if (Object.op_Inequality((Object) this.Level, (Object) null))
       {
         if (instanceData != null)
@@ -122,15 +147,20 @@ namespace SRPG
         else
           this.Element.set_sprite((Sprite) null);
       }
-      if (!Object.op_Inequality((Object) this.Job, (Object) null))
+      if (Object.op_Inequality((Object) this.Job, (Object) null))
+      {
+        JobParam job = (JobParam) null;
+        if (instanceData != null && instanceData.CurrentJob != null)
+          job = instanceData.CurrentJob.Param;
+        MonoSingleton<GameManager>.Instance.ApplyTextureAsync(this.Job, job == null ? (string) null : AssetPath.JobIconSmall(job));
+      }
+      if (!MonoSingleton<GameManager>.Instance.IsTutorial() || instanceData == null || (!(MonoSingleton<GameManager>.Instance.GetNextTutorialStep() == "ShowUnitList") || !(instanceData.UnitID == "UN_V2_LOGI")))
         return;
-      JobParam job = (JobParam) null;
-      if (instanceData != null && instanceData.CurrentJob != null)
-        job = instanceData.CurrentJob.Param;
-      MonoSingleton<GameManager>.Instance.ApplyTextureAsync(this.Job, job == null ? (string) null : AssetPath.JobIconSmall(job));
+      SGHighlightObject.Instance().highlightedObject = ((Component) this).get_gameObject();
+      SGHighlightObject.Instance().Highlight(string.Empty, "sg_tut_1.017", (SGHighlightObject.OnActivateCallback) null, EventDialogBubble.Anchors.BottomLeft, true, false, false);
     }
 
-    public void SetSortValue(GameUtility.UnitSortModes mode, int value)
+    public void SetSortValue(GameUtility.UnitSortModes mode, int value, bool isLevelActive = true)
     {
       if (!Object.op_Inequality((Object) this.SortBadge, (Object) null))
         return;
@@ -141,9 +171,13 @@ namespace SRPG
         if (Object.op_Inequality((Object) this.SortBadge.Icon, (Object) null))
           this.SortBadge.Icon.set_sprite(GameSettings.Instance.GetUnitSortModeIcon(mode));
         ((Component) this.SortBadge).get_gameObject().SetActive(true);
+        this.mIsLvActive = isLevelActive;
       }
       else
+      {
         ((Component) this.SortBadge).get_gameObject().SetActive(false);
+        this.mIsLvActive = true;
+      }
     }
 
     public void ClearSortValue()
@@ -151,6 +185,15 @@ namespace SRPG
       if (!Object.op_Inequality((Object) this.SortBadge, (Object) null))
         return;
       ((Component) this.SortBadge).get_gameObject().SetActive(false);
+      this.mIsLvActive = true;
+    }
+
+    public void UpdatePartyWindow()
+    {
+      PartyWindow2 componentInParent = (PartyWindow2) ((Component) this).GetComponentInParent<PartyWindow2>();
+      if (!Object.op_Inequality((Object) componentInParent, (Object) null))
+        return;
+      componentInParent.Refresh(true);
     }
   }
 }

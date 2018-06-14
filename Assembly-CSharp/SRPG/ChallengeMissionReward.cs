@@ -1,12 +1,11 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.ChallengeMissionReward
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
 using System.Collections;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using UnityEngine;
@@ -14,11 +13,12 @@ using UnityEngine.UI;
 
 namespace SRPG
 {
-  [FlowNode.Pin(1, "完了", FlowNode.PinTypes.Output, 3)]
+  [FlowNode.Pin(2, "ミッション報酬", FlowNode.PinTypes.Output, 1)]
   [FlowNode.Pin(4, "継続", FlowNode.PinTypes.Input, 1)]
   [FlowNode.Pin(0, "更新", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "完了", FlowNode.PinTypes.Output, 3)]
+  [FlowNode.Pin(5, "全ミッションコンプリート", FlowNode.PinTypes.Output, 5)]
   [FlowNode.Pin(3, "コンプリート報酬", FlowNode.PinTypes.Output, 2)]
-  [FlowNode.Pin(2, "ミッション報酬", FlowNode.PinTypes.Output, 1)]
   public class ChallengeMissionReward : MonoBehaviour, IFlowInterface
   {
     public GameObject PanelNormal;
@@ -29,6 +29,7 @@ namespace SRPG
     public RawImage ImageStamina;
     public RawImage ImageReward;
     public UnityEngine.UI.Text TextMessage;
+    private bool isAllMissionCompleteMessageShown;
     private TrophyParam mTrophy;
 
     public ChallengeMissionReward()
@@ -40,7 +41,10 @@ namespace SRPG
     {
       if (pinID != 4)
         return;
-      this.StartCoroutine(this.showRewardMessage());
+      if (this.isAllMissionCompleteMessageShown && this.mTrophy.iname == "CHALLENGE_06")
+        FlowNode_GameObject.ActivateOutputLinks((Component) this, 1);
+      else
+        this.StartCoroutine(this.showRewardMessage());
     }
 
     private void Awake()
@@ -90,7 +94,7 @@ namespace SRPG
     private IEnumerator showRewardMessage()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new ChallengeMissionReward.\u003CshowRewardMessage\u003Ec__IteratorA3() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new ChallengeMissionReward.\u003CshowRewardMessage\u003Ec__IteratorE6() { \u003C\u003Ef__this = this };
     }
 
     private void UpdateReward(TrophyParam trophy)
@@ -159,18 +163,9 @@ namespace SRPG
         ((Component) this.ImageStamina).get_gameObject().SetActive(flag4);
       if (data != null)
         DataSource.Bind<ItemParam>(((Component) this).get_gameObject(), data);
-      if (Object.op_Inequality((Object) this.TextMessage, (Object) null))
-        this.TextMessage.set_text(str1);
-      if (this.IsInvoking("WaitLoadTexture"))
+      if (!Object.op_Inequality((Object) this.TextMessage, (Object) null))
         return;
-      this.StartCoroutine(this.WaitLoadTexture(trophy));
-    }
-
-    [DebuggerHidden]
-    private IEnumerator WaitLoadTexture(TrophyParam trophy)
-    {
-      // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new ChallengeMissionReward.\u003CWaitLoadTexture\u003Ec__IteratorA4() { trophy = trophy, \u003C\u0024\u003Etrophy = trophy, \u003C\u003Ef__this = this };
+      this.TextMessage.set_text(str1);
     }
 
     private string GetAllRewardText(TrophyParam trophy)
@@ -204,32 +199,26 @@ namespace SRPG
             else
               stringBuilder.AppendLine(string.Format(LocalizedText.Get("sys.CHALLENGE_DETAIL_REWARD"), (object) itemParam.name, (object) rewardItem.Num));
             if (itemParam.type == EItemType.Ticket)
-              AnalyticsManager.TrackCurrencyObtain(AnalyticsManager.CurrencyType.SummonTicket, AnalyticsManager.CurrencySubType.FREE, (long) rewardItem.Num, "Challenges", new Dictionary<string, object>()
-              {
-                {
-                  "item_id",
-                  (object) rewardItem.iname
-                }
-              });
+              AnalyticsManager.TrackNonPremiumCurrencyObtain(AnalyticsManager.NonPremiumCurrencyType.SummonTicket, (long) rewardItem.Num, "Challenges", rewardItem.iname);
           }
         }
       }
       if (trophy.Gold != 0)
       {
         stringBuilder.AppendLine(string.Format(LocalizedText.Get("sys.CHALLENGE_REWARD_GOLD"), (object) trophy.Gold));
-        AnalyticsManager.TrackCurrencyObtain(AnalyticsManager.CurrencyType.Zeni, AnalyticsManager.CurrencySubType.FREE, (long) trophy.Gold, "Challenges", (Dictionary<string, object>) null);
+        AnalyticsManager.TrackNonPremiumCurrencyObtain(AnalyticsManager.NonPremiumCurrencyType.Zeni, (long) trophy.Gold, "Challenges", (string) null);
       }
       else if (trophy.Exp != 0)
         stringBuilder.AppendLine(string.Format(LocalizedText.Get("sys.CHALLENGE_REWARD_EXP"), (object) trophy.Exp));
       else if (trophy.Coin != 0)
       {
         stringBuilder.AppendLine(string.Format(LocalizedText.Get("sys.CHALLENGE_REWARD_COIN"), (object) trophy.Coin));
-        AnalyticsManager.TrackCurrencyObtain(AnalyticsManager.CurrencyType.Gem, AnalyticsManager.CurrencySubType.FREE, (long) trophy.Coin, "Challenges", (Dictionary<string, object>) null);
+        AnalyticsManager.TrackFreePremiumCurrencyObtain((long) trophy.Coin, "Challenges");
       }
       else if (trophy.Stamina != 0)
       {
         stringBuilder.AppendLine(string.Format(LocalizedText.Get("sys.CHALLENGE_REWARD_STAMINA"), (object) trophy.Stamina));
-        AnalyticsManager.TrackCurrencyObtain(AnalyticsManager.CurrencyType.AP, AnalyticsManager.CurrencySubType.FREE, (long) trophy.Stamina, "Challenges", (Dictionary<string, object>) null);
+        AnalyticsManager.TrackNonPremiumCurrencyObtain(AnalyticsManager.NonPremiumCurrencyType.AP, (long) trophy.Stamina, "Challenges", (string) null);
       }
       if (flag)
       {

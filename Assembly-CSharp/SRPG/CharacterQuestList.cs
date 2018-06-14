@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.CharacterQuestList
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -12,12 +12,12 @@ using UnityEngine.Events;
 
 namespace SRPG
 {
-  [FlowNode.Pin(11, "Selected(Chara)", FlowNode.PinTypes.Output, 12)]
-  [FlowNode.Pin(10, "Refreshed", FlowNode.PinTypes.Output, 11)]
-  [FlowNode.Pin(1, "Refresh(Collabo)", FlowNode.PinTypes.Input, 1)]
-  [FlowNode.Pin(12, "Selected(Collabo)", FlowNode.PinTypes.Output, 13)]
   [FlowNode.Pin(0, "Refresh(Chara)", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(10, "Refreshed", FlowNode.PinTypes.Output, 11)]
+  [FlowNode.Pin(11, "Selected(Chara)", FlowNode.PinTypes.Output, 12)]
+  [FlowNode.Pin(12, "Selected(Collabo)", FlowNode.PinTypes.Output, 13)]
   [FlowNode.Pin(13, "Sort Change", FlowNode.PinTypes.Output, 14)]
+  [FlowNode.Pin(1, "Refresh(Collabo)", FlowNode.PinTypes.Input, 1)]
   public class CharacterQuestList : SRPG_FixedList, IFlowInterface, ISortableList
   {
     private const int PIN_ID_REFRESH_CHARA = 0;
@@ -103,45 +103,45 @@ namespace SRPG
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      CharacterQuestList.\u003CGetCollaboSkillQuests\u003Ec__AnonStorey237 questsCAnonStorey237 = new CharacterQuestList.\u003CGetCollaboSkillQuests\u003Ec__AnonStorey237();
+      CharacterQuestList.\u003CGetCollaboSkillQuests\u003Ec__AnonStorey310 questsCAnonStorey310 = new CharacterQuestList.\u003CGetCollaboSkillQuests\u003Ec__AnonStorey310();
       List<KeyValuePair<QuestParam, bool>> keyValuePairList = new List<KeyValuePair<QuestParam, bool>>();
       // ISSUE: reference to a compiler-generated field
-      questsCAnonStorey237.questList = CollaboSkillQuestList.GetCollaboSkillQuests(unitData1, unitData2);
+      questsCAnonStorey310.questList = CollaboSkillQuestList.GetCollaboSkillQuests(unitData1, unitData2);
       QuestParam[] availableQuests = MonoSingleton<GameManager>.Instance.Player.AvailableQuests;
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      CharacterQuestList.\u003CGetCollaboSkillQuests\u003Ec__AnonStorey238 questsCAnonStorey238 = new CharacterQuestList.\u003CGetCollaboSkillQuests\u003Ec__AnonStorey238();
+      CharacterQuestList.\u003CGetCollaboSkillQuests\u003Ec__AnonStorey311 questsCAnonStorey311 = new CharacterQuestList.\u003CGetCollaboSkillQuests\u003Ec__AnonStorey311();
       // ISSUE: reference to a compiler-generated field
-      questsCAnonStorey238.\u003C\u003Ef__ref\u0024567 = questsCAnonStorey237;
-      // ISSUE: reference to a compiler-generated field
-      // ISSUE: reference to a compiler-generated field
+      questsCAnonStorey311.\u003C\u003Ef__ref\u0024784 = questsCAnonStorey310;
       // ISSUE: reference to a compiler-generated field
       // ISSUE: reference to a compiler-generated field
-      for (questsCAnonStorey238.i = 0; questsCAnonStorey238.i < questsCAnonStorey237.questList.Count; ++questsCAnonStorey238.i)
+      // ISSUE: reference to a compiler-generated field
+      // ISSUE: reference to a compiler-generated field
+      for (questsCAnonStorey311.i = 0; questsCAnonStorey311.i < questsCAnonStorey310.questList.Count; ++questsCAnonStorey311.i)
       {
         // ISSUE: reference to a compiler-generated field
         // ISSUE: reference to a compiler-generated field
-        bool flag1 = questsCAnonStorey237.questList[questsCAnonStorey238.i].IsDateUnlock(-1L);
+        bool flag1 = questsCAnonStorey310.questList[questsCAnonStorey311.i].IsDateUnlock(-1L);
         // ISSUE: reference to a compiler-generated method
-        bool flag2 = Array.Find<QuestParam>(availableQuests, new Predicate<QuestParam>(questsCAnonStorey238.\u003C\u003Em__248)) != null;
+        bool flag2 = Array.Find<QuestParam>(availableQuests, new Predicate<QuestParam>(questsCAnonStorey311.\u003C\u003Em__323)) != null;
         // ISSUE: reference to a compiler-generated field
         // ISSUE: reference to a compiler-generated field
-        bool flag3 = questsCAnonStorey237.questList[questsCAnonStorey238.i].state == QuestStates.Cleared;
+        bool flag3 = questsCAnonStorey310.questList[questsCAnonStorey311.i].state == QuestStates.Cleared;
         string empty = string.Empty;
         // ISSUE: reference to a compiler-generated field
         // ISSUE: reference to a compiler-generated field
-        if (questsCAnonStorey237.questList[questsCAnonStorey238.i].IsEntryQuestConditionCh(unitData1, ref empty) && (flag1 && flag2 && !flag3))
+        if (questsCAnonStorey310.questList[questsCAnonStorey311.i].IsEntryQuestConditionCh(unitData1, ref empty) && (flag1 && flag2 && !flag3))
         {
           // ISSUE: reference to a compiler-generated field
           // ISSUE: reference to a compiler-generated field
-          KeyValuePair<QuestParam, bool> keyValuePair = new KeyValuePair<QuestParam, bool>(questsCAnonStorey237.questList[questsCAnonStorey238.i], true);
+          KeyValuePair<QuestParam, bool> keyValuePair = new KeyValuePair<QuestParam, bool>(questsCAnonStorey310.questList[questsCAnonStorey311.i], true);
           keyValuePairList.Add(keyValuePair);
         }
         else
         {
           // ISSUE: reference to a compiler-generated field
           // ISSUE: reference to a compiler-generated field
-          KeyValuePair<QuestParam, bool> keyValuePair = new KeyValuePair<QuestParam, bool>(questsCAnonStorey237.questList[questsCAnonStorey238.i], false);
+          KeyValuePair<QuestParam, bool> keyValuePair = new KeyValuePair<QuestParam, bool>(questsCAnonStorey310.questList[questsCAnonStorey311.i], false);
           keyValuePairList.Add(keyValuePair);
         }
       }
@@ -156,9 +156,9 @@ namespace SRPG
 
     protected override GameObject CreateItem()
     {
-      if (!Object.op_Inequality((Object) this.ItemTemplate, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ItemTemplate, (UnityEngine.Object) null))
         return (GameObject) null;
-      GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.ItemTemplate);
+      GameObject gameObject = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.ItemTemplate);
       gameObject.SetActive(true);
       return gameObject;
     }
@@ -226,44 +226,44 @@ namespace SRPG
     private List<CharacterQuestDataChunk> GetCharacterQuestList()
     {
       GameManager instanceDirect = MonoSingleton<GameManager>.GetInstanceDirect();
-      if (Object.op_Equality((Object) instanceDirect, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) instanceDirect, (UnityEngine.Object) null))
         return (List<CharacterQuestDataChunk>) null;
       QuestParam[] availableQuests = MonoSingleton<GameManager>.Instance.Player.AvailableQuests;
       List<CharacterQuestDataChunk> characterQuestDataChunkList = new List<CharacterQuestDataChunk>();
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      CharacterQuestList.\u003CGetCharacterQuestList\u003Ec__AnonStorey239 listCAnonStorey239 = new CharacterQuestList.\u003CGetCharacterQuestList\u003Ec__AnonStorey239();
+      CharacterQuestList.\u003CGetCharacterQuestList\u003Ec__AnonStorey312 listCAnonStorey312 = new CharacterQuestList.\u003CGetCharacterQuestList\u003Ec__AnonStorey312();
       foreach (QuestParam questParam in availableQuests)
       {
         // ISSUE: reference to a compiler-generated field
-        listCAnonStorey239.qp = questParam;
+        listCAnonStorey312.qp = questParam;
         // ISSUE: reference to a compiler-generated field
-        if (listCAnonStorey239.qp.type == QuestTypes.Character)
+        if (listCAnonStorey312.qp.type == QuestTypes.Character)
         {
           // ISSUE: reference to a compiler-generated field
-          if (string.IsNullOrEmpty(listCAnonStorey239.qp.ChapterID))
+          if (string.IsNullOrEmpty(listCAnonStorey312.qp.ChapterID))
           {
             // ISSUE: reference to a compiler-generated field
-            DebugUtility.LogError("ChapterIDが設定されていません:QuestParam.iname = " + listCAnonStorey239.qp.iname);
+            DebugUtility.LogError("ChapterIDが設定されていません:QuestParam.iname = " + listCAnonStorey312.qp.iname);
           }
           else
           {
             // ISSUE: reference to a compiler-generated field
-            if (instanceDirect.MasterParam.ContainsUnitID(listCAnonStorey239.qp.ChapterID))
+            if (instanceDirect.MasterParam.ContainsUnitID(listCAnonStorey312.qp.ChapterID))
             {
               // ISSUE: reference to a compiler-generated method
-              CharacterQuestDataChunk characterQuestDataChunk = characterQuestDataChunkList.Find(new Predicate<CharacterQuestDataChunk>(listCAnonStorey239.\u003C\u003Em__249));
+              CharacterQuestDataChunk characterQuestDataChunk = characterQuestDataChunkList.Find(new Predicate<CharacterQuestDataChunk>(listCAnonStorey312.\u003C\u003Em__324));
               if (characterQuestDataChunk == null)
               {
                 characterQuestDataChunk = new CharacterQuestDataChunk();
                 characterQuestDataChunkList.Add(characterQuestDataChunk);
               }
               // ISSUE: reference to a compiler-generated field
-              characterQuestDataChunk.questParams.Add(listCAnonStorey239.qp);
+              characterQuestDataChunk.questParams.Add(listCAnonStorey312.qp);
               // ISSUE: reference to a compiler-generated field
-              characterQuestDataChunk.areaName = listCAnonStorey239.qp.ChapterID;
+              characterQuestDataChunk.areaName = listCAnonStorey312.qp.ChapterID;
               // ISSUE: reference to a compiler-generated field
-              characterQuestDataChunk.SetUnitNameFromChapterID(listCAnonStorey239.qp.ChapterID);
+              characterQuestDataChunk.SetUnitNameFromChapterID(listCAnonStorey312.qp.ChapterID);
               characterQuestDataChunk.unitParam = instanceDirect.MasterParam.GetUnitParam(characterQuestDataChunk.unitName);
             }
           }
@@ -274,7 +274,7 @@ namespace SRPG
 
     private void RefreshFilter()
     {
-      if (!Object.op_Inequality((Object) this.mSortMenu, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSortMenu, (UnityEngine.Object) null))
         return;
       this.mSortMenuButton.ForceReloadFilter();
       this.SetSortMethod(this.mSortMenu.GetFilters(false));
@@ -283,7 +283,7 @@ namespace SRPG
     public void RefreshCharaData()
     {
       GameManager instanceDirect = MonoSingleton<GameManager>.GetInstanceDirect();
-      if (Object.op_Equality((Object) instanceDirect, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) instanceDirect, (UnityEngine.Object) null))
         return;
       List<CharacterQuestData> characterQuestDataList = new List<CharacterQuestData>();
       List<CharacterQuestDataChunk> characterQuestList = this.GetCharacterQuestList();
@@ -314,7 +314,7 @@ namespace SRPG
     public void RefreshCollaboData()
     {
       GameManager instanceDirect = MonoSingleton<GameManager>.GetInstanceDirect();
-      if (Object.op_Equality((Object) instanceDirect, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) instanceDirect, (UnityEngine.Object) null))
         return;
       List<CharacterQuestData> characterQuestDataList = new List<CharacterQuestData>();
       List<CollaboSkillParam.Pair> pairLists = CollaboSkillParam.GetPairLists();

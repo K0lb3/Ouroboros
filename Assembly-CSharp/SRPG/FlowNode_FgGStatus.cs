@@ -1,18 +1,18 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_FgGStatus
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
 
 namespace SRPG
 {
-  [FlowNode.Pin(2, "非表示", FlowNode.PinTypes.Output, 1)]
-  [FlowNode.NodeType("FgGID/FgGStatus", 32741)]
-  [FlowNode.Pin(1, "Input", FlowNode.PinTypes.Input, 0)]
-  [FlowNode.Pin(3, "未連携", FlowNode.PinTypes.Output, 2)]
   [FlowNode.Pin(4, "連携済み", FlowNode.PinTypes.Output, 3)]
+  [FlowNode.Pin(1, "Input", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.NodeType("FgGID/FgGStatus", 32741)]
+  [FlowNode.Pin(2, "非表示", FlowNode.PinTypes.Output, 1)]
+  [FlowNode.Pin(3, "未連携", FlowNode.PinTypes.Output, 2)]
   public class FlowNode_FgGStatus : FlowNode
   {
     private const int PIN_ID_INPUT = 1;

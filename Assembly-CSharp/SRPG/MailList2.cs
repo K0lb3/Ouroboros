@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.MailList2
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -10,8 +10,8 @@ using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.Pin(10, "メールリスト空", FlowNode.PinTypes.Output, 10)]
   [FlowNode.Pin(1, "Refresh", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(10, "メールリスト空", FlowNode.PinTypes.Output, 10)]
   public class MailList2 : MonoBehaviour, IFlowInterface
   {
     private const int PIN_ID_REFRESH = 1;
@@ -121,6 +121,8 @@ namespace SRPG
               ++num;
             if (gift.CheckGiftTypeIncluded(GiftTypes.Award))
               ++num;
+            if (gift.CheckGiftTypeIncluded(GiftTypes.Artifact))
+              ++num;
             if (num > 1)
               break;
           }
@@ -160,7 +162,7 @@ namespace SRPG
                 }
                 if (gift.CheckGiftTypeIncluded(GiftTypes.Artifact))
                 {
-                  ArtifactData artifactData = this.CreateArtifactData(gift.iname);
+                  ArtifactData artifactData = gift.CreateArtifactData();
                   if (artifactData != null)
                     DataSource.Bind<ArtifactData>(mMailListItem, artifactData);
                   if (Object.op_Inequality((Object) component, (Object) null))
@@ -259,23 +261,6 @@ namespace SRPG
         }
       }
       GameParameter.UpdateAll(((Component) this).get_gameObject());
-    }
-
-    private ArtifactData CreateArtifactData(string iname)
-    {
-      ArtifactParam artifactParam = MonoSingleton<GameManager>.Instance.MasterParam.GetArtifactParam(iname);
-      if (artifactParam == null)
-        return (ArtifactData) null;
-      ArtifactData artifactData = new ArtifactData();
-      artifactData.Deserialize(new Json_Artifact()
-      {
-        iid = 1L,
-        exp = 0,
-        iname = artifactParam.iname,
-        fav = 0,
-        rare = artifactParam.rareini
-      });
-      return artifactData;
     }
 
     private void OnRefresh()

@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: AnimationPlayer
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -367,6 +367,113 @@ public class AnimationPlayer : MonoBehaviour
         childRecursively.set_localPosition(new Vector3(0.0f, (float) childRecursively.get_localPosition().y, 0.0f));
     }
     this.ProcessAnimationEvents();
+  }
+
+  public void SkipToAnimationEnd()
+  {
+    Vector3 zero1 = Vector3.get_zero();
+    Transform transform1 = ((Component) this).get_transform();
+    Vector3 zero2 = Vector3.get_zero();
+    for (int index = 0; index < this.mAnimationStates.Count; ++index)
+    {
+      AnimationPlayer.AnimationStateSource mAnimationState = this.mAnimationStates[index];
+      AnimDef clip = mAnimationState.Clip;
+      float length = clip.Length;
+      if ((double) mAnimationState.Weight <= 0.0 && (double) mAnimationState.DesiredWeight <= 0.0)
+      {
+        this.mAnimationStates.RemoveAt(index);
+        --index;
+      }
+      else
+      {
+        if (mAnimationState.WrapMode == 2)
+          mAnimationState.Time %= length;
+        else if ((double) mAnimationState.Time > (double) length)
+          mAnimationState.Time = length;
+        if (clip.UseRootMotion && this.mRootMotionMode == AnimationPlayer.RootMotionModes.Velocity && this.RootMotionBoneName == clip.rootBoneName)
+        {
+          if (clip.rootTranslationX != null)
+          {
+            // ISSUE: explicit reference operation
+            // ISSUE: variable of a reference type
+            Vector3& local1 = @zero1;
+            // ISSUE: explicit reference operation
+            // ISSUE: explicit reference operation
+            (^local1).x = (__Null) ((^local1).x + ((double) clip.rootTranslationX.Evaluate(length) - (double) clip.rootTranslationX.Evaluate(0.0f)));
+            // ISSUE: explicit reference operation
+            // ISSUE: variable of a reference type
+            Vector3& local2 = @zero2;
+            // ISSUE: explicit reference operation
+            // ISSUE: explicit reference operation
+            (^local2).x = (__Null) ((^local2).x - (double) clip.rootTranslationX.Evaluate(length));
+          }
+          if (clip.rootTranslationY != null)
+          {
+            // ISSUE: explicit reference operation
+            // ISSUE: variable of a reference type
+            Vector3& local1 = @zero1;
+            // ISSUE: explicit reference operation
+            // ISSUE: explicit reference operation
+            (^local1).y = (__Null) ((^local1).y + ((double) clip.rootTranslationY.Evaluate(length) - (double) clip.rootTranslationY.Evaluate(0.0f)));
+            // ISSUE: explicit reference operation
+            // ISSUE: variable of a reference type
+            Vector3& local2 = @zero2;
+            // ISSUE: explicit reference operation
+            // ISSUE: explicit reference operation
+            (^local2).y = (__Null) ((^local2).y - (double) clip.rootTranslationY.Evaluate(length));
+          }
+          if (clip.rootTranslationZ != null)
+          {
+            // ISSUE: explicit reference operation
+            // ISSUE: variable of a reference type
+            Vector3& local1 = @zero1;
+            // ISSUE: explicit reference operation
+            // ISSUE: explicit reference operation
+            (^local1).z = (__Null) ((^local1).z + ((double) clip.rootTranslationZ.Evaluate(length) - (double) clip.rootTranslationZ.Evaluate(0.0f)));
+            // ISSUE: explicit reference operation
+            // ISSUE: variable of a reference type
+            Vector3& local2 = @zero2;
+            // ISSUE: explicit reference operation
+            // ISSUE: explicit reference operation
+            (^local2).z = (__Null) ((^local2).z - (double) clip.rootTranslationZ.Evaluate(length));
+          }
+        }
+      }
+    }
+    if (this.mRootMotionMode != AnimationPlayer.RootMotionModes.Velocity)
+      return;
+    // ISSUE: explicit reference operation
+    if ((double) ((Vector3) @zero1).get_sqrMagnitude() > 0.0)
+    {
+      Vector3 vector3 = Vector3.op_Multiply(zero1, this.RootMotionScale);
+      if ((double) Mathf.Sign((float) transform1.get_lossyScale().x) < 0.0)
+      {
+        // ISSUE: explicit reference operation
+        // ISSUE: variable of a reference type
+        Vector3& local = @vector3;
+        // ISSUE: explicit reference operation
+        // ISSUE: explicit reference operation
+        (^local).x = (__Null) ((^local).x * -1.0);
+      }
+      if ((double) Mathf.Sign((float) transform1.get_lossyScale().z) < 0.0)
+      {
+        // ISSUE: explicit reference operation
+        // ISSUE: variable of a reference type
+        Vector3& local = @vector3;
+        // ISSUE: explicit reference operation
+        // ISSUE: explicit reference operation
+        (^local).z = (__Null) ((^local).z * -1.0);
+      }
+      vector3.y = (__Null) 0.0;
+      Transform transform2 = transform1;
+      transform2.set_position(Vector3.op_Addition(transform2.get_position(), Quaternion.op_Multiply(transform1.get_rotation(), vector3)));
+    }
+    Transform childRecursively = GameUtility.findChildRecursively(transform1, this.RootMotionBoneName);
+    if (!Object.op_Inequality((Object) childRecursively, (Object) null))
+      return;
+    Transform transform3 = childRecursively;
+    transform3.set_localPosition(Vector3.op_Addition(transform3.get_localPosition(), zero2));
+    this.RootMotionInverse = Quaternion.op_Multiply(childRecursively.get_parent().get_rotation(), zero2);
   }
 
   private void ProcessAnimationEvents()
@@ -742,7 +849,10 @@ public class AnimationPlayer : MonoBehaviour
   private IEnumerator AsyncLoadAnimation()
   {
     // ISSUE: object of a compiler-generated type is created
-    return (IEnumerator) new AnimationPlayer.\u003CAsyncLoadAnimation\u003Ec__IteratorD() { \u003C\u003Ef__this = this };
+    return (IEnumerator) new AnimationPlayer.\u003CAsyncLoadAnimation\u003Ec__Iterator2C()
+    {
+      \u003C\u003Ef__this = this
+    };
   }
 
   private class AnimationStateSource

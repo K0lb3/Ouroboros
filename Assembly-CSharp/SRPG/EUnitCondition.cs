@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.EUnitCondition
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 namespace SRPG
@@ -33,5 +33,9 @@ namespace SRPG
     GoodSleep = 4194304, // 0x00400000
     AutoJewel = 8388608, // 0x00800000
     DisableHeal = 16777216, // 0x01000000
+    DisableSingleAttack = 33554432, // 0x02000000
+    DisableAreaAttack = 67108864, // 0x04000000
+    DisableDecCT = 134217728, // 0x08000000
+    DisableIncCT = 268435456, // 0x10000000
   }
 }

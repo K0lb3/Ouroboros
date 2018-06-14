@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.SkillFlags
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 namespace SRPG
@@ -21,5 +21,12 @@ namespace SRPG
     JewelAttack = 1024, // 0x00000400
     ForceHit = 2048, // 0x00000800
     Suicide = 4096, // 0x00001000
+    SubActuate = 8192, // 0x00002000
+    FixedDamage = 16384, // 0x00004000
+    ForceUnitLock = 32768, // 0x00008000
+    AllDamageReaction = 65536, // 0x00010000
+    ShieldReset = 131072, // 0x00020000
+    IgnoreElement = 262144, // 0x00040000
+    PrevApply = 524288, // 0x00080000
   }
 }

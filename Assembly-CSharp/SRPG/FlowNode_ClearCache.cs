@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_ClearCache
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections;
@@ -10,10 +10,10 @@ using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.Pin(101, "Finished", FlowNode.PinTypes.Output, 0)]
   [FlowNode.NodeType("System/キャッシュクリア", 32741)]
-  [FlowNode.Pin(0, "In", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(101, "Finished", FlowNode.PinTypes.Output, 0)]
   [FlowNode.Pin(100, "Out", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(0, "In", FlowNode.PinTypes.Input, 0)]
   public class FlowNode_ClearCache : FlowNode
   {
     public const int PINID_CLEAR = 0;
@@ -34,7 +34,7 @@ namespace SRPG
     private IEnumerator ClearCacheAsync()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new FlowNode_ClearCache.\u003CClearCacheAsync\u003Ec__Iterator80() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new FlowNode_ClearCache.\u003CClearCacheAsync\u003Ec__IteratorBE() { \u003C\u003Ef__this = this };
     }
   }
 }

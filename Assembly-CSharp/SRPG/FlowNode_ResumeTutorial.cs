@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_ResumeTutorial
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -13,12 +13,13 @@ using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.Pin(3, "Resume Quest", FlowNode.PinTypes.Output, 3)]
+  [FlowNode.Pin(16, "ClearResumeVersus", FlowNode.PinTypes.Input, 16)]
   [FlowNode.NodeType("System/Tutorial")]
   [FlowNode.Pin(0, "Try", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(1, "Next Step", FlowNode.PinTypes.Input, 1)]
   [FlowNode.Pin(10, "DebugEndMovieLoad", FlowNode.PinTypes.Input, 10)]
   [FlowNode.Pin(2, "Start Quest", FlowNode.PinTypes.Output, 2)]
+  [FlowNode.Pin(3, "Resume Quest", FlowNode.PinTypes.Output, 3)]
   [FlowNode.Pin(4, "Tutorial Skipped", FlowNode.PinTypes.Output, 4)]
   [FlowNode.Pin(5, "Resume Tower", FlowNode.PinTypes.Output, 5)]
   [FlowNode.Pin(6, "Resume Multi", FlowNode.PinTypes.Output, 6)]
@@ -29,9 +30,11 @@ namespace SRPG
   [FlowNode.Pin(13, "Resume Multi Cancel", FlowNode.PinTypes.Output, 13)]
   [FlowNode.Pin(14, "Resume Versus", FlowNode.PinTypes.Output, 14)]
   [FlowNode.Pin(15, "Resume Versus Cancel", FlowNode.PinTypes.Output, 15)]
-  [FlowNode.Pin(16, "ClearResumeVersus", FlowNode.PinTypes.Input, 16)]
   [FlowNode.Pin(17, "GotoHome", FlowNode.PinTypes.Input, 17)]
   [FlowNode.Pin(18, "FgGChainWish", FlowNode.PinTypes.Output, 18)]
+  [FlowNode.Pin(19, "Resume MultiTower", FlowNode.PinTypes.Output, 19)]
+  [FlowNode.Pin(20, "ClearResumeMultiTower", FlowNode.PinTypes.Input, 20)]
+  [FlowNode.Pin(21, "ResumeMultiTower Cancel", FlowNode.PinTypes.Output, 21)]
   public class FlowNode_ResumeTutorial : FlowNode
   {
     private bool mSkipTutorial;
@@ -50,20 +53,26 @@ namespace SRPG
               this.ActivateOutputLinks(3);
               break;
             }
-            switch (GlobalVars.QuestType)
+            QuestTypes questType = GlobalVars.QuestType;
+            switch (questType)
             {
-              case QuestTypes.Multi:
-                UIUtility.ConfirmBox(LocalizedText.Get("sys.MULTI_CONFIRM_RESUMEQUEST"), new UIUtility.DialogResultEvent(this.OnMultiResumeAccept), new UIUtility.DialogResultEvent(this.OnMultiResumeCancel), (GameObject) null, false, -1);
-                return;
               case QuestTypes.Tower:
-                UIUtility.ConfirmBox(LocalizedText.Get("sys.CONFIRM_RESUMEQUEST"), new UIUtility.DialogResultEvent(this.OnTowerResumeAccept), new UIUtility.DialogResultEvent(this.OnTowerResumeCancel), (GameObject) null, false, -1);
+                UIUtility.ConfirmBox(LocalizedText.Get("sys.CONFIRM_RESUMEQUEST"), new UIUtility.DialogResultEvent(this.OnTowerResumeAccept), new UIUtility.DialogResultEvent(this.OnTowerResumeCancel), (GameObject) null, false, -1, (string) null, (string) null);
                 return;
               case QuestTypes.VersusFree:
               case QuestTypes.VersusRank:
-                UIUtility.ConfirmBox(LocalizedText.Get("sys.MULTI_VERSUS_CONFIRM_RESUMEQUEST"), new UIUtility.DialogResultEvent(this.OnVersusAccept), new UIUtility.DialogResultEvent(this.OnVersusResumeCancel), (GameObject) null, false, -1);
+                UIUtility.ConfirmBox(LocalizedText.Get("sys.MULTI_VERSUS_CONFIRM_RESUMEQUEST"), new UIUtility.DialogResultEvent(this.OnVersusAccept), new UIUtility.DialogResultEvent(this.OnVersusResumeCancel), (GameObject) null, false, -1, (string) null, (string) null);
+                return;
+              case QuestTypes.MultiTower:
+                UIUtility.ConfirmBox(LocalizedText.Get("sys.MULTI_TOWER_CONFIRM_RESUMEQUEST"), new UIUtility.DialogResultEvent(this.OnMultiTowerAccept), new UIUtility.DialogResultEvent(this.OnMultiTowerResumeCancel), (GameObject) null, false, -1, (string) null, (string) null);
                 return;
               default:
-                UIUtility.ConfirmBox(LocalizedText.Get("sys.CONFIRM_RESUMEQUEST"), new UIUtility.DialogResultEvent(this.OnResumeAccept), new UIUtility.DialogResultEvent(this.OnResumeCancel), (GameObject) null, false, -1);
+                if (questType == QuestTypes.Multi)
+                {
+                  UIUtility.ConfirmBox(LocalizedText.Get("sys.MULTI_CONFIRM_RESUMEQUEST"), new UIUtility.DialogResultEvent(this.OnMultiResumeAccept), new UIUtility.DialogResultEvent(this.OnMultiResumeCancel), (GameObject) null, false, -1, (string) null, (string) null);
+                  return;
+                }
+                UIUtility.ConfirmBox(LocalizedText.Get("sys.CONFIRM_RESUMEQUEST"), new UIUtility.DialogResultEvent(this.OnResumeAccept), new UIUtility.DialogResultEvent(this.OnResumeCancel), (GameObject) null, false, -1, (string) null, (string) null);
                 return;
             }
           }
@@ -115,6 +124,9 @@ namespace SRPG
         case 17:
           this.LoadStartScene();
           break;
+        case 20:
+          this.ClearMultiTowerResumeData();
+          break;
       }
     }
 
@@ -138,6 +150,11 @@ namespace SRPG
       this.ActivateOutputLinks(14);
     }
 
+    private void OnMultiTowerAccept(GameObject go)
+    {
+      this.ActivateOutputLinks(19);
+    }
+
     private void OnResumeCancel(GameObject go)
     {
       this.ClearResumeData();
@@ -156,6 +173,11 @@ namespace SRPG
     private void OnVersusResumeCancel(GameObject go)
     {
       this.ActivateOutputLinks(15);
+    }
+
+    private void OnMultiTowerResumeCancel(GameObject go)
+    {
+      this.ActivateOutputLinks(21);
     }
 
     private void OnPlayTutorial(GameObject go)
@@ -212,13 +234,13 @@ namespace SRPG
     private IEnumerator WaitCompleteTutorialAsync()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new FlowNode_ResumeTutorial.\u003CWaitCompleteTutorialAsync\u003Ec__Iterator8E() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new FlowNode_ResumeTutorial.\u003CWaitCompleteTutorialAsync\u003Ec__IteratorD0() { \u003C\u003Ef__this = this };
     }
 
     private void ClearResumeData()
     {
       BattleCore.RemoveSuspendData();
-      Network.RequestAPI((WebAPI) new ReqBtlComEnd((long) GlobalVars.BtlID, 0, BtlResultTypes.Cancel, (int[]) null, (int[]) null, (int[]) null, (int[]) null, (string[]) null, (Dictionary<OString, OInt>) null, new Network.ResponseCallback(this.OnBtlComEnd), BtlEndTypes.com, (string) null, (string) null, (string) null), false);
+      Network.RequestAPI((WebAPI) new ReqBtlComEnd((long) GlobalVars.BtlID, 0, BtlResultTypes.Cancel, (int[]) null, (int[]) null, (int[]) null, (int[]) null, (string[]) null, (Dictionary<OString, OInt>) null, new Network.ResponseCallback(this.OnBtlComEnd), BtlEndTypes.com, (string) null, (string) null, 0, (string) null), false);
       GlobalVars.BtlID.Set(0L);
     }
 
@@ -232,14 +254,21 @@ namespace SRPG
     private void ClearMultiResumeData()
     {
       BattleCore.RemoveSuspendData();
-      Network.RequestAPI((WebAPI) new ReqBtlComEnd((long) GlobalVars.BtlID, 0, BtlResultTypes.Cancel, (int[]) null, (int[]) null, (int[]) null, (int[]) null, (string[]) null, (Dictionary<OString, OInt>) null, new Network.ResponseCallback(this.OnBtlComEnd), BtlEndTypes.multi, (string) null, (string) null, (string) null), false);
+      Network.RequestAPI((WebAPI) new ReqBtlComEnd((long) GlobalVars.BtlID, 0, BtlResultTypes.Cancel, (int[]) null, (int[]) null, (int[]) null, (int[]) null, (string[]) null, (Dictionary<OString, OInt>) null, new Network.ResponseCallback(this.OnBtlComEnd), BtlEndTypes.multi, (string) null, (string) null, 0, (string) null), false);
       GlobalVars.BtlID.Set(0L);
     }
 
     private void ClearVersusResumeData()
     {
       BattleCore.RemoveSuspendData();
-      Network.RequestAPI((WebAPI) new ReqVersusEnd((long) GlobalVars.BtlID, 0, BtlResultTypes.Retire, (int[]) null, (string) null, (string) null, new Network.ResponseCallback(this.OnBtlComEnd), VERSUS_TYPE.Free, (string) null, (string) null, (string) null), false);
+      Network.RequestAPI((WebAPI) new ReqVersusEnd((long) GlobalVars.BtlID, BtlResultTypes.Cancel, (string) null, (string) null, 0U, (int[]) null, (int[]) null, 0, 0, 0, 0, new Network.ResponseCallback(this.OnBtlComEnd), GlobalVars.SelectedMultiPlayVersusType, (string) null, (string) null), false);
+      GlobalVars.BtlID.Set(0L);
+    }
+
+    private void ClearMultiTowerResumeData()
+    {
+      BattleCore.RemoveSuspendData();
+      Network.RequestAPI((WebAPI) new ReqBtlMultiTwEnd((long) GlobalVars.BtlID, 0, BtlResultTypes.Retire, (int[]) null, (string[]) null, (string[]) null, new Network.ResponseCallback(this.OnBtlComEnd), (string) null, (string) null), false);
       GlobalVars.BtlID.Set(0L);
     }
 
@@ -298,7 +327,7 @@ namespace SRPG
     private IEnumerator LoadSceneAsync(string sceneName)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new FlowNode_ResumeTutorial.\u003CLoadSceneAsync\u003Ec__Iterator8F() { sceneName = sceneName, \u003C\u0024\u003EsceneName = sceneName, \u003C\u003Ef__this = this };
+      return (IEnumerator) new FlowNode_ResumeTutorial.\u003CLoadSceneAsync\u003Ec__IteratorD1() { sceneName = sceneName, \u003C\u0024\u003EsceneName = sceneName, \u003C\u003Ef__this = this };
     }
   }
 }

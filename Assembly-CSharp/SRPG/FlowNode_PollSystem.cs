@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_PollSystem
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using UnityEngine;
@@ -9,19 +9,19 @@ using UnityEngine.EventSystems;
 
 namespace SRPG
 {
-  [FlowNode.Pin(1280, "BeforeLogin", FlowNode.PinTypes.Input, 0)]
-  [FlowNode.NodeType("System/PollSystem")]
-  [FlowNode.Pin(0, "どれかに引っかかった", FlowNode.PinTypes.Output, 0)]
   [FlowNode.Pin(1, "すべてパスした", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(0, "どれかに引っかかった", FlowNode.PinTypes.Output, 0)]
   [FlowNode.Pin(10, "どれかに引っかかるまで待つ", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(11, "すべてパスするまで待つ", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(1100, "DisableInputModule", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(1200, "FadeVisible", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(1250, "NetworkConnecting", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1280, "BeforeLogin", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(1300, "BlockInterruptAll", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(1400, "BlockInterruptPhotonDisconnected", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(1500, "BlockInterruptUrlSchemeLaunch", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(8000, "CriticalSection", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.NodeType("System/PollSystem")]
   public class FlowNode_PollSystem : FlowNodePersistent
   {
     private bool[] mCheckFlag = new bool[8];

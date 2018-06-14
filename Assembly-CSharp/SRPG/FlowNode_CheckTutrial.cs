@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_CheckTutrial
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -9,11 +9,11 @@ using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.NodeType("System/CheckTutrial")]
-  [FlowNode.Pin(0, "CheckTutrial", FlowNode.PinTypes.Input, 0)]
-  [FlowNode.Pin(1, "Yes", FlowNode.PinTypes.Output, 1)]
   [FlowNode.Pin(2, "No", FlowNode.PinTypes.Output, 2)]
   [FlowNode.Pin(3, "Skip", FlowNode.PinTypes.Output, 3)]
+  [FlowNode.Pin(0, "CheckTutrial", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.NodeType("System/CheckTutrial")]
+  [FlowNode.Pin(1, "Yes", FlowNode.PinTypes.Output, 1)]
   public class FlowNode_CheckTutrial : FlowNode
   {
     private void Start()
@@ -33,7 +33,7 @@ namespace SRPG
         instance.UpdateTutorialStep();
         if (instance.TutorialStep == 0 && GameUtility.IsDebugBuild)
         {
-          UIUtility.ConfirmBox(LocalizedText.Get("sys.PLAYTUTORIAL"), new UIUtility.DialogResultEvent(this.OnPlayTutorial), new UIUtility.DialogResultEvent(this.OnSkipTutorial), (GameObject) null, false, -1);
+          UIUtility.ConfirmBox(LocalizedText.Get("sys.PLAYTUTORIAL"), new UIUtility.DialogResultEvent(this.OnPlayTutorial), new UIUtility.DialogResultEvent(this.OnSkipTutorial), (GameObject) null, false, -1, (string) null, (string) null);
           return;
         }
       }

@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: ScrollRectSound
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -150,5 +150,14 @@ public class ScrollRectSound : MonoBehaviour
   public void Play()
   {
     MonoSingleton<MySound>.Instance.PlaySEOneShot(this.cueID, 0.0f);
+  }
+
+  public void Reset()
+  {
+    this.mWait = 0.0f;
+    this.mInitPos = false;
+    this.mPos = Vector2.get_zero();
+    this.mPosDif = Vector2.get_zero();
+    this.mPosID = new IntVector2(0, 0);
   }
 }

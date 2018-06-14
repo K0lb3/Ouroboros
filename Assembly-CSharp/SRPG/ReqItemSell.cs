@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.ReqItemSell
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections.Generic;
@@ -10,9 +10,9 @@ namespace SRPG
 {
   public class ReqItemSell : WebAPI
   {
-    public ReqItemSell(Dictionary<long, int> sells, Network.ResponseCallback response)
+    public ReqItemSell(Dictionary<long, int> sells, bool is_item_convert, Network.ResponseCallback response)
     {
-      this.name = "item/sell";
+      this.name = !is_item_convert ? "item/sell" : "item/auto/sell";
       this.body = "\"sells\":[";
       string str = string.Empty;
       using (Dictionary<long, int>.Enumerator enumerator = sells.GetEnumerator())

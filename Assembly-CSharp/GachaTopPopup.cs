@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: GachaTopPopup
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -105,7 +105,7 @@ public class GachaTopPopup : MonoBehaviour
   private IEnumerator GetWWWImage(GameObject image, string url, int continue_count = 0, int height = 0, int width = 0)
   {
     // ISSUE: object of a compiler-generated type is created
-    return (IEnumerator) new GachaTopPopup.\u003CGetWWWImage\u003Ec__IteratorB0()
+    return (IEnumerator) new GachaTopPopup.\u003CGetWWWImage\u003Ec__IteratorF4()
     {
       url = url,
       image = image,

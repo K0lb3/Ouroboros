@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.BattleLogServer
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -11,7 +11,7 @@ namespace SRPG
 {
   public class BattleLogServer
   {
-    private static readonly int MAX_REGISTER_BATTLE_LOG = 128;
+    public static readonly int MAX_REGISTER_BATTLE_LOG = 128;
     private static readonly int BATTLE_LOG_REPORT_SIZE = 2048;
     private StringBuilder mReport = new StringBuilder(BattleLogServer.BATTLE_LOG_REPORT_SIZE);
     private BattleLog[] mLogs;
@@ -53,6 +53,17 @@ namespace SRPG
       get
       {
         return this.mLogs[this.mLogTop];
+      }
+    }
+
+    public BattleLog Last
+    {
+      get
+      {
+        int index = (this.mLogTop + (this.mLogNum - 1)) % this.mLogs.Length;
+        if (index < 0)
+          index = 0;
+        return this.mLogs[index];
       }
     }
 
@@ -104,6 +115,39 @@ namespace SRPG
       this.mLogs[this.mLogTop] = (BattleLog) null;
       this.mLogTop = (this.mLogTop + 1) % this.mLogs.Length;
       --this.mLogNum;
+    }
+
+    public void RemoveLogLast()
+    {
+      if (this.mLogNum <= 0)
+        return;
+      int index = (this.mLogTop + (this.mLogNum - 1)) % this.mLogs.Length;
+      if (index < 0)
+        index = 0;
+      this.mLogs[index] = (BattleLog) null;
+      --this.mLogNum;
+    }
+
+    public void RemoveLogOffs(int offs)
+    {
+      if (offs < 0 || offs >= this.mLogNum)
+        return;
+      if (offs == 0)
+      {
+        this.RemoveLog();
+      }
+      else
+      {
+        this.mLogs[(this.mLogTop + offs) % this.mLogs.Length] = (BattleLog) null;
+        for (int index1 = 0; index1 < this.mLogNum - offs; ++index1)
+        {
+          int index2 = (this.mLogTop + offs + index1 + 1) % this.mLogs.Length;
+          this.mLogs[(this.mLogTop + offs + index1) % this.mLogs.Length] = this.mLogs[index2];
+        }
+        if (this.mLogNum == BattleLogServer.MAX_REGISTER_BATTLE_LOG)
+          this.mLogs[(this.mLogTop + BattleLogServer.MAX_REGISTER_BATTLE_LOG - 1) % this.mLogs.Length] = (BattleLog) null;
+        --this.mLogNum;
+      }
     }
   }
 }

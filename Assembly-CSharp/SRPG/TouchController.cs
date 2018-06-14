@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.TouchController
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -11,7 +11,7 @@ using UnityEngine.EventSystems;
 namespace SRPG
 {
   [AddComponentMenu("Event/TouchController")]
-  public class TouchController : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler, IEventSystemHandler
+  public class TouchController : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUpHandler, IEventSystemHandler
   {
     private const float DragStartThreshold = 0.1f;
     public TouchController.ClickEvent OnClick;
@@ -62,7 +62,7 @@ namespace SRPG
       get
       {
         Camera main = Camera.get_main();
-        if (!Object.op_Inequality((Object) main, (Object) null))
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) main, (UnityEngine.Object) null))
           return Vector2.get_zero();
         Transform transform = ((Component) main).get_transform();
         Vector3 forward = transform.get_forward();
@@ -114,7 +114,7 @@ namespace SRPG
     public void OnPointerUp(PointerEventData eventData)
     {
       this.mIsTouching = false;
-      if (Object.op_Equality((Object) eventData.get_pointerPress(), (Object) ((Component) this).get_gameObject()))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) eventData.get_pointerPress(), (UnityEngine.Object) ((Component) this).get_gameObject()))
       {
         Vector2 vector2 = Vector2.op_Subtraction(this.mClickPos, eventData.get_position());
         // ISSUE: explicit reference operation

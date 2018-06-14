@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.SceneReplay
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections;
@@ -96,14 +96,14 @@ namespace SRPG
     private IEnumerator StartQuestAsync(string questID)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new SceneReplay.\u003CStartQuestAsync\u003Ec__Iterator5A() { questID = questID, \u003C\u0024\u003EquestID = questID, \u003C\u003Ef__this = this };
+      return (IEnumerator) new SceneReplay.\u003CStartQuestAsync\u003Ec__Iterator93() { questID = questID, \u003C\u0024\u003EquestID = questID, \u003C\u003Ef__this = this };
     }
 
     [DebuggerHidden]
     private IEnumerator DownloadQuestAsync(QuestParam quest)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new SceneReplay.\u003CDownloadQuestAsync\u003Ec__Iterator5B() { quest = quest, \u003C\u0024\u003Equest = quest, \u003C\u003Ef__this = this };
+      return (IEnumerator) new SceneReplay.\u003CDownloadQuestAsync\u003Ec__Iterator94() { quest = quest, \u003C\u0024\u003Equest = quest, \u003C\u003Ef__this = this };
     }
 
     private void CreateSkipCanvas()
@@ -169,7 +169,7 @@ namespace SRPG
       private IEnumerator Exec()
       {
         // ISSUE: object of a compiler-generated type is created
-        return (IEnumerator) new SceneReplay.State_Replay.\u003CExec\u003Ec__Iterator5C() { \u003C\u003Ef__this = this };
+        return (IEnumerator) new SceneReplay.State_Replay.\u003CExec\u003Ec__Iterator95() { \u003C\u003Ef__this = this };
       }
     }
 

@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.UnitJobClassChange
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -20,12 +20,38 @@ namespace SRPG
     public GameObject NextJob;
     [NonSerialized]
     public int CurrentRank;
+    private int mCurrentJobRank;
+    private int mNextJobRank;
     public Text NewRank;
     public Text OldRank;
 
     public UnitJobClassChange()
     {
       base.\u002Ector();
+    }
+
+    public int CurrentJobRank
+    {
+      get
+      {
+        return this.mCurrentJobRank;
+      }
+      set
+      {
+        this.mCurrentJobRank = value;
+      }
+    }
+
+    public int NextJobRank
+    {
+      get
+      {
+        return this.mNextJobRank;
+      }
+      set
+      {
+        this.mNextJobRank = value;
+      }
     }
 
     private void Start()
@@ -54,21 +80,21 @@ namespace SRPG
         data1 = MonoSingleton<GameManager>.Instance.MasterParam.GetJobParam(this.PrevJobID);
       if (!string.IsNullOrEmpty(this.NextJobID))
         data2 = MonoSingleton<GameManager>.Instance.MasterParam.GetJobParam(this.NextJobID);
-      if (Object.op_Inequality((Object) this.NextJob, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.NextJob, (UnityEngine.Object) null))
       {
         DataSource.Bind<JobParam>(this.NextJob, data2);
         GameParameter.UpdateAll(this.NextJob);
       }
-      if (Object.op_Inequality((Object) this.PrevJob, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.PrevJob, (UnityEngine.Object) null))
       {
         DataSource.Bind<JobParam>(this.PrevJob, data1);
         GameParameter.UpdateAll(this.PrevJob);
       }
-      if (Object.op_Inequality((Object) this.NewRank, (Object) null))
-        this.NewRank.set_text(this.CurrentRank.ToString());
-      if (!Object.op_Inequality((Object) this.OldRank, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.NewRank, (UnityEngine.Object) null))
+        this.NewRank.set_text(this.NextJobRank.ToString());
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.OldRank, (UnityEngine.Object) null))
         return;
-      this.OldRank.set_text((this.CurrentRank - 1).ToString());
+      this.OldRank.set_text(this.CurrentJobRank.ToString());
     }
   }
 }

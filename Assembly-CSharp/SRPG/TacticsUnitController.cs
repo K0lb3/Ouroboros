@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.TacticsUnitController
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -49,6 +49,7 @@ namespace SRPG
     private const string ID_FALL_END = "FLEN";
     private const string ID_CLIMBUP = "CLMB";
     private const string ID_GENKIDAMA = "GENK";
+    public const float ADJUST_MOVE_DIST = 0.3f;
     private const string ID_BATTLE_RUN = "B_RUN";
     private const string ID_BATTLE_SKILL = "B_SKL";
     private const string ID_BATTLE_BACKSTEP = "B_BS";
@@ -64,11 +65,13 @@ namespace SRPG
     private const string ID_BATTLE_PRESKILL = "B_PRS";
     private const string ID_BATTLE_TOSS_LIFT = "B_TOSS_LIFT";
     private const string ID_BATTLE_TOSS_THROW = "B_TOSS_THROW";
+    private const string ID_BATTLE_TRANSFORM = "B_TRANSFORM";
     public const string ANIM_BATTLE_TOSS_LIFT = "cmn_toss_lift0";
     public const string ANIM_BATTLE_TOSS_THROW = "cmn_toss_throw0";
     public const string COLLABO_SKILL_NAME_SUB = "_sub";
     private const float CameraInterpRate = 4f;
     private const float KNOCK_BACK_SEC = 0.4f;
+    public const string TRANSFORM_SKILL_NAME_SUB = "_chg";
     public List<string> mCustomRunAnimations;
     private GameObject mRenkeiAuraEffect;
     private GameObject mDrainEffect;
@@ -88,9 +91,10 @@ namespace SRPG
     private ChargeIcon mChargeIcon;
     private DeathSentenceIcon mDeathSentenceIcon;
     private GameObject mOwnerIndexUI;
+    private UnitGaugeMark.EMarkType mKeepUnitGaugeMarkType;
+    private UnitGaugeMark.EGemIcon mKeepUnitGaugeMarkGemIconType;
     private TacticsUnitController.HideGimmickAnimation mHideGimmickAnim;
     public string UniqueName;
-    public int TurnCount;
     private Unit mUnit;
     private Projector mShadow;
     public UnitCursor UnitCursorTemplate;
@@ -124,6 +128,7 @@ namespace SRPG
     private GameObject mCurseEffect;
     private string mLoadedCurseAnimation;
     private bool IsCursed;
+    private int mBadStatusLocks;
     public int DrainGemsOnHit;
     public GemParticle[] GemDrainEffects;
     public GameObject GemDrainHitEffect;
@@ -152,7 +157,7 @@ namespace SRPG
     {
       this.mSkillVars.HitGrids = hitGrids;
       if (withAnimation)
-        this.InternalStartSkill(targets, targetPosition, activeCamera);
+        this.InternalStartSkill(targets, targetPosition, activeCamera, true);
       else
         this.InternalStartSkillWithoutAnimation(targets, targetPosition, activeCamera);
     }
@@ -163,7 +168,7 @@ namespace SRPG
         this.InternalStartSkill(new TacticsUnitController[1]
         {
           target
-        }, ((Component) target).get_transform().get_position(), activeCamera);
+        }, ((Component) target).get_transform().get_position(), activeCamera, true);
       else
         this.InternalStartSkillWithoutAnimation(new TacticsUnitController[1]
         {
@@ -195,7 +200,7 @@ namespace SRPG
         this.mSkillVars.mTargetPosition = !this.mSkillVars.UseBattleScene ? targetPosition : this.mSkillVars.mTargetControllerPosition;
         this.mSkillVars.MaxPlayVoice = this.mSkillVars.NumPlayVoice = this.CountSkillUnitVoice();
         this.mSkillVars.TotalHits = this.mSkillVars.NumHitsLeft = this.CountSkillHits();
-        this.mSkillVars.mAuraEnable = Object.op_Inequality((Object) this.mSkillVars.mSkillEffect.AuraEffect, (Object) null);
+        this.mSkillVars.mAuraEnable = UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSkillVars.mSkillEffect.AuraEffect, (UnityEngine.Object) null);
         if (this.UseSubEquipment)
           this.SwitchEquipments();
         this.mSkillVars.mCameraID = 0;
@@ -221,7 +226,10 @@ namespace SRPG
     private IEnumerator CacheIconsAsync()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new TacticsUnitController.\u003CCacheIconsAsync\u003Ec__IteratorF() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new TacticsUnitController.\u003CCacheIconsAsync\u003Ec__Iterator2E()
+      {
+        \u003C\u003Ef__this = this
+      };
     }
 
     public static TacticsUnitController FindByUnitID(string unitID)
@@ -284,7 +292,7 @@ namespace SRPG
     {
       get
       {
-        return Mathf.Clamp((int) this.Unit.MaximumStatus.param.hp == 0 ? 100 : this.mCachedHP * 100 / (int) this.Unit.MaximumStatus.param.hp, 0, 100);
+        return Mathf.Clamp((int) this.Unit.MaximumStatus.param.hp == 0 ? 100 : (int) this.Unit.CurrentStatus.param.hp * 100 / (int) this.Unit.MaximumStatus.param.hp, 0, 100);
       }
     }
 
@@ -320,18 +328,18 @@ namespace SRPG
 
     public void InitHPGauge(Canvas canvas, UnitGauge gaugeTemplate)
     {
-      if (Object.op_Equality((Object) canvas, (Object) null) || Object.op_Equality((Object) gaugeTemplate, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) canvas, (UnityEngine.Object) null) || UnityEngine.Object.op_Equality((UnityEngine.Object) gaugeTemplate, (UnityEngine.Object) null))
         return;
-      if (Object.op_Equality((Object) this.mHPGauge, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mHPGauge, (UnityEngine.Object) null))
       {
-        this.mHPGauge = (UnitGauge) Object.Instantiate<UnitGauge>((M0) gaugeTemplate);
+        this.mHPGauge = (UnitGauge) UnityEngine.Object.Instantiate<UnitGauge>((M0) gaugeTemplate);
         this.mHPGauge.SetOwner(this.Unit);
       }
-      if (Object.op_Equality((Object) this.mAddIconGauge, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mAddIconGauge, (UnityEngine.Object) null))
         this.mAddIconGauge = (UnitGaugeMark) ((Component) this.mHPGauge).GetComponent<UnitGaugeMark>();
-      if (Object.op_Equality((Object) this.mChargeIcon, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mChargeIcon, (UnityEngine.Object) null))
         this.mChargeIcon = (ChargeIcon) ((Component) this.mHPGauge).GetComponent<ChargeIcon>();
-      if (Object.op_Equality((Object) this.mDeathSentenceIcon, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mDeathSentenceIcon, (UnityEngine.Object) null))
       {
         this.mDeathSentenceIcon = (DeathSentenceIcon) ((Component) this.mHPGauge).GetComponent<DeathSentenceIcon>();
         this.mDeathSentenceIcon.Init(this.Unit);
@@ -341,10 +349,10 @@ namespace SRPG
 
     public void SetHPGaugeMode(TacticsUnitController.HPGaugeModes mode, SkillData skill = null, Unit attacker = null)
     {
-      if (!Object.op_Inequality((Object) this.mHPGauge, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mHPGauge, (UnityEngine.Object) null))
         return;
       UnitGauge component = (UnitGauge) ((Component) this.mHPGauge).GetComponent<UnitGauge>();
-      if (Object.op_Inequality((Object) component, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
       {
         component.Mode = (int) mode;
         this.OnUnitGaugeModeChange(mode);
@@ -353,7 +361,7 @@ namespace SRPG
       {
         if (skill == null || attacker == null)
           return;
-        this.mHPGauge.Focus(skill.ElementType, (int) skill.ElementValue, attacker.Element, (int) attacker.CurrentStatus.element_assist[attacker.Element]);
+        this.mHPGauge.Focus(skill, skill.ElementType, (int) skill.ElementValue, attacker.Element, (int) attacker.CurrentStatus.element_assist[attacker.Element]);
       }
       else
         this.mHPGauge.DeactivateElementIcon();
@@ -361,7 +369,7 @@ namespace SRPG
 
     public void OnUnitGaugeModeChange(TacticsUnitController.HPGaugeModes Mode)
     {
-      if (!Object.op_Inequality((Object) this.mChargeIcon, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mChargeIcon, (UnityEngine.Object) null))
         return;
       if (this.Unit.CastSkill == null)
       {
@@ -386,7 +394,7 @@ namespace SRPG
 
     public void SetHPChangeYosou(int newHP)
     {
-      if (!Object.op_Inequality((Object) this.mHPGauge, (Object) null) || !Object.op_Inequality((Object) this.mHPGauge.MainGauge, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mHPGauge, (UnityEngine.Object) null) || !UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mHPGauge.MainGauge, (UnityEngine.Object) null))
         return;
       GameSettings instance = GameSettings.Instance;
       if (newHP < this.mCachedHP)
@@ -414,7 +422,11 @@ namespace SRPG
       }
       else if (newHP > this.mCachedHP)
       {
-        Color32[] colors = new Color32[2]{ this.Unit.Side != EUnitSide.Player ? instance.Gauge_EnemyHP_Base : instance.Gauge_PlayerHP_Base, this.Unit.Side != EUnitSide.Player ? instance.Gauge_EnemyHP_Heal : instance.Gauge_PlayerHP_Heal };
+        Color32[] colors = new Color32[2]
+        {
+          this.Unit.Side != EUnitSide.Player ? instance.Gauge_EnemyHP_Base : instance.Gauge_PlayerHP_Base,
+          this.Unit.Side != EUnitSide.Player ? instance.Gauge_EnemyHP_Heal : instance.Gauge_PlayerHP_Heal
+        };
         colors[0].a = (int) this.Unit.MaximumStatus.param.hp == 0 ? (__Null) 0 : (__Null) (int) (byte) (this.mCachedHP * (int) byte.MaxValue / (int) this.Unit.MaximumStatus.param.hp);
         colors[1].a = (__Null) (int) (byte) ((int) byte.MaxValue - colors[0].a);
         this.mHPGauge.MainGauge.Value = (int) this.Unit.MaximumStatus.param.hp == 0 ? 1f : Mathf.Clamp01((float) newHP / (float) (int) this.Unit.MaximumStatus.param.hp);
@@ -428,7 +440,7 @@ namespace SRPG
     {
       get
       {
-        if (Object.op_Inequality((Object) this.mHPGauge, (Object) null) && ((Component) this.mHPGauge).get_gameObject().get_activeInHierarchy() && Object.op_Inequality((Object) this.mHPGauge.MainGauge, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mHPGauge, (UnityEngine.Object) null) && ((Component) this.mHPGauge).get_gameObject().get_activeInHierarchy() && (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mHPGauge.MainGauge, (UnityEngine.Object) null) && ((Component) this.mHPGauge.MainGauge).get_gameObject().get_activeInHierarchy()))
           return this.mHPGauge.MainGauge.IsAnimating;
         return false;
       }
@@ -438,7 +450,7 @@ namespace SRPG
     {
       get
       {
-        if (Object.op_Inequality((Object) this.mHPGauge, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mHPGauge, (UnityEngine.Object) null))
           return (RectTransform) ((Component) this.mHPGauge).GetComponent<RectTransform>();
         return (RectTransform) null;
       }
@@ -446,7 +458,7 @@ namespace SRPG
 
     public void ShowHPGauge(bool visible)
     {
-      if (Object.op_Inequality((Object) this.mHPGauge, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mHPGauge, (UnityEngine.Object) null))
         ((Component) this.mHPGauge).get_gameObject().SetActive(visible);
       this.mKeepHPGaugeVisible = -1f;
     }
@@ -454,7 +466,7 @@ namespace SRPG
     public void ResetHPGauge()
     {
       this.mCachedHP = (int) this.Unit.CurrentStatus.param.hp;
-      if (!Object.op_Inequality((Object) this.mHPGauge, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mHPGauge, (UnityEngine.Object) null))
         return;
       GameSettings instance = GameSettings.Instance;
       this.mHPGauge.MainGauge.Colors = new Color32[1]
@@ -468,7 +480,7 @@ namespace SRPG
     {
       this.mCachedHP += delta;
       this.mCachedHP = Mathf.Clamp(this.mCachedHP, 0, (int) this.Unit.MaximumStatus.param.hp);
-      if (Object.op_Equality((Object) this.mHPGauge, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mHPGauge, (UnityEngine.Object) null))
         return;
       this.mHPGauge.MainGauge.AnimateRangedValue(this.mCachedHP, (int) this.Unit.MaximumStatus.param.hp, duration);
       ((Component) this.mHPGauge).get_gameObject().SetActive(true);
@@ -479,7 +491,7 @@ namespace SRPG
 
     private void UpdateGauges()
     {
-      if (Object.op_Inequality((Object) this.mHPGauge, (Object) null) && (double) this.mKeepHPGaugeVisible >= 0.0 && ((Component) this.mHPGauge).get_gameObject().get_activeInHierarchy())
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mHPGauge, (UnityEngine.Object) null) && (double) this.mKeepHPGaugeVisible >= 0.0 && ((Component) this.mHPGauge).get_gameObject().get_activeInHierarchy())
       {
         this.mKeepHPGaugeVisible -= Time.get_deltaTime();
         if ((double) this.mKeepHPGaugeVisible <= 0.0)
@@ -488,7 +500,7 @@ namespace SRPG
           this.mKeepHPGaugeVisible = 0.0f;
         }
       }
-      if (!Object.op_Inequality((Object) this.mAddIconGauge, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mAddIconGauge, (UnityEngine.Object) null))
         return;
       this.mAddIconGauge.IsGaugeUpdate = this.IsHPGaugeChanging;
       this.mAddIconGauge.IsUnitDead = this.Unit.IsDead;
@@ -498,31 +510,31 @@ namespace SRPG
     {
       if (this.mSkillVars == null || this.mSkillVars.Skill == null)
         return;
-      SkillData skillData = this.mUnit.GetSkillData(this.mSkillVars.Skill.iname);
-      if (skillData == null)
+      SkillData skill = this.mUnit.GetSkillData(this.mSkillVars.Skill.iname);
+      if (skill == null)
       {
-        skillData = new SkillData();
-        skillData.Setup(this.mSkillVars.Skill.iname, 1, 1, (MasterParam) null);
+        skill = new SkillData();
+        skill.Setup(this.mSkillVars.Skill.iname, 1, 1, (MasterParam) null);
       }
       this.mHPGauge.ActivateElementIcon(true);
-      this.mHPGauge.OnAttack(skillData.ElementType, (int) skillData.ElementValue, attacker.Element, (int) attacker.CurrentStatus.element_assist[attacker.Element]);
+      this.mHPGauge.OnAttack(skill, skill.ElementType, (int) skill.ElementValue, attacker.Element, (int) attacker.CurrentStatus.element_assist[attacker.Element]);
     }
 
     public void ShowOwnerIndexUI(bool show)
     {
-      if (Object.op_Equality((Object) this.mOwnerIndexUI, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mOwnerIndexUI, (UnityEngine.Object) null))
         return;
       this.mOwnerIndexUI.get_gameObject().SetActive(show);
     }
 
     public bool CreateOwnerIndexUI(Canvas canvas, GameObject templeteUI, JSON_MyPhotonPlayerParam param)
     {
-      if (Object.op_Inequality((Object) this.mOwnerIndexUI, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mOwnerIndexUI, (UnityEngine.Object) null))
         return true;
-      if (Object.op_Equality((Object) canvas, (Object) null) || Object.op_Equality((Object) templeteUI, (Object) null) || param == null)
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) canvas, (UnityEngine.Object) null) || UnityEngine.Object.op_Equality((UnityEngine.Object) templeteUI, (UnityEngine.Object) null) || param == null)
         return false;
-      this.mOwnerIndexUI = (GameObject) Object.Instantiate<GameObject>((M0) templeteUI);
-      if (Object.op_Equality((Object) this.mOwnerIndexUI, (Object) null))
+      this.mOwnerIndexUI = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) templeteUI);
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mOwnerIndexUI, (UnityEngine.Object) null))
         return false;
       DataSource.Bind<JSON_MyPhotonPlayerParam>(this.mOwnerIndexUI, param);
       UIProjector uiProjector = (UIProjector) ((Component) this).get_gameObject().AddComponent<UIProjector>();
@@ -535,29 +547,29 @@ namespace SRPG
 
     public void ShowVersusCursor(bool show)
     {
-      if (Object.op_Equality((Object) this.mVersusCursor, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mVersusCursor, (UnityEngine.Object) null))
         return;
       this.mVersusCursor.get_gameObject().SetActive(show);
     }
 
     public void PlayVersusCursor(bool play)
     {
-      if (Object.op_Equality((Object) this.mVersusCursor, (Object) null) || Object.op_Equality((Object) this.mVersusCursorRoot, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mVersusCursor, (UnityEngine.Object) null) || UnityEngine.Object.op_Equality((UnityEngine.Object) this.mVersusCursorRoot, (UnityEngine.Object) null))
         return;
       Animation component = (Animation) ((Component) this.mVersusCursorRoot).GetComponent<Animation>();
-      if (!Object.op_Inequality((Object) component, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
         return;
       ((Behaviour) component).set_enabled(play);
     }
 
     public bool CreateVersusCursor(GameObject templeteUI)
     {
-      if (Object.op_Inequality((Object) this.mVersusCursor, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mVersusCursor, (UnityEngine.Object) null))
         return true;
-      if (Object.op_Equality((Object) templeteUI, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) templeteUI, (UnityEngine.Object) null))
         return false;
-      this.mVersusCursor = (GameObject) Object.Instantiate<GameObject>((M0) templeteUI);
-      if (Object.op_Equality((Object) this.mVersusCursor, (Object) null))
+      this.mVersusCursor = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) templeteUI);
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mVersusCursor, (UnityEngine.Object) null))
         return false;
       this.mVersusCursor.get_transform().SetParent(((Component) this).get_gameObject().get_transform(), false);
       this.mVersusCursor.get_transform().set_localPosition(Vector3.op_Multiply(Vector3.get_up(), 1.3f));
@@ -569,25 +581,28 @@ namespace SRPG
 
     public void SetGimmickIcon(Unit TargetUnit)
     {
-      if (TargetUnit == null || !Object.op_Inequality((Object) this.mAddIconGauge, (Object) null))
+      if (TargetUnit == null || !UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mAddIconGauge, (UnityEngine.Object) null))
         return;
       if (TargetUnit.UnitType == EUnitType.Treasure)
         this.mAddIconGauge.ChangeAnimationByUnitType(TargetUnit.UnitType);
-      if (TargetUnit.UnitType != EUnitType.Gem || TargetUnit.EventTrigger == null)
-        return;
-      this.mAddIconGauge.SetGemIcon(TargetUnit.EventTrigger.GimmickType);
+      if (TargetUnit.UnitType == EUnitType.Gem && TargetUnit.EventTrigger != null)
+        this.mAddIconGauge.SetGemIcon(TargetUnit.EventTrigger.GimmickType);
+      if (this.mKeepUnitGaugeMarkType != UnitGaugeMark.EMarkType.None && (this.mKeepUnitGaugeMarkType != this.mAddIconGauge.MarkType || this.mKeepUnitGaugeMarkGemIconType != this.mAddIconGauge.GemIconType))
+        this.mAddIconGauge.SetEndAnimation(this.mKeepUnitGaugeMarkType);
+      this.mKeepUnitGaugeMarkType = this.mAddIconGauge.MarkType;
+      this.mKeepUnitGaugeMarkGemIconType = this.mAddIconGauge.GemIconType;
     }
 
     public void HideGimmickIcon(EUnitType Type)
     {
-      if (!Object.op_Inequality((Object) this.mAddIconGauge, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mAddIconGauge, (UnityEngine.Object) null))
         return;
       this.mAddIconGauge.SetEndAnimationAll();
     }
 
     public void DeleteGimmickIconAll()
     {
-      if (!Object.op_Inequality((Object) this.mAddIconGauge, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mAddIconGauge, (UnityEngine.Object) null))
         return;
       this.mAddIconGauge.DeleteIconAll();
     }
@@ -722,6 +737,32 @@ namespace SRPG
               this.mFieldActionPoint.y = (__Null) ((double) num2 - (double) num6);
               break;
           }
+          Vector3 pos;
+          // ISSUE: explicit reference operation
+          ((Vector3) @pos).\u002Ector((float) this.mFieldActionPoint.x, 0.0f, (float) this.mFieldActionPoint.y);
+          switch (direction)
+          {
+            case EUnitDirection.PositiveX:
+            case EUnitDirection.NegativeX:
+              if (this.AdjustMovePos(EUnitDirection.NegativeY, ref pos))
+                this.mFieldActionPoint = new Vector2((float) pos.x, (float) pos.z);
+              if (this.AdjustMovePos(EUnitDirection.PositiveY, ref pos))
+              {
+                this.mFieldActionPoint = new Vector2((float) pos.x, (float) pos.z);
+                break;
+              }
+              break;
+            case EUnitDirection.PositiveY:
+            case EUnitDirection.NegativeY:
+              if (this.AdjustMovePos(EUnitDirection.NegativeX, ref pos))
+                this.mFieldActionPoint = new Vector2((float) pos.x, (float) pos.z);
+              if (this.AdjustMovePos(EUnitDirection.PositiveX, ref pos))
+              {
+                this.mFieldActionPoint = new Vector2((float) pos.x, (float) pos.z);
+                break;
+              }
+              break;
+          }
           GameSettings instance = GameSettings.Instance;
           this.mFieldActionDir = direction;
           if ((double) num9 <= (double) instance.Unit_FallAnimationThreshold)
@@ -747,6 +788,47 @@ namespace SRPG
         }
       }
       return false;
+    }
+
+    public bool AdjustMovePos(EUnitDirection edir, ref Vector3 pos)
+    {
+      bool flag = false;
+      switch (edir)
+      {
+        case EUnitDirection.PositiveX:
+          if (pos.x % 1.0 > 0.699999988079071)
+          {
+            pos.x = (__Null) ((double) Mathf.Floor((float) pos.x) + 0.699999988079071);
+            flag = true;
+            break;
+          }
+          break;
+        case EUnitDirection.PositiveY:
+          if (pos.z % 1.0 > 0.699999988079071)
+          {
+            pos.z = (__Null) ((double) Mathf.Floor((float) pos.z) + 0.699999988079071);
+            flag = true;
+            break;
+          }
+          break;
+        case EUnitDirection.NegativeX:
+          if (pos.x % 1.0 < 0.300000011920929)
+          {
+            pos.x = (__Null) ((double) Mathf.Floor((float) pos.x) + 0.300000011920929);
+            flag = true;
+            break;
+          }
+          break;
+        case EUnitDirection.NegativeY:
+          if (pos.z % 1.0 < 0.300000011920929)
+          {
+            pos.z = (__Null) ((double) Mathf.Floor((float) pos.z) + 0.300000011920929);
+            flag = true;
+            break;
+          }
+          break;
+      }
+      return flag;
     }
 
     public bool IsPlayingFieldAction
@@ -819,7 +901,7 @@ namespace SRPG
       StaticLightVolume volume = StaticLightVolume.FindVolume(position);
       Color directLit;
       Color indirectLit;
-      if (Object.op_Equality((Object) volume, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) volume, (UnityEngine.Object) null))
       {
         GameSettings instance = GameSettings.Instance;
         directLit = instance.Character_DefaultDirectLitColor;
@@ -879,7 +961,7 @@ namespace SRPG
     {
       get
       {
-        return Object.op_Inequality((Object) this.mUnitCursor, (Object) null);
+        return UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mUnitCursor, (UnityEngine.Object) null);
       }
     }
 
@@ -898,9 +980,9 @@ namespace SRPG
 
     public void ShowCursor(UnitCursor prefab, Color color)
     {
-      if (Object.op_Inequality((Object) this.mUnitCursor, (Object) null) || Object.op_Equality((Object) prefab, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mUnitCursor, (UnityEngine.Object) null) || UnityEngine.Object.op_Equality((UnityEngine.Object) prefab, (UnityEngine.Object) null))
         return;
-      this.mUnitCursor = (UnitCursor) Object.Instantiate<UnitCursor>((M0) prefab);
+      this.mUnitCursor = (UnitCursor) UnityEngine.Object.Instantiate<UnitCursor>((M0) prefab);
       ((Component) this.mUnitCursor).get_transform().set_parent(((Component) this).get_transform());
       this.mUnitCursor.Color = color;
       ((Component) this.mUnitCursor).get_transform().set_localPosition(Vector3.op_Multiply(Vector3.get_up(), 0.3f));
@@ -913,7 +995,7 @@ namespace SRPG
 
     public void HideCursor(bool immediate = false)
     {
-      if (Object.op_Equality((Object) this.mUnitCursor, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mUnitCursor, (UnityEngine.Object) null))
         return;
       if (immediate)
         GameUtility.DestroyGameObject((Component) this.mUnitCursor);
@@ -948,10 +1030,13 @@ namespace SRPG
     {
       this.OnAnimationUpdate = new AnimationPlayer.AnimationUpdateEvent(this.AnimationUpdated);
       base.Start();
-      if (this.Posture == TacticsUnitController.PostureTypes.Combat)
-        this.LoadUnitAnimationAsync("IDLE", TacticsUnitController.ANIM_IDLE_FIELD, true, false);
-      else
-        this.LoadUnitAnimationAsync("IDLE", TacticsUnitController.ANIM_IDLE_DEMO, false, false);
+      if (this.mUnit == null || !this.mUnit.IsBreakObj)
+      {
+        if (this.Posture == TacticsUnitController.PostureTypes.Combat)
+          this.LoadUnitAnimationAsync("IDLE", TacticsUnitController.ANIM_IDLE_FIELD, true, false);
+        else
+          this.LoadUnitAnimationAsync("IDLE", TacticsUnitController.ANIM_IDLE_DEMO, false, false);
+      }
       this.GotoState<TacticsUnitController.State_WaitResources>();
     }
 
@@ -968,7 +1053,12 @@ namespace SRPG
     private IEnumerator LoadDefendSkillEffectAsync(string skillEffectName)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new TacticsUnitController.\u003CLoadDefendSkillEffectAsync\u003Ec__Iterator10() { skillEffectName = skillEffectName, \u003C\u0024\u003EskillEffectName = skillEffectName, \u003C\u003Ef__this = this };
+      return (IEnumerator) new TacticsUnitController.\u003CLoadDefendSkillEffectAsync\u003Ec__Iterator2F()
+      {
+        skillEffectName = skillEffectName,
+        \u003C\u0024\u003EskillEffectName = skillEffectName,
+        \u003C\u003Ef__this = this
+      };
     }
 
     protected override void PostSetup()
@@ -978,7 +1068,7 @@ namespace SRPG
       this.RootMotionScale = mapCharacterScale;
       ((Component) this).get_transform().set_localScale(Vector3.op_Multiply(Vector3.get_one(), mapCharacterScale));
       CharacterSettings component = (CharacterSettings) this.UnitObject.GetComponent<CharacterSettings>();
-      if (Object.op_Inequality((Object) component, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
       {
         Unit unit = this.Unit;
         if (unit != null)
@@ -995,10 +1085,10 @@ namespace SRPG
           }
         }
         component.SetSkeleton("small");
-        if (Object.op_Inequality((Object) component.ShadowProjector, (Object) null))
+        if (this.mUnitObjectLists.Count <= 1 && UnityEngine.Object.op_Inequality((UnityEngine.Object) component.ShadowProjector, (UnityEngine.Object) null))
         {
           GameObject gameObject = ((Component) component.ShadowProjector).get_gameObject();
-          this.mShadow = (Projector) ((GameObject) Object.Instantiate((Object) gameObject, Vector3.op_Addition(((Component) this).get_transform().get_position(), gameObject.get_transform().get_position()), gameObject.get_transform().get_rotation())).GetComponent<Projector>();
+          this.mShadow = (Projector) ((GameObject) UnityEngine.Object.Instantiate((UnityEngine.Object) gameObject, Vector3.op_Addition(((Component) this).get_transform().get_position(), gameObject.get_transform().get_position()), gameObject.get_transform().get_rotation())).GetComponent<Projector>();
           ((Component) this.mShadow).get_transform().SetParent(this.GetCharacterRoot(), true);
           this.mShadow.set_ignoreLayers(~(1 << LayerMask.NameToLayer("BG")));
           GameUtility.SetLayer((Component) this.mShadow, GameUtility.LayerHidden, true);
@@ -1006,7 +1096,7 @@ namespace SRPG
           mShadow.set_orthographicSize(mShadow.get_orthographicSize() * mapCharacterScale);
         }
       }
-      if (Object.op_Inequality((Object) this.mPet, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mPet, (UnityEngine.Object) null))
       {
         Transform transform1 = ((Component) this).get_transform();
         Transform transform2 = ((Component) this.mPet).get_transform();
@@ -1020,15 +1110,15 @@ namespace SRPG
 
     public void SetRenkeiAura(GameObject eff)
     {
-      if (Object.op_Inequality((Object) this.mRenkeiAuraEffect, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mRenkeiAuraEffect, (UnityEngine.Object) null))
       {
         GameUtility.StopEmitters(this.mRenkeiAuraEffect);
         GameUtility.RequireComponent<OneShotParticle>(this.mRenkeiAuraEffect);
         this.mRenkeiAuraEffect = (GameObject) null;
       }
-      if (!Object.op_Inequality((Object) eff, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) eff, (UnityEngine.Object) null))
         return;
-      this.mRenkeiAuraEffect = Object.Instantiate((Object) eff, Vector3.get_zero(), Quaternion.get_identity()) as GameObject;
+      this.mRenkeiAuraEffect = UnityEngine.Object.Instantiate((UnityEngine.Object) eff, Vector3.get_zero(), Quaternion.get_identity()) as GameObject;
       this.mRenkeiAuraEffect.get_transform().SetParent(((Component) this).get_transform(), false);
     }
 
@@ -1041,19 +1131,19 @@ namespace SRPG
     {
       if (is_grn)
       {
-        if (Object.op_Implicit((Object) this.mChargeGrnTargetUnitEffect) || !Object.op_Implicit((Object) eff))
+        if (UnityEngine.Object.op_Implicit((UnityEngine.Object) this.mChargeGrnTargetUnitEffect) || !UnityEngine.Object.op_Implicit((UnityEngine.Object) eff))
           return;
-        this.mChargeGrnTargetUnitEffect = Object.Instantiate((Object) eff, Vector3.get_zero(), Quaternion.get_identity()) as GameObject;
-        if (!Object.op_Implicit((Object) this.mChargeGrnTargetUnitEffect))
+        this.mChargeGrnTargetUnitEffect = UnityEngine.Object.Instantiate((UnityEngine.Object) eff, Vector3.get_zero(), Quaternion.get_identity()) as GameObject;
+        if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) this.mChargeGrnTargetUnitEffect))
           return;
         this.mChargeGrnTargetUnitEffect.get_transform().SetParent(((Component) this).get_transform(), false);
       }
       else
       {
-        if (Object.op_Implicit((Object) this.mChargeRedTargetUnitEffect) || !Object.op_Implicit((Object) eff))
+        if (UnityEngine.Object.op_Implicit((UnityEngine.Object) this.mChargeRedTargetUnitEffect) || !UnityEngine.Object.op_Implicit((UnityEngine.Object) eff))
           return;
-        this.mChargeRedTargetUnitEffect = Object.Instantiate((Object) eff, Vector3.get_zero(), Quaternion.get_identity()) as GameObject;
-        if (!Object.op_Implicit((Object) this.mChargeRedTargetUnitEffect))
+        this.mChargeRedTargetUnitEffect = UnityEngine.Object.Instantiate((UnityEngine.Object) eff, Vector3.get_zero(), Quaternion.get_identity()) as GameObject;
+        if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) this.mChargeRedTargetUnitEffect))
           return;
         this.mChargeRedTargetUnitEffect.get_transform().SetParent(((Component) this).get_transform(), false);
       }
@@ -1061,13 +1151,13 @@ namespace SRPG
 
     public void DisableChargeTargetUnit()
     {
-      if (Object.op_Implicit((Object) this.mChargeGrnTargetUnitEffect))
+      if (UnityEngine.Object.op_Implicit((UnityEngine.Object) this.mChargeGrnTargetUnitEffect))
       {
         GameUtility.StopEmitters(this.mChargeGrnTargetUnitEffect);
         GameUtility.RequireComponent<OneShotParticle>(this.mChargeGrnTargetUnitEffect);
         this.mChargeGrnTargetUnitEffect = (GameObject) null;
       }
-      if (!Object.op_Implicit((Object) this.mChargeRedTargetUnitEffect))
+      if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) this.mChargeRedTargetUnitEffect))
         return;
       GameUtility.StopEmitters(this.mChargeRedTargetUnitEffect);
       GameUtility.RequireComponent<OneShotParticle>(this.mChargeRedTargetUnitEffect);
@@ -1076,12 +1166,12 @@ namespace SRPG
 
     public void SetDrainEffect(GameObject eff)
     {
-      if (!Object.op_Inequality((Object) eff, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) eff, (UnityEngine.Object) null))
         return;
       Transform transform = GameUtility.findChildRecursively(((Component) this).get_transform(), "Bip001");
-      if (Object.op_Equality((Object) transform, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) transform, (UnityEngine.Object) null))
         transform = ((Component) this).get_transform();
-      this.mDrainEffect = Object.Instantiate((Object) eff, ((Component) this).get_transform().get_position(), ((Component) this).get_transform().get_rotation()) as GameObject;
+      this.mDrainEffect = UnityEngine.Object.Instantiate((UnityEngine.Object) eff, ((Component) this).get_transform().get_position(), ((Component) this).get_transform().get_rotation()) as GameObject;
       this.mDrainEffect.get_transform().SetParent(transform, false);
       this.mDrainEffect.RequireComponent<OneShotParticle>();
       this.mDrainEffect.SetActive(false);
@@ -1155,7 +1245,7 @@ namespace SRPG
 
     private void AnimationUpdated(GameObject go)
     {
-      if (!Object.op_Inequality((Object) this.mCharacterSettings, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mCharacterSettings, (UnityEngine.Object) null))
         return;
       this.mCharacterSettings.SetSkeleton("small");
     }
@@ -1278,7 +1368,7 @@ namespace SRPG
 
     protected override void OnVisibilityChange(bool visible)
     {
-      if (!visible || !Object.op_Inequality((Object) this.mShadow, (Object) null))
+      if (!visible || !UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mShadow, (UnityEngine.Object) null))
         return;
       ((Component) this.mShadow).get_gameObject().set_layer(GameUtility.LayerDefault);
     }
@@ -1305,6 +1395,8 @@ namespace SRPG
 
     public void LookAt(Vector3 position)
     {
+      if (this.mUnit != null && this.mUnit.IsBreakObj)
+        return;
       Transform transform = ((Component) this).get_transform();
       Vector3 vector3 = Vector3.op_Subtraction(position, transform.get_position());
       vector3.y = (__Null) 0.0;
@@ -1350,40 +1442,59 @@ namespace SRPG
         this.GotoState<TacticsUnitController.State_Step>();
     }
 
+    public void LockUpdateBadStatus(EUnitCondition condition, bool is_force = false)
+    {
+      if (!is_force && this.Unit.IsUnitCondition(condition))
+        return;
+      this.mBadStatusLocks |= (int) condition;
+    }
+
+    public void UnlockUpdateBadStatus(EUnitCondition condition)
+    {
+      this.mBadStatusLocks &= (int) ~condition;
+    }
+
+    public void ClearBadStatusLocks()
+    {
+      this.mBadStatusLocks = 0;
+    }
+
     public void UpdateBadStatus()
     {
       if (BadStatusEffects.Effects == null || this.Unit == null)
         return;
       BadStatusEffects.Desc desc = (BadStatusEffects.Desc) null;
-      bool flag = false;
+      bool flag1 = false;
       for (int index = 0; index < BadStatusEffects.Effects.Count; ++index)
       {
-        if (this.Unit.IsUnitCondition(BadStatusEffects.Effects[index].Key))
+        EUnitCondition key = BadStatusEffects.Effects[index].Key;
+        if (((EUnitCondition) this.mBadStatusLocks & key) == (EUnitCondition) 0 && this.Unit.IsUnitCondition(key))
         {
           if (desc == null)
-            desc = BadStatusEffects.Effects[index];
-          if (this.Unit.IsCurseUnitCondition(BadStatusEffects.Effects[index].Key))
-            flag = true;
+          {
+            bool flag2 = true;
+            if (key == EUnitCondition.AutoHeal && this.Unit.IsUnitCondition(EUnitCondition.DisableHeal))
+              flag2 = false;
+            if (flag2)
+              desc = BadStatusEffects.Effects[index];
+          }
+          if (this.Unit.IsCurseUnitCondition(key))
+            flag1 = true;
         }
       }
       if (!this.Unit.IsUnitCondition(EUnitCondition.DeathSentence))
       {
-        if (Object.op_Inequality((Object) this.mDeathSentenceIcon, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mDeathSentenceIcon, (UnityEngine.Object) null))
           this.mDeathSentenceIcon.Close();
       }
       else
         this.DeathSentenceCountDown(false, 0.0f);
-      if (this.IsCursed != flag && Object.op_Inequality((Object) BadStatusEffects.CurseEffect, (Object) null))
+      if (this.IsCursed != flag1 && UnityEngine.Object.op_Inequality((UnityEngine.Object) BadStatusEffects.CurseEffect, (UnityEngine.Object) null))
       {
-        if (flag)
+        if (flag1)
         {
-          this.mCurseEffect = (GameObject) Object.Instantiate<GameObject>((M0) BadStatusEffects.CurseEffect);
-          Transform transform = (Transform) null;
-          if (!string.IsNullOrEmpty(BadStatusEffects.CurseEffectAttachTarget))
-            transform = GameUtility.findChildRecursively(((Component) this).get_transform(), BadStatusEffects.CurseEffectAttachTarget);
-          if (Object.op_Equality((Object) transform, (Object) null))
-            transform = this.GetCharacterRoot();
-          this.mCurseEffect.get_transform().SetParent(transform, false);
+          this.mCurseEffect = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) BadStatusEffects.CurseEffect);
+          this.attachBadStatusEffect(this.mCurseEffect, BadStatusEffects.CurseEffectAttachTarget, false);
         }
         else
         {
@@ -1392,10 +1503,10 @@ namespace SRPG
           this.mCurseEffect = (GameObject) null;
         }
       }
-      this.IsCursed = flag;
+      this.IsCursed = flag1;
       if (desc == this.mBadStatus)
         return;
-      if (Object.op_Inequality((Object) this.mBadStatusEffect, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mBadStatusEffect, (UnityEngine.Object) null))
       {
         GameUtility.StopEmitters(this.mBadStatusEffect);
         this.mBadStatusEffect.AddComponent<OneShotParticle>();
@@ -1404,16 +1515,10 @@ namespace SRPG
       this.mBadStatus = desc;
       if (this.mBadStatus != null)
       {
-        if (Object.op_Inequality((Object) this.mBadStatus.Effect, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mBadStatus.Effect, (UnityEngine.Object) null))
         {
-          this.mBadStatusEffect = (GameObject) Object.Instantiate<GameObject>((M0) this.mBadStatus.Effect);
-          Transform transform1 = this.mBadStatusEffect.get_transform();
-          Transform transform2 = (Transform) null;
-          if (!string.IsNullOrEmpty(this.mBadStatus.AttachTarget))
-            transform2 = GameUtility.findChildRecursively(((Component) this).get_transform(), this.mBadStatus.AttachTarget);
-          if (Object.op_Equality((Object) transform2, (Object) null))
-            transform2 = this.GetCharacterRoot();
-          transform1.SetParent(transform2, false);
+          this.mBadStatusEffect = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.mBadStatus.Effect);
+          this.attachBadStatusEffect(this.mBadStatusEffect, this.mBadStatus.AttachTarget, false);
         }
         if (!string.IsNullOrEmpty(this.mBadStatus.AnimationName) && string.IsNullOrEmpty(this.mLoadedBadStatusAnimation))
         {
@@ -1426,9 +1531,21 @@ namespace SRPG
       this.SetMonochrome(this.mBadStatus != null && this.mBadStatus.Key == EUnitCondition.Stone);
     }
 
+    private void attachBadStatusEffect(GameObject go_effect, string attach_target = null, bool is_use_cs = false)
+    {
+      if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) go_effect))
+        return;
+      Transform transform = (Transform) null;
+      if (!string.IsNullOrEmpty(attach_target))
+        transform = !is_use_cs || !UnityEngine.Object.op_Implicit((UnityEngine.Object) this.mCharacterSettings) ? GameUtility.findChildRecursively(((Component) this).get_transform(), attach_target) : GameUtility.findChildRecursively(((Component) this.mCharacterSettings).get_transform(), attach_target);
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) transform, (UnityEngine.Object) null))
+        transform = this.GetCharacterRoot();
+      go_effect.get_transform().SetParent(transform, false);
+    }
+
     public bool IsDeathSentenceCountDownPlaying()
     {
-      if (Object.op_Inequality((Object) this.mDeathSentenceIcon, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mDeathSentenceIcon, (UnityEngine.Object) null))
         return this.mDeathSentenceIcon.IsDeathSentenceCountDownPlaying;
       return false;
     }
@@ -1437,41 +1554,48 @@ namespace SRPG
     {
       if (isShow)
         this.ShowHPGauge(true);
-      if (!Object.op_Inequality((Object) this.mDeathSentenceIcon, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mDeathSentenceIcon, (UnityEngine.Object) null))
         return;
       this.mDeathSentenceIcon.Open();
       this.mDeathSentenceIcon.Countdown(Mathf.Max(this.Unit.DeathCount, 0), LifeTime);
     }
 
-    public void UpdateShields()
+    public void UpdateShields(bool is_update_turn = true)
     {
       if (this.mUnit == null)
         return;
-      int count = this.Shields.Count;
-      for (int index = 0; index < count; ++index)
+      using (List<TacticsUnitController.ShieldState>.Enumerator enumerator = this.Shields.GetEnumerator())
       {
-        if ((int) this.Shields[index].Target.hp != this.Shields[index].LastHP || (int) this.Shields[index].Target.turn != this.Shields[index].LastTurn)
-          this.Shields[index].Dirty = true;
-      }
-      List<Unit.UnitShield> shields = this.mUnit.Shields;
-      for (int index1 = 0; index1 < shields.Count; ++index1)
-      {
-        bool flag = false;
-        for (int index2 = 0; index2 < count; ++index2)
+        while (enumerator.MoveNext())
         {
-          if (this.Shields[index2].Target == shields[index1])
+          TacticsUnitController.ShieldState current = enumerator.Current;
+          if ((int) current.Target.hp != current.LastHP || (bool) current.Target.is_efficacy)
+            current.Dirty = true;
+        }
+      }
+      // ISSUE: object of a compiler-generated type is created
+      // ISSUE: variable of a compiler-generated type
+      TacticsUnitController.\u003CUpdateShields\u003Ec__AnonStorey1E6 shieldsCAnonStorey1E6 = new TacticsUnitController.\u003CUpdateShields\u003Ec__AnonStorey1E6();
+      using (List<Unit.UnitShield>.Enumerator enumerator = this.mUnit.Shields.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+        {
+          // ISSUE: reference to a compiler-generated field
+          shieldsCAnonStorey1E6.unit_shield = enumerator.Current;
+          // ISSUE: reference to a compiler-generated method
+          if (this.Shields.Find(new Predicate<TacticsUnitController.ShieldState>(shieldsCAnonStorey1E6.\u003C\u003Em__136)) == null)
           {
-            flag = true;
-            break;
+            // ISSUE: reference to a compiler-generated field
+            // ISSUE: reference to a compiler-generated field
+            // ISSUE: reference to a compiler-generated field
+            this.Shields.Add(new TacticsUnitController.ShieldState()
+            {
+              Target = shieldsCAnonStorey1E6.unit_shield,
+              LastHP = (int) shieldsCAnonStorey1E6.unit_shield.hp,
+              LastTurn = (int) shieldsCAnonStorey1E6.unit_shield.turn
+            });
           }
         }
-        if (!flag)
-          this.Shields.Add(new TacticsUnitController.ShieldState()
-          {
-            Target = shields[index1],
-            LastHP = (int) shields[index1].hp,
-            LastTurn = (int) shields[index1].turn
-          });
       }
     }
 
@@ -1489,7 +1613,7 @@ namespace SRPG
     private void ShowCriticalEffect(Vector3 position, float yOffset)
     {
       Camera main = Camera.get_main();
-      if (Object.op_Inequality((Object) main, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) main, (UnityEngine.Object) null))
       {
         GameSettings instance = GameSettings.Instance;
         FlashEffect flashEffect = (FlashEffect) ((Component) main).get_gameObject().AddComponent<FlashEffect>();
@@ -1502,7 +1626,7 @@ namespace SRPG
         cameraShakeEffect.FrequencyX = instance.CriticalHit_ShakeFrequencyX;
         cameraShakeEffect.FrequencyY = instance.CriticalHit_ShakeFrequencyY;
       }
-      if (!Object.op_Inequality((Object) SceneBattle.Instance, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null))
         return;
       SceneBattle.Instance.PopupCritical(position, yOffset);
     }
@@ -1529,7 +1653,7 @@ namespace SRPG
             ((Component) this.GemDrainEffects[index2]).get_transform().set_rotation(quaternion);
             this.GemDrainEffects[index2].TargetObject = transform;
             this.GemDrainEffects[index2].TargetOffset = vector3_2;
-            if (Object.op_Inequality((Object) this.GemDrainHitEffect, (Object) null))
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.GemDrainHitEffect, (UnityEngine.Object) null))
             {
               if (!GemParticleHitEffect.IsEnable)
                 GemParticleHitEffect.IsEnable = true;
@@ -1582,35 +1706,42 @@ namespace SRPG
       if (this.mSkillVars == null || this.mSkillVars.mSkillSequence == null)
         return;
       SceneBattle instance = SceneBattle.Instance;
-      if (Object.op_Equality((Object) instance, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) instance, (UnityEngine.Object) null))
         return;
       Vector3 vector3 = instance.CalcGridCenter(Act.self.x, Act.self.y);
       Vector3.get_zero();
-      IntVector2 intVector2 = new IntVector2();
-      Vector3 position;
+      IntVector2 intVector2_1 = new IntVector2();
+      Vector3 pos;
       if (Act.CauseOfReaction != null)
       {
-        position = instance.CalcGridCenter(Act.CauseOfReaction.x, Act.CauseOfReaction.y);
-        intVector2.x = Act.CauseOfReaction.x;
-        intVector2.y = Act.CauseOfReaction.y;
+        pos = instance.CalcGridCenter(Act.CauseOfReaction.x, Act.CauseOfReaction.y);
+        intVector2_1.x = Act.CauseOfReaction.x;
+        intVector2_1.y = Act.CauseOfReaction.y;
       }
       else
       {
-        position = instance.CalcGridCenter(Act.pos.x, Act.pos.y);
-        intVector2.x = Act.pos.x;
-        intVector2.y = Act.pos.y;
+        pos = instance.CalcGridCenter(Act.pos.x, Act.pos.y);
+        intVector2_1.x = Act.pos.x;
+        intVector2_1.y = Act.pos.y;
+        if (this.ReflectTargetTypeToPos(ref pos))
+        {
+          IntVector2 intVector2_2 = instance.CalcCoord(pos);
+          intVector2_1.x = intVector2_2.x;
+          intVector2_1.y = intVector2_2.y;
+        }
       }
       switch (this.mSkillVars.mSkillSequence.SkillTurnType)
       {
         case SkillSequence.SkillTurnTypes.Target:
-          if (Act.self.x == intVector2.x && Act.self.y == intVector2.y)
+          IntVector2 intVector2_3 = instance.CalcCoord(((Component) this).get_transform().get_position());
+          if (intVector2_3.x == intVector2_1.x && intVector2_3.y == intVector2_1.y)
             break;
-          this.LookAt(position);
+          this.LookAt(pos);
           break;
         case SkillSequence.SkillTurnTypes.Axis:
-          position.x = (__Null) (vector3.x + (double) Unit.DIRECTION_OFFSETS[(int) AxisDirection, 0]);
-          position.z = (__Null) (vector3.z + (double) Unit.DIRECTION_OFFSETS[(int) AxisDirection, 1]);
-          this.LookAt(position);
+          pos.x = (__Null) (vector3.x + (double) Unit.DIRECTION_OFFSETS[(int) AxisDirection, 0]);
+          pos.z = (__Null) (vector3.z + (double) Unit.DIRECTION_OFFSETS[(int) AxisDirection, 1]);
+          this.LookAt(pos);
           break;
       }
     }
@@ -1624,7 +1755,7 @@ namespace SRPG
     {
       for (int index = 0; index < this.mSkillVars.HitTimers.Count; ++index)
       {
-        if (Object.op_Equality((Object) this.mSkillVars.HitTimers[index].Target, (Object) target))
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mSkillVars.HitTimers[index].Target, (UnityEngine.Object) target))
           return true;
       }
       return false;
@@ -1651,7 +1782,7 @@ namespace SRPG
 
     public void LoadDeathAnimation(TacticsUnitController.DeathAnimationTypes mask)
     {
-      if ((mask & TacticsUnitController.DeathAnimationTypes.Normal) == (TacticsUnitController.DeathAnimationTypes) 0 || !Object.op_Equality((Object) this.FindAnimation("B_DEAD"), (Object) null))
+      if ((mask & TacticsUnitController.DeathAnimationTypes.Normal) == (TacticsUnitController.DeathAnimationTypes) 0 || !UnityEngine.Object.op_Equality((UnityEngine.Object) this.FindAnimation("B_DEAD"), (UnityEngine.Object) null))
         return;
       this.LoadUnitAnimationAsync("B_DEAD", "cmn_downstand0", false, false);
     }
@@ -1678,7 +1809,7 @@ namespace SRPG
       Transform transform4 = cameraIndex == 0 ? transform2 : transform3;
       pos = Vector3.op_Addition(Vector3.op_Subtraction(transform4.get_position(), ((Component) this).get_transform().get_position()), this.RootMotionInverse);
       rotation = transform4.get_rotation();
-      Object.DestroyImmediate((Object) gameObject1);
+      UnityEngine.Object.DestroyImmediate((UnityEngine.Object) gameObject1);
       rotation = Quaternion.op_Multiply(rotation, GameUtility.Yaw180);
     }
 
@@ -1717,34 +1848,75 @@ namespace SRPG
     }
 
     [DebuggerHidden]
-    private IEnumerator ShowHitPopup(TacticsUnitController target, bool critical, bool backstab, bool guard, bool weak, bool resist, bool hpDamage, int hpDamageValue, bool mpDamage, int mpDamageValue, bool absorb)
+    private IEnumerator ShowHitPopup(TacticsUnitController target, bool critical, bool backstab, bool guard, bool weak, bool resist, bool hpDamage, int hpDamageValue, bool mpDamage, int mpDamageValue, bool absorb, bool is_guts)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new TacticsUnitController.\u003CShowHitPopup\u003Ec__Iterator11() { guard = guard, target = target, critical = critical, backstab = backstab, weak = weak, resist = resist, absorb = absorb, hpDamage = hpDamage, hpDamageValue = hpDamageValue, mpDamage = mpDamage, mpDamageValue = mpDamageValue, \u003C\u0024\u003Eguard = guard, \u003C\u0024\u003Etarget = target, \u003C\u0024\u003Ecritical = critical, \u003C\u0024\u003Ebackstab = backstab, \u003C\u0024\u003Eweak = weak, \u003C\u0024\u003Eresist = resist, \u003C\u0024\u003Eabsorb = absorb, \u003C\u0024\u003EhpDamage = hpDamage, \u003C\u0024\u003EhpDamageValue = hpDamageValue, \u003C\u0024\u003EmpDamage = mpDamage, \u003C\u0024\u003EmpDamageValue = mpDamageValue, \u003C\u003Ef__this = this };
+      return (IEnumerator) new TacticsUnitController.\u003CShowHitPopup\u003Ec__Iterator30()
+      {
+        guard = guard,
+        target = target,
+        critical = critical,
+        backstab = backstab,
+        weak = weak,
+        resist = resist,
+        absorb = absorb,
+        is_guts = is_guts,
+        hpDamage = hpDamage,
+        hpDamageValue = hpDamageValue,
+        mpDamage = mpDamage,
+        mpDamageValue = mpDamageValue,
+        \u003C\u0024\u003Eguard = guard,
+        \u003C\u0024\u003Etarget = target,
+        \u003C\u0024\u003Ecritical = critical,
+        \u003C\u0024\u003Ebackstab = backstab,
+        \u003C\u0024\u003Eweak = weak,
+        \u003C\u0024\u003Eresist = resist,
+        \u003C\u0024\u003Eabsorb = absorb,
+        \u003C\u0024\u003Eis_guts = is_guts,
+        \u003C\u0024\u003EhpDamage = hpDamage,
+        \u003C\u0024\u003EhpDamageValue = hpDamageValue,
+        \u003C\u0024\u003EmpDamage = mpDamage,
+        \u003C\u0024\u003EmpDamageValue = mpDamageValue,
+        \u003C\u003Ef__this = this
+      };
     }
 
     [DebuggerHidden]
     private IEnumerator ShowHealPopup(TacticsUnitController target, int hpHeal, int mpHeal)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new TacticsUnitController.\u003CShowHealPopup\u003Ec__Iterator12() { hpHeal = hpHeal, target = target, mpHeal = mpHeal, \u003C\u0024\u003EhpHeal = hpHeal, \u003C\u0024\u003Etarget = target, \u003C\u0024\u003EmpHeal = mpHeal, \u003C\u003Ef__this = this };
+      return (IEnumerator) new TacticsUnitController.\u003CShowHealPopup\u003Ec__Iterator31()
+      {
+        hpHeal = hpHeal,
+        target = target,
+        mpHeal = mpHeal,
+        \u003C\u0024\u003EhpHeal = hpHeal,
+        \u003C\u0024\u003Etarget = target,
+        \u003C\u0024\u003EmpHeal = mpHeal,
+        \u003C\u003Ef__this = this
+      };
     }
 
-    private void HitTarget(TacticsUnitController target, HitReactionTypes hitReaction = HitReactionTypes.None)
+    private void HitTarget(TacticsUnitController target, HitReactionTypes hitReaction = HitReactionTypes.None, bool doReaction = true)
     {
-      bool flag1 = target.mHitInfo.hits.Count >= 2;
+      bool flag1 = target.mHitInfo.IsCombo();
       bool isLast = this.mSkillVars.NumHitsLeft == 0;
       bool flag2 = !this.mSkillVars.UseBattleScene;
       bool flag3 = false;
       bool absorb = target.mHitInfo.shieldDamage > 0;
+      bool is_guts = (target.mHitInfo.hitType & LogSkill.EHitTypes.Guts) != (LogSkill.EHitTypes) 0;
       int num1 = 0;
+      bool flag4 = target.ShouldDodgeHits;
       int hpDamageValue;
       int mpDamageValue;
       if (flag1)
       {
         int index = target.mHitInfo.hits.Count - 1 - this.mSkillVars.NumHitsLeft;
+        if (index < 0 || index >= target.mHitInfo.hits.Count)
+          index = 0;
         hpDamageValue = target.mHitInfo.hits[index].hp_damage;
         mpDamageValue = target.mHitInfo.hits[index].mp_damage;
+        flag4 = target.mHitInfo.hits[index].is_avoid;
       }
       else
       {
@@ -1755,27 +1927,27 @@ namespace SRPG
         flag2 = true;
       int totalHpHeal = target.mHitInfo.GetTotalHpHeal();
       int totalMpHeal = target.mHitInfo.GetTotalMpHeal();
-      if (hpDamageValue >= 1 || mpDamageValue >= 1)
+      if (doReaction && (hpDamageValue >= 1 || mpDamageValue >= 1))
         target.PlayDamageReaction(1, hitReaction);
       if (target.mKnockBackGrid != null && isLast)
         target.mKnockBackMode = TacticsUnitController.eKnockBackMode.START;
-      if (this.mSkillVars.Skill.effect_type != SkillEffectTypes.Throw && Object.op_Inequality((Object) target, (Object) this) && this.mSkillVars.NumHitsLeft == this.mSkillVars.TotalHits - 1)
+      if (this.mSkillVars.Skill.effect_type != SkillEffectTypes.Throw && UnityEngine.Object.op_Inequality((UnityEngine.Object) target, (UnityEngine.Object) this) && this.mSkillVars.NumHitsLeft == this.mSkillVars.TotalHits - 1)
       {
         target.AutoUpdateRotation = false;
         target.LookAt(((Component) this).get_transform().get_position());
       }
       target.DrainGems(this);
-      this.StartCoroutine(this.ShowHitPopup(target, target.ShowCriticalEffectOnHit, target.ShowBackstabEffectOnHit && Object.op_Inequality((Object) SceneBattle.Instance, (Object) null), target.ShouldDefendHits, target.ShowElementEffectOnHit == TacticsUnitController.EElementEffectTypes.Effective, target.ShowElementEffectOnHit == TacticsUnitController.EElementEffectTypes.NotEffective, false, 0, false, 0, absorb));
+      this.StartCoroutine(this.ShowHitPopup(target, target.ShowCriticalEffectOnHit, target.ShowBackstabEffectOnHit && UnityEngine.Object.op_Inequality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null), target.ShouldDefendHits, target.ShowElementEffectOnHit == TacticsUnitController.EElementEffectTypes.Effective, target.ShowElementEffectOnHit == TacticsUnitController.EElementEffectTypes.NotEffective, false, 0, false, 0, absorb, is_guts));
       if (!target.ShouldDefendHits && this.mSkillVars.Skill.effect_type != SkillEffectTypes.Changing && this.mSkillVars.Skill.effect_type != SkillEffectTypes.Throw)
         this.SpawnHitEffect(((Component) target).get_transform().get_position(), isLast);
       if (!flag1 && !isLast)
         return;
-      bool flag4 = false;
-      if (this.mSkillVars.Skill.IsDamagedSkill() && !target.ShouldDodgeHits)
+      bool flag5 = false;
+      if (this.mSkillVars.Skill.IsDamagedSkill() && !flag4)
       {
         bool hpDamage = hpDamageValue >= 1;
         bool mpDamage = mpDamageValue >= 1;
-        this.StartCoroutine(this.ShowHitPopup(target, false, false, false, false, false, hpDamage, hpDamageValue, mpDamage, mpDamageValue, false));
+        this.StartCoroutine(this.ShowHitPopup(target, false, false, false, false, false, hpDamage, hpDamageValue, mpDamage, mpDamageValue, false, is_guts));
         if (mpDamage && isLast)
           flag3 = true;
         if (flag2 && hpDamage)
@@ -1808,25 +1980,25 @@ namespace SRPG
       if (totalHpHeal >= 1 && flag2)
       {
         target.UpdateHPRelative(totalHpHeal, 0.5f);
-        if (!flag4 && this.Unit != target.Unit && totalHpHeal > 0)
+        if (!flag5 && this.Unit != target.Unit && totalHpHeal > 0)
         {
           target.Unit.PlayBattleVoice("battle_0018");
-          flag4 = true;
+          flag5 = true;
         }
       }
       if (totalMpHeal >= 1)
       {
         flag3 = true;
-        if (!flag4 && this.Unit != target.Unit)
+        if (!flag5 && this.Unit != target.Unit)
         {
           target.Unit.PlayBattleVoice("battle_0018");
-          flag4 = true;
+          flag5 = true;
         }
       }
-      if (target.mHitInfo.IsBuffEffect())
+      if (!this.mSkillVars.mIsFinishedBuffEffectTarget && (target.mHitInfo.IsBuffEffect() || target.mHitInfo.ChangeValueCT != 0))
       {
-        SceneBattle.Instance.PopupParamChange(target.CenterPosition, target.mHitInfo.buff, target.mHitInfo.debuff);
-        if (!flag4 && this.Unit != target.Unit && target.mHitInfo.buff.CheckEffect())
+        SceneBattle.Instance.PopupParamChange(target.CenterPosition, target.mHitInfo.buff, target.mHitInfo.debuff, target.mHitInfo.ChangeValueCT);
+        if (!flag5 && this.Unit != target.Unit && target.mHitInfo.buff.CheckEffect())
           target.Unit.PlayBattleVoice("battle_0018");
       }
       if (!flag3)
@@ -1834,16 +2006,42 @@ namespace SRPG
       UnitQueue.Instance.Refresh(target.Unit);
     }
 
+    public void BuffEffectTarget()
+    {
+      if (this.mSkillVars == null || this.mSkillVars.Skill == null || (this.mSkillVars.Targets == null || !this.mSkillVars.Skill.IsPrevApply()))
+        return;
+      using (List<TacticsUnitController>.Enumerator enumerator = this.mSkillVars.Targets.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+        {
+          TacticsUnitController current = enumerator.Current;
+          if (current.mHitInfo.IsBuffEffect() || current.mHitInfo.ChangeValueCT != 0)
+          {
+            SceneBattle.Instance.PopupParamChange(current.CenterPosition, current.mHitInfo.buff, current.mHitInfo.debuff, current.mHitInfo.ChangeValueCT);
+            this.mSkillVars.mIsFinishedBuffEffectTarget = true;
+          }
+        }
+      }
+    }
+
+    public void BuffEffectSelf()
+    {
+      if (this.mSkillVars == null || this.mSkillVars.Skill == null || (!this.mSkillVars.Skill.IsPrevApply() || this.mHitInfoSelf == null) || this.mHitInfoSelf.hits.Count <= 0 && !this.mHitInfoSelf.buff.CheckEffect() && !this.mHitInfoSelf.debuff.CheckEffect() || !this.mHitInfoSelf.IsBuffEffect())
+        return;
+      SceneBattle.Instance.PopupParamChange(this.CenterPosition, this.mHitInfoSelf.buff, this.mHitInfoSelf.debuff, 0);
+      this.mSkillVars.mIsFinishedBuffEffectSelf = true;
+    }
+
     public void SkillEffectSelf()
     {
-      if ((this.mHitInfoSelf == null || this.mHitInfoSelf.hits.Count <= 0) && (!this.mHitInfoSelf.buff.CheckEffect() && !this.mHitInfoSelf.debuff.CheckEffect()))
+      if (this.mHitInfoSelf == null || this.mHitInfoSelf.hits.Count <= 0 && !this.mHitInfoSelf.buff.CheckEffect() && !this.mHitInfoSelf.debuff.CheckEffect())
         return;
       bool flag1 = !this.mSkillVars.UseBattleScene;
       int totalHpDamage = this.mHitInfoSelf.GetTotalHpDamage();
       int totalMpDamage = this.mHitInfoSelf.GetTotalMpDamage();
       int totalHpHeal = this.mHitInfoSelf.GetTotalHpHeal();
       int totalMpHeal = this.mHitInfoSelf.GetTotalMpHeal();
-      int number = totalHpDamage + this.mSkillVars.HpCostDamage;
+      int num = totalHpDamage + this.mSkillVars.HpCostDamage;
       if (flag1 && totalHpDamage < 1 && totalHpHeal < 1)
         flag1 = false;
       bool flag2 = false;
@@ -1855,14 +2053,15 @@ namespace SRPG
           break;
         }
       }
-      if (number >= 1 || totalMpDamage >= 1 || flag2)
+      if (num >= 1 || totalMpDamage >= 1 || flag2)
         this.PlayDamageReaction(1, HitReactionTypes.Normal);
-      if (number > 0)
+      if (num > 0)
       {
-        SceneBattle.Instance.PopupDamageNumber(this.CenterPosition, number);
+        SceneBattle.Instance.PopupDamageNumber(this.CenterPosition, num);
+        MonoSingleton<GameManager>.Instance.Player.OnDamageToEnemy(this.mUnit, this.mUnit, num);
         if (flag1)
         {
-          this.UpdateHPRelative(-number, 0.5f);
+          this.UpdateHPRelative(-num, 0.5f);
           this.OnHitGaugeWeakRegist(this.mUnit);
           this.ChargeIcon.Close();
         }
@@ -1870,7 +2069,7 @@ namespace SRPG
       if (totalHpHeal >= 1 || totalMpHeal >= 1)
       {
         SceneBattle.Instance.StartCoroutine(this.ShowHealPopup(this, totalHpHeal, totalMpHeal));
-        if (Object.op_Inequality((Object) this.mDrainEffect, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mDrainEffect, (UnityEngine.Object) null))
         {
           this.mDrainEffect.get_transform().set_position(this.CenterPosition);
           this.mDrainEffect.get_transform().set_rotation(((Component) this).get_transform().get_rotation());
@@ -1882,16 +2081,76 @@ namespace SRPG
           this.ChargeIcon.Close();
         }
       }
-      if (this.mHitInfoSelf.IsBuffEffect())
-        SceneBattle.Instance.StartCoroutine(this.DelayedPopupParamChange(this.mHitInfoSelf.buff, this.mHitInfoSelf.debuff));
+      if (!this.mSkillVars.mIsFinishedBuffEffectSelf && this.mHitInfoSelf.IsBuffEffect())
+        SceneBattle.Instance.PopupParamChange(this.CenterPosition, this.mHitInfoSelf.buff, this.mHitInfoSelf.debuff, 0);
       this.UpdateBadStatus();
+    }
+
+    private bool ReflectTargetTypeToPos(ref Vector3 pos)
+    {
+      if (this.mSkillVars.Skill == null || UnityEngine.Object.op_Equality((UnityEngine.Object) this.mSkillVars.mSkillEffect, (UnityEngine.Object) null) || !SkillParam.IsTypeLaser(this.mSkillVars.Skill.select_scope))
+        return false;
+      SceneBattle instance = SceneBattle.Instance;
+      BattleCore battleCore = (BattleCore) null;
+      if (UnityEngine.Object.op_Implicit((UnityEngine.Object) instance))
+        battleCore = instance.Battle;
+      if (battleCore == null)
+        return false;
+      EUnitDirection eunitDirection = instance.UnitDirectionFromPosition(((Component) this).get_transform().get_position(), pos);
+      switch (this.mSkillVars.mSkillEffect.TargetTypeForLaser)
+      {
+        case SkillEffect.eTargetTypeForLaser.StepFront:
+          int frontTypeForLaser = this.mSkillVars.mSkillEffect.StepFrontTypeForLaser;
+          IntVector2 intVector2_1 = instance.CalcCoord(((Component) this).get_transform().get_position());
+          pos.x = (__Null) ((double) (intVector2_1.x + Unit.DIRECTION_OFFSETS[(int) eunitDirection, 0] * frontTypeForLaser) + 0.5);
+          pos.z = (__Null) ((double) (intVector2_1.y + Unit.DIRECTION_OFFSETS[(int) eunitDirection, 1] * frontTypeForLaser) + 0.5);
+          pos.y = GameUtility.RaycastGround(pos).y;
+          break;
+        case SkillEffect.eTargetTypeForLaser.FrontCenter:
+          SkillData skillData = this.mUnit.GetSkillData(this.mSkillVars.Skill.iname);
+          if (skillData != null)
+          {
+            int attackRangeMax = this.mUnit.GetAttackRangeMax(skillData);
+            if (attackRangeMax > 0)
+            {
+              int num = attackRangeMax - this.mUnit.GetAttackRangeMin(skillData);
+              switch (this.mSkillVars.Skill.select_scope)
+              {
+                case ESelectType.LaserSpread:
+                  ++num;
+                  break;
+                case ESelectType.LaserWide:
+                case ESelectType.LaserTriple:
+                  num += 2;
+                  break;
+              }
+              IntVector2 intVector2_2 = instance.CalcCoord(((Component) this).get_transform().get_position());
+              pos.x = (__Null) ((double) intVector2_2.x + (double) Unit.DIRECTION_OFFSETS[(int) eunitDirection, 0] * ((double) num + 1.0) / 2.0 + 0.5);
+              pos.z = (__Null) ((double) intVector2_2.y + (double) Unit.DIRECTION_OFFSETS[(int) eunitDirection, 1] * ((double) num + 1.0) / 2.0 + 0.5);
+              pos.y = GameUtility.RaycastGround(pos).y;
+              break;
+            }
+            break;
+          }
+          break;
+        default:
+          return false;
+      }
+      return true;
     }
 
     [DebuggerHidden]
     private IEnumerator DelayedPopupParamChange(BuffBit buff, BuffBit debuff)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new TacticsUnitController.\u003CDelayedPopupParamChange\u003Ec__Iterator13() { buff = buff, debuff = debuff, \u003C\u0024\u003Ebuff = buff, \u003C\u0024\u003Edebuff = debuff, \u003C\u003Ef__this = this };
+      return (IEnumerator) new TacticsUnitController.\u003CDelayedPopupParamChange\u003Ec__Iterator32()
+      {
+        buff = buff,
+        debuff = debuff,
+        \u003C\u0024\u003Ebuff = buff,
+        \u003C\u0024\u003Edebuff = debuff,
+        \u003C\u003Ef__this = this
+      };
     }
 
     protected override void OnEventStart(AnimEvent e, float weight)
@@ -1906,71 +2165,98 @@ namespace SRPG
         Debug.LogError((object) ("Invalid CameraID: " + (object) this.mSkillVars.mCameraID));
         this.mSkillVars.mCameraID = 0;
       }
-      else if (e is HitFrame && this.mSkillVars.mSkillSequence.SkillType == SkillSequence.SkillTypes.Melee)
+      else if (e is HitFrame && (this.mSkillVars.mSkillSequence.SkillType == SkillSequence.SkillTypes.Melee || UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSkillVars.mSkillEffect, (UnityEngine.Object) null) && this.mSkillVars.mSkillEffect.IsTeleportMode))
       {
         HitFrame hitFrame = e as HitFrame;
         --this.mSkillVars.NumHitsLeft;
-        for (int index = 0; index < this.mSkillVars.Targets.Count; ++index)
+        for (int index1 = 0; index1 < this.mSkillVars.Targets.Count; ++index1)
         {
-          if (this.mSkillVars.Targets[index].ShouldDodgeHits)
+          TacticsUnitController target = this.mSkillVars.Targets[index1];
+          bool flag = target.ShouldDodgeHits;
+          bool perfectAvoid = target.ShouldPerfectDodge;
+          if (target.mHitInfo.IsCombo())
           {
-            this.mSkillVars.Targets[index].PlayDodge(this.mSkillVars.Targets[index].ShouldPerfectDodge);
+            int index2 = target.mHitInfo.hits.Count - 1 - this.mSkillVars.NumHitsLeft;
+            if (0 <= index2 && index2 < target.mHitInfo.hits.Count)
+            {
+              flag = target.mHitInfo.hits[index2].is_avoid;
+              perfectAvoid = target.mHitInfo.hits[index2].is_pf_avoid;
+            }
+          }
+          if (flag)
+          {
+            bool is_disp_popup = true;
+            if (this.mSkillVars.UseBattleScene)
+              is_disp_popup = this.mSkillVars.NumHitsLeft == this.mSkillVars.TotalHits - 1;
+            if (target.mHitInfo.IsCombo() || this.mSkillVars.NumHitsLeft == 0)
+              this.mSkillVars.Targets[index1].PlayDodge(perfectAvoid, is_disp_popup);
             if (this.mSkillVars.mSkillEffect.AlwaysExplode && this.mSkillVars.Skill.effect_type != SkillEffectTypes.Changing && this.mSkillVars.Skill.effect_type != SkillEffectTypes.Throw)
-              this.SpawnHitEffect(((Component) this.mSkillVars.Targets[index]).get_transform().get_position(), this.mSkillVars.NumHitsLeft == 0);
+              this.SpawnHitEffect(((Component) this.mSkillVars.Targets[index1]).get_transform().get_position(), this.mSkillVars.NumHitsLeft == 0);
           }
           else
-            this.HitTarget(this.mSkillVars.Targets[index], hitFrame.ReactionType);
+          {
+            this.HitTarget(this.mSkillVars.Targets[index1], hitFrame.ReactionType, true);
+            MonoSingleton<GameManager>.Instance.Player.OnDamageToEnemy(this.mUnit, target.Unit, target.mHitInfo.GetTotalHpDamage());
+          }
         }
       }
       else if (e is ChantFrame)
       {
         ChantFrame chantFrame = (ChantFrame) e;
-        if (!Object.op_Inequality((Object) this.mSkillVars.mSkillEffect.ChantEffect, (Object) null))
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSkillVars.mSkillEffect.ChantEffect, (UnityEngine.Object) null))
           return;
         Vector3 spawnPos;
         Quaternion spawnRot;
         chantFrame.CalcPosition(this.UnitObject, this.mSkillVars.mSkillEffect.ChantEffect, out spawnPos, out spawnRot);
-        this.mSkillVars.mChantEffect = (GameObject) Object.Instantiate((Object) this.mSkillVars.mSkillEffect.ChantEffect, spawnPos, spawnRot);
+        this.mSkillVars.mChantEffect = (GameObject) UnityEngine.Object.Instantiate((UnityEngine.Object) this.mSkillVars.mSkillEffect.ChantEffect, spawnPos, spawnRot);
         GameUtility.SetLayer(this.mSkillVars.mChantEffect, ((Component) this).get_gameObject().get_layer(), true);
         if (!chantFrame.AttachEffect)
           return;
         this.mSkillVars.mChantEffect.get_transform().set_parent(chantFrame.BoneName.Length <= 0 ? this.UnitObject.get_transform() : GameUtility.findChildRecursively(this.UnitObject.get_transform(), chantFrame.BoneName));
       }
-      else if (e is ProjectileFrame && Object.op_Inequality((Object) this.mSkillVars.mSkillEffect, (Object) null) && this.mSkillVars.mSkillSequence.SkillType == SkillSequence.SkillTypes.Ranged)
+      else if (e is ProjectileFrame && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSkillVars.mSkillEffect, (UnityEngine.Object) null) && this.IsRangedSkillType())
       {
         this.mSkillVars.mProjectileTriggered = true;
-        if (Object.op_Inequality((Object) this.mSkillVars.mProjectile, (Object) null))
-          return;
         ProjectileFrame projectileFrame = (ProjectileFrame) e;
-        if (Object.op_Inequality((Object) this.mSkillVars.mSkillEffect.ProjectileEffect, (Object) null))
+        TacticsUnitController.ProjectileData pd = new TacticsUnitController.ProjectileData();
+        if (projectileFrame is ProjectileFrameHitOnly)
+        {
+          pd.mIsHitOnly = true;
+          ProjectileFrameHitOnly projectileFrameHitOnly = (ProjectileFrameHitOnly) projectileFrame;
+          pd.mIsNotSpawnLandingEffect = !projectileFrameHitOnly.IsSpawnLandingEffect;
+        }
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSkillVars.mSkillEffect.ProjectileEffect, (UnityEngine.Object) null) && !pd.mIsHitOnly)
         {
           Vector3 spawnPos;
           Quaternion spawnRot;
           projectileFrame.CalcPosition(this.UnitObject, this.mSkillVars.mSkillEffect.ProjectileEffect, out spawnPos, out spawnRot);
-          this.mSkillVars.mProjectile = Object.Instantiate((Object) this.mSkillVars.mSkillEffect.ProjectileEffect, spawnPos, spawnRot) as GameObject;
+          pd.mProjectile = UnityEngine.Object.Instantiate((UnityEngine.Object) this.mSkillVars.mSkillEffect.ProjectileEffect, spawnPos, spawnRot) as GameObject;
         }
         else
         {
           Vector3 spawnPos;
           Quaternion spawnRot;
           projectileFrame.CalcPosition(this.UnitObject, Vector3.get_zero(), Quaternion.get_identity(), out spawnPos, out spawnRot);
-          this.mSkillVars.mProjectile = new GameObject("PROJECTILE");
-          Transform transform = this.mSkillVars.mProjectile.get_transform();
+          pd.mProjectile = new GameObject("PROJECTILE");
+          Transform transform = pd.mProjectile.get_transform();
           transform.set_position(spawnPos);
           transform.set_rotation(spawnRot);
         }
+        this.mSkillVars.mProjectileDataLists.Add(pd);
+        ++this.mSkillVars.mNumShotCount;
+        this.mSkillVars.HitTargets.Clear();
         if (this.mSkillVars.mSkillEffect.ProjectileSound != null)
           this.mSkillVars.mSkillEffect.ProjectileSound.Play();
         if (this.mSkillVars.UseBattleScene)
         {
-          if (this.mSkillVars.mProjectileThread != null)
+          if (pd.mProjectileThread != null)
             return;
-          this.mSkillVars.mProjectileThread = this.StartCoroutine(this.AnimateProjectile(this.mSkillVars.mSkillEffect.ProjectileStart, this.mSkillVars.mSkillEffect.ProjectileStartTime, this.mSkillVars.mProjectile.get_transform().get_position(), Quaternion.get_identity(), (TacticsUnitController.ProjectileStopEvent) null));
+          pd.mProjectileThread = this.StartCoroutine(this.AnimateProjectile(this.mSkillVars.mSkillEffect.ProjectileStart, this.mSkillVars.mSkillEffect.ProjectileStartTime, pd.mProjectile.get_transform().get_position(), Quaternion.get_identity(), (TacticsUnitController.ProjectileStopEvent) null, pd));
         }
         else
         {
           Transform transform = ((Component) this).get_transform();
-          MapProjectile mapProjectile = GameUtility.RequireComponent<MapProjectile>(this.mSkillVars.mProjectile);
+          MapProjectile mapProjectile = GameUtility.RequireComponent<MapProjectile>(pd.mProjectile);
           if (this.mSkillVars.mSkillEffect.MapHitEffectType == SkillEffect.MapHitEffectTypes.EachHits)
           {
             float num1 = 0.0f;
@@ -1987,6 +2273,7 @@ namespace SRPG
             this.mSkillVars.mTargetPosition = Vector3.op_Addition(transform.get_position(), Vector3.op_Multiply(vector3, num1));
             this.mSkillVars.mTargetPosition.y = GameUtility.RaycastGround(this.mSkillVars.mTargetPosition).y;
           }
+          this.ReflectTargetTypeToPos(ref this.mSkillVars.mTargetPosition);
           mapProjectile.StartCameraTargetPosition = transform.get_position();
           mapProjectile.EndCameraTargetPosition = this.mSkillVars.mTargetPosition;
           mapProjectile.GoalPosition = Vector3.op_Addition(this.mSkillVars.mTargetPosition, Vector3.op_Multiply(Vector3.get_up(), 0.5f));
@@ -1994,12 +2281,45 @@ namespace SRPG
           mapProjectile.HitDelay = this.mSkillVars.mSkillEffect.MapProjectileHitDelay;
           mapProjectile.OnHit = new MapProjectile.HitEvent(this.OnProjectileHit);
           mapProjectile.OnDistanceUpdate = new MapProjectile.DistanceChangeEvent(this.OnProjectileDistanceChange);
-          if (Object.op_Inequality((Object) this.mSkillVars.mActiveCamera, (Object) null) && this.mSkillVars.Skill.effect_type != SkillEffectTypes.Changing && this.mSkillVars.mSkillSequence.MapCameraType == SkillSequence.MapCameraTypes.None)
+          mapProjectile.mProjectileData = pd;
+          if (this.mSkillVars.mSkillEffect.IsTeleportMode && (double) e.End > (double) e.Start + 0.100000001490116)
+          {
+            float num = e.End - e.Start;
+            Vector3 vector3 = Vector3.op_Subtraction(mapProjectile.EndCameraTargetPosition, mapProjectile.StartCameraTargetPosition);
+            // ISSUE: explicit reference operation
+            mapProjectile.Speed = ((Vector3) @vector3).get_magnitude() / num;
+          }
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSkillVars.mActiveCamera, (UnityEngine.Object) null) && this.mSkillVars.Skill.effect_type != SkillEffectTypes.Changing && this.mSkillVars.mSkillSequence.MapCameraType == SkillSequence.MapCameraTypes.None)
+          {
             mapProjectile.CameraTransform = ((Component) this.mSkillVars.mActiveCamera).get_transform();
+            if (this.IsRangedRaySkillType() && this.mSkillVars.TotalHits > 1)
+            {
+              switch (this.mSkillVars.mSkillSequence.SkillType)
+              {
+                case SkillSequence.SkillTypes.RangedRayNoMovCmr:
+                  mapProjectile.CameraTransform = (Transform) null;
+                  break;
+                case SkillSequence.SkillTypes.RangedRayFirstMovCmr:
+                  if (this.mSkillVars.mNumShotCount > 1)
+                  {
+                    mapProjectile.CameraTransform = (Transform) null;
+                    break;
+                  }
+                  break;
+                case SkillSequence.SkillTypes.RangedRayLastMovCmr:
+                  if (this.mSkillVars.mNumShotCount < this.mSkillVars.TotalHits)
+                  {
+                    mapProjectile.CameraTransform = (Transform) null;
+                    break;
+                  }
+                  break;
+              }
+            }
+          }
           if (this.mSkillVars.mSkillEffect.MapTrajectoryType != SkillEffect.TrajectoryTypes.Arrow)
             return;
           mapProjectile.IsArrow = true;
-          float num = this.mMapTrajectoryHeight;
+          float num3 = this.mMapTrajectoryHeight;
           if ((double) GameUtility.CalcDistance2D(Vector3.op_Subtraction(mapProjectile.GoalPosition, ((Component) mapProjectile).get_transform().get_position())) <= 1.20000004768372)
           {
             mapProjectile.IsArrow = false;
@@ -2008,9 +2328,9 @@ namespace SRPG
           else
           {
             mapProjectile.TimeScale = this.mSkillVars.mSkillEffect.MapTrajectoryTimeScale;
-            if (this.mSkillVars.mStartPosition.y >= (double) num)
-              num = (float) this.mSkillVars.mStartPosition.y;
-            mapProjectile.TopHeight = num + 0.5f;
+            if (this.mSkillVars.mStartPosition.y >= (double) num3)
+              num3 = (float) this.mSkillVars.mStartPosition.y;
+            mapProjectile.TopHeight = num3 + 0.5f;
           }
         }
       }
@@ -2021,7 +2341,7 @@ namespace SRPG
       }
       else
       {
-        if (e is SRPG.AnimEvents.TargetState && Object.op_Inequality((Object) this.mSkillVars.mTargetController, (Object) null))
+        if (e is SRPG.AnimEvents.TargetState && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSkillVars.mTargetController, (UnityEngine.Object) null))
         {
           switch ((e as SRPG.AnimEvents.TargetState).State)
           {
@@ -2038,18 +2358,18 @@ namespace SRPG
         }
         if (e is AuraFrame)
         {
-          if (!this.mSkillVars.mAuraEnable || !Object.op_Inequality((Object) this.mSkillVars.mSkillEffect, (Object) null) || !Object.op_Inequality((Object) this.mSkillVars.mSkillEffect.AuraEffect, (Object) null))
+          if (!this.mSkillVars.mAuraEnable || !UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSkillVars.mSkillEffect, (UnityEngine.Object) null) || !UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSkillVars.mSkillEffect.AuraEffect, (UnityEngine.Object) null))
             return;
           AuraFrame auraFrame = e as AuraFrame;
           Vector3 spawnPos;
           Quaternion spawnRot;
           auraFrame.CalcPosition(this.UnitObject, this.mSkillVars.mSkillEffect.AuraEffect, out spawnPos, out spawnRot);
-          GameObject gameObject = Object.Instantiate((Object) this.mSkillVars.mSkillEffect.AuraEffect, spawnPos, spawnRot) as GameObject;
+          GameObject gameObject = UnityEngine.Object.Instantiate((UnityEngine.Object) this.mSkillVars.mSkillEffect.AuraEffect, spawnPos, spawnRot) as GameObject;
           Transform transform1 = gameObject.get_transform();
           Transform transform2 = (Transform) null;
           if (!string.IsNullOrEmpty(auraFrame.BoneName))
             transform2 = GameUtility.findChildRecursively(this.UnitObject.get_transform(), auraFrame.BoneName);
-          if (Object.op_Equality((Object) transform2, (Object) null))
+          if (UnityEngine.Object.op_Equality((UnityEngine.Object) transform2, (UnityEngine.Object) null))
             transform2 = this.GetCharacterRoot();
           transform1.set_parent(transform2);
           this.mSkillVars.mAuras.Add(gameObject);
@@ -2093,6 +2413,37 @@ namespace SRPG
       }
     }
 
+    private bool IsRangedSkillType()
+    {
+      if (this.mSkillVars != null && this.mSkillVars.mSkillSequence != null)
+      {
+        switch (this.mSkillVars.mSkillSequence.SkillType)
+        {
+          case SkillSequence.SkillTypes.Ranged:
+          case SkillSequence.SkillTypes.RangedRayNoMovCmr:
+          case SkillSequence.SkillTypes.RangedRayFirstMovCmr:
+          case SkillSequence.SkillTypes.RangedRayLastMovCmr:
+            return true;
+        }
+      }
+      return false;
+    }
+
+    private bool IsRangedRaySkillType()
+    {
+      if (this.mSkillVars != null && this.mSkillVars.mSkillSequence != null)
+      {
+        switch (this.mSkillVars.mSkillSequence.SkillType)
+        {
+          case SkillSequence.SkillTypes.RangedRayNoMovCmr:
+          case SkillSequence.SkillTypes.RangedRayFirstMovCmr:
+          case SkillSequence.SkillTypes.RangedRayLastMovCmr:
+            return true;
+        }
+      }
+      return false;
+    }
+
     protected override void OnEvent(AnimEvent e, float time, float weight)
     {
       if (this.mSkillVars == null || !(e is CameraShake))
@@ -2101,10 +2452,24 @@ namespace SRPG
     }
 
     [DebuggerHidden]
-    private IEnumerator AnimateProjectile(AnimationClip clip, float length, Vector3 basePosition, Quaternion baseRotation, TacticsUnitController.ProjectileStopEvent callback)
+    private IEnumerator AnimateProjectile(AnimationClip clip, float length, Vector3 basePosition, Quaternion baseRotation, TacticsUnitController.ProjectileStopEvent callback, TacticsUnitController.ProjectileData pd)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new TacticsUnitController.\u003CAnimateProjectile\u003Ec__Iterator14() { length = length, clip = clip, basePosition = basePosition, baseRotation = baseRotation, callback = callback, \u003C\u0024\u003Elength = length, \u003C\u0024\u003Eclip = clip, \u003C\u0024\u003EbasePosition = basePosition, \u003C\u0024\u003EbaseRotation = baseRotation, \u003C\u0024\u003Ecallback = callback, \u003C\u003Ef__this = this };
+      return (IEnumerator) new TacticsUnitController.\u003CAnimateProjectile\u003Ec__Iterator33()
+      {
+        length = length,
+        clip = clip,
+        pd = pd,
+        basePosition = basePosition,
+        baseRotation = baseRotation,
+        callback = callback,
+        \u003C\u0024\u003Elength = length,
+        \u003C\u0024\u003Eclip = clip,
+        \u003C\u0024\u003Epd = pd,
+        \u003C\u0024\u003EbasePosition = basePosition,
+        \u003C\u0024\u003EbaseRotation = baseRotation,
+        \u003C\u0024\u003Ecallback = callback
+      };
     }
 
     private void CalcEnemyPos(AnimationClip clip, float normalizedTime, out Vector3 pos, out Quaternion rotation)
@@ -2119,7 +2484,7 @@ namespace SRPG
       pos = Vector3.op_Addition(transform2.get_position(), this.RootMotionInverse);
       Quaternion quaternion = Quaternion.op_Multiply(transform2.get_localRotation(), Quaternion.AngleAxis(90f, Vector3.get_right()));
       rotation = Quaternion.op_Multiply(transform1.get_rotation(), quaternion);
-      Object.DestroyImmediate((Object) gameObject1);
+      UnityEngine.Object.DestroyImmediate((UnityEngine.Object) gameObject1);
     }
 
     private void StopAura()
@@ -2148,7 +2513,7 @@ namespace SRPG
 
     public void PlayDamage(HitReactionTypes hitType)
     {
-      if (this.mSkillVars != null || this.Unit.IsUnitCondition(EUnitCondition.Stone))
+      if (this.mSkillVars != null || this.Unit.IsUnitCondition(EUnitCondition.Stone) || this.mUnit != null && this.mUnit.IsBreakObj)
         return;
       switch (hitType)
       {
@@ -2164,18 +2529,16 @@ namespace SRPG
       }
     }
 
-    public void PlayDodge(bool perfectAvoid)
+    public void PlayDodge(bool perfectAvoid, bool is_disp_popup = true)
     {
-      if (Object.op_Equality((Object) this.FindAnimation("B_DGE"), (Object) null))
-        return;
-      if (Object.op_Inequality((Object) SceneBattle.Instance, (Object) null))
+      if (is_disp_popup && UnityEngine.Object.op_Inequality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null))
       {
         if (perfectAvoid)
           SceneBattle.Instance.PopupPefectAvoid(this.CenterPosition, 0.0f);
         else
           SceneBattle.Instance.PopupMiss(this.CenterPosition, 0.0f);
       }
-      if (this.mSkillVars != null)
+      if (this.mSkillVars != null || UnityEngine.Object.op_Equality((UnityEngine.Object) this.FindAnimation("B_DGE"), (UnityEngine.Object) null))
         return;
       this.GotoState<TacticsUnitController.State_Dodge>();
     }
@@ -2187,16 +2550,22 @@ namespace SRPG
 
     public void LoadDodgeAnimation()
     {
+      if (this.mUnit != null && this.mUnit.IsBreakObj)
+        return;
       this.LoadUnitAnimationAsync("B_DGE", "cmn_dodge0", false, false);
     }
 
     public void LoadDefendAnimations()
     {
+      if (this.mUnit != null && this.mUnit.IsBreakObj)
+        return;
       this.LoadUnitAnimationAsync("B_DEF", "cmn_guard0", false, false);
     }
 
     public void LoadDamageAnimations()
     {
+      if (this.mUnit != null && this.mUnit.IsBreakObj)
+        return;
       this.LoadUnitAnimationAsync("B_DMG0", "cmn_damage0", false, false);
       this.LoadUnitAnimationAsync("B_DMG1", "cmn_damageair0", false, false);
       this.LoadUnitAnimationAsync("B_DOWN", "cmn_down0", false, false);
@@ -2220,7 +2589,7 @@ namespace SRPG
       get
       {
         if (this.mSkillVars != null)
-          return Object.op_Inequality((Object) this.mSkillVars.mSkillStartAnimation, (Object) null);
+          return UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSkillVars.mSkillStartAnimation, (UnityEngine.Object) null);
         return false;
       }
     }
@@ -2229,7 +2598,7 @@ namespace SRPG
     {
       get
       {
-        if (this.mSkillVars == null || Object.op_Equality((Object) this.mSkillVars.mSkillAnimation, (Object) null))
+        if (this.mSkillVars == null || UnityEngine.Object.op_Equality((UnityEngine.Object) this.mSkillVars.mSkillAnimation, (UnityEngine.Object) null))
           return false;
         return this.mSkillVars.mSkillAnimation.IsParentPosZero;
       }
@@ -2239,7 +2608,7 @@ namespace SRPG
     {
       get
       {
-        if (this.mSkillVars == null || Object.op_Equality((Object) this.mSkillVars.mSkillStartAnimation, (Object) null))
+        if (this.mSkillVars == null || UnityEngine.Object.op_Equality((UnityEngine.Object) this.mSkillVars.mSkillStartAnimation, (UnityEngine.Object) null))
           return false;
         return this.mSkillVars.mSkillStartAnimation.IsParentPosZero;
       }
@@ -2249,11 +2618,19 @@ namespace SRPG
     private IEnumerator LoadSkillSequenceAsync(SkillParam skillParam, bool loadJobAnimation)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new TacticsUnitController.\u003CLoadSkillSequenceAsync\u003Ec__Iterator15() { skillParam = skillParam, loadJobAnimation = loadJobAnimation, \u003C\u0024\u003EskillParam = skillParam, \u003C\u0024\u003EloadJobAnimation = loadJobAnimation, \u003C\u003Ef__this = this };
+      return (IEnumerator) new TacticsUnitController.\u003CLoadSkillSequenceAsync\u003Ec__Iterator34()
+      {
+        skillParam = skillParam,
+        loadJobAnimation = loadJobAnimation,
+        \u003C\u0024\u003EskillParam = skillParam,
+        \u003C\u0024\u003EloadJobAnimation = loadJobAnimation,
+        \u003C\u003Ef__this = this
+      };
     }
 
     public void LoadSkillEffect(string skillEffectName, bool is_cs_sub = false)
     {
+      this.mSkillVars.mSkillEffect = (SkillEffect) null;
       if (is_cs_sub)
         skillEffectName += "_sub";
       DebugUtility.Log("LoadSkillEffect: " + skillEffectName);
@@ -2263,11 +2640,21 @@ namespace SRPG
       this.StartCoroutine(this.LoadSkillEffectAsync(skillEffectName));
     }
 
+    public bool IsFinishedLoadSkillEffect()
+    {
+      return UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSkillVars.mSkillEffect, (UnityEngine.Object) null);
+    }
+
     [DebuggerHidden]
     private IEnumerator LoadSkillEffectAsync(string skillEffectName)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new TacticsUnitController.\u003CLoadSkillEffectAsync\u003Ec__Iterator16() { skillEffectName = skillEffectName, \u003C\u0024\u003EskillEffectName = skillEffectName, \u003C\u003Ef__this = this };
+      return (IEnumerator) new TacticsUnitController.\u003CLoadSkillEffectAsync\u003Ec__Iterator35()
+      {
+        skillEffectName = skillEffectName,
+        \u003C\u0024\u003EskillEffectName = skillEffectName,
+        \u003C\u003Ef__this = this
+      };
     }
 
     public SkillEffect LoadedSkillEffect
@@ -2283,6 +2670,7 @@ namespace SRPG
     public void UnloadBattleAnimations()
     {
       this.UnloadAnimation("B_DMG0");
+      this.UnloadAnimation("B_DMG1");
       this.UnloadAnimation("B_DOWN");
       this.UnloadAnimation("B_DGE");
       this.UnloadAnimation("B_DEF");
@@ -2295,18 +2683,25 @@ namespace SRPG
       this.LoadGenkidamaAnimation(false);
       this.UnloadAnimation("B_TOSS_LIFT");
       this.UnloadAnimation("B_TOSS_THROW");
+      this.UnloadAnimation("B_TRANSFORM");
     }
 
     private void ResetSkill()
     {
       this.mCollideGround = true;
-      if (Object.op_Inequality((Object) this.mSkillVars.mTargetController, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSkillVars.mTargetController, (UnityEngine.Object) null))
         this.mSkillVars.mTargetController.mCollideGround = true;
       this.StopAura();
       this.mLastHitEffect = (GameObject) null;
       if (this.mSkillVars.HitTimerThread != null)
         this.StopCoroutine(this.mSkillVars.HitTimerThread);
-      GameUtility.DestroyGameObject(this.mSkillVars.mProjectile);
+      using (List<TacticsUnitController.ProjectileData>.Enumerator enumerator = this.mSkillVars.mProjectileDataLists.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+          GameUtility.DestroyGameObject(enumerator.Current.mProjectile);
+      }
+      this.mSkillVars.mProjectileDataLists.Clear();
+      this.mSkillVars.mNumShotCount = 0;
       this.UnloadBattleAnimations();
       if (this.UseSubEquipment)
         this.ResetSubEquipments();
@@ -2332,7 +2727,7 @@ namespace SRPG
     private int CountSkillUnitVoice()
     {
       int num = 0;
-      if (Object.op_Inequality((Object) this.mSkillVars.mSkillAnimation, (Object) null) && this.mSkillVars.mSkillAnimation.events != null)
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSkillVars.mSkillAnimation, (UnityEngine.Object) null) && this.mSkillVars.mSkillAnimation.events != null)
       {
         for (int index = 0; index < this.mSkillVars.mSkillAnimation.events.Length; ++index)
         {
@@ -2361,26 +2756,43 @@ namespace SRPG
     public int CountSkillHits()
     {
       int num = 0;
-      if (this.mSkillVars.mSkillSequence.SkillType == SkillSequence.SkillTypes.Melee)
+      switch (this.mSkillVars.mSkillSequence.SkillType)
       {
-        if (Object.op_Inequality((Object) this.mSkillVars.mSkillAnimation, (Object) null) && this.mSkillVars.mSkillAnimation.events != null)
-        {
-          for (int index = 0; index < this.mSkillVars.mSkillAnimation.events.Length; ++index)
+        case SkillSequence.SkillTypes.Melee:
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSkillVars.mSkillAnimation, (UnityEngine.Object) null) && this.mSkillVars.mSkillAnimation.events != null)
           {
-            if (this.mSkillVars.mSkillAnimation.events[index] is HitFrame)
-              ++num;
+            for (int index = 0; index < this.mSkillVars.mSkillAnimation.events.Length; ++index)
+            {
+              if (this.mSkillVars.mSkillAnimation.events[index] is HitFrame)
+                ++num;
+            }
+            break;
           }
-        }
+          break;
+        case SkillSequence.SkillTypes.Ranged:
+          num = 1;
+          break;
+        case SkillSequence.SkillTypes.RangedRayNoMovCmr:
+        case SkillSequence.SkillTypes.RangedRayFirstMovCmr:
+        case SkillSequence.SkillTypes.RangedRayLastMovCmr:
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSkillVars.mSkillAnimation, (UnityEngine.Object) null) && this.mSkillVars.mSkillAnimation.events != null)
+          {
+            for (int index = 0; index < this.mSkillVars.mSkillAnimation.events.Length; ++index)
+            {
+              if (this.mSkillVars.mSkillAnimation.events[index] is ProjectileFrame)
+                ++num;
+            }
+            break;
+          }
+          break;
       }
-      else if (this.mSkillVars.mSkillSequence.SkillType == SkillSequence.SkillTypes.Ranged)
-        num = 1;
       return num;
     }
 
     private void SpawnHitEffect(Vector3 pos, bool isLast)
     {
       this.mSkillVars.mSkillEffect.SpawnExplosionEffect(0, pos, Quaternion.get_identity());
-      if (!isLast || !Object.op_Inequality((Object) this.mLastHitEffect, (Object) null))
+      if (!isLast || !UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mLastHitEffect, (UnityEngine.Object) null))
         return;
       GameUtility.SpawnParticle(this.mLastHitEffect, pos, Quaternion.get_identity(), (GameObject) null);
       TimeManager.StartHitSlow(0.1f, 0.3f);
@@ -2391,13 +2803,13 @@ namespace SRPG
       if (defSkill == null)
         return;
       string defendEffect = defSkill.SkillParam.defend_effect;
-      if (string.IsNullOrEmpty(defendEffect) || Object.op_Equality((Object) this.mDefendSkillEffects[defendEffect], (Object) null))
+      if (string.IsNullOrEmpty(defendEffect) || UnityEngine.Object.op_Equality((UnityEngine.Object) this.mDefendSkillEffects[defendEffect], (UnityEngine.Object) null))
         return;
       GameObject defendSkillEffect = this.mDefendSkillEffects[defendEffect];
-      if (!Object.op_Inequality((Object) defendSkillEffect, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) defendSkillEffect, (UnityEngine.Object) null))
         return;
       Animator component = (Animator) GameUtility.SpawnParticle(defendSkillEffect, ((Component) this).get_transform().get_position(), Quaternion.get_identity(), (GameObject) null).GetComponent<Animator>();
-      if (!Object.op_Inequality((Object) component, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
         return;
       component.SetInteger("skill_count", useCount);
       if (useCountMax <= 0)
@@ -2407,29 +2819,48 @@ namespace SRPG
 
     private void HitDelayed(TacticsUnitController target)
     {
-      this.mSkillVars.TotalHits = 1;
-      this.mSkillVars.NumHitsLeft = 0;
+      if (!this.IsRangedRaySkillType())
+      {
+        this.mSkillVars.TotalHits = 1;
+        this.mSkillVars.NumHitsLeft = 0;
+      }
       if ((double) this.mSkillVars.mSkillEffect.HitColorBlendTime > 0.0)
         target.FadeBlendColor(this.mSkillVars.mSkillEffect.HitColor, this.mSkillVars.mSkillEffect.HitColorBlendTime);
-      bool flag = true;
-      if (this.mSkillVars.mSkillEffect.RangedHitReactionType != HitReactionTypes.None && target.ShouldDodgeHits)
+      bool flag1 = true;
+      HitReactionTypes rangedHitReactionType = this.mSkillVars.mSkillEffect.RangedHitReactionType;
+      bool flag2 = target.ShouldDodgeHits;
+      bool perfectAvoid = target.ShouldPerfectDodge;
+      if (this.IsRangedRaySkillType() && target.mHitInfo.IsCombo())
       {
-        target.PlayDodge(target.ShouldPerfectDodge);
-        flag = this.mSkillVars.mSkillEffect.AlwaysExplode;
+        int index = target.mHitInfo.hits.Count - 1 - this.mSkillVars.NumHitsLeft;
+        if (0 <= index && index < target.mHitInfo.hits.Count)
+        {
+          flag2 = target.mHitInfo.hits[index].is_avoid;
+          perfectAvoid = target.mHitInfo.hits[index].is_pf_avoid;
+        }
       }
-      if (!flag)
+      if (rangedHitReactionType != HitReactionTypes.None && flag2)
+      {
+        target.PlayDodge(perfectAvoid, true);
+        flag1 = this.mSkillVars.mSkillEffect.AlwaysExplode;
+      }
+      if (!flag1)
         return;
-      this.HitTarget(target, this.mSkillVars.mSkillEffect.RangedHitReactionType);
+      this.HitTarget(target, this.mSkillVars.mSkillEffect.RangedHitReactionType, true);
+      MonoSingleton<GameManager>.Instance.Player.OnDamageToEnemy(this.mUnit, target.Unit, target.mHitInfo.GetTotalHpDamage());
     }
 
     [DebuggerHidden]
     private IEnumerator AsyncHitTimer()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new TacticsUnitController.\u003CAsyncHitTimer\u003Ec__Iterator17() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new TacticsUnitController.\u003CAsyncHitTimer\u003Ec__Iterator36()
+      {
+        \u003C\u003Ef__this = this
+      };
     }
 
-    private void InternalStartSkill(TacticsUnitController[] targets, Vector3 targetPosition, Camera activeCamera)
+    private void InternalStartSkill(TacticsUnitController[] targets, Vector3 targetPosition, Camera activeCamera, bool doStateChange = true)
     {
       if (this.mSkillVars.mSkillSequence == null)
       {
@@ -2453,26 +2884,37 @@ namespace SRPG
         this.mSkillVars.mTargetPosition = !this.mSkillVars.UseBattleScene ? targetPosition : this.mSkillVars.mTargetControllerPosition;
         this.mSkillVars.MaxPlayVoice = this.mSkillVars.NumPlayVoice = this.CountSkillUnitVoice();
         this.mSkillVars.TotalHits = this.mSkillVars.NumHitsLeft = this.CountSkillHits();
-        this.mSkillVars.mAuraEnable = Object.op_Inequality((Object) this.mSkillVars.mSkillEffect.AuraEffect, (Object) null);
+        this.mSkillVars.mAuraEnable = UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSkillVars.mSkillEffect.AuraEffect, (UnityEngine.Object) null);
         this.mSkillVars.mCameraID = 0;
         this.mSkillVars.mChantCameraID = 0;
         this.mSkillVars.mSkillCameraID = 0;
-        if (this.mSkillVars.Skill.cast_type == ECastTypes.Jump)
+        this.mSkillVars.mProjectileDataLists.Clear();
+        this.mSkillVars.mNumShotCount = 0;
+        if (doStateChange && this.mSkillVars.Skill.cast_type == ECastTypes.Jump)
         {
           this.GotoState<TacticsUnitController.State_JumpCastComplete>();
         }
         else
         {
-          if (Object.op_Inequality((Object) this.mSkillVars.mSkillEffect, (Object) null) && this.mSkillVars.mSkillEffect.StartSound != null)
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSkillVars.mSkillEffect, (UnityEngine.Object) null) && this.mSkillVars.mSkillEffect.StartSound != null)
             this.mSkillVars.mSkillEffect.StartSound.Play();
-          if (Object.op_Inequality((Object) this.mSkillVars.mSkillChantAnimation, (Object) null))
+          if (!doStateChange)
+            return;
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSkillVars.mSkillChantAnimation, (UnityEngine.Object) null))
             this.GotoState<TacticsUnitController.State_SkillChant>();
           else if (this.mSkillVars.Skill.effect_type == SkillEffectTypes.Changing)
             this.GotoState<TacticsUnitController.State_ChangeGrid>();
           else if (this.mSkillVars.Skill.effect_type == SkillEffectTypes.Throw)
+          {
             this.GotoState<TacticsUnitController.State_Throw>();
+          }
           else
+          {
             this.GotoState<TacticsUnitController.State_Skill>();
+            if (!this.mSkillVars.Skill.IsTransformSkill() || this.mSkillVars.Targets.Count == 0)
+              return;
+            this.mSkillVars.Targets[0].PlayAfterTransform();
+          }
         }
       }
     }
@@ -2480,7 +2922,7 @@ namespace SRPG
     public void StartSkill(Vector3 targetPosition, Camera activeCamera, TacticsUnitController[] targets, Vector3[] hitGrids, SkillParam skill)
     {
       this.mSkillVars.HitGrids = hitGrids;
-      this.InternalStartSkill(targets, targetPosition, activeCamera);
+      this.InternalStartSkill(targets, targetPosition, activeCamera, true);
     }
 
     public void StartSkill(TacticsUnitController target, Camera activeCamera, SkillParam skill)
@@ -2488,7 +2930,21 @@ namespace SRPG
       this.InternalStartSkill(new TacticsUnitController[1]
       {
         target
-      }, ((Component) target).get_transform().get_position(), activeCamera);
+      }, ((Component) target).get_transform().get_position(), activeCamera, true);
+    }
+
+    public void SetLandingGrid(Grid landing)
+    {
+      if (this.mSkillVars == null)
+        return;
+      this.mSkillVars.mLandingGrid = landing;
+    }
+
+    public void SetTeleportGrid(Grid teleport)
+    {
+      if (this.mSkillVars == null)
+        return;
+      this.mSkillVars.mTeleportGrid = teleport;
     }
 
     public void PlayKirimomi()
@@ -2521,59 +2977,69 @@ namespace SRPG
       }
     }
 
-    private void OnProjectileHit(GameObject go)
+    private void OnProjectileHit(TacticsUnitController.ProjectileData pd = null)
     {
       TacticsUnitController tacticsUnitController = this;
-      --tacticsUnitController.mSkillVars.NumHitsLeft;
-      if (Object.op_Inequality((Object) tacticsUnitController.mSkillVars.mProjectile, (Object) null))
+      if (!this.mSkillVars.mSkillEffect.IsTeleportMode)
+        --tacticsUnitController.mSkillVars.NumHitsLeft;
+      if (pd != null && UnityEngine.Object.op_Inequality((UnityEngine.Object) pd.mProjectile, (UnityEngine.Object) null))
       {
-        GameUtility.StopEmitters(tacticsUnitController.mSkillVars.mProjectile);
-        GameUtility.RequireComponent<OneShotParticle>(tacticsUnitController.mSkillVars.mProjectile);
-        tacticsUnitController.mSkillVars.mProjectile = (GameObject) null;
+        GameUtility.StopEmitters(pd.mProjectile);
+        GameUtility.RequireComponent<OneShotParticle>(pd.mProjectile);
+        pd.mProjectile = (GameObject) null;
+        tacticsUnitController.mSkillVars.mProjectileDataLists.Remove(pd);
       }
-      if (Object.op_Inequality((Object) tacticsUnitController.mSkillVars.mSkillEffect.TargetHitEffect, (Object) null))
-        GameUtility.SpawnParticle(tacticsUnitController.mSkillVars.mSkillEffect.TargetHitEffect, tacticsUnitController.mSkillVars.mTargetPosition, Quaternion.get_identity(), (GameObject) null);
-      switch (this.mSkillVars.mSkillEffect.MapHitEffectType)
+      if (!this.mSkillVars.mSkillEffect.IsTeleportMode)
       {
-        case SkillEffect.MapHitEffectTypes.TargetRadial:
-          for (int index = 0; index < this.mSkillVars.Targets.Count; ++index)
-          {
-            Vector3 vector3 = Vector3.op_Subtraction(((Component) this.mSkillVars.Targets[index]).get_transform().get_position(), this.mSkillVars.mTargetPosition);
-            vector3.y = (__Null) 0.0;
-            float num = Mathf.Abs((float) vector3.x) + Mathf.Abs((float) vector3.z);
-            this.mSkillVars.HitTimers.Add(new TacticsUnitController.HitTimer(this.mSkillVars.Targets[index], Time.get_time() + num * this.mSkillVars.mSkillEffect.MapHitEffectIntervals));
-          }
-          break;
-        case SkillEffect.MapHitEffectTypes.EachTargets:
-          for (int index = 0; index < this.mSkillVars.Targets.Count; ++index)
-            this.mSkillVars.HitTimers.Add(new TacticsUnitController.HitTimer(this.mSkillVars.Targets[index], Time.get_time() + (float) index * this.mSkillVars.mSkillEffect.MapHitEffectIntervals));
-          break;
-        case SkillEffect.MapHitEffectTypes.Directional:
-          Vector3 position1 = ((Component) tacticsUnitController).get_transform().get_position();
-          position1.y = (__Null) 0.0;
-          Vector3 forward = ((Component) tacticsUnitController).get_transform().get_forward();
-          forward.y = (__Null) 0.0;
-          // ISSUE: explicit reference operation
-          ((Vector3) @forward).Normalize();
-          for (int index = 0; index < this.mSkillVars.Targets.Count; ++index)
-          {
-            Vector3 position2 = ((Component) this.mSkillVars.Targets[index]).get_transform().get_position();
-            position2.y = (__Null) 0.0;
-            float num = Mathf.Max(Vector3.Dot(Vector3.op_Subtraction(position2, position1), forward), 0.0f);
-            this.mSkillVars.HitTimers.Add(new TacticsUnitController.HitTimer(this.mSkillVars.Targets[index], num * this.mSkillVars.mSkillEffect.MapHitEffectIntervals));
-          }
-          break;
-        case SkillEffect.MapHitEffectTypes.InstigatorRadial:
-          for (int index = 0; index < this.mSkillVars.Targets.Count; ++index)
-          {
-            Vector3 vector3 = Vector3.op_Subtraction(((Component) this.mSkillVars.Targets[index]).get_transform().get_position(), ((Component) this).get_transform().get_position());
-            vector3.y = (__Null) 0.0;
-            float num = Mathf.Abs((float) vector3.x) + Mathf.Abs((float) vector3.z);
-            this.mSkillVars.HitTimers.Add(new TacticsUnitController.HitTimer(this.mSkillVars.Targets[index], Time.get_time() + num * this.mSkillVars.mSkillEffect.MapHitEffectIntervals));
-          }
-          break;
+        bool flag = true;
+        if (pd != null)
+          flag = !pd.mIsNotSpawnLandingEffect;
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) tacticsUnitController.mSkillVars.mSkillEffect.TargetHitEffect, (UnityEngine.Object) null) && flag)
+          GameUtility.SpawnParticle(tacticsUnitController.mSkillVars.mSkillEffect.TargetHitEffect, tacticsUnitController.mSkillVars.mTargetPosition, Quaternion.get_identity(), (GameObject) null);
+        switch (this.mSkillVars.mSkillEffect.MapHitEffectType)
+        {
+          case SkillEffect.MapHitEffectTypes.TargetRadial:
+            for (int index = 0; index < this.mSkillVars.Targets.Count; ++index)
+            {
+              Vector3 vector3 = Vector3.op_Subtraction(((Component) this.mSkillVars.Targets[index]).get_transform().get_position(), this.mSkillVars.mTargetPosition);
+              vector3.y = (__Null) 0.0;
+              float num = Mathf.Abs((float) vector3.x) + Mathf.Abs((float) vector3.z);
+              this.mSkillVars.HitTimers.Add(new TacticsUnitController.HitTimer(this.mSkillVars.Targets[index], Time.get_time() + num * this.mSkillVars.mSkillEffect.MapHitEffectIntervals));
+            }
+            break;
+          case SkillEffect.MapHitEffectTypes.EachTargets:
+            for (int index = 0; index < this.mSkillVars.Targets.Count; ++index)
+              this.mSkillVars.HitTimers.Add(new TacticsUnitController.HitTimer(this.mSkillVars.Targets[index], Time.get_time() + (float) index * this.mSkillVars.mSkillEffect.MapHitEffectIntervals));
+            break;
+          case SkillEffect.MapHitEffectTypes.Directional:
+            Vector3 position1 = ((Component) tacticsUnitController).get_transform().get_position();
+            position1.y = (__Null) 0.0;
+            Vector3 forward = ((Component) tacticsUnitController).get_transform().get_forward();
+            forward.y = (__Null) 0.0;
+            // ISSUE: explicit reference operation
+            ((Vector3) @forward).Normalize();
+            for (int index = 0; index < this.mSkillVars.Targets.Count; ++index)
+            {
+              Vector3 position2 = ((Component) this.mSkillVars.Targets[index]).get_transform().get_position();
+              position2.y = (__Null) 0.0;
+              float num = Mathf.Max(Vector3.Dot(Vector3.op_Subtraction(position2, position1), forward), 0.0f);
+              this.mSkillVars.HitTimers.Add(new TacticsUnitController.HitTimer(this.mSkillVars.Targets[index], num * this.mSkillVars.mSkillEffect.MapHitEffectIntervals));
+            }
+            break;
+          case SkillEffect.MapHitEffectTypes.InstigatorRadial:
+            for (int index = 0; index < this.mSkillVars.Targets.Count; ++index)
+            {
+              Vector3 vector3 = Vector3.op_Subtraction(((Component) this.mSkillVars.Targets[index]).get_transform().get_position(), ((Component) this).get_transform().get_position());
+              vector3.y = (__Null) 0.0;
+              float num = Mathf.Abs((float) vector3.x) + Mathf.Abs((float) vector3.z);
+              this.mSkillVars.HitTimers.Add(new TacticsUnitController.HitTimer(this.mSkillVars.Targets[index], Time.get_time() + num * this.mSkillVars.mSkillEffect.MapHitEffectIntervals));
+            }
+            break;
+        }
       }
-      this.mSkillVars.mProjectileHitsTarget = true;
+      if (pd == null)
+        return;
+      pd.mProjectileHitsTarget = true;
     }
 
     public bool IsJumpCant()
@@ -2613,28 +3079,35 @@ namespace SRPG
       ((Component) this).get_transform().set_position(position);
     }
 
-    private void hideGimmickForTargetGrid(TacticsUnitController target)
+    public void HideGimmickForTargetGrid(TacticsUnitController target)
     {
-      if (!Object.op_Implicit((Object) target))
+      if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) target))
         return;
       SceneBattle instance = SceneBattle.Instance;
-      if (!Object.op_Implicit((Object) instance))
+      if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) instance))
         return;
       Grid unitGridPosition = instance.Battle.GetUnitGridPosition(target.Unit);
-      Unit gimmickAtGrid = instance.Battle.FindGimmickAtGrid(unitGridPosition, true);
+      Unit gimmickAtGrid = instance.Battle.FindGimmickAtGrid(unitGridPosition, true, (Unit) null);
       TacticsUnitController unitController = instance.FindUnitController(gimmickAtGrid);
-      if (!Object.op_Inequality((Object) unitController, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null) || unitController.Unit.IsBreakObj)
         return;
       unitController.ScaleHide();
     }
 
     private void createEffect(TacticsUnitController target, GameObject go_effect)
     {
-      GameObject go = Object.Instantiate((Object) go_effect, Vector3.get_zero(), Quaternion.get_identity()) as GameObject;
-      if (!Object.op_Implicit((Object) go))
+      GameObject go = UnityEngine.Object.Instantiate((UnityEngine.Object) go_effect, Vector3.get_zero(), Quaternion.get_identity()) as GameObject;
+      if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) go))
         return;
       go.get_transform().SetParent(((Component) target).get_transform(), false);
       GameUtility.RequireComponent<OneShotParticle>(go);
+    }
+
+    public List<TacticsUnitController> GetTargetTucLists()
+    {
+      if (this.mSkillVars == null || this.mSkillVars.Targets == null)
+        return new List<TacticsUnitController>();
+      return this.mSkillVars.Targets;
     }
 
     public Grid KnockBackGrid
@@ -2667,7 +3140,7 @@ namespace SRPG
       else
       {
         SceneBattle instance = SceneBattle.Instance;
-        if (!Object.op_Implicit((Object) instance))
+        if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) instance))
         {
           this.mKnockBackMode = TacticsUnitController.eKnockBackMode.IDLE;
         }
@@ -2677,7 +3150,7 @@ namespace SRPG
           {
             case TacticsUnitController.eKnockBackMode.START:
               this.mKbPosStart = this.CenterPosition;
-              this.mKbPosEnd = instance.CalcGridCenter(instance.Battle.GetUnitGridPosition(this.Unit));
+              this.mKbPosEnd = instance.CalcGridCenter(this.mKnockBackGrid);
               this.mKbPassedSec = 0.0f;
               this.mKnockBackMode = TacticsUnitController.eKnockBackMode.EXEC;
               this.createEffect(this, instance.KnockBackEffect);
@@ -2688,7 +3161,7 @@ namespace SRPG
               if ((double) num >= 1.0)
               {
                 ((Component) this).get_transform().set_position(this.mKbPosEnd);
-                this.hideGimmickForTargetGrid(this);
+                this.HideGimmickForTargetGrid(this);
                 this.mKnockBackMode = TacticsUnitController.eKnockBackMode.IDLE;
                 break;
               }
@@ -2697,6 +3170,178 @@ namespace SRPG
           }
         }
       }
+    }
+
+    public Vector3 GetTargetPos()
+    {
+      if (this.mSkillVars == null)
+        return Vector3.get_zero();
+      if (this.mSkillVars.mTeleportGrid != null)
+      {
+        SceneBattle instance = SceneBattle.Instance;
+        if (UnityEngine.Object.op_Implicit((UnityEngine.Object) instance))
+          return instance.CalcGridCenter(this.mSkillVars.mTeleportGrid.x, this.mSkillVars.mTeleportGrid.y);
+      }
+      return ((Component) this).get_transform().get_position();
+    }
+
+    public void SetStartPos(Vector3 pos)
+    {
+      if (this.mSkillVars == null)
+        return;
+      this.mSkillVars.mStartPosition = pos;
+    }
+
+    public void LookAtTarget()
+    {
+      if (this.mSkillVars == null || this.mSkillVars.Skill == null || (!this.mSkillVars.Skill.IsTargetTeleport || this.mSkillVars.Targets == null) || this.mSkillVars.Targets.Count == 0)
+        return;
+      TacticsUnitController target = this.mSkillVars.Targets[0];
+      if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) target))
+        return;
+      this.LookAt(target.CenterPosition);
+    }
+
+    public void ReflectDispModel()
+    {
+      if (this.mUnit == null || !this.mUnit.IsBreakObj || (!this.SetActivateUnitObject(this.Unit.GetMapBreakNowStage((int) this.Unit.CurrentStatus.param.hp)) || !UnityEngine.Object.op_Implicit((UnityEngine.Object) this.mBadStatusEffect)) || (this.mBadStatus == null || !UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mBadStatus.Effect, (UnityEngine.Object) null)))
+        return;
+      this.attachBadStatusEffect(this.mBadStatusEffect, this.mBadStatus.AttachTarget, true);
+    }
+
+    public void PlayTrickKnockBack(bool is_dmg_anm = false)
+    {
+      if (this.mKnockBackGrid == null)
+        return;
+      if (is_dmg_anm)
+        this.PlayDamage(HitReactionTypes.Normal);
+      this.mKnockBackMode = TacticsUnitController.eKnockBackMode.START;
+    }
+
+    public string GetAnmNameTransformSkill()
+    {
+      if (this.mSkillVars == null || this.mSkillVars.mSkillSequence == null)
+        return (string) null;
+      if (string.IsNullOrEmpty(this.mSkillVars.mSkillSequence.SkillAnimation.Name))
+        return (string) null;
+      return this.mSkillVars.mSkillSequence.SkillAnimation.Name + "_chg";
+    }
+
+    public void LoadTransformAnimation(string name)
+    {
+      if (!UnityEngine.Object.op_Equality((UnityEngine.Object) this.FindAnimation("B_TRANSFORM"), (UnityEngine.Object) null))
+        return;
+      this.LoadUnitAnimationAsync("B_TRANSFORM", name, false, false);
+    }
+
+    private void PlayAfterTransform()
+    {
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.FindAnimation("B_TRANSFORM"), (UnityEngine.Object) null))
+        return;
+      this.GotoState<TacticsUnitController.State_AfterTransform>();
+    }
+
+    public void DirectionOff_LoadSkill(SkillParam skillParam, bool is_cs = false, bool is_cs_sub = false)
+    {
+      this.mSkillVars = new TacticsUnitController.SkillVars();
+      this.mSkillVars.Skill = skillParam;
+      this.mSkillVars.mIsCollaboSkill = is_cs;
+      this.mSkillVars.mIsCollaboSkillSub = is_cs_sub;
+      this.AddLoadThreadCount();
+      this.StartCoroutine(this.LoadSkillSequenceAsync(skillParam, false));
+      if (string.IsNullOrEmpty(skillParam.effect))
+        return;
+      this.LoadSkillEffect(skillParam.effect, false);
+    }
+
+    public void DirectionOff_EndSkill()
+    {
+      this.SkillEffectSelf();
+      this.FinishSkill();
+    }
+
+    public void DirectionOff_StartSkill(Vector3 targetPosition, Camera activeCamera, TacticsUnitController[] targets, Vector3[] hitGrids, SkillParam skill)
+    {
+      this.mSkillVars.HitGrids = hitGrids;
+      this.InternalStartSkill(targets, targetPosition, activeCamera, false);
+    }
+
+    public bool DirectionOff_OnEventStart()
+    {
+      if (this.mSkillVars == null)
+        return false;
+      --this.mSkillVars.NumHitsLeft;
+      if (this.mSkillVars.NumHitsLeft < 0)
+        this.mSkillVars.NumHitsLeft = 0;
+      bool flag1 = false;
+      for (int index = 0; index < this.mSkillVars.Targets.Count; ++index)
+      {
+        if (this.mSkillVars.Targets[index].mHitInfo.IsCombo())
+          flag1 = true;
+      }
+      if (!flag1)
+        this.mSkillVars.NumHitsLeft = 0;
+      for (int index1 = 0; index1 < this.mSkillVars.Targets.Count; ++index1)
+      {
+        TacticsUnitController target = this.mSkillVars.Targets[index1];
+        bool flag2 = target.ShouldDodgeHits;
+        bool perfectAvoid = target.ShouldPerfectDodge;
+        if (target.mHitInfo.IsCombo())
+        {
+          int index2 = target.mHitInfo.hits.Count - 1 - this.mSkillVars.NumHitsLeft;
+          if (0 <= index2 && index2 < target.mHitInfo.hits.Count)
+          {
+            flag2 = target.mHitInfo.hits[index2].is_avoid;
+            perfectAvoid = target.mHitInfo.hits[index2].is_pf_avoid;
+          }
+        }
+        if (flag2)
+        {
+          bool is_disp_popup = true;
+          if (this.mSkillVars.UseBattleScene)
+            is_disp_popup = this.mSkillVars.NumHitsLeft == this.mSkillVars.TotalHits - 1;
+          if (target.mHitInfo.IsCombo() || this.mSkillVars.NumHitsLeft == 0)
+          {
+            this.mSkillVars.Targets[index1].PlayDodge(perfectAvoid, is_disp_popup);
+            if (this.mSkillVars.mSkillEffect.AlwaysExplode && this.mSkillVars.Skill.effect_type != SkillEffectTypes.Changing && this.mSkillVars.Skill.effect_type != SkillEffectTypes.Throw)
+              this.SpawnHitEffect(((Component) this.mSkillVars.Targets[index1]).get_transform().get_position(), this.mSkillVars.NumHitsLeft == 0);
+          }
+        }
+        else if (target.mHitInfo.IsCombo() || this.mSkillVars.NumHitsLeft == 0)
+        {
+          this.HitTarget(this.mSkillVars.Targets[index1], this.mSkillVars.mSkillEffect.RangedHitReactionType, false);
+          MonoSingleton<GameManager>.Instance.Player.OnDamageToEnemy(this.mUnit, target.Unit, target.mHitInfo.GetTotalHpDamage());
+        }
+      }
+      bool flag3 = this.mSkillVars.MaxPlayVoice == this.mSkillVars.NumPlayVoice;
+      string cueID = "battle_0031";
+      --this.mSkillVars.NumPlayVoice;
+      if (flag3)
+      {
+        if (this.mSkillVars.Skill.IsReactionSkill() && this.mSkillVars.Skill.IsDamagedSkill())
+          cueID = "battle_0013";
+        if (this.ShowCriticalEffectOnHit)
+          cueID = "battle_0012";
+        if (!string.IsNullOrEmpty(cueID))
+        {
+          float num = 0.0f;
+          if (this.mSkillVars.Targets != null)
+          {
+            for (int index = 0; index < this.mSkillVars.Targets.Count; ++index)
+            {
+              TacticsUnitController target = this.mSkillVars.Targets[index];
+              if (!target.ShouldDodgeHits)
+                num = Mathf.Max((int) this.Unit.MaximumStatus.param.hp == 0 ? 1f : (float) (1.0 * (this.mSkillVars.TotalHits <= 1 ? (double) target.mHitInfo.GetTotalHpDamage() : (double) (target.mHitInfo.GetTotalHpDamage() / this.mSkillVars.TotalHits))) / (float) (int) this.Unit.MaximumStatus.param.hp, num);
+            }
+          }
+          if ((double) num >= 0.75)
+            cueID = "battle_0033";
+          if ((double) num > 0.5)
+            cueID = "battle_0032";
+        }
+        this.Unit.PlayBattleVoice(cueID);
+      }
+      return this.mSkillVars.NumHitsLeft > 0;
     }
 
     private class State_Skill_Without_Animation : TacticsUnitController.State
@@ -2711,7 +3356,7 @@ namespace SRPG
           this.mStartCameraState.CacheCurrent(self.mSkillVars.mActiveCamera);
         if (self.mSkillVars.mSkillEffect.StopAura == SkillEffect.AuraStopTimings.BeforeHit)
           self.StopAura();
-        if (Object.op_Inequality((Object) self.mSkillVars.mTargetController, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mSkillVars.mTargetController, (UnityEngine.Object) null))
           this.mTargetRotation = ((Component) self.mSkillVars.mTargetController).get_transform().get_rotation();
         this.mWaitTime = self.mSkillVars.mSkillEffect.ProjectileStartTime;
         --self.mSkillVars.NumHitsLeft;
@@ -2719,12 +3364,12 @@ namespace SRPG
         {
           if (self.mSkillVars.Targets[index].ShouldDodgeHits)
           {
-            self.mSkillVars.Targets[index].PlayDodge(self.mSkillVars.Targets[index].ShouldPerfectDodge);
+            self.mSkillVars.Targets[index].PlayDodge(self.mSkillVars.Targets[index].ShouldPerfectDodge, true);
             if (self.mSkillVars.mSkillEffect.AlwaysExplode && self.mSkillVars.Skill.effect_type != SkillEffectTypes.Changing)
               self.SpawnHitEffect(((Component) self.mSkillVars.Targets[index]).get_transform().get_position(), self.mSkillVars.NumHitsLeft == 0);
           }
           else
-            self.HitTarget(self.mSkillVars.Targets[index], HitReactionTypes.None);
+            self.HitTarget(self.mSkillVars.Targets[index], HitReactionTypes.None, true);
         }
       }
 
@@ -2755,6 +3400,7 @@ namespace SRPG
       Normal,
       Attack,
       Target,
+      Change,
     }
 
     private class HideGimmickAnimation
@@ -2769,7 +3415,7 @@ namespace SRPG
 
       public void Init(TacticsUnitController GimmickController)
       {
-        if (Object.op_Equality((Object) GimmickController, (Object) null) || GimmickController.Unit == null || !GimmickController.Unit.IsGimmick)
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) GimmickController, (UnityEngine.Object) null) || GimmickController.Unit == null || (!GimmickController.Unit.IsGimmick || GimmickController.mUnit.IsBreakObj))
           return;
         this.mGimmickController = GimmickController;
         this.mBaseScale = ((Component) this.mGimmickController).get_transform().get_localScale();
@@ -2788,7 +3434,7 @@ namespace SRPG
 
       public void Update()
       {
-        if (!this.Enable)
+        if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) this.mGimmickController) || !this.Enable)
           return;
         if (this.IsHide)
         {
@@ -2857,10 +3503,12 @@ namespace SRPG
     {
       public override void Begin(TacticsUnitController self)
       {
+        if (self.mUnit != null && self.mUnit.IsBreakObj)
+          return;
         string id = "IDLE";
         self.RootMotionMode = AnimationPlayer.RootMotionModes.Translate;
         self.UpdateBadStatus();
-        if (self.mBadStatus != null && !string.IsNullOrEmpty(self.mBadStatus.AnimationName) && (Object.op_Inequality((Object) self.FindAnimation("BAD"), (Object) null) && self.mBadStatus.AnimationName == self.mLoadedBadStatusAnimation))
+        if (self.mBadStatus != null && !string.IsNullOrEmpty(self.mBadStatus.AnimationName) && (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.FindAnimation("BAD"), (UnityEngine.Object) null) && self.mBadStatus.AnimationName == self.mLoadedBadStatusAnimation))
           id = "BAD";
         if ((double) self.GetTargetWeight(id) >= 1.0)
           return;
@@ -2869,12 +3517,14 @@ namespace SRPG
 
       public override void Update(TacticsUnitController self)
       {
+        if (self.mUnit != null && self.mUnit.IsBreakObj)
+          return;
         string animationName = self.mBadStatus == null ? (string) null : self.mBadStatus.AnimationName;
         if (!string.IsNullOrEmpty(animationName))
         {
           if (!string.IsNullOrEmpty(self.mLoadedBadStatusAnimation) && self.mLoadedBadStatusAnimation != animationName)
           {
-            if (Object.op_Implicit((Object) self.FindAnimation("BAD")))
+            if (UnityEngine.Object.op_Implicit((UnityEngine.Object) self.FindAnimation("BAD")))
             {
               self.UnloadAnimation("BAD");
               self.StopAnimation("BAD");
@@ -2886,10 +3536,10 @@ namespace SRPG
             self.LoadUnitAnimationAsync("BAD", animationName, false, false);
             self.mLoadedBadStatusAnimation = animationName;
           }
-          else if (Object.op_Inequality((Object) self.FindAnimation("BAD"), (Object) null) && (double) self.GetTargetWeight("BAD") < 1.0)
+          else if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.FindAnimation("BAD"), (UnityEngine.Object) null) && (double) self.GetTargetWeight("BAD") < 1.0)
             self.PlayAnimation("BAD", true, 0.25f, 0.0f);
         }
-        else if (!string.IsNullOrEmpty(self.mLoadedBadStatusAnimation) && Object.op_Implicit((Object) self.FindAnimation("BAD")))
+        else if (!string.IsNullOrEmpty(self.mLoadedBadStatusAnimation) && UnityEngine.Object.op_Implicit((UnityEngine.Object) self.FindAnimation("BAD")))
         {
           self.UnloadAnimation("BAD");
           self.mLoadedBadStatusAnimation = (string) null;
@@ -3058,7 +3708,7 @@ namespace SRPG
         this.mStartPosition = ((Component) self).get_transform().get_position();
         this.mEndPosition = GameUtility.RaycastGround(self.mFieldActionPoint);
         GameSettings instance = GameSettings.Instance;
-        if (Object.op_Inequality((Object) instance, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) instance, (UnityEngine.Object) null))
           this.mDuration = instance.Unit_FallMinTime + Mathf.Abs((float) (this.mStartPosition.y - this.mEndPosition.y)) * instance.Unit_FallTimePerHeight;
         ((Component) self).get_transform().set_rotation(self.mFieldActionDir.ToRotation());
         self.mCollideGround = false;
@@ -3304,7 +3954,7 @@ namespace SRPG
         self.SetEquipmentsVisible(false);
         this.mObjectStartPos = self.mPickupObject.get_transform().get_position();
         this.mTopPos = this.mObjectStartPos;
-        if (Object.op_Inequality((Object) self.mCharacterSettings, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mCharacterSettings, (UnityEngine.Object) null))
         {
           // ISSUE: explicit reference operation
           // ISSUE: variable of a reference type
@@ -3314,7 +3964,7 @@ namespace SRPG
           (^local).y = (__Null) ((^local).y + (double) self.mCharacterSettings.Height * ((Component) self).get_transform().get_lossyScale().y);
         }
         MapPickup componentInChildren = (MapPickup) self.mPickupObject.GetComponentInChildren<MapPickup>();
-        if (!Object.op_Inequality((Object) componentInChildren, (Object) null) || !Object.op_Inequality((Object) componentInChildren.Shadow, (Object) null))
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) componentInChildren, (UnityEngine.Object) null) || !UnityEngine.Object.op_Inequality((UnityEngine.Object) componentInChildren.Shadow, (UnityEngine.Object) null))
           return;
         ((Component) componentInChildren.Shadow).get_gameObject().SetActive(false);
       }
@@ -3330,7 +3980,7 @@ namespace SRPG
           if (!this.mPickedUp)
           {
             MapPickup componentInChildren = (MapPickup) self.mPickupObject.GetComponentInChildren<MapPickup>();
-            if (Object.op_Inequality((Object) componentInChildren, (Object) null) && componentInChildren.OnPickup != null)
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) componentInChildren, (UnityEngine.Object) null) && componentInChildren.OnPickup != null)
               componentInChildren.OnPickup();
             this.mPickedUp = true;
           }
@@ -3400,10 +4050,21 @@ namespace SRPG
       public bool Critical;
     }
 
+    public class ProjectileData
+    {
+      public GameObject mProjectile;
+      public Coroutine mProjectileThread;
+      public bool mProjectileHitsTarget;
+      public bool mProjStartAnimEnded;
+      public bool mIsHitOnly;
+      public bool mIsNotSpawnLandingEffect;
+    }
+
     private class SkillVars
     {
       public List<GameObject> mAuras = new List<GameObject>(4);
       public Quaternion mCameraShakeOffset = Quaternion.get_identity();
+      public List<TacticsUnitController.ProjectileData> mProjectileDataLists = new List<TacticsUnitController.ProjectileData>();
       public List<TacticsUnitController.OutputPoint> mOutputPoints = new List<TacticsUnitController.OutputPoint>(32);
       public List<TacticsUnitController.HitTimer> HitTimers = new List<TacticsUnitController.HitTimer>();
       public List<TacticsUnitController> HitTargets = new List<TacticsUnitController>(4);
@@ -3439,14 +4100,16 @@ namespace SRPG
       public AnimationClip mSkillCameraClip;
       public AnimationClip mSkillEndCameraClip;
       public GameObject mChantEffect;
-      public GameObject mProjectile;
+      public int mNumShotCount;
       public bool mProjectileTriggered;
       public SkillEffect mSkillEffect;
-      public Coroutine mProjectileThread;
       public bool UseBattleScene;
-      public bool mProjectileHitsTarget;
       public Vector3[] HitGrids;
       public Coroutine HitTimerThread;
+      public Grid mLandingGrid;
+      public Grid mTeleportGrid;
+      public bool mIsFinishedBuffEffectTarget;
+      public bool mIsFinishedBuffEffectSelf;
     }
 
     public enum EElementEffectTypes
@@ -3467,6 +4130,7 @@ namespace SRPG
       {
         this.LastHP = (int) this.Target.hp;
         this.LastTurn = (int) this.Target.turn;
+        this.Target.is_efficacy = (OBool) false;
         this.Dirty = false;
       }
     }
@@ -3569,6 +4233,8 @@ namespace SRPG
       {
         self.RootMotionMode = AnimationPlayer.RootMotionModes.Discard;
         self.PlayAnimation("B_DEAD", false);
+        if (self.mUnit != null && self.mUnit.IsBreakObj)
+          return;
         self.Unit.PlayBattleVoice("battle_0028");
         MonoSingleton<MySound>.Instance.PlaySEOneShot("SE_6050", 0.0f);
       }
@@ -3577,7 +4243,9 @@ namespace SRPG
       {
         if ((double) self.GetRemainingTime("B_DEAD") > 0.0)
           return;
-        Object.Destroy((Object) ((Component) self).get_gameObject());
+        UnityEngine.Object.Destroy((UnityEngine.Object) ((Component) self).get_gameObject());
+        if (self.mUnit != null && self.mUnit.IsBreakObj)
+          return;
         MonoSingleton<MySound>.Instance.PlaySEOneShot("SE_6051", 0.0f);
       }
     }
@@ -3677,7 +4345,7 @@ namespace SRPG
         if (self.mSkillVars.UseBattleScene)
           this.mStartCameraState.CacheCurrent(self.mSkillVars.mActiveCamera);
         self.PlayAnimation("B_CHA", false);
-        if (!Object.op_Inequality((Object) self.mSkillVars.mSkillEffect, (Object) null) || self.mSkillVars.mSkillEffect.ChantSound == null)
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mSkillVars.mSkillEffect, (UnityEngine.Object) null) || self.mSkillVars.mSkillEffect.ChantSound == null)
           return;
         self.mSkillVars.mSkillEffect.ChantSound.Play();
       }
@@ -3686,7 +4354,7 @@ namespace SRPG
       {
         self.mSkillVars.mChantCameraID = self.mSkillVars.mCameraID;
         float normalizedTime = self.GetNormalizedTime("B_CHA");
-        if (self.mSkillVars.UseBattleScene && !self.mSkillVars.mIsCollaboSkillSub && Object.op_Inequality((Object) self.mSkillVars.mSkillChantCameraClip, (Object) null))
+        if (self.mSkillVars.UseBattleScene && !self.mSkillVars.mIsCollaboSkillSub && UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mSkillVars.mSkillChantCameraClip, (UnityEngine.Object) null))
         {
           if (self.mSkillVars.mSkillSequence.InterpChantCamera)
             self.AnimateCameraInterpolated(self.mSkillVars.mSkillChantCameraClip, normalizedTime, 4f * normalizedTime, this.mStartCameraState, self.mSkillVars.mChantCameraID);
@@ -3695,23 +4363,30 @@ namespace SRPG
         }
         if ((double) normalizedTime < 1.0)
           return;
-        if (Object.op_Inequality((Object) self.mSkillVars.mChantEffect, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mSkillVars.mChantEffect, (UnityEngine.Object) null))
         {
-          if (Object.op_Inequality((Object) self.mSkillVars.mChantEffect.GetComponentInChildren<ParticleSystem>(), (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mSkillVars.mChantEffect.GetComponentInChildren<ParticleSystem>(), (UnityEngine.Object) null))
           {
             GameUtility.StopEmitters(self.mSkillVars.mChantEffect);
             self.mSkillVars.mChantEffect.AddComponent<OneShotParticle>();
           }
           else
-            Object.DestroyImmediate((Object) self.mSkillVars.mChantEffect);
+            UnityEngine.Object.DestroyImmediate((UnityEngine.Object) self.mSkillVars.mChantEffect);
           self.mSkillVars.mChantEffect = (GameObject) null;
         }
         if (self.mSkillVars.Skill.effect_type == SkillEffectTypes.Changing)
           self.GotoState<TacticsUnitController.State_ChangeGrid>();
         else if (self.mSkillVars.Skill.effect_type == SkillEffectTypes.Throw)
+        {
           self.GotoState<TacticsUnitController.State_Throw>();
+        }
         else
+        {
           self.GotoState<TacticsUnitController.State_Skill>();
+          if (!self.mSkillVars.Skill.IsTransformSkill() || self.mSkillVars.Targets.Count == 0)
+            return;
+          self.mSkillVars.Targets[0].PlayAfterTransform();
+        }
       }
 
       public override void End(TacticsUnitController self)
@@ -3727,6 +4402,7 @@ namespace SRPG
       private TacticsUnitController.CameraState mStartCameraState;
       private Quaternion mTargetRotation;
       private float mWaitTime;
+      private bool mIsProcessed;
 
       public override void Begin(TacticsUnitController self)
       {
@@ -3735,7 +4411,7 @@ namespace SRPG
         self.PlayAnimation("B_SKL", false);
         if (self.mSkillVars.mSkillEffect.StopAura == SkillEffect.AuraStopTimings.BeforeHit)
           self.StopAura();
-        if (Object.op_Inequality((Object) self.mSkillVars.mTargetController, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mSkillVars.mTargetController, (UnityEngine.Object) null))
           this.mTargetRotation = ((Component) self.mSkillVars.mTargetController).get_transform().get_rotation();
         this.mWaitTime = self.mSkillVars.mSkillEffect.ProjectileStartTime;
       }
@@ -3754,7 +4430,7 @@ namespace SRPG
         float normalizedTime = self.GetNormalizedTime("B_SKL");
         if (self.mSkillVars.UseBattleScene)
         {
-          if (self.mSkillVars.mSkillAnimation.CurveNames.Contains("Enm_Distance_dummy") && Object.op_Inequality((Object) self.mSkillVars.mTargetController, (Object) null))
+          if (self.mSkillVars.mSkillAnimation.CurveNames.Contains("Enm_Distance_dummy") && UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mSkillVars.mTargetController, (UnityEngine.Object) null))
           {
             Vector3 pos;
             Quaternion rotation;
@@ -3763,7 +4439,7 @@ namespace SRPG
             transform.set_position(pos);
             transform.set_rotation(Quaternion.op_Multiply(rotation, this.mTargetRotation));
           }
-          if (Object.op_Inequality((Object) self.mSkillVars.mSkillCameraClip, (Object) null) && !self.mSkillVars.mIsCollaboSkillSub)
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mSkillVars.mSkillCameraClip, (UnityEngine.Object) null) && !self.mSkillVars.mIsCollaboSkillSub)
           {
             if (self.mSkillVars.mSkillSequence.InterpSkillCamera)
               self.AnimateCameraInterpolated(self.mSkillVars.mSkillCameraClip, normalizedTime, 4f * normalizedTime, this.mStartCameraState, self.mSkillVars.mSkillCameraID);
@@ -3771,7 +4447,14 @@ namespace SRPG
               self.AnimateCamera(self.mSkillVars.mSkillCameraClip, normalizedTime, self.mSkillVars.mSkillCameraID);
           }
         }
-        if ((double) self.GetRemainingTime("B_SKL") > 0.0 || (double) this.mWaitTime > 0.0)
+        if ((double) self.GetRemainingTime("B_SKL") > 0.0)
+          return;
+        if (!this.mIsProcessed && self.mSkillVars.Skill.IsTransformSkill())
+        {
+          self.SetVisible(false);
+          this.mIsProcessed = true;
+        }
+        if ((double) this.mWaitTime > 0.0)
           return;
         if (self.mSkillVars.mSkillSequence.SkillType == SkillSequence.SkillTypes.Melee)
           self.GotoState<TacticsUnitController.State_SkillEnd>();
@@ -3784,7 +4467,7 @@ namespace SRPG
     {
       public override void Begin(TacticsUnitController self)
       {
-        if (!Object.op_Inequality((Object) self.FindAnimation("B_BS"), (Object) null))
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) self.FindAnimation("B_BS"), (UnityEngine.Object) null))
           return;
         self.PlayAnimation("B_BS", false, 0.1f, 0.0f);
       }
@@ -3804,15 +4487,14 @@ namespace SRPG
       private float mStateTime;
       private bool mUnitAnimationEnded;
       private bool mHit;
-      private bool mProjStartAnimEnded;
       private bool mProjEndAnimEnded;
 
       public override void Begin(TacticsUnitController self)
       {
         this.mAnimationLength = self.mSkillVars.mSkillSequence.EndLength;
         if (!self.mSkillVars.mProjectileTriggered)
-          self.OnProjectileHit((GameObject) null);
-        if (!Object.op_Inequality((Object) self.FindAnimation("B_BS"), (Object) null))
+          self.OnProjectileHit((TacticsUnitController.ProjectileData) null);
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) self.FindAnimation("B_BS"), (UnityEngine.Object) null))
           return;
         self.PlayAnimation("B_BS", false, 0.1f, 0.0f);
       }
@@ -3822,9 +4504,9 @@ namespace SRPG
         self.mSkillVars.mTargetController = (TacticsUnitController) null;
       }
 
-      private void OnHit()
+      private void OnHit(TacticsUnitController.ProjectileData pd)
       {
-        this.self.OnProjectileHit(this.self.mSkillVars.mProjectile);
+        this.self.OnProjectileHit(pd);
       }
 
       public override void Update(TacticsUnitController self)
@@ -3832,22 +4514,29 @@ namespace SRPG
         this.mStateTime += Time.get_deltaTime();
         if (self.mSkillVars.UseBattleScene)
         {
-          if (!this.mProjStartAnimEnded && Object.op_Inequality((Object) self.mSkillVars.mProjectile, (Object) null))
+          using (List<TacticsUnitController.ProjectileData>.Enumerator enumerator = self.mSkillVars.mProjectileDataLists.GetEnumerator())
           {
-            if (self.mSkillVars.mProjectileThread != null)
-              return;
-            this.mProjStartAnimEnded = true;
-            if (Object.op_Inequality((Object) self.mSkillVars.mTargetController, (Object) null))
+            while (enumerator.MoveNext())
             {
-              self.mSkillVars.mProjectileThread = self.StartCoroutine(self.AnimateProjectile(self.mSkillVars.mSkillEffect.ProjectileEnd, self.mSkillVars.mSkillEffect.ProjectileEndTime, self.mSkillVars.mTargetControllerPosition, Quaternion.get_identity(), new TacticsUnitController.ProjectileStopEvent(this.OnHit)));
-              ParticleSystem component = (ParticleSystem) self.mSkillVars.mProjectile.GetComponent<ParticleSystem>();
-              if (Object.op_Inequality((Object) component, (Object) null))
-                component.Clear(true);
+              TacticsUnitController.ProjectileData current = enumerator.Current;
+              if (!current.mProjStartAnimEnded && UnityEngine.Object.op_Inequality((UnityEngine.Object) current.mProjectile, (UnityEngine.Object) null))
+              {
+                if (current.mProjectileThread != null)
+                  return;
+                current.mProjStartAnimEnded = true;
+                if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mSkillVars.mTargetController, (UnityEngine.Object) null))
+                {
+                  current.mProjectileThread = self.StartCoroutine(self.AnimateProjectile(self.mSkillVars.mSkillEffect.ProjectileEnd, self.mSkillVars.mSkillEffect.ProjectileEndTime, self.mSkillVars.mTargetControllerPosition, Quaternion.get_identity(), new TacticsUnitController.ProjectileStopEvent(this.OnHit), current));
+                  ParticleSystem component = (ParticleSystem) current.mProjectile.GetComponent<ParticleSystem>();
+                  if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
+                    component.Clear(true);
+                }
+              }
             }
           }
           if (!self.mSkillVars.mIsCollaboSkillSub)
           {
-            if (Object.op_Inequality((Object) self.mSkillVars.mSkillEndCameraClip, (Object) null))
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mSkillVars.mSkillEndCameraClip, (UnityEngine.Object) null))
             {
               Vector3 pos;
               Quaternion rotation;
@@ -3869,8 +4558,14 @@ namespace SRPG
             self.PlayAnimation("IDLE", true, 0.1f, 0.0f);
           this.mUnitAnimationEnded = true;
         }
-        if (self.mSkillVars.mProjectileThread != null)
-          return;
+        using (List<TacticsUnitController.ProjectileData>.Enumerator enumerator = self.mSkillVars.mProjectileDataLists.GetEnumerator())
+        {
+          while (enumerator.MoveNext())
+          {
+            if (enumerator.Current.mProjectileThread != null)
+              return;
+          }
+        }
         if ((double) this.mStateTime >= (double) this.mAnimationLength && this.mHit)
         {
           self.SkillEffectSelf();
@@ -3878,9 +4573,21 @@ namespace SRPG
         }
         else
         {
-          if (this.mHit || !self.mSkillVars.mProjectileHitsTarget || self.mSkillVars.HitTimers.Count > 0)
+          if (this.mHit || self.mSkillVars.HitTimers.Count > 0)
             return;
-          this.mHit = true;
+          bool flag = true;
+          using (List<TacticsUnitController.ProjectileData>.Enumerator enumerator = self.mSkillVars.mProjectileDataLists.GetEnumerator())
+          {
+            while (enumerator.MoveNext())
+            {
+              if (!enumerator.Current.mProjectileHitsTarget)
+              {
+                flag = false;
+                break;
+              }
+            }
+          }
+          this.mHit = flag;
         }
       }
     }
@@ -3973,12 +4680,14 @@ namespace SRPG
       {
         this.mBasePos = ((Component) self).get_transform().get_position();
         this.mBaseMapPos = new IntVector2(self.Unit.x, self.Unit.y);
+        if (self.mSkillVars.mLandingGrid != null)
+          this.mBaseMapPos = new IntVector2(self.mSkillVars.mLandingGrid.x, self.mSkillVars.mLandingGrid.y);
         this.mElapsed = 0.0f;
         self.mCastJumpFallComplete = false;
         self.CollideGround = false;
         this.Mode = TacticsUnitController.State_JumpCastComplete.MotionMode.FALL_WAIT;
         self.AnimateVessel(1f, 0.0f);
-        if (Object.op_Inequality((Object) SceneBattle.Instance, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null))
         {
           SceneBattle instance = SceneBattle.Instance;
           this.mExcludes = instance.GetActiveUnits();
@@ -4010,9 +4719,9 @@ namespace SRPG
       {
         this.self.SetVisible(true);
         this.self.SetEquipmentsVisible(true);
-        if (this.self.mSkillVars != null && Object.op_Inequality((Object) this.self.mSkillVars.mSkillEffect.AuraEffect, (Object) null))
+        if (this.self.mSkillVars != null && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.self.mSkillVars.mSkillEffect.AuraEffect, (UnityEngine.Object) null))
         {
-          this.mFallEffect = Object.Instantiate((Object) this.self.mSkillVars.mSkillEffect.AuraEffect, ((Component) this.self).get_transform().get_position(), ((Component) this.self).get_transform().get_rotation()) as GameObject;
+          this.mFallEffect = UnityEngine.Object.Instantiate((UnityEngine.Object) this.self.mSkillVars.mSkillEffect.AuraEffect, ((Component) this.self).get_transform().get_position(), ((Component) this.self).get_transform().get_rotation()) as GameObject;
           this.mFallEffect.get_transform().SetParent(((Component) this.self).get_transform());
         }
         Vector3 position = ((Component) this.self).get_transform().get_position();
@@ -4026,8 +4735,8 @@ namespace SRPG
       {
         if ((double) this.mElapsed >= (double) this.mCastTime)
         {
-          if (self.mSkillVars != null && Object.op_Inequality((Object) self.mSkillVars.mSkillEffect.TargetHitEffect, (Object) null))
-            this.mHitEffect = Object.Instantiate((Object) self.mSkillVars.mSkillEffect.TargetHitEffect, self.JumpFallPos, Quaternion.get_identity()) as GameObject;
+          if (self.mSkillVars != null && UnityEngine.Object.op_Inequality((UnityEngine.Object) self.mSkillVars.mSkillEffect.TargetHitEffect, (UnityEngine.Object) null))
+            this.mHitEffect = UnityEngine.Object.Instantiate((UnityEngine.Object) self.mSkillVars.mSkillEffect.TargetHitEffect, self.JumpFallPos, Quaternion.get_identity()) as GameObject;
           this.Mode = TacticsUnitController.State_JumpCastComplete.MotionMode.RETURN;
           this.EnterReturn();
         }
@@ -4044,12 +4753,12 @@ namespace SRPG
 
       private void EnterReturn()
       {
-        if (Object.op_Inequality((Object) this.mFallEffect, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mFallEffect, (UnityEngine.Object) null))
         {
           GameUtility.RequireComponent<OneShotParticle>(this.mFallEffect);
           GameUtility.StopEmitters(this.mFallEffect);
         }
-        if (Object.op_Inequality((Object) this.mHitEffect, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mHitEffect, (UnityEngine.Object) null))
           GameUtility.RequireComponent<OneShotParticle>(this.mHitEffect);
         for (int index = 0; index < this.self.mSkillVars.Targets.Count; ++index)
         {
@@ -4133,8 +4842,8 @@ namespace SRPG
 
       private GameObject CreateEffect(GameObject EffectPrefab, TacticsUnitController Parent)
       {
-        GameObject go = Object.Instantiate((Object) EffectPrefab, ((Component) Parent).get_transform().get_position(), ((Component) Parent).get_transform().get_rotation()) as GameObject;
-        if (Object.op_Inequality((Object) go, (Object) null))
+        GameObject go = UnityEngine.Object.Instantiate((UnityEngine.Object) EffectPrefab, ((Component) Parent).get_transform().get_position(), ((Component) Parent).get_transform().get_rotation()) as GameObject;
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) go, (UnityEngine.Object) null))
         {
           go.RequireComponent<OneShotParticle>();
           go.get_transform().SetParent(((Component) Parent).get_transform());
@@ -4158,14 +4867,27 @@ namespace SRPG
       private IEnumerator Wait(float Seconds, TacticsUnitController self)
       {
         // ISSUE: object of a compiler-generated type is created
-        return (IEnumerator) new TacticsUnitController.State_ChangeGrid.\u003CWait\u003Ec__Iterator18() { self = self, Seconds = Seconds, \u003C\u0024\u003Eself = self, \u003C\u0024\u003ESeconds = Seconds, \u003C\u003Ef__this = this };
+        return (IEnumerator) new TacticsUnitController.State_ChangeGrid.\u003CWait\u003Ec__Iterator37()
+        {
+          self = self,
+          Seconds = Seconds,
+          \u003C\u0024\u003Eself = self,
+          \u003C\u0024\u003ESeconds = Seconds,
+          \u003C\u003Ef__this = this
+        };
       }
 
       [DebuggerHidden]
       private IEnumerator EffectEndWait(float Seconds, TacticsUnitController self)
       {
         // ISSUE: object of a compiler-generated type is created
-        return (IEnumerator) new TacticsUnitController.State_ChangeGrid.\u003CEffectEndWait\u003Ec__Iterator19() { Seconds = Seconds, self = self, \u003C\u0024\u003ESeconds = Seconds, \u003C\u0024\u003Eself = self };
+        return (IEnumerator) new TacticsUnitController.State_ChangeGrid.\u003CEffectEndWait\u003Ec__Iterator38()
+        {
+          Seconds = Seconds,
+          self = self,
+          \u003C\u0024\u003ESeconds = Seconds,
+          \u003C\u0024\u003Eself = self
+        };
       }
 
       public override void Update(TacticsUnitController self)
@@ -4178,9 +4900,9 @@ namespace SRPG
         }
         else
         {
-          if (!Object.op_Equality((Object) this.mSelfEffect, (Object) null) || !Object.op_Equality((Object) this.mTargetEffect, (Object) null))
+          if (!UnityEngine.Object.op_Equality((UnityEngine.Object) this.mSelfEffect, (UnityEngine.Object) null) || !UnityEngine.Object.op_Equality((UnityEngine.Object) this.mTargetEffect, (UnityEngine.Object) null))
             ;
-          if (!Object.op_Inequality((Object) this.mSelfParticle, (Object) null) || (double) this.mSelfParticle.get_time() / (double) this.mSelfParticle.get_duration() < 1.0 || this.mChanged)
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSelfParticle, (UnityEngine.Object) null) || (double) this.mSelfParticle.get_time() / (double) this.mSelfParticle.get_duration() < 1.0 || this.mChanged)
             return;
           this.mChanged = true;
           TacticsUnitController target = self.mSkillVars.Targets[0];
@@ -4218,7 +4940,7 @@ namespace SRPG
         this.mSceneBattle = SceneBattle.Instance;
         if (self.mSkillVars.Targets.Count > 0)
           this.mTargetTuc = self.mSkillVars.Targets[0];
-        if (!Object.op_Implicit((Object) this.mSceneBattle) || !Object.op_Implicit((Object) this.mTargetTuc))
+        if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) this.mSceneBattle) || !UnityEngine.Object.op_Implicit((UnityEngine.Object) this.mTargetTuc))
         {
           self.GotoState<TacticsUnitController.State_SkillEnd>();
         }
@@ -4234,40 +4956,82 @@ namespace SRPG
       private IEnumerator execPerformance(TacticsUnitController self)
       {
         // ISSUE: object of a compiler-generated type is created
-        return (IEnumerator) new TacticsUnitController.State_Throw.\u003CexecPerformance\u003Ec__Iterator1A() { self = self, \u003C\u0024\u003Eself = self, \u003C\u003Ef__this = this };
+        return (IEnumerator) new TacticsUnitController.State_Throw.\u003CexecPerformance\u003Ec__Iterator39()
+        {
+          self = self,
+          \u003C\u0024\u003Eself = self,
+          \u003C\u003Ef__this = this
+        };
       }
 
       [DebuggerHidden]
       private IEnumerator lerpTurn(TacticsUnitController target, Vector3 target_pos)
       {
         // ISSUE: object of a compiler-generated type is created
-        return (IEnumerator) new TacticsUnitController.State_Throw.\u003ClerpTurn\u003Ec__Iterator1B() { target = target, target_pos = target_pos, \u003C\u0024\u003Etarget = target, \u003C\u0024\u003Etarget_pos = target_pos };
+        return (IEnumerator) new TacticsUnitController.State_Throw.\u003ClerpTurn\u003Ec__Iterator3A()
+        {
+          target = target,
+          target_pos = target_pos,
+          \u003C\u0024\u003Etarget = target,
+          \u003C\u0024\u003Etarget_pos = target_pos
+        };
       }
 
       [DebuggerHidden]
       private IEnumerator lerpPickUp(TacticsUnitController self, TacticsUnitController target)
       {
         // ISSUE: object of a compiler-generated type is created
-        return (IEnumerator) new TacticsUnitController.State_Throw.\u003ClerpPickUp\u003Ec__Iterator1C() { target = target, self = self, \u003C\u0024\u003Etarget = target, \u003C\u0024\u003Eself = self };
+        return (IEnumerator) new TacticsUnitController.State_Throw.\u003ClerpPickUp\u003Ec__Iterator3B()
+        {
+          target = target,
+          self = self,
+          \u003C\u0024\u003Etarget = target,
+          \u003C\u0024\u003Eself = self
+        };
       }
 
       [DebuggerHidden]
       private IEnumerator lerpThrow(TacticsUnitController target, Vector3 target_pos)
       {
         // ISSUE: object of a compiler-generated type is created
-        return (IEnumerator) new TacticsUnitController.State_Throw.\u003ClerpThrow\u003Ec__Iterator1D() { target = target, target_pos = target_pos, \u003C\u0024\u003Etarget = target, \u003C\u0024\u003Etarget_pos = target_pos };
+        return (IEnumerator) new TacticsUnitController.State_Throw.\u003ClerpThrow\u003Ec__Iterator3C()
+        {
+          target = target,
+          target_pos = target_pos,
+          \u003C\u0024\u003Etarget = target,
+          \u003C\u0024\u003Etarget_pos = target_pos
+        };
       }
 
       [DebuggerHidden]
       private IEnumerator lerpBound(TacticsUnitController target)
       {
         // ISSUE: object of a compiler-generated type is created
-        return (IEnumerator) new TacticsUnitController.State_Throw.\u003ClerpBound\u003Ec__Iterator1E() { target = target, \u003C\u0024\u003Etarget = target };
+        return (IEnumerator) new TacticsUnitController.State_Throw.\u003ClerpBound\u003Ec__Iterator3D()
+        {
+          target = target,
+          \u003C\u0024\u003Etarget = target
+        };
+      }
+    }
+
+    private class State_AfterTransform : TacticsUnitController.State
+    {
+      public override void Begin(TacticsUnitController self)
+      {
+        self.PlayAnimation("B_TRANSFORM", false);
+      }
+
+      public override void Update(TacticsUnitController self)
+      {
+        if ((double) self.GetRemainingTime("B_TRANSFORM") > 0.100000001490116)
+          return;
+        self.PlayIdle(0.1f);
       }
     }
 
     private delegate void FieldActionEndEvent();
 
-    private delegate void ProjectileStopEvent();
+    private delegate void ProjectileStopEvent(TacticsUnitController.ProjectileData pd);
   }
 }

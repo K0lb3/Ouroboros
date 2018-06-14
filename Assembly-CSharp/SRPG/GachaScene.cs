@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.GachaScene
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections;
@@ -11,8 +11,8 @@ using UnityEngine.UI;
 
 namespace SRPG
 {
-  [FlowNode.Pin(10, "終了", FlowNode.PinTypes.Input, 10)]
   [FlowNode.Pin(100, "表示開始", FlowNode.PinTypes.Output, 100)]
+  [FlowNode.Pin(10, "終了", FlowNode.PinTypes.Input, 10)]
   public class GachaScene : SceneRoot, IFlowInterface
   {
     public int MaxGridColumnCount = 5;
@@ -62,14 +62,14 @@ namespace SRPG
     private IEnumerator AsyncUpdate()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new GachaScene.\u003CAsyncUpdate\u003Ec__Iterator52() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new GachaScene.\u003CAsyncUpdate\u003Ec__Iterator8A() { \u003C\u003Ef__this = this };
     }
 
     [DebuggerHidden]
     private IEnumerator ExitGachaAsync()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new GachaScene.\u003CExitGachaAsync\u003Ec__Iterator53() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new GachaScene.\u003CExitGachaAsync\u003Ec__Iterator8B() { \u003C\u003Ef__this = this };
     }
 
     public enum DropClasses

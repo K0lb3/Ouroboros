@@ -1,9 +1,10 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.MasterParam
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
+using GR;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,6 +27,9 @@ namespace SRPG
     private List<JobParam> mJobParam;
     private List<QuestClearUnlockUnitDataParam> mUnlockUnitDataParam;
     private List<CollaboSkillParam> mCollaboSkillParam;
+    private List<TrickParam> mTrickParam;
+    private List<BreakObjParam> mBreakObjParam;
+    private List<WeatherParam> mWeatherParam;
     private List<JobSetParam> mJobSetParam;
     private List<GrowParam> mGrowParam;
     private List<AIParam> mAIParam;
@@ -39,7 +43,10 @@ namespace SRPG
     private OInt[] mAbilityExpTbl;
     private OInt[] mAwakePieceTbl;
     private LocalNotificationParam mLocalNotificationParam;
+    private TrophyCategoryParam[] mTrophyCategory;
+    private ChallengeCategoryParam[] mChallengeCategory;
     private TrophyParam[] mTrophy;
+    public Dictionary<string, TrophyParam> mTrophyInameDict;
     private TrophyObjective[][] mTrophyDict;
     private TrophyParam[] mChallenge;
     private UnlockParam[] mUnlock;
@@ -50,6 +57,7 @@ namespace SRPG
     private List<VersusMatchCondParam> mVersusMatchCond;
     private List<TowerScoreParam> mTowerScore;
     private OInt[] mTowerRankTbl;
+    public OInt[] mMultiLimitUnitLv;
     private Dictionary<string, UnitParam> mUnitDictionary;
     private Dictionary<string, SkillParam> mSkillDictionary;
     private Dictionary<string, AbilityParam> mAbilityDictionary;
@@ -59,6 +67,7 @@ namespace SRPG
     private Dictionary<string, AwardParam> mAwardDictionary;
     private Dictionary<string, List<JobSetParam>> mJobsetDictionary;
     private LoginInfoParam[] mLoginInfoParam;
+    private Dictionary<string, FriendPresentItemParam> mFriendPresentItemParam;
 
     public bool Deserialize(string language, JSON_MasterParam json)
     {
@@ -76,23 +85,23 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          MasterParam.\u003CDeserialize\u003Ec__AnonStorey181 deserializeCAnonStorey181 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey181();
+          MasterParam.\u003CDeserialize\u003Ec__AnonStorey20C deserializeCAnonStorey20C = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey20C();
           // ISSUE: reference to a compiler-generated field
-          deserializeCAnonStorey181.data = json.Unit[index];
+          deserializeCAnonStorey20C.data = json.Unit[index];
           // ISSUE: reference to a compiler-generated method
-          UnitParam unitParam = this.mUnitParam.Find(new Predicate<UnitParam>(deserializeCAnonStorey181.\u003C\u003Em__11C));
+          UnitParam unitParam = this.mUnitParam.Find(new Predicate<UnitParam>(deserializeCAnonStorey20C.\u003C\u003Em__181));
           if (unitParam == null)
           {
             unitParam = new UnitParam();
             this.mUnitParam.Add(unitParam);
           }
           // ISSUE: reference to a compiler-generated field
-          unitParam.Deserialize(language, deserializeCAnonStorey181.data);
+          unitParam.Deserialize(language, deserializeCAnonStorey20C.data);
           // ISSUE: reference to a compiler-generated field
-          if (!this.mUnitDictionary.ContainsKey(deserializeCAnonStorey181.data.iname))
+          if (!this.mUnitDictionary.ContainsKey(deserializeCAnonStorey20C.data.iname))
           {
             // ISSUE: reference to a compiler-generated field
-            this.mUnitDictionary.Add(deserializeCAnonStorey181.data.iname, unitParam);
+            this.mUnitDictionary.Add(deserializeCAnonStorey20C.data.iname, unitParam);
           }
         }
       }
@@ -106,23 +115,23 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          MasterParam.\u003CDeserialize\u003Ec__AnonStorey182 deserializeCAnonStorey182 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey182();
+          MasterParam.\u003CDeserialize\u003Ec__AnonStorey20D deserializeCAnonStorey20D = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey20D();
           // ISSUE: reference to a compiler-generated field
-          deserializeCAnonStorey182.data = json.Skill[index];
+          deserializeCAnonStorey20D.data = json.Skill[index];
           // ISSUE: reference to a compiler-generated method
-          SkillParam skillParam = this.mSkillParam.Find(new Predicate<SkillParam>(deserializeCAnonStorey182.\u003C\u003Em__11D));
+          SkillParam skillParam = this.mSkillParam.Find(new Predicate<SkillParam>(deserializeCAnonStorey20D.\u003C\u003Em__182));
           if (skillParam == null)
           {
             skillParam = new SkillParam();
             this.mSkillParam.Add(skillParam);
           }
           // ISSUE: reference to a compiler-generated field
-          skillParam.Deserialize(language, deserializeCAnonStorey182.data);
+          skillParam.Deserialize(language, deserializeCAnonStorey20D.data);
           // ISSUE: reference to a compiler-generated field
-          if (!this.mSkillDictionary.ContainsKey(deserializeCAnonStorey182.data.iname))
+          if (!this.mSkillDictionary.ContainsKey(deserializeCAnonStorey20D.data.iname))
           {
             // ISSUE: reference to a compiler-generated field
-            this.mSkillDictionary.Add(deserializeCAnonStorey182.data.iname, skillParam);
+            this.mSkillDictionary.Add(deserializeCAnonStorey20D.data.iname, skillParam);
           }
         }
       }
@@ -134,18 +143,18 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          MasterParam.\u003CDeserialize\u003Ec__AnonStorey183 deserializeCAnonStorey183 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey183();
+          MasterParam.\u003CDeserialize\u003Ec__AnonStorey20E deserializeCAnonStorey20E = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey20E();
           // ISSUE: reference to a compiler-generated field
-          deserializeCAnonStorey183.data = json.Buff[index];
+          deserializeCAnonStorey20E.data = json.Buff[index];
           // ISSUE: reference to a compiler-generated method
-          BuffEffectParam buffEffectParam = this.mBuffEffectParam.Find(new Predicate<BuffEffectParam>(deserializeCAnonStorey183.\u003C\u003Em__11E));
+          BuffEffectParam buffEffectParam = this.mBuffEffectParam.Find(new Predicate<BuffEffectParam>(deserializeCAnonStorey20E.\u003C\u003Em__183));
           if (buffEffectParam == null)
           {
             buffEffectParam = new BuffEffectParam();
             this.mBuffEffectParam.Add(buffEffectParam);
           }
           // ISSUE: reference to a compiler-generated field
-          buffEffectParam.Deserialize(deserializeCAnonStorey183.data);
+          buffEffectParam.Deserialize(deserializeCAnonStorey20E.data);
         }
       }
       if (json.Cond != null)
@@ -156,18 +165,18 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          MasterParam.\u003CDeserialize\u003Ec__AnonStorey184 deserializeCAnonStorey184 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey184();
+          MasterParam.\u003CDeserialize\u003Ec__AnonStorey20F deserializeCAnonStorey20F = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey20F();
           // ISSUE: reference to a compiler-generated field
-          deserializeCAnonStorey184.data = json.Cond[index];
+          deserializeCAnonStorey20F.data = json.Cond[index];
           // ISSUE: reference to a compiler-generated method
-          CondEffectParam condEffectParam = this.mCondEffectParam.Find(new Predicate<CondEffectParam>(deserializeCAnonStorey184.\u003C\u003Em__11F));
+          CondEffectParam condEffectParam = this.mCondEffectParam.Find(new Predicate<CondEffectParam>(deserializeCAnonStorey20F.\u003C\u003Em__184));
           if (condEffectParam == null)
           {
             condEffectParam = new CondEffectParam();
             this.mCondEffectParam.Add(condEffectParam);
           }
           // ISSUE: reference to a compiler-generated field
-          condEffectParam.Deserialize(deserializeCAnonStorey184.data);
+          condEffectParam.Deserialize(deserializeCAnonStorey20F.data);
         }
       }
       if (json.Ability != null)
@@ -180,23 +189,23 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          MasterParam.\u003CDeserialize\u003Ec__AnonStorey185 deserializeCAnonStorey185 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey185();
+          MasterParam.\u003CDeserialize\u003Ec__AnonStorey210 deserializeCAnonStorey210 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey210();
           // ISSUE: reference to a compiler-generated field
-          deserializeCAnonStorey185.data = json.Ability[index];
+          deserializeCAnonStorey210.data = json.Ability[index];
           // ISSUE: reference to a compiler-generated method
-          AbilityParam abilityParam = this.mAbilityParam.Find(new Predicate<AbilityParam>(deserializeCAnonStorey185.\u003C\u003Em__120));
+          AbilityParam abilityParam = this.mAbilityParam.Find(new Predicate<AbilityParam>(deserializeCAnonStorey210.\u003C\u003Em__185));
           if (abilityParam == null)
           {
             abilityParam = new AbilityParam();
             this.mAbilityParam.Add(abilityParam);
           }
           // ISSUE: reference to a compiler-generated field
-          abilityParam.Deserialize(language, deserializeCAnonStorey185.data);
+          abilityParam.Deserialize(language, deserializeCAnonStorey210.data);
           // ISSUE: reference to a compiler-generated field
-          if (!this.mAbilityDictionary.ContainsKey(deserializeCAnonStorey185.data.iname))
+          if (!this.mAbilityDictionary.ContainsKey(deserializeCAnonStorey210.data.iname))
           {
             // ISSUE: reference to a compiler-generated field
-            this.mAbilityDictionary.Add(deserializeCAnonStorey185.data.iname, abilityParam);
+            this.mAbilityDictionary.Add(deserializeCAnonStorey210.data.iname, abilityParam);
           }
         }
       }
@@ -210,24 +219,24 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          MasterParam.\u003CDeserialize\u003Ec__AnonStorey186 deserializeCAnonStorey186 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey186();
+          MasterParam.\u003CDeserialize\u003Ec__AnonStorey211 deserializeCAnonStorey211 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey211();
           // ISSUE: reference to a compiler-generated field
-          deserializeCAnonStorey186.data = json.Item[index];
+          deserializeCAnonStorey211.data = json.Item[index];
           // ISSUE: reference to a compiler-generated method
-          ItemParam itemParam = this.mItemParam.Find(new Predicate<ItemParam>(deserializeCAnonStorey186.\u003C\u003Em__121));
+          ItemParam itemParam = this.mItemParam.Find(new Predicate<ItemParam>(deserializeCAnonStorey211.\u003C\u003Em__186));
           if (itemParam == null)
           {
             itemParam = new ItemParam();
             this.mItemParam.Add(itemParam);
           }
           // ISSUE: reference to a compiler-generated field
-          itemParam.Deserialize(language, deserializeCAnonStorey186.data);
+          itemParam.Deserialize(language, deserializeCAnonStorey211.data);
           itemParam.no = index + 1;
           // ISSUE: reference to a compiler-generated field
-          if (!this.mItemDictionary.ContainsKey(deserializeCAnonStorey186.data.iname))
+          if (!this.mItemDictionary.ContainsKey(deserializeCAnonStorey211.data.iname))
           {
             // ISSUE: reference to a compiler-generated field
-            this.mItemDictionary.Add(deserializeCAnonStorey186.data.iname, itemParam);
+            this.mItemDictionary.Add(deserializeCAnonStorey211.data.iname, itemParam);
           }
         }
         this.AddUnitToItem();
@@ -242,26 +251,26 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          MasterParam.\u003CDeserialize\u003Ec__AnonStorey187 deserializeCAnonStorey187 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey187();
+          MasterParam.\u003CDeserialize\u003Ec__AnonStorey212 deserializeCAnonStorey212 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey212();
           // ISSUE: reference to a compiler-generated field
-          deserializeCAnonStorey187.data = json.Artifact[index];
+          deserializeCAnonStorey212.data = json.Artifact[index];
           // ISSUE: reference to a compiler-generated field
-          if (deserializeCAnonStorey187.data.iname != null)
+          if (deserializeCAnonStorey212.data.iname != null)
           {
             // ISSUE: reference to a compiler-generated method
-            ArtifactParam artifactParam = this.mArtifactParam.Find(new Predicate<ArtifactParam>(deserializeCAnonStorey187.\u003C\u003Em__122));
+            ArtifactParam artifactParam = this.mArtifactParam.Find(new Predicate<ArtifactParam>(deserializeCAnonStorey212.\u003C\u003Em__187));
             if (artifactParam == null)
             {
               artifactParam = new ArtifactParam();
               this.mArtifactParam.Add(artifactParam);
             }
             // ISSUE: reference to a compiler-generated field
-            artifactParam.Deserialize(language, deserializeCAnonStorey187.data);
+            artifactParam.Deserialize(language, deserializeCAnonStorey212.data);
             // ISSUE: reference to a compiler-generated field
-            if (!this.mArtifactDictionary.ContainsKey(deserializeCAnonStorey187.data.iname))
+            if (!this.mArtifactDictionary.ContainsKey(deserializeCAnonStorey212.data.iname))
             {
               // ISSUE: reference to a compiler-generated field
-              this.mArtifactDictionary.Add(deserializeCAnonStorey187.data.iname, artifactParam);
+              this.mArtifactDictionary.Add(deserializeCAnonStorey212.data.iname, artifactParam);
             }
           }
         }
@@ -274,18 +283,18 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          MasterParam.\u003CDeserialize\u003Ec__AnonStorey188 deserializeCAnonStorey188 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey188();
+          MasterParam.\u003CDeserialize\u003Ec__AnonStorey213 deserializeCAnonStorey213 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey213();
           // ISSUE: reference to a compiler-generated field
-          deserializeCAnonStorey188.data = json.Weapon[index];
+          deserializeCAnonStorey213.data = json.Weapon[index];
           // ISSUE: reference to a compiler-generated method
-          WeaponParam weaponParam = this.mWeaponParam.Find(new Predicate<WeaponParam>(deserializeCAnonStorey188.\u003C\u003Em__123));
+          WeaponParam weaponParam = this.mWeaponParam.Find(new Predicate<WeaponParam>(deserializeCAnonStorey213.\u003C\u003Em__188));
           if (weaponParam == null)
           {
             weaponParam = new WeaponParam();
             this.mWeaponParam.Add(weaponParam);
           }
           // ISSUE: reference to a compiler-generated field
-          weaponParam.Deserialize(deserializeCAnonStorey188.data);
+          weaponParam.Deserialize(deserializeCAnonStorey213.data);
         }
       }
       if (json.Recipe != null)
@@ -296,18 +305,18 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          MasterParam.\u003CDeserialize\u003Ec__AnonStorey189 deserializeCAnonStorey189 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey189();
+          MasterParam.\u003CDeserialize\u003Ec__AnonStorey214 deserializeCAnonStorey214 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey214();
           // ISSUE: reference to a compiler-generated field
-          deserializeCAnonStorey189.data = json.Recipe[index];
+          deserializeCAnonStorey214.data = json.Recipe[index];
           // ISSUE: reference to a compiler-generated method
-          RecipeParam recipeParam = this.mRecipeParam.Find(new Predicate<RecipeParam>(deserializeCAnonStorey189.\u003C\u003Em__124));
+          RecipeParam recipeParam = this.mRecipeParam.Find(new Predicate<RecipeParam>(deserializeCAnonStorey214.\u003C\u003Em__189));
           if (recipeParam == null)
           {
             recipeParam = new RecipeParam();
             this.mRecipeParam.Add(recipeParam);
           }
           // ISSUE: reference to a compiler-generated field
-          recipeParam.Deserialize(deserializeCAnonStorey189.data);
+          recipeParam.Deserialize(deserializeCAnonStorey214.data);
         }
       }
       if (json.Job != null)
@@ -318,20 +327,20 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          MasterParam.\u003CDeserialize\u003Ec__AnonStorey18A deserializeCAnonStorey18A = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey18A();
+          MasterParam.\u003CDeserialize\u003Ec__AnonStorey215 deserializeCAnonStorey215 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey215();
           // ISSUE: reference to a compiler-generated field
-          deserializeCAnonStorey18A.data = json.Job[index];
+          deserializeCAnonStorey215.data = json.Job[index];
           // ISSUE: reference to a compiler-generated method
-          JobParam jobParam = this.mJobParam.Find(new Predicate<JobParam>(deserializeCAnonStorey18A.\u003C\u003Em__125));
+          JobParam jobParam = this.mJobParam.Find(new Predicate<JobParam>(deserializeCAnonStorey215.\u003C\u003Em__18A));
           if (jobParam == null)
           {
             jobParam = new JobParam();
             this.mJobParam.Add(jobParam);
             // ISSUE: reference to a compiler-generated field
-            this.mJobParamDict[deserializeCAnonStorey18A.data.iname] = jobParam;
+            this.mJobParamDict[deserializeCAnonStorey215.data.iname] = jobParam;
           }
           // ISSUE: reference to a compiler-generated field
-          jobParam.Deserialize(language, deserializeCAnonStorey18A.data);
+          jobParam.Deserialize(language, deserializeCAnonStorey215.data);
         }
       }
       if (json.JobSet != null)
@@ -344,18 +353,18 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          MasterParam.\u003CDeserialize\u003Ec__AnonStorey18B deserializeCAnonStorey18B = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey18B();
+          MasterParam.\u003CDeserialize\u003Ec__AnonStorey216 deserializeCAnonStorey216 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey216();
           // ISSUE: reference to a compiler-generated field
-          deserializeCAnonStorey18B.data = json.JobSet[index];
+          deserializeCAnonStorey216.data = json.JobSet[index];
           // ISSUE: reference to a compiler-generated method
-          JobSetParam jobSetParam = this.mJobSetParam.Find(new Predicate<JobSetParam>(deserializeCAnonStorey18B.\u003C\u003Em__126));
+          JobSetParam jobSetParam = this.mJobSetParam.Find(new Predicate<JobSetParam>(deserializeCAnonStorey216.\u003C\u003Em__18B));
           if (jobSetParam == null)
           {
             jobSetParam = new JobSetParam();
             this.mJobSetParam.Add(jobSetParam);
           }
           // ISSUE: reference to a compiler-generated field
-          jobSetParam.Deserialize(deserializeCAnonStorey18B.data);
+          jobSetParam.Deserialize(deserializeCAnonStorey216.data);
           if (!string.IsNullOrEmpty(jobSetParam.target_unit))
           {
             List<JobSetParam> jobSetParamList;
@@ -380,18 +389,18 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          MasterParam.\u003CDeserialize\u003Ec__AnonStorey18C deserializeCAnonStorey18C = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey18C();
+          MasterParam.\u003CDeserialize\u003Ec__AnonStorey217 deserializeCAnonStorey217 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey217();
           // ISSUE: reference to a compiler-generated field
-          deserializeCAnonStorey18C.data = json.Grow[index];
+          deserializeCAnonStorey217.data = json.Grow[index];
           // ISSUE: reference to a compiler-generated method
-          GrowParam growParam = this.mGrowParam.Find(new Predicate<GrowParam>(deserializeCAnonStorey18C.\u003C\u003Em__127));
+          GrowParam growParam = this.mGrowParam.Find(new Predicate<GrowParam>(deserializeCAnonStorey217.\u003C\u003Em__18C));
           if (growParam == null)
           {
             growParam = new GrowParam();
             this.mGrowParam.Add(growParam);
           }
           // ISSUE: reference to a compiler-generated field
-          growParam.Deserialize(deserializeCAnonStorey18C.data);
+          growParam.Deserialize(deserializeCAnonStorey217.data);
         }
       }
       if (json.AI != null)
@@ -402,18 +411,18 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          MasterParam.\u003CDeserialize\u003Ec__AnonStorey18D deserializeCAnonStorey18D = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey18D();
+          MasterParam.\u003CDeserialize\u003Ec__AnonStorey218 deserializeCAnonStorey218 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey218();
           // ISSUE: reference to a compiler-generated field
-          deserializeCAnonStorey18D.data = json.AI[index];
+          deserializeCAnonStorey218.data = json.AI[index];
           // ISSUE: reference to a compiler-generated method
-          AIParam aiParam = this.mAIParam.Find(new Predicate<AIParam>(deserializeCAnonStorey18D.\u003C\u003Em__128));
+          AIParam aiParam = this.mAIParam.Find(new Predicate<AIParam>(deserializeCAnonStorey218.\u003C\u003Em__18D));
           if (aiParam == null)
           {
             aiParam = new AIParam();
             this.mAIParam.Add(aiParam);
           }
           // ISSUE: reference to a compiler-generated field
-          aiParam.Deserialize(deserializeCAnonStorey18D.data);
+          aiParam.Deserialize(deserializeCAnonStorey218.data);
         }
       }
       if (json.Geo != null)
@@ -424,18 +433,18 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          MasterParam.\u003CDeserialize\u003Ec__AnonStorey18E deserializeCAnonStorey18E = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey18E();
+          MasterParam.\u003CDeserialize\u003Ec__AnonStorey219 deserializeCAnonStorey219 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey219();
           // ISSUE: reference to a compiler-generated field
-          deserializeCAnonStorey18E.data = json.Geo[index];
+          deserializeCAnonStorey219.data = json.Geo[index];
           // ISSUE: reference to a compiler-generated method
-          GeoParam geoParam = this.mGeoParam.Find(new Predicate<GeoParam>(deserializeCAnonStorey18E.\u003C\u003Em__129));
+          GeoParam geoParam = this.mGeoParam.Find(new Predicate<GeoParam>(deserializeCAnonStorey219.\u003C\u003Em__18E));
           if (geoParam == null)
           {
             geoParam = new GeoParam();
             this.mGeoParam.Add(geoParam);
           }
           // ISSUE: reference to a compiler-generated field
-          geoParam.Deserialize(language, deserializeCAnonStorey18E.data);
+          geoParam.Deserialize(language, deserializeCAnonStorey219.data);
         }
       }
       if (json.Rarity != null)
@@ -523,16 +532,52 @@ namespace SRPG
         this.mLocalNotificationParam.iOSAct_stamina = json.LocalNotification[0].iOSAct_stamina;
         this.mLocalNotificationParam.limitSec_stamina = json.LocalNotification[0].limitSec_stamina;
       }
-      if (json.Trophy != null)
+      Dictionary<int, TrophyCategoryParam> dictionary = new Dictionary<int, TrophyCategoryParam>();
+      if (json.TrophyCategory != null)
+      {
+        List<TrophyCategoryParam> trophyCategoryParamList = new List<TrophyCategoryParam>(json.TrophyCategory.Length);
+        for (int index = 0; index < json.TrophyCategory.Length; ++index)
+        {
+          TrophyCategoryParam trophyCategoryParam = new TrophyCategoryParam();
+          if (trophyCategoryParam.Deserialize(language, json.TrophyCategory[index]))
+          {
+            trophyCategoryParamList.Add(trophyCategoryParam);
+            if (!dictionary.ContainsKey(trophyCategoryParam.hash_code))
+              dictionary.Add(trophyCategoryParam.hash_code, trophyCategoryParam);
+          }
+        }
+        this.mTrophyCategory = trophyCategoryParamList.ToArray();
+      }
+      if (json.Trophy != null && dictionary.Count > 0)
       {
         List<TrophyParam> trophyParamList = new List<TrophyParam>(json.Trophy.Length);
         for (int index = 0; index < json.Trophy.Length; ++index)
         {
           TrophyParam trophyParam = new TrophyParam();
           if (trophyParam.Deserialize(language, json.Trophy[index]))
+          {
+            if (dictionary.ContainsKey(trophyParam.category_hash_code))
+              trophyParam.CategoryParam = dictionary[trophyParam.category_hash_code];
+            else
+              DebugUtility.LogError(trophyParam.iname + " => 親カテゴリが未設定 or 入力ミス");
             trophyParamList.Add(trophyParam);
+          }
         }
         this.mTrophy = trophyParamList.ToArray();
+        this.mTrophyInameDict = new Dictionary<string, TrophyParam>();
+        foreach (TrophyParam trophyParam in this.mTrophy)
+          this.mTrophyInameDict.Add(trophyParam.iname, trophyParam);
+      }
+      if (json.ChallengeCategory != null)
+      {
+        List<ChallengeCategoryParam> challengeCategoryParamList = new List<ChallengeCategoryParam>(json.ChallengeCategory.Length);
+        for (int index = 0; index < json.ChallengeCategory.Length; ++index)
+        {
+          ChallengeCategoryParam challengeCategoryParam = new ChallengeCategoryParam();
+          if (challengeCategoryParam.Deserialize(json.ChallengeCategory[index]))
+            challengeCategoryParamList.Add(challengeCategoryParam);
+        }
+        this.mChallengeCategory = challengeCategoryParamList.ToArray();
       }
       if (json.Challenge != null)
       {
@@ -550,6 +595,8 @@ namespace SRPG
         int length = this.mTrophy.Length;
         Array.Resize<TrophyParam>(ref this.mTrophy, length + this.mChallenge.Length);
         Array.Copy((Array) this.mChallenge, 0, (Array) this.mTrophy, length, this.mChallenge.Length);
+        foreach (TrophyParam trophyParam in this.mChallenge)
+          this.mTrophyInameDict.Add(trophyParam.iname, trophyParam);
       }
       this.CreateTrophyDict();
       if (json.Unlock != null)
@@ -618,21 +665,21 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          MasterParam.\u003CDeserialize\u003Ec__AnonStorey18F deserializeCAnonStorey18F = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey18F();
+          MasterParam.\u003CDeserialize\u003Ec__AnonStorey21A deserializeCAnonStorey21A = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey21A();
           // ISSUE: reference to a compiler-generated field
-          deserializeCAnonStorey18F.data = json.Award[index];
+          deserializeCAnonStorey21A.data = json.Award[index];
           // ISSUE: reference to a compiler-generated field
-          if (deserializeCAnonStorey18F.data.iname != null)
+          if (deserializeCAnonStorey21A.data.iname != null)
           {
             // ISSUE: reference to a compiler-generated method
-            AwardParam awardParam = this.mAwardParam.Find(new Predicate<AwardParam>(deserializeCAnonStorey18F.\u003C\u003Em__12A));
+            AwardParam awardParam = this.mAwardParam.Find(new Predicate<AwardParam>(deserializeCAnonStorey21A.\u003C\u003Em__18F));
             if (awardParam == null)
             {
               awardParam = new AwardParam();
               this.mAwardParam.Add(awardParam);
             }
             // ISSUE: reference to a compiler-generated field
-            awardParam.Deserialize(language, deserializeCAnonStorey18F.data);
+            awardParam.Deserialize(language, deserializeCAnonStorey21A.data);
             if (!this.mAwardDictionary.ContainsKey(awardParam.iname))
               this.mAwardDictionary.Add(awardParam.iname, awardParam);
           }
@@ -660,6 +707,28 @@ namespace SRPG
         }
         this.mCollaboSkillParam = collaboSkillParamList;
         CollaboSkillParam.UpdateCollaboSkill(this.mCollaboSkillParam);
+      }
+      if (json.Trick != null)
+      {
+        List<TrickParam> trickParamList = new List<TrickParam>(json.Trick.Length);
+        for (int index = 0; index < json.Trick.Length; ++index)
+        {
+          TrickParam trickParam = new TrickParam();
+          trickParam.Deserialize(language, json.Trick[index]);
+          trickParamList.Add(trickParam);
+        }
+        this.mTrickParam = trickParamList;
+      }
+      if (json.BreakObj != null)
+      {
+        List<BreakObjParam> breakObjParamList = new List<BreakObjParam>(json.BreakObj.Length);
+        for (int index = 0; index < json.BreakObj.Length; ++index)
+        {
+          BreakObjParam breakObjParam = new BreakObjParam();
+          breakObjParam.Deserialize(language, json.BreakObj[index]);
+          breakObjParamList.Add(breakObjParam);
+        }
+        this.mBreakObjParam = breakObjParamList;
       }
       if (json.VersusMatchKey != null)
       {
@@ -696,6 +765,33 @@ namespace SRPG
         this.mTowerRankTbl = new OInt[json.TowerRank.Length];
         for (int index = 0; index < json.TowerRank.Length; ++index)
           this.mTowerRankTbl[index] = (OInt) json.TowerRank[index];
+      }
+      if (json.MultilimitUnitLv != null)
+      {
+        this.mMultiLimitUnitLv = new OInt[json.MultilimitUnitLv.Length];
+        for (int index = 0; index < json.MultilimitUnitLv.Length; ++index)
+          this.mMultiLimitUnitLv[index] = (OInt) json.MultilimitUnitLv[index];
+      }
+      if (json.FriendPresentItem != null)
+      {
+        this.mFriendPresentItemParam = new Dictionary<string, FriendPresentItemParam>();
+        for (int index = 0; index < json.FriendPresentItem.Length; ++index)
+        {
+          FriendPresentItemParam presentItemParam = new FriendPresentItemParam();
+          presentItemParam.Deserialize(language, json.FriendPresentItem[index]);
+          this.mFriendPresentItemParam.Add(presentItemParam.iname, presentItemParam);
+        }
+      }
+      if (json.Weather != null)
+      {
+        List<WeatherParam> weatherParamList = new List<WeatherParam>(json.Weather.Length);
+        for (int index = 0; index < json.Weather.Length; ++index)
+        {
+          WeatherParam weatherParam = new WeatherParam();
+          weatherParam.Deserialize(language, json.Weather[index]);
+          weatherParamList.Add(weatherParam);
+        }
+        this.mWeatherParam = weatherParamList;
       }
       this.Loaded = true;
       return true;
@@ -819,26 +915,26 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          MasterParam.\u003CDeserialize\u003Ec__AnonStorey190 deserializeCAnonStorey190 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey190();
+          MasterParam.\u003CDeserialize\u003Ec__AnonStorey21B deserializeCAnonStorey21B = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey21B();
           // ISSUE: reference to a compiler-generated field
-          deserializeCAnonStorey190.data = json.Unit[index];
+          deserializeCAnonStorey21B.data = json.Unit[index];
           // ISSUE: reference to a compiler-generated method
-          UnitParam unitParam = this.mUnitParam.Find(new Predicate<UnitParam>(deserializeCAnonStorey190.\u003C\u003Em__12B));
+          UnitParam unitParam = this.mUnitParam.Find(new Predicate<UnitParam>(deserializeCAnonStorey21B.\u003C\u003Em__190));
           if (unitParam == null)
           {
             unitParam = new UnitParam();
             this.mUnitParam.Add(unitParam);
           }
           // ISSUE: reference to a compiler-generated field
-          unitParam.Deserialize(deserializeCAnonStorey190.data);
+          unitParam.Deserialize(deserializeCAnonStorey21B.data);
           // ISSUE: reference to a compiler-generated field
-          if (this.mUnitDictionary.ContainsKey(deserializeCAnonStorey190.data.iname))
+          if (this.mUnitDictionary.ContainsKey(deserializeCAnonStorey21B.data.iname))
           {
             // ISSUE: reference to a compiler-generated field
-            throw new Exception("重複エラー：Unit[" + deserializeCAnonStorey190.data.iname + "]");
+            throw new Exception("重複エラー：Unit[" + deserializeCAnonStorey21B.data.iname + "]");
           }
           // ISSUE: reference to a compiler-generated field
-          this.mUnitDictionary.Add(deserializeCAnonStorey190.data.iname, unitParam);
+          this.mUnitDictionary.Add(deserializeCAnonStorey21B.data.iname, unitParam);
         }
       }
       if (json.Skill != null)
@@ -851,27 +947,28 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          MasterParam.\u003CDeserialize\u003Ec__AnonStorey191 deserializeCAnonStorey191 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey191();
+          MasterParam.\u003CDeserialize\u003Ec__AnonStorey21C deserializeCAnonStorey21C = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey21C();
           // ISSUE: reference to a compiler-generated field
-          deserializeCAnonStorey191.data = json.Skill[index];
+          deserializeCAnonStorey21C.data = json.Skill[index];
           // ISSUE: reference to a compiler-generated method
-          SkillParam skillParam = this.mSkillParam.Find(new Predicate<SkillParam>(deserializeCAnonStorey191.\u003C\u003Em__12C));
+          SkillParam skillParam = this.mSkillParam.Find(new Predicate<SkillParam>(deserializeCAnonStorey21C.\u003C\u003Em__191));
           if (skillParam == null)
           {
             skillParam = new SkillParam();
             this.mSkillParam.Add(skillParam);
           }
           // ISSUE: reference to a compiler-generated field
-          skillParam.Deserialize(deserializeCAnonStorey191.data);
+          skillParam.Deserialize(deserializeCAnonStorey21C.data);
           // ISSUE: reference to a compiler-generated field
-          if (this.mSkillDictionary.ContainsKey(deserializeCAnonStorey191.data.iname))
+          if (this.mSkillDictionary.ContainsKey(deserializeCAnonStorey21C.data.iname))
           {
             // ISSUE: reference to a compiler-generated field
-            throw new Exception("重複エラー：Skill[" + deserializeCAnonStorey191.data.iname + "]");
+            throw new Exception("重複エラー：Skill[" + deserializeCAnonStorey21C.data.iname + "]");
           }
           // ISSUE: reference to a compiler-generated field
-          this.mSkillDictionary.Add(deserializeCAnonStorey191.data.iname, skillParam);
+          this.mSkillDictionary.Add(deserializeCAnonStorey21C.data.iname, skillParam);
         }
+        SkillParam.UpdateReplaceSkill(this.mSkillParam);
       }
       if (json.Buff != null)
       {
@@ -881,18 +978,18 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          MasterParam.\u003CDeserialize\u003Ec__AnonStorey192 deserializeCAnonStorey192 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey192();
+          MasterParam.\u003CDeserialize\u003Ec__AnonStorey21D deserializeCAnonStorey21D = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey21D();
           // ISSUE: reference to a compiler-generated field
-          deserializeCAnonStorey192.data = json.Buff[index];
+          deserializeCAnonStorey21D.data = json.Buff[index];
           // ISSUE: reference to a compiler-generated method
-          BuffEffectParam buffEffectParam = this.mBuffEffectParam.Find(new Predicate<BuffEffectParam>(deserializeCAnonStorey192.\u003C\u003Em__12D));
+          BuffEffectParam buffEffectParam = this.mBuffEffectParam.Find(new Predicate<BuffEffectParam>(deserializeCAnonStorey21D.\u003C\u003Em__192));
           if (buffEffectParam == null)
           {
             buffEffectParam = new BuffEffectParam();
             this.mBuffEffectParam.Add(buffEffectParam);
           }
           // ISSUE: reference to a compiler-generated field
-          buffEffectParam.Deserialize(deserializeCAnonStorey192.data);
+          buffEffectParam.Deserialize(deserializeCAnonStorey21D.data);
         }
       }
       if (json.Cond != null)
@@ -903,18 +1000,18 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          MasterParam.\u003CDeserialize\u003Ec__AnonStorey193 deserializeCAnonStorey193 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey193();
+          MasterParam.\u003CDeserialize\u003Ec__AnonStorey21E deserializeCAnonStorey21E = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey21E();
           // ISSUE: reference to a compiler-generated field
-          deserializeCAnonStorey193.data = json.Cond[index];
+          deserializeCAnonStorey21E.data = json.Cond[index];
           // ISSUE: reference to a compiler-generated method
-          CondEffectParam condEffectParam = this.mCondEffectParam.Find(new Predicate<CondEffectParam>(deserializeCAnonStorey193.\u003C\u003Em__12E));
+          CondEffectParam condEffectParam = this.mCondEffectParam.Find(new Predicate<CondEffectParam>(deserializeCAnonStorey21E.\u003C\u003Em__193));
           if (condEffectParam == null)
           {
             condEffectParam = new CondEffectParam();
             this.mCondEffectParam.Add(condEffectParam);
           }
           // ISSUE: reference to a compiler-generated field
-          condEffectParam.Deserialize(deserializeCAnonStorey193.data);
+          condEffectParam.Deserialize(deserializeCAnonStorey21E.data);
         }
       }
       if (json.Ability != null)
@@ -927,26 +1024,26 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          MasterParam.\u003CDeserialize\u003Ec__AnonStorey194 deserializeCAnonStorey194 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey194();
+          MasterParam.\u003CDeserialize\u003Ec__AnonStorey21F deserializeCAnonStorey21F = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey21F();
           // ISSUE: reference to a compiler-generated field
-          deserializeCAnonStorey194.data = json.Ability[index];
+          deserializeCAnonStorey21F.data = json.Ability[index];
           // ISSUE: reference to a compiler-generated method
-          AbilityParam abilityParam = this.mAbilityParam.Find(new Predicate<AbilityParam>(deserializeCAnonStorey194.\u003C\u003Em__12F));
+          AbilityParam abilityParam = this.mAbilityParam.Find(new Predicate<AbilityParam>(deserializeCAnonStorey21F.\u003C\u003Em__194));
           if (abilityParam == null)
           {
             abilityParam = new AbilityParam();
             this.mAbilityParam.Add(abilityParam);
           }
           // ISSUE: reference to a compiler-generated field
-          abilityParam.Deserialize(deserializeCAnonStorey194.data);
+          abilityParam.Deserialize(deserializeCAnonStorey21F.data);
           // ISSUE: reference to a compiler-generated field
-          if (this.mAbilityDictionary.ContainsKey(deserializeCAnonStorey194.data.iname))
+          if (this.mAbilityDictionary.ContainsKey(deserializeCAnonStorey21F.data.iname))
           {
             // ISSUE: reference to a compiler-generated field
-            throw new Exception("重複エラー：Ability[" + deserializeCAnonStorey194.data.iname + "]");
+            throw new Exception("重複エラー：Ability[" + deserializeCAnonStorey21F.data.iname + "]");
           }
           // ISSUE: reference to a compiler-generated field
-          this.mAbilityDictionary.Add(deserializeCAnonStorey194.data.iname, abilityParam);
+          this.mAbilityDictionary.Add(deserializeCAnonStorey21F.data.iname, abilityParam);
         }
       }
       if (json.Item != null)
@@ -959,27 +1056,27 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          MasterParam.\u003CDeserialize\u003Ec__AnonStorey195 deserializeCAnonStorey195 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey195();
+          MasterParam.\u003CDeserialize\u003Ec__AnonStorey220 deserializeCAnonStorey220 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey220();
           // ISSUE: reference to a compiler-generated field
-          deserializeCAnonStorey195.data = json.Item[index];
+          deserializeCAnonStorey220.data = json.Item[index];
           // ISSUE: reference to a compiler-generated method
-          ItemParam itemParam = this.mItemParam.Find(new Predicate<ItemParam>(deserializeCAnonStorey195.\u003C\u003Em__130));
+          ItemParam itemParam = this.mItemParam.Find(new Predicate<ItemParam>(deserializeCAnonStorey220.\u003C\u003Em__195));
           if (itemParam == null)
           {
             itemParam = new ItemParam();
             this.mItemParam.Add(itemParam);
           }
           // ISSUE: reference to a compiler-generated field
-          itemParam.Deserialize(deserializeCAnonStorey195.data);
+          itemParam.Deserialize(deserializeCAnonStorey220.data);
           itemParam.no = index + 1;
           // ISSUE: reference to a compiler-generated field
-          if (this.mItemDictionary.ContainsKey(deserializeCAnonStorey195.data.iname))
+          if (this.mItemDictionary.ContainsKey(deserializeCAnonStorey220.data.iname))
           {
             // ISSUE: reference to a compiler-generated field
-            throw new Exception("重複エラー：Item[" + deserializeCAnonStorey195.data.iname + "]");
+            throw new Exception("重複エラー：Item[" + deserializeCAnonStorey220.data.iname + "]");
           }
           // ISSUE: reference to a compiler-generated field
-          this.mItemDictionary.Add(deserializeCAnonStorey195.data.iname, itemParam);
+          this.mItemDictionary.Add(deserializeCAnonStorey220.data.iname, itemParam);
         }
         this.AddUnitToItem();
       }
@@ -993,29 +1090,29 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          MasterParam.\u003CDeserialize\u003Ec__AnonStorey196 deserializeCAnonStorey196 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey196();
+          MasterParam.\u003CDeserialize\u003Ec__AnonStorey221 deserializeCAnonStorey221 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey221();
           // ISSUE: reference to a compiler-generated field
-          deserializeCAnonStorey196.data = json.Artifact[index];
+          deserializeCAnonStorey221.data = json.Artifact[index];
           // ISSUE: reference to a compiler-generated field
-          if (deserializeCAnonStorey196.data.iname != null)
+          if (deserializeCAnonStorey221.data.iname != null)
           {
             // ISSUE: reference to a compiler-generated method
-            ArtifactParam artifactParam = this.mArtifactParam.Find(new Predicate<ArtifactParam>(deserializeCAnonStorey196.\u003C\u003Em__131));
+            ArtifactParam artifactParam = this.mArtifactParam.Find(new Predicate<ArtifactParam>(deserializeCAnonStorey221.\u003C\u003Em__196));
             if (artifactParam == null)
             {
               artifactParam = new ArtifactParam();
               this.mArtifactParam.Add(artifactParam);
             }
             // ISSUE: reference to a compiler-generated field
-            artifactParam.Deserialize(deserializeCAnonStorey196.data);
+            artifactParam.Deserialize(deserializeCAnonStorey221.data);
             // ISSUE: reference to a compiler-generated field
-            if (this.mArtifactDictionary.ContainsKey(deserializeCAnonStorey196.data.iname))
+            if (this.mArtifactDictionary.ContainsKey(deserializeCAnonStorey221.data.iname))
             {
               // ISSUE: reference to a compiler-generated field
-              throw new Exception("重複エラー：Artifact[" + deserializeCAnonStorey196.data.iname + "]");
+              throw new Exception("重複エラー：Artifact[" + deserializeCAnonStorey221.data.iname + "]");
             }
             // ISSUE: reference to a compiler-generated field
-            this.mArtifactDictionary.Add(deserializeCAnonStorey196.data.iname, artifactParam);
+            this.mArtifactDictionary.Add(deserializeCAnonStorey221.data.iname, artifactParam);
           }
         }
       }
@@ -1027,18 +1124,18 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          MasterParam.\u003CDeserialize\u003Ec__AnonStorey197 deserializeCAnonStorey197 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey197();
+          MasterParam.\u003CDeserialize\u003Ec__AnonStorey222 deserializeCAnonStorey222 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey222();
           // ISSUE: reference to a compiler-generated field
-          deserializeCAnonStorey197.data = json.Weapon[index];
+          deserializeCAnonStorey222.data = json.Weapon[index];
           // ISSUE: reference to a compiler-generated method
-          WeaponParam weaponParam = this.mWeaponParam.Find(new Predicate<WeaponParam>(deserializeCAnonStorey197.\u003C\u003Em__132));
+          WeaponParam weaponParam = this.mWeaponParam.Find(new Predicate<WeaponParam>(deserializeCAnonStorey222.\u003C\u003Em__197));
           if (weaponParam == null)
           {
             weaponParam = new WeaponParam();
             this.mWeaponParam.Add(weaponParam);
           }
           // ISSUE: reference to a compiler-generated field
-          weaponParam.Deserialize(deserializeCAnonStorey197.data);
+          weaponParam.Deserialize(deserializeCAnonStorey222.data);
         }
       }
       if (json.Recipe != null)
@@ -1061,20 +1158,20 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          MasterParam.\u003CDeserialize\u003Ec__AnonStorey198 deserializeCAnonStorey198 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey198();
+          MasterParam.\u003CDeserialize\u003Ec__AnonStorey223 deserializeCAnonStorey223 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey223();
           // ISSUE: reference to a compiler-generated field
-          deserializeCAnonStorey198.data = json.Job[index];
+          deserializeCAnonStorey223.data = json.Job[index];
           // ISSUE: reference to a compiler-generated method
-          JobParam jobParam = this.mJobParam.Find(new Predicate<JobParam>(deserializeCAnonStorey198.\u003C\u003Em__133));
+          JobParam jobParam = this.mJobParam.Find(new Predicate<JobParam>(deserializeCAnonStorey223.\u003C\u003Em__198));
           if (jobParam == null)
           {
             jobParam = new JobParam();
             this.mJobParam.Add(jobParam);
             // ISSUE: reference to a compiler-generated field
-            this.mJobParamDict[deserializeCAnonStorey198.data.iname] = jobParam;
+            this.mJobParamDict[deserializeCAnonStorey223.data.iname] = jobParam;
           }
           // ISSUE: reference to a compiler-generated field
-          jobParam.Deserialize(deserializeCAnonStorey198.data);
+          jobParam.Deserialize(deserializeCAnonStorey223.data);
         }
       }
       if (json.JobSet != null)
@@ -1087,18 +1184,18 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          MasterParam.\u003CDeserialize\u003Ec__AnonStorey199 deserializeCAnonStorey199 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey199();
+          MasterParam.\u003CDeserialize\u003Ec__AnonStorey224 deserializeCAnonStorey224 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey224();
           // ISSUE: reference to a compiler-generated field
-          deserializeCAnonStorey199.data = json.JobSet[index];
+          deserializeCAnonStorey224.data = json.JobSet[index];
           // ISSUE: reference to a compiler-generated method
-          JobSetParam jobSetParam = this.mJobSetParam.Find(new Predicate<JobSetParam>(deserializeCAnonStorey199.\u003C\u003Em__134));
+          JobSetParam jobSetParam = this.mJobSetParam.Find(new Predicate<JobSetParam>(deserializeCAnonStorey224.\u003C\u003Em__199));
           if (jobSetParam == null)
           {
             jobSetParam = new JobSetParam();
             this.mJobSetParam.Add(jobSetParam);
           }
           // ISSUE: reference to a compiler-generated field
-          jobSetParam.Deserialize(deserializeCAnonStorey199.data);
+          jobSetParam.Deserialize(deserializeCAnonStorey224.data);
           if (!string.IsNullOrEmpty(jobSetParam.target_unit))
           {
             List<JobSetParam> jobSetParamList;
@@ -1123,18 +1220,18 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          MasterParam.\u003CDeserialize\u003Ec__AnonStorey19A deserializeCAnonStorey19A = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey19A();
+          MasterParam.\u003CDeserialize\u003Ec__AnonStorey225 deserializeCAnonStorey225 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey225();
           // ISSUE: reference to a compiler-generated field
-          deserializeCAnonStorey19A.data = json.Grow[index];
+          deserializeCAnonStorey225.data = json.Grow[index];
           // ISSUE: reference to a compiler-generated method
-          GrowParam growParam = this.mGrowParam.Find(new Predicate<GrowParam>(deserializeCAnonStorey19A.\u003C\u003Em__135));
+          GrowParam growParam = this.mGrowParam.Find(new Predicate<GrowParam>(deserializeCAnonStorey225.\u003C\u003Em__19A));
           if (growParam == null)
           {
             growParam = new GrowParam();
             this.mGrowParam.Add(growParam);
           }
           // ISSUE: reference to a compiler-generated field
-          growParam.Deserialize(deserializeCAnonStorey19A.data);
+          growParam.Deserialize(deserializeCAnonStorey225.data);
         }
       }
       if (json.AI != null)
@@ -1145,18 +1242,18 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          MasterParam.\u003CDeserialize\u003Ec__AnonStorey19B deserializeCAnonStorey19B = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey19B();
+          MasterParam.\u003CDeserialize\u003Ec__AnonStorey226 deserializeCAnonStorey226 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey226();
           // ISSUE: reference to a compiler-generated field
-          deserializeCAnonStorey19B.data = json.AI[index];
+          deserializeCAnonStorey226.data = json.AI[index];
           // ISSUE: reference to a compiler-generated method
-          AIParam aiParam = this.mAIParam.Find(new Predicate<AIParam>(deserializeCAnonStorey19B.\u003C\u003Em__136));
+          AIParam aiParam = this.mAIParam.Find(new Predicate<AIParam>(deserializeCAnonStorey226.\u003C\u003Em__19B));
           if (aiParam == null)
           {
             aiParam = new AIParam();
             this.mAIParam.Add(aiParam);
           }
           // ISSUE: reference to a compiler-generated field
-          aiParam.Deserialize(deserializeCAnonStorey19B.data);
+          aiParam.Deserialize(deserializeCAnonStorey226.data);
         }
       }
       if (json.Geo != null)
@@ -1167,18 +1264,18 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          MasterParam.\u003CDeserialize\u003Ec__AnonStorey19C deserializeCAnonStorey19C = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey19C();
+          MasterParam.\u003CDeserialize\u003Ec__AnonStorey227 deserializeCAnonStorey227 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey227();
           // ISSUE: reference to a compiler-generated field
-          deserializeCAnonStorey19C.data = json.Geo[index];
+          deserializeCAnonStorey227.data = json.Geo[index];
           // ISSUE: reference to a compiler-generated method
-          GeoParam geoParam = this.mGeoParam.Find(new Predicate<GeoParam>(deserializeCAnonStorey19C.\u003C\u003Em__137));
+          GeoParam geoParam = this.mGeoParam.Find(new Predicate<GeoParam>(deserializeCAnonStorey227.\u003C\u003Em__19C));
           if (geoParam == null)
           {
             geoParam = new GeoParam();
             this.mGeoParam.Add(geoParam);
           }
           // ISSUE: reference to a compiler-generated field
-          geoParam.Deserialize(deserializeCAnonStorey19C.data);
+          geoParam.Deserialize(deserializeCAnonStorey227.data);
         }
       }
       if (json.Rarity != null)
@@ -1266,16 +1363,53 @@ namespace SRPG
         this.mLocalNotificationParam.iOSAct_stamina = json.LocalNotification[0].iOSAct_stamina;
         this.mLocalNotificationParam.limitSec_stamina = json.LocalNotification[0].limitSec_stamina;
       }
+      Dictionary<int, TrophyCategoryParam> dictionary = new Dictionary<int, TrophyCategoryParam>();
+      if (json.TrophyCategory != null)
+      {
+        List<TrophyCategoryParam> trophyCategoryParamList = new List<TrophyCategoryParam>(json.TrophyCategory.Length);
+        for (int index = 0; index < json.TrophyCategory.Length; ++index)
+        {
+          TrophyCategoryParam trophyCategoryParam = new TrophyCategoryParam();
+          if (trophyCategoryParam.Deserialize(json.TrophyCategory[index]))
+          {
+            trophyCategoryParamList.Add(trophyCategoryParam);
+            if (!dictionary.ContainsKey(trophyCategoryParam.hash_code))
+              dictionary.Add(trophyCategoryParam.hash_code, trophyCategoryParam);
+          }
+        }
+        this.mTrophyCategory = trophyCategoryParamList.ToArray();
+      }
       if (json.Trophy != null)
       {
         List<TrophyParam> trophyParamList = new List<TrophyParam>(json.Trophy.Length);
         for (int index = 0; index < json.Trophy.Length; ++index)
         {
           TrophyParam trophyParam = new TrophyParam();
-          if (trophyParam.Deserialize(json.Trophy[index]) && trophyParam.IsPlanningToUse())
-            trophyParamList.Add(trophyParam);
+          if (trophyParam.Deserialize(json.Trophy[index]))
+          {
+            if (dictionary.ContainsKey(trophyParam.category_hash_code))
+              trophyParam.CategoryParam = dictionary[trophyParam.category_hash_code];
+            else
+              DebugUtility.LogError(trophyParam.iname + " => 親カテゴリが未設定 or 入力ミス");
+            if (trophyParam.IsPlanningToUse())
+              trophyParamList.Add(trophyParam);
+          }
         }
         this.mTrophy = trophyParamList.ToArray();
+        this.mTrophyInameDict = new Dictionary<string, TrophyParam>();
+        foreach (TrophyParam trophyParam in this.mTrophy)
+          this.mTrophyInameDict.Add(trophyParam.iname, trophyParam);
+      }
+      if (json.ChallengeCategory != null)
+      {
+        List<ChallengeCategoryParam> challengeCategoryParamList = new List<ChallengeCategoryParam>(json.ChallengeCategory.Length);
+        for (int index = 0; index < json.ChallengeCategory.Length; ++index)
+        {
+          ChallengeCategoryParam challengeCategoryParam = new ChallengeCategoryParam();
+          if (challengeCategoryParam.Deserialize(json.ChallengeCategory[index]))
+            challengeCategoryParamList.Add(challengeCategoryParam);
+        }
+        this.mChallengeCategory = challengeCategoryParamList.ToArray();
       }
       if (json.Challenge != null)
       {
@@ -1293,6 +1427,8 @@ namespace SRPG
         int length = this.mTrophy.Length;
         Array.Resize<TrophyParam>(ref this.mTrophy, length + this.mChallenge.Length);
         Array.Copy((Array) this.mChallenge, 0, (Array) this.mTrophy, length, this.mChallenge.Length);
+        foreach (TrophyParam trophyParam in this.mChallenge)
+          this.mTrophyInameDict.Add(trophyParam.iname, trophyParam);
       }
       this.CreateTrophyDict();
       if (json.Unlock != null)
@@ -1361,21 +1497,21 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          MasterParam.\u003CDeserialize\u003Ec__AnonStorey19D deserializeCAnonStorey19D = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey19D();
+          MasterParam.\u003CDeserialize\u003Ec__AnonStorey228 deserializeCAnonStorey228 = new MasterParam.\u003CDeserialize\u003Ec__AnonStorey228();
           // ISSUE: reference to a compiler-generated field
-          deserializeCAnonStorey19D.data = json.Award[index];
+          deserializeCAnonStorey228.data = json.Award[index];
           // ISSUE: reference to a compiler-generated field
-          if (deserializeCAnonStorey19D.data.iname != null)
+          if (deserializeCAnonStorey228.data.iname != null)
           {
             // ISSUE: reference to a compiler-generated method
-            AwardParam awardParam = this.mAwardParam.Find(new Predicate<AwardParam>(deserializeCAnonStorey19D.\u003C\u003Em__138));
+            AwardParam awardParam = this.mAwardParam.Find(new Predicate<AwardParam>(deserializeCAnonStorey228.\u003C\u003Em__19D));
             if (awardParam == null)
             {
               awardParam = new AwardParam();
               this.mAwardParam.Add(awardParam);
             }
             // ISSUE: reference to a compiler-generated field
-            awardParam.Deserialize(deserializeCAnonStorey19D.data);
+            awardParam.Deserialize(deserializeCAnonStorey228.data);
             if (this.mAwardDictionary.ContainsKey(awardParam.iname))
               throw new Exception("Overlap : Award[" + awardParam.iname + "]");
             this.mAwardDictionary.Add(awardParam.iname, awardParam);
@@ -1404,6 +1540,28 @@ namespace SRPG
         }
         this.mCollaboSkillParam = collaboSkillParamList;
         CollaboSkillParam.UpdateCollaboSkill(this.mCollaboSkillParam);
+      }
+      if (json.Trick != null)
+      {
+        List<TrickParam> trickParamList = new List<TrickParam>(json.Trick.Length);
+        for (int index = 0; index < json.Trick.Length; ++index)
+        {
+          TrickParam trickParam = new TrickParam();
+          trickParam.Deserialize(json.Trick[index]);
+          trickParamList.Add(trickParam);
+        }
+        this.mTrickParam = trickParamList;
+      }
+      if (json.BreakObj != null)
+      {
+        List<BreakObjParam> breakObjParamList = new List<BreakObjParam>(json.BreakObj.Length);
+        for (int index = 0; index < json.BreakObj.Length; ++index)
+        {
+          BreakObjParam breakObjParam = new BreakObjParam();
+          breakObjParam.Deserialize(json.BreakObj[index]);
+          breakObjParamList.Add(breakObjParam);
+        }
+        this.mBreakObjParam = breakObjParamList;
       }
       if (json.VersusMatchKey != null)
       {
@@ -1441,6 +1599,33 @@ namespace SRPG
         for (int index = 0; index < json.TowerRank.Length; ++index)
           this.mTowerRankTbl[index] = (OInt) json.TowerRank[index];
       }
+      if (json.MultilimitUnitLv != null)
+      {
+        this.mMultiLimitUnitLv = new OInt[json.MultilimitUnitLv.Length];
+        for (int index = 0; index < json.MultilimitUnitLv.Length; ++index)
+          this.mMultiLimitUnitLv[index] = (OInt) json.MultilimitUnitLv[index];
+      }
+      if (json.FriendPresentItem != null)
+      {
+        this.mFriendPresentItemParam = new Dictionary<string, FriendPresentItemParam>();
+        for (int index = 0; index < json.FriendPresentItem.Length; ++index)
+        {
+          FriendPresentItemParam presentItemParam = new FriendPresentItemParam();
+          presentItemParam.Deserialize(json.FriendPresentItem[index]);
+          this.mFriendPresentItemParam.Add(presentItemParam.iname, presentItemParam);
+        }
+      }
+      if (json.Weather != null)
+      {
+        List<WeatherParam> weatherParamList = new List<WeatherParam>(json.Weather.Length);
+        for (int index = 0; index < json.Weather.Length; ++index)
+        {
+          WeatherParam weatherParam = new WeatherParam();
+          weatherParam.Deserialize(json.Weather[index]);
+          weatherParamList.Add(weatherParam);
+        }
+        this.mWeatherParam = weatherParamList;
+      }
       this.Loaded = true;
       return true;
     }
@@ -1452,6 +1637,10 @@ namespace SRPG
         if (this.mUnitParam[index] != null)
           this.mUnitParam[index].CacheReferences(this);
       }
+    }
+
+    public void DumpLoadedLog()
+    {
     }
 
     public UnitParam[] GetAllUnits()
@@ -1622,10 +1811,60 @@ namespace SRPG
     {
       if (string.IsNullOrEmpty(unit_iname))
         return (CollaboSkillParam) null;
+      if (this.mCollaboSkillParam == null)
+      {
+        DebugUtility.Log(string.Format("<color=yellow>MasterParam/GetCollaboSkillData no data!</color>"));
+        return (CollaboSkillParam) null;
+      }
       CollaboSkillParam collaboSkillParam = this.mCollaboSkillParam.Find((Predicate<CollaboSkillParam>) (d => d.UnitIname == unit_iname));
       if (collaboSkillParam == null)
         DebugUtility.Log(string.Format("<color=yellow>MasterParam/GetCollaboSkillData data not found! unit_iname={0}</color>", (object) unit_iname));
       return collaboSkillParam;
+    }
+
+    public TrickParam GetTrickParam(string iname)
+    {
+      if (string.IsNullOrEmpty(iname))
+        return (TrickParam) null;
+      if (this.mTrickParam == null)
+      {
+        DebugUtility.Log(string.Format("<color=yellow>MasterParam/GetTrickParam no data!</color>"));
+        return (TrickParam) null;
+      }
+      TrickParam trickParam = this.mTrickParam.Find((Predicate<TrickParam>) (d => d.Iname == iname));
+      if (trickParam == null)
+        DebugUtility.Log(string.Format("<color=yellow>MasterParam/GetTrickParam data not found! iname={0}</color>", (object) iname));
+      return trickParam;
+    }
+
+    public BreakObjParam GetBreakObjParam(string iname)
+    {
+      if (string.IsNullOrEmpty(iname))
+        return (BreakObjParam) null;
+      if (this.mBreakObjParam == null)
+      {
+        DebugUtility.Log(string.Format("<color=yellow>MasterParam/GetBreakObjParam no data!</color>"));
+        return (BreakObjParam) null;
+      }
+      BreakObjParam breakObjParam = this.mBreakObjParam.Find((Predicate<BreakObjParam>) (d => d.Iname == iname));
+      if (breakObjParam == null)
+        DebugUtility.Log(string.Format("<color=yellow>MasterParam/GetBreakObjParam data not found! iname={0}</color>", (object) iname));
+      return breakObjParam;
+    }
+
+    public WeatherParam GetWeatherParam(string iname)
+    {
+      if (string.IsNullOrEmpty(iname))
+        return (WeatherParam) null;
+      if (this.mWeatherParam == null)
+      {
+        DebugUtility.Log(string.Format("<color=yellow>MasterParam/GetWeatherParam no data!</color>"));
+        return (WeatherParam) null;
+      }
+      WeatherParam weatherParam = this.mWeatherParam.Find((Predicate<WeatherParam>) (d => d.Iname == iname));
+      if (weatherParam == null)
+        DebugUtility.Log(string.Format("<color=yellow>MasterParam/GetWeatherParam data not found! iname={0}</color>", (object) iname));
+      return weatherParam;
     }
 
     public RecipeParam[] GetAllRecipes()
@@ -1699,8 +1938,6 @@ namespace SRPG
 
     public ShopParam GetShopParam(EShopType type)
     {
-      if (type == EShopType.Limited)
-        return (ShopParam) null;
       int index1 = (int) type;
       if (type == EShopType.Event)
       {
@@ -1717,6 +1954,24 @@ namespace SRPG
         if (index1 < 0)
         {
           DebugUtility.LogError("mShopParam Data Error. Not found: " + (object) GlobalVars.EventShopItem.shops.gname.Split('-'));
+          return (ShopParam) null;
+        }
+      }
+      if (type == EShopType.Limited)
+      {
+        index1 = -1;
+        for (int index2 = 0; index2 < this.mShopParam.Count; ++index2)
+        {
+          string[] strArray = GlobalVars.LimitedShopItem.shops.gname.Split('-');
+          if (this.mShopParam[index2].iname.Equals(strArray[0]))
+          {
+            index1 = index2;
+            break;
+          }
+        }
+        if (index1 < 0)
+        {
+          DebugUtility.LogError("mShopParam Data Error. Not found: " + (object) GlobalVars.LimitedShopItem.shops.gname.Split('-'));
           return (ShopParam) null;
         }
       }
@@ -1850,6 +2105,22 @@ namespace SRPG
       return Math.Max(this.mVip.Length - 1, 0);
     }
 
+    public TrophyCategoryParam[] TrophyCategories
+    {
+      get
+      {
+        return this.mTrophyCategory;
+      }
+    }
+
+    public ChallengeCategoryParam[] ChallengeCategories
+    {
+      get
+      {
+        return this.mChallengeCategory;
+      }
+    }
+
     public TrophyParam[] Trophies
     {
       get
@@ -1867,11 +2138,9 @@ namespace SRPG
     {
       if (this.mTrophy == null)
         return (TrophyParam) null;
-      for (int index = this.mTrophy.Length - 1; index >= 0; --index)
-      {
-        if (this.mTrophy[index].iname == iname)
-          return this.mTrophy[index];
-      }
+      TrophyParam trophyParam;
+      if (this.mTrophyInameDict.TryGetValue(iname, out trophyParam))
+        return trophyParam;
       return (TrophyParam) null;
     }
 
@@ -1971,11 +2240,12 @@ namespace SRPG
     {
       if (this.mLoginInfoParam == null)
         return (LoginInfoParam[]) null;
-      long num = TimeManager.FromDateTime(TimeManager.ServerTime);
       List<LoginInfoParam> loginInfoParamList = new List<LoginInfoParam>();
+      int player_level = MonoSingleton<GameManager>.Instance.Player.CalcLevel();
+      bool is_beginner = MonoSingleton<GameManager>.Instance.Player.IsBeginner();
       for (int index = 0; index < this.mLoginInfoParam.Length; ++index)
       {
-        if (this.mLoginInfoParam[index].begin_at <= num && this.mLoginInfoParam[index].end_at > num)
+        if (this.mLoginInfoParam[index].IsDisplayable(TimeManager.ServerTime, player_level, is_beginner))
           loginInfoParamList.Add(this.mLoginInfoParam[index]);
       }
       return loginInfoParamList.ToArray();
@@ -2005,6 +2275,11 @@ namespace SRPG
       {
         return this.mTowerRankTbl;
       }
+    }
+
+    public OInt[] GetMultiPlayLimitUnitLv()
+    {
+      return this.mMultiLimitUnitLv;
     }
 
     public bool Deserialize2(JSON_MasterParam json)
@@ -2043,6 +2318,7 @@ namespace SRPG
           skillParam.Deserialize(json1);
           this.mSkillDictionary.Add(json1.iname, skillParam);
         }
+        SkillParam.UpdateReplaceSkill(this.mSkillParam);
       }
       if (json.Buff != null)
       {
@@ -2288,16 +2564,52 @@ namespace SRPG
         this.mLocalNotificationParam.iOSAct_stamina = json.LocalNotification[0].iOSAct_stamina;
         this.mLocalNotificationParam.limitSec_stamina = json.LocalNotification[0].limitSec_stamina;
       }
-      if (json.Trophy != null)
+      Dictionary<int, TrophyCategoryParam> dictionary = new Dictionary<int, TrophyCategoryParam>();
+      if (json.TrophyCategory != null)
+      {
+        List<TrophyCategoryParam> trophyCategoryParamList = new List<TrophyCategoryParam>(json.TrophyCategory.Length);
+        for (int index = 0; index < json.TrophyCategory.Length; ++index)
+        {
+          TrophyCategoryParam trophyCategoryParam = new TrophyCategoryParam();
+          if (trophyCategoryParam.Deserialize(json.TrophyCategory[index]))
+          {
+            trophyCategoryParamList.Add(trophyCategoryParam);
+            if (!dictionary.ContainsKey(trophyCategoryParam.hash_code))
+              dictionary.Add(trophyCategoryParam.hash_code, trophyCategoryParam);
+          }
+        }
+        this.mTrophyCategory = trophyCategoryParamList.ToArray();
+      }
+      if (json.Trophy != null && dictionary.Count > 0)
       {
         List<TrophyParam> trophyParamList = new List<TrophyParam>(json.Trophy.Length);
         for (int index = 0; index < json.Trophy.Length; ++index)
         {
           TrophyParam trophyParam = new TrophyParam();
           if (trophyParam.Deserialize(json.Trophy[index]))
+          {
+            if (dictionary.ContainsKey(trophyParam.category_hash_code))
+              trophyParam.CategoryParam = dictionary[trophyParam.category_hash_code];
+            else
+              DebugUtility.LogError(trophyParam.iname + " => 親カテゴリが未設定 or 入力ミス");
             trophyParamList.Add(trophyParam);
+          }
         }
         this.mTrophy = trophyParamList.ToArray();
+        this.mTrophyInameDict = new Dictionary<string, TrophyParam>();
+        foreach (TrophyParam trophyParam in this.mTrophy)
+          this.mTrophyInameDict.Add(trophyParam.iname, trophyParam);
+      }
+      if (json.ChallengeCategory != null)
+      {
+        List<ChallengeCategoryParam> challengeCategoryParamList = new List<ChallengeCategoryParam>(json.ChallengeCategory.Length);
+        for (int index = 0; index < json.ChallengeCategory.Length; ++index)
+        {
+          ChallengeCategoryParam challengeCategoryParam = new ChallengeCategoryParam();
+          if (challengeCategoryParam.Deserialize(json.ChallengeCategory[index]))
+            challengeCategoryParamList.Add(challengeCategoryParam);
+        }
+        this.mChallengeCategory = challengeCategoryParamList.ToArray();
       }
       if (json.Challenge != null)
       {
@@ -2315,6 +2627,8 @@ namespace SRPG
         int length = this.mTrophy.Length;
         Array.Resize<TrophyParam>(ref this.mTrophy, length + this.mChallenge.Length);
         Array.Copy((Array) this.mChallenge, 0, (Array) this.mTrophy, length, this.mChallenge.Length);
+        foreach (TrophyParam trophyParam in this.mChallenge)
+          this.mTrophyInameDict.Add(trophyParam.iname, trophyParam);
       }
       this.CreateTrophyDict();
       if (json.Unlock != null)
@@ -2411,6 +2725,28 @@ namespace SRPG
         this.mCollaboSkillParam = collaboSkillParamList;
         CollaboSkillParam.UpdateCollaboSkill(this.mCollaboSkillParam);
       }
+      if (json.Trick != null)
+      {
+        List<TrickParam> trickParamList = new List<TrickParam>(json.Trick.Length);
+        for (int index = 0; index < json.Trick.Length; ++index)
+        {
+          TrickParam trickParam = new TrickParam();
+          trickParam.Deserialize(json.Trick[index]);
+          trickParamList.Add(trickParam);
+        }
+        this.mTrickParam = trickParamList;
+      }
+      if (json.BreakObj != null)
+      {
+        List<BreakObjParam> breakObjParamList = new List<BreakObjParam>(json.BreakObj.Length);
+        for (int index = 0; index < json.BreakObj.Length; ++index)
+        {
+          BreakObjParam breakObjParam = new BreakObjParam();
+          breakObjParam.Deserialize(json.BreakObj[index]);
+          breakObjParamList.Add(breakObjParam);
+        }
+        this.mBreakObjParam = breakObjParamList;
+      }
       if (json.VersusMatchKey != null)
       {
         this.mVersusMatching = new List<VersusMatchingParam>(json.VersusMatchKey.Length);
@@ -2447,8 +2783,100 @@ namespace SRPG
         for (int index = 0; index < json.TowerRank.Length; ++index)
           this.mTowerRankTbl[index] = (OInt) json.TowerRank[index];
       }
+      if (json.MultilimitUnitLv != null)
+      {
+        this.mMultiLimitUnitLv = new OInt[json.MultilimitUnitLv.Length];
+        for (int index = 0; index < json.MultilimitUnitLv.Length; ++index)
+          this.mMultiLimitUnitLv[index] = (OInt) json.MultilimitUnitLv[index];
+      }
+      if (json.FriendPresentItem != null)
+      {
+        this.mFriendPresentItemParam = new Dictionary<string, FriendPresentItemParam>();
+        for (int index = 0; index < json.FriendPresentItem.Length; ++index)
+        {
+          FriendPresentItemParam presentItemParam = new FriendPresentItemParam();
+          presentItemParam.Deserialize(json.FriendPresentItem[index]);
+          this.mFriendPresentItemParam.Add(presentItemParam.iname, presentItemParam);
+        }
+      }
+      if (json.Weather != null)
+      {
+        List<WeatherParam> weatherParamList = new List<WeatherParam>(json.Weather.Length);
+        for (int index = 0; index < json.Weather.Length; ++index)
+        {
+          WeatherParam weatherParam = new WeatherParam();
+          weatherParam.Deserialize(json.Weather[index]);
+          weatherParamList.Add(weatherParam);
+        }
+        this.mWeatherParam = weatherParamList;
+      }
       this.Loaded = true;
       return true;
+    }
+
+    public ItemParam GetCommonEquip(ItemParam item_param, bool is_soul)
+    {
+      if (!is_soul)
+      {
+        if (!item_param.IsCommon)
+          return (ItemParam) null;
+        return MonoSingleton<GameManager>.Instance.GetItemParam((string) this.FixParam.EquipCmn[(int) item_param.cmn_type - 1]);
+      }
+      int rare = (int) item_param.rare;
+      if (this.FixParam.SoulCommonPiece == null || this.FixParam.SoulCommonPiece.Length <= rare)
+        return (ItemParam) null;
+      return MonoSingleton<GameManager>.Instance.GetItemParam((string) this.FixParam.SoulCommonPiece[rare]);
+    }
+
+    public bool IsFriendPresentItemParamValid()
+    {
+      if (this.mFriendPresentItemParam != null)
+        return this.mFriendPresentItemParam.Count > 1;
+      return false;
+    }
+
+    public FriendPresentItemParam[] GetFriendPresentItemParams()
+    {
+      if (this.mFriendPresentItemParam == null)
+        return new FriendPresentItemParam[0];
+      FriendPresentItemParam[] array = new FriendPresentItemParam[this.mFriendPresentItemParam.Values.Count];
+      this.mFriendPresentItemParam.Values.CopyTo(array, 0);
+      return array;
+    }
+
+    public FriendPresentItemParam GetFriendPresentItemParam(string key)
+    {
+      if (this.mFriendPresentItemParam == null)
+        return (FriendPresentItemParam) null;
+      if (string.IsNullOrEmpty(key))
+        return (FriendPresentItemParam) null;
+      FriendPresentItemParam presentItemParam = (FriendPresentItemParam) null;
+      if (!this.mFriendPresentItemParam.TryGetValue(key, out presentItemParam))
+        DebugUtility.LogError("存在しないフレンドプレゼントアイテムパラメータを参照しています > " + key);
+      return presentItemParam;
+    }
+
+    public void MakeMapEffectHaveJobLists()
+    {
+      if (this.mJobParam == null || MapEffectParam.IsMakeHaveJobLists())
+        return;
+      MapEffectParam.MakeHaveJobLists();
+      using (List<JobParam>.Enumerator enumerator = this.mJobParam.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+        {
+          JobParam current = enumerator.Current;
+          if (!string.IsNullOrEmpty(current.MapEffectAbility) && current.IsMapEffectRevReso)
+          {
+            AbilityParam abilityParam = this.GetAbilityParam(current.MapEffectAbility);
+            if (abilityParam != null)
+            {
+              foreach (LearningSkill skill in abilityParam.skills)
+                MapEffectParam.AddHaveJob(skill.iname, current);
+            }
+          }
+        }
+      }
     }
   }
 }

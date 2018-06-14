@@ -1,10 +1,11 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.PlayerData
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
+using Gsc.Purchase;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -32,6 +33,7 @@ namespace SRPG
     private OInt mGold = (OInt) 0;
     private OInt mFreeCoin = (OInt) 0;
     private OInt mPaidCoin = (OInt) 0;
+    private OInt mComCoin = (OInt) 0;
     private OInt mTourCoin = (OInt) 0;
     private OInt mArenaCoin = (OInt) 0;
     private OInt mMultiCoin = (OInt) 0;
@@ -53,11 +55,14 @@ namespace SRPG
     private OInt mTourNum = (OInt) 0;
     private OInt mUnitCap = (OInt) PlayerData.INI_UNIT_CAPACITY;
     private DateTime mArenaLastAt = GameUtility.UnixtimeToLocalTime(0L);
+    private DateTime mArenaEndAt = GameUtility.UnixtimeToLocalTime(0L);
     private List<ArtifactData> mArtifacts = new List<ArtifactData>();
+    private Dictionary<string, Dictionary<int, int>> mArtifactsNumByRarity = new Dictionary<string, Dictionary<int, int>>();
     private List<string> mSkins = new List<string>();
     private Dictionary<long, UnitData> mUniqueID2UnitData = new Dictionary<long, UnitData>();
     private Dictionary<string, ItemData> mID2ItemData = new Dictionary<string, ItemData>();
     private List<TrophyState> mTrophyStates = new List<TrophyState>(32);
+    private Dictionary<string, List<TrophyState>> mTrophyStatesInameDict = new Dictionary<string, List<TrophyState>>();
     private ShopData[] mShops = new ShopData[Enum.GetNames(typeof (EShopType)).Length];
     private LimitedShopData mLimitedShops = new LimitedShopData();
     private EventShopData mEventShops = new EventShopData();
@@ -70,6 +75,8 @@ namespace SRPG
     public List<string> mFollowerUID = new List<string>();
     public List<MultiFuid> MultiFuids = new List<MultiFuid>();
     public List<SupportData> Supports = new List<SupportData>();
+    public FriendPresentWishList FriendPresentWishList = new FriendPresentWishList();
+    public FriendPresentReceiveList FriendPresentReceiveList = new FriendPresentReceiveList();
     public List<MailData> Mails = new List<MailData>();
     public List<MailData> CurrentMails = new List<MailData>();
     public OInt mUnlocks = (OInt) 0;
@@ -77,10 +84,13 @@ namespace SRPG
     public FreeGacha FreeGachaCoin = new FreeGacha();
     public PaidGacha PaidGacha = new PaidGacha();
     public Dictionary<string, PaymentInfo> PaymentInfos = new Dictionary<string, PaymentInfo>();
+    private List<string> mHaveAward = new List<string>();
     private int[] mVersusWinCount = new int[3];
     private ItemData[] mInventory = new ItemData[5];
     private long mMissionClearAt = -1;
     private Dictionary<string, int> mConsumeMaterials = new Dictionary<string, int>(16);
+    private int mPrevCheckHour = -1;
+    private UpdateTrophyInterval mUpdateInterval = new UpdateTrophyInterval();
     private Queue<string> mLoginBonusQueue = new Queue<string>();
     public const string SAIGONI_HOME_HIRAITA_LV = "lastplv";
     public const string SAIGONI_HOME_HIRAITA_VIPLV = "lastviplv";
@@ -100,6 +110,8 @@ namespace SRPG
     private Json_LoginBonusTable mLoginBonus28days;
     private int mArenaRank;
     private int mBestArenaRank;
+    private int mArenaSeed;
+    private int mArenaMaxActionNum;
     private List<UnitData> mUnits;
     private List<ItemData> mItems;
     private List<PartyData> mPartys;
@@ -110,7 +122,10 @@ namespace SRPG
     private bool mUnreadMail;
     private int mUnreadMailCount;
     private int mNewsCount;
+    private bool mValidGpsGift;
+    private bool mValidFriendPresent;
     private string mSelectedAward;
+    private int mPlayerPaidAmount;
     private int mVersusPoint;
     private int mVersusFreeWin;
     private int mVersusRankWin;
@@ -119,6 +134,9 @@ namespace SRPG
     private int mVersusTwKey;
     private int mVersusTwWinCnt;
     private bool mVersusSeasonGift;
+    private bool mMultiInvitaionFlag;
+    private string mMultiInvitaionComment;
+    private int mFirstFriendCount;
     public int SupportCount;
     public int SupportGold;
     private int mCreateItemCost;
@@ -126,8 +144,8 @@ namespace SRPG
     public PlayerData()
     {
       this.LoginDate = TimeManager.ServerTime;
-      this.mPartys = new List<PartyData>(8);
-      for (int index = 0; index < 8; ++index)
+      this.mPartys = new List<PartyData>(9);
+      for (int index = 0; index < 9; ++index)
         this.mPartys.Add(new PartyData((PlayerPartyTypes) index)
         {
           Name = "Party" + (object) (index + 1),
@@ -139,16 +157,16 @@ namespace SRPG
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      PlayerData.\u003CIsQuestAvailable\u003Ec__AnonStorey1FB availableCAnonStorey1Fb = new PlayerData.\u003CIsQuestAvailable\u003Ec__AnonStorey1FB();
+      PlayerData.\u003CIsQuestAvailable\u003Ec__AnonStorey2A1 availableCAnonStorey2A1 = new PlayerData.\u003CIsQuestAvailable\u003Ec__AnonStorey2A1();
       // ISSUE: reference to a compiler-generated field
-      availableCAnonStorey1Fb.questparam = MonoSingleton<GameManager>.Instance.FindQuest(questID);
+      availableCAnonStorey2A1.questparam = MonoSingleton<GameManager>.Instance.FindQuest(questID);
       // ISSUE: reference to a compiler-generated field
-      if (availableCAnonStorey1Fb.questparam == null)
+      if (availableCAnonStorey2A1.questparam == null)
         return false;
       // ISSUE: reference to a compiler-generated field
-      bool flag1 = availableCAnonStorey1Fb.questparam.IsDateUnlock(-1L);
+      bool flag1 = availableCAnonStorey2A1.questparam.IsDateUnlock(-1L);
       // ISSUE: reference to a compiler-generated method
-      bool flag2 = Array.Find<QuestParam>(this.AvailableQuests, new Predicate<QuestParam>(availableCAnonStorey1Fb.\u003C\u003Em__1CC)) != null;
+      bool flag2 = Array.Find<QuestParam>(this.AvailableQuests, new Predicate<QuestParam>(availableCAnonStorey2A1.\u003C\u003Em__269)) != null;
       if (flag1)
         return flag2;
       return false;
@@ -267,7 +285,7 @@ namespace SRPG
     {
       get
       {
-        return (int) this.mFreeCoin + (int) this.mPaidCoin;
+        return (int) this.mFreeCoin + (int) this.mPaidCoin + (int) this.mComCoin;
       }
     }
 
@@ -284,6 +302,14 @@ namespace SRPG
       get
       {
         return (int) this.mPaidCoin;
+      }
+    }
+
+    public int ComCoin
+    {
+      get
+      {
+        return (int) this.mComCoin;
       }
     }
 
@@ -535,6 +561,30 @@ namespace SRPG
       }
     }
 
+    public int ArenaSeed
+    {
+      get
+      {
+        return this.mArenaSeed;
+      }
+    }
+
+    public int ArenaMaxActionNum
+    {
+      get
+      {
+        return this.mArenaMaxActionNum;
+      }
+    }
+
+    public DateTime ArenaEndAt
+    {
+      get
+      {
+        return this.mArenaEndAt;
+      }
+    }
+
     public int ChallengeMultiNum
     {
       get
@@ -630,6 +680,67 @@ namespace SRPG
       }
     }
 
+    public int GetArtifactNumByRarity(string iname, int rarity)
+    {
+      Dictionary<int, int> dictionary;
+      int num;
+      if (!string.IsNullOrEmpty(iname) && this.mArtifactsNumByRarity.TryGetValue(iname, out dictionary) && dictionary.TryGetValue(rarity, out num))
+        return num;
+      return 0;
+    }
+
+    private void ResetArtifacts()
+    {
+      this.mArtifacts.Clear();
+      this.mArtifactsNumByRarity.Clear();
+    }
+
+    private void AddArtifact(ArtifactData item)
+    {
+      this.mArtifacts.Add(item);
+      this.AddArtifaceNumByRarity(item);
+    }
+
+    private void RemoveArtifact(ArtifactData item)
+    {
+      this.mArtifacts.Remove(item);
+      this.RemoveArtifactNumByRarity(item);
+    }
+
+    private void AddArtifaceNumByRarity(ArtifactData item)
+    {
+      Dictionary<int, int> dictionary;
+      if (this.mArtifactsNumByRarity.TryGetValue(item.ArtifactParam.iname, out dictionary))
+      {
+        int num;
+        if (dictionary.TryGetValue((int) item.Rarity, out num))
+          dictionary[(int) item.Rarity] = num + 1;
+        else
+          dictionary.Add((int) item.Rarity, 1);
+      }
+      else
+        this.mArtifactsNumByRarity.Add(item.ArtifactParam.iname, new Dictionary<int, int>()
+        {
+          {
+            (int) item.Rarity,
+            1
+          }
+        });
+    }
+
+    private void RemoveArtifactNumByRarity(ArtifactData item)
+    {
+      Dictionary<int, int> dictionary;
+      int num1;
+      if (!this.mArtifactsNumByRarity.TryGetValue(item.ArtifactParam.iname, out dictionary) || !dictionary.TryGetValue((int) item.Rarity, out num1))
+        return;
+      int num2 = num1 - 1;
+      if (num2 <= 0)
+        dictionary.Remove((int) item.Rarity);
+      else
+        dictionary[(int) item.Rarity] = num2;
+    }
+
     public List<string> Skins
     {
       get
@@ -676,6 +787,11 @@ namespace SRPG
       {
         return this.mFollowerUID;
       }
+    }
+
+    public bool IsRequestFriend()
+    {
+      return this.FriendNum < this.FriendCap;
     }
 
     public List<PartyData> Partys
@@ -728,6 +844,30 @@ namespace SRPG
       get
       {
         return this.mUnreadMail;
+      }
+    }
+
+    public bool ValidGpsGift
+    {
+      set
+      {
+        this.mValidGpsGift = value;
+      }
+      get
+      {
+        return this.mValidGpsGift;
+      }
+    }
+
+    public bool ValidFriendPresent
+    {
+      set
+      {
+        this.mValidFriendPresent = value;
+      }
+      get
+      {
+        return this.mValidFriendPresent;
       }
     }
 
@@ -819,6 +959,42 @@ namespace SRPG
       }
     }
 
+    public bool MultiInvitaionFlag
+    {
+      get
+      {
+        return this.mMultiInvitaionFlag;
+      }
+    }
+
+    public string MultiInvitaionComment
+    {
+      get
+      {
+        return this.mMultiInvitaionComment;
+      }
+    }
+
+    public int FirstFriendCount
+    {
+      get
+      {
+        return this.mFirstFriendCount;
+      }
+      set
+      {
+        this.mFirstFriendCount = value;
+      }
+    }
+
+    public int PlayerPaidAmount
+    {
+      get
+      {
+        return this.mPlayerPaidAmount;
+      }
+    }
+
     public bool ConsumeStamina(int stamina)
     {
       if (this.Stamina < stamina)
@@ -838,6 +1014,11 @@ namespace SRPG
         --coin;
         --this.mFreeCoin;
       }
+      while ((int) this.mComCoin > 0 && coin > 0)
+      {
+        --coin;
+        --this.mComCoin;
+      }
       while ((int) this.mPaidCoin > 0 && coin > 0)
       {
         --coin;
@@ -855,12 +1036,14 @@ namespace SRPG
       return true;
     }
 
-    public void DEBUG_ADD_COIN(int free, int paid)
+    public void DEBUG_ADD_COIN(int free, int paid, int com)
     {
       PlayerData playerData1 = this;
       playerData1.mFreeCoin = (OInt) ((int) playerData1.mFreeCoin + free);
       PlayerData playerData2 = this;
       playerData2.mPaidCoin = (OInt) ((int) playerData2.mPaidCoin + paid);
+      PlayerData playerData3 = this;
+      playerData3.mComCoin = (OInt) ((int) playerData3.mComCoin + com);
       this.GainVipPoint(paid);
     }
 
@@ -886,6 +1069,34 @@ namespace SRPG
             playerData.mVipExpiredAt = (OLong) ((long) playerData.mVipExpiredAt + (long) ((int) fixParam.VipCardDate * 24 * 60 * 60));
           }
         }
+      }
+    }
+
+    public void SetCoinPurchaseResult(FulfillmentResult result)
+    {
+      if (result == null)
+        return;
+      this.mFreeCoin = (OInt) result.CurrentFreeCoin;
+      this.mPaidCoin = (OInt) result.CurrentPaidCoin;
+      this.mComCoin = (OInt) result.CurrentCommonCoin;
+    }
+
+    public void SetOrderResult(FulfillmentResult.OrderInfo order)
+    {
+      if (order == null)
+        return;
+      FixParam fixParam = MonoSingleton<GameManager>.Instance.MasterParam.FixParam;
+      if (!order.ProductId.Contains((string) fixParam.VipCardProduct))
+        return;
+      long serverTime = Network.GetServerTime();
+      if (serverTime > (long) this.mVipExpiredAt)
+      {
+        this.mVipExpiredAt = (OLong) TimeManager.FromDateTime(TimeManager.FromUnixTime(serverTime + (long) ((int) fixParam.VipCardDate * 24 * 60 * 60)).Date + new TimeSpan(23, 59, 59));
+      }
+      else
+      {
+        PlayerData playerData = this;
+        playerData.mVipExpiredAt = (OLong) ((long) playerData.mVipExpiredAt + (long) ((int) fixParam.VipCardDate * 24 * 60 * 60));
       }
     }
 
@@ -915,6 +1126,7 @@ namespace SRPG
       {
         this.mFreeCoin = (OInt) json.coin.free;
         this.mPaidCoin = (OInt) json.coin.paid;
+        this.mComCoin = (OInt) json.coin.com;
       }
       if ((flag & PlayerData.EDeserializeFlags.Stamina) == PlayerData.EDeserializeFlags.Stamina)
       {
@@ -966,6 +1178,11 @@ namespace SRPG
       this.mBestArenaRank = json.best_myself;
       this.mArenaLastAt = GameUtility.UnixtimeToLocalTime(json.btl_at);
       GlobalVars.SelectedQuestID = !string.IsNullOrEmpty(json.quest_iname) ? json.quest_iname : string.Empty;
+      this.mArenaSeed = json.seed;
+      this.mArenaMaxActionNum = json.maxActionNum;
+      this.mArenaEndAt = GameUtility.UnixtimeToLocalTime(json.end_at);
+      if (json.end_at != 0L && this.mArenaEndAt < TimeManager.ServerTime)
+        this.mArenaEndAt = GameUtility.UnixtimeToLocalTime(0L);
       return true;
     }
 
@@ -995,6 +1212,7 @@ namespace SRPG
       this.mAbilityPoint = (OInt) json.abilpt;
       this.mFreeCoin = (OInt) 0;
       this.mPaidCoin = (OInt) 0;
+      this.mComCoin = (OInt) 0;
       this.mTourCoin = (OInt) json.enseicoin;
       this.mArenaCoin = (OInt) json.arenacoin;
       this.mMultiCoin = (OInt) json.multicoin;
@@ -1003,6 +1221,11 @@ namespace SRPG
       this.mVipRank = (OInt) 0;
       this.mNewGameAt = (OInt) json.newgame_at;
       this.mLoginCount = json.logincont;
+      if (json.multi != null)
+      {
+        this.mMultiInvitaionFlag = json.multi.is_multi_push != 0;
+        this.mMultiInvitaionComment = json.multi.multi_comment;
+      }
       if (json.vip != null)
         this.mVipExpiredAt = (OLong) json.vip.expired_at;
       FixParam fixParam = MonoSingleton<GameManager>.Instance.MasterParam.FixParam;
@@ -1015,6 +1238,7 @@ namespace SRPG
       {
         this.mFreeCoin = (OInt) json.coin.free;
         this.mPaidCoin = (OInt) json.coin.paid;
+        this.mComCoin = (OInt) json.coin.com;
       }
       if (json.stamina != null)
       {
@@ -1088,6 +1312,7 @@ namespace SRPG
       this.mStaminaBuyNum = (OInt) json.cnt_stmrecover;
       this.mGoldBuyNum = (OInt) json.cnt_buygold;
       this.mSelectedAward = json.selected_award;
+      this.mPlayerPaidAmount = json.paying;
       this.UpdateUnlocks();
     }
 
@@ -1103,6 +1328,7 @@ namespace SRPG
       {
         this.mFreeCoin = (OInt) json.coin.free;
         this.mPaidCoin = (OInt) json.coin.paid;
+        this.mComCoin = (OInt) json.coin.com;
       }
       if (json.stamina != null)
       {
@@ -1122,6 +1348,7 @@ namespace SRPG
       {
         this.mFreeCoin = (OInt) json.coin.free;
         this.mPaidCoin = (OInt) json.coin.paid;
+        this.mComCoin = (OInt) json.coin.com;
       }
       this.mArenaCoin = (OInt) json.arenacoin;
       this.mMultiCoin = (OInt) json.multicoin;
@@ -1202,49 +1429,58 @@ namespace SRPG
       if (items == null)
       {
         this.mArtifacts.Clear();
+        this.mArtifactsNumByRarity.Clear();
       }
       else
       {
         for (int index = 0; index < items.Length; ++index)
         {
+          bool flag = false;
           ArtifactData artifactData = this.FindArtifactByUniqueID(items[index].iid);
           if (artifactData == null)
           {
             artifactData = new ArtifactData();
-            this.mArtifacts.Add(artifactData);
+            flag = true;
           }
+          else
+            this.RemoveArtifactNumByRarity(artifactData);
           try
           {
             artifactData.Deserialize(items[index]);
           }
           catch (Exception ex)
           {
-            this.mArtifacts.Remove(artifactData);
             DebugUtility.LogException(ex);
+            continue;
           }
+          if (flag)
+            this.mArtifacts.Add(artifactData);
+          this.AddArtifaceNumByRarity(artifactData);
         }
         if (differenceUpdate)
           return;
         // ISSUE: object of a compiler-generated type is created
         // ISSUE: variable of a compiler-generated type
-        PlayerData.\u003CDeserialize\u003Ec__AnonStorey1FC deserializeCAnonStorey1Fc = new PlayerData.\u003CDeserialize\u003Ec__AnonStorey1FC();
+        PlayerData.\u003CDeserialize\u003Ec__AnonStorey2A2 deserializeCAnonStorey2A2 = new PlayerData.\u003CDeserialize\u003Ec__AnonStorey2A2();
         // ISSUE: reference to a compiler-generated field
-        deserializeCAnonStorey1Fc.\u003C\u003Ef__this = this;
+        deserializeCAnonStorey2A2.\u003C\u003Ef__this = this;
         // ISSUE: reference to a compiler-generated field
-        deserializeCAnonStorey1Fc.i = 0;
+        deserializeCAnonStorey2A2.i = 0;
         // ISSUE: reference to a compiler-generated field
-        while (deserializeCAnonStorey1Fc.i < this.mArtifacts.Count)
+        while (deserializeCAnonStorey2A2.i < this.mArtifacts.Count)
         {
           // ISSUE: reference to a compiler-generated method
-          if (Array.Find<Json_Artifact>(items, new Predicate<Json_Artifact>(deserializeCAnonStorey1Fc.\u003C\u003Em__1CD)) != null)
+          if (Array.Find<Json_Artifact>(items, new Predicate<Json_Artifact>(deserializeCAnonStorey2A2.\u003C\u003Em__26A)) != null)
           {
             // ISSUE: reference to a compiler-generated field
-            ++deserializeCAnonStorey1Fc.i;
+            ++deserializeCAnonStorey2A2.i;
           }
           else
           {
             // ISSUE: reference to a compiler-generated field
-            this.mArtifacts.RemoveAt(deserializeCAnonStorey1Fc.i);
+            this.RemoveArtifactNumByRarity(this.mArtifacts[deserializeCAnonStorey2A2.i]);
+            // ISSUE: reference to a compiler-generated field
+            this.mArtifacts.RemoveAt(deserializeCAnonStorey2A2.i);
           }
         }
       }
@@ -1276,6 +1512,19 @@ namespace SRPG
         if (!string.IsNullOrEmpty(parties[index1].ptype))
           index2 = (int) PartyData.GetPartyTypeFromString(parties[index1].ptype);
         this.mPartys[index2].Deserialize(parties[index1]);
+        int lastSelectionIndex = 0;
+        PartyWindow2.EditPartyTypes editPartyType = ((PlayerPartyTypes) index2).ToEditPartyType();
+        if (PartyUtility.LoadTeamPresets(editPartyType, out lastSelectionIndex) == null)
+        {
+          int maxTeamCount = editPartyType.GetMaxTeamCount();
+          List<PartyEditData> teams = new List<PartyEditData>();
+          for (int index3 = 0; index3 < maxTeamCount; ++index3)
+          {
+            PartyEditData partyEditData = new PartyEditData(PartyUtility.CreateDefaultPartyNameFromIndex(index3), this.mPartys[index2]);
+            teams.Add(partyEditData);
+          }
+          PartyUtility.SaveTeamPresets(editPartyType, 0, teams);
+        }
       }
     }
 
@@ -1412,6 +1661,36 @@ namespace SRPG
       }
     }
 
+    public void Deserialize(FriendPresentWishList.Json[] jsons)
+    {
+      try
+      {
+        this.FriendPresentWishList.Clear();
+        if (jsons == null)
+          return;
+        this.FriendPresentWishList.Deserialize(jsons);
+      }
+      catch (Exception ex)
+      {
+        DebugUtility.LogException(ex);
+      }
+    }
+
+    public void Deserialize(FriendPresentReceiveList.Json[] jsons)
+    {
+      try
+      {
+        this.FriendPresentReceiveList.Clear();
+        if (jsons == null)
+          return;
+        this.FriendPresentReceiveList.Deserialize(jsons);
+      }
+      catch (Exception ex)
+      {
+        DebugUtility.LogException(ex);
+      }
+    }
+
     public bool Deserialize(Json_Notify notify)
     {
       if (notify == null)
@@ -1474,6 +1753,18 @@ namespace SRPG
     public void SetVersusRankpoint(int point)
     {
       this.mVersusPoint = point;
+    }
+
+    public void SetHaveAward(string[] awards)
+    {
+      if (awards == null || awards.Length <= 0)
+        return;
+      this.mHaveAward.Clear();
+      for (int index = 0; index < awards.Length; ++index)
+      {
+        if (!string.IsNullOrEmpty(awards[index]))
+          this.mHaveAward.Add(awards[index]);
+      }
     }
 
     public bool IsFirstLogin
@@ -1645,7 +1936,14 @@ namespace SRPG
     {
       QuestParam[] quests = MonoSingleton<GameManager>.Instance.Quests;
       for (int index = quests.Length - 1; index >= 0; --index)
-        quests[index].dailyReset = (OInt) 0;
+      {
+        if (quests[index].dayReset > 0)
+        {
+          DateTime dateTime = TimeManager.FromUnixTime(quests[index].end - quests[index].start);
+          if (quests[index].dayReset >= dateTime.Day)
+            quests[index].dailyReset = (short) 0;
+        }
+      }
       this.mQuestListDirty = true;
     }
 
@@ -1654,8 +1952,12 @@ namespace SRPG
       QuestParam[] quests = MonoSingleton<GameManager>.Instance.Quests;
       for (int index = quests.Length - 1; index >= 0; --index)
       {
-        if ((bool) quests[index].isDailyReset)
-          quests[index].dailyCount = (OInt) 0;
+        if (quests[index].dayReset > 0)
+        {
+          DateTime dateTime = TimeManager.FromUnixTime(quests[index].end - quests[index].start);
+          if (quests[index].dayReset >= dateTime.Day)
+            quests[index].dailyCount = (short) 0;
+        }
       }
       this.mQuestListDirty = true;
     }
@@ -1715,8 +2017,7 @@ namespace SRPG
       QuestParam quest = MonoSingleton<GameManager>.Instance.FindQuest(name);
       if (quest == null)
         return;
-      QuestParam questParam = quest;
-      questParam.clear_missions = (OInt) ((int) questParam.clear_missions | missions);
+      quest.clear_missions |= missions;
     }
 
     public void SetQuestChallengeNumDaily(string name, int num)
@@ -1781,6 +2082,16 @@ namespace SRPG
       return this.mArtifacts.Find((Predicate<ArtifactData>) (p => (long) p.UniqueID == iid));
     }
 
+    public List<ArtifactData> FindArtifactsByIDs(HashSet<string> ids)
+    {
+      return this.mArtifacts.FindAll((Predicate<ArtifactData>) (artifact => ids.Contains(artifact.ArtifactParam.iname)));
+    }
+
+    public List<ArtifactData> FindArtifactsByArtifactID(string iname)
+    {
+      return this.mArtifacts.FindAll((Predicate<ArtifactData>) (p => p.ArtifactParam.iname == iname));
+    }
+
     public bool FindOwner(ArtifactData arti, out UnitData unit, out JobData job)
     {
       unit = (UnitData) null;
@@ -1838,6 +2149,41 @@ namespace SRPG
     public PartyData GetPartyCurrent()
     {
       return this.Partys[this.GetPartyCurrentIndex()];
+    }
+
+    public void AutoSetLeaderUnit()
+    {
+      List<UnitData> units = MonoSingleton<GameManager>.Instance.Player.Units;
+      if (units.Count <= 0)
+        return;
+      for (int index1 = 0; index1 < this.mPartys.Count; ++index1)
+      {
+        PartyData mParty = this.mPartys[index1];
+        if (mParty.GetUnitUniqueID(0) == 0L)
+        {
+          for (int index2 = 0; index2 < units.Count; ++index2)
+          {
+            UnitData unitData = units[index2];
+            if (unitData != null)
+            {
+              bool flag = false;
+              for (int index3 = 0; index3 < mParty.MAX_UNIT; ++index3)
+              {
+                if (mParty.GetUnitUniqueID(index3) == unitData.UniqueID)
+                {
+                  flag = true;
+                  break;
+                }
+              }
+              if (!flag)
+              {
+                mParty.SetUnitUniqueID(0, unitData.UniqueID);
+                break;
+              }
+            }
+          }
+        }
+      }
     }
 
     public static int CalcLevelFromExp(int current)
@@ -1902,7 +2248,7 @@ namespace SRPG
       OInt val = this.mStamina.val;
       this.mStamina.valMax = instance.MasterParam.GetPlayerParam((int) this.mLv).pt;
       this.mStamina.val = (OInt) Math.Min((int) this.mStamina.val + (int) instance.MasterParam.FixParam.StaminaAdd2 * delta, this.StaminaStockCap);
-      AnalyticsManager.TrackCurrencyObtain(AnalyticsManager.CurrencyType.AP, AnalyticsManager.CurrencySubType.FREE, (long) ((int) this.mStamina.val - (int) val), "Level up", (Dictionary<string, object>) null);
+      AnalyticsManager.TrackNonPremiumCurrencyObtain(AnalyticsManager.NonPremiumCurrencyType.AP, (long) ((int) this.mStamina.val - (int) val), "Level up", (string) null);
       this.UpdateUnlocks();
       if (Network.Mode == Network.EConnectMode.Offline)
         this.SavePlayerPrefs();
@@ -2017,12 +2363,7 @@ namespace SRPG
 
     public void UpdateFreeRareGacha()
     {
-      long num = Network.GetServerTime() - this.FreeGachaCoin.at;
-      long gachaCoinCoolDownSec = (long) MonoSingleton<GameManager>.Instance.MasterParam.FixParam.FreeGachaCoinCoolDownSec;
-      long left = Math.Max(gachaCoinCoolDownSec - num, 0L);
-      if (Object.op_Inequality((Object) MonoSingleton<WatchManager>.Instance, (Object) null))
-        MonoSingleton<WatchManager>.Instance.UpdateGachaTimer(left, gachaCoinCoolDownSec);
-      MonoSingleton<GameManager>.Instance.RegisterCustomNotificationsForRareSummon(left);
+      MonoSingleton<GameManager>.Instance.RegisterCustomNotificationsForRareSummon(Math.Max((long) MonoSingleton<GameManager>.Instance.MasterParam.FixParam.FreeGachaCoinCoolDownSec - (Network.GetServerTime() - this.FreeGachaCoin.at), 0L));
     }
 
     public bool CheckPaidGacha()
@@ -2042,9 +2383,9 @@ namespace SRPG
       for (int index = 0; index < this.mInventory.Length; ++index)
       {
         if (this.mInventory[index] != null)
-          PlayerPrefs.SetString("INVENTORY" + (object) index, this.mInventory[index].ItemID);
+          PlayerPrefsUtility.SetString(PlayerPrefsUtility.PLAYERDATA_INVENTORY + (object) index, this.mInventory[index].ItemID, false);
         else
-          PlayerPrefs.DeleteKey("INVENTORY" + (object) index);
+          PlayerPrefsUtility.DeleteKey(PlayerPrefsUtility.PLAYERDATA_INVENTORY + (object) index);
       }
     }
 
@@ -2053,9 +2394,9 @@ namespace SRPG
       for (int index = 0; index < this.mInventory.Length; ++index)
       {
         this.mInventory[index] = (ItemData) null;
-        if (PlayerPrefs.HasKey("INVENTORY" + (object) index))
+        if (PlayerPrefsUtility.HasKey(PlayerPrefsUtility.PLAYERDATA_INVENTORY + (object) index))
         {
-          string iname = PlayerPrefs.GetString("INVENTORY" + (object) index);
+          string iname = PlayerPrefsUtility.GetString(PlayerPrefsUtility.PLAYERDATA_INVENTORY + (object) index, string.Empty);
           if (!string.IsNullOrEmpty(iname))
           {
             ItemData itemDataByItemId = this.FindItemDataByItemID(iname);
@@ -2114,13 +2455,13 @@ namespace SRPG
       return false;
     }
 
-    public bool CheckEnableCreateItem(ItemParam param, bool root = true, int needNum = 1)
+    public bool CheckEnableCreateItem(ItemParam param, bool root = true, int needNum = 1, NeedEquipItemList item_list = null)
     {
       bool is_ikkatsu = false;
-      return this.CheckEnableCreateItem(param, ref is_ikkatsu, root, needNum);
+      return this.CheckEnableCreateItem(param, ref is_ikkatsu, root, needNum, item_list);
     }
 
-    public bool CheckEnableCreateItem(ItemParam param, ref bool is_ikkatsu, bool root = true, int needNum = 1)
+    public bool CheckEnableCreateItem(ItemParam param, ref bool is_ikkatsu, bool root = true, int needNum = 1, NeedEquipItemList item_list = null)
     {
       if (root)
       {
@@ -2129,7 +2470,11 @@ namespace SRPG
         is_ikkatsu = false;
       }
       if (param == null || string.IsNullOrEmpty(param.recipe))
+      {
+        if (item_list != null && param.IsCommon && (int) param.cmn_type - 1 == 2)
+          item_list.Add(param, 1, true);
         return false;
+      }
       RecipeParam recipe = param.Recipe;
       if (recipe == null || recipe.items == null)
         return false;
@@ -2163,22 +2508,35 @@ namespace SRPG
         }
         if (num1 > 0)
         {
-          if (!this.CheckEnableCreateItem(MonoSingleton<GameManager>.GetInstanceDirect().GetItemParam(recipeItem.iname), ref is_ikkatsu, false, num1))
+          ItemParam itemParam = MonoSingleton<GameManager>.GetInstanceDirect().GetItemParam(recipeItem.iname);
+          if (item_list != null)
+          {
+            bool is_common = itemParam.IsCommon && index == 0;
+            if (is_common)
+              item_list.Add(itemParam, num1, false);
+            else if (!itemParam.IsCommon && string.IsNullOrEmpty(itemParam.recipe))
+              item_list.IsNotEnough = true;
+            item_list.SetRecipeTree(new RecipeTree(itemParam), is_common);
+          }
+          if (!this.CheckEnableCreateItem(itemParam, ref is_ikkatsu, false, num1, item_list))
             flag = false;
-          is_ikkatsu = true;
+          if (item_list != null)
+            item_list.UpRecipeTree();
+          if (itemParam.recipe != null)
+            is_ikkatsu = true;
         }
       }
       return flag;
     }
 
-    public bool CheckEnableCreateItem(ItemParam param, ref bool is_ikkatsu, ref int cost, ref Dictionary<string, int> consumes)
+    public bool CheckEnableCreateItem(ItemParam param, ref bool is_ikkatsu, ref int cost, ref Dictionary<string, int> consumes, NeedEquipItemList item_list = null)
     {
-      return this.CheckEnableCreateItem(param, 1, ref is_ikkatsu, ref cost, ref consumes);
+      return this.CheckEnableCreateItem(param, 1, ref is_ikkatsu, ref cost, ref consumes, item_list);
     }
 
-    public bool CheckEnableCreateItem(ItemParam param, int count, ref bool is_ikkatsu, ref int cost, ref Dictionary<string, int> consumes)
+    public bool CheckEnableCreateItem(ItemParam param, int count, ref bool is_ikkatsu, ref int cost, ref Dictionary<string, int> consumes, NeedEquipItemList item_list = null)
     {
-      bool flag = this.CheckEnableCreateItem(param, ref is_ikkatsu, true, count);
+      bool flag = this.CheckEnableCreateItem(param, ref is_ikkatsu, true, count, item_list);
       cost = this.mCreateItemCost;
       consumes = this.mConsumeMaterials;
       return flag;
@@ -2187,11 +2545,11 @@ namespace SRPG
     public int GetCreateItemCost(ItemParam param)
     {
       bool is_ikkatsu = false;
-      this.CheckEnableCreateItem(param, ref is_ikkatsu, true, 1);
+      this.CheckEnableCreateItem(param, ref is_ikkatsu, true, 1, (NeedEquipItemList) null);
       return this.mCreateItemCost;
     }
 
-    public bool CheckEnableCreateEquipItemAll(UnitData self, EquipData[] equips, ref Dictionary<string, int> consume, ref int cost)
+    public bool CheckEnableCreateEquipItemAll(UnitData self, EquipData[] equips, ref Dictionary<string, int> consume, ref int cost, NeedEquipItemList item_list = null)
     {
       if (self == null || equips == null)
         return false;
@@ -2201,6 +2559,111 @@ namespace SRPG
       {
         EquipData equip = equips[index];
         if (equip == null || (int) equip.ItemParam.equipLv > self.Lv)
+        {
+          if (item_list != null)
+            item_list.IsNotEnough = true;
+          return false;
+        }
+        if (!equip.IsEquiped())
+        {
+          ItemData itemDataByItemParam = this.FindItemDataByItemParam(equip.ItemParam);
+          int val1 = itemDataByItemParam == null ? 0 : itemDataByItemParam.Num;
+          int num1 = 1;
+          if (this.mConsumeMaterials.ContainsKey(equip.ItemID))
+          {
+            int num2 = Math.Min(Math.Max(val1 - this.mConsumeMaterials[equip.ItemID], 0), num1);
+            if (num2 > 0)
+            {
+              Dictionary<string, int> consumeMaterials;
+              string itemId;
+              (consumeMaterials = this.mConsumeMaterials)[itemId = equip.ItemID] = consumeMaterials[itemId] + num2;
+              num1 -= num2;
+            }
+          }
+          else
+          {
+            int num2 = Math.Min(val1, num1);
+            if (num2 > 0)
+            {
+              this.mConsumeMaterials.Add(equip.ItemID, num2);
+              num1 -= num2;
+            }
+          }
+          if (num1 != 0 && !this.CheckEnableCreateItem(equips[index].ItemParam, false, num1, item_list))
+          {
+            if (equips[index].ItemParam.Recipe == null && (int) equips[index].ItemParam.cmn_type - 1 != 2)
+            {
+              if (item_list != null)
+                item_list.IsNotEnough = true;
+              return false;
+            }
+            if (item_list == null || !item_list.IsEnoughCommon())
+              return false;
+          }
+        }
+      }
+      consume = this.mConsumeMaterials;
+      cost = this.mCreateItemCost;
+      if (this.Gold >= cost)
+        return true;
+      if (item_list != null)
+        item_list.IsNotEnough = true;
+      return false;
+    }
+
+    public bool CheckEnableCreateEquipItemAll(UnitData self, EquipData[] equips, NeedEquipItemList item_list = null)
+    {
+      return this.CheckEnableCreateEquipItemAll(self, equips, ref this.mConsumeMaterials, ref this.mCreateItemCost, item_list);
+    }
+
+    public bool CheckEnable2(UnitData self, EquipData[] equips_base, ref Dictionary<string, int> consume, ref int cost, ref int target_rank, ref bool can_jobmaster, ref bool can_jobmax, NeedEquipItemList item_list = null)
+    {
+      JobParam jobParam = MonoSingleton<GameManager>.Instance.MasterParam.GetJobParam(self.CurrentJob.JobID);
+      int rank = self.CurrentJob.Rank;
+      int jobRankCap = self.CurrentJob.GetJobRankCap(self);
+      this.mConsumeMaterials.Clear();
+      this.mCreateItemCost = 0;
+      EquipData[] equips = new EquipData[6];
+      for (int lv = rank; lv <= jobRankCap; ++lv)
+      {
+        bool equipItemAll2;
+        if (lv == rank)
+        {
+          equipItemAll2 = this.CheckEnableCreateEquipItemAll2(self, equips_base, item_list);
+        }
+        else
+        {
+          for (int index = 0; index < equips.Length; ++index)
+          {
+            equips[index] = new EquipData();
+            equips[index].Setup(jobParam.GetRankupItemID(lv, index));
+          }
+          equipItemAll2 = this.CheckEnableCreateEquipItemAll2(self, equips, item_list);
+        }
+        if (equipItemAll2)
+        {
+          if (jobRankCap == JobParam.MAX_JOB_RANK && lv == jobRankCap && equipItemAll2)
+            can_jobmaster = true;
+          if (lv == jobRankCap)
+            can_jobmax = true;
+          consume = new Dictionary<string, int>((IDictionary<string, int>) this.mConsumeMaterials);
+          cost = this.mCreateItemCost;
+          target_rank = Mathf.Min(lv + 1, jobRankCap);
+        }
+        else
+          break;
+      }
+      return true;
+    }
+
+    public bool CheckEnableCreateEquipItemAll2(UnitData self, EquipData[] equips, NeedEquipItemList item_list = null)
+    {
+      if (self == null || equips == null)
+        return false;
+      for (int index = 0; index < equips.Length; ++index)
+      {
+        EquipData equip = equips[index];
+        if (equip == null || string.IsNullOrEmpty(equip.ItemID) || (int) equip.ItemParam.equipLv > self.Lv)
           return false;
         if (!equip.IsEquiped())
         {
@@ -2227,18 +2690,19 @@ namespace SRPG
               num1 -= num2;
             }
           }
-          if (num1 != 0 && !this.CheckEnableCreateItem(equips[index].ItemParam, false, num1))
+          if (num1 != 0 && !this.CheckEnableCreateItem(equip.ItemParam, false, num1, item_list) && (item_list == null || !item_list.IsEnoughCommon()))
+          {
+            if (item_list != null)
+              item_list.Remove();
             return false;
+          }
         }
       }
-      consume = this.mConsumeMaterials;
-      cost = this.mCreateItemCost;
-      return this.Gold >= cost;
-    }
-
-    public bool CheckEnableCreateEquipItemAll(UnitData self, EquipData[] equips)
-    {
-      return this.CheckEnableCreateEquipItemAll(self, equips, ref this.mConsumeMaterials, ref this.mCreateItemCost);
+      if (this.Gold >= this.mCreateItemCost)
+        return true;
+      if (item_list != null)
+        item_list.IsNotEnough = true;
+      return false;
     }
 
     public bool SetUnitEquipment(UnitData unit, int slotIndex)
@@ -2255,7 +2719,6 @@ namespace SRPG
         return false;
       }
       unit.CurrentJob.Equip(slotIndex);
-      itemDataByItemId.Used(1);
       unit.CalcStatus();
       MonoSingleton<GameManager>.Instance.RequestUpdateBadges(GameManager.BadgeTypes.Unit);
       MonoSingleton<GameManager>.Instance.RequestUpdateBadges(GameManager.BadgeTypes.ItemEquipment);
@@ -2269,19 +2732,9 @@ namespace SRPG
       RecipeParam rarityUpRecipe = unit.GetRarityUpRecipe();
       if (rarityUpRecipe.cost > (int) this.mGold || !unit.UnitRarityUp())
         return false;
-      for (int index = 0; index < rarityUpRecipe.items.Length; ++index)
-      {
-        RecipeItem recipeItem = rarityUpRecipe.items[index];
-        if (rarityUpRecipe != null && !string.IsNullOrEmpty(recipeItem.iname))
-        {
-          ItemData itemDataByItemId = this.FindItemDataByItemID(recipeItem.iname);
-          if (itemDataByItemId != null)
-            itemDataByItemId.Used(recipeItem.num);
-        }
-      }
       PlayerData playerData = this;
       playerData.mGold = (OInt) ((int) playerData.mGold - rarityUpRecipe.cost);
-      AnalyticsManager.TrackCurrencyUse(AnalyticsManager.CurrencyType.Zeni, AnalyticsManager.CurrencySubType.FREE, (long) rarityUpRecipe.cost, "Evolve Unit", (Dictionary<string, object>) null);
+      AnalyticsManager.TrackNonPremiumCurrencyUse(AnalyticsManager.NonPremiumCurrencyType.Zeni, (long) rarityUpRecipe.cost, "Evolve Unit", (string) null);
       MonoSingleton<GameManager>.Instance.RequestUpdateBadges(GameManager.BadgeTypes.Unit);
       MonoSingleton<GameManager>.Instance.RequestUpdateBadges(GameManager.BadgeTypes.UnitUnlock);
       MonoSingleton<GameManager>.Instance.RequestUpdateBadges(GameManager.BadgeTypes.DailyMission);
@@ -2343,7 +2796,7 @@ namespace SRPG
 
     public bool JobRankUpUnit(UnitData unit, int jobIndex)
     {
-      if (!unit.CheckJobRankUpAllEquip(jobIndex))
+      if (!unit.CheckJobRankUpAllEquip(jobIndex, true))
         return false;
       unit.JobRankUp(jobIndex);
       MonoSingleton<GameManager>.Instance.RequestUpdateBadges(GameManager.BadgeTypes.Unit);
@@ -2499,10 +2952,10 @@ namespace SRPG
     {
       GameUtility.UnitSortModes sortMode = GameUtility.UnitSortModes.Time;
       bool ascending = false;
-      if (!string.IsNullOrEmpty(menuID) && PlayerPrefs.HasKey(menuID))
+      if (!string.IsNullOrEmpty(menuID) && PlayerPrefsUtility.HasKey(menuID))
       {
-        string str = PlayerPrefs.GetString(menuID);
-        ascending = PlayerPrefs.GetInt(menuID + "#", 0) != 0;
+        string str = PlayerPrefsUtility.GetString(menuID, string.Empty);
+        ascending = PlayerPrefsUtility.GetInt(menuID + "#", 0) != 0;
         try
         {
           sortMode = (GameUtility.UnitSortModes) Enum.Parse(typeof (GameUtility.UnitSortModes), str, true);
@@ -2534,6 +2987,16 @@ namespace SRPG
       return units2;
     }
 
+    public UnitData GetUnitData(long iid)
+    {
+      for (int index = 0; index < this.mUnits.Count; ++index)
+      {
+        if (this.mUnits[index].UniqueID == iid)
+          return this.mUnits[index];
+      }
+      return (UnitData) null;
+    }
+
     public int GetItemSlotAmount()
     {
       int num = 0;
@@ -2550,27 +3013,37 @@ namespace SRPG
       return this.GetItemAmount(item.iname) + num <= (int) item.cap;
     }
 
-    public bool CheckCreateItem(ItemParam item)
+    public CreateItemResult CheckCreateItem(ItemParam item)
     {
       if (item == null || string.IsNullOrEmpty(item.recipe))
-        return false;
+        return CreateItemResult.NotEnough;
       RecipeParam recipeParam = MonoSingleton<GameManager>.Instance.GetRecipeParam(item.recipe);
       if (recipeParam == null)
-        return false;
+        return CreateItemResult.NotEnough;
+      bool flag = false;
       for (int index = 0; index < recipeParam.items.Length; ++index)
       {
         RecipeItem recipeItem = recipeParam.items[index];
         int num = recipeItem.num;
-        if (this.GetItemAmount(recipeItem.iname) < num)
-          return false;
+        int itemAmount1 = this.GetItemAmount(recipeItem.iname);
+        if (itemAmount1 < num)
+        {
+          ItemParam itemParam = MonoSingleton<GameManager>.Instance.GetItemParam(recipeItem.iname);
+          if (itemParam == null || !itemParam.IsCommon)
+            return CreateItemResult.NotEnough;
+          int itemAmount2 = this.GetItemAmount(MonoSingleton<GameManager>.Instance.MasterParam.GetCommonEquip(itemParam, false).iname);
+          if (itemAmount1 + itemAmount2 < num)
+            return CreateItemResult.NotEnough;
+          flag = true;
+        }
       }
-      return true;
+      return flag ? CreateItemResult.CanCreateCommon : CreateItemResult.CanCreate;
     }
 
     public bool CreateItem(ItemParam item)
     {
       RecipeParam recipeParam = MonoSingleton<GameManager>.Instance.GetRecipeParam(item.recipe);
-      if (!this.CheckItemCapacity(item, 1) || recipeParam.cost > this.Gold || !this.CheckCreateItem(item))
+      if (!this.CheckItemCapacity(item, 1) || recipeParam.cost > this.Gold || this.CheckCreateItem(item) == CreateItemResult.NotEnough)
         return false;
       this.GainGold(-recipeParam.cost);
       for (int index = 0; index < recipeParam.items.Length; ++index)
@@ -2589,7 +3062,7 @@ namespace SRPG
       Dictionary<string, int> consumes = (Dictionary<string, int>) null;
       bool is_ikkatsu = false;
       int cost = 0;
-      if (!this.CheckEnableCreateItem(item, ref is_ikkatsu, ref cost, ref consumes) || cost > this.Gold)
+      if (!this.CheckEnableCreateItem(item, ref is_ikkatsu, ref cost, ref consumes, (NeedEquipItemList) null) || cost > this.Gold)
         return false;
       this.GainGold(-cost);
       if (consumes != null)
@@ -3002,7 +3475,7 @@ namespace SRPG
         this.mArtifacts = new List<ArtifactData>();
       if (artifact == null || this.mArtifacts.Contains(artifact))
         return;
-      this.mArtifacts.Add(artifact);
+      this.AddArtifact(artifact);
     }
 
     public void DEBUG_GAIN_ALL_ARTIFACT()
@@ -3022,7 +3495,7 @@ namespace SRPG
           json.fav = 0;
           ArtifactData artifactData = new ArtifactData();
           artifactData.Deserialize(json);
-          this.mArtifacts.Add(artifactData);
+          this.AddArtifact(artifactData);
         }
       }
     }
@@ -3030,6 +3503,7 @@ namespace SRPG
     public void DEBUG_TRASH_ALL_ARTIFACT()
     {
       this.mArtifacts.Clear();
+      this.mArtifactsNumByRarity.Clear();
     }
 
     public void LoadPlayerPrefs()
@@ -3045,6 +3519,8 @@ namespace SRPG
         this.mPaidCoin = (OInt) EditorPlayerPrefs.GetInt("PaidCoin");
       if (EditorPlayerPrefs.HasKey("FreeCoin"))
         this.mFreeCoin = (OInt) EditorPlayerPrefs.GetInt("FreeCoin");
+      if (EditorPlayerPrefs.HasKey("ComCoin"))
+        this.mComCoin = (OInt) EditorPlayerPrefs.GetInt("ComCoin");
       if (EditorPlayerPrefs.HasKey("TourCoin"))
         this.mTourCoin = (OInt) EditorPlayerPrefs.GetInt("TourCoin");
       if (EditorPlayerPrefs.HasKey("ArenaCoin"))
@@ -3102,7 +3578,7 @@ namespace SRPG
             {
               ArtifactData artifactData = new ArtifactData();
               artifactData.Deserialize(jsonObject);
-              this.mArtifacts.Add(artifactData);
+              this.AddArtifact(artifactData);
             }
           }
         }
@@ -3195,14 +3671,14 @@ namespace SRPG
               {
                 // ISSUE: object of a compiler-generated type is created
                 // ISSUE: variable of a compiler-generated type
-                PlayerData.\u003CLoadPlayerPrefs\u003Ec__AnonStorey202 prefsCAnonStorey202 = new PlayerData.\u003CLoadPlayerPrefs\u003Ec__AnonStorey202();
+                PlayerData.\u003CLoadPlayerPrefs\u003Ec__AnonStorey2AA prefsCAnonStorey2Aa = new PlayerData.\u003CLoadPlayerPrefs\u003Ec__AnonStorey2AA();
                 string key = str1 + "Job" + (object) job_index + "_" + "Artifact" + (object) slot + "_Iid";
                 if (EditorPlayerPrefs.HasKey(key))
                 {
                   // ISSUE: reference to a compiler-generated field
-                  prefsCAnonStorey202.iid = (long) EditorPlayerPrefs.GetInt(key);
+                  prefsCAnonStorey2Aa.iid = (long) EditorPlayerPrefs.GetInt(key);
                   // ISSUE: reference to a compiler-generated method
-                  ArtifactData artifactData = MonoSingleton<GameManager>.Instance.Player.Artifacts.Find(new Predicate<ArtifactData>(prefsCAnonStorey202.\u003C\u003Em__1D4));
+                  ArtifactData artifactData = MonoSingleton<GameManager>.Instance.Player.Artifacts.Find(new Predicate<ArtifactData>(prefsCAnonStorey2Aa.\u003C\u003Em__273));
                   if (artifactData != null)
                   {
                     Json_Artifact json2 = new Json_Artifact();
@@ -3227,7 +3703,7 @@ namespace SRPG
           }
         }
       }
-      for (int index1 = 0; index1 < 8; ++index1)
+      for (int index1 = 0; index1 < 9; ++index1)
       {
         Json_Party json = new Json_Party();
         PartyData partyData = new PartyData((PlayerPartyTypes) index1);
@@ -3294,7 +3770,7 @@ namespace SRPG
     public IEnumerator SavePlayerPrefsAsync()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new PlayerData.\u003CSavePlayerPrefsAsync\u003Ec__Iterator58() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new PlayerData.\u003CSavePlayerPrefsAsync\u003Ec__Iterator91() { \u003C\u003Ef__this = this };
     }
 
     private void InternalSavePlayerPrefsParty()
@@ -3337,6 +3813,48 @@ namespace SRPG
     public void ClearTrophies()
     {
       this.mTrophyStates = new List<TrophyState>();
+      this.mTrophyStatesInameDict = new Dictionary<string, List<TrophyState>>();
+    }
+
+    public void DeleteTrophies(JSON_TrophyProgress[] trophies)
+    {
+      // ISSUE: object of a compiler-generated type is created
+      // ISSUE: variable of a compiler-generated type
+      PlayerData.\u003CDeleteTrophies\u003Ec__AnonStorey2AB trophiesCAnonStorey2Ab = new PlayerData.\u003CDeleteTrophies\u003Ec__AnonStorey2AB();
+      // ISSUE: reference to a compiler-generated field
+      trophiesCAnonStorey2Ab.trophies = trophies;
+      // ISSUE: reference to a compiler-generated field
+      if (trophiesCAnonStorey2Ab.trophies == null)
+        return;
+      if (this.mTrophyStates != null)
+      {
+        // ISSUE: object of a compiler-generated type is created
+        // ISSUE: variable of a compiler-generated type
+        PlayerData.\u003CDeleteTrophies\u003Ec__AnonStorey2AC trophiesCAnonStorey2Ac = new PlayerData.\u003CDeleteTrophies\u003Ec__AnonStorey2AC();
+        // ISSUE: reference to a compiler-generated field
+        trophiesCAnonStorey2Ac.\u003C\u003Ef__ref\u0024683 = trophiesCAnonStorey2Ab;
+        // ISSUE: reference to a compiler-generated field
+        // ISSUE: reference to a compiler-generated field
+        // ISSUE: reference to a compiler-generated field
+        // ISSUE: reference to a compiler-generated field
+        for (trophiesCAnonStorey2Ac.i = 0; trophiesCAnonStorey2Ac.i < trophiesCAnonStorey2Ab.trophies.Length; ++trophiesCAnonStorey2Ac.i)
+        {
+          // ISSUE: reference to a compiler-generated method
+          this.mTrophyStates.RemoveAll(new Predicate<TrophyState>(trophiesCAnonStorey2Ac.\u003C\u003Em__274));
+        }
+      }
+      if (this.mTrophyStatesInameDict == null)
+        return;
+      // ISSUE: reference to a compiler-generated field
+      for (int index = 0; index < trophiesCAnonStorey2Ab.trophies.Length; ++index)
+      {
+        // ISSUE: reference to a compiler-generated field
+        if (this.mTrophyStatesInameDict.ContainsKey(trophiesCAnonStorey2Ab.trophies[index].iname))
+        {
+          // ISSUE: reference to a compiler-generated field
+          this.mTrophyStatesInameDict.Remove(trophiesCAnonStorey2Ab.trophies[index].iname);
+        }
+      }
     }
 
     public bool IsTrophyDirty()
@@ -3351,7 +3869,7 @@ namespace SRPG
 
     private void UpdateTrophyState(TrophyState st, int currentYMD)
     {
-      if (st.Param.Days != 1)
+      if (!st.Param.IsDaily)
         return;
       int startYmd = st.StartYMD;
       int num = Math.Abs(currentYMD.FromYMD().Subtract(startYmd.FromYMD()).Days);
@@ -3359,17 +3877,17 @@ namespace SRPG
       {
         if (num < 1)
           return;
-        this.ClearTrophyCounter(st.Param.iname);
+        this.ClearTrophyCounter(st);
       }
       else if (!st.IsCompleted)
       {
         if (num < 1)
           return;
-        this.ClearTrophyCounter(st.Param.iname);
+        this.ClearTrophyCounter(st);
       }
       else if (num >= 2)
       {
-        this.ClearTrophyCounter(st.Param.iname);
+        this.ClearTrophyCounter(st);
       }
       else
       {
@@ -3379,7 +3897,7 @@ namespace SRPG
         {
           if (st.Param.Objectives[index].type == TrophyConditionTypes.stamina)
           {
-            this.ClearTrophyCounter(st.Param.iname);
+            this.ClearTrophyCounter(st);
             break;
           }
         }
@@ -3402,24 +3920,23 @@ namespace SRPG
     {
       for (int index = 0; index < trophies.Length; ++index)
       {
-        TrophyState trophyCounter = this.GetTrophyCounter(trophies[index]);
+        TrophyState trophyCounter = this.GetTrophyCounter(trophies[index], true);
         trophyCounter.IsEnded = true;
         trophyCounter.IsDirty = true;
         trophyCounter.RewardedAt = TimeManager.ServerTime;
       }
     }
 
-    private void ClearTrophyCounter(string trophyID)
+    private void ClearTrophyCounter(TrophyState _st)
     {
-      for (int index = this.mTrophyStates.Count - 1; index >= 0; --index)
-      {
-        if (this.mTrophyStates[index].iname == trophyID)
-        {
-          Debug.Log((object) ("リセット: " + this.mTrophyStates[index].Param.Name));
-          this.mTrophyStates.RemoveAt(index);
-          break;
-        }
-      }
+      if (this.mTrophyStates.Contains(_st))
+        this.mTrophyStates.Remove(_st);
+      if (!this.mTrophyStatesInameDict.ContainsKey(_st.iname))
+        return;
+      this.mTrophyStatesInameDict[_st.iname].Remove(_st);
+      if (this.mTrophyStatesInameDict[_st.iname].Count > 0)
+        return;
+      this.mTrophyStatesInameDict.Remove(_st.iname);
     }
 
     public TrophyState[] TrophyStates
@@ -3441,26 +3958,123 @@ namespace SRPG
       }
     }
 
-    public TrophyState GetTrophyCounter(TrophyParam trophy)
+    public TrophyState RegistTrophyStateDictByProg(TrophyParam _trophy, JSON_TrophyProgress _prog)
     {
-      for (int index = this.mTrophyStates.Count - 1; index >= 0; --index)
+      TrophyState trophyState = this.CreateTrophyState(_trophy);
+      for (int index = 0; index < _prog.pts.Length && index < trophyState.Count.Length; ++index)
+        trophyState.Count[index] = _prog.pts[index];
+      trophyState.StartYMD = _prog.ymd;
+      trophyState.IsEnded = _prog.rewarded_at != 0;
+      trophyState.RewardedAt = DateTime.MinValue;
+      if (_prog.rewarded_at != 0)
       {
-        if (this.mTrophyStates[index].iname == trophy.iname)
-          return this.mTrophyStates[index];
+        try
+        {
+          trophyState.RewardedAt = _prog.rewarded_at.FromYMD();
+        }
+        catch
+        {
+          trophyState.RewardedAt = DateTime.MinValue;
+        }
       }
-      TrophyState trophyState = new TrophyState();
-      trophyState.iname = trophy.iname;
-      trophyState.StartYMD = TimeManager.ServerTime.ToYMD();
-      trophyState.Count = new int[trophy.Objectives.Length];
-      trophyState.IsDirty = false;
-      trophyState.Param = trophy;
-      this.mTrophyStates.Add(trophyState);
+      this.AddTrophyStateDict(trophyState);
       return trophyState;
+    }
+
+    public void RegistTrophyStateDictByProgExtra(JSON_TrophyProgress[] _prog)
+    {
+      if (_prog == null || _prog.Length <= 0)
+        return;
+      for (int index = 0; index < _prog.Length; ++index)
+        MonoSingleton<GameManager>.Instance.Player.RegistTrophyStateDictByProgExtra(MonoSingleton<GameManager>.Instance.MasterParam.GetTrophy(_prog[index].iname), _prog[index]);
+    }
+
+    public void RegistTrophyStateDictByProgExtra(TrophyParam _trophy, JSON_TrophyProgress _prog)
+    {
+      if (!this.mTrophyStatesInameDict.ContainsKey(_trophy.iname))
+        this.AddTrophyStateDict(this.CreateTrophyState(_trophy));
+      TrophyState trophyState = this.mTrophyStatesInameDict[_trophy.iname].Find((Predicate<TrophyState>) (x => x.iname == _trophy.iname));
+      if (trophyState == null || trophyState.IsCompleted)
+        return;
+      for (int index = 0; index < _trophy.Objectives.Length && index < _prog.pts.Length && index < trophyState.Count.Length; ++index)
+        trophyState.Count[index] = Math.Min(_prog.pts[index], _trophy.Objectives[index].ival);
+      if (trophyState.IsCompleted && trophyState.Param.DispType == TrophyDispType.Award)
+        NotifyList.PushAward(trophyState.Param);
+      trophyState.StartYMD = _prog.ymd;
+      trophyState.IsEnded = _prog.rewarded_at != 0;
+      trophyState.IsDirty = true;
+    }
+
+    public void CreateInheritingExtraTrophy(Dictionary<int, List<JSON_TrophyProgress>> progs)
+    {
+      TrophyParam[] trophies = MonoSingleton<GameManager>.Instance.MasterParam.Trophies;
+      for (int index1 = 0; index1 < trophies.Length; ++index1)
+      {
+        // ISSUE: object of a compiler-generated type is created
+        // ISSUE: variable of a compiler-generated type
+        PlayerData.\u003CCreateInheritingExtraTrophy\u003Ec__AnonStorey2AE trophyCAnonStorey2Ae = new PlayerData.\u003CCreateInheritingExtraTrophy\u003Ec__AnonStorey2AE();
+        // ISSUE: reference to a compiler-generated field
+        trophyCAnonStorey2Ae.param = trophies[index1];
+        if (trophies[index1].Objectives[0].type.IsExtraClear())
+        {
+          int type = (int) trophies[index1].Objectives[0].type;
+          if (progs.ContainsKey(type))
+          {
+            List<JSON_TrophyProgress> prog = progs[type];
+            // ISSUE: reference to a compiler-generated method
+            if (prog.Find(new Predicate<JSON_TrophyProgress>(trophyCAnonStorey2Ae.\u003C\u003Em__276)) == null)
+            {
+              int num = 0;
+              for (int index2 = 0; index2 < prog.Count; ++index2)
+              {
+                if (num < prog[index2].pts[0])
+                  num = prog[index2].pts[0];
+              }
+              // ISSUE: reference to a compiler-generated field
+              TrophyState trophyState = this.CreateTrophyState(trophyCAnonStorey2Ae.param);
+              trophyState.Count[0] = num;
+              this.AddTrophyStateDict(trophyState);
+            }
+          }
+        }
+      }
+    }
+
+    public TrophyState GetTrophyCounter(TrophyParam trophy, bool daily_old_data = false)
+    {
+      List<TrophyState> trophyStateList;
+      if (this.mTrophyStatesInameDict.TryGetValue(trophy.iname, out trophyStateList))
+      {
+        if (!trophy.IsDaily || daily_old_data)
+          return trophyStateList[0];
+        for (int index = 0; index < trophyStateList.Count; ++index)
+        {
+          if (trophyStateList[index].StartYMD == TimeManager.ServerTime.ToYMD())
+            return trophyStateList[index];
+        }
+      }
+      TrophyState trophyState = this.CreateTrophyState(trophy);
+      this.AddTrophyStateDict(trophyState);
+      return trophyState;
+    }
+
+    private TrophyState CreateTrophyState(TrophyParam _trophy)
+    {
+      return new TrophyState() { iname = _trophy.iname, StartYMD = TimeManager.ServerTime.ToYMD(), Count = new int[_trophy.Objectives.Length], IsDirty = false, Param = _trophy };
+    }
+
+    private void AddTrophyStateDict(TrophyState _state)
+    {
+      this.mTrophyStates.Add(_state);
+      if (!this.mTrophyStatesInameDict.ContainsKey(_state.iname))
+        this.mTrophyStatesInameDict.Add(_state.iname, new List<TrophyState>());
+      this.mTrophyStatesInameDict[_state.iname].Add(_state);
+      this.mTrophyStatesInameDict[_state.iname].Sort((Comparison<TrophyState>) ((a, b) => a.StartYMD - b.StartYMD));
     }
 
     private bool IsMakeTrophyPlate(TrophyParam trophy, TrophyState st, bool is_achievement)
     {
-      return !trophy.IsInvisibleVip() && !trophy.IsInvisibleCard() && !trophy.IsInvisibleStamina() && ((trophy.RequiredTrophies == null || TrophyParam.CheckRequiredTrophies(MonoSingleton<GameManager>.Instance, trophy, true)) && trophy.IsAvailablePeriod(TimeManager.ServerTime, is_achievement));
+      return !trophy.IsInvisibleVip() && !trophy.IsInvisibleCard() && !trophy.IsInvisibleStamina() && ((trophy.RequiredTrophies == null || TrophyParam.CheckRequiredTrophies(MonoSingleton<GameManager>.Instance, trophy, true, true)) && trophy.IsAvailablePeriod(TimeManager.ServerTime, is_achievement));
     }
 
     public void DailyAllCompleteCheck()
@@ -3483,7 +4097,7 @@ namespace SRPG
         return true;
       TrophyState[] trophyStateArray = new TrophyState[trophies.Length];
       for (int index = 0; index < trophies.Length; ++index)
-        trophyStateArray[index] = !trophies[index].IsChallengeMission ? player.GetTrophyCounter(trophies[index]) : (TrophyState) null;
+        trophyStateArray[index] = !trophies[index].IsChallengeMission ? player.GetTrophyCounter(trophies[index], false) : (TrophyState) null;
       for (int index1 = 0; index1 < trophies.Length; ++index1)
       {
         TrophyState st = trophyStateArray[index1];
@@ -3499,11 +4113,29 @@ namespace SRPG
               break;
             }
           }
-          if (!flag && trophy.DispType != TrophyDispType.Award && (trophy.DispType != TrophyDispType.Hide && trophy.Days == 1) && this.IsMakeTrophyPlate(trophy, st, false))
+          if (!flag && trophy.DispType != TrophyDispType.Award && (trophy.DispType != TrophyDispType.Hide && trophy.IsDaily) && this.IsMakeTrophyPlate(trophy, st, false))
             return false;
         }
       }
       return true;
+    }
+
+    private bool CheckTrophyCount(TrophyParam trophyParam, int countIndex, int value, ref TrophyState state)
+    {
+      if (countIndex < 0 || value <= 0 || (trophyParam == null || !trophyParam.IsAvailablePeriod(this.GetMissionClearAt(), false)) || trophyParam.RequiredTrophies != null && !TrophyParam.CheckRequiredTrophies(MonoSingleton<GameManager>.Instance, trophyParam, trophyParam.IsChallengeMission, true))
+        return false;
+      state = this.GetTrophyCounter(trophyParam, false);
+      if (state.IsEnded)
+        return false;
+      if (state.Count.Length <= countIndex)
+        Array.Resize<int>(ref state.Count, countIndex + 1);
+      return !state.IsCompleted;
+    }
+
+    private bool CheckDailyMissionDayChange(TrophyState state, int countIndex)
+    {
+      int ymd = this.GetMissionClearAt().ToYMD();
+      return !state.Param.IsDaily || ymd <= state.StartYMD || state.IsCompleted;
     }
 
     public void AddTrophyCounter(TrophyObjective obj, int value)
@@ -3520,42 +4152,48 @@ namespace SRPG
 
     private bool AddTrophyCounterExec(TrophyParam trophyParam, int countIndex, int value)
     {
-      if (countIndex < 0 || value <= 0 || (trophyParam == null || !trophyParam.IsAvailablePeriod(this.GetMissionClearAt(), false)) || trophyParam.RequiredTrophies != null && !TrophyParam.CheckRequiredTrophies(MonoSingleton<GameManager>.Instance, trophyParam, trophyParam.IsChallengeMission))
+      TrophyState state = (TrophyState) null;
+      if (!this.CheckTrophyCount(trophyParam, countIndex, value, ref state))
         return false;
-      TrophyState trophyCounter = this.GetTrophyCounter(trophyParam);
-      if (trophyCounter.IsEnded)
-        return false;
-      if (trophyCounter.Count.Length <= countIndex)
-        Array.Resize<int>(ref trophyCounter.Count, countIndex + 1);
-      if (trophyCounter.IsCompleted)
-        return false;
-      trophyCounter.Count[countIndex] += value;
-      int ymd = this.GetMissionClearAt().ToYMD();
-      if (trophyCounter.Param.Days == 1 && ymd > trophyCounter.StartYMD && !trophyCounter.IsCompleted)
+      int num = state.Count[countIndex];
+      state.Count[countIndex] += value;
+      if (!this.CheckDailyMissionDayChange(state, countIndex))
       {
-        trophyCounter.Count[countIndex] -= value;
+        state.Count[countIndex] = num;
         return false;
       }
-      trophyCounter.IsDirty = true;
+      state.IsDirty = true;
       MonoSingleton<GameManager>.Instance.update_trophy_interval.SetSyncNow();
-      return trophyCounter.IsCompleted;
+      return state.IsCompleted;
+    }
+
+    public void SetTrophyCounter(TrophyObjective obj, int value)
+    {
+      this.SetTrophyCounter(obj.Param, obj.index, value);
     }
 
     private void SetTrophyCounter(TrophyParam trophyParam, int countIndex, int value)
     {
-      if (countIndex < 0)
+      if (!this.SetTrophyCounterExec(trophyParam, countIndex, value))
         return;
-      TrophyState trophyCounter = this.GetTrophyCounter(trophyParam);
-      if (trophyCounter.IsEnded)
-        return;
-      if (trophyCounter.Count.Length <= countIndex)
+      this.DailyAllCompleteCheck();
+    }
+
+    private bool SetTrophyCounterExec(TrophyParam trophyParam, int countIndex, int value)
+    {
+      TrophyState state = (TrophyState) null;
+      if (!this.CheckTrophyCount(trophyParam, countIndex, value, ref state) || state.Count[countIndex] == value)
+        return false;
+      int num = state.Count[countIndex];
+      state.Count[countIndex] = value;
+      if (!this.CheckDailyMissionDayChange(state, countIndex))
       {
-        Array.Resize<int>(ref trophyCounter.Count, countIndex + 1);
-        trophyCounter.IsDirty = true;
+        state.Count[countIndex] = num;
+        return false;
       }
-      else
-        trophyCounter.IsDirty = value != trophyCounter.Count[countIndex];
-      trophyCounter.Count[countIndex] = value;
+      state.IsDirty = true;
+      MonoSingleton<GameManager>.Instance.update_trophy_interval.SetSyncNow();
+      return state.IsCompleted;
     }
 
     public void OnQuestStart(string questID)
@@ -3589,7 +4227,7 @@ namespace SRPG
           }
         }
       }
-      if (!quest.IsVersus || GlobalVars.ResumeMultiplayPlayerID != 0)
+      if (!quest.IsMultiTower || GlobalVars.ResumeMultiplayPlayerID != 0)
         return;
       TrophyParam[] trophies1 = MonoSingleton<GameManager>.Instance.Trophies;
       for (int index = trophies1.Length - 1; index >= 0; --index)
@@ -3597,13 +4235,13 @@ namespace SRPG
         TrophyParam trophyParam = trophies1[index];
         for (int countIndex = trophyParam.Objectives.Length - 1; countIndex >= 0; --countIndex)
         {
-          if (trophyParam.Objectives[countIndex].type == TrophyConditionTypes.vs)
+          if (trophyParam.Objectives[countIndex].type == TrophyConditionTypes.multitower)
             this.AddTrophyCounter(trophyParam, countIndex, 1);
         }
       }
     }
 
-    public void OnQuestWin(string questID)
+    public void OnQuestWin(string questID, BattleCore.Record battleRecord = null)
     {
       QuestParam quest = MonoSingleton<GameManager>.Instance.FindQuest(questID);
       if (questID == null || quest.type == QuestTypes.Tutorial)
@@ -3612,14 +4250,38 @@ namespace SRPG
       for (int index = trophiesOfType1.Length - 1; index >= 0; --index)
       {
         TrophyObjective trophyObjective = trophiesOfType1[index];
-        if (!string.IsNullOrEmpty(trophyObjective.sval))
+        if (!string.IsNullOrEmpty(trophyObjective.sval_base))
         {
-          if (trophyObjective.sval != questID)
+          if (!trophyObjective.sval.Contains(questID))
             continue;
         }
         else if (quest.IsEvent || quest.type == QuestTypes.Arena || (quest.IsMulti || quest.type == QuestTypes.Character) || (quest.difficulty != QuestDifficulties.Normal || quest.type == QuestTypes.Tower || quest.IsVersus))
           continue;
         this.AddTrophyCounter(trophyObjective, 1);
+      }
+      if (battleRecord != null)
+      {
+        TrophyObjective[] trophiesOfType2 = MonoSingleton<GameManager>.Instance.GetTrophiesOfType(TrophyConditionTypes.complete_all_quest_mission);
+        for (int index1 = trophiesOfType2.Length - 1; index1 >= 0; --index1)
+        {
+          if (!(trophiesOfType2[index1].sval_base != questID))
+          {
+            int num = 0;
+            for (int index2 = 0; index2 < quest.bonusObjective.Length; ++index2)
+            {
+              if ((battleRecord.allBonusFlags & 1 << index2) != 0)
+                ++num;
+            }
+            if (num >= quest.bonusObjective.Length)
+              this.AddTrophyCounter(trophiesOfType2[index1], 1);
+          }
+        }
+      }
+      if (quest.difficulty == QuestDifficulties.Extra)
+      {
+        TrophyObjective[] trophiesOfType2 = MonoSingleton<GameManager>.Instance.GetTrophiesOfType(TrophyConditionTypes.winstory_extra);
+        for (int index = trophiesOfType2.Length - 1; index >= 0; --index)
+          this.AddTrophyCounter(trophiesOfType2[index], 1);
       }
       if (quest.difficulty == QuestDifficulties.Elite)
       {
@@ -3651,14 +4313,14 @@ namespace SRPG
         for (int index = trophiesOfType2.Length - 1; index >= 0; --index)
         {
           TrophyObjective trophyObjective = trophiesOfType2[index];
-          if (string.IsNullOrEmpty(trophyObjective.sval) || trophyObjective.sval == questID)
+          if (string.IsNullOrEmpty(trophyObjective.sval_base) || trophyObjective.sval_base == questID)
             this.AddTrophyCounter(trophyObjective, 1);
         }
         TrophyObjective[] trophiesOfType3 = MonoSingleton<GameManager>.Instance.GetTrophiesOfType(TrophyConditionTypes.winmultimore);
         for (int index = trophiesOfType3.Length - 1; index >= 0; --index)
         {
           TrophyObjective trophyObjective = trophiesOfType3[index];
-          if (string.IsNullOrEmpty(trophyObjective.sval) || trophyObjective.sval == questID)
+          if (string.IsNullOrEmpty(trophyObjective.sval_base) || trophyObjective.sval_base == questID)
           {
             List<JSON_MyPhotonPlayerParam> myPlayersStarted = PunMonoSingleton<MyPhoton>.Instance.GetMyPlayersStarted();
             if (myPlayersStarted != null && myPlayersStarted.Count >= trophyObjective.ival)
@@ -3669,7 +4331,7 @@ namespace SRPG
         for (int index = trophiesOfType4.Length - 1; index >= 0; --index)
         {
           TrophyObjective trophyObjective = trophiesOfType4[index];
-          if (string.IsNullOrEmpty(trophyObjective.sval) || trophyObjective.sval == questID)
+          if (string.IsNullOrEmpty(trophyObjective.sval_base) || trophyObjective.sval_base == questID)
           {
             List<JSON_MyPhotonPlayerParam> myPlayersStarted = PunMonoSingleton<MyPhoton>.Instance.GetMyPlayersStarted();
             if (myPlayersStarted != null && myPlayersStarted.Count <= trophyObjective.ival)
@@ -3683,8 +4345,19 @@ namespace SRPG
         for (int index = trophiesOfType2.Length - 1; index >= 0; --index)
         {
           TrophyObjective trophyObjective = trophiesOfType2[index];
-          if (string.IsNullOrEmpty(trophyObjective.sval) || trophyObjective.sval == questID)
+          if (string.IsNullOrEmpty(trophyObjective.sval_base) || trophyObjective.sval_base == questID)
             this.AddTrophyCounter(trophyObjective, 1);
+        }
+        TowerFloorParam towerFloor = MonoSingleton<GameManager>.Instance.FindTowerFloor(questID);
+        if (towerFloor != null)
+        {
+          TrophyObjective[] trophiesOfType3 = MonoSingleton<GameManager>.Instance.GetTrophiesOfType(TrophyConditionTypes.tower);
+          for (int index = trophiesOfType3.Length - 1; index >= 0; --index)
+          {
+            TrophyObjective trophyObjective = trophiesOfType3[index];
+            if (string.IsNullOrEmpty(trophyObjective.sval_base) || trophyObjective.sval_base == towerFloor.tower_id)
+              this.AddTrophyCounter(trophyObjective, 1);
+          }
         }
       }
       if (!quest.IsVersus)
@@ -3693,7 +4366,14 @@ namespace SRPG
       for (int index = trophiesOfType5.Length - 1; index >= 0; --index)
       {
         TrophyObjective trophyObjective = trophiesOfType5[index];
-        if (string.IsNullOrEmpty(trophyObjective.sval) || trophyObjective.sval == questID)
+        if (string.IsNullOrEmpty(trophyObjective.sval_base) || trophyObjective.sval_base == questID)
+          this.AddTrophyCounter(trophyObjective, 1);
+      }
+      TrophyObjective[] trophiesOfType6 = MonoSingleton<GameManager>.Instance.GetTrophiesOfType(TrophyConditionTypes.vs);
+      for (int index = trophiesOfType6.Length - 1; index >= 0; --index)
+      {
+        TrophyObjective trophyObjective = trophiesOfType6[index];
+        if (string.IsNullOrEmpty(trophyObjective.sval_base) || trophyObjective.sval_base == questID)
           this.AddTrophyCounter(trophyObjective, 1);
       }
     }
@@ -3707,9 +4387,9 @@ namespace SRPG
       for (int index = trophiesOfType1.Length - 1; index >= 0; --index)
       {
         TrophyObjective trophyObjective = trophiesOfType1[index];
-        if (!string.IsNullOrEmpty(trophyObjective.sval))
+        if (!string.IsNullOrEmpty(trophyObjective.sval_base))
         {
-          if (trophyObjective.sval != questID)
+          if (!trophyObjective.sval.Contains(questID))
             continue;
         }
         else if (quest.IsEvent || quest.type == QuestTypes.Arena || (quest.IsMulti || quest.type == QuestTypes.Character) || (quest.difficulty != QuestDifficulties.Normal || quest.type == QuestTypes.Tower || quest.IsVersus))
@@ -3740,23 +4420,49 @@ namespace SRPG
         for (int index = trophiesOfType2.Length - 1; index >= 0; --index)
         {
           TrophyObjective trophyObjective = trophiesOfType2[index];
-          if (string.IsNullOrEmpty(trophyObjective.sval) || trophyObjective.sval == questID)
+          if (string.IsNullOrEmpty(trophyObjective.sval_base) || trophyObjective.sval_base == questID)
             this.AddTrophyCounter(trophyObjective, 1);
+        }
+        TowerFloorParam towerFloor = MonoSingleton<GameManager>.Instance.FindTowerFloor(questID);
+        if (towerFloor != null)
+        {
+          TrophyObjective[] trophiesOfType3 = MonoSingleton<GameManager>.Instance.GetTrophiesOfType(TrophyConditionTypes.tower);
+          for (int index = trophiesOfType3.Length - 1; index >= 0; --index)
+          {
+            TrophyObjective trophyObjective = trophiesOfType3[index];
+            if (string.IsNullOrEmpty(trophyObjective.sval_base) || trophyObjective.sval_base == towerFloor.tower_id)
+              this.AddTrophyCounter(trophyObjective, 1);
+          }
         }
       }
       if (!quest.IsVersus)
         return;
-      TrophyObjective[] trophiesOfType3 = MonoSingleton<GameManager>.Instance.GetTrophiesOfType(TrophyConditionTypes.vslose);
-      for (int index = trophiesOfType3.Length - 1; index >= 0; --index)
+      TrophyObjective[] trophiesOfType4 = MonoSingleton<GameManager>.Instance.GetTrophiesOfType(TrophyConditionTypes.vslose);
+      for (int index = trophiesOfType4.Length - 1; index >= 0; --index)
       {
-        TrophyObjective trophyObjective = trophiesOfType3[index];
-        if (string.IsNullOrEmpty(trophyObjective.sval) || trophyObjective.sval == questID)
+        TrophyObjective trophyObjective = trophiesOfType4[index];
+        if (string.IsNullOrEmpty(trophyObjective.sval_base) || trophyObjective.sval_base == questID)
+          this.AddTrophyCounter(trophyObjective, 1);
+      }
+      TrophyObjective[] trophiesOfType5 = MonoSingleton<GameManager>.Instance.GetTrophiesOfType(TrophyConditionTypes.vs);
+      for (int index = trophiesOfType5.Length - 1; index >= 0; --index)
+      {
+        TrophyObjective trophyObjective = trophiesOfType5[index];
+        if (string.IsNullOrEmpty(trophyObjective.sval_base) || trophyObjective.sval_base == questID)
           this.AddTrophyCounter(trophyObjective, 1);
       }
     }
 
     public void OnGoldChange(int delta)
     {
+      if (delta == 0)
+        return;
+      TrophyObjective[] trophiesOfType = MonoSingleton<GameManager>.Instance.GetTrophiesOfType(TrophyConditionTypes.has_gold_over);
+      for (int index = trophiesOfType.Length - 1; index >= 0; --index)
+      {
+        if (this.Gold >= trophiesOfType[index].ival)
+          this.AddTrophyCounter(trophiesOfType[index], 1);
+      }
     }
 
     public void OnCoinChange(int delta)
@@ -3771,7 +4477,7 @@ namespace SRPG
       for (int index = trophiesOfType.Length - 1; index >= 0; --index)
       {
         TrophyObjective trophyObjective = trophiesOfType[index];
-        if (trophyObjective.sval == itemID)
+        if (trophyObjective.sval_base == itemID)
           this.AddTrophyCounter(trophyObjective, delta);
       }
     }
@@ -3795,8 +4501,20 @@ namespace SRPG
       for (int index = trophiesOfType.Length - 1; index >= 0; --index)
       {
         TrophyObjective trophyObjective = trophiesOfType[index];
-        if (trophyObjective.sval == enemyID)
+        if (trophyObjective.sval_base == enemyID)
           this.AddTrophyCounter(trophyObjective, 1);
+      }
+    }
+
+    public void OnDamageToEnemy(Unit unit, Unit target, int damage)
+    {
+      if (unit == null || unit.Side != EUnitSide.Player || (!unit.IsPartyMember || target == null) || (target.Side != EUnitSide.Enemy || UnityEngine.Object.op_Equality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null) || SceneBattle.Instance.IsPlayingArenaQuest) || SceneBattle.Instance.Battle != null && SceneBattle.Instance.Battle.IsMultiPlay && (PunMonoSingleton<MyPhoton>.Instance.MyPlayerIndex <= 0 || PunMonoSingleton<MyPhoton>.Instance.MyPlayerIndex != unit.OwnerPlayerIndex))
+        return;
+      TrophyObjective[] trophiesOfType = MonoSingleton<GameManager>.Instance.GetTrophiesOfType(TrophyConditionTypes.damage_over);
+      for (int index = trophiesOfType.Length - 1; index >= 0; --index)
+      {
+        if (trophiesOfType[index].ival <= damage)
+          this.AddTrophyCounter(trophiesOfType[index], 1);
       }
     }
 
@@ -3814,14 +4532,14 @@ namespace SRPG
         TrophyObjective trophyObjective = trophiesOfType1[index];
         if (trophyObjective.ival <= level)
         {
-          if (string.IsNullOrEmpty(trophyObjective.sval))
+          if (string.IsNullOrEmpty(trophyObjective.sval_base))
           {
             this.AddTrophyCounter(trophyObjective, 1);
           }
           else
           {
             char[] chArray = new char[1]{ ',' };
-            string[] strArray = trophyObjective.sval.Split(chArray);
+            string[] strArray = trophyObjective.sval_base.Split(chArray);
             if ((string.IsNullOrEmpty(strArray[1]) || abilityID == strArray[1]) && (string.IsNullOrEmpty(strArray[0]) || unitID == strArray[0]))
               this.AddTrophyCounter(trophyObjective, 1);
           }
@@ -3867,17 +4585,17 @@ namespace SRPG
       for (int index = trophiesOfType.Length - 1; index >= 0; --index)
       {
         TrophyObjective trophyObjective = trophiesOfType[index];
-        if (trophyObjective.sval == "normal")
+        if (trophyObjective.sval_base == "normal")
         {
           if (type != GachaTypes.Normal)
             continue;
         }
-        else if (trophyObjective.sval == "rare")
+        else if (trophyObjective.sval_base == "rare")
         {
           if (type != GachaTypes.Rare)
             continue;
         }
-        else if (trophyObjective.sval == "vip" && type != GachaTypes.Vip)
+        else if (trophyObjective.sval_base == "vip" && type != GachaTypes.Vip)
           continue;
         this.AddTrophyCounter(trophyObjective, count);
       }
@@ -3893,7 +4611,7 @@ namespace SRPG
         for (int index = trophiesOfType.Length - 1; index >= 0; --index)
         {
           TrophyObjective trophyObjective = trophiesOfType[index];
-          if (trophyObjective.sval == unitID && trophyObjective.ival <= level)
+          if (trophyObjective.sval_base == unitID && trophyObjective.ival <= level)
             this.AddTrophyCounter(trophyObjective, delta);
         }
       }
@@ -3903,7 +4621,7 @@ namespace SRPG
         for (int index = trophiesOfType.Length - 1; index >= 0; --index)
         {
           TrophyObjective trophyObjective = trophiesOfType[index];
-          if (string.IsNullOrEmpty(trophyObjective.sval) || trophyObjective.sval == unitID)
+          if (string.IsNullOrEmpty(trophyObjective.sval_base) || trophyObjective.sval_base == unitID)
             this.AddTrophyCounter(trophyObjective, delta);
         }
       }
@@ -3911,7 +4629,7 @@ namespace SRPG
       for (int index = trophiesOfType1.Length - 1; index >= 0; --index)
       {
         TrophyObjective trophyObjective = trophiesOfType1[index];
-        if (trophyObjective.ival <= level && (string.IsNullOrEmpty(trophyObjective.sval) || trophyObjective.sval == unitID))
+        if (trophyObjective.ival <= level && (string.IsNullOrEmpty(trophyObjective.sval_base) || trophyObjective.sval_base == unitID))
           this.AddTrophyCounter(trophyObjective, 1);
       }
     }
@@ -3922,19 +4640,19 @@ namespace SRPG
       for (int index = trophiesOfType1.Length - 1; index >= 0; --index)
       {
         TrophyObjective trophyObjective = trophiesOfType1[index];
-        if (trophyObjective.sval == unitID && trophyObjective.ival <= rarity)
+        if (trophyObjective.sval_base == unitID && trophyObjective.ival <= rarity)
           this.AddTrophyCounter(trophyObjective, 1);
       }
       TrophyObjective[] trophiesOfType2 = MonoSingleton<GameManager>.Instance.GetTrophiesOfType(TrophyConditionTypes.evoltiontimes);
       for (int index = trophiesOfType2.Length - 1; index >= 0; --index)
       {
         TrophyObjective trophyObjective = trophiesOfType2[index];
-        if (string.IsNullOrEmpty(trophyObjective.sval) || trophyObjective.sval == unitID)
+        if (string.IsNullOrEmpty(trophyObjective.sval_base) || trophyObjective.sval_base == unitID)
           this.AddTrophyCounter(trophyObjective, 1);
       }
     }
 
-    public void OnJobLevelChange(string unitID, string jobID, int rank, bool verify = false)
+    public void OnJobLevelChange(string unitID, string jobID, int rank, bool verify = false, int rankDelta = 1)
     {
       char[] chArray = new char[1]{ ',' };
       TrophyObjective[] trophiesOfType1 = MonoSingleton<GameManager>.Instance.GetTrophiesOfType(TrophyConditionTypes.joblevel);
@@ -3943,7 +4661,7 @@ namespace SRPG
         for (int index = trophiesOfType1.Length - 1; index >= 0; --index)
         {
           TrophyObjective trophyObjective = trophiesOfType1[index];
-          string[] strArray = trophyObjective.sval.Split(chArray);
+          string[] strArray = trophyObjective.sval_base.Split(chArray);
           if (strArray[0] == unitID && strArray[1] == jobID && trophyObjective.ival <= rank)
             this.AddTrophyCounter(trophyObjective, 1);
         }
@@ -3954,15 +4672,15 @@ namespace SRPG
         for (int index = trophiesOfType2.Length - 1; index >= 0; --index)
         {
           TrophyObjective trophyObjective = trophiesOfType2[index];
-          if (string.IsNullOrEmpty(trophyObjective.sval))
+          if (string.IsNullOrEmpty(trophyObjective.sval_base))
           {
-            this.AddTrophyCounter(trophyObjective, 1);
+            this.AddTrophyCounter(trophyObjective, rankDelta);
           }
           else
           {
-            string[] strArray = trophyObjective.sval.Split(chArray);
+            string[] strArray = trophyObjective.sval_base.Split(chArray);
             if (strArray[0] == unitID && strArray[1] == jobID)
-              this.AddTrophyCounter(trophyObjective, 1);
+              this.AddTrophyCounter(trophyObjective, rankDelta);
           }
         }
       }
@@ -3972,18 +4690,25 @@ namespace SRPG
         TrophyObjective trophyObjective = trophiesOfType3[index];
         if (trophyObjective.ival <= rank)
         {
-          if (string.IsNullOrEmpty(trophyObjective.sval))
+          if (string.IsNullOrEmpty(trophyObjective.sval_base))
           {
             this.AddTrophyCounter(trophyObjective, 1);
           }
           else
           {
-            string[] strArray = trophyObjective.sval.Split(chArray);
+            string[] strArray = trophyObjective.sval_base.Split(chArray);
             if (strArray[0] == unitID && strArray[1] == jobID)
               this.AddTrophyCounter(trophyObjective, 1);
           }
         }
       }
+    }
+
+    public void OnMultiTowerHelp()
+    {
+      TrophyObjective[] trophiesOfType = MonoSingleton<GameManager>.Instance.GetTrophiesOfType(TrophyConditionTypes.multitower_help);
+      for (int index = trophiesOfType.Length - 1; index >= 0; --index)
+        this.AddTrophyCounter(trophiesOfType[index], 1);
     }
 
     public void OnLoginCount()
@@ -3997,25 +4722,33 @@ namespace SRPG
       }
     }
 
+    public void OnLogin()
+    {
+      MonoSingleton<GameManager>.Instance.Player.UpdateUnitTrophyStates(true);
+      MonoSingleton<GameManager>.Instance.Player.UpdatePlayerTrophyStates();
+      MonoSingleton<GameManager>.Instance.Player.UpdateArenaRankTrophyStates(-1, -1);
+      MonoSingleton<GameManager>.Instance.Player.UpdateArtifactTrophyStates();
+    }
+
     public void OnSoubiSet(string unitID, int countUp = 1)
     {
       TrophyObjective[] trophiesOfType = MonoSingleton<GameManager>.Instance.GetTrophiesOfType(TrophyConditionTypes.unitequip);
       for (int index = trophiesOfType.Length - 1; index >= 0; --index)
       {
         TrophyObjective trophyObjective = trophiesOfType[index];
-        if (string.IsNullOrEmpty(trophyObjective.sval) || trophyObjective.sval == unitID)
+        if (string.IsNullOrEmpty(trophyObjective.sval_base) || trophyObjective.sval_base == unitID)
           this.AddTrophyCounter(trophyObjective, countUp);
       }
     }
 
-    public void OnLimitBreak(string unitID)
+    public void OnLimitBreak(string unitID, int delta = 1)
     {
       TrophyObjective[] trophiesOfType = MonoSingleton<GameManager>.Instance.GetTrophiesOfType(TrophyConditionTypes.limitbreak);
       for (int index = trophiesOfType.Length - 1; index >= 0; --index)
       {
         TrophyObjective trophyObjective = trophiesOfType[index];
-        if (string.IsNullOrEmpty(trophyObjective.sval) || trophyObjective.sval == unitID)
-          this.AddTrophyCounter(trophyObjective, 1);
+        if (string.IsNullOrEmpty(trophyObjective.sval_base) || trophyObjective.sval_base == unitID)
+          this.AddTrophyCounter(trophyObjective, delta);
       }
     }
 
@@ -4025,7 +4758,7 @@ namespace SRPG
       for (int index = trophiesOfType.Length - 1; index >= 0; --index)
       {
         TrophyObjective trophyObjective = trophiesOfType[index];
-        if (string.IsNullOrEmpty(trophyObjective.sval) || trophyObjective.sval == unitID)
+        if (string.IsNullOrEmpty(trophyObjective.sval_base) || trophyObjective.sval_base == unitID)
           this.AddTrophyCounter(trophyObjective, 1);
       }
     }
@@ -4036,7 +4769,7 @@ namespace SRPG
       for (int index = trophiesOfType.Length - 1; index >= 0; --index)
       {
         TrophyObjective trophyObjective = trophiesOfType[index];
-        if (string.IsNullOrEmpty(trophyObjective.sval) || trophyObjective.sval == unitID)
+        if (string.IsNullOrEmpty(trophyObjective.sval_base) || trophyObjective.sval_base == unitID)
           this.AddTrophyCounter(trophyObjective, 1);
       }
     }
@@ -4049,14 +4782,14 @@ namespace SRPG
       for (int index = trophiesOfType.Length - 1; index >= 0; --index)
       {
         TrophyObjective trophyObjective = trophiesOfType[index];
-        if (string.IsNullOrEmpty(trophyObjective.sval))
+        if (string.IsNullOrEmpty(trophyObjective.sval_base))
         {
           this.AddTrophyCounter(trophyObjective, num);
         }
         else
         {
           char[] chArray = new char[1]{ ',' };
-          string[] strArray = trophyObjective.sval.Split(chArray);
+          string[] strArray = trophyObjective.sval_base.Split(chArray);
           if ((string.IsNullOrEmpty(strArray[1]) || itemID == strArray[1]) && (string.IsNullOrEmpty(strArray[0]) || shopID == strArray[0]))
             this.AddTrophyCounter(trophyObjective, num);
         }
@@ -4069,19 +4802,37 @@ namespace SRPG
       for (int index = trophiesOfType.Length - 1; index >= 0; --index)
       {
         TrophyObjective trophyObjective = trophiesOfType[index];
-        if (string.IsNullOrEmpty(trophyObjective.sval) || trophyObjective.sval == artifactID)
+        if (string.IsNullOrEmpty(trophyObjective.sval_base) || trophyObjective.sval_base == artifactID)
           this.AddTrophyCounter(trophyObjective, 1);
       }
     }
 
-    public void OnArtifactStrength(string artifactID)
+    public void OnArtifactStrength(string artifactID, int useItemNum, int beforeLevel, int currentLevel)
     {
-      TrophyObjective[] trophiesOfType = MonoSingleton<GameManager>.Instance.GetTrophiesOfType(TrophyConditionTypes.artifactstrength);
-      for (int index = trophiesOfType.Length - 1; index >= 0; --index)
+      TrophyObjective[] trophiesOfType1 = MonoSingleton<GameManager>.Instance.GetTrophiesOfType(TrophyConditionTypes.artifactstrength);
+      for (int index = trophiesOfType1.Length - 1; index >= 0; --index)
       {
-        TrophyObjective trophyObjective = trophiesOfType[index];
-        if (string.IsNullOrEmpty(trophyObjective.sval) || trophyObjective.sval == artifactID)
-          this.AddTrophyCounter(trophyObjective, 1);
+        TrophyObjective trophyObjective = trophiesOfType1[index];
+        if (string.IsNullOrEmpty(trophyObjective.sval_base) || trophyObjective.sval_base == artifactID)
+          this.AddTrophyCounter(trophyObjective, useItemNum);
+      }
+      int num = currentLevel - beforeLevel;
+      if (num >= 1)
+      {
+        TrophyObjective[] trophiesOfType2 = MonoSingleton<GameManager>.Instance.GetTrophiesOfType(TrophyConditionTypes.upartifactlevel);
+        for (int index = trophiesOfType2.Length - 1; index >= 0; --index)
+        {
+          TrophyObjective trophyObjective = trophiesOfType2[index];
+          if (string.IsNullOrEmpty(trophyObjective.sval_base) || string.Equals(trophyObjective.sval_base, artifactID))
+            this.AddTrophyCounter(trophyObjective, num);
+        }
+      }
+      TrophyObjective[] trophiesOfType3 = MonoSingleton<GameManager>.Instance.GetTrophiesOfType(TrophyConditionTypes.makeartifactlevel);
+      for (int index = trophiesOfType3.Length - 1; index >= 0; --index)
+      {
+        TrophyObjective trophyObjective = trophiesOfType3[index];
+        if (currentLevel >= trophyObjective.ival && (string.IsNullOrEmpty(trophyObjective.sval_base) || string.Equals(trophyObjective.sval_base, artifactID)))
+          this.SetTrophyCounter(trophyObjective, currentLevel);
       }
     }
 
@@ -4091,7 +4842,7 @@ namespace SRPG
       for (int index = trophiesOfType.Length - 1; index >= 0; --index)
       {
         TrophyObjective trophyObjective = trophiesOfType[index];
-        if (string.IsNullOrEmpty(trophyObjective.sval) || trophyObjective.sval == artifactID)
+        if (string.IsNullOrEmpty(trophyObjective.sval_base) || trophyObjective.sval_base == artifactID)
           this.AddTrophyCounter(trophyObjective, 1);
       }
     }
@@ -4102,6 +4853,22 @@ namespace SRPG
       {
         if (trophy.IsChallengeMissionRoot && trophy.iname == trophyID)
           this.AddTrophyCounter(trophy, 0, 1);
+      }
+    }
+
+    public void OnTowerScore(bool isNow = true)
+    {
+      GameManager instance = MonoSingleton<GameManager>.Instance;
+      TowerResuponse towerResuponse = instance.TowerResuponse;
+      if (towerResuponse == null || string.IsNullOrEmpty(towerResuponse.TowerID) || towerResuponse.speedRank == 0 && towerResuponse.techRank == 0)
+        return;
+      int num = instance.CalcTowerScore(isNow);
+      TrophyObjective[] trophiesOfType = MonoSingleton<GameManager>.Instance.GetTrophiesOfType(TrophyConditionTypes.overtowerscore);
+      for (int index = trophiesOfType.Length - 1; index >= 0; --index)
+      {
+        TrophyObjective trophyObjective = trophiesOfType[index];
+        if (num <= trophyObjective.ival && (string.IsNullOrEmpty(trophyObjective.sval_base) || string.Equals(trophyObjective.sval_base, towerResuponse.TowerID)))
+          this.SetTrophyCounter(trophyObjective, num);
       }
     }
 
@@ -4117,7 +4884,7 @@ namespace SRPG
       for (int index = trophiesOfType.Length - 1; index >= 0; --index)
       {
         TrophyObjective trophyObjective = trophiesOfType[index];
-        TrophyState trophyCounter = this.GetTrophyCounter(trophyObjective.Param);
+        TrophyState trophyCounter = this.GetTrophyCounter(trophyObjective.Param, false);
         if (trophyCounter != null && !trophyCounter.IsCompleted)
           this.AddTrophyCounter(trophyObjective, 1);
       }
@@ -4125,29 +4892,105 @@ namespace SRPG
 
     public void UpdateStaminaDailyMission()
     {
+      if (!this.mUpdateInterval.PlayCheckUpdate())
+        return;
       int hour = TimeManager.ServerTime.Hour;
+      if (hour == this.mPrevCheckHour)
+        return;
+      this.mUpdateInterval.SetUpdateInterval();
+      this.mPrevCheckHour = hour;
       TrophyObjective[] trophiesOfType = MonoSingleton<GameManager>.Instance.GetTrophiesOfType(TrophyConditionTypes.stamina);
-      List<int> mealHours = MonoSingleton<WatchManager>.Instance.GetMealHours();
       for (int index = trophiesOfType.Length - 1; index >= 0; --index)
       {
         TrophyObjective trophyObjective = trophiesOfType[index];
-        TrophyState trophyCounter = this.GetTrophyCounter(trophyObjective.Param);
+        TrophyState trophyCounter = this.GetTrophyCounter(trophyObjective.Param, false);
         if (trophyCounter != null && !trophyCounter.IsCompleted)
         {
-          int num1 = int.Parse(trophyObjective.sval.Substring(0, 2));
-          int num2 = int.Parse(trophyObjective.sval.Substring(3, 2));
+          int num1 = int.Parse(trophyObjective.sval_base.Substring(0, 2));
+          int num2 = int.Parse(trophyObjective.sval_base.Substring(3, 2));
           if (num1 <= hour && hour < num2)
             this.AddTrophyCounter(trophyObjective, 1);
-          using (List<int>.Enumerator enumerator = mealHours.GetEnumerator())
+        }
+      }
+    }
+
+    public void UpdateArtifactTrophyStates()
+    {
+      if (this.mArtifacts.Count < 1)
+        return;
+      int num = 1;
+      Dictionary<string, ArtifactData> dictionary = new Dictionary<string, ArtifactData>();
+      for (int index = 0; index < this.mArtifacts.Count; ++index)
+      {
+        ArtifactData mArtifact = this.mArtifacts[index];
+        if (mArtifact != null)
+        {
+          num = Mathf.Max(num, (int) mArtifact.Lv);
+          if (mArtifact.ArtifactParam != null)
           {
-            while (enumerator.MoveNext())
-            {
-              int current = enumerator.Current;
-              if (num1 <= current && current < num2)
-                this.AddTrophyCounter(trophyObjective, 1);
-            }
+            if (!dictionary.ContainsKey(mArtifact.ArtifactParam.iname))
+              dictionary.Add(mArtifact.ArtifactParam.iname, mArtifact);
+            else if ((int) dictionary[mArtifact.ArtifactParam.iname].Lv < (int) mArtifact.Lv)
+              dictionary[mArtifact.ArtifactParam.iname] = mArtifact;
           }
         }
+      }
+      TrophyObjective[] trophiesOfType = MonoSingleton<GameManager>.Instance.GetTrophiesOfType(TrophyConditionTypes.makeartifactlevel);
+      for (int index = trophiesOfType.Length - 1; index >= 0; --index)
+      {
+        if (string.IsNullOrEmpty(trophiesOfType[index].sval_base))
+          this.SetTrophyCounter(trophiesOfType[index], num);
+        else if (dictionary.ContainsKey(trophiesOfType[index].sval_base))
+          this.SetTrophyCounter(trophiesOfType[index], (int) dictionary[trophiesOfType[index].sval_base].Lv);
+      }
+    }
+
+    public void UpdatePlayerTrophyStates()
+    {
+      TrophyObjective[] trophiesOfType = MonoSingleton<GameManager>.Instance.GetTrophiesOfType(TrophyConditionTypes.playerlv);
+      for (int index = trophiesOfType.Length - 1; index >= 0; --index)
+      {
+        TrophyObjective trophyObjective = trophiesOfType[index];
+        if (this.Lv >= trophyObjective.ival)
+          this.AddTrophyCounter(trophyObjective, 1);
+      }
+    }
+
+    public void UpdateArenaRankTrophyStates(int currentRank = -1, int bestRank = -1)
+    {
+      if (currentRank == -1)
+        currentRank = this.ArenaRank;
+      if (bestRank == -1)
+        bestRank = this.ArenaRankBest;
+      TrophyObjective[] trophiesOfType1 = MonoSingleton<GameManager>.Instance.GetTrophiesOfType(TrophyConditionTypes.becomearenarank);
+      for (int index = trophiesOfType1.Length - 1; index >= 0; --index)
+      {
+        TrophyObjective trophyObjective = trophiesOfType1[index];
+        if (currentRank == trophyObjective.ival || bestRank == trophyObjective.ival)
+          this.SetTrophyCounter(trophyObjective, trophyObjective.ival);
+      }
+      TrophyObjective[] trophiesOfType2 = MonoSingleton<GameManager>.Instance.GetTrophiesOfType(TrophyConditionTypes.overarenarank);
+      for (int index = trophiesOfType2.Length - 1; index >= 0; --index)
+      {
+        TrophyObjective trophyObjective = trophiesOfType2[index];
+        if (bestRank <= trophyObjective.ival)
+          this.SetTrophyCounter(trophyObjective, bestRank);
+      }
+    }
+
+    public void UpdateTowerTrophyStates()
+    {
+      this.OnTowerScore(false);
+    }
+
+    public void UpdateVersusTowerTrophyStates(string towerName, int currentFloor)
+    {
+      TrophyObjective[] trophiesOfType = MonoSingleton<GameManager>.Instance.GetTrophiesOfType(TrophyConditionTypes.overvsrankfloor);
+      for (int index = trophiesOfType.Length - 1; index >= 0; --index)
+      {
+        TrophyObjective trophyObjective = trophiesOfType[index];
+        if ((string.IsNullOrEmpty(trophyObjective.sval_base) || string.Equals(trophyObjective.sval_base, towerName)) && currentFloor >= trophyObjective.ival)
+          this.SetTrophyCounter(trophyObjective, currentFloor);
       }
     }
 
@@ -4162,7 +5005,7 @@ namespace SRPG
 
     public void ClearItemFlags(ItemData.ItemFlags flags)
     {
-      if (flags == (ItemData.ItemFlags) 0)
+      if (flags == (ItemData.ItemFlags) 0 || this.mItems == null)
         return;
       for (int index = this.mItems.Count - 1; index >= 0; --index)
       {
@@ -4197,6 +5040,7 @@ namespace SRPG
     public void ClearArtifacts()
     {
       this.mArtifacts.Clear();
+      this.mArtifactsNumByRarity.Clear();
     }
 
     public void OfflineSellArtifacts(ArtifactData[] artifacts)
@@ -4205,7 +5049,7 @@ namespace SRPG
         return;
       for (int index = 0; index < artifacts.Length; ++index)
       {
-        this.mArtifacts.Remove(artifacts[index]);
+        this.RemoveArtifact(artifacts[index]);
         this.GainGold(artifacts[index].ArtifactParam.sell);
       }
     }
@@ -4258,6 +5102,11 @@ namespace SRPG
       return (double) (int) MonoSingleton<GameManager>.Instance.MasterParam.FixParam.BeginnerDays > new TimeSpan(TimeManager.FromUnixTime(Network.GetServerTime()).Ticks).TotalDays - new TimeSpan(TimeManager.FromUnixTime((long) (int) this.mNewGameAt).Ticks).TotalDays;
     }
 
+    public DateTime GetBeginnerEndTime()
+    {
+      return TimeManager.FromUnixTime((long) (int) this.mNewGameAt).AddDays((double) (int) MonoSingleton<GameManager>.Instance.MasterParam.FixParam.BeginnerDays);
+    }
+
     public Dictionary<ItemParam, int> CreateItemSnapshot()
     {
       Dictionary<ItemParam, int> dictionary = new Dictionary<ItemParam, int>();
@@ -4291,6 +5140,8 @@ namespace SRPG
       int num1 = 0;
       int num2 = 0;
       int num3 = 0;
+      int num4 = 0;
+      int num5 = 0;
       MasterParam masterParam = MonoSingleton<GameManager>.Instance.MasterParam;
       for (int index1 = 0; index1 < this.mUnits.Count; ++index1)
       {
@@ -4327,6 +5178,9 @@ namespace SRPG
               }
             }
           }
+          if (mUnit.UnitParam != null && mUnit.Rarity - (int) mUnit.UnitParam.rare > 0)
+            ++num4;
+          num5 += mUnit.AwakeLv;
         }
       }
       TrophyObjective[] trophiesOfType1 = MonoSingleton<GameManager>.Instance.GetTrophiesOfType(TrophyConditionTypes.collectunits);
@@ -4347,6 +5201,20 @@ namespace SRPG
         if (trophiesOfType3[index].ival <= num1)
           this.AddTrophyCounter(trophiesOfType3[index], 1);
       }
+      TrophyObjective[] trophiesOfType4 = MonoSingleton<GameManager>.Instance.GetTrophiesOfType(TrophyConditionTypes.evoltiontimes);
+      for (int index = trophiesOfType4.Length - 1; index >= 0; --index)
+      {
+        TrophyObjective trophyObjective = trophiesOfType4[index];
+        if (string.IsNullOrEmpty(trophyObjective.sval_base))
+          this.SetTrophyCounter(trophyObjective, num4);
+      }
+      TrophyObjective[] trophiesOfType5 = MonoSingleton<GameManager>.Instance.GetTrophiesOfType(TrophyConditionTypes.limitbreak);
+      for (int index = trophiesOfType5.Length - 1; index >= 0; --index)
+      {
+        TrophyObjective trophyObjective = trophiesOfType5[index];
+        if (string.IsNullOrEmpty(trophyObjective.sval_base))
+          this.SetTrophyCounter(trophyObjective, num5);
+      }
       if (!verbose)
         return;
       for (int index1 = 0; index1 < this.mUnits.Count; ++index1)
@@ -4360,11 +5228,48 @@ namespace SRPG
         if (jobs != null)
         {
           for (int index2 = 0; index2 < jobs.Length; ++index2)
-            this.OnJobLevelChange(iname, jobs[index2].JobID, jobs[index2].Rank, true);
+            this.OnJobLevelChange(iname, jobs[index2].JobID, jobs[index2].Rank, true, 1);
         }
         List<AbilityData> learnAbilitys = mUnit.LearnAbilitys;
         for (int index2 = 0; index2 < learnAbilitys.Count; ++index2)
           this.OnAbilityPowerUp(iname, learnAbilitys[index2].AbilityID, learnAbilitys[index2].Rank, true);
+        if (mUnit.Rarity > (int) mUnit.UnitParam.rare)
+          this.OnEvolutionCheck(iname, mUnit.Rarity, (int) mUnit.UnitParam.rare);
+        this.OnLimitBreakCheck(iname, mUnit.AwakeLv);
+      }
+    }
+
+    public void OnEvolutionCheck(string unitID, int rarity, int initialRarity)
+    {
+      TrophyObjective[] trophiesOfType1 = MonoSingleton<GameManager>.Instance.GetTrophiesOfType(TrophyConditionTypes.evolutionnum);
+      for (int index = trophiesOfType1.Length - 1; index >= 0; --index)
+      {
+        TrophyObjective trophyObjective = trophiesOfType1[index];
+        if (trophyObjective.sval_base == unitID && trophyObjective.ival <= rarity)
+          this.AddTrophyCounter(trophyObjective, 1);
+      }
+      int num = rarity - initialRarity;
+      if (num < 1)
+        return;
+      TrophyObjective[] trophiesOfType2 = MonoSingleton<GameManager>.Instance.GetTrophiesOfType(TrophyConditionTypes.evoltiontimes);
+      for (int index = trophiesOfType2.Length - 1; index >= 0; --index)
+      {
+        TrophyObjective trophyObjective = trophiesOfType2[index];
+        if (!string.IsNullOrEmpty(trophyObjective.sval_base) && trophyObjective.sval_base == unitID)
+          this.SetTrophyCounter(trophyObjective, num);
+      }
+    }
+
+    public void OnLimitBreakCheck(string unitID, int awake)
+    {
+      if (awake <= 0)
+        return;
+      TrophyObjective[] trophiesOfType = MonoSingleton<GameManager>.Instance.GetTrophiesOfType(TrophyConditionTypes.limitbreak);
+      for (int index = trophiesOfType.Length - 1; index >= 0; --index)
+      {
+        TrophyObjective trophyObjective = trophiesOfType[index];
+        if (!string.IsNullOrEmpty(trophyObjective.sval_base) && trophyObjective.sval_base == unitID)
+          this.SetTrophyCounter(trophyObjective, awake);
       }
     }
 
@@ -4389,20 +5294,20 @@ namespace SRPG
       this.SetupEventCoin();
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      PlayerData.\u003CUpdateEventCoin\u003Ec__AnonStorey203 coinCAnonStorey203 = new PlayerData.\u003CUpdateEventCoin\u003Ec__AnonStorey203();
+      PlayerData.\u003CUpdateEventCoin\u003Ec__AnonStorey2AF coinCAnonStorey2Af = new PlayerData.\u003CUpdateEventCoin\u003Ec__AnonStorey2AF();
       // ISSUE: reference to a compiler-generated field
-      coinCAnonStorey203.\u003C\u003Ef__this = this;
+      coinCAnonStorey2Af.\u003C\u003Ef__this = this;
       // ISSUE: reference to a compiler-generated field
       // ISSUE: reference to a compiler-generated field
       // ISSUE: reference to a compiler-generated field
-      for (coinCAnonStorey203.i = 0; coinCAnonStorey203.i < this.mEventCoinList.Count; ++coinCAnonStorey203.i)
+      for (coinCAnonStorey2Af.i = 0; coinCAnonStorey2Af.i < this.mEventCoinList.Count; ++coinCAnonStorey2Af.i)
       {
         // ISSUE: reference to a compiler-generated method
-        ItemData itemData = MonoSingleton<GameManager>.Instance.Player.Items.Find(new Predicate<ItemData>(coinCAnonStorey203.\u003C\u003Em__1D5));
+        ItemData itemData = MonoSingleton<GameManager>.Instance.Player.Items.Find(new Predicate<ItemData>(coinCAnonStorey2Af.\u003C\u003Em__278));
         if (itemData != null)
         {
           // ISSUE: reference to a compiler-generated field
-          this.mEventCoinList[coinCAnonStorey203.i].have = itemData;
+          this.mEventCoinList[coinCAnonStorey2Af.i].have = itemData;
         }
       }
     }
@@ -4429,14 +5334,12 @@ namespace SRPG
 
     public void SetVersusPlacement(string key, int idx)
     {
-      PlayerPrefs.SetInt(key, idx);
+      PlayerPrefsUtility.SetInt(key, idx, false);
     }
 
     public int GetVersusPlacement(string key)
     {
-      if (PlayerPrefs.HasKey(key))
-        return PlayerPrefs.GetInt(key);
-      return 0;
+      return PlayerPrefsUtility.GetInt(key, 0);
     }
 
     public void SetTowerMatchInfo(int floor, int key, int wincnt, bool gift)
@@ -4445,6 +5348,39 @@ namespace SRPG
       this.mVersusTwKey = key;
       this.mVersusTwWinCnt = wincnt;
       this.mVersusSeasonGift = gift;
+    }
+
+    public bool IsHaveAward(string award)
+    {
+      if (this.mHaveAward == null)
+        return false;
+      return this.mHaveAward.Contains(award);
+    }
+
+    public void UpdateAchievementTrophyStates()
+    {
+      if (this.mTrophyStatesInameDict == null)
+        return;
+      List<AchievementParam> achievementData = GameCenterManager.GetAchievementData();
+      if (achievementData == null || achievementData.Count < 1)
+        return;
+      for (int index = 0; index < achievementData.Count; ++index)
+      {
+        AchievementParam achievementParam = achievementData[index];
+        List<TrophyState> trophyStateList;
+        if (this.mTrophyStatesInameDict.TryGetValue(achievementParam.iname, out trophyStateList) && trophyStateList[0].IsCompleted)
+          GameCenterManager.SendAchievementProgress(achievementParam);
+      }
+    }
+
+    public void SetWishList(string iname, int priority)
+    {
+      this.FriendPresentWishList.Set(iname, priority);
+    }
+
+    public void SetQuestListDirty()
+    {
+      this.mQuestListDirty = true;
     }
 
     public void SetBundleParam(List<BundleParam> bundles)

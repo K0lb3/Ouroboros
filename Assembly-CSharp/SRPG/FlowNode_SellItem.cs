@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_SellItem
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -11,14 +11,15 @@ using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.Pin(1, "Request", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(2, "RequestConvert", FlowNode.PinTypes.Input, 1)]
   [FlowNode.NodeType("System/SellItem", 32741)]
+  [FlowNode.Pin(1, "Request", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(100, "Success", FlowNode.PinTypes.Output, 10)]
   public class FlowNode_SellItem : FlowNode_Network
   {
     public override void OnActivate(int pinID)
     {
-      if (pinID != 1 || ((Behaviour) this).get_enabled())
+      if (pinID != 1 && pinID != 2 || ((Behaviour) this).get_enabled())
         return;
       PlayerData player = MonoSingleton<GameManager>.Instance.Player;
       if (Network.Mode == Network.EConnectMode.Offline)
@@ -30,14 +31,8 @@ namespace SRPG
           player.GainItem(sellItem.item.Param.iname, -sellItem.num);
           sellItem.num = 0;
           sellItem.index = -1;
-          AnalyticsManager.TrackCurrencyObtain(AnalyticsManager.CurrencyType.Zeni, AnalyticsManager.CurrencySubType.FREE, (long) (sellItem.item.Sell * sellItem.num), "Sell Item", (Dictionary<string, object>) null);
-          AnalyticsManager.TrackCurrencyUse(AnalyticsManager.CurrencyType.Item, AnalyticsManager.CurrencySubType.FREE, (long) sellItem.num, "Sell Item", new Dictionary<string, object>()
-          {
-            {
-              "item_id",
-              (object) sellItem.item.ItemID
-            }
-          });
+          AnalyticsManager.TrackNonPremiumCurrencyObtain(AnalyticsManager.NonPremiumCurrencyType.Zeni, (long) (sellItem.item.Sell * sellItem.num), "Sell Item", (string) null);
+          AnalyticsManager.TrackNonPremiumCurrencyUse(AnalyticsManager.NonPremiumCurrencyType.Item, (long) sellItem.num, "Sell Item", sellItem.item.ItemID);
         }
         GlobalVars.SelectSellItem = (SellItem) null;
         GlobalVars.SellItemList.Clear();
@@ -54,7 +49,7 @@ namespace SRPG
           int num = sellItemList[index].num;
           sells[uniqueId] = num;
         }
-        this.ExecRequest((WebAPI) new ReqItemSell(sells, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+        this.ExecRequest((WebAPI) new ReqItemSell(sells, pinID == 2, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
         ((Behaviour) this).set_enabled(true);
       }
     }
@@ -69,10 +64,20 @@ namespace SRPG
     {
       if (Network.IsError)
       {
-        if (Network.ErrCode == Network.EErrCode.NoItemSell)
-          this.OnBack();
-        else
-          this.OnRetry();
+        switch (Network.ErrCode)
+        {
+          case Network.EErrCode.NoItemSell:
+            this.OnBack();
+            break;
+          case Network.EErrCode.ConvertAnotherItem:
+            if (GlobalVars.SellItemList != null)
+              GlobalVars.SellItemList.Clear();
+            this.OnFailed();
+            break;
+          default:
+            this.OnRetry();
+            break;
+        }
       }
       else
       {
@@ -90,8 +95,15 @@ namespace SRPG
           this.OnRetry(ex);
           return;
         }
+        int delta = 0;
+        if (GlobalVars.SellItemList != null)
+        {
+          for (int index = 0; index < GlobalVars.SellItemList.Count; ++index)
+            delta += GlobalVars.SellItemList[index].item.Sell;
+        }
         Network.RemoveAPI();
         GlobalVars.SellItemList.Clear();
+        MonoSingleton<GameManager>.Instance.Player.OnGoldChange(delta);
         this.Success();
       }
     }

@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.GameSettings
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -29,10 +29,14 @@ namespace SRPG
     public float GameCamera_UnitHeightOffset;
     [Tooltip("カメラのデフォルトの距離")]
     public float GameCamera_DefaultDistance;
-    [Tooltip("カメラのデフォルトの距離")]
+    [Tooltip("引いたカメラの距離")]
+    public float GameCamera_MoreFarDistance;
+    [Tooltip("イベントカメラのデフォルトの距離")]
     public float GameCamera_EventCameraDistance;
     [Tooltip("カメラのマップ確認時の距離")]
     public float GameCamera_MapDistance;
+    [Tooltip("カメラの最大距離")]
+    public float GameCamera_MaxDistance;
     [Range(1f, 80f)]
     public float GameCamera_TacticsSceneFOV;
     [Range(1f, 80f)]
@@ -159,7 +163,7 @@ namespace SRPG
     {
       get
       {
-        if (Object.op_Equality((Object) GameSettings.mInstance, (Object) null))
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) GameSettings.mInstance, (UnityEngine.Object) null))
           GameSettings.mInstance = AssetManager.Load<GameSettings>(nameof (GameSettings));
         return GameSettings.mInstance;
       }
@@ -175,13 +179,31 @@ namespace SRPG
       return (Sprite) null;
     }
 
-    public Sprite GetItemFrame(ItemParam itemParam)
+    public Sprite GetItemFrame(EItemType type, int rare)
     {
-      Sprite[] spriteArray = itemParam.type == EItemType.UnitPiece || itemParam.type == EItemType.ItemPiecePiece ? this.ItemIcons.KakeraFrames : (itemParam.type != EItemType.ArtifactPiece ? this.ItemIcons.NormalFrames : this.ItemIcons.ArtifactKakeraFrames);
-      int index = Mathf.Clamp((int) itemParam.rare, 0, spriteArray.Length - 1);
+      Sprite[] spriteArray;
+      switch (type)
+      {
+        case EItemType.UnitPiece:
+        case EItemType.ItemPiecePiece:
+          spriteArray = this.ItemIcons.KakeraFrames;
+          break;
+        case EItemType.ArtifactPiece:
+          spriteArray = this.ItemIcons.ArtifactKakeraFrames;
+          break;
+        default:
+          spriteArray = this.ItemIcons.NormalFrames;
+          break;
+      }
+      int index = Mathf.Clamp(rare, 0, spriteArray.Length - 1);
       if (0 <= index)
         return spriteArray[index];
       return (Sprite) null;
+    }
+
+    public Sprite GetItemFrame(ItemParam itemParam)
+    {
+      return this.GetItemFrame(itemParam.type, (int) itemParam.rare);
     }
 
     public long CreateTutorialFlagMask(string flagName)
@@ -208,6 +230,8 @@ namespace SRPG
       public Win_Btn_DecideCancel_FL_C YesNoDialog;
       public Win_Btn_Decide_Title_Flx YesDialogWithTitle;
       public Win_Btn_YN_Title_Flx YesNoDialogWithTitle;
+      public Win_Btn_Decide_Flx YesDialog;
+      public Win_SysMessage_Flx SysMsgDialog;
     }
 
     [Serializable]
@@ -258,6 +282,16 @@ namespace SRPG
       public float WaitAfterUnitPickupGimmick;
       [Description("きりもみ状態での毎秒の回転角度")]
       public float KirimomiRotationRate;
+      [Description("ユニット交代時のエフェクト待ち時間")]
+      public float UnitChangeEffectWaitTime;
+      [Description("オートプレイ時のイベントステップ待ち時間")]
+      public float WaitTimeScriptEventForward;
+      [Description("ユニット撤退時のエフェクト待ち時間")]
+      public float WithdrawUnitEffectWaitTime;
+      [Description("壊れるオブジェクトの設置最大許容数")]
+      public int BreakObjAllowEntryMax;
+      [Description("天候エフェクトの切り替え時間")]
+      public float WeatherEffectChangeTime;
     }
 
     [Serializable]

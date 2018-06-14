@@ -1,19 +1,19 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_GetCurrentScene
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 namespace SRPG
 {
-  [FlowNode.Pin(104, "Home", FlowNode.PinTypes.Output, 0)]
   [FlowNode.Pin(105, "Title", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(100, "Other", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(101, "Single", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(104, "Home", FlowNode.PinTypes.Output, 0)]
   [FlowNode.Pin(103, "HomeMulti", FlowNode.PinTypes.Output, 0)]
   [FlowNode.Pin(102, "Multi", FlowNode.PinTypes.Output, 0)]
-  [FlowNode.Pin(101, "Single", FlowNode.PinTypes.Output, 0)]
-  [FlowNode.Pin(100, "Other", FlowNode.PinTypes.Output, 0)]
-  [FlowNode.Pin(0, "Test", FlowNode.PinTypes.Input, 0)]
   [FlowNode.NodeType("GetCurrentScene", 32741)]
+  [FlowNode.Pin(0, "Test", FlowNode.PinTypes.Input, 0)]
   public class FlowNode_GetCurrentScene : FlowNode
   {
     public static bool IsAfterLogin()

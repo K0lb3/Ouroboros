@@ -1,10 +1,11 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.UnitController
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,8 +16,17 @@ namespace SRPG
   public abstract class UnitController : AnimationPlayer
   {
     public Color32 VesselColor = new Color32(byte.MaxValue, (byte) 0, (byte) 0, byte.MaxValue);
+    private List<GameObject> mPrimaryEquipmentChangeLists = new List<GameObject>();
+    private List<GameObject> mSecondaryEquipmentChangeLists = new List<GameObject>();
+    private List<GameObject> mSubPrimaryEquipmentChangeLists = new List<GameObject>();
+    private List<GameObject> mSubSecondaryEquipmentChangeLists = new List<GameObject>();
     protected List<Material> CharacterMaterials = new List<Material>(4);
+    protected List<CharacterDB.Job> mCharacterDataLists = new List<CharacterDB.Job>();
+    protected List<GameObject> mUnitObjectLists = new List<GameObject>();
+    protected List<CharacterSettings> mCharacterSettingsLists = new List<CharacterSettings>();
+    protected List<FaceAnimation> mFaceAnimationLists = new List<FaceAnimation>();
     public const string CharacterAnimationDir = "CHM/";
+    public const string COLLABO_SKILL_ASSET_PREFIX = "D";
     private UnitData mUnitData;
     private string mCharacterID;
     private string mJobID;
@@ -28,9 +38,13 @@ namespace SRPG
     protected CharacterSettings mCharacterSettings;
     private GameObject mPrimaryEquipment;
     private GameObject mSecondaryEquipment;
+    private GameObject mPrimaryEquipmentDefault;
+    private GameObject mSecondaryEquipmentDefault;
     private bool mUseSubEquipment;
     private GameObject mSubPrimaryEquipment;
     private GameObject mSubSecondaryEquipment;
+    private GameObject mSubPrimaryEquipmentDefault;
+    private GameObject mSubSecondaryEquipmentDefault;
     private FaceAnimation mFaceAnimation;
     private bool mPlayingFaceAnimation;
     public bool LoadEquipments;
@@ -53,7 +67,7 @@ namespace SRPG
     {
       get
       {
-        if (Object.op_Inequality((Object) this.mCharacterSettings, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mCharacterSettings, (UnityEngine.Object) null))
           return this.mCharacterSettings.Rig;
         return (RigSetup) null;
       }
@@ -64,7 +78,7 @@ namespace SRPG
       get
       {
         RigSetup rig = this.Rig;
-        if (Object.op_Inequality((Object) rig, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) rig, (UnityEngine.Object) null))
           return rig.Height * (float) ((Component) this).get_transform().get_localScale().y;
         return 0.0f;
       }
@@ -126,11 +140,67 @@ namespace SRPG
       this.mNumLoadRequests = 0;
     }
 
+    public bool SetActivateUnitObject(int idx)
+    {
+      if (idx < 0 || idx >= this.mUnitObjectLists.Count)
+        return false;
+      int index = 0;
+      while (index < this.mUnitObjectLists.Count && !UnityEngine.Object.op_Equality((UnityEngine.Object) this.mUnitObject, (UnityEngine.Object) this.mUnitObjectLists[index]))
+        ++index;
+      using (List<GameObject>.Enumerator enumerator = this.mUnitObjectLists.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+          enumerator.Current.SetActive(false);
+      }
+      this.mUnitObject = this.mUnitObjectLists[idx];
+      this.mUnitObject.SetActive(true);
+      this.SetAnimationComponent((Animation) this.mUnitObject.GetComponent<Animation>());
+      if (idx < this.mCharacterDataLists.Count)
+        this.mCharacterData = this.mCharacterDataLists[idx];
+      if (idx < this.mCharacterSettingsLists.Count)
+        this.mCharacterSettings = this.mCharacterSettingsLists[idx];
+      if (idx < this.mFaceAnimationLists.Count)
+        this.mFaceAnimation = this.mFaceAnimationLists[idx];
+      return idx != index;
+    }
+
     protected override void Start()
     {
       base.Start();
-      this.AddLoadThreadCount();
-      this.StartCoroutine(this.AsyncSetup());
+      this.mCharacterDataLists.Clear();
+      this.mUnitObjectLists.Clear();
+      this.mCharacterSettingsLists.Clear();
+      this.mFaceAnimationLists.Clear();
+      CharacterDB.Character character = CharacterDB.FindCharacter(this.mCharacterID);
+      if (character == null)
+      {
+        Debug.LogError((object) ("Unknown character '" + this.mCharacterID + "'"));
+        this.SetLoadError();
+      }
+      else
+      {
+        this.mJobResourceID = !string.IsNullOrEmpty(this.mJobID) ? MonoSingleton<GameManager>.Instance.GetJobParam(this.mJobID).model : "none";
+        string str = (string) null;
+        if (this.mUnitData != null && this.mUnitData.Jobs != null)
+        {
+          ArtifactParam selectedSkin = this.mUnitData.GetSelectedSkin(Array.FindIndex<JobData>(this.mUnitData.Jobs, (Predicate<JobData>) (j => j.Param.iname == this.mJobID)));
+          str = selectedSkin == null ? (string) null : selectedSkin.asset;
+        }
+        if (string.IsNullOrEmpty(str))
+          str = this.mJobResourceID;
+        int jobIndex = -1;
+        for (int index = 0; index < character.Jobs.Count; ++index)
+        {
+          if (character.Jobs[index].JobID == str)
+          {
+            jobIndex = index;
+            break;
+          }
+        }
+        if (jobIndex < 0)
+          jobIndex = 0;
+        this.StartCoroutine(this.AsyncSetup(character, jobIndex));
+      }
     }
 
     protected override void LateUpdate()
@@ -144,7 +214,7 @@ namespace SRPG
 
     private void createRootBoneList(Transform Root, ref List<Transform> Dest)
     {
-      if (Object.op_Equality((Object) Root, (Object) null) || Dest == null || 0 >= Root.get_childCount())
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) Root, (UnityEngine.Object) null) || Dest == null || 0 >= Root.get_childCount())
         return;
       for (int index = 0; index < Root.get_childCount(); ++index)
       {
@@ -154,9 +224,34 @@ namespace SRPG
       }
     }
 
+    protected override void OnDestroy()
+    {
+      base.OnDestroy();
+      using (List<GameObject>.Enumerator enumerator = this.mPrimaryEquipmentChangeLists.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+        {
+          GameObject current = enumerator.Current;
+          if (UnityEngine.Object.op_Implicit((UnityEngine.Object) current))
+            UnityEngine.Object.Destroy((UnityEngine.Object) current.get_gameObject());
+        }
+      }
+      this.mPrimaryEquipmentChangeLists = new List<GameObject>();
+      using (List<GameObject>.Enumerator enumerator = this.mSecondaryEquipmentChangeLists.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+        {
+          GameObject current = enumerator.Current;
+          if (UnityEngine.Object.op_Implicit((UnityEngine.Object) current))
+            UnityEngine.Object.Destroy((UnityEngine.Object) current.get_gameObject());
+        }
+      }
+      this.mSecondaryEquipmentChangeLists = new List<GameObject>();
+    }
+
     private void UpdateFaceAnimation()
     {
-      if (Object.op_Equality((Object) this.mFaceAnimation, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mFaceAnimation, (UnityEngine.Object) null))
         return;
       if (this.mPlayingFaceAnimation)
       {
@@ -169,7 +264,7 @@ namespace SRPG
       }
       float position;
       AnimDef activeAnimation = this.GetActiveAnimation(out position);
-      if (!Object.op_Inequality((Object) activeAnimation, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) activeAnimation, (UnityEngine.Object) null))
         return;
       AnimationCurve customCurve1 = activeAnimation.FindCustomCurve("FAC0");
       if (customCurve1 != null)
@@ -206,10 +301,10 @@ namespace SRPG
 
     protected Transform GetCharacterRoot()
     {
-      if (Object.op_Equality((Object) this.mCharacterSettings, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mCharacterSettings, (UnityEngine.Object) null) || UnityEngine.Object.op_Equality((UnityEngine.Object) this.mCharacterSettings.Rig, (UnityEngine.Object) null))
         return ((Component) this).get_transform();
       Transform childRecursively = GameUtility.findChildRecursively(((Component) this).get_transform(), this.mCharacterSettings.Rig.RootBoneName);
-      if (Object.op_Inequality((Object) childRecursively, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) childRecursively, (UnityEngine.Object) null))
         return childRecursively;
       return ((Component) this).get_transform();
     }
@@ -250,11 +345,27 @@ namespace SRPG
       return AssetManager.LoadAsync(path, typeof (T));
     }
 
+    public bool LoadAddModels(int job_index)
+    {
+      if (this.mNumLoadRequests > 0)
+        return false;
+      CharacterDB.Character character = CharacterDB.FindCharacter(this.mCharacterID);
+      if (character == null)
+      {
+        Debug.LogError((object) ("Unknown character '" + this.mCharacterID + "'"));
+        return false;
+      }
+      if (job_index < 0 || job_index >= character.Jobs.Count)
+        return false;
+      this.StartCoroutine(this.AsyncSetup(character, job_index));
+      return true;
+    }
+
     [DebuggerHidden]
-    private IEnumerator AsyncSetup()
+    private IEnumerator AsyncSetup(CharacterDB.Character ch, int jobIndex)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new UnitController.\u003CAsyncSetup\u003Ec__IteratorE() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new UnitController.\u003CAsyncSetup\u003Ec__Iterator2D() { ch = ch, jobIndex = jobIndex, \u003C\u0024\u003Ech = ch, \u003C\u0024\u003EjobIndex = jobIndex, \u003C\u003Ef__this = this };
     }
 
     private void FindCharacterMaterials()
@@ -275,35 +386,173 @@ namespace SRPG
 
     public void SetEquipmentsVisible(bool visible)
     {
-      if (Object.op_Inequality((Object) this.mPrimaryEquipment, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mPrimaryEquipment, (UnityEngine.Object) null))
         this.mPrimaryEquipment.get_gameObject().SetActive(visible);
-      if (!Object.op_Inequality((Object) this.mSecondaryEquipment, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSecondaryEquipment, (UnityEngine.Object) null))
         return;
       this.mSecondaryEquipment.get_gameObject().SetActive(visible);
     }
 
     public void SetPrimaryEquipmentsVisible(bool visible)
     {
-      if (!Object.op_Inequality((Object) this.mPrimaryEquipment, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mPrimaryEquipment, (UnityEngine.Object) null))
         return;
       this.mPrimaryEquipment.get_gameObject().SetActive(visible);
     }
 
     public void SetSecondaryEquipmentsVisible(bool visible)
     {
-      if (!Object.op_Inequality((Object) this.mSecondaryEquipment, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSecondaryEquipment, (UnityEngine.Object) null))
         return;
       this.mSecondaryEquipment.get_gameObject().SetActive(visible);
     }
 
-    public void SetSubEquipment(GameObject primaryHand, GameObject secondaryHand, bool hidden = false)
+    public void SwitchEquipmentLists(UnitController.EquipmentType type, int no)
     {
-      if (Object.op_Inequality((Object) primaryHand, (Object) null) && !string.IsNullOrEmpty(this.Rig.RightHand))
+      if (no <= 0)
+        return;
+      int index = no - 1;
+      switch (type)
+      {
+        case UnitController.EquipmentType.PRIMARY:
+          if (index >= this.mPrimaryEquipmentChangeLists.Count)
+            break;
+          bool flag1 = !UnityEngine.Object.op_Implicit((UnityEngine.Object) this.mPrimaryEquipment) || this.mPrimaryEquipment.get_activeSelf();
+          if (UnityEngine.Object.op_Implicit((UnityEngine.Object) this.mPrimaryEquipment))
+            this.mPrimaryEquipment.SetActive(false);
+          this.mPrimaryEquipment = this.mPrimaryEquipmentChangeLists[index];
+          if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) this.mPrimaryEquipment))
+            break;
+          this.mPrimaryEquipment.SetActive(flag1);
+          break;
+        case UnitController.EquipmentType.SECONDARY:
+          if (index >= this.mSecondaryEquipmentChangeLists.Count)
+            break;
+          bool flag2 = !UnityEngine.Object.op_Implicit((UnityEngine.Object) this.mSecondaryEquipment) || this.mSecondaryEquipment.get_activeSelf();
+          if (UnityEngine.Object.op_Implicit((UnityEngine.Object) this.mSecondaryEquipment))
+            this.mSecondaryEquipment.SetActive(false);
+          this.mSecondaryEquipment = this.mSecondaryEquipmentChangeLists[index];
+          if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) this.mSecondaryEquipment))
+            break;
+          this.mSecondaryEquipment.SetActive(flag2);
+          break;
+      }
+    }
+
+    public void ResetEquipmentLists(UnitController.EquipmentType type)
+    {
+      switch (type)
+      {
+        case UnitController.EquipmentType.PRIMARY:
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mPrimaryEquipment, (UnityEngine.Object) this.mPrimaryEquipmentDefault))
+            break;
+          bool flag1 = !UnityEngine.Object.op_Implicit((UnityEngine.Object) this.mPrimaryEquipment) || this.mPrimaryEquipment.get_activeSelf();
+          if (UnityEngine.Object.op_Implicit((UnityEngine.Object) this.mPrimaryEquipment))
+            this.mPrimaryEquipment.SetActive(false);
+          this.mPrimaryEquipment = this.mPrimaryEquipmentDefault;
+          if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) this.mPrimaryEquipment))
+            break;
+          this.mPrimaryEquipment.SetActive(flag1);
+          break;
+        case UnitController.EquipmentType.SECONDARY:
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSecondaryEquipment, (UnityEngine.Object) this.mSecondaryEquipmentDefault))
+            break;
+          bool flag2 = !UnityEngine.Object.op_Implicit((UnityEngine.Object) this.mSecondaryEquipment) || this.mSecondaryEquipment.get_activeSelf();
+          if (UnityEngine.Object.op_Implicit((UnityEngine.Object) this.mSecondaryEquipment))
+            this.mSecondaryEquipment.SetActive(false);
+          this.mSecondaryEquipment = this.mSecondaryEquipmentDefault;
+          if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) this.mSecondaryEquipment))
+            break;
+          this.mSecondaryEquipment.SetActive(flag2);
+          break;
+      }
+    }
+
+    private void SetAttachmentParent(GameObject go, Transform parent)
+    {
+      if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) go) || !UnityEngine.Object.op_Implicit((UnityEngine.Object) parent))
+        return;
+      go.get_transform().SetParent(parent, false);
+      go.get_transform().set_localScale(Vector3.op_Multiply(Vector3.get_one(), this.Rig.EquipmentScale));
+    }
+
+    public void SwitchAttachmentLists(UnitController.EquipmentType type, int no)
+    {
+      if (no <= 0)
+        return;
+      int index = no - 1;
+      switch (type)
+      {
+        case UnitController.EquipmentType.PRIMARY:
+          if (index >= this.Rig.RightHandChangeLists.Count || string.IsNullOrEmpty(this.Rig.RightHandChangeLists[index]))
+            break;
+          Transform childRecursively1 = GameUtility.findChildRecursively(this.UnitObject.get_transform(), this.Rig.RightHandChangeLists[index]);
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) childRecursively1, (UnityEngine.Object) null))
+            break;
+          this.SetAttachmentParent(this.mPrimaryEquipmentDefault, childRecursively1);
+          using (List<GameObject>.Enumerator enumerator = this.mPrimaryEquipmentChangeLists.GetEnumerator())
+          {
+            while (enumerator.MoveNext())
+              this.SetAttachmentParent(enumerator.Current, childRecursively1);
+            break;
+          }
+        case UnitController.EquipmentType.SECONDARY:
+          if (index >= this.Rig.LeftHandChangeLists.Count || string.IsNullOrEmpty(this.Rig.LeftHandChangeLists[index]))
+            break;
+          Transform childRecursively2 = GameUtility.findChildRecursively(this.UnitObject.get_transform(), this.Rig.LeftHandChangeLists[index]);
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) childRecursively2, (UnityEngine.Object) null))
+            break;
+          this.SetAttachmentParent(this.mSecondaryEquipmentDefault, childRecursively2);
+          using (List<GameObject>.Enumerator enumerator = this.mSecondaryEquipmentChangeLists.GetEnumerator())
+          {
+            while (enumerator.MoveNext())
+              this.SetAttachmentParent(enumerator.Current, childRecursively2);
+            break;
+          }
+      }
+    }
+
+    public void ResetAttachmentLists(UnitController.EquipmentType type)
+    {
+      switch (type)
+      {
+        case UnitController.EquipmentType.PRIMARY:
+          if (string.IsNullOrEmpty(this.Rig.RightHand))
+            break;
+          Transform childRecursively1 = GameUtility.findChildRecursively(this.UnitObject.get_transform(), this.Rig.RightHand);
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) childRecursively1, (UnityEngine.Object) null))
+            break;
+          this.SetAttachmentParent(this.mPrimaryEquipmentDefault, childRecursively1);
+          using (List<GameObject>.Enumerator enumerator = this.mPrimaryEquipmentChangeLists.GetEnumerator())
+          {
+            while (enumerator.MoveNext())
+              this.SetAttachmentParent(enumerator.Current, childRecursively1);
+            break;
+          }
+        case UnitController.EquipmentType.SECONDARY:
+          if (string.IsNullOrEmpty(this.Rig.LeftHand))
+            break;
+          Transform childRecursively2 = GameUtility.findChildRecursively(this.UnitObject.get_transform(), this.Rig.LeftHand);
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) childRecursively2, (UnityEngine.Object) null))
+            break;
+          this.SetAttachmentParent(this.mSecondaryEquipmentDefault, childRecursively2);
+          using (List<GameObject>.Enumerator enumerator = this.mSecondaryEquipmentChangeLists.GetEnumerator())
+          {
+            while (enumerator.MoveNext())
+              this.SetAttachmentParent(enumerator.Current, childRecursively2);
+            break;
+          }
+      }
+    }
+
+    public void SetSubEquipment(GameObject primaryHand, GameObject secondaryHand, List<GameObject> primary_lists, List<GameObject> secondary_lists, bool hidden = false)
+    {
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) primaryHand, (UnityEngine.Object) null) && !string.IsNullOrEmpty(this.Rig.RightHand))
       {
         Transform childRecursively = GameUtility.findChildRecursively(this.UnitObject.get_transform(), this.Rig.RightHand);
-        if (Object.op_Inequality((Object) childRecursively, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) childRecursively, (UnityEngine.Object) null))
         {
-          this.mSubPrimaryEquipment = Object.Instantiate((Object) primaryHand, primaryHand.get_transform().get_position(), primaryHand.get_transform().get_rotation()) as GameObject;
+          this.mSubPrimaryEquipment = UnityEngine.Object.Instantiate((UnityEngine.Object) primaryHand, primaryHand.get_transform().get_position(), primaryHand.get_transform().get_rotation()) as GameObject;
           this.mSubPrimaryEquipment.get_transform().SetParent(childRecursively, false);
           this.SetMaterialByGameObject(this.mSubPrimaryEquipment);
           if (hidden)
@@ -311,14 +560,43 @@ namespace SRPG
           this.mSubPrimaryEquipment.get_transform().set_localScale(Vector3.op_Multiply(Vector3.get_one(), this.Rig.EquipmentScale));
         }
         else
-          Debug.LogError((object) ("Node " + this.Rig.LeftHand + " not found."));
+          Debug.LogError((object) ("Node " + this.Rig.RightHand + " not found."));
       }
-      if (Object.op_Inequality((Object) secondaryHand, (Object) null) && !string.IsNullOrEmpty(this.Rig.LeftHand))
+      if (primary_lists != null && !string.IsNullOrEmpty(this.Rig.RightHand))
+      {
+        Transform childRecursively = GameUtility.findChildRecursively(this.UnitObject.get_transform(), this.Rig.RightHand);
+        if (UnityEngine.Object.op_Implicit((UnityEngine.Object) childRecursively))
+        {
+          this.mSubPrimaryEquipmentDefault = this.mSubPrimaryEquipment;
+          this.mSubPrimaryEquipmentChangeLists.Clear();
+          using (List<GameObject>.Enumerator enumerator = primary_lists.GetEnumerator())
+          {
+            while (enumerator.MoveNext())
+            {
+              GameObject current = enumerator.Current;
+              GameObject materialObject = (GameObject) null;
+              if (UnityEngine.Object.op_Implicit((UnityEngine.Object) current))
+              {
+                materialObject = UnityEngine.Object.Instantiate((UnityEngine.Object) current, current.get_transform().get_position(), current.get_transform().get_rotation()) as GameObject;
+                if (UnityEngine.Object.op_Implicit((UnityEngine.Object) materialObject))
+                {
+                  materialObject.get_transform().SetParent(childRecursively, false);
+                  materialObject.get_transform().set_localScale(Vector3.op_Multiply(Vector3.get_one(), this.Rig.EquipmentScale));
+                  materialObject.get_gameObject().SetActive(false);
+                  this.SetMaterialByGameObject(materialObject);
+                }
+              }
+              this.mSubPrimaryEquipmentChangeLists.Add(materialObject);
+            }
+          }
+        }
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) secondaryHand, (UnityEngine.Object) null) && !string.IsNullOrEmpty(this.Rig.LeftHand))
       {
         Transform childRecursively = GameUtility.findChildRecursively(this.UnitObject.get_transform(), this.Rig.LeftHand);
-        if (Object.op_Inequality((Object) childRecursively, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) childRecursively, (UnityEngine.Object) null))
         {
-          this.mSubSecondaryEquipment = Object.Instantiate((Object) secondaryHand, secondaryHand.get_transform().get_position(), secondaryHand.get_transform().get_rotation()) as GameObject;
+          this.mSubSecondaryEquipment = UnityEngine.Object.Instantiate((UnityEngine.Object) secondaryHand, secondaryHand.get_transform().get_position(), secondaryHand.get_transform().get_rotation()) as GameObject;
           this.mSubSecondaryEquipment.get_transform().SetParent(childRecursively, false);
           this.SetMaterialByGameObject(this.mSubSecondaryEquipment);
           if (hidden)
@@ -327,6 +605,35 @@ namespace SRPG
         }
         else
           Debug.LogError((object) ("Node " + this.Rig.LeftHand + " not found."));
+      }
+      if (primary_lists != null && !string.IsNullOrEmpty(this.Rig.LeftHand))
+      {
+        Transform childRecursively = GameUtility.findChildRecursively(this.UnitObject.get_transform(), this.Rig.LeftHand);
+        if (UnityEngine.Object.op_Implicit((UnityEngine.Object) childRecursively))
+        {
+          this.mSubSecondaryEquipmentDefault = this.mSubSecondaryEquipment;
+          this.mSubSecondaryEquipmentChangeLists.Clear();
+          using (List<GameObject>.Enumerator enumerator = secondary_lists.GetEnumerator())
+          {
+            while (enumerator.MoveNext())
+            {
+              GameObject current = enumerator.Current;
+              GameObject materialObject = (GameObject) null;
+              if (UnityEngine.Object.op_Implicit((UnityEngine.Object) current))
+              {
+                materialObject = UnityEngine.Object.Instantiate((UnityEngine.Object) current, current.get_transform().get_position(), current.get_transform().get_rotation()) as GameObject;
+                if (UnityEngine.Object.op_Implicit((UnityEngine.Object) materialObject))
+                {
+                  materialObject.get_transform().SetParent(childRecursively, false);
+                  materialObject.get_transform().set_localScale(Vector3.op_Multiply(Vector3.get_one(), this.Rig.EquipmentScale));
+                  materialObject.get_gameObject().SetActive(false);
+                  this.SetMaterialByGameObject(materialObject);
+                }
+              }
+              this.mSubSecondaryEquipmentChangeLists.Add(materialObject);
+            }
+          }
+        }
       }
       this.mUseSubEquipment = true;
       this.SwitchEquipments();
@@ -344,7 +651,7 @@ namespace SRPG
 
     private void ControlMaterialByGameObject(bool isSet, GameObject materialObject)
     {
-      if (Object.op_Equality((Object) materialObject, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) materialObject, (UnityEngine.Object) null))
         return;
       Renderer[] componentsInChildren = (Renderer[]) materialObject.GetComponentsInChildren<Renderer>(true);
       for (int index = componentsInChildren.Length - 1; index >= 0; --index)
@@ -368,35 +675,79 @@ namespace SRPG
       GameObject secondaryEquipment = this.mSecondaryEquipment;
       this.mSecondaryEquipment = this.mSubSecondaryEquipment;
       this.mSubSecondaryEquipment = secondaryEquipment;
+      GameObject equipmentDefault1 = this.mPrimaryEquipmentDefault;
+      this.mPrimaryEquipmentDefault = this.mSubPrimaryEquipmentDefault;
+      this.mSubPrimaryEquipmentDefault = equipmentDefault1;
+      List<GameObject> equipmentChangeLists1 = this.mPrimaryEquipmentChangeLists;
+      this.mPrimaryEquipmentChangeLists = this.mSubPrimaryEquipmentChangeLists;
+      this.mSubPrimaryEquipmentChangeLists = equipmentChangeLists1;
+      GameObject equipmentDefault2 = this.mSecondaryEquipmentDefault;
+      this.mSecondaryEquipmentDefault = this.mSubSecondaryEquipmentDefault;
+      this.mSubSecondaryEquipmentDefault = equipmentDefault2;
+      List<GameObject> equipmentChangeLists2 = this.mSecondaryEquipmentChangeLists;
+      this.mSecondaryEquipmentChangeLists = this.mSubSecondaryEquipmentChangeLists;
+      this.mSubSecondaryEquipmentChangeLists = equipmentChangeLists2;
     }
 
     public void HideEquipments()
     {
-      if (Object.op_Inequality((Object) this.mPrimaryEquipment, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mPrimaryEquipment, (UnityEngine.Object) null))
         GameUtility.SetLayer(this.mPrimaryEquipment, GameUtility.LayerHidden, true);
-      if (!Object.op_Inequality((Object) this.mSecondaryEquipment, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSecondaryEquipment, (UnityEngine.Object) null))
         return;
       GameUtility.SetLayer(this.mSecondaryEquipment, GameUtility.LayerHidden, true);
     }
 
     public void ResetSubEquipments()
     {
-      if (Object.op_Inequality((Object) this.mPrimaryEquipment, (Object) null))
+      this.mPrimaryEquipmentDefault = this.mSubPrimaryEquipmentDefault;
+      this.mSubPrimaryEquipmentDefault = (GameObject) null;
+      this.mSecondaryEquipmentDefault = this.mSubSecondaryEquipmentDefault;
+      this.mSubSecondaryEquipmentDefault = (GameObject) null;
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mPrimaryEquipment, (UnityEngine.Object) null))
       {
         this.RemoveMaterialByGameObject(this.mPrimaryEquipment);
-        Object.Destroy((Object) this.mPrimaryEquipment.get_gameObject());
+        UnityEngine.Object.Destroy((UnityEngine.Object) this.mPrimaryEquipment.get_gameObject());
       }
       this.mPrimaryEquipment = this.mSubPrimaryEquipment;
       this.mSubPrimaryEquipment = (GameObject) null;
       GameUtility.SetLayer(this.mPrimaryEquipment, GameUtility.LayerCH, true);
-      if (Object.op_Inequality((Object) this.mSecondaryEquipment, (Object) null))
+      using (List<GameObject>.Enumerator enumerator = this.mPrimaryEquipmentChangeLists.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+        {
+          GameObject current = enumerator.Current;
+          if (UnityEngine.Object.op_Implicit((UnityEngine.Object) current))
+          {
+            this.RemoveMaterialByGameObject(current);
+            UnityEngine.Object.Destroy((UnityEngine.Object) current.get_gameObject());
+          }
+        }
+      }
+      this.mPrimaryEquipmentChangeLists = this.mSubPrimaryEquipmentChangeLists;
+      this.mSubPrimaryEquipmentChangeLists = new List<GameObject>();
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSecondaryEquipment, (UnityEngine.Object) null))
       {
         this.RemoveMaterialByGameObject(this.mSecondaryEquipment);
-        Object.Destroy((Object) this.mSecondaryEquipment.get_gameObject());
+        UnityEngine.Object.Destroy((UnityEngine.Object) this.mSecondaryEquipment.get_gameObject());
       }
       this.mSecondaryEquipment = this.mSubSecondaryEquipment;
       this.mSubSecondaryEquipment = (GameObject) null;
       GameUtility.SetLayer(this.mSecondaryEquipment, GameUtility.LayerCH, true);
+      using (List<GameObject>.Enumerator enumerator = this.mSecondaryEquipmentChangeLists.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+        {
+          GameObject current = enumerator.Current;
+          if (UnityEngine.Object.op_Implicit((UnityEngine.Object) current))
+          {
+            this.RemoveMaterialByGameObject(current);
+            UnityEngine.Object.Destroy((UnityEngine.Object) current.get_gameObject());
+          }
+        }
+      }
+      this.mSecondaryEquipmentChangeLists = this.mSubSecondaryEquipmentChangeLists;
+      this.mSubSecondaryEquipmentChangeLists = new List<GameObject>();
       this.mUseSubEquipment = false;
     }
 
@@ -445,6 +796,12 @@ namespace SRPG
     {
       this.mVesselAnimTime += Time.get_deltaTime();
       this.SetVesselStrength(Mathf.Lerp(this.mVesselAnimStart, this.mVesselAnimEnd, Mathf.Clamp01(this.mVesselAnimTime / this.mVesselAnimDuration)));
+    }
+
+    public enum EquipmentType
+    {
+      PRIMARY,
+      SECONDARY,
     }
   }
 }

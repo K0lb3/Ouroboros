@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.EventTelopBubble
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -89,7 +89,7 @@ namespace SRPG
       for (int index = EventTelopBubble.Instances.Count - 1; index >= 0; --index)
       {
         if (!((Component) EventTelopBubble.Instances[index]).get_gameObject().get_activeInHierarchy())
-          Object.Destroy((Object) ((Component) EventTelopBubble.Instances[index]).get_gameObject());
+          UnityEngine.Object.Destroy((UnityEngine.Object) ((Component) EventTelopBubble.Instances[index]).get_gameObject());
         else
           EventTelopBubble.Instances[index].mCloseAndDestroy = true;
       }
@@ -98,11 +98,11 @@ namespace SRPG
 
     private void UpdatePortrait()
     {
-      if (Object.op_Equality((Object) this.PortraitFront, (Object) null) || Object.op_Equality((Object) this.PortraitSet, (Object) null) && Object.op_Equality((Object) this.CustomEmotion, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.PortraitFront, (UnityEngine.Object) null) || UnityEngine.Object.op_Equality((UnityEngine.Object) this.PortraitSet, (UnityEngine.Object) null) && UnityEngine.Object.op_Equality((UnityEngine.Object) this.CustomEmotion, (UnityEngine.Object) null))
         return;
-      if (this.mPortraitInitialized && this.Emotion == this.mCurrentEmotion && (Object.op_Equality((Object) this.CustomEmotion, (Object) null) || Object.op_Equality((Object) this.PortraitFront.get_texture(), (Object) this.CustomEmotion)))
+      if (this.mPortraitInitialized && this.Emotion == this.mCurrentEmotion && (UnityEngine.Object.op_Equality((UnityEngine.Object) this.CustomEmotion, (UnityEngine.Object) null) || UnityEngine.Object.op_Equality((UnityEngine.Object) this.PortraitFront.get_texture(), (UnityEngine.Object) this.CustomEmotion)))
         this.mPortraitTransition = 0.0f;
-      else if (Object.op_Inequality((Object) this.PortraitBack, (Object) null) && this.mPortraitInitialized)
+      else if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.PortraitBack, (UnityEngine.Object) null) && this.mPortraitInitialized)
       {
         this.mPortraitTransition += Time.get_deltaTime();
         if ((double) this.mPortraitTransition < (double) this.PortraitTransitionTime)
@@ -110,7 +110,7 @@ namespace SRPG
           float num = Mathf.Clamp01(this.mPortraitTransition / this.PortraitTransitionTime);
           ((Graphic) this.PortraitFront).set_color(new Color(1f, 1f, 1f, num));
           this.PortraitBack.set_texture(this.PortraitFront.get_texture());
-          if (Object.op_Equality((Object) this.CustomEmotion, (Object) null))
+          if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.CustomEmotion, (UnityEngine.Object) null))
             this.PortraitFront.set_texture((Texture) this.PortraitSet.GetEmotionImage(this.Emotion));
           else
             this.PortraitFront.set_texture((Texture) this.CustomEmotion);
@@ -126,7 +126,7 @@ namespace SRPG
       }
       else
       {
-        if (Object.op_Equality((Object) this.CustomEmotion, (Object) null))
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.CustomEmotion, (UnityEngine.Object) null))
           this.PortraitFront.set_texture((Texture) this.PortraitSet.GetEmotionImage(this.mCurrentEmotion));
         else
           this.PortraitFront.set_texture((Texture) this.CustomEmotion);
@@ -137,7 +137,7 @@ namespace SRPG
     private void Awake()
     {
       EventTelopBubble.Instances.Add(this);
-      if (!Object.op_Inequality((Object) this.BodyText, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BodyText, (UnityEngine.Object) null))
         return;
       RectTransform transform1 = ((Component) this).get_transform() as RectTransform;
       RectTransform transform2 = ((Component) this.BodyText).get_transform() as RectTransform;
@@ -178,7 +178,7 @@ namespace SRPG
 
     public void AdjustWidth(string bodyText)
     {
-      if (Object.op_Equality((Object) this.BodyText, (Object) null) || !this.AutoExpandWidth)
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.BodyText, (UnityEngine.Object) null) || !this.AutoExpandWidth)
         return;
       EventTelopBubble.Element[] elementArray = EventTelopBubble.SplitTags(bodyText);
       StringBuilder stringBuilder = new StringBuilder(elementArray.Length);
@@ -196,7 +196,7 @@ namespace SRPG
 
     public void SetName(string name)
     {
-      if (!Object.op_Inequality((Object) this.NameText, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.NameText, (UnityEngine.Object) null))
         return;
       this.NameText.set_text(name);
     }
@@ -296,7 +296,7 @@ namespace SRPG
       int n = 0;
       EventTelopBubble.Ctx ctx = new EventTelopBubble.Ctx();
       ctx.Interval = speed.ToFloat();
-      ctx.Color = Color32.op_Implicit(!Object.op_Inequality((Object) this.BodyText, (Object) null) ? Color.get_black() : ((Graphic) this.BodyText).get_color());
+      ctx.Color = Color32.op_Implicit(!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BodyText, (UnityEngine.Object) null) ? Color.get_black() : ((Graphic) this.BodyText).get_color());
       if (this.TextColor)
         ctx.Color = Color32.op_Implicit(Color.get_white());
       if (this.TextPosition == Event2dAction_Telop.TextPositionTypes.Center)
@@ -307,7 +307,7 @@ namespace SRPG
         this.BodyText.set_alignment((TextAnchor) 3);
       this.mNumCharacters = 0;
       this.Parse(EventTelopBubble.SplitTags(s), ref n, (string) null, ctx);
-      if (Object.op_Inequality((Object) this.BodyText, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BodyText, (UnityEngine.Object) null))
         this.BodyText.set_text(string.Empty);
       this.mStartTime = Time.get_time() + this.FadeInTime;
       this.mTextNeedsUpdate = this.mNumCharacters > 0;
@@ -414,7 +414,7 @@ namespace SRPG
           else
             break;
         }
-        if (Object.op_Inequality((Object) this.BodyText, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BodyText, (UnityEngine.Object) null))
           this.BodyText.set_text(stringBuilder.ToString());
         if ((double) this.mStartTime + (double) this.mCharacters[this.mNumCharacters - 1].TimeOffset > (double) time)
           return;
@@ -435,7 +435,7 @@ namespace SRPG
           stringBuilder.Append(this.mCharacters[index].Code);
           stringBuilder.Append("</color>");
         }
-        if (Object.op_Inequality((Object) this.BodyText, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BodyText, (UnityEngine.Object) null))
           this.BodyText.set_text(stringBuilder.ToString());
         if ((double) this.mStartTime + (double) this.mCharacters[this.mNumCharacters - 1].TimeOffset > (double) time)
           return;
@@ -445,7 +445,7 @@ namespace SRPG
 
     private void UpdateStateBool()
     {
-      if (!Object.op_Inequality((Object) this.BubbleAnimator, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BubbleAnimator, (UnityEngine.Object) null))
         return;
       this.BubbleAnimator.SetBool(this.VisibilityBoolName, this.mShouldOpen);
     }
@@ -455,21 +455,21 @@ namespace SRPG
       if (this.mCloseAndDestroy)
       {
         this.mShouldOpen = false;
-        if (Object.op_Inequality((Object) this.BubbleAnimator, (Object) null) && !string.IsNullOrEmpty(this.ClosedStateName))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BubbleAnimator, (UnityEngine.Object) null) && !string.IsNullOrEmpty(this.ClosedStateName))
         {
           this.UpdateStateBool();
           AnimatorStateInfo animatorStateInfo = this.BubbleAnimator.GetCurrentAnimatorStateInfo(0);
           // ISSUE: explicit reference operation
           if (!((AnimatorStateInfo) @animatorStateInfo).IsName(this.ClosedStateName))
             return;
-          Object.Destroy((Object) ((Component) this).get_gameObject());
+          UnityEngine.Object.Destroy((UnityEngine.Object) ((Component) this).get_gameObject());
         }
         else
-          Object.Destroy((Object) ((Component) this).get_gameObject());
+          UnityEngine.Object.Destroy((UnityEngine.Object) ((Component) this).get_gameObject());
       }
       else
       {
-        if (Object.op_Inequality((Object) this.BubbleAnimator, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BubbleAnimator, (UnityEngine.Object) null))
         {
           this.UpdateStateBool();
           if (!this.mShouldOpen && !string.IsNullOrEmpty(this.ClosedStateName))

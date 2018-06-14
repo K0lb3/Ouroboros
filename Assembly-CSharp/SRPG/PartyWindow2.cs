@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.PartyWindow2
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -9,24 +9,35 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Text;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace SRPG
 {
-  [FlowNode.Pin(6, "画面アンロック", FlowNode.PinTypes.Output, 6)]
-  [FlowNode.Pin(7, "AP回復アイテム", FlowNode.PinTypes.Output, 7)]
+  [FlowNode.Pin(21, "アイテム選択完了", FlowNode.PinTypes.Output, 21)]
+  [FlowNode.Pin(111, "サポートユニット解除", FlowNode.PinTypes.Input, 111)]
+  [FlowNode.Pin(220, "サポートが解除された", FlowNode.PinTypes.Output, 220)]
+  [FlowNode.Pin(40, "チーム名変更完了", FlowNode.PinTypes.Input, 40)]
+  [FlowNode.Pin(110, "ユニット解除", FlowNode.PinTypes.Input, 110)]
+  [FlowNode.Pin(101, "サポートユニット選択", FlowNode.PinTypes.Input, 101)]
+  [FlowNode.Pin(100, "ユニット選択", FlowNode.PinTypes.Input, 100)]
+  [FlowNode.Pin(8, "マルチタワー用進む", FlowNode.PinTypes.Output, 8)]
+  [FlowNode.Pin(41, "おまかせ編成完了", FlowNode.PinTypes.Input, 41)]
+  [FlowNode.Pin(1, "進む", FlowNode.PinTypes.Output, 4)]
   [FlowNode.Pin(5, "画面ロック", FlowNode.PinTypes.Output, 5)]
   [FlowNode.Pin(3, "戻る", FlowNode.PinTypes.Output, 1)]
-  [FlowNode.Pin(20, "アイテム選択開始", FlowNode.PinTypes.Output, 20)]
-  [FlowNode.Pin(11, "ユニット選択完了", FlowNode.PinTypes.Output, 11)]
-  [FlowNode.Pin(10, "ユニット選択開始", FlowNode.PinTypes.Output, 10)]
   [FlowNode.Pin(4, "開く", FlowNode.PinTypes.Output, 2)]
-  [FlowNode.Pin(1, "進む", FlowNode.PinTypes.Output, 4)]
-  [FlowNode.Pin(31, "サポート選択完了", FlowNode.PinTypes.Output, 31)]
-  [FlowNode.Pin(30, "サポート選択開始", FlowNode.PinTypes.Output, 30)]
-  [FlowNode.Pin(21, "アイテム選択完了", FlowNode.PinTypes.Output, 21)]
+  [FlowNode.Pin(10, "ユニット選択開始", FlowNode.PinTypes.Output, 10)]
+  [FlowNode.Pin(11, "ユニット選択完了", FlowNode.PinTypes.Output, 11)]
+  [FlowNode.Pin(200, "フレンドがサポートに設定された", FlowNode.PinTypes.Output, 200)]
+  [FlowNode.Pin(210, "フレンド以外がサポートが設定された", FlowNode.PinTypes.Output, 210)]
+  [FlowNode.Pin(20, "アイテム選択開始", FlowNode.PinTypes.Output, 20)]
+  [FlowNode.Pin(120, "ユニットリストウィンド閉じ始めた", FlowNode.PinTypes.Input, 120)]
+  [FlowNode.Pin(119, "ユニットリストウィンド開いた", FlowNode.PinTypes.Input, 119)]
+  [FlowNode.Pin(7, "AP回復アイテム", FlowNode.PinTypes.Output, 7)]
+  [FlowNode.Pin(6, "画面アンロック", FlowNode.PinTypes.Output, 6)]
   public class PartyWindow2 : MonoBehaviour, IFlowInterface, ISortableList
   {
     public int MaxRaidNum;
@@ -38,15 +49,18 @@ namespace SRPG
     public GenericSlot FriendSlot;
     public string SlotChangeTrigger;
     [Space(10f)]
+    public GameObject[] StoryNormalObjects;
+    public GameObject[] HeloOnlyObjects;
+    [Space(10f)]
     public GameObject AddMainUnitOverlay;
     public GameObject AddSubUnitOverlay;
     public GameObject AddItemOverlay;
     [Space(10f)]
     public GenericSlot[] ItemSlots;
     [Space(10f)]
-    public Pulldown TeamPulldown;
+    public FixedScrollablePulldown TeamPulldown;
     [Space(10f)]
-    public UnityEngine.UI.Text TotalAtk;
+    public Text TotalAtk;
     public GenericSlot LeaderSkill;
     public GenericSlot SupportSkill;
     public GameObject QuestInfo;
@@ -56,6 +70,7 @@ namespace SRPG
     [StringIsResourcePath(typeof (GameObject))]
     public string QuestDetailMulti;
     public bool ShowQuestInfo;
+    public bool UseQuestInfo;
     public bool ShowRaidInfo;
     public SRPG_Button ForwardButton;
     public bool ShowForwardButton;
@@ -64,11 +79,19 @@ namespace SRPG
     public GameObject NoItemText;
     public GameObject Prefab_SankaFuka;
     public float SankaFukaOpacity;
+    public SRPG_Button RecommendTeamButton;
+    public SRPG_Button BreakupButton;
+    public SRPG_Button RenameButton;
+    public SRPG_Button PrevButton;
+    public SRPG_Button NextButton;
+    public SRPG_Button RecentTeamButton;
+    public Text TextFixParty;
     [Space(10f)]
     public RectTransform[] ChosenUnitBadges;
     public RectTransform[] ChosenItemBadges;
     public RectTransform ChosenSupportBadge;
     [Space(10f)]
+    public RectTransform MainRect;
     public VirtualList UnitList;
     public ListItemEvents UnitListItem;
     public SRPG_Button UnitRemoveItem;
@@ -78,7 +101,7 @@ namespace SRPG
     public Pulldown UnitListFilter;
     public GameObject NoMatchingUnit;
     public bool AlwaysShowRemoveUnit;
-    public UnityEngine.UI.Text SortModeCaption;
+    public Text SortModeCaption;
     public GameObject AscendingIcon;
     public GameObject DescendingIcon;
     [Space(10f)]
@@ -102,17 +125,15 @@ namespace SRPG
     public Pulldown SupportListFilter;
     [Space(10f)]
     public GameObject RaidInfo;
-    public UnityEngine.UI.Text RaidTicketNum;
+    public Text RaidTicketNum;
     public SRPG_Button Raid;
     public SRPG_Button RaidN;
-    public UnityEngine.UI.Text RaidNCount;
+    public Text RaidNCount;
     [StringIsResourcePath(typeof (RaidResultWindow))]
     public string RaidResultPrefab;
     public GameObject RaidSettingsTemplate;
     [Space(10f)]
-    public Toggle ToggleAutoPlay;
-    public Toggle ToggleTreasure;
-    public Toggle ToggleNotSkill;
+    public Toggle ToggleDirectineCut;
     [Space(10f)]
     public QuestCampaignList QuestCampaigns;
     [Space(10f)]
@@ -121,12 +142,18 @@ namespace SRPG
     [Space(10f)]
     public bool EnableHeroSolo;
     [Space(10f)]
+    public SRPG_Button BattleSettingButton;
+    public SRPG_Button HelpButton;
+    public GameObject Filter;
+    [Space(10f)]
+    public string UNIT_LIST_PATH;
+    [Space(10f)]
+    public string UNITLIST_WINDOW_PATH;
+    private UnitListWindow mUnitListWindow;
     protected List<UnitData> mOwnUnits;
-    private int[] mUnitSortValues;
     private List<ItemData> mOwnItems;
-    private List<SupportData> mSupports;
     protected QuestParam mCurrentQuest;
-    protected PartyWindow2.PartyEditData mCurrentParty;
+    protected PartyEditData mCurrentParty;
     private UnitData mGuestUnit;
     private int mCurrentTeamIndex;
     protected PartyWindow2.EditPartyTypes mCurrentPartyType;
@@ -140,7 +167,7 @@ namespace SRPG
     private List<RectTransform> mSupportPoolA;
     private List<RectTransform> mSupportPoolB;
     protected int mSelectedSlotIndex;
-    private List<PartyWindow2.PartyEditData> mTeams;
+    private List<PartyEditData> mTeams;
     private int mLockedPartySlots;
     private bool mSupportLocked;
     private bool mItemsLocked;
@@ -152,7 +179,6 @@ namespace SRPG
     private RaidResult mRaidResult;
     private LoadRequest mReqRaidResultWindow;
     private LoadRequest mReqQuestDetail;
-    private GameUtility.UnitSortModes mUnitSortMode;
     private string[] mUnitFilter;
     private bool mReverse;
     private SRPG_ToggleButton[] mItemFilterToggles;
@@ -161,6 +187,14 @@ namespace SRPG
     private RaidSettingsWindow mRaidSettings;
     private int mMultiRaidNum;
     private bool mInitialized;
+    private bool mIsHeloOnly;
+    [Space(10f)]
+    public SRPG_Button ButtonMapEffectQuest;
+    [StringIsResourcePath(typeof (GameObject))]
+    public string PrefabMapEffectQuest;
+    private LoadRequest mReqMapEffectQuest;
+    private GameObject mMultiErrorMsg;
+    private Transform mTrHomeHeader;
     private bool mUnitSlotSelected;
 
     public PartyWindow2()
@@ -184,37 +218,95 @@ namespace SRPG
       }
     }
 
+    private void OpenQuestDetail()
+    {
+      if (this.mCurrentQuest == null || this.mReqQuestDetail == null || (!this.mReqQuestDetail.isDone || !UnityEngine.Object.op_Inequality(this.mReqQuestDetail.asset, (UnityEngine.Object) null)))
+        return;
+      GameObject gameObject = UnityEngine.Object.Instantiate(this.mReqQuestDetail.asset) as GameObject;
+      DataSource.Bind<QuestParam>(gameObject, this.mCurrentQuest);
+      if (this.mGuestUnit != null && this.mCurrentPartyType == PartyWindow2.EditPartyTypes.Character)
+        DataSource.Bind<UnitData>(gameObject, this.mGuestUnit);
+      QuestCampaignData[] questCampaigns = MonoSingleton<GameManager>.Instance.FindQuestCampaigns(this.mCurrentQuest);
+      DataSource.Bind<QuestCampaignData[]>(gameObject, questCampaigns.Length != 0 ? questCampaigns : (QuestCampaignData[]) null);
+      gameObject.SetActive(true);
+    }
+
+    private Transform TrHomeHeader
+    {
+      get
+      {
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mTrHomeHeader, (UnityEngine.Object) null))
+        {
+          Scene sceneByName = SceneManager.GetSceneByName(GameUtility.SceneNameHome());
+          if (((Scene) @sceneByName).IsValid())
+          {
+            GameObject[] rootGameObjects = ((Scene) @sceneByName).GetRootGameObjects();
+            if (rootGameObjects != null)
+            {
+              foreach (GameObject gameObject in rootGameObjects)
+              {
+                HomeWindow component = (HomeWindow) gameObject.GetComponent<HomeWindow>();
+                if (UnityEngine.Object.op_Implicit((UnityEngine.Object) component))
+                {
+                  this.mTrHomeHeader = ((Component) component).get_transform();
+                  break;
+                }
+              }
+            }
+          }
+        }
+        return this.mTrHomeHeader;
+      }
+    }
+
+    private void OpenMapEffectQuest()
+    {
+      if (this.mCurrentQuest == null || this.mReqMapEffectQuest == null || (!this.mReqMapEffectQuest.isDone || UnityEngine.Object.op_Equality(this.mReqMapEffectQuest.asset, (UnityEngine.Object) null)))
+        return;
+      Transform parent = this.TrHomeHeader;
+      if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) parent))
+        parent = ((Component) this).get_transform();
+      GameObject instance = MapEffectQuest.CreateInstance(this.mReqMapEffectQuest.asset as GameObject, parent);
+      if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) instance))
+        return;
+      DataSource.Bind<QuestParam>(instance, this.mCurrentQuest);
+      instance.SetActive(true);
+      MapEffectQuest component = (MapEffectQuest) instance.GetComponent<MapEffectQuest>();
+      if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) component))
+        return;
+      component.Setup();
+    }
+
     [DebuggerHidden]
     private IEnumerator Start()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new PartyWindow2.\u003CStart\u003Ec__IteratorC3() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new PartyWindow2.\u003CStart\u003Ec__Iterator107() { \u003C\u003Ef__this = this };
     }
 
     protected virtual void SetFriendSlot()
     {
-      if (!Object.op_Inequality((Object) this.FriendSlot, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.FriendSlot, (UnityEngine.Object) null))
         return;
       this.FriendSlot.OnSelect = new GenericSlot.SelectEvent(this.OnUnitSlotClick);
     }
 
     private void OnDestroy()
     {
-      if (Object.op_Inequality((Object) MonoSingleton<GameManager>.GetInstanceDirect(), (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) MonoSingleton<GameManager>.GetInstanceDirect(), (UnityEngine.Object) null))
       {
         MonoSingleton<GameManager>.Instance.OnStaminaChange -= new GameManager.StaminaChangeEvent(this.OnStaminaChange);
         MonoSingleton<GameManager>.Instance.OnSceneChange -= new GameManager.SceneChangeEvent(this.OnHomeMenuChange);
       }
       GameUtility.DestroyGameObject((Component) this.UnitListHilit);
       GameUtility.DestroyGameObject((Component) this.ItemListHilit);
-      GameUtility.DestroyGameObject((Component) this.SupportListHilit);
       GameUtility.DestroyGameObjects<RectTransform>(this.ChosenUnitBadges);
       GameUtility.DestroyGameObjects<RectTransform>(this.ChosenItemBadges);
-      if (Object.op_Inequality((Object) this.ChosenSupportBadge, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ChosenSupportBadge, (UnityEngine.Object) null))
         ((Component) this.ChosenSupportBadge).get_transform().SetParent(((Component) this).get_transform(), false);
-      if (Object.op_Inequality((Object) this.UnitRemoveItem, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.UnitRemoveItem, (UnityEngine.Object) null))
         ((Component) this.UnitRemoveItem).get_transform().SetParent(((Component) this).get_transform(), false);
-      if (Object.op_Inequality((Object) this.ItemRemoveItem, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ItemRemoveItem, (UnityEngine.Object) null))
         ((Component) this.ItemRemoveItem).get_transform().SetParent(((Component) this).get_transform(), false);
       GameUtility.DestroyGameObjects<RectTransform>(this.mItemPoolA);
       GameUtility.DestroyGameObjects<RectTransform>(this.mItemPoolB);
@@ -223,13 +315,11 @@ namespace SRPG
       GameUtility.DestroyGameObjects<RectTransform>(this.mSupportPoolA);
       GameUtility.DestroyGameObjects<RectTransform>(this.mSupportPoolB);
       GameUtility.DestroyGameObject((Component) this.mRaidSettings);
-    }
-
-    private void OnCloseUnitListClick(SRPG_Button button)
-    {
-      if (!((Selectable) button).IsInteractable())
+      this.UnitList_Remove();
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mMultiErrorMsg, (UnityEngine.Object) null))
         return;
-      FlowNode_GameObject.ActivateOutputLinks((Component) this, 11);
+      UIUtility.PopCanvas();
+      this.mMultiErrorMsg = (GameObject) null;
     }
 
     private void OnCloseItemListClick(SRPG_Button button)
@@ -239,19 +329,12 @@ namespace SRPG
       FlowNode_GameObject.ActivateOutputLinks((Component) this, 21);
     }
 
-    private void OnCloseSupportListClick(SRPG_Button button)
-    {
-      if (!((Selectable) button).IsInteractable())
-        return;
-      FlowNode_GameObject.ActivateOutputLinks((Component) this, 31);
-    }
-
     private void AttachAndEnable(Transform go, Transform parent, string subPath)
     {
       if (!string.IsNullOrEmpty(subPath))
       {
         Transform child = parent.FindChild(subPath);
-        if (Object.op_Inequality((Object) child, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) child, (UnityEngine.Object) null))
           parent = child;
       }
       go.SetParent(parent, false);
@@ -261,15 +344,39 @@ namespace SRPG
     private void MoveToOrigin(GameObject go)
     {
       RectTransform component = (RectTransform) go.GetComponent<RectTransform>();
-      if (!Object.op_Inequality((Object) component, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
         return;
       component.set_anchoredPosition(Vector2.get_zero());
     }
 
-    private void OnTeamChange(int index)
+    private void ChangeEnabledTeamButtons(int index, int max)
     {
-      if (this.mCurrentTeamIndex == index)
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.NextButton, (UnityEngine.Object) null))
+        ((Selectable) this.NextButton).set_interactable(index < max - 1);
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.PrevButton, (UnityEngine.Object) null))
         return;
+      ((Selectable) this.PrevButton).set_interactable(index > 0);
+    }
+
+    private void OnNextTeamChange()
+    {
+      if (!this.OnTeamChangeImpl(this.mCurrentTeamIndex + 1))
+        return;
+      this.TeamPulldown.Selection = this.mCurrentTeamIndex;
+    }
+
+    private void OnPrevTeamChange()
+    {
+      if (!this.OnTeamChangeImpl(this.mCurrentTeamIndex - 1))
+        return;
+      this.TeamPulldown.Selection = this.mCurrentTeamIndex;
+    }
+
+    private bool OnTeamChangeImpl(int index)
+    {
+      if (this.mCurrentTeamIndex == index || index >= this.mTeams.Count || index < 0)
+        return false;
+      this.ChangeEnabledTeamButtons(index, this.mTeams.Count);
       if (this.mCurrentQuest != null && this.mCurrentQuest.UseFixEditor)
       {
         int currentTeamIndex = this.mCurrentTeamIndex;
@@ -281,14 +388,20 @@ namespace SRPG
             this.mTeams[index].Units[0] = (UnitData) null;
         }
       }
-      if (this.EnableHeroSolo && this.IsSoloEventParty(this.mCurrentQuest))
-        this.KyouseiUnitPartyEdit(this.mCurrentQuest, this.mTeams[index]);
+      if (this.EnableHeroSolo && PartyUtility.IsSoloStoryOrEventParty(this.mCurrentQuest))
+        PartyUtility.KyouseiUnitPartyEdit(this.mCurrentQuest, this.mTeams[index]);
       this.mCurrentTeamIndex = index;
       this.mCurrentParty = this.mTeams[this.mCurrentTeamIndex];
       for (int slotIndex = 0; slotIndex < this.mCurrentParty.PartyData.MAX_UNIT; ++slotIndex)
         this.SetPartyUnit(slotIndex, this.mTeams[this.mCurrentTeamIndex].Units[slotIndex]);
       this.OnPartyMemberChange();
       this.SaveTeamPresets();
+      return true;
+    }
+
+    private void OnTeamChange(int index)
+    {
+      this.OnTeamChangeImpl(index);
     }
 
     private void OnPostUnitListUpdate()
@@ -303,9 +416,9 @@ namespace SRPG
           if (itemID > 0)
           {
             RectTransform rectTransform = this.UnitList.FindItem(itemID);
-            if (index >= 0 && index < this.ChosenUnitBadges.Length && !Object.op_Equality((Object) this.ChosenUnitBadges[index], (Object) null))
+            if (index >= 0 && index < this.ChosenUnitBadges.Length && !UnityEngine.Object.op_Equality((UnityEngine.Object) this.ChosenUnitBadges[index], (UnityEngine.Object) null))
             {
-              if (Object.op_Inequality((Object) ((Transform) this.ChosenUnitBadges[index]).get_parent(), (Object) rectTransform))
+              if (UnityEngine.Object.op_Inequality((UnityEngine.Object) ((Transform) this.ChosenUnitBadges[index]).get_parent(), (UnityEngine.Object) rectTransform))
               {
                 ((Transform) this.ChosenUnitBadges[index]).SetParent((Transform) rectTransform, false);
                 ((Component) this.ChosenUnitBadges[index]).get_gameObject().SetActive(true);
@@ -317,186 +430,31 @@ namespace SRPG
       }
       for (int index = 0; index < this.ChosenUnitBadges.Length; ++index)
       {
-        if (Object.op_Inequality((Object) this.ChosenUnitBadges[index], (Object) null) && (num & 1 << index) == 0)
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ChosenUnitBadges[index], (UnityEngine.Object) null) && (num & 1 << index) == 0)
         {
           ((Transform) this.ChosenUnitBadges[index]).SetParent((Transform) UIUtility.Pool, false);
           ((Component) this.ChosenUnitBadges[index]).get_gameObject().SetActive(false);
         }
       }
-    }
-
-    protected virtual RectTransform OnGetUnitListItem(int id, int old, RectTransform current)
-    {
-      if (id == 0)
-      {
-        if (Object.op_Equality((Object) this.UnitRemoveItem, (Object) null))
-          return (RectTransform) null;
-        if (Object.op_Inequality((Object) current, (Object) null) && Object.op_Inequality((Object) ((Component) this.UnitRemoveItem).GetComponent<RectTransform>(), (Object) current))
-        {
-          this.mUnitPoolB.Remove(current);
-          this.mUnitPoolA.Add(current);
-          ((Transform) current).SetParent((Transform) UIUtility.Pool, false);
-        }
-        return ((Component) this.UnitRemoveItem).get_transform() as RectTransform;
-      }
-      if (Object.op_Equality((Object) this.UnitListItem, (Object) null))
-        return (RectTransform) null;
-      RectTransform rectTransform;
-      if (old <= 0)
-      {
-        if (Object.op_Inequality((Object) this.UnitRemoveItem, (Object) null) && Object.op_Equality((Object) ((Component) this.UnitRemoveItem).get_transform(), (Object) current))
-          ((Component) this.UnitRemoveItem).get_transform().SetParent((Transform) UIUtility.Pool, false);
-        if (this.mUnitPoolA.Count <= 0)
-        {
-          rectTransform = ((Component) this.CreateUnitListItem()).get_transform() as RectTransform;
-          this.mUnitPoolB.Add(rectTransform);
-        }
-        else
-        {
-          rectTransform = this.mUnitPoolA[this.mUnitPoolA.Count - 1];
-          this.mUnitPoolA.RemoveAt(this.mUnitPoolA.Count - 1);
-          this.mUnitPoolB.Add(rectTransform);
-        }
-      }
-      else
-        rectTransform = current;
-      UnitIcon component1 = (UnitIcon) ((Component) rectTransform).GetComponent<UnitIcon>();
-      if (Object.op_Inequality((Object) component1, (Object) null))
-      {
-        if (this.mUnitSortValues != null)
-          component1.SetSortValue(this.mUnitSortMode, this.mUnitSortValues[id - 1]);
-        else
-          component1.ClearSortValue();
-      }
-      DataSource.Bind<UnitData>(((Component) rectTransform).get_gameObject(), this.mOwnUnits[id - 1]);
-      GameParameter.UpdateAll(((Component) rectTransform).get_gameObject());
-      int num = this.mCurrentParty.IndexOf(this.mOwnUnits[id - 1]);
-      if (Object.op_Inequality((Object) this.UnitListHilit, (Object) null))
-      {
-        if (num == this.mSelectedSlotIndex)
-          this.AttachAndEnable((Transform) this.UnitListHilit, (Transform) rectTransform, this.UnitListHilitParent);
-        else if (Object.op_Equality((Object) ((Transform) this.UnitListHilit).get_parent(), (Object) ((Transform) rectTransform).FindChild(this.UnitListHilitParent)))
-        {
-          ((Transform) this.UnitListHilit).SetParent((Transform) UIUtility.Pool, false);
-          ((Component) this.UnitListHilit).get_gameObject().SetActive(false);
-        }
-      }
-      if (this.mCurrentQuest != null)
-      {
-        CanvasGroup component2 = (CanvasGroup) ((Component) rectTransform).GetComponent<CanvasGroup>();
-        if (Object.op_Inequality((Object) component2, (Object) null))
-        {
-          bool flag1 = this.mCurrentQuest.IsUnitAllowed(this.mOwnUnits[id - 1]) || num >= 0;
-          string error = (string) null;
-          bool flag2 = flag1 & this.mCurrentQuest.IsEntryQuestCondition(this.mOwnUnits[id - 1], ref error);
-          component2.set_alpha(!flag2 ? this.SankaFukaOpacity : 1f);
-          component2.set_interactable(flag2);
-        }
-      }
-      return rectTransform;
-    }
-
-    private RectTransform OnGetSupportListItem(int id, int old, RectTransform current)
-    {
-      RectTransform rectTransform1 = (RectTransform) null;
-      if (this.mSupports == null)
-        return rectTransform1;
-      if (id == 0)
-      {
-        if (Object.op_Inequality((Object) current, (Object) null))
-        {
-          this.mSupportPoolB.Remove(current);
-          this.mSupportPoolA.Add(current);
-          ((Transform) current).SetParent((Transform) UIUtility.Pool, false);
-        }
-        if (Object.op_Inequality((Object) this.SupportRemoveItem, (Object) null))
-          return ((Component) this.SupportRemoveItem).get_transform() as RectTransform;
-        return (RectTransform) null;
-      }
-      if (Object.op_Equality((Object) this.SupportListItem, (Object) null))
-        return (RectTransform) null;
-      RectTransform rectTransform2;
-      if (old <= 0)
-      {
-        if (old == -1 && Object.op_Inequality((Object) this.SupportRemoveItem, (Object) null) && Object.op_Equality((Object) ((Component) this.SupportRemoveItem).get_transform(), (Object) current))
-          ((Component) this.SupportRemoveItem).get_transform().SetParent((Transform) UIUtility.Pool, false);
-        if (this.mSupportPoolA.Count <= 0)
-        {
-          rectTransform2 = ((Component) this.CreateSupportListItem()).get_transform() as RectTransform;
-          this.mSupportPoolB.Add(rectTransform2);
-        }
-        else
-        {
-          rectTransform2 = this.mSupportPoolA[this.mSupportPoolA.Count - 1];
-          this.mSupportPoolA.RemoveAt(this.mSupportPoolA.Count - 1);
-          this.mSupportPoolB.Add(rectTransform2);
-        }
-      }
-      else
-        rectTransform2 = current;
-      DataSource.Bind<SupportData>(((Component) rectTransform2).get_gameObject(), this.mSupports[id - 1]);
-      DataSource.Bind<UnitData>(((Component) rectTransform2).get_gameObject(), this.mSupports[id - 1].Unit);
-      ((Component) rectTransform2).get_gameObject().SetActive(true);
-      GameParameter.UpdateAll(((Component) rectTransform2).get_gameObject());
-      if (Object.op_Inequality((Object) this.SupportListHilit, (Object) null))
-      {
-        if (this.mSupports[id - 1] == this.mCurrentSupport)
-          this.AttachAndEnable((Transform) this.SupportListHilit, (Transform) rectTransform2, this.SupportListHilitParent);
-        else if (Object.op_Equality((Object) ((Transform) this.SupportListHilit).get_parent(), (Object) rectTransform2))
-        {
-          ((Transform) this.SupportListHilit).SetParent((Transform) UIUtility.Pool, false);
-          ((Component) this.SupportListHilit).get_gameObject().SetActive(false);
-        }
-      }
-      if (Object.op_Inequality((Object) this.ChosenSupportBadge, (Object) null))
-      {
-        if (this.mSupports[id - 1] == this.mCurrentSupport)
-        {
-          ((Component) this.ChosenSupportBadge).get_transform().SetParent((Transform) rectTransform2, false);
-          ((Component) this.ChosenSupportBadge).get_gameObject().SetActive(true);
-        }
-        else if (Object.op_Equality((Object) ((Component) this.ChosenSupportBadge).get_transform().get_parent(), (Object) rectTransform2))
-        {
-          ((Component) this.ChosenSupportBadge).get_transform().SetParent((Transform) UIUtility.Pool, false);
-          ((Component) this.ChosenSupportBadge).get_gameObject().SetActive(false);
-        }
-      }
-      if (this.mCurrentQuest != null)
-      {
-        CanvasGroup component = (CanvasGroup) ((Component) rectTransform2).GetComponent<CanvasGroup>();
-        if (Object.op_Inequality((Object) component, (Object) null))
-        {
-          UnitData unit = this.mSupports[id - 1].Unit;
-          bool flag1 = this.mCurrentQuest.IsUnitAllowed(unit);
-          string error = (string) null;
-          bool flag2 = flag1 & this.mCurrentQuest.IsEntryQuestCondition(unit, ref error);
-          component.set_alpha(!flag2 ? this.SankaFukaOpacity : 1f);
-          component.set_interactable(flag2);
-        }
-      }
-      return rectTransform2;
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ChosenUnitBadges[0], (UnityEngine.Object) null))
+        return;
+      ((Component) this.ChosenUnitBadges[0]).get_gameObject().SetActive(!this.mIsHeloOnly);
     }
 
     private RectTransform OnGetItemListItem(int id, int old, RectTransform current)
     {
       if (id == 0)
       {
-        if (Object.op_Inequality((Object) current, (Object) null))
-        {
-          this.mItemPoolB.Remove(current);
-          this.mItemPoolA.Add(current);
-          ((Transform) current).SetParent((Transform) UIUtility.Pool, false);
-        }
-        if (Object.op_Inequality((Object) this.ItemRemoveItem, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ItemRemoveItem, (UnityEngine.Object) null))
           return ((Component) this.ItemRemoveItem).get_transform() as RectTransform;
         return (RectTransform) null;
       }
-      if (Object.op_Equality((Object) this.ItemListItem, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.ItemListItem, (UnityEngine.Object) null))
         return (RectTransform) null;
       RectTransform rectTransform;
       if (old <= 0)
       {
-        if (Object.op_Inequality((Object) this.ItemRemoveItem, (Object) null) && Object.op_Equality((Object) ((Component) this.ItemRemoveItem).get_transform(), (Object) current))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ItemRemoveItem, (UnityEngine.Object) null) && UnityEngine.Object.op_Equality((UnityEngine.Object) ((Component) this.ItemRemoveItem).get_transform(), (UnityEngine.Object) current))
           ((Component) this.ItemRemoveItem).get_transform().SetParent((Transform) UIUtility.Pool, false);
         if (this.mItemPoolA.Count <= 0)
         {
@@ -521,11 +479,11 @@ namespace SRPG
           return p.Param == this.mOwnItems[id - 1].Param;
         return false;
       }));
-      if (Object.op_Inequality((Object) this.ItemListHilit, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ItemListHilit, (UnityEngine.Object) null))
       {
         if (this.mSelectedSlotIndex == index1)
           this.AttachAndEnable((Transform) this.ItemListHilit, (Transform) rectTransform, this.ItemListHilitParent);
-        else if (Object.op_Equality((Object) ((Transform) this.ItemListHilit).get_parent(), (Object) ((Transform) rectTransform).FindChild(this.ItemListHilitParent)))
+        else if (UnityEngine.Object.op_Equality((UnityEngine.Object) ((Transform) this.ItemListHilit).get_parent(), (UnityEngine.Object) ((Transform) rectTransform).FindChild(this.ItemListHilitParent)))
         {
           ((Transform) this.ItemListHilit).SetParent((Transform) UIUtility.Pool, false);
           ((Component) this.ItemListHilit).get_gameObject().SetActive(false);
@@ -533,7 +491,7 @@ namespace SRPG
       }
       if (index1 >= 0)
       {
-        if (Object.op_Inequality((Object) this.ChosenItemBadges[index1], (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ChosenItemBadges[index1], (UnityEngine.Object) null))
         {
           ((Transform) this.ChosenItemBadges[index1]).SetParent((Transform) rectTransform, false);
           ((Component) this.ChosenItemBadges[index1]).get_gameObject().SetActive(true);
@@ -543,7 +501,7 @@ namespace SRPG
       {
         for (int index2 = 0; index2 < this.ChosenItemBadges.Length; ++index2)
         {
-          if (Object.op_Inequality((Object) this.ChosenItemBadges[index2], (Object) null) && Object.op_Equality((Object) ((Transform) this.ChosenItemBadges[index2]).get_parent(), (Object) rectTransform))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ChosenItemBadges[index2], (UnityEngine.Object) null) && UnityEngine.Object.op_Equality((UnityEngine.Object) ((Transform) this.ChosenItemBadges[index2]).get_parent(), (UnityEngine.Object) rectTransform))
           {
             ((Transform) this.ChosenItemBadges[index2]).SetParent((Transform) UIUtility.Pool, false);
             ((Component) this.ChosenItemBadges[index2]).get_gameObject().SetActive(false);
@@ -554,49 +512,25 @@ namespace SRPG
       return rectTransform;
     }
 
-    private ListItemEvents CreateSupportListItem()
-    {
-      ListItemEvents listItemEvents = (ListItemEvents) Object.Instantiate<ListItemEvents>((M0) this.SupportListItem);
-      listItemEvents.OnSelect = new ListItemEvents.ListItemEvent(this.OnSupportSelect);
-      return listItemEvents;
-    }
-
     private ListItemEvents CreateItemListItem()
     {
-      ListItemEvents listItemEvents = (ListItemEvents) Object.Instantiate<ListItemEvents>((M0) this.ItemListItem);
+      ListItemEvents listItemEvents = (ListItemEvents) UnityEngine.Object.Instantiate<ListItemEvents>((M0) this.ItemListItem);
       listItemEvents.OnSelect = new ListItemEvents.ListItemEvent(this.OnItemSelect);
       return listItemEvents;
-    }
-
-    private ListItemEvents CreateUnitListItem()
-    {
-      ListItemEvents listItemEvents = (ListItemEvents) Object.Instantiate<ListItemEvents>((M0) this.UnitListItem);
-      listItemEvents.OnSelect = new ListItemEvents.ListItemEvent(this.OnUnitItemSelect);
-      return listItemEvents;
-    }
-
-    private void OnUnitRemoveSelect(SRPG_Button button)
-    {
-      if (!((Selectable) button).IsInteractable())
-        return;
-      this.SetPartyUnit(this.mSelectedSlotIndex, (UnitData) null);
-      this.OnPartyMemberChange();
-      this.SaveTeamPresets();
-      FlowNode_GameObject.ActivateOutputLinks((Component) this, 11);
     }
 
     private void RefreshItemList()
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      PartyWindow2.\u003CRefreshItemList\u003Ec__AnonStorey25A listCAnonStorey25A = new PartyWindow2.\u003CRefreshItemList\u003Ec__AnonStorey25A();
+      PartyWindow2.\u003CRefreshItemList\u003Ec__AnonStorey352 listCAnonStorey352 = new PartyWindow2.\u003CRefreshItemList\u003Ec__AnonStorey352();
       // ISSUE: reference to a compiler-generated field
-      listCAnonStorey25A.\u003C\u003Ef__this = this;
+      listCAnonStorey352.\u003C\u003Ef__this = this;
       // ISSUE: reference to a compiler-generated field
-      listCAnonStorey25A.currentItem = this.mCurrentItems[this.mSelectedSlotIndex];
+      listCAnonStorey352.currentItem = this.mCurrentItems[this.mSelectedSlotIndex];
       this.ItemList.ClearItems();
       // ISSUE: reference to a compiler-generated field
-      if (listCAnonStorey25A.currentItem != null || this.AlwaysShowRemoveItem)
+      if (listCAnonStorey352.currentItem != null || this.AlwaysShowRemoveItem)
         this.ItemList.AddItem(0);
       List<ItemData> itemDataList = new List<ItemData>((IEnumerable<ItemData>) this.mOwnItems);
       for (int index = 0; index < itemDataList.Count; ++index)
@@ -626,39 +560,39 @@ namespace SRPG
         case PartyWindow2.ItemFilterTypes.Offense:
           for (int index = 0; index < itemDataList.Count; ++index)
           {
-            if (itemDataList[index].ItemType == EItemType.Used && itemDataList[index].Skill != null && (itemDataList[index].Skill.EffectType == SkillEffectTypes.Attack || itemDataList[index].Skill.EffectType == SkillEffectTypes.Debuff || (itemDataList[index].Skill.EffectType == SkillEffectTypes.FailCondition || itemDataList[index].Skill.EffectType == SkillEffectTypes.RateDamage)))
+            if (itemDataList[index].ItemType == EItemType.Used && itemDataList[index].Skill != null && (itemDataList[index].Skill.EffectType == SkillEffectTypes.Attack || itemDataList[index].Skill.EffectType == SkillEffectTypes.Debuff || (itemDataList[index].Skill.EffectType == SkillEffectTypes.FailCondition || itemDataList[index].Skill.EffectType == SkillEffectTypes.RateDamage) || itemDataList[index].Skill.EffectType == SkillEffectTypes.RateDamageCurrent))
               this.ItemList.AddItem(this.mOwnItems.IndexOf(itemDataList[index]) + 1);
           }
           break;
         case PartyWindow2.ItemFilterTypes.Support:
           for (int index = 0; index < itemDataList.Count; ++index)
           {
-            if (itemDataList[index].ItemType == EItemType.Used && itemDataList[index].Skill != null && (itemDataList[index].Skill.EffectType == SkillEffectTypes.Heal || itemDataList[index].Skill.EffectType == SkillEffectTypes.RateHeal || (itemDataList[index].Skill.EffectType == SkillEffectTypes.Buff || itemDataList[index].Skill.EffectType == SkillEffectTypes.CureCondition) || (itemDataList[index].Skill.EffectType == SkillEffectTypes.Revive || itemDataList[index].Skill.EffectType == SkillEffectTypes.GemsIncDec)))
+            if (itemDataList[index].ItemType == EItemType.Used && itemDataList[index].Skill != null && (itemDataList[index].Skill.EffectType == SkillEffectTypes.Heal || itemDataList[index].Skill.EffectType == SkillEffectTypes.RateHeal || (itemDataList[index].Skill.EffectType == SkillEffectTypes.Buff || itemDataList[index].Skill.EffectType == SkillEffectTypes.CureCondition) || (itemDataList[index].Skill.EffectType == SkillEffectTypes.DisableCondition || itemDataList[index].Skill.EffectType == SkillEffectTypes.Revive || itemDataList[index].Skill.EffectType == SkillEffectTypes.GemsIncDec)))
               this.ItemList.AddItem(this.mOwnItems.IndexOf(itemDataList[index]) + 1);
           }
           break;
       }
       this.ItemList.Refresh(true);
-      if (Object.op_Inequality((Object) this.ItemListHilit, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ItemListHilit, (UnityEngine.Object) null))
       {
         ((Component) this.ItemListHilit).get_gameObject().SetActive(false);
         ((Transform) this.ItemListHilit).SetParent(((Component) this).get_transform(), false);
         // ISSUE: reference to a compiler-generated field
-        if (listCAnonStorey25A.currentItem != null)
+        if (listCAnonStorey352.currentItem != null)
         {
           // ISSUE: reference to a compiler-generated method
-          int itemID = this.mOwnItems.FindIndex(new Predicate<ItemData>(listCAnonStorey25A.\u003C\u003Em__2AA)) + 1;
+          int itemID = this.mOwnItems.FindIndex(new Predicate<ItemData>(listCAnonStorey352.\u003C\u003Em__3B9)) + 1;
           if (itemID > 0)
           {
             RectTransform rectTransform = this.ItemList.FindItem(itemID);
-            if (Object.op_Inequality((Object) rectTransform, (Object) null))
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) rectTransform, (UnityEngine.Object) null))
               this.AttachAndEnable((Transform) this.ItemListHilit, (Transform) rectTransform, this.ItemListHilitParent);
           }
         }
       }
       for (int index = 0; index < this.ChosenItemBadges.Length; ++index)
       {
-        if (Object.op_Inequality((Object) this.ChosenItemBadges[index], (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ChosenItemBadges[index], (UnityEngine.Object) null))
         {
           ((Transform) this.ChosenItemBadges[index]).SetParent((Transform) UIUtility.Pool, false);
           ((Component) this.ChosenItemBadges[index]).get_gameObject().SetActive(false);
@@ -666,25 +600,25 @@ namespace SRPG
       }
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      PartyWindow2.\u003CRefreshItemList\u003Ec__AnonStorey25B listCAnonStorey25B = new PartyWindow2.\u003CRefreshItemList\u003Ec__AnonStorey25B();
+      PartyWindow2.\u003CRefreshItemList\u003Ec__AnonStorey353 listCAnonStorey353 = new PartyWindow2.\u003CRefreshItemList\u003Ec__AnonStorey353();
       // ISSUE: reference to a compiler-generated field
-      listCAnonStorey25B.\u003C\u003Ef__this = this;
+      listCAnonStorey353.\u003C\u003Ef__this = this;
       // ISSUE: reference to a compiler-generated field
       // ISSUE: reference to a compiler-generated field
       // ISSUE: reference to a compiler-generated field
-      for (listCAnonStorey25B.i = 0; listCAnonStorey25B.i < this.ChosenItemBadges.Length; ++listCAnonStorey25B.i)
+      for (listCAnonStorey353.i = 0; listCAnonStorey353.i < this.ChosenItemBadges.Length; ++listCAnonStorey353.i)
       {
         // ISSUE: reference to a compiler-generated field
-        if (this.mCurrentItems[listCAnonStorey25B.i] != null)
+        if (this.mCurrentItems[listCAnonStorey353.i] != null)
         {
           // ISSUE: reference to a compiler-generated method
-          RectTransform rectTransform = this.ItemList.FindItem(this.mOwnItems.FindIndex(new Predicate<ItemData>(listCAnonStorey25B.\u003C\u003Em__2AB)) + 1);
-          if (Object.op_Inequality((Object) rectTransform, (Object) null))
+          RectTransform rectTransform = this.ItemList.FindItem(this.mOwnItems.FindIndex(new Predicate<ItemData>(listCAnonStorey353.\u003C\u003Em__3BA)) + 1);
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) rectTransform, (UnityEngine.Object) null))
           {
             // ISSUE: reference to a compiler-generated field
-            ((Transform) this.ChosenItemBadges[listCAnonStorey25B.i]).SetParent((Transform) rectTransform, false);
+            ((Transform) this.ChosenItemBadges[listCAnonStorey353.i]).SetParent((Transform) rectTransform, false);
             // ISSUE: reference to a compiler-generated field
-            ((Component) this.ChosenItemBadges[listCAnonStorey25B.i]).get_gameObject().SetActive(true);
+            ((Component) this.ChosenItemBadges[listCAnonStorey353.i]).get_gameObject().SetActive(true);
           }
         }
       }
@@ -706,13 +640,14 @@ namespace SRPG
     {
       this.SetItemSlot(this.mSelectedSlotIndex, (ItemData) null);
       this.OnItemSlotsChange();
+      this.SaveInventory();
       FlowNode_GameObject.ActivateOutputLinks((Component) this, 21);
     }
 
     private void OnSupportRemoveSelect(SRPG_Button button)
     {
       this.SetSupport((SupportData) null);
-      if (Object.op_Inequality((Object) this.FriendSlot, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.FriendSlot, (UnityEngine.Object) null))
       {
         this.FriendSlot.SetSlotData<QuestParam>(this.mCurrentQuest);
         this.FriendSlot.SetSlotData<UnitData>((UnitData) null);
@@ -740,7 +675,7 @@ namespace SRPG
       {
         this.SetSupport(this.mSelectedSupport);
         if (this.mSelectedSupport.GetCost() > 0)
-          AnalyticsManager.TrackCurrencyUse(AnalyticsManager.CurrencyType.Zeni, AnalyticsManager.CurrencySubType.FREE, (long) this.mSelectedSupport.GetCost(), "Hire Mercenary", (Dictionary<string, object>) null);
+          AnalyticsManager.TrackNonPremiumCurrencyUse(AnalyticsManager.NonPremiumCurrencyType.Zeni, (long) this.mSelectedSupport.GetCost(), "Hire Mercenary", (string) null);
         this.OnPartyMemberChange();
         FlowNode_GameObject.ActivateOutputLinks((Component) this, 31);
       }
@@ -776,38 +711,8 @@ namespace SRPG
           this.SetItemSlot(selectedSlotIndex, dataOfClass);
       }
       this.OnItemSlotsChange();
+      this.SaveInventory();
       FlowNode_GameObject.ActivateOutputLinks((Component) this, 21);
-    }
-
-    private void OnUnitItemSelect(GameObject go)
-    {
-      int selectedSlotIndex = this.mSelectedSlotIndex;
-      UnitData unit = this.mCurrentParty.Units[this.mSelectedSlotIndex];
-      if (selectedSlotIndex < this.mCurrentParty.PartyData.MAX_MAINMEMBER)
-      {
-        while (0 < selectedSlotIndex && this.mCurrentParty.Units[selectedSlotIndex - 1] == null)
-          --selectedSlotIndex;
-      }
-      else
-      {
-        while (this.mCurrentParty.PartyData.MAX_MAINMEMBER < selectedSlotIndex && this.mCurrentParty.Units[selectedSlotIndex - 1] == null)
-          --selectedSlotIndex;
-      }
-      UnitData dataOfClass = DataSource.FindDataOfClass<UnitData>(go, (UnitData) null);
-      if (dataOfClass != null && dataOfClass != unit)
-      {
-        int slotIndex = this.mCurrentParty.IndexOf(dataOfClass);
-        if (slotIndex >= 0 && selectedSlotIndex != slotIndex)
-        {
-          this.SetPartyUnit(selectedSlotIndex, dataOfClass);
-          this.SetPartyUnit(slotIndex, unit);
-        }
-        else
-          this.SetPartyUnit(selectedSlotIndex, dataOfClass);
-      }
-      this.OnPartyMemberChange();
-      this.SaveTeamPresets();
-      FlowNode_GameObject.ActivateOutputLinks((Component) this, 11);
     }
 
     private void OnPartyMemberChange()
@@ -815,12 +720,12 @@ namespace SRPG
       this.RefreshSankaStates();
       this.RecalcTotalAttack();
       this.UpdateLeaderSkills();
-      if (Object.op_Inequality((Object) this.AddMainUnitOverlay, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AddMainUnitOverlay, (UnityEngine.Object) null))
       {
         this.AddMainUnitOverlay.SetActive(false);
         for (int mainmemberStart = this.mCurrentParty.PartyData.MAINMEMBER_START; mainmemberStart <= this.mCurrentParty.PartyData.MAINMEMBER_END; ++mainmemberStart)
         {
-          if (this.mCurrentParty.Units[mainmemberStart] == null && mainmemberStart < this.UnitSlots.Length && (Object.op_Inequality((Object) this.UnitSlots[mainmemberStart], (Object) null) && (this.mLockedPartySlots & 1 << mainmemberStart) == 0))
+          if (this.mCurrentParty.Units[mainmemberStart] == null && mainmemberStart < this.UnitSlots.Length && (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.UnitSlots[mainmemberStart], (UnityEngine.Object) null) && (this.mLockedPartySlots & 1 << mainmemberStart) == 0))
           {
             this.AddMainUnitOverlay.get_transform().SetParent(((Component) this.UnitSlots[mainmemberStart]).get_transform(), false);
             this.AddMainUnitOverlay.SetActive(true);
@@ -828,12 +733,12 @@ namespace SRPG
           }
         }
       }
-      if (!Object.op_Inequality((Object) this.AddSubUnitOverlay, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AddSubUnitOverlay, (UnityEngine.Object) null))
         return;
       this.AddSubUnitOverlay.SetActive(false);
       for (int submemberStart = this.mCurrentParty.PartyData.SUBMEMBER_START; submemberStart <= this.mCurrentParty.PartyData.SUBMEMBER_END; ++submemberStart)
       {
-        if (this.mCurrentParty.Units[submemberStart] == null && submemberStart < this.UnitSlots.Length && (Object.op_Inequality((Object) this.UnitSlots[submemberStart], (Object) null) && (this.mLockedPartySlots & 1 << submemberStart) == 0))
+        if (this.mCurrentParty.Units[submemberStart] == null && submemberStart < this.UnitSlots.Length && (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.UnitSlots[submemberStart], (UnityEngine.Object) null) && (this.mLockedPartySlots & 1 << submemberStart) == 0))
         {
           this.AddSubUnitOverlay.get_transform().SetParent(((Component) this.UnitSlots[submemberStart]).get_transform(), false);
           this.AddSubUnitOverlay.SetActive(true);
@@ -844,12 +749,12 @@ namespace SRPG
 
     protected virtual void OnItemSlotsChange()
     {
-      if (!Object.op_Inequality((Object) this.AddItemOverlay, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AddItemOverlay, (UnityEngine.Object) null))
         return;
       this.AddItemOverlay.SetActive(false);
       for (int index = 0; index < this.mCurrentItems.Length; ++index)
       {
-        if (this.mCurrentItems[index] == null && index < this.ItemSlots.Length && (Object.op_Inequality((Object) this.ItemSlots[index], (Object) null) && !this.mItemsLocked))
+        if (this.mCurrentItems[index] == null && index < this.ItemSlots.Length && (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ItemSlots[index], (UnityEngine.Object) null) && !this.mItemsLocked))
         {
           this.AddItemOverlay.get_transform().SetParent(((Component) this.ItemSlots[index]).get_transform(), false);
           this.AddItemOverlay.SetActive(true);
@@ -860,10 +765,15 @@ namespace SRPG
 
     private void UpdateLeaderSkills()
     {
-      if (Object.op_Inequality((Object) this.LeaderSkill, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.LeaderSkill, (UnityEngine.Object) null))
       {
         SkillParam data = (SkillParam) null;
-        if (this.mCurrentParty.Units[0] != null)
+        if (this.mIsHeloOnly)
+        {
+          if (this.mGuestUnit != null && this.mGuestUnit.LeaderSkill != null)
+            data = this.mGuestUnit.LeaderSkill.SkillParam;
+        }
+        else if (this.mCurrentParty.Units[0] != null)
         {
           if (this.mCurrentParty.Units[0].LeaderSkill != null)
             data = this.mCurrentParty.Units[0].LeaderSkill.SkillParam;
@@ -872,7 +782,7 @@ namespace SRPG
           data = this.mGuestUnit.LeaderSkill.SkillParam;
         this.LeaderSkill.SetSlotData<SkillParam>(data);
       }
-      if (!Object.op_Inequality((Object) this.SupportSkill, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.SupportSkill, (UnityEngine.Object) null))
         return;
       SkillParam data1 = (SkillParam) null;
       if (this.mCurrentSupport != null && this.mCurrentSupport.Unit.LeaderSkill != null)
@@ -882,10 +792,10 @@ namespace SRPG
 
     private void OnSlotChange(GameObject go)
     {
-      if (!Object.op_Inequality((Object) go, (Object) null) || string.IsNullOrEmpty(this.SlotChangeTrigger))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) go, (UnityEngine.Object) null) || string.IsNullOrEmpty(this.SlotChangeTrigger))
         return;
       Animator component = (Animator) go.GetComponent<Animator>();
-      if (!Object.op_Inequality((Object) component, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
         return;
       component.SetTrigger(this.SlotChangeTrigger);
     }
@@ -893,10 +803,12 @@ namespace SRPG
     private void SetSupport(SupportData support)
     {
       this.mCurrentSupport = support;
-      if (!Object.op_Inequality((Object) this.FriendSlot, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.FriendSlot, (UnityEngine.Object) null))
         return;
       this.FriendSlot.SetSlotData<QuestParam>(this.mCurrentQuest);
       this.FriendSlot.SetSlotData<SupportData>(support);
+      if (support != null)
+        this.FriendSlot.SetSlotData<UnitData>(support.Unit);
       this.OnSlotChange(((Component) this.FriendSlot).get_gameObject());
     }
 
@@ -962,17 +874,10 @@ namespace SRPG
     }
 
     [DebuggerHidden]
-    private IEnumerator PopulateUnitList()
-    {
-      // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new PartyWindow2.\u003CPopulateUnitList\u003Ec__IteratorC4() { \u003C\u003Ef__this = this };
-    }
-
-    [DebuggerHidden]
     private IEnumerator PopulateItemList()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new PartyWindow2.\u003CPopulateItemList\u003Ec__IteratorC5() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new PartyWindow2.\u003CPopulateItemList\u003Ec__Iterator108() { \u003C\u003Ef__this = this };
     }
 
     private void RecalcTotalAttack()
@@ -988,124 +893,126 @@ namespace SRPG
         num = num + (int) this.mCurrentSupport.Unit.Status.param.atk + (int) this.mCurrentSupport.Unit.Status.param.mag;
       if (this.mGuestUnit != null)
         num = num + (int) this.mGuestUnit.Status.param.atk + (int) this.mGuestUnit.Status.param.mag;
-      if (!Object.op_Inequality((Object) this.TotalAtk, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TotalAtk, (UnityEngine.Object) null))
         return;
       this.TotalAtk.set_text(num.ToString());
     }
 
+    private bool IsMultiTowerPartySlot(int index)
+    {
+      return this.mCurrentPartyType == PartyWindow2.EditPartyTypes.MultiTower && (index == 0 || index == 1 || index == 2);
+    }
+
     protected void OnUnitSlotClick(GenericSlot slot, bool interactable)
     {
-      if (Object.op_Equality((Object) this.UnitList, (Object) null) || !this.mInitialized || this.mIsSaving)
+      if (!this.mInitialized || this.mIsSaving)
+        return;
+      this.Refresh(true);
+      if (this.GetPartyCondType() != PartyCondType.Forced)
+      {
+        int index = Array.IndexOf<GenericSlot>(this.UnitSlots, slot);
+        if (0 <= index && index < this.mCurrentParty.PartyData.MAX_UNIT)
+        {
+          this.mUnitSlotSelected = true;
+          this.mSelectedSlotIndex = index;
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.UnitRemoveItem, (UnityEngine.Object) null))
+            ((Selectable) this.UnitRemoveItem).set_interactable(index > 0 || this.mIsHeloOnly);
+          this.UnitList_Show();
+          return;
+        }
+        if (this.IsMultiTowerPartySlot(index))
+        {
+          this.mUnitSlotSelected = true;
+          this.mSelectedSlotIndex = index;
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.UnitRemoveItem, (UnityEngine.Object) null))
+            ((Selectable) this.UnitRemoveItem).set_interactable(index > 0 || this.mIsHeloOnly);
+          this.UnitList_Show();
+          return;
+        }
+      }
+      if (!UnityEngine.Object.op_Equality((UnityEngine.Object) this.FriendSlot, (UnityEngine.Object) slot))
         return;
       this.mUnitSlotSelected = true;
-      int num = Array.IndexOf<GenericSlot>(this.UnitSlots, slot);
-      if (0 <= num && num < this.mCurrentParty.PartyData.MAX_UNIT)
-      {
-        this.mSelectedSlotIndex = num;
-        if (Object.op_Inequality((Object) this.UnitRemoveItem, (Object) null))
-          ((Selectable) this.UnitRemoveItem).set_interactable(num > 0);
-        this.RefreshUnitList();
-        FlowNode_GameObject.ActivateOutputLinks((Component) this, 10);
-      }
-      else
-      {
-        if (!Object.op_Equality((Object) this.FriendSlot, (Object) slot) || !Object.op_Inequality((Object) this.SupportList, (Object) null))
-          return;
-        if (this.mSupports == null)
-          this.getSupporterList();
-        else
-          this.entrySupporterList();
-      }
+      this.SupportList_Show();
     }
 
-    private void getSupporterList()
+    private UnitData[] RefreshUnits(UnitData[] units)
     {
-      Network.RequestAPI((WebAPI) new ReqSupporter((Network.ResponseCallback) (www =>
+      List<UnitData> unitDataList1 = new List<UnitData>((IEnumerable<UnitData>) this.mOwnUnits);
+      List<UnitData> unitDataList2 = new List<UnitData>();
+      bool flag1 = this.mCurrentParty.Units[this.mSelectedSlotIndex] == null;
+      bool flag2 = PartyUtility.IsHeroesAvailable(this.mCurrentPartyType, this.mCurrentQuest);
+      if (this.UseQuestInfo && (this.mCurrentQuest.type == QuestTypes.Event || this.mCurrentQuest.type == QuestTypes.Beginner || this.PartyType == PartyWindow2.EditPartyTypes.Character) && (this.mCurrentQuest.units.IsNotNull() && this.mCurrentQuest.units.Length > 0))
       {
-        if (FlowNode_Network.HasCommonError(www))
-          return;
-        if (Network.IsError)
+        for (int index = 0; index < this.mCurrentQuest.units.Length; ++index)
         {
-          FlowNode_Network.Retry();
+          // ISSUE: object of a compiler-generated type is created
+          // ISSUE: reference to a compiler-generated method
+          UnitData unitData = Array.Find<UnitData>(unitDataList1.ToArray(), new Predicate<UnitData>(new PartyWindow2.\u003CRefreshUnits\u003Ec__AnonStorey354() { chQuestHeroId = this.mCurrentQuest.units.Get(index) }.\u003C\u003Em__3BB));
+          if (unitData != null)
+            unitDataList1.Remove(unitData);
         }
-        else
+      }
+      int num = 0;
+      for (int mainmemberStart = this.mCurrentParty.PartyData.MAINMEMBER_START; mainmemberStart <= this.mCurrentParty.PartyData.MAINMEMBER_END; ++mainmemberStart)
+      {
+        if (this.mCurrentParty.Units[mainmemberStart] != null)
+          ++num;
+      }
+      // ISSUE: object of a compiler-generated type is created
+      // ISSUE: variable of a compiler-generated type
+      PartyWindow2.\u003CRefreshUnits\u003Ec__AnonStorey355 unitsCAnonStorey355 = new PartyWindow2.\u003CRefreshUnits\u003Ec__AnonStorey355();
+      // ISSUE: reference to a compiler-generated field
+      unitsCAnonStorey355.\u003C\u003Ef__this = this;
+      // ISSUE: reference to a compiler-generated field
+      // ISSUE: reference to a compiler-generated field
+      // ISSUE: reference to a compiler-generated field
+      for (unitsCAnonStorey355.i = 0; unitsCAnonStorey355.i < this.mCurrentParty.PartyData.MAX_UNIT; ++unitsCAnonStorey355.i)
+      {
+        // ISSUE: reference to a compiler-generated field
+        // ISSUE: reference to a compiler-generated field
+        // ISSUE: reference to a compiler-generated field
+        if (this.mCurrentParty.Units[unitsCAnonStorey355.i] != null && (flag2 || (int) this.mCurrentParty.Units[unitsCAnonStorey355.i].UnitParam.hero == 0) && (this.mCurrentParty.PartyData.SUBMEMBER_START > this.mSelectedSlotIndex || this.mSelectedSlotIndex > this.mCurrentParty.PartyData.SUBMEMBER_END || (unitsCAnonStorey355.i != 0 || !flag1) || num > 1))
         {
-          WebAPI.JSON_BodyResponse<PartyWindow2.Json_ReqSupporterResponse> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<PartyWindow2.Json_ReqSupporterResponse>>(www.text);
-          if (jsonObject.body == null)
+          if (this.UseQuestInfo)
           {
-            FlowNode_Network.Retry();
+            string empty = string.Empty;
+            // ISSUE: reference to a compiler-generated field
+            if (!this.mCurrentQuest.IsEntryQuestCondition(this.mCurrentParty.Units[unitsCAnonStorey355.i], ref empty))
+              continue;
           }
-          else
+          // ISSUE: reference to a compiler-generated method
+          UnitData unitData = unitDataList1.Find(new Predicate<UnitData>(unitsCAnonStorey355.\u003C\u003Em__3BC));
+          if (unitData != null)
+            unitDataList2.Add(unitData);
+          // ISSUE: reference to a compiler-generated method
+          int index = unitDataList1.FindIndex(new Predicate<UnitData>(unitsCAnonStorey355.\u003C\u003Em__3BD));
+          if (index >= 0)
+            unitDataList1.RemoveAt(index);
+        }
+      }
+      MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
+      bool flag3 = UnityEngine.Object.op_Inequality((UnityEngine.Object) instance, (UnityEngine.Object) null) && instance.CurrentState == MyPhoton.MyState.ROOM;
+      List<UnitData> unitDataList3 = new List<UnitData>();
+      for (int index = 0; index < unitDataList1.Count; ++index)
+      {
+        if ((flag2 || (int) unitDataList1[index].UnitParam.hero == 0) && (this.mCurrentParty.PartyData.SUBMEMBER_START > this.mSelectedSlotIndex || this.mSelectedSlotIndex > this.mCurrentParty.PartyData.SUBMEMBER_END || (unitDataList1[index] != this.mCurrentParty.Units[0] || !flag1) || num > 1))
+        {
+          if (flag3)
           {
-            try
+            MyPhoton.MyRoom currentRoom = instance.GetCurrentRoom();
+            if (currentRoom != null)
             {
-              MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.supports);
+              JSON_MyPhotonRoomParam myPhotonRoomParam = JSON_MyPhotonRoomParam.Parse(currentRoom.json);
+              if (unitDataList1[index].CalcLevel() < myPhotonRoomParam.unitlv)
+                continue;
             }
-            catch (Exception ex)
-            {
-              DebugUtility.LogException(ex);
-              FlowNode_Network.Failed();
-              return;
-            }
-            Network.RemoveAPI();
-            this.mSupports = new List<SupportData>((IEnumerable<SupportData>) MonoSingleton<GameManager>.Instance.Player.Supports);
-            this.entrySupporterList();
           }
-        }
-      })), false);
-    }
-
-    private void entrySupporterList()
-    {
-      List<SupportData> supportDataList1 = new List<SupportData>((IEnumerable<SupportData>) this.mSupports);
-      this.SupportList.ClearItems();
-      if (this.AlwaysShowRemoveUnit || this.mCurrentSupport != null)
-        this.SupportList.AddItem(0);
-      if (this.mCurrentSupport != null)
-      {
-        this.SupportList.AddItem(this.mSupports.IndexOf(this.mCurrentSupport) + 1);
-        supportDataList1.Remove(this.mCurrentSupport);
-      }
-      int num;
-      for (int index1 = 0; index1 < supportDataList1.Count; index1 = num + 1)
-      {
-        this.SupportList.AddItem(this.mSupports.IndexOf(supportDataList1[index1]) + 1);
-        List<SupportData> supportDataList2 = supportDataList1;
-        int index2 = index1;
-        num = index2 - 1;
-        supportDataList2.RemoveAt(index2);
-      }
-      this.SupportList.Refresh(true);
-      this.SupportList.ForceUpdateItems();
-      if (Object.op_Inequality((Object) this.SupportListHilit, (Object) null))
-      {
-        ((Component) this.SupportListHilit).get_gameObject().SetActive(false);
-        ((Transform) this.SupportListHilit).SetParent(((Component) this).get_transform(), false);
-        if (this.mCurrentSupport != null)
-        {
-          int itemID = this.mSupports.IndexOf(this.mCurrentSupport) + 1;
-          if (itemID > 0)
-          {
-            RectTransform rectTransform = this.SupportList.FindItem(itemID);
-            if (Object.op_Inequality((Object) rectTransform, (Object) null))
-              this.AttachAndEnable((Transform) this.SupportListHilit, (Transform) rectTransform, this.SupportListHilitParent);
-          }
+          unitDataList3.Add(unitDataList1[index]);
         }
       }
-      if (Object.op_Inequality((Object) this.ChosenSupportBadge, (Object) null))
-      {
-        ((Transform) this.ChosenSupportBadge).SetParent((Transform) UIUtility.Pool, false);
-        if (this.mCurrentSupport != null)
-        {
-          RectTransform rectTransform = this.SupportList.FindItem(this.mSupports.IndexOf(this.mCurrentSupport) + 1);
-          if (Object.op_Inequality((Object) rectTransform, (Object) null))
-          {
-            ((Transform) this.ChosenSupportBadge).SetParent((Transform) rectTransform, false);
-            ((Component) this.ChosenSupportBadge).get_gameObject().SetActive(true);
-          }
-        }
-      }
-      FlowNode_GameObject.ActivateOutputLinks((Component) this, 30);
+      unitDataList2.AddRange((IEnumerable<UnitData>) unitDataList3);
+      return unitDataList2.ToArray();
     }
 
     private bool IsPartyDirty
@@ -1135,7 +1042,7 @@ namespace SRPG
           itemParam == null ? (object) (string) null : (object) itemParam.name
         }), (UIUtility.DialogResultEvent) (go => {}), (GameObject) null, false, -1);
       }
-      else if (Object.op_Equality((Object) button, (Object) this.Raid))
+      else if (UnityEngine.Object.op_Equality((UnityEngine.Object) button, (UnityEngine.Object) this.Raid))
         this.PrepareRaid(1, !((Selectable) button).IsInteractable(), false);
       else
         this.ShowRaidSettings();
@@ -1145,14 +1052,14 @@ namespace SRPG
     {
       if (this.mNumRaids <= 0)
         return;
-      if (Object.op_Inequality((Object) this.mRaidSettings, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mRaidSettings, (UnityEngine.Object) null))
       {
         this.mRaidSettings.Close();
         this.mRaidSettings = (RaidSettingsWindow) null;
       }
       this.LockWindow(true);
       CriticalSection.Enter(CriticalSections.Network);
-      if (Object.op_Equality((Object) this.mRaidResultWindow, (Object) null) && this.mReqRaidResultWindow == null)
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mRaidResultWindow, (UnityEngine.Object) null) && this.mReqRaidResultWindow == null)
         this.mReqRaidResultWindow = AssetManager.LoadAsync<RaidResultWindow>(this.RaidResultPrefab);
       if (this.IsPartyDirty)
         this.SaveParty((PartyWindow2.Callback) (() => this.StartRaid()), (PartyWindow2.Callback) null);
@@ -1208,11 +1115,11 @@ namespace SRPG
             }
           }
         }
-        if (this.mCurrentQuest.units != null)
+        if (this.mCurrentQuest.units.IsNotNull())
         {
           for (int index = 0; index < this.mCurrentQuest.units.Length; ++index)
           {
-            UnitData unitDataByUnitId = instance.Player.FindUnitDataByUnitID(this.mCurrentQuest.units[index]);
+            UnitData unitDataByUnitId = instance.Player.FindUnitDataByUnitID(this.mCurrentQuest.units.Get(index));
             if (unitDataByUnitId != null)
             {
               UnitData unitData = new UnitData();
@@ -1255,9 +1162,9 @@ namespace SRPG
             BattleCore.Json_BtlInfo btlinfo = jsonObject.body.btlinfos[index1];
             RaidQuestResult raidQuestResult = new RaidQuestResult();
             raidQuestResult.index = index1;
-            raidQuestResult.pexp = (int) this.mCurrentQuest.pexp;
-            raidQuestResult.uexp = (int) this.mCurrentQuest.uexp;
-            raidQuestResult.gold = (int) this.mCurrentQuest.gold;
+            raidQuestResult.pexp = this.mCurrentQuest.pexp;
+            raidQuestResult.uexp = this.mCurrentQuest.uexp;
+            raidQuestResult.gold = this.mCurrentQuest.gold;
             raidQuestResult.drops = new ItemData[btlinfo.drops.Length];
             for (int index2 = 0; index2 < btlinfo.drops.Length; ++index2)
             {
@@ -1274,10 +1181,11 @@ namespace SRPG
         if (player.Lv > lv)
           player.OnPlayerLevelChange(player.Lv - lv);
         for (int index = 0; index < jsonObject.body.btlinfos.Length; ++index)
-          player.OnQuestWin(this.mCurrentQuest.iname);
+          player.OnQuestWin(this.mCurrentQuest.iname, (BattleCore.Record) null);
         this.mRaidResult.pexp = player.Exp - exp;
-        this.mRaidResult.uexp = (int) this.mCurrentQuest.uexp * this.mNumRaids;
-        this.mRaidResult.gold = (int) this.mCurrentQuest.gold * this.mNumRaids;
+        this.mRaidResult.uexp = this.mCurrentQuest.uexp * this.mNumRaids;
+        this.mRaidResult.gold = this.mCurrentQuest.gold * this.mNumRaids;
+        player.OnGoldChange(this.mRaidResult.gold);
         this.mRaidResult.chquest = new QuestParam[this.mRaidResult.members.Count];
         for (int index = 0; index < this.mRaidResult.members.Count; ++index)
         {
@@ -1298,7 +1206,7 @@ namespace SRPG
     private IEnumerator ShowRaidResultAsync()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new PartyWindow2.\u003CShowRaidResultAsync\u003Ec__IteratorC6() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new PartyWindow2.\u003CShowRaidResultAsync\u003Ec__Iterator109() { \u003C\u003Ef__this = this };
     }
 
     private void OnResetChallenge(WWWResult www)
@@ -1341,111 +1249,172 @@ namespace SRPG
       }
     }
 
+    private void HardQuestDropPiecesUpdate()
+    {
+      GameObject gameObject = GameObjectID.FindGameObject("WorldMapQuestList");
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) gameObject, (UnityEngine.Object) null))
+        return;
+      GameParameter.UpdateAll(gameObject);
+    }
+
     private void OnForwardOrBackButtonClick(SRPG_Button button)
     {
       if (!((Selectable) button).IsInteractable())
         return;
-      if (Object.op_Equality((Object) button, (Object) this.ForwardButton))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) button, (UnityEngine.Object) this.ForwardButton))
       {
         if (this.mCurrentQuest != null && !this.mCurrentQuest.CheckEnableChallange())
         {
           if (!this.mCurrentQuest.CheckEnableReset())
           {
             string empty = string.Empty;
-            UIUtility.NegativeSystemMessage((string) null, !(bool) this.mCurrentQuest.isDailyReset ? LocalizedText.Get("sys.QUEST_SPAN_CHALLENGE_NO_RESET") : LocalizedText.Get("sys.QUEST_CHALLENGE_NO_RESET"), (UIUtility.DialogResultEvent) (g => {}), (GameObject) null, false, -1);
+            UIUtility.NegativeSystemMessage((string) null, this.mCurrentQuest.dayReset <= 0 ? LocalizedText.Get("sys.QUEST_SPAN_CHALLENGE_NO_RESET") : LocalizedText.Get("sys.QUEST_CHALLENGE_NO_RESET"), (UIUtility.DialogResultEvent) (g => {}), (GameObject) null, false, -1);
           }
           else
           {
             // ISSUE: object of a compiler-generated type is created
             // ISSUE: variable of a compiler-generated type
-            PartyWindow2.\u003COnForwardOrBackButtonClick\u003Ec__AnonStorey25C clickCAnonStorey25C = new PartyWindow2.\u003COnForwardOrBackButtonClick\u003Ec__AnonStorey25C();
+            PartyWindow2.\u003COnForwardOrBackButtonClick\u003Ec__AnonStorey356 clickCAnonStorey356 = new PartyWindow2.\u003COnForwardOrBackButtonClick\u003Ec__AnonStorey356();
             // ISSUE: reference to a compiler-generated field
-            clickCAnonStorey25C.\u003C\u003Ef__this = this;
+            clickCAnonStorey356.\u003C\u003Ef__this = this;
             FixParam fixParam = MonoSingleton<GameManager>.Instance.MasterParam.FixParam;
             int num = (int) fixParam.EliteResetMax - (int) this.mCurrentQuest.dailyReset;
             // ISSUE: reference to a compiler-generated field
-            clickCAnonStorey25C.coin = 0;
+            clickCAnonStorey356.coin = 0;
             if (fixParam.EliteResetCosts != null)
             {
               // ISSUE: reference to a compiler-generated field
-              clickCAnonStorey25C.coin = (int) this.mCurrentQuest.dailyReset >= fixParam.EliteResetCosts.Length ? (int) fixParam.EliteResetCosts[fixParam.EliteResetCosts.Length - 1] : (int) fixParam.EliteResetCosts[(int) this.mCurrentQuest.dailyReset];
+              clickCAnonStorey356.coin = (int) this.mCurrentQuest.dailyReset >= fixParam.EliteResetCosts.Length ? (int) fixParam.EliteResetCosts[fixParam.EliteResetCosts.Length - 1] : (int) fixParam.EliteResetCosts[(int) this.mCurrentQuest.dailyReset];
             }
             // ISSUE: reference to a compiler-generated field
             // ISSUE: reference to a compiler-generated field
-            clickCAnonStorey25C.msg = string.Format(LocalizedText.Get("sys.QUEST_CHALLENGE_RESET"), (object) clickCAnonStorey25C.coin, (object) num);
+            clickCAnonStorey356.msg = string.Format(LocalizedText.Get("sys.QUEST_CHALLENGE_RESET"), (object) clickCAnonStorey356.coin, (object) num);
             // ISSUE: reference to a compiler-generated field
             // ISSUE: reference to a compiler-generated method
-            UIUtility.ConfirmBox(clickCAnonStorey25C.msg, (string) null, new UIUtility.DialogResultEvent(clickCAnonStorey25C.\u003C\u003Em__2B0), (UIUtility.DialogResultEvent) (g => {}), (GameObject) null, false, -1);
+            UIUtility.ConfirmBox(clickCAnonStorey356.msg, (string) null, new UIUtility.DialogResultEvent(clickCAnonStorey356.\u003C\u003Em__3C1), (UIUtility.DialogResultEvent) (g => {}), (GameObject) null, false, -1);
           }
         }
         else
         {
           if (this.mCurrentQuest != null)
           {
-            if (!this.mCurrentQuest.IsDateUnlock(-1L))
+            if (!this.mCurrentQuest.IsMulti)
             {
-              if (this.mCurrentQuest.IsBeginner)
+              if (!this.mCurrentQuest.IsDateUnlock(-1L))
               {
-                UIUtility.SystemMessage((string) null, LocalizedText.Get("sys.BEGINNER_QUEST_OUT_OF_DATE"), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1);
+                if (this.mCurrentQuest.IsBeginner)
+                {
+                  UIUtility.SystemMessage((string) null, LocalizedText.Get("sys.BEGINNER_QUEST_OUT_OF_DATE"), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1);
+                  return;
+                }
+                UIUtility.SystemMessage((string) null, LocalizedText.Get("sys.QUEST_OUT_OF_DATE"), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1);
                 return;
               }
-              UIUtility.SystemMessage((string) null, LocalizedText.Get("sys.QUEST_OUT_OF_DATE"), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1);
-              return;
+              if (this.mCurrentQuest.IsKeyQuest && !this.mCurrentQuest.IsKeyUnlock(-1L))
+              {
+                UIUtility.SystemMessage(LocalizedText.Get("sys.KEYQUEST_UNLOCK"), LocalizedText.Get("sys.KEYQUEST_AVAILABLE_CAUTION"), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1);
+                return;
+              }
+              if (MonoSingleton<GameManager>.Instance.Player.Stamina < this.mCurrentQuest.RequiredApWithPlayerLv(MonoSingleton<GameManager>.Instance.Player.Lv, true))
+              {
+                MonoSingleton<GameManager>.Instance.StartBuyStaminaSequence(true);
+                return;
+              }
             }
-            if (this.mCurrentQuest.IsKeyQuest && !this.mCurrentQuest.IsKeyUnlock(-1L))
+            else
             {
-              UIUtility.SystemMessage(LocalizedText.Get("sys.KEYQUEST_UNLOCK"), LocalizedText.Get("sys.KEYQUEST_AVAILABLE_CAUTION"), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1);
-              return;
-            }
-            if (!this.mCurrentQuest.IsMulti && MonoSingleton<GameManager>.Instance.Player.Stamina < this.mCurrentQuest.RequiredApWithPlayerLv(MonoSingleton<GameManager>.Instance.Player.Lv, true))
-            {
-              MonoSingleton<GameManager>.Instance.StartBuyStaminaSequence(true);
-              return;
+              MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
+              if (UnityEngine.Object.op_Inequality((UnityEngine.Object) instance, (UnityEngine.Object) null) && instance.CurrentState == MyPhoton.MyState.ROOM)
+              {
+                MyPhoton.MyRoom currentRoom = instance.GetCurrentRoom();
+                if (currentRoom != null)
+                {
+                  JSON_MyPhotonRoomParam myPhotonRoomParam = JSON_MyPhotonRoomParam.Parse(currentRoom.json);
+                  QuestParam quest = MonoSingleton<GameManager>.Instance.FindQuest(myPhotonRoomParam.iname);
+                  int unitlv = myPhotonRoomParam.unitlv;
+                  bool flag = true;
+                  if (quest != null && unitlv > 0)
+                  {
+                    for (int index = 0; index < (int) quest.unitNum; ++index)
+                    {
+                      UnitData unit = this.mCurrentParty.Units[index];
+                      if (unit != null)
+                        flag &= unit.CalcLevel() >= unitlv;
+                    }
+                    if (!flag)
+                    {
+                      this.mMultiErrorMsg = UIUtility.SystemMessage(LocalizedText.Get("sys.TITLE"), LocalizedText.Get("sys.PARTYEDITOR_ULV"), (UIUtility.DialogResultEvent) (dialog => this.mMultiErrorMsg = (GameObject) null), (GameObject) null, false, -1);
+                      return;
+                    }
+                  }
+                }
+              }
             }
           }
           if (this.mCurrentQuest != null)
           {
+            if (this.mCurrentQuest.IsQuestDrops && UnityEngine.Object.op_Inequality((UnityEngine.Object) QuestDropParam.Instance, (UnityEngine.Object) null))
+            {
+              bool flag = QuestDropParam.Instance.IsChangedQuestDrops(this.mCurrentQuest);
+              GlobalVars.SetDropTableGeneratedTime();
+              if (flag)
+              {
+                this.HardQuestDropPiecesUpdate();
+                if (!QuestDropParam.Instance.IsWarningPopupDisable)
+                {
+                  UIUtility.NegativeSystemMessage((string) null, LocalizedText.Get("sys.PARTYEDITOR_DROP_TABLE"), (UIUtility.DialogResultEvent) (dialog => this.OpenQuestDetail()), (GameObject) null, false, -1);
+                  return;
+                }
+              }
+            }
             int numMainUnits = 0;
             int num1 = 0;
             int num2 = 0;
+            int num3 = 0;
             int availableMainMemberSlots = this.AvailableMainMemberSlots;
             List<string> stringList = new List<string>();
-            bool flag = false;
+            bool flag1 = false;
             for (int index = 0; index < availableMainMemberSlots; ++index)
             {
-              if (this.mCurrentParty.Units[index] != null)
-                ++numMainUnits;
-              if ((this.mLockedPartySlots & 1 << index) == 0)
+              if (this.mCurrentParty.Units.Length > index)
               {
-                ++num1;
-                if (this.mCurrentParty.Units[index] != null && !this.mCurrentQuest.IsUnitAllowed(this.mCurrentParty.Units[index]))
-                  ++num2;
+                if (this.mCurrentParty.Units[index] != null)
+                {
+                  ++numMainUnits;
+                  ++num3;
+                }
+                if ((this.mLockedPartySlots & 1 << index) == 0)
+                {
+                  ++num1;
+                  if (this.mCurrentParty.Units[index] != null && !this.mCurrentQuest.IsUnitAllowed(this.mCurrentParty.Units[index]))
+                    ++num2;
+                }
               }
             }
             if (this.EnableHeroSolo && this.mGuestUnit != null)
             {
               if (numMainUnits < 1)
-                flag = true;
+                flag1 = true;
               ++numMainUnits;
             }
-            if (this.mCurrentQuest.units != null)
+            if (this.mCurrentQuest.units.IsNotNull())
             {
               // ISSUE: object of a compiler-generated type is created
               // ISSUE: variable of a compiler-generated type
-              PartyWindow2.\u003COnForwardOrBackButtonClick\u003Ec__AnonStorey25D clickCAnonStorey25D = new PartyWindow2.\u003COnForwardOrBackButtonClick\u003Ec__AnonStorey25D();
+              PartyWindow2.\u003COnForwardOrBackButtonClick\u003Ec__AnonStorey357 clickCAnonStorey357 = new PartyWindow2.\u003COnForwardOrBackButtonClick\u003Ec__AnonStorey357();
               // ISSUE: reference to a compiler-generated field
-              clickCAnonStorey25D.\u003C\u003Ef__this = this;
+              clickCAnonStorey357.\u003C\u003Ef__this = this;
               // ISSUE: reference to a compiler-generated field
               // ISSUE: reference to a compiler-generated field
               // ISSUE: reference to a compiler-generated field
-              for (clickCAnonStorey25D.i = 0; clickCAnonStorey25D.i < this.mCurrentQuest.units.Length; ++clickCAnonStorey25D.i)
+              for (clickCAnonStorey357.i = 0; clickCAnonStorey357.i < this.mCurrentQuest.units.Length; ++clickCAnonStorey357.i)
               {
                 // ISSUE: reference to a compiler-generated field
                 // ISSUE: reference to a compiler-generated method
-                if (this.mCurrentParty.Units[clickCAnonStorey25D.i] != null && Array.FindIndex<UnitData>(MonoSingleton<GameManager>.Instance.Player.Units.ToArray(), new Predicate<UnitData>(clickCAnonStorey25D.\u003C\u003Em__2B2)) == -1)
+                if (this.mCurrentParty.Units[clickCAnonStorey357.i] != null && Array.FindIndex<UnitData>(MonoSingleton<GameManager>.Instance.Player.Units.ToArray(), new Predicate<UnitData>(clickCAnonStorey357.\u003C\u003Em__3C5)) == -1)
                 {
                   // ISSUE: reference to a compiler-generated field
-                  UnitParam unitParam = MonoSingleton<GameManager>.Instance.MasterParam.GetUnitParam(this.mCurrentQuest.units[clickCAnonStorey25D.i]);
+                  UnitParam unitParam = MonoSingleton<GameManager>.Instance.MasterParam.GetUnitParam(this.mCurrentQuest.units.Get(clickCAnonStorey357.i));
                   stringList.Add(unitParam.name);
                 }
               }
@@ -1466,12 +1435,12 @@ namespace SRPG
               if (this.EnableHeroSolo)
               {
                 if (this.mCurrentQuest.IsEntryQuestCondition(new UnitData[1]{ this.mGuestUnit }, ref empty1))
-                  goto label_45;
+                  goto label_61;
               }
               UIUtility.NegativeSystemMessage((string) null, LocalizedText.Get(empty1), (UIUtility.DialogResultEvent) (dialog => {}), (GameObject) null, false, -1);
               return;
             }
-label_45:
+label_61:
             if (this.mCurrentSupport != null && this.mCurrentSupport.Unit != null && !this.mCurrentQuest.IsEntryQuestCondition(this.mCurrentSupport.Unit, ref empty1))
             {
               UIUtility.NegativeSystemMessage((string) null, LocalizedText.Get(empty1), (UIUtility.DialogResultEvent) (dialog => {}), (GameObject) null, false, -1);
@@ -1499,7 +1468,7 @@ label_45:
                     UIUtility.ConfirmBox(LocalizedText.Get("sys.UNITLIST_DATA_REWRITE", new object[1]
                     {
                       (object) empty2
-                    }), (UIUtility.DialogResultEvent) (dialog => this.PostForwardPressed()), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1);
+                    }), (UIUtility.DialogResultEvent) (dialog => this.PostForwardPressed()), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1, (string) null, (string) null);
                     return;
                   }
                 }
@@ -1507,18 +1476,20 @@ label_45:
             }
             if (num2 > 0)
             {
-              UIUtility.ConfirmBox(LocalizedText.Get("sys.PARTYEDITOR_SANKAFUKA"), (UIUtility.DialogResultEvent) (dialog => this.PostForwardPressed()), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1);
+              UIUtility.ConfirmBox(LocalizedText.Get("sys.PARTYEDITOR_SANKAFUKA"), (UIUtility.DialogResultEvent) (dialog => this.PostForwardPressed()), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1, (string) null, (string) null);
               return;
             }
-            if (!flag && numMainUnits < num1)
+            if (!flag1 && num3 < num1 && this.PartyType != PartyWindow2.EditPartyTypes.MultiTower)
             {
-              UIUtility.ConfirmBox(LocalizedText.Get("sys.PARTYEDITOR_PARTYNOTFULL"), (UIUtility.DialogResultEvent) (dialog => this.PostForwardPressed()), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1);
+              UIUtility.ConfirmBox(LocalizedText.Get("sys.PARTYEDITOR_PARTYNOTFULL"), (UIUtility.DialogResultEvent) (dialog => this.PostForwardPressed()), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1, (string) null, (string) null);
               return;
             }
           }
           this.PostForwardPressed();
         }
       }
+      else if (this.PartyType == PartyWindow2.EditPartyTypes.MultiTower)
+        this.SaveAndActivatePin(8);
       else
         this.SaveAndActivatePin(3);
     }
@@ -1530,18 +1501,27 @@ label_45:
         UIUtility.NegativeSystemMessage((string) null, LocalizedText.Get("sys.PARTYEDITOR_CANTSTART"), (UIUtility.DialogResultEvent) (dialog => {}), (GameObject) null, false, -1);
         return false;
       }
-      string empty = string.Empty;
-      if (this.mCurrentQuest.IsEntryQuestCondition(this.mCurrentParty.Units, ref empty))
-        return true;
-      UIUtility.NegativeSystemMessage((string) null, LocalizedText.Get(empty), (UIUtility.DialogResultEvent) (dialog => {}), (GameObject) null, false, -1);
-      return false;
+      if (this.mCurrentQuest != null && !this.mCurrentQuest.IsMultiTower)
+      {
+        string empty = string.Empty;
+        if (!this.mCurrentQuest.IsEntryQuestCondition(this.mCurrentParty.Units, ref empty))
+        {
+          UIUtility.NegativeSystemMessage((string) null, LocalizedText.Get(empty), (UIUtility.DialogResultEvent) (dialog => {}), (GameObject) null, false, -1);
+          return false;
+        }
+      }
+      return true;
     }
 
     protected virtual void PostForwardPressed()
     {
       GlobalEvent.Invoke("DISABLE_MAINMENU_TOP_COMMAND", (object) null);
+      GlobalVars.SelectedSupport.Set(this.mCurrentSupport);
       GlobalVars.SelectedFriendID = this.mCurrentSupport == null ? (string) null : this.mCurrentSupport.FUID;
-      this.SaveAndActivatePin(1);
+      if (this.PartyType == PartyWindow2.EditPartyTypes.MultiTower)
+        this.SaveAndActivatePin(8);
+      else
+        this.SaveAndActivatePin(1);
     }
 
     protected void SaveAndActivatePin(int pinID)
@@ -1585,7 +1565,7 @@ label_45:
           partyOfType.SetUnitUniqueID(index, uniqueid);
         }
         bool ignoreEmpty = true;
-        if (this.EnableHeroSolo && this.mCurrentQuest != null && (this.mCurrentQuest.units != null && this.mCurrentQuest.EntryCondition != null) && (this.mCurrentQuest.EntryCondition.unit != null && this.mCurrentQuest.units[0] == this.mCurrentQuest.EntryCondition.unit[0]))
+        if (this.EnableHeroSolo && this.mCurrentQuest != null && (this.mCurrentQuest.units.IsNotNull() && this.mCurrentQuest.EntryCondition != null) && (this.mCurrentQuest.EntryCondition.unit != null && this.mCurrentQuest.units.Get(0) == this.mCurrentQuest.EntryCondition.unit[0]))
           ignoreEmpty = false;
         Network.RequestAPI((WebAPI) new ReqParty(new Network.ResponseCallback(this.SavePartyCallback), false, ignoreEmpty), false);
       }
@@ -1627,7 +1607,7 @@ label_45:
     private IEnumerator WaitForSave()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new PartyWindow2.\u003CWaitForSave\u003Ec__IteratorC7() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new PartyWindow2.\u003CWaitForSave\u003Ec__Iterator10A() { \u003C\u003Ef__this = this };
     }
 
     private void SavePartyCallback(WWWResult www)
@@ -1681,6 +1661,8 @@ label_45:
 
     protected void RefreshQuest()
     {
+      if (!this.UseQuestInfo)
+        return;
       QuestParam mCurrentQuest = this.mCurrentQuest;
       this.mCurrentQuest = MonoSingleton<GameManager>.Instance.FindQuest(GlobalVars.SelectedQuestID);
       if (this.mCurrentQuest != mCurrentQuest)
@@ -1688,49 +1670,51 @@ label_45:
       DataSource.Bind<QuestParam>(((Component) this).get_gameObject(), this.mCurrentQuest);
       QuestCampaignData[] questCampaigns = MonoSingleton<GameManager>.Instance.FindQuestCampaigns(this.mCurrentQuest);
       DataSource.Bind<QuestCampaignData[]>(((Component) this).get_gameObject(), questCampaigns.Length != 0 ? questCampaigns : (QuestCampaignData[]) null);
-      if (Object.op_Inequality((Object) this.QuestCampaigns, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.QuestCampaigns, (UnityEngine.Object) null))
         this.QuestCampaigns.RefreshIcons();
       GameParameter.UpdateAll(((Component) this).get_gameObject());
     }
 
-    protected void Refresh(bool keepTeam = false)
+    protected void RefreshNoneQuestInfo(bool keepTeam)
     {
-      if (Object.op_Inequality((Object) this.QuestInfo, (Object) null))
+      this.mIsHeloOnly = false;
+      if (this.StoryNormalObjects != null)
       {
-        if (this.ShowQuestInfo)
+        for (int index = 0; index < this.StoryNormalObjects.Length; ++index)
         {
-          DataSource.Bind<QuestParam>(this.QuestInfo, this.mCurrentQuest);
-          GameParameter.UpdateAll(this.QuestInfo);
-          this.QuestInfo.SetActive(true);
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.StoryNormalObjects[index], (UnityEngine.Object) null))
+            this.StoryNormalObjects[index].SetActive(!this.mIsHeloOnly);
         }
-        else
-          this.QuestInfo.SetActive(false);
-        if (Object.op_Inequality((Object) this.Prefab_SankaFuka, (Object) null))
+      }
+      if (this.HeloOnlyObjects != null)
+      {
+        for (int index = 0; index < this.HeloOnlyObjects.Length; ++index)
         {
-          for (int index = 0; index < this.mSankaFukaIcons.Length && index < this.UnitSlots.Length; ++index)
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.HeloOnlyObjects[index], (UnityEngine.Object) null))
+            this.HeloOnlyObjects[index].SetActive(this.mIsHeloOnly);
+        }
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.GuestUnitSlot, (UnityEngine.Object) null))
+      {
+        if (this.mIsHeloOnly)
+          ((Component) this.GuestUnitSlot).get_transform().SetSiblingIndex(0);
+        else
+          ((Component) this.GuestUnitSlot).get_transform().SetSiblingIndex(4);
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Prefab_SankaFuka, (UnityEngine.Object) null))
+      {
+        for (int index = 1; index < this.mSankaFukaIcons.Length && index < this.UnitSlots.Length; ++index)
+        {
+          if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mSankaFukaIcons[index], (UnityEngine.Object) null) && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.UnitSlots[index], (UnityEngine.Object) null))
           {
-            if (Object.op_Equality((Object) this.mSankaFukaIcons[index], (Object) null) && Object.op_Inequality((Object) this.UnitSlots[index], (Object) null))
-            {
-              this.mSankaFukaIcons[index] = (GameObject) Object.Instantiate<GameObject>((M0) this.Prefab_SankaFuka);
-              RectTransform transform = this.mSankaFukaIcons[index].get_transform() as RectTransform;
-              transform.set_anchoredPosition(Vector2.get_zero());
-              ((Transform) transform).SetParent(((Component) this.UnitSlots[index]).get_transform(), false);
-            }
+            this.mSankaFukaIcons[index] = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.Prefab_SankaFuka);
+            RectTransform transform = this.mSankaFukaIcons[index].get_transform() as RectTransform;
+            transform.set_anchoredPosition(Vector2.get_zero());
+            ((Transform) transform).SetParent(((Component) this.UnitSlots[index]).get_transform(), false);
           }
         }
       }
-      if (this.PartyType == PartyWindow2.EditPartyTypes.Auto)
-      {
-        this.mCurrentPartyType = PartyWindow2.EditPartyTypes.Auto;
-        if (this.mCurrentQuest == null)
-          DebugUtility.LogError("Quest not selected");
-        else
-          this.mCurrentPartyType = this.GetEditPartyTypes();
-        if (this.mCurrentPartyType == PartyWindow2.EditPartyTypes.Auto)
-          this.mCurrentPartyType = PartyWindow2.EditPartyTypes.Normal;
-      }
-      else
-        this.mCurrentPartyType = this.PartyType;
+      this.mCurrentPartyType = this.PartyType;
       PlayerData player = MonoSingleton<GameManager>.Instance.Player;
       PlayerPartyTypes playerPartyType = this.mCurrentPartyType.ToPlayerPartyType();
       if (Array.IndexOf<PlayerPartyTypes>(this.SaveJobs, playerPartyType) >= 0)
@@ -1753,67 +1737,69 @@ label_45:
       }
       DataSource.Bind<PlayerPartyTypes>(((Component) this).get_gameObject(), playerPartyType);
       if (!keepTeam)
-        this.LoadTeamPresets();
+        this.LoadTeam();
       for (int index = 0; index < this.UnitSlots.Length && index < this.mCurrentParty.PartyData.MAX_UNIT; ++index)
       {
-        if (Object.op_Inequality((Object) this.UnitSlots[index], (Object) null) && index < this.mCurrentParty.Units.Length)
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.UnitSlots[index], (UnityEngine.Object) null) && index < this.mCurrentParty.Units.Length)
         {
           this.UnitSlots[index].SetSlotData<QuestParam>(this.mCurrentQuest);
           this.UnitSlots[index].SetSlotData<UnitData>(this.FindUnit(this.mCurrentParty.Units[index]));
         }
       }
-      if (Object.op_Inequality((Object) this.FriendSlot, (Object) null))
-      {
-        this.FriendSlot.SetSlotData<QuestParam>(this.mCurrentQuest);
-        this.FriendSlot.SetSlotData<UnitData>(this.mCurrentSupport == null ? (UnitData) null : this.mCurrentSupport.Unit);
-      }
-      if (Object.op_Inequality((Object) this.GuestUnitSlot, (Object) null))
-      {
-        if (this.mCurrentPartyType == PartyWindow2.EditPartyTypes.Normal || this.mCurrentQuest != null && this.mCurrentQuest.UseFixEditor)
-        {
-          UnitData unitData = (UnitData) null;
-          if (this.mCurrentQuest != null && (this.mCurrentQuest.type == QuestTypes.Story || this.mCurrentQuest.type == QuestTypes.Free || (this.mCurrentQuest.type == QuestTypes.Tutorial || this.mCurrentQuest.type == QuestTypes.Character) || this.mCurrentQuest.type == QuestTypes.Event) && (this.mCurrentQuest.units != null && this.mCurrentQuest.units.Length > 0))
-            unitData = MonoSingleton<GameManager>.Instance.Player.FindUnitDataByUnitID(this.mCurrentQuest.units[0]);
-          this.mGuestUnit = this.FindUnit(unitData);
-          this.GuestUnitSlot.SetSlotData<UnitData>(unitData);
-          ((Component) this.GuestUnitSlot).get_gameObject().SetActive(true);
-        }
-        else if (this.mCurrentPartyType == PartyWindow2.EditPartyTypes.Character)
-        {
-          UnitData unitData = (UnitData) null;
-          if (this.mCurrentQuest != null && this.mCurrentQuest.type == QuestTypes.Character && (this.mCurrentQuest.units != null && this.mCurrentQuest.units.Length > 0))
-            unitData = MonoSingleton<GameManager>.Instance.Player.FindUnitDataByUnitID(this.mCurrentQuest.units[0]);
-          this.mGuestUnit = this.FindUnit(unitData);
-          this.GuestUnitSlot.SetSlotData<QuestParam>(this.mCurrentQuest);
-          this.GuestUnitSlot.SetSlotData<UnitData>(unitData);
-          ((Component) this.GuestUnitSlot).get_gameObject().SetActive(true);
-          if (Object.op_Inequality((Object) this.QuestUnitCond, (Object) null) && this.mGuestUnit != null)
-          {
-            DataSource.Bind<UnitData>(this.QuestUnitCond, this.mGuestUnit);
-            GameParameter.UpdateValuesOfType(GameParameter.ParameterTypes.QUEST_IS_UNIT_ENTRYCONDITION);
-          }
-        }
-        else
-          ((Component) this.GuestUnitSlot).get_gameObject().SetActive(false);
-      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.GuestUnitSlot, (UnityEngine.Object) null))
+        ((Component) this.GuestUnitSlot).get_gameObject().SetActive(false);
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.QuestInfo, (UnityEngine.Object) null))
+        this.QuestInfo.SetActive(false);
       int availableMainMemberSlots = this.AvailableMainMemberSlots;
       for (int mainmemberStart = this.mCurrentParty.PartyData.MAINMEMBER_START; mainmemberStart <= this.mCurrentParty.PartyData.MAINMEMBER_END; ++mainmemberStart)
       {
-        if (Object.op_Inequality((Object) this.UnitSlots[mainmemberStart], (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.UnitSlots[mainmemberStart], (UnityEngine.Object) null))
         {
           int num = mainmemberStart - this.mCurrentParty.PartyData.MAINMEMBER_START;
           ((Component) this.UnitSlots[mainmemberStart]).get_gameObject().SetActive(num < availableMainMemberSlots);
         }
       }
-      if (Object.op_Inequality((Object) this.ForwardButton, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ForwardButton, (UnityEngine.Object) null))
       {
         ((Component) this.ForwardButton).get_gameObject().SetActive(this.ShowForwardButton);
         BackHandler component = (BackHandler) ((Component) this.ForwardButton).GetComponent<BackHandler>();
-        if (Object.op_Inequality((Object) component, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
           ((Behaviour) component).set_enabled(!this.ShowBackButton);
       }
-      if (Object.op_Inequality((Object) this.BackButton, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BackButton, (UnityEngine.Object) null))
         ((Component) this.BackButton).get_gameObject().SetActive(this.ShowBackButton);
+      bool flag = this.mCurrentPartyType == PartyWindow2.EditPartyTypes.Normal || this.mCurrentPartyType == PartyWindow2.EditPartyTypes.Character || this.mCurrentPartyType == PartyWindow2.EditPartyTypes.Event || this.mCurrentPartyType == PartyWindow2.EditPartyTypes.Tower;
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RecommendTeamButton, (UnityEngine.Object) null))
+      {
+        ((Component) this.RecommendTeamButton).get_gameObject().SetActive(true);
+        ((Selectable) this.RecommendTeamButton).set_interactable(false);
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BreakupButton, (UnityEngine.Object) null))
+      {
+        ((Component) this.BreakupButton).get_gameObject().SetActive(true);
+        ((Selectable) this.BreakupButton).set_interactable(false);
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RenameButton, (UnityEngine.Object) null))
+        ((Component) this.RenameButton).get_gameObject().SetActive(flag);
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.PrevButton, (UnityEngine.Object) null))
+        ((Component) this.PrevButton).get_gameObject().SetActive(flag);
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.NextButton, (UnityEngine.Object) null))
+        ((Component) this.NextButton).get_gameObject().SetActive(flag);
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RecentTeamButton, (UnityEngine.Object) null))
+      {
+        if (this.mCurrentQuest != null && this.mCurrentQuest.type == QuestTypes.Tutorial)
+          ((Component) this.RecentTeamButton).get_gameObject().SetActive(false);
+        else
+          ((Component) this.RecentTeamButton).get_gameObject().SetActive(flag);
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TextFixParty, (UnityEngine.Object) null))
+        ((Component) this.TextFixParty).get_gameObject().SetActive(false);
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BattleSettingButton, (UnityEngine.Object) null))
+        ((Component) this.BattleSettingButton).get_gameObject().SetActive(false);
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.HelpButton, (UnityEngine.Object) null))
+        ((Component) this.HelpButton).get_gameObject().SetActive(false);
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Filter, (UnityEngine.Object) null))
+        this.Filter.SetActive(true);
       this.ToggleRaidInfo();
       this.RefreshRaidTicketNum();
       this.RefreshRaidButtons();
@@ -1822,15 +1808,216 @@ label_45:
       this.LoadInventory();
     }
 
-    protected virtual PartyWindow2.EditPartyTypes GetEditPartyTypes()
+    public void Refresh(bool keepTeam = false)
     {
-      if (this.mCurrentQuest.type == QuestTypes.Multi)
-        return PartyWindow2.EditPartyTypes.MP;
-      if (this.mCurrentQuest.type == QuestTypes.Event)
-        return PartyWindow2.EditPartyTypes.Event;
-      if (this.mCurrentQuest.type == QuestTypes.Character)
-        return PartyWindow2.EditPartyTypes.Character;
-      return this.mCurrentQuest.type == QuestTypes.VersusFree || this.mCurrentQuest.type == QuestTypes.VersusRank ? PartyWindow2.EditPartyTypes.Versus : PartyWindow2.EditPartyTypes.Auto;
+      if (!this.UseQuestInfo)
+      {
+        this.RefreshNoneQuestInfo(keepTeam);
+      }
+      else
+      {
+        this.mIsHeloOnly = PartyUtility.IsSoloStoryParty(this.mCurrentQuest);
+        if (this.StoryNormalObjects != null)
+        {
+          for (int index = 0; index < this.StoryNormalObjects.Length; ++index)
+          {
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.StoryNormalObjects[index], (UnityEngine.Object) null))
+              this.StoryNormalObjects[index].SetActive(!this.mIsHeloOnly);
+          }
+        }
+        if (this.HeloOnlyObjects != null)
+        {
+          for (int index = 0; index < this.HeloOnlyObjects.Length; ++index)
+          {
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.HeloOnlyObjects[index], (UnityEngine.Object) null))
+              this.HeloOnlyObjects[index].SetActive(this.mIsHeloOnly);
+          }
+        }
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.GuestUnitSlot, (UnityEngine.Object) null))
+        {
+          if (this.mIsHeloOnly)
+            ((Component) this.GuestUnitSlot).get_transform().SetSiblingIndex(0);
+          else
+            ((Component) this.GuestUnitSlot).get_transform().SetSiblingIndex(4);
+        }
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.QuestInfo, (UnityEngine.Object) null))
+        {
+          if (this.ShowQuestInfo)
+          {
+            DataSource.Bind<QuestParam>(this.QuestInfo, this.mCurrentQuest);
+            GameParameter.UpdateAll(this.QuestInfo);
+            this.QuestInfo.SetActive(true);
+          }
+          else
+            this.QuestInfo.SetActive(false);
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Prefab_SankaFuka, (UnityEngine.Object) null))
+          {
+            for (int index = 0; index < this.mSankaFukaIcons.Length && index < this.UnitSlots.Length; ++index)
+            {
+              if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mSankaFukaIcons[index], (UnityEngine.Object) null) && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.UnitSlots[index], (UnityEngine.Object) null))
+              {
+                this.mSankaFukaIcons[index] = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.Prefab_SankaFuka);
+                RectTransform transform = this.mSankaFukaIcons[index].get_transform() as RectTransform;
+                transform.set_anchoredPosition(Vector2.get_zero());
+                ((Transform) transform).SetParent(((Component) this.UnitSlots[index]).get_transform(), false);
+              }
+            }
+          }
+        }
+        if (this.PartyType == PartyWindow2.EditPartyTypes.Auto)
+        {
+          this.mCurrentPartyType = PartyWindow2.EditPartyTypes.Auto;
+          if (this.mCurrentQuest == null)
+            DebugUtility.LogError("Quest not selected");
+          else
+            this.mCurrentPartyType = PartyUtility.GetEditPartyTypes(this.mCurrentQuest);
+          if (this.mCurrentPartyType == PartyWindow2.EditPartyTypes.Auto)
+            this.mCurrentPartyType = PartyWindow2.EditPartyTypes.Normal;
+        }
+        else
+          this.mCurrentPartyType = this.PartyType;
+        PlayerData player = MonoSingleton<GameManager>.Instance.Player;
+        PlayerPartyTypes playerPartyType = this.mCurrentPartyType.ToPlayerPartyType();
+        if (Array.IndexOf<PlayerPartyTypes>(this.SaveJobs, playerPartyType) >= 0)
+        {
+          this.mOwnUnits = new List<UnitData>(player.Units.Count);
+          for (int index = 0; index < player.Units.Count; ++index)
+          {
+            UnitData unitData = new UnitData();
+            unitData.Setup(player.Units[index]);
+            unitData.TempFlags |= UnitData.TemporaryFlags.TemporaryUnitData | UnitData.TemporaryFlags.AllowJobChange;
+            unitData.SetJob(playerPartyType);
+            this.mOwnUnits.Add(unitData);
+          }
+        }
+        else
+        {
+          this.mOwnUnits = new List<UnitData>((IEnumerable<UnitData>) player.Units);
+          for (int index = 0; index < this.mOwnUnits.Count; ++index)
+            this.mOwnUnits[index].TempFlags |= UnitData.TemporaryFlags.AllowJobChange;
+        }
+        DataSource.Bind<PlayerPartyTypes>(((Component) this).get_gameObject(), playerPartyType);
+        if (!keepTeam)
+          this.LoadTeam();
+        for (int index = 0; index < this.UnitSlots.Length && index < this.mCurrentParty.PartyData.MAX_UNIT; ++index)
+        {
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.UnitSlots[index], (UnityEngine.Object) null) && index < this.mCurrentParty.Units.Length)
+          {
+            this.UnitSlots[index].SetSlotData<QuestParam>(this.mCurrentQuest);
+            this.UnitSlots[index].SetSlotData<UnitData>(this.FindUnit(this.mCurrentParty.Units[index]));
+          }
+        }
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.FriendSlot, (UnityEngine.Object) null))
+        {
+          this.FriendSlot.SetSlotData<QuestParam>(this.mCurrentQuest);
+          this.FriendSlot.SetSlotData<UnitData>(this.mCurrentSupport == null ? (UnitData) null : this.mCurrentSupport.Unit);
+        }
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.GuestUnitSlot, (UnityEngine.Object) null))
+        {
+          if (this.mCurrentPartyType == PartyWindow2.EditPartyTypes.Normal || this.mCurrentQuest != null && this.mCurrentQuest.UseFixEditor)
+          {
+            UnitData unitData = (UnitData) null;
+            if (this.mCurrentQuest != null && (this.mCurrentQuest.type == QuestTypes.Story || this.mCurrentQuest.type == QuestTypes.Free || (this.mCurrentQuest.type == QuestTypes.Extra || this.mCurrentQuest.type == QuestTypes.Tutorial) || (this.mCurrentQuest.type == QuestTypes.Character || this.mCurrentQuest.type == QuestTypes.Event || this.mCurrentQuest.type == QuestTypes.Beginner)) && (this.mCurrentQuest.units.IsNotNull() && this.mCurrentQuest.units.Length > 0))
+              unitData = MonoSingleton<GameManager>.Instance.Player.FindUnitDataByUnitID(this.mCurrentQuest.units.Get(0));
+            this.mGuestUnit = this.FindUnit(unitData);
+            this.GuestUnitSlot.SetSlotData<UnitData>(unitData);
+            ((Component) this.GuestUnitSlot).get_gameObject().SetActive(true);
+          }
+          else if (this.mCurrentPartyType == PartyWindow2.EditPartyTypes.Character)
+          {
+            UnitData unitData = (UnitData) null;
+            if (this.mCurrentQuest != null && this.mCurrentQuest.type == QuestTypes.Character && (this.mCurrentQuest.units.IsNotNull() && this.mCurrentQuest.units.Length > 0))
+              unitData = MonoSingleton<GameManager>.Instance.Player.FindUnitDataByUnitID(this.mCurrentQuest.units.Get(0));
+            this.mGuestUnit = this.FindUnit(unitData);
+            this.GuestUnitSlot.SetSlotData<QuestParam>(this.mCurrentQuest);
+            this.GuestUnitSlot.SetSlotData<UnitData>(unitData);
+            ((Component) this.GuestUnitSlot).get_gameObject().SetActive(true);
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.QuestUnitCond, (UnityEngine.Object) null) && this.mGuestUnit != null)
+            {
+              DataSource.Bind<UnitData>(this.QuestUnitCond, this.mGuestUnit);
+              GameParameter.UpdateValuesOfType(GameParameter.ParameterTypes.QUEST_UNIT_ENTRYCONDITION);
+            }
+          }
+          else
+            ((Component) this.GuestUnitSlot).get_gameObject().SetActive(false);
+        }
+        int availableMainMemberSlots = this.AvailableMainMemberSlots;
+        for (int mainmemberStart = this.mCurrentParty.PartyData.MAINMEMBER_START; mainmemberStart <= this.mCurrentParty.PartyData.MAINMEMBER_END; ++mainmemberStart)
+        {
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.UnitSlots[mainmemberStart], (UnityEngine.Object) null))
+          {
+            int num = mainmemberStart - this.mCurrentParty.PartyData.MAINMEMBER_START;
+            ((Component) this.UnitSlots[mainmemberStart]).get_gameObject().SetActive(num < availableMainMemberSlots);
+          }
+        }
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ForwardButton, (UnityEngine.Object) null))
+        {
+          ((Component) this.ForwardButton).get_gameObject().SetActive(this.ShowForwardButton);
+          BackHandler component = (BackHandler) ((Component) this.ForwardButton).GetComponent<BackHandler>();
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
+            ((Behaviour) component).set_enabled(!this.ShowBackButton);
+        }
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BackButton, (UnityEngine.Object) null))
+          ((Component) this.BackButton).get_gameObject().SetActive(this.ShowBackButton);
+        if (this.GetPartyCondType() == PartyCondType.Forced)
+        {
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RecommendTeamButton, (UnityEngine.Object) null))
+          {
+            ((Component) this.RecommendTeamButton).get_gameObject().SetActive(true);
+            ((Selectable) this.RecommendTeamButton).set_interactable(false);
+          }
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BreakupButton, (UnityEngine.Object) null))
+          {
+            ((Component) this.BreakupButton).get_gameObject().SetActive(true);
+            ((Selectable) this.BreakupButton).set_interactable(false);
+          }
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RenameButton, (UnityEngine.Object) null))
+            ((Component) this.RenameButton).get_gameObject().SetActive(false);
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.PrevButton, (UnityEngine.Object) null))
+            ((Component) this.PrevButton).get_gameObject().SetActive(false);
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.NextButton, (UnityEngine.Object) null))
+            ((Component) this.NextButton).get_gameObject().SetActive(false);
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TeamPulldown, (UnityEngine.Object) null))
+            ((Component) this.TeamPulldown).get_gameObject().SetActive(false);
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TextFixParty, (UnityEngine.Object) null))
+            ((Component) this.TextFixParty).get_gameObject().SetActive(true);
+        }
+        else
+        {
+          bool flag = this.mCurrentPartyType == PartyWindow2.EditPartyTypes.Normal || this.mCurrentPartyType == PartyWindow2.EditPartyTypes.Character || this.mCurrentPartyType == PartyWindow2.EditPartyTypes.Event || this.mCurrentPartyType == PartyWindow2.EditPartyTypes.Tower;
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RecommendTeamButton, (UnityEngine.Object) null))
+          {
+            ((Component) this.RecommendTeamButton).get_gameObject().SetActive(flag);
+            ((Selectable) this.RecommendTeamButton).set_interactable(true);
+          }
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BreakupButton, (UnityEngine.Object) null))
+          {
+            ((Component) this.BreakupButton).get_gameObject().SetActive(flag);
+            ((Selectable) this.BreakupButton).set_interactable(true);
+          }
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RenameButton, (UnityEngine.Object) null))
+            ((Component) this.RenameButton).get_gameObject().SetActive(flag);
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.PrevButton, (UnityEngine.Object) null))
+            ((Component) this.PrevButton).get_gameObject().SetActive(flag);
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.NextButton, (UnityEngine.Object) null))
+            ((Component) this.NextButton).get_gameObject().SetActive(flag);
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RecentTeamButton, (UnityEngine.Object) null))
+          {
+            if (this.mCurrentQuest != null && this.mCurrentQuest.type == QuestTypes.Tutorial)
+              ((Component) this.RecentTeamButton).get_gameObject().SetActive(false);
+            else
+              ((Component) this.RecentTeamButton).get_gameObject().SetActive(flag);
+          }
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TextFixParty, (UnityEngine.Object) null))
+            ((Component) this.TextFixParty).get_gameObject().SetActive(false);
+        }
+        this.ToggleRaidInfo();
+        this.RefreshRaidTicketNum();
+        this.RefreshRaidButtons();
+        this.LockSlots();
+        this.OnPartyMemberChange();
+        this.LoadInventory();
+      }
     }
 
     private void RefreshSankaStates()
@@ -1839,9 +2026,9 @@ label_45:
       {
         for (int index = 0; index < this.mSankaFukaIcons.Length; ++index)
         {
-          if (Object.op_Inequality((Object) this.mSankaFukaIcons[index], (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSankaFukaIcons[index], (UnityEngine.Object) null))
             this.mSankaFukaIcons[index].SetActive(false);
-          if (Object.op_Inequality((Object) this.UnitSlots[index], (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.UnitSlots[index], (UnityEngine.Object) null))
             this.UnitSlots[index].SetMainColor(Color.get_white());
         }
       }
@@ -1849,12 +2036,14 @@ label_45:
       {
         for (int index = 0; index < this.mSankaFukaIcons.Length; ++index)
         {
-          if (Object.op_Inequality((Object) this.mSankaFukaIcons[index], (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSankaFukaIcons[index], (UnityEngine.Object) null))
           {
             bool flag = true;
+            if (this.mCurrentParty.Units.Length <= index)
+              break;
             if (this.mCurrentParty.Units[index] != null)
               flag = this.mCurrentQuest.IsUnitAllowed(this.mCurrentParty.Units[index]);
-            if (Object.op_Inequality((Object) this.UnitSlots[index], (Object) null))
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.UnitSlots[index], (UnityEngine.Object) null))
             {
               if (flag)
                 this.UnitSlots[index].SetMainColor(Color.get_white());
@@ -1869,7 +2058,7 @@ label_45:
 
     private void ToggleRaidInfo()
     {
-      if (!Object.op_Inequality((Object) this.RaidInfo, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RaidInfo, (UnityEngine.Object) null))
         return;
       bool flag = false;
       if (this.mCurrentQuest != null && !string.IsNullOrEmpty(this.mCurrentQuest.ticket) && this.mCurrentQuest.state == QuestStates.Cleared)
@@ -1881,7 +2070,7 @@ label_45:
 
     private void RefreshRaidTicketNum()
     {
-      if (!Object.op_Inequality((Object) this.RaidTicketNum, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RaidTicketNum, (UnityEngine.Object) null))
         return;
       int num = 0;
       if (this.mCurrentQuest != null && !string.IsNullOrEmpty(this.mCurrentQuest.ticket))
@@ -1915,7 +2104,7 @@ label_45:
               {
                 if (index >= unitSlotNum)
                   this.mLockedPartySlots |= 1 << index;
-                if (index < this.UnitSlots.Length && Object.op_Inequality((Object) this.UnitSlots[index], (Object) null) && Object.op_Inequality((Object) this.UnitSlots[index].SelectButton, (Object) null))
+                if (index < this.UnitSlots.Length && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.UnitSlots[index], (UnityEngine.Object) null) && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.UnitSlots[index].SelectButton, (UnityEngine.Object) null))
                   ((Selectable) this.UnitSlots[index].SelectButton).set_interactable(index < unitSlotNum);
               }
             }
@@ -1925,7 +2114,7 @@ label_45:
             for (int submemberStart = this.mCurrentParty.PartyData.SUBMEMBER_START; submemberStart < this.mCurrentParty.PartyData.MAX_UNIT; ++submemberStart)
             {
               this.mLockedPartySlots |= 1 << submemberStart;
-              if (submemberStart < this.UnitSlots.Length && Object.op_Inequality((Object) this.UnitSlots[submemberStart], (Object) null) && Object.op_Inequality((Object) this.UnitSlots[submemberStart].SelectButton, (Object) null))
+              if (submemberStart < this.UnitSlots.Length && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.UnitSlots[submemberStart], (UnityEngine.Object) null) && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.UnitSlots[submemberStart].SelectButton, (UnityEngine.Object) null))
                 ((Selectable) this.UnitSlots[submemberStart].SelectButton).set_interactable(false);
             }
           }
@@ -1938,6 +2127,13 @@ label_45:
         for (int submemberStart = this.mCurrentParty.PartyData.SUBMEMBER_START; submemberStart <= this.mCurrentParty.PartyData.SUBMEMBER_END; ++submemberStart)
           this.mLockedPartySlots |= 1 << submemberStart;
       }
+      else if (this.mCurrentPartyType == PartyWindow2.EditPartyTypes.MultiTower)
+      {
+        this.mSupportLocked = true;
+        this.mItemsLocked = true;
+        for (int index = 0; index < this.UnitSlots.Length; ++index)
+          ((Selectable) this.UnitSlots[index].SelectButton).set_interactable(true);
+      }
       if (this.mCurrentQuest != null && this.mCurrentQuest.type == QuestTypes.Tutorial)
       {
         this.mItemsLocked = true;
@@ -1947,27 +2143,19 @@ label_45:
       }
       if (this.mCurrentQuest != null && !this.mCurrentQuest.UseSupportUnit)
         this.mSupportLocked = true;
-      if (Object.op_Inequality((Object) this.NoItemText, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.NoItemText, (UnityEngine.Object) null))
         this.NoItemText.SetActive(this.mItemsLocked);
       for (int index = 0; index < this.UnitSlots.Length; ++index)
       {
-        if (Object.op_Inequality((Object) this.UnitSlots[index], (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.UnitSlots[index], (UnityEngine.Object) null))
           this.UnitSlots[index].SetLocked((this.mLockedPartySlots & 1 << index) != 0);
       }
-      if (Object.op_Inequality((Object) this.FriendSlot, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.FriendSlot, (UnityEngine.Object) null))
         this.FriendSlot.SetLocked(this.mSupportLocked);
       for (int index = 0; index < this.ItemSlots.Length; ++index)
       {
-        if (Object.op_Inequality((Object) this.ItemSlots[index], (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ItemSlots[index], (UnityEngine.Object) null))
           this.ItemSlots[index].SetLocked(this.mItemsLocked);
-      }
-    }
-
-    private string CurrentTeamID
-    {
-      get
-      {
-        return "TEAM_" + this.mCurrentPartyType.ToString().ToUpper();
       }
     }
 
@@ -1979,264 +2167,225 @@ label_45:
       this.OnItemSlotsChange();
     }
 
-    private void SaveTeamPresets()
+    public void LoadRecommendedTeamSetting()
     {
-      if (this.mTeams.Count <= 1)
-        return;
-      StringBuilder stringBuilder = new StringBuilder(1024);
-      stringBuilder.Append("{\"n\":");
-      stringBuilder.Append(this.mCurrentTeamIndex);
-      stringBuilder.Append(",\"t\":[");
-      for (int index1 = 0; index1 < this.mTeams.Count; ++index1)
+      GlobalVars.RecommendTeamSetting recommendTeamSetting = (GlobalVars.RecommendTeamSetting) null;
+      if (PlayerPrefsUtility.HasKey(PlayerPrefsUtility.RECOMMENDED_TEAM_SETTING_KEY))
       {
-        if (index1 > 0)
-          stringBuilder.Append(",");
-        stringBuilder.Append("{\"u\":[");
-        for (int index2 = 0; index2 < this.mCurrentParty.PartyData.MAX_UNIT; ++index2)
+        string str = PlayerPrefsUtility.GetString(PlayerPrefsUtility.RECOMMENDED_TEAM_SETTING_KEY, string.Empty);
+        try
         {
-          long num = 0;
-          if (index2 > 0)
-            stringBuilder.Append(',');
-          if (this.mTeams[index1].Units[index2] != null)
-            num = this.mTeams[index1].Units[index2].UniqueID;
-          stringBuilder.Append(num.ToString());
+          recommendTeamSetting = (GlobalVars.RecommendTeamSetting) JsonUtility.FromJson<GlobalVars.RecommendTeamSetting>(str);
         }
-        stringBuilder.Append("]}");
+        catch (Exception ex)
+        {
+          DebugUtility.LogException(ex);
+        }
       }
-      stringBuilder.Append("]}");
-      DebugUtility.Log(stringBuilder.ToString());
-      PlayerPrefs.SetString(this.CurrentTeamID, stringBuilder.ToString());
-      PlayerPrefs.Save();
+      GlobalVars.RecommendTeamSettingValue = recommendTeamSetting;
     }
 
-    protected void LoadTeamPresets()
+    private void SaveRecommendedTeamSetting(GlobalVars.RecommendTeamSetting setting)
+    {
+      string json = JsonUtility.ToJson((object) setting);
+      PlayerPrefsUtility.SetString(PlayerPrefsUtility.RECOMMENDED_TEAM_SETTING_KEY, json, true);
+    }
+
+    private void SaveTeamPresets()
+    {
+      if (this.mCurrentPartyType == PartyWindow2.EditPartyTypes.Arena || this.mCurrentPartyType == PartyWindow2.EditPartyTypes.ArenaDef || this.GetPartyCondType() == PartyCondType.Forced)
+        return;
+      PartyUtility.SaveTeamPresets(this.mCurrentPartyType, this.mCurrentTeamIndex, this.mTeams);
+    }
+
+    private void LoadTeam()
     {
       if (this.mCurrentPartyType == PartyWindow2.EditPartyTypes.Auto)
         throw new InvalidPartyTypeException();
       int maxTeamCount = this.mCurrentPartyType.GetMaxTeamCount();
-      this.mTeams = new List<PartyWindow2.PartyEditData>(maxTeamCount);
+      PlayerPartyTypes playerPartyType = this.mCurrentPartyType.ToPlayerPartyType();
+      this.mTeams.Clear();
+      if (this.GetPartyCondType() == PartyCondType.Forced)
+      {
+        // ISSUE: object of a compiler-generated type is created
+        // ISSUE: variable of a compiler-generated type
+        PartyWindow2.\u003CLoadTeam\u003Ec__AnonStorey359 teamCAnonStorey359 = new PartyWindow2.\u003CLoadTeam\u003Ec__AnonStorey359();
+        // ISSUE: reference to a compiler-generated field
+        teamCAnonStorey359.cond = this.mCurrentQuest.EntryCondition == null ? this.mCurrentQuest.EntryConditionCh : this.mCurrentQuest.EntryCondition;
+        string[] list = this.mCurrentQuest.units.GetList();
+        PartyData partyOfType = MonoSingleton<GameManager>.Instance.Player.FindPartyOfType(playerPartyType);
+        UnitData[] src = new UnitData[partyOfType.MAX_UNIT];
+        // ISSUE: object of a compiler-generated type is created
+        // ISSUE: variable of a compiler-generated type
+        PartyWindow2.\u003CLoadTeam\u003Ec__AnonStorey35A teamCAnonStorey35A = new PartyWindow2.\u003CLoadTeam\u003Ec__AnonStorey35A();
+        // ISSUE: reference to a compiler-generated field
+        teamCAnonStorey35A.\u003C\u003Ef__ref\u0024857 = teamCAnonStorey359;
+        // ISSUE: reference to a compiler-generated field
+        // ISSUE: reference to a compiler-generated field
+        // ISSUE: reference to a compiler-generated field
+        // ISSUE: reference to a compiler-generated field
+        // ISSUE: reference to a compiler-generated field
+        for (teamCAnonStorey35A.i = 0; teamCAnonStorey35A.i < src.Length && teamCAnonStorey35A.i < teamCAnonStorey359.cond.unit.Length; ++teamCAnonStorey35A.i)
+        {
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: reference to a compiler-generated method
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: reference to a compiler-generated field
+          src[teamCAnonStorey35A.i] = list == null || teamCAnonStorey359.cond == null || Array.FindIndex<string>(list, new Predicate<string>(teamCAnonStorey35A.\u003C\u003Em__3D1)) == -1 ? MonoSingleton<GameManager>.Instance.Player.FindUnitDataByUnitID(teamCAnonStorey359.cond.unit[teamCAnonStorey35A.i]) : (UnitData) null;
+        }
+        this.mTeams.Add(new PartyEditData(src, string.Empty, partyOfType));
+        this.mCurrentParty = this.mTeams[0];
+        this.mCurrentTeamIndex = 0;
+      }
+      else
+      {
+        if (this.mCurrentPartyType != PartyWindow2.EditPartyTypes.Arena && this.mCurrentPartyType != PartyWindow2.EditPartyTypes.ArenaDef)
+        {
+          int lastSelectionIndex;
+          List<PartyEditData> partyEditDataList = PartyUtility.LoadTeamPresets(this.mCurrentPartyType, out lastSelectionIndex);
+          if (partyEditDataList != null)
+          {
+            this.mTeams = partyEditDataList;
+            this.mCurrentTeamIndex = lastSelectionIndex;
+            if (this.mCurrentTeamIndex < 0 || maxTeamCount <= this.mCurrentTeamIndex)
+              this.mCurrentTeamIndex = 0;
+          }
+        }
+        this.ValidateTeam(maxTeamCount, playerPartyType);
+      }
+      this.ResetTeamPulldown(this.mTeams, maxTeamCount, this.mCurrentQuest);
+      this.ChangeEnabledTeamButtons(this.mCurrentTeamIndex, this.mTeams.Count);
+    }
+
+    private void ValidateTeam(int maxTeamCount, PlayerPartyTypes partyType)
+    {
+      PlayerData player = MonoSingleton<GameManager>.Instance.Player;
+      if (this.mTeams.Count > maxTeamCount)
+        this.mTeams = this.mTeams.Take<PartyEditData>(maxTeamCount).ToList<PartyEditData>();
+      else if (this.mTeams.Count < maxTeamCount)
+      {
+        PartyData partyOfType = player.FindPartyOfType(partyType);
+        for (int count = this.mTeams.Count; count < maxTeamCount; ++count)
+          this.mTeams.Add(new PartyEditData(PartyUtility.CreateDefaultPartyNameFromIndex(count), partyOfType));
+      }
       if (maxTeamCount <= 1)
       {
         // ISSUE: object of a compiler-generated type is created
         // ISSUE: variable of a compiler-generated type
-        PartyWindow2.\u003CLoadTeamPresets\u003Ec__AnonStorey25F presetsCAnonStorey25F = new PartyWindow2.\u003CLoadTeamPresets\u003Ec__AnonStorey25F();
-        PlayerPartyTypes playerPartyType = this.mCurrentPartyType.ToPlayerPartyType();
-        PartyData partyOfType = MonoSingleton<GameManager>.Instance.Player.FindPartyOfType(playerPartyType);
+        PartyWindow2.\u003CValidateTeam\u003Ec__AnonStorey35B teamCAnonStorey35B = new PartyWindow2.\u003CValidateTeam\u003Ec__AnonStorey35B();
         // ISSUE: reference to a compiler-generated field
-        presetsCAnonStorey25F.edit = new PartyWindow2.PartyEditData(partyOfType);
-        if (playerPartyType == PlayerPartyTypes.Character && this.mCurrentQuest != null && this.mCurrentQuest.units.Length > 0)
+        teamCAnonStorey35B.edit = this.mTeams[0];
+        if (partyType == PlayerPartyTypes.Character && this.mCurrentQuest != null && this.mCurrentQuest.units.Length > 0)
         {
           QuestCondParam entryCondition = this.mCurrentQuest.EntryCondition;
+          string[] list = this.mCurrentQuest.units.GetList();
           bool flag = entryCondition != null && entryCondition.unit != null && entryCondition.unit.Length == 1;
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          PartyWindow2.\u003CLoadTeamPresets\u003Ec__AnonStorey260 presetsCAnonStorey260 = new PartyWindow2.\u003CLoadTeamPresets\u003Ec__AnonStorey260();
+          PartyWindow2.\u003CValidateTeam\u003Ec__AnonStorey35C teamCAnonStorey35C = new PartyWindow2.\u003CValidateTeam\u003Ec__AnonStorey35C();
           // ISSUE: reference to a compiler-generated field
-          presetsCAnonStorey260.\u003C\u003Ef__ref\u0024607 = presetsCAnonStorey25F;
-          // ISSUE: reference to a compiler-generated field
-          // ISSUE: reference to a compiler-generated field
+          teamCAnonStorey35C.\u003C\u003Ef__ref\u0024859 = teamCAnonStorey35B;
           // ISSUE: reference to a compiler-generated field
           // ISSUE: reference to a compiler-generated field
-          for (presetsCAnonStorey260.i = 0; presetsCAnonStorey260.i < presetsCAnonStorey25F.edit.Units.Length; ++presetsCAnonStorey260.i)
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: reference to a compiler-generated field
+          for (teamCAnonStorey35C.i = 0; teamCAnonStorey35C.i < teamCAnonStorey35B.edit.Units.Length; ++teamCAnonStorey35C.i)
           {
             // ISSUE: reference to a compiler-generated field
             // ISSUE: reference to a compiler-generated field
-            if (presetsCAnonStorey25F.edit.Units[presetsCAnonStorey260.i] != null)
+            if (teamCAnonStorey35B.edit.Units[teamCAnonStorey35C.i] != null)
             {
               // ISSUE: reference to a compiler-generated method
-              if (Array.FindIndex<string>(this.mCurrentQuest.units, new Predicate<string>(presetsCAnonStorey260.\u003C\u003Em__2BE)) != -1)
+              if (Array.FindIndex<string>(list, new Predicate<string>(teamCAnonStorey35C.\u003C\u003Em__3D2)) != -1)
               {
                 // ISSUE: reference to a compiler-generated field
                 // ISSUE: reference to a compiler-generated field
-                presetsCAnonStorey25F.edit.Units[presetsCAnonStorey260.i] = (UnitData) null;
+                teamCAnonStorey35B.edit.Units[teamCAnonStorey35C.i] = (UnitData) null;
               }
               else if (this.EnableHeroSolo && flag)
               {
                 // ISSUE: reference to a compiler-generated field
                 // ISSUE: reference to a compiler-generated field
-                presetsCAnonStorey25F.edit.Units[presetsCAnonStorey260.i] = (UnitData) null;
+                teamCAnonStorey35B.edit.Units[teamCAnonStorey35C.i] = (UnitData) null;
               }
             }
           }
           if (this.EnableHeroSolo && !flag)
           {
             // ISSUE: reference to a compiler-generated field
-            this.AutoSetLeaderUnit(presetsCAnonStorey25F.edit, this.mCurrentQuest.units, MonoSingleton<GameManager>.Instance.Player.Units);
+            PartyUtility.AutoSetLeaderUnit(this.mCurrentQuest, teamCAnonStorey35B.edit, list, MonoSingleton<GameManager>.Instance.Player.Units);
           }
           // ISSUE: reference to a compiler-generated field
           // ISSUE: reference to a compiler-generated field
-          presetsCAnonStorey25F.edit.SetUnits(presetsCAnonStorey25F.edit.Units);
+          teamCAnonStorey35B.edit.SetUnits(teamCAnonStorey35B.edit.Units);
         }
-        // ISSUE: reference to a compiler-generated field
-        this.mCurrentParty = presetsCAnonStorey25F.edit;
-        // ISSUE: reference to a compiler-generated field
-        this.mTeams.Add(presetsCAnonStorey25F.edit);
+        this.mCurrentParty = this.mTeams[0];
+        this.mCurrentTeamIndex = 0;
       }
       else
       {
-        PlayerData player = MonoSingleton<GameManager>.Instance.Player;
-        PlayerPartyTypes playerPartyType = this.mCurrentPartyType.ToPlayerPartyType();
-        string currentTeamId = this.CurrentTeamID;
-        PartyData party = MonoSingleton<GameManager>.Instance.Player.Partys[(int) playerPartyType];
-        UnitData[] src1 = new UnitData[party.MAX_UNIT];
-        if (PlayerPrefs.HasKey(currentTeamId))
-        {
-          string str = PlayerPrefs.GetString(currentTeamId);
-          DebugUtility.Log(str);
-          try
-          {
-            PartyWindow2.JSON_TeamSettings jsonObject = JSONParser.parseJSONObject<PartyWindow2.JSON_TeamSettings>(str);
-            for (int index1 = 0; index1 < jsonObject.t.Length; ++index1)
-            {
-              PartyWindow2.JSON_Team jsonTeam = jsonObject.t[index1];
-              for (int index2 = 0; index2 < party.MAX_UNIT; ++index2)
-              {
-                if (index2 >= jsonTeam.u.Length)
-                {
-                  src1[index2] = (UnitData) null;
-                }
-                else
-                {
-                  UnitData unitData = jsonTeam.u[index2] == 0L ? (UnitData) null : player.FindUnitDataByUniqueID(jsonTeam.u[index2]);
-                  src1[index2] = unitData;
-                }
-              }
-              this.mTeams.Add(new PartyWindow2.PartyEditData(src1, party));
-            }
-            this.mCurrentTeamIndex = jsonObject.n;
-            if (this.mCurrentTeamIndex >= 0)
-            {
-              if (maxTeamCount > this.mCurrentTeamIndex)
-                goto label_31;
-            }
-            this.mCurrentTeamIndex = 0;
-          }
-          catch (Exception ex)
-          {
-            DebugUtility.LogException(ex);
-          }
-        }
-label_31:
-        PartyData partyOfType1 = player.FindPartyOfType(playerPartyType);
-        for (int count = this.mTeams.Count; count < maxTeamCount; ++count)
-          this.mTeams.Add(new PartyWindow2.PartyEditData(partyOfType1));
-        UnitData[] src2 = (UnitData[]) null;
-        for (int index1 = 0; index1 < this.mTeams.Count; ++index1)
-        {
-          if (!this.IsTeamLegal(this.mTeams[index1]))
-          {
-            if (src2 == null)
-            {
-              PartyData partyOfType2 = player.FindPartyOfType(playerPartyType);
-              src2 = new UnitData[partyOfType2.MAX_UNIT];
-              for (int index2 = 0; index2 < src2.Length; ++index2)
-              {
-                long unitUniqueId = partyOfType2.GetUnitUniqueID(index2);
-                if (unitUniqueId != 0L)
-                {
-                  UnitData unitDataByUniqueId = player.FindUnitDataByUniqueID(unitUniqueId);
-                  if (unitDataByUniqueId != null)
-                    src2[index2] = unitDataByUniqueId;
-                }
-              }
-            }
-            this.mTeams[index1].SetUnits(src2);
-          }
-          if (this.mCurrentQuest != null && this.mCurrentQuest.UseFixEditor)
-          {
-            // ISSUE: object of a compiler-generated type is created
-            // ISSUE: variable of a compiler-generated type
-            PartyWindow2.\u003CLoadTeamPresets\u003Ec__AnonStorey261 presetsCAnonStorey261 = new PartyWindow2.\u003CLoadTeamPresets\u003Ec__AnonStorey261();
-            // ISSUE: reference to a compiler-generated field
-            presetsCAnonStorey261.edit = this.mTeams[index1];
-            // ISSUE: object of a compiler-generated type is created
-            // ISSUE: variable of a compiler-generated type
-            PartyWindow2.\u003CLoadTeamPresets\u003Ec__AnonStorey262 presetsCAnonStorey262 = new PartyWindow2.\u003CLoadTeamPresets\u003Ec__AnonStorey262();
-            // ISSUE: reference to a compiler-generated field
-            presetsCAnonStorey262.\u003C\u003Ef__ref\u0024609 = presetsCAnonStorey261;
-            // ISSUE: reference to a compiler-generated field
-            // ISSUE: reference to a compiler-generated field
-            // ISSUE: reference to a compiler-generated field
-            // ISSUE: reference to a compiler-generated field
-            for (presetsCAnonStorey262.j = 0; presetsCAnonStorey262.j < presetsCAnonStorey261.edit.Units.Length; ++presetsCAnonStorey262.j)
-            {
-              // ISSUE: reference to a compiler-generated field
-              // ISSUE: reference to a compiler-generated field
-              // ISSUE: reference to a compiler-generated method
-              if (presetsCAnonStorey261.edit.Units[presetsCAnonStorey262.j] != null && Array.FindIndex<string>(this.mCurrentQuest.units, new Predicate<string>(presetsCAnonStorey262.\u003C\u003Em__2BF)) != -1)
-              {
-                // ISSUE: reference to a compiler-generated field
-                // ISSUE: reference to a compiler-generated field
-                presetsCAnonStorey261.edit.Units[presetsCAnonStorey262.j] = (UnitData) null;
-              }
-            }
-            // ISSUE: reference to a compiler-generated field
-            // ISSUE: reference to a compiler-generated field
-            presetsCAnonStorey261.edit.SetUnits(presetsCAnonStorey261.edit.Units);
-            // ISSUE: reference to a compiler-generated field
-            this.mTeams[index1] = presetsCAnonStorey261.edit;
-          }
-        }
-        bool flag = false;
+        PartyUtility.ResetToDefaultTeamIfNeeded(partyType, this.mCurrentQuest, this.mTeams);
+        string[] list = this.mCurrentQuest.units.GetList();
+        bool flag1 = false;
         if (this.EnableHeroSolo && this.mCurrentQuest != null)
         {
-          if (this.IsSoloEventParty(this.mCurrentQuest))
-            flag = this.KyouseiUnitPartyEdit(this.mCurrentQuest, this.mTeams[this.mCurrentTeamIndex]);
-          else if (this.mCurrentQuest.type == QuestTypes.Event)
+          if (PartyUtility.IsSoloStoryOrEventParty(this.mCurrentQuest))
+            flag1 = PartyUtility.KyouseiUnitPartyEdit(this.mCurrentQuest, this.mTeams[this.mCurrentTeamIndex]);
+          else if (this.mCurrentQuest.type == QuestTypes.Event || this.mCurrentQuest.type == QuestTypes.Gps || this.mCurrentQuest.type == QuestTypes.Beginner)
           {
-            List<UnitData> units = MonoSingleton<GameManager>.Instance.Player.Units;
+            bool flag2 = PartyUtility.SetUnitIfEmptyParty(this.mCurrentQuest, this.mTeams, list);
+            flag1 = flag1 || flag2;
+          }
+          else if (PartyUtility.IsHeloQuest(this.mCurrentQuest))
+          {
             for (int index = 0; index < this.mTeams.Count; ++index)
-              flag = this.AutoSetLeaderUnit(this.mTeams[index], this.mCurrentQuest.units, units);
+            {
+              bool flag2 = PartyUtility.PartyUnitsRemoveHelo(this.mTeams[index], list);
+              flag1 = flag1 || flag2;
+            }
+            if (!this.mIsHeloOnly)
+            {
+              bool flag2 = PartyUtility.SetUnitIfEmptyParty(this.mCurrentQuest, this.mTeams, list);
+              flag1 = flag1 || flag2;
+            }
           }
         }
         this.mCurrentParty = this.mTeams[this.mCurrentTeamIndex];
-        if (flag)
-          this.SaveTeamPresets();
+        if (!flag1)
+          return;
+        this.SaveTeamPresets();
       }
-      if (!Object.op_Inequality((Object) this.TeamPulldown, (Object) null))
+    }
+
+    private PartyCondType GetPartyCondType()
+    {
+      if (this.mCurrentQuest != null)
+      {
+        if (this.mCurrentQuest.EntryCondition != null)
+          return this.mCurrentQuest.EntryCondition.party_type;
+        if (this.mCurrentQuest.EntryConditionCh != null)
+          return this.mCurrentQuest.EntryConditionCh.party_type;
+      }
+      return PartyCondType.None;
+    }
+
+    private void ResetTeamPulldown(List<PartyEditData> teams, int maxTeams, QuestParam currentQuest)
+    {
+      if (this.GetPartyCondType() == PartyCondType.Forced || !UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TeamPulldown, (UnityEngine.Object) null))
         return;
-      if (maxTeamCount <= 1)
+      if (maxTeams <= 1)
       {
         ((Component) this.TeamPulldown).get_gameObject().SetActive(false);
       }
       else
       {
-        this.TeamPulldown.ClearItems();
-        string format = LocalizedText.Get("sys.TEAMNAME");
-        for (int index = 0; index < maxTeamCount; ++index)
-          this.TeamPulldown.AddItem(string.Format(format, (object) (index + 1)), index);
+        this.TeamPulldown.ResetAllItems();
+        for (int index = 0; index < teams.Count && index < this.TeamPulldown.ItemCount; ++index)
+          this.TeamPulldown.SetItem(teams[index].Name, index, index);
         this.TeamPulldown.Selection = this.mCurrentTeamIndex;
         ((Component) this.TeamPulldown).get_gameObject().SetActive(true);
       }
-      if (this.mCurrentQuest == null || this.mCurrentQuest.type != QuestTypes.Tutorial)
-        return;
-      this.TeamPulldown.set_interactable(false);
-    }
-
-    private bool IsTeamLegal(PartyWindow2.PartyEditData team)
-    {
-      if (team.Units[0] == null)
-        return false;
-      for (int index1 = 0; index1 < team.Units.Length; ++index1)
-      {
-        if (team.Units[index1] != null)
-        {
-          for (int index2 = index1 + 1; index2 < team.Units.Length; ++index2)
-          {
-            if (team.Units[index1] == team.Units[index2])
-              return false;
-          }
-        }
-      }
-      if (!this.HeroesAvailable)
-      {
-        for (int index = 0; index < team.Units.Length; ++index)
-        {
-          if (team.Units[index] != null && (int) team.Units[index].UnitParam.hero != 0)
-            return false;
-        }
-      }
-      return true;
     }
 
     private void RefreshRaidButtons()
@@ -2253,7 +2402,7 @@ label_31:
           data = itemData.Param;
         else if (!string.IsNullOrEmpty(this.mCurrentQuest.ticket))
           data = MonoSingleton<GameManager>.Instance.GetItemParam(this.mCurrentQuest.ticket);
-        if (Object.op_Inequality((Object) this.RaidInfo, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RaidInfo, (UnityEngine.Object) null))
         {
           DataSource.Bind<ItemParam>(this.RaidInfo.get_gameObject(), data);
           GameParameter.UpdateAll(this.RaidInfo.get_gameObject());
@@ -2271,7 +2420,7 @@ label_31:
         int num5 = Mathf.Min(num2, num3);
         if (this.mCurrentQuest.GetChallangeLimit() > 0)
           num4 = Mathf.Min(num4, this.mCurrentQuest.GetChallangeLimit() - this.mCurrentQuest.GetChallangeCount());
-        if (!Object.op_Inequality((Object) this.RaidN, (Object) null))
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RaidN, (UnityEngine.Object) null))
           return;
         if (this.mMultiRaidNum < 0)
           this.mMultiRaidNum = Mathf.Min(this.MaxRaidNum, this.DefaultRaidNum);
@@ -2289,9 +2438,9 @@ label_31:
       }
       else
       {
-        if (Object.op_Inequality((Object) this.Raid, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Raid, (UnityEngine.Object) null))
           ((Selectable) this.Raid).set_interactable(false);
-        if (!Object.op_Inequality((Object) this.RaidN, (Object) null))
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RaidN, (UnityEngine.Object) null))
           return;
         ((Selectable) this.RaidN).set_interactable(false);
       }
@@ -2323,18 +2472,6 @@ label_31:
       }
     }
 
-    private bool HeroesAvailable
-    {
-      get
-      {
-        if (this.mCurrentPartyType != PartyWindow2.EditPartyTypes.Normal)
-          return true;
-        if (this.mCurrentQuest != null)
-          return this.mCurrentQuest.UseFixEditor;
-        return false;
-      }
-    }
-
     protected virtual int AvailableMainMemberSlots
     {
       get
@@ -2345,19 +2482,32 @@ label_31:
 
     public void Activated(int pinID)
     {
+      switch (pinID)
+      {
+        case 40:
+          if (string.IsNullOrEmpty(GlobalVars.TeamName))
+            break;
+          this.mCurrentParty.Name = GlobalVars.TeamName;
+          this.SaveTeamPresets();
+          this.ResetTeamPulldown(this.mTeams, this.mCurrentPartyType.GetMaxTeamCount(), this.mCurrentQuest);
+          break;
+        case 41:
+          if (GlobalVars.RecommendTeamSettingValue == null)
+            break;
+          this.SaveRecommendedTeamSetting(GlobalVars.RecommendTeamSettingValue);
+          this.OrganizeRecommendedParty(GlobalVars.RecommendTeamSettingValue.recommendedType, GlobalVars.RecommendTeamSettingValue.recommendedElement);
+          break;
+        default:
+          this.UnitList_Activated(pinID);
+          break;
+      }
     }
 
     private void OnStaminaChange()
     {
-      if (Object.op_Equality((Object) this, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this, (UnityEngine.Object) null))
         return;
       this.RefreshRaidButtons();
-    }
-
-    private void OnUnitSortModeChange(int index)
-    {
-      this.mUnitSortMode = GameSettings.Instance.UnitSort_Modes[index].Mode;
-      this.RefreshUnitList();
     }
 
     private UnitData FindUnit(long uniqueID)
@@ -2382,20 +2532,16 @@ label_31:
       List<UnitData> unitDataList = new List<UnitData>((IEnumerable<UnitData>) this.mOwnUnits);
       this.UnitList.ClearItems();
       bool selectedSlotIsEmpty = this.mCurrentParty.Units[this.mSelectedSlotIndex] == null;
-      if (this.mSelectedSlotIndex > 0 && (!selectedSlotIsEmpty || this.AlwaysShowRemoveUnit))
+      if ((this.mSelectedSlotIndex > 0 || this.mIsHeloOnly) && (!selectedSlotIsEmpty || this.AlwaysShowRemoveUnit))
         this.UnitList.AddItem(0);
-      bool heroesAvailable = this.HeroesAvailable;
-      if (this.mUnitSortMode != GameUtility.UnitSortModes.Time)
-        GameUtility.SortUnits(unitDataList, this.mUnitSortMode, false, out this.mUnitSortValues, false);
-      else
-        this.mUnitSortValues = (int[]) null;
-      if ((this.mCurrentQuest.type == QuestTypes.Event || this.PartyType == PartyWindow2.EditPartyTypes.Character) && (this.mCurrentQuest.units != null && this.mCurrentQuest.units.Length > 0))
+      bool heroesAvailable = PartyUtility.IsHeroesAvailable(this.mCurrentPartyType, this.mCurrentQuest);
+      if (this.UseQuestInfo && (this.mCurrentQuest.type == QuestTypes.Event || this.mCurrentQuest.type == QuestTypes.Beginner || this.PartyType == PartyWindow2.EditPartyTypes.Character) && (this.mCurrentQuest.units.IsNotNull() && this.mCurrentQuest.units.Length > 0))
       {
         for (int index = 0; index < this.mCurrentQuest.units.Length; ++index)
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: reference to a compiler-generated method
-          UnitData unitData = Array.Find<UnitData>(unitDataList.ToArray(), new Predicate<UnitData>(new PartyWindow2.\u003CRefreshUnitList\u003Ec__AnonStorey263() { chQuestHeroId = this.mCurrentQuest.units[index] }.\u003C\u003Em__2C0));
+          UnitData unitData = Array.Find<UnitData>(unitDataList.ToArray(), new Predicate<UnitData>(new PartyWindow2.\u003CRefreshUnitList\u003Ec__AnonStorey35D() { chQuestHeroId = this.mCurrentQuest.units.Get(index) }.\u003C\u003Em__3D3));
           if (unitData != null)
             unitDataList.Remove(unitData);
         }
@@ -2410,12 +2556,14 @@ label_31:
       {
         if (this.mCurrentParty.Units[index] != null && (heroesAvailable || (int) this.mCurrentParty.Units[index].UnitParam.hero == 0) && (this.mCurrentParty.PartyData.SUBMEMBER_START > this.mSelectedSlotIndex || this.mSelectedSlotIndex > this.mCurrentParty.PartyData.SUBMEMBER_END || (index != 0 || !selectedSlotIsEmpty) || numMainMembers > 1))
         {
-          string empty = string.Empty;
-          if (this.mCurrentQuest.IsEntryQuestCondition(this.mCurrentParty.Units[index], ref empty))
+          if (this.UseQuestInfo)
           {
-            this.UnitList.AddItem(this.mOwnUnits.IndexOf(this.FindUnit(this.mCurrentParty.Units[index])) + 1);
-            unitDataList.Remove(this.mCurrentParty.Units[index]);
+            string empty = string.Empty;
+            if (!this.mCurrentQuest.IsEntryQuestCondition(this.mCurrentParty.Units[index], ref empty))
+              continue;
           }
+          this.UnitList.AddItem(this.mOwnUnits.IndexOf(this.FindUnit(this.mCurrentParty.Units[index])) + 1);
+          unitDataList.Remove(this.mCurrentParty.Units[index]);
         }
       }
       int count = unitDataList.Count;
@@ -2425,7 +2573,7 @@ label_31:
       this.RegistPartyMember(unitDataList, heroesAvailable, selectedSlotIsEmpty, numMainMembers);
       this.UnitList.Refresh(true);
       this.UnitList.ForceUpdateItems();
-      if (Object.op_Inequality((Object) this.UnitListHilit, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.UnitListHilit, (UnityEngine.Object) null))
       {
         ((Component) this.UnitListHilit).get_gameObject().SetActive(false);
         ((Transform) this.UnitListHilit).SetParent(((Component) this).get_transform(), false);
@@ -2436,22 +2584,36 @@ label_31:
           if (itemID > 0)
           {
             RectTransform rectTransform = this.UnitList.FindItem(itemID);
-            if (Object.op_Inequality((Object) rectTransform, (Object) null))
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) rectTransform, (UnityEngine.Object) null))
               this.AttachAndEnable((Transform) this.UnitListHilit, (Transform) rectTransform, this.UnitListHilitParent);
           }
         }
       }
-      if (!Object.op_Inequality((Object) this.NoMatchingUnit, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.NoMatchingUnit, (UnityEngine.Object) null))
         return;
       this.NoMatchingUnit.SetActive(count > 0 && this.UnitList.NumItems <= 0);
     }
 
     protected virtual void RegistPartyMember(List<UnitData> allUnits, bool heroesAvailable, bool selectedSlotIsEmpty, int numMainMembers)
     {
+      MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
+      bool flag = UnityEngine.Object.op_Inequality((UnityEngine.Object) instance, (UnityEngine.Object) null) && instance.CurrentState == MyPhoton.MyState.ROOM;
       for (int index = 0; index < allUnits.Count; ++index)
       {
         if ((heroesAvailable || (int) allUnits[index].UnitParam.hero == 0) && (this.mCurrentParty.PartyData.SUBMEMBER_START > this.mSelectedSlotIndex || this.mSelectedSlotIndex > this.mCurrentParty.PartyData.SUBMEMBER_END || (allUnits[index] != this.mCurrentParty.Units[0] || !selectedSlotIsEmpty) || numMainMembers > 1))
+        {
+          if (flag)
+          {
+            MyPhoton.MyRoom currentRoom = instance.GetCurrentRoom();
+            if (currentRoom != null)
+            {
+              JSON_MyPhotonRoomParam myPhotonRoomParam = JSON_MyPhotonRoomParam.Parse(currentRoom.json);
+              if (allUnits[index].CalcLevel() < myPhotonRoomParam.unitlv)
+                continue;
+            }
+          }
           this.UnitList.AddItem(this.mOwnUnits.IndexOf(allUnits[index]) + 1);
+        }
       }
     }
 
@@ -2460,16 +2622,16 @@ label_31:
       if (!((Selectable) button).IsInteractable())
         return;
       PartyWindow2.ItemFilterTypes itemFilterTypes = PartyWindow2.ItemFilterTypes.All;
-      if (Object.op_Equality((Object) button, (Object) this.ItemFilter_Offense))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) button, (UnityEngine.Object) this.ItemFilter_Offense))
         itemFilterTypes = PartyWindow2.ItemFilterTypes.Offense;
-      else if (Object.op_Equality((Object) button, (Object) this.ItemFilter_Support))
+      else if (UnityEngine.Object.op_Equality((UnityEngine.Object) button, (UnityEngine.Object) this.ItemFilter_Support))
         itemFilterTypes = PartyWindow2.ItemFilterTypes.Support;
       if (this.mItemFilter == itemFilterTypes)
         return;
       this.mItemFilter = itemFilterTypes;
       for (int index = 0; index < this.mItemFilterToggles.Length; ++index)
       {
-        if (Object.op_Inequality((Object) this.mItemFilterToggles[index], (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mItemFilterToggles[index], (UnityEngine.Object) null))
           this.mItemFilterToggles[index].IsOn = (PartyWindow2.ItemFilterTypes) index == itemFilterTypes;
       }
       this.RefreshItemList();
@@ -2478,7 +2640,7 @@ label_31:
     private static void ToggleBlockRaycasts(Component component, bool block)
     {
       CanvasGroup component1 = (CanvasGroup) component.GetComponent<CanvasGroup>();
-      if (!Object.op_Inequality((Object) component1, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component1, (UnityEngine.Object) null))
         return;
       component1.set_blocksRaycasts(block);
     }
@@ -2498,14 +2660,15 @@ label_31:
         this.RefreshQuest();
         this.Refresh(false);
       }
+      this.GoToUnitList();
       FlowNode_GameObject.ActivateOutputLinks((Component) this, 4);
     }
 
     private void ShowRaidSettings()
     {
-      if (Object.op_Equality((Object) this.RaidSettingsTemplate, (Object) null) || !Object.op_Equality((Object) this.mRaidSettings, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.RaidSettingsTemplate, (UnityEngine.Object) null) || !UnityEngine.Object.op_Equality((UnityEngine.Object) this.mRaidSettings, (UnityEngine.Object) null))
         return;
-      this.mRaidSettings = (RaidSettingsWindow) ((GameObject) Object.Instantiate<GameObject>((M0) this.RaidSettingsTemplate)).GetComponent<RaidSettingsWindow>();
+      this.mRaidSettings = (RaidSettingsWindow) ((GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.RaidSettingsTemplate)).GetComponent<RaidSettingsWindow>();
       this.mRaidSettings.OnAccept = new RaidSettingsWindow.RaidSettingsEvent(this.RaidSettingsAccepted);
       this.mRaidSettings.Setup(this.mCurrentQuest, this.mMultiRaidNum, this.MaxRaidNum);
     }
@@ -2524,6 +2687,20 @@ label_31:
       {
         MonoSingleton<GameManager>.Instance.StartBuyStaminaSequence(true);
         return false;
+      }
+      if (this.mCurrentQuest.IsQuestDrops && UnityEngine.Object.op_Inequality((UnityEngine.Object) QuestDropParam.Instance, (UnityEngine.Object) null))
+      {
+        bool flag = QuestDropParam.Instance.IsChangedQuestDrops(this.mCurrentQuest);
+        GlobalVars.SetDropTableGeneratedTime();
+        if (flag)
+        {
+          this.HardQuestDropPiecesUpdate();
+          if (!QuestDropParam.Instance.IsWarningPopupDisable)
+          {
+            UIUtility.NegativeSystemMessage((string) null, LocalizedText.Get("sys.PARTYEDITOR_DROP_TABLE"), (UIUtility.DialogResultEvent) (go => this.OpenQuestDetail()), (GameObject) null, false, -1);
+            return false;
+          }
+        }
       }
       ItemParam itemParam = itemDataByItemId == null ? MonoSingleton<GameManager>.Instance.GetItemParam(this.mCurrentQuest.ticket) : itemDataByItemId.Param;
       if (num2 < this.mNumRaids)
@@ -2564,16 +2741,15 @@ label_31:
         if (GameUtility.IsDebugBuild)
           DebugUtility.LogError("Unknown sort mode: " + method);
       }
-      if (Object.op_Inequality((Object) this.AscendingIcon, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AscendingIcon, (UnityEngine.Object) null))
         this.AscendingIcon.SetActive(ascending);
-      if (Object.op_Inequality((Object) this.DescendingIcon, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.DescendingIcon, (UnityEngine.Object) null))
         this.DescendingIcon.SetActive(!ascending);
       if (unitSortModes == GameUtility.UnitSortModes.Time)
         ascending = !ascending;
-      if (Object.op_Inequality((Object) this.SortModeCaption, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.SortModeCaption, (UnityEngine.Object) null))
         this.SortModeCaption.set_text(LocalizedText.Get("sys.SORT_" + unitSortModes.ToString().ToUpper()));
       this.mReverse = ascending;
-      this.mUnitSortMode = unitSortModes;
       this.mUnitFilter = filters;
       if (!this.mUnitSlotSelected)
         return;
@@ -2595,87 +2771,588 @@ label_31:
       this.Refresh(true);
     }
 
-    private bool IsSoloEventParty(QuestParam quest)
+    private T GetComponents<T>(GameObject root, string targetName, bool includeInactive) where T : Component
     {
-      QuestCondParam entryCondition = quest.EntryCondition;
-      if (quest.units != null && entryCondition != null && (entryCondition.unit != null && quest.UseFixEditor))
-        return quest.type == QuestTypes.Event;
-      return false;
+      foreach (T componentsInChild in root.GetComponentsInChildren<T>(includeInactive))
+      {
+        if (componentsInChild.get_name() == targetName)
+          return componentsInChild;
+      }
+      return (T) null;
     }
 
-    private bool KyouseiUnitPartyEdit(QuestParam quest, PartyWindow2.PartyEditData edit)
+    public void ResetTeamName()
     {
+      GlobalVars.TeamName = string.Empty;
+    }
+
+    public void BreakupTeam()
+    {
+      this.BreakupTeamImpl();
+      this.OnPartyMemberChange();
+      this.SaveTeamPresets();
+    }
+
+    private void BreakupTeamImpl()
+    {
+      int num = !this.mIsHeloOnly ? 1 : 0;
+      for (int slotIndex = this.mCurrentParty.PartyData.MAX_UNIT - 1; slotIndex >= num; --slotIndex)
+        this.SetPartyUnit(slotIndex, (UnitData) null);
+      this.SetSupport((SupportData) null);
+    }
+
+    public void PrevTeam()
+    {
+      this.OnPrevTeamChange();
+    }
+
+    public void NextTeam()
+    {
+      this.OnNextTeamChange();
+    }
+
+    public void GoToUnitList()
+    {
+      if (this.PartyType != PartyWindow2.EditPartyTypes.MultiTower)
+        return;
+      int towerMultiPartyIndex = GlobalVars.SelectedTowerMultiPartyIndex;
+      if (!this.IsMultiTowerPartySlot(towerMultiPartyIndex))
+        return;
+      this.mSelectedSlotIndex = towerMultiPartyIndex;
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.UnitRemoveItem, (UnityEngine.Object) null))
+        ((Selectable) this.UnitRemoveItem).set_interactable(towerMultiPartyIndex > 0 || this.mIsHeloOnly);
+      this.UnitList_Show();
+    }
+
+    private List<List<UnitData>> SeparateUnitByElement(List<UnitData> allUnits, IEnumerable<string> kyouseiUnits, EElement targetElement, bool isHeroAvailable)
+    {
+      List<UnitData> unitDataList1 = new List<UnitData>();
+      List<UnitData> unitDataList2 = new List<UnitData>();
+      List<UnitData> unitDataList3 = new List<UnitData>();
+      List<UnitData> unitDataList4 = new List<UnitData>();
+      List<UnitData> unitDataList5 = new List<UnitData>();
+      List<UnitData> unitDataList6 = new List<UnitData>();
+      List<UnitData> unitDataList7 = new List<UnitData>();
+      List<string> stringList = kyouseiUnits != null ? kyouseiUnits.ToList<string>() : new List<string>();
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      PartyWindow2.\u003CKyouseiUnitPartyEdit\u003Ec__AnonStorey264 editCAnonStorey264 = new PartyWindow2.\u003CKyouseiUnitPartyEdit\u003Ec__AnonStorey264();
-      // ISSUE: reference to a compiler-generated field
-      editCAnonStorey264.edit = edit;
-      bool flag = false;
-      QuestCondParam entryCondition = quest.EntryCondition;
-      // ISSUE: object of a compiler-generated type is created
-      // ISSUE: variable of a compiler-generated type
-      PartyWindow2.\u003CKyouseiUnitPartyEdit\u003Ec__AnonStorey265 editCAnonStorey265 = new PartyWindow2.\u003CKyouseiUnitPartyEdit\u003Ec__AnonStorey265();
-      // ISSUE: reference to a compiler-generated field
-      editCAnonStorey265.\u003C\u003Ef__ref\u0024612 = editCAnonStorey264;
-      // ISSUE: reference to a compiler-generated field
-      // ISSUE: reference to a compiler-generated field
-      // ISSUE: reference to a compiler-generated field
-      // ISSUE: reference to a compiler-generated field
-      for (editCAnonStorey265.i = 0; editCAnonStorey265.i < editCAnonStorey264.edit.Units.Length; ++editCAnonStorey265.i)
+      PartyWindow2.\u003CSeparateUnitByElement\u003Ec__AnonStorey35E elementCAnonStorey35E = new PartyWindow2.\u003CSeparateUnitByElement\u003Ec__AnonStorey35E();
+      using (List<UnitData>.Enumerator enumerator = allUnits.GetEnumerator())
       {
-        // ISSUE: reference to a compiler-generated field
-        // ISSUE: reference to a compiler-generated field
-        if (editCAnonStorey264.edit.Units[editCAnonStorey265.i] != null)
+        while (enumerator.MoveNext())
         {
+          // ISSUE: reference to a compiler-generated field
+          elementCAnonStorey35E.unit = enumerator.Current;
           // ISSUE: reference to a compiler-generated method
-          if (Array.FindIndex<string>(quest.units, new Predicate<string>(editCAnonStorey265.\u003C\u003Em__2C2)) != -1)
+          int index = stringList.FindIndex(new Predicate<string>(elementCAnonStorey35E.\u003C\u003Em__3D6));
+          if (index != -1)
           {
-            // ISSUE: reference to a compiler-generated field
-            // ISSUE: reference to a compiler-generated field
-            editCAnonStorey264.edit.Units[editCAnonStorey265.i] = (UnitData) null;
-            flag = true;
+            stringList.RemoveAt(index);
           }
           else
           {
-            // ISSUE: reference to a compiler-generated method
-            if (Array.FindIndex<string>(entryCondition.unit, new Predicate<string>(editCAnonStorey265.\u003C\u003Em__2C3)) == -1)
+            // ISSUE: reference to a compiler-generated field
+            // ISSUE: reference to a compiler-generated field
+            if ((isHeroAvailable || (int) elementCAnonStorey35E.unit.UnitParam.hero == 0) && this.mCurrentQuest.IsEntryQuestCondition(elementCAnonStorey35E.unit))
             {
-              // ISSUE: reference to a compiler-generated field
-              // ISSUE: reference to a compiler-generated field
-              editCAnonStorey264.edit.Units[editCAnonStorey265.i] = (UnitData) null;
-              flag = true;
+              if (targetElement == EElement.None)
+              {
+                // ISSUE: reference to a compiler-generated field
+                unitDataList1.Add(elementCAnonStorey35E.unit);
+              }
+              else
+              {
+                // ISSUE: reference to a compiler-generated field
+                switch (elementCAnonStorey35E.unit.Element)
+                {
+                  case EElement.Fire:
+                    // ISSUE: reference to a compiler-generated field
+                    unitDataList2.Add(elementCAnonStorey35E.unit);
+                    continue;
+                  case EElement.Water:
+                    // ISSUE: reference to a compiler-generated field
+                    unitDataList3.Add(elementCAnonStorey35E.unit);
+                    continue;
+                  case EElement.Wind:
+                    // ISSUE: reference to a compiler-generated field
+                    unitDataList4.Add(elementCAnonStorey35E.unit);
+                    continue;
+                  case EElement.Thunder:
+                    // ISSUE: reference to a compiler-generated field
+                    unitDataList5.Add(elementCAnonStorey35E.unit);
+                    continue;
+                  case EElement.Shine:
+                    // ISSUE: reference to a compiler-generated field
+                    unitDataList6.Add(elementCAnonStorey35E.unit);
+                    continue;
+                  case EElement.Dark:
+                    // ISSUE: reference to a compiler-generated field
+                    unitDataList7.Add(elementCAnonStorey35E.unit);
+                    continue;
+                  default:
+                    continue;
+                }
+              }
             }
           }
         }
       }
-      return flag;
-    }
-
-    private bool AutoSetLeaderUnit(PartyWindow2.PartyEditData party, string[] kyouseiUnitIds, List<UnitData> units)
-    {
-      if (party.Units[0] != null)
-        return false;
-      if (kyouseiUnitIds == null && units != null && units.Count >= 1)
+      List<List<UnitData>> unitDataListList;
+      if (targetElement == EElement.None)
       {
-        party.Units[0] = units[0];
-        return true;
-      }
-      for (int index = 0; index < units.Count; ++index)
-      {
-        // ISSUE: object of a compiler-generated type is created
-        // ISSUE: variable of a compiler-generated type
-        PartyWindow2.\u003CAutoSetLeaderUnit\u003Ec__AnonStorey266 unitCAnonStorey266 = new PartyWindow2.\u003CAutoSetLeaderUnit\u003Ec__AnonStorey266();
-        // ISSUE: reference to a compiler-generated field
-        unitCAnonStorey266.u = units[index];
-        // ISSUE: reference to a compiler-generated method
-        if (-1 == Array.FindIndex<string>(kyouseiUnitIds, new Predicate<string>(unitCAnonStorey266.\u003C\u003Em__2C4)))
+        unitDataListList = new List<List<UnitData>>()
         {
-          // ISSUE: reference to a compiler-generated field
-          party.Units[0] = unitCAnonStorey266.u;
-          break;
+          unitDataList1
+        };
+      }
+      else
+      {
+        unitDataListList = new List<List<UnitData>>()
+        {
+          unitDataList2,
+          unitDataList3,
+          unitDataList4,
+          unitDataList5,
+          unitDataList6,
+          unitDataList7
+        };
+        int index = (int) (targetElement - 1);
+        if (index >= 0 && index < unitDataListList.Count)
+        {
+          List<UnitData> unitDataList8 = unitDataListList[index];
+          unitDataListList.RemoveAt(index);
+          unitDataListList.Insert(0, unitDataList8);
         }
       }
-      return party.Units[0] != null;
+      return unitDataListList;
+    }
+
+    private void OrganizeRecommendedParty(GlobalVars.RecommendType targetType, EElement targetElement)
+    {
+      // ISSUE: object of a compiler-generated type is created
+      // ISSUE: variable of a compiler-generated type
+      PartyWindow2.\u003COrganizeRecommendedParty\u003Ec__AnonStorey35F partyCAnonStorey35F = new PartyWindow2.\u003COrganizeRecommendedParty\u003Ec__AnonStorey35F();
+      this.BreakupTeamImpl();
+      bool flag = PartyUtility.IsHeloQuest(this.mCurrentQuest);
+      int maxUnit = this.mCurrentParty.PartyData.MAX_UNIT;
+      if (flag)
+        --maxUnit;
+      List<List<UnitData>> unitDataListList = this.SeparateUnitByElement(MonoSingleton<GameManager>.Instance.Player.Units, (IEnumerable<string>) this.mCurrentQuest.units.GetList(), targetElement, PartyUtility.IsHeroesAvailable(this.mCurrentPartyType, this.mCurrentQuest));
+      List<Comparison<UnitData>> comparisonList = new List<Comparison<UnitData>>() { new Comparison<UnitData>(PartyWindow2.CompareTo_Total), new Comparison<UnitData>(PartyWindow2.CompareTo_HP), new Comparison<UnitData>(PartyWindow2.CompareTo_Attack), new Comparison<UnitData>(PartyWindow2.CompareTo_Defense), new Comparison<UnitData>(PartyWindow2.CompareTo_Magic), new Comparison<UnitData>(PartyWindow2.CompareTo_Mind), new Comparison<UnitData>(PartyWindow2.CompareTo_Speed), new Comparison<UnitData>(PartyWindow2.CompareTo_AttackTypeSlash), new Comparison<UnitData>(PartyWindow2.CompareTo_AttackTypeStab), new Comparison<UnitData>(PartyWindow2.CompareTo_AttackTypeBlow), new Comparison<UnitData>(PartyWindow2.CompareTo_AttackTypeShot), new Comparison<UnitData>(PartyWindow2.CompareTo_AttackTypeMagic), new Comparison<UnitData>(PartyWindow2.CompareTo_AttackTypeNone) };
+      // ISSUE: reference to a compiler-generated field
+      partyCAnonStorey35F.targetComparators = comparisonList;
+      int comparatorOrder = PartyUtility.RecommendTypeToComparatorOrder(targetType);
+      // ISSUE: reference to a compiler-generated field
+      if (comparatorOrder >= 0 && comparatorOrder < partyCAnonStorey35F.targetComparators.Count)
+      {
+        // ISSUE: reference to a compiler-generated field
+        Comparison<UnitData> targetComparator = partyCAnonStorey35F.targetComparators[comparatorOrder];
+        // ISSUE: reference to a compiler-generated field
+        partyCAnonStorey35F.targetComparators.RemoveAt(comparatorOrder);
+        // ISSUE: reference to a compiler-generated field
+        partyCAnonStorey35F.targetComparators.Insert(0, targetComparator);
+      }
+      using (List<List<UnitData>>.Enumerator enumerator = unitDataListList.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+        {
+          // ISSUE: reference to a compiler-generated method
+          enumerator.Current.Sort(new Comparison<UnitData>(partyCAnonStorey35F.\u003C\u003Em__3D7));
+        }
+      }
+      List<UnitData> unitDataList = new List<UnitData>();
+      using (List<List<UnitData>>.Enumerator enumerator = unitDataListList.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+        {
+          List<UnitData> current = enumerator.Current;
+          if (maxUnit > 0)
+          {
+            List<int> source = new List<int>();
+            for (int index = 0; index < current.Count; ++index)
+            {
+              unitDataList.Add(current[index]);
+              source.Add(index);
+              if (--maxUnit <= 0)
+                break;
+            }
+            foreach (int index in source.Reverse<int>())
+              current.RemoveAt(index);
+          }
+          else
+            break;
+        }
+      }
+      PartyData partyData = this.mCurrentParty.PartyData;
+      if (this.mIsHeloOnly || flag)
+      {
+        int val1 = partyData.MAX_MAINMEMBER - 1;
+        for (int index = 0; index < partyData.MAX_MAINMEMBER - 1 && index < unitDataList.Count; ++index)
+          this.SetPartyUnit(index + partyData.MAINMEMBER_START, unitDataList[index]);
+        unitDataList.RemoveRange(0, Math.Min(val1, unitDataList.Count));
+      }
+      else
+      {
+        int maxMainmember = partyData.MAX_MAINMEMBER;
+        for (int index = 0; index < maxMainmember && index < unitDataList.Count; ++index)
+          this.SetPartyUnit(index + partyData.MAINMEMBER_START, unitDataList[index]);
+        unitDataList.RemoveRange(0, Math.Min(maxMainmember, unitDataList.Count));
+      }
+      for (int index = 0; index < partyData.MAX_SUBMEMBER && index < unitDataList.Count; ++index)
+        this.SetPartyUnit(index + partyData.SUBMEMBER_START, unitDataList[index]);
+      unitDataList.RemoveRange(0, Math.Min(partyData.MAX_SUBMEMBER, unitDataList.Count));
+      this.OnPartyMemberChange();
+      this.SaveTeamPresets();
+    }
+
+    private static int CompareTo_Total(UnitData unit1, UnitData unit2)
+    {
+      int num = 0 + (int) unit1.Status.param.atk + (int) unit1.Status.param.def + (int) unit1.Status.param.mag + (int) unit1.Status.param.mnd + (int) unit1.Status.param.spd + (int) unit1.Status.param.dex + (int) unit1.Status.param.cri + (int) unit1.Status.param.luk;
+      return 0 + (int) unit2.Status.param.atk + (int) unit2.Status.param.def + (int) unit2.Status.param.mag + (int) unit2.Status.param.mnd + (int) unit2.Status.param.spd + (int) unit2.Status.param.dex + (int) unit2.Status.param.cri + (int) unit2.Status.param.luk - num;
+    }
+
+    private static int CompareTo_Attack(UnitData unit1, UnitData unit2)
+    {
+      return (int) unit2.Status.param.atk - (int) unit1.Status.param.atk;
+    }
+
+    private static int CompareTo_Magic(UnitData unit1, UnitData unit2)
+    {
+      return (int) unit2.Status.param.mag - (int) unit1.Status.param.mag;
+    }
+
+    private static int CompareTo_Defense(UnitData unit1, UnitData unit2)
+    {
+      return (int) unit2.Status.param.def - (int) unit1.Status.param.def;
+    }
+
+    private static int CompareTo_Mind(UnitData unit1, UnitData unit2)
+    {
+      return (int) unit2.Status.param.mnd - (int) unit1.Status.param.mnd;
+    }
+
+    private static int CompareTo_Speed(UnitData unit1, UnitData unit2)
+    {
+      return (int) unit2.Status.param.spd - (int) unit1.Status.param.spd;
+    }
+
+    private static int CompareTo_HP(UnitData unit1, UnitData unit2)
+    {
+      return (int) unit2.Status.param.hp - (int) unit1.Status.param.hp;
+    }
+
+    private static int CompareTo_AttackType(UnitData unit1, UnitData unit2, AttackDetailTypes type)
+    {
+      AttackDetailTypes attackDetailType1 = unit1.GetAttackSkill().AttackDetailType;
+      AttackDetailTypes attackDetailType2 = unit2.GetAttackSkill().AttackDetailType;
+      if (attackDetailType1 == type && attackDetailType2 == type)
+        return 0;
+      if (attackDetailType1 == type && attackDetailType2 != type)
+        return -1;
+      return attackDetailType1 != type && attackDetailType2 == type ? 1 : 0;
+    }
+
+    private static int CompareTo_AttackTypeSlash(UnitData unit1, UnitData unit2)
+    {
+      return PartyWindow2.CompareTo_AttackType(unit1, unit2, AttackDetailTypes.Slash);
+    }
+
+    private static int CompareTo_AttackTypeStab(UnitData unit1, UnitData unit2)
+    {
+      return PartyWindow2.CompareTo_AttackType(unit1, unit2, AttackDetailTypes.Stab);
+    }
+
+    private static int CompareTo_AttackTypeBlow(UnitData unit1, UnitData unit2)
+    {
+      return PartyWindow2.CompareTo_AttackType(unit1, unit2, AttackDetailTypes.Blow);
+    }
+
+    private static int CompareTo_AttackTypeShot(UnitData unit1, UnitData unit2)
+    {
+      return PartyWindow2.CompareTo_AttackType(unit1, unit2, AttackDetailTypes.Shot);
+    }
+
+    private static int CompareTo_AttackTypeMagic(UnitData unit1, UnitData unit2)
+    {
+      return PartyWindow2.CompareTo_AttackType(unit1, unit2, AttackDetailTypes.Magic);
+    }
+
+    private static int CompareTo_AttackTypeNone(UnitData unit1, UnitData unit2)
+    {
+      return PartyWindow2.CompareTo_AttackType(unit1, unit2, AttackDetailTypes.None);
+    }
+
+    public void OnAutoBattleSetting(string name, ActionCall.EventType eventType, SerializeValueList list)
+    {
+      bool sw = false;
+      if (this.mCurrentQuest != null)
+        sw = this.mCurrentQuest.FirstAutoPlayProhibit && this.mCurrentQuest.state != QuestStates.Cleared;
+      if (name == "PROHIBIT")
+      {
+        switch (eventType)
+        {
+          case ActionCall.EventType.START:
+          case ActionCall.EventType.OPEN:
+            list.SetActive("item", sw);
+            break;
+        }
+      }
+      else
+      {
+        if (!(name == "SETTING"))
+          return;
+        Toggle uiToggle1 = list.GetUIToggle("btn_auto");
+        Toggle uiToggle2 = list.GetUIToggle("btn_treasure");
+        Toggle uiToggle3 = list.GetUIToggle("btn_skill");
+        switch (eventType)
+        {
+          case ActionCall.EventType.START:
+          case ActionCall.EventType.OPEN:
+            list.SetActive("item", sw);
+            if (sw)
+            {
+              if (UnityEngine.Object.op_Inequality((UnityEngine.Object) uiToggle1, (UnityEngine.Object) null))
+              {
+                Toggle toggle = uiToggle1;
+                bool flag = false;
+                ((Selectable) uiToggle1).set_interactable(flag);
+                int num = flag ? 1 : 0;
+                toggle.set_isOn(num != 0);
+                list.SetActive("off", true);
+              }
+              if (UnityEngine.Object.op_Inequality((UnityEngine.Object) uiToggle2, (UnityEngine.Object) null))
+                uiToggle2.set_isOn(false);
+              if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) uiToggle3, (UnityEngine.Object) null))
+                break;
+              uiToggle3.set_isOn(false);
+              break;
+            }
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) uiToggle1, (UnityEngine.Object) null))
+            {
+              uiToggle1.set_isOn(GameUtility.Config_UseAutoPlay.Value);
+              ((Selectable) uiToggle1).set_interactable(true);
+            }
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) uiToggle2, (UnityEngine.Object) null))
+              uiToggle2.set_isOn(GameUtility.Config_AutoMode_Treasure.Value);
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) uiToggle3, (UnityEngine.Object) null))
+              uiToggle3.set_isOn(GameUtility.Config_AutoMode_DisableSkill.Value);
+            list.SetActive("off", !GameUtility.Config_UseAutoPlay.Value);
+            break;
+          case ActionCall.EventType.UPDATE:
+            if (sw)
+              break;
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) uiToggle1, (UnityEngine.Object) null))
+              GameUtility.Config_UseAutoPlay.Value = uiToggle1.get_isOn();
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) uiToggle2, (UnityEngine.Object) null))
+              GameUtility.Config_AutoMode_Treasure.Value = uiToggle2.get_isOn();
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) uiToggle3, (UnityEngine.Object) null))
+              GameUtility.Config_AutoMode_DisableSkill.Value = uiToggle3.get_isOn();
+            list.SetActive("off", !GameUtility.Config_UseAutoPlay.Value);
+            break;
+        }
+      }
+    }
+
+    private void UnitList_Activated(int pinID)
+    {
+      switch (pinID)
+      {
+        case 100:
+          this.UnitList_OnSelect();
+          break;
+        case 101:
+          this.UnitList_OnSelectSupport();
+          break;
+        case 110:
+          this.UnitList_OnRemove();
+          break;
+        case 111:
+          this.UnitList_OnRemoveSupport();
+          break;
+        case 119:
+          this.LockWindow(false);
+          ButtonEvent.ResetLock("PartyWindow");
+          break;
+        case 120:
+          SRPG_Button button = FlowNode_ButtonEvent.currentValue as SRPG_Button;
+          if (UnityEngine.Object.op_Equality((UnityEngine.Object) button, (UnityEngine.Object) null))
+            button = this.BackButton;
+          this.UnitList_OnClosing(button);
+          break;
+      }
+    }
+
+    private void UnitList_Create()
+    {
+      if (string.IsNullOrEmpty(this.UNITLIST_WINDOW_PATH))
+        return;
+      GameObject gameObject1 = AssetManager.Load<GameObject>(this.UNITLIST_WINDOW_PATH);
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) gameObject1, (UnityEngine.Object) null))
+        return;
+      GameObject gameObject2 = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) gameObject1);
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) gameObject2, (UnityEngine.Object) null))
+        return;
+      CanvasStack component1 = (CanvasStack) gameObject2.GetComponent<CanvasStack>();
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component1, (UnityEngine.Object) null))
+      {
+        CanvasStack component2 = (CanvasStack) ((Component) this).GetComponent<CanvasStack>();
+        component1.Priority = component2.Priority + 10;
+      }
+      this.mUnitListWindow = (UnitListWindow) gameObject2.GetComponent<UnitListWindow>();
+      this.mUnitListWindow.Enabled(false);
+    }
+
+    private void UnitList_Remove()
+    {
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mUnitListWindow, (UnityEngine.Object) null))
+        return;
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) ((Component) this.mUnitListWindow).get_gameObject(), (UnityEngine.Object) null))
+        GameUtility.DestroyGameObject(((Component) this.mUnitListWindow).get_gameObject());
+      this.mUnitListWindow = (UnitListWindow) null;
+    }
+
+    private void UnitList_Show()
+    {
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mUnitListWindow, (UnityEngine.Object) null))
+        return;
+      this.mUnitListWindow.Enabled(true);
+      this.LockWindow(true);
+      this.mUnitListWindow.AddData("data_units", (object) this.RefreshUnits(this.mOwnUnits.ToArray()));
+      this.mUnitListWindow.AddData("data_party", (object) this.mCurrentParty);
+      this.mUnitListWindow.AddData("data_quest", (object) this.mCurrentQuest);
+      this.mUnitListWindow.AddData("data_slot", (object) this.mSelectedSlotIndex);
+      this.mUnitListWindow.AddData("data_heroOnly", (object) this.mIsHeloOnly);
+      if (this.mCurrentQuest != null && (this.mCurrentQuest.type == QuestTypes.Tower || this.mCurrentQuest.type == QuestTypes.MultiTower))
+        ButtonEvent.Invoke("UNITLIST_BTN_TWPARTY_OPEN", (object) null);
+      else
+        ButtonEvent.Invoke("UNITLIST_BTN_PARTY_OPEN", (object) null);
+      ButtonEvent.Lock("PartyWindow");
+    }
+
+    private void UnitList_OnSelect()
+    {
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mUnitListWindow, (UnityEngine.Object) null) || !this.mUnitListWindow.IsEnabled())
+        return;
+      int selectedSlotIndex = this.mSelectedSlotIndex;
+      UnitData unit1 = this.mCurrentParty.Units[this.mSelectedSlotIndex];
+      if (selectedSlotIndex < this.mCurrentParty.PartyData.MAX_MAINMEMBER)
+      {
+        while (0 < selectedSlotIndex && this.mCurrentParty.Units[selectedSlotIndex - 1] == null)
+          --selectedSlotIndex;
+      }
+      else
+      {
+        while (this.mCurrentParty.PartyData.MAX_MAINMEMBER < selectedSlotIndex && this.mCurrentParty.Units[selectedSlotIndex - 1] == null)
+          --selectedSlotIndex;
+      }
+      UnitData unit2 = (UnitData) null;
+      SerializeValueList currentValue = FlowNode_ButtonEvent.currentValue as SerializeValueList;
+      if (currentValue != null)
+        unit2 = currentValue.GetDataSource<UnitData>("_self");
+      if (unit2 != null && unit2 != unit1)
+      {
+        int slotIndex = this.mCurrentParty.IndexOf(unit2);
+        if (slotIndex >= 0 && selectedSlotIndex != slotIndex)
+        {
+          this.SetPartyUnit(selectedSlotIndex, unit2);
+          this.SetPartyUnit(slotIndex, unit1);
+        }
+        else
+          this.SetPartyUnit(selectedSlotIndex, unit2);
+      }
+      this.OnPartyMemberChange();
+      this.SaveTeamPresets();
+      ButtonEvent.Invoke("UNITLIST_BTN_CLOSE", (object) this.ForwardButton);
+    }
+
+    private void UnitList_OnRemove()
+    {
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mUnitListWindow, (UnityEngine.Object) null) || !this.mUnitListWindow.IsEnabled())
+        return;
+      this.SetPartyUnit(this.mSelectedSlotIndex, (UnitData) null);
+      this.OnPartyMemberChange();
+      this.SaveTeamPresets();
+      ButtonEvent.Invoke("UNITLIST_BTN_CLOSE", (object) this.ForwardButton);
+    }
+
+    private void UnitList_OnClosing(SRPG_Button button)
+    {
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mUnitListWindow, (UnityEngine.Object) null))
+      {
+        if (!this.mUnitListWindow.IsEnabled())
+          return;
+        this.mUnitListWindow.ClearData();
+        UnitListRootWindow.ListData listData = this.mUnitListWindow.rootWindow.GetListData("unitlist");
+        if (listData != null)
+          listData.selectUniqueID = 0L;
+        this.mUnitListWindow.Enabled(false);
+      }
+      if (this.PartyType != PartyWindow2.EditPartyTypes.MultiTower || !UnityEngine.Object.op_Inequality((UnityEngine.Object) button, (UnityEngine.Object) null))
+        return;
+      this.OnForwardOrBackButtonClick(button);
+    }
+
+    private void SupportList_Show()
+    {
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mUnitListWindow, (UnityEngine.Object) null))
+        return;
+      this.mUnitListWindow.Enabled(true);
+      this.LockWindow(true);
+      this.mUnitListWindow.AddData("data_support", (object) this.mCurrentSupport);
+      this.mUnitListWindow.AddData("data_quest", (object) this.mCurrentQuest);
+      ButtonEvent.Invoke("UNITLIST_BTN_SUPPORT_OPEN", (object) null);
+      ButtonEvent.Lock("PartyWindow");
+    }
+
+    private void UnitList_OnSelectSupport()
+    {
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mUnitListWindow, (UnityEngine.Object) null) || !this.mUnitListWindow.IsEnabled())
+        return;
+      SerializeValueList currentValue = FlowNode_ButtonEvent.currentValue as SerializeValueList;
+      this.mSelectedSupport = currentValue == null ? (SupportData) null : currentValue.GetDataSource<SupportData>("_self");
+      if (this.mCurrentSupport == this.mSelectedSupport)
+        ButtonEvent.Invoke("UNITLIST_BTN_CLOSE", (object) this.ForwardButton);
+      else
+        UIUtility.ConfirmBox(LocalizedText.Get(this.mSelectedSupport.GetCost() <= 0 ? "sys.SUPPORT_CONFIRM1" : "sys.SUPPORT_CONFIRM2", (object) this.mSelectedSupport.PlayerName, (object) this.mSelectedSupport.GetCost()), (string) null, new UIUtility.DialogResultEvent(this.UnitList_OnAcceptSupport), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1);
+    }
+
+    private void UnitList_OnAcceptSupport(GameObject go)
+    {
+      if (MonoSingleton<GameManager>.Instance.Player.Gold < this.mSelectedSupport.GetCost())
+      {
+        UIUtility.NegativeSystemMessage((string) null, LocalizedText.Get("sys.SUPPORT_NOGOLD"), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1);
+      }
+      else
+      {
+        this.SetSupport(this.mSelectedSupport);
+        this.OnPartyMemberChange();
+        ButtonEvent.Invoke("UNITLIST_BTN_CLOSE", (object) this.ForwardButton);
+        if (this.mSelectedSupport != null)
+        {
+          if (this.mSelectedSupport.IsFriend())
+            FlowNode_GameObject.ActivateOutputLinks((Component) this, 200);
+          else
+            FlowNode_GameObject.ActivateOutputLinks((Component) this, 210);
+        }
+        else
+          FlowNode_GameObject.ActivateOutputLinks((Component) this, 220);
+      }
+    }
+
+    private void UnitList_OnRemoveSupport()
+    {
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mUnitListWindow, (UnityEngine.Object) null) || !this.mUnitListWindow.IsEnabled())
+        return;
+      this.SetSupport((SupportData) null);
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.FriendSlot, (UnityEngine.Object) null))
+      {
+        this.FriendSlot.SetSlotData<QuestParam>(this.mCurrentQuest);
+        this.FriendSlot.SetSlotData<UnitData>((UnitData) null);
+      }
+      this.OnPartyMemberChange();
+      this.SaveTeamPresets();
+      ButtonEvent.Invoke("UNITLIST_BTN_CLOSE", (object) null);
+      FlowNode_GameObject.ActivateOutputLinks((Component) this, 220);
     }
 
     public enum EditPartyTypes
@@ -2689,6 +3366,14 @@ label_31:
       Character,
       Tower,
       Versus,
+      MultiTower,
+    }
+
+    public enum PartySlotType
+    {
+      Main0,
+      Main1,
+      Sub0,
     }
 
     private enum ItemFilterTypes
@@ -2696,11 +3381,6 @@ label_31:
       All,
       Offense,
       Support,
-    }
-
-    protected class Json_ReqSupporterResponse
-    {
-      public Json_Support[] supports;
     }
 
     public class JSON_ReqBtlComRaidResponse
@@ -2715,95 +3395,6 @@ label_31:
     {
       public Json_PlayerData player;
       public JSON_QuestProgress[] quests;
-    }
-
-    protected class PartyEditData
-    {
-      public UnitData[] Units;
-      public PartyData PartyData;
-
-      public PartyEditData(UnitData[] src, PartyData party)
-      {
-        this.Units = new UnitData[party.MAX_UNIT];
-        this.PartyData = party;
-        this.SetUnits(src);
-      }
-
-      public PartyEditData(PartyData party)
-      {
-        this.Units = new UnitData[party.MAX_UNIT];
-        PlayerData player = MonoSingleton<GameManager>.Instance.Player;
-        this.PartyData = party;
-        for (int index = 0; index < party.MAX_UNIT; ++index)
-        {
-          long unitUniqueId = party.GetUnitUniqueID(index);
-          if (unitUniqueId > 0L)
-            this.Units[index] = player.FindUnitDataByUniqueID(unitUniqueId);
-        }
-      }
-
-      public PartyEditData(JSON_MyPhotonPlayerParam src)
-      {
-        for (int index = 0; index < src.units.Length; ++index)
-        {
-          JSON_MyPhotonPlayerParam.UnitDataElem unit = src.units[index];
-          if (0 <= unit.slotID && unit.slotID < this.PartyData.MAX_UNIT)
-            this.Units[index] = unit.unit;
-        }
-      }
-
-      public int IndexOf(UnitData unit)
-      {
-        for (int index = 0; index < this.Units.Length; ++index)
-        {
-          if (this.Units[index] != null && this.Units[index].UniqueID == unit.UniqueID)
-            return index;
-        }
-        return -1;
-      }
-
-      public void SetUnits(UnitData[] src)
-      {
-        for (int index = 0; index < src.Length && index < this.Units.Length; ++index)
-          this.Units[index] = src[index];
-        for (int mainmemberStart = this.PartyData.MAINMEMBER_START; mainmemberStart < this.PartyData.MAINMEMBER_START + this.PartyData.MAX_MAINMEMBER; ++mainmemberStart)
-        {
-          if (this.Units[mainmemberStart] == null)
-          {
-            for (int index = mainmemberStart + 1; index < this.PartyData.MAINMEMBER_START + this.PartyData.MAX_MAINMEMBER; ++index)
-            {
-              if (this.Units[index] != null)
-                this.Units[mainmemberStart++] = this.Units[index];
-            }
-            while (mainmemberStart < this.PartyData.MAINMEMBER_START + this.PartyData.MAX_MAINMEMBER)
-              this.Units[mainmemberStart++] = (UnitData) null;
-          }
-        }
-        for (int submemberStart = this.PartyData.SUBMEMBER_START; submemberStart < this.PartyData.SUBMEMBER_START + this.PartyData.MAX_SUBMEMBER; ++submemberStart)
-        {
-          if (this.Units[submemberStart] == null)
-          {
-            for (int index = submemberStart + 1; index < this.PartyData.SUBMEMBER_START + this.PartyData.MAX_SUBMEMBER; ++index)
-            {
-              if (this.Units[index] != null)
-                this.Units[submemberStart++] = this.Units[index];
-            }
-            while (submemberStart < this.PartyData.SUBMEMBER_START + this.PartyData.MAX_SUBMEMBER)
-              this.Units[submemberStart++] = (UnitData) null;
-          }
-        }
-      }
-    }
-
-    private class JSON_Team
-    {
-      public long[] u;
-    }
-
-    private class JSON_TeamSettings
-    {
-      public int n;
-      public PartyWindow2.JSON_Team[] t;
     }
 
     private delegate void Callback();

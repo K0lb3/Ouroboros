@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.JSON_GrowCurve
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -49,6 +49,8 @@ namespace SRPG
     public int acd;
     public int ado;
     public int ara;
+    public int adc;
+    public int aic;
     public int rfi;
     public int rwa;
     public int rwi;
@@ -76,6 +78,8 @@ namespace SRPG
     public int rcd;
     public int rdo;
     public int rra;
+    public int rdc;
+    public int ric;
     public int val;
   }
 }

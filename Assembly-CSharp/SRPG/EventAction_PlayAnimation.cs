@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.EventAction_PlayAnimation
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections;
@@ -36,7 +36,7 @@ namespace SRPG
     public override IEnumerator PreloadAssets()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new EventAction_PlayAnimation.\u003CPreloadAssets\u003Ec__Iterator63() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new EventAction_PlayAnimation.\u003CPreloadAssets\u003Ec__Iterator9D() { \u003C\u003Ef__this = this };
     }
 
     public override void OnActivate()
@@ -70,6 +70,23 @@ namespace SRPG
       if (!Object.op_Inequality((Object) this.mController, (Object) null) || string.IsNullOrEmpty(this.mAnimationID))
         return;
       this.mController.UnloadAnimation(this.mAnimationID);
+    }
+
+    public override void GoToEndState()
+    {
+      if (!Object.op_Inequality((Object) this.mController, (Object) null))
+        return;
+      if (!string.IsNullOrEmpty(this.mAnimationID) && this.AnimationType == EventAction_PlayAnimation.AnimationTypes.Custom && !string.IsNullOrEmpty(this.AnimationName))
+      {
+        this.mController.PlayAnimation(this.mAnimationID, this.Loop, -0.1f, 0.0f);
+        this.mController.SkipToAnimationEnd();
+      }
+      else
+      {
+        if (this.AnimationType != EventAction_PlayAnimation.AnimationTypes.Idle)
+          return;
+        this.mController.PlayIdle(-1f);
+      }
     }
 
     public enum AnimationTypes

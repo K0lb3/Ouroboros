@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: LogMonitor
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using UnityEngine;
 [AddComponentMenu("")]
 public class LogMonitor : MonoBehaviour
 {
-  private static LogMonitor mInstnace;
+  public static LogMonitor mInstnace;
   private List<LogMonitor.Log> mLogs;
   private int mLogCount;
   private GUIStyle mBackgroundStyle;
@@ -19,6 +19,7 @@ public class LogMonitor : MonoBehaviour
   private GUIStyle mStackTraceStyle;
   private string mStackTrace;
   private LogMonitor.GUICallback mCallback;
+  private bool mDisp;
 
   public LogMonitor()
   {
@@ -32,10 +33,24 @@ public class LogMonitor : MonoBehaviour
     LogMonitor.mInstnace = (LogMonitor) new GameObject(nameof (LogMonitor)).AddComponent<LogMonitor>();
   }
 
+  public bool isDisp
+  {
+    get
+    {
+      return this.mDisp;
+    }
+  }
+
   private void Awake()
   {
     Object.DontDestroyOnLoad((Object) ((Component) this).get_gameObject());
     ((Object) this).set_hideFlags((HideFlags) 61);
+    this.SetDisp(true);
+  }
+
+  public void SetDisp(bool value)
+  {
+    this.mDisp = value;
   }
 
   private void OnEnable()
@@ -52,7 +67,7 @@ public class LogMonitor : MonoBehaviour
 
   private void OnGUICallback()
   {
-    if (this.mLogs.Count <= 0)
+    if (this.mLogs.Count <= 0 || !this.mDisp)
       return;
     if (this.mErrorStyle == null)
     {
@@ -114,10 +129,7 @@ public class LogMonitor : MonoBehaviour
     GUI.Box(new Rect(0.0f, 0.0f, (float) Screen.get_width(), 25f), string.Empty, this.mBackgroundStyle);
     if (GUI.Button(new Rect((float) (Screen.get_width() - 25), 0.0f, 25f, 25f), "X"))
     {
-      this.mLogs.Clear();
-      this.mStackTrace = (string) null;
-      Object.Destroy((Object) ((Component) this.mCallback).get_gameObject());
-      this.mCallback = (LogMonitor.GUICallback) null;
+      this.Clear();
     }
     else
     {
@@ -125,7 +137,10 @@ public class LogMonitor : MonoBehaviour
       GUILayout.BeginVertical(new GUILayoutOption[0]);
       for (int index = 0; index < this.mLogs.Count; ++index)
       {
-        if (GUILayout.Button("#" + (object) this.mLogs[index].index + " " + this.mLogs[index].logString, this.mLogs[index].type == 4 ? this.mExceptionStyle : this.mErrorStyle, new GUILayoutOption[1]{ GUILayout.Width((float) Screen.get_width()) }))
+        if (GUILayout.Button("#" + (object) this.mLogs[index].index + " " + this.mLogs[index].logString, this.mLogs[index].type == 4 ? this.mExceptionStyle : this.mErrorStyle, new GUILayoutOption[1]
+        {
+          GUILayout.Width((float) Screen.get_width())
+        }))
           this.mStackTrace = this.mLogs[index].stackTrace;
       }
       GUILayout.EndVertical();
@@ -173,6 +188,14 @@ public class LogMonitor : MonoBehaviour
     }).GetComponent<LogMonitor.GUICallback>();
     this.mCallback.OnGUIListener = new LogMonitor.GUICallback.GUIEvent(this.OnGUICallback);
     ((Component) this.mCallback).get_transform().SetParent(((Component) this).get_transform(), false);
+  }
+
+  public void Clear()
+  {
+    this.mLogs.Clear();
+    this.mStackTrace = (string) null;
+    Object.Destroy((Object) ((Component) this.mCallback).get_gameObject());
+    this.mCallback = (LogMonitor.GUICallback) null;
   }
 
   private class Log

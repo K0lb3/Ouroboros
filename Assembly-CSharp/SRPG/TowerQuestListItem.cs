@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.TowerQuestListItem
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -35,6 +35,7 @@ namespace SRPG
     private ImageArray[] mFloorNo;
     private Color UnknownColor;
     private RectTransform mBodyTransform;
+    private TowerQuestListItem.Type now_type;
 
     public TowerQuestListItem()
     {
@@ -43,22 +44,30 @@ namespace SRPG
 
     public RectTransform rectTransform { get; private set; }
 
+    public ImageArray[] Banner
+    {
+      get
+      {
+        return this.mBanner;
+      }
+    }
+
     private void Awake()
     {
-      if (Object.op_Inequality((Object) this.mFloorNoRoot, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mFloorNoRoot, (UnityEngine.Object) null))
       {
         ImageArray[] componentsInChildren = (ImageArray[]) this.mFloorNoRoot.GetComponentsInChildren<ImageArray>();
         if (componentsInChildren != null)
-          this.mFloorNo = ((IEnumerable<ImageArray>) componentsInChildren).Where<ImageArray>((Func<ImageArray, bool>) (child => ((Object) child).get_name().StartsWith("floorNo_"))).Reverse<ImageArray>().ToArray<ImageArray>();
+          this.mFloorNo = ((IEnumerable<ImageArray>) componentsInChildren).Where<ImageArray>((Func<ImageArray, bool>) (child => ((UnityEngine.Object) child).get_name().StartsWith("floorNo_"))).Reverse<ImageArray>().ToArray<ImageArray>();
       }
-      if (Object.op_Inequality((Object) this.mBody, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mBody, (UnityEngine.Object) null))
         this.mBodyTransform = (RectTransform) this.mBody.GetComponent<RectTransform>();
       this.rectTransform = (RectTransform) ((Component) this).GetComponent<RectTransform>();
     }
 
     public void OnFocus(bool value)
     {
-      if (!Object.op_Inequality((Object) this.mBodyTransform, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mBodyTransform, (UnityEngine.Object) null))
         return;
       if (value)
         ((Transform) this.mBodyTransform).set_localScale(new Vector3(1f, 1f, 1f));
@@ -68,6 +77,7 @@ namespace SRPG
 
     private void SetVisible(TowerQuestListItem.Type type)
     {
+      this.now_type = type;
       GameUtility.SetGameObjectActive(this.mCleared, false);
       GameUtility.SetGameObjectActive(this.mLocked, false);
       GameUtility.SetGameObjectActive(this.mFloorNoRoot, false);
@@ -103,6 +113,11 @@ namespace SRPG
       }
     }
 
+    public void SetNowImage()
+    {
+      this.SetVisible(this.now_type);
+    }
+
     public void UpdateParam(TowerFloorParam param, int floorNo)
     {
       if (param == null)
@@ -119,7 +134,7 @@ namespace SRPG
           this.SetVisible(TowerQuestListItem.Type.Cleared);
         else if (!flag)
           this.SetVisible(TowerQuestListItem.Type.Locked);
-        if (param != null && Object.op_Inequality((Object) this.mText, (Object) null))
+        if (param != null && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mText, (UnityEngine.Object) null))
           this.mText.set_text(param.title + " " + param.name);
         this.SetFloorNum(floorNo);
       }

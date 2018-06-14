@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_CheckOldData
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections;
@@ -11,11 +11,11 @@ using System.IO;
 namespace SRPG
 {
   [FlowNode.Pin(201, "Not Exist", FlowNode.PinTypes.Output, 0)]
-  [FlowNode.Pin(200, "Exist", FlowNode.PinTypes.Output, 0)]
-  [FlowNode.Pin(202, "Finish", FlowNode.PinTypes.Output, 0)]
   [FlowNode.NodeType("System/CheckOldData", 32741)]
+  [FlowNode.Pin(200, "Exist", FlowNode.PinTypes.Output, 0)]
   [FlowNode.Pin(100, "Check", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(101, "Delete", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(202, "Finish", FlowNode.PinTypes.Output, 0)]
   public class FlowNode_CheckOldData : FlowNode
   {
     private readonly int PINID_CHECK = 100;
@@ -48,7 +48,7 @@ namespace SRPG
     private IEnumerator DeleteOldData()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new FlowNode_CheckOldData.\u003CDeleteOldData\u003Ec__Iterator7F() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new FlowNode_CheckOldData.\u003CDeleteOldData\u003Ec__IteratorBD() { \u003C\u003Ef__this = this };
     }
 
     public static void DeleteThread(object param)

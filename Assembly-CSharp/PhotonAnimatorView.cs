@@ -1,16 +1,16 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: PhotonAnimatorView
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof (Animator))]
-[RequireComponent(typeof (PhotonView))]
 [AddComponentMenu("Photon Networking/Photon Animator View")]
+[RequireComponent(typeof (PhotonView))]
+[RequireComponent(typeof (Animator))]
 public class PhotonAnimatorView : MonoBehaviour, IPunObservable
 {
   private Animator m_Animator;
@@ -21,8 +21,8 @@ public class PhotonAnimatorView : MonoBehaviour, IPunObservable
   [HideInInspector]
   [SerializeField]
   private bool ShowParameterInspector;
-  [SerializeField]
   [HideInInspector]
+  [SerializeField]
   private List<PhotonAnimatorView.SynchronizedParameter> m_SynchronizeParameters;
   [HideInInspector]
   [SerializeField]

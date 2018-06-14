@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.ReqVersusEnd
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Text;
@@ -10,7 +10,7 @@ namespace SRPG
 {
   public class ReqVersusEnd : WebAPI
   {
-    public ReqVersusEnd(long btlid, int time, BtlResultTypes result, int[] beats, string uid, string fuid, Network.ResponseCallback response, VERSUS_TYPE type, string trophyprog = null, string bingoprog = null, string maxdata = null)
+    public ReqVersusEnd(long btlid, BtlResultTypes result, string uid, string fuid, uint turn, int[] myhp, int[] enhp, int atk, int dmg, int heal, int beat, Network.ResponseCallback response, VERSUS_TYPE type, string trophyprog = null, string bingoprog = null)
     {
       StringBuilder stringBuilder = WebAPI.GetStringBuilder();
       stringBuilder.Append("vs/");
@@ -22,9 +22,6 @@ namespace SRPG
       stringBuilder.Append(btlid);
       stringBuilder.Append(',');
       stringBuilder.Append("\"btlendparam\":{");
-      stringBuilder.Append("\"time\":");
-      stringBuilder.Append(time);
-      stringBuilder.Append(',');
       stringBuilder.Append("\"result\":\"");
       switch (result)
       {
@@ -44,27 +41,52 @@ namespace SRPG
           stringBuilder.Append("draw");
           break;
       }
-      if (result == BtlResultTypes.Win && beats == null)
-        beats = new int[0];
       stringBuilder.Append("\",");
-      if (beats != null)
-      {
-        stringBuilder.Append("\"beats\":[");
-        for (int index = 0; index < beats.Length; ++index)
-        {
-          if (index > 0)
-            stringBuilder.Append(',');
-          stringBuilder.Append(beats[index].ToString());
-        }
-        stringBuilder.Append("],");
-      }
-      stringBuilder.Append("\"steals\":[");
-      stringBuilder.Append("],");
-      stringBuilder.Append("\"missions\":[");
-      stringBuilder.Append("],");
       stringBuilder.Append("\"token\":\"");
       stringBuilder.Append(JsonEscape.Escape(GlobalVars.SelectedMultiPlayRoomName));
       stringBuilder.Append("\",");
+      stringBuilder.Append("\"turn\":\"");
+      stringBuilder.Append(turn);
+      stringBuilder.Append("\"");
+      stringBuilder.Append(",");
+      stringBuilder.Append("\"atk\":\"");
+      stringBuilder.Append(atk);
+      stringBuilder.Append("\"");
+      stringBuilder.Append(",");
+      stringBuilder.Append("\"dmg\":\"");
+      stringBuilder.Append(dmg);
+      stringBuilder.Append("\"");
+      stringBuilder.Append(",");
+      stringBuilder.Append("\"heal\":\"");
+      stringBuilder.Append(heal);
+      stringBuilder.Append("\"");
+      stringBuilder.Append(",");
+      stringBuilder.Append("\"beatcnt\":");
+      stringBuilder.Append(beat);
+      if (myhp != null)
+      {
+        stringBuilder.Append(',');
+        stringBuilder.Append("\"myhp\":[");
+        for (int index = 0; index < myhp.Length; ++index)
+        {
+          if (index > 0)
+            stringBuilder.Append(',');
+          stringBuilder.Append(myhp[index].ToString());
+        }
+        stringBuilder.Append("]");
+      }
+      if (enhp != null)
+      {
+        stringBuilder.Append(',');
+        stringBuilder.Append("\"enhp\":[");
+        for (int index = 0; index < enhp.Length; ++index)
+        {
+          if (index > 0)
+            stringBuilder.Append(',');
+          stringBuilder.Append(enhp[index].ToString());
+        }
+        stringBuilder.Append("]");
+      }
       if ((int) stringBuilder[stringBuilder.Length - 1] == 44)
         --stringBuilder.Length;
       stringBuilder.Append("},");
@@ -83,11 +105,6 @@ namespace SRPG
       {
         stringBuilder.Append(",");
         stringBuilder.Append(bingoprog);
-      }
-      if (!string.IsNullOrEmpty(maxdata))
-      {
-        stringBuilder.Append(",");
-        stringBuilder.Append(maxdata);
       }
       this.body = WebAPI.GetRequestString(stringBuilder.ToString());
       this.callback = response;

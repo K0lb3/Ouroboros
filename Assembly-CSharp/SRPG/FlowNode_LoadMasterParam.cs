@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_LoadMasterParam
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -11,9 +11,9 @@ using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.Pin(0, "Start", FlowNode.PinTypes.Input, 0)]
-  [FlowNode.NodeType("System/LoadMasterParam", 16777215)]
   [FlowNode.Pin(100, "Finished", FlowNode.PinTypes.Output, 100)]
+  [FlowNode.NodeType("System/LoadMasterParam", 16777215)]
+  [FlowNode.Pin(0, "Start", FlowNode.PinTypes.Input, 0)]
   public class FlowNode_LoadMasterParam : FlowNode
   {
     private Mutex mMutex;
@@ -70,6 +70,7 @@ namespace SRPG
         DebugUtility.LogError("Failed to load MasterParam");
       ((Behaviour) this).set_enabled(false);
       CriticalSection.Leave(CriticalSections.Default);
+      MonoSingleton<GameManager>.Instance.MasterParam.DumpLoadedLog();
       this.ActivateOutputLinks(100);
     }
 

@@ -1,13 +1,13 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: PhotonRigidbodyView
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using UnityEngine;
 
-[RequireComponent(typeof (PhotonView))]
 [AddComponentMenu("Photon Networking/Photon Rigidbody View")]
+[RequireComponent(typeof (PhotonView))]
 [RequireComponent(typeof (Rigidbody))]
 public class PhotonRigidbodyView : MonoBehaviour, IPunObservable
 {

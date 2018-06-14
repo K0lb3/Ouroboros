@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: GooglePlayGames.Native.AndroidAppStateClient
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GooglePlayGames.BasicApi;
@@ -130,61 +130,61 @@ namespace GooglePlayGames.Native
       {
         // ISSUE: object of a compiler-generated type is created
         // ISSUE: variable of a compiler-generated type
-        AndroidAppStateClient.OnStateResultProxy.\u003COnStateLoaded\u003Ec__AnonStorey104 loadedCAnonStorey104 = new AndroidAppStateClient.OnStateResultProxy.\u003COnStateLoaded\u003Ec__AnonStorey104();
+        AndroidAppStateClient.OnStateResultProxy.\u003COnStateLoaded\u003Ec__AnonStorey178 loadedCAnonStorey178 = new AndroidAppStateClient.OnStateResultProxy.\u003COnStateLoaded\u003Ec__AnonStorey178();
         // ISSUE: reference to a compiler-generated field
-        loadedCAnonStorey104.stateKey = stateKey;
+        loadedCAnonStorey178.stateKey = stateKey;
         // ISSUE: reference to a compiler-generated field
-        loadedCAnonStorey104.localData = localData;
+        loadedCAnonStorey178.localData = localData;
         // ISSUE: reference to a compiler-generated field
-        loadedCAnonStorey104.\u003C\u003Ef__this = this;
+        loadedCAnonStorey178.\u003C\u003Ef__this = this;
         // ISSUE: reference to a compiler-generated field
-        Logger.d("OnStateResultProxy.onStateLoaded called, status " + (object) statusCode + ", stateKey=" + (object) loadedCAnonStorey104.stateKey);
+        Logger.d("OnStateResultProxy.onStateLoaded called, status " + (object) statusCode + ", stateKey=" + (object) loadedCAnonStorey178.stateKey);
         // ISSUE: reference to a compiler-generated field
-        this.debugLogData(nameof (localData), loadedCAnonStorey104.localData);
+        this.debugLogData(nameof (localData), loadedCAnonStorey178.localData);
         // ISSUE: reference to a compiler-generated field
-        loadedCAnonStorey104.success = false;
+        loadedCAnonStorey178.success = false;
         int num = statusCode;
         switch (num)
         {
           case 0:
             Logger.d("Status is OK, so success.");
             // ISSUE: reference to a compiler-generated field
-            loadedCAnonStorey104.success = true;
+            loadedCAnonStorey178.success = true;
             break;
           case 3:
             Logger.d("Status is STALE DATA, so considering as success.");
             // ISSUE: reference to a compiler-generated field
-            loadedCAnonStorey104.success = true;
+            loadedCAnonStorey178.success = true;
             break;
           case 4:
             Logger.d("Status is NO DATA (no network?), so it's a failure.");
             // ISSUE: reference to a compiler-generated field
-            loadedCAnonStorey104.success = false;
+            loadedCAnonStorey178.success = false;
             // ISSUE: reference to a compiler-generated field
-            loadedCAnonStorey104.localData = (byte[]) null;
+            loadedCAnonStorey178.localData = (byte[]) null;
             break;
           default:
             if (num == 2002)
             {
               Logger.d("Status is KEY NOT FOUND, which is a success, but with no data.");
               // ISSUE: reference to a compiler-generated field
-              loadedCAnonStorey104.success = true;
+              loadedCAnonStorey178.success = true;
               // ISSUE: reference to a compiler-generated field
-              loadedCAnonStorey104.localData = (byte[]) null;
+              loadedCAnonStorey178.localData = (byte[]) null;
               break;
             }
             Logger.e("Cloud load failed with status code " + (object) statusCode);
             // ISSUE: reference to a compiler-generated field
-            loadedCAnonStorey104.success = false;
+            loadedCAnonStorey178.success = false;
             // ISSUE: reference to a compiler-generated field
-            loadedCAnonStorey104.localData = (byte[]) null;
+            loadedCAnonStorey178.localData = (byte[]) null;
             break;
         }
         if (this.mListener != null)
         {
           Logger.d("OnStateResultProxy.onStateLoaded invoking load callback.");
           // ISSUE: reference to a compiler-generated method
-          PlayGamesHelperObject.RunOnGameThread(new Action(loadedCAnonStorey104.\u003C\u003Em__10));
+          PlayGamesHelperObject.RunOnGameThread(new Action(loadedCAnonStorey178.\u003C\u003Em__59));
         }
         else
           Logger.w("No load callback specified!");

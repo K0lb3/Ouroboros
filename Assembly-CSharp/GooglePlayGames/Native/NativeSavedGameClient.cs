@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: GooglePlayGames.Native.NativeSavedGameClient
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GooglePlayGames.BasicApi.SavedGame;
@@ -99,33 +99,33 @@ namespace GooglePlayGames.Native
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          NativeSavedGameClient.\u003CInternalManualOpen\u003Ec__AnonStorey142.\u003CInternalManualOpen\u003Ec__AnonStorey143 openCAnonStorey143 = new NativeSavedGameClient.\u003CInternalManualOpen\u003Ec__AnonStorey142.\u003CInternalManualOpen\u003Ec__AnonStorey143();
+          NativeSavedGameClient.\u003CInternalManualOpen\u003Ec__AnonStorey1B6.\u003CInternalManualOpen\u003Ec__AnonStorey1B7 openCAnonStorey1B7 = new NativeSavedGameClient.\u003CInternalManualOpen\u003Ec__AnonStorey1B6.\u003CInternalManualOpen\u003Ec__AnonStorey1B7();
           // ISSUE: reference to a compiler-generated field
-          openCAnonStorey143.\u003C\u003Ef__ref\u0024322 = this;
+          openCAnonStorey1B7.\u003C\u003Ef__ref\u0024438 = this;
           // ISSUE: reference to a compiler-generated field
-          openCAnonStorey143.original = response.ConflictOriginal();
+          openCAnonStorey1B7.original = response.ConflictOriginal();
           // ISSUE: reference to a compiler-generated field
-          openCAnonStorey143.unmerged = response.ConflictUnmerged();
+          openCAnonStorey1B7.unmerged = response.ConflictUnmerged();
           // ISSUE: reference to a compiler-generated field
           // ISSUE: reference to a compiler-generated field
           // ISSUE: reference to a compiler-generated field
           // ISSUE: reference to a compiler-generated method
-          openCAnonStorey143.resolver = new NativeSavedGameClient.NativeConflictResolver(this.mSnapshotManager, response.ConflictId(), openCAnonStorey143.original, openCAnonStorey143.unmerged, completedCallback, new Action(openCAnonStorey143.\u003C\u003Em__6E));
+          openCAnonStorey1B7.resolver = new NativeSavedGameClient.NativeConflictResolver(this.mSnapshotManager, response.ConflictId(), openCAnonStorey1B7.original, openCAnonStorey1B7.unmerged, completedCallback, new Action(openCAnonStorey1B7.\u003C\u003Em__B7));
           if (!prefetchDataOnConflict)
           {
             // ISSUE: reference to a compiler-generated field
             // ISSUE: reference to a compiler-generated field
             // ISSUE: reference to a compiler-generated field
-            conflictCallback((IConflictResolver) openCAnonStorey143.resolver, (ISavedGameMetadata) openCAnonStorey143.original, (byte[]) null, (ISavedGameMetadata) openCAnonStorey143.unmerged, (byte[]) null);
+            conflictCallback((IConflictResolver) openCAnonStorey1B7.resolver, (ISavedGameMetadata) openCAnonStorey1B7.original, (byte[]) null, (ISavedGameMetadata) openCAnonStorey1B7.unmerged, (byte[]) null);
           }
           else
           {
             // ISSUE: reference to a compiler-generated method
-            NativeSavedGameClient.Prefetcher prefetcher = new NativeSavedGameClient.Prefetcher(new Action<byte[], byte[]>(openCAnonStorey143.\u003C\u003Em__6F), completedCallback);
+            NativeSavedGameClient.Prefetcher prefetcher = new NativeSavedGameClient.Prefetcher(new Action<byte[], byte[]>(openCAnonStorey1B7.\u003C\u003Em__B8), completedCallback);
             // ISSUE: reference to a compiler-generated field
-            this.mSnapshotManager.Read(openCAnonStorey143.original, new Action<GooglePlayGames.Native.PInvoke.SnapshotManager.ReadResponse>(prefetcher.OnOriginalDataRead));
+            this.mSnapshotManager.Read(openCAnonStorey1B7.original, new Action<GooglePlayGames.Native.PInvoke.SnapshotManager.ReadResponse>(prefetcher.OnOriginalDataRead));
             // ISSUE: reference to a compiler-generated field
-            this.mSnapshotManager.Read(openCAnonStorey143.unmerged, new Action<GooglePlayGames.Native.PInvoke.SnapshotManager.ReadResponse>(prefetcher.OnUnmergedDataRead));
+            this.mSnapshotManager.Read(openCAnonStorey1B7.unmerged, new Action<GooglePlayGames.Native.PInvoke.SnapshotManager.ReadResponse>(prefetcher.OnUnmergedDataRead));
           }
         }
         else

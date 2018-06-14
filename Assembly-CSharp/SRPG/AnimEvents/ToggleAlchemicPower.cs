@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.AnimEvents.ToggleAlchemicPower
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -32,10 +32,10 @@ namespace SRPG.AnimEvents
     private void SetRenderMode(GameObject go, float strength)
     {
       UnitController componentInParent = (UnitController) go.GetComponentInParent<UnitController>();
-      if (Object.op_Inequality((Object) componentInParent, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) componentInParent, (UnityEngine.Object) null))
         componentInParent.AnimateVessel(strength, 0.0f);
       TacticsUnitController[] array = (TacticsUnitController[]) null;
-      if (Object.op_Inequality((Object) SceneBattle.Instance, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null))
       {
         array = SceneBattle.Instance.GetActiveUnits();
         Array.Resize<TacticsUnitController>(ref array, array.Length + 1);

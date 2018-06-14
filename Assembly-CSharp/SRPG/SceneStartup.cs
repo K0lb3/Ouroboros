@@ -1,10 +1,11 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.SceneStartup
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
+using System;
 using System.Collections;
 using System.Diagnostics;
 using UnityEngine;
@@ -25,18 +26,23 @@ namespace SRPG
       {
         // ISSUE: reference to a compiler-generated field
         // ISSUE: method pointer
-        SceneStartup.\u003C\u003Ef__am\u0024cache2 = new Application.AdvertisingIdentifierCallback((object) null, __methodptr(\u003CAwake\u003Em__1DA));
+        SceneStartup.\u003C\u003Ef__am\u0024cache2 = new Application.AdvertisingIdentifierCallback((object) null, __methodptr(\u003CAwake\u003Em__27D));
       }
       // ISSUE: reference to a compiler-generated field
-      Application.RequestAdvertisingIdentifierAsync(SceneStartup.\u003C\u003Ef__am\u0024cache2);
+      if (!Application.RequestAdvertisingIdentifierAsync(SceneStartup.\u003C\u003Ef__am\u0024cache2))
+      {
+        Debug.Log((object) "advertisingId not supported");
+        string device_id = Guid.NewGuid().ToString();
+        Debug.Log((object) device_id);
+        GameManager.SetDeviceID(device_id);
+      }
       base.Awake();
       MonoSingleton<UrlScheme>.Instance.Ensure();
       MonoSingleton<PaymentManager>.Instance.Ensure();
       MonoSingleton<NetworkError>.Instance.Ensure();
-      MonoSingleton<WatchManager>.Instance.Ensure();
-      Object.DontDestroyOnLoad(Object.Instantiate(Resources.Load("fillalpha"), Vector3.get_zero(), Quaternion.get_identity()));
+      UnityEngine.Object.DontDestroyOnLoad(UnityEngine.Object.Instantiate(Resources.Load("fillalpha"), Vector3.get_zero(), Quaternion.get_identity()));
       TextAsset textAsset = (TextAsset) Resources.Load<TextAsset>("appserveraddr");
-      if (!Object.op_Inequality((Object) textAsset, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) textAsset, (UnityEngine.Object) null))
         return;
       Network.SetDefaultHostConfigured(textAsset.get_text());
     }
@@ -45,7 +51,7 @@ namespace SRPG
     private IEnumerator Start()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new SceneStartup.\u003CStart\u003Ec__Iterator5D() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new SceneStartup.\u003CStart\u003Ec__Iterator96() { \u003C\u003Ef__this = this };
     }
   }
 }

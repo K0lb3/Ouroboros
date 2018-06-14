@@ -1,19 +1,19 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.CharacterQuestController
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.Pin(2, "Refresh", FlowNode.PinTypes.Input, 2)]
-  [FlowNode.Pin(1, "Start(Restore)", FlowNode.PinTypes.Input, 1)]
-  [FlowNode.Pin(0, "Start", FlowNode.PinTypes.Input, 0)]
-  [FlowNode.Pin(13, "Collabo(Restore)", FlowNode.PinTypes.Output, 13)]
-  [FlowNode.Pin(12, "Chara(Restore)", FlowNode.PinTypes.Output, 12)]
   [FlowNode.Pin(11, "Collabo", FlowNode.PinTypes.Output, 11)]
+  [FlowNode.Pin(12, "Chara(Restore)", FlowNode.PinTypes.Output, 12)]
+  [FlowNode.Pin(13, "Collabo(Restore)", FlowNode.PinTypes.Output, 13)]
+  [FlowNode.Pin(0, "Start", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "Start(Restore)", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(2, "Refresh", FlowNode.PinTypes.Input, 2)]
   [FlowNode.Pin(10, "Chara", FlowNode.PinTypes.Output, 10)]
   public class CharacterQuestController : MonoBehaviour, IFlowInterface
   {

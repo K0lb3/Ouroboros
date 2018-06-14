@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.NetworkErrorWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -41,7 +41,15 @@ namespace SRPG
           ((Component) this.StatusCode).get_gameObject().SetActive(false);
       }
       if (Object.op_Inequality((Object) this.Message, (Object) null))
-        this.Message.set_text(Network.ErrMsg);
+      {
+        if (string.IsNullOrEmpty(Network.ErrMsg))
+          this.Message.set_text(LocalizedText.Get("embed.APP_REBOOT", new object[1]
+          {
+            (object) Network.ErrCode.ToString()
+          }));
+        else
+          this.Message.set_text(Network.ErrMsg);
+      }
       Transform child = ((Component) this).get_transform().FindChild("window/Button");
       if (!Object.op_Inequality((Object) child, (Object) null))
         return;
@@ -66,7 +74,7 @@ namespace SRPG
 
     public void OpenVersionUpSite()
     {
-      Application.OpenURL(Network.SiteHost);
+      Application.OpenURL(Network.OfficialUrl);
     }
 
     public void OpenStore()

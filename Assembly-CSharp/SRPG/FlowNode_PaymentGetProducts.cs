@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_PaymentGetProducts
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -9,12 +9,13 @@ using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.Pin(100, "Success", FlowNode.PinTypes.Output, 100)]
-  [FlowNode.Pin(101, "Failure", FlowNode.PinTypes.Output, 101)]
-  [FlowNode.Pin(102, "WaitingForSetup", FlowNode.PinTypes.Output, 102)]
-  [FlowNode.Pin(103, "Empty", FlowNode.PinTypes.Output, 103)]
   [FlowNode.NodeType("Payment/GetProducts", 32741)]
   [FlowNode.Pin(0, "Start", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "ClearList", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(100, "Success", FlowNode.PinTypes.Output, 100)]
+  [FlowNode.Pin(103, "Empty", FlowNode.PinTypes.Output, 103)]
+  [FlowNode.Pin(101, "Failure", FlowNode.PinTypes.Output, 101)]
+  [FlowNode.Pin(102, "WaitingForSetup", FlowNode.PinTypes.Output, 102)]
   public class FlowNode_PaymentGetProducts : FlowNode
   {
     private bool mSetDelegate;
@@ -50,17 +51,25 @@ namespace SRPG
 
     public override void OnActivate(int pinID)
     {
-      if (pinID != 0)
-        return;
-      if (!this.mSetDelegate)
+      switch (pinID)
       {
-        MonoSingleton<PaymentManager>.Instance.OnShowItems += new PaymentManager.ShowItemsDelegate(this.OnShowItems);
-        this.mSetDelegate = true;
+        case 0:
+          if (!this.mSetDelegate)
+          {
+            MonoSingleton<PaymentManager>.Instance.OnShowItems += new PaymentManager.ShowItemsDelegate(this.OnShowItems);
+            this.mSetDelegate = true;
+          }
+          ((Behaviour) this).set_enabled(true);
+          if (MonoSingleton<PaymentManager>.Instance.ShowItems())
+            break;
+          this.Failure();
+          break;
+        case 1:
+          ((Behaviour) this).set_enabled(false);
+          FlowNode_PaymentGetProducts.Products = (PaymentManager.Product[]) null;
+          this.ActivateOutputLinks(100);
+          break;
       }
-      ((Behaviour) this).set_enabled(true);
-      if (MonoSingleton<PaymentManager>.Instance.ShowItems())
-        return;
-      this.Failure();
     }
 
     private void Success()

@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.RewardWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections.Generic;
@@ -27,6 +27,8 @@ namespace SRPG
     public GameObject ItemTemplate;
     public GameObject EventCoinTemplate;
     public GameObject ArtifactTemplate;
+    public GameObject ArtifactTemplate2;
+    public GameObject UnitTemplate;
     protected List<GameObject> mItems;
 
     public RewardWindow()
@@ -45,9 +47,11 @@ namespace SRPG
     {
       if (Object.op_Inequality((Object) this.ItemTemplate, (Object) null))
         this.ItemTemplate.get_gameObject().SetActive(false);
-      if (!Object.op_Inequality((Object) this.EventCoinTemplate, (Object) null))
+      if (Object.op_Inequality((Object) this.EventCoinTemplate, (Object) null))
+        this.EventCoinTemplate.get_gameObject().SetActive(false);
+      if (!Object.op_Inequality((Object) this.ArtifactTemplate2, (Object) null))
         return;
-      this.EventCoinTemplate.get_gameObject().SetActive(false);
+      this.ArtifactTemplate2.get_gameObject().SetActive(false);
     }
 
     private void Start()
@@ -99,26 +103,38 @@ namespace SRPG
           }
         }
       }
-      if (!Object.op_Inequality((Object) this.ItemTemplate, (Object) null))
-        return;
-      Transform transform1 = !Object.op_Inequality((Object) this.ItemList, (Object) null) ? this.ItemTemplate.get_transform().get_parent() : this.ItemList.get_transform();
-      Transform transform2 = (Transform) null;
-      if (Object.op_Inequality((Object) this.EventCoinTemplate, (Object) null))
-        transform2 = !Object.op_Inequality((Object) this.ItemList, (Object) null) ? this.EventCoinTemplate.get_transform().get_parent() : this.ItemList.get_transform();
-      List<ItemParam> itemParamList = (List<ItemParam>) null;
-      for (int index = 0; index < dataOfClass.Items.Count; ++index)
+      if (Object.op_Inequality((Object) this.ItemTemplate, (Object) null))
       {
-        ItemData data = dataOfClass.Items[index];
+        Transform itemParent = !Object.op_Inequality((Object) this.ItemList, (Object) null) ? this.ItemTemplate.get_transform().get_parent() : this.ItemList.get_transform();
+        this.RefreshItems(dataOfClass, itemParent, this.ItemTemplate);
+      }
+      if (!Object.op_Inequality((Object) this.ArtifactTemplate2, (Object) null))
+        return;
+      Transform parent = this.ArtifactTemplate2.get_transform().get_parent();
+      this.RefreshArtifacts(dataOfClass, parent, this.ArtifactTemplate2);
+    }
+
+    private void RefreshItems(RewardData reward, Transform itemParent, GameObject template)
+    {
+      if (reward.Items == null || reward.Items.Count <= 0)
+        return;
+      Transform transform = (Transform) null;
+      if (Object.op_Inequality((Object) this.EventCoinTemplate, (Object) null))
+        transform = !Object.op_Inequality((Object) this.ItemList, (Object) null) ? this.EventCoinTemplate.get_transform().get_parent() : this.ItemList.get_transform();
+      List<ItemParam> itemParamList = (List<ItemParam>) null;
+      for (int index = 0; index < reward.Items.Count; ++index)
+      {
+        ItemData data = reward.Items[index];
         GameObject gameObject;
-        if (data.ItemType != EItemType.EventCoin || Object.op_Equality((Object) transform2, (Object) null))
+        if (data.ItemType != EItemType.EventCoin || Object.op_Equality((Object) transform, (Object) null))
         {
-          gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.ItemTemplate);
-          gameObject.get_transform().SetParent(transform1, false);
+          gameObject = (GameObject) Object.Instantiate<GameObject>((M0) template);
+          gameObject.get_transform().SetParent(itemParent, false);
         }
         else
         {
           gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.EventCoinTemplate);
-          gameObject.get_transform().SetParent(transform2, false);
+          gameObject.get_transform().SetParent(transform, false);
         }
         this.mItems.Add(gameObject);
         DataSource.Bind<ItemData>(gameObject, data);
@@ -128,6 +144,24 @@ namespace SRPG
           if (itemParamList == null)
             itemParamList = new List<ItemParam>();
           itemParamList.Add(data.Param);
+        }
+      }
+    }
+
+    private void RefreshArtifacts(RewardData reward, Transform itemParent, GameObject template)
+    {
+      if (reward.Artifacts == null || reward.Artifacts.Count <= 0)
+        return;
+      using (List<ArtifactRewardData>.Enumerator enumerator = reward.Artifacts.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+        {
+          ArtifactRewardData current = enumerator.Current;
+          GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) template);
+          gameObject.get_transform().SetParent(itemParent, false);
+          this.mItems.Add(gameObject);
+          DataSource.Bind<ArtifactRewardData>(gameObject, current);
+          gameObject.SetActive(true);
         }
       }
     }

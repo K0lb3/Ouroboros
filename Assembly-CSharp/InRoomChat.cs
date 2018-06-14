@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: InRoomChat
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using Photon;
@@ -56,7 +56,10 @@ public class InRoomChat : MonoBehaviour
     GUILayout.BeginHorizontal(new GUILayoutOption[0]);
     GUI.SetNextControlName("ChatInput");
     this.inputLine = GUILayout.TextField(this.inputLine, new GUILayoutOption[0]);
-    if (GUILayout.Button("Send", new GUILayoutOption[1]{ GUILayout.ExpandWidth(false) }))
+    if (GUILayout.Button("Send", new GUILayoutOption[1]
+    {
+      GUILayout.ExpandWidth(false)
+    }))
     {
       this.photonView.RPC("Chat", PhotonTargets.All, new object[1]
       {

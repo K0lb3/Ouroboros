@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_DownloadAssets
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -14,12 +14,12 @@ using UnityEngine;
 namespace SRPG
 {
   [FlowNode.Pin(99, "エラー発生", FlowNode.PinTypes.Output, 99)]
-  [FlowNode.Pin(1, "確認", FlowNode.PinTypes.Input, 1)]
-  [FlowNode.Pin(0, "ダウンロード", FlowNode.PinTypes.Input, 0)]
   [FlowNode.NodeType("System/アセットのダウンロード", 16711935)]
+  [FlowNode.Pin(0, "ダウンロード", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "確認", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(10, "ダウンロード開始", FlowNode.PinTypes.Output, 10)]
   [FlowNode.Pin(11, "ダウンロード完了", FlowNode.PinTypes.Output, 11)]
   [FlowNode.Pin(100, "キャンセル", FlowNode.PinTypes.Output, 12)]
-  [FlowNode.Pin(10, "ダウンロード開始", FlowNode.PinTypes.Output, 10)]
   public class FlowNode_DownloadAssets : FlowNode
   {
     public string[] AssetPaths = new string[0];
@@ -70,7 +70,7 @@ namespace SRPG
     private IEnumerator AsyncWork(bool confirm)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new FlowNode_DownloadAssets.\u003CAsyncWork\u003Ec__Iterator81() { confirm = confirm, \u003C\u0024\u003Econfirm = confirm, \u003C\u003Ef__this = this };
+      return (IEnumerator) new FlowNode_DownloadAssets.\u003CAsyncWork\u003Ec__IteratorBF() { confirm = confirm, \u003C\u0024\u003Econfirm = confirm, \u003C\u003Ef__this = this };
     }
 
     private void AddAssets()
@@ -91,6 +91,12 @@ namespace SRPG
           if (instanceDirect.HasTutorialDLAssets)
             instanceDirect.DownloadTutorialAssets();
           AssetManager.PrepareAssets("town001");
+          AssetManager.PrepareAssets("StreamingAssets/BGM_0027.acb");
+          AssetManager.PrepareAssets("StreamingAssets/BGM_0027.awb");
+          AssetManager.PrepareAssets("StreamingAssets/BGM_0004.acb");
+          AssetManager.PrepareAssets("StreamingAssets/BGM_0004.awb");
+          AssetManager.PrepareAssets("StreamingAssets/BGM_0005.acb");
+          AssetManager.PrepareAssets("StreamingAssets/BGM_0005.awb");
         }
         else if (BackgroundDownloader.Instance.IsEnabled)
         {
@@ -156,7 +162,7 @@ namespace SRPG
         if (!string.IsNullOrEmpty(this.AssetPaths[index]))
           AssetManager.PrepareAssets(this.AssetPaths[index]);
       }
-      if (!Object.op_Inequality((Object) instanceDirect, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) instanceDirect, (UnityEngine.Object) null))
         return;
       for (int index = 0; index < this.DownloadUnits.Length; ++index)
       {

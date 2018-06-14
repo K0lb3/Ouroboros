@@ -1,13 +1,11 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: AssetManager
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -32,6 +30,7 @@ public class AssetManager : MonoBehaviour
   private AssetList mAssetList;
   private AssetList mTextAssetList;
   private static AssetList mAssetListRef;
+  private UnManagedAssetList mUnManagedList;
 
   public AssetManager()
   {
@@ -73,6 +72,11 @@ public class AssetManager : MonoBehaviour
               AssetManager.Format = AssetManager.AssetFormats.AndroidPVR;
               return;
             }
+            if (GameUtility.IsASTCTextureSupported)
+            {
+              AssetManager.Format = AssetManager.AssetFormats.AndroidASTC;
+              return;
+            }
             AssetManager.Format = AssetManager.AssetFormats.AndroidGeneric;
             return;
           default:
@@ -110,7 +114,10 @@ public class AssetManager : MonoBehaviour
   {
     if (AssetManager.mInstanceCreated || !Application.get_isPlaying())
       return;
-    GameObject gameObject = new GameObject(typeof (AssetManager).FullName, new System.Type[1]{ typeof (AssetManager) });
+    GameObject gameObject = new GameObject(typeof (AssetManager).FullName, new System.Type[1]
+    {
+      typeof (AssetManager)
+    });
     Object.DontDestroyOnLoad((Object) gameObject);
     AssetManager.mInstance = (AssetManager) gameObject.GetComponent<AssetManager>();
     AssetManager.mInstanceCreated = true;
@@ -251,7 +258,6 @@ public class AssetManager : MonoBehaviour
 
   public void UnloadUnusedAssetBundles(bool immediate = false, bool forceUnload = false)
   {
-    bool flag = false;
     for (int index = this.mAssetBundles.Count - 1; index >= 0; --index)
     {
       AssetBundleCache mAssetBundle = this.mAssetBundles[index];
@@ -259,13 +265,8 @@ public class AssetManager : MonoBehaviour
       {
         mAssetBundle.Unload();
         this.mAssetBundles.RemoveAt(index);
-        flag = true;
       }
     }
-    if (!flag)
-      return;
-    GC.Collect();
-    GC.WaitForPendingFinalizers();
   }
 
   private bool IsAssetBundleLoading(AssetBundleCache abc)
@@ -365,12 +366,17 @@ public class AssetManager : MonoBehaviour
   {
     AssetList.Item itemByPath = AssetManager.AssetList.FindItemByPath(name);
     if (itemByPath != null)
-      return AssetDownloader.CachePath + itemByPath.IDStr;
+      return AssetManager.GetPath(itemByPath);
     StringBuilder stringBuilder = GameUtility.GetStringBuilder();
     stringBuilder.Append(Application.get_streamingAssetsPath());
     stringBuilder.Append('/');
     stringBuilder.Append(Path.GetFileName(name));
     return stringBuilder.ToString();
+  }
+
+  public static string GetUnManagedStreamingAssetPath(string name)
+  {
+    return AssetDownloader.DemoCachePath + name;
   }
 
   public static LoadRequest LoadAsync(string name)
@@ -451,23 +457,26 @@ public class AssetManager : MonoBehaviour
   private static void GenerateLocalizedDict()
   {
     AssetManager.locLang = GameUtility.Config_Language;
-    AssetManager.locDict = new Dictionary<string, string>();
     string str1 = AssetManager.LoadTextData("SGDevelopment/LocalizedObjectList");
+    if (str1 == null)
+      return;
+    AssetManager.locDict = new Dictionary<string, string>();
+    string str2 = str1;
     string[] separator = new string[2]{ "\r\n", "\n" };
     int num = 0;
-    foreach (string path in str1.Split(separator, (StringSplitOptions) num))
+    foreach (string path in str2.Split(separator, (StringSplitOptions) num))
     {
-      string str2 = (string) null;
+      string str3 = (string) null;
       string index;
       if (path.Contains(".unity"))
       {
         index = Path.GetFileNameWithoutExtension(path);
         if (AssetManager.locLang == "french")
-          str2 = index + "_fr";
+          str3 = index + "_fr";
         else if (AssetManager.locLang == "german")
-          str2 = index + "_de";
+          str3 = index + "_de";
         else if (AssetManager.locLang == "spanish")
-          str2 = index + "_es";
+          str3 = index + "_es";
       }
       else
       {
@@ -480,36 +489,38 @@ public class AssetManager : MonoBehaviour
           locLang += "/ScriptObjs/";
         if (path.Contains("Assets/Resources"))
         {
-          string str3 = path.Replace("Assets/Resources/", string.Empty);
-          index = str3.Substring(0, str3.IndexOf('.'));
-          str2 = "SGDevelopment/Loc/" + locLang + index;
+          string str4 = path.Replace("Assets/Resources/", string.Empty);
+          index = str4.Substring(0, str4.IndexOf('.'));
+          str3 = "SGDevelopment/Loc/" + locLang + index;
         }
         else if (path.Contains("Assets/StreamingAssets/") && path.Contains(".usme"))
         {
           index = path.Replace("Assets/StreamingAssets/", "StreamingAssets/");
           if (AssetManager.locLang == "french")
-            str2 = index.Replace(".usme", "_fr.usme");
+            str3 = index.Replace(".usme", "_fr.usme");
           else if (AssetManager.locLang == "german")
-            str2 = index.Replace(".usme", "_de.usme");
+            str3 = index.Replace(".usme", "_de.usme");
           else if (AssetManager.locLang == "spanish")
-            str2 = index.Replace(".usme", "_es.usme");
+            str3 = index.Replace(".usme", "_es.usme");
         }
         else
         {
           index = path;
-          str2 = index.Replace("Assets/", "Assets/SGDevelopment/Loc/" + locLang);
+          str3 = index.Replace("Assets/", "Assets/SGDevelopment/Loc/" + locLang);
         }
       }
-      AssetManager.locDict[index] = str2;
+      AssetManager.locDict[index] = str3;
     }
   }
 
   public static string GetLocalizedObjectName(string assetName, bool isScene = false)
   {
-    if (GameUtility.Config_Language == "english")
+    if (GameUtility.Config_Language == "english" || GameUtility.Config_UseAssetBundles.Value && !AssetDownloader.HasDownloadedText)
       return assetName;
     if (AssetManager.locDict == null || AssetManager.locLang != GameUtility.Config_Language)
       AssetManager.GenerateLocalizedDict();
+    if (AssetManager.locDict == null)
+      return assetName;
     string str = assetName;
     if (AssetManager.locDict.TryGetValue(assetName, out str))
       return str;
@@ -669,11 +680,20 @@ public class AssetManager : MonoBehaviour
     }
   }
 
+  public static UnManagedAssetList UnManagedAsset
+  {
+    get
+    {
+      return AssetManager.Instance.mUnManagedList;
+    }
+  }
+
   private void Awake()
   {
     this.mAssetList = new AssetList();
     this.mTextAssetList = new AssetList();
     AssetManager.mAssetListRef = this.mAssetList;
+    this.mUnManagedList = new UnManagedAssetList();
     if (File.Exists(AssetDownloader.AssetListTmpPath))
       this.mAssetList.ReadAssetList(AssetDownloader.AssetListTmpPath);
     else if (File.Exists(AssetDownloader.AssetListPath))
@@ -712,7 +732,7 @@ public class AssetManager : MonoBehaviour
 
   private AssetBundleCache OpenAssetBundle(string assetbundleID, bool persistent = false, bool isDependency = false)
   {
-    AssetList.Item itemById = AssetManager.AssetList.FindItemByID(assetbundleID);
+    AssetList.Item itemById = AssetManager.AssetList.FastFindItemByID(assetbundleID);
     if (itemById == null)
     {
       DebugUtility.LogError("AssetBundle not found: " + assetbundleID);
@@ -725,7 +745,7 @@ public class AssetManager : MonoBehaviour
     }
     if (this.mAssetBundles.Count >= AssetManager.MaxAssetBundles)
       this.UnloadUnusedAssetBundles(true, true);
-    string path = AssetDownloader.CachePath + assetbundleID;
+    string path = AssetManager.GetPath(itemById);
     if (!File.Exists(path))
     {
       DebugUtility.LogError("AssetBundle doesn't exist: " + assetbundleID);
@@ -770,13 +790,6 @@ public class AssetManager : MonoBehaviour
     AssetManager.UnloadAll();
   }
 
-  [DebuggerHidden]
-  public static IEnumerator CheckMPAssets(List<AssetList.Item> result)
-  {
-    // ISSUE: object of a compiler-generated type is created
-    return (IEnumerator) new AssetManager.\u003CCheckMPAssets\u003Ec__Iterator47() { result = result, \u003C\u0024\u003Eresult = result };
-  }
-
   public static bool IsAssetInCache(string assetID)
   {
     AssetList.Item itemById = AssetManager.AssetList.FastFindItemByID(assetID);
@@ -786,8 +799,7 @@ public class AssetManager : MonoBehaviour
   public static void PrepareAssets(string resourcePath)
   {
     string localizedObjectName1 = AssetManager.GetLocalizedObjectName(resourcePath, false);
-    bool flag = resourcePath != localizedObjectName1;
-    if (flag)
+    if (resourcePath != localizedObjectName1)
       resourcePath = localizedObjectName1;
     if (!AssetManager.mInstanceCreated)
       return;
@@ -798,37 +810,13 @@ public class AssetManager : MonoBehaviour
       AssetDownloader.Add(itemByPath1.IDStr);
     for (int index = 0; index < itemByPath1.Dependencies.Length; ++index)
     {
-      if (!File.Exists(AssetDownloader.CachePath + itemByPath1.Dependencies[index].IDStr))
+      if (!itemByPath1.Dependencies[index].Exist)
         AssetDownloader.Add(itemByPath1.Dependencies[index].IDStr);
     }
     for (int index = 0; index < itemByPath1.AdditionalDependencies.Length; ++index)
     {
-      string path = AssetDownloader.CachePath + itemByPath1.AdditionalDependencies[index].IDStr;
-      if (!flag)
-      {
-        if (!File.Exists(path))
-          AssetDownloader.Add(itemByPath1.AdditionalDependencies[index].IDStr);
-      }
-      else
-      {
-        string localizedObjectName2 = AssetManager.GetLocalizedObjectName(itemByPath1.AdditionalDependencies[index].Path, false);
-        if (localizedObjectName2 == itemByPath1.AdditionalDependencies[index].Path)
-        {
-          if (!File.Exists(path))
-            AssetDownloader.Add(itemByPath1.AdditionalDependencies[index].IDStr);
-        }
-        else
-        {
-          AssetList.Item itemByPath2 = AssetManager.mAssetListRef.FindItemByPath(localizedObjectName2);
-          if (itemByPath2 == null)
-          {
-            if (!File.Exists(path))
-              AssetDownloader.Add(itemByPath1.AdditionalDependencies[index].IDStr);
-          }
-          else if (!File.Exists(AssetDownloader.CachePath + itemByPath2.IDStr))
-            AssetDownloader.Add(itemByPath2.IDStr);
-        }
-      }
+      string str = AssetDownloader.CachePath + itemByPath1.AdditionalDependencies[index].IDStr;
+      AssetManager.PrepareAssets(itemByPath1.AdditionalDependencies[index].Path);
     }
     for (int index = 0; index < itemByPath1.AdditionalStreamingAssets.Length; ++index)
     {
@@ -978,6 +966,11 @@ public class AssetManager : MonoBehaviour
     return Resources.UnloadUnusedAssets();
   }
 
+  public static string GetPath(AssetList.Item item)
+  {
+    return AssetDownloader.CachePath + item.IDStr;
+  }
+
   public enum AssetFormats
   {
     AndroidGeneric,
@@ -987,6 +980,7 @@ public class AssetManager : MonoBehaviour
     iOS,
     Windows,
     Text,
+    AndroidASTC,
   }
 
   private struct ObjectRef<T> where T : Object
@@ -997,12 +991,20 @@ public class AssetManager : MonoBehaviour
 
     public static AssetManager.ObjectRef<T> CreateStrongRef(T obj)
     {
-      return new AssetManager.ObjectRef<T>() { _StrongRef = obj, _WeakRef = new WeakReference((object) obj), _IsStrongRef = true };
+      return new AssetManager.ObjectRef<T>()
+      {
+        _StrongRef = obj,
+        _WeakRef = new WeakReference((object) obj),
+        _IsStrongRef = true
+      };
     }
 
     public static AssetManager.ObjectRef<T> CreateWeakRef(T obj)
     {
-      return new AssetManager.ObjectRef<T>() { _WeakRef = new WeakReference((object) obj) };
+      return new AssetManager.ObjectRef<T>()
+      {
+        _WeakRef = new WeakReference((object) obj)
+      };
     }
 
     public void MakeStrong()

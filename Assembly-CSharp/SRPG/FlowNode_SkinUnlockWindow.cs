@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_SkinUnlockWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -11,9 +11,9 @@ using System.Diagnostics;
 
 namespace SRPG
 {
+  [FlowNode.Pin(10, "Open", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(1, "Closed", FlowNode.PinTypes.Output, 1)]
   [FlowNode.NodeType("UI/SkinUnlockWindow", 32741)]
-  [FlowNode.Pin(10, "Open", FlowNode.PinTypes.Input, 0)]
   public class FlowNode_SkinUnlockWindow : FlowNode
   {
     public override void OnActivate(int pinID)
@@ -38,7 +38,7 @@ namespace SRPG
     private IEnumerator OnOpenAsync(List<ItemParam> showItems)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new FlowNode_SkinUnlockWindow.\u003COnOpenAsync\u003Ec__Iterator90() { showItems = showItems, \u003C\u0024\u003EshowItems = showItems, \u003C\u003Ef__this = this };
+      return (IEnumerator) new FlowNode_SkinUnlockWindow.\u003COnOpenAsync\u003Ec__IteratorD2() { showItems = showItems, \u003C\u0024\u003EshowItems = showItems, \u003C\u003Ef__this = this };
     }
   }
 }

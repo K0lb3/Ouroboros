@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.UnitKakuseiWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -11,8 +11,8 @@ using UnityEngine.UI;
 
 namespace SRPG
 {
-  [FlowNode.Pin(100, "ユニットが覚醒した", FlowNode.PinTypes.Output, 100)]
   [FlowNode.Pin(0, "表示を更新", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(100, "ユニットが覚醒した", FlowNode.PinTypes.Output, 100)]
   public class UnitKakuseiWindow : MonoBehaviour, IFlowInterface
   {
     public UnitKakuseiWindow.KakuseiWindowEvent OnKakuseiAccept;
@@ -52,7 +52,7 @@ namespace SRPG
     private void OnKakuseiClick()
     {
       if (this.mElementKakera != null)
-        UIUtility.ConfirmBox(string.Format(LocalizedText.Get("sys.KAKUSEI_CONFIRM_ELEMENT_KAKERA"), (object) this.mElementKakera.name), new UIUtility.DialogResultEvent(this.AcceptElementKakera), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1);
+        UIUtility.ConfirmBox(string.Format(LocalizedText.Get("sys.KAKUSEI_CONFIRM_ELEMENT_KAKERA"), (object) this.mElementKakera.name), new UIUtility.DialogResultEvent(this.AcceptElementKakera), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1, (string) null, (string) null);
       else
         this.AcceptElementKakera((GameObject) null);
     }
@@ -60,7 +60,7 @@ namespace SRPG
     private void AcceptElementKakera(GameObject go)
     {
       if (this.mCommonKakera != null)
-        UIUtility.ConfirmBox(string.Format(LocalizedText.Get("sys.KAKUSEI_CONFIRM_COMMON_KAKERA"), (object) this.mCommonKakera.name), new UIUtility.DialogResultEvent(this.AcceptCommonKakera), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1);
+        UIUtility.ConfirmBox(string.Format(LocalizedText.Get("sys.KAKUSEI_CONFIRM_COMMON_KAKERA"), (object) this.mCommonKakera.name), new UIUtility.DialogResultEvent(this.AcceptCommonKakera), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1, (string) null, (string) null);
       else
         this.AcceptCommonKakera((GameObject) null);
     }

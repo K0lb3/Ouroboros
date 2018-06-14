@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FixParam
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections.Generic;
@@ -72,6 +72,7 @@ namespace SRPG
     public OInt[] ShopUpdateTime;
     public OInt ContinueCoinCost;
     public OInt ContinueCoinCostMulti;
+    public OInt ContinueCoinCostMultiTower;
     public OInt AvoidBaseRate;
     public OInt AvoidParamScale;
     public OInt MaxAvoidRate;
@@ -117,6 +118,7 @@ namespace SRPG
     public int PartyNumChQuest;
     public int PartyNumTower;
     public int PartyNumVersus;
+    public int PartyNumMultiTower;
     public OBool IsDisableSuspend;
     public OInt SuspendSaveInterval;
     public bool IsJobMaster;
@@ -128,6 +130,20 @@ namespace SRPG
     public OInt ThrowHeight;
     public OString[] ArtifactRarePiece;
     public OString ArtifactCommonPiece;
+    public OString[] EquipCommonPiece;
+    public OInt[] EquipCommonPieceNum;
+    public OString[] SoulCommonPiece;
+    public OInt[] EquipCommonPieceCost;
+    public OString[] EquipCmn;
+    public OInt AudienceMax;
+    public OInt AbilityRankUpPointMax;
+    public OInt AbilityRankUpPointAddMax;
+    public OInt AbilityRankupPointCoinRate;
+    public OInt FirstFriendMax;
+    public OInt FirstFriendCoin;
+    public OInt CombinationRate;
+    public OInt WeakUpRate;
+    public OInt ResistDownRate;
 
     public bool Deserialize(JSON_FixParam json)
     {
@@ -212,6 +228,7 @@ namespace SRPG
       this.GemsBuffTurn = (OInt) json.gems_buff_turn;
       this.ContinueCoinCost = (OInt) json.continue_cost;
       this.ContinueCoinCostMulti = (OInt) json.continue_cost_multi;
+      this.ContinueCoinCostMultiTower = (OInt) json.continue_cost_multitower;
       this.AvoidBaseRate = (OInt) json.avoid_rate;
       this.AvoidParamScale = (OInt) json.avoid_scale;
       this.MaxAvoidRate = (OInt) json.avoid_rate_max;
@@ -293,6 +310,14 @@ namespace SRPG
         this.DefaultCondTurns.Add(EUnitCondition.AutoJewel, (OInt) 0);
       if (!this.DefaultCondTurns.ContainsKey(EUnitCondition.DisableHeal))
         this.DefaultCondTurns.Add(EUnitCondition.DisableHeal, (OInt) 0);
+      if (!this.DefaultCondTurns.ContainsKey(EUnitCondition.DisableSingleAttack))
+        this.DefaultCondTurns.Add(EUnitCondition.DisableSingleAttack, (OInt) 0);
+      if (!this.DefaultCondTurns.ContainsKey(EUnitCondition.DisableAreaAttack))
+        this.DefaultCondTurns.Add(EUnitCondition.DisableAreaAttack, (OInt) 0);
+      if (!this.DefaultCondTurns.ContainsKey(EUnitCondition.DisableDecCT))
+        this.DefaultCondTurns.Add(EUnitCondition.DisableDecCT, (OInt) 0);
+      if (!this.DefaultCondTurns.ContainsKey(EUnitCondition.DisableIncCT))
+        this.DefaultCondTurns.Add(EUnitCondition.DisableIncCT, (OInt) 0);
       this.DefaultCondTurns[EUnitCondition.Poison] = (OInt) json.ct_poi;
       this.DefaultCondTurns[EUnitCondition.Paralysed] = (OInt) json.ct_par;
       this.DefaultCondTurns[EUnitCondition.Stun] = (OInt) json.ct_stu;
@@ -318,6 +343,10 @@ namespace SRPG
       this.DefaultCondTurns[EUnitCondition.GoodSleep] = (OInt) json.ct_gsl;
       this.DefaultCondTurns[EUnitCondition.AutoJewel] = (OInt) json.ct_aje;
       this.DefaultCondTurns[EUnitCondition.DisableHeal] = (OInt) json.ct_dhe;
+      this.DefaultCondTurns[EUnitCondition.DisableSingleAttack] = (OInt) json.ct_dsa;
+      this.DefaultCondTurns[EUnitCondition.DisableAreaAttack] = (OInt) json.ct_daa;
+      this.DefaultCondTurns[EUnitCondition.DisableDecCT] = (OInt) json.ct_ddc;
+      this.DefaultCondTurns[EUnitCondition.DisableIncCT] = (OInt) json.ct_dic;
       this.RandomEffectMax = (OInt) json.yuragi;
       this.ChargeTimeMax = (OInt) json.ct_max;
       this.ChargeTimeDecWait = (OInt) json.ct_wait;
@@ -348,6 +377,7 @@ namespace SRPG
       this.PartyNumChQuest = json.ptnum_chq;
       this.PartyNumTower = json.ptnum_tow;
       this.PartyNumVersus = json.ptnum_vs;
+      this.PartyNumMultiTower = json.ptnum_mt;
       this.IsDisableSuspend = (OBool) (json.notsus != 0);
       this.SuspendSaveInterval = (OInt) json.sus_int;
       this.IsJobMaster = json.jobms != 0;
@@ -369,7 +399,45 @@ namespace SRPG
           this.ArtifactRarePiece[index] = (OString) json.art_rare_pi[index];
       }
       this.ArtifactCommonPiece = (OString) json.art_cmn_pi;
+      this.SoulCommonPiece = this.ConvertOStringArray(json.soul_rare);
+      this.EquipCommonPiece = this.ConvertOStringArray(json.equ_rare_pi);
+      this.EquipCommonPieceNum = this.ConvertOIntArray(json.equ_rare_pi_use);
+      this.EquipCommonPieceCost = this.ConvertOIntArray(json.equ_rare_cost);
+      this.EquipCmn = this.ConvertOStringArray(json.equip_cmn);
+      this.AudienceMax = (OInt) json.aud_max;
+      this.AbilityRankUpPointMax = (OInt) json.ab_rankup_max;
+      this.AbilityRankUpPointAddMax = (OInt) json.ab_rankup_addmax;
+      this.AbilityRankupPointCoinRate = (OInt) json.ab_coin_convert;
+      this.FirstFriendMax = (OInt) json.firstfriend_max;
+      this.FirstFriendCoin = (OInt) json.firstfriend_coin;
+      this.CombinationRate = (OInt) json.cmb_rate;
+      this.WeakUpRate = (OInt) json.weak_up;
+      this.ResistDownRate = (OInt) json.resist_dw;
       return true;
+    }
+
+    public OString[] ConvertOStringArray(string[] strs)
+    {
+      OString[] ostringArray = (OString[]) null;
+      if (strs != null)
+      {
+        ostringArray = new OString[strs.Length];
+        for (int index = 0; index < ostringArray.Length; ++index)
+          ostringArray[index] = (OString) strs[index];
+      }
+      return ostringArray;
+    }
+
+    public OInt[] ConvertOIntArray(int[] strs)
+    {
+      OInt[] ointArray = (OInt[]) null;
+      if (strs != null)
+      {
+        ointArray = new OInt[strs.Length];
+        for (int index = 0; index < ointArray.Length; ++index)
+          ointArray[index] = (OInt) strs[index];
+      }
+      return ointArray;
     }
   }
 }

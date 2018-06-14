@@ -1,11 +1,10 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.EventAction_Movie
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace SRPG
@@ -13,7 +12,7 @@ namespace SRPG
   [EventActionInfo("New/Movie", "指定のムービーをストリーミング再生します", 5592405, 4473992)]
   public class EventAction_Movie : EventAction
   {
-    private static readonly string PREFIX = "videos/";
+    private static readonly string PREFIX = "movies/";
     public float FadeTime = 1f;
     public Color FadeColor = Color.get_black();
     private const string PREFAB_PATH = "UI/FullScreenMovieDemo";
@@ -26,48 +25,6 @@ namespace SRPG
 
     public override void OnActivate()
     {
-      string str = "en/";
-      string configLanguage = GameUtility.Config_Language;
-      if (configLanguage != null)
-      {
-        // ISSUE: reference to a compiler-generated field
-        if (EventAction_Movie.\u003C\u003Ef__switch\u0024mapC == null)
-        {
-          // ISSUE: reference to a compiler-generated field
-          EventAction_Movie.\u003C\u003Ef__switch\u0024mapC = new Dictionary<string, int>(3)
-          {
-            {
-              "french",
-              0
-            },
-            {
-              "german",
-              1
-            },
-            {
-              "spanish",
-              2
-            }
-          };
-        }
-        int num;
-        // ISSUE: reference to a compiler-generated field
-        if (EventAction_Movie.\u003C\u003Ef__switch\u0024mapC.TryGetValue(configLanguage, out num))
-        {
-          switch (num)
-          {
-            case 0:
-              str = "fr/";
-              break;
-            case 1:
-              str = "de/";
-              break;
-            case 2:
-              str = "es/";
-              break;
-          }
-        }
-      }
       switch ((int) Application.get_internetReachability())
       {
         case 0:
@@ -75,7 +32,7 @@ namespace SRPG
           break;
         case 1:
         case 2:
-          this.PlayMovie(EventAction_Movie.PREFIX + str + this.Filename);
+          this.PlayMovie(EventAction_Movie.PREFIX + this.Filename);
           break;
       }
     }

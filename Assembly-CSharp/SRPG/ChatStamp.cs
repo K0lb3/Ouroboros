@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.ChatStamp
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -190,13 +190,13 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          ChatStamp.\u003CRefresh\u003Ec__AnonStorey23C refreshCAnonStorey23C = new ChatStamp.\u003CRefresh\u003Ec__AnonStorey23C();
+          ChatStamp.\u003CRefresh\u003Ec__AnonStorey315 refreshCAnonStorey315 = new ChatStamp.\u003CRefresh\u003Ec__AnonStorey315();
           // ISSUE: reference to a compiler-generated field
-          refreshCAnonStorey23C.\u003C\u003Ef__this = this;
+          refreshCAnonStorey315.\u003C\u003Ef__this = this;
           // ISSUE: reference to a compiler-generated field
-          refreshCAnonStorey23C.index = index;
+          refreshCAnonStorey315.index = index;
           // ISSUE: reference to a compiler-generated field
-          refreshCAnonStorey23C.id = mStampParam.id;
+          refreshCAnonStorey315.id = mStampParam.id;
           GameObject mStampObject = this.mStampObjects[index];
           Sprite sprite = this.mStampImages.GetSprite(mStampParam.img_id);
           Image component1 = (Image) mStampObject.GetComponent<Image>();
@@ -207,7 +207,7 @@ namespace SRPG
           {
             ((UnityEventBase) component2.get_onClick()).RemoveAllListeners();
             // ISSUE: method pointer
-            ((UnityEvent) component2.get_onClick()).AddListener(new UnityAction((object) refreshCAnonStorey23C, __methodptr(\u003C\u003Em__253)));
+            ((UnityEvent) component2.get_onClick()).AddListener(new UnityAction((object) refreshCAnonStorey315, __methodptr(\u003C\u003Em__32E)));
           }
           mStampObject.SetActive(true);
         }
@@ -244,7 +244,7 @@ namespace SRPG
     private IEnumerator LoadStampImages()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new ChatStamp.\u003CLoadStampImages\u003Ec__IteratorA8() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new ChatStamp.\u003CLoadStampImages\u003Ec__IteratorEA() { \u003C\u003Ef__this = this };
     }
   }
 }

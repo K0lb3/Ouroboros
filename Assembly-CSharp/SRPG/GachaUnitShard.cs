@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.GachaUnitShard
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -259,7 +259,7 @@ namespace SRPG
         int num1 = (int) instance1.MasterParam.GetRarityParam(unitDataByUnitId.Rarity).UnitAwakeLvCap / 5;
         for (int index = 0; index < num1; ++index)
         {
-          GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.rebirthstar_template);
+          GameObject gameObject = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.rebirthstar_template);
           gameObject.get_transform().SetParent(this.rebirthstar_root.get_transform(), false);
           gameObject.SetActive(true);
           this.mRebirthStars.Add(gameObject);
@@ -295,7 +295,7 @@ namespace SRPG
             int num4 = startAwakeLv / 5;
             int num5 = Math.Min(5, startAwakeLv % 5) + 1;
             Transform child = this.mRebirthStars[num4 + 1 < num3 ? num4 : num3 - 1].get_transform().FindChild("Rebirth_star_anim").FindChild("Rebirthstar_0" + num5.ToString());
-            if (Object.op_Inequality((Object) child, (Object) null))
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) child, (UnityEngine.Object) null))
               ((Component) child).get_gameObject().SetActive(true);
             ++startAwakeLv;
             if (startAwakeLv < this.AwakeLvCap)
@@ -308,9 +308,9 @@ namespace SRPG
             else
               break;
           }
-          if (Object.op_Inequality((Object) this.ShardNext, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ShardNext, (UnityEngine.Object) null))
             this.ShardNext.set_text(awakeNeedPieces.ToString());
-          if (Object.op_Inequality((Object) this.ShardCurrent, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ShardCurrent, (UnityEngine.Object) null))
             this.ShardCurrent.set_text(msubShard.ToString());
           this.mstart_gauge = msubShard;
           this.ShardGauge.AnimateValue((float) msubShard / (float) awakeNeedPieces, 0.0f);
@@ -368,7 +368,7 @@ namespace SRPG
         int num4 = startAwakeLv / 5;
         int num5 = Math.Min(5, startAwakeLv % 5) + 1;
         Transform child = this.mRebirthStars[num4 + 1 < num1 ? num4 : num1 - 1].get_transform().FindChild("Rebirth_star_anim").FindChild("Rebirthstar_0" + num5.ToString());
-        if (Object.op_Inequality((Object) child, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) child, (UnityEngine.Object) null))
           ((Component) child).get_gameObject().SetActive(true);
         ++startAwakeLv;
         if (startAwakeLv >= this.AwakeLvCap)
@@ -385,9 +385,9 @@ namespace SRPG
       }
       this.NowAwakeLv = startAwakeLv;
       this.NextAwakeLv = this.NowAwakeLv + 1 <= this.AwakeLvCap ? this.NowAwakeLv + 1 : this.AwakeLvCap;
-      if (Object.op_Inequality((Object) this.ShardNext, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ShardNext, (UnityEngine.Object) null))
         this.ShardNext.set_text(awakeNeedPieces.ToString());
-      if (Object.op_Inequality((Object) this.ShardCurrent, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ShardCurrent, (UnityEngine.Object) null))
         this.ShardCurrent.set_text(num2.ToString());
       this.ShardGauge.AnimateValue((float) num2 / (float) awakeNeedPieces, 0.0f);
     }
@@ -411,9 +411,9 @@ namespace SRPG
       float num1 = Mathf.Lerp(this.mShardStart, this.mShardEnd, Mathf.Clamp01(this.mShardAnimTime / 1f));
       int num2 = Mathf.FloorToInt(num1);
       int mnextShard = this.mnext_shard;
-      if (Object.op_Inequality((Object) this.ShardCurrent, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ShardCurrent, (UnityEngine.Object) null))
         this.ShardCurrent.set_text(Mathf.FloorToInt((float) (this.mstart_gauge + num2)).ToString());
-      if (Object.op_Inequality((Object) this.ShardGauge, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ShardGauge, (UnityEngine.Object) null))
       {
         float num3 = ((float) this.mstart_gauge + num1) / (float) mnextShard;
         MonoSingleton<MySound>.Instance.PlaySEOneShot(this.GaugeUpAnimSoundList[0], 0.0f);
@@ -427,11 +427,11 @@ namespace SRPG
 
     private void RefreshShardGaugeImmediate()
     {
-      if (Object.op_Equality((Object) this.ShardGauge, (Object) null) || this.msub_shard > 0)
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.ShardGauge, (UnityEngine.Object) null) || this.msub_shard > 0)
         return;
-      if (Object.op_Inequality((Object) this.ShardNext, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ShardNext, (UnityEngine.Object) null))
         this.ShardNext.set_text(this.mnext_shard.ToString());
-      if (Object.op_Inequality((Object) this.ShardCurrent, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ShardCurrent, (UnityEngine.Object) null))
         this.ShardCurrent.set_text("0");
       this.ShardGauge.AnimateValue(Mathf.Clamp01(0.0f / (float) this.mnext_shard), 0.0f);
     }
@@ -475,7 +475,7 @@ namespace SRPG
       public override void Begin(GachaUnitShard self)
       {
         Animator component = (Animator) ((Component) self).GetComponent<Animator>();
-        if (Object.op_Inequality((Object) component, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
           component.SetBool("is_skip", true);
         self.StartCoroutine(this.WaitGaugeObject());
       }
@@ -484,7 +484,7 @@ namespace SRPG
       private IEnumerator WaitGaugeObject()
       {
         // ISSUE: object of a compiler-generated type is created
-        return (IEnumerator) new GachaUnitShard.State_AddingGaugeSkip.\u003CWaitGaugeObject\u003Ec__IteratorB1() { \u003C\u003Ef__this = this };
+        return (IEnumerator) new GachaUnitShard.State_AddingGaugeSkip.\u003CWaitGaugeObject\u003Ec__IteratorF5() { \u003C\u003Ef__this = this };
       }
     }
 
@@ -623,7 +623,7 @@ namespace SRPG
           if (GameUtility.IsAnimatorRunning((Component) this.rebirth_star))
             return;
           Transform child = this.rebirth_star.FindChild("Rebirthstar_0" + this.new_star.ToString());
-          if (Object.op_Inequality((Object) child, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) child, (UnityEngine.Object) null))
             ((Component) child).get_gameObject().SetActive(true);
           Animator component = (Animator) ((Component) this.rebirth_star).GetComponent<Animator>();
           component.SetInteger("new", 0);

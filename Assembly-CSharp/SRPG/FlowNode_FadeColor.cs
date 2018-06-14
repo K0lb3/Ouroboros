@@ -1,15 +1,15 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_FadeColor
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.Pin(100, "Start", FlowNode.PinTypes.Input, 0)]
   [FlowNode.NodeType("UI/Fade (Color)", 32741)]
+  [FlowNode.Pin(100, "Start", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(1, "Finished", FlowNode.PinTypes.Output, 10)]
   public class FlowNode_FadeColor : FlowNode
   {

@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.Event2dAction_QuitEnable
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections;
@@ -30,7 +30,7 @@ namespace SRPG
     public override IEnumerator PreloadAssets()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new Event2dAction_QuitEnable.\u003CPreloadAssets\u003Ec__Iterator76() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new Event2dAction_QuitEnable.\u003CPreloadAssets\u003Ec__IteratorB2() { \u003C\u003Ef__this = this };
     }
 
     public override void PreStart()
@@ -41,7 +41,7 @@ namespace SRPG
       ((Component) Event2dAction_QuitEnable.mQuit).get_transform().SetParent(((Component) this.ActiveCanvas).get_transform(), false);
       ((Component) Event2dAction_QuitEnable.mQuit).get_transform().SetAsLastSibling();
       // ISSUE: method pointer
-      Event2dAction_QuitEnable.mQuit.OnClick = new UnityAction((object) this, __methodptr(\u003CPreStart\u003Em__1E6));
+      Event2dAction_QuitEnable.mQuit.OnClick = new UnityAction((object) this, __methodptr(\u003CPreStart\u003Em__298));
       ((Component) Event2dAction_QuitEnable.mQuit).get_gameObject().SetActive(false);
     }
 

@@ -1,18 +1,18 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_LimitedShopCheckBoughtItem
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
 
 namespace SRPG
 {
-  [FlowNode.NodeType("SRPG/LimitedShopCheckBoughtItem", 32741)]
-  [FlowNode.Pin(10, "SetItem", FlowNode.PinTypes.Output, 10)]
-  [FlowNode.Pin(1, "", FlowNode.PinTypes.Input, 1)]
-  [FlowNode.Pin(11, "Item", FlowNode.PinTypes.Output, 11)]
   [FlowNode.Pin(12, "Error", FlowNode.PinTypes.Output, 12)]
+  [FlowNode.NodeType("SRPG/LimitedShopCheckBoughtItem", 32741)]
+  [FlowNode.Pin(1, "", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(10, "SetItem", FlowNode.PinTypes.Output, 10)]
+  [FlowNode.Pin(11, "Item", FlowNode.PinTypes.Output, 11)]
   public class FlowNode_LimitedShopCheckBoughtItem : FlowNode
   {
     public override void OnActivate(int pinID)

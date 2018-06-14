@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_RegisterGreview
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -11,8 +11,8 @@ using UnityEngine;
 namespace SRPG
 {
   [FlowNode.Pin(10, "Success", FlowNode.PinTypes.Output, 10)]
-  [FlowNode.Pin(1, "Register Greview", FlowNode.PinTypes.Input, 1)]
   [FlowNode.NodeType("System/RegisterGreview", 32741)]
+  [FlowNode.Pin(1, "Register Greview", FlowNode.PinTypes.Input, 1)]
   [FlowNode.Pin(11, "Failed", FlowNode.PinTypes.Output, 11)]
   public class FlowNode_RegisterGreview : FlowNode_Network
   {
@@ -21,7 +21,7 @@ namespace SRPG
       if (pinID != 1)
         return;
       if (Network.Mode == Network.EConnectMode.Online)
-        UIUtility.ConfirmBox(LocalizedText.Get("sys.CONFIRM_GOOGLE_REVIEW"), new UIUtility.DialogResultEvent(this.OnSerialRegister), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1);
+        UIUtility.ConfirmBox(LocalizedText.Get("sys.CONFIRM_GOOGLE_REVIEW"), new UIUtility.DialogResultEvent(this.OnSerialRegister), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1, (string) null, (string) null);
       else
         this.Success();
     }

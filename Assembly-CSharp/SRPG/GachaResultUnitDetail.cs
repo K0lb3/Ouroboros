@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.GachaResultUnitDetail
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -71,6 +71,14 @@ namespace SRPG
     private List<GameObject> mAbilits;
     [SerializeField]
     private Button BackBtn;
+    [SerializeField]
+    private GameObject OneMoreButton;
+    [SerializeField]
+    private GameObject CostTicket;
+    [SerializeField]
+    private GameObject CostDefault;
+    [SerializeField]
+    private GameObject CostDefaultBG;
 
     public GachaResultUnitDetail()
     {
@@ -83,20 +91,20 @@ namespace SRPG
 
     private void OpenLeaderSkillDetail()
     {
-      if (!Object.op_Equality((Object) this.mLeaderSkillDetail, (Object) null) || !Object.op_Inequality((Object) this.Prefab_LeaderSkillDetail, (Object) null))
+      if (!UnityEngine.Object.op_Equality((UnityEngine.Object) this.mLeaderSkillDetail, (UnityEngine.Object) null) || !UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Prefab_LeaderSkillDetail, (UnityEngine.Object) null))
         return;
-      this.mLeaderSkillDetail = (GameObject) Object.Instantiate<GameObject>((M0) this.Prefab_LeaderSkillDetail);
+      this.mLeaderSkillDetail = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.Prefab_LeaderSkillDetail);
       DataSource.Bind<UnitData>(this.mLeaderSkillDetail, this.mCurrentUnit);
     }
 
     private void Start()
     {
-      if (Object.op_Inequality((Object) this.LeaderSkillDetailButton, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.LeaderSkillDetailButton, (UnityEngine.Object) null))
       {
         // ISSUE: method pointer
         ((UnityEvent) this.LeaderSkillDetailButton.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OpenLeaderSkillDetail)));
       }
-      if (!Object.op_Inequality((Object) this.BackBtn, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BackBtn, (UnityEngine.Object) null))
         return;
       // ISSUE: method pointer
       ((UnityEvent) this.BackBtn.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OnCloseDetail)));
@@ -130,7 +138,7 @@ namespace SRPG
       if (!string.IsNullOrEmpty(this.PreviewBaseID))
       {
         this.mPreviewBase = GameObjectID.FindGameObject(this.PreviewBaseID);
-        if (Object.op_Inequality((Object) this.mPreviewBase, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mPreviewBase, (UnityEngine.Object) null))
         {
           GameUtility.SetLayer(this.mPreviewBase, GameUtility.LayerUI, true);
           this.mPreviewBase.get_transform().set_position(new Vector3(-0.2f, (float) this.mPreviewBase.get_transform().get_position().y, (float) this.mPreviewBase.get_transform().get_position().z));
@@ -139,18 +147,19 @@ namespace SRPG
       }
       if (!string.IsNullOrEmpty(this.BGUnitImageID))
         this.mBGUnitImage = GameObjectID.FindGameObject<RawImage>(this.BGUnitImageID);
+      this.RefreshGachaCostObject();
       this.StartCoroutine(this.RefreshAsync(false));
     }
 
     private void OnEnable()
     {
-      if (Object.op_Inequality((Object) this.JobData01, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.JobData01, (UnityEngine.Object) null))
         this.JobData01.SetActive(false);
-      if (Object.op_Inequality((Object) this.JobData02, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.JobData02, (UnityEngine.Object) null))
         this.JobData02.SetActive(false);
-      if (Object.op_Inequality((Object) this.JobData03, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.JobData03, (UnityEngine.Object) null))
         this.JobData03.SetActive(false);
-      if (Object.op_Inequality((Object) this.LeaderSkillDetailButton, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.LeaderSkillDetailButton, (UnityEngine.Object) null))
         ((Selectable) this.LeaderSkillDetailButton).set_interactable(false);
       this.Refresh();
     }
@@ -158,7 +167,7 @@ namespace SRPG
     private void OnDisable()
     {
       this.SetPreviewVisible(false);
-      if (Object.op_Inequality((Object) this.mPreviewBase, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mPreviewBase, (UnityEngine.Object) null))
       {
         this.mPreviewBase.get_transform().set_position(new Vector3(0.2f, (float) this.mPreviewBase.get_transform().get_position().y, (float) this.mPreviewBase.get_transform().get_position().z));
         this.mPreviewBase.SetActive(false);
@@ -170,17 +179,17 @@ namespace SRPG
     private IEnumerator RefreshAsync(bool immediate = false)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new GachaResultUnitDetail.\u003CRefreshAsync\u003Ec__IteratorAD() { immediate = immediate, \u003C\u0024\u003Eimmediate = immediate, \u003C\u003Ef__this = this };
+      return (IEnumerator) new GachaResultUnitDetail.\u003CRefreshAsync\u003Ec__IteratorF1() { immediate = immediate, \u003C\u0024\u003Eimmediate = immediate, \u003C\u003Ef__this = this };
     }
 
     private void Update()
     {
-      if (this.mUpdatePreviewVisibility && this.mDesiredPreviewVisibility && (Object.op_Inequality((Object) this.mCurrentPreview, (Object) null) && !this.mCurrentPreview.IsLoading))
+      if (this.mUpdatePreviewVisibility && this.mDesiredPreviewVisibility && (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mCurrentPreview, (UnityEngine.Object) null) && !this.mCurrentPreview.IsLoading))
       {
         GameUtility.SetLayer((Component) this.mCurrentPreview, GameUtility.LayerUI, true);
         this.mUpdatePreviewVisibility = false;
       }
-      if ((double) this.mBGUnitImgFadeTime >= (double) this.mBGUnitImgFadeTimeMax || !Object.op_Inequality((Object) this.mBGUnitImage, (Object) null))
+      if ((double) this.mBGUnitImgFadeTime >= (double) this.mBGUnitImgFadeTimeMax || !UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mBGUnitImage, (UnityEngine.Object) null))
         return;
       this.mBGUnitImgFadeTime += Time.get_unscaledDeltaTime();
       float num = Mathf.Clamp01(this.mBGUnitImgFadeTime / this.mBGUnitImgFadeTimeMax);
@@ -193,14 +202,14 @@ namespace SRPG
 
     private void OnDestroy()
     {
-      if (Object.op_Inequality((Object) this.mCurrentPreview, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mCurrentPreview, (UnityEngine.Object) null))
       {
         GameUtility.DestroyGameObject((Component) this.mCurrentPreview);
         this.mCurrentPreview = (UnitPreview) null;
       }
       GameUtility.DestroyGameObjects<UnitPreview>(this.mPreviewControllers);
-      if (Object.op_Inequality((Object) this.mLeaderSkillDetail, (Object) null))
-        Object.Destroy((Object) this.mLeaderSkillDetail.get_gameObject());
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mLeaderSkillDetail, (UnityEngine.Object) null))
+        UnityEngine.Object.Destroy((UnityEngine.Object) this.mLeaderSkillDetail.get_gameObject());
       GameUtility.DestroyGameObjects(this.mAbilits);
     }
 
@@ -211,7 +220,7 @@ namespace SRPG
 
     private void SetPreviewVisible(bool visible)
     {
-      if (!Object.op_Inequality((Object) this.mCurrentPreview, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mCurrentPreview, (UnityEngine.Object) null))
         return;
       this.mDesiredPreviewVisibility = visible;
       if (!visible)
@@ -221,19 +230,19 @@ namespace SRPG
       }
       else
         this.mUpdatePreviewVisibility = true;
-      if (!Object.op_Inequality((Object) this.mPreviewBase, (Object) null) || this.mPreviewBase.get_activeSelf() || !visible)
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mPreviewBase, (UnityEngine.Object) null) || this.mPreviewBase.get_activeSelf() || !visible)
         return;
       this.mPreviewBase.SetActive(true);
     }
 
     private void ReloadPreviewModels()
     {
-      if (this.mCurrentUnit == null || Object.op_Equality((Object) this.mPreviewParent, (Object) null))
+      if (this.mCurrentUnit == null || UnityEngine.Object.op_Equality((UnityEngine.Object) this.mPreviewParent, (UnityEngine.Object) null))
         return;
       GameUtility.DestroyGameObjects<UnitPreview>(this.mPreviewControllers);
       this.mPreviewControllers.Clear();
       this.mCurrentPreview = (UnitPreview) null;
-      if (Object.op_Implicit((Object) this.mCurrentPreview))
+      if (UnityEngine.Object.op_Implicit((UnityEngine.Object) this.mCurrentPreview))
         return;
       GameObject gameObject = new GameObject("Preview", new System.Type[1]{ typeof (UnitPreview) });
       this.mCurrentPreview = (UnitPreview) gameObject.GetComponent<UnitPreview>();
@@ -251,7 +260,7 @@ namespace SRPG
       this.UnitLvMax.set_text(rarityParam.UnitLvCap.ToString());
       for (int index = 0; index < (int) StatusParam.MAX_STATUS; ++index)
       {
-        if (Object.op_Inequality((Object) this.mStatusParamSlots[index], (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mStatusParamSlots[index], (UnityEngine.Object) null))
           this.mStatusParamSlots[index].set_text(this.mCurrentUnit.Status.param[(StatusTypes) index].ToString());
       }
       this.Status_Renkei.set_text(this.mCurrentUnit.GetCombination().ToString());
@@ -263,7 +272,7 @@ namespace SRPG
 
     private void RefreshLeaderSkillInfo()
     {
-      if (Object.op_Equality((Object) this.LeaderSkillInfo, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.LeaderSkillInfo, (UnityEngine.Object) null))
         return;
       if (this.mCurrentUnit.LeaderSkill != null)
       {
@@ -276,7 +285,7 @@ namespace SRPG
 
     private void RefreshJobInfo()
     {
-      if (Object.op_Equality((Object) this.JobInfo, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.JobInfo, (UnityEngine.Object) null))
         return;
       JobData[] jobs = this.mCurrentUnit.Jobs;
       DataSource.Bind<JobParam>(this.JobData01, jobs[0].Param);
@@ -296,22 +305,25 @@ namespace SRPG
 
     private void RefreshAbilitList()
     {
-      if (Object.op_Equality((Object) this.AbilityTemplate, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.AbilityTemplate, (UnityEngine.Object) null))
         return;
       GameUtility.DestroyGameObjects(this.mAbilits);
       this.mAbilits.Clear();
       List<AbilityData> learnedAbilities = this.mCurrentUnit.GetAllLearnedAbilities();
       for (int index = 0; index < learnedAbilities.Count; ++index)
       {
-        GameObject gameObject1 = (GameObject) Object.Instantiate<GameObject>((M0) this.AbilityTemplate);
         AbilityData data = learnedAbilities[index];
-        GameObject gameObject2 = ((Component) gameObject1.get_transform().FindChild("icon")).get_gameObject();
-        ((Component) gameObject1.get_transform().FindChild("locked")).get_gameObject().SetActive(false);
-        ((ImageArray) gameObject2.GetComponent<ImageArray>()).ImageIndex = (int) data.SlotType;
-        gameObject1.get_transform().SetParent(this.AbilityTemplate.get_transform().get_parent(), false);
-        DataSource.Bind<AbilityData>(gameObject1, data);
-        gameObject1.SetActive(true);
-        this.mAbilits.Add(gameObject1);
+        if (this.mCurrentUnit.MapEffectAbility != data)
+        {
+          GameObject gameObject1 = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.AbilityTemplate);
+          GameObject gameObject2 = ((Component) gameObject1.get_transform().FindChild("icon")).get_gameObject();
+          ((Component) gameObject1.get_transform().FindChild("locked")).get_gameObject().SetActive(false);
+          ((ImageArray) gameObject2.GetComponent<ImageArray>()).ImageIndex = (int) data.SlotType;
+          gameObject1.get_transform().SetParent(this.AbilityTemplate.get_transform().get_parent(), false);
+          DataSource.Bind<AbilityData>(gameObject1, data);
+          gameObject1.SetActive(true);
+          this.mAbilits.Add(gameObject1);
+        }
       }
       RarityParam rarityParam = MonoSingleton<GameManager>.Instance.GetRarityParam((int) this.mCurrentUnit.UnitParam.raremax);
       for (int lv = this.mCurrentUnit.CurrentJob.Rank + 1; lv < JobParam.MAX_JOB_RANK; ++lv)
@@ -325,7 +337,7 @@ namespace SRPG
             if (!string.IsNullOrEmpty(key))
             {
               AbilityParam abilityParam = MonoSingleton<GameManager>.Instance.GetAbilityParam(key);
-              GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.AbilityTemplate);
+              GameObject gameObject = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.AbilityTemplate);
               ((ImageArray) ((Component) gameObject.get_transform().FindChild("icon")).get_gameObject().GetComponent<ImageArray>()).ImageIndex = (int) abilityParam.slot;
               gameObject.get_transform().SetParent(this.AbilityTemplate.get_transform().get_parent(), false);
               DataSource.Bind<AbilityParam>(gameObject, abilityParam);
@@ -351,7 +363,6 @@ namespace SRPG
       json.select = new Json_UnitSelectable();
       json.select.job = 0L;
       json.jobs = (Json_Job[]) null;
-      json.abil = (Json_MasterAbility) null;
       json.abil = (Json_MasterAbility) null;
       if (uparam.jobsets != null && uparam.jobsets.Length > 0)
       {
@@ -391,7 +402,7 @@ namespace SRPG
 
     private void SetUnitImageAlpha(float alpha)
     {
-      if (Object.op_Equality((Object) this.mBGUnitImage, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mBGUnitImage, (UnityEngine.Object) null))
         return;
       Color color = ((Graphic) this.mBGUnitImage).get_color();
       color.a = (__Null) (double) alpha;
@@ -402,7 +413,22 @@ namespace SRPG
     private IEnumerator RefreshUnitImage()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new GachaResultUnitDetail.\u003CRefreshUnitImage\u003Ec__IteratorAE() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new GachaResultUnitDetail.\u003CRefreshUnitImage\u003Ec__IteratorF2() { \u003C\u003Ef__this = this };
+    }
+
+    private void RefreshGachaCostObject()
+    {
+      GachaCostObject gachaCostObject1 = (GachaCostObject) this.OneMoreButton.GetComponent<GachaCostObject>();
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) gachaCostObject1, (UnityEngine.Object) null))
+      {
+        GachaCostObject gachaCostObject2 = (GachaCostObject) this.OneMoreButton.AddComponent<GachaCostObject>();
+        gachaCostObject2.RootObject = this.OneMoreButton;
+        gachaCostObject2.TicketObject = this.CostTicket;
+        gachaCostObject2.DefaultObject = this.CostDefault;
+        gachaCostObject2.DefaultBGObject = this.CostDefaultBG;
+        gachaCostObject1 = gachaCostObject2;
+      }
+      gachaCostObject1.Refresh();
     }
   }
 }

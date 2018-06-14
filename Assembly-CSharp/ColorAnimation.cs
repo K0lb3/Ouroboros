@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: ColorAnimation
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using UnityEngine;
@@ -14,6 +14,7 @@ public class ColorAnimation : MonoBehaviour
   public Color ColorEnd;
   public ColorAnimation.AnimationTypes AnimationType;
   public Graphic Graphic;
+  public AnimatorUpdateMode UpdateMode;
   private float mAnimPos;
 
   public ColorAnimation()
@@ -28,14 +29,14 @@ public class ColorAnimation : MonoBehaviour
     float num;
     if (this.AnimationType == ColorAnimation.AnimationTypes.Once)
     {
-      this.mAnimPos += Time.get_deltaTime();
+      this.mAnimPos += this.UpdateMode != 2 ? Time.get_deltaTime() : Time.get_unscaledDeltaTime();
       num = Mathf.Clamp01(this.mAnimPos / this.Duration);
       if ((double) num >= 1.0)
         ((Behaviour) this).set_enabled(false);
     }
     else
     {
-      num = Time.get_time() % this.Duration / this.Duration;
+      num = (this.UpdateMode != 2 ? Time.get_time() : Time.get_unscaledTime()) % this.Duration / this.Duration;
       if (this.AnimationType == ColorAnimation.AnimationTypes.PingPong)
       {
         num *= 2f;

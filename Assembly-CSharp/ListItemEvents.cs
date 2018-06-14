@@ -1,9 +1,10 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: ListItemEvents
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
+using SRPG;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,12 +15,29 @@ public class ListItemEvents : MonoBehaviour
   public ListItemEvents.ListItemEvent OnOpenDetail;
   public ListItemEvents.ListItemEvent OnCloseDetail;
   public Transform Body;
+  public Vector2 DisplayRectMergin;
+  public Vector2 ParentScale;
   private RectTransform mTransform;
   public bool IsEnableSkillChange;
+  private ChapterParam mChapterCache;
 
   public ListItemEvents()
   {
     base.\u002Ector();
+  }
+
+  public ChapterParam Chapter
+  {
+    get
+    {
+      if (this.mChapterCache == null)
+      {
+        DataSource component = (DataSource) ((Component) this).GetComponent<DataSource>();
+        if (Object.op_Inequality((Object) component, (Object) null))
+          this.mChapterCache = component.FindDataOfClass<ChapterParam>((ChapterParam) null);
+      }
+      return this.mChapterCache;
+    }
   }
 
   protected virtual void Awake()

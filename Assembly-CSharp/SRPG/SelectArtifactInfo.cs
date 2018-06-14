@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.SelectArtifactInfo
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -51,7 +51,7 @@ namespace SRPG
       });
       DataSource.Bind<ArtifactParam>(((Component) this).get_gameObject(), data1);
       DataSource.Bind<ArtifactData>(((Component) this).get_gameObject(), data2);
-      if (Object.op_Inequality((Object) this.AbilityListItem, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AbilityListItem, (UnityEngine.Object) null))
       {
         MasterParam masterParam = MonoSingleton<GameManager>.Instance.MasterParam;
         GameObject abilityListItem = this.AbilityListItem;
@@ -63,16 +63,16 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          SelectArtifactInfo.\u003CRefresh\u003Ec__AnonStorey26F refreshCAnonStorey26F = new SelectArtifactInfo.\u003CRefresh\u003Ec__AnonStorey26F();
+          SelectArtifactInfo.\u003CRefresh\u003Ec__AnonStorey37A refreshCAnonStorey37A = new SelectArtifactInfo.\u003CRefresh\u003Ec__AnonStorey37A();
           AbilityParam data3 = (AbilityParam) null;
           // ISSUE: reference to a compiler-generated field
-          refreshCAnonStorey26F.abil_iname = (string) null;
+          refreshCAnonStorey37A.abil_iname = (string) null;
           for (int index = 0; index < artifactParam.abil_inames.Length; ++index)
           {
             if (!string.IsNullOrEmpty(artifactParam.abil_inames[index]) && artifactParam.abil_shows[index] != 0)
             {
               // ISSUE: reference to a compiler-generated field
-              refreshCAnonStorey26F.abil_iname = artifactParam.abil_inames[index];
+              refreshCAnonStorey37A.abil_iname = artifactParam.abil_inames[index];
               data3 = masterParam.GetAbilityParam(artifactParam.abil_inames[index]);
               if (data3 != null)
                 break;
@@ -87,10 +87,10 @@ namespace SRPG
           }
           DataSource.Bind<AbilityParam>(this.AbilityListItem, data3);
           DataSource.Bind<AbilityData>(abilityListItem, (AbilityData) null);
-          if (Object.op_Inequality((Object) component, (Object) null) && learningAbilities != null && learningAbilities != null)
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null) && learningAbilities != null && learningAbilities != null)
           {
             // ISSUE: reference to a compiler-generated method
-            AbilityData data4 = learningAbilities.Find(new Predicate<AbilityData>(refreshCAnonStorey26F.\u003C\u003Em__2DE));
+            AbilityData data4 = learningAbilities.Find(new Predicate<AbilityData>(refreshCAnonStorey37A.\u003C\u003Em__40F));
             if (data4 != null)
             {
               DataSource.Bind<AbilityData>(abilityListItem, data4);

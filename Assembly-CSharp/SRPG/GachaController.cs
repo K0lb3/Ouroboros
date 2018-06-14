@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.GachaController
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -14,15 +14,24 @@ using UnityEngine.UI;
 namespace SRPG
 {
   [FlowNode.Pin(1, "AllSkip", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(102, "NextBtnDisable", FlowNode.PinTypes.Output, 102)]
+  [FlowNode.Pin(101, "NextBtnEnable", FlowNode.PinTypes.Output, 101)]
+  [FlowNode.Pin(100, "InputNextBtn", FlowNode.PinTypes.Input, 100)]
   public class GachaController : MonoSingleton<GachaController>, IFlowInterface
   {
+    private static readonly int MAX_VIEW_STONE = 10;
     private Color[] FlickEffectColor01 = new Color[3]{ new Color(75f, 166f, (float) byte.MaxValue), new Color((float) byte.MaxValue, 250f, 128f), new Color((float) byte.MaxValue, 30f, 13f) };
     private Color[] FlickEffectColor02 = new Color[3]{ new Color(30f, 250f, (float) byte.MaxValue), new Color((float) byte.MaxValue, 250f, 128f), new Color((float) byte.MaxValue, 0.0f, 0.0f) };
     private Color[] FlickEffectColor03 = new Color[3]{ new Color(0.0f, 83f, 218f), new Color((float) byte.MaxValue, 226f, 138f), new Color((float) byte.MaxValue, 24f, 15f) };
     public bool OnShardEffect = true;
+    private List<GameObject> mDropStones = new List<GameObject>();
     public float MIN_SWIPE_DIST_X = 400f;
     public float MIN_SWIPE_DIST_Y = 400f;
     private bool mLithograph = true;
+    private List<GameObject> mUnitTempList = new List<GameObject>(10);
+    private List<GameObject> mItemTempList = new List<GameObject>(10);
+    private List<GameObject> mArtifactTempList = new List<GameObject>(10);
+    private List<GameObject> mUseThumbnailList = new List<GameObject>(10);
     private const float MinWaitBeforMoveDropStone = 2f;
     public GameObject DropStone;
     public GameObject DropMaterial;
@@ -32,6 +41,8 @@ namespace SRPG
     public Image DropMaterialIconFrameImage;
     public GameObject ItemThumbnailPrefab;
     public GameObject UnitThumbnailPrefab;
+    public GameObject ArtifactThumbnailPrefab;
+    public Transform ThumbnailPool;
     public GameObject StartArrowB;
     public GameObject StartArrowTop;
     public GameObject[] StartArrowTopMasks;
@@ -51,7 +62,6 @@ namespace SRPG
     public GameObject GaugeObject;
     private StateMachine<GachaController> mState;
     private bool isSkipping;
-    private List<GameObject> mDropStones;
     private GameObject mDropMaterial;
     public GameObject OpenMaterial;
     public GameObject OpenItem;
@@ -77,9 +87,15 @@ namespace SRPG
     private MySound.VolumeHandle mBGMVolume;
     private MySound.PlayHandle mJingleHandle;
     private bool AllAnimSkip;
-    public float StoneCenterHeight;
+    private int mViewStoneCount;
+    private int mMaxPage;
+    private int mCurrentPage;
+    private bool IsOverMaxView;
+    private bool IsNextDropSet;
+    private GachaController.GachaFlowType mFlowType;
     private GameObject item_root;
     private int thumbnail_count;
+    public float StoneCenterHeight;
 
     public int GachaSequence
     {
@@ -93,7 +109,7 @@ namespace SRPG
     {
       get
       {
-        if (Object.op_Inequality((Object) GachaController.mTouchController, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) GachaController.mTouchController, (UnityEngine.Object) null))
           return (Canvas) ((Component) GachaController.mTouchController).GetComponent<Canvas>();
         return (Canvas) null;
       }
@@ -176,7 +192,7 @@ namespace SRPG
     private IEnumerator CreateDropInfo()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new GachaController.\u003CCreateDropInfo\u003Ec__Iterator4E() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new GachaController.\u003CCreateDropInfo\u003Ec__Iterator81() { \u003C\u003Ef__this = this };
     }
 
     public void PlayJINGLE0010()
@@ -196,53 +212,33 @@ namespace SRPG
       }
     }
 
-    public void Activated(int pinID)
+    public int DropIndex
     {
-      if (pinID != 1)
-        return;
-      this.AllAnimSkip = true;
+      get
+      {
+        return this.thumbnail_count + this.mCurrentPage * this.mViewStoneCount;
+      }
     }
 
-    private void Start()
+    public void Activated(int pinID)
     {
-      if (this.GachaSequence > 0)
-        this.mDropStones = new List<GameObject>(this.GachaSequence);
-      this.mBGMVolume = new MySound.VolumeHandle(MySound.EType.BGM);
-      this.mBGMVolume.SetVolume(0.0f, 1f);
-      if (Object.op_Inequality((Object) HomeWindow.Current, (Object) null))
-        HomeWindow.Current.SetVisible(false);
-      this.StartCoroutine(this.CreateDropInfo());
-      this.mDropMaterial = this.DropMaterial;
-      this.mDropMaterial.SetActive(false);
-      Animator component1 = (Animator) ((Component) this).get_gameObject().GetComponent<Animator>();
-      component1.SetInteger("seqF_root", this.mFirstSeq);
-      component1.SetInteger("seqS_root", this.mSecondSeq);
-      component1.SetInteger("seqT_root", this.mThirdSeq);
-      component1.SetInteger("seqFo_root", this.mFourthSeq);
-      component1.SetInteger("seqFi_root", this.mFifthSeq);
-      if (!GachaResultData.IsCoin)
+      if (pinID == 1)
       {
-        ((Image) this.StartStone.GetComponent<Image>()).set_sprite(this.StartStoneSprite[0]);
-        ((Image) this.StartStoneMask.GetComponent<Image>()).set_sprite(this.StartStoneSprite[0]);
+        this.AllAnimSkip = true;
       }
       else
       {
-        ((Image) this.StartArrowB.GetComponent<Image>()).set_sprite(this.StartArrowSprite[this.mFirstSeq <= 0 ? 0 : this.mFirstSeq - 1]);
-        ((Image) this.StartArrowTop.GetComponent<Image>()).set_sprite(this.StartArrowTopSprite[this.mFirstSeq <= 0 ? 0 : this.mFirstSeq - 1]);
-        for (int index = 0; index < this.StartArrowTopMasks.Length; ++index)
-          ((Image) this.StartArrowTopMasks[index].GetComponent<Image>()).set_sprite(this.StartArrowTopSprite[this.mFirstSeq <= 0 ? 0 : this.mFirstSeq - 1]);
-        ((Image) this.StartStone.GetComponent<Image>()).set_sprite(this.StartStoneSprite[this.mFirstSeq <= 0 ? 0 : this.mFirstSeq]);
-        ((Image) this.StartStoneMask.GetComponent<Image>()).set_sprite(this.StartStoneSprite[this.mFirstSeq <= 0 ? 0 : this.mFirstSeq]);
-        ((ParticleSystem) this.StartStoneEff01.GetComponent<ParticleSystem>()).set_startColor(this.ConvertColor(this.FlickEffectColor01[this.mFirstSeq <= 0 ? 0 : this.mFirstSeq - 1]));
-        ((ParticleSystem) this.StartStoneEff02.GetComponent<ParticleSystem>()).set_startColor(this.ConvertColor(this.FlickEffectColor02[this.mFirstSeq <= 0 ? 0 : this.mFirstSeq - 1]));
-        ((ParticleSystem) this.StartStoneEff03.GetComponent<ParticleSystem>()).set_startColor(this.ConvertColor(this.FlickEffectColor03[this.mFirstSeq <= 0 ? 0 : this.mFirstSeq - 1]));
+        if (pinID != 100)
+          return;
+        this.IsNextDropSet = true;
       }
-      GachaVoice component2 = (GachaVoice) ((Component) this).GetComponent<GachaVoice>();
-      if (Object.op_Inequality((Object) component2, (Object) null))
-        component2.Excites = this.mFifthSeq;
-      this.CreateTouchArea();
-      this.mState = new StateMachine<GachaController>(this);
-      this.mState.GotoState<GachaController.State_Init>();
+    }
+
+    [DebuggerHidden]
+    private IEnumerator Start()
+    {
+      // ISSUE: object of a compiler-generated type is created
+      return (IEnumerator) new GachaController.\u003CStart\u003Ec__Iterator82() { \u003C\u003Ef__this = this };
     }
 
     private Color ConvertColor(Color color)
@@ -261,6 +257,44 @@ namespace SRPG
       }
       else
         this.mState.Update();
+    }
+
+    [DebuggerHidden]
+    private IEnumerator InitTempList()
+    {
+      // ISSUE: object of a compiler-generated type is created
+      return (IEnumerator) new GachaController.\u003CInitTempList\u003Ec__Iterator83() { \u003C\u003Ef__this = this };
+    }
+
+    [DebuggerHidden]
+    private IEnumerator CreateThumbnailObject(GachaDropData.Type type)
+    {
+      // ISSUE: object of a compiler-generated type is created
+      return (IEnumerator) new GachaController.\u003CCreateThumbnailObject\u003Ec__Iterator84() { type = type, \u003C\u0024\u003Etype = type, \u003C\u003Ef__this = this };
+    }
+
+    public void RefreshThumbnailList()
+    {
+      if (this.mUseThumbnailList == null)
+        return;
+      using (List<GameObject>.Enumerator enumerator = this.mUseThumbnailList.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+        {
+          GameObject current = enumerator.Current;
+          if (!UnityEngine.Object.op_Equality((UnityEngine.Object) current, (UnityEngine.Object) null))
+          {
+            DataSource.Bind<UnitData>(current, (UnitData) null);
+            DataSource.Bind<ItemData>(current, (ItemData) null);
+            DataSource.Bind<ArtifactData>(current, (ArtifactData) null);
+            GameParameter.UpdateAll(current);
+            current.SetActive(false);
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ThumbnailPool, (UnityEngine.Object) null))
+              current.get_transform().SetParent(this.ThumbnailPool, false);
+          }
+        }
+      }
+      this.mUseThumbnailList.Clear();
     }
 
     private UnitData CreateUnitData(UnitParam uparam)
@@ -303,6 +337,20 @@ namespace SRPG
       return unitData;
     }
 
+    public static ArtifactData CreateTempArtifactData(ArtifactParam param, int rarity)
+    {
+      ArtifactData artifactData = new ArtifactData();
+      artifactData.Deserialize(new Json_Artifact()
+      {
+        iid = 1L,
+        iname = param.iname,
+        exp = 0,
+        fav = 0,
+        rare = rarity
+      });
+      return artifactData;
+    }
+
     private void OnDestroy()
     {
       this.DestroyTouchArea();
@@ -314,7 +362,7 @@ namespace SRPG
 
     private void CreateTouchArea()
     {
-      if (Object.op_Inequality((Object) null, (Object) GachaController.mTouchController))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) null, (UnityEngine.Object) GachaController.mTouchController))
         return;
       GameObject gameObject = new GameObject("TouchArea", new System.Type[6]{ typeof (Canvas), typeof (GraphicRaycaster), typeof (CanvasStack), typeof (NullGraphic), typeof (TouchController), typeof (SRPG_CanvasScaler) });
       GachaController.mTouchController = (TouchController) gameObject.GetComponent<TouchController>();
@@ -327,9 +375,9 @@ namespace SRPG
 
     private void DestroyTouchArea()
     {
-      if (!Object.op_Inequality((Object) null, (Object) GachaController.mTouchController))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) null, (UnityEngine.Object) GachaController.mTouchController))
         return;
-      Object.Destroy((Object) ((Component) GachaController.mTouchController).get_gameObject());
+      UnityEngine.Object.Destroy((UnityEngine.Object) ((Component) GachaController.mTouchController).get_gameObject());
       GachaController.mTouchController = (TouchController) null;
     }
 
@@ -408,7 +456,7 @@ namespace SRPG
         if (drop.type == GachaDropData.Type.Unit)
         {
           this.Name = drop.unit.name;
-          this.Rarity = (int) drop.unit.rare;
+          this.Rarity = drop.Rare;
           this.IsShard = false;
           this.IsItem = false;
           this.OName = string.Empty;
@@ -420,7 +468,7 @@ namespace SRPG
         else if (drop.type == GachaDropData.Type.Item)
         {
           this.Name = drop.item.name;
-          this.Rarity = (int) drop.item.rare;
+          this.Rarity = drop.Rare;
           this.OName = string.Empty;
           this.Num = drop.num;
           this.Excites = drop.excites;
@@ -486,7 +534,7 @@ namespace SRPG
             return;
           GameSettings instance2 = GameSettings.Instance;
           this.Name = drop.artifact.name;
-          this.Rarity = drop.artifact.rareini;
+          this.Rarity = drop.Rare;
           this.OName = string.Empty;
           this.Num = drop.num;
           this.Excites = drop.excites;
@@ -500,7 +548,7 @@ namespace SRPG
           self.DropMaterialImage.set_texture((Texture) null);
           self.DropMaterialBlurImage.set_texture((Texture) null);
           instance1.ApplyTextureAsync(self.DropMaterialIconImage, AssetPath.ArtifactIcon(drop.artifact));
-          if (!Object.op_Inequality((Object) instance2, (Object) null) || this.Rarity >= instance2.ArtifactIcon_Frames.Length)
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) instance2, (UnityEngine.Object) null) || this.Rarity >= instance2.ArtifactIcon_Frames.Length)
             return;
           self.DropMaterialIconFrameImage.set_sprite(instance2.ArtifactIcon_Frames[this.Rarity]);
         }
@@ -512,50 +560,75 @@ namespace SRPG
       }
     }
 
+    private enum GachaFlowType : byte
+    {
+      Rare,
+      Normal,
+      Special,
+    }
+
     private class State_InitDropThumbnail : State<GachaController>
     {
       public override void Begin(GachaController self)
       {
         GameObject openItem = self.OpenItem;
-        if (Object.op_Equality((Object) openItem, (Object) null))
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) openItem, (UnityEngine.Object) null))
           return;
         openItem.SetActive(true);
-        int gachaSequence = self.GachaSequence;
-        string str1 = "item_" + gachaSequence.ToString();
-        GameObject gameObject1 = ((Component) openItem.get_transform().Find(str1)).get_gameObject();
-        if (!Object.op_Inequality((Object) gameObject1, (Object) null))
+        int num1 = self.mCurrentPage * self.mViewStoneCount;
+        int mViewStoneCount = self.mViewStoneCount;
+        string str1 = "item_" + mViewStoneCount.ToString();
+        GameObject gameObject = ((Component) openItem.get_transform().Find(str1)).get_gameObject();
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) gameObject, (UnityEngine.Object) null))
           return;
-        for (int index = 0; index < gachaSequence; ++index)
+        int num2 = 0;
+        int num3 = 0;
+        int num4 = 0;
+        for (int index = 0; index < mViewStoneCount && GachaResultData.drops.Length > index + num1; ++index)
         {
+          GachaDropData drop = GachaResultData.drops[index + num1];
           string str2 = "item_" + (index + 1).ToString();
-          GameObject gameObject2 = ((Component) gameObject1.get_transform().Find(str2)).get_gameObject();
-          if (Object.op_Inequality((Object) gameObject2, (Object) null))
+          Transform transform1 = gameObject.get_transform().Find(str2);
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) ((Component) gameObject.get_transform().Find(str2)).get_gameObject(), (UnityEngine.Object) null))
           {
-            GameObject gameObject3;
-            if (GachaResultData.drops[index].type == GachaDropData.Type.Item)
+            GameObject root = (GameObject) null;
+            if (drop.type == GachaDropData.Type.Item)
             {
-              gameObject3 = (GameObject) Object.Instantiate<GameObject>((M0) self.ItemThumbnailPrefab);
-              ((Object) gameObject3).set_name(((Object) self.ItemThumbnailPrefab).get_name());
               ItemData data = new ItemData();
-              data.Setup(0L, GachaResultData.drops[index].item, GachaResultData.drops[index].num);
-              data.IsNew = GachaResultData.drops[index].isNew;
-              DataSource.Bind<ItemData>(gameObject3, data);
-              ((ItemIcon) gameObject3.GetComponent<ItemIcon>()).UpdateValue();
+              data.Setup(0L, drop.item, drop.num);
+              data.IsNew = drop.isNew;
+              root = self.mItemTempList[num3++];
+              DataSource.Bind<ItemData>(root, data);
             }
-            else
+            else if (drop.type == GachaDropData.Type.Unit)
             {
-              gameObject3 = (GameObject) Object.Instantiate<GameObject>((M0) self.UnitThumbnailPrefab);
-              ((Object) gameObject3).set_name(((Object) self.UnitThumbnailPrefab).get_name());
-              UnitData unitData = self.CreateUnitData(GachaResultData.drops[index].unit);
-              DataSource.Bind<UnitData>(gameObject3, unitData);
-              ((UnitIcon) gameObject3.GetComponent<UnitIcon>()).UpdateValue();
+              UnitData unitData = self.CreateUnitData(drop.unit);
+              root = self.mUnitTempList[num2++];
+              DataSource.Bind<UnitData>(root, unitData);
+              if (self.mFlowType == GachaController.GachaFlowType.Special)
+              {
+                Transform transform2 = root.get_transform().Find("lithogrpath_eff");
+                if (UnityEngine.Object.op_Inequality((UnityEngine.Object) transform2, (UnityEngine.Object) null))
+                  ((Component) transform2).get_gameObject().SetActive(false);
+                Transform transform3 = root.get_transform().Find("lithogrpath_col");
+                if (UnityEngine.Object.op_Inequality((UnityEngine.Object) transform3, (UnityEngine.Object) null))
+                  ((Component) transform3).get_gameObject().SetActive(false);
+              }
             }
-            gameObject3.get_transform().SetParent(gameObject2.get_transform(), false);
+            else if (drop.type == GachaDropData.Type.Artifact)
+            {
+              ArtifactData tempArtifactData = GachaController.CreateTempArtifactData(drop.artifact, drop.Rare);
+              root = self.mArtifactTempList[num4++];
+              DataSource.Bind<ArtifactData>(root, tempArtifactData);
+            }
+            GameParameter.UpdateAll(root);
+            root.get_transform().SetParent(transform1, false);
+            self.mUseThumbnailList.Add(root);
           }
         }
-        GameParameter.UpdateAll(gameObject1);
-        gameObject1.SetActive(true);
-        self.item_root = gameObject1;
+        GameParameter.UpdateAll(gameObject);
+        gameObject.SetActive(true);
+        self.item_root = gameObject;
         self.mState.GotoState<GachaController.State_OpenDropThumbnail>();
       }
     }
@@ -564,35 +637,51 @@ namespace SRPG
     {
       public override void Begin(GachaController self)
       {
+        int num = self.mCurrentPage * self.mViewStoneCount;
         string str = "item_" + (self.thumbnail_count + 1).ToString();
-        if (Object.op_Inequality((Object) ((Component) self.item_root.get_transform().Find(str)).get_gameObject(), (Object) null) && GachaResultData.drops[self.thumbnail_count].type == GachaDropData.Type.Unit)
-          self.mState.GotoState<GachaController.State_OpenDropMaterialT>();
-        else
-          self.mState.GotoState<GachaController.State_WaitThumbnailAnimation>();
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.item_root.get_transform().Find(str), (UnityEngine.Object) null))
+        {
+          if (self.thumbnail_count + num < GachaResultData.drops.Length)
+          {
+            if (GachaResultData.drops[self.thumbnail_count + num].type == GachaDropData.Type.Unit)
+            {
+              self.mState.GotoState<GachaController.State_OpenDropMaterialT>();
+              return;
+            }
+          }
+          else
+          {
+            DebugUtility.LogError("参照しようとしているIndexが不正です");
+            return;
+          }
+        }
+        self.mState.GotoState<GachaController.State_WaitThumbnailAnimation>();
       }
     }
 
     private class State_WaitThumbnailAnimation : State<GachaController>
     {
-      private GameObject item;
       private bool isSetup;
       private Animation anim;
 
       public override void Begin(GachaController self)
       {
         string str = "item_" + (self.thumbnail_count + 1).ToString();
-        this.item = ((Component) self.item_root.get_transform().Find(str)).get_gameObject();
-        if (Object.op_Equality((Object) this.item, (Object) null))
+        Transform transform = self.item_root.get_transform().Find(str);
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) transform, (UnityEngine.Object) null))
           return;
-        this.item.SetActive(true);
-        GameObject gameObject = (GameObject) null;
-        if (Object.op_Implicit((Object) this.item.get_transform().FindChild(((Object) self.UnitThumbnailPrefab).get_name())))
-          gameObject = ((Component) this.item.get_transform().FindChild(((Object) self.UnitThumbnailPrefab).get_name())).get_gameObject();
-        else if (Object.op_Implicit((Object) this.item.get_transform().FindChild(((Object) self.ItemThumbnailPrefab).get_name())))
-          gameObject = ((Component) this.item.get_transform().FindChild(((Object) self.ItemThumbnailPrefab).get_name())).get_gameObject();
-        if (Object.op_Inequality((Object) gameObject, (Object) null))
-          this.anim = (Animation) gameObject.GetComponent<Animation>();
-        gameObject.SetActive(true);
+        GameObject gameObject1 = ((Component) transform).get_gameObject();
+        gameObject1.SetActive(true);
+        GameObject gameObject2 = (GameObject) null;
+        if (UnityEngine.Object.op_Implicit((UnityEngine.Object) gameObject1.get_transform().FindChild(((UnityEngine.Object) self.UnitThumbnailPrefab).get_name())))
+          gameObject2 = ((Component) gameObject1.get_transform().FindChild(((UnityEngine.Object) self.UnitThumbnailPrefab).get_name())).get_gameObject();
+        else if (UnityEngine.Object.op_Implicit((UnityEngine.Object) gameObject1.get_transform().FindChild(((UnityEngine.Object) self.ItemThumbnailPrefab).get_name())))
+          gameObject2 = ((Component) gameObject1.get_transform().FindChild(((UnityEngine.Object) self.ItemThumbnailPrefab).get_name())).get_gameObject();
+        else if (UnityEngine.Object.op_Implicit((UnityEngine.Object) gameObject1.get_transform().FindChild(((UnityEngine.Object) self.ArtifactThumbnailPrefab).get_name())))
+          gameObject2 = ((Component) gameObject1.get_transform().FindChild(((UnityEngine.Object) self.ArtifactThumbnailPrefab).get_name())).get_gameObject();
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) gameObject2, (UnityEngine.Object) null))
+          this.anim = (Animation) gameObject2.GetComponent<Animation>();
+        gameObject2.SetActive(true);
         this.isSetup = true;
       }
 
@@ -600,7 +689,7 @@ namespace SRPG
       {
         if (!this.isSetup)
           return;
-        if (Object.op_Inequality((Object) this.anim, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.anim, (UnityEngine.Object) null))
         {
           if (this.anim.get_isPlaying())
             return;
@@ -617,14 +706,14 @@ namespace SRPG
       {
         GameObject openMaterial = self.OpenMaterial;
         openMaterial.SetActive(true);
-        if (Object.op_Inequality((Object) openMaterial, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) openMaterial, (UnityEngine.Object) null))
         {
           Animator component = (Animator) openMaterial.GetComponent<Animator>();
-          if (Object.op_Inequality((Object) component, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null) && self.DropIndex < GachaResultData.drops.Length)
           {
-            int num = (int) GachaResultData.drops[self.thumbnail_count].unit.rare + 1;
-            bool flag1 = GachaResultData.drops[self.thumbnail_count].unitOrigin != null;
-            bool flag2 = GachaResultData.drops[self.thumbnail_count].item != null;
+            int num = (int) GachaResultData.drops[self.DropIndex].unit.rare + 1;
+            bool flag1 = GachaResultData.drops[self.DropIndex].unitOrigin != null;
+            bool flag2 = GachaResultData.drops[self.DropIndex].item != null;
             component.SetInteger("rariry", num);
             component.SetBool("shard", flag1);
             component.SetBool("item", flag2);
@@ -654,15 +743,15 @@ namespace SRPG
       {
         for (int index = 0; index < self.ResetMaterials.Length; ++index)
         {
-          if (Object.op_Inequality((Object) self.ResetMaterials[index], (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.ResetMaterials[index], (UnityEngine.Object) null))
             self.ResetMaterials[index].SetActive(false);
         }
         GameObject openMaterial = self.OpenMaterial;
-        if (Object.op_Inequality((Object) openMaterial, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) openMaterial, (UnityEngine.Object) null))
         {
           openMaterial.SetActive(false);
           Animator component = (Animator) openMaterial.GetComponent<Animator>();
-          if (Object.op_Inequality((Object) component, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
           {
             component.SetInteger("rariry", 0);
             component.SetBool("shard", false);
@@ -672,13 +761,13 @@ namespace SRPG
         }
         string str = "item_" + (self.thumbnail_count + 1).ToString();
         GameObject gameObject1 = ((Component) self.item_root.get_transform().Find(str)).get_gameObject();
-        if (Object.op_Inequality((Object) gameObject1, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) gameObject1, (UnityEngine.Object) null))
         {
-          GameObject gameObject2 = ((Component) gameObject1.get_transform().FindChild(((Object) self.UnitThumbnailPrefab).get_name())).get_gameObject();
-          if (Object.op_Inequality((Object) gameObject2, (Object) null))
+          GameObject gameObject2 = ((Component) gameObject1.get_transform().FindChild(((UnityEngine.Object) self.UnitThumbnailPrefab).get_name())).get_gameObject();
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) gameObject2, (UnityEngine.Object) null))
           {
             GameObject gameObject3 = ((Component) ((Component) gameObject2.get_transform().FindChild("Panel")).get_gameObject().get_transform().FindChild("item_eff")).get_gameObject();
-            if (Object.op_Inequality((Object) gameObject3, (Object) null))
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) gameObject3, (UnityEngine.Object) null))
               gameObject3.SetActive(true);
           }
           gameObject2.SetActive(true);
@@ -695,16 +784,21 @@ namespace SRPG
         if (self.OnShardEffect && (self.DropCurrent.IsItem || self.DropCurrent.IsShard))
         {
           GachaDropData drop = GachaResultData.drops[self.DropCurrent.Index];
-          if (drop.item.type == EItemType.UnitPiece)
+          if (drop != null && drop.item != null && drop.item.type == EItemType.UnitPiece)
           {
             UnitData unitDataByUnitId = MonoSingleton<GameManager>.Instance.Player.FindUnitDataByUnitID(MonoSingleton<GameManager>.Instance.MasterParam.GetUnitParamForPiece(drop.item.iname, true).iname);
             if (unitDataByUnitId != null && unitDataByUnitId.GetAwakeLevelCap() <= unitDataByUnitId.AwakeLv)
             {
               self.DropCurrent.Next(self);
               ++self.thumbnail_count;
-              if (self.thumbnail_count < self.GachaSequence)
+              if (self.thumbnail_count < self.mViewStoneCount)
               {
                 self.mState.GotoState<GachaController.State_OpenDropThumbnail>();
+                return;
+              }
+              if (self.mFlowType == GachaController.GachaFlowType.Special)
+              {
+                self.mState.GotoState<GachaController.State_CheckNextDropSet>();
                 return;
               }
               self.mState.GotoState<GachaController.State_WaitEndInput>();
@@ -716,10 +810,53 @@ namespace SRPG
         }
         self.DropCurrent.Next(self);
         ++self.thumbnail_count;
-        if (self.thumbnail_count < self.GachaSequence)
+        if (self.thumbnail_count < self.mViewStoneCount)
           self.mState.GotoState<GachaController.State_OpenDropThumbnail>();
+        else if (self.mFlowType == GachaController.GachaFlowType.Special)
+          self.mState.GotoState<GachaController.State_CheckNextDropSet>();
         else
           self.mState.GotoState<GachaController.State_WaitEndInput>();
+      }
+    }
+
+    private class State_CheckNextDropSet : State<GachaController>
+    {
+      public override void Begin(GachaController self)
+      {
+        if (self.mCurrentPage + 1 < self.mMaxPage)
+        {
+          ++self.mCurrentPage;
+          self.mState.GotoState<GachaController.State_WaitForInput_NextDropSet>();
+        }
+        else
+          self.mState.GotoState<GachaController.State_WaitEndInput>();
+      }
+    }
+
+    private class State_WaitForInput_NextDropSet : State<GachaController>
+    {
+      public override void Begin(GachaController self)
+      {
+        FlowNode_GameObject.ActivateOutputLinks((Component) self, 101);
+      }
+
+      public override void Update(GachaController self)
+      {
+        if (!self.IsNextDropSet)
+          return;
+        self.IsNextDropSet = false;
+        self.mState.GotoState<GachaController.State_InitNextDropSet>();
+      }
+    }
+
+    private class State_InitNextDropSet : State<GachaController>
+    {
+      public override void Begin(GachaController self)
+      {
+        FlowNode_GameObject.ActivateOutputLinks((Component) self, 102);
+        self.RefreshThumbnailList();
+        self.thumbnail_count = 0;
+        self.mState.GotoState<GachaController.State_InitDropThumbnail>();
       }
     }
 
@@ -731,10 +868,10 @@ namespace SRPG
         UnitParam unitParamForPiece = MonoSingleton<GameManager>.Instance.MasterParam.GetUnitParamForPiece(GachaResultData.drops[self.thumbnail_count].item.iname, true);
         MonoSingleton<GameManager>.Instance.ApplyTextureAsync(self.DropMaterialImage, AssetPath.UnitImage(unitParamForPiece, unitParamForPiece.GetJobId(0)));
         openMaterial.SetActive(true);
-        if (Object.op_Inequality((Object) openMaterial, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) openMaterial, (UnityEngine.Object) null))
         {
           Animator component = (Animator) openMaterial.GetComponent<Animator>();
-          if (Object.op_Inequality((Object) component, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
           {
             int raremax = (int) unitParamForPiece.raremax;
             bool flag1 = false;
@@ -767,15 +904,15 @@ namespace SRPG
       public override void Begin(GachaController self)
       {
         GameObject openMaterial = self.OpenMaterial;
-        if (Object.op_Inequality((Object) openMaterial, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) openMaterial, (UnityEngine.Object) null))
         {
           Animator component = (Animator) openMaterial.GetComponent<Animator>();
-          if (Object.op_Inequality((Object) component, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
             component.SetBool("reset", true);
         }
         for (int index = 0; index < self.ResetMaterials.Length; ++index)
         {
-          if (Object.op_Inequality((Object) self.ResetMaterials[index], (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.ResetMaterials[index], (UnityEngine.Object) null))
             self.ResetMaterials[index].SetActive(false);
         }
         self.mState.GotoState<GachaController.State_DisableDropMaterialShard>();
@@ -787,11 +924,11 @@ namespace SRPG
       public override void Begin(GachaController self)
       {
         GameObject openMaterial = self.OpenMaterial;
-        if (Object.op_Inequality((Object) openMaterial, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) openMaterial, (UnityEngine.Object) null))
         {
           openMaterial.SetActive(false);
           Animator component = (Animator) openMaterial.GetComponent<Animator>();
-          if (Object.op_Inequality((Object) component, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
           {
             component.SetInteger("rariry", 0);
             component.SetBool("shard", false);
@@ -801,7 +938,7 @@ namespace SRPG
         openMaterial.SetActive(false);
         self.DropCurrent.Next(self);
         ++self.thumbnail_count;
-        if (self.thumbnail_count < self.GachaSequence)
+        if (self.thumbnail_count < self.mViewStoneCount)
           self.mState.GotoState<GachaController.State_OpenDropThumbnail>();
         else
           self.mState.GotoState<GachaController.State_WaitEndInput>();
@@ -813,7 +950,14 @@ namespace SRPG
       public override void Begin(GachaController self)
       {
         self.isSkipping = false;
-        self.mState.GotoState<GachaController.State_WaitInputFlick>();
+        self.StartCoroutine(this.MoveNextState());
+      }
+
+      [DebuggerHidden]
+      private IEnumerator MoveNextState()
+      {
+        // ISSUE: object of a compiler-generated type is created
+        return (IEnumerator) new GachaController.State_Init.\u003CMoveNextState\u003Ec__Iterator85() { \u003C\u003Ef__this = this };
       }
     }
 
@@ -879,7 +1023,7 @@ namespace SRPG
         {
           self.mClicked = false;
           Animator component1 = (Animator) ((Component) self).get_gameObject().GetComponent<Animator>();
-          if (Object.op_Inequality((Object) component1, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component1, (UnityEngine.Object) null))
             component1.SetBool("is_skip", true);
           if (self.mJingleHandle != null)
           {
@@ -887,9 +1031,9 @@ namespace SRPG
             self.mJingleHandle = MonoSingleton<MySound>.Instance.PlayLoop("JIN_0016", "JIN_0016", MySound.EType.JINGLE, 0.0f);
           }
           GachaVoice component2 = (GachaVoice) ((Component) self).GetComponent<GachaVoice>();
-          if (Object.op_Inequality((Object) component2, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component2, (UnityEngine.Object) null))
             component2.Stop();
-          if (!GachaResultData.IsCoin)
+          if (self.mFlowType != GachaController.GachaFlowType.Rare)
             self.mState.GotoState<GachaController.State_EnableDropMaterial>();
           else
             self.mState.GotoState<GachaController.State_SettingDropStone>();
@@ -919,26 +1063,58 @@ namespace SRPG
       public override void Begin(GachaController self)
       {
         if (self.GachaSequence <= 0)
-          return;
-        this.mRadius = self.StoneRadius;
-        this.mAppear = self.StoneAppear;
-        self.StartCoroutine(this.CreateDropStone(self.DropStone, self.GachaSequence));
+        {
+          DebugUtility.LogError("排出結果が存在しません");
+        }
+        else
+        {
+          this.mRadius = self.StoneRadius;
+          this.mAppear = self.StoneAppear;
+          self.StartCoroutine(this.SetDropStone(self.DropStone, self.mViewStoneCount));
+        }
+      }
+
+      [DebuggerHidden]
+      private IEnumerator SetDropStone(GameObject obj, int count)
+      {
+        // ISSUE: object of a compiler-generated type is created
+        return (IEnumerator) new GachaController.State_SettingDropStone.\u003CSetDropStone\u003Ec__Iterator86() { obj = obj, count = count, \u003C\u0024\u003Eobj = obj, \u003C\u0024\u003Ecount = count, \u003C\u003Ef__this = this };
+      }
+
+      private void CreateDropStone(GameObject gobj, Vector3 pos, int num)
+      {
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) gobj, (UnityEngine.Object) null))
+          DebugUtility.LogError(string.Empty);
+        else if (num < 0)
+          DebugUtility.LogError(string.Empty);
+        else if (GachaResultData.drops == null || GachaResultData.drops.Length <= num)
+        {
+          DebugUtility.LogError(string.Empty);
+        }
+        else
+        {
+          GameObject gameObject = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) gobj);
+          gameObject.get_transform().SetParent(gobj.get_transform().get_parent(), false);
+          gameObject.get_transform().set_localPosition(pos);
+          this.SetDropStoneTexture(gameObject, GachaResultData.drops[num], this.self.mFlowType != GachaController.GachaFlowType.Normal);
+          this.self.mDropStones.Add(gameObject);
+        }
       }
 
       [DebuggerHidden]
       private IEnumerator CreateDropStone(GameObject obj, int count)
       {
         // ISSUE: object of a compiler-generated type is created
-        return (IEnumerator) new GachaController.State_SettingDropStone.\u003CCreateDropStone\u003Ec__Iterator4F() { obj = obj, count = count, \u003C\u0024\u003Eobj = obj, \u003C\u0024\u003Ecount = count, \u003C\u003Ef__this = this };
+        return (IEnumerator) new GachaController.State_SettingDropStone.\u003CCreateDropStone\u003Ec__Iterator87() { obj = obj, count = count, \u003C\u0024\u003Eobj = obj, \u003C\u0024\u003Ecount = count, \u003C\u003Ef__this = this };
       }
 
       private void SetDropStoneTexture(GameObject obj, GachaDropData drop, bool isCoin = true)
       {
         GameObject gameObject1 = ((Component) obj.get_transform().FindChild("stone_3d2")).get_gameObject();
-        if (Object.op_Equality((Object) gameObject1, (Object) null))
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) gameObject1, (UnityEngine.Object) null))
           return;
         GameObject gameObject2 = ((Component) gameObject1.get_transform().FindChild("stone_root")).get_gameObject();
-        if (Object.op_Equality((Object) gameObject2, (Object) null) || drop.type == GachaDropData.Type.None)
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) gameObject2, (UnityEngine.Object) null) || drop.type == GachaDropData.Type.None)
           return;
         if (!isCoin)
         {
@@ -990,7 +1166,7 @@ namespace SRPG
       private IEnumerator SetActiveDropStone()
       {
         // ISSUE: object of a compiler-generated type is created
-        return (IEnumerator) new GachaController.State_WaitDropStone.\u003CSetActiveDropStone\u003Ec__Iterator50() { \u003C\u003Ef__this = this };
+        return (IEnumerator) new GachaController.State_WaitDropStone.\u003CSetActiveDropStone\u003Ec__Iterator88() { \u003C\u003Ef__this = this };
       }
 
       public override void Update(GachaController self)
@@ -1029,7 +1205,7 @@ namespace SRPG
 
       public override void Update(GachaController self)
       {
-        if (Object.op_Equality((Object) this.mStone, (Object) null))
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mStone, (UnityEngine.Object) null))
           return;
         if (self.CheckSkip())
         {
@@ -1060,13 +1236,13 @@ namespace SRPG
       public override void Begin(GachaController self)
       {
         this.mStone = ((Component) self.mDropStones[0].get_transform().FindChild("stone_3d2")).get_gameObject();
-        if (Object.op_Implicit((Object) this.mStone))
+        if (UnityEngine.Object.op_Implicit((UnityEngine.Object) this.mStone))
         {
           this.at = (Animator) this.mStone.GetComponent<Animator>();
-          if (Object.op_Inequality((Object) this.at, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.at, (UnityEngine.Object) null))
           {
             this.at.SetTrigger("trigger_break");
-            if (GachaResultData.IsCoin)
+            if (self.mFlowType != GachaController.GachaFlowType.Normal)
             {
               this.at.SetBool("is_coin", true);
               if (self.DropCurrent.Excites[0] != self.DropCurrent.Excites[1])
@@ -1163,7 +1339,7 @@ namespace SRPG
       public override void Begin(GachaController self)
       {
         self.mDropMaterial.SetActive(true);
-        if (!GachaResultData.IsCoin)
+        if (self.mFlowType != GachaController.GachaFlowType.Rare)
         {
           self.mState.GotoState<GachaController.State_InitDropThumbnail>();
         }
@@ -1171,11 +1347,11 @@ namespace SRPG
         {
           GameObject openMaterial = self.OpenMaterial;
           openMaterial.SetActive(true);
-          if (Object.op_Inequality((Object) openMaterial, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) openMaterial, (UnityEngine.Object) null))
           {
             GameObject gameObject1 = ((Component) openMaterial.get_transform().FindChild("lithograph_col")).get_gameObject();
             GameObject gameObject2 = ((Component) openMaterial.get_transform().FindChild("lithograph_eff")).get_gameObject();
-            if (Object.op_Inequality((Object) gameObject1, (Object) null) && Object.op_Inequality((Object) gameObject2, (Object) null))
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) gameObject1, (UnityEngine.Object) null) && UnityEngine.Object.op_Inequality((UnityEngine.Object) gameObject2, (UnityEngine.Object) null))
             {
               Image component1 = (Image) gameObject1.GetComponent<Image>();
               Image component2 = (Image) gameObject2.GetComponent<Image>();
@@ -1184,7 +1360,7 @@ namespace SRPG
               ((Behaviour) component2).set_enabled(self.IsLithograph);
             }
             Animator component = (Animator) openMaterial.GetComponent<Animator>();
-            if (Object.op_Inequality((Object) component, (Object) null))
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
             {
               component.SetInteger("rariry", self.Rarity);
               component.SetBool("shard", self.Shard);
@@ -1246,7 +1422,7 @@ namespace SRPG
       public override void Begin(GachaController self)
       {
         this.unitshard = (GachaUnitShard) ((Component) self.GaugeObject.get_transform().FindChild("UnitShard_gauge")).GetComponent<GachaUnitShard>();
-        if (!Object.op_Inequality((Object) this.unitshard, (Object) null) || this.unitshard.IsReachingAwakelv())
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.unitshard, (UnityEngine.Object) null) || this.unitshard.IsReachingAwakelv())
           return;
         this.unitshard.Reset();
         self.GaugeObject.SetActive(true);
@@ -1256,7 +1432,7 @@ namespace SRPG
       private void MoveNextPhase()
       {
         this.self.GaugeObject.SetActive(false);
-        if (!GachaResultData.IsCoin)
+        if (this.self.mFlowType != GachaController.GachaFlowType.Rare)
         {
           if (this.unitshard.IsReachingUnlockUnit())
           {
@@ -1266,8 +1442,10 @@ namespace SRPG
           {
             this.self.DropCurrent.Next(this.self);
             ++this.self.thumbnail_count;
-            if (this.self.thumbnail_count < this.self.GachaSequence)
+            if (this.self.thumbnail_count < this.self.mViewStoneCount)
               this.self.mState.GotoState<GachaController.State_OpenDropThumbnail>();
+            else if (this.self.mFlowType == GachaController.GachaFlowType.Special)
+              this.self.mState.GotoState<GachaController.State_CheckNextDropSet>();
             else
               this.self.mState.GotoState<GachaController.State_WaitEndInput>();
           }
@@ -1292,7 +1470,7 @@ namespace SRPG
             self.mClicked = false;
             this.unitshard.OnClicked();
           }
-          if (Object.op_Inequality((Object) this.unitshard, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.unitshard, (UnityEngine.Object) null))
           {
             if (this.unitshard.IsRunningAnimator)
               return;
@@ -1301,7 +1479,7 @@ namespace SRPG
           else
           {
             this.unitshard = (GachaUnitShard) ((Component) self.GaugeObject.get_transform().FindChild("UnitShard_gauge")).GetComponent<GachaUnitShard>();
-            if (!Object.op_Inequality((Object) this.unitshard, (Object) null))
+            if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.unitshard, (UnityEngine.Object) null))
               return;
             this.unitshard.Reset();
             this.unitshard.Restart();
@@ -1341,15 +1519,15 @@ namespace SRPG
         {
           self.mDropMaterial.SetActive(false);
           GameObject openMaterial = self.OpenMaterial;
-          if (Object.op_Inequality((Object) openMaterial, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) openMaterial, (UnityEngine.Object) null))
           {
             Animator component = (Animator) openMaterial.GetComponent<Animator>();
-            if (Object.op_Inequality((Object) component, (Object) null))
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
               component.SetBool("reset", true);
           }
           for (int index = 0; index < self.ResetMaterials.Length; ++index)
           {
-            if (Object.op_Inequality((Object) self.ResetMaterials[index], (Object) null))
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) self.ResetMaterials[index], (UnityEngine.Object) null))
               self.ResetMaterials[index].SetActive(false);
           }
           self.mState.GotoState<GachaController.State_DisableDropMaterial>();
@@ -1363,10 +1541,10 @@ namespace SRPG
       {
         self.mDropMaterial.SetActive(false);
         GameObject openMaterial = self.OpenMaterial;
-        if (Object.op_Inequality((Object) openMaterial, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) openMaterial, (UnityEngine.Object) null))
         {
           Animator component = (Animator) openMaterial.GetComponent<Animator>();
-          if (Object.op_Inequality((Object) component, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
           {
             component.SetInteger("rariry", 0);
             component.SetBool("shard", false);

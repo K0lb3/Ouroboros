@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_YesNoDialog
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using UnityEngine;
@@ -9,12 +9,12 @@ using UnityEngine;
 namespace SRPG
 {
   [FlowNode.NodeType("UI/YesNoDialog", 32741)]
-  [FlowNode.Pin(101, "ForceClosed", FlowNode.PinTypes.Output, 101)]
-  [FlowNode.Pin(100, "Opened", FlowNode.PinTypes.Output, 100)]
-  [FlowNode.Pin(11, "ForceClose", FlowNode.PinTypes.Input, 11)]
-  [FlowNode.Pin(2, "No", FlowNode.PinTypes.Output, 2)]
-  [FlowNode.Pin(1, "Yes", FlowNode.PinTypes.Output, 1)]
   [FlowNode.Pin(10, "Open", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "Yes", FlowNode.PinTypes.Output, 1)]
+  [FlowNode.Pin(2, "No", FlowNode.PinTypes.Output, 2)]
+  [FlowNode.Pin(11, "ForceClose", FlowNode.PinTypes.Input, 11)]
+  [FlowNode.Pin(100, "Opened", FlowNode.PinTypes.Output, 100)]
+  [FlowNode.Pin(101, "ForceClosed", FlowNode.PinTypes.Output, 101)]
   public class FlowNode_YesNoDialog : FlowNode
   {
     public string Title;
@@ -25,6 +25,8 @@ namespace SRPG
     public string parentName;
     public bool richTag;
     public bool unscaledTime;
+    public string yesText;
+    public string noText;
     private GameObject winGO;
 
     public override string[] GetInfoLines()
@@ -48,7 +50,9 @@ namespace SRPG
           string text = LocalizedText.Get(this.Text);
           if (this.richTag)
             text = LocalizedText.ReplaceTag(text);
-          this.winGO = !string.IsNullOrEmpty(this.Title) ? UIUtility.ConfirmBoxTitle(LocalizedText.Get(this.Title), text, new UIUtility.DialogResultEvent(this.OnClickOK), new UIUtility.DialogResultEvent(this.OnClickCancel), this.parent, this.systemModal, this.systemModalPriority) : UIUtility.ConfirmBox(text, new UIUtility.DialogResultEvent(this.OnClickOK), new UIUtility.DialogResultEvent(this.OnClickCancel), this.parent, this.systemModal, this.systemModalPriority);
+          string yesText = !string.IsNullOrEmpty(this.yesText) ? this.yesText : (string) null;
+          string noText = !string.IsNullOrEmpty(this.noText) ? this.noText : (string) null;
+          this.winGO = !string.IsNullOrEmpty(this.Title) ? UIUtility.ConfirmBoxTitle(LocalizedText.Get(this.Title), text, new UIUtility.DialogResultEvent(this.OnClickOK), new UIUtility.DialogResultEvent(this.OnClickCancel), this.parent, this.systemModal, this.systemModalPriority, yesText, noText) : UIUtility.ConfirmBox(text, new UIUtility.DialogResultEvent(this.OnClickOK), new UIUtility.DialogResultEvent(this.OnClickCancel), this.parent, this.systemModal, this.systemModalPriority, yesText, noText);
           if (Object.op_Inequality((Object) this.winGO, (Object) null) && this.unscaledTime)
           {
             Animator component = (Animator) this.winGO.GetComponent<Animator>();

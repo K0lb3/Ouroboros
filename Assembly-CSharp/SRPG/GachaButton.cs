@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.GachaButton
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -325,19 +325,19 @@ namespace SRPG
     private void Start()
     {
       this.gm = MonoSingleton<GameManager>.Instance;
-      if (Object.op_Inequality((Object) this.optionLayout, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.optionLayout, (UnityEngine.Object) null))
         this.optionLayout.SetActive(false);
-      if (Object.op_Inequality((Object) this.optionLayout2, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.optionLayout2, (UnityEngine.Object) null))
         this.optionLayout2.SetActive(false);
-      if (Object.op_Inequality((Object) this.paidOption, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.paidOption, (UnityEngine.Object) null))
         this.paidOption.SetActive(false);
-      if (Object.op_Inequality((Object) this.timerOption, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.timerOption, (UnityEngine.Object) null))
         this.timerOption.SetActive(false);
-      if (Object.op_Inequality((Object) this.haveOption, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.haveOption, (UnityEngine.Object) null))
         this.haveOption.SetActive(false);
-      if (Object.op_Inequality((Object) this.stepupOption, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.stepupOption, (UnityEngine.Object) null))
         this.stepupOption.SetActive(false);
-      if (Object.op_Inequality((Object) this.GachaBtn, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.GachaBtn, (UnityEngine.Object) null))
         this.GachaBtn.SetActive(false);
       this.mState = new StateMachine<GachaButton>(this);
       this.mState.GotoState<GachaButton.State_Init>();
@@ -364,7 +364,7 @@ namespace SRPG
 
     private bool IsObjectActivated(GameObject gobj)
     {
-      return !Object.op_Equality((Object) gobj, (Object) null) && gobj.get_activeInHierarchy();
+      return !UnityEngine.Object.op_Equality((UnityEngine.Object) gobj, (UnityEngine.Object) null) && gobj.get_activeInHierarchy();
     }
 
     public bool SetGachaButtonEvent(UnityAction action)
@@ -372,7 +372,7 @@ namespace SRPG
       if (action != null)
       {
         Button component = (Button) this.GachaBtn.GetComponent<Button>();
-        if (Object.op_Inequality((Object) component, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
         {
           ((UnityEventBase) component.get_onClick()).RemoveAllListeners();
           ((UnityEvent) component.get_onClick()).AddListener(action);
@@ -409,10 +409,10 @@ namespace SRPG
 
     private bool UpdateCostBG(GachaButton.GachaCostType cost = GachaButton.GachaCostType.NONE)
     {
-      if (cost == GachaButton.GachaCostType.NONE || cost == GachaButton.GachaCostType.ALL || Object.op_Equality((Object) this.CostBG, (Object) null))
+      if (cost == GachaButton.GachaCostType.NONE || cost == GachaButton.GachaCostType.ALL || UnityEngine.Object.op_Equality((UnityEngine.Object) this.CostBG, (UnityEngine.Object) null))
         return false;
       Transform parent = this.costBG.get_transform().get_parent();
-      if (Object.op_Equality((Object) parent, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) parent, (UnityEngine.Object) null))
         return false;
       if (cost == GachaButton.GachaCostType.TICKET)
         ((Component) parent).get_gameObject().SetActive(false);
@@ -438,10 +438,10 @@ namespace SRPG
       }
       if (cost == GachaButton.GachaCostType.TICKET)
       {
-        if (Object.op_Inequality((Object) this.TicketState, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TicketState, (UnityEngine.Object) null))
         {
           Text component = (Text) this.TicketState.GetComponent<Text>();
-          if (Object.op_Inequality((Object) component, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
           {
             component.set_text(this.TicketNum.ToString());
             this.optionLayout.SetActive(true);
@@ -450,29 +450,29 @@ namespace SRPG
       }
       else if (category == GachaButton.GachaCategoryType.STEPUP)
       {
-        if (Object.op_Inequality((Object) this.StepupState, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.StepupState, (UnityEngine.Object) null))
         {
-          if (Object.op_Equality((Object) this.mCurrentStepup10, (Object) null))
+          if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mCurrentStepup10, (UnityEngine.Object) null))
           {
             Transform child = this.StepupState.get_transform().FindChild("current_10");
-            this.mCurrentStepup10 = !Object.op_Inequality((Object) child, (Object) null) ? (GameObject) null : ((Component) child).get_gameObject();
+            this.mCurrentStepup10 = !UnityEngine.Object.op_Inequality((UnityEngine.Object) child, (UnityEngine.Object) null) ? (GameObject) null : ((Component) child).get_gameObject();
           }
-          if (Object.op_Equality((Object) this.mCurrentStepup1, (Object) null))
+          if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mCurrentStepup1, (UnityEngine.Object) null))
           {
             Transform child = this.StepupState.get_transform().FindChild("current_1");
-            this.mCurrentStepup1 = !Object.op_Inequality((Object) child, (Object) null) ? (GameObject) null : ((Component) child).get_gameObject();
+            this.mCurrentStepup1 = !UnityEngine.Object.op_Inequality((UnityEngine.Object) child, (UnityEngine.Object) null) ? (GameObject) null : ((Component) child).get_gameObject();
           }
-          if (Object.op_Equality((Object) this.mMaxStepup10, (Object) null))
+          if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mMaxStepup10, (UnityEngine.Object) null))
           {
             Transform child = this.StepupState.get_transform().FindChild("max_10");
-            this.mMaxStepup10 = !Object.op_Inequality((Object) child, (Object) null) ? (GameObject) null : ((Component) child).get_gameObject();
+            this.mMaxStepup10 = !UnityEngine.Object.op_Inequality((UnityEngine.Object) child, (UnityEngine.Object) null) ? (GameObject) null : ((Component) child).get_gameObject();
           }
-          if (Object.op_Equality((Object) this.mMaxStepup1, (Object) null))
+          if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mMaxStepup1, (UnityEngine.Object) null))
           {
             Transform child = this.StepupState.get_transform().FindChild("max_1");
-            this.mMaxStepup1 = !Object.op_Inequality((Object) child, (Object) null) ? (GameObject) null : ((Component) child).get_gameObject();
+            this.mMaxStepup1 = !UnityEngine.Object.op_Inequality((UnityEngine.Object) child, (UnityEngine.Object) null) ? (GameObject) null : ((Component) child).get_gameObject();
           }
-          if (Object.op_Equality((Object) this.mCurrentStepup1, (Object) null) || Object.op_Equality((Object) this.mCurrentStepup10, (Object) null) || (Object.op_Equality((Object) this.mMaxStepup1, (Object) null) || Object.op_Equality((Object) this.mMaxStepup10, (Object) null)))
+          if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mCurrentStepup1, (UnityEngine.Object) null) || UnityEngine.Object.op_Equality((UnityEngine.Object) this.mCurrentStepup10, (UnityEngine.Object) null) || (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mMaxStepup1, (UnityEngine.Object) null) || UnityEngine.Object.op_Equality((UnityEngine.Object) this.mMaxStepup10, (UnityEngine.Object) null)))
             return false;
           int num1 = (this.StepIndex + 1) % 10;
           int num2 = (this.StepIndex + 1) / 10;
@@ -488,7 +488,7 @@ namespace SRPG
           this.stepupOption.SetActive(true);
         }
       }
-      else if ((this.Category == "coin_1" || this.Category == "gold_1") && (Object.op_Inequality((Object) this.TimerObject, (Object) null) && Object.op_Inequality((Object) this.LimitObject, (Object) null)))
+      else if ((this.Category == "coin_1" || this.Category == "gold_1") && (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TimerObject, (UnityEngine.Object) null) && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.LimitObject, (UnityEngine.Object) null)))
       {
         bool flag = true;
         if (this.mCostType == GachaButton.GachaCostType.FREE_COIN || this.mCostType == GachaButton.GachaCostType.COIN)
@@ -560,10 +560,10 @@ namespace SRPG
       if (!string.IsNullOrEmpty(update_text))
       {
         Transform transform = this.GachaBtn.get_transform().Find("text");
-        if (Object.op_Inequality((Object) transform, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) transform, (UnityEngine.Object) null))
         {
           LText component = (LText) ((Component) transform).GetComponent<LText>();
-          if (Object.op_Inequality((Object) component, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
           {
             component.set_text(update_text);
             return true;
@@ -577,7 +577,7 @@ namespace SRPG
     {
       Transform child1 = this.CostBG.get_transform().FindChild("num");
       Transform child2 = this.CostBG.get_transform().FindChild("num_free");
-      if (Object.op_Equality((Object) child1, (Object) null) || Object.op_Equality((Object) child2, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) child1, (UnityEngine.Object) null) || UnityEngine.Object.op_Equality((UnityEngine.Object) child2, (UnityEngine.Object) null))
         return false;
       ((Component) child1).get_gameObject().SetActive(false);
       ((Component) child2).get_gameObject().SetActive(false);
@@ -626,7 +626,7 @@ namespace SRPG
 
     private bool RefreshPaidCost(int cost = 0)
     {
-      if (Object.op_Equality((Object) this.PaidCoin, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.PaidCoin, (UnityEngine.Object) null))
         return false;
       int childCount = this.PaidCoin.get_childCount();
       int num1 = (int) Math.Log10(cost <= 0 ? 1.0 : (double) cost) + 1;
@@ -634,7 +634,7 @@ namespace SRPG
       for (int index = childCount; index > 0; --index)
       {
         Transform child = this.PaidCoin.FindChild("coin" + Mathf.Pow(10f, (float) (index - 1)).ToString());
-        if (!Object.op_Equality((Object) child, (Object) null))
+        if (!UnityEngine.Object.op_Equality((UnityEngine.Object) child, (UnityEngine.Object) null))
         {
           if (num1 < index)
           {
@@ -657,7 +657,7 @@ namespace SRPG
     private IEnumerator UpdateOption()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new GachaButton.\u003CUpdateOption\u003Ec__IteratorAC() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new GachaButton.\u003CUpdateOption\u003Ec__IteratorF0() { \u003C\u003Ef__this = this };
     }
 
     private void SetUpdateOption(float interval)

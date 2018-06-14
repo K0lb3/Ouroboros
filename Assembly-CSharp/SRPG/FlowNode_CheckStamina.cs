@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_CheckStamina
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -9,11 +9,11 @@ using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.Pin(100, "Pass", FlowNode.PinTypes.Output, 0)]
-  [FlowNode.Pin(102, "IAP", FlowNode.PinTypes.Output, 0)]
-  [FlowNode.NodeType("System/CheckStamina", 32741)]
-  [FlowNode.Pin(0, "In", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(101, "Restore", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(102, "IAP", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(100, "Pass", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(0, "In", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.NodeType("System/CheckStamina", 32741)]
   public class FlowNode_CheckStamina : FlowNode
   {
     public const int PINID_IN = 0;
@@ -40,7 +40,7 @@ namespace SRPG
         if (num <= instance.Player.Stamina)
           this.ActivateOutputLinks(100);
         else
-          UIUtility.ConfirmBox(string.Format(LocalizedText.Get("sys.CONFIRM_POINT"), (object) this.RestoreCost), new UIUtility.DialogResultEvent(this.OnRestoreStamina), new UIUtility.DialogResultEvent(this.OnCancel), (GameObject) null, false, -1);
+          UIUtility.ConfirmBox(string.Format(LocalizedText.Get("sys.CONFIRM_POINT"), (object) this.RestoreCost), new UIUtility.DialogResultEvent(this.OnRestoreStamina), new UIUtility.DialogResultEvent(this.OnCancel), (GameObject) null, false, -1, (string) null, (string) null);
       }
     }
 
@@ -67,7 +67,7 @@ namespace SRPG
       if (this.RestoreCost <= MonoSingleton<GameManager>.Instance.Player.Coin)
         this.ActivateOutputLinks(101);
       else
-        UIUtility.ConfirmBox(string.Format(LocalizedText.Get("sys.OUT_OF_STAMINA_BUYCOIN")), new UIUtility.DialogResultEvent(this.OnBuyCoin), new UIUtility.DialogResultEvent(this.OnCancel), (GameObject) null, false, -1);
+        UIUtility.ConfirmBox(string.Format(LocalizedText.Get("sys.OUT_OF_STAMINA_BUYCOIN")), new UIUtility.DialogResultEvent(this.OnBuyCoin), new UIUtility.DialogResultEvent(this.OnCancel), (GameObject) null, false, -1, (string) null, (string) null);
     }
 
     private void OnBuyCoin(GameObject go)

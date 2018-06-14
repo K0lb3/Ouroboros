@@ -1,61 +1,80 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.Network
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
+using Gsc;
+using Gsc.App.NetworkHelper;
+using Gsc.Network;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
-using System.Net;
-using System.Text;
 using System.Text.RegularExpressions;
 using UnityEngine;
+using UnityEngine.Experimental.Networking;
 
 namespace SRPG
 {
   [AddComponentMenu("Scripts/SRPG/Manager/Network")]
-  public class Network : MonoSingleton<Network>
+  public class Network : MonoSingleton<SRPG.Network>
   {
     public static readonly float WEBAPI_TIMEOUT_SEC = 60f;
-    public static readonly float DOWNLOAD_TIMEOUT_SEC = 10f;
-    public static Network.EConnectMode Mode = Network.EConnectMode.Offline;
+    public static SRPG.Network.EConnectMode Mode = SRPG.Network.EConnectMode.Offline;
     public static readonly string OfficialUrl = "https://www.facebook.com/thealchemistcode/";
     public static readonly string DefaultHost = "https://app.alcww.gumi.sg/";
     public static readonly string DefaultDLHost = "https://app.alcww.gumi.sg/";
     public static readonly string DefaultSiteHost = "https://alchemistcode.com";
     public static readonly string DefaultNewsHost = "https://alchemistcode.com";
     private static AndroidJavaClass mSystemClock = new AndroidJavaClass("android.os.SystemClock");
-    private string mHost = Network.DefaultHost;
-    private string mDLHost = Network.DefaultDLHost;
-    private string mSiteHost = Network.DefaultSiteHost;
-    private string mNewsHost = Network.DefaultNewsHost;
     private string mSessionID = string.Empty;
     private string mVersion = string.Empty;
-    private string mAssetVersion = string.Empty;
+    private string mAssets = string.Empty;
+    private string mAssetsEx = string.Empty;
     private int mTicket = 1;
     private List<WebAPI> mRequests = new List<WebAPI>(4);
     private bool mIndicator = true;
-    private string mDefaultHostConfigured = Network.DefaultHost;
-    public static Network.RequestResults RequestResult;
+    private string mDefaultHostConfigured = SRPG.Network.DefaultHost;
+    public static SRPG.Network.RequestResults RequestResult;
     private static long ServerTime;
     private static long LastRealTime;
     private bool mBusy;
     private bool mRetry;
     private bool mError;
     private string mErrMsg;
-    private Network.EErrCode mErrCode;
+    private SRPG.Network.EErrCode mErrCode;
     private bool mImmediateMode;
     private WebAPI mCurrentRequest;
+    private UnityWebRequest mWebReq;
+    private bool mAbort;
+    private bool mNoVersion;
+    private bool mForceBusy;
 
     public static bool IsImmediateMode
     {
       get
       {
-        return MonoSingleton<Network>.Instance.mImmediateMode;
+        return MonoSingleton<SRPG.Network>.Instance.mImmediateMode;
+      }
+    }
+
+    public static void SetDefaultHostConfigured(string host)
+    {
+      MonoSingleton<SRPG.Network>.Instance.mDefaultHostConfigured = host;
+    }
+
+    public static string GetDefaultHostConfigured()
+    {
+      return MonoSingleton<SRPG.Network>.Instance.mDefaultHostConfigured;
+    }
+
+    public static Gsc.App.Environment GetEnvironment
+    {
+      get
+      {
+        return SDK.Configuration.GetEnv<Gsc.App.Environment>();
       }
     }
 
@@ -63,77 +82,55 @@ namespace SRPG
     {
       get
       {
-        return MonoSingleton<Network>.Instance.mHost;
+        return SRPG.Network.GetEnvironment.ServerUrl;
       }
-    }
-
-    public static void SetHost(string host)
-    {
-      MonoSingleton<Network>.Instance.mHost = host;
-    }
-
-    public static void SetDefaultHostConfigured(string host)
-    {
-      MonoSingleton<Network>.Instance.mDefaultHostConfigured = host;
-    }
-
-    public static void ResetHost()
-    {
-      Network instance = MonoSingleton<Network>.Instance;
-      instance.mHost = instance.mDefaultHostConfigured;
-      instance.mDLHost = Network.DefaultDLHost;
-      instance.mSiteHost = Network.DefaultSiteHost;
-      instance.mNewsHost = Network.DefaultNewsHost;
     }
 
     public static string DLHost
     {
       get
       {
-        return MonoSingleton<Network>.Instance.mDLHost;
+        return SRPG.Network.GetEnvironment.DLHost;
       }
-    }
-
-    public static void SetDLHost(string host)
-    {
-      MonoSingleton<Network>.Instance.mDLHost = host;
     }
 
     public static string SiteHost
     {
       get
       {
-        return MonoSingleton<Network>.Instance.mSiteHost;
+        return SRPG.Network.GetEnvironment.SiteHost;
       }
-    }
-
-    public static void SetSiteHost(string host)
-    {
-      MonoSingleton<Network>.Instance.mSiteHost = host;
     }
 
     public static string NewsHost
     {
       get
       {
-        return MonoSingleton<Network>.Instance.mNewsHost;
+        return SRPG.Network.GetEnvironment.NewsHost;
       }
     }
 
-    public static void SetNewsHost(string host)
-    {
-      MonoSingleton<Network>.Instance.mNewsHost = host;
-    }
-
-    public static string Version
+    public static string Digest
     {
       get
       {
-        return MonoSingleton<Network>.Instance.mVersion;
+        return SRPG.Network.GetEnvironment.Digest;
       }
-      set
+    }
+
+    public static string Pub
+    {
+      get
       {
-        MonoSingleton<Network>.Instance.mVersion = value;
+        return SRPG.Network.GetEnvironment.Pub;
+      }
+    }
+
+    public static string PubU
+    {
+      get
+      {
+        return SRPG.Network.GetEnvironment.PubU;
       }
     }
 
@@ -141,11 +138,35 @@ namespace SRPG
     {
       get
       {
-        return MonoSingleton<Network>.Instance.mAssetVersion;
+        return MonoSingleton<SRPG.Network>.Instance.mAssets;
       }
       set
       {
-        MonoSingleton<Network>.Instance.mAssetVersion = value;
+        MonoSingleton<SRPG.Network>.Instance.mAssets = value;
+      }
+    }
+
+    public static string AssetVersionEx
+    {
+      get
+      {
+        return MonoSingleton<SRPG.Network>.Instance.mAssetsEx;
+      }
+      set
+      {
+        MonoSingleton<SRPG.Network>.Instance.mAssetsEx = value;
+      }
+    }
+
+    public static string Version
+    {
+      get
+      {
+        return MonoSingleton<SRPG.Network>.Instance.mVersion;
+      }
+      set
+      {
+        MonoSingleton<SRPG.Network>.Instance.mVersion = value;
       }
     }
 
@@ -153,11 +174,11 @@ namespace SRPG
     {
       get
       {
-        return MonoSingleton<Network>.Instance.mSessionID;
+        return MonoSingleton<SRPG.Network>.Instance.mSessionID;
       }
       set
       {
-        MonoSingleton<Network>.Instance.mSessionID = value;
+        MonoSingleton<SRPG.Network>.Instance.mSessionID = value;
       }
     }
 
@@ -165,11 +186,11 @@ namespace SRPG
     {
       get
       {
-        return MonoSingleton<Network>.Instance.mTicket;
+        return MonoSingleton<SRPG.Network>.Instance.mTicket;
       }
       private set
       {
-        MonoSingleton<Network>.Instance.mTicket = value;
+        MonoSingleton<SRPG.Network>.Instance.mTicket = value;
       }
     }
 
@@ -177,11 +198,15 @@ namespace SRPG
     {
       get
       {
-        return MonoSingleton<Network>.Instance.mBusy;
+        if (MonoSingleton<SRPG.Network>.Instance.mBusy)
+          return true;
+        if (WebQueue.defaultQueue != null)
+          return WebQueue.defaultQueue.isRunning;
+        return false;
       }
       private set
       {
-        MonoSingleton<Network>.Instance.mBusy = value;
+        MonoSingleton<SRPG.Network>.Instance.mBusy = value;
       }
     }
 
@@ -189,11 +214,11 @@ namespace SRPG
     {
       get
       {
-        return MonoSingleton<Network>.Instance.mRetry;
+        return MonoSingleton<SRPG.Network>.Instance.mRetry;
       }
       set
       {
-        MonoSingleton<Network>.Instance.mRetry = value;
+        MonoSingleton<SRPG.Network>.Instance.mRetry = value;
       }
     }
 
@@ -201,11 +226,13 @@ namespace SRPG
     {
       get
       {
-        return MonoSingleton<Network>.Instance.mError;
+        if (!MonoSingleton<SRPG.Network>.Instance.mError)
+          return GsccBridge.HasUnhandledTasks;
+        return true;
       }
       private set
       {
-        MonoSingleton<Network>.Instance.mError = value;
+        MonoSingleton<SRPG.Network>.Instance.mError = value;
       }
     }
 
@@ -213,23 +240,23 @@ namespace SRPG
     {
       get
       {
-        return MonoSingleton<Network>.Instance.mErrMsg;
+        return MonoSingleton<SRPG.Network>.Instance.mErrMsg;
       }
       set
       {
-        MonoSingleton<Network>.Instance.mErrMsg = value;
+        MonoSingleton<SRPG.Network>.Instance.mErrMsg = value;
       }
     }
 
-    public static Network.EErrCode ErrCode
+    public static SRPG.Network.EErrCode ErrCode
     {
       get
       {
-        return MonoSingleton<Network>.Instance.mErrCode;
+        return MonoSingleton<SRPG.Network>.Instance.mErrCode;
       }
       set
       {
-        MonoSingleton<Network>.Instance.mErrCode = value;
+        MonoSingleton<SRPG.Network>.Instance.mErrCode = value;
       }
     }
 
@@ -237,8 +264,8 @@ namespace SRPG
     {
       get
       {
-        if (!Network.IsBusy)
-          return MonoSingleton<Network>.Instance.mRequests.Count > 0;
+        if (!SRPG.Network.IsBusy)
+          return MonoSingleton<SRPG.Network>.Instance.mRequests.Count > 0;
         return true;
       }
     }
@@ -247,18 +274,74 @@ namespace SRPG
     {
       get
       {
-        return MonoSingleton<Network>.Instance.mIndicator;
+        return MonoSingleton<SRPG.Network>.Instance.mIndicator;
       }
       set
       {
-        MonoSingleton<Network>.Instance.mIndicator = value;
+        MonoSingleton<SRPG.Network>.Instance.mIndicator = value;
+      }
+    }
+
+    public static UnityWebRequest uniWebRequest
+    {
+      get
+      {
+        return MonoSingleton<SRPG.Network>.Instance.mWebReq;
+      }
+      set
+      {
+        MonoSingleton<SRPG.Network>.Instance.mWebReq = value;
+      }
+    }
+
+    public static bool IsStreamConnecting
+    {
+      get
+      {
+        return SRPG.Network.uniWebRequest != null;
+      }
+    }
+
+    public static bool Aborted
+    {
+      get
+      {
+        return MonoSingleton<SRPG.Network>.Instance.mAbort;
+      }
+      set
+      {
+        MonoSingleton<SRPG.Network>.Instance.mAbort = value;
+      }
+    }
+
+    public static bool IsNoVersion
+    {
+      get
+      {
+        return MonoSingleton<SRPG.Network>.Instance.mNoVersion;
+      }
+      set
+      {
+        MonoSingleton<SRPG.Network>.Instance.mNoVersion = value;
+      }
+    }
+
+    public static bool IsForceBusy
+    {
+      get
+      {
+        return MonoSingleton<SRPG.Network>.Instance.mForceBusy;
+      }
+      set
+      {
+        MonoSingleton<SRPG.Network>.Instance.mForceBusy = value;
       }
     }
 
     protected override void Initialize()
     {
-      Network.Reset();
-      Object.DontDestroyOnLoad((Object) this);
+      SRPG.Network.Reset();
+      UnityEngine.Object.DontDestroyOnLoad((UnityEngine.Object) this);
     }
 
     protected override void Release()
@@ -267,107 +350,49 @@ namespace SRPG
 
     public static void Reset()
     {
-      MonoSingleton<Network>.Instance.mTicket = 1;
-      MonoSingleton<Network>.Instance.mRequests.Clear();
+      MonoSingleton<SRPG.Network>.Instance.mTicket = 1;
+      MonoSingleton<SRPG.Network>.Instance.mRequests.Clear();
+      GsccBridge.Reset();
     }
 
     public static void RequestAPI(WebAPI api, bool highPriority = false)
     {
-      DebugUtility.Log("Request WebAPI: " + Network.Host + api.name);
       if (highPriority)
-        MonoSingleton<Network>.Instance.mRequests.Insert(0, api);
+        MonoSingleton<SRPG.Network>.Instance.mRequests.Insert(0, api);
       else
-        MonoSingleton<Network>.Instance.mRequests.Add(api);
-      if (MonoSingleton<Network>.Instance.mRequests.Count != 1)
+        MonoSingleton<SRPG.Network>.Instance.mRequests.Add(api);
+      if (MonoSingleton<SRPG.Network>.Instance.mRequests.Count != 1)
         return;
       CriticalSection.Enter(CriticalSections.Network);
     }
 
-    public static Network.RequestResults RequestAPIImmediate(WebAPI api, bool autoRetry)
+    public static void RequestAPIImmediate(WebAPI api, bool autoRetry)
     {
-      MonoSingleton<Network>.Instance.mImmediateMode = true;
-      HttpWebRequest httpWebRequest = (HttpWebRequest) WebRequest.Create(Network.Host + api.name);
-      httpWebRequest.ContentType = "application/json; charset=utf-8";
-      httpWebRequest.Timeout = (int) ((double) Network.WEBAPI_TIMEOUT_SEC * 1000.0);
-      httpWebRequest.Headers.Set("X-GUMI-TRANSACTION", api.GumiTransactionId);
-      if (MonoSingleton<DebugManager>.Instance.IsWebViewEnable())
-      {
-        httpWebRequest.UserAgent = gu3.Device.System.GetUserAgent();
-      }
-      else
-      {
-        httpWebRequest.UserAgent = "Mozilla/5.0 (Linux; U; Android 4.3; ja-jp; Nexus 7 Build/JSS15Q) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30";
-        DebugUtility.Log("Skip User-Agent");
-      }
-      if (!string.IsNullOrEmpty(Network.SessionID))
-        httpWebRequest.Headers.Add("Authorization", "gumi " + Network.SessionID);
-      if (!string.IsNullOrEmpty(Network.Version))
-        httpWebRequest.Headers.Add("x-app-ver", Network.Version);
-      if (!string.IsNullOrEmpty(Network.AssetVersion))
-        httpWebRequest.Headers.Add("x-asset-ver", Network.AssetVersion);
-      HttpWebResponse httpWebResponse = (HttpWebResponse) null;
-      string str = (string) null;
-      try
-      {
-        if (string.IsNullOrEmpty(api.body))
-        {
-          httpWebRequest.Method = "GET";
-        }
-        else
-        {
-          httpWebRequest.Method = "POST";
-          byte[] bytes = Encoding.UTF8.GetBytes(api.body);
-          httpWebRequest.ContentLength = (long) bytes.Length;
-          BinaryWriter binaryWriter = new BinaryWriter(httpWebRequest.GetRequestStream());
-          binaryWriter.Write(bytes);
-          binaryWriter.Close();
-        }
-        httpWebResponse = (HttpWebResponse) httpWebRequest.GetResponse();
-        Network.ErrCode = Network.EErrCode.Unknown;
-        str = new StreamReader(httpWebResponse.GetResponseStream(), true).ReadToEnd();
-        Network.ErrCode = (Network.EErrCode) Network.FindStat(str);
-        Network.ErrMsg = Network.FindMessage(str);
-      }
-      catch (Exception ex)
-      {
-        Network.ErrCode = Network.EErrCode.Failed;
-        Network.ErrMsg = LocalizedText.Get("embed.NETWORKERR");
-        Debug.LogException(ex);
-      }
-      finally
-      {
-        Network.IsError = Network.ErrCode != Network.EErrCode.Success;
-        if (httpWebResponse != null)
-          httpWebResponse.Close();
-      }
-      Network.RequestResult = Network.RequestResults.Success;
-      MonoSingleton<Network>.Instance.mCurrentRequest = (WebAPI) null;
-      api.callback(new WWWResult(str));
-      if (MonoSingleton<Network>.Instance.mImmediateMode)
-      {
-        MonoSingleton<Network>.Instance.mImmediateMode = false;
-        if (autoRetry)
-        {
-          --Network.TicketID;
-          Network.ResetError();
-          Network.RequestAPI(api, true);
-        }
-      }
-      return Network.RequestResult;
+      MonoSingleton<SRPG.Network>.Instance.mImmediateMode = true;
+      GsccBridge.SendImmediate(api);
+      if (!MonoSingleton<SRPG.Network>.Instance.mImmediateMode)
+        return;
+      MonoSingleton<SRPG.Network>.Instance.mImmediateMode = false;
+      if (!autoRetry)
+        return;
+      --SRPG.Network.TicketID;
+      SRPG.Network.ResetError();
+      SRPG.Network.RequestAPI(api, true);
     }
 
     public static void RemoveAPI()
     {
-      if (MonoSingleton<Network>.Instance.mImmediateMode)
-        MonoSingleton<Network>.Instance.mImmediateMode = false;
-      else if (MonoSingleton<Network>.Instance.mRequests.Count <= 0)
+      GsccBridge.Reset();
+      if (MonoSingleton<SRPG.Network>.Instance.mImmediateMode)
+        MonoSingleton<SRPG.Network>.Instance.mImmediateMode = false;
+      else if (MonoSingleton<SRPG.Network>.Instance.mRequests.Count <= 0)
       {
-        DebugUtility.LogWarning("Instance.mRequests.Count <= 0");
+        DebugUtility.LogWarning("Instance.mRequestsGsc.Count <= 0");
       }
       else
       {
-        MonoSingleton<Network>.Instance.mRequests.Remove(MonoSingleton<Network>.Instance.mCurrentRequest);
-        if (MonoSingleton<Network>.Instance.mRequests.Count != 0)
+        MonoSingleton<SRPG.Network>.Instance.mRequests.Remove(MonoSingleton<SRPG.Network>.Instance.mCurrentRequest);
+        if (MonoSingleton<SRPG.Network>.Instance.mRequests.Count != 0)
           return;
         CriticalSection.Leave(CriticalSections.Network);
       }
@@ -375,7 +400,12 @@ namespace SRPG
 
     public static void ResetError()
     {
-      MonoSingleton<Network>.Instance.mError = false;
+      MonoSingleton<SRPG.Network>.Instance.mError = false;
+    }
+
+    public static void SetRetry()
+    {
+      GsccBridge.Retry();
     }
 
     private static int FindStat(string response)
@@ -402,10 +432,10 @@ namespace SRPG
       if (configLanguage != null)
       {
         // ISSUE: reference to a compiler-generated field
-        if (Network.\u003C\u003Ef__switch\u0024map11 == null)
+        if (SRPG.Network.\u003C\u003Ef__switch\u0024map1D == null)
         {
           // ISSUE: reference to a compiler-generated field
-          Network.\u003C\u003Ef__switch\u0024map11 = new Dictionary<string, int>(3)
+          SRPG.Network.\u003C\u003Ef__switch\u0024map1D = new Dictionary<string, int>(3)
           {
             {
               "french",
@@ -423,7 +453,7 @@ namespace SRPG
         }
         int num;
         // ISSUE: reference to a compiler-generated field
-        if (Network.\u003C\u003Ef__switch\u0024map11.TryGetValue(configLanguage, out num))
+        if (SRPG.Network.\u003C\u003Ef__switch\u0024map1D.TryGetValue(configLanguage, out num))
         {
           switch (num)
           {
@@ -456,42 +486,119 @@ label_9:
 
     public static long GetServerTime()
     {
-      if (Network.Mode == Network.EConnectMode.Offline)
+      if (SRPG.Network.Mode == SRPG.Network.EConnectMode.Offline)
         return TimeManager.Now();
-      long systemUptime = Network.GetSystemUptime();
-      return Network.ServerTime + (systemUptime - Network.LastRealTime);
+      long systemUptime = SRPG.Network.GetSystemUptime();
+      return SRPG.Network.ServerTime + (systemUptime - SRPG.Network.LastRealTime);
     }
 
     public static long LastConnectionTime
     {
       get
       {
-        return Network.ServerTime;
+        return SRPG.Network.ServerTime;
       }
     }
 
     private void Update()
     {
-      if (Network.IsBusy || Network.IsError || this.mRequests.Count <= 0)
+      if (SRPG.Network.IsBusy || SRPG.Network.IsError || (SRPG.Network.IsForceBusy || this.mRequests.Count <= 0))
         return;
       WebAPI mRequest = this.mRequests[0];
       if (mRequest == null)
         return;
-      this.StartCoroutine(Network.Connecting(mRequest));
+      if (mRequest.reqtype == WebAPI.ReqeustType.REQ_GSC)
+        this.ConnectingGsc(mRequest);
+      else
+        this.StartCoroutine(SRPG.Network.Connecting(mRequest));
+    }
+
+    private void ConnectingGsc(WebAPI api)
+    {
+      ++SRPG.Network.TicketID;
+      SRPG.Network.IsError = false;
+      SRPG.Network.ErrCode = SRPG.Network.EErrCode.Success;
+      MonoSingleton<SRPG.Network>.Instance.mCurrentRequest = api;
+      GsccBridge.Send(api, false);
+    }
+
+    public static void ConnectingResponse(WebResponse response, SRPG.Network.ResponseCallback callback)
+    {
+      SRPG.Network.ErrCode = response.ErrorCode;
+      SRPG.Network.ErrMsg = response.ErrorMessage;
+      SRPG.Network.IsError = SRPG.Network.ErrCode != SRPG.Network.EErrCode.Success;
+      if (!string.IsNullOrEmpty(SRPG.Network.ErrMsg) && SRPG.Network.ErrMsg.Contains("500"))
+      {
+        SRPG.Network.ErrCode = SRPG.Network.EErrCode.Unknown;
+        SRPG.Network.ErrMsg = LocalizedText.Get("errorcode.1_MESSAGE");
+      }
+      else if (SRPG.Network.ErrCode == SRPG.Network.EErrCode.Failed)
+        SRPG.Network.ErrMsg = LocalizedText.Get("embed.NETWORKERR");
+      else if (SRPG.Network.IsError)
+        SRPG.Network.ErrMsg = SRPG.Network.ErrCode != SRPG.Network.EErrCode.Maintenance ? LocalizedText.Get("errorcode." + ((int) SRPG.Network.ErrCode).ToString() + "_MESSAGE") : SRPG.Network.FindLocalizedMessage(response.Result.text);
+      if (FlowNode_Network.HasCommonError(response.Result) || callback == null)
+        return;
+      if (response.ServerTime != 0L)
+        SRPG.Network.ServerTime = response.ServerTime;
+      SRPG.Network.LastRealTime = SRPG.Network.GetSystemUptime();
+      callback(response.Result);
+    }
+
+    public static void SetServerTime(long time)
+    {
+      if (time != 0L)
+        SRPG.Network.ServerTime = time;
+      SRPG.Network.LastRealTime = SRPG.Network.GetSystemUptime();
     }
 
     [DebuggerHidden]
     private static IEnumerator Connecting(WebAPI api)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new Network.\u003CConnecting\u003Ec__IteratorF6() { api = api, \u003C\u0024\u003Eapi = api };
+      return (IEnumerator) new SRPG.Network.\u003CConnecting\u003Ec__Iterator144() { api = api, \u003C\u0024\u003Eapi = api };
+    }
+
+    public static void SetServerSessionExpired()
+    {
+      SRPG.Network.ErrCode = SRPG.Network.EErrCode.DmmSessionExpired;
+      SRPG.Network.ErrMsg = LocalizedText.Get("embed.DMM_EXPIRED");
+      SRPG.Network.IsError = true;
+    }
+
+    public static void SetServerMetaDataAsError()
+    {
+      SRPG.Network.ErrCode = SRPG.Network.EErrCode.Failed;
+      SRPG.Network.ErrMsg = LocalizedText.Get("embed.NETWORKERR");
+      SRPG.Network.IsError = true;
+    }
+
+    public static void SetServerInvalidDeviceError()
+    {
+      SRPG.Network.ErrCode = SRPG.Network.EErrCode.Authorize;
+      SRPG.Network.ErrMsg = LocalizedText.Get("sys.AUTHORIZEERR");
+      SRPG.Network.IsError = true;
+    }
+
+    public static void SetServerMetaDataAsError(SRPG.Network.EErrCode code, string msg)
+    {
+      SRPG.Network.ErrCode = code;
+      SRPG.Network.ErrMsg = msg;
+      SRPG.Network.IsError = true;
     }
 
     private static long GetSystemUptime()
     {
       if (GameUtility.IsDebugBuild)
         return (long) Time.get_realtimeSinceStartup();
-      return ((AndroidJavaObject) Network.mSystemClock).CallStatic<long>("elapsedRealtime", new object[0]) / 1000L;
+      return ((AndroidJavaObject) SRPG.Network.mSystemClock).CallStatic<long>("elapsedRealtime", new object[0]) / 1000L;
+    }
+
+    public static void Abort()
+    {
+      if (SRPG.Network.uniWebRequest == null)
+        return;
+      SRPG.Network.uniWebRequest.Abort();
+      SRPG.Network.Aborted = true;
     }
 
     public enum EErrCode
@@ -502,13 +609,19 @@ label_9:
       Unknown = 1,
       Version = 2,
       AssetVersion = 3,
+      NoVersionDbg = 4,
       NoSID = 100, // 0x00000064
       Maintenance = 200, // 0x000000C8
       ChatMaintenance = 201, // 0x000000C9
       MultiMaintenance = 202, // 0x000000CA
       VsMaintenance = 203, // 0x000000CB
+      BattleRecordMaintenance = 204, // 0x000000CC
+      MultiVersionMaintenance = 205, // 0x000000CD
+      MultiTowerMaintenance = 206, // 0x000000CE
+      RankingQuestMaintenance = 207, // 0x000000CF
       IllegalParam = 300, // 0x0000012C
       API = 400, // 0x00000190
+      NotLocation = 401, // 0x00000191
       NoFile = 1000, // 0x000003E8
       NoVersion = 1100, // 0x0000044C
       SessionFailure = 1200, // 0x000004B0
@@ -552,6 +665,7 @@ label_9:
       EquipNotComp = 2701, // 0x00000A8D
       PlusShort = 2702, // 0x00000A8E
       NoItemSell = 2800, // 0x00000AF0
+      ConvertAnotherItem = 2801, // 0x00000AF1
       StaminaCoinShort = 2900, // 0x00000B54
       AddStaminaLimit = 2901, // 0x00000B55
       AbilityCoinShort = 3000, // 0x00000BB8
@@ -564,6 +678,8 @@ label_9:
       OutOfDateQuest = 3301, // 0x00000CE5
       QuestNotEnd = 3302, // 0x00000CE6
       ChallengeLimit = 3303, // 0x00000CE7
+      NotGpsQuest = 3308, // 0x00000CEC
+      RecordLimitUpload = 3309, // 0x00000CED
       QuestResume = 3400, // 0x00000D48
       QuestEnd = 3500, // 0x00000DAC
       ContinueCostShort = 3600, // 0x00000E10
@@ -582,6 +698,7 @@ label_9:
       ColoRankLower = 3807, // 0x00000EDF
       ColoNoBattle = 3900, // 0x00000F3C
       ColoRankModify = 3901, // 0x00000F3D
+      ColoMyRankModify = 3902, // 0x00000F3E
       NoGacha = 4000, // 0x00000FA0
       GachaCostShort = 4001, // 0x00000FA1
       GachaItemMax = 4002, // 0x00000FA2
@@ -594,6 +711,7 @@ label_9:
       TrophyRewarded = 4100, // 0x00001004
       TrophyOutOfDate = 4101, // 0x00001005
       TrophyRollBack = 4102, // 0x00001006
+      BingoOutofDateReceive = 4112, // 0x00001010
       ShopRefreshCostShort = 4200, // 0x00001068
       ShopRefreshLvSort = 4201, // 0x00001069
       ShopSoldOut = 4300, // 0x000010CC
@@ -614,6 +732,7 @@ label_9:
       RoomFailedMakeRoom = 4800, // 0x000012C0
       RoomIllegalComment = 4801, // 0x000012C1
       RoomNoRoom = 4900, // 0x00001324
+      NoWatching = 4901, // 0x00001325
       NoDevice = 5000, // 0x00001388
       Authorize = 5001, // 0x00001389
       GauthNoSid = 5002, // 0x0000138A
@@ -622,6 +741,7 @@ label_9:
       MigrateIllCode = 5100, // 0x000013EC
       MigrateSameDev = 5101, // 0x000013ED
       MigrateLockCode = 5102, // 0x000013EE
+      AccountSuspended = 5104, // 0x000013F0
       ColoResetCostShort = 5500, // 0x0000157C
       RaidTicketShort = 5600, // 0x000015E0
       UnitAddExist = 5700, // 0x00001644
@@ -636,6 +756,10 @@ label_9:
       FindIsMine = 6001, // 0x00001771
       StringTooShort = 6002, // 0x00001772
       CountLimitForPlayer = 8005, // 0x00001F45
+      QR_OutOfPeriod = 8008, // 0x00001F48
+      QR_InvalidQRSerial = 8009, // 0x00001F49
+      QR_CanNotReward = 8010, // 0x00001F4A
+      QR_LockSerialCampaign = 8011, // 0x00001F4B
       ChargeError = 8100, // 0x00001FA4
       ChargeAge000 = 8101, // 0x00001FA5
       ChargeVipRemains = 8102, // 0x00001FA6
@@ -657,6 +781,8 @@ label_9:
       NoUserAction = 8501, // 0x00002135
       SendChatInterval = 8502, // 0x00002136
       CanNotAddBlackList = 8503, // 0x00002137
+      NotGpsMail = 8600, // 0x00002198
+      ReceivedGpsMail = 8601, // 0x00002199
       AcheiveMigrateIllcode = 8800, // 0x00002260
       AcheiveMigrateNoCoop = 8801, // 0x00002261
       AcheiveMigrateLock = 8802, // 0x00002262
@@ -683,6 +809,17 @@ label_9:
       VS_ComBattleEnd = 10013, // 0x0000271D
       VS_FaildSeasonGift = 10014, // 0x0000271E
       VS_TowerNotPlay = 10015, // 0x0000271F
+      VS_NotContinuousEnemy = 10016, // 0x00002720
+      VS_RowerNotMatching = 10017, // 0x00002721
+      QuestBookmark_RequestMax = 10100, // 0x00002774
+      QuestBookmark_AlreadyLimited = 10101, // 0x00002775
+      DmmSessionExpired = 11000, // 0x00002AF8
+      MT_NotClearFloor = 12001, // 0x00002EE1
+      MT_AlreadyFinish = 12002, // 0x00002EE2
+      MT_NoRoom = 12003, // 0x00002EE3
+      RankingQuest_NotNewScore = 13001, // 0x000032C9
+      RankingQuest_AlreadyEntry = 13002, // 0x000032CA
+      RankingQuest_OutOfPeriod = 13003, // 0x000032CB
     }
 
     public enum RequestResults
@@ -705,7 +842,5 @@ label_9:
     }
 
     public delegate void ResponseCallback(WWWResult result);
-
-    public delegate void DownloadCallback(WWW result);
   }
 }

@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.BattleStamp
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -38,10 +38,10 @@ namespace SRPG
 
     private void Start()
     {
-      if (Object.op_Inequality((Object) this.ItemTemplate, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ItemTemplate, (UnityEngine.Object) null))
       {
         ((Component) this.ItemTemplate).get_gameObject().SetActive(false);
-        if (Object.op_Equality((Object) this.ListParent, (Object) null))
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.ListParent, (UnityEngine.Object) null))
           this.ListParent = ((Component) this.ItemTemplate).get_transform().get_parent() as RectTransform;
       }
       this.Refresh();
@@ -50,13 +50,13 @@ namespace SRPG
     public void Refresh()
     {
       GameUtility.DestroyGameObjects<ListItemEvents>(this.mItems);
-      if (Object.op_Equality((Object) this.ItemTemplate, (Object) null) || Object.op_Equality((Object) this.ListParent, (Object) null) || this.Sprites == null)
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.ItemTemplate, (UnityEngine.Object) null) || UnityEngine.Object.op_Equality((UnityEngine.Object) this.ListParent, (UnityEngine.Object) null) || this.Sprites == null)
         return;
       for (int index1 = 0; index1 < this.Sprites.Length; ++index1)
       {
-        ListItemEvents listItemEvents = (ListItemEvents) Object.Instantiate<ListItemEvents>((M0) this.ItemTemplate);
+        ListItemEvents listItemEvents = (ListItemEvents) UnityEngine.Object.Instantiate<ListItemEvents>((M0) this.ItemTemplate);
         ((Component) listItemEvents).get_gameObject().SetActive(true);
-        ((Object) ((Component) listItemEvents).get_gameObject()).set_name(((Object) ((Component) listItemEvents).get_gameObject()).get_name() + ":" + index1.ToString());
+        ((UnityEngine.Object) ((Component) listItemEvents).get_gameObject()).set_name(((UnityEngine.Object) ((Component) listItemEvents).get_gameObject()).get_name() + ":" + index1.ToString());
         ((Component) listItemEvents).get_transform().SetParent((Transform) this.ListParent, false);
         GameObjectID[] componentsInChildren1 = (GameObjectID[]) ((Component) listItemEvents).GetComponentsInChildren<GameObjectID>();
         if (componentsInChildren1 != null)
@@ -65,8 +65,8 @@ namespace SRPG
           {
             if (componentsInChildren1[index2].ID.Equals(this.SpriteGameObjectID))
             {
-              Image image = !Object.op_Equality((Object) componentsInChildren1[index2], (Object) null) ? (Image) ((Component) componentsInChildren1[index2]).get_gameObject().GetComponent<Image>() : (Image) null;
-              if (Object.op_Inequality((Object) image, (Object) null))
+              Image image = !UnityEngine.Object.op_Equality((UnityEngine.Object) componentsInChildren1[index2], (UnityEngine.Object) null) ? (Image) ((Component) componentsInChildren1[index2]).get_gameObject().GetComponent<Image>() : (Image) null;
+              if (UnityEngine.Object.op_Inequality((UnityEngine.Object) image, (UnityEngine.Object) null))
                 image.set_sprite(this.Sprites[index1]);
             }
             else if (componentsInChildren1[index2].ID.Equals(this.SelectCursorGameObjectID))
@@ -76,7 +76,7 @@ namespace SRPG
         this.mItems.Add(listItemEvents);
         listItemEvents.OnSelect = (ListItemEvents.ListItemEvent) (go =>
         {
-          this.mSelectID = this.mItems.FindIndex((Predicate<ListItemEvents>) (it => Object.op_Equality((Object) ((Component) it).get_gameObject(), (Object) go.get_gameObject())));
+          this.mSelectID = this.mItems.FindIndex((Predicate<ListItemEvents>) (it => UnityEngine.Object.op_Equality((UnityEngine.Object) ((Component) it).get_gameObject(), (UnityEngine.Object) go.get_gameObject())));
           for (int index1 = 0; index1 < this.mItems.Count; ++index1)
           {
             GameObjectID[] componentsInChildren = (GameObjectID[]) ((Component) this.mItems[index1]).GetComponentsInChildren<GameObjectID>(true);
@@ -92,7 +92,7 @@ namespace SRPG
           if (this.mSelectID < 0)
             return;
           Sprite sprite = this.Sprites[this.mSelectID];
-          if (!Object.op_Implicit((Object) sprite) || this.OnSelectItem == null)
+          if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) sprite) || this.OnSelectItem == null)
             return;
           this.OnSelectItem(sprite);
         });

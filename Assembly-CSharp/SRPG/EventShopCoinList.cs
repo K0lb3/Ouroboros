@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.EventShopCoinList
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -49,26 +49,26 @@ namespace SRPG
     {
       GlobalVars.SelectionEventShop = (EventShopListItem) null;
       GlobalVars.SelectionCoinListType = GlobalVars.CoinListSelectionType.None;
-      if (Object.op_Inequality((Object) this.ItemTemplate, (Object) null) && this.ItemTemplate.get_activeInHierarchy())
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ItemTemplate, (UnityEngine.Object) null) && this.ItemTemplate.get_activeInHierarchy())
         this.ItemTemplate.SetActive(false);
-      if (Object.op_Inequality((Object) this.ArenaTemplate, (Object) null) && this.ArenaTemplate.get_activeInHierarchy())
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ArenaTemplate, (UnityEngine.Object) null) && this.ArenaTemplate.get_activeInHierarchy())
         this.ArenaTemplate.SetActive(false);
-      if (!Object.op_Inequality((Object) this.MultiTemplate, (Object) null) || !this.MultiTemplate.get_activeInHierarchy())
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.MultiTemplate, (UnityEngine.Object) null) || !this.MultiTemplate.get_activeInHierarchy())
         return;
       this.MultiTemplate.SetActive(false);
     }
 
     private GameObject CreateListItem(EventCoinData eventcoin_data)
     {
-      GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.ItemTemplate);
+      GameObject gameObject = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.ItemTemplate);
       EventCoinListItem component1 = (EventCoinListItem) gameObject.GetComponent<EventCoinListItem>();
       Button component2 = (Button) component1.Button.GetComponent<Button>();
       ListItemEvents component3 = (ListItemEvents) component1.Button.GetComponent<ListItemEvents>();
-      if (Object.op_Inequality((Object) component2, (Object) null) && Object.op_Inequality((Object) component3, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component2, (UnityEngine.Object) null) && UnityEngine.Object.op_Inequality((UnityEngine.Object) component3, (UnityEngine.Object) null))
       {
         EventShopListItem eventShopListItem = GlobalVars.EventShopListItems.Find((Predicate<EventShopListItem>) (f => f.shop_cost_iname.Equals(eventcoin_data.iname)));
         bool flag = false;
-        if (Object.op_Inequality((Object) eventShopListItem, (Object) null) && eventShopListItem.shops != null && eventShopListItem.shops.unlock != null && (eventShopListItem.shops.unlock.flg != 1 ? 0 : 1) != 0)
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) eventShopListItem, (UnityEngine.Object) null) && eventShopListItem.shops != null && eventShopListItem.shops.unlock != null && (eventShopListItem.shops.unlock.flg != 1 ? 0 : 1) != 0)
           flag = true;
         if (flag)
         {
@@ -83,11 +83,11 @@ namespace SRPG
 
     private GameObject CreateOtherListItem(GameObject template, ListItemEvents.ListItemEvent func, bool is_button_enable)
     {
-      GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) template);
+      GameObject gameObject = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) template);
       EventCoinListItem component1 = (EventCoinListItem) gameObject.GetComponent<EventCoinListItem>();
       Button component2 = (Button) component1.Button.GetComponent<Button>();
       ListItemEvents component3 = (ListItemEvents) component1.Button.GetComponent<ListItemEvents>();
-      if (Object.op_Inequality((Object) component3, (Object) null) && is_button_enable)
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component3, (UnityEngine.Object) null) && is_button_enable)
       {
         component3.OnSelect = func;
         ((Selectable) component2).set_interactable(true);
@@ -100,7 +100,7 @@ namespace SRPG
     private void UpdateItems()
     {
       MonoSingleton<GameManager>.Instance.Player.UpdateEventCoin();
-      if (Object.op_Equality((Object) this.ItemTemplate, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.ItemTemplate, (UnityEngine.Object) null))
         return;
       List<EventCoinData> eventCoinList = MonoSingleton<GameManager>.Instance.Player.EventCoinList;
       Transform transform = ((Component) this).get_transform();
@@ -113,14 +113,14 @@ namespace SRPG
         EventCoinData data = eventCoinList[index];
         DataSource.Bind<EventCoinData>(listItem, data);
       }
-      if (Object.op_Inequality((Object) this.ArenaTemplate, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ArenaTemplate, (UnityEngine.Object) null))
       {
         GameObject otherListItem = this.CreateOtherListItem(this.ArenaTemplate, new ListItemEvents.ListItemEvent(this.OnSelectArenaShop), MonoSingleton<GameManager>.Instance.Player.CheckUnlock(UnlockTargets.Arena));
         otherListItem.get_transform().SetParent(transform, false);
         this.mEventCoinListItems.Add(otherListItem);
         otherListItem.SetActive(true);
       }
-      if (Object.op_Inequality((Object) this.MultiTemplate, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.MultiTemplate, (UnityEngine.Object) null))
       {
         GameObject otherListItem = this.CreateOtherListItem(this.MultiTemplate, new ListItemEvents.ListItemEvent(this.OnSelectMultiShop), true);
         otherListItem.get_transform().SetParent(transform, false);
@@ -139,15 +139,15 @@ namespace SRPG
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      EventShopCoinList.\u003COnSelect\u003Ec__AnonStorey246 selectCAnonStorey246 = new EventShopCoinList.\u003COnSelect\u003Ec__AnonStorey246();
+      EventShopCoinList.\u003COnSelect\u003Ec__AnonStorey32C selectCAnonStorey32C = new EventShopCoinList.\u003COnSelect\u003Ec__AnonStorey32C();
       // ISSUE: reference to a compiler-generated field
-      selectCAnonStorey246.coindata = DataSource.FindDataOfClass<EventCoinData>(go, (EventCoinData) null);
+      selectCAnonStorey32C.coindata = DataSource.FindDataOfClass<EventCoinData>(go, (EventCoinData) null);
       // ISSUE: reference to a compiler-generated field
-      if (selectCAnonStorey246.coindata.iname == null)
+      if (selectCAnonStorey32C.coindata.iname == null)
         return;
       GlobalVars.SelectionCoinListType = GlobalVars.CoinListSelectionType.EventShop;
       // ISSUE: reference to a compiler-generated method
-      GlobalVars.SelectionEventShop = GlobalVars.EventShopListItems.Find(new Predicate<EventShopListItem>(selectCAnonStorey246.\u003C\u003Em__27A));
+      GlobalVars.SelectionEventShop = GlobalVars.EventShopListItems.Find(new Predicate<EventShopListItem>(selectCAnonStorey32C.\u003C\u003Em__369));
       FlowNode_GameObject.ActivateOutputLinks((Component) this, 101);
     }
 

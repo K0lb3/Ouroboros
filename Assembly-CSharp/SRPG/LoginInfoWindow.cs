@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.LoginInfoWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -13,12 +13,12 @@ using UnityEngine.UI;
 
 namespace SRPG
 {
-  [FlowNode.Pin(1, "Gacha", FlowNode.PinTypes.Output, 1)]
-  [FlowNode.Pin(2, "LimitedShop", FlowNode.PinTypes.Output, 2)]
-  [FlowNode.Pin(3, "EventQuest", FlowNode.PinTypes.Output, 3)]
   [FlowNode.Pin(4, "TowerQuest", FlowNode.PinTypes.Output, 4)]
-  [FlowNode.Pin(5, "BuyCoin", FlowNode.PinTypes.Output, 5)]
+  [FlowNode.Pin(2, "LimitedShop", FlowNode.PinTypes.Output, 2)]
+  [FlowNode.Pin(1, "Gacha", FlowNode.PinTypes.Output, 1)]
   [FlowNode.Pin(0, "None", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(5, "BuyCoin", FlowNode.PinTypes.Output, 5)]
+  [FlowNode.Pin(3, "EventQuest", FlowNode.PinTypes.Output, 3)]
   public class LoginInfoWindow : MonoBehaviour, IFlowInterface
   {
     [SerializeField]
@@ -48,9 +48,12 @@ namespace SRPG
     {
       if (Object.op_Inequality((Object) this.Move, (Object) null))
         ((Selectable) this.Move).set_interactable(false);
-      if (!Object.op_Inequality((Object) this.InfoImage, (Object) null))
+      if (Object.op_Inequality((Object) this.InfoImage, (Object) null))
+        ((Component) this.InfoImage).get_gameObject().SetActive(false);
+      if (!Object.op_Inequality((Object) this.CheckToggle, (Object) null))
         return;
-      ((Component) this.InfoImage).get_gameObject().SetActive(false);
+      // ISSUE: method pointer
+      ((UnityEvent<bool>) this.CheckToggle.onValueChanged).AddListener(new UnityAction<bool>((object) this, __methodptr(OnValueChange)));
     }
 
     private void Start()
@@ -106,16 +109,22 @@ namespace SRPG
 
     private void OnMoveScene()
     {
-      if (Object.op_Inequality((Object) this.CheckToggle, (Object) null) && this.CheckToggle.get_isOn())
-        GameUtility.setLoginInfoRead(TimeManager.FromUnixTime(TimeManager.Now()).ToString("yyyy/MM/dd"));
       FlowNode_GameObject.ActivateOutputLinks((Component) this, (int) this.mSelectScene);
+    }
+
+    private void OnValueChange(bool value)
+    {
+      string empty = string.Empty;
+      if (value)
+        empty = TimeManager.ServerTime.ToString("yyyy/MM/dd");
+      GameUtility.setLoginInfoRead(empty);
     }
 
     [DebuggerHidden]
     private IEnumerator LoadImages(string path, string img)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new LoginInfoWindow.\u003CLoadImages\u003Ec__IteratorBF() { path = path, img = img, \u003C\u0024\u003Epath = path, \u003C\u0024\u003Eimg = img, \u003C\u003Ef__this = this };
+      return (IEnumerator) new LoginInfoWindow.\u003CLoadImages\u003Ec__Iterator102() { path = path, img = img, \u003C\u0024\u003Epath = path, \u003C\u0024\u003Eimg = img, \u003C\u003Ef__this = this };
     }
 
     public enum SelectScene : byte

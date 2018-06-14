@@ -1,16 +1,17 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: FlowNode_MultiPlayReady
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using SRPG;
 
 [FlowNode.Pin(101, "Wait", FlowNode.PinTypes.Input, 1)]
+[FlowNode.Pin(1, "ChangedToReady", FlowNode.PinTypes.Output, 100)]
+[FlowNode.Pin(2, "ChangedToWait", FlowNode.PinTypes.Output, 101)]
+[FlowNode.Pin(3, "ChangedToEdit", FlowNode.PinTypes.Output, 102)]
 [FlowNode.Pin(102, "Edit", FlowNode.PinTypes.Input, 2)]
-[FlowNode.Pin(1, "ChangedToReady", FlowNode.PinTypes.Output, 3)]
-[FlowNode.Pin(2, "ChangedToWait", FlowNode.PinTypes.Output, 4)]
-[FlowNode.Pin(3, "ChangedToEdit", FlowNode.PinTypes.Output, 5)]
+[FlowNode.Pin(103, "FloorSelect", FlowNode.PinTypes.Input, 3)]
 [FlowNode.Pin(100, "Ready", FlowNode.PinTypes.Input, 0)]
 [FlowNode.NodeType("Multi/MultiPlayReady", 32741)]
 public class FlowNode_MultiPlayReady : FlowNode
@@ -36,6 +37,12 @@ public class FlowNode_MultiPlayReady : FlowNode
       case 102:
         DebugUtility.Log("[MultiPlay]Change Edit!");
         photonPlayerParam.state = 4;
+        instance.SetMyPlayerParam(photonPlayerParam.Serialize());
+        this.ActivateOutputLinks(3);
+        break;
+      case 103:
+        DebugUtility.Log("[MultiPlay]Change FloorSelect!");
+        photonPlayerParam.state = 5;
         instance.SetMyPlayerParam(photonPlayerParam.Serialize());
         this.ActivateOutputLinks(3);
         break;

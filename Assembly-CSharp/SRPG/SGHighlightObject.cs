@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.SGHighlightObject
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -88,7 +88,7 @@ namespace SRPG
         this.shadowBottom.SetActive(false);
         this.UnitID = unitID;
         this.TextID = textID;
-        AnalyticsManager.TrackTutorialAnalyticsEvent(this.TextID, AnalyticsManager.TutorialTrackingEventType.SG_TUTORIAL);
+        AnalyticsManager.TrackTutorialAnalyticsEvent(this.TextID);
         this.DialogBubbleAnchor = dialogBubbleAnchor == EventDialogBubble.Anchors.None ? EventDialogBubble.Anchors.None : dialogBubbleAnchor;
         this.onActivate = callback;
         this.uiCam = Camera.get_main();
@@ -449,18 +449,12 @@ namespace SRPG
       // ISSUE: explicit reference operation
       float num11 = (float) -((double) height - (double) ((Rect) @rect).get_yMax());
       // ISSUE: explicit reference operation
-      float num12 = ((Rect) @rect).get_yMin();
-      if (this.floorValues)
-      {
-        num11 = Mathf.Floor(num11);
-        num1 = Mathf.Floor(num1);
-        num12 = Mathf.Floor(num12);
-      }
+      float yMin = ((Rect) @rect).get_yMin();
       ((RectTransform) this.shadowTop.GetComponent<RectTransform>()).set_offsetMin(new Vector2(0.0f, num1));
       ((RectTransform) this.shadowTop.GetComponent<RectTransform>()).set_offsetMax(new Vector2(0.0f, 0.0f));
       ((RectTransform) this.shadowRight.GetComponent<RectTransform>()).set_offsetMin(new Vector2(num2, 0.0f));
       ((RectTransform) this.shadowRight.GetComponent<RectTransform>()).set_offsetMax(new Vector2(0.0f, num11));
-      ((RectTransform) this.shadowLeft.GetComponent<RectTransform>()).set_offsetMin(new Vector2(0.0f, num12));
+      ((RectTransform) this.shadowLeft.GetComponent<RectTransform>()).set_offsetMin(new Vector2(0.0f, yMin));
       ((RectTransform) this.shadowLeft.GetComponent<RectTransform>()).set_offsetMax(new Vector2(num3, num11));
       ((RectTransform) this.shadowBottom.GetComponent<RectTransform>()).set_offsetMin(new Vector2(0.0f, 0.0f));
       // ISSUE: explicit reference operation
@@ -486,7 +480,7 @@ namespace SRPG
     private IEnumerator LoadAssets()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new SGHighlightObject.\u003CLoadAssets\u003Ec__Iterator2E() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new SGHighlightObject.\u003CLoadAssets\u003Ec__Iterator4E() { \u003C\u003Ef__this = this };
     }
 
     public void GridSelected(int gridX, int gridY)

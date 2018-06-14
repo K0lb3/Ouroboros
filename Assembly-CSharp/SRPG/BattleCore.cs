@@ -1,13 +1,15 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.BattleCore
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
 using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.IO;
+using System.Diagnostics;
+using System.Linq;
 using System.Text;
 using UnityEngine;
 
@@ -22,28 +24,17 @@ namespace SRPG
     public static readonly int MAX_ORDER = BattleCore.MAX_PARTY + BattleCore.MAX_ENEMY;
     public static readonly int MAX_UNITS = BattleCore.MAX_PARTY + BattleCore.MAX_ENEMY;
     public static readonly int MAX_GEMS = 99;
-    public static bool DEBUG_IS_NPC_CONTROL = false;
-    public static bool DEBUG_IS_FORCE_ACTION = false;
-    public static bool DEBUG_IS_FORCE_REACTION = false;
-    public static bool DEBUG_IS_FORCE_AVOID = false;
-    public static bool DEBUG_IS_FORCE_COMBINATION = false;
-    public static bool DEBUG_IS_CAST_SHORTCUT = false;
-    public static bool DEBUG_IS_FORCE_AVOID_REACTION = false;
-    public static bool DEBUG_MOVJMP_MAX = false;
     private static BaseStatus BuffWorkStatus = new BaseStatus();
     private static BaseStatus BuffWorkScaleStatus = new BaseStatus();
     private static BaseStatus DebuffWorkStatus = new BaseStatus();
     private static BaseStatus DebuffWorkScaleStatus = new BaseStatus();
-    public static readonly string SUSPENDDATA_FILENAME = "suspend.bin";
-    private List<List<SkillData>> mUseSkillLists = new List<List<SkillData>>();
-    private List<SkillData> mForceSkillList = new List<SkillData>();
-    private List<SkillData> mHealSkills = new List<SkillData>(5);
-    private List<SkillData> mDamageSkills = new List<SkillData>(5);
-    private List<SkillData> mSupportSkills = new List<SkillData>(5);
-    private List<SkillData> mCureConditionSkills = new List<SkillData>(5);
-    private List<SkillData> mFailConditionSkills = new List<SkillData>(5);
-    private List<SkillData> mDisableConditionSkills = new List<SkillData>(5);
+    private static EUnitDirection[] leftDirection = new EUnitDirection[5]{ EUnitDirection.PositiveY, EUnitDirection.NegativeX, EUnitDirection.NegativeY, EUnitDirection.PositiveX, EUnitDirection.PositiveY };
+    private static EUnitDirection[] rightDirection = new EUnitDirection[5]{ EUnitDirection.NegativeY, EUnitDirection.PositiveX, EUnitDirection.PositiveY, EUnitDirection.NegativeX, EUnitDirection.NegativeY };
+    private SkillMap mSkillMap = new SkillMap();
+    private TrickMap mTrickMap = new TrickMap();
     private QuestParam mQuestParam = new QuestParam();
+    private Dictionary<string, int> mTargetKillstreakDict = new Dictionary<string, int>();
+    private Dictionary<string, int> mMaxTargetKillstreakDict = new Dictionary<string, int>();
     private List<Unit> mAllUnits = new List<Unit>(BattleCore.MAX_UNITS);
     private List<Unit> mUnits = new List<Unit>(BattleCore.MAX_UNITS);
     private List<Unit> mPlayer = new List<Unit>(BattleCore.MAX_PARTY);
@@ -60,14 +51,13 @@ namespace SRPG
     private BattleLogServer mLogs = new BattleLogServer();
     private RandXorshift mRand = new RandXorshift(nameof (mRand));
     private RandXorshift mRandDamage = new RandXorshift(nameof (mRandDamage));
+    private Dictionary<string, BattleCore.SkillExecLog> mSkillExecLogs = new Dictionary<string, BattleCore.SkillExecLog>();
     private BattleCore.Record mRecord = new BattleCore.Record();
     private List<Unit> mTreasures = new List<Unit>();
-    private List<GimmickSkill> mGimmickSkills = new List<GimmickSkill>();
-    private List<BattleCore.SuspendData> mSuspendData = new List<BattleCore.SuspendData>();
-    private List<BattleCore.SuspendLog> mSuspendLogLists = new List<BattleCore.SuspendLog>();
-    private List<string> mSuspendMsgLists = new List<string>();
+    private List<Unit> mGems = new List<Unit>();
+    private List<GimmickEvent> mGimmickEvents = new List<GimmickEvent>();
     private uint mArenaActionCountMax = 25;
-    private const int SUSPEND_ERROR_CTR_MAX = 3;
+    private List<Unit> sameJudgeUnitLists = new List<Unit>();
     private long mBtlID;
     private int mBtlFlags;
     private int mWinTriggerCount;
@@ -75,34 +65,34 @@ namespace SRPG
     private int mActionCount;
     private int mKillstreak;
     private int mMaxKillstreak;
+    private bool mPlayByManually;
+    private bool mIsUseAutoPlayMode;
     private int mTotalHeal;
     private int mTotalDamagesTaken;
     private int mTotalDamages;
     private int mNumUsedItems;
     private int mNumUsedSkills;
     private int mNpcStartIndex;
+    private int mEntryUnitMax;
     private List<Unit>[] mEnemys;
     private FriendStates mFriendStates;
     private int mMapIndex;
     private int mContinueCount;
-    public bool IsSuspendStart;
+    private string mFinisherIname;
     public bool IsSuspendSaveRequest;
-    public bool IsFirstUnitStart;
     private uint mSeed;
     private uint mSeedDamage;
     private RandXorshift CurrentRand;
     private List<Grid> mGridLines;
     private string[] mQuestCampaignIds;
+    private RankingQuestParam mRankingQuestParam;
     private int mMyPlayerIndex;
     private bool mFinishLoad;
     private BattleCore.RESUME_STATE mResumeState;
     public BattleCore.LogCallback LogHandler;
     public BattleCore.LogCallback WarningHandler;
     public BattleCore.LogCallback ErrorHandler;
-    private int mSuspendIndex;
-    private int mSuspendErrorCtr;
-    private string mSuspendUseSkillID;
-    private string mSuspendUseSkillUnitID;
+    public bool[] EventTriggers;
     private bool mIsArenaSkip;
     private uint mArenaActionCount;
     private string mArenaQuestID;
@@ -111,27 +101,13 @@ namespace SRPG
     private BattleCore.QuestResult mArenaCalcResult;
     private BattleCore.eArenaCalcType mArenaCalcTypeNext;
     private List<Unit> mEnemyPriorities;
+    private List<Unit> mGimmickPriorities;
     private GridMap<int> mMoveMap;
     private GridMap<bool> mRangeMap;
     private GridMap<bool> mScopeMap;
     private GridMap<bool> mSearchMap;
     private GridMap<int> mSafeMap;
-
-    public int ActionCount
-    {
-      get
-      {
-        return this.mActionCount;
-      }
-    }
-
-    public int TotalClockTime
-    {
-      get
-      {
-        return (int) this.mClockTimeTotal;
-      }
-    }
+    private GridMap<int> mSafeMapEx;
 
     public RandXorshift CloneRand()
     {
@@ -158,6 +134,14 @@ namespace SRPG
       }
     }
 
+    public RandXorshift Rand
+    {
+      get
+      {
+        return this.mRand;
+      }
+    }
+
     public uint DamageSeed
     {
       get
@@ -180,6 +164,14 @@ namespace SRPG
       this.mRandDamage.SetSeed(index, seed);
     }
 
+    public Dictionary<string, BattleCore.SkillExecLog> SkillExecLogs
+    {
+      get
+      {
+        return this.mSkillExecLogs;
+      }
+    }
+
     public bool SyncStart { get; set; }
 
     public int MyPlayerIndex
@@ -194,9 +186,29 @@ namespace SRPG
 
     public bool IsMultiVersus { get; private set; }
 
+    public bool IsMultiTower { get; private set; }
+
+    public bool IsTower
+    {
+      get
+      {
+        if (this.mQuestParam != null)
+          return this.mQuestParam.type == QuestTypes.Tower;
+        return false;
+      }
+    }
+
     public bool IsVSForceWin { get; set; }
 
     public bool IsVSForceWinComfirm { get; set; }
+
+    public bool IsRankingQuest
+    {
+      get
+      {
+        return this.mRankingQuestParam != null;
+      }
+    }
 
     public bool FinishLoad
     {
@@ -266,16 +278,6 @@ namespace SRPG
       this.ErrorHandler(s);
     }
 
-    public void DEBUG_ADD_GEMS(int amount)
-    {
-      if (this.IsMultiPlay)
-        return;
-      Unit currentUnit = this.CurrentUnit;
-      if (currentUnit == null)
-        return;
-      this.AddGems(currentUnit, amount);
-    }
-
     public string QuestID
     {
       get
@@ -326,6 +328,26 @@ namespace SRPG
       }
     }
 
+    public bool IsUnitChange
+    {
+      get
+      {
+        if (this.mQuestParam != null)
+          return this.mQuestParam.IsUnitChange;
+        return false;
+      }
+    }
+
+    public bool IsMultiLeaderSkill
+    {
+      get
+      {
+        if (this.mQuestParam != null)
+          return this.mQuestParam.IsMultiLeaderSkill;
+        return false;
+      }
+    }
+
     public List<BattleMap> Map
     {
       get
@@ -355,6 +377,14 @@ namespace SRPG
       get
       {
         return this.mOrder;
+      }
+    }
+
+    public List<Unit> StartingMembers
+    {
+      get
+      {
+        return this.mStartingMembers;
       }
     }
 
@@ -434,7 +464,7 @@ namespace SRPG
     {
       get
       {
-        if (!this.IsMultiPlay && (int) this.mLeaderIndex != -1 || this.IsMultiVersus && (int) this.mLeaderIndex != -1)
+        if (!this.IsMultiPlay && (int) this.mLeaderIndex != -1 || this.IsMultiPlay && (int) this.mLeaderIndex != -1 && this.mQuestParam.IsMultiLeaderSkill || this.IsMultiVersus && (int) this.mLeaderIndex != -1)
           return this.mPlayer[(int) this.mLeaderIndex];
         return (Unit) null;
       }
@@ -468,15 +498,256 @@ namespace SRPG
       }
     }
 
+    public int WinTriggerCount
+    {
+      get
+      {
+        return this.mWinTriggerCount;
+      }
+      set
+      {
+        this.mWinTriggerCount = value;
+      }
+    }
+
+    public int LoseTriggerCount
+    {
+      get
+      {
+        return this.mLoseTriggerCount;
+      }
+      set
+      {
+        this.mLoseTriggerCount = value;
+      }
+    }
+
+    public int ActionCount
+    {
+      get
+      {
+        return this.mActionCount;
+      }
+      set
+      {
+        this.mActionCount = value;
+      }
+    }
+
+    public int Killstreak
+    {
+      get
+      {
+        return this.mKillstreak;
+      }
+      set
+      {
+        this.mKillstreak = value;
+      }
+    }
+
+    public int MaxKillstreak
+    {
+      get
+      {
+        return this.mMaxKillstreak;
+      }
+      set
+      {
+        this.mMaxKillstreak = value;
+      }
+    }
+
+    public Dictionary<string, int> TargetKillstreak
+    {
+      get
+      {
+        return this.mTargetKillstreakDict;
+      }
+      set
+      {
+        this.mTargetKillstreakDict = value;
+      }
+    }
+
+    public Dictionary<string, int> MaxTargetKillstreak
+    {
+      get
+      {
+        return this.mMaxTargetKillstreakDict;
+      }
+      set
+      {
+        this.mMaxTargetKillstreakDict = value;
+      }
+    }
+
+    public bool PlayByManually
+    {
+      get
+      {
+        return this.mPlayByManually;
+      }
+      set
+      {
+        this.mPlayByManually = value;
+      }
+    }
+
+    public bool IsUseAutoPlayMode
+    {
+      get
+      {
+        return this.mIsUseAutoPlayMode;
+      }
+      set
+      {
+        this.mIsUseAutoPlayMode = value;
+      }
+    }
+
+    public int TotalHeal
+    {
+      get
+      {
+        return this.mTotalHeal;
+      }
+      set
+      {
+        this.mTotalHeal = value;
+      }
+    }
+
+    public int TotalDamagesTaken
+    {
+      get
+      {
+        return this.mTotalDamagesTaken;
+      }
+      set
+      {
+        this.mTotalDamagesTaken = value;
+      }
+    }
+
+    public int TotalDamages
+    {
+      get
+      {
+        return this.mTotalDamages;
+      }
+      set
+      {
+        this.mTotalDamages = value;
+      }
+    }
+
+    public int NumUsedItems
+    {
+      get
+      {
+        return this.mNumUsedItems;
+      }
+      set
+      {
+        this.mNumUsedItems = value;
+      }
+    }
+
+    public int NumUsedSkills
+    {
+      get
+      {
+        return this.mNumUsedSkills;
+      }
+      set
+      {
+        this.mNumUsedSkills = value;
+      }
+    }
+
+    public int ClockTime
+    {
+      get
+      {
+        return (int) this.mClockTime;
+      }
+      set
+      {
+        this.mClockTime = (OInt) value;
+      }
+    }
+
+    public int ClockTimeTotal
+    {
+      get
+      {
+        return (int) this.mClockTimeTotal;
+      }
+      set
+      {
+        this.mClockTimeTotal = (OInt) value;
+      }
+    }
+
+    public int ContinueCount
+    {
+      get
+      {
+        return this.mContinueCount;
+      }
+      set
+      {
+        this.mContinueCount = value;
+      }
+    }
+
+    public string FinisherIname
+    {
+      get
+      {
+        return this.mFinisherIname;
+      }
+      set
+      {
+        this.mFinisherIname = value;
+      }
+    }
+
     public bool RequestAutoBattle { get; set; }
 
     public bool IsAutoBattle { get; set; }
+
+    public void SetManualPlayFlag()
+    {
+      if (this.IsAutoBattle || this.CurrentUnit.Side != EUnitSide.Player)
+        return;
+      this.PlayByManually = true;
+    }
+
+    public bool IsSkillDirection
+    {
+      get
+      {
+        if (this.IsMultiPlay || this.IsMultiVersus || this.mQuestParam != null && this.mQuestParam.type == QuestTypes.Arena)
+          return true;
+        return GameUtility.Config_DirectionCut.Value;
+      }
+    }
 
     public string[] QuestCampaignIds
     {
       get
       {
         return this.mQuestCampaignIds;
+      }
+    }
+
+    public List<GimmickEvent> GimmickEventList
+    {
+      get
+      {
+        return this.mGimmickEvents;
       }
     }
 
@@ -518,9 +789,10 @@ namespace SRPG
       this.mEnemys = (List<Unit>[]) null;
       this.mPlayer = (List<Unit>) null;
       this.mQuestParam = (QuestParam) null;
+      this.ReleaseAi();
     }
 
-    public bool SetupMultiPlayUnit(UnitData[] units, int[] ownerPlayerIndex, int[] placementIndex)
+    public bool SetupMultiPlayUnit(UnitData[] units, int[] ownerPlayerIndex, int[] placementIndex, bool[] sub)
     {
       MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
       List<UnitSetting> partyUnitSettings = this.mMap[0].PartyUnitSettings;
@@ -528,7 +800,36 @@ namespace SRPG
       PlayerPartyTypes playerPartyType;
       PlayerPartyTypes enemyPartyType;
       this.mQuestParam.GetPartyTypes(out playerPartyType, out enemyPartyType);
-      if (instance.IsMultiVersus)
+      if (MonoSingleton<GameManager>.Instance.AudienceMode)
+      {
+        this.IsMultiPlay = true;
+        this.IsMultiVersus = true;
+        this.mLeaderIndex = (OInt) 0;
+        this.mEnemyLeaderIndex = (OInt) 0;
+        this.VersusTurnMax = (uint) this.mQuestParam.VersusMoveCount;
+        this.RemainVersusTurnCount = 0U;
+        for (int index = 0; index < units.Length; ++index)
+        {
+          if (units[index] != null)
+          {
+            Unit unit = new Unit();
+            if (!unit.Setup(units[index], ownerPlayerIndex[index] != 1 ? arenaUnitSettings[placementIndex[index]] : partyUnitSettings[placementIndex[index]], (Unit.DropItem) null, (Unit.DropItem) null))
+            {
+              this.DebugErr("failed unit Setup");
+              return false;
+            }
+            unit.IsPartyMember = true;
+            unit.SetUnitFlag(EUnitFlag.Searched, true);
+            unit.OwnerPlayerIndex = ownerPlayerIndex[index];
+            unit.Side = ownerPlayerIndex[index] != 1 ? EUnitSide.Enemy : EUnitSide.Player;
+            if (unit.Side == EUnitSide.Player)
+              this.mPlayer.Add(unit);
+            this.mAllUnits.Add(unit);
+            this.mStartingMembers.Add(unit);
+          }
+        }
+      }
+      else if (instance.IsMultiVersus)
       {
         this.IsMultiVersus = instance.IsMultiVersus;
         this.mLeaderIndex = (OInt) 0;
@@ -558,6 +859,7 @@ namespace SRPG
       }
       else
       {
+        this.IsMultiTower = GlobalVars.SelectedMultiPlayRoomType == JSON_MyPhotonRoomParam.EType.TOWER;
         for (int index = 0; index < units.Length; ++index)
         {
           if (units[index] != null)
@@ -568,7 +870,15 @@ namespace SRPG
             if (this.mQuestParam.IsUnitAllowed(units[index]))
             {
               Unit unit = new Unit();
-              if (!unit.Setup(units[index], partyUnitSettings[index], (Unit.DropItem) null, (Unit.DropItem) null))
+              if (this.IsMultiTower)
+              {
+                if (!unit.Setup(units[index], partyUnitSettings[placementIndex[index]], (Unit.DropItem) null, (Unit.DropItem) null))
+                {
+                  this.DebugErr("failed unit Setup");
+                  return false;
+                }
+              }
+              else if (!unit.Setup(units[index], partyUnitSettings[index], (Unit.DropItem) null, (Unit.DropItem) null))
               {
                 this.DebugErr("failed unit Setup");
                 return false;
@@ -576,9 +886,11 @@ namespace SRPG
               unit.IsPartyMember = true;
               unit.SetUnitFlag(EUnitFlag.Searched, true);
               unit.OwnerPlayerIndex = ownerPlayerIndex[index];
+              unit.IsSub = sub[index];
               this.mPlayer.Add(unit);
               this.mAllUnits.Add(unit);
-              this.mStartingMembers.Add(unit);
+              if (!unit.IsSub)
+                this.mStartingMembers.Add(unit);
             }
           }
         }
@@ -586,7 +898,7 @@ namespace SRPG
       return true;
     }
 
-    public bool Deserialize(string questID, BattleCore.Json_Battle jsonBtl, int myPlayerIndex, UnitData[] units, int[] ownerPlayerIndex, bool is_restart = false, int[] placementIndex = null)
+    public bool Deserialize(string questID, BattleCore.Json_Battle jsonBtl, int myPlayerIndex, UnitData[] units, int[] ownerPlayerIndex, bool is_restart = false, int[] placementIndex = null, bool[] sub = null)
     {
       if (jsonBtl == null | string.IsNullOrEmpty(questID))
         return false;
@@ -607,7 +919,8 @@ namespace SRPG
       this.mFriendStates = FriendStates.None;
       this.mWinTriggerCount = 0;
       this.mLoseTriggerCount = 0;
-      this.mSuspendIndex = 0;
+      if (jsonBtl != null && jsonBtl.btlinfo != null && jsonBtl.btlinfo.quest_ranking != null)
+        this.mRankingQuestParam = RankingQuestParam.FindRankingQuestParam(questID, jsonBtl.btlinfo.quest_ranking.schedule_id, (RankingQuestType) jsonBtl.btlinfo.quest_ranking.type);
       this.mQuestParam = MonoSingleton<GameManager>.Instance.FindQuest(questID);
       DebugUtility.Assert(this.mQuestParam != null, "mQuestParam == null");
       PlayerPartyTypes playerPartyType;
@@ -625,24 +938,26 @@ namespace SRPG
         this.mMap.Add(battleMap);
       }
       List<UnitSetting> partyUnitSettings = this.mMap[0].PartyUnitSettings;
+      List<UnitSubSetting> partyUnitSubSettings = this.mMap[0].PartyUnitSubSettings;
       if (partyUnitSettings != null && partyUnitSettings.Count > 0)
       {
-        if (this.IsMultiPlay)
+        if (this.IsMultiPlay || MonoSingleton<GameManager>.Instance.AudienceMode)
         {
-          if (!this.SetupMultiPlayUnit(units, ownerPlayerIndex, placementIndex))
+          if (!this.SetupMultiPlayUnit(units, ownerPlayerIndex, placementIndex, sub))
             return false;
         }
         else
         {
           int index1 = 0;
-          if (this.mQuestParam.units != null)
+          int index2 = 0;
+          if (this.mQuestParam.units.IsNotNull())
           {
-            for (int index2 = 0; index2 < this.mQuestParam.units.Length; ++index2)
+            for (int index3 = 0; index3 < this.mQuestParam.units.Length; ++index3)
             {
-              string unit1 = this.mQuestParam.units[index2];
-              if (!string.IsNullOrEmpty(unit1))
+              string iname = this.mQuestParam.units.Get(index3);
+              if (!string.IsNullOrEmpty(iname))
               {
-                UnitData unitDataByUnitId = MonoSingleton<GameManager>.Instance.Player.FindUnitDataByUnitID(unit1);
+                UnitData unitDataByUnitId = MonoSingleton<GameManager>.Instance.Player.FindUnitDataByUnitID(iname);
                 if (unitDataByUnitId == null)
                 {
                   this.DebugErr("player uniqueid not equal");
@@ -651,27 +966,28 @@ namespace SRPG
                 UnitData unitdata = new UnitData();
                 unitdata.Setup(unitDataByUnitId);
                 unitdata.SetJob(playerPartyType);
-                Unit unit2 = new Unit();
-                if (!unit2.Setup(unitdata, partyUnitSettings[index1], (Unit.DropItem) null, (Unit.DropItem) null))
+                Unit unit = new Unit();
+                if (!unit.Setup(unitdata, partyUnitSettings[index1], (Unit.DropItem) null, (Unit.DropItem) null))
                 {
                   this.DebugErr("failed unit Setup");
                   return false;
                 }
-                unit2.IsPartyMember = true;
-                unit2.SetUnitFlag(EUnitFlag.Searched, true);
-                unit2.SetUnitFlag(EUnitFlag.ForceEntried, true);
-                this.mPlayer.Add(unit2);
-                this.mAllUnits.Add(unit2);
-                this.mStartingMembers.Add(unit2);
+                unit.IsPartyMember = true;
+                unit.SetUnitFlag(EUnitFlag.Searched, true);
+                unit.SetUnitFlag(EUnitFlag.ForceEntried, true);
+                unit.SetUnitFlag(EUnitFlag.DisableUnitChange, true);
+                this.mPlayer.Add(unit);
+                this.mAllUnits.Add(unit);
+                this.mStartingMembers.Add(unit);
                 ++index1;
               }
             }
           }
           if (jsonBtl.btlinfo.units != null)
           {
-            for (int index2 = 0; index2 < jsonBtl.btlinfo.units.Length; ++index2)
+            for (int index3 = 0; index3 < jsonBtl.btlinfo.units.Length; ++index3)
             {
-              long iid = (long) jsonBtl.btlinfo.units[index2].iid;
+              long iid = (long) jsonBtl.btlinfo.units[index3].iid;
               if (iid > 0L)
               {
                 UnitData unitDataByUniqueId = MonoSingleton<GameManager>.Instance.Player.FindUnitDataByUniqueID(iid);
@@ -693,14 +1009,20 @@ namespace SRPG
                 if (this.mQuestParam.IsUnitAllowed(unitData))
                 {
                   PartyData partyCurrent = MonoSingleton<GameManager>.Instance.Player.GetPartyCurrent();
-                  bool flag = index2 < partyCurrent.MAX_MAINMEMBER;
-                  if (!flag || index2 < this.mQuestParam.GetSelectMainMemberNum())
+                  bool flag = index3 < partyCurrent.MAX_MAINMEMBER;
+                  if (!flag || index3 < this.mQuestParam.GetSelectMainMemberNum())
                   {
                     UnitSetting setting = this.mQuestParam.type != QuestTypes.Tower ? partyUnitSettings[index1] : (flag ? partyUnitSettings[index1] : partyUnitSettings[partyUnitSettings.Count - 1]);
                     if (!flag)
                     {
                       setting = new UnitSetting();
                       setting.side = (OInt) 0;
+                      if (index2 < partyUnitSubSettings.Count)
+                      {
+                        setting.startCtCalc = partyUnitSubSettings[index2].startCtCalc;
+                        setting.startCtVal = partyUnitSubSettings[index2].startCtVal;
+                        ++index2;
+                      }
                     }
                     Unit unit = new Unit();
                     if (!unit.Setup(unitData, setting, (Unit.DropItem) null, (Unit.DropItem) null))
@@ -745,6 +1067,7 @@ namespace SRPG
             unit.IsPartyMember = true;
             unit.IsSub = false;
             unit.SetUnitFlag(EUnitFlag.Searched, true);
+            unit.SetUnitFlag(EUnitFlag.DisableUnitChange, true);
             this.mFriendIndex = (OInt) this.mPlayer.Count;
             this.mPlayer.Add(unit);
             this.mAllUnits.Add(unit);
@@ -767,7 +1090,11 @@ namespace SRPG
         case QuestTypes.Event:
         case QuestTypes.Character:
         case QuestTypes.Tower:
-          int index3 = 0;
+        case QuestTypes.Gps:
+        case QuestTypes.Extra:
+        case QuestTypes.MultiTower:
+        case QuestTypes.Beginner:
+          int index4 = 0;
           for (int index1 = 0; index1 < this.mMap.Count; ++index1)
           {
             this.mEnemys[index1] = new List<Unit>(BattleCore.MAX_ENEMY);
@@ -779,26 +1106,27 @@ namespace SRPG
                 Unit unit = new Unit();
                 Unit.DropItem dropitem = (Unit.DropItem) null;
                 BattleCore.Json_BtlDrop[] drops = jsonBtl.btlinfo.drops;
-                if (drops != null && index3 < drops.Length && (!string.IsNullOrEmpty(drops[index3].iname) && drops[index3].num > 0))
+                if (drops != null && index4 < drops.Length && (!string.IsNullOrEmpty(drops[index4].iname) && drops[index4].num > 0))
                 {
-                  ItemParam itemParam = MonoSingleton<GameManager>.Instance.GetItemParam(drops[index3].iname);
+                  ItemParam itemParam = MonoSingleton<GameManager>.Instance.GetItemParam(drops[index4].iname);
                   if (itemParam != null)
                   {
                     dropitem = new Unit.DropItem();
                     dropitem.param = itemParam;
-                    dropitem.num = (OInt) drops[index3].num;
+                    dropitem.num = (OInt) drops[index4].num;
+                    dropitem.is_secret = (OBool) (drops[index4].secret != 0);
                   }
                 }
                 Unit.DropItem stealitem = (Unit.DropItem) null;
                 BattleCore.Json_BtlSteal[] steals = jsonBtl.btlinfo.steals;
-                if (steals != null && index3 < steals.Length && (!string.IsNullOrEmpty(steals[index3].iname) && steals[index3].num > 0))
+                if (steals != null && index4 < steals.Length && (!string.IsNullOrEmpty(steals[index4].iname) && steals[index4].num > 0))
                 {
-                  ItemParam itemParam = MonoSingleton<GameManager>.Instance.GetItemParam(steals[index3].iname);
+                  ItemParam itemParam = MonoSingleton<GameManager>.Instance.GetItemParam(steals[index4].iname);
                   if (itemParam != null)
                   {
                     stealitem = new Unit.DropItem();
                     stealitem.param = itemParam;
-                    stealitem.num = (OInt) steals[index3].num;
+                    stealitem.num = (OInt) steals[index4].num;
                   }
                 }
                 if (!unit.Setup((UnitData) null, (UnitSetting) npcUnitSettings[index2], dropitem, stealitem))
@@ -806,6 +1134,7 @@ namespace SRPG
                   this.DebugErr("enemy unit setup failed");
                   return false;
                 }
+                unit.SetUnitFlag(EUnitFlag.DisableUnitChange, true);
                 switch (unit.Side)
                 {
                   case EUnitSide.Player:
@@ -818,7 +1147,7 @@ namespace SRPG
                     break;
                 }
                 this.mAllUnits.Add(unit);
-                ++index3;
+                ++index4;
               }
             }
           }
@@ -851,6 +1180,23 @@ namespace SRPG
           }
           for (int index1 = 0; index1 < this.mAllUnits.Count; ++index1)
             this.mAllUnits[index1].SetUnitFlag(EUnitFlag.ForceAuto, true);
+          List<NPCSetting> npcUnitSettings1 = this.mMap[0].NPCUnitSettings;
+          if (npcUnitSettings1 != null)
+          {
+            for (int index1 = 0; index1 < npcUnitSettings1.Count; ++index1)
+            {
+              Unit unit = new Unit();
+              if (!unit.Setup((UnitData) null, (UnitSetting) npcUnitSettings1[index1], (Unit.DropItem) null, (Unit.DropItem) null))
+                this.DebugErr("Arena: enemy unit setup failed");
+              else if (unit.IsBreakObj && unit.Side == EUnitSide.Neutral)
+              {
+                unit.SetUnitFlag(EUnitFlag.DisableUnitChange, true);
+                this.mEnemys[0].Add(unit);
+                this.mAllUnits.Add(unit);
+              }
+            }
+            break;
+          }
           break;
         case QuestTypes.VersusFree:
         case QuestTypes.VersusRank:
@@ -864,16 +1210,34 @@ namespace SRPG
               if (current.Side == EUnitSide.Enemy)
                 this.mEnemys[0].Add(current);
             }
+          }
+          List<NPCSetting> npcUnitSettings2 = this.mMap[0].NPCUnitSettings;
+          if (npcUnitSettings2 != null)
+          {
+            for (int index1 = 0; index1 < npcUnitSettings2.Count; ++index1)
+            {
+              Unit unit = new Unit();
+              if (!unit.Setup((UnitData) null, (UnitSetting) npcUnitSettings2[index1], (Unit.DropItem) null, (Unit.DropItem) null))
+                this.DebugErr("Versus: enemy unit setup failed");
+              else if (unit.IsBreakObj && unit.Side == EUnitSide.Neutral)
+              {
+                unit.SetUnitFlag(EUnitFlag.DisableUnitChange, true);
+                this.mEnemys[0].Add(unit);
+                this.mAllUnits.Add(unit);
+              }
+            }
             break;
           }
+          break;
       }
+      this.mEntryUnitMax = this.mAllUnits.Count;
       if (jsonBtl.btlinfo.atkmags != null)
         this.mQuestParam.SetAtkTypeMag(jsonBtl.btlinfo.atkmags);
       if (jsonBtl.btlinfo.campaigns != null)
         this.mQuestCampaignIds = jsonBtl.btlinfo.campaigns;
       if (!is_restart)
       {
-        int length = this.mAllUnits.Count - this.mNpcStartIndex;
+        int length = this.mEntryUnitMax - this.mNpcStartIndex;
         if (length != 0)
         {
           this.mRecord.drops = new OInt[length];
@@ -890,11 +1254,11 @@ namespace SRPG
         for (int index1 = 0; index1 < this.mAllUnits.Count; ++index1)
           this.mAllUnits[index1].SetUnitFlag(EUnitFlag.DisableFirstVoice, true);
       }
-      this.UpdateBattlePassiveSkill();
+      this.BeginBattlePassiveSkill();
       if (this.mQuestParam.type == QuestTypes.Tower)
       {
         MonoSingleton<GameManager>.Instance.TowerResuponse.CalcDamage(this.Player);
-        MonoSingleton<GameManager>.Instance.TowerResuponse.CalcEnemyDamage(this.Enemys);
+        MonoSingleton<GameManager>.Instance.TowerResuponse.CalcEnemyDamage(this.Enemys, false);
       }
       for (int index1 = 0; index1 < 5; ++index1)
       {
@@ -967,11 +1331,35 @@ namespace SRPG
       return (ItemData) null;
     }
 
-    private void UpdateBattlePassiveSkill()
+    private void BeginBattlePassiveSkill()
     {
       for (int index = 0; index < this.mUnits.Count; ++index)
         this.mUnits[index].ClearPassiveBuffEffects();
-      if (this.Leader != null)
+      if (this.IsMultiTower)
+      {
+        MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) instance, (UnityEngine.Object) null))
+        {
+          List<JSON_MyPhotonPlayerParam> myPlayersStarted = instance.GetMyPlayersStarted();
+          if (myPlayersStarted != null)
+          {
+            // ISSUE: object of a compiler-generated type is created
+            // ISSUE: variable of a compiler-generated type
+            BattleCore.\u003CBeginBattlePassiveSkill\u003Ec__AnonStorey241 skillCAnonStorey241 = new BattleCore.\u003CBeginBattlePassiveSkill\u003Ec__AnonStorey241();
+            // ISSUE: reference to a compiler-generated field
+            // ISSUE: reference to a compiler-generated field
+            // ISSUE: reference to a compiler-generated field
+            for (skillCAnonStorey241.i = 0; skillCAnonStorey241.i < myPlayersStarted.Count; ++skillCAnonStorey241.i)
+            {
+              // ISSUE: reference to a compiler-generated method
+              int index = this.mPlayer.FindIndex(new Predicate<Unit>(skillCAnonStorey241.\u003C\u003Em__1BE));
+              if (index != -1)
+                this.InternalBattlePassiveSkill(this.mPlayer[index], this.mPlayer[index].LeaderSkill, true);
+            }
+          }
+        }
+      }
+      else if (this.Leader != null)
         this.InternalBattlePassiveSkill(this.Leader, this.Leader.LeaderSkill, true);
       if (this.Friend != null && this.mFriendStates == FriendStates.Friend)
         this.InternalBattlePassiveSkill(this.Friend, this.Friend.LeaderSkill, true);
@@ -980,18 +1368,21 @@ namespace SRPG
       for (int index1 = 0; index1 < this.mAllUnits.Count; ++index1)
       {
         Unit mAllUnit = this.mAllUnits[index1];
-        EquipData[] currentEquips = mAllUnit.CurrentEquips;
-        if (currentEquips != null)
+        if (mAllUnit != null && !mAllUnit.IsDead)
         {
-          for (int index2 = 0; index2 < currentEquips.Length; ++index2)
+          EquipData[] currentEquips = mAllUnit.CurrentEquips;
+          if (currentEquips != null)
           {
-            EquipData equipData = currentEquips[index2];
-            if (equipData != null && equipData.IsValid() && equipData.IsEquiped())
-              this.InternalBattlePassiveSkill(mAllUnit, equipData.Skill, false);
+            for (int index2 = 0; index2 < currentEquips.Length; ++index2)
+            {
+              EquipData equipData = currentEquips[index2];
+              if (equipData != null && equipData.IsValid() && equipData.IsEquiped())
+                this.InternalBattlePassiveSkill(mAllUnit, equipData.Skill, false);
+            }
           }
+          for (int index2 = 0; index2 < mAllUnit.BattleSkills.Count; ++index2)
+            this.InternalBattlePassiveSkill(mAllUnit, mAllUnit.BattleSkills[index2], false);
         }
-        for (int index2 = 0; index2 < mAllUnit.BattleSkills.Count; ++index2)
-          this.InternalBattlePassiveSkill(mAllUnit, mAllUnit.BattleSkills[index2], false);
       }
       for (int index = 0; index < this.Player.Count; ++index)
         this.Player[index].CalcCurrentStatus(this.mMapIndex == 0);
@@ -999,10 +1390,81 @@ namespace SRPG
         this.Enemys[index].CalcCurrentStatus(true);
     }
 
+    private void BeginBattlePassiveSkill(Unit unit)
+    {
+      if (unit == null || unit.IsDead)
+        return;
+      EquipData[] currentEquips = unit.CurrentEquips;
+      if (currentEquips != null)
+      {
+        for (int index = 0; index < currentEquips.Length; ++index)
+        {
+          EquipData equipData = currentEquips[index];
+          if (equipData != null && equipData.IsValid() && equipData.IsEquiped())
+            this.InternalBattlePassiveSkill(unit, equipData.Skill, false);
+        }
+      }
+      for (int index = 0; index < unit.BattleSkills.Count; ++index)
+        this.InternalBattlePassiveSkill(unit, unit.BattleSkills[index], false);
+      for (int index = 0; index < this.Player.Count; ++index)
+      {
+        Unit unit1 = this.Player[index];
+        if (unit1 != null && !unit1.IsDead)
+          unit1.CalcCurrentStatus(false);
+      }
+      for (int index = 0; index < this.Enemys.Count; ++index)
+      {
+        Unit enemy = this.Enemys[index];
+        if (enemy != null && !enemy.IsDead)
+          enemy.CalcCurrentStatus(false);
+      }
+    }
+
+    private void UpdateBattlePassiveSkill()
+    {
+      for (int index1 = 0; index1 < this.mAllUnits.Count; ++index1)
+      {
+        Unit mAllUnit = this.mAllUnits[index1];
+        if (mAllUnit != null && !mAllUnit.IsDead)
+        {
+          EquipData[] currentEquips = mAllUnit.CurrentEquips;
+          if (currentEquips != null)
+          {
+            for (int index2 = 0; index2 < currentEquips.Length; ++index2)
+            {
+              EquipData equipData = currentEquips[index2];
+              if (equipData != null && equipData.IsValid() && equipData.IsEquiped())
+              {
+                SkillData skill = equipData.Skill;
+                if (skill != null && skill.Target != ESkillTarget.Self && (skill.IsPassiveSkill() && skill.Timing == ESkillTiming.Passive))
+                  this.InternalBattlePassiveSkill(mAllUnit, skill, false);
+              }
+            }
+          }
+          for (int index2 = 0; index2 < mAllUnit.BattleSkills.Count; ++index2)
+          {
+            SkillData battleSkill = mAllUnit.BattleSkills[index2];
+            if (battleSkill != null && battleSkill.Target != ESkillTarget.Self && (battleSkill.IsPassiveSkill() && battleSkill.Timing == ESkillTiming.Passive))
+              this.InternalBattlePassiveSkill(mAllUnit, mAllUnit.BattleSkills[index2], false);
+          }
+        }
+      }
+      for (int index = 0; index < this.Player.Count; ++index)
+        this.Player[index].CalcCurrentStatus(false);
+      for (int index = 0; index < this.Enemys.Count; ++index)
+        this.Enemys[index].CalcCurrentStatus(false);
+    }
+
     private void InternalBattlePassiveSkill(Unit self, SkillData skill, bool is_duplicate = false)
     {
       if (skill == null || !skill.IsPassiveSkill())
         return;
+      if (skill.Condition == ESkillCondition.MapEffect)
+      {
+        MapEffectParam mapEffectParam = MonoSingleton<GameManager>.Instance.GetMapEffectParam(this.mQuestParam.MapEffectId);
+        if (mapEffectParam == null || !mapEffectParam.IsValidSkill(skill.SkillID))
+          return;
+      }
       for (int index = 0; index < this.Player.Count; ++index)
         this.InternalBattlePassiveSkill(self, this.Player[index], skill, is_duplicate);
       for (int index = 0; index < this.Enemys.Count; ++index)
@@ -1011,7 +1473,7 @@ namespace SRPG
 
     private void InternalBattlePassiveSkill(Unit self, Unit target, SkillData skill, bool is_duplicate = false)
     {
-      if (target == null || target.IsGimmick || !this.CheckSkillTarget(self, target, skill) || !is_duplicate && target.ContainsSkillAttachment(skill))
+      if (target == null || target.IsGimmick && !target.IsBreakObj || (self.IsSub && !skill.IsSubActuate() || !this.CheckSkillTarget(self, target, skill)) || !is_duplicate && target.ContainsSkillAttachment(skill))
         return;
       SkillEffectTypes effectType = skill.EffectType;
       switch (effectType)
@@ -1026,7 +1488,7 @@ label_4:
             flag = true;
           if (skill.Target != ESkillTarget.Self || skill.Condition != ESkillCondition.None || flag)
             this.BuffSkill(ESkillTiming.Passive, self, target, skill, true, (LogSkill) null, SkillEffectTargets.Target, is_duplicate);
-          this.CondSkill(ESkillTiming.Passive, self, target, skill, true, (LogSkill) null, SkillEffectTargets.Target);
+          this.CondSkill(ESkillTiming.Passive, self, target, skill, true, (LogSkill) null, SkillEffectTargets.Target, false);
           break;
         default:
           switch (effectType - 11)
@@ -1050,7 +1512,7 @@ label_4:
         this.mBtlFlags &= ~(1 << (int) (tgt & (EBattleFlag) 31 & (EBattleFlag) 31));
     }
 
-    private bool IsBattleFlag(EBattleFlag tgt)
+    public bool IsBattleFlag(EBattleFlag tgt)
     {
       return (this.mBtlFlags & 1 << (int) (tgt & (EBattleFlag) 31)) != 0;
     }
@@ -1081,46 +1543,32 @@ label_4:
 
     public bool IsUnitAuto(Unit unit)
     {
-      if (unit.IsControl)
-        return this.IsAutoBattle;
-      if (GameUtility.IsDebugBuild)
-        return !BattleCore.DEBUG_IS_NPC_CONTROL;
-      return true;
+      if (!unit.IsControl)
+        return true;
+      return this.IsAutoBattle;
     }
 
     public void RemoveLog()
     {
-      if (this.IsBattleFlag(EBattleFlag.SuspendStart))
-        return;
       this.mLogs.RemoveLog();
     }
 
-    private LogType Log<LogType>() where LogType : BattleLog, new()
+    public LogType Log<LogType>() where LogType : BattleLog, new()
     {
-      if (this.IsBattleFlag(EBattleFlag.SuspendStart))
-        return Activator.CreateInstance<LogType>();
-      if (this.mIsArenaCalc)
+      if (this.mIsArenaCalc || !MonoSingleton<GameManager>.Instance.AudienceManager.IsSkipEnd)
         return Activator.CreateInstance<LogType>();
       return this.mLogs.Log<LogType>();
     }
 
-    public void CalcOrder()
+    private void CalcOrder()
     {
-      for (int index = 0; index < this.mUnits.Count; ++index)
-      {
-        this.UpdateEntryTriggers(UnitEntryTypes.DecrementHp, this.mUnits[index], (SkillParam) null);
-        this.UpdateEntryTriggers(UnitEntryTypes.OnGridEnemy, this.mUnits[index], (SkillParam) null);
-      }
-      this.UpdateEntryTriggers(UnitEntryTypes.DecrementMember, (Unit) null, (SkillParam) null);
-      this.UpdateCancelCastSkill();
-      this.UpdateGimmickSkillStart();
       while (true)
       {
         this.mOrder.Clear();
         for (int index = 0; index < this.mUnits.Count; ++index)
         {
           Unit mUnit = this.mUnits[index];
-          if (!mUnit.IsDeadCondition() && mUnit.IsEntry && (mUnit.Side != EUnitSide.Player || !mUnit.IsSub) && (!mUnit.IsUnitCondition(EUnitCondition.Stop) && (!mUnit.IsGimmick || mUnit.AI != null)))
+          if (!mUnit.IsDeadCondition() && mUnit.IsEntry && (mUnit.Side != EUnitSide.Player || !mUnit.IsSub) && (!mUnit.IsUnitCondition(EUnitCondition.Stop) && (!mUnit.IsGimmick || mUnit.AI != null)) && !mUnit.IsBreakObj)
           {
             this.mOrder.Add(new BattleCore.OrderData()
             {
@@ -1142,10 +1590,11 @@ label_4:
           if (mUnit.CheckEnableEntry())
           {
             this.EntryUnit(mUnit);
-            this.mOrder.Add(new BattleCore.OrderData()
-            {
-              Unit = mUnit
-            });
+            if (!mUnit.IsBreakObj)
+              this.mOrder.Add(new BattleCore.OrderData()
+              {
+                Unit = mUnit
+              });
           }
         }
         if (this.mOrder.Count == 0 || this.CheckEnableNextClockTime())
@@ -1155,96 +1604,139 @@ label_4:
       }
       MySort<BattleCore.OrderData>.Sort(this.mOrder, (Comparison<BattleCore.OrderData>) ((src, dsc) =>
       {
-        if (src.IsCharged && dsc.IsCharged)
-        {
-          if (src.IsCastSkill && dsc.IsCastSkill)
-          {
-            if ((int) src.Unit.CastIndex < (int) dsc.Unit.CastIndex)
-              return -1;
-            if ((int) src.Unit.CastIndex > (int) dsc.Unit.CastIndex)
-              return 1;
-          }
-        }
-        else
-        {
-          if (src.IsCharged)
-            return -1;
-          if (dsc.IsCharged)
-            return 1;
-        }
-        OInt oint1 = (OInt) ((int) src.GetChargeTime() * 1000 / (int) src.GetChargeTimeMax());
-        OInt oint2 = (OInt) ((int) dsc.GetChargeTime() * 1000 / (int) dsc.GetChargeTimeMax());
-        if ((int) oint2 != (int) oint1)
-          return (int) oint2 - (int) oint1;
-        if (src.IsCastSkill != dsc.IsCastSkill)
-          return src.IsCastSkill ? -1 : 1;
-        if (src.IsCastSkill && dsc.IsCastSkill)
-        {
-          if ((int) src.Unit.CastIndex < (int) dsc.Unit.CastIndex)
-            return -1;
-          if ((int) src.Unit.CastIndex > (int) dsc.Unit.CastIndex)
-            return 1;
-        }
-        if ((int) dsc.Unit.UnitIndex != (int) src.Unit.UnitIndex)
-          return (int) src.Unit.UnitIndex - (int) dsc.Unit.UnitIndex;
-        return 0;
+        int chargeTime1 = (int) src.Unit.ChargeTime;
+        int castTime1 = (int) src.Unit.CastTime;
+        int chargeTime2 = (int) dsc.Unit.ChargeTime;
+        int castTime2 = (int) dsc.Unit.CastTime;
+        int num = this.judgeSortOrder(src, dsc);
+        src.Unit.ChargeTime = (OInt) chargeTime1;
+        src.Unit.CastTime = (OInt) castTime1;
+        dsc.Unit.ChargeTime = (OInt) chargeTime2;
+        dsc.Unit.CastTime = (OInt) castTime2;
+        return num;
       }));
     }
 
-    public void StartOrder(bool sync = true, bool force = true)
+    private int judgeSortOrder(BattleCore.OrderData src, BattleCore.OrderData dst)
+    {
+      if (src.CheckChargeTimeFullOver() && dst.CheckChargeTimeFullOver())
+      {
+        if (src.IsCastSkill && dst.IsCastSkill)
+        {
+          if ((int) src.Unit.CastIndex < (int) dst.Unit.CastIndex)
+            return -1;
+          if ((int) src.Unit.CastIndex > (int) dst.Unit.CastIndex)
+            return 1;
+        }
+        int num1 = (int) src.GetChargeTime() * 1000 / (int) src.GetChargeTimeMax();
+        int num2 = (int) dst.GetChargeTime() * 1000 / (int) dst.GetChargeTimeMax();
+        if (num2 != num1)
+          return num2 - num1;
+        if (src.IsCastSkill == dst.IsCastSkill)
+          return (int) src.Unit.UnitIndex - (int) dst.Unit.UnitIndex;
+        return src.IsCastSkill ? -1 : 1;
+      }
+      if (src.CheckChargeTimeFullOver())
+        return -1;
+      if (dst.CheckChargeTimeFullOver())
+        return 1;
+      src.UpdateChargeTime();
+      dst.UpdateChargeTime();
+      return this.judgeSortOrder(src, dst);
+    }
+
+    public void StartOrder(bool sync = true, bool force = true, bool judge = true)
     {
       this.Logs.Reset();
       this.ResumeState = BattleCore.RESUME_STATE.NONE;
-      this.NextOrder(sync, force);
+      WeatherData.IsExecuteUpdate = false;
+      WeatherData.IsEntryConditionLog = false;
+      this.NextOrder(sync, force, judge);
+      WeatherData.IsExecuteUpdate = true;
+      WeatherData.IsEntryConditionLog = true;
       this.ClearAI();
     }
 
-    private void NextOrder(bool sync = true, bool forceSync = false)
+    private void NextOrder(bool sync = true, bool forceSync = false, bool judge = true)
     {
-      if (this.CheckJudgeBattle())
+      bool flag = this.CurrentUnit != null && this.CurrentUnit.OwnerPlayerIndex > 0;
+      for (int index = 0; index < this.mUnits.Count; ++index)
+      {
+        this.UpdateEntryTriggers(UnitEntryTypes.DecrementHp, this.mUnits[index], (SkillParam) null);
+        this.UpdateEntryTriggers(UnitEntryTypes.OnGridEnemy, this.mUnits[index], (SkillParam) null);
+        this.CheckWithDrawUnit(this.mUnits[index]);
+      }
+      this.UpdateEntryTriggers(UnitEntryTypes.DecrementMember, (Unit) null, (SkillParam) null);
+      this.UpdateCancelCastSkill();
+      this.UpdateGimmickEventStart();
+      this.UpdateGimmickEventTrick();
+      TrickData.UpdateMarker();
+      if (judge && this.CheckJudgeBattle())
       {
         this.CalcQuestRecord();
         this.MapEnd();
       }
       else
       {
-        bool flag = this.CurrentUnit != null && this.CurrentUnit.OwnerPlayerIndex > 0;
         this.CalcOrder();
-        this.UseAutoSkills();
-        BattleCore.OrderData currentOrderData = this.CurrentOrderData;
-        if (this.IsMultiPlay && (sync && flag || forceSync))
-          this.Log<LogSync>();
-        if (currentOrderData.IsCastSkill)
-          this.Log<LogCastSkillStart>();
+        this.UpdateWeather();
+        if (this.UseAutoSkills())
+          this.CalcOrder();
+        this.CheckBreakObjKill();
+        if (this.CheckJudgeBattle())
+        {
+          this.CalcQuestRecord();
+          this.MapEnd();
+        }
         else
-          this.Log<LogUnitStart>();
+        {
+          BattleCore.OrderData currentOrderData = this.CurrentOrderData;
+          if (this.IsMultiPlay && !MonoSingleton<GameManager>.Instance.AudienceMode && (sync && flag || forceSync))
+            this.Log<LogSync>();
+          if (currentOrderData.IsCastSkill)
+            this.Log<LogCastSkillStart>();
+          else
+            this.Log<LogUnitStart>();
+          this.mKillstreak = 0;
+          this.mTargetKillstreakDict.Clear();
+        }
       }
     }
 
-    private void UseAutoSkills()
+    private bool UseAutoSkills()
     {
+      bool flag = false;
       for (int index = 0; index < this.mAllUnits.Count; ++index)
       {
-        Unit mAllUnit = this.mAllUnits[index];
-        if (mAllUnit.IsUnitFlag(EUnitFlag.Entried) && !mAllUnit.IsUnitFlag(EUnitFlag.TriggeredAutoSkills))
-        {
-          mAllUnit.SetUnitFlag(EUnitFlag.TriggeredAutoSkills, true);
-          this.UseAutoSkills(mAllUnit);
-        }
+        if (this.UseAutoSkills(this.mAllUnits[index]))
+          flag = true;
       }
+      return flag;
     }
 
-    private void UseAutoSkills(Unit unit)
+    private bool UseAutoSkills(Unit unit)
     {
-      for (int index = 0; index < unit.BattleSkills.Count; ++index)
+      bool flag = false;
+      if (unit.IsUnitFlag(EUnitFlag.Entried) && !unit.IsSub && !unit.IsUnitFlag(EUnitFlag.TriggeredAutoSkills))
       {
-        SkillData battleSkill = unit.BattleSkills[index];
-        if (battleSkill.Timing == ESkillTiming.Auto)
+        unit.SetUnitFlag(EUnitFlag.TriggeredAutoSkills, true);
+        for (int index = 0; index < unit.BattleSkills.Count; ++index)
         {
-          Debug.Log((object) "自動スキル発見");
-          this.UseSkill(unit, unit.x, unit.y, battleSkill, false, 0, 0);
+          SkillData battleSkill = unit.BattleSkills[index];
+          if (battleSkill.Timing == ESkillTiming.Auto)
+          {
+            if (battleSkill.Condition == ESkillCondition.MapEffect)
+            {
+              MapEffectParam mapEffectParam = MonoSingleton<GameManager>.Instance.GetMapEffectParam(this.mQuestParam.MapEffectId);
+              if (mapEffectParam == null || !mapEffectParam.IsValidSkill(battleSkill.SkillID))
+                continue;
+            }
+            this.UseSkill(unit, unit.x, unit.y, battleSkill, false, 0, 0, true);
+            flag = true;
+          }
         }
       }
+      return flag;
     }
 
     private bool CheckEnableNextClockTime()
@@ -1261,6 +1753,8 @@ label_4:
     {
       ++this.mClockTime;
       ++this.mClockTimeTotal;
+      if (TrickData.CheckClock((int) this.mClockTimeTotal))
+        TrickData.UpdateMarker();
       for (int index = 0; index < this.mUnits.Count; ++index)
       {
         Unit mUnit = this.mUnits[index];
@@ -1268,59 +1762,97 @@ label_4:
         if (mUnit.CheckEnableEntry())
         {
           this.EntryUnit(mUnit);
-          this.mOrder.Add(new BattleCore.OrderData()
-          {
-            Unit = mUnit
-          });
+          if (!mUnit.IsBreakObj)
+            this.mOrder.Add(new BattleCore.OrderData()
+            {
+              Unit = mUnit
+            });
         }
       }
       for (int index = 0; index < this.mOrder.Count; ++index)
         this.mOrder[index].UpdateChargeTime();
     }
 
-    private void CreateGimmickSkills()
+    private void CreateGimmickEvents()
     {
       BattleMap currentMap = this.CurrentMap;
-      if (currentMap.GimmickSkills == null)
+      if (currentMap.GimmickEvents == null)
         return;
-      for (int index1 = 0; index1 < currentMap.GimmickSkills.Count; ++index1)
+      for (int index1 = 0; index1 < currentMap.GimmickEvents.Count; ++index1)
       {
-        JSON_GimmickSkill gimmickSkill1 = currentMap.GimmickSkills[index1];
-        if (!string.IsNullOrEmpty(gimmickSkill1.skill) && gimmickSkill1.type != 0)
+        JSON_GimmickEvent gimmickEvent1 = currentMap.GimmickEvents[index1];
+        if ((!string.IsNullOrEmpty(gimmickEvent1.skill) || gimmickEvent1.ev_type != 0) && gimmickEvent1.type != 0)
         {
-          GimmickSkill gimmickSkill2 = new GimmickSkill();
+          GimmickEvent gimmickEvent2 = new GimmickEvent();
+          gimmickEvent2.ev_type = (eGimmickEventType) gimmickEvent1.ev_type;
           bool is_starter1 = false;
-          this.GetConditionUnitByUnitID(gimmickSkill2.users, gimmickSkill1.su_iname);
-          this.GetConditionUnitByUniqueName(gimmickSkill2.users, gimmickSkill1.su_tag, out is_starter1);
-          if (string.IsNullOrEmpty(gimmickSkill1.su_iname) && string.IsNullOrEmpty(gimmickSkill1.su_tag) || gimmickSkill2.users.Count != 0)
+          if (gimmickEvent2.ev_type != eGimmickEventType.UNIT_KILL)
           {
-            this.GetConditionUnitByUnitID(gimmickSkill2.targets, gimmickSkill1.st_iname);
-            bool is_starter2 = false;
-            this.GetConditionUnitByUniqueName(gimmickSkill2.targets, gimmickSkill1.st_tag, out is_starter2);
-            gimmickSkill2.IsStarter = is_starter2;
-            string[] strArray = gimmickSkill1.skill.Split(',');
+            this.GetConditionUnitByUnitID(gimmickEvent2.users, gimmickEvent1.su_iname);
+            this.GetConditionUnitByUniqueName(gimmickEvent2.users, gimmickEvent1.su_tag, out is_starter1);
+            if ((!string.IsNullOrEmpty(gimmickEvent1.su_iname) || !string.IsNullOrEmpty(gimmickEvent1.su_tag)) && gimmickEvent2.users.Count == 0)
+              continue;
+          }
+          this.GetConditionUnitByUnitID(gimmickEvent2.targets, gimmickEvent1.st_iname);
+          bool is_starter2 = false;
+          this.GetConditionUnitByUniqueName(gimmickEvent2.targets, gimmickEvent1.st_tag, out is_starter2);
+          gimmickEvent2.IsStarter = is_starter2;
+          this.GetConditionTrickByTrickID(gimmickEvent2.td_targets, gimmickEvent1.st_iname);
+          this.GetConditionTrickByTag(gimmickEvent2.td_targets, gimmickEvent1.st_tag);
+          gimmickEvent2.td_iname = gimmickEvent1.st_iname;
+          gimmickEvent2.td_tag = gimmickEvent1.st_tag;
+          if (gimmickEvent2.ev_type == eGimmickEventType.USE_SKILL)
+          {
+            string[] strArray = gimmickEvent1.skill.Split(',');
             if (strArray != null && strArray.Length > 0)
             {
               for (int index2 = 0; index2 < strArray.Length; ++index2)
-                gimmickSkill2.skills.Add(strArray[index2]);
+                gimmickEvent2.skills.Add(strArray[index2]);
             }
-            gimmickSkill2.condition.type = (GimmickSkillTriggerTypes) gimmickSkill1.type;
-            gimmickSkill2.condition.count = gimmickSkill1.count;
-            gimmickSkill2.condition.grids = new List<Grid>();
-            for (int index2 = 0; index2 < gimmickSkill1.x.Length && index2 < gimmickSkill1.y.Length; ++index2)
-            {
-              Grid grid = currentMap[gimmickSkill1.x[index2], gimmickSkill1.y[index2]];
-              if (grid != null)
-                gimmickSkill2.condition.grids.Add(grid);
-            }
-            this.GetConditionUnitByUnitID(gimmickSkill2.condition.units, gimmickSkill1.cu_iname);
-            this.GetConditionUnitByUniqueName(gimmickSkill2.condition.units, gimmickSkill1.cu_tag, out is_starter1);
-            if (string.IsNullOrEmpty(gimmickSkill1.cu_iname) && string.IsNullOrEmpty(gimmickSkill1.cu_tag) || gimmickSkill2.condition.units.Count != 0)
-            {
-              this.GetConditionUnitByUnitID(gimmickSkill2.condition.targets, gimmickSkill1.ct_iname);
-              this.GetConditionUnitByUniqueName(gimmickSkill2.condition.targets, gimmickSkill1.ct_tag, out is_starter1);
-              this.mGimmickSkills.Add(gimmickSkill2);
-            }
+          }
+          gimmickEvent2.condition.type = (GimmickEventTriggerType) gimmickEvent1.type;
+          gimmickEvent2.condition.count = gimmickEvent1.count;
+          gimmickEvent2.condition.grids = new List<Grid>();
+          for (int index2 = 0; index2 < gimmickEvent1.x.Length && index2 < gimmickEvent1.y.Length; ++index2)
+          {
+            Grid grid = currentMap[gimmickEvent1.x[index2], gimmickEvent1.y[index2]];
+            if (grid != null)
+              gimmickEvent2.condition.grids.Add(grid);
+          }
+          this.GetConditionUnitByUnitID(gimmickEvent2.condition.units, gimmickEvent1.cu_iname);
+          this.GetConditionUnitByUniqueName(gimmickEvent2.condition.units, gimmickEvent1.cu_tag, out is_starter1);
+          if (string.IsNullOrEmpty(gimmickEvent1.cu_iname) && string.IsNullOrEmpty(gimmickEvent1.cu_tag) || gimmickEvent2.condition.units.Count != 0)
+          {
+            this.GetConditionUnitByUnitID(gimmickEvent2.condition.targets, gimmickEvent1.ct_iname);
+            this.GetConditionUnitByUniqueName(gimmickEvent2.condition.targets, gimmickEvent1.ct_tag, out is_starter1);
+            this.GetConditionTrickByTrickID(gimmickEvent2.condition.td_targets, gimmickEvent1.ct_iname);
+            this.GetConditionTrickByTag(gimmickEvent2.condition.td_targets, gimmickEvent1.ct_tag);
+            gimmickEvent2.condition.td_iname = gimmickEvent1.ct_iname;
+            gimmickEvent2.condition.td_tag = gimmickEvent1.ct_tag;
+            this.mGimmickEvents.Add(gimmickEvent2);
+          }
+        }
+      }
+    }
+
+    public void RelinkTrickGimmickEvents()
+    {
+      using (List<GimmickEvent>.Enumerator enumerator = this.mGimmickEvents.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+        {
+          GimmickEvent current = enumerator.Current;
+          if (current.td_targets.Count != 0)
+          {
+            current.td_targets.Clear();
+            this.GetConditionTrickByTrickID(current.td_targets, current.td_iname);
+            this.GetConditionTrickByTag(current.td_targets, current.td_tag);
+          }
+          if (current.condition.td_targets.Count != 0)
+          {
+            current.condition.td_targets.Clear();
+            this.GetConditionTrickByTrickID(current.condition.td_targets, current.condition.td_iname);
+            this.GetConditionTrickByTag(current.condition.td_targets, current.condition.td_tag);
           }
         }
       }
@@ -1363,77 +1895,136 @@ label_4:
       }
     }
 
-    private void GimmickSkillDamageCount(Unit attacker, Unit defender)
+    public void GetConditionTrickByTrickID(List<TrickData> results, string inames)
     {
-      if (this.IsBattleFlag(EBattleFlag.PredictResult))
+      if (results == null || string.IsNullOrEmpty(inames))
         return;
-      for (int index = 0; index < this.mGimmickSkills.Count; ++index)
+      string[] strArray = inames.Split(',');
+      if (strArray == null && strArray.Length == 0)
+        return;
+      List<TrickData> effectAll = TrickData.GetEffectAll();
+      for (int index = 0; index < strArray.Length; ++index)
       {
-        GimmickSkill mGimmickSkill = this.mGimmickSkills[index];
-        if (!mGimmickSkill.IsCompleted && mGimmickSkill.condition.type == GimmickSkillTriggerTypes.DamageCount)
+        using (List<TrickData>.Enumerator enumerator = effectAll.GetEnumerator())
         {
-          GimmickSkillCondition condition = mGimmickSkill.condition;
-          if ((condition.units.Count <= 0 || condition.units.Contains(attacker)) && condition.targets.Contains(defender))
+          while (enumerator.MoveNext())
           {
-            ++mGimmickSkill.count;
-            if (mGimmickSkill.IsStarter && condition.count <= mGimmickSkill.count)
-              mGimmickSkill.starter = attacker;
+            TrickData current = enumerator.Current;
+            if (strArray[index] == current.TrickParam.OriginName && !results.Contains(current))
+              results.Add(current);
           }
         }
       }
     }
 
-    private void GimmickSkillDeadCount(Unit self, Unit target)
+    public void GetConditionTrickByTag(List<TrickData> results, string tags)
+    {
+      if (results == null || string.IsNullOrEmpty(tags))
+        return;
+      string[] strArray = tags.Split(',');
+      if (strArray == null && strArray.Length == 0)
+        return;
+      List<TrickData> effectAll = TrickData.GetEffectAll();
+      for (int index = 0; index < strArray.Length; ++index)
+      {
+        using (List<TrickData>.Enumerator enumerator = effectAll.GetEnumerator())
+        {
+          while (enumerator.MoveNext())
+          {
+            TrickData current = enumerator.Current;
+            if (this.IsMatchTrickTag(current, strArray[index]) && !results.Contains(current))
+              results.Add(current);
+          }
+        }
+      }
+    }
+
+    private void GimmickEventDamageCount(Unit attacker, Unit defender)
+    {
+      if (this.IsBattleFlag(EBattleFlag.PredictResult))
+        return;
+      for (int index = 0; index < this.mGimmickEvents.Count; ++index)
+      {
+        GimmickEvent mGimmickEvent = this.mGimmickEvents[index];
+        if (!mGimmickEvent.IsCompleted && mGimmickEvent.condition.type == GimmickEventTriggerType.DamageCount)
+        {
+          GimmickEventCondition condition = mGimmickEvent.condition;
+          if ((condition.units.Count <= 0 || condition.units.Contains(attacker)) && condition.targets.Contains(defender))
+          {
+            ++mGimmickEvent.count;
+            if (mGimmickEvent.IsStarter && condition.count <= mGimmickEvent.count)
+              mGimmickEvent.starter = attacker;
+          }
+        }
+      }
+    }
+
+    private void GimmickEventDeadCount(Unit self, Unit target)
     {
       if (this.IsBattleFlag(EBattleFlag.PredictResult) || target == null || !target.IsDead)
         return;
-      for (int index = 0; index < this.mGimmickSkills.Count; ++index)
+      for (int index = 0; index < this.mGimmickEvents.Count; ++index)
       {
-        GimmickSkill mGimmickSkill = this.mGimmickSkills[index];
-        if (!mGimmickSkill.IsCompleted && mGimmickSkill.condition.type == GimmickSkillTriggerTypes.DeadUnit)
+        GimmickEvent mGimmickEvent = this.mGimmickEvents[index];
+        if (!mGimmickEvent.IsCompleted && mGimmickEvent.condition.type == GimmickEventTriggerType.DeadUnit)
         {
-          GimmickSkillCondition condition = mGimmickSkill.condition;
+          GimmickEventCondition condition = mGimmickEvent.condition;
           if ((condition.units.Count <= 0 || condition.units.Contains(self)) && condition.targets.Contains(target))
           {
-            ++mGimmickSkill.count;
-            if (mGimmickSkill.IsStarter && condition.count <= mGimmickSkill.count)
-              mGimmickSkill.starter = self;
+            ++mGimmickEvent.count;
+            if (mGimmickEvent.IsStarter && condition.count <= mGimmickEvent.count)
+              mGimmickEvent.starter = self;
           }
         }
       }
     }
 
-    private void GimmickSkillOnGrid()
+    public void GimmickEventTrickKillCount(TrickData trick_data)
+    {
+      if (this.IsBattleFlag(EBattleFlag.PredictResult) || trick_data == null)
+        return;
+      using (List<GimmickEvent>.Enumerator enumerator = this.mGimmickEvents.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+        {
+          GimmickEvent current = enumerator.Current;
+          if (!current.IsCompleted && current.condition.type == GimmickEventTriggerType.DeadUnit && current.condition.td_targets.Contains(trick_data))
+            ++current.count;
+        }
+      }
+    }
+
+    private void GimmickEventOnGrid()
     {
       if (this.IsBattleFlag(EBattleFlag.PredictResult))
         return;
-      for (int index1 = 0; index1 < this.mGimmickSkills.Count; ++index1)
+      for (int index1 = 0; index1 < this.mGimmickEvents.Count; ++index1)
       {
-        GimmickSkill mGimmickSkill = this.mGimmickSkills[index1];
-        if (!mGimmickSkill.IsCompleted && mGimmickSkill.IsStarter && (mGimmickSkill.starter == null && mGimmickSkill.condition.type == GimmickSkillTriggerTypes.OnGrid))
+        GimmickEvent mGimmickEvent = this.mGimmickEvents[index1];
+        if (!mGimmickEvent.IsCompleted && mGimmickEvent.IsStarter && (mGimmickEvent.starter == null && mGimmickEvent.condition.type == GimmickEventTriggerType.OnGrid))
         {
-          for (int index2 = 0; index2 < mGimmickSkill.condition.grids.Count; ++index2)
+          for (int index2 = 0; index2 < mGimmickEvent.condition.grids.Count; ++index2)
           {
-            int x = mGimmickSkill.condition.grids[index2].x;
-            int y = mGimmickSkill.condition.grids[index2].y;
+            int x = mGimmickEvent.condition.grids[index2].x;
+            int y = mGimmickEvent.condition.grids[index2].y;
             for (int index3 = 0; index3 < this.Units.Count; ++index3)
             {
               Unit unit = this.Units[index3];
-              if (!unit.IsGimmick && unit.CheckExistMap() && (mGimmickSkill.condition.units.Count <= 0 || mGimmickSkill.condition.units.Contains(unit)) && (unit.x == x && unit.y == y))
-                mGimmickSkill.starter = unit;
+              if (!unit.IsGimmick && unit.CheckExistMap() && (mGimmickEvent.condition.units.Count <= 0 || mGimmickEvent.condition.units.Contains(unit)) && (unit.x == x && unit.y == y))
+                mGimmickEvent.starter = unit;
             }
           }
         }
       }
     }
 
-    private bool CheckEnableGimmickSkill(GimmickSkill gimmick)
+    private bool CheckEnableGimmickEvent(GimmickEvent gimmick)
     {
       if (gimmick.IsCompleted)
         return false;
       if (gimmick.condition.count != 0)
         return gimmick.condition.count <= gimmick.count;
-      if (gimmick.condition.type != GimmickSkillTriggerTypes.OnGrid)
+      if (gimmick.condition.type != GimmickEventTriggerType.OnGrid)
         return false;
       for (int index1 = 0; index1 < gimmick.condition.grids.Count; ++index1)
       {
@@ -1449,96 +2040,143 @@ label_4:
       return false;
     }
 
-    private void UpdateGimmickSkillStart()
+    private void UpdateGimmickEventStart()
     {
-      this.GimmickSkillOnGrid();
-      for (int index1 = 0; index1 < this.mGimmickSkills.Count; ++index1)
+      this.GimmickEventOnGrid();
+      bool flag = true;
+      while (flag)
       {
-        GimmickSkill mGimmickSkill = this.mGimmickSkills[index1];
-        if (this.CheckEnableGimmickSkill(mGimmickSkill))
+        flag = false;
+        for (int index1 = 0; index1 < this.mGimmickEvents.Count; ++index1)
         {
-          if (mGimmickSkill.IsStarter && mGimmickSkill.starter != null && (mGimmickSkill.starter.CheckExistMap() && !mGimmickSkill.targets.Contains(mGimmickSkill.starter)))
-            mGimmickSkill.targets.Add(mGimmickSkill.starter);
-          int num = 0;
-          for (int index2 = 0; index2 < mGimmickSkill.targets.Count; ++index2)
+          GimmickEvent mGimmickEvent = this.mGimmickEvents[index1];
+          if (this.CheckEnableGimmickEvent(mGimmickEvent))
           {
-            if (mGimmickSkill.targets[index2].CheckExistMap())
-              ++num;
-          }
-          if (num != 0)
-          {
-            if (mGimmickSkill.users.Count > 0)
+            if (mGimmickEvent.IsStarter && mGimmickEvent.starter != null && (mGimmickEvent.starter.CheckExistMap() && !mGimmickEvent.targets.Contains(mGimmickEvent.starter)))
+              mGimmickEvent.targets.Add(mGimmickEvent.starter);
+            int num = 0;
+            for (int index2 = 0; index2 < mGimmickEvent.targets.Count; ++index2)
             {
-              for (int index2 = 0; index2 < mGimmickSkill.users.Count; ++index2)
-              {
-                Unit user = mGimmickSkill.users[index2];
-                if (user.CheckExistMap())
-                {
-                  for (int index3 = 0; index3 < mGimmickSkill.skills.Count; ++index3)
-                  {
-                    SkillData skill = user.GetSkillData(mGimmickSkill.skills[index3]);
-                    if (skill == null)
-                    {
-                      skill = new SkillData();
-                      skill.Setup(mGimmickSkill.skills[index3], 1, 1, (MasterParam) null);
-                    }
-                    LogSkill log = this.Log<LogSkill>();
-                    log.self = user;
-                    log.skill = skill;
-                    if (mGimmickSkill.targets.Count == 1 && !skill.IsAllEffect())
-                    {
-                      log.pos.x = mGimmickSkill.targets[0].x;
-                      log.pos.y = mGimmickSkill.targets[0].y;
-                    }
-                    else
-                    {
-                      log.pos.x = log.self.x;
-                      log.pos.y = log.self.y;
-                    }
-                    log.is_append = !skill.IsCutin();
-                    log.is_gimmick = true;
-                    for (int index4 = 0; index4 < mGimmickSkill.targets.Count; ++index4)
-                    {
-                      if (mGimmickSkill.targets[index4].CheckExistMap())
-                        log.SetSkillTarget(log.self, mGimmickSkill.targets[index4]);
-                    }
-                    this.ExecuteSkill(ESkillTiming.Used, log, skill);
-                  }
-                }
-              }
+              if (mGimmickEvent.targets[index2].CheckExistMap())
+                ++num;
             }
-            else
+            if (num != 0)
             {
-              for (int index2 = 0; index2 < mGimmickSkill.targets.Count; ++index2)
+              switch (mGimmickEvent.ev_type)
               {
-                if (mGimmickSkill.targets[index2].CheckExistMap())
-                {
-                  for (int index3 = 0; index3 < mGimmickSkill.skills.Count; ++index3)
+                case eGimmickEventType.USE_SKILL:
+                  if (mGimmickEvent.users.Count > 0)
                   {
-                    Unit target = mGimmickSkill.targets[index2];
-                    SkillData skill = target.GetSkillData(mGimmickSkill.skills[index3]);
-                    if (skill == null)
+                    for (int index2 = 0; index2 < mGimmickEvent.users.Count; ++index2)
                     {
-                      skill = new SkillData();
-                      skill.Setup(mGimmickSkill.skills[index3], 1, 1, (MasterParam) null);
+                      Unit user = mGimmickEvent.users[index2];
+                      if (user.CheckExistMap())
+                      {
+                        for (int index3 = 0; index3 < mGimmickEvent.skills.Count; ++index3)
+                        {
+                          SkillData skill = user.GetSkillData(mGimmickEvent.skills[index3]);
+                          if (skill == null)
+                          {
+                            skill = new SkillData();
+                            skill.Setup(mGimmickEvent.skills[index3], 1, 1, (MasterParam) null);
+                          }
+                          LogSkill log = this.Log<LogSkill>();
+                          log.self = user;
+                          log.skill = skill;
+                          if (mGimmickEvent.targets.Count == 1 && !skill.IsAllEffect())
+                          {
+                            log.pos.x = mGimmickEvent.targets[0].x;
+                            log.pos.y = mGimmickEvent.targets[0].y;
+                          }
+                          else
+                          {
+                            log.pos.x = log.self.x;
+                            log.pos.y = log.self.y;
+                          }
+                          log.is_append = !skill.IsCutin();
+                          log.is_gimmick = true;
+                          for (int index4 = 0; index4 < mGimmickEvent.targets.Count; ++index4)
+                          {
+                            if (mGimmickEvent.targets[index4].CheckExistMap())
+                              log.SetSkillTarget(log.self, mGimmickEvent.targets[index4]);
+                          }
+                          this.ExecuteSkill(ESkillTiming.Used, log, skill);
+                        }
+                      }
                     }
-                    LogSkill log = this.Log<LogSkill>();
-                    log.self = target;
-                    log.skill = skill;
-                    log.pos.x = log.self.x;
-                    log.pos.y = log.self.y;
-                    log.is_append = !skill.IsCutin();
-                    log.is_gimmick = true;
-                    log.SetSkillTarget(log.self, log.self);
-                    this.ExecuteSkill(ESkillTiming.Used, log, skill);
+                    break;
                   }
-                }
+                  for (int index2 = 0; index2 < mGimmickEvent.targets.Count; ++index2)
+                  {
+                    if (mGimmickEvent.targets[index2].CheckExistMap())
+                    {
+                      for (int index3 = 0; index3 < mGimmickEvent.skills.Count; ++index3)
+                      {
+                        Unit target = mGimmickEvent.targets[index2];
+                        SkillData skill = target.GetSkillData(mGimmickEvent.skills[index3]);
+                        if (skill == null)
+                        {
+                          skill = new SkillData();
+                          skill.Setup(mGimmickEvent.skills[index3], 1, 1, (MasterParam) null);
+                        }
+                        LogSkill log = this.Log<LogSkill>();
+                        log.self = target;
+                        log.skill = skill;
+                        log.pos.x = log.self.x;
+                        log.pos.y = log.self.y;
+                        log.is_append = !skill.IsCutin();
+                        log.is_gimmick = true;
+                        log.SetSkillTarget(log.self, log.self);
+                        this.ExecuteSkill(ESkillTiming.Used, log, skill);
+                      }
+                    }
+                  }
+                  break;
+                case eGimmickEventType.UNIT_KILL:
+                  for (int index2 = 0; index2 < mGimmickEvent.targets.Count; ++index2)
+                  {
+                    Unit target = mGimmickEvent.targets[index2];
+                    if (target.CheckExistMap())
+                    {
+                      target.CurrentStatus.param.hp = (OInt) 0;
+                      this.Dead((Unit) null, target, DeadTypes.Damage, false);
+                      flag = true;
+                    }
+                  }
+                  break;
               }
+              mGimmickEvent.IsCompleted = true;
             }
-            mGimmickSkill.IsCompleted = true;
           }
         }
       }
+    }
+
+    private void UpdateGimmickEventTrick()
+    {
+      bool flag;
+      do
+      {
+        flag = false;
+        using (List<GimmickEvent>.Enumerator enumerator1 = this.mGimmickEvents.GetEnumerator())
+        {
+          while (enumerator1.MoveNext())
+          {
+            GimmickEvent current = enumerator1.Current;
+            if (this.CheckEnableGimmickEvent(current) && current.td_targets.Count != 0 && current.ev_type == eGimmickEventType.UNIT_KILL)
+            {
+              using (List<TrickData>.Enumerator enumerator2 = current.td_targets.GetEnumerator())
+              {
+                while (enumerator2.MoveNext())
+                  TrickData.RemoveEffect(enumerator2.Current);
+              }
+              current.IsCompleted = true;
+              flag = true;
+            }
+          }
+        }
+      }
+      while (flag);
     }
 
     private bool CheckMatchUniqueName(Unit self, string tag)
@@ -1553,6 +2191,11 @@ label_4:
           return self.Side == EUnitSide.Enemy;
       }
       return false;
+    }
+
+    private bool IsMatchTrickTag(TrickData td, string tag)
+    {
+      return !string.IsNullOrEmpty(tag) && tag == td.Tag;
     }
 
     private void UpdateEntryTriggers(UnitEntryTypes type, Unit target, SkillParam skill = null)
@@ -1577,7 +2220,7 @@ label_4:
       for (int index1 = 0; index1 < this.mUnits.Count; ++index1)
       {
         Unit mUnit = this.mUnits[index1];
-        if (!mUnit.IsGimmick && !mUnit.IsEntry && (!mUnit.IsDead && !mUnit.IsSub) && mUnit.EntryTriggers != null)
+        if ((!mUnit.IsGimmick || mUnit.IsBreakObj || mUnit.EventTrigger != null && (mUnit.EventTrigger.EventType == EEventType.Treasure || mUnit.EventTrigger.EventType == EEventType.Gem) && mUnit.CheckEventTrigger(mUnit.EventTrigger.Trigger)) && (!mUnit.IsEntry && !mUnit.IsDead && (!mUnit.IsSub && mUnit.EntryTriggers != null)))
         {
           for (int index2 = 0; index2 < mUnit.EntryTriggers.Count; ++index2)
           {
@@ -1606,8 +2249,15 @@ label_4:
                   }
                   continue;
                 case UnitEntryTypes.DeadEnemy:
-                  if (this.CheckMatchUniqueName(target, entryTrigger.unit) && target.IsDead)
+                  if (this.CheckMatchUniqueName(target, entryTrigger.unit))
                   {
+                    if (target.IsGimmick && !target.IsBreakObj)
+                    {
+                      if (target.EventTrigger == null || target.EventTrigger.EventType != EEventType.Treasure && target.EventTrigger.EventType != EEventType.Gem || target.EventTrigger.Count != 0)
+                        continue;
+                    }
+                    else if (!target.IsDead)
+                      continue;
                     entryTrigger.on = true;
                     continue;
                   }
@@ -1670,6 +2320,10 @@ label_4:
       if (this.CheckMonitorActionCount(currentMap.WinMonitorCondition))
         return BattleCore.QuestResult.Win;
       if (this.CheckMonitorActionCount(currentMap.LoseMonitorCondition))
+        return BattleCore.QuestResult.Lose;
+      if (this.CheckMonitorWithdrawUnit(currentMap.WinMonitorCondition))
+        return BattleCore.QuestResult.Win;
+      if (this.CheckMonitorWithdrawUnit(currentMap.LoseMonitorCondition))
         return BattleCore.QuestResult.Lose;
       int mWinTriggerCount = this.mWinTriggerCount;
       int loseTriggerCount = this.mLoseTriggerCount;
@@ -1757,8 +2411,11 @@ label_4:
           List<Unit> mEnemy = this.mEnemys[this.MapIndex];
           for (int index = 0; index < mEnemy.Count; ++index)
           {
-            num1 += (int) mEnemy[index].MaximumStatus.param.hp;
-            num2 += (int) mEnemy[index].CurrentStatus.param.hp;
+            if (mEnemy[index].Side == EUnitSide.Enemy)
+            {
+              num1 += (int) mEnemy[index].MaximumStatus.param.hp;
+              num2 += (int) mEnemy[index].CurrentStatus.param.hp;
+            }
           }
           break;
       }
@@ -1767,7 +2424,60 @@ label_4:
       return num3;
     }
 
-    private bool CheckMonitorActionCount(QuestMonitorCondition cond)
+    public List<int> GetFinishHp(EUnitSide side)
+    {
+      List<int> intList = new List<int>();
+      switch (side)
+      {
+        case EUnitSide.Player:
+          for (int index = 0; index < this.mPlayer.Count; ++index)
+            intList.Add((int) this.mPlayer[index].CurrentStatus.param.hp);
+          break;
+        case EUnitSide.Enemy:
+          List<Unit> mEnemy = this.mEnemys[this.MapIndex];
+          for (int index = 0; index < mEnemy.Count; ++index)
+          {
+            if (mEnemy[index].Side == EUnitSide.Enemy)
+              intList.Add((int) mEnemy[index].CurrentStatus.param.hp);
+          }
+          break;
+      }
+      return intList;
+    }
+
+    public int GetDeadCount(EUnitSide side)
+    {
+      int num = 0;
+      switch (side)
+      {
+        case EUnitSide.Player:
+          for (int index = 0; index < this.mPlayer.Count; ++index)
+          {
+            if (this.mPlayer[index].IsDeadCondition())
+              ++num;
+          }
+          break;
+        case EUnitSide.Enemy:
+          List<Unit> mEnemy = this.mEnemys[this.MapIndex];
+          for (int index = 0; index < mEnemy.Count; ++index)
+          {
+            if (mEnemy[index].Side == EUnitSide.Enemy && mEnemy[index].IsDeadCondition())
+              ++num;
+          }
+          break;
+      }
+      return num;
+    }
+
+    public List<string> GetPlayerName()
+    {
+      List<string> stringList = new List<string>();
+      for (int index = 0; index < this.mPlayer.Count; ++index)
+        stringList.Add(this.mPlayer[index].UnitName + "_" + (object) this.mPlayer[index].OwnerPlayerIndex);
+      return stringList;
+    }
+
+    public bool CheckMonitorActionCount(QuestMonitorCondition cond)
     {
       if (cond.actions.Count > 0)
       {
@@ -1933,6 +2643,66 @@ label_4:
       return unit != null && !unit.IsGimmick && (unit.CheckExistMap() && unit.x == monitor.x) && (unit.y == monitor.y && (monitor.turn <= 0 || monitor.turn >= unit.ActionCount));
     }
 
+    private bool CheckMonitorWithdrawUnit(QuestMonitorCondition cond)
+    {
+      if (cond.withdraw.Count != 0)
+      {
+        for (int index = 0; index < cond.withdraw.Count; ++index)
+        {
+          UnitMonitorCondition monitorCondition = cond.withdraw[index];
+          if (!string.IsNullOrEmpty(monitorCondition.tag))
+          {
+            if (monitorCondition.tag == "pall")
+            {
+              using (List<Unit>.Enumerator enumerator = this.mUnits.GetEnumerator())
+              {
+                while (enumerator.MoveNext())
+                {
+                  Unit current = enumerator.Current;
+                  if (current.Side == EUnitSide.Player && this.CheckMonitorWithdrawCondition(current))
+                    return true;
+                }
+                continue;
+              }
+            }
+            else if (monitorCondition.tag == "eall")
+            {
+              using (List<Unit>.Enumerator enumerator = this.mUnits.GetEnumerator())
+              {
+                while (enumerator.MoveNext())
+                {
+                  Unit current = enumerator.Current;
+                  if (current.Side == EUnitSide.Enemy && this.CheckMonitorWithdrawCondition(current))
+                    return true;
+                }
+                continue;
+              }
+            }
+            else if (this.CheckMonitorWithdrawCondition(this.FindUnitByUniqueName(monitorCondition.tag)))
+              return true;
+          }
+          if (!string.IsNullOrEmpty(monitorCondition.iname))
+          {
+            using (List<Unit>.Enumerator enumerator = this.mUnits.GetEnumerator())
+            {
+              while (enumerator.MoveNext())
+              {
+                Unit current = enumerator.Current;
+                if (!(current.UnitParam.iname != monitorCondition.iname) && this.CheckMonitorWithdrawCondition(current))
+                  return true;
+              }
+            }
+          }
+        }
+      }
+      return false;
+    }
+
+    private bool CheckMonitorWithdrawCondition(Unit unit)
+    {
+      return unit != null && unit.IsDead && unit.IsUnitFlag(EUnitFlag.UnitWithdraw);
+    }
+
     public bool IsBonusObjectiveComplete(QuestBonusObjective bonus)
     {
       switch (bonus.Type)
@@ -1940,17 +2710,12 @@ label_4:
         case EMissionType.KillAllEnemy:
           for (int index = 0; index < this.Units.Count; ++index)
           {
-            if (this.Units[index].Side == EUnitSide.Enemy && !this.Units[index].IsDead)
+            if (this.Units[index].Side == EUnitSide.Enemy && (!this.Units[index].IsDead || this.Units[index].IsUnitFlag(EUnitFlag.UnitWithdraw)))
               return false;
           }
           return true;
         case EMissionType.NoDeath:
-          for (int index = 0; index < this.Units.Count; ++index)
-          {
-            if (this.Units[index].Side == EUnitSide.Player && this.Units[index].IsPartyMember && this.Units[index].IsDead)
-              return false;
-          }
-          return true;
+          return this.IsAllAlive();
         case EMissionType.LimitedTurn:
           int result1;
           if (int.TryParse(bonus.TypeParam, out result1))
@@ -1967,15 +2732,15 @@ label_4:
             return this.mNumUsedItems <= result3;
           return false;
         case EMissionType.MaxPartySize:
-          int num = 0;
+          int num1 = 0;
           for (int index = 0; index < this.Units.Count; ++index)
           {
             if (this.Units[index].Side == EUnitSide.Player && this.Units[index].IsPartyMember)
-              ++num;
+              ++num1;
           }
           int result4;
           if (int.TryParse(bonus.TypeParam, out result4))
-            return num <= result4;
+            return num1 <= result4;
           return false;
         case EMissionType.LimitedUnitElement:
           EElement eelement;
@@ -2017,25 +2782,25 @@ label_4:
           if (int.TryParse(bonus.TypeParam, out result7))
             return this.mTotalHeal >= result7;
           return false;
-        case EMissionType.TotalDamagesTakenMin:
+        case EMissionType.TotalDamagesTakenMax:
           int result8;
           if (int.TryParse(bonus.TypeParam, out result8))
-            return this.mTotalDamagesTaken >= result8;
+            return this.mTotalDamagesTaken <= result8;
           return false;
-        case EMissionType.TotalDamagesTakenMax:
+        case EMissionType.TotalDamagesTakenMin:
           int result9;
           if (int.TryParse(bonus.TypeParam, out result9))
-            return this.mTotalDamagesTaken <= result9;
-          return false;
-        case EMissionType.TotalDamagesMin:
-          int result10;
-          if (int.TryParse(bonus.TypeParam, out result10))
-            return this.mTotalDamages >= result10;
+            return this.mTotalDamagesTaken >= result9;
           return false;
         case EMissionType.TotalDamagesMax:
+          int result10;
+          if (int.TryParse(bonus.TypeParam, out result10))
+            return this.mTotalDamages <= result10;
+          return false;
+        case EMissionType.TotalDamagesMin:
           int result11;
           if (int.TryParse(bonus.TypeParam, out result11))
-            return this.mTotalDamages <= result11;
+            return this.mTotalDamages >= result11;
           return false;
         case EMissionType.LimitedCT:
           int result12;
@@ -2048,87 +2813,430 @@ label_4:
             return this.mContinueCount <= result13;
           return false;
         case EMissionType.NoNpcDeath:
+          return this.IsNPCAllAlive();
+        case EMissionType.TargetKillstreak:
+          string[] strArray1 = bonus.TypeParam.Split(',');
+          int num2;
+          int result14;
+          if (strArray1.Length >= 2 && this.mMaxTargetKillstreakDict.TryGetValue(strArray1[0].Trim(), out num2) && int.TryParse(strArray1[1], out result14))
+            return num2 >= result14;
+          break;
+        case EMissionType.NoTargetDeath:
+          string str = bonus.TypeParam.Trim();
+          bool flag = false;
+          using (List<Unit>.Enumerator enumerator = this.Units.GetEnumerator())
+          {
+            while (enumerator.MoveNext())
+            {
+              Unit current = enumerator.Current;
+              if (current.Side == EUnitSide.Enemy && current.UnitParam.iname == str)
+                flag |= current.IsDead;
+            }
+          }
+          return !flag;
+        case EMissionType.BreakObjClashMax:
+          UnitParam unitParam1 = (UnitParam) null;
+          int result15 = 1;
+          string[] strArray2 = bonus.TypeParam.Split(',');
+          if (strArray2 != null)
+          {
+            if (strArray2.Length >= 1)
+              unitParam1 = MonoSingleton<GameManager>.Instance.GetUnitParam(strArray2[0].Trim());
+            if (strArray2.Length >= 2)
+              int.TryParse(strArray2[1].Trim(), out result15);
+          }
+          return unitParam1 != null && this.getUnitDeadCount(unitParam1.iname) <= result15;
+        case EMissionType.BreakObjClashMin:
+          UnitParam unitParam2 = (UnitParam) null;
+          int result16 = 1;
+          string[] strArray3 = bonus.TypeParam.Split(',');
+          if (strArray3 != null)
+          {
+            if (strArray3.Length >= 1)
+              unitParam2 = MonoSingleton<GameManager>.Instance.GetUnitParam(strArray3[0].Trim());
+            if (strArray3.Length >= 2)
+              int.TryParse(strArray3[1].Trim(), out result16);
+          }
+          return unitParam2 != null && this.getUnitDeadCount(unitParam2.iname) >= result16;
+        case EMissionType.WithdrawUnit:
+          int num3 = 0;
+          using (List<Unit>.Enumerator enumerator = this.Units.GetEnumerator())
+          {
+            while (enumerator.MoveNext())
+            {
+              Unit current = enumerator.Current;
+              if (current.IsUnitFlag(EUnitFlag.UnitWithdraw) && !(current.UnitParam.iname != bonus.TypeParam))
+                ++num3;
+            }
+          }
+          return num3 != 0;
+        case EMissionType.UseMercenary:
+          return this.Friend != null;
+        case EMissionType.LimitedUnitID_MainOnly:
           for (int index = 0; index < this.Units.Count; ++index)
           {
-            if (this.Units[index].Side == EUnitSide.Player && !this.Units[index].IsPartyMember && this.Units[index].IsDead)
-              return false;
+            if (this.mStartingMembers.Contains(this.Units[index]) && this.Units[index] != this.Friend && (this.Units[index].Side == EUnitSide.Player && this.Units[index].IsPartyMember) && this.Units[index].UnitParam.iname == bonus.TypeParam)
+              return true;
           }
-          return true;
-        default:
+          return false;
+        case EMissionType.OnlyTargetArtifactType:
+          return this.IsMissionClearArtifactTypeConditions(bonus, false);
+        case EMissionType.OnlyTargetArtifactType_MainOnly:
+          return this.IsMissionClearArtifactTypeConditions(bonus, true);
+        case EMissionType.OnlyTargetJobs:
+          return this.IsMissionClearPartyMemberJobConditions(bonus, false);
+        case EMissionType.OnlyTargetJobs_MainOnly:
+          return this.IsMissionClearPartyMemberJobConditions(bonus, true);
+        case EMissionType.OnlyTargetUnitBirthplace:
+          return this.IsMissionClearUnitBirthplaceConditions(bonus, false);
+        case EMissionType.OnlyTargetUnitBirthplace_MainOnly:
+          return this.IsMissionClearUnitBirthplaceConditions(bonus, true);
+        case EMissionType.OnlyTargetSex:
+          return this.IsMissionClearUnitSexConditions(bonus, false);
+        case EMissionType.OnlyTargetSex_MainOnly:
+          return this.IsMissionClearUnitSexConditions(bonus, true);
+        case EMissionType.OnlyHeroUnit:
+          return this.IsMissionClearOnlyHeroConditions(false);
+        case EMissionType.OnlyHeroUnit_MainOnly:
+          return this.IsMissionClearOnlyHeroConditions(true);
+        case EMissionType.Finisher:
+          return this.mFinisherIname == bonus.TypeParam;
+        case EMissionType.TotalGetTreasureCount:
+          int num4 = 0;
+          for (int index = 0; index < this.mTreasures.Count; ++index)
+          {
+            if (this.mTreasures[index].EventTrigger.Count <= 0)
+              ++num4;
+          }
+          int result17;
+          if (int.TryParse(bonus.TypeParam, out result17))
+            return num4 >= result17;
+          return false;
+        case EMissionType.KillstreakByUsingTargetItem:
+          ItemParam itemParam = MonoSingleton<GameManager>.Instance.GetItemParam(bonus.TypeParam);
+          if (this.mSkillExecLogs.ContainsKey((string) itemParam.skill))
+            return this.mSkillExecLogs[(string) itemParam.skill].kill_count > 0;
+          return false;
+        case EMissionType.KillstreakByUsingTargetSkill:
+          if (this.mSkillExecLogs.ContainsKey(bonus.TypeParam))
+            return this.mSkillExecLogs[bonus.TypeParam].kill_count > 0;
+          return false;
+        case EMissionType.MaxPartySize_IgnoreFriend:
+          int num5 = 0;
+          for (int index = 0; index < this.Units.Count; ++index)
+          {
+            if (this.Units[index].Side == EUnitSide.Player && this.Units[index].IsPartyMember && this.Units[index] != this.Friend)
+              ++num5;
+          }
+          int result18;
+          if (int.TryParse(bonus.TypeParam, out result18))
+            return num5 <= result18;
+          return false;
+        case EMissionType.NoAutoMode:
+          return !this.mIsUseAutoPlayMode;
+        case EMissionType.NoDeath_NoContinue:
+          if (this.IsAllAlive())
+            return this.ContinueCount <= 0;
+          return false;
+        case EMissionType.OnlyTargetUnits:
+          return this.IsMissionClearOnlyTargetUnitsConditions(bonus, false);
+        case EMissionType.OnlyTargetUnits_MainOnly:
+          return this.IsMissionClearOnlyTargetUnitsConditions(bonus, true);
+        case EMissionType.LimitedTurn_Leader:
+          int result19;
+          if (int.TryParse(bonus.TypeParam, out result19))
+            return this.Leader.ActionCount <= result19;
+          return false;
+        case EMissionType.NoDeathTargetNpcUnits:
+          return this.IsNPCAlive(bonus.TypeParam.Split(','));
+        case EMissionType.UseTargetSkill:
+          if (this.mSkillExecLogs.ContainsKey(bonus.TypeParam))
+            return this.mSkillExecLogs[bonus.TypeParam].use_count > 0;
+          return false;
+        case EMissionType.TotalKillstreakCount:
+          int num6 = 0;
+          for (int index = 0; index < this.Units.Count; ++index)
+          {
+            if (this.Units[index].Side == EUnitSide.Player)
+              num6 += this.Units[index].KillCount;
+          }
+          int result20;
+          if (int.TryParse(bonus.TypeParam, out result20))
+            return num6 >= result20;
+          return false;
+        case EMissionType.TotalGetGemCount_Over:
+          int num7 = 0;
+          for (int index = 0; index < this.mGems.Count; ++index)
+          {
+            if (this.mGems[index].EventTrigger.Count <= 0)
+              ++num7;
+          }
+          int result21;
+          if (int.TryParse(bonus.TypeParam, out result21))
+            return num7 >= result21;
+          return false;
+        case EMissionType.TotalGetGemCount_Less:
+          int num8 = 0;
+          for (int index = 0; index < this.mGems.Count; ++index)
+          {
+            if (this.mGems[index].EventTrigger.Count <= 0)
+              ++num8;
+          }
+          int result22;
+          if (int.TryParse(bonus.TypeParam, out result22))
+            return num8 <= result22;
           return false;
       }
+      return false;
+    }
+
+    public bool IsAllAlive()
+    {
+      for (int index = 0; index < this.Units.Count; ++index)
+      {
+        Unit unit = this.Units[index];
+        if (unit.Side == EUnitSide.Player && unit.IsPartyMember && (unit.IsDead && !unit.IsUnitFlag(EUnitFlag.UnitChanged)))
+          return false;
+      }
+      return true;
+    }
+
+    public bool IsNPCAllAlive()
+    {
+      using (List<Unit>.Enumerator enumerator = this.Units.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+        {
+          Unit current = enumerator.Current;
+          if (current.Side == EUnitSide.Player && !current.IsPartyMember && (current.IsDead && !current.IsUnitFlag(EUnitFlag.UnitChanged)))
+            return false;
+        }
+      }
+      return true;
+    }
+
+    public bool IsNPCAlive(string[] target_unit_inames)
+    {
+      if (target_unit_inames.Length <= 0)
+        return this.IsNPCAllAlive();
+      using (List<Unit>.Enumerator enumerator = this.Units.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+        {
+          Unit current = enumerator.Current;
+          if (((IEnumerable<string>) target_unit_inames).Contains<string>(current.UnitParam.iname) && current.Side == EUnitSide.Player && (!current.IsPartyMember && current.IsDead) && !current.IsUnitFlag(EUnitFlag.UnitChanged))
+            return false;
+        }
+      }
+      return true;
+    }
+
+    private bool IsMissionClearOnlyTargetUnitsConditions(QuestBonusObjective bonus, bool check_main_member_only = false)
+    {
+      string[] strArray = bonus.TypeParam.Split(',');
+      for (int index = 0; index < this.Units.Count; ++index)
+      {
+        if (this.Units[index].Side == EUnitSide.Player && this.Units[index].IsPartyMember && (!((IEnumerable<string>) strArray).Contains<string>(this.Units[index].UnitParam.iname) || check_main_member_only && (this.Units[index] == this.Friend || !this.mStartingMembers.Contains(this.Units[index]))))
+          return false;
+      }
+      return true;
+    }
+
+    private bool IsMissionClearArtifactTypeConditions(QuestBonusObjective bonus, bool check_main_member_only = false)
+    {
+      string[] strArray = bonus.TypeParam.Split(',');
+      if (strArray.Length <= 0)
+        return false;
+      for (int index = 0; index < this.Units.Count; ++index)
+      {
+        if (this.Units[index].Side == EUnitSide.Player && this.Units[index].IsPartyMember)
+        {
+          ArtifactParam artifactParam = MonoSingleton<GameManager>.GetInstanceDirect().MasterParam.GetArtifactParam(this.Units[index].Job.Param.artifact);
+          if (artifactParam == null || !((IEnumerable<string>) strArray).Contains<string>(artifactParam.tag) || check_main_member_only && (this.Units[index] == this.Friend || !this.mStartingMembers.Contains(this.Units[index])))
+            return false;
+        }
+      }
+      return true;
+    }
+
+    private bool IsMissionClearPartyMemberJobConditions(QuestBonusObjective bonus, bool check_main_member_only = false)
+    {
+      string[] strArray = bonus.TypeParam.Split(',');
+      if (strArray.Length <= 0)
+        return false;
+      for (int index = 0; index < this.Units.Count; ++index)
+      {
+        if (this.Units[index].Side == EUnitSide.Player && this.Units[index].IsPartyMember && (!((IEnumerable<string>) strArray).Contains<string>(this.Units[index].Job.JobID) || check_main_member_only && (this.Units[index] == this.Friend || !this.mStartingMembers.Contains(this.Units[index]))))
+          return false;
+      }
+      return true;
+    }
+
+    private bool IsMissionClearOnlyHeroConditions(bool check_main_member_only = false)
+    {
+      for (int index = 0; index < this.Units.Count; ++index)
+      {
+        if (this.Units[index].Side == EUnitSide.Player && this.Units[index].IsPartyMember && ((int) this.Units[index].UnitParam.hero == 0 || check_main_member_only && (this.Units[index] == this.Friend || !this.mStartingMembers.Contains(this.Units[index]))))
+          return false;
+      }
+      return true;
+    }
+
+    private bool IsMissionClearUnitBirthplaceConditions(QuestBonusObjective bonus, bool check_main_member_only = false)
+    {
+      for (int index = 0; index < this.Units.Count; ++index)
+      {
+        if (this.Units[index].Side == EUnitSide.Player && this.Units[index].IsPartyMember && ((string) this.Units[index].UnitParam.birth != bonus.TypeParam || check_main_member_only && (this.Units[index] == this.Friend || !this.mStartingMembers.Contains(this.Units[index]))))
+          return false;
+      }
+      return true;
+    }
+
+    private bool IsMissionClearUnitSexConditions(QuestBonusObjective bonus, bool check_main_member_only = false)
+    {
+      int result;
+      int.TryParse(bonus.TypeParam, out result);
+      for (int index = 0; index < this.Units.Count; ++index)
+      {
+        if (this.Units[index].Side == EUnitSide.Player && this.Units[index].IsPartyMember && (this.Units[index].UnitParam.sex != (ESex) result || check_main_member_only && (this.Units[index] == this.Friend || !this.mStartingMembers.Contains(this.Units[index]))))
+          return false;
+      }
+      return true;
+    }
+
+    private int getUnitDeadCount(string unit_iname)
+    {
+      if (string.IsNullOrEmpty(unit_iname))
+        return 0;
+      int num = 0;
+      using (List<Unit>.Enumerator enumerator = this.Units.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+        {
+          Unit current = enumerator.Current;
+          if (current.IsDead && !(current.UnitParam.iname != unit_iname))
+            ++num;
+        }
+      }
+      return num;
     }
 
     private void CalcQuestRecord()
     {
       this.mRecord.result = this.GetQuestResult();
-      this.mRecord.playerexp = this.mQuestParam.pexp;
-      this.mRecord.gold = this.mQuestParam.gold;
-      this.mRecord.unitexp = this.mQuestParam.uexp;
-      this.mRecord.multicoin = this.mQuestParam.mcoin;
+      this.mRecord.playerexp = (OInt) this.mQuestParam.pexp;
+      this.mRecord.gold = (OInt) this.mQuestParam.gold;
+      this.mRecord.unitexp = (OInt) this.mQuestParam.uexp;
+      this.mRecord.multicoin = (OInt) this.mQuestParam.mcoin;
       this.mRecord.items.Clear();
       this.mRecord.bonusFlags = 0;
-      GameManager instance = MonoSingleton<GameManager>.Instance;
+      this.mRecord.allBonusFlags = 0;
+      this.mRecord.bonusCount = 0;
+      int index1 = -1;
+      int num1 = 0;
       if (this.mRecord.result == BattleCore.QuestResult.Win && this.mQuestParam.bonusObjective != null)
       {
-        for (int index1 = 0; index1 < this.mQuestParam.bonusObjective.Length; ++index1)
+        for (int index2 = 0; index2 < this.mQuestParam.bonusObjective.Length; ++index2)
         {
-          if (((int) this.mQuestParam.clear_missions & 1 << index1) == 0 && this.IsBonusObjectiveComplete(this.mQuestParam.bonusObjective[index1]))
+          if (this.mQuestParam.bonusObjective[index2].Type == EMissionType.MissionAllCompleteAtOnce)
+            index1 = index2;
+          bool flag = this.IsBonusObjectiveComplete(this.mQuestParam.bonusObjective[index2]);
+          if (flag)
           {
-            ItemParam itemParam = instance.GetItemParam(this.mQuestParam.bonusObjective[index1].item);
-            if (itemParam != null)
-            {
-              for (int index2 = 0; index2 < this.mQuestParam.bonusObjective[index1].itemNum; ++index2)
-                this.mRecord.items.Add(itemParam);
-            }
+            this.mRecord.allBonusFlags |= 1 << index2;
+            ++num1;
+          }
+          if ((this.mQuestParam.clear_missions & 1 << index2) == 0 && flag)
+          {
+            this.SetReward(this.mQuestParam.bonusObjective[index2]);
+            this.mRecord.bonusFlags |= 1 << index2;
+          }
+        }
+        this.mRecord.bonusCount = this.mQuestParam.bonusObjective.Length;
+        if (index1 >= 0 && this.mQuestParam.bonusObjective.Length - num1 <= 1)
+        {
+          this.mRecord.allBonusFlags |= 1 << index1;
+          int num2 = num1 + 1;
+          if ((this.mQuestParam.clear_missions & 1 << index1) == 0)
+          {
+            this.SetReward(this.mQuestParam.bonusObjective[index1]);
             this.mRecord.bonusFlags |= 1 << index1;
           }
         }
       }
-      this.GainUnitSteal();
-      this.GainUnitDrop();
+      this.GainUnitSteal(this.mRecord);
+      this.GainUnitDrop(this.mRecord, false);
       this.mRecord.units.Clear();
       this.GainRankMatchItem();
     }
 
-    private void GainUnitDrop()
+    private void SetReward(QuestBonusObjective bonus)
     {
-      int length = this.mAllUnits.Count - this.mNpcStartIndex;
+      if (bonus.itemType == RewardType.Artifact)
+      {
+        ArtifactParam artifactParam = MonoSingleton<GameManager>.Instance.MasterParam.Artifacts.FirstOrDefault<ArtifactParam>((Func<ArtifactParam, bool>) (arti => arti.iname == bonus.item));
+        if (artifactParam == null)
+          return;
+        for (int index = 0; index < bonus.itemNum; ++index)
+          this.mRecord.artifacts.Add(artifactParam);
+      }
+      else
+      {
+        ItemParam itemParam = MonoSingleton<GameManager>.Instance.GetItemParam(bonus.item);
+        if (itemParam == null)
+          return;
+        for (int index = 0; index < bonus.itemNum; ++index)
+          this.mRecord.items.Add(new BattleCore.DropItemParam(itemParam));
+      }
+    }
+
+    public void GainUnitDrop(BattleCore.Record record, bool waitDirection = false)
+    {
+      int length = this.mEntryUnitMax - this.mNpcStartIndex;
       if (length == 0)
         return;
-      Array.Clear((Array) this.mRecord.drops, 0, length);
+      if (record.drops == null)
+        record.drops = new OInt[length];
+      Array.Clear((Array) record.drops, 0, length);
       int mNpcStartIndex = this.mNpcStartIndex;
       int index1 = 0;
-      while (mNpcStartIndex < this.mAllUnits.Count)
+      while (mNpcStartIndex < this.mEntryUnitMax)
       {
         Unit mAllUnit = this.mAllUnits[mNpcStartIndex];
-        if (mAllUnit.CheckItemDrop())
+        if (mAllUnit.CheckItemDrop(waitDirection))
         {
           Unit.UnitDrop drop = mAllUnit.Drop;
           for (int index2 = 0; index2 < drop.items.Count; ++index2)
           {
             for (int index3 = 0; index3 < (int) drop.items[index2].num; ++index3)
-              this.mRecord.items.Add(drop.items[index2].param);
+              record.items.Add(new BattleCore.DropItemParam(drop.items[index2].param)
+              {
+                mIsSecret = (bool) drop.items[index2].is_secret
+              });
           }
-          BattleCore.Record mRecord = this.mRecord;
-          mRecord.gold = (OInt) ((int) mRecord.gold + (int) drop.gold);
-          this.mRecord.drops[index1] = (OInt) 1;
+          BattleCore.Record record1 = record;
+          record1.gold = (OInt) ((int) record1.gold + (int) drop.gold);
+          record.drops[index1] = (OInt) 1;
         }
         ++mNpcStartIndex;
         ++index1;
       }
     }
 
-    private void GainUnitSteal()
+    public void GainUnitSteal(BattleCore.Record record)
     {
-      int length = this.mAllUnits.Count - this.mNpcStartIndex;
+      int length = this.mEntryUnitMax - this.mNpcStartIndex;
       if (length == 0)
         return;
-      Array.Clear((Array) this.mRecord.item_steals, 0, length);
-      Array.Clear((Array) this.mRecord.gold_steals, 0, length);
+      if (record.item_steals == null)
+        record.item_steals = new OInt[length];
+      Array.Clear((Array) record.item_steals, 0, length);
+      if (record.gold_steals == null)
+        record.gold_steals = new OInt[length];
+      Array.Clear((Array) record.gold_steals, 0, length);
       int mNpcStartIndex = this.mNpcStartIndex;
       int index1 = 0;
-      while (mNpcStartIndex < this.mAllUnits.Count)
+      while (mNpcStartIndex < this.mEntryUnitMax)
       {
         Unit mAllUnit = this.mAllUnits[mNpcStartIndex];
         if (mAllUnit.IsGimmick)
@@ -2137,14 +3245,14 @@ label_4:
         if (steal.is_item_steeled)
         {
           for (int index2 = 0; index2 < steal.items.Count; ++index2)
-            this.mRecord.items.Add(steal.items[index2].param);
-          this.mRecord.item_steals[index1] = (OInt) 1;
+            record.items.Add(new BattleCore.DropItemParam(steal.items[index2].param));
+          record.item_steals[index1] = (OInt) 1;
         }
         if (steal.is_gold_steeled)
         {
-          BattleCore.Record mRecord = this.mRecord;
-          mRecord.gold = (OInt) ((int) mRecord.gold + (int) steal.gold);
-          this.mRecord.gold_steals[index1] = (OInt) 1;
+          BattleCore.Record record1 = record;
+          record1.gold = (OInt) ((int) record1.gold + (int) steal.gold);
+          record.gold_steals[index1] = (OInt) 1;
         }
         ++mNpcStartIndex;
         ++index1;
@@ -2158,7 +3266,7 @@ label_4:
       Dictionary<string, int> dictionary1 = new Dictionary<string, int>();
       for (int index1 = 0; index1 < this.mRecord.items.Count; ++index1)
       {
-        string iname = this.mRecord.items[index1].iname;
+        string iname = this.mRecord.items[index1].mItemParam.iname;
         if (dictionary1.ContainsKey(iname))
         {
           Dictionary<string, int> dictionary2;
@@ -2208,7 +3316,7 @@ label_4:
         if (itemParam != null)
         {
           for (int index2 = 0; index2 < Nums[index1]; ++index2)
-            this.mRecord.items.Add(itemParam);
+            this.mRecord.items.Add(new BattleCore.DropItemParam(itemParam));
         }
       }
     }
@@ -2272,6 +3380,14 @@ label_4:
       return currentMap[unit.x, unit.y];
     }
 
+    public Grid GetUnitGridPosition(int x, int y)
+    {
+      BattleMap currentMap = this.CurrentMap;
+      if (currentMap == null)
+        return (Grid) null;
+      return currentMap[x, y];
+    }
+
     public Unit FindUnitByUniqueName(string uniqname)
     {
       if (string.IsNullOrEmpty(uniqname))
@@ -2293,8 +3409,41 @@ label_4:
     {
       for (int index = 0; index < this.mUnits.Count; ++index)
       {
-        if (this.mUnits[index].UnitType == EUnitType.Unit && this.mUnits[index].CheckCollision(grid))
+        if (!this.mUnits[index].IsGimmick && this.mUnits[index].CheckCollision(grid))
           return this.mUnits[index];
+      }
+      return (Unit) null;
+    }
+
+    public Unit DirectFindUnitAtGrid(Grid grid)
+    {
+      using (List<Unit>.Enumerator enumerator = this.mUnits.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+        {
+          Unit current = enumerator.Current;
+          if (!current.IsGimmick)
+          {
+            bool flag = false;
+            if (current == this.CurrentUnit)
+            {
+              SceneBattle instance = SceneBattle.Instance;
+              if (UnityEngine.Object.op_Inequality((UnityEngine.Object) instance, (UnityEngine.Object) null))
+              {
+                TacticsUnitController unitController = instance.FindUnitController(current);
+                if (UnityEngine.Object.op_Implicit((UnityEngine.Object) unitController))
+                {
+                  IntVector2 intVector2 = instance.CalcCoord(unitController.CenterPosition);
+                  if (current.CheckCollisionDirect(intVector2.x, intVector2.y, grid.x, grid.y, true))
+                    return current;
+                  flag = true;
+                }
+              }
+            }
+            if (!flag && current.CheckCollision(grid.x, grid.y, true))
+              return current;
+          }
+        }
       }
       return (Unit) null;
     }
@@ -2303,46 +3452,51 @@ label_4:
     {
       for (int index = 0; index < this.mUnits.Count; ++index)
       {
-        if (this.mUnits[index].UnitType == EUnitType.Unit && this.mUnits[index].Side == ignoreSide && this.mUnits[index].CheckCollision(grid))
+        if (!this.mUnits[index].IsGimmick && this.mUnits[index].Side == ignoreSide && this.mUnits[index].CheckCollision(grid))
           return this.mUnits[index];
       }
       return (Unit) null;
     }
 
-    public Unit FindGimmickAtGrid(Grid grid, bool is_valid_disable = false)
+    public Unit FindGimmickAtGrid(int x, int y, bool is_valid_disable = false)
+    {
+      return this.FindGimmickAtGrid(this.CurrentMap[x, y], is_valid_disable, (Unit) null);
+    }
+
+    public Unit FindGimmickAtGrid(Grid grid, bool is_valid_disable = false, Unit ignore_unit = null)
     {
       if (grid == null)
         return (Unit) null;
+      Unit unit = (Unit) null;
       for (int index = 0; index < this.mUnits.Count; ++index)
       {
-        if (this.mUnits[index].IsGimmick && (is_valid_disable || !this.mUnits[index].IsDisableGimmick()) && this.mUnits[index].CheckCollision(grid))
-          return this.mUnits[index];
+        if (this.mUnits[index].IsGimmick && (ignore_unit == null || this.mUnits[index] != ignore_unit) && ((is_valid_disable || !this.mUnits[index].IsDisableGimmick()) && this.mUnits[index].CheckCollision(grid)))
+        {
+          if (this.mUnits[index].IsBreakObj)
+            return this.mUnits[index];
+          unit = this.mUnits[index];
+        }
       }
-      return (Unit) null;
+      return unit;
     }
 
     public bool CommandWait(EUnitDirection dir)
     {
       if (!this.CurrentUnit.IsDead)
         this.CurrentUnit.Direction = dir;
-      return this.CommandWait();
+      return this.CommandWait(false);
     }
 
-    public bool CommandWait()
+    public bool CommandWait(bool is_skip_event = false)
     {
       this.DebugAssert(this.IsMapCommand, "マップコマンド中のみコール可");
       this.Log<LogMapWait>().self = this.CurrentUnit;
-      this.ExecuteEventTriggerOnGrid(this.CurrentUnit, EEventTrigger.Stop, false);
+      if (!is_skip_event)
+      {
+        this.TrickActionEndEffect(this.CurrentUnit, true);
+        this.ExecuteEventTriggerOnGrid(this.CurrentUnit, EEventTrigger.Stop);
+      }
       this.InternalLogUnitEnd();
-      if (this.CheckEnableSuspendSave() && !this.IsUnitAuto(this.CurrentUnit))
-        this.mSuspendData.Add(new BattleCore.SuspendData()
-        {
-          timing = BattleCore.SuspendTiming.Wait,
-          uid = this.CurrentUnit.UnitData.UniqueID,
-          x = this.CurrentUnit.x,
-          y = this.CurrentUnit.y,
-          dir = (int) this.CurrentUnit.Direction
-        });
       return true;
     }
 
@@ -2437,7 +3591,7 @@ label_4:
         return true;
       }
       currentMap.ResetMoveRoutes();
-      currentMap.CalcMoveSteps(self, goal);
+      currentMap.CalcMoveSteps(self, goal, false);
       currentMap.CalcMoveRoutes(self);
       int moveRoutesCount = currentMap.GetMoveRoutesCount();
       if (currentMap.GetNextMoveRoutes() == null)
@@ -2534,16 +3688,7 @@ label_4:
         else if (!isMultiPlayer)
           this.Log<LogMapCommand>();
       }
-      self.RefleshMomentBuff(this.Units);
-      if (!this.CheckEnableSuspendSave() || this.IsUnitAuto(self))
-        return;
-      this.mSuspendData.Add(new BattleCore.SuspendData()
-      {
-        timing = BattleCore.SuspendTiming.Move,
-        x = self.x,
-        y = self.y,
-        dir = (int) self.Direction
-      });
+      self.RefleshMomentBuff(this.Units, false, -1, -1);
     }
 
     public void MapCommandEnd(Unit self)
@@ -2608,7 +3753,7 @@ label_4:
       if (attackRangeMax <= 0)
         return;
       int attackRangeMin = self.GetAttackRangeMin(skill);
-      int attackHeight = self.GetAttackHeight(skill);
+      int attackHeight = self.GetAttackHeight(skill, true);
       ELineType lineType = skill.LineType;
       bool bHeightBonus = skill.IsEnableHeightRangeBonus();
       this.GetSkillGridLines(self.x, self.y, ex, ey, attackRangeMin, attackRangeMax, attackHeight, lineType, bHeightBonus, ref results);
@@ -2713,7 +3858,18 @@ label_4:
               break;
             }
             if (num10 > num12)
+            {
               results.RemoveAt(index--);
+            }
+            else
+            {
+              Unit gimmickAtGrid = this.FindGimmickAtGrid(results[index], false, (Unit) null);
+              if (gimmickAtGrid != null && gimmickAtGrid.IsBreakObj && (gimmickAtGrid.BreakObjClashType == eMapBreakClashType.INVINCIBLE && gimmickAtGrid.BreakObjRayType == eMapBreakRayType.TERRAIN))
+              {
+                results.RemoveRange(index, results.Count - index);
+                break;
+              }
+            }
           }
           break;
         case ELineType.Curved:
@@ -2723,11 +3879,15 @@ label_4:
             break;
           }
           double num13 = 0.0;
+          if (num13 < (double) start.height)
+            num13 = (double) start.height;
           for (int index = 0; index < results.Count; ++index)
           {
             if (num13 < (double) results[index].height)
               num13 = (double) results[index].height;
           }
+          if (num13 <= (double) start.height)
+            ++num13;
           double num14 = num13 + 1.0;
           bool flag = true;
           double val2 = (double) num3 / 100.0;
@@ -2748,17 +3908,29 @@ label_4:
             flag = true;
             for (int index2 = 0; index2 < results.Count; ++index2)
             {
-              int num17 = this.mGridLines[index2].x - start.x;
-              int num18 = this.mGridLines[index2].y - start.y;
+              int num17 = results[index2].x - start.x;
+              int num18 = results[index2].y - start.y;
               double num19 = Math.Min((double) BattleCore.Sqrt(num17 * num17 + num18 * num18), val2);
               double x = num12 * num19;
               double num20 = Math.Sin(a);
               double num21 = Math.Pow(x, 2.0);
               double num22 = num16 * num21 * 0.5;
-              if (num11 * x * num20 - num22 < (double) (results[index2].height - start.height) - 0.01)
+              double num23 = num11 * x * num20 - num22;
+              double num24 = (double) (results[index2].height - start.height) - 0.01;
+              if (num23 < num24)
               {
                 flag = false;
                 break;
+              }
+              double num25 = num24 + (double) (BattleMap.MAP_FLOOR_HEIGHT / 2);
+              if (num23 < num25)
+              {
+                Unit gimmickAtGrid = this.FindGimmickAtGrid(results[index2], false, (Unit) null);
+                if (gimmickAtGrid != null && gimmickAtGrid.IsBreakObj && (gimmickAtGrid.BreakObjClashType == eMapBreakClashType.INVINCIBLE && gimmickAtGrid.BreakObjRayType == eMapBreakRayType.TERRAIN))
+                {
+                  flag = false;
+                  break;
+                }
               }
             }
             if (flag)
@@ -2824,12 +3996,12 @@ label_4:
       return (int) (this.GetRandom() % 100U) <= this.GetCriticalRate(self, target, skill);
     }
 
-    public int GetCriticalDamage(Unit self, int damage)
+    public int GetCriticalDamage(Unit self, int damage, uint rand)
     {
       FixParam fixParam = MonoSingleton<GameManager>.Instance.MasterParam.FixParam;
       int criticalDamageRate1 = (int) fixParam.MinCriticalDamageRate;
       int criticalDamageRate2 = (int) fixParam.MaxCriticalDamageRate;
-      int num = criticalDamageRate1 + (int) ((long) this.mRandDamage.Get() % (long) (criticalDamageRate2 - criticalDamageRate1));
+      int num = criticalDamageRate1 + (int) ((long) rand % (long) (criticalDamageRate2 - criticalDamageRate1));
       damage += 100 * damage * num / 10000;
       return damage;
     }
@@ -2837,6 +4009,10 @@ label_4:
     private int GetAvoidRate(Unit self, Unit target, SkillData skill)
     {
       if (target.IsUnitCondition(EUnitCondition.Sleep) || target.IsUnitCondition(EUnitCondition.Stun) || (target.IsUnitCondition(EUnitCondition.Stone) || target.IsUnitCondition(EUnitCondition.Stop)) || skill.IsForceHit())
+        return 0;
+      if (target.IsBreakObj)
+        return target.BreakObjClashType == eMapBreakClashType.INVINCIBLE ? 100 : 0;
+      if (target.AI != null && target.AI.CheckFlag(AIFlags.DisableAvoid) || this.IsCombinationAttack(skill))
         return 0;
       FixParam fixParam = MonoSingleton<GameManager>.Instance.MasterParam.FixParam;
       int avoidBaseRate = (int) fixParam.AvoidBaseRate;
@@ -2872,15 +4048,19 @@ label_4:
           num3 += (int) target.CurrentStatus[BattleBonus.Avoid_Jump];
           break;
       }
-      return Math.Max(Math.Min(num2 + num3, (int) fixParam.MaxAvoidRate), 0);
+      int val1 = num2 + num3;
+      if (!skill.IsAreaSkill())
+      {
+        if (target.IsDisableUnitCondition(EUnitCondition.DisableSingleAttack))
+          val1 = 100;
+      }
+      else if (target.IsDisableUnitCondition(EUnitCondition.DisableAreaAttack))
+        val1 = 100;
+      return Math.Max(Math.Min(val1, (int) fixParam.MaxAvoidRate), 0);
     }
 
     private bool CheckAvoid(Unit self, Unit target, SkillData skill)
     {
-      if (target.AI != null && target.AI.CheckFlag(AIFlags.DisableAvoid) || this.IsCombinationAttack(skill))
-        return false;
-      if (GameUtility.IsDebugBuild && BattleCore.DEBUG_IS_FORCE_AVOID)
-        return true;
       int randomHitRate = (int) skill.SkillParam.random_hit_rate;
       if (randomHitRate > 0)
       {
@@ -2911,7 +4091,7 @@ label_4:
       if (num3 != 0)
         num3 = (int) ((long) this.GetRandom() % (long) Math.Abs(num3)) * ((int) skill.EffectRange <= 0 ? -1 : 1);
       int num4 = ((int) self.MaximumStatus.param.hp == 0 ? 100 : 100 * (int) self.CurrentStatus.param.hp / (int) self.MaximumStatus.param.hp) * (int) skill.EffectHpMaxRate / 100;
-      int num5 = 100 * (int) self.CurrentStatus.param.mp / (int) self.MaximumStatus.param.mp * (int) skill.EffectGemsMaxRate / 100;
+      int num5 = ((int) self.MaximumStatus.param.mp == 0 ? 0 : 100 * (int) self.CurrentStatus.param.mp / (int) self.MaximumStatus.param.mp) * (int) skill.EffectGemsMaxRate / 100;
       int num6 = 0;
       int effectDeadRate = (int) skill.SkillParam.effect_dead_rate;
       if (effectDeadRate != 0)
@@ -2935,72 +4115,142 @@ label_4:
     private int getSkillAttackerPowerBase(Unit attacker, Unit defender, SkillData skill)
     {
       int num1 = 1;
+      int num2 = 1;
+      int num3 = 1;
       StatusParam statusParam1 = attacker.CurrentStatus.param;
       StatusParam statusParam2 = defender == null ? (StatusParam) null : defender.CurrentStatus.param;
-      int num2;
+      int num4;
       if (!string.IsNullOrEmpty(skill.SkillParam.weapon))
       {
         WeaponParam weaponParam = MonoSingleton<GameManager>.Instance.GetWeaponParam(skill.SkillParam.weapon);
         switch (weaponParam.FormulaType)
         {
           case WeaponFormulaTypes.Atk:
-            num2 = (int) weaponParam.atk * (100 * (int) statusParam1.atk / 10) / 100;
+            num4 = (int) weaponParam.atk * (100 * (int) statusParam1.atk / 10) / 100;
             break;
           case WeaponFormulaTypes.Mag:
-            num2 = (int) weaponParam.atk * (100 * (int) statusParam1.mag / 10) / 100;
+            num4 = (int) weaponParam.atk * (100 * (int) statusParam1.mag / 10) / 100;
             break;
           case WeaponFormulaTypes.AtkSpd:
-            num2 = (int) weaponParam.atk * (100 * ((int) statusParam1.atk + (int) statusParam1.spd)) / 15 / 100;
+            num4 = (int) weaponParam.atk * (100 * ((int) statusParam1.atk + (int) statusParam1.spd)) / 15 / 100;
             break;
           case WeaponFormulaTypes.MagSpd:
-            num2 = (int) weaponParam.atk * (100 * ((int) statusParam1.mag + (int) statusParam1.spd)) / 15 / 100;
+            num4 = (int) weaponParam.atk * (100 * ((int) statusParam1.mag + (int) statusParam1.spd)) / 15 / 100;
             break;
           case WeaponFormulaTypes.AtkDex:
-            num2 = (int) weaponParam.atk * (100 * ((int) statusParam1.atk + (int) statusParam1.dex)) / 20 / 100;
+            num4 = (int) weaponParam.atk * (100 * ((int) statusParam1.atk + (int) statusParam1.dex)) / 20 / 100;
             break;
           case WeaponFormulaTypes.MagDex:
-            num2 = (int) weaponParam.atk * (100 * ((int) statusParam1.mag + (int) statusParam1.dex)) / 20 / 100;
+            num4 = (int) weaponParam.atk * (100 * ((int) statusParam1.mag + (int) statusParam1.dex)) / 20 / 100;
             break;
           case WeaponFormulaTypes.AtkLuk:
-            num2 = (int) weaponParam.atk * (100 * ((int) statusParam1.atk + (int) statusParam1.luk)) / 20 / 100;
+            num4 = (int) weaponParam.atk * (100 * ((int) statusParam1.atk + (int) statusParam1.luk)) / 20 / 100;
             break;
           case WeaponFormulaTypes.MagLuk:
-            num2 = (int) weaponParam.atk * (100 * ((int) statusParam1.mag + (int) statusParam1.luk)) / 20 / 100;
+            num4 = (int) weaponParam.atk * (100 * ((int) statusParam1.mag + (int) statusParam1.luk)) / 20 / 100;
             break;
           case WeaponFormulaTypes.AtkMag:
-            num2 = (int) weaponParam.atk * (100 * ((int) statusParam1.atk + (int) statusParam1.mag)) / 20 / 100;
+            num4 = (int) weaponParam.atk * (100 * ((int) statusParam1.atk + (int) statusParam1.mag)) / 20 / 100;
             break;
           case WeaponFormulaTypes.SpAtk:
             if ((int) statusParam1.atk > 0)
               num1 += (int) ((long) this.GetRandom() % (long) (int) statusParam1.atk);
-            num2 = (int) weaponParam.atk * (100 * (int) statusParam1.atk / 10) * (50 + 100 * num1 / (int) statusParam1.atk) / 10000;
+            num4 = (int) weaponParam.atk * (100 * (int) statusParam1.atk / 10) * (50 + 100 * num1 / (int) statusParam1.atk) / 10000;
             break;
           case WeaponFormulaTypes.SpMag:
-            int num3 = 0;
+            int num5 = 0;
             if (statusParam2 != null)
-              num3 = (int) statusParam2.mnd;
-            num2 = (int) weaponParam.atk * (100 * (int) statusParam1.mag / 10) * (20 + 100 / ((int) statusParam1.mag + num3) * (int) statusParam1.mag) / 10000;
+              num5 = (int) statusParam2.mnd;
+            num4 = (int) weaponParam.atk * (100 * (int) statusParam1.mag / 10) * (20 + 100 / ((int) statusParam1.mag + num5) * (int) statusParam1.mag) / 10000;
             break;
           case WeaponFormulaTypes.AtkSpdDex:
-            num2 = (int) weaponParam.atk * (100 * ((int) statusParam1.atk + (int) statusParam1.spd / 2 + (int) statusParam1.spd * attacker.Lv / 100 + (int) statusParam1.dex / 4)) / 20 / 100;
+            num4 = (int) weaponParam.atk * (100 * ((int) statusParam1.atk + (int) statusParam1.spd / 2 + (int) statusParam1.spd * attacker.Lv / 100 + (int) statusParam1.dex / 4)) / 20 / 100;
             break;
           case WeaponFormulaTypes.MagSpdDex:
-            num2 = (int) weaponParam.atk * (100 * ((int) statusParam1.mag + (int) statusParam1.spd / 2 + (int) statusParam1.spd * attacker.Lv / 100 + (int) statusParam1.dex / 4)) / 20 / 100;
+            num4 = (int) weaponParam.atk * (100 * ((int) statusParam1.mag + (int) statusParam1.spd / 2 + (int) statusParam1.spd * attacker.Lv / 100 + (int) statusParam1.dex / 4)) / 20 / 100;
             break;
           case WeaponFormulaTypes.AtkDexLuk:
-            num2 = (int) weaponParam.atk * (100 * ((int) statusParam1.atk + (int) statusParam1.dex / 2 + (int) statusParam1.luk / 2)) / 20 / 100;
+            num4 = (int) weaponParam.atk * (100 * ((int) statusParam1.atk + (int) statusParam1.dex / 2 + (int) statusParam1.luk / 2)) / 20 / 100;
             break;
           case WeaponFormulaTypes.MagDexLuk:
-            num2 = (int) weaponParam.atk * (100 * ((int) statusParam1.mag + (int) statusParam1.dex / 2 + (int) statusParam1.luk / 2)) / 20 / 100;
+            num4 = (int) weaponParam.atk * (100 * ((int) statusParam1.mag + (int) statusParam1.dex / 2 + (int) statusParam1.luk / 2)) / 20 / 100;
+            break;
+          case WeaponFormulaTypes.Luk:
+            num4 = (int) weaponParam.atk * (100 * (int) statusParam1.luk / 10) / 100;
+            break;
+          case WeaponFormulaTypes.Dex:
+            num4 = (int) weaponParam.atk * (100 * (int) statusParam1.dex / 10) / 100;
+            break;
+          case WeaponFormulaTypes.Spd:
+            num4 = (int) weaponParam.atk * (100 * (int) statusParam1.spd / 10) / 100;
+            break;
+          case WeaponFormulaTypes.Cri:
+            num4 = (int) weaponParam.atk * (100 * (int) statusParam1.cri / 10) / 100;
+            break;
+          case WeaponFormulaTypes.Def:
+            num4 = (int) weaponParam.atk * (100 * (int) statusParam1.def / 10) / 100;
+            break;
+          case WeaponFormulaTypes.Mnd:
+            num4 = (int) weaponParam.atk * (100 * (int) statusParam1.mnd / 10) / 100;
+            break;
+          case WeaponFormulaTypes.AtkRndLuk:
+            int num6 = Mathf.CeilToInt((float) attacker.Lv / 10f);
+            if (num6 <= 0)
+              num6 = 1;
+            int num7 = num2 + (int) ((long) this.GetRandom() % (long) num6);
+            num4 = (int) weaponParam.atk * (100 * ((int) statusParam1.atk + num7 * ((int) statusParam1.luk / 3)) / 20) / 100;
+            break;
+          case WeaponFormulaTypes.MagRndLuk:
+            int num8 = Mathf.CeilToInt((float) attacker.Lv / 10f);
+            if (num8 <= 0)
+              num8 = 1;
+            int num9 = num3 + (int) ((long) this.GetRandom() % (long) num8);
+            num4 = (int) weaponParam.atk * (100 * ((int) statusParam1.mag + num9 * ((int) statusParam1.luk / 3)) / 20) / 100;
+            break;
+          case WeaponFormulaTypes.AtkEAt:
+            int num10 = 0;
+            if (statusParam2 != null)
+              num10 = (int) statusParam2.atk;
+            num4 = (int) weaponParam.atk * (100 * ((int) statusParam1.atk * 2 - num10) / 10) / 100;
+            break;
+          case WeaponFormulaTypes.MagEMg:
+            int num11 = 0;
+            if (statusParam2 != null)
+              num11 = (int) statusParam2.mag;
+            num4 = (int) weaponParam.atk * (100 * ((int) statusParam1.mag * 2 - num11) / 10) / 100;
+            break;
+          case WeaponFormulaTypes.AtkDefEDf:
+            int num12 = 0;
+            if (statusParam2 != null)
+              num12 = (int) statusParam2.def;
+            num4 = (int) weaponParam.atk * (100 * ((int) statusParam1.atk + (int) statusParam1.def - num12) / 10) / 100;
+            break;
+          case WeaponFormulaTypes.MagMndEMd:
+            int num13 = 0;
+            if (statusParam2 != null)
+              num13 = (int) statusParam2.mnd;
+            num4 = (int) weaponParam.atk * (100 * ((int) statusParam1.mag + (int) statusParam1.mnd - num13) / 10) / 100;
+            break;
+          case WeaponFormulaTypes.LukELk:
+            int num14 = 0;
+            if (statusParam2 != null)
+              num14 = (int) statusParam2.luk;
+            num4 = (int) weaponParam.atk * (100 * ((int) statusParam1.luk * 2 - num14) / 10) / 100;
+            break;
+          case WeaponFormulaTypes.MHp:
+            int hp = (int) attacker.MaximumStatus.param.hp;
+            num4 = (int) weaponParam.atk * (100 * (hp - (int) statusParam1.hp) / 10) / 100;
             break;
           default:
-            num2 = (int) statusParam1.atk;
+            num4 = (int) statusParam1.atk;
             break;
         }
       }
       else
-        num2 = !skill.IsPhysicalAttack() ? (int) statusParam1.mag : (int) statusParam1.atk;
-      return num2;
+        num4 = !skill.IsPhysicalAttack() ? (int) statusParam1.mag : (int) statusParam1.atk;
+      if (num4 < 0)
+        num4 = 0;
+      return num4;
     }
 
     private int GetSkillAttackerPower(Unit attacker, Unit defender, SkillData skill, LogSkill log)
@@ -3015,7 +4265,7 @@ label_4:
           target1 = (target1 + attackerPowerBase) / 2;
         }
         else
-          DebugUtility.LogError(string.Format("BattleCore/GetSkillAttackerPower collabo unit not found! unit_iname={0}, skill_iname={1}", (object) attacker.UnitParam.iname, (object) skill.SkillParam.iname));
+          DebugUtility.LogWarning(string.Format("BattleCore/GetSkillAttackerPower collabo unit not found! unit_iname={0}, skill_iname={1}", (object) attacker.UnitParam.iname, (object) skill.SkillParam.iname));
       }
       int skillEffectValue = this.GetSkillEffectValue(attacker, defender, skill);
       int num1 = SkillParam.CalcSkillEffectValue(skill.EffectCalcType, skillEffectValue, target1);
@@ -3025,27 +4275,61 @@ label_4:
       int num3 = 0;
       int num4 = 0;
       int num5 = 0;
+      int num6 = 0;
+      int num7 = 0;
+      int num8 = 0;
+      FixParam fixParam = MonoSingleton<GameManager>.GetInstanceDirect().MasterParam.FixParam;
       if (num1 != 0)
       {
         int attackTypeBonus = this.GetAttackTypeBonus(attacker, skill);
         if (defender != null)
         {
-          if (attacker.Element != EElement.None)
+          EnchantParam enchantAssist = attacker.CurrentStatus.enchant_assist;
+          EnchantParam enchantResist = defender.CurrentStatus.enchant_resist;
+          if (!skill.IsAreaSkill())
+            num2 += (int) enchantAssist[EnchantTypes.SingleAttack] - (int) enchantResist[EnchantTypes.SingleAttack];
+          else
+            num2 += (int) enchantAssist[EnchantTypes.AreaAttack] - (int) enchantResist[EnchantTypes.AreaAttack];
+          if (!skill.IsIgnoreElement())
           {
-            ElementParam elementAssist = attacker.CurrentStatus.element_assist;
-            ElementParam elementResist = defender.CurrentStatus.element_resist;
-            num2 += (int) elementAssist[attacker.Element] - (int) elementResist[attacker.Element];
-          }
-          if (skill.ElementType != EElement.None)
-          {
-            ElementParam elementResist = defender.CurrentStatus.element_resist;
-            num2 += (int) skill.ElementValue - (int) elementResist[skill.ElementType];
+            if (attacker.Element != EElement.None)
+            {
+              ElementParam elementAssist = attacker.CurrentStatus.element_assist;
+              num3 += (int) elementAssist[attacker.Element];
+              if (attacker.Element == UnitParam.GetWeakElement(defender.Element))
+                num3 += (int) fixParam.WeakUpRate;
+              else if (attacker.Element == UnitParam.GetResistElement(defender.Element))
+                num3 += (int) fixParam.ResistDownRate;
+              num8 += UnitParam.GetWeakElement(defender.Element) != attacker.Element ? (UnitParam.GetResistElement(defender.Element) != attacker.Element ? 0 : 1) : -1;
+            }
+            if (skill.ElementType != EElement.None)
+            {
+              num3 += (int) skill.ElementValue;
+              if (skill.ElementType == UnitParam.GetWeakElement(defender.Element))
+                num3 += (int) fixParam.WeakUpRate;
+              else if (skill.ElementType == UnitParam.GetResistElement(defender.Element))
+                num3 += (int) fixParam.ResistDownRate;
+              num8 += UnitParam.GetWeakElement(defender.Element) != skill.ElementType ? (UnitParam.GetResistElement(defender.Element) != skill.ElementType ? 0 : 1) : -1;
+              if (skill.ElementType == UnitParam.GetWeakElement(defender.Element))
+                num4 = skill.ElementSpcAtkRate;
+            }
+            EElement index = skill.ElementType;
+            if (index == EElement.None)
+              index = attacker.Element;
+            if (index != EElement.None)
+            {
+              ElementParam elementResist = defender.CurrentStatus.element_resist;
+              num3 -= (int) elementResist[index];
+            }
           }
           if (log != null && log.targets != null)
           {
             LogSkill.Target target2 = log.targets.Find((Predicate<LogSkill.Target>) (p => p.target == defender));
             if (target2 != null)
-              target2.element_effect_rate = num2;
+            {
+              target2.element_effect_rate = num3;
+              target2.element_effect_resist = num8;
+            }
           }
           string tokkou1 = skill.SkillParam.tokkou;
           if (!string.IsNullOrEmpty(tokkou1))
@@ -3059,10 +4343,10 @@ label_4:
                 {
                   if (skill.SkillParam.tk_rate != 0)
                   {
-                    num3 += skill.SkillParam.tk_rate;
+                    num5 += skill.SkillParam.tk_rate;
                     break;
                   }
-                  num3 += (int) MonoSingleton<GameManager>.GetInstanceDirect().MasterParam.FixParam.TokkouDamageRate;
+                  num5 += (int) fixParam.TokkouDamageRate;
                   break;
                 }
               }
@@ -3075,13 +4359,13 @@ label_4:
               BuffAttachment current = enumerator.Current;
               if (current.skill != null && !string.IsNullOrEmpty(current.skill.SkillParam.tokkou))
               {
-                List<string> stringList = new List<string>((IEnumerable<string>) defender.GetTags());
-                if (stringList != null && stringList.Contains(current.skill.SkillParam.tokkou))
+                string[] tags = defender.GetTags();
+                if (tags != null && new List<string>((IEnumerable<string>) tags).Contains(current.skill.SkillParam.tokkou))
                 {
                   if (current.skill.SkillParam.tk_rate != 0)
-                    num3 += current.skill.SkillParam.tk_rate;
+                    num5 += current.skill.SkillParam.tk_rate;
                   else
-                    num3 += (int) MonoSingleton<GameManager>.GetInstanceDirect().MasterParam.FixParam.TokkouDamageRate;
+                    num5 += (int) fixParam.TokkouDamageRate;
                 }
               }
             }
@@ -3092,11 +4376,11 @@ label_4:
             Grid unitGridPosition2 = this.GetUnitGridPosition(defender);
             if (unitGridPosition1 != null && unitGridPosition2 != null)
             {
-              int num6 = unitGridPosition1.height - unitGridPosition2.height;
-              if (num6 > 0)
-                num4 = (int) MonoSingleton<GameManager>.Instance.MasterParam.FixParam.HighGridAtkRate;
-              if (num6 < 0)
-                num4 = (int) MonoSingleton<GameManager>.Instance.MasterParam.FixParam.DownGridAtkRate;
+              int num9 = unitGridPosition1.height - unitGridPosition2.height;
+              if (num9 > 0)
+                num6 = (int) MonoSingleton<GameManager>.Instance.MasterParam.FixParam.HighGridAtkRate;
+              if (num9 < 0)
+                num6 = (int) MonoSingleton<GameManager>.Instance.MasterParam.FixParam.DownGridAtkRate;
             }
           }
           if (skill.IsNormalAttack())
@@ -3130,10 +4414,10 @@ label_4:
                         {
                           if (artifactData.BattleEffectSkill.SkillParam.tk_rate != 0)
                           {
-                            num3 += artifactData.BattleEffectSkill.SkillParam.tk_rate;
+                            num5 += artifactData.BattleEffectSkill.SkillParam.tk_rate;
                             break;
                           }
-                          num3 += (int) MonoSingleton<GameManager>.GetInstanceDirect().MasterParam.FixParam.TokkouDamageRate;
+                          num5 += (int) fixParam.TokkouDamageRate;
                           break;
                         }
                       }
@@ -3145,9 +4429,9 @@ label_4:
           }
         }
         if (this.IsCombinationAttack(skill))
-          num5 = this.mHelperUnits.Count * 50;
-        int num7 = attackTypeBonus + num2 + num3 + num4 + num5;
-        num1 += 100 * num1 * num7 / 10000;
+          num7 = this.mHelperUnits.Count * (int) fixParam.CombinationRate;
+        int num10 = attackTypeBonus + num3 + num4 + num5 + num6 + num7 + num2;
+        num1 += 100 * num1 * num10 / 10000;
       }
       return num1;
     }
@@ -3283,7 +4567,7 @@ label_4:
 
     private int CalcGainedGems(Unit self, Unit target, SkillData skill, int damage, bool bCritical, bool bWeakPoint)
     {
-      if (skill == null || !skill.IsNormalAttack())
+      if (skill == null || !skill.IsNormalAttack() || target.IsBreakObj)
         return 0;
       FixParam fixParam = MonoSingleton<GameManager>.Instance.MasterParam.FixParam;
       int gainNormalAttack = (int) fixParam.GemsGainNormalAttack;
@@ -3303,7 +4587,7 @@ label_4:
         if (num > 0)
           gainNormalAttack += Math.Min(num / (int) fixParam.GemsGainDiffFloorCount, (int) fixParam.GemsGainDiffFloorMax);
       }
-      return gainNormalAttack + (int) self.CurrentStatus[BattleBonus.GainJewel];
+      return gainNormalAttack + gainNormalAttack * (int) self.CurrentStatus[BattleBonus.GainJewelRate] / 100 + (int) self.CurrentStatus[BattleBonus.GainJewel];
     }
 
     private void DamageCureCondition(Unit target, LogSkill log = null)
@@ -3319,11 +4603,11 @@ label_4:
     {
     }
 
-    private Unit GetSubMemberFirst()
+    private Unit GetSubMemberFirst(int owner = -1)
     {
       for (int index = 0; index < this.Player.Count; ++index)
       {
-        if (this.Player[index].IsSub && !this.Player[index].IsDead && this.Player[index] != this.Friend)
+        if (this.Player[index].IsSub && !this.Player[index].IsDead && this.Player[index] != this.Friend && (owner == -1 || this.Player[index].OwnerPlayerIndex == owner))
           return this.Player[index];
       }
       return (Unit) null;
@@ -3331,43 +4615,68 @@ label_4:
 
     public void ResumeDead(Unit target)
     {
-      this.Dead((Unit) null, target, DeadTypes.Damage);
+      this.Dead((Unit) null, target, DeadTypes.Damage, true);
     }
 
-    private void Dead(Unit self, Unit target, DeadTypes type)
+    private void Dead(Unit self, Unit target, DeadTypes type, bool is_resume = false)
     {
       if (target.IsUnitFlag(EUnitFlag.EntryDead))
         return;
       target.SetUnitFlag(EUnitFlag.EntryDead, true);
-      this.DeadSkill(target, self);
+      if (!is_resume && this.DeadSkill(target, self))
+        return;
       if (target.Side == EUnitSide.Enemy)
       {
         ++this.mKillstreak;
         this.mMaxKillstreak = Math.Max(this.mMaxKillstreak, this.mKillstreak);
+        string iname = target.UnitParam.iname;
+        int val1;
+        if (this.mTargetKillstreakDict.TryGetValue(iname, out val1))
+          ++val1;
+        else
+          val1 = 1;
+        this.mTargetKillstreakDict[iname] = val1;
+        int val2;
+        this.mMaxTargetKillstreakDict[iname] = !this.mMaxTargetKillstreakDict.TryGetValue(iname, out val2) ? val1 : Math.Max(val1, val2);
       }
       if (self != null && self != target)
         ++self.KillCount;
       if (!target.IsDead)
         return;
-      LogDead logDead = this.Log<LogDead>();
-      logDead.self = target;
-      logDead.type = type;
+      (this.Logs.Last as LogDead ?? this.Log<LogDead>()).Add(target, type);
       target.ForceDead();
       this.GridEventStart(self, target, EEventTrigger.Dead);
       if (target.IsPartyMember && this.Friend != target && this.GetQuestResult() == BattleCore.QuestResult.Pending)
       {
-        Unit subMemberFirst = this.GetSubMemberFirst();
-        if (subMemberFirst != null)
+        Unit unit = !this.IsMultiPlay ? this.GetSubMemberFirst(-1) : this.GetSubMemberFirst(target.OwnerPlayerIndex);
+        if (unit != null)
         {
           Grid duplicatePosition = this.GetCorrectDuplicatePosition(target);
-          subMemberFirst.x = duplicatePosition.x;
-          subMemberFirst.y = duplicatePosition.y;
-          subMemberFirst.IsSub = false;
-          this.Log<LogUnitEntry>().self = subMemberFirst;
+          unit.x = duplicatePosition.x;
+          unit.y = duplicatePosition.y;
+          unit.Direction = target.Direction;
+          if (!is_resume)
+          {
+            unit.IsSub = false;
+            unit.SetUnitFlag(EUnitFlag.Reinforcement, true);
+          }
+          this.Log<LogUnitEntry>().self = unit;
+          this.BeginBattlePassiveSkill(unit);
+          this.UseAutoSkills(unit);
         }
       }
-      this.GimmickSkillDeadCount(self, target);
+      this.GimmickEventDeadCount(self, target);
+      this.UpdateGimmickEventTrick();
       this.UpdateEntryTriggers(UnitEntryTypes.DeadEnemy, target, (SkillParam) null);
+      if (!target.IsUnitFlag(EUnitFlag.CreatedBreakObj))
+        return;
+      if (this.Enemys.Contains(target))
+        this.Enemys.Remove(target);
+      if (this.mAllUnits.Contains(target))
+        this.mAllUnits.Remove(target);
+      if (!this.mUnits.Contains(target))
+        return;
+      this.mUnits.Remove(target);
     }
 
     public void ForceDead(Unit unit)
@@ -3387,6 +4696,8 @@ label_4:
       self.x = duplicatePosition.x;
       self.y = duplicatePosition.y;
       self.SetUnitFlag(EUnitFlag.Entried, true);
+      self.SetUnitFlag(EUnitFlag.Reinforcement, true);
+      self.IsSub = false;
       this.Log<LogUnitEntry>().self = self;
     }
 
@@ -3407,7 +4718,7 @@ label_4:
       target1.cureCondition |= condition;
     }
 
-    private void FailCondition(Unit self, Unit target, SkillData skill, ConditionEffectTypes type, ESkillCondition cond, EUnitCondition condition, EffectCheckTargets chk_target, EffectCheckTimings chk_timing, int turn, bool is_passive, bool is_curse, LogSkill logskl)
+    private void FailCondition(Unit self, Unit target, SkillData skill, ConditionEffectTypes type, ESkillCondition cond, EUnitCondition condition, EffectCheckTargets chk_target, EffectCheckTimings chk_timing, int turn, bool is_passive, bool is_curse, LogSkill logskl, bool is_same_ow)
     {
       if (this.IsBattleFlag(EBattleFlag.PredictResult))
         return;
@@ -3415,8 +4726,24 @@ label_4:
       logFailCondition.self = target;
       logFailCondition.source = self;
       logFailCondition.condition = condition;
-      CondAttachment condAttachment = this.CreateCondAttachment(self, target, skill, type, cond, condition, chk_target, chk_timing, turn, is_passive, is_curse);
-      target.SetCondAttachment(condAttachment);
+      SceneBattle instance = SceneBattle.Instance;
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) instance, (UnityEngine.Object) null))
+      {
+        TacticsUnitController unitController = instance.FindUnitController(target);
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
+          unitController.LockUpdateBadStatus(logFailCondition.condition, false);
+      }
+      CondAttachment condAttachment1 = this.CreateCondAttachment(self, target, skill, type, cond, condition, chk_target, chk_timing, turn, is_passive, is_curse);
+      if (is_same_ow)
+      {
+        for (int index = 0; index < target.CondAttachments.Count; ++index)
+        {
+          CondAttachment condAttachment2 = target.CondAttachments[index];
+          if (condAttachment1.IsSame(condAttachment2, true))
+            target.CondAttachments.RemoveAt(index--);
+        }
+      }
+      target.SetCondAttachment(condAttachment1);
       if (logskl == null || !target.IsUnitCondition(condition))
         return;
       LogSkill.Target target1 = logskl.FindTarget(target);
@@ -3447,7 +4774,7 @@ label_4:
         {
           if ((int) target.CurrentStatus.enchant_resist.resist_buff < 100)
           {
-            if ((int) (this.GetRandom() % 100U) < (int) target.CurrentStatus.enchant_resist.resist_buff && (!GameUtility.IsDebugBuild || !BattleCore.DEBUG_IS_FORCE_ACTION))
+            if ((int) (this.GetRandom() % 100U) < (int) target.CurrentStatus.enchant_resist.resist_buff)
               flag2 = false;
           }
           else
@@ -3459,14 +4786,15 @@ label_4:
         {
           if ((int) target.CurrentStatus.enchant_resist.resist_buff < 100)
           {
-            if ((int) (this.GetRandom() % 100U) < (int) target.CurrentStatus.enchant_resist.resist_debuff && (!GameUtility.IsDebugBuild || !BattleCore.DEBUG_IS_FORCE_ACTION))
+            if ((int) (this.GetRandom() % 100U) < (int) target.CurrentStatus.enchant_resist.resist_debuff)
               flag3 = false;
           }
           else
             flag2 = false;
         }
       }
-      skill.BuffSkill(timing, BattleCore.BuffWorkStatus, BattleCore.BuffWorkScaleStatus, BattleCore.DebuffWorkStatus, BattleCore.DebuffWorkScaleStatus, this.CurrentRand, buff_target);
+      if (!skill.BuffSkill(timing, BattleCore.BuffWorkStatus, BattleCore.BuffWorkScaleStatus, BattleCore.DebuffWorkStatus, BattleCore.DebuffWorkScaleStatus, this.CurrentRand, buff_target, false))
+        return;
       int turn = (int) buffEffect.param.turn;
       ESkillCondition cond = buffEffect.param.cond;
       EffectCheckTargets chkTarget = buffEffect.param.chk_target;
@@ -3477,14 +4805,14 @@ label_4:
         if (buffEffect.CheckBuffCalcType(BuffTypes.Buff, SkillParamCalcTypes.Add))
         {
           BuffAttachment buffAttachment = this.CreateBuffAttachment(self, target, skill, buff_target, buffEffect.param, BuffTypes.Buff, SkillParamCalcTypes.Add, BattleCore.BuffWorkStatus, cond, turn, chkTarget, chkTiming, is_passive, duplicateCount);
-          target.SetBuffAttachment(buffAttachment, is_duplicate);
-          flag1 = true;
+          if (target.SetBuffAttachment(buffAttachment, is_duplicate))
+            flag1 = true;
         }
         if (buffEffect.CheckBuffCalcType(BuffTypes.Buff, SkillParamCalcTypes.Scale))
         {
           BuffAttachment buffAttachment = this.CreateBuffAttachment(self, target, skill, buff_target, buffEffect.param, BuffTypes.Buff, SkillParamCalcTypes.Scale, BattleCore.BuffWorkScaleStatus, cond, turn, chkTarget, chkTiming, is_passive, duplicateCount);
-          target.SetBuffAttachment(buffAttachment, is_duplicate);
-          flag1 = true;
+          if (target.SetBuffAttachment(buffAttachment, is_duplicate))
+            flag1 = true;
         }
       }
       if (flag3)
@@ -3492,14 +4820,14 @@ label_4:
         if (buffEffect.CheckBuffCalcType(BuffTypes.Debuff, SkillParamCalcTypes.Add))
         {
           BuffAttachment buffAttachment = this.CreateBuffAttachment(self, target, skill, buff_target, buffEffect.param, BuffTypes.Debuff, SkillParamCalcTypes.Add, BattleCore.DebuffWorkStatus, cond, turn, chkTarget, chkTiming, is_passive, duplicateCount);
-          target.SetBuffAttachment(buffAttachment, is_duplicate);
-          flag1 = true;
+          if (target.SetBuffAttachment(buffAttachment, is_duplicate))
+            flag1 = true;
         }
         if (buffEffect.CheckBuffCalcType(BuffTypes.Debuff, SkillParamCalcTypes.Scale))
         {
           BuffAttachment buffAttachment = this.CreateBuffAttachment(self, target, skill, buff_target, buffEffect.param, BuffTypes.Debuff, SkillParamCalcTypes.Scale, BattleCore.DebuffWorkScaleStatus, cond, turn, chkTarget, chkTiming, is_passive, duplicateCount);
-          target.SetBuffAttachment(buffAttachment, is_duplicate);
-          flag1 = true;
+          if (target.SetBuffAttachment(buffAttachment, is_duplicate))
+            flag1 = true;
         }
       }
       if (!flag1 || log == null)
@@ -3567,11 +4895,11 @@ label_4:
       {
         if ((int) status.enchant_assist.values[index] != 0)
         {
-          ParamTypes resistParamTypes = status.enchant_assist.GetResistParamTypes(index);
+          ParamTypes assistParamTypes = status.enchant_assist.GetAssistParamTypes(index);
           if ((int) status.enchant_assist.values[index] > 0)
-            buff.SetBit(resistParamTypes);
+            buff.SetBit(assistParamTypes);
           else
-            debuff.SetBit(resistParamTypes);
+            debuff.SetBit(assistParamTypes);
         }
         if ((int) status.enchant_resist.values[index] != 0)
         {
@@ -3598,7 +4926,11 @@ label_4:
     public BuffAttachment CreateBuffAttachment(Unit user, Unit target, SkillData skill, SkillEffectTargets skilltarget, BuffEffectParam param, BuffTypes buffType, SkillParamCalcTypes calcType, BaseStatus status, ESkillCondition cond, int turn, EffectCheckTargets chktgt, EffectCheckTimings timing, bool is_passive, int dupli)
     {
       if (this.IsBattleFlag(EBattleFlag.PredictResult))
-        return (BuffAttachment) null;
+      {
+        if (!skill.IsPrevApply())
+          return (BuffAttachment) null;
+        timing = EffectCheckTimings.PrevApply;
+      }
       BuffAttachment buffAttachment1 = new BuffAttachment(param);
       buffAttachment1.user = user;
       buffAttachment1.turn = (OInt) turn;
@@ -3637,7 +4969,7 @@ label_4:
       return buffAttachment1;
     }
 
-    private void CondSkill(ESkillTiming timing, Unit self, Unit target, SkillData skill, bool is_passive = false, LogSkill log = null, SkillEffectTargets cond_target = SkillEffectTargets.Target)
+    private void CondSkill(ESkillTiming timing, Unit self, Unit target, SkillData skill, bool is_passive = false, LogSkill log = null, SkillEffectTargets cond_target = SkillEffectTargets.Target, bool is_same_ow = false)
     {
       if (timing != skill.Timing)
         return;
@@ -3650,7 +4982,7 @@ label_4:
         if (condEffect.param.type != ConditionEffectTypes.None && condEffect.param.conditions != null)
         {
           int rate = (int) condEffect.rate;
-          if (rate > 0 && rate < 100 && (int) (this.GetRandom() % 100U) > rate && (!GameUtility.IsDebugBuild || !BattleCore.DEBUG_IS_FORCE_ACTION))
+          if (rate > 0 && rate < 100 && (int) (this.GetRandom() % 100U) > rate)
             return;
           type = condEffect.param.type;
         }
@@ -3687,7 +5019,7 @@ label_4:
           {
             EUnitCondition condition = (EUnitCondition) (1 << index);
             if (!target.IsDisableUnitCondition(condition) && this.CheckFailCondition(target, (int) enchantAssist1[condition], (int) enchantResist1[condition], condition))
-              this.FailCondition(self, target, skill, ConditionEffectTypes.FailCondition, ESkillCondition.None, condition, EffectCheckTargets.Target, EffectCheckTimings.ActionStart, 0, is_passive, false, log);
+              this.FailCondition(self, target, skill, ConditionEffectTypes.FailCondition, ESkillCondition.None, condition, EffectCheckTargets.Target, EffectCheckTimings.ActionStart, 0, is_passive, false, log, is_same_ow);
           }
           break;
         case ConditionEffectTypes.CureCondition:
@@ -3709,7 +5041,7 @@ label_4:
           {
             EUnitCondition condition = condEffect.param.conditions[index];
             if (!target.IsDisableUnitCondition(condition) && this.CheckFailCondition(target, (int) enchantAssist2[condition] + (int) condEffect.value, (int) enchantResist2[condition], condition))
-              this.FailCondition(self, target, skill, condEffect.param.type, condEffect.param.cond, condition, condEffect.param.chk_target, condEffect.param.chk_timing, (int) condEffect.turn, is_passive, condEffect.IsCurse, log);
+              this.FailCondition(self, target, skill, condEffect.param.type, condEffect.param.cond, condition, condEffect.param.chk_target, condEffect.param.chk_timing, (int) condEffect.turn, is_passive, condEffect.IsCurse, log, is_same_ow);
           }
           break;
         case ConditionEffectTypes.ForcedFailCondition:
@@ -3718,7 +5050,7 @@ label_4:
           for (int index = 0; index < condEffect.param.conditions.Length; ++index)
           {
             EUnitCondition condition = condEffect.param.conditions[index];
-            this.FailCondition(self, target, skill, condEffect.param.type, condEffect.param.cond, condition, condEffect.param.chk_target, condEffect.param.chk_timing, (int) condEffect.turn, is_passive, condEffect.IsCurse, log);
+            this.FailCondition(self, target, skill, condEffect.param.type, condEffect.param.cond, condition, condEffect.param.chk_target, condEffect.param.chk_timing, (int) condEffect.turn, is_passive, condEffect.IsCurse, log, is_same_ow);
           }
           break;
         case ConditionEffectTypes.RandomFailCondition:
@@ -3730,7 +5062,7 @@ label_4:
           EUnitCondition condition1 = condEffect.param.conditions[index1];
           if (target.IsDisableUnitCondition(condition1) || !this.CheckFailCondition(target, (int) enchantAssist3[condition1] + (int) condEffect.value, (int) enchantResist3[condition1], condition1))
             break;
-          this.FailCondition(self, target, skill, condEffect.param.type, condEffect.param.cond, condition1, condEffect.param.chk_target, condEffect.param.chk_timing, (int) condEffect.turn, is_passive, condEffect.IsCurse, log);
+          this.FailCondition(self, target, skill, condEffect.param.type, condEffect.param.cond, condition1, condEffect.param.chk_target, condEffect.param.chk_timing, (int) condEffect.turn, is_passive, condEffect.IsCurse, log, is_same_ow);
           break;
         case ConditionEffectTypes.DisableCondition:
           if (condEffect == null || condEffect.param == null || condEffect.param.conditions == null)
@@ -3744,11 +5076,50 @@ label_4:
       }
     }
 
+    private void CondSkillSetRateLog(ESkillTiming timing, Unit self, Unit target, SkillData skill, LogSkill log)
+    {
+      if (self == null || target == null || (skill == null || log == null) || timing != skill.Timing)
+        return;
+      CondEffect condEffect = skill.GetCondEffect(SkillEffectTargets.Target);
+      if (condEffect == null || condEffect.param == null || (!condEffect.CheckEnableCondTarget(target) || condEffect.param.type == ConditionEffectTypes.None) || (condEffect.param.conditions == null || (int) condEffect.value == 0))
+        return;
+      LogSkill.Target target1 = log.FindTarget(target);
+      if (target1 == null)
+        return;
+      target1.CondHitLists.Clear();
+      switch (condEffect.param.type)
+      {
+        case ConditionEffectTypes.FailCondition:
+        case ConditionEffectTypes.ForcedFailCondition:
+        case ConditionEffectTypes.RandomFailCondition:
+          EnchantParam enchantAssist = self.CurrentStatus.enchant_assist;
+          EnchantParam enchantResist = target.CurrentStatus.enchant_resist;
+          foreach (EUnitCondition condition in condEffect.param.conditions)
+          {
+            LogSkill.Target.CondHit condHit = new LogSkill.Target.CondHit(condition, 0);
+            if (!target.IsDisableUnitCondition(condition))
+            {
+              int num1 = (int) condEffect.rate;
+              if (num1 <= 0 || num1 > 100)
+                num1 = 100;
+              if (condEffect.param.type != ConditionEffectTypes.ForcedFailCondition)
+              {
+                int num2 = Math.Max(0, Math.Min((int) enchantAssist[condition] + (int) condEffect.value - (int) enchantResist[condition], 100));
+                num1 = num1 * num2 / 100;
+              }
+              condHit.Per = num1;
+            }
+            target1.CondHitLists.Add(condHit);
+          }
+          break;
+      }
+    }
+
     public CondAttachment CreateCondAttachment(Unit user, Unit target, SkillData skill, ConditionEffectTypes type, ESkillCondition cond, EUnitCondition condition, EffectCheckTargets chktgt, EffectCheckTimings timing, int turn, bool is_passive, bool is_curse)
     {
       if (this.IsBattleFlag(EBattleFlag.PredictResult))
         return (CondAttachment) null;
-      if (type == ConditionEffectTypes.None && !skill.IsDamagedSkill())
+      if (type == ConditionEffectTypes.None && skill != null && !skill.IsDamagedSkill())
         return (CondAttachment) null;
       CondAttachment condAttachment = new CondAttachment();
       condAttachment.user = user;
@@ -3782,8 +5153,6 @@ label_4:
       if (num1 <= 0)
         return false;
       int num2 = (int) (this.GetRandom() % 100U);
-      if (GameUtility.IsDebugBuild && BattleCore.DEBUG_IS_FORCE_ACTION)
-        return true;
       return num1 > num2;
     }
 
@@ -3807,11 +5176,44 @@ label_4:
       return self.Side == target.Side;
     }
 
+    public bool CheckGimmickEnemySide(Unit self, Unit target)
+    {
+      if (self == null || target == null || (!target.IsGimmick || self == target))
+        return false;
+      EUnitSide eunitSide = EUnitSide.Neutral;
+      if (this.IsMultiVersus)
+      {
+        if (target.BreakObjSideType == eMapBreakSideType.PLAYER)
+        {
+          eunitSide = EUnitSide.Player;
+          if (self.Side != EUnitSide.Enemy && self.OwnerPlayerIndex != target.OwnerPlayerIndex)
+            eunitSide = EUnitSide.Enemy;
+        }
+        else if (target.BreakObjSideType == eMapBreakSideType.ENEMY)
+        {
+          eunitSide = EUnitSide.Enemy;
+          if (self.Side == EUnitSide.Enemy && self.OwnerPlayerIndex == target.OwnerPlayerIndex)
+            eunitSide = EUnitSide.Player;
+        }
+      }
+      else if (target.BreakObjSideType == eMapBreakSideType.PLAYER)
+        eunitSide = EUnitSide.Player;
+      else if (target.BreakObjSideType == eMapBreakSideType.ENEMY)
+        eunitSide = EUnitSide.Enemy;
+      if (self.IsUnitCondition(EUnitCondition.Charm) || self.IsUnitCondition(EUnitCondition.Zombie))
+        return self.Side == eunitSide;
+      return self.Side != eunitSide;
+    }
+
     public bool CheckSkillTarget(Unit self, Unit target, SkillData skill)
     {
       this.DebugAssert(self != null, "self == null");
       this.DebugAssert(skill != null, "failed. skill != null");
-      if (target == null || target.IsGimmick || target.CastSkill != null && target.CastSkill.CastType == ECastTypes.Jump)
+      if (target == null)
+        return false;
+      if (target.IsGimmick)
+        return this.IsTargetBreakUnit(self, target, skill);
+      if (target.CastSkill != null && target.CastSkill.CastType == ECastTypes.Jump)
         return false;
       bool flag = false;
       switch (skill.Target)
@@ -3832,8 +5234,32 @@ label_4:
           flag = self != target;
           break;
         case ESkillTarget.GridNoUnit:
-          flag = false;
-          break;
+          if (skill.TeleportType != eTeleportType.None)
+          {
+            switch (skill.TeleportTarget)
+            {
+              case ESkillTarget.Self:
+                flag = self == target;
+                break;
+              case ESkillTarget.SelfSide:
+                flag = !this.CheckEnemySide(self, target);
+                break;
+              case ESkillTarget.EnemySide:
+                flag = this.CheckEnemySide(self, target);
+                break;
+              case ESkillTarget.UnitAll:
+                flag = true;
+                break;
+              case ESkillTarget.NotSelf:
+                flag = self != target;
+                break;
+            }
+          }
+          else
+          {
+            flag = false;
+            break;
+          }
       }
       if (!flag)
         return false;
@@ -3866,7 +5292,7 @@ label_4:
       ELineType lineType = skillParam.line_type;
       ESelectType selectRange = skillParam.select_range;
       int attackScope = self.GetAttackScope(skill);
-      int attackHeight = self.GetAttackHeight(skill);
+      int attackHeight = self.GetAttackHeight(skill, true);
       bool bCheckGridLine = skill.CheckGridLineSkill();
       bool bHeightBonus = skill.IsEnableHeightRangeBonus();
       bool bSelfEffect = skill.IsSelfTargetSelect();
@@ -4074,16 +5500,25 @@ label_4:
       int attackRangeMin = self.GetAttackRangeMin(skill);
       int attackRangeMax = self.GetAttackRangeMax(skill);
       int attackScope = self.GetAttackScope(skill);
-      int attackHeight = self.GetAttackHeight(skill);
+      int attackHeight = self.GetAttackHeight(skill, false);
       ESelectType selectScope = skillParam.select_scope;
-      this.CreateScopeGridMap(self, selfX, selfY, targetX, targetY, attackRangeMin, attackRangeMax, attackScope, attackHeight, selectScope, ref result, keeped);
+      this.CreateScopeGridMap(self, selfX, selfY, targetX, targetY, attackRangeMin, attackRangeMax, attackScope, attackHeight, selectScope, ref result, keeped, skill.TeleportType);
       return result;
     }
 
-    public GridMap<bool> CreateScopeGridMap(Unit self, int selfX, int selfY, int targetX, int targetY, int range_min, int range_max, int scope, int enable_height, ESelectType scopetype, ref GridMap<bool> result, bool keeped = false)
+    public GridMap<bool> CreateScopeGridMap(int gx, int gy, ESelectType shape, int scope, int height)
     {
-      if (!keeped)
-        result.fill(false);
+      if (this.CurrentMap == null)
+        return (GridMap<bool>) null;
+      GridMap<bool> result = new GridMap<bool>(this.CurrentMap.Width, this.CurrentMap.Height);
+      this.CreateScopeGridMap((Unit) null, 0, 0, gx, gy, 0, 0, scope, height, shape, ref result, false, eTeleportType.None);
+      return result;
+    }
+
+    public GridMap<bool> CreateScopeGridMap(Unit self, int selfX, int selfY, int targetX, int targetY, int range_min, int range_max, int scope, int enable_height, ESelectType scopetype, ref GridMap<bool> result, bool keeped, eTeleportType teleport_type)
+    {
+      GridMap<bool> gridMap = keeped ? new GridMap<bool>(result.w, result.h) : result;
+      gridMap.fill(false);
       bool flag = false;
       if (scope < 1)
       {
@@ -4091,9 +5526,15 @@ label_4:
           return result;
         if (scopetype != ESelectType.All)
         {
-          result.set(targetX, targetY, true);
+          gridMap.set(targetX, targetY, true);
           flag = true;
         }
+      }
+      if (teleport_type == eTeleportType.AfterSkill)
+      {
+        gridMap.set(targetX, targetY, true);
+        targetX = selfX;
+        targetY = selfY;
       }
       BattleMap currentMap = this.CurrentMap;
       Grid grid = currentMap[targetX, targetY];
@@ -4104,77 +5545,88 @@ label_4:
         switch (scopetype)
         {
           case ESelectType.Diamond:
-            this.SetGridMap(ref result, grid, grid);
-            this.CreateGridMapDiamond(grid, 0, scope, ref result);
+            this.SetGridMap(ref gridMap, grid, grid);
+            this.CreateGridMapDiamond(grid, 0, scope, ref gridMap);
             break;
           case ESelectType.Square:
-            this.SetGridMap(ref result, grid, grid);
-            this.CreateGridMapSquare(grid, 0, scope, ref result);
+            this.SetGridMap(ref gridMap, grid, grid);
+            this.CreateGridMapSquare(grid, 0, scope, ref gridMap);
             break;
           case ESelectType.Laser:
-            this.CreateGridMapLaser(self1, grid, range_min, range_max, scope, ref result);
+            this.CreateGridMapLaser(self1, grid, range_min, range_max, scope, ref gridMap);
             start = self1;
             break;
           case ESelectType.All:
-            result.fill(true);
+            gridMap.fill(true);
             break;
           case ESelectType.Wall:
-            this.SetGridMap(ref result, grid, grid);
-            this.CreateGridMapWall(self1, grid, 0, scope, ref result);
+            this.SetGridMap(ref gridMap, grid, grid);
+            this.CreateGridMapWall(self1, grid, 0, scope, ref gridMap);
             break;
           case ESelectType.WallPlus:
-            this.SetGridMap(ref result, grid, grid);
-            this.CreateGridMapWallPlus(self1, grid, 0, scope, ref result);
+            this.SetGridMap(ref gridMap, grid, grid);
+            this.CreateGridMapWallPlus(self1, grid, 0, scope, ref gridMap);
             break;
           case ESelectType.Bishop:
-            this.SetGridMap(ref result, grid, grid);
-            this.CreateGridMapBishop(grid, 0, scope, ref result);
+            this.SetGridMap(ref gridMap, grid, grid);
+            this.CreateGridMapBishop(grid, 0, scope, ref gridMap);
             break;
           case ESelectType.Victory:
-            this.SetGridMap(ref result, grid, grid);
-            this.CreateGridMapVictory(self1, grid, 0, scope, ref result);
+            this.SetGridMap(ref gridMap, grid, grid);
+            this.CreateGridMapVictory(self1, grid, 0, scope, ref gridMap);
             break;
           case ESelectType.LaserSpread:
-            this.CreateGridMapLaserSpread(self1, grid, range_min, range_max, ref result, true);
+            this.CreateGridMapLaserSpread(self1, grid, range_min, range_max, ref gridMap, true);
             start = self1;
             break;
           case ESelectType.LaserWide:
-            this.CreateGridMapLaserWide(self1, grid, range_min, range_max, ref result, true);
+            this.CreateGridMapLaserWide(self1, grid, range_min, range_max, ref gridMap, true);
             start = self1;
             break;
           case ESelectType.Horse:
-            this.SetGridMap(ref result, grid, grid);
-            this.CreateGridMapHorse(grid, 0, scope, ref result);
+            this.SetGridMap(ref gridMap, grid, grid);
+            this.CreateGridMapHorse(grid, 0, scope, ref gridMap);
             break;
           case ESelectType.LaserTwin:
-            this.CreateGridMapLaserTwin(self1, grid, range_min, range_max, ref result, true);
+            this.CreateGridMapLaserTwin(self1, grid, range_min, range_max, ref gridMap, true);
             start = self1;
             break;
           case ESelectType.LaserTriple:
-            this.CreateGridMapLaserTriple(self1, grid, range_min, range_max, ref result, true);
+            this.CreateGridMapLaserTriple(self1, grid, range_min, range_max, ref gridMap, true);
             start = self1;
             break;
           case ESelectType.SquareOutline:
-            this.CreateGridMapSquare(grid, 0, scope, ref result);
-            result.set(grid.x, grid.y, false);
+            this.CreateGridMapSquare(grid, 0, scope, ref gridMap);
+            gridMap.set(grid.x, grid.y, false);
             break;
           default:
-            this.SetGridMap(ref result, grid, grid);
-            this.CreateGridMapCross(grid, 0, scope, ref result);
+            this.SetGridMap(ref gridMap, grid, grid);
+            this.CreateGridMapCross(grid, 0, scope, ref gridMap);
             break;
         }
       }
-      for (int y = result.h - 1; y >= 0; --y)
+      for (int y = gridMap.h - 1; y >= 0; --y)
       {
-        for (int x = 0; x < result.w; ++x)
+        for (int x = 0; x < gridMap.w; ++x)
         {
-          if (result.get(x, y))
+          if (gridMap.get(x, y))
           {
             Grid goal = currentMap[x, y];
             if (!this.CheckEnableAttackHeight(start, goal, enable_height))
-              result.set(x, y, false);
+              gridMap.set(x, y, false);
             if (goal.geo != null && (bool) goal.geo.DisableStopped)
-              result.set(x, y, false);
+              gridMap.set(x, y, false);
+          }
+        }
+      }
+      if (keeped)
+      {
+        for (int x = 0; x < gridMap.w; ++x)
+        {
+          for (int y = 0; y < gridMap.h; ++y)
+          {
+            if (gridMap.get(x, y))
+              result.set(x, y, true);
           }
         }
       }
@@ -4249,39 +5701,16 @@ label_4:
       if (self == target || target == null)
         return;
       BattleMap currentMap = this.CurrentMap;
-      int index1 = 0;
-      int num1 = target.x - self.x;
-      int num2 = target.y - self.y;
-      if (num1 > 0)
-      {
-        index1 = 0;
-        num2 = 0;
-      }
-      if (num1 < 0)
-      {
-        index1 = 2;
-        num2 = 0;
-      }
-      int num3;
-      if (num2 > 0)
-      {
-        index1 = 1;
-        num3 = 0;
-      }
-      if (num2 < 0)
-      {
-        index1 = 3;
-        num3 = 0;
-      }
-      int num4 = Math.Max(scope - 1, 0);
+      int index1 = (int) this.UnitDirectionFromGrid(self, target);
+      int num1 = Math.Max(scope - 1, 0);
       for (int index2 = range_min + 1; index2 <= range_max; ++index2)
       {
-        for (int index3 = -num4; index3 <= num4; ++index3)
+        for (int index3 = -num1; index3 <= num1; ++index3)
         {
-          int num5 = Unit.DIRECTION_OFFSETS[index1, 0] * index2;
-          int num6 = Unit.DIRECTION_OFFSETS[index1, 1] * index2;
-          int index4 = self.x + num5 + Unit.DIRECTION_OFFSETS[index1, 1] * index3;
-          int index5 = self.y + num6 + Unit.DIRECTION_OFFSETS[index1, 0] * index3;
+          int num2 = Unit.DIRECTION_OFFSETS[index1, 0] * index2;
+          int num3 = Unit.DIRECTION_OFFSETS[index1, 1] * index2;
+          int index4 = self.x + num2 + Unit.DIRECTION_OFFSETS[index1, 1] * index3;
+          int index5 = self.y + num3 + Unit.DIRECTION_OFFSETS[index1, 0] * index3;
           Grid goal = currentMap[index4, index5];
           this.SetGridMap(ref result, target, goal);
         }
@@ -4291,8 +5720,15 @@ label_4:
       result.fill(false);
     }
 
-    private EUnitDirection unitDirectionFromGrid(Grid self, Grid target)
+    private EUnitDirection unitDirectionFromPos(int src_gx, int src_gy, int dst_gx, int dst_gy)
     {
+      return this.UnitDirectionFromGrid(this.GetUnitGridPosition(src_gx, src_gy), this.GetUnitGridPosition(dst_gx, dst_gy));
+    }
+
+    public EUnitDirection UnitDirectionFromGrid(Grid self, Grid target)
+    {
+      if (self == null || target == null)
+        return EUnitDirection.PositiveY;
       int num1 = target.x - self.x;
       int num2 = target.y - self.y;
       int num3 = Math.Abs(num1);
@@ -4350,7 +5786,7 @@ label_4:
       if (self == target || target == null)
         return;
       BattleMap currentMap = this.CurrentMap;
-      int index1 = (int) this.unitDirectionFromGrid(self, target);
+      int index1 = (int) this.UnitDirectionFromGrid(self, target);
       for (int index2 = -range_max; index2 <= range_max; ++index2)
       {
         if (Math.Abs(index2) >= range_min)
@@ -4367,7 +5803,7 @@ label_4:
       if (self == target || target == null)
         return;
       BattleMap currentMap = this.CurrentMap;
-      int index1 = (int) this.unitDirectionFromGrid(self, target);
+      int index1 = (int) this.UnitDirectionFromGrid(self, target);
       for (int index2 = -range_max; index2 <= range_max; ++index2)
       {
         if (Math.Abs(index2) >= range_min)
@@ -4405,7 +5841,7 @@ label_4:
       if (self == target || target == null)
         return;
       BattleMap currentMap = this.CurrentMap;
-      int index1 = (int) this.unitDirectionFromGrid(self, target);
+      int index1 = (int) this.UnitDirectionFromGrid(self, target);
       for (int index2 = -range_max; index2 <= range_max; ++index2)
       {
         if (Math.Abs(index2) >= range_min)
@@ -4424,7 +5860,7 @@ label_4:
       if (self == target || target == null)
         return;
       BattleMap currentMap = this.CurrentMap;
-      int index1 = (int) this.unitDirectionFromGrid(self, target);
+      int index1 = (int) this.UnitDirectionFromGrid(self, target);
       for (int index2 = range_min; index2 <= range_max; ++index2)
       {
         int num1 = Unit.DIRECTION_OFFSETS[index1, 0] * (index2 + 1);
@@ -4446,7 +5882,7 @@ label_4:
       if (self == target || target == null)
         return;
       BattleMap currentMap = this.CurrentMap;
-      int index1 = (int) this.unitDirectionFromGrid(self, target);
+      int index1 = (int) this.UnitDirectionFromGrid(self, target);
       for (int index2 = range_min; index2 <= range_max; ++index2)
       {
         if (index2 != 0)
@@ -4519,7 +5955,7 @@ label_4:
       if (self == target || target == null)
         return;
       BattleMap currentMap = this.CurrentMap;
-      int index1 = (int) this.unitDirectionFromGrid(self, target);
+      int index1 = (int) this.UnitDirectionFromGrid(self, target);
       for (int index2 = range_min; index2 <= range_max; ++index2)
       {
         int num1 = Unit.DIRECTION_OFFSETS[index1, 0] * (index2 + 2);
@@ -4590,7 +6026,7 @@ label_4:
     private GridMap<bool> CreateSkillScopeMapAll(Unit self, SkillData skill, bool is_move)
     {
       GridMap<bool> skillRangeMapAll = this.CreateSkillRangeMapAll(self, skill, is_move);
-      if (skill.SkillParam.select_scope == ESelectType.Laser)
+      if (SkillParam.IsTypeLaser(skill.SkillParam.select_scope))
         return skillRangeMapAll;
       GridMap<bool> result = new GridMap<bool>(this.CurrentMap.Width, this.CurrentMap.Height);
       result.fill(false);
@@ -4637,9 +6073,15 @@ label_4:
         {
           if (areamap.get(x, y))
           {
-            Unit unitAtGrid = this.FindUnitAtGrid(currentMap[x, y]);
-            if (unitAtGrid != null && !targets.Contains(unitAtGrid) && (skill == null || this.CheckSkillTarget(self, unitAtGrid, skill)))
-              targets.Add(unitAtGrid);
+            Unit target = this.FindUnitAtGrid(currentMap[x, y]);
+            if (target == null)
+            {
+              target = this.FindGimmickAtGrid(currentMap[x, y], false, (Unit) null);
+              if (!this.IsTargetBreakUnit(self, target, skill))
+                target = (Unit) null;
+            }
+            if (target != null && !targets.Contains(target) && (skill == null || this.CheckSkillTarget(self, target, skill)))
+              targets.Add(target);
           }
         }
       }
@@ -4659,8 +6101,14 @@ label_4:
         {
           if (!skill.IsAreaSkill())
           {
-            Unit unitAtGrid = this.FindUnitAtGrid(currentMap[target_x, target_y]);
-            if (!this.CheckSkillTarget(self, unitAtGrid, skill))
+            Unit target = this.FindUnitAtGrid(currentMap[target_x, target_y]);
+            if (target == null)
+            {
+              target = this.FindGimmickAtGrid(currentMap[target_x, target_y], false, (Unit) null);
+              if (!this.IsTargetBreakUnit(self, target, skill))
+                target = (Unit) null;
+            }
+            if (!this.CheckSkillTarget(self, target, skill))
               return;
           }
           else
@@ -4681,11 +6129,22 @@ label_4:
             shot.end = currentMap[target_x, target_y];
             for (int index = 0; index < this.mGridLines.Count; ++index)
             {
-              Unit unitAtGrid = this.FindUnitAtGrid(this.mGridLines[index]);
-              if (unitAtGrid != null && !unitAtGrid.IsJump)
+              Unit target = this.FindUnitAtGrid(this.mGridLines[index]);
+              if (target == null)
               {
-                shot.piercers.Add(unitAtGrid);
-                targets.Add(unitAtGrid);
+                target = this.FindGimmickAtGrid(this.mGridLines[index], false, (Unit) null);
+                if (target != null && target.IsBreakObj && (target.BreakObjClashType == eMapBreakClashType.INVINCIBLE && target.BreakObjRayType == eMapBreakRayType.TERRAIN))
+                {
+                  shot.end = this.mGridLines[index];
+                  break;
+                }
+                if (!this.IsTargetBreakUnit(self, target, skill))
+                  target = (Unit) null;
+              }
+              if (target != null && !target.IsJump)
+              {
+                shot.piercers.Add(target);
+                targets.Add(target);
                 if (!skill.IsPierce())
                 {
                   shot.end = this.mGridLines[index];
@@ -4707,6 +6166,8 @@ label_4:
               if (num2 < (double) this.mGridLines[index].height)
                 num2 = (double) this.mGridLines[index].height;
             }
+            if (num2 <= (double) grid1.height)
+              ++num2;
             double num3 = num2 + 1.0;
             int num4 = grid2.x - grid1.x;
             int num5 = grid2.y - grid1.y;
@@ -4730,26 +6191,38 @@ label_4:
               shotTarget.rad = num13;
               shotTarget.height = num8;
               shotTarget.end = grid2;
+              int num15 = BattleMap.MAP_FLOOR_HEIGHT / 2;
               for (int index2 = 0; index2 < this.mGridLines.Count; ++index2)
               {
-                int num15 = this.mGridLines[index2].x - grid1.x;
-                int num16 = this.mGridLines[index2].y - grid1.y;
-                double num17 = Math.Min((double) BattleCore.Sqrt(num15 * num15 + num16 * num16), val2);
-                double x = num14 * num17;
-                double num18 = Math.Sin(a);
-                double num19 = Math.Pow(x, 2.0);
-                double num20 = num7 * num19 * 0.5;
-                double num21 = num12 * x * num18 - num20;
-                double num22 = (double) (this.mGridLines[index2].height - grid1.height) - 0.01;
-                double num23 = num22 + 2.0;
-                if (num21 >= num22)
+                int num16 = this.mGridLines[index2].x - grid1.x;
+                int num17 = this.mGridLines[index2].y - grid1.y;
+                double num18 = Math.Min((double) BattleCore.Sqrt(num16 * num16 + num17 * num17), val2);
+                double x = num14 * num18;
+                double num19 = Math.Sin(a);
+                double num20 = Math.Pow(x, 2.0);
+                double num21 = num7 * num20 * 0.5;
+                double num22 = num12 * x * num19 - num21;
+                double num23 = (double) (this.mGridLines[index2].height - grid1.height) - 0.01;
+                double num24 = num23 + (double) num15;
+                if (num22 >= num23)
                 {
-                  if (num21 < num23)
+                  if (num22 < num24)
                   {
-                    Unit unitAtGrid = this.FindUnitAtGrid(this.mGridLines[index2]);
-                    if (unitAtGrid != null && !unitAtGrid.IsJump)
+                    Unit target = this.FindUnitAtGrid(this.mGridLines[index2]);
+                    if (target == null)
                     {
-                      shotTarget.piercers.Add(unitAtGrid);
+                      target = this.FindGimmickAtGrid(this.mGridLines[index2], false, (Unit) null);
+                      if (target != null && target.IsBreakObj && (target.BreakObjClashType == eMapBreakClashType.INVINCIBLE && target.BreakObjRayType == eMapBreakRayType.TERRAIN))
+                      {
+                        shotTarget.end = this.mGridLines[index2];
+                        break;
+                      }
+                      if (!this.IsTargetBreakUnit(self, target, skill))
+                        target = (Unit) null;
+                    }
+                    if (target != null && !target.IsJump)
+                    {
+                      shotTarget.piercers.Add(target);
                       if (!skill.IsPierce())
                       {
                         shotTarget.end = this.mGridLines[index2];
@@ -4763,12 +6236,18 @@ label_4:
               }
               shotTargetList.Add(shotTarget);
             }
-            Unit unitAtGrid1 = this.FindUnitAtGrid(grid2);
-            if (unitAtGrid1 != null && !unitAtGrid1.IsJump)
+            Unit target1 = this.FindUnitAtGrid(grid2);
+            if (target1 == null)
+            {
+              target1 = this.FindGimmickAtGrid(grid2, false, (Unit) null);
+              if (!this.IsTargetBreakUnit(self, target1, skill))
+                target1 = (Unit) null;
+            }
+            if (target1 != null && !target1.IsJump)
             {
               for (int index1 = 0; index1 < shotTargetList.Count; ++index1)
               {
-                if (shotTargetList[index1].piercers.Contains(unitAtGrid1))
+                if (shotTargetList[index1].piercers.Contains(target1))
                 {
                   for (int index2 = 0; index2 < shotTargetList[index1].piercers.Count; ++index2)
                     targets.Add(shotTargetList[index1].piercers[index2]);
@@ -4792,12 +6271,27 @@ label_4:
             }
             break;
         }
+        for (int index = 0; index < targets.Count; ++index)
+        {
+          Unit target2 = targets[index];
+          if (target2.x == target_x && target2.y == target_y && !this.CheckSkillTarget(self, target2, skill))
+          {
+            targets.RemoveAt(index);
+            --index;
+          }
+        }
       }
       else
       {
-        Unit unitAtGrid = this.FindUnitAtGrid(currentMap[target_x, target_y]);
-        if (unitAtGrid != null && this.CheckSkillTarget(self, unitAtGrid, skill) && skill.SkillParam.select_scope != ESelectType.SquareOutline)
-          targets.Add(unitAtGrid);
+        Unit target = this.FindUnitAtGrid(currentMap[target_x, target_y]);
+        if (target == null)
+        {
+          target = this.FindGimmickAtGrid(currentMap[target_x, target_y], false, (Unit) null);
+          if (!this.IsTargetBreakUnit(self, target, skill))
+            target = (Unit) null;
+        }
+        if (target != null && this.CheckSkillTarget(self, target, skill) && skill.SkillParam.select_scope != ESelectType.SquareOutline)
+          targets.Add(target);
       }
       if (!skill.IsAreaSkill())
         return;
@@ -4826,6 +6320,23 @@ label_4:
       self.y = y;
       if (tx != x || ty != y)
         self.Direction = BattleCore.UnitDirectionFromVector(self, tx - x, ty - y);
+      int target_x = tx;
+      int target_y = ty;
+      switch (skill.TeleportType)
+      {
+        case eTeleportType.BeforeSkill:
+          if (skill.IsTargetGridNoUnit)
+          {
+            self.x = tx;
+            self.y = ty;
+            break;
+          }
+          break;
+        case eTeleportType.AfterSkill:
+          target_x = self.x;
+          target_y = self.y;
+          break;
+      }
       if (!this.CheckEnableUseSkill(self, skill, false) || !this.IsUseSkillCollabo(self, skill))
       {
         this.DebugErr("スキル使用条件を満たせなかった");
@@ -4834,7 +6345,7 @@ label_4:
       {
         List<Unit> targets = (List<Unit>) null;
         BattleCore.ShotTarget shot = (BattleCore.ShotTarget) null;
-        this.GetExecuteSkillLineTarget(self, tx, ty, skill, ref targets, ref shot);
+        this.GetExecuteSkillLineTarget(self, target_x, target_y, skill, ref targets, ref shot);
         if (targets != null && targets.Count > 0)
         {
           LogSkill log = new LogSkill();
@@ -4869,8 +6380,17 @@ label_4:
             unitResult.hp_heal += log.targets[index].GetTotalHpHeal();
             unitResult.mp_damage += log.targets[index].GetTotalMpDamage();
             unitResult.mp_heal += log.targets[index].GetTotalMpHeal();
-            unitResult.critical = this.GetCriticalRate(self, target, skill);
-            unitResult.avoid = this.GetAvoidRate(self, target, skill);
+            unitResult.critical = log.targets[index].GetTotalCriticalRate();
+            unitResult.avoid = log.targets[index].GetTotalAvoidRate();
+            unitResult.cond_hit_lists.Clear();
+            using (List<LogSkill.Target.CondHit>.Enumerator enumerator = log.targets[index].CondHitLists.GetEnumerator())
+            {
+              while (enumerator.MoveNext())
+              {
+                LogSkill.Target.CondHit current = enumerator.Current;
+                unitResult.cond_hit_lists.Add(new LogSkill.Target.CondHit(current.Cond, current.Per));
+              }
+            }
             commandResult.targets.Add(unitResult);
           }
           if (log.self_effect != null)
@@ -4895,9 +6415,18 @@ label_4:
               unitResult.hp_heal += target1.GetTotalHpHeal();
               unitResult.mp_damage += target1.GetTotalMpDamage();
               unitResult.mp_heal += target1.GetTotalMpHeal();
-              unitResult.critical = this.GetCriticalRate(self, target2, skill);
-              unitResult.avoid = this.GetAvoidRate(self, target2, skill);
+              unitResult.critical = target1.GetTotalCriticalRate();
+              unitResult.avoid = target1.GetTotalAvoidRate();
               unitResult.reaction = (int) results[index1].skill.EffectRate <= 0 || (int) results[index1].skill.EffectRate >= 100 ? 100 : (int) results[index1].skill.EffectRate;
+              unitResult.cond_hit_lists.Clear();
+              using (List<LogSkill.Target.CondHit>.Enumerator enumerator = target1.CondHitLists.GetEnumerator())
+              {
+                while (enumerator.MoveNext())
+                {
+                  LogSkill.Target.CondHit current = enumerator.Current;
+                  unitResult.cond_hit_lists.Add(new LogSkill.Target.CondHit(current.Cond, current.Per));
+                }
+              }
               commandResult.reactions.Add(unitResult);
             }
           }
@@ -4913,7 +6442,7 @@ label_4:
       return commandResult;
     }
 
-    public bool UseSkill(Unit self, int gx, int gy, SkillData skill, bool bUnitLockTarget = false, int ux = 0, int uy = 0)
+    public bool UseSkill(Unit self, int gx, int gy, SkillData skill, bool bUnitLockTarget = false, int ux = 0, int uy = 0, bool is_call_auto_skill = false)
     {
       DebugUtility.Assert(self != null, "self == null");
       DebugUtility.Assert(skill != null, "skill == null");
@@ -4922,26 +6451,12 @@ label_4:
       {
         unit1 = this.FindUnitAtGrid(ux, uy);
         if (unit1 == null)
-          return false;
-      }
-      if (this.CheckEnableSuspendSave() && !this.IsUnitAuto(self) && (self.CastSkill != skill && skill.SkillType != ESkillType.Item))
-        this.mSuspendData.Add(new BattleCore.SuspendData()
         {
-          timing = BattleCore.SuspendTiming.UseSkill,
-          uid = this.CurrentUnit.UnitData.UniqueID,
-          x = self.x,
-          y = self.y,
-          dir = (int) self.Direction,
-          skill = skill.SkillID,
-          tx = gx,
-          ty = gy,
-          locked = !bUnitLockTarget ? 0 : 1,
-          ux = ux,
-          uy = uy
-        });
-      this.mSuspendUseSkillID = skill.SkillID;
-      if (self.UnitParam != null)
-        this.mSuspendUseSkillUnitID = self.UnitParam.iname;
+          unit1 = this.FindGimmickAtGrid(ux, uy, false);
+          if (unit1 == null || !unit1.IsBreakObj)
+            return false;
+        }
+      }
       if (skill.IsCastSkill() && self.CastSkill != skill)
       {
         if (!this.CheckEnableUseSkill(self, skill, false) || !this.IsUseSkillCollabo(self, skill))
@@ -4956,12 +6471,12 @@ label_4:
       {
         if (skill.SkillType == ESkillType.Item)
           ++this.mNumUsedItems;
-        else if (skill.SkillType == ESkillType.Skill)
+        else if (skill.SkillType == ESkillType.Skill && skill.Timing != ESkillTiming.Auto)
           ++this.mNumUsedSkills;
       }
       this.mRandDamage.Seed(this.mSeedDamage);
       this.CurrentRand = this.mRandDamage;
-      if (gx != self.x || gy != self.y)
+      if ((gx != self.x || gy != self.y) && !skill.IsCastSkill())
         self.Direction = BattleCore.UnitDirectionFromVector(self, gx - self.x, gy - self.y);
       int effectRate = (int) skill.EffectRate;
       if (effectRate > 0 && effectRate < 100 && (int) (this.GetRandom() % 100U) > effectRate)
@@ -4977,19 +6492,49 @@ label_4:
       int target_y = gy;
       List<Unit> targets = (List<Unit>) null;
       BattleCore.ShotTarget shot = (BattleCore.ShotTarget) null;
+      int x1 = self.x;
+      int y1 = self.y;
+      switch (skill.TeleportType)
+      {
+        case eTeleportType.BeforeSkill:
+          if (skill.IsTargetGridNoUnit)
+          {
+            self.x = target_x;
+            self.y = target_y;
+            Grid duplicatePosition = this.GetCorrectDuplicatePosition(self);
+            if (duplicatePosition != null)
+            {
+              int num1 = target_x = duplicatePosition.x;
+              self.x = num1;
+              gx = num1;
+              int num2 = target_y = duplicatePosition.y;
+              self.y = num2;
+              gy = num2;
+              break;
+            }
+            break;
+          }
+          break;
+        case eTeleportType.AfterSkill:
+          target_x = self.x;
+          target_y = self.y;
+          break;
+      }
       if (skill.EffectType == SkillEffectTypes.Throw)
       {
         targets = new List<Unit>(1);
         targets.Add(unit1);
       }
+      else if (skill.IsSetBreakObjSkill())
+        targets = new List<Unit>(1);
       else
         this.GetExecuteSkillLineTarget(self, target_x, target_y, skill, ref targets, ref shot);
-      int x = self.x;
-      int y = self.y;
+      int x2 = self.x;
+      int y2 = self.y;
       this.ExecuteFirstReactionSkill(self, targets, skill, gx, gy, (List<LogSkill>) null);
       this.mRandDamage.Seed(this.mSeedDamage);
       this.CurrentRand = this.mRandDamage;
-      if (self.x != x || self.y != y)
+      if (self.x != x2 || self.y != y2)
       {
         this.CreateSelectGridMap(self, self.x, self.y, skill, ref this.mRangeMap, false);
         List<Unit> unitList = new List<Unit>(targets.Count);
@@ -5005,13 +6550,15 @@ label_4:
         if (targets.Count != unitList.Count)
           targets = unitList;
       }
+      self.x = x1;
+      self.y = y1;
       if (!self.IsDead)
       {
         LogSkill log = this.Log<LogSkill>();
         log.self = self;
         log.skill = skill;
-        log.pos.x = target_x;
-        log.pos.y = target_y;
+        log.pos.x = gx;
+        log.pos.y = gy;
         log.is_append = !skill.IsCutin();
         if (shot != null)
         {
@@ -5045,7 +6592,7 @@ label_4:
           {
             this.SubGems(self, skillUsedCost);
             if (unit2 != null)
-              this.SubGems(unit2, skillUsedCost);
+              this.SubGems(unit2, unit2.GetSkillUsedCost(skill));
           }
           self.UpdateSkillUseCount(skill, -1);
           if (unit2 != null)
@@ -5057,429 +6604,609 @@ label_4:
         }
         log.CheckAliveTarget();
         this.ExecuteSkill(skill.Timing != ESkillTiming.Auto ? ESkillTiming.Used : ESkillTiming.Auto, log, skill);
+        if (skill.Timing == ESkillTiming.Auto && (string.IsNullOrEmpty(skill.SkillParam.motion) || string.IsNullOrEmpty(skill.SkillParam.effect)))
+        {
+          BattleLog last;
+          do
+          {
+            last = this.mLogs.Last;
+            if (last != null)
+              this.mLogs.RemoveLogLast();
+            else
+              break;
+          }
+          while (!(last is LogSkill));
+          log = (LogSkill) null;
+        }
         self.CancelCastSkill();
         this.ExecuteReactionSkill(log, (List<LogSkill>) null);
+        if (!this.IsBattleFlag(EBattleFlag.PredictResult) && log != null)
+        {
+          this.AddSkillExecLogForQuestMission(log);
+          for (int index = 0; index < log.targets.Count; ++index)
+          {
+            if (log.targets[index].target.Side == EUnitSide.Enemy && log.targets[index].target.IsDead)
+            {
+              this.TrySetBattleFinisher(self);
+              break;
+            }
+          }
+        }
       }
       self.SetUnitFlag(EUnitFlag.Action, true);
       self.SetCommandFlag(EUnitCommandFlag.Action, true);
-      this.CurrentRand = this.mRand;
-      if (this.GetQuestResult() != BattleCore.QuestResult.Pending)
+      if (skill.TeleportType != eTeleportType.None && !skill.TeleportIsMove)
       {
-        this.ExecuteEventTriggerOnGrid(self, EEventTrigger.Stop, false);
+        self.SetUnitFlag(EUnitFlag.Escaped, false);
+        self.SetUnitFlag(EUnitFlag.Moved, true);
+        self.SetCommandFlag(EUnitCommandFlag.Move, true);
+      }
+      this.CurrentRand = this.mRand;
+      if (skill.Timing != ESkillTiming.Auto && this.GetQuestResult() != BattleCore.QuestResult.Pending)
+      {
+        this.ExecuteEventTriggerOnGrid(self, EEventTrigger.Stop);
         this.CalcQuestRecord();
         this.MapEnd();
       }
-      else if (this.CurrentOrderData.IsCastSkill)
-      {
-        this.Log<LogCastSkillEnd>();
-      }
       else
       {
-        bool flag = false;
-        if (self == this.CurrentUnit)
-          flag = self.IsDead || (!self.IsUnitFlag(EUnitFlag.Moved) ? !self.IsEnableMoveCondition(false) && !self.IsEnableSelectDirectionCondition() : !self.IsEnableSelectDirectionCondition());
-        if (flag)
-          this.InternalLogUnitEnd();
-        else if (skill.Timing != ESkillTiming.Auto)
-          this.Log<LogMapCommand>();
+        bool flag1 = skill.IsCastSkill();
+        if (!is_call_auto_skill)
+        {
+          BattleCore.OrderData currentOrderData = this.CurrentOrderData;
+          if (currentOrderData != null)
+            flag1 = currentOrderData.IsCastSkill;
+        }
+        if (flag1)
+        {
+          this.Log<LogCastSkillEnd>();
+          if (skill.TeleportType != eTeleportType.None)
+          {
+            this.TrickActionEndEffect(self, true);
+            this.ExecuteEventTriggerOnGrid(self, EEventTrigger.Stop);
+          }
+        }
+        else
+        {
+          bool flag2 = false;
+          if (self == this.CurrentUnit)
+            flag2 = self.IsDead || (!self.IsUnitFlag(EUnitFlag.Moved) ? !self.IsEnableMoveCondition(false) && !self.IsEnableSelectDirectionCondition() : !self.IsEnableSelectDirectionCondition());
+          if (flag2)
+            this.InternalLogUnitEnd();
+          else if (skill.Timing != ESkillTiming.Auto)
+            this.Log<LogMapCommand>();
+        }
       }
       return true;
     }
 
     private void ExecuteSkill(ESkillTiming timing, LogSkill log, SkillData skill)
     {
-      // ISSUE: object of a compiler-generated type is created
-      // ISSUE: variable of a compiler-generated type
-      BattleCore.\u003CExecuteSkill\u003Ec__AnonStorey1B3 skillCAnonStorey1B3 = new BattleCore.\u003CExecuteSkill\u003Ec__AnonStorey1B3();
       if (timing != skill.Timing)
         return;
-      // ISSUE: reference to a compiler-generated field
-      skillCAnonStorey1B3.self = log.self;
-      // ISSUE: reference to a compiler-generated field
-      if (!this.CheckSkillCondition(skillCAnonStorey1B3.self, skill))
+      Unit self = log.self;
+      if (!this.CheckSkillCondition(self, skill))
         return;
-      if (skill.Target == ESkillTarget.GridNoUnit)
+      bool flag1 = self.IsDying();
+      if (log.targets != null)
       {
-        if (!this.IsBattleFlag(EBattleFlag.PredictResult))
+        using (List<LogSkill.Target>.Enumerator enumerator = log.targets.GetEnumerator())
         {
-          if (skill.EffectType == SkillEffectTypes.Teleport)
+          while (enumerator.MoveNext())
           {
-            // ISSUE: reference to a compiler-generated field
-            skillCAnonStorey1B3.self.x = log.pos.x;
-            // ISSUE: reference to a compiler-generated field
-            skillCAnonStorey1B3.self.y = log.pos.y;
-          }
-          else if (skill.EffectType == SkillEffectTypes.Throw && log.targets != null && log.targets.Count > 0)
-          {
-            Unit target = log.targets[0].target;
-            target.x = log.pos.x;
-            target.y = log.pos.y;
-            this.ExecuteEventTriggerOnGrid(target, EEventTrigger.Stop, true);
+            LogSkill.Target current = enumerator.Current;
+            current.IsOldDying = current.target.IsDying();
           }
         }
+      }
+      if (skill.IsPrevApply())
+      {
+        for (int index = 0; index < log.targets.Count; ++index)
+        {
+          Unit target = log.targets[index].target;
+          this.BuffSkill(timing, self, target, skill, false, log, SkillEffectTargets.Target, false);
+          target.CalcCurrentStatus(false);
+        }
+        this.BuffSkill(timing, self, self, skill, false, log, SkillEffectTargets.Self, false);
+        self.CalcCurrentStatus(false);
+      }
+      List<Unit> unitList = new List<Unit>(log.targets.Count);
+      if (skill.IsChangeWeatherSkill())
+      {
+        if (this.IsBattleFlag(EBattleFlag.PredictResult) || skill.WeatherRate <= 0 || string.IsNullOrEmpty(skill.WeatherId))
+          return;
+        BattleLog last;
+        do
+        {
+          last = this.mLogs.Last;
+          if (last != null)
+            this.mLogs.RemoveLogLast();
+          else
+            break;
+        }
+        while (!(last is LogSkill));
+        this.ChangeWeatherForSkill(self, skill);
       }
       else
       {
-        int num1 = Math.Max((int) skill.SkillParam.ComboNum, 1);
-        for (int index1 = 0; index1 < log.targets.Count; ++index1)
+        if (skill.IsTransformSkill())
         {
-          Unit target = log.targets[index1].target;
-          bool flag = true;
-          SkillEffectTypes effectType = skill.EffectType;
-          switch (effectType)
+          if (!this.IsBattleFlag(EBattleFlag.PredictResult) && log.targets != null && log.targets.Count > 0)
           {
-            case SkillEffectTypes.ReflectDamage:
-            case SkillEffectTypes.RateDamage:
-label_13:
-              for (int index2 = 0; index2 < num1; ++index2)
-              {
-                // ISSUE: reference to a compiler-generated field
-                this.DamageSkill(skillCAnonStorey1B3.self, target, skill, log);
-              }
-              break;
-            case SkillEffectTypes.GemsGift:
-              // ISSUE: reference to a compiler-generated field
-              int skillEffectValue = this.GetSkillEffectValue(skillCAnonStorey1B3.self, target, skill);
-              // ISSUE: reference to a compiler-generated field
-              // ISSUE: reference to a compiler-generated field
-              int num2 = Math.Min(SkillParam.CalcSkillEffectValue(skill.EffectCalcType, skillEffectValue, skillCAnonStorey1B3.self.Gems) + skill.Cost, skillCAnonStorey1B3.self.Gems);
-              // ISSUE: reference to a compiler-generated field
-              log.Hit(skillCAnonStorey1B3.self, target, 0, 0, 0, 0, 0, num2, 0, 0, 0, false, false, false, false, 0);
-              log.ToSelfSkillEffect(0, num2, 0, 0, 0, 0, 0, 0, 0, false, false, false, false);
-              // ISSUE: reference to a compiler-generated field
-              this.SubGems(skillCAnonStorey1B3.self, num2);
-              this.AddGems(target, num2);
-              break;
-            case SkillEffectTypes.GemsIncDec:
-              // ISSUE: reference to a compiler-generated field
-              int num3 = this.GetSkillEffectValue(skillCAnonStorey1B3.self, target, skill);
-              if (skill.EffectCalcType == SkillParamCalcTypes.Scale)
-                num3 = (int) target.MaximumStatus.param.mp * num3 / 100;
-              if (num3 < 0)
-              {
-                // ISSUE: reference to a compiler-generated field
-                log.Hit(skillCAnonStorey1B3.self, target, 0, Math.Abs(num3), 0, 0, 0, 0, 0, 0, 0, false, false, false, false, 0);
-              }
-              else
-              {
-                // ISSUE: reference to a compiler-generated field
-                log.Hit(skillCAnonStorey1B3.self, target, 0, 0, 0, 0, 0, num3, 0, 0, 0, false, false, false, false, 0);
-              }
-              this.AddGems(target, num3);
-              break;
-            case SkillEffectTypes.Guard:
-              if (!this.IsBattleFlag(EBattleFlag.PredictResult))
-              {
-                // ISSUE: reference to a compiler-generated field
-                skillCAnonStorey1B3.self.SetGuardTarget(target, 3);
-                break;
-              }
-              break;
-            case SkillEffectTypes.Changing:
-              if (!this.IsBattleFlag(EBattleFlag.PredictResult))
-              {
-                int x = target.x;
-                int y = target.y;
-                // ISSUE: reference to a compiler-generated field
-                target.x = skillCAnonStorey1B3.self.x;
-                // ISSUE: reference to a compiler-generated field
-                target.y = skillCAnonStorey1B3.self.y;
-                // ISSUE: reference to a compiler-generated field
-                skillCAnonStorey1B3.self.x = x;
-                // ISSUE: reference to a compiler-generated field
-                skillCAnonStorey1B3.self.y = y;
-                // ISSUE: reference to a compiler-generated field
-                skillCAnonStorey1B3.self.startX = x;
-                // ISSUE: reference to a compiler-generated field
-                skillCAnonStorey1B3.self.startY = y;
-                break;
-              }
-              break;
-            case SkillEffectTypes.RateHeal:
-label_16:
-              // ISSUE: reference to a compiler-generated field
-              this.HealSkill(skillCAnonStorey1B3.self, target, skill, log);
-              break;
-            default:
-              switch (effectType - 2)
-              {
-                case SkillEffectTypes.None:
-                  goto label_13;
-                case SkillEffectTypes.Attack:
-                  goto label_16;
-              }
-          }
-          if (flag && !log.targets[index1].IsAvoid() && target.CheckDamageActionStart())
-          {
-            // ISSUE: reference to a compiler-generated field
-            this.NotifyDamagedActionStart(skillCAnonStorey1B3.self, target);
+            Unit target = log.targets[0].target;
+            target.x = self.x;
+            target.y = self.y;
+            target.Direction = self.Direction;
+            self.ForceDead();
+            target.SetUnitFlag(EUnitFlag.Entried, true);
           }
         }
-        if (this.isKnockBack(skill) && skill.IsDamagedSkill())
+        else if (skill.IsTrickSkill())
         {
-          List<LogSkill.Target> l = new List<LogSkill.Target>((IEnumerable<LogSkill.Target>) log.targets);
-          if (l.Count > 1)
+          if (!this.IsBattleFlag(EBattleFlag.PredictResult))
           {
-            // ISSUE: reference to a compiler-generated method
-            MySort<LogSkill.Target>.Sort(l, new Comparison<LogSkill.Target>(skillCAnonStorey1B3.\u003C\u003Em__152));
+            int x = log.pos.x;
+            int y = log.pos.y;
+            this.TrickCreateForSkill(self, x, y, skill);
           }
-          using (List<LogSkill.Target>.Enumerator enumerator = l.GetEnumerator())
+        }
+        else if (skill.IsSetBreakObjSkill())
+        {
+          if (!this.IsBattleFlag(EBattleFlag.PredictResult))
           {
-            while (enumerator.MoveNext())
+            int x = log.pos.x;
+            int y = log.pos.y;
+            this.BreakObjCreate(skill.SkillParam.BreakObjId, x, y, self, log, self.OwnerPlayerIndex);
+          }
+        }
+        else if (skill.IsTargetGridNoUnit && (skill.TeleportType == eTeleportType.None || skill.TeleportType == eTeleportType.Only))
+        {
+          if (!this.IsBattleFlag(EBattleFlag.PredictResult))
+          {
+            switch (skill.EffectType)
             {
-              LogSkill.Target current = enumerator.Current;
-              // ISSUE: reference to a compiler-generated field
-              if ((current.GetTotalHpDamage() > 0 || current.GetTotalMpDamage() > 0) && this.checkKnockBack(skillCAnonStorey1B3.self, current.target, skill))
-              {
-                // ISSUE: reference to a compiler-generated field
-                Grid gridKnockBack = this.getGridKnockBack(skillCAnonStorey1B3.self, current.target, skill);
-                if (gridKnockBack != null)
+              case SkillEffectTypes.Teleport:
+                self.x = log.pos.x;
+                self.y = log.pos.y;
+                break;
+              case SkillEffectTypes.Throw:
+                if (log.targets != null && log.targets.Count > 0)
                 {
-                  current.KnockBackGrid = gridKnockBack;
-                  if (!this.IsBattleFlag(EBattleFlag.PredictResult))
-                  {
-                    current.target.x = gridKnockBack.x;
-                    current.target.y = gridKnockBack.y;
-                    this.ExecuteEventTriggerOnGrid(current.target, EEventTrigger.Stop, true);
-                    // ISSUE: reference to a compiler-generated field
-                    skillCAnonStorey1B3.self.RefleshMomentBuff(this.Units);
-                  }
+                  Unit target = log.targets[0].target;
+                  target.x = log.pos.x;
+                  target.y = log.pos.y;
+                  unitList.Add(target);
+                  break;
                 }
+                break;
+            }
+            if (skill.TeleportType == eTeleportType.Only)
+            {
+              self.x = log.pos.x;
+              self.y = log.pos.y;
+              Grid duplicatePosition = this.GetCorrectDuplicatePosition(self);
+              if (duplicatePosition != null)
+              {
+                self.x = duplicatePosition.x;
+                self.y = duplicatePosition.y;
               }
+              self.startX = self.x;
+              self.startY = self.y;
+              log.TeleportGrid = this.GetUnitGridPosition(self.x, self.y);
             }
           }
         }
-        int gainJewel = log.GetGainJewel();
-        if (gainJewel > 0)
+        else
         {
-          // ISSUE: reference to a compiler-generated field
-          this.AddGems(skillCAnonStorey1B3.self, gainJewel);
-        }
-        for (int index1 = 0; index1 < log.targets.Count; ++index1)
-        {
-          Unit target = log.targets[index1].target;
-          if (!target.IsDead && (!skill.IsDamagedSkill() || !log.targets[index1].IsAvoid()))
+          if (skill.TeleportType == eTeleportType.BeforeSkill || skill.TeleportType == eTeleportType.AfterSkill)
           {
+            if (skill.IsTargetTeleport)
+            {
+              if (log.targets != null && log.targets.Count > 0)
+              {
+                Unit target = log.targets[0].target;
+                bool is_teleport = false;
+                Grid teleportGrid = this.GetTeleportGrid(self, self.x, self.y, target, skill, ref is_teleport);
+                if (teleportGrid != null && is_teleport)
+                {
+                  self.x = teleportGrid.x;
+                  self.y = teleportGrid.y;
+                  Grid duplicatePosition = this.GetCorrectDuplicatePosition(self);
+                  if (duplicatePosition != null)
+                  {
+                    self.x = duplicatePosition.x;
+                    self.y = duplicatePosition.y;
+                  }
+                  if (!this.IsBattleFlag(EBattleFlag.PredictResult))
+                  {
+                    self.startX = self.x;
+                    self.startY = self.y;
+                  }
+                  log.TeleportGrid = this.GetUnitGridPosition(self.x, self.y);
+                }
+              }
+            }
+            else
+            {
+              self.x = log.pos.x;
+              self.y = log.pos.y;
+              if (skill.TeleportType != eTeleportType.BeforeSkill)
+              {
+                Grid duplicatePosition = this.GetCorrectDuplicatePosition(self);
+                if (duplicatePosition != null)
+                {
+                  self.x = duplicatePosition.x;
+                  self.y = duplicatePosition.y;
+                }
+              }
+              if (!this.IsBattleFlag(EBattleFlag.PredictResult))
+              {
+                self.startX = self.x;
+                self.startY = self.y;
+              }
+              log.TeleportGrid = this.GetUnitGridPosition(self.x, self.y);
+            }
+          }
+          int num1 = Math.Max((int) skill.SkillParam.ComboNum, 1);
+          for (int index1 = 0; index1 < log.targets.Count; ++index1)
+          {
+            Unit target = log.targets[index1].target;
+            bool flag2 = true;
             SkillEffectTypes effectType = skill.EffectType;
             switch (effectType)
             {
-              case SkillEffectTypes.Attack:
-                if (log.targets[index1].GetTotalHpDamage() > 0)
+              case SkillEffectTypes.ReflectDamage:
+              case SkillEffectTypes.RateDamage:
+label_59:
+                for (int index2 = 0; index2 < num1; ++index2)
+                  this.DamageSkill(self, target, skill, log);
+                break;
+              case SkillEffectTypes.GemsGift:
+                int skillEffectValue = this.GetSkillEffectValue(self, target, skill);
+                int num2 = Math.Min(SkillParam.CalcSkillEffectValue(skill.EffectCalcType, skillEffectValue, self.Gems) + skill.Cost, self.Gems);
+                log.Hit(self, target, 0, 0, 0, 0, 0, num2, 0, 0, 0, false, false, false, false, 0, false, 0, 0);
+                log.ToSelfSkillEffect(0, num2, 0, 0, 0, 0, 0, 0, 0, false, false, false, false);
+                this.SubGems(self, num2);
+                this.AddGems(target, num2);
+                break;
+              case SkillEffectTypes.GemsIncDec:
+                int num3 = this.GetSkillEffectValue(self, target, skill);
+                if (skill.EffectCalcType == SkillParamCalcTypes.Scale)
+                  num3 = (int) target.MaximumStatus.param.mp * num3 / 100;
+                if (num3 < 0)
+                  log.Hit(self, target, 0, Math.Abs(num3), 0, 0, 0, 0, 0, 0, 0, false, false, false, false, 0, false, 0, 0);
+                else
+                  log.Hit(self, target, 0, 0, 0, 0, 0, num3, 0, 0, 0, false, false, false, false, 0, false, 0, 0);
+                this.AddGems(target, num3);
+                break;
+              case SkillEffectTypes.Guard:
+                if (!this.IsBattleFlag(EBattleFlag.PredictResult))
                 {
-                  this.DamageCureCondition(target, log);
+                  self.SetGuardTarget(target, 3);
                   break;
                 }
                 break;
-              case SkillEffectTypes.Heal:
-                if (log.targets[index1].GetTotalHpHeal() > 0)
+              case SkillEffectTypes.Changing:
+                if (!this.IsBattleFlag(EBattleFlag.PredictResult))
                 {
-                  this.HealCureCondition(target, log);
+                  int x = target.x;
+                  int y = target.y;
+                  target.x = self.x;
+                  target.y = self.y;
+                  self.x = x;
+                  self.y = y;
+                  self.startX = x;
+                  self.startY = y;
+                  this.TrickActionEndEffect(target, true);
+                  this.ExecuteEventTriggerOnGrid(target, EEventTrigger.Stop);
                   break;
                 }
+                break;
+              case SkillEffectTypes.RateHeal:
+label_62:
+                this.HealSkill(self, target, skill, log);
                 break;
               default:
-                if (effectType != SkillEffectTypes.RateHeal)
+                switch (effectType - 2)
                 {
-                  if (effectType == SkillEffectTypes.RateDamage)
-                    goto case SkillEffectTypes.Attack;
-                  else
-                    break;
+                  case SkillEffectTypes.None:
+                    goto label_59;
+                  case SkillEffectTypes.Attack:
+                    goto label_62;
+                  default:
+                    if (effectType == SkillEffectTypes.RateDamageCurrent)
+                      goto label_59;
+                    else
+                      break;
                 }
-                else
-                  goto case SkillEffectTypes.Heal;
             }
-            // ISSUE: reference to a compiler-generated field
-            this.BuffSkill(timing, skillCAnonStorey1B3.self, target, skill, false, log, SkillEffectTargets.Target, false);
-            // ISSUE: reference to a compiler-generated field
-            this.CondSkill(timing, skillCAnonStorey1B3.self, target, skill, false, log, SkillEffectTargets.Target);
-            if (skill.IsNormalAttack())
+            if (flag2 && !log.targets[index1].IsAvoid() && target.CheckDamageActionStart())
+              this.NotifyDamagedActionStart(self, target);
+          }
+          if (this.isKnockBack(skill) && skill.IsDamagedSkill())
+          {
+            List<LogSkill.Target> ls_target_lists = new List<LogSkill.Target>(log.targets.Count);
+            using (List<LogSkill.Target>.Enumerator enumerator = log.targets.GetEnumerator())
             {
-              // ISSUE: reference to a compiler-generated field
-              JobData job = skillCAnonStorey1B3.self.Job;
-              if (job != null && (job.ArtifactDatas != null || !string.IsNullOrEmpty(job.SelectedSkin)))
+              while (enumerator.MoveNext())
               {
-                List<ArtifactData> artifactDataList = new List<ArtifactData>();
-                if (job.ArtifactDatas != null && job.ArtifactDatas.Length >= 1)
-                  artifactDataList.AddRange((IEnumerable<ArtifactData>) job.ArtifactDatas);
-                if (!string.IsNullOrEmpty(job.SelectedSkin))
+                LogSkill.Target current = enumerator.Current;
+                if ((current.GetTotalHpDamage() > 0 || current.GetTotalMpDamage() > 0) && this.checkKnockBack(self, current.target, skill))
+                  ls_target_lists.Add(current);
+              }
+            }
+            this.procKnockBack(self, skill, log.pos.x, log.pos.y, ls_target_lists);
+            if (!this.IsBattleFlag(EBattleFlag.PredictResult))
+            {
+              using (List<LogSkill.Target>.Enumerator enumerator = ls_target_lists.GetEnumerator())
+              {
+                while (enumerator.MoveNext())
                 {
-                  ArtifactData selectedSkinData = job.GetSelectedSkinData();
-                  if (selectedSkinData != null)
-                    artifactDataList.Add(selectedSkinData);
+                  LogSkill.Target current = enumerator.Current;
+                  if (current.KnockBackGrid != null)
+                    unitList.Add(current.target);
                 }
-                for (int index2 = 0; index2 < artifactDataList.Count; ++index2)
+              }
+            }
+          }
+          int gainJewel = log.GetGainJewel();
+          if (gainJewel > 0)
+            this.AddGems(self, gainJewel);
+          for (int index1 = 0; index1 < log.targets.Count; ++index1)
+          {
+            Unit target = log.targets[index1].target;
+            if (!target.IsDead)
+            {
+              this.CondSkillSetRateLog(timing, self, target, skill, log);
+              if (!skill.IsDamagedSkill() || !log.targets[index1].IsAvoid())
+              {
+                SkillEffectTypes effectType = skill.EffectType;
+                switch (effectType)
                 {
-                  ArtifactData artifactData = artifactDataList[index2];
-                  if (artifactData != null && artifactData.ArtifactParam != null && (artifactData.ArtifactParam.type == ArtifactTypes.Arms && artifactData.BattleEffectSkill != null) && artifactData.BattleEffectSkill.SkillParam != null)
+                  case SkillEffectTypes.Attack:
+                    if (log.targets[index1].GetTotalHpDamage() > 0 || log.targets[index1].shieldDamage > 0)
+                    {
+                      this.DamageCureCondition(target, log);
+                      break;
+                    }
+                    break;
+                  case SkillEffectTypes.Heal:
+                    if (log.targets[index1].GetTotalHpHeal() > 0)
+                    {
+                      this.HealCureCondition(target, log);
+                      break;
+                    }
+                    break;
+                  default:
+                    if (effectType != SkillEffectTypes.RateHeal)
+                    {
+                      if (effectType == SkillEffectTypes.RateDamage || effectType == SkillEffectTypes.RateDamageCurrent)
+                        goto case SkillEffectTypes.Attack;
+                      else
+                        break;
+                    }
+                    else
+                      goto case SkillEffectTypes.Heal;
+                }
+                if (!skill.IsPrevApply())
+                  this.BuffSkill(timing, self, target, skill, false, log, SkillEffectTargets.Target, false);
+                this.CondSkill(timing, self, target, skill, false, log, SkillEffectTargets.Target, false);
+                if (skill.IsNormalAttack())
+                {
+                  JobData job = self.Job;
+                  if (job != null && (job.ArtifactDatas != null || !string.IsNullOrEmpty(job.SelectedSkin)))
                   {
-                    // ISSUE: reference to a compiler-generated field
-                    this.BuffSkill(timing, skillCAnonStorey1B3.self, target, artifactData.BattleEffectSkill, false, log, SkillEffectTargets.Target, false);
-                    // ISSUE: reference to a compiler-generated field
-                    this.CondSkill(timing, skillCAnonStorey1B3.self, target, artifactData.BattleEffectSkill, false, log, SkillEffectTargets.Target);
+                    List<ArtifactData> artifactDataList = new List<ArtifactData>();
+                    if (job.ArtifactDatas != null && job.ArtifactDatas.Length >= 1)
+                      artifactDataList.AddRange((IEnumerable<ArtifactData>) job.ArtifactDatas);
+                    if (!string.IsNullOrEmpty(job.SelectedSkin))
+                    {
+                      ArtifactData selectedSkinData = job.GetSelectedSkinData();
+                      if (selectedSkinData != null)
+                        artifactDataList.Add(selectedSkinData);
+                    }
+                    for (int index2 = 0; index2 < artifactDataList.Count; ++index2)
+                    {
+                      ArtifactData artifactData = artifactDataList[index2];
+                      if (artifactData != null && artifactData.ArtifactParam != null && (artifactData.ArtifactParam.type == ArtifactTypes.Arms && artifactData.BattleEffectSkill != null) && artifactData.BattleEffectSkill.SkillParam != null)
+                      {
+                        this.BuffSkill(timing, self, target, artifactData.BattleEffectSkill, false, log, SkillEffectTargets.Target, false);
+                        this.CondSkill(timing, self, target, artifactData.BattleEffectSkill, false, log, SkillEffectTargets.Target, false);
+                      }
+                    }
+                  }
+                }
+                this.StealSkill(self, target, skill, log);
+                this.ShieldSkill(target, skill);
+                if (!this.IsBattleFlag(EBattleFlag.PredictResult))
+                {
+                  if (skill.IsCastBreak() && target.CastSkill != null)
+                  {
+                    target.CancelCastSkill();
+                    log.targets[index1].hitType |= LogSkill.EHitTypes.CastBreak;
+                  }
+                  if ((int) skill.ControlChargeTimeRate != 0)
+                  {
+                    int num2 = 100;
+                    EnchantParam enchantAssist = self.CurrentStatus.enchant_assist;
+                    EnchantParam enchantResist = target.CurrentStatus.enchant_resist;
+                    if ((int) skill.ControlChargeTimeValue < 0)
+                    {
+                      if (target.IsDisableUnitCondition(EUnitCondition.DisableDecCT))
+                        num2 = 0;
+                      else
+                        num2 += (int) enchantAssist[EnchantTypes.DecCT] - (int) enchantResist[EnchantTypes.DecCT];
+                    }
+                    else if ((int) skill.ControlChargeTimeValue > 0)
+                    {
+                      if (target.IsDisableUnitCondition(EUnitCondition.DisableIncCT))
+                        num2 = 0;
+                      else
+                        num2 += (int) enchantAssist[EnchantTypes.IncCT] - (int) enchantResist[EnchantTypes.IncCT];
+                    }
+                    int num3 = (int) skill.ControlChargeTimeRate * num2 / 100;
+                    if (num3 > 0)
+                    {
+                      bool flag2 = true;
+                      if (num3 < 100 && (int) (this.GetRandom() % 100U) > num3)
+                        flag2 = false;
+                      if (flag2)
+                      {
+                        int chargeTime = (int) target.ChargeTime;
+                        target.ChargeTime = (OInt) SkillParam.CalcSkillEffectValue(skill.ControlChargeTimeCalcType, (int) skill.ControlChargeTimeValue, (int) target.ChargeTime);
+                        log.targets[index1].ChangeValueCT = (int) target.ChargeTime - chargeTime;
+                      }
+                    }
                   }
                 }
               }
             }
-            // ISSUE: reference to a compiler-generated field
-            this.StealSkill(skillCAnonStorey1B3.self, target, skill, log);
-            this.ShieldSkill(target, skill);
-            if (!this.IsBattleFlag(EBattleFlag.PredictResult))
+          }
+        }
+        int hpCost = this.GetHpCost(self, skill);
+        if (hpCost > 0)
+        {
+          if (!this.IsBattleFlag(EBattleFlag.PredictResult))
+            self.Damage(hpCost, false);
+          log.hp_cost = hpCost;
+        }
+        if (!self.IsDead)
+        {
+          if (!skill.IsPrevApply())
+            this.BuffSkill(timing, self, self, skill, false, log, SkillEffectTargets.Self, false);
+          this.CondSkill(timing, self, self, skill, false, log, SkillEffectTargets.Self, false);
+          if (skill.IsNormalAttack())
+          {
+            JobData job = self.Job;
+            if (job != null && (job.ArtifactDatas != null || !string.IsNullOrEmpty(job.SelectedSkin)))
             {
-              if (skill.IsCastBreak() && target.CastSkill != null)
+              List<ArtifactData> artifactDataList = new List<ArtifactData>();
+              if (job.ArtifactDatas != null && job.ArtifactDatas.Length >= 1)
+                artifactDataList.AddRange((IEnumerable<ArtifactData>) job.ArtifactDatas);
+              if (!string.IsNullOrEmpty(job.SelectedSkin))
               {
-                target.CancelCastSkill();
-                log.targets[index1].hitType |= LogSkill.EHitTypes.CastBreak;
+                ArtifactData selectedSkinData = job.GetSelectedSkinData();
+                if (selectedSkinData != null)
+                  artifactDataList.Add(selectedSkinData);
               }
-              target.ChargeTime = (OInt) SkillParam.CalcSkillEffectValue(skill.ControlChargeTimeCalcType, (int) skill.ControlChargeTimeValue, (int) target.ChargeTime);
+              for (int index = 0; index < artifactDataList.Count; ++index)
+              {
+                ArtifactData artifactData = artifactDataList[index];
+                if (artifactData != null && artifactData.ArtifactParam != null && (artifactData.ArtifactParam.type == ArtifactTypes.Arms && artifactData.BattleEffectSkill != null) && artifactData.BattleEffectSkill.SkillParam != null)
+                {
+                  this.BuffSkill(timing, self, self, artifactData.BattleEffectSkill, false, log, SkillEffectTargets.Self, false);
+                  this.CondSkill(timing, self, self, artifactData.BattleEffectSkill, false, log, SkillEffectTargets.Self, false);
+                }
+              }
             }
           }
         }
-      }
-      // ISSUE: reference to a compiler-generated field
-      int hpCost = this.GetHpCost(skillCAnonStorey1B3.self, skill);
-      if (hpCost > 0)
-      {
+        if (skill.IsPrevApply())
+        {
+          for (int index = 0; index < log.targets.Count; ++index)
+          {
+            Unit target = log.targets[index].target;
+            target.RemoveBuffPrevApply();
+            if (this.IsBattleFlag(EBattleFlag.PredictResult))
+              target.CalcCurrentStatus(false);
+          }
+          self.RemoveBuffPrevApply();
+          if (this.IsBattleFlag(EBattleFlag.PredictResult))
+            self.CalcCurrentStatus(false);
+        }
         if (!this.IsBattleFlag(EBattleFlag.PredictResult))
         {
-          // ISSUE: reference to a compiler-generated field
-          skillCAnonStorey1B3.self.Damage(hpCost);
-          // ISSUE: reference to a compiler-generated field
-          // ISSUE: reference to a compiler-generated field
-          if (skillCAnonStorey1B3.self.IsPartyMember && hpCost > 0 && skillCAnonStorey1B3.self.IsPartyMember)
-            this.mTotalDamagesTaken += hpCost;
-        }
-        log.hp_cost = hpCost;
-      }
-      // ISSUE: reference to a compiler-generated field
-      if (!skillCAnonStorey1B3.self.IsDead)
-      {
-        // ISSUE: reference to a compiler-generated field
-        // ISSUE: reference to a compiler-generated field
-        this.BuffSkill(timing, skillCAnonStorey1B3.self, skillCAnonStorey1B3.self, skill, false, log, SkillEffectTargets.Self, false);
-        // ISSUE: reference to a compiler-generated field
-        // ISSUE: reference to a compiler-generated field
-        this.CondSkill(timing, skillCAnonStorey1B3.self, skillCAnonStorey1B3.self, skill, false, log, SkillEffectTargets.Self);
-        if (skill.IsNormalAttack())
-        {
-          // ISSUE: reference to a compiler-generated field
-          JobData job = skillCAnonStorey1B3.self.Job;
-          if (job != null && (job.ArtifactDatas != null || !string.IsNullOrEmpty(job.SelectedSkin)))
+          for (int index = 0; index < log.targets.Count; ++index)
+            this.GridEventStart(self, log.targets[index].target, EEventTrigger.HpDownBorder);
+          for (int index = 0; index < log.targets.Count; ++index)
           {
-            List<ArtifactData> artifactDataList = new List<ArtifactData>();
-            if (job.ArtifactDatas != null && job.ArtifactDatas.Length >= 1)
-              artifactDataList.AddRange((IEnumerable<ArtifactData>) job.ArtifactDatas);
-            if (!string.IsNullOrEmpty(job.SelectedSkin))
+            if (log.targets[index].target.IsDead)
+              this.Dead(self, log.targets[index].target, DeadTypes.Damage, false);
+          }
+          if (self.IsDead)
+            this.Dead(self, self, DeadTypes.Damage, false);
+          if (self.CastSkill != null && self.CastSkill == skill && self.CastSkill.CastType == ECastTypes.Jump)
+          {
+            log.landing = this.GetCorrectDuplicatePosition(self);
+            if (log.landing != null)
             {
-              ArtifactData selectedSkinData = job.GetSelectedSkinData();
-              if (selectedSkinData != null)
-                artifactDataList.Add(selectedSkinData);
+              self.x = log.landing.x;
+              self.y = log.landing.y;
+              unitList.Add(self);
             }
-            for (int index = 0; index < artifactDataList.Count; ++index)
+          }
+          if (skill.IsDamagedSkill())
+          {
+            self.UpdateBuffEffectTurnCount(EffectCheckTimings.AttackEnd, self);
+            self.UpdateCondEffectTurnCount(EffectCheckTimings.AttackEnd, self);
+            for (int index = 0; index < log.targets.Count; ++index)
             {
-              ArtifactData artifactData = artifactDataList[index];
-              if (artifactData != null && artifactData.ArtifactParam != null && (artifactData.ArtifactParam.type == ArtifactTypes.Arms && artifactData.BattleEffectSkill != null) && artifactData.BattleEffectSkill.SkillParam != null)
+              log.targets[index].target.UpdateBuffEffectTurnCount(EffectCheckTimings.AttackEnd, self);
+              log.targets[index].target.UpdateCondEffectTurnCount(EffectCheckTimings.AttackEnd, self);
+              if (!log.targets[index].IsAvoid())
               {
-                // ISSUE: reference to a compiler-generated field
-                // ISSUE: reference to a compiler-generated field
-                this.BuffSkill(timing, skillCAnonStorey1B3.self, skillCAnonStorey1B3.self, artifactData.BattleEffectSkill, false, log, SkillEffectTargets.Self, false);
-                // ISSUE: reference to a compiler-generated field
-                // ISSUE: reference to a compiler-generated field
-                this.CondSkill(timing, skillCAnonStorey1B3.self, skillCAnonStorey1B3.self, artifactData.BattleEffectSkill, false, log, SkillEffectTargets.Self);
+                log.targets[index].target.UpdateBuffEffectTurnCount(EffectCheckTimings.DamageEnd, log.targets[index].target);
+                log.targets[index].target.UpdateCondEffectTurnCount(EffectCheckTimings.DamageEnd, log.targets[index].target);
+                if ((log.targets[index].hitType & LogSkill.EHitTypes.Guts) != (LogSkill.EHitTypes) 0)
+                {
+                  log.targets[index].target.UpdateBuffEffectTurnCount(EffectCheckTimings.GutsEnd, log.targets[index].target);
+                  log.targets[index].target.UpdateCondEffectTurnCount(EffectCheckTimings.GutsEnd, log.targets[index].target);
+                }
+              }
+            }
+          }
+          for (int index = 0; index < log.targets.Count; ++index)
+          {
+            log.targets[index].target.UpdateBuffEffectTurnCount(EffectCheckTimings.SkillEnd, self);
+            log.targets[index].target.UpdateCondEffectTurnCount(EffectCheckTimings.SkillEnd, self);
+          }
+          self.UpdateBuffEffectTurnCount(EffectCheckTimings.SkillEnd, self);
+          self.UpdateCondEffectTurnCount(EffectCheckTimings.SkillEnd, self);
+          for (int index = 0; index < log.targets.Count; ++index)
+          {
+            LogSkill.Target target = log.targets[index];
+            target.target.UpdateBuffEffects();
+            target.target.UpdateCondEffects();
+            target.target.CalcCurrentStatus(false);
+            if (!target.IsOldDying && target.target.IsDying())
+              target.target.SetUnitFlag(EUnitFlag.ToDying, true);
+          }
+          self.UpdateBuffEffects();
+          self.UpdateCondEffects();
+          self.CalcCurrentStatus(false);
+          if (!flag1 && self.IsDying())
+            self.SetUnitFlag(EUnitFlag.ToDying, true);
+          this.UpdateEntryTriggers(UnitEntryTypes.UsedSkill, self, skill.SkillParam);
+        }
+        bool flag3 = false;
+        using (List<Unit>.Enumerator enumerator = unitList.GetEnumerator())
+        {
+          while (enumerator.MoveNext())
+          {
+            Unit current = enumerator.Current;
+            if (!current.IsDead)
+            {
+              if (current.IsJump)
+              {
+                current.PushCastSkill();
+                this.TrickActionEndEffect(current, true);
+                current.PopCastSkill();
+              }
+              else
+              {
+                this.TrickActionEndEffect(current, false);
+                this.ExecuteEventTriggerOnGrid(current, EEventTrigger.Stop);
+                flag3 = true;
               }
             }
           }
         }
+        if (flag3)
+          self.RefleshMomentBuff(this.Units, false, -1, -1);
+        if (skill.WeatherRate <= 0 || string.IsNullOrEmpty(skill.WeatherId) || this.IsBattleFlag(EBattleFlag.PredictResult))
+          return;
+        this.ChangeWeatherForSkill(self, skill);
       }
-      if (this.IsBattleFlag(EBattleFlag.PredictResult))
-        return;
-      for (int index = 0; index < log.targets.Count; ++index)
-      {
-        // ISSUE: reference to a compiler-generated field
-        this.GridEventStart(skillCAnonStorey1B3.self, log.targets[index].target, EEventTrigger.HpDownBorder);
-      }
-      for (int index = 0; index < log.targets.Count; ++index)
-      {
-        if (log.targets[index].target.IsDead)
-        {
-          // ISSUE: reference to a compiler-generated field
-          this.Dead(skillCAnonStorey1B3.self, log.targets[index].target, DeadTypes.Damage);
-        }
-      }
-      // ISSUE: reference to a compiler-generated field
-      if (skillCAnonStorey1B3.self.IsDead)
-      {
-        // ISSUE: reference to a compiler-generated field
-        // ISSUE: reference to a compiler-generated field
-        this.Dead(skillCAnonStorey1B3.self, skillCAnonStorey1B3.self, DeadTypes.Damage);
-      }
-      // ISSUE: reference to a compiler-generated field
-      // ISSUE: reference to a compiler-generated field
-      // ISSUE: reference to a compiler-generated field
-      if (skillCAnonStorey1B3.self.CastSkill != null && skillCAnonStorey1B3.self.CastSkill == skill && skillCAnonStorey1B3.self.CastSkill.CastType == ECastTypes.Jump)
-      {
-        // ISSUE: reference to a compiler-generated field
-        log.landing = this.GetCorrectDuplicatePosition(skillCAnonStorey1B3.self);
-        if (log.landing != null)
-        {
-          // ISSUE: reference to a compiler-generated field
-          skillCAnonStorey1B3.self.x = log.landing.x;
-          // ISSUE: reference to a compiler-generated field
-          skillCAnonStorey1B3.self.y = log.landing.y;
-        }
-      }
-      if (skill.IsDamagedSkill())
-      {
-        // ISSUE: reference to a compiler-generated field
-        // ISSUE: reference to a compiler-generated field
-        skillCAnonStorey1B3.self.UpdateBuffEffectTurnCount(EffectCheckTimings.AttackEnd, skillCAnonStorey1B3.self);
-        // ISSUE: reference to a compiler-generated field
-        // ISSUE: reference to a compiler-generated field
-        skillCAnonStorey1B3.self.UpdateCondEffectTurnCount(EffectCheckTimings.AttackEnd, skillCAnonStorey1B3.self);
-        for (int index = 0; index < log.targets.Count; ++index)
-        {
-          // ISSUE: reference to a compiler-generated field
-          log.targets[index].target.UpdateBuffEffectTurnCount(EffectCheckTimings.AttackEnd, skillCAnonStorey1B3.self);
-          // ISSUE: reference to a compiler-generated field
-          log.targets[index].target.UpdateCondEffectTurnCount(EffectCheckTimings.AttackEnd, skillCAnonStorey1B3.self);
-          if (!log.targets[index].IsAvoid())
-          {
-            log.targets[index].target.UpdateBuffEffectTurnCount(EffectCheckTimings.DamageEnd, log.targets[index].target);
-            log.targets[index].target.UpdateCondEffectTurnCount(EffectCheckTimings.DamageEnd, log.targets[index].target);
-            if ((log.targets[index].hitType & LogSkill.EHitTypes.Guts) != (LogSkill.EHitTypes) 0)
-            {
-              log.targets[index].target.UpdateBuffEffectTurnCount(EffectCheckTimings.GutsEnd, log.targets[index].target);
-              log.targets[index].target.UpdateCondEffectTurnCount(EffectCheckTimings.GutsEnd, log.targets[index].target);
-            }
-          }
-        }
-      }
-      for (int index = 0; index < log.targets.Count; ++index)
-      {
-        // ISSUE: reference to a compiler-generated field
-        log.targets[index].target.UpdateBuffEffectTurnCount(EffectCheckTimings.SkillEnd, skillCAnonStorey1B3.self);
-        // ISSUE: reference to a compiler-generated field
-        log.targets[index].target.UpdateCondEffectTurnCount(EffectCheckTimings.SkillEnd, skillCAnonStorey1B3.self);
-      }
-      // ISSUE: reference to a compiler-generated field
-      // ISSUE: reference to a compiler-generated field
-      skillCAnonStorey1B3.self.UpdateBuffEffectTurnCount(EffectCheckTimings.SkillEnd, skillCAnonStorey1B3.self);
-      // ISSUE: reference to a compiler-generated field
-      // ISSUE: reference to a compiler-generated field
-      skillCAnonStorey1B3.self.UpdateCondEffectTurnCount(EffectCheckTimings.SkillEnd, skillCAnonStorey1B3.self);
-      for (int index = 0; index < log.targets.Count; ++index)
-      {
-        log.targets[index].target.UpdateBuffEffects();
-        log.targets[index].target.UpdateCondEffects();
-        log.targets[index].target.CalcCurrentStatus(false);
-      }
-      // ISSUE: reference to a compiler-generated field
-      skillCAnonStorey1B3.self.UpdateBuffEffects();
-      // ISSUE: reference to a compiler-generated field
-      skillCAnonStorey1B3.self.UpdateCondEffects();
-      // ISSUE: reference to a compiler-generated field
-      skillCAnonStorey1B3.self.CalcCurrentStatus(false);
-      // ISSUE: reference to a compiler-generated field
-      this.UpdateEntryTriggers(UnitEntryTypes.UsedSkill, skillCAnonStorey1B3.self, skill.SkillParam);
     }
 
     private void CastStart(Unit self, int gx, int gy, SkillData skill, bool bUnitLockTarget)
@@ -5489,7 +7216,8 @@ label_16:
       if (bUnitLockTarget)
       {
         unit = this.FindUnitAtGrid(grid);
-        grid = (Grid) null;
+        if (unit != null)
+          grid = (Grid) null;
       }
       LogCast logCast = this.Log<LogCast>();
       logCast.self = self;
@@ -5505,9 +7233,9 @@ label_16:
         this.CreateScopeGridMap(self, self.x, self.y, gx, gy, skill, ref result, false);
       else
         result.set(gx, gy, true);
+      if (skill.TeleportType == eTeleportType.AfterSkill)
+        result.set(gx, gy, false);
       self.CastSkillGridMap = result;
-      if (GameUtility.IsDebugBuild && BattleCore.DEBUG_IS_CAST_SHORTCUT)
-        self.SetCastTime((int) self.CastTimeMax);
       this.Log<LogMapCommand>();
     }
 
@@ -5553,23 +7281,31 @@ label_16:
       bool is_guts = false;
       bool flag = false;
       bool bWeakPoint = false;
+      bool is_pf_avoid = false;
       int damage = 0;
       int absorbed = 0;
       switch (skill.EffectType)
       {
         case SkillEffectTypes.Attack:
-          if (this.CheckBackAttack(self, target, skill))
-            self.SetUnitFlag(EUnitFlag.BackAttack, true);
-          else if (this.CheckSideAttack(self, target, skill))
-            self.SetUnitFlag(EUnitFlag.SideAttack, true);
+          if (!target.IsBreakObj)
+          {
+            if (this.CheckBackAttack(self, target, skill))
+              self.SetUnitFlag(EUnitFlag.BackAttack, true);
+            else if (this.CheckSideAttack(self, target, skill))
+              self.SetUnitFlag(EUnitFlag.SideAttack, true);
+          }
           damage = this.CalcDamage(self, target, skill, log);
           if (!skill.IsJewelAttack())
           {
             if (!this.IsCombinationAttack(skill) && (skill.IsNormalAttack() || (bool) skill.SkillParam.IsCritical))
             {
               flag = this.CheckCritical(self, target, skill);
-              if (flag && !this.IsBattleFlag(EBattleFlag.PredictResult))
-                damage = this.GetCriticalDamage(self, damage);
+              if (flag)
+              {
+                uint rand = this.mRandDamage.Get();
+                if (!this.IsBattleFlag(EBattleFlag.PredictResult))
+                  damage = this.GetCriticalDamage(self, damage, rand);
+              }
             }
             this.GetYuragiDamage(ref damage);
             bWeakPoint = this.CheckWeakPoint(self, target, skill);
@@ -5588,11 +7324,29 @@ label_16:
           int skillEffectValue1 = this.GetSkillEffectValue(self, target, skill);
           damage = !skill.IsJewelAttack() ? (int) target.MaximumStatus.param.hp * skillEffectValue1 * 100 / 10000 : (int) target.MaximumStatus.param.mp * skillEffectValue1 * 100 / 10000;
           break;
+        case SkillEffectTypes.RateDamageCurrent:
+          int skillEffectValue2 = this.GetSkillEffectValue(self, target, skill);
+          damage = !skill.IsJewelAttack() ? (int) target.CurrentStatus.param.hp * skillEffectValue2 * 100 / 10000 : (int) target.CurrentStatus.param.mp * skillEffectValue2 * 100 / 10000;
+          break;
         default:
           return;
       }
       damage = damage * (int) skill.SkillParam.ComboDamageRate / 100;
       this.DamageControlSkill(self, target, skill, ref damage, log);
+      int num1 = this.mQuestParam.DamageRatePl;
+      int val2 = this.mQuestParam.DamageUpprPl;
+      if (target.Side == EUnitSide.Enemy)
+      {
+        num1 = this.mQuestParam.DamageRateEn;
+        val2 = this.mQuestParam.DamageUpprEn;
+      }
+      damage += damage * num1 / 100;
+      if (val2 != 0)
+        damage = Math.Min(damage, val2);
+      if (skill.IsFixedDamage())
+        damage = (int) skill.EffectValue;
+      if (skill.MaxDamageValue != 0 && damage > skill.MaxDamageValue)
+        damage = skill.MaxDamageValue;
       damage = Math.Max(damage, 1);
       bool is_avoid;
       if (this.CheckPerfectAvoidSkill(self, target, skill, log))
@@ -5604,29 +7358,30 @@ label_16:
             target1.SetPerfectAvoid(true);
         }
         is_avoid = true;
+        is_pf_avoid = true;
       }
       else
         is_avoid = this.CheckAvoid(self, target, skill);
-      if (!is_avoid)
+      if (!is_avoid && skill.DamageAbsorbRate <= 0 && !skill.IsJewelAttack())
       {
-        int num = damage;
+        int num2 = damage;
         if (skill.IsPhysicalAttack())
         {
-          target.CalcShieldDamage(DamageTypes.PhyDamage, ref damage, !this.IsBattleFlag(EBattleFlag.PredictResult));
+          target.CalcShieldDamage(DamageTypes.PhyDamage, ref damage, !this.IsBattleFlag(EBattleFlag.PredictResult), skill.AttackDetailType, this.CurrentRand);
           damage = Math.Max(damage * this.mQuestParam.PhysBonus / 100, 0);
         }
         if (skill.IsMagicalAttack())
         {
-          target.CalcShieldDamage(DamageTypes.MagDamage, ref damage, !this.IsBattleFlag(EBattleFlag.PredictResult));
+          target.CalcShieldDamage(DamageTypes.MagDamage, ref damage, !this.IsBattleFlag(EBattleFlag.PredictResult), skill.AttackDetailType, this.CurrentRand);
           damage = Math.Max(damage * this.mQuestParam.MagBonus / 100, 0);
         }
-        target.CalcShieldDamage(DamageTypes.TotalDamage, ref damage, !this.IsBattleFlag(EBattleFlag.PredictResult));
-        absorbed = num - damage;
+        target.CalcShieldDamage(DamageTypes.TotalDamage, ref damage, !this.IsBattleFlag(EBattleFlag.PredictResult), skill.AttackDetailType, this.CurrentRand);
+        absorbed = num2 - damage;
       }
       int hp_damage = 0;
-      int num1 = 0;
+      int num3 = 0;
       int hp_heal = 0;
-      int num2 = 0;
+      int num4 = 0;
       int dropgems = 0;
       if (!skill.IsJewelAttack())
       {
@@ -5638,24 +7393,24 @@ label_16:
           switch (skill.SkillParam.JewelDamageType)
           {
             case JewelDamageTypes.Calc:
-              num1 += BattleCore.Sqrt(damage) * 2;
+              num3 += BattleCore.Sqrt(damage) * 2;
               break;
             case JewelDamageTypes.Scale:
-              num1 += (int) target.MaximumStatus.param.mp * (int) skill.SkillParam.JewelDamageValue / 100;
+              num3 += (int) target.MaximumStatus.param.mp * (int) skill.SkillParam.JewelDamageValue / 100;
               break;
             case JewelDamageTypes.Fixed:
-              num1 += (int) skill.SkillParam.JewelDamageValue;
+              num3 += (int) skill.SkillParam.JewelDamageValue;
               break;
           }
           if ((bool) skill.SkillParam.IsJewelAbsorb)
-            num2 = num1;
+            num4 = num3;
         }
       }
       else
       {
-        num1 = damage;
+        num3 = damage;
         if (skill.DamageAbsorbRate > 0)
-          num2 = damage * skill.DamageAbsorbRate * 100 / 10000;
+          num4 = damage * skill.DamageAbsorbRate * 100 / 10000;
       }
       if (!this.IsBattleFlag(EBattleFlag.PredictResult))
       {
@@ -5663,10 +7418,10 @@ label_16:
         {
           if (self.IsPartyMember && hp_heal > 0 && target.Side == EUnitSide.Enemy)
             this.mTotalHeal += Math.Min((int) self.CurrentStatus.param.hp + hp_heal, (int) self.MaximumStatus.param.hp) - (int) self.CurrentStatus.param.hp;
-          target.Damage(hp_damage);
-          this.SubGems(target, num1);
+          target.Damage(hp_damage, false);
+          this.SubGems(target, num3);
           self.Heal(hp_heal);
-          this.AddGems(self, num2);
+          this.AddGems(self, num4);
           if (this.CheckGuts(target))
           {
             is_guts = true;
@@ -5675,24 +7430,26 @@ label_16:
           dropgems = this.CalcGainedGems(self, target, skill, damage, flag, bWeakPoint);
           if (self.IsPartyMember && damage > 0 && target.Side == EUnitSide.Enemy)
             this.mTotalDamages += damage;
-          if (target.IsPartyMember && damage > 0 && self.Side == EUnitSide.Enemy)
+          else if (self.Side == EUnitSide.Enemy && damage > 0 && target.Side == EUnitSide.Enemy)
+            this.mTotalDamages += damage;
+          if (target.IsPartyMember && damage > 0)
             this.mTotalDamagesTaken += damage;
-          this.GimmickSkillDamageCount(self, target);
+          this.GimmickEventDamageCount(self, target);
         }
         else
         {
           hp_damage = 0;
-          num1 = 0;
+          num3 = 0;
           hp_heal = 0;
-          num2 = 0;
+          num4 = 0;
           dropgems = 0;
           flag = false;
         }
       }
       bool is_combination = this.IsCombinationAttack(skill);
-      log.Hit(self, target, hp_damage, num1, 0, 0, 0, 0, 0, 0, dropgems, flag, is_avoid, is_combination, is_guts, absorbed);
-      if (hp_heal != 0 || num2 != 0)
-        log.ToSelfSkillEffect(0, 0, 0, 0, hp_heal, num2, 0, 0, 0, false, false, false, false);
+      log.Hit(self, target, hp_damage, num3, 0, 0, 0, 0, 0, 0, dropgems, flag, is_avoid, is_combination, is_guts, absorbed, is_pf_avoid, this.GetCriticalRate(self, target, skill), this.GetAvoidRate(self, target, skill));
+      if (hp_heal != 0 || num4 != 0)
+        log.ToSelfSkillEffect(0, 0, 0, 0, hp_heal, num4, 0, 0, 0, false, false, false, false);
       self.SetUnitFlag(EUnitFlag.BackAttack, false);
       self.SetUnitFlag(EUnitFlag.SideAttack, false);
     }
@@ -5763,10 +7520,10 @@ label_16:
       for (int index = 0; index < defender.BattleSkills.Count; ++index)
       {
         SkillData battleSkill = defender.BattleSkills[index];
-        if (battleSkill != null && battleSkill.IsReactionSkill() && battleSkill.EffectType == SkillEffectTypes.Defend && ((battleSkill.Timing == ESkillTiming.Reaction || battleSkill.Timing == ESkillTiming.DamageCalculate) && defender.IsEnableReactionSkill(battleSkill)))
+        if (battleSkill != null && battleSkill.IsReactionSkill() && battleSkill.EffectType == SkillEffectTypes.Defend && ((battleSkill.Timing == ESkillTiming.Reaction || battleSkill.Timing == ESkillTiming.DamageCalculate) && (defender.IsEnableReactionSkill(battleSkill) && this.CheckSkillCondition(defender, battleSkill))))
         {
           int effectRate = (int) battleSkill.EffectRate;
-          if ((effectRate <= 0 || effectRate >= 100 || (int) (this.GetRandom() % 100U) <= effectRate || GameUtility.IsDebugBuild && BattleCore.DEBUG_IS_FORCE_REACTION) && !this.IsBattleFlag(EBattleFlag.PredictResult))
+          if ((effectRate <= 0 || effectRate >= 100 || (int) (this.GetRandom() % 100U) <= effectRate) && !this.IsBattleFlag(EBattleFlag.PredictResult))
           {
             int skillEffectValue = this.GetSkillEffectValue(defender, attacker, battleSkill);
             if (skillEffectValue != 0)
@@ -5828,10 +7585,10 @@ label_16:
       for (int index = 0; index < defender.BattleSkills.Count; ++index)
       {
         SkillData battleSkill = defender.BattleSkills[index];
-        if (battleSkill != null && battleSkill.IsReactionSkill() && battleSkill.EffectType == SkillEffectTypes.PerfectAvoid && ((battleSkill.Timing == ESkillTiming.Reaction || battleSkill.Timing == ESkillTiming.DamageCalculate) && defender.IsEnableReactionSkill(battleSkill)))
+        if (battleSkill != null && battleSkill.IsReactionSkill() && battleSkill.EffectType == SkillEffectTypes.PerfectAvoid && ((battleSkill.Timing == ESkillTiming.Reaction || battleSkill.Timing == ESkillTiming.DamageCalculate) && (defender.IsEnableReactionSkill(battleSkill) && this.CheckSkillCondition(defender, battleSkill))))
         {
           int effectRate = (int) battleSkill.EffectRate;
-          if ((effectRate <= 0 || effectRate >= 100 || (int) (this.GetRandom() % 100U) <= effectRate || GameUtility.IsDebugBuild && BattleCore.DEBUG_IS_FORCE_REACTION) && !this.IsBattleFlag(EBattleFlag.PredictResult))
+          if ((effectRate <= 0 || effectRate >= 100 || (int) (this.GetRandom() % 100U) <= effectRate) && !this.IsBattleFlag(EBattleFlag.PredictResult))
           {
             bool flag = false;
             switch (battleSkill.ReactionDamageType)
@@ -5865,10 +7622,10 @@ label_16:
       for (int index = 0; index < defender.BattleSkills.Count; ++index)
       {
         SkillData battleSkill = defender.BattleSkills[index];
-        if (battleSkill != null && battleSkill.IsReactionSkill() && (battleSkill.Timing == ESkillTiming.Reaction || battleSkill.Timing == ESkillTiming.DamageControl) && defender.IsEnableReactionSkill(battleSkill))
+        if (battleSkill != null && battleSkill.IsReactionSkill() && (battleSkill.Timing == ESkillTiming.Reaction || battleSkill.Timing == ESkillTiming.DamageControl) && (defender.IsEnableReactionSkill(battleSkill) && this.CheckSkillCondition(defender, battleSkill)))
         {
           int effectRate = (int) battleSkill.EffectRate;
-          if ((effectRate <= 0 || effectRate >= 100 || (int) (this.GetRandom() % 100U) <= effectRate || GameUtility.IsDebugBuild && BattleCore.DEBUG_IS_FORCE_REACTION) && (!this.IsBattleFlag(EBattleFlag.PredictResult) && (int) battleSkill.ControlDamageValue != 0))
+          if ((effectRate <= 0 || effectRate >= 100 || (int) (this.GetRandom() % 100U) <= effectRate) && (!this.IsBattleFlag(EBattleFlag.PredictResult) && (int) battleSkill.ControlDamageValue != 0))
           {
             bool flag = false;
             switch (battleSkill.ReactionDamageType)
@@ -5925,7 +7682,7 @@ label_16:
       int hp_heal = 0;
       if (!target.IsUnitCondition(EUnitCondition.DisableHeal))
         hp_heal = this.CalcHeal(self, target, skill);
-      log.Hit(self, target, 0, 0, 0, 0, hp_heal, 0, 0, 0, 0, false, false, false, false, 0);
+      log.Hit(self, target, 0, 0, 0, 0, hp_heal, 0, 0, 0, 0, false, false, false, false, 0, false, 0, 0);
       if (this.IsBattleFlag(EBattleFlag.PredictResult))
         return;
       if (target.IsPartyMember)
@@ -5966,26 +7723,33 @@ label_16:
 
     private void ShieldSkill(Unit target, SkillData skill)
     {
-      if (this.IsBattleFlag(EBattleFlag.PredictResult))
+      if (target == null || skill == null || (skill.EffectType != SkillEffectTypes.Shield || skill.ShieldType == ShieldTypes.None))
+        return;
+      int effectRate = (int) skill.EffectRate;
+      if (0 < effectRate && effectRate < 100 && (int) (this.GetRandom() % 100U) > effectRate || this.IsBattleFlag(EBattleFlag.PredictResult))
         return;
       target.AddShield(skill);
     }
 
     private void ExecuteFirstReactionSkill(Unit attacker, List<Unit> targets, SkillData skill, int tx, int ty, List<LogSkill> results = null)
     {
-      if (skill == null || !skill.IsNormalAttack() || (!skill.IsDamagedSkill() || attacker == null) || (attacker.IsDeadCondition() || targets == null || targets.Count == 0))
+      if (skill == null || !skill.IsDamagedSkill() || (attacker == null || attacker.IsDeadCondition()) || (targets == null || targets.Count == 0))
         return;
       Grid current = this.CurrentMap[tx, ty];
       if (current == null)
         return;
-      Unit unitAtGrid = this.FindUnitAtGrid(current);
-      if (unitAtGrid == null)
-        return;
+      Unit main_target = this.FindUnitAtGrid(current);
+      if (main_target == null)
+      {
+        main_target = this.FindGimmickAtGrid(current, false, (Unit) null);
+        if (main_target != null && !main_target.IsBreakObj)
+          main_target = (Unit) null;
+      }
       for (int index = 0; index < targets.Count; ++index)
       {
         Unit target = targets[index];
-        if (attacker != target && target.IsEnableReactionCondition() && target == unitAtGrid)
-          this.InternalReactionSkill(ESkillTiming.FirstReaction, attacker, target, target, skill, 0, false, results);
+        if (attacker != target && target.IsEnableReactionCondition())
+          this.InternalReactionSkill(ESkillTiming.FirstReaction, attacker, target, main_target, skill, 0, false, results, target == main_target);
       }
     }
 
@@ -5994,30 +7758,36 @@ label_16:
       if (log == null || log.targets.Count == 0)
         return;
       SkillData skill = log.skill;
-      if (!skill.IsNormalAttack() || !skill.IsDamagedSkill())
+      if (!skill.IsDamagedSkill())
         return;
       Unit self = log.self;
       Grid current = this.CurrentMap[log.pos.x, log.pos.y];
       if (current == null)
         return;
-      Unit unitAtGrid = this.FindUnitAtGrid(current);
-      if (unitAtGrid == null || self.IsDead)
+      Unit main_target = this.FindUnitAtGrid(current);
+      if (main_target == null)
+      {
+        main_target = this.FindGimmickAtGrid(current, false, (Unit) null);
+        if (main_target != null && !main_target.IsBreakObj)
+          main_target = (Unit) null;
+      }
+      if (self.IsDead)
         return;
       for (int index = 0; index < log.targets.Count; ++index)
       {
         if (log.targets[index].guard == null && !log.targets[index].IsAvoid())
         {
           Unit target = log.targets[index].target;
-          if (self != target && target.IsEnableReactionCondition() && target == unitAtGrid)
+          if (self != target && target.IsEnableReactionCondition())
           {
             int totalHpDamage = log.targets[index].GetTotalHpDamage();
-            this.InternalReactionSkill(ESkillTiming.Reaction, self, target, unitAtGrid, skill, totalHpDamage, log.targets[index].is_force_reaction, results);
+            this.InternalReactionSkill(ESkillTiming.Reaction, self, target, main_target, skill, totalHpDamage, log.targets[index].is_force_reaction, results, target == main_target);
           }
         }
       }
     }
 
-    private void InternalReactionSkill(ESkillTiming timing, Unit attacker, Unit defender, Unit main_target, SkillData received_skill, int damage, bool is_forced, List<LogSkill> results)
+    private void InternalReactionSkill(ESkillTiming timing, Unit attacker, Unit defender, Unit main_target, SkillData received_skill, int damage, bool is_forced, List<LogSkill> results, bool is_main_target)
     {
       for (int index1 = 0; index1 < defender.BattleSkills.Count; ++index1)
       {
@@ -6045,105 +7815,109 @@ label_16:
                     case SkillEffectTypes.Attack:
                       continue;
                     default:
-                      switch (battleSkill.ReactionDamageType)
+                      if (battleSkill.IsAllDamageReaction() || received_skill.IsNormalAttack() && is_main_target)
                       {
-                        case DamageTypes.TotalDamage:
-                          if (!received_skill.IsDamagedSkill() || !battleSkill.IsReactionDet(received_skill.AttackDetailType))
-                            continue;
-                          break;
-                        case DamageTypes.PhyDamage:
-                          if (!received_skill.IsPhysicalAttack() || !battleSkill.IsReactionDet(received_skill.AttackDetailType))
-                            continue;
-                          break;
-                        case DamageTypes.MagDamage:
-                          if (!received_skill.IsMagicalAttack() || !battleSkill.IsReactionDet(received_skill.AttackDetailType))
-                            continue;
-                          break;
-                        default:
-                          continue;
-                      }
-                      if (battleSkill.UseCondition == null || battleSkill.UseCondition.type == 0 || battleSkill.UseCondition.unlock)
-                      {
-                        Unit self = defender;
-                        Unit unit;
-                        switch (battleSkill.Target)
+                        switch (battleSkill.ReactionDamageType)
                         {
-                          case ESkillTarget.Self:
-                          case ESkillTarget.SelfSide:
-                            unit = defender;
+                          case DamageTypes.TotalDamage:
+                            if (!received_skill.IsDamagedSkill() || !battleSkill.IsReactionDet(received_skill.AttackDetailType))
+                              continue;
                             break;
-                          case ESkillTarget.EnemySide:
-                          case ESkillTarget.UnitAll:
-                          case ESkillTarget.NotSelf:
-                            unit = attacker;
+                          case DamageTypes.PhyDamage:
+                            if (!received_skill.IsPhysicalAttack() || !battleSkill.IsReactionDet(received_skill.AttackDetailType))
+                              continue;
                             break;
-                          case ESkillTarget.GridNoUnit:
-                            return;
+                          case DamageTypes.MagDamage:
+                            if (!received_skill.IsMagicalAttack() || !battleSkill.IsReactionDet(received_skill.AttackDetailType))
+                              continue;
+                            break;
                           default:
-                            DebugUtility.LogError("リアクションスキル\"" + battleSkill.Name + "\"に不相応なスキル効果対象が設定されている");
-                            return;
+                            continue;
                         }
-                        if (this.CheckSkillCondition(self, battleSkill))
+                        if (battleSkill.UseCondition == null || battleSkill.UseCondition.type == 0 || battleSkill.UseCondition.unlock)
                         {
-                          int effectRate = (int) battleSkill.EffectRate;
-                          if (effectRate <= 0 || effectRate >= 100 || ((int) (this.GetRandom() % 100U) <= effectRate || is_forced) || GameUtility.IsDebugBuild && BattleCore.DEBUG_IS_FORCE_REACTION)
+                          Unit self = defender;
+                          Unit unit;
+                          switch (battleSkill.Target)
                           {
-                            LogSkill.Reflection reflection = (LogSkill.Reflection) null;
-                            if (battleSkill.EffectType == SkillEffectTypes.ReflectDamage)
+                            case ESkillTarget.Self:
+                            case ESkillTarget.SelfSide:
+                              unit = defender;
+                              break;
+                            case ESkillTarget.EnemySide:
+                            case ESkillTarget.UnitAll:
+                            case ESkillTarget.NotSelf:
+                              unit = attacker;
+                              break;
+                            case ESkillTarget.GridNoUnit:
+                              return;
+                            default:
+                              DebugUtility.LogError("リアクションスキル\"" + battleSkill.Name + "\"に不相応なスキル効果対象が設定されている");
+                              return;
+                          }
+                          if (this.CheckSkillCondition(self, battleSkill))
+                          {
+                            int effectRate = (int) battleSkill.EffectRate;
+                            if (effectRate <= 0 || effectRate >= 100 || ((int) (this.GetRandom() % 100U) <= effectRate || is_forced))
                             {
-                              reflection = new LogSkill.Reflection();
-                              reflection.damage = damage;
-                            }
-                            List<Unit> targets = (List<Unit>) null;
-                            BattleCore.ShotTarget shot = (BattleCore.ShotTarget) null;
-                            int x = unit.x;
-                            int y = unit.y;
-                            if (self.GetAttackRangeMax(battleSkill) > 0)
-                            {
-                              this.CreateSelectGridMap(self, self.x, self.y, battleSkill, ref this.mRangeMap, false);
-                              targets = this.SearchTargetsInGridMap(self, battleSkill, this.mRangeMap);
-                              if (targets.Contains(unit))
+                              LogSkill.Reflection reflection = (LogSkill.Reflection) null;
+                              if (battleSkill.EffectType == SkillEffectTypes.ReflectDamage)
                               {
-                                targets.Clear();
-                                this.GetExecuteSkillLineTarget(self, x, y, battleSkill, ref targets, ref shot);
+                                reflection = new LogSkill.Reflection();
+                                reflection.damage = damage;
+                              }
+                              List<Unit> targets = (List<Unit>) null;
+                              BattleCore.ShotTarget shot = (BattleCore.ShotTarget) null;
+                              int x = unit.x;
+                              int y = unit.y;
+                              if (self.GetAttackRangeMax(battleSkill) > 0)
+                              {
+                                this.CreateSelectGridMap(self, self.x, self.y, battleSkill, ref this.mRangeMap, false);
+                                targets = this.SearchTargetsInGridMap(self, battleSkill, this.mRangeMap);
+                                if (targets.Contains(unit))
+                                {
+                                  targets.Clear();
+                                  this.GetExecuteSkillLineTarget(self, x, y, battleSkill, ref targets, ref shot);
+                                }
+                                else
+                                  continue;
                               }
                               else
-                                continue;
-                            }
-                            else
-                            {
-                              x = self.x;
-                              y = self.y;
-                              this.CreateScopeGridMap(self, self.x, self.y, x, y, battleSkill, ref this.mScopeMap, false);
-                              targets = this.SearchTargetsInGridMap(self, battleSkill, this.mScopeMap);
-                              if (!targets.Contains(unit))
-                                continue;
-                            }
-                            if (targets != null && targets.Count != 0)
-                            {
-                              LogSkill log = !this.IsBattleFlag(EBattleFlag.PredictResult) ? this.Log<LogSkill>() : new LogSkill();
-                              log.self = self;
-                              log.skill = battleSkill;
-                              log.pos.x = x;
-                              log.pos.y = y;
-                              log.reflect = reflection;
-                              log.is_append = !battleSkill.IsCutin();
-                              log.CauseOfReaction = attacker;
-                              if (shot != null)
                               {
-                                log.pos.x = shot.end.x;
-                                log.pos.y = shot.end.y;
-                                log.rad = (int) (shot.rad * 100.0);
-                                log.height = (int) (shot.height * 100.0);
+                                x = self.x;
+                                y = self.y;
+                                this.CreateScopeGridMap(self, self.x, self.y, x, y, battleSkill, ref this.mScopeMap, false);
+                                targets = this.SearchTargetsInGridMap(self, battleSkill, this.mScopeMap);
+                                if (!targets.Contains(unit))
+                                  continue;
                               }
-                              for (int index2 = 0; index2 < targets.Count; ++index2)
-                                log.SetSkillTarget(defender, targets[index2]);
-                              this.ExecuteSkill(timing, log, battleSkill);
-                              if (results != null)
-                                results.Add(log);
-                              if ((int) battleSkill.SkillParam.count > 0)
+                              if (targets != null && targets.Count != 0)
                               {
-                                defender.UpdateSkillUseCount(battleSkill, -1);
+                                LogSkill log = !this.IsBattleFlag(EBattleFlag.PredictResult) ? this.Log<LogSkill>() : new LogSkill();
+                                log.self = self;
+                                log.skill = battleSkill;
+                                log.pos.x = x;
+                                log.pos.y = y;
+                                log.reflect = reflection;
+                                log.is_append = !battleSkill.IsCutin();
+                                log.CauseOfReaction = attacker;
+                                if (shot != null)
+                                {
+                                  log.pos.x = shot.end.x;
+                                  log.pos.y = shot.end.y;
+                                  log.rad = (int) (shot.rad * 100.0);
+                                  log.height = (int) (shot.height * 100.0);
+                                }
+                                for (int index2 = 0; index2 < targets.Count; ++index2)
+                                  log.SetSkillTarget(defender, targets[index2]);
+                                this.ExecuteSkill(timing, log, battleSkill);
+                                if (results != null)
+                                  results.Add(log);
+                                if ((int) battleSkill.SkillParam.count > 0)
+                                {
+                                  defender.UpdateSkillUseCount(battleSkill, -1);
+                                  continue;
+                                }
                                 continue;
                               }
                               continue;
@@ -6162,26 +7936,38 @@ label_16:
       }
     }
 
-    private void DeadSkill(Unit self, Unit target)
+    private bool DeadSkill(Unit self, Unit target)
     {
+      if (self == null || !self.IsDead)
+        return false;
+      bool flag = false;
+      for (int index = 0; index < self.BattleSkills.Count; ++index)
+      {
+        SkillData battleSkill = self.BattleSkills[index];
+        if (battleSkill.Timing == ESkillTiming.Dead && battleSkill.IsTransformSkill())
+        {
+          Unit other = this.SearchTransformUnit(self);
+          if (other != null)
+          {
+            LogSkill log = !this.IsBattleFlag(EBattleFlag.PredictResult) ? this.Log<LogSkill>() : new LogSkill();
+            log.self = self;
+            log.skill = battleSkill;
+            log.pos.x = self.x;
+            log.pos.y = self.y;
+            log.is_append = !battleSkill.IsCutin();
+            log.SetSkillTarget(self, other);
+            this.ExecuteSkill(ESkillTiming.Dead, log, battleSkill);
+            flag = true;
+          }
+        }
+      }
+      return flag;
     }
 
     public bool UseItem(Unit self, int gx, int gy, ItemData item)
     {
       this.DebugAssert(item != null, "item == null");
-      if (this.CheckEnableSuspendSave() && !this.IsUnitAuto(self))
-        this.mSuspendData.Add(new BattleCore.SuspendData()
-        {
-          timing = BattleCore.SuspendTiming.UseItem,
-          uid = this.CurrentUnit.UnitData.UniqueID,
-          x = self.x,
-          y = self.y,
-          dir = (int) self.Direction,
-          item = item.ItemID,
-          tx = gx,
-          ty = gy
-        });
-      if (!this.UseSkill(self, gx, gy, item.Skill, false, 0, 0))
+      if (!this.UseSkill(self, gx, gy, item.Skill, false, 0, 0, false))
         return false;
       if (!this.IsMultiPlay || this.mMyPlayerIndex == self.OwnerPlayerIndex)
       {
@@ -6194,49 +7980,111 @@ label_16:
       return true;
     }
 
-    public void ContinueStart(long btlid, int seed)
+    public List<Unit> ContinueStart(long btlid, int seed)
     {
+      List<Unit> unitList = new List<Unit>(BattleCore.MAX_UNITS);
       this.mBtlID = btlid;
       ++this.mContinueCount;
-      this.mSeed = (uint) seed;
-      this.mRand.Seed(this.mSeed);
-      this.CurrentRand = this.mRand;
       this.mClockTime = (OInt) 0;
       for (int index = 0; index < this.Units.Count; ++index)
         this.Units[index].ChargeTime = (OInt) 0;
+      using (List<Unit>.Enumerator enumerator = this.mPlayer.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+        {
+          Unit current = enumerator.Current;
+          if (!current.IsDead)
+          {
+            current.SetUnitFlag(EUnitFlag.EntryDead, true);
+            current.ForceDead();
+            unitList.Add(current);
+          }
+        }
+      }
       for (int index = 0; index < this.mPlayer.Count; ++index)
       {
-        Unit self = this.mPlayer[index];
-        bool isDead = self.IsDead;
-        self.NotifyContinue();
-        Grid duplicatePosition = this.GetCorrectDuplicatePosition(self);
-        self.x = duplicatePosition.x;
-        self.y = duplicatePosition.y;
+        Unit unit = this.mPlayer[index];
+        bool isDead = unit.IsDead;
+        this.EventTriggerWithdrawContinue(unit);
+        unit.NotifyContinue();
+        Grid duplicatePosition = this.GetCorrectDuplicatePosition(unit);
+        unit.x = duplicatePosition.x;
+        unit.y = duplicatePosition.y;
         if (isDead)
         {
-          self.SetUnitFlag(EUnitFlag.Entried, true);
-          if (!this.mStartingMembers.Contains(self))
+          unit.SetUnitFlag(EUnitFlag.Entried, true);
+          if (!this.mStartingMembers.Contains(unit))
           {
-            self.ChargeTime = (OInt) 0;
-            self.IsSub = true;
+            unit.ChargeTime = (OInt) 0;
+            unit.IsSub = true;
           }
           else
-            this.Log<LogUnitEntry>().self = self;
+          {
+            this.Log<LogUnitEntry>().self = unit;
+            this.BeginBattlePassiveSkill(unit);
+            this.UseAutoSkills(unit);
+          }
+        }
+      }
+      for (int index = 0; index < this.Units.Count; ++index)
+      {
+        Unit unit = this.Units[index];
+        if (unit.IsBreakObj && unit.CheckLoseEventTrigger())
+        {
+          bool isDead = unit.IsDead;
+          unit.NotifyContinue();
+          Grid duplicatePosition = this.GetCorrectDuplicatePosition(unit);
+          unit.x = duplicatePosition.x;
+          unit.y = duplicatePosition.y;
+          if (isDead)
+          {
+            unit.SetUnitFlag(EUnitFlag.Entried, true);
+            this.Log<LogUnitEntry>().self = unit;
+          }
+        }
+      }
+      if (this.CheckMonitorWithdrawUnit(this.CurrentMap.LoseMonitorCondition))
+      {
+        using (List<Unit>.Enumerator enumerator = this.Enemys.GetEnumerator())
+        {
+          while (enumerator.MoveNext())
+          {
+            Unit current = enumerator.Current;
+            if (this.CheckMonitorWithdrawCondition(current) && this.EventTriggerWithdrawContinue(current))
+            {
+              current.NotifyContinue();
+              Grid duplicatePosition = this.GetCorrectDuplicatePosition(current);
+              current.x = duplicatePosition.x;
+              current.y = duplicatePosition.y;
+              current.SetUnitFlag(EUnitFlag.Entried, true);
+              this.Log<LogUnitEntry>().self = current;
+            }
+          }
         }
       }
       this.mRecord.result = BattleCore.QuestResult.Pending;
       this.SetBattleFlag(EBattleFlag.MapStart, true);
       this.SetBattleFlag(EBattleFlag.UnitStart, false);
       if (this.CheckEnableSuspendSave())
-      {
-        this.mSuspendData.Add(new BattleCore.SuspendData()
-        {
-          timing = BattleCore.SuspendTiming.Continued,
-          seed = this.mSeed
-        });
         this.IsSuspendSaveRequest = true;
+      this.NextOrder(true, false, true);
+      return unitList;
+    }
+
+    private bool EventTriggerWithdrawContinue(Unit unit)
+    {
+      if (unit.SettingNPC == null || unit.EventTrigger == null || !unit.EventTrigger.IsTriggerWithdraw)
+        return false;
+      unit.EventTrigger.Count = 1;
+      if (unit.SettingNPC.trigger != null)
+        unit.EventTrigger.Count = unit.SettingNPC.trigger.Count;
+      if (unit.EventTrigger.Trigger == EEventTrigger.WdStandbyGrid)
+      {
+        unit.x = (int) unit.SettingNPC.pos.x;
+        unit.y = (int) unit.SettingNPC.pos.y;
+        unit.Direction = (EUnitDirection) (int) unit.SettingNPC.dir;
       }
-      this.NextOrder(true, false);
+      return true;
     }
 
     public void MapStart()
@@ -6263,6 +8111,12 @@ label_16:
         if (this.mUnits[index].UnitType == EUnitType.Treasure && this.mUnits[index].EventTrigger != null && this.mUnits[index].EventTrigger.EventType == EEventType.Treasure)
           this.mTreasures.Add(this.mUnits[index]);
       }
+      this.mGems.Clear();
+      for (int index = 0; index < this.mUnits.Count; ++index)
+      {
+        if (this.mUnits[index].UnitType == EUnitType.Gem && this.mUnits[index].EventTrigger != null && this.mUnits[index].EventTrigger.EventType == EEventType.Gem)
+          this.mGems.Add(this.mUnits[index]);
+      }
       for (int index = 0; index < this.mUnits.Count; ++index)
       {
         this.mUnits[index].NotifyMapStart();
@@ -6272,15 +8126,22 @@ label_16:
       this.SetBattleFlag(EBattleFlag.UnitStart, false);
       this.mGridLines = new List<Grid>(this.CurrentMap.Width * this.CurrentMap.Height);
       this.mGridLines.Clear();
-      this.CreateGimmickSkills();
-      this.mSuspendIndex = 0;
-      if (this.CheckEnableSuspendSave())
-        this.mSuspendData.Add(new BattleCore.SuspendData()
+      this.InitWeather();
+      WeatherData.IsEntryConditionLog = false;
+      this.UpdateWeather();
+      TrickData.ClearEffect();
+      using (List<TrickSetting>.Enumerator enumerator = this.CurrentMap.TrickSettings.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
         {
-          timing = BattleCore.SuspendTiming.MapStart,
-          seed = this.mSeed
-        });
-      this.NextOrder(true, false);
+          TrickSetting current = enumerator.Current;
+          TrickData.EntryEffect(current.mId, (int) current.mGx, (int) current.mGy, current.mTag, (Unit) null, 0, 1, 1);
+        }
+      }
+      this.CreateGimmickEvents();
+      this.UseAutoSkills();
+      this.NextOrder(true, false, true);
+      WeatherData.IsEntryConditionLog = true;
       DebugUtility.Log("rnd:" + (object) this.CloneRand().Get() + "rndDmg:" + (object) this.CloneRandDamage().Get());
     }
 
@@ -6299,84 +8160,92 @@ label_16:
       if (self == null)
         return;
       self.SetUnitFlag(EUnitFlag.Paralysed, false);
-      if ((int) (this.mRand.Get() % 100U) >= self.GetParalyseRate())
+      if ((int) (this.GetRandom() % 100U) >= self.GetParalyseRate())
         return;
       self.SetUnitFlag(EUnitFlag.Paralysed, true);
     }
 
-    public void UnitStart()
+    private void UpdateUnitDyingTurn()
     {
-      if (this.IsSuspendStart && !this.IsFirstUnitStart && !this.IsBattleFlag(EBattleFlag.SuspendStart))
+      using (List<Unit>.Enumerator enumerator1 = this.Units.GetEnumerator())
       {
-        this.IsFirstUnitStart = true;
-        this.Log<LogMapCommand>();
-      }
-      else
-      {
-        this.DebugAssert(this.IsInitialized, "初期化済みのみコール可");
-        this.DebugAssert(this.IsBattleFlag(EBattleFlag.MapStart), "マップ開始済みのみコール可");
-        this.DebugAssert(!this.IsBattleFlag(EBattleFlag.UnitStart), "ユニット未開始のみコール可");
-        Unit currentUnit = this.CurrentUnit;
-        this.IsAutoBattle = this.RequestAutoBattle;
-        this.mSeedDamage = this.mRand.Get();
-        this.CurrentRand = this.mRand;
-        this.ClearAI();
-        currentUnit.NotifyActionStart(this.Units);
-        this.UpdateSkillUseCondition();
-        this.UpdateUnitCondition(currentUnit);
-        this.AutoHealSkill(currentUnit);
-        this.ActuatedSneaking(currentUnit);
-        this.UpdateMoveMap(currentUnit);
-        this.UpdateSafeMap(currentUnit);
-        this.UpdateHelperUnits(currentUnit);
-        this.mKillstreak = 0;
-        this.SetBattleFlag(EBattleFlag.UnitStart, true);
-        this.SetBattleFlag(EBattleFlag.MapCommand, true);
-        bool flag = this.CheckEnableSuspendSave();
-        if (flag)
-          this.mSuspendData.Add(new BattleCore.SuspendData()
-          {
-            timing = BattleCore.SuspendTiming.UnitStart,
-            x = currentUnit.x,
-            y = currentUnit.y,
-            dir = (int) currentUnit.Direction,
-            uid = currentUnit.UnitData.UniqueID,
-            rnd = this.mSeedDamage
-          });
-        if (currentUnit.IsUnitCondition(EUnitCondition.DeathSentence) && currentUnit.DeathCount <= 0)
+        while (enumerator1.MoveNext())
         {
-          currentUnit.CurrentStatus.param.hp = (OInt) 0;
-          this.Dead(currentUnit, currentUnit, DeadTypes.DeathSentence);
-          this.InternalLogUnitEnd();
-        }
-        else
-        {
-          if (currentUnit.IsPartyMember)
-            ++this.mActionCount;
-          this.Log<LogMapCommand>();
-          if (flag && currentUnit.IsPartyMember)
+          Unit current1 = enumerator1.Current;
+          if (current1.IsUnitFlag(EUnitFlag.ToDying))
           {
-            int suspendSaveInterval = (int) MonoSingleton<GameManager>.Instance.MasterParam.FixParam.SuspendSaveInterval;
-            if (suspendSaveInterval == 0 || this.mActionCount % suspendSaveInterval == 0 || this.IsSuspendSaveRequest)
-              this.SaveSuspendData();
+            current1.SetUnitFlag(EUnitFlag.ToDying, false);
+            if (!current1.IsDead && current1.IsDying())
+            {
+              using (List<SkillData>.Enumerator enumerator2 = current1.BattleSkills.GetEnumerator())
+              {
+                while (enumerator2.MoveNext())
+                {
+                  SkillData current2 = enumerator2.Current;
+                  if (current2.Timing == ESkillTiming.Dying && current2.Condition == ESkillCondition.Dying && (!current2.IsPassiveSkill() && this.CheckSkillCondition(current1, current2)))
+                  {
+                    BuffEffect buffEffect1 = current2.GetBuffEffect(SkillEffectTargets.Target);
+                    BuffEffect buffEffect2 = current2.GetBuffEffect(SkillEffectTargets.Self);
+                    CondEffect condEffect1 = current2.GetCondEffect(SkillEffectTargets.Target);
+                    CondEffect condEffect2 = current2.GetCondEffect(SkillEffectTargets.Self);
+                    if (buffEffect1 != null && buffEffect1.param != null && buffEffect1.param.chk_timing == EffectCheckTimings.Eternal)
+                      buffEffect1 = (BuffEffect) null;
+                    if (buffEffect2 != null && buffEffect2.param != null && buffEffect2.param.chk_timing == EffectCheckTimings.Eternal)
+                      buffEffect2 = (BuffEffect) null;
+                    if (condEffect1 != null && condEffect1.param != null && condEffect1.param.chk_timing == EffectCheckTimings.Eternal)
+                      condEffect1 = (CondEffect) null;
+                    if (condEffect2 != null && condEffect2.param != null && condEffect2.param.chk_timing == EffectCheckTimings.Eternal)
+                      condEffect2 = (CondEffect) null;
+                    if (buffEffect1 == null && buffEffect2 == null && (condEffect1 == null && condEffect2 == null))
+                      return;
+                    int effectRate = (int) current2.EffectRate;
+                    if (effectRate <= 0 || effectRate >= 100 || (int) (this.GetRandom() % 100U) <= effectRate)
+                    {
+                      if (buffEffect1 != null)
+                        this.BuffSkill(ESkillTiming.Dying, current1, current1, current2, false, (LogSkill) null, SkillEffectTargets.Target, false);
+                      if (buffEffect2 != null)
+                        this.BuffSkill(ESkillTiming.Dying, current1, current1, current2, false, (LogSkill) null, SkillEffectTargets.Self, false);
+                      if (condEffect1 != null)
+                        this.CondSkill(ESkillTiming.Dying, current1, current1, current2, false, (LogSkill) null, SkillEffectTargets.Target, true);
+                      if (condEffect2 != null)
+                        this.CondSkill(ESkillTiming.Dying, current1, current1, current2, false, (LogSkill) null, SkillEffectTargets.Self, true);
+                    }
+                  }
+                }
+              }
+            }
           }
-          this.DebugAssert(((int) currentUnit.ChargeTimeMax <= (int) currentUnit.ChargeTime ? 1 : 0) != 0, "CTが溜まってないのに行動が行われた。【現在】" + (object) currentUnit.ChargeTime + " /【最大】" + (object) currentUnit.ChargeTimeMax);
         }
       }
     }
 
+    public void UnitStart()
+    {
+      IEnumerator enumerator = this.UnitStartAsync();
+      do
+        ;
+      while (enumerator.MoveNext());
+    }
+
+    [DebuggerHidden]
+    public IEnumerator UnitStartAsync()
+    {
+      // ISSUE: object of a compiler-generated type is created
+      return (IEnumerator) new BattleCore.\u003CUnitStartAsync\u003Ec__Iterator52() { \u003C\u003Ef__this = this };
+    }
+
     private void UpdateSkillUseCondition()
     {
-      int num1 = 0;
-      int num2 = 0;
+      int p_count = 0;
+      int e_count = 0;
       for (int index = 0; index < this.Units.Count; ++index)
       {
         if (!this.Units[index].IsGimmick && this.Units[index].CheckExistMap())
         {
           if (this.Units[index].Side == EUnitSide.Player)
-            ++num1;
+            ++p_count;
           else if (this.Units[index].Side == EUnitSide.Enemy)
-            ++num2;
+            ++e_count;
         }
       }
       for (int index1 = 0; index1 < this.Units.Count; ++index1)
@@ -6385,49 +8254,49 @@ label_16:
         if (!unit.IsGimmick && unit.CheckExistMap())
         {
           for (int index2 = 0; index2 < unit.BattleSkills.Count; ++index2)
+            this.UpdateSkillUseCondition(unit, unit.BattleSkills[index2].UseCondition, p_count, e_count);
+          AIAction currentAiAction = unit.GetCurrentAIAction();
+          if (currentAiAction != null)
+            this.UpdateSkillUseCondition(unit, currentAiAction.cond, p_count, e_count);
+        }
+      }
+    }
+
+    private void UpdateSkillUseCondition(Unit unit, SkillLockCondition condition, int p_count, int e_count)
+    {
+      if (condition == null)
+        return;
+      SkillLockTypes type = (SkillLockTypes) condition.type;
+      switch (type)
+      {
+        case SkillLockTypes.PartyMemberUpper:
+        case SkillLockTypes.PartyMemberLower:
+          condition.unlock = type != SkillLockTypes.PartyMemberUpper ? condition.value >= p_count : condition.value <= p_count;
+          break;
+        case SkillLockTypes.EnemyMemberUpper:
+        case SkillLockTypes.EnemyMemberLower:
+          condition.unlock = type != SkillLockTypes.EnemyMemberUpper ? condition.value >= e_count : condition.value <= e_count;
+          break;
+        case SkillLockTypes.HpUpper:
+          condition.unlock = (int) unit.CurrentStatus.param.hp >= condition.value;
+          break;
+        case SkillLockTypes.HpLower:
+          condition.unlock = (int) unit.CurrentStatus.param.hp <= condition.value;
+          break;
+        case SkillLockTypes.OnGrid:
+          if (condition.unlock || condition.x == null)
+            break;
+          bool flag = false;
+          for (int index = 0; index < condition.x.Count; ++index)
           {
-            SkillLockCondition useCondition = unit.BattleSkills[index2].UseCondition;
-            if (useCondition != null)
+            if (condition.x[index] == unit.x && condition.y[index] == unit.y)
             {
-              SkillLockTypes type = (SkillLockTypes) useCondition.type;
-              switch (type)
-              {
-                case SkillLockTypes.PartyMemberUpper:
-                case SkillLockTypes.PartyMemberLower:
-                  useCondition.unlock = type != SkillLockTypes.PartyMemberUpper ? useCondition.value >= num1 : useCondition.value <= num1;
-                  continue;
-                case SkillLockTypes.EnemyMemberUpper:
-                case SkillLockTypes.EnemyMemberLower:
-                  useCondition.unlock = type != SkillLockTypes.EnemyMemberUpper ? useCondition.value >= num2 : useCondition.value <= num2;
-                  continue;
-                case SkillLockTypes.HpUpper:
-                  useCondition.unlock = (int) unit.CurrentStatus.param.hp >= useCondition.value;
-                  continue;
-                case SkillLockTypes.HpLower:
-                  useCondition.unlock = (int) unit.CurrentStatus.param.hp <= useCondition.value;
-                  continue;
-                case SkillLockTypes.OnGrid:
-                  if (!useCondition.unlock && useCondition.x != null)
-                  {
-                    bool flag = false;
-                    for (int index3 = 0; index3 < useCondition.x.Count; ++index3)
-                    {
-                      if (useCondition.x[index3] == unit.x && useCondition.y[index3] == unit.y)
-                      {
-                        flag = true;
-                        break;
-                      }
-                    }
-                    useCondition.unlock = flag;
-                    continue;
-                  }
-                  continue;
-                default:
-                  continue;
-              }
+              flag = true;
+              break;
             }
           }
-        }
+          condition.unlock = flag;
+          break;
       }
     }
 
@@ -6473,7 +8342,7 @@ label_16:
       bool flag2 = currentUnit.IsEnableActionCondition();
       if (ignoreMoveAndAction || flag2 || flag1)
         return false;
-      this.CommandWait();
+      this.CommandWait(false);
       return true;
     }
 
@@ -6487,38 +8356,30 @@ label_16:
       this.DebugAssert(currentUnit != null, "self == null");
       this.SetBattleFlag(EBattleFlag.UnitStart, false);
       this.SetBattleFlag(EBattleFlag.MapCommand, false);
-      if (this.CheckEnableSuspendSave())
-        this.mSuspendData.Add(new BattleCore.SuspendData()
-        {
-          timing = BattleCore.SuspendTiming.UnitEnd,
-          x = currentUnit.x,
-          y = currentUnit.y,
-          dir = (int) currentUnit.Direction
-        });
       currentUnit.NotifyActionEnd();
       for (int index = 0; index < this.Units.Count; ++index)
       {
         // ISSUE: object of a compiler-generated type is created
         // ISSUE: variable of a compiler-generated type
-        BattleCore.\u003CUnitEnd\u003Ec__AnonStorey1B4 endCAnonStorey1B4 = new BattleCore.\u003CUnitEnd\u003Ec__AnonStorey1B4();
+        BattleCore.\u003CUnitEnd\u003Ec__AnonStorey246 endCAnonStorey246 = new BattleCore.\u003CUnitEnd\u003Ec__AnonStorey246();
         // ISSUE: reference to a compiler-generated field
-        endCAnonStorey1B4.unit = this.Units[index];
+        endCAnonStorey246.unit = this.Units[index];
         // ISSUE: reference to a compiler-generated field
         // ISSUE: reference to a compiler-generated field
         // ISSUE: reference to a compiler-generated field
-        if (endCAnonStorey1B4.unit.CastSkill != null && endCAnonStorey1B4.unit.UnitTarget != null && (!endCAnonStorey1B4.unit.IsDeadCondition() && currentUnit.CastSkillGridMap != null))
+        if (endCAnonStorey246.unit.CastSkill != null && endCAnonStorey246.unit.UnitTarget != null && (!endCAnonStorey246.unit.IsDeadCondition() && currentUnit.CastSkillGridMap != null))
         {
           // ISSUE: reference to a compiler-generated method
-          Unit unit = this.Units.Find(new Predicate<Unit>(endCAnonStorey1B4.\u003C\u003Em__153));
+          Unit unit = this.Units.Find(new Predicate<Unit>(endCAnonStorey246.\u003C\u003Em__1C4));
           if (unit != null)
           {
             GridMap<bool> castSkillGridMap = currentUnit.CastSkillGridMap;
             castSkillGridMap.fill(false);
             // ISSUE: reference to a compiler-generated field
-            if (endCAnonStorey1B4.unit.CastSkill.IsAreaSkill())
+            if (endCAnonStorey246.unit.CastSkill.IsAreaSkill())
             {
               // ISSUE: reference to a compiler-generated field
-              this.CreateScopeGridMap(currentUnit, currentUnit.x, currentUnit.y, unit.x, unit.y, endCAnonStorey1B4.unit.CastSkill, ref castSkillGridMap, false);
+              this.CreateScopeGridMap(currentUnit, currentUnit.x, currentUnit.y, unit.x, unit.y, endCAnonStorey246.unit.CastSkill, ref castSkillGridMap, false);
             }
             else
               castSkillGridMap.set(unit.x, unit.y, true);
@@ -6529,7 +8390,7 @@ label_16:
       if (!currentUnit.IsDeadCondition() && currentUnit.IsUnitCondition(EUnitCondition.Poison))
       {
         int poisonDamage = currentUnit.GetPoisonDamage();
-        currentUnit.Damage(poisonDamage);
+        currentUnit.Damage(poisonDamage, true);
         if (currentUnit.Side == EUnitSide.Enemy && poisonDamage > 0)
           this.mTotalDamages += poisonDamage;
         if (currentUnit.Side == EUnitSide.Player && currentUnit.IsPartyMember && poisonDamage > 0)
@@ -6546,39 +8407,37 @@ label_16:
             currentUnit.UpdateCondEffectTurnCount(EffectCheckTimings.GutsEnd, currentUnit);
           }
           else
-            this.Dead(currentUnit, currentUnit, DeadTypes.Poison);
+          {
+            int index = 0;
+            while (index < currentUnit.CondAttachments.Count && (!currentUnit.CondAttachments[index].ContainsCondition(EUnitCondition.Poison) || !this.TrySetBattleFinisher(currentUnit.CondAttachments[index].user)))
+              ++index;
+            this.Dead(currentUnit, currentUnit, DeadTypes.Poison, false);
+          }
         }
       }
       if (this.mQuestParam.type == QuestTypes.Arena && currentUnit.Side == EUnitSide.Player)
       {
         int num = (int) this.ArenaSubActionCount(1U);
       }
-      this.NextOrder(true, false);
+      currentUnit.NotifyActionEndAfter(this.Units);
+      this.UpdateBattlePassiveSkill();
+      this.NextOrder(true, false, true);
     }
 
     public void CastSkillStart()
     {
       Unit currentUnit = this.CurrentUnit;
-      if (this.CheckEnableSuspendSave())
-        this.mSuspendData.Add(new BattleCore.SuspendData()
-        {
-          timing = BattleCore.SuspendTiming.CastSkillStart,
-          uid = currentUnit.UnitData.UniqueID,
-          x = currentUnit.x,
-          y = currentUnit.y,
-          dir = (int) currentUnit.Direction
-        });
       SkillData castSkill = currentUnit.CastSkill;
       if (castSkill != null)
       {
         if (currentUnit.UnitTarget != null)
         {
-          this.UseSkill(currentUnit, currentUnit.UnitTarget.x, currentUnit.UnitTarget.y, castSkill, false, 0, 0);
+          this.UseSkill(currentUnit, currentUnit.UnitTarget.x, currentUnit.UnitTarget.y, castSkill, false, 0, 0, false);
           return;
         }
         if (currentUnit.GridTarget != null)
         {
-          this.UseSkill(currentUnit, currentUnit.GridTarget.x, currentUnit.GridTarget.y, castSkill, false, 0, 0);
+          this.UseSkill(currentUnit, currentUnit.GridTarget.x, currentUnit.GridTarget.y, castSkill, false, 0, 0, false);
           return;
         }
       }
@@ -6588,16 +8447,7 @@ label_16:
 
     public void CastSkillEnd()
     {
-      if (this.CheckEnableSuspendSave())
-        this.mSuspendData.Add(new BattleCore.SuspendData()
-        {
-          timing = BattleCore.SuspendTiming.CastSkillEnd,
-          uid = this.CurrentUnit.UnitData.UniqueID,
-          x = this.CurrentUnit.x,
-          y = this.CurrentUnit.y,
-          dir = (int) this.CurrentUnit.Direction
-        });
-      this.NextOrder(true, false);
+      this.NextOrder(true, false, true);
     }
 
     private void MapEnd()
@@ -6695,7 +8545,7 @@ label_16:
 
     public int GetUnitMaxAttackHeight(Unit self, SkillData skill)
     {
-      return self.GetAttackHeight(skill);
+      return self.GetAttackHeight(skill, false);
     }
 
     private void UpdateHelperUnits(Unit self)
@@ -6719,14 +8569,14 @@ label_16:
 
     private bool CheckCombination(Unit self, Unit other)
     {
-      return GameUtility.IsDebugBuild && BattleCore.DEBUG_IS_FORCE_COMBINATION || (self.GetCombination() + other.GetCombination()) * 100 / 128 >= (int) (this.GetRandom() % 100U);
+      return (self.GetCombination() + other.GetCombination()) * 100 / 128 >= (int) (this.GetRandom() % 100U);
     }
 
-    public bool CheckGridEventTrigger(Unit self, Grid grid, EEventTrigger trigger, bool is_exec_positive_only = false)
+    public bool CheckGridEventTrigger(Unit self, Grid grid, EEventTrigger trigger)
     {
       if (self == null || self.IsDead || grid == null)
         return false;
-      Unit gimmickAtGrid = this.FindGimmickAtGrid(grid, false);
+      Unit gimmickAtGrid = this.FindGimmickAtGrid(grid, false, (Unit) null);
       if (gimmickAtGrid == null || self == gimmickAtGrid || !gimmickAtGrid.CheckEventTrigger(trigger))
         return false;
       switch (gimmickAtGrid.EventTrigger.EventType)
@@ -6737,22 +8587,22 @@ label_16:
             return false;
           break;
       }
-      return !is_exec_positive_only || gimmickAtGrid.EventTrigger.IsAdvantage;
+      return true;
     }
 
-    public bool CheckGridEventTrigger(Unit self, EEventTrigger trigger, bool is_exec_positive_only = false)
+    public bool CheckGridEventTrigger(Unit self, EEventTrigger trigger)
     {
       if (self == null || self.IsDead)
         return false;
       Grid unitGridPosition = this.GetUnitGridPosition(self);
-      return this.CheckGridEventTrigger(self, unitGridPosition, trigger, is_exec_positive_only);
+      return this.CheckGridEventTrigger(self, unitGridPosition, trigger);
     }
 
-    public bool ExecuteEventTriggerOnGrid(Unit self, EEventTrigger trigger, bool is_exec_positive_only = false)
+    public bool ExecuteEventTriggerOnGrid(Unit self, EEventTrigger trigger)
     {
-      if (!this.CheckGridEventTrigger(self, trigger, is_exec_positive_only))
+      if (!this.CheckGridEventTrigger(self, trigger))
         return false;
-      Unit gimmickAtGrid = this.FindGimmickAtGrid(this.GetUnitGridPosition(self), false);
+      Unit gimmickAtGrid = this.FindGimmickAtGrid(this.GetUnitGridPosition(self), false, (Unit) null);
       return this.GridEventStart(self, gimmickAtGrid, trigger);
     }
 
@@ -6774,34 +8624,88 @@ label_16:
           if (eventTrigger.EventType == EEventType.Win || eventTrigger.EventType == EEventType.Lose || (int) target.MaximumStatus.param.hp * eventTrigger.IntValue / 100 < (int) target.CurrentStatus.param.hp)
             return false;
           break;
+        case EEventTrigger.WdHpDownRate:
+        case EEventTrigger.WdHpDownValue:
+        case EEventTrigger.WdElapsedTurn:
+        case EEventTrigger.WdStandbyGrid:
+          if (eventTrigger.EventType != EEventType.Withdraw || target.IsDead)
+            return false;
+          switch (eventTrigger.Trigger)
+          {
+            case EEventTrigger.WdHpDownRate:
+              if ((int) target.MaximumStatus.param.hp * eventTrigger.IntValue / 100 < (int) target.CurrentStatus.param.hp)
+                return false;
+              break;
+            case EEventTrigger.WdHpDownValue:
+              if (eventTrigger.IntValue < (int) target.CurrentStatus.param.hp)
+                return false;
+              break;
+            case EEventTrigger.WdElapsedTurn:
+              if (eventTrigger.IntValue * (1 + this.mContinueCount) > target.ActionCount)
+                return false;
+              break;
+            case EEventTrigger.WdStandbyGrid:
+              if (string.IsNullOrEmpty(eventTrigger.StrValue))
+                return false;
+              string[] strArray = eventTrigger.StrValue.Split(',');
+              int result1;
+              int result2;
+              if (strArray == null || strArray.Length < 2 || (!int.TryParse(strArray[0], out result1) || !int.TryParse(strArray[1], out result2)) || (target.x != result1 || target.y != result2))
+                return false;
+              break;
+          }
       }
-      LogMapEvent log = this.Log<LogMapEvent>();
-      log.self = self;
-      log.target = target;
-      log.type = eventTrigger.EventType;
-      log.gimmick = eventTrigger.GimmickType;
+      if (eventTrigger.EventType != EEventType.Withdraw)
+      {
+        LogMapEvent log = this.Log<LogMapEvent>();
+        log.self = self;
+        log.target = target;
+        log.type = eventTrigger.EventType;
+        log.gimmick = eventTrigger.GimmickType;
+        switch (eventTrigger.EventType)
+        {
+          case EEventType.Win:
+            ++this.mWinTriggerCount;
+            break;
+          case EEventType.Lose:
+            ++this.mLoseTriggerCount;
+            break;
+          case EEventType.Gem:
+            this.AddGems(self, (int) MonoSingleton<GameManager>.Instance.MasterParam.FixParam.GemsGainValue);
+            eventTrigger.ExecuteGimmickEffect(target, self, log);
+            break;
+        }
+      }
+      else
+        this.UnitWithdraw(target);
+      target.DecrementTriggerCount();
       switch (eventTrigger.EventType)
       {
-        case EEventType.Win:
-          ++this.mWinTriggerCount;
-          break;
-        case EEventType.Lose:
-          ++this.mLoseTriggerCount;
-          break;
+        case EEventType.Treasure:
         case EEventType.Gem:
-          this.AddGems(self, (int) MonoSingleton<GameManager>.Instance.MasterParam.FixParam.GemsGainValue);
-          eventTrigger.ExecuteGimmickEffect(target, self, log);
+          if (eventTrigger.Count == 0)
+          {
+            this.UpdateEntryTriggers(UnitEntryTypes.DeadEnemy, target, (SkillParam) null);
+            break;
+          }
           break;
       }
-      target.DecrementTriggerCount();
       if (eventTrigger.Trigger == EEventTrigger.ExecuteOnGrid)
       {
         self.SetUnitFlag(EUnitFlag.Action, true);
         self.SetCommandFlag(EUnitCommandFlag.Action, true);
       }
       if (!isDead && self.IsDead)
-        this.Dead((Unit) null, self, DeadTypes.Damage);
+        this.Dead((Unit) null, self, DeadTypes.Damage, false);
       return true;
+    }
+
+    private void CheckWithDrawUnit(Unit target)
+    {
+      this.GridEventStart(target, target, EEventTrigger.WdHpDownRate);
+      this.GridEventStart(target, target, EEventTrigger.WdHpDownValue);
+      this.GridEventStart(target, target, EEventTrigger.WdElapsedTurn);
+      this.GridEventStart(target, target, EEventTrigger.WdStandbyGrid);
     }
 
     private bool CheckBackAttack(Unit self, Unit target, SkillData skill)
@@ -6869,7 +8773,7 @@ label_16:
       for (int index1 = 0; index1 < this.Units.Count; ++index1)
       {
         Unit unit = this.Units[index1];
-        if (unit != self && unit.CheckCollision(start.x, start.y))
+        if (unit != self && unit.CheckCollision(start.x, start.y, true))
         {
           int num1 = Math.Max(currentMap.Width, currentMap.Height);
           int num2 = 999;
@@ -6883,12 +8787,12 @@ label_16:
                 int index4 = self.x + index3;
                 int index5 = self.y + index2;
                 Grid grid2 = currentMap[index4, index5];
-                if (currentMap.CheckEnableMove(self, grid2, false))
+                if (currentMap.CheckEnableMove(self, grid2, false, false))
                 {
                   bool flag = true;
                   for (int index6 = 0; index6 < this.mUnits.Count; ++index6)
                   {
-                    if (this.mUnits[index6].UnitType == EUnitType.Unit && this.mUnits[index6] != self && (!this.mUnits[index6].IsSub && !this.mUnits[index6].IsDead) && (this.mUnits[index6].IsEntry && this.mUnits[index6].CheckCollision(grid2)))
+                    if (!this.mUnits[index6].IsGimmick && this.mUnits[index6] != self && (!this.mUnits[index6].IsSub && !this.mUnits[index6].IsDead) && (this.mUnits[index6].IsEntry && this.mUnits[index6].CheckCollision(grid2)))
                     {
                       flag = false;
                       break;
@@ -6933,13 +8837,13 @@ label_16:
       switch (type)
       {
         case EBattleCommand.Attack:
-          if (this.CheckSkillScopeMultiPlay(current, enemy, gx, gy, current.GetAttackSkill()) && this.UseSkill(current, gx, gy, current.GetAttackSkill(), unitLockTarget, 0, 0))
+          if (this.CheckSkillScopeMultiPlay(current, enemy, gx, gy, current.GetAttackSkill()) && this.UseSkill(current, gx, gy, current.GetAttackSkill(), unitLockTarget, 0, 0, false))
             return true;
           break;
         case EBattleCommand.Skill:
           if (this.CheckSkillScopeMultiPlay(current, enemy, gx, gy, skill))
           {
-            if (skill.EffectType != SkillEffectTypes.Throw ? this.UseSkill(current, gx, gy, skill, unitLockTarget, 0, 0) : this.UseSkill(current, gx, gy, skill, unitLockTarget, enemy.x, enemy.y))
+            if (skill.EffectType != SkillEffectTypes.Throw ? this.UseSkill(current, gx, gy, skill, unitLockTarget, 0, 0, false) : this.UseSkill(current, gx, gy, skill, unitLockTarget, enemy.x, enemy.y, false))
               return true;
             break;
           }
@@ -6948,309 +8852,42 @@ label_16:
       return false;
     }
 
-    public static string SuspendFileName
-    {
-      get
-      {
-        return Application.get_persistentDataPath() + "/" + BattleCore.SUSPENDDATA_FILENAME;
-      }
-    }
-
-    public static void RemoveSuspendData()
-    {
-      string suspendFileName = BattleCore.SuspendFileName;
-      if (!System.IO.File.Exists(suspendFileName))
-        return;
-      System.IO.File.Delete(suspendFileName);
-    }
-
     public bool CheckEnableSuspendSave()
     {
-      return !this.IsMultiPlay && this.mQuestParam.CheckEnableSuspendStart() && !this.IsBattleFlag(EBattleFlag.SuspendStart);
-    }
-
-    public bool SaveSuspendData()
-    {
-      bool flag = false;
-      using (BinaryWriter binaryWriter = new BinaryWriter((Stream) System.IO.File.Open(BattleCore.SuspendFileName, this.mSuspendIndex != 0 ? FileMode.Append : FileMode.Create)))
-      {
-        if (binaryWriter.BaseStream.CanWrite)
-        {
-          if (this.mSuspendIndex == 0)
-          {
-            binaryWriter.Write(Application.get_version());
-            binaryWriter.Write(AssetManager.AssetRevision);
-            binaryWriter.Write(this.mQuestParam.iname);
-            binaryWriter.Write(this.mBtlID);
-            binaryWriter.Write(GameUtility.Config_AutoMode_Treasure.Value);
-            binaryWriter.Write(GameUtility.Config_AutoMode_DisableSkill.Value);
-          }
-          for (int mSuspendIndex = this.mSuspendIndex; mSuspendIndex < this.mSuspendData.Count; ++mSuspendIndex)
-          {
-            BattleCore.SuspendData suspendData = this.mSuspendData[mSuspendIndex];
-            binaryWriter.Write((int) suspendData.timing);
-            binaryWriter.Write(suspendData.seed);
-            binaryWriter.Write(suspendData.rnd);
-            binaryWriter.Write(suspendData.uid);
-            binaryWriter.Write(suspendData.x);
-            binaryWriter.Write(suspendData.y);
-            binaryWriter.Write(suspendData.dir);
-            binaryWriter.Write(suspendData.skill);
-            binaryWriter.Write(suspendData.item);
-            binaryWriter.Write(suspendData.tx);
-            binaryWriter.Write(suspendData.ty);
-            binaryWriter.Write(suspendData.locked);
-            binaryWriter.Write(suspendData.ux);
-            binaryWriter.Write(suspendData.uy);
-          }
-          flag = true;
-        }
-        binaryWriter.Close();
-        if (!flag)
-          BattleCore.RemoveSuspendData();
-      }
-      this.mSuspendIndex = this.mSuspendData.Count;
-      this.IsSuspendSaveRequest = false;
-      return flag;
-    }
-
-    public bool LoadSuspendData()
-    {
-      bool flag = false;
-      string suspendFileName = BattleCore.SuspendFileName;
-      this.mSuspendData.Clear();
-      if (System.IO.File.Exists(suspendFileName))
-      {
-        using (BinaryReader binaryReader = new BinaryReader((Stream) System.IO.File.Open(suspendFileName, FileMode.Open)))
-        {
-          if (binaryReader.BaseStream.CanRead && binaryReader.BaseStream.Length > 0L)
-          {
-            if (binaryReader.ReadString() != Application.get_version())
-              DebugUtility.LogWarning("Restoration failure. Version is different.");
-            else if (binaryReader.ReadInt32() != AssetManager.AssetRevision)
-              DebugUtility.LogWarning("Restoration failure. Revision is different.");
-            else if (binaryReader.ReadString() != this.mQuestParam.iname)
-              DebugUtility.LogWarning("Restoration failure. QuestID is different.");
-            else if (binaryReader.ReadInt64() != this.mBtlID)
-            {
-              DebugUtility.LogWarning("Restoration failure. BattleID is different.");
-            }
-            else
-            {
-              GameUtility.Config_AutoMode_Treasure.Value = binaryReader.ReadBoolean();
-              GameUtility.Config_AutoMode_DisableSkill.Value = binaryReader.ReadBoolean();
-              while (binaryReader.BaseStream.Position < binaryReader.BaseStream.Length)
-                this.mSuspendData.Add(new BattleCore.SuspendData()
-                {
-                  timing = (BattleCore.SuspendTiming) binaryReader.ReadInt32(),
-                  seed = binaryReader.ReadUInt32(),
-                  rnd = binaryReader.ReadUInt32(),
-                  uid = binaryReader.ReadInt64(),
-                  x = binaryReader.ReadInt32(),
-                  y = binaryReader.ReadInt32(),
-                  dir = binaryReader.ReadInt32(),
-                  skill = binaryReader.ReadString(),
-                  item = binaryReader.ReadString(),
-                  tx = binaryReader.ReadInt32(),
-                  ty = binaryReader.ReadInt32(),
-                  locked = binaryReader.ReadInt32(),
-                  ux = binaryReader.ReadInt32(),
-                  uy = binaryReader.ReadInt32()
-                });
-              if (this.mSuspendData[this.mSuspendData.Count - 1].timing == BattleCore.SuspendTiming.UnitStart)
-                flag = true;
-            }
-          }
-          binaryReader.Close();
-          if (!flag)
-            BattleCore.RemoveSuspendData();
-        }
-      }
-      return flag;
+      return this.mQuestParam.CheckEnableSuspendStart() && !this.IsMultiPlay;
     }
 
     public bool CheckEnableSuspendStart()
     {
-      if ((bool) MonoSingleton<GameManager>.Instance.MasterParam.FixParam.IsDisableSuspend || this.IsMultiPlay || !this.mQuestParam.CheckEnableSuspendStart())
+      if ((bool) MonoSingleton<GameManager>.Instance.MasterParam.FixParam.IsDisableSuspend || !this.mQuestParam.CheckEnableSuspendStart() || this.IsMultiPlay)
         return false;
-      return System.IO.File.Exists(BattleCore.SuspendFileName);
+      return BattleSuspend.IsExistData();
     }
 
-    public bool SuspendStart()
+    public static void RemoveSuspendData()
     {
-      if (this.mSuspendErrorCtr >= 3)
+      BattleSuspend.RemoveData();
+    }
+
+    public bool SaveSuspendData()
+    {
+      if (!BattleSuspend.SaveData())
         return false;
-      this.mSuspendLogLists.Clear();
-      this.mSuspendMsgLists.Clear();
-      this.SetBattleFlag(EBattleFlag.SuspendStart, true);
-      this.IsAutoBattle = false;
-      this.IsSuspendStart = true;
-      this.IsFirstUnitStart = false;
       this.IsSuspendSaveRequest = false;
-      for (int index = 0; index < this.mSuspendData.Count; ++index)
-      {
-        try
-        {
-          BattleCore.SuspendData suspendData = this.mSuspendData[index];
-          switch (suspendData.timing)
-          {
-            case BattleCore.SuspendTiming.MapStart:
-              this.mSeed = suspendData.seed;
-              this.mRand.Seed(this.mSeed);
-              this.MapStart();
-              continue;
-            case BattleCore.SuspendTiming.UnitStart:
-              this.UnitStart();
-              if ((int) suspendData.rnd != (int) this.mSeedDamage)
-              {
-                DebugUtility.LogError("SuspendStart random value failed.");
-                this.mSuspendMsgLists.Add(string.Format("SuspendStart random value failed. c={0} seed={1},{2}", (object) index, (object) suspendData.rnd, (object) this.mSeedDamage));
-              }
-              if (suspendData.uid == this.CurrentUnit.UnitData.UniqueID && suspendData.x == this.CurrentUnit.x && suspendData.y == this.CurrentUnit.y)
-              {
-                if ((EUnitDirection) suspendData.dir == this.CurrentUnit.Direction)
-                  continue;
-              }
-              DebugUtility.LogError("SuspendStart unit different.");
-              UnitData unitDataByUniqueId = MonoSingleton<GameManager>.Instance.Player.FindUnitDataByUniqueID(suspendData.uid);
-              string iname = suspendData.uid.ToString();
-              if (unitDataByUniqueId != null)
-                iname = unitDataByUniqueId.UnitParam.iname;
-              this.mSuspendMsgLists.Add(string.Format("SuspendStart unit different. c={0} unit={1}/{2}", (object) index, (object) iname, (object) this.CurrentUnit.UnitParam.iname));
-              continue;
-            case BattleCore.SuspendTiming.Wait:
-              this.CommandWait((EUnitDirection) suspendData.dir);
-              continue;
-            case BattleCore.SuspendTiming.Move:
-              this.Move(this.CurrentUnit, this.CurrentMap[suspendData.x, suspendData.y], (EUnitDirection) suspendData.dir, true, false);
-              continue;
-            case BattleCore.SuspendTiming.UseSkill:
-              this.mSuspendLogLists.Add(new BattleCore.SuspendLog(index, suspendData.skill, this.CurrentUnit.UnitParam.iname));
-              SkillData skillData = this.CurrentUnit.GetSkillData(suspendData.skill);
-              this.UseSkill(this.CurrentUnit, suspendData.tx, suspendData.ty, skillData, suspendData.locked != 0, suspendData.ux, suspendData.uy);
-              continue;
-            case BattleCore.SuspendTiming.UseItem:
-              ItemData inventoryByItemId = this.FindInventoryByItemID(suspendData.item);
-              this.UseItem(this.CurrentUnit, suspendData.tx, suspendData.ty, inventoryByItemId);
-              continue;
-            case BattleCore.SuspendTiming.UnitEnd:
-              this.UnitEnd();
-              continue;
-            case BattleCore.SuspendTiming.CastSkillStart:
-              this.mSuspendUseSkillID = (string) null;
-              this.mSuspendUseSkillUnitID = (string) null;
-              this.CastSkillStart();
-              if (!string.IsNullOrEmpty(this.mSuspendUseSkillID))
-              {
-                this.mSuspendLogLists.Add(new BattleCore.SuspendLog(index, this.mSuspendUseSkillID, this.mSuspendUseSkillUnitID));
-                this.mSuspendUseSkillID = (string) null;
-                continue;
-              }
-              continue;
-            case BattleCore.SuspendTiming.CastSkillEnd:
-              this.CastSkillEnd();
-              continue;
-            case BattleCore.SuspendTiming.Continued:
-              this.ContinueStart(this.mBtlID, (int) suspendData.seed);
-              continue;
-            case BattleCore.SuspendTiming.AI:
-              this.mSuspendUseSkillID = (string) null;
-              this.mSuspendUseSkillUnitID = (string) null;
-              this.IsAutoBattle = true;
-              this.UpdateMapAI(false);
-              this.IsAutoBattle = false;
-              if (!string.IsNullOrEmpty(this.mSuspendUseSkillID))
-              {
-                this.mSuspendLogLists.Add(new BattleCore.SuspendLog(index, this.mSuspendUseSkillID, this.mSuspendUseSkillUnitID));
-                this.mSuspendUseSkillID = (string) null;
-                continue;
-              }
-              continue;
-            default:
-              continue;
-          }
-        }
-        catch (Exception ex)
-        {
-          if (this.mSuspendErrorCtr == 0)
-          {
-            Debug.Log((object) this.makeSuspendErrorLog(index));
-            using (List<string>.Enumerator enumerator = this.mSuspendMsgLists.GetEnumerator())
-            {
-              while (enumerator.MoveNext())
-                Debug.Log((object) enumerator.Current);
-            }
-          }
-          ++this.mSuspendErrorCtr;
-          throw new Exception("[Rethrow]", ex);
-        }
-      }
-      this.SetBattleFlag(EBattleFlag.SuspendStart, false);
-      this.mSuspendIndex = this.mSuspendData.Count;
-      this.Log<LogUnitStart>();
       return true;
     }
 
-    private string makeSuspendErrorLog(int index)
+    public bool LoadSuspendData()
     {
-      StringBuilder stringBuilder = new StringBuilder(1024);
-      stringBuilder.AppendFormat("[SuspendLog3] e={0} ", (object) index);
-      int num1 = index;
-      int num2 = num1 - 32;
-      if (num2 < 0)
-        num2 = 0;
-      // ISSUE: object of a compiler-generated type is created
-      // ISSUE: variable of a compiler-generated type
-      BattleCore.\u003CmakeSuspendErrorLog\u003Ec__AnonStorey1B5 logCAnonStorey1B5 = new BattleCore.\u003CmakeSuspendErrorLog\u003Ec__AnonStorey1B5();
-      // ISSUE: reference to a compiler-generated field
-      // ISSUE: reference to a compiler-generated field
-      // ISSUE: reference to a compiler-generated field
-      for (logCAnonStorey1B5.idx = num2; logCAnonStorey1B5.idx <= num1; ++logCAnonStorey1B5.idx)
-      {
-        // ISSUE: reference to a compiler-generated field
-        BattleCore.SuspendData suspendData = this.mSuspendData[logCAnonStorey1B5.idx];
-        // ISSUE: reference to a compiler-generated field
-        stringBuilder.AppendFormat("c={0},t={1}", (object) logCAnonStorey1B5.idx, (object) suspendData.timing);
-        UnitData unitDataByUniqueId = MonoSingleton<GameManager>.Instance.Player.FindUnitDataByUniqueID(suspendData.uid);
-        string iname = suspendData.uid.ToString();
-        if (unitDataByUniqueId != null)
-          iname = unitDataByUniqueId.UnitParam.iname;
-        switch (suspendData.timing)
-        {
-          case BattleCore.SuspendTiming.UseSkill:
-            // ISSUE: reference to a compiler-generated method
-            BattleCore.SuspendLog suspendLog1 = this.mSuspendLogLists.Find(new Predicate<BattleCore.SuspendLog>(logCAnonStorey1B5.\u003C\u003Em__154));
-            if (suspendLog1 != null && !string.IsNullOrEmpty(suspendLog1.mUnitID))
-            {
-              stringBuilder.AppendFormat(",u={0}/{1},s={2}", (object) iname, (object) suspendLog1.mUnitID, (object) suspendData.skill);
-              break;
-            }
-            stringBuilder.AppendFormat(",u={0},s={1}", (object) iname, (object) suspendData.skill);
-            break;
-          case BattleCore.SuspendTiming.UseItem:
-            stringBuilder.AppendFormat(",u={0},i={1}", (object) iname, (object) suspendData.item);
-            break;
-          case BattleCore.SuspendTiming.CastSkillStart:
-          case BattleCore.SuspendTiming.AI:
-            // ISSUE: reference to a compiler-generated method
-            BattleCore.SuspendLog suspendLog2 = this.mSuspendLogLists.Find(new Predicate<BattleCore.SuspendLog>(logCAnonStorey1B5.\u003C\u003Em__155));
-            if (suspendLog2 != null)
-            {
-              stringBuilder.AppendFormat(",u={0},s={1}", !string.IsNullOrEmpty(suspendLog2.mUnitID) ? (object) suspendLog2.mUnitID : (object) iname, (object) suspendLog2.mSkillID);
-              break;
-            }
-            break;
-          default:
-            if (iname != "0")
-            {
-              stringBuilder.AppendFormat(",u={0}", (object) iname);
-              break;
-            }
-            break;
-        }
-        stringBuilder.AppendFormat(" ");
-      }
-      return stringBuilder.ToString();
+      if (!BattleSuspend.LoadData())
+        return false;
+      this.Logs.Reset();
+      WeatherData.IsExecuteUpdate = false;
+      WeatherData.IsEntryConditionLog = false;
+      this.NextOrder(true, false, true);
+      WeatherData.IsExecuteUpdate = true;
+      WeatherData.IsEntryConditionLog = true;
+      return true;
     }
 
     public void SetBattleID(long btlid)
@@ -7287,13 +8924,13 @@ label_16:
       return this.mArenaActionCount;
     }
 
-    public void ArenaKeepQuestData(string quest_id, BattleCore.Json_Battle json_btl)
+    public void ArenaKeepQuestData(string quest_id, BattleCore.Json_Battle json_btl, int max_action_num)
     {
       this.mArenaQuestID = quest_id;
       this.mArenaQuestJsonBtl = json_btl;
-      if (json_btl.maxActionNum <= 0)
+      if (max_action_num <= 0)
         return;
-      this.mArenaActionCountMax = (uint) json_btl.maxActionNum;
+      this.mArenaActionCountMax = (uint) max_action_num;
     }
 
     public bool ArenaResetQuestData()
@@ -7305,7 +8942,7 @@ label_16:
       this.mPlayer.Clear();
       this.mAllUnits.Clear();
       this.mStartingMembers.Clear();
-      this.Deserialize(this.mArenaQuestID, this.mArenaQuestJsonBtl, 0, (UnitData[]) null, (int[]) null, true, (int[]) null);
+      this.Deserialize(this.mArenaQuestID, this.mArenaQuestJsonBtl, 0, (UnitData[]) null, (int[]) null, true, (int[]) null, (bool[]) null);
       return true;
     }
 
@@ -7362,7 +8999,7 @@ label_16:
             Unit currentUnit = this.CurrentUnit;
             if (currentUnit != null && currentUnit.CastSkill != null && currentUnit.CastSkill.CastType == ECastTypes.Jump)
             {
-              this.CommandWait();
+              this.CommandWait(false);
               this.mArenaCalcTypeNext = BattleCore.eArenaCalcType.UNIT_END;
               break;
             }
@@ -7452,45 +9089,636 @@ label_16:
 
     private bool isKnockBack(SkillData skill)
     {
-      if (skill == null || (int) skill.SkillParam.KnockBackVal == 0)
+      if (skill == null || (int) skill.KnockBackVal == 0)
         return false;
-      return (int) skill.SkillParam.KnockBackRate != 0;
+      return (int) skill.KnockBackRate != 0;
     }
 
     private bool checkKnockBack(Unit self, Unit target, SkillData skill)
     {
-      if (!this.isKnockBack(skill) || target.IsDisableUnitCondition(EUnitCondition.DisableKnockback))
+      if (self == null || target == null || (skill == null || !this.isKnockBack(skill)) || (!target.IsKnockBack || target.IsDisableUnitCondition(EUnitCondition.DisableKnockback)))
         return false;
       EnchantParam enchantAssist = self.CurrentStatus.enchant_assist;
       EnchantParam enchantResist = target.CurrentStatus.enchant_resist;
-      int num = (int) skill.SkillParam.KnockBackRate + (int) enchantAssist[EnchantTypes.Knockback] - (int) enchantResist[EnchantTypes.Knockback];
+      int num = (int) skill.KnockBackRate + (int) enchantAssist[EnchantTypes.Knockback] - (int) enchantResist[EnchantTypes.Knockback];
       return num > 0 && (num >= 100 || (int) (this.GetRandom() % 100U) < num);
     }
 
-    private Grid getGridKnockBack(Unit unit_att, Unit unit_def, SkillData skill)
+    private Grid getGridKnockBack(Unit unit_att, Unit unit_def, SkillData skill, int gx, int gy, int kb_val = 0, int kb_dir = -1)
     {
+      SceneBattle instance = SceneBattle.Instance;
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) instance, (UnityEngine.Object) null))
+        return (Grid) null;
       if (!this.isKnockBack(skill))
         return (Grid) null;
+      if (!unit_def.IsKnockBack)
+        return (Grid) null;
+      int index = (int) this.unitDirectionFromPos(unit_att.x, unit_att.y, unit_def.x, unit_def.y);
+      switch (skill.KnockBackDs)
+      {
+        case eKnockBackDs.Self:
+          TacticsUnitController unitController = instance.FindUnitController(unit_att);
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) unitController, (UnityEngine.Object) null))
+          {
+            index = (int) unitController.CalcUnitDirectionFromRotation();
+            break;
+          }
+          break;
+        case eKnockBackDs.Grid:
+          index = (int) this.unitDirectionFromPos(gx, gy, unit_def.x, unit_def.y);
+          break;
+      }
+      switch (skill.KnockBackDir)
+      {
+        case eKnockBackDir.Forward:
+          index = (int) Unit.ReverseDirection[index];
+          break;
+        case eKnockBackDir.Left:
+          index = (int) BattleCore.leftDirection[index];
+          break;
+        case eKnockBackDir.Right:
+          index = (int) BattleCore.rightDirection[index];
+          break;
+      }
+      if (kb_val <= 0)
+        kb_val = (int) skill.KnockBackVal;
+      if (kb_dir >= 0)
+        index = kb_dir;
+      if (skill.KnockBackDs == eKnockBackDs.Target)
+      {
+        gx = unit_att.x;
+        gy = unit_att.y;
+      }
+      return this.GetGridKnockBack(unit_def, (EUnitDirection) index, (int) skill.SkillParam.KnockBackVal, skill, gx, gy);
+    }
+
+    public Grid GetGridKnockBack(Unit target, EUnitDirection dir, int kb_val, SkillData skill = null, int gx = 0, int gy = 0)
+    {
+      // ISSUE: object of a compiler-generated type is created
+      // ISSUE: variable of a compiler-generated type
+      BattleCore.\u003CGetGridKnockBack\u003Ec__AnonStorey247 backCAnonStorey247 = new BattleCore.\u003CGetGridKnockBack\u003Ec__AnonStorey247();
+      if (!target.IsKnockBack)
+        return (Grid) null;
+      List<Unit> unitList = new List<Unit>(this.sameJudgeUnitLists.Count);
+      using (List<Unit>.Enumerator enumerator = this.sameJudgeUnitLists.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+        {
+          Unit current = enumerator.Current;
+          if (current.IsDead)
+            unitList.Add(current);
+        }
+      }
       int knockBackHeight = (int) MonoSingleton<GameManager>.GetInstanceDirect().MasterParam.FixParam.KnockBackHeight;
-      int index1 = (int) BattleCore.UnitDirectionFromVector((Unit) null, unit_def.x - unit_att.x, unit_def.y - unit_att.y);
-      int x = unit_def.x;
-      int y = unit_def.y;
+      int index1 = (int) dir;
+      // ISSUE: reference to a compiler-generated field
+      backCAnonStorey247.ux = target.x;
+      // ISSUE: reference to a compiler-generated field
+      backCAnonStorey247.uy = target.y;
       Grid grid = (Grid) null;
-      Grid current1 = this.CurrentMap[x, y];
+      // ISSUE: reference to a compiler-generated field
+      // ISSUE: reference to a compiler-generated field
+      Grid current1 = this.CurrentMap[backCAnonStorey247.ux, backCAnonStorey247.uy];
       if (current1 != null)
       {
-        for (int index2 = 0; index2 < (int) skill.SkillParam.KnockBackVal; ++index2)
+        for (int index2 = 0; index2 < kb_val; ++index2)
         {
-          x += Unit.DIRECTION_OFFSETS[index1, 0];
-          y += Unit.DIRECTION_OFFSETS[index1, 1];
-          Grid current2 = this.CurrentMap[x, y];
-          if (current2 != null && Math.Abs(current1.height - current2.height) <= knockBackHeight && this.CurrentMap.CheckEnableMove(unit_def, current2, false))
+          // ISSUE: reference to a compiler-generated field
+          backCAnonStorey247.ux += Unit.DIRECTION_OFFSETS[index1, 0];
+          // ISSUE: reference to a compiler-generated field
+          backCAnonStorey247.uy += Unit.DIRECTION_OFFSETS[index1, 1];
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: reference to a compiler-generated field
+          Grid current2 = this.CurrentMap[backCAnonStorey247.ux, backCAnonStorey247.uy];
+          // ISSUE: reference to a compiler-generated method
+          if (current2 != null && Math.Abs(current1.height - current2.height) <= knockBackHeight && (this.CurrentMap.CheckEnableMove(target, current2, false, false) && unitList.Find(new Predicate<Unit>(backCAnonStorey247.\u003C\u003Em__1C5)) == null))
+          {
             grid = current2;
+            if (skill != null && skill.KnockBackDir == eKnockBackDir.Forward && (skill.KnockBackDs == eKnockBackDs.Target || skill.KnockBackDs == eKnockBackDs.Grid))
+            {
+              // ISSUE: reference to a compiler-generated field
+              // ISSUE: reference to a compiler-generated field
+              index1 = (int) Unit.ReverseDirection[(int) this.unitDirectionFromPos(gx, gy, backCAnonStorey247.ux, backCAnonStorey247.uy)];
+            }
+          }
           else
             break;
         }
       }
       return grid;
+    }
+
+    private void procKnockBack(Unit self, SkillData skill, int gx, int gy, List<LogSkill.Target> ls_target_lists)
+    {
+      if (self == null || skill == null || (ls_target_lists == null || ls_target_lists.Count == 0))
+        return;
+      this.sameJudgeUnitLists.Clear();
+      List<BattleCore.KnockBackTarget> knockBackTargetList = new List<BattleCore.KnockBackTarget>(ls_target_lists.Count);
+      using (List<LogSkill.Target>.Enumerator enumerator = ls_target_lists.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+        {
+          LogSkill.Target current = enumerator.Current;
+          this.sameJudgeUnitLists.Add(current.target);
+          if (current.target.IsKnockBack)
+          {
+            current.KnockBackGrid = (Grid) null;
+            knockBackTargetList.Add(new BattleCore.KnockBackTarget(current, current.target.x, current.target.y));
+          }
+        }
+      }
+      for (int index = 0; index < knockBackTargetList.Count; ++index)
+      {
+        bool flag = false;
+        using (List<BattleCore.KnockBackTarget>.Enumerator enumerator = knockBackTargetList.GetEnumerator())
+        {
+          while (enumerator.MoveNext())
+          {
+            BattleCore.KnockBackTarget current = enumerator.Current;
+            if (current.mLsTarget != null && current.mMoveLen < (int) skill.KnockBackVal)
+            {
+              Grid gridKnockBack = this.getGridKnockBack(self, current.mLsTarget.target, skill, gx, gy, (int) skill.KnockBackVal - current.mMoveLen, current.mMoveDir);
+              if (gridKnockBack != null)
+              {
+                current.mLsTarget.KnockBackGrid = gridKnockBack;
+                current.mLsTarget.target.x = gridKnockBack.x;
+                current.mLsTarget.target.y = gridKnockBack.y;
+                current.mMoveLen = Math.Abs(gridKnockBack.x - current.mUnitGx) + Math.Abs(gridKnockBack.y - current.mUnitGy);
+                current.mMoveDir = (int) this.unitDirectionFromPos(current.mUnitGx, current.mUnitGy, gridKnockBack.x, gridKnockBack.y);
+                flag = true;
+              }
+            }
+          }
+        }
+        if (!flag)
+          break;
+      }
+      if (this.IsBattleFlag(EBattleFlag.PredictResult))
+      {
+        using (List<BattleCore.KnockBackTarget>.Enumerator enumerator = knockBackTargetList.GetEnumerator())
+        {
+          while (enumerator.MoveNext())
+          {
+            BattleCore.KnockBackTarget current = enumerator.Current;
+            if (current.mLsTarget.KnockBackGrid != null)
+            {
+              current.mLsTarget.target.x = current.mUnitGx;
+              current.mLsTarget.target.y = current.mUnitGy;
+            }
+          }
+        }
+      }
+      this.sameJudgeUnitLists.Clear();
+    }
+
+    public void SetUnitListKnockBack(List<Unit> unit_lists = null)
+    {
+      this.sameJudgeUnitLists.Clear();
+      if (unit_lists == null)
+        return;
+      this.sameJudgeUnitLists = unit_lists;
+    }
+
+    public Grid GetTeleportGrid(Unit self, int gx, int gy, Unit target, SkillData skill, ref bool is_teleport)
+    {
+      is_teleport = false;
+      if (self == null || target == null || (skill == null || this.CurrentMap == null))
+        return (Grid) null;
+      Grid current1 = this.CurrentMap[gx, gy];
+      Grid current2 = this.CurrentMap[target.x, target.y];
+      if (current1 == null || current2 == null)
+        return (Grid) null;
+      int index = (int) this.UnitDirectionFromGrid(current2, current1);
+      Grid current3 = this.CurrentMap[current2.x + Unit.DIRECTION_OFFSETS[index, 0], current2.y + Unit.DIRECTION_OFFSETS[index, 1]];
+      if (current3 == null)
+        return (Grid) null;
+      if (skill.IsTargetTeleport && Math.Abs(current2.height - current3.height) <= (int) skill.SkillParam.effect_height && this.CurrentMap.CheckEnableMove(self, current3, false, false))
+        is_teleport = true;
+      return current3;
+    }
+
+    public bool IsTargetBreakUnit(Unit self, Unit target, SkillData skill = null)
+    {
+      if (self == null || target == null || !target.IsBreakObj || skill != null && skill.EffectType == SkillEffectTypes.Changing)
+        return false;
+      bool flag = false;
+      switch (target.BreakObjClashType)
+      {
+        case eMapBreakClashType.ALL:
+          flag = true;
+          break;
+        case eMapBreakClashType.PALL:
+          flag = !this.IsMultiVersus ? self.Side == EUnitSide.Player : self.OwnerPlayerIndex == target.OwnerPlayerIndex;
+          break;
+        case eMapBreakClashType.EALL:
+          flag = !this.IsMultiVersus ? self.Side == EUnitSide.Enemy : self.OwnerPlayerIndex != target.OwnerPlayerIndex;
+          break;
+        case eMapBreakClashType.INVINCIBLE:
+          flag = false;
+          break;
+      }
+      if (flag && skill != null && target.BreakObjSideType != eMapBreakSideType.UNKNOWN)
+      {
+        switch (skill.Target)
+        {
+          case ESkillTarget.Self:
+            flag = self == target;
+            break;
+          case ESkillTarget.SelfSide:
+            flag = !this.CheckGimmickEnemySide(self, target);
+            break;
+          case ESkillTarget.EnemySide:
+            flag = this.CheckGimmickEnemySide(self, target);
+            break;
+          case ESkillTarget.UnitAll:
+            flag = true;
+            break;
+          case ESkillTarget.NotSelf:
+            flag = self != target;
+            break;
+          case ESkillTarget.GridNoUnit:
+            if (skill.TeleportType != eTeleportType.None)
+            {
+              switch (skill.TeleportTarget)
+              {
+                case ESkillTarget.Self:
+                  flag = self == target;
+                  break;
+                case ESkillTarget.SelfSide:
+                  flag = !this.CheckGimmickEnemySide(self, target);
+                  break;
+                case ESkillTarget.EnemySide:
+                  flag = this.CheckGimmickEnemySide(self, target);
+                  break;
+                case ESkillTarget.UnitAll:
+                  flag = true;
+                  break;
+                case ESkillTarget.NotSelf:
+                  flag = self != target;
+                  break;
+              }
+            }
+            else
+            {
+              flag = false;
+              break;
+            }
+        }
+      }
+      return flag;
+    }
+
+    public Unit BreakObjCreate(string bo_id, int gx, int gy, Unit self = null, LogSkill log = null, int owner_index = 0)
+    {
+      BreakObjParam breakObjParam = MonoSingleton<GameManager>.Instance.MasterParam.GetBreakObjParam(bo_id);
+      NPCSetting breakObjNpc = DownloadUtility.CreateBreakObjNPC(breakObjParam, gx, gy);
+      if (breakObjNpc == null)
+        return (Unit) null;
+      Unit unit = new Unit();
+      if (unit.Setup((UnitData) null, (UnitSetting) breakObjNpc, (Unit.DropItem) null, (Unit.DropItem) null))
+      {
+        unit.SetUnitFlag(EUnitFlag.DisableUnitChange, true);
+        unit.SetUnitFlag(EUnitFlag.CreatedBreakObj, true);
+        unit.SetCreateBreakObj(bo_id, (int) this.mClockTimeTotal);
+        this.Enemys.Add(unit);
+        this.mAllUnits.Add(unit);
+        this.mUnits.Add(unit);
+        unit.Direction = breakObjParam.AppearDir != EUnitDirection.Auto || self == null ? breakObjParam.AppearDir : self.Direction;
+        Grid duplicatePosition = this.GetCorrectDuplicatePosition(unit);
+        unit.x = duplicatePosition.x;
+        unit.y = duplicatePosition.y;
+        unit.OwnerPlayerIndex = owner_index;
+        unit.SetUnitFlag(EUnitFlag.Entried, true);
+        if (self != null && log != null)
+          log.SetSkillTarget(self, unit);
+      }
+      else
+        this.DebugErr("BreakObjCreateForSkill: enemy unit setup failed");
+      return unit;
+    }
+
+    private void CheckBreakObjKill()
+    {
+      for (int index = 0; index < this.mUnits.Count; ++index)
+      {
+        Unit mUnit = this.mUnits[index];
+        if (!mUnit.IsDead && mUnit.IsBreakObj && !string.IsNullOrEmpty(mUnit.CreateBreakObjId))
+        {
+          BreakObjParam breakObjParam = MonoSingleton<GameManager>.Instance.MasterParam.GetBreakObjParam(mUnit.CreateBreakObjId);
+          if (breakObjParam != null && breakObjParam.AliveClock != 0 && mUnit.CreateBreakObjClock + breakObjParam.AliveClock <= (int) this.mClockTimeTotal)
+          {
+            mUnit.CurrentStatus.param.hp = (OInt) 0;
+            this.Dead((Unit) null, mUnit, DeadTypes.Damage, false);
+          }
+        }
+      }
+    }
+
+    public bool IsAllowBreakObjEntryMax()
+    {
+      return this.mUnits.FindAll((Predicate<Unit>) (unit =>
+      {
+        if (unit.IsBreakObj)
+          return !unit.IsDead;
+        return false;
+      })).Count < GameSettings.Instance.Quest.BreakObjAllowEntryMax;
+    }
+
+    public void TrickCreateForSkill(Unit self, int gx, int gy, SkillData skill)
+    {
+      if (self == null || skill == null)
+        return;
+      string trickId = skill.SkillParam.TrickId;
+      if (string.IsNullOrEmpty(trickId))
+        return;
+      TrickParam trickParam = MonoSingleton<GameManager>.Instance.MasterParam.GetTrickParam(trickId);
+      if (trickParam == null)
+        return;
+      GridMap<bool> result = new GridMap<bool>(this.CurrentMap.Width, this.CurrentMap.Height);
+      if (skill.IsAreaSkill())
+      {
+        this.CreateScopeGridMap(self, self.x, self.y, gx, gy, skill, ref result, false);
+        if (skill.SkillParam.TrickSetType == eTrickSetType.GridNoUnit)
+        {
+          for (int index1 = 0; index1 < result.w; ++index1)
+          {
+            for (int index2 = 0; index2 < result.h; ++index2)
+            {
+              if (result.get(index1, index2) && this.IsTrickExistUnit(index1, index2))
+                result.set(index1, index2, false);
+            }
+          }
+        }
+      }
+      else
+      {
+        result.set(gx, gy, true);
+        if (skill.SkillParam.TrickSetType == eTrickSetType.GridNoUnit && this.IsTrickExistUnit(gx, gy))
+          result.set(gx, gy, false);
+      }
+      for (int index1 = 0; index1 < result.w; ++index1)
+      {
+        for (int index2 = 0; index2 < result.h; ++index2)
+        {
+          if (result.get(index1, index2))
+            TrickData.EntryEffect(trickParam.Iname, index1, index2, (string) null, self, (int) this.mClockTimeTotal, skill.Rank, skill.GetRankCap());
+        }
+      }
+    }
+
+    private bool IsTrickExistUnit(int gx, int gy)
+    {
+      Unit unit = this.FindUnitAtGrid(gx, gy);
+      if (unit == null)
+      {
+        unit = this.FindGimmickAtGrid(gx, gy, false);
+        if (unit != null && !unit.IsBreakObj)
+          unit = (Unit) null;
+      }
+      return unit != null;
+    }
+
+    public void TrickActionEndEffect(Unit self, bool is_update_buff = true)
+    {
+      if (self == null || TrickData.SearchEffect(self.x, self.y) == null)
+        return;
+      bool flag = false;
+      List<Unit> unitList1 = new List<Unit>();
+      unitList1.Add(self);
+      while (unitList1.Count != 0)
+      {
+        List<Unit> unitList2 = new List<Unit>();
+        using (List<Unit>.Enumerator enumerator = unitList1.GetEnumerator())
+        {
+          while (enumerator.MoveNext())
+          {
+            Unit current = enumerator.Current;
+            unitList2.Add(current);
+          }
+        }
+        unitList1.Clear();
+        using (List<Unit>.Enumerator enumerator1 = unitList2.GetEnumerator())
+        {
+          while (enumerator1.MoveNext())
+          {
+            Unit current1 = enumerator1.Current;
+            LogMapTrick log_mt = this.Log<LogMapTrick>();
+            TrickData.ActionEffect(eTrickActionTiming.TURN_END, current1, current1.x, current1.y, this.CurrentRand, log_mt);
+            using (List<LogMapTrick.TargetInfo>.Enumerator enumerator2 = log_mt.TargetInfoLists.GetEnumerator())
+            {
+              while (enumerator2.MoveNext())
+              {
+                LogMapTrick.TargetInfo current2 = enumerator2.Current;
+                Unit target = current2.Target;
+                if (current2.Damage > 0)
+                {
+                  int damage = current2.Damage;
+                  if (target.Side == EUnitSide.Enemy)
+                    this.mTotalDamages += damage;
+                  if (target.Side == EUnitSide.Player && target.IsPartyMember)
+                    this.mTotalDamagesTaken += damage;
+                }
+                if (target.IsDead)
+                {
+                  if (this.CheckGuts(target))
+                  {
+                    target.Heal(1);
+                    target.UpdateBuffEffectTurnCount(EffectCheckTimings.GutsEnd, target);
+                    target.UpdateCondEffectTurnCount(EffectCheckTimings.GutsEnd, target);
+                  }
+                  else
+                  {
+                    this.Dead((Unit) null, target, DeadTypes.Damage, false);
+                    this.TrySetBattleFinisher(log_mt.TrickData.CreateUnit);
+                  }
+                }
+                else if (current2.KnockBackGrid != null)
+                {
+                  unitList1.Add(target);
+                  flag = true;
+                }
+              }
+            }
+          }
+        }
+      }
+      if (!flag || !is_update_buff)
+        return;
+      self.RefleshMomentBuff(this.Units, false, -1, -1);
+    }
+
+    public void UnitChange(Unit self, int gx, int gy, EUnitDirection dir, Unit target)
+    {
+      this.DebugAssert(this.IsMapCommand, "マップコマンド中のみコール可");
+      if (self == null || target == null || (self.IsDead || !target.IsSub))
+        return;
+      self.Direction = dir;
+      int chargeTime = (int) self.ChargeTime;
+      self.SetUnitFlag(EUnitFlag.EntryDead, true);
+      self.SetUnitFlag(EUnitFlag.UnitChanged, true);
+      self.ForceDead();
+      target.x = self.x;
+      target.y = self.y;
+      target.Direction = self.Direction;
+      target.IsSub = false;
+      float num = (int) self.ChargeTimeMax == 0 ? 100f : (float) chargeTime * 100f / (float) (int) self.ChargeTimeMax;
+      target.ChargeTime = (OInt) (Mathf.CeilToInt((float) ((double) (int) target.ChargeTimeMax * (double) num / 100.0)) + 1);
+      this.BeginBattlePassiveSkill(target);
+      this.UseAutoSkills(target);
+      LogUnitEntry logUnitEntry = this.Log<LogUnitEntry>();
+      logUnitEntry.self = target;
+      logUnitEntry.kill_unit = self;
+    }
+
+    public Unit SearchTransformUnit(Unit self)
+    {
+      Unit unit = (Unit) null;
+      using (List<Unit>.Enumerator enumerator1 = this.mUnits.GetEnumerator())
+      {
+        while (enumerator1.MoveNext())
+        {
+          Unit current1 = enumerator1.Current;
+          if ((!current1.IsGimmick || current1.IsBreakObj) && (!current1.IsEntry && !current1.IsDead) && (!current1.IsSub && current1.EntryTriggers != null))
+          {
+            using (List<UnitEntryTrigger>.Enumerator enumerator2 = current1.EntryTriggers.GetEnumerator())
+            {
+              while (enumerator2.MoveNext())
+              {
+                UnitEntryTrigger current2 = enumerator2.Current;
+                if (current2.type == 6 && current2.unit == self.UniqueName)
+                {
+                  unit = current1;
+                  break;
+                }
+              }
+            }
+            if (unit != null)
+              break;
+          }
+        }
+      }
+      return unit;
+    }
+
+    public void UnitWithdraw(Unit self)
+    {
+      if (self == null || self.IsDead)
+        return;
+      bool flag = false;
+      for (int index = 0; index < (int) Unit.MAX_UNIT_CONDITION; ++index)
+      {
+        EUnitCondition eunitCondition = (EUnitCondition) (1 << index);
+        if (self.IsUnitCondition(eunitCondition))
+        {
+          self.CureCondEffects(eunitCondition, false, true);
+          flag = true;
+        }
+      }
+      if (flag)
+        self.UpdateCondEffects();
+      self.SetUnitFlag(EUnitFlag.EntryDead, true);
+      self.SetUnitFlag(EUnitFlag.UnitWithdraw, true);
+      self.ForceDead();
+      this.Log<LogUnitWithdraw>().self = self;
+    }
+
+    private void InitWeather()
+    {
+      WeatherSetParam weather_set = (WeatherSetParam) null;
+      if (this.mQuestParam != null)
+        weather_set = MonoSingleton<GameManager>.Instance.GetWeatherSetParam(this.mQuestParam.WeatherSetId);
+      WeatherData.Initialize(weather_set, !this.mQuestParam.IsWeatherNoChange);
+    }
+
+    private bool UpdateWeather()
+    {
+      return WeatherData.UpdateWeather(this.Units, this.ClockTimeTotal, this.CurrentRand);
+    }
+
+    private bool ChangeWeatherForSkill(Unit self, SkillData skill)
+    {
+      if (self == null || skill == null || !WeatherData.IsAllowWeatherChange)
+        return false;
+      int weatherRate = skill.WeatherRate;
+      string weatherId = skill.WeatherId;
+      if (weatherRate <= 0 || string.IsNullOrEmpty(weatherId) || MonoSingleton<GameManager>.Instance.MasterParam.GetWeatherParam(weatherId) == null)
+        return false;
+      WeatherData currentWeatherData = WeatherData.CurrentWeatherData;
+      if (currentWeatherData != null)
+        weatherRate -= currentWeatherData.GetResistRate(this.ClockTimeTotal);
+      return (weatherRate >= 100 || (int) (this.GetRandom() % 100U) < weatherRate) && WeatherData.ChangeWeather(weatherId, this.Units, this.ClockTimeTotal, this.CurrentRand, self, skill.Rank, skill.GetRankCap()) != null;
+    }
+
+    private void AddSkillExecLogForQuestMission(LogSkill log)
+    {
+      if (log.skill == null || this.mQuestParam == null || this.mQuestParam.bonusObjective == null)
+        return;
+      bool flag = false;
+      for (int index = 0; index < this.mQuestParam.bonusObjective.Length; ++index)
+      {
+        if (!this.mQuestParam.bonusObjective[index].IsMissionTypeExecSkill())
+        {
+          flag = true;
+          break;
+        }
+      }
+      if (!flag)
+        return;
+      int num = 0;
+      for (int index = 0; index < log.targets.Count; ++index)
+      {
+        if (log.targets[index].target.Side == EUnitSide.Enemy && log.targets[index].target.IsDead)
+          ++num;
+      }
+      if (!this.mSkillExecLogs.ContainsKey(log.skill.SkillID))
+      {
+        this.mSkillExecLogs.Add(log.skill.SkillID, new BattleCore.SkillExecLog()
+        {
+          skill_iname = log.skill.SkillID,
+          use_count = 1,
+          kill_count = num
+        });
+      }
+      else
+      {
+        ++this.mSkillExecLogs[log.skill.SkillID].use_count;
+        this.mSkillExecLogs[log.skill.SkillID].kill_count += num;
+      }
+    }
+
+    private bool TrySetBattleFinisher(Unit _unit)
+    {
+      if (_unit == null || !this.CheckJudgeBattle() || _unit.Side != EUnitSide.Player)
+        return false;
+      this.mFinisherIname = _unit.UnitParam.iname;
+      return true;
+    }
+
+    public RankingQuestParam GetRankingQuestParam()
+    {
+      return this.mRankingQuestParam;
+    }
+
+    public int CalcPlayerUnitsTotalParameter()
+    {
+      int num = 0;
+      StringBuilder stringBuilder = new StringBuilder(128);
+      for (int index = 0; index < this.mUnits.Count; ++index)
+      {
+        if (this.mUnits[index] != null && this.mUnits[index].IsPartyMember && (!this.mUnits[index].IsNPC && this.mUnits[index].UnitData != null))
+        {
+          stringBuilder.Append(this.mUnits[index].UnitData.UnitParam.name);
+          stringBuilder.Append("\n    ");
+          stringBuilder.Append("total : ");
+          stringBuilder.Append(this.mUnits[index].UnitData.CalcTotalParameter());
+          stringBuilder.Append("\n");
+          num += this.mUnits[index].UnitData.CalcTotalParameter();
+        }
+      }
+      stringBuilder.Append("総合値 : ");
+      stringBuilder.Append(num);
+      DebugUtility.Log(stringBuilder.ToString());
+      return num;
     }
 
     public GridMap<int> MoveMap
@@ -7525,14 +9753,31 @@ label_16:
       }
     }
 
+    public SkillMap SkillMap
+    {
+      get
+      {
+        return this.mSkillMap;
+      }
+    }
+
+    public TrickMap TrickMap
+    {
+      get
+      {
+        return this.mTrickMap;
+      }
+    }
+
     private void ClearAI()
     {
       BattleMap currentMap = this.CurrentMap;
-      this.mUseSkillLists.Clear();
-      this.mForceSkillList.Clear();
       if (this.mEnemyPriorities == null)
         this.mEnemyPriorities = new List<Unit>(this.mUnits.Count);
       this.mEnemyPriorities.Clear();
+      if (this.mGimmickPriorities == null)
+        this.mGimmickPriorities = new List<Unit>(this.mUnits.Count);
+      this.mGimmickPriorities.Clear();
       int width = currentMap.Width;
       int height = currentMap.Height;
       if (this.mMoveMap == null)
@@ -7560,47 +9805,148 @@ label_16:
       if (this.mSafeMap.w != width || this.mSafeMap.h != height)
         this.mSafeMap.resize(width, height);
       this.mSafeMap.fill(-1);
-      this.UpdateTreasureTargetAI();
+      if (this.mSafeMapEx == null)
+        this.mSafeMapEx = new GridMap<int>(width, height);
+      if (this.mSafeMapEx.w != width || this.mSafeMapEx.h != height)
+        this.mSafeMapEx.resize(width, height);
+      this.mSafeMapEx.fill(-1);
+      this.mTrickMap.Initialize(width, height);
+      this.mTrickMap.Clear();
+      this.RefreshTreasureTargetAI();
+    }
+
+    private void ReleaseAi()
+    {
     }
 
     public bool UpdateMapAI(bool forceAI)
     {
-      Unit currentUnit = this.CurrentUnit;
-      DebugUtility.Assert(currentUnit != null, "self == null");
-      if (this.CheckEnableSuspendSave())
-        this.mSuspendData.Add(new BattleCore.SuspendData()
+      return this.UpdateMapAI_Impl(forceAI);
+    }
+
+    private bool UpdateMapAI_Impl(bool forceAI)
+    {
+      // ISSUE: object of a compiler-generated type is created
+      // ISSUE: variable of a compiler-generated type
+      BattleCore.\u003CUpdateMapAI_Impl\u003Ec__AnonStorey248 implCAnonStorey248 = new BattleCore.\u003CUpdateMapAI_Impl\u003Ec__AnonStorey248();
+      // ISSUE: reference to a compiler-generated field
+      implCAnonStorey248.forceAI = forceAI;
+      // ISSUE: reference to a compiler-generated field
+      implCAnonStorey248.\u003C\u003Ef__this = this;
+      DebugUtility.Assert(this.CurrentUnit != null, "CurrentUnit == null");
+      // ISSUE: reference to a compiler-generated field
+      implCAnonStorey248.self = this.CurrentUnit;
+      // ISSUE: reference to a compiler-generated field
+      if (this.IsAutoBattle && implCAnonStorey248.self.Side == EUnitSide.Player)
+        this.IsUseAutoPlayMode = true;
+      // ISSUE: reference to a compiler-generated field
+      if (implCAnonStorey248.self.AI != null)
+      {
+        // ISSUE: reference to a compiler-generated field
+        if (implCAnonStorey248.self.AI.CheckFlag(AIFlags.DisableMove))
         {
-          timing = BattleCore.SuspendTiming.AI
-        });
-      if (currentUnit.AI != null)
-      {
-        if (currentUnit.AI.CheckFlag(AIFlags.DisableMove))
-          currentUnit.SetUnitFlag(EUnitFlag.Moved, true);
-        if (currentUnit.AI.CheckFlag(AIFlags.DisableAction))
-          currentUnit.SetUnitFlag(EUnitFlag.Action, true);
+          // ISSUE: reference to a compiler-generated field
+          implCAnonStorey248.self.SetUnitFlag(EUnitFlag.Moved, true);
+        }
+        // ISSUE: reference to a compiler-generated field
+        if (implCAnonStorey248.self.AI.CheckFlag(AIFlags.DisableAction))
+        {
+          // ISSUE: reference to a compiler-generated field
+          implCAnonStorey248.self.SetUnitFlag(EUnitFlag.Action, true);
+        }
       }
-      if (currentUnit.IsUnitFlag(EUnitFlag.DamagedActionStart))
+      // ISSUE: reference to a compiler-generated field
+      if (implCAnonStorey248.self.IsUnitFlag(EUnitFlag.DamagedActionStart))
       {
-        this.CommandWait();
+        this.CommandWait(false);
         return false;
       }
-      if (currentUnit.IsAIPatrolTable() && this.CalcMoveTargetAI(currentUnit, forceAI))
+      // ISSUE: reference to a compiler-generated field
+      // ISSUE: reference to a compiler-generated field
+      // ISSUE: reference to a compiler-generated field
+      if (implCAnonStorey248.self.IsAIPatrolTable() && this.CalcMoveTargetAI(implCAnonStorey248.self, implCAnonStorey248.forceAI))
         return true;
-      AIAction currentAiAction = currentUnit.GetCurrentAIAction();
-      if (currentAiAction != null && currentUnit.IsEnableActionCondition() && (string.IsNullOrEmpty((string) currentAiAction.skill) && (int) currentAiAction.type == 0))
+      AIAction action = this.mSkillMap.GetAction();
+      // ISSUE: reference to a compiler-generated field
+      if (action != null && implCAnonStorey248.self.IsEnableActionCondition() && (string.IsNullOrEmpty((string) action.skill) && (int) action.type == 0))
       {
-        this.CommandWait();
-        currentUnit.NextAIAction();
+        this.CommandWait(false);
+        this.mSkillMap.NextAction(false);
         return false;
       }
-      if (!this.CalcSearchingAI(currentUnit))
+      // ISSUE: reference to a compiler-generated field
+      if (!this.CalcSearchingAI(implCAnonStorey248.self))
         return false;
-      this.GetEnemyPriorities(currentUnit, this.mEnemyPriorities);
-      if (this.CheckEscapeAI(currentUnit))
-        currentUnit.SetUnitFlag(EUnitFlag.Escaped, true);
-      if (this.CalcUseSkillAI(currentUnit, forceAI) || this.CalcMoveTargetAI(currentUnit, forceAI))
+      // ISSUE: reference to a compiler-generated field
+      this.GetEnemyPriorities(implCAnonStorey248.self, this.mEnemyPriorities, this.mGimmickPriorities);
+      // ISSUE: reference to a compiler-generated field
+      if (this.CheckEscapeAI(implCAnonStorey248.self))
+      {
+        // ISSUE: reference to a compiler-generated field
+        implCAnonStorey248.self.SetUnitFlag(EUnitFlag.Escaped, true);
+      }
+      // ISSUE: reference to a compiler-generated field
+      if (!implCAnonStorey248.self.IsUnitFlag(EUnitFlag.Action))
+      {
+        // ISSUE: object of a compiler-generated type is created
+        // ISSUE: variable of a compiler-generated type
+        BattleCore.\u003CUpdateMapAI_Impl\u003Ec__AnonStorey249 implCAnonStorey249 = new BattleCore.\u003CUpdateMapAI_Impl\u003Ec__AnonStorey249();
+        // ISSUE: reference to a compiler-generated field
+        implCAnonStorey249.\u003C\u003Ef__ref\u0024584 = implCAnonStorey248;
+        // ISSUE: reference to a compiler-generated field
+        implCAnonStorey249.\u003C\u003Ef__this = this;
+        // ISSUE: reference to a compiler-generated field
+        implCAnonStorey249.result = this.mSkillMap.GetUseSkill();
+        // ISSUE: reference to a compiler-generated field
+        if (implCAnonStorey249.result != null)
+        {
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: reference to a compiler-generated field
+          if (this.UseSkillAI(implCAnonStorey248.self, implCAnonStorey249.result, implCAnonStorey248.forceAI))
+          {
+            // ISSUE: reference to a compiler-generated field
+            this.mSkillMap.NextAction(implCAnonStorey249.result);
+            return true;
+          }
+          // ISSUE: reference to a compiler-generated field
+          implCAnonStorey248.self.SetUnitFlag(EUnitFlag.Action, true);
+          this.mSkillMap.SetUseSkill((BattleCore.SkillResult) null);
+        }
+        else
+        {
+          // ISSUE: reference to a compiler-generated method
+          Func<List<BattleCore.SkillResult>, bool> useskill = new Func<List<BattleCore.SkillResult>, bool>(implCAnonStorey249.\u003C\u003Em__1C7);
+          // ISSUE: reference to a compiler-generated field
+          if (implCAnonStorey248.self.CastSkill == null)
+          {
+            // ISSUE: reference to a compiler-generated field
+            if (action != null && this.CalcUseActionAI(implCAnonStorey248.self, action, useskill))
+              return true;
+            List<SkillData> skillList = this.mSkillMap.GetSkillList();
+            if (skillList != null)
+            {
+              // ISSUE: reference to a compiler-generated field
+              if (this.CalcUseSkillsAI(implCAnonStorey248.self, skillList, useskill))
+                return true;
+              this.mSkillMap.NextSkillList();
+              this.Log<LogMapCommand>();
+              return true;
+            }
+          }
+        }
+      }
+      else
+        this.mSkillMap.SetUseSkill((BattleCore.SkillResult) null);
+      // ISSUE: reference to a compiler-generated field
+      // ISSUE: reference to a compiler-generated field
+      if (this.CalcMoveTargetAI(implCAnonStorey248.self, implCAnonStorey248.forceAI))
+      {
+        this.mSkillMap.useSkillNum = 0;
+        this.mSkillMap.NextAction(true);
         return true;
-      this.CommandWait();
+      }
+      this.CommandWait(false);
       return false;
     }
 
@@ -7615,23 +9961,12 @@ label_16:
       return movmap;
     }
 
-    private void UpdateMoveMap(Unit self)
-    {
-      this.UpdateMoveMap(self, this.mMoveMap);
-    }
-
-    private void UpdateMoveMap(Unit self, GridMap<int> movmap)
-    {
-      int movcount = self.IsUnitFlag(EUnitFlag.Moved) ? 0 : self.GetMoveCount(false);
-      this.UpdateMoveMap(self, movmap, movcount);
-    }
-
     private void UpdateMoveMap(Unit self, GridMap<int> movmap, int movcount)
     {
       movmap.fill(-1);
       BattleMap currentMap = this.CurrentMap;
       Grid target = currentMap[self.x, self.y];
-      currentMap.CalcMoveSteps(self, target);
+      currentMap.CalcMoveSteps(self, target, false);
       int num = movcount;
       for (int index1 = -num; index1 <= num; ++index1)
       {
@@ -7651,6 +9986,17 @@ label_16:
       }
     }
 
+    private void UpdateMoveMap(Unit self)
+    {
+      this.UpdateMoveMap(self, this.mMoveMap);
+    }
+
+    private void UpdateMoveMap(Unit self, GridMap<int> movmap)
+    {
+      int movcount = self.IsUnitFlag(EUnitFlag.Moved) ? 0 : self.GetMoveCount(false);
+      this.UpdateMoveMap(self, movmap, movcount);
+    }
+
     private void UpdateSafeMap(Unit self)
     {
       BattleMap currentMap = this.CurrentMap;
@@ -7664,7 +10010,7 @@ label_16:
           Grid self_grid;
           Grid target_grid;
           this.FindNearGridAndDistance(self, mUnit, out self_grid, out target_grid);
-          if (currentMap.CalcMoveSteps(self, target_grid))
+          if (currentMap.CalcMoveSteps(self, target_grid, false))
           {
             for (int index2 = -num; index2 <= num; ++index2)
             {
@@ -7683,21 +10029,1405 @@ label_16:
           }
         }
       }
-    }
-
-    private int GetCurrentEnemyNum(Unit self)
-    {
-      int num = 0;
+      this.mSafeMapEx.fill((int) byte.MaxValue);
       for (int index = 0; index < this.mUnits.Count; ++index)
       {
         Unit mUnit = this.mUnits[index];
-        if (!mUnit.IsDead && mUnit.IsEntry && (!mUnit.IsGimmick && !mUnit.IsSub) && (mUnit != self && this.CheckEnemySide(self, mUnit)))
-          ++num;
+        if (!mUnit.IsGimmick && !mUnit.IsDeadCondition() && (!mUnit.IsSub && mUnit.IsEntry) && this.CheckEnemySide(self, mUnit))
+        {
+          Grid target = currentMap[mUnit.x, mUnit.y];
+          currentMap.CalcMoveSteps(mUnit, target, false);
+          for (int y = 0; y < currentMap.Height; ++y)
+          {
+            for (int x = 0; x < currentMap.Width; ++x)
+            {
+              Grid grid = currentMap[x, y];
+              if (grid != null && (int) grid.step != (int) sbyte.MaxValue && (int) grid.step < this.mSafeMapEx.get(x, y))
+                this.mSafeMapEx.set(x, y, (int) grid.step);
+            }
+          }
+          if (mUnit.CastSkill != null && mUnit.UnitTarget != self)
+          {
+            SkillData castSkill = mUnit.CastSkill;
+            if (!castSkill.IsAllEffect() && !castSkill.IsHealSkill())
+            {
+              GridMap<bool> castSkillGridMap = mUnit.CastSkillGridMap;
+              if (castSkillGridMap != null)
+              {
+                for (int y = 0; y < castSkillGridMap.h; ++y)
+                {
+                  for (int x = 0; x < castSkillGridMap.w; ++x)
+                  {
+                    if (castSkillGridMap.get(x, y))
+                      this.mSafeMapEx.set(x, y, -1);
+                  }
+                }
+              }
+            }
+          }
+        }
       }
-      return num;
+      List<IntVector2> intVector2List = new List<IntVector2>();
+      for (int index1 = 0; index1 < this.mSafeMapEx.h; ++index1)
+      {
+        for (int index2 = 0; index2 < this.mSafeMapEx.w; ++index2)
+        {
+          if (this.mSafeMapEx.get(index2, index1) == (int) byte.MaxValue)
+            intVector2List.Add(new IntVector2(index2, index1));
+        }
+      }
+      for (int index1 = 0; index1 < this.mUnits.Count; ++index1)
+      {
+        Unit mUnit = this.mUnits[index1];
+        if (!mUnit.IsGimmick && !mUnit.IsDeadCondition() && (!mUnit.IsSub && mUnit.IsEntry) && this.CheckEnemySide(self, mUnit))
+        {
+          Grid target = currentMap[mUnit.x, mUnit.y];
+          currentMap.CalcMoveSteps(mUnit, target, true);
+          for (int index2 = 0; index2 < intVector2List.Count; ++index2)
+          {
+            IntVector2 intVector2 = intVector2List[index2];
+            Grid grid = currentMap[intVector2.x, intVector2.y];
+            if (grid != null && (int) grid.step != (int) sbyte.MaxValue && this.mSafeMapEx.get(intVector2.x, intVector2.y) > (int) grid.step)
+              this.mSafeMapEx.set(intVector2.x, intVector2.y, (int) grid.step);
+          }
+        }
+      }
     }
 
-    private List<Grid> GetEnableMoveGridList(Unit self, bool is_move = true, bool is_friendlyfire = true, bool is_sneaked = false, bool is_treasure = false)
+    private Grid GetSafePositionAI(Unit self)
+    {
+      int currentEnemyNum = this.GetCurrentEnemyNum(self);
+      if (currentEnemyNum == 0)
+        return (Grid) null;
+      BattleMap currentMap = this.CurrentMap;
+      if ((self.IsUnitFlag(EUnitFlag.Moved) ? 0 : self.GetMoveCount(false)) == 0)
+        return (Grid) null;
+      bool flag = self.AI != null && self.AI.CheckFlag(AIFlags.CastSkillFriendlyFire);
+      Grid start = currentMap[self.x, self.y];
+      Grid goal = currentMap[self.x, self.y];
+      int num1 = Math.Max(this.mSafeMap.get(start.x, start.y) + (self.AI == null ? 0 : (int) self.AI.safe_border * currentEnemyNum), 0);
+      for (int x = 0; x < this.mSafeMap.w; ++x)
+      {
+        for (int y = 0; y < this.mSafeMap.h; ++y)
+        {
+          if (this.mMoveMap.get(x, y) >= 0 && this.mSafeMap.get(x, y) >= num1)
+          {
+            Grid grid = currentMap[x, y];
+            if ((!flag || !this.CheckFriendlyFireOnGridMap(self, grid)) && this.CheckMove(self, grid))
+            {
+              if (goal != null)
+              {
+                int num2 = this.CalcGridDistance(start, goal);
+                if (this.CalcGridDistance(start, grid) < num2)
+                  goal = grid;
+              }
+              else
+                goal = grid;
+            }
+          }
+        }
+      }
+      return goal;
+    }
+
+    private bool GetSafePositionEx(Unit self, GridMap<bool> rangeMap, ref BattleCore.SVector2 result)
+    {
+      int num1 = int.MinValue;
+      bool flag = false;
+      for (int x = 0; x < rangeMap.w; ++x)
+      {
+        for (int y = 0; y < rangeMap.h; ++y)
+        {
+          if (rangeMap.get(x, y))
+          {
+            int num2 = this.mSafeMapEx.get(x, y);
+            if (num2 != (int) byte.MaxValue && num2 > num1)
+            {
+              num1 = num2;
+              result.x = x;
+              result.y = y;
+              flag = true;
+            }
+          }
+        }
+      }
+      return flag;
+    }
+
+    private bool GetSafePositionEx(Unit self, List<Grid> move_targets, ref Grid result)
+    {
+      int num1 = int.MinValue;
+      bool flag = false;
+      BattleMap currentMap = this.CurrentMap;
+      for (int index = 0; index < move_targets.Count; ++index)
+      {
+        Grid moveTarget = move_targets[index];
+        if (currentMap.CheckEnableMove(self, moveTarget, false, false))
+        {
+          int num2 = this.mSafeMapEx.get(moveTarget.x, moveTarget.y);
+          if (num2 != (int) byte.MaxValue && num2 > num1)
+          {
+            num1 = num2;
+            result = moveTarget;
+            flag = true;
+          }
+        }
+      }
+      return flag;
+    }
+
+    private int GetSafeValue(Unit self, Grid target)
+    {
+      int num1 = this.mSafeMapEx.get(target.x, target.y);
+      int num2 = 1;
+      BattleMap currentMap = this.CurrentMap;
+      Grid[] gridArray = new Grid[4]{ currentMap[target.x - 1, target.y], currentMap[target.x + 1, target.y], currentMap[target.x, target.y + 1], currentMap[target.x, target.y - 1] };
+      foreach (Grid grid in gridArray)
+      {
+        if (grid != null && currentMap.CheckEnableMove(self, grid, false, false))
+        {
+          ++num2;
+          num1 += this.mSafeMapEx.get(grid.x, grid.y);
+        }
+      }
+      return num1 * 10 / num2;
+    }
+
+    public void InitSkillMap(Unit self)
+    {
+      this.mSkillMap.Clear();
+      this.mSkillMap.owner = self;
+      this.mSkillMap.skillSeed = this.mRand.GetSeed();
+      this.mSkillMap.SetAction(self.GetCurrentAIAction());
+      List<AbilityData> battleAbilitys = self.BattleAbilitys;
+      for (int index1 = 0; index1 < battleAbilitys.Count; ++index1)
+      {
+        AbilityData abilityData = battleAbilitys[index1];
+        if (abilityData != null)
+        {
+          for (int index2 = 0; index2 < abilityData.Skills.Count; ++index2)
+            this.mSkillMap.allSkills.Add(abilityData.Skills[index2]);
+        }
+      }
+      if (self.GetAttackSkill() != null)
+        this.mSkillMap.allSkills.Add(self.GetAttackSkill());
+      if (self.AIForceSkill != null)
+        this.mSkillMap.allSkills.Add(self.AIForceSkill);
+      this.RefreshUseSkillMap(self);
+    }
+
+    private void UpdateSkillMap(Unit self, List<SkillData> skills)
+    {
+      this.mSkillMap.Reset();
+      BattleMap currentMap = this.CurrentMap;
+      IntVector2 intVector2 = new IntVector2(self.x, self.y);
+      for (int index1 = 0; index1 < skills.Count; ++index1)
+      {
+        SkillData skillData = (SkillData) null;
+        for (int index2 = 0; index2 < this.mSkillMap.allSkills.Count; ++index2)
+        {
+          if (this.mSkillMap.allSkills[index2].SkillID == skills[index1].SkillID)
+          {
+            skillData = this.mSkillMap.allSkills[index2];
+            break;
+          }
+        }
+        if (skillData != null)
+        {
+          if (self.Gems >= self.GetSkillUsedCost(skillData) && this.mSkillMap.attackHeight < skillData.EnableAttackGridHeight)
+            this.mSkillMap.attackHeight = skillData.EnableAttackGridHeight;
+          this.mSkillMap.Add(new SkillMap.Data(skillData));
+        }
+      }
+      this.SetBattleFlag(EBattleFlag.ComputeAI, true);
+      List<SkillMap.Data> list = this.mSkillMap.list;
+      bool is_friendlyfire = self.AI != null && self.AI.CheckFlag(AIFlags.CastSkillFriendlyFire);
+      List<Grid> enableMoveGridList = this.GetEnableMoveGridList(self, true, is_friendlyfire, false, true, false);
+      for (int index1 = 0; index1 < enableMoveGridList.Count; ++index1)
+      {
+        Grid grid = enableMoveGridList[index1];
+        if (currentMap.CheckEnableMove(self, grid, false, false))
+        {
+          self.x = grid.x;
+          self.y = grid.y;
+          self.RefleshMomentBuff(false, -1, -1);
+          for (int index2 = 0; index2 < list.Count; ++index2)
+          {
+            SkillMap.Data data = list[index2];
+            SkillData skill = data.skill;
+            SkillMap.Target range = new SkillMap.Target();
+            range.pos = new IntVector2(self.x, self.y);
+            range.scores = new Dictionary<int, SkillMap.Score>();
+            GridMap<bool> gridMap = (GridMap<bool>) null;
+            if (skill.TeleportType != eTeleportType.AfterSkill)
+            {
+              if (skill.SkillParam.select_scope == ESelectType.All || skill.SkillParam.target == ESkillTarget.Self)
+              {
+                if (intVector2.x == self.x && intVector2.y == self.y || this.mTrickMap.IsGoodData(self.x, self.y))
+                  gridMap = (GridMap<bool>) null;
+                else
+                  continue;
+              }
+              else
+                gridMap = this.CreateSelectGridMapAI(self, self.x, self.y, skill);
+            }
+            if (gridMap == null)
+            {
+              SkillMap.Score score = new SkillMap.Score(self.x, self.y, currentMap.Width, currentMap.Height);
+              if (this.SetupSkillMapScore(self, grid, skill, score))
+                range.Add(score);
+            }
+            else
+            {
+              for (int index3 = 0; index3 < gridMap.w; ++index3)
+              {
+                for (int index4 = 0; index4 < gridMap.h; ++index4)
+                {
+                  if (gridMap.get(index3, index4))
+                  {
+                    SkillMap.Score score = new SkillMap.Score(index3, index4, currentMap.Width, currentMap.Height);
+                    if (this.SetupSkillMapScore(self, grid, skill, score))
+                      range.Add(score);
+                  }
+                }
+              }
+            }
+            data.Add(range);
+          }
+        }
+      }
+      self.x = intVector2.x;
+      self.y = intVector2.y;
+      self.RefleshMomentBuff(false, -1, -1);
+      this.SetBattleFlag(EBattleFlag.ComputeAI, false);
+    }
+
+    private bool SetupSkillMapScore(Unit self, Grid goal, SkillData skill, SkillMap.Score score)
+    {
+      BattleMap currentMap = this.CurrentMap;
+      int x1 = score.pos.x;
+      int y1 = score.pos.y;
+      BattleCore.ShotTarget shot = (BattleCore.ShotTarget) null;
+      List<Unit> targets = new List<Unit>();
+      this.GetExecuteSkillLineTarget(self, x1, y1, skill, ref targets, ref shot);
+      if (skill.IsAreaSkill())
+      {
+        for (int y2 = 0; y2 < this.mScopeMap.h; ++y2)
+        {
+          for (int x2 = 0; x2 < this.mScopeMap.w; ++x2)
+          {
+            if (this.mScopeMap.get(x2, y2))
+              score.range.Set(x2, y2);
+          }
+        }
+      }
+      else
+        score.range.Set(x1, y1);
+      if (!skill.IsTrickSkill())
+      {
+        for (int index = 0; index < targets.Count; ++index)
+        {
+          Unit target = targets[index];
+          if (target != null && target.IsBreakObj && !this.IsTargetBreakUnitAI(self, target))
+          {
+            targets.RemoveAt(index);
+            --index;
+          }
+        }
+        if (targets.Count > 0)
+        {
+          this.SetBattleFlag(EBattleFlag.PredictResult, true);
+          this.mRandDamage.Seed(this.mSeedDamage);
+          this.CurrentRand = this.mRandDamage;
+          LogSkill log = new LogSkill();
+          log.self = self;
+          log.skill = skill;
+          log.pos.x = x1;
+          log.pos.y = y1;
+          log.reflect = (LogSkill.Reflection) null;
+          for (int index = 0; index < targets.Count; ++index)
+            log.SetSkillTarget(self, targets[index]);
+          if (shot != null)
+          {
+            log.pos.x = shot.end.x;
+            log.pos.y = shot.end.y;
+            log.rad = (int) (shot.rad * 100.0);
+            log.height = (int) (shot.height * 100.0);
+          }
+          this.ExecuteSkill(ESkillTiming.Used, log, skill);
+          self.x = goal.x;
+          self.y = goal.y;
+          this.CurrentRand = this.mRand;
+          self.SetUnitFlag(EUnitFlag.SideAttack, false);
+          self.SetUnitFlag(EUnitFlag.BackAttack, false);
+          this.SetBattleFlag(EBattleFlag.PredictResult, false);
+          if (skill.TeleportType != eTeleportType.None && (log.TeleportGrid == null || !currentMap.CheckEnableMove(self, log.TeleportGrid, false, false)))
+            return false;
+          score.log = log;
+        }
+      }
+      return true;
+    }
+
+    public BattleCore.SkillResult GetSkillResult(BattleCore.AiCache cache, Unit self, SkillData skill, SkillMap.Score score)
+    {
+      BattleCore.SkillResult skillResult = (BattleCore.SkillResult) null;
+      if (this.IsEnableUseSkillEffect(self, skill, score.log))
+      {
+        LogSkill log = score.log;
+        skillResult = new BattleCore.SkillResult();
+        skillResult.skill = skill;
+        skillResult.movpos = cache.map[self.x, self.y];
+        skillResult.usepos = cache.map[score.pos.x, score.pos.y];
+        skillResult.locked = this.FindUnitAtGrid(skillResult.usepos) != null;
+        skillResult.cond_prio = cache.cond_prio;
+        skillResult.cost_jewel = cache.cost_jewel;
+        skillResult.buff_prio = (int) byte.MaxValue;
+        skillResult.buff_dup = (int) byte.MaxValue;
+        if (log != null)
+        {
+          skillResult.log = log;
+          skillResult.heal = log.GetTruthTotalHpHeal();
+          skillResult.heal_num = log.GetTruthTotalHpHealCount();
+          skillResult.cure_num = log.GetTotalCureConditionCount();
+          skillResult.fail_num = log.GetTotalFailConditionCount();
+          skillResult.disable_num = log.GetTotalDisableConditionCount();
+          skillResult.gain_jewel = log.GetGainJewel();
+          if (this.isKnockBack(skill))
+          {
+            for (int index = 0; index < log.targets.Count; ++index)
+            {
+              LogSkill.Target target1 = log.targets[index];
+              Unit target2 = target1.target;
+              if (!this.IsFailTrickData(target2, target2.x, target2.y))
+              {
+                Grid knockBackGrid = target1.KnockBackGrid;
+                if (knockBackGrid != null)
+                {
+                  if (this.IsGoodTrickData(target2, target2.x, target2.y) && !this.IsGoodTrickData(target2, knockBackGrid.x, knockBackGrid.y))
+                    ++skillResult.nockback_prio;
+                  if (this.IsFailTrickData(target2, knockBackGrid.x, knockBackGrid.y))
+                    ++skillResult.nockback_prio;
+                }
+              }
+            }
+          }
+          for (int index = 0; index < log.targets.Count; ++index)
+          {
+            LogSkill.Target target1 = log.targets[index];
+            Unit target2 = target1.target;
+            int totalHpDamage = target1.GetTotalHpDamage();
+            if (target2.IsBreakObj)
+            {
+              skillResult.ext_damage += Math.Max(Math.Min(totalHpDamage, (int) target2.CurrentStatus.param.hp), 0);
+              skillResult.ext_dead_num += totalHpDamage <= (int) target2.CurrentStatus.param.hp ? 0 : 1;
+            }
+            else
+            {
+              skillResult.unit_damage_t += totalHpDamage;
+              skillResult.unit_damage += Math.Max(Math.Min(totalHpDamage, (int) target2.CurrentStatus.param.hp), 0);
+              skillResult.unit_dead_num += totalHpDamage <= (int) target2.CurrentStatus.param.hp ? 0 : 1;
+            }
+            int buffPriority = target2.GetBuffPriority(skill, SkillEffectTargets.Target);
+            skillResult.buff_prio = Math.Max(Math.Min(buffPriority, skillResult.buff_prio), 0);
+          }
+          log.GetTotalBuffEffect(out skillResult.buff_num, out skillResult.buff);
+          if (skill.DuplicateCount > 1)
+          {
+            for (int index = 0; index < log.targets.Count; ++index)
+            {
+              int val2 = 0;
+              if (log.targets[index].target.BuffAttachments.Count > 0)
+              {
+                using (List<BuffAttachment>.Enumerator enumerator = log.targets[index].target.BuffAttachments.GetEnumerator())
+                {
+                  while (enumerator.MoveNext())
+                  {
+                    BuffAttachment current = enumerator.Current;
+                    if (current.skill != null && current.skill.SkillID == skill.SkillID)
+                      ++val2;
+                  }
+                }
+              }
+              skillResult.buff_dup = Math.Min(skillResult.buff_dup, val2);
+            }
+          }
+        }
+        if (skillResult.buff_prio == (int) byte.MaxValue)
+          skillResult.buff_prio = self.GetBuffPriority(skill, SkillEffectTargets.Self);
+        if (skill.TeleportType == eTeleportType.BeforeSkill && !skill.IsTargetTeleport && (cache.baseRangeMap != null && cache.baseRangeMap.get(skillResult.usepos.x, skillResult.usepos.y)))
+          skillResult.movpos = cache.map[cache.pos.x, cache.pos.y];
+        skillResult.distance = this.CalcGridDistance(skillResult.usepos, skillResult.movpos);
+        skillResult.score_prio = score.priority;
+        skillResult.fail_trick = this.GetFailTrickPriority(self, skillResult.movpos);
+        skillResult.good_trick = this.GetGoodTrickPriority(self, skillResult.movpos, ref skillResult.heal_trick);
+        skillResult.unit_prio = this.GetSkillTargetsHighestPriority(self, skill, log);
+        skillResult.ct = 0;
+        if (self.x != cache.pos.x || self.y != cache.pos.y)
+          skillResult.ct -= (int) cache.fixparam.ChargeTimeDecMove;
+        skillResult.ct -= (int) cache.fixparam.ChargeTimeDecWait;
+        skillResult.ct -= (int) cache.fixparam.ChargeTimeDecAction;
+        if (skill.TeleportType == eTeleportType.AfterSkill)
+        {
+          GridMap<bool> selectGridMapAi = this.CreateSelectGridMapAI(self, self.x, self.y, skill);
+          BattleCore.SVector2 result = new BattleCore.SVector2(skillResult.movpos.x, skillResult.movpos.y);
+          this.GetSafePositionEx(self, selectGridMapAi, ref result);
+          skillResult.usepos = cache.map[result.x, result.y];
+          skillResult.locked = false;
+          skillResult.distance = this.CalcGridDistance(skillResult.usepos, skillResult.movpos);
+        }
+        if (skill.IsTargetTeleport)
+        {
+          Grid teleportGrid = log.TeleportGrid;
+          if (teleportGrid != null)
+            skillResult.teleport = this.GetSafeValue(self, teleportGrid);
+        }
+      }
+      return skillResult;
+    }
+
+    public void SortSkillResult(Unit self, List<BattleCore.SkillResult> results)
+    {
+      // ISSUE: object of a compiler-generated type is created
+      // ISSUE: variable of a compiler-generated type
+      BattleCore.\u003CSortSkillResult\u003Ec__AnonStorey24A resultCAnonStorey24A = new BattleCore.\u003CSortSkillResult\u003Ec__AnonStorey24A();
+      // ISSUE: reference to a compiler-generated field
+      resultCAnonStorey24A.self = self;
+      // ISSUE: reference to a compiler-generated field
+      // ISSUE: reference to a compiler-generated field
+      // ISSUE: reference to a compiler-generated field
+      resultCAnonStorey24A.bPositioning = resultCAnonStorey24A.self.AI != null && resultCAnonStorey24A.self.AI.CheckFlag(AIFlags.Positioning);
+      // ISSUE: reference to a compiler-generated method
+      MySort<BattleCore.SkillResult>.Sort(results, new Comparison<BattleCore.SkillResult>(resultCAnonStorey24A.\u003C\u003Em__1C8));
+    }
+
+    private void RefreshUseSkillMap(Unit self)
+    {
+      AIParam ai = self.AI;
+      bool flag1 = true;
+      if (!self.IsEnableSkillCondition(false) || this.CheckDisableAbilities(self))
+        flag1 = false;
+      if (this.mQuestParam.CheckAllowedAutoBattle() && self.IsEnableAutoMode() && GameUtility.Config_AutoMode_DisableSkill.Value)
+        flag1 = false;
+      if (ai != null && ai.CheckFlag(AIFlags.DisableSkill))
+        flag1 = false;
+      if (flag1)
+      {
+        int gems = this.GetGems(self);
+        bool flag2 = true;
+        if (self.IsAIActionTable())
+        {
+          AIAction action = this.mSkillMap.GetAction();
+          flag2 = action != null && (int) action.type == 2;
+        }
+        if (flag2)
+        {
+          if (gems >= (int) ai.gems_border)
+          {
+            for (int index = 0; index < self.BattleSkills.Count; ++index)
+              this.EntryUseSkill(self, self.BattleSkills[index], false);
+          }
+          this.EntryUseSkill(self, self.AIForceSkill, true);
+        }
+      }
+      this.EntryUseSkill(self, self.GetAttackSkill(), this.mSkillMap.forceSkillList.Count > 0);
+      List<List<SkillData>> useSkillLists = this.mSkillMap.useSkillLists;
+      if (ai != null && ai.SkillCategoryPriorities != null)
+      {
+        for (int index1 = 0; index1 < ai.SkillCategoryPriorities.Length; ++index1)
+        {
+          List<SkillData> skillDataList = (List<SkillData>) null;
+          switch (ai.SkillCategoryPriorities[index1])
+          {
+            case SkillCategory.Damage:
+              skillDataList = this.mSkillMap.damageSkills;
+              goto default;
+            case SkillCategory.Heal:
+              if (this.GetHealUnitCount(self) != 0)
+              {
+                skillDataList = this.mSkillMap.healSkills;
+                goto default;
+              }
+              else
+                goto default;
+            case SkillCategory.Support:
+              if (ai.CheckFlag(AIFlags.SelfBuffOnly))
+              {
+                bool flag2 = false;
+                for (int index2 = 0; index2 < self.BuffAttachments.Count; ++index2)
+                {
+                  if (!(bool) self.BuffAttachments[index2].IsPassive && self.BuffAttachments[index2].BuffType == BuffTypes.Buff && self.BuffAttachments[index2].user == self)
+                  {
+                    flag2 = true;
+                    break;
+                  }
+                }
+                if (flag2)
+                  break;
+              }
+              skillDataList = this.mSkillMap.supportSkills;
+              goto default;
+            case SkillCategory.CureCondition:
+              skillDataList = this.mSkillMap.cureConditionSkills;
+              goto default;
+            case SkillCategory.FailCondition:
+              skillDataList = this.mSkillMap.failConditionSkills;
+              goto default;
+            case SkillCategory.DisableCondition:
+              skillDataList = this.mSkillMap.disableConditionSkills;
+              goto default;
+            default:
+              if (skillDataList == null || !useSkillLists.Contains(skillDataList))
+              {
+                if (skillDataList == null)
+                {
+                  useSkillLists.Add(new List<SkillData>());
+                  break;
+                }
+                useSkillLists.Add(skillDataList);
+                break;
+              }
+              break;
+          }
+        }
+        if (this.mSkillMap.exeSkills.Count <= 0)
+          return;
+        useSkillLists.Add(this.mSkillMap.exeSkills);
+      }
+      else
+        useSkillLists.Add(this.mSkillMap.damageSkills);
+    }
+
+    private bool EntryUseSkill(Unit self, SkillData skill, bool forced = false)
+    {
+      if (skill == null || skill.SkillType != ESkillType.Attack && skill.SkillType != ESkillType.Skill && skill.SkillType != ESkillType.Item || (skill.Timing != ESkillTiming.Used || skill.EffectType == SkillEffectTypes.Throw || (skill.IsSetBreakObjSkill() || !this.CheckEnableUseSkill(self, skill, false))))
+        return false;
+      if (forced)
+      {
+        this.mSkillMap.forceSkillList.Add(skill);
+        return true;
+      }
+      if (!this.CheckUseSkill(self, skill))
+        return false;
+      List<SkillData> skillDataList = (List<SkillData>) null;
+      if (skill.IsDamagedSkill())
+        skillDataList = this.mSkillMap.damageSkills;
+      else if (skill.IsHealSkill())
+        skillDataList = this.mSkillMap.healSkills;
+      else if (skill.IsSupportSkill())
+        skillDataList = this.mSkillMap.supportSkills;
+      else if (skill.EffectType == SkillEffectTypes.CureCondition)
+        skillDataList = this.mSkillMap.cureConditionSkills;
+      else if (skill.EffectType == SkillEffectTypes.FailCondition)
+        skillDataList = this.mSkillMap.failConditionSkills;
+      else if (skill.EffectType == SkillEffectTypes.DisableCondition)
+        skillDataList = this.mSkillMap.disableConditionSkills;
+      else if (skill.TeleportType != eTeleportType.None)
+        skillDataList = this.mSkillMap.exeSkills;
+      if (skillDataList == null)
+        return false;
+      skillDataList.Add(skill);
+      return true;
+    }
+
+    private bool CheckUseSkill(Unit self, SkillData skill)
+    {
+      if (this.QuestType == QuestTypes.Arena)
+        return (int) (this.GetRandom() % 100U) >= (int) skill.SkillParam.rate;
+      if (skill.IsNormalAttack())
+        return true;
+      if (skill.IsDamagedSkill())
+      {
+        if (skill.IsJewelAttack() && self.AI != null && self.AI.CheckFlag(AIFlags.DisableJewelAttack))
+          return false;
+      }
+      else
+      {
+        if (self.GetRageTarget() != null)
+          return false;
+        bool flag1 = false;
+        if (!skill.IsHealSkill())
+        {
+          if (skill.IsSupportSkill())
+            flag1 = true;
+          else if (!skill.IsTrickSkill())
+          {
+            if (skill.EffectType == SkillEffectTypes.CureCondition)
+            {
+              CondEffect condEffect = skill.GetCondEffect(SkillEffectTargets.Target);
+              if (condEffect == null || condEffect.param == null || (condEffect.param.conditions == null || condEffect.param.type != ConditionEffectTypes.CureCondition))
+                return false;
+              bool flag2 = false;
+              for (int index = 0; index < condEffect.param.conditions.Length; ++index)
+              {
+                if (this.GetFailCondSelfSideUnitCount(self, condEffect.param.conditions[index]) != 0)
+                {
+                  flag2 = true;
+                  break;
+                }
+              }
+              if (!flag2)
+                return false;
+            }
+            else if (skill.EffectType != SkillEffectTypes.FailCondition && skill.EffectType == SkillEffectTypes.DisableCondition)
+            {
+              CondEffect condEffect = skill.GetCondEffect(SkillEffectTargets.Target);
+              if (condEffect == null || condEffect.param == null || (condEffect.param.conditions == null || condEffect.param.type != ConditionEffectTypes.DisableCondition))
+                return false;
+              bool flag2 = false;
+              for (int index = 0; index < condEffect.param.conditions.Length; ++index)
+              {
+                EUnitCondition condition = condEffect.param.conditions[index];
+                if (this.IsFailCondSkillUseEnemies(self, condition))
+                {
+                  flag2 = true;
+                  break;
+                }
+              }
+              if (!flag2)
+                return false;
+            }
+          }
+        }
+        if (flag1)
+        {
+          bool flag2 = false;
+          bool flag3 = true;
+          if ((int) self.AI.DisableSupportActionHpBorder != 0)
+          {
+            int num = (int) self.MaximumStatus.param.hp == 0 ? 100 : 100 * (int) self.CurrentStatus.param.hp / (int) self.MaximumStatus.param.hp;
+            flag2 = true;
+            flag3 &= (int) self.AI.DisableSupportActionHpBorder >= num;
+          }
+          if ((int) self.AI.DisableSupportActionMemberBorder != 0)
+          {
+            int aliveUnitCount = this.GetAliveUnitCount(self);
+            flag2 = true;
+            flag3 &= (int) self.AI.DisableSupportActionMemberBorder >= aliveUnitCount;
+          }
+          if (flag2 && flag3)
+            return false;
+        }
+      }
+      if (self.IsPartyMember)
+        return (int) (this.GetRandom() % 100U) >= (int) skill.SkillParam.rate;
+      return (skill.UseCondition == null || skill.UseCondition.type == 0 || skill.UseCondition.unlock) && (int) (this.GetRandom() % 100U) < (int) skill.UseRate;
+    }
+
+    public bool CalcUseActionAI(Unit self, AIAction action, Func<List<BattleCore.SkillResult>, bool> useskill)
+    {
+      if (action == null)
+        return false;
+      List<SkillData> skills = (List<SkillData>) null;
+      if (string.IsNullOrEmpty((string) action.skill))
+      {
+        switch ((int) action.type)
+        {
+          case 1:
+            SkillData attackSkill = self.GetAttackSkill();
+            if (attackSkill != null && this.CheckEnableUseSkill(self, attackSkill, false))
+            {
+              skills = new List<SkillData>();
+              skills.Add(attackSkill);
+              break;
+            }
+            break;
+          case 2:
+            break;
+          default:
+            this.CommandWait(false);
+            this.mSkillMap.NextAction(false);
+            return false;
+        }
+      }
+      else
+      {
+        bool flag = true;
+        if (action.cond != null)
+          flag = action.cond.unlock;
+        if (flag)
+        {
+          SkillData skill = self.BattleSkills.Find((Predicate<SkillData>) (p => p.SkillID == (string) action.skill));
+          if (this.CheckEnableUseSkill(self, skill, false))
+          {
+            skills = new List<SkillData>();
+            skills.Add(skill);
+          }
+        }
+      }
+      return skills != null && this.CalcUseSkillsAI(self, skills, useskill);
+    }
+
+    public bool CalcUseSkillsAI(Unit self, List<SkillData> skills, Func<List<BattleCore.SkillResult>, bool> useskill)
+    {
+      if (skills.Count == 0)
+        return false;
+      this.UpdateSkillMap(self, skills);
+      BattleCore.mSkillResults.Clear();
+      for (int index = 0; index < skills.Count; ++index)
+      {
+        if (skills[index] != null)
+          this.GetUsedSkillResultAllEx(self, skills[index], BattleCore.mSkillResults);
+      }
+      return BattleCore.mSkillResults.Count > 0 && useskill(BattleCore.mSkillResults);
+    }
+
+    private bool UseSkillAI(Unit self, BattleCore.SkillResult result, bool forceAI)
+    {
+      if (self == null || result == null)
+        return false;
+      if ((self.x != result.movpos.x || self.y != result.movpos.y) && this.Move(self, result.movpos, forceAI))
+        return true;
+      bool bUnitLockTarget = false;
+      if (result.skill.IsCastSkill() && result.skill.IsEnableUnitLockTarget())
+      {
+        if (result.skill.IsAreaSkill())
+        {
+          if (result.skill.Target != ESkillTarget.UnitAll && result.skill.Target != ESkillTarget.NotSelf)
+            bUnitLockTarget = result.locked;
+        }
+        else
+          bUnitLockTarget = result.locked;
+      }
+      return this.UseSkill(self, result.usepos.x, result.usepos.y, result.skill, bUnitLockTarget, 0, 0, false);
+    }
+
+    public bool CheckFriendlyFireOnGridMap(Unit self, Grid grid)
+    {
+      for (int index = 0; index < this.Units.Count; ++index)
+      {
+        Unit unit = this.Units[index];
+        if (unit.CastSkill != null && !unit.CastSkill.IsAllEffect() && (unit.UnitTarget != self && unit.CastSkill.IsDamagedSkill()) && (this.CheckSkillTarget(unit, self, unit.CastSkill) && unit.CastSkillGridMap != null && unit.CastSkillGridMap.get(grid.x, grid.y)))
+          return true;
+      }
+      return false;
+    }
+
+    private bool CheckSkillTargetAI(Unit self, Unit target, SkillData skill)
+    {
+      if (!this.CheckSkillTarget(self, target, skill))
+        return false;
+      if (skill.Target == ESkillTarget.UnitAll || skill.Target == ESkillTarget.NotSelf)
+      {
+        switch (skill.EffectType)
+        {
+          case SkillEffectTypes.Heal:
+          case SkillEffectTypes.Buff:
+          case SkillEffectTypes.Revive:
+          case SkillEffectTypes.Shield:
+          case SkillEffectTypes.CureCondition:
+          case SkillEffectTypes.GemsGift:
+          case SkillEffectTypes.Guard:
+          case SkillEffectTypes.RateHeal:
+            return !this.CheckEnemySide(self, target);
+          case SkillEffectTypes.GemsIncDec:
+            if ((int) skill.EffectValue > 0)
+              return !this.CheckEnemySide(self, target);
+            return this.CheckEnemySide(self, target);
+          case SkillEffectTypes.Teleport:
+          case SkillEffectTypes.Changing:
+          case SkillEffectTypes.Throw:
+            break;
+          default:
+            return this.CheckEnemySide(self, target);
+        }
+      }
+      return true;
+    }
+
+    private void GetUsedSkillResultAllEx(Unit self, SkillData skill, List<BattleCore.SkillResult> results)
+    {
+      if (skill == null || results == null)
+        return;
+      bool flag = !self.IsUnitFlag(EUnitFlag.Moved);
+      if (skill.TeleportType == eTeleportType.Only)
+      {
+        if (flag)
+          return;
+        this.GetUsedTeleportSkillResult(self, skill, results);
+      }
+      else
+      {
+        BattleCore.AiCache cache = new BattleCore.AiCache();
+        cache.map = this.CurrentMap;
+        cache.fixparam = MonoSingleton<GameManager>.GetInstanceDirect().MasterParam.FixParam;
+        cache.cost_jewel = self.GetSkillUsedCost(skill);
+        cache.cond_prio = self.GetConditionPriority(skill, SkillEffectTargets.Target);
+        cache.pos = new BattleCore.SVector2(self.x, self.y);
+        cache.baseRangeMap = (GridMap<bool>) null;
+        if (skill.TeleportType != eTeleportType.None)
+          cache.baseRangeMap = this.CreateSelectGridMapAI(self, self.x, self.y, skill);
+        if (self.IsUnitFlag(EUnitFlag.Escaped) && !skill.IsHealSkill())
+          flag = false;
+        SkillMap.Data data = this.mSkillMap.Get(skill);
+        if (data == null)
+          return;
+        using (Dictionary<int, SkillMap.Target>.ValueCollection.Enumerator enumerator1 = data.targets.Values.GetEnumerator())
+        {
+          while (enumerator1.MoveNext())
+          {
+            SkillMap.Target current1 = enumerator1.Current;
+            if (flag || cache.pos.x == current1.pos.x && cache.pos.y == current1.pos.y)
+            {
+              self.x = current1.pos.x;
+              self.y = current1.pos.y;
+              if (this.IsUseSkillCollabo(self, skill))
+              {
+                using (Dictionary<int, SkillMap.Score>.ValueCollection.Enumerator enumerator2 = current1.scores.Values.GetEnumerator())
+                {
+                  while (enumerator2.MoveNext())
+                  {
+                    SkillMap.Score current2 = enumerator2.Current;
+                    if (current2.log != null)
+                    {
+                      BattleCore.SkillResult skillResult = this.GetSkillResult(cache, self, skill, current2);
+                      if (skillResult != null)
+                        results.Add(skillResult);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        self.x = cache.pos.x;
+        self.y = cache.pos.y;
+      }
+    }
+
+    private void GetUsedTeleportSkillResult(Unit self, SkillData skill, List<BattleCore.SkillResult> results)
+    {
+      BattleMap currentMap = this.CurrentMap;
+      GridMap<bool> selectGridMapAi = this.CreateSelectGridMapAI(self, self.x, self.y, skill);
+      List<BattleCore.SVector2> svector2List = new List<BattleCore.SVector2>();
+      for (int index1 = 0; index1 < selectGridMapAi.w; ++index1)
+      {
+        for (int index2 = 0; index2 < selectGridMapAi.h; ++index2)
+        {
+          if (selectGridMapAi.get(index1, index2))
+            svector2List.Add(new BattleCore.SVector2(index1, index2));
+        }
+      }
+      int moveCount = self.GetMoveCount(true);
+      Unit unit1 = (Unit) null;
+      int num1 = int.MaxValue;
+      BattleCore.SVector2 svector2_1 = new BattleCore.SVector2(self.x, self.y);
+      if (this.mEnemyPriorities.Count == 0)
+        this.GetEnemyPriorities(self, this.mEnemyPriorities, this.mGimmickPriorities);
+      List<Unit> mEnemyPriorities = this.mEnemyPriorities;
+      for (int index1 = 0; index1 < mEnemyPriorities.Count; ++index1)
+      {
+        Unit unit2 = mEnemyPriorities[index1];
+        Grid unitGridPosition = this.GetUnitGridPosition(unit2);
+        if (currentMap.CalcMoveSteps(self, unitGridPosition, false))
+        {
+          int step = (int) currentMap[self.x, self.y].step;
+          for (int index2 = 0; index2 < svector2List.Count; ++index2)
+          {
+            BattleCore.SVector2 svector2_2 = svector2List[index2];
+            if ((int) currentMap[svector2_2.x, svector2_2.y].step < step && step > moveCount)
+            {
+              int num2 = Math.Abs(svector2_2.y - unit2.y) + Math.Abs(svector2_2.x - unit2.x);
+              if (num1 > num2 && this.mSafeMapEx.get(svector2_2.x, svector2_2.y) > 1)
+              {
+                unit1 = unit2;
+                num1 = num2;
+                svector2_1 = svector2_2;
+              }
+            }
+          }
+        }
+      }
+      if (unit1 == null || svector2_1.x == self.x && svector2_1.y == self.y)
+        return;
+      results.Add(new BattleCore.SkillResult()
+      {
+        skill = skill,
+        movpos = this.GetUnitGridPosition(self),
+        usepos = currentMap[svector2_1.x, svector2_1.y],
+        teleport = -1
+      });
+    }
+
+    private GridMap<bool> CreateSelectGridMapAI(Unit self, int targetX, int targetY, SkillData skill)
+    {
+      GridMap<bool> rangeMap = this.CreateSelectGridMap(self, self.x, self.y, skill);
+      if (skill.TeleportType != eTeleportType.None)
+        rangeMap = this.RemoveCantMove(self, rangeMap, skill);
+      return rangeMap;
+    }
+
+    private GridMap<bool> RemoveCantMove(Unit self, GridMap<bool> rangeMap, SkillData skill)
+    {
+      BattleMap currentMap = this.CurrentMap;
+      for (int x = 0; x < rangeMap.w; ++x)
+      {
+        for (int y = 0; y < rangeMap.h; ++y)
+        {
+          if (rangeMap.get(x, y))
+            rangeMap.set(x, y, currentMap.CheckEnableMoveTeleport(self, currentMap[x, y], skill));
+        }
+      }
+      return rangeMap;
+    }
+
+    private int GetSkillTargetsHighestPriority(Unit self, SkillData skill, LogSkill log)
+    {
+      // ISSUE: object of a compiler-generated type is created
+      // ISSUE: variable of a compiler-generated type
+      BattleCore.\u003CGetSkillTargetsHighestPriority\u003Ec__AnonStorey24C priorityCAnonStorey24C = new BattleCore.\u003CGetSkillTargetsHighestPriority\u003Ec__AnonStorey24C();
+      // ISSUE: reference to a compiler-generated field
+      priorityCAnonStorey24C.log = log;
+      int val1 = (int) byte.MaxValue;
+      // ISSUE: reference to a compiler-generated field
+      if (self == null || skill == null || priorityCAnonStorey24C.log == null)
+        return val1;
+      AIParam ai = self.AI;
+      if (skill.IsDamagedSkill() && ai != null && !ai.CheckFlag(AIFlags.DisableTargetPriority))
+      {
+        // ISSUE: object of a compiler-generated type is created
+        // ISSUE: variable of a compiler-generated type
+        BattleCore.\u003CGetSkillTargetsHighestPriority\u003Ec__AnonStorey24D priorityCAnonStorey24D = new BattleCore.\u003CGetSkillTargetsHighestPriority\u003Ec__AnonStorey24D();
+        // ISSUE: reference to a compiler-generated field
+        priorityCAnonStorey24D.\u003C\u003Ef__ref\u0024588 = priorityCAnonStorey24C;
+        // ISSUE: reference to a compiler-generated field
+        // ISSUE: reference to a compiler-generated field
+        // ISSUE: reference to a compiler-generated field
+        // ISSUE: reference to a compiler-generated field
+        for (priorityCAnonStorey24D.k = 0; priorityCAnonStorey24D.k < priorityCAnonStorey24C.log.targets.Count; ++priorityCAnonStorey24D.k)
+        {
+          // ISSUE: reference to a compiler-generated method
+          int index = this.mEnemyPriorities.FindIndex(new Predicate<Unit>(priorityCAnonStorey24D.\u003C\u003Em__1CA));
+          if (index != -1)
+            val1 = Math.Max(Math.Min(val1, index), 0);
+        }
+      }
+      return val1;
+    }
+
+    private bool IsEnableUseSkillEffect(Unit self, SkillData skill, LogSkill log)
+    {
+      // ISSUE: object of a compiler-generated type is created
+      // ISSUE: variable of a compiler-generated type
+      BattleCore.\u003CIsEnableUseSkillEffect\u003Ec__AnonStorey24E effectCAnonStorey24E = new BattleCore.\u003CIsEnableUseSkillEffect\u003Ec__AnonStorey24E();
+      // ISSUE: reference to a compiler-generated field
+      effectCAnonStorey24E.self = self;
+      // ISSUE: reference to a compiler-generated field
+      if (effectCAnonStorey24E.self == null || skill == null || log == null)
+        return false;
+      int num1 = 0;
+      // ISSUE: reference to a compiler-generated field
+      // ISSUE: reference to a compiler-generated field
+      effectCAnonStorey24E.rage = effectCAnonStorey24E.self.GetRageTarget();
+      // ISSUE: reference to a compiler-generated field
+      // ISSUE: reference to a compiler-generated method
+      if (effectCAnonStorey24E.rage != null && (!skill.IsDamagedSkill() || log.targets.Find(new Predicate<LogSkill.Target>(effectCAnonStorey24E.\u003C\u003Em__1CB)) == null))
+        return false;
+      for (int index1 = 0; index1 < log.targets.Count; ++index1)
+      {
+        Unit target = log.targets[index1].target;
+        // ISSUE: reference to a compiler-generated field
+        if (!this.CheckSkillTargetAI(effectCAnonStorey24E.self, target, skill))
+          return false;
+        if (!target.IsBreakObj || (skill.IsDamagedSkill() || target.BreakObjSideType != eMapBreakSideType.UNKNOWN) && (skill.IsDamagedSkill() || skill.IsHealSkill()))
+        {
+          if (skill.IsDamagedSkill())
+          {
+            if (target.IsBreakObj && target.BreakObjClashType == eMapBreakClashType.INVINCIBLE)
+              continue;
+          }
+          else if (skill.IsHealSkill())
+          {
+            if (Math.Max(Math.Min(log.targets[index1].GetTotalHpHeal(), (int) target.MaximumStatus.param.hp - (int) target.CurrentStatus.param.hp), 0) == 0)
+              continue;
+          }
+          else if (skill.IsSupportSkill())
+          {
+            // ISSUE: reference to a compiler-generated field
+            // ISSUE: reference to a compiler-generated field
+            // ISSUE: reference to a compiler-generated method
+            if (effectCAnonStorey24E.self.AI == null || !effectCAnonStorey24E.self.AI.CheckFlag(AIFlags.SelfBuffOnly) || log.targets.Find(new Predicate<LogSkill.Target>(effectCAnonStorey24E.\u003C\u003Em__1CC)) != null)
+            {
+              if ((int) skill.ControlChargeTimeValue == 0)
+              {
+                bool flag = false;
+                if (target.BuffAttachments.Count > 0)
+                {
+                  int num2 = 0;
+                  using (List<BuffAttachment>.Enumerator enumerator = target.BuffAttachments.GetEnumerator())
+                  {
+                    while (enumerator.MoveNext())
+                    {
+                      BuffAttachment current = enumerator.Current;
+                      if (current.skill != null && current.skill.SkillID == skill.SkillID)
+                        ++num2;
+                    }
+                  }
+                  if (skill.DuplicateCount <= 1)
+                  {
+                    if (num2 > 0)
+                      continue;
+                  }
+                  else if (num2 < skill.DuplicateCount)
+                    flag = true;
+                  else
+                    continue;
+                }
+                BuffEffect buffEffect = skill.GetBuffEffect(SkillEffectTargets.Target);
+                if (buffEffect != null && buffEffect.CheckEnableBuffTarget(target))
+                {
+                  for (int index2 = 0; index2 < buffEffect.targets.Count; ++index2)
+                  {
+                    switch (buffEffect.targets[index2].buffType)
+                    {
+                      case BuffTypes.Buff:
+                        if (target.IsEnableBuffEffect(BuffTypes.Buff))
+                        {
+                          // ISSUE: reference to a compiler-generated field
+                          // ISSUE: reference to a compiler-generated field
+                          int num2 = effectCAnonStorey24E.self.AI == null ? 0 : (int) effectCAnonStorey24E.self.AI.buff_border;
+                          if (Math.Max(100 - (int) target.CurrentStatus.enchant_resist.resist_buff, 0) > num2)
+                            goto default;
+                          else
+                            break;
+                        }
+                        else
+                          break;
+                      case BuffTypes.Debuff:
+                        if (target.IsEnableBuffEffect(BuffTypes.Debuff))
+                        {
+                          // ISSUE: reference to a compiler-generated field
+                          // ISSUE: reference to a compiler-generated field
+                          int num2 = effectCAnonStorey24E.self.AI == null ? 0 : (int) effectCAnonStorey24E.self.AI.buff_border;
+                          if (Math.Max(100 - (int) target.CurrentStatus.enchant_resist.resist_debuff, 0) > num2)
+                            goto default;
+                          else
+                            break;
+                        }
+                        else
+                          break;
+                      default:
+                        if (target.GetActionSkillBuffValue(buffEffect.targets[index2].buffType, buffEffect.targets[index2].calcType, buffEffect.targets[index2].paramType) < Math.Abs((int) buffEffect.targets[index2].value))
+                        {
+                          flag = true;
+                          goto label_37;
+                        }
+                        else
+                          break;
+                    }
+                  }
+label_37:
+                  if (!flag)
+                    continue;
+                }
+                else
+                  continue;
+              }
+            }
+            else
+              continue;
+          }
+          else if (skill.IsConditionSkill())
+          {
+            CondEffect condEffect = skill.GetCondEffect(SkillEffectTargets.Target);
+            if (condEffect != null && condEffect.param.conditions != null && condEffect.CheckEnableCondTarget(target))
+            {
+              bool flag = false;
+              if (skill.EffectType == SkillEffectTypes.CureCondition)
+              {
+                for (int index2 = 0; index2 < condEffect.param.conditions.Length; ++index2)
+                {
+                  if (target.CheckEnableCureCondition(condEffect.param.conditions[index2]))
+                  {
+                    flag = true;
+                    break;
+                  }
+                }
+              }
+              else if (skill.EffectType == SkillEffectTypes.FailCondition)
+              {
+                // ISSUE: reference to a compiler-generated field
+                // ISSUE: reference to a compiler-generated field
+                int num2 = effectCAnonStorey24E.self.AI == null ? 0 : (int) effectCAnonStorey24E.self.AI.cond_border;
+                if (num2 <= 0 || (int) condEffect.rate <= 0 || (int) condEffect.rate >= num2)
+                {
+                  for (int index2 = 0; index2 < condEffect.param.conditions.Length; ++index2)
+                  {
+                    EUnitCondition condition = condEffect.param.conditions[index2];
+                    // ISSUE: reference to a compiler-generated field
+                    if (!AIUtility.IsFailCondition(effectCAnonStorey24E.self, target, condition))
+                      return false;
+                    switch (condition)
+                    {
+                      case EUnitCondition.DisableBuff:
+                        // ISSUE: reference to a compiler-generated field
+                        if (this.IsBuffDebuffEffectiveEnemies(effectCAnonStorey24E.self, BuffTypes.Buff))
+                          goto default;
+                        else
+                          break;
+                      case EUnitCondition.DisableDebuff:
+                        // ISSUE: reference to a compiler-generated field
+                        if (this.IsBuffDebuffEffectiveEnemies(effectCAnonStorey24E.self, BuffTypes.Debuff))
+                          goto default;
+                        else
+                          break;
+                      default:
+                        if (target.CheckEnableFailCondition(condition) && (num2 <= 0 || Math.Max((int) condEffect.value - (int) target.CurrentStatus.enchant_resist[condition], 0) >= num2))
+                        {
+                          flag = true;
+                          goto label_64;
+                        }
+                        else
+                          break;
+                    }
+                  }
+                }
+                else
+                  continue;
+              }
+              else if (skill.EffectType == SkillEffectTypes.DisableCondition)
+              {
+                for (int index2 = 0; index2 < condEffect.param.conditions.Length; ++index2)
+                {
+                  if (!target.IsDisableUnitCondition(condEffect.param.conditions[index2]))
+                  {
+                    flag = true;
+                    break;
+                  }
+                }
+              }
+label_64:
+              if (!flag)
+                continue;
+            }
+            else
+              continue;
+          }
+          ++num1;
+        }
+      }
+      return num1 != 0;
+    }
+
+    private void UpdateTrickMap(Unit self)
+    {
+      this.mTrickMap.owner = self;
+      this.mTrickMap.Clear();
+      List<TrickData> effectAll = TrickData.GetEffectAll();
+      for (int index = 0; index < effectAll.Count; ++index)
+        this.mTrickMap.SetData(new TrickMap.Data(effectAll[index]));
+    }
+
+    private bool IsFailTrickData(Unit unit, int x, int y)
+    {
+      TrickMap.Data data = this.mTrickMap.GetData(x, y);
+      if (data != null && data.IsVisual(unit) && data.IsVaild(unit))
+        return data.IsFail(unit);
+      return false;
+    }
+
+    private bool IsGoodTrickData(Unit unit, int x, int y)
+    {
+      TrickMap.Data data = this.mTrickMap.GetData(x, y);
+      if (data != null && data.IsVisual(unit) && data.IsVaild(unit))
+        return !data.IsFail(unit);
+      return false;
+    }
+
+    private int GetFailTrickPriority(Unit self, Grid movpos)
+    {
+      int num1 = 0;
+      if (self == null || movpos == null)
+        return num1;
+      TrickMap.Data data = this.mTrickMap.GetData(movpos.x, movpos.y);
+      if (data == null || !data.IsVisual(self) || (!data.IsVaild(self) || !data.IsFail(self)))
+        return num1;
+      if (data.IsDamage())
+      {
+        float num2 = (float) data.CalcDamage(self) / (float) (int) self.MaximumStatus.param.hp;
+        if ((double) num2 >= 1.0)
+          num2 = 1f;
+        num1 += (int) ((double) num2 * 100.0);
+      }
+      if (data.IsCondEffect())
+        ++num1;
+      if (data.IsBuffEffect())
+        ++num1;
+      if (num1 == 0)
+        num1 = 1;
+      return num1;
+    }
+
+    private int GetGoodTrickPriority(Unit self, Grid movpos, ref int heal_trick)
+    {
+      int num1 = 0;
+      if (self == null || movpos == null)
+        return num1;
+      TrickMap.Data data = this.mTrickMap.GetData(movpos.x, movpos.y);
+      if (data == null || !data.IsVisual(self) || (!data.IsVaild(self) || data.IsFail(self)))
+        return num1;
+      num1 = 1;
+      if (data.IsHeal() && (double) ((float) (int) self.CurrentStatus.param.hp / (float) (int) self.MaximumStatus.param.hp) < 0.600000023841858)
+      {
+        float num2 = (float) data.CalcHeal(self) / (float) (int) self.MaximumStatus.param.hp;
+        heal_trick += (int) ((double) num2 * 100.0);
+      }
+      if (data.IsBuffEffect())
+        num1 += data.GetBuffPriority(self);
+      return num1;
+    }
+
+    private bool CalcMoveTargetAI(Unit self, bool forceAI)
+    {
+      // ISSUE: object of a compiler-generated type is created
+      // ISSUE: variable of a compiler-generated type
+      BattleCore.\u003CCalcMoveTargetAI\u003Ec__AnonStorey24F aiCAnonStorey24F = new BattleCore.\u003CCalcMoveTargetAI\u003Ec__AnonStorey24F();
+      if (!self.IsEnableMoveCondition(false) || self.GetMoveCount(false) == 0)
+        return false;
+      // ISSUE: reference to a compiler-generated field
+      aiCAnonStorey24F.map = this.CurrentMap;
+      // ISSUE: reference to a compiler-generated field
+      // ISSUE: reference to a compiler-generated field
+      aiCAnonStorey24F.start = aiCAnonStorey24F.map[self.x, self.y];
+      if (self.IsUnitFlag(EUnitFlag.Escaped))
+      {
+        Grid escapePositionAi = this.GetEscapePositionAI(self);
+        if (escapePositionAi != null)
+        {
+          // ISSUE: reference to a compiler-generated field
+          if (aiCAnonStorey24F.start == escapePositionAi)
+            return false;
+          if (this.Move(self, escapePositionAi, forceAI))
+            return true;
+        }
+      }
+      AIPatrolPoint currentPatrolPoint = self.GetCurrentPatrolPoint();
+      if (currentPatrolPoint != null)
+      {
+        // ISSUE: reference to a compiler-generated field
+        Grid goal = aiCAnonStorey24F.map[currentPatrolPoint.x, currentPatrolPoint.y];
+        if (goal != null)
+        {
+          // ISSUE: reference to a compiler-generated field
+          if (aiCAnonStorey24F.start == goal)
+            return false;
+          if (this.Move(self, goal, forceAI))
+          {
+            // ISSUE: reference to a compiler-generated field
+            if ((int) aiCAnonStorey24F.map[self.x, self.y].step <= currentPatrolPoint.length)
+              self.NextPatrolPoint();
+            return true;
+          }
+        }
+      }
+      bool flag1 = false;
+      if (self.IsUnitFlag(EUnitFlag.Action) && (self.AI == null || !self.AI.CheckFlag(AIFlags.DisableAction)))
+        flag1 = true;
+      if (flag1)
+      {
+        Grid safePositionAi = this.GetSafePositionAI(self);
+        if (safePositionAi != null)
+        {
+          // ISSUE: reference to a compiler-generated field
+          if (aiCAnonStorey24F.start == safePositionAi)
+            return false;
+          if (this.Move(self, safePositionAi, forceAI))
+            return true;
+        }
+      }
+      bool is_friendlyfire = self.AI != null && self.AI.CheckFlag(AIFlags.CastSkillFriendlyFire);
+      bool is_sneaked = self.IsUnitFlag(EUnitFlag.Sneaking);
+      if (self.TreasureGainTarget != null)
+      {
+        List<Grid> enableMoveGridList = this.GetEnableMoveGridList(self, true, is_friendlyfire, is_sneaked, true, true);
+        Grid grid = !enableMoveGridList.Contains(self.TreasureGainTarget) ? (enableMoveGridList.Count <= 0 ? (Grid) null : enableMoveGridList[0]) : self.TreasureGainTarget;
+        // ISSUE: reference to a compiler-generated field
+        if (grid != null && aiCAnonStorey24F.map.CalcMoveSteps(self, grid, false) && this.Move(self, grid, forceAI))
+          return true;
+      }
+      List<Unit> mEnemyPriorities = this.mEnemyPriorities;
+      mEnemyPriorities.AddRange((IEnumerable<Unit>) this.mGimmickPriorities);
+      List<BattleCore.MoveGoalTarget> list = BattleCore.MoveGoalTarget.Create(mEnemyPriorities);
+      // ISSUE: reference to a compiler-generated field
+      aiCAnonStorey24F.map.CalcMoveSteps(self, this.GetUnitGridPosition(self), false);
+      List<Grid> enableMoveGridList1 = this.GetEnableMoveGridList(self, true, is_friendlyfire, is_sneaked, false, false);
+      for (int index = 0; index < enableMoveGridList1.Count; ++index)
+        enableMoveGridList1[index].step = (byte) 127;
+      for (int index1 = 0; index1 < list.Count; ++index1)
+      {
+        BattleCore.MoveGoalTarget moveGoalTarget = list[index1];
+        Grid unitGridPosition = this.GetUnitGridPosition(moveGoalTarget.unit);
+        // ISSUE: reference to a compiler-generated field
+        // ISSUE: reference to a compiler-generated field
+        // ISSUE: reference to a compiler-generated field
+        // ISSUE: reference to a compiler-generated field
+        Grid[] gridArray = new Grid[4]{ aiCAnonStorey24F.map[unitGridPosition.x - 1, unitGridPosition.y], aiCAnonStorey24F.map[unitGridPosition.x + 1, unitGridPosition.y], aiCAnonStorey24F.map[unitGridPosition.x, unitGridPosition.y + 1], aiCAnonStorey24F.map[unitGridPosition.x, unitGridPosition.y - 1] };
+        int index2 = -1;
+        for (int index3 = 0; index3 < gridArray.Length; ++index3)
+        {
+          if (gridArray[index3] != null && (int) gridArray[index3].step != (int) sbyte.MaxValue && Math.Abs(unitGridPosition.height - gridArray[index3].height) <= this.mSkillMap.attackHeight && (index2 == -1 || (int) gridArray[index3].step < (int) gridArray[index2].step))
+            index2 = index3;
+        }
+        if (index2 != -1)
+        {
+          moveGoalTarget.goal.x = (__Null) (double) gridArray[index2].x;
+          moveGoalTarget.goal.y = (__Null) (double) gridArray[index2].y;
+          moveGoalTarget.step = !moveGoalTarget.unit.IsGimmick ? -1f : (float) gridArray[index2].step;
+        }
+        else
+        {
+          moveGoalTarget.goal.x = (__Null) (double) unitGridPosition.x;
+          moveGoalTarget.goal.y = (__Null) (double) unitGridPosition.y;
+          moveGoalTarget.step = (float) byte.MaxValue;
+        }
+      }
+      if (this.mGimmickPriorities.Count > 0)
+      {
+        Comparison<BattleCore.MoveGoalTarget> comparison = (Comparison<BattleCore.MoveGoalTarget>) ((p1, p2) => p1.step.CompareTo(p2.step));
+        SortUtility.StableSort<BattleCore.MoveGoalTarget>(list, comparison);
+      }
+      for (int index1 = 0; index1 < list.Count; ++index1)
+      {
+        Vector2 goal = list[index1].goal;
+        Grid unitGridPosition = this.GetUnitGridPosition((int) goal.x, (int) goal.y);
+        // ISSUE: reference to a compiler-generated field
+        if (aiCAnonStorey24F.map.CalcMoveSteps(self, unitGridPosition, false))
+        {
+          List<Grid> enableMoveGridList2 = this.GetEnableMoveGridList(self, true, is_friendlyfire, is_sneaked, false, true);
+          if (is_sneaked)
+          {
+            bool flag2 = false;
+            for (int index2 = 0; index2 < enableMoveGridList2.Count; ++index2)
+            {
+              // ISSUE: reference to a compiler-generated field
+              if ((int) enableMoveGridList2[index2].step >= 0 && (int) enableMoveGridList2[index2].step < (int) aiCAnonStorey24F.start.step)
+              {
+                flag2 = true;
+                break;
+              }
+            }
+            if (!flag2)
+              enableMoveGridList2 = this.GetEnableMoveGridList(self, true, is_friendlyfire, false, false, true);
+          }
+          // ISSUE: reference to a compiler-generated method
+          MySort<Grid>.Sort(enableMoveGridList2, new Comparison<Grid>(aiCAnonStorey24F.\u003C\u003Em__1CE));
+          // ISSUE: reference to a compiler-generated field
+          for (int index2 = 0; index2 < enableMoveGridList2.Count && aiCAnonStorey24F.start != enableMoveGridList2[index2]; ++index2)
+          {
+            if (this.Move(self, enableMoveGridList2[index2], forceAI))
+              return true;
+          }
+          // ISSUE: reference to a compiler-generated field
+          if (aiCAnonStorey24F.start == unitGridPosition)
+            return false;
+          if (this.Move(self, unitGridPosition, forceAI))
+            return true;
+        }
+      }
+      return false;
+    }
+
+    private List<Grid> GetEnableMoveGridList(Unit self, bool is_move = true, bool is_friendlyfire = true, bool is_sneaked = false, bool is_treasure = false, bool is_trickpanel = false)
     {
       BattleMap currentMap = this.CurrentMap;
       Grid grid1 = currentMap[self.x, self.y];
@@ -7711,7 +11441,7 @@ label_16:
         if (self.TreasureGainTarget != null && is_treasure)
         {
           Grid grid2 = currentMap[self.x, self.y];
-          currentMap.CalcMoveSteps(self, self.TreasureGainTarget);
+          currentMap.CalcMoveSteps(self, self.TreasureGainTarget, true);
           num2 = (int) grid2.step / num1 + ((int) grid2.step % num1 == 0 ? 0 : 1);
         }
         for (int x = 0; x < this.mMoveMap.w; ++x)
@@ -7721,7 +11451,7 @@ label_16:
             if (this.mMoveMap.get(x, y) >= 0)
             {
               Grid grid2 = currentMap[x, y];
-              if (!is_friendlyfire || !this.CheckFriendlyFireOnGridMap(self, grid2))
+              if ((!is_friendlyfire || !this.CheckFriendlyFireOnGridMap(self, grid2)) && (!is_trickpanel || !this.IsFailTrickData(self, x, y)))
               {
                 if (self.TreasureGainTarget != null && is_treasure)
                 {
@@ -7770,180 +11500,47 @@ label_16:
       return gridList;
     }
 
-    private void UpdateTreasureTargetAI()
+    private bool CheckEscapeAI(Unit self)
     {
-      if (!this.mQuestParam.CheckAllowedAutoBattle() || !GameUtility.Config_AutoMode_Treasure.Value || this.mTreasures.Count == 0)
-        return;
-      for (int index = 0; index < this.mUnits.Count; ++index)
-        this.mUnits[index].TreasureGainTarget = (Grid) null;
+      if (this.QuestType == QuestTypes.Arena || !self.IsEnableMoveCondition(false) || (self.GetMoveCount(false) == 0 || !self.CheckNeedEscaped()))
+        return false;
+      return this.GetHealer(self).Count > 0;
+    }
+
+    private Grid GetEscapePositionAI(Unit self)
+    {
       BattleMap currentMap = this.CurrentMap;
-      for (int index1 = 0; index1 < this.mTreasures.Count; ++index1)
+      if ((self.IsUnitFlag(EUnitFlag.Moved) ? 0 : self.GetMoveCount(false)) == 0)
+        return (Grid) null;
+      bool flag1 = self.AI != null && self.AI.CheckFlag(AIFlags.CastSkillFriendlyFire);
+      Grid grid1 = currentMap[self.x, self.y];
+      List<Unit> healer = this.GetHealer(self);
+      for (int index = 0; index < healer.Count; ++index)
       {
-        // ISSUE: object of a compiler-generated type is created
-        // ISSUE: variable of a compiler-generated type
-        BattleCore.\u003CUpdateTreasureTargetAI\u003Ec__AnonStorey1B6 aiCAnonStorey1B6 = new BattleCore.\u003CUpdateTreasureTargetAI\u003Ec__AnonStorey1B6();
-        if (this.mTreasures[index1].EventTrigger != null && this.mTreasures[index1].EventTrigger.EventType == EEventType.Treasure && this.mTreasures[index1].EventTrigger.Count != 0)
+        Grid target = currentMap[healer[index].x, healer[index].y];
+        if (currentMap.CalcMoveSteps(self, target, false))
         {
-          // ISSUE: reference to a compiler-generated field
-          aiCAnonStorey1B6.suited = (Unit) null;
-          Grid grid = currentMap[this.mTreasures[index1].x, this.mTreasures[index1].y];
-          int num1 = (int) byte.MaxValue;
-          for (int index2 = 0; index2 < this.mPlayer.Count; ++index2)
+          bool flag2 = false;
+          for (int x = 0; x < this.mMoveMap.w; ++x)
           {
-            // ISSUE: object of a compiler-generated type is created
-            // ISSUE: variable of a compiler-generated type
-            BattleCore.\u003CUpdateTreasureTargetAI\u003Ec__AnonStorey1B7 aiCAnonStorey1B7 = new BattleCore.\u003CUpdateTreasureTargetAI\u003Ec__AnonStorey1B7();
-            // ISSUE: reference to a compiler-generated field
-            aiCAnonStorey1B7.\u003C\u003Ef__ref\u0024438 = aiCAnonStorey1B6;
-            // ISSUE: reference to a compiler-generated field
-            aiCAnonStorey1B7.unit = this.mPlayer[index2];
-            // ISSUE: reference to a compiler-generated field
-            // ISSUE: reference to a compiler-generated field
-            // ISSUE: reference to a compiler-generated field
-            // ISSUE: reference to a compiler-generated field
-            // ISSUE: reference to a compiler-generated field
-            // ISSUE: reference to a compiler-generated field
-            if (aiCAnonStorey1B7.unit.UnitType == EUnitType.Unit && aiCAnonStorey1B7.unit.TreasureGainTarget == null && (aiCAnonStorey1B7.unit.IsEntry && !aiCAnonStorey1B7.unit.IsSub) && (aiCAnonStorey1B7.unit.IsEnableAutoMode() && aiCAnonStorey1B7.unit.IsEnableMoveCondition(true)))
+            for (int y = 0; y < this.mMoveMap.h; ++y)
             {
-              // ISSUE: reference to a compiler-generated field
-              int moveCount = aiCAnonStorey1B7.unit.GetMoveCount(true);
-              if (moveCount != 0)
+              if (this.mMoveMap.get(x, y) >= 0)
               {
-                // ISSUE: reference to a compiler-generated field
-                // ISSUE: reference to a compiler-generated field
-                // ISSUE: reference to a compiler-generated field
-                currentMap.CalcMoveSteps(aiCAnonStorey1B7.unit, currentMap[aiCAnonStorey1B7.unit.x, aiCAnonStorey1B7.unit.y]);
-                int num2 = (int) grid.step / moveCount + ((int) grid.step % moveCount <= 0 ? 0 : 1);
-                // ISSUE: reference to a compiler-generated field
-                // ISSUE: reference to a compiler-generated method
-                // ISSUE: reference to a compiler-generated method
-                if (num2 <= num1 && (num2 != num1 || aiCAnonStorey1B6.suited == null || this.mOrder.FindIndex(new Predicate<BattleCore.OrderData>(aiCAnonStorey1B7.\u003C\u003Em__156)) >= this.mOrder.FindIndex(new Predicate<BattleCore.OrderData>(aiCAnonStorey1B7.\u003C\u003Em__157))))
+                Grid grid2 = currentMap[x, y];
+                if (this.CheckMove(self, grid2) && (!flag1 || !this.CheckFriendlyFireOnGridMap(self, grid2)) && (int) grid1.step > (int) grid2.step)
                 {
-                  // ISSUE: reference to a compiler-generated field
-                  // ISSUE: reference to a compiler-generated field
-                  aiCAnonStorey1B6.suited = aiCAnonStorey1B7.unit;
-                  num1 = num2;
+                  grid1 = grid2;
+                  flag2 = true;
                 }
               }
             }
           }
-          // ISSUE: reference to a compiler-generated field
-          if (aiCAnonStorey1B6.suited != null)
-          {
-            // ISSUE: reference to a compiler-generated field
-            aiCAnonStorey1B6.suited.TreasureGainTarget = grid;
-          }
+          if (flag2)
+            break;
         }
       }
-    }
-
-    private bool CalcMoveTargetAI(Unit self, bool forceAI)
-    {
-      // ISSUE: object of a compiler-generated type is created
-      // ISSUE: variable of a compiler-generated type
-      BattleCore.\u003CCalcMoveTargetAI\u003Ec__AnonStorey1B8 aiCAnonStorey1B8 = new BattleCore.\u003CCalcMoveTargetAI\u003Ec__AnonStorey1B8();
-      if (!self.IsEnableMoveCondition(false) || self.GetMoveCount(false) == 0)
-        return false;
-      // ISSUE: reference to a compiler-generated field
-      aiCAnonStorey1B8.map = this.CurrentMap;
-      // ISSUE: reference to a compiler-generated field
-      // ISSUE: reference to a compiler-generated field
-      aiCAnonStorey1B8.start = aiCAnonStorey1B8.map[self.x, self.y];
-      if (self.IsUnitFlag(EUnitFlag.Escaped))
-      {
-        Grid escapePositionAi = this.GetEscapePositionAI(self);
-        if (escapePositionAi != null)
-        {
-          // ISSUE: reference to a compiler-generated field
-          if (aiCAnonStorey1B8.start == escapePositionAi)
-            return false;
-          if (this.Move(self, escapePositionAi, forceAI))
-            return true;
-        }
-      }
-      AIPatrolPoint currentPatrolPoint = self.GetCurrentPatrolPoint();
-      if (currentPatrolPoint != null)
-      {
-        // ISSUE: reference to a compiler-generated field
-        Grid goal = aiCAnonStorey1B8.map[currentPatrolPoint.x, currentPatrolPoint.y];
-        if (goal != null)
-        {
-          // ISSUE: reference to a compiler-generated field
-          if (aiCAnonStorey1B8.start == goal)
-            return false;
-          if (this.Move(self, goal, forceAI))
-          {
-            // ISSUE: reference to a compiler-generated field
-            if ((int) aiCAnonStorey1B8.map[self.x, self.y].step <= currentPatrolPoint.length)
-              self.NextPatrolPoint();
-            return true;
-          }
-        }
-      }
-      List<Unit> mEnemyPriorities = this.mEnemyPriorities;
-      bool flag1 = false;
-      if (self.IsUnitFlag(EUnitFlag.Action) && (self.AI == null || !self.AI.CheckFlag(AIFlags.DisableAction)))
-        flag1 = true;
-      if (flag1)
-      {
-        Grid safePositionAi = this.GetSafePositionAI(self);
-        if (safePositionAi != null)
-        {
-          // ISSUE: reference to a compiler-generated field
-          if (aiCAnonStorey1B8.start == safePositionAi)
-            return false;
-          if (this.Move(self, safePositionAi, forceAI))
-            return true;
-        }
-      }
-      bool is_friendlyfire = self.AI != null && self.AI.CheckFlag(AIFlags.CastSkillFriendlyFire);
-      bool is_sneaked = self.IsUnitFlag(EUnitFlag.Sneaking);
-      if (self.TreasureGainTarget != null)
-      {
-        List<Grid> enableMoveGridList = this.GetEnableMoveGridList(self, true, is_friendlyfire, is_sneaked, true);
-        Grid grid = !enableMoveGridList.Contains(self.TreasureGainTarget) ? (enableMoveGridList.Count <= 0 ? (Grid) null : enableMoveGridList[0]) : self.TreasureGainTarget;
-        // ISSUE: reference to a compiler-generated field
-        if (aiCAnonStorey1B8.map.CalcMoveSteps(self, grid) && this.Move(self, grid, forceAI))
-          return true;
-      }
-      for (int index1 = 0; index1 < mEnemyPriorities.Count; ++index1)
-      {
-        Grid unitGridPosition = this.GetUnitGridPosition(mEnemyPriorities[index1]);
-        // ISSUE: reference to a compiler-generated field
-        if (aiCAnonStorey1B8.map.CalcMoveSteps(self, unitGridPosition))
-        {
-          List<Grid> enableMoveGridList = this.GetEnableMoveGridList(self, true, is_friendlyfire, is_sneaked, false);
-          if (is_sneaked)
-          {
-            bool flag2 = false;
-            for (int index2 = 0; index2 < enableMoveGridList.Count; ++index2)
-            {
-              // ISSUE: reference to a compiler-generated field
-              if ((int) enableMoveGridList[index2].step >= 0 && (int) enableMoveGridList[index2].step < (int) aiCAnonStorey1B8.start.step)
-              {
-                flag2 = true;
-                break;
-              }
-            }
-            if (!flag2)
-              enableMoveGridList = this.GetEnableMoveGridList(self, true, is_friendlyfire, false, false);
-          }
-          // ISSUE: reference to a compiler-generated method
-          MySort<Grid>.Sort(enableMoveGridList, new Comparison<Grid>(aiCAnonStorey1B8.\u003C\u003Em__158));
-          // ISSUE: reference to a compiler-generated field
-          for (int index2 = 0; index2 < enableMoveGridList.Count && aiCAnonStorey1B8.start != enableMoveGridList[index2]; ++index2)
-          {
-            if (this.Move(self, enableMoveGridList[index2], forceAI))
-              return true;
-          }
-          // ISSUE: reference to a compiler-generated field
-          if (aiCAnonStorey1B8.start == unitGridPosition)
-            return false;
-          if (this.Move(self, unitGridPosition, forceAI))
-            return true;
-        }
-      }
-      return false;
+      return grid1;
     }
 
     private bool CalcSearchingAI(Unit self)
@@ -7985,1063 +11582,8 @@ label_16:
           unitList[index].SetUnitFlag(EUnitFlag.Searched, true);
         return true;
       }
-      this.CommandWait();
+      this.CommandWait(false);
       return false;
-    }
-
-    private bool CheckEscapeAI(Unit self)
-    {
-      if (this.QuestType == QuestTypes.Arena || !self.IsEnableMoveCondition(false) || (self.GetMoveCount(false) == 0 || !self.CheckNeedEscaped()))
-        return false;
-      return this.GetHealer(self).Count > 0;
-    }
-
-    private List<Unit> GetHealer(Unit self)
-    {
-      List<Unit> l = new List<Unit>();
-      int hp1 = (int) self.CurrentStatus.param.hp;
-      int hp2 = (int) self.MaximumStatus.param.hp;
-      for (int index1 = 0; index1 < this.mUnits.Count; ++index1)
-      {
-        Unit mUnit = this.mUnits[index1];
-        if (!mUnit.IsDead && mUnit.IsEntry && (!mUnit.IsGimmick && !mUnit.IsSub) && (mUnit != self && mUnit.IsEnableSkillCondition(true) && !this.CheckEnemySide(self, mUnit)))
-        {
-          for (int index2 = 0; index2 < mUnit.BattleSkills.Count; ++index2)
-          {
-            SkillData battleSkill = mUnit.BattleSkills[index2];
-            if (battleSkill != null && battleSkill.IsHealSkill() && (this.CheckEnableUseSkill(mUnit, battleSkill, true) && this.IsUseSkillCollabo(mUnit, battleSkill)) && (this.CheckSkillTargetAI(mUnit, self, battleSkill) && hp2 * (int) mUnit.AI.heal_border >= hp1 * 100))
-            {
-              l.Add(mUnit);
-              break;
-            }
-          }
-        }
-      }
-      if (l.Count > 0)
-        MySort<Unit>.Sort(l, (Comparison<Unit>) ((src, dsc) =>
-        {
-          if (src == dsc)
-            return 0;
-          int chargeTime1 = (int) src.ChargeTime;
-          int chargeTimeMax1 = (int) src.ChargeTimeMax;
-          int chargeTime2 = (int) dsc.ChargeTime;
-          int chargeTimeMax2 = (int) dsc.ChargeTimeMax;
-          if (chargeTime1 != chargeTime2)
-          {
-            if (chargeTime1 >= chargeTimeMax1 && chargeTime2 >= chargeTimeMax2)
-              return chargeTime2 - chargeTimeMax2 - (chargeTime1 - chargeTimeMax1);
-            if (chargeTime1 >= chargeTimeMax1)
-              return -1;
-            if (chargeTime2 >= chargeTimeMax2)
-              return 1;
-            int chargeSpeed1 = (int) src.GetChargeSpeed();
-            int chargeSpeed2 = (int) dsc.GetChargeSpeed();
-            int num1 = chargeTimeMax1 - chargeTime1 == 0 ? 0 : (chargeTimeMax1 - chargeTime1) * 100 / chargeSpeed1;
-            int num2 = chargeTimeMax2 - chargeTime2 == 0 ? 0 : (chargeTimeMax2 - chargeTime2) * 100 / chargeSpeed2;
-            if (num1 != num2)
-              return num1 - num2;
-          }
-          return this.CalcNearGridDistance(self, src) - this.CalcNearGridDistance(self, dsc);
-        }));
-      return l;
-    }
-
-    public List<Unit> CreateAttackTargetsAI(Unit self, SkillData skill, bool is_move)
-    {
-      GridMap<bool> skillScopeMapAll = this.CreateSkillScopeMapAll(self, skill, is_move);
-      List<Unit> targets = new List<Unit>(this.mUnits.Count);
-      this.SearchTargetsInGridMap(self, skill, skillScopeMapAll, targets);
-      for (int index = 0; index < targets.Count; ++index)
-      {
-        if (!this.CheckSkillTargetAI(self, targets[index], skill))
-          targets.Remove(targets[index--]);
-      }
-      return targets;
-    }
-
-    private void GetEnemyPriorities(Unit self, List<Unit> targets)
-    {
-      if (self == null || targets == null)
-        return;
-      targets.Clear();
-      Unit rageTarget = self.GetRageTarget();
-      if (rageTarget != null)
-      {
-        targets.Add(rageTarget);
-      }
-      else
-      {
-        for (int index = 0; index < this.mUnits.Count; ++index)
-        {
-          Unit mUnit = this.mUnits[index];
-          if (mUnit != self && !mUnit.IsDead && (!mUnit.IsGimmick && !mUnit.IsSub) && (mUnit.IsEntry && this.CheckEnemySide(self, mUnit)))
-            targets.Add(mUnit);
-        }
-        this.SortAttackTargets(self, targets);
-      }
-    }
-
-    private int GetSkillTargetsHighestPriority(Unit self, SkillData skill, LogSkill log)
-    {
-      // ISSUE: object of a compiler-generated type is created
-      // ISSUE: variable of a compiler-generated type
-      BattleCore.\u003CGetSkillTargetsHighestPriority\u003Ec__AnonStorey1BA priorityCAnonStorey1Ba = new BattleCore.\u003CGetSkillTargetsHighestPriority\u003Ec__AnonStorey1BA();
-      // ISSUE: reference to a compiler-generated field
-      priorityCAnonStorey1Ba.log = log;
-      int val1 = (int) byte.MaxValue;
-      // ISSUE: reference to a compiler-generated field
-      if (self == null || skill == null || priorityCAnonStorey1Ba.log == null)
-        return val1;
-      AIParam ai = self.AI;
-      if (skill.IsDamagedSkill() && ai != null && !ai.CheckFlag(AIFlags.DisableTargetPriority))
-      {
-        // ISSUE: object of a compiler-generated type is created
-        // ISSUE: variable of a compiler-generated type
-        BattleCore.\u003CGetSkillTargetsHighestPriority\u003Ec__AnonStorey1BB priorityCAnonStorey1Bb = new BattleCore.\u003CGetSkillTargetsHighestPriority\u003Ec__AnonStorey1BB();
-        // ISSUE: reference to a compiler-generated field
-        priorityCAnonStorey1Bb.\u003C\u003Ef__ref\u0024442 = priorityCAnonStorey1Ba;
-        // ISSUE: reference to a compiler-generated field
-        // ISSUE: reference to a compiler-generated field
-        // ISSUE: reference to a compiler-generated field
-        // ISSUE: reference to a compiler-generated field
-        for (priorityCAnonStorey1Bb.k = 0; priorityCAnonStorey1Bb.k < priorityCAnonStorey1Ba.log.targets.Count; ++priorityCAnonStorey1Bb.k)
-        {
-          // ISSUE: reference to a compiler-generated method
-          int index = this.mEnemyPriorities.FindIndex(new Predicate<Unit>(priorityCAnonStorey1Bb.\u003C\u003Em__15A));
-          if (index != -1)
-            val1 = Math.Max(Math.Min(val1, index), 0);
-        }
-      }
-      return val1;
-    }
-
-    private void SortAttackTargets(Unit unit, List<Unit> targets)
-    {
-      // ISSUE: object of a compiler-generated type is created
-      // ISSUE: variable of a compiler-generated type
-      BattleCore.\u003CSortAttackTargets\u003Ec__AnonStorey1BD targetsCAnonStorey1Bd = new BattleCore.\u003CSortAttackTargets\u003Ec__AnonStorey1BD();
-      // ISSUE: reference to a compiler-generated field
-      targetsCAnonStorey1Bd.unit = unit;
-      // ISSUE: reference to a compiler-generated field
-      targetsCAnonStorey1Bd.\u003C\u003Ef__this = this;
-      // ISSUE: reference to a compiler-generated field
-      DebugUtility.Assert(targetsCAnonStorey1Bd.unit != null, "unit == null");
-      if (targets.Count <= 0)
-        return;
-      // ISSUE: reference to a compiler-generated field
-      // ISSUE: object of a compiler-generated type is created
-      // ISSUE: reference to a compiler-generated method
-      MySort<Unit>.Sort(targets, new Comparison<Unit>(new BattleCore.\u003CSortAttackTargets\u003Ec__AnonStorey1BC()
-      {
-        \u003C\u003Ef__ref\u0024445 = targetsCAnonStorey1Bd,
-        \u003C\u003Ef__this = this,
-        rage = targetsCAnonStorey1Bd.unit.GetRageTarget()
-      }.\u003C\u003Em__15B));
-    }
-
-    private Grid GetEscapePositionAI(Unit self)
-    {
-      BattleMap currentMap = this.CurrentMap;
-      if ((self.IsUnitFlag(EUnitFlag.Moved) ? 0 : self.GetMoveCount(false)) == 0)
-        return (Grid) null;
-      bool flag1 = self.AI != null && self.AI.CheckFlag(AIFlags.CastSkillFriendlyFire);
-      Grid grid1 = currentMap[self.x, self.y];
-      List<Unit> healer = this.GetHealer(self);
-      for (int index = 0; index < healer.Count; ++index)
-      {
-        Grid target = currentMap[healer[index].x, healer[index].y];
-        if (currentMap.CalcMoveSteps(self, target))
-        {
-          bool flag2 = false;
-          for (int x = 0; x < this.mMoveMap.w; ++x)
-          {
-            for (int y = 0; y < this.mMoveMap.h; ++y)
-            {
-              if (this.mMoveMap.get(x, y) >= 0)
-              {
-                Grid grid2 = currentMap[x, y];
-                if (this.CheckMove(self, grid2) && (!flag1 || !this.CheckFriendlyFireOnGridMap(self, grid2)) && (int) grid1.step > (int) grid2.step)
-                {
-                  grid1 = grid2;
-                  flag2 = true;
-                }
-              }
-            }
-          }
-          if (flag2)
-            break;
-        }
-      }
-      return grid1;
-    }
-
-    private Grid GetSafePositionAI(Unit self)
-    {
-      int currentEnemyNum = this.GetCurrentEnemyNum(self);
-      if (currentEnemyNum == 0)
-        return (Grid) null;
-      BattleMap currentMap = this.CurrentMap;
-      if ((self.IsUnitFlag(EUnitFlag.Moved) ? 0 : self.GetMoveCount(false)) == 0)
-        return (Grid) null;
-      bool flag = self.AI != null && self.AI.CheckFlag(AIFlags.CastSkillFriendlyFire);
-      Grid start = currentMap[self.x, self.y];
-      Grid goal = currentMap[self.x, self.y];
-      int num1 = Math.Max(this.mSafeMap.get(start.x, start.y) + (self.AI == null ? 0 : (int) self.AI.safe_border * currentEnemyNum), 0);
-      for (int x = 0; x < this.mSafeMap.w; ++x)
-      {
-        for (int y = 0; y < this.mSafeMap.h; ++y)
-        {
-          if (this.mMoveMap.get(x, y) >= 0 && this.mSafeMap.get(x, y) >= num1)
-          {
-            Grid grid = currentMap[x, y];
-            if ((!flag || !this.CheckFriendlyFireOnGridMap(self, grid)) && this.CheckMove(self, grid))
-            {
-              if (goal != null)
-              {
-                int num2 = this.CalcGridDistance(start, goal);
-                if (this.CalcGridDistance(start, grid) < num2)
-                  goal = grid;
-              }
-              else
-                goal = grid;
-            }
-          }
-        }
-      }
-      return goal;
-    }
-
-    private bool CheckSkillTargetAI(Unit self, Unit target, SkillData skill)
-    {
-      if (!this.CheckSkillTarget(self, target, skill))
-        return false;
-      if (skill.Target == ESkillTarget.UnitAll || skill.Target == ESkillTarget.NotSelf)
-      {
-        switch (skill.EffectType)
-        {
-          case SkillEffectTypes.Heal:
-          case SkillEffectTypes.Buff:
-          case SkillEffectTypes.Revive:
-          case SkillEffectTypes.Shield:
-          case SkillEffectTypes.CureCondition:
-          case SkillEffectTypes.GemsGift:
-          case SkillEffectTypes.Guard:
-          case SkillEffectTypes.RateHeal:
-            return !this.CheckEnemySide(self, target);
-          case SkillEffectTypes.GemsIncDec:
-            if ((int) skill.EffectValue > 0)
-              return !this.CheckEnemySide(self, target);
-            return this.CheckEnemySide(self, target);
-          case SkillEffectTypes.Teleport:
-          case SkillEffectTypes.Changing:
-          case SkillEffectTypes.Throw:
-            break;
-          default:
-            return this.CheckEnemySide(self, target);
-        }
-      }
-      return true;
-    }
-
-    private bool CalcUseSkillAI(Unit self, bool forceAI)
-    {
-      this.UpdateUsedSkillDicision(self);
-      if (self.CastSkill != null)
-        return false;
-      if (self.IsAIActionTable())
-      {
-        // ISSUE: object of a compiler-generated type is created
-        // ISSUE: variable of a compiler-generated type
-        BattleCore.\u003CCalcUseSkillAI\u003Ec__AnonStorey1BE aiCAnonStorey1Be = new BattleCore.\u003CCalcUseSkillAI\u003Ec__AnonStorey1BE();
-        // ISSUE: reference to a compiler-generated field
-        aiCAnonStorey1Be.action = self.GetCurrentAIAction();
-        // ISSUE: reference to a compiler-generated field
-        if (aiCAnonStorey1Be.action != null)
-        {
-          // ISSUE: reference to a compiler-generated field
-          if (string.IsNullOrEmpty((string) aiCAnonStorey1Be.action.skill))
-          {
-            // ISSUE: reference to a compiler-generated field
-            switch ((int) aiCAnonStorey1Be.action.type)
-            {
-              case 1:
-                break;
-              default:
-                return false;
-            }
-          }
-          else
-          {
-            // ISSUE: reference to a compiler-generated method
-            SkillData skill = self.BattleSkills.Find(new Predicate<SkillData>(aiCAnonStorey1Be.\u003C\u003Em__15C));
-            if (this.CheckEnableUseSkill(self, skill, false))
-            {
-              BattleCore.mSkillResults.Clear();
-              this.GetUsedSkillResult(self, skill, BattleCore.mSkillResults);
-              if (BattleCore.mSkillResults.Count > 0 && this.UseSkillAI(self, BattleCore.mSkillResults, forceAI))
-                return true;
-            }
-          }
-        }
-      }
-      for (int index1 = 0; index1 < this.mUseSkillLists.Count; ++index1)
-      {
-        if (this.mUseSkillLists[index1] != null && this.mUseSkillLists[index1].Count != 0)
-        {
-          List<SkillData> mUseSkillList = this.mUseSkillLists[index1];
-          BattleCore.mSkillResults.Clear();
-          for (int index2 = 0; index2 < mUseSkillList.Count; ++index2)
-          {
-            SkillData skill = mUseSkillList[index2];
-            this.GetUsedSkillResult(self, skill, BattleCore.mSkillResults);
-          }
-          if (BattleCore.mSkillResults.Count != 0 && this.UseSkillAI(self, BattleCore.mSkillResults, forceAI))
-            return true;
-        }
-      }
-      for (int index = 0; index < this.mForceSkillList.Count; ++index)
-      {
-        SkillData mForceSkill = this.mForceSkillList[index];
-        if (this.CheckEnableUseSkill(self, mForceSkill, false))
-        {
-          BattleCore.mSkillResults.Clear();
-          this.GetUsedSkillResult(self, mForceSkill, BattleCore.mSkillResults);
-          if (BattleCore.mSkillResults.Count != 0 && this.UseSkillAI(self, BattleCore.mSkillResults, forceAI))
-            return true;
-        }
-      }
-      return false;
-    }
-
-    private void SortSkillResult(Unit self, List<BattleCore.SkillResult> results)
-    {
-      // ISSUE: object of a compiler-generated type is created
-      // ISSUE: variable of a compiler-generated type
-      BattleCore.\u003CSortSkillResult\u003Ec__AnonStorey1BF resultCAnonStorey1Bf = new BattleCore.\u003CSortSkillResult\u003Ec__AnonStorey1BF();
-      // ISSUE: reference to a compiler-generated field
-      resultCAnonStorey1Bf.self = self;
-      // ISSUE: reference to a compiler-generated field
-      // ISSUE: reference to a compiler-generated field
-      // ISSUE: reference to a compiler-generated field
-      resultCAnonStorey1Bf.bPositioning = resultCAnonStorey1Bf.self.AI != null && resultCAnonStorey1Bf.self.AI.CheckFlag(AIFlags.Positioning);
-      // ISSUE: reference to a compiler-generated method
-      MySort<BattleCore.SkillResult>.Sort(results, new Comparison<BattleCore.SkillResult>(resultCAnonStorey1Bf.\u003C\u003Em__15D));
-    }
-
-    private bool UseSkillAI(Unit self, List<BattleCore.SkillResult> results, bool forceAI)
-    {
-      if (self == null || results == null || results.Count == 0)
-        return false;
-      this.SortSkillResult(self, results);
-      BattleCore.SkillResult result = results[0];
-      if ((self.x != result.movpos.x || self.y != result.movpos.y) && this.Move(self, result.movpos, forceAI))
-        return true;
-      bool bUnitLockTarget = false;
-      if (result.skill.IsCastSkill() && result.skill.IsEnableUnitLockTarget())
-      {
-        if (result.skill.IsAreaSkill())
-        {
-          if (result.skill.Target != ESkillTarget.UnitAll && result.skill.Target != ESkillTarget.NotSelf)
-            bUnitLockTarget = result.locked;
-        }
-        else
-          bUnitLockTarget = result.locked;
-      }
-      AIAction currentAiAction = self.GetCurrentAIAction();
-      if (currentAiAction != null)
-      {
-        string str = string.Empty;
-        if (!string.IsNullOrEmpty((string) currentAiAction.skill))
-          str = (string) currentAiAction.skill;
-        else if ((int) currentAiAction.type == 1)
-        {
-          SkillData attackSkill = self.GetAttackSkill();
-          str = attackSkill == null ? string.Empty : attackSkill.SkillID;
-        }
-        if (str == result.skill.SkillID)
-          self.NextAIAction();
-      }
-      return this.UseSkill(self, result.usepos.x, result.usepos.y, result.skill, bUnitLockTarget, 0, 0);
-    }
-
-    private void UpdateUsedSkillDicision(Unit self)
-    {
-      AIParam ai = self.AI;
-      this.mUseSkillLists.Clear();
-      this.mForceSkillList.Clear();
-      this.mHealSkills.Clear();
-      this.mDamageSkills.Clear();
-      this.mSupportSkills.Clear();
-      this.mCureConditionSkills.Clear();
-      this.mFailConditionSkills.Clear();
-      this.mDisableConditionSkills.Clear();
-      bool flag1 = true;
-      if (!self.IsEnableSkillCondition(false) || this.CheckDisableAbilities(self))
-        flag1 = false;
-      if (ai != null && ai.CheckFlag(AIFlags.DisableSkill))
-        flag1 = false;
-      if (this.mQuestParam.CheckAllowedAutoBattle() && self.IsEnableAutoMode() && GameUtility.Config_AutoMode_DisableSkill.Value)
-        flag1 = false;
-      if (flag1)
-      {
-        int gems = this.GetGems(self);
-        if (!self.IsAIActionTable())
-        {
-          if (gems >= (int) ai.gems_border)
-          {
-            for (int index = 0; index < self.BattleSkills.Count; ++index)
-              this.EntrySkillListCategory(self, self.BattleSkills[index], false);
-          }
-          this.EntrySkillListCategory(self, self.AIForceSkill, true);
-        }
-      }
-      this.EntrySkillListCategory(self, self.GetAttackSkill(), this.mForceSkillList.Count > 0);
-      if (ai != null && ai.SkillCategoryPriorities != null)
-      {
-        for (int index1 = 0; index1 < ai.SkillCategoryPriorities.Length; ++index1)
-        {
-          List<SkillData> skillDataList = (List<SkillData>) null;
-          switch (ai.SkillCategoryPriorities[index1])
-          {
-            case SkillCategory.Damage:
-              skillDataList = this.mDamageSkills;
-              goto default;
-            case SkillCategory.Heal:
-              if (this.GetHealUnitCount(self) != 0)
-              {
-                skillDataList = this.mHealSkills;
-                goto default;
-              }
-              else
-                goto default;
-            case SkillCategory.Support:
-              if (ai.CheckFlag(AIFlags.SelfBuffOnly))
-              {
-                bool flag2 = false;
-                for (int index2 = 0; index2 < self.BuffAttachments.Count; ++index2)
-                {
-                  if (!(bool) self.BuffAttachments[index2].IsPassive && self.BuffAttachments[index2].BuffType == BuffTypes.Buff && self.BuffAttachments[index2].user == self)
-                  {
-                    flag2 = true;
-                    break;
-                  }
-                }
-                if (flag2)
-                  break;
-              }
-              skillDataList = this.mSupportSkills;
-              goto default;
-            case SkillCategory.CureCondition:
-              skillDataList = this.mCureConditionSkills;
-              goto default;
-            case SkillCategory.FailCondition:
-              skillDataList = this.mFailConditionSkills;
-              goto default;
-            case SkillCategory.DisableCondition:
-              skillDataList = this.mDisableConditionSkills;
-              goto default;
-            default:
-              if (skillDataList != null && !this.mUseSkillLists.Contains(skillDataList))
-              {
-                this.mUseSkillLists.Add(skillDataList);
-                break;
-              }
-              break;
-          }
-        }
-      }
-      else
-        this.mUseSkillLists.Add(this.mDamageSkills);
-    }
-
-    private bool EntrySkillListCategory(Unit self, SkillData skill, bool forced = false)
-    {
-      if (skill == null || skill.SkillType != ESkillType.Attack && skill.SkillType != ESkillType.Skill && skill.SkillType != ESkillType.Item || (skill.EffectType == SkillEffectTypes.Throw || !this.CheckEnableUseSkill(self, skill, false)))
-        return false;
-      if (forced)
-      {
-        this.mForceSkillList.Add(skill);
-        return true;
-      }
-      if (!this.CheckSkillDicisionAI(self, skill))
-        return false;
-      List<SkillData> skillDataList = (List<SkillData>) null;
-      if (skill.IsDamagedSkill())
-        skillDataList = this.mDamageSkills;
-      else if (skill.IsHealSkill())
-        skillDataList = this.mHealSkills;
-      else if (skill.IsSupportSkill())
-        skillDataList = this.mSupportSkills;
-      else if (skill.EffectType == SkillEffectTypes.CureCondition)
-        skillDataList = this.mCureConditionSkills;
-      else if (skill.EffectType == SkillEffectTypes.FailCondition)
-        skillDataList = this.mFailConditionSkills;
-      else if (skill.EffectType == SkillEffectTypes.DisableCondition)
-        skillDataList = this.mDisableConditionSkills;
-      if (skillDataList == null)
-        return false;
-      skillDataList.Add(skill);
-      return true;
-    }
-
-    private bool CheckSkillDicisionAI(Unit self, SkillData skill)
-    {
-      if (this.QuestType == QuestTypes.Arena || skill.IsNormalAttack())
-        return true;
-      if (skill.IsDamagedSkill())
-      {
-        if (skill.IsJewelAttack() && self.AI != null && self.AI.CheckFlag(AIFlags.DisableJewelAttack))
-          return false;
-      }
-      else
-      {
-        if (self.GetRageTarget() != null)
-          return false;
-        bool flag1 = false;
-        if (!skill.IsHealSkill())
-        {
-          if (skill.IsSupportSkill())
-            flag1 = true;
-          else if (skill.EffectType == SkillEffectTypes.CureCondition)
-          {
-            CondEffect condEffect = skill.GetCondEffect(SkillEffectTargets.Target);
-            if (condEffect == null || condEffect.param == null || (condEffect.param.conditions == null || condEffect.param.type != ConditionEffectTypes.CureCondition))
-              return false;
-            bool flag2 = false;
-            for (int index = 0; index < condEffect.param.conditions.Length; ++index)
-            {
-              if (this.GetFailCondSelfSideUnitCount(self, condEffect.param.conditions[index]) != 0)
-              {
-                flag2 = true;
-                break;
-              }
-            }
-            if (!flag2)
-              return false;
-          }
-          else if (skill.EffectType != SkillEffectTypes.FailCondition && skill.EffectType == SkillEffectTypes.DisableCondition)
-          {
-            CondEffect condEffect = skill.GetCondEffect(SkillEffectTargets.Target);
-            if (condEffect == null || condEffect.param == null || (condEffect.param.conditions == null || condEffect.param.type != ConditionEffectTypes.DisableCondition))
-              return false;
-            bool flag2 = false;
-            for (int index = 0; index < condEffect.param.conditions.Length; ++index)
-            {
-              EUnitCondition condition = condEffect.param.conditions[index];
-              if (this.CheckFailCondSkillUseEnemies(self, condition))
-              {
-                flag2 = true;
-                break;
-              }
-            }
-            if (!flag2)
-              return false;
-          }
-        }
-        if (flag1)
-        {
-          bool flag2 = false;
-          bool flag3 = true;
-          if ((int) self.AI.DisableSupportActionHpBorder != 0)
-          {
-            int num = (int) self.MaximumStatus.param.hp == 0 ? 100 : 100 * (int) self.CurrentStatus.param.hp / (int) self.MaximumStatus.param.hp;
-            flag2 = true;
-            flag3 &= (int) self.AI.DisableSupportActionHpBorder >= num;
-          }
-          if ((int) self.AI.DisableSupportActionMemberBorder != 0)
-          {
-            int aliveUnitCount = this.GetAliveUnitCount(self);
-            flag2 = true;
-            flag3 &= (int) self.AI.DisableSupportActionMemberBorder >= aliveUnitCount;
-          }
-          if (flag2 && flag3)
-            return false;
-        }
-      }
-      return self.IsPartyMember || (skill.UseCondition == null || skill.UseCondition.type == 0 || skill.UseCondition.unlock) && (int) (this.GetRandom() % 100U) < (int) skill.UseRate;
-    }
-
-    private int GetHealUnitCount(Unit self)
-    {
-      int num = 0;
-      AIParam ai = self.AI;
-      for (int index = 0; index < this.mUnits.Count; ++index)
-      {
-        Unit mUnit = this.mUnits[index];
-        if (!mUnit.IsDead && mUnit.IsEntry && (!mUnit.IsGimmick && !mUnit.IsSub) && !this.CheckEnemySide(self, mUnit))
-        {
-          int hp1 = (int) mUnit.CurrentStatus.param.hp;
-          int hp2 = (int) mUnit.MaximumStatus.param.hp;
-          if (ai != null)
-          {
-            if (hp2 * (int) ai.heal_border < hp1 * 100)
-              continue;
-          }
-          else if (hp1 == hp2)
-            continue;
-          ++num;
-        }
-      }
-      return num;
-    }
-
-    private int GetFailCondSelfSideUnitCount(Unit self, EUnitCondition condition)
-    {
-      int num = 0;
-      for (int index = 0; index < this.mUnits.Count; ++index)
-      {
-        Unit mUnit = this.mUnits[index];
-        if (!this.mUnits[index].IsSub && this.mUnits[index].IsEntry && (!this.mUnits[index].IsDead && !this.mUnits[index].IsGimmick) && (!this.CheckEnemySide(self, mUnit) && mUnit.IsUnitCondition(condition)))
-          ++num;
-      }
-      return num;
-    }
-
-    private int GetAliveUnitCount(Unit self)
-    {
-      int num = 0;
-      for (int index = 0; index < this.mUnits.Count; ++index)
-      {
-        Unit mUnit = this.mUnits[index];
-        if (!mUnit.IsDead && !mUnit.IsGimmick && mUnit.Side == self.Side)
-          ++num;
-      }
-      return num;
-    }
-
-    private int GetDeadUnitCount(Unit self)
-    {
-      int num = 0;
-      for (int index = 0; index < this.mUnits.Count; ++index)
-      {
-        Unit mUnit = this.mUnits[index];
-        if (mUnit.IsDead && !mUnit.IsGimmick && mUnit.Side == self.Side)
-          ++num;
-      }
-      return num;
-    }
-
-    private bool CheckFailCondSkillUseEnemies(Unit self, EUnitCondition condition)
-    {
-      if (condition == EUnitCondition.AutoHeal || condition == EUnitCondition.GoodSleep || (condition == EUnitCondition.AutoJewel || condition == EUnitCondition.DisableBuff) || (condition == EUnitCondition.DisableDebuff || condition == EUnitCondition.DisableKnockback))
-        return false;
-      for (int index1 = 0; index1 < this.mUnits.Count; ++index1)
-      {
-        Unit mUnit = this.mUnits[index1];
-        if (!mUnit.IsSub && mUnit.IsEntry && (!mUnit.IsDead && !mUnit.IsGimmick) && (mUnit.IsEnableSkillCondition(true) && this.CheckEnemySide(self, mUnit) && mUnit.BattleSkills != null))
-        {
-          for (int index2 = 0; index2 < mUnit.BattleSkills.Count; ++index2)
-          {
-            SkillData battleSkill = mUnit.BattleSkills[index2];
-            if (mUnit.IsPartyMember || (int) battleSkill.UseRate != 0 && (battleSkill.UseCondition == null || battleSkill.UseCondition.type == 0 || battleSkill.UseCondition.unlock))
-            {
-              CondEffect condEffect = battleSkill.GetCondEffect(SkillEffectTargets.Target);
-              if (condEffect != null && condEffect.param != null && condEffect.param.conditions != null && (condEffect.param.type == ConditionEffectTypes.FailCondition || condEffect.param.type == ConditionEffectTypes.ForcedFailCondition || condEffect.param.type == ConditionEffectTypes.RandomFailCondition))
-                return Array.IndexOf<EUnitCondition>(condEffect.param.conditions, condition) != -1;
-            }
-          }
-        }
-      }
-      return false;
-    }
-
-    private bool CheckBuffDebuffEffectiveEnemies(Unit self, BuffTypes type)
-    {
-      for (int index = 0; index < this.mUnits.Count; ++index)
-      {
-        Unit mUnit = this.mUnits[index];
-        if (!mUnit.IsSub && mUnit.IsEntry && (!mUnit.IsDead && !mUnit.IsGimmick) && (this.CheckEnemySide(self, mUnit) && mUnit.CheckActionSkillBuffAttachments(type)))
-          return true;
-      }
-      return false;
-    }
-
-    private bool CheckElementDamageSkillUseEnemies(Unit self)
-    {
-      for (int index1 = 0; index1 < this.mUnits.Count; ++index1)
-      {
-        Unit mUnit = this.mUnits[index1];
-        if (!mUnit.IsSub && mUnit.IsEntry && (!mUnit.IsDead && !mUnit.IsGimmick) && this.CheckEnemySide(self, mUnit))
-        {
-          SkillData attackSkill = mUnit.GetAttackSkill();
-          if (attackSkill != null && attackSkill.ElementType != EElement.None)
-            return true;
-          if (mUnit.BattleSkills != null)
-          {
-            for (int index2 = 0; index2 < mUnit.BattleSkills.Count; ++index2)
-            {
-              SkillData battleSkill = mUnit.BattleSkills[index2];
-              if ((mUnit.IsPartyMember || (int) battleSkill.UseRate != 0 && (battleSkill.UseCondition == null || battleSkill.UseCondition.type == 0 || battleSkill.UseCondition.unlock)) && battleSkill.ElementType != EElement.None)
-                return true;
-            }
-          }
-        }
-      }
-      return false;
-    }
-
-    private void GetUsedSkillResult(Unit self, SkillData skill, List<BattleCore.SkillResult> results)
-    {
-      if (skill == null || results == null)
-        return;
-      bool is_friendlyfire = self.AI != null && self.AI.CheckFlag(AIFlags.CastSkillFriendlyFire);
-      bool is_move = true;
-      if (self.IsUnitFlag(EUnitFlag.Escaped) && !skill.IsHealSkill())
-        is_move = false;
-      List<Grid> enableMoveGridList = this.GetEnableMoveGridList(self, is_move, is_friendlyfire, false, true);
-      int skillUsedCost = self.GetSkillUsedCost(skill);
-      int conditionPriority = self.GetConditionPriority(skill, SkillEffectTargets.Target);
-      BattleMap currentMap = this.CurrentMap;
-      FixParam fixParam = MonoSingleton<GameManager>.GetInstanceDirect().MasterParam.FixParam;
-      for (int index1 = 0; index1 < enableMoveGridList.Count; ++index1)
-      {
-        Grid grid = enableMoveGridList[index1];
-        if (currentMap.CheckEnableMove(self, grid, false))
-        {
-          int x = self.x;
-          int y = self.y;
-          self.x = grid.x;
-          self.y = grid.y;
-          if (!this.IsUseSkillCollabo(self, skill))
-          {
-            self.x = x;
-            self.y = y;
-          }
-          else
-          {
-            GridMap<bool> selectGridMap = this.CreateSelectGridMap(self, grid.x, grid.y, skill);
-            for (int index2 = 0; index2 < selectGridMap.w; ++index2)
-            {
-              for (int index3 = 0; index3 < selectGridMap.h; ++index3)
-              {
-                if (selectGridMap.get(index2, index3))
-                {
-                  BattleCore.ShotTarget shot = (BattleCore.ShotTarget) null;
-                  List<Unit> targets = new List<Unit>(this.mOrder.Count);
-                  this.GetExecuteSkillLineTarget(self, index2, index3, skill, ref targets, ref shot);
-                  if (targets.Count > 0)
-                  {
-                    this.SetBattleFlag(EBattleFlag.PredictResult, true);
-                    this.mRandDamage.Seed(this.mSeedDamage);
-                    this.CurrentRand = this.mRandDamage;
-                    LogSkill log = new LogSkill();
-                    log.self = self;
-                    log.skill = skill;
-                    log.pos.x = index2;
-                    log.pos.y = index3;
-                    log.reflect = (LogSkill.Reflection) null;
-                    for (int index4 = 0; index4 < targets.Count; ++index4)
-                      log.SetSkillTarget(self, targets[index4]);
-                    if (shot != null)
-                    {
-                      log.pos.x = shot.end.x;
-                      log.pos.y = shot.end.y;
-                      log.rad = (int) (shot.rad * 100.0);
-                      log.height = (int) (shot.height * 100.0);
-                    }
-                    this.ExecuteSkill(ESkillTiming.Used, log, skill);
-                    if (this.CheckEnableUseSkillEffect(self, skill, log))
-                    {
-                      BattleCore.SkillResult skillResult = new BattleCore.SkillResult();
-                      skillResult.skill = skill;
-                      skillResult.movpos = grid;
-                      skillResult.usepos = currentMap[index2, index3];
-                      skillResult.locked = this.FindUnitAtGrid(skillResult.usepos) != null;
-                      skillResult.log = log;
-                      skillResult.heal = log.GetTruthTotalHpHeal();
-                      skillResult.heal_num = log.GetTruthTotalHpHealCount();
-                      skillResult.cond_prio = conditionPriority;
-                      skillResult.cure_num = log.GetTotalCureConditionCount();
-                      skillResult.fail_num = log.GetTotalFailConditionCount();
-                      skillResult.disable_num = log.GetTotalDisableConditionCount();
-                      skillResult.damage = log.GetTruthTotalHpDamage();
-                      skillResult.dead_num = log.GetTotalDeathCount();
-                      skillResult.gain_jewel = log.GetGainJewel();
-                      skillResult.cost_jewel = skillUsedCost;
-                      skillResult.distance = this.CalcGridDistance(skillResult.usepos, skillResult.movpos);
-                      skillResult.unit_prio = this.GetSkillTargetsHighestPriority(self, skill, log);
-                      skillResult.ct = 0;
-                      if (grid.x != x || grid.y != y)
-                        skillResult.ct -= (int) fixParam.ChargeTimeDecMove;
-                      skillResult.ct -= (int) fixParam.ChargeTimeDecWait;
-                      skillResult.ct -= (int) fixParam.ChargeTimeDecAction;
-                      log.GetTotalBuffEffect(out skillResult.buff_num, out skillResult.buff);
-                      skillResult.buff_prio = (int) byte.MaxValue;
-                      for (int index4 = 0; index4 < log.targets.Count; ++index4)
-                      {
-                        int buffPriority = log.targets[index4].target.GetBuffPriority(skill, SkillEffectTargets.Target);
-                        skillResult.buff_prio = Math.Max(Math.Min(buffPriority, skillResult.buff_prio), 0);
-                      }
-                      if (skillResult.buff_prio == (int) byte.MaxValue)
-                        skillResult.buff_prio = self.GetBuffPriority(skill, SkillEffectTargets.Self);
-                      results.Add(skillResult);
-                    }
-                    this.CurrentRand = this.mRand;
-                    self.SetUnitFlag(EUnitFlag.SideAttack, false);
-                    self.SetUnitFlag(EUnitFlag.BackAttack, false);
-                    this.SetBattleFlag(EBattleFlag.PredictResult, false);
-                  }
-                }
-              }
-            }
-            self.x = x;
-            self.y = y;
-          }
-        }
-      }
-    }
-
-    private bool CheckEnableUseSkillEffect(Unit self, SkillData skill, LogSkill log)
-    {
-      // ISSUE: object of a compiler-generated type is created
-      // ISSUE: variable of a compiler-generated type
-      BattleCore.\u003CCheckEnableUseSkillEffect\u003Ec__AnonStorey1C0 effectCAnonStorey1C0 = new BattleCore.\u003CCheckEnableUseSkillEffect\u003Ec__AnonStorey1C0();
-      // ISSUE: reference to a compiler-generated field
-      effectCAnonStorey1C0.self = self;
-      // ISSUE: reference to a compiler-generated field
-      effectCAnonStorey1C0.skill = skill;
-      // ISSUE: reference to a compiler-generated field
-      // ISSUE: reference to a compiler-generated field
-      if (effectCAnonStorey1C0.self == null || effectCAnonStorey1C0.skill == null || log == null)
-        return false;
-      int num1 = 0;
-      // ISSUE: reference to a compiler-generated field
-      // ISSUE: reference to a compiler-generated field
-      effectCAnonStorey1C0.rage = effectCAnonStorey1C0.self.GetRageTarget();
-      // ISSUE: reference to a compiler-generated field
-      // ISSUE: reference to a compiler-generated field
-      // ISSUE: reference to a compiler-generated method
-      if (effectCAnonStorey1C0.rage != null && (!effectCAnonStorey1C0.skill.IsDamagedSkill() || log.targets.Find(new Predicate<LogSkill.Target>(effectCAnonStorey1C0.\u003C\u003Em__15E)) == null))
-        return false;
-      for (int index1 = 0; index1 < log.targets.Count; ++index1)
-      {
-        Unit target = log.targets[index1].target;
-        // ISSUE: reference to a compiler-generated field
-        // ISSUE: reference to a compiler-generated field
-        if (!this.CheckSkillTargetAI(effectCAnonStorey1C0.self, target, effectCAnonStorey1C0.skill))
-          return false;
-        // ISSUE: reference to a compiler-generated field
-        if (!effectCAnonStorey1C0.skill.IsDamagedSkill())
-        {
-          // ISSUE: reference to a compiler-generated field
-          if (effectCAnonStorey1C0.skill.IsHealSkill())
-          {
-            if (Math.Max(Math.Min(log.targets[index1].GetTotalHpHeal(), (int) target.MaximumStatus.param.hp - (int) target.CurrentStatus.param.hp), 0) == 0)
-              continue;
-          }
-          else
-          {
-            // ISSUE: reference to a compiler-generated field
-            if (effectCAnonStorey1C0.skill.IsSupportSkill())
-            {
-              // ISSUE: reference to a compiler-generated field
-              // ISSUE: reference to a compiler-generated field
-              // ISSUE: reference to a compiler-generated method
-              if (effectCAnonStorey1C0.self.AI == null || !effectCAnonStorey1C0.self.AI.CheckFlag(AIFlags.SelfBuffOnly) || log.targets.Find(new Predicate<LogSkill.Target>(effectCAnonStorey1C0.\u003C\u003Em__15F)) != null)
-              {
-                // ISSUE: reference to a compiler-generated field
-                if ((int) effectCAnonStorey1C0.skill.ControlChargeTimeValue == 0)
-                {
-                  // ISSUE: reference to a compiler-generated method
-                  if (target.BuffAttachments.Count <= 0 || target.BuffAttachments.Find(new Predicate<BuffAttachment>(effectCAnonStorey1C0.\u003C\u003Em__160)) == null)
-                  {
-                    // ISSUE: reference to a compiler-generated field
-                    BuffEffect buffEffect = effectCAnonStorey1C0.skill.GetBuffEffect(SkillEffectTargets.Target);
-                    if (buffEffect != null && buffEffect.CheckEnableBuffTarget(target))
-                    {
-                      bool flag = false;
-                      for (int index2 = 0; index2 < buffEffect.targets.Count; ++index2)
-                      {
-                        switch (buffEffect.targets[index2].buffType)
-                        {
-                          case BuffTypes.Buff:
-                            if (target.IsEnableBuffEffect(BuffTypes.Buff))
-                            {
-                              // ISSUE: reference to a compiler-generated field
-                              // ISSUE: reference to a compiler-generated field
-                              int num2 = effectCAnonStorey1C0.self.AI == null ? 0 : (int) effectCAnonStorey1C0.self.AI.buff_border;
-                              if (Math.Max(100 - (int) target.CurrentStatus.enchant_resist.resist_buff, 0) > num2)
-                                goto default;
-                              else
-                                break;
-                            }
-                            else
-                              break;
-                          case BuffTypes.Debuff:
-                            if (target.IsEnableBuffEffect(BuffTypes.Debuff))
-                            {
-                              // ISSUE: reference to a compiler-generated field
-                              // ISSUE: reference to a compiler-generated field
-                              int num2 = effectCAnonStorey1C0.self.AI == null ? 0 : (int) effectCAnonStorey1C0.self.AI.buff_border;
-                              if (Math.Max(100 - (int) target.CurrentStatus.enchant_resist.resist_debuff, 0) > num2)
-                                goto default;
-                              else
-                                break;
-                            }
-                            else
-                              break;
-                          default:
-                            if (target.GetActionSkillBuffValue(buffEffect.targets[index2].buffType, buffEffect.targets[index2].calcType, buffEffect.targets[index2].paramType) < Math.Abs((int) buffEffect.targets[index2].value))
-                            {
-                              flag = true;
-                              goto label_25;
-                            }
-                            else
-                              break;
-                        }
-                      }
-label_25:
-                      if (!flag)
-                        continue;
-                    }
-                    else
-                      continue;
-                  }
-                  else
-                    continue;
-                }
-              }
-              else
-                continue;
-            }
-            else
-            {
-              // ISSUE: reference to a compiler-generated field
-              if (effectCAnonStorey1C0.skill.IsConditionSkill())
-              {
-                // ISSUE: reference to a compiler-generated field
-                CondEffect condEffect = effectCAnonStorey1C0.skill.GetCondEffect(SkillEffectTargets.Target);
-                if (condEffect != null && condEffect.param.conditions != null && condEffect.CheckEnableCondTarget(target))
-                {
-                  bool flag = false;
-                  // ISSUE: reference to a compiler-generated field
-                  if (effectCAnonStorey1C0.skill.EffectType == SkillEffectTypes.CureCondition)
-                  {
-                    for (int index2 = 0; index2 < condEffect.param.conditions.Length; ++index2)
-                    {
-                      if (target.CheckEnableCureCondition(condEffect.param.conditions[index2]))
-                      {
-                        flag = true;
-                        break;
-                      }
-                    }
-                  }
-                  else
-                  {
-                    // ISSUE: reference to a compiler-generated field
-                    if (effectCAnonStorey1C0.skill.EffectType == SkillEffectTypes.FailCondition)
-                    {
-                      // ISSUE: reference to a compiler-generated field
-                      // ISSUE: reference to a compiler-generated field
-                      int num2 = effectCAnonStorey1C0.self.AI == null ? 0 : (int) effectCAnonStorey1C0.self.AI.cond_border;
-                      if (num2 <= 0 || (int) condEffect.rate <= 0 || (int) condEffect.rate >= num2)
-                      {
-                        for (int index2 = 0; index2 < condEffect.param.conditions.Length; ++index2)
-                        {
-                          EUnitCondition condition = condEffect.param.conditions[index2];
-                          switch (condition)
-                          {
-                            case EUnitCondition.DisableBuff:
-                              // ISSUE: reference to a compiler-generated field
-                              if (this.CheckBuffDebuffEffectiveEnemies(effectCAnonStorey1C0.self, BuffTypes.Buff))
-                                goto default;
-                              else
-                                break;
-                            case EUnitCondition.DisableDebuff:
-                              // ISSUE: reference to a compiler-generated field
-                              if (this.CheckBuffDebuffEffectiveEnemies(effectCAnonStorey1C0.self, BuffTypes.Debuff))
-                                goto default;
-                              else
-                                break;
-                            default:
-                              if (target.CheckEnableFailCondition(condition) && (num2 <= 0 || Math.Max((int) condEffect.value - (int) target.CurrentStatus.enchant_resist[condition], 0) >= num2))
-                              {
-                                flag = true;
-                                goto label_50;
-                              }
-                              else
-                                break;
-                          }
-                        }
-                      }
-                      else
-                        continue;
-                    }
-                    else
-                    {
-                      // ISSUE: reference to a compiler-generated field
-                      if (effectCAnonStorey1C0.skill.EffectType == SkillEffectTypes.DisableCondition)
-                      {
-                        for (int index2 = 0; index2 < condEffect.param.conditions.Length; ++index2)
-                        {
-                          if (!target.IsDisableUnitCondition(condEffect.param.conditions[index2]))
-                          {
-                            flag = true;
-                            break;
-                          }
-                        }
-                      }
-                    }
-                  }
-label_50:
-                  if (!flag)
-                    continue;
-                }
-                else
-                  continue;
-              }
-            }
-          }
-        }
-        ++num1;
-      }
-      return num1 != 0;
-    }
-
-    public bool CheckFriendlyFireOnGridMap(Unit self, Grid grid)
-    {
-      for (int index = 0; index < this.Units.Count; ++index)
-      {
-        Unit unit = this.Units[index];
-        if (unit.CastSkill != null && !unit.CastSkill.IsAllEffect() && (unit.UnitTarget != self && unit.CastSkill.IsDamagedSkill()) && (this.CheckSkillTarget(unit, self, unit.CastSkill) && unit.CastSkillGridMap != null && unit.CastSkillGridMap.get(grid.x, grid.y)))
-          return true;
-      }
-      return false;
-    }
-
-    private bool CheckSkillChargeInTime(Unit self, Unit target, SkillData skill)
-    {
-      if (!skill.IsCastSkill())
-        return true;
-      int castTimeMax = (int) self.CastTimeMax;
-      int castSpeed = (int) self.GetCastSpeed(skill);
-      int num1 = 0;
-      int num2 = 0;
-      if (castSpeed > 0)
-      {
-        while (num1 < castTimeMax)
-        {
-          num1 += castSpeed;
-          ++num2;
-        }
-      }
-      int chargeTimeMax = (int) target.ChargeTimeMax;
-      int chargeSpeed = (int) target.GetChargeSpeed();
-      int chargeTime = (int) target.ChargeTime;
-      int num3 = 0;
-      if (chargeSpeed > 0)
-      {
-        while (chargeTime < chargeTimeMax)
-        {
-          chargeTime += chargeSpeed;
-          ++num3;
-        }
-      }
-      if (num2 != num3)
-        return num2 < num3;
-      if (num1 != chargeTime)
-        return num1 > chargeTime;
-      return (int) self.UnitIndex < (int) target.UnitIndex;
     }
 
     private bool Searching(Unit self)
@@ -9133,6 +11675,324 @@ label_50:
       return false;
     }
 
+    private int GetCurrentEnemyNum(Unit self)
+    {
+      int num = 0;
+      for (int index = 0; index < this.mUnits.Count; ++index)
+      {
+        Unit mUnit = this.mUnits[index];
+        if (!mUnit.IsDead && mUnit.IsEntry && (!mUnit.IsGimmick && !mUnit.IsSub) && (mUnit != self && this.CheckEnemySide(self, mUnit)))
+          ++num;
+      }
+      return num;
+    }
+
+    private void GetEnemyPriorities(Unit self, List<Unit> enemyTargets, List<Unit> gimmickTargets)
+    {
+      if (self == null)
+        return;
+      enemyTargets.Clear();
+      gimmickTargets.Clear();
+      Unit rageTarget = self.GetRageTarget();
+      if (rageTarget != null)
+      {
+        enemyTargets.Add(rageTarget);
+      }
+      else
+      {
+        for (int index = 0; index < this.mUnits.Count; ++index)
+        {
+          Unit mUnit = this.mUnits[index];
+          if (mUnit != self && !mUnit.IsDead && (!mUnit.IsSub && mUnit.IsEntry))
+          {
+            if (mUnit.IsGimmick)
+            {
+              if (mUnit.IsBreakObj && this.IsTargetBreakUnit(self, mUnit, (SkillData) null) && (this.IsTargetBreakUnitAI(self, mUnit) && this.CheckGimmickEnemySide(self, mUnit)))
+                gimmickTargets.Add(mUnit);
+            }
+            else if (this.CheckEnemySide(self, mUnit))
+              enemyTargets.Add(mUnit);
+          }
+        }
+        this.SortAttackTargets(self, enemyTargets);
+      }
+    }
+
+    private void SortAttackTargets(Unit unit, List<Unit> targets)
+    {
+      // ISSUE: object of a compiler-generated type is created
+      // ISSUE: variable of a compiler-generated type
+      BattleCore.\u003CSortAttackTargets\u003Ec__AnonStorey251 targetsCAnonStorey251 = new BattleCore.\u003CSortAttackTargets\u003Ec__AnonStorey251();
+      // ISSUE: reference to a compiler-generated field
+      targetsCAnonStorey251.unit = unit;
+      // ISSUE: reference to a compiler-generated field
+      targetsCAnonStorey251.\u003C\u003Ef__this = this;
+      // ISSUE: reference to a compiler-generated field
+      DebugUtility.Assert(targetsCAnonStorey251.unit != null, "unit == null");
+      if (targets.Count <= 0)
+        return;
+      // ISSUE: reference to a compiler-generated field
+      // ISSUE: object of a compiler-generated type is created
+      // ISSUE: reference to a compiler-generated method
+      MySort<Unit>.Sort(targets, new Comparison<Unit>(new BattleCore.\u003CSortAttackTargets\u003Ec__AnonStorey250()
+      {
+        \u003C\u003Ef__ref\u0024593 = targetsCAnonStorey251,
+        \u003C\u003Ef__this = this,
+        rage = targetsCAnonStorey251.unit.GetRageTarget()
+      }.\u003C\u003Em__1CF));
+    }
+
+    private int GetAliveUnitCount(Unit self)
+    {
+      int num = 0;
+      for (int index = 0; index < this.mUnits.Count; ++index)
+      {
+        Unit mUnit = this.mUnits[index];
+        if (!mUnit.IsDead && !mUnit.IsGimmick && mUnit.Side == self.Side)
+          ++num;
+      }
+      return num;
+    }
+
+    private int GetDeadUnitCount(Unit self)
+    {
+      int num = 0;
+      for (int index = 0; index < this.mUnits.Count; ++index)
+      {
+        Unit mUnit = this.mUnits[index];
+        if (mUnit.IsDead && !mUnit.IsGimmick && mUnit.Side == self.Side)
+          ++num;
+      }
+      return num;
+    }
+
+    private int GetFailCondSelfSideUnitCount(Unit self, EUnitCondition condition)
+    {
+      int num = 0;
+      for (int index = 0; index < this.mUnits.Count; ++index)
+      {
+        Unit mUnit = this.mUnits[index];
+        if (!this.mUnits[index].IsSub && this.mUnits[index].IsEntry && (!this.mUnits[index].IsDead && !this.mUnits[index].IsGimmick) && (!this.CheckEnemySide(self, mUnit) && mUnit.IsUnitCondition(condition)))
+          ++num;
+      }
+      return num;
+    }
+
+    private int GetHealUnitCount(Unit self)
+    {
+      int num = 0;
+      AIParam ai = self.AI;
+      for (int index = 0; index < this.mUnits.Count; ++index)
+      {
+        Unit mUnit = this.mUnits[index];
+        if (!mUnit.IsDead && mUnit.IsEntry && !mUnit.IsSub && (!this.CheckEnemySide(self, mUnit) || mUnit.IsGimmick && this.IsTargetBreakUnit(self, mUnit, (SkillData) null)))
+        {
+          int hp1 = (int) mUnit.CurrentStatus.param.hp;
+          int hp2 = (int) mUnit.MaximumStatus.param.hp;
+          if (ai != null)
+          {
+            if (hp2 * (int) ai.heal_border < hp1 * 100)
+              continue;
+          }
+          else if (hp1 == hp2)
+            continue;
+          ++num;
+        }
+      }
+      return num;
+    }
+
+    private List<Unit> GetHealer(Unit self)
+    {
+      List<Unit> l = new List<Unit>();
+      int hp1 = (int) self.CurrentStatus.param.hp;
+      int hp2 = (int) self.MaximumStatus.param.hp;
+      for (int index1 = 0; index1 < this.mUnits.Count; ++index1)
+      {
+        Unit mUnit = this.mUnits[index1];
+        if (!mUnit.IsDead && mUnit.IsEntry && (!mUnit.IsGimmick && !mUnit.IsSub) && (mUnit != self && mUnit.IsEnableSkillCondition(true) && !this.CheckEnemySide(self, mUnit)))
+        {
+          for (int index2 = 0; index2 < mUnit.BattleSkills.Count; ++index2)
+          {
+            SkillData battleSkill = mUnit.BattleSkills[index2];
+            if (battleSkill != null && battleSkill.IsHealSkill() && (this.CheckEnableUseSkill(mUnit, battleSkill, true) && this.IsUseSkillCollabo(mUnit, battleSkill)) && (this.CheckSkillTargetAI(mUnit, self, battleSkill) && hp2 * (int) mUnit.AI.heal_border >= hp1 * 100))
+            {
+              l.Add(mUnit);
+              break;
+            }
+          }
+        }
+      }
+      if (l.Count > 0)
+        MySort<Unit>.Sort(l, (Comparison<Unit>) ((src, dsc) =>
+        {
+          if (src == dsc)
+            return 0;
+          int chargeTime1 = (int) src.ChargeTime;
+          int chargeTimeMax1 = (int) src.ChargeTimeMax;
+          int chargeTime2 = (int) dsc.ChargeTime;
+          int chargeTimeMax2 = (int) dsc.ChargeTimeMax;
+          if (chargeTime1 != chargeTime2)
+          {
+            if (chargeTime1 >= chargeTimeMax1 && chargeTime2 >= chargeTimeMax2)
+              return chargeTime2 - chargeTimeMax2 - (chargeTime1 - chargeTimeMax1);
+            if (chargeTime1 >= chargeTimeMax1)
+              return -1;
+            if (chargeTime2 >= chargeTimeMax2)
+              return 1;
+            int chargeSpeed1 = (int) src.GetChargeSpeed();
+            int chargeSpeed2 = (int) dsc.GetChargeSpeed();
+            int num1 = chargeTimeMax1 - chargeTime1 == 0 ? 0 : (chargeTimeMax1 - chargeTime1) * 100 / chargeSpeed1;
+            int num2 = chargeTimeMax2 - chargeTime2 == 0 ? 0 : (chargeTimeMax2 - chargeTime2) * 100 / chargeSpeed2;
+            if (num1 != num2)
+              return num1 - num2;
+          }
+          return this.CalcNearGridDistance(self, src) - this.CalcNearGridDistance(self, dsc);
+        }));
+      return l;
+    }
+
+    public List<Unit> CreateAttackTargetsAI(Unit self, SkillData skill, bool is_move)
+    {
+      GridMap<bool> skillScopeMapAll = this.CreateSkillScopeMapAll(self, skill, is_move);
+      List<Unit> targets = new List<Unit>(this.mUnits.Count);
+      this.SearchTargetsInGridMap(self, skill, skillScopeMapAll, targets);
+      for (int index = 0; index < targets.Count; ++index)
+      {
+        if (!this.CheckSkillTargetAI(self, targets[index], skill))
+          targets.Remove(targets[index--]);
+      }
+      return targets;
+    }
+
+    private void RefreshTreasureTargetAI()
+    {
+      if (!this.mQuestParam.CheckAllowedAutoBattle() || !GameUtility.Config_AutoMode_Treasure.Value || this.mTreasures.Count == 0)
+        return;
+      for (int index = 0; index < this.mUnits.Count; ++index)
+        this.mUnits[index].TreasureGainTarget = (Grid) null;
+      BattleMap currentMap = this.CurrentMap;
+      for (int index1 = 0; index1 < this.mTreasures.Count; ++index1)
+      {
+        // ISSUE: object of a compiler-generated type is created
+        // ISSUE: variable of a compiler-generated type
+        BattleCore.\u003CRefreshTreasureTargetAI\u003Ec__AnonStorey253 aiCAnonStorey253 = new BattleCore.\u003CRefreshTreasureTargetAI\u003Ec__AnonStorey253();
+        if (this.mTreasures[index1].EventTrigger != null && this.mTreasures[index1].EventTrigger.EventType == EEventType.Treasure && this.mTreasures[index1].EventTrigger.Count != 0)
+        {
+          // ISSUE: reference to a compiler-generated field
+          aiCAnonStorey253.suited = (Unit) null;
+          Grid grid = currentMap[this.mTreasures[index1].x, this.mTreasures[index1].y];
+          int num1 = (int) byte.MaxValue;
+          for (int index2 = 0; index2 < this.mPlayer.Count; ++index2)
+          {
+            // ISSUE: object of a compiler-generated type is created
+            // ISSUE: variable of a compiler-generated type
+            BattleCore.\u003CRefreshTreasureTargetAI\u003Ec__AnonStorey254 aiCAnonStorey254 = new BattleCore.\u003CRefreshTreasureTargetAI\u003Ec__AnonStorey254();
+            // ISSUE: reference to a compiler-generated field
+            aiCAnonStorey254.\u003C\u003Ef__ref\u0024595 = aiCAnonStorey253;
+            // ISSUE: reference to a compiler-generated field
+            aiCAnonStorey254.unit = this.mPlayer[index2];
+            // ISSUE: reference to a compiler-generated field
+            // ISSUE: reference to a compiler-generated field
+            // ISSUE: reference to a compiler-generated field
+            // ISSUE: reference to a compiler-generated field
+            // ISSUE: reference to a compiler-generated field
+            // ISSUE: reference to a compiler-generated field
+            if (aiCAnonStorey254.unit.UnitType == EUnitType.Unit && aiCAnonStorey254.unit.TreasureGainTarget == null && (aiCAnonStorey254.unit.IsEntry && !aiCAnonStorey254.unit.IsSub) && (aiCAnonStorey254.unit.IsEnableAutoMode() && aiCAnonStorey254.unit.IsEnableMoveCondition(true)))
+            {
+              // ISSUE: reference to a compiler-generated field
+              int moveCount = aiCAnonStorey254.unit.GetMoveCount(true);
+              if (moveCount != 0)
+              {
+                // ISSUE: reference to a compiler-generated field
+                // ISSUE: reference to a compiler-generated field
+                // ISSUE: reference to a compiler-generated field
+                currentMap.CalcMoveSteps(aiCAnonStorey254.unit, currentMap[aiCAnonStorey254.unit.x, aiCAnonStorey254.unit.y], false);
+                int num2 = (int) grid.step / moveCount + ((int) grid.step % moveCount <= 0 ? 0 : 1);
+                // ISSUE: reference to a compiler-generated field
+                // ISSUE: reference to a compiler-generated method
+                // ISSUE: reference to a compiler-generated method
+                if (num2 <= num1 && (num2 != num1 || aiCAnonStorey253.suited == null || this.mOrder.FindIndex(new Predicate<BattleCore.OrderData>(aiCAnonStorey254.\u003C\u003Em__1D1)) >= this.mOrder.FindIndex(new Predicate<BattleCore.OrderData>(aiCAnonStorey254.\u003C\u003Em__1D2))))
+                {
+                  // ISSUE: reference to a compiler-generated field
+                  // ISSUE: reference to a compiler-generated field
+                  aiCAnonStorey253.suited = aiCAnonStorey254.unit;
+                  num1 = num2;
+                }
+              }
+            }
+          }
+          // ISSUE: reference to a compiler-generated field
+          if (aiCAnonStorey253.suited != null)
+          {
+            // ISSUE: reference to a compiler-generated field
+            aiCAnonStorey253.suited.TreasureGainTarget = grid;
+          }
+        }
+      }
+    }
+
+    private bool IsBuffDebuffEffectiveEnemies(Unit self, BuffTypes type)
+    {
+      for (int index = 0; index < this.mUnits.Count; ++index)
+      {
+        Unit mUnit = this.mUnits[index];
+        if (!mUnit.IsSub && mUnit.IsEntry && (!mUnit.IsDead && !mUnit.IsGimmick) && (this.CheckEnemySide(self, mUnit) && mUnit.CheckActionSkillBuffAttachments(type)))
+          return true;
+      }
+      return false;
+    }
+
+    private bool IsFailCondSkillUseEnemies(Unit self, EUnitCondition condition)
+    {
+      if (condition == EUnitCondition.AutoHeal || condition == EUnitCondition.GoodSleep || (condition == EUnitCondition.AutoJewel || condition == EUnitCondition.DisableBuff) || (condition == EUnitCondition.DisableDebuff || condition == EUnitCondition.DisableKnockback))
+        return false;
+      for (int index1 = 0; index1 < this.mUnits.Count; ++index1)
+      {
+        Unit mUnit = this.mUnits[index1];
+        if (!mUnit.IsSub && mUnit.IsEntry && (!mUnit.IsDead && !mUnit.IsGimmick) && (mUnit.IsEnableSkillCondition(true) && this.CheckEnemySide(self, mUnit) && mUnit.BattleSkills != null))
+        {
+          for (int index2 = 0; index2 < mUnit.BattleSkills.Count; ++index2)
+          {
+            SkillData battleSkill = mUnit.BattleSkills[index2];
+            if (mUnit.IsPartyMember || (int) battleSkill.UseRate != 0 && (battleSkill.UseCondition == null || battleSkill.UseCondition.type == 0 || battleSkill.UseCondition.unlock))
+            {
+              CondEffect condEffect = battleSkill.GetCondEffect(SkillEffectTargets.Target);
+              if (condEffect != null && condEffect.param != null && condEffect.param.conditions != null && (condEffect.param.type == ConditionEffectTypes.FailCondition || condEffect.param.type == ConditionEffectTypes.ForcedFailCondition || condEffect.param.type == ConditionEffectTypes.RandomFailCondition))
+                return Array.IndexOf<EUnitCondition>(condEffect.param.conditions, condition) != -1;
+            }
+          }
+        }
+      }
+      return false;
+    }
+
+    private bool IsTargetBreakUnitAI(Unit self, Unit target)
+    {
+      EUnitSide eunitSide = self.Side;
+      if (self.IsUnitCondition(EUnitCondition.Charm) || self.IsUnitCondition(EUnitCondition.Zombie))
+      {
+        if (self.Side == EUnitSide.Player)
+          eunitSide = EUnitSide.Enemy;
+        else if (self.Side == EUnitSide.Enemy)
+          eunitSide = EUnitSide.Player;
+      }
+      bool flag = true;
+      if (target.BreakObjAIType == eMapBreakAIType.PALL)
+      {
+        if (eunitSide != EUnitSide.Player)
+          flag = false;
+      }
+      else if (target.BreakObjAIType == eMapBreakAIType.EALL)
+      {
+        if (eunitSide != EUnitSide.Enemy)
+          flag = false;
+      }
+      else if (target.BreakObjAIType == eMapBreakAIType.NONE)
+        flag = false;
+      return flag;
+    }
+
     public class OrderData
     {
       public Unit Unit;
@@ -9176,6 +12036,31 @@ label_50:
       }
     }
 
+    public class DropItemParam
+    {
+      public ItemParam mItemParam;
+      public bool mIsSecret;
+
+      public DropItemParam(ItemParam ip)
+      {
+        this.mItemParam = ip;
+      }
+    }
+
+    public class SkillExecLog
+    {
+      public string skill_iname;
+      public int use_count;
+      public int kill_count;
+
+      public void Restore(BattleSuspend.Data.SkillExecLogInfo _log_info)
+      {
+        this.skill_iname = _log_info.inm;
+        this.use_count = _log_info.ucnt;
+        this.kill_count = _log_info.kcnt;
+      }
+    }
+
     public class Record
     {
       public OInt playerexp = (OInt) 0;
@@ -9183,11 +12068,15 @@ label_50:
       public OInt gold = (OInt) 0;
       public OInt chain = (OInt) 0;
       public OInt multicoin = (OInt) 0;
+      public OInt pvpcoin = (OInt) 0;
       public List<UnitParam> units = new List<UnitParam>(4);
-      public List<ItemParam> items = new List<ItemParam>(4);
+      public List<BattleCore.DropItemParam> items = new List<BattleCore.DropItemParam>(4);
+      public List<ArtifactParam> artifacts = new List<ArtifactParam>(4);
       public Dictionary<OString, OInt> used_items = new Dictionary<OString, OInt>();
       public BattleCore.QuestResult result;
       public int bonusFlags;
+      public int allBonusFlags;
+      public int bonusCount;
       public OInt[] drops;
       public OInt[] item_steals;
       public OInt[] gold_steals;
@@ -9220,7 +12109,6 @@ label_50:
       public long btlid;
       public BattleCore.Json_BtlInfo btlinfo;
       public Json_Unit[] coloenemyunits;
-      public int maxActionNum;
     }
 
     public class Json_BtlReward
@@ -9241,6 +12129,9 @@ label_50:
       public int[] atkmags;
       public string[] campaigns;
       public long start_at;
+      public int multi_floor;
+      public int roomid;
+      public BattleCore.Json_BtlInfoRankingQuest quest_ranking;
 
       public virtual RandDeckResult[] GetDeck()
       {
@@ -9258,6 +12149,7 @@ label_50:
       public string iname;
       public int gold;
       public int num;
+      public int secret;
     }
 
     public class Json_BtlSteal
@@ -9265,6 +12157,12 @@ label_50:
       public string iname;
       public int gold;
       public int num;
+    }
+
+    public class Json_BtlInfoRankingQuest
+    {
+      public int type;
+      public int schedule_id;
     }
 
     public enum QuestResult
@@ -9362,8 +12260,11 @@ label_50:
       public int ca_heal;
       public bool is_critical;
       public bool is_avoid;
+      public bool is_pf_avoid;
+      public int critical_rate;
+      public int avoid_rate;
 
-      public HitData(int _hp_damage_, int _mp_damage_, int _ch_damage_, int _ca_damage_, int _hp_heal_, int _mp_heal_, int _ch_heal_, int _ca_heal_, bool _critical_, bool _avoid_)
+      public HitData(int _hp_damage_, int _mp_damage_, int _ch_damage_, int _ca_damage_, int _hp_heal_, int _mp_heal_, int _ch_heal_, int _ca_heal_, bool _critical_, bool _avoid_, bool _pf_avoid_, int _critical_rate_, int _avoid_rate_)
       {
         this.hp_damage = _hp_damage_;
         this.mp_damage = _mp_damage_;
@@ -9375,6 +12276,9 @@ label_50:
         this.ca_heal = _ca_heal_;
         this.is_critical = _critical_;
         this.is_avoid = _avoid_;
+        this.is_pf_avoid = _pf_avoid_;
+        this.critical_rate = _critical_rate_;
+        this.avoid_rate = _avoid_rate_;
       }
     }
 
@@ -9386,6 +12290,7 @@ label_50:
 
     public class UnitResult
     {
+      public List<LogSkill.Target.CondHit> cond_hit_lists = new List<LogSkill.Target.CondHit>();
       public Unit react_unit;
       public Unit unit;
       public int hp_damage;
@@ -9414,53 +12319,6 @@ label_50:
       public double height;
     }
 
-    public enum SuspendTiming
-    {
-      MapStart,
-      UnitStart,
-      Wait,
-      Move,
-      UseSkill,
-      UseItem,
-      UnitEnd,
-      CastSkillStart,
-      CastSkillEnd,
-      Continued,
-      AI,
-    }
-
-    public class SuspendData
-    {
-      public string skill = string.Empty;
-      public string item = string.Empty;
-      public BattleCore.SuspendTiming timing;
-      public uint seed;
-      public uint rnd;
-      public long uid;
-      public int x;
-      public int y;
-      public int dir;
-      public int tx;
-      public int ty;
-      public int locked;
-      public int ux;
-      public int uy;
-    }
-
-    private class SuspendLog
-    {
-      public int mIndex;
-      public string mSkillID;
-      public string mUnitID;
-
-      public SuspendLog(int idx, string skill_id, string unit_id)
-      {
-        this.mIndex = idx;
-        this.mSkillID = skill_id;
-        this.mUnitID = unit_id;
-      }
-    }
-
     public enum eArenaCalcType
     {
       UNKNOWN,
@@ -9473,6 +12331,35 @@ label_50:
       MAP_END,
     }
 
+    private class KnockBackTarget
+    {
+      public int mMoveDir = -1;
+      public LogSkill.Target mLsTarget;
+      public int mUnitGx;
+      public int mUnitGy;
+      public int mMoveLen;
+
+      public KnockBackTarget(LogSkill.Target ls_target, int gx, int gy)
+      {
+        this.mLsTarget = ls_target;
+        this.mUnitGx = gx;
+        this.mUnitGy = gy;
+        this.mMoveLen = 0;
+        this.mMoveDir = -1;
+      }
+    }
+
+    public class AiCache
+    {
+      public BattleMap map;
+      public FixParam fixparam;
+      public BattleCore.SVector2 pos;
+      public int cond_prio;
+      public int cost_jewel;
+      public Grid goal;
+      public GridMap<bool> baseRangeMap;
+    }
+
     public class SkillResult
     {
       public SkillData skill;
@@ -9480,6 +12367,7 @@ label_50:
       public Grid usepos;
       public LogSkill log;
       public bool locked;
+      public int score_prio;
       public int unit_prio;
       public int cost_jewel;
       public int gain_jewel;
@@ -9492,10 +12380,43 @@ label_50:
       public int buff;
       public int buff_num;
       public int buff_prio;
-      public int damage;
-      public int dead_num;
+      public int buff_dup;
+      public int unit_damage_t;
+      public int unit_damage;
+      public int unit_dead_num;
+      public int ext_damage;
+      public int ext_dead_num;
+      public int nockback_prio;
       public int distance;
+      public int teleport;
       public int ct;
+      public int fail_trick;
+      public int good_trick;
+      public int heal_trick;
+    }
+
+    public class MoveGoalTarget
+    {
+      public Unit unit;
+      public Vector2 goal;
+      public float step;
+
+      public static List<BattleCore.MoveGoalTarget> Create(List<Unit> targets)
+      {
+        List<BattleCore.MoveGoalTarget> moveGoalTargetList = new List<BattleCore.MoveGoalTarget>();
+        for (int index = 0; index < targets.Count; ++index)
+          moveGoalTargetList.Add(new BattleCore.MoveGoalTarget()
+          {
+            unit = targets[index],
+            goal = Vector2.get_zero()
+          });
+        return moveGoalTargetList;
+      }
+
+      public override string ToString()
+      {
+        return "[" + (object) (float) this.goal.x + "," + (object) (float) this.goal.y + "](" + (object) this.step + "):" + this.unit.UnitName;
+      }
     }
 
     public delegate void LogCallback(string s);

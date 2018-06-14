@@ -1,15 +1,17 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: MapProjectile
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
+using SRPG;
 using UnityEngine;
 
 [DisallowMultipleComponent]
 public class MapProjectile : MonoBehaviour
 {
   public MapProjectile.HitEvent OnHit;
+  public TacticsUnitController.ProjectileData mProjectileData;
   public MapProjectile.DistanceChangeEvent OnDistanceUpdate;
   public Transform CameraTransform;
   public Vector3 StartCameraTargetPosition;
@@ -32,6 +34,7 @@ public class MapProjectile : MonoBehaviour
   private float mMoveTime;
   private float mStartSpeed;
   private Vector3 mPrevPos;
+  private bool mIsStartProc;
 
   public MapProjectile()
   {
@@ -81,7 +84,9 @@ public class MapProjectile : MonoBehaviour
       this.mCameraOffset = Vector3.op_Subtraction(this.CameraTransform.get_position(), this.StartCameraTargetPosition);
     if (this.IsArrow)
       this.InitGravity();
+    this.mIsStartProc = true;
     this.Update();
+    this.mIsStartProc = false;
   }
 
   private void Update()
@@ -128,15 +133,22 @@ public class MapProjectile : MonoBehaviour
           this.mElapsedTime = 0.0f;
         }
         this.CalcMovedDistance();
-        if (!Object.op_Inequality((Object) this.CameraTransform, (Object) null))
-          return;
-        Vector3 vector3_3 = Vector3.op_Subtraction(this.GoalPosition, this.mStartPosition);
-        // ISSUE: explicit reference operation
-        // ISSUE: explicit reference operation
-        this.CameraTransform.set_position(Vector3.op_Addition(Vector3.Lerp(this.StartCameraTargetPosition, this.EndCameraTargetPosition, Vector3.Dot(Vector3.op_Subtraction(this.mTransform.get_position(), this.mStartPosition), ((Vector3) @vector3_3).get_normalized()) / ((Vector3) @vector3_3).get_magnitude()), this.mCameraOffset));
+        if (Object.op_Inequality((Object) this.CameraTransform, (Object) null))
+        {
+          Vector3 vector3_2 = Vector3.op_Subtraction(this.GoalPosition, this.mStartPosition);
+          // ISSUE: explicit reference operation
+          // ISSUE: explicit reference operation
+          this.CameraTransform.set_position(Vector3.op_Addition(Vector3.Lerp(this.StartCameraTargetPosition, this.EndCameraTargetPosition, Vector3.Dot(Vector3.op_Subtraction(this.mTransform.get_position(), this.mStartPosition), ((Vector3) @vector3_2).get_normalized()) / ((Vector3) @vector3_2).get_magnitude()), this.mCameraOffset));
+        }
       }
+      if (!this.mIsStartProc)
+        return;
     }
-    else if ((double) this.mElapsedTime < (double) this.HitDelay)
+    else
+      this.mReachedGoal = true;
+    if (!this.mReachedGoal)
+      return;
+    if ((double) this.mElapsedTime < (double) this.HitDelay)
     {
       if ((double) this.Speed > 0.0 || !Object.op_Inequality((Object) this.CameraTransform, (Object) null))
         return;
@@ -147,7 +159,7 @@ public class MapProjectile : MonoBehaviour
       if (Object.op_Inequality((Object) this.CameraTransform, (Object) null))
         this.CameraTransform.set_position(Vector3.op_Addition(this.EndCameraTargetPosition, this.mCameraOffset));
       if (this.OnHit != null)
-        this.OnHit(((Component) this).get_gameObject());
+        this.OnHit(this.mProjectileData);
       if (Object.op_Equality((Object) ((Component) this).get_gameObject().GetComponent<OneShotParticle>(), (Object) null))
         ((Component) this).get_gameObject().AddComponent<OneShotParticle>();
       GameUtility.StopEmitters(((Component) this).get_gameObject());
@@ -181,7 +193,7 @@ public class MapProjectile : MonoBehaviour
     return Vector3.Dot(vector3, Vector3.op_Subtraction(position, this.mStartPosition));
   }
 
-  public delegate void HitEvent(GameObject go);
+  public delegate void HitEvent(TacticsUnitController.ProjectileData pd);
 
   public delegate void DistanceChangeEvent(GameObject go, float distance);
 }

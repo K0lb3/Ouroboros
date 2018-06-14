@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.GameParameter
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -99,8 +99,30 @@ namespace SRPG
 
     private ArtifactParam GetArtifactParam()
     {
-      ArtifactData dataOfClass = DataSource.FindDataOfClass<ArtifactData>(((Component) this).get_gameObject(), (ArtifactData) null);
-      return dataOfClass != null ? dataOfClass.ArtifactParam : DataSource.FindDataOfClass<ArtifactParam>(((Component) this).get_gameObject(), (ArtifactParam) null);
+      switch (this.InstanceType)
+      {
+        case 0:
+          ArtifactData dataOfClass1 = DataSource.FindDataOfClass<ArtifactData>(((Component) this).get_gameObject(), (ArtifactData) null);
+          if (dataOfClass1 != null)
+            return dataOfClass1.ArtifactParam;
+          return DataSource.FindDataOfClass<ArtifactParam>(((Component) this).get_gameObject(), (ArtifactParam) null);
+        case 1:
+          QuestParam questParamAuto = this.GetQuestParamAuto();
+          if (questParamAuto != null && 0 <= this.Index && (questParamAuto.bonusObjective != null && this.Index < questParamAuto.bonusObjective.Length))
+            return MonoSingleton<GameManager>.Instance.MasterParam.GetArtifactParam(questParamAuto.bonusObjective[this.Index].item);
+          break;
+        case 2:
+          ArtifactRewardData dataOfClass2 = DataSource.FindDataOfClass<ArtifactRewardData>(((Component) this).get_gameObject(), (ArtifactRewardData) null);
+          if (dataOfClass2 != null)
+          {
+            ArtifactParam artifactParam = dataOfClass2.ArtifactParam;
+            if (artifactParam != null)
+              return artifactParam;
+          }
+          this.ResetToDefault();
+          break;
+      }
+      return (ArtifactParam) null;
     }
 
     private ArtifactData GetArtifactData()
@@ -108,12 +130,26 @@ namespace SRPG
       return DataSource.FindDataOfClass<ArtifactData>(((Component) this).get_gameObject(), (ArtifactData) null);
     }
 
+    private void SetArtifactFrame(ArtifactParam param)
+    {
+      if (param == null)
+        return;
+      Image component = (Image) ((Component) this).GetComponent<Image>();
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
+        return;
+      int rareini = param.rareini;
+      GameSettings instance = GameSettings.Instance;
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) instance, (UnityEngine.Object) null) || rareini >= instance.ArtifactIcon_Frames.Length)
+        return;
+      component.set_sprite(instance.ArtifactIcon_Frames[rareini]);
+    }
+
     private Unit GetUnit()
     {
       switch (this.InstanceType)
       {
         case 3:
-          if (Object.op_Inequality((Object) SceneBattle.Instance, (Object) null) && SceneBattle.Instance.Battle.CurrentUnit != null)
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null) && SceneBattle.Instance.Battle.CurrentUnit != null)
             return SceneBattle.Instance.Battle.CurrentUnit;
           return (Unit) null;
         default:
@@ -151,7 +187,7 @@ namespace SRPG
           }
           break;
         case 3:
-          if (Object.op_Inequality((Object) SceneBattle.Instance, (Object) null) && SceneBattle.Instance.Battle.CurrentUnit != null)
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null) && SceneBattle.Instance.Battle.CurrentUnit != null)
             return SceneBattle.Instance.Battle.CurrentUnit.UnitData;
           break;
         case 4:
@@ -201,16 +237,30 @@ namespace SRPG
       return Array.Find<JSON_MyPhotonPlayerParam.UnitDataElem>(roomPlayerParam.units, (Predicate<JSON_MyPhotonPlayerParam.UnitDataElem>) (e => e.slotID == index));
     }
 
+    private JSON_MyPhotonPlayerParam GetVersusPlayerParam(JSON_MyPhotonPlayerParam[] players, int cnt)
+    {
+      MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
+      JSON_MyPhotonPlayerParam photonPlayerParam = (JSON_MyPhotonPlayerParam) null;
+      if (players.Length > cnt)
+      {
+        for (int index = 0; index < players.Length; ++index)
+        {
+          JSON_MyPhotonPlayerParam player = players[index];
+          if (player != null && player.playerID != instance.GetMyPlayer().playerID)
+          {
+            photonPlayerParam = player;
+            break;
+          }
+        }
+      }
+      return photonPlayerParam;
+    }
+
     private JSON_MyPhotonPlayerParam GetVersusPlayerParam()
     {
-      // ISSUE: object of a compiler-generated type is created
-      // ISSUE: variable of a compiler-generated type
-      GameParameter.\u003CGetVersusPlayerParam\u003Ec__AnonStorey1F5 paramCAnonStorey1F5 = new GameParameter.\u003CGetVersusPlayerParam\u003Ec__AnonStorey1F5();
-      // ISSUE: reference to a compiler-generated field
-      paramCAnonStorey1F5.pt = PunMonoSingleton<MyPhoton>.Instance;
+      MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
       JSON_MyPhotonPlayerParam photonPlayerParam = (JSON_MyPhotonPlayerParam) null;
-      // ISSUE: reference to a compiler-generated field
-      if (Object.op_Inequality((Object) paramCAnonStorey1F5.pt, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) instance, (UnityEngine.Object) null))
       {
         if (this.InstanceType == 0)
         {
@@ -218,14 +268,26 @@ namespace SRPG
         }
         else
         {
-          // ISSUE: reference to a compiler-generated field
-          List<MyPhoton.MyPlayer> roomPlayerList = paramCAnonStorey1F5.pt.GetRoomPlayerList();
-          if (roomPlayerList != null && roomPlayerList.Count > 1)
+          MyPhoton.MyRoom currentRoom = instance.GetCurrentRoom();
+          if (currentRoom != null)
           {
-            // ISSUE: reference to a compiler-generated method
-            MyPhoton.MyPlayer myPlayer = roomPlayerList.Find(new Predicate<MyPhoton.MyPlayer>(paramCAnonStorey1F5.\u003C\u003Em__1BF));
-            if (myPlayer != null)
-              photonPlayerParam = JSON_MyPhotonPlayerParam.Parse(myPlayer.json);
+            JSON_MyPhotonRoomParam myPhotonRoomParam = JSON_MyPhotonRoomParam.Parse(currentRoom.json);
+            if (myPhotonRoomParam != null)
+            {
+              JSON_MyPhotonPlayerParam[] players = myPhotonRoomParam.players;
+              if (players != null && players.Length > 1)
+                photonPlayerParam = this.GetVersusPlayerParam(players, 1);
+            }
+            if (photonPlayerParam == null)
+            {
+              string roomParam = instance.GetRoomParam("started");
+              if (roomParam != null)
+              {
+                FlowNode_StartMultiPlay.PlayerList jsonObject = JSONParser.parseJSONObject<FlowNode_StartMultiPlay.PlayerList>(roomParam);
+                if (jsonObject != null)
+                  photonPlayerParam = this.GetVersusPlayerParam(jsonObject.players, 1);
+              }
+            }
           }
         }
       }
@@ -261,7 +323,7 @@ namespace SRPG
           break;
         case 2:
           QuestParam questParam = DataSource.FindDataOfClass<QuestParam>(((Component) this).get_gameObject(), (QuestParam) null);
-          if (questParam == null && Object.op_Inequality((Object) SceneBattle.Instance, (Object) null))
+          if (questParam == null && UnityEngine.Object.op_Inequality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null))
             questParam = MonoSingleton<GameManager>.Instance.FindQuest(SceneBattle.Instance.Battle.QuestID) ?? DataSource.FindDataOfClass<QuestParam>(((Component) this).get_gameObject(), (QuestParam) null);
           if (questParam != null && questParam.type == QuestTypes.Tower)
           {
@@ -373,7 +435,7 @@ namespace SRPG
 
     private QuestParam GetQuestParamAuto()
     {
-      if (Object.op_Inequality((Object) SceneBattle.Instance, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null))
         return MonoSingleton<GameManager>.Instance.FindQuest(SceneBattle.Instance.Battle.QuestID);
       return DataSource.FindDataOfClass<QuestParam>(((Component) this).get_gameObject(), (QuestParam) null);
     }
@@ -401,7 +463,7 @@ namespace SRPG
           questParam = DataSource.FindDataOfClass<QuestParam>(((Component) this).get_gameObject(), (QuestParam) null);
           break;
         case 1:
-          if (Object.op_Inequality((Object) SceneBattle.Instance, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null))
           {
             questParam = MonoSingleton<GameManager>.Instance.FindQuest(SceneBattle.Instance.Battle.QuestID);
             break;
@@ -463,7 +525,7 @@ namespace SRPG
       if (itemParam == null)
         return;
       Image component = (Image) ((Component) this).GetComponent<Image>();
-      if (!Object.op_Inequality((Object) component, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
         return;
       Sprite itemFrame = GameSettings.Instance.GetItemFrame(itemParam);
       component.set_sprite(itemFrame);
@@ -473,7 +535,7 @@ namespace SRPG
     {
       Sprite[] normalFrames = GameSettings.Instance.ItemIcons.NormalFrames;
       Image component = (Image) ((Component) this).GetComponent<Image>();
-      if (!Object.op_Inequality((Object) component, (Object) null) || normalFrames.Length <= 0)
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null) || normalFrames.Length <= 0)
         return;
       if (itemParam != null && (int) itemParam.rare < normalFrames.Length)
         component.set_sprite(normalFrames[(int) itemParam.rare]);
@@ -523,7 +585,7 @@ namespace SRPG
         return;
       Image component = (Image) ((Component) this).GetComponent<Image>();
       int index = type == ESaleType.Coin_P ? 1 : (int) type;
-      if (!Object.op_Inequality((Object) component, (Object) null) || index >= itemPriceIconFrames.Length)
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null) || index >= itemPriceIconFrames.Length)
         return;
       component.set_sprite(itemPriceIconFrames[index]);
     }
@@ -531,10 +593,10 @@ namespace SRPG
     private void SetBuyPriceEventCoinTypeIcon(string cost_iname)
     {
       Image component = (Image) ((Component) this).GetComponent<Image>();
-      if (Object.op_Equality((Object) component, (Object) null) || cost_iname == null)
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) component, (UnityEngine.Object) null) || cost_iname == null)
         return;
       SpriteSheet spriteSheet = AssetManager.Load<SpriteSheet>("EventShopCmn/eventcoin_small");
-      if (!Object.op_Inequality((Object) spriteSheet, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) spriteSheet, (UnityEngine.Object) null))
         return;
       component.set_sprite(spriteSheet.GetSprite(cost_iname));
     }
@@ -576,38 +638,79 @@ namespace SRPG
       return MonoSingleton<GameManager>.Instance.Player.CheckUnlock((UnlockTargets) this.InstanceType);
     }
 
+    private TrickParam GetTrickParam()
+    {
+      return DataSource.FindDataOfClass<TrickParam>(((Component) this).get_gameObject(), (TrickParam) null);
+    }
+
+    private BattleCore.OrderData GetOrderData()
+    {
+      return DataSource.FindDataOfClass<BattleCore.OrderData>(((Component) this).get_gameObject(), (BattleCore.OrderData) null);
+    }
+
+    private MapEffectParam GetMapEffectParam()
+    {
+      return DataSource.FindDataOfClass<MapEffectParam>(((Component) this).get_gameObject(), (MapEffectParam) null);
+    }
+
+    private WeatherParam GetWeatherParam()
+    {
+      return DataSource.FindDataOfClass<WeatherParam>(((Component) this).get_gameObject(), (WeatherParam) null);
+    }
+
+    private bool LoadArtifactIcon(ArtifactParam param)
+    {
+      IconLoader iconLoader = GameUtility.RequireComponent<IconLoader>(((Component) this).get_gameObject());
+      if (param == null)
+        return false;
+      iconLoader.ResourcePath = AssetPath.ArtifactIcon(param);
+      return true;
+    }
+
+    private void GetQuestObjectiveCount(QuestParam questParam, out int compCount, out int maxCount)
+    {
+      maxCount = questParam.bonusObjective.Length;
+      compCount = 0;
+      for (int index = 0; index < maxCount; ++index)
+      {
+        if ((questParam.clear_missions & 1 << index) != 0)
+          ++compCount;
+      }
+    }
+
     private void InternalUpdateValue()
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      GameParameter.\u003CInternalUpdateValue\u003Ec__AnonStorey1F6 valueCAnonStorey1F6 = new GameParameter.\u003CInternalUpdateValue\u003Ec__AnonStorey1F6();
+      GameParameter.\u003CInternalUpdateValue\u003Ec__AnonStorey294 valueCAnonStorey294 = new GameParameter.\u003CInternalUpdateValue\u003Ec__AnonStorey294();
       GameParameter.ParameterTypes parameterType = this.ParameterType;
       QuestParam questParam1;
       UnitData unitData1;
+      GameManager instance1;
       switch (parameterType)
       {
         case GameParameter.ParameterTypes.GLOBAL_PLAYER_NAME:
           this.SetTextValue(MonoSingleton<GameManager>.Instance.Player.Name);
           break;
         case GameParameter.ParameterTypes.GLOBAL_PLAYER_LEVEL:
-          GameManager instance1 = MonoSingleton<GameManager>.Instance;
-          this.SetTextValue(instance1.Player.CalcLevel());
-          this.SetSliderValue(instance1.Player.CalcLevel(), 99);
+          GameManager instance2 = MonoSingleton<GameManager>.Instance;
+          this.SetTextValue(instance2.Player.CalcLevel());
+          this.SetSliderValue(instance2.Player.CalcLevel(), 99);
           break;
         case GameParameter.ParameterTypes.GLOBAL_PLAYER_STAMINA:
-          GameManager instance2 = MonoSingleton<GameManager>.Instance;
-          instance2.Player.UpdateStamina();
-          this.SetTextValue(instance2.Player.Stamina);
-          this.SetSliderValue(instance2.Player.Stamina, instance2.Player.StaminaMax);
+          GameManager instance3 = MonoSingleton<GameManager>.Instance;
+          instance3.Player.UpdateStamina();
+          this.SetTextValue(instance3.Player.Stamina);
+          this.SetSliderValue(instance3.Player.Stamina, instance3.Player.StaminaMax);
           this.SetUpdateInterval(1f);
           break;
         case GameParameter.ParameterTypes.GLOBAL_PLAYER_STAMINAMAX:
           this.SetTextValue(MonoSingleton<GameManager>.Instance.Player.StaminaMax);
           break;
         case GameParameter.ParameterTypes.GLOBAL_PLAYER_EXP:
-          GameManager instance3 = MonoSingleton<GameManager>.Instance;
-          this.SetTextValue(instance3.Player.Exp);
-          this.SetSliderValue(instance3.Player.GetExp(), instance3.Player.GetExp() + instance3.Player.GetNextExp());
+          GameManager instance4 = MonoSingleton<GameManager>.Instance;
+          this.SetTextValue(instance4.Player.Exp);
+          this.SetSliderValue(instance4.Player.GetExp(), instance4.Player.GetExp() + instance4.Player.GetNextExp());
           break;
         case GameParameter.ParameterTypes.GLOBAL_PLAYER_EXPNEXT:
           this.SetTextValue(MonoSingleton<GameManager>.Instance.Player.GetNextExp());
@@ -671,8 +774,17 @@ namespace SRPG
         case GameParameter.ParameterTypes.ITEM_ICON:
         case GameParameter.ParameterTypes.INVENTORY_ITEMICON:
           ItemParam itemParam1 = this.ParameterType != GameParameter.ParameterTypes.ITEM_ICON ? this.GetInventoryItemParam() : this.GetItemParam();
-          if (itemParam1 != null && this.LoadItemIcon(itemParam1))
-            break;
+          if (itemParam1 != null)
+          {
+            if (this.LoadItemIcon(itemParam1))
+              break;
+          }
+          else
+          {
+            ArtifactParam artifactParam = this.GetArtifactParam();
+            if (artifactParam != null && this.LoadArtifactIcon(artifactParam))
+              break;
+          }
           this.ResetToDefault();
           break;
         case GameParameter.ParameterTypes.QUEST_DESCRIPTION:
@@ -686,98 +798,98 @@ namespace SRPG
           break;
         case GameParameter.ParameterTypes.SUPPORTER_NAME:
           // ISSUE: reference to a compiler-generated field
-          if ((valueCAnonStorey1F6.supportData = this.GetSupportData()) != null)
+          if ((valueCAnonStorey294.supportData = this.GetSupportData()) != null)
           {
             // ISSUE: reference to a compiler-generated field
-            this.SetTextValue(valueCAnonStorey1F6.supportData.PlayerName);
+            this.SetTextValue(valueCAnonStorey294.supportData.PlayerName);
             break;
           }
           this.ResetToDefault();
           break;
         case GameParameter.ParameterTypes.SUPPORTER_LEVEL:
           // ISSUE: reference to a compiler-generated field
-          if ((valueCAnonStorey1F6.supportData = this.GetSupportData()) != null)
+          if ((valueCAnonStorey294.supportData = this.GetSupportData()) != null)
           {
             // ISSUE: reference to a compiler-generated field
-            this.SetTextValue(valueCAnonStorey1F6.supportData.PlayerLevel);
+            this.SetTextValue(valueCAnonStorey294.supportData.PlayerLevel);
             break;
           }
           this.ResetToDefault();
           break;
         case GameParameter.ParameterTypes.SUPPORTER_UNITLEVEL:
           // ISSUE: reference to a compiler-generated field
-          if ((valueCAnonStorey1F6.supportData = this.GetSupportData()) != null)
+          if ((valueCAnonStorey294.supportData = this.GetSupportData()) != null)
           {
             // ISSUE: reference to a compiler-generated field
-            this.SetTextValue(valueCAnonStorey1F6.supportData.UnitLevel);
+            this.SetTextValue(valueCAnonStorey294.supportData.UnitLevel);
             break;
           }
           this.ResetToDefault();
           break;
         case GameParameter.ParameterTypes.SUPPORTER_LEADERSKILLNAME:
           // ISSUE: reference to a compiler-generated field
-          if ((valueCAnonStorey1F6.supportData = this.GetSupportData()) != null)
+          if ((valueCAnonStorey294.supportData = this.GetSupportData()) != null)
           {
             // ISSUE: reference to a compiler-generated field
             // ISSUE: reference to a compiler-generated field
-            valueCAnonStorey1F6.skillParam = valueCAnonStorey1F6.supportData.LeaderSkill;
+            valueCAnonStorey294.skillParam = valueCAnonStorey294.supportData.LeaderSkill;
             // ISSUE: reference to a compiler-generated field
-            if (valueCAnonStorey1F6.skillParam == null)
+            if (valueCAnonStorey294.skillParam == null)
               break;
             // ISSUE: reference to a compiler-generated field
-            this.SetTextValue(valueCAnonStorey1F6.skillParam.name);
+            this.SetTextValue(valueCAnonStorey294.skillParam.name);
             break;
           }
           this.ResetToDefault();
           break;
         case GameParameter.ParameterTypes.SUPPORTER_ATK:
           // ISSUE: reference to a compiler-generated field
-          if ((valueCAnonStorey1F6.supportData = this.GetSupportData()) != null)
+          if ((valueCAnonStorey294.supportData = this.GetSupportData()) != null)
           {
             // ISSUE: reference to a compiler-generated field
-            this.SetTextValue((int) valueCAnonStorey1F6.supportData.UnitParam.ini_status.param.atk);
+            this.SetTextValue((int) valueCAnonStorey294.supportData.UnitParam.ini_status.param.atk);
             break;
           }
           this.ResetToDefault();
           break;
         case GameParameter.ParameterTypes.SUPPORTER_HP:
           // ISSUE: reference to a compiler-generated field
-          if ((valueCAnonStorey1F6.supportData = this.GetSupportData()) != null)
+          if ((valueCAnonStorey294.supportData = this.GetSupportData()) != null)
           {
             // ISSUE: reference to a compiler-generated field
-            this.SetTextValue((int) valueCAnonStorey1F6.supportData.UnitParam.ini_status.param.hp);
+            this.SetTextValue((int) valueCAnonStorey294.supportData.UnitParam.ini_status.param.hp);
             break;
           }
           this.ResetToDefault();
           break;
         case GameParameter.ParameterTypes.SUPPORTER_MAGIC:
           // ISSUE: reference to a compiler-generated field
-          if ((valueCAnonStorey1F6.supportData = this.GetSupportData()) != null)
+          if ((valueCAnonStorey294.supportData = this.GetSupportData()) != null)
           {
             // ISSUE: reference to a compiler-generated field
-            this.SetTextValue((int) valueCAnonStorey1F6.supportData.UnitParam.ini_status.param.mag);
+            this.SetTextValue((int) valueCAnonStorey294.supportData.UnitParam.ini_status.param.mag);
             break;
           }
           this.ResetToDefault();
           break;
         case GameParameter.ParameterTypes.SUPPORTER_RARITY:
           // ISSUE: reference to a compiler-generated field
-          if ((valueCAnonStorey1F6.supportData = this.GetSupportData()) != null)
+          if ((valueCAnonStorey294.supportData = this.GetSupportData()) != null)
           {
             // ISSUE: reference to a compiler-generated field
-            this.SetAnimatorInt("rare", valueCAnonStorey1F6.supportData.UnitRarity);
+            this.SetAnimatorInt("rare", valueCAnonStorey294.supportData.UnitRarity);
             // ISSUE: reference to a compiler-generated field
-            this.SetImageIndex(valueCAnonStorey1F6.supportData.UnitRarity);
+            this.SetImageIndex(valueCAnonStorey294.supportData.UnitRarity);
             break;
           }
           this.ResetToDefault();
           break;
         case GameParameter.ParameterTypes.SUPPORTER_ELEMENT:
           // ISSUE: reference to a compiler-generated field
-          if ((valueCAnonStorey1F6.supportData = this.GetSupportData()) != null)
+          if ((valueCAnonStorey294.supportData = this.GetSupportData()) != null)
           {
             // ISSUE: reference to a compiler-generated field
-            this.SetAnimatorInt("element", (int) valueCAnonStorey1F6.supportData.UnitElement);
+            this.SetAnimatorInt("element", (int) valueCAnonStorey294.supportData.UnitElement);
             break;
           }
           this.ResetToDefault();
@@ -785,12 +897,12 @@ namespace SRPG
         case GameParameter.ParameterTypes.SUPPORTER_ICON:
           // ISSUE: reference to a compiler-generated field
           // ISSUE: reference to a compiler-generated field
-          if ((valueCAnonStorey1F6.supportData = this.GetSupportData()) != null && valueCAnonStorey1F6.supportData.Unit != null)
+          if ((valueCAnonStorey294.supportData = this.GetSupportData()) != null && valueCAnonStorey294.supportData.Unit != null)
           {
             // ISSUE: reference to a compiler-generated field
             // ISSUE: reference to a compiler-generated field
             // ISSUE: reference to a compiler-generated field
-            string str = AssetPath.UnitSkinIconSmall(valueCAnonStorey1F6.supportData.Unit.UnitParam, valueCAnonStorey1F6.supportData.Unit.GetSelectedSkin(-1), valueCAnonStorey1F6.supportData.JobID);
+            string str = AssetPath.UnitSkinIconSmall(valueCAnonStorey294.supportData.Unit.UnitParam, valueCAnonStorey294.supportData.Unit.GetSelectedSkin(-1), valueCAnonStorey294.supportData.JobID);
             if (!string.IsNullOrEmpty(str))
             {
               GameUtility.RequireComponent<IconLoader>(((Component) this).get_gameObject()).ResourcePath = str;
@@ -801,16 +913,16 @@ namespace SRPG
           break;
         case GameParameter.ParameterTypes.SUPPORTER_LEADERSKILLDESC:
           // ISSUE: reference to a compiler-generated field
-          if ((valueCAnonStorey1F6.supportData = this.GetSupportData()) != null)
+          if ((valueCAnonStorey294.supportData = this.GetSupportData()) != null)
           {
             // ISSUE: reference to a compiler-generated field
             // ISSUE: reference to a compiler-generated field
-            valueCAnonStorey1F6.skillParam = valueCAnonStorey1F6.supportData.LeaderSkill;
+            valueCAnonStorey294.skillParam = valueCAnonStorey294.supportData.LeaderSkill;
             // ISSUE: reference to a compiler-generated field
-            if (valueCAnonStorey1F6.skillParam == null)
+            if (valueCAnonStorey294.skillParam == null)
               break;
             // ISSUE: reference to a compiler-generated field
-            this.SetTextValue(valueCAnonStorey1F6.skillParam.expr);
+            this.SetTextValue(valueCAnonStorey294.skillParam.expr);
             break;
           }
           this.ResetToDefault();
@@ -851,7 +963,7 @@ namespace SRPG
           {
             OInt oint = (OInt) 0;
             Unit unit2 = this.GetUnit();
-            this.SetTextValue((int) (unit2 == null ? unitData3.Status.param.hp : (OInt) Mathf.Max((int) unit2.MaximumStatus.param.hp, (int) unitData3.Status.param.hp)));
+            this.SetTextValue((int) (unit2 == null ? unitData3.Status.param.hp : unit2.MaximumStatus.param.hp));
             break;
           }
           this.ResetToDefault();
@@ -901,7 +1013,7 @@ namespace SRPG
           if ((unitData7 = this.GetUnitData()) != null)
           {
             StarGauge component = (StarGauge) ((Component) this).GetComponent<StarGauge>();
-            if (Object.op_Inequality((Object) component, (Object) null))
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
             {
               component.Max = unitData7.GetRarityCap() + 1;
               component.Value = unitData7.Rarity + 1;
@@ -918,12 +1030,12 @@ namespace SRPG
           if ((partyData1 = this.GetPartyData()) != null)
           {
             // ISSUE: reference to a compiler-generated field
-            valueCAnonStorey1F6.skillParam = this.GetLeaderSkill(partyData1);
+            valueCAnonStorey294.skillParam = this.GetLeaderSkill(partyData1);
             // ISSUE: reference to a compiler-generated field
-            if (valueCAnonStorey1F6.skillParam != null)
+            if (valueCAnonStorey294.skillParam != null)
             {
               // ISSUE: reference to a compiler-generated field
-              this.SetTextValue(valueCAnonStorey1F6.skillParam.name);
+              this.SetTextValue(valueCAnonStorey294.skillParam.name);
               break;
             }
           }
@@ -934,12 +1046,12 @@ namespace SRPG
           if ((partyData2 = this.GetPartyData()) != null)
           {
             // ISSUE: reference to a compiler-generated field
-            valueCAnonStorey1F6.skillParam = this.GetLeaderSkill(partyData2);
+            valueCAnonStorey294.skillParam = this.GetLeaderSkill(partyData2);
             // ISSUE: reference to a compiler-generated field
-            if (valueCAnonStorey1F6.skillParam != null)
+            if (valueCAnonStorey294.skillParam != null)
             {
               // ISSUE: reference to a compiler-generated field
-              this.SetTextValue(valueCAnonStorey1F6.skillParam.expr);
+              this.SetTextValue(valueCAnonStorey294.skillParam.expr);
               break;
             }
           }
@@ -1025,12 +1137,12 @@ namespace SRPG
           PartyData partyData3;
           if ((partyData3 = this.GetPartyData()) != null)
           {
-            GameManager instance4 = MonoSingleton<GameManager>.Instance;
+            GameManager instance5 = MonoSingleton<GameManager>.Instance;
             int num = 0;
             for (int index = 0; index < partyData3.MAX_UNIT; ++index)
             {
               long unitUniqueId = partyData3.GetUnitUniqueID(index);
-              UnitData unitDataByUniqueId = instance4.Player.FindUnitDataByUniqueID(unitUniqueId);
+              UnitData unitDataByUniqueId = instance5.Player.FindUnitDataByUniqueID(unitUniqueId);
               if (unitDataByUniqueId != null)
               {
                 JobData jobFor = unitDataByUniqueId.GetJobFor(partyData3.PartyType);
@@ -1048,11 +1160,11 @@ namespace SRPG
               if (!string.IsNullOrEmpty(selectedQuestId))
               {
                 QuestParam quest = MonoSingleton<GameManager>.Instance.FindQuest(selectedQuestId);
-                if (quest != null && quest.units != null)
+                if (quest != null && quest.units.IsNotNull())
                 {
                   for (int index = 0; index < quest.units.Length; ++index)
                   {
-                    UnitData unitDataByUnitId = MonoSingleton<GameManager>.Instance.Player.FindUnitDataByUnitID(quest.units[index]);
+                    UnitData unitDataByUnitId = MonoSingleton<GameManager>.Instance.Player.FindUnitDataByUnitID(quest.units.Get(index));
                     if (unitDataByUnitId != null)
                     {
                       JobData jobFor = unitDataByUnitId.GetJobFor(partyData3.PartyType);
@@ -1067,12 +1179,12 @@ namespace SRPG
                 }
               }
               // ISSUE: reference to a compiler-generated field
-              valueCAnonStorey1F6.supportData = (SupportData) GlobalVars.SelectedSupport;
+              valueCAnonStorey294.supportData = (SupportData) GlobalVars.SelectedSupport;
               // ISSUE: reference to a compiler-generated field
-              if (valueCAnonStorey1F6.supportData != null)
+              if (valueCAnonStorey294.supportData != null)
               {
                 // ISSUE: reference to a compiler-generated method
-                SupportData supportData = MonoSingleton<GameManager>.Instance.Player.Supports.Find(new Predicate<SupportData>(valueCAnonStorey1F6.\u003C\u003Em__1C0));
+                SupportData supportData = MonoSingleton<GameManager>.Instance.Player.Supports.Find(new Predicate<SupportData>(valueCAnonStorey294.\u003C\u003Em__253));
                 if (supportData != null && supportData.Unit != null)
                   num = num + (int) supportData.Unit.Status.param.atk + (int) supportData.Unit.Status.param.mag;
               }
@@ -1095,6 +1207,14 @@ namespace SRPG
           ItemParam itemParam2;
           if ((itemParam2 = this.GetItemParam()) != null)
           {
+            if (itemParam2.type == EItemType.Unit)
+            {
+              UnitParam unitParam3 = MonoSingleton<GameManager>.Instance.MasterParam.GetUnitParam(itemParam2.iname);
+              if (unitParam3 == null)
+                break;
+              this.SetTextValue(unitParam3.name);
+              break;
+            }
             this.SetTextValue(itemParam2.name);
             break;
           }
@@ -1140,10 +1260,10 @@ namespace SRPG
               }
               break;
             case 1:
-              GameManager instance5 = MonoSingleton<GameManager>.Instance;
-              if (0 <= this.Index && this.Index < instance5.Player.Inventory.Length)
+              GameManager instance6 = MonoSingleton<GameManager>.Instance;
+              if (0 <= this.Index && this.Index < instance6.Player.Inventory.Length)
               {
-                ItemData itemData = instance5.Player.Inventory[this.Index];
+                ItemData itemData = instance6.Player.Inventory[this.Index];
                 this.SetTextValue(itemData.Num);
                 this.SetSliderValue(itemData.Num, itemData.HaveCap);
                 return;
@@ -1168,9 +1288,9 @@ namespace SRPG
               QuestParam questParamAuto2;
               if ((questParamAuto2 = this.GetQuestParamAuto()) != null && questParamAuto2.IsVersus)
               {
-                GameManager instance4 = MonoSingleton<GameManager>.Instance;
-                PlayerData player = instance4.Player;
-                VersusTowerParam versusTowerParam = instance4.GetCurrentVersusTowerParam(player.VersusTowerFloor + 1);
+                GameManager instance5 = MonoSingleton<GameManager>.Instance;
+                PlayerData player = instance5.Player;
+                VersusTowerParam versusTowerParam = instance5.GetCurrentVersusTowerParam(player.VersusTowerFloor + 1);
                 if (versusTowerParam != null)
                 {
                   this.SetTextValue((int) versusTowerParam.ArrivalItemNum);
@@ -1262,9 +1382,9 @@ namespace SRPG
           this.ResetToDefault();
           break;
         case GameParameter.ParameterTypes.PLAYER_NUMUNITS:
-          GameManager instance6 = MonoSingleton<GameManager>.Instance;
-          this.SetTextValue(instance6.Player.UnitNum);
-          this.SetSliderValue(instance6.Player.UnitNum, instance6.Player.UnitCap);
+          GameManager instance7 = MonoSingleton<GameManager>.Instance;
+          this.SetTextValue(instance7.Player.UnitNum);
+          this.SetSliderValue(instance7.Player.UnitNum, instance7.Player.UnitCap);
           break;
         case GameParameter.ParameterTypes.PLAYER_MAXUNITS:
           this.SetTextValue(MonoSingleton<GameManager>.Instance.Player.UnitCap);
@@ -1277,10 +1397,10 @@ namespace SRPG
             break;
           }
           // ISSUE: reference to a compiler-generated field
-          if ((valueCAnonStorey1F6.skillParam = this.GetSkillParam()) != null)
+          if ((valueCAnonStorey294.skillParam = this.GetSkillParam()) != null)
           {
             // ISSUE: reference to a compiler-generated field
-            this.SetTextValue(valueCAnonStorey1F6.skillParam.name);
+            this.SetTextValue(valueCAnonStorey294.skillParam.name);
             break;
           }
           this.ResetToDefault();
@@ -1295,10 +1415,10 @@ namespace SRPG
             break;
           }
           // ISSUE: reference to a compiler-generated field
-          if ((valueCAnonStorey1F6.skillParam = this.GetSkillParam()) != null)
+          if ((valueCAnonStorey294.skillParam = this.GetSkillParam()) != null)
           {
             // ISSUE: reference to a compiler-generated field
-            this.SetTextValue(valueCAnonStorey1F6.skillParam.expr);
+            this.SetTextValue(valueCAnonStorey294.skillParam.expr);
             break;
           }
           this.ResetToDefault();
@@ -1323,30 +1443,30 @@ namespace SRPG
             break;
           }
           // ISSUE: reference to a compiler-generated field
-          if ((valueCAnonStorey1F6.skillParam = this.GetSkillParam()) != null)
+          if ((valueCAnonStorey294.skillParam = this.GetSkillParam()) != null)
           {
             UnitData unitData15;
             if ((unitData15 = this.GetUnitData()) != null)
             {
               // ISSUE: reference to a compiler-generated field
-              this.SetTextValue(unitData15.GetSkillUsedCost(valueCAnonStorey1F6.skillParam));
+              this.SetTextValue(unitData15.GetSkillUsedCost(valueCAnonStorey294.skillParam));
               break;
             }
             // ISSUE: reference to a compiler-generated field
-            this.SetTextValue((int) valueCAnonStorey1F6.skillParam.cost);
+            this.SetTextValue((int) valueCAnonStorey294.skillParam.cost);
             break;
           }
           this.ResetToDefault();
           break;
         case GameParameter.ParameterTypes.BATTLE_GOLD:
-          if (!Object.op_Inequality((Object) SceneBattle.Instance, (Object) null))
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null))
             break;
           this.SetTextValue(SceneBattle.Instance.GoldCount);
           break;
         case GameParameter.ParameterTypes.BATTLE_TREASURE:
-          if (!Object.op_Inequality((Object) SceneBattle.Instance, (Object) null))
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null))
             break;
-          this.SetTextValue(SceneBattle.Instance.TreasureCount);
+          this.SetTextValue(SceneBattle.Instance.DispTreasureCount);
           break;
         case GameParameter.ParameterTypes.UNIT_MP:
           Unit unit3;
@@ -1394,10 +1514,12 @@ namespace SRPG
           break;
         case GameParameter.ParameterTypes.QUEST_KAKERA_ICON:
           QuestParam questParam9;
-          if ((questParam9 = this.GetQuestParam()) != null && questParam9.pieces != null && !string.IsNullOrEmpty(questParam9.pieces[0]))
+          if ((questParam9 = this.GetQuestParam()) != null)
           {
-            ItemParam itemParam6 = MonoSingleton<GameManager>.Instance.GetItemParam(questParam9.pieces[0]);
-            if (itemParam6 != null && this.LoadItemIcon((string) itemParam6.icon))
+            if (UnityEngine.Object.op_Equality((UnityEngine.Object) QuestDropParam.Instance, (UnityEngine.Object) null))
+              break;
+            ItemParam hardDropPiece = QuestDropParam.Instance.GetHardDropPiece(questParam9.iname, GlobalVars.GetDropTableGeneratedDateTime());
+            if (hardDropPiece != null && this.LoadItemIcon((string) hardDropPiece.icon))
               break;
           }
           this.ResetToDefault();
@@ -1406,9 +1528,9 @@ namespace SRPG
           UnitData unitData17;
           if ((unitData17 = this.GetUnitData()) != null)
           {
-            GameManager instance4 = MonoSingleton<GameManager>.Instance;
+            GameManager instance5 = MonoSingleton<GameManager>.Instance;
             int exp = unitData17.GetExp();
-            int maxValue = instance4.MasterParam.GetUnitLevelExp(unitData17.GetNextLevel()) - instance4.MasterParam.GetUnitLevelExp(unitData17.Lv);
+            int maxValue = instance5.MasterParam.GetUnitLevelExp(unitData17.GetNextLevel()) - instance5.MasterParam.GetUnitLevelExp(unitData17.Lv);
             this.SetTextValue(exp);
             this.SetSliderValue(exp, maxValue);
             break;
@@ -1419,8 +1541,8 @@ namespace SRPG
           UnitData unitData18;
           if ((unitData18 = this.GetUnitData()) != null)
           {
-            GameManager instance4 = MonoSingleton<GameManager>.Instance;
-            this.SetTextValue(instance4.MasterParam.GetUnitLevelExp(unitData18.GetNextLevel()) - instance4.MasterParam.GetUnitLevelExp(unitData18.Lv));
+            GameManager instance5 = MonoSingleton<GameManager>.Instance;
+            this.SetTextValue(instance5.MasterParam.GetUnitLevelExp(unitData18.GetNextLevel()) - instance5.MasterParam.GetUnitLevelExp(unitData18.Lv));
             break;
           }
           this.ResetToDefault();
@@ -1523,11 +1645,12 @@ namespace SRPG
         case GameParameter.ParameterTypes.UNIT_JOB_JOBICON2:
         case GameParameter.ParameterTypes.UNIT_JOB_CLASSCHANGE_JOBICON:
         case GameParameter.ParameterTypes.UNIT_JOB_CLASSCHANGE_JOBICON2:
+label_321:
           UnitData unitData22;
-          JobParam job1 = (unitData22 = this.GetUnitData()) == null || !unitData22.IsJobAvailable(this.Index) ? this.GetJobParam() : (this.ParameterType == GameParameter.ParameterTypes.UNIT_JOB_CLASSCHANGE_JOBICON || this.ParameterType == GameParameter.ParameterTypes.UNIT_JOB_CLASSCHANGE_JOBICON2 ? unitData22.GetClassChangeJobParam(this.Index) : (this.ParameterType == GameParameter.ParameterTypes.UNIT_JOBICON || this.ParameterType == GameParameter.ParameterTypes.UNIT_JOBICON2 ? unitData22.CurrentJob.Param : unitData22.Jobs[this.Index].Param));
+          JobParam job1 = (unitData22 = this.GetUnitData()) == null || !unitData22.IsJobAvailable(this.Index) ? this.GetJobParam() : (this.ParameterType == GameParameter.ParameterTypes.UNIT_JOB_CLASSCHANGE_JOBICON || this.ParameterType == GameParameter.ParameterTypes.UNIT_JOB_CLASSCHANGE_JOBICON2 ? unitData22.GetClassChangeJobParam(this.Index) : (this.ParameterType == GameParameter.ParameterTypes.UNIT_JOBICON || this.ParameterType == GameParameter.ParameterTypes.UNIT_JOBICON2 || this.ParameterType == GameParameter.ParameterTypes.UNIT_JOBICON2_BUGFIX ? unitData22.CurrentJob.Param : unitData22.Jobs[this.Index].Param));
           if (job1 != null)
           {
-            string str = this.ParameterType == GameParameter.ParameterTypes.UNIT_JOB_JOBICON2 || this.ParameterType == GameParameter.ParameterTypes.UNIT_JOB_CLASSCHANGE_JOBICON2 ? AssetPath.JobIconMedium(job1) : AssetPath.JobIconSmall(job1);
+            string str = this.ParameterType == GameParameter.ParameterTypes.UNIT_JOB_JOBICON2 || this.ParameterType == GameParameter.ParameterTypes.UNIT_JOB_CLASSCHANGE_JOBICON2 || this.ParameterType == GameParameter.ParameterTypes.UNIT_JOBICON2_BUGFIX ? AssetPath.JobIconMedium(job1) : AssetPath.JobIconSmall(job1);
             if (string.IsNullOrEmpty(str))
               break;
             GameUtility.RequireComponent<IconLoader>(((Component) this).get_gameObject()).ResourcePath = str;
@@ -1927,7 +2050,18 @@ namespace SRPG
           this.ResetToDefault();
           break;
         case GameParameter.ParameterTypes.ITEM_FRAME:
-          this.SetItemFrame(this.GetItemParam());
+          if (this.GetItemParam() != null)
+          {
+            this.SetItemFrame(this.GetItemParam());
+            break;
+          }
+          if (this.GetArtifactParam() == null)
+            break;
+          this.SetItemFrame(new ItemParam()
+          {
+            type = EItemType.ArtifactPiece,
+            rare = (OInt) this.GetArtifactParam().rareini
+          });
           break;
         case GameParameter.ParameterTypes.INVENTORY_FRAME:
           this.SetItemFrame(this.GetInventoryItemParam());
@@ -2109,7 +2243,7 @@ namespace SRPG
           QuestParam questParam10;
           if ((questParam10 = this.GetQuestParam()) != null && questParam10.bonusObjective != null && (0 <= this.Index && this.Index < questParam10.bonusObjective.Length))
           {
-            int index = ((int) questParam10.clear_missions & 1 << this.Index) == 0 ? 0 : 1;
+            int index = (questParam10.clear_missions & 1 << this.Index) == 0 ? 0 : 1;
             this.SetAnimatorInt("state", index);
             this.SetImageIndex(index);
             break;
@@ -2136,10 +2270,10 @@ namespace SRPG
           this.ResetToDefault();
           break;
         case GameParameter.ParameterTypes.GLOBAL_PLAYER_CAVESTAMINA:
-          GameManager instance7 = MonoSingleton<GameManager>.Instance;
-          instance7.Player.UpdateCaveStamina();
-          this.SetTextValue(instance7.Player.CaveStamina);
-          this.SetSliderValue(instance7.Player.CaveStamina, instance7.Player.CaveStaminaMax);
+          GameManager instance8 = MonoSingleton<GameManager>.Instance;
+          instance8.Player.UpdateCaveStamina();
+          this.SetTextValue(instance8.Player.CaveStamina);
+          this.SetSliderValue(instance8.Player.CaveStamina, instance8.Player.CaveStaminaMax);
           this.SetUpdateInterval(1f);
           break;
         case GameParameter.ParameterTypes.GLOBAL_PLAYER_CAVESTAMINAMAX:
@@ -2166,14 +2300,27 @@ namespace SRPG
           QuestParam questParam11;
           if ((questParam11 = this.GetQuestParam()) != null)
           {
-            this.SetImageIndex(questParam11.difficulty != QuestDifficulties.Normal ? 1 : 0);
+            int index = 0;
+            switch (questParam11.difficulty)
+            {
+              case QuestDifficulties.Normal:
+                index = 0;
+                break;
+              case QuestDifficulties.Elite:
+                index = 1;
+                break;
+              case QuestDifficulties.Extra:
+                index = 2;
+                break;
+            }
+            this.SetImageIndex(index);
             break;
           }
           this.ResetToDefault();
           break;
         case GameParameter.ParameterTypes.UNIT_HEIGHT:
           Unit unit5;
-          if ((unit5 = this.GetUnit()) != null && Object.op_Inequality((Object) SceneBattle.Instance, (Object) null))
+          if ((unit5 = this.GetUnit()) != null && UnityEngine.Object.op_Inequality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null))
           {
             this.SetTextValue(SceneBattle.Instance.GetDisplayHeight(unit5));
             break;
@@ -2230,35 +2377,60 @@ namespace SRPG
           this.ResetToDefault();
           break;
         case GameParameter.ParameterTypes.MULTI_PLAYER_NAME:
-          JSON_MyPhotonPlayerParam roomPlayerParam1 = this.GetRoomPlayerParam();
-          if (roomPlayerParam1 == null)
+          // ISSUE: reference to a compiler-generated field
+          valueCAnonStorey294.roomPlayerParam = this.GetRoomPlayerParam();
+          // ISSUE: reference to a compiler-generated field
+          if (valueCAnonStorey294.roomPlayerParam == null)
           {
             this.SetTextValue(string.Empty);
             break;
           }
-          this.SetTextValue(roomPlayerParam1.playerName);
+          // ISSUE: reference to a compiler-generated field
+          this.SetTextValue(valueCAnonStorey294.roomPlayerParam.playerName);
           break;
         case GameParameter.ParameterTypes.MULTI_PLAYER_LEVEL:
-          JSON_MyPhotonPlayerParam roomPlayerParam2 = this.GetRoomPlayerParam();
-          if (roomPlayerParam2 == null)
+          // ISSUE: reference to a compiler-generated field
+          valueCAnonStorey294.roomPlayerParam = this.GetRoomPlayerParam();
+          // ISSUE: reference to a compiler-generated field
+          if (valueCAnonStorey294.roomPlayerParam == null)
           {
             this.ResetToDefault();
             break;
           }
-          this.SetTextValue(roomPlayerParam2.playerLevel);
+          // ISSUE: reference to a compiler-generated field
+          this.SetTextValue(valueCAnonStorey294.roomPlayerParam.playerLevel);
           break;
         case GameParameter.ParameterTypes.MULTI_PLAYER_STATE:
-          JSON_MyPhotonPlayerParam roomPlayerParam3 = this.GetRoomPlayerParam();
-          if (roomPlayerParam3 != null)
+          // ISSUE: reference to a compiler-generated field
+          valueCAnonStorey294.roomPlayerParam = this.GetRoomPlayerParam();
+          // ISSUE: reference to a compiler-generated field
+          if (valueCAnonStorey294.roomPlayerParam != null)
           {
+            MyPhoton instance5 = PunMonoSingleton<MyPhoton>.Instance;
+            bool flag = false;
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) instance5, (UnityEngine.Object) null))
+            {
+              List<MyPhoton.MyPlayer> roomPlayerList = instance5.GetRoomPlayerList();
+              if (roomPlayerList != null)
+              {
+                // ISSUE: reference to a compiler-generated method
+                MyPhoton.MyPlayer myPlayer = roomPlayerList.Find(new Predicate<MyPhoton.MyPlayer>(valueCAnonStorey294.\u003C\u003Em__254));
+                if (myPlayer != null)
+                  flag = myPlayer.start;
+              }
+            }
             if (this.Index == 0)
             {
-              ((Component) this).get_gameObject().SetActive(roomPlayerParam3.state != 0 && roomPlayerParam3.state != 4);
+              // ISSUE: reference to a compiler-generated field
+              // ISSUE: reference to a compiler-generated field
+              // ISSUE: reference to a compiler-generated field
+              ((Component) this).get_gameObject().SetActive(valueCAnonStorey294.roomPlayerParam.state != 0 && valueCAnonStorey294.roomPlayerParam.state != 4 && valueCAnonStorey294.roomPlayerParam.state != 5 && !flag);
               break;
             }
             if (this.Index != 1)
               break;
-            ((Component) this).get_gameObject().SetActive(roomPlayerParam3.state == this.InstanceType);
+            // ISSUE: reference to a compiler-generated field
+            ((Component) this).get_gameObject().SetActive(valueCAnonStorey294.roomPlayerParam.state == this.InstanceType);
             break;
           }
           ((Component) this).get_gameObject().SetActive(false);
@@ -2347,10 +2519,10 @@ namespace SRPG
             this.ResetToDefault();
             break;
           }
-          DateTime dateTime1 = GameUtility.UnixtimeToLocalTime(mailData3.post_at);
-          dateTime1 = dateTime1.AddDays(14.0);
+          DateTime dateTime = GameUtility.UnixtimeToLocalTime(mailData3.post_at);
+          dateTime = dateTime.AddDays(14.0);
           string timePatternShort = GameUtility.Localized_TimePattern_Short;
-          this.SetTextValue(dateTime1.ToString(timePatternShort));
+          this.SetTextValue(dateTime.ToString(timePatternShort, (IFormatProvider) GameUtility.CultureSetting));
           break;
         case GameParameter.ParameterTypes.MAIL_GIFT_GETAT:
           MailData mailData4;
@@ -2422,13 +2594,13 @@ namespace SRPG
           this.SetTextValue(room6.num);
           break;
         case GameParameter.ParameterTypes.GLOBAL_PLAYER_FRIENDCODE:
-          GameManager instance8 = MonoSingleton<GameManager>.Instance;
-          if (instance8.Player.FUID == null)
+          GameManager instance9 = MonoSingleton<GameManager>.Instance;
+          if (instance9.Player.FUID == null)
           {
             this.ResetToDefault();
             break;
           }
-          this.SetTextValue(instance8.Player.FUID);
+          this.SetTextValue(instance9.Player.FUID);
           break;
         case GameParameter.ParameterTypes.FRIEND_FRIENDCODE:
           FriendData friendData1;
@@ -2574,6 +2746,11 @@ namespace SRPG
           ShopItem shopItem2 = this.GetShopItem();
           if (shopItem2 != null)
           {
+            if (shopItem2.isSetSaleValue)
+            {
+              this.SetTextValue(shopItem2.saleValue);
+              break;
+            }
             ItemParam itemParam6 = this.GetItemParam();
             if (itemParam6 != null)
             {
@@ -2762,25 +2939,43 @@ namespace SRPG
           ((Component) this).get_gameObject().SetActive(0 <= this.Index && this.Index < (roomParam1 != null ? roomParam1.GetUnitSlotNum() : 0));
           break;
         case GameParameter.ParameterTypes.MULTI_PLAYER_INDEX:
-          JSON_MyPhotonPlayerParam roomPlayerParam4 = this.GetRoomPlayerParam();
-          if (roomPlayerParam4 == null)
+          // ISSUE: reference to a compiler-generated field
+          valueCAnonStorey294.roomPlayerParam = this.GetRoomPlayerParam();
+          // ISSUE: reference to a compiler-generated field
+          if (valueCAnonStorey294.roomPlayerParam == null)
           {
             this.ResetToDefault();
             break;
           }
-          this.SetTextValue(roomPlayerParam4.playerIndex);
+          // ISSUE: reference to a compiler-generated field
+          this.SetTextValue(valueCAnonStorey294.roomPlayerParam.playerIndex);
           break;
         case GameParameter.ParameterTypes.MULTI_PLAYER_IS_ROOM_OWNER:
-          JSON_MyPhotonPlayerParam roomPlayerParam5 = this.GetRoomPlayerParam();
-          ((Component) this).get_gameObject().SetActive(roomPlayerParam5 != null && PunMonoSingleton<MyPhoton>.Instance.IsOldestPlayer(roomPlayerParam5.playerID));
+          // ISSUE: reference to a compiler-generated field
+          valueCAnonStorey294.roomPlayerParam = this.GetRoomPlayerParam();
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: reference to a compiler-generated field
+          ((Component) this).get_gameObject().SetActive(valueCAnonStorey294.roomPlayerParam != null && PunMonoSingleton<MyPhoton>.Instance.IsOldestPlayer(valueCAnonStorey294.roomPlayerParam.playerID));
           break;
         case GameParameter.ParameterTypes.MULTI_PLAYER_IS_EMPTY:
-          JSON_MyPhotonPlayerParam roomPlayerParam6 = this.GetRoomPlayerParam();
-          ((Component) this).get_gameObject().SetActive(roomPlayerParam6 != null && roomPlayerParam6.playerID <= 0);
+          // ISSUE: reference to a compiler-generated field
+          valueCAnonStorey294.roomPlayerParam = this.GetRoomPlayerParam();
+          // ISSUE: reference to a compiler-generated field
+          if (valueCAnonStorey294.roomPlayerParam != null)
+          {
+            // ISSUE: reference to a compiler-generated field
+            // ISSUE: reference to a compiler-generated field
+            ((Component) this).get_gameObject().SetActive(valueCAnonStorey294.roomPlayerParam != null && valueCAnonStorey294.roomPlayerParam.playerID <= 0);
+            break;
+          }
+          ((Component) this).get_gameObject().SetActive(true);
           break;
         case GameParameter.ParameterTypes.MULTI_PLAYER_IS_VALID:
-          JSON_MyPhotonPlayerParam roomPlayerParam7 = this.GetRoomPlayerParam();
-          ((Component) this).get_gameObject().SetActive(roomPlayerParam7 != null && roomPlayerParam7.playerID > 0);
+          // ISSUE: reference to a compiler-generated field
+          valueCAnonStorey294.roomPlayerParam = this.GetRoomPlayerParam();
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: reference to a compiler-generated field
+          ((Component) this).get_gameObject().SetActive(valueCAnonStorey294.roomPlayerParam != null && valueCAnonStorey294.roomPlayerParam.playerID > 0);
           break;
         case GameParameter.ParameterTypes.TROPHY_NAME:
           TrophyParam dataOfClass24 = DataSource.FindDataOfClass<TrophyParam>(((Component) this).get_gameObject(), (TrophyParam) null);
@@ -2806,58 +3001,58 @@ namespace SRPG
             break;
           }
           int num4 = 0;
-          int unitSlotNum = roomParam2.GetUnitSlotNum(multiPlayerParam.playerIndex);
+          int unitSlotNum1 = roomParam2.GetUnitSlotNum(multiPlayerParam.playerIndex);
           for (int index = 0; index < multiPlayerParam.units.Length; ++index)
           {
-            if (multiPlayerParam.units[index].slotID < unitSlotNum && multiPlayerParam.units[index].unit != null)
+            if (multiPlayerParam.units[index].slotID < unitSlotNum1 && multiPlayerParam.units[index].unit != null)
               num4 = num4 + (int) multiPlayerParam.units[index].unit.Status.param.atk + (int) multiPlayerParam.units[index].unit.Status.param.mag;
           }
           this.SetTextValue(num4);
           break;
         case GameParameter.ParameterTypes.MULTI_CURRENT_PLAYER_INDEX:
-          SceneBattle instance9 = SceneBattle.Instance;
-          if (Object.op_Equality((Object) instance9, (Object) null) || instance9.Battle == null || instance9.Battle.CurrentUnit == null)
+          SceneBattle instance10 = SceneBattle.Instance;
+          if (UnityEngine.Object.op_Equality((UnityEngine.Object) instance10, (UnityEngine.Object) null) || instance10.Battle == null || instance10.Battle.CurrentUnit == null)
           {
             this.ResetToDefault();
             break;
           }
-          this.SetTextValue(instance9.Battle.CurrentUnit.OwnerPlayerIndex);
+          this.SetTextValue(instance10.Battle.CurrentUnit.OwnerPlayerIndex);
           break;
         case GameParameter.ParameterTypes.MULTI_MY_NEXT_TURN:
-          SceneBattle instance10 = SceneBattle.Instance;
-          if (Object.op_Equality((Object) instance10, (Object) null))
+          SceneBattle instance11 = SceneBattle.Instance;
+          if (UnityEngine.Object.op_Equality((UnityEngine.Object) instance11, (UnityEngine.Object) null))
           {
             this.ResetToDefault();
             break;
           }
-          this.SetTextValue(instance10.GetNextMyTurn());
+          this.SetTextValue(instance11.GetNextMyTurn());
           break;
         case GameParameter.ParameterTypes.MULTI_INPUT_TIME_LIMIT:
-          SceneBattle instance11 = SceneBattle.Instance;
-          if (Object.op_Equality((Object) instance11, (Object) null))
+          SceneBattle instance12 = SceneBattle.Instance;
+          if (UnityEngine.Object.op_Equality((UnityEngine.Object) instance12, (UnityEngine.Object) null))
           {
             this.ResetToDefault();
             break;
           }
-          this.SetTextValue(instance11.DisplayMultiPlayInputTimeLimit);
+          this.SetTextValue(instance12.DisplayMultiPlayInputTimeLimit);
           break;
         case GameParameter.ParameterTypes.MULTI_CURRENT_PLAYER_NAME:
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          GameParameter.\u003CInternalUpdateValue\u003Ec__AnonStorey1F7 valueCAnonStorey1F7 = new GameParameter.\u003CInternalUpdateValue\u003Ec__AnonStorey1F7();
+          GameParameter.\u003CInternalUpdateValue\u003Ec__AnonStorey295 valueCAnonStorey295 = new GameParameter.\u003CInternalUpdateValue\u003Ec__AnonStorey295();
           // ISSUE: reference to a compiler-generated field
-          valueCAnonStorey1F7.bs = SceneBattle.Instance;
+          valueCAnonStorey295.bs = SceneBattle.Instance;
           // ISSUE: reference to a compiler-generated field
           // ISSUE: reference to a compiler-generated field
           // ISSUE: reference to a compiler-generated field
-          if (Object.op_Equality((Object) valueCAnonStorey1F7.bs, (Object) null) || valueCAnonStorey1F7.bs.Battle == null || valueCAnonStorey1F7.bs.Battle.CurrentUnit == null)
+          if (UnityEngine.Object.op_Equality((UnityEngine.Object) valueCAnonStorey295.bs, (UnityEngine.Object) null) || valueCAnonStorey295.bs.Battle == null || valueCAnonStorey295.bs.Battle.CurrentUnit == null)
           {
             this.ResetToDefault();
             break;
           }
           List<JSON_MyPhotonPlayerParam> myPlayersStarted1 = PunMonoSingleton<MyPhoton>.Instance.GetMyPlayersStarted();
           // ISSUE: reference to a compiler-generated method
-          JSON_MyPhotonPlayerParam photonPlayerParam1 = myPlayersStarted1 != null ? myPlayersStarted1.Find(new Predicate<JSON_MyPhotonPlayerParam>(valueCAnonStorey1F7.\u003C\u003Em__1C2)) : (JSON_MyPhotonPlayerParam) null;
+          JSON_MyPhotonPlayerParam photonPlayerParam1 = myPlayersStarted1 != null ? myPlayersStarted1.Find(new Predicate<JSON_MyPhotonPlayerParam>(valueCAnonStorey295.\u003C\u003Em__257)) : (JSON_MyPhotonPlayerParam) null;
           if (photonPlayerParam1 == null)
           {
             this.ResetToDefault();
@@ -2869,23 +3064,24 @@ namespace SRPG
           ((Component) this).get_gameObject().SetActive(MultiPlayAPIRoom.IsLocked(GlobalVars.EditMultiPlayRoomPassCode));
           break;
         case GameParameter.ParameterTypes.MULTI_CURRENT_ROOM_COMMENT:
-          MyPhoton.MyRoom currentRoom = PunMonoSingleton<MyPhoton>.Instance.GetCurrentRoom();
-          JSON_MyPhotonRoomParam myPhotonRoomParam = currentRoom != null ? JSON_MyPhotonRoomParam.Parse(currentRoom.json) : (JSON_MyPhotonRoomParam) null;
-          if (myPhotonRoomParam == null)
+          MyPhoton.MyRoom currentRoom1 = PunMonoSingleton<MyPhoton>.Instance.GetCurrentRoom();
+          JSON_MyPhotonRoomParam myPhotonRoomParam1 = currentRoom1 != null ? JSON_MyPhotonRoomParam.Parse(currentRoom1.json) : (JSON_MyPhotonRoomParam) null;
+          if (myPhotonRoomParam1 == null)
           {
             this.ResetToDefault();
             break;
           }
-          this.SetTextValue(myPhotonRoomParam.comment);
+          this.SetTextValue(myPhotonRoomParam1.comment);
           break;
         case GameParameter.ParameterTypes.MULTI_CURRENT_ROOM_PASSCODE:
-          JSON_MyPhotonRoomParam roomParam3 = this.GetRoomParam();
-          if (roomParam3 == null || !MultiPlayAPIRoom.IsLocked(roomParam3.passCode))
+          MyPhoton.MyRoom currentRoom2 = PunMonoSingleton<MyPhoton>.Instance.GetCurrentRoom();
+          JSON_MyPhotonRoomParam myPhotonRoomParam2 = currentRoom2 != null ? JSON_MyPhotonRoomParam.Parse(currentRoom2.json) : (JSON_MyPhotonRoomParam) null;
+          if (myPhotonRoomParam2 == null || !MultiPlayAPIRoom.IsLocked(myPhotonRoomParam2.passCode))
           {
             this.ResetToDefault();
             break;
           }
-          string input = string.Format("{0:D5}", (object) roomParam3.roomid);
+          string input = string.Format("{0:D5}", (object) myPhotonRoomParam2.roomid);
           if (this.Index == 1)
             input = Regex.Replace(input, "[0-9]", (MatchEvaluator) (m => ((char) (65296 + ((int) m.Value[0] - 48))).ToString()));
           this.SetTextValue(input);
@@ -2894,21 +3090,27 @@ namespace SRPG
           bool flag1 = false;
           if (GameUtility.GetCurrentScene() == GameUtility.EScene.HOME_MULTI)
           {
-            JSON_MyPhotonRoomParam roomParam4 = this.GetRoomParam();
-            JSON_MyPhotonPlayerParam roomPlayerParam8 = this.GetRoomPlayerParam();
-            int playerIndex = roomPlayerParam8 != null ? roomPlayerParam8.playerIndex : 0;
-            flag1 = this.Index >= (roomParam4 != null ? roomParam4.GetUnitSlotNum(playerIndex) : 0);
+            JSON_MyPhotonRoomParam roomParam3 = this.GetRoomParam();
+            if (roomParam3 == null || !string.IsNullOrEmpty(roomParam3.iname))
+            {
+              // ISSUE: reference to a compiler-generated field
+              valueCAnonStorey294.roomPlayerParam = this.GetRoomPlayerParam();
+              // ISSUE: reference to a compiler-generated field
+              // ISSUE: reference to a compiler-generated field
+              int playerIndex = valueCAnonStorey294.roomPlayerParam != null ? valueCAnonStorey294.roomPlayerParam.playerIndex : 0;
+              flag1 = this.Index >= (roomParam3 != null ? roomParam3.GetUnitSlotNum(playerIndex) : 0);
+            }
           }
           ((Component) this).get_gameObject().SetActive(flag1);
           break;
         case GameParameter.ParameterTypes.MULTI_CURRENT_ROOM_QUEST_NAME:
-          JSON_MyPhotonRoomParam roomParam5 = this.GetRoomParam();
-          if (roomParam5 == null)
+          JSON_MyPhotonRoomParam roomParam4 = this.GetRoomParam();
+          if (roomParam4 == null)
           {
             this.ResetToDefault();
             break;
           }
-          this.SetTextValue(MonoSingleton<GameManager>.Instance.FindQuest(roomParam5.iname).name);
+          this.SetTextValue(MonoSingleton<GameManager>.Instance.FindQuest(roomParam4.iname).name);
           break;
         case GameParameter.ParameterTypes.QUEST_IS_MULTI:
           GameUtility.EScene currentScene1 = GameUtility.GetCurrentScene();
@@ -2924,7 +3126,7 @@ namespace SRPG
             break;
           }
           Button component1 = (Button) ((Component) this).get_gameObject().GetComponent<Button>();
-          if (Object.op_Equality((Object) component1, (Object) null))
+          if (UnityEngine.Object.op_Equality((UnityEngine.Object) component1, (UnityEngine.Object) null))
           {
             this.ResetToDefault();
             break;
@@ -2981,7 +3183,7 @@ namespace SRPG
             }
             if (dataOfClass25 != null && 0 <= this.Index && this.Index < dataOfClass25.Objectives.Length)
             {
-              TrophyState trophyCounter = MonoSingleton<GameManager>.Instance.Player.GetTrophyCounter(dataOfClass25);
+              TrophyState trophyCounter = MonoSingleton<GameManager>.Instance.Player.GetTrophyCounter(dataOfClass25, false);
               if (trophyCounter == null || this.Index >= trophyCounter.Count.Length)
                 break;
               int num3 = Mathf.Min(trophyCounter.Count[this.Index], dataOfClass25.Objectives[this.Index].RequiredCount);
@@ -3210,54 +3412,56 @@ namespace SRPG
           ((Component) this).get_gameObject().SetActive(this.CheckUnlockInstanceType());
           break;
         case GameParameter.ParameterTypes.MULTI_NOTIFY_DISCONNECTED_PLAYER_INDEX:
-          SceneBattle instance12 = SceneBattle.Instance;
-          if (Object.op_Equality((Object) instance12, (Object) null) || instance12.CurrentNotifyDisconnectedPlayer == null)
+          SceneBattle instance13 = SceneBattle.Instance;
+          if (UnityEngine.Object.op_Equality((UnityEngine.Object) instance13, (UnityEngine.Object) null) || instance13.CurrentNotifyDisconnectedPlayer == null)
           {
             this.ResetToDefault();
             break;
           }
-          this.SetTextValue(instance12.CurrentNotifyDisconnectedPlayer.playerIndex);
+          this.SetTextValue(instance13.CurrentNotifyDisconnectedPlayer.playerIndex);
           break;
         case GameParameter.ParameterTypes.MULTI_NOTIFY_DISCONNECTED_PLAYER_IS_ROOM_OWNER:
-          SceneBattle instance13 = SceneBattle.Instance;
-          if (Object.op_Equality((Object) instance13, (Object) null) || instance13.CurrentNotifyDisconnectedPlayer == null)
+          SceneBattle instance14 = SceneBattle.Instance;
+          if (UnityEngine.Object.op_Equality((UnityEngine.Object) instance14, (UnityEngine.Object) null) || instance14.CurrentNotifyDisconnectedPlayer == null)
           {
             this.ResetToDefault();
             break;
           }
-          ((Component) this).get_gameObject().SetActive(instance13.CurrentNotifyDisconnectedPlayerType == (SceneBattle.ENotifyDisconnectedPlayerType) this.Index);
+          ((Component) this).get_gameObject().SetActive(instance14.CurrentNotifyDisconnectedPlayerType == (SceneBattle.ENotifyDisconnectedPlayerType) this.Index);
           break;
         case GameParameter.ParameterTypes.MULTI_CURRENT_PLAYER_IS_DISCONNECTED:
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          GameParameter.\u003CInternalUpdateValue\u003Ec__AnonStorey1F8 valueCAnonStorey1F8 = new GameParameter.\u003CInternalUpdateValue\u003Ec__AnonStorey1F8();
+          GameParameter.\u003CInternalUpdateValue\u003Ec__AnonStorey296 valueCAnonStorey296 = new GameParameter.\u003CInternalUpdateValue\u003Ec__AnonStorey296();
           // ISSUE: reference to a compiler-generated field
-          valueCAnonStorey1F8.bs = SceneBattle.Instance;
+          valueCAnonStorey296.bs = SceneBattle.Instance;
           // ISSUE: reference to a compiler-generated field
           // ISSUE: reference to a compiler-generated field
           // ISSUE: reference to a compiler-generated field
-          if (Object.op_Equality((Object) valueCAnonStorey1F8.bs, (Object) null) || valueCAnonStorey1F8.bs.Battle == null || valueCAnonStorey1F8.bs.Battle.CurrentUnit == null)
+          if (UnityEngine.Object.op_Equality((UnityEngine.Object) valueCAnonStorey296.bs, (UnityEngine.Object) null) || valueCAnonStorey296.bs.Battle == null || valueCAnonStorey296.bs.Battle.CurrentUnit == null)
           {
             this.ResetToDefault();
             break;
           }
-          MyPhoton instance14 = PunMonoSingleton<MyPhoton>.Instance;
-          List<JSON_MyPhotonPlayerParam> myPlayersStarted2 = instance14.GetMyPlayersStarted();
-          // ISSUE: reference to a compiler-generated field
+          MyPhoton instance15 = PunMonoSingleton<MyPhoton>.Instance;
+          List<JSON_MyPhotonPlayerParam> myPlayersStarted2 = instance15.GetMyPlayersStarted();
           // ISSUE: reference to a compiler-generated method
-          valueCAnonStorey1F8.param = myPlayersStarted2 != null ? myPlayersStarted2.Find(new Predicate<JSON_MyPhotonPlayerParam>(valueCAnonStorey1F8.\u003C\u003Em__1C3)) : (JSON_MyPhotonPlayerParam) null;
-          List<MyPhoton.MyPlayer> roomPlayerList = instance14.GetRoomPlayerList();
-          // ISSUE: reference to a compiler-generated field
-          // ISSUE: reference to a compiler-generated method
-          MyPhoton.MyPlayer myPlayer = roomPlayerList == null || valueCAnonStorey1F8.param == null ? (MyPhoton.MyPlayer) null : roomPlayerList.Find(new Predicate<MyPhoton.MyPlayer>(valueCAnonStorey1F8.\u003C\u003Em__1C4));
+          JSON_MyPhotonPlayerParam photonPlayerParam2 = myPlayersStarted2 != null ? myPlayersStarted2.Find(new Predicate<JSON_MyPhotonPlayerParam>(valueCAnonStorey296.\u003C\u003Em__258)) : (JSON_MyPhotonPlayerParam) null;
+          List<MyPhoton.MyPlayer> roomPlayerList1 = instance15.GetRoomPlayerList();
+          MyPhoton.MyPlayer myPlayer1 = photonPlayerParam2 != null ? instance15.FindPlayer(roomPlayerList1, photonPlayerParam2.playerID, photonPlayerParam2.playerIndex) : (MyPhoton.MyPlayer) null;
+          if (MonoSingleton<GameManager>.Instance.AudienceMode)
+          {
+            ((Component) this).get_gameObject().SetActive(false);
+            break;
+          }
           if (this.Index == 0)
           {
-            ((Component) this).get_gameObject().SetActive(myPlayer == null);
+            ((Component) this).get_gameObject().SetActive(myPlayer1 == null);
             break;
           }
           if (this.Index == 1)
           {
-            ((Component) this).get_gameObject().SetActive(myPlayer != null);
+            ((Component) this).get_gameObject().SetActive(myPlayer1 != null);
             break;
           }
           this.ResetToDefault();
@@ -3265,31 +3469,31 @@ namespace SRPG
         case GameParameter.ParameterTypes.MULTI_CURRENT_PLAYER_IS_ROOM_OWNER:
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          GameParameter.\u003CInternalUpdateValue\u003Ec__AnonStorey1F9 valueCAnonStorey1F9 = new GameParameter.\u003CInternalUpdateValue\u003Ec__AnonStorey1F9();
+          GameParameter.\u003CInternalUpdateValue\u003Ec__AnonStorey297 valueCAnonStorey297 = new GameParameter.\u003CInternalUpdateValue\u003Ec__AnonStorey297();
           // ISSUE: reference to a compiler-generated field
-          valueCAnonStorey1F9.bs = SceneBattle.Instance;
+          valueCAnonStorey297.bs = SceneBattle.Instance;
           // ISSUE: reference to a compiler-generated field
           // ISSUE: reference to a compiler-generated field
           // ISSUE: reference to a compiler-generated field
-          if (Object.op_Equality((Object) valueCAnonStorey1F9.bs, (Object) null) || valueCAnonStorey1F9.bs.Battle == null || valueCAnonStorey1F9.bs.Battle.CurrentUnit == null)
+          if (UnityEngine.Object.op_Equality((UnityEngine.Object) valueCAnonStorey297.bs, (UnityEngine.Object) null) || valueCAnonStorey297.bs.Battle == null || valueCAnonStorey297.bs.Battle.CurrentUnit == null)
           {
             this.ResetToDefault();
             break;
           }
-          MyPhoton instance15 = PunMonoSingleton<MyPhoton>.Instance;
-          List<JSON_MyPhotonPlayerParam> myPlayersStarted3 = instance15.GetMyPlayersStarted();
+          MyPhoton instance16 = PunMonoSingleton<MyPhoton>.Instance;
+          List<JSON_MyPhotonPlayerParam> myPlayersStarted3 = instance16.GetMyPlayersStarted();
           // ISSUE: reference to a compiler-generated method
-          JSON_MyPhotonPlayerParam photonPlayerParam2 = myPlayersStarted3 != null ? myPlayersStarted3.Find(new Predicate<JSON_MyPhotonPlayerParam>(valueCAnonStorey1F9.\u003C\u003Em__1C5)) : (JSON_MyPhotonPlayerParam) null;
-          ((Component) this).get_gameObject().SetActive(photonPlayerParam2 != null && instance15.IsOldestPlayer(photonPlayerParam2.playerID));
+          JSON_MyPhotonPlayerParam photonPlayerParam3 = myPlayersStarted3 != null ? myPlayersStarted3.Find(new Predicate<JSON_MyPhotonPlayerParam>(valueCAnonStorey297.\u003C\u003Em__259)) : (JSON_MyPhotonPlayerParam) null;
+          ((Component) this).get_gameObject().SetActive(photonPlayerParam3 != null && instance16.IsOldestPlayer(photonPlayerParam3.playerID));
           break;
         case GameParameter.ParameterTypes.MULTI_I_AM_ROOM_OWNER:
-          MyPhoton instance16 = PunMonoSingleton<MyPhoton>.Instance;
+          MyPhoton instance17 = PunMonoSingleton<MyPhoton>.Instance;
           if (this.Index == 0)
           {
-            ((Component) this).get_gameObject().SetActive(instance16.IsOldestPlayer());
+            ((Component) this).get_gameObject().SetActive(instance17.IsOldestPlayer());
             break;
           }
-          ((Component) this).get_gameObject().SetActive(!instance16.IsOldestPlayer());
+          ((Component) this).get_gameObject().SetActive(!instance17.IsOldestPlayer());
           break;
         case GameParameter.ParameterTypes.MULTI_ROOM_OWNER_PLAYER_INDEX:
           this.SetTextValue(PunMonoSingleton<MyPhoton>.Instance.GetOldestPlayer());
@@ -3318,7 +3522,7 @@ namespace SRPG
             case 1:
               for (int index = 0; index < trophyStates.Length; ++index)
               {
-                if (trophyStates[index].Param.Days == 0 && trophyStates[index].Param.IsShowBadge(trophyStates[index]))
+                if (!trophyStates[index].Param.IsDaily && trophyStates[index].Param.IsShowBadge(trophyStates[index]))
                 {
                   flag3 = true;
                   break;
@@ -3328,7 +3532,7 @@ namespace SRPG
             case 2:
               for (int index1 = 0; index1 < trophyStates.Length; ++index1)
               {
-                if (trophyStates[index1].Param.Days == 1 && trophyStates[index1].Param.IsShowBadge(trophyStates[index1]))
+                if (trophyStates[index1].Param.IsDaily && trophyStates[index1].Param.IsShowBadge(trophyStates[index1]))
                 {
                   TrophyParam trophyParam = trophyStates[index1].Param;
                   int hour = TimeManager.ServerTime.Hour;
@@ -3339,9 +3543,9 @@ namespace SRPG
                       flag3 = true;
                       break;
                     }
-                    int num3 = int.Parse(trophyParam.Objectives[index2].sval.Substring(0, 2));
-                    int num5 = int.Parse(trophyParam.Objectives[index2].sval.Substring(3, 2));
-                    if (num3 <= hour && hour < num5)
+                    int num3 = int.Parse(trophyParam.Objectives[index2].sval_base.Substring(0, 2));
+                    int num5 = int.Parse(trophyParam.Objectives[index2].sval_base.Substring(3, 2));
+                    if (num3 <= hour && hour < num5 && !trophyParam.iname.Contains("DAILY_GLAP"))
                     {
                       flag3 = true;
                       break;
@@ -3349,46 +3553,6 @@ namespace SRPG
                   }
                   if (flag3)
                     break;
-                }
-              }
-              break;
-            case 3:
-              for (int index = 0; index < trophyStates.Length; ++index)
-              {
-                if (trophyStates[index].Param.Category == TrophyCategorys.Story && trophyStates[index].Param.Days == 0 && trophyStates[index].Param.IsShowBadge(trophyStates[index]))
-                {
-                  flag3 = true;
-                  break;
-                }
-              }
-              break;
-            case 4:
-              for (int index = 0; index < trophyStates.Length; ++index)
-              {
-                if (trophyStates[index].Param.Category == TrophyCategorys.Event && trophyStates[index].Param.Days == 0 && trophyStates[index].Param.IsShowBadge(trophyStates[index]))
-                {
-                  flag3 = true;
-                  break;
-                }
-              }
-              break;
-            case 5:
-              for (int index = 0; index < trophyStates.Length; ++index)
-              {
-                if (trophyStates[index].Param.Category == TrophyCategorys.Training && trophyStates[index].Param.Days == 0 && trophyStates[index].Param.IsShowBadge(trophyStates[index]))
-                {
-                  flag3 = true;
-                  break;
-                }
-              }
-              break;
-            case 6:
-              for (int index = 0; index < trophyStates.Length; ++index)
-              {
-                if (trophyStates[index].Param.Category == TrophyCategorys.Other && trophyStates[index].Param.Days == 0 && trophyStates[index].Param.IsShowBadge(trophyStates[index]))
-                {
-                  flag3 = true;
-                  break;
                 }
               }
               break;
@@ -3474,15 +3638,15 @@ namespace SRPG
           UnitData unitData40;
           if ((unitData40 = this.GetUnitData()) != null)
           {
-            GameManager instance4 = MonoSingleton<GameManager>.Instance;
-            this.SetTextValue(Mathf.Min(unitData40.GetLevelCap(false), instance4.Player.Lv));
+            GameManager instance5 = MonoSingleton<GameManager>.Instance;
+            this.SetTextValue(Mathf.Min(unitData40.GetLevelCap(false), instance5.Player.Lv));
             break;
           }
           this.ResetToDefault();
           break;
         case GameParameter.ParameterTypes.APPLICATION_REVISION:
           TextAsset textAsset1 = (TextAsset) Resources.Load<TextAsset>("revision");
-          if (Object.op_Inequality((Object) textAsset1, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) textAsset1, (UnityEngine.Object) null))
           {
             this.SetTextValue(textAsset1.get_text());
             break;
@@ -3491,7 +3655,7 @@ namespace SRPG
           break;
         case GameParameter.ParameterTypes.APPLICATION_BUILD:
           TextAsset textAsset2 = (TextAsset) Resources.Load<TextAsset>("build");
-          if (Object.op_Inequality((Object) textAsset2, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) textAsset2, (UnityEngine.Object) null))
           {
             this.SetTextValue(textAsset2.get_text());
             break;
@@ -3571,10 +3735,10 @@ namespace SRPG
           this.ResetToDefault();
           break;
         case GameParameter.ParameterTypes.GLOBAL_PLAYER_ARENARANK:
-          GameManager instance17 = MonoSingleton<GameManager>.Instance;
-          if (instance17.Player.ArenaRank > 0)
+          GameManager instance18 = MonoSingleton<GameManager>.Instance;
+          if (instance18.Player.ArenaRank > 0)
           {
-            this.SetTextValue(instance17.Player.ArenaRank);
+            this.SetTextValue(instance18.Player.ArenaRank);
             break;
           }
           this.ResetToDefault();
@@ -3606,14 +3770,14 @@ namespace SRPG
           ((Component) this).get_gameObject().SetActive(false);
           break;
         case GameParameter.ParameterTypes.GLOBAL_PLAYER_ARENATICKETS:
-          GameManager instance18 = MonoSingleton<GameManager>.Instance;
-          this.SetTextValue(instance18.Player.ChallengeArenaNum);
-          this.SetSliderValue(instance18.Player.ChallengeArenaNum, instance18.Player.ChallengeArenaMax);
+          GameManager instance19 = MonoSingleton<GameManager>.Instance;
+          this.SetTextValue(instance19.Player.ChallengeArenaNum);
+          this.SetSliderValue(instance19.Player.ChallengeArenaNum, instance19.Player.ChallengeArenaMax);
           break;
         case GameParameter.ParameterTypes.GLOBAL_PLAYER_ARENACOOLDOWNTIME:
-          GameManager instance19 = MonoSingleton<GameManager>.Instance;
-          instance19.Player.UpdateChallengeArenaTimer();
-          long arenaCoolDownSec = instance19.Player.GetNextChallengeArenaCoolDownSec();
+          GameManager instance20 = MonoSingleton<GameManager>.Instance;
+          instance20.Player.UpdateChallengeArenaTimer();
+          long arenaCoolDownSec = instance20.Player.GetNextChallengeArenaCoolDownSec();
           this.SetTextValue(string.Format(LocalizedText.Get("sys.ARENA_COOLDOWN"), (object) (arenaCoolDownSec / 60L), (object) (arenaCoolDownSec % 60L)));
           this.SetUpdateInterval(0.25f);
           break;
@@ -3632,13 +3796,16 @@ namespace SRPG
           bool flag4 = false;
           if (GameUtility.GetCurrentScene() == GameUtility.EScene.HOME_MULTI)
           {
-            JSON_MyPhotonRoomParam roomParam4 = this.GetRoomParam();
-            JSON_MyPhotonPlayerParam roomPlayerParam8 = this.GetRoomPlayerParam();
-            int playerIndex = roomPlayerParam8 != null ? roomPlayerParam8.playerIndex : 0;
-            flag4 = this.Index >= roomParam4.GetUnitSlotNum(playerIndex);
+            JSON_MyPhotonRoomParam roomParam3 = this.GetRoomParam();
+            // ISSUE: reference to a compiler-generated field
+            valueCAnonStorey294.roomPlayerParam = this.GetRoomPlayerParam();
+            // ISSUE: reference to a compiler-generated field
+            // ISSUE: reference to a compiler-generated field
+            int playerIndex = valueCAnonStorey294.roomPlayerParam != null ? valueCAnonStorey294.roomPlayerParam.playerIndex : 0;
+            flag4 = this.Index >= roomParam3.GetUnitSlotNum(playerIndex);
           }
           Button component2 = (Button) ((Component) this).get_gameObject().GetComponent<Button>();
-          if (!Object.op_Inequality((Object) component2, (Object) null))
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component2, (UnityEngine.Object) null))
             break;
           ((Selectable) component2).set_interactable(!flag4);
           break;
@@ -3698,7 +3865,7 @@ namespace SRPG
           if ((unitData41 = this.GetUnitData()) == null)
             break;
           UnitEquipmentSlotEvents component3 = (UnitEquipmentSlotEvents) ((Component) this).get_gameObject().GetComponent<UnitEquipmentSlotEvents>();
-          if (!Object.op_Inequality((Object) component3, (Object) null))
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component3, (UnityEngine.Object) null))
             break;
           int index3 = this.Index;
           EquipData[] rankupEquips = unitData41.GetRankupEquips(unitData41.JobIndex);
@@ -3726,7 +3893,7 @@ namespace SRPG
             component3.StateType = UnitEquipmentSlotEvents.SlotStateTypes.HasEquipment;
             break;
           }
-          if (MonoSingleton<GameManager>.Instance.Player.CheckCreateItem(itemParam16))
+          if (MonoSingleton<GameManager>.Instance.Player.CheckCreateItem(itemParam16) == CreateItemResult.CanCreate)
           {
             if ((int) itemParam16.equipLv > unitData41.Lv)
             {
@@ -3734,6 +3901,16 @@ namespace SRPG
               break;
             }
             component3.StateType = UnitEquipmentSlotEvents.SlotStateTypes.EnableCraft;
+            break;
+          }
+          if (unitData41.CheckCommon(unitData41.JobIndex, index3))
+          {
+            if ((int) itemParam16.equipLv > unitData41.Lv)
+            {
+              component3.StateType = UnitEquipmentSlotEvents.SlotStateTypes.EnableCommonSoul;
+              break;
+            }
+            component3.StateType = UnitEquipmentSlotEvents.SlotStateTypes.EnableCommon;
             break;
           }
           component3.StateType = UnitEquipmentSlotEvents.SlotStateTypes.Empty;
@@ -3796,9 +3973,9 @@ namespace SRPG
           UnitParam unitParam9;
           if ((unitParam9 = this.GetUnitParam()) != null)
           {
-            GameManager instance4 = MonoSingleton<GameManager>.Instance;
+            GameManager instance5 = MonoSingleton<GameManager>.Instance;
             int unlockNeedPieces = unitParam9.GetUnlockNeedPieces();
-            int num3 = Math.Min(instance4.Player.GetItemAmount((string) unitParam9.piece), unlockNeedPieces);
+            int num3 = Math.Min(instance5.Player.GetItemAmount((string) unitParam9.piece), unlockNeedPieces);
             this.SetTextValue(num3);
             this.SetSliderValue(num3, unlockNeedPieces);
             break;
@@ -3809,21 +3986,23 @@ namespace SRPG
           UnitParam unitParam10;
           if ((unitParam10 = this.GetUnitParam()) != null)
           {
-            GameManager instance4 = MonoSingleton<GameManager>.Instance;
+            GameManager instance5 = MonoSingleton<GameManager>.Instance;
             int unlockNeedPieces = unitParam10.GetUnlockNeedPieces();
-            ((Component) this).get_gameObject().SetActive(instance4.Player.GetItemAmount((string) unitParam10.piece) >= unlockNeedPieces);
+            ((Component) this).get_gameObject().SetActive(instance5.Player.GetItemAmount((string) unitParam10.piece) >= unlockNeedPieces);
             break;
           }
           ((Component) this).get_gameObject().SetActive(false);
           break;
         case GameParameter.ParameterTypes.QUEST_KAKERA_FRAME:
           QuestParam questParam16;
-          if ((questParam16 = this.GetQuestParam()) != null && questParam16.pieces != null && !string.IsNullOrEmpty(questParam16.pieces[0]))
+          if ((questParam16 = this.GetQuestParam()) != null)
           {
-            ItemParam itemParam6 = MonoSingleton<GameManager>.Instance.GetItemParam(questParam16.pieces[0]);
-            if (itemParam6 != null)
+            if (UnityEngine.Object.op_Equality((UnityEngine.Object) QuestDropParam.Instance, (UnityEngine.Object) null))
+              break;
+            ItemParam hardDropPiece = QuestDropParam.Instance.GetHardDropPiece(questParam16.iname, GlobalVars.GetDropTableGeneratedDateTime());
+            if (hardDropPiece != null)
             {
-              this.SetItemFrame(itemParam6);
+              this.SetItemFrame(hardDropPiece);
               break;
             }
           }
@@ -3972,15 +4151,15 @@ namespace SRPG
           ((Component) this).get_gameObject().SetActive(false);
           break;
         case GameParameter.ParameterTypes.GLOBAL_PLAYER_VIPPOINT:
-          GameManager instance20 = MonoSingleton<GameManager>.Instance;
-          int num7 = instance20.Player.VipPoint - (instance20.Player.VipRank <= 0 ? 0 : instance20.MasterParam.GetVipRankNextPoint(instance20.Player.VipRank - 1));
-          int vipRankNextPoint = instance20.MasterParam.GetVipRankNextPoint(instance20.Player.VipRank);
+          GameManager instance21 = MonoSingleton<GameManager>.Instance;
+          int num7 = instance21.Player.VipPoint - (instance21.Player.VipRank <= 0 ? 0 : instance21.MasterParam.GetVipRankNextPoint(instance21.Player.VipRank - 1));
+          int vipRankNextPoint = instance21.MasterParam.GetVipRankNextPoint(instance21.Player.VipRank);
           this.SetTextValue(num7);
           this.SetSliderValue(num7, vipRankNextPoint);
           break;
         case GameParameter.ParameterTypes.GLOBAL_PLAYER_VIPPOINTMAX:
-          GameManager instance21 = MonoSingleton<GameManager>.Instance;
-          this.SetTextValue(instance21.MasterParam.GetVipRankNextPoint(instance21.Player.VipRank));
+          GameManager instance22 = MonoSingleton<GameManager>.Instance;
+          this.SetTextValue(instance22.MasterParam.GetVipRankNextPoint(instance22.Player.VipRank));
           break;
         case GameParameter.ParameterTypes.GLOBAL_PLAYER_COINFREE:
           this.SetTextValue(MonoSingleton<GameManager>.Instance.Player.FreeCoin);
@@ -4102,13 +4281,13 @@ namespace SRPG
           break;
         case GameParameter.ParameterTypes.SKILL_STATE_CONDITION:
           // ISSUE: reference to a compiler-generated field
-          if ((valueCAnonStorey1F6.skillParam = this.GetSkillParam()) != null)
+          if ((valueCAnonStorey294.skillParam = this.GetSkillParam()) != null)
           {
             UnitData unitData15;
             if ((unitData15 = this.GetUnitData()) != null)
             {
               // ISSUE: reference to a compiler-generated field
-              ((Component) this).get_gameObject().SetActive(unitData15.GetSkillData(valueCAnonStorey1F6.skillParam.iname) == null);
+              ((Component) this).get_gameObject().SetActive(unitData15.GetSkillData(valueCAnonStorey294.skillParam.iname) == null);
               break;
             }
             ((Component) this).get_gameObject().SetActive(true);
@@ -4119,10 +4298,19 @@ namespace SRPG
         case GameParameter.ParameterTypes.SKILL_CONDITION:
           AbilityParam abilityParam5;
           // ISSUE: reference to a compiler-generated field
-          if ((valueCAnonStorey1F6.skillParam = this.GetSkillParam()) != null && (abilityParam5 = this.GetAbilityParam()) != null && (abilityParam5.skills != null && abilityParam5.skills.Length > 0))
+          if ((valueCAnonStorey294.skillParam = this.GetSkillParam()) != null && (abilityParam5 = this.GetAbilityParam()) != null && (abilityParam5.skills != null && abilityParam5.skills.Length > 0))
           {
+            // ISSUE: reference to a compiler-generated field
+            if (!string.IsNullOrEmpty(valueCAnonStorey294.skillParam.ReplacedTargetId))
+            {
+              // ISSUE: reference to a compiler-generated field
+              SkillParam skillParam = MonoSingleton<GameManager>.Instance.GetSkillParam(valueCAnonStorey294.skillParam.ReplacedTargetId);
+              // ISSUE: reference to a compiler-generated field
+              // ISSUE: reference to a compiler-generated field
+              valueCAnonStorey294.skillParam = skillParam == null ? valueCAnonStorey294.skillParam : skillParam;
+            }
             // ISSUE: reference to a compiler-generated method
-            LearningSkill learningSkill = Array.Find<LearningSkill>(abilityParam5.skills, new Predicate<LearningSkill>(valueCAnonStorey1F6.\u003C\u003Em__1C6));
+            LearningSkill learningSkill = Array.Find<LearningSkill>(abilityParam5.skills, new Predicate<LearningSkill>(valueCAnonStorey294.\u003C\u003Em__25A));
             if (learningSkill != null)
             {
               this.SetTextValue(string.Format(LocalizedText.Get("sys.SKILL_LEANING_CONDITION1"), (object) learningSkill.locklv));
@@ -4189,8 +4377,8 @@ namespace SRPG
           this.SetUpdateInterval(1f);
           break;
         case GameParameter.ParameterTypes.GACHA_GOLD_STATE_TIMER:
-          GameManager instance22 = MonoSingleton<GameManager>.Instance;
-          this.SetTextValue(((int) instance22.MasterParam.FixParam.FreeGachaGoldMax - instance22.Player.FreeGachaGold.num).ToString());
+          GameManager instance23 = MonoSingleton<GameManager>.Instance;
+          this.SetTextValue(((int) instance23.MasterParam.FixParam.FreeGachaGoldMax - instance23.Player.FreeGachaGold.num).ToString());
           break;
         case GameParameter.ParameterTypes.GACHA_GOLD_STATE_INTERACTIVE:
           break;
@@ -4231,7 +4419,7 @@ namespace SRPG
           UnitData unitData49;
           if ((unitData49 = this.GetUnitData()) != null)
           {
-            if (Object.op_Inequality((Object) this.mImageArray, (Object) null))
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mImageArray, (UnityEngine.Object) null))
             {
               int awakeLv = unitData49.AwakeLv;
               int awakeLevelCap = unitData49.GetAwakeLevelCap();
@@ -4256,20 +4444,20 @@ namespace SRPG
           break;
         case GameParameter.ParameterTypes.SUPPORTER_ISFRIEND:
           // ISSUE: reference to a compiler-generated field
-          if ((valueCAnonStorey1F6.supportData = this.GetSupportData()) != null)
+          if ((valueCAnonStorey294.supportData = this.GetSupportData()) != null)
           {
             // ISSUE: reference to a compiler-generated field
-            ((Component) this).get_gameObject().SetActive(valueCAnonStorey1F6.supportData.IsFriend());
+            ((Component) this).get_gameObject().SetActive(valueCAnonStorey294.supportData.IsFriend());
             break;
           }
           ((Component) this).get_gameObject().SetActive(false);
           break;
         case GameParameter.ParameterTypes.SUPPORTER_COST:
           // ISSUE: reference to a compiler-generated field
-          if ((valueCAnonStorey1F6.supportData = this.GetSupportData()) != null)
+          if ((valueCAnonStorey294.supportData = this.GetSupportData()) != null)
           {
             // ISSUE: reference to a compiler-generated field
-            this.SetTextValue(valueCAnonStorey1F6.supportData.GetCost());
+            this.SetTextValue(valueCAnonStorey294.supportData.GetCost());
             break;
           }
           this.ResetToDefault();
@@ -4280,7 +4468,7 @@ namespace SRPG
             break;
           SpriteSheet spriteSheet1 = AssetManager.Load<SpriteSheet>(AssetPath.JobIconThumbnail());
           Image component4 = (Image) ((Component) this).GetComponent<Image>();
-          if (!Object.op_Inequality((Object) spriteSheet1, (Object) null) || !Object.op_Inequality((Object) component4, (Object) null))
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) spriteSheet1, (UnityEngine.Object) null) || !UnityEngine.Object.op_Inequality((UnityEngine.Object) component4, (UnityEngine.Object) null))
             break;
           JobData currentJob1 = unitData50.CurrentJob;
           if (currentJob1 != null)
@@ -4337,7 +4525,7 @@ namespace SRPG
             break;
           }
           StarGauge component5 = (StarGauge) ((Component) this).GetComponent<StarGauge>();
-          if (Object.op_Inequality((Object) component5, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component5, (UnityEngine.Object) null))
           {
             component5.Max = unitData54.GetRarityCap() + 1;
             component5.Value = unitData54.Rarity + 1;
@@ -4446,10 +4634,13 @@ namespace SRPG
           bool flag5 = false;
           if (GameUtility.GetCurrentScene() == GameUtility.EScene.HOME_MULTI)
           {
-            JSON_MyPhotonRoomParam roomParam4 = this.GetRoomParam();
-            JSON_MyPhotonPlayerParam roomPlayerParam8 = this.GetRoomPlayerParam();
-            int playerIndex = roomPlayerParam8 != null ? roomPlayerParam8.playerIndex : 0;
-            flag5 = this.Index < (roomParam4 != null ? roomParam4.GetUnitSlotNum(playerIndex) : 0);
+            JSON_MyPhotonRoomParam roomParam3 = this.GetRoomParam();
+            // ISSUE: reference to a compiler-generated field
+            valueCAnonStorey294.roomPlayerParam = this.GetRoomPlayerParam();
+            // ISSUE: reference to a compiler-generated field
+            // ISSUE: reference to a compiler-generated field
+            int playerIndex = valueCAnonStorey294.roomPlayerParam != null ? valueCAnonStorey294.roomPlayerParam.playerIndex : 0;
+            flag5 = this.Index < (roomParam3 != null ? roomParam3.GetUnitSlotNum(playerIndex) : 0);
           }
           ((Component) this).get_gameObject().SetActive(flag5);
           break;
@@ -4646,13 +4837,13 @@ namespace SRPG
           this.ResetToDefault();
           break;
         case GameParameter.ParameterTypes.MULTI_REST_MY_UNIT_IS_ZERO:
-          SceneBattle instance23 = SceneBattle.Instance;
-          if (Object.op_Equality((Object) instance23, (Object) null))
+          SceneBattle instance24 = SceneBattle.Instance;
+          if (UnityEngine.Object.op_Equality((UnityEngine.Object) instance24, (UnityEngine.Object) null))
           {
             this.ResetToDefault();
             break;
           }
-          int nextMyTurn = instance23.GetNextMyTurn();
+          int nextMyTurn = instance24.GetNextMyTurn();
           if (this.Index == 0)
           {
             ((Component) this).get_gameObject().SetActive(nextMyTurn < 0);
@@ -4661,14 +4852,21 @@ namespace SRPG
           ((Component) this).get_gameObject().SetActive(nextMyTurn >= 0);
           break;
         case GameParameter.ParameterTypes.MULTI_PLAYER_IS_ME:
-          JSON_MyPhotonPlayerParam roomPlayerParam9 = this.GetRoomPlayerParam();
-          if (roomPlayerParam9 == null || roomPlayerParam9.playerID <= 0)
+          // ISSUE: reference to a compiler-generated field
+          valueCAnonStorey294.roomPlayerParam = this.GetRoomPlayerParam();
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: reference to a compiler-generated field
+          if (valueCAnonStorey294.roomPlayerParam == null || valueCAnonStorey294.roomPlayerParam.playerID <= 0)
           {
             ((Component) this).get_gameObject().SetActive(false);
             break;
           }
-          bool flag7 = roomPlayerParam9.playerIndex == PunMonoSingleton<MyPhoton>.Instance.MyPlayerIndex;
-          bool flag8 = roomPlayerParam9.state != 0 && roomPlayerParam9.state != 4;
+          // ISSUE: reference to a compiler-generated field
+          bool flag7 = valueCAnonStorey294.roomPlayerParam.playerIndex == PunMonoSingleton<MyPhoton>.Instance.MyPlayerIndex;
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: reference to a compiler-generated field
+          bool flag8 = true & valueCAnonStorey294.roomPlayerParam.state != 0 & valueCAnonStorey294.roomPlayerParam.state != 4 & valueCAnonStorey294.roomPlayerParam.state != 5;
           if (this.Index == 0)
           {
             ((Component) this).get_gameObject().SetActive(flag7);
@@ -4690,7 +4888,35 @@ namespace SRPG
             ((Component) this).get_gameObject().SetActive(flag7 && !flag8);
             break;
           }
-          ((Component) this).get_gameObject().SetActive(!flag7 || flag8);
+          if (this.Index == 4)
+          {
+            ((Component) this).get_gameObject().SetActive(!flag7 || flag8);
+            break;
+          }
+          if (this.Index == 5)
+          {
+            SRPG_Button component6 = (SRPG_Button) ((Component) this).get_gameObject().GetComponent<SRPG_Button>();
+            if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component6, (UnityEngine.Object) null))
+              break;
+            ((Selectable) component6).set_interactable(flag7);
+            break;
+          }
+          if (this.Index != 6)
+            break;
+          List<MyPhoton.MyPlayer> roomPlayerList2 = PunMonoSingleton<MyPhoton>.Instance.GetRoomPlayerList();
+          if (roomPlayerList2 != null)
+          {
+            // ISSUE: reference to a compiler-generated method
+            MyPhoton.MyPlayer myPlayer2 = roomPlayerList2.Find(new Predicate<MyPhoton.MyPlayer>(valueCAnonStorey294.\u003C\u003Em__255));
+            if (myPlayer2 == null)
+            {
+              ((Component) this).get_gameObject().SetActive(false);
+              break;
+            }
+            ((Component) this).get_gameObject().SetActive(myPlayer2.start);
+            break;
+          }
+          ((Component) this).get_gameObject().SetActive(false);
           break;
         case GameParameter.ParameterTypes.QUESTLIST_SECTIONEXPR:
           ChapterParam dataOfClass37 = DataSource.FindDataOfClass<ChapterParam>(((Component) this).get_gameObject(), (ChapterParam) null);
@@ -4702,13 +4928,13 @@ namespace SRPG
           this.ResetToDefault();
           break;
         case GameParameter.ParameterTypes.MULTI_CURRENT_ROOM_IS_LOCKED:
-          JSON_MyPhotonRoomParam roomParam6 = this.GetRoomParam();
-          if (roomParam6 == null)
+          JSON_MyPhotonRoomParam roomParam5 = this.GetRoomParam();
+          if (roomParam5 == null)
           {
             ((Component) this).get_gameObject().SetActive(false);
             break;
           }
-          bool flag9 = MultiPlayAPIRoom.IsLocked(roomParam6.passCode);
+          bool flag9 = MultiPlayAPIRoom.IsLocked(roomParam5.passCode);
           bool flag10 = PunMonoSingleton<MyPhoton>.Instance.IsOldestPlayer();
           if (this.Index == 0)
           {
@@ -4924,12 +5150,12 @@ namespace SRPG
           break;
         case GameParameter.ParameterTypes.SUPPORTER_UNITCAPPEDLEVELMAX:
           // ISSUE: reference to a compiler-generated field
-          if ((valueCAnonStorey1F6.supportData = this.GetSupportData()) != null)
+          if ((valueCAnonStorey294.supportData = this.GetSupportData()) != null)
           {
-            GameManager instance4 = MonoSingleton<GameManager>.Instance;
+            instance1 = MonoSingleton<GameManager>.Instance;
             // ISSUE: reference to a compiler-generated field
             // ISSUE: reference to a compiler-generated field
-            this.SetTextValue(Mathf.Min(valueCAnonStorey1F6.supportData.Unit.GetLevelCap(false), valueCAnonStorey1F6.supportData.PlayerLevel));
+            this.SetTextValue(Mathf.Min(valueCAnonStorey294.supportData.Unit.GetLevelCap(false), valueCAnonStorey294.supportData.PlayerLevel));
             break;
           }
           this.ResetToDefault();
@@ -4989,34 +5215,60 @@ namespace SRPG
           QuestParam questParam20;
           if ((questParam20 = this.GetQuestParam()) != null)
           {
-            List<string> entryQuestConditions = questParam20.GetEntryQuestConditions(true);
-            if (entryQuestConditions != null && entryQuestConditions.Count > 0)
+            List<string> stringList = questParam20.type != QuestTypes.Character ? questParam20.GetEntryQuestConditions(true, true, true) : questParam20.GetEntryQuestConditionsCh(true, false, true);
+            if (stringList != null && stringList.Count > 0)
             {
               string str3 = string.Empty;
-              for (int index1 = 0; index1 < entryQuestConditions.Count; ++index1)
+              for (int index1 = 0; index1 < stringList.Count; ++index1)
               {
                 if (index1 > 0)
                 {
-                  string str8 = this.Index != 0 ? str3 + "," : str3 + "\n";
+                  switch (this.Index)
+                  {
+                    case 0:
+                    case 2:
+                      str3 += "\n";
+                      break;
+                    default:
+                      str3 += ", ";
+                      break;
+                  }
                 }
-                str3 = entryQuestConditions[index1];
+                str3 += stringList[index1];
               }
               if (!string.IsNullOrEmpty(str3))
               {
                 if (this.Index != 0)
-                  str3 = LocalizedText.Get("sys.PARTYEDITOR_COND_TITLE") + str3;
+                {
+                  switch (questParam20.type != QuestTypes.Character ? questParam20.EntryCondition.party_type : questParam20.EntryConditionCh.party_type)
+                  {
+                    case PartyCondType.Limited:
+                      str3 = LocalizedText.Get("sys.PARTYEDITOR_COND_LIMIT") + str3;
+                      break;
+                    case PartyCondType.Forced:
+                      str3 = LocalizedText.Get("sys.PARTYEDITOR_COND_FIXED") + str3;
+                      break;
+                  }
+                }
+                if (this.Index == 4)
+                  str3 = str3.Replace("\n", string.Empty);
                 this.SetTextValue(str3);
                 break;
               }
             }
+            else
+            {
+              this.SetTextValue(LocalizedText.Get("sys.PARTYEDITOR_COND_NO_LIMIT"));
+              break;
+            }
           }
           this.ResetToDefault();
           break;
-        case GameParameter.ParameterTypes.QUEST_IS_UNIT_ENTRYCONDITION:
+        case GameParameter.ParameterTypes.OBSOLETE_QUEST_IS_UNIT_ENTRYCONDITION:
           QuestParam questParam21;
           if ((questParam21 = this.GetQuestParam()) != null)
           {
-            List<string> entryQuestConditions = questParam21.GetEntryQuestConditions(true);
+            List<string> entryQuestConditions = questParam21.GetEntryQuestConditions(true, true, true);
             bool flag11 = entryQuestConditions != null && entryQuestConditions.Count > 0;
             if (this.Index == 0)
             {
@@ -5120,7 +5372,7 @@ namespace SRPG
           UnitData unitData63;
           if ((unitData63 = this.GetUnitData()) != null)
           {
-            if (Object.op_Inequality((Object) this.mImageArray, (Object) null))
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mImageArray, (UnityEngine.Object) null))
             {
               int num3 = unitData63.AwakeLv + 1;
               int awakeLevelCap = unitData63.GetAwakeLevelCap();
@@ -5144,13 +5396,13 @@ namespace SRPG
           this.ResetToDefault();
           break;
         case GameParameter.ParameterTypes.MULTIPLAY_ADD_INPUTTIME:
-          SceneBattle instance24 = SceneBattle.Instance;
-          if (Object.op_Equality((Object) instance24, (Object) null))
+          SceneBattle instance25 = SceneBattle.Instance;
+          if (UnityEngine.Object.op_Equality((UnityEngine.Object) instance25, (UnityEngine.Object) null))
           {
             this.ResetToDefault();
             break;
           }
-          this.SetTextValue("+" + ((int) instance24.MultiPlayAddInputTime).ToString());
+          this.SetTextValue("+" + ((int) instance25.MultiPlayAddInputTime).ToString());
           break;
         case GameParameter.ParameterTypes.UNIT_IS_AWAKEMAX:
           UnitData unitData64;
@@ -5185,17 +5437,15 @@ namespace SRPG
           QuestParam questParam24;
           if ((questParam24 = this.GetQuestParam()) != null)
           {
-            List<string> questConditionsCh = questParam24.GetEntryQuestConditionsCh(true);
+            List<string> questConditionsCh = questParam24.GetEntryQuestConditionsCh(true, true, false);
             string str3 = string.Empty;
             if (questConditionsCh != null && questConditionsCh.Count > 0)
             {
               for (int index1 = 0; index1 < questConditionsCh.Count; ++index1)
               {
                 if (index1 > 0)
-                {
-                  string str8 = this.Index != 0 ? str3 + "," : str3 + "\n";
-                }
-                str3 = questConditionsCh[index1];
+                  str3 = this.Index != 0 ? str3 + "," : str3 + "\n";
+                str3 += questConditionsCh[index1];
               }
             }
             UnitData unitData15;
@@ -5224,7 +5474,7 @@ namespace SRPG
           QuestParam questParam25;
           if ((questParam25 = this.GetQuestParam()) != null)
           {
-            List<string> questConditionsCh = questParam25.GetEntryQuestConditionsCh(true);
+            List<string> questConditionsCh = questParam25.GetEntryQuestConditionsCh(true, true, true);
             bool flag11 = true;
             UnitData unitData15;
             if ((unitData15 = this.GetUnitData()) != null)
@@ -5266,32 +5516,32 @@ namespace SRPG
           this.ResetToDefault();
           break;
         case GameParameter.ParameterTypes.MULTIPLAY_RESUME_PLAYER_INDEX:
-          SceneBattle instance25 = SceneBattle.Instance;
-          if (Object.op_Equality((Object) instance25, (Object) null) || instance25.CurrentResumePlayer == null)
+          SceneBattle instance26 = SceneBattle.Instance;
+          if (UnityEngine.Object.op_Equality((UnityEngine.Object) instance26, (UnityEngine.Object) null) || instance26.CurrentResumePlayer == null)
           {
             this.ResetToDefault();
             break;
           }
-          this.SetTextValue(instance25.CurrentResumePlayer.playerIndex);
+          this.SetTextValue(instance26.CurrentResumePlayer.playerIndex);
           break;
         case GameParameter.ParameterTypes.MULTIPLAY_RESUME_PLAYER_IS_HOST:
-          MyPhoton instance26 = PunMonoSingleton<MyPhoton>.Instance;
-          SceneBattle instance27 = SceneBattle.Instance;
-          if (Object.op_Equality((Object) instance27, (Object) null) || instance27.CurrentResumePlayer == null)
+          MyPhoton instance27 = PunMonoSingleton<MyPhoton>.Instance;
+          SceneBattle instance28 = SceneBattle.Instance;
+          if (UnityEngine.Object.op_Equality((UnityEngine.Object) instance28, (UnityEngine.Object) null) || instance28.CurrentResumePlayer == null)
           {
             ((Component) this).get_gameObject().SetActive(false);
             break;
           }
-          ((Component) this).get_gameObject().SetActive(instance26.IsHost(instance27.CurrentResumePlayer.playerID));
+          ((Component) this).get_gameObject().SetActive(instance27.IsHost(instance28.CurrentResumePlayer.playerID));
           break;
         case GameParameter.ParameterTypes.MULTIPLAY_RESUME_BUT_NOT_PLAYER:
-          SceneBattle instance28 = SceneBattle.Instance;
-          if (Object.op_Equality((Object) instance28, (Object) null))
+          SceneBattle instance29 = SceneBattle.Instance;
+          if (UnityEngine.Object.op_Equality((UnityEngine.Object) instance29, (UnityEngine.Object) null))
           {
             ((Component) this).get_gameObject().SetActive(false);
             break;
           }
-          ((Component) this).get_gameObject().SetActive(instance28.ResumeOnly);
+          ((Component) this).get_gameObject().SetActive(instance29.ResumeOnly);
           break;
         case GameParameter.ParameterTypes.EVENTCOIN_SHOPTYPEICON:
           EventCoinData dataOfClass45 = DataSource.FindDataOfClass<EventCoinData>(((Component) this).get_gameObject(), (EventCoinData) null);
@@ -5354,23 +5604,27 @@ namespace SRPG
           TrophyParam trophyParam5 = this.GetTrophyParam();
           if (trophyParam5 == null)
             break;
-          if (trophyParam5.end_at != null && trophyParam5.Days != 1)
+          DateTime serverTime2 = TimeManager.ServerTime;
+          DateTime base_time = trophyParam5.CategoryParam.end_at.DateTimes;
+          if (trophyParam5.CategoryParam.IsBeginner)
           {
-            DateTime serverTime2 = TimeManager.ServerTime;
-            DateTime dateTime2 = DateTime.Parse(trophyParam5.end_at);
-            if (dateTime2 >= serverTime2)
-            {
-              TimeSpan timeSpan3 = dateTime2 - serverTime2;
-              if (timeSpan3.Days > 0)
-                this.SetTextValue(string.Format(LocalizedText.Get("sys.TROPHY_REMAINING_DAY"), (object) timeSpan3.Days));
-              else if (timeSpan3.Hours > 0)
-                this.SetTextValue(string.Format(LocalizedText.Get("sys.TROPHY_REMAINING_HOUR"), (object) timeSpan3.Hours));
-              else
-                this.SetTextValue(string.Format(LocalizedText.Get("sys.TROPHY_REMAINING_MINUTE"), (object) timeSpan3.Minutes));
-              ((Component) this).get_gameObject().SetActive(true);
-              break;
-            }
-            ((Component) this).get_gameObject().SetActive(false);
+            DateTime beginnerEndTime = MonoSingleton<GameManager>.Instance.Player.GetBeginnerEndTime();
+            base_time = !(base_time <= beginnerEndTime) ? beginnerEndTime : base_time;
+          }
+          if (!trophyParam5.CategoryParam.IsBeginner)
+            base_time = trophyParam5.CategoryParam.GetQuestTime(base_time, true);
+          if (MonoSingleton<GameManager>.Instance.Player.GetTrophyCounter(trophyParam5, false).IsCompleted)
+            base_time = trophyParam5.GetGraceRewardTime();
+          if (!string.IsNullOrEmpty(trophyParam5.CategoryParam.end_at.StrTime) && !trophyParam5.IsDaily && base_time >= serverTime2)
+          {
+            TimeSpan timeSpan3 = base_time - serverTime2;
+            if (timeSpan3.Days > 0)
+              this.SetTextValue(string.Format(LocalizedText.Get("sys.TROPHY_REMAINING_DAY"), (object) timeSpan3.Days));
+            else if (timeSpan3.Hours > 0)
+              this.SetTextValue(string.Format(LocalizedText.Get("sys.TROPHY_REMAINING_HOUR"), (object) timeSpan3.Hours));
+            else
+              this.SetTextValue(string.Format(LocalizedText.Get("sys.TROPHY_REMAINING_MINUTE"), (object) timeSpan3.Minutes));
+            ((Component) this).get_gameObject().SetActive(true);
             break;
           }
           ((Component) this).get_gameObject().SetActive(false);
@@ -5392,47 +5646,98 @@ namespace SRPG
           this.SetTextValue(configOkyakusamaCode2);
           break;
         case GameParameter.ParameterTypes.VERSUS_UNIT_IMAGE:
-          JSON_MyPhotonPlayerParam versusPlayerParam1 = this.GetVersusPlayerParam();
-          if (versusPlayerParam1 != null)
+          if (MonoSingleton<GameManager>.Instance.AudienceMode)
           {
-            UnitData unit2 = versusPlayerParam1.units[0].unit;
-            GameUtility.RequireComponent<IconLoader>(((Component) this).get_gameObject()).ResourcePath = AssetPath.UnitSkinImage(unit2.UnitParam, unit2.GetSelectedSkin(-1), unit2.CurrentJob.JobID);
-            break;
+            JSON_MyPhotonPlayerParam player5 = MonoSingleton<GameManager>.Instance.AudienceManager.GetStartedParam().players[this.InstanceType];
+            if (player5 != null)
+            {
+              player5.SetupUnits();
+              UnitData unit2 = player5.units[0].unit;
+              GameUtility.RequireComponent<IconLoader>(((Component) this).get_gameObject()).ResourcePath = AssetPath.UnitSkinImage(unit2.UnitParam, unit2.GetSelectedSkin(-1), unit2.CurrentJob.JobID);
+              break;
+            }
+          }
+          else
+          {
+            JSON_MyPhotonPlayerParam versusPlayerParam = this.GetVersusPlayerParam();
+            if (versusPlayerParam != null)
+            {
+              versusPlayerParam.SetupUnits();
+              UnitData unit2 = versusPlayerParam.units[0].unit;
+              GameUtility.RequireComponent<IconLoader>(((Component) this).get_gameObject()).ResourcePath = AssetPath.UnitSkinImage(unit2.UnitParam, unit2.GetSelectedSkin(-1), unit2.CurrentJob.JobID);
+              break;
+            }
           }
           this.ResetToDefault();
           break;
         case GameParameter.ParameterTypes.VERSUS_PLAYER_NAME:
-          JSON_MyPhotonPlayerParam versusPlayerParam2 = this.GetVersusPlayerParam();
-          if (versusPlayerParam2 != null)
+          if (MonoSingleton<GameManager>.Instance.AudienceMode)
           {
-            this.SetTextValue(versusPlayerParam2.playerName);
-            break;
+            JSON_MyPhotonPlayerParam player5 = MonoSingleton<GameManager>.Instance.AudienceManager.GetStartedParam().players[this.InstanceType];
+            if (player5 != null)
+            {
+              this.SetTextValue(player5.playerName);
+              break;
+            }
+          }
+          else
+          {
+            JSON_MyPhotonPlayerParam versusPlayerParam = this.GetVersusPlayerParam();
+            if (versusPlayerParam != null)
+            {
+              this.SetTextValue(versusPlayerParam.playerName);
+              break;
+            }
           }
           this.ResetToDefault();
           break;
         case GameParameter.ParameterTypes.VERSUS_PLAYER_LEVEL:
-          JSON_MyPhotonPlayerParam versusPlayerParam3 = this.GetVersusPlayerParam();
-          if (versusPlayerParam3 != null)
+          if (MonoSingleton<GameManager>.Instance.AudienceMode)
           {
-            this.SetTextValue(versusPlayerParam3.playerLevel.ToString());
-            break;
+            JSON_MyPhotonPlayerParam player5 = MonoSingleton<GameManager>.Instance.AudienceManager.GetStartedParam().players[this.InstanceType];
+            if (player5 != null)
+            {
+              this.SetTextValue(player5.playerLevel.ToString());
+              break;
+            }
+          }
+          else
+          {
+            JSON_MyPhotonPlayerParam versusPlayerParam = this.GetVersusPlayerParam();
+            if (versusPlayerParam != null)
+            {
+              this.SetTextValue(versusPlayerParam.playerLevel.ToString());
+              break;
+            }
           }
           this.ResetToDefault();
           break;
         case GameParameter.ParameterTypes.VERSUS_PLAYER_TOTALATK:
-          JSON_MyPhotonPlayerParam versusPlayerParam4 = this.GetVersusPlayerParam();
-          if (versusPlayerParam4 != null)
+          if (MonoSingleton<GameManager>.Instance.AudienceMode)
           {
-            this.SetTextValue(versusPlayerParam4.totalAtk.ToString());
-            break;
+            JSON_MyPhotonPlayerParam player5 = MonoSingleton<GameManager>.Instance.AudienceManager.GetStartedParam().players[this.InstanceType];
+            if (player5 != null)
+            {
+              this.SetTextValue(player5.totalAtk.ToString());
+              break;
+            }
+          }
+          else
+          {
+            JSON_MyPhotonPlayerParam versusPlayerParam = this.GetVersusPlayerParam();
+            if (versusPlayerParam != null)
+            {
+              this.SetTextValue(versusPlayerParam.totalAtk.ToString());
+              break;
+            }
           }
           this.ResetToDefault();
           break;
         case GameParameter.ParameterTypes.VERSUS_RESULT:
-          SceneBattle instance29 = SceneBattle.Instance;
-          if (Object.op_Inequality((Object) instance29, (Object) null))
+          SceneBattle instance30 = SceneBattle.Instance;
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) instance30, (UnityEngine.Object) null))
           {
-            BattleCore battle = instance29.Battle;
+            BattleCore battle = instance30.Battle;
             if (battle != null)
             {
               BattleCore.Record questRecord = battle.GetQuestRecord();
@@ -5460,34 +5765,45 @@ namespace SRPG
         case GameParameter.ParameterTypes.VERSUS_ROOMPLAYER_RANK_ICON_INDEX:
           break;
         case GameParameter.ParameterTypes.VERSUS_MAP_THUMNAIL:
-          QuestParam dataOfClass50 = DataSource.FindDataOfClass<QuestParam>(((Component) this).get_gameObject(), (QuestParam) null);
-          Image component6 = (Image) ((Component) this).GetComponent<Image>();
-          if (dataOfClass50 != null)
-          {
-            SpriteSheet spriteSheet2 = AssetManager.Load<SpriteSheet>("pvp/pvp_map");
-            if (Object.op_Inequality((Object) spriteSheet2, (Object) null))
-            {
-              component6.set_sprite(spriteSheet2.GetSprite(dataOfClass50.VersusThumnail));
-              break;
-            }
-          }
-          component6.set_sprite((Sprite) null);
-          ((Component) component6).get_gameObject().SetActive(false);
-          break;
-        case GameParameter.ParameterTypes.VERSUS_MAP_THUMNAIL2:
-          VersusMapParam dataOfClass51 = DataSource.FindDataOfClass<VersusMapParam>(((Component) this).get_gameObject(), (VersusMapParam) null);
           Image component7 = (Image) ((Component) this).GetComponent<Image>();
-          if (dataOfClass51 != null)
+          if (UnityEngine.Object.op_Equality((UnityEngine.Object) component7, (UnityEngine.Object) null))
+          {
+            ((Component) this).get_gameObject().SetActive(false);
+            break;
+          }
+          QuestParam dataOfClass50 = DataSource.FindDataOfClass<QuestParam>(((Component) this).get_gameObject(), (QuestParam) null);
+          if (dataOfClass50 != null && !string.IsNullOrEmpty(dataOfClass50.VersusThumnail))
           {
             SpriteSheet spriteSheet2 = AssetManager.Load<SpriteSheet>("pvp/pvp_map");
-            if (Object.op_Inequality((Object) spriteSheet2, (Object) null))
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) spriteSheet2, (UnityEngine.Object) null))
             {
-              component7.set_sprite(spriteSheet2.GetSprite(dataOfClass51.quest.VersusThumnail));
+              component7.set_sprite(spriteSheet2.GetSprite(dataOfClass50.VersusThumnail));
+              ((Behaviour) component7).set_enabled(true);
               break;
             }
           }
           component7.set_sprite((Sprite) null);
-          ((Component) component7).get_gameObject().SetActive(false);
+          ((Behaviour) component7).set_enabled(false);
+          break;
+        case GameParameter.ParameterTypes.VERSUS_MAP_THUMNAIL2:
+          Image component8 = (Image) ((Component) this).GetComponent<Image>();
+          if (UnityEngine.Object.op_Equality((UnityEngine.Object) component8, (UnityEngine.Object) null))
+          {
+            ((Component) this).get_gameObject().SetActive(false);
+            break;
+          }
+          VersusMapParam dataOfClass51 = DataSource.FindDataOfClass<VersusMapParam>(((Component) this).get_gameObject(), (VersusMapParam) null);
+          if (dataOfClass51 != null && dataOfClass51.quest != null && !string.IsNullOrEmpty(dataOfClass51.quest.VersusThumnail))
+          {
+            SpriteSheet spriteSheet2 = AssetManager.Load<SpriteSheet>("pvp/pvp_map");
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) spriteSheet2, (UnityEngine.Object) null))
+            {
+              component8.set_sprite(spriteSheet2.GetSprite(dataOfClass51.quest.VersusThumnail));
+              break;
+            }
+          }
+          component8.set_sprite((Sprite) null);
+          ((Component) component8).get_gameObject().SetActive(false);
           break;
         case GameParameter.ParameterTypes.VERSUS_MAP_NAME:
           VersusMapParam dataOfClass52 = DataSource.FindDataOfClass<VersusMapParam>(((Component) this).get_gameObject(), (VersusMapParam) null);
@@ -5513,333 +5829,1273 @@ namespace SRPG
         case GameParameter.ParameterTypes.SHOP_MULTI_COIN:
           this.SetTextValue(MonoSingleton<GameManager>.Instance.Player.MultiCoin);
           break;
+        case GameParameter.ParameterTypes.GLOBAL_PLAYER_COINCOM:
+          this.SetTextValue(MonoSingleton<GameManager>.Instance.Player.ComCoin);
+          break;
+        case GameParameter.ParameterTypes.GLOBAL_PLAYER_FREECOINSET:
+          GameManager instance31 = MonoSingleton<GameManager>.Instance;
+          this.SetTextValue(instance31.Player.FreeCoin + instance31.Player.ComCoin);
+          break;
         default:
-          switch (parameterType - 1200)
+          switch (parameterType - 1000)
           {
             case GameParameter.ParameterTypes.GLOBAL_PLAYER_NAME:
-              if (PlayerPrefs.HasKey("PlayerName"))
+              SceneBattle instance32 = SceneBattle.Instance;
+              if (UnityEngine.Object.op_Inequality((UnityEngine.Object) instance32, (UnityEngine.Object) null) && instance32.Battle != null)
               {
-                this.SetTextValue(LocalizedText.Get("sys.WELCOME", new object[1]
+                if (instance32.Battle.GetQuestResult() == BattleCore.QuestResult.Win)
                 {
-                  (object) PlayerPrefs.GetString("PlayerName")
-                }));
+                  this.SetTextValue(LocalizedText.Get("sys.MULTI_VERSUS_REWARD_WIN"));
+                  return;
+                }
+                this.SetTextValue(LocalizedText.Get("sys.MULTI_VERSUS_REWARD_JOIN"));
                 return;
               }
               this.ResetToDefault();
               return;
             case GameParameter.ParameterTypes.GLOBAL_PLAYER_LEVEL:
-              if (PlayerPrefs.HasKey("PlayerName"))
-              {
-                this.SetTextValue(LocalizedText.Get("download.USER_NAME", new object[1]
-                {
-                  (object) PlayerPrefs.GetString("PlayerName")
-                }));
-                return;
-              }
-              ((Component) this).get_gameObject().SetActive(false);
+              ((Component) this).get_gameObject().SetActive(MonoSingleton<GameManager>.Instance.Player.VersusSeazonGiftReceipt);
               return;
             case GameParameter.ParameterTypes.GLOBAL_PLAYER_STAMINA:
-              if (!PlayerPrefs.HasKey("AccountLinked") || PlayerPrefs.GetInt("AccountLinked") != 1)
-                return;
-              ((Component) this).get_gameObject().SetActive(false);
+              instance1 = MonoSingleton<GameManager>.Instance;
+              SceneBattle instance33 = SceneBattle.Instance;
+              if (UnityEngine.Object.op_Inequality((UnityEngine.Object) instance33, (UnityEngine.Object) null) && instance33.CurrentQuest != null)
+              {
+                BattleCore battle = instance33.Battle;
+                if (battle != null)
+                {
+                  BattleCore.Record questRecord = battle.GetQuestRecord();
+                  if (questRecord != null)
+                  {
+                    this.SetTextValue((int) questRecord.pvpcoin);
+                    return;
+                  }
+                }
+              }
+              this.ResetToDefault();
               return;
             case GameParameter.ParameterTypes.GLOBAL_PLAYER_STAMINAMAX:
-              if (!PlayerPrefs.HasKey("AccountLinked") || PlayerPrefs.GetInt("AccountLinked") != 1)
-                return;
-              this.SetTextValue(LocalizedText.Get("sys.FB_LOGOUT"));
+              this.SetTextValue(string.Format(LocalizedText.Get("sys.MULTI_VERSUS_REMAIN_COIN"), (object) MonoSingleton<GameManager>.Instance.VersusCoinRemainCnt));
               return;
             case GameParameter.ParameterTypes.GLOBAL_PLAYER_EXP:
-              PaymentManager.Bundle dataOfClass54 = DataSource.FindDataOfClass<PaymentManager.Bundle>(((Component) this).get_gameObject(), (PaymentManager.Bundle) null);
-              string empty3 = string.Empty;
-              string str9;
-              if (dataOfClass54 == null || string.IsNullOrEmpty(dataOfClass54.name))
-              {
-                BundleParam dataOfClass25 = DataSource.FindDataOfClass<BundleParam>(((Component) this).get_gameObject(), (BundleParam) null);
-                if (dataOfClass25 != null && !string.IsNullOrEmpty(dataOfClass25.Name))
-                {
-                  str9 = LocalizedText.Get(dataOfClass25.Name);
-                }
-                else
-                {
-                  this.ResetToDefault();
-                  return;
-                }
-              }
-              else
-                str9 = LocalizedText.Get(dataOfClass54.name);
-              this.SetTextValue(str9);
-              return;
-            case GameParameter.ParameterTypes.GLOBAL_PLAYER_EXPNEXT:
-              PaymentManager.Bundle dataOfClass55 = DataSource.FindDataOfClass<PaymentManager.Bundle>(((Component) this).get_gameObject(), (PaymentManager.Bundle) null);
-              string empty4 = string.Empty;
-              string str10;
-              if (dataOfClass55 == null || string.IsNullOrEmpty(dataOfClass55.desc))
-              {
-                BundleParam dataOfClass25 = DataSource.FindDataOfClass<BundleParam>(((Component) this).get_gameObject(), (BundleParam) null);
-                if (dataOfClass25 != null && !string.IsNullOrEmpty(dataOfClass25.Description))
-                {
-                  str10 = LocalizedText.Get(dataOfClass25.Description);
-                }
-                else
-                {
-                  this.ResetToDefault();
-                  return;
-                }
-              }
-              else
-                str10 = LocalizedText.Get(dataOfClass55.desc);
-              string str11;
+              GameManager instance34 = MonoSingleton<GameManager>.Instance;
               if (this.Index == 0)
               {
-                str11 = str10;
-              }
-              else
-              {
-                string[] strArray = str10.Split('|');
-                int num3 = this.Index >= 0 ? this.Index : -this.Index;
-                str11 = strArray == null || num3 - 1 >= strArray.Length ? (string) null : strArray[num3 - 1];
-              }
-              if (this.Index >= 0)
-              {
-                this.SetTextValue(str11 ?? string.Empty);
+                ((Component) this).get_gameObject().SetActive(instance34.VersusTowerMatchBegin);
                 return;
               }
-              ((Component) this).get_gameObject().SetActive(str11 != null);
+              if (this.Index != 1)
+                return;
+              ((Component) this).get_gameObject().SetActive(!instance34.VersusTowerMatchBegin);
               return;
-            case GameParameter.ParameterTypes.GLOBAL_PLAYER_GOLD:
-              PaymentManager.Bundle dataOfClass56 = DataSource.FindDataOfClass<PaymentManager.Bundle>(((Component) this).get_gameObject(), (PaymentManager.Bundle) null);
-              string empty5 = string.Empty;
-              string str12;
-              if (dataOfClass56 == null || string.IsNullOrEmpty(dataOfClass56.price))
+            case GameParameter.ParameterTypes.GLOBAL_PLAYER_EXPNEXT:
+              switch (GlobalVars.SelectedMultiPlayVersusType)
               {
-                if (GlobalVars.SelectedProductPrice != null && !string.IsNullOrEmpty(GlobalVars.SelectedProductPrice))
-                {
-                  str12 = GlobalVars.SelectedProductPrice;
-                }
-                else
-                {
-                  this.ResetToDefault();
+                case VERSUS_TYPE.Free:
+                  this.SetTextValue(LocalizedText.Get("sys.MULTI_VERSUS_FREE"));
                   return;
+                case VERSUS_TYPE.Tower:
+                  this.SetTextValue(LocalizedText.Get("sys.MULTI_VERSUS_TOWER"));
+                  return;
+                case VERSUS_TYPE.Friend:
+                  this.SetTextValue(LocalizedText.Get("sys.MULTI_VERSUS_FRIEND"));
+                  return;
+                default:
+                  return;
+              }
+            case GameParameter.ParameterTypes.GLOBAL_PLAYER_GOLD:
+              PlayerData player6 = MonoSingleton<GameManager>.Instance.Player;
+              SceneBattle instance35 = SceneBattle.Instance;
+              if (UnityEngine.Object.op_Inequality((UnityEngine.Object) instance35, (UnityEngine.Object) null) && player6 != null)
+              {
+                BattleCore battle = instance35.Battle;
+                if (battle != null)
+                {
+                  BattleCore.Record questRecord = battle.GetQuestRecord();
+                  if (questRecord != null)
+                  {
+                    ((Component) this).get_gameObject().SetActive(questRecord.result == BattleCore.QuestResult.Win && player6.VersusTowerWinBonus > 0);
+                    return;
+                  }
                 }
               }
-              else
-                str12 = dataOfClass56.price;
-              this.SetTextValue(str12);
+              this.ResetToDefault();
               return;
             case GameParameter.ParameterTypes.GLOBAL_PLAYER_COIN:
-              PaymentManager.Bundle dataOfClass57 = DataSource.FindDataOfClass<PaymentManager.Bundle>(((Component) this).get_gameObject(), (PaymentManager.Bundle) null);
-              int num12;
-              if (dataOfClass57 == null)
-              {
-                BundleParam dataOfClass25 = DataSource.FindDataOfClass<BundleParam>(((Component) this).get_gameObject(), (BundleParam) null);
-                if (dataOfClass25 != null)
-                {
-                  num12 = dataOfClass25.PurchaseLimit;
-                }
-                else
-                {
-                  this.ResetToDefault();
-                  return;
-                }
-              }
-              else
-                num12 = dataOfClass57.maxPurchaseLimit;
-              this.SetTextValue(num12);
-              return;
-            case GameParameter.ParameterTypes.GLOBAL_PLAYER_STAMINATIME:
-              PaymentManager.Bundle dataOfClass58 = DataSource.FindDataOfClass<PaymentManager.Bundle>(((Component) this).get_gameObject(), (PaymentManager.Bundle) null);
-              if (dataOfClass58 == null)
+              // ISSUE: object of a compiler-generated type is created
+              // ISSUE: variable of a compiler-generated type
+              GameParameter.\u003CInternalUpdateValue\u003Ec__AnonStorey298 valueCAnonStorey298 = new GameParameter.\u003CInternalUpdateValue\u003Ec__AnonStorey298();
+              // ISSUE: reference to a compiler-generated field
+              valueCAnonStorey298.bs = SceneBattle.Instance;
+              // ISSUE: reference to a compiler-generated field
+              // ISSUE: reference to a compiler-generated field
+              // ISSUE: reference to a compiler-generated field
+              if (UnityEngine.Object.op_Equality((UnityEngine.Object) valueCAnonStorey298.bs, (UnityEngine.Object) null) || valueCAnonStorey298.bs.Battle == null || valueCAnonStorey298.bs.Battle.CurrentUnit == null)
               {
                 this.ResetToDefault();
                 return;
               }
-              if (dataOfClass58.endDate < TimeManager.FromDateTime(TimeManager.ServerTime))
+              MyPhoton instance36 = PunMonoSingleton<MyPhoton>.Instance;
+              List<JSON_MyPhotonPlayerParam> myPlayersStarted4 = instance36.GetMyPlayersStarted();
+              // ISSUE: reference to a compiler-generated field
+              // ISSUE: reference to a compiler-generated method
+              valueCAnonStorey298.param = myPlayersStarted4 != null ? myPlayersStarted4.Find(new Predicate<JSON_MyPhotonPlayerParam>(valueCAnonStorey298.\u003C\u003Em__25B)) : (JSON_MyPhotonPlayerParam) null;
+              List<MyPhoton.MyPlayer> roomPlayerList3 = instance36.GetRoomPlayerList();
+              // ISSUE: reference to a compiler-generated field
+              // ISSUE: reference to a compiler-generated method
+              MyPhoton.MyPlayer myPlayer3 = roomPlayerList3 == null || valueCAnonStorey298.param == null ? (MyPhoton.MyPlayer) null : roomPlayerList3.Find(new Predicate<MyPhoton.MyPlayer>(valueCAnonStorey298.\u003C\u003Em__25C));
+              if (MonoSingleton<GameManager>.Instance.AudienceMode)
               {
-                this.SetTextValue(string.Format(LocalizedText.Get("sys.TROPHY_REMAINING_DAY"), (object) 0));
+                ((Component) this).get_gameObject().SetActive(true);
                 return;
               }
-              DateTime serverTime3 = TimeManager.ServerTime;
-              TimeSpan timeSpan4 = TimeManager.FromUnixTime(dataOfClass58.endDate) - serverTime3;
-              if (timeSpan4.TotalDays >= 1.0)
+              if (this.Index == 0)
               {
-                this.SetTextValue(string.Format(LocalizedText.Get("sys.TROPHY_REMAINING_DAY", new object[1]
-                {
-                  (object) timeSpan4.Days
-                })));
+                ((Component) this).get_gameObject().SetActive(myPlayer3 == null);
                 return;
               }
-              if (timeSpan4.TotalHours >= 1.0)
+              if (this.Index == 1)
               {
-                this.SetTextValue(string.Format(LocalizedText.Get("sys.TROPHY_REMAINING_HOUR", new object[1]
-                {
-                  (object) timeSpan4.Hours
-                })));
+                ((Component) this).get_gameObject().SetActive(myPlayer3 != null);
                 return;
               }
-              this.SetTextValue(string.Format(LocalizedText.Get("sys.TROPHY_REMAINING_MINUTE", new object[1]
+              this.ResetToDefault();
+              return;
+            case GameParameter.ParameterTypes.GLOBAL_PLAYER_STAMINATIME:
+              SceneBattle instance37 = SceneBattle.Instance;
+              if (UnityEngine.Object.op_Equality((UnityEngine.Object) instance37, (UnityEngine.Object) null) || instance37.Battle == null || instance37.Battle.CurrentUnit == null)
               {
-                (object) timeSpan4.Minutes
-              })));
+                this.ResetToDefault();
+                return;
+              }
+              BattleCore.QuestResult questResult = instance37.CheckAudienceResult();
+              if (questResult == BattleCore.QuestResult.Pending)
+              {
+                this.ResetToDefault();
+                return;
+              }
+              if (this.Index == 0)
+              {
+                ((Component) this).get_gameObject().SetActive(questResult == BattleCore.QuestResult.Win);
+                return;
+              }
+              if (this.Index != 1)
+                return;
+              ((Component) this).get_gameObject().SetActive(questResult == BattleCore.QuestResult.Lose);
               return;
             case GameParameter.ParameterTypes.QUEST_NAME:
-              PaymentManager.Bundle dataOfClass59 = DataSource.FindDataOfClass<PaymentManager.Bundle>(((Component) this).get_gameObject(), (PaymentManager.Bundle) null);
-              string empty6 = string.Empty;
-              string iconName;
-              if (dataOfClass59 == null || dataOfClass59.iconImage == null)
-              {
-                if (GlobalVars.SelectedProductIcon != null && !string.IsNullOrEmpty(GlobalVars.SelectedProductIcon))
-                {
-                  iconName = GlobalVars.SelectedProductIcon;
-                }
-                else
-                {
-                  this.ResetToDefault();
-                  return;
-                }
-              }
-              else
-                iconName = dataOfClass59.iconImage;
-              GameUtility.RequireComponent<IconLoader>(((Component) this).get_gameObject()).ResourcePath = AssetPath.BundleIcon(iconName);
+              ((Component) this).get_gameObject().SetActive(MonoSingleton<GameManager>.Instance.AudienceMode);
               return;
             case GameParameter.ParameterTypes.QUEST_STAMINA:
-              AbilityParam abilityParam7;
-              if ((abilityParam7 = this.GetAbilityParam()) != null)
+              MyPhoton.MyRoom audienceRoom = MonoSingleton<GameManager>.Instance.AudienceRoom;
+              if (audienceRoom != null)
               {
-                this.SetTextValue(abilityParam7.name);
-                if (abilityParam7.iname != null && !abilityParam7.iname.Contains("TUTORIAL"))
+                if (audienceRoom.name.IndexOf("_free") != -1)
+                {
+                  this.SetTextValue(LocalizedText.Get("sys.MULTI_VERSUS_ADUIENCE_FREE"));
                   return;
-                this.SetTextValue(string.Empty);
+                }
+                if (audienceRoom.name.IndexOf("_tower") != -1)
+                {
+                  this.SetTextValue(LocalizedText.Get("sys.MULTI_VERSUS_ADUIENCE_TOWER"));
+                  return;
+                }
+                if (audienceRoom.name.IndexOf("_friend") == -1)
+                  return;
+                this.SetTextValue(LocalizedText.Get("sys.MULTI_VERSUS_ADUIENCE_FRIEND"));
                 return;
               }
               this.ResetToDefault();
               return;
             case GameParameter.ParameterTypes.QUEST_STATE:
-              Image component8 = (Image) ((Component) this).GetComponent<Image>();
-              PaymentManager.Product dataOfClass60 = DataSource.FindDataOfClass<PaymentManager.Product>(((Component) this).get_gameObject(), (PaymentManager.Product) null);
-              if (dataOfClass60 == null || Object.op_Equality((Object) component8, (Object) null))
-                return;
-              if (dataOfClass60.onSale)
-              {
-                SpriteSheet spriteSheet2 = AssetManager.Load<SpriteSheet>("EventShopCmn/ui_GemFirstPurchase");
-                if (!Object.op_Inequality((Object) spriteSheet2, (Object) null))
-                  return;
-                component8.set_sprite(spriteSheet2.GetSprite("GemFirstPurchase"));
-                return;
-              }
-              this.ResetToDefault();
+              this.SetTextValue(string.Format(LocalizedText.Get("sys.MULTI_VERSUS_TOWER_NOW_FLOOR"), (object) GameUtility.HalfNum2FullNum(MonoSingleton<GameManager>.Instance.Player.VersusTowerFloor.ToString())));
               return;
             case GameParameter.ParameterTypes.QUEST_OBJECTIVE:
-              SceneBattle instance30 = SceneBattle.Instance;
-              if (Object.op_Equality((Object) instance30, (Object) null) || instance30.Battle == null || instance30.Battle.CurrentUnit == null)
-              {
-                this.ResetToDefault();
-                return;
-              }
-              this.mText.set_text(string.Format(this.mText.get_text(), (object) instance30.Battle.CurrentUnit.OwnerPlayerIndex));
+              ((Component) this).get_gameObject().SetActive(GlobalVars.SelectedMultiPlayVersusType == VERSUS_TYPE.Tower);
               return;
             case GameParameter.ParameterTypes.QUEST_BONUSOBJECTIVE:
-              QuestParam questParam26;
-              if ((questParam26 = this.GetQuestParam()) != null)
+              GameManager instance38 = MonoSingleton<GameManager>.Instance;
+              if (instance38.AudienceRoom != null)
               {
-                List<string> entryQuestConditions = questParam26.GetEntryQuestConditions(true);
-                if (entryQuestConditions != null && entryQuestConditions.Count > 0)
+                int audienceMax = instance38.AudienceRoom.audienceMax;
+                JSON_MyPhotonRoomParam roomParam3 = instance38.AudienceManager.GetRoomParam();
+                if (roomParam3 != null)
                 {
-                  string empty2 = string.Empty;
-                  for (int index1 = 0; index1 < entryQuestConditions.Count; ++index1)
-                  {
-                    if (index1 > 0)
-                    {
-                      string str3 = this.Index != 0 ? empty2 + "," : empty2 + "\n";
-                    }
-                    empty2 = entryQuestConditions[index1];
-                  }
-                  if (!string.IsNullOrEmpty(empty2))
-                  {
-                    if (this.Index != 0)
-                      empty2 = LocalizedText.Get("sys.TOWER_UNIT_LIMIT", new object[1]
-                      {
-                        (object) empty2
-                      });
-                    this.SetTextValue(empty2);
-                    return;
-                  }
+                  this.SetTextValue(string.Format(LocalizedText.Get("sys.MULTI_VERSUS_AUDIENCE_NUM"), (object) GameUtility.HalfNum2FullNum(roomParam3.audienceNum.ToString()), (object) GameUtility.HalfNum2FullNum(audienceMax.ToString())));
+                  return;
                 }
               }
               this.ResetToDefault();
               return;
             default:
-              switch (parameterType - 1100)
+              switch (parameterType - 2099)
               {
                 case GameParameter.ParameterTypes.GLOBAL_PLAYER_NAME:
-                  ArtifactData artifactData1 = this.GetArtifactData();
-                  if (artifactData1 != null)
+                  if (PlayerPrefs.HasKey("PlayerName"))
                   {
-                    ArtifactData.RarityUpResults rarityUpResults = artifactData1.CheckEnableRarityUp();
-                    string key = (string) null;
-                    if ((rarityUpResults & ArtifactData.RarityUpResults.RarityMaxed) != ArtifactData.RarityUpResults.Success)
-                      key = "sys.ARTI_RARITYUP_MAX";
-                    else if ((rarityUpResults & ArtifactData.RarityUpResults.NoLv) != ArtifactData.RarityUpResults.Success)
-                      key = "sys.ARTI_RARITYUP_NOLV";
-                    else if ((rarityUpResults & ArtifactData.RarityUpResults.NoGold) != ArtifactData.RarityUpResults.Success)
-                      key = "sys.ARTI_RARITYUP_NOGOLD";
-                    else if ((rarityUpResults & ArtifactData.RarityUpResults.NoKakera) != ArtifactData.RarityUpResults.Success)
-                      key = "sys.ARTI_RARITYUP_NOMTRL";
-                    if (!string.IsNullOrEmpty(key))
+                    this.SetTextValue(LocalizedText.Get("sys.WELCOME", new object[1]
                     {
-                      ((Component) this).get_gameObject().SetActive(true);
-                      this.SetTextValue(LocalizedText.Get(key));
-                      return;
-                    }
-                  }
-                  ((Component) this).get_gameObject().SetActive(false);
-                  return;
-                case GameParameter.ParameterTypes.GLOBAL_PLAYER_LEVEL:
-                  bool flag15 = false;
-                  ArtifactData artifactData2 = this.GetArtifactData();
-                  GameManager instanceDirect = MonoSingleton<GameManager>.GetInstanceDirect();
-                  if (Object.op_Inequality((Object) instanceDirect, (Object) null) && artifactData2 != null)
-                  {
-                    ArtifactData artifactByUniqueId = instanceDirect.Player.FindArtifactByUniqueID((long) artifactData2.UniqueID);
-                    if (artifactByUniqueId != null)
-                      flag15 = artifactByUniqueId.IsFavorite;
-                  }
-                  if (this.Index == 1)
-                    flag15 = !flag15;
-                  ((Component) this).get_gameObject().SetActive(flag15);
-                  return;
-                case GameParameter.ParameterTypes.GLOBAL_PLAYER_STAMINA:
-                  ArtifactData artifactData3 = this.GetArtifactData();
-                  if (artifactData3 != null)
-                  {
-                    bool flag11 = artifactData3.CheckEnableRarityUp() == ArtifactData.RarityUpResults.Success;
-                    if (flag11)
-                      this.SetImageIndex((int) artifactData3.Rarity + 1);
-                    ((Component) this).get_gameObject().SetActive(flag11);
-                    return;
-                  }
-                  ((Component) this).get_gameObject().SetActive(false);
-                  return;
-                default:
-                  if (parameterType != GameParameter.ParameterTypes.VS_TOWER_ST)
-                  {
-                    if (parameterType != GameParameter.ParameterTypes.VS_TOWER_SEASON_RECEIPT)
-                      return;
-                    ((Component) this).get_gameObject().SetActive(MonoSingleton<GameManager>.Instance.Player.VersusSeazonGiftReceipt);
-                    return;
-                  }
-                  SceneBattle instance31 = SceneBattle.Instance;
-                  if (Object.op_Inequality((Object) instance31, (Object) null) && instance31.Battle != null)
-                  {
-                    if (instance31.Battle.GetQuestResult() == BattleCore.QuestResult.Win)
-                    {
-                      this.SetTextValue(LocalizedText.Get("sys.MULTI_VERSUS_REWARD_WIN"));
-                      return;
-                    }
-                    this.SetTextValue(LocalizedText.Get("sys.MULTI_VERSUS_REWARD_JOIN"));
+                      (object) PlayerPrefs.GetString("PlayerName")
+                    }));
                     return;
                   }
                   this.ResetToDefault();
                   return;
+                case GameParameter.ParameterTypes.GLOBAL_PLAYER_LEVEL:
+                  if (PlayerPrefs.HasKey("PlayerName"))
+                  {
+                    this.SetTextValue(LocalizedText.Get("download.USER_NAME", new object[1]
+                    {
+                      (object) PlayerPrefs.GetString("PlayerName")
+                    }));
+                    return;
+                  }
+                  ((Component) this).get_gameObject().SetActive(false);
+                  return;
+                case GameParameter.ParameterTypes.GLOBAL_PLAYER_STAMINA:
+                  if (!PlayerPrefs.HasKey("AccountLinked") || PlayerPrefs.GetInt("AccountLinked") != 1)
+                    return;
+                  ((Component) this).get_gameObject().SetActive(false);
+                  return;
+                case GameParameter.ParameterTypes.GLOBAL_PLAYER_STAMINAMAX:
+                  if (!PlayerPrefs.HasKey("AccountLinked") || PlayerPrefs.GetInt("AccountLinked") != 1)
+                    return;
+                  this.SetTextValue(LocalizedText.Get("sys.FB_LOGOUT"));
+                  return;
+                case GameParameter.ParameterTypes.GLOBAL_PLAYER_EXP:
+                  PaymentManager.Bundle dataOfClass54 = DataSource.FindDataOfClass<PaymentManager.Bundle>(((Component) this).get_gameObject(), (PaymentManager.Bundle) null);
+                  string empty3 = string.Empty;
+                  string str8;
+                  if (dataOfClass54 == null || string.IsNullOrEmpty(dataOfClass54.name))
+                  {
+                    BundleParam dataOfClass25 = DataSource.FindDataOfClass<BundleParam>(((Component) this).get_gameObject(), (BundleParam) null);
+                    if (dataOfClass25 != null && !string.IsNullOrEmpty(dataOfClass25.Name))
+                    {
+                      str8 = LocalizedText.Get(dataOfClass25.Name);
+                    }
+                    else
+                    {
+                      this.ResetToDefault();
+                      return;
+                    }
+                  }
+                  else
+                    str8 = LocalizedText.Get(dataOfClass54.name);
+                  this.SetTextValue(str8);
+                  return;
+                case GameParameter.ParameterTypes.GLOBAL_PLAYER_EXPNEXT:
+                  PaymentManager.Bundle dataOfClass55 = DataSource.FindDataOfClass<PaymentManager.Bundle>(((Component) this).get_gameObject(), (PaymentManager.Bundle) null);
+                  string empty4 = string.Empty;
+                  string str9;
+                  if (dataOfClass55 == null || string.IsNullOrEmpty(dataOfClass55.desc))
+                  {
+                    BundleParam dataOfClass25 = DataSource.FindDataOfClass<BundleParam>(((Component) this).get_gameObject(), (BundleParam) null);
+                    if (dataOfClass25 != null && !string.IsNullOrEmpty(dataOfClass25.Description))
+                    {
+                      str9 = LocalizedText.Get(dataOfClass25.Description);
+                    }
+                    else
+                    {
+                      this.ResetToDefault();
+                      return;
+                    }
+                  }
+                  else
+                    str9 = LocalizedText.Get(dataOfClass55.desc);
+                  string str10;
+                  if (this.Index == 0)
+                  {
+                    str10 = str9;
+                  }
+                  else
+                  {
+                    string[] strArray = str9.Split('|');
+                    int num3 = this.Index >= 0 ? this.Index : -this.Index;
+                    str10 = strArray == null || num3 - 1 >= strArray.Length ? (string) null : strArray[num3 - 1];
+                  }
+                  if (this.Index >= 0)
+                  {
+                    this.SetTextValue(str10 ?? string.Empty);
+                    return;
+                  }
+                  ((Component) this).get_gameObject().SetActive(str10 != null);
+                  return;
+                case GameParameter.ParameterTypes.GLOBAL_PLAYER_GOLD:
+                  PaymentManager.Bundle dataOfClass56 = DataSource.FindDataOfClass<PaymentManager.Bundle>(((Component) this).get_gameObject(), (PaymentManager.Bundle) null);
+                  string empty5 = string.Empty;
+                  string str11;
+                  if (dataOfClass56 == null || string.IsNullOrEmpty(dataOfClass56.price))
+                  {
+                    if (GlobalVars.SelectedProductPrice != null && !string.IsNullOrEmpty(GlobalVars.SelectedProductPrice))
+                    {
+                      str11 = GlobalVars.SelectedProductPrice;
+                    }
+                    else
+                    {
+                      this.ResetToDefault();
+                      return;
+                    }
+                  }
+                  else
+                    str11 = dataOfClass56.price;
+                  this.SetTextValue(str11);
+                  return;
+                case GameParameter.ParameterTypes.GLOBAL_PLAYER_COIN:
+                  PaymentManager.Bundle dataOfClass57 = DataSource.FindDataOfClass<PaymentManager.Bundle>(((Component) this).get_gameObject(), (PaymentManager.Bundle) null);
+                  int num12;
+                  if (dataOfClass57 == null)
+                  {
+                    BundleParam dataOfClass25 = DataSource.FindDataOfClass<BundleParam>(((Component) this).get_gameObject(), (BundleParam) null);
+                    if (dataOfClass25 != null)
+                    {
+                      num12 = dataOfClass25.PurchaseLimit;
+                    }
+                    else
+                    {
+                      this.ResetToDefault();
+                      return;
+                    }
+                  }
+                  else
+                    num12 = dataOfClass57.maxPurchaseLimit;
+                  this.SetTextValue(num12);
+                  return;
+                case GameParameter.ParameterTypes.GLOBAL_PLAYER_STAMINATIME:
+                  PaymentManager.Bundle dataOfClass58 = DataSource.FindDataOfClass<PaymentManager.Bundle>(((Component) this).get_gameObject(), (PaymentManager.Bundle) null);
+                  if (dataOfClass58 == null)
+                  {
+                    this.ResetToDefault();
+                    return;
+                  }
+                  if (dataOfClass58.endDate < TimeManager.FromDateTime(TimeManager.ServerTime))
+                  {
+                    this.SetTextValue(string.Format(LocalizedText.Get("sys.TROPHY_REMAINING_DAY"), (object) 0));
+                    return;
+                  }
+                  DateTime serverTime3 = TimeManager.ServerTime;
+                  TimeSpan timeSpan4 = TimeManager.FromUnixTime(dataOfClass58.endDate) - serverTime3;
+                  if (timeSpan4.TotalDays >= 1.0)
+                  {
+                    this.SetTextValue(string.Format(LocalizedText.Get("sys.TROPHY_REMAINING_DAY", new object[1]
+                    {
+                      (object) timeSpan4.Days
+                    })));
+                    return;
+                  }
+                  if (timeSpan4.TotalHours >= 1.0)
+                  {
+                    this.SetTextValue(string.Format(LocalizedText.Get("sys.TROPHY_REMAINING_HOUR", new object[1]
+                    {
+                      (object) timeSpan4.Hours
+                    })));
+                    return;
+                  }
+                  this.SetTextValue(string.Format(LocalizedText.Get("sys.TROPHY_REMAINING_MINUTE", new object[1]
+                  {
+                    (object) timeSpan4.Minutes
+                  })));
+                  return;
+                case GameParameter.ParameterTypes.QUEST_NAME:
+                  PaymentManager.Bundle dataOfClass59 = DataSource.FindDataOfClass<PaymentManager.Bundle>(((Component) this).get_gameObject(), (PaymentManager.Bundle) null);
+                  string empty6 = string.Empty;
+                  string iconName;
+                  if (dataOfClass59 == null || dataOfClass59.iconImage == null)
+                  {
+                    if (GlobalVars.SelectedProductIcon != null && !string.IsNullOrEmpty(GlobalVars.SelectedProductIcon))
+                    {
+                      iconName = GlobalVars.SelectedProductIcon;
+                    }
+                    else
+                    {
+                      this.ResetToDefault();
+                      return;
+                    }
+                  }
+                  else
+                    iconName = dataOfClass59.iconImage;
+                  GameUtility.RequireComponent<IconLoader>(((Component) this).get_gameObject()).ResourcePath = AssetPath.BundleIcon(iconName);
+                  return;
+                case GameParameter.ParameterTypes.QUEST_STAMINA:
+                  AbilityParam abilityParam7;
+                  if ((abilityParam7 = this.GetAbilityParam()) != null)
+                  {
+                    this.SetTextValue(abilityParam7.name);
+                    if (abilityParam7.iname != null && !abilityParam7.iname.Contains("TUTORIAL"))
+                      return;
+                    this.SetTextValue(string.Empty);
+                    return;
+                  }
+                  this.ResetToDefault();
+                  return;
+                case GameParameter.ParameterTypes.QUEST_STATE:
+                  Image component9 = (Image) ((Component) this).GetComponent<Image>();
+                  PaymentManager.Product dataOfClass60 = DataSource.FindDataOfClass<PaymentManager.Product>(((Component) this).get_gameObject(), (PaymentManager.Product) null);
+                  if (dataOfClass60 == null || UnityEngine.Object.op_Equality((UnityEngine.Object) component9, (UnityEngine.Object) null))
+                    return;
+                  if (dataOfClass60.onSale)
+                  {
+                    SpriteSheet spriteSheet2 = AssetManager.Load<SpriteSheet>("EventShopCmn/ui_GemFirstPurchase");
+                    if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) spriteSheet2, (UnityEngine.Object) null))
+                      return;
+                    component9.set_sprite(spriteSheet2.GetSprite("GemFirstPurchase"));
+                    return;
+                  }
+                  this.ResetToDefault();
+                  return;
+                case GameParameter.ParameterTypes.QUEST_OBJECTIVE:
+                  SceneBattle instance39 = SceneBattle.Instance;
+                  if (UnityEngine.Object.op_Equality((UnityEngine.Object) instance39, (UnityEngine.Object) null) || instance39.Battle == null || instance39.Battle.CurrentUnit == null)
+                  {
+                    this.ResetToDefault();
+                    return;
+                  }
+                  this.mText.set_text(string.Format(this.mText.get_text(), (object) instance39.Battle.CurrentUnit.OwnerPlayerIndex));
+                  return;
+                case GameParameter.ParameterTypes.QUEST_BONUSOBJECTIVE:
+                  QuestParam questParam26;
+                  if ((questParam26 = this.GetQuestParam()) != null)
+                  {
+                    List<string> entryQuestConditions = questParam26.GetEntryQuestConditions(true, true, true);
+                    if (entryQuestConditions != null && entryQuestConditions.Count > 0)
+                    {
+                      string empty2 = string.Empty;
+                      for (int index1 = 0; index1 < entryQuestConditions.Count; ++index1)
+                      {
+                        if (index1 > 0)
+                        {
+                          string str3 = this.Index != 0 ? empty2 + "," : empty2 + "\n";
+                        }
+                        empty2 = entryQuestConditions[index1];
+                      }
+                      if (!string.IsNullOrEmpty(empty2))
+                      {
+                        if (this.Index != 0)
+                          empty2 = LocalizedText.Get("sys.TOWER_UNIT_LIMIT", new object[1]
+                          {
+                            (object) empty2
+                          });
+                        this.SetTextValue(empty2);
+                        return;
+                      }
+                    }
+                  }
+                  this.ResetToDefault();
+                  return;
+                default:
+                  switch (parameterType - 1400)
+                  {
+                    case GameParameter.ParameterTypes.GLOBAL_PLAYER_NAME:
+                      BattleCore.OrderData orderData = this.GetOrderData();
+                      if (orderData == null)
+                        return;
+                      Image component10 = (Image) ((Component) this).get_gameObject().GetComponent<Image>();
+                      if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) component10))
+                        return;
+                      ((Behaviour) component10).set_enabled(orderData.IsCastSkill);
+                      return;
+                    case GameParameter.ParameterTypes.GLOBAL_PLAYER_LEVEL:
+                      // ISSUE: reference to a compiler-generated field
+                      valueCAnonStorey294.skillParam = (SkillParam) null;
+                      SkillData skillData4;
+                      // ISSUE: reference to a compiler-generated field
+                      valueCAnonStorey294.skillParam = (skillData4 = this.GetSkillData()) == null ? this.GetSkillParam() : skillData4.SkillParam;
+                      // ISSUE: reference to a compiler-generated field
+                      if (valueCAnonStorey294.skillParam != null)
+                      {
+                        // ISSUE: reference to a compiler-generated field
+                        this.SetTextValue((int) valueCAnonStorey294.skillParam.count);
+                        return;
+                      }
+                      this.ResetToDefault();
+                      return;
+                    case GameParameter.ParameterTypes.GLOBAL_PLAYER_STAMINA:
+                      // ISSUE: reference to a compiler-generated field
+                      valueCAnonStorey294.skillParam = (SkillParam) null;
+                      SkillData skillData5;
+                      // ISSUE: reference to a compiler-generated field
+                      valueCAnonStorey294.skillParam = (skillData5 = this.GetSkillData()) == null ? this.GetSkillParam() : skillData5.SkillParam;
+                      int index4 = 0;
+                      // ISSUE: reference to a compiler-generated field
+                      if (valueCAnonStorey294.skillParam != null)
+                      {
+                        // ISSUE: reference to a compiler-generated field
+                        index4 = (int) valueCAnonStorey294.skillParam.element_type;
+                      }
+                      if (index4 != 0)
+                      {
+                        this.SetImageIndex(index4);
+                        ((Component) this).get_gameObject().SetActive(true);
+                        return;
+                      }
+                      this.ResetToDefault();
+                      ((Component) this).get_gameObject().SetActive(false);
+                      return;
+                    case GameParameter.ParameterTypes.GLOBAL_PLAYER_STAMINAMAX:
+                      // ISSUE: reference to a compiler-generated field
+                      valueCAnonStorey294.skillParam = (SkillParam) null;
+                      SkillData skillData6;
+                      // ISSUE: reference to a compiler-generated field
+                      valueCAnonStorey294.skillParam = (skillData6 = this.GetSkillData()) == null ? this.GetSkillParam() : skillData6.SkillParam;
+                      int index5 = 0;
+                      // ISSUE: reference to a compiler-generated field
+                      if (valueCAnonStorey294.skillParam != null)
+                      {
+                        // ISSUE: reference to a compiler-generated field
+                        index5 = (int) valueCAnonStorey294.skillParam.attack_detail;
+                      }
+                      if (index5 != 0)
+                      {
+                        this.SetImageIndex(index5);
+                        ((Component) this).get_gameObject().SetActive(true);
+                        return;
+                      }
+                      this.ResetToDefault();
+                      ((Component) this).get_gameObject().SetActive(false);
+                      return;
+                    case GameParameter.ParameterTypes.GLOBAL_PLAYER_EXP:
+                      // ISSUE: reference to a compiler-generated field
+                      valueCAnonStorey294.skillParam = (SkillParam) null;
+                      SkillData skillData7;
+                      // ISSUE: reference to a compiler-generated field
+                      valueCAnonStorey294.skillParam = (skillData7 = this.GetSkillData()) == null ? this.GetSkillParam() : skillData7.SkillParam;
+                      int index6 = 0;
+                      // ISSUE: reference to a compiler-generated field
+                      if (valueCAnonStorey294.skillParam != null)
+                      {
+                        // ISSUE: reference to a compiler-generated field
+                        index6 = (int) valueCAnonStorey294.skillParam.attack_type;
+                      }
+                      if (index6 != 0)
+                      {
+                        this.SetImageIndex(index6);
+                        ((Component) this).get_gameObject().SetActive(true);
+                        return;
+                      }
+                      this.ResetToDefault();
+                      ((Component) this).get_gameObject().SetActive(false);
+                      return;
+                    case GameParameter.ParameterTypes.GLOBAL_PLAYER_EXPNEXT:
+                      ((Component) this).get_gameObject().SetActive(WeatherData.CurrentWeatherData != null);
+                      return;
+                    case GameParameter.ParameterTypes.GLOBAL_PLAYER_GOLD:
+                      WeatherParam weatherParam1 = this.GetWeatherParam();
+                      if (weatherParam1 != null)
+                      {
+                        this.SetTextValue(weatherParam1.Name);
+                        return;
+                      }
+                      this.ResetToDefault();
+                      return;
+                    case GameParameter.ParameterTypes.GLOBAL_PLAYER_COIN:
+                      WeatherParam weatherParam2 = this.GetWeatherParam();
+                      if (weatherParam2 != null && !string.IsNullOrEmpty(weatherParam2.Icon))
+                      {
+                        GameUtility.RequireComponent<IconLoader>(((Component) this).get_gameObject()).ResourcePath = AssetPath.WeatherIcon(weatherParam2.Icon);
+                        return;
+                      }
+                      this.ResetToDefault();
+                      return;
+                    default:
+                      switch (parameterType - 1600)
+                      {
+                        case GameParameter.ParameterTypes.GLOBAL_PLAYER_NAME:
+                          MultiPlayAPIRoom dataOfClass61 = DataSource.FindDataOfClass<MultiPlayAPIRoom>(((Component) this).get_gameObject(), (MultiPlayAPIRoom) null);
+                          if (dataOfClass61 != null)
+                          {
+                            if (dataOfClass61.limit == 0)
+                            {
+                              this.SetTextValue("-");
+                              if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mText, (UnityEngine.Object) null))
+                                return;
+                              ((Graphic) this.mText).set_color(new Color(0.0f, 0.0f, 0.0f));
+                              return;
+                            }
+                            if (dataOfClass61.unitlv == 0)
+                            {
+                              this.SetTextValue(LocalizedText.Get("sys.MULTI_JOINLIMIT_NONE"));
+                              if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mText, (UnityEngine.Object) null))
+                                return;
+                              ((Graphic) this.mText).set_color(new Color(0.0f, 0.0f, 0.0f));
+                              return;
+                            }
+                            this.SetTextValue(dataOfClass61.unitlv.ToString() + LocalizedText.Get("sys.MULTI_JOINLIMIT_OVER"));
+                            if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mText, (UnityEngine.Object) null))
+                              return;
+                            GameManager instance5 = MonoSingleton<GameManager>.Instance;
+                            PlayerData player5 = instance5.Player;
+                            PartyData party = player5.Partys[2];
+                            QuestParam quest = instance5.FindQuest(dataOfClass61.quest.iname);
+                            bool flag11 = true;
+                            if (party != null && quest != null)
+                            {
+                              for (int index1 = 0; index1 < (int) quest.unitNum; ++index1)
+                              {
+                                long unitUniqueId = party.GetUnitUniqueID(0);
+                                if (unitUniqueId <= 0L)
+                                {
+                                  flag11 = false;
+                                  break;
+                                }
+                                UnitData unitDataByUniqueId = player5.FindUnitDataByUniqueID(unitUniqueId);
+                                if (unitDataByUniqueId != null)
+                                  flag11 &= unitDataByUniqueId.CalcLevel() >= dataOfClass61.unitlv;
+                              }
+                            }
+                            if (flag11)
+                            {
+                              ((Graphic) this.mText).set_color(new Color(0.0f, 0.0f, 0.0f));
+                              return;
+                            }
+                            ((Graphic) this.mText).set_color(new Color(1f, 0.0f, 0.0f));
+                            return;
+                          }
+                          this.ResetToDefault();
+                          return;
+                        case GameParameter.ParameterTypes.GLOBAL_PLAYER_LEVEL:
+                          MultiPlayAPIRoom dataOfClass62 = DataSource.FindDataOfClass<MultiPlayAPIRoom>(((Component) this).get_gameObject(), (MultiPlayAPIRoom) null);
+                          if (dataOfClass62 != null)
+                          {
+                            if (dataOfClass62.limit == 0)
+                            {
+                              this.SetTextValue("-");
+                              return;
+                            }
+                            if (dataOfClass62.clear == 0)
+                            {
+                              this.SetTextValue(LocalizedText.Get("sys.MULTI_JOINLIMIT_NONE"));
+                              return;
+                            }
+                            this.SetTextValue(LocalizedText.Get("sys.MULTI_JOIN_LIMIT_ONLY_CLEAR"));
+                            return;
+                          }
+                          this.ResetToDefault();
+                          return;
+                        case GameParameter.ParameterTypes.GLOBAL_PLAYER_STAMINA:
+                          if (MonoSingleton<GameManager>.Instance.AudienceMode)
+                          {
+                            AudienceStartParam startedParam = MonoSingleton<GameManager>.Instance.AudienceManager.GetStartedParam();
+                            SceneBattle instance5 = SceneBattle.Instance;
+                            if (UnityEngine.Object.op_Equality((UnityEngine.Object) instance5, (UnityEngine.Object) null) || instance5.Battle == null || instance5.Battle.CurrentUnit == null)
+                            {
+                              this.ResetToDefault();
+                              return;
+                            }
+                            if (instance5.Battle.CurrentUnit.OwnerPlayerIndex <= 0 || instance5.Battle.CurrentUnit.OwnerPlayerIndex > 2)
+                            {
+                              this.ResetToDefault();
+                              return;
+                            }
+                            JSON_MyPhotonPlayerParam player5 = startedParam.players[instance5.Battle.CurrentUnit.OwnerPlayerIndex - 1];
+                            if (player5 == null)
+                              return;
+                            string str3 = player5.playerName;
+                            if (this.Index == 1)
+                              str3 = player5.playerName + LocalizedText.Get("sys.MULTI_BATTLE_THINKING");
+                            else if (this.Index == 2)
+                              str3 = player5.playerName + LocalizedText.Get("sys.MULTI_BATTLE_NOWTURN");
+                            this.SetTextValue(str3);
+                            return;
+                          }
+                          // ISSUE: object of a compiler-generated type is created
+                          // ISSUE: variable of a compiler-generated type
+                          GameParameter.\u003CInternalUpdateValue\u003Ec__AnonStorey299 valueCAnonStorey299 = new GameParameter.\u003CInternalUpdateValue\u003Ec__AnonStorey299();
+                          // ISSUE: reference to a compiler-generated field
+                          valueCAnonStorey299.bs = SceneBattle.Instance;
+                          // ISSUE: reference to a compiler-generated field
+                          // ISSUE: reference to a compiler-generated field
+                          // ISSUE: reference to a compiler-generated field
+                          if (UnityEngine.Object.op_Equality((UnityEngine.Object) valueCAnonStorey299.bs, (UnityEngine.Object) null) || valueCAnonStorey299.bs.Battle == null || valueCAnonStorey299.bs.Battle.CurrentUnit == null)
+                          {
+                            this.ResetToDefault();
+                            return;
+                          }
+                          MyPhoton instance40 = PunMonoSingleton<MyPhoton>.Instance;
+                          List<JSON_MyPhotonPlayerParam> myPlayersStarted5 = instance40.GetMyPlayersStarted();
+                          // ISSUE: reference to a compiler-generated method
+                          JSON_MyPhotonPlayerParam photonPlayerParam4 = myPlayersStarted5 != null ? myPlayersStarted5.Find(new Predicate<JSON_MyPhotonPlayerParam>(valueCAnonStorey299.\u003C\u003Em__25D)) : (JSON_MyPhotonPlayerParam) null;
+                          List<MyPhoton.MyPlayer> roomPlayerList4 = instance40.GetRoomPlayerList();
+                          MyPhoton.MyPlayer myPlayer4 = photonPlayerParam4 != null ? instance40.FindPlayer(roomPlayerList4, photonPlayerParam4.playerID, photonPlayerParam4.playerIndex) : (MyPhoton.MyPlayer) null;
+                          if (photonPlayerParam4 == null)
+                          {
+                            this.ResetToDefault();
+                            return;
+                          }
+                          string str12 = photonPlayerParam4.playerName;
+                          if (this.Index == 0)
+                          {
+                            if (myPlayer4 == null)
+                              ((Graphic) this.mText).set_color(new Color(0.5f, 0.5f, 0.5f));
+                            else
+                              ((Graphic) this.mText).set_color(new Color(1f, 1f, 1f));
+                          }
+                          else if (this.Index == 1)
+                            str12 = photonPlayerParam4.playerName + LocalizedText.Get("sys.MULTI_BATTLE_THINKING");
+                          else if (this.Index == 2)
+                            str12 = photonPlayerParam4.playerName + LocalizedText.Get("sys.MULTI_BATTLE_NOWTURN");
+                          this.SetTextValue(str12);
+                          return;
+                        case GameParameter.ParameterTypes.GLOBAL_PLAYER_STAMINAMAX:
+                          JSON_MyPhotonRoomParam roomParam6 = this.GetRoomParam();
+                          JSON_MyPhotonPlayerParam roomPlayerParam = this.GetRoomPlayerParam();
+                          if (roomPlayerParam == null || roomPlayerParam.units == null || roomParam6 == null)
+                          {
+                            this.ResetToDefault();
+                            return;
+                          }
+                          int num13 = 0;
+                          int unitSlotNum2 = roomParam6.GetUnitSlotNum(roomPlayerParam.playerIndex);
+                          for (int index1 = 0; index1 < roomPlayerParam.units.Length; ++index1)
+                          {
+                            if (roomPlayerParam.units[index1].slotID < unitSlotNum2 && roomPlayerParam.units[index1].unit != null)
+                              num13 = num13 + (int) roomPlayerParam.units[index1].unit.Status.param.atk + (int) roomPlayerParam.units[index1].unit.Status.param.mag;
+                          }
+                          this.SetTextValue(num13);
+                          return;
+                        case GameParameter.ParameterTypes.GLOBAL_PLAYER_EXP:
+                          List<MyPhoton.MyPlayer> roomPlayerList5 = PunMonoSingleton<MyPhoton>.Instance.GetRoomPlayerList();
+                          if (roomPlayerList5 == null)
+                          {
+                            ((Component) this).get_gameObject().SetActive(false);
+                            return;
+                          }
+                          MyPhoton.MyPlayer myPlayer5 = roomPlayerList5.Find((Predicate<MyPhoton.MyPlayer>) (p => p.playerID == 1));
+                          if (myPlayer5 != null)
+                          {
+                            bool flag11 = JSON_MyPhotonPlayerParam.Parse(myPlayer5.json).state == this.InstanceType;
+                            switch (this.Index)
+                            {
+                              case 0:
+                                ((Component) this).get_gameObject().SetActive(flag11);
+                                return;
+                              case 1:
+                                Button component6 = (Button) ((Component) this).get_gameObject().GetComponent<Button>();
+                                if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component6, (UnityEngine.Object) null))
+                                {
+                                  ((Selectable) component6).set_interactable(flag11);
+                                  return;
+                                }
+                                ((Component) this).get_gameObject().SetActive(flag11);
+                                return;
+                              default:
+                                ((Component) this).get_gameObject().SetActive(false);
+                                return;
+                            }
+                          }
+                          else
+                          {
+                            ((Component) this).get_gameObject().SetActive(false);
+                            return;
+                          }
+                        case GameParameter.ParameterTypes.GLOBAL_PLAYER_EXPNEXT:
+                          UnityEngine.UI.Text component11 = (UnityEngine.UI.Text) ((Component) this).GetComponent<UnityEngine.UI.Text>();
+                          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component11, (UnityEngine.Object) null))
+                            return;
+                          MyPhoton instance41 = PunMonoSingleton<MyPhoton>.Instance;
+                          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) instance41, (UnityEngine.Object) null))
+                          {
+                            MyPhoton.MyRoom currentRoom3 = instance41.GetCurrentRoom();
+                            if (currentRoom3 != null)
+                            {
+                              JSON_MyPhotonRoomParam myPhotonRoomParam3 = JSON_MyPhotonRoomParam.Parse(currentRoom3.json);
+                              if (myPhotonRoomParam3 != null)
+                              {
+                                component11.set_text(myPhotonRoomParam3.challegedMTFloor.ToString() + "!");
+                                return;
+                              }
+                            }
+                          }
+                          this.ResetToDefault();
+                          return;
+                        case GameParameter.ParameterTypes.GLOBAL_PLAYER_GOLD:
+                          QuestParam dataOfClass63 = DataSource.FindDataOfClass<QuestParam>(((Component) this).get_gameObject(), (QuestParam) null);
+                          if (dataOfClass63 != null)
+                          {
+                            ((Component) this).get_gameObject().SetActive(dataOfClass63.IsMultiLeaderSkill);
+                            return;
+                          }
+                          ((Component) this).get_gameObject().SetActive(false);
+                          return;
+                        default:
+                          switch (parameterType - 1800)
+                          {
+                            case GameParameter.ParameterTypes.GLOBAL_PLAYER_NAME:
+                              // ISSUE: reference to a compiler-generated field
+                              valueCAnonStorey294.skillParam = (SkillParam) null;
+                              SkillData skillData8;
+                              // ISSUE: reference to a compiler-generated field
+                              valueCAnonStorey294.skillParam = (skillData8 = this.GetSkillData()) == null ? this.GetSkillParam() : skillData8.SkillParam;
+                              // ISSUE: reference to a compiler-generated field
+                              if (valueCAnonStorey294.skillParam != null)
+                              {
+                                // ISSUE: reference to a compiler-generated field
+                                this.SetTextValue(valueCAnonStorey294.skillParam.MapEffectDesc);
+                                return;
+                              }
+                              this.ResetToDefault();
+                              return;
+                            case GameParameter.ParameterTypes.GLOBAL_PLAYER_LEVEL:
+                              MapEffectParam mapEffectParam = this.GetMapEffectParam();
+                              if (mapEffectParam != null)
+                              {
+                                this.SetTextValue(mapEffectParam.Name);
+                                return;
+                              }
+                              this.ResetToDefault();
+                              return;
+                            case GameParameter.ParameterTypes.GLOBAL_PLAYER_STAMINA:
+                              JobParam jobParam4 = this.GetJobParam();
+                              if (jobParam4 != null)
+                              {
+                                this.SetTextValue(jobParam4.DescCharacteristic);
+                                return;
+                              }
+                              this.ResetToDefault();
+                              return;
+                            case GameParameter.ParameterTypes.GLOBAL_PLAYER_STAMINAMAX:
+                              JobParam jobParam5 = this.GetJobParam();
+                              if (jobParam5 != null)
+                              {
+                                ((Component) this).get_gameObject().SetActive(!string.IsNullOrEmpty(jobParam5.DescCharacteristic));
+                                return;
+                              }
+                              ((Component) this).get_gameObject().SetActive(false);
+                              return;
+                            case GameParameter.ParameterTypes.GLOBAL_PLAYER_EXP:
+                              JobParam jobParam6 = this.GetJobParam();
+                              if (jobParam6 != null)
+                              {
+                                this.SetTextValue(jobParam6.DescOther);
+                                return;
+                              }
+                              this.ResetToDefault();
+                              return;
+                            case GameParameter.ParameterTypes.GLOBAL_PLAYER_EXPNEXT:
+                              JobParam jobParam7 = this.GetJobParam();
+                              if (jobParam7 != null)
+                              {
+                                ((Component) this).get_gameObject().SetActive(!string.IsNullOrEmpty(jobParam7.DescOther));
+                                return;
+                              }
+                              ((Component) this).get_gameObject().SetActive(false);
+                              return;
+                            case GameParameter.ParameterTypes.GLOBAL_PLAYER_GOLD:
+                              goto label_321;
+                            default:
+                              switch (parameterType - 1100)
+                              {
+                                case GameParameter.ParameterTypes.GLOBAL_PLAYER_NAME:
+                                  ArtifactData artifactData1 = this.GetArtifactData();
+                                  if (artifactData1 != null)
+                                  {
+                                    ArtifactData.RarityUpResults rarityUpResults = artifactData1.CheckEnableRarityUp();
+                                    string key = (string) null;
+                                    if ((rarityUpResults & ArtifactData.RarityUpResults.RarityMaxed) != ArtifactData.RarityUpResults.Success)
+                                      key = "sys.ARTI_RARITYUP_MAX";
+                                    else if ((rarityUpResults & ArtifactData.RarityUpResults.NoLv) != ArtifactData.RarityUpResults.Success)
+                                      key = "sys.ARTI_RARITYUP_NOLV";
+                                    else if ((rarityUpResults & ArtifactData.RarityUpResults.NoGold) != ArtifactData.RarityUpResults.Success)
+                                      key = "sys.ARTI_RARITYUP_NOGOLD";
+                                    else if ((rarityUpResults & ArtifactData.RarityUpResults.NoKakera) != ArtifactData.RarityUpResults.Success)
+                                      key = "sys.ARTI_RARITYUP_NOMTRL";
+                                    if (!string.IsNullOrEmpty(key))
+                                    {
+                                      ((Component) this).get_gameObject().SetActive(true);
+                                      this.SetTextValue(LocalizedText.Get(key));
+                                      return;
+                                    }
+                                  }
+                                  ((Component) this).get_gameObject().SetActive(false);
+                                  return;
+                                case GameParameter.ParameterTypes.GLOBAL_PLAYER_LEVEL:
+                                  bool flag15 = false;
+                                  ArtifactData artifactData2 = this.GetArtifactData();
+                                  GameManager instanceDirect = MonoSingleton<GameManager>.GetInstanceDirect();
+                                  if (UnityEngine.Object.op_Inequality((UnityEngine.Object) instanceDirect, (UnityEngine.Object) null) && artifactData2 != null)
+                                  {
+                                    ArtifactData artifactByUniqueId = instanceDirect.Player.FindArtifactByUniqueID((long) artifactData2.UniqueID);
+                                    if (artifactByUniqueId != null)
+                                      flag15 = artifactByUniqueId.IsFavorite;
+                                  }
+                                  if (this.Index == 1)
+                                    flag15 = !flag15;
+                                  ((Component) this).get_gameObject().SetActive(flag15);
+                                  return;
+                                case GameParameter.ParameterTypes.GLOBAL_PLAYER_STAMINA:
+                                  ArtifactData artifactData3 = this.GetArtifactData();
+                                  if (artifactData3 != null)
+                                  {
+                                    bool flag11 = artifactData3.CheckEnableRarityUp() == ArtifactData.RarityUpResults.Success;
+                                    if (flag11)
+                                      this.SetImageIndex((int) artifactData3.Rarity + 1);
+                                    ((Component) this).get_gameObject().SetActive(flag11);
+                                    return;
+                                  }
+                                  ((Component) this).get_gameObject().SetActive(false);
+                                  return;
+                                case GameParameter.ParameterTypes.GLOBAL_PLAYER_STAMINAMAX:
+                                  switch (this.InstanceType)
+                                  {
+                                    case 0:
+                                    case 1:
+                                      ArtifactParam artifactParam5 = this.GetArtifactParam();
+                                      if (artifactParam5 != null && this.LoadArtifactIcon(artifactParam5))
+                                        return;
+                                      this.ResetToDefault();
+                                      return;
+                                    case 2:
+                                      ArtifactRewardData dataOfClass64 = DataSource.FindDataOfClass<ArtifactRewardData>(((Component) this).get_gameObject(), (ArtifactRewardData) null);
+                                      if (dataOfClass64 == null)
+                                        return;
+                                      ArtifactParam artifactParam6 = dataOfClass64.ArtifactParam;
+                                      if (artifactParam6 != null && this.LoadArtifactIcon(artifactParam6))
+                                        return;
+                                      this.ResetToDefault();
+                                      return;
+                                    default:
+                                      return;
+                                  }
+                                case GameParameter.ParameterTypes.GLOBAL_PLAYER_EXP:
+                                  switch (this.InstanceType)
+                                  {
+                                    case 0:
+                                    case 1:
+                                      this.SetArtifactFrame(this.GetArtifactParam());
+                                      return;
+                                    case 2:
+                                      ArtifactRewardData dataOfClass65 = DataSource.FindDataOfClass<ArtifactRewardData>(((Component) this).get_gameObject(), (ArtifactRewardData) null);
+                                      if (dataOfClass65 == null)
+                                        return;
+                                      ArtifactParam artifactParam7 = dataOfClass65.ArtifactParam;
+                                      if (artifactParam7 == null)
+                                        return;
+                                      this.SetArtifactFrame(artifactParam7);
+                                      return;
+                                    default:
+                                      return;
+                                  }
+                                case GameParameter.ParameterTypes.GLOBAL_PLAYER_EXPNEXT:
+                                  switch (this.InstanceType)
+                                  {
+                                    case 1:
+                                      QuestParam questParamAuto4 = this.GetQuestParamAuto();
+                                      if (questParamAuto4 != null && 0 <= this.Index && (questParamAuto4.bonusObjective != null && this.Index < questParamAuto4.bonusObjective.Length))
+                                      {
+                                        this.SetTextValue(questParamAuto4.bonusObjective[this.Index].itemNum);
+                                        return;
+                                      }
+                                      break;
+                                    case 2:
+                                      ArtifactRewardData dataOfClass66 = DataSource.FindDataOfClass<ArtifactRewardData>(((Component) this).get_gameObject(), (ArtifactRewardData) null);
+                                      if (dataOfClass66 == null)
+                                        return;
+                                      if (dataOfClass66.ArtifactParam != null)
+                                      {
+                                        this.SetTextValue(dataOfClass66.Num);
+                                        return;
+                                      }
+                                      break;
+                                  }
+                                  this.ResetToDefault();
+                                  return;
+                                default:
+                                  switch (parameterType - 1200)
+                                  {
+                                    case GameParameter.ParameterTypes.GLOBAL_PLAYER_NAME:
+                                      QuestParam questParam27;
+                                      if ((questParam27 = this.GetQuestParam()) != null)
+                                      {
+                                        bool flag11 = questParam27.CheckDisableContinue();
+                                        if (this.Index == 0)
+                                        {
+                                          ((Component) this).get_gameObject().SetActive(flag11);
+                                          return;
+                                        }
+                                        ((Component) this).get_gameObject().SetActive(!flag11);
+                                        return;
+                                      }
+                                      ((Component) this).get_gameObject().SetActive(false);
+                                      return;
+                                    case GameParameter.ParameterTypes.GLOBAL_PLAYER_LEVEL:
+                                      QuestParam questParam28;
+                                      if ((questParam28 = this.GetQuestParam()) != null)
+                                      {
+                                        bool flag11 = questParam28.DamageUpprPl != 0 || questParam28.DamageUpprEn != 0;
+                                        if (this.Index == 0)
+                                        {
+                                          ((Component) this).get_gameObject().SetActive(flag11);
+                                          return;
+                                        }
+                                        ((Component) this).get_gameObject().SetActive(!flag11);
+                                        return;
+                                      }
+                                      ((Component) this).get_gameObject().SetActive(false);
+                                      return;
+                                    case GameParameter.ParameterTypes.GLOBAL_PLAYER_STAMINA:
+                                      QuestParam questParam29;
+                                      if ((questParam29 = this.GetQuestParam()) == null)
+                                        return;
+                                      string str13 = LocalizedText.Get("quest_info." + questParam29.iname);
+                                      string str14 = !(str13 == questParam29.iname) ? LocalizedText.Get("sys.PARTYEDITOR_COND_DETAIL") + str13 : string.Empty;
+                                      LocalizedText.UnloadTable("quest_info");
+                                      if (!string.IsNullOrEmpty(str14))
+                                        str14 += "\n";
+                                      List<string> addQuestInfo = questParam29.GetAddQuestInfo(true);
+                                      if (addQuestInfo.Count != 0)
+                                      {
+                                        string empty2 = string.Empty;
+                                        for (int index1 = 0; index1 < addQuestInfo.Count; ++index1)
+                                        {
+                                          if (index1 > 0)
+                                            empty2 += "\n";
+                                          empty2 += addQuestInfo[index1];
+                                        }
+                                        str14 += empty2;
+                                      }
+                                      this.SetTextValue(str14);
+                                      return;
+                                    case GameParameter.ParameterTypes.GLOBAL_PLAYER_STAMINAMAX:
+                                      QuestParam questParam30;
+                                      if ((questParam30 = this.GetQuestParam()) != null)
+                                      {
+                                        QuestCondParam questCondParam = (QuestCondParam) null;
+                                        if (questParam30.EntryCondition != null)
+                                          questCondParam = questParam30.EntryCondition;
+                                        else if (questParam30.EntryConditionCh != null)
+                                          questCondParam = questParam30.EntryConditionCh;
+                                        if (questCondParam != null && questCondParam.party_type == PartyCondType.Forced)
+                                        {
+                                          bool flag11 = this.GetUnitData() != null;
+                                          if (this.Index == 0)
+                                          {
+                                            ((Component) this).get_gameObject().SetActive(flag11);
+                                            return;
+                                          }
+                                          ((Component) this).get_gameObject().SetActive(!flag11);
+                                          return;
+                                        }
+                                      }
+                                      ((Component) this).get_gameObject().SetActive(false);
+                                      return;
+                                    case GameParameter.ParameterTypes.GLOBAL_PLAYER_EXP:
+                                      QuestParam questParam31;
+                                      if ((questParam31 = this.GetQuestParam()) != null)
+                                      {
+                                        QuestCondParam questCondParam = (QuestCondParam) null;
+                                        if (questParam31.EntryCondition != null)
+                                          questCondParam = questParam31.EntryCondition;
+                                        else if (questParam31.EntryConditionCh != null)
+                                          questCondParam = questParam31.EntryConditionCh;
+                                        if (questCondParam != null && questCondParam.party_type == PartyCondType.Limited)
+                                        {
+                                          ((Component) this).get_gameObject().SetActive(true);
+                                          return;
+                                        }
+                                      }
+                                      ((Component) this).get_gameObject().SetActive(false);
+                                      return;
+                                    case GameParameter.ParameterTypes.GLOBAL_PLAYER_EXPNEXT:
+                                      QuestParam questParam32;
+                                      if ((questParam32 = this.GetQuestParam()) != null)
+                                      {
+                                        QuestCondParam questCondParam = (QuestCondParam) null;
+                                        if (questParam32.EntryCondition != null)
+                                          questCondParam = questParam32.EntryCondition;
+                                        else if (questParam32.EntryConditionCh != null)
+                                          questCondParam = questParam32.EntryConditionCh;
+                                        if (questCondParam != null && questCondParam.party_type == PartyCondType.Forced)
+                                        {
+                                          ((Component) this).get_gameObject().SetActive(true);
+                                          return;
+                                        }
+                                      }
+                                      ((Component) this).get_gameObject().SetActive(false);
+                                      return;
+                                    default:
+                                      switch (parameterType - 1300)
+                                      {
+                                        case GameParameter.ParameterTypes.GLOBAL_PLAYER_NAME:
+                                          TrickParam trickParam1 = this.GetTrickParam();
+                                          if (trickParam1 != null)
+                                          {
+                                            this.SetTextValue(trickParam1.Name);
+                                            return;
+                                          }
+                                          this.ResetToDefault();
+                                          return;
+                                        case GameParameter.ParameterTypes.GLOBAL_PLAYER_LEVEL:
+                                          TrickParam trickParam2 = this.GetTrickParam();
+                                          if (trickParam2 != null)
+                                          {
+                                            this.SetTextValue(trickParam2.Expr);
+                                            return;
+                                          }
+                                          this.ResetToDefault();
+                                          return;
+                                        case GameParameter.ParameterTypes.GLOBAL_PLAYER_STAMINA:
+                                          TrickParam trickParam3 = this.GetTrickParam();
+                                          if (trickParam3 != null)
+                                          {
+                                            GameUtility.RequireComponent<IconLoader>(((Component) this).get_gameObject()).ResourcePath = AssetPath.TrickIconUI(trickParam3.MarkerName);
+                                            return;
+                                          }
+                                          this.ResetToDefault();
+                                          return;
+                                        default:
+                                          switch (parameterType - 1700)
+                                          {
+                                            case GameParameter.ParameterTypes.GLOBAL_PLAYER_NAME:
+                                              QuestParam questParam33;
+                                              if ((questParam33 = this.GetQuestParam()) != null && questParam33.bonusObjective != null)
+                                              {
+                                                int compCount;
+                                                int maxCount;
+                                                this.GetQuestObjectiveCount(questParam33, out compCount, out maxCount);
+                                                if (compCount > 0)
+                                                {
+                                                  if (compCount > 0 && compCount < maxCount)
+                                                  {
+                                                    this.SetImageIndex(0);
+                                                    return;
+                                                  }
+                                                  this.SetImageIndex(1);
+                                                  return;
+                                                }
+                                              }
+                                              this.ResetToDefault();
+                                              return;
+                                            case GameParameter.ParameterTypes.GLOBAL_PLAYER_LEVEL:
+                                              QuestParam questParam34;
+                                              if ((questParam34 = this.GetQuestParam()) != null && questParam34.bonusObjective != null)
+                                              {
+                                                int compCount;
+                                                int maxCount;
+                                                this.GetQuestObjectiveCount(questParam34, out compCount, out maxCount);
+                                                this.SetTextValue(compCount);
+                                                if (compCount < maxCount)
+                                                  return;
+                                                ((Graphic) this.mText).set_color(new Color(1f, 1f, 0.0f));
+                                                return;
+                                              }
+                                              this.ResetToDefault();
+                                              return;
+                                            case GameParameter.ParameterTypes.GLOBAL_PLAYER_STAMINA:
+                                              QuestParam questParam35;
+                                              if ((questParam35 = this.GetQuestParam()) != null && questParam35.bonusObjective != null)
+                                              {
+                                                int compCount;
+                                                int maxCount;
+                                                this.GetQuestObjectiveCount(questParam35, out compCount, out maxCount);
+                                                this.SetTextValue(maxCount);
+                                                return;
+                                              }
+                                              this.ResetToDefault();
+                                              return;
+                                            default:
+                                              switch (parameterType - 2000)
+                                              {
+                                                case GameParameter.ParameterTypes.GLOBAL_PLAYER_NAME:
+                                                  Image component12 = (Image) ((Component) this).GetComponent<Image>();
+                                                  if (UnityEngine.Object.op_Equality((UnityEngine.Object) component12, (UnityEngine.Object) null))
+                                                  {
+                                                    ((Component) this).get_gameObject().SetActive(false);
+                                                    return;
+                                                  }
+                                                  ChallengeCategoryParam dataOfClass67 = DataSource.FindDataOfClass<ChallengeCategoryParam>(((Component) this).get_gameObject(), (ChallengeCategoryParam) null);
+                                                  if (dataOfClass67 != null && !string.IsNullOrEmpty(dataOfClass67.iname))
+                                                  {
+                                                    SpriteSheet spriteSheet2 = AssetManager.Load<SpriteSheet>("ChallengeMission/ChallengeMission_Images");
+                                                    if (UnityEngine.Object.op_Inequality((UnityEngine.Object) spriteSheet2, (UnityEngine.Object) null))
+                                                    {
+                                                      component12.set_sprite(spriteSheet2.GetSprite("help/" + dataOfClass67.iname));
+                                                      return;
+                                                    }
+                                                  }
+                                                  component12.set_sprite((Sprite) null);
+                                                  return;
+                                                case GameParameter.ParameterTypes.GLOBAL_PLAYER_LEVEL:
+                                                  Image component13 = (Image) ((Component) this).GetComponent<Image>();
+                                                  if (UnityEngine.Object.op_Equality((UnityEngine.Object) component13, (UnityEngine.Object) null))
+                                                  {
+                                                    ((Component) this).get_gameObject().SetActive(false);
+                                                    return;
+                                                  }
+                                                  ChallengeCategoryParam dataOfClass68 = DataSource.FindDataOfClass<ChallengeCategoryParam>(((Component) this).get_gameObject(), (ChallengeCategoryParam) null);
+                                                  if (dataOfClass68 != null && !string.IsNullOrEmpty(dataOfClass68.iname))
+                                                  {
+                                                    SpriteSheet spriteSheet2 = AssetManager.Load<SpriteSheet>("ChallengeMission/ChallengeMission_Images");
+                                                    if (UnityEngine.Object.op_Inequality((UnityEngine.Object) spriteSheet2, (UnityEngine.Object) null))
+                                                    {
+                                                      component13.set_sprite(spriteSheet2.GetSprite("button/" + dataOfClass68.iname));
+                                                      return;
+                                                    }
+                                                  }
+                                                  component13.set_sprite((Sprite) null);
+                                                  return;
+                                                case GameParameter.ParameterTypes.GLOBAL_PLAYER_STAMINA:
+                                                  Image component14 = (Image) ((Component) this).GetComponent<Image>();
+                                                  if (UnityEngine.Object.op_Equality((UnityEngine.Object) component14, (UnityEngine.Object) null))
+                                                  {
+                                                    ((Component) this).get_gameObject().SetActive(false);
+                                                    return;
+                                                  }
+                                                  TrophyParam dataOfClass69 = DataSource.FindDataOfClass<TrophyParam>(((Component) this).get_gameObject(), (TrophyParam) null);
+                                                  if (dataOfClass69 != null && !string.IsNullOrEmpty(dataOfClass69.iname))
+                                                  {
+                                                    SpriteSheet spriteSheet2 = AssetManager.Load<SpriteSheet>("ChallengeMission/ChallengeMission_Images");
+                                                    if (UnityEngine.Object.op_Inequality((UnityEngine.Object) spriteSheet2, (UnityEngine.Object) null))
+                                                    {
+                                                      component14.set_sprite(spriteSheet2.GetSprite("reward/" + dataOfClass69.iname));
+                                                      return;
+                                                    }
+                                                  }
+                                                  component14.set_sprite((Sprite) null);
+                                                  return;
+                                                default:
+                                                  if (parameterType != GameParameter.ParameterTypes.UNIT_EXTRA_PARAM_MOVE)
+                                                  {
+                                                    if (parameterType != GameParameter.ParameterTypes.UNIT_EXTRA_PARAM_JUMP)
+                                                    {
+                                                      if (parameterType != GameParameter.ParameterTypes.FIRST_FRIEND_MAX)
+                                                      {
+                                                        if (parameterType != GameParameter.ParameterTypes.FIRST_FRIEND_COUNT)
+                                                          return;
+                                                        PlayerData player5 = MonoSingleton<GameManager>.Instance.Player;
+                                                        if (player5 == null)
+                                                          return;
+                                                        this.SetTextValue(player5.FirstFriendCount);
+                                                        return;
+                                                      }
+                                                      FixParam fixParam4 = MonoSingleton<GameManager>.Instance.MasterParam.FixParam;
+                                                      if (fixParam4 == null)
+                                                        return;
+                                                      this.SetTextValue((int) fixParam4.FirstFriendMax);
+                                                      return;
+                                                    }
+                                                    UnitData unitData15;
+                                                    if ((unitData15 = this.GetUnitData()) != null)
+                                                    {
+                                                      this.SetTextValue((int) unitData15.Status.param.jmp);
+                                                      return;
+                                                    }
+                                                    this.ResetToDefault();
+                                                    return;
+                                                  }
+                                                  UnitData unitData66;
+                                                  if ((unitData66 = this.GetUnitData()) != null)
+                                                  {
+                                                    this.SetTextValue((int) unitData66.Status.param.mov);
+                                                    return;
+                                                  }
+                                                  this.ResetToDefault();
+                                                  return;
+                                              }
+                                          }
+                                      }
+                                  }
+                              }
+                          }
+                      }
+                  }
               }
           }
       }
@@ -5869,7 +7125,7 @@ namespace SRPG
           else
           {
             Transform transform = ((Component) gameParameter).get_transform();
-            if (Object.op_Inequality((Object) transform.get_parent(), (Object) null) && ((Component) transform.get_parent()).get_gameObject().get_activeInHierarchy())
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) transform.get_parent(), (UnityEngine.Object) null) && ((Component) transform.get_parent()).get_gameObject().get_activeInHierarchy())
               gameParameter.UpdateValue();
           }
         }
@@ -5901,7 +7157,7 @@ namespace SRPG
     private IEnumerator UpdateTimer()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new GameParameter.\u003CUpdateTimer\u003Ec__Iterator55() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new GameParameter.\u003CUpdateTimer\u003Ec__Iterator8D() { \u003C\u003Ef__this = this };
     }
 
     private void OnDestroy()
@@ -5926,27 +7182,27 @@ namespace SRPG
 
     public void ResetToDefault()
     {
-      if (Object.op_Inequality((Object) this.mText, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mText, (UnityEngine.Object) null))
       {
-        if (!this.mDefaultValue.Contains(".") || Object.op_Inequality((Object) ((Component) this.mText).GetComponent<LText>(), (Object) null))
+        if (!this.mDefaultValue.Contains(".") || UnityEngine.Object.op_Inequality((UnityEngine.Object) ((Component) this.mText).GetComponent<LText>(), (UnityEngine.Object) null))
           this.mText.set_text(this.mDefaultValue);
         else
           this.mText.set_text(LocalizedText.Get(this.mDefaultValue));
       }
-      else if (Object.op_Inequality((Object) this.mSlider, (Object) null))
+      else if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSlider, (UnityEngine.Object) null))
       {
         this.mSlider.set_value((float) this.mDefaultRangeValue.x);
         this.mSlider.set_maxValue((float) this.mDefaultRangeValue.y);
       }
-      else if (Object.op_Inequality((Object) this.mInputField, (Object) null))
+      else if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mInputField, (UnityEngine.Object) null))
         this.mInputField.set_text(this.mDefaultValue);
-      else if (Object.op_Inequality((Object) this.mImage, (Object) null))
+      else if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mImage, (UnityEngine.Object) null))
       {
         this.mImage.set_texture(this.mDefaultImage);
       }
       else
       {
-        if (!Object.op_Inequality((Object) this.mImageArray, (Object) null))
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mImageArray, (UnityEngine.Object) null))
           return;
         this.mImageArray.set_sprite(this.mDefaultSprite);
       }
@@ -5954,23 +7210,23 @@ namespace SRPG
 
     private void SetTextValue(string value)
     {
-      if (Object.op_Inequality((Object) this.mText, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mText, (UnityEngine.Object) null))
         this.mText.set_text(value);
-      if (!Object.op_Inequality((Object) this.mInputField, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mInputField, (UnityEngine.Object) null))
         return;
-      this.mInputField.set_text(value);
+      this.mInputField.SetText(value);
     }
 
     private void SetTextValue(int value)
     {
-      if (!Object.op_Inequality((Object) this.mText, (Object) null) && !Object.op_Inequality((Object) this.mInputField, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mText, (UnityEngine.Object) null) && !UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mInputField, (UnityEngine.Object) null))
         return;
       this.SetTextValue(value.ToString());
     }
 
     private void SetSliderValue(int value, int maxValue)
     {
-      if (!Object.op_Inequality((Object) this.mSlider, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSlider, (UnityEngine.Object) null))
         return;
       this.mSlider.set_maxValue((float) maxValue);
       this.mSlider.set_minValue(0.0f);
@@ -5979,21 +7235,21 @@ namespace SRPG
 
     private void SetImageIndex(int index)
     {
-      if (!Object.op_Inequality((Object) this.mImageArray, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mImageArray, (UnityEngine.Object) null))
         return;
       this.mImageArray.ImageIndex = index;
     }
 
     private void SetAnimatorInt(string name, int value)
     {
-      if (!Object.op_Inequality((Object) this.mAnimator, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mAnimator, (UnityEngine.Object) null))
         return;
       this.mAnimator.SetInteger(name, value);
     }
 
     private void SetAnimatorBool(string name, bool value)
     {
-      if (!Object.op_Inequality((Object) this.mAnimator, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mAnimator, (UnityEngine.Object) null))
         return;
       this.mAnimator.SetBool(name, value);
     }
@@ -6007,18 +7263,18 @@ namespace SRPG
       this.mAnimator = (Animator) ((Component) this).GetComponent<Animator>();
       this.mImage = (RawImage) ((Component) this).GetComponent<RawImage>();
       this.mImageArray = (ImageArray) ((Component) this).GetComponent<ImageArray>();
-      if (Object.op_Inequality((Object) this.mText, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mText, (UnityEngine.Object) null))
         this.mDefaultValue = this.mText.get_text();
-      else if (Object.op_Inequality((Object) this.mSlider, (Object) null))
+      else if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSlider, (UnityEngine.Object) null))
       {
         this.mDefaultRangeValue.x = (__Null) (double) this.mSlider.get_value();
         this.mDefaultRangeValue.y = (__Null) (double) this.mSlider.get_maxValue();
       }
-      else if (Object.op_Inequality((Object) this.mInputField, (Object) null))
+      else if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mInputField, (UnityEngine.Object) null))
         this.mDefaultValue = this.mInputField.get_text();
-      else if (Object.op_Inequality((Object) this.mImage, (Object) null))
+      else if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mImage, (UnityEngine.Object) null))
         this.mDefaultImage = this.mImage.get_texture();
-      else if (Object.op_Inequality((Object) this.mImageArray, (Object) null))
+      else if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mImageArray, (UnityEngine.Object) null))
         this.mDefaultSprite = this.mImageArray.get_sprite();
       else
         this.mIsEmptyGO = true;
@@ -6087,6 +7343,8 @@ namespace SRPG
       PartyUnit1,
       PartyUnit2,
       VersusUnit,
+      MultiUnit,
+      MultiTowerUnit,
     }
 
     public enum PartyAttackTypes
@@ -6111,6 +7369,13 @@ namespace SRPG
       EnhanceEquipData,
       SellItem,
       ConsumeItem,
+    }
+
+    public enum ArtifactInstanceTypes
+    {
+      Any,
+      QuestReward,
+      Trophy,
     }
 
     public enum TrophyBadgeInstanceTypes
@@ -6147,13 +7412,13 @@ namespace SRPG
       [GameParameter.ParameterDesc("プレイヤーの所持ゴールド")] GLOBAL_PLAYER_GOLD = 6,
       [GameParameter.ParameterDesc("プレイヤーの所持コイン")] GLOBAL_PLAYER_COIN = 7,
       [GameParameter.ParameterDesc("プレイヤーのスタミナが次に回復するまでの時間")] GLOBAL_PLAYER_STAMINATIME = 8,
-      [GameParameter.InstanceTypes(typeof (GameParameter.QuestInstanceTypes)), GameParameter.ParameterDesc("クエスト名")] QUEST_NAME = 9,
-      [GameParameter.InstanceTypes(typeof (GameParameter.QuestInstanceTypes)), GameParameter.ParameterDesc("クエストに必要なスタミナ")] QUEST_STAMINA = 10, // 0x0000000A
-      [GameParameter.EnumParameterDesc("クエストのクリア状態にあわせてAnimatorのstateという名前のInt値、ImageArrayのインデックスを切り替えます。", typeof (QuestStates)), GameParameter.InstanceTypes(typeof (GameParameter.QuestInstanceTypes))] QUEST_STATE = 11, // 0x0000000B
-      [GameParameter.InstanceTypes(typeof (GameParameter.QuestInstanceTypes)), GameParameter.ParameterDesc("クエスト勝利条件")] QUEST_OBJECTIVE = 12, // 0x0000000C
+      [GameParameter.ParameterDesc("クエスト名"), GameParameter.InstanceTypes(typeof (GameParameter.QuestInstanceTypes))] QUEST_NAME = 9,
+      [GameParameter.ParameterDesc("クエストに必要なスタミナ"), GameParameter.InstanceTypes(typeof (GameParameter.QuestInstanceTypes))] QUEST_STAMINA = 10, // 0x0000000A
+      [GameParameter.InstanceTypes(typeof (GameParameter.QuestInstanceTypes)), GameParameter.EnumParameterDesc("クエストのクリア状態にあわせてAnimatorのstateという名前のInt値、ImageArrayのインデックスを切り替えます。", typeof (QuestStates))] QUEST_STATE = 11, // 0x0000000B
+      [GameParameter.ParameterDesc("クエスト勝利条件"), GameParameter.InstanceTypes(typeof (GameParameter.QuestInstanceTypes))] QUEST_OBJECTIVE = 12, // 0x0000000C
       [GameParameter.UsesIndex, GameParameter.InstanceTypes(typeof (GameParameter.QuestInstanceTypes)), GameParameter.ParameterDesc("クエストボーナス条件。インデックスでボーナス条件の番号を指定してください。")] QUEST_BONUSOBJECTIVE = 13, // 0x0000000D
-      [GameParameter.UsesIndex, GameParameter.ParameterDesc("アイテムアイコン"), GameParameter.InstanceTypes(typeof (GameParameter.ItemInstanceTypes))] ITEM_ICON = 14, // 0x0000000E
-      [GameParameter.ParameterDesc("クエストの説明"), GameParameter.InstanceTypes(typeof (GameParameter.QuestInstanceTypes))] QUEST_DESCRIPTION = 15, // 0x0000000F
+      [GameParameter.UsesIndex, GameParameter.InstanceTypes(typeof (GameParameter.ItemInstanceTypes)), GameParameter.ParameterDesc("アイテムアイコン")] ITEM_ICON = 14, // 0x0000000E
+      [GameParameter.InstanceTypes(typeof (GameParameter.QuestInstanceTypes)), GameParameter.ParameterDesc("クエストの説明")] QUEST_DESCRIPTION = 15, // 0x0000000F
       [GameParameter.ParameterDesc("フレンドの名前")] SUPPORTER_NAME = 16, // 0x00000010
       [GameParameter.ParameterDesc("フレンドのレベル")] SUPPORTER_LEVEL = 17, // 0x00000011
       [GameParameter.ParameterDesc("フレンドのユニットレベル")] SUPPORTER_UNITLEVEL = 18, // 0x00000012
@@ -6165,32 +7430,32 @@ namespace SRPG
       [GameParameter.EnumParameterDesc("フレンドの属性にあわせてAnimatorのelementという名前のInt値を切り替えます。", typeof (EElement))] SUPPORTER_ELEMENT = 24, // 0x00000018
       [GameParameter.ParameterDesc("フレンドのアイコン")] SUPPORTER_ICON = 25, // 0x00000019
       [GameParameter.ParameterDesc("フレンドのリーダースキルの説明")] SUPPORTER_LEADERSKILLDESC = 26, // 0x0000001A
-      [GameParameter.InstanceTypes(typeof (GameParameter.QuestInstanceTypes)), GameParameter.ParameterDesc("クエストの副題")] QUEST_SUBTITLE = 27, // 0x0000001B
+      [GameParameter.ParameterDesc("クエストの副題"), GameParameter.InstanceTypes(typeof (GameParameter.QuestInstanceTypes))] QUEST_SUBTITLE = 27, // 0x0000001B
       [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットのレベル")] UNIT_LEVEL = 28, // 0x0000001C
       [GameParameter.ParameterDesc("ユニットのHP"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_HP = 29, // 0x0000001D
-      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットの最大HP")] UNIT_HPMAX = 30, // 0x0000001E
+      [GameParameter.ParameterDesc("ユニットの最大HP"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_HPMAX = 30, // 0x0000001E
       [GameParameter.ParameterDesc("ユニットの攻撃力"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_ATK = 31, // 0x0000001F
       [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットの魔力")] UNIT_MAG = 32, // 0x00000020
-      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットのアイコン")] UNIT_ICON = 33, // 0x00000021
-      [GameParameter.ParameterDesc("ユニットの名前"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_NAME = 34, // 0x00000022
+      [GameParameter.ParameterDesc("ユニットのアイコン"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_ICON = 33, // 0x00000021
+      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットの名前")] UNIT_NAME = 34, // 0x00000022
       [GameParameter.EnumParameterDesc("ユニットのレアリティに応じてAnimatorにrareというint値を設定します。ImageArrayの場合レアリティに応じた番号のイメージを使用します。StarGaugeの場合現在のレアリティと最大のレアリティがそれぞれ現在値と最大値になります。", typeof (ERarity)), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_RARITY = 35, // 0x00000023
       [GameParameter.ParameterDesc("パーティのリーダースキルの名前")] PARTY_LEADERSKILLNAME = 36, // 0x00000024
       [GameParameter.ParameterDesc("パーティのリーダースキルの説明")] PARTY_LEADERSKILLDESC = 37, // 0x00000025
-      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットの防御力")] UNIT_DEF = 38, // 0x00000026
-      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットの魔法防御力")] UNIT_MND = 39, // 0x00000027
+      [GameParameter.ParameterDesc("ユニットの防御力"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_DEF = 38, // 0x00000026
+      [GameParameter.ParameterDesc("ユニットの魔法防御力"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_MND = 39, // 0x00000027
       [GameParameter.ParameterDesc("ユニットの素早さ"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_SPEED = 40, // 0x00000028
-      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットの運")] UNIT_LUCK = 41, // 0x00000029
+      [GameParameter.ParameterDesc("ユニットの運"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_LUCK = 41, // 0x00000029
       [GameParameter.ParameterDesc("ユニットジョブ名"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_JOBNAME = 42, // 0x0000002A
-      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットジョブランク")] UNIT_JOBRANK = 43, // 0x0000002B
+      [GameParameter.ParameterDesc("ユニットジョブランク"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_JOBRANK = 43, // 0x0000002B
       [GameParameter.EnumParameterDesc("ユニット属性にあわせてAnimatorのelementという名前のInt値、もしくはImageArrayを切り替えます。", typeof (EElement)), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_ELEMENT = 44, // 0x0000002C
       [GameParameter.ParameterDesc("パーティの総攻撃力"), GameParameter.InstanceTypes(typeof (GameParameter.PartyAttackTypes))] PARTY_TOTALATK = 45, // 0x0000002D
       [GameParameter.UsesIndex, GameParameter.ParameterDesc("インベントリーにセットされたアイテムのアイコン\n*スロット番号をIndexで指定")] INVENTORY_ITEMICON = 46, // 0x0000002E
       [GameParameter.ParameterDesc("インベントリーにセットされたアイテムの名前*スロット番号をIndexで指定"), GameParameter.UsesIndex] INVENTORY_ITEMNAME = 47, // 0x0000002F
-      [GameParameter.UsesIndex, GameParameter.ParameterDesc("アイテムの名前"), GameParameter.InstanceTypes(typeof (GameParameter.ItemInstanceTypes))] ITEM_NAME = 48, // 0x00000030
-      [GameParameter.InstanceTypes(typeof (GameParameter.ItemInstanceTypes)), GameParameter.UsesIndex, GameParameter.ParameterDesc("アイテムの説明")] ITEM_DESC = 49, // 0x00000031
+      [GameParameter.InstanceTypes(typeof (GameParameter.ItemInstanceTypes)), GameParameter.ParameterDesc("アイテムの名前"), GameParameter.UsesIndex] ITEM_NAME = 48, // 0x00000030
+      [GameParameter.InstanceTypes(typeof (GameParameter.ItemInstanceTypes)), GameParameter.ParameterDesc("アイテムの説明"), GameParameter.UsesIndex] ITEM_DESC = 49, // 0x00000031
       [GameParameter.InstanceTypes(typeof (GameParameter.ItemInstanceTypes)), GameParameter.ParameterDesc("アイテムの売却価格"), GameParameter.UsesIndex] ITEM_SELLPRICE = 50, // 0x00000032
       [GameParameter.UsesIndex, GameParameter.ParameterDesc("アイテムの購入価格"), GameParameter.InstanceTypes(typeof (GameParameter.ItemInstanceTypes))] ITEM_BUYPRICE = 51, // 0x00000033
-      [GameParameter.InstanceTypes(typeof (GameParameter.ItemInstanceTypes)), GameParameter.UsesIndex, GameParameter.ParameterDesc("アイテムの所持個数")] ITEM_AMOUNT = 52, // 0x00000034
+      [GameParameter.UsesIndex, GameParameter.ParameterDesc("アイテムの所持個数"), GameParameter.InstanceTypes(typeof (GameParameter.ItemInstanceTypes))] ITEM_AMOUNT = 52, // 0x00000034
       [GameParameter.ParameterDesc("インベントリーにセットされたアイテムの所持数*スロット番号をIndexで指定"), GameParameter.UsesIndex] INVENTORY_ITEMAMOUNT = 53, // 0x00000035
       [GameParameter.ParameterDesc("所持ユニット数")] PLAYER_NUMUNITS = 54, // 0x00000036
       [GameParameter.ParameterDesc("所持可能の最大ユニット数")] PLAYER_MAXUNITS = 55, // 0x00000037
@@ -6202,18 +7467,18 @@ namespace SRPG
       [GameParameter.ParameterDesc("クエストで入手したゴールド")] BATTLE_GOLD = 61, // 0x0000003D
       [GameParameter.ParameterDesc("クエストで入手した宝箱の個数")] BATTLE_TREASURE = 62, // 0x0000003E
       [GameParameter.ParameterDesc("ユニットのMP"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_MP = 63, // 0x0000003F
-      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットの最大MP")] UNIT_MPMAX = 64, // 0x00000040
+      [GameParameter.ParameterDesc("ユニットの最大MP"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_MPMAX = 64, // 0x00000040
       [GameParameter.ParameterDesc("ターゲットの出力ポイント"), GameParameter.InstanceTypes(typeof (GameParameter.TargetInstanceTypes))] TARGET_OUTPUTPOINT = 65, // 0x00000041
-      [GameParameter.InstanceTypes(typeof (GameParameter.TargetInstanceTypes)), GameParameter.ParameterDesc("ターゲットのクリティカル率")] TARGET_CRITICALRATE = 66, // 0x00000042
+      [GameParameter.ParameterDesc("ターゲットのクリティカル率"), GameParameter.InstanceTypes(typeof (GameParameter.TargetInstanceTypes))] TARGET_CRITICALRATE = 66, // 0x00000042
       [GameParameter.InstanceTypes(typeof (GameParameter.TargetInstanceTypes)), GameParameter.EnumParameterDesc("ターゲットの行動の種類にあわせてAnimatorにstate(Int)を設定する。", typeof (SceneBattle.TargetActionTypes))] TARGET_ACTIONTYPE = 67, // 0x00000043
       [GameParameter.ParameterDesc("アビリティのアイコン")] ABILITY_ICON = 68, // 0x00000044
       [GameParameter.ParameterDesc("アビリティの名前")] ABILITY_NAME = 69, // 0x00000045
       [GameParameter.ParameterDesc("クエストで入手可能な欠片のアイコン"), GameParameter.InstanceTypes(typeof (GameParameter.QuestInstanceTypes))] QUEST_KAKERA_ICON = 70, // 0x00000046
       [GameParameter.ParameterDesc("ユニットの経験値"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_EXP = 71, // 0x00000047
-      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットのレベルアップに必要な経験値の合計")] UNIT_EXPMAX = 72, // 0x00000048
+      [GameParameter.ParameterDesc("ユニットのレベルアップに必要な経験値の合計"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_EXPMAX = 72, // 0x00000048
       [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットのレベルアップに必要な経験値の残り")] UNIT_EXPTOGO = 73, // 0x00000049
-      [GameParameter.ParameterDesc("ユニットの覚醒に必要な欠片の所持数"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_KAKERA_NUM = 74, // 0x0000004A
-      [GameParameter.ParameterDesc("ユニットの覚醒に必要な欠片の数"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_KAKERA_MAX = 75, // 0x0000004B
+      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットの覚醒に必要な欠片の所持数")] UNIT_KAKERA_NUM = 74, // 0x0000004A
+      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットの覚醒に必要な欠片の数")] UNIT_KAKERA_MAX = 75, // 0x0000004B
       [GameParameter.ParameterDesc("装備品の経験値 (未実装)")] EQUIPMENT_EXP = 76, // 0x0000004C
       [GameParameter.ParameterDesc("装備品の強化に必要な経験値 (未実装)")] EQUIPMENT_EXPMAX = 77, // 0x0000004D
       [GameParameter.ParameterDesc("装備品のランク。Animatorであればrankというint値にランクを設定する。ImageArrayであればランクに対応したイメージを使用する。")] EQUIPMENT_RANK = 78, // 0x0000004E
@@ -6222,25 +7487,25 @@ namespace SRPG
       [GameParameter.ParameterDesc("アビリティの最大経験値")] ABILITY_NEXTGOLD = 81, // 0x00000051
       [GameParameter.EnumParameterDesc("アビリティの種類にあわせて、Animatorのtype、ImageArrayを切り替えます。", typeof (EAbilitySlot))] ABILITY_SLOT = 82, // 0x00000052
       [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットのIndexで指定したジョブのアイコン"), GameParameter.UsesIndex] UNIT_JOB_JOBICON = 83, // 0x00000053
-      [GameParameter.UsesIndex, GameParameter.ParameterDesc("ユニットのIndexで指定したジョブのランク"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_JOB_RANK = 84, // 0x00000054
-      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.UsesIndex, GameParameter.ParameterDesc("ユニットのIndexで指定したジョブの名前")] UNIT_JOB_NAME = 85, // 0x00000055
+      [GameParameter.ParameterDesc("ユニットのIndexで指定したジョブのランク"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.UsesIndex] UNIT_JOB_RANK = 84, // 0x00000054
+      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットのIndexで指定したジョブの名前"), GameParameter.UsesIndex] UNIT_JOB_NAME = 85, // 0x00000055
       [GameParameter.ParameterDesc("ユニットのIndexで指定したジョブの最大ランク"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.UsesIndex] UNIT_JOB_RANKMAX = 86, // 0x00000056
-      [GameParameter.ParameterDesc("装備アイテムのHP。空のゲームオブジェクトの場合は値が0の時自身を非表示にします。"), GameParameter.AlwaysUpdate] EQUIPMENT_HP = 87, // 0x00000057
-      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("装備アイテムのAP。空のゲームオブジェクトの場合は値が0の時自身を非表示にします。")] EQUIPMENT_AP = 88, // 0x00000058
-      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("装備アイテムの初期AP。空のゲームオブジェクトの場合は値が0の時自身を非表示にします。")] EQUIPMENT_IAP = 89, // 0x00000059
-      [GameParameter.ParameterDesc("装備アイテムの攻撃力。空のゲームオブジェクトの場合は値が0の時自身を非表示にします。"), GameParameter.AlwaysUpdate] EQUIPMENT_ATK = 90, // 0x0000005A
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("装備アイテムのHP。空のゲームオブジェクトの場合は値が0の時自身を非表示にします。")] EQUIPMENT_HP = 87, // 0x00000057
+      [GameParameter.ParameterDesc("装備アイテムのAP。空のゲームオブジェクトの場合は値が0の時自身を非表示にします。"), GameParameter.AlwaysUpdate] EQUIPMENT_AP = 88, // 0x00000058
+      [GameParameter.ParameterDesc("装備アイテムの初期AP。空のゲームオブジェクトの場合は値が0の時自身を非表示にします。"), GameParameter.AlwaysUpdate] EQUIPMENT_IAP = 89, // 0x00000059
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("装備アイテムの攻撃力。空のゲームオブジェクトの場合は値が0の時自身を非表示にします。")] EQUIPMENT_ATK = 90, // 0x0000005A
       [GameParameter.ParameterDesc("装備アイテムの防御力。空のゲームオブジェクトの場合は値が0の時自身を非表示にします。"), GameParameter.AlwaysUpdate] EQUIPMENT_DEF = 91, // 0x0000005B
-      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("装備アイテムの魔法攻撃力。空のゲームオブジェクトの場合は値が0の時自身を非表示にします。")] EQUIPMENT_MAG = 92, // 0x0000005C
+      [GameParameter.ParameterDesc("装備アイテムの魔法攻撃力。空のゲームオブジェクトの場合は値が0の時自身を非表示にします。"), GameParameter.AlwaysUpdate] EQUIPMENT_MAG = 92, // 0x0000005C
       [GameParameter.ParameterDesc("装備アイテムの魔法防御力。空のゲームオブジェクトの場合は値が0の時自身を非表示にします。"), GameParameter.AlwaysUpdate] EQUIPMENT_MND = 93, // 0x0000005D
-      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("装備アイテムの回復力。空のゲームオブジェクトの場合は値が0の時自身を非表示にします。")] EQUIPMENT_REC = 94, // 0x0000005E
+      [GameParameter.ParameterDesc("装備アイテムの回復力。空のゲームオブジェクトの場合は値が0の時自身を非表示にします。"), GameParameter.AlwaysUpdate] EQUIPMENT_REC = 94, // 0x0000005E
       [GameParameter.ParameterDesc("装備アイテムの速度。空のゲームオブジェクトの場合は値が0の時自身を非表示にします。"), GameParameter.AlwaysUpdate] EQUIPMENT_SPD = 95, // 0x0000005F
       [GameParameter.ParameterDesc("装備アイテムのクリティカル。空のゲームオブジェクトの場合は値が0の時自身を非表示にします。"), GameParameter.AlwaysUpdate] EQUIPMENT_CRI = 96, // 0x00000060
-      [GameParameter.ParameterDesc("装備アイテムの運。空のゲームオブジェクトの場合は値が0の時自身を非表示にします。"), GameParameter.AlwaysUpdate] EQUIPMENT_LUK = 97, // 0x00000061
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("装備アイテムの運。空のゲームオブジェクトの場合は値が0の時自身を非表示にします。")] EQUIPMENT_LUK = 97, // 0x00000061
       [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("装備アイテムの移動量。空のゲームオブジェクトの場合は値が0の時自身を非表示にします。")] EQUIPMENT_MOV = 98, // 0x00000062
-      [GameParameter.ParameterDesc("装備アイテムの移動高低差。空のゲームオブジェクトの場合は値が0の時自身を非表示にします。"), GameParameter.AlwaysUpdate] EQUIPMENT_JMP = 99, // 0x00000063
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("装備アイテムの移動高低差。空のゲームオブジェクトの場合は値が0の時自身を非表示にします。")] EQUIPMENT_JMP = 99, // 0x00000063
       [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("装備アイテムの射程。空のゲームオブジェクトの場合は値が0の時自身を非表示にします。")] EQUIPMENT_RANGE = 100, // 0x00000064
-      [GameParameter.ParameterDesc("装備アイテムの範囲。空のゲームオブジェクトの場合は値が0の時自身を非表示にします。"), GameParameter.AlwaysUpdate] EQUIPMENT_SCOPE = 101, // 0x00000065
-      [GameParameter.ParameterDesc("装備アイテムの影響可能な高低差範囲。値が0の時、子供を非表示にし、LayoutElementを無効にします。"), GameParameter.AlwaysUpdate] EQUIPMENT_EFFECTHEIGHT = 102, // 0x00000066
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("装備アイテムの範囲。空のゲームオブジェクトの場合は値が0の時自身を非表示にします。")] EQUIPMENT_SCOPE = 101, // 0x00000065
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("装備アイテムの影響可能な高低差範囲。値が0の時、子供を非表示にし、LayoutElementを無効にします。")] EQUIPMENT_EFFECTHEIGHT = 102, // 0x00000066
       [GameParameter.ParameterDesc("装備アイテムの名前")] EQUIPMENT_NAME = 103, // 0x00000067
       [GameParameter.ParameterDesc("装備アイテムのアイコン")] EQUIPMENT_ICON = 104, // 0x00000068
       [GameParameter.ParameterDesc("アビリティ強化に使用できるポイントの残り")] OBSOLETE_GLOBAL_PLAYER_ABILITYPOINT_NUM = 105, // 0x00000069
@@ -6257,15 +7522,15 @@ namespace SRPG
       [GameParameter.ParameterDesc("ユニットのクリティカル値"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_CRIT = 116, // 0x00000074
       [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットの回復力")] UNIT_REGEN = 117, // 0x00000075
       [GameParameter.ParameterDesc("ユニットが持つリーダースキルの名前"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_LEADERSKILLNAME = 118, // 0x00000076
-      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットが持つリーダースキルの説明")] UNIT_LEADERSKILLDESC = 119, // 0x00000077
+      [GameParameter.ParameterDesc("ユニットが持つリーダースキルの説明"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_LEADERSKILLDESC = 119, // 0x00000077
       [GameParameter.ParameterDesc("アイテムの効果値")] ITEM_VALUE = 120, // 0x00000078
       [GameParameter.ParameterDesc("ユニットのレベルの最大値")] UNIT_LEVELMAX = 121, // 0x00000079
-      [GameParameter.ParameterDesc("ユニットのIndexで指定したジョブの解放状態にあわせてAnimatorにBoolパラメーターunlockedを設定します。解放済みであればunlockedがオンになります。"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.UsesIndex] UNIT_JOB_UNLOCKSTATE = 122, // 0x0000007A
+      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.UsesIndex, GameParameter.ParameterDesc("ユニットのIndexで指定したジョブの解放状態にあわせてAnimatorにBoolパラメーターunlockedを設定します。解放済みであればunlockedがオンになります。")] UNIT_JOB_UNLOCKSTATE = 122, // 0x0000007A
       [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットの現在のジョブのランク")] UNIT_JOBRANKMAX = 123, // 0x0000007B
       [GameParameter.ParameterDesc("アビリティの解放条件")] ABILITY_UNLOCKINFO = 124, // 0x0000007C
       [GameParameter.ParameterDesc("アビリティの説明")] ABILITY_DESC = 125, // 0x0000007D
-      [GameParameter.UsesIndex, GameParameter.ParameterDesc("アイテムの種類にあわせたフレームをImageに設定します。フレームの設定はGameSettings.ItemIconsを参照します。"), GameParameter.InstanceTypes(typeof (GameParameter.ItemInstanceTypes))] ITEM_FRAME = 126, // 0x0000007E
-      [GameParameter.UsesIndex, GameParameter.ParameterDesc("インベントリーにセットされたアイテムのフレーム。Item/Frameと同じです。")] INVENTORY_FRAME = 127, // 0x0000007F
+      [GameParameter.InstanceTypes(typeof (GameParameter.ItemInstanceTypes)), GameParameter.ParameterDesc("アイテムの種類にあわせたフレームをImageに設定します。フレームの設定はGameSettings.ItemIconsを参照します。"), GameParameter.UsesIndex] ITEM_FRAME = 126, // 0x0000007E
+      [GameParameter.ParameterDesc("インベントリーにセットされたアイテムのフレーム。Item/Frameと同じです。"), GameParameter.UsesIndex] INVENTORY_FRAME = 127, // 0x0000007F
       [GameParameter.ParameterDesc("アイテム作成素材の所持個数")] RECIPEITEM_AMOUNT = 128, // 0x00000080
       [GameParameter.ParameterDesc("アイテム作成素材の必要個数")] RECIPEITEM_REQAMOUNT = 129, // 0x00000081
       [GameParameter.ParameterDesc("アイテム作成素材のアイコン")] RECIPEITEM_ICON = 130, // 0x00000082
@@ -6273,7 +7538,7 @@ namespace SRPG
       [GameParameter.ParameterDesc("アイテム作成コスト")] RECIPEITEM_CREATE_COST = 132, // 0x00000084
       [GameParameter.ParameterDesc("作成アイテム名")] RECIPEITEM_CREATE_ITEM_NAME = 133, // 0x00000085
       [GameParameter.ParameterDesc("アイテム作成素材のフレーム")] RECIPEITEM_FRAME = 134, // 0x00000086
-      [GameParameter.ParameterDesc("ユニットのキャライメージ (中サイズ) GameSettings.Unit_PortraitMedium で命名規則を決めれます。"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_PORTRAIT_MEDIUM = 135, // 0x00000087
+      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットのキャライメージ (中サイズ) GameSettings.Unit_PortraitMedium で命名規則を決めれます。")] UNIT_PORTRAIT_MEDIUM = 135, // 0x00000087
       [GameParameter.ParameterDesc("クエストで入手した補正値等も含めたゴールドの合計")] QUESTRESULT_GOLD = 136, // 0x00000088
       [GameParameter.ParameterDesc("クエストでプレイヤーが得た経験値")] QUESTRESULT_PLAYEREXP = 137, // 0x00000089
       [GameParameter.ParameterDesc("クエストでパーティが得た経験値")] QUESTRESULT_PARTYEXP = 138, // 0x0000008A
@@ -6291,25 +7556,25 @@ namespace SRPG
       OBSOLETE_QUEST_BONUSOBJECTIVE_ITEMAMOUNT = 150, // 0x00000096
       [GameParameter.EnumParameterDesc("ユニットの陣営にあわせてImageArrayのインデックス、Animatorのindex(int)を切り替えます。", typeof (EUnitSide))] UNIT_SIDE = 151, // 0x00000097
       [GameParameter.ParameterDesc("ユニットのジョブのアイコン"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_JOBICON = 152, // 0x00000098
-      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットの現ジョブのアイコン。GameSettingsのJobIcon2のパスを使用する。")] UNIT_JOBICON2 = 153, // 0x00000099
-      [GameParameter.ParameterDesc("ユニットのIndexで指定したジョブのアイコン。GameSettingsのJobIcon2のパスを使用する。"), GameParameter.UsesIndex, GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_JOB_JOBICON2 = 154, // 0x0000009A
-      [GameParameter.UsesIndex, GameParameter.InstanceTypes(typeof (GameParameter.ItemInstanceTypes)), GameParameter.ParameterDesc("アイテムの作成コスト")] ITEM_CREATECOST = 155, // 0x0000009B
+      [GameParameter.ParameterDesc("ユニットの現ジョブのアイコン。GameSettingsのJobIcon2のパスを使用する。"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_JOBICON2 = 153, // 0x00000099
+      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.UsesIndex, GameParameter.ParameterDesc("ユニットのIndexで指定したジョブのアイコン。GameSettingsのJobIcon2のパスを使用する。")] UNIT_JOB_JOBICON2 = 154, // 0x0000009A
+      [GameParameter.ParameterDesc("アイテムの作成コスト"), GameParameter.InstanceTypes(typeof (GameParameter.ItemInstanceTypes)), GameParameter.UsesIndex] ITEM_CREATECOST = 155, // 0x0000009B
       [GameParameter.ParameterDesc("プレイヤーの現在の洞窟用スタミナ")] GLOBAL_PLAYER_CAVESTAMINA = 156, // 0x0000009C
       [GameParameter.ParameterDesc("プレイヤーの最大の洞窟用スタミナ")] GLOBAL_PLAYER_CAVESTAMINAMAX = 157, // 0x0000009D
       [GameParameter.ParameterDesc("プレイヤーの洞窟用スタミナが次に回復するまでの時間")] GLOBAL_PLAYER_CAVESTAMINATIME = 158, // 0x0000009E
       [GameParameter.InstanceTypes(typeof (GameParameter.ItemInstanceTypes)), GameParameter.UsesIndex, GameParameter.ParameterDesc("アイテムの種類ごとの所持上限")] ITEM_AMOUNTMAX = 159, // 0x0000009F
       [GameParameter.ParameterDesc("所持しているアイテムの種類")] PLAYER_NUMITEMS = 160, // 0x000000A0
-      [GameParameter.InstanceTypes(typeof (GameParameter.QuestInstanceTypes)), GameParameter.ParameterDesc("クエストが通常クエストかエリートクエストかどうかでImageArrayのインデックスを切り替えます。0=通常、1=エリート")] QUEST_DIFFICULTY = 161, // 0x000000A1
-      [GameParameter.ParameterDesc("ユニットの現在位置の高さ"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_HEIGHT = 162, // 0x000000A2
+      [GameParameter.ParameterDesc("クエストが通常クエストかエリートクエストかどうかでImageArrayのインデックスを切り替えます。0=通常、1=エリート、2=エクストラ"), GameParameter.InstanceTypes(typeof (GameParameter.QuestInstanceTypes))] QUEST_DIFFICULTY = 161, // 0x000000A1
+      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットの現在位置の高さ")] UNIT_HEIGHT = 162, // 0x000000A2
       [GameParameter.UsesIndex, GameParameter.ParameterDesc("装備アイテムの種類にあわせたフレームをImageに設定します。フレームの設定はGameSettings.ItemIconsを参照します。")] EQUIPMENT_FRAME = 163, // 0x000000A3
       [GameParameter.ParameterDesc("クエストリストで使用するチャプター(章)の名前")] QUESTLIST_CHAPTERNAME = 164, // 0x000000A4
       [GameParameter.ParameterDesc("クエストリストで使用するセクション(部)の名前")] QUESTLIST_SECTIONNAME = 165, // 0x000000A5
       [GameParameter.ParameterDesc("メールの文面")] MAIL_MESSAGE = 166, // 0x000000A6
-      [GameParameter.ParameterDesc("マルチクエストが通常マップかイベントマップかどうかでImageArrayのインデックスを切り替えます。0=通常、1=イベント"), GameParameter.InstanceTypes(typeof (GameParameter.QuestInstanceTypes))] QUEST_MULTI_TYPE = 167, // 0x000000A7
+      [GameParameter.InstanceTypes(typeof (GameParameter.QuestInstanceTypes)), GameParameter.ParameterDesc("マルチクエストが通常マップかイベントマップかどうかでImageArrayのインデックスを切り替えます。0=通常、1=イベント")] QUEST_MULTI_TYPE = 167, // 0x000000A7
       [GameParameter.ParameterDesc("マルチプレイヤーの名前")] MULTI_PLAYER_NAME = 168, // 0x000000A8
       [GameParameter.ParameterDesc("マルチプレイヤーのレベル")] MULTI_PLAYER_LEVEL = 169, // 0x000000A9
-      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("マルチプレイヤーの状態( Index: 0 == 否定 / 1 == 完全一致"), GameParameter.InstanceTypes(typeof (JSON_MyPhotonPlayerParam.EState)), GameParameter.UsesIndex] MULTI_PLAYER_STATE = 170, // 0x000000AA
-      [GameParameter.ParameterDesc("マルチプレイヤーのユニットアイコン"), GameParameter.AlwaysUpdate, GameParameter.UsesIndex] MULTI_PLAYER_UNIT_ICON = 171, // 0x000000AB
+      [GameParameter.ParameterDesc("マルチプレイヤーの状態( Index: 0 == 否定 / 1 == 完全一致"), GameParameter.UsesIndex, GameParameter.InstanceTypes(typeof (JSON_MyPhotonPlayerParam.EState)), GameParameter.AlwaysUpdate] MULTI_PLAYER_STATE = 170, // 0x000000AA
+      [GameParameter.ParameterDesc("マルチプレイヤーのユニットアイコン"), GameParameter.UsesIndex, GameParameter.AlwaysUpdate] MULTI_PLAYER_UNIT_ICON = 171, // 0x000000AB
       [GameParameter.ParameterDesc("メールで付与されるアイテムの文字列表現")] MAIL_GIFT_STRING = 172, // 0x000000AC
       [GameParameter.ParameterDesc("メールの有効期限")] MAIL_GIFT_LIMIT = 173, // 0x000000AD
       [GameParameter.ParameterDesc("メールを既読にした日時")] MAIL_GIFT_GETAT = 174, // 0x000000AE
@@ -6317,7 +7582,7 @@ namespace SRPG
       [GameParameter.ParameterDesc("マルチ部屋リストの部屋主名")] MULTI_ROOM_LIST_OWNER_NAME = 176, // 0x000000B0
       [GameParameter.ParameterDesc("マルチ部屋リストの部屋主レベル")] MULTI_ROOM_LIST_OWNER_LV = 177, // 0x000000B1
       [GameParameter.ParameterDesc("マルチ部屋リストのクエスト名")] MULTI_ROOM_LIST_QUEST_NAME = 178, // 0x000000B2
-      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("マルチ部屋リストの鍵アイコン. 0:鍵あり 1:鍵なし"), GameParameter.UsesIndex] MULTI_ROOM_LIST_LOCKED_ICON = 179, // 0x000000B3
+      [GameParameter.ParameterDesc("マルチ部屋リストの鍵アイコン. 0:鍵あり 1:鍵なし"), GameParameter.AlwaysUpdate, GameParameter.UsesIndex] MULTI_ROOM_LIST_LOCKED_ICON = 179, // 0x000000B3
       [GameParameter.ParameterDesc("マルチ部屋リストの参加人数")] MULTI_ROOM_LIST_PLAYER_NUM = 180, // 0x000000B4
       [GameParameter.ParameterDesc("プレイヤーのフレンドコード")] GLOBAL_PLAYER_FRIENDCODE = 181, // 0x000000B5
       [GameParameter.ParameterDesc("フレンドのフレンドコード")] FRIEND_FRIENDCODE = 182, // 0x000000B6
@@ -6330,89 +7595,89 @@ namespace SRPG
       [GameParameter.ParameterDesc("売却アイテムの選択インデックス")] SHOP_ITEM_SELLINDEX = 189, // 0x000000BD
       [GameParameter.ParameterDesc("売却アイテムの選択数")] SHOP_ITEM_SELLSELECTCOUNT = 190, // 0x000000BE
       [GameParameter.ParameterDesc("ショップ総売却価格")] SHOP_SELLPRICETOTAL = 191, // 0x000000BF
-      [GameParameter.ParameterDesc("ショップアイテムのインベントリ設定状態で表示状態を切り替え"), GameParameter.AlwaysUpdate] SHOP_ITEM_STATE_INVENTORY = 192, // 0x000000C0
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("ショップアイテムのインベントリ設定状態で表示状態を切り替え")] SHOP_ITEM_STATE_INVENTORY = 192, // 0x000000C0
       [GameParameter.ParameterDesc("ショップアイテムの設置数を取得")] SHOP_ITEM_BUYAMOUNT = 193, // 0x000000C1
       [GameParameter.ParameterDesc("ショップアイテムの購入総額を取得")] SHOP_ITEM_BUYPRICE = 194, // 0x000000C2
-      [GameParameter.ParameterDesc("ショップアイテムの売却済み状態で表示状態を切り替え"), GameParameter.AlwaysUpdate] SHOP_ITEM_STATE_SOLDOUT = 195, // 0x000000C3
-      [GameParameter.UsesIndex, GameParameter.ParameterDesc("ショップアイテムの購入通貨別のアイコン")] SHOP_ITEM_BUYTYPEICON = 196, // 0x000000C4
-      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("ショップアイテムの売却選択状態で表示状態を切り替え")] SHOP_ITEM_STATE_SELLSELECT = 197, // 0x000000C5
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("ショップアイテムの売却済み状態で表示状態を切り替え")] SHOP_ITEM_STATE_SOLDOUT = 195, // 0x000000C3
+      [GameParameter.ParameterDesc("ショップアイテムの購入通貨別のアイコン"), GameParameter.UsesIndex] SHOP_ITEM_BUYTYPEICON = 196, // 0x000000C4
+      [GameParameter.ParameterDesc("ショップアイテムの売却選択状態で表示状態を切り替え"), GameParameter.AlwaysUpdate] SHOP_ITEM_STATE_SELLSELECT = 197, // 0x000000C5
       [GameParameter.ParameterDesc("ショップアイテムのアイコン上の売却数")] SHOP_ITEM_ICONSELLNUM = 198, // 0x000000C6
       [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("装備可能ユニットが存在する場合のバッジアイコンの表示状態の切り替え")] SHOP_ITEM_STATE_ENABLEEQUIPUNIT = 199, // 0x000000C7
       [GameParameter.ParameterDesc("ショップアイテムの商品一覧の更新時間")] SHOP_ITEM_UPDATETIME = 200, // 0x000000C8
       [GameParameter.ParameterDesc("プレイヤーに来ているフレンド申請通知の数")] PLAYER_FRIENDREQUESTNUM = 201, // 0x000000C9
-      [GameParameter.UsesIndex, GameParameter.ParameterDesc("ユニットのIndexで指定したジョブのクラスチェンジ先のジョブのアイコン"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_JOB_CLASSCHANGE_JOBICON = 202, // 0x000000CA
+      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットのIndexで指定したジョブのクラスチェンジ先のジョブのアイコン"), GameParameter.UsesIndex] UNIT_JOB_CLASSCHANGE_JOBICON = 202, // 0x000000CA
       [GameParameter.ParameterDesc("ユニットのIndexで指定したジョブの名前"), GameParameter.UsesIndex, GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_JOB_CLASSCHANGE_NAME = 203, // 0x000000CB
       [GameParameter.ParameterDesc("ユニットのIndexで指定したジョブのクラスチェンジ先のジョブのアイコン"), GameParameter.UsesIndex, GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_JOB_CLASSCHANGE_JOBICON2 = 204, // 0x000000CC
       [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("ショップアイテムのアイコン上の売却数表示切り替え")] SHOP_ITEM_ICONSELLNUMSHOWED = 205, // 0x000000CD
       [GameParameter.ParameterDesc("プレイヤーのフレンド保持上限")] PLAYER_FRIENDMAX = 206, // 0x000000CE
       [GameParameter.ParameterDesc("プレイヤーの保持しているフレンドの数")] PLAYER_FRIENDNUM = 207, // 0x000000CF
-      [GameParameter.ParameterDesc("ユニットの長い説明文"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_PROFILETEXT = 208, // 0x000000D0
+      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットの長い説明文")] UNIT_PROFILETEXT = 208, // 0x000000D0
       [GameParameter.ParameterDesc("ユニットのイメージ画像"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_IMAGE = 209, // 0x000000D1
       [GameParameter.ParameterDesc("マルチ部屋リストの募集人数")] MULTI_ROOM_LIST_PLAYER_NUM_MAX = 210, // 0x000000D2
-      [GameParameter.ParameterDesc("マルチプレイヤーのユニットアイコンフレーム"), GameParameter.AlwaysUpdate, GameParameter.UsesIndex] MULTI_PLAYER_UNIT_ICON_FRAME = 211, // 0x000000D3
+      [GameParameter.ParameterDesc("マルチプレイヤーのユニットアイコンフレーム"), GameParameter.UsesIndex, GameParameter.AlwaysUpdate] MULTI_PLAYER_UNIT_ICON_FRAME = 211, // 0x000000D3
       [GameParameter.ParameterDesc("マルチプレイヤーのプレイヤーID")] MULTI_PLAYER_INDEX = 212, // 0x000000D4
-      [GameParameter.ParameterDesc("マルチプレイヤーが部屋主のときに表示"), GameParameter.AlwaysUpdate] MULTI_PLAYER_IS_ROOM_OWNER = 213, // 0x000000D5
-      [GameParameter.ParameterDesc("マルチプレイヤーがいないときに表示"), GameParameter.AlwaysUpdate] MULTI_PLAYER_IS_EMPTY = 214, // 0x000000D6
-      [GameParameter.ParameterDesc("マルチプレイヤーがいるときに表示"), GameParameter.AlwaysUpdate] MULTI_PLAYER_IS_VALID = 215, // 0x000000D7
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("マルチプレイヤーが部屋主のときに表示")] MULTI_PLAYER_IS_ROOM_OWNER = 213, // 0x000000D5
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("マルチプレイヤーがいないときに表示")] MULTI_PLAYER_IS_EMPTY = 214, // 0x000000D6
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("マルチプレイヤーがいるときに表示")] MULTI_PLAYER_IS_VALID = 215, // 0x000000D7
       [GameParameter.ParameterDesc("実績の名前")] TROPHY_NAME = 216, // 0x000000D8
       [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("共闘マルチのとき表示")] MULTI_ROOM_TYPE_IS_RAID = 217, // 0x000000D9
-      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("対戦マルチのとき表示")] MULTI_ROOM_TYPE_IS_VERSUS = 218, // 0x000000DA
+      [GameParameter.ParameterDesc("対戦マルチのとき表示"), GameParameter.AlwaysUpdate] MULTI_ROOM_TYPE_IS_VERSUS = 218, // 0x000000DA
       [GameParameter.ParameterDesc("マルチパーティの総攻撃力")] MULTI_PARTY_TOTALATK = 219, // 0x000000DB
-      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("現在のユニット操作プレイヤーID")] MULTI_CURRENT_PLAYER_INDEX = 220, // 0x000000DC
-      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("自キャラ行動までの残りターン")] MULTI_MY_NEXT_TURN = 221, // 0x000000DD
-      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("残りの入力制限時間")] MULTI_INPUT_TIME_LIMIT = 222, // 0x000000DE
-      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("現在のユニット操作プレイヤー名")] MULTI_CURRENT_PLAYER_NAME = 223, // 0x000000DF
+      [GameParameter.ParameterDesc("現在のユニット操作プレイヤーID"), GameParameter.AlwaysUpdate] MULTI_CURRENT_PLAYER_INDEX = 220, // 0x000000DC
+      [GameParameter.ParameterDesc("自キャラ行動までの残りターン"), GameParameter.AlwaysUpdate] MULTI_MY_NEXT_TURN = 221, // 0x000000DD
+      [GameParameter.ParameterDesc("残りの入力制限時間"), GameParameter.AlwaysUpdate] MULTI_INPUT_TIME_LIMIT = 222, // 0x000000DE
+      [GameParameter.ParameterDesc("現在のユニット操作プレイヤー名"), GameParameter.AlwaysUpdate] MULTI_CURRENT_PLAYER_NAME = 223, // 0x000000DF
       [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("鍵つき部屋を作るとき表示")] QUEST_MULTI_LOCK = 224, // 0x000000E0
-      [GameParameter.ParameterDesc("現在の部屋コメント"), GameParameter.AlwaysUpdate] MULTI_CURRENT_ROOM_COMMENT = 225, // 0x000000E1
-      [GameParameter.ParameterDesc("現在の部屋パスコード/0 == 半角 / 1 == 全角"), GameParameter.UsesIndex] MULTI_CURRENT_ROOM_PASSCODE = 226, // 0x000000E2
-      [GameParameter.ParameterDesc("ユニットが不参加スロット枠のとき表示"), GameParameter.AlwaysUpdate, GameParameter.UsesIndex] MULTI_CURRENT_ROOM_UNIT_SLOT_DISABLE = 227, // 0x000000E3
-      [GameParameter.ParameterDesc("現在の部屋のクエスト名"), GameParameter.AlwaysUpdate] MULTI_CURRENT_ROOM_QUEST_NAME = 228, // 0x000000E4
-      [GameParameter.ParameterDesc("マルチプレイのとき非表示(0)/表示(1)/NotInteractive(2)/Interactive(3)"), GameParameter.UsesIndex, GameParameter.AlwaysUpdate] QUEST_IS_MULTI = 229, // 0x000000E5
-      [GameParameter.InstanceTypes(typeof (GameParameter.TrophyConditionInstances)), GameParameter.ParameterDesc("実績の条件のテキスト"), GameParameter.UsesIndex] TROPHY_CONDITION_TITLE = 230, // 0x000000E6
-      [GameParameter.InstanceTypes(typeof (GameParameter.TrophyConditionInstances)), GameParameter.UsesIndex, GameParameter.ParameterDesc("実績の条件のカウント、スライダーにもできるよ")] TROPHY_CONDITION_COUNT = 231, // 0x000000E7
-      [GameParameter.UsesIndex, GameParameter.ParameterDesc("実績の条件の必要カウント"), GameParameter.InstanceTypes(typeof (GameParameter.TrophyConditionInstances))] TROPHY_CONDITION_COUNTMAX = 232, // 0x000000E8
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("現在の部屋コメント")] MULTI_CURRENT_ROOM_COMMENT = 225, // 0x000000E1
+      [GameParameter.UsesIndex, GameParameter.ParameterDesc("現在の部屋パスコード/0 == 半角 / 1 == 全角")] MULTI_CURRENT_ROOM_PASSCODE = 226, // 0x000000E2
+      [GameParameter.AlwaysUpdate, GameParameter.UsesIndex, GameParameter.ParameterDesc("ユニットが不参加スロット枠のとき表示")] MULTI_CURRENT_ROOM_UNIT_SLOT_DISABLE = 227, // 0x000000E3
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("現在の部屋のクエスト名")] MULTI_CURRENT_ROOM_QUEST_NAME = 228, // 0x000000E4
+      [GameParameter.ParameterDesc("マルチプレイのとき非表示(0)/表示(1)/NotInteractive(2)/Interactive(3)"), GameParameter.AlwaysUpdate, GameParameter.UsesIndex] QUEST_IS_MULTI = 229, // 0x000000E5
+      [GameParameter.ParameterDesc("実績の条件のテキスト"), GameParameter.InstanceTypes(typeof (GameParameter.TrophyConditionInstances)), GameParameter.UsesIndex] TROPHY_CONDITION_TITLE = 230, // 0x000000E6
+      [GameParameter.ParameterDesc("実績の条件のカウント、スライダーにもできるよ"), GameParameter.UsesIndex, GameParameter.InstanceTypes(typeof (GameParameter.TrophyConditionInstances))] TROPHY_CONDITION_COUNT = 231, // 0x000000E7
+      [GameParameter.UsesIndex, GameParameter.InstanceTypes(typeof (GameParameter.TrophyConditionInstances)), GameParameter.ParameterDesc("実績の条件の必要カウント")] TROPHY_CONDITION_COUNTMAX = 232, // 0x000000E8
       [GameParameter.ParameterDesc("アイテムの素材経験値"), GameParameter.InstanceTypes(typeof (GameParameter.ItemInstanceTypes))] ITEM_ENHANCEPOINT = 233, // 0x000000E9
       [GameParameter.ParameterDesc("装備アイテムの強化素材の選択数")] EQUIPITEM_ENHANCE_MATERIALSELECTCOUNT = 234, // 0x000000EA
-      [GameParameter.InstanceTypes(typeof (GameParameter.ItemInstanceTypes)), GameParameter.ParameterDesc("アイテム所持数によって表示状態を変更（0個の場合非表示）"), GameParameter.AlwaysUpdate] ITEM_SHOWED_AMOUNT = 235, // 0x000000EB
+      [GameParameter.AlwaysUpdate, GameParameter.InstanceTypes(typeof (GameParameter.ItemInstanceTypes)), GameParameter.ParameterDesc("アイテム所持数によって表示状態を変更（0個の場合非表示）")] ITEM_SHOWED_AMOUNT = 235, // 0x000000EB
       [GameParameter.ParameterDesc("強化パラメータ名")] EQUIPITEM_PARAMETER_NAME = 236, // 0x000000EC
       [GameParameter.ParameterDesc("装備アイテムの初期値")] EQUIPITEM_PARAMETER_INITVALUE = 237, // 0x000000ED
       [GameParameter.ParameterDesc("装備アイテムの上昇値")] EQUIPITEM_PARAMETER_RANKUPVALUE = 238, // 0x000000EE
       [GameParameter.ParameterDesc("装備アイテムの上昇量に応じて表示状態を変更"), GameParameter.AlwaysUpdate] EQUIPITEM_PARAMETER_SHOWED_RANKUPVALUE = 239, // 0x000000EF
-      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("装備アイテムの強化素材の選択個数によって表示状態を変更（選択数が0の場合は非表示）")] EQUIPITEM_ENHANCE_SHOWED_MATERIALSELECTCOUNT = 240, // 0x000000F0
-      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("装備アイテムの強化素材の選択状態によって表示状態を変更（選択していない場合は非表示）")] EQUIPITEM_ENHANCE_SHOWED_MATERIALSELECT = 241, // 0x000000F1
+      [GameParameter.ParameterDesc("装備アイテムの強化素材の選択個数によって表示状態を変更（選択数が0の場合は非表示）"), GameParameter.AlwaysUpdate] EQUIPITEM_ENHANCE_SHOWED_MATERIALSELECTCOUNT = 240, // 0x000000F0
+      [GameParameter.ParameterDesc("装備アイテムの強化素材の選択状態によって表示状態を変更（選択していない場合は非表示）"), GameParameter.AlwaysUpdate] EQUIPITEM_ENHANCE_SHOWED_MATERIALSELECT = 241, // 0x000000F1
       [GameParameter.ParameterDesc("装備アイテムの強化ゲージ")] EQUIPITEM_ENHANCE_GAUGE = 242, // 0x000000F2
       [GameParameter.ParameterDesc("装備アイテムの現在の強化ポイント")] EQUIPITEM_ENHANCE_CURRENTEXP = 243, // 0x000000F3
       [GameParameter.ParameterDesc("装備アイテムのランクアップまでの強化ポイント")] EQUIPITEM_ENHANCE_NEXTEXP = 244, // 0x000000F4
       [GameParameter.ParameterDesc("装備アイテムの強化前のランク")] EQUIPITEM_ENHANCE_RANKBEFORE = 245, // 0x000000F5
       [GameParameter.ParameterDesc("装備アイテムの強化後のランク")] EQUIPITEM_ENHANCE_RANKAFTER = 246, // 0x000000F6
-      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("装備アイテムのランクに応じたイメージを使用します")] EQUIPDATA_RANKBADGE = 247, // 0x000000F7
-      [GameParameter.ParameterDesc("機能がアンロックされている場合のみ表示"), GameParameter.InstanceTypes(typeof (UnlockTargets))] UNLOCK_SHOWED = 248, // 0x000000F8
+      [GameParameter.ParameterDesc("装備アイテムのランクに応じたイメージを使用します"), GameParameter.AlwaysUpdate] EQUIPDATA_RANKBADGE = 247, // 0x000000F7
+      [GameParameter.InstanceTypes(typeof (UnlockTargets)), GameParameter.ParameterDesc("機能がアンロックされている場合のみ表示")] UNLOCK_SHOWED = 248, // 0x000000F8
       [GameParameter.ParameterDesc("切断されたプレイヤーIndex")] MULTI_NOTIFY_DISCONNECTED_PLAYER_INDEX = 249, // 0x000000F9
-      [GameParameter.UsesIndex, GameParameter.ParameterDesc("切断されたプレイヤーが(0:部屋主じゃなかったとき表示 1:他人が部屋主になったとき表示 2:自分が部屋主になったとき表示)")] MULTI_NOTIFY_DISCONNECTED_PLAYER_IS_ROOM_OWNER = 250, // 0x000000FA
-      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("行動順のプレイヤーが切断されているとき表示(0) 非表示(1)"), GameParameter.UsesIndex] MULTI_CURRENT_PLAYER_IS_DISCONNECTED = 251, // 0x000000FB
-      [GameParameter.ParameterDesc("行動順のプレイヤーが部屋主かどうか"), GameParameter.AlwaysUpdate] MULTI_CURRENT_PLAYER_IS_ROOM_OWNER = 252, // 0x000000FC
-      [GameParameter.UsesIndex, GameParameter.ParameterDesc("自分が部屋主のとき表示(0) 非表示(1)"), GameParameter.AlwaysUpdate] MULTI_I_AM_ROOM_OWNER = 253, // 0x000000FD
-      [GameParameter.ParameterDesc("部屋主のプレイヤーIndex"), GameParameter.AlwaysUpdate] MULTI_ROOM_OWNER_PLAYER_INDEX = 254, // 0x000000FE
+      [GameParameter.ParameterDesc("切断されたプレイヤーが(0:部屋主じゃなかったとき表示 1:他人が部屋主になったとき表示 2:自分が部屋主になったとき表示)"), GameParameter.UsesIndex] MULTI_NOTIFY_DISCONNECTED_PLAYER_IS_ROOM_OWNER = 250, // 0x000000FA
+      [GameParameter.UsesIndex, GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("行動順のプレイヤーが切断されているとき表示(0) 非表示(1)")] MULTI_CURRENT_PLAYER_IS_DISCONNECTED = 251, // 0x000000FB
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("行動順のプレイヤーが部屋主かどうか")] MULTI_CURRENT_PLAYER_IS_ROOM_OWNER = 252, // 0x000000FC
+      [GameParameter.ParameterDesc("自分が部屋主のとき表示(0) 非表示(1)"), GameParameter.UsesIndex, GameParameter.AlwaysUpdate] MULTI_I_AM_ROOM_OWNER = 253, // 0x000000FD
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("部屋主のプレイヤーIndex")] MULTI_ROOM_OWNER_PLAYER_INDEX = 254, // 0x000000FE
       [GameParameter.ParameterDesc("ガチャでドロップしたものの名称")] GACHA_DROPNAME = 255, // 0x000000FF
-      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("達成済みデイリーミッションの有無で表示状態を切り替える"), GameParameter.InstanceTypes(typeof (GameParameter.TrophyBadgeInstanceTypes))] TROPHY_BADGE = 256, // 0x00000100
-      [GameParameter.ParameterDesc("実績の報酬ゴールド。ゴールドが0なら自身を非表示にする。"), GameParameter.AlwaysUpdate] TROPHY_REWARDGOLD = 257, // 0x00000101
+      [GameParameter.ParameterDesc("達成済みデイリーミッションの有無で表示状態を切り替える"), GameParameter.InstanceTypes(typeof (GameParameter.TrophyBadgeInstanceTypes)), GameParameter.AlwaysUpdate] TROPHY_BADGE = 256, // 0x00000100
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("実績の報酬ゴールド。ゴールドが0なら自身を非表示にする。")] TROPHY_REWARDGOLD = 257, // 0x00000101
       [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("実績の報酬コイン。コインが0なら自身を非表示にする。")] TROPHY_REWARDCOIN = 258, // 0x00000102
       [GameParameter.ParameterDesc("実績の報酬プレイヤー経験値。経験値が0なら自身を非表示にする。"), GameParameter.AlwaysUpdate] TROPHY_REWARDEXP = 259, // 0x00000103
       [GameParameter.ParameterDesc("報酬に含まれる経験値")] REWARD_EXP = 260, // 0x00000104
       [GameParameter.ParameterDesc("報酬に含まれるコイン")] REWARD_COIN = 261, // 0x00000105
       [GameParameter.ParameterDesc("報酬に含まれるゴールド")] REWARD_GOLD = 262, // 0x00000106
       [GameParameter.ParameterDesc("ユニットのお気に入りロック状態"), GameParameter.AlwaysUpdate] UNIT_FAVORITE = 263, // 0x00000107
-      [GameParameter.ParameterDesc("装備アイテムの種類にあわせたフレームをImageに設定します。フレームの設定はGameSettings.ItemIconsを参照します。"), GameParameter.InstanceTypes(typeof (GameParameter.ItemInstanceTypes)), GameParameter.UsesIndex] EQUIPDATA_FRAME = 264, // 0x00000108
-      [GameParameter.ParameterDesc("ジョブのランクにあわせてImageArrayを切り替えます"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_JOBRANKFRAME = 265, // 0x00000109
+      [GameParameter.UsesIndex, GameParameter.InstanceTypes(typeof (GameParameter.ItemInstanceTypes)), GameParameter.ParameterDesc("装備アイテムの種類にあわせたフレームをImageに設定します。フレームの設定はGameSettings.ItemIconsを参照します。")] EQUIPDATA_FRAME = 264, // 0x00000108
+      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ジョブのランクにあわせてImageArrayを切り替えます")] UNIT_JOBRANKFRAME = 265, // 0x00000109
       [GameParameter.ParameterDesc("ローカルプレイヤーのレベルによってキャップされたユニットの最大レベル"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_CAPPEDLEVELMAX = 266, // 0x0000010A
       [GameParameter.ParameterDesc("リビジョン番号")] APPLICATION_REVISION = 267, // 0x0000010B
       [GameParameter.ParameterDesc("ビルドID")] APPLICATION_BUILD = 268, // 0x0000010C
       [GameParameter.ParameterDesc("アセットのリビジョン番号")] APPLICATION_ASSETREVISION = 269, // 0x0000010D
       [GameParameter.ParameterDesc("プロダクト名称")] PRODUCT_NAME = 270, // 0x0000010E
       [GameParameter.ParameterDesc("プロダクト値段")] PRODUCT_PRICE = 271, // 0x0000010F
-      [GameParameter.ParameterDesc("アリーナプレイヤーの順位"), GameParameter.InstanceTypes(typeof (GameParameter.ArenaPlayerInstanceTypes))] ARENAPLAYER_RANK = 272, // 0x00000110
+      [GameParameter.InstanceTypes(typeof (GameParameter.ArenaPlayerInstanceTypes)), GameParameter.ParameterDesc("アリーナプレイヤーの順位")] ARENAPLAYER_RANK = 272, // 0x00000110
       [GameParameter.ParameterDesc("アリーナプレイヤーの総攻撃力"), GameParameter.InstanceTypes(typeof (GameParameter.ArenaPlayerInstanceTypes))] ARENAPLAYER_TOTALATK = 273, // 0x00000111
-      [GameParameter.InstanceTypes(typeof (GameParameter.ArenaPlayerInstanceTypes)), GameParameter.ParameterDesc("アリーナプレイヤーのリーダースキル")] ARENAPLAYER_LEADERSKILLNAME = 274, // 0x00000112
+      [GameParameter.ParameterDesc("アリーナプレイヤーのリーダースキル"), GameParameter.InstanceTypes(typeof (GameParameter.ArenaPlayerInstanceTypes))] ARENAPLAYER_LEADERSKILLNAME = 274, // 0x00000112
       [GameParameter.InstanceTypes(typeof (GameParameter.ArenaPlayerInstanceTypes)), GameParameter.ParameterDesc("アリーナプレイヤーのリーダースキルの説明")] ARENAPLAYER_LEADERSKILLDESC = 275, // 0x00000113
       [GameParameter.ParameterDesc("アリーナプレイヤーの名前"), GameParameter.InstanceTypes(typeof (GameParameter.ArenaPlayerInstanceTypes))] ARENAPLAYER_NAME = 276, // 0x00000114
       [GameParameter.ParameterDesc("プレイヤーのアリーナランク")] GLOBAL_PLAYER_ARENARANK = 277, // 0x00000115
@@ -6424,51 +7689,51 @@ namespace SRPG
       [GameParameter.UsesIndex, GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("ユニットが不参加スロット枠のとき押せない")] MULTI_CURRENT_ROOM_UNIT_SLOT_DISABLE_NOT_INTERACTIVE = 283, // 0x0000011B
       [GameParameter.ParameterDesc("お客様コード")] GLOBAL_PLAYER_OKYAKUSAMACODE = 284, // 0x0000011C
       [GameParameter.ParameterDesc("機能がアンロックされている場合のみ有効"), GameParameter.InstanceTypes(typeof (UnlockTargets))] UNLOCK_ENABLED = 285, // 0x0000011D
-      [GameParameter.InstanceTypes(typeof (UnlockTargets)), GameParameter.ParameterDesc("機能がアンロックされていると表示されなくなる"), GameParameter.AlwaysUpdate] UNLOCK_HIDDEN = 286, // 0x0000011E
+      [GameParameter.ParameterDesc("機能がアンロックされていると表示されなくなる"), GameParameter.InstanceTypes(typeof (UnlockTargets)), GameParameter.AlwaysUpdate] UNLOCK_HIDDEN = 286, // 0x0000011E
       [GameParameter.ParameterDesc("報酬に含まれるアリーナメダル")] REWARD_ARENAMEDAL = 287, // 0x0000011F
       [GameParameter.ParameterDesc("ショップアイテムの商品一覧の更新日")] SHOP_ITEM_UPDATEDAY = 288, // 0x00000120
-      [GameParameter.ParameterDesc("アリーナプレイヤーのレベル"), GameParameter.InstanceTypes(typeof (GameParameter.ArenaPlayerInstanceTypes))] ARENAPLAYER_LEVEL = 289, // 0x00000121
+      [GameParameter.InstanceTypes(typeof (GameParameter.ArenaPlayerInstanceTypes)), GameParameter.ParameterDesc("アリーナプレイヤーのレベル")] ARENAPLAYER_LEVEL = 289, // 0x00000121
       [GameParameter.ParameterDesc("プレイヤーのVIPランク")] GLOBAL_PLAYER_VIPRANK = 290, // 0x00000122
-      [GameParameter.ParameterDesc("ユニットの装備品を更新"), GameParameter.UsesIndex] UNIT_EQUIPSLOT_UPDATE = 291, // 0x00000123
+      [GameParameter.UsesIndex, GameParameter.ParameterDesc("ユニットの装備品を更新")] UNIT_EQUIPSLOT_UPDATE = 291, // 0x00000123
       [GameParameter.ParameterDesc("ユニットパラメータ指定の初期状態でのアイコン表示")] UNITPARAM_ICON = 292, // 0x00000124
       [GameParameter.ParameterDesc("ユニットパラメータ指定の初期状態でのレアリティ")] UNITPARAM_RARITY = 293, // 0x00000125
       [GameParameter.ParameterDesc("ユニットパラメータ指定の初期状態でのジョブアイコン")] UNITPARAM_JOBICON = 294, // 0x00000126
       [GameParameter.ParameterDesc("ユニットパラメータ指定の初期状態での欠片所持数")] UNITPARAM_PIECE_AMOUNT = 295, // 0x00000127
       [GameParameter.ParameterDesc("ユニットパラメータ指定の初期状態での欠片必要数")] UNITPARAM_PIECE_NEED = 296, // 0x00000128
       [GameParameter.ParameterDesc("ユニットパラメータ指定の初期状態での欠片ゲージ")] UNITPARAM_PIECE_GAUGE = 297, // 0x00000129
-      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("ユニットパラメータ指定でアンロック可能か確認")] UNITPARAM_IS_UNLOCKED = 298, // 0x0000012A
+      [GameParameter.ParameterDesc("ユニットパラメータ指定でアンロック可能か確認"), GameParameter.AlwaysUpdate] UNITPARAM_IS_UNLOCKED = 298, // 0x0000012A
       [GameParameter.ParameterDesc("クエストで入手可能な欠片のフレーム"), GameParameter.InstanceTypes(typeof (GameParameter.QuestInstanceTypes))] QUEST_KAKERA_FRAME = 299, // 0x0000012B
-      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットの連携値")] UNIT_COMBINATION = 300, // 0x0000012C
-      [GameParameter.ParameterDesc("ユニットのジョブ変更可能か確認"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.AlwaysUpdate] UNIT_STATE_JOBCHANGED = 301, // 0x0000012D
-      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("ショップの主要通貨の表示状態")] SHOP_STATE_MAINCOSTFRAME = 302, // 0x0000012E
+      [GameParameter.ParameterDesc("ユニットの連携値"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_COMBINATION = 300, // 0x0000012C
+      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットのジョブ変更可能か確認"), GameParameter.AlwaysUpdate] UNIT_STATE_JOBCHANGED = 301, // 0x0000012D
+      [GameParameter.ParameterDesc("ショップの主要通貨の表示状態"), GameParameter.AlwaysUpdate] SHOP_STATE_MAINCOSTFRAME = 302, // 0x0000012E
       [GameParameter.ParameterDesc("ショップの主要通貨アイコン")] SHOP_MAINCOST_ICON = 303, // 0x0000012F
       [GameParameter.ParameterDesc("ショップの主要通貨の所持量")] SHOP_MAINCOST_AMOUNT = 304, // 0x00000130
-      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("対象ユニットの成長バッジ"), GameParameter.AlwaysUpdate] UNIT_BADGE_GROWUP = 305, // 0x00000131
-      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("対象ユニットの解放バッジ")] UNITPARAM_BADGE_UNLOCK = 306, // 0x00000132
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("対象ユニットの成長バッジ"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_BADGE_GROWUP = 305, // 0x00000131
+      [GameParameter.ParameterDesc("対象ユニットの解放バッジ"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNITPARAM_BADGE_UNLOCK = 306, // 0x00000132
       [GameParameter.ParameterDesc("アイテムで装備可能なユニットが存在する場合に表示状態を変更するバッジ"), GameParameter.AlwaysUpdate, GameParameter.InstanceTypes(typeof (GameParameter.ItemInstanceTypes))] ITEM_BADGE_EQUIPUNIT = 307, // 0x00000133
-      [GameParameter.ParameterDesc("ユニットのバッジ表示状態を変更"), GameParameter.AlwaysUpdate] BADGE_UNIT = 308, // 0x00000134
-      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("ユニット強化のバッジ表示状態を変更")] BADGE_UNITENHANCED = 309, // 0x00000135
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("ユニットのバッジ表示状態を変更")] BADGE_UNIT = 308, // 0x00000134
+      [GameParameter.ParameterDesc("ユニット強化のバッジ表示状態を変更"), GameParameter.AlwaysUpdate] BADGE_UNITENHANCED = 309, // 0x00000135
       [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("ユニット開放のバッジ表示状態を変更")] BADGE_UNITUNLOCKED = 310, // 0x00000136
       [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("ガチャのバッジ表示状態を変更")] BADGE_GACHA = 311, // 0x00000137
       [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("ゴールドガチャのバッジ表示状態を変更")] BADGE_GOLDGACHA = 312, // 0x00000138
       [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("レアガチャのバッジ表示状態を変更")] BADGE_RAREGACHA = 313, // 0x00000139
       [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("アリーナのバッジ表示状態を変更")] BADGE_ARENA = 314, // 0x0000013A
       [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("マルチプレイのバッジ表示状態を変更")] BADGE_MULTIPLAY = 315, // 0x0000013B
-      [GameParameter.ParameterDesc("デイリーミッションのバッジ表示状態を変更"), GameParameter.AlwaysUpdate] BADGE_DAILYMISSION = 316, // 0x0000013C
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("デイリーミッションのバッジ表示状態を変更")] BADGE_DAILYMISSION = 316, // 0x0000013C
       [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("フレンドのバッジ表示状態を変更")] BADGE_FRIEND = 317, // 0x0000013D
       [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("ギフトのバッジ表示状態を変更")] BADGE_GIFTBOX = 318, // 0x0000013E
       [GameParameter.ParameterDesc("ショートカットメニューのバッジ表示状態を変更"), GameParameter.AlwaysUpdate] BADGE_SHORTCUTMENU = 319, // 0x0000013F
       [GameParameter.ParameterDesc("現VIPランクにおけるVIPポイント。スライダー対応")] GLOBAL_PLAYER_VIPPOINT = 320, // 0x00000140
       [GameParameter.ParameterDesc("現VIPランクにおける最大VIPポイント")] GLOBAL_PLAYER_VIPPOINTMAX = 321, // 0x00000141
-      [GameParameter.ParameterDesc("プレイヤーの所持コイン (無料分)")] GLOBAL_PLAYER_COINFREE = 322, // 0x00000142
-      [GameParameter.ParameterDesc("プレイヤーの所持コイン (有料分)")] GLOBAL_PLAYER_COINPAID = 323, // 0x00000143
+      [GameParameter.ParameterDesc("プレイヤーの所持コイン (固有無償幻晶石)")] GLOBAL_PLAYER_COINFREE = 322, // 0x00000142
+      [GameParameter.ParameterDesc("プレイヤーの所持コイン (固有有償幻晶石)")] GLOBAL_PLAYER_COINPAID = 323, // 0x00000143
       [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットが編成中のパーティメンバーか？"), GameParameter.AlwaysUpdate] UNIT_STATE_PARTYMEMBER = 324, // 0x00000144
       [GameParameter.ParameterDesc("ログインボーナスの日付")] LOGINBONUS_DAYNUM = 325, // 0x00000145
       None = 326, // 0x00000146
-      [GameParameter.AlwaysUpdate, GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットがレベルソート中か？")] UNIT_STATE_LVSORT = 327, // 0x00000147
-      [GameParameter.ParameterDesc("ユニットがパラメータソート中か？"), GameParameter.AlwaysUpdate, GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_STATE_PARAMSORT = 328, // 0x00000148
+      [GameParameter.ParameterDesc("ユニットがレベルソート中か？"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.AlwaysUpdate] UNIT_STATE_LVSORT = 327, // 0x00000147
+      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットがパラメータソート中か？"), GameParameter.AlwaysUpdate] UNIT_STATE_PARAMSORT = 328, // 0x00000148
       [GameParameter.ParameterDesc("ユニットのソート対象パラメータの値"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_SORTTYPE_VALUE = 329, // 0x00000149
-      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("スキルの修得条件の表示有無")] SKILL_STATE_CONDITION = 330, // 0x0000014A
+      [GameParameter.ParameterDesc("スキルの修得条件の表示有無"), GameParameter.AlwaysUpdate] SKILL_STATE_CONDITION = 330, // 0x0000014A
       [GameParameter.ParameterDesc("スキルの修得条件")] SKILL_CONDITION = 331, // 0x0000014B
       [GameParameter.ParameterDesc("アビリティの修得条件")] ABILITY_CONDITION = 332, // 0x0000014C
       [GameParameter.ParameterDesc("ガチャのコスト")] GACHA_COST = 333, // 0x0000014D
@@ -6478,28 +7743,28 @@ namespace SRPG
       [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("無料通常ガチャのインターバル時間表示")] GACHA_GOLD_TIMER = 337, // 0x00000151
       [GameParameter.ParameterDesc("無料通常ガチャの状態によって表示状態変更"), GameParameter.AlwaysUpdate] GACHA_GOLD_STATE_TIMER = 338, // 0x00000152
       [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("無料通常ガチャのボタン状態変更")] GACHA_GOLD_STATE_INTERACTIVE = 339, // 0x00000153
-      [GameParameter.ParameterDesc("無料レアガチャのインターバル時間表示"), GameParameter.AlwaysUpdate] GACHA_COIN_TIMER = 340, // 0x00000154
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("無料レアガチャのインターバル時間表示")] GACHA_COIN_TIMER = 340, // 0x00000154
       [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("無料レアガチャの状態によって表示状態変更")] GACHA_COIN_STATE_TIMER = 341, // 0x00000155
-      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("無料レアガチャのボタン状態変更")] GACHA_COIN_STATE_INTERACTIVE = 342, // 0x00000156
-      [GameParameter.ParameterDesc("ユニットのイメージ画像2"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_IMAGE2 = 343, // 0x00000157
-      [GameParameter.InstanceTypes(typeof (GameParameter.ItemInstanceTypes)), GameParameter.ParameterDesc("アイテムのフレーバーテキスト"), GameParameter.UsesIndex] ITEM_FLAVOR = 344, // 0x00000158
-      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニット覚醒レベル"), GameParameter.AlwaysUpdate, GameParameter.UsesIndex] UNIT_AWAKE = 345, // 0x00000159
-      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("ユニットがフレンドか？")] SUPPORTER_ISFRIEND = 346, // 0x0000015A
+      [GameParameter.ParameterDesc("無料レアガチャのボタン状態変更"), GameParameter.AlwaysUpdate] GACHA_COIN_STATE_INTERACTIVE = 342, // 0x00000156
+      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットのイメージ画像2")] UNIT_IMAGE2 = 343, // 0x00000157
+      [GameParameter.InstanceTypes(typeof (GameParameter.ItemInstanceTypes)), GameParameter.UsesIndex, GameParameter.ParameterDesc("アイテムのフレーバーテキスト")] ITEM_FLAVOR = 344, // 0x00000158
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("ユニット覚醒レベル"), GameParameter.UsesIndex, GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_AWAKE = 345, // 0x00000159
+      [GameParameter.ParameterDesc("ユニットがフレンドか？"), GameParameter.AlwaysUpdate] SUPPORTER_ISFRIEND = 346, // 0x0000015A
       [GameParameter.ParameterDesc("ユニット覚醒レベル")] SUPPORTER_COST = 347, // 0x0000015B
-      [GameParameter.ParameterDesc("サムネイル化されたジョブのアイコンをImageコンポーネントに設定します"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] Unit_ThumbnailedJobIcon = 348, // 0x0000015C
-      [GameParameter.ParameterDesc("マルチプレイヤーのユニットジョブランクフレーム"), GameParameter.UsesIndex, GameParameter.AlwaysUpdate] MULTI_PLAYER_UNIT_JOBRANKFRAME = 349, // 0x0000015D
-      [GameParameter.UsesIndex, GameParameter.ParameterDesc("マルチプレイヤーのユニットジョブランク"), GameParameter.AlwaysUpdate] MULTI_PLAYER_UNIT_JOBRANK = 350, // 0x0000015E
-      [GameParameter.ParameterDesc("マルチプレイヤーのユニットジョブアイコン"), GameParameter.AlwaysUpdate, GameParameter.UsesIndex] MULTI_PLAYER_UNIT_JOBICON = 351, // 0x0000015F
-      [GameParameter.UsesIndex, GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("マルチプレイヤーのユニットレア度")] MULTI_PLAYER_UNIT_RARITY = 352, // 0x00000160
-      [GameParameter.ParameterDesc("マルチプレイヤーのユニット属性"), GameParameter.UsesIndex, GameParameter.AlwaysUpdate] MULTI_PLAYER_UNIT_ELEMENT = 353, // 0x00000161
-      [GameParameter.AlwaysUpdate, GameParameter.UsesIndex, GameParameter.ParameterDesc("マルチプレイヤーのユニットレベル")] MULTI_PLAYER_UNIT_LEVEL = 354, // 0x00000162
-      [GameParameter.ParameterDesc("実績の報酬スタミナ。スタミナが0なら自身を非表示にする。"), GameParameter.AlwaysUpdate] TROPHY_REWARDSTAMINA = 355, // 0x00000163
+      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("サムネイル化されたジョブのアイコンをImageコンポーネントに設定します")] Unit_ThumbnailedJobIcon = 348, // 0x0000015C
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("マルチプレイヤーのユニットジョブランクフレーム"), GameParameter.UsesIndex] MULTI_PLAYER_UNIT_JOBRANKFRAME = 349, // 0x0000015D
+      [GameParameter.ParameterDesc("マルチプレイヤーのユニットジョブランク"), GameParameter.AlwaysUpdate, GameParameter.UsesIndex] MULTI_PLAYER_UNIT_JOBRANK = 350, // 0x0000015E
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("マルチプレイヤーのユニットジョブアイコン"), GameParameter.UsesIndex] MULTI_PLAYER_UNIT_JOBICON = 351, // 0x0000015F
+      [GameParameter.UsesIndex, GameParameter.ParameterDesc("マルチプレイヤーのユニットレア度"), GameParameter.AlwaysUpdate] MULTI_PLAYER_UNIT_RARITY = 352, // 0x00000160
+      [GameParameter.AlwaysUpdate, GameParameter.UsesIndex, GameParameter.ParameterDesc("マルチプレイヤーのユニット属性")] MULTI_PLAYER_UNIT_ELEMENT = 353, // 0x00000161
+      [GameParameter.UsesIndex, GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("マルチプレイヤーのユニットレベル")] MULTI_PLAYER_UNIT_LEVEL = 354, // 0x00000162
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("実績の報酬スタミナ。スタミナが0なら自身を非表示にする。")] TROPHY_REWARDSTAMINA = 355, // 0x00000163
       [GameParameter.ParameterDesc("ジョブアイコン")] JOB_JOBICON = 356, // 0x00000164
       [GameParameter.ParameterDesc("ジョブ名")] JOB_NAME = 357, // 0x00000165
       [GameParameter.ParameterDesc("クエストでプレイヤーが得たマルチコイン")] QUESTRESULT_MULTICOIN = 358, // 0x00000166
       [GameParameter.UsesIndex, GameParameter.ParameterDesc("本日のマルチプレイ残り報酬獲得回数が0のとき表示(0)/非表示(1)/受け取れたとき表示(2)/受け取れなかったとき表示(3)/今回が最後のうけとりのとき表示(4)")] MULTI_REST_REWARD_IS_ZERO = 359, // 0x00000167
-      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("ユニットが参加スロット枠のとき表示"), GameParameter.UsesIndex] MULTI_CURRENT_ROOM_UNIT_SLOT_ENABLE = 360, // 0x00000168
-      [GameParameter.UsesIndex, GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("ユニットが割り当てられているスロット枠のとき表示")] MULTI_CURRENT_ROOM_UNIT_SLOT_VALID = 361, // 0x00000169
+      [GameParameter.ParameterDesc("ユニットが参加スロット枠のとき表示"), GameParameter.AlwaysUpdate, GameParameter.UsesIndex] MULTI_CURRENT_ROOM_UNIT_SLOT_ENABLE = 360, // 0x00000168
+      [GameParameter.AlwaysUpdate, GameParameter.UsesIndex, GameParameter.ParameterDesc("ユニットが割り当てられているスロット枠のとき表示")] MULTI_CURRENT_ROOM_UNIT_SLOT_VALID = 361, // 0x00000169
       [GameParameter.ParameterDesc("報酬に含まれるスタミナ")] REWARD_STAMINA = 362, // 0x0000016A
       [GameParameter.ParameterDesc("当日クエストに挑戦した回数")] QUEST_CHALLENGE_NUM = 363, // 0x0000016B
       [GameParameter.ParameterDesc("当日クエストに挑戦できる限度")] QUEST_CHALLENGE_MAX = 364, // 0x0000016C
@@ -6507,33 +7772,33 @@ namespace SRPG
       [GameParameter.ParameterDesc("クエストの挑戦回数をリセットできる限度")] QUEST_RESET_MAX = 366, // 0x0000016E
       [GameParameter.ParameterDesc("ジョブアイコン2")] JOB_JOBICON2 = 367, // 0x0000016F
       [GameParameter.ParameterDesc("ユニットの国"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] OBSOLETE_UNIT_PROFILE_COUNTRY = 368, // 0x00000170
-      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットの身長")] OBSOLETE_UNIT_PROFILE_HEIGHT = 369, // 0x00000171
-      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットの体重")] OBSOLETE_UNIT_PROFILE_WEIGHT = 370, // 0x00000172
-      [GameParameter.ParameterDesc("ユニットの誕生日"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] OBSOLETE_UNIT_PROFILE_BIRTHDAY = 371, // 0x00000173
-      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットの星座")] OBSOLETE_UNIT_PROFILE_ZODIAC = 372, // 0x00000174
-      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットの血液型")] OBSOLETE_UNIT_PROFILE_BLOOD = 373, // 0x00000175
-      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットの好きなもの")] OBSOLETE_UNIT_PROFILE_FAVORITE = 374, // 0x00000176
+      [GameParameter.ParameterDesc("ユニットの身長"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] OBSOLETE_UNIT_PROFILE_HEIGHT = 369, // 0x00000171
+      [GameParameter.ParameterDesc("ユニットの体重"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] OBSOLETE_UNIT_PROFILE_WEIGHT = 370, // 0x00000172
+      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットの誕生日")] OBSOLETE_UNIT_PROFILE_BIRTHDAY = 371, // 0x00000173
+      [GameParameter.ParameterDesc("ユニットの星座"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] OBSOLETE_UNIT_PROFILE_ZODIAC = 372, // 0x00000174
+      [GameParameter.ParameterDesc("ユニットの血液型"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] OBSOLETE_UNIT_PROFILE_BLOOD = 373, // 0x00000175
+      [GameParameter.ParameterDesc("ユニットの好きなもの"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] OBSOLETE_UNIT_PROFILE_FAVORITE = 374, // 0x00000176
       [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットの趣味")] OBSOLETE_UNIT_PROFILE_HOBBY = 375, // 0x00000177
       [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットの状態異常【毒】")] UNIT_STATE_CONDITION_POISON = 376, // 0x00000178
-      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("ユニットの状態異常【麻痺】"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_STATE_CONDITION_PARALYSED = 377, // 0x00000179
-      [GameParameter.ParameterDesc("ユニットの状態異常【スタン】"), GameParameter.AlwaysUpdate, GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_STATE_CONDITION_STUN = 378, // 0x0000017A
-      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("ユニットの状態異常【睡眠】"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_STATE_CONDITION_SLEEP = 379, // 0x0000017B
-      [GameParameter.AlwaysUpdate, GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットの状態異常【魅了】")] UNIT_STATE_CONDITION_CHARM = 380, // 0x0000017C
-      [GameParameter.ParameterDesc("ユニットの状態異常【石化】"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.AlwaysUpdate] UNIT_STATE_CONDITION_STONE = 381, // 0x0000017D
-      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("ユニットの状態異常【暗闇】")] UNIT_STATE_CONDITION_BLINDNESS = 382, // 0x0000017E
-      [GameParameter.AlwaysUpdate, GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットの状態異常【沈黙】")] UNIT_STATE_CONDITION_DISABLESKILL = 383, // 0x0000017F
-      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("ユニットの状態異常【移動禁止】"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_STATE_CONDITION_DISABLEMOVE = 384, // 0x00000180
-      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("ユニットの状態異常【攻撃禁止】"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_STATE_CONDITION_DISABLEATTACK = 385, // 0x00000181
-      [GameParameter.ParameterDesc("ユニットの状態異常【ゾンビ化・狂乱】"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.AlwaysUpdate] UNIT_STATE_CONDITION_ZOMBIE = 386, // 0x00000182
-      [GameParameter.ParameterDesc("ユニットの状態異常【死の宣告】"), GameParameter.AlwaysUpdate, GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_STATE_CONDITION_DEATHSENTENCE = 387, // 0x00000183
-      [GameParameter.ParameterDesc("ユニットの状態異常【狂化】"), GameParameter.AlwaysUpdate, GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_STATE_CONDITION_BERSERK = 388, // 0x00000184
-      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("ユニットの状態異常【ノックバック無効】"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_STATE_CONDITION_DISABLEKNOCKBACK = 389, // 0x00000185
-      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("ユニットの状態異常【バフ無効】"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_STATE_CONDITION_DISABLEBUFF = 390, // 0x00000186
+      [GameParameter.AlwaysUpdate, GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットの状態異常【麻痺】")] UNIT_STATE_CONDITION_PARALYSED = 377, // 0x00000179
+      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットの状態異常【スタン】"), GameParameter.AlwaysUpdate] UNIT_STATE_CONDITION_STUN = 378, // 0x0000017A
+      [GameParameter.ParameterDesc("ユニットの状態異常【睡眠】"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.AlwaysUpdate] UNIT_STATE_CONDITION_SLEEP = 379, // 0x0000017B
+      [GameParameter.ParameterDesc("ユニットの状態異常【魅了】"), GameParameter.AlwaysUpdate, GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_STATE_CONDITION_CHARM = 380, // 0x0000017C
+      [GameParameter.AlwaysUpdate, GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットの状態異常【石化】")] UNIT_STATE_CONDITION_STONE = 381, // 0x0000017D
+      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットの状態異常【暗闇】"), GameParameter.AlwaysUpdate] UNIT_STATE_CONDITION_BLINDNESS = 382, // 0x0000017E
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("ユニットの状態異常【沈黙】"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_STATE_CONDITION_DISABLESKILL = 383, // 0x0000017F
+      [GameParameter.ParameterDesc("ユニットの状態異常【移動禁止】"), GameParameter.AlwaysUpdate, GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_STATE_CONDITION_DISABLEMOVE = 384, // 0x00000180
+      [GameParameter.ParameterDesc("ユニットの状態異常【攻撃禁止】"), GameParameter.AlwaysUpdate, GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_STATE_CONDITION_DISABLEATTACK = 385, // 0x00000181
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("ユニットの状態異常【ゾンビ化・狂乱】"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_STATE_CONDITION_ZOMBIE = 386, // 0x00000182
+      [GameParameter.AlwaysUpdate, GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットの状態異常【死の宣告】")] UNIT_STATE_CONDITION_DEATHSENTENCE = 387, // 0x00000183
+      [GameParameter.ParameterDesc("ユニットの状態異常【狂化】"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.AlwaysUpdate] UNIT_STATE_CONDITION_BERSERK = 388, // 0x00000184
+      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットの状態異常【ノックバック無効】"), GameParameter.AlwaysUpdate] UNIT_STATE_CONDITION_DISABLEKNOCKBACK = 389, // 0x00000185
+      [GameParameter.ParameterDesc("ユニットの状態異常【バフ無効】"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.AlwaysUpdate] UNIT_STATE_CONDITION_DISABLEBUFF = 390, // 0x00000186
       [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットの状態異常【デバフ無効】"), GameParameter.AlwaysUpdate] UNIT_STATE_CONDITION_DISABLEDEBUFF = 391, // 0x00000187
-      [GameParameter.ParameterDesc("ターン表示のユニット陣営フレーム"), GameParameter.AlwaysUpdate, GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] TURN_UNIT_SIDE_FRAME = 392, // 0x00000188
+      [GameParameter.ParameterDesc("ターン表示のユニット陣営フレーム"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.AlwaysUpdate] TURN_UNIT_SIDE_FRAME = 392, // 0x00000188
       [GameParameter.ParameterDesc("JobSetの開放条件")] JOBSET_UNLOCKCONDITION = 393, // 0x00000189
-      [GameParameter.UsesIndex, GameParameter.ParameterDesc("マルチで自キャラ生存数が0のとき表示(0)/非表示(1)")] MULTI_REST_MY_UNIT_IS_ZERO = 394, // 0x0000018A
-      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("マルチ部屋画面で対象プレイヤーが自分のとき0:表示/1:非表示/2:ImageArrayのインデックス切り替え(0=自分 1=他人)/3:チーム編成ボタン/4:情報をみるボタン"), GameParameter.UsesIndex] MULTI_PLAYER_IS_ME = 395, // 0x0000018B
+      [GameParameter.ParameterDesc("マルチで自キャラ生存数が0のとき表示(0)/非表示(1)"), GameParameter.UsesIndex] MULTI_REST_MY_UNIT_IS_ZERO = 394, // 0x0000018A
+      [GameParameter.ParameterDesc("マルチ部屋画面で対象プレイヤーが自分のとき0:表示/1:非表示/2:ImageArrayのインデックス切り替え(0=自分 1=他人)/3:チーム編成ボタン/4:情報をみるボタン/5:チーム編成ボタン(マルチ塔)/6:プレイヤーがまだリザルト画面に存在するか"), GameParameter.AlwaysUpdate, GameParameter.UsesIndex] MULTI_PLAYER_IS_ME = 395, // 0x0000018B
       [GameParameter.ParameterDesc("クエストリストで使用するセクション(部)の説明")] QUESTLIST_SECTIONEXPR = 396, // 0x0000018C
       [GameParameter.ParameterDesc("マルチプレイの部屋に鍵がかかっているとき表示(0)/非表示(1)/部屋主かつ鍵ありで表示(2)/部屋主かつ鍵なしで表示(3)"), GameParameter.AlwaysUpdate, GameParameter.UsesIndex] MULTI_CURRENT_ROOM_IS_LOCKED = 397, // 0x0000018D
       [GameParameter.ParameterDesc("メールの受け取り日時")] MAIL_GIFT_RECEIVE = 398, // 0x0000018E
@@ -6541,10 +7806,10 @@ namespace SRPG
       [GameParameter.ParameterDesc("ユニットの現在のチャージタイム")] UNIT_CHARGETIME = 400, // 0x00000190
       [GameParameter.ParameterDesc("ユニットのチャージタイム")] UNIT_CHARGETIMEMAX = 401, // 0x00000191
       [GameParameter.ParameterDesc("ギミックオブジェクトの説明文")] GIMMICK_DESCRIPTION = 402, // 0x00000192
-      [GameParameter.UsesIndex, GameParameter.ParameterDesc("プロダクトDesc 0:そのまま 1:前半 2:後半")] PRODUCT_DESC = 403, // 0x00000193
+      [GameParameter.ParameterDesc("プロダクトDesc 0:そのまま 1:前半 2:後半"), GameParameter.UsesIndex] PRODUCT_DESC = 403, // 0x00000193
       [GameParameter.ParameterDesc("プロダクト個数 (x10)")] PRODUCT_NUMX = 404, // 0x00000194
-      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.ParameterDesc("ユニットの器用さ (ver1.1以降で表示されます)")] UNIT_DEX = 405, // 0x00000195
-      [GameParameter.ParameterDesc("アーティファクトの名前")] ARTIFACT_NAME = 406, // 0x00000196
+      [GameParameter.ParameterDesc("ユニットの器用さ (ver1.1以降で表示されます)"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_DEX = 405, // 0x00000195
+      [GameParameter.UsesIndex, GameParameter.ParameterDesc("アーティファクトの名前"), GameParameter.InstanceTypes(typeof (GameParameter.ArtifactInstanceTypes))] ARTIFACT_NAME = 406, // 0x00000196
       [GameParameter.ParameterDesc("アーティファクトのフレーバーテキスト")] ARTIFACT_DESC = 407, // 0x00000197
       [GameParameter.ParameterDesc("アーティファクトのボーナス条件")] ARTIFACT_SPEC = 408, // 0x00000198
       [GameParameter.ParameterDesc("アーティファクトのレアリティ")] ARTIFACT_RARITY = 409, // 0x00000199
@@ -6555,25 +7820,25 @@ namespace SRPG
       [GameParameter.ParameterDesc("フレンドユニットの最大レベル")] SUPPORTER_UNITCAPPEDLEVELMAX = 414, // 0x0000019E
       [GameParameter.ParameterDesc("欠片ポイント")] GLOBAL_PLAYER_PIECEPOINT = 415, // 0x0000019F
       [GameParameter.ParameterDesc("ショップ欠片ポイント総売却価格")] SHOP_KAKERA_SELLPRICETOTAL = 416, // 0x000001A0
-      [GameParameter.UsesIndex, GameParameter.InstanceTypes(typeof (GameParameter.ItemInstanceTypes)), GameParameter.ParameterDesc("魂の欠片の売却価格")] ITEM_KAKERA_PRICE = 417, // 0x000001A1
+      [GameParameter.ParameterDesc("魂の欠片の売却価格"), GameParameter.InstanceTypes(typeof (GameParameter.ItemInstanceTypes)), GameParameter.UsesIndex] ITEM_KAKERA_PRICE = 417, // 0x000001A1
       [GameParameter.ParameterDesc("魂の欠片変換の選択数分の価格")] SHOP_ITEM_KAKERA_SELLPRICE = 418, // 0x000001A2
       [GameParameter.ParameterDesc("報酬に含まれるマルチコイン")] REWARD_MULTICOIN = 419, // 0x000001A3
       [GameParameter.ParameterDesc("報酬に含まれる欠片ポイント")] REWARD_KAKERACOIN = 420, // 0x000001A4
-      [GameParameter.ParameterDesc("クエスト出撃条件(0)改行表記/(1)一行表記"), GameParameter.UsesIndex] QUEST_UNIT_ENTRYCONDITION = 421, // 0x000001A5
-      [GameParameter.ParameterDesc("クエスト出撃条件が設定されている場合に表示(0)/非表示(1)"), GameParameter.UsesIndex, GameParameter.AlwaysUpdate] QUEST_IS_UNIT_ENTRYCONDITION = 422, // 0x000001A6
+      [GameParameter.UsesIndex, GameParameter.ParameterDesc("クエスト出撃条件 (0)改行表記、指定文字なし/(1)一行表記、指定文字付/(2)改行表記、指定文字付")] QUEST_UNIT_ENTRYCONDITION = 421, // 0x000001A5
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("クエスト出撃条件が設定されている場合に表示(0)/非表示(1)"), GameParameter.UsesIndex] OBSOLETE_QUEST_IS_UNIT_ENTRYCONDITION = 422, // 0x000001A6
       [GameParameter.ParameterDesc("クエストにユニットが出撃可能な場合に表示(0)/非表示(1)"), GameParameter.AlwaysUpdate, GameParameter.UsesIndex] QUEST_IS_UNIT_ENABLEENTRYCONDITION = 423, // 0x000001A7
       [GameParameter.ParameterDesc("キャラクタークエスト：エピソード解放条件")] QUEST_CHARACTER_MAINUNITCONDITION = 424, // 0x000001A8
       [GameParameter.ParameterDesc("キャラクタークエスト：話数")] QUEST_CHARACTER_EPISODENUM = 425, // 0x000001A9
       [GameParameter.ParameterDesc("キャラクタークエスト：エピソード名")] QUEST_CHARACTER_EPISODENAME = 426, // 0x000001AA
       [GameParameter.ParameterDesc("限定ショップアイテムの残り購入可能数を取得")] SHOP_LIMITED_ITEM_BUYAMOUNT = 427, // 0x000001AB
-      [GameParameter.UsesIndex, GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("ユニットのIndexで指定したジョブがマスターしている場合に表示。Indexが-1の場合は選択中のジョブで判定。JobDataが直接設定されている場合はバインドされたJobDataで判定")] UNIT_IS_JOBMASTER = 428, // 0x000001AC
-      [GameParameter.AlwaysUpdate, GameParameter.UsesIndex, GameParameter.ParameterDesc("ユニット覚醒レベル"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_NEXTAWAKE = 429, // 0x000001AD
+      [GameParameter.ParameterDesc("ユニットのIndexで指定したジョブがマスターしている場合に表示。Indexが-1の場合は選択中のジョブで判定。JobDataが直接設定されている場合はバインドされたJobDataで判定"), GameParameter.AlwaysUpdate, GameParameter.UsesIndex] UNIT_IS_JOBMASTER = 428, // 0x000001AC
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("ユニット覚醒レベル"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.UsesIndex] UNIT_NEXTAWAKE = 429, // 0x000001AD
       [GameParameter.ParameterDesc("操作時間が延長された際に表示する秒数")] MULTIPLAY_ADD_INPUTTIME = 430, // 0x000001AE
-      [GameParameter.UsesIndex, GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("ユニットの限界突破最大値に達している場合にIndex:0で非表示。Index:1で表示。")] UNIT_IS_AWAKEMAX = 431, // 0x000001AF
-      [GameParameter.UsesIndex, GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("コンフィグでオートプレイ選択時場合にIndex:0で表示。Index:1で非表示。")] CONFIG_IS_AUTOPLAY = 432, // 0x000001B0
-      [GameParameter.ParameterDesc("フレンドがお気に入りなら表示(0)/非表示(1)"), GameParameter.UsesIndex, GameParameter.AlwaysUpdate] FRIEND_ISFAVORITE = 433, // 0x000001B1
-      [GameParameter.UsesIndex, GameParameter.ParameterDesc("キャラクタークエスト出撃条件(0)改行表記/(1)一行表記")] QUEST_CHARACTER_ENTRYCONDITION = 434, // 0x000001B2
-      [GameParameter.UsesIndex, GameParameter.ParameterDesc("キャラクタークエスト出撃条件が設定されている場合に表示(0)/非表示(1)"), GameParameter.AlwaysUpdate] QUEST_CHARACTER_IS_ENTRYCONDITION = 435, // 0x000001B3
+      [GameParameter.ParameterDesc("ユニットの限界突破最大値に達している場合にIndex:0で非表示。Index:1で表示。"), GameParameter.UsesIndex, GameParameter.AlwaysUpdate] UNIT_IS_AWAKEMAX = 431, // 0x000001AF
+      [GameParameter.UsesIndex, GameParameter.ParameterDesc("コンフィグでオートプレイ選択時場合にIndex:0で表示。Index:1で非表示。"), GameParameter.AlwaysUpdate] CONFIG_IS_AUTOPLAY = 432, // 0x000001B0
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("フレンドがお気に入りなら表示(0)/非表示(1)"), GameParameter.UsesIndex] FRIEND_ISFAVORITE = 433, // 0x000001B1
+      [GameParameter.ParameterDesc("キャラクタークエスト出撃条件(0)改行表記/(1)一行表記"), GameParameter.UsesIndex] QUEST_CHARACTER_ENTRYCONDITION = 434, // 0x000001B2
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("キャラクタークエスト出撃条件が設定されている場合に表示(0)/非表示(1)"), GameParameter.UsesIndex] QUEST_CHARACTER_IS_ENTRYCONDITION = 435, // 0x000001B3
       [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("キャラクタークエスト出撃条件のタイトル表示")] QUEST_CHARACTER_CONDITIONATTENTION = 436, // 0x000001B4
       [GameParameter.ParameterDesc("復帰したプレイヤーINDEX")] MULTIPLAY_RESUME_PLAYER_INDEX = 437, // 0x000001B5
       [GameParameter.ParameterDesc("復帰したプレイヤーがホストか？")] MULTIPLAY_RESUME_PLAYER_IS_HOST = 438, // 0x000001B6
@@ -6585,12 +7850,12 @@ namespace SRPG
       [GameParameter.ParameterDesc("ショップアイテムのイベントコイン別アイコン")] EVENTCOIN_PRICEICON = 444, // 0x000001BC
       [GameParameter.ParameterDesc("イベントショップアイテムの残り購入可能数を取得")] SHOP_EVENT_ITEM_BUYAMOUNT = 445, // 0x000001BD
       [GameParameter.ParameterDesc("イベント終了までの時間")] TROPHY_REMAININGTIME = 446, // 0x000001BE
-      [GameParameter.ParameterDesc("お客様コードのみを表示"), GameParameter.UsesIndex] GLOBAL_PLAYER_OKYAKUSAMACODE2 = 447, // 0x000001BF
+      [GameParameter.UsesIndex, GameParameter.ParameterDesc("お客様コードのみを表示")] GLOBAL_PLAYER_OKYAKUSAMACODE2 = 447, // 0x000001BF
       [GameParameter.InstanceTypes(typeof (GameParameter.VersusPlayerInstanceType)), GameParameter.ParameterDesc("対戦相手のユニット")] VERSUS_UNIT_IMAGE = 448, // 0x000001C0
-      [GameParameter.ParameterDesc("対戦相手の名前"), GameParameter.InstanceTypes(typeof (GameParameter.VersusPlayerInstanceType))] VERSUS_PLAYER_NAME = 449, // 0x000001C1
+      [GameParameter.InstanceTypes(typeof (GameParameter.VersusPlayerInstanceType)), GameParameter.ParameterDesc("対戦相手の名前")] VERSUS_PLAYER_NAME = 449, // 0x000001C1
       [GameParameter.InstanceTypes(typeof (GameParameter.VersusPlayerInstanceType)), GameParameter.ParameterDesc("対戦相手のレベル")] VERSUS_PLAYER_LEVEL = 450, // 0x000001C2
-      [GameParameter.ParameterDesc("対戦相手の総合攻撃力"), GameParameter.InstanceTypes(typeof (GameParameter.VersusPlayerInstanceType))] VERSUS_PLAYER_TOTALATK = 451, // 0x000001C3
-      [GameParameter.InstanceTypes(typeof (BattleCore.QuestResult)), GameParameter.ParameterDesc("対戦結果")] VERSUS_RESULT = 452, // 0x000001C4
+      [GameParameter.InstanceTypes(typeof (GameParameter.VersusPlayerInstanceType)), GameParameter.ParameterDesc("対戦相手の総合攻撃力")] VERSUS_PLAYER_TOTALATK = 451, // 0x000001C3
+      [GameParameter.ParameterDesc("対戦結果"), GameParameter.InstanceTypes(typeof (BattleCore.QuestResult))] VERSUS_RESULT = 452, // 0x000001C4
       [GameParameter.ParameterDesc("対戦ランク表示")] VERSUS_RANK = 453, // 0x000001C5
       [GameParameter.ParameterDesc("現在のランクポイントを表示")] VERSUS_RANK_POINT = 454, // 0x000001C6
       [GameParameter.ParameterDesc("ランクアップまでのポイントを表示")] VERSUS_RANK_NEXT_POINT = 455, // 0x000001C7
@@ -6604,31 +7869,105 @@ namespace SRPG
       [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("マップが選択されていれば表示")] VERSUS_MAP_SELECT = 463, // 0x000001CF
       [GameParameter.ParameterDesc("所有アリーナコイン")] SHOP_ARENA_COIN = 464, // 0x000001D0
       [GameParameter.ParameterDesc("所有マルチコイン")] SHOP_MULTI_COIN = 465, // 0x000001D1
-      VS_TOWER_BEF = 999, // 0x000003E7
+      [GameParameter.ParameterDesc("プレイヤーの所持コイン (共通無償幻晶石)")] GLOBAL_PLAYER_COINCOM = 466, // 0x000001D2
+      [GameParameter.ParameterDesc("プレイヤーの所持コイン (無償幻晶石　共通＆固有)")] GLOBAL_PLAYER_FREECOINSET = 467, // 0x000001D3
+      VS_ST = 999, // 0x000003E7
       [GameParameter.ParameterDesc("対戦の報酬タイプ")] VS_TOWER_REWARD_NAME = 1000, // 0x000003E8
-      VS_TOWER_ST = 1000, // 0x000003E8
       [GameParameter.ParameterDesc("シーズン報酬受け取り可能か？")] VS_TOWER_SEASON_RECEIPT = 1001, // 0x000003E9
-      ARTIFACT_BEF = 1099, // 0x0000044B
-      VS_TOWER_ED = 1099, // 0x0000044B
+      [GameParameter.ParameterDesc("PvPコインの枚数"), GameParameter.AlwaysUpdate] VS_COIN = 1002, // 0x000003EA
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("フリーマッチでのpvpコイン受け取り可能枚数")] VS_REMAIN_COIN = 1003, // 0x000003EB
+      [GameParameter.UsesIndex, GameParameter.ParameterDesc("タワーマッチ開催中か"), GameParameter.AlwaysUpdate] VS_OPEN_TOWERMATCH = 1004, // 0x000003EC
+      [GameParameter.ParameterDesc("対戦の種類を表示"), GameParameter.AlwaysUpdate] VS_QUEST_CATEGORY = 1005, // 0x000003ED
+      [GameParameter.ParameterDesc("タワーマッチで連勝した際のボーナス表示"), GameParameter.AlwaysUpdate] VS_TOWER_WINBONUS = 1006, // 0x000003EE
+      [GameParameter.UsesIndex, GameParameter.ParameterDesc("観戦時の表示・非表示対応"), GameParameter.AlwaysUpdate] VS_AUDIENCE_DISPLAY = 1007, // 0x000003EF
+      [GameParameter.UsesIndex, GameParameter.ParameterDesc("Index == 0:1P勝利 / Index == 1:2P勝利 時に表示する"), GameParameter.AlwaysUpdate] VS_AUDIENCE_WIN_PLAYER = 1008, // 0x000003F0
+      [GameParameter.ParameterDesc("観戦時のときだけ表示する"), GameParameter.AlwaysUpdate] VS_AUDIENCE_ONLY_DISPLAY = 1009, // 0x000003F1
+      [GameParameter.ParameterDesc("観戦している部屋の種類"), GameParameter.AlwaysUpdate] VS_AUDIENCE_TYPE = 1010, // 0x000003F2
+      [GameParameter.ParameterDesc("現在の階層"), GameParameter.AlwaysUpdate] VS_TOWER_FLOOR = 1011, // 0x000003F3
+      [GameParameter.ParameterDesc("タワーマッチのときだけ表示する"), GameParameter.AlwaysUpdate] VS_TOWER_ONLY_DISPLAY = 1012, // 0x000003F4
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("観戦者数")] VS_AUDIENCE_NUM = 1013, // 0x000003F5
+      VS_ED = 1098, // 0x0000044A
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("武具コンディション")] ARTIFACT_ST = 1099, // 0x0000044B
       [GameParameter.ParameterDesc("武具コンディション"), GameParameter.AlwaysUpdate] ARTIFACT_EVOLUTION_COND = 1100, // 0x0000044C
-      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("武具コンディション")] ARTIFACT_ST = 1100, // 0x0000044C
-      [GameParameter.AlwaysUpdate, GameParameter.UsesIndex, GameParameter.ParameterDesc("武具がお気に入りなら表示(0)/非表示(1)")] ARTIFACT_ISFAVORITE = 1101, // 0x0000044D
-      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("武具の進化後の★の数")] ARTIFACT_EVOLUTION_RARITY = 1102, // 0x0000044E
-      ARTIFACT_ED = 1199, // 0x000004AF
-      [GameParameter.UsesIndex, GameParameter.ParameterDesc("Show Player Name on Welcome Screen")] GLOBAL_PLAYER_WELCOMENAME = 1200, // 0x000004B0
-      [GameParameter.ParameterDesc("Show Player Name on Download Screen")] GLOBAL_PLAYER_TITLENAME = 1201, // 0x000004B1
-      [GameParameter.ParameterDesc("Show account not linked message when account is not connected to any OAuth")] GLOBAL_ACCOUNT_LINKED = 1202, // 0x000004B2
-      [GameParameter.ParameterDesc("Show Logout text when player is already connected to Facebook")] GLOBAL_FACEBOOK_LOGIN = 1203, // 0x000004B3
-      [GameParameter.ParameterDesc("Bundle Name")] BUNDLE_NAME = 1204, // 0x000004B4
-      [GameParameter.ParameterDesc("Bundle Description")] BUNDLE_DESC = 1205, // 0x000004B5
-      [GameParameter.ParameterDesc("Bundle Price")] BUNDLE_PRICE = 1206, // 0x000004B6
-      [GameParameter.ParameterDesc("Bundle Purchase Limit")] BUNDLE_LIMIT = 1207, // 0x000004B7
-      [GameParameter.ParameterDesc("Bundle End Time")] BUNDLE_ENDTIME = 1208, // 0x000004B8
-      [GameParameter.ParameterDesc("Bundle Icon")] BUNDLE_ICON = 1209, // 0x000004B9
-      [GameParameter.ParameterDesc("Ability Name for Unit Commands Button (Hide if it's Master Ability)")] ABILITY_NAME_BUTTON = 1210, // 0x000004BA
-      [GameParameter.ParameterDesc("Icon for Gem Purchase")] PRODUCT_ICON = 1211, // 0x000004BB
-      [GameParameter.ParameterDesc("現在のユニット操作プレイヤーID_SG"), GameParameter.AlwaysUpdate] MULTI_CURRENT_PLAYER_INDEX_SG = 1212, // 0x000004BC
-      [GameParameter.UsesIndex, GameParameter.ParameterDesc("Tower unit entry condition")] QUEST_TOWER_UNIT_ENTRYCONDITION_SG = 1213, // 0x000004BD
+      [GameParameter.ParameterDesc("武具がお気に入りなら表示(0)/非表示(1)"), GameParameter.AlwaysUpdate, GameParameter.UsesIndex] ARTIFACT_ISFAVORITE = 1101, // 0x0000044D
+      [GameParameter.ParameterDesc("武具の進化後の★の数"), GameParameter.AlwaysUpdate] ARTIFACT_EVOLUTION_RARITY = 1102, // 0x0000044E
+      [GameParameter.ParameterDesc("武具アイコン"), GameParameter.UsesIndex, GameParameter.InstanceTypes(typeof (GameParameter.ArtifactInstanceTypes))] ARTIFACT_ICON = 1103, // 0x0000044F
+      [GameParameter.ParameterDesc("武具の種類にあわせたフレームをImageに設定します。"), GameParameter.UsesIndex, GameParameter.InstanceTypes(typeof (GameParameter.ArtifactInstanceTypes))] ARTIFACT_FRAME = 1104, // 0x00000450
+      [GameParameter.UsesIndex, GameParameter.ParameterDesc("武具の個数"), GameParameter.InstanceTypes(typeof (GameParameter.ArtifactInstanceTypes))] ARTIFACT_AMOUNT = 1105, // 0x00000451
+      ARTIFACT_ED = 1198, // 0x000004AE
+      QUEST_UI_ST = 1199, // 0x000004AF
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("クエストコンティニュー不可が設定されている場合に表示(0)/非表示(1)"), GameParameter.UsesIndex] QUEST_IS_MAP_NO_CONTINUE = 1200, // 0x000004B0
+      [GameParameter.ParameterDesc("クエストダメージ制限が設定されている場合に表示(0)/非表示(1)"), GameParameter.AlwaysUpdate, GameParameter.UsesIndex] QUEST_IS_MAP_DAMAGE_LIMIT = 1201, // 0x000004B1
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("クエスト情報の詳細テキスト Loc/japanese/quest_info.txt参照"), GameParameter.UsesIndex] QUEST_UI_DETAIL_INFO = 1202, // 0x000004B2
+      [GameParameter.UsesIndex, GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("クエスト出撃条件でチームが固定されていて、かつユニットが設定されている場合に表示(0)/非表示(1)")] QUEST_IS_UNIT_ENTRYCONDITION_FORCE_AVAILABLEUNIT = 1203, // 0x000004B3
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("クエスト出撃条件で出撃ユニットが制限されていた場合に表示")] QUEST_IS_UNIT_ENTRYCONDITION_LIMIT = 1204, // 0x000004B4
+      [GameParameter.ParameterDesc("クエスト出撃条件で出撃ユニットが固定されていた場合に表示"), GameParameter.AlwaysUpdate] QUEST_IS_UNIT_ENTRYCONDITION_FORCE = 1205, // 0x000004B5
+      QUEST_IS_ED = 1298, // 0x00000512
+      TRICK_ST = 1299, // 0x00000513
+      [GameParameter.ParameterDesc("特殊パネルの名称")] TRICK_NAME = 1300, // 0x00000514
+      [GameParameter.ParameterDesc("特殊パネルの説明")] TRICK_DESC = 1301, // 0x00000515
+      [GameParameter.ParameterDesc("特殊パネルUIアイコン"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] TRICK_UI_ICON = 1302, // 0x00000516
+      TRICK_ED = 1398, // 0x00000576
+      BATTLE_UI_ST = 1399, // 0x00000577
+      [GameParameter.ParameterDesc("オーダーユニットが詠唱中か？")] BATTLE_UI_IMG_IS_CAST_ORDER = 1400, // 0x00000578
+      [GameParameter.ParameterDesc("スキルの使用回数")] SKILL_USE_COUNT = 1401, // 0x00000579
+      [GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes)), GameParameter.EnumParameterDesc("スキル属性にあわせてImageArrayを切り替えます。(属性がない場合は非表示)", typeof (EElement))] SKILL_ELEMENT = 1402, // 0x0000057A
+      [GameParameter.EnumParameterDesc("スキル攻撃詳細区分にあわせてImageArrayを切り替えます。(攻撃詳細区分がない場合は非表示)", typeof (AttackDetailTypes)), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] SKILL_ATTACK_DETAIL = 1403, // 0x0000057B
+      [GameParameter.EnumParameterDesc("スキル攻撃タイプにあわせてImageArrayを切り替えます。(攻撃タイプがない場合は非表示)", typeof (AttackTypes)), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] SKILL_ATTACK_TYPE = 1404, // 0x0000057C
+      [GameParameter.ParameterDesc("天候が発動していれば表示(0)/非表示(1)")] BATTLE_UI_WTH_IS_ENABLE = 1405, // 0x0000057D
+      [GameParameter.ParameterDesc("天候名を表示")] BATTLE_UI_WTH_NAME = 1406, // 0x0000057E
+      [GameParameter.ParameterDesc("天候アイコンを表示")] BATTLE_UI_WTH_ICON = 1407, // 0x0000057F
+      BATTLE_UI_ED = 1498, // 0x000005DA
+      UNIT_EXTRA_PARAM_ST = 1499, // 0x000005DB
+      [GameParameter.ParameterDesc("ユニットの移動力"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_EXTRA_PARAM_MOVE = 1500, // 0x000005DC
+      [GameParameter.ParameterDesc("ユニットのジャンプ力"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_EXTRA_PARAM_JUMP = 1501, // 0x000005DD
+      UNIT_EXTRA_PARAM_ED = 1598, // 0x0000063E
+      MULTI_UI_ST = 1599, // 0x0000063F
+      [GameParameter.ParameterDesc("マルチのユニットレベル制限")] MULTI_UI_ROOM_LIMIT_UNITLV = 1600, // 0x00000640
+      [GameParameter.ParameterDesc("クリアの有無")] MULTI_UI_ROOM_LIMIT_CLEAR = 1601, // 0x00000641
+      [GameParameter.ParameterDesc("現在の操作プレイヤー名を表示 [0]:切断時グレー表示 [1]:思考中追加 [2]～のターン追加"), GameParameter.AlwaysUpdate, GameParameter.UsesIndex] MULTI_UI_CURRENT_PLAYER_NAME = 1602, // 0x00000642
+      [GameParameter.ParameterDesc("マルチタワーでの総攻撃力")] MULTI_TOWER_UI_PARTY_TOTALATK = 1603, // 0x00000643
+      [GameParameter.ParameterDesc("オーナーの状態"), GameParameter.AlwaysUpdate, GameParameter.InstanceTypes(typeof (JSON_MyPhotonPlayerParam.EState)), GameParameter.UsesIndex] MULTI_OWNER_STATE = 1604, // 0x00000644
+      [GameParameter.ParameterDesc("マルチタワー階層")] MULTI_TOWER_FLOOR = 1605, // 0x00000645
+      [GameParameter.ParameterDesc("リーダースキル有効なクエストか？")] MULTI_QUEST_IS_LEADERSKILL = 1606, // 0x00000646
+      MULTI_UI_ED = 1698, // 0x000006A2
+      QUEST_BONUSOBJECTIVE_ST = 1699, // 0x000006A3
+      [GameParameter.EnumParameterDesc("プレイ中クエストのボーナス条件の達成状態にあわせてImageArrayを切り替えます(未達成/達成/全達成)。インデックスでボーナス条件の番号を指定してください。", typeof (QuestBonusObjectiveState)), GameParameter.InstanceTypes(typeof (GameParameter.QuestInstanceTypes))] QUEST_BONUSOBJECTIVE_STAR = 1700, // 0x000006A4
+      [GameParameter.ParameterDesc("クエストミッションの達成個数を表示します。全てのミッションを達成していた場合、テキストの色が変わります。"), GameParameter.InstanceTypes(typeof (GameParameter.QuestInstanceTypes))] QUEST_BONUSOBJECTIVE_AMOUNT = 1701, // 0x000006A5
+      [GameParameter.ParameterDesc("クエストミッションの最大個数を表示します。"), GameParameter.InstanceTypes(typeof (GameParameter.QuestInstanceTypes))] QUEST_BONUSOBJECTIVE_AMOUNTMAX = 1702, // 0x000006A6
+      QUEST_BONUSOBJECTIVE_ED = 1798, // 0x00000706
+      ME_UI_ST = 1799, // 0x00000707
+      [GameParameter.ParameterDesc("スキルのマップ(地形)効果説明")] ME_UI_SKILL_DESC = 1800, // 0x00000708
+      [GameParameter.ParameterDesc("マップ(地形)効果名")] ME_UI_NAME = 1801, // 0x00000709
+      [GameParameter.ParameterDesc("ジョブ特効説明")] JOB_DESC_CH = 1802, // 0x0000070A
+      [GameParameter.ParameterDesc("ジョブ特効説明が設定されていれば表示(0)/非表示(1)")] IS_JOB_DESC_CH = 1803, // 0x0000070B
+      [GameParameter.ParameterDesc("ジョブその他の効果説明")] JOB_DESC_OT = 1804, // 0x0000070C
+      [GameParameter.ParameterDesc("ジョブその他の効果説明が設定されていれば表示(0)/非表示(1)")] IS_JOB_DESC_OT = 1805, // 0x0000070D
+      [GameParameter.ParameterDesc("ユニットの現ジョブのMediumアイコン。UNIT_JOBICON2に参照不具合があるため新設"), GameParameter.InstanceTypes(typeof (GameParameter.UnitInstanceTypes))] UNIT_JOBICON2_BUGFIX = 1806, // 0x0000070E
+      ME_UI_ED = 1898, // 0x0000076A
+      FIRST_FRIEND_ST = 1899, // 0x0000076B
+      [GameParameter.ParameterDesc("初フレンド成立人数上限")] FIRST_FRIEND_MAX = 1900, // 0x0000076C
+      [GameParameter.ParameterDesc("初フレンド成立人数")] FIRST_FRIEND_COUNT = 1901, // 0x0000076D
+      FIRST_FRIEND_ED = 1998, // 0x000007CE
+      CHALLENGEMISSION_ST = 1999, // 0x000007CF
+      [GameParameter.ParameterDesc("カテゴリ名からヘルプ画像を表示")] CHALLENGEMISSION_IMG_HELP = 2000, // 0x000007D0
+      [GameParameter.ParameterDesc("カテゴリ名からタブ画像を表示")] CHALLENGEMISSION_IMG_BUTTON = 2001, // 0x000007D1
+      [GameParameter.ParameterDesc("トロフィー名から報酬画像を表示")] CHALLENGEMISSION_IMG_REWARD = 2002, // 0x000007D2
+      CHALLENGEMISSION_ED = 2098, // 0x00000832
+      [GameParameter.ParameterDesc("Show Player Name on Welcome Screen"), GameParameter.UsesIndex] GLOBAL_PLAYER_WELCOMENAME = 2099, // 0x00000833
+      [GameParameter.ParameterDesc("Show Player Name on Download Screen")] GLOBAL_PLAYER_TITLENAME = 2100, // 0x00000834
+      [GameParameter.ParameterDesc("Show account not linked message when account is not connected to any OAuth")] GLOBAL_ACCOUNT_LINKED = 2101, // 0x00000835
+      [GameParameter.ParameterDesc("Show Logout text when player is already connected to Facebook")] GLOBAL_FACEBOOK_LOGIN = 2102, // 0x00000836
+      [GameParameter.ParameterDesc("Bundle Name")] BUNDLE_NAME = 2103, // 0x00000837
+      [GameParameter.ParameterDesc("Bundle Description")] BUNDLE_DESC = 2104, // 0x00000838
+      [GameParameter.ParameterDesc("Bundle Price")] BUNDLE_PRICE = 2105, // 0x00000839
+      [GameParameter.ParameterDesc("Bundle Purchase Limit")] BUNDLE_LIMIT = 2106, // 0x0000083A
+      [GameParameter.ParameterDesc("Bundle End Time")] BUNDLE_ENDTIME = 2107, // 0x0000083B
+      [GameParameter.ParameterDesc("Bundle Icon")] BUNDLE_ICON = 2108, // 0x0000083C
+      [GameParameter.ParameterDesc("Ability Name for Unit Commands Button (Hide if it's Master Ability)")] ABILITY_NAME_BUTTON = 2109, // 0x0000083D
+      [GameParameter.ParameterDesc("Icon for Gem Purchase")] PRODUCT_ICON = 2110, // 0x0000083E
+      [GameParameter.AlwaysUpdate, GameParameter.ParameterDesc("現在のユニット操作プレイヤーID_SG")] MULTI_CURRENT_PLAYER_INDEX_SG = 2111, // 0x0000083F
+      [GameParameter.UsesIndex, GameParameter.ParameterDesc("Tower unit entry condition")] QUEST_TOWER_UNIT_ENTRYCONDITION_SG = 2112, // 0x00000840
     }
 
     public class UsesIndex : Attribute

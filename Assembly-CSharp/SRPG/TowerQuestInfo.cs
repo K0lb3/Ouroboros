@@ -1,11 +1,10 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.TowerQuestInfo
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -74,41 +73,44 @@ namespace SRPG
     {
       for (int index = 0; index < this.UnknownEnemyList.Count; ++index)
         ((Component) this.UnknownEnemyList[index]).get_gameObject().SetActive(false);
-      List<JSON_MapEnemyUnit> list = ((IEnumerable<JSON_MapEnemyUnit>) json).Where<JSON_MapEnemyUnit>((Func<JSON_MapEnemyUnit, bool>) (enemy =>
-      {
-        if (enemy.elem != 0)
-          return enemy.side == 1;
-        return false;
-      })).ToList<JSON_MapEnemyUnit>();
+      List<JSON_MapEnemyUnit> list = ((IEnumerable<JSON_MapEnemyUnit>) json).ToList<JSON_MapEnemyUnit>();
       TowerResuponse towerResuponse = MonoSingleton<GameManager>.Instance.TowerResuponse;
       TowerFloorParam towerFloorParam = (TowerFloorParam) null;
       if (towerResuponse != null)
         towerFloorParam = towerResuponse.GetCurrentFloor();
       this.EnemyUnits.Clear();
-      for (int index = 0; index < list.Count; ++index)
+      int index1 = 0;
+      for (int index2 = 0; index2 < list.Count; ++index2)
       {
-        TowerEnemyListItem towerEnemyListItem;
-        if (this.EnemyList.Count <= index)
-        {
-          towerEnemyListItem = (TowerEnemyListItem) ((GameObject) Object.Instantiate<GameObject>((M0) this.EnemyTemplate)).GetComponent<TowerEnemyListItem>();
-          ((Component) towerEnemyListItem).get_transform().SetParent(this.EnemiesRoot.get_transform(), false);
-          this.EnemyList.Add(towerEnemyListItem);
-        }
-        else
-          towerEnemyListItem = this.EnemyList[index];
-        NPCSetting npcSetting = new NPCSetting(list[index]);
+        NPCSetting npcSetting = new NPCSetting(list[index2]);
         Unit data = new Unit();
         data.Setup((UnitData) null, (UnitSetting) npcSetting, (Unit.DropItem) null, (Unit.DropItem) null);
-        DataSource.Bind<Unit>(((Component) towerEnemyListItem).get_gameObject(), data);
-        this.EnemyUnits.Add(data);
+        if (!data.IsGimmick)
+        {
+          TowerEnemyListItem towerEnemyListItem;
+          if (this.EnemyList.Count <= index1)
+          {
+            towerEnemyListItem = (TowerEnemyListItem) ((GameObject) Object.Instantiate<GameObject>((M0) this.EnemyTemplate)).GetComponent<TowerEnemyListItem>();
+            ((Component) towerEnemyListItem).get_transform().SetParent(this.EnemiesRoot.get_transform(), false);
+            this.EnemyList.Add(towerEnemyListItem);
+          }
+          else
+            towerEnemyListItem = this.EnemyList[index1];
+          if (towerFloorParam != null && towerFloorParam.iname == GlobalVars.SelectedQuestID && MonoSingleton<GameManager>.Instance.TowerEnemyUnit != null)
+          {
+            TowerResuponse.EnemyUnit enemyUnit = MonoSingleton<GameManager>.Instance.TowerEnemyUnit[index2];
+            data.Damage((int) data.MaximumStatus.param.hp - enemyUnit.hp, false);
+          }
+          DataSource.Bind<Unit>(((Component) towerEnemyListItem).get_gameObject(), data);
+          this.EnemyUnits.Add(data);
+          ++index1;
+        }
       }
-      if (towerFloorParam != null && towerFloorParam.iname == GlobalVars.SelectedQuestID)
-        MonoSingleton<GameManager>.Instance.TowerResuponse.CalcEnemyDamage(this.EnemyUnits);
-      for (int index = 0; index < this.EnemyList.Count; ++index)
+      for (int index2 = 0; index2 < this.EnemyList.Count; ++index2)
       {
-        bool flag = index < list.Count && index < 10;
-        ((Component) this.EnemyList[index]).get_gameObject().SetActive(flag);
-        this.EnemyList[index].UpdateValue();
+        bool flag = index2 < list.Count && index2 < 10;
+        ((Component) this.EnemyList[index2]).get_gameObject().SetActive(flag);
+        this.EnemyList[index2].UpdateValue();
       }
     }
 
@@ -232,9 +234,13 @@ namespace SRPG
             }
             else
             {
+              List<JSON_MapEnemyUnit> randFixedUnit = jsonObject.GetRandFixedUnit();
               jsonObject.enemy = new JSON_MapEnemyUnit[towerResuponse.lot_enemies.Length];
               for (int index = 0; index < jsonObject.enemy.Length; ++index)
                 jsonObject.enemy[index] = jsonObject.deck[(int) towerResuponse.lot_enemies[index]];
+              List<JSON_MapEnemyUnit> jsonMapEnemyUnitList = new List<JSON_MapEnemyUnit>((IEnumerable<JSON_MapEnemyUnit>) jsonObject.enemy);
+              jsonMapEnemyUnitList.AddRange((IEnumerable<JSON_MapEnemyUnit>) randFixedUnit);
+              jsonObject.enemy = jsonMapEnemyUnitList.ToArray();
               this.SetEnemies(jsonObject.enemy);
             }
           }

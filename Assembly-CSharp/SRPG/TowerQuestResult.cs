@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.TowerQuestResult
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -13,8 +13,8 @@ using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.Pin(11, "クリア演出開始", FlowNode.PinTypes.Input, 11)]
   [FlowNode.Pin(32, "クリア演出終了", FlowNode.PinTypes.Output, 32)]
+  [FlowNode.Pin(11, "クリア演出開始", FlowNode.PinTypes.Input, 11)]
   public class TowerQuestResult : QuestResult
   {
     [Description("クリア条件の星にトリガーを送る間隔 (秒数)")]
@@ -38,7 +38,7 @@ namespace SRPG
       if (pinID != 11)
         return;
       TowerResuponse towerResuponse = MonoSingleton<GameManager>.Instance.TowerResuponse;
-      TowerParam tower = MonoSingleton<GameManager>.Instance.FindTower(GlobalVars.SelectedTowerID);
+      TowerParam tower = MonoSingleton<GameManager>.Instance.FindTower(MonoSingleton<GameManager>.Instance.FindTowerFloor(this.mQuestName).tower_id);
       if (towerResuponse.clear == 0 || towerResuponse.clear == 1 && towerResuponse.arrived_num == 0 || !tower.is_view_ranking)
       {
         this.EndTowerClear();
@@ -81,14 +81,14 @@ namespace SRPG
       {
         // ISSUE: object of a compiler-generated type is created
         // ISSUE: variable of a compiler-generated type
-        TowerQuestResult.\u003CSetTowerResult\u003Ec__AnonStorey275 resultCAnonStorey275 = new TowerQuestResult.\u003CSetTowerResult\u003Ec__AnonStorey275();
+        TowerQuestResult.\u003CSetTowerResult\u003Ec__AnonStorey380 resultCAnonStorey380 = new TowerQuestResult.\u003CSetTowerResult\u003Ec__AnonStorey380();
         // ISSUE: reference to a compiler-generated field
-        resultCAnonStorey275.item = towerRewardItemList[index];
+        resultCAnonStorey380.item = towerRewardItemList[index];
         // ISSUE: reference to a compiler-generated field
         // ISSUE: reference to a compiler-generated field
-        if (resultCAnonStorey275.item.visible && resultCAnonStorey275.item.type != TowerRewardItem.RewardType.Gold)
+        if (resultCAnonStorey380.item.visible && resultCAnonStorey380.item.type != TowerRewardItem.RewardType.Gold)
         {
-          GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) ItemObject);
+          GameObject gameObject = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) ItemObject);
           gameObject.get_transform().SetParent(parent, false);
           this.mTowerListItems.Add(gameObject);
           gameObject.get_transform().set_localScale(ItemObject.get_transform().get_localScale());
@@ -97,24 +97,24 @@ namespace SRPG
           foreach (GameParameter componentsInChild in (GameParameter[]) gameObject.GetComponentsInChildren<GameParameter>())
             componentsInChild.Index = index;
           TowerRewardUI componentInChildren1 = (TowerRewardUI) gameObject.GetComponentInChildren<TowerRewardUI>();
-          if (Object.op_Inequality((Object) componentInChildren1, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) componentInChildren1, (UnityEngine.Object) null))
             componentInChildren1.Refresh();
           // ISSUE: reference to a compiler-generated field
-          if (resultCAnonStorey275.item.type == TowerRewardItem.RewardType.Artifact)
+          if (resultCAnonStorey380.item.type == TowerRewardItem.RewardType.Artifact)
           {
             // ISSUE: reference to a compiler-generated field
-            ArtifactParam artifactParam = MonoSingleton<GameManager>.Instance.MasterParam.GetArtifactParam(resultCAnonStorey275.item.iname);
+            ArtifactParam artifactParam = MonoSingleton<GameManager>.Instance.MasterParam.GetArtifactParam(resultCAnonStorey380.item.iname);
             DataSource.Bind<ArtifactParam>(gameObject, artifactParam);
             ArtifactIcon componentInChildren2 = (ArtifactIcon) gameObject.GetComponentInChildren<ArtifactIcon>();
-            if (!Object.op_Equality((Object) componentInChildren2, (Object) null))
+            if (!UnityEngine.Object.op_Equality((UnityEngine.Object) componentInChildren2, (UnityEngine.Object) null))
             {
               ((Behaviour) componentInChildren2).set_enabled(true);
               componentInChildren2.UpdateValue();
               // ISSUE: reference to a compiler-generated method
-              if (MonoSingleton<GameManager>.Instance.Player.Artifacts.Find(new Predicate<ArtifactData>(resultCAnonStorey275.\u003C\u003Em__2F6)) == null)
+              if (MonoSingleton<GameManager>.Instance.Player.Artifacts.Find(new Predicate<ArtifactData>(resultCAnonStorey380.\u003C\u003Em__426)) == null)
               {
                 // ISSUE: reference to a compiler-generated field
-                resultCAnonStorey275.item.is_new = true;
+                resultCAnonStorey380.item.is_new = true;
                 break;
               }
               break;
@@ -122,9 +122,9 @@ namespace SRPG
             break;
           }
           // ISSUE: reference to a compiler-generated field
-          if (Object.op_Inequality((Object) this.Prefab_NewItemBadge, (Object) null) && resultCAnonStorey275.item.is_new)
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Prefab_NewItemBadge, (UnityEngine.Object) null) && resultCAnonStorey380.item.is_new)
           {
-            RectTransform transform = ((GameObject) Object.Instantiate<GameObject>((M0) this.Prefab_NewItemBadge)).get_transform() as RectTransform;
+            RectTransform transform = ((GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.Prefab_NewItemBadge)).get_transform() as RectTransform;
             ((Component) transform).get_gameObject().SetActive(true);
             transform.set_anchoredPosition(Vector2.get_zero());
             ((Transform) transform).SetParent(gameObject.get_transform(), false);
@@ -138,7 +138,7 @@ namespace SRPG
     private IEnumerator RecvHealAnimation()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new TowerQuestResult.\u003CRecvHealAnimation\u003Ec__IteratorD4() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new TowerQuestResult.\u003CRecvHealAnimation\u003Ec__Iterator118() { \u003C\u003Ef__this = this };
     }
 
     private bool IsHealEnd(List<TowerQuestResult.HealParanm> param)
@@ -151,17 +151,17 @@ namespace SRPG
       return true;
     }
 
-    public override void CreateItemObject(List<ItemData> items, Transform parent)
+    public override void CreateItemObject(List<QuestResult.DropItemData> items, Transform parent)
     {
       this.SetTowerResult(this.TowerTreasureListItem.get_transform().get_parent(), this.TowerTreasureListItem, (List<ItemData>) null);
     }
 
     public override void AddExpPlayer()
     {
-      Transform transform = !Object.op_Inequality((Object) this.UnitList, (Object) null) ? this.UnitListItem.get_transform().get_parent() : this.UnitList.get_transform();
+      Transform transform = !UnityEngine.Object.op_Inequality((UnityEngine.Object) this.UnitList, (UnityEngine.Object) null) ? this.UnitListItem.get_transform().get_parent() : this.UnitList.get_transform();
       for (int index = 0; index < this.mUnits.Count; ++index)
       {
-        GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.UnitListItem);
+        GameObject gameObject = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.UnitListItem);
         gameObject.get_transform().SetParent(transform, false);
         this.canvas_group.Add((TowerUnitIsDead) gameObject.GetComponentInChildren<TowerUnitIsDead>());
         this.mUnitListItems.Add(gameObject);
@@ -174,33 +174,33 @@ namespace SRPG
         return;
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      TowerQuestResult.\u003CAddExpPlayer\u003Ec__AnonStorey276 playerCAnonStorey276 = new TowerQuestResult.\u003CAddExpPlayer\u003Ec__AnonStorey276();
+      TowerQuestResult.\u003CAddExpPlayer\u003Ec__AnonStorey381 playerCAnonStorey381 = new TowerQuestResult.\u003CAddExpPlayer\u003Ec__AnonStorey381();
       // ISSUE: reference to a compiler-generated field
-      playerCAnonStorey276.\u003C\u003Ef__this = this;
+      playerCAnonStorey381.\u003C\u003Ef__this = this;
       // ISSUE: reference to a compiler-generated field
       // ISSUE: reference to a compiler-generated field
       // ISSUE: reference to a compiler-generated field
-      for (playerCAnonStorey276.i = 0; playerCAnonStorey276.i < this.mHpBar.Count; ++playerCAnonStorey276.i)
+      for (playerCAnonStorey381.i = 0; playerCAnonStorey381.i < this.mHpBar.Count; ++playerCAnonStorey381.i)
       {
         // ISSUE: reference to a compiler-generated method
-        Unit unit = SceneBattle.Instance.Battle.Player.Find(new Predicate<Unit>(playerCAnonStorey276.\u003C\u003Em__2F7));
+        Unit unit = SceneBattle.Instance.Battle.Player.Find(new Predicate<Unit>(playerCAnonStorey381.\u003C\u003Em__427));
         if (unit != null && MonoSingleton<GameManager>.Instance.Player.FindUnitDataByUniqueID(unit.UnitData.UniqueID) != null)
         {
           // ISSUE: reference to a compiler-generated field
-          this.mHpBar[playerCAnonStorey276.i].slider.set_maxValue((float) unit.TowerStartHP);
+          this.mHpBar[playerCAnonStorey381.i].slider.set_maxValue((float) unit.TowerStartHP);
           // ISSUE: reference to a compiler-generated field
-          this.mHpBar[playerCAnonStorey276.i].slider.set_minValue(0.0f);
+          this.mHpBar[playerCAnonStorey381.i].slider.set_minValue(0.0f);
           // ISSUE: reference to a compiler-generated field
-          this.mHpBar[playerCAnonStorey276.i].slider.set_value((float) (int) unit.CurrentStatus.param.hp);
+          this.mHpBar[playerCAnonStorey381.i].slider.set_value((float) (int) unit.CurrentStatus.param.hp);
           // ISSUE: reference to a compiler-generated field
-          TowerResuponse.PlayerUnit playerUnit = MonoSingleton<GameManager>.Instance.TowerResuponse.FindPlayerUnit(this.mUnits[playerCAnonStorey276.i]);
+          TowerResuponse.PlayerUnit playerUnit = MonoSingleton<GameManager>.Instance.TowerResuponse.FindPlayerUnit(this.mUnits[playerCAnonStorey381.i]);
           if (playerUnit != null && playerUnit.isDied)
           {
             // ISSUE: reference to a compiler-generated field
-            ((CanvasGroup) ((Component) this.mUnitListItems[playerCAnonStorey276.i].get_transform().GetChild(0)).get_gameObject().GetComponent<CanvasGroup>()).set_alpha(this.DeadAlpha);
+            ((CanvasGroup) ((Component) this.mUnitListItems[playerCAnonStorey381.i].get_transform().GetChild(0)).get_gameObject().GetComponent<CanvasGroup>()).set_alpha(this.DeadAlpha);
           }
           // ISSUE: reference to a compiler-generated field
-          GameParameter.UpdateAll(this.mUnitListItems[playerCAnonStorey276.i]);
+          GameParameter.UpdateAll(this.mUnitListItems[playerCAnonStorey381.i]);
         }
       }
     }
@@ -209,28 +209,28 @@ namespace SRPG
     public override IEnumerator AddExp()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new TowerQuestResult.\u003CAddExp\u003Ec__IteratorD5() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new TowerQuestResult.\u003CAddExp\u003Ec__Iterator119() { \u003C\u003Ef__this = this };
     }
 
     [DebuggerHidden]
     public override IEnumerator PlayAnimationAsync()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new TowerQuestResult.\u003CPlayAnimationAsync\u003Ec__IteratorD6() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new TowerQuestResult.\u003CPlayAnimationAsync\u003Ec__Iterator11A() { \u003C\u003Ef__this = this };
     }
 
     [DebuggerHidden]
     public IEnumerator StartTowerTreasureAnimation()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new TowerQuestResult.\u003CStartTowerTreasureAnimation\u003Ec__IteratorD7() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new TowerQuestResult.\u003CStartTowerTreasureAnimation\u003Ec__Iterator11B() { \u003C\u003Ef__this = this };
     }
 
     [DebuggerHidden]
     protected IEnumerator TowerTreasureAnimation(List<GameObject> ListItems)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new TowerQuestResult.\u003CTowerTreasureAnimation\u003Ec__IteratorD8() { ListItems = ListItems, \u003C\u0024\u003EListItems = ListItems, \u003C\u003Ef__this = this };
+      return (IEnumerator) new TowerQuestResult.\u003CTowerTreasureAnimation\u003Ec__Iterator11C() { ListItems = ListItems, \u003C\u0024\u003EListItems = ListItems, \u003C\u003Ef__this = this };
     }
 
     public void OnTowerItemAnimationEnd()

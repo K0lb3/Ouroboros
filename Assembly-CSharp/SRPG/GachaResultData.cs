@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.GachaResultData
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -15,6 +15,7 @@ namespace SRPG
     private static List<GachaDropData> drops_ = new List<GachaDropData>();
     private static List<GachaDropData> dropMails_ = new List<GachaDropData>();
     private static int[] excites_ = new int[5];
+    private static bool use_one_more_ = false;
 
     public static GachaDropData[] drops
     {
@@ -50,6 +51,14 @@ namespace SRPG
       }
     }
 
+    public static bool UseOneMore
+    {
+      get
+      {
+        return GachaResultData.use_one_more_;
+      }
+    }
+
     private static void Reset()
     {
       GachaResultData.drops_.Clear();
@@ -57,9 +66,10 @@ namespace SRPG
       for (int index = 0; index < GachaResultData.excites_.Length; ++index)
         GachaResultData.excites_[index] = 1;
       GachaResultData.receipt = (GachaReceiptData) null;
+      GachaResultData.use_one_more_ = false;
     }
 
-    public static void Init(List<GachaDropData> a_drops = null, List<GachaDropData> a_dropMails = null, GachaReceiptData a_receipt = null)
+    public static void Init(List<GachaDropData> a_drops = null, List<GachaDropData> a_dropMails = null, GachaReceiptData a_receipt = null, bool a_use_onemore = false)
     {
       GachaResultData.Reset();
       if (a_drops != null)
@@ -77,6 +87,7 @@ namespace SRPG
           current.excites = GachaResultData.CalcExcitesForDrop(current);
         }
       }
+      GachaResultData.use_one_more_ = a_use_onemore;
     }
 
     public static int[] CalcExcites(List<GachaDropData> a_drops)

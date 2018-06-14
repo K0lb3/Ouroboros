@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.QuestChapterList
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -13,15 +13,15 @@ using UnityEngine.UI;
 namespace SRPG
 {
   [FlowNode.Pin(200, "塔が選択された", FlowNode.PinTypes.Output, 200)]
-  [FlowNode.Pin(50, "再読み込み完了", FlowNode.PinTypes.Output, 50)]
-  [FlowNode.Pin(400, "On Normal", FlowNode.PinTypes.Input, 3)]
-  [FlowNode.Pin(4, "階層を上げる", FlowNode.PinTypes.Input, 4)]
-  [FlowNode.Pin(3, "セクション決定", FlowNode.PinTypes.Input, 3)]
-  [FlowNode.Pin(2, "ロケーションのハイライトを戻す", FlowNode.PinTypes.Input, 1)]
-  [FlowNode.Pin(1, "ワールドマップへ戻す", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(0, "再読み込み", FlowNode.PinTypes.Input, 40)]
+  [FlowNode.Pin(3, "セクション決定", FlowNode.PinTypes.Input, 3)]
+  [FlowNode.Pin(1, "ワールドマップへ戻す", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(2, "ロケーションのハイライトを戻す", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(4, "階層を上げる", FlowNode.PinTypes.Input, 4)]
+  [FlowNode.Pin(400, "On Normal", FlowNode.PinTypes.Input, 3)]
   [FlowNode.Pin(401, "On Hard", FlowNode.PinTypes.Input, 4)]
   [FlowNode.Pin(40, "セクション選択に戻す", FlowNode.PinTypes.Output, 40)]
+  [FlowNode.Pin(50, "再読み込み完了", FlowNode.PinTypes.Output, 50)]
   [FlowNode.Pin(100, "アイテムが選択された", FlowNode.PinTypes.Output, 100)]
   public class QuestChapterList : MonoBehaviour, IFlowInterface
   {
@@ -113,20 +113,6 @@ namespace SRPG
             break;
           }
           FlowNode_GameObject.ActivateOutputLinks((Component) this, 40);
-          break;
-        case 400:
-          if (!((Component) this).get_gameObject().get_activeInHierarchy())
-            break;
-          GlobalVars.QuestDifficulty = QuestDifficulties.Normal;
-          this.RefreshButtons(GlobalVars.QuestDifficulty);
-          this.Refresh();
-          break;
-        case 401:
-          if (!((Component) this).get_gameObject().get_activeInHierarchy())
-            break;
-          GlobalVars.QuestDifficulty = QuestDifficulties.Elite;
-          this.RefreshButtons(GlobalVars.QuestDifficulty);
-          this.Refresh();
           break;
       }
     }
@@ -281,7 +267,7 @@ namespace SRPG
               total += availableQuest.bonusObjective.Length;
               for (int index2 = 0; index2 < availableQuest.bonusObjective.Length; ++index2)
               {
-                if (((int) availableQuest.clear_missions & 1 << index2) != 0)
+                if ((availableQuest.clear_missions & 1 << index2) != 0)
                   ++completed;
               }
             }
@@ -294,17 +280,6 @@ namespace SRPG
         ((Component) listItemEvents2).get_gameObject().SetActive(true);
         listItemEvents2.OnSelect = new ListItemEvents.ListItemEvent(this.OnNodeSelect);
         this.mItems.Add(listItemEvents2);
-      }
-      this.RefreshButtons(GlobalVars.QuestDifficulty);
-      if (num == 0)
-      {
-        ((Selectable) this.BtnNormal.GetComponentInChildren<Button>()).set_interactable(false);
-        ((Behaviour) this.BtnNormal.GetComponentInChildren<Button>()).set_enabled(false);
-        M0 componentInChildren = this.BtnNormal.GetComponentInChildren<Image>();
-        ColorBlock colors = ((Selectable) this.BtnNormal.GetComponentInChildren<Button>()).get_colors();
-        // ISSUE: explicit reference operation
-        Color normalColor = ((ColorBlock) @colors).get_normalColor();
-        ((Graphic) componentInChildren).set_color(normalColor);
       }
       if (Object.op_Inequality((Object) this.BackButton, (Object) null))
       {
@@ -356,9 +331,6 @@ namespace SRPG
       else
       {
         GlobalVars.SelectedChapter.Set(dataOfClass.iname);
-        WorldMapController instance = WorldMapController.FindInstance(this.WorldMapControllerID);
-        if (Object.op_Inequality((Object) instance, (Object) null))
-          instance.GotoArea(dataOfClass.world);
         FlowNode_GameObject.ActivateOutputLinks((Component) this, 100);
       }
     }
@@ -389,33 +361,6 @@ namespace SRPG
       {
         GlobalVars.SelectedTowerID = dataOfClass.iname;
         FlowNode_GameObject.ActivateOutputLinks((Component) this, 200);
-      }
-    }
-
-    private void RefreshButtons(QuestDifficulties difficulty)
-    {
-      if (Object.op_Equality((Object) null, (Object) this.BtnNormal) || Object.op_Equality((Object) null, (Object) this.BtnElite))
-        return;
-      switch (difficulty)
-      {
-        case QuestDifficulties.Normal:
-          Button componentInChildren = (Button) this.BtnNormal.GetComponentInChildren<Button>();
-          ((Selectable) this.BtnNormal.GetComponentInChildren<Button>()).set_interactable(true);
-          if (!((Behaviour) componentInChildren).get_enabled())
-          {
-            M0 component = this.BtnNormal.GetComponent<Image>();
-            ColorBlock colors = ((Selectable) componentInChildren).get_colors();
-            // ISSUE: explicit reference operation
-            Color disabledColor = ((ColorBlock) @colors).get_disabledColor();
-            ((Graphic) component).set_color(disabledColor);
-            ((Behaviour) this.BtnNormal.GetComponentInChildren<Button>()).set_enabled(true);
-          }
-          ((Selectable) this.BtnElite.GetComponentInChildren<Button>()).set_interactable(false);
-          break;
-        case QuestDifficulties.Elite:
-          ((Selectable) this.BtnNormal.GetComponentInChildren<Button>()).set_interactable(false);
-          ((Selectable) this.BtnElite.GetComponentInChildren<Button>()).set_interactable(true);
-          break;
       }
     }
   }

@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: GooglePlayGames.Android.AndroidClient
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using Com.Google.Android.Gms.Common.Api;
@@ -30,10 +30,10 @@ namespace GooglePlayGames.Android
         platformConfiguration.SetActivity(activity.GetRawObject());
         // ISSUE: object of a compiler-generated type is created
         // ISSUE: reference to a compiler-generated method
-        platformConfiguration.SetOptionalIntentHandlerForUI((Action<IntPtr>) (intent => PlayGamesHelperObject.RunOnGameThread(new Action(new AndroidClient.\u003CCreatePlatformConfiguration\u003Ec__AnonStorey100()
+        platformConfiguration.SetOptionalIntentHandlerForUI((Action<IntPtr>) (intent => PlayGamesHelperObject.RunOnGameThread(new Action(new AndroidClient.\u003CCreatePlatformConfiguration\u003Ec__AnonStorey174()
         {
           intentRef = AndroidJNI.NewGlobalRef(intent)
-        }.\u003C\u003Em__D))));
+        }.\u003C\u003Em__56))));
       }
       return (PlatformConfiguration) platformConfiguration;
     }

@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.ChatLogItem
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -9,6 +9,7 @@ using System;
 using System.Collections;
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace SRPG
@@ -19,19 +20,11 @@ namespace SRPG
     [SerializeField]
     private LayoutElement Element;
     [SerializeField]
-    private RectTransform TextRootObject;
-    [SerializeField]
     private GameObject Icon;
     [SerializeField]
     private RawImage LeftIcon;
     [SerializeField]
     private RawImage RightIcon;
-    [SerializeField]
-    private Text Name;
-    [SerializeField]
-    private Text FuID;
-    [SerializeField]
-    private Text PostAt;
     [SerializeField]
     private GameObject MessageIcon;
     [SerializeField]
@@ -41,23 +34,51 @@ namespace SRPG
     [SerializeField]
     private GameObject MyMessageLog;
     [SerializeField]
-    private GameObject AdminMessageLog;
-    private GameObject MyStamp;
-    private GameObject AnyStamp;
+    private RectTransform AnyLogRoot;
+    [SerializeField]
+    private RectTransform MyLogRoot;
+    [SerializeField]
+    private GameObject MyStampObj;
+    [SerializeField]
+    private GameObject AnyStampObj;
+    [SerializeField]
+    private Text MyNameObj;
+    [SerializeField]
+    private Text MyFuIDObj;
+    [SerializeField]
+    private Text MyPostAtObj;
+    [SerializeField]
+    private Image MyStampImageObj;
+    [SerializeField]
+    private Text MyMessageTextObj;
+    [SerializeField]
+    private Text AnyNameObj;
+    [SerializeField]
+    private Text AnyFuIDObj;
+    [SerializeField]
+    private Text AnyPostAtObj;
+    [SerializeField]
+    private Image AnyStampImageObj;
+    [SerializeField]
+    private Text AnyMessageTextObj;
+    [SerializeField]
+    private GameObject SystemMessageRootObj;
+    [SerializeField]
+    private Text SystemMessageTextObj;
     private Transform mStampRoot;
-    private Transform mMessageRoot;
+    private RectTransform mLogRoot;
     private Image mLogImg;
     private ChatStampParam[] mStampParams;
     private bool IsStampSettings;
-    private bool mSetuped;
-    private long mPostAt;
-    private string mFUID;
     private Coroutine mCoroutine;
     private GameObject mRoot;
-    private readonly int STAMP_SIZE;
     private Text mNameObj;
     private Text mPostAtObj;
     private Text mFuIDObj;
+    private Image mStampImageObj;
+    private Text mMessageObj;
+    private ChatLogParam mChatLogParam;
+    public readonly int STAMP_SIZE;
     private static SpriteSheet mStampImages;
     private static bool IsStampLoaded;
     private static bool mStampLoaded;
@@ -76,47 +97,25 @@ namespace SRPG
       }
     }
 
-    public bool IsSetuped
+    public ChatLogParam ChatLogParam
     {
       get
       {
-        return this.mSetuped;
+        return this.mChatLogParam;
       }
     }
 
     public void Awake()
     {
-      if (Object.op_Inequality((Object) this.MessageIcon, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.MessageIcon, (UnityEngine.Object) null))
         this.MessageIcon.SetActive(false);
-      if (Object.op_Inequality((Object) this.MessageLog, (Object) null))
-      {
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.MessageLog, (UnityEngine.Object) null))
         this.MessageLog.SetActive(false);
-        Transform transform = this.MessageLog.get_transform().Find("messages/stamp");
-        if (Object.op_Inequality((Object) transform, (Object) null))
-        {
-          this.AnyStamp = ((Component) transform).get_gameObject();
-          ((Component) transform).get_gameObject().SetActive(false);
-        }
-      }
-      if (Object.op_Inequality((Object) this.MyMessageIcon, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.MyMessageIcon, (UnityEngine.Object) null))
         this.MyMessageIcon.SetActive(false);
-      if (Object.op_Inequality((Object) this.MyMessageLog, (Object) null))
-      {
-        this.MyMessageLog.SetActive(false);
-        Transform transform = this.MyMessageLog.get_transform().Find("messages/stamp");
-        if (Object.op_Inequality((Object) transform, (Object) null))
-        {
-          this.MyStamp = ((Component) transform).get_gameObject();
-          ((Component) transform).get_gameObject().SetActive(false);
-        }
-      }
-      if (!Object.op_Inequality((Object) this.AdminMessageLog, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.MyMessageLog, (UnityEngine.Object) null))
         return;
-      this.AdminMessageLog.SetActive(false);
-      Transform transform1 = this.AdminMessageLog.get_transform().Find("messages/stamp");
-      if (!Object.op_Inequality((Object) transform1, (Object) null))
-        return;
-      ((Component) transform1).get_gameObject().SetActive(false);
+      this.MyMessageLog.SetActive(false);
     }
 
     private void Start()
@@ -128,7 +127,7 @@ namespace SRPG
         ChatLogItem.mStampImages = (SpriteSheet) null;
         ChatLogItem.mStampLoaded = false;
       }
-      if (!Object.op_Equality((Object) ChatLogItem.mStampImages, (Object) null) || ChatLogItem.mStampLoaded)
+      if (!UnityEngine.Object.op_Equality((UnityEngine.Object) ChatLogItem.mStampImages, (UnityEngine.Object) null) || ChatLogItem.mStampLoaded)
         return;
       this.StartCoroutine(this.LoadStampImages());
     }
@@ -141,6 +140,43 @@ namespace SRPG
       this.mCoroutine = (Coroutine) null;
     }
 
+    public void Clear()
+    {
+      ((Component) this).get_gameObject().SetActive(false);
+      SRPG_Button component = (SRPG_Button) this.GetIcon.GetComponent<SRPG_Button>();
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
+        return;
+      ((UnityEventBase) component.get_onClick()).RemoveAllListeners();
+      this.mChatLogParam = (ChatLogParam) null;
+    }
+
+    public void SetParam(ChatLogParam param, SRPG_Button.ButtonClickEvent OnClickEvent)
+    {
+      if (param == null)
+      {
+        ((Component) this).get_gameObject().SetActive(false);
+        this.mChatLogParam = (ChatLogParam) null;
+      }
+      else
+      {
+        this.mChatLogParam = param;
+        ChatWindow.MessageTemplateType type = ChatWindow.MessageTemplateType.OtherUser;
+        if (MonoSingleton<GameManager>.Instance.Player.FUID == param.fuid)
+          type = ChatWindow.MessageTemplateType.User;
+        else if (string.IsNullOrEmpty(param.fuid))
+          type = ChatWindow.MessageTemplateType.System;
+        ((Component) this).get_gameObject().SetActive(true);
+        this.Refresh(param, type);
+        SRPG_Button component = (SRPG_Button) this.GetIcon.GetComponent<SRPG_Button>();
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
+          return;
+        ((UnityEventBase) component.get_onClick()).RemoveAllListeners();
+        if (!(param.fuid != MonoSingleton<GameManager>.Instance.Player.FUID))
+          return;
+        component.AddListener(OnClickEvent);
+      }
+    }
+
     public void Refresh(ChatLogParam param, ChatWindow.MessageTemplateType type)
     {
       if (param == null)
@@ -150,9 +186,9 @@ namespace SRPG
         this.StopCoroutine(this.mCoroutine);
         this.mCoroutine = (Coroutine) null;
       }
-      if (Object.op_Equality((Object) this.mRoot, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mRoot, (UnityEngine.Object) null))
       {
-        if (!Object.op_Inequality((Object) ((Component) this).get_transform().get_parent(), (Object) null))
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) ((Component) this).get_transform().get_parent(), (UnityEngine.Object) null))
           return;
         this.mRoot = ((Component) ((Component) this).get_transform().get_parent()).get_gameObject();
       }
@@ -160,33 +196,46 @@ namespace SRPG
       this.MessageLog.SetActive(false);
       this.MyMessageIcon.SetActive(false);
       this.MyMessageLog.SetActive(false);
-      this.AdminMessageLog.SetActive(false);
+      this.SystemMessageRootObj.SetActive(false);
       switch (type)
       {
         case ChatWindow.MessageTemplateType.OtherUser:
           this.MessageIcon.SetActive(true);
           this.MessageLog.SetActive(true);
-          this.mStampRoot = this.AnyStamp.get_transform();
-          this.mMessageRoot = this.MessageLog.get_transform();
+          this.mStampRoot = !UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AnyStampObj, (UnityEngine.Object) null) ? (Transform) null : this.AnyStampObj.get_transform();
+          this.mNameObj = this.AnyNameObj;
+          this.mFuIDObj = this.AnyFuIDObj;
+          this.mPostAtObj = this.AnyPostAtObj;
+          this.mStampImageObj = this.AnyStampImageObj;
+          this.mMessageObj = this.AnyMessageTextObj;
+          this.mLogRoot = this.AnyLogRoot;
+          this.mLogImg = (Image) ((Component) this.AnyLogRoot).GetComponent<Image>();
           break;
         case ChatWindow.MessageTemplateType.User:
           this.MyMessageIcon.SetActive(true);
           this.MyMessageLog.SetActive(true);
-          this.mStampRoot = this.MyStamp.get_transform();
-          this.mMessageRoot = this.MyMessageLog.get_transform();
+          this.mStampRoot = !UnityEngine.Object.op_Inequality((UnityEngine.Object) this.MyStampObj, (UnityEngine.Object) null) ? (Transform) null : this.MyStampObj.get_transform();
+          this.mNameObj = this.MyNameObj;
+          this.mFuIDObj = this.MyFuIDObj;
+          this.mPostAtObj = this.MyPostAtObj;
+          this.mStampImageObj = this.MyStampImageObj;
+          this.mMessageObj = this.MyMessageTextObj;
+          this.mLogRoot = this.MyLogRoot;
+          this.mLogImg = (Image) ((Component) this.MyLogRoot).GetComponent<Image>();
           break;
-        case ChatWindow.MessageTemplateType.Official:
-          this.AdminMessageLog.SetActive(true);
-          this.mMessageRoot = this.AdminMessageLog.get_transform();
-          break;
+        case ChatWindow.MessageTemplateType.System:
+          this.SystemMessageRootObj.SetActive(true);
+          this.SystemMessageTextObj.set_text(param.message);
+          this.mCoroutine = this.StartCoroutine(this.RefreshTextLine(param.message));
+          return;
       }
-      if (Object.op_Inequality((Object) this.Icon, (Object) null) && Object.op_Inequality((Object) this.LeftIcon, (Object) null) && Object.op_Inequality((Object) this.RightIcon, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Icon, (UnityEngine.Object) null) && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.LeftIcon, (UnityEngine.Object) null) && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RightIcon, (UnityEngine.Object) null))
       {
         RawImage target = type != ChatWindow.MessageTemplateType.User ? this.LeftIcon : this.RightIcon;
         UnitParam unitParam = MonoSingleton<GameManager>.Instance.MasterParam.GetUnitParam(param.icon);
         if (unitParam != null)
         {
-          if (!string.IsNullOrEmpty(param.skin_iname) && Object.op_Inequality((Object) target, (Object) null))
+          if (!string.IsNullOrEmpty(param.skin_iname) && UnityEngine.Object.op_Inequality((UnityEngine.Object) target, (UnityEngine.Object) null))
           {
             ArtifactParam skin = Array.Find<ArtifactParam>(MonoSingleton<GameManager>.Instance.MasterParam.Artifacts.ToArray(), (Predicate<ArtifactParam>) (p => p.iname == param.skin_iname));
             MonoSingleton<GameManager>.Instance.ApplyTextureAsync(target, AssetPath.UnitSkinIconSmall(unitParam, skin, param.job_iname));
@@ -195,73 +244,38 @@ namespace SRPG
             MonoSingleton<GameManager>.Instance.ApplyTextureAsync(target, AssetPath.UnitIconSmall(unitParam, param.job_iname));
         }
       }
-      Transform transform = this.mMessageRoot.Find("status");
-      this.mNameObj = (Text) ((Component) transform.Find("name").Find("text")).GetComponent<Text>();
-      this.mNameObj.set_text(param.name);
-      this.mFuIDObj = (Text) ((Component) transform.Find("fuid").Find("text")).GetComponent<Text>();
-      this.mFuIDObj.set_text(LocalizedText.Get("sys.TEXT_CHAT_FUID", new object[1]
-      {
-        (object) param.fuid.Substring(param.fuid.Length - 4, 4)
-      }));
-      this.mPostAtObj = (Text) ((Component) transform.Find("postat").Find("text")).GetComponent<Text>();
-      this.mPostAtObj.set_text(ChatLogItem.GetPostAt(param.posted_at));
-      this.TextRootObject = (RectTransform) ((Component) this.mMessageRoot.Find("messages")).GetComponent<RectTransform>();
-      this.mLogImg = (Image) ((Component) this.TextRootObject).GetComponent<Image>();
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mNameObj, (UnityEngine.Object) null))
+        this.mNameObj.set_text(param.name);
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mFuIDObj, (UnityEngine.Object) null))
+        this.mFuIDObj.set_text(LocalizedText.Get("sys.TEXT_CHAT_FUID", new object[1]
+        {
+          (object) param.fuid.Substring(param.fuid.Length - 4, 4)
+        }));
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mPostAtObj, (UnityEngine.Object) null))
+        this.mPostAtObj.set_text(ChatLogItem.GetPostAt(param.posted_at));
       if ((int) param.message_type == 1)
       {
-        if (!Object.op_Inequality((Object) this.mRoot, (Object) null) || !this.mRoot.get_activeInHierarchy())
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mRoot, (UnityEngine.Object) null) || !this.mRoot.get_activeInHierarchy())
           return;
-        ((Component) this.mStampRoot).get_gameObject().SetActive(false);
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mStampRoot, (UnityEngine.Object) null))
+          ((Component) this.mStampRoot).get_gameObject().SetActive(false);
         this.mCoroutine = this.StartCoroutine(this.RefreshTextLine(param.message));
       }
       else
       {
-        if ((int) param.message_type != 2 || !Object.op_Inequality((Object) this.mRoot, (Object) null) || !this.mRoot.get_activeInHierarchy())
+        if ((int) param.message_type != 2 || !UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mRoot, (UnityEngine.Object) null) || !this.mRoot.get_activeInHierarchy())
           return;
-        ((Component) this.mStampRoot).get_gameObject().SetActive(true);
-        if (Object.op_Inequality((Object) this.Element, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mStampRoot, (UnityEngine.Object) null))
+          ((Component) this.mStampRoot).get_gameObject().SetActive(true);
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Element, (UnityEngine.Object) null))
         {
           int stampSize = this.STAMP_SIZE;
-          VerticalLayoutGroup component = (VerticalLayoutGroup) ((Component) this.TextRootObject).GetComponent<VerticalLayoutGroup>();
-          this.Element.set_minHeight((float) (stampSize + ((LayoutGroup) component).get_padding().get_top() + ((LayoutGroup) component).get_padding().get_bottom() + (int) Mathf.Abs((float) this.TextRootObject.get_anchoredPosition().y)));
+          VerticalLayoutGroup component = (VerticalLayoutGroup) ((Component) this.mLogRoot).GetComponent<VerticalLayoutGroup>();
+          this.Element.set_minHeight((float) (stampSize + ((LayoutGroup) component).get_padding().get_top() + ((LayoutGroup) component).get_padding().get_bottom() + (int) Mathf.Abs((float) this.mLogRoot.get_anchoredPosition().y)));
         }
         ((Behaviour) this.mLogImg).set_enabled(false);
-        DebugUtility.Log(param.stamp_id.ToString());
         this.mCoroutine = this.StartCoroutine(this.RefreshStamp(param.stamp_id));
       }
-    }
-
-    public void RefreshPushMessage(ChatLogParam param, ChatWindow.MessageTemplateType type)
-    {
-      if (param == null)
-        return;
-      if (this.mCoroutine != null)
-      {
-        this.StopCoroutine(this.mCoroutine);
-        this.mCoroutine = (Coroutine) null;
-      }
-      if (Object.op_Equality((Object) this.mRoot, (Object) null))
-      {
-        if (!Object.op_Inequality((Object) ((Component) this).get_transform().get_parent(), (Object) null))
-          return;
-        this.mRoot = ((Component) ((Component) this).get_transform().get_parent()).get_gameObject();
-      }
-      this.MessageIcon.SetActive(false);
-      this.MessageLog.SetActive(false);
-      this.MyMessageIcon.SetActive(false);
-      this.MyMessageLog.SetActive(false);
-      this.AdminMessageLog.SetActive(false);
-      Transform transform = this.mMessageRoot.Find("status");
-      ((Text) ((Component) transform.Find("name").Find("text")).GetComponent<Text>()).set_text(param.name);
-      ((Text) ((Component) transform.Find("fuid").Find("text")).GetComponent<Text>()).set_text(LocalizedText.Get("sys.TEXT_CHAT_FUID", new object[1]
-      {
-        (object) param.fuid.Substring(param.fuid.Length - 4, 4)
-      }));
-      ((Text) ((Component) transform.Find("postat").Find("text")).GetComponent<Text>()).set_text(ChatLogItem.GetPostAt(param.posted_at));
-      this.TextRootObject = (RectTransform) ((Component) this.mMessageRoot.Find("messages")).GetComponent<RectTransform>();
-      if (!Object.op_Inequality((Object) this.mRoot, (Object) null) || !this.mRoot.get_activeInHierarchy())
-        return;
-      this.StartCoroutine(this.RefreshTextLine(param.message));
     }
 
     public static string GetPostAt(long postat)
@@ -298,55 +312,18 @@ namespace SRPG
       return str;
     }
 
-    public void RefreshPostAt()
-    {
-      TimeSpan timeSpan = TimeManager.ServerTime - GameUtility.UnixtimeToLocalTime(this.mPostAt);
-      int days = timeSpan.Days;
-      int hours = timeSpan.Hours;
-      int minutes = timeSpan.Minutes;
-      int seconds = timeSpan.Seconds;
-      if (days > 0)
-        this.PostAt.set_text(LocalizedText.Get("sys.CHAT_POSTAT_DAY", new object[1]
-        {
-          (object) days.ToString()
-        }));
-      else if (hours > 0)
-        this.PostAt.set_text(LocalizedText.Get("sys.CHAT_POSTAT_HOUR", new object[1]
-        {
-          (object) hours.ToString()
-        }));
-      else if (minutes > 0)
-        this.PostAt.set_text(LocalizedText.Get("sys.CHAT_POSTAT_MINUTE", new object[1]
-        {
-          (object) minutes.ToString()
-        }));
-      else if (seconds > 10)
-      {
-        this.PostAt.set_text(LocalizedText.Get("sys.CHAT_POSTAT_MINUTE", new object[1]
-        {
-          (object) minutes.ToString()
-        }));
-      }
-      else
-      {
-        if (seconds >= 10)
-          return;
-        this.PostAt.set_text(LocalizedText.Get("sys.CHAT_POSTAT_NOW"));
-      }
-    }
-
     [DebuggerHidden]
     private IEnumerator RefreshTextLine(string text)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new ChatLogItem.\u003CRefreshTextLine\u003Ec__IteratorA5() { text = text, \u003C\u0024\u003Etext = text, \u003C\u003Ef__this = this };
+      return (IEnumerator) new ChatLogItem.\u003CRefreshTextLine\u003Ec__IteratorE7() { text = text, \u003C\u0024\u003Etext = text, \u003C\u003Ef__this = this };
     }
 
     [DebuggerHidden]
     private IEnumerator RefreshStamp(int id)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new ChatLogItem.\u003CRefreshStamp\u003Ec__IteratorA6() { id = id, \u003C\u0024\u003Eid = id, \u003C\u003Ef__this = this };
+      return (IEnumerator) new ChatLogItem.\u003CRefreshStamp\u003Ec__IteratorE8() { id = id, \u003C\u0024\u003Eid = id, \u003C\u003Ef__this = this };
     }
 
     private bool SetupChatStampMaster()
@@ -379,8 +356,8 @@ namespace SRPG
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      ChatLogItem.\u003CLoadStampImages\u003Ec__IteratorA7 imagesCIteratorA7 = new ChatLogItem.\u003CLoadStampImages\u003Ec__IteratorA7();
-      return (IEnumerator) imagesCIteratorA7;
+      ChatLogItem.\u003CLoadStampImages\u003Ec__IteratorE9 imagesCIteratorE9 = new ChatLogItem.\u003CLoadStampImages\u003Ec__IteratorE9();
+      return (IEnumerator) imagesCIteratorE9;
     }
   }
 }

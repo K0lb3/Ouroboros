@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.ChallengeHelpWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -27,14 +27,14 @@ namespace SRPG
     {
       if (!MonoSingleton<DebugManager>.Instance.IsWebViewEnable())
       {
-        if (!Object.op_Inequality((Object) this.CloseButton, (Object) null))
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.CloseButton, (UnityEngine.Object) null))
           return;
         ((Selectable) this.CloseButton).set_interactable(true);
       }
       else
       {
         this.mWebView = (UniWebView) ((Component) this).GetComponent<UniWebView>();
-        if (Object.op_Inequality((Object) this.WebViewContainer, (Object) null) && Object.op_Equality((Object) this.mWebView, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.WebViewContainer, (UnityEngine.Object) null) && UnityEngine.Object.op_Equality((UnityEngine.Object) this.mWebView, (UnityEngine.Object) null))
         {
           this.WebViewContainer.get_rect();
           this.mWebView = (UniWebView) new GameObject("UniWebView").AddComponent<UniWebView>();
@@ -46,7 +46,7 @@ namespace SRPG
           this.mWebView.url = this.url;
           this.mWebView.Load();
         }
-        if (!Object.op_Inequality((Object) this.CloseButton, (Object) null))
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.CloseButton, (UnityEngine.Object) null))
           return;
         ((Selectable) this.CloseButton).set_interactable(false);
       }
@@ -71,7 +71,7 @@ namespace SRPG
         this.mWebView.Show(false, UniWebViewTransitionEdge.None, 0.4f, (Action) null);
       else
         Debug.LogError((object) ("Something wrong in webview loading: " + errorMessage));
-      if (!Object.op_Inequality((Object) this.CloseButton, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.CloseButton, (UnityEngine.Object) null))
         return;
       ((Selectable) this.CloseButton).set_interactable(true);
     }

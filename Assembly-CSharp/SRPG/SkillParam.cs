@@ -1,9 +1,10 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.SkillParam
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
+using GR;
 using System;
 using System.Collections.Generic;
 
@@ -19,6 +20,7 @@ namespace SRPG
     public List<string> AbilityReplaceChangeIdLists = new List<string>();
     private string localizedNameID;
     private string localizedExprID;
+    private string localizedMapEffID;
     public string iname;
     public string name;
     public string expr;
@@ -67,6 +69,7 @@ namespace SRPG
     public AttackTypes attack_type;
     public AttackDetailTypes attack_detail;
     public DamageTypes reaction_damage_type;
+    public SkillRankUpValue control_damage_rate;
     public SkillRankUpValue control_damage_value;
     public SkillParamCalcTypes control_damage_calc;
     public SkillRankUpValue control_ct_rate;
@@ -93,21 +96,38 @@ namespace SRPG
     public OInt CollaboHeight;
     public OInt KnockBackRate;
     public OInt KnockBackVal;
+    public eKnockBackDir KnockBackDir;
+    public eKnockBackDs KnockBackDs;
     public eDamageDispType DamageDispType;
+    public eTeleportType TeleportType;
+    public ESkillTarget TeleportTarget;
+    public int TeleportHeight;
+    public bool TeleportIsMove;
     public string CollaboVoiceId;
     public int CollaboVoicePlayDelayFrame;
+    public string ReplacedTargetId;
+    public string TrickId;
+    public eTrickSetType TrickSetType;
+    public string BreakObjId;
+    public string MapEffectDesc;
+    public int WeatherRate;
+    public string WeatherId;
+    public int ElementSpcAtkRate;
+    public int MaxDamageValue;
 
     protected void localizeFields(string language)
     {
       this.init();
       this.name = LocalizedText.SGGet(language, GameUtility.LocalizedMasterParamFileName, this.localizedNameID);
       this.expr = LocalizedText.SGGet(language, GameUtility.LocalizedMasterParamFileName, this.localizedExprID);
+      this.MapEffectDesc = LocalizedText.SGGet(language, GameUtility.LocalizedMasterParamFileName, this.localizedMapEffID);
     }
 
     protected void init()
     {
       this.localizedNameID = this.GetType().GenerateLocalizedID(this.iname, "NAME");
       this.localizedExprID = this.GetType().GenerateLocalizedID(this.iname, "EXPR");
+      this.localizedMapEffID = this.GetType().GenerateLocalizedID(this.iname, "MAPEFF");
     }
 
     public void Deserialize(string language, JSON_SkillParam json)
@@ -160,6 +180,8 @@ namespace SRPG
       this.CollaboHeight = (OInt) json.cs_height;
       this.KnockBackRate = (OInt) json.kb_rate;
       this.KnockBackVal = (OInt) json.kb_val;
+      this.KnockBackDir = (eKnockBackDir) json.kb_dir;
+      this.KnockBackDs = (eKnockBackDs) json.kb_ds;
       this.DamageDispType = (eDamageDispType) json.dmg_dt;
       this.ReplaceTargetIdLists.Clear();
       if (json.rp_tgt_ids != null)
@@ -197,6 +219,18 @@ namespace SRPG
       }
       this.CollaboVoiceId = json.cs_voice;
       this.CollaboVoicePlayDelayFrame = json.cs_vp_df;
+      this.TeleportType = (eTeleportType) json.tl_type;
+      this.TeleportTarget = (ESkillTarget) json.tl_target;
+      this.TeleportHeight = json.tl_height;
+      this.TeleportIsMove = json.tl_is_mov != 0;
+      this.TrickId = json.tr_id;
+      this.TrickSetType = (eTrickSetType) json.tr_set;
+      this.BreakObjId = json.bo_id;
+      this.MapEffectDesc = json.me_desc;
+      this.WeatherRate = json.wth_rate;
+      this.WeatherId = json.wth_id;
+      this.ElementSpcAtkRate = json.elem_tk;
+      this.MaxDamageValue = json.max_dmg;
       this.flags = (SkillFlags) 0;
       if (json.cutin != 0)
         this.flags |= SkillFlags.ExecuteCutin;
@@ -222,6 +256,18 @@ namespace SRPG
         this.flags |= SkillFlags.ForceHit;
       if (json.suicide != 0)
         this.flags |= SkillFlags.Suicide;
+      if (json.sub_actuate != 0)
+        this.flags |= SkillFlags.SubActuate;
+      if (json.is_fixed != 0)
+        this.flags |= SkillFlags.FixedDamage;
+      if (json.f_ulock != 0)
+        this.flags |= SkillFlags.ForceUnitLock;
+      if (json.ad_react != 0)
+        this.flags |= SkillFlags.AllDamageReaction;
+      if (json.ig_elem != 0)
+        this.flags |= SkillFlags.IgnoreElement;
+      if (json.is_pre_apply != 0)
+        this.flags |= SkillFlags.PrevApply;
       this.hp_cost = (OInt) json.hp_cost;
       this.hp_cost_rate = (OInt) Math.Min(Math.Max(json.hp_cost_rate, 0), 100);
       this.random_hit_rate = (OInt) json.rhit;
@@ -266,13 +312,6 @@ namespace SRPG
         foreach (AttackDetailTypes reactDet in json.react_dets)
           this.reaction_det_lists.Add(reactDet);
       }
-      if (this.reaction_damage_type != DamageTypes.None)
-      {
-        this.control_damage_value = new SkillRankUpValue();
-        this.control_damage_value.ini = (OInt) json.ctrl_d_ini;
-        this.control_damage_value.max = (OInt) json.ctrl_d_max;
-        this.control_damage_calc = (SkillParamCalcTypes) json.ctrl_d_calc;
-      }
       this.control_ct_rate = (SkillRankUpValue) null;
       this.control_ct_value = (SkillRankUpValue) null;
       if (this.control_ct_calc == SkillParamCalcTypes.Fixed || json.ct_val_ini != 0 || json.ct_val_max != 0)
@@ -301,6 +340,18 @@ namespace SRPG
         this.shield_value = new SkillRankUpValue();
         this.shield_value.ini = (OInt) json.shield_ini;
         this.shield_value.max = (OInt) json.shield_max;
+        if (json.shield_reset != 0)
+          this.flags |= SkillFlags.ShieldReset;
+      }
+      if (this.reaction_damage_type != DamageTypes.None || this.shield_damage_type != DamageTypes.None)
+      {
+        this.control_damage_rate = new SkillRankUpValue();
+        this.control_damage_rate.ini = (OInt) json.ctrl_d_rate_ini;
+        this.control_damage_rate.max = (OInt) json.ctrl_d_rate_max;
+        this.control_damage_value = new SkillRankUpValue();
+        this.control_damage_value.ini = (OInt) json.ctrl_d_ini;
+        this.control_damage_value.max = (OInt) json.ctrl_d_max;
+        this.control_damage_calc = (SkillParamCalcTypes) json.ctrl_d_calc;
       }
       SkillEffectTypes effectType = this.effect_type;
       switch (effectType)
@@ -319,7 +370,7 @@ namespace SRPG
           }
           break;
         default:
-          if (effectType == SkillEffectTypes.Attack || effectType == SkillEffectTypes.ReflectDamage)
+          if (effectType == SkillEffectTypes.Attack || effectType == SkillEffectTypes.ReflectDamage || effectType == SkillEffectTypes.RateDamageCurrent)
             goto case SkillEffectTypes.RateDamage;
           else
             break;
@@ -356,12 +407,70 @@ namespace SRPG
             break;
         }
       }
+      if (this.TeleportType != eTeleportType.None)
+      {
+        if (!this.IsTargetGridNoUnit && this.TeleportType != eTeleportType.BeforeSkill)
+          this.target = ESkillTarget.GridNoUnit;
+        if (this.IsTargetTeleport)
+        {
+          if (this.IsCastSkill())
+            this.cast_speed = (SkillRankUpValue) null;
+          if ((int) this.scope != 0)
+            this.scope = (OInt) 0;
+        }
+      }
+      if (this.IsTargetValidGrid && !this.IsTrickSkill())
+        this.target = ESkillTarget.GridNoUnit;
+      if (this.timing == ESkillTiming.Auto && this.effect_type == SkillEffectTypes.Attack)
+        this.effect_type = SkillEffectTypes.Buff;
       return true;
+    }
+
+    public static void UpdateReplaceSkill(List<SkillParam> sp_lists)
+    {
+      // ISSUE: object of a compiler-generated type is created
+      // ISSUE: variable of a compiler-generated type
+      SkillParam.\u003CUpdateReplaceSkill\u003Ec__AnonStorey23A skillCAnonStorey23A = new SkillParam.\u003CUpdateReplaceSkill\u003Ec__AnonStorey23A();
+      using (List<SkillParam>.Enumerator enumerator = sp_lists.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+        {
+          // ISSUE: reference to a compiler-generated field
+          skillCAnonStorey23A.sp = enumerator.Current;
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: reference to a compiler-generated field
+          if (skillCAnonStorey23A.sp.ReplaceChangeIdLists != null && skillCAnonStorey23A.sp.ReplaceChangeIdLists.Count > 0 && (skillCAnonStorey23A.sp.ReplaceTargetIdLists != null && skillCAnonStorey23A.sp.ReplaceTargetIdLists.Count > 0) && skillCAnonStorey23A.sp.ReplaceChangeIdLists.Count == skillCAnonStorey23A.sp.ReplaceTargetIdLists.Count)
+          {
+            // ISSUE: object of a compiler-generated type is created
+            // ISSUE: variable of a compiler-generated type
+            SkillParam.\u003CUpdateReplaceSkill\u003Ec__AnonStorey23B skillCAnonStorey23B = new SkillParam.\u003CUpdateReplaceSkill\u003Ec__AnonStorey23B();
+            // ISSUE: reference to a compiler-generated field
+            skillCAnonStorey23B.\u003C\u003Ef__ref\u0024570 = skillCAnonStorey23A;
+            // ISSUE: reference to a compiler-generated field
+            // ISSUE: reference to a compiler-generated field
+            // ISSUE: reference to a compiler-generated field
+            // ISSUE: reference to a compiler-generated field
+            for (skillCAnonStorey23B.idx = 0; skillCAnonStorey23B.idx < skillCAnonStorey23A.sp.ReplaceChangeIdLists.Count; ++skillCAnonStorey23B.idx)
+            {
+              // ISSUE: reference to a compiler-generated method
+              SkillParam skillParam1 = sp_lists.Find(new Predicate<SkillParam>(skillCAnonStorey23B.\u003C\u003Em__1AF));
+              // ISSUE: reference to a compiler-generated method
+              SkillParam skillParam2 = sp_lists.Find(new Predicate<SkillParam>(skillCAnonStorey23B.\u003C\u003Em__1B0));
+              if (skillParam1 != null && skillParam2 != null && string.IsNullOrEmpty(skillParam1.ReplacedTargetId))
+                skillParam1.ReplacedTargetId = skillParam2.iname;
+            }
+          }
+        }
+      }
     }
 
     public bool IsDamagedSkill()
     {
-      if (this.effect_type == SkillEffectTypes.Attack || this.effect_type == SkillEffectTypes.ReflectDamage || this.effect_type == SkillEffectTypes.RateDamage)
+      if (this.effect_type == SkillEffectTypes.Attack || this.effect_type == SkillEffectTypes.ReflectDamage || (this.effect_type == SkillEffectTypes.RateDamage || this.effect_type == SkillEffectTypes.RateDamageCurrent))
         return this.attack_type != AttackTypes.None;
       return false;
     }
@@ -385,7 +494,7 @@ namespace SRPG
 
     public bool IsEnableHeightRangeBonus()
     {
-      if (this.select_range == ESelectType.Laser || this.select_scope == ESelectType.Laser)
+      if (SkillParam.IsTypeLaser(this.select_range) || SkillParam.IsTypeLaser(this.select_scope))
         return false;
       return (this.flags & SkillFlags.EnableHeightRangeBonus) != (SkillFlags) 0;
     }
@@ -413,6 +522,41 @@ namespace SRPG
     public bool IsSuicide()
     {
       return (this.flags & SkillFlags.Suicide) != (SkillFlags) 0;
+    }
+
+    public bool IsSubActuate()
+    {
+      return (this.flags & SkillFlags.SubActuate) != (SkillFlags) 0;
+    }
+
+    public bool IsFixedDamage()
+    {
+      return (this.flags & SkillFlags.FixedDamage) != (SkillFlags) 0;
+    }
+
+    public bool IsForceUnitLock()
+    {
+      return (this.flags & SkillFlags.ForceUnitLock) != (SkillFlags) 0;
+    }
+
+    public bool IsAllDamageReaction()
+    {
+      return (this.flags & SkillFlags.AllDamageReaction) != (SkillFlags) 0;
+    }
+
+    public bool IsShieldReset()
+    {
+      return (this.flags & SkillFlags.ShieldReset) != (SkillFlags) 0;
+    }
+
+    public bool IsIgnoreElement()
+    {
+      return (this.flags & SkillFlags.IgnoreElement) != (SkillFlags) 0;
+    }
+
+    public bool IsPrevApply()
+    {
+      return (this.flags & SkillFlags.PrevApply) != (SkillFlags) 0;
     }
 
     public bool IsEnableUnitLockTarget()
@@ -478,6 +622,26 @@ namespace SRPG
       return this.effect_type == SkillEffectTypes.CureCondition || this.effect_type == SkillEffectTypes.FailCondition || this.effect_type == SkillEffectTypes.DisableCondition;
     }
 
+    public bool IsTrickSkill()
+    {
+      return this.effect_type == SkillEffectTypes.SetTrick;
+    }
+
+    public bool IsTransformSkill()
+    {
+      return this.effect_type == SkillEffectTypes.TransformUnit;
+    }
+
+    public bool IsSetBreakObjSkill()
+    {
+      return this.effect_type == SkillEffectTypes.SetBreakObj;
+    }
+
+    public bool IsChangeWeatherSkill()
+    {
+      return this.effect_type == SkillEffectTypes.ChangeWeather;
+    }
+
     public bool IsSelfTargetSelect()
     {
       if ((int) this.range_min > 0)
@@ -492,12 +656,21 @@ namespace SRPG
         case SkillEffectTypes.Attack:
         case SkillEffectTypes.Debuff:
         case SkillEffectTypes.RateDamage:
+        case SkillEffectTypes.RateDamageCurrent:
           return false;
         case SkillEffectTypes.FailCondition:
           return this.target == ESkillTarget.Self || this.target == ESkillTarget.SelfSide;
-        default:
-          return true;
+        case SkillEffectTypes.SetTrick:
+          if (!string.IsNullOrEmpty(this.TrickId))
+          {
+            TrickParam trickParam = MonoSingleton<GameManager>.GetInstanceDirect().MasterParam.GetTrickParam(this.TrickId);
+            if (trickParam != null && trickParam.DamageType == eTrickDamageType.DAMAGE)
+              return false;
+            break;
+          }
+          break;
       }
+      return true;
     }
 
     public int CalcCurrentRankValue(int rank, int rankcap, SkillRankUpValue param)
@@ -540,9 +713,32 @@ namespace SRPG
       }
     }
 
+    public bool IsTargetValidGrid
+    {
+      get
+      {
+        return this.target == ESkillTarget.ValidGrid;
+      }
+    }
+
     public static bool IsTypeLaser(ESelectType type)
     {
       return new List<ESelectType>((IEnumerable<ESelectType>) new ESelectType[5]{ ESelectType.Laser, ESelectType.LaserSpread, ESelectType.LaserWide, ESelectType.LaserTwin, ESelectType.LaserTriple }).Contains(type);
+    }
+
+    public bool IsReactionDet(AttackDetailTypes atk_detail_type)
+    {
+      return this.reaction_det_lists.Count == 0 || this.reaction_det_lists.Contains(atk_detail_type);
+    }
+
+    public bool IsTargetTeleport
+    {
+      get
+      {
+        if (this.TeleportType == eTeleportType.BeforeSkill)
+          return !this.IsTargetGridNoUnit;
+        return false;
+      }
     }
   }
 }

@@ -1,30 +1,30 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: FlowNode_Date
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using SRPG;
 using System;
 
-[FlowNode.Pin(1004, "> CompareValue", FlowNode.PinTypes.Output, 1004)]
-[FlowNode.NodeType("System/Date", 32741)]
 [FlowNode.Pin(99, "Reset", FlowNode.PinTypes.Input, 99)]
-[FlowNode.Pin(100, "Update", FlowNode.PinTypes.Input, 100)]
-[FlowNode.Pin(101, "CompareDate", FlowNode.PinTypes.Input, 101)]
-[FlowNode.Pin(102, "CompareHour", FlowNode.PinTypes.Input, 102)]
-[FlowNode.Pin(103, "CompareMonth", FlowNode.PinTypes.Input, 103)]
-[FlowNode.Pin(104, "CompareDay", FlowNode.PinTypes.Input, 104)]
+[FlowNode.Pin(1004, "> CompareValue", FlowNode.PinTypes.Output, 1004)]
 [FlowNode.Pin(105, "CompareYear", FlowNode.PinTypes.Input, 105)]
-[FlowNode.Pin(500, "Updated", FlowNode.PinTypes.Output, 500)]
-[FlowNode.Pin(501, "時刻が変わった(日は変わらず)", FlowNode.PinTypes.Output, 501)]
+[FlowNode.Pin(1005, ">= CompareValue", FlowNode.PinTypes.Output, 1005)]
 [FlowNode.Pin(502, "日が変わった", FlowNode.PinTypes.Output, 502)]
 [FlowNode.Pin(503, "日も時刻も変わらず", FlowNode.PinTypes.Output, 503)]
 [FlowNode.Pin(1000, "== CompareValue", FlowNode.PinTypes.Output, 1000)]
 [FlowNode.Pin(1001, "!= CompareValue", FlowNode.PinTypes.Output, 1001)]
 [FlowNode.Pin(1002, "< CompareValue", FlowNode.PinTypes.Output, 1002)]
 [FlowNode.Pin(1003, "<= CompareValue", FlowNode.PinTypes.Output, 1003)]
-[FlowNode.Pin(1005, ">= CompareValue", FlowNode.PinTypes.Output, 1005)]
+[FlowNode.Pin(103, "CompareMonth", FlowNode.PinTypes.Input, 103)]
+[FlowNode.Pin(100, "Update", FlowNode.PinTypes.Input, 100)]
+[FlowNode.Pin(102, "CompareHour", FlowNode.PinTypes.Input, 102)]
+[FlowNode.NodeType("System/Date", 32741)]
+[FlowNode.Pin(501, "時刻が変わった(日は変わらず)", FlowNode.PinTypes.Output, 501)]
+[FlowNode.Pin(500, "Updated", FlowNode.PinTypes.Output, 500)]
+[FlowNode.Pin(101, "CompareDate", FlowNode.PinTypes.Input, 101)]
+[FlowNode.Pin(104, "CompareDay", FlowNode.PinTypes.Input, 104)]
 public class FlowNode_Date : FlowNode
 {
   public int CompareMonth = 10;

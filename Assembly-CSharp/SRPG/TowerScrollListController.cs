@@ -1,12 +1,14 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.TowerScrollListController
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
@@ -14,14 +16,18 @@ using UnityEngine.UI;
 
 namespace SRPG
 {
+  [FlowNode.Pin(0, "背景ロード完了", FlowNode.PinTypes.Output, 0)]
   public class TowerScrollListController : MonoBehaviour
   {
+    private static string BGTexturePath = "Tower/TowerBGs";
+    private static string FloorBGTexturePath = "Tower/TowerFloors";
+    private static string LockFloorBGTexturePath = "Tower/TowerLockFloors";
     [SerializeField]
     private RectTransform m_ItemBase;
     [SerializeField]
     internal TowerScrollListController.ScrollMode m_ScrollMode;
-    [Range(0.0f, 30f)]
     [SerializeField]
+    [Range(0.0f, 30f)]
     protected int m_ItemCnt;
     [SerializeField]
     private float m_Margin;
@@ -42,6 +48,10 @@ namespace SRPG
     public TowerScrollListController.ListItemFocusEvent OnListItemFocus;
     [SerializeField]
     private Button mChallengeButton;
+    [SerializeField]
+    private Animator FadeAnimator;
+    [SerializeField]
+    private RawImage Bg;
     private float m_ItemScale;
 
     public TowerScrollListController()
@@ -61,7 +71,7 @@ namespace SRPG
     {
       get
       {
-        if (Object.op_Equality((Object) this.m_RectTransform, (Object) null))
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.m_RectTransform, (UnityEngine.Object) null))
           this.m_RectTransform = (RectTransform) ((Component) this).GetComponent<RectTransform>();
         return this.m_RectTransform;
       }
@@ -71,7 +81,7 @@ namespace SRPG
     {
       get
       {
-        if (Object.op_Inequality((Object) this.m_ItemBase, (Object) null) && (double) this.m_ItemScale == -1.0)
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_ItemBase, (UnityEngine.Object) null) && (double) this.m_ItemScale == -1.0)
           this.m_ItemScale = this.m_Direction != TowerScrollListController.Direction.Vertical ? (float) this.m_ItemBase.get_sizeDelta().x : (float) this.m_ItemBase.get_sizeDelta().y;
         return this.m_ItemScale;
       }
@@ -87,7 +97,7 @@ namespace SRPG
 
     internal static void SetAnchor(RectTransform rt, TowerScrollListController.ScrollMode scrollMode)
     {
-      if (Object.op_Equality((Object) rt, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) rt, (UnityEngine.Object) null))
         return;
       if (scrollMode == TowerScrollListController.ScrollMode.Normal)
       {
@@ -113,7 +123,7 @@ namespace SRPG
 
     internal static void SetItemAnchor(RectTransform rt, TowerScrollListController.ScrollMode scrollMode)
     {
-      if (Object.op_Equality((Object) rt, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) rt, (UnityEngine.Object) null))
         return;
       if (scrollMode == TowerScrollListController.ScrollMode.Normal)
       {
@@ -142,7 +152,7 @@ namespace SRPG
       if (!Application.get_isPlaying())
       {
         TowerScrollListController.SetAnchor(this.GetRectTransForm, scrollMode);
-        if (Object.op_Inequality((Object) this.m_ScrollBG, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_ScrollBG, (UnityEngine.Object) null))
         {
           TowerScrollListController.SetAnchor((RectTransform) ((Component) this.m_ScrollBG).GetComponent<RectTransform>(), scrollMode);
           this.m_ScrollBG.isNormal = scrollMode == TowerScrollListController.ScrollMode.Normal;
@@ -152,7 +162,7 @@ namespace SRPG
       else
       {
         TowerScrollListController.SetAnchor(this.GetRectTransForm, scrollMode);
-        if (Object.op_Inequality((Object) this.m_ScrollBG, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_ScrollBG, (UnityEngine.Object) null))
         {
           TowerScrollListController.SetAnchor((RectTransform) ((Component) this.m_ScrollBG).GetComponent<RectTransform>(), scrollMode);
           this.m_ScrollBG.isNormal = scrollMode == TowerScrollListController.ScrollMode.Normal;
@@ -168,7 +178,7 @@ namespace SRPG
     protected virtual void Start()
     {
       List<ScrollListSetUp> list = ((IEnumerable<MonoBehaviour>) ((Component) this).GetComponents<MonoBehaviour>()).Where<MonoBehaviour>((Func<MonoBehaviour, bool>) (item => item is ScrollListSetUp)).Select<MonoBehaviour, ScrollListSetUp>((Func<MonoBehaviour, ScrollListSetUp>) (item => item as ScrollListSetUp)).ToList<ScrollListSetUp>();
-      if (Object.op_Inequality((Object) this.m_ScrollAutoFit, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_ScrollAutoFit, (UnityEngine.Object) null))
       {
         this.m_ScrollAutoFit.set_content(this.GetRectTransForm);
         this.m_ScrollAutoFit.ItemScale = this.ItemScaleMargin;
@@ -177,12 +187,16 @@ namespace SRPG
       }
       ((Component) this.m_ItemBase).get_gameObject().SetActive(false);
       float num = this.m_ScrollMode != TowerScrollListController.ScrollMode.Normal ? 1f : -1f;
+      List<TowerQuestListItem> towerQuestListItemList = new List<TowerQuestListItem>();
       for (int index = 0; index < this.m_ItemCnt; ++index)
       {
-        RectTransform rectTransform = (RectTransform) Object.Instantiate<RectTransform>((M0) this.m_ItemBase);
+        RectTransform rectTransform = (RectTransform) UnityEngine.Object.Instantiate<RectTransform>((M0) this.m_ItemBase);
         ((Transform) rectTransform).SetParent(((Component) this).get_transform(), false);
         rectTransform.set_anchoredPosition(new Vector2(0.0f, (float) ((double) this.ItemScale * (double) this.Margin * (double) index + (double) this.ItemScale * 0.5) * num));
         this.m_ItemList.Add(rectTransform);
+        TowerQuestListItem component = (TowerQuestListItem) ((Component) rectTransform).GetComponent<TowerQuestListItem>();
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
+          towerQuestListItemList.Add(component);
         ((Component) rectTransform).get_gameObject().SetActive(true);
       }
       using (List<ScrollListSetUp>.Enumerator enumerator = list.GetEnumerator())
@@ -197,6 +211,7 @@ namespace SRPG
       }
       this.m_ScrollMode = !MonoSingleton<GameManager>.Instance.FindTower(GlobalVars.SelectedTowerID).is_down ? TowerScrollListController.ScrollMode.Reverse : TowerScrollListController.ScrollMode.Normal;
       this.ChangeScrollMode(this.m_ScrollMode);
+      this.StartCoroutine(this.LoadTowerBG(towerQuestListItemList.ToArray()));
     }
 
     private float AnchoredPosition
@@ -287,7 +302,7 @@ namespace SRPG
       float num1 = Mathf.Abs(Vector2.Dot(this.m_ScrollAutoFit.get_normalizedPosition(), this.ScrollDir));
       RectTransform transform1 = ((Component) this.m_ScrollAutoFit).get_transform() as RectTransform;
       RectTransform transform2 = ((Component) this.m_ScrollAutoFit.get_content()).get_transform() as RectTransform;
-      if (Object.op_Inequality((Object) this.m_ScrollAutoFit.get_content(), (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_ScrollAutoFit.get_content(), (UnityEngine.Object) null))
       {
         Rect rect1 = transform1.get_rect();
         // ISSUE: explicit reference operation
@@ -297,9 +312,9 @@ namespace SRPG
         float num3 = Mathf.Abs(Vector2.Dot(((Rect) @rect2).get_size(), this.ScrollDir));
         if (this.m_ScrollAutoFit.get_horizontal())
           num1 = 1f - num1;
-        if (Object.op_Inequality((Object) this.PageUpButton, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.PageUpButton, (UnityEngine.Object) null))
           this.PageUpButton.set_interactable((double) num1 < 0.999000012874603 && (double) num2 < (double) num3);
-        if (Object.op_Inequality((Object) this.PageDownButton, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.PageDownButton, (UnityEngine.Object) null))
           this.PageDownButton.set_interactable((double) num1 > 1.0 / 1000.0 && (double) num2 < (double) num3);
       }
       this.FocusUpdate();
@@ -425,6 +440,31 @@ namespace SRPG
         if (this.m_ScrollAutoFit.get_vertical())
           return Vector2.op_UnaryNegation(Vector2.get_up());
         return Vector2.get_right();
+      }
+    }
+
+    [DebuggerHidden]
+    public IEnumerator LoadTowerBG(TowerQuestListItem[] tower_quest_list)
+    {
+      // ISSUE: object of a compiler-generated type is created
+      return (IEnumerator) new TowerScrollListController.\u003CLoadTowerBG\u003Ec__Iterator11D() { tower_quest_list = tower_quest_list, \u003C\u0024\u003Etower_quest_list = tower_quest_list, \u003C\u003Ef__this = this };
+    }
+
+    public void SetTowerImage(LoadRequest floor_req, int index, string image_name, TowerQuestListItem[] tower_quest_list)
+    {
+      GachaTabSprites asset = floor_req.asset as GachaTabSprites;
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) asset, (UnityEngine.Object) null))
+        return;
+      for (int index1 = 0; index1 < asset.Sprites.Length; ++index1)
+      {
+        if (!(((UnityEngine.Object) asset.Sprites[index1]).get_name() != image_name))
+        {
+          for (int index2 = 0; index2 < tower_quest_list.Length; ++index2)
+          {
+            tower_quest_list[index2].Banner[0].Images[index] = asset.Sprites[index1];
+            tower_quest_list[index2].Banner[1].Images[index] = asset.Sprites[index1];
+          }
+        }
       }
     }
 

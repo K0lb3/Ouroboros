@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_ReqChatMessage
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -10,54 +10,26 @@ using UnityEngine;
 namespace SRPG
 {
   [FlowNode.Pin(0, "Request", FlowNode.PinTypes.Input, 0)]
-  [FlowNode.NodeType("System/ReqChatLog", 32741)]
-  [FlowNode.Pin(100, "ChatFailure", FlowNode.PinTypes.Output, 100)]
   [FlowNode.Pin(10, "Success", FlowNode.PinTypes.Output, 10)]
-  [FlowNode.Pin(1, "Request(Admin)", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(100, "ChatFailure", FlowNode.PinTypes.Output, 100)]
+  [FlowNode.NodeType("System/ReqChatLog", 32741)]
   public class FlowNode_ReqChatMessage : FlowNode_Network
   {
-    private bool mSetup;
-    private int mPinID;
-    private int mChannel;
-    private int mStartID;
-    private int mLimit;
-    private int mExcludeID;
+    protected bool mSetup;
 
-    public void SetChatMessageinfo(int channel, int start_id, int limit, int exclude_id)
+    public virtual void SetChatMessageInfo(int channel, long start_id, int limit, long exclude_id)
     {
-      this.mChannel = channel;
-      this.mStartID = start_id;
-      this.mLimit = limit;
-      this.mExcludeID = exclude_id;
-      this.mSetup = true;
+    }
+
+    public virtual void SetChatMessageInfo(string room_token, long start_id, int limit, long exclude_id, bool is_sys_msg_merge)
+    {
     }
 
     public override void OnActivate(int pinID)
     {
-      switch (pinID)
-      {
-        case 0:
-          if (this.mSetup)
-          {
-            int mStartId = this.mStartID;
-            int mChannel = this.mChannel;
-            int mLimit = this.mLimit;
-            int mExcludeId = this.mExcludeID;
-            Network.IsIndicator = false;
-            this.ExecRequest((WebAPI) new ReqChatMessage(mStartId, mChannel, mLimit, mExcludeId, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
-          }
-          ((Behaviour) this).set_enabled(true);
-          break;
-        case 1:
-          Network.IsIndicator = false;
-          this.ExecRequest((WebAPI) new ReqChatMessageOffical(new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
-          ((Behaviour) this).set_enabled(true);
-          break;
-      }
-      this.mPinID = pinID;
     }
 
-    private void Success()
+    protected virtual void Success(ChatLog log)
     {
       ((Behaviour) this).set_enabled(false);
       this.mSetup = false;
@@ -66,7 +38,12 @@ namespace SRPG
 
     public override void OnSuccess(WWWResult www)
     {
-      if (Network.IsError)
+      if (Object.op_Equality((Object) this, (Object) null))
+      {
+        Network.RemoveAPI();
+        Network.IsIndicator = true;
+      }
+      else if (Network.IsError)
       {
         Network.EErrCode errCode = Network.ErrCode;
         Network.RemoveAPI();
@@ -77,23 +54,20 @@ namespace SRPG
       }
       else
       {
+        DebugMenu.Log("API", "chat:message:{" + www.text + "}");
         WebAPI.JSON_BodyResponse<JSON_ChatLog> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<JSON_ChatLog>>(www.text);
         DebugUtility.Assert(jsonObject != null, "res == null");
         Network.RemoveAPI();
         Network.IsIndicator = true;
-        ChatLog chatLog = new ChatLog();
-        chatLog.Deserialize(jsonObject.body);
-        if (chatLog == null || !Object.op_Inequality((Object) this, (Object) null))
-          return;
-        ChatWindow component = (ChatWindow) ((Component) this).get_gameObject().GetComponent<ChatWindow>();
-        if (Object.op_Inequality((Object) component, (Object) null))
+        ChatLog log = new ChatLog();
+        if (jsonObject.body != null)
         {
-          if (this.mPinID == 0)
-            component.ChatLog = chatLog;
-          else if (this.mPinID == 1)
-            component.ChatLogOffical = chatLog;
+          log.Deserialize(jsonObject.body);
+          MultiInvitationReceiveWindow.SetBadge(jsonObject.body.player != null && jsonObject.body.player.multi_inv != 0);
         }
-        this.Success();
+        else
+          MultiInvitationReceiveWindow.SetBadge(false);
+        this.Success(log);
       }
     }
   }

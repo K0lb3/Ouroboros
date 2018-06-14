@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.SkillData
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -19,6 +19,7 @@ namespace SRPG
     private OInt mEffectValue;
     private OInt mEffectRange;
     private OInt mElementValue;
+    private OInt mControlDamageRate;
     private OInt mControlDamageValue;
     private OInt mControlChargeTimeRate;
     private OInt mControlChargeTimeValue;
@@ -291,6 +292,14 @@ namespace SRPG
       }
     }
 
+    public OInt ControlDamageRate
+    {
+      get
+      {
+        return this.mControlDamageRate;
+      }
+    }
+
     public OInt ControlDamageValue
     {
       get
@@ -423,6 +432,102 @@ namespace SRPG
       }
     }
 
+    public eTeleportType TeleportType
+    {
+      get
+      {
+        return this.mSkillParam.TeleportType;
+      }
+    }
+
+    public ESkillTarget TeleportTarget
+    {
+      get
+      {
+        return this.mSkillParam.TeleportTarget;
+      }
+    }
+
+    public int TeleportHeight
+    {
+      get
+      {
+        return this.mSkillParam.TeleportHeight;
+      }
+    }
+
+    public bool TeleportIsMove
+    {
+      get
+      {
+        return this.mSkillParam.TeleportIsMove;
+      }
+    }
+
+    public OInt KnockBackRate
+    {
+      get
+      {
+        return this.mSkillParam.KnockBackRate;
+      }
+    }
+
+    public OInt KnockBackVal
+    {
+      get
+      {
+        return this.mSkillParam.KnockBackVal;
+      }
+    }
+
+    public eKnockBackDir KnockBackDir
+    {
+      get
+      {
+        return this.mSkillParam.KnockBackDir;
+      }
+    }
+
+    public eKnockBackDs KnockBackDs
+    {
+      get
+      {
+        return this.mSkillParam.KnockBackDs;
+      }
+    }
+
+    public int WeatherRate
+    {
+      get
+      {
+        return this.mSkillParam.WeatherRate;
+      }
+    }
+
+    public string WeatherId
+    {
+      get
+      {
+        return this.mSkillParam.WeatherId;
+      }
+    }
+
+    public int ElementSpcAtkRate
+    {
+      get
+      {
+        return this.mSkillParam.ElementSpcAtkRate;
+      }
+    }
+
+    public int MaxDamageValue
+    {
+      get
+      {
+        return this.mSkillParam.MaxDamageValue;
+      }
+    }
+
     public void Setup(string iname, int rank, int rankcap = 1, MasterParam master = null)
     {
       if (string.IsNullOrEmpty(iname))
@@ -471,6 +576,7 @@ namespace SRPG
       this.mEffectValue = (OInt) this.SkillParam.CalcCurrentRankValue(rank, rankCap, this.SkillParam.effect_value);
       this.mEffectRange = (OInt) this.SkillParam.CalcCurrentRankValue(rank, rankCap, this.SkillParam.effect_range);
       this.mElementValue = (OInt) this.SkillParam.CalcCurrentRankValue(rank, rankCap, this.SkillParam.element_value);
+      this.mControlDamageRate = (OInt) this.SkillParam.CalcCurrentRankValue(rank, rankCap, this.SkillParam.control_damage_rate);
       this.mControlDamageValue = (OInt) this.SkillParam.CalcCurrentRankValue(rank, rankCap, this.SkillParam.control_damage_value);
       this.mControlChargeTimeRate = (OInt) this.SkillParam.CalcCurrentRankValue(rank, rankCap, this.SkillParam.control_ct_rate);
       this.mControlChargeTimeValue = (OInt) this.SkillParam.CalcCurrentRankValue(rank, rankCap, this.SkillParam.control_ct_value);
@@ -589,6 +695,48 @@ namespace SRPG
       return false;
     }
 
+    public bool IsSubActuate()
+    {
+      if (this.SkillParam != null)
+        return this.SkillParam.IsSubActuate();
+      return false;
+    }
+
+    public bool IsFixedDamage()
+    {
+      if (this.SkillParam != null)
+        return this.SkillParam.IsFixedDamage();
+      return false;
+    }
+
+    public bool IsForceUnitLock()
+    {
+      if (this.SkillParam != null)
+        return this.SkillParam.IsForceUnitLock();
+      return false;
+    }
+
+    public bool IsAllDamageReaction()
+    {
+      if (this.SkillParam != null)
+        return this.SkillParam.IsAllDamageReaction();
+      return false;
+    }
+
+    public bool IsIgnoreElement()
+    {
+      if (this.SkillParam != null)
+        return this.SkillParam.IsIgnoreElement();
+      return false;
+    }
+
+    public bool IsPrevApply()
+    {
+      if (this.SkillParam != null)
+        return this.SkillParam.IsPrevApply();
+      return false;
+    }
+
     public bool IsCastBreak()
     {
       if (this.SkillParam != null)
@@ -652,6 +800,34 @@ namespace SRPG
       return false;
     }
 
+    public bool IsTrickSkill()
+    {
+      if (this.SkillParam != null)
+        return this.SkillParam.IsTrickSkill();
+      return false;
+    }
+
+    public bool IsTransformSkill()
+    {
+      if (this.SkillParam != null)
+        return this.SkillParam.IsTransformSkill();
+      return false;
+    }
+
+    public bool IsSetBreakObjSkill()
+    {
+      if (this.SkillParam != null)
+        return this.SkillParam.IsSetBreakObjSkill();
+      return false;
+    }
+
+    public bool IsChangeWeatherSkill()
+    {
+      if (this.SkillParam != null)
+        return this.SkillParam.IsChangeWeatherSkill();
+      return false;
+    }
+
     public bool IsConditionSkill()
     {
       if (this.SkillParam != null)
@@ -700,11 +876,6 @@ namespace SRPG
         default:
           return false;
       }
-    }
-
-    public bool CheckGridSkillTarget()
-    {
-      return this.Target == ESkillTarget.GridNoUnit;
     }
 
     public int GetHpCost(Unit self)
@@ -769,19 +940,22 @@ namespace SRPG
       return (int) buffTarget.value;
     }
 
-    public void BuffSkill(ESkillTiming timing, BaseStatus buff, BaseStatus buff_scale, BaseStatus debuff, BaseStatus debuff_scale, RandXorshift rand = null, SkillEffectTargets buff_target = SkillEffectTargets.Target)
+    public bool BuffSkill(ESkillTiming timing, BaseStatus buff, BaseStatus buff_scale, BaseStatus debuff, BaseStatus debuff_scale, RandXorshift rand = null, SkillEffectTargets buff_target = SkillEffectTargets.Target, bool is_resume = false)
     {
       if (this.Timing != timing)
-        return;
+        return false;
       BuffEffect buffEffect = this.GetBuffEffect(buff_target);
       if (buffEffect == null)
-        return;
-      int rate = (int) buffEffect.param.rate;
-      if (rate > 0 && rate < 100)
+        return false;
+      if (!is_resume)
       {
-        DebugUtility.Assert(rand != null, "発動確率が設定されているスキルを正規タイミングで発動させたにも関わらず乱数生成器の設定がされていない");
-        if ((int) (rand.Get() % 100U) > rate)
-          return;
+        int rate = (int) buffEffect.param.rate;
+        if (rate > 0 && rate < 100)
+        {
+          DebugUtility.Assert(rand != null, "発動確率が設定されているスキルを正規タイミングで発動させたにも関わらず乱数生成器の設定がされていない");
+          if ((int) (rand.Get() % 100U) > rate)
+            return false;
+        }
       }
       if (buff != null)
         this.InternalBuffSkill(buffEffect, BuffTypes.Buff, SkillParamCalcTypes.Add, buff);
@@ -789,9 +963,9 @@ namespace SRPG
         this.InternalBuffSkill(buffEffect, BuffTypes.Buff, SkillParamCalcTypes.Scale, buff_scale);
       if (debuff != null)
         this.InternalBuffSkill(buffEffect, BuffTypes.Debuff, SkillParamCalcTypes.Add, debuff);
-      if (debuff_scale == null)
-        return;
-      this.InternalBuffSkill(buffEffect, BuffTypes.Debuff, SkillParamCalcTypes.Scale, debuff_scale);
+      if (debuff_scale != null)
+        this.InternalBuffSkill(buffEffect, BuffTypes.Debuff, SkillParamCalcTypes.Scale, debuff_scale);
+      return true;
     }
 
     private void InternalBuffSkill(BuffEffect effect, BuffTypes buffType, SkillParamCalcTypes calcType, BaseStatus status)
@@ -804,404 +978,7 @@ namespace SRPG
           BuffMethodTypes buffMethodType = this.GetBuffMethodType(target.buffType, calcType);
           ParamTypes paramType = target.paramType;
           int num = (int) target.value;
-          switch (paramType)
-          {
-            case ParamTypes.Hp:
-              this.SetBuffValue(buffMethodType, ref status.param.values_hp, num);
-              continue;
-            case ParamTypes.HpMax:
-              this.SetBuffValue(buffMethodType, ref status.param.values_hp, num);
-              continue;
-            case ParamTypes.Mp:
-              this.SetBuffValue(buffMethodType, ref status.param.values[0], num);
-              continue;
-            case ParamTypes.MpIni:
-              this.SetBuffValue(buffMethodType, ref status.param.values[1], num);
-              continue;
-            case ParamTypes.Atk:
-              this.SetBuffValue(buffMethodType, ref status.param.values[2], num);
-              continue;
-            case ParamTypes.Def:
-              this.SetBuffValue(buffMethodType, ref status.param.values[3], num);
-              continue;
-            case ParamTypes.Mag:
-              this.SetBuffValue(buffMethodType, ref status.param.values[4], num);
-              continue;
-            case ParamTypes.Mnd:
-              this.SetBuffValue(buffMethodType, ref status.param.values[5], num);
-              continue;
-            case ParamTypes.Rec:
-              this.SetBuffValue(buffMethodType, ref status.param.values[6], num);
-              continue;
-            case ParamTypes.Dex:
-              this.SetBuffValue(buffMethodType, ref status.param.values[7], num);
-              continue;
-            case ParamTypes.Spd:
-              this.SetBuffValue(buffMethodType, ref status.param.values[8], num);
-              continue;
-            case ParamTypes.Cri:
-              this.SetBuffValue(buffMethodType, ref status.param.values[9], num);
-              continue;
-            case ParamTypes.Luk:
-              this.SetBuffValue(buffMethodType, ref status.param.values[10], num);
-              continue;
-            case ParamTypes.Mov:
-              this.SetBuffValue(buffMethodType, ref status.param.values[11], num);
-              continue;
-            case ParamTypes.Jmp:
-              this.SetBuffValue(buffMethodType, ref status.param.values[12], num);
-              continue;
-            case ParamTypes.EffectRange:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[0], num);
-              continue;
-            case ParamTypes.EffectScope:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[1], num);
-              continue;
-            case ParamTypes.EffectHeight:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[2], num);
-              continue;
-            case ParamTypes.Assist_Fire:
-              this.SetBuffValue(buffMethodType, ref status.element_assist.values[1], num);
-              continue;
-            case ParamTypes.Assist_Water:
-              this.SetBuffValue(buffMethodType, ref status.element_assist.values[2], num);
-              continue;
-            case ParamTypes.Assist_Wind:
-              this.SetBuffValue(buffMethodType, ref status.element_assist.values[3], num);
-              continue;
-            case ParamTypes.Assist_Thunder:
-              this.SetBuffValue(buffMethodType, ref status.element_assist.values[4], num);
-              continue;
-            case ParamTypes.Assist_Shine:
-              this.SetBuffValue(buffMethodType, ref status.element_assist.values[5], num);
-              continue;
-            case ParamTypes.Assist_Dark:
-              this.SetBuffValue(buffMethodType, ref status.element_assist.values[6], num);
-              continue;
-            case ParamTypes.Assist_Poison:
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[0], num);
-              continue;
-            case ParamTypes.Assist_Paralysed:
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[1], num);
-              continue;
-            case ParamTypes.Assist_Stun:
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[2], num);
-              continue;
-            case ParamTypes.Assist_Sleep:
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[3], num);
-              continue;
-            case ParamTypes.Assist_Charm:
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[4], num);
-              continue;
-            case ParamTypes.Assist_Stone:
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[5], num);
-              continue;
-            case ParamTypes.Assist_Blind:
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[6], num);
-              continue;
-            case ParamTypes.Assist_DisableSkill:
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[7], num);
-              continue;
-            case ParamTypes.Assist_DisableMove:
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[8], num);
-              continue;
-            case ParamTypes.Assist_DisableAttack:
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[9], num);
-              continue;
-            case ParamTypes.Assist_Zombie:
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[10], num);
-              continue;
-            case ParamTypes.Assist_DeathSentence:
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[11], num);
-              continue;
-            case ParamTypes.Assist_Berserk:
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[12], num);
-              continue;
-            case ParamTypes.Assist_Knockback:
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[13], num);
-              continue;
-            case ParamTypes.Assist_ResistBuff:
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[14], num);
-              continue;
-            case ParamTypes.Assist_ResistDebuff:
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[15], num);
-              continue;
-            case ParamTypes.Assist_Stop:
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[16], num);
-              continue;
-            case ParamTypes.Assist_Fast:
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[17], num);
-              continue;
-            case ParamTypes.Assist_Slow:
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[18], num);
-              continue;
-            case ParamTypes.Assist_AutoHeal:
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[19], num);
-              continue;
-            case ParamTypes.Assist_Donsoku:
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[20], num);
-              continue;
-            case ParamTypes.Assist_Rage:
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[21], num);
-              continue;
-            case ParamTypes.Assist_GoodSleep:
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[22], num);
-              continue;
-            case ParamTypes.Assist_ConditionAll:
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[0], num);
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[1], num);
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[2], num);
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[3], num);
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[4], num);
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[5], num);
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[6], num);
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[7], num);
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[8], num);
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[9], num);
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[11], num);
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[12], num);
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[16], num);
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[17], num);
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[18], num);
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[20], num);
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[21], num);
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[24], num);
-              continue;
-            case ParamTypes.Resist_Fire:
-              this.SetBuffValue(buffMethodType, ref status.element_resist.values[1], num);
-              continue;
-            case ParamTypes.Resist_Water:
-              this.SetBuffValue(buffMethodType, ref status.element_resist.values[2], num);
-              continue;
-            case ParamTypes.Resist_Wind:
-              this.SetBuffValue(buffMethodType, ref status.element_resist.values[3], num);
-              continue;
-            case ParamTypes.Resist_Thunder:
-              this.SetBuffValue(buffMethodType, ref status.element_resist.values[4], num);
-              continue;
-            case ParamTypes.Resist_Shine:
-              this.SetBuffValue(buffMethodType, ref status.element_resist.values[5], num);
-              continue;
-            case ParamTypes.Resist_Dark:
-              this.SetBuffValue(buffMethodType, ref status.element_resist.values[6], num);
-              continue;
-            case ParamTypes.Resist_Poison:
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[0], num);
-              continue;
-            case ParamTypes.Resist_Paralysed:
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[1], num);
-              continue;
-            case ParamTypes.Resist_Stun:
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[2], num);
-              continue;
-            case ParamTypes.Resist_Sleep:
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[3], num);
-              continue;
-            case ParamTypes.Resist_Charm:
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[4], num);
-              continue;
-            case ParamTypes.Resist_Stone:
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[5], num);
-              continue;
-            case ParamTypes.Resist_Blind:
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[6], num);
-              continue;
-            case ParamTypes.Resist_DisableSkill:
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[7], num);
-              continue;
-            case ParamTypes.Resist_DisableMove:
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[8], num);
-              continue;
-            case ParamTypes.Resist_DisableAttack:
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[9], num);
-              continue;
-            case ParamTypes.Resist_Zombie:
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[10], num);
-              continue;
-            case ParamTypes.Resist_DeathSentence:
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[11], num);
-              continue;
-            case ParamTypes.Resist_Berserk:
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[12], num);
-              continue;
-            case ParamTypes.Resist_Knockback:
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[13], num);
-              continue;
-            case ParamTypes.Resist_ResistBuff:
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[14], num);
-              continue;
-            case ParamTypes.Resist_ResistDebuff:
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[15], num);
-              continue;
-            case ParamTypes.Resist_Stop:
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[16], num);
-              continue;
-            case ParamTypes.Resist_Fast:
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[17], num);
-              continue;
-            case ParamTypes.Resist_Slow:
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[18], num);
-              continue;
-            case ParamTypes.Resist_AutoHeal:
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[19], num);
-              continue;
-            case ParamTypes.Resist_Donsoku:
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[20], num);
-              continue;
-            case ParamTypes.Resist_Rage:
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[21], num);
-              continue;
-            case ParamTypes.Resist_GoodSleep:
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[22], num);
-              continue;
-            case ParamTypes.Resist_ConditionAll:
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[0], num);
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[1], num);
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[2], num);
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[3], num);
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[4], num);
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[5], num);
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[6], num);
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[7], num);
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[8], num);
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[9], num);
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[11], num);
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[12], num);
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[16], num);
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[18], num);
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[20], num);
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[21], num);
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[24], num);
-              continue;
-            case ParamTypes.HitRate:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[3], num);
-              continue;
-            case ParamTypes.AvoidRate:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[4], num);
-              continue;
-            case ParamTypes.CriticalRate:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[5], num);
-              continue;
-            case ParamTypes.GainJewel:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[13], num);
-              continue;
-            case ParamTypes.UsedJewelRate:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[14], num);
-              continue;
-            case ParamTypes.ActionCount:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[15], num);
-              continue;
-            case ParamTypes.SlashAttack:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[6], num);
-              continue;
-            case ParamTypes.PierceAttack:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[7], num);
-              continue;
-            case ParamTypes.BlowAttack:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[8], num);
-              continue;
-            case ParamTypes.ShotAttack:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[9], num);
-              continue;
-            case ParamTypes.MagicAttack:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[10], num);
-              continue;
-            case ParamTypes.ReactionAttack:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[11], num);
-              continue;
-            case ParamTypes.JumpAttack:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[12], num);
-              continue;
-            case ParamTypes.GutsRate:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[16], num);
-              continue;
-            case ParamTypes.AutoJewel:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[17], num);
-              continue;
-            case ParamTypes.ChargeTimeRate:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[18], num);
-              continue;
-            case ParamTypes.CastTimeRate:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[19], num);
-              continue;
-            case ParamTypes.BuffTurn:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[20], num);
-              continue;
-            case ParamTypes.DebuffTurn:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[21], num);
-              continue;
-            case ParamTypes.CombinationRange:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[22], num);
-              continue;
-            case ParamTypes.HpCostRate:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[23], num);
-              continue;
-            case ParamTypes.SkillUseCount:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[24], num);
-              continue;
-            case ParamTypes.PoisonDamage:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[25], num);
-              continue;
-            case ParamTypes.PoisonTurn:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[26], num);
-              continue;
-            case ParamTypes.Assist_AutoJewel:
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[23], num);
-              continue;
-            case ParamTypes.Resist_AutoJewel:
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[23], num);
-              continue;
-            case ParamTypes.Assist_DisableHeal:
-              this.SetBuffValue(buffMethodType, ref status.enchant_assist.values[24], num);
-              continue;
-            case ParamTypes.Resist_DisableHeal:
-              this.SetBuffValue(buffMethodType, ref status.enchant_resist.values[24], num);
-              continue;
-            case ParamTypes.Resist_Slash:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[27], num);
-              continue;
-            case ParamTypes.Resist_Pierce:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[28], num);
-              continue;
-            case ParamTypes.Resist_Blow:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[29], num);
-              continue;
-            case ParamTypes.Resist_Shot:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[30], num);
-              continue;
-            case ParamTypes.Resist_Magic:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[31], num);
-              continue;
-            case ParamTypes.Resist_Reaction:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[32], num);
-              continue;
-            case ParamTypes.Resist_Jump:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[33], num);
-              continue;
-            case ParamTypes.Avoid_Slash:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[34], num);
-              continue;
-            case ParamTypes.Avoid_Pierce:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[35], num);
-              continue;
-            case ParamTypes.Avoid_Blow:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[36], num);
-              continue;
-            case ParamTypes.Avoid_Shot:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[37], num);
-              continue;
-            case ParamTypes.Avoid_Magic:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[38], num);
-              continue;
-            case ParamTypes.Avoid_Reaction:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[39], num);
-              continue;
-            case ParamTypes.Avoid_Jump:
-              this.SetBuffValue(buffMethodType, ref status.bonus.values[40], num);
-              continue;
-            default:
-              continue;
-          }
+          effect.SetBuffValues(paramType, buffMethodType, ref status, num);
         }
       }
     }
@@ -1255,7 +1032,9 @@ namespace SRPG
 
     public bool IsReactionDet(AttackDetailTypes atk_detail_type)
     {
-      return this.mSkillParam != null && (this.mSkillParam.reaction_det_lists.Count == 0 || this.mSkillParam.reaction_det_lists.Contains(atk_detail_type));
+      if (this.mSkillParam == null)
+        return false;
+      return this.mSkillParam.IsReactionDet(atk_detail_type);
     }
 
     public static void GetHomePassiveBuffStatus(SkillData skill, ref BaseStatus status, ref BaseStatus scale_status)
@@ -1264,11 +1043,11 @@ namespace SRPG
         return;
       BuffEffect buffEffect1 = skill.GetBuffEffect(SkillEffectTargets.Target);
       if (buffEffect1 != null && buffEffect1.param != null && (buffEffect1.param.cond == ESkillCondition.None && buffEffect1.param.mAppType == EAppType.Standard) && buffEffect1.param.mEffRange == EEffRange.Self)
-        skill.BuffSkill(ESkillTiming.Passive, status, scale_status, status, scale_status, (RandXorshift) null, SkillEffectTargets.Target);
+        skill.BuffSkill(ESkillTiming.Passive, status, scale_status, status, scale_status, (RandXorshift) null, SkillEffectTargets.Target, false);
       BuffEffect buffEffect2 = skill.GetBuffEffect(SkillEffectTargets.Self);
       if (buffEffect2 == null || buffEffect2.param == null || (buffEffect2.param.cond != ESkillCondition.None || buffEffect2.param.mAppType != EAppType.Standard) || buffEffect2.param.mEffRange != EEffRange.Self)
         return;
-      skill.BuffSkill(ESkillTiming.Passive, status, scale_status, status, scale_status, (RandXorshift) null, SkillEffectTargets.Self);
+      skill.BuffSkill(ESkillTiming.Passive, status, scale_status, status, scale_status, (RandXorshift) null, SkillEffectTargets.Self, false);
     }
 
     public bool IsTargetGridNoUnit
@@ -1277,6 +1056,26 @@ namespace SRPG
       {
         if (this.SkillParam != null)
           return this.SkillParam.IsTargetGridNoUnit;
+        return false;
+      }
+    }
+
+    public bool IsTargetValidGrid
+    {
+      get
+      {
+        if (this.SkillParam != null)
+          return this.SkillParam.IsTargetValidGrid;
+        return false;
+      }
+    }
+
+    public bool IsTargetTeleport
+    {
+      get
+      {
+        if (this.SkillParam != null)
+          return this.SkillParam.IsTargetTeleport;
         return false;
       }
     }

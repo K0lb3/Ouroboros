@@ -1,10 +1,11 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.ArenaWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
+using System;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.Events;
@@ -12,12 +13,12 @@ using UnityEngine.UI;
 
 namespace SRPG
 {
+  [FlowNode.Pin(152, "Reset Tickets", FlowNode.PinTypes.Output, 4)]
   [FlowNode.Pin(100, "Refresh Enemy", FlowNode.PinTypes.Input, 0)]
-  [FlowNode.Pin(110, "Refresh Party", FlowNode.PinTypes.Input, 0)]
-  [FlowNode.Pin(101, "Player Selected", FlowNode.PinTypes.Output, 1)]
   [FlowNode.Pin(151, "Reset Cooldown", FlowNode.PinTypes.Output, 3)]
   [FlowNode.Pin(150, "Open IAP Window", FlowNode.PinTypes.Output, 2)]
-  [FlowNode.Pin(152, "Reset Tickets", FlowNode.PinTypes.Output, 4)]
+  [FlowNode.Pin(101, "Player Selected", FlowNode.PinTypes.Output, 1)]
+  [FlowNode.Pin(110, "Refresh Party", FlowNode.PinTypes.Input, 0)]
   public class ArenaWindow : MonoBehaviour, IFlowInterface
   {
     public const int PINID_REFRESH_ENEMYLIST = 100;
@@ -57,6 +58,13 @@ namespace SRPG
     public Button MatchingCloseButton;
     public Button BattleBackButton;
     public Text LastBattleAtText;
+    [Space(10f)]
+    public GameObject GoMapInfo;
+    public GameObject GoMapInfoThumbnail;
+    public GameObject GoMapInfoEndAt;
+    public Text TextMapInfoEndAt;
+    private bool mIsUpdateMapInfoEndAt;
+    private float mPassedTimeMapInfoEndAt;
 
     public ArenaWindow()
     {
@@ -65,13 +73,13 @@ namespace SRPG
 
     private void Start()
     {
-      if (Object.op_Inequality((Object) this.EnemyPlayerItem, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.EnemyPlayerItem, (UnityEngine.Object) null))
         ((Component) this.EnemyPlayerItem).get_gameObject().SetActive(false);
       if (this.RefreshEnemyListOnStart)
         this.RefreshEnemyList();
       if (this.RefreshPartyOnStart)
         this.RefreshParty();
-      if (Object.op_Inequality((Object) this.CooldownResetButton, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.CooldownResetButton, (UnityEngine.Object) null))
       {
         // ISSUE: method pointer
         ((UnityEvent) this.CooldownResetButton.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OnCooldownButtonClick)));
@@ -80,27 +88,27 @@ namespace SRPG
       this.ChangeDrawDeck(true);
       this.ChangeDrawInformation(true);
       this.RefreshBattleCount();
-      if (Object.op_Inequality((Object) this.MatchingButton, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.MatchingButton, (UnityEngine.Object) null))
       {
         // ISSUE: method pointer
         ((UnityEvent) this.MatchingButton.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OnMatchingButtonClick)));
       }
-      if (Object.op_Inequality((Object) this.MatchingCloseButton, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.MatchingCloseButton, (UnityEngine.Object) null))
       {
         // ISSUE: method pointer
         ((UnityEvent) this.MatchingCloseButton.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OnMatchingCloseButtonClick)));
       }
-      if (Object.op_Inequality((Object) this.DeckNextButton, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.DeckNextButton, (UnityEngine.Object) null))
       {
         // ISSUE: method pointer
         ((UnityEvent) this.DeckNextButton.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OnDeckNextButtonClick)));
       }
-      if (Object.op_Inequality((Object) this.DeckPrevButton, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.DeckPrevButton, (UnityEngine.Object) null))
       {
         // ISSUE: method pointer
         ((UnityEvent) this.DeckPrevButton.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OnDeckPrevButtonClick)));
       }
-      if (!Object.op_Inequality((Object) this.BattleBackButton, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BattleBackButton, (UnityEngine.Object) null))
         return;
       // ISSUE: method pointer
       ((UnityEvent) this.BattleBackButton.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OnBattleBackButtonClick)));
@@ -151,12 +159,12 @@ namespace SRPG
         DataSource.Bind<UnitData>(this.PartyUnitSlots[index], unitData1);
         GameParameter.UpdateAll(this.PartyUnitSlots[index]);
       }
-      if (Object.op_Inequality((Object) this.PartyInfo, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.PartyInfo, (UnityEngine.Object) null))
       {
         DataSource.Bind<PartyData>(this.PartyInfo, partyOfType);
         GameParameter.UpdateAll(this.PartyInfo);
       }
-      if (!Object.op_Inequality((Object) this.VsPartyInfo, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.VsPartyInfo, (UnityEngine.Object) null))
         return;
       DataSource.Bind<PartyData>(this.VsPartyInfo, partyOfType);
       GameParameter.UpdateAll(this.VsPartyInfo);
@@ -186,7 +194,7 @@ namespace SRPG
         DataSource.Bind<UnitData>(this.DefenseUnitSlots[index], unitData1);
         GameParameter.UpdateAll(this.DefenseUnitSlots[index]);
       }
-      if (!Object.op_Inequality((Object) this.DefensePartyInfo, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.DefensePartyInfo, (UnityEngine.Object) null))
         return;
       DataSource.Bind<PartyData>(this.DefensePartyInfo, partyOfType);
       GameParameter.UpdateAll(this.DefensePartyInfo);
@@ -194,14 +202,14 @@ namespace SRPG
 
     private void RefreshEnemyList()
     {
-      if (Object.op_Equality((Object) this.EnemyPlayerList, (Object) null) || Object.op_Equality((Object) this.EnemyPlayerItem, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.EnemyPlayerList, (UnityEngine.Object) null) || UnityEngine.Object.op_Equality((UnityEngine.Object) this.EnemyPlayerItem, (UnityEngine.Object) null))
         return;
       this.EnemyPlayerList.ClearItems();
       ArenaPlayer[] arenaPlayers = MonoSingleton<GameManager>.Instance.ArenaPlayers;
       Transform transform = ((Component) this.EnemyPlayerList).get_transform();
       for (int index = 0; index < arenaPlayers.Length; ++index)
       {
-        ListItemEvents listItemEvents = (ListItemEvents) Object.Instantiate<ListItemEvents>((M0) this.EnemyPlayerItem);
+        ListItemEvents listItemEvents = (ListItemEvents) UnityEngine.Object.Instantiate<ListItemEvents>((M0) this.EnemyPlayerItem);
         DataSource.Bind<ArenaPlayer>(((Component) listItemEvents).get_gameObject(), arenaPlayers[index]);
         listItemEvents.OnSelect = new ListItemEvents.ListItemEvent(this.OnEnemySelect);
         listItemEvents.OnOpenDetail = new ListItemEvents.ListItemEvent(this.OnEnemyDetailSelect);
@@ -210,9 +218,82 @@ namespace SRPG
         ((Component) listItemEvents).get_gameObject().SetActive(true);
         AssetManager.PrepareAssets(AssetPath.UnitSkinImage(arenaPlayers[index].Unit[0].UnitParam, arenaPlayers[index].Unit[0].GetSelectedSkin(-1), arenaPlayers[index].Unit[0].CurrentJobId));
       }
-      if (AssetDownloader.isDone)
+      if (!AssetDownloader.isDone)
+        AssetDownloader.StartDownload(false, true, ThreadPriority.Normal);
+      if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) this.GoMapInfo))
         return;
-      AssetDownloader.StartDownload(false, true, ThreadPriority.Normal);
+      GameManager instance = MonoSingleton<GameManager>.Instance;
+      PlayerData player = instance.Player;
+      if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) instance) || player == null)
+        return;
+      DataSource component = (DataSource) this.GoMapInfo.GetComponent<DataSource>();
+      if (UnityEngine.Object.op_Implicit((UnityEngine.Object) component))
+        component.Clear();
+      DataSource.Bind<QuestParam>(this.GoMapInfo, instance.FindQuest(GlobalVars.SelectedQuestID));
+      GameParameter.UpdateAll(this.GoMapInfo);
+      this.mIsUpdateMapInfoEndAt = this.RefreshMapInfoEndAt();
+    }
+
+    private bool RefreshMapInfoEndAt()
+    {
+      GameManager instance = MonoSingleton<GameManager>.Instance;
+      if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) instance))
+        return false;
+      PlayerData player = instance.Player;
+      if (player == null)
+        return false;
+      bool flag1 = false;
+      DateTime serverTime = TimeManager.ServerTime;
+      TimeSpan timeSpan = player.ArenaEndAt - serverTime;
+      bool flag2 = player.ArenaEndAt > GameUtility.UnixtimeToLocalTime(0L);
+      if (flag2 && timeSpan.TotalSeconds < 0.0)
+      {
+        flag2 = false;
+        flag1 = true;
+      }
+      if (UnityEngine.Object.op_Implicit((UnityEngine.Object) this.GoMapInfoEndAt))
+        this.GoMapInfoEndAt.SetActive(flag2);
+      if (!flag2)
+      {
+        if (flag1)
+          FlowNode_TriggerLocalEvent.TriggerLocalEvent((Component) this, "REFRESH_ARENA_INFO");
+        return false;
+      }
+      string str1 = "sys.ARENA_TIMELIMIT_";
+      string empty = string.Empty;
+      string str2;
+      if (timeSpan.Days != 0)
+        str2 = LocalizedText.Get(str1 + "D", new object[1]
+        {
+          (object) timeSpan.Days
+        });
+      else if (timeSpan.Hours != 0)
+        str2 = LocalizedText.Get(str1 + "H", new object[1]
+        {
+          (object) timeSpan.Hours
+        });
+      else
+        str2 = LocalizedText.Get(str1 + "M", new object[1]
+        {
+          (object) Mathf.Max(timeSpan.Minutes, 0)
+        });
+      if (UnityEngine.Object.op_Implicit((UnityEngine.Object) this.TextMapInfoEndAt) && this.TextMapInfoEndAt.get_text() != str2)
+        this.TextMapInfoEndAt.set_text(str2);
+      this.mPassedTimeMapInfoEndAt = 1f;
+      return true;
+    }
+
+    private void UpdateMapInfoEndAt()
+    {
+      if (!this.mIsUpdateMapInfoEndAt)
+        return;
+      if ((double) this.mPassedTimeMapInfoEndAt > 0.0)
+      {
+        this.mPassedTimeMapInfoEndAt -= Time.get_fixedDeltaTime();
+        if ((double) this.mPassedTimeMapInfoEndAt > 0.0)
+          return;
+      }
+      this.mIsUpdateMapInfoEndAt = this.RefreshMapInfoEndAt();
     }
 
     private void OnEnemySelect(GameObject go)
@@ -230,7 +311,7 @@ namespace SRPG
       else
       {
         GlobalVars.SelectedArenaPlayer.Set(dataOfClass);
-        if (Object.op_Inequality((Object) this.VsEnemyPartyInfo, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.VsEnemyPartyInfo, (UnityEngine.Object) null))
         {
           DataSource.Bind<ArenaPlayer>(this.VsEnemyPartyInfo, dataOfClass);
           GameParameter.UpdateAll(this.VsEnemyPartyInfo);
@@ -244,7 +325,7 @@ namespace SRPG
     {
       GameManager instance = MonoSingleton<GameManager>.Instance;
       if (instance.Player.Coin < instance.Player.GetChallengeArenaCost())
-        UIUtility.ConfirmBox(LocalizedText.Get("sys.OUT_OF_COIN_CONFIRM_BUY_COIN"), new UIUtility.DialogResultEvent(this.OpenCoinShop), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1);
+        UIUtility.ConfirmBox(LocalizedText.Get("sys.OUT_OF_COIN_CONFIRM_BUY_COIN"), new UIUtility.DialogResultEvent(this.OpenCoinShop), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1, (string) null, (string) null);
       else
         FlowNode_GameObject.ActivateOutputLinks((Component) this, 152);
     }
@@ -256,12 +337,12 @@ namespace SRPG
 
     private void OnEnemyDetailSelect(GameObject go)
     {
-      if (Object.op_Equality((Object) this.EnemyPlayerDetail, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.EnemyPlayerDetail, (UnityEngine.Object) null))
         return;
       ArenaPlayer dataOfClass = DataSource.FindDataOfClass<ArenaPlayer>(go, (ArenaPlayer) null);
       if (dataOfClass == null)
         return;
-      GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.EnemyPlayerDetail);
+      GameObject gameObject = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.EnemyPlayerDetail);
       DataSource.Bind<ArenaPlayer>(gameObject, dataOfClass);
       ((ArenaPlayerInfo) gameObject.GetComponent<ArenaPlayerInfo>()).UpdateValue();
     }
@@ -277,7 +358,7 @@ namespace SRPG
     {
       GameManager instance = MonoSingleton<GameManager>.Instance;
       if (instance.Player.Coin < (int) instance.MasterParam.FixParam.ArenaResetCooldownCost)
-        UIUtility.ConfirmBox(LocalizedText.Get("sys.OUT_OF_COIN_CONFIRM_BUY_COIN"), new UIUtility.DialogResultEvent(this.OpenCoinShop), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1);
+        UIUtility.ConfirmBox(LocalizedText.Get("sys.OUT_OF_COIN_CONFIRM_BUY_COIN"), new UIUtility.DialogResultEvent(this.OpenCoinShop), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1, (string) null, (string) null);
       else
         FlowNode_GameObject.ActivateOutputLinks((Component) this, 151);
     }
@@ -285,21 +366,29 @@ namespace SRPG
     private void Update()
     {
       this.RefreshCooldowns();
-      if (!string.IsNullOrEmpty(this.LastBattleAtText.get_text()))
-        return;
-      PlayerData player = MonoSingleton<GameManager>.Instance.Player;
-      if (!(player.ArenaLastAt > GameUtility.UnixtimeToLocalTime(0L)))
-        return;
-      this.LastBattleAtText.set_text(player.ArenaLastAt.ToString(GameUtility.Localized_TimePattern_Short));
+      if (string.IsNullOrEmpty(this.LastBattleAtText.get_text()))
+      {
+        PlayerData player = MonoSingleton<GameManager>.Instance.Player;
+        if (player.ArenaLastAt > GameUtility.UnixtimeToLocalTime(0L))
+          this.LastBattleAtText.set_text(player.ArenaLastAt.ToString(GameUtility.Localized_TimePattern_Short));
+      }
+      this.UpdateMapInfoEndAt();
     }
 
     private void RefreshCooldowns()
     {
       PlayerData player = MonoSingleton<GameManager>.Instance.Player;
       player.UpdateChallengeArenaTimer();
-      if (Object.op_Equality((Object) this.CooldownTimer, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.CooldownTimer, (UnityEngine.Object) null))
         return;
-      this.CooldownTimer.SetActive(player.GetNextChallengeArenaCoolDownSec() > 0L && player.ChallengeArenaNum > 0);
+      bool flag = player.GetNextChallengeArenaCoolDownSec() > 0L && player.ChallengeArenaNum > 0;
+      this.CooldownTimer.SetActive(flag);
+      if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) this.BpHolder))
+        return;
+      CanvasRenderer component = (CanvasRenderer) this.BpHolder.GetComponent<CanvasRenderer>();
+      if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) component))
+        return;
+      component.SetColor(!flag ? Color.get_white() : Color.get_gray());
     }
 
     private void ChangeDrawDeck(bool attack)
@@ -320,7 +409,7 @@ namespace SRPG
 
     private void RefreshBattleCount()
     {
-      if (Object.op_Equality((Object) this.BpHolder, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.BpHolder, (UnityEngine.Object) null))
         return;
       int challengeArenaMax = (int) MonoSingleton<GameManager>.Instance.MasterParam.FixParam.ChallengeArenaMax;
       int num = MonoSingleton<GameManager>.Instance.Player.ChallengeArenaNum;
@@ -332,7 +421,7 @@ namespace SRPG
 
     private void RefreshBattleCountOnDayChange()
     {
-      if (Object.op_Equality((Object) this.BpHolder, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.BpHolder, (UnityEngine.Object) null))
         return;
       int challengeArenaMax = (int) MonoSingleton<GameManager>.Instance.MasterParam.FixParam.ChallengeArenaMax;
       int num = challengeArenaMax;
@@ -347,7 +436,7 @@ namespace SRPG
 
     private void OnDisable()
     {
-      if (!Object.op_Inequality((Object) MonoSingleton<GameManager>.GetInstanceDirect(), (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) MonoSingleton<GameManager>.GetInstanceDirect(), (UnityEngine.Object) null))
         return;
       MonoSingleton<GameManager>.Instance.OnDayChange -= new GameManager.DayChangeEvent(this.RefreshBattleCountOnDayChange);
     }
@@ -384,9 +473,9 @@ namespace SRPG
 
     public void OnHistoryDisp()
     {
-      if (!Object.op_Inequality((Object) this.HistoryObject, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.HistoryObject, (UnityEngine.Object) null))
         return;
-      Object.Instantiate<GameObject>((M0) this.HistoryObject);
+      UnityEngine.Object.Instantiate<GameObject>((M0) this.HistoryObject);
     }
   }
 }

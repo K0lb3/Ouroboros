@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.UnitData
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -15,6 +15,7 @@ namespace SRPG
   {
     private static BaseStatus UnitScaleStatus = new BaseStatus();
     private static BaseStatus WorkScaleStatus = new BaseStatus();
+    private static readonly Dictionary<string, string[]> CONDITIONS_TARGET_NAMES = new Dictionary<string, string[]>() { { "UNIT_JOB_MASTER1", new string[3]{ "voice_0017", "voice_0018", "voice_0019" } }, { "UNIT_LEVEL85", new string[10]{ "chara_0002", "chara_0003", "chara_0004", "chara_0005", "chara_0006", "chara_0007", "chara_0008", "chara_0009", "chara_0010", "chara_0011" } }, { "UNIT_LEVEL75", new string[8]{ "sys_0001", "sys_0002", "sys_0003", "sys_0033", "sys_0035", "sys_0046", "sys_0047", "sys_0050" } }, { "UNIT_LEVEL65", new string[9]{ "sys_0009", "sys_0013", "sys_0015", "sys_0017", "sys_0019", "sys_0023", "sys_0024", "sys_0026", "sys_0028" } } };
     private BaseStatus mStatus = new BaseStatus();
     private OInt mLv = (OInt) 1;
     private OInt mExp = (OInt) 0;
@@ -34,12 +35,15 @@ namespace SRPG
     private long mUniqueID;
     private UnitParam mUnitParam;
     public float LastSyncTime;
+    private bool mFavorite;
+    private EElement mSupportElement;
     private JobData[] mJobs;
     private long[] mPartyJobs;
     public UnitData.TemporaryFlags TempFlags;
     private SkillData mLeaderSkill;
     private AbilityData mMasterAbility;
     private AbilityData mCollaboAbility;
+    private AbilityData mMapEffectAbility;
     private SkillData mNormalAttackSkill;
     private QuestClearUnlockUnitDataParam mUnlockedLeaderSkill;
     private List<QuestClearUnlockUnitDataParam> mUnlockedAbilitys;
@@ -157,6 +161,14 @@ namespace SRPG
       }
     }
 
+    public AbilityData MapEffectAbility
+    {
+      get
+      {
+        return this.mMapEffectAbility;
+      }
+    }
+
     public long[] CurrentAbilitySlots
     {
       get
@@ -271,60 +283,75 @@ namespace SRPG
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      UnitData.\u003CFindJobDataBySkillData\u003Ec__AnonStorey294 dataCAnonStorey294 = new UnitData.\u003CFindJobDataBySkillData\u003Ec__AnonStorey294();
+      UnitData.\u003CFindJobDataBySkillData\u003Ec__AnonStorey3AC dataCAnonStorey3Ac = new UnitData.\u003CFindJobDataBySkillData\u003Ec__AnonStorey3AC();
       // ISSUE: reference to a compiler-generated field
-      dataCAnonStorey294.param = param;
+      dataCAnonStorey3Ac.param = param;
       // ISSUE: reference to a compiler-generated field
-      if (dataCAnonStorey294.param == null || this.mJobs == null)
+      if (dataCAnonStorey3Ac.param == null || this.mJobs == null)
         return (JobData) null;
-      for (int index1 = 0; index1 < this.mJobs.Length; ++index1)
+      // ISSUE: reference to a compiler-generated field
+      dataCAnonStorey3Ac.hitAbliId = string.Empty;
+      for (int index = 0; index < this.BattleAbilitys.Count; ++index)
       {
-        // ISSUE: object of a compiler-generated type is created
-        // ISSUE: variable of a compiler-generated type
-        UnitData.\u003CFindJobDataBySkillData\u003Ec__AnonStorey295 dataCAnonStorey295 = new UnitData.\u003CFindJobDataBySkillData\u003Ec__AnonStorey295();
-        // ISSUE: reference to a compiler-generated field
-        dataCAnonStorey295.\u003C\u003Ef__ref\u0024660 = dataCAnonStorey294;
-        JobData mJob = this.mJobs[index1];
-        if (mJob != null)
+        // ISSUE: reference to a compiler-generated method
+        if (Array.FindIndex<SkillData>(this.BattleAbilitys[index].Skills.ToArray(), new Predicate<SkillData>(dataCAnonStorey3Ac.\u003C\u003Em__481)) != -1)
         {
           // ISSUE: reference to a compiler-generated field
-          dataCAnonStorey295.hitAbliId = string.Empty;
-          for (int index2 = 0; index2 < this.BattleAbilitys.Count; ++index2)
-          {
-            // ISSUE: reference to a compiler-generated method
-            if (Array.FindIndex<SkillData>(this.BattleAbilitys[index2].Skills.ToArray(), new Predicate<SkillData>(dataCAnonStorey295.\u003C\u003Em__338)) != -1)
-            {
-              // ISSUE: reference to a compiler-generated field
-              dataCAnonStorey295.hitAbliId = this.BattleAbilitys[index2].AbilityID;
-            }
-          }
-          // ISSUE: reference to a compiler-generated field
-          if (!string.IsNullOrEmpty(dataCAnonStorey295.hitAbliId))
+          dataCAnonStorey3Ac.hitAbliId = this.BattleAbilitys[index].AbilityID;
+        }
+      }
+      // ISSUE: reference to a compiler-generated field
+      if (!string.IsNullOrEmpty(dataCAnonStorey3Ac.hitAbliId))
+      {
+        for (int index = 0; index < this.mJobs.Length; ++index)
+        {
+          JobData mJob = this.mJobs[index];
+          if (mJob != null)
           {
             for (int rank = 0; rank < JobParam.MAX_JOB_RANK; ++rank)
             {
               OString[] learningAbilitys = mJob.GetLearningAbilitys(rank);
               // ISSUE: reference to a compiler-generated method
-              if (learningAbilitys != null && Array.FindIndex<OString>(learningAbilitys, new Predicate<OString>(dataCAnonStorey295.\u003C\u003Em__339)) != -1)
+              if (learningAbilitys != null && Array.FindIndex<OString>(learningAbilitys, new Predicate<OString>(dataCAnonStorey3Ac.\u003C\u003Em__482)) != -1)
                 return mJob;
             }
+            // ISSUE: reference to a compiler-generated field
+            if (mJob.Param != null && mJob.Param.fixed_ability == dataCAnonStorey3Ac.hitAbliId)
+              return mJob;
           }
         }
       }
       // ISSUE: reference to a compiler-generated field
-      if (!string.IsNullOrEmpty(dataCAnonStorey294.param.job) && this.mMasterAbility != null && this.mMasterAbility.LearningSkills != null)
+      if (!string.IsNullOrEmpty(dataCAnonStorey3Ac.param.job) && this.mMasterAbility != null && this.mMasterAbility.LearningSkills != null)
       {
         for (int index1 = 0; index1 < this.mMasterAbility.LearningSkills.Length; ++index1)
         {
           LearningSkill learningSkill = this.mMasterAbility.LearningSkills[index1];
           // ISSUE: reference to a compiler-generated field
-          if (learningSkill.iname != null && learningSkill.iname == dataCAnonStorey294.param.iname)
+          if (learningSkill.iname != null && learningSkill.iname == dataCAnonStorey3Ac.param.iname)
           {
             for (int index2 = 0; index2 < this.mJobs.Length; ++index2)
             {
               // ISSUE: reference to a compiler-generated field
-              if (this.mJobs[index2] != null && this.mJobs[index2].JobID == dataCAnonStorey294.param.job)
+              if (this.mJobs[index2] != null && this.mJobs[index2].JobID == dataCAnonStorey3Ac.param.job)
                 return this.mJobs[index2];
+            }
+          }
+        }
+      }
+      // ISSUE: reference to a compiler-generated field
+      if (!string.IsNullOrEmpty(dataCAnonStorey3Ac.param.job) && this.mMapEffectAbility != null && this.mMapEffectAbility.LearningSkills != null)
+      {
+        foreach (LearningSkill learningSkill in this.mMapEffectAbility.LearningSkills)
+        {
+          // ISSUE: reference to a compiler-generated field
+          if (learningSkill.iname != null && learningSkill.iname == dataCAnonStorey3Ac.param.iname)
+          {
+            for (int index = 0; index < this.mJobs.Length; ++index)
+            {
+              // ISSUE: reference to a compiler-generated field
+              if (this.mJobs[index] != null && this.mJobs[index].JobID == dataCAnonStorey3Ac.param.job)
+                return this.mJobs[index];
             }
           }
         }
@@ -397,7 +424,25 @@ namespace SRPG
       }
     }
 
-    public bool IsFavorite { get; set; }
+    public bool IsFavorite
+    {
+      set
+      {
+        this.mFavorite = value;
+      }
+      get
+      {
+        return this.mFavorite;
+      }
+    }
+
+    public EElement SupportElement
+    {
+      get
+      {
+        return this.mSupportElement;
+      }
+    }
 
     public bool IsIntoUnit
     {
@@ -460,7 +505,7 @@ namespace SRPG
       else
       {
         ArtifactParam artifactParam = Array.Find<ArtifactParam>(MonoSingleton<GameManager>.Instance.MasterParam.Artifacts.ToArray(), (Predicate<ArtifactParam>) (p => p.iname == afName));
-        if (artifactParam == null || !artifactParam.CheckEnableEquip(this, jobIndex))
+        if (artifactParam == null || !artifactParam.CheckEnableEquip(this, jobIndex) || !this.CheckUsedSkin(artifactParam.iname))
           return;
         this.mJobs[jobIndex].SelectedSkin = afName;
       }
@@ -481,6 +526,8 @@ namespace SRPG
         }
         else
         {
+          if (!this.CheckUsedSkin(artifactParam.iname))
+            return;
           for (int jobIndex = 0; jobIndex < this.mJobs.Length; ++jobIndex)
             this.mJobs[jobIndex].SelectedSkin = !artifactParam.CheckEnableEquip(this, jobIndex) ? (string) null : afName;
         }
@@ -536,16 +583,16 @@ namespace SRPG
       ArtifactParam[] array = MonoSingleton<GameManager>.Instance.MasterParam.Artifacts.ToArray();
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      UnitData.\u003CGetAllSkins\u003Ec__AnonStorey29A skinsCAnonStorey29A = new UnitData.\u003CGetAllSkins\u003Ec__AnonStorey29A();
+      UnitData.\u003CGetAllSkins\u003Ec__AnonStorey3B1 skinsCAnonStorey3B1 = new UnitData.\u003CGetAllSkins\u003Ec__AnonStorey3B1();
       // ISSUE: reference to a compiler-generated field
-      skinsCAnonStorey29A.\u003C\u003Ef__this = this;
+      skinsCAnonStorey3B1.\u003C\u003Ef__this = this;
       // ISSUE: reference to a compiler-generated field
       // ISSUE: reference to a compiler-generated field
       // ISSUE: reference to a compiler-generated field
-      for (skinsCAnonStorey29A.i = 0; skinsCAnonStorey29A.i < this.mUnitParam.skins.Length; ++skinsCAnonStorey29A.i)
+      for (skinsCAnonStorey3B1.i = 0; skinsCAnonStorey3B1.i < this.mUnitParam.skins.Length; ++skinsCAnonStorey3B1.i)
       {
         // ISSUE: reference to a compiler-generated method
-        ArtifactParam artifactParam = Array.Find<ArtifactParam>(array, new Predicate<ArtifactParam>(skinsCAnonStorey29A.\u003C\u003Em__33E));
+        ArtifactParam artifactParam = Array.Find<ArtifactParam>(array, new Predicate<ArtifactParam>(skinsCAnonStorey3B1.\u003C\u003Em__487));
         if (artifactParam != null && artifactParam.CheckEnableEquip(this, this.JobIndex))
           artifactParamList.Add(artifactParam);
       }
@@ -586,7 +633,7 @@ namespace SRPG
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      UnitData.\u003CUnlockedSkillDiff\u003Ec__AnonStorey29B diffCAnonStorey29B = new UnitData.\u003CUnlockedSkillDiff\u003Ec__AnonStorey29B();
+      UnitData.\u003CUnlockedSkillDiff\u003Ec__AnonStorey3B2 diffCAnonStorey3B2 = new UnitData.\u003CUnlockedSkillDiff\u003Ec__AnonStorey3B2();
       string str1 = this.UnlockedSkillIds();
       string str2 = !string.IsNullOrEmpty(oldIds) ? oldIds : string.Empty;
       string str3 = !string.IsNullOrEmpty(str1) ? str1 : string.Empty;
@@ -594,26 +641,26 @@ namespace SRPG
         return new QuestClearUnlockUnitDataParam[0];
       string[] array = str2.Split(',');
       // ISSUE: reference to a compiler-generated field
-      diffCAnonStorey29B.newUnlocks = str3.Split(',');
+      diffCAnonStorey3B2.newUnlocks = str3.Split(',');
       MasterParam masterParam = MonoSingleton<GameManager>.Instance.MasterParam;
       List<QuestClearUnlockUnitDataParam> unlockUnitDataParamList = new List<QuestClearUnlockUnitDataParam>();
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      UnitData.\u003CUnlockedSkillDiff\u003Ec__AnonStorey29C diffCAnonStorey29C = new UnitData.\u003CUnlockedSkillDiff\u003Ec__AnonStorey29C();
+      UnitData.\u003CUnlockedSkillDiff\u003Ec__AnonStorey3B3 diffCAnonStorey3B3 = new UnitData.\u003CUnlockedSkillDiff\u003Ec__AnonStorey3B3();
       // ISSUE: reference to a compiler-generated field
-      diffCAnonStorey29C.\u003C\u003Ef__ref\u0024667 = diffCAnonStorey29B;
-      // ISSUE: reference to a compiler-generated field
-      // ISSUE: reference to a compiler-generated field
+      diffCAnonStorey3B3.\u003C\u003Ef__ref\u0024946 = diffCAnonStorey3B2;
       // ISSUE: reference to a compiler-generated field
       // ISSUE: reference to a compiler-generated field
-      for (diffCAnonStorey29C.i = 0; diffCAnonStorey29C.i < diffCAnonStorey29B.newUnlocks.Length; ++diffCAnonStorey29C.i)
+      // ISSUE: reference to a compiler-generated field
+      // ISSUE: reference to a compiler-generated field
+      for (diffCAnonStorey3B3.i = 0; diffCAnonStorey3B3.i < diffCAnonStorey3B2.newUnlocks.Length; ++diffCAnonStorey3B3.i)
       {
         // ISSUE: reference to a compiler-generated method
-        if (Array.FindIndex<string>(array, new Predicate<string>(diffCAnonStorey29C.\u003C\u003Em__33F)) == -1)
+        if (Array.FindIndex<string>(array, new Predicate<string>(diffCAnonStorey3B3.\u003C\u003Em__488)) == -1)
         {
           // ISSUE: reference to a compiler-generated field
           // ISSUE: reference to a compiler-generated field
-          QuestClearUnlockUnitDataParam unlockUnitData = masterParam.GetUnlockUnitData(diffCAnonStorey29B.newUnlocks[diffCAnonStorey29C.i]);
+          QuestClearUnlockUnitDataParam unlockUnitData = masterParam.GetUnlockUnitData(diffCAnonStorey3B2.newUnlocks[diffCAnonStorey3B3.i]);
           if (unlockUnitData != null)
             unlockUnitDataParamList.Add(unlockUnitData);
         }
@@ -730,14 +777,14 @@ namespace SRPG
           {
             // ISSUE: object of a compiler-generated type is created
             // ISSUE: variable of a compiler-generated type
-            UnitData.\u003CAppendUnlockedJobs\u003Ec__AnonStorey29F jobsCAnonStorey29F = new UnitData.\u003CAppendUnlockedJobs\u003Ec__AnonStorey29F();
+            UnitData.\u003CAppendUnlockedJobs\u003Ec__AnonStorey3B6 jobsCAnonStorey3B6 = new UnitData.\u003CAppendUnlockedJobs\u003Ec__AnonStorey3B6();
             // ISSUE: reference to a compiler-generated field
-            jobsCAnonStorey29F.before = instanceDirect.GetJobSetParam(jobSetParam.jobchange);
+            jobsCAnonStorey3B6.before = instanceDirect.GetJobSetParam(jobSetParam.jobchange);
             // ISSUE: reference to a compiler-generated field
-            if (jobsCAnonStorey29F.before != null && jobs[index2].rank > 0)
+            if (jobsCAnonStorey3B6.before != null && jobs[index2].rank > 0)
             {
               // ISSUE: reference to a compiler-generated method
-              int index3 = jsonJobList.FindIndex(new Predicate<Json_Job>(jobsCAnonStorey29F.\u003C\u003Em__343));
+              int index3 = jsonJobList.FindIndex(new Predicate<Json_Job>(jobsCAnonStorey3B6.\u003C\u003Em__48C));
               if (index3 >= 0)
                 jsonJobList.RemoveAt(index3);
             }
@@ -777,6 +824,23 @@ namespace SRPG
       }
     }
 
+    public bool CheckUsedSkin(string afName)
+    {
+      if (string.IsNullOrEmpty(afName) || this.mUnlockedSkins == null || this.mUnlockedSkins.Count < 0)
+        return false;
+      bool flag = false;
+      for (int index = 0; index < this.mUnlockedSkins.Count; ++index)
+      {
+        ArtifactParam mUnlockedSkin = this.mUnlockedSkins[index];
+        if (mUnlockedSkin != null && mUnlockedSkin.iname == afName)
+        {
+          flag = true;
+          break;
+        }
+      }
+      return flag;
+    }
+
     public void Deserialize(Json_Unit json)
     {
       if (json == null)
@@ -792,9 +856,11 @@ namespace SRPG
       this.mLv = (OInt) this.CalcLevel();
       this.mJobs = (JobData[]) null;
       this.mJobIndex = (OInt) 0;
+      this.mFavorite = json.fav == 1;
+      this.mSupportElement = (EElement) json.elem;
       if (json.select.quests != null)
       {
-        this.mPartyJobs = new long[8];
+        this.mPartyJobs = new long[9];
         for (int index = 0; index < json.select.quests.Length; ++index)
         {
           string qtype = json.select.quests[index].qtype;
@@ -875,6 +941,19 @@ namespace SRPG
             this.mSkillUnlocks.Add(allUnlockUnitDatas[index]);
         }
       }
+      if (this.UnitParam.skins != null)
+      {
+        this.mUnlockedSkins.Clear();
+        ArtifactParam[] array = instanceDirect.MasterParam.Artifacts.ToArray();
+        for (int index = 0; index < this.UnitParam.skins.Length; ++index)
+        {
+          // ISSUE: object of a compiler-generated type is created
+          // ISSUE: reference to a compiler-generated method
+          ArtifactParam artifactParam = Array.Find<ArtifactParam>(array, new Predicate<ArtifactParam>(new UnitData.\u003CDeserialize\u003Ec__AnonStorey3B7() { skinName = (string) this.UnitParam.skins[index] }.\u003C\u003Em__48D));
+          if (artifactParam != null && instanceDirect.Player.ItemEntryExists(artifactParam.kakera))
+            this.mUnlockedSkins.Add(artifactParam);
+        }
+      }
       if (json.jobs != null)
         json.jobs = this.AppendUnlockedJobs(json.jobs);
       if (json.jobs != null)
@@ -895,14 +974,14 @@ namespace SRPG
           {
             // ISSUE: object of a compiler-generated type is created
             // ISSUE: variable of a compiler-generated type
-            UnitData.\u003CDeserialize\u003Ec__AnonStorey2A0 deserializeCAnonStorey2A0 = new UnitData.\u003CDeserialize\u003Ec__AnonStorey2A0();
+            UnitData.\u003CDeserialize\u003Ec__AnonStorey3B8 deserializeCAnonStorey3B8 = new UnitData.\u003CDeserialize\u003Ec__AnonStorey3B8();
             // ISSUE: reference to a compiler-generated field
-            deserializeCAnonStorey2A0.jobset = instanceDirect.GetJobSetParam((string) this.mUnitParam.jobsets[index2]);
+            deserializeCAnonStorey3B8.jobset = instanceDirect.GetJobSetParam((string) this.mUnitParam.jobsets[index2]);
             JobSetParam jobSetParam = (JobSetParam) null;
             if (jobSetParamList != null && jobSetParamList.Count > 0)
             {
               // ISSUE: reference to a compiler-generated method
-              int index3 = jobSetParamList.FindIndex(new Predicate<JobSetParam>(deserializeCAnonStorey2A0.\u003C\u003Em__344));
+              int index3 = jobSetParamList.FindIndex(new Predicate<JobSetParam>(deserializeCAnonStorey3B8.\u003C\u003Em__48E));
               if (index3 >= 0)
                 jobSetParam = changeJobSetParam[index3];
             }
@@ -915,7 +994,7 @@ namespace SRPG
                 if (json.jobs[index3] != null)
                 {
                   // ISSUE: reference to a compiler-generated field
-                  if (deserializeCAnonStorey2A0.jobset.job == json.jobs[index3].iname)
+                  if (deserializeCAnonStorey3B8.jobset.job == json.jobs[index3].iname)
                   {
                     jsonJobArray[num++] = json.jobs[index3];
                     json.jobs[index3] = (Json_Job) null;
@@ -936,12 +1015,12 @@ namespace SRPG
                 // ISSUE: reference to a compiler-generated field
                 // ISSUE: reference to a compiler-generated field
                 // ISSUE: reference to a compiler-generated field
-                deserializeCAnonStorey2A0.jobset = string.IsNullOrEmpty(deserializeCAnonStorey2A0.jobset.jobchange) ? (JobSetParam) null : instanceDirect.GetJobSetParam(deserializeCAnonStorey2A0.jobset.jobchange);
+                deserializeCAnonStorey3B8.jobset = string.IsNullOrEmpty(deserializeCAnonStorey3B8.jobset.jobchange) ? (JobSetParam) null : instanceDirect.GetJobSetParam(deserializeCAnonStorey3B8.jobset.jobchange);
               }
               else
                 break;
             }
-            while (deserializeCAnonStorey2A0.jobset != null);
+            while (deserializeCAnonStorey3B8.jobset != null);
           }
         }
         for (int index = 0; index < json.jobs.Length; ++index)
@@ -970,24 +1049,19 @@ namespace SRPG
             break;
           }
         }
+        if (!string.IsNullOrEmpty(this.mJobs[(int) this.mJobIndex].Param.MapEffectAbility))
+        {
+          string mapEffectAbility = this.mJobs[(int) this.mJobIndex].Param.MapEffectAbility;
+          this.mMapEffectAbility = new AbilityData();
+          this.mMapEffectAbility.Setup(this, -1L, mapEffectAbility, 0);
+          this.mMapEffectAbility.UpdateLearningsSkill(false);
+          this.mMapEffectAbility.IsNoneCategory = true;
+        }
       }
       else
       {
         this.mNormalAttackSkill = new SkillData();
         this.mNormalAttackSkill.Setup((string) this.UnitParam.default_skill, 1, 1, (MasterParam) null);
-      }
-      if (this.UnitParam.skins != null)
-      {
-        this.mUnlockedSkins.Clear();
-        ArtifactParam[] array = instanceDirect.MasterParam.Artifacts.ToArray();
-        for (int index = 0; index < this.UnitParam.skins.Length; ++index)
-        {
-          // ISSUE: object of a compiler-generated type is created
-          // ISSUE: reference to a compiler-generated method
-          ArtifactParam artifactParam = Array.Find<ArtifactParam>(array, new Predicate<ArtifactParam>(new UnitData.\u003CDeserialize\u003Ec__AnonStorey2A1() { skinName = (string) this.UnitParam.skins[index] }.\u003C\u003Em__345));
-          if (artifactParam != null && instanceDirect.Player.ItemEntryExists(artifactParam.kakera))
-            this.mUnlockedSkins.Add(artifactParam);
-        }
       }
       if (json.abil != null)
       {
@@ -1021,7 +1095,7 @@ namespace SRPG
 
     public string Serialize()
     {
-      string str1 = string.Empty + "{\"iid\":" + (object) this.UniqueID + ",\"iname\":\"" + this.UnitParam.iname + "\"" + ",\"rare\":" + (object) this.Rarity + ",\"plus\":" + (object) this.AwakeLv + ",\"lv\":" + (object) this.Lv + ",\"exp\":" + (object) this.Exp;
+      string str1 = string.Empty + "{\"iid\":" + (object) this.UniqueID + ",\"iname\":\"" + this.UnitParam.iname + "\"" + ",\"rare\":" + (object) this.Rarity + ",\"plus\":" + (object) this.AwakeLv + ",\"lv\":" + (object) this.Lv + ",\"exp\":" + (object) this.Exp + ",\"fav\":" + (!this.IsFavorite ? "0" : "1");
       if (this.MasterAbility != null)
         str1 = str1 + ",\"abil\":{\"iid\":" + (object) this.MasterAbility.UniqueID + ",\"iname\":\"" + this.MasterAbility.Param.iname + "\",\"exp\":" + (object) this.MasterAbility.Exp + "}";
       if (this.CollaboAbility != null)
@@ -1163,6 +1237,163 @@ namespace SRPG
       return str1 + "}";
     }
 
+    public string Serialize2()
+    {
+      string str1 = string.Empty + "{\"iid\":" + (object) this.UniqueID + ",\"iname\":\"" + this.UnitParam.iname + "\"" + ",\"rare\":" + (object) this.Rarity + ",\"plus\":" + (object) this.AwakeLv + ",\"lv\":" + (object) this.Lv + ",\"exp\":" + (object) this.Exp;
+      if (this.MasterAbility != null)
+        str1 = str1 + ",\"abil\":{\"iid\":" + (object) this.MasterAbility.UniqueID + ",\"iname\":\"" + this.MasterAbility.Param.iname + "\",\"exp\":" + (object) this.MasterAbility.Exp + "}";
+      if (this.CollaboAbility != null)
+      {
+        string str2 = str1 + ",\"c_abil\":{\"iid\":" + (object) this.CollaboAbility.UniqueID + ",\"iname\":\"" + this.CollaboAbility.Param.iname + "\",\"exp\":" + (object) this.CollaboAbility.Exp + ",\"skills\":[";
+        for (int index = 0; index < this.CollaboAbility.Skills.Count; ++index)
+        {
+          SkillData skill = this.CollaboAbility.Skills[index];
+          if (skill != null)
+            str2 = str2 + (index == 0 ? string.Empty : ",") + "{\"iname\":\"" + skill.SkillParam.iname + "\"}";
+        }
+        str1 = str2 + "]}";
+      }
+      string str3 = string.Empty;
+      if (this.mUnlockedAbilitys != null)
+      {
+        for (int index = 0; index < this.mUnlockedAbilitys.Count; ++index)
+          str3 = str3 + (index <= 0 ? string.Empty : ",") + "\"" + this.mUnlockedAbilitys[index].iname + "\"";
+      }
+      if (this.mUnlockedSkills != null)
+      {
+        if (!string.IsNullOrEmpty(str3))
+          str3 += ",";
+        for (int index = 0; index < this.mUnlockedSkills.Count; ++index)
+          str3 = str3 + (index <= 0 ? string.Empty : ",") + "\"" + this.mUnlockedSkills[index].iname + "\"";
+      }
+      if (this.mUnlockedLeaderSkill != null)
+        str3 = str3 + (string.IsNullOrEmpty(str3) ? string.Empty : ",") + "\"" + this.mUnlockedLeaderSkill.iname + "\"";
+      if (!string.IsNullOrEmpty(str3))
+        str1 = str1 + ",\"quest_clear_unlocks\":[" + str3 + "]";
+      long num1 = this.CurrentJob == null ? 0L : this.CurrentJob.UniqueID;
+      if (this.Jobs != null && this.Jobs.Length > 0)
+      {
+        string str2 = str1 + ",\"jobs\":[";
+        for (int index1 = 0; index1 < this.Jobs.Length; ++index1)
+        {
+          JobData job = this.Jobs[index1];
+          if (index1 > 0)
+            str2 += ",";
+          string str4 = str2 + "{\"iid\":" + (object) job.UniqueID + ",\"iname\":\"" + job.JobID + "\",\"rank\":" + (object) job.Rank;
+          if (job.Equips != null && job.Equips.Length > 0)
+          {
+            string str5 = str4 + ",\"equips\":[";
+            for (int index2 = 0; index2 < job.Equips.Length; ++index2)
+            {
+              EquipData equip = job.Equips[index2];
+              if (index2 > 0)
+                str5 += ",";
+              str5 = str5 + "{\"iid\":" + (object) equip.UniqueID + ",\"iname\":\"" + equip.ItemID + "\",\"exp\":" + (object) equip.Exp + "}";
+            }
+            str4 = str5 + "]";
+          }
+          if (job.LearnAbilitys != null && job.LearnAbilitys.Count > 0)
+          {
+            string str5 = str4 + ",\"abils\":[";
+            for (int index2 = 0; index2 < job.LearnAbilitys.Count; ++index2)
+            {
+              AbilityData learnAbility = job.LearnAbilitys[index2];
+              if (index2 > 0)
+                str5 += ",";
+              str5 = str5 + "{\"iid\":" + (object) learnAbility.UniqueID + ",\"iname\":\"" + learnAbility.Param.iname + "\",\"exp\":" + (object) learnAbility.Exp + "}";
+            }
+            str4 = str5 + "]";
+          }
+          if ((job.AbilitySlots != null || job.Artifacts != null) && num1 == job.UniqueID)
+          {
+            string str5 = str4 + ",\"select\":{";
+            bool flag = false;
+            if (job.AbilitySlots != null)
+            {
+              string str6 = str5 + "\"abils\":[";
+              for (int index2 = 0; index2 < job.AbilitySlots.Length; ++index2)
+              {
+                if (index2 > 0)
+                  str6 += ",";
+                str6 += (string) (object) job.AbilitySlots[index2];
+              }
+              str5 = str6 + "]";
+              flag = true;
+            }
+            if (job.Artifacts != null)
+            {
+              if (flag)
+                str5 += ",";
+              string str6 = str5 + "\"artifacts\":[";
+              for (int index2 = 0; index2 < job.Artifacts.Length; ++index2)
+              {
+                if (index2 > 0)
+                  str6 += ",";
+                str6 += (string) (object) job.Artifacts[index2];
+              }
+              str5 = str6 + "]";
+            }
+            str4 = str5 + "}";
+          }
+          if (job.ArtifactDatas != null)
+          {
+            string str5 = str4 + ",\"artis\":[";
+            if (job.UniqueID == num1)
+            {
+              for (int index2 = 0; index2 < job.ArtifactDatas.Length; ++index2)
+              {
+                ArtifactData artifactData = job.ArtifactDatas[index2];
+                if (index2 > 0)
+                  str5 += ",";
+                str5 = artifactData != null ? str5 + "{\"iid\":" + (object) artifactData.UniqueID + ",\"iname\":\"" + artifactData.ArtifactParam.iname + "\"" + ",\"exp\":" + (object) artifactData.Exp + ",\"rare\":" + (object) artifactData.Rarity + "}" : str5 + "null";
+              }
+            }
+            else
+            {
+              for (int index2 = 0; index2 < job.ArtifactDatas.Length; ++index2)
+              {
+                ArtifactData artifactData = job.ArtifactDatas[index2];
+                if (index2 > 0)
+                  str5 += ",";
+                str5 = artifactData == null || artifactData != null && artifactData.ArtifactParam.type != ArtifactTypes.Arms ? str5 + "null" : str5 + "{\"iid\":" + (object) artifactData.UniqueID + ",\"iname\":\"" + artifactData.ArtifactParam.iname + "\"" + ",\"exp\":" + (object) artifactData.Exp + ",\"rare\":" + (object) artifactData.Rarity + ",\"fav\":" + (object) (!artifactData.IsFavorite ? 0 : 1) + "}";
+              }
+            }
+            str4 = str5 + "]";
+          }
+          if (!string.IsNullOrEmpty(job.SelectedSkin) && num1 == job.UniqueID)
+            str4 = str4 + ",\"cur_skin\":\"" + job.SelectedSkin + "\"";
+          str2 = str4 + "}";
+        }
+        str1 = str2 + "]";
+      }
+      if (num1 != 0L)
+      {
+        string str2 = str1 + ",\"select\":{";
+        if (num1 != 0L)
+        {
+          str2 = str2 + "\"job\":" + (object) num1;
+          if (this.mPartyJobs != null && this.mPartyJobs.Length > 0)
+          {
+            string str4 = str2 + ",\"quests\":[";
+            int num2 = 0;
+            for (int index = 0; index < this.mPartyJobs.Length; ++index)
+            {
+              if (this.mPartyJobs[index] != 0L)
+              {
+                if (num2 > 0)
+                  str4 += (string) (object) ',';
+                str4 = str4 + "{\"qtype\":\"" + PartyData.GetStringFromPartyType((PlayerPartyTypes) index) + "\",\"jiid\":" + (object) this.mPartyJobs[index] + "}";
+                ++num2;
+              }
+            }
+            str2 = str4 + "]";
+          }
+        }
+        str1 = str2 + "}";
+      }
+      return str1 + "}";
+    }
+
     public bool Setup(string unit_iname, int exp, int rare, int awakeLv, string job_iname = null, int jobrank = 1, EElement elem = EElement.None)
     {
       GameManager instanceDirect = MonoSingleton<GameManager>.GetInstanceDirect();
@@ -1225,18 +1456,18 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          UnitData.\u003CSetup\u003Ec__AnonStorey2A2 setupCAnonStorey2A2 = new UnitData.\u003CSetup\u003Ec__AnonStorey2A2();
+          UnitData.\u003CSetup\u003Ec__AnonStorey3B9 setupCAnonStorey3B9 = new UnitData.\u003CSetup\u003Ec__AnonStorey3B9();
           string defaultAbility = (string) this.UnitParam.default_abilities[index];
           if (!string.IsNullOrEmpty(defaultAbility))
           {
             // ISSUE: reference to a compiler-generated field
-            setupCAnonStorey2A2.param = instanceDirect.GetAbilityParam(defaultAbility);
+            setupCAnonStorey3B9.param = instanceDirect.GetAbilityParam(defaultAbility);
             // ISSUE: reference to a compiler-generated method
-            AbilityData abilityData = this.BattleAbilitys.Find(new Predicate<AbilityData>(setupCAnonStorey2A2.\u003C\u003Em__346));
+            AbilityData abilityData = this.BattleAbilitys.Find(new Predicate<AbilityData>(setupCAnonStorey3B9.\u003C\u003Em__48F));
             if (abilityData == null)
             {
               // ISSUE: reference to a compiler-generated method
-              abilityData = this.LearnAbilitys.Find(new Predicate<AbilityData>(setupCAnonStorey2A2.\u003C\u003Em__347));
+              abilityData = this.LearnAbilitys.Find(new Predicate<AbilityData>(setupCAnonStorey3B9.\u003C\u003Em__490));
               if (abilityData == null)
               {
                 abilityData = new AbilityData();
@@ -1532,12 +1763,12 @@ namespace SRPG
       return skillData.Scope;
     }
 
-    public int GetAttackHeight(SkillData skill = null)
+    public int GetAttackHeight(SkillData skill = null, bool is_range = false)
     {
-      return this.GetAttackHeight((int) this.mJobIndex, skill);
+      return this.GetAttackHeight((int) this.mJobIndex, skill, is_range);
     }
 
-    public int GetAttackHeight(int jobNo, SkillData skill)
+    public int GetAttackHeight(int jobNo, SkillData skill, bool is_range)
     {
       SkillData skillData = skill;
       if (skillData == null || skillData.IsReactionSkill() && skillData.IsBattleSkill())
@@ -1546,7 +1777,10 @@ namespace SRPG
         if (skillData == null)
           return 0;
       }
-      return skillData.EnableAttackGridHeight;
+      int num = skillData.EnableAttackGridHeight;
+      if (is_range && skill.TeleportType != eTeleportType.None)
+        num = skillData.TeleportHeight;
+      return num;
     }
 
     public int GetMoveCount()
@@ -1622,6 +1856,22 @@ namespace SRPG
     public bool CheckUnitAwaking()
     {
       return this.GetAwakeLevelCap() > (int) this.mAwakeLv && this.GetAwakeNeedPieces() <= this.GetPieces() + this.GetElementPieces() + this.GetCommonPieces();
+    }
+
+    public bool CheckUnitAwaking(int awakelv)
+    {
+      int awakeLevelCap = this.GetAwakeLevelCap();
+      if (awakeLevelCap < (int) this.mAwakeLv || awakeLevelCap < awakelv)
+        return false;
+      int num = this.GetPieces() + this.GetElementPieces() + this.GetCommonPieces();
+      for (int mAwakeLv = (int) this.mAwakeLv; mAwakeLv < awakelv; ++mAwakeLv)
+      {
+        int awakeNeedPieces = MonoSingleton<GameManager>.Instance.MasterParam.GetAwakeNeedPieces(mAwakeLv);
+        if (awakeNeedPieces > num)
+          return false;
+        num -= awakeNeedPieces;
+      }
+      return true;
     }
 
     public int GetPieces()
@@ -1887,7 +2137,10 @@ namespace SRPG
 
     public bool CheckJobUnlockable(int jobNo)
     {
-      if (this.GetJobData(jobNo).IsActivated)
+      JobData jobData = this.GetJobData(jobNo);
+      if (jobData == null)
+        return false;
+      if (jobData.IsActivated)
         return true;
       JobSetParam jobSetParam = this.GetJobSetParam(jobNo);
       if (jobSetParam == null || this.Rarity < jobSetParam.lock_rarity || this.AwakeLv < jobSetParam.lock_awakelv)
@@ -1920,7 +2173,7 @@ namespace SRPG
     {
       if (!this.CheckJobUnlockable(jobNo))
         return false;
-      return this.GetJobData(jobNo).CheckJobRankUp(this, canCreate);
+      return this.GetJobData(jobNo).CheckJobRankUp(this, canCreate, true);
     }
 
     public bool CheckJobRankUp()
@@ -1930,24 +2183,24 @@ namespace SRPG
 
     public bool CheckJobRankUp(int jobNo)
     {
-      return this.CheckJobRankUpInternal(jobNo, false);
+      return this.CheckJobRankUpInternal(jobNo, false, true);
     }
 
     public bool CheckJobRankUpAllEquip()
     {
-      return this.CheckJobRankUpAllEquip((int) this.mJobIndex);
+      return this.CheckJobRankUpAllEquip((int) this.mJobIndex, true);
     }
 
-    public bool CheckJobRankUpAllEquip(int jobNo)
+    public bool CheckJobRankUpAllEquip(int jobNo, bool useCommon = true)
     {
-      return this.CheckJobRankUpInternal(jobNo, true);
+      return this.CheckJobRankUpInternal(jobNo, true, useCommon);
     }
 
-    private bool CheckJobRankUpInternal(int jobNo, bool canCreate)
+    private bool CheckJobRankUpInternal(int jobNo, bool canCreate, bool useCommon = true)
     {
       JobData jobData = this.GetJobData(jobNo);
       if (jobData.IsActivated)
-        return jobData.CheckJobRankUp(this, canCreate);
+        return jobData.CheckJobRankUp(this, canCreate, useCommon);
       return this.CheckJobUnlock(jobNo, canCreate);
     }
 
@@ -2011,8 +2264,8 @@ namespace SRPG
 
     public bool CheckJobClassChange(int jobNo)
     {
-      JobData classChangeJobData = this.GetClassChangeJobData(jobNo);
-      return classChangeJobData != null && this.CheckJobRankUpAllEquip(Array.IndexOf<JobData>(this.mJobs, classChangeJobData));
+      JobData jobData = this.GetJobData(jobNo);
+      return jobData != null && this.CheckJobRankUpAllEquip(Array.IndexOf<JobData>(this.mJobs, jobData), true);
     }
 
     public bool CheckClassChangeJobExist()
@@ -2083,17 +2336,17 @@ namespace SRPG
     public void JobClassChange(int jobNo)
     {
       JobData jobData1 = this.GetJobData(jobNo);
-      JobData classChangeJobData = this.GetClassChangeJobData(jobNo);
-      if (jobData1 == null || classChangeJobData == null)
+      JobData baseJob = this.GetBaseJob(jobData1.JobID);
+      if (baseJob == null || jobData1 == null)
         return;
-      classChangeJobData.JobRankUp();
+      jobData1.JobRankUp();
       JobData jobData2 = this.CurrentJob;
       List<JobData> jobDataList = new List<JobData>((IEnumerable<JobData>) this.mJobs);
-      jobDataList.Remove(classChangeJobData);
-      jobDataList[jobDataList.IndexOf(jobData1)] = classChangeJobData;
+      jobDataList.Remove(jobData1);
+      jobDataList[jobDataList.IndexOf(baseJob)] = jobData1;
       this.mJobs = jobDataList.ToArray();
-      if (jobData2 == jobData1)
-        jobData2 = classChangeJobData;
+      if (jobData2 == baseJob)
+        jobData2 = jobData1;
       this.mJobIndex = (OInt) Array.IndexOf<JobData>(this.mJobs, jobData2);
       this.ReserveTemporaryJobs();
       this.UpdateAvailableJobs();
@@ -2262,9 +2515,11 @@ namespace SRPG
             this.mLearnAbilitys.Add(learnAbility);
         }
       }
-      if (this.mMasterAbility == null)
+      if (this.mMasterAbility != null)
+        this.mLearnAbilitys.Add(this.mMasterAbility);
+      if (this.mMapEffectAbility == null)
         return;
-      this.mLearnAbilitys.Add(this.mMasterAbility);
+      this.mLearnAbilitys.Add(this.mMapEffectAbility);
     }
 
     private void UpdateUnitBattleAbilityAll()
@@ -2380,6 +2635,22 @@ namespace SRPG
           }
         }
       }
+      if (this.mMapEffectAbility != null && !this.mBattleAbilitys.Contains(this.mMapEffectAbility))
+      {
+        this.mBattleAbilitys.Add(this.mMapEffectAbility);
+        if (this.mMapEffectAbility.Skills != null)
+        {
+          using (List<SkillData>.Enumerator enumerator = this.mMapEffectAbility.Skills.GetEnumerator())
+          {
+            while (enumerator.MoveNext())
+            {
+              SkillData current = enumerator.Current;
+              if (current != null && !this.mBattleSkills.Contains(current))
+                this.mBattleSkills.Add(current);
+            }
+          }
+        }
+      }
       using (List<SkillData>.Enumerator enumerator = this.mBattleSkills.GetEnumerator())
       {
         while (enumerator.MoveNext())
@@ -2467,6 +2738,8 @@ namespace SRPG
       }
       if (this.mMasterAbility != null && !abilityDataList.Contains(this.mMasterAbility))
         abilityDataList.Add(this.mMasterAbility);
+      if (this.mMapEffectAbility != null && !abilityDataList.Contains(this.mMapEffectAbility))
+        abilityDataList.Add(this.mMapEffectAbility);
       return abilityDataList;
     }
 
@@ -2488,6 +2761,8 @@ namespace SRPG
       }
       if (this.mMasterAbility != null && !abilityDataList.Contains(this.mMasterAbility))
         abilityDataList.Add(this.mMasterAbility);
+      if (this.mMapEffectAbility != null && !abilityDataList.Contains(this.mMapEffectAbility))
+        abilityDataList.Add(this.mMapEffectAbility);
       return abilityDataList;
     }
 
@@ -2559,6 +2834,8 @@ namespace SRPG
       }
       if (this.mMasterAbility != null && this.mMasterAbility.UniqueID == iid)
         return this.mMasterAbility;
+      if (this.mMapEffectAbility != null && this.mMapEffectAbility.UniqueID == iid)
+        return this.mMapEffectAbility;
       return (AbilityData) null;
     }
 
@@ -2607,11 +2884,26 @@ namespace SRPG
       }
       if (this.mCollaboAbility != null)
       {
-        for (int index = 0; index < this.mCollaboAbility.Skills.Count; ++index)
+        using (List<SkillData>.Enumerator enumerator = this.mCollaboAbility.Skills.GetEnumerator())
         {
-          SkillData skill = this.mCollaboAbility.Skills[index];
-          if (skill != null && skill.IsValid() && !(skill.SkillID != iname))
-            return skill;
+          while (enumerator.MoveNext())
+          {
+            SkillData current = enumerator.Current;
+            if (current != null && current.IsValid() && !(current.SkillID != iname))
+              return current;
+          }
+        }
+      }
+      if (this.mMapEffectAbility != null)
+      {
+        using (List<SkillData>.Enumerator enumerator = this.mMapEffectAbility.Skills.GetEnumerator())
+        {
+          while (enumerator.MoveNext())
+          {
+            SkillData current = enumerator.Current;
+            if (current != null && current.IsValid() && !(current.SkillID != iname))
+              return current;
+          }
         }
       }
       return (SkillData) null;
@@ -2624,15 +2916,20 @@ namespace SRPG
 
     public int GetSkillUsedCost(SkillParam skill)
     {
-      int cost = (int) skill.cost;
-      if (skill.effect_type != SkillEffectTypes.GemsGift)
-        cost += cost * (int) this.Status[BattleBonus.UsedJewelRate] / 100;
-      return cost;
+      int num = (int) skill.cost;
+      if (skill.effect_type != SkillEffectTypes.GemsGift && skill.type != ESkillType.Attack && skill.type != ESkillType.Item)
+        num = Math.Max(num + num * (int) this.Status[BattleBonus.UsedJewelRate] / 100 + (int) this.Status[BattleBonus.UsedJewel], 0);
+      return num;
     }
 
     public override string ToString()
     {
       return this.UnitParam.name + "(" + this.GetType().Name + ")";
+    }
+
+    public void SetVirtualAwakeLv(int target_awake_lv)
+    {
+      this.mAwakeLv = (OInt) target_awake_lv;
     }
 
     public bool CheckEnableEquipment(ItemParam item)
@@ -2679,7 +2976,7 @@ namespace SRPG
           for (int index = 0; index < jobData.Equips.Length; ++index)
           {
             EquipData equip = jobData.Equips[index];
-            if (equip != null && equip.IsValid() && !equip.IsEquiped() && ((player.HasItem(equip.ItemID) || player.CheckEnableCreateItem(equip.ItemParam, true, 1)) && (int) equip.ItemParam.equipLv <= this.Lv))
+            if (equip != null && equip.IsValid() && !equip.IsEquiped() && ((player.HasItem(equip.ItemID) || player.CheckEnableCreateItem(equip.ItemParam, true, 1, (NeedEquipItemList) null)) && (int) equip.ItemParam.equipLv <= this.Lv))
               return true;
           }
         }
@@ -2771,6 +3068,39 @@ namespace SRPG
         jobIndex = this.JobIndex;
       JobData jobData = this.Jobs == null || this.Jobs[jobIndex] == null ? (JobData) null : this.Jobs[jobIndex];
       return AssetPath.UnitVoiceFileName(this.UnitParam, (ArtifactParam) null, this.UnitParam.GetJobVoice(jobData == null ? string.Empty : jobData.JobID));
+    }
+
+    public UnitData.UnitPlaybackVoiceData GetUnitPlaybackVoiceData()
+    {
+      string skinVoiceSheetName = this.GetUnitSkinVoiceSheetName(-1);
+      if (string.IsNullOrEmpty(skinVoiceSheetName))
+      {
+        DebugUtility.LogError("UnitDataにボイス設定が存在しません");
+        return (UnitData.UnitPlaybackVoiceData) null;
+      }
+      string sheetName = "VO_" + skinVoiceSheetName;
+      string cueNamePrefix = this.GetUnitSkinVoiceCueName(-1) + "_";
+      MySound.Voice _voice = new MySound.Voice(sheetName, skinVoiceSheetName, cueNamePrefix, false);
+      CriAtomExAcb acb = _voice.FindAcb(sheetName);
+      if (acb == null)
+      {
+        DebugUtility.LogError("Acbファイルが存在しません");
+        return (UnitData.UnitPlaybackVoiceData) null;
+      }
+      CriAtomEx.CueInfo[] cueInfoList = acb.GetCueInfoList();
+      if (cueInfoList == null || cueInfoList.Length <= 0)
+      {
+        DebugUtility.LogError("CueInfoが存在しません");
+        return (UnitData.UnitPlaybackVoiceData) null;
+      }
+      UnitData.UnitPlaybackVoiceData playbackVoiceData = new UnitData.UnitPlaybackVoiceData();
+      playbackVoiceData.Init(this, _voice, cueInfoList, skinVoiceSheetName);
+      return playbackVoiceData;
+    }
+
+    public bool CheckUnlockPlaybackVoice()
+    {
+      return this.Rarity + 1 >= 5;
     }
 
     public UnitData.CharacterQuestUnlockProgress SaveUnlockProgress()
@@ -2915,59 +3245,59 @@ namespace SRPG
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      UnitData.\u003CIsChQuestParentUnlocked\u003Ec__AnonStorey2A3 unlockedCAnonStorey2A3 = new UnitData.\u003CIsChQuestParentUnlocked\u003Ec__AnonStorey2A3();
+      UnitData.\u003CIsChQuestParentUnlocked\u003Ec__AnonStorey3BA unlockedCAnonStorey3Ba = new UnitData.\u003CIsChQuestParentUnlocked\u003Ec__AnonStorey3BA();
       // ISSUE: reference to a compiler-generated field
-      unlockedCAnonStorey2A3.quest = quest;
+      unlockedCAnonStorey3Ba.quest = quest;
       // ISSUE: reference to a compiler-generated field
-      if (unlockedCAnonStorey2A3.quest == null)
+      if (unlockedCAnonStorey3Ba.quest == null)
         return false;
       bool flag = true;
       List<AbilityData> learnedAbilities = this.GetAllLearnedAbilities();
       // ISSUE: reference to a compiler-generated method
-      List<QuestClearUnlockUnitDataParam> all = this.SkillUnlocks.FindAll(new Predicate<QuestClearUnlockUnitDataParam>(unlockedCAnonStorey2A3.\u003C\u003Em__348));
+      List<QuestClearUnlockUnitDataParam> all = this.SkillUnlocks.FindAll(new Predicate<QuestClearUnlockUnitDataParam>(unlockedCAnonStorey3Ba.\u003C\u003Em__491));
       if (all == null)
         return true;
       for (int index = 0; index < all.Count; ++index)
       {
         // ISSUE: object of a compiler-generated type is created
         // ISSUE: variable of a compiler-generated type
-        UnitData.\u003CIsChQuestParentUnlocked\u003Ec__AnonStorey2A4 unlockedCAnonStorey2A4 = new UnitData.\u003CIsChQuestParentUnlocked\u003Ec__AnonStorey2A4();
+        UnitData.\u003CIsChQuestParentUnlocked\u003Ec__AnonStorey3BB unlockedCAnonStorey3Bb = new UnitData.\u003CIsChQuestParentUnlocked\u003Ec__AnonStorey3BB();
         // ISSUE: reference to a compiler-generated field
-        unlockedCAnonStorey2A4.unlock = all[index];
+        unlockedCAnonStorey3Bb.unlock = all[index];
         AbilityData abilityData = (AbilityData) null;
         // ISSUE: reference to a compiler-generated field
-        if (!unlockedCAnonStorey2A4.unlock.qcnd)
+        if (!unlockedCAnonStorey3Bb.unlock.qcnd)
         {
           // ISSUE: reference to a compiler-generated field
-          switch (unlockedCAnonStorey2A4.unlock.type)
+          switch (unlockedCAnonStorey3Bb.unlock.type)
           {
             case QuestClearUnlockUnitDataParam.EUnlockTypes.Skill:
               // ISSUE: reference to a compiler-generated method
-              abilityData = learnedAbilities.Find(new Predicate<AbilityData>(unlockedCAnonStorey2A4.\u003C\u003Em__34A));
+              abilityData = learnedAbilities.Find(new Predicate<AbilityData>(unlockedCAnonStorey3Bb.\u003C\u003Em__493));
               flag = abilityData != null;
               break;
             case QuestClearUnlockUnitDataParam.EUnlockTypes.Ability:
               // ISSUE: reference to a compiler-generated method
-              flag = Array.Find<JobData>(this.Jobs, new Predicate<JobData>(unlockedCAnonStorey2A4.\u003C\u003Em__349)) != null;
+              flag = Array.Find<JobData>(this.Jobs, new Predicate<JobData>(unlockedCAnonStorey3Bb.\u003C\u003Em__492)) != null;
               break;
           }
           // ISSUE: reference to a compiler-generated field
-          if (flag && !unlockedCAnonStorey2A4.unlock.add)
+          if (flag && !unlockedCAnonStorey3Bb.unlock.add)
           {
             // ISSUE: reference to a compiler-generated field
-            switch (unlockedCAnonStorey2A4.unlock.type)
+            switch (unlockedCAnonStorey3Bb.unlock.type)
             {
               case QuestClearUnlockUnitDataParam.EUnlockTypes.Skill:
                 // ISSUE: reference to a compiler-generated method
-                flag = Array.Find<LearningSkill>(abilityData.LearningSkills, new Predicate<LearningSkill>(unlockedCAnonStorey2A4.\u003C\u003Em__34C)) != null;
+                flag = Array.Find<LearningSkill>(abilityData.LearningSkills, new Predicate<LearningSkill>(unlockedCAnonStorey3Bb.\u003C\u003Em__495)) != null;
                 break;
               case QuestClearUnlockUnitDataParam.EUnlockTypes.Ability:
                 // ISSUE: reference to a compiler-generated method
-                flag = learnedAbilities.Find(new Predicate<AbilityData>(unlockedCAnonStorey2A4.\u003C\u003Em__34B)) != null;
+                flag = learnedAbilities.Find(new Predicate<AbilityData>(unlockedCAnonStorey3Bb.\u003C\u003Em__494)) != null;
                 break;
               case QuestClearUnlockUnitDataParam.EUnlockTypes.MasterAbility:
                 // ISSUE: reference to a compiler-generated field
-                flag = this.MasterAbility != null && this.MasterAbility.AbilityID == unlockedCAnonStorey2A4.unlock.old_id;
+                flag = this.MasterAbility != null && this.MasterAbility.AbilityID == unlockedCAnonStorey3Bb.unlock.old_id;
                 break;
             }
           }
@@ -2995,10 +3325,30 @@ namespace SRPG
     public void SetJobFor(PlayerPartyTypes type, JobData job)
     {
       if (this.mPartyJobs == null)
-        this.mPartyJobs = new long[8];
-      else if (this.mPartyJobs.Length != 8)
-        Array.Resize<long>(ref this.mPartyJobs, 8);
+        this.mPartyJobs = new long[9];
+      else if (this.mPartyJobs.Length != 9)
+        Array.Resize<long>(ref this.mPartyJobs, 9);
       this.mPartyJobs[(int) type] = job.UniqueID;
+    }
+
+    public bool CheckCommon(int index, int slot)
+    {
+      GameManager instance = MonoSingleton<GameManager>.Instance;
+      JobData job = this.Jobs[index];
+      string rankupItem = job.GetRankupItems(job.Rank)[slot];
+      ItemData itemDataByItemId1 = instance.Player.FindItemDataByItemID(rankupItem);
+      ItemParam itemParam = instance.GetItemParam(rankupItem);
+      if (itemParam == null || !itemParam.IsCommon || itemDataByItemId1 != null && itemDataByItemId1.Num >= 1)
+        return false;
+      ItemParam commonEquip = instance.MasterParam.GetCommonEquip(itemParam, job.Rank == 0);
+      if (commonEquip == null)
+        return false;
+      ItemData itemDataByItemId2 = instance.Player.FindItemDataByItemID(commonEquip.iname);
+      if (itemDataByItemId2 == null || instance.MasterParam.FixParam.EquipCommonPieceNum == null)
+        return false;
+      int num1 = (int) instance.MasterParam.FixParam.EquipCommonPieceNum[(int) itemParam.rare];
+      int num2 = job.Rank <= 0 ? 1 : num1;
+      return itemDataByItemId2 != null && itemDataByItemId2.Num >= num2;
     }
 
     public string UnlockedCollaboSkillIds()
@@ -3056,11 +3406,282 @@ namespace SRPG
       return (int) unit2.UnitParam.raremax - (int) unit1.UnitParam.raremax;
     }
 
+    public bool IsKnockBack
+    {
+      get
+      {
+        if (this.UnitParam != null)
+          return (bool) this.UnitParam.is_knock_back;
+        return false;
+      }
+    }
+
+    public int CalcTotalParameter()
+    {
+      return 0 + (int) this.mStatus.param.atk + (int) this.mStatus.param.def + (int) this.mStatus.param.mag + (int) this.mStatus.param.mnd + (int) this.mStatus.param.spd + (int) this.mStatus.param.dex + (int) this.mStatus.param.cri + (int) this.mStatus.param.luk;
+    }
+
     [Flags]
     public enum TemporaryFlags
     {
       TemporaryUnitData = 1,
       AllowJobChange = 2,
+    }
+
+    public class Json_PlaybackVoiceData
+    {
+      public List<string> cue_names = new List<string>();
+      public int playback_voice_unlocked;
+    }
+
+    public class UnitVoiceCueInfo
+    {
+      public CriAtomEx.CueInfo cueInfo;
+      public string voice_name;
+      public bool has_conditions;
+      public bool is_locked;
+      public bool is_new;
+      public string unlock_conditions_text;
+      public int number;
+    }
+
+    public class UnitPlaybackVoiceData
+    {
+      private UnitData unit;
+      private MySound.Voice voice;
+      private List<UnitData.UnitVoiceCueInfo> voice_cue_list;
+
+      public MySound.Voice Voice
+      {
+        get
+        {
+          return this.voice;
+        }
+      }
+
+      public List<UnitData.UnitVoiceCueInfo> VoiceCueList
+      {
+        get
+        {
+          return this.voice_cue_list;
+        }
+      }
+
+      public void Init(UnitData _unit, MySound.Voice _voice, CriAtomEx.CueInfo[] _cueInfo, string _voice_name)
+      {
+        this.unit = _unit;
+        this.voice = _voice;
+        this.voice_cue_list = new List<UnitData.UnitVoiceCueInfo>();
+        List<UnitData.UnitVoiceCueInfo> unitVoiceCueInfoList1 = new List<UnitData.UnitVoiceCueInfo>();
+        List<UnitData.UnitVoiceCueInfo> unitVoiceCueInfoList2 = new List<UnitData.UnitVoiceCueInfo>();
+        List<UnitData.UnitVoiceCueInfo> unitVoiceCueInfoList3 = new List<UnitData.UnitVoiceCueInfo>();
+        List<UnitData.UnitVoiceCueInfo> unitVoiceCueInfoList4 = new List<UnitData.UnitVoiceCueInfo>();
+        try
+        {
+          UnitData.Json_PlaybackVoiceData playbackVoiceData = (UnitData.Json_PlaybackVoiceData) JsonUtility.FromJson<UnitData.Json_PlaybackVoiceData>(PlayerPrefsUtility.GetString(this.unit.UniqueID.ToString(), string.Empty));
+          string empty1 = string.Empty;
+          string empty2 = string.Empty;
+          for (int index = 0; index < _cueInfo.Length; ++index)
+          {
+            string[] strArray = ((string) _cueInfo[index].name).Split('_');
+            if (strArray.Length >= 2)
+            {
+              string str1 = strArray[strArray.Length - 2];
+              string s = strArray[strArray.Length - 1];
+              bool success = false;
+              string _tmp_name = str1 + "_" + s;
+              string str2 = LocalizedText.Get("playback_list." + _tmp_name.ToUpper(), ref success);
+              if (success)
+              {
+                UnitData.UnitVoiceCueInfo _info = new UnitData.UnitVoiceCueInfo();
+                _info.cueInfo = _cueInfo[index];
+                _info.voice_name = str2;
+                _info.is_locked = false;
+                _info.is_new = false;
+                _info.number = int.Parse(s);
+                this.SetConditions(_tmp_name, ref _info);
+                if (_info.has_conditions)
+                {
+                  _info.is_locked = !this.CheckConditions(this.unit, _tmp_name);
+                  if (!_info.is_locked && (playbackVoiceData == null || playbackVoiceData.cue_names.Count <= 0 || !playbackVoiceData.cue_names.Contains((string) _cueInfo[index].name)))
+                    _info.is_new = true;
+                  if (playbackVoiceData != null && playbackVoiceData.cue_names.Contains((string) _cueInfo[index].name))
+                    _info.is_locked = false;
+                }
+                string key = str1;
+                if (key != null)
+                {
+                  // ISSUE: reference to a compiler-generated field
+                  if (UnitData.UnitPlaybackVoiceData.\u003C\u003Ef__switch\u0024map1B == null)
+                  {
+                    // ISSUE: reference to a compiler-generated field
+                    UnitData.UnitPlaybackVoiceData.\u003C\u003Ef__switch\u0024map1B = new Dictionary<string, int>(4)
+                    {
+                      {
+                        "chara",
+                        0
+                      },
+                      {
+                        "voice",
+                        1
+                      },
+                      {
+                        "battle",
+                        2
+                      },
+                      {
+                        "sys",
+                        3
+                      }
+                    };
+                  }
+                  int num;
+                  // ISSUE: reference to a compiler-generated field
+                  if (UnitData.UnitPlaybackVoiceData.\u003C\u003Ef__switch\u0024map1B.TryGetValue(key, out num))
+                  {
+                    switch (num)
+                    {
+                      case 0:
+                        unitVoiceCueInfoList1.Add(_info);
+                        continue;
+                      case 1:
+                        unitVoiceCueInfoList1.Add(_info);
+                        continue;
+                      case 2:
+                        unitVoiceCueInfoList2.Add(_info);
+                        continue;
+                      case 3:
+                        unitVoiceCueInfoList3.Add(_info);
+                        continue;
+                    }
+                  }
+                }
+                unitVoiceCueInfoList4.Add(_info);
+              }
+            }
+          }
+          unitVoiceCueInfoList1.Sort((Comparison<UnitData.UnitVoiceCueInfo>) ((a, b) => a.number - b.number));
+          unitVoiceCueInfoList2.Sort((Comparison<UnitData.UnitVoiceCueInfo>) ((a, b) => a.number - b.number));
+          unitVoiceCueInfoList3.Sort((Comparison<UnitData.UnitVoiceCueInfo>) ((a, b) => a.number - b.number));
+          unitVoiceCueInfoList4.Sort((Comparison<UnitData.UnitVoiceCueInfo>) ((a, b) => a.number - b.number));
+          this.voice_cue_list.AddRange((IEnumerable<UnitData.UnitVoiceCueInfo>) unitVoiceCueInfoList1);
+          this.voice_cue_list.AddRange((IEnumerable<UnitData.UnitVoiceCueInfo>) unitVoiceCueInfoList2);
+          this.voice_cue_list.AddRange((IEnumerable<UnitData.UnitVoiceCueInfo>) unitVoiceCueInfoList3);
+          this.voice_cue_list.AddRange((IEnumerable<UnitData.UnitVoiceCueInfo>) unitVoiceCueInfoList4);
+        }
+        catch (Exception ex)
+        {
+          DebugUtility.LogException(ex);
+        }
+      }
+
+      public void Cleanup()
+      {
+        if (this.voice == null)
+          return;
+        this.voice.StopAll(1f);
+        this.voice.Cleanup();
+        this.voice = (MySound.Voice) null;
+      }
+
+      private void SetConditions(string _tmp_name, ref UnitData.UnitVoiceCueInfo _info)
+      {
+        _info.has_conditions = false;
+        using (Dictionary<string, string[]>.KeyCollection.Enumerator enumerator = UnitData.CONDITIONS_TARGET_NAMES.Keys.GetEnumerator())
+        {
+          while (enumerator.MoveNext())
+          {
+            string current = enumerator.Current;
+            if (this.ContainsArray(UnitData.CONDITIONS_TARGET_NAMES[current], _tmp_name))
+            {
+              _info.has_conditions = true;
+              _info.unlock_conditions_text = this.GetUnlockConditionsText(current);
+              break;
+            }
+          }
+        }
+      }
+
+      private string GetUnlockConditionsText(string _dictionary_key)
+      {
+        string key = _dictionary_key;
+        if (key != null)
+        {
+          // ISSUE: reference to a compiler-generated field
+          if (UnitData.UnitPlaybackVoiceData.\u003C\u003Ef__switch\u0024map1C == null)
+          {
+            // ISSUE: reference to a compiler-generated field
+            UnitData.UnitPlaybackVoiceData.\u003C\u003Ef__switch\u0024map1C = new Dictionary<string, int>(4)
+            {
+              {
+                "UNIT_LEVEL85",
+                0
+              },
+              {
+                "UNIT_LEVEL75",
+                1
+              },
+              {
+                "UNIT_LEVEL65",
+                2
+              },
+              {
+                "UNIT_JOB_MASTER1",
+                3
+              }
+            };
+          }
+          int num;
+          // ISSUE: reference to a compiler-generated field
+          if (UnitData.UnitPlaybackVoiceData.\u003C\u003Ef__switch\u0024map1C.TryGetValue(key, out num))
+          {
+            switch (num)
+            {
+              case 0:
+                return string.Format(LocalizedText.Get("sys.UNLOCK_CONDITIONS_PLAYBACK_UNITVOICE_FORMAT_UNIT_LV"), (object) 85);
+              case 1:
+                return string.Format(LocalizedText.Get("sys.UNLOCK_CONDITIONS_PLAYBACK_UNITVOICE_FORMAT_UNIT_LV"), (object) 75);
+              case 2:
+                return string.Format(LocalizedText.Get("sys.UNLOCK_CONDITIONS_PLAYBACK_UNITVOICE_FORMAT_UNIT_LV"), (object) 65);
+              case 3:
+                return string.Format(LocalizedText.Get("sys.UNLOCK_CONDITIONS_PLAYBACK_UNITVOICE_FORMAT_JOB_MASTER"));
+            }
+          }
+        }
+        return string.Empty;
+      }
+
+      private bool CheckConditions(UnitData _unit, string _tmp_name)
+      {
+        return _unit.CheckUnlockPlaybackVoice() && this.CheckConditionsUnitLevel(_tmp_name, 85) && (this.CheckConditionsUnitLevel(_tmp_name, 75) && this.CheckConditionsUnitLevel(_tmp_name, 65)) && this.CheckConditionsJobMaster1(_tmp_name);
+      }
+
+      private bool CheckConditionsUnitLevel(string _tmp_name, int _level)
+      {
+        return !this.ContainsArray(UnitData.CONDITIONS_TARGET_NAMES["UNIT_LEVEL" + _level.ToString()], _tmp_name) || this.unit.Lv >= _level;
+      }
+
+      private bool CheckConditionsJobMaster1(string _tmp_name)
+      {
+        if (!this.ContainsArray(UnitData.CONDITIONS_TARGET_NAMES["UNIT_JOB_MASTER1"], _tmp_name))
+          return true;
+        for (int index = 0; index < this.unit.Jobs.Length; ++index)
+        {
+          if (this.unit.Jobs[index].CheckJobMaster())
+            return true;
+        }
+        return false;
+      }
+
+      private bool ContainsArray(string[] _array, string _target)
+      {
+        for (int index = 0; index < _array.Length; ++index)
+        {
+          if (_array[index] == _target)
+            return true;
+        }
+        return false;
+      }
     }
 
     public class CharacterQuestUnlockProgress

@@ -1,21 +1,21 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: FlowNode_Random
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
 using System;
 
-[FlowNode.Pin(1001, "!= CompareValue", FlowNode.PinTypes.Output, 1001)]
+[FlowNode.Pin(100, "Do", FlowNode.PinTypes.Input, 100)]
 [FlowNode.Pin(1005, ">= CompareValue", FlowNode.PinTypes.Output, 1005)]
 [FlowNode.Pin(1004, "> CompareValue", FlowNode.PinTypes.Output, 1004)]
-[FlowNode.NodeType("System/Random", 32741)]
-[FlowNode.Pin(100, "Do", FlowNode.PinTypes.Input, 100)]
-[FlowNode.Pin(101, "CompareLastResult", FlowNode.PinTypes.Input, 101)]
 [FlowNode.Pin(1003, "<= CompareValue", FlowNode.PinTypes.Output, 1003)]
 [FlowNode.Pin(1002, "< CompareValue", FlowNode.PinTypes.Output, 1002)]
+[FlowNode.Pin(1001, "!= CompareValue", FlowNode.PinTypes.Output, 1001)]
 [FlowNode.Pin(1000, "== CompareValue", FlowNode.PinTypes.Output, 1000)]
+[FlowNode.Pin(101, "CompareLastResult", FlowNode.PinTypes.Input, 101)]
+[FlowNode.NodeType("System/Random", 32741)]
 public class FlowNode_Random : FlowNode
 {
   public int DivValue = 100;

@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.TrophyParam
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -12,15 +12,15 @@ namespace SRPG
 {
   public class TrophyParam
   {
+    public bool is_none_category_hash = true;
     public bool[] DaysRepeat = new bool[7]{ true, true, true, true, true, true, true };
     private string localizedNameID;
+    public int category_hash_code;
     public string iname;
     public string Name;
     public string Expr;
-    public string begin_at;
-    public string end_at;
-    public int Days;
-    public TrophyCategorys Category;
+    public string Category;
+    public TrophyCategoryParam CategoryParam;
     public TrophyDispType DispType;
     public string[] RequiredTrophies;
     public TrophyObjective[] Objectives;
@@ -28,8 +28,8 @@ namespace SRPG
     public int Coin;
     public int Exp;
     public int Stamina;
-    public int Beginner;
     public TrophyParam.RewardItem[] Items;
+    public TrophyParam.RewardItem[] Artifacts;
     public int Challenge;
     public string ParentTrophy;
     public int help;
@@ -64,7 +64,9 @@ namespace SRPG
     {
       get
       {
-        return this.Beginner == 1;
+        if (this.CategoryParam != null)
+          return this.CategoryParam.IsBeginner;
+        return false;
       }
     }
 
@@ -86,6 +88,16 @@ namespace SRPG
       }
     }
 
+    public bool IsDaily
+    {
+      get
+      {
+        if (this.CategoryParam != null)
+          return this.CategoryParam.IsDaily;
+        return false;
+      }
+    }
+
     public bool ContainsCondition(TrophyConditionTypes c)
     {
       if (this.Objectives == null)
@@ -100,7 +112,7 @@ namespace SRPG
 
     public bool Deserialize(JSON_TrophyParam json)
     {
-      if (json == null || json.objective == null)
+      if (json == null)
         return false;
       if (json.flg_quests == null)
       {
@@ -112,66 +124,94 @@ namespace SRPG
         for (int index = 0; index < json.flg_quests.Length; ++index)
           this.RequiredTrophies[index] = json.flg_quests[index];
       }
-      this.Objectives = new TrophyObjective[json.objective.Length];
-      for (int index = 0; index < json.objective.Length; ++index)
+      this.Objectives = new TrophyObjective[1];
+      for (int index = 0; index < 1; ++index)
       {
         this.Objectives[index] = new TrophyObjective();
         this.Objectives[index].Param = this;
         this.Objectives[index].index = index;
-        if (!this.Objectives[index].Deserialize(json.objective[index]))
-          return false;
+        this.Objectives[index].type = (TrophyConditionTypes) json.type;
+        this.Objectives[index].ival = json.ival;
+        if (json.sval != null)
+          this.Objectives[index].sval = new List<string>((IEnumerable<string>) json.sval);
       }
       this.iname = json.iname;
-      this.begin_at = json.begin_at;
-      this.end_at = json.end_at;
       this.Name = json.name;
       this.Expr = json.expr;
       this.Gold = json.reward_gold;
       this.Coin = json.reward_coin;
       this.Exp = json.reward_exp;
       this.Stamina = json.reward_stamina;
-      this.Days = json.day_reset & 1;
-      this.ConvertDayRepeat(json.day_reset);
-      this.Beginner = json.bgnr;
       this.ParentTrophy = json.parent_iname;
       this.help = json.help;
-      this.Category = json.category == 0 ? TrophyCategorys.Other : (TrophyCategorys) json.category;
+      if (!string.IsNullOrEmpty(json.category))
+      {
+        this.category_hash_code = json.category.GetHashCode();
+        this.is_none_category_hash = false;
+      }
+      this.Category = json.category;
       this.DispType = (TrophyDispType) json.disp;
-      int length = 0;
-      if (!string.IsNullOrEmpty(json.reward_item1_iname) && json.reward_item1_num > 0)
-        ++length;
-      if (!string.IsNullOrEmpty(json.reward_item2_iname) && json.reward_item2_num > 0)
-        ++length;
-      if (!string.IsNullOrEmpty(json.reward_item3_iname) && json.reward_item3_num > 0)
-        ++length;
-      this.Items = new TrophyParam.RewardItem[length];
-      int index1 = 0;
-      if (!string.IsNullOrEmpty(json.reward_item1_iname) && json.reward_item1_num > 0)
-      {
-        this.Items[index1].iname = json.reward_item1_iname;
-        this.Items[index1].Num = json.reward_item1_num;
-        ++index1;
-      }
-      if (!string.IsNullOrEmpty(json.reward_item2_iname) && json.reward_item2_num > 0)
-      {
-        this.Items[index1].iname = json.reward_item2_iname;
-        this.Items[index1].Num = json.reward_item2_num;
-        ++index1;
-      }
-      if (!string.IsNullOrEmpty(json.reward_item3_iname) && json.reward_item3_num > 0)
-      {
-        this.Items[index1].iname = json.reward_item3_iname;
-        this.Items[index1].Num = json.reward_item3_num;
-        int num = index1 + 1;
-      }
+      this.Items = TrophyParam.InitializeItems(json);
+      this.Artifacts = TrophyParam.InitializeArtifacts(json);
       return true;
     }
 
-    public static bool CheckRequiredTrophies(GameManager gm, TrophyParam tp, bool is_end_check)
+    private static TrophyParam.RewardItem[] InitializeItems(JSON_TrophyParam json)
     {
-      TrophyState trophyCounter1 = gm.Player.GetTrophyCounter(tp);
-      if (tp.IsBeginner && !MonoSingleton<GameManager>.Instance.Player.IsBeginner() && (trophyCounter1 == null || !trophyCounter1.IsCompleted))
-        return false;
+      List<TrophyParam.RewardItem> rewardItemList = new List<TrophyParam.RewardItem>();
+      if (!string.IsNullOrEmpty(json.reward_item1_iname) && json.reward_item1_num > 0)
+        rewardItemList.Add(new TrophyParam.RewardItem()
+        {
+          iname = json.reward_item1_iname,
+          Num = json.reward_item1_num
+        });
+      if (!string.IsNullOrEmpty(json.reward_item2_iname) && json.reward_item2_num > 0)
+        rewardItemList.Add(new TrophyParam.RewardItem()
+        {
+          iname = json.reward_item2_iname,
+          Num = json.reward_item2_num
+        });
+      if (!string.IsNullOrEmpty(json.reward_item3_iname) && json.reward_item3_num > 0)
+        rewardItemList.Add(new TrophyParam.RewardItem()
+        {
+          iname = json.reward_item3_iname,
+          Num = json.reward_item3_num
+        });
+      return rewardItemList.ToArray();
+    }
+
+    private static TrophyParam.RewardItem[] InitializeArtifacts(JSON_TrophyParam json)
+    {
+      List<TrophyParam.RewardItem> rewardItemList = new List<TrophyParam.RewardItem>();
+      if (!string.IsNullOrEmpty(json.reward_artifact1_iname) && json.reward_artifact1_num > 0)
+        rewardItemList.Add(new TrophyParam.RewardItem()
+        {
+          iname = json.reward_artifact1_iname,
+          Num = json.reward_artifact1_num
+        });
+      if (!string.IsNullOrEmpty(json.reward_artifact2_iname) && json.reward_artifact2_num > 0)
+        rewardItemList.Add(new TrophyParam.RewardItem()
+        {
+          iname = json.reward_artifact2_iname,
+          Num = json.reward_artifact2_num
+        });
+      if (!string.IsNullOrEmpty(json.reward_artifact3_iname) && json.reward_artifact3_num > 0)
+        rewardItemList.Add(new TrophyParam.RewardItem()
+        {
+          iname = json.reward_artifact3_iname,
+          Num = json.reward_artifact3_num
+        });
+      return rewardItemList.ToArray();
+    }
+
+    public static bool CheckRequiredTrophies(GameManager gm, TrophyParam tp, bool is_end_check, bool is_beginner_check = true)
+    {
+      if (is_beginner_check)
+      {
+        TrophyState trophyCounter = gm.Player.GetTrophyCounter(tp, false);
+        if (tp.IsBeginner && !MonoSingleton<GameManager>.Instance.Player.IsBeginner() && (trophyCounter == null || !trophyCounter.IsCompleted))
+          return false;
+      }
       bool flag = true;
       string[] requiredTrophies = tp.RequiredTrophies;
       for (int index = 0; index < requiredTrophies.Length; ++index)
@@ -181,8 +221,8 @@ namespace SRPG
           TrophyParam trophy = gm.MasterParam.GetTrophy(requiredTrophies[index]);
           if (trophy != null && is_end_check)
           {
-            TrophyState trophyCounter2 = gm.Player.GetTrophyCounter(trophy);
-            if (trophyCounter2 == null || !trophyCounter2.IsEnded)
+            TrophyState trophyCounter = gm.Player.GetTrophyCounter(trophy, false);
+            if (trophyCounter == null || !trophyCounter.IsEnded)
             {
               flag = false;
               break;
@@ -195,13 +235,13 @@ namespace SRPG
 
     public bool IsShowBadge(TrophyState state)
     {
-      return state != null && !state.IsEnded && state.IsCompleted && ((!this.IsBeginner || MonoSingleton<GameManager>.Instance.Player.IsBeginner()) && (!this.IsInvisibleVip() && !this.IsInvisibleCard())) && (!this.IsInvisibleStamina() && !this.IsChallengeMission && (state.Param.DispType != TrophyDispType.Award && state.Param.DispType != TrophyDispType.Hide) && ((state.Param.RequiredTrophies == null || TrophyParam.CheckRequiredTrophies(MonoSingleton<GameManager>.Instance, state.Param, true)) && state.Param.IsAvailablePeriod(TimeManager.ServerTime, true)));
+      return state != null && !state.IsEnded && state.IsCompleted && ((!this.IsBeginner || MonoSingleton<GameManager>.Instance.Player.IsBeginner()) && (!this.IsInvisibleVip() && !this.IsInvisibleCard())) && (!this.IsInvisibleStamina() && !this.IsChallengeMission && (state.Param.DispType != TrophyDispType.Award && state.Param.DispType != TrophyDispType.Hide) && ((state.Param.RequiredTrophies == null || TrophyParam.CheckRequiredTrophies(MonoSingleton<GameManager>.Instance, state.Param, true, true)) && state.Param.IsAvailablePeriod(TimeManager.ServerTime, true)));
     }
 
     public bool IsInvisibleVip()
     {
       PlayerData player = MonoSingleton<GameManager>.Instance.Player;
-      for (int index = this.Objectives.Length - 1; index >= 0 && (this.Objectives[index].type == TrophyConditionTypes.vip && !(this.Objectives[index].sval != "lv")); --index)
+      for (int index = this.Objectives.Length - 1; index >= 0 && (this.Objectives[index].type == TrophyConditionTypes.vip && !(this.Objectives[index].sval_base != "lv")); --index)
       {
         if (player.VipRank > 0)
         {
@@ -235,24 +275,14 @@ namespace SRPG
     public bool IsInvisibleStamina()
     {
       int hour = TimeManager.ServerTime.Hour;
-      List<int> mealHours = MonoSingleton<WatchManager>.Instance.GetMealHours();
       for (int index = this.Objectives.Length - 1; index >= 0; --index)
       {
         if (this.Objectives[index].type != TrophyConditionTypes.stamina)
           return false;
-        int num1 = int.Parse(this.Objectives[index].sval.Substring(0, 2));
-        int num2 = int.Parse(this.Objectives[index].sval.Substring(3, 2));
+        int num1 = int.Parse(this.Objectives[index].sval_base.Substring(0, 2));
+        int num2 = int.Parse(this.Objectives[index].sval_base.Substring(3, 2));
         if (num1 <= hour && hour < num2)
           return false;
-        using (List<int>.Enumerator enumerator = mealHours.GetEnumerator())
-        {
-          while (enumerator.MoveNext())
-          {
-            int current = enumerator.Current;
-            if (num1 <= current && current < num2)
-              return false;
-          }
-        }
       }
       return true;
     }
@@ -299,55 +329,40 @@ namespace SRPG
 
     public bool IsAvailablePeriod(DateTime now, bool is_grace)
     {
-      DateTime minValue = DateTime.MinValue;
-      DateTime times = DateTime.MaxValue;
-      try
-      {
-        if (!string.IsNullOrEmpty(this.begin_at))
-          minValue = DateTime.Parse(this.begin_at);
-        if (!string.IsNullOrEmpty(this.end_at))
-          times = DateTime.Parse(this.end_at);
-      }
-      catch
-      {
-        DebugUtility.LogWarning("Failed to parse date! [" + this.begin_at + "] or [" + this.end_at + "]");
+      if (this.IsChallengeMission)
+        return true;
+      if (this.CategoryParam == null)
         return false;
-      }
-      if (is_grace)
-        times = this.AddTimeSpan(times, this.GetGraceRewardSpan());
-      if (now < minValue || times < now)
-        return false;
-      if (this.Days == 1)
-      {
-        int index = (int) (now.DayOfWeek - 1);
-        if (index < 0)
-          index += 7;
-        if (!this.DaysRepeat[index])
-          return false;
-      }
-      return true;
+      return this.CategoryParam.IsAvailablePeriod(now, is_grace);
     }
 
     public bool IsPlanningToUse()
     {
-      DateTime serverTime = TimeManager.ServerTime;
-      DateTime minValue = DateTime.MinValue;
-      DateTime maxValue = DateTime.MaxValue;
-      try
-      {
-        if (!string.IsNullOrEmpty(this.begin_at))
-          minValue = DateTime.Parse(this.begin_at);
-        if (!string.IsNullOrEmpty(this.end_at))
-          maxValue = DateTime.Parse(this.end_at);
-      }
-      catch
-      {
-        DebugUtility.LogWarning("Failed to parse date! [" + this.begin_at + "] or [" + this.end_at + "]");
+      if (this.IsChallengeMission)
+        return true;
+      if (this.CategoryParam == null)
         return false;
-      }
-      DateTime dateTime1 = this.SubTimeSpan(minValue, this.GetAvailableSpan());
-      DateTime dateTime2 = this.AddTimeSpan(maxValue, this.GetGraceRewardSpan() + this.GetAvailableSpan());
+      DateTime serverTime = TimeManager.ServerTime;
+      DateTime dateTimes1 = this.CategoryParam.begin_at.DateTimes;
+      DateTime dateTimes2 = this.CategoryParam.end_at.DateTimes;
+      DateTime dateTime1 = this.SubTimeSpan(dateTimes1, this.GetAvailableSpan());
+      DateTime dateTime2 = this.AddTimeSpan(dateTimes2, this.GetGraceRewardSpan() + this.GetAvailableSpan());
       return !(serverTime < dateTime1) && !(dateTime2 < serverTime);
+    }
+
+    public DateTime GetGraceRewardTime()
+    {
+      if (this.CategoryParam == null)
+        return new DateTime();
+      DateTime dateTime = this.CategoryParam.end_at.DateTimes;
+      if (this.IsBeginner)
+      {
+        DateTime beginnerEndTime = MonoSingleton<GameManager>.Instance.Player.GetBeginnerEndTime();
+        dateTime = !(dateTime <= beginnerEndTime) ? beginnerEndTime : dateTime;
+      }
+      if (!this.IsBeginner)
+        dateTime = this.CategoryParam.GetQuestTime(dateTime, false);
+      return this.AddTimeSpan(dateTime, this.GetGraceRewardSpan());
     }
 
     public struct RewardItem

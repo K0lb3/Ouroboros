@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.UnitGetWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -55,7 +55,7 @@ namespace SRPG
 
     public void Init(string unitId, bool isConver)
     {
-      if (string.IsNullOrEmpty(unitId) || Object.op_Equality((Object) this.PopupUnit, (Object) null))
+      if (string.IsNullOrEmpty(unitId) || UnityEngine.Object.op_Equality((UnityEngine.Object) this.PopupUnit, (UnityEngine.Object) null))
         return;
       GameManager instance = MonoSingleton<GameManager>.Instance;
       this.mUnitData = instance.Player.Units.Find((Predicate<UnitData>) (u => u.UnitID == unitId));
@@ -72,13 +72,13 @@ namespace SRPG
       GameParameter.UpdateAll(((Component) this).get_gameObject());
       bool flag = isConver;
       this.mIsShardEnd = !flag;
-      if (flag && Object.op_Inequality((Object) this.ShardNum, (Object) null))
+      if (flag && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ShardNum, (UnityEngine.Object) null))
       {
         Text component = (Text) this.ShardNum.GetComponent<Text>();
-        if (Object.op_Inequality((Object) component, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
           component.set_text(this.mUnitData.GetChangePieces().ToString());
       }
-      if (!Object.op_Inequality((Object) this.ShardGauge, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ShardGauge, (UnityEngine.Object) null))
         return;
       this.ShardGauge.SetActive(flag);
       if (!flag)
@@ -111,7 +111,7 @@ namespace SRPG
     public void OnCloseClick()
     {
       this.mIsClickClose = true;
-      if (!Object.op_Inequality((Object) this.mShardWindow, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mShardWindow, (UnityEngine.Object) null))
         return;
       this.mShardWindow.OnClicked();
     }
@@ -120,7 +120,7 @@ namespace SRPG
     {
       if (this.mIsEnd)
         return;
-      if (!this.mIsShardEnd && Object.op_Inequality((Object) this.mShardWindow, (Object) null) && !this.mShardWindow.IsRunningAnimator)
+      if (!this.mIsShardEnd && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mShardWindow, (UnityEngine.Object) null) && !this.mShardWindow.IsRunningAnimator)
       {
         this.mIsShardEnd = true;
       }
@@ -128,7 +128,7 @@ namespace SRPG
       {
         if (this.mIsShardEnd && this.mIsClickClose && (this.mPopupAnimator.GetInteger(this.PopupRarityVar) > 0 && !this.mIsShardEnd))
           this.mPopupAnimator.SetInteger(this.PopupRarityVar, 0);
-        if (this.mIsShardEnd && this.mIsClickClose && (this.mPopupAnimator.GetInteger(this.PopupRarityVar) > 0 && this.isMaxShard) && (Object.op_Inequality((Object) this.mShardWindow, (Object) null) && !this.mShardWindow.IsRunningAnimator))
+        if (this.mIsShardEnd && this.mIsClickClose && (this.mPopupAnimator.GetInteger(this.PopupRarityVar) > 0 && this.isMaxShard) && (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mShardWindow, (UnityEngine.Object) null) && !this.mShardWindow.IsRunningAnimator))
         {
           this.mPopupAnimator.SetInteger(this.PopupRarityVar, 0);
           this.isMaxShard = false;
@@ -155,7 +155,7 @@ namespace SRPG
           this.mCurrentGetEffect = this.SRareGetEffect;
           break;
       }
-      if (Object.op_Equality((Object) this.mCurrentGetEffect, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mCurrentGetEffect, (UnityEngine.Object) null))
         return;
       this.mCurrentGetEffect.SetActive(true);
       this.mCurrentGetEffect.get_transform().SetParent(this.PopupUnit.get_transform(), false);

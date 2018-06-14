@@ -1,14 +1,13 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: MyGUID
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using SRPG;
 using System;
 using System.IO;
 using System.Text;
-using UnityEngine;
 
 public class MyGUID
 {
@@ -42,12 +41,12 @@ public class MyGUID
 
   private string GetPersistFileNameOld()
   {
-    return Application.get_persistentDataPath() + "/gu3u3.dat";
+    return AppPath.persistentDataPath + "/gu3u3.dat";
   }
 
   private string GetCacheFileNameOld()
   {
-    return Application.get_temporaryCachePath() + "/gu3i3.dat";
+    return AppPath.temporaryCachePath + "/gu3i3.dat";
   }
 
   private byte[] ReadPersistOld()
@@ -97,14 +96,14 @@ public class MyGUID
 
   private string GetPersistFileName()
   {
-    string str = Application.get_persistentDataPath() + "/gu3p.dat";
+    string str = AppPath.persistentDataPath + "/gu3p.dat";
     DebugUtility.Log(">>>>>>>>>>>>>>>>>>>> GetPersistFileName path:" + str);
     return str;
   }
 
   private string GetCacheFileName()
   {
-    return Application.get_persistentDataPath() + "/gu3c.dat";
+    return AppPath.persistentDataPath + "/gu3c.dat";
   }
 
   private bool SavePersist(byte[] value)
@@ -222,5 +221,10 @@ public class MyGUID
     }
     seed = 0;
     return flag2;
+  }
+
+  public void SetSecretKey(string key)
+  {
+    this.secret_key = key;
   }
 }

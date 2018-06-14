@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.GrowParam
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections.Generic;
@@ -72,7 +72,14 @@ namespace SRPG
                 knockback = (OInt) json.curve[index].akn,
                 berserk = (OInt) json.curve[index].abe,
                 resist_buff = (OInt) json.curve[index].abf,
-                resist_debuff = (OInt) json.curve[index].adf
+                resist_debuff = (OInt) json.curve[index].adf,
+                stop = (OInt) json.curve[index].acs,
+                fast = (OInt) json.curve[index].acu,
+                slow = (OInt) json.curve[index].acd,
+                donsoku = (OInt) json.curve[index].ado,
+                rage = (OInt) json.curve[index].ara,
+                dec_ct = (OInt) json.curve[index].adc,
+                inc_ct = (OInt) json.curve[index].aic
               },
               enchant_resist = {
                 poison = (OInt) json.curve[index].rpo,
@@ -90,7 +97,14 @@ namespace SRPG
                 knockback = (OInt) json.curve[index].rkn,
                 berserk = (OInt) json.curve[index].rbe,
                 resist_buff = (OInt) json.curve[index].rbf,
-                resist_debuff = (OInt) json.curve[index].rdf
+                resist_debuff = (OInt) json.curve[index].rdf,
+                stop = (OInt) json.curve[index].rcs,
+                fast = (OInt) json.curve[index].rcu,
+                slow = (OInt) json.curve[index].rcd,
+                donsoku = (OInt) json.curve[index].rdo,
+                rage = (OInt) json.curve[index].rra,
+                dec_ct = (OInt) json.curve[index].rdc,
+                inc_ct = (OInt) json.curve[index].ric
               }
             }
           });

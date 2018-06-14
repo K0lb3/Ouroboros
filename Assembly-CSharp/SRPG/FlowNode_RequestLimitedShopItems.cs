@@ -1,11 +1,10 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_RequestLimitedShopItems
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace SRPG
@@ -72,8 +71,6 @@ namespace SRPG
         }
         else
         {
-          List<JSON_LimitedShopItemListSet> limitedShopItemListSetList = new List<JSON_LimitedShopItemListSet>((IEnumerable<JSON_LimitedShopItemListSet>) jsonObject.body.shopitems);
-          jsonObject.body.shopitems = limitedShopItemListSetList.ToArray();
           Network.RemoveAPI();
           LimitedShopData shop = MonoSingleton<GameManager>.Instance.Player.GetLimitedShopData() ?? new LimitedShopData();
           if (!shop.Deserialize(jsonObject.body))

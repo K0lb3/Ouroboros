@@ -1,35 +1,41 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_MilestoneTrigger
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
-using System.Collections;
-using System.Diagnostics;
+using System;
+using UnityEngine;
 
 namespace SRPG
 {
   [FlowNode.Pin(2, "Finished", FlowNode.PinTypes.Output, 1)]
-  [FlowNode.NodeType("Analytics/MilestoneTrigger", 32741)]
-  [FlowNode.Pin(10, "Input", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(1, "Triggered", FlowNode.PinTypes.Output, 1)]
+  [FlowNode.Pin(10, "Input", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.NodeType("Analytics/MilestoneTrigger", 32741)]
   public class FlowNode_MilestoneTrigger : FlowNode
   {
-    public FlowNode_MilestoneTrigger.MilestoneType Milestone;
+    [SerializeField]
+    private FlowNode_MilestoneTrigger.MilestoneType Milestone;
+    private static string mLastRecordedSessionID;
 
     public override void OnActivate(int pinID)
     {
-      this.StartCoroutine(this.MileStoneAndBillBoardRecording(this.Milestone.ToString()));
+      if (!string.IsNullOrEmpty(FlowNode_MilestoneTrigger.mLastRecordedSessionID) && !(FlowNode_MilestoneTrigger.mLastRecordedSessionID != Network.SessionID))
+        return;
+      DebugUtility.Log("shown <color=red>Milestone:" + this.Milestone.ToString());
+      FlowNode_MilestoneTrigger.mLastRecordedSessionID = Network.SessionID;
+      AnalyticsManager.AttemptToShowPlacement(this.Milestone.ToString(), new Action(this.OnPlacementShown));
+      this.ActivateOutputLinks(1);
     }
 
-    [DebuggerHidden]
-    private IEnumerator MileStoneAndBillBoardRecording(string milestone)
+    private void OnPlacementShown()
     {
-      // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new FlowNode_MilestoneTrigger.\u003CMileStoneAndBillBoardRecording\u003Ec__Iterator21() { milestone = milestone, \u003C\u0024\u003Emilestone = milestone, \u003C\u003Ef__this = this };
+      this.ActivateOutputLinks(2);
     }
 
-    public enum MilestoneType
+    [SerializeField]
+    private enum MilestoneType
     {
       homescreen,
       title,

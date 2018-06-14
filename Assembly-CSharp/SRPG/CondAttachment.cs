@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.CondAttachment
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 namespace SRPG
@@ -97,6 +97,11 @@ namespace SRPG
     public bool ContainsCondition(EUnitCondition condition)
     {
       return ((EUnitCondition) (int) this.mCondition & condition) != (EUnitCondition) 0;
+    }
+
+    public bool IsSame(CondAttachment dsc, bool is_ignore_timing = false)
+    {
+      return dsc != null && this.skill != null && (dsc.skill != null && this.skill.SkillID == dsc.skill.SkillID) && ((bool) this.IsPassive == (bool) dsc.IsPassive && this.CondType == dsc.CondType && this.Condition == dsc.Condition) && ((is_ignore_timing || this.CheckTiming == dsc.CheckTiming) && this.UseCondition == dsc.UseCondition);
     }
   }
 }

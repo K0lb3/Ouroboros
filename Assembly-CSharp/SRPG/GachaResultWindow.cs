@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.GachaResultWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using UnityEngine;
@@ -37,7 +37,7 @@ namespace SRPG
       if (Object.op_Inequality((Object) this.BackButton, (Object) null))
       {
         // ISSUE: method pointer
-        ((UnityEvent) this.BackButton.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(\u003CStart\u003Em__289)));
+        ((UnityEvent) this.BackButton.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(\u003CStart\u003Em__37E)));
       }
       this.Initalized = true;
     }

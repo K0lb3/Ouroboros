@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.TrophyList
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -12,91 +12,94 @@ using UnityEngine.UI;
 
 namespace SRPG
 {
-  [FlowNode.Pin(1029, "レビューへ移動", FlowNode.PinTypes.Output, 1029)]
-  [FlowNode.Pin(1028, "イベントショップへ移動", FlowNode.PinTypes.Output, 1028)]
-  [FlowNode.Pin(1027, "限定ショップへ移動", FlowNode.PinTypes.Output, 1027)]
-  [FlowNode.Pin(1013, "アンナの店へ移動", FlowNode.PinTypes.Output, 1013)]
-  [FlowNode.Pin(1026, "塔クエスト選択へ移動", FlowNode.PinTypes.Output, 1026)]
-  [FlowNode.Pin(1025, "ユニット選択へ移動", FlowNode.PinTypes.Output, 1025)]
-  [FlowNode.Pin(1021, "武具の店へ移動", FlowNode.PinTypes.Output, 1021)]
-  [FlowNode.Pin(0, "更新", FlowNode.PinTypes.Input, 0)]
-  [FlowNode.Pin(1001, "クエスト選択へ移動", FlowNode.PinTypes.Output, 1001)]
-  [FlowNode.Pin(1004, "ゴールド購入画面へ移動", FlowNode.PinTypes.Output, 1002)]
-  [FlowNode.Pin(1003, "装備強化画面へ移動", FlowNode.PinTypes.Output, 1004)]
-  [FlowNode.Pin(1005, "マルチプレイへ移動", FlowNode.PinTypes.Output, 1005)]
-  [FlowNode.Pin(1007, "イベントクエスト選択へ移動", FlowNode.PinTypes.Output, 1007)]
-  [FlowNode.Pin(1008, "アリーナへ移動", FlowNode.PinTypes.Output, 1008)]
-  [FlowNode.Pin(1009, "FgGID画面へ移動", FlowNode.PinTypes.Output, 1009)]
-  [FlowNode.Pin(1000, "ガチャへ移動", FlowNode.PinTypes.Output, 1000)]
-  [FlowNode.Pin(100, "報酬を受け取り", FlowNode.PinTypes.Output, 100)]
-  [FlowNode.Pin(1020, "魂の交換所へ移動", FlowNode.PinTypes.Output, 1020)]
-  [FlowNode.Pin(1040, "SG: FBLogin", FlowNode.PinTypes.Output, 1040)]
-  [FlowNode.Pin(1030, "対戦へ移動", FlowNode.PinTypes.Output, 1030)]
   public class TrophyList : SRPG_ListBase, IFlowInterface
   {
-    public const int PIN_GOTO_GACHA = 1000;
-    public const int PIN_GOTO_QUEST = 1001;
-    public const int PIN_GOTO_SOUBI = 1003;
-    public const int PIN_GOTO_BUYGOLD = 1004;
-    public const int PIN_GOTO_MULTI = 1005;
-    public const int PIN_GOTO_EVENT = 1007;
-    public const int PIN_GOTO_ARENA = 1008;
-    public const int PIN_GOTO_FGGID = 1009;
-    public const int PIN_GOTO_SHOP_NORMAL = 1013;
-    public const int PIN_GOTO_SHOP_KAKERA = 1020;
-    public const int PIN_GOTO_SHOP_ARTIFACT = 1021;
-    public const int PIN_GOTO_UNIT = 1025;
-    public const int PIN_GOTO_TOWER = 1026;
-    public const int PIN_GOTO_SHOP_LIMITE = 1027;
-    public const int PIN_GOTO_SHOP_EVENT = 1028;
-    public const int PIN_GOTO_REVIEW = 1029;
-    public const int PIN_GOTO_VERSUS = 1030;
-    public const int PIN_GOTO_FBLOGIN = 1040;
+    private List<TrophyRecordPullView> child_pull_viewes = new List<TrophyRecordPullView>();
+    private List<TrophyParam> child_plates = new List<TrophyParam>();
+    private float FOCUS_EFFECT_SECOND = 0.2f;
+    private List<TrophyRecordPullView> click_target = new List<TrophyRecordPullView>();
     private const int CREATE_ENDED_PLATE_COUNT = 50;
+    private const int CREATE_PULL_VIEW_COUNT_MAX = 50;
+    public TrophyWindow trophy_window;
     public TrophyList.TrophyTypes TrophyType;
     public TrophyCategorys TrophyCategory;
+    public TrophyRecordPullView OriginalPullView;
     public ListItemEvents Item_Normal;
     public ListItemEvents Item_Completed;
     public ListItemEvents Item_Ended;
     public GameObject DetailWindow;
     public ListItemEvents Item_Review;
     public ListItemEvents Item_FollowTwitter;
+    public RectTransform parent_panel_rect;
+    [SerializeField]
+    private LayoutElement view_port_handle;
+    private RectTransform view_port_handle_rect;
+    private RectTransform scroll_trans_rect;
     public bool RefreshOnStart;
     private bool mStarted;
     private CanvasGroup mCanvasGroup;
     private QuestTypes g_quest_type;
+    private bool is_busy;
+    private Vector2 start_pos;
+    private Vector2 target_pos;
+    private ScrollRect scroll_rect;
+    private float total_close_item_size;
+    private float focus_delay_time;
+    private float elapsed_time;
+    private TrophyList.eState state;
+
+    public TrophyWindow Trophy_Window
+    {
+      get
+      {
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.trophy_window, (UnityEngine.Object) null))
+          this.trophy_window = (TrophyWindow) ((Component) this).GetComponentInParent<TrophyWindow>();
+        return this.trophy_window;
+      }
+    }
+
+    private RectTransform ScrollTransRect
+    {
+      get
+      {
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.scroll_trans_rect, (UnityEngine.Object) null))
+          this.scroll_trans_rect = this.GetRectTransform();
+        return this.scroll_trans_rect;
+      }
+    }
 
     public void Activated(int pinID)
     {
-      if (pinID != 0)
-        return;
-      this.Refresh();
     }
 
     private void Awake()
     {
-      if (Object.op_Inequality((Object) this.Item_Normal, (Object) null) && ((Component) this.Item_Normal).get_gameObject().get_activeInHierarchy())
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Item_Normal, (UnityEngine.Object) null) && ((Component) this.Item_Normal).get_gameObject().get_activeInHierarchy())
         ((Component) this.Item_Normal).get_gameObject().SetActive(false);
-      if (Object.op_Inequality((Object) this.Item_Review, (Object) null) && ((Component) this.Item_Review).get_gameObject().get_activeInHierarchy())
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Item_Review, (UnityEngine.Object) null) && ((Component) this.Item_Review).get_gameObject().get_activeInHierarchy())
         ((Component) this.Item_Review).get_gameObject().SetActive(false);
-      if (Object.op_Inequality((Object) this.Item_FollowTwitter, (Object) null) && ((Component) this.Item_FollowTwitter).get_gameObject().get_activeInHierarchy())
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Item_FollowTwitter, (UnityEngine.Object) null) && ((Component) this.Item_FollowTwitter).get_gameObject().get_activeInHierarchy())
         ((Component) this.Item_FollowTwitter).get_gameObject().SetActive(false);
-      if (Object.op_Inequality((Object) this.Item_Completed, (Object) null) && ((Component) this.Item_Completed).get_gameObject().get_activeInHierarchy())
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Item_Completed, (UnityEngine.Object) null) && ((Component) this.Item_Completed).get_gameObject().get_activeInHierarchy())
         ((Component) this.Item_Completed).get_gameObject().SetActive(false);
-      if (Object.op_Inequality((Object) this.Item_Ended, (Object) null) && ((Component) this.Item_Ended).get_gameObject().get_activeInHierarchy())
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Item_Ended, (UnityEngine.Object) null) && ((Component) this.Item_Ended).get_gameObject().get_activeInHierarchy())
         ((Component) this.Item_Ended).get_gameObject().SetActive(false);
-      if (Object.op_Inequality((Object) this.DetailWindow, (Object) null) && this.DetailWindow.get_activeInHierarchy())
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.DetailWindow, (UnityEngine.Object) null) && this.DetailWindow.get_activeInHierarchy())
         this.DetailWindow.SetActive(false);
       this.mCanvasGroup = (CanvasGroup) ((Component) this).GetComponent<CanvasGroup>();
-      if (!Object.op_Equality((Object) this.mCanvasGroup, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mCanvasGroup, (UnityEngine.Object) null))
+        this.mCanvasGroup = (CanvasGroup) ((Component) this).get_gameObject().AddComponent<CanvasGroup>();
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.scroll_rect, (UnityEngine.Object) null))
+        this.scroll_rect = (ScrollRect) ((Component) this).GetComponentInParent<ScrollRect>();
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.view_port_handle, (UnityEngine.Object) null))
         return;
-      this.mCanvasGroup = (CanvasGroup) ((Component) this).get_gameObject().AddComponent<CanvasGroup>();
+      this.view_port_handle_rect = (RectTransform) ((Component) this.view_port_handle).GetComponent<RectTransform>();
     }
 
     protected override void OnDestroy()
     {
       base.OnDestroy();
-      if (!Object.op_Inequality((Object) HomeWindow.Current, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) HomeWindow.Current, (UnityEngine.Object) null))
         return;
       HomeWindow.Current.UnlockContents();
     }
@@ -117,114 +120,285 @@ namespace SRPG
 
     private void OnEnable()
     {
+      this.ScrollTransRect.set_anchoredPosition(Vector2.get_zero());
       this.Refresh();
       MonoSingleton<GameManager>.Instance.OnDayChange += new GameManager.DayChangeEvent(this.OnTrophyReset);
     }
 
     private void OnDisable()
     {
-      if (!Object.op_Inequality((Object) MonoSingleton<GameManager>.GetInstanceDirect(), (Object) null))
+      this.ClearAllItems();
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) MonoSingleton<GameManager>.GetInstanceDirect(), (UnityEngine.Object) null))
         return;
       MonoSingleton<GameManager>.Instance.OnDayChange -= new GameManager.DayChangeEvent(this.OnTrophyReset);
     }
 
     private void Update()
     {
-      if (!Object.op_Inequality((Object) this.mCanvasGroup, (Object) null) || (double) this.mCanvasGroup.get_alpha() >= 1.0)
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mCanvasGroup, (UnityEngine.Object) null) || (double) this.mCanvasGroup.get_alpha() >= 1.0)
         return;
       this.mCanvasGroup.set_alpha(Mathf.Clamp01(this.mCanvasGroup.get_alpha() + Time.get_unscaledDeltaTime() * 3.333333f));
+    }
+
+    protected override void LateUpdate()
+    {
+      base.LateUpdate();
+      this.Run();
+    }
+
+    private void ClearAllItems()
+    {
+      for (int index = 0; index < this.child_pull_viewes.Count; ++index)
+        this.child_pull_viewes[index].ClearItems();
+      this.ClearItems();
+    }
+
+    private void RefreshTrophyRecordLight()
+    {
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mCanvasGroup, (UnityEngine.Object) null))
+        this.mCanvasGroup.set_alpha(0.0f);
+      if (!this.Trophy_Window.TrophyRecordDatas.ContainsKey(this.TrophyCategory))
+      {
+        this.ClearAllItems();
+      }
+      else
+      {
+        List<TrophyCategoryData> trophyRecordData = this.Trophy_Window.TrophyRecordDatas[this.TrophyCategory];
+        if (trophyRecordData == null || trophyRecordData.Count <= 0)
+        {
+          this.ClearAllItems();
+        }
+        else
+        {
+          int count1 = this.child_pull_viewes.Count;
+          for (int index1 = 0; index1 < trophyRecordData.Count; ++index1)
+          {
+            if (!trophyRecordData[index1].Param.IsNotPull)
+            {
+              for (int index2 = 0; index2 < this.child_pull_viewes.Count; ++index2)
+              {
+                if (trophyRecordData[index1].Param.hash_code == this.child_pull_viewes[index2].HashCode)
+                {
+                  this.child_pull_viewes[index2].SetCategoryData(trophyRecordData[index1]);
+                  --count1;
+                }
+              }
+            }
+          }
+          if (count1 != 0)
+          {
+            this.Refresh();
+          }
+          else
+          {
+            int count2 = this.child_plates.Count;
+            for (int index1 = 0; index1 < trophyRecordData.Count; ++index1)
+            {
+              if (trophyRecordData[index1].Param.IsNotPull)
+              {
+                for (int index2 = 0; index2 < trophyRecordData[index1].Trophies.Count; ++index2)
+                {
+                  for (int index3 = 0; index3 < this.child_plates.Count; ++index3)
+                  {
+                    if (!(trophyRecordData[index1].Trophies[index2].Param.iname != this.child_plates[index3].iname))
+                      --count2;
+                  }
+                }
+              }
+            }
+            if (count2 != 0)
+            {
+              this.Refresh();
+            }
+            else
+            {
+              for (int index = 0; index < this.child_pull_viewes.Count; ++index)
+                this.child_pull_viewes[index].Refresh(this.ScrollTransRect);
+            }
+          }
+        }
+      }
+    }
+
+    public void RefreshLight()
+    {
+      if (this.TrophyType == TrophyList.TrophyTypes.Normal)
+        this.RefreshTrophyRecordLight();
+      else
+        this.Refresh();
     }
 
     private void Refresh()
     {
       if (!this.mStarted)
         return;
-      if (Object.op_Inequality((Object) this.mCanvasGroup, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mCanvasGroup, (UnityEngine.Object) null))
         this.mCanvasGroup.set_alpha(0.0f);
-      this.ClearItems();
-      GameManager instance = MonoSingleton<GameManager>.Instance;
-      TrophyParam[] trophies = instance.Trophies;
-      PlayerData player = instance.Player;
-      if (trophies == null || trophies.Length <= 0)
-        return;
-      if (this.TrophyType == TrophyList.TrophyTypes.Daily)
-        MonoSingleton<GameManager>.Instance.Player.DailyAllCompleteCheck();
-      int[] numArray1 = new int[trophies.Length];
-      for (int index = 0; index < trophies.Length; ++index)
-        numArray1[index] = index;
-      TrophyState[] trophyStateArray = new TrophyState[trophies.Length];
-      for (int index = 0; index < trophies.Length; ++index)
-        trophyStateArray[index] = !trophies[index].IsChallengeMission ? player.GetTrophyCounter(trophies[index]) : (TrophyState) null;
-      int num = -1;
-      if (this.TrophyType == TrophyList.TrophyTypes.All)
+      this.ClearAllItems();
+      switch (this.TrophyType)
       {
-        num = 50;
-        ulong[] numArray2 = new ulong[trophies.Length];
-        for (int index = 0; index < trophies.Length; ++index)
-        {
-          DateTime dateTime = trophyStateArray[index] == null ? DateTime.MinValue : trophyStateArray[index].RewardedAt;
-          numArray2[index] = (ulong) ((long) ((ulong) dateTime.Year % 100UL) * 10000000000L + (long) ((ulong) dateTime.Month % 100UL) * 100000000L + (long) ((ulong) dateTime.Day % 100UL) * 1000000L + (long) ((ulong) dateTime.Hour % 100UL) * 10000L + (long) ((ulong) dateTime.Minute % 100UL) * 100L) + (ulong) dateTime.Second % 100UL;
-        }
-        Dictionary<int, ulong> dictionary = new Dictionary<int, ulong>();
-        dictionary.Keys.CopyTo(numArray1, 0);
-        dictionary.Values.CopyTo(numArray2, 0);
-        Array.Sort<ulong, int>(numArray2, numArray1);
-        Array.Reverse((Array) numArray1);
+        case TrophyList.TrophyTypes.Normal:
+          this.RefreshTrophyRecord();
+          break;
+        case TrophyList.TrophyTypes.Daily:
+          this.RefreshTrophySimple(this.Trophy_Window.TrophyDailyDatas, -1, false, true);
+          break;
+        case TrophyList.TrophyTypes.All:
+          this.RefreshTrophySimple(this.Trophy_Window.TrophyEndedDatas, 50, true, false);
+          break;
       }
-      for (int index1 = 0; index1 < trophies.Length && num != 0; ++index1)
-      {
-        int index2 = numArray1[index1];
-        TrophyState st = trophyStateArray[index2];
-        if (st != null && st.IsCompleted && (trophies[index2].DispType != TrophyDispType.Award && this.MakeTrophyPlate(trophies[index2], st, true)) && 0 < num)
-          --num;
-      }
-      for (int index1 = 0; index1 < trophies.Length && num != 0; ++index1)
-      {
-        int index2 = numArray1[index1];
-        TrophyState st = trophyStateArray[index2];
-        if (st != null && !st.IsCompleted && (trophies[index2].DispType != TrophyDispType.Award && trophies[index2].DispType != TrophyDispType.Hide) && (this.MakeTrophyPlate(trophies[index2], st, false) && 0 < num))
-          --num;
-      }
-      GameParameter.UpdateValuesOfType(GameParameter.ParameterTypes.TROPHY_BADGE);
+      this.ScrollTransRect.set_anchoredPosition(Vector2.get_zero());
     }
 
-    private bool MakeTrophyPlate(TrophyParam trophy, TrophyState st, bool is_achievement)
+    private void RefreshTrophyRecord()
     {
-      Transform transform = ((Component) this).get_transform();
-      if (this.TrophyType == TrophyList.TrophyTypes.Daily)
+      if (!this.Trophy_Window.TrophyRecordDatas.ContainsKey(this.TrophyCategory))
+        return;
+      List<TrophyCategoryData> trophyRecordData = this.Trophy_Window.TrophyRecordDatas[this.TrophyCategory];
+      if (trophyRecordData == null || trophyRecordData.Count <= 0)
+        return;
+      int num = 50;
+      Dictionary<int, TrophyRecordPullView> dictionary = new Dictionary<int, TrophyRecordPullView>();
+      this.child_pull_viewes.Clear();
+      for (int index = 0; index < trophyRecordData.Count && num != 0; ++index)
       {
-        if (trophy.Days != 1)
-          return false;
+        if (!dictionary.ContainsKey(trophyRecordData[index].Param.hash_code))
+        {
+          if (!trophyRecordData[index].Param.IsNotPull)
+          {
+            TrophyRecordPullView trophyRecordPullView = this.MakeTrophyCategory(trophyRecordData[index].Param.name);
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) trophyRecordPullView, (UnityEngine.Object) null))
+            {
+              --num;
+              trophyRecordPullView.Setup(dictionary.Count, this);
+              dictionary.Add(trophyRecordData[index].Param.hash_code, trophyRecordPullView);
+              this.child_pull_viewes.Add(trophyRecordPullView);
+              this.AddItem((ListItemEvents) ((Component) trophyRecordPullView).GetComponent<ListItemEvents>());
+              if (MonoSingleton<GameManager>.Instance.IsTutorial() && MonoSingleton<GameManager>.Instance.GetNextTutorialStep() == "ShowMissionFilter")
+              {
+                if (trophyRecordData[index].Param.iname == "BEGINNER_MISSIONS")
+                {
+                  SGHighlightObject.Instance().highlightedObject = ((Component) trophyRecordPullView).get_gameObject();
+                  SGHighlightObject.Instance().Highlight(string.Empty, "sg_tut_1.003b", (SGHighlightObject.OnActivateCallback) null, EventDialogBubble.Anchors.BottomLeft, true, false, false);
+                }
+                else if (trophyRecordData[index].Param.iname == "PLAYER_LEVEL")
+                {
+                  SGHighlightObject.Instance().highlightedObject = ((Component) this.trophy_window.TrophyTab[5]).get_gameObject();
+                  SGHighlightObject.Instance().Highlight(string.Empty, "sg_tut_1.003c", (SGHighlightObject.OnActivateCallback) null, EventDialogBubble.Anchors.BottomLeft, true, false, false);
+                }
+              }
+            }
+          }
+          else
+            continue;
+        }
+        dictionary[trophyRecordData[index].Param.hash_code].SetCategoryData(trophyRecordData[index]);
+        if (dictionary.Count >= 50)
+          break;
       }
-      else if (this.TrophyType == TrophyList.TrophyTypes.Normal && (trophy.Days != 0 || this.TrophyCategory != trophy.Category))
-        return false;
-      if (trophy.IsInvisibleVip() || trophy.IsInvisibleCard() || trophy.IsInvisibleStamina() || (trophy.RequiredTrophies != null && !TrophyParam.CheckRequiredTrophies(MonoSingleton<GameManager>.Instance, trophy, true) || !trophy.IsAvailablePeriod(TimeManager.ServerTime, is_achievement)))
-        return false;
-      ListItemEvents listItemEvents1 = !st.IsEnded ? (!Object.op_Inequality((Object) this.Item_FollowTwitter, (Object) null) || !trophy.ContainsCondition(TrophyConditionTypes.followtwitter) ? (!trophy.iname.Contains("DAILY_GLAPVIDEO") ? (!st.IsCompleted ? this.Item_Normal : this.Item_Completed) : this.Item_Normal) : this.Item_FollowTwitter) : this.Item_Ended;
-      if (Object.op_Equality((Object) listItemEvents1, (Object) null) || trophy.iname.Substring(0, 7) == "REVIEW_" && Network.Host.Contains("eval.alchemist.gu3.jp"))
-        return false;
-      ListItemEvents listItemEvents2 = (ListItemEvents) Object.Instantiate<ListItemEvents>((M0) listItemEvents1);
-      DataSource.Bind<TrophyParam>(((Component) listItemEvents2).get_gameObject(), trophy);
-      ((Component) listItemEvents2).get_transform().SetParent(transform, false);
+      this.child_plates.Clear();
+      for (int index1 = 0; index1 < trophyRecordData.Count && num != 0; ++index1)
+      {
+        if (trophyRecordData[index1].Param.IsNotPull)
+        {
+          for (int index2 = 0; index2 < trophyRecordData[index1].Trophies.Count; ++index2)
+          {
+            ListItemEvents listItemEvents = this.MakeTrophyPlate(trophyRecordData[index1].Trophies[index2], trophyRecordData[index1].Trophies[index2].IsCompleted);
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) listItemEvents, (UnityEngine.Object) null))
+            {
+              this.child_plates.Add(DataSource.FindDataOfClass<TrophyParam>(((Component) listItemEvents).get_gameObject(), (TrophyParam) null));
+              this.AddItem(listItemEvents);
+              --num;
+            }
+          }
+        }
+      }
+      using (Dictionary<int, TrophyRecordPullView>.KeyCollection.Enumerator enumerator = dictionary.Keys.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+        {
+          int current = enumerator.Current;
+          dictionary[current].RefreshDisplayParam();
+        }
+      }
+      ((Component) this.view_port_handle).get_transform().SetAsLastSibling();
+    }
+
+    public void RefreshTrophySimple(List<TrophyState> _trophies, int _create_count, bool _need_sort, bool _daily_comp_check)
+    {
+      if (_trophies == null || _trophies.Count <= 0)
+        return;
+      int num = _create_count;
+      int[] numArray = (int[]) null;
+      if (_need_sort)
+        numArray = this.GetSortedIndex(_trophies);
+      if (_daily_comp_check)
+        MonoSingleton<GameManager>.Instance.Player.DailyAllCompleteCheck();
+      this.child_plates.Clear();
+      for (int index1 = 0; index1 < _trophies.Count && num != 0; ++index1)
+      {
+        int index2 = !_need_sort ? index1 : numArray[index1];
+        ListItemEvents listItemEvents = this.MakeTrophyPlate(_trophies[index2], _trophies[index2].IsCompleted);
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) listItemEvents, (UnityEngine.Object) null))
+        {
+          this.child_plates.Add(DataSource.FindDataOfClass<TrophyParam>(((Component) listItemEvents).get_gameObject(), (TrophyParam) null));
+          this.AddItem(listItemEvents);
+          --num;
+        }
+      }
+    }
+
+    private int[] GetSortedIndex(List<TrophyState> _trophies)
+    {
+      int[] numArray1 = new int[_trophies.Count];
+      for (int index = 0; index < _trophies.Count; ++index)
+        numArray1[index] = index;
+      ulong[] numArray2 = new ulong[_trophies.Count];
+      for (int index = 0; index < _trophies.Count; ++index)
+      {
+        DateTime dateTime = _trophies[index] == null ? DateTime.MinValue : _trophies[index].RewardedAt;
+        numArray2[index] = (ulong) ((long) ((ulong) dateTime.Year % 100UL) * 10000000000L + (long) ((ulong) dateTime.Month % 100UL) * 100000000L + (long) ((ulong) dateTime.Day % 100UL) * 1000000L + (long) ((ulong) dateTime.Hour % 100UL) * 10000L + (long) ((ulong) dateTime.Minute % 100UL) * 100L) + (ulong) dateTime.Second % 100UL;
+      }
+      Dictionary<int, ulong> dictionary = new Dictionary<int, ulong>();
+      dictionary.Keys.CopyTo(numArray1, 0);
+      dictionary.Values.CopyTo(numArray2, 0);
+      Array.Sort<ulong, int>(numArray2, numArray1);
+      Array.Reverse((Array) numArray1);
+      return numArray1;
+    }
+
+    private TrophyRecordPullView MakeTrophyCategory(string _title_str)
+    {
+      TrophyRecordPullView trophyRecordPullView = (TrophyRecordPullView) UnityEngine.Object.Instantiate<TrophyRecordPullView>((M0) this.OriginalPullView);
+      trophyRecordPullView.Init(_title_str);
+      ((Component) trophyRecordPullView).get_transform().SetParent(((Component) this).get_transform(), false);
+      return trophyRecordPullView;
+    }
+
+    public ListItemEvents MakeTrophyPlate(TrophyState st, bool is_achievement)
+    {
+      ListItemEvents listItemEvents1 = !st.IsEnded ? (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Item_FollowTwitter, (UnityEngine.Object) null) || !st.Param.ContainsCondition(TrophyConditionTypes.followtwitter) ? (!st.IsCompleted ? this.Item_Normal : this.Item_Completed) : this.Item_FollowTwitter) : this.Item_Ended;
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) listItemEvents1, (UnityEngine.Object) null))
+        return (ListItemEvents) null;
+      ListItemEvents listItemEvents2 = (ListItemEvents) UnityEngine.Object.Instantiate<ListItemEvents>((M0) listItemEvents1);
+      DataSource.Bind<TrophyParam>(((Component) listItemEvents2).get_gameObject(), st.Param);
+      ((Component) listItemEvents2).get_transform().SetParent(((Component) this).get_transform(), false);
       listItemEvents2.OnOpenDetail = new ListItemEvents.ListItemEvent(this.OnItemDetail);
       listItemEvents2.OnSelect = new ListItemEvents.ListItemEvent(this.OnItemSelect);
       SRPG_Button componentInChildren = (SRPG_Button) ((Component) listItemEvents2).GetComponentInChildren<SRPG_Button>();
-      if (Object.op_Inequality((Object) componentInChildren, (Object) null) && !st.IsEnded)
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) componentInChildren, (UnityEngine.Object) null) && !st.IsEnded)
       {
-        if (Object.op_Inequality((Object) this.Item_FollowTwitter, (Object) null) && trophy.ContainsCondition(TrophyConditionTypes.followtwitter))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Item_FollowTwitter, (UnityEngine.Object) null) && st.Param.ContainsCondition(TrophyConditionTypes.followtwitter))
           this.FollowBtnSetting(componentInChildren);
-        else if (trophy.iname.Contains("DAILY_GLAPVIDEO"))
-          this.GlobalVideoAdsBtnSetting(componentInChildren);
         else if (st.IsCompleted)
           this.AchievementBtnSetting(componentInChildren);
         else
-          this.ChallengeBtnSetting(componentInChildren, trophy);
+          this.ChallengeBtnSetting(componentInChildren, st.Param);
       }
-      RewardData data = new RewardData(trophy);
+      RewardData data = new RewardData(st.Param);
       DataSource.Bind<RewardData>(((Component) listItemEvents2).get_gameObject(), data);
-      this.AddItem(listItemEvents2);
       ((Component) listItemEvents2).get_gameObject().SetActive(true);
-      return true;
+      return listItemEvents2;
     }
 
     private void OnItemSelect(GameObject go)
@@ -232,7 +406,7 @@ namespace SRPG
       TrophyParam dataOfClass = DataSource.FindDataOfClass<TrophyParam>(go, (TrophyParam) null);
       if (dataOfClass == null)
         return;
-      TrophyState trophyCounter = MonoSingleton<GameManager>.Instance.Player.GetTrophyCounter(dataOfClass);
+      TrophyState trophyCounter = MonoSingleton<GameManager>.Instance.Player.GetTrophyCounter(dataOfClass, true);
       if (!trophyCounter.IsEnded && trophyCounter.IsCompleted)
       {
         if (dataOfClass.IsInvisibleStamina() || !dataOfClass.IsAvailablePeriod(TimeManager.ServerTime, true))
@@ -246,7 +420,7 @@ namespace SRPG
           RewardData rewardData = new RewardData(dataOfClass);
           GlobalVars.LastReward.Set(rewardData);
           GlobalVars.UnitGetReward = new UnitGetParam(rewardData.Items.ToArray());
-          FlowNode_GameObject.ActivateOutputLinks((Component) this, 100);
+          this.trophy_window.ActivateOutputLinks(2000);
         }
       }
       else
@@ -258,29 +432,40 @@ namespace SRPG
           case TrophyConditionTypes.playerlv:
           case TrophyConditionTypes.winquestsoldier:
           case TrophyConditionTypes.losequest:
+          case TrophyConditionTypes.damage_over:
+          case TrophyConditionTypes.complete_all_quest_mission:
+          case TrophyConditionTypes.has_gold_over:
             QuestTypes quest_type1 = QuestTypes.Story;
-            if (!questParam.TransSectionGotoQuest(dataOfClass.Objectives[0].sval, out quest_type1, new UIUtility.DialogResultEvent(this.MsgBoxJumpToQuest)))
+            if (!questParam.TransSectionGotoQuest(dataOfClass.Objectives[0].sval_base, out quest_type1, new UIUtility.DialogResultEvent(this.MsgBoxJumpToQuest)))
             {
               this.g_quest_type = quest_type1;
               break;
             }
-            QuestTypes questTypes = quest_type1;
-            switch (questTypes)
+            QuestTypes questTypes1 = quest_type1;
+            switch (questTypes1)
             {
               case QuestTypes.Event:
-                FlowNode_GameObject.ActivateOutputLinks((Component) this, 1007);
+              case QuestTypes.Gps:
+                this.trophy_window.ActivateOutputLinks(2006);
                 return;
               case QuestTypes.Tower:
-                FlowNode_GameObject.ActivateOutputLinks((Component) this, 1026);
+                this.trophy_window.ActivateOutputLinks(2026);
                 return;
               default:
-                if (questTypes == QuestTypes.Multi)
+                if (questTypes1 != QuestTypes.Multi)
                 {
-                  FlowNode_GameObject.ActivateOutputLinks((Component) this, 1005);
+                  if (questTypes1 != QuestTypes.Beginner)
+                  {
+                    this.trophy_window.ActivateOutputLinks(2002);
+                    return;
+                  }
+                  goto case QuestTypes.Event;
+                }
+                else
+                {
+                  this.trophy_window.ActivateOutputLinks(2005);
                   return;
                 }
-                FlowNode_GameObject.ActivateOutputLinks((Component) this, 1001);
-                return;
             }
           case TrophyConditionTypes.winelite:
           case TrophyConditionTypes.loseelite:
@@ -289,93 +474,129 @@ namespace SRPG
               this.g_quest_type = QuestTypes.Story;
               break;
             }
-            FlowNode_GameObject.ActivateOutputLinks((Component) this, 1001);
+            this.trophy_window.ActivateOutputLinks(2002);
             break;
           case TrophyConditionTypes.winevent:
           case TrophyConditionTypes.loseevent:
-            FlowNode_GameObject.ActivateOutputLinks((Component) this, 1007);
+          case TrophyConditionTypes.exclear_fire:
+          case TrophyConditionTypes.exclear_water:
+          case TrophyConditionTypes.exclear_wind:
+          case TrophyConditionTypes.exclear_thunder:
+          case TrophyConditionTypes.exclear_light:
+          case TrophyConditionTypes.exclear_dark:
+          case TrophyConditionTypes.exclear_fire_nocon:
+          case TrophyConditionTypes.exclear_water_nocon:
+          case TrophyConditionTypes.exclear_wind_nocon:
+          case TrophyConditionTypes.exclear_thunder_nocon:
+          case TrophyConditionTypes.exclear_light_nocon:
+          case TrophyConditionTypes.exclear_dark_nocon:
+            questParam.GotoEventListQuest((string) null, (string) null);
+            this.trophy_window.ActivateOutputLinks(2006);
             break;
           case TrophyConditionTypes.gacha:
           case TrophyConditionTypes.collectunits:
-            FlowNode_GameObject.ActivateOutputLinks((Component) this, 1000);
+            this.trophy_window.ActivateOutputLinks(2001);
             break;
           case TrophyConditionTypes.multiplay:
           case TrophyConditionTypes.winmulti:
           case TrophyConditionTypes.winmultimore:
           case TrophyConditionTypes.winmultiless:
-            FlowNode_GameObject.ActivateOutputLinks((Component) this, 1005);
+            this.trophy_window.ActivateOutputLinks(2005);
             break;
           case TrophyConditionTypes.ability:
           case TrophyConditionTypes.changeability:
           case TrophyConditionTypes.makeabilitylevel:
-            FlowNode_GameObject.ActivateOutputLinks((Component) this, 1025);
+            this.trophy_window.ActivateOutputLinks(2025);
             break;
           case TrophyConditionTypes.soubi:
             this.GotoEquip();
             break;
           case TrophyConditionTypes.buygold:
-            FlowNode_GameObject.ActivateOutputLinks((Component) this, 1004);
+            this.trophy_window.ActivateOutputLinks(2003);
             break;
           case TrophyConditionTypes.arena:
           case TrophyConditionTypes.winarena:
           case TrophyConditionTypes.losearena:
+          case TrophyConditionTypes.becomearenarank:
+          case TrophyConditionTypes.overarenarank:
             this.GotoArena();
             break;
           case TrophyConditionTypes.review:
-            FlowNode_GameObject.ActivateOutputLinks((Component) this, 1029);
+            this.trophy_window.ActivateOutputLinks(2029);
             break;
           case TrophyConditionTypes.fggid:
-            FlowNode_GameObject.ActivateOutputLinks((Component) this, 1009);
+            this.trophy_window.ActivateOutputLinks(2008);
             break;
           case TrophyConditionTypes.unitlevel:
           case TrophyConditionTypes.evolutionnum:
           case TrophyConditionTypes.joblevel:
           case TrophyConditionTypes.upunitlevel:
           case TrophyConditionTypes.makeunitlevel:
-            FlowNode_GameObject.ActivateOutputLinks((Component) this, 1025);
+            this.trophy_window.ActivateOutputLinks(2025);
             break;
           case TrophyConditionTypes.unitequip:
           case TrophyConditionTypes.upjoblevel:
           case TrophyConditionTypes.makejoblevel:
           case TrophyConditionTypes.totaljoblv11:
-            FlowNode_GameObject.ActivateOutputLinks((Component) this, 1025);
+            this.trophy_window.ActivateOutputLinks(2025);
             break;
           case TrophyConditionTypes.limitbreak:
           case TrophyConditionTypes.evoltiontimes:
           case TrophyConditionTypes.changejob:
           case TrophyConditionTypes.totalunitlvs:
-            FlowNode_GameObject.ActivateOutputLinks((Component) this, 1025);
+            this.trophy_window.ActivateOutputLinks(2025);
             break;
           case TrophyConditionTypes.buyatshop:
             this.GotoShop(dataOfClass);
             break;
           case TrophyConditionTypes.artifacttransmute:
-            FlowNode_GameObject.ActivateOutputLinks((Component) this, 1021);
-            break;
           case TrophyConditionTypes.artifactstrength:
-            FlowNode_GameObject.ActivateOutputLinks((Component) this, 1021);
-            break;
           case TrophyConditionTypes.artifactevolution:
-            FlowNode_GameObject.ActivateOutputLinks((Component) this, 1021);
+          case TrophyConditionTypes.upartifactlevel:
+          case TrophyConditionTypes.makeartifactlevel:
+            this.trophy_window.ActivateOutputLinks(2021);
             break;
           case TrophyConditionTypes.wintower:
           case TrophyConditionTypes.losetower:
+          case TrophyConditionTypes.tower:
+          case TrophyConditionTypes.overtowerscore:
             QuestTypes quest_type2 = QuestTypes.Tower;
-            if (!questParam.TransSectionGotoTower(dataOfClass.Objectives[0].sval, out quest_type2))
+            if (!questParam.TransSectionGotoTower(dataOfClass.Objectives[0].sval_base, out quest_type2))
               break;
-            if (quest_type2 == QuestTypes.Event)
+            QuestTypes questTypes2 = quest_type2;
+            switch (questTypes2)
             {
-              FlowNode_GameObject.ActivateOutputLinks((Component) this, 1007);
-              break;
+              case QuestTypes.Gps:
+              case QuestTypes.Beginner:
+                this.trophy_window.ActivateOutputLinks(2006);
+                return;
+              default:
+                if (questTypes2 != QuestTypes.Event)
+                {
+                  this.trophy_window.ActivateOutputLinks(2026);
+                  return;
+                }
+                goto case QuestTypes.Gps;
             }
-            FlowNode_GameObject.ActivateOutputLinks((Component) this, 1026);
-            break;
           case TrophyConditionTypes.vs:
           case TrophyConditionTypes.vswin:
+          case TrophyConditionTypes.overvsrankfloor:
             this.GotoVersus();
             break;
+          case TrophyConditionTypes.winstory_extra:
+            if (!questParam.TransSectionGotoStoryExtra(new UIUtility.DialogResultEvent(this.MsgBoxJumpToQuest)))
+            {
+              this.g_quest_type = QuestTypes.Story;
+              break;
+            }
+            this.trophy_window.ActivateOutputLinks(2002);
+            break;
+          case TrophyConditionTypes.multitower_help:
+          case TrophyConditionTypes.multitower:
+            this.GotoMultiTower();
+            break;
           case TrophyConditionTypes.fblogin:
-            FlowNode_GameObject.ActivateOutputLinks((Component) this, 1040);
+            this.trophy_window.ActivateOutputLinks(9040);
             break;
         }
       }
@@ -384,9 +605,9 @@ namespace SRPG
     private void OnItemDetail(GameObject go)
     {
       TrophyParam dataOfClass = DataSource.FindDataOfClass<TrophyParam>(go, (TrophyParam) null);
-      if (!Object.op_Inequality((Object) this.DetailWindow, (Object) null) || dataOfClass == null)
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.DetailWindow, (UnityEngine.Object) null) || dataOfClass == null)
         return;
-      GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.DetailWindow);
+      GameObject gameObject = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.DetailWindow);
       DataSource.Bind<TrophyParam>(gameObject, dataOfClass);
       RewardData data = new RewardData(dataOfClass);
       DataSource.Bind<RewardData>(gameObject, data);
@@ -397,7 +618,7 @@ namespace SRPG
     {
       PlayerData player = MonoSingleton<GameManager>.Instance.Player;
       if (player.CheckUnlock(UnlockTargets.Arena))
-        FlowNode_GameObject.ActivateOutputLinks((Component) this, 1008);
+        this.trophy_window.ActivateOutputLinks(2007);
       else
         LevelLock.ShowLockMessage(player.Lv, player.VipRank, UnlockTargets.Arena);
     }
@@ -406,16 +627,22 @@ namespace SRPG
     {
       PlayerData player = MonoSingleton<GameManager>.Instance.Player;
       if (player.CheckUnlock(UnlockTargets.MultiVS))
-        FlowNode_GameObject.ActivateOutputLinks((Component) this, 1030);
+        this.trophy_window.ActivateOutputLinks(2030);
       else
         LevelLock.ShowLockMessage(player.Lv, player.VipRank, UnlockTargets.MultiVS);
+    }
+
+    private void GotoMultiTower()
+    {
+      GlobalVars.ReqEventPageListType = GlobalVars.EventQuestListType.Tower;
+      this.trophy_window.ActivateOutputLinks(2031);
     }
 
     private void GotoEquip()
     {
       PlayerData player = MonoSingleton<GameManager>.Instance.Player;
       if (player.CheckUnlock(UnlockTargets.EnhanceEquip))
-        FlowNode_GameObject.ActivateOutputLinks((Component) this, 1003);
+        this.trophy_window.ActivateOutputLinks(2004);
       else
         LevelLock.ShowLockMessage(player.Lv, player.VipRank, UnlockTargets.EnhanceEquip);
     }
@@ -424,14 +651,14 @@ namespace SRPG
     {
       PlayerData player = MonoSingleton<GameManager>.Instance.Player;
       EShopType type;
-      if (string.IsNullOrEmpty(param.Objectives[0].sval))
+      if (string.IsNullOrEmpty(param.Objectives[0].sval_base))
       {
         type = EShopType.Normal;
       }
       else
       {
         char[] chArray = new char[1]{ ',' };
-        string[] strArray = param.Objectives[0].sval.Split(chArray);
+        string[] strArray = param.Objectives[0].sval_base.Split(chArray);
         type = !string.IsNullOrEmpty(strArray[0]) ? (EShopType) MonoSingleton<GameManager>.Instance.MasterParam.GetShopType(strArray[0]) : EShopType.Normal;
       }
       if (type >= EShopType.Normal && player.CheckUnlockShopType(type))
@@ -441,25 +668,25 @@ namespace SRPG
           case EShopType.Normal:
           case EShopType.Tabi:
           case EShopType.Kimagure:
-            FlowNode_GameObject.ActivateOutputLinks((Component) this, 1013);
+            this.trophy_window.ActivateOutputLinks(2013);
             break;
           case EShopType.Arena:
             this.GotoArena();
             break;
           case EShopType.Multi:
-            FlowNode_GameObject.ActivateOutputLinks((Component) this, 1005);
+            this.trophy_window.ActivateOutputLinks(2005);
             break;
           case EShopType.AwakePiece:
-            FlowNode_GameObject.ActivateOutputLinks((Component) this, 1020);
+            this.trophy_window.ActivateOutputLinks(2020);
             break;
           case EShopType.Artifact:
-            FlowNode_GameObject.ActivateOutputLinks((Component) this, 1021);
+            this.trophy_window.ActivateOutputLinks(2021);
             break;
           case EShopType.Event:
-            FlowNode_GameObject.ActivateOutputLinks((Component) this, 1028);
+            this.trophy_window.ActivateOutputLinks(2028);
             break;
           case EShopType.Limited:
-            FlowNode_GameObject.ActivateOutputLinks((Component) this, 1027);
+            this.trophy_window.ActivateOutputLinks(2027);
             break;
         }
       }
@@ -499,14 +726,14 @@ namespace SRPG
       if (!flag)
       {
         VerticalLayoutGroup component = (VerticalLayoutGroup) ((Component) ((Component) btn).get_transform().get_parent()).GetComponent<VerticalLayoutGroup>();
-        if (!Object.op_Inequality((Object) component, (Object) null))
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
           return;
         ((LayoutGroup) component).set_childAlignment((TextAnchor) 7);
       }
       else
       {
         Text componentInChildren = (Text) ((Component) ((Component) btn).get_transform()).GetComponentInChildren<Text>();
-        if (!Object.op_Inequality((Object) componentInChildren, (Object) null))
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) componentInChildren, (UnityEngine.Object) null))
           return;
         componentInChildren.set_text(LocalizedText.Get("sys.TROPHY_BTN_GO"));
       }
@@ -515,7 +742,7 @@ namespace SRPG
     private void AchievementBtnSetting(SRPG_Button btn)
     {
       Text componentInChildren = (Text) ((Component) ((Component) btn).get_transform()).GetComponentInChildren<Text>();
-      if (!Object.op_Inequality((Object) componentInChildren, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) componentInChildren, (UnityEngine.Object) null))
         return;
       componentInChildren.set_text(LocalizedText.Get("sys.TROPHY_BTN_CLEAR"));
     }
@@ -523,7 +750,7 @@ namespace SRPG
     private void GlobalVideoAdsBtnSetting(SRPG_Button btn)
     {
       Text componentInChildren = (Text) ((Component) ((Component) btn).get_transform()).GetComponentInChildren<Text>();
-      if (!Object.op_Inequality((Object) componentInChildren, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) componentInChildren, (UnityEngine.Object) null))
         return;
       componentInChildren.set_text(LocalizedText.Get("sys.TROPHY_BTN_GO"));
     }
@@ -531,7 +758,7 @@ namespace SRPG
     private void FollowBtnSetting(SRPG_Button btn)
     {
       Text componentInChildren = (Text) ((Component) ((Component) btn).get_transform()).GetComponentInChildren<Text>();
-      if (!Object.op_Inequality((Object) componentInChildren, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) componentInChildren, (UnityEngine.Object) null))
         return;
       componentInChildren.set_text(LocalizedText.Get("sys.TROPHY_BTN_FOLLOWTWITTER"));
     }
@@ -542,20 +769,301 @@ namespace SRPG
       switch (gQuestType)
       {
         case QuestTypes.Event:
-          FlowNode_GameObject.ActivateOutputLinks((Component) this, 1007);
+        case QuestTypes.Gps:
+          this.trophy_window.ActivateOutputLinks(2006);
           break;
         case QuestTypes.Tower:
-          FlowNode_GameObject.ActivateOutputLinks((Component) this, 1026);
+          this.trophy_window.ActivateOutputLinks(2026);
           break;
         default:
-          if (gQuestType == QuestTypes.Multi)
+          if (gQuestType != QuestTypes.Multi)
           {
-            FlowNode_GameObject.ActivateOutputLinks((Component) this, 1005);
+            if (gQuestType != QuestTypes.Beginner)
+            {
+              this.trophy_window.ActivateOutputLinks(2002);
+              break;
+            }
+            goto case QuestTypes.Event;
+          }
+          else
+          {
+            this.trophy_window.ActivateOutputLinks(2005);
             break;
           }
-          FlowNode_GameObject.ActivateOutputLinks((Component) this, 1001);
+      }
+    }
+
+    private void Run()
+    {
+      switch (this.state)
+      {
+        case TrophyList.eState.IDLE:
+          this.UpdateIdle();
+          break;
+        case TrophyList.eState.CLOSE_OTHER_WAIT:
+          this.UpdateCloseOtherWait();
+          break;
+        case TrophyList.eState.FOCUS:
+          this.UpdateFocus();
+          break;
+        case TrophyList.eState.FOCUS_INTERVAL:
+          this.UpdateFocusInterval();
+          break;
+        case TrophyList.eState.CREATE_PULL_ITEM:
+          this.UpdateCreatePullItems();
+          break;
+        case TrophyList.eState.OPEN:
+          this.UpdateOpen();
+          break;
+        case TrophyList.eState.CLOSE:
+          this.UpdateClose();
           break;
       }
+    }
+
+    private void ChangeState(TrophyList.eState _new_state)
+    {
+      if (this.state == _new_state)
+        return;
+      switch (this.state)
+      {
+        case TrophyList.eState.IDLE:
+          this.EndIdle();
+          break;
+        case TrophyList.eState.CLOSE_OTHER_WAIT:
+          this.EndCloseOtherWait();
+          break;
+        case TrophyList.eState.FOCUS:
+          this.EndFocus();
+          break;
+        case TrophyList.eState.OPEN:
+          this.EndOpen();
+          break;
+        case TrophyList.eState.CLOSE:
+          this.EndClose();
+          break;
+      }
+      this.state = _new_state;
+      switch (this.state)
+      {
+        case TrophyList.eState.IDLE:
+          this.StartIdle();
+          break;
+        case TrophyList.eState.CLOSE_OTHER_WAIT:
+          this.StartCloseOtherWait();
+          break;
+        case TrophyList.eState.FOCUS:
+          this.StartFocus();
+          break;
+        case TrophyList.eState.CREATE_PULL_ITEM:
+          this.StartCreatePullItems();
+          break;
+        case TrophyList.eState.OPEN:
+          this.StartOpen();
+          break;
+        case TrophyList.eState.CLOSE:
+          this.StartClose();
+          break;
+      }
+    }
+
+    public void SetClickTarget(TrophyRecordPullView _pull_view)
+    {
+      if (this.is_busy)
+        return;
+      this.is_busy = true;
+      this.click_target.Add(_pull_view);
+    }
+
+    private void CheckTarget()
+    {
+      if (this.click_target.Count <= 0)
+        return;
+      if (this.click_target[0].IsStateClosed)
+      {
+        if (!this.OpenPullView())
+          return;
+        this.scroll_rect.StopMovement();
+      }
+      else
+      {
+        if (!this.click_target[0].IsStateOpened || !this.ClosePullView())
+          return;
+        this.scroll_rect.StopMovement();
+      }
+    }
+
+    private bool OpenPullView()
+    {
+      if (this.child_pull_viewes == null || this.child_pull_viewes.Count <= 0)
+      {
+        this.ChangeState(TrophyList.eState.FOCUS);
+        return true;
+      }
+      this.ChangeState(TrophyList.eState.CLOSE_OTHER_WAIT);
+      return true;
+    }
+
+    private bool ClosePullView()
+    {
+      this.ChangeState(TrophyList.eState.CLOSE);
+      return true;
+    }
+
+    private void StartCloseOtherWait()
+    {
+      this.total_close_item_size = 0.0f;
+      for (int index = 0; index < this.child_pull_viewes.Count; ++index)
+      {
+        if (!UnityEngine.Object.op_Equality((UnityEngine.Object) this.child_pull_viewes[index], (UnityEngine.Object) this.click_target[0]) && this.child_pull_viewes[index].IsStateOpen)
+        {
+          this.child_pull_viewes[index].ChangeState(TrophyRecordPullView.eState.CLOSE_IMMEDIATE);
+          if (this.child_pull_viewes[index].Index < this.click_target[0].Index)
+            this.total_close_item_size += this.child_pull_viewes[index].RootLayoutElementMinHeightDef;
+        }
+      }
+    }
+
+    private void EndCloseOtherWait()
+    {
+      this.ScrollTransRect.set_anchoredPosition(new Vector2((float) this.ScrollTransRect.get_anchoredPosition().x, Mathf.Max(0.0f, (float) this.ScrollTransRect.get_anchoredPosition().y - this.total_close_item_size)));
+    }
+
+    private void UpdateCloseOtherWait()
+    {
+      for (int index = 0; index < this.child_pull_viewes.Count; ++index)
+      {
+        if (!UnityEngine.Object.op_Equality((UnityEngine.Object) this.child_pull_viewes[index], (UnityEngine.Object) this.click_target[0]) && !this.child_pull_viewes[index].IsStateClosed)
+          return;
+      }
+      this.ChangeState(TrophyList.eState.FOCUS);
+    }
+
+    private void StartFocus()
+    {
+      this.focus_delay_time = 0.2f;
+      this.elapsed_time = 0.0f;
+      this.start_pos = this.ScrollTransRect.get_anchoredPosition();
+      this.target_pos = new Vector2((float) this.ScrollTransRect.get_anchoredPosition().x, (float) this.click_target[0].Index * this.click_target[0].ItemDistance);
+    }
+
+    private void EndFocus()
+    {
+      this.ScrollTransRect.set_anchoredPosition(new Vector2(0.0f, (float) this.target_pos.y));
+    }
+
+    private void UpdateFocus()
+    {
+      this.focus_delay_time -= Time.get_deltaTime();
+      if ((double) this.focus_delay_time > 0.0)
+      {
+        this.ScrollTransRect.set_anchoredPosition(this.start_pos);
+      }
+      else
+      {
+        this.elapsed_time += Time.get_deltaTime();
+        this.elapsed_time = Mathf.Min(this.elapsed_time, this.FOCUS_EFFECT_SECOND);
+        this.ScrollTransRect.set_anchoredPosition(new Vector2(0.0f, (float) Vector2.Lerp(this.start_pos, this.target_pos, this.elapsed_time / this.FOCUS_EFFECT_SECOND).y));
+        if ((double) this.elapsed_time < (double) this.FOCUS_EFFECT_SECOND)
+          return;
+        this.ChangeState(TrophyList.eState.FOCUS_INTERVAL);
+      }
+    }
+
+    private void UpdateFocusInterval()
+    {
+      this.ChangeState(TrophyList.eState.CREATE_PULL_ITEM);
+    }
+
+    private void StartCreatePullItems()
+    {
+      this.click_target[0].CreateContents();
+      float num1 = (float) (this.ScrollTransRect.get_anchoredPosition().y + this.view_port_handle_rect.get_anchoredPosition().y) - this.click_target[0].TargetViewPortSize;
+      Rect rect = this.parent_panel_rect.get_rect();
+      // ISSUE: explicit reference operation
+      float num2 = Mathf.Max(0.0f, ((Rect) @rect).get_height() + num1 - this.click_target[0].VerticalLayoutSpacing);
+      this.view_port_handle.set_minHeight((double) this.view_port_handle.get_minHeight() < (double) num2 ? num2 : this.view_port_handle.get_minHeight());
+    }
+
+    private void UpdateCreatePullItems()
+    {
+      this.ChangeState(TrophyList.eState.OPEN);
+    }
+
+    private void StartOpen()
+    {
+      this.click_target[0].StartOpen();
+    }
+
+    private void EndOpen()
+    {
+    }
+
+    private void UpdateOpen()
+    {
+      if (!this.click_target[0].IsStateOpened)
+        return;
+      this.ChangeState(TrophyList.eState.IDLE);
+      this.click_target.Clear();
+    }
+
+    private void StartClose()
+    {
+      LayoutElement viewPortHandle = this.view_port_handle;
+      viewPortHandle.set_minHeight(viewPortHandle.get_minHeight() + this.click_target[0].TargetViewPortSize);
+      this.click_target[0].StartClose();
+    }
+
+    protected void EndClose()
+    {
+      this.scroll_rect.set_verticalNormalizedPosition(Mathf.Clamp(this.scroll_rect.get_verticalNormalizedPosition(), 0.0f, 1f));
+    }
+
+    protected void UpdateClose()
+    {
+      this.scroll_rect.set_verticalNormalizedPosition(Mathf.Clamp(this.scroll_rect.get_verticalNormalizedPosition(), 0.0f, 1f));
+      if (!this.click_target[0].IsStateClosed)
+        return;
+      this.ChangeState(TrophyList.eState.IDLE);
+      this.click_target.Clear();
+    }
+
+    private void UpdateHandleHeight()
+    {
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.view_port_handle, (UnityEngine.Object) null) || (double) this.view_port_handle.get_minHeight() <= 0.0)
+        return;
+      float num = (float) (this.ScrollTransRect.get_anchoredPosition().y + this.view_port_handle_rect.get_anchoredPosition().y);
+      Rect rect = this.parent_panel_rect.get_rect();
+      // ISSUE: explicit reference operation
+      this.view_port_handle.set_minHeight(Mathf.Clamp(((Rect) @rect).get_height() + num, 0.0f, this.view_port_handle.get_minHeight()));
+    }
+
+    private void StartIdle()
+    {
+      this.is_busy = false;
+      SRPG_TouchInputModule.UnlockInput(false);
+    }
+
+    private void EndIdle()
+    {
+      SRPG_TouchInputModule.LockInput();
+    }
+
+    private void UpdateIdle()
+    {
+      this.UpdateHandleHeight();
+      this.CheckTarget();
+    }
+
+    private enum eState
+    {
+      IDLE,
+      CLOSE_OTHER_WAIT,
+      FOCUS,
+      FOCUS_INTERVAL,
+      CREATE_PULL_ITEM,
+      OPEN,
+      CLOSE,
     }
 
     public enum TrophyTypes

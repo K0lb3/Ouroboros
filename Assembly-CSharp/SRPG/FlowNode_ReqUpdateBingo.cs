@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_ReqUpdateBingo
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -11,8 +11,9 @@ using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
   [FlowNode.Pin(0, "Request", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(100, "開催期間外の報酬受け取り", FlowNode.PinTypes.Output, 100)]
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
   [FlowNode.NodeType("System/ReqUpdateBingo", 32741)]
   public class FlowNode_ReqUpdateBingo : FlowNode_Network
   {
@@ -32,7 +33,7 @@ namespace SRPG
         TrophyParam trophy = instance.MasterParam.GetTrophy((string) GlobalVars.SelectedTrophy);
         this.ExecRequest((WebAPI) new ReqUpdateBingo(new List<TrophyState>()
         {
-          instance.Player.GetTrophyCounter(trophy)
+          instance.Player.GetTrophyCounter(trophy, false)
         }, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback), true));
         ((Behaviour) this).set_enabled(true);
       }), (UIUtility.DialogResultEvent) (go => ((Behaviour) this).set_enabled(false)), (GameObject) null, false, -1);
@@ -50,7 +51,7 @@ namespace SRPG
       GlobalVars.PlayerExpOld.Set(player.Exp);
       if (Network.Mode == Network.EConnectMode.Offline)
       {
-        instance.Player.DEBUG_ADD_COIN(trophy.Coin, 0);
+        instance.Player.DEBUG_ADD_COIN(trophy.Coin, 0, 0);
         instance.Player.DEBUG_ADD_GOLD(trophy.Gold);
         ((Behaviour) this).set_enabled(false);
         this.Success();
@@ -59,7 +60,7 @@ namespace SRPG
       {
         this.ExecRequest((WebAPI) new ReqUpdateBingo(new List<TrophyState>()
         {
-          instance.Player.GetTrophyCounter(trophy)
+          instance.Player.GetTrophyCounter(trophy, false)
         }, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback), true));
         ((Behaviour) this).set_enabled(true);
       }
@@ -76,7 +77,7 @@ namespace SRPG
       {
         this.mTrophyParam
       });
-      if (Object.op_Inequality((Object) this.RewardWindow, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RewardWindow, (UnityEngine.Object) null))
       {
         RewardData data = new RewardData();
         data.Coin = this.mTrophyParam.Coin;
@@ -144,6 +145,11 @@ namespace SRPG
           case Network.EErrCode.TrophyRollBack:
             this.OnBack();
             break;
+          case Network.EErrCode.BingoOutofDateReceive:
+            UIUtility.NegativeSystemMessage((string) null, LocalizedText.Get("sys.CHALLENGEMISSION_ERROR_OUT_OF_DATE_RECEIVE"), new UIUtility.DialogResultEvent(this.OnErrorDialogClosed), (GameObject) null, false, -1);
+            Network.RemoveAPI();
+            Network.ResetError();
+            break;
           default:
             this.OnRetry();
             break;
@@ -162,8 +168,6 @@ namespace SRPG
           try
           {
             MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.player);
-            MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.items);
-            MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.units);
           }
           catch (Exception ex)
           {
@@ -174,6 +178,11 @@ namespace SRPG
           this.Success();
         }
       }
+    }
+
+    private void OnErrorDialogClosed(GameObject dialog)
+    {
+      this.ActivateOutputLinks(100);
     }
   }
 }

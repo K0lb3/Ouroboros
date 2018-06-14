@@ -1,17 +1,18 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.ReqItemCompositAll
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 namespace SRPG
 {
   public class ReqItemCompositAll : WebAPI
   {
-    public ReqItemCompositAll(string iname, Network.ResponseCallback response)
+    public ReqItemCompositAll(string iname, bool is_cmn, Network.ResponseCallback response)
     {
       this.name = "item/gouseiall";
-      this.body = WebAPI.GetRequestString("\"iname\":\"" + iname + "\"");
+      int num = !is_cmn ? 0 : 1;
+      this.body = WebAPI.GetRequestString("\"iname\":\"" + iname + "\",\"is_cmn\":" + (object) num);
       this.callback = response;
     }
   }

@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: HttpClient
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -17,7 +17,11 @@ using UnityEngine;
 
 public class HttpClient
 {
-  protected static byte[] Eol = new byte[2]{ (byte) 13, (byte) 10 };
+  protected static byte[] Eol = new byte[2]
+  {
+    (byte) 13,
+    (byte) 10
+  };
   private const int SleepTime = 50;
   public bool IsGotRest;
   public bool CanWriteStream;
@@ -58,13 +62,13 @@ public class HttpClient
   {
     // ISSUE: object of a compiler-generated type is created
     // ISSUE: variable of a compiler-generated type
-    HttpClient.\u003CDownload\u003Ec__AnonStorey1FA downloadCAnonStorey1Fa = new HttpClient.\u003CDownload\u003Ec__AnonStorey1FA();
+    HttpClient.\u003CDownload\u003Ec__AnonStorey29A downloadCAnonStorey29A = new HttpClient.\u003CDownload\u003Ec__AnonStorey29A();
     // ISSUE: reference to a compiler-generated field
-    downloadCAnonStorey1Fa.url = url;
+    downloadCAnonStorey29A.url = url;
     // ISSUE: reference to a compiler-generated field
-    downloadCAnonStorey1Fa.\u003C\u003Ef__this = this;
+    downloadCAnonStorey29A.\u003C\u003Ef__this = this;
     // ISSUE: reference to a compiler-generated field
-    downloadCAnonStorey1Fa.timeout = 10000;
+    downloadCAnonStorey29A.timeout = 10000;
     this._exchangedBytes = (byte[]) null;
     this.IsDone = false;
     this.IsGotRest = false;
@@ -73,7 +77,7 @@ public class HttpClient
     this.HasError = string.Empty;
     this._downloadStart = Stopwatch.GetTimestamp();
     // ISSUE: reference to a compiler-generated method
-    this._thread = new Thread(new ThreadStart(downloadCAnonStorey1Fa.\u003C\u003Em__1C8))
+    this._thread = new Thread(new ThreadStart(downloadCAnonStorey29A.\u003C\u003Em__260))
     {
       IsBackground = true
     };
@@ -105,7 +109,11 @@ label_3:;
     int length = str.IndexOf(':');
     if (length == -1)
       return (string[]) null;
-    return new string[2]{ str.Substring(0, length).Trim(), str.Substring(length + 1).Trim() };
+    return new string[2]
+    {
+      str.Substring(0, length).Trim(),
+      str.Substring(length + 1).Trim()
+    };
   }
 
   private void WriteMemoryStreamResponse(Stream stream)

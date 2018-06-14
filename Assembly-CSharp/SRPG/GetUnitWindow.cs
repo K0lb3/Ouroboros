@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.GetUnitWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -11,9 +11,9 @@ using UnityEngine;
 
 namespace SRPG
 {
+  [FlowNode.Pin(10, "Unit Detail", FlowNode.PinTypes.Output, 10)]
   [FlowNode.Pin(2, "Unit Unlocked", FlowNode.PinTypes.Output, 2)]
   [FlowNode.Pin(100, "Refresh", FlowNode.PinTypes.Input, 100)]
-  [FlowNode.Pin(10, "Unit Detail", FlowNode.PinTypes.Output, 10)]
   public class GetUnitWindow : SRPG_FixedList, IFlowInterface, ISortableList
   {
     public GetUnitWindow.UnitSelectEvent OnUnitSelect;
@@ -28,9 +28,9 @@ namespace SRPG
     protected virtual void Awake()
     {
       base.Awake();
-      if (Object.op_Inequality((Object) this.ItemTemplate, (Object) null) && this.ItemTemplate.get_activeInHierarchy())
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ItemTemplate, (UnityEngine.Object) null) && this.ItemTemplate.get_activeInHierarchy())
         this.ItemTemplate.SetActive(false);
-      if (!Object.op_Inequality((Object) this.PieceTemplate, (Object) null) || !this.PieceTemplate.get_activeInHierarchy())
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.PieceTemplate, (UnityEngine.Object) null) || !this.PieceTemplate.get_activeInHierarchy())
         return;
       this.PieceTemplate.SetActive(false);
     }
@@ -39,7 +39,7 @@ namespace SRPG
     {
       get
       {
-        if (Object.op_Inequality((Object) this.ItemLayoutParent, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ItemLayoutParent, (UnityEngine.Object) null))
           return (RectTransform) ((Component) this.ItemLayoutParent).GetComponent<RectTransform>();
         return (RectTransform) null;
       }
@@ -48,9 +48,9 @@ namespace SRPG
     protected override void Start()
     {
       base.Start();
-      if (Object.op_Equality((Object) this.ItemTemplate, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.ItemTemplate, (UnityEngine.Object) null))
         return;
-      if (Object.op_Inequality((Object) this.SortFilter, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.SortFilter, (UnityEngine.Object) null))
       {
         GameSettings instance = GameSettings.Instance;
         for (int index = 0; index < instance.UnitSort_Modes.Length; ++index)
@@ -84,7 +84,7 @@ namespace SRPG
 
     protected override GameObject CreateItem()
     {
-      return (GameObject) Object.Instantiate<GameObject>((M0) this.PieceTemplate);
+      return (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.PieceTemplate);
     }
 
     private static bool GetValue(string str, string key, ref string value)
@@ -155,7 +155,7 @@ namespace SRPG
 
     public void RefreshPieceUnit(bool clear, UnitSelectListData UnitSelectListData)
     {
-      if (Object.op_Equality((Object) this.PieceTemplate, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.PieceTemplate, (UnityEngine.Object) null))
         return;
       UnitParam[] allUnits = MonoSingleton<GameManager>.Instance.MasterParam.GetAllUnits();
       List<UnitParam> unitParamList = new List<UnitParam>(this.DataCount);
@@ -163,7 +163,7 @@ namespace SRPG
       {
         // ISSUE: object of a compiler-generated type is created
         // ISSUE: reference to a compiler-generated method
-        UnitParam unitParam = Array.Find<UnitParam>(allUnits, new Predicate<UnitParam>(new GetUnitWindow.\u003CRefreshPieceUnit\u003Ec__AnonStorey24F() { item = UnitSelectListData.items[index] }.\u003C\u003Em__297));
+        UnitParam unitParam = Array.Find<UnitParam>(allUnits, new Predicate<UnitParam>(new GetUnitWindow.\u003CRefreshPieceUnit\u003Ec__AnonStorey33A() { item = UnitSelectListData.items[index] }.\u003C\u003Em__38C));
         if (unitParam != null)
           unitParamList.Add(unitParam);
       }
@@ -189,7 +189,7 @@ namespace SRPG
         GlobalVars.SelectedUnitUniqueID.Set(dataOfClass.UniqueID);
         GlobalVars.SelectedUnitJobIndex.Set(dataOfClass.JobIndex);
         FlowNode_DownloadAssets component = (FlowNode_DownloadAssets) ((Component) this).GetComponent<FlowNode_DownloadAssets>();
-        if (Object.op_Inequality((Object) component, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
           component.DownloadUnits = new string[1]
           {
             GlobalVars.UnlockUnitID
@@ -205,7 +205,7 @@ namespace SRPG
         return;
       GlobalVars.UnlockUnitID = dataOfClass.iname;
       FlowNode_DownloadAssets component = (FlowNode_DownloadAssets) ((Component) this).GetComponent<FlowNode_DownloadAssets>();
-      if (Object.op_Inequality((Object) component, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
         component.DownloadUnits = new string[1]
         {
           GlobalVars.UnlockUnitID
@@ -226,9 +226,9 @@ namespace SRPG
         if (GameUtility.IsDebugBuild)
           DebugUtility.LogError("Unknown sort mode: " + method);
       }
-      if (Object.op_Inequality((Object) this.AscendingIcon, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AscendingIcon, (UnityEngine.Object) null))
         this.AscendingIcon.SetActive(ascending);
-      if (Object.op_Inequality((Object) this.DescendingIcon, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.DescendingIcon, (UnityEngine.Object) null))
         this.DescendingIcon.SetActive(!ascending);
       if (unitSortModes == GameUtility.UnitSortModes.Time)
         ascending = !ascending;
@@ -242,7 +242,7 @@ namespace SRPG
         return;
       GlobalVars.UnlockUnitID = dataOfClass.iname;
       FlowNode_DownloadAssets component = (FlowNode_DownloadAssets) ((Component) this).GetComponent<FlowNode_DownloadAssets>();
-      if (Object.op_Inequality((Object) component, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
         component.DownloadUnits = new string[1]
         {
           GlobalVars.UnlockUnitID

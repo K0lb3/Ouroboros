@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: PhotonPlayer
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using ExitGames.Client.Photon;
@@ -224,7 +224,13 @@ public class PhotonPlayer : IComparable<PhotonPlayer>, IComparable<int>, IEquata
 
   public string ToStringFull()
   {
-    return string.Format("#{0:00} '{1}'{2} {3}", new object[4]{ (object) this.ID, (object) this.NickName, !this.IsInactive ? (object) string.Empty : (object) " (inactive)", (object) ((IDictionary) this.CustomProperties).ToStringFull() });
+    return string.Format("#{0:00} '{1}'{2} {3}", new object[4]
+    {
+      (object) this.ID,
+      (object) this.NickName,
+      !this.IsInactive ? (object) string.Empty : (object) " (inactive)",
+      (object) ((IDictionary) this.CustomProperties).ToStringFull()
+    });
   }
 
   [Obsolete("Please use NickName (updated case for naming).")]

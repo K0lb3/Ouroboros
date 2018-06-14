@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.EventAction_MoveCamera
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using UnityEngine;
@@ -164,6 +164,38 @@ namespace SRPG
         targetCamera.CameraDistance = instance.GameCamera_DefaultDistance * Mathf.Lerp(this.StartCameraDistanceScale, this.CameraDistanceScale, t);
       }
       Camera.get_main().set_fieldOfView(instance.GameCamera_TacticsSceneFOV);
+    }
+
+    public override void GoToEndState()
+    {
+      TargetCamera targetCamera = TargetCamera.Get((Component) Camera.get_main());
+      targetCamera.Reset();
+      if (this.MoveMode == EventAction_MoveCamera.CameraMoveModes.InterpolateToPoint)
+      {
+        this.StartTargetPosition = targetCamera.TargetPosition;
+        this.StartRotation = targetCamera.Yaw;
+        this.StartCameraDistanceScale = targetCamera.CameraDistance / GameSettings.Instance.GameCamera_DefaultDistance;
+      }
+      else if (this.MoveMode == EventAction_MoveCamera.CameraMoveModes.SpecificActor)
+      {
+        this.StartRotation = targetCamera.Yaw;
+        this.StartTargetPosition = targetCamera.TargetPosition;
+        this.StartCameraDistanceScale = targetCamera.CameraDistance / GameSettings.Instance.GameCamera_DefaultDistance;
+        GameObject actor = EventAction.FindActor(this.ActorID);
+        if (Object.op_Equality((Object) actor, (Object) null))
+          return;
+        this.TargetPosition = actor.get_transform().get_position();
+        if ((double) this.TargetRotation < 0.0)
+          this.TargetRotation = this.StartRotation;
+      }
+      else
+      {
+        if (this.SnapToGround)
+          this.StartTargetPosition = GameUtility.RaycastGround(this.StartTargetPosition);
+        EventAction_MoveCamera actionMoveCamera = this;
+        actionMoveCamera.StartTargetPosition = Vector3.op_Addition(actionMoveCamera.StartTargetPosition, Vector3.op_Multiply(Vector3.get_up(), GameSettings.Instance.GameCamera_UnitHeightOffset));
+      }
+      this.UpdateCameraPosition(2f);
     }
 
     public enum CameraMoveModes

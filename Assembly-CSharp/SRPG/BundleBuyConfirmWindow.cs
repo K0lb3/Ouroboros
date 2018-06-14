@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.BundleBuyConfirmWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -79,7 +79,7 @@ namespace SRPG
         if (bundleParam2.Contents.Equipments != null)
         {
           for (int index = 0; index < bundleParam2.Contents.Equipments.Count; ++index)
-            this.AddItemContents(bundleParam2.Contents.Equipments[index], false);
+            this.AddArtifactContents(bundleParam2.Contents.Equipments[index]);
         }
       }
       DataSource.Bind<BundleParam>(((Component) this).get_gameObject(), bundleParam2);
@@ -111,6 +111,32 @@ namespace SRPG
         stringBuilder.Append(itemInfo.Quantity.ToString());
         component.itemName.set_text(stringBuilder.ToString());
         component.itemData = itemData;
+        this.limited_shop_item_set_list.Add(component);
+      }
+      ++this.itemCount;
+    }
+
+    private void AddArtifactContents(BundleParam.BundleItemInfo itemInfo)
+    {
+      GameObject gameObject = this.itemCount >= this.limited_shop_item_set_list.Count ? (GameObject) Object.Instantiate<GameObject>((M0) this.ItemTemplate) : ((Component) this.limited_shop_item_set_list[this.itemCount]).get_gameObject();
+      if (Object.op_Inequality((Object) gameObject, (Object) null))
+      {
+        gameObject.SetActive(true);
+        Vector3 localScale = gameObject.get_transform().get_localScale();
+        gameObject.get_transform().SetParent(this.ItemParent.get_transform());
+        gameObject.get_transform().set_localScale(localScale);
+        LimitedShopSetItemListElement component = (LimitedShopSetItemListElement) gameObject.GetComponent<LimitedShopSetItemListElement>();
+        ArtifactParam artifactParam1 = new ArtifactParam();
+        ArtifactParam artifactParam2 = MonoSingleton<GameManager>.GetInstanceDirect().MasterParam.GetArtifactParam(itemInfo.Name);
+        ItemData itemData = new ItemData();
+        StringBuilder stringBuilder = GameUtility.GetStringBuilder();
+        if (itemData != null)
+          stringBuilder.Append(artifactParam2.name);
+        stringBuilder.Append(" × ");
+        stringBuilder.Append(itemInfo.Quantity.ToString());
+        component.itemName.set_text(stringBuilder.ToString());
+        component.itemData = itemData;
+        component.ArtifactParam = artifactParam2;
         this.limited_shop_item_set_list.Add(component);
       }
       ++this.itemCount;

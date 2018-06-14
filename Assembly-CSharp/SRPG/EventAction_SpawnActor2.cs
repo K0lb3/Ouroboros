@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.EventAction_SpawnActor2
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections;
@@ -24,9 +24,9 @@ namespace SRPG
     public bool Yuremono = true;
     [StringIsActorID]
     public string ActorID;
-    [StringIsLocalUnitID]
+    [StringIsLocalUnitIDPopup]
     public string UnitID;
-    [StringIsJobID]
+    [StringIsJobIDPopup]
     public string JobID;
     [SerializeField]
     public Vector3 Position;
@@ -61,7 +61,7 @@ namespace SRPG
     public override IEnumerator PreloadAssets()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new EventAction_SpawnActor2.\u003CPreloadAssets\u003Ec__Iterator6A() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new EventAction_SpawnActor2.\u003CPreloadAssets\u003Ec__IteratorA5() { \u003C\u003Ef__this = this };
     }
 
     public override void OnActivate()

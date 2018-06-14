@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_RejectFriend
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -12,8 +12,8 @@ using UnityEngine;
 namespace SRPG
 {
   [FlowNode.Pin(11, "すべて拒否", FlowNode.PinTypes.Input, 11)]
-  [FlowNode.Pin(21, "すべて拒否成功", FlowNode.PinTypes.Output, 21)]
   [FlowNode.NodeType("System/RejectFriend", 32741)]
+  [FlowNode.Pin(21, "すべて拒否成功", FlowNode.PinTypes.Output, 21)]
   [FlowNode.Pin(10, "ひとり拒否", FlowNode.PinTypes.Input, 10)]
   [FlowNode.Pin(20, "ひとり拒否成功", FlowNode.PinTypes.Output, 20)]
   public class FlowNode_RejectFriend : FlowNode_Network

@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.TowerPartyHP
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -34,13 +34,13 @@ namespace SRPG
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      TowerPartyHP.\u003CRefresh\u003Ec__AnonStorey273 refreshCAnonStorey273 = new TowerPartyHP.\u003CRefresh\u003Ec__AnonStorey273();
-      if (Object.op_Equality((Object) this.mSlider, (Object) null))
+      TowerPartyHP.\u003CRefresh\u003Ec__AnonStorey37E refreshCAnonStorey37E = new TowerPartyHP.\u003CRefresh\u003Ec__AnonStorey37E();
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mSlider, (UnityEngine.Object) null))
         return;
       // ISSUE: reference to a compiler-generated field
-      refreshCAnonStorey273.UnitData = DataSource.FindDataOfClass<UnitData>(((Component) this).get_gameObject(), (UnitData) null);
+      refreshCAnonStorey37E.UnitData = DataSource.FindDataOfClass<UnitData>(((Component) this).get_gameObject(), (UnitData) null);
       // ISSUE: reference to a compiler-generated field
-      if (refreshCAnonStorey273.UnitData == null)
+      if (refreshCAnonStorey37E.UnitData == null)
       {
         ((Component) this.mSlider).get_gameObject().SetActive(false);
       }
@@ -53,18 +53,18 @@ namespace SRPG
         {
           ((Component) this.mSlider).get_gameObject().SetActive(true);
           // ISSUE: reference to a compiler-generated field
-          int hp = (int) refreshCAnonStorey273.UnitData.Status.param.hp;
+          int hp = (int) refreshCAnonStorey37E.UnitData.Status.param.hp;
           this.SetSliderValue(hp, hp);
         }
         else
         {
           // ISSUE: reference to a compiler-generated method
-          TowerResuponse.PlayerUnit playerUnit = towerResuponse.pdeck.Find(new Predicate<TowerResuponse.PlayerUnit>(refreshCAnonStorey273.\u003C\u003Em__2EF));
+          TowerResuponse.PlayerUnit playerUnit = towerResuponse.pdeck.Find(new Predicate<TowerResuponse.PlayerUnit>(refreshCAnonStorey37E.\u003C\u003Em__420));
           if (playerUnit == null)
           {
             ((Component) this.mSlider).get_gameObject().SetActive(true);
             // ISSUE: reference to a compiler-generated field
-            int hp = (int) refreshCAnonStorey273.UnitData.Status.param.hp;
+            int hp = (int) refreshCAnonStorey37E.UnitData.Status.param.hp;
             this.SetSliderValue(hp, hp);
           }
           else if (playerUnit.isDied)
@@ -76,7 +76,7 @@ namespace SRPG
             ((Component) this.mSlider).get_gameObject().SetActive(true);
             // ISSUE: reference to a compiler-generated field
             // ISSUE: reference to a compiler-generated field
-            this.SetSliderValue(Mathf.Max((int) refreshCAnonStorey273.UnitData.Status.param.hp - playerUnit.dmg, 1), (int) refreshCAnonStorey273.UnitData.Status.param.hp);
+            this.SetSliderValue(Mathf.Max((int) refreshCAnonStorey37E.UnitData.Status.param.hp - playerUnit.dmg, 1), (int) refreshCAnonStorey37E.UnitData.Status.param.hp);
           }
         }
       }
@@ -84,7 +84,7 @@ namespace SRPG
 
     private void SetSliderValue(int value, int maxValue)
     {
-      if (!Object.op_Inequality((Object) this.mSlider, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSlider, (UnityEngine.Object) null))
         return;
       this.mSlider.set_maxValue((float) maxValue);
       this.mSlider.set_minValue(0.0f);

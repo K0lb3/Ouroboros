@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.ParamTypes
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 namespace SRPG
@@ -129,5 +129,15 @@ namespace SRPG
     Avoid_Magic,
     Avoid_Reaction,
     Avoid_Jump,
+    GainJewelRate,
+    UsedJewel,
+    Assist_SingleAttack,
+    Assist_AreaAttack,
+    Resist_SingleAttack,
+    Resist_AreaAttack,
+    Assist_DecCT,
+    Assist_IncCT,
+    Resist_DecCT,
+    Resist_IncCT,
   }
 }

@@ -1,13 +1,13 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: LightFilterSettings
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using UnityEngine;
 
-[AddComponentMenu("")]
 [ExecuteInEditMode]
+[AddComponentMenu("")]
 public class LightFilterSettings : MonoBehaviour
 {
   public float AOSampleRadius;
@@ -42,8 +42,16 @@ public class LightFilterSettings : MonoBehaviour
     ((Object) ((Component) this).get_gameObject()).set_hideFlags((HideFlags) 1);
     if (this.AOGradient != null && this.AOGradient.get_colorKeys().Length > 1)
       return;
-    GradientColorKey[] gradientColorKeyArray = new GradientColorKey[2]{ new GradientColorKey(Color.get_black(), 0.0f), new GradientColorKey(Color.get_white(), 1f) };
-    GradientAlphaKey[] gradientAlphaKeyArray = new GradientAlphaKey[2]{ new GradientAlphaKey(1f, 0.0f), new GradientAlphaKey(1f, 1f) };
+    GradientColorKey[] gradientColorKeyArray = new GradientColorKey[2]
+    {
+      new GradientColorKey(Color.get_black(), 0.0f),
+      new GradientColorKey(Color.get_white(), 1f)
+    };
+    GradientAlphaKey[] gradientAlphaKeyArray = new GradientAlphaKey[2]
+    {
+      new GradientAlphaKey(1f, 0.0f),
+      new GradientAlphaKey(1f, 1f)
+    };
     this.AOGradient = new Gradient();
     this.AOGradient.SetKeys(gradientColorKeyArray, gradientAlphaKeyArray);
   }

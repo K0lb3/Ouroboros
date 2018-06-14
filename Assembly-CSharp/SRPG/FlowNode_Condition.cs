@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_Condition
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -12,10 +12,10 @@ using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.NodeType("SRPG/Condition", 32741)]
-  [FlowNode.Pin(2, "No", FlowNode.PinTypes.Output, 2)]
   [FlowNode.Pin(1, "Yes", FlowNode.PinTypes.Output, 1)]
+  [FlowNode.Pin(2, "No", FlowNode.PinTypes.Output, 2)]
   [FlowNode.Pin(100, "Test", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.NodeType("SRPG/Condition", 32741)]
   public class FlowNode_Condition : FlowNode
   {
     public FlowNode_Condition.Conditions Condition;
@@ -88,30 +88,30 @@ namespace SRPG
           }
           return true;
         case FlowNode_Condition.Conditions.TARGET_COMMANDVALID:
-          if (Object.op_Inequality((Object) SceneBattle.Instance, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null))
             return SceneBattle.Instance.UIParam_TargetValid;
           break;
         case FlowNode_Condition.Conditions.QUEST_DROPSKAKERA:
           QuestParam dataOfClass2;
-          if ((dataOfClass2 = DataSource.FindDataOfClass<QuestParam>(((Component) this).get_gameObject(), (QuestParam) null)) != null && dataOfClass2.pieces != null)
-            return !string.IsNullOrEmpty(dataOfClass2.pieces[0]);
+          if ((dataOfClass2 = DataSource.FindDataOfClass<QuestParam>(((Component) this).get_gameObject(), (QuestParam) null)) != null && !UnityEngine.Object.op_Equality((UnityEngine.Object) QuestDropParam.Instance, (UnityEngine.Object) null))
+            return QuestDropParam.Instance.GetHardDropPiece(dataOfClass2.iname, GlobalVars.GetDropTableGeneratedDateTime()) != null;
           break;
         case FlowNode_Condition.Conditions.QUEST_FIRSTTURN:
-          if (Object.op_Inequality((Object) SceneBattle.Instance, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null))
             return SceneBattle.Instance.UnitStartCount <= 1;
           break;
         case FlowNode_Condition.Conditions.QUEST_NEEDFRIENDREQUEST:
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          FlowNode_Condition.\u003CTest\u003Ec__AnonStorey20C testCAnonStorey20C = new FlowNode_Condition.\u003CTest\u003Ec__AnonStorey20C();
+          FlowNode_Condition.\u003CTest\u003Ec__AnonStorey2C7 testCAnonStorey2C7 = new FlowNode_Condition.\u003CTest\u003Ec__AnonStorey2C7();
           // ISSUE: reference to a compiler-generated field
-          testCAnonStorey20C.support = (SupportData) GlobalVars.SelectedSupport;
+          testCAnonStorey2C7.support = (SupportData) GlobalVars.SelectedSupport;
           // ISSUE: reference to a compiler-generated field
           // ISSUE: reference to a compiler-generated field
-          if (testCAnonStorey20C.support == null || testCAnonStorey20C.support.IsFriend())
+          if (testCAnonStorey2C7.support == null || testCAnonStorey2C7.support.IsFriend())
             return false;
           // ISSUE: reference to a compiler-generated method
-          FriendData friendData = player.Friends.Find(new Predicate<FriendData>(testCAnonStorey20C.\u003C\u003Em__1EE));
+          FriendData friendData = player.Friends.Find(new Predicate<FriendData>(testCAnonStorey2C7.\u003C\u003Em__2A0));
           if (friendData == null)
             return true;
           return friendData.State == FriendStates.Friend || friendData.State != FriendStates.Follow ? false : false;
@@ -122,19 +122,19 @@ namespace SRPG
         case FlowNode_Condition.Conditions.BTLIDSET:
           return (long) GlobalVars.BtlID != 0L;
         case FlowNode_Condition.Conditions.QUEST_ISMULTIPLAY:
-          if (Object.op_Inequality((Object) SceneBattle.Instance, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null))
             return SceneBattle.Instance.IsPlayingMultiQuest;
           break;
         case FlowNode_Condition.Conditions.QUEST_ISARENA:
-          if (Object.op_Inequality((Object) SceneBattle.Instance, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null))
             return SceneBattle.Instance.IsPlayingArenaQuest;
           break;
         case FlowNode_Condition.Conditions.ARENA_RANKUP:
-          if (Object.op_Inequality((Object) SceneBattle.Instance, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null))
             return SceneBattle.Instance.IsArenaRankupInfo();
           break;
         case FlowNode_Condition.Conditions.QUEST_HASREWARD:
-          if (Object.op_Inequality((Object) SceneBattle.Instance, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null))
             return !SceneBattle.Instance.Battle.GetQuestRecord().IsZero;
           break;
         case FlowNode_Condition.Conditions.TERMSOFUSE_AGREED:
@@ -142,7 +142,7 @@ namespace SRPG
         case FlowNode_Condition.Conditions.FRIEND_VALID:
           return this.GetSupportData() != null;
         case FlowNode_Condition.Conditions.QUEST_ENDSILENT:
-          if (Object.op_Inequality((Object) SceneBattle.Instance, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null))
             return SceneBattle.Instance.CurrentQuest.Silent;
           break;
         case FlowNode_Condition.Conditions.IS_NOT_ENOUGH_SUPPORT_COST:
@@ -158,7 +158,7 @@ namespace SRPG
         case FlowNode_Condition.Conditions.MULTI_PLAY_IS_UNLOCKED:
           return MonoSingleton<GameManager>.Instance.Player.CheckUnlock(UnlockTargets.MultiPlay);
         case FlowNode_Condition.Conditions.QUEST_IS_ENABLE_AUTOBATTLE:
-          if (Object.op_Inequality((Object) SceneBattle.Instance, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null))
           {
             QuestParam quest2 = SceneBattle.Instance.Battle.GetQuest();
             if (quest2 != null)
@@ -167,7 +167,7 @@ namespace SRPG
           }
           break;
         case FlowNode_Condition.Conditions.QUEST_IS_AUTOBATTLE:
-          if (Object.op_Inequality((Object) SceneBattle.Instance, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null))
             return SceneBattle.Instance.Battle.IsAutoBattle;
           break;
         case FlowNode_Condition.Conditions.DEBUGBUILD:
@@ -180,14 +180,92 @@ namespace SRPG
           return MonoSingleton<GameManager>.Instance.Player.FindUnitDataByUnitID(DataSource.FindDataOfClass<UnitParam>(((Component) this).get_gameObject(), (UnitParam) null).iname) != null;
         case FlowNode_Condition.Conditions.VERSUS_UNLOCK:
           return MonoSingleton<GameManager>.Instance.Player.CheckUnlock(UnlockTargets.MultiVS);
+        case FlowNode_Condition.Conditions.QUEST_IS_SHOW_REVIEW:
+          if (!string.IsNullOrEmpty(GlobalVars.SelectedQuestID))
+          {
+            QuestParam quest2 = MonoSingleton<GameManager>.Instance.FindQuest(GlobalVars.SelectedQuestID);
+            if (quest2 != null)
+              return quest2.ShowReviewPopup;
+            break;
+          }
+          break;
+        case FlowNode_Condition.Conditions.QUEST_IS_FIRST_CLEAR:
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null))
+            return SceneBattle.Instance.IsFirstWin;
+          break;
+        case FlowNode_Condition.Conditions.QUEST_IS_GPS:
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null) && SceneBattle.Instance.CurrentQuest != null && SceneBattle.Instance.CurrentQuest.type == QuestTypes.Gps)
+            return true;
+          break;
+        case FlowNode_Condition.Conditions.QUEST_IS_GPSCHAPTER_HEAD:
+          if (!string.IsNullOrEmpty((string) GlobalVars.SelectedChapter))
+          {
+            ChapterParam area = MonoSingleton<GameManager>.Instance.FindArea((string) GlobalVars.SelectedChapter);
+            if (area != null && area.IsGpsQuest())
+              return area.children.Count > 0;
+            break;
+          }
+          break;
+        case FlowNode_Condition.Conditions.QUEST_IS_GPSCHAPTER_QUEST:
+          if (!string.IsNullOrEmpty((string) GlobalVars.SelectedChapter))
+          {
+            ChapterParam area = MonoSingleton<GameManager>.Instance.FindArea((string) GlobalVars.SelectedChapter);
+            if (area != null)
+              return area.IsGpsQuest();
+            break;
+          }
+          break;
+        case FlowNode_Condition.Conditions.QUEST_IS_GPSCHAPTER_QUEST_VALID:
+          if (!string.IsNullOrEmpty((string) GlobalVars.SelectedChapter))
+          {
+            ChapterParam area = MonoSingleton<GameManager>.Instance.FindArea((string) GlobalVars.SelectedChapter);
+            if (area != null)
+              return area.HasGpsQuest();
+            break;
+          }
+          break;
+        case FlowNode_Condition.Conditions.VALID_GPSGIFT:
+          return MonoSingleton<GameManager>.Instance.Player.ValidGpsGift;
+        case FlowNode_Condition.Conditions.SCENE_CHANGING:
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) HomeWindow.Current, (UnityEngine.Object) null))
+            return HomeWindow.Current.IsSceneChanging;
+          return false;
+        case FlowNode_Condition.Conditions.QUEST_IS_PLAY_LAST_DEMO:
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null))
+            return SceneBattle.Instance.IsPlayLastDemo;
+          break;
+        case FlowNode_Condition.Conditions.QUEST_IS_RANKINGQUEST:
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null))
+            return SceneBattle.Instance.Battle.IsRankingQuest;
+          break;
+        case FlowNode_Condition.Conditions.QUEST_IS_RANKINGQUEST_NEWSCORE:
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null))
+            return SceneBattle.Instance.IsRankingQuestNewScore;
+          break;
+        case FlowNode_Condition.Conditions.QUEST_IS_RANKINGQUEST_JOIN_REWARD:
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null))
+            return SceneBattle.Instance.IsRankingQuestJoinReward;
+          break;
+        case FlowNode_Condition.Conditions.QUEST_IS_RANKINGQUEST_RESULT_VALIDRANK:
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null))
+            return SceneBattle.Instance.ValidateRankingQuestRank;
+          break;
         case FlowNode_Condition.Conditions.SG_LANGUAGE:
-          return GameUtility.Config_Language == "None";
+          if (!GameUtility.ForceLanguageSelection && !(GameUtility.Config_Language == "None"))
+            return false;
+          if (GameUtility.ForceLanguageSelection)
+            GameUtility.ForceLanguageSelection = false;
+          return true;
         case FlowNode_Condition.Conditions.SG_CHECK_ACCOUNT_LINK:
           return PlayerPrefs.GetInt("AccountLinked", 0) != 1 && (MonoSingleton<GameManager>.Instance.Player.TutorialFlags & 1L) != 0L && PlayerPrefs.HasKey("LastLoginTime") && (DateTime.Now - DateTime.ParseExact(PlayerPrefs.GetString("LastLoginTime"), "O", (IFormatProvider) CultureInfo.InvariantCulture)).TotalHours > 24.0;
         case FlowNode_Condition.Conditions.SG_CHECK_ANDROID_PERMISSION:
           return !AndroidPermissionsManager.IsPermissionGranted("android.permission.WRITE_EXTERNAL_STORAGE");
         case FlowNode_Condition.Conditions.SG_DISK_SPACE_AVAILABLE:
           return (MonoSingleton<GameManager>.Instance.Player.TutorialFlags & 1L) != 0L || DiskUtils.CheckAvailableSpace(true) >= 500;
+        case FlowNode_Condition.Conditions.SG_AUTO_BATTLE_ENABLED:
+          return GameUtility.Config_UseAutoPlay.Value;
+        case FlowNode_Condition.Conditions.SG_SPEEDUP_ENABLED:
+          return PlayerPrefs.GetInt("SPEED_UP", 0) != 0;
       }
       return false;
     }
@@ -233,10 +311,25 @@ namespace SRPG
       [FlowNode_Condition.Description("チュートリアルを最後まで行ったか？")] IS_END_TUTORIAL,
       [FlowNode_Condition.Description("ユニットを所持しているか？")] IS_GET_UNIT,
       [FlowNode_Condition.Description("対戦はアンロック済みか？")] VERSUS_UNLOCK,
+      [FlowNode_Condition.Description("レビューポップアップを表示するか？")] QUEST_IS_SHOW_REVIEW,
+      [FlowNode_Condition.Description("クエストは初回クリアか？")] QUEST_IS_FIRST_CLEAR,
+      [FlowNode_Condition.Description("クエストタイプがGPSクエストか？")] QUEST_IS_GPS,
+      [FlowNode_Condition.Description("選択中のチャプターがGPSヘッダか？")] QUEST_IS_GPSCHAPTER_HEAD,
+      [FlowNode_Condition.Description("選択中のチャプターがGPSクエストか？")] QUEST_IS_GPSCHAPTER_QUEST,
+      [FlowNode_Condition.Description("選択中のチャプターに有効なGPSクエストがあるか？")] QUEST_IS_GPSCHAPTER_QUEST_VALID,
+      [FlowNode_Condition.Description("GPSギフトが有効かどうか")] VALID_GPSGIFT,
+      [FlowNode_Condition.Description("シーン遷移中かどうか")] SCENE_CHANGING,
+      [FlowNode_Condition.Description("終了デモ再生条件を満たしているか？")] QUEST_IS_PLAY_LAST_DEMO,
+      [FlowNode_Condition.Description("ランキングクエストか？")] QUEST_IS_RANKINGQUEST,
+      [FlowNode_Condition.Description("ランキングクエストでハイスコア更新したか？")] QUEST_IS_RANKINGQUEST_NEWSCORE,
+      [FlowNode_Condition.Description("ランキングクエストで参加報酬をうけとれたか？")] QUEST_IS_RANKINGQUEST_JOIN_REWARD,
+      [FlowNode_Condition.Description("ランキングクエストのリザルトで有効なランクだったか？（集計中は無効なランクになる）")] QUEST_IS_RANKINGQUEST_RESULT_VALIDRANK,
       [FlowNode_Condition.Description("Need to show language selection?")] SG_LANGUAGE,
       [FlowNode_Condition.Description("If account not linked, return TRUE every 24h")] SG_CHECK_ACCOUNT_LINK,
       [FlowNode_Condition.Description("Popup Android Permission Request")] SG_CHECK_ANDROID_PERMISSION,
       [FlowNode_Condition.Description("Check if Free Disk Space is higher than minimum requirement")] SG_DISK_SPACE_AVAILABLE,
+      [FlowNode_Condition.Description("Is AutoBattle enabled")] SG_AUTO_BATTLE_ENABLED,
+      [FlowNode_Condition.Description("Is SpeedUP enabled")] SG_SPEEDUP_ENABLED,
     }
   }
 }

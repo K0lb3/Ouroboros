@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.HomeWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -15,37 +15,39 @@ using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.Pin(116, "To Scene[16]", FlowNode.PinTypes.Input, 116)]
-  [FlowNode.Pin(120, "To Scene[20]", FlowNode.PinTypes.Input, 120)]
-  [FlowNode.Pin(119, "To Scene[19]", FlowNode.PinTypes.Input, 119)]
-  [FlowNode.Pin(118, "To Scene[18]", FlowNode.PinTypes.Input, 118)]
-  [FlowNode.Pin(117, "To Scene[17]", FlowNode.PinTypes.Input, 117)]
-  [FlowNode.Pin(121, "To Scene[21]", FlowNode.PinTypes.Input, 121)]
-  [FlowNode.Pin(115, "To Scene[15]", FlowNode.PinTypes.Input, 115)]
-  [FlowNode.Pin(114, "To Scene[14]", FlowNode.PinTypes.Input, 114)]
-  [FlowNode.Pin(113, "To Scene[13]", FlowNode.PinTypes.Input, 113)]
-  [FlowNode.Pin(1001, "Show Tutorial", FlowNode.PinTypes.Output, 1001)]
-  [FlowNode.Pin(112, "To Scene[12]", FlowNode.PinTypes.Input, 112)]
-  [FlowNode.Pin(111, "To Scene[11]", FlowNode.PinTypes.Input, 111)]
-  [FlowNode.Pin(110, "To Scene[10]", FlowNode.PinTypes.Input, 110)]
+  [FlowNode.Pin(1003, "Begin Default in Home", FlowNode.PinTypes.Output, 1003)]
   [FlowNode.Pin(10, "FadeIn Start", FlowNode.PinTypes.Output, 10)]
-  [FlowNode.Pin(109, "To Scene[9]", FlowNode.PinTypes.Input, 109)]
   [FlowNode.Pin(11, "FadeOut Start", FlowNode.PinTypes.Output, 11)]
-  [FlowNode.Pin(108, "To Scene[8]", FlowNode.PinTypes.Input, 108)]
-  [FlowNode.Pin(107, "To Scene[7]", FlowNode.PinTypes.Input, 107)]
-  [FlowNode.Pin(106, "To Scene[6]", FlowNode.PinTypes.Input, 106)]
-  [FlowNode.Pin(105, "To Scene[5]", FlowNode.PinTypes.Input, 105)]
-  [FlowNode.Pin(104, "To Scene[4]", FlowNode.PinTypes.Input, 104)]
-  [FlowNode.Pin(103, "To Scene[3]", FlowNode.PinTypes.Input, 103)]
   [FlowNode.Pin(12, "FadeOut End", FlowNode.PinTypes.Input, 12)]
   [FlowNode.Pin(15, "Home Enter", FlowNode.PinTypes.Output, 15)]
-  [FlowNode.Pin(102, "To Scene[2]", FlowNode.PinTypes.Input, 102)]
-  [FlowNode.Pin(101, "To Scene[1]", FlowNode.PinTypes.Input, 101)]
-  [FlowNode.Pin(100, "To Scene[0]", FlowNode.PinTypes.Input, 100)]
-  [FlowNode.Pin(99, "To Home", FlowNode.PinTypes.Input, 99)]
-  [FlowNode.Pin(30, "Restore", FlowNode.PinTypes.Input, 30)]
-  [FlowNode.Pin(1002, "Next Tutorial", FlowNode.PinTypes.Input, 1002)]
   [FlowNode.Pin(16, "Home Leave", FlowNode.PinTypes.Output, 16)]
+  [FlowNode.Pin(1001, "Show Tutorial", FlowNode.PinTypes.Output, 1001)]
+  [FlowNode.Pin(1002, "Next Tutorial", FlowNode.PinTypes.Input, 1002)]
+  [FlowNode.Pin(30, "Restore", FlowNode.PinTypes.Input, 30)]
+  [FlowNode.Pin(99, "To Home", FlowNode.PinTypes.Input, 99)]
+  [FlowNode.Pin(100, "To Scene[0]", FlowNode.PinTypes.Input, 100)]
+  [FlowNode.Pin(101, "To Scene[1]", FlowNode.PinTypes.Input, 101)]
+  [FlowNode.Pin(102, "To Scene[2]", FlowNode.PinTypes.Input, 102)]
+  [FlowNode.Pin(103, "To Scene[3]", FlowNode.PinTypes.Input, 103)]
+  [FlowNode.Pin(104, "To Scene[4]", FlowNode.PinTypes.Input, 104)]
+  [FlowNode.Pin(105, "To Scene[5]", FlowNode.PinTypes.Input, 105)]
+  [FlowNode.Pin(106, "To Scene[6]", FlowNode.PinTypes.Input, 106)]
+  [FlowNode.Pin(107, "To Scene[7]", FlowNode.PinTypes.Input, 107)]
+  [FlowNode.Pin(108, "To Scene[8]", FlowNode.PinTypes.Input, 108)]
+  [FlowNode.Pin(109, "To Scene[9]", FlowNode.PinTypes.Input, 109)]
+  [FlowNode.Pin(110, "To Scene[10]", FlowNode.PinTypes.Input, 110)]
+  [FlowNode.Pin(111, "To Scene[11]", FlowNode.PinTypes.Input, 111)]
+  [FlowNode.Pin(112, "To Scene[12]", FlowNode.PinTypes.Input, 112)]
+  [FlowNode.Pin(113, "To Scene[13]", FlowNode.PinTypes.Input, 113)]
+  [FlowNode.Pin(114, "To Scene[14]", FlowNode.PinTypes.Input, 114)]
+  [FlowNode.Pin(115, "To Scene[15]", FlowNode.PinTypes.Input, 115)]
+  [FlowNode.Pin(116, "To Scene[16]", FlowNode.PinTypes.Input, 116)]
+  [FlowNode.Pin(117, "To Scene[17]", FlowNode.PinTypes.Input, 117)]
+  [FlowNode.Pin(118, "To Scene[18]", FlowNode.PinTypes.Input, 118)]
+  [FlowNode.Pin(119, "To Scene[19]", FlowNode.PinTypes.Input, 119)]
+  [FlowNode.Pin(120, "To Scene[20]", FlowNode.PinTypes.Input, 120)]
+  [FlowNode.Pin(121, "To Scene[21]", FlowNode.PinTypes.Input, 121)]
+  [FlowNode.Pin(122, "To Scene[22]", FlowNode.PinTypes.Input, 122)]
   public class HomeWindow : MonoBehaviour, IFlowInterface
   {
     public const int PINID_FADEIN_START = 10;
@@ -55,7 +57,8 @@ namespace SRPG
     public const int PINID_HOME_LEAVE = 16;
     public const int PINID_HOME_SHOW_TUTORIAL = 1001;
     public const int PINID_HOME_NEXT_TUTORIAL = 1002;
-    public static HomeWindow mInstance;
+    public const int PINID_STATE_BEGIN_DEFAULT_IN_HOME = 1003;
+    private static HomeWindow mInstance;
     private StateMachine<HomeWindow> mStateMachine;
     private static RestorePoints mRestorePoint;
     public string[] SceneNames;
@@ -81,6 +84,7 @@ namespace SRPG
     public HomeWindow.RestoreScene[] RestoreScenes;
     public static int EnterHomeCount;
     private bool mNewsShown;
+    private string mPendingGlobalEventName;
 
     public HomeWindow()
     {
@@ -115,9 +119,25 @@ namespace SRPG
       }
     }
 
+    public bool IsSceneChanging
+    {
+      get
+      {
+        return this.mDesirdSceneSet;
+      }
+    }
+
+    public bool DesiredSceneIsHome
+    {
+      get
+      {
+        return this.mDesiredSceneIsHome;
+      }
+    }
+
     public void Activated(int pinID)
     {
-      if (99 <= pinID && pinID < 122)
+      if (99 <= pinID && pinID < 123)
       {
         TrophyState[] trophyStates = MonoSingleton<GameManager>.Instance.Player.TrophyStates;
         if (trophyStates != null)
@@ -132,13 +152,14 @@ namespace SRPG
             }
           }
         }
+        MonoSingleton<GameManager>.Instance.Player.OnPlayerLevelChange(1);
         if (this.mDesirdSceneSet)
           return;
         // ISSUE: object of a compiler-generated type is created
         // ISSUE: variable of a compiler-generated type
-        HomeWindow.\u003CActivated\u003Ec__AnonStorey251 activatedCAnonStorey251 = new HomeWindow.\u003CActivated\u003Ec__AnonStorey251();
+        HomeWindow.\u003CActivated\u003Ec__AnonStorey33C activatedCAnonStorey33C = new HomeWindow.\u003CActivated\u003Ec__AnonStorey33C();
         // ISSUE: reference to a compiler-generated field
-        activatedCAnonStorey251.desiredSceneName = (string) null;
+        activatedCAnonStorey33C.desiredSceneName = (string) null;
         bool flag1 = false;
         bool flag2 = GlobalVars.ForceSceneChange;
         GlobalVars.ForceSceneChange = false;
@@ -148,72 +169,73 @@ namespace SRPG
           if (homeWorld != null)
           {
             // ISSUE: reference to a compiler-generated field
-            activatedCAnonStorey251.desiredSceneName = homeWorld.home;
+            activatedCAnonStorey33C.desiredSceneName = homeWorld.home;
             flag1 = true;
           }
         }
         else
         {
           // ISSUE: reference to a compiler-generated field
-          activatedCAnonStorey251.desiredSceneName = this.SceneNames[pinID - 100];
-          // ISSUE: reference to a compiler-generated field
-          if (activatedCAnonStorey251.desiredSceneName == "world001")
-          {
-            // ISSUE: reference to a compiler-generated field
-            activatedCAnonStorey251.desiredSceneName = "world001_sg";
-          }
+          activatedCAnonStorey33C.desiredSceneName = this.SceneNames[pinID - 100];
         }
         // ISSUE: reference to a compiler-generated method
-        if (Array.FindIndex<string>(this.IgnoreSameSceneCheck, new Predicate<string>(activatedCAnonStorey251.\u003C\u003Em__29C)) != -1)
+        if (Array.FindIndex<string>(this.IgnoreSameSceneCheck, new Predicate<string>(activatedCAnonStorey33C.\u003C\u003Em__391)) != -1)
           flag2 = true;
         // ISSUE: reference to a compiler-generated field
         // ISSUE: reference to a compiler-generated field
-        if (string.IsNullOrEmpty(activatedCAnonStorey251.desiredSceneName) || !flag2 && !(this.mLastSceneName != activatedCAnonStorey251.desiredSceneName) || !MonoSingleton<GameManager>.Instance.PrepareSceneChange())
-          return;
-        this.mDesirdSceneSet = true;
-        // ISSUE: reference to a compiler-generated field
-        this.mDesiredSceneName = activatedCAnonStorey251.desiredSceneName;
-        this.mDesiredSceneIsHome = flag1;
-        if ((MonoSingleton<GameManager>.Instance.Player.TutorialFlags & 1L) == 0L)
+        if (!string.IsNullOrEmpty(activatedCAnonStorey33C.desiredSceneName) && (flag2 || this.mLastSceneName != activatedCAnonStorey33C.desiredSceneName))
         {
-          GameManager instance = MonoSingleton<GameManager>.Instance;
-          if (!this.mDesiredSceneIsHome)
+          if (!MonoSingleton<GameManager>.Instance.PrepareSceneChange())
+            return;
+          this.mDesirdSceneSet = true;
+          // ISSUE: reference to a compiler-generated field
+          this.mDesiredSceneName = activatedCAnonStorey33C.desiredSceneName;
+          this.mDesiredSceneIsHome = flag1;
+          if ((MonoSingleton<GameManager>.Instance.Player.TutorialFlags & 1L) == 0L)
           {
-            // ISSUE: reference to a compiler-generated field
-            if (activatedCAnonStorey251.desiredSceneName == "Home_Gacha")
-            {
-              if (instance.GetNextTutorialStep() != "ShowSummonButton")
-                this.mDesirdSceneSet = false;
-            }
-            else
+            GameManager instance = MonoSingleton<GameManager>.Instance;
+            if (!this.mDesiredSceneIsHome)
             {
               // ISSUE: reference to a compiler-generated field
-              if (activatedCAnonStorey251.desiredSceneName == "Home_UnitList")
+              if (activatedCAnonStorey33C.desiredSceneName == "Home_Gacha")
               {
-                if (instance.GetNextTutorialStep() != "ShowUnitButton")
+                if (instance.GetNextTutorialStep() != "ShowFreeGachaButton" && instance.GetNextTutorialStep() != "ShowSummonButton")
                   this.mDesirdSceneSet = false;
               }
               else
               {
                 // ISSUE: reference to a compiler-generated field
-                if (activatedCAnonStorey251.desiredSceneName == "world001_sg")
+                if (activatedCAnonStorey33C.desiredSceneName == "Home_UnitList")
                 {
-                  if (instance.GetNextTutorialStep() != "ShowStoryButton")
+                  if (instance.GetNextTutorialStep() != "ShowUnitList" && instance.GetNextTutorialStep() != "ShowUnitButton")
                     this.mDesirdSceneSet = false;
                 }
                 else
                 {
-                  this.mDesirdSceneSet = false;
-                  return;
+                  // ISSUE: reference to a compiler-generated field
+                  if (activatedCAnonStorey33C.desiredSceneName == "world001")
+                  {
+                    if (instance.GetNextTutorialStep() != "ShowQuestItem" && instance.GetNextTutorialStep() != "ShowStoryButton")
+                      this.mDesirdSceneSet = false;
+                  }
+                  else
+                  {
+                    this.mDesirdSceneSet = false;
+                    return;
+                  }
                 }
               }
             }
           }
+          this.mIgnorePopups = !this.mDesiredSceneIsHome;
+          GlobalVars.SetDropTableGeneratedTime();
         }
-        this.mIgnorePopups = !this.mDesiredSceneIsHome;
-        if (!this.mDesiredSceneIsHome)
-          return;
-        FlowNode_PlayBGM.PlayHomeBGM();
+        else
+        {
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) GameObject.Find("EventQuest"), (UnityEngine.Object) null))
+            return;
+          GlobalEvent.Invoke("UPDATE_EVENT_LIST", (object) this);
+        }
       }
       else
       {
@@ -263,17 +285,20 @@ namespace SRPG
 
     private void Start()
     {
-      if (Object.op_Equality((Object) HomeWindow.mInstance, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) HomeWindow.mInstance, (UnityEngine.Object) null))
         HomeWindow.mInstance = this;
+      Debug.Log((object) "We are setting our flow handler");
+      AnalyticsManager.PlacementWantedFlowChangeHandler += new Action<string>(this.SetGlobalEventToBeRunCallback);
       this.mStateMachine = new StateMachine<HomeWindow>(this);
       this.mStateMachine.GotoState<HomeWindow.State_Default>();
     }
 
     private void OnDestroy()
     {
-      if (!Object.op_Equality((Object) HomeWindow.mInstance, (Object) this))
-        return;
-      HomeWindow.mInstance = (HomeWindow) null;
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) HomeWindow.mInstance, (UnityEngine.Object) this))
+        HomeWindow.mInstance = (HomeWindow) null;
+      Debug.Log((object) "We are destroying our flow handler");
+      AnalyticsManager.PlacementWantedFlowChangeHandler -= new Action<string>(this.SetGlobalEventToBeRunCallback);
     }
 
     private void OnApplicationPause(bool pausing)
@@ -297,12 +322,10 @@ namespace SRPG
           trophyprogs1.Add(trophyStates[index]);
       }
       if (trophyprogs1.Count > 0)
-      {
-        int num1 = (int) Network.RequestAPIImmediate((WebAPI) new ReqUpdateTrophy(trophyprogs1, new Network.ResponseCallback(this.OnUpdateTrophyImmediate), false), true);
-      }
+        Network.RequestAPIImmediate((WebAPI) new ReqUpdateTrophy(trophyprogs1, new Network.ResponseCallback(this.OnUpdateTrophyImmediate), false), true);
       if (trophyprogs2.Count <= 0)
         return;
-      int num2 = (int) Network.RequestAPIImmediate((WebAPI) new ReqUpdateBingo(trophyprogs2, new Network.ResponseCallback(this.OnUpdateTrophyImmediate), false), true);
+      Network.RequestAPIImmediate((WebAPI) new ReqUpdateBingo(trophyprogs2, new Network.ResponseCallback(this.OnUpdateTrophyImmediate), false), true);
     }
 
     private void OnApplicationFocus(bool focus)
@@ -320,7 +343,7 @@ namespace SRPG
     public void SetVisible(bool visible)
     {
       Canvas component = (Canvas) ((Component) this).GetComponent<Canvas>();
-      if (!Object.op_Inequality((Object) component, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
         return;
       ((Behaviour) component).set_enabled(visible);
     }
@@ -342,12 +365,12 @@ namespace SRPG
 
     public void UnlockContents()
     {
-      if (!this.mDesiredSceneIsHome || this.mDesirdSceneSet || ((CriticalSection.GetActive() & CriticalSections.SceneChange) != (CriticalSections) 0 || !PlayerPrefs.HasKey("lastplv")) || !PlayerPrefs.HasKey("lastviplv"))
+      if (!this.mDesiredSceneIsHome || this.mDesirdSceneSet || ((CriticalSection.GetActive() & CriticalSections.SceneChange) != (CriticalSections) 0 || !PlayerPrefsUtility.HasKey(PlayerPrefsUtility.HOME_LASTACCESS_PLAYER_LV)) || !PlayerPrefsUtility.HasKey(PlayerPrefsUtility.HOME_LASTACCESS_VIP_LV))
         return;
       PlayerData player = MonoSingleton<GameManager>.Instance.Player;
-      int num1 = PlayerPrefs.GetInt("lastplv");
+      int num1 = PlayerPrefsUtility.GetInt(PlayerPrefsUtility.HOME_LASTACCESS_PLAYER_LV, 0);
       int lv = player.Lv;
-      int num2 = PlayerPrefs.GetInt("lastviplv");
+      int num2 = PlayerPrefsUtility.GetInt(PlayerPrefsUtility.HOME_LASTACCESS_VIP_LV, 0);
       int vipRank = player.VipRank;
       if (num1 >= lv && num2 >= vipRank)
         return;
@@ -356,8 +379,8 @@ namespace SRPG
         if ((unlock.PlayerLevel == 0 || num1 < unlock.PlayerLevel && unlock.PlayerLevel <= lv) && (unlock.VipRank == 0 || num2 < unlock.VipRank && unlock.VipRank <= vipRank))
           NotifyList.PushContentsUnlock(unlock);
       }
-      PlayerPrefs.SetInt("lastplv", lv);
-      PlayerPrefs.SetInt("lastviplv", vipRank);
+      PlayerPrefsUtility.SetInt(PlayerPrefsUtility.HOME_LASTACCESS_PLAYER_LV, lv, false);
+      PlayerPrefsUtility.SetInt(PlayerPrefsUtility.HOME_LASTACCESS_VIP_LV, vipRank, false);
       LevelLock.UpdateLockStates();
     }
 
@@ -367,11 +390,11 @@ namespace SRPG
       if (player.SupportGold <= 0)
         return;
       NotifyList.PushQuestSupport(player.SupportCount, player.SupportGold);
+      player.OnGoldChange(player.SupportGold);
     }
 
     private void CheckTrophies()
     {
-      MonoSingleton<GameManager>.Instance.Player.UpdateUnitTrophyStates(true);
     }
 
     private void NotifyNewFriendRequests()
@@ -380,8 +403,8 @@ namespace SRPG
       int num = 0;
       StringBuilder stringBuilder = new StringBuilder(200);
       string[] array;
-      if (PlayerPrefs.HasKey("FRIENDS"))
-        array = PlayerPrefs.GetString("FRIENDS").Split(',');
+      if (PlayerPrefsUtility.HasKey(PlayerPrefsUtility.FRIEND_REQUEST_CACHE))
+        array = PlayerPrefsUtility.GetString(PlayerPrefsUtility.FRIEND_REQUEST_CACHE, string.Empty).Split(',');
       else
         array = new string[0];
       for (int index = 0; index < player.FollowerUID.Count; ++index)
@@ -397,8 +420,19 @@ namespace SRPG
         {
           (object) num
         }));
-      PlayerPrefs.SetString("FRIENDS", stringBuilder.ToString());
-      PlayerPrefs.Save();
+      PlayerPrefsUtility.SetString(PlayerPrefsUtility.FRIEND_REQUEST_CACHE, stringBuilder.ToString(), true);
+    }
+
+    private void SetGlobalEventToBeRunCallback(string inPendingGlobalEventName)
+    {
+      Debug.Log((object) ("We have set the new pending globalevent " + inPendingGlobalEventName));
+      this.mPendingGlobalEventName = inPendingGlobalEventName;
+    }
+
+    [ContextMenu("dsds")]
+    public void setthings()
+    {
+      this.mPendingGlobalEventName = "MENU_GACHA";
     }
 
     [Serializable]
@@ -412,6 +446,9 @@ namespace SRPG
     {
       public override void Begin(HomeWindow self)
       {
+        if (!self.DesiredSceneIsHome)
+          return;
+        FlowNode_GameObject.ActivateOutputLinks((Component) self, 1003);
       }
 
       public override void Update(HomeWindow self)
@@ -426,13 +463,21 @@ namespace SRPG
           player.UpdateStaminaDailyMission();
           player.UpdateVipDailyMission(player.VipRank);
           player.UpdateCardDailyMission();
-          if (!MonoSingleton<GameManager>.Instance.update_trophy_lock.IsLock || !player.IsTrophyDirty())
+          if (MonoSingleton<GameManager>.Instance.update_trophy_lock.IsLock && player.IsTrophyDirty())
+          {
+            if ((double) self.mSyncTrophyInterval > 0.0)
+              self.mSyncTrophyInterval -= Time.get_unscaledDeltaTime();
+            if ((double) self.mSyncTrophyInterval <= 0.0 && !CriticalSection.IsActive && Network.Mode == Network.EConnectMode.Online)
+            {
+              self.mStateMachine.GotoState<HomeWindow.State_UpdateTrophy>();
+              return;
+            }
+          }
+          if (string.IsNullOrEmpty(self.mPendingGlobalEventName) || !self.IsReadyInTown)
             return;
-          if ((double) self.mSyncTrophyInterval > 0.0)
-            self.mSyncTrophyInterval -= Time.get_unscaledDeltaTime();
-          if ((double) self.mSyncTrophyInterval > 0.0 || CriticalSection.IsActive || Network.Mode != Network.EConnectMode.Online)
-            return;
-          self.mStateMachine.GotoState<HomeWindow.State_UpdateTrophy>();
+          Debug.Log((object) ("We are invoking the  " + self.mPendingGlobalEventName + " on " + this.ToString()));
+          GlobalEvent.Invoke(self.mPendingGlobalEventName, (object) this);
+          self.mPendingGlobalEventName = string.Empty;
         }
       }
     }
@@ -442,14 +487,27 @@ namespace SRPG
       public override void Begin(HomeWindow self)
       {
         GameManager instance = MonoSingleton<GameManager>.Instance;
+        instance.ResumeTutorialSG();
         string nextTutorialStep = instance.GetNextTutorialStep();
         if (nextTutorialStep == "Home_SG" || nextTutorialStep == "ShowMissionDetailsButton" || (nextTutorialStep == "ShowStartTutorialUnitsDialog" || nextTutorialStep == "ShowQuestButton") || nextTutorialStep == "ShowStartTutorialDialog")
         {
           DebugUtility.LogWarning("Entering home tutorial");
           FlowNode_GameObject.ActivateOutputLinks((Component) self, 15);
         }
-        instance.ResumeTutorialSG();
-        FlowNode_GameObject.ActivateOutputLinks((Component) self, 1001);
+        if (nextTutorialStep == "ShowStartTutorialDialog")
+        {
+          DebugUtility.LogWarning("Show tut start dialog");
+          GlobalEvent.Invoke("SGTutDialogBox", (object) this);
+        }
+        else if (nextTutorialStep == "ShowStartTutorialUnitsDialog")
+        {
+          DebugUtility.LogWarning("Show unit tut start dialog");
+          GlobalEvent.Invoke("SGUnitTutDialogBox", (object) this);
+        }
+        else if (nextTutorialStep == "TutorialEnd")
+          GlobalEvent.Invoke("SGTutorialEnd", (object) this);
+        else
+          FlowNode_GameObject.ActivateOutputLinks((Component) self, 1001);
       }
 
       public override void Update(HomeWindow self)
@@ -477,7 +535,7 @@ namespace SRPG
       private IEnumerator ChangeSceneAsync()
       {
         // ISSUE: object of a compiler-generated type is created
-        return (IEnumerator) new HomeWindow.State_ChangeScene.\u003CChangeSceneAsync\u003Ec__IteratorB9() { \u003C\u003Ef__this = this };
+        return (IEnumerator) new HomeWindow.State_ChangeScene.\u003CChangeSceneAsync\u003Ec__IteratorFC() { \u003C\u003Ef__this = this };
       }
 
       private void OnSceneAwake(GameObject scene)
@@ -501,6 +559,11 @@ namespace SRPG
           if (AssetManager.IsAssetBundle(self.mDesiredSceneName))
           {
             AssetManager.PrepareAssets(self.mDesiredSceneName);
+            if (self.mDesiredSceneIsHome)
+            {
+              foreach (string resourcePath in FlowNode_PlayBGM.GetHomeBGM())
+                AssetManager.PrepareAssets(resourcePath);
+            }
             if (!AssetDownloader.isDone)
             {
               ProgressWindow.OpenGenericDownloadWindow();
@@ -520,6 +583,8 @@ namespace SRPG
         }
         if (this.state == 3)
         {
+          if (self.mDesiredSceneIsHome)
+            FlowNode_PlayBGM.PlayHomeBGM();
           self.mLastSceneName = self.mDesiredSceneName;
           this.req = AssetManager.LoadSceneAsync(self.mDesiredSceneName, true);
           this.state = 4;
@@ -538,7 +603,7 @@ namespace SRPG
         }
         if (this.state == 5)
         {
-          if (Object.op_Equality((Object) this.mNewScene, (Object) null) || !this.req.isDone)
+          if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mNewScene, (UnityEngine.Object) null) || !this.req.isDone)
             return;
           CriticalSection.Leave(CriticalSections.SceneChange);
           this.state = 6;
@@ -547,7 +612,6 @@ namespace SRPG
         {
           if (CriticalSection.IsActive)
             return;
-          GC.Collect();
           this.asyncOp = AssetManager.UnloadUnusedAssets();
           this.state = (MonoSingleton<GameManager>.Instance.Player.TutorialFlags & 1L) != 0L ? 7 : 101;
         }
@@ -707,11 +771,11 @@ namespace SRPG
         {
           if (!this.mReq.isDone)
             return;
-          if (Object.op_Inequality(this.mReq.asset, (Object) null))
-            this.mInstance = Object.Instantiate(this.mReq.asset) as GameObject;
+          if (UnityEngine.Object.op_Inequality(this.mReq.asset, (UnityEngine.Object) null))
+            this.mInstance = UnityEngine.Object.Instantiate(this.mReq.asset) as GameObject;
           this.mReq = (LoadRequest) null;
         }
-        if (!Object.op_Equality((Object) this.mInstance, (Object) null))
+        if (!UnityEngine.Object.op_Equality((UnityEngine.Object) this.mInstance, (UnityEngine.Object) null))
           return;
         self.mStateMachine.GotoState<HomeWindow.State_Default>();
       }
@@ -748,19 +812,19 @@ namespace SRPG
         {
           if (!this.mReq.isDone)
             return;
-          if (Object.op_Inequality(this.mReq.asset, (Object) null))
+          if (UnityEngine.Object.op_Inequality(this.mReq.asset, (UnityEngine.Object) null))
           {
-            this.mInstance = Object.Instantiate(this.mReq.asset) as GameObject;
+            this.mInstance = UnityEngine.Object.Instantiate(this.mReq.asset) as GameObject;
             LoginBonusWindow component1 = (LoginBonusWindow) this.mInstance.GetComponent<LoginBonusWindow>();
-            if (Object.op_Inequality((Object) component1, (Object) null))
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component1, (UnityEngine.Object) null))
               component1.TableID = this.mLoginBonusType;
             LoginBonusWindow28days component2 = (LoginBonusWindow28days) this.mInstance.GetComponent<LoginBonusWindow28days>();
-            if (Object.op_Inequality((Object) component2, (Object) null))
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component2, (UnityEngine.Object) null))
               component2.TableID = this.mLoginBonusType;
           }
           this.mReq = (LoadRequest) null;
         }
-        if (!Object.op_Equality((Object) this.mInstance, (Object) null))
+        if (!UnityEngine.Object.op_Equality((UnityEngine.Object) this.mInstance, (UnityEngine.Object) null))
           return;
         if (MonoSingleton<GameManager>.Instance.Player.HasQueuedLoginBonus)
         {

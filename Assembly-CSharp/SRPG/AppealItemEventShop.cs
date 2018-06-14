@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.AppealItemEventShop
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -42,15 +42,15 @@ namespace SRPG
 
     protected override void Awake()
     {
-      if (Object.op_Inequality((Object) this.AppealChara, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AppealChara, (UnityEngine.Object) null))
         ((Component) this.AppealChara).get_gameObject().SetActive(false);
-      if (Object.op_Inequality((Object) this.AppealTextL, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AppealTextL, (UnityEngine.Object) null))
         ((Component) this.AppealTextL).get_gameObject().SetActive(false);
-      if (Object.op_Inequality((Object) this.AppealTextR, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AppealTextR, (UnityEngine.Object) null))
         ((Component) this.AppealTextR).get_gameObject().SetActive(false);
-      if (Object.op_Inequality((Object) this.AppealCharaRect, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AppealCharaRect, (UnityEngine.Object) null))
         this.mPosX_Chara = (float) this.AppealCharaRect.get_anchoredPosition().x;
-      if (!Object.op_Inequality((Object) this.AppealTextRect, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AppealTextRect, (UnityEngine.Object) null))
         return;
       this.mPosX_Text = (float) this.AppealTextRect.get_anchoredPosition().x;
     }
@@ -59,10 +59,10 @@ namespace SRPG
     {
       if (this.LoadAppealMaster(this.MASTER_PATH))
         this.StartCoroutine(this.LoadAppealResources(this.SPRITES_PATH));
-      if (string.IsNullOrEmpty(this.mAppealID) && Object.op_Inequality((Object) this.EventShopButton, (Object) null))
+      if (string.IsNullOrEmpty(this.mAppealID) && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.EventShopButton, (UnityEngine.Object) null))
       {
         ((Selectable) this.EventShopButton).set_interactable(false);
-        if (Object.op_Inequality((Object) this.LockObject, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.LockObject, (UnityEngine.Object) null))
           this.LockObject.SetActive(true);
       }
       GlobalVars.IsEventShopOpen.Set(!string.IsNullOrEmpty(this.mAppealID));
@@ -82,16 +82,16 @@ namespace SRPG
 
     protected override void Refresh()
     {
-      ((Component) this.AppealChara).get_gameObject().SetActive(Object.op_Inequality((Object) this.AppealChara, (Object) null) && Object.op_Inequality((Object) this.CharaSprite, (Object) null));
-      ((Component) this.AppealTextL).get_gameObject().SetActive(Object.op_Inequality((Object) this.AppealTextL, (Object) null) && Object.op_Inequality((Object) this.TextLSprite, (Object) null));
-      ((Component) this.AppealTextR).get_gameObject().SetActive(Object.op_Inequality((Object) this.AppealTextR, (Object) null) && Object.op_Inequality((Object) this.TextRSprite, (Object) null));
+      ((Component) this.AppealChara).get_gameObject().SetActive(UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AppealChara, (UnityEngine.Object) null) && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.CharaSprite, (UnityEngine.Object) null));
+      ((Component) this.AppealTextL).get_gameObject().SetActive(UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AppealTextL, (UnityEngine.Object) null) && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TextLSprite, (UnityEngine.Object) null));
+      ((Component) this.AppealTextR).get_gameObject().SetActive(UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AppealTextR, (UnityEngine.Object) null) && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TextRSprite, (UnityEngine.Object) null));
       this.AppealChara.set_sprite(this.CharaSprite);
       this.AppealTextL.set_sprite(this.TextLSprite);
       this.AppealTextR.set_sprite(this.TextRSprite);
       this.AppealCharaRect.set_anchoredPosition(new Vector2(this.mPosX_Chara, (float) this.AppealCharaRect.get_anchoredPosition().y));
       this.AppealTextRect.set_anchoredPosition(new Vector2(this.mPosX_Text, (float) this.AppealTextRect.get_anchoredPosition().y));
       ((Selectable) this.EventShopButton).set_interactable(true);
-      if (Object.op_Inequality((Object) this.LockObject, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.LockObject, (UnityEngine.Object) null))
         this.LockObject.SetActive(false);
       this.IsInitalize = true;
     }
@@ -140,7 +140,7 @@ namespace SRPG
     private IEnumerator LoadAppealResources(string path)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new AppealItemEventShop.\u003CLoadAppealResources\u003Ec__Iterator97() { path = path, \u003C\u0024\u003Epath = path, \u003C\u003Ef__this = this };
+      return (IEnumerator) new AppealItemEventShop.\u003CLoadAppealResources\u003Ec__IteratorDA() { path = path, \u003C\u0024\u003Epath = path, \u003C\u003Ef__this = this };
     }
   }
 }

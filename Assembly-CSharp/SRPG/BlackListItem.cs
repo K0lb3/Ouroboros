@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.BlackListItem
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -31,13 +31,13 @@ namespace SRPG
     {
       if (param == null)
         return;
-      if (Object.op_Inequality((Object) this.Name, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Name, (UnityEngine.Object) null))
         this.Name.set_text(param.name);
-      if (Object.op_Inequality((Object) this.Lv, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Lv, (UnityEngine.Object) null))
         this.Lv.set_text(PlayerData.CalcLevelFromExp(param.exp).ToString());
-      if (Object.op_Inequality((Object) this.LastLogin, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.LastLogin, (UnityEngine.Object) null))
         this.LastLogin.set_text(ChatLogItem.GetPostAt(param.lastlogin));
-      if (!Object.op_Inequality((Object) this.Icon, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Icon, (UnityEngine.Object) null))
         return;
       UnitParam unitParam = MonoSingleton<GameManager>.Instance.MasterParam.GetUnitParam(param.icon);
       if (unitParam == null)

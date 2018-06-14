@@ -1,9 +1,10 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.ChapterParam
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
+using GR;
 using System;
 using System.Collections.Generic;
 
@@ -11,14 +12,15 @@ namespace SRPG
 {
   public class ChapterParam
   {
-    public string section = string.Empty;
+    private short world_index = -1;
+    private short section_index = -1;
+    public List<ChapterParam> children = new List<ChapterParam>();
     public List<QuestParam> quests = new List<QuestParam>();
     private string localizedNameID;
     private string localizedExprID;
     public string iname;
     public string name;
     public string expr;
-    public string world;
     public long start;
     public long end;
     public long key_end;
@@ -48,6 +50,30 @@ namespace SRPG
     {
       this.Deserialize(json);
       this.localizeFields(language);
+    }
+
+    public string world
+    {
+      set
+      {
+        this.world_index = Singleton<ShareVariable>.Instance.str.Set(ShareString.Type.ChapterParam_world, value);
+      }
+      get
+      {
+        return Singleton<ShareVariable>.Instance.str.Get(ShareString.Type.ChapterParam_world, this.world_index);
+      }
+    }
+
+    public string section
+    {
+      set
+      {
+        this.section_index = Singleton<ShareVariable>.Instance.str.Set(ShareString.Type.ChapterParam_section, value);
+      }
+      get
+      {
+        return Singleton<ShareVariable>.Instance.str.Get(ShareString.Type.ChapterParam_section, this.section_index);
+      }
     }
 
     public void Deserialize(JSON_ChapterParam json)
@@ -98,6 +124,87 @@ namespace SRPG
       if (!this.IsKeyQuest())
         return KeyQuestTypes.None;
       return this.keytime != 0L ? KeyQuestTypes.Timer : KeyQuestTypes.Count;
+    }
+
+    public bool IsGpsQuest()
+    {
+      if (this.quests != null)
+      {
+        for (int index = 0; index < this.quests.Count; ++index)
+        {
+          if (this.quests[index].type == QuestTypes.Gps)
+            return true;
+        }
+      }
+      for (int index = 0; index < this.children.Count; ++index)
+      {
+        if (this.children[index].IsGpsQuest())
+          return true;
+      }
+      return false;
+    }
+
+    public bool IsTowerQuest()
+    {
+      if (this.quests != null)
+      {
+        for (int index = 0; index < this.quests.Count; ++index)
+        {
+          if (this.quests[index].type == QuestTypes.Tower || this.quests[index].type == QuestTypes.MultiTower)
+            return true;
+        }
+      }
+      for (int index = 0; index < this.children.Count; ++index)
+      {
+        if (this.children[index].IsTowerQuest())
+          return true;
+      }
+      return false;
+    }
+
+    public bool IsBeginnerQuest()
+    {
+      if (this.quests != null)
+      {
+        for (int index = 0; index < this.quests.Count; ++index)
+        {
+          if (this.quests[index].type == QuestTypes.Beginner)
+            return true;
+        }
+      }
+      for (int index = 0; index < this.children.Count; ++index)
+      {
+        if (this.children[index].IsBeginnerQuest())
+          return true;
+      }
+      return false;
+    }
+
+    public SubQuestTypes GetSubQuestType()
+    {
+      if (this.quests != null && this.quests.Count > 0)
+        return this.quests[0].subtype;
+      if (this.children != null && this.children.Count > 0)
+        return this.children[0].GetSubQuestType();
+      return SubQuestTypes.Normal;
+    }
+
+    public bool HasGpsQuest()
+    {
+      if (this.quests != null)
+      {
+        for (int index = 0; index < this.quests.Count; ++index)
+        {
+          if (this.quests[index].gps_enable)
+            return true;
+        }
+      }
+      for (int index = 0; index < this.children.Count; ++index)
+      {
+        if (this.children[index].HasGpsQuest())
+          return true;
+      }
+      return false;
     }
 
     public bool IsDateUnlock(long unixtime)

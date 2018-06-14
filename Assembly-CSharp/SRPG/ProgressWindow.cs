@@ -1,9 +1,10 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.ProgressWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
+using GR;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -58,25 +59,36 @@ namespace SRPG
 
     public static void OpenGenericDownloadWindow()
     {
-      Object.Instantiate<GameObject>((M0) AssetManager.Load<GameObject>("UI/AssetsDownloading"));
+      UnityEngine.Object.Instantiate<GameObject>((M0) AssetManager.Load<GameObject>("UI/AssetsDownloading"));
+    }
+
+    public static void OpenVersusLoadScreen()
+    {
+      if (!UnityEngine.Object.op_Equality((UnityEngine.Object) ProgressWindow.mInstance, (UnityEngine.Object) null))
+        return;
+      ProgressWindow progressWindow = AssetManager.Load<ProgressWindow>("UI/HomeMultiPlay_VersusMatching");
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) progressWindow, (UnityEngine.Object) null))
+        return;
+      UnityEngine.Object.DontDestroyOnLoad((UnityEngine.Object) ((Component) UnityEngine.Object.Instantiate<ProgressWindow>((M0) progressWindow)).get_gameObject());
+      GameUtility.FadeIn(0.1f);
     }
 
     public static void OpenBackgroundDownloaderBar()
     {
       ProgressWindow progressWindow = AssetManager.Load<ProgressWindow>("SGDevelopment/Tutorial/BackgroundDownloaderBar");
-      if (!Object.op_Inequality((Object) progressWindow, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) progressWindow, (UnityEngine.Object) null))
         return;
-      Object.DontDestroyOnLoad((Object) ((Component) Object.Instantiate<ProgressWindow>((M0) progressWindow)).get_gameObject());
+      UnityEngine.Object.DontDestroyOnLoad((UnityEngine.Object) ((Component) UnityEngine.Object.Instantiate<ProgressWindow>((M0) progressWindow)).get_gameObject());
     }
 
     public static void OpenQuestLoadScreen(string title, string lore)
     {
-      if (Object.op_Equality((Object) ProgressWindow.mInstance, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) ProgressWindow.mInstance, (UnityEngine.Object) null))
       {
-        ProgressWindow progressWindow = AssetManager.Load<ProgressWindow>("UI/QuestLoadScreen");
-        if (Object.op_Inequality((Object) progressWindow, (Object) null))
+        ProgressWindow progressWindow = !MonoSingleton<GameManager>.Instance.IsVersusMode() ? AssetManager.Load<ProgressWindow>("UI/QuestLoadScreen") : AssetManager.Load<ProgressWindow>("UI/QuestLoadScreen_VS");
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) progressWindow, (UnityEngine.Object) null))
         {
-          Object.DontDestroyOnLoad((Object) ((Component) Object.Instantiate<ProgressWindow>((M0) progressWindow)).get_gameObject());
+          UnityEngine.Object.DontDestroyOnLoad((UnityEngine.Object) ((Component) UnityEngine.Object.Instantiate<ProgressWindow>((M0) progressWindow)).get_gameObject());
           GameUtility.FadeIn(0.1f);
         }
       }
@@ -104,38 +116,45 @@ namespace SRPG
 
     public static void SetTexts(string title, string lore)
     {
-      if (!Object.op_Inequality((Object) ProgressWindow.mInstance, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) ProgressWindow.mInstance, (UnityEngine.Object) null))
         return;
-      if (Object.op_Inequality((Object) ProgressWindow.mInstance.Title, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) ProgressWindow.mInstance.Title, (UnityEngine.Object) null))
         ProgressWindow.mInstance.Title.set_text(title);
-      if (!Object.op_Inequality((Object) ProgressWindow.mInstance.Lore, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) ProgressWindow.mInstance.Lore, (UnityEngine.Object) null))
         return;
       ProgressWindow.mInstance.Lore.set_text(lore);
     }
 
     public static void SetLoadProgress(float t)
     {
-      if (!Object.op_Inequality((Object) ProgressWindow.mInstance, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) ProgressWindow.mInstance, (UnityEngine.Object) null))
         return;
       ProgressWindow.mInstance.mLoadProgress = t;
     }
 
+    public static void SetDestroyDelay(float delay)
+    {
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) ProgressWindow.mInstance, (UnityEngine.Object) null))
+        return;
+      ProgressWindow.mInstance.DestroyDelay = delay;
+    }
+
     public static void Close()
     {
-      if (!Object.op_Inequality((Object) ProgressWindow.mInstance, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) ProgressWindow.mInstance, (UnityEngine.Object) null))
         return;
-      Animator animator = !Object.op_Inequality((Object) ProgressWindow.mInstance.WindowAnimator, (Object) null) ? (Animator) ((Component) ProgressWindow.mInstance).GetComponent<Animator>() : ProgressWindow.mInstance.WindowAnimator;
-      if (Object.op_Inequality((Object) animator, (Object) null))
+      Animator animator = !UnityEngine.Object.op_Inequality((UnityEngine.Object) ProgressWindow.mInstance.WindowAnimator, (UnityEngine.Object) null) ? (Animator) ((Component) ProgressWindow.mInstance).GetComponent<Animator>() : ProgressWindow.mInstance.WindowAnimator;
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) animator, (UnityEngine.Object) null))
         animator.SetTrigger(ProgressWindow.mInstance.CloseTrigger);
       if ((double) ProgressWindow.mInstance.DestroyDelay >= 0.0)
-        Object.Destroy((Object) ((Component) ProgressWindow.mInstance).get_gameObject(), ProgressWindow.mInstance.DestroyDelay);
+        UnityEngine.Object.Destroy((UnityEngine.Object) ((Component) ProgressWindow.mInstance).get_gameObject(), ProgressWindow.mInstance.DestroyDelay);
       ProgressWindow.mInstance = (ProgressWindow) null;
     }
 
     private void Start()
     {
       this.mCurrentImageIndex = 0;
-      if (Object.op_Implicit((Object) this.introduction))
+      if (UnityEngine.Object.op_Implicit((UnityEngine.Object) this.introduction))
       {
         this.previousLanguage = GameUtility.Config_Language;
         if (GameUtility.Config_Language != "None")
@@ -147,7 +166,7 @@ namespace SRPG
       {
         for (int index = 0; index < this.Images.Length; ++index)
         {
-          if (Object.op_Inequality((Object) this.Images[index], (Object) null) && Object.op_Inequality((Object) ((Graphic) this.Images[index]).get_material(), (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Images[index], (UnityEngine.Object) null) && UnityEngine.Object.op_Inequality((UnityEngine.Object) ((Graphic) this.Images[index]).get_material(), (UnityEngine.Object) null))
             ((Graphic) this.Images[index]).set_material(new Material(((Graphic) this.Images[index]).get_material()));
         }
       }
@@ -156,23 +175,23 @@ namespace SRPG
         this.LoadImageTable();
         this.StartCoroutine(this.AnimationThread());
       }
-      if (Object.op_Inequality((Object) this.ImageGroup, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ImageGroup, (UnityEngine.Object) null))
         this.ImageGroup.SetActive(false);
-      if (!Object.op_Inequality((Object) this.downloadTxt, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.downloadTxt, (UnityEngine.Object) null))
         return;
       this.downloadTxt.set_text(LocalizedText.Get("download.FILE_CHECK"));
     }
 
     private void OnEnable()
     {
-      if (!Object.op_Equality((Object) ProgressWindow.mInstance, (Object) null))
+      if (!UnityEngine.Object.op_Equality((UnityEngine.Object) ProgressWindow.mInstance, (UnityEngine.Object) null))
         return;
       ProgressWindow.mInstance = this;
     }
 
     private void OnDisable()
     {
-      if (!Object.op_Equality((Object) ProgressWindow.mInstance, (Object) this))
+      if (!UnityEngine.Object.op_Equality((UnityEngine.Object) ProgressWindow.mInstance, (UnityEngine.Object) this))
         return;
       ProgressWindow.mInstance = (ProgressWindow) null;
     }
@@ -181,7 +200,7 @@ namespace SRPG
     {
       get
       {
-        if (Object.op_Inequality((Object) ProgressWindow.mInstance, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) ProgressWindow.mInstance, (UnityEngine.Object) null))
           return (double) ProgressWindow.mInstance.mLoadTime < (double) ProgressWindow.mInstance.MinVisibleTime;
         return false;
       }
@@ -222,29 +241,29 @@ namespace SRPG
       long totalDownloadSize = AssetDownloader.TotalDownloadSize;
       long currentDownloadSize = AssetDownloader.CurrentDownloadSize;
       int phase = (int) AssetDownloader.Phase;
-      if (Object.op_Inequality((Object) this.Phase, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Phase, (UnityEngine.Object) null))
         this.Phase.ImageIndex = phase;
-      if (Object.op_Inequality((Object) this.downloadTxt, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.downloadTxt, (UnityEngine.Object) null))
       {
         if (phase == 0)
           this.downloadTxt.set_text(LocalizedText.Get("download.FILE_CHECK"));
         else
           this.downloadTxt.set_text(LocalizedText.Get("download.DATA_DOWNLOAD"));
       }
-      if (Object.op_Implicit((Object) this.noticeTxt))
+      if (UnityEngine.Object.op_Implicit((UnityEngine.Object) this.noticeTxt))
       {
         if (phase == 1)
           this.noticeTxt.SetActive(true);
         else
           this.noticeTxt.SetActive(false);
       }
-      if (Object.op_Inequality((Object) this.Percentage, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Percentage, (UnityEngine.Object) null))
       {
         string str = string.Format(this.PercentageFormat, (object) (int) ((double) num2 * 100.0));
         if (this.Percentage.get_text() != str)
           this.Percentage.set_text(str);
       }
-      if (Object.op_Inequality((Object) this.Complete, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Complete, (UnityEngine.Object) null))
       {
         if (this.mKeepTotalDownloadSize != totalDownloadSize)
         {
@@ -259,7 +278,7 @@ namespace SRPG
             this.Complete.set_text(str);
         }
       }
-      if (!Object.op_Implicit((Object) this.introduction) || !(this.previousLanguage != GameUtility.Config_Language))
+      if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) this.introduction) || !(this.previousLanguage != GameUtility.Config_Language))
         return;
       this.previousLanguage = GameUtility.Config_Language;
       this.introduction.set_text(LocalizedText.Get("download.FLAVOUR_TEXT" + (object) (this.mCurrentImageIndex + 1)));
@@ -269,13 +288,13 @@ namespace SRPG
     private IEnumerator AnimationThread()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new ProgressWindow.\u003CAnimationThread\u003Ec__IteratorC8() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new ProgressWindow.\u003CAnimationThread\u003Ec__Iterator10B() { \u003C\u003Ef__this = this };
     }
 
     private void LoadImageTable()
     {
       TextAsset textAsset = (TextAsset) Resources.Load<TextAsset>(this.ImageTable);
-      if (Object.op_Equality((Object) textAsset, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) textAsset, (UnityEngine.Object) null))
         return;
       StringReader stringReader = new StringReader(textAsset.get_text());
       string str;

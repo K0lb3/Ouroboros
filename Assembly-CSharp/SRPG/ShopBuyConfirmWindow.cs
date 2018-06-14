@@ -1,12 +1,13 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.ShopBuyConfirmWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace SRPG
 {
@@ -16,6 +17,10 @@ namespace SRPG
     public RectTransform UnitLayoutParent;
     public GameObject UnitTemplate;
     public GameObject EnableEquipUnitWindow;
+    public GameObject limited_item;
+    public GameObject no_limited_item;
+    public GameObject Sold;
+    public Text SoldNum;
     private List<GameObject> mUnits;
 
     public ShopBuyConfirmWindow()
@@ -50,6 +55,15 @@ namespace SRPG
       for (int index = 0; index < this.mUnits.Count; ++index)
         this.mUnits[index].get_gameObject().SetActive(false);
       ShopItem data1 = MonoSingleton<GameManager>.Instance.Player.GetShopData(GlobalVars.ShopType).items[GlobalVars.ShopBuyIndex];
+      bool flag1 = !data1.IsNotLimited || data1.saleType == ESaleType.Coin_P;
+      if (Object.op_Inequality((Object) this.limited_item, (Object) null))
+        this.limited_item.SetActive(flag1);
+      if (Object.op_Inequality((Object) this.no_limited_item, (Object) null))
+        this.no_limited_item.SetActive(!flag1);
+      if (Object.op_Inequality((Object) this.Sold, (Object) null))
+        this.Sold.SetActive(!data1.IsNotLimited);
+      if (Object.op_Inequality((Object) this.SoldNum, (Object) null))
+        this.SoldNum.set_text(data1.remaining_num.ToString());
       ItemData itemDataByItemId = MonoSingleton<GameManager>.Instance.Player.FindItemDataByItemID(data1.iname);
       if (Object.op_Inequality((Object) this.EnableEquipUnitWindow, (Object) null))
       {
@@ -58,7 +72,7 @@ namespace SRPG
         for (int index2 = 0; index2 < units.Count; ++index2)
         {
           UnitData data2 = units[index2];
-          bool flag = false;
+          bool flag2 = false;
           for (int index3 = 0; index3 < data2.Jobs.Length; ++index3)
           {
             JobData job = data2.Jobs[index3];
@@ -67,12 +81,12 @@ namespace SRPG
               int equipSlotByItemId = job.FindEquipSlotByItemID(data1.iname);
               if (equipSlotByItemId != -1 && job.CheckEnableEquipSlot(equipSlotByItemId))
               {
-                flag = true;
+                flag2 = true;
                 break;
               }
             }
           }
-          if (flag)
+          if (flag2)
           {
             if (index1 >= this.mUnits.Count)
             {
@@ -91,8 +105,15 @@ namespace SRPG
         }
       }
       DataSource.Bind<ShopItem>(((Component) this).get_gameObject(), data1);
-      DataSource.Bind<ItemData>(((Component) this).get_gameObject(), itemDataByItemId);
-      DataSource.Bind<ItemParam>(((Component) this).get_gameObject(), MonoSingleton<GameManager>.Instance.GetItemParam(data1.iname));
+      if (data1.IsArtifact)
+      {
+        DataSource.Bind<ArtifactParam>(((Component) this).get_gameObject(), MonoSingleton<GameManager>.Instance.MasterParam.GetArtifactParam(data1.iname));
+      }
+      else
+      {
+        DataSource.Bind<ItemData>(((Component) this).get_gameObject(), itemDataByItemId);
+        DataSource.Bind<ItemParam>(((Component) this).get_gameObject(), MonoSingleton<GameManager>.Instance.GetItemParam(data1.iname));
+      }
       GameParameter.UpdateAll(((Component) this).get_gameObject());
     }
   }

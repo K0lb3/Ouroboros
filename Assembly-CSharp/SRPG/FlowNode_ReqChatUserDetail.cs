@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_ReqChatUserDetail
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -9,13 +9,15 @@ using UnityEngine;
 
 namespace SRPG
 {
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
   [FlowNode.Pin(0, "Request", FlowNode.PinTypes.Input, 0)]
   [FlowNode.NodeType("System/ReqChatUserDetail", 32741)]
-  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
   public class FlowNode_ReqChatUserDetail : FlowNode_Network
   {
     [SerializeField]
     private ChatPlayerWindow window;
+    [SerializeField]
+    private FriendDetailWindow detail;
 
     public override void OnActivate(int pinID)
     {
@@ -35,17 +37,19 @@ namespace SRPG
     {
       if (Network.IsError)
       {
-        Network.EErrCode errCode = Network.ErrCode;
+        this.OnBack();
       }
       else
       {
         WebAPI.JSON_BodyResponse<JSON_ChatPlayerData> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<JSON_ChatPlayerData>>(www.text);
         DebugUtility.Assert(jsonObject != null, "res == null");
         Network.RemoveAPI();
-        ChatPlayerData chatPlayerData = new ChatPlayerData();
-        chatPlayerData.Deserialize(jsonObject.body);
+        ChatPlayerData data = new ChatPlayerData();
+        data.Deserialize(jsonObject.body);
         if (Object.op_Inequality((Object) this.window, (Object) null))
-          this.window.Player = chatPlayerData;
+          this.window.Player = data;
+        if (Object.op_Inequality((Object) this.detail, (Object) null))
+          this.detail.SetChatPlayerData(data);
         this.Success();
       }
     }

@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.ShopLineupWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -35,13 +35,23 @@ namespace SRPG
         return;
       GameManager instance = MonoSingleton<GameManager>.Instance;
       StringBuilder stringBuilder = new StringBuilder();
-      for (int index = 0; index < lineups.Length; ++index)
+      for (int index1 = 0; index1 < lineups.Length; ++index1)
       {
-        foreach (string key in lineups[index].items)
+        string[] items = lineups[index1].items;
+        for (int index2 = 0; index2 < items.Length; ++index2)
         {
-          ItemParam itemParam = instance.GetItemParam(key);
-          if (itemParam != null)
-            stringBuilder.Append("・" + itemParam.name + "\n");
+          if (items[index2].StartsWith("AF_"))
+          {
+            ArtifactParam artifactParam = instance.MasterParam.GetArtifactParam(items[index2]);
+            if (artifactParam != null)
+              stringBuilder.Append("・" + artifactParam.name + "\n");
+          }
+          else
+          {
+            ItemParam itemParam = instance.GetItemParam(items[index2]);
+            if (itemParam != null)
+              stringBuilder.Append("・" + itemParam.name + "\n");
+          }
         }
         stringBuilder.Append("\n");
       }

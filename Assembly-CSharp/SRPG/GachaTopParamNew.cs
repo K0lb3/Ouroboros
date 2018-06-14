@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.GachaTopParamNew
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -12,6 +12,7 @@ namespace SRPG
   public class GachaTopParamNew
   {
     public List<GachaBonusParam> bonus_items = new List<GachaBonusParam>();
+    public string bonus_msg = string.Empty;
     public string iname;
     public string category;
     public long startat;
@@ -72,6 +73,7 @@ namespace SRPG
       this.detail_url = param.detail_url;
       this.reset_at = param.reset_at;
       this.disabled = param.disabled;
+      this.bonus_msg = param.bonus_msg;
     }
 
     public long GetTimerAt()

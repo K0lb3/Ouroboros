@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.WorldMapController
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -139,6 +139,8 @@ namespace SRPG
 
       public override void Begin(WorldMapController self)
       {
+        if (Object.op_Equality((Object) self.mCurrentArea, (Object) null))
+          self.mStateMachine.GotoState<WorldMapController.State_WorldSelect>();
         this.mTarget = self.mCurrentArea;
         RectTransform transform = ((Component) this.mTarget).get_transform() as RectTransform;
         float num1 = (float) (1.0 / ((Transform) transform).get_localScale().x * self.mDefaultScale.x);
@@ -169,31 +171,40 @@ namespace SRPG
 
       public override void Update(WorldMapController self)
       {
-        this.mTransition = Mathf.Clamp01(this.mTransition + 1f / self.TransitionTime * Time.get_deltaTime());
-        float opacity = Mathf.Sin((float) ((double) this.mTransition * 3.14159274101257 * 0.5));
-        this.mTarget.SetOpacity(opacity);
-        self.mTransform.set_anchoredPosition(Vector2.Lerp(self.mDefaultPosition, this.mDesiredPosition, opacity));
-        ((Transform) self.mTransform).set_localScale(Vector2.op_Implicit(Vector2.Lerp(self.mDefaultScale, this.mDesiredScale, opacity)));
-        self.SetRadialBlurStrength(this.mTransition);
-        if (Object.op_Inequality((Object) self.RadialBlurEffect, (Object) null))
+        if (Object.op_Equality((Object) self.mCurrentArea, (Object) null))
         {
-          // ISSUE: variable of the null type
-          __Null x = this.mTargetPosition.x;
-          Rect rect1 = self.mTransform.get_rect();
-          // ISSUE: explicit reference operation
-          double width = (double) ((Rect) @rect1).get_width();
-          float num1 = (float) (x / width + 0.5);
-          // ISSUE: variable of the null type
-          __Null y = this.mTargetPosition.y;
-          Rect rect2 = self.mTransform.get_rect();
-          // ISSUE: explicit reference operation
-          double height = (double) ((Rect) @rect2).get_height();
-          float num2 = (float) (y / height + 0.5);
-          self.RadialBlurEffect.Focus = new Vector2(num1, num2);
+          self.mPrevArea = this.mTarget;
+          self.mNextArea = (AreaMapController) null;
+          self.mStateMachine.GotoState<WorldMapController.State_Area2World>();
         }
-        if ((double) this.mTransition < 1.0)
-          return;
-        self.mStateMachine.GotoState<WorldMapController.State_AreaSelect>();
+        else
+        {
+          this.mTransition = Mathf.Clamp01(this.mTransition + 1f / self.TransitionTime * Time.get_deltaTime());
+          float opacity = Mathf.Sin((float) ((double) this.mTransition * 3.14159274101257 * 0.5));
+          this.mTarget.SetOpacity(opacity);
+          self.mTransform.set_anchoredPosition(Vector2.Lerp(self.mDefaultPosition, this.mDesiredPosition, opacity));
+          ((Transform) self.mTransform).set_localScale(Vector2.op_Implicit(Vector2.Lerp(self.mDefaultScale, this.mDesiredScale, opacity)));
+          self.SetRadialBlurStrength(this.mTransition);
+          if (Object.op_Inequality((Object) self.RadialBlurEffect, (Object) null))
+          {
+            // ISSUE: variable of the null type
+            __Null x = this.mTargetPosition.x;
+            Rect rect1 = self.mTransform.get_rect();
+            // ISSUE: explicit reference operation
+            double width = (double) ((Rect) @rect1).get_width();
+            float num1 = (float) (x / width + 0.5);
+            // ISSUE: variable of the null type
+            __Null y = this.mTargetPosition.y;
+            Rect rect2 = self.mTransform.get_rect();
+            // ISSUE: explicit reference operation
+            double height = (double) ((Rect) @rect2).get_height();
+            float num2 = (float) (y / height + 0.5);
+            self.RadialBlurEffect.Focus = new Vector2(num1, num2);
+          }
+          if ((double) this.mTransition < 1.0)
+            return;
+          self.mStateMachine.GotoState<WorldMapController.State_AreaSelect>();
+        }
       }
     }
 
@@ -224,22 +235,37 @@ namespace SRPG
 
       public override void Begin(WorldMapController self)
       {
-        this.mStartScale = Vector2.op_Implicit(((Transform) self.mTransform).get_localScale());
-        this.mStartPosition = Vector2.op_Implicit(((Transform) self.mTransform).get_localPosition());
+        if (Object.op_Inequality((Object) self.mCurrentArea, (Object) null))
+        {
+          self.mPrevArea.SetOpacity(0.0f);
+          self.mStateMachine.GotoState<WorldMapController.State_WorldSelect>();
+        }
+        else
+        {
+          this.mStartScale = Vector2.op_Implicit(((Transform) self.mTransform).get_localScale());
+          this.mStartPosition = Vector2.op_Implicit(((Transform) self.mTransform).get_localPosition());
+        }
       }
 
       public override void Update(WorldMapController self)
       {
-        this.mTransition = Mathf.Clamp01(this.mTransition + 1f / self.TransitionTime * Time.get_deltaTime());
-        float num = Mathf.Sin((float) ((double) this.mTransition * 3.14159274101257 * 0.5));
-        self.mPrevArea.SetOpacity(1f - num);
-        self.mTransform.set_anchoredPosition(Vector2.Lerp(this.mStartPosition, self.mDefaultPosition, num));
-        ((Transform) self.mTransform).set_localScale(Vector2.op_Implicit(Vector2.Lerp(this.mStartScale, self.mDefaultScale, num)));
-        self.SetRadialBlurStrength(this.mTransition);
-        if ((double) this.mTransition < 1.0)
-          return;
-        self.mPrevArea.SetOpacity(0.0f);
-        self.mStateMachine.GotoState<WorldMapController.State_WorldSelect>();
+        if (Object.op_Inequality((Object) self.mCurrentArea, (Object) null))
+        {
+          self.mStateMachine.GotoState<WorldMapController.State_World2Area>();
+        }
+        else
+        {
+          this.mTransition = Mathf.Clamp01(this.mTransition + 1f / self.TransitionTime * Time.get_deltaTime());
+          float num = Mathf.Sin((float) ((double) this.mTransition * 3.14159274101257 * 0.5));
+          self.mPrevArea.SetOpacity(1f - num);
+          self.mTransform.set_anchoredPosition(Vector2.Lerp(this.mStartPosition, self.mDefaultPosition, num));
+          ((Transform) self.mTransform).set_localScale(Vector2.op_Implicit(Vector2.Lerp(this.mStartScale, self.mDefaultScale, num)));
+          self.SetRadialBlurStrength(this.mTransition);
+          if ((double) this.mTransition < 1.0)
+            return;
+          self.mPrevArea.SetOpacity(0.0f);
+          self.mStateMachine.GotoState<WorldMapController.State_WorldSelect>();
+        }
       }
     }
   }

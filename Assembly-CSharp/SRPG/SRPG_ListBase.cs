@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.SRPG_ListBase
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections.Generic;
@@ -41,6 +41,7 @@ namespace SRPG
         }
       }
       GameUtility.DestroyGameObjects<ListItemEvents>(this.mItems);
+      this.mItems.Clear();
     }
 
     protected bool IsEmpty
@@ -134,11 +135,23 @@ namespace SRPG
           // ISSUE: explicit reference operation
           // ISSUE: variable of a reference type
           Rect& local1 = @rect4;
-          ((Rect) local1).set_x(((Rect) local1).get_x() + (float) rectTransform.get_anchoredPosition().x);
+          ((Rect) local1).set_x(((Rect) local1).get_x() + (float) (rectTransform.get_anchoredPosition().x - this.mItems[index].DisplayRectMergin.x));
           // ISSUE: explicit reference operation
           // ISSUE: variable of a reference type
           Rect& local2 = @rect4;
-          ((Rect) local2).set_y(((Rect) local2).get_y() + (height + (float) rectTransform.get_anchoredPosition().y));
+          ((Rect) local2).set_y(((Rect) local2).get_y() + (float) ((double) height + rectTransform.get_anchoredPosition().y - this.mItems[index].DisplayRectMergin.y));
+          if (this.mItems[index].ParentScale.y < 1.0)
+          {
+            // ISSUE: explicit reference operation
+            // ISSUE: variable of a reference type
+            Rect& local3 = @rect4;
+            // ISSUE: explicit reference operation
+            ((Rect) local3).set_y(((Rect) local3).get_y() + ((Rect) @rect4).get_height() * (float) (1.0 - this.mItems[index].ParentScale.y) * (float) index);
+            // ISSUE: explicit reference operation
+            // ISSUE: variable of a reference type
+            Rect& local4 = @rect4;
+            ((Rect) local4).set_height(((Rect) local4).get_height() * (float) this.mItems[index].ParentScale.y);
+          }
           // ISSUE: explicit reference operation
           if (((Rect) @rect4).Overlaps(rect1))
             this.mItems[index].AttachBody();

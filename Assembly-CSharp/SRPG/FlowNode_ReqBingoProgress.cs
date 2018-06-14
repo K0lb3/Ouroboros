@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_ReqBingoProgress
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -68,7 +68,7 @@ namespace SRPG
               }
               else
               {
-                TrophyState trophyCounter = instance.Player.GetTrophyCounter(instance.MasterParam.GetTrophy(bingoprog.iname));
+                TrophyState trophyCounter = instance.Player.GetTrophyCounter(instance.MasterParam.GetTrophy(bingoprog.iname), false);
                 for (int index2 = 0; index2 < bingoprog.pts.Length && index2 < trophyCounter.Count.Length; ++index2)
                   trophyCounter.Count[index2] = bingoprog.pts[index2];
                 trophyCounter.StartYMD = bingoprog.ymd;

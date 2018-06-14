@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.ArtifactIcon
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -36,6 +36,7 @@ namespace SRPG
     public Text TransmuteCost;
     public GameObject NotRarityUp;
     public GameObject CanRarityUp;
+    public bool ForceMask;
     public ArtifactIcon.InstanceTypes InstanceType;
     [NonSerialized]
     public GameObject IndexBadge;
@@ -61,7 +62,7 @@ namespace SRPG
     private void OnDisable()
     {
       GameManager instanceDirect = MonoSingleton<GameManager>.GetInstanceDirect();
-      if (!Object.op_Inequality((Object) instanceDirect, (Object) null) || !Object.op_Inequality((Object) this.Icon, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) instanceDirect, (UnityEngine.Object) null) || !UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Icon, (UnityEngine.Object) null))
         return;
       instanceDirect.CancelTextureLoadRequest(this.Icon);
     }
@@ -75,7 +76,7 @@ namespace SRPG
         data = DataSource.FindDataOfClass<ArtifactData>(((Component) this).get_gameObject(), (ArtifactData) null);
       else
         artifactParam = DataSource.FindDataOfClass<ArtifactParam>(((Component) this).get_gameObject(), (ArtifactParam) null);
-      if (Object.op_Inequality((Object) this.Lv, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Lv, (UnityEngine.Object) null))
       {
         if (data != null)
         {
@@ -89,7 +90,7 @@ namespace SRPG
         else
           ((Component) this.Lv).get_gameObject().SetActive(false);
       }
-      if (Object.op_Inequality((Object) this.PreLvCap, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.PreLvCap, (UnityEngine.Object) null))
       {
         if (data != null && (int) data.Rarity > 0)
         {
@@ -99,7 +100,7 @@ namespace SRPG
         else
           ((Component) this.PreLvCap).get_gameObject().SetActive(false);
       }
-      if (Object.op_Inequality((Object) this.LvCap, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.LvCap, (UnityEngine.Object) null))
       {
         if (data != null)
         {
@@ -113,7 +114,7 @@ namespace SRPG
         else
           ((Component) this.LvCap).get_gameObject().SetActive(false);
       }
-      if (Object.op_Inequality((Object) this.LvGauge, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.LvGauge, (UnityEngine.Object) null))
       {
         if (data != null)
         {
@@ -128,7 +129,7 @@ namespace SRPG
         else
           ((Component) this.LvGauge).get_gameObject().SetActive(false);
       }
-      if (Object.op_Inequality((Object) this.ExpGauge, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ExpGauge, (UnityEngine.Object) null))
       {
         if (data != null)
         {
@@ -157,7 +158,7 @@ namespace SRPG
         else
           ((Component) this.ExpGauge).get_gameObject().SetActive(false);
       }
-      if (Object.op_Inequality((Object) this.PieceGauge, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.PieceGauge, (UnityEngine.Object) null))
       {
         if (artifactParam != null)
         {
@@ -170,7 +171,7 @@ namespace SRPG
         else
           ((Component) this.PieceGauge).get_gameObject().SetActive(false);
       }
-      if (Object.op_Inequality((Object) this.Icon, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Icon, (UnityEngine.Object) null))
       {
         if (data != null || artifactParam != null)
         {
@@ -198,9 +199,9 @@ namespace SRPG
       if (data != null || artifactParam != null)
       {
         bool flag1 = data != null && data.CheckEnableRarityUp() == ArtifactData.RarityUpResults.Success;
-        if (Object.op_Inequality((Object) this.RarityUp, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RarityUp, (UnityEngine.Object) null))
           this.RarityUp.SetActive(flag1);
-        if (Object.op_Inequality((Object) this.RarityUpBack, (Object) null) && Object.op_Inequality((Object) this.DefaultBack, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RarityUpBack, (UnityEngine.Object) null) && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.DefaultBack, (UnityEngine.Object) null))
         {
           ((Behaviour) this.RarityUpBack).set_enabled(flag1);
           ((Behaviour) this.DefaultBack).set_enabled(!flag1);
@@ -217,14 +218,14 @@ namespace SRPG
           else
             flag2 = false;
         }
-        if (Object.op_Inequality((Object) this.CanCreate, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.CanCreate, (UnityEngine.Object) null))
           this.CanCreate.SetActive(flag2);
-        if (Object.op_Inequality((Object) this.CanCreateBack, (Object) null) && Object.op_Inequality((Object) this.DefaultBack, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.CanCreateBack, (UnityEngine.Object) null) && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.DefaultBack, (UnityEngine.Object) null))
         {
           ((Behaviour) this.CanCreateBack).set_enabled(flag2);
           ((Behaviour) this.DefaultBack).set_enabled(!flag2);
         }
-        if (Object.op_Inequality((Object) this.CanCreateGauge, (Object) null) && Object.op_Inequality((Object) this.DefaultBack, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.CanCreateGauge, (UnityEngine.Object) null) && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.DefaultBack, (UnityEngine.Object) null))
         {
           ((Behaviour) this.CanCreateGauge).set_enabled(flag2);
           ((Behaviour) this.DefaultBack).set_enabled(!flag2);
@@ -255,81 +256,59 @@ namespace SRPG
               ((Graphic) this.NotCreateGrayRawIcon[index3]).set_color(Color.get_cyan());
           }
         }
-        if (data != null && Object.op_Inequality((Object) this.NotRarityUp, (Object) null) && Object.op_Inequality((Object) this.CanRarityUp, (Object) null))
+        if (data != null && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.NotRarityUp, (UnityEngine.Object) null) && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.CanRarityUp, (UnityEngine.Object) null))
         {
           bool flag3 = (int) data.Rarity == (int) data.RarityCap;
           this.NotRarityUp.SetActive(flag3);
           this.CanRarityUp.SetActive(!flag3);
         }
-        if (data != null && Object.op_Inequality((Object) this.RarityUpCost, (Object) null))
+        if (data != null && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RarityUpCost, (UnityEngine.Object) null))
           this.RarityUpCost.set_text(data.GetKakeraNeedNum().ToString());
-        if (artifactParam != null && Object.op_Inequality((Object) this.TransmuteCost, (Object) null))
+        if (artifactParam != null && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TransmuteCost, (UnityEngine.Object) null))
           this.TransmuteCost.set_text((int) MonoSingleton<GameManager>.Instance.GetRarityParam(artifactParam.rareini).ArtifactCreatePieceNum.ToString());
-        if (Object.op_Inequality((Object) this.PieceNum, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.PieceNum, (UnityEngine.Object) null))
         {
-          if (data != null)
+          ItemData itemData = data == null ? MonoSingleton<GameManager>.Instance.Player.FindItemDataByItemID(artifactParam.kakera) : MonoSingleton<GameManager>.Instance.Player.FindItemDataByItemParam(data.Kakera);
+          if (itemData != null)
           {
-            ItemData itemDataByItemParam = MonoSingleton<GameManager>.Instance.Player.FindItemDataByItemParam(data.Kakera);
-            if (itemDataByItemParam != null)
-            {
-              this.PieceNum.set_text(itemDataByItemParam.Num.ToString());
-              int artifactChangePieceNum = (int) data.RarityParam.ArtifactChangePieceNum;
-              if (itemDataByItemParam.Num >= artifactChangePieceNum)
-                ((Graphic) this.PieceNum).set_color(Color.get_yellow());
-              else
-                ((Graphic) this.PieceNum).set_color(Color.get_white());
-            }
+            this.PieceNum.set_text(itemData.Num.ToString());
+            if (data != null && data.CheckEnableRarityUp() == ArtifactData.RarityUpResults.Success)
+              ((Graphic) this.PieceNum).set_color(Color.get_yellow());
             else
-            {
-              this.PieceNum.set_text("0");
               ((Graphic) this.PieceNum).set_color(Color.get_white());
-            }
           }
-          else if (artifactParam != null)
+          else
           {
-            ItemData itemDataByItemId = MonoSingleton<GameManager>.Instance.Player.FindItemDataByItemID(artifactParam.kakera);
-            if (itemDataByItemId != null)
-            {
-              this.PieceNum.set_text(itemDataByItemId.Num.ToString());
-              int artifactCreatePieceNum = (int) MonoSingleton<GameManager>.Instance.GetRarityParam(artifactParam.rareini).ArtifactCreatePieceNum;
-              if (itemDataByItemId.Num >= artifactCreatePieceNum)
-                ((Graphic) this.PieceNum).set_color(Color.get_yellow());
-              else
-                ((Graphic) this.PieceNum).set_color(Color.get_white());
-            }
-            else
-            {
-              this.PieceNum.set_text("0");
-              ((Graphic) this.PieceNum).set_color(Color.get_white());
-            }
+            this.PieceNum.set_text("0");
+            ((Graphic) this.PieceNum).set_color(Color.get_white());
           }
         }
-        if (Object.op_Inequality((Object) this.Rarity, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Rarity, (UnityEngine.Object) null))
         {
           GameSettings instance2 = GameSettings.Instance;
-          if (Object.op_Inequality((Object) instance2, (Object) null) && index1 < instance2.ArtifactIcon_Rarity.Length)
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) instance2, (UnityEngine.Object) null) && index1 < instance2.ArtifactIcon_Rarity.Length)
             this.Rarity.set_sprite(instance2.ArtifactIcon_Rarity[index1]);
         }
-        if (Object.op_Inequality((Object) this.RarityMax, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RarityMax, (UnityEngine.Object) null))
         {
           GameSettings instance2 = GameSettings.Instance;
-          if (Object.op_Inequality((Object) instance2, (Object) null) && index2 < instance2.ArtifactIcon_RarityBG.Length)
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) instance2, (UnityEngine.Object) null) && index2 < instance2.ArtifactIcon_RarityBG.Length)
             this.RarityMax.set_sprite(instance2.ArtifactIcon_RarityBG[index2]);
         }
-        if (Object.op_Inequality((Object) this.RarityText, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RarityText, (UnityEngine.Object) null))
           this.RarityText.set_text((index1 + 1).ToString());
-        if (Object.op_Inequality((Object) this.RarityMaxText, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RarityMaxText, (UnityEngine.Object) null))
           this.RarityMaxText.set_text((index2 + 1).ToString());
-        if (Object.op_Inequality((Object) this.Frame, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Frame, (UnityEngine.Object) null))
         {
           GameSettings instance2 = GameSettings.Instance;
-          if (Object.op_Inequality((Object) instance2, (Object) null) && index1 < instance2.ArtifactIcon_Frames.Length)
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) instance2, (UnityEngine.Object) null) && index1 < instance2.ArtifactIcon_Frames.Length)
             this.Frame.set_sprite(instance2.ArtifactIcon_Frames[index1]);
         }
-        if (Object.op_Inequality((Object) this.Category, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Category, (UnityEngine.Object) null))
         {
           GameSettings instance2 = GameSettings.Instance;
-          if (Object.op_Inequality((Object) instance2, (Object) null) && (data != null || artifactParam != null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) instance2, (UnityEngine.Object) null) && (data != null || artifactParam != null))
           {
             switch (data == null ? (int) artifactParam.type : (int) data.ArtifactParam.type)
             {
@@ -345,24 +324,24 @@ namespace SRPG
             }
           }
         }
-        if (Object.op_Inequality((Object) this.DecKakeraNum, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.DecKakeraNum, (UnityEngine.Object) null))
           this.DecKakeraNum.set_text(data.GetKakeraChangeNum().ToString());
-        if (Object.op_Inequality((Object) this.DecCost, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.DecCost, (UnityEngine.Object) null))
           this.DecCost.set_text(data.RarityParam.ArtifactChangeCost.ToString());
       }
       else
       {
-        if (Object.op_Inequality((Object) this.Rarity, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Rarity, (UnityEngine.Object) null))
           this.Rarity.set_sprite((Sprite) null);
-        if (Object.op_Inequality((Object) this.RarityMax, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RarityMax, (UnityEngine.Object) null))
           this.RarityMax.set_sprite((Sprite) null);
-        if (Object.op_Inequality((Object) this.Frame, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Frame, (UnityEngine.Object) null))
           this.Frame.set_sprite((Sprite) null);
-        if (Object.op_Inequality((Object) this.Category, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Category, (UnityEngine.Object) null))
           this.Category.set_sprite((Sprite) null);
       }
       bool flag = false;
-      if (Object.op_Inequality((Object) this.Owner, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Owner, (UnityEngine.Object) null))
       {
         if (data != null && this.SetOwnerIcon(instance1, data))
         {
@@ -372,7 +351,7 @@ namespace SRPG
         else
           this.Owner.SetActive(false);
       }
-      if (Object.op_Inequality((Object) this.Favorite, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Favorite, (UnityEngine.Object) null))
       {
         if (data != null && data.IsFavorite)
         {
@@ -382,7 +361,9 @@ namespace SRPG
         else
           this.Favorite.SetActive(false);
       }
-      if (Object.op_Inequality((Object) this.LockMask, (Object) null))
+      if (this.ForceMask)
+        flag = true;
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.LockMask, (UnityEngine.Object) null))
         this.LockMask.SetActive(flag);
       if (data == null)
         return;
@@ -397,7 +378,7 @@ namespace SRPG
         return false;
       SpriteSheet spriteSheet = AssetManager.Load<SpriteSheet>("ItemIcon/small");
       ItemParam itemParam = gm.GetItemParam((string) unit.UnitParam.piece);
-      if (Object.op_Inequality((Object) this.OwnerIcon, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.OwnerIcon, (UnityEngine.Object) null))
         this.OwnerIcon.set_sprite(spriteSheet.GetSprite((string) itemParam.icon));
       return true;
     }

@@ -1,27 +1,29 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_FgGWebView
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
+using Gsc.App.NetworkHelper;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace SRPG
 {
+  [FlowNode.Pin(3, "Finished", FlowNode.PinTypes.Output, 100)]
   [FlowNode.NodeType("FgGID/FgGWebView", 32741)]
   [FlowNode.Pin(1, "Enable", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(2, "Disable", FlowNode.PinTypes.Input, 1)]
-  [FlowNode.Pin(3, "Finished", FlowNode.PinTypes.Output, 100)]
   public class FlowNode_FgGWebView : FlowNode
   {
     private const int PIN_ID_ENABLE = 1;
     private const int PIN_ID_DISABLE = 2;
     private const int PIN_ID_FINISHED = 3;
-    [FlowNode.ShowInInfo]
     [FlowNode.DropTarget(typeof (GameObject), true)]
+    [FlowNode.ShowInInfo]
     public GameObject Target;
     public string URL;
     public RawImage mClientArea;
@@ -32,13 +34,13 @@ namespace SRPG
       switch (pinID)
       {
         case 1:
-          if (!Object.op_Inequality((Object) this.Target, (Object) null))
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Target, (UnityEngine.Object) null))
             break;
           ((Behaviour) this.mClientArea).set_enabled(true);
           this.OpenURL();
           break;
         case 2:
-          if (!Object.op_Inequality((Object) this.Target, (Object) null))
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Target, (UnityEngine.Object) null))
             break;
           ((Behaviour) this.mClientArea).set_enabled(false);
           break;
@@ -48,13 +50,22 @@ namespace SRPG
     private void OpenURL()
     {
       this.uniWebView = (UniWebView) this.Target.GetComponent<UniWebView>();
-      if (Object.op_Equality((Object) this.uniWebView, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.uniWebView, (UnityEngine.Object) null))
         this.uniWebView = (UniWebView) this.Target.AddComponent<UniWebView>();
       this.uniWebView.OnLoadComplete += new UniWebView.LoadCompleteDelegate(this.OnLoadComplete);
       this.uniWebView.OnReceivedMessage += new UniWebView.ReceivedMessageDelegate(this.OnReceivedMessage);
       this.uniWebView.InsetsForScreenOreitation += new UniWebView.InsetsForScreenOreitationDelegate(this.InsetsForScreenOreitation);
       this.uniWebView.insets = new UniWebViewEdgeInsets(0, 0, 0, 0);
-      this.uniWebView.SetHeaderField("Authorization", "gumi " + Network.SessionID);
+      Dictionary<string, string> dictionary = new Dictionary<string, string>();
+      GsccBridge.SetWebViewHeaders(new Action<string, string>(dictionary.Add));
+      using (Dictionary<string, string>.Enumerator enumerator = dictionary.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+        {
+          KeyValuePair<string, string> current = enumerator.Current;
+          this.uniWebView.SetHeaderField(current.Key, current.Value);
+        }
+      }
       this.uniWebView.SetShowSpinnerWhenLoading(true);
       this.uniWebView.url = MonoSingleton<GameManager>.Instance.FgGAuthHost;
       this.uniWebView.Load();
@@ -94,7 +105,7 @@ namespace SRPG
         if (string.Equals(message.args["id"], "close"))
         {
           this.ActivateOutputLinks(3);
-          Object.Destroy((Object) this.uniWebView);
+          UnityEngine.Object.Destroy((UnityEngine.Object) this.uniWebView);
           this.uniWebView = (UniWebView) null;
           ((Behaviour) this.mClientArea).set_enabled(false);
         }

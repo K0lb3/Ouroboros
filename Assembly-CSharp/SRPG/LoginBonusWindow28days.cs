@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.LoginBonusWindow28days
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -15,12 +15,12 @@ using UnityEngine.UI;
 
 namespace SRPG
 {
-  [FlowNode.Pin(14, "詳細表示", FlowNode.PinTypes.Output, 4)]
-  [FlowNode.Pin(10, "Load Complete", FlowNode.PinTypes.Output, 1)]
   [FlowNode.Pin(13, "Taked", FlowNode.PinTypes.Output, 3)]
-  [FlowNode.Pin(11, "Take Bonus", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(12, "Last Day", FlowNode.PinTypes.Output, 2)]
+  [FlowNode.Pin(10, "Load Complete", FlowNode.PinTypes.Output, 1)]
+  [FlowNode.Pin(11, "Take Bonus", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(16, "Message Closed", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(14, "詳細表示", FlowNode.PinTypes.Output, 4)]
   public class LoginBonusWindow28days : MonoBehaviour, IFlowInterface
   {
     public GameObject ItemList;
@@ -67,13 +67,13 @@ namespace SRPG
 
     private void Awake()
     {
-      if (Object.op_Inequality((Object) this.Item_Normal, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Item_Normal, (UnityEngine.Object) null))
         ((Component) this.Item_Normal).get_gameObject().SetActive(false);
-      if (Object.op_Inequality((Object) this.Item_Taken, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Item_Taken, (UnityEngine.Object) null))
         ((Component) this.Item_Taken).get_gameObject().SetActive(false);
-      if (Object.op_Inequality((Object) this.TodayBadge, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TodayBadge, (UnityEngine.Object) null))
         ((Component) this.TodayBadge).get_gameObject().SetActive(false);
-      if (!Object.op_Inequality((Object) this.TommorowBadge, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TommorowBadge, (UnityEngine.Object) null))
         return;
       ((Component) this.TommorowBadge).get_gameObject().SetActive(false);
     }
@@ -82,20 +82,20 @@ namespace SRPG
     {
       GameUtility.DestroyGameObject((Component) this.mCurrentPreview);
       this.mCurrentPreview = (UnitPreview) null;
-      if (Object.op_Inequality((Object) this.mPreviewUnitRT, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mPreviewUnitRT, (UnityEngine.Object) null))
       {
         RenderTexture.ReleaseTemporary(this.mPreviewUnitRT);
         this.mPreviewUnitRT = (RenderTexture) null;
       }
-      if (!Object.op_Inequality((Object) this.mMessageWindow, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mMessageWindow, (UnityEngine.Object) null))
         return;
-      Object.Destroy((Object) ((Component) this.mMessageWindow).get_gameObject());
+      UnityEngine.Object.Destroy((UnityEngine.Object) ((Component) this.mMessageWindow).get_gameObject());
       this.mMessageWindow = (LoginBonusWindow) null;
     }
 
     private void DisableFirstDayHiddenOject(GameObject parent)
     {
-      if (Object.op_Equality((Object) parent, (Object) null) || this.DisabledFirstDayNames == null)
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) parent, (UnityEngine.Object) null) || this.DisabledFirstDayNames == null)
         return;
       for (int index = 0; index < this.DisabledFirstDayNames.Length; ++index)
       {
@@ -103,7 +103,7 @@ namespace SRPG
         if (!string.IsNullOrEmpty(disabledFirstDayName))
         {
           Transform child = parent.get_transform().FindChild(disabledFirstDayName);
-          if (Object.op_Inequality((Object) child, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) child, (UnityEngine.Object) null))
             ((Component) child).get_gameObject().SetActive(false);
         }
       }
@@ -147,10 +147,10 @@ namespace SRPG
         jsonLoginBonusArray = this.DebugItems;
         this.mLoginBonusCount = this.DebugBonusCount;
       }
-      if (Object.op_Inequality((Object) this.RemainingCount, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RemainingCount, (UnityEngine.Object) null))
         this.RemainingCount.set_text(Math.Max(28 - this.mLoginBonusCount, 0).ToString());
       this.mCurrentWeak = Math.Max(this.mLoginBonusCount - 1, 0) / 7;
-      if (jsonLoginBonusArray != null && Object.op_Inequality((Object) this.Item_Normal, (Object) null) && Object.op_Inequality((Object) this.ItemList, (Object) null))
+      if (jsonLoginBonusArray != null && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Item_Normal, (UnityEngine.Object) null) && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ItemList, (UnityEngine.Object) null))
       {
         for (int index1 = 0; index1 < jsonLoginBonusArray.Length; ++index1)
         {
@@ -174,40 +174,28 @@ namespace SRPG
                 if (loginBonusData != null && loginBonusData.Param != null)
                 {
                   if (loginBonusData.ItemType == EItemType.Ticket)
-                    AnalyticsManager.TrackCurrencyObtain(AnalyticsManager.CurrencyType.SummonTicket, AnalyticsManager.CurrencySubType.FREE, (long) loginBonusData.Num, "Login Bonus", new Dictionary<string, object>()
-                    {
-                      {
-                        "ticket_id",
-                        (object) loginBonusData.ItemID
-                      }
-                    });
+                    AnalyticsManager.TrackNonPremiumCurrencyObtain(AnalyticsManager.NonPremiumCurrencyType.SummonTicket, (long) loginBonusData.Num, "Login Bonus", loginBonusData.ItemID);
                   else
-                    AnalyticsManager.TrackCurrencyObtain(AnalyticsManager.CurrencyType.Item, AnalyticsManager.CurrencySubType.FREE, (long) loginBonusData.Num, "Login Bonus", new Dictionary<string, object>()
-                    {
-                      {
-                        "item_id",
-                        (object) loginBonusData.ItemID
-                      }
-                    });
+                    AnalyticsManager.TrackNonPremiumCurrencyObtain(AnalyticsManager.NonPremiumCurrencyType.Item, (long) loginBonusData.Num, "Login Bonus", loginBonusData.ItemID);
                 }
                 if (string.IsNullOrEmpty(key) && jsonLoginBonusArray[index1].coin > 0)
-                  AnalyticsManager.TrackCurrencyObtain(AnalyticsManager.CurrencyType.Gem, AnalyticsManager.CurrencySubType.FREE, (long) jsonLoginBonusArray[index1].coin, "Login Bonus", (Dictionary<string, object>) null);
+                  AnalyticsManager.TrackFreePremiumCurrencyObtain((long) jsonLoginBonusArray[index1].coin, "Login Bonus");
               }
               else if (index1 == this.mLoginBonusCount)
                 data3 = (ItemData) loginBonusData;
               if (loginBonusData.Setup(0L, itemParam, num1))
               {
                 int num2 = this.mLoginBonusCount - (!this.IsConfigWindow ? 1 : 0);
-                ListItemEvents listItemEvents = (ListItemEvents) Object.Instantiate<ListItemEvents>(index1 >= num2 ? (M0) this.Item_Normal : (M0) this.Item_Taken);
+                ListItemEvents listItemEvents = (ListItemEvents) UnityEngine.Object.Instantiate<ListItemEvents>(index1 >= num2 ? (M0) this.Item_Normal : (M0) this.Item_Taken);
                 listItemEvents.OnSelect = new ListItemEvents.ListItemEvent(this.OnItemSelect);
                 DataSource.Bind<ItemData>(((Component) listItemEvents).get_gameObject(), (ItemData) loginBonusData);
-                if (Object.op_Inequality((Object) this.TodayBadge, (Object) null) && index1 == this.mLoginBonusCount - 1)
+                if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TodayBadge, (UnityEngine.Object) null) && index1 == this.mLoginBonusCount - 1)
                 {
                   ((Transform) this.TodayBadge).SetParent(((Component) listItemEvents).get_transform(), false);
                   this.TodayBadge.set_anchoredPosition(Vector2.get_zero());
                   ((Component) this.TodayBadge).get_gameObject().SetActive(true);
                 }
-                else if (Object.op_Inequality((Object) this.TommorowBadge, (Object) null) && index1 == this.mLoginBonusCount)
+                else if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TommorowBadge, (UnityEngine.Object) null) && index1 == this.mLoginBonusCount)
                 {
                   ((Transform) this.TommorowBadge).SetParent(((Component) listItemEvents).get_transform(), false);
                   this.TommorowBadge.set_anchoredPosition(Vector2.get_zero());
@@ -216,16 +204,16 @@ namespace SRPG
                 if (index1 < this.mLoginBonusCount - 1)
                 {
                   Transform child = ((Component) listItemEvents).get_transform().FindChild(this.CheckName);
-                  if (Object.op_Inequality((Object) child, (Object) null))
+                  if (UnityEngine.Object.op_Inequality((UnityEngine.Object) child, (UnityEngine.Object) null))
                   {
                     Animator component = (Animator) ((Component) child).GetComponent<Animator>();
-                    if (Object.op_Inequality((Object) component, (Object) null))
+                    if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
                       ((Behaviour) component).set_enabled(false);
                   }
                 }
                 Transform transform = this.ItemList.get_transform();
                 int index2 = index1 % 7;
-                if (this.PositionList != null && this.PositionList.Length > index2 && Object.op_Inequality((Object) this.PositionList[index2], (Object) null))
+                if (this.PositionList != null && this.PositionList.Length > index2 && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.PositionList[index2], (UnityEngine.Object) null))
                   transform = this.PositionList[index2].get_transform();
                 if (index1 == 0)
                   this.DisableFirstDayHiddenOject(((Component) listItemEvents).get_gameObject());
@@ -239,29 +227,29 @@ namespace SRPG
         }
         data1 = DataSource.FindDataOfClass<ItemData>(((Component) this.mItems[this.mItems.Count - 1]).get_gameObject(), (ItemData) null);
       }
-      if (Object.op_Inequality((Object) this.PopupMessage, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.PopupMessage, (UnityEngine.Object) null))
         this.PopupMessage.set_text(this.GetPopupMessage(data2));
       bool flag = instance.Player.IsLastLoginBonus(this.TableID);
       if (jsonLoginBonusArray != null && this.mLoginBonusCount == jsonLoginBonusArray.Length)
         flag = true;
-      if (Object.op_Inequality((Object) this.RemainingCounter, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.RemainingCounter, (UnityEngine.Object) null))
         this.RemainingCounter.SetActive(!flag);
-      if (Object.op_Inequality((Object) this.TodayItem, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TodayItem, (UnityEngine.Object) null))
       {
         DataSource.Bind<ItemData>(this.TodayItem.get_gameObject(), data2);
         GameParameter.UpdateAll(this.TodayItem);
       }
-      if (Object.op_Inequality((Object) this.TommorowItem, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TommorowItem, (UnityEngine.Object) null))
       {
         DataSource.Bind<ItemData>(this.TommorowItem.get_gameObject(), data3);
         GameParameter.UpdateAll(this.TommorowItem);
       }
-      if (Object.op_Inequality((Object) this.LastItem, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.LastItem, (UnityEngine.Object) null))
       {
         DataSource.Bind<ItemData>(this.LastItem, data1);
         GameParameter.UpdateAll(this.LastItem);
       }
-      if (Object.op_Inequality((Object) this.GainLastItemMessage, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.GainLastItemMessage, (UnityEngine.Object) null))
         this.GainLastItemMessage.set_text(this.GetGainLastItemMessage(data1));
       if (flag)
         FlowNode_GameObject.ActivateOutputLinks((Component) this, 12);
@@ -271,9 +259,9 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: variable of a compiler-generated type
-          LoginBonusWindow28days.\u003CStart\u003Ec__AnonStorey255 startCAnonStorey255 = new LoginBonusWindow28days.\u003CStart\u003Ec__AnonStorey255();
+          LoginBonusWindow28days.\u003CStart\u003Ec__AnonStorey344 startCAnonStorey344 = new LoginBonusWindow28days.\u003CStart\u003Ec__AnonStorey344();
           // ISSUE: reference to a compiler-generated field
-          startCAnonStorey255.\u003C\u003Ef__this = this;
+          startCAnonStorey344.\u003C\u003Ef__this = this;
           int index2 = index1 * 7 + 6;
           if (index2 < this.mItems.Count)
           {
@@ -281,10 +269,10 @@ namespace SRPG
             DataSource.Bind<ItemData>(((Component) this.WeakToggle[index1]).get_gameObject(), dataOfClass);
           }
           // ISSUE: reference to a compiler-generated field
-          startCAnonStorey255.index = index1;
+          startCAnonStorey344.index = index1;
           this.WeakToggle[index1].set_isOn(index1 == this.mCurrentWeak);
           // ISSUE: method pointer
-          ((UnityEvent<bool>) this.WeakToggle[index1].onValueChanged).AddListener(new UnityAction<bool>((object) startCAnonStorey255, __methodptr(\u003C\u003Em__2A0)));
+          ((UnityEvent<bool>) this.WeakToggle[index1].onValueChanged).AddListener(new UnityAction<bool>((object) startCAnonStorey344, __methodptr(\u003C\u003Em__39B)));
         }
       }
       string unit_iname = (string) null;
@@ -301,7 +289,7 @@ namespace SRPG
         this.mCurrentPreview.DefaultLayer = GameUtility.LayerHidden;
         this.mCurrentPreview.SetupUnit(this.mCurrentUnit, -1);
         gameObject.get_transform().SetParent(this.PreviewParent, false);
-        if (Object.op_Inequality((Object) this.PreviewCamera, (Object) null) && Object.op_Inequality((Object) this.PreviewImage, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.PreviewCamera, (UnityEngine.Object) null) && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.PreviewImage, (UnityEngine.Object) null))
         {
           int num = Mathf.FloorToInt((float) Screen.get_height() * 0.8f);
           this.mPreviewUnitRT = RenderTexture.GetTemporary(num, num, 16, (RenderTextureFormat) 7);
@@ -317,7 +305,7 @@ namespace SRPG
     private IEnumerator WaitLoadAsync()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new LoginBonusWindow28days.\u003CWaitLoadAsync\u003Ec__IteratorBC() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new LoginBonusWindow28days.\u003CWaitLoadAsync\u003Ec__IteratorFF() { \u003C\u003Ef__this = this };
     }
 
     public void Activated(int pinID)
@@ -333,29 +321,29 @@ namespace SRPG
         return;
       int index = Math.Max(this.mLoginBonusCount - 1, 0);
       ListItemEvents mItem = this.mItems[index];
-      if (Object.op_Inequality((Object) this.BonusParticleEffect, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BonusParticleEffect, (UnityEngine.Object) null))
         UIUtility.SpawnParticle(this.BonusParticleEffect, ((Component) mItem).get_transform() as RectTransform, new Vector2(0.5f, 0.5f));
       ItemData dataOfClass = DataSource.FindDataOfClass<ItemData>(((Component) mItem).get_gameObject(), (ItemData) null);
-      ListItemEvents listItemEvents = (ListItemEvents) Object.Instantiate<ListItemEvents>((M0) this.Item_Taken);
+      ListItemEvents listItemEvents = (ListItemEvents) UnityEngine.Object.Instantiate<ListItemEvents>((M0) this.Item_Taken);
       DataSource.Bind<ItemData>(((Component) listItemEvents).get_gameObject(), dataOfClass);
       ((Component) listItemEvents).get_transform().SetParent(((Component) mItem).get_transform().get_parent(), false);
       ((Component) listItemEvents).get_transform().SetSiblingIndex(((Component) mItem).get_transform().GetSiblingIndex());
       listItemEvents.OnSelect = new ListItemEvents.ListItemEvent(this.OnItemSelect);
-      if (Object.op_Inequality((Object) this.TodayBadge, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TodayBadge, (UnityEngine.Object) null))
         ((Transform) this.TodayBadge).SetParent(((Component) listItemEvents).get_transform(), false);
-      Object.Destroy((Object) ((Component) mItem).get_gameObject());
+      UnityEngine.Object.Destroy((UnityEngine.Object) ((Component) mItem).get_gameObject());
       ((Component) listItemEvents).get_gameObject().SetActive(true);
       Transform child = ((Component) listItemEvents).get_transform().FindChild(this.CheckName);
-      if (Object.op_Inequality((Object) child, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) child, (UnityEngine.Object) null))
       {
         Animator component = (Animator) ((Component) child).GetComponent<Animator>();
-        if (Object.op_Inequality((Object) component, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
           ((Behaviour) component).set_enabled(true);
       }
       if (index == 0)
         this.DisableFirstDayHiddenOject(((Component) listItemEvents).get_gameObject());
       this.mItems[index] = listItemEvents;
-      if (Object.op_Inequality((Object) this.Message, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Message, (UnityEngine.Object) null))
         this.StartCoroutine(this.DelayPopupMessage());
       else
         FlowNode_GameObject.ActivateOutputLinks((Component) this, 13);
@@ -363,7 +351,7 @@ namespace SRPG
 
     private void OnWeakSelect(GameObject go)
     {
-      this.mCurrentWeak = this.WeakToggle.FindIndex((Predicate<Toggle>) (p => Object.op_Equality((Object) ((Component) p).get_gameObject(), (Object) go)));
+      this.mCurrentWeak = this.WeakToggle.FindIndex((Predicate<Toggle>) (p => UnityEngine.Object.op_Equality((UnityEngine.Object) ((Component) p).get_gameObject(), (UnityEngine.Object) go)));
       if (this.WeakToggle != null)
       {
         for (int index = 0; index < this.WeakToggle.Count; ++index)
@@ -376,10 +364,10 @@ namespace SRPG
         ListItemEvents mItem = this.mItems[index1];
         ((Component) mItem).get_gameObject().SetActive(num == this.mCurrentWeak);
         Transform child = ((Component) mItem).get_transform().FindChild(this.CheckName);
-        if (Object.op_Inequality((Object) child, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) child, (UnityEngine.Object) null))
         {
           Animator component = (Animator) ((Component) child).GetComponent<Animator>();
-          if (Object.op_Inequality((Object) component, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
             ((Behaviour) component).set_enabled(false);
         }
         ++index1;
@@ -400,14 +388,14 @@ namespace SRPG
     private IEnumerator DelayPopupMessage()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new LoginBonusWindow28days.\u003CDelayPopupMessage\u003Ec__IteratorBD() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new LoginBonusWindow28days.\u003CDelayPopupMessage\u003Ec__Iterator100() { \u003C\u003Ef__this = this };
     }
 
     [DebuggerHidden]
     private IEnumerator WaitForDestroy()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new LoginBonusWindow28days.\u003CWaitForDestroy\u003Ec__IteratorBE() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new LoginBonusWindow28days.\u003CWaitForDestroy\u003Ec__Iterator101() { \u003C\u003Ef__this = this };
     }
   }
 }

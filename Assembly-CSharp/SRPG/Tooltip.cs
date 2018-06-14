@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.Tooltip
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using UnityEngine;
@@ -13,6 +13,7 @@ namespace SRPG
   {
     public static Vector2 TooltipPosition;
     public RectTransform Body;
+    public RectTransform SizeBody;
     public Text TooltipText;
     public string CloseTrigger;
     public float DestroyDelay;
@@ -57,6 +58,29 @@ namespace SRPG
       this.Body.set_anchoredPosition(Tooltip.TooltipPosition);
     }
 
+    public Vector2 BodySize
+    {
+      get
+      {
+        if (Object.op_Implicit((Object) this.SizeBody))
+          return this.SizeBody.get_sizeDelta();
+        return Vector2.get_zero();
+      }
+    }
+
+    public bool EnableDisp
+    {
+      set
+      {
+        if (!Object.op_Implicit((Object) this.SizeBody))
+          return;
+        CanvasGroup component = (CanvasGroup) ((Component) this.SizeBody).GetComponent<CanvasGroup>();
+        if (!Object.op_Implicit((Object) component))
+          return;
+        component.set_alpha(!value ? 0.0f : 1f);
+      }
+    }
+
     private void Start()
     {
       this.mAnimator = (Animator) ((Component) this).GetComponent<Animator>();
@@ -68,7 +92,10 @@ namespace SRPG
       this.mDestroying = true;
       if (Object.op_Inequality((Object) this.mAnimator, (Object) null) && !string.IsNullOrEmpty(this.CloseTrigger))
         this.mAnimator.SetTrigger(this.CloseTrigger);
-      Object.Destroy((Object) ((Component) this).get_gameObject(), this.DestroyDelay);
+      if ((double) Time.get_timeScale() != 0.0)
+        Object.Destroy((Object) ((Component) this).get_gameObject(), this.DestroyDelay);
+      else
+        Object.Destroy((Object) ((Component) this).get_gameObject());
     }
 
     private void Update()

@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.SRPG_FixedList
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -23,10 +23,11 @@ namespace SRPG
     private int mCellCountY;
     private bool mStarted;
     private bool mShouldRefresh;
+    private bool mCalculatedCellCounts;
     protected bool mInvokeSelChange;
     protected List<GameObject> mItems;
     protected bool mFocusSelection;
-    private object[] mData;
+    protected object[] mData;
     protected System.Type mDataType;
     public SRPG_FixedList.SelectionChangeEvent OnSelectionChange;
     public Scrollbar PageScrollBar;
@@ -68,9 +69,9 @@ namespace SRPG
 
     private void RecalculateCellCounts()
     {
-      if (Object.op_Equality((Object) this.mGrid, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mGrid, (UnityEngine.Object) null))
         this.mGrid = (GridLayoutGroup) ((Component) this.ListParent).GetComponent<GridLayoutGroup>();
-      if (Object.op_Equality((Object) this.mGrid, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mGrid, (UnityEngine.Object) null))
       {
         this.mCellCountX = 0;
         this.mCellCountY = 0;
@@ -86,6 +87,7 @@ namespace SRPG
         float y = (float) ((Rect) @rect2).get_size().y;
         this.mCellCountX = Mathf.Max(1, Mathf.FloorToInt((float) (((double) x - (double) ((LayoutGroup) this.mGrid).get_padding().get_horizontal() + this.mGrid.get_spacing().x + 1.0 / 1000.0) / (this.mGrid.get_cellSize().x + this.mGrid.get_spacing().x))));
         this.mCellCountY = Mathf.Max(1, Mathf.FloorToInt((float) (((double) y - (double) ((LayoutGroup) this.mGrid).get_padding().get_vertical() + this.mGrid.get_spacing().y + 1.0 / 1000.0) / (this.mGrid.get_cellSize().y + this.mGrid.get_spacing().y))));
+        this.mCalculatedCellCounts = true;
       }
     }
 
@@ -150,6 +152,8 @@ namespace SRPG
     protected virtual void OnRectTransformDimensionsChange()
     {
       base.OnRectTransformDimensionsChange();
+      if (!this.mCalculatedCellCounts)
+        ;
       this.mShouldRefresh = true;
     }
 
@@ -180,6 +184,11 @@ namespace SRPG
     }
 
     protected virtual GameObject CreateItem()
+    {
+      return (GameObject) null;
+    }
+
+    protected virtual GameObject CreateItem(int index)
     {
       return (GameObject) null;
     }
@@ -233,7 +242,7 @@ namespace SRPG
       while (this.mItems.Count < this.mPageSize)
       {
         GameObject gameObject = this.CreateItem();
-        if (Object.op_Equality((Object) gameObject, (Object) null))
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) gameObject, (UnityEngine.Object) null))
         {
           DebugUtility.LogError("CreateItem returned NULL");
           return;
@@ -241,7 +250,7 @@ namespace SRPG
         gameObject.get_transform().SetParent(listParent, false);
         this.mItems.Add(gameObject);
         ListItemEvents component = (ListItemEvents) gameObject.GetComponent<ListItemEvents>();
-        if (Object.op_Inequality((Object) component, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
           component.OnSelect = new ListItemEvents.ListItemEvent(this._OnItemSelect);
       }
       if (this.mItems.Count == 0)
@@ -265,7 +274,7 @@ namespace SRPG
       for (int index = 0; index < this.ExtraItems.Length; ++index)
       {
         int num = this.mPage * this.mPageSize + index;
-        if (Object.op_Inequality((Object) this.ExtraItems[index], (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ExtraItems[index], (UnityEngine.Object) null))
           this.ExtraItems[index].SetActive(0 <= num && num < this.ExtraItems.Length);
       }
       this.UpdateSelection();
@@ -297,8 +306,8 @@ namespace SRPG
     {
       for (int index = 0; index < this.mItems.Count; ++index)
       {
-        if (Object.op_Inequality((Object) this.mItems[index], (Object) null))
-          Object.Destroy((Object) this.mItems[index]);
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mItems[index], (UnityEngine.Object) null))
+          UnityEngine.Object.Destroy((UnityEngine.Object) this.mItems[index]);
       }
       this.mItems.Clear();
       this.mSelection.Clear();
@@ -318,7 +327,7 @@ namespace SRPG
 
     public virtual void UpdatePage()
     {
-      if (Object.op_Inequality((Object) this.PageScrollBar, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.PageScrollBar, (UnityEngine.Object) null))
       {
         if (this.mMaxPages >= 2)
         {
@@ -331,13 +340,13 @@ namespace SRPG
           this.PageScrollBar.set_value(0.0f);
         }
       }
-      if (Object.op_Inequality((Object) this.PageIndex, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.PageIndex, (UnityEngine.Object) null))
         this.PageIndex.set_text(Mathf.Min(this.mPage + 1, this.mMaxPages).ToString());
-      if (Object.op_Inequality((Object) this.PageIndexMax, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.PageIndexMax, (UnityEngine.Object) null))
         this.PageIndexMax.set_text(this.mMaxPages.ToString());
-      if (Object.op_Inequality((Object) this.ForwardButton, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ForwardButton, (UnityEngine.Object) null))
         ((Selectable) this.ForwardButton).set_interactable(this.mPage < this.mMaxPages - 1);
-      if (!Object.op_Inequality((Object) this.BackButton, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BackButton, (UnityEngine.Object) null))
         return;
       ((Selectable) this.BackButton).set_interactable(this.mPage > 0);
     }
@@ -370,7 +379,7 @@ namespace SRPG
 
     public void RegisterNextButtonCallBack(UnityAction callBack)
     {
-      if (!Object.op_Inequality((Object) this.ForwardButton, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ForwardButton, (UnityEngine.Object) null))
         return;
       // ISSUE: method pointer
       ((UnityEvent) this.ForwardButton.get_onClick()).AddListener(new UnityAction((object) callBack, __methodptr(Invoke)));
@@ -378,7 +387,7 @@ namespace SRPG
 
     public void RegisterPrevButtonCallBack(UnityAction callBack)
     {
-      if (!Object.op_Inequality((Object) this.BackButton, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BackButton, (UnityEngine.Object) null))
         return;
       // ISSUE: method pointer
       ((UnityEvent) this.BackButton.get_onClick()).AddListener(new UnityAction((object) callBack, __methodptr(Invoke)));
@@ -386,7 +395,7 @@ namespace SRPG
 
     public void UpdateSelection()
     {
-      if (!Object.op_Inequality((Object) this.NumSelection, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.NumSelection, (UnityEngine.Object) null))
         return;
       this.NumSelection.set_text(this.mSelection.Count.ToString());
     }

@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.MailData
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -32,10 +32,10 @@ namespace SRPG
           if (configLanguage != null)
           {
             // ISSUE: reference to a compiler-generated field
-            if (MailData.\u003C\u003Ef__switch\u0024mapA == null)
+            if (MailData.\u003C\u003Ef__switch\u0024map12 == null)
             {
               // ISSUE: reference to a compiler-generated field
-              MailData.\u003C\u003Ef__switch\u0024mapA = new Dictionary<string, int>(3)
+              MailData.\u003C\u003Ef__switch\u0024map12 = new Dictionary<string, int>(3)
               {
                 {
                   "french",
@@ -53,7 +53,7 @@ namespace SRPG
             }
             int num;
             // ISSUE: reference to a compiler-generated field
-            if (MailData.\u003C\u003Ef__switch\u0024mapA.TryGetValue(configLanguage, out num))
+            if (MailData.\u003C\u003Ef__switch\u0024map12.TryGetValue(configLanguage, out num))
             {
               switch (num)
               {
@@ -84,6 +84,7 @@ label_11:
         giftData.arenacoin = json.gifts[index].arenacoin;
         giftData.multicoin = json.gifts[index].multicoin;
         giftData.kakeracoin = json.gifts[index].kakeracoin;
+        giftData.rarity = json.gifts[index].rare;
         giftData.UpdateGiftTypes();
         this.gifts[index] = giftData;
       }

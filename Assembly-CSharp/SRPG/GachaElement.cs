@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.GachaElement
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -30,7 +30,7 @@ namespace SRPG
 
     private void Awake()
     {
-      if (!Object.op_Inequality((Object) this.GachaButtonParent, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.GachaButtonParent, (UnityEngine.Object) null))
         return;
       this.GachaButtonParent.SetActive(false);
     }
@@ -53,24 +53,24 @@ namespace SRPG
       GachaParam data1 = gachaParamList.Find((Predicate<GachaParam>) (p => p.num == 1));
       if (data1 != null)
       {
-        if (Object.op_Inequality((Object) this.FreeGacha, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.FreeGacha, (UnityEngine.Object) null))
         {
           DataSource.Bind<GachaParam>(this.FreeGacha, data1);
           flag = true;
         }
-        if (Object.op_Inequality((Object) this.SingularGacha, (Object) null))
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.SingularGacha, (UnityEngine.Object) null))
         {
           DataSource.Bind<GachaParam>(this.SingularGacha, data1);
           flag = true;
         }
       }
       GachaParam data2 = gachaParamList.Find((Predicate<GachaParam>) (p => p.num > 1));
-      if (data2 != null && Object.op_Inequality((Object) this.MultipleGacha, (Object) null))
+      if (data2 != null && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.MultipleGacha, (UnityEngine.Object) null))
       {
         DataSource.Bind<GachaParam>(this.MultipleGacha, data2);
         flag = true;
       }
-      if (Object.op_Inequality((Object) this.GachaButtonParent, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.GachaButtonParent, (UnityEngine.Object) null))
         this.GachaButtonParent.SetActive(flag);
       GameParameter.UpdateAll(((Component) this).get_gameObject());
     }

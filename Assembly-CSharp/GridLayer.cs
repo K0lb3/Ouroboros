@@ -1,14 +1,14 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: GridLayer
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using UnityEngine;
 
 [RequireComponent(typeof (MeshRenderer))]
-[RequireComponent(typeof (MeshFilter))]
 [DisallowMultipleComponent]
+[RequireComponent(typeof (MeshFilter))]
 public class GridLayer : MonoBehaviour
 {
   public int LayerID;
@@ -34,7 +34,16 @@ public class GridLayer : MonoBehaviour
       return;
     string[] strArray = this.Preview.Split('\n');
     GridMap<Color32> grid = new GridMap<Color32>(strArray[0].Length, strArray.Length);
-    Color32[] color32Array = new Color32[7]{ new Color32((byte) 0, (byte) 0, (byte) 0, (byte) 0), new Color32(byte.MaxValue, (byte) 64, (byte) 64, byte.MaxValue), new Color32((byte) 64, byte.MaxValue, (byte) 64, byte.MaxValue), new Color32((byte) 64, (byte) 64, byte.MaxValue, byte.MaxValue), new Color32(byte.MaxValue, byte.MaxValue, (byte) 64, byte.MaxValue), new Color32(byte.MaxValue, (byte) 64, byte.MaxValue, byte.MaxValue), new Color32((byte) 64, byte.MaxValue, byte.MaxValue, byte.MaxValue) };
+    Color32[] color32Array = new Color32[7]
+    {
+      new Color32((byte) 0, (byte) 0, (byte) 0, (byte) 0),
+      new Color32(byte.MaxValue, (byte) 64, (byte) 64, byte.MaxValue),
+      new Color32((byte) 64, byte.MaxValue, (byte) 64, byte.MaxValue),
+      new Color32((byte) 64, (byte) 64, byte.MaxValue, byte.MaxValue),
+      new Color32(byte.MaxValue, byte.MaxValue, (byte) 64, byte.MaxValue),
+      new Color32(byte.MaxValue, (byte) 64, byte.MaxValue, byte.MaxValue),
+      new Color32((byte) 64, byte.MaxValue, byte.MaxValue, byte.MaxValue)
+    };
     for (int y = 0; y < strArray.Length; ++y)
     {
       for (int index = 0; index < strArray[0].Length && index < strArray[y].Length; ++index)
@@ -106,7 +115,79 @@ public class GridLayer : MonoBehaviour
     material.SetTextureOffset("_indexTex", vector2);
     if (!string.IsNullOrEmpty(SystemInfo.get_deviceModel()))
     {
-      string[] strArray = new string[69]{ "FJL21", "FJL22", "HW-01E", "HW-03E", "016SH", "106SH", "107SH", "200SH", "205SH", "206SH", "302SH", "303SH", "304SH", "201K", "202F", "L-01F", "SC-01D", "SC-03D", "SC-05D", "SC-06D", "SHL21", "SHL22", "SHL23", "SHL24", "SHL25", "N-04D", "N-05D", "N-07D", "N-08D", "F-02E", "F-03E", "F-04E", "F-06E", "F-05D", "F-11D", "SH-01E", "SH-04E", "SH-06E", "SH-07E", "SH-07D", "SH-09D", "SH-10D", "SH-02F", "SH-05F", "WX05SH", "P-02E", "P-03E", "ISW11F", "ISW13F", "IS12S", "IS15SH", "IS17SH", "SO-02E", "SO-03E", "SO-04E", "SO-03D", "SO-04D", "SO-05D", "SOL21", "SOL22", "SOL23", "LGL21", "LGL22", "LGL23", "KYY04", "KYY21", "KYY22", "KYY23", "KYY24" };
+      string[] strArray = new string[70]
+      {
+        "FJL21",
+        "FJL22",
+        "HW-01E",
+        "HW-03E",
+        "016SH",
+        "106SH",
+        "107SH",
+        "200SH",
+        "205SH",
+        "206SH",
+        "302SH",
+        "303SH",
+        "304SH",
+        "201K",
+        "202F",
+        "L-01F",
+        "SC-01D",
+        "SC-03D",
+        "SC-05D",
+        "SC-06D",
+        "SHL21",
+        "SHL22",
+        "SHL23",
+        "SHL24",
+        "SHL25",
+        "N-04D",
+        "N-05D",
+        "N-07D",
+        "N-08D",
+        "F-02E",
+        "F-03E",
+        "F-04E",
+        "F-06E",
+        "F-05D",
+        "F-11D",
+        "SH-01E",
+        "SH-04E",
+        "SH-06E",
+        "SH-07E",
+        "SH-07D",
+        "SH-09D",
+        "SH-10D",
+        "SH-02F",
+        "SH-05F",
+        "WX05SH",
+        "P-02E",
+        "P-03E",
+        "ISW11F",
+        "ISW13F",
+        "IS12S",
+        "IS15SH",
+        "IS17SH",
+        "SO-02E",
+        "SO-03E",
+        "SO-04E",
+        "SO-03D",
+        "SO-04D",
+        "SO-05D",
+        "SO-01F",
+        "SOL21",
+        "SOL22",
+        "SOL23",
+        "LGL21",
+        "LGL22",
+        "LGL23",
+        "KYY04",
+        "KYY21",
+        "KYY22",
+        "KYY23",
+        "KYY24"
+      };
       foreach (string str in strArray)
       {
         if (SystemInfo.get_deviceModel().Contains(str))

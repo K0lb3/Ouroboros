@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.UnitAbilityList
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -59,17 +59,17 @@ namespace SRPG
 
     private void Start()
     {
-      if (Object.op_Inequality((Object) this.Item_Normal, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Item_Normal, (UnityEngine.Object) null))
         ((Component) this.Item_Normal).get_gameObject().SetActive(false);
-      if (Object.op_Inequality((Object) this.Item_Locked, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Item_Locked, (UnityEngine.Object) null))
         ((Component) this.Item_Locked).get_gameObject().SetActive(false);
-      if (Object.op_Inequality((Object) this.Item_NoSlot, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Item_NoSlot, (UnityEngine.Object) null))
         ((Component) this.Item_NoSlot).get_gameObject().SetActive(false);
-      if (Object.op_Inequality((Object) this.Item_Empty, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Item_Empty, (UnityEngine.Object) null))
         ((Component) this.Item_Empty).get_gameObject().SetActive(false);
-      if (Object.op_Inequality((Object) this.Item_SlotMismatch, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Item_SlotMismatch, (UnityEngine.Object) null))
         ((Component) this.Item_SlotMismatch).get_gameObject().SetActive(false);
-      if (Object.op_Inequality((Object) this.Item_Fixed, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Item_Fixed, (UnityEngine.Object) null))
         ((Component) this.Item_Fixed).get_gameObject().SetActive(false);
       if (this.RefreshOnStart == UnitAbilityList.RefreshTypes.DisplayAll)
       {
@@ -96,12 +96,13 @@ namespace SRPG
     {
       this.mLastDisplayMode = UnitAbilityList.RefreshTypes.DisplaySlots;
       for (int index = 0; index < this.mItems.Count; ++index)
-        Object.Destroy((Object) ((Component) this.mItems[index]).get_gameObject());
+        UnityEngine.Object.Destroy((UnityEngine.Object) ((Component) this.mItems[index]).get_gameObject());
       this.mItems.Clear();
       if (this.Unit == null)
         this.Unit = DataSource.FindDataOfClass<UnitData>(((Component) this).get_gameObject(), (UnitData) null);
       if (this.Unit == null)
         return;
+      GlobalVars.SelectedUnitUniqueID.Set(this.Unit.UniqueID);
       AbilityData[] equipAbilitys = this.Unit.CreateEquipAbilitys();
       Transform transform = ((Component) this).get_transform();
       for (int index = 0; index < this.Unit.CurrentJob.AbilitySlots.Length; ++index)
@@ -113,9 +114,9 @@ namespace SRPG
         {
           flag = data1.Param.is_fixed;
           UnitAbilityListItemEvents abilityListItemEvents2 = !flag ? this.Item_Normal : this.Item_Fixed;
-          if (Object.op_Equality((Object) abilityListItemEvents2, (Object) null))
+          if (UnityEngine.Object.op_Equality((UnityEngine.Object) abilityListItemEvents2, (UnityEngine.Object) null))
             abilityListItemEvents2 = this.Item_Normal;
-          abilityListItemEvents1 = (UnitAbilityListItemEvents) Object.Instantiate<UnitAbilityListItemEvents>((M0) abilityListItemEvents2);
+          abilityListItemEvents1 = (UnitAbilityListItemEvents) UnityEngine.Object.Instantiate<UnitAbilityListItemEvents>((M0) abilityListItemEvents2);
           DataSource.Bind<AbilityData>(((Component) abilityListItemEvents1).get_gameObject(), data1);
           string key = this.Unit.SearchAbilityReplacementSkill(data1.Param.iname);
           if (!string.IsNullOrEmpty(key))
@@ -138,7 +139,7 @@ namespace SRPG
         {
           AbilityParam data2 = new AbilityParam();
           data2.slot = JobData.ABILITY_SLOT_TYPES[index];
-          abilityListItemEvents1 = (UnitAbilityListItemEvents) Object.Instantiate<UnitAbilityListItemEvents>((M0) this.Item_Empty);
+          abilityListItemEvents1 = (UnitAbilityListItemEvents) UnityEngine.Object.Instantiate<UnitAbilityListItemEvents>((M0) this.Item_Empty);
           DataSource.Bind<AbilityParam>(((Component) abilityListItemEvents1).get_gameObject(), data2);
         }
         ((Component) abilityListItemEvents1).get_transform().SetParent(transform, false);
@@ -153,7 +154,7 @@ namespace SRPG
     {
       for (int slotIndex = 0; slotIndex < this.mItems.Count; ++slotIndex)
       {
-        if (Object.op_Equality((Object) ((Component) this.mItems[slotIndex]).get_gameObject(), (Object) go))
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) ((Component) this.mItems[slotIndex]).get_gameObject(), (UnityEngine.Object) go))
         {
           if (this.OnSlotSelect == null)
             break;
@@ -204,7 +205,7 @@ namespace SRPG
       if (string.IsNullOrEmpty((string) GlobalVars.SelectedAbilityID))
         return;
       EventSystem current = EventSystem.get_current();
-      if (Object.op_Inequality((Object) current, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) current, (UnityEngine.Object) null))
       {
         ((Behaviour) current).set_enabled(false);
         ((Behaviour) current).set_enabled(true);
@@ -213,17 +214,18 @@ namespace SRPG
       if (!string.IsNullOrEmpty(instance.Dialog_AbilityDetail))
       {
         GameObject gameObject = AssetManager.Load<GameObject>(instance.Dialog_AbilityDetail);
-        if (Object.op_Inequality((Object) gameObject, (Object) null))
-          Object.Instantiate<GameObject>((M0) gameObject);
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) gameObject, (UnityEngine.Object) null))
+          UnityEngine.Object.Instantiate<GameObject>((M0) gameObject);
       }
       bool flag = false;
-      if (Object.op_Implicit((Object) go))
+      if (UnityEngine.Object.op_Implicit((UnityEngine.Object) go))
       {
         ListItemEvents component = (ListItemEvents) go.GetComponent<ListItemEvents>();
-        if (Object.op_Implicit((Object) component))
+        if (UnityEngine.Object.op_Implicit((UnityEngine.Object) component))
           flag = component.IsEnableSkillChange;
       }
       AbilityDetailWindow.IsEnableSkillChange = flag;
+      AbilityDetailWindow.SetBindObject(this.Unit);
       FlowNode_GameObject.ActivateOutputLinks((Component) this, 100);
     }
 
@@ -266,7 +268,7 @@ namespace SRPG
       this.mLastDisplayMode = UnitAbilityList.RefreshTypes.DisplayAll;
       this.mLastDisplaySlot = slotType;
       for (int index = 0; index < this.mItems.Count; ++index)
-        Object.Destroy((Object) ((Component) this.mItems[index]).get_gameObject());
+        UnityEngine.Object.Destroy((UnityEngine.Object) ((Component) this.mItems[index]).get_gameObject());
       this.mItems.Clear();
       if (this.Unit == null)
         this.Unit = DataSource.FindDataOfClass<UnitData>(((Component) this).get_gameObject(), (UnitData) null);
@@ -282,12 +284,12 @@ namespace SRPG
         if (instance.GetNextTutorialStep() == "ShowAbilityLvUp")
           flag1 = true;
       }
-      if (Object.op_Inequality((Object) this.Item_Normal, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Item_Normal, (UnityEngine.Object) null))
       {
         for (int index1 = 0; index1 < learnedAbilities.Count; ++index1)
         {
           AbilityData data = learnedAbilities[index1];
-          if ((slotType == ~EAbilitySlot.Action || slotType == data.SlotType) && (this.ShowFixedAbilities || !data.Param.is_fixed) && (this.ShowMasterAbilities || !((string) this.Unit.UnitParam.ability == data.AbilityID) && !this.Unit.IsQuestClearUnlocked(data.Param.iname, QuestClearUnlockUnitDataParam.EUnlockTypes.MasterAbility)))
+          if ((slotType == ~EAbilitySlot.Action || slotType == data.SlotType) && (this.ShowFixedAbilities || !data.Param.is_fixed) && (this.ShowMasterAbilities || !((string) this.Unit.UnitParam.ability == data.AbilityID) && !this.Unit.IsQuestClearUnlocked(data.Param.iname, QuestClearUnlockUnitDataParam.EUnlockTypes.MasterAbility)) && this.Unit.MapEffectAbility != data)
           {
             if (hideEquipped)
             {
@@ -303,7 +305,7 @@ namespace SRPG
               if (flag2)
                 continue;
             }
-            UnitAbilityListItemEvents abilityListItemEvents = (UnitAbilityListItemEvents) Object.Instantiate<UnitAbilityListItemEvents>((M0) this.Item_Normal);
+            UnitAbilityListItemEvents abilityListItemEvents = (UnitAbilityListItemEvents) UnityEngine.Object.Instantiate<UnitAbilityListItemEvents>((M0) this.Item_Normal);
             this.mItems.Add(abilityListItemEvents);
             DataSource.Bind<AbilityData>(((Component) abilityListItemEvents).get_gameObject(), data);
             abilityListItemEvents.OnSelect = new ListItemEvents.ListItemEvent(this._OnAbilitySelect);
@@ -329,14 +331,14 @@ namespace SRPG
           }
         }
       }
-      if (slotType != ~EAbilitySlot.Action && Object.op_Inequality((Object) this.Item_SlotMismatch, (Object) null))
+      if (slotType != ~EAbilitySlot.Action && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Item_SlotMismatch, (UnityEngine.Object) null))
       {
         for (int index = 0; index < learnedAbilities.Count; ++index)
         {
           AbilityData data = learnedAbilities[index];
-          if (slotType != data.SlotType && (this.ShowFixedAbilities || !data.Param.is_fixed) && (this.ShowMasterAbilities || !((string) this.Unit.UnitParam.ability == data.AbilityID) && !this.Unit.IsQuestClearUnlocked(data.Param.iname, QuestClearUnlockUnitDataParam.EUnlockTypes.MasterAbility)))
+          if (slotType != data.SlotType && (this.ShowFixedAbilities || !data.Param.is_fixed) && (this.ShowMasterAbilities || !((string) this.Unit.UnitParam.ability == data.AbilityID) && !this.Unit.IsQuestClearUnlocked(data.Param.iname, QuestClearUnlockUnitDataParam.EUnlockTypes.MasterAbility)) && this.Unit.MapEffectAbility != data)
           {
-            UnitAbilityListItemEvents abilityListItemEvents = (UnitAbilityListItemEvents) Object.Instantiate<UnitAbilityListItemEvents>((M0) this.Item_SlotMismatch);
+            UnitAbilityListItemEvents abilityListItemEvents = (UnitAbilityListItemEvents) UnityEngine.Object.Instantiate<UnitAbilityListItemEvents>((M0) this.Item_SlotMismatch);
             this.mItems.Add(abilityListItemEvents);
             DataSource.Bind<AbilityData>(((Component) abilityListItemEvents).get_gameObject(), data);
             abilityListItemEvents.OnRankUp = new ListItemEvents.ListItemEvent(this._OnAbilityRankUp);
@@ -356,7 +358,7 @@ namespace SRPG
           }
         }
       }
-      if (Object.op_Inequality((Object) this.Item_Locked, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Item_Locked, (UnityEngine.Object) null))
       {
         GameManager instanceDirect = MonoSingleton<GameManager>.GetInstanceDirect();
         for (int index1 = 0; index1 < this.Unit.Jobs.Length; ++index1)
@@ -377,7 +379,7 @@ namespace SRPG
                     AbilityParam abilityParam = instanceDirect.GetAbilityParam(key);
                     if (this.ShowFixedAbilities || !abilityParam.is_fixed)
                     {
-                      UnitAbilityListItemEvents abilityListItemEvents = (UnitAbilityListItemEvents) Object.Instantiate<UnitAbilityListItemEvents>((M0) this.Item_Locked);
+                      UnitAbilityListItemEvents abilityListItemEvents = (UnitAbilityListItemEvents) UnityEngine.Object.Instantiate<UnitAbilityListItemEvents>((M0) this.Item_Locked);
                       this.mItems.Add(abilityListItemEvents);
                       DataSource.Bind<AbilityParam>(((Component) abilityListItemEvents).get_gameObject(), abilityParam);
                       abilityListItemEvents.OnSelect = new ListItemEvents.ListItemEvent(this._OnAbilitySelect);
@@ -402,7 +404,7 @@ namespace SRPG
         if (this.ShowMasterAbilities && !string.IsNullOrEmpty((string) this.Unit.UnitParam.ability) && this.Unit.LearnAbilitys.Find((Predicate<AbilityData>) (p => p.AbilityID == (string) this.Unit.UnitParam.ability)) == null)
         {
           AbilityParam abilityParam = instanceDirect.GetAbilityParam((string) this.Unit.UnitParam.ability);
-          UnitAbilityListItemEvents abilityListItemEvents = (UnitAbilityListItemEvents) Object.Instantiate<UnitAbilityListItemEvents>((M0) this.Item_Locked);
+          UnitAbilityListItemEvents abilityListItemEvents = (UnitAbilityListItemEvents) UnityEngine.Object.Instantiate<UnitAbilityListItemEvents>((M0) this.Item_Locked);
           this.mItems.Add(abilityListItemEvents);
           DataSource.Bind<AbilityParam>(((Component) abilityListItemEvents).get_gameObject(), abilityParam);
           abilityListItemEvents.OnSelect = new ListItemEvents.ListItemEvent(this._OnAbilitySelect);
@@ -414,7 +416,7 @@ namespace SRPG
           ((Component) abilityListItemEvents).get_gameObject().SetActive(true);
         }
       }
-      if (Object.op_Inequality((Object) this.ScrollParent, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ScrollParent, (UnityEngine.Object) null))
       {
         this.mDecelerationRate = this.ScrollParent.get_decelerationRate();
         this.ScrollParent.set_decelerationRate(0.0f);
@@ -428,7 +430,7 @@ namespace SRPG
     private IEnumerator RefreshScrollRect()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new UnitAbilityList.\u003CRefreshScrollRect\u003Ec__IteratorD9() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new UnitAbilityList.\u003CRefreshScrollRect\u003Ec__Iterator11E() { \u003C\u003Ef__this = this };
     }
 
     public void UpdateItem(AbilityData ability)

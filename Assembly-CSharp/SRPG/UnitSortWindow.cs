@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.UnitSortWindow
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using UnityEngine;
@@ -10,8 +10,8 @@ using UnityEngine.UI;
 
 namespace SRPG
 {
-  [FlowNode.Pin(101, "決定", FlowNode.PinTypes.Output, 1)]
   [FlowNode.Pin(102, "キャンセル", FlowNode.PinTypes.Output, 2)]
+  [FlowNode.Pin(101, "決定", FlowNode.PinTypes.Output, 1)]
   public class UnitSortWindow : MonoBehaviour, IFlowInterface
   {
     public Toggle[] ToggleElements;
@@ -39,11 +39,11 @@ namespace SRPG
         {
           // ISSUE: object of a compiler-generated type is created
           // ISSUE: method pointer
-          ((UnityEvent<bool>) this.ToggleElements[index].onValueChanged).AddListener(new UnityAction<bool>((object) new UnitSortWindow.\u003CStart\u003Ec__AnonStorey28A()
+          ((UnityEvent<bool>) this.ToggleElements[index].onValueChanged).AddListener(new UnityAction<bool>((object) new UnitSortWindow.\u003CStart\u003Ec__AnonStorey3A1()
           {
             \u003C\u003Ef__this = this,
             toggle_index = index
-          }, __methodptr(\u003C\u003Em__325)));
+          }, __methodptr(\u003C\u003Em__46D)));
           this.ToggleElements[index].set_isOn(this.mToggleBkupValues[index] = GameUtility.GetUnitShowSetting(index));
         }
       }

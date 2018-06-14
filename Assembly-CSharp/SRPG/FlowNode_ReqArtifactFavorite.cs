@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_ReqArtifactFavorite
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -11,10 +11,10 @@ using UnityEngine;
 namespace SRPG
 {
   [FlowNode.Pin(1, "お気に入り 削除", FlowNode.PinTypes.Input, 1)]
-  [FlowNode.NodeType("System/Artifact/Favorite", 32741)]
   [FlowNode.Pin(0, "お気に入り 追加", FlowNode.PinTypes.Input, 0)]
-  [FlowNode.Pin(2, "Add Success", FlowNode.PinTypes.Output, 2)]
+  [FlowNode.NodeType("System/Artifact/Favorite", 32741)]
   [FlowNode.Pin(3, "Remove Success", FlowNode.PinTypes.Output, 3)]
+  [FlowNode.Pin(2, "Add Success", FlowNode.PinTypes.Output, 2)]
   public class FlowNode_ReqArtifactFavorite : FlowNode_Network
   {
     private const int PIN_ID_FAVORITE_ADD = 0;

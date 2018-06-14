@@ -1,48 +1,13 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.LimitedShopItem
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 namespace SRPG
 {
   public class LimitedShopItem : ShopItem
   {
-    public int max_num;
-    public int bougthnum;
-    private JSON_LimitedShopItemListSet.Cost cost;
-    public Json_ShopItemDesc[] children;
-    public bool is_reset;
-
-    public int remaining_num
-    {
-      get
-      {
-        return this.max_num - this.bougthnum;
-      }
-    }
-
-    public bool IsSet
-    {
-      get
-      {
-        if (this.children != null)
-          return this.children.Length > 0;
-        return false;
-      }
-    }
-
-    public bool isSetSaleValue
-    {
-      get
-      {
-        bool flag = this.saleValue > 0;
-        if (!flag)
-          DebugUtility.LogError("saleValueの値が入っていません");
-        return flag;
-      }
-    }
-
     public bool Deserialize(JSON_LimitedShopItemListSet json)
     {
       if (json == null || json.item == null || (string.IsNullOrEmpty(json.item.iname) || json.cost == null) || string.IsNullOrEmpty(json.cost.type))

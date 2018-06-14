@@ -1,11 +1,10 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.ReqTowerBtlComEnd
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
-using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
@@ -68,7 +67,6 @@ namespace SRPG
       {
         stringBuilder.Append(",\"edeck\":[");
         List<Unit> unitList = new List<Unit>((IEnumerable<Unit>) Enemy);
-        unitList.RemoveAll((Predicate<Unit>) (x => x.Side != EUnitSide.Enemy));
         if (MonoSingleton<GameManager>.Instance.TowerResuponse.edeck != null)
         {
           List<TowerResuponse.EnemyUnit> edeck = MonoSingleton<GameManager>.Instance.TowerResuponse.edeck;
@@ -88,15 +86,20 @@ namespace SRPG
             {
               Unit unit = unitList[index1];
               ++index1;
-              if (unit.Side == EUnitSide.Enemy)
+              stringBuilder.Append("{");
+              this.SetValue(ref stringBuilder, "\"eid\":\"", (long) index2, "\",");
+              this.SetValue(ref stringBuilder, "\"iname\":\"", unit.UnitParam.iname, "\",");
+              if (unit.IsGimmick && !unit.IsDisableGimmick())
               {
-                stringBuilder.Append("{");
-                this.SetValue(ref stringBuilder, "\"eid\":\"", (long) index2, "\",");
-                this.SetValue(ref stringBuilder, "\"iname\":\"", unit.UnitParam.iname, "\",");
-                this.SetValue(ref stringBuilder, "\"hp\":", !unit.IsDead ? (long) (int) unit.CurrentStatus.param.hp : 0L);
-                this.SetValue(ref stringBuilder, "\"jewel\":", (long) (int) unit.CurrentStatus.param.mp, string.Empty);
-                stringBuilder.Append("},");
+                if (unit.IsBreakObj)
+                  this.SetValue(ref stringBuilder, "\"hp\":", (long) (int) unit.CurrentStatus.param.hp);
+                else
+                  this.SetValue(ref stringBuilder, "\"hp\":", 1L);
               }
+              else
+                this.SetValue(ref stringBuilder, "\"hp\":", !unit.IsDead ? (long) (int) unit.CurrentStatus.param.hp : 0L);
+              this.SetValue(ref stringBuilder, "\"jewel\":", (long) (int) unit.CurrentStatus.param.mp, string.Empty);
+              stringBuilder.Append("},");
             }
           }
         }
@@ -105,15 +108,20 @@ namespace SRPG
           for (int index = 0; index < unitList.Count; ++index)
           {
             Unit unit = unitList[index];
-            if (unit.Side == EUnitSide.Enemy)
+            stringBuilder.Append("{");
+            this.SetValue(ref stringBuilder, "\"eid\":\"", (long) index, "\",");
+            this.SetValue(ref stringBuilder, "\"iname\":\"", unit.UnitParam.iname, "\",");
+            if (unit.IsGimmick && !unit.IsDisableGimmick())
             {
-              stringBuilder.Append("{");
-              this.SetValue(ref stringBuilder, "\"eid\":\"", (long) index, "\",");
-              this.SetValue(ref stringBuilder, "\"iname\":\"", unit.UnitParam.iname, "\",");
-              this.SetValue(ref stringBuilder, "\"hp\":", !unit.IsDead ? (long) (int) unit.CurrentStatus.param.hp : 0L);
-              this.SetValue(ref stringBuilder, "\"jewel\":", (long) (int) unit.CurrentStatus.param.mp, string.Empty);
-              stringBuilder.Append("},");
+              if (unit.IsBreakObj)
+                this.SetValue(ref stringBuilder, "\"hp\":", (long) (int) unit.CurrentStatus.param.hp);
+              else
+                this.SetValue(ref stringBuilder, "\"hp\":", 1L);
             }
+            else
+              this.SetValue(ref stringBuilder, "\"hp\":", !unit.IsDead ? (long) (int) unit.CurrentStatus.param.hp : 0L);
+            this.SetValue(ref stringBuilder, "\"jewel\":", (long) (int) unit.CurrentStatus.param.mp, string.Empty);
+            stringBuilder.Append("},");
           }
         }
         --stringBuilder.Length;
@@ -128,6 +136,7 @@ namespace SRPG
         stringBuilder.Append(supportData.Cost);
         stringBuilder.Append("}");
       }
+      stringBuilder.Append("}");
       if (!string.IsNullOrEmpty(trophyprog))
       {
         stringBuilder.Append(",");
@@ -143,7 +152,6 @@ namespace SRPG
         stringBuilder.Append(",");
         stringBuilder.Append(maxdata);
       }
-      stringBuilder.Append("}");
       this.body = WebAPI.GetRequestString(stringBuilder.ToString());
       this.callback = response;
     }

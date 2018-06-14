@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_MultiPlayResume
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -10,14 +10,16 @@ using UnityEngine;
 namespace SRPG
 {
   [FlowNode.Pin(200, "ResumeMulti", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.NodeType("Multi/MultiPlayResume", 32741)]
   [FlowNode.Pin(202, "ResumeVersus", FlowNode.PinTypes.Input, 2)]
-  [FlowNode.Pin(300, "Success", FlowNode.PinTypes.Output, 3)]
-  [FlowNode.Pin(301, "Failure", FlowNode.PinTypes.Output, 4)]
+  [FlowNode.Pin(203, "ResumeMultiTower", FlowNode.PinTypes.Input, 3)]
+  [FlowNode.Pin(300, "Success", FlowNode.PinTypes.Output, 4)]
+  [FlowNode.Pin(301, "Failure", FlowNode.PinTypes.Output, 5)]
   [FlowNode.Pin(5000, "NoMatchVersion", FlowNode.PinTypes.Output, 5000)]
   [FlowNode.Pin(6000, "MultiResumeMaintenance", FlowNode.PinTypes.Output, 6000)]
-  [FlowNode.Pin(7000, "NoRoom", FlowNode.PinTypes.Output, 7000)]
-  [FlowNode.NodeType("Multi/MultiPlayResume", 32741)]
+  [FlowNode.Pin(7000, "ClosedRoom", FlowNode.PinTypes.Output, 7000)]
   [FlowNode.Pin(201, "ResumeMultiQuest", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(8000, "NotResume", FlowNode.PinTypes.Output, 8000)]
   public class FlowNode_MultiPlayResume : FlowNode_StartQuest
   {
     public static Json_BtlInfo_Multi BtlInfo;
@@ -37,7 +39,6 @@ namespace SRPG
           this.ExecRequest((WebAPI) new ReqMultiPlayResume((long) GlobalVars.BtlID, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
           break;
         case 201:
-          PunMonoSingleton<MyPhoton>.Instance.IsMultiPlay = true;
           CriticalSection.Enter(CriticalSections.SceneChange);
           this.mStartingQuest = MonoSingleton<GameManager>.Instance.FindQuest(GlobalVars.SelectedQuestID);
           if (!string.IsNullOrEmpty(this.QuestID))
@@ -50,6 +51,13 @@ namespace SRPG
           MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
           if (Object.op_Inequality((Object) instance, (Object) null))
           {
+            MyPhoton.MyRoom currentRoom = instance.GetCurrentRoom();
+            if (currentRoom != null && !currentRoom.battle)
+            {
+              this.Failure();
+              CriticalSection.Leave(CriticalSections.SceneChange);
+              break;
+            }
             instance.IsMultiPlay = true;
             instance.IsMultiVersus = this.mType == FlowNode_MultiPlayResume.RESUME_TYPE.VERSUS;
           }
@@ -67,6 +75,21 @@ namespace SRPG
           }
           ((Behaviour) this).set_enabled(true);
           this.ExecRequest((WebAPI) new ReqVersusResume((long) GlobalVars.BtlID, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+          break;
+        case 203:
+          if (Network.Mode != Network.EConnectMode.Online)
+          {
+            this.Failure();
+            break;
+          }
+          if ((long) GlobalVars.BtlID != 0L && GlobalVars.QuestType == QuestTypes.MultiTower)
+          {
+            ((Behaviour) this).set_enabled(true);
+            this.ExecRequest((WebAPI) new ReqMultiTwResume((long) GlobalVars.BtlID, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+            break;
+          }
+          ((Behaviour) this).set_enabled(false);
+          this.ActivateOutputLinks(8000);
           break;
         default:
           base.OnActivate(pinID);
@@ -90,8 +113,9 @@ namespace SRPG
         {
           case Network.EErrCode.MultiMaintenance:
           case Network.EErrCode.VsMaintenance:
+          case Network.EErrCode.MultiVersionMaintenance:
+          case Network.EErrCode.MultiTowerMaintenance:
             Network.RemoveAPI();
-            Network.ResetError();
             ((Behaviour) this).set_enabled(false);
             this.ActivateOutputLinks(6000);
             break;
@@ -103,6 +127,7 @@ namespace SRPG
             break;
           case Network.EErrCode.RoomNoRoom:
           case Network.EErrCode.VS_NoRoom:
+          case Network.EErrCode.MT_AlreadyFinish:
             Network.RemoveAPI();
             Network.ResetError();
             ((Behaviour) this).set_enabled(false);
@@ -156,6 +181,29 @@ namespace SRPG
             GlobalVars.SelectedMultiPlayVersusType = VERSUS_TYPE.Friend;
           FlowNode_MultiPlayResume.BtlInfo = jsonObject.body.btlinfo;
         }
+        else if (this.mType == FlowNode_MultiPlayResume.RESUME_TYPE.TOWER)
+        {
+          GameManager instance = MonoSingleton<GameManager>.Instance;
+          WebAPI.JSON_BodyResponse<ReqMultiTwResume.Response> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<ReqMultiTwResume.Response>>(www.text);
+          DebugUtility.Assert(jsonObject != null, "res == null");
+          if (jsonObject.body == null)
+          {
+            this.OnFailed();
+            return;
+          }
+          GlobalVars.SelectedMultiTowerID = jsonObject.body.btlinfo.qid;
+          GlobalVars.SelectedMultiTowerFloor = jsonObject.body.btlinfo.floor;
+          GlobalVars.SelectedMultiPlayPhotonAppID = jsonObject.body.app_id;
+          GlobalVars.SelectedMultiPlayRoomName = jsonObject.body.token;
+          GlobalVars.ResumeMultiplayPlayerID = int.Parse(jsonObject.body.btlinfo.plid);
+          GlobalVars.ResumeMultiplaySeatID = int.Parse(jsonObject.body.btlinfo.seat);
+          GlobalVars.SelectedMultiPlayRoomID = jsonObject.body.btlinfo.roomid;
+          MultiTowerFloorParam mtFloorParam = instance.GetMTFloorParam(GlobalVars.SelectedMultiTowerID, GlobalVars.SelectedMultiTowerFloor);
+          if (mtFloorParam != null)
+            GlobalVars.SelectedQuestID = mtFloorParam.GetQuestParam().iname;
+          FlowNode_MultiPlayResume.BtlInfo = jsonObject.body.btlinfo;
+          FlowNode_MultiPlayResume.BtlInfo.multi_floor = FlowNode_MultiPlayResume.BtlInfo.floor;
+        }
         Network.RemoveAPI();
         ((Behaviour) this).set_enabled(false);
         this.ActivateOutputLinks(300);
@@ -166,6 +214,7 @@ namespace SRPG
     {
       MULTI,
       VERSUS,
+      TOWER,
     }
   }
 }

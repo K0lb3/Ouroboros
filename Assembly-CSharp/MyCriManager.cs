@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: MyCriManager
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -108,13 +108,15 @@ public class MyCriManager
     }
   }
 
-  public static string GetLoadFileName(string acb)
+  public static string GetLoadFileName(string acb, bool isUnManaged = false)
   {
     if (string.IsNullOrEmpty(acb))
       return (string) null;
-    if (GameUtility.Config_UseAssetBundles.Value && (AssetManager.AssetList == null || AssetManager.AssetList.FindItemByPath("StreamingAssets/" + acb) != null))
-      return AssetManager.GetStreamingAssetPath("StreamingAssets/" + acb);
-    return acb;
+    if (!GameUtility.Config_UseAssetBundles.Value || AssetManager.AssetList != null && AssetManager.AssetList.FindItemByPath("StreamingAssets/" + acb) == null && !isUnManaged)
+      return acb;
+    if (isUnManaged)
+      return AssetManager.GetUnManagedStreamingAssetPath(acb);
+    return AssetManager.GetStreamingAssetPath("StreamingAssets/" + acb);
   }
 
   public static bool IsInitialized()
@@ -130,12 +132,12 @@ public class MyCriManager
     }
     else
     {
-      MyCriManager.AcfFileName = !useEmb ? (!GameUtility.Config_UseAssetBundles.Value ? Path.Combine(CriWare.get_streamingAssetsPath(), MyCriManager.AcfFileNameAB) : MyCriManager.GetLoadFileName(MyCriManager.AcfFileNameAB)) : Path.Combine(CriWare.get_streamingAssetsPath(), MyCriManager.AcfFileNameEmb);
+      MyCriManager.AcfFileName = !useEmb ? (!GameUtility.Config_UseAssetBundles.Value ? Path.Combine(CriWare.get_streamingAssetsPath(), MyCriManager.AcfFileNameAB) : MyCriManager.GetLoadFileName(MyCriManager.AcfFileNameAB, false)) : Path.Combine(CriWare.get_streamingAssetsPath(), MyCriManager.AcfFileNameEmb);
       CriWareInitializer criWareInitializer = !Object.op_Equality((Object) MyCriManager.sCriWareInitializer, (Object) null) ? (CriWareInitializer) MyCriManager.sCriWareInitializer.GetComponent<CriWareInitializer>() : (CriWareInitializer) null;
       if (Object.op_Inequality((Object) criWareInitializer, (Object) null) && criWareInitializer.decrypterConfig != null)
       {
         ulong num = ((string) ((CriWareDecrypterConfig) criWareInitializer.decrypterConfig).key).Length != 0 ? Convert.ToUInt64((string) ((CriWareDecrypterConfig) criWareInitializer.decrypterConfig).key) : 0UL;
-        string path2 = !useEmb ? MyCriManager.GetLoadFileName(MyCriManager.DatFileNameAB) : MyCriManager.DatFileNameEmb;
+        string path2 = !useEmb ? MyCriManager.GetLoadFileName(MyCriManager.DatFileNameAB, false) : MyCriManager.DatFileNameEmb;
         if (CriWare.IsStreamingAssetsPath(path2))
           path2 = Path.Combine(CriWare.get_streamingAssetsPath(), path2);
         CriWare.criWareUnity_SetDecryptionKey(num, path2, (bool) ((CriWareDecrypterConfig) criWareInitializer.decrypterConfig).enableAtomDecryption, (bool) ((CriWareDecrypterConfig) criWareInitializer.decrypterConfig).enableManaDecryption);

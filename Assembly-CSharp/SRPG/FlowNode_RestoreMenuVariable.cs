@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_RestoreMenuVariable
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using UnityEngine;
@@ -9,11 +9,11 @@ using UnityEngine;
 namespace SRPG
 {
   [FlowNode.NodeType("System/RestoreMenuVariable", 32741)]
-  [FlowNode.Pin(10, "Assigned", FlowNode.PinTypes.Output, 9)]
   [FlowNode.Pin(11, "== Variable", FlowNode.PinTypes.Output, 10)]
-  [FlowNode.Pin(0, "Set", FlowNode.PinTypes.Input, 1)]
-  [FlowNode.Pin(12, "!= Variable", FlowNode.PinTypes.Output, 11)]
   [FlowNode.Pin(1, "Compare", FlowNode.PinTypes.Input, 2)]
+  [FlowNode.Pin(0, "Set", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(10, "Assigned", FlowNode.PinTypes.Output, 9)]
+  [FlowNode.Pin(12, "!= Variable", FlowNode.PinTypes.Output, 11)]
   public class FlowNode_RestoreMenuVariable : FlowNode
   {
     private const int PIN_ID_SET = 0;

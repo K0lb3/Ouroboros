@@ -1,10 +1,9 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.QuestDropItemList
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
-using GR;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -34,20 +33,19 @@ namespace SRPG
       for (int index = this.mItems.Count - 1; index >= 0; --index)
         Object.Destroy((Object) this.mItems[index]);
       QuestParam dataOfClass = DataSource.FindDataOfClass<QuestParam>(((Component) this).get_gameObject(), (QuestParam) null);
-      if (dataOfClass == null)
+      if (dataOfClass == null || !Object.op_Inequality((Object) QuestDropParam.Instance, (Object) null))
         return;
-      GameManager instance = MonoSingleton<GameManager>.Instance;
-      Transform transform = ((Component) this).get_transform();
-      if (dataOfClass.dropItems == null)
+      List<ItemParam> questDropList = QuestDropParam.Instance.GetQuestDropList(dataOfClass.iname, GlobalVars.GetDropTableGeneratedDateTime());
+      if (questDropList == null)
         return;
-      for (int index = 0; index < dataOfClass.dropItems.Length; ++index)
+      for (int index = 0; index < questDropList.Count; ++index)
       {
-        ItemParam itemParam = instance.GetItemParam(dataOfClass.dropItems[index]);
-        if (itemParam != null)
+        ItemParam data = questDropList[index];
+        if (data != null)
         {
           GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.ItemTemplate);
-          DataSource.Bind<ItemParam>(gameObject, itemParam);
-          gameObject.get_transform().SetParent(transform, false);
+          DataSource.Bind<ItemParam>(gameObject, data);
+          gameObject.get_transform().SetParent(((Component) this).get_transform(), false);
           gameObject.SetActive(true);
         }
       }

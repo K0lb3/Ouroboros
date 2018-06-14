@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.JSON_TowerFloorParam
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -30,6 +30,11 @@ namespace SRPG
     public byte can_help;
     public byte floor;
     public int[] rand_tag;
+    public byte is_unit_chg;
+    public int naut;
+    public string me_id;
+    public int is_wth_no_chg;
+    public string wth_set_id;
 
     public JSON_QuestParam ConvertQuestParam()
     {
@@ -60,6 +65,11 @@ namespace SRPG
       jsonQuestParam.notcon = 1;
       jsonQuestParam.notitm = 1;
       jsonQuestParam.gold = 0;
+      jsonQuestParam.is_unit_chg = (int) this.is_unit_chg;
+      jsonQuestParam.naut = this.naut;
+      jsonQuestParam.me_id = this.me_id;
+      jsonQuestParam.is_wth_no_chg = this.is_wth_no_chg;
+      jsonQuestParam.wth_set_id = this.wth_set_id;
       return jsonQuestParam;
     }
   }

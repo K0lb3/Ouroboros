@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.BaseStatus
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -325,6 +325,26 @@ namespace SRPG
             return this[BattleBonus.Avoid_Reaction];
           case ParamTypes.Avoid_Jump:
             return this[BattleBonus.Avoid_Jump];
+          case ParamTypes.GainJewelRate:
+            return this[BattleBonus.GainJewelRate];
+          case ParamTypes.UsedJewel:
+            return this[BattleBonus.UsedJewel];
+          case ParamTypes.Assist_SingleAttack:
+            return this[EnchantCategory.Assist, EnchantTypes.SingleAttack];
+          case ParamTypes.Assist_AreaAttack:
+            return this[EnchantCategory.Assist, EnchantTypes.AreaAttack];
+          case ParamTypes.Resist_SingleAttack:
+            return this[EnchantCategory.Resist, EnchantTypes.SingleAttack];
+          case ParamTypes.Resist_AreaAttack:
+            return this[EnchantCategory.Resist, EnchantTypes.AreaAttack];
+          case ParamTypes.Assist_DecCT:
+            return this[EnchantCategory.Assist, EnchantTypes.DecCT];
+          case ParamTypes.Assist_IncCT:
+            return this[EnchantCategory.Assist, EnchantTypes.IncCT];
+          case ParamTypes.Resist_DecCT:
+            return this[EnchantCategory.Resist, EnchantTypes.DecCT];
+          case ParamTypes.Resist_IncCT:
+            return this[EnchantCategory.Resist, EnchantTypes.IncCT];
           default:
             return (OInt) 0;
         }

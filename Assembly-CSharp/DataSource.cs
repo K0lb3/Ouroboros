@@ -1,20 +1,38 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: DataSource
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
-using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [AddComponentMenu("")]
 public class DataSource : MonoBehaviour
 {
-  private DataSource.DataPair[] mData;
+  private List<DataSource.DataPair> mData;
 
   public DataSource()
   {
     base.\u002Ector();
+  }
+
+  public void Clear()
+  {
+    this.mData.Clear();
+  }
+
+  public void Add(System.Type type, object data)
+  {
+    for (int index = 0; index < this.mData.Count; ++index)
+    {
+      if ((object) this.mData[index].Type == (object) type)
+      {
+        this.mData[index] = new DataSource.DataPair(type, data);
+        return;
+      }
+    }
+    this.mData.Add(new DataSource.DataPair(type, data));
   }
 
   public static T FindDataOfClass<T>(GameObject root, T defaultValue)
@@ -38,7 +56,7 @@ public class DataSource : MonoBehaviour
     DataSource[] componentsInParent;
     for (DataSource dataSource = this; Object.op_Inequality((Object) dataSource, (Object) null); dataSource = componentsInParent.Length <= 0 ? (DataSource) null : componentsInParent[0])
     {
-      for (int index = 0; index < dataSource.mData.Length; ++index)
+      for (int index = 0; index < dataSource.mData.Count; ++index)
       {
         if ((object) dataSource.mData[index].Type == (object) typeof (T))
           return (T) dataSource.mData[index].Data;
@@ -57,7 +75,7 @@ public class DataSource : MonoBehaviour
     DataSource[] componentsInParent;
     for (DataSource dataSource = this; Object.op_Inequality((Object) dataSource, (Object) null); dataSource = componentsInParent.Length <= 0 ? (DataSource) null : componentsInParent[0])
     {
-      for (int index = 0; index < dataSource.mData.Length; ++index)
+      for (int index = 0; index < dataSource.mData.Count; ++index)
       {
         if ((object) dataSource.mData[index].Type == type)
           return dataSource.mData[index].Data;
@@ -71,12 +89,7 @@ public class DataSource : MonoBehaviour
     return defaultValue;
   }
 
-  public static void Bind<T>(GameObject obj, T data)
-  {
-    DataSource.Bind(obj, typeof (T), (object) data);
-  }
-
-  public static void Bind(GameObject obj, System.Type type, object data)
+  public static DataSource Create(GameObject obj)
   {
     DataSource dataSource = (DataSource) obj.GetComponent<DataSource>();
     if (Object.op_Equality((Object) dataSource, (Object) null))
@@ -84,24 +97,17 @@ public class DataSource : MonoBehaviour
       dataSource = (DataSource) obj.AddComponent<DataSource>();
       ((Object) dataSource).set_hideFlags((HideFlags) 60);
     }
-    if (dataSource.mData != null)
-    {
-      for (int index = 0; index < dataSource.mData.Length; ++index)
-      {
-        if ((object) dataSource.mData[index].Type == (object) type)
-        {
-          dataSource.mData[index].Data = data;
-          return;
-        }
-      }
-      Array.Resize<DataSource.DataPair>(ref dataSource.mData, dataSource.mData.Length + 1);
-      dataSource.mData[dataSource.mData.Length - 1] = new DataSource.DataPair(type, data);
-    }
-    else
-      dataSource.mData = new DataSource.DataPair[1]
-      {
-        new DataSource.DataPair(type, data)
-      };
+    return dataSource;
+  }
+
+  public static void Bind<T>(GameObject obj, T data)
+  {
+    DataSource.Bind(obj, typeof (T), (object) data);
+  }
+
+  public static void Bind(GameObject obj, System.Type type, object data)
+  {
+    DataSource.Create(obj).Add(type, data);
   }
 
   private struct DataPair

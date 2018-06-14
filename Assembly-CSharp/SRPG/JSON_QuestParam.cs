@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.JSON_QuestParam
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -17,7 +17,6 @@ namespace SRPG
     public string expr;
     public string cond;
     public string mission;
-    public string[] pieces;
     public string world;
     public string area;
     public string youbi;
@@ -27,6 +26,7 @@ namespace SRPG
     public string[] cond_quests;
     public string[] units;
     public int type;
+    public int subtype;
     public int mode;
     public int pt;
     public int pexp;
@@ -53,7 +53,7 @@ namespace SRPG
     public int replay_limit;
     public int key_limit;
     public string ticket;
-    public string[] drops;
+    public int not_search;
     public int retr;
     public int naut;
     public string text;
@@ -76,5 +76,16 @@ namespace SRPG
     public string thumnail;
     public string mskill;
     public int vsmovecnt;
+    public int dmg_up_pl;
+    public int dmg_up_en;
+    public int dmg_rt_pl;
+    public int dmg_rt_en;
+    public int review;
+    public int is_unit_chg;
+    public int extra;
+    public int is_multileader;
+    public string me_id;
+    public int is_wth_no_chg;
+    public string wth_set_id;
   }
 }

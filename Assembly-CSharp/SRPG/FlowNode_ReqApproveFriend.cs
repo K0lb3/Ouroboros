@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_ReqApproveFriend
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -10,9 +10,9 @@ using UnityEngine;
 
 namespace SRPG
 {
+  [FlowNode.NodeType("System/ApproveFriend", 32741)]
   [FlowNode.Pin(0, "Request", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
-  [FlowNode.NodeType("System/ApproveFriend", 32741)]
   public class FlowNode_ReqApproveFriend : FlowNode_Network
   {
     private string req_fuid;
@@ -55,8 +55,6 @@ namespace SRPG
 
     public override void OnSuccess(WWWResult www)
     {
-      WebAPI.JSON_BodyResponse<Json_PlayerDataAll> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_PlayerDataAll>>(www.text);
-      DebugUtility.Assert(jsonObject != null, "res == null");
       if (Network.IsError)
       {
         switch (Network.ErrCode)
@@ -70,25 +68,31 @@ namespace SRPG
             break;
         }
       }
-      else if (jsonObject.body == null)
-      {
-        this.OnRetry();
-      }
       else
       {
-        try
+        WebAPI.JSON_BodyResponse<Json_ApproveFriend> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_ApproveFriend>>(www.text);
+        DebugUtility.Assert(jsonObject != null, "res == null");
+        if (jsonObject.body == null)
         {
-          MonoSingleton<GameManager>.Instance.Player.RemoveFriendFollower(this.req_fuid);
-          MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.player);
-          MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.friends, FriendStates.Friend);
+          this.OnRetry();
         }
-        catch (Exception ex)
+        else
         {
-          this.OnRetry(ex);
-          return;
+          try
+          {
+            MonoSingleton<GameManager>.Instance.Player.RemoveFriendFollower(this.req_fuid);
+            MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.player);
+            MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.friends, FriendStates.Friend);
+            MonoSingleton<GameManager>.Instance.Player.FirstFriendCount = jsonObject.body.first_count;
+          }
+          catch (Exception ex)
+          {
+            this.OnRetry(ex);
+            return;
+          }
+          Network.RemoveAPI();
+          this.Success();
         }
-        Network.RemoveAPI();
-        this.Success();
       }
     }
   }

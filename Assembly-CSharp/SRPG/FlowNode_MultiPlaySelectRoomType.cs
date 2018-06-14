@@ -1,17 +1,19 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_MultiPlaySelectRoomType
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 namespace SRPG
 {
-  [FlowNode.Pin(1, "SelectVersus", FlowNode.PinTypes.Input, 0)]
-  [FlowNode.Pin(10, "Test", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(102, "Tower", FlowNode.PinTypes.Output, 0)]
   [FlowNode.Pin(100, "Raid", FlowNode.PinTypes.Output, 0)]
-  [FlowNode.Pin(101, "Versus", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(10, "Test", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(2, "SelectTower", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "SelectVersus", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(0, "SelectRaid", FlowNode.PinTypes.Input, 0)]
   [FlowNode.NodeType("Multi/MultiPlaySelectRoomType", 32741)]
+  [FlowNode.Pin(101, "Versus", FlowNode.PinTypes.Output, 0)]
   public class FlowNode_MultiPlaySelectRoomType : FlowNode
   {
     public override void OnActivate(int pinID)
@@ -26,16 +28,22 @@ namespace SRPG
           DebugUtility.Log("versus selected");
           GlobalVars.SelectedMultiPlayRoomType = JSON_MyPhotonRoomParam.EType.VERSUS;
           break;
+        case 2:
+          DebugUtility.Log("tower selected");
+          GlobalVars.SelectedMultiPlayRoomType = JSON_MyPhotonRoomParam.EType.TOWER;
+          break;
       }
-      if (GlobalVars.SelectedMultiPlayRoomType == JSON_MyPhotonRoomParam.EType.RAID)
+      switch (GlobalVars.SelectedMultiPlayRoomType)
       {
-        this.ActivateOutputLinks(100);
-      }
-      else
-      {
-        if (GlobalVars.SelectedMultiPlayRoomType != JSON_MyPhotonRoomParam.EType.VERSUS)
-          return;
-        this.ActivateOutputLinks(101);
+        case JSON_MyPhotonRoomParam.EType.RAID:
+          this.ActivateOutputLinks(100);
+          break;
+        case JSON_MyPhotonRoomParam.EType.VERSUS:
+          this.ActivateOutputLinks(101);
+          break;
+        case JSON_MyPhotonRoomParam.EType.TOWER:
+          this.ActivateOutputLinks(102);
+          break;
       }
     }
   }

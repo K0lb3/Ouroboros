@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.ReplayCategoryList
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -12,11 +12,11 @@ using UnityEngine;
 namespace SRPG
 {
   [FlowNode.Pin(14, "閲覧可能なストーリーがない", FlowNode.PinTypes.Output, 104)]
+  [FlowNode.Pin(1, "更新", FlowNode.PinTypes.Input, 2)]
+  [FlowNode.Pin(13, "Movie", FlowNode.PinTypes.Output, 103)]
   [FlowNode.Pin(12, "Chara", FlowNode.PinTypes.Output, 102)]
   [FlowNode.Pin(11, "Event", FlowNode.PinTypes.Output, 101)]
   [FlowNode.Pin(10, "Story", FlowNode.PinTypes.Output, 100)]
-  [FlowNode.Pin(1, "更新", FlowNode.PinTypes.Input, 2)]
-  [FlowNode.Pin(13, "Movie", FlowNode.PinTypes.Output, 103)]
   [FlowNode.Pin(0, "初期化", FlowNode.PinTypes.Input, 1)]
   [FlowNode.Pin(50, "QuestList(Restore)", FlowNode.PinTypes.Output, 105)]
   public class ReplayCategoryList : SRPG_ListBase, IFlowInterface
@@ -71,7 +71,7 @@ namespace SRPG
         {
           if (questParam.type == QuestTypes.Story)
             this.AddQuestCount(ReplayCategoryList.ReplayCategoryType.Story);
-          else if (questParam.type == QuestTypes.Event)
+          else if (questParam.type == QuestTypes.Event || questParam.type == QuestTypes.Beginner)
             this.AddQuestCount(ReplayCategoryList.ReplayCategoryType.Event);
           else if (questParam.type == QuestTypes.Character)
             this.AddQuestCount(ReplayCategoryList.ReplayCategoryType.Character);
@@ -112,7 +112,7 @@ namespace SRPG
     {
       Action<ListItemEvents, bool> action = (Action<ListItemEvents, bool>) ((lie, value) =>
       {
-        if (!Object.op_Inequality((Object) lie, (Object) null) || !((Component) lie).get_gameObject().get_activeInHierarchy())
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) lie, (UnityEngine.Object) null) || !((Component) lie).get_gameObject().get_activeInHierarchy())
           return;
         ((Component) lie).get_gameObject().SetActive(value);
       });
@@ -124,7 +124,7 @@ namespace SRPG
 
     private void Update()
     {
-      if (!Object.op_Inequality((Object) this.mCanvasGroup, (Object) null) || (double) this.mCanvasGroup.get_alpha() >= 1.0)
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mCanvasGroup, (UnityEngine.Object) null) || (double) this.mCanvasGroup.get_alpha() >= 1.0)
         return;
       this.mCanvasGroup.set_alpha(Mathf.Clamp01(this.mCanvasGroup.get_alpha() + Time.get_unscaledDeltaTime() * 3.333333f));
     }
@@ -133,16 +133,16 @@ namespace SRPG
     {
       // ISSUE: object of a compiler-generated type is created
       // ISSUE: variable of a compiler-generated type
-      ReplayCategoryList.\u003CRefresh\u003Ec__AnonStorey26D refreshCAnonStorey26D = new ReplayCategoryList.\u003CRefresh\u003Ec__AnonStorey26D();
+      ReplayCategoryList.\u003CRefresh\u003Ec__AnonStorey376 refreshCAnonStorey376 = new ReplayCategoryList.\u003CRefresh\u003Ec__AnonStorey376();
       // ISSUE: reference to a compiler-generated field
-      refreshCAnonStorey26D.\u003C\u003Ef__this = this;
-      if (Object.op_Inequality((Object) this.mCanvasGroup, (Object) null))
+      refreshCAnonStorey376.\u003C\u003Ef__this = this;
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mCanvasGroup, (UnityEngine.Object) null))
         this.mCanvasGroup.set_alpha(0.0f);
       this.ClearItems();
       // ISSUE: reference to a compiler-generated field
-      refreshCAnonStorey26D._transform = ((Component) this).get_transform();
+      refreshCAnonStorey376._transform = ((Component) this).get_transform();
       // ISSUE: reference to a compiler-generated method
-      Action<ListItemEvents, int> action = new Action<ListItemEvents, int>(refreshCAnonStorey26D.\u003C\u003Em__2D5);
+      Action<ListItemEvents, int> action = new Action<ListItemEvents, int>(refreshCAnonStorey376.\u003C\u003Em__401);
       action(this.Item_Story, 10);
       action(this.Item_Event, 11);
       action(this.Item_Character, 12);

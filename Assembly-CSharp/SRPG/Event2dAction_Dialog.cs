@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.Event2dAction_Dialog
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections;
@@ -15,8 +15,8 @@ namespace SRPG
   public class Event2dAction_Dialog : EventAction
   {
     private static readonly string AssetPath = "UI/DialogBubble2";
-    [HideInInspector]
     [StringIsActorID]
+    [HideInInspector]
     public string ActorID = "2DPlus";
     public string Emotion = string.Empty;
     private const float DialogPadding = 20f;
@@ -54,7 +54,7 @@ namespace SRPG
     public override IEnumerator PreloadAssets()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new Event2dAction_Dialog.\u003CPreloadAssets\u003Ec__Iterator73() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new Event2dAction_Dialog.\u003CPreloadAssets\u003Ec__IteratorAE() { \u003C\u003Ef__this = this };
     }
 
     public override void PreStart()
@@ -147,7 +147,7 @@ namespace SRPG
           this.mBubble.SetName(this.mPlayerName);
         this.mBubble.SetBody(this.mTextData);
         if (!GlobalVars.IsTutorialEnd)
-          AnalyticsManager.TrackTutorialAnalyticsEvent(this.TextID, AnalyticsManager.TutorialTrackingEventType.EVENT_DIALOG_2D);
+          AnalyticsManager.TrackTutorialAnalyticsEvent(this.TextID);
         this.mBubble.Open();
       }
       if (EventStandCharaController2.Instances != null && EventStandCharaController2.Instances.Count > 0)
@@ -206,6 +206,17 @@ namespace SRPG
           this.mBubble.Skip();
       }
       return false;
+    }
+
+    public override string[] GetUnManagedAssetListData()
+    {
+      if (!string.IsNullOrEmpty(this.TextID))
+      {
+        this.LoadTextData();
+        if (!string.IsNullOrEmpty(this.mVoiceID))
+          return EventAction.GetUnManagedStreamAssets(Event2dAction_Dialog.GetIDPair(this.mVoiceID), false);
+      }
+      return (string[]) null;
     }
 
     public enum TextSpeedTypes

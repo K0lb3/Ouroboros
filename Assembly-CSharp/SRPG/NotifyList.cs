@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.NotifyList
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -24,6 +24,7 @@ namespace SRPG
     public NotifyListItem Item_ContentsUnlock;
     public NotifyListItem Item_QuestSupport;
     public NotifyListItem Item_Award;
+    public NotifyListItem Item_MultiInvitation;
     public string FadeTrigger;
     public float FadeTime;
     private List<NotifyListItem> mItems;
@@ -41,6 +42,14 @@ namespace SRPG
     public NotifyList()
     {
       base.\u002Ector();
+    }
+
+    public static bool hasInstance
+    {
+      get
+      {
+        return Object.op_Inequality((Object) NotifyList.mInstance, (Object) null);
+      }
     }
 
     public static void Push(string msg)
@@ -131,6 +140,15 @@ namespace SRPG
       }
     }
 
+    public static void PushMultiInvitation()
+    {
+      if (!Object.op_Inequality((Object) NotifyList.mInstance, (Object) null) || !Object.op_Inequality((Object) NotifyList.mInstance.Item_MultiInvitation, (Object) null))
+        return;
+      NotifyListItem notifyListItem = (NotifyListItem) Object.Instantiate<NotifyListItem>((M0) NotifyList.mInstance.Item_MultiInvitation);
+      notifyListItem.Message.set_text(LocalizedText.Get("sys.MULTIINVITATION_NOTIFY"));
+      NotifyList.mInstance.Push(notifyListItem);
+    }
+
     private bool Push(NotifyListItem item)
     {
       if (Object.op_Equality((Object) item, (Object) null))
@@ -150,7 +168,7 @@ namespace SRPG
     private IEnumerator Start()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new NotifyList.\u003CStart\u003Ec__IteratorC2() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new NotifyList.\u003CStart\u003Ec__Iterator106() { \u003C\u003Ef__this = this };
     }
 
     private void OnDestroy()

@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: MySound
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -95,7 +95,7 @@ public class MySound : MonoSingleton<MySound>
   {
     if (this.mHandleSE != null)
       return true;
-    this.mHandleSE = MySound.CueSheetHandle.Create(MySound.SECueSheetName, MySound.EType.SE, true, true, false);
+    this.mHandleSE = MySound.CueSheetHandle.Create(MySound.SECueSheetName, MySound.EType.SE, true, true, false, false);
     if (this.mHandleSE == null)
       return false;
     this.mHandleSE.CreateDefaultOneShotSource();
@@ -149,8 +149,8 @@ public class MySound : MonoSingleton<MySound>
       this.mClearCacheState = MySound.EClearCacheState.END;
     else if (this.mClearCacheState == MySound.EClearCacheState.STOPPING)
     {
-      if (MySound.CueSheet.IsStoppedAllForClearCache())
-        GC.Collect();
+      if (!MySound.CueSheet.IsStoppedAllForClearCache())
+        ;
       if (MySound.CueSheet.GetLoadedNum() <= 0)
       {
         this.mClearCacheState = MySound.EClearCacheState.FINISH;
@@ -176,7 +176,7 @@ public class MySound : MonoSingleton<MySound>
     this.LoadSE();
     if (this.mHandleSE == null || string.IsNullOrEmpty(cueID))
       return;
-    this.mHandleSE.PlayDefaultOneShot(MySound.SECueName(cueID), false, delaySec);
+    this.mHandleSE.PlayDefaultOneShot(MySound.SECueName(cueID), false, delaySec, false);
   }
 
   public void PlaySEOneShotAndroidLowLatency(string cueID, float delaySec = 0)
@@ -187,7 +187,14 @@ public class MySound : MonoSingleton<MySound>
     this.LoadSE();
     if (this.mHandleSE == null || string.IsNullOrEmpty(cueID))
       return;
-    this.mHandleSE.PlayDefaultOneShot(MySound.SECueName(cueID), true, delaySec);
+    this.mHandleSE.PlayDefaultOneShot(MySound.SECueName(cueID), true, delaySec, false);
+  }
+
+  public void StopSEOneShot(float fade)
+  {
+    if (this.mHandleSE == null)
+      return;
+    this.mHandleSE.StopDefaultAll(fade);
   }
 
   public MySound.PlayHandle PlaySELoop(string cueID, float delaySec = 0)
@@ -228,7 +235,7 @@ public class MySound : MonoSingleton<MySound>
     if (string.IsNullOrEmpty(cueID))
       return;
     sheetName = !string.IsNullOrEmpty(sheetName) ? sheetName : MySound.JingleCueSheetName(cueID);
-    MySound.CueSheetHandle cueSheetHandle = MySound.CueSheetHandle.Create(sheetName, MySound.EType.JINGLE, true, true, false);
+    MySound.CueSheetHandle cueSheetHandle = MySound.CueSheetHandle.Create(sheetName, MySound.EType.JINGLE, true, true, false, false);
     if (cueSheetHandle == null)
       return;
     cueSheetHandle.Play(MySound.JingleCueName(cueID), MySound.CueSheetHandle.ELoopFlag.NOT_LOOP, false, delaySec);
@@ -236,7 +243,7 @@ public class MySound : MonoSingleton<MySound>
 
   public void PlayOneShot(string sheetName, string cueName, MySound.EType type = MySound.EType.SE, float delaySec = 0)
   {
-    MySound.CueSheetHandle cueSheetHandle = MySound.CueSheetHandle.Create(sheetName, type, true, true, false);
+    MySound.CueSheetHandle cueSheetHandle = MySound.CueSheetHandle.Create(sheetName, type, true, true, false, false);
     if (cueSheetHandle == null)
       return;
     cueSheetHandle.Play(cueName, MySound.CueSheetHandle.ELoopFlag.NOT_LOOP, false, delaySec);
@@ -244,38 +251,38 @@ public class MySound : MonoSingleton<MySound>
 
   public MySound.PlayHandle PlayLoop(string sheetName, string cueName, MySound.EType type = MySound.EType.SE, float delaySec = 0)
   {
-    MySound.CueSheetHandle cueSheetHandle = MySound.CueSheetHandle.Create(sheetName, type, true, true, false);
+    MySound.CueSheetHandle cueSheetHandle = MySound.CueSheetHandle.Create(sheetName, type, true, true, false, false);
     if (cueSheetHandle == null)
       return (MySound.PlayHandle) null;
     return cueSheetHandle.Play(cueName, MySound.CueSheetHandle.ELoopFlag.LOOP, true, delaySec);
   }
 
-  public void PlayBGM(string cueID, string sheetName = null)
+  public void PlayBGM(string cueID, string sheetName = null, bool IsUnManaged = false)
   {
     if (this.mBGM == null || string.IsNullOrEmpty(cueID))
       return;
-    this.mBGM.Play(cueID, !string.IsNullOrEmpty(this.mBGM.CurrentCueID) ? 1f : 0.0f, sheetName);
+    this.mBGM.Play(cueID, !string.IsNullOrEmpty(this.mBGM.CurrentCueID) ? 1f : 0.0f, sheetName, IsUnManaged);
   }
 
   public void PlayBGM(string cueID, float delaySec, string sheetName = null)
   {
     if (this.mBGM == null || string.IsNullOrEmpty(cueID))
       return;
-    this.mBGM.Play(cueID, delaySec, sheetName);
+    this.mBGM.Play(cueID, delaySec, sheetName, false);
   }
 
   public void StopBGM()
   {
     if (this.mBGM == null)
       return;
-    this.mBGM.Play((string) null, 1f, (string) null);
+    this.mBGM.Play((string) null, 1f, (string) null, false);
   }
 
   public void StopBGM(float sec)
   {
     if (this.mBGM == null)
       return;
-    this.mBGM.Play((string) null, sec, (string) null);
+    this.mBGM.Play((string) null, sec, (string) null, false);
   }
 
   public bool StopBGMFadeOut(float sec = 1f)
@@ -365,7 +372,7 @@ public class MySound : MonoSingleton<MySound>
       }
     }
 
-    public static bool Load(string sheetName, bool useAcb = true, bool useAwb = true, bool loadAsync = false)
+    public static bool Load(string sheetName, bool useAcb = true, bool useAwb = true, bool loadAsync = false, bool isUnManaged = false)
     {
       if (string.IsNullOrEmpty(sheetName) || MonoSingleton<MySound>.Instance.mClearCacheState != MySound.EClearCacheState.NOP)
         return false;
@@ -381,16 +388,16 @@ public class MySound : MonoSingleton<MySound>
       if (loadAsync)
       {
         cueSheet2.mState = MySound.CueSheet.EState.LOADING;
-        MonoSingleton<MySound>.Instance.StartCoroutine(cueSheet2.LoadCueSheetCore(sheetName, useAcb, useAwb));
+        MonoSingleton<MySound>.Instance.StartCoroutine(cueSheet2.LoadCueSheetCore(sheetName, useAcb, useAwb, isUnManaged));
       }
       else
       {
         string acb1 = !useAcb ? (string) null : sheetName + ".acb";
         string acb2 = !useAwb ? (string) null : sheetName + ".awb";
-        string loadFileName1 = MyCriManager.GetLoadFileName(acb1);
+        string loadFileName1 = MyCriManager.GetLoadFileName(acb1, isUnManaged);
         if (loadFileName1 == null)
           return false;
-        string loadFileName2 = MyCriManager.GetLoadFileName(acb2);
+        string loadFileName2 = MyCriManager.GetLoadFileName(acb2, isUnManaged);
         cueSheet2.mSheet = CriAtom.AddCueSheet(sheetName, loadFileName1, loadFileName2, (CriFsBinder) null);
         cueSheet2.mState = MySound.CueSheet.EState.READY;
         MySound.CueSheet.CheckSheet(sheetName);
@@ -402,17 +409,19 @@ public class MySound : MonoSingleton<MySound>
     }
 
     [DebuggerHidden]
-    private IEnumerator LoadCueSheetCore(string sheetName, bool useAcb, bool useAwb)
+    private IEnumerator LoadCueSheetCore(string sheetName, bool useAcb, bool useAwb, bool isUnManaged)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new MySound.CueSheet.\u003CLoadCueSheetCore\u003Ec__Iterator96()
+      return (IEnumerator) new MySound.CueSheet.\u003CLoadCueSheetCore\u003Ec__IteratorD9()
       {
         useAcb = useAcb,
         sheetName = sheetName,
         useAwb = useAwb,
+        isUnManaged = isUnManaged,
         \u003C\u0024\u003EuseAcb = useAcb,
         \u003C\u0024\u003EsheetName = sheetName,
         \u003C\u0024\u003EuseAwb = useAwb,
+        \u003C\u0024\u003EisUnManaged = isUnManaged,
         \u003C\u003Ef__this = this
       };
     }
@@ -627,6 +636,18 @@ public class MySound : MonoSingleton<MySound>
       cueSheet.Stop(sec, fadeOutTemporary);
     }
 
+    public static CriAtomExAcb FindAcb(string sheetName)
+    {
+      if (string.IsNullOrEmpty(sheetName))
+        return (CriAtomExAcb) null;
+      MySound.CueSheet cueSheet = MySound.CueSheet.sCueSheets.Find((Predicate<MySound.CueSheet>) (s => sheetName.Equals(s.name)));
+      if (cueSheet == null)
+        return (CriAtomExAcb) null;
+      if (cueSheet.mSheet == null)
+        return (CriAtomExAcb) null;
+      return (CriAtomExAcb) cueSheet.mSheet.acb;
+    }
+
     private enum EState
     {
       NOP,
@@ -654,14 +675,14 @@ public class MySound : MonoSingleton<MySound>
       }
     }
 
-    public static MySound.CueSheetHandle Create(string sheetName, MySound.EType type, bool useAcb = true, bool useAwb = true, bool loadAsync = false)
+    public static MySound.CueSheetHandle Create(string sheetName, MySound.EType type, bool useAcb = true, bool useAwb = true, bool loadAsync = false, bool isUnManaged = false)
     {
       if (string.IsNullOrEmpty(sheetName))
         return (MySound.CueSheetHandle) null;
       MySound.CueSheetHandle cueSheetHandle = new MySound.CueSheetHandle();
       if (cueSheetHandle == null)
         return (MySound.CueSheetHandle) null;
-      if (!MySound.CueSheet.Load(sheetName, useAcb, useAwb, loadAsync))
+      if (!MySound.CueSheet.Load(sheetName, useAcb, useAwb, loadAsync, isUnManaged))
         return (MySound.CueSheetHandle) null;
       cueSheetHandle.mSheetName = sheetName;
       cueSheetHandle.mType = type;
@@ -698,7 +719,7 @@ public class MySound : MonoSingleton<MySound>
       return source;
     }
 
-    public void PlayDefaultOneShot(string cueName, bool androidLowLatency, float delaySec = 0)
+    public void PlayDefaultOneShot(string cueName, bool androidLowLatency, float delaySec = 0, bool is_stopplay = false)
     {
       MySound.Source source = !androidLowLatency ? this.mDefaultOneShot : this.mDefaultOneShotAndroidLowLatency;
       if (source == null)
@@ -706,7 +727,7 @@ public class MySound : MonoSingleton<MySound>
       if ((double) delaySec > 0.0)
         source.DelayPlay(cueName, delaySec);
       else
-        source.Play(cueName);
+        source.Play(cueName, is_stopplay);
     }
 
     public void StopDefaultAll(float sec)
@@ -733,7 +754,7 @@ public class MySound : MonoSingleton<MySound>
       if ((double) delaySec > 0.0)
         source.DelayPlay(cueName, delaySec);
       else
-        source.Play(cueName);
+        source.Play(cueName, false);
       return playHandle;
     }
 
@@ -825,7 +846,7 @@ public class MySound : MonoSingleton<MySound>
       this.mNextHandle = (MySound.CueSheetHandle) null;
     }
 
-    public void Play(string cueID, float waitSec, string sheetName = null)
+    public void Play(string cueID, float waitSec, string sheetName = null, bool IsUnManaged = false)
     {
       if (!string.IsNullOrEmpty(cueID))
         cueID = MySound.CueIDConverter.Convert(MySound.EType.BGM, cueID);
@@ -852,7 +873,7 @@ public class MySound : MonoSingleton<MySound>
       else
       {
         sheetName = !string.IsNullOrEmpty(sheetName) ? sheetName : MySound.BGMCueSheetName(this.mNextCueID);
-        this.mNextHandle = MySound.CueSheetHandle.Create(sheetName, MySound.EType.BGM, true, true, false);
+        this.mNextHandle = MySound.CueSheetHandle.Create(sheetName, MySound.EType.BGM, true, true, false, IsUnManaged);
       }
     }
 
@@ -895,14 +916,14 @@ public class MySound : MonoSingleton<MySound>
     private string mCueNamePrefix;
     private MySound.CueSheetHandle mHandle;
 
-    public Voice(string sheetName, string charName, string cueNamePrefix)
+    public Voice(string sheetName, string charName, string cueNamePrefix, bool isUnManaged = false)
     {
       if (string.IsNullOrEmpty(sheetName))
         return;
       MonoSingleton<MySound>.Instance.Ensure();
       this.CharName = !string.IsNullOrEmpty(charName) ? charName : "null";
       cueNamePrefix = !string.IsNullOrEmpty(cueNamePrefix) ? cueNamePrefix : string.Empty;
-      this.Setup(sheetName, cueNamePrefix);
+      this.Setup(sheetName, cueNamePrefix, isUnManaged);
     }
 
     public Voice(string charName)
@@ -911,28 +932,28 @@ public class MySound : MonoSingleton<MySound>
         return;
       MonoSingleton<MySound>.Instance.Ensure();
       this.CharName = charName;
-      this.Setup(MySound.VoiceCueSheetName(charName), charName + "_");
+      this.Setup(MySound.VoiceCueSheetName(charName), charName + "_", false);
     }
 
     public string CharName { get; private set; }
 
     public string SheetName { get; private set; }
 
-    private void Setup(string sheetName, string cueNamePrefix)
+    private void Setup(string sheetName, string cueNamePrefix, bool isUnManaged = false)
     {
       this.SheetName = sheetName;
-      this.mHandle = MySound.CueSheetHandle.Create(sheetName, MySound.EType.VOICE, true, true, false);
+      this.mHandle = MySound.CueSheetHandle.Create(sheetName, MySound.EType.VOICE, true, true, false, isUnManaged);
       if (this.mHandle != null)
         this.mHandle.CreateDefaultOneShotSource();
       this.mCueNamePrefix = cueNamePrefix;
     }
 
-    public void Play(string cueID, float delaySec = 0)
+    public void Play(string cueID, float delaySec = 0, bool is_stopplay = false)
     {
       if (string.IsNullOrEmpty(cueID) || string.IsNullOrEmpty(this.CharName) || this.mHandle == null)
         return;
       cueID = MySound.CueIDConverter.Convert(MySound.EType.VOICE, cueID);
-      this.mHandle.PlayDefaultOneShot(this.mCueNamePrefix + cueID, false, delaySec);
+      this.mHandle.PlayDefaultOneShot(this.mCueNamePrefix + cueID, false, delaySec, is_stopplay);
     }
 
     public static string ReplaceCharNameOfCueName(string cueName, string charName)
@@ -947,7 +968,7 @@ public class MySound : MonoSingleton<MySound>
       if (string.IsNullOrEmpty(cueID) || string.IsNullOrEmpty(this.CharName) || this.mHandle == null)
         return;
       cueID = MySound.CueIDConverter.Convert(MySound.EType.VOICE, cueID);
-      this.mHandle.PlayDefaultOneShot(cueID, false, delaySec);
+      this.mHandle.PlayDefaultOneShot(cueID, false, delaySec, false);
     }
 
     public void StopAll(float sec = 1)
@@ -987,6 +1008,13 @@ public class MySound : MonoSingleton<MySound>
     public bool CheckCueIDs()
     {
       return true;
+    }
+
+    public CriAtomExAcb FindAcb(string sheetName)
+    {
+      if (string.IsNullOrEmpty(sheetName))
+        return (CriAtomExAcb) null;
+      return MySound.CueSheet.FindAcb(sheetName);
     }
   }
 
@@ -1229,7 +1257,7 @@ public class MySound : MonoSingleton<MySound>
         this.mDelaySec -= Time.get_deltaTime();
         if (!this.mFadeOutStop && (double) this.mDelaySec <= 0.0)
         {
-          this.Play(this.mDelayCueName);
+          this.Play(this.mDelayCueName, false);
           this.mDelayCueName = (string) null;
         }
       }
@@ -1254,7 +1282,7 @@ public class MySound : MonoSingleton<MySound>
       }
     }
 
-    public void Play(string cueName)
+    public void Play(string cueName, bool is_stopplay = false)
     {
       if (MonoSingleton<MySound>.Instance.mClearCacheState != MySound.EClearCacheState.NOP)
         DebugUtility.LogWarning("[MySound] executing clear cache");
@@ -1279,6 +1307,8 @@ public class MySound : MonoSingleton<MySound>
           else
           {
             this.mCore.set_volume(this.GetTypeVolume());
+            if (is_stopplay)
+              this.mCore.Stop();
             this.mCore.Play(cueName);
           }
         }
@@ -1370,7 +1400,7 @@ public class MySound : MonoSingleton<MySound>
     {
       if (this.mSrc == null)
         return;
-      this.mSrc.Play(cueName);
+      this.mSrc.Play(cueName, false);
     }
 
     public void Stop(float sec)

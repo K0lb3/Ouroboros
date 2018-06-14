@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.LogSkill
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -22,6 +22,7 @@ namespace SRPG
     public SkillData skill;
     public IntVector2 pos;
     public Grid landing;
+    public Grid TeleportGrid;
     public LogSkill.Reflection reflect;
     public Unit CauseOfReaction;
     public bool is_append;
@@ -67,7 +68,7 @@ namespace SRPG
       this.targets = targetList;
     }
 
-    public void Hit(Unit unit, Unit other, int hp_damage, int mp_damage, int ch_damage, int ca_damage, int hp_heal, int mp_heal, int ch_heal, int ca_heal, int dropgems, bool is_critical, bool is_avoid, bool is_combination, bool is_guts, int absorbed = 0)
+    public void Hit(Unit unit, Unit other, int hp_damage, int mp_damage, int ch_damage, int ca_damage, int hp_heal, int mp_heal, int ch_heal, int ca_heal, int dropgems, bool is_critical, bool is_avoid, bool is_combination, bool is_guts, int absorbed = 0, bool is_pf_avoid = false, int critical_rate = 0, int avoid_rate = 0)
     {
       LogSkill.Target target = this.SetSkillTarget(unit, other);
       if (unit.IsUnitFlag(EUnitFlag.BackAttack) && this.skill.BackAttackDefenseDownRate != 0)
@@ -80,13 +81,13 @@ namespace SRPG
         target.hitType |= LogSkill.EHitTypes.Combination;
       target.shieldDamage += absorbed;
       target.gems += dropgems;
-      target.hits.Add(new BattleCore.HitData(hp_damage, mp_damage, ch_damage, ca_damage, hp_heal, mp_heal, ch_heal, ca_heal, is_critical, is_avoid));
+      target.hits.Add(new BattleCore.HitData(hp_damage, mp_damage, ch_damage, ca_damage, hp_heal, mp_heal, ch_heal, ca_heal, is_critical, is_avoid, is_pf_avoid, critical_rate, avoid_rate));
     }
 
     public void ToSelfSkillEffect(int hp_damage, int mp_damage, int ch_damage, int ca_damage, int hp_heal, int mp_heal, int ch_heal, int ca_heal, int dropgems, bool is_critical, bool is_avoid, bool is_combination, bool is_guts)
     {
       this.self_effect.target = this.self;
-      this.self_effect.hits.Add(new BattleCore.HitData(hp_damage, mp_damage, ch_damage, ca_damage, hp_heal, mp_heal, ch_heal, ca_heal, is_critical, is_avoid));
+      this.self_effect.hits.Add(new BattleCore.HitData(hp_damage, mp_damage, ch_damage, ca_damage, hp_heal, mp_heal, ch_heal, ca_heal, is_critical, is_avoid, false, 0, 0));
     }
 
     public void SetDefendEffect(Unit defender)
@@ -275,6 +276,7 @@ namespace SRPG
       public List<BattleCore.HitData> hits = new List<BattleCore.HitData>();
       public BuffBit buff = new BuffBit();
       public BuffBit debuff = new BuffBit();
+      public List<LogSkill.Target.CondHit> CondHitLists = new List<LogSkill.Target.CondHit>();
       public Unit target;
       public LogSkill.EHitTypes hitType;
       public int gems;
@@ -286,7 +288,10 @@ namespace SRPG
       public Unit guard;
       public bool is_force_reaction;
       public int element_effect_rate;
+      public int element_effect_resist;
       public Grid KnockBackGrid;
+      public int ChangeValueCT;
+      public bool IsOldDying;
 
       public int GetTotalHpDamage()
       {
@@ -320,6 +325,34 @@ namespace SRPG
         return num;
       }
 
+      public int GetTotalCriticalRate()
+      {
+        int num1 = 0;
+        int num2 = 0;
+        for (int index = 0; index < this.hits.Count; ++index)
+        {
+          num1 += this.hits[index].critical_rate;
+          ++num2;
+        }
+        if (num2 != 0)
+          num1 /= num2;
+        return num1;
+      }
+
+      public int GetTotalAvoidRate()
+      {
+        int num1 = 0;
+        int num2 = 0;
+        for (int index = 0; index < this.hits.Count; ++index)
+        {
+          num1 += this.hits[index].avoid_rate;
+          ++num2;
+        }
+        if (num2 != 0)
+          num1 /= num2;
+        return num1;
+      }
+
       public bool IsCritical()
       {
         for (int index = 0; index < this.hits.Count; ++index)
@@ -340,6 +373,23 @@ namespace SRPG
             return false;
         }
         return true;
+      }
+
+      public bool IsCombo()
+      {
+        return this.hits.Count > 1;
+      }
+
+      public bool IsAvoidJustOne()
+      {
+        if (this.hits.Count == 0)
+          return false;
+        for (int index = 0; index < this.hits.Count; ++index)
+        {
+          if (this.hits[index].is_avoid)
+            return true;
+        }
+        return false;
       }
 
       public void SetDefend(bool flag)
@@ -398,19 +448,31 @@ namespace SRPG
         return this.cureCondition != (EUnitCondition) 0;
       }
 
-      public bool IsNotEffectiveElement()
+      public bool IsWeakEffectElement()
       {
-        return this.element_effect_rate < 0;
+        return this.element_effect_resist < 0;
       }
 
-      public bool IsEffectiveElement()
+      public bool IsResistEffectElement()
       {
-        return this.element_effect_rate > 0;
+        return this.element_effect_resist > 0;
       }
 
       public bool IsNormalEffectElement()
       {
-        return this.element_effect_rate == 0;
+        return this.element_effect_resist == 0;
+      }
+
+      public class CondHit
+      {
+        public EUnitCondition Cond;
+        public int Per;
+
+        public CondHit(EUnitCondition cond, int per = 0)
+        {
+          this.Cond = cond;
+          this.Per = per;
+        }
       }
     }
 

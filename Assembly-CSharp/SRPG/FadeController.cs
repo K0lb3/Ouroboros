@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FadeController
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -39,7 +39,7 @@ namespace SRPG
     {
       get
       {
-        return Object.op_Inequality((Object) FadeController.mInstance, (Object) null);
+        return UnityEngine.Object.op_Inequality((UnityEngine.Object) FadeController.mInstance, (UnityEngine.Object) null);
       }
     }
 
@@ -47,7 +47,7 @@ namespace SRPG
     {
       get
       {
-        if (Object.op_Equality((Object) FadeController.mInstance, (Object) null))
+        if (UnityEngine.Object.op_Equality((UnityEngine.Object) FadeController.mInstance, (UnityEngine.Object) null))
           FadeController.mInstance = (FadeController) new GameObject(nameof (FadeController), new System.Type[1]
           {
             typeof (FadeController)
@@ -58,7 +58,7 @@ namespace SRPG
 
     private void Awake()
     {
-      Object.DontDestroyOnLoad((Object) ((Component) this).get_gameObject());
+      UnityEngine.Object.DontDestroyOnLoad((UnityEngine.Object) ((Component) this).get_gameObject());
       Array values = Enum.GetValues(typeof (FadeController.LayerType));
       string[] strArray = new string[3]{ string.Empty, "Custom/Particle/UnlitAdd NoZTest (TwoSided)", "Custom/Particle/UnlitAlpha NoZTest (TwoSided)" };
       for (int index = 0; index < 3; ++index)
@@ -76,7 +76,7 @@ namespace SRPG
         if (!string.IsNullOrEmpty(strArray[index]))
         {
           Shader shader = Shader.Find(strArray[index]);
-          if (Object.op_Inequality((Object) shader, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) shader, (UnityEngine.Object) null))
           {
             ((Graphic) this.mImage[index]).set_material(new Material(shader));
             ((Graphic) this.mImage[index]).get_material().SetColor("_Color", Color.get_white());

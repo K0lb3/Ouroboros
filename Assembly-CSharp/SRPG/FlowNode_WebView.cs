@@ -1,20 +1,23 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_WebView
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
+using Gsc.App.NetworkHelper;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.Pin(102, "Preload", FlowNode.PinTypes.Input, 2)]
-  [AddComponentMenu("")]
+  [FlowNode.Pin(101, "Destroy", FlowNode.PinTypes.Input, 1)]
   [FlowNode.NodeType("System/WebView", 32741)]
   [FlowNode.Pin(100, "Create", FlowNode.PinTypes.Input, 0)]
-  [FlowNode.Pin(101, "Destroy", FlowNode.PinTypes.Input, 1)]
-  [FlowNode.Pin(2, "Destroyed", FlowNode.PinTypes.Output, 11)]
+  [AddComponentMenu("")]
+  [FlowNode.Pin(102, "Preload", FlowNode.PinTypes.Input, 2)]
   [FlowNode.Pin(1, "Created", FlowNode.PinTypes.Output, 10)]
+  [FlowNode.Pin(2, "Destroyed", FlowNode.PinTypes.Output, 11)]
   public class FlowNode_WebView : FlowNode
   {
     public bool usegAuth = true;
@@ -34,9 +37,9 @@ namespace SRPG
     private void Create()
     {
       GameObject gameObject = AssetManager.Load<GameObject>("UI/WebView");
-      if (Object.op_Inequality((Object) gameObject, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) gameObject, (UnityEngine.Object) null))
       {
-        this.webView = (WebView) ((GameObject) Object.Instantiate<GameObject>((M0) gameObject)).GetComponent<WebView>();
+        this.webView = (WebView) ((GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) gameObject)).GetComponent<WebView>();
         if (this.useVariable)
         {
           string str1 = FlowNode_Variable.Get(this.URL);
@@ -49,7 +52,18 @@ namespace SRPG
         this.webView.OnClose = new UIUtility.DialogResultEvent(this.OnClose);
         this.webView.Text_Title.set_text(LocalizedText.Get(this.Title));
         if (this.usegAuth)
-          this.webView.SetHeaderField("Authorization", "gumi " + Network.SessionID);
+        {
+          Dictionary<string, string> dictionary = new Dictionary<string, string>();
+          GsccBridge.SetWebViewHeaders(new Action<string, string>(dictionary.Add));
+          using (Dictionary<string, string>.Enumerator enumerator = dictionary.GetEnumerator())
+          {
+            while (enumerator.MoveNext())
+            {
+              KeyValuePair<string, string> current = enumerator.Current;
+              this.webView.SetHeaderField(current.Key, current.Value);
+            }
+          }
+        }
         if (this.URL.StartsWith("http://") || this.URL.StartsWith("https://"))
           this.webView.OpenURL(this.URL);
         else if (this.URLMode == FlowNode_WebView.URL_Mode.APIHost)
@@ -83,7 +97,7 @@ namespace SRPG
           this.ActivateOutputLinks(1);
           break;
         case 101:
-          if (Object.op_Inequality((Object) this.webView, (Object) null))
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.webView, (UnityEngine.Object) null))
             this.webView.BeginClose();
           this.ActivateOutputLinks(2);
           break;

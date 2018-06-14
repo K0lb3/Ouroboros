@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.Event2dAction_Dialog2
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System.Collections;
@@ -24,8 +24,8 @@ namespace SRPG
     private List<GameObject> fadeOutList = new List<GameObject>();
     [HideInInspector]
     public float FadeTime = 0.2f;
-    [SerializeField]
     [HideInInspector]
+    [SerializeField]
     public string[] IgnoreFadeOut = new string[1];
     private const float DialogPadding = 20f;
     private const float normalScale = 1f;
@@ -65,7 +65,7 @@ namespace SRPG
     public override IEnumerator PreloadAssets()
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new Event2dAction_Dialog2.\u003CPreloadAssets\u003Ec__Iterator74() { \u003C\u003Ef__this = this };
+      return (IEnumerator) new Event2dAction_Dialog2.\u003CPreloadAssets\u003Ec__IteratorAF() { \u003C\u003Ef__this = this };
     }
 
     public override void PreStart()
@@ -296,6 +296,17 @@ namespace SRPG
           this.mBubble.Skip();
       }
       return false;
+    }
+
+    public override string[] GetUnManagedAssetListData()
+    {
+      if (!string.IsNullOrEmpty(this.TextID))
+      {
+        this.LoadTextData();
+        if (!string.IsNullOrEmpty(this.mVoiceID))
+          return EventAction.GetUnManagedStreamAssets(Event2dAction_Dialog2.GetIDPair(this.mVoiceID), false);
+      }
+      return (string[]) null;
     }
 
     public enum TextSpeedTypes

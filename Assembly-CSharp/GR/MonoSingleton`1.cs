@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: GR.MonoSingleton`1
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -35,7 +35,10 @@ namespace GR
           MonoSingleton<T>.instance_ = Object.FindObjectOfType(type) as T;
           if (Object.op_Equality((Object) (object) MonoSingleton<T>.instance_, (Object) null))
           {
-            GameObject gameObject = new GameObject(type.ToString(), new Type[1]{ type });
+            GameObject gameObject = new GameObject(type.ToString(), new Type[1]
+            {
+              type
+            });
             if (Object.op_Equality((Object) gameObject, (Object) null))
               Debug.LogError((object) (type.ToString() + "instance is nothing."));
             ((Object) gameObject.get_transform()).set_name(type.Name);

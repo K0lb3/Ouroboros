@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: FlowNode_MultiPlayOnEndEditRoomID
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using SRPG;
@@ -9,9 +9,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-[AddComponentMenu("")]
-[FlowNode.NodeType("Event/OnEndEditMultiPlayRoomID", 58751)]
 [FlowNode.Pin(1, "Edited", FlowNode.PinTypes.Output, 0)]
+[FlowNode.NodeType("Event/OnEndEditMultiPlayRoomID", 58751)]
+[AddComponentMenu("")]
 public class FlowNode_MultiPlayOnEndEditRoomID : FlowNodePersistent
 {
   [FlowNode.DropTarget(typeof (InputField), true)]
@@ -24,7 +24,7 @@ public class FlowNode_MultiPlayOnEndEditRoomID : FlowNodePersistent
       return;
     GlobalVars.SelectedMultiPlayRoomID = 0;
     // ISSUE: method pointer
-    ((UnityEvent<string>) this.Target.get_onEndEdit()).AddListener(new UnityAction<string>((object) this, __methodptr(\u003CStart\u003Em__1F4)));
+    ((UnityEvent<string>) this.Target.get_onEndEdit()).AddListener(new UnityAction<string>((object) this, __methodptr(\u003CStart\u003Em__2AA)));
     ((Behaviour) this).set_enabled(true);
   }
 

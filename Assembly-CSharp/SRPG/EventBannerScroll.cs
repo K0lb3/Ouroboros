@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.EventBannerScroll
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -16,20 +16,21 @@ using UnityEngine.UI;
 
 namespace SRPG
 {
+  [FlowNode.Pin(54, "ToURL", FlowNode.PinTypes.Output, 11)]
+  [FlowNode.Pin(53, "ToGacha", FlowNode.PinTypes.Output, 10)]
+  [FlowNode.Pin(1, "Refresh", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(48, "Refreshed", FlowNode.PinTypes.Output, 1)]
   [FlowNode.Pin(49, "ItemEmpty", FlowNode.PinTypes.Output, 2)]
   [FlowNode.Pin(10, "PageNext", FlowNode.PinTypes.Input, 3)]
   [FlowNode.Pin(11, "PagePrev", FlowNode.PinTypes.Input, 4)]
-  [FlowNode.Pin(53, "ToGacha", FlowNode.PinTypes.Output, 10)]
-  [FlowNode.Pin(52, "ToShop", FlowNode.PinTypes.Output, 9)]
-  [FlowNode.Pin(54, "ToURL", FlowNode.PinTypes.Output, 11)]
-  [FlowNode.Pin(55, "ToMulti", FlowNode.PinTypes.Output, 8)]
-  [FlowNode.Pin(51, "ToEvent", FlowNode.PinTypes.Output, 7)]
-  [FlowNode.Pin(50, "ToStory", FlowNode.PinTypes.Output, 6)]
-  [FlowNode.Pin(1, "Refresh", FlowNode.PinTypes.Input, 0)]
   [FlowNode.Pin(12, "Select", FlowNode.PinTypes.Input, 5)]
-  public class EventBannerScroll : ScrollRect, IFlowInterface
+  [FlowNode.Pin(50, "ToStory", FlowNode.PinTypes.Output, 6)]
+  [FlowNode.Pin(51, "ToEvent", FlowNode.PinTypes.Output, 7)]
+  [FlowNode.Pin(55, "ToMulti", FlowNode.PinTypes.Output, 8)]
+  [FlowNode.Pin(52, "ToShop", FlowNode.PinTypes.Output, 9)]
+  public class EventBannerScroll : SRPG_ScrollRect, IFlowInterface
   {
+    public float Interval = 4f;
     private const int PIN_REFRESH = 1;
     private const int PIN_PAGE_NEXT = 10;
     private const int PIN_PAGE_PREV = 11;
@@ -48,16 +49,10 @@ namespace SRPG
     public GameObject TemplateBannerNormal;
     public GameObject TemplateBannerShop;
     public GameObject TemplatePageIcon;
-    public float Interval;
     private bool mDragging;
     private int mPage;
     private float mElapsed;
     private IEnumerator mMove;
-
-    public EventBannerScroll()
-    {
-      base.\u002Ector();
-    }
 
     void IFlowInterface.Activated(int pinID)
     {
@@ -94,6 +89,7 @@ namespace SRPG
               FlowNode_GameObject.ActivateOutputLinks((Component) this, 50);
               return;
             case BannerType.eventQuest:
+              GlobalVars.ReqEventPageListType = GlobalVars.EventQuestListType.EventQuest;
               this.setQuestVariables(currentPageBannerParam.sval, false);
               FlowNode_GameObject.ActivateOutputLinks((Component) this, 51);
               return;
@@ -111,6 +107,10 @@ namespace SRPG
               if (!string.IsNullOrEmpty(currentPageBannerParam.sval))
                 Application.OpenURL(currentPageBannerParam.sval);
               FlowNode_GameObject.ActivateOutputLinks((Component) this, 54);
+              return;
+            case BannerType.towerQuest:
+              GlobalVars.ReqEventPageListType = GlobalVars.EventQuestListType.Tower;
+              FlowNode_GameObject.ActivateOutputLinks((Component) this, 51);
               return;
             default:
               return;
@@ -211,16 +211,16 @@ namespace SRPG
     private bool Refresh()
     {
       while (((Transform) this.get_content()).get_childCount() != 0)
-        Object.Destroy((Object) ((Transform) this.get_content()).GetChild(0));
+        UnityEngine.Object.Destroy((UnityEngine.Object) ((Transform) this.get_content()).GetChild(0));
       while (((Component) this.PageToggleGroup).get_transform().get_childCount() != 0)
-        Object.Destroy((Object) ((Component) this.PageToggleGroup).get_transform().GetChild(0));
+        UnityEngine.Object.Destroy((UnityEngine.Object) ((Component) this.PageToggleGroup).get_transform().GetChild(0));
       BannerParam[] bannerParamArray = this.makeValidBannerParams();
       if (bannerParamArray.Length != 0)
       {
         for (int index1 = 0; index1 < bannerParamArray.Length + 1; ++index1)
         {
           int index2 = index1 % bannerParamArray.Length;
-          GameObject gameObject1 = bannerParamArray[index2].type != BannerType.shop ? (GameObject) Object.Instantiate<GameObject>((M0) this.TemplateBannerNormal) : (GameObject) Object.Instantiate<GameObject>((M0) this.TemplateBannerShop);
+          GameObject gameObject1 = bannerParamArray[index2].type != BannerType.shop ? (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.TemplateBannerNormal) : (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.TemplateBannerShop);
           Vector3 localScale1 = gameObject1.get_transform().get_localScale();
           gameObject1.get_transform().SetParent((Transform) this.get_content());
           gameObject1.get_transform().set_localScale(localScale1);
@@ -228,7 +228,7 @@ namespace SRPG
           DataSource.Bind<BannerParam>(gameObject1, bannerParamArray[index2]);
           if (index1 < bannerParamArray.Length)
           {
-            GameObject gameObject2 = (GameObject) Object.Instantiate<GameObject>((M0) this.TemplatePageIcon);
+            GameObject gameObject2 = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.TemplatePageIcon);
             Vector3 localScale2 = gameObject1.get_transform().get_localScale();
             gameObject2.get_transform().SetParent(((Component) this.PageToggleGroup).get_transform());
             gameObject2.get_transform().set_localScale(localScale2);
@@ -253,6 +253,7 @@ namespace SRPG
       List<BannerParam> bannerParamList = new List<BannerParam>();
       GachaParam[] gachas = instance.Gachas;
       QuestParam[] availableQuests = instance.Player.AvailableQuests;
+      QuestParam questParam1 = (QuestParam) null;
       QuestParam lastStoryQuest = instance.Player.FindLastStoryQuest();
       long serverTime = Network.GetServerTime();
       DateTime now = TimeManager.FromUnixTime(serverTime);
@@ -260,48 +261,58 @@ namespace SRPG
       {
         // ISSUE: object of a compiler-generated type is created
         // ISSUE: variable of a compiler-generated type
-        EventBannerScroll.\u003CmakeValidBannerParams\u003Ec__AnonStorey243 paramsCAnonStorey243 = new EventBannerScroll.\u003CmakeValidBannerParams\u003Ec__AnonStorey243();
+        EventBannerScroll.\u003CmakeValidBannerParams\u003Ec__AnonStorey326 paramsCAnonStorey326 = new EventBannerScroll.\u003CmakeValidBannerParams\u003Ec__AnonStorey326();
         // ISSUE: reference to a compiler-generated field
-        paramsCAnonStorey243.banner = banners[index];
+        paramsCAnonStorey326.banner = banners[index];
         // ISSUE: reference to a compiler-generated field
         // ISSUE: reference to a compiler-generated method
-        if (!string.IsNullOrEmpty(paramsCAnonStorey243.banner.banner) && bannerParamList.FindIndex(new Predicate<BannerParam>(paramsCAnonStorey243.\u003C\u003Em__270)) == -1)
+        if (!string.IsNullOrEmpty(paramsCAnonStorey326.banner.banner) && bannerParamList.FindIndex(new Predicate<BannerParam>(paramsCAnonStorey326.\u003C\u003Em__35B)) == -1)
         {
           // ISSUE: reference to a compiler-generated field
-          if (paramsCAnonStorey243.banner.type == BannerType.shop)
+          if (paramsCAnonStorey326.banner.type == BannerType.shop)
           {
-            // ISSUE: reference to a compiler-generated field
-            if (!string.IsNullOrEmpty(paramsCAnonStorey243.banner.sval))
+            if (instance.IsLimitedShopOpen)
             {
-              // ISSUE: reference to a compiler-generated method
-              Array.Find<JSON_ShopListArray.Shops>(instance.LimitedShopList, new Predicate<JSON_ShopListArray.Shops>(paramsCAnonStorey243.\u003C\u003Em__271));
+              // ISSUE: reference to a compiler-generated field
+              if (instance.LimitedShopList != null && !string.IsNullOrEmpty(paramsCAnonStorey326.banner.sval))
+              {
+                // ISSUE: reference to a compiler-generated method
+                Array.Find<JSON_ShopListArray.Shops>(instance.LimitedShopList, new Predicate<JSON_ShopListArray.Shops>(paramsCAnonStorey326.\u003C\u003Em__35C));
+              }
+              else
+              {
+                // ISSUE: reference to a compiler-generated field
+                if (!paramsCAnonStorey326.banner.IsAvailablePeriod(now))
+                  continue;
+              }
             }
-            // ISSUE: reference to a compiler-generated field
-            if (!paramsCAnonStorey243.banner.IsAvailablePeriod(now))
+            else
               continue;
           }
           else
           {
             // ISSUE: reference to a compiler-generated field
-            if (paramsCAnonStorey243.banner.type == BannerType.storyQuest)
+            if (paramsCAnonStorey326.banner.type == BannerType.storyQuest)
             {
               if (lastStoryQuest != null)
               {
-                QuestParam questParam;
                 // ISSUE: reference to a compiler-generated field
-                if (string.IsNullOrEmpty(paramsCAnonStorey243.banner.sval))
+                if (string.IsNullOrEmpty(paramsCAnonStorey326.banner.sval))
                 {
-                  questParam = lastStoryQuest;
+                  questParam1 = lastStoryQuest;
+                  // ISSUE: reference to a compiler-generated field
+                  if (!paramsCAnonStorey326.banner.IsAvailablePeriod(now))
+                    continue;
                 }
                 else
                 {
                   // ISSUE: reference to a compiler-generated method
-                  questParam = Array.Find<QuestParam>(availableQuests, new Predicate<QuestParam>(paramsCAnonStorey243.\u003C\u003Em__272));
-                  if (questParam == null || questParam.iname != lastStoryQuest.iname && questParam.state == QuestStates.New)
-                    questParam = lastStoryQuest;
+                  QuestParam questParam2 = Array.Find<QuestParam>(availableQuests, new Predicate<QuestParam>(paramsCAnonStorey326.\u003C\u003Em__35D));
+                  if (questParam2 == null || questParam2.iname != lastStoryQuest.iname && questParam2.state == QuestStates.New)
+                    questParam2 = lastStoryQuest;
+                  if (!questParam2.IsDateUnlock(serverTime))
+                    continue;
                 }
-                if (!questParam.IsDateUnlock(serverTime))
-                  continue;
               }
               else
                 continue;
@@ -310,54 +321,76 @@ namespace SRPG
             {
               // ISSUE: reference to a compiler-generated field
               // ISSUE: reference to a compiler-generated field
-              if (paramsCAnonStorey243.banner.type == BannerType.eventQuest || paramsCAnonStorey243.banner.type == BannerType.multiQuest)
+              if (paramsCAnonStorey326.banner.type == BannerType.eventQuest || paramsCAnonStorey326.banner.type == BannerType.multiQuest)
               {
                 // ISSUE: reference to a compiler-generated field
-                if (!string.IsNullOrEmpty(paramsCAnonStorey243.banner.sval))
+                if (!string.IsNullOrEmpty(paramsCAnonStorey326.banner.sval))
                 {
                   // ISSUE: reference to a compiler-generated method
-                  QuestParam questParam = Array.Find<QuestParam>(availableQuests, new Predicate<QuestParam>(paramsCAnonStorey243.\u003C\u003Em__273));
-                  if (questParam == null || !questParam.IsDateUnlock(serverTime))
+                  QuestParam questParam2 = Array.Find<QuestParam>(availableQuests, new Predicate<QuestParam>(paramsCAnonStorey326.\u003C\u003Em__35E));
+                  if (questParam2 == null || !questParam2.IsDateUnlock(serverTime))
+                    continue;
+                }
+                else
+                {
+                  // ISSUE: reference to a compiler-generated field
+                  if (!paramsCAnonStorey326.banner.IsAvailablePeriod(now))
                     continue;
                 }
               }
               else
               {
                 // ISSUE: reference to a compiler-generated field
-                if (paramsCAnonStorey243.banner.type == BannerType.gacha)
+                if (paramsCAnonStorey326.banner.type == BannerType.gacha)
                 {
                   // ISSUE: reference to a compiler-generated field
-                  if (!string.IsNullOrEmpty(paramsCAnonStorey243.banner.sval))
+                  if (!string.IsNullOrEmpty(paramsCAnonStorey326.banner.sval))
                   {
                     // ISSUE: reference to a compiler-generated method
-                    GachaParam gachaParam = Array.Find<GachaParam>(gachas, new Predicate<GachaParam>(paramsCAnonStorey243.\u003C\u003Em__274));
+                    GachaParam gachaParam = Array.Find<GachaParam>(gachas, new Predicate<GachaParam>(paramsCAnonStorey326.\u003C\u003Em__35F));
                     if (gachaParam != null)
                     {
                       // ISSUE: reference to a compiler-generated field
-                      paramsCAnonStorey243.banner.begin_at = TimeManager.FromUnixTime(gachaParam.startat).ToString();
+                      paramsCAnonStorey326.banner.begin_at = TimeManager.FromUnixTime(gachaParam.startat).ToString();
                       // ISSUE: reference to a compiler-generated field
-                      paramsCAnonStorey243.banner.end_at = TimeManager.FromUnixTime(gachaParam.endat).ToString();
+                      paramsCAnonStorey326.banner.end_at = TimeManager.FromUnixTime(gachaParam.endat).ToString();
                       // ISSUE: reference to a compiler-generated field
-                      if (!paramsCAnonStorey243.banner.IsAvailablePeriod(now))
+                      if (!paramsCAnonStorey326.banner.IsAvailablePeriod(now))
                         continue;
                     }
                     else
+                      continue;
+                  }
+                  else
+                  {
+                    // ISSUE: reference to a compiler-generated field
+                    if (!paramsCAnonStorey326.banner.IsAvailablePeriod(now))
                       continue;
                   }
                 }
                 else
                 {
                   // ISSUE: reference to a compiler-generated field
-                  // ISSUE: reference to a compiler-generated field
-                  // ISSUE: reference to a compiler-generated field
-                  if (paramsCAnonStorey243.banner.type == BannerType.url && (string.IsNullOrEmpty(paramsCAnonStorey243.banner.sval) || !paramsCAnonStorey243.banner.IsAvailablePeriod(now)))
-                    continue;
+                  if (paramsCAnonStorey326.banner.type == BannerType.url)
+                  {
+                    // ISSUE: reference to a compiler-generated field
+                    // ISSUE: reference to a compiler-generated field
+                    if (string.IsNullOrEmpty(paramsCAnonStorey326.banner.sval) || !paramsCAnonStorey326.banner.IsAvailablePeriod(now))
+                      continue;
+                  }
+                  else
+                  {
+                    // ISSUE: reference to a compiler-generated field
+                    // ISSUE: reference to a compiler-generated field
+                    if (paramsCAnonStorey326.banner.type == BannerType.towerQuest && !paramsCAnonStorey326.banner.IsAvailablePeriod(now))
+                      continue;
+                  }
                 }
               }
             }
           }
           // ISSUE: reference to a compiler-generated field
-          bannerParamList.Add(paramsCAnonStorey243.banner);
+          bannerParamList.Add(paramsCAnonStorey326.banner);
         }
       }
       for (int index1 = 0; index1 < bannerParamList.Count - 1; ++index1)
@@ -379,7 +412,7 @@ namespace SRPG
     private IEnumerator movePage(int from, int to)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new EventBannerScroll.\u003CmovePage\u003Ec__IteratorAB() { to = to, from = from, \u003C\u0024\u003Eto = to, \u003C\u0024\u003Efrom = from, \u003C\u003Ef__this = this };
+      return (IEnumerator) new EventBannerScroll.\u003CmovePage\u003Ec__IteratorEE() { to = to, from = from, \u003C\u0024\u003Eto = to, \u003C\u0024\u003Efrom = from, \u003C\u003Ef__this = this };
     }
 
     private void OnValueChanged(Vector2 value)
@@ -439,7 +472,7 @@ namespace SRPG
       if (this.mPage >= ((Transform) this.get_content()).get_childCount())
         return (BannerParam) null;
       DataSource component = (DataSource) ((Component) ((Transform) this.get_content()).GetChild(this.mPage)).GetComponent<DataSource>();
-      if (Object.op_Equality((Object) component, (Object) null))
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) component, (UnityEngine.Object) null))
         return (BannerParam) null;
       return component.FindDataOfClass<BannerParam>((BannerParam) null);
     }

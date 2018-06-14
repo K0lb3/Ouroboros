@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.SupportData
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -36,10 +36,13 @@ namespace SRPG
     {
       get
       {
-        UnitParam unitParam = this.UnitParam;
-        if (unitParam == null || string.IsNullOrEmpty((string) unitParam.skill))
-          return (SkillParam) null;
-        return MonoSingleton<GameManager>.Instance.GetSkillParam((string) unitParam.skill);
+        if (this.Unit != null)
+        {
+          SkillData leaderSkill = this.Unit.LeaderSkill;
+          if (leaderSkill != null)
+            return leaderSkill.SkillParam;
+        }
+        return (SkillParam) null;
       }
     }
 
@@ -86,26 +89,30 @@ namespace SRPG
       this.PlayerName = json.name;
       this.PlayerLevel = json.lv;
       this.Cost = json.cost;
-      this.UnitID = json.unit.iname;
-      this.UnitLevel = json.unit.lv;
-      this.UnitRarity = json.unit.rare;
-      this.mIsFriend = json.isFriend;
-      this.LeaderSkillLevel = UnitParam.GetLeaderSkillLevel(this.UnitRarity, json.unit.plus);
-      if (json.unit.select != null)
+      if (json.unit != null)
       {
-        this.JobID = (string) null;
-        for (int index = 0; index < json.unit.jobs.Length; ++index)
+        Json_Unit unit = json.unit;
+        this.UnitID = unit.iname;
+        this.UnitLevel = unit.lv;
+        this.UnitRarity = unit.rare;
+        if (unit.select != null)
         {
-          if (json.unit.jobs[index].iid == json.unit.select.job)
+          this.JobID = (string) null;
+          for (int index = 0; index < unit.jobs.Length; ++index)
           {
-            this.JobID = json.unit.jobs[index].iname;
-            break;
+            if (unit.jobs[index].iid == unit.select.job)
+            {
+              this.JobID = unit.jobs[index].iname;
+              break;
+            }
           }
         }
+        this.LeaderSkillLevel = UnitParam.GetLeaderSkillLevel(this.UnitRarity, unit.plus);
+        UnitData unitData = new UnitData();
+        unitData.Deserialize(unit);
+        this.Unit = unitData;
       }
-      UnitData unitData = new UnitData();
-      unitData.Deserialize(json.unit);
-      this.Unit = unitData;
+      this.mIsFriend = json.isFriend;
     }
   }
 }

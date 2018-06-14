@@ -1,11 +1,12 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.WebAPI
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
 using System.Text;
+using UnityEngine.Experimental.Networking;
 
 namespace SRPG
 {
@@ -16,6 +17,8 @@ namespace SRPG
     public string name;
     public string body;
     public Network.ResponseCallback callback;
+    public WebAPI.ReqeustType reqtype;
+    public DownloadHandler dlHandler;
 
     protected static StringBuilder GetStringBuilder()
     {
@@ -58,7 +61,7 @@ namespace SRPG
         int[] numArray3 = new int[record.gold_steals.Length];
         for (int index = 0; index < record.gold_steals.Length; ++index)
           numArray3[index] = (int) record.gold_steals[index];
-        int[] numArray4 = new int[3];
+        int[] numArray4 = new int[record.bonusCount];
         for (int index = 0; index < numArray4.Length; ++index)
           numArray4[index] = (record.bonusFlags & 1 << index) == 0 ? 0 : 1;
         string str3 = str1 + "\"btlendparam\":{" + "\"time\":" + (object) num + "," + "\"result\":\"" + str2 + "\"," + "\"beats\":[";
@@ -95,6 +98,12 @@ namespace SRPG
         str1 = str7 + "}";
       }
       return str1;
+    }
+
+    public enum ReqeustType
+    {
+      REQ_GSC,
+      REQ_STREAM,
     }
 
     public class JSON_BaseResponse

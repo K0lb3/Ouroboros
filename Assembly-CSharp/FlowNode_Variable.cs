@@ -1,25 +1,25 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: FlowNode_Variable
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[FlowNode.Pin(2, "Compare", FlowNode.PinTypes.Input, 2)]
 [FlowNode.Pin(9, "Assigned", FlowNode.PinTypes.Output, 9)]
 [FlowNode.Pin(10, "== Variable", FlowNode.PinTypes.Output, 10)]
 [FlowNode.Pin(11, "!= Variable", FlowNode.PinTypes.Output, 11)]
+[FlowNode.Pin(12, "< Variable", FlowNode.PinTypes.Output, 12)]
+[FlowNode.Pin(13, "<= Variable", FlowNode.PinTypes.Output, 13)]
+[FlowNode.Pin(14, "> Variable", FlowNode.PinTypes.Output, 14)]
+[FlowNode.Pin(15, ">= Variable", FlowNode.PinTypes.Output, 15)]
 [AddComponentMenu("")]
 [FlowNode.NodeType("Variable", 32741)]
 [FlowNode.Pin(1, "Set", FlowNode.PinTypes.Input, 1)]
-[FlowNode.Pin(15, ">= Variable", FlowNode.PinTypes.Output, 15)]
-[FlowNode.Pin(14, "> Variable", FlowNode.PinTypes.Output, 14)]
+[FlowNode.Pin(2, "Compare", FlowNode.PinTypes.Input, 2)]
 [FlowNode.Pin(3, "SetIfNull", FlowNode.PinTypes.Input, 3)]
-[FlowNode.Pin(13, "<= Variable", FlowNode.PinTypes.Output, 13)]
-[FlowNode.Pin(12, "< Variable", FlowNode.PinTypes.Output, 12)]
 public class FlowNode_Variable : FlowNode
 {
   private static Dictionary<string, string> mKeyValues = new Dictionary<string, string>();

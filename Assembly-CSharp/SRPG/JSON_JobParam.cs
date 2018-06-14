@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.JSON_JobParam
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using System;
@@ -15,6 +15,7 @@ namespace SRPG
     public string name;
     public string expr;
     public string mdl;
+    public string ac2d;
     public string mdlp;
     public string pet;
     public string buki;
@@ -35,6 +36,10 @@ namespace SRPG
     public string artifact;
     public string ai;
     public string master;
+    public string me_abl;
+    public int is_me_rr;
+    public string desc_ch;
+    public string desc_ot;
     public JSON_JobRankParam[] ranks;
   }
 }

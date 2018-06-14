@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.FlowNode_CheckGachaData
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -12,12 +12,12 @@ using UnityEngine;
 
 namespace SRPG
 {
-  [FlowNode.Pin(1, "確認", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(100, "キャンセル", FlowNode.PinTypes.Output, 12)]
   [FlowNode.NodeType("System/CheckGachaData", 32741)]
   [FlowNode.Pin(0, "In", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "確認", FlowNode.PinTypes.Input, 1)]
   [FlowNode.Pin(10, "ダウンロード開始", FlowNode.PinTypes.Output, 10)]
   [FlowNode.Pin(11, "ダウンロード完了", FlowNode.PinTypes.Output, 11)]
-  [FlowNode.Pin(100, "キャンセル", FlowNode.PinTypes.Output, 12)]
   [FlowNode.Pin(99, "エラー発生", FlowNode.PinTypes.Output, 99)]
   public class FlowNode_CheckGachaData : FlowNode
   {
@@ -80,7 +80,7 @@ namespace SRPG
     private IEnumerator AsyncWork(bool confirm)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new FlowNode_CheckGachaData.\u003CAsyncWork\u003Ec__Iterator7E() { confirm = confirm, \u003C\u0024\u003Econfirm = confirm, \u003C\u003Ef__this = this };
+      return (IEnumerator) new FlowNode_CheckGachaData.\u003CAsyncWork\u003Ec__IteratorBC() { confirm = confirm, \u003C\u0024\u003Econfirm = confirm, \u003C\u003Ef__this = this };
     }
   }
 }

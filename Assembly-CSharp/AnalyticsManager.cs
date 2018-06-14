@@ -1,44 +1,174 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: AnalyticsManager
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
-using gu3.gacct;
-using gu3.Payment;
 using SRPG;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using TapjoyUnity;
+using TapjoyUnity.Internal;
 using UnityEngine;
 
 public static class AnalyticsManager
 {
-  private static string LastRecordedSessionID = string.Empty;
-  private static object lockObj = new object();
-  private static readonly AnalyticsManager.TriggerEventData[] TutorialDialogTrigger = new AnalyticsManager.TriggerEventData[6]{ new AnalyticsManager.TriggerEventData("tut001b.001", "funnel.tutorial.dialogue_start", "7.7"), new AnalyticsManager.TriggerEventData("tut001b.007a", "funnel.tutorial.dialogue_end", "7.8"), new AnalyticsManager.TriggerEventData("tut002a.001", "funnel.tutorial.scene_resistance", "9"), new AnalyticsManager.TriggerEventData("tut003a.001", "funnel.tutorial.scene_trepidation", "10"), new AnalyticsManager.TriggerEventData("tut004a.001", "funnel.tutorial.scene_started", "13"), new AnalyticsManager.TriggerEventData("tut001a.001", "funnel.tutorial.scene_thecode", "6") };
-  private static readonly AnalyticsManager.TriggerEventData[] TutorialDialog2DTrigger = new AnalyticsManager.TriggerEventData[3]{ new AnalyticsManager.TriggerEventData("0_6b_2d.001", "funnel.tutorial.scene_ouroboros", "11"), new AnalyticsManager.TriggerEventData("0_6b_2d.017", "funnel.tutorial.guide_summon1", "12"), new AnalyticsManager.TriggerEventData("0_8_2d.001", "funnel.tutorial.scene_throne", "15") };
-  private static readonly AnalyticsManager.TriggerEventData[] SGTutorialTrigger = new AnalyticsManager.TriggerEventData[14]{ new AnalyticsManager.TriggerEventData("sg_tut_0.003", "funnel.tutorial.guide_battle_movebehind", " 7.1"), new AnalyticsManager.TriggerEventData("sg_tut_0.004", "funnel.tutorial.guide_battle_basicshield", " 7.2"), new AnalyticsManager.TriggerEventData("sg_tut_0.005", "funnel.tutorial.guide_battle_swordcrush", " 7.3"), new AnalyticsManager.TriggerEventData("sg_tut_0.006", "funnel.tutorial.guide_battle_activateskill", " 7.4"), new AnalyticsManager.TriggerEventData("sg_tut_0.007", "funnel.tutorial.guide_battle_endmove", " 7.5"), new AnalyticsManager.TriggerEventData("sg_tut_1.001", "funnel.tutorial.guide_missions", "17"), new AnalyticsManager.TriggerEventData("sg_tut_1.007", "funnel.tutorial.guide_summon2", "18"), new AnalyticsManager.TriggerEventData("sg_tut_1.008", "funnel.tutorial.guide_summon2_use", "19"), new AnalyticsManager.TriggerEventData("sg_tut_1.009", "funnel.tutorial.guide_summon2_get", "20"), new AnalyticsManager.TriggerEventData("sg_tut_1.011", "funnel.tutorial.guide_challenges", "21"), new AnalyticsManager.TriggerEventData("sg_tut_1.015", "funnel.tutorial.guide_units", "23"), new AnalyticsManager.TriggerEventData("sg_tut_1.032", "funnel.tutorial.guide_quests", "24"), new AnalyticsManager.TriggerEventData("sg_tut_1.035", "funnel.tutorial.guide_party", "25"), new AnalyticsManager.TriggerEventData("sg_tut_1.038", "funnel.tutorial.end", "26") };
-  private static readonly string[] GachaCostType = new string[8]{ "None", "Gems", "Paid Gems", "Zeni", "Ticket", "Free Gems", "Zeni", "All" };
-  private static readonly string[] GachaSummonType = new string[6]{ "None", "Rare", "Equipment", "Ticket", "Normal", "Special" };
-  private static readonly string[] CurrencyTypeString = new string[6]{ "gem", "zeni", "ticket", "ap", "item", "none" };
-  private static readonly string LifetimePaidGemsUsed = "Lifetime_Paid_Gems_Used";
-  private static readonly string LifetimePaidGemsObtained = "Lifetime_Paid_Gems_Obtained";
-  private static readonly string LifetimeFreeGemsUsed = "Lifetime_Free_Gems_Used";
-  private static readonly string LifetimeFreeGemsObtained = "Lifetime_Free_Gems_Obtained";
-  private static readonly string LifetimeZeniUsed = "Lifetime_Zeni_Used";
-  private static readonly string LifetimeZeniObtained = "Lifetime_Zeni_Obtained";
+  private static readonly List<AnalyticsManager.TrackingTriggerEventData> TutorialEventTriggers = new List<AnalyticsManager.TrackingTriggerEventData>()
+  {
+    new AnalyticsManager.TrackingTriggerEventData("splash", "splash", "1"),
+    new AnalyticsManager.TrackingTriggerEventData("Tutorial_Download", "download_main", "2"),
+    new AnalyticsManager.TrackingTriggerEventData("Tutorial_Download_Dialog", "download_bg", "3"),
+    new AnalyticsManager.TrackingTriggerEventData("BackgroundDownloaderEnabled", "download_bg_yes", "3.1"),
+    new AnalyticsManager.TrackingTriggerEventData("BackgroundDownloaderDisabled", "download_bg_no", "3.2"),
+    new AnalyticsManager.TrackingTriggerEventData("Tutorial_Download_Start", "download_bg_start", "4"),
+    new AnalyticsManager.TrackingTriggerEventData("Tutorial_Movie_Intro", "movie_intro", "5"),
+    new AnalyticsManager.TrackingTriggerEventData("tut001a.001", "scene_thecode", "6"),
+    new AnalyticsManager.TrackingTriggerEventData(AnalyticsManager.TrackingType.Tutorial_BattleGrid_Show.ToString(), "guide_battle_move", "7"),
+    new AnalyticsManager.TrackingTriggerEventData("sg_tut_0.003", "guide_battle_movebehind", "7.1"),
+    new AnalyticsManager.TrackingTriggerEventData("sg_tut_0.004", "guide_battle_basicshield", "7.2"),
+    new AnalyticsManager.TrackingTriggerEventData("sg_tut_0.005", "guide_battle_swordcrush", "7.3"),
+    new AnalyticsManager.TrackingTriggerEventData("sg_tut_0.006", "guide_battle_activateskill", "7.4"),
+    new AnalyticsManager.TrackingTriggerEventData("sg_tut_0.007", "guide_battle_endmove", "7.5"),
+    new AnalyticsManager.TrackingTriggerEventData("guide_battle_freeplay", "guide_battle_freeplay", "7.6"),
+    new AnalyticsManager.TrackingTriggerEventData("tut001b.001", "dialogue_start", "7.7"),
+    new AnalyticsManager.TrackingTriggerEventData(AnalyticsManager.TrackingType.Tutorial_SkipDialog_AfterLogiVSDias.ToString(), "skipdialog_after_logi_vs_dias", "7.7.1"),
+    new AnalyticsManager.TrackingTriggerEventData("tut001b.007a", "dialogue_end", "7.8"),
+    new AnalyticsManager.TrackingTriggerEventData("Tutorial_Movie_AnimeIntro", "movie_anime", "8"),
+    new AnalyticsManager.TrackingTriggerEventData("tut002a.001", "scene_resistance", "9"),
+    new AnalyticsManager.TrackingTriggerEventData(AnalyticsManager.TrackingType.Tutorial_SkipDialog_BeforeLogiDiasVSVlad.ToString(), "skipdialog_before_logidias_vs_vlad", "9.1"),
+    new AnalyticsManager.TrackingTriggerEventData("tut003a.001", "scene_trepidation", "10"),
+    new AnalyticsManager.TrackingTriggerEventData(AnalyticsManager.TrackingType.Tutorial_SkipDialog_AfterLogiDiasVSVlad.ToString(), "skipdialog_after_logidias_vs_vlad", "10.1"),
+    new AnalyticsManager.TrackingTriggerEventData(AnalyticsManager.TrackingType.Tutorial_SkipDialog_AfterLogiDiasVSNevillePt1.ToString(), "skipdialog_after_logidias_vs_neville_pt1", "10.2"),
+    new AnalyticsManager.TrackingTriggerEventData("0_6b_2d.001", "scene_ouroboros", "11"),
+    new AnalyticsManager.TrackingTriggerEventData("0_6b_2d.017", "guide_summon1", "12"),
+    new AnalyticsManager.TrackingTriggerEventData("tut004a.001", "scene_started", "13"),
+    new AnalyticsManager.TrackingTriggerEventData(AnalyticsManager.TrackingType.Tutorial_SkipDialog_BeforeLogiDiasVSNevillePt2.ToString(), "skipdialog_before_logidias_vs_neville_pt2", "13.1"),
+    new AnalyticsManager.TrackingTriggerEventData(AnalyticsManager.TrackingType.Tutorial_SkipDialog_AfterLogiDiasVSNevillePt2.ToString(), "skipdialog_after_logidias_vs_neville_pt2", "13.2"),
+    new AnalyticsManager.TrackingTriggerEventData("Tutorial_Movie_World", "movie_world", "14"),
+    new AnalyticsManager.TrackingTriggerEventData("0_8_2d.001", "scene_throne", "15"),
+    new AnalyticsManager.TrackingTriggerEventData(AnalyticsManager.TrackingType.Tutorial_HomeScreen_BasicGuideDialog_Show.ToString(), "confirm_skip1", "16"),
+    new AnalyticsManager.TrackingTriggerEventData(AnalyticsManager.TrackingType.Tutorial_HomeScreen_BasicGuideDialog_Continue.ToString(), "confirm_skip1_yes", "16.1"),
+    new AnalyticsManager.TrackingTriggerEventData(AnalyticsManager.TrackingType.Tutorial_HomeScreen_BasicGuideDialog_Cancel.ToString(), "confirm_skip1_no", "16.2"),
+    new AnalyticsManager.TrackingTriggerEventData("sg_tut_1.001", "guide_missions", "17"),
+    new AnalyticsManager.TrackingTriggerEventData("sg_tut_1.007", "guide_summon2", "18"),
+    new AnalyticsManager.TrackingTriggerEventData("sg_tut_1.008", "guide_summon2_use", "19"),
+    new AnalyticsManager.TrackingTriggerEventData("sg_tut_1.009", "guide_summon2_get", "20"),
+    new AnalyticsManager.TrackingTriggerEventData("sg_tut_1.011", "guide_challenges", "21"),
+    new AnalyticsManager.TrackingTriggerEventData(AnalyticsManager.TrackingType.Tutorial_HomeScreen_UnitsGuideDialog_Show.ToString(), "confirm_skip2", "22"),
+    new AnalyticsManager.TrackingTriggerEventData(AnalyticsManager.TrackingType.Tutorial_HomeScreen_UnitsGuideDialog_Continue.ToString(), "confirm_skip2_yes", "22.1"),
+    new AnalyticsManager.TrackingTriggerEventData(AnalyticsManager.TrackingType.Tutorial_HomeScreen_UnitsGuideDialog_Cancel.ToString(), "confirm_skip2_no", "22.2"),
+    new AnalyticsManager.TrackingTriggerEventData("sg_tut_1.015", "guide_units", "23"),
+    new AnalyticsManager.TrackingTriggerEventData("sg_tut_1.032", "guide_quests", "24"),
+    new AnalyticsManager.TrackingTriggerEventData("sg_tut_1.035", "guide_party", "25"),
+    new AnalyticsManager.TrackingTriggerEventData("sg_tut_1.038", "end", "26")
+  };
+  private static readonly List<AnalyticsManager.TrackingTriggerEventData> MissionEventTriggers = new List<AnalyticsManager.TrackingTriggerEventData>()
+  {
+    new AnalyticsManager.TrackingTriggerEventData("QE_ST_NO_010001", "first_quest_clear", "1")
+  };
+  private static readonly string[] GachaCostType = new string[8]
+  {
+    "None",
+    "Gems",
+    "Paid Gems",
+    "Zeni",
+    "Ticket",
+    "Free Gems",
+    "Zeni",
+    "All"
+  };
+  private static readonly string[] GachaSummonType = new string[6]
+  {
+    "None",
+    "Rare",
+    "Equipment",
+    "Ticket",
+    "Normal",
+    "Special"
+  };
+  private static readonly string[] NonPremiumCurrencyString = new string[4]
+  {
+    "zeni",
+    "ticket",
+    "ap",
+    "item"
+  };
   private static readonly Encoding encoding = Encoding.GetEncoding("utf-8");
   private static readonly string mBundleID = "sg.gumi.alchemistww";
-  private const string FIRST_PURCHASE_TAG = "FIRST_PURCHASE";
+  private static bool isDebugMode = false;
+  private static List<string> _namesOfPlacementsToPreload = new List<string>()
+  {
+    "title",
+    "homescreen"
+  };
+  private static List<TJPlacement> _preloadedPlacements = new List<TJPlacement>();
+  private static Dictionary<TJPlacement, Action> _placementToShowAndCallbackDictionary = new Dictionary<TJPlacement, Action>();
   private static Dictionary<string, object> summonData;
+  private static AppsFlyerTrackerCallbacks _appsflyerGameObject;
+  private static TapjoyComponent _tapjoyGameObject;
+  private static Action _tapjoyActionsSavedBeforeConnectSuccess;
+  public static Action<string> PlacementWantedFlowChangeHandler;
 
   private static bool HasPlayerCompletedGameplayPortionOfTutorial
   {
     get
     {
-      return (MonoSingleton<GameManager>.Instance.Player.TutorialFlags & 1L) != 0L;
+      return !MonoSingleton<GameManager>.Instance.IsTutorial();
+    }
+  }
+
+  public static void TrackTutorialEventGeneric(AnalyticsManager.TrackingType inTrackingType)
+  {
+    switch (inTrackingType)
+    {
+      case AnalyticsManager.TrackingType.StaminaReward_Video:
+        AnalyticsManager.TrackNonPremiumCurrencyObtain(AnalyticsManager.NonPremiumCurrencyType.AP, (long) GlobalVars.LastReward.Get().Stamina, "Video Ads", (string) null);
+        break;
+      case AnalyticsManager.TrackingType.StaminaReward_Milestone:
+        AnalyticsManager.TrackNonPremiumCurrencyObtain(AnalyticsManager.NonPremiumCurrencyType.AP, (long) GlobalVars.LastReward.Get().Stamina, "Milestone Rewards", (string) null);
+        break;
+      case AnalyticsManager.TrackingType.Tutorial_HomeScreen_BasicGuideDialog_Continue:
+      case AnalyticsManager.TrackingType.Tutorial_HomeScreen_BasicGuideDialog_Cancel:
+      case AnalyticsManager.TrackingType.Tutorial_Download:
+      case AnalyticsManager.TrackingType.Tutorial_Download_Dialog:
+      case AnalyticsManager.TrackingType.Tutorial_Download_Start:
+      case AnalyticsManager.TrackingType.Tutorial_Movie_Intro:
+      case AnalyticsManager.TrackingType.Tutorial_Movie_AnimeIntro:
+      case AnalyticsManager.TrackingType.Tutorial_HomeScreen_UnitsGuideDialog_Continue:
+      case AnalyticsManager.TrackingType.Tutorial_HomeScreen_UnitsGuideDialog_Cancel:
+      case AnalyticsManager.TrackingType.Tutorial_Movie_World:
+      case AnalyticsManager.TrackingType.Tutorial_SkipDialog_AfterLogiVSDias:
+      case AnalyticsManager.TrackingType.Tutorial_SkipDialog_BeforeLogiDiasVSVlad:
+      case AnalyticsManager.TrackingType.Tutorial_SkipDialog_AfterLogiDiasVSVlad:
+      case AnalyticsManager.TrackingType.Tutorial_SkipDialog_AfterLogiDiasVSNevillePt1:
+      case AnalyticsManager.TrackingType.Tutorial_SkipDialog_BeforeLogiDiasVSNevillePt2:
+      case AnalyticsManager.TrackingType.Tutorial_SkipDialog_AfterLogiDiasVSNevillePt2:
+      case AnalyticsManager.TrackingType.Tutorial_HomeScreen_BasicGuideDialog_Show:
+      case AnalyticsManager.TrackingType.Tutorial_HomeScreen_UnitsGuideDialog_Show:
+      case AnalyticsManager.TrackingType.Tutorial_BattleGrid_Show:
+        AnalyticsManager.TrackTutorialAnalyticsEvent(inTrackingType.ToString());
+        break;
+      case AnalyticsManager.TrackingType.Player_New:
+        AnalyticsManager.RecordNewPlayerLogin();
+        break;
+      case AnalyticsManager.TrackingType.Player_Guest:
+        AnalyticsManager.RecordGuestLogin();
+        break;
+      case AnalyticsManager.TrackingType.Player_FB:
+        AnalyticsManager.RecordFacebookLogin();
+        break;
+      case AnalyticsManager.TrackingType.Tutorial_BGDLC:
+        if (BackgroundDownloader.Instance.IsEnabled)
+        {
+          AnalyticsManager.TrackTutorialAnalyticsEvent("BackgroundDownloaderEnabled");
+          break;
+        }
+        AnalyticsManager.TrackTutorialAnalyticsEvent("BackgroundDownloaderDisabled");
+        break;
+      default:
+        throw new ArgumentOutOfRangeException("Unknown Tutorial Analytics Event");
     }
   }
 
@@ -50,6 +180,17 @@ public static class AnalyticsManager
     return (string) null;
   }
 
+  private static long GetGachaSummonCostTypeLong(string inGachaSummonCostName)
+  {
+    int index = 0;
+    for (int length = AnalyticsManager.GachaCostType.Length; index < length; ++index)
+    {
+      if (inGachaSummonCostName.Equals(AnalyticsManager.GachaCostType[index]))
+        return (long) index;
+    }
+    throw new ArgumentOutOfRangeException("Unrecognised inGachaSummonCostName", inGachaSummonCostName);
+  }
+
   private static string GetGachaSummonTypeString(GachaWindow.GachaTabCategory inGachaType)
   {
     int num = (int) inGachaType;
@@ -58,49 +199,143 @@ public static class AnalyticsManager
     return (string) null;
   }
 
-  private static string GetCurrencyStringType(AnalyticsManager.CurrencyType inCurrencyType)
+  private static string GetNonPremiumCurrencyStringType(AnalyticsManager.NonPremiumCurrencyType inCurrencyType)
   {
     int num = (int) inCurrencyType;
-    if (num > -1 && num < AnalyticsManager.CurrencyTypeString.Length)
-      return AnalyticsManager.CurrencyTypeString[(int) inCurrencyType];
+    if (num > -1 && num < AnalyticsManager.NonPremiumCurrencyString.Length)
+      return AnalyticsManager.NonPremiumCurrencyString[(int) inCurrencyType];
     return (string) null;
   }
 
   public static void Setup()
   {
-    AppsFlyer.setAppsFlyerKey("WMa4kPf8ZdvNhcpvdpwAvE");
-    AppsFlyer.setIsDebug(true);
-    AnalyticsManager.InitialiseAndroid();
     DebugUtility.Log("AnalyticsManager : Setup");
-    GameObject gameObject = new GameObject("AppsFlyerTrackerCallbacks");
-    gameObject.AddComponent<AppsFlyerTrackerCallbacks>();
-    Object.DontDestroyOnLoad((Object) gameObject);
-    AnalyticsManager.SetCurrentVersion();
-    AnalyticsManager.TrackTutorialCustomEvent("funnel.tutorial.splash", new Dictionary<string, object>()
+    AnalyticsManager.SetupAppsFlyer();
+    AnalyticsManager.SetupTapJoy();
+  }
+
+  public static void SetPlayerIsPaying(bool inIsPayingPlayer)
+  {
+    AnalyticsManager.TapjoyRerouteActionBasedOnConnectStatus((Action) (() =>
     {
-      {
-        "step_number",
-        (object) "1"
-      }
-    });
+      if (!inIsPayingPlayer)
+        return;
+      Tapjoy.AddUserTag("Paying");
+    }));
   }
 
-  private static void InitialiseIOS()
+  private static void SetupAppsFlyer()
   {
-    Upsight.init();
-  }
-
-  private static void InitialiseAndroid()
-  {
+    if (UnityEngine.Object.op_Equality((UnityEngine.Object) AnalyticsManager._appsflyerGameObject, (UnityEngine.Object) null))
+    {
+      AnalyticsManager._appsflyerGameObject = (AppsFlyerTrackerCallbacks) new GameObject("AppsFlyerTrackerCallbacks").AddComponent<AppsFlyerTrackerCallbacks>();
+      UnityEngine.Object.DontDestroyOnLoad((UnityEngine.Object) AnalyticsManager._appsflyerGameObject);
+    }
+    AppsFlyer.setAppsFlyerKey("WMa4kPf8ZdvNhcpvdpwAvE");
+    AppsFlyer.setIsDebug(AnalyticsManager.isDebugMode);
+    AppsFlyer.setCollectIMEI(false);
     AppsFlyer.setAppID(AnalyticsManager.mBundleID);
-    AppsFlyer.createValidateInAppListener("AppsFlyerTrackerCallbacks", "onInAppBillingSuccess", "onInAppBillingFailure");
-    Upsight.init();
+  }
+
+  private static void SetupTapJoy()
+  {
+    if (UnityEngine.Object.op_Equality((UnityEngine.Object) AnalyticsManager._tapjoyGameObject, (UnityEngine.Object) null))
+    {
+      AnalyticsManager._tapjoyGameObject = (TapjoyComponent) UnityEngine.Object.FindObjectOfType<TapjoyComponent>();
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) AnalyticsManager._tapjoyGameObject, (UnityEngine.Object) null))
+        throw new Exception("Scene does not contain a precreated Tapjoy tracker object");
+    }
+    DebugUtility.LogWarning("Entered Set up");
+    Tapjoy.SetDebugEnabled(AnalyticsManager.isDebugMode);
+    Tapjoy.SetGcmSender("813126952066");
+    Tapjoy.Connect("8KX9gHMyQoe1uZ44k2UZFAECmkrdHkw3JeTIaSi9Gh54pEK7mTONyurmoPRt");
+    // ISSUE: method pointer
+    Tapjoy.add_OnConnectSuccess(new Tapjoy.OnConnectSuccessHandler((object) null, __methodptr(HandleConnectSuccess)));
+    // ISSUE: method pointer
+    Tapjoy.add_OnConnectFailure(new Tapjoy.OnConnectFailureHandler((object) null, __methodptr(HandleConnectFailure)));
+  }
+
+  private static void HandleConnectSuccess()
+  {
+    Debug.Log((object) "Tapjoy Connect Success");
+    // ISSUE: method pointer
+    TJPlacement.add_OnRequestSuccess(new TJPlacement.OnRequestSuccessHandler((object) null, __methodptr(HandlePlacementRequestSuccess)));
+    // ISSUE: method pointer
+    TJPlacement.add_OnContentShow(new TJPlacement.OnContentShowHandler((object) null, __methodptr(HandlePlacementContentShow)));
+    // ISSUE: method pointer
+    TJPlacement.add_OnPurchaseRequest(new TJPlacement.OnPurchaseRequestHandler((object) null, __methodptr(HandlePurchaseRequest)));
+    if (AnalyticsManager._namesOfPlacementsToPreload != null)
+    {
+      using (List<string>.Enumerator enumerator = AnalyticsManager._namesOfPlacementsToPreload.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+        {
+          TJPlacement placement = TJPlacement.CreatePlacement(enumerator.Current);
+          placement.RequestContent();
+          AnalyticsManager._preloadedPlacements.Add(placement);
+        }
+      }
+      AnalyticsManager._namesOfPlacementsToPreload.Clear();
+    }
+    if (AnalyticsManager._tapjoyActionsSavedBeforeConnectSuccess != null)
+    {
+      AnalyticsManager._tapjoyActionsSavedBeforeConnectSuccess();
+      AnalyticsManager._tapjoyActionsSavedBeforeConnectSuccess = (Action) null;
+    }
+    if (AnalyticsManager.isDebugMode)
+      Tapjoy.SetUserCohortVariable(0, "Development");
+    else
+      Tapjoy.SetUserCohortVariable(0, "Release");
+    Tapjoy.SetAppDataVersion(MyApplicationPlugin.get_version());
+    Tapjoy.SetPushNotificationDisabled(false);
+  }
+
+  public static void HandlePurchaseRequest(TJPlacement inPlacement, TJActionRequest inRequest, string inProductId)
+  {
+    Debug.Log((object) "We have a purchase callback");
+    if (AnalyticsManager.PlacementWantedFlowChangeHandler != null)
+    {
+      Debug.Log((object) ("We are sending back our placement flow: " + inProductId));
+      AnalyticsManager.PlacementWantedFlowChangeHandler(inProductId);
+    }
+    if (inRequest == null)
+      return;
+    inRequest.Completed();
+  }
+
+  private static void HandleConnectFailure()
+  {
+    Debug.Log((object) "Tapjoy Connect Failed");
+    // ISSUE: method pointer
+    Tapjoy.remove_OnConnectSuccess(new Tapjoy.OnConnectSuccessHandler((object) null, __methodptr(HandleConnectSuccess)));
+    // ISSUE: method pointer
+    Tapjoy.remove_OnConnectFailure(new Tapjoy.OnConnectFailureHandler((object) null, __methodptr(HandleConnectFailure)));
+    AnalyticsManager.SetupTapJoy();
+  }
+
+  private static void HandlePlacementContentShow(TJPlacement inPlacement)
+  {
+    if (AnalyticsManager._placementToShowAndCallbackDictionary == null || !AnalyticsManager._placementToShowAndCallbackDictionary.ContainsKey(inPlacement))
+      return;
+    Action toShowAndCallback = AnalyticsManager._placementToShowAndCallbackDictionary[inPlacement];
+    if (toShowAndCallback != null)
+      toShowAndCallback();
+    AnalyticsManager._placementToShowAndCallbackDictionary.Remove(inPlacement);
+  }
+
+  private static void HandlePlacementRequestSuccess(TJPlacement inPlacement)
+  {
+    if (AnalyticsManager._placementToShowAndCallbackDictionary == null || !AnalyticsManager._placementToShowAndCallbackDictionary.ContainsKey(inPlacement))
+      return;
+    inPlacement.ShowContent();
   }
 
   public static void TrackAppLaunch()
   {
     AppsFlyer.init("WMa4kPf8ZdvNhcpvdpwAvE", "AppsFlyerTrackerCallbacks");
-    Upsight.registerForPushNotifications();
+    AppsFlyer.createValidateInAppListener("AppsFlyerTrackerCallbacks", "onInAppBillingSuccess", "onInAppBillingFailure");
+    AppsFlyer.loadConversionData(nameof (AnalyticsManager));
+    AppsFlyer.enableUninstallTracking("8KX9gHMyQoe1uZ44k2UZFAECmkrdHkw3JeTIaSi9Gh54pEK7mTONyurmoPRt");
   }
 
   public static void SetSummonTracking(GachaButton.GachaCostType inCostType, GachaWindow.GachaTabCategory inTabCategory, string inGateID, bool inIsFree, int inSummonCost, int inNumberOfThingsSummoned, int inCurrentSummonStepIndex)
@@ -178,178 +413,262 @@ public static class AnalyticsManager
 
   public static void TrackSummonComplete()
   {
-    AnalyticsManager.RecordCustomEvent("summon", AnalyticsManager.summonData);
+    AnalyticsManager.TrackAppsFlyerEvent("summon", AnalyticsManager.summonData.ConvertValuesToString<string, object>());
+    AnalyticsManager.TrackTapjoyEvent("summon", AnalyticsManager.summonData["main_type"].ToString(), AnalyticsManager.summonData["gate_id"].ToString(), AnalyticsManager.summonData["sub_type"].ToString(), "currency_amount", long.Parse(AnalyticsManager.summonData["currency_amount"].ToString()), "currency_used", AnalyticsManager.GetGachaSummonCostTypeLong(AnalyticsManager.summonData["currency_used"].ToString()), "step_id", long.Parse(AnalyticsManager.summonData["step_id"].ToString()));
     AnalyticsManager.summonData.Clear();
   }
 
-  public static void TrackCurrencyObtain(AnalyticsManager.CurrencyType inCurrencyType, AnalyticsManager.CurrencySubType inCurrencySubType, long inAmount, string inObtainSource, Dictionary<string, object> inExtraEventsData = null)
+  public static void TrackNonPremiumCurrencyObtain(AnalyticsManager.NonPremiumCurrencyType inCurrencyType, long inAmount, string inObtainSource, string inUniqueCurrencyID = null)
   {
     if (inAmount <= 0L)
       return;
-    Dictionary<string, object> eventContent = new Dictionary<string, object>();
-    switch (inCurrencyType)
-    {
-      case AnalyticsManager.CurrencyType.Gem:
-        eventContent["type"] = (object) inCurrencyType;
-        switch (inCurrencySubType)
-        {
-          case AnalyticsManager.CurrencySubType.PAID:
-            eventContent["subtype"] = (object) "paid";
-            AnalyticsManager.IncrementUserAttribute(AnalyticsManager.LifetimePaidGemsObtained, inAmount);
-            break;
-          case AnalyticsManager.CurrencySubType.FREE:
-            eventContent["subtype"] = (object) "free";
-            AnalyticsManager.IncrementUserAttribute(AnalyticsManager.LifetimeFreeGemsObtained, inAmount);
-            break;
-          default:
-            throw new ArgumentOutOfRangeException();
-        }
-      case AnalyticsManager.CurrencyType.Zeni:
-        AnalyticsManager.IncrementUserAttribute(AnalyticsManager.LifetimeZeniObtained, inAmount);
-        break;
-    }
-    eventContent["amount"] = (object) inAmount;
-    eventContent["source"] = (object) inObtainSource;
-    if (inExtraEventsData != null)
-    {
-      using (Dictionary<string, object>.Enumerator enumerator = inExtraEventsData.GetEnumerator())
-      {
-        while (enumerator.MoveNext())
-        {
-          KeyValuePair<string, object> current = enumerator.Current;
-          eventContent[current.Key] = current.Value;
-        }
-      }
-    }
-    AnalyticsManager.RecordCustomEvent("currency.obtain." + AnalyticsManager.GetCurrencyStringType(inCurrencyType), eventContent);
+    AnalyticsManager.TrackNonPremiumCurrencyTransaction(inCurrencyType, inAmount, inObtainSource, inUniqueCurrencyID, false);
   }
 
-  public static void TrackCurrencyUse(AnalyticsManager.CurrencyType inCurrencyType, AnalyticsManager.CurrencySubType inCurrencySubType, long inAmount, string inSinkSource, Dictionary<string, object> inExtraEventsData = null)
+  public static void TrackFreePremiumCurrencyObtain(long inAmount, string inObtainSource)
   {
     if (inAmount <= 0L)
       return;
-    Dictionary<string, object> eventContent = new Dictionary<string, object>();
-    switch (inCurrencyType)
-    {
-      case AnalyticsManager.CurrencyType.Gem:
-        eventContent["type"] = (object) AnalyticsManager.GetCurrencyStringType(inCurrencyType);
-        switch (inCurrencySubType)
-        {
-          case AnalyticsManager.CurrencySubType.PAID:
-            AnalyticsManager.IncrementUserAttribute(AnalyticsManager.LifetimePaidGemsUsed, inAmount);
-            eventContent["subtype"] = (object) "paid";
-            break;
-          case AnalyticsManager.CurrencySubType.FREE:
-            AnalyticsManager.IncrementUserAttribute(AnalyticsManager.LifetimeFreeGemsUsed, inAmount);
-            eventContent["subtype"] = (object) "free";
-            break;
-          default:
-            throw new ArgumentOutOfRangeException();
-        }
-      case AnalyticsManager.CurrencyType.Zeni:
-        AnalyticsManager.IncrementUserAttribute(AnalyticsManager.LifetimeZeniUsed, inAmount);
-        break;
-    }
-    eventContent["amount"] = (object) inAmount;
-    eventContent["sink"] = (object) inSinkSource;
-    if (inExtraEventsData != null)
-    {
-      using (Dictionary<string, object>.Enumerator enumerator = inExtraEventsData.GetEnumerator())
-      {
-        while (enumerator.MoveNext())
-        {
-          KeyValuePair<string, object> current = enumerator.Current;
-          eventContent[current.Key] = current.Value;
-        }
-      }
-    }
-    AnalyticsManager.RecordCustomEvent("currency.use." + AnalyticsManager.GetCurrencyStringType(inCurrencyType), eventContent);
+    AnalyticsManager.TrackTapjoyEvent("economy", "currency.obtain.gem", inObtainSource, inAmount);
   }
 
-  public static bool TrackPurchase(Product product, VerifyResponse response, GlobalVars.PurchaseType purchaseType, string receipt, Purchase purchase)
+  public static void TrackPaidPremiumCurrencyObtain(long inAmount, string inObtainSource)
   {
-    lock (AnalyticsManager.lockObj)
-    {
-      string id = (string) product.id;
-      string currency = (string) product.currency;
-      double price = (double) product.price;
-      if (!AnalyticsManager.Validate(id) || !AnalyticsManager.Validate(currency) || price <= 0.0)
-        return false;
-      string eventName;
-      // ISSUE: explicit reference operation
-      // ISSUE: cast to a reference type
-      // ISSUE: explicit reference operation
-      if ((^(GACCTError&) @((Allocator<MetaVerify, Verify>) response).get_Meta().error).isError == null)
-      {
-        if (!PlayerPrefs.HasKey("FIRST_PURCHASE"))
-        {
-          PlayerPrefs.SetInt("FIRST_PURCHASE", 1);
-          AnalyticsManager.RecordCustomEvent("user.paying.first", (Dictionary<string, object>) null);
-          AnalyticsManager.RecordCustomEvent("revenue.paying.first", (Dictionary<string, object>) null);
-        }
-        AnalyticsManager.TrackCurrencyObtain(AnalyticsManager.CurrencyType.Gem, AnalyticsManager.CurrencySubType.PAID, (long) ((Allocator<MetaVerify, Verify>) response).get_Meta().AdditionalPaidCoin, "IAP Purchase", (Dictionary<string, object>) null);
-        AnalyticsManager.TrackCurrencyObtain(AnalyticsManager.CurrencyType.Gem, AnalyticsManager.CurrencySubType.FREE, (long) ((Allocator<MetaVerify, Verify>) response).get_Meta().AdditionalFreeCoin, "IAP Purchase", (Dictionary<string, object>) null);
-        AppsFlyer.setCurrencyCode("USD");
-        AppsFlyer.trackRichEvent(nameof (purchase), new Dictionary<string, string>()
-        {
-          {
-            "product_id",
-            id
-          },
-          {
-            "af_currency",
-            (string) product.currency
-          },
-          {
-            "af_revenue",
-            price.ToString()
-          }
-        });
-        string inAppPurchaseData = "{\"orderID\":" + (object) purchase.orderId + "\",\"packageName\":\" " + AnalyticsManager.mBundleID + "\",\"productId\":\"" + id + "\",\"purchaseTime\":" + (object) Network.GetServerTime() + ",\"purchaseState\":0,\"developerPayload\":\"paymentPayload\",\"purchaseToken\":\"" + (object) purchase.data + "\"}";
-        Upsight.recordGooglePlayPurchase(1, currency, price, price, id, 0, inAppPurchaseData, receipt, (Dictionary<string, object>) null);
-        eventName = "purchase.success.";
-      }
-      else
-        eventName = "purchase.fail.";
-      AnalyticsManager.RecordCustomEvent(eventName, new Dictionary<string, object>()
-      {
-        {
-          "price",
-          (object) price
-        },
-        {
-          "purchase_type",
-          (object) purchaseType
-        },
-        {
-          "id",
-          (object) id
-        },
-        {
-          "gem_type",
-          (object) AnalyticsManager.CurrencySubType.PAID
-        }
-      });
-      return true;
-    }
-  }
-
-  private static void TrackSpend(ESaleType inSaleType, string inSpendSource, int inSpendAmount)
-  {
-    if (!AnalyticsManager.Validate(inSpendSource))
+    if (inAmount <= 0L)
       return;
+    AnalyticsManager.TrackTapjoyEvent("economy", "currency.obtain.gem", inObtainSource, inAmount);
+  }
+
+  public static void TrackNonPremiumCurrencyUse(AnalyticsManager.NonPremiumCurrencyType inCurrencyType, long inAmount, string inSinkSource, string inUniqueCurrencyID = null)
+  {
+    if (inAmount <= 0L)
+      return;
+    AnalyticsManager.TrackNonPremiumCurrencyTransaction(inCurrencyType, inAmount, inSinkSource, inUniqueCurrencyID, true);
+  }
+
+  public static void TrackFreePremiumCurrencyUse(long inAmount, string inSinkSource)
+  {
+    if (inAmount <= 0L)
+      return;
+    AnalyticsManager.TrackTapjoyEvent("economy", "currency.use.gem", inSinkSource, inAmount);
+  }
+
+  public static void TrackPaidPremiumCurrencyUse(long inAmount, string inSinkSource)
+  {
+    if (inAmount <= 0L)
+      return;
+    AnalyticsManager.TrackTapjoyEvent("economy", "currency.use.gem", inSinkSource, inAmount);
+  }
+
+  public static void TrackOriginalCurrencyUse(ESaleType inSaleType, int inAmount, string inSinkSource)
+  {
     switch (inSaleType)
     {
       case ESaleType.Gold:
-        AnalyticsManager.TrackCurrencyUse(AnalyticsManager.CurrencyType.Zeni, AnalyticsManager.CurrencySubType.FREE, (long) inSpendAmount, inSpendSource, (Dictionary<string, object>) null);
+        AnalyticsManager.TrackNonPremiumCurrencyUse(AnalyticsManager.NonPremiumCurrencyType.Zeni, (long) inAmount, inSinkSource, (string) null);
         break;
       case ESaleType.Coin:
-        AnalyticsManager.TrackCurrencyUse(AnalyticsManager.CurrencyType.Gem, AnalyticsManager.CurrencySubType.FREE, (long) inSpendAmount, inSpendSource, (Dictionary<string, object>) null);
+        AnalyticsManager.TrackFreePremiumCurrencyUse((long) inAmount, inSinkSource);
         break;
       case ESaleType.Coin_P:
-        AnalyticsManager.TrackCurrencyUse(AnalyticsManager.CurrencyType.Gem, AnalyticsManager.CurrencySubType.PAID, (long) inSpendAmount, inSpendSource, (Dictionary<string, object>) null);
+        AnalyticsManager.TrackPaidPremiumCurrencyUse((long) inAmount, inSinkSource);
         break;
     }
+  }
+
+  private static void TrackNonPremiumCurrencyTransaction(AnalyticsManager.NonPremiumCurrencyType inCurrencyType, long inAmount, string inObtainSource, string inUniqueCurrencyID, bool isUseCurrency)
+  {
+    string currencyStringType = AnalyticsManager.GetNonPremiumCurrencyStringType(inCurrencyType);
+    string inEventName = !isUseCurrency ? "currency.obtain." + currencyStringType : "currency.use." + currencyStringType;
+    if (!string.IsNullOrEmpty(inUniqueCurrencyID) && (inCurrencyType == AnalyticsManager.NonPremiumCurrencyType.Item || inCurrencyType == AnalyticsManager.NonPremiumCurrencyType.SummonTicket))
+    {
+      string inEventCategory2 = inCurrencyType != AnalyticsManager.NonPremiumCurrencyType.Item ? "ticket_id" : "item_id";
+      AnalyticsManager.TrackTapjoyEvent("economy", inEventName, inObtainSource, inEventCategory2, inUniqueCurrencyID, inAmount);
+    }
+    else
+      AnalyticsManager.TrackTapjoyEvent("economy", inEventName, inObtainSource, inAmount);
+  }
+
+  public static void TrackPurchase(string inProductID, string inCurrencyCode, double inPrice)
+  {
+    if (AnalyticsManager.isDebugMode)
+      return;
+    AnalyticsManager.AttemptToTrackFirstTimePurchase();
+    AppsFlyer.setCurrencyCode("USD");
+    AnalyticsManager.TrackAppsFlyerEvent("purchase", new Dictionary<string, string>()
+    {
+      {
+        "product_id",
+        inProductID
+      },
+      {
+        "af_currency",
+        inCurrencyCode
+      },
+      {
+        "af_revenue",
+        inPrice.ToString()
+      }
+    });
+    AnalyticsManager.TapjoyRerouteActionBasedOnConnectStatus((Action) (() => Tapjoy.TrackPurchaseInGooglePlayStore(inProductID, (string) null, (string) null, (string) null)));
+    AnalyticsManager.TrackTapjoyEvent("IAP Purchase", inProductID, inPrice.ToString(), 0L);
+  }
+
+  private static void AttemptToTrackFirstTimePurchase()
+  {
+    if (PlayerPrefs.HasKey("FIRST_PURCHASE"))
+      return;
+    AnalyticsManager.TrackTapjoyEvent("user.paying.first", 0L);
+    AnalyticsManager.TrackTapjoyEvent("revenue.paying.first", 0L);
+  }
+
+  public static void TrackPlayerLevelUp(int currentLevel)
+  {
+    AnalyticsManager.TrackAppsFlyerEvent("level_achieved", new Dictionary<string, string>()
+    {
+      {
+        "level_achieved",
+        currentLevel.ToString()
+      }
+    });
+    AnalyticsManager.TrackTapjoyEvent("level_achieved", (long) currentLevel);
+    AnalyticsManager.TapjoyRerouteActionBasedOnConnectStatus((Action) (() => Tapjoy.SetUserLevel(currentLevel)));
+    AnalyticsManager.RecordUserAttribute("Account_Level", currentLevel.ToString());
+  }
+
+  public static void TrackTutorialAnalyticsEvent(string inTag)
+  {
+    AnalyticsManager.TrackingTriggerEventData triggerEventData1 = AnalyticsManager.TutorialEventTriggers.Find((Predicate<AnalyticsManager.TrackingTriggerEventData>) (triggerEventData => triggerEventData.ID.Equals(inTag)));
+    if (triggerEventData1.Equals((object) new AnalyticsManager.TrackingTriggerEventData()))
+      return;
+    string inEventName = "funnel.tutorial." + triggerEventData1.ReportingName;
+    if (AnalyticsManager.HasPlayerCompletedGameplayPortionOfTutorial || PlayerPrefs.HasKey(inEventName))
+      return;
+    PlayerPrefs.SetString(inEventName, string.Empty);
+    Dictionary<string, object> inDictionary = new Dictionary<string, object>()
+    {
+      {
+        "step_number",
+        (object) triggerEventData1.StepNumber
+      }
+    };
+    AnalyticsManager.TrackAppsFlyerEvent(inEventName, inDictionary.ConvertValuesToString<string, object>());
+    AnalyticsManager.TrackTapjoyEvent("funnel.tutorial", inEventName, triggerEventData1.StepNumber, 0L);
+  }
+
+  public static void TrackMissionAnalyticsEvent(string inMissionID)
+  {
+    AnalyticsManager.TrackingTriggerEventData triggerEventData1 = AnalyticsManager.MissionEventTriggers.Find((Predicate<AnalyticsManager.TrackingTriggerEventData>) (triggerEventData => triggerEventData.ID.Equals(inMissionID)));
+    if (triggerEventData1.Equals((object) new AnalyticsManager.TrackingTriggerEventData()))
+      return;
+    string reportingName = triggerEventData1.ReportingName;
+    if (PlayerPrefs.HasKey(reportingName))
+      return;
+    PlayerPrefs.SetString(reportingName, string.Empty);
+    AnalyticsManager.TrackAppsFlyerEvent(reportingName, new Dictionary<string, string>()
+    {
+      {
+        "mission",
+        inMissionID
+      }
+    });
+    AnalyticsManager.TrackTapjoyEvent("mission", reportingName, inMissionID, 0L);
+  }
+
+  private static void TrackTapjoyEvent(string inEventName, long inValue = 0)
+  {
+    AnalyticsManager.TapjoyRerouteActionBasedOnConnectStatus((Action) (() => Tapjoy.TrackEvent(inEventName, inValue)));
+  }
+
+  private static void TrackTapjoyEvent(string category, string inEventName, long inValue = 0)
+  {
+    AnalyticsManager.TapjoyRerouteActionBasedOnConnectStatus((Action) (() => Tapjoy.TrackEvent(category, inEventName, inValue)));
+  }
+
+  private static void TrackTapjoyEvent(string category, string inEventName, string inEventCategory, long inValue = 0)
+  {
+    AnalyticsManager.TapjoyRerouteActionBasedOnConnectStatus((Action) (() => Tapjoy.TrackEvent(category, inEventName, inEventCategory, (string) null, inValue)));
+  }
+
+  private static void TrackTapjoyEvent(string category, string inEventName, string inEventCategory1, string inEventCategory2, string inValueName1, long inValue1)
+  {
+    AnalyticsManager.TapjoyRerouteActionBasedOnConnectStatus((Action) (() => Tapjoy.TrackEvent(category, inEventName, inEventCategory1, inEventCategory2, inValueName1, inValue1, (string) null, 0L, (string) null, 0L)));
+  }
+
+  private static void TrackTapjoyEvent(string category, string inEventName, string inEventCategory1, string inEventCategory2, string inValueName1, long inValue1, string inValueName2, long inValue2, string inValueName3, long inValue3)
+  {
+    AnalyticsManager.TapjoyRerouteActionBasedOnConnectStatus((Action) (() => Tapjoy.TrackEvent(category, inEventName, inEventCategory1, inEventCategory2, inValueName1, inValue1, inValueName2, inValue2, inValueName3, inValue3)));
+  }
+
+  private static void TrackAppsFlyerEvent(string inEventName, Dictionary<string, string> inEventContent)
+  {
+    AppsFlyer.trackRichEvent(inEventName, inEventContent);
+  }
+
+  private static void RecordUserAttribute(string inAttributeKey, string inAttributeValue)
+  {
+    AnalyticsManager.TapjoyRerouteActionBasedOnConnectStatus((Action) (() => Tapjoy.AddUserTag(inAttributeKey + "," + inAttributeValue)));
+  }
+
+  private static void RecordNewPlayerLogin()
+  {
+    AnalyticsManager.TrackTapjoyEvent("login", "user.new", GlobalVars.CustomerID, 0L);
+    AnalyticsManager.RecordUserAttribute("Start_Version", MyApplicationPlugin.get_version());
+  }
+
+  private static void RecordGuestLogin()
+  {
+    if (PlayerPrefs.GetInt("AccountLinked", 0) != 0)
+      return;
+    AnalyticsManager.TrackTapjoyEvent("login", "user.account.guest", GlobalVars.CustomerID, 0L);
+    AnalyticsManager.RecordUserAttribute("Account_Type", "guest");
+  }
+
+  private static void RecordFacebookLogin()
+  {
+    if (PlayerPrefs.GetInt("AccountLinked", 0) != 1)
+      return;
+    AnalyticsManager.TrackTapjoyEvent("login", "user.account.facebook", GlobalVars.CustomerID, 0L);
+    AnalyticsManager.RecordUserAttribute("Account_Type", "facebook");
+  }
+
+  public static void AttemptToShowPlacement(string inPlacementName, Action inCallbackForPlacementBeingShown)
+  {
+    AnalyticsManager.TapjoyRerouteActionBasedOnConnectStatus((Action) (() => AnalyticsManager.ShowPlacement(inPlacementName, inCallbackForPlacementBeingShown, AnalyticsManager._placementToShowAndCallbackDictionary)));
+  }
+
+  private static void ShowPlacement(string inPlacementName, Action inCallbackForPlacementBeingShown, Dictionary<TJPlacement, Action> inPlacementToShowAndCallbackDictionary)
+  {
+    TJPlacement key = AnalyticsManager._preloadedPlacements.Find((Predicate<TJPlacement>) (placement => placement.GetName().Equals(inPlacementName)));
+    if (key != null)
+    {
+      AnalyticsManager._preloadedPlacements.Remove(key);
+      if (key.IsContentAvailable() && key.IsContentReady())
+        key.ShowContent();
+      else
+        key.RequestContent();
+      inPlacementToShowAndCallbackDictionary.Add(key, inCallbackForPlacementBeingShown);
+    }
+    else
+    {
+      TJPlacement placement = TJPlacement.CreatePlacement(inPlacementName);
+      placement.RequestContent();
+      inPlacementToShowAndCallbackDictionary.Add(placement, inCallbackForPlacementBeingShown);
+    }
+  }
+
+  private static void TapjoyRerouteActionBasedOnConnectStatus(Action inTapjoyAction)
+  {
+    if (Tapjoy.get_IsConnected())
+      inTapjoyAction();
+    else
+      AnalyticsManager._tapjoyActionsSavedBeforeConnectSuccess += inTapjoyAction;
+  }
+
+  public static void TrackUserID(string userID)
+  {
+    AnalyticsManager.TapjoyRerouteActionBasedOnConnectStatus((Action) (() => Tapjoy.SetUserID(userID)));
+    AppsFlyer.setCustomerUserID(userID);
   }
 
   private static bool Validate(string data)
@@ -357,239 +676,47 @@ public static class AnalyticsManager
     return !string.IsNullOrEmpty(data) && AnalyticsManager.encoding.GetByteCount(data) == data.Length && data.Length <= 64;
   }
 
-  public static void TrackPlayerLevelUp(int currentLevel)
+  private struct TrackingTriggerEventData
   {
-    AnalyticsManager.RecordCustomEvent("levelup", new Dictionary<string, object>()
-    {
-      {
-        "level",
-        (object) currentLevel
-      }
-    });
-    AnalyticsManager.RecordUserAttribute("Account_Level", currentLevel);
-    AppsFlyer.trackRichEvent("level_achieved", new Dictionary<string, string>()
-    {
-      {
-        "level_achieved",
-        currentLevel.ToString()
-      }
-    });
-  }
-
-  public static void TrackSpendCoin(string inSpendSource, int inSpendAmount)
-  {
-    AnalyticsManager.TrackSpend(ESaleType.Coin, inSpendSource, inSpendAmount);
-  }
-
-  public static void TrackSpendShop(ESaleType sale_type, EShopType shop_type, int inSpendAmount)
-  {
-    AnalyticsManager.TrackSpend(sale_type, "ShopBuy." + (object) shop_type, inSpendAmount);
-  }
-
-  public static void TrackSpendShopUpdate(ESaleType sale_type, EShopType shop_type, int inSpendAmount)
-  {
-    AnalyticsManager.TrackSpend(sale_type, "ShopUpdate." + (object) shop_type, inSpendAmount);
-  }
-
-  public static void TrackTutorialAnalyticsEvent(string inTag, AnalyticsManager.TutorialTrackingEventType inTrackingEventType)
-  {
-    if (AnalyticsManager.HasPlayerCompletedGameplayPortionOfTutorial)
-      return;
-    AnalyticsManager.TriggerEventData[] triggerEventDataArray;
-    switch (inTrackingEventType)
-    {
-      case AnalyticsManager.TutorialTrackingEventType.EVENT_DIALOG:
-        triggerEventDataArray = AnalyticsManager.TutorialDialogTrigger;
-        break;
-      case AnalyticsManager.TutorialTrackingEventType.EVENT_DIALOG_2D:
-        triggerEventDataArray = AnalyticsManager.TutorialDialog2DTrigger;
-        break;
-      case AnalyticsManager.TutorialTrackingEventType.SG_TUTORIAL:
-        triggerEventDataArray = AnalyticsManager.SGTutorialTrigger;
-        break;
-      default:
-        triggerEventDataArray = (AnalyticsManager.TriggerEventData[]) null;
-        break;
-    }
-    for (int index = 0; index < triggerEventDataArray.Length; ++index)
-    {
-      if (triggerEventDataArray[index].Tag.Equals(inTag))
-      {
-        AnalyticsManager.TrackTutorialCustomEvent(triggerEventDataArray[index].EventName, new Dictionary<string, object>()
-        {
-          {
-            "step_number",
-            (object) triggerEventDataArray[index].StepNumber
-          }
-        });
-        break;
-      }
-    }
-  }
-
-  public static void TrackTutorialCustomEvent(string eventName, Dictionary<string, object> inExtraData)
-  {
-    if (AnalyticsManager.HasPlayerCompletedGameplayPortionOfTutorial || PlayerPrefs.HasKey(eventName))
-      return;
-    PlayerPrefs.SetString(eventName, string.Empty);
-    AnalyticsManager.RecordCustomEvent(eventName, inExtraData);
-    AppsFlyer.trackRichEvent(eventName, inExtraData.ConvertValuesToString<string, object>());
-  }
-
-  private static void RecordCustomEvent(string eventName, Dictionary<string, object> eventContent = null)
-  {
-    Upsight.recordCustomEvent(eventName, eventContent);
-  }
-
-  private static void RecordUserAttribute(string inAttributeKey, string inAttributeValue, string inCheckAgainstValue = null)
-  {
-    if (!string.IsNullOrEmpty(inCheckAgainstValue))
-    {
-      string userAttributeString = Upsight.getUserAttributeString(inAttributeKey);
-      if (userAttributeString != null && userAttributeString.Equals(inCheckAgainstValue))
-        return;
-      Upsight.setUserAttributeString(inAttributeKey, inAttributeValue);
-    }
-    else
-      Upsight.setUserAttributeString(inAttributeKey, inAttributeValue);
-  }
-
-  private static void RecordUserAttribute(string inAttributeKey, int inAttributeValue)
-  {
-    Upsight.setUserAttributeInt(inAttributeKey, inAttributeValue);
-  }
-
-  private static void IncrementUserAttribute(string inAttributeKey, long inAttributeIncrementValue)
-  {
-    string userAttributeString = Upsight.getUserAttributeString(inAttributeKey);
-    long num1 = 0;
-    if (!string.IsNullOrEmpty(userAttributeString))
-      num1 = Convert.ToInt64(userAttributeString);
-    long num2 = num1 + inAttributeIncrementValue;
-    Upsight.setUserAttributeString(inAttributeKey, num2.ToString());
-  }
-
-  public static void RecordNewPlayerLogin()
-  {
-    AnalyticsManager.RecordCustomEvent("user.new", new Dictionary<string, object>()
-    {
-      {
-        "user_id",
-        (object) GlobalVars.CustomerID
-      }
-    });
-    AnalyticsManager.RecordUserAttribute("Start_Version", MyApplicationPlugin.get_version(), "0");
-  }
-
-  public static void RecordGuestLogin()
-  {
-    AnalyticsManager.RecordCustomEvent("user.account.guest", new Dictionary<string, object>()
-    {
-      {
-        "user_id",
-        (object) GlobalVars.CustomerID
-      }
-    });
-    AnalyticsManager.RecordUserAttribute("Account_Type", "guest", (string) null);
-  }
-
-  public static void RecordFacebookLogin()
-  {
-    AnalyticsManager.RecordCustomEvent("user.account.facebook", new Dictionary<string, object>()
-    {
-      {
-        "user_id",
-        (object) GlobalVars.CustomerID
-      }
-    });
-  }
-
-  public static bool RecordMileStone(string mileStoneName)
-  {
-    if (AnalyticsManager.LastRecordedSessionID.Equals(Network.SessionID))
-      return true;
-    AnalyticsManager.LastRecordedSessionID = Network.SessionID;
-    Upsight.recordMilestoneEvent(mileStoneName, (Dictionary<string, object>) null);
-    if (!Upsight.isContentReadyForBillboardWithScope(mileStoneName))
-      return false;
-    Upsight.prepareBillboard(mileStoneName);
-    return true;
-  }
-
-  public static bool AttemptToShowBillBoard(string mileStoneName)
-  {
-    if (!Upsight.isContentReadyForBillboardWithScope(mileStoneName))
-      return false;
-    Upsight.prepareBillboard(mileStoneName);
-    return true;
-  }
-
-  public static void LinkWithAndSetUserID(string userID)
-  {
-    AnalyticsManager.RecordUserAttribute("User_ID", userID, "0");
-    AnalyticsManager.RecordCustomEvent("link_userid_sid", new Dictionary<string, object>()
-    {
-      {
-        "sid",
-        (object) Upsight.getSid()
-      },
-      {
-        "userid",
-        (object) userID
-      }
-    });
-    AppsFlyer.setCustomerUserID(userID);
-  }
-
-  private static void SetCurrentVersion()
-  {
-    AnalyticsManager.RecordUserAttribute("Current_Version", MyApplicationPlugin.get_version(), (string) null);
-    AnalyticsManager.RecordCustomEvent("currentVersion_update", new Dictionary<string, object>()
-    {
-      {
-        "sid",
-        (object) Upsight.getSid()
-      },
-      {
-        "currentVersion",
-        (object) MyApplicationPlugin.get_version()
-      }
-    });
-  }
-
-  public static void SetFirstMissionClear(string missionID)
-  {
-    if (!missionID.Equals("QE_ST_NO_010001") || PlayerPrefs.HasKey(missionID))
-      return;
-    PlayerPrefs.SetString(missionID, string.Empty);
-    AppsFlyer.trackRichEvent("first_quest_clear", new Dictionary<string, string>()
-    {
-      {
-        "mission",
-        missionID
-      }
-    });
-  }
-
-  private struct TriggerEventData
-  {
-    public readonly string Tag;
-    public readonly string EventName;
+    public readonly string ID;
+    public readonly string ReportingName;
     public readonly string StepNumber;
 
-    public TriggerEventData(string inTag, string inEventName, string inStepNumber)
+    public TrackingTriggerEventData(string inID, string inReportingName, string inStepNumber)
     {
-      this.Tag = inTag;
-      this.EventName = inEventName;
+      this.ID = inID;
+      this.ReportingName = inReportingName;
       this.StepNumber = inStepNumber;
     }
   }
 
-  public enum TutorialTrackingEventType
+  public enum TrackingType
   {
-    EVENT_DIALOG,
-    EVENT_DIALOG_2D,
-    SG_TUTORIAL,
+    StaminaReward_Video,
+    StaminaReward_Milestone,
+    Tutorial_HomeScreen_BasicGuideDialog_Continue,
+    Tutorial_HomeScreen_BasicGuideDialog_Cancel,
+    Tutorial_Download,
+    Tutorial_Download_Dialog,
+    Tutorial_Download_Start,
+    Tutorial_Movie_Intro,
+    Tutorial_Movie_AnimeIntro,
+    Tutorial_HomeScreen_UnitsGuideDialog_Continue,
+    Tutorial_HomeScreen_UnitsGuideDialog_Cancel,
+    Player_New,
+    Player_Guest,
+    Player_FB,
+    Tutorial_Movie_World,
+    Tutorial_BGDLC,
+    Tutorial_SkipDialog_AfterLogiVSDias,
+    Tutorial_SkipDialog_BeforeLogiDiasVSVlad,
+    Tutorial_SkipDialog_AfterLogiDiasVSVlad,
+    Tutorial_SkipDialog_AfterLogiDiasVSNevillePt1,
+    Tutorial_SkipDialog_BeforeLogiDiasVSNevillePt2,
+    Tutorial_SkipDialog_AfterLogiDiasVSNevillePt2,
+    Tutorial_HomeScreen_BasicGuideDialog_Show,
+    Tutorial_HomeScreen_UnitsGuideDialog_Show,
+    Tutorial_BattleGrid_Show,
   }
 
   public enum CurrencySubType
@@ -598,13 +725,11 @@ public static class AnalyticsManager
     FREE,
   }
 
-  public enum CurrencyType
+  public enum NonPremiumCurrencyType
   {
-    Gem,
     Zeni,
     SummonTicket,
     AP,
     Item,
-    None,
   }
 }

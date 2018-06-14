@@ -1,13 +1,14 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.TrophyConditionTypes
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 namespace SRPG
 {
   public enum TrophyConditionTypes
   {
+    none,
     winquest,
     killenemy,
     getitem,
@@ -63,6 +64,31 @@ namespace SRPG
     vs,
     vswin,
     vslose,
+    upartifactlevel,
+    makeartifactlevel,
+    becomearenarank,
+    overarenarank,
+    tower,
+    overtowerscore,
+    overvsrankfloor,
+    exclear_fire,
+    exclear_water,
+    exclear_wind,
+    exclear_thunder,
+    exclear_light,
+    exclear_dark,
+    exclear_fire_nocon,
+    exclear_water_nocon,
+    exclear_wind_nocon,
+    exclear_thunder_nocon,
+    exclear_light_nocon,
+    exclear_dark_nocon,
+    winstory_extra,
+    multitower_help,
+    multitower,
+    damage_over,
+    complete_all_quest_mission,
+    has_gold_over,
     fblogin,
   }
 }

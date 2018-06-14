@@ -1,11 +1,12 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.QuestParam
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,82 +14,84 @@ namespace SRPG
 {
   public class QuestParam
   {
-    private readonly int MULTI_MAX_TOTAL_UNIT = 4;
-    private readonly int MULTI_MAX_PLAYER_UNIT = 2;
-    public OInt dailyCount = (OInt) 0;
-    public OInt dailyReset = (OInt) 0;
-    public string[] dropItems = new string[0];
-    public OInt point = (OInt) 0;
-    public OInt aplv = (OInt) 0;
-    public OInt pexp = (OInt) 0;
-    public OInt uexp = (OInt) 0;
-    public OInt gold = (OInt) 0;
-    public OInt mcoin = (OInt) 0;
-    public OInt clock_win = (OInt) 0;
-    public OInt clock_lose = (OInt) 0;
-    public OInt win = (OInt) 0;
-    public OInt lose = (OInt) 0;
-    public OInt multi = (OInt) 0;
-    public OInt multiDead = (OInt) 0;
-    public OInt playerNum = (OInt) 0;
-    public OInt unitNum = (OInt) 0;
+    private static readonly int MULTI_MAX_TOTAL_UNIT = 4;
+    private static readonly int MULTI_MAX_PLAYER_UNIT = 2;
+    private BitArray bit_array = new BitArray(18);
+    private short cond_index = -1;
+    private short world_index = -1;
+    private short ChapterID_index = -1;
+    public ShareStringList units = new ShareStringList(ShareString.Type.QuestParam_units);
+    public OShort clock_win = (OShort) 0;
+    public OShort clock_lose = (OShort) 0;
+    public OShort win = (OShort) 0;
+    public OShort lose = (OShort) 0;
+    public OShort multi = (OShort) 0;
+    public OShort multiDead = (OShort) 0;
+    public OShort playerNum = (OShort) 0;
+    public OShort unitNum = (OShort) 0;
     public List<MapParam> map = new List<MapParam>(BattleCore.MAX_MAP);
+    private short ticket_index = -1;
     protected string localizedNameID;
+    protected string localizedExprID;
     protected string localizedCondID;
     protected string localizedTitleID;
     public string iname;
     public string title;
     public string name;
     public string expr;
-    public string cond;
-    public string[] pieces;
-    public string world;
-    public string ChapterID;
     public string mission;
     public string[] cond_quests;
-    public string[] units;
     public QuestDifficulties difficulty;
     public string navigation;
+    public short dailyCount;
+    public short dailyReset;
     public string storyTextID;
     public QuestStates state;
-    public OInt clear_missions;
+    public int clear_missions;
     public QuestBonusObjective[] bonusObjective;
-    public OInt challengeLimit;
-    public OBool isDailyReset;
+    public short point;
+    public short aplv;
+    public short challengeLimit;
+    public int pexp;
+    public int uexp;
+    public int gold;
+    public int mcoin;
     public QuestTypes type;
-    public int lv;
+    public SubQuestTypes subtype;
+    public short lv;
     public string event_start;
     public string event_clear;
-    public string ticket;
-    private QuestParam.QuestFlags mFlags;
     public long start;
     public long end;
     public long key_end;
     public int key_cnt;
     public int key_limit;
-    public bool hidden;
-    public bool replayLimit;
     public string VersusThumnail;
     public string MapBuff;
     public int VersusMoveCount;
+    public int DamageUpprPl;
+    public int DamageUpprEn;
+    public int DamageRatePl;
+    public int DamageRateEn;
+    public string MapEffectId;
+    public string WeatherSetId;
+    public bool gps_enable;
     public string AllowedJobs;
     public QuestParam.Tags AllowedTags;
     public int PhysBonus;
     public int MagBonus;
-    public int Beginner;
     public string ItemLayout;
     public ChapterParam Chapter;
     private int[] AtkTypeMags;
     public QuestCondParam EntryCondition;
     public QuestCondParam EntryConditionCh;
-    public bool UseFixEditor;
-    public bool IsNoStartVoice;
-    public bool UseSupportUnit;
+    public bool IsExtra;
 
     protected void localizeFields(string language)
     {
       this.init();
       this.name = LocalizedText.SGGet(language, GameUtility.LocalizedQuestParamFileName, this.localizedNameID);
+      this.expr = LocalizedText.SGGet(language, GameUtility.LocalizedQuestParamFileName, this.localizedExprID);
       this.title = LocalizedText.SGGet(language, GameUtility.LocalizedQuestParamFileName, this.localizedTitleID);
       this.cond = LocalizedText.SGGet(language, GameUtility.LocalizedQuestParamFileName, this.localizedCondID);
     }
@@ -96,6 +99,7 @@ namespace SRPG
     protected void init()
     {
       this.localizedNameID = this.GetType().GenerateLocalizedID(this.iname, "NAME");
+      this.localizedExprID = this.GetType().GenerateLocalizedID(this.iname, "EXPR");
       this.localizedCondID = this.GetType().GenerateLocalizedID(this.iname, "COND");
       this.localizedTitleID = this.GetType().GenerateLocalizedID(this.iname, "TITLE");
     }
@@ -105,6 +109,56 @@ namespace SRPG
       this.Deserialize(json);
       this.localizeFields(language);
     }
+
+    public string cond
+    {
+      set
+      {
+        this.cond_index = Singleton<ShareVariable>.Instance.str.Set(ShareString.Type.QuestParam_cond, value);
+      }
+      get
+      {
+        return Singleton<ShareVariable>.Instance.str.Get(ShareString.Type.QuestParam_cond, this.cond_index);
+      }
+    }
+
+    public string world
+    {
+      set
+      {
+        this.world_index = Singleton<ShareVariable>.Instance.str.Set(ShareString.Type.QuestParam_world, value);
+      }
+      get
+      {
+        return Singleton<ShareVariable>.Instance.str.Get(ShareString.Type.QuestParam_world, this.world_index);
+      }
+    }
+
+    public string ChapterID
+    {
+      set
+      {
+        this.ChapterID_index = Singleton<ShareVariable>.Instance.str.Set(ShareString.Type.QuestParam_area, value);
+      }
+      get
+      {
+        return Singleton<ShareVariable>.Instance.str.Get(ShareString.Type.QuestParam_area, this.ChapterID_index);
+      }
+    }
+
+    public bool notSearch
+    {
+      set
+      {
+        this.bit_array.Set(1, value);
+      }
+      get
+      {
+        return this.bit_array.Get(1);
+      }
+    }
+
+    public int dayReset { get; set; }
 
     public bool IsMulti
     {
@@ -132,11 +186,171 @@ namespace SRPG
       }
     }
 
-    public bool Silent
+    public string ticket
     {
+      set
+      {
+        this.ticket_index = Singleton<ShareVariable>.Instance.str.Set(ShareString.Type.QuestParam_ticket, value);
+      }
       get
       {
-        return (this.mFlags & QuestParam.QuestFlags.Silent) != (QuestParam.QuestFlags) 0;
+        return Singleton<ShareVariable>.Instance.str.Get(ShareString.Type.QuestParam_ticket, this.ticket_index);
+      }
+    }
+
+    public bool AllowRetreat
+    {
+      set
+      {
+        this.bit_array.Set(5, value);
+      }
+      get
+      {
+        return this.bit_array.Get(5);
+      }
+    }
+
+    public bool AllowAutoPlay
+    {
+      set
+      {
+        this.bit_array.Set(6, value);
+      }
+      get
+      {
+        return this.bit_array.Get(6);
+      }
+    }
+
+    public bool FirstAutoPlayProhibit
+    {
+      set
+      {
+        this.bit_array.Set(16, value);
+      }
+      get
+      {
+        return this.bit_array.Get(16);
+      }
+    }
+
+    public bool Silent
+    {
+      set
+      {
+        this.bit_array.Set(7, value);
+      }
+      get
+      {
+        return this.bit_array.Get(7);
+      }
+    }
+
+    public bool DisableAbilities
+    {
+      set
+      {
+        this.bit_array.Set(8, value);
+      }
+      get
+      {
+        return this.bit_array.Get(8);
+      }
+    }
+
+    public bool DisableItems
+    {
+      set
+      {
+        this.bit_array.Set(9, value);
+      }
+      get
+      {
+        return this.bit_array.Get(9);
+      }
+    }
+
+    public bool DisableContinue
+    {
+      set
+      {
+        this.bit_array.Set(10, value);
+      }
+      get
+      {
+        return this.bit_array.Get(10);
+      }
+    }
+
+    public bool IsUnitChange
+    {
+      set
+      {
+        this.bit_array.Set(14, value);
+      }
+      get
+      {
+        return this.bit_array.Get(14);
+      }
+    }
+
+    public bool IsMultiLeaderSkill
+    {
+      set
+      {
+        this.bit_array.Set(15, value);
+      }
+      get
+      {
+        return this.bit_array.Get(15);
+      }
+    }
+
+    public bool IsWeatherNoChange
+    {
+      set
+      {
+        this.bit_array.Set(17, value);
+      }
+      get
+      {
+        return this.bit_array.Get(17);
+      }
+    }
+
+    public bool hidden
+    {
+      set
+      {
+        this.bit_array.Set(3, value);
+      }
+      get
+      {
+        return this.bit_array.Get(3);
+      }
+    }
+
+    public bool replayLimit
+    {
+      set
+      {
+        this.bit_array.Set(4, value);
+      }
+      get
+      {
+        return this.bit_array.Get(4);
+      }
+    }
+
+    public bool ShowReviewPopup
+    {
+      set
+      {
+        this.bit_array.Set(0, value);
+      }
+      get
+      {
+        return this.bit_array.Get(0);
       }
     }
 
@@ -162,7 +376,17 @@ namespace SRPG
     {
       get
       {
-        return this.type == QuestTypes.Event;
+        if (this.type != QuestTypes.Event)
+          return this.type == QuestTypes.Beginner;
+        return true;
+      }
+    }
+
+    public bool IsGps
+    {
+      get
+      {
+        return this.type == QuestTypes.Gps;
       }
     }
 
@@ -186,11 +410,29 @@ namespace SRPG
       }
     }
 
+    public bool IsQuestDrops
+    {
+      get
+      {
+        if (this.type != QuestTypes.Story && this.type != QuestTypes.Free && (this.type != QuestTypes.Extra && this.type != QuestTypes.Character) && (this.type != QuestTypes.Event && this.type != QuestTypes.Multi && this.type != QuestTypes.Gps))
+          return this.type == QuestTypes.Beginner;
+        return true;
+      }
+    }
+
+    public bool IsMultiTower
+    {
+      get
+      {
+        return this.type == QuestTypes.MultiTower;
+      }
+    }
+
     public int GainPlayerExp
     {
       get
       {
-        return (int) this.pexp;
+        return this.pexp;
       }
     }
 
@@ -198,7 +440,7 @@ namespace SRPG
     {
       get
       {
-        return (int) this.uexp;
+        return this.uexp;
       }
     }
 
@@ -220,9 +462,49 @@ namespace SRPG
 
     public bool IsBeginner
     {
+      set
+      {
+        this.bit_array.Set(2, value);
+      }
       get
       {
-        return 0 != this.Beginner;
+        return this.bit_array.Get(2);
+      }
+    }
+
+    public bool UseFixEditor
+    {
+      set
+      {
+        this.bit_array.Set(11, value);
+      }
+      get
+      {
+        return this.bit_array.Get(11);
+      }
+    }
+
+    public bool IsNoStartVoice
+    {
+      set
+      {
+        this.bit_array.Set(12, value);
+      }
+      get
+      {
+        return this.bit_array.Get(12);
+      }
+    }
+
+    public bool UseSupportUnit
+    {
+      set
+      {
+        this.bit_array.Set(13, value);
+      }
+      get
+      {
+        return this.bit_array.Get(13);
       }
     }
 
@@ -247,35 +529,35 @@ namespace SRPG
       this.expr = json.expr;
       this.cond = json.cond;
       this.mission = json.mission;
-      this.pexp = (OInt) json.pexp;
-      this.uexp = (OInt) json.uexp;
-      this.gold = (OInt) json.gold;
-      this.mcoin = (OInt) json.mcoin;
-      this.point = (OInt) json.pt;
-      this.multi = (OInt) json.multi;
-      this.multiDead = (OInt) json.multi_dead;
-      this.playerNum = (OInt) json.pnum;
-      this.unitNum = (OInt) (json.unum <= this.MULTI_MAX_PLAYER_UNIT ? json.unum : this.MULTI_MAX_PLAYER_UNIT);
-      this.aplv = (OInt) json.aplv;
-      this.challengeLimit = (OInt) json.limit;
-      this.isDailyReset = (OBool) (json.dayreset > 0);
+      this.pexp = json.pexp;
+      this.uexp = json.uexp;
+      this.gold = json.gold;
+      this.mcoin = json.mcoin;
+      this.point = CheckCast.to_short(json.pt);
+      this.multi = (OShort) CheckCast.to_short(json.multi);
+      this.multiDead = (OShort) CheckCast.to_short(json.multi_dead);
+      this.playerNum = (OShort) CheckCast.to_short(json.pnum);
+      this.unitNum = (OShort) CheckCast.to_short(json.unum <= QuestParam.MULTI_MAX_PLAYER_UNIT ? json.unum : QuestParam.MULTI_MAX_PLAYER_UNIT);
+      this.aplv = CheckCast.to_short(json.aplv);
+      this.challengeLimit = CheckCast.to_short(json.limit);
+      this.dayReset = json.dayreset;
       if ((int) this.multi != 0)
       {
-        if (json.pnum * json.unum > this.MULTI_MAX_TOTAL_UNIT)
-          DebugUtility.LogError("iname:" + json.iname + " / Current total unit is " + (object) (json.pnum * json.unum) + ". Please set the total number of units to" + (object) this.MULTI_MAX_TOTAL_UNIT);
-        if (json.unum > this.MULTI_MAX_PLAYER_UNIT)
-          DebugUtility.LogError("iname:" + json.iname + " / Current 1 player unit is " + (object) json.unum + ". Please set the 1 player number of units to" + (object) this.MULTI_MAX_PLAYER_UNIT);
+        if (json.pnum * json.unum > QuestParam.MULTI_MAX_TOTAL_UNIT)
+          DebugUtility.LogError("iname:" + json.iname + " / Current total unit is " + (object) (json.pnum * json.unum) + ". Please set the total number of units to" + (object) QuestParam.MULTI_MAX_TOTAL_UNIT);
+        if (json.unum > QuestParam.MULTI_MAX_PLAYER_UNIT)
+          DebugUtility.LogError("iname:" + json.iname + " / Current 1 player unit is " + (object) json.unum + ". Please set the 1 player number of units to" + (object) QuestParam.MULTI_MAX_PLAYER_UNIT);
       }
       this.key_limit = json.key_limit;
-      this.clock_win = (OInt) json.ctw;
-      this.clock_lose = (OInt) json.ctl;
-      this.lv = Math.Max(json.lv, 1);
-      this.win = (OInt) json.win;
-      this.lose = (OInt) json.lose;
+      this.clock_win = (OShort) CheckCast.to_short(json.ctw);
+      this.clock_lose = (OShort) CheckCast.to_short(json.ctl);
+      this.lv = CheckCast.to_short(Math.Max(json.lv, 1));
+      this.win = (OShort) CheckCast.to_short(json.win);
+      this.lose = (OShort) CheckCast.to_short(json.lose);
       this.type = (QuestTypes) json.type;
+      this.subtype = (SubQuestTypes) json.subtype;
       this.cond_quests = (string[]) null;
-      this.units = (string[]) null;
-      this.pieces = (string[]) null;
+      this.units.Clear();
       this.ChapterID = json.area;
       this.world = json.world;
       this.storyTextID = json.text;
@@ -297,9 +579,9 @@ namespace SRPG
       }
       this.PhysBonus = json.phyb + 100;
       this.MagBonus = json.magb + 100;
-      this.Beginner = json.bgnr;
+      this.IsBeginner = 0 != json.bgnr;
       this.ItemLayout = json.i_lyt;
-      this.dropItems = json.drops;
+      this.notSearch = json.not_search != 0;
       ObjectiveParam objective = MonoSingleton<GameManager>.GetInstanceDirect().FindObjective(json.mission);
       if (objective != null)
       {
@@ -311,6 +593,7 @@ namespace SRPG
           this.bonusObjective[index].TypeParam = objective.objective[index].val;
           this.bonusObjective[index].item = objective.objective[index].item;
           this.bonusObjective[index].itemNum = objective.objective[index].num;
+          this.bonusObjective[index].itemType = (RewardType) objective.objective[index].item_type;
         }
       }
       MagnificationParam magnification = MonoSingleton<GameManager>.GetInstanceDirect().FindMagnification(json.atk_mag);
@@ -323,17 +606,11 @@ namespace SRPG
       if (questCond2 != null)
         this.EntryConditionCh = questCond2;
       this.difficulty = (QuestDifficulties) json.mode;
-      if (json.pieces != null)
-      {
-        this.pieces = new string[json.pieces.Length];
-        for (int index = 0; index < json.pieces.Length; ++index)
-          this.pieces[index] = json.pieces[index];
-      }
       if (json.units != null)
       {
-        this.units = new string[json.units.Length];
+        this.units.Setup(json.units.Length);
         for (int index = 0; index < json.units.Length; ++index)
-          this.units[index] = json.units[index];
+          this.units.Set(index, json.units[index]);
       }
       if (json.cond_quests != null)
       {
@@ -353,25 +630,32 @@ namespace SRPG
       }
       this.event_start = json.evst;
       this.event_clear = json.evw;
-      this.mFlags = (QuestParam.QuestFlags) 0;
-      if (json.retr == 0)
-        this.mFlags |= QuestParam.QuestFlags.AllowRetreat;
-      if (json.naut == 0)
-        this.mFlags |= QuestParam.QuestFlags.AllowAutoPlay;
-      if (json.swin != 0)
-        this.mFlags |= QuestParam.QuestFlags.Silent;
-      if (json.notabl != 0)
-        this.mFlags |= QuestParam.QuestFlags.DisableAbilities;
-      if (json.notitm != 0)
-        this.mFlags |= QuestParam.QuestFlags.DisableItems;
-      if (json.notcon != 0)
-        this.mFlags |= QuestParam.QuestFlags.DisableContinue;
+      this.AllowRetreat = json.retr == 0;
+      if (json.iname == "QE_OP_0003" || json.iname == "QE_OP_0004" || json.iname == "QE_OP_0006")
+        json.naut = 0;
+      this.AllowAutoPlay = json.naut == 0 || json.naut == 2;
+      this.FirstAutoPlayProhibit = json.naut == 2;
+      this.Silent = json.swin != 0;
+      this.DisableAbilities = json.notabl != 0;
+      this.DisableItems = json.notitm != 0;
+      this.DisableContinue = json.notcon != 0;
       this.UseFixEditor = json.fix_editor != 0;
       this.IsNoStartVoice = json.is_no_start_voice != 0;
       this.UseSupportUnit = json.sprt == 0;
+      this.IsUnitChange = json.is_unit_chg != 0;
       this.VersusThumnail = json.thumnail;
       this.MapBuff = json.mskill;
       this.VersusMoveCount = json.vsmovecnt;
+      this.DamageUpprPl = json.dmg_up_pl;
+      this.DamageUpprEn = json.dmg_up_en;
+      this.DamageRatePl = json.dmg_rt_pl;
+      this.DamageRateEn = json.dmg_rt_en;
+      this.IsExtra = json.extra == 1;
+      this.ShowReviewPopup = json.review == 1;
+      this.IsMultiLeaderSkill = json.is_multileader != 0;
+      this.MapEffectId = json.me_id;
+      this.IsWeatherNoChange = json.is_wth_no_chg != 0;
+      this.WeatherSetId = json.wth_set_id;
     }
 
     public bool IsUnitAllowed(UnitData unit)
@@ -423,6 +707,28 @@ namespace SRPG
       return questParamList;
     }
 
+    public bool IsAvailableUnit(UnitData unit)
+    {
+      return this.IsAvailableUnitInternal(this.EntryCondition, unit);
+    }
+
+    public bool IsAvailableUnitCh(UnitData unit)
+    {
+      return this.IsAvailableUnitInternal(this.EntryConditionCh, unit);
+    }
+
+    public bool IsAvailableUnitInternal(QuestCondParam condition, UnitData unit)
+    {
+      if (condition == null || condition.unit == null || condition.unit.Length <= 0)
+        return true;
+      foreach (string str in condition.unit)
+      {
+        if (unit.UnitID == str)
+          return true;
+      }
+      return false;
+    }
+
     public bool IsEntryQuestCondition(UnitData[] entryUnits, ref string error)
     {
       error = string.Empty;
@@ -445,6 +751,12 @@ namespace SRPG
           return false;
       }
       return true;
+    }
+
+    public bool IsEntryQuestCondition(UnitData unit)
+    {
+      string error = (string) null;
+      return this.IsEntryQuestCondition(this.EntryCondition, unit, ref error);
     }
 
     public bool IsEntryQuestCondition(UnitData unit, ref string error)
@@ -579,17 +891,17 @@ namespace SRPG
       return true;
     }
 
-    public List<string> GetEntryQuestConditions(bool titled = true)
+    public List<string> GetEntryQuestConditions(bool titled = true, bool includeUnitLv = true, bool includeUnits = true)
     {
-      return this.GetEntryQuestConditionsInternal(this.EntryCondition, titled);
+      return this.GetEntryQuestConditionsInternal(this.EntryCondition, titled, includeUnitLv, includeUnits);
     }
 
-    public List<string> GetEntryQuestConditionsCh(bool titled = true)
+    public List<string> GetEntryQuestConditionsCh(bool titled = true, bool includeUnitLv = true, bool includeUnits = true)
     {
-      return this.GetEntryQuestConditionsInternal(this.EntryConditionCh, titled);
+      return this.GetEntryQuestConditionsInternal(this.EntryConditionCh, titled, includeUnitLv, includeUnits);
     }
 
-    private List<string> GetEntryQuestConditionsInternal(QuestCondParam condParam, bool titled = true)
+    private List<string> GetEntryQuestConditionsInternal(QuestCondParam condParam, bool titled = true, bool includeUnitLv = true, bool includeUnits = true)
     {
       List<string> stringList1 = new List<string>();
       if (condParam == null)
@@ -621,7 +933,7 @@ namespace SRPG
         }
         stringList1.Add(str2);
       }
-      if (condParam.ulvmin > 0 || condParam.ulvmax > 0)
+      if (includeUnitLv && (condParam.ulvmin > 0 || condParam.ulvmax > 0))
       {
         int unitMaxLevel = instanceDirect.MasterParam.GetUnitMaxLevel();
         int num1 = Math.Max(condParam.ulvmin, 1);
@@ -647,7 +959,7 @@ namespace SRPG
         }
         stringList1.Add(str2);
       }
-      if (condParam.unit != null && condParam.unit.Length > 0)
+      if (includeUnits && condParam.unit != null && condParam.unit.Length > 0)
       {
         List<string> stringList2 = new List<string>();
         for (int index = 0; index < condParam.unit.Length; ++index)
@@ -819,6 +1131,69 @@ namespace SRPG
       return stringList1;
     }
 
+    public List<string> GetAddQuestInfo(bool is_inc_title = true)
+    {
+      List<string> stringList = new List<string>();
+      GameManager instanceDirect = MonoSingleton<GameManager>.GetInstanceDirect();
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) instanceDirect, (UnityEngine.Object) null))
+        return stringList;
+      if (!string.IsNullOrEmpty(this.MapEffectId))
+      {
+        MapEffectParam mapEffectParam = instanceDirect.GetMapEffectParam(this.MapEffectId);
+        if (mapEffectParam != null)
+        {
+          string empty = string.Empty;
+          if (is_inc_title)
+            empty = LocalizedText.Get("sys.PARTYEDITOR_COND_MAP_EFFECT");
+          string str = empty + LocalizedText.Get("sys.PARTYEDITOR_COND_MAP_EFFECT_HEAD") + mapEffectParam.Name + LocalizedText.Get("sys.PARTYEDITOR_COND_MAP_EFFECT_BOTTOM");
+          stringList.Add(str);
+        }
+      }
+      if (!string.IsNullOrEmpty(this.WeatherSetId))
+      {
+        WeatherSetParam weatherSetParam = instanceDirect.GetWeatherSetParam(this.WeatherSetId);
+        if (weatherSetParam != null)
+        {
+          List<string> wth_name_lists = new List<string>();
+          this.AddWeatherNameLists(wth_name_lists, weatherSetParam.StartWeatherIdLists);
+          this.AddWeatherNameLists(wth_name_lists, weatherSetParam.ChangeWeatherIdLists);
+          if (wth_name_lists.Count != 0)
+          {
+            string empty = string.Empty;
+            if (is_inc_title)
+              empty = LocalizedText.Get("sys.PARTYEDITOR_COND_WEATHER");
+            string str1 = empty + LocalizedText.Get("sys.PARTYEDITOR_COND_WEATHER_HEAD");
+            for (int index = 0; index < wth_name_lists.Count; ++index)
+            {
+              if (index != 0)
+                str1 += LocalizedText.Get("sys.PARTYEDITOR_COND_WEATHER_SEP");
+              str1 += wth_name_lists[index];
+            }
+            string str2 = str1 + LocalizedText.Get("sys.PARTYEDITOR_COND_WEATHER_BOTTOM");
+            stringList.Add(str2);
+          }
+        }
+      }
+      return stringList;
+    }
+
+    private void AddWeatherNameLists(List<string> wth_name_lists, List<string> wth_id_lists)
+    {
+      GameManager instanceDirect = MonoSingleton<GameManager>.GetInstanceDirect();
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) instanceDirect, (UnityEngine.Object) null) || wth_id_lists == null)
+        return;
+      using (List<string>.Enumerator enumerator = wth_id_lists.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+        {
+          string current = enumerator.Current;
+          WeatherParam weatherParam = instanceDirect.MasterParam.GetWeatherParam(current);
+          if (weatherParam != null && !wth_name_lists.Contains(weatherParam.Name))
+            wth_name_lists.Add(weatherParam.Name);
+        }
+      }
+    }
+
     public bool IsJigen
     {
       get
@@ -860,6 +1235,9 @@ namespace SRPG
         case QuestTypes.Free:
         case QuestTypes.Event:
         case QuestTypes.Tower:
+        case QuestTypes.Gps:
+        case QuestTypes.Extra:
+        case QuestTypes.Beginner:
           num = party.MAX_MAINMEMBER;
           break;
       }
@@ -878,6 +1256,9 @@ namespace SRPG
         case QuestTypes.Event:
         case QuestTypes.Character:
         case QuestTypes.Tower:
+        case QuestTypes.Gps:
+        case QuestTypes.Extra:
+        case QuestTypes.Beginner:
           return true;
         default:
           return false;
@@ -889,11 +1270,17 @@ namespace SRPG
       switch (this.type)
       {
         case QuestTypes.Story:
+        case QuestTypes.Tutorial:
         case QuestTypes.Free:
         case QuestTypes.Event:
         case QuestTypes.Character:
         case QuestTypes.Tower:
-          return (this.mFlags & QuestParam.QuestFlags.AllowAutoPlay) != (QuestParam.QuestFlags) 0;
+        case QuestTypes.Gps:
+        case QuestTypes.Extra:
+        case QuestTypes.Beginner:
+          if (this.FirstAutoPlayProhibit && this.state != QuestStates.Cleared)
+            return false;
+          return this.AllowAutoPlay;
         default:
           return false;
       }
@@ -903,22 +1290,22 @@ namespace SRPG
     {
       if (this.type == QuestTypes.Tutorial)
         return false;
-      return (this.mFlags & QuestParam.QuestFlags.AllowRetreat) != (QuestParam.QuestFlags) 0;
+      return this.AllowRetreat;
     }
 
     public bool CheckDisableAbilities()
     {
-      return (this.mFlags & QuestParam.QuestFlags.DisableAbilities) != (QuestParam.QuestFlags) 0;
+      return this.DisableAbilities;
     }
 
     public bool CheckDisableItems()
     {
-      return (this.mFlags & QuestParam.QuestFlags.DisableItems) != (QuestParam.QuestFlags) 0;
+      return this.DisableItems;
     }
 
     public bool CheckDisableContinue()
     {
-      return (this.mFlags & QuestParam.QuestFlags.DisableContinue) != (QuestParam.QuestFlags) 0;
+      return this.DisableContinue;
     }
 
     public bool CheckEnableQuestResult()
@@ -951,7 +1338,7 @@ namespace SRPG
       if (this.IsKeyQuest && this.Chapter != null && this.Chapter.GetKeyQuestType() == KeyQuestTypes.Count)
         this.key_cnt = count;
       else
-        this.dailyCount = (OInt) count;
+        this.dailyCount = CheckCast.to_short(count);
     }
 
     public int GetChallangeCount()
@@ -976,7 +1363,7 @@ namespace SRPG
 
     public bool CheckEnableReset()
     {
-      if (this.difficulty != QuestDifficulties.Elite)
+      if (this.difficulty != QuestDifficulties.Elite && this.difficulty != QuestDifficulties.Extra)
         return false;
       return (int) MonoSingleton<GameManager>.Instance.MasterParam.FixParam.EliteResetMax > (int) this.dailyReset;
     }
@@ -992,7 +1379,7 @@ namespace SRPG
         {
           if (questCampaign.type == QuestCampaignValueTypes.Ap)
           {
-            point = Mathf.RoundToInt((float) point * questCampaign.GetRate());
+            point = Mathf.FloorToInt((float) point * questCampaign.GetRate());
             break;
           }
         }
@@ -1006,10 +1393,10 @@ namespace SRPG
       if (key != null)
       {
         // ISSUE: reference to a compiler-generated field
-        if (QuestParam.\u003C\u003Ef__switch\u0024map3 == null)
+        if (QuestParam.\u003C\u003Ef__switch\u0024map9 == null)
         {
           // ISSUE: reference to a compiler-generated field
-          QuestParam.\u003C\u003Ef__switch\u0024map3 = new Dictionary<string, int>(10)
+          QuestParam.\u003C\u003Ef__switch\u0024map9 = new Dictionary<string, int>(11)
           {
             {
               "Story",
@@ -1050,12 +1437,16 @@ namespace SRPG
             {
               "vs_tower",
               8
+            },
+            {
+              "multi_tower",
+              9
             }
           };
         }
         int num;
         // ISSUE: reference to a compiler-generated field
-        if (QuestParam.\u003C\u003Ef__switch\u0024map3.TryGetValue(key, out num))
+        if (QuestParam.\u003C\u003Ef__switch\u0024map9.TryGetValue(key, out num))
         {
           switch (num)
           {
@@ -1077,6 +1468,8 @@ namespace SRPG
               return QuestTypes.Tower;
             case 8:
               return QuestTypes.VersusFree;
+            case 9:
+              return QuestTypes.MultiTower;
           }
         }
       }
@@ -1099,6 +1492,7 @@ namespace SRPG
         case QuestTypes.Arena:
           return PlayerPartyTypes.Arena;
         case QuestTypes.Free:
+        case QuestTypes.Extra:
           return PlayerPartyTypes.Event;
         case QuestTypes.Character:
           return PlayerPartyTypes.Character;
@@ -1121,7 +1515,8 @@ namespace SRPG
 
     public void GetPartyTypes(out PlayerPartyTypes playerPartyType, out PlayerPartyTypes enemyPartyType)
     {
-      switch (this.type)
+      QuestTypes type = this.type;
+      switch (type)
       {
         case QuestTypes.Multi:
           playerPartyType = PlayerPartyTypes.Multiplay;
@@ -1139,10 +1534,18 @@ namespace SRPG
           playerPartyType = PlayerPartyTypes.Tower;
           enemyPartyType = PlayerPartyTypes.Tower;
           break;
-        default:
-          playerPartyType = PlayerPartyTypes.Normal;
-          enemyPartyType = PlayerPartyTypes.Normal;
+        case QuestTypes.Gps:
+          playerPartyType = PlayerPartyTypes.Event;
+          enemyPartyType = PlayerPartyTypes.Event;
           break;
+        default:
+          if (type != QuestTypes.Beginner)
+          {
+            playerPartyType = PlayerPartyTypes.Normal;
+            enemyPartyType = PlayerPartyTypes.Normal;
+            break;
+          }
+          goto case QuestTypes.Event;
       }
     }
 
@@ -1168,6 +1571,7 @@ namespace SRPG
       switch (type)
       {
         case QuestTypes.Event:
+        case QuestTypes.Gps:
           quest_type = QuestTypes.Event;
           if (!this.TransSectionGotoEvent(questID, callback))
             return false;
@@ -1178,15 +1582,22 @@ namespace SRPG
             return false;
           break;
         default:
-          if (type == QuestTypes.Multi)
+          switch (type)
           {
-            quest_type = QuestTypes.Multi;
-            break;
+            case QuestTypes.Multi:
+              quest_type = QuestTypes.Multi;
+              break;
+            case QuestTypes.Beginner:
+              quest_type = QuestTypes.Beginner;
+              if (!this.TransSectionGotoEvent(questID, callback))
+                return false;
+              break;
+            default:
+              quest_type = QuestTypes.Story;
+              if (!this.TransSectionGotoStory(questID, callback))
+                return false;
+              break;
           }
-          quest_type = QuestTypes.Story;
-          if (!this.TransSectionGotoStory(questID, callback))
-            return false;
-          break;
       }
       return true;
     }
@@ -1204,6 +1615,41 @@ namespace SRPG
       for (int index = availableQuests.Length - 1; index >= 0; --index)
       {
         if (availableQuests[index].difficulty == QuestDifficulties.Elite)
+        {
+          questParam = availableQuests[index];
+          break;
+        }
+      }
+      if (questParam == null)
+      {
+        this.TransSectionGotoNormal();
+        UIUtility.SystemMessage((string) null, LocalizedText.Get("sys.EQUEST_UNAVAILABLE"), callback, (GameObject) null, false, -1);
+        return false;
+      }
+      string chapterId = questParam.ChapterID;
+      string str = "WD_01";
+      ChapterParam[] chapters = MonoSingleton<GameManager>.Instance.Chapters;
+      for (int index = 0; index < chapters.Length; ++index)
+      {
+        if (chapters[index].iname == chapterId)
+        {
+          str = chapters[index].section;
+          break;
+        }
+      }
+      GlobalVars.SelectedQuestID = questParam.iname;
+      GlobalVars.SelectedChapter.Set(chapterId);
+      GlobalVars.SelectedSection.Set(str);
+      return true;
+    }
+
+    public bool TransSectionGotoStoryExtra(UIUtility.DialogResultEvent callback)
+    {
+      QuestParam[] availableQuests = MonoSingleton<GameManager>.Instance.Player.AvailableQuests;
+      QuestParam questParam = (QuestParam) null;
+      for (int index = availableQuests.Length - 1; index >= 0; --index)
+      {
+        if (availableQuests[index].difficulty == QuestDifficulties.Extra)
         {
           questParam = availableQuests[index];
           break;
@@ -1270,6 +1716,7 @@ namespace SRPG
         {
           DebugUtility.LogError("[クエストID = " + questID + "]が見つかりません。");
           this.GotoEventListChapter();
+          GlobalVars.ReqEventPageListType = GlobalVars.EventQuestListType.Tower;
           quest_type = QuestTypes.Event;
           return true;
         }
@@ -1284,6 +1731,7 @@ namespace SRPG
         else
         {
           this.GotoEventListChapter();
+          GlobalVars.ReqEventPageListType = GlobalVars.EventQuestListType.Tower;
           quest_type = QuestTypes.Event;
         }
         return true;
@@ -1309,6 +1757,7 @@ namespace SRPG
     public void GotoEventListChapter()
     {
       FlowNode_Variable.Set("SHOW_CHAPTER", "1");
+      GlobalVars.ReqEventPageListType = GlobalVars.EventQuestListType.EventQuest;
       GlobalVars.SelectedQuestID = (string) null;
       GlobalVars.SelectedChapter.Set((string) null);
       GlobalVars.SelectedSection.Set("WD_DAILY");
@@ -1328,25 +1777,38 @@ namespace SRPG
       else
       {
         FlowNode_Variable.Set("SHOW_CHAPTER", string.IsNullOrEmpty(questID) || string.IsNullOrEmpty(chapter) ? "1" : "0");
+        GlobalVars.ReqEventPageListType = GlobalVars.EventQuestListType.EventQuest;
         GlobalVars.SelectedQuestID = questID;
         GlobalVars.SelectedChapter.Set(chapter);
         GlobalVars.SelectedSection.Set("WD_DAILY");
       }
     }
 
-    [Flags]
-    private enum QuestFlags
+    private enum BitType
     {
-      AllowRetreat = 1,
-      AllowAutoPlay = 2,
-      Silent = 4,
-      DisableAbilities = 8,
-      DisableItems = 16, // 0x00000010
-      DisableContinue = 32, // 0x00000020
+      ShowReviewPopup,
+      notSearch,
+      IsBeginner,
+      hidden,
+      replayLimit,
+      AllowRetreat,
+      AllowAutoPlay,
+      Silent,
+      DisableAbilities,
+      DisableItems,
+      DisableContinue,
+      UseFixEditor,
+      IsNoStartVoice,
+      UseSupportUnit,
+      UnitChange,
+      IsMultiLeaderSkill,
+      FirstAutoPlayProbihit,
+      IsWeatherNoChange,
+      MAX_BIT_ARRAY,
     }
 
     [Flags]
-    public enum Tags
+    public enum Tags : byte
     {
       MAL = 1,
       FEM = 2,

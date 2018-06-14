@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: SRPG.AppealItemLimitedShop
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using GR;
@@ -35,23 +35,31 @@ namespace SRPG
     private float mPosX_Chara;
     private float mPosX_Text;
     private bool IsLoaded;
-    private bool IsInitalized;
+    private bool mIsInitialized;
     private Sprite CharaSprite;
     private Sprite TextLSprite;
     private Sprite TextRSprite;
 
+    public bool IsInitialized
+    {
+      get
+      {
+        return this.mIsInitialized;
+      }
+    }
+
     protected override void Awake()
     {
       base.Awake();
-      if (Object.op_Inequality((Object) this.AppealChara, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AppealChara, (UnityEngine.Object) null))
         ((Component) this.AppealChara).get_gameObject().SetActive(false);
-      if (Object.op_Inequality((Object) this.AppealTextL, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AppealTextL, (UnityEngine.Object) null))
         ((Component) this.AppealTextL).get_gameObject().SetActive(false);
-      if (Object.op_Inequality((Object) this.AppealTextR, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AppealTextR, (UnityEngine.Object) null))
         ((Component) this.AppealTextR).get_gameObject().SetActive(false);
-      if (Object.op_Inequality((Object) this.AppealCharaRect, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AppealCharaRect, (UnityEngine.Object) null))
         this.mPosX_Chara = (float) this.AppealCharaRect.get_anchoredPosition().x;
-      if (!Object.op_Inequality((Object) this.AppealTextRect, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AppealTextRect, (UnityEngine.Object) null))
         return;
       this.mPosX_Text = (float) this.AppealTextRect.get_anchoredPosition().x;
     }
@@ -61,35 +69,37 @@ namespace SRPG
       base.Start();
       if (this.LoadAppealMaster(this.MASTER_PATH))
         this.StartCoroutine(this.LoadAppealResourcess(this.SPRITES_PATH));
-      if (!string.IsNullOrEmpty(this.mAppealID) || !Object.op_Inequality((Object) this.LimitedShopButton, (Object) null))
+      MonoSingleton<GameManager>.Instance.IsLimitedShopOpen = true;
+      if (!string.IsNullOrEmpty(this.mAppealID) || !UnityEngine.Object.op_Inequality((UnityEngine.Object) this.LimitedShopButton, (UnityEngine.Object) null))
         return;
       ((Selectable) this.LimitedShopButton).set_interactable(false);
-      if (!Object.op_Inequality((Object) this.LockObject, (Object) null))
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.LockObject, (UnityEngine.Object) null))
         return;
+      MonoSingleton<GameManager>.Instance.IsLimitedShopOpen = false;
       this.LockObject.SetActive(true);
     }
 
     protected override void Update()
     {
-      if (!this.IsLoaded || this.IsInitalized)
+      if (!this.IsLoaded || this.mIsInitialized)
         return;
       this.Refresh();
     }
 
     protected override void Refresh()
     {
-      ((Component) this.AppealChara).get_gameObject().SetActive(Object.op_Inequality((Object) this.AppealChara, (Object) null) && Object.op_Inequality((Object) this.CharaSprite, (Object) null));
-      ((Component) this.AppealTextL).get_gameObject().SetActive(Object.op_Inequality((Object) this.AppealTextL, (Object) null) && Object.op_Inequality((Object) this.TextLSprite, (Object) null));
-      ((Component) this.AppealTextR).get_gameObject().SetActive(Object.op_Inequality((Object) this.AppealTextR, (Object) null) && Object.op_Inequality((Object) this.TextRSprite, (Object) null));
+      ((Component) this.AppealChara).get_gameObject().SetActive(UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AppealChara, (UnityEngine.Object) null) && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.CharaSprite, (UnityEngine.Object) null));
+      ((Component) this.AppealTextL).get_gameObject().SetActive(UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AppealTextL, (UnityEngine.Object) null) && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TextLSprite, (UnityEngine.Object) null));
+      ((Component) this.AppealTextR).get_gameObject().SetActive(UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AppealTextR, (UnityEngine.Object) null) && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TextRSprite, (UnityEngine.Object) null));
       this.AppealChara.set_sprite(this.CharaSprite);
       this.AppealTextL.set_sprite(this.TextLSprite);
       this.AppealTextR.set_sprite(this.TextRSprite);
       this.AppealTextRect.set_anchoredPosition(new Vector2(this.mPosX_Text, (float) this.AppealTextRect.get_anchoredPosition().y));
       this.AppealCharaRect.set_anchoredPosition(new Vector2(this.mPosX_Chara, (float) this.AppealCharaRect.get_anchoredPosition().y));
       ((Selectable) this.LimitedShopButton).set_interactable(true);
-      if (Object.op_Inequality((Object) this.LockObject, (Object) null))
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.LockObject, (UnityEngine.Object) null))
         this.LockObject.SetActive(false);
-      this.IsInitalized = true;
+      this.mIsInitialized = true;
     }
 
     protected override void Destroy()
@@ -141,7 +151,7 @@ namespace SRPG
     private IEnumerator LoadAppealResourcess(string path)
     {
       // ISSUE: object of a compiler-generated type is created
-      return (IEnumerator) new AppealItemLimitedShop.\u003CLoadAppealResourcess\u003Ec__Iterator99() { path = path, \u003C\u0024\u003Epath = path, \u003C\u003Ef__this = this };
+      return (IEnumerator) new AppealItemLimitedShop.\u003CLoadAppealResourcess\u003Ec__IteratorDC() { path = path, \u003C\u0024\u003Epath = path, \u003C\u003Ef__this = this };
     }
   }
 }

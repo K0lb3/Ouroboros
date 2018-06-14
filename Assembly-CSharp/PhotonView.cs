@@ -1,7 +1,7 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: PhotonView
-// Assembly: Assembly-CSharp, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 9BA76916-D0BD-4DB6-A90B-FE0BCC53E511
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
 // Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
 
 using Photon;
@@ -404,6 +404,12 @@ public class PhotonView : MonoBehaviour
 
   public virtual string ToString()
   {
-    return string.Format("View ({3}){0} on {1} {2}", new object[4]{ (object) this.viewID, !Object.op_Inequality((Object) ((Component) this).get_gameObject(), (Object) null) ? (object) "GO==null" : (object) ((Object) ((Component) this).get_gameObject()).get_name(), !this.isSceneView ? (object) string.Empty : (object) "(scene)", (object) this.prefix });
+    return string.Format("View ({3}){0} on {1} {2}", new object[4]
+    {
+      (object) this.viewID,
+      !Object.op_Inequality((Object) ((Component) this).get_gameObject(), (Object) null) ? (object) "GO==null" : (object) ((Object) ((Component) this).get_gameObject()).get_name(),
+      !this.isSceneView ? (object) string.Empty : (object) "(scene)",
+      (object) this.prefix
+    });
   }
 }
