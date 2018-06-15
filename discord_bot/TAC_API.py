@@ -8,6 +8,8 @@ import zlib
 #global vars ############################
 #path=os.path.dirname(os.path.realpath(__file__))+'\\res\\'
 access_token=""
+idfa=""
+idfv=""
 
 api={
     'con':"",
@@ -35,18 +37,30 @@ api_jp={
 api=api_gl
 ###########code#########################################
 
-def api_connect(url, body={}):
+def api_connect(url, body={}, request="POST"):
     global api
     global ticket
     global con
 
     def get_default_headers(body):
-        global access_token
         content_len=len(json.dumps(body))
+        RID=str(uuid.uuid4()).replace('-','')
         header = {
-            #"x-app-ver": networkver,
-            "X-GUMI-TRANSACTION": str(uuid.uuid4()),
-            "User-Agent": "Mozilla/5.0 (Linux; Android 4.4.2; SM-G7200 Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36",
+            'x-asset-ver': '7f10f37f81e36b1c08839b6cc6c43d54b3c9f232_gumi',
+            'x-app-ver': 'f8e916f30ab8bb21f9efd4ae6bf6ea96944098c3_a',
+            'X-GUMI-DEVICE-PLATFORM': 'android',
+            'X-GUMI-DEVICE-OS': 'android',
+            'X-Gumi-Game-Environment': 'sg_production',
+            "X-GUMI-TRANSACTION": RID,
+            'X-GUMI-REQUEST-ID': RID,
+            'X-GUMI-CLIENT': 'gscc ver.0.1',
+            'X-Gumi-User-Agent': json.dumps({
+                "device_model":"HUAWEI HUAWEI MLA-L12",
+                "device_vendor":"<unknown>",
+                "os_info":"Android OS 4.4.2 / API-19 (HUAWEIMLA-L12/381180418)",
+                "cpu_info":"ARMv7 VFPv3 NEON VMH","memory_size":"1.006GB"
+                }),
+            "User-Agent": "Dalvik/1.6.0 (Linux; U; Android 4.4.2; HUAWEI MLA-L12 Build/HUAWEIMLA-L12)",
             "X-Unity-Version": "5.3.6p1",
             "Content-Type": "application/json; charset=utf-8",
             "Host": api['con'],
@@ -55,15 +69,10 @@ def api_connect(url, body={}):
             "Content-Length": content_len
             }
         if url!="/gauth/accesstoken":
-            if access_token=="":
-                access_token=req_accesstoken()
-            if api['con'] == "app.alcww.gumi.sg":
-                header["Authorization"] = "gumi " + access_token
-            if api['con'] == "alchemist.gu3.jp":
-                header["Authorization"] = "gauth " + access_token
+            access_token = req_accesstoken()
+            header["Authorization"] = "gauth " + access_token
         
         return(header)
-    
     
     body['ticket']=ticket
     headers = get_default_headers(body)
@@ -71,14 +80,14 @@ def api_connect(url, body={}):
     con = http.client.HTTPSConnection(api['con'])
     con.connect()
 
-    con.request("POST", url, json.dumps(body), headers)
+    con.request(request, url, json.dumps(body), headers)
     res_body = con.getresponse().read()
+
     con.close()
 
     json_res= json.loads(res_body)
 
     if json_res['stat'] == 5002:
-        access_token=""
         json_res = api_connect(url, body)
 
     ticket+=1
@@ -87,14 +96,22 @@ def api_connect(url, body={}):
 def req_accesstoken():
     global api
     global ticket
-    ticket=1
+    global idfa
+    global idfv
+
+    ticket=0
+
+    idfa=str(uuid.uuid4())
+    idfv=str(uuid.uuid4())
 
     body = {
         "access_token": "",
         "param": {
             "device_id": api['device_id'],
             "secret_key": api['secret_key'],
-            "idfa": str(uuid.uuid4())  # Google advertising ID
+            "idfa": idfa,  # Google advertising ID
+            "idfv": idfv,
+            "udid":""
         }
     }
     res_body=api_connect("/gauth/accesstoken", body)
@@ -108,19 +125,55 @@ def req_accesstoken():
 
     return ret
     
+def req_chk_player():
+    global api
+    global ticket
+    global idfa
+
+    ticket=1
+
+    body = {
+        "access_token": "",
+        "param": {
+            "device_id": api['device_id'],
+            "secret_key": api['secret_key'],
+            "idfa": idfa,  # Google advertising ID
+        }
+    }
+    res_body=api_connect("/player/chkplayer", body)
+    
+    try:
+        ret = res_body['body']['result']
+    except:
+        print('error: failed to retrieve chklayer')
+        print(res_body)
+        ret = ""
+
+    return ret
+
+def req_achieve_auth():
+    return(api_connect('/achieve/auth',{},'GET'))
+
 def req_arena_ranking():
     res_body=api_connect("/btl/colo/ranking/world")
     
     try:
-        ret = res_body['body']["coloenemies"]
+        ret = res_body['body']
     except:
-        print('error: failed to retrieve arena ranking')
+        print('error: failed to retrieve achieve auth')
         print(res_body)
         ret = ""
-    
+  
     return ret
 
-print(req_arena_ranking())
-print(req_arena_ranking())
-print(req_arena_ranking())
-print(req_arena_ranking())
+def req_login():
+    res_body=api_connect("/login",{"param":{"device":"HUAWEI HUAWEI MLA-L12","dlc":"apvr"}})
+    
+    try:
+        ret = res_body['body']
+    except:
+        print('error: failed to retrieve login')
+        print(res_body)
+        ret = ""
+
+    return ret
