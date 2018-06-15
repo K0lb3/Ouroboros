@@ -13351,7 +13351,7 @@
     },
     "AB_ARMS_RENA_01": {
         "NAME": "Sinister Gaze",
-        "EXPR": "This ability can only be used by Rena when using the job \"Actress\""
+        "EXPR": "This ability can only be used by female units"
     },
     "AB_AF_ARMS_MIUNA_01": {
         "NAME": "Scarlet's Hidden Flame",
@@ -60466,7 +60466,7 @@
     },
     "AF_ARMO_ARMOR_02": {
         "NAME": "Armor of Wrath",
-        "EXPR": "HP Up, PDEF Up, MDEF Up, Light Res Up (Cannot be equipped on Archer or Zahar)",
+        "EXPR": "HP Up, PDEF Up, MDEF Up, Light Res Up (Cannot be equipped on Archer Zahar)",
         "SPEC": "Equippable by: Sabareta (★★★★☆), Zahar (★★★★★)",
         "FLAVOR": "This armor has been passed down through the knighthood of Wratharis for generations. The rage and wrath of all the knights who have died in battle surges through it, and it is said that these emotions seize control of the wearer and grant tremendous power. It is very dangerous."
     },
@@ -60922,7 +60922,7 @@
     },
     "AF_ACCS_HAMAYA": {
         "NAME": "Divine Spirit Arrow",
-        "EXPR": "Attributes: AGI Up, All Elements Res Up. <br>Gear Ability: Raises MOVE of target unit.",
+        "EXPR": "Attributes: AGI Up, All Status Res Up. <br>Gear Ability: Raises MOVE of target unit.",
         "SPEC": "No requirements to equip",
         "FLAVOR": " "
     },
@@ -71466,10 +71466,10 @@
         "NAME": "[Sacred Stone Memories] Entrusted Justice"
     },
     "SEISEKI_DJ_2_TROPHY": {
-        "NAME": "[Sacred Stone Memories] Black Spearman"
+        "NAME": "[Sacred Stone Memories] Demonic Spearman"
     },
     "SEISEKI_DJ_2_KAGURA_GROWTH": {
-        "NAME": "[Sacred Stone Memories] [Training] Black Spearman"
+        "NAME": "[Sacred Stone Memories] [Training] Demonic Spearman"
     },
     "SEISEKI_DJ_3_TROPHY": {
         "NAME": "[Sacred Stone Memories] Arrow of Destiny"
@@ -71496,7 +71496,7 @@
         "NAME": "[Sacred Stone Memories] Entrusted Justice [EX] [Multiplay]"
     },
     "SEISEKI_DJ_2_TROPHY_EX_MULTI": {
-        "NAME": "[Sacred Stone Memories] Black Spearman [EX] [Multiplay]"
+        "NAME": "[Sacred Stone Memories] Demonic Spearman [EX] [Multiplay]"
     },
     "SEISEKI_DJ_3_TROPHY_EX_MULTI": {
         "NAME": "[Sacred Stone Memories] Arrow of Destiny [EX] [Multiplay]"
@@ -71523,7 +71523,7 @@
         "NAME": "[Sacred Stone Memories] Entrusted Justice [EX]"
     },
     "SEISEKI_DJ_2_TROPHY_EX": {
-        "NAME": "[Sacred Stone Memories] Black Spearman [EX]"
+        "NAME": "[Sacred Stone Memories] Demonic Spearman [EX]"
     },
     "SEISEKI_DJ_3_TROPHY_EX": {
         "NAME": "[Sacred Stone Memories] Arrow of Destiny [EX]"
