@@ -46,8 +46,6 @@ def api_connect(url, body={}, request="POST"):
         content_len=len(json.dumps(body))
         RID=str(uuid.uuid4()).replace('-','')
         header = {
-            'x-asset-ver': '7f10f37f81e36b1c08839b6cc6c43d54b3c9f232_gumi',
-            'x-app-ver': 'f8e916f30ab8bb21f9efd4ae6bf6ea96944098c3_a',
             'X-GUMI-DEVICE-PLATFORM': 'android',
             'X-GUMI-DEVICE-OS': 'android',
             'X-Gumi-Game-Environment': 'sg_production',
