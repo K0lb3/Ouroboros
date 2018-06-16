@@ -13,8 +13,9 @@ def job_stats(job, main):
     unc = {}
 
     # from rank
-    used = ['type', 'vmax']
-    for r in job['ranks']:
+    used = ['type', 'vini', 'vmax']
+    for j in range(0,len(job['ranks'])):
+        r=job['ranks'][j]
         for i in range(1, 7):
             item = main[r['eqid'+str(i)]]
             if 'skill' not in item:
@@ -26,7 +27,10 @@ def job_stats(job, main):
                         buff[u+str(t)] = buff[u+'0'+str(t)]
                 try:
                     btyp = buff['type'+str(t)]
-                    bmax = buff['vmax'+str(t)]
+                    if j == len(job['ranks'])-1:
+                        bmax = buff['vmax'+str(t)]
+                    else:
+                        bmax = buff['vini'+str(t)]
                     try:
                         unc[btyp] += bmax
                     except:
