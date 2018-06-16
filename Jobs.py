@@ -125,7 +125,7 @@ def jobs():
 
     # code
     def create_link(unit_in,job_na):
-        return 'http://www.alchemistcodedb.com/unit/'+unit_in[6:].replace('_','').lower()+'#'+job_na.replace(' ','-').lower()
+        return 'http://www.alchemistcodedb.com/unit/'+unit_in[6:].replace('_','').lower()+'#'+job_na.replace(' ','-').replace('+','-plus').lower()
 
     jobs = {}
 
