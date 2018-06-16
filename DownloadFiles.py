@@ -18,7 +18,7 @@ ticket=1
 api_gl = "app.alcww.gumi.sg"
 device_id_gl= "af4a61bd-e020-4260-8df0-8ed8241e00d0"
 secret_key_gl="9487b67b-a586-48db-894a-e6c2e93db44c"
-asset_ver="120145a055674b37ba6d46f5c68d5b20cdc6c8a7_gumi"
+asset_ver="7f10f37f81e36b1c08839b6cc6c43d54b3c9f232_gumi"
 
 #japan
 api_jp="alchemist.gu3.jp"
@@ -112,7 +112,7 @@ def req_asset(name, asset):
     global asset_ver
     global ticket
     
-    url="http://prod-dlc-alcww-gumi-sg.akamaized.net/assets/"+asset_ver+"/Text/"+asset
+    url="http://prod-dlc-alcww-gumi-sg.akamaized.net/assets/"+asset_ver+"/apvr/"+asset
     file = urllib.request.urlopen(url).read()
     file = zlib.decompress(file)
     
@@ -297,7 +297,16 @@ def createParamTypes():
         "118": "Avoid_Magic",
         "119": "Avoid_Reaction",
         "120": "Avoid_Jump",
-        "122": "Reduced Jewel Cost",
+        "121": "GainJewelRate",
+        "122": "UsedJewel",
+        "123": "Assist_SingleAttack",
+        "124": "Assist_AreaAttack",
+        "125": "Resist_SingleAttack",
+        "126": "Resist_AreaAttack",
+        "127": "Assist_DecCT",
+        "128": "Assist_IncCT",
+        "129": "Resist_DecCT",
+        "130": "Resist_IncCT",
         "131": "Fire DMG",
         "132": "Water DMG",
         "133": "Wind DMG",

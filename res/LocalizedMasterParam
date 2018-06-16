@@ -5605,7 +5605,7 @@ SRPG_AbilityParam_AB_AF_ACCS_GILG_SWORD_EXPR	This ability can only be used by Gi
 SRPG_AbilityParam_AB_AF_ARMS_KANSYOUBAKUYA_NAME	Unlimited Blade Works
 SRPG_AbilityParam_AB_AF_ARMS_KANSYOUBAKUYA_EXPR	This ability can only be used by Archer when using the job "Archer"
 SRPG_AbilityParam_AB_ARMS_RENA_01_NAME	Sinister Gaze
-SRPG_AbilityParam_AB_ARMS_RENA_01_EXPR	This ability can only be used by Rena when using the job "Actress"
+SRPG_AbilityParam_AB_ARMS_RENA_01_EXPR	This ability can only be used by female units
 SRPG_AbilityParam_AB_AF_ARMS_MIUNA_01_NAME	Scarlet's Hidden Flame
 SRPG_AbilityParam_AB_AF_ARMS_MIUNA_01_EXPR	Miuna-Only Ability
 SRPG_AbilityParam_AB_AF_ARMS_SWO_ZAYI_01_CANO_NAME	Eternal Glow
@@ -33764,7 +33764,7 @@ SRPG_ArtifactParam_AF_ARMO_SHIELD_01_EXPR	PDEF Up, HP Up, Debuff Res
 SRPG_ArtifactParam_AF_ARMO_SHIELD_01_SPEC	No requirements to equip
 SRPG_ArtifactParam_AF_ARMO_SHIELD_01_FLAVOR	It is said that, if you strain your ears, a mysterious voice can be heard coming from this shield. This sound is in fact made by the minute vibrations emitted by the steel cross embedded in it. These vibrations are said to protect the bearer against a range of different attacks. The steel used is very hard to find, making this something of a high-end piece.
 SRPG_ArtifactParam_AF_ARMO_ARMOR_02_NAME	Armor of Wrath
-SRPG_ArtifactParam_AF_ARMO_ARMOR_02_EXPR	HP Up, PDEF Up, MDEF Up, Light Res Up (Cannot be equipped on Archer or Zahar)
+SRPG_ArtifactParam_AF_ARMO_ARMOR_02_EXPR	HP Up, PDEF Up, MDEF Up, Light Res Up (Cannot be equipped on Archer Zahar)
 SRPG_ArtifactParam_AF_ARMO_ARMOR_02_SPEC	Equippable by: Sabareta (★★★★☆), Zahar (★★★★★)
 SRPG_ArtifactParam_AF_ARMO_ARMOR_02_FLAVOR	This armor has been passed down through the knighthood of Wratharis for generations. The rage and wrath of all the knights who have died in battle surges through it, and it is said that these emotions seize control of the wearer and grant tremendous power. It is very dangerous.
 SRPG_ArtifactParam_AF_ARMS_SWO_CADANOVA_NAME	Guren Blade
@@ -34068,7 +34068,7 @@ SRPG_ArtifactParam_AF_ACCS_DOREI_EXPR	Attributes: HP Up, Debuff Res Up. <br>Gear
 SRPG_ArtifactParam_AF_ACCS_DOREI_SPEC	No requirements to equip
 SRPG_ArtifactParam_AF_ACCS_DOREI_FLAVOR	 
 SRPG_ArtifactParam_AF_ACCS_HAMAYA_NAME	Divine Spirit Arrow
-SRPG_ArtifactParam_AF_ACCS_HAMAYA_EXPR	Attributes: AGI Up, All Elements Res Up. <br>Gear Ability: Raises MOVE of target unit.
+SRPG_ArtifactParam_AF_ACCS_HAMAYA_EXPR	Attributes: AGI Up, All Status Res Up. <br>Gear Ability: Raises MOVE of target unit.
 SRPG_ArtifactParam_AF_ACCS_HAMAYA_SPEC	No requirements to equip
 SRPG_ArtifactParam_AF_ACCS_HAMAYA_FLAVOR	 
 SRPG_ArtifactParam_AF_ARMS_SAM02_NAME	Ogre Slaying Blade
@@ -38254,8 +38254,8 @@ SRPG_TrophyCategoryParam_STORY_CHPT4_EP3_NAME	[Story] Chapter 4: Episode 3
 SRPG_TrophyCategoryParam_STORY_HARD_QUEST_NAME	[Story] Hard Quest
 SRPG_TrophyCategoryParam_POTK_TYRHUNG_GROWTH_NAME	[Limited Time] Tyrfing Training Mission
 SRPG_TrophyCategoryParam_SEISEKI_DJ_TROPHY_NAME	[Sacred Stone Memories] Entrusted Justice
-SRPG_TrophyCategoryParam_SEISEKI_DJ_2_TROPHY_NAME	[Sacred Stone Memories] Black Spearman
-SRPG_TrophyCategoryParam_SEISEKI_DJ_2_KAGURA_GROWTH_NAME	[Sacred Stone Memories] [Training] Black Spearman
+SRPG_TrophyCategoryParam_SEISEKI_DJ_2_TROPHY_NAME	[Sacred Stone Memories] Demonic Spearman
+SRPG_TrophyCategoryParam_SEISEKI_DJ_2_KAGURA_GROWTH_NAME	[Sacred Stone Memories] [Training] Demonic Spearman
 SRPG_TrophyCategoryParam_SEISEKI_DJ_3_TROPHY_NAME	[Sacred Stone Memories] Arrow of Destiny
 SRPG_TrophyCategoryParam_SEISEKI_DJ_4_TROPHY_NAME	[Sacred Stone Memories] Inherited Cause
 SRPG_TrophyCategoryParam_SEISEKI_DJ_5_TROPHY_NAME	[Sacred Stone Memories] Fallen Sun
@@ -38264,7 +38264,7 @@ SRPG_TrophyCategoryParam_SEISEKI_DJ_7_TROPHY_NAME	[Sacred Stone Memories] The Wo
 SRPG_TrophyCategoryParam_SEISEKI_DJ_8_TROPHY_NAME	[Sacred Stone Memories] Lion Monarch's Charge
 SRPG_TrophyCategoryParam_SEISEKI_DJ_9_TROPHY_NAME	[Sacred Stone Memories] Lion Monarch's Fate
 SRPG_TrophyCategoryParam_SEISEKI_DJ_TROPHY_EX_MULTI_NAME	[Sacred Stone Memories] Entrusted Justice [EX] [Multiplay]
-SRPG_TrophyCategoryParam_SEISEKI_DJ_2_TROPHY_EX_MULTI_NAME	[Sacred Stone Memories] Black Spearman [EX] [Multiplay]
+SRPG_TrophyCategoryParam_SEISEKI_DJ_2_TROPHY_EX_MULTI_NAME	[Sacred Stone Memories] Demonic Spearman [EX] [Multiplay]
 SRPG_TrophyCategoryParam_SEISEKI_DJ_3_TROPHY_EX_MULTI_NAME	[Sacred Stone Memories] Arrow of Destiny [EX] [Multiplay]
 SRPG_TrophyCategoryParam_SEISEKI_DJ_4_TROPHY_EX_MULTI_NAME	[Sacred Stone Memories] Inherited Cause [EX] [Multiplay]
 SRPG_TrophyCategoryParam_SEISEKI_DJ_5_TROPHY_EX_MULTI_NAME	[Sacred Stone Memories] Fallen Sun [EX] [Multiplay]
@@ -38273,7 +38273,7 @@ SRPG_TrophyCategoryParam_SEISEKI_DJ_7_TROPHY_EX_MULTI_NAME	[Sacred Stone Memorie
 SRPG_TrophyCategoryParam_SEISEKI_DJ_8_TROPHY_EX_MULTI_NAME	[Sacred Stone Memories] Lion Monarch's Charge [EX] [Multiplay]
 SRPG_TrophyCategoryParam_SEISEKI_DJ_9_TROPHY_EX_MULTI_NAME	[Sacred Stone Memories] Lion Monarch's Fate [EX] [Multiplay]
 SRPG_TrophyCategoryParam_SEISEKI_DJ_TROPHY_EX_NAME	[Sacred Stone Memories] Entrusted Justice [EX]
-SRPG_TrophyCategoryParam_SEISEKI_DJ_2_TROPHY_EX_NAME	[Sacred Stone Memories] Black Spearman [EX]
+SRPG_TrophyCategoryParam_SEISEKI_DJ_2_TROPHY_EX_NAME	[Sacred Stone Memories] Demonic Spearman [EX]
 SRPG_TrophyCategoryParam_SEISEKI_DJ_3_TROPHY_EX_NAME	[Sacred Stone Memories] Arrow of Destiny [EX]
 SRPG_TrophyCategoryParam_SEISEKI_DJ_4_TROPHY_EX_NAME	[Sacred Stone Memories] Inherited Cause [EX]
 SRPG_TrophyCategoryParam_SEISEKI_DJ_5_TROPHY_EX_NAME	[Sacred Stone Memories] Fallen Sun [EX]

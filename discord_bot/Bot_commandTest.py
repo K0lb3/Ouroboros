@@ -19,6 +19,7 @@ async def on_ready():
     print(bot.user.id)
     print(bot.guilds)
     print('------')
+
     
 @bot.event
 async def on_reaction_add(reaction, user):

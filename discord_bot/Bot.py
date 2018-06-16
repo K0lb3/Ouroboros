@@ -3,8 +3,7 @@ import jellyfish
 import discord
 import asyncio
 import json
-from datetime import datetime
-from datetime import timedelta
+from datetime import datetime,timedelta
 from discord.ext import commands
 from model import *
 
@@ -19,6 +18,7 @@ PRESENCES=[
         'Gear: o?gear',
         'Farm: o?farm',
         'Ranking: o?arena',
+        'Arena Enemy: o?rank x'
         'Tierlist: o?tierlist',
         'Info: o?info',
         'Help: o?help'
@@ -75,7 +75,6 @@ def find_best(source, text):
     ))
     return best_match
 
-
 def fix_fields(fields):
     remove=[]
     uses=['name','value']
@@ -87,9 +86,9 @@ def fix_fields(fields):
     fin = [i for j, i in enumerate(fields) if j not in remove]
     return(fin)
 
-def timeDif_hms(time):
+def timeDif_hms(time,time2=datetime.now()):
     FMT = '%H:%M:%S'
-    tdelta = datetime.strptime(time, FMT) - datetime.now()
+    tdelta = datetime.strptime(time, FMT) - time2
     if tdelta.days < 0:
         tdelta = timedelta(days=0,
             seconds=tdelta.seconds)
@@ -105,10 +104,19 @@ def timeDif_hms(time):
 #global vars
 prefix='o?'
 bot = commands.Bot(command_prefix=prefix)
-[units,drops,gears,jobs]=loadFiles(['units.json','drops.json','gear.json','jobs.json'])
+[units,drops,gears,jobs,loc]=loadFiles(['units.json','drops.json','gear.json','jobs.json','LocalizedMasterParam.json'])
 
 
-
+async def statistic(ctx, command, input=False, result=False):
+    Channel = bot.get_channel(457645688583618560)
+    embed=discord.Embed(title='Command: '+command,color=0x00FF00)
+    embed.add_field(name="Guild",   value=ctx.guild)
+    embed.add_field(name="User",    value=ctx.author)
+    if input:
+        embed.add_field(name="Input",   value=input)
+    if result:
+        embed.add_field(name="Result",  value=result)
+    await Channel.send(embed=embed)
 
 async def status_task(presences):
     while True:
@@ -134,6 +142,7 @@ async def gear(ctx, *, name):
     gear_obj = Gear(source=gear_dict)
 
     await ctx.send(embed=gear_obj.to_gear_embed())
+    await statistic(ctx, "Gear", name, gear_dict['name'])
 
 
 #drops
@@ -150,6 +159,7 @@ async def farm(ctx, *, name):
         embed.add_field(name=m["name"],      value="\n".join(m['drops']),     inline=False)
 
     await ctx.send(embed=embed)
+    await statistic(ctx, "Farm", name, item['name']) 
 
 #jobs
 @bot.command()
@@ -158,6 +168,7 @@ async def job(ctx, *, name):
     job_obj = Job(source=job_dict)
 
     await ctx.send(embed=job_obj.to_job_embed())
+    await statistic(ctx, "Job", name, job_dict['name'])
 
 # unit commands
 @bot.command() # info
@@ -166,6 +177,7 @@ async def unit(ctx, *, name):
     unit_obj = Unit(source=unit_dict)
 
     await ctx.send(embed=unit_obj.to_unit_embed())
+    await statistic(ctx, "Unit", name, unit_dict['name'])
 
 @bot.command() # lore
 async def lore(ctx, *, name):
@@ -173,6 +185,7 @@ async def lore(ctx, *, name):
     unit_obj = Unit(source=unit_dict)
 
     await ctx.send(embed=unit_obj.to_lore_embed())
+    await statistic(ctx, "Lore", name, unit_dict['name'])
 
 @bot.command() #  artwork
 async def art(ctx, *, name):
@@ -181,6 +194,7 @@ async def art(ctx, *, name):
 
     for embed in unit_obj.to_art_embeds():
         await ctx.send(embed=embed)
+    await statistic(ctx, "Art", name, unit_dict['name'])
 
 #arena
 @bot.command()
@@ -197,14 +211,112 @@ async def arena(ctx):
     embed.set_thumbnail(url="https://drive.google.com/uc?export=download&id=1W369kdS_4ISgJgOcHAgNxoidJRqWNNsl")
     #fields
     field=[[],[]]
-    for i in range(0,25):
-        field[0].append(str(i+1)+": " + arena[i]['name'])
-        field[1].append(str(i+26)+": " + arena[i+25]['name'])
+    try:
+        for i in range(0,25):
+            field[0].append(str(i+1)+": " + arena[i]['name'])
+            field[1].append(str(i+26)+": " + arena[i+25]['name'])
 
-    embed.add_field(name="Rank  1-25",    value='\n'.join(field[0]),    inline=True)
-    embed.add_field(name="Rank 26-50",    value='\n'.join(field[1]),    inline=True)
+        embed.add_field(name="Rank  1-25",    value='\n'.join(field[0]),    inline=True)
+        embed.add_field(name="Rank 26-50",    value='\n'.join(field[1]),    inline=True)
+        await ctx.send(embed=embed)
+        await statistic(ctx, "Arena")
+    
+    except KeyError:
+        embed.description=json.dumps(arena,indent=4)[:2047]
+        content="<@281201917802315776>"
+        await ctx.send(content=content,embed=embed)
+
+@bot.command() # arena enemy
+async def rank(ctx,*,input):
+    try:
+        number = int(input)
+    except:
+        ctx.send('Invalid Input')
+        ctx.send(len(input))
+        return
+
+    #request info
+    try:
+        enemy = req_arena_ranking()[number-1]
+    except IndexError:
+        ctx.send('Only the top 50 can be accessed')
+        return
+
+    time = datetime.fromtimestamp(enemy['btl_at']) - timedelta(hours=8)
+    #create embed header
+    embed = discord.Embed(
+        title=input+': '+enemy['name'], 
+        description="last battle at: "+time.strftime('%H:%M:%S ~ %d.%m'), #epoch time in sec 1528371048
+        color=0xeee657,
+        )
+    #diggest info
+    units=[]
+    for unit in enemy['units']:
+        c={
+            'name'  : loc[unit['iname']]['NAME'],
+            'LB'    : unit['plus'],
+            'LV'    : unit['lv'],
+            'jobs'  : [],
+            }
+        seljob = unit['select']['job'] #number, compare to jobs
+        for job in unit['jobs']:
+            #selected job?
+            if job['iid']==seljob:
+                seljob=len(c['jobs'])
+            #basic job info
+            cjob={
+                'name'  :   loc[job['iname']]['NAME'],
+                'LV'    :   str(job['rank']), #if equip wthout empty jm,
+                'gears'  :   [],
+                'abilities':    []
+            }
+            #rank
+            if cjob['LV']=='11':
+                e=0
+                for equip in job['equips']:
+                    if equip['iid']!=0:
+                        e+=1
+                if e==6:
+                    cjob['LV']='JM'
+            #gear
+            for gear in job['artis']:
+                cjob['gears'].append({
+                    'name'  : loc[gear['iname']]['NAME'],
+                    'rarity': str(gear['rare']+1),
+                })
+            #abilities
+            for abil in job['abils']:
+                cjob['abilities'].append({
+                    'name'  : loc[abil['iname']]['NAME'],
+                    'lv'    : str(abil['exp']+1),
+                })
+            c['jobs'].append(cjob)
+        c['job']=seljob
+        units.append(c)
+
+    #add fields
+        #"value": "Lv: 75\tLb: 25\nJobs:\n\tJob1: JM\n\tJob2: JM\n\tJob 3: JM\nGear:\n\tGear 1\n\tGear 2\n\tGear 3",
+    for unit in units:
+        value = 'LV: {LV}/{maxLV}'.format(LV=str(unit['LV']), maxLV=str(unit['LB']+60))
+        #job info
+        value+='\n__Jobs:__'
+        for i in range(0,len(unit['jobs'])):
+            j= unit['jobs'][i]
+            cvalue='\n\t'+str(j['name']+': '+j['LV'])
+            if i == unit['job']:
+                cvalue='**'+cvalue+'**'
+            value+=cvalue
+
+        #gear
+        value+='\n__Gear:__'
+        for g in unit['jobs'][unit['job']]['gears']:
+            value+='\n\t'+g['name']+' '+str(g['rarity']+'*')
+        #create field
+        embed.add_field(name=unit['name'], value=value, inline=True)
 
     await ctx.send(embed=embed)
+    await statistic(ctx, "Rank",input)
+
 
 @bot.command() #  artwork
 async def tierlist(ctx):
@@ -221,6 +333,7 @@ async def tierlist(ctx):
     embed.set_image(url="https://i.imgur.com/crlzqAL.jpg")
     embed.set_footer(text='Tierlist by Game, Visualisation by Ｅｉｋｅ/アイケ', icon_url='')
     await ctx.send(embed=embed)
+    await statistic(ctx, "Tierlist")
 
 @bot.command()
 async def collabs(ctx):

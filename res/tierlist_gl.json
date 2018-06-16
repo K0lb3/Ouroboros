@@ -97,6 +97,13 @@
             "",
             "",
             ""
+        ],
+        [
+            "TIER LIST AND BUILD GUIDE GETTING A BIG REHAUL",
+            "",
+            "",
+            "",
+            ""
         ]
     ],
     "Changelog": [
@@ -437,254 +444,6 @@
             "Guts",
             "",
             "Unit is unable to drop below 1 HP for the duration (certain passives and gear have a chance at activating Guts)"
-        ]
-    ],
-    "FAQ": [
-        [
-            "FAQ",
-            "",
-            "",
-            ""
-        ],
-        [
-            "Fate",
-            "",
-            "Build Guide",
-            ""
-        ],
-        [
-            "Do Yomi [F/SN], Lamia [F/SN], or Zahar [F/SN] have weapons?",
-            "",
-            "Why don't I see Kuon, Strauss, Richie, or a few others on this list?",
-            ""
-        ],
-        [
-            "No, but they can equip any weapons that fall into their job-types. Rider - Dagger, Caster - Staff\nSaber - Sword, Assassin - Katana, Archer - Twin Swords, Berserker - Nothing, Lancer - Lance",
-            "",
-            "Only units that can go up to 5★ in the current state of the game\nare included. Any units that gain this ability later will be added then. There are\nalso a number of units under 3★ s that I just don't recommend leveling\nunder any circumstances.",
-            ""
-        ],
-        [
-            "",
-            "",
-            "",
-            ""
-        ],
-        [
-            "",
-            "",
-            "",
-            ""
-        ],
-        [
-            "Is Gilgamesh's weapon important?",
-            "",
-            "",
-            ""
-        ],
-        [
-            "It is not as important to Gilgamesh as other weapons are to their respective characters.  The PATK\nis good, but there are a lot of cases where you'll want different accessories like HP or Resistances. If you \nreally desire his Weapon Ability animation, you only need to bring your Gate of \nBabylon (weapon) to 3* to use it. This will change if Global gets the ability to double equip accessories.\nIn this case, you'll want to for sure have Gilgamesh's weapon as one of his gear equips, as it helps\nincrease his PATK. ",
-            "",
-            "",
-            ""
-        ],
-        [
-            "",
-            "",
-            "Why do Tyrfing and Chloe have Holy Knight as their sub instead of Holy Cavalier?",
-            ""
-        ],
-        [
-            "",
-            "",
-            "So, interestingly enough, Holy Knight has a stronger sub skillset than Holy Cavalier. \nHoly Knight's Shield Smash has a 130% multiplier, while Holy Cavalier's Shield \nBash has a 90% multiplier. For the other two skills, they lower PATK and PDEF, but with Holy \nKnight, at level 20, it lowers the stat by 25%, but with Holy Cavalier, it only lowers it by 20%",
-            ""
-        ],
-        [
-            "",
-            "",
-            "",
-            ""
-        ],
-        [
-            "",
-            "",
-            "",
-            ""
-        ],
-        [
-            "Gameplay",
-            "",
-            "",
-            ""
-        ],
-        [
-            "Who should I get with my 4* selector ticket?",
-            "",
-            "",
-            ""
-        ],
-        [
-            "Because all the units on the 4* selector ticket are farmable, your first priority should be to pick someone\nyou don't have. A duplicate will net you 20 shards, but to actually transmute the unit will take 80 shards.\nAfter considering this, the recommended pool to pick from is Rahu, Lucian, Lofia, Reagan, Zangetsu.\nThe latter two will need a bit of farming (J2 Reagan, J3 Zangetsu) to become usable.",
-            "",
-            "Should I use Power Up or Slash Mastery?",
-            ""
-        ],
-        [
-            "",
-            "",
-            "It depends. You should use Power Up if you are using a leader skill that gives increased Slash\nDamage (Vettel, Zahar). You should use Slash Mastery if you are using a leader skill that gives\nPATK (Shayna, Suzuka, Reimei). This is because the combination of both PATK and slash\ndamage is a greater modifier than one of the other. The math can be found here:",
-            ""
-        ],
-        [
-            "",
-            "",
-            "",
-            ""
-        ],
-        [
-            "",
-            "",
-            "",
-            ""
-        ],
-        [
-            "Should I use Rainbow/Element shards on xx unit?",
-            "",
-            "",
-            ""
-        ],
-        [
-            "written by /u/Ivyspear\nThese are the people who are worth sharding at any point in the game, not only in current JP meta.\n I’ll try to put them in the order of relevance, ie. in which they were introduced, if I know it:\n\nDark: Bashini | Aranea | Tsukuyomi | Sol | Teresa\nLight: Zain | Zierva | Cor | Black Killer Tyrfing, | Nina\nFire: Laharl | Stock | Iris | Carla \nWater: Yauras (not yet) | Othima | Noctis\nThunder: Gilgamesh | Vier | Princess | Black Killer Laevateinn | Regis | Nigel | Gerald\nWind: Balt | Fate Yomi | Acht | Edward Elric | Parashu | Balt | Neferti\n\nA good rule of thumb is the later in the list they are, the more relevant they are in JP now. \nOne exception to this would be Laharl.\n\nNow Gilgamesh in JP is arguably falling off. With the advent of the last 4 units I stated in the last 2 months, \nhe’s no longer the King he once was. If JP gets an F/SN rerun, this might change, but there’s no guarantee\n of that. His base stats are just sad, and the “lightning nuker” niche is becoming saturated. But is he worth \nthunder sharding for now? Yes, it’ll be a long time before we see Nigel and co.\n\nFate Yomi lacks damage which is her main issue. However, she never gets “replaced” like \nGilgamesh is, since her kit is so unique. At any rate, putting wind shards into her is a good idea.\n\nI do not suggest dumping all your rainbow shards into either however. There are so many more \ngood units who will come eventually, some sooner and some later. Don’t \nthrow all your eggs into one basket.\n_________________________________________________________________________________________________\n\nNote from me: This mostly applies to the F2P to Dolphin crowd (basically everyone who only gets shards\nfrom EX maps and Gumi giveaways). While this still does apply to whales, this is the most efficient list for\nthose who want to get the most out of their Rainbow/Elemental Shards. The most important thing to\nremember is to play for your enjoyment right now. The future of this game, and this game in JP should not\naffect what you do, if it affects your experience right now.",
-            "",
-            "30% Slash ATK Leader Skill",
-            "50% PATK Leader Skill"
-        ],
-        [
-            "",
-            "",
-            "Power Up (10% PATK)\n(100% + 30%) * 1.1 = 143%",
-            "Power Up (10% PATK)\n100% * 1.6 = 160%\t"
-        ],
-        [
-            "",
-            "",
-            "",
-            ""
-        ],
-        [
-            "",
-            "",
-            "Slash Mastery (10% Slash DMG)\n100% + 30% + 10% = 140%        ",
-            "Slash Mastery (10% Slash DMG)\n(100% + 10%) * 1.5 = 165%"
-        ],
-        [
-            "",
-            "",
-            "",
-            ""
-        ],
-        [
-            "",
-            "",
-            "",
-            ""
-        ],
-        [
-            "",
-            "",
-            "Why are Basic Sniper, Basic Gunner, or Basic Hunter never recommended?",
-            ""
-        ],
-        [
-            "",
-            "",
-            "This is because of Charged Snipe, Charged Shot, and Wild Shot. The AI loves to use all three of these\nskills on auto. Charged Snipe and Charged Shot have cast times, which means 75% of the time, the enemy\nwill just walk out of it, and it's a wasted turn. Wild Shot has a nice AoE, but the accuracy of the attack\nis ~30%, meaning it will miss a large percentage of the time.",
-            ""
-        ],
-        [
-            "",
-            "",
-            "",
-            ""
-        ],
-        [
-            "",
-            "",
-            "",
-            ""
-        ],
-        [
-            "",
-            "",
-            "",
-            ""
-        ],
-        [
-            "",
-            "",
-            "",
-            ""
-        ],
-        [
-            "",
-            "",
-            "",
-            ""
-        ],
-        [
-            "",
-            "",
-            "",
-            ""
-        ],
-        [
-            "",
-            "",
-            "",
-            ""
-        ],
-        [
-            "",
-            "",
-            "",
-            ""
-        ],
-        [
-            "",
-            "",
-            "",
-            ""
-        ],
-        [
-            "",
-            "",
-            "",
-            ""
-        ],
-        [
-            "",
-            "",
-            "",
-            ""
-        ],
-        [
-            "",
-            "",
-            "",
-            ""
-        ],
-        [
-            "What's the difference between Job+ and JE?",
-            "",
-            "",
-            ""
-        ],
-        [
-            "A Job+ is a job improvement that only a single character will have. Although multiple units may have\nthe improvement for the same job, they will improve different skills and use different equipment,\nfarmable at different events. For example, Rahu and Lofia both have Chronomancer+, but Rahu's\nChronomancer+ improves her Overclock, while Lofia's improves her Black Hole. Rahu gets much more\nAGI, and her Job+ Equipment can only be farmed during the Toy Box event, while Lofia has more MATK,\nand her equipment can only be farmed during the Sweet Aspirations event.\n\nJE, or Job Enchantments are not yet released on Global. There are a number of JEs for a job (so Holy\nCavalier will has Holy Cavalier[Pieta], Holy Cavalier[Izaya], and more). These job enchantments are\ndistributed to a group of characters who have that job, and are not made specifically for any character.\n\nJ+ require 6 special equipment at Job Level 11, while JE requires only the job-special equipment\nwhich is a special varient found on JE maps that are permanent. E.G: Holy Cavalier[Pieta] uses\nPieta Armor instead of the Brilliant Wings Armor.",
-            "",
-            "",
-            ""
         ]
     ],
     "Job Information": [
@@ -1529,6 +1288,254 @@
             2,
             4,
             "",
+            "",
+            "",
+            ""
+        ]
+    ],
+    "FAQ": [
+        [
+            "FAQ",
+            "",
+            "",
+            ""
+        ],
+        [
+            "Fate",
+            "",
+            "Build Guide",
+            ""
+        ],
+        [
+            "Do Yomi [F/SN], Lamia [F/SN], or Zahar [F/SN] have weapons?",
+            "",
+            "Why don't I see Kuon, Strauss, Richie, or a few others on this list?",
+            ""
+        ],
+        [
+            "No, but they can equip any weapons that fall into their job-types. Rider - Dagger, Caster - Staff\nSaber - Sword, Assassin - Katana, Archer - Twin Swords, Berserker - Nothing, Lancer - Lance",
+            "",
+            "Only units that can go up to 5★ in the current state of the game\nare included. Any units that gain this ability later will be added then. There are\nalso a number of units under 3★ s that I just don't recommend leveling\nunder any circumstances.",
+            ""
+        ],
+        [
+            "",
+            "",
+            "",
+            ""
+        ],
+        [
+            "",
+            "",
+            "",
+            ""
+        ],
+        [
+            "Is Gilgamesh's weapon important?",
+            "",
+            "",
+            ""
+        ],
+        [
+            "It is not as important to Gilgamesh as other weapons are to their respective characters.  The PATK\nis good, but there are a lot of cases where you'll want different accessories like HP or Resistances. If you \nreally desire his Weapon Ability animation, you only need to bring your Gate of \nBabylon (weapon) to 3* to use it. This will change if Global gets the ability to double equip accessories.\nIn this case, you'll want to for sure have Gilgamesh's weapon as one of his gear equips, as it helps\nincrease his PATK. ",
+            "",
+            "",
+            ""
+        ],
+        [
+            "",
+            "",
+            "Why do Tyrfing and Chloe have Holy Knight as their sub instead of Holy Cavalier?",
+            ""
+        ],
+        [
+            "",
+            "",
+            "So, interestingly enough, Holy Knight has a stronger sub skillset than Holy Cavalier. \nHoly Knight's Shield Smash has a 130% multiplier, while Holy Cavalier's Shield \nBash has a 90% multiplier. For the other two skills, they lower PATK and PDEF, but with Holy \nKnight, at level 20, it lowers the stat by 25%, but with Holy Cavalier, it only lowers it by 20%",
+            ""
+        ],
+        [
+            "",
+            "",
+            "",
+            ""
+        ],
+        [
+            "",
+            "",
+            "",
+            ""
+        ],
+        [
+            "Gameplay",
+            "",
+            "",
+            ""
+        ],
+        [
+            "Who should I get with my 4* selector ticket?",
+            "",
+            "",
+            ""
+        ],
+        [
+            "Because all the units on the 4* selector ticket are farmable, your first priority should be to pick someone\nyou don't have. A duplicate will net you 20 shards, but to actually transmute the unit will take 80 shards.\nAfter considering this, the recommended pool to pick from is Rahu, Lucian, Lofia, Reagan, Zangetsu.\nThe latter two will need a bit of farming (J2 Reagan, J3 Zangetsu) to become usable.",
+            "",
+            "Should I use Power Up or Slash Mastery?",
+            ""
+        ],
+        [
+            "",
+            "",
+            "It depends. You should use Power Up if you are using a leader skill that gives increased Slash\nDamage (Vettel, Zahar). You should use Slash Mastery if you are using a leader skill that gives\nPATK (Shayna, Suzuka, Reimei). This is because the combination of both PATK and slash\ndamage is a greater modifier than one of the other. The math can be found here:",
+            ""
+        ],
+        [
+            "",
+            "",
+            "",
+            ""
+        ],
+        [
+            "",
+            "",
+            "",
+            ""
+        ],
+        [
+            "Should I use Rainbow/Element shards on xx unit?",
+            "",
+            "",
+            ""
+        ],
+        [
+            "written by /u/Ivyspear\nThese are the people who are worth sharding at any point in the game, not only in current JP meta.\n I’ll try to put them in the order of relevance, ie. in which they were introduced, if I know it:\n\nDark: Bashini | Aranea | Tsukuyomi | Sol | Teresa\nLight: Zain | Zierva | Cor | Black Killer Tyrfing, | Nina\nFire: Laharl | Stock | Iris | Carla \nWater: Yauras (not yet) | Othima | Noctis\nThunder: Gilgamesh | Vier | Princess | Black Killer Laevateinn | Regis | Nigel | Gerald\nWind: Balt | Fate Yomi | Acht | Edward Elric | Parashu | Balt | Neferti\n\nA good rule of thumb is the later in the list they are, the more relevant they are in JP now. \nOne exception to this would be Laharl.\n\nNow Gilgamesh in JP is arguably falling off. With the advent of the last 4 units I stated in the last 2 months, \nhe’s no longer the King he once was. If JP gets an F/SN rerun, this might change, but there’s no guarantee\n of that. His base stats are just sad, and the “lightning nuker” niche is becoming saturated. But is he worth \nthunder sharding for now? Yes, it’ll be a long time before we see Nigel and co.\n\nFate Yomi lacks damage which is her main issue. However, she never gets “replaced” like \nGilgamesh is, since her kit is so unique. At any rate, putting wind shards into her is a good idea.\n\nI do not suggest dumping all your rainbow shards into either however. There are so many more \ngood units who will come eventually, some sooner and some later. Don’t \nthrow all your eggs into one basket.\n_________________________________________________________________________________________________\n\nNote from me: This mostly applies to the F2P to Dolphin crowd (basically everyone who only gets shards\nfrom EX maps and Gumi giveaways). While this still does apply to whales, this is the most efficient list for\nthose who want to get the most out of their Rainbow/Elemental Shards. The most important thing to\nremember is to play for your enjoyment right now. The future of this game, and this game in JP should not\naffect what you do, if it affects your experience right now.",
+            "",
+            "30% Slash ATK Leader Skill",
+            "50% PATK Leader Skill"
+        ],
+        [
+            "",
+            "",
+            "Power Up (10% PATK)\n(100% + 30%) * 1.1 = 143%",
+            "Power Up (10% PATK)\n100% * 1.6 = 160%\t"
+        ],
+        [
+            "",
+            "",
+            "",
+            ""
+        ],
+        [
+            "",
+            "",
+            "Slash Mastery (10% Slash DMG)\n100% + 30% + 10% = 140%        ",
+            "Slash Mastery (10% Slash DMG)\n(100% + 10%) * 1.5 = 165%"
+        ],
+        [
+            "",
+            "",
+            "",
+            ""
+        ],
+        [
+            "",
+            "",
+            "",
+            ""
+        ],
+        [
+            "",
+            "",
+            "Why are Basic Sniper, Basic Gunner, or Basic Hunter never recommended?",
+            ""
+        ],
+        [
+            "",
+            "",
+            "This is because of Charged Snipe, Charged Shot, and Wild Shot. The AI loves to use all three of these\nskills on auto. Charged Snipe and Charged Shot have cast times, which means 75% of the time, the enemy\nwill just walk out of it, and it's a wasted turn. Wild Shot has a nice AoE, but the accuracy of the attack\nis ~30%, meaning it will miss a large percentage of the time.",
+            ""
+        ],
+        [
+            "",
+            "",
+            "",
+            ""
+        ],
+        [
+            "",
+            "",
+            "",
+            ""
+        ],
+        [
+            "",
+            "",
+            "",
+            ""
+        ],
+        [
+            "",
+            "",
+            "",
+            ""
+        ],
+        [
+            "",
+            "",
+            "",
+            ""
+        ],
+        [
+            "",
+            "",
+            "",
+            ""
+        ],
+        [
+            "",
+            "",
+            "",
+            ""
+        ],
+        [
+            "",
+            "",
+            "",
+            ""
+        ],
+        [
+            "",
+            "",
+            "",
+            ""
+        ],
+        [
+            "",
+            "",
+            "",
+            ""
+        ],
+        [
+            "",
+            "",
+            "",
+            ""
+        ],
+        [
+            "",
+            "",
+            "",
+            ""
+        ],
+        [
+            "What's the difference between Job+ and JE?",
+            "",
+            "",
+            ""
+        ],
+        [
+            "A Job+ is a job improvement that only a single character will have. Although multiple units may have\nthe improvement for the same job, they will improve different skills and use different equipment,\nfarmable at different events. For example, Rahu and Lofia both have Chronomancer+, but Rahu's\nChronomancer+ improves her Overclock, while Lofia's improves her Black Hole. Rahu gets much more\nAGI, and her Job+ Equipment can only be farmed during the Toy Box event, while Lofia has more MATK,\nand her equipment can only be farmed during the Sweet Aspirations event.\n\nJE, or Job Enchantments are not yet released on Global. There are a number of JEs for a job (so Holy\nCavalier will has Holy Cavalier[Pieta], Holy Cavalier[Izaya], and more). These job enchantments are\ndistributed to a group of characters who have that job, and are not made specifically for any character.\n\nJ+ require 6 special equipment at Job Level 11, while JE requires only the job-special equipment\nwhich is a special varient found on JE maps that are permanent. E.G: Holy Cavalier[Pieta] uses\nPieta Armor instead of the Brilliant Wings Armor.",
             "",
             "",
             ""

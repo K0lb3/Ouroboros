@@ -160,11 +160,11 @@ def req_arena_ranking():
     try:
         ret = res_body['body']
     except:
-        print('error: failed to retrieve achieve auth')
+        print('error: failed to retrieve arena')
         print(res_body)
         ret = ""
   
-    return ret
+    return ret['coloenemies']
 
 def req_login():
     res_body=api_connect("/login",{"param":{"device":"HUAWEI HUAWEI MLA-L12","dlc":"apvr"}})
@@ -177,6 +177,3 @@ def req_login():
         ret = ""
 
     return ret
-
-
-print(req_arena_ranking())
