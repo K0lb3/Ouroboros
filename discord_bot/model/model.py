@@ -35,6 +35,10 @@ class Model(ABC):
             if 'value' not in args:
                 args['value'] = getattr(self, args['name'])
 
+            # Value to string
+            if not isinstance(args['value'], str):
+                args['value']=str(args['value'])
+
             # Check if value is useable
             if len(args['value'].lstrip(' '))==0:
                 continue

@@ -19,7 +19,8 @@ class Job(Model):
 
         fields = [
             {'name': 'description', 'value': getattr(self, 'long description'), 'inline': False},
-            'formula', 'weapon','origin',
+            {'name': 'formula', 'value': getattr(self, 'formula'), 'inline': False},
+            'weapon','origin',
             {'name': 'move', 'value': self.stats['Move']},
             {'name': 'jump', 'value': self.stats['Jump']},
             {'name': 'modifiers', 'value': ' | '.join(modifiers), 'inline': False},
