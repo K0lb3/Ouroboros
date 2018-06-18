@@ -69,7 +69,7 @@ def job_create(job, glc, jpc, loc):
                 return loc[base]['NAME']+': '+' '.join(jb[2:])
             else:
                 return job[3:].replace('_',' ').title()
-
+                
     return {
         'iname': job,
         'name': locFunc(job),
@@ -86,6 +86,7 @@ def job_create(job, glc, jpc, loc):
         'sub': "",
         'reactives': "",
         'passives': "",
+        'weapon': GEAR_TAG[jpc[j['artifact']]['tag']],
         'modifiers': {
             'HP':   mod["hp"],
             'Max Jewels': mod["mp"],

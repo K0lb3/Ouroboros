@@ -17,6 +17,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 0,
             "Max Jewels": -10,
@@ -82,6 +83,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 10,
             "Max Jewels": -5,
@@ -147,6 +149,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 15,
             "Max Jewels": -10,
@@ -212,6 +215,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Greatsword/Scythe",
         "modifiers": {
             "HP": 10,
             "Max Jewels": -8,
@@ -278,6 +282,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gun",
         "modifiers": {
             "HP": -5,
             "Max Jewels": 0,
@@ -345,6 +350,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gun",
         "modifiers": {
             "HP": -3,
             "Max Jewels": 2,
@@ -411,6 +417,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 0,
             "Max Jewels": 20,
@@ -479,6 +486,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 12,
             "Max Jewels": 10,
@@ -546,6 +554,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Bow",
         "modifiers": {
             "HP": -7,
             "Max Jewels": -5,
@@ -612,6 +621,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Bow",
         "modifiers": {
             "HP": 3,
             "Max Jewels": -5,
@@ -681,6 +691,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gloves",
         "modifiers": {
             "HP": 3,
             "Max Jewels": -10,
@@ -747,6 +758,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gloves",
         "modifiers": {
             "HP": 22,
             "Max Jewels": 5,
@@ -830,6 +842,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Harp",
         "modifiers": {
             "HP": -8,
             "Max Jewels": 4,
@@ -904,6 +917,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Chakram",
         "modifiers": {
             "HP": -8,
             "Max Jewels": 4,
@@ -980,6 +994,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 15,
             "Max Jewels": 0,
@@ -1069,6 +1084,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Bow",
         "modifiers": {
             "HP": -7,
             "Max Jewels": -5,
@@ -1140,6 +1156,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 0,
             "Max Jewels": -10,
@@ -1242,6 +1259,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Kunai",
         "modifiers": {
             "HP": -5,
             "Max Jewels": 0,
@@ -1341,6 +1359,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Dagger",
         "modifiers": {
             "HP": -5,
             "Max Jewels": 0,
@@ -1414,6 +1433,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Saber",
         "modifiers": {
             "HP": 10,
             "Max Jewels": 0,
@@ -1504,6 +1524,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": -20,
             "Max Jewels": 20,
@@ -1579,6 +1600,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": -16,
             "Max Jewels": 16,
@@ -1665,6 +1687,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": -12,
             "Max Jewels": 12,
@@ -1747,6 +1770,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Claw",
         "modifiers": {
             "HP": 7,
             "Max Jewels": -7,
@@ -1828,6 +1852,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": -12,
             "Max Jewels": 20,
@@ -1904,6 +1929,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gun",
         "modifiers": {
             "HP": -5,
             "Max Jewels": 0,
@@ -1983,6 +2009,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Drug Vial",
         "modifiers": {
             "HP": 5,
             "Max Jewels": 8,
@@ -2060,6 +2087,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 10,
             "Max Jewels": -5,
@@ -2148,6 +2176,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": -5,
             "Max Jewels": 12,
@@ -2226,6 +2255,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Drug Vial",
         "modifiers": {
             "HP": 8,
             "Max Jewels": 12,
@@ -2310,6 +2340,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Grenade Launcher",
         "modifiers": {
             "HP": -3,
             "Max Jewels": 0,
@@ -2404,6 +2435,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gloves",
         "modifiers": {
             "HP": 12,
             "Max Jewels": -20,
@@ -2476,6 +2508,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Praying Staff",
         "modifiers": {
             "HP": 0,
             "Max Jewels": 20,
@@ -2573,6 +2606,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": -5,
             "Max Jewels": 0,
@@ -2653,6 +2687,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sniper Rifle",
         "modifiers": {
             "HP": 0,
             "Max Jewels": 5,
@@ -2731,6 +2766,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Spear",
         "modifiers": {
             "HP": 5,
             "Max Jewels": -5,
@@ -2816,6 +2852,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Katana",
         "modifiers": {
             "HP": 3,
             "Max Jewels": -10,
@@ -2882,6 +2919,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Spear",
         "modifiers": {
             "HP": -10,
             "Max Jewels": -10,
@@ -2957,6 +2995,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Spear",
         "modifiers": {
             "HP": 7,
             "Max Jewels": -5,
@@ -3039,6 +3078,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gloves",
         "modifiers": {
             "HP": 15,
             "Max Jewels": -10,
@@ -3112,6 +3152,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Greatsword/Scythe",
         "modifiers": {
             "HP": -10,
             "Max Jewels": -8,
@@ -3211,6 +3252,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Greatsword/Scythe",
         "modifiers": {
             "HP": -5,
             "Max Jewels": -5,
@@ -3296,6 +3338,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 20,
             "Max Jewels": 0,
@@ -3360,6 +3403,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 0,
             "Max Jewels": -10,
@@ -3424,6 +3468,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 10,
             "Max Jewels": -5,
@@ -3491,6 +3536,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 20,
             "Max Jewels": 0,
@@ -3555,6 +3601,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Greatsword/Scythe",
         "modifiers": {
             "HP": -10,
             "Max Jewels": -8,
@@ -3623,6 +3670,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Kunai",
         "modifiers": {
             "HP": -5,
             "Max Jewels": 0,
@@ -3689,6 +3737,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Greatsword/Scythe",
         "modifiers": {
             "HP": -5,
             "Max Jewels": -5,
@@ -3754,6 +3803,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 0,
             "Max Jewels": -10,
@@ -3818,6 +3868,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Greatsword/Scythe",
         "modifiers": {
             "HP": -10,
             "Max Jewels": -8,
@@ -3886,6 +3937,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Greatsword/Scythe",
         "modifiers": {
             "HP": -5,
             "Max Jewels": -5,
@@ -3954,6 +4006,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 10,
             "Max Jewels": -5,
@@ -4019,6 +4072,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": -5,
             "Max Jewels": 0,
@@ -4084,6 +4138,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 20,
             "Max Jewels": 0,
@@ -4158,6 +4213,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rocket Launcher",
         "modifiers": {
             "HP": 5,
             "Max Jewels": 0,
@@ -4246,6 +4302,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Twin Swords",
         "modifiers": {
             "HP": 0,
             "Max Jewels": 0,
@@ -4312,6 +4369,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Dagger",
         "modifiers": {
             "HP": 0,
             "Max Jewels": 5,
@@ -4382,6 +4440,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Wedding Sword",
         "modifiers": {
             "HP": -5,
             "Max Jewels": 0,
@@ -4451,6 +4510,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Wedding Sword",
         "modifiers": {
             "HP": -5,
             "Max Jewels": 0,
@@ -4516,6 +4576,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 5,
             "Max Jewels": -10,
@@ -4586,6 +4647,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 5,
             "Max Jewels": -10,
@@ -4654,6 +4716,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 10,
             "Max Jewels": 0,
@@ -4724,6 +4787,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 10,
             "Max Jewels": -5,
@@ -4788,6 +4852,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 25,
             "Max Jewels": 0,
@@ -4882,6 +4947,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": -10,
             "Max Jewels": 25,
@@ -4961,6 +5027,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Bow",
         "modifiers": {
             "HP": -5,
             "Max Jewels": -5,
@@ -5027,6 +5094,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": -15,
             "Max Jewels": 20,
@@ -5098,6 +5166,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": -12,
             "Max Jewels": 23,
@@ -5168,6 +5237,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Spear",
         "modifiers": {
             "HP": 5,
             "Max Jewels": -5,
@@ -5236,6 +5306,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": -10,
             "Max Jewels": -5,
@@ -5299,6 +5370,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 0,
             "Max Jewels": -3,
@@ -5367,6 +5439,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 30,
             "Max Jewels": 0,
@@ -5435,6 +5508,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Greatsword/Scythe",
         "modifiers": {
             "HP": -5,
             "Max Jewels": 0,
@@ -5502,6 +5576,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Greatsword/Scythe",
         "modifiers": {
             "HP": 0,
             "Max Jewels": 0,
@@ -5571,6 +5646,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Greatsword/Scythe",
         "modifiers": {
             "HP": 20,
             "Max Jewels": 0,
@@ -5638,6 +5714,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Cards",
         "modifiers": {
             "HP": -10,
             "Max Jewels": 0,
@@ -5704,6 +5781,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Cards",
         "modifiers": {
             "HP": 5,
             "Max Jewels": 0,
@@ -5773,6 +5851,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Cards",
         "modifiers": {
             "HP": 2,
             "Max Jewels": 10,
@@ -5842,6 +5921,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rifle",
         "modifiers": {
             "HP": 5,
             "Max Jewels": 0,
@@ -5912,6 +5992,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Katana",
         "modifiers": {
             "HP": 5,
             "Max Jewels": 0,
@@ -5978,6 +6059,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Bow",
         "modifiers": {
             "HP": -5,
             "Max Jewels": -5,
@@ -6049,6 +6131,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Axe",
         "modifiers": {
             "HP": 20,
             "Max Jewels": 0,
@@ -6140,6 +6223,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Axe",
         "modifiers": {
             "HP": 20,
             "Max Jewels": 0,
@@ -6211,6 +6295,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Cards",
         "modifiers": {
             "HP": -13,
             "Max Jewels": 25,
@@ -6279,6 +6364,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Twin Swords",
         "modifiers": {
             "HP": 23,
             "Max Jewels": -5,
@@ -6346,6 +6432,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 40,
             "Max Jewels": 0,
@@ -6425,6 +6512,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 2,
             "Max Jewels": 20,
@@ -6493,6 +6581,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": -10,
             "Max Jewels": 25,
@@ -6574,6 +6663,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 20,
             "Max Jewels": 15,
@@ -6645,6 +6735,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Spear",
         "modifiers": {
             "HP": 15,
             "Max Jewels": -5,
@@ -6716,6 +6807,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Greatsword/Scythe",
         "modifiers": {
             "HP": 10,
             "Max Jewels": 5,
@@ -6795,6 +6887,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Dagger",
         "modifiers": {
             "HP": -5,
             "Max Jewels": 0,
@@ -6867,6 +6960,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Katana",
         "modifiers": {
             "HP": 8,
             "Max Jewels": 3,
@@ -6932,6 +7026,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Hammer",
         "modifiers": {
             "HP": 20,
             "Max Jewels": 5,
@@ -6997,6 +7092,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 0,
             "Max Jewels": -10,
@@ -7061,6 +7157,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 45,
             "Max Jewels": 15,
@@ -7130,6 +7227,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 10,
             "Max Jewels": 25,
@@ -7199,6 +7297,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": -5,
             "Max Jewels": 30,
@@ -7268,6 +7367,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Twin Swords",
         "modifiers": {
             "HP": -5,
             "Max Jewels": -5,
@@ -7337,6 +7437,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Dagger",
         "modifiers": {
             "HP": 5,
             "Max Jewels": -10,
@@ -7407,6 +7508,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 7,
             "Max Jewels": 50,
@@ -7475,6 +7577,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Katana",
         "modifiers": {
             "HP": 3,
             "Max Jewels": -10,
@@ -7544,6 +7647,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Twin Swords",
         "modifiers": {
             "HP": -2,
             "Max Jewels": -5,
@@ -7612,6 +7716,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 85,
             "Max Jewels": 0,
@@ -7677,6 +7782,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Spear",
         "modifiers": {
             "HP": 0,
             "Max Jewels": -10,
@@ -7744,6 +7850,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Script",
         "modifiers": {
             "HP": 0,
             "Max Jewels": 10,
@@ -7813,6 +7920,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 25,
             "Max Jewels": 0,
@@ -7879,6 +7987,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Hammer",
         "modifiers": {
             "HP": 20,
             "Max Jewels": 5,
@@ -7950,6 +8059,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Praying Staff",
         "modifiers": {
             "HP": 3,
             "Max Jewels": 8,
@@ -8024,6 +8134,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Halberd",
         "modifiers": {
             "HP": 2,
             "Max Jewels": 3,
@@ -8099,6 +8210,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gun",
         "modifiers": {
             "HP": 10,
             "Max Jewels": 5,
@@ -8165,6 +8277,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Twin Swords",
         "modifiers": {
             "HP": 15,
             "Max Jewels": 0,
@@ -8231,6 +8344,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gloves",
         "modifiers": {
             "HP": 10,
             "Max Jewels": -5,
@@ -8299,6 +8413,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gun",
         "modifiers": {
             "HP": 15,
             "Max Jewels": -5,
@@ -8366,6 +8481,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Axe",
         "modifiers": {
             "HP": 20,
             "Max Jewels": -30,
@@ -8432,6 +8548,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Bow",
         "modifiers": {
             "HP": -5,
             "Max Jewels": -5,
@@ -8499,6 +8616,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Paw",
         "modifiers": {
             "HP": 50,
             "Max Jewels": -5,
@@ -8564,6 +8682,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Hammer",
         "modifiers": {
             "HP": -13,
             "Max Jewels": 0,
@@ -8635,6 +8754,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Spear",
         "modifiers": {
             "HP": 0,
             "Max Jewels": -10,
@@ -8700,6 +8820,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Spear",
         "modifiers": {
             "HP": -10,
             "Max Jewels": -10,
@@ -8764,6 +8885,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Greatsword/Scythe",
         "modifiers": {
             "HP": 40,
             "Max Jewels": 15,
@@ -8830,6 +8952,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Spear",
         "modifiers": {
             "HP": 15,
             "Max Jewels": 0,
@@ -8897,6 +9020,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Twin Swords",
         "modifiers": {
             "HP": 0,
             "Max Jewels": 0,
@@ -8966,6 +9090,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Twin Swords",
         "modifiers": {
             "HP": 15,
             "Max Jewels": 0,
@@ -9032,6 +9157,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Twin Swords",
         "modifiers": {
             "HP": 15,
             "Max Jewels": 0,
@@ -9099,6 +9225,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gun",
         "modifiers": {
             "HP": -5,
             "Max Jewels": 0,
@@ -9167,6 +9294,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Katana",
         "modifiers": {
             "HP": 3,
             "Max Jewels": -10,
@@ -9231,6 +9359,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 30,
             "Max Jewels": 25,
@@ -9298,6 +9427,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 20,
             "Max Jewels": 25,
@@ -9375,6 +9505,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Kunai",
         "modifiers": {
             "HP": 4,
             "Max Jewels": 0,
@@ -9440,6 +9571,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 0,
             "Max Jewels": 23,
@@ -9510,6 +9642,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Twin Swords",
         "modifiers": {
             "HP": 25,
             "Max Jewels": 0,
@@ -9579,6 +9712,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Greatsword/Scythe",
         "modifiers": {
             "HP": 20,
             "Max Jewels": 0,
@@ -9648,6 +9782,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gun",
         "modifiers": {
             "HP": 0,
             "Max Jewels": 0,
@@ -9715,6 +9850,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Spear",
         "modifiers": {
             "HP": 52,
             "Max Jewels": 10,
@@ -9789,6 +9925,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 0,
             "Max Jewels": 8,
@@ -9855,6 +9992,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gloves",
         "modifiers": {
             "HP": 70,
             "Max Jewels": 0,
@@ -9923,6 +10061,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 70,
             "Max Jewels": 25,
@@ -9993,6 +10132,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 15,
             "Max Jewels": 8,
@@ -10062,6 +10202,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sniper Rifle",
         "modifiers": {
             "HP": 10,
             "Max Jewels": 5,
@@ -10132,6 +10273,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Twin Swords",
         "modifiers": {
             "HP": 0,
             "Max Jewels": 0,
@@ -10202,6 +10344,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Spear",
         "modifiers": {
             "HP": 8,
             "Max Jewels": 0,
@@ -10275,6 +10418,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Feng Shui",
         "modifiers": {
             "HP": 0,
             "Max Jewels": 10,
@@ -10340,6 +10484,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Twin Swords",
         "modifiers": {
             "HP": 20,
             "Max Jewels": -5,
@@ -10410,6 +10555,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gloves",
         "modifiers": {
             "HP": 50,
             "Max Jewels": -10,
@@ -10479,6 +10625,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 40,
             "Max Jewels": 8,
@@ -10555,6 +10702,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Claw",
         "modifiers": {
             "HP": 10,
             "Max Jewels": 10,
@@ -10621,6 +10769,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 20,
             "Max Jewels": 0,
@@ -10686,6 +10835,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 20,
             "Max Jewels": 20,
@@ -10754,6 +10904,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 25,
             "Max Jewels": 5,
@@ -10822,6 +10973,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gun",
         "modifiers": {
             "HP": 0,
             "Max Jewels": 5,
@@ -10889,6 +11041,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gun",
         "modifiers": {
             "HP": 0,
             "Max Jewels": 5,
@@ -10962,6 +11115,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Tact",
         "modifiers": {
             "HP": 15,
             "Max Jewels": 20,
@@ -11031,6 +11185,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gloves",
         "modifiers": {
             "HP": 20,
             "Max Jewels": 10,
@@ -11097,6 +11252,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gloves",
         "modifiers": {
             "HP": 55,
             "Max Jewels": 15,
@@ -11163,6 +11319,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gloves",
         "modifiers": {
             "HP": 10,
             "Max Jewels": 25,
@@ -11233,6 +11390,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gloves",
         "modifiers": {
             "HP": 70,
             "Max Jewels": -10,
@@ -11303,6 +11461,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gloves",
         "modifiers": {
             "HP": 30,
             "Max Jewels": 10,
@@ -11369,6 +11528,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sniper Rifle",
         "modifiers": {
             "HP": 15,
             "Max Jewels": 10,
@@ -11439,6 +11599,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Twin Swords",
         "modifiers": {
             "HP": 20,
             "Max Jewels": 0,
@@ -11510,6 +11671,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gloves",
         "modifiers": {
             "HP": 15,
             "Max Jewels": 15,
@@ -11584,6 +11746,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 25,
             "Max Jewels": 5,
@@ -11650,6 +11813,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Katana",
         "modifiers": {
             "HP": 2,
             "Max Jewels": -10,
@@ -11721,6 +11885,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Cannon",
         "modifiers": {
             "HP": 10,
             "Max Jewels": 0,
@@ -11785,6 +11950,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 30,
             "Max Jewels": 15,
@@ -11856,6 +12022,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Axe",
         "modifiers": {
             "HP": 25,
             "Max Jewels": 0,
@@ -11921,6 +12088,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 25,
             "Max Jewels": 35,
@@ -11991,6 +12159,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": -12,
             "Max Jewels": 12,
@@ -12058,6 +12227,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 15,
             "Max Jewels": 0,
@@ -12126,6 +12296,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Katana",
         "modifiers": {
             "HP": 30,
             "Max Jewels": 10,
@@ -12196,6 +12367,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gloves",
         "modifiers": {
             "HP": 15,
             "Max Jewels": 40,
@@ -12266,6 +12438,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Greatsword/Scythe",
         "modifiers": {
             "HP": 45,
             "Max Jewels": 15,
@@ -12336,6 +12509,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Paw",
         "modifiers": {
             "HP": -15,
             "Max Jewels": 20,
@@ -12401,6 +12575,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gunlance",
         "modifiers": {
             "HP": 15,
             "Max Jewels": 0,
@@ -12469,6 +12644,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "N/A",
         "modifiers": {
             "HP": 8,
             "Max Jewels": 6,
@@ -12538,6 +12714,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "N/A",
         "modifiers": {
             "HP": 30,
             "Max Jewels": 25,
@@ -12604,6 +12781,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Katana",
         "modifiers": {
             "HP": 25,
             "Max Jewels": 0,
@@ -12672,6 +12850,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gloves",
         "modifiers": {
             "HP": 75,
             "Max Jewels": 23,
@@ -12744,6 +12923,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Swordstick",
         "modifiers": {
             "HP": 20,
             "Max Jewels": 15,
@@ -12814,6 +12994,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gloves",
         "modifiers": {
             "HP": 25,
             "Max Jewels": 0,
@@ -12883,6 +13064,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gunlance",
         "modifiers": {
             "HP": 25,
             "Max Jewels": 0,
@@ -12951,6 +13133,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Spear",
         "modifiers": {
             "HP": 20,
             "Max Jewels": -7,
@@ -13016,6 +13199,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gloves",
         "modifiers": {
             "HP": 90,
             "Max Jewels": -10,
@@ -13081,6 +13265,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Greatsword/Scythe",
         "modifiers": {
             "HP": 50,
             "Max Jewels": -10,
@@ -13150,6 +13335,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Bow",
         "modifiers": {
             "HP": 28,
             "Max Jewels": 15,
@@ -13219,6 +13405,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 23,
             "Max Jewels": 35,
@@ -13291,6 +13478,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 35,
             "Max Jewels": 23,
@@ -13359,6 +13547,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gloves",
         "modifiers": {
             "HP": 25,
             "Max Jewels": 0,
@@ -13425,6 +13614,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Spear",
         "modifiers": {
             "HP": 5,
             "Max Jewels": -5,
@@ -13493,6 +13683,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 10,
             "Max Jewels": 25,
@@ -13561,6 +13752,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": -8,
             "Max Jewels": 23,
@@ -13631,6 +13823,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 20,
             "Max Jewels": 0,
@@ -13699,6 +13892,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Greatsword/Scythe",
         "modifiers": {
             "HP": -5,
             "Max Jewels": -5,
@@ -13765,6 +13959,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Greatsword/Scythe",
         "modifiers": {
             "HP": -5,
             "Max Jewels": -5,
@@ -13832,6 +14027,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gun",
         "modifiers": {
             "HP": 5,
             "Max Jewels": 2,
@@ -13899,6 +14095,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 12,
             "Max Jewels": 10,
@@ -13967,6 +14164,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 29,
             "Max Jewels": 45,
@@ -14038,6 +14236,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 0,
             "Max Jewels": 40,
@@ -14108,6 +14307,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Harp",
         "modifiers": {
             "HP": 25,
             "Max Jewels": 4,
@@ -14178,6 +14378,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Dagger",
         "modifiers": {
             "HP": 5,
             "Max Jewels": 0,
@@ -14244,6 +14445,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Kunai",
         "modifiers": {
             "HP": 80,
             "Max Jewels": 25,
@@ -14312,6 +14514,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": -10,
             "Max Jewels": 25,
@@ -14382,6 +14585,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Spear",
         "modifiers": {
             "HP": 7,
             "Max Jewels": 5,
@@ -14450,6 +14654,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 20,
             "Max Jewels": 0,
@@ -14519,6 +14724,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Dagger",
         "modifiers": {
             "HP": 0,
             "Max Jewels": 0,
@@ -14590,6 +14796,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 0,
             "Max Jewels": 4,
@@ -14655,6 +14862,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Drug Vial",
         "modifiers": {
             "HP": 20,
             "Max Jewels": 20,
@@ -14724,6 +14932,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Chakram",
         "modifiers": {
             "HP": -8,
             "Max Jewels": 10,
@@ -14791,6 +15000,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 5,
             "Max Jewels": 0,
@@ -14860,6 +15070,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": -12,
             "Max Jewels": 12,
@@ -14930,6 +15141,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Spear",
         "modifiers": {
             "HP": 7,
             "Max Jewels": -5,
@@ -15003,6 +15215,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gloves",
         "modifiers": {
             "HP": 28,
             "Max Jewels": -10,
@@ -15067,6 +15280,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gloves",
         "modifiers": {
             "HP": 25,
             "Max Jewels": -10,
@@ -15134,6 +15348,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sniper Rifle",
         "modifiers": {
             "HP": 0,
             "Max Jewels": 5,
@@ -15204,6 +15419,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rocket Launcher",
         "modifiers": {
             "HP": 5,
             "Max Jewels": 3,
@@ -15273,6 +15489,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 3,
             "Max Jewels": 12,
@@ -15342,6 +15559,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Greatsword/Scythe",
         "modifiers": {
             "HP": 7,
             "Max Jewels": -5,
@@ -15410,6 +15628,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Greatsword/Scythe",
         "modifiers": {
             "HP": -5,
             "Max Jewels": 0,
@@ -15478,6 +15697,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Claw",
         "modifiers": {
             "HP": 13,
             "Max Jewels": -7,
@@ -15547,6 +15767,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Twin Swords",
         "modifiers": {
             "HP": 20,
             "Max Jewels": 0,
@@ -15616,6 +15837,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Wedding Sword",
         "modifiers": {
             "HP": 6,
             "Max Jewels": 2,
@@ -15687,6 +15909,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Katana",
         "modifiers": {
             "HP": 35,
             "Max Jewels": 10,
@@ -15756,6 +15979,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Bow",
         "modifiers": {
             "HP": -5,
             "Max Jewels": -5,
@@ -15825,6 +16049,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Cards",
         "modifiers": {
             "HP": 0,
             "Max Jewels": 25,
@@ -15895,6 +16120,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 26,
             "Max Jewels": 15,
@@ -15964,6 +16190,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Kunai",
         "modifiers": {
             "HP": 12,
             "Max Jewels": 2,
@@ -16039,6 +16266,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Drug Vial",
         "modifiers": {
             "HP": 22,
             "Max Jewels": 0,
@@ -16105,6 +16333,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 22,
             "Max Jewels": 0,
@@ -16177,6 +16406,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Axe",
         "modifiers": {
             "HP": 20,
             "Max Jewels": 0,
@@ -16245,6 +16475,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Twin Swords",
         "modifiers": {
             "HP": 23,
             "Max Jewels": -5,
@@ -16313,6 +16544,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 0,
             "Max Jewels": 30,
@@ -16382,6 +16614,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Saber",
         "modifiers": {
             "HP": 15,
             "Max Jewels": 0,
@@ -16450,6 +16683,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Katana",
         "modifiers": {
             "HP": 6,
             "Max Jewels": 6,
@@ -16517,6 +16751,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Hammer",
         "modifiers": {
             "HP": 20,
             "Max Jewels": 5,
@@ -16585,6 +16820,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Kunai",
         "modifiers": {
             "HP": 15,
             "Max Jewels": 5,
@@ -16653,6 +16889,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Halberd",
         "modifiers": {
             "HP": 10,
             "Max Jewels": 3,
@@ -16721,6 +16958,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Greatsword/Scythe",
         "modifiers": {
             "HP": 7,
             "Max Jewels": -5,
@@ -16789,6 +17027,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Greatsword/Scythe",
         "modifiers": {
             "HP": 2,
             "Max Jewels": -5,
@@ -16859,6 +17098,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Spear",
         "modifiers": {
             "HP": 31,
             "Max Jewels": 0,
@@ -16929,6 +17169,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Bow",
         "modifiers": {
             "HP": 9,
             "Max Jewels": -5,
@@ -16999,6 +17240,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Bow",
         "modifiers": {
             "HP": 16,
             "Max Jewels": 0,
@@ -17068,6 +17310,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gloves",
         "modifiers": {
             "HP": 25,
             "Max Jewels": -10,
@@ -17135,6 +17378,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Kunai",
         "modifiers": {
             "HP": 20,
             "Max Jewels": 4,
@@ -17203,6 +17447,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 0,
             "Max Jewels": 25,
@@ -17274,6 +17519,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Greatsword/Scythe",
         "modifiers": {
             "HP": 9,
             "Max Jewels": -5,
@@ -17341,6 +17587,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Halberd",
         "modifiers": {
             "HP": 7,
             "Max Jewels": 4,
@@ -17406,6 +17653,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Spear",
         "modifiers": {
             "HP": 28,
             "Max Jewels": -2,
@@ -17476,6 +17724,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Dagger",
         "modifiers": {
             "HP": 7,
             "Max Jewels": 0,
@@ -17542,6 +17791,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 30,
             "Max Jewels": 0,
@@ -17607,6 +17857,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gun",
         "modifiers": {
             "HP": 15,
             "Max Jewels": 5,
@@ -17677,6 +17928,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 0,
             "Max Jewels": 25,
@@ -17748,6 +18000,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Kunai",
         "modifiers": {
             "HP": 18,
             "Max Jewels": 4,
@@ -17814,6 +18067,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gun",
         "modifiers": {
             "HP": 15,
             "Max Jewels": 5,
@@ -17882,6 +18136,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": -10,
             "Max Jewels": 25,
@@ -17949,6 +18204,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 25,
             "Max Jewels": 15,
@@ -18015,6 +18271,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Kunai",
         "modifiers": {
             "HP": 25,
             "Max Jewels": 0,
@@ -18084,6 +18341,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Greatsword/Scythe",
         "modifiers": {
             "HP": 8,
             "Max Jewels": -5,
@@ -18151,6 +18409,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 38,
             "Max Jewels": 0,
@@ -18219,6 +18478,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 0,
             "Max Jewels": 25,
@@ -18285,6 +18545,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Axe",
         "modifiers": {
             "HP": 45,
             "Max Jewels": 0,
@@ -18352,6 +18613,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 15,
             "Max Jewels": 0,
@@ -18424,6 +18686,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sniper Rifle",
         "modifiers": {
             "HP": 5,
             "Max Jewels": 5,
@@ -18491,6 +18754,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Twin Swords",
         "modifiers": {
             "HP": 16,
             "Max Jewels": 2,
@@ -18559,6 +18823,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 32,
             "Max Jewels": 0,
@@ -18625,6 +18890,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Axe",
         "modifiers": {
             "HP": 30,
             "Max Jewels": 0,
@@ -18691,6 +18957,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sniper Rifle",
         "modifiers": {
             "HP": 5,
             "Max Jewels": 5,
@@ -18758,6 +19025,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sniper Rifle",
         "modifiers": {
             "HP": 10,
             "Max Jewels": 5,
@@ -18829,6 +19097,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gun",
         "modifiers": {
             "HP": 15,
             "Max Jewels": 10,
@@ -18899,6 +19168,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gun",
         "modifiers": {
             "HP": 20,
             "Max Jewels": 5,
@@ -18973,6 +19243,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Drug Vial",
         "modifiers": {
             "HP": 12,
             "Max Jewels": 12,
@@ -19042,6 +19313,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Kunai",
         "modifiers": {
             "HP": 25,
             "Max Jewels": 0,
@@ -19111,6 +19383,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Kunai",
         "modifiers": {
             "HP": 28,
             "Max Jewels": 4,
@@ -19179,6 +19452,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gloves",
         "modifiers": {
             "HP": 35,
             "Max Jewels": 0,
@@ -19245,6 +19519,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 0,
             "Max Jewels": 0,
@@ -19308,6 +19583,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 0,
             "Max Jewels": 0,
@@ -19377,6 +19653,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 0,
             "Max Jewels": 0,
@@ -19442,6 +19719,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 0,
             "Max Jewels": 0,
@@ -19507,6 +19785,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 0,
             "Max Jewels": 2,
@@ -19575,6 +19854,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 2,
             "Max Jewels": 25,
@@ -19641,6 +19921,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 25,
             "Max Jewels": 15,
@@ -19709,6 +19990,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 22,
             "Max Jewels": 15,
@@ -19775,6 +20057,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Bow",
         "modifiers": {
             "HP": 20,
             "Max Jewels": -5,
@@ -19841,6 +20124,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 38,
             "Max Jewels": 0,
@@ -19910,6 +20194,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Gloves",
         "modifiers": {
             "HP": 35,
             "Max Jewels": -10,
@@ -19976,6 +20261,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Spear",
         "modifiers": {
             "HP": 35,
             "Max Jewels": -5,
@@ -20043,6 +20329,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 40,
             "Max Jewels": 0,
@@ -20108,6 +20395,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 39,
             "Max Jewels": 0,
@@ -20178,6 +20466,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 44,
             "Max Jewels": 0,
@@ -20242,6 +20531,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Sword",
         "modifiers": {
             "HP": 45,
             "Max Jewels": 0,
@@ -20308,6 +20598,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Drug Vial",
         "modifiers": {
             "HP": 25,
             "Max Jewels": 12,
@@ -20377,6 +20668,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Drug Vial",
         "modifiers": {
             "HP": 20,
             "Max Jewels": 18,
@@ -20443,6 +20735,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Halberd",
         "modifiers": {
             "HP": 16,
             "Max Jewels": 3,
@@ -20513,6 +20806,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Greatsword/Scythe",
         "modifiers": {
             "HP": 4,
             "Max Jewels": -5,
@@ -20583,6 +20877,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 12,
             "Max Jewels": 12,
@@ -20651,6 +20946,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 16,
             "Max Jewels": 12,
@@ -20716,6 +21012,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 12,
             "Max Jewels": 12,
@@ -20782,6 +21079,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 15,
             "Max Jewels": 12,
@@ -20847,6 +21145,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 10,
             "Max Jewels": 20,
@@ -20914,6 +21213,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 5,
             "Max Jewels": 20,
@@ -20979,6 +21279,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Rod",
         "modifiers": {
             "HP": 2,
             "Max Jewels": 20,
@@ -21047,6 +21348,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Twin Swords",
         "modifiers": {
             "HP": 16,
             "Max Jewels": 2,
@@ -21113,6 +21415,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Twin Swords",
         "modifiers": {
             "HP": 28,
             "Max Jewels": 2,
@@ -21178,6 +21481,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Axe",
         "modifiers": {
             "HP": 30,
             "Max Jewels": 0,
@@ -21244,6 +21548,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Axe",
         "modifiers": {
             "HP": 30,
             "Max Jewels": 0,
@@ -21311,6 +21616,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Axe",
         "modifiers": {
             "HP": 45,
             "Max Jewels": 0,
@@ -21377,6 +21683,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Axe",
         "modifiers": {
             "HP": 30,
             "Max Jewels": 0,
@@ -21446,6 +21753,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Wedding Sword",
         "modifiers": {
             "HP": 10,
             "Max Jewels": 2,
@@ -21515,6 +21823,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Wedding Sword",
         "modifiers": {
             "HP": 10,
             "Max Jewels": 2,
@@ -21584,6 +21893,7 @@
         "sub": "",
         "reactives": "",
         "passives": "",
+        "weapon": "Wedding Sword",
         "modifiers": {
             "HP": 10,
             "Max Jewels": 2,

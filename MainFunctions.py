@@ -26,7 +26,7 @@ birth={
     "グラトニー＝フォス" : "Gluttony Foss"
 }  
 
-gear_tag={
+GEAR_TAG={
     "剣": "Sword",
     "杖": "Rod",
     "ローブ": "Robe",
@@ -35,7 +35,7 @@ gear_tag={
     "籠手": "Gauntlet",
     "盾": "Shield",
     "アクセサリー": "Earring",
-    "大剣": "Greatsword",
+    "大剣": "Greatsword/Scythe",
     "短剣": "Dagger",
     "銃": "Gun",
     "ランス": "Spear",
@@ -50,7 +50,7 @@ gear_tag={
     "チャクラム": "Chakram",
     "弦楽器": "Harp",
     "斧": "Axe",
-    "双剣": "Twin Sword",
+    "双剣": "Twin Swords",
     "薬瓶": "Drug Vial",
     "獣": "Claw",
     "大麻": "Praying Staff",
@@ -60,7 +60,15 @@ gear_tag={
     "薙刀": "Halberd",
     "風水盤": "Feng Shui",
     "タクト": "Tact",
-    "手袋": "Gloves"
+    "手袋": "Gloves",
+    "グレネードランチャー": "Grenade Launcher",
+    "長銃": "Rifle",  #JB_DGO
+    "台本": "Script", #JB_ACT_F
+    "無手": "Paw", #JB_DIS_CAT
+    "大砲": "Cannon", #JB_ART
+    "銃槍": "Gunlance", #JB_GUNL
+    "装備なし": "N/A", #JB_LUROB01
+    "杖剣": "Swordstick", #JB_HENC_WATER
     }
 
 ParamTypes={

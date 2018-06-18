@@ -29,7 +29,7 @@ def gear():
                 c.update({'name':"/",'expression':"/",'flavor':'/'})
 
         c.update({
-            'tag':     gear_tag[g['tag']],
+            'tag':      GEAR_TAG[g['tag']],
             'rarity':   rarity(g['rini'],g['rmax']),
             'link':     'http://www.alchemistcodedb.com/gear/'+iname.replace('_','-').lower(),
             'icon':     'http://cdn.alchemistcodedb.com/images/items/icons/'+g['icon']+'.png',
