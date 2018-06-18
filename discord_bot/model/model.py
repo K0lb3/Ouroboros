@@ -35,6 +35,10 @@ class Model(ABC):
             if 'value' not in args:
                 args['value'] = getattr(self, args['name'])
 
+            # Check if value is useable
+            if len(args['value'].lstrip(' '))==0:
+                continue
+
             # Inline defaults to True
             if 'inline' not in args:
                 args['inline'] = True
