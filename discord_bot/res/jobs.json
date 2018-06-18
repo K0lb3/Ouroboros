@@ -13466,7 +13466,7 @@
             "Poison Res": 10
         },
         "formula": "140% PATK",
-        "link": "http://www.alchemistcodedb.com/unit/kudhanstein#demonic-spearman+",
+        "link": "http://www.alchemistcodedb.com/unit/kudhanstein#demonic-spearman-plus",
         "inputs": [
             "Kudanstein",
             "Kudanstein Demonic Spearman+",
@@ -13604,7 +13604,7 @@
             "Max Jewels": 15
         },
         "formula": "90% MATK",
-        "link": "http://www.alchemistcodedb.com/unit/kagura#blaze-orb-princess+",
+        "link": "http://www.alchemistcodedb.com/unit/kagura#blaze-orb-princess-plus",
         "inputs": [
             "Kagura",
             "Kagura Blaze Orb Princess+",
@@ -13673,7 +13673,7 @@
             "Dark Res": 2
         },
         "formula": "140% PATK",
-        "link": "http://www.alchemistcodedb.com/unit/logi#holy-cavalier+",
+        "link": "http://www.alchemistcodedb.com/unit/logi#holy-cavalier-plus",
         "inputs": [
             "Logi",
             "Logi Holy Cavalier+",
@@ -13740,7 +13740,7 @@
             "Light Res": 1
         },
         "formula": "150% PATK",
-        "link": "http://www.alchemistcodedb.com/unit/dios#dark-cavalier+",
+        "link": "http://www.alchemistcodedb.com/unit/dios#dark-cavalier-plus",
         "inputs": [
             "Dias",
             "Dias Dark Cavalier+",
@@ -13807,7 +13807,7 @@
             "Poison Res": 10
         },
         "formula": "150% PATK",
-        "link": "http://www.alchemistcodedb.com/unit/laevateinn#dark-cavalier+",
+        "link": "http://www.alchemistcodedb.com/unit/laevateinn#dark-cavalier-plus",
         "inputs": [
             "Laevateinn",
             "Laevateinn Dark Cavalier+",
@@ -13874,7 +13874,7 @@
             "Charm Res": 16
         },
         "formula": "65% (PATK + DEX)",
-        "link": "http://www.alchemistcodedb.com/unit/edgar#drifter+",
+        "link": "http://www.alchemistcodedb.com/unit/edgar#drifter-plus",
         "inputs": [
             "Edgar",
             "Edgar Drifter+",
@@ -13942,7 +13942,7 @@
             "Blind Res": 10
         },
         "formula": "90% MATK",
-        "link": "http://www.alchemistcodedb.com/unit/liesbet#witch+",
+        "link": "http://www.alchemistcodedb.com/unit/liesbet#witch-plus",
         "inputs": [
             "Lisbeth",
             "Lisbeth Witch+",
@@ -14011,7 +14011,7 @@
             "Poison Res": 32
         },
         "formula": "90% MATK",
-        "link": "http://www.alchemistcodedb.com/unit/alexis#bishop+",
+        "link": "http://www.alchemistcodedb.com/unit/alexis#bishop-plus",
         "inputs": [
             "Alexis",
             "Alexis Bishop+",
@@ -14082,7 +14082,7 @@
             "Charm Res": 75
         },
         "formula": "90% MATK",
-        "link": "http://www.alchemistcodedb.com/unit/vanekis#sage+",
+        "link": "http://www.alchemistcodedb.com/unit/vanekis#sage-plus",
         "inputs": [
             "Vanekis",
             "Vanekis Sage+",
@@ -14149,7 +14149,7 @@
             "Poison Res": 10
         },
         "formula": "60% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
-        "link": "http://www.alchemistcodedb.com/unit/pollin#bard+",
+        "link": "http://www.alchemistcodedb.com/unit/pollin#bard-plus",
         "inputs": [
             "Polin",
             "Polin Bard+",
@@ -14285,7 +14285,7 @@
             "Charm Res": 37
         },
         "formula": "70% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
-        "link": "http://www.alchemistcodedb.com/unit/yuan#ninja+",
+        "link": "http://www.alchemistcodedb.com/unit/yuan#ninja-plus",
         "inputs": [
             "Yuan",
             "Yuan Ninja+",
@@ -14355,7 +14355,7 @@
             "Blind Res": 10
         },
         "formula": "90% MATK",
-        "link": "http://www.alchemistcodedb.com/unit/mare#sage+",
+        "link": "http://www.alchemistcodedb.com/unit/mare#sage-plus",
         "inputs": [
             "Mia",
             "Mia Sage+",
@@ -14424,7 +14424,7 @@
             "Poison Res": 10
         },
         "formula": "140% PATK",
-        "link": "http://www.alchemistcodedb.com/unit/freed#dragon-cavalier+",
+        "link": "http://www.alchemistcodedb.com/unit/freed#dragon-cavalier-plus",
         "inputs": [
             "Freed",
             "Freed Dragon Cavalier+",
@@ -14492,7 +14492,7 @@
             "Poison Res": 10
         },
         "formula": "140% PATK",
-        "link": "http://www.alchemistcodedb.com/unit/dilga#holy-cavalier+",
+        "link": "http://www.alchemistcodedb.com/unit/dilga#holy-cavalier-plus",
         "inputs": [
             "Dilga",
             "Dilga Holy Cavalier+",
@@ -14562,7 +14562,7 @@
             "Stop Res": 16
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
-        "link": "http://www.alchemistcodedb.com/unit/sutorie#shadow-assassin+",
+        "link": "http://www.alchemistcodedb.com/unit/sutorie#shadow-assassin-plus",
         "inputs": [
             "Strie",
             "Strie Shadow Assassin+",
@@ -14699,7 +14699,7 @@
             "Charm Res": 16
         },
         "formula": "55% (MATK + DEX/2 + LUCK/2)",
-        "link": "http://www.alchemistcodedb.com/unit/michael#professor+",
+        "link": "http://www.alchemistcodedb.com/unit/michael#professor-plus",
         "inputs": [
             "Michael",
             "Michael Professor+",
@@ -14766,7 +14766,7 @@
             "Poison Res": 10
         },
         "formula": "60% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
-        "link": "http://www.alchemistcodedb.com/unit/chihaya#dancer+",
+        "link": "http://www.alchemistcodedb.com/unit/chihaya#dancer-plus",
         "inputs": [
             "Chihaya",
             "Chihaya Dancer+",
@@ -14833,7 +14833,7 @@
             "Dark Res": 4
         },
         "formula": "90% (PATK + MATK)",
-        "link": "http://www.alchemistcodedb.com/unit/arkill#magic-swordsman+",
+        "link": "http://www.alchemistcodedb.com/unit/arkill#magic-swordsman-plus",
         "inputs": [
             "Arkil",
             "Arkil Magic Swordsman+",
@@ -14903,7 +14903,7 @@
             "Light Res": 2
         },
         "formula": "90% MATK",
-        "link": "http://www.alchemistcodedb.com/unit/rofia#chronomancer+",
+        "link": "http://www.alchemistcodedb.com/unit/rofia#chronomancer-plus",
         "inputs": [
             "Lofia",
             "Lofia Chronomancer+",
@@ -14971,7 +14971,7 @@
             "Poison Res": 10
         },
         "formula": "140% PATK",
-        "link": "http://www.alchemistcodedb.com/unit/lamia#dragon-cavalier+",
+        "link": "http://www.alchemistcodedb.com/unit/lamia#dragon-cavalier-plus",
         "inputs": [
             "Lamia",
             "Lamia Dragon Cavalier+",
@@ -15107,7 +15107,7 @@
             "Poison Res": 10
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
-        "link": "http://www.alchemistcodedb.com/unit/lucia#holy-brawler+",
+        "link": "http://www.alchemistcodedb.com/unit/lucia#holy-brawler-plus",
         "inputs": [
             "Lucian",
             "Lucian Holy Brawler+",
@@ -15176,7 +15176,7 @@
             "Charm Res": 10
         },
         "formula": "70% (PATK + DEX)",
-        "link": "http://www.alchemistcodedb.com/unit/chalice#sniper+",
+        "link": "http://www.alchemistcodedb.com/unit/chalice#sniper-plus",
         "inputs": [
             "Caris",
             "Caris Sniper+",
@@ -15246,7 +15246,7 @@
             "Poison Res": 8
         },
         "formula": "80% (PATK + DEX)",
-        "link": "http://www.alchemistcodedb.com/unit/megistos#machinist+",
+        "link": "http://www.alchemistcodedb.com/unit/megistos#machinist-plus",
         "inputs": [
             "Megistos",
             "Megistos Machinist+",
@@ -15316,7 +15316,7 @@
             "Light Res": 3
         },
         "formula": "90% MATK",
-        "link": "http://www.alchemistcodedb.com/unit/rahu#chronomancer+",
+        "link": "http://www.alchemistcodedb.com/unit/rahu#chronomancer-plus",
         "inputs": [
             "Rahu",
             "Rahu Chronomancer+",
@@ -15452,7 +15452,7 @@
             "Poison Res": 10
         },
         "formula": "150% PATK",
-        "link": "http://www.alchemistcodedb.com/unit/anastasia#dark-cavalier+",
+        "link": "http://www.alchemistcodedb.com/unit/anastasia#dark-cavalier-plus",
         "inputs": [
             "Anastasia",
             "Anastasia Dark Cavalier+",
@@ -15519,7 +15519,7 @@
             "Charm Res": 10
         },
         "formula": "70% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
-        "link": "http://www.alchemistcodedb.com/unit/flamel#beast-tamer+",
+        "link": "http://www.alchemistcodedb.com/unit/flamel#beast-tamer-plus",
         "inputs": [
             "Flamel",
             "Flamel Beast Tamer+",
@@ -15588,7 +15588,7 @@
             "Poison Res": 10
         },
         "formula": "140% PATK",
-        "link": "http://www.alchemistcodedb.com/unit/balt#twin-blade-swordsman+",
+        "link": "http://www.alchemistcodedb.com/unit/balt#twin-blade-swordsman-plus",
         "inputs": [
             "Balt",
             "Balt Twin-Blade Swordsman+",
@@ -15798,7 +15798,7 @@
             "Poison Res": 10
         },
         "formula": "70% (PATK + DEX)",
-        "link": "http://www.alchemistcodedb.com/unit/seida#venom-archer+",
+        "link": "http://www.alchemistcodedb.com/unit/seida#venom-archer-plus",
         "inputs": [
             "Seida",
             "Seida Venom Archer+",
@@ -15868,7 +15868,7 @@
             "Light Res": 8
         },
         "formula": "90% MATK",
-        "link": "http://www.alchemistcodedb.com/unit/deneb#astrologer+",
+        "link": "http://www.alchemistcodedb.com/unit/deneb#astrologer-plus",
         "inputs": [
             "Deneb",
             "Deneb Astrologer+",
@@ -16218,7 +16218,7 @@
             "Poison Res": 10
         },
         "formula": "140% PATK",
-        "link": "http://www.alchemistcodedb.com/unit/monzein#indomitable-axe-knight +",
+        "link": "http://www.alchemistcodedb.com/unit/monzein#indomitable-axe-knight -plus",
         "inputs": [
             "Monzein",
             "Monzein Indomitable Axe Knight +",
@@ -16286,7 +16286,7 @@
             "Slow Res": 12
         },
         "formula": "130% PATK",
-        "link": "http://www.alchemistcodedb.com/unit/yaulas#twin-blade-knight+",
+        "link": "http://www.alchemistcodedb.com/unit/yaulas#twin-blade-knight-plus",
         "inputs": [
             "Yauras",
             "Yauras Twin-Blade Knight+",
@@ -16356,7 +16356,7 @@
             "Silence Res": 12
         },
         "formula": "90% MATK",
-        "link": "http://www.alchemistcodedb.com/unit/mielikki#bishop+",
+        "link": "http://www.alchemistcodedb.com/unit/mielikki#bishop-plus",
         "inputs": [
             "Mielikki",
             "Mielikki Bishop+",
@@ -16423,7 +16423,7 @@
             "Max Jewels": 15
         },
         "formula": "140% PATK",
-        "link": "http://www.alchemistcodedb.com/unit/gormalas#pirate+",
+        "link": "http://www.alchemistcodedb.com/unit/gormalas#pirate-plus",
         "inputs": [
             "Gormalas",
             "Gormalas Pirate+",
@@ -16490,7 +16490,7 @@
             "Poison Res": 10
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
-        "link": "http://www.alchemistcodedb.com/unit/reimei#blademaster+",
+        "link": "http://www.alchemistcodedb.com/unit/reimei#blademaster-plus",
         "inputs": [
             "Reimei",
             "Reimei Blademaster+",
@@ -16627,7 +16627,7 @@
             "Charm Res": 12
         },
         "formula": "90% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
-        "link": "http://www.alchemistcodedb.com/unit/hayate#spy+",
+        "link": "http://www.alchemistcodedb.com/unit/hayate#spy-plus",
         "inputs": [
             "Hayate",
             "Hayate Spy+",

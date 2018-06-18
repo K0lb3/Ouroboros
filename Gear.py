@@ -12,9 +12,9 @@ def gear():
     for g in gears:
         if not 'icon' in g or not 'equip5' in g:
             continue
-        
+
         iname = g['iname']
-        c={'iname':iname,'type':g['type']} #current
+        c={'iname':iname,'type': ['None','Weapon','Armor','Accessory'][g['type']]} #current
         if iname in loc:
             for i in loc[iname]:
                 c[i.lower()]=loc[iname][i]
@@ -29,10 +29,11 @@ def gear():
                 c.update({'name':"/",'expression':"/",'flavor':'/'})
 
         c.update({
-            'rarity': rarity(g['rini'],g['rmax']),
-            'link':'http://www.alchemistcodedb.com/gear/'+iname.replace('_','-').lower(),
-            'icon':'http://cdn.alchemistcodedb.com/images/items/icons/'+g['icon']+'.png',
-            'inputs':[]
+            'tag':     gear_tag[g['tag']],
+            'rarity':   rarity(g['rini'],g['rmax']),
+            'link':     'http://www.alchemistcodedb.com/gear/'+iname.replace('_','-').lower(),
+            'icon':     'http://cdn.alchemistcodedb.com/images/items/icons/'+g['icon']+'.png',
+            'inputs':   []
             })
 
         c['ability']=[]

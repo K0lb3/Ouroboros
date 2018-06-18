@@ -5,9 +5,9 @@ from .ability import Ability
 
 class Gear(Model):
     TYPE_COLOR = {
-        1: 0xFF0000,
-        2: 0x2828FF,
-        3: 0x007F00,
+        'Weapon'    : 0xFF0000,
+        'Armor'     : 0x2828FF,
+        'Accessory' : 0x007F00,
     }
     DEFAULT_TYPE_COLOR = 0x7F7F7F
 
@@ -35,6 +35,8 @@ class Gear(Model):
 
     def to_gear_embed(self):
         fields = []
+
+        fields.append({'name': 'Type', 'value': self.tag, 'inline': False})
 
         if self.stats:
             stats = [
