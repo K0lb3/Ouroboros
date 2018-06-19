@@ -150,7 +150,27 @@ def Units():
             'jc 2' : "",
             'jc 3' : "",
             'inputs': [],
+            "stats":    {},
+            "min_stats":   {},
             }
+
+        #add stats
+        stats={
+            "hp":   "HP",
+            'mp':   "Max Jewels",
+            "atk":  "PATK",
+            "def":  "PDEF",
+            "mag":  "MATK",
+            "mnd":  "MDEF",
+            "dex":  "DEX",
+            "spd":  "AGI",
+            "cri":  "CRIT",
+            "luk":  "LUCK",
+            }
+        for stat in stats:
+            units[iname]['stats'][stats[stat]]=unit['m'+stat]
+            units[iname]['min_stats'][stats[stat]]=unit[stat]
+
         #add lore
         if iname in lore:
             units[iname].update(lore[iname])
