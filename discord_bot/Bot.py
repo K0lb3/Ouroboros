@@ -56,23 +56,35 @@ def find_best(source, text):
     """
     # XXX: Purposely shadowing the text parameter
     text = text.title()
+    if text in source:
+        best_match=source[text]
+        print("{name} ~ direct match for {input}".format(
+            name=best_match.get('name'), input=text
+            ))
+    
+    else:
+        # Calculate the match score for each key in the source dictionary using the input text.
+        # Then, create a list of (key, the best score) tuples.
+        similarities = [
+            (key, jellyfish.jaro_winkler(text, key.title()))
+            for key in source.keys()
+            ]  
 
-    # Calculate the match score for each key in the source dictionary using the input text.
-    # Then, create a list of (key, the best score) tuples.
-    similarities = [
-        (key, max(jellyfish.jaro_winkler(text, i.title()) for i in value.get('inputs', [])))
-        for key, value in source.items()
-    ]
-    # Find the key with the highest score (This is the best matched key)
-    key, score = max(similarities, key=lambda s: s[1])
+        #similarities = [
+        #    (key, max(jellyfish.jaro_winkler(text, i.title()) for i in value.get('inputs', [])))
+        #    for key, value in source.items()
+        #    ]
 
-    # XXX: If needed, implement a minimum threshold here
+        # Find the key with the highest score (This is the best matched key)
+        key, score = max(similarities, key=lambda s: s[1])
 
-    # Return the actual best-matched value
-    best_match = source[key]
-    print("{name} is the best match for input '{input}' with score of {score}".format(
-        name=best_match.get('name'), input=text, score=score
-    ))
+        # XXX: If needed, implement a minimum threshold here
+
+        # Return the actual best-matched value
+        best_match = source[key]
+        print("{name} is the best match for input '{input}' with score of {score}".format(
+            name=best_match.get('name'), input=text, score=score
+        ))
     return best_match
 
 def fix_fields(fields):
@@ -101,11 +113,22 @@ def timeDif_hms(time,time2=datetime.now()):
 
     return str(tdelta)
 
+def convertDBS(DBS):
+    newDBS=[]
+    for DB in DBS:
+        newDB={}
+        for i in DB:
+            for inp in DB[i]['inputs']:
+                newDB[inp]=DB[i]
+        newDBS.append(newDB)
+    return newDBS
+
 #global vars
 prefix='o?'
 bot = commands.Bot(command_prefix=prefix)
-[units,drops,gears,jobs,loc]=loadFiles(['units.json','drops.json','gear.json','jobs.json','LocalizedMasterParam.json'])
 
+[loc]=loadFiles(['LocalizedMasterParam.json'])
+[units,drops,gears,jobs]=convertDBS(loadFiles(['units.json','drops.json','gear.json','jobs.json']))
 
 async def statistic(ctx, command, input=False, result=False):
     Channel = bot.get_channel(457645688583618560)
