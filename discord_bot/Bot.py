@@ -7,8 +7,9 @@ from datetime import datetime,timedelta
 from discord.ext import commands
 from model import *
 
-
 # Constants
+prefix='o?'
+bot = commands.Bot(command_prefix=prefix)
 PRESENCES=[
         'WIP Job: o?job',
         'Collabs: o?collabs',
@@ -44,7 +45,7 @@ def loadFiles(files):
 
     return ret
 
-def find_best(source, text):
+def find_best(source, text, print_=False):
     """
     Given a dictionary and a text, find the best matched item from the dictionary using the name
     :param source: The dictionary to search from (i.e. units, gears, jobs, etc)
@@ -58,9 +59,10 @@ def find_best(source, text):
     text = text.title()
     if text in source:
         best_match=source[text]
-        print("{name} ~ direct match for {input}".format(
-            name=best_match.get('name'), input=text
-            ))
+        if print_:
+            print("{name} ~ direct match for {input}".format(
+                name=best_match.get('name'), input=text
+                ))
     
     else:
         # Calculate the match score for each key in the source dictionary using the input text.
@@ -82,9 +84,10 @@ def find_best(source, text):
 
         # Return the actual best-matched value
         best_match = source[key]
-        print("{name} is the best match for input '{input}' with score of {score}".format(
-            name=best_match.get('name'), input=text, score=score
-        ))
+        if print_:
+            print("{name} is the best match for input '{input}' with score of {score}".format(
+                name=best_match.get('name'), input=text, score=score
+            ))
     return best_match
 
 def fix_fields(fields):
@@ -123,13 +126,6 @@ def convertDBS(DBS):
         newDBS.append(newDB)
     return newDBS
 
-#global vars
-prefix='o?'
-bot = commands.Bot(command_prefix=prefix)
-
-[loc]=loadFiles(['LocalizedMasterParam.json'])
-[units,drops,gears,jobs]=convertDBS(loadFiles(['units.json','drops.json','gear.json','jobs.json']))
-
 async def statistic(ctx, command, input=False, result=False):
     Channel = bot.get_channel(457645688583618560)
     embed=discord.Embed(title='Command: '+command,color=0x00FF00)
@@ -158,10 +154,44 @@ async def on_ready():
     print('------')
     bot.loop.create_task(status_task(PRESENCES))
 
+@bot.event
+async def on_reaction_add(reaction, user):
+    msg=reaction.message
+    emoji=reaction.emoji
+    if (type(emoji)==str) and user != bot.user and msg.author == bot.user:
+        membed=msg.embeds[0]
+        if FOOTER_URL['UNIT'] == membed.footer.icon_url:
+            unit_dict = find_best(units, membed.title.replace('ᴶ',''))
+            unit_obj = Unit(source=unit_dict)
+
+            if emoji=='🗃': #main page
+                    await msg.edit(embed=unit_obj.to_unit_embed())
+            elif emoji=='📰': #lore page
+                    await msg.edit(embed=unit_obj.to_lore_embed())
+            else:
+                job_e={
+                    '1⃣':'job 1',     
+                    '2⃣':'job 2',
+                    '3⃣':'job 3',
+                    '4⃣':'jc 1',
+                    '5⃣':'jc 2',
+                    '6⃣':'jc 3'
+                    }
+                if emoji in job_e:
+                    job_dict = find_best(jobs, getattr(unit_obj,job_e[emoji]))
+                    if unit_obj.name not in job_dict['units']:
+                        job_dict = find_best(jobs, '{unit} {job}'.format(unit=unit_obj.name, job=getattr(unit_obj,job_e[emoji])))
+
+                    job_obj = Job(source=job_dict)
+                    print(job_dict)
+                    print(job_obj)
+                    await msg.edit(embed=unit_obj.to_unit_job_embed(job=job_obj))
+
+
 #gear
 @bot.command()
 async def gear(ctx, *, name):
-    gear_dict = find_best(gears, name)
+    gear_dict = find_best(gears, name,True)
     gear_obj = Gear(source=gear_dict)
 
     await ctx.send(embed=gear_obj.to_gear_embed())
@@ -171,7 +201,7 @@ async def gear(ctx, *, name):
 #drops
 @bot.command()
 async def farm(ctx, *, name):
-    item = find_best(drops, name)
+    item = find_best(drops, name,True)
     #start embed - title
     embed = discord.Embed(title=item['name'], description="", url=item['link'])
     #icon
@@ -187,7 +217,7 @@ async def farm(ctx, *, name):
 #jobs
 @bot.command()
 async def job(ctx, *, name):
-    job_dict = find_best(jobs, name)
+    job_dict = find_best(jobs, name,True)
     job_obj = Job(source=job_dict)
 
     await ctx.send(embed=job_obj.to_job_embed())
@@ -196,15 +226,31 @@ async def job(ctx, *, name):
 # unit commands
 @bot.command() # info
 async def unit(ctx, *, name):
-    unit_dict = find_best(units, name)
+    unit_dict = find_best(units, name, True)
     unit_obj = Unit(source=unit_dict)
 
-    await ctx.send(embed=unit_obj.to_unit_embed())
+    msg = await ctx.send(embed=unit_obj.to_unit_embed())
+
+    pos_reactions={
+        'job 1':'1⃣',     
+        'job 2':'2⃣',
+        'job 3':'3⃣',
+        'jc 1':'4⃣',
+        'jc 2':'5⃣',
+        'jc 3':'6⃣'
+        }        
+    reactions=['🗃','📰'] 
+    for key,value in pos_reactions.items():
+        if getattr(unit_obj, key, "")!="":
+            reactions.append(value)
+
+    #await add_reactions(msg, reactions)
     await statistic(ctx, "Unit", name, unit_dict['name'])
+
 
 @bot.command() # lore
 async def lore(ctx, *, name):
-    unit_dict = find_best(units, name)
+    unit_dict = find_best(units, name,True)
     unit_obj = Unit(source=unit_dict)
 
     await ctx.send(embed=unit_obj.to_lore_embed())
@@ -212,7 +258,7 @@ async def lore(ctx, *, name):
 
 @bot.command() #  artwork
 async def art(ctx, *, name):
-    unit_dict = find_best(units, name)
+    unit_dict = find_best(units, name,True)
     unit_obj = Unit(source=unit_dict)
 
     for embed in unit_obj.to_art_embeds():
@@ -406,5 +452,8 @@ async def help(ctx):
 
     await ctx.send(embed=embed)
 
+
+[loc]=loadFiles(['LocalizedMasterParam.json'])
+[units,drops,gears,jobs]=convertDBS(loadFiles(['units.json','drops.json','gear.json','jobs.json']))
 BOT_TOKEN = os.environ.get('DISCORD_BOT_TOKEN')
 bot.run(BOT_TOKEN)

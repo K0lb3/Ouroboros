@@ -1343,7 +1343,7 @@
             "Job2": "Monk\n武闘家",
             "Job3": "Ninja\n忍者",
             "JC1": "N/A",
-            "JC2": "N/A",
+            "JC2": "Saint of Fist: Senju\n拳聖【千手】",
             "JC3": "Ninja: Genbu\n忍者【玄武】",
             "ELB": "N/A",
             "Acquire": "Rare Summon",
@@ -1373,7 +1373,7 @@
             "Job2": "Mage\n魔道士",
             "Job3": "Enhancer\nエンハンサー",
             "JC1": "N/A",
-            "JC2": "Sage[+]\n賢者[+]",
+            "JC2": "\nNight Agent\nナイトエージェント",
             "JC3": "Roaring Thunder Enhancer\n轟雷のエンハンサー",
             "ELB": "=HYPERLINK(\"#gid=1732246061&range=A228\", IMAGE(\"https://i.imgur.com/3dg7AZA.png\"))",
             "Acquire": "Rare Summon",
@@ -1493,7 +1493,7 @@
             "Job2": "Monk\n武闘家",
             "Job3": "Dragon Knight\nドラゴンナイト",
             "JC1": "N/A",
-            "JC2": "N/A",
+            "JC2": "Saint of Fist: Senju\n拳聖【千手】",
             "JC3": "Dragon Knight: Rudra\nドラゴンナイト【ルドラ】",
             "ELB": "N/A",
             "Acquire": "Rare Summon",
@@ -2602,7 +2602,7 @@
             "Job1": "Bride (Flower Knight)\n花嫁＆花婿",
             "Job2": "Illusionist\n奇術師",
             "Job3": "Saint of Fist\n拳聖",
-            "JC1": "N/A",
+            "JC1": "Pure White Bride\n純白の花嫁",
             "JC2": "N/A",
             "JC3": "Saint of Fist: Senju\n拳聖【千手】",
             "ELB": "N/A",
@@ -2632,7 +2632,7 @@
             "Job1": "Groom (Flower Knight)\n花嫁＆花婿",
             "Job2": "Samurai\n侍",
             "Job3": "Holy Knight\nホーリーナイト",
-            "JC1": "N/A",
+            "JC1": "Pure White Bride\n純白の花嫁",
             "JC2": "N/A",
             "JC3": "Holy Knight: Izaya\nホーリーナイト【イザヤ】",
             "ELB": "N/A",
@@ -2664,7 +2664,7 @@
             "Job3": "Groom (Flower Knight)\n花嫁＆花婿",
             "JC1": "N/A",
             "JC2": "N/A",
-            "JC3": "N/A",
+            "JC3": "Passionate Bride\n情熱の花嫁",
             "ELB": "N/A",
             "Acquire": "Event Quest",
             "Origin": "Slothstein",
@@ -2692,7 +2692,7 @@
             "Job1": "Bride (Flower Knight)\n花嫁＆花婿",
             "Job2": "Mage\n魔道士",
             "Job3": "Professor\nプロフェッサー",
-            "JC1": "N/A",
+            "JC1": "Lightning Bride\n電撃の花嫁",
             "JC2": "N/A",
             "JC3": "Professor: Honey\nプロフェッサー【ハニー】",
             "ELB": "N/A",
@@ -8460,7 +8460,7 @@
             "Origin": "Midgard",
             "Builds/Strategy": "・おすすめジョブ：求道の英雄\n・おすすめ基本アビリティ：基本求道技（第1ジョブ：求道の英雄）\n・おすすめリアクションアビリティ：反攻の一撃（第1ジョブ：求道の英雄）\n・おすすめサポートアビリティ：騎士道精神（第1ジョブ：求道の英雄）\n・おすすめサポートアビリティ：ランスガーディアン（第3ジョブ：ホーリーナイト【ポルタ】）",
             "Details": "https://al.fg-games.co.jp/news/wp-content/uploads/2018/06/e180618_explain_1.png",
-            "Portait URL": "https://i.imgur.com/8M6JXZ5.png",
+            "Portait URL": "https://i.imgur.com/ALof61O.png",
             "Source": "https://al.fg-games.co.jp/news/22591/",
             "Keyword": "arthur;アーサー",
             "Hard Quest": "",
@@ -8469,6 +8469,36 @@
             "Original": "=IMAGE(R[0]C[-6])",
             "baseicon": "=IMAGE(R[0]C[1])",
             "icon url": "https://i.imgur.com/U0XoXpl.png"
+        },
+        {
+            " unitid": 270,
+            "Icon": "=IMAGE(R[0]C[26])",
+            "Name": "Moa",
+            "Name JPN": "モア",
+            "Romanji": "moa",
+            "Rarity": "★★★★★",
+            "Element": "Light",
+            "LeaderSkill": "Light: HP+50% / PATK+30% / AgainstDark+20%",
+            "Job1": "Twillight Rakshasa\n暁光羅刹",
+            "Job2": "Beast Master\n猛獣使い",
+            "Job3": "Axe Warrior\nウォーリア",
+            "JC1": "N/A",
+            "JC2": "N/A",
+            "JC3": "Axe Warrior: Titan\nウォーリア【ティターン】",
+            "ELB": "N/A",
+            "Acquire": "Rare Summon: Mid-June 2018",
+            "Origin": "Lustoberg",
+            "Builds/Strategy": "・おすすめジョブ：暁光羅刹\r\n・おすすめ基本アビリティ：基本猛獣術（第2ジョブ：猛獣使い）\r\n・おすすめリアクションアビリティ：羅刹転輪（第1ジョブ：暁光羅刹）\r\n・おすすめサポートアビリティ：ヘスティアの微笑（第1ジョブ：暁光羅刹）\r\n・おすすめサポートアビリティ：ティターンの目覚め（第3ジョブ：ウォーリア【ティターン】）",
+            "Details": "https://al.fg-games.co.jp/news/wp-content/uploads/2018/06/g180628_explain_1.png",
+            "Portait URL": "https://i.imgur.com/PW1796A.png",
+            "Source": "https://al.fg-games.co.jp/news/22893/",
+            "Keyword": "moa;モア",
+            "Hard Quest": "",
+            "Event": "",
+            "Skin": "",
+            "Original": "=IMAGE(R[0]C[-6])",
+            "baseicon": "=IMAGE(R[0]C[1])",
+            "icon url": "https://i.imgur.com/vFJJQmd.png"
         }
     ],
     "Global": [
@@ -27561,7 +27591,7 @@
             "\nReactive Upgrade": "Range"
         },
         {
-            "Summoner of Agartha\nアガルタの召喚師": "Job Enchant: Yuunagi",
+            "Summoner of Agartha\nアガルタの召喚師": "Job Enchant: Yuunagi / Moa",
             "": "",
             "Main.Technique 召喚術": "",
             "Sub.Technique 基本召喚術": "",
@@ -29018,6 +29048,433 @@
         },
         {
             "Summoner of Agartha\nアガルタの召喚師": "HP",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "Passionate Bride\n情熱の花嫁",
+            "": "",
+            "Main.Technique 召喚術": "Main.Technique 婚技",
+            "Sub.Technique 基本召喚術": "Sub.Technique 基本婚技",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "=IMAGE(\"http://i.imgur.com/lP2QzSG.png\")",
+            "": "",
+            "Main.Technique 召喚術": "Name",
+            "Sub.Technique 基本召喚術": "Name",
+            "\nReactive Upgrade": "Name"
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "",
+            "": "",
+            "Main.Technique 召喚術": "English Name",
+            "Sub.Technique 基本召喚術": "English Name",
+            "\nReactive Upgrade": "English Name"
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "",
+            "": "",
+            "Main.Technique 召喚術": "Cost",
+            "Sub.Technique 基本召喚術": "Cost",
+            "\nReactive Upgrade": "Type"
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "",
+            "": "",
+            "Main.Technique 召喚術": "Scaling",
+            "Sub.Technique 基本召喚術": "Scaling",
+            "\nReactive Upgrade": "Level Learned"
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "",
+            "": "",
+            "Main.Technique 召喚術": "Range",
+            "Sub.Technique 基本召喚術": "Range",
+            "\nReactive Upgrade": "Effect"
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "Job Enchant: Veros",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "",
+            "": "",
+            "Main.Technique 召喚術": "Area",
+            "Sub.Technique 基本召喚術": "Area",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "Job Changes",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "Job Enchant Icon",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "Job Scroll",
+            "": "",
+            "Main.Technique 召喚術": "Height",
+            "Sub.Technique 基本召喚術": "Height",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "",
+            "": "",
+            "Main.Technique 召喚術": "Cast Speed",
+            "Sub.Technique 基本召喚術": "Cast Speed",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "",
+            "": "",
+            "Main.Technique 召喚術": "Usage",
+            "Sub.Technique 基本召喚術": "Usage",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "Trait",
+            "": "",
+            "Main.Technique 召喚術": "Effect",
+            "Sub.Technique 基本召喚術": "Effect",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "Job Master [Enchant] Bonus",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "HP",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "PATK",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "DEX",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "AGI",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "CRIT",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "HP",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "Pure White Bride\n純白の花嫁",
+            "": "",
+            "Main.Technique 召喚術": "Main.Technique 婚技",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": "\nNew Passive"
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "=IMAGE(\"http://i.imgur.com/klYqpyw.png\")",
+            "": "",
+            "Main.Technique 召喚術": "Name",
+            "Sub.Technique 基本召喚術": "Name",
+            "\nReactive Upgrade": "Name"
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "",
+            "": "",
+            "Main.Technique 召喚術": "English Name",
+            "Sub.Technique 基本召喚術": "English Name",
+            "\nReactive Upgrade": "English Name"
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "",
+            "": "",
+            "Main.Technique 召喚術": "Cost",
+            "Sub.Technique 基本召喚術": "Cost",
+            "\nReactive Upgrade": "Type"
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "",
+            "": "",
+            "Main.Technique 召喚術": "Scaling",
+            "Sub.Technique 基本召喚術": "Scaling",
+            "\nReactive Upgrade": "Level Learned"
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "",
+            "": "",
+            "Main.Technique 召喚術": "Range",
+            "Sub.Technique 基本召喚術": "Range",
+            "\nReactive Upgrade": "Effect"
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "Job Enchant: Eve / Freiz",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "",
+            "": "",
+            "Main.Technique 召喚術": "Area",
+            "Sub.Technique 基本召喚術": "Area",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "Job Changes",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "Job Enchant Icon",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "Job Scroll",
+            "": "",
+            "Main.Technique 召喚術": "Height",
+            "Sub.Technique 基本召喚術": "Height",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "",
+            "": "",
+            "Main.Technique 召喚術": "Cast Speed",
+            "Sub.Technique 基本召喚術": "Cast Speed",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "",
+            "": "",
+            "Main.Technique 召喚術": "Usage",
+            "Sub.Technique 基本召喚術": "Usage",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "Trait",
+            "": "",
+            "Main.Technique 召喚術": "Effect",
+            "Sub.Technique 基本召喚術": "Effect",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "Job Master [Enchant] Bonus",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "HP",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "PATK",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "DEX",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "AGI",
+            "": "",
+            "Main.Technique 召喚術": "",
+            "Sub.Technique 基本召喚術": "",
+            "\nReactive Upgrade": ""
+        },
+        {
+            "Summoner of Agartha\nアガルタの召喚師": "CRIT",
             "": "",
             "Main.Technique 召喚術": "",
             "Sub.Technique 基本召喚術": "",
@@ -41534,7 +41991,7 @@
             "Fighting Technique 戦技": ""
         },
         {
-            "Warrior (Bronze)\n戦士": "Bride & Groom\n花嫁＆花婿",
+            "Warrior (Bronze)\n戦士": "Bride & Groom / Lightning Bride\n花嫁＆花婿 / 電撃の花嫁",
             "": "",
             "Fighting Technique 戦技": "婚技／祝技"
         },
@@ -53007,7 +53464,7 @@
             "Magic 魔術": ""
         },
         {
-            "Mage (Bronze)\n魔道士": "Vanekiss' Job+ Icon",
+            "Mage (Bronze)\n魔道士": "Vanekiss' Job Change\n Icon",
             "": "",
             "Magic 魔術": ""
         },
@@ -97843,6 +98300,14 @@
             "Notes": ""
         },
         {
+            "INDEX": "2018-06-16T14:00:00.000Z",
+            "Compendium": "New Update",
+            "Reason": "Update",
+            "Units": "Moa\n\n\nZangetsu, Kazahaya",
+            "Jobs": "Twillight Raksashaa\n\n\nSoF: Senju",
+            "Notes": "New Unit: Moa\nhttps://al.fg-games.co.jp/news/22893/\n\nJE for Kazahaya and Zangetsu\n\nBride JE\nhttps://al.fg-games.co.jp/news/22901/\n\nLucretia Job Change\nhttps://al.fg-games.co.jp/news/22845/"
+        },
+        {
             "INDEX": "2018-06-09T14:00:00.000Z",
             "Compendium": "New Update",
             "Reason": "Update",
@@ -98899,7 +99364,7 @@
             "Element": "Thunder",
             "LeaderSkill": "All: 10%MagicDMG+",
             "Jobs": "Jobs: Thief\nシーフ\n・Mage\n魔道士\n・Enhancer\nエンハンサー",
-            "Job Change": "Sage[+]\n賢者[+]",
+            "Job Change": "\nNight Agent\nナイトエージェント",
             "Overall Tier": "",
             "Early Game": "",
             "Reasons": "",
@@ -100755,228 +101220,228 @@
             "icon url": "http://i.imgur.com/PEGx7Zg.png"
         },
         {
-            "Return to Index": "=Units!R[104]C[1]",
-            "Name": "=Units!R[104]C[1]",
-            "Rarity": "=Units!R[104]C[3]",
-            "Element": "=Units!R[104]C[3]",
-            "LeaderSkill": "=Units!R[104]C[3]",
+            "Return to Index": "=Units!R[105]C[1]",
+            "Name": "=Units!R[105]C[1]",
+            "Rarity": "=Units!R[105]C[3]",
+            "Element": "=Units!R[105]C[3]",
+            "LeaderSkill": "=Units!R[105]C[3]",
             "Jobs": "Jobs: \n・\n・",
-            "Job Change": "=Units!R[104]C[5]",
+            "Job Change": "=Units!R[105]C[5]",
             "Overall Tier": "",
             "Early Game": "",
             "Reasons": "",
-            "JP Name": "=Units!R[104]C[-7]",
-            "icon url": "=Units!R[104]C[16]"
+            "JP Name": "=Units!R[105]C[-7]",
+            "icon url": "=Units!R[105]C[16]"
         },
         {
-            "Return to Index": "=Units!R[104]C[1]",
-            "Name": "=Units!R[104]C[1]",
-            "Rarity": "=Units!R[104]C[3]",
-            "Element": "=Units!R[104]C[3]",
-            "LeaderSkill": "=Units!R[104]C[3]",
+            "Return to Index": "=Units!R[105]C[1]",
+            "Name": "=Units!R[105]C[1]",
+            "Rarity": "=Units!R[105]C[3]",
+            "Element": "=Units!R[105]C[3]",
+            "LeaderSkill": "=Units!R[105]C[3]",
             "Jobs": "Jobs: \n・\n・",
-            "Job Change": "=Units!R[104]C[5]",
+            "Job Change": "=Units!R[105]C[5]",
             "Overall Tier": "",
             "Early Game": "",
             "Reasons": "",
-            "JP Name": "=Units!R[104]C[-7]",
-            "icon url": "=Units!R[104]C[16]"
+            "JP Name": "=Units!R[105]C[-7]",
+            "icon url": "=Units!R[105]C[16]"
         },
         {
-            "Return to Index": "=Units!R[104]C[1]",
-            "Name": "=Units!R[104]C[1]",
-            "Rarity": "=Units!R[104]C[3]",
-            "Element": "=Units!R[104]C[3]",
-            "LeaderSkill": "=Units!R[104]C[3]",
+            "Return to Index": "=Units!R[105]C[1]",
+            "Name": "=Units!R[105]C[1]",
+            "Rarity": "=Units!R[105]C[3]",
+            "Element": "=Units!R[105]C[3]",
+            "LeaderSkill": "=Units!R[105]C[3]",
             "Jobs": "Jobs: \n・\n・",
-            "Job Change": "=Units!R[104]C[5]",
+            "Job Change": "=Units!R[105]C[5]",
             "Overall Tier": "",
             "Early Game": "",
             "Reasons": "",
-            "JP Name": "=Units!R[104]C[-7]",
-            "icon url": "=Units!R[104]C[16]"
+            "JP Name": "=Units!R[105]C[-7]",
+            "icon url": "=Units!R[105]C[16]"
         },
         {
-            "Return to Index": "=Units!R[104]C[1]",
-            "Name": "=Units!R[104]C[1]",
-            "Rarity": "=Units!R[104]C[3]",
-            "Element": "=Units!R[104]C[3]",
-            "LeaderSkill": "=Units!R[104]C[3]",
+            "Return to Index": "=Units!R[105]C[1]",
+            "Name": "=Units!R[105]C[1]",
+            "Rarity": "=Units!R[105]C[3]",
+            "Element": "=Units!R[105]C[3]",
+            "LeaderSkill": "=Units!R[105]C[3]",
             "Jobs": "Jobs: \n・\n・",
-            "Job Change": "=Units!R[104]C[5]",
+            "Job Change": "=Units!R[105]C[5]",
             "Overall Tier": "",
             "Early Game": "",
             "Reasons": "",
-            "JP Name": "=Units!R[104]C[-7]",
-            "icon url": "=Units!R[104]C[16]"
+            "JP Name": "=Units!R[105]C[-7]",
+            "icon url": "=Units!R[105]C[16]"
         },
         {
-            "Return to Index": "=Units!R[104]C[1]",
-            "Name": "=Units!R[104]C[1]",
-            "Rarity": "=Units!R[104]C[3]",
-            "Element": "=Units!R[104]C[3]",
-            "LeaderSkill": "=Units!R[104]C[3]",
+            "Return to Index": "=Units!R[105]C[1]",
+            "Name": "=Units!R[105]C[1]",
+            "Rarity": "=Units!R[105]C[3]",
+            "Element": "=Units!R[105]C[3]",
+            "LeaderSkill": "=Units!R[105]C[3]",
             "Jobs": "Jobs: \n・\n・",
-            "Job Change": "=Units!R[104]C[5]",
+            "Job Change": "=Units!R[105]C[5]",
             "Overall Tier": "",
             "Early Game": "",
             "Reasons": "",
-            "JP Name": "=Units!R[104]C[-7]",
-            "icon url": "=Units!R[104]C[16]"
+            "JP Name": "=Units!R[105]C[-7]",
+            "icon url": "=Units!R[105]C[16]"
         },
         {
-            "Return to Index": "=Units!R[104]C[1]",
-            "Name": "=Units!R[104]C[1]",
-            "Rarity": "=Units!R[104]C[3]",
-            "Element": "=Units!R[104]C[3]",
-            "LeaderSkill": "=Units!R[104]C[3]",
+            "Return to Index": "=Units!R[105]C[1]",
+            "Name": "=Units!R[105]C[1]",
+            "Rarity": "=Units!R[105]C[3]",
+            "Element": "=Units!R[105]C[3]",
+            "LeaderSkill": "=Units!R[105]C[3]",
             "Jobs": "Jobs: \n・\n・",
-            "Job Change": "=Units!R[104]C[5]",
+            "Job Change": "=Units!R[105]C[5]",
             "Overall Tier": "",
             "Early Game": "",
             "Reasons": "",
-            "JP Name": "=Units!R[104]C[-7]",
-            "icon url": "=Units!R[104]C[16]"
+            "JP Name": "=Units!R[105]C[-7]",
+            "icon url": "=Units!R[105]C[16]"
         },
         {
-            "Return to Index": "=Units!R[104]C[1]",
-            "Name": "=Units!R[104]C[1]",
-            "Rarity": "=Units!R[104]C[3]",
-            "Element": "=Units!R[104]C[3]",
-            "LeaderSkill": "=Units!R[104]C[3]",
+            "Return to Index": "=Units!R[105]C[1]",
+            "Name": "=Units!R[105]C[1]",
+            "Rarity": "=Units!R[105]C[3]",
+            "Element": "=Units!R[105]C[3]",
+            "LeaderSkill": "=Units!R[105]C[3]",
             "Jobs": "Jobs: \n・\n・",
-            "Job Change": "=Units!R[104]C[5]",
+            "Job Change": "=Units!R[105]C[5]",
             "Overall Tier": "",
             "Early Game": "",
             "Reasons": "",
-            "JP Name": "=Units!R[104]C[-7]",
-            "icon url": "=Units!R[104]C[16]"
+            "JP Name": "=Units!R[105]C[-7]",
+            "icon url": "=Units!R[105]C[16]"
         },
         {
-            "Return to Index": "=Units!R[104]C[1]",
-            "Name": "=Units!R[104]C[1]",
-            "Rarity": "=Units!R[104]C[3]",
-            "Element": "=Units!R[104]C[3]",
-            "LeaderSkill": "=Units!R[104]C[3]",
+            "Return to Index": "=Units!R[105]C[1]",
+            "Name": "=Units!R[105]C[1]",
+            "Rarity": "=Units!R[105]C[3]",
+            "Element": "=Units!R[105]C[3]",
+            "LeaderSkill": "=Units!R[105]C[3]",
             "Jobs": "Jobs: \n・\n・",
-            "Job Change": "=Units!R[104]C[5]",
+            "Job Change": "=Units!R[105]C[5]",
             "Overall Tier": "",
             "Early Game": "",
             "Reasons": "",
-            "JP Name": "=Units!R[104]C[-7]",
-            "icon url": "=Units!R[104]C[16]"
+            "JP Name": "=Units!R[105]C[-7]",
+            "icon url": "=Units!R[105]C[16]"
         },
         {
-            "Return to Index": "=Units!R[104]C[1]",
-            "Name": "=Units!R[104]C[1]",
-            "Rarity": "=Units!R[104]C[3]",
-            "Element": "=Units!R[104]C[3]",
-            "LeaderSkill": "=Units!R[104]C[3]",
+            "Return to Index": "=Units!R[105]C[1]",
+            "Name": "=Units!R[105]C[1]",
+            "Rarity": "=Units!R[105]C[3]",
+            "Element": "=Units!R[105]C[3]",
+            "LeaderSkill": "=Units!R[105]C[3]",
             "Jobs": "Jobs: \n・\n・",
-            "Job Change": "=Units!R[104]C[5]",
+            "Job Change": "=Units!R[105]C[5]",
             "Overall Tier": "",
             "Early Game": "",
             "Reasons": "",
-            "JP Name": "=Units!R[104]C[-7]",
-            "icon url": "=Units!R[104]C[16]"
+            "JP Name": "=Units!R[105]C[-7]",
+            "icon url": "=Units!R[105]C[16]"
         },
         {
-            "Return to Index": "=Units!R[104]C[1]",
-            "Name": "=Units!R[104]C[1]",
-            "Rarity": "=Units!R[104]C[3]",
-            "Element": "=Units!R[104]C[3]",
-            "LeaderSkill": "=Units!R[104]C[3]",
+            "Return to Index": "=Units!R[105]C[1]",
+            "Name": "=Units!R[105]C[1]",
+            "Rarity": "=Units!R[105]C[3]",
+            "Element": "=Units!R[105]C[3]",
+            "LeaderSkill": "=Units!R[105]C[3]",
             "Jobs": "Jobs: \n・\n・",
-            "Job Change": "=Units!R[104]C[5]",
+            "Job Change": "=Units!R[105]C[5]",
             "Overall Tier": "",
             "Early Game": "",
             "Reasons": "",
-            "JP Name": "=Units!R[104]C[-7]",
-            "icon url": "=Units!R[104]C[16]"
+            "JP Name": "=Units!R[105]C[-7]",
+            "icon url": "=Units!R[105]C[16]"
         },
         {
-            "Return to Index": "=Units!R[104]C[1]",
-            "Name": "=Units!R[104]C[1]",
-            "Rarity": "=Units!R[104]C[3]",
-            "Element": "=Units!R[104]C[3]",
-            "LeaderSkill": "=Units!R[104]C[3]",
+            "Return to Index": "=Units!R[105]C[1]",
+            "Name": "=Units!R[105]C[1]",
+            "Rarity": "=Units!R[105]C[3]",
+            "Element": "=Units!R[105]C[3]",
+            "LeaderSkill": "=Units!R[105]C[3]",
             "Jobs": "Jobs: \n・\n・",
-            "Job Change": "=Units!R[104]C[5]",
+            "Job Change": "=Units!R[105]C[5]",
             "Overall Tier": "",
             "Early Game": "",
             "Reasons": "",
-            "JP Name": "=Units!R[104]C[-7]",
-            "icon url": "=Units!R[104]C[16]"
+            "JP Name": "=Units!R[105]C[-7]",
+            "icon url": "=Units!R[105]C[16]"
         },
         {
-            "Return to Index": "=Units!R[104]C[1]",
-            "Name": "=Units!R[104]C[1]",
-            "Rarity": "=Units!R[104]C[3]",
-            "Element": "=Units!R[104]C[3]",
-            "LeaderSkill": "=Units!R[104]C[3]",
+            "Return to Index": "=Units!R[105]C[1]",
+            "Name": "=Units!R[105]C[1]",
+            "Rarity": "=Units!R[105]C[3]",
+            "Element": "=Units!R[105]C[3]",
+            "LeaderSkill": "=Units!R[105]C[3]",
             "Jobs": "Jobs: \n・\n・",
-            "Job Change": "=Units!R[104]C[5]",
+            "Job Change": "=Units!R[105]C[5]",
             "Overall Tier": "",
             "Early Game": "",
             "Reasons": "",
-            "JP Name": "=Units!R[104]C[-7]",
-            "icon url": "=Units!R[104]C[16]"
+            "JP Name": "=Units!R[105]C[-7]",
+            "icon url": "=Units!R[105]C[16]"
         },
         {
-            "Return to Index": "=Units!R[104]C[1]",
-            "Name": "=Units!R[104]C[1]",
-            "Rarity": "=Units!R[104]C[3]",
-            "Element": "=Units!R[104]C[3]",
-            "LeaderSkill": "=Units!R[104]C[3]",
+            "Return to Index": "=Units!R[105]C[1]",
+            "Name": "=Units!R[105]C[1]",
+            "Rarity": "=Units!R[105]C[3]",
+            "Element": "=Units!R[105]C[3]",
+            "LeaderSkill": "=Units!R[105]C[3]",
             "Jobs": "Jobs: \n・\n・",
-            "Job Change": "=Units!R[104]C[5]",
+            "Job Change": "=Units!R[105]C[5]",
             "Overall Tier": "",
             "Early Game": "",
             "Reasons": "",
-            "JP Name": "=Units!R[104]C[-7]",
-            "icon url": "=Units!R[104]C[16]"
+            "JP Name": "=Units!R[105]C[-7]",
+            "icon url": "=Units!R[105]C[16]"
         },
         {
-            "Return to Index": "=Units!R[104]C[1]",
-            "Name": "=Units!R[104]C[1]",
-            "Rarity": "=Units!R[104]C[3]",
-            "Element": "=Units!R[104]C[3]",
-            "LeaderSkill": "=Units!R[104]C[3]",
+            "Return to Index": "=Units!R[105]C[1]",
+            "Name": "=Units!R[105]C[1]",
+            "Rarity": "=Units!R[105]C[3]",
+            "Element": "=Units!R[105]C[3]",
+            "LeaderSkill": "=Units!R[105]C[3]",
             "Jobs": "Jobs: \n・\n・",
-            "Job Change": "=Units!R[104]C[5]",
+            "Job Change": "=Units!R[105]C[5]",
             "Overall Tier": "",
             "Early Game": "",
             "Reasons": "",
-            "JP Name": "=Units!R[104]C[-7]",
-            "icon url": "=Units!R[104]C[16]"
+            "JP Name": "=Units!R[105]C[-7]",
+            "icon url": "=Units!R[105]C[16]"
         },
         {
-            "Return to Index": "=Units!R[104]C[1]",
-            "Name": "=Units!R[104]C[1]",
-            "Rarity": "=Units!R[104]C[3]",
-            "Element": "=Units!R[104]C[3]",
-            "LeaderSkill": "=Units!R[104]C[3]",
+            "Return to Index": "=Units!R[105]C[1]",
+            "Name": "=Units!R[105]C[1]",
+            "Rarity": "=Units!R[105]C[3]",
+            "Element": "=Units!R[105]C[3]",
+            "LeaderSkill": "=Units!R[105]C[3]",
             "Jobs": "Jobs: \n・\n・",
-            "Job Change": "=Units!R[104]C[5]",
+            "Job Change": "=Units!R[105]C[5]",
             "Overall Tier": "",
             "Early Game": "",
             "Reasons": "",
-            "JP Name": "=Units!R[104]C[-7]",
-            "icon url": "=Units!R[104]C[16]"
+            "JP Name": "=Units!R[105]C[-7]",
+            "icon url": "=Units!R[105]C[16]"
         },
         {
-            "Return to Index": "=Units!R[104]C[1]",
-            "Name": "=Units!R[104]C[1]",
-            "Rarity": "=Units!R[104]C[3]",
-            "Element": "=Units!R[104]C[3]",
-            "LeaderSkill": "=Units!R[104]C[3]",
+            "Return to Index": "=Units!R[105]C[1]",
+            "Name": "=Units!R[105]C[1]",
+            "Rarity": "=Units!R[105]C[3]",
+            "Element": "=Units!R[105]C[3]",
+            "LeaderSkill": "=Units!R[105]C[3]",
             "Jobs": "Jobs: \n・\n・",
-            "Job Change": "=Units!R[104]C[5]",
+            "Job Change": "=Units!R[105]C[5]",
             "Overall Tier": "",
             "Early Game": "",
             "Reasons": "",
-            "JP Name": "=Units!R[104]C[-7]",
-            "icon url": "=Units!R[104]C[16]"
+            "JP Name": "=Units!R[105]C[-7]",
+            "icon url": "=Units!R[105]C[16]"
         }
     ],
     "Gem Bonus": [

@@ -1,6 +1,6 @@
 from __future__ import absolute_import
 from .model import Model
-
+from .settings import FOOTER_URL 
 
 class Unit(Model):
     MAX_JOB_COUNT = 3
@@ -21,8 +21,9 @@ class Unit(Model):
     def to_embed(self, title_key='name', thumbnail_key='icon', url_key='link', fields=[]):
         embed = super(Unit, self).to_embed(
             title_key=title_key, thumbnail_key=thumbnail_key, url_key=url_key, fields=fields
-        )
+            )
         embed.color = Unit.ELEMENT_COLOR.get(self.element, Unit.DEFAULT_ELEMENT_COLOR)
+        embed.set_footer(text='ᴶ - japan only', icon_url=FOOTER_URL['UNIT'])
 
         return embed
 
@@ -70,7 +71,6 @@ class Unit(Model):
             })
 
         embed = self.to_embed(fields=fields)
-        embed.set_footer(text='ᴶ - japan only', icon_url='')
 
         if 'total' in self.tierlist:
             embed.title += " [{tier}]".format(tier=self.tierlist.get('total'))
@@ -101,3 +101,54 @@ class Unit(Model):
             embeds.append(embed)
 
         return embeds
+
+    def to_unit_job_embed(self,job):
+        _IGNORE_STATS = ['move', 'jump']
+
+        #modifiers
+        modifiers = [
+            "{key}: {value}%".format(key=key, value=value)
+            for key, value in job.modifiers.items()
+            if value != 0
+            ]
+
+        #stats
+        #combine stats
+        rstats={}
+        rstats.update(getattr(self,'stats'))
+        for key, value in job.stats.items():
+            if key.lower() not in _IGNORE_STATS:
+                if key in rstats:
+                    rstats[key] += value
+                else:
+                    rstats[key] = value
+
+        #multiply with modifiers
+        for key, value in job.modifiers.items():
+            if key in rstats:
+                rstats[key] = int(rstats[key]*(value+100)/100)
+            elif key=='Initial Jewels':
+                rstats[key] = int(rstats['Max Jewels']*(value)/100)
+                
+
+        #transform to output
+        stats = [
+            "{key}: {value}".format(key=key, value=value)
+            for key, value in rstats.items()
+        ]
+        
+        fields = [
+            {'name': 'Job',         'value': job.name,                          'inline': False},
+            {'name': 'description', 'value': getattr(job, 'long description'),  'inline': False},
+            {'name': 'formula',     'value': getattr(job, 'formula'),           'inline': False},
+            {'name': 'weapon',      'value': getattr(job, 'weapon')},
+            {'name': 'origin',      'value': getattr(job, 'origin')},
+            {'name': 'move',        'value': job.stats['Move']},
+            {'name': 'jump',        'value': job.stats['Jump']},
+            {'name': 'modifiers',   'value': '\n'.join(modifiers)},
+            {'name': 'max stats (modifiers applied)', 'value': '\n'.join(stats)},
+        ]
+
+        embed = self.to_embed(fields=fields)
+
+        return embed

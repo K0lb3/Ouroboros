@@ -13532,7 +13532,7 @@
     "JB_STRB_SHINE": {
         "iname": "JB_STRB_SHINE",
         "name": "Desert Inferno: SHINEᴶ",
-        "japan": "",
+        "japan": "Twillight Rakshasa\n暁光羅刹",
         "kanji": "暁光羅刹",
         "short description": "",
         "long description": "",
@@ -13593,7 +13593,10 @@
         "inputs": [
             "More",
             "More Desert Inferno: SHINE",
-            "Desert Inferno: SHINE"
+            "Desert Inferno: SHINE",
+            "More",
+            "More Twillight Rakshasa",
+            "Twillight Rakshasa"
         ]
     },
     "JB_KUDH_LAN2": {
@@ -14221,7 +14224,7 @@
     "JB_VANE_DAI": {
         "iname": "JB_VANE_DAI",
         "name": "Sage+",
-        "japan": "Sage[+]\n賢者[+]",
+        "japan": "\nNight Agent\nナイトエージェント",
         "kanji": "賢者＋",
         "short description": "",
         "long description": "",
@@ -14285,8 +14288,8 @@
         "inputs": [
             "Vanekis",
             "Vanekis Sage+",
-            "Vanekis Sage[+]",
-            "Sage[+]"
+            "Vanekis",
+            "Vanekis "
         ]
     },
     "JB_POLLIN_BAR": {
@@ -15822,7 +15825,7 @@
     "JB_LUCRE_WED_F": {
         "iname": "JB_LUCRE_WED_F",
         "name": "Lucre Wed Fᴶ",
-        "japan": "N/A",
+        "japan": "Lightning Bride\n電撃の花嫁",
         "kanji": "電撃の花嫁",
         "short description": "",
         "long description": "",
@@ -15887,8 +15890,8 @@
             "Lucretia Lucre Wed F",
             "Lucre Wed F",
             "Lucretia",
-            "Lucretia N/A",
-            "N/A"
+            "Lucretia Lightning Bride",
+            "Lightning Bride"
         ]
     },
     "JB_CADA_GUA_CC": {
@@ -18874,7 +18877,7 @@
     "JB_WOR_TITAN": {
         "iname": "JB_WOR_TITAN",
         "name": "Warrior : Titanᴶ",
-        "japan": "",
+        "japan": "Axe Warrior: Titan\nウォーリア【ティターン】",
         "kanji": "ウォーリア【ティターン】",
         "short description": "water nuke",
         "long description": "water nuke",
@@ -18934,7 +18937,8 @@
         "formula": "140% PATK",
         "link": "http://www.alchemistcodedb.com/jp/unit/more#ウォーリア【ティターン】",
         "inputs": [
-            "Warrior : Titan"
+            "Warrior : Titan",
+            "Axe Warrior: Titan"
         ]
     },
     "JB_SNI_LONG_RANGE": {
@@ -21738,7 +21742,7 @@
     "JB_FIRE_WED_M": {
         "iname": "JB_FIRE_WED_M",
         "name": "Fire Wed Mᴶ",
-        "japan": "N/A",
+        "japan": "Passionate Bride\n情熱の花嫁",
         "kanji": "情熱の花婿",
         "short description": "",
         "long description": "",
@@ -21802,13 +21806,14 @@
             "Veloz Fire Wed M",
             "Fire Wed M",
             "Veloz",
-            "Veloz N/A"
+            "Veloz Passionate Bride",
+            "Passionate Bride"
         ]
     },
     "JB_SHINE_WED_M": {
         "iname": "JB_SHINE_WED_M",
         "name": "Shine Wed Mᴶ",
-        "japan": "N/A",
+        "japan": "Pure White Bride\n純白の花嫁",
         "kanji": "純白の花婿",
         "short description": "",
         "long description": "",
@@ -21872,13 +21877,14 @@
             "Fraise Shine Wed M",
             "Shine Wed M",
             "Fraise",
-            "Fraise N/A"
+            "Fraise Pure White Bride",
+            "Pure White Bride"
         ]
     },
     "JB_SHINE_WED_F": {
         "iname": "JB_SHINE_WED_F",
         "name": "Shine Wed Fᴶ",
-        "japan": "N/A",
+        "japan": "Pure White Bride\n純白の花嫁",
         "kanji": "純白の花嫁",
         "short description": "",
         "long description": "",
@@ -21942,7 +21948,7 @@
             "Eve Shine Wed F",
             "Shine Wed F",
             "Eve",
-            "Eve N/A"
+            "Eve Pure White Bride"
         ]
     }
 }

@@ -2,7 +2,6 @@ from __future__ import absolute_import
 from abc import ABC
 from discord.message import Embed
 
-
 class Model(ABC):
     def __init__(self, source):
         self._source = source
