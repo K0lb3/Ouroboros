@@ -16,17 +16,21 @@ def master_ability(unit,cMaster,loc):
     
     return text
 
+
+
+
+
 def add_tierlist(units):
     [tierlist]=loadFiles(['tierlist_gl.json'])
     #convert tierlist
     tierlist=tierlist['Tier List']
 
-    rating=["","D","C","B","A","S","SS"]
+    rating=["","D","D/C","C","C/B","B","B/A","A","A/S","S","S/SS","SS"]
 
     tl={}
     for row in range(1,len(tierlist)):
-        for i in range(0,4):
-            j=i*7
+        for i in range(0,6):
+            j=i*6+1
             tl[tierlist[row][j]]={
                 'job 1' : tierlist[row][j+1],
                 'job 2' : tierlist[row][j+2],

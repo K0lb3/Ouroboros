@@ -76,7 +76,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/logi_grow_logi.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/logi_grow_logi-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "C",
+            "job 3": "",
+            "total": "S",
+            "jc 2": "S"
+        }
     },
     "UN_V2_DIOS": {
         "iname": "UN_V2_DIOS",
@@ -155,7 +162,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/dios_grow_dios.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/dios_grow_dios-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "B",
+            "job 3": "",
+            "jc": "",
+            "total": "B"
+        }
     },
     "UN_V2_EDGAR": {
         "iname": "UN_V2_EDGAR",
@@ -229,7 +243,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/edga.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/edga-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "C",
+            "job 3": "",
+            "jc": "",
+            "total": "C"
+        }
     },
     "UN_V2_LIESBET": {
         "iname": "UN_V2_LIESBET",
@@ -662,7 +683,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/luci.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/luci-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "D",
+            "jc": "",
+            "total": "D"
+        }
     },
     "UN_V2_RIGARUTO": {
         "iname": "UN_V2_RIGARUTO",
@@ -739,7 +767,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/riga.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/riga-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "C",
+            "jc": "",
+            "total": "C"
+        }
     },
     "UN_V2_RINN": {
         "iname": "UN_V2_RINN",
@@ -894,7 +929,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/gain.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/gain-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "D",
+            "jc": "",
+            "total": "D"
+        }
     },
     "UN_V2_ALEXIS": {
         "iname": "UN_V2_ALEXIS",
@@ -1058,7 +1100,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/poll_vale.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/poll_vale-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "D",
+            "job 3": "D",
+            "total": "A",
+            "jc 1": "A"
+        }
     },
     "UN_V2_ANJOU": {
         "iname": "UN_V2_ANJOU",
@@ -1131,7 +1180,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/anjo.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/anjo-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "D",
+            "job 3": "C",
+            "jc": "",
+            "total": "C"
+        }
     },
     "UN_V2_MEILY": {
         "iname": "UN_V2_MEILY",
@@ -1207,7 +1263,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/meil.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/meil-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "C",
+            "jc": "",
+            "total": "C"
+        }
     },
     "UN_V2_ALFRED": {
         "iname": "UN_V2_ALFRED",
@@ -1282,7 +1345,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/alfr.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/alfr-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "C",
+            "job 3": "D",
+            "jc": "",
+            "total": "C"
+        }
     },
     "UN_V2_MELIA": {
         "iname": "UN_V2_MELIA",
@@ -1359,7 +1429,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/meli.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/meli-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "C",
+            "job 3": "D",
+            "jc": "",
+            "total": "C"
+        }
     },
     "UN_V2_RUNBELL": {
         "iname": "UN_V2_RUNBELL",
@@ -1436,7 +1513,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/runb.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/runb-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "D",
+            "jc": "",
+            "total": "D"
+        }
     },
     "UN_V2_GATH": {
         "iname": "UN_V2_GATH",
@@ -1588,7 +1672,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/hazu.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/hazu-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "B",
+            "job 3": "B",
+            "jc": "",
+            "total": "B"
+        }
     },
     "UN_V2_JAKE": {
         "iname": "UN_V2_JAKE",
@@ -1657,7 +1748,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/jake.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/jake-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "C",
+            "job 3": "D",
+            "jc": "",
+            "total": "C"
+        }
     },
     "UN_V2_RICHE": {
         "iname": "UN_V2_RICHE",
@@ -1728,7 +1826,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/rich.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/rich-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "D",
+            "jc": "",
+            "total": "D"
+        }
     },
     "UN_V2_ELAINE": {
         "iname": "UN_V2_ELAINE",
@@ -1879,7 +1984,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/vane_marr.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/vane_marr-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "C",
+            "jc": "",
+            "total": "C"
+        }
     },
     "UN_V2_AMIS": {
         "iname": "UN_V2_AMIS",
@@ -1948,7 +2060,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/amis.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/amis-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "C",
+            "job 3": "C",
+            "jc": "",
+            "total": "C"
+        }
     },
     "UN_V2_ISHUNA": {
         "iname": "UN_V2_ISHUNA",
@@ -2024,7 +2143,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/ishu.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/ishu-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        }
     },
     "UN_V2_MIZUCHI": {
         "iname": "UN_V2_MIZUCHI",
@@ -2169,7 +2295,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/kaza.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/kaza-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "A",
+            "job 3": "B",
+            "jc": "",
+            "total": "A"
+        }
     },
     "UN_V2_CIEL": {
         "iname": "UN_V2_CIEL",
@@ -2241,7 +2374,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/ciel.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/ciel-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "C",
+            "jc": "",
+            "total": "C"
+        }
     },
     "UN_V2_YUAN": {
         "iname": "UN_V2_YUAN",
@@ -2308,7 +2448,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/yuan.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/yuan-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "B",
+            "jc": "",
+            "total": "B"
+        }
     },
     "UN_V2_DECEL": {
         "iname": "UN_V2_DECEL",
@@ -2377,7 +2524,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/dece.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/dece-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "D",
+            "jc": "",
+            "total": "D"
+        }
     },
     "UN_V2_ENNIS": {
         "iname": "UN_V2_ENNIS",
@@ -2523,7 +2677,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/anne.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/anne-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "C",
+            "jc": "",
+            "total": "C"
+        }
     },
     "UN_V2_GAYN": {
         "iname": "UN_V2_GAYN",
@@ -2820,7 +2981,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/rion.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/rion-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "D",
+            "job 3": "C",
+            "jc": "",
+            "total": "C"
+        }
     },
     "UN_V2_PATTI": {
         "iname": "UN_V2_PATTI",
@@ -2890,7 +3058,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/patt.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/patt-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "C",
+            "job 3": "C",
+            "jc": "",
+            "total": "C"
+        }
     },
     "UN_V2_ALMILA": {
         "iname": "UN_V2_ALMILA",
@@ -2964,7 +3139,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/almi_swim.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/almi_swim-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "C",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        }
     },
     "UN_V2_MICHAEL": {
         "iname": "UN_V2_MICHAEL",
@@ -3115,7 +3297,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/arki.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/arki-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "B",
+            "job 2": "B",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        }
     },
     "UN_V2_KUON": {
         "iname": "UN_V2_KUON",
@@ -3184,7 +3373,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/kuon.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/kuon-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "D",
+            "jc": "",
+            "total": "D"
+        }
     },
     "UN_V2_MIANNU": {
         "iname": "UN_V2_MIANNU",
@@ -3252,7 +3448,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/mian.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/mian-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "C",
+            "jc": "",
+            "total": "C"
+        }
     },
     "UN_V2_MARE": {
         "iname": "UN_V2_MARE",
@@ -3333,7 +3536,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/mare_babel.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/mare_babel-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "C",
+            "job 3": "C",
+            "jc": "",
+            "total": "C"
+        }
     },
     "UN_V2_CELINE": {
         "iname": "UN_V2_CELINE",
@@ -3403,7 +3613,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/celi.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/celi-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "B",
+            "job 3": "B",
+            "jc": "",
+            "total": "B"
+        }
     },
     "UN_V2_FREED": {
         "iname": "UN_V2_FREED",
@@ -3476,11 +3693,11 @@
             }
         ],
         "tierlist": {
-            "job 1": "Mianne",
-            "job 2": "D",
-            "job 3": "D",
-            "jc": "C",
-            "total": "C"
+            "job 1": "D",
+            "job 2": "A",
+            "job 3": "B",
+            "jc": "",
+            "total": "A"
         }
     },
     "UN_V2_DILGA": {
@@ -3555,7 +3772,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/dilg_swim.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/dilg_swim-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "A",
+            "job 3": "C",
+            "total": "A",
+            "jc 3": "A"
+        }
     },
     "UN_V2_SUTORIE": {
         "iname": "UN_V2_SUTORIE",
@@ -3625,7 +3849,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/suto.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/suto-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "B",
+            "job 2": "C",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        }
     },
     "UN_V2_CHIHAYA": {
         "iname": "UN_V2_CHIHAYA",
@@ -3700,7 +3931,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/chih_newy.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/chih_newy-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "C",
+            "job 3": "A",
+            "total": "S",
+            "jc 1": "S"
+        }
     },
     "UN_V2_ROFIA": {
         "iname": "UN_V2_ROFIA",
@@ -3930,7 +4168,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/zang.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/zang-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "B",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        }
     },
     "UN_V2_MEGISTOS": {
         "iname": "UN_V2_MEGISTOS",
@@ -3999,7 +4244,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/megi.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/megi-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "C",
+            "job 3": "C",
+            "jc": "",
+            "total": "C"
+        }
     },
     "UN_V2_LUCIA": {
         "iname": "UN_V2_LUCIA",
@@ -4075,7 +4327,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/luca_batl.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/luca_batl-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "A",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        }
     },
     "UN_V2_CHALICE": {
         "iname": "UN_V2_CHALICE",
@@ -4151,7 +4410,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/chal_swim.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/chal_swim-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "C",
+            "job 3": "S",
+            "total": "S",
+            "jc 3": "S"
+        }
     },
     "UN_V2_RAHU": {
         "iname": "UN_V2_RAHU",
@@ -4227,7 +4493,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/rahu_vale.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/rahu_vale-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "A",
+            "job 3": "S",
+            "total": "SS",
+            "jc 1": "SS"
+        }
     },
     "UN_V2_ANASTASIA": {
         "iname": "UN_V2_ANASTASIA",
@@ -4302,7 +4575,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/anas_newy.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/anas_newy-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "C",
+            "job 3": "B",
+            "total": "S",
+            "jc 3": "S"
+        }
     },
     "UN_V2_ZAHAR": {
         "iname": "UN_V2_ZAHAR",
@@ -4377,7 +4657,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/saha_babel.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/saha_babel-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "B",
+            "job 3": "B/A",
+            "jc": "",
+            "total": "B/A"
+        }
     },
     "UN_V2_CLOE": {
         "iname": "UN_V2_CLOE",
@@ -4462,7 +4749,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/cloe_babel.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/cloe_babel-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "C",
+            "job 3": "B/A",
+            "jc": "",
+            "total": "B/A"
+        }
     },
     "UN_V2_YOMI": {
         "iname": "UN_V2_YOMI",
@@ -4536,7 +4830,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/yomi_swim.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/yomi_swim-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "B",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        }
     },
     "UN_V2_VETTEL": {
         "iname": "UN_V2_VETTEL",
@@ -4616,7 +4917,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/vett_babel.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/vett_babel-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "S/SS",
+            "job 3": "B",
+            "jc": "",
+            "total": "S/SS"
+        }
     },
     "UN_V2_TYRHUNG": {
         "iname": "UN_V2_TYRHUNG",
@@ -4690,7 +4998,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/tyrh_swim.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/tyrh_swim-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "C",
+            "job 3": "B",
+            "jc": "",
+            "total": "B"
+        }
     },
     "UN_V2_LAEVATEINN": {
         "iname": "UN_V2_LAEVATEINN",
@@ -4764,7 +5079,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/laev_swim.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/laev_swim-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "B",
+            "job 3": "S",
+            "total": "S",
+            "jc 3": "S"
+        }
     },
     "UN_V2_VARGAS": {
         "iname": "UN_V2_VARGAS",
@@ -4833,7 +5155,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/varg.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/varg-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "C",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        }
     },
     "UN_V2_SELENA": {
         "iname": "UN_V2_SELENA",
@@ -4989,7 +5318,7 @@
             "job 2": "B",
             "job 3": "B",
             "jc": "",
-            "total": "B"
+            "total": "B/A"
         }
     },
     "UN_V2_MAGNUS": {
@@ -5064,7 +5393,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/magn_hall.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/magn_hall-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "S",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        }
     },
     "UN_V2_FLAMEL": {
         "iname": "UN_V2_FLAMEL",
@@ -5133,7 +5469,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/flam.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/flam-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "A",
+            "job 3": "B",
+            "total": "S",
+            "jc 3": "S"
+        }
     },
     "UN_V2_BALT": {
         "iname": "UN_V2_BALT",
@@ -5206,7 +5549,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/balt_babel.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/balt_babel-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "B",
+            "job 2": "A",
+            "job 3": "S",
+            "total": "SS",
+            "jc 1": "SS"
+        }
     },
     "UN_V2_MIELIKKI": {
         "iname": "UN_V2_MIELIKKI",
@@ -5279,7 +5629,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/miel_swim.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/miel_swim-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "C",
+            "job 3": "C",
+            "jc": "",
+            "total": "C"
+        }
     },
     "UN_V2_MERDA": {
         "iname": "UN_V2_MERDA",
@@ -5349,7 +5706,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/merd.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/merd-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "A",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        }
     },
     "UN_V2_RETZIUS": {
         "iname": "UN_V2_RETZIUS",
@@ -5416,7 +5780,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/retz.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/retz-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "C",
+            "job 3": "B",
+            "jc": "",
+            "total": "B"
+        }
     },
     "UN_V2_SABALETA": {
         "iname": "UN_V2_SABALETA",
@@ -5483,7 +5854,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/saba.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/saba-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "D",
+            "job 3": "C",
+            "jc": "",
+            "total": "A"
+        }
     },
     "UN_V2_REGEN": {
         "iname": "UN_V2_REGEN",
@@ -5636,7 +6014,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/rosa_xmas.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/rosa_xmas-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "S",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        }
     },
     "UN_V2_EVE": {
         "iname": "UN_V2_EVE",
@@ -5708,7 +6093,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/eve_vale.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/eve_vale-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "B",
+            "job 2": "A",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        }
     },
     "UN_V2_FRAISE": {
         "iname": "UN_V2_FRAISE",
@@ -5776,7 +6168,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/frai.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/frai-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "B",
+            "job 2": "B",
+            "job 3": "B",
+            "jc": "",
+            "total": "B"
+        }
     },
     "UN_V2_HAYATE": {
         "iname": "UN_V2_HAYATE",
@@ -5850,7 +6249,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/haya_hall.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/haya_hall-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "A",
+            "job 3": "C",
+            "jc": "",
+            "total": "A"
+        }
     },
     "UN_V2_VELOZ": {
         "iname": "UN_V2_VELOZ",
@@ -5918,7 +6324,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/velo.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/velo-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "C",
+            "job 3": "B",
+            "jc": "",
+            "total": "B"
+        }
     },
     "UN_V2_LUCRETIA": {
         "iname": "UN_V2_LUCRETIA",
@@ -5985,7 +6398,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/lucr.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/lucr-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "C",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        }
     },
     "UN_V2_SUZUKA": {
         "iname": "UN_V2_SUZUKA",
@@ -6064,7 +6484,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/suzu_s_cute.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/suzu_s_cute-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "B",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        }
     },
     "UN_V2_CANON": {
         "iname": "UN_V2_CANON",
@@ -6136,7 +6563,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/cano_3s_cano.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/cano_3s_cano-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "A",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        }
     },
     "UN_V2_CADANOVA": {
         "iname": "UN_V2_CADANOVA",
@@ -6206,7 +6640,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/cada.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/cada-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "B",
+            "job 2": "B",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        }
     },
     "UN_V2_FUNGLIU": {
         "iname": "UN_V2_FUNGLIU",
@@ -6358,7 +6799,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/ryle_babel.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/ryle_babel-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "B",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        }
     },
     "UN_V2_ALBELL": {
         "iname": "UN_V2_ALBELL",
@@ -6433,7 +6881,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/albe_vale.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/albe_vale-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "B",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        }
     },
     "UN_V2_SHAYNA": {
         "iname": "UN_V2_SHAYNA",
@@ -6583,7 +7038,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/reim.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/reim-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "A",
+            "job 3": "B",
+            "jc": "",
+            "total": "A"
+        }
     },
     "UN_V2_SOLEIL": {
         "iname": "UN_V2_SOLEIL",
@@ -6652,7 +7114,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/sole.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/sole-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "A",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        }
     },
     "UN_V2_MILIS": {
         "iname": "UN_V2_MILIS",
@@ -6720,7 +7189,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/mili.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/mili-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "A",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        }
     },
     "UN_V2_KYUUBI": {
         "iname": "UN_V2_KYUUBI",
@@ -6995,7 +7471,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/kura.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/kura-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "A",
+            "job 3": "B",
+            "jc": "",
+            "total": "S"
+        }
     },
     "UN_V2_KAGURA": {
         "iname": "UN_V2_KAGURA",
@@ -7067,7 +7550,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/kagu_grow_kagu.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/kagu_grow_kagu-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "B",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        }
     },
     "UN_V2_KUDHANSTEIN": {
         "iname": "UN_V2_KUDHANSTEIN",
@@ -7142,7 +7632,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/kudh_dark_kudh.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/kudh_dark_kudh-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "S",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        }
     },
     "UN_V2_FENCER": {
         "iname": "UN_V2_FENCER",
@@ -7492,7 +7989,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/gorm_swim.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/gorm_swim-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "C",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        }
     },
     "UN_V2_SHEHERAZADE": {
         "iname": "UN_V2_SHEHERAZADE",
@@ -7632,7 +8136,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/seda.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/seda-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "C",
+            "job 3": "B",
+            "jc": "",
+            "total": "S"
+        }
     },
     "UN_V2_MONZEIN": {
         "iname": "UN_V2_MONZEIN",
@@ -7701,7 +8212,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/monz.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/monz-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "C",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        }
     },
     "UN_V2_SPICA": {
         "iname": "UN_V2_SPICA",
@@ -7780,7 +8298,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/spic_babel.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/spic_babel-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "B",
+            "job 2": "A",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        }
     },
     "UN_V2_VINCENT": {
         "iname": "UN_V2_VINCENT",
@@ -7849,7 +8374,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/vinc.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/vinc-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "C",
+            "job 3": "B",
+            "jc": "",
+            "total": "A"
+        }
     },
     "UN_V2_DENEB": {
         "iname": "UN_V2_DENEB",
@@ -7918,7 +8450,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/dene.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/dene-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "B",
+            "job 2": "B",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        }
     },
     "UN_V2_GLANZ": {
         "iname": "UN_V2_GLANZ",
@@ -7993,7 +8532,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/glan_swim.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/glan_swim-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "S",
+            "job 3": "B",
+            "jc": "",
+            "total": "S"
+        }
     },
     "UN_V2_PERIDOT": {
         "iname": "UN_V2_PERIDOT",
@@ -8060,7 +8606,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/peri.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/peri-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "D",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        }
     },
     "UN_V2_YAULAS": {
         "iname": "UN_V2_YAULAS",
@@ -8210,7 +8763,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/zayi.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/zayi-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "SS",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        }
     },
     "UN_V2_LUPINUS": {
         "iname": "UN_V2_LUPINUS",
@@ -8279,7 +8839,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/lupi.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/lupi-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "A",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        }
     },
     "UN_V2_VICTOR": {
         "iname": "UN_V2_VICTOR",
@@ -8353,7 +8920,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/vict_babel.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/vict_babel-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "B",
+            "job 2": "B",
+            "job 3": "B",
+            "jc": "",
+            "total": "B"
+        }
     },
     "UN_V2_OTHIMA": {
         "iname": "UN_V2_OTHIMA",
@@ -8500,7 +9074,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/arub.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/arub-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "A",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        }
     },
     "UN_V2_CHIRURU": {
         "iname": "UN_V2_CHIRURU",
@@ -8643,7 +9224,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/shek_maid.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/shek_maid-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "A",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        }
     },
     "UN_V2_SITA": {
         "iname": "UN_V2_SITA",
@@ -8713,7 +9301,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/sita.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/sita-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "A",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        }
     },
     "UN_V2_MASAMUNE": {
         "iname": "UN_V2_MASAMUNE",
@@ -8782,7 +9377,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/masa.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/masa-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "B",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        }
     },
     "UN_V2_TEONA": {
         "iname": "UN_V2_TEONA",
@@ -8857,7 +9459,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/teon_swim.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/teon_swim-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "C",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        }
     },
     "UN_V2_RAMESES": {
         "iname": "UN_V2_RAMESES",
@@ -8927,7 +9536,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/rame.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/rame-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "S",
+            "job 3": "A",
+            "jc": "",
+            "total": "S"
+        }
     },
     "UN_V2_DOROTHEA": {
         "iname": "UN_V2_DOROTHEA",
@@ -8997,7 +9613,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/doro.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/doro-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "S",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        }
     },
     "UN_V2_REIDA": {
         "iname": "UN_V2_REIDA",
@@ -9068,7 +9691,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/reid.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/reid-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "S",
+            "job 3": "A",
+            "jc": "",
+            "total": "S"
+        }
     },
     "UN_V2_ERURIKE": {
         "iname": "UN_V2_ERURIKE",
@@ -9218,7 +9848,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/asuw_marr.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/asuw_marr-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "S",
+            "job 3": "B",
+            "jc": "",
+            "total": "S"
+        }
     },
     "UN_V2_SOPHIA": {
         "iname": "UN_V2_SOPHIA",
@@ -9368,7 +10005,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/kyar_xmas.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/kyar_xmas-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "A",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        }
     },
     "UN_V2_SETSUNA": {
         "iname": "UN_V2_SETSUNA",
@@ -9437,7 +10081,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/sets.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/sets-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "SS",
+            "job 3": "S",
+            "jc": "",
+            "total": "SS"
+        }
     },
     "UN_V2_HAZEL": {
         "iname": "UN_V2_HAZEL",
@@ -9511,7 +10162,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/haze_xmas.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/haze_xmas-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "S",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        }
     },
     "UN_V2_EIZAN": {
         "iname": "UN_V2_EIZAN",
@@ -9724,7 +10382,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/sabe.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/sabe-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "C",
+            "job 3": "A",
+            "jc": "",
+            "total": "S"
+        }
     },
     "UN_V2_GILGAMESH": {
         "iname": "UN_V2_GILGAMESH",
@@ -9793,7 +10458,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/gilg.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/gilg-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "S",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        }
     },
     "UN_V2_TOSAKA_RINN": {
         "iname": "UN_V2_TOSAKA_RINN",
@@ -9862,7 +10534,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/tosa.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/tosa-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "A",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        }
     },
     "UN_V2_IRIYA": {
         "iname": "UN_V2_IRIYA",
@@ -10007,7 +10686,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/arch.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/arch-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "B",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        }
     },
     "UN_V2_FATE_YOMI": {
         "iname": "UN_V2_FATE_YOMI",
@@ -10075,7 +10761,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/fate_yomi.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/fate_yomi-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "SS",
+            "job 3": "S",
+            "jc": "",
+            "total": "SS"
+        }
     },
     "UN_V2_FATE_LAMIA": {
         "iname": "UN_V2_FATE_LAMIA",
@@ -10218,7 +10911,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/fate_saha.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/fate_saha-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "S",
+            "job 3": "A",
+            "jc": "",
+            "total": "S"
+        }
     },
     "UN_V2_RENA": {
         "iname": "UN_V2_RENA",
@@ -10363,7 +11063,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/zeke_00_young.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/zeke_00_young-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "B",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        }
     },
     "UN_V2_MIUNA": {
         "iname": "UN_V2_MIUNA",
@@ -10501,7 +11208,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/s_saku.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/s_saku-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "B",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        }
     },
     "UN_V2_S_YOMI": {
         "iname": "UN_V2_S_YOMI",
@@ -10571,7 +11285,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/s_yomi.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/s_yomi-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "B",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        }
     },
     "UN_V2_FOLCAS": {
         "iname": "UN_V2_FOLCAS",
@@ -10717,7 +11438,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/basy.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/basy-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "B",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        }
     },
     "UN_V2_MIKOTO": {
         "iname": "UN_V2_MIKOTO",
@@ -10855,7 +11583,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/marg.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/marg-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "A",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        }
     },
     "UN_V2_MEIFAN": {
         "iname": "UN_V2_MEIFAN",
@@ -10925,7 +11660,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/meif.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/meif-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "A",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        }
     },
     "UN_V2_VIVI": {
         "iname": "UN_V2_VIVI",
@@ -10995,7 +11737,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/vivi.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/vivi-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "A",
+            "job 3": "A",
+            "jc": "",
+            "total": "S"
+        }
     },
     "UN_V2_YUTO": {
         "iname": "UN_V2_YUTO",
@@ -11207,7 +11956,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/neic_hall.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/neic_hall-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "S",
+            "job 2": "SS",
+            "job 3": "SS",
+            "jc": "",
+            "total": "SS"
+        }
     },
     "UN_V2_YUNAGI": {
         "iname": "UN_V2_YUNAGI",
@@ -11347,7 +12103,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/mari.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/mari-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "S",
+            "job 3": "A",
+            "jc": "",
+            "total": "S"
+        }
     },
     "UN_V2_DIS_KILLIA": {
         "iname": "UN_V2_DIS_KILLIA",
