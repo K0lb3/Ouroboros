@@ -2339,6 +2339,16 @@
         "long des": "",
         "units": "Carla"
     },
+    "JB_STRB_SHINE": {
+        "iname": "JB_STRB_SHINE",
+        "name": "Desert Inferno: Dawnᴶ",
+        "japan": "Twillight Rakshasa\n暁光羅刹",
+        "kanji": "暁光羅刹",
+        "short des": "",
+        "long des": "",
+        "units": "More"
+    },
+
     "JB_STR_FUDOU": {
         "iname": "JB_STR_FUDOU",
         "name": "Holy Brawler : Fudo",
@@ -2578,8 +2588,8 @@
         "name": "Pure Brideᴶ",
         "japan": "N/A",
         "kanji": "純白の花嫁",
-        "short description": "light focus",
-        "long description": "",
+        "short des": "light focus",
+        "long des": "",
         "units": "Eve"
     },
     "JB_LUCRE_WED_F": {
@@ -2587,8 +2597,8 @@
         "name": "Bride+ᴶ",
         "japan": "N/A",
         "kanji": "電撃の花嫁",
-        "short description": "",
-        "long description": "",
+        "short des": "",
+        "long des": "",
         "units": "Lucretia"
     },
     "JB_WED_M": {
@@ -2605,8 +2615,8 @@
         "name": "Passionate Bridegroomᴶ",
         "japan": "N/A",
         "kanji": "情熱の花婿",
-        "short description": "fire focus",
-        "long description": "",
+        "short des": "fire focus",
+        "long des": "",
         "units": "Veloz"
     },
     "JB_SHINE_WED_M": {
@@ -2614,8 +2624,8 @@
         "name": "Pure Bridegroomᴶ",
         "japan": "N/A",
         "kanji": "純白の花婿",
-        "short description": "light focus",
-        "long description": "",
+        "short des": "light focus",
+        "long des": "",
         "units": "Fraise"
     },
     "JB_WIZ": {
