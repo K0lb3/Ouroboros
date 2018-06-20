@@ -1,10 +1,10 @@
-# TAC_bot_db
+# TAC-BOT
 
 An *unofficial* [Discord](https://discordapp.com/) bot for [The Alchemist Code](https://alchemistcode.com/)
 
 ## What does it do?
 
-`TAC_bot_db` is a Discord bot for listing relevant information about The Alchemist Code. `TAC_bot_db` supports following commands:
+`TAC-BOT` is a Discord bot for listing relevant information about The Alchemist Code. `TAC_bot_db` supports following commands:
 * `o?unit *name*`: Displays game-related information about the unit
 * `o?lore *name*`: Displays the lore of the unit
 * `o?art *name*`: Display artworks of all available skins of the unit
