@@ -1,5 +1,3 @@
-import sys
-import io
 import string
 import os
 import json
@@ -321,7 +319,7 @@ def element(type):
     return 'error'
 
 
-def buff(buff, lv, mlv):
+def buff(buff, lv, mlv, array=False):
     global ParamTypes
 
     text = ""
@@ -345,21 +343,27 @@ def buff(buff, lv, mlv):
             btyp = buff['type'+str(i)]
             bmin = buff['vini'+str(i)]
             bmax = buff['vmax'+str(i)]
-            bmod = ' ' if (
-                'calc'+str(i) not in buff or buff['calc'+str(i)] == 0) else '% '
+            bmod = '' if (
+                'calc'+str(i) not in buff or buff['calc'+str(i)] == 0) else '%'
 
             try:
                 number = math.floor(bmin + ((bmax - bmin) * (lv-1) / (mlv-1)))
+                if number==0:
+                    continue
                 # add + if pos
                 number = '+'+str(number) if number >= 0 else str(number)
-                mods.append(number + bmod + ParamTypes[str(btyp)])
+                mods.append({
+                    'value': number, 
+                    'mod': bmod,
+                    'stat': ParamTypes[str(btyp)]
+                    })
 
                 if 84 < btyp and btyp < 92:
                     allAtk['index'].append(i-1)
-                    allAtk['mod'] = number + bmod
+                    allAtk['mod'] = [number, bmod]
                 if 48 < btyp and btyp < 55:
                     allElem['index'].append(i-1)
-                    allElem['mod'] = number + bmod
+                    allElem['mod'] = [number, bmod]
             except:
                 print(buff)
                 print(btyp)
@@ -372,15 +376,25 @@ def buff(buff, lv, mlv):
 
     # reduce clutter | all elements & all dmg shortening
     # +25 Slash ATK & +25 Pierce ATK & +25 Strike ATK & +25 Missile ATK & +25 MATK & +25 JUMP ATK
-    if len(allAtk['index']) == 6:
-        mods = [i for j, i in enumerate(mods) if j not in allAtk['index']]
-        mods.append(allAtk['mod'] + 'Damage')
-    if len(allElem['index']) == 6:
-        mods = [i for j, i in enumerate(mods) if j not in allElem['index']]
-        mods.append(allElem['mod'] + 'Elemental Res')
 
-    text = text + ' & '.join(mods)
-    return text
+    if not array:
+        if len(allAtk['index']) == 6:
+            mods = [i for j, i in enumerate(mods) if j not in allAtk['index']]
+            mods.append({
+                'value':allAtk['mod'][0],
+                'per': allAtk['mod'][1],
+                'stat': 'Damage'
+            })
+        if len(allElem['index']) == 6:
+            mods = [i for j, i in enumerate(mods) if j not in allElem['index']]
+            mods.append({
+                'value':allElem['mod'][0],
+                'per': allElem['mod'][1], 
+                'stat':'Elemental Res'
+            })
+        for m in mods:
+            text += text + ' & {value}{per} {stat}'.format(value=m['value'],per=m['per'],stat=m['stat'])
+    return mods if array else text
 
 
 def condition(cond, lv,  mlv):
