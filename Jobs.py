@@ -14,8 +14,8 @@ def job_stats(job, main):
 
     # from rank
     used = ['type', 'vini', 'vmax']
-    for j in range(0,len(job['ranks'])):
-        r=job['ranks'][j]
+    for j in range(0, len(job['ranks'])):
+        r = job['ranks'][j]
         for i in range(1, 7):
             item = main[r['eqid'+str(i)]]
             if 'skill' not in item:
@@ -45,38 +45,38 @@ def job_stats(job, main):
 
 
 def job_create(job, glc, jpc, loc):
-    #decide which main to use
+    # decide which main to use
     if job in glc:
-        mainc=glc
-        region='GL'
+        mainc = glc
+        region = 'GL'
     else:
-        mainc=jpc
-        region='JP'
-    j=mainc[job]
-    #small modifier fix
-    mod=j
+        mainc = jpc
+        region = 'JP'
+    j = mainc[job]
+    # small modifier fix
+    mod = j
     if 'hp' not in mod:
-        mod=mod['ranks'][-1]
+        mod = mod['ranks'][-1]
 
     def locFunc(iname):
         try:
             return loc[job]['NAME']
         except:
-            print (job)
-            jb=job.split('_')
-            base=jb[0]+'_'+jb[1]
+            print(job)
+            jb = job.split('_')
+            base = jb[0]+'_'+jb[1]
             if base in loc:
                 return loc[base]['NAME']+': '+' '.join(jb[2:])
             else:
-                return job[3:].replace('_',' ').title()
-                
+                return job[3:].replace('_', ' ').title()
+
     return {
         'iname': job,
         'name': locFunc(job),
         'japan': "",
         'kanji': j['name'],
         'short description': loc[job]['short des'] if job in loc and 'short des' in loc[job] else "",
-        'long description':  loc[job]['long des']  if job in loc and 'long des'  in loc[job] else "",
+        'long description':  loc[job]['long des'] if job in loc and 'long des' in loc[job] else "",
         'icon': 'http://cdn.alchemistcodedb.com/images/jobs/icons/'+j['mdl']+'.png',
         'token': 'http://cdn.alchemistcodedb.com/images/items/icons/'+mainc[j['ranks'][0]['eqid1']]['icon']+'.png',
         'origin': loc[j['origin']]['NAME'] if 'origin' in j else "",
@@ -99,13 +99,13 @@ def job_create(job, glc, jpc, loc):
             'AGI':  mod["spd"],
             'LUCK': mod["luk"],
             'CRIT': mod["cri"],
-            'AVOID':mod["avoid"],
-            },
+            'AVOID': mod["avoid"],
+        },
         'stats': job_stats(j, mainc),
         'formula': dmg_formula(mainc[mainc[j['atkskl']]['weapon']]),
-        'link':"",
-        'region':region,
-        }
+        'link': "",
+        'region': region,
+    }
 
 
 def jobs():
@@ -125,8 +125,8 @@ def jobs():
     jpS = json.dumps(jp)
 
     # code
-    def create_link(unit_in,job_na):
-        return 'http://www.alchemistcodedb.com/unit/'+unit_in[6:].replace('_','').lower()+'#'+job_na.replace(' ','-').replace('+','-plus').lower()
+    def create_link(unit_in, job_na):
+        return 'http://www.alchemistcodedb.com/unit/'+unit_in[6:].replace('_', '').lower()+'#'+job_na.replace(' ', '-').replace('+', '-plus').lower()
 
     jobs = {}
 
@@ -138,30 +138,32 @@ def jobs():
         # add jobs
         j = 1
         l = unit['iname'] in glc and 'vce' in glc[unit['iname']]
-        jpc[unit['iname']]['l']=l
+        jpc[unit['iname']]['l'] = l
 
         if 'jobsets' in unit:
             for i in unit['jobsets']:
                 job = jpc[i]['job']
                 if job not in jobs:
-                    #create job from data
+                    # create job from data
                     jobs[job] = job_create(job, glc, jpc, loc)
 
-                    #add Fan translation
+                    # add Fan translation
                     try:
-                        jobs[job]['japan'] = wunit[Fan[unit['iname']]['inofficial2']]['Job'+str(j)]
+                        jobs[job]['japan'] = wunit[Fan[unit['iname']]
+                                                   ['inofficial2']]['Job'+str(j)]
                     except KeyError:
                         pass
-                #add unit to list
-                n_c=name_collab(unit['iname'], loc)
+                # add unit to list
+                n_c = name_collab(unit['iname'], loc)
                 jobs[job]['units'].append((n_c[0]+' '+n_c[2]).rstrip(' '))
 
-                #add link
-                if len(jobs[job]['link'])<30:
-                    if l and jobs[job]['region']=='GL':
-                        jobs[job]['link']=create_link(unit['iname'],jobs[job]['name'])
+                # add link
+                if len(jobs[job]['link']) < 30:
+                    if l and jobs[job]['region'] == 'GL':
+                        jobs[job]['link'] = create_link(
+                            unit['iname'], jobs[job]['name'])
                     else:
-                        jobs[job]['link']=unit['iname']
+                        jobs[job]['link'] = unit['iname']
 
                 j += 1
 
@@ -176,51 +178,53 @@ def jobs():
 
             job = js['job']
             if job not in jobs:
-                #create job from data
+                # create job from data
                 jobs[job] = job_create(job, glc, jpc, loc)
 
-                #fix icon'
+                # fix icon'
                 icon = 'http://cdn.alchemistcodedb.com/images/jobs/icons/'
                 if 'ac2d' in jpc[job] and len(jpc[job]['ac2d']) > len(jpc[job]['mdl']):
                     icon += jpc[job]['ac2d']+'.png'
                 else:
                     icon += jpc[job]['mdl']+'.png'
-                jobs[job]['icon']=icon
-                
-                #add link
-                if len(jobs[job]['link'])<30:
-                    if jpc[js['target_unit']]['l'] and jobs[job]['region']=='GL':
-                        jobs[job]['link']=create_link(js['target_unit'],jobs[job]['name'])
+                jobs[job]['icon'] = icon
+
+                # add link
+                if len(jobs[job]['link']) < 30:
+                    if jpc[js['target_unit']]['l'] and jobs[job]['region'] == 'GL':
+                        jobs[job]['link'] = create_link(
+                            js['target_unit'], jobs[job]['name'])
                     else:
-                        jobs[job]['link']=js['target_unit']
+                        jobs[job]['link'] = js['target_unit']
 
-
-
-                #add fan translation
+                # add fan translation
                 try:
-                    jobs[job]['japan'] = wunit[Fan[js['target_unit']]['inofficial2']]['JC'+str(j)]
+                    jobs[job]['japan'] = wunit[Fan[js['target_unit']]
+                                               ['inofficial2']]['JC'+str(j)]
                 except KeyError:
                     pass
 
             else:
                 if jobs[job]['japan'] == "N/A":
-                    jobs[job]['japan'] = wunit[Fan[js['target_unit']]['inofficial2']]['JC'+str(j)]
+                    jobs[job]['japan'] = wunit[Fan[js['target_unit']]
+                                               ['inofficial2']]['JC'+str(j)]
 
-            #add units to list
-            n_c=name_collab(js['target_unit'], loc)
+            # add units to list
+            n_c = name_collab(js['target_unit'], loc)
             jobs[job]['units'].append((n_c[0]+' '+n_c[2]).rstrip(' '))
 
-            #add je to basic job
+            # add je to basic job
             if jobs[job]['name'] not in jobs[js['ljob1']]['jobe']:
                 jobs[js['ljob1']]['jobe'].append(jobs[job]['name'])
 
     # add missing links
     for j in jobs:
-        if len(jobs[j]['link'])<30:
-            jobs[j]['link']='http://www.alchemistcodedb.com/jp/unit/'+jobs[j]['link'][6:].replace('_','-').lower()+'#'+jobs[j]['kanji'].replace(' ','-').lower()
+        if len(jobs[j]['link']) < 30:
+            jobs[j]['link'] = 'http://www.alchemistcodedb.com/jp/unit/' + \
+                jobs[j]['link'][6:].replace(
+                    '_', '-').lower()+'#'+jobs[j]['kanji'].replace(' ', '-').lower()
 
-
-    #add inputs
+    # add inputs
     export = {}
     for j in jobs:
         job = jobs[j]
@@ -265,15 +269,15 @@ def jobs():
             jobs[export[job['name']]]['inputs'].remove(job['name'])
         export[job['name']] = j
 
-    jexport={}
+    jexport = {}
     for j in jobs:
         # fan translation
         job = jobs[j]
-        japan=jobs[j]['japan']
-        if len(japan)<2:
+        japan = jobs[j]['japan']
+        if len(japan) < 2:
             continue
         if '\n' in japan:
-            japan=jobs[j]['japan'][:jobs[j]['japan'].index('\n')]
+            japan = jobs[j]['japan'][:jobs[j]['japan'].index('\n')]
         if japan not in export:
             # job +
             if '+' in japan:
@@ -307,10 +311,10 @@ def jobs():
                 jobs[jexport[japan]]['inputs'].remove(japan)
             jexport[japan] = j
 
-    #add jp tag
+    # add jp tag
     for j in jobs:
-        if jobs[j]['region']=='JP':
-            jobs[j]['name']+='ᴶ'
+        if jobs[j]['region'] == 'JP':
+            jobs[j]['name'] += 'ᴶ'
         del jobs[j]['region']
     # save to out
     path = cPath()+'\\out\\'
