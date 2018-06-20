@@ -69,6 +69,54 @@ def job_create(job, glc, jpc, loc):
                 return loc[base]['NAME']+': '+' '.join(jb[2:])
             else:
                 return job[3:].replace('_', ' ').title()
+    
+    def ability(iname):
+        abil=mainc[iname]
+        ability={
+            'iname':iname,
+            'name': loc[iname]['NAME'] if iname in loc else abil['name'],
+            'expr': loc[iname]['EXPR'] if iname in loc else abil['expr'],
+            'skills':[]
+            }
+
+        
+        i=1
+        while 'skl'+str(i) in abil:
+            skl=mainc[abil['skl'+str(i)]]
+            try:
+                copy=loc[skl['iname']]
+                ability['skills'].append({
+                    'name': copy['NAME'],
+                    'expr': copy['EXPR'],
+                    'lv':   abil['lv'+str(i)],
+                    #'effect': skl["eff_val_max"],
+                    })
+            except:
+                ability['skills'].append({
+                    'name': skl['name'],
+                    'expr': skl['expr'],
+                    'lv':   abil['lv'+str(i)],
+                    #'effect': skl["eff_val_max"],
+                    })
+            i+=1
+        return(ability)
+
+    # get abilities:
+    reactions=[]
+    passives=[]
+    for r in j['ranks']:
+        i=1
+        while 'learn'+str(i) in r:
+            skl=r['learn'+str(i)]
+            slot=mainc[skl]['slot']
+            if slot==0:   #Action, ~ from EAbilitySlot
+                sub=skl
+            elif slot==2: #Reaction,
+                reactions.append(skl)
+            elif slot==1: #Support,
+                passives.append(skl)
+
+            i+=1
 
     return {
         'iname': job,
@@ -82,8 +130,8 @@ def job_create(job, glc, jpc, loc):
         'origin': loc[j['origin']]['NAME'] if 'origin' in j else "",
         'units': [],
         'jobe': [],
-        'main': "",
-        'sub': "",
+        'main': ability(j['fixabl']),
+        'sub': ability(sub),
         'reactives': "",
         'passives': "",
         'weapon': GEAR_TAG[jpc[j['artifact']]['tag']],
@@ -101,6 +149,7 @@ def job_create(job, glc, jpc, loc):
             'CRIT': mod["cri"],
             'AVOID': mod["avoid"],
         },
+        'job master buff': buff(mainc[mainc[j['master']]['t_buff']],2,2,True),
         'stats': job_stats(j, mainc),
         'formula': dmg_formula(mainc[mainc[j['atkskl']]['weapon']]),
         'link': "",
