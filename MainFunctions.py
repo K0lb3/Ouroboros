@@ -325,9 +325,9 @@ def buff(buff, lv, mlv, array=False):
     text = ""
 
     if 'elem' in buff:
-        text += element(buff['elem']).title()+': '
+        text += element(buff['elem']).title()+':'
     if 'birth' in buff:
-        text += (birth[buff['birth']]).title()+': '
+        text += (birth[buff['birth']]).title()+':'
 
     allElem = {'mod': "", 'index': []}
     allAtk = {'mod': "", 'index': []}
@@ -382,19 +382,19 @@ def buff(buff, lv, mlv, array=False):
             mods = [i for j, i in enumerate(mods) if j not in allAtk['index']]
             mods.append({
                 'value':allAtk['mod'][0],
-                'per': allAtk['mod'][1],
+                'mod': allAtk['mod'][1],
                 'stat': 'Damage'
             })
         if len(allElem['index']) == 6:
             mods = [i for j, i in enumerate(mods) if j not in allElem['index']]
             mods.append({
                 'value':allElem['mod'][0],
-                'per': allElem['mod'][1], 
+                'mod': allElem['mod'][1], 
                 'stat':'Elemental Res'
             })
         for m in mods:
-            text += text + ' & {value}{per} {stat}'.format(value=m['value'],per=m['per'],stat=m['stat'])
-    return mods if array else text
+            text += text + ' {value}{mod} {stat} &'.format(value=m['value'],mod=m['mod'],stat=m['stat'])
+    return mods if array else text[:-2]
 
 
 def condition(cond, lv,  mlv):
