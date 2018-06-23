@@ -300,6 +300,14 @@ def convertMaster(master):
                 continue
     return ma
 
+def convertSubMaster(main):
+    ma = {}
+    for sub in master[main]:
+        try:
+            ma[sub['iname']] = sub
+        except:
+            continue
+    return ma
 
 def element(type):
     if type == 1:
