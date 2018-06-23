@@ -70,16 +70,30 @@ def job_create(job, glc, jpc, loc):
             else:
                 return job[3:].replace('_', ' ').title()
     
-    def ability(iname):
-        abil=mainc[iname]
-        ability={
-            'iname':iname,
-            'name': loc[iname]['NAME'] if iname in loc else abil['name'],
-            'expr': loc[iname]['EXPR'] if iname in loc else abil['expr'],
-            'skills':[]
-            }
+    def ability(inp,name=""):
+        if type(inp)==str:
+            iname=inp
+            abil=mainc[iname]
+            ability={
+                'iname':iname,
+                'name': loc[iname]['NAME'] if iname in loc else abil['name'],
+                'expr': loc[iname]['EXPR'] if iname in loc else abil['expr'],
+                'skills':[]
+                }
+        elif type(inp)==list:
+            abil={}
+            i=1
+            for skl in inp:
+                abil['skl'+str(i)]=skl
+            ability={
+                'iname':'',
+                'name': name,
+                'expr': '',
+                'skills':[]
+                }            
 
         
+
         i=1
         while 'skl'+str(i) in abil:
             skl=mainc[abil['skl'+str(i)]]
@@ -88,21 +102,21 @@ def job_create(job, glc, jpc, loc):
                 ability['skills'].append({
                     'name': copy['NAME'],
                     'expr': copy['EXPR'],
-                    'lv':   abil['lv'+str(i)],
+                    #'lv':   abil['lv'+str(i)],
                     #'effect': skl["eff_val_max"],
                     })
             except:
                 ability['skills'].append({
                     'name': skl['name'],
                     'expr': skl['expr'],
-                    'lv':   abil['lv'+str(i)],
+                    #'lv':   abil['lv'+str(i)],
                     #'effect': skl["eff_val_max"],
                     })
             i+=1
         return(ability)
 
     # get abilities:
-    reactions=[]
+    reactives=[]
     passives=[]
     for r in j['ranks']:
         i=1
@@ -112,10 +126,9 @@ def job_create(job, glc, jpc, loc):
             if slot==0:   #Action, ~ from EAbilitySlot
                 sub=skl
             elif slot==2: #Reaction,
-                reactions.append(skl)
+                reactives.append(skl)
             elif slot==1: #Support,
                 passives.append(skl)
-
             i+=1
 
     return {
@@ -132,8 +145,8 @@ def job_create(job, glc, jpc, loc):
         'jobe': [],
         'main': ability(j['fixabl']),
         'sub': ability(sub),
-        'reactives': "",
-        'passives': "",
+        'reactives': ability(reactives,"Reactives"),
+        'passives': ability(passives,"Passives"),
         'weapon': GEAR_TAG[jpc[j['artifact']]['tag']],
         'modifiers': {
             'HP':   mod["hp"],
