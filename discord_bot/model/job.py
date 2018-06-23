@@ -1,5 +1,6 @@
 from __future__ import absolute_import
 from .model import Model
+from .settings import FOOTER_URL 
 
 class Job(Model):
     _IGNORE_STATS = ['move', 'jump']
@@ -37,6 +38,35 @@ class Job(Model):
             embed.set_thumbnail(url=self.icon)
 
         # footer
-        embed.set_footer(text='ᴶ - japan only', icon_url='')
+        embed.set_footer(text='ᴶ - japan only', icon_url=FOOTER_URL['JOB'])
+
+        return embed
+
+
+    def to_skill_embed(self, tree):
+        tree=getattr(self, tree)
+        print(tree)
+
+        fields = ['name',
+            {'name':'description','value': tree['expr'], 'inline':False},
+            ]
+
+        for skill in tree['skills']:
+            fields.append({
+                'name': skill['name'],
+                'value': skill['expr'],
+                'inline': False
+            })
+
+        embed = self.to_embed(fields=fields)
+
+        # select thubnail
+        if ':' in self.name or len(getattr(self, 'short description')) > 5:
+            embed.set_thumbnail(url=self.token)
+        else:
+            embed.set_thumbnail(url=self.icon)
+
+        # footer
+        embed.set_footer(text='ᴶ - japan only', icon_url=FOOTER_URL['JOB'])
 
         return embed

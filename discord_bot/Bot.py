@@ -144,6 +144,9 @@ async def status_task(presences):
             await bot.change_presence(status=discord.Status.online, activity=game)
             await asyncio.sleep(10)
 
+async def add_reactions(msg,reactions):
+    for r in reactions:
+        await msg.add_reaction(r)
 
 @bot.event
 async def on_ready():
@@ -183,9 +186,23 @@ async def on_reaction_add(reaction, user):
                         job_dict = find_best(jobs, '{unit} {job}'.format(unit=unit_obj.name, job=getattr(unit_obj,job_e[emoji])))
 
                     job_obj = Job(source=job_dict)
-                    print(job_dict)
-                    print(job_obj)
                     await msg.edit(embed=unit_obj.to_unit_job_embed(job=job_obj))
+
+        elif FOOTER_URL['JOB'] == membed.footer.icon_url:
+            job_dict = find_best(jobs, membed.title.replace('ᴶ',''))
+            job_obj = Job(source=job_dict)
+
+            if emoji=='🗃': #main page
+                    await msg.edit(embed=job_obj.to_job_embed())
+            else:
+                page={
+                    '🇲':'main',     
+                    '🇸':'sub',
+                    '🇷':'reactives',
+                    '🇵':'passives',
+                    }
+                if emoji in page:
+                    await msg.edit(embed=job_obj.to_skill_embed(page[emoji]))
 
 
 #gear
@@ -220,8 +237,10 @@ async def job(ctx, *, name):
     job_dict = find_best(jobs, name,True)
     job_obj = Job(source=job_dict)
 
-    await ctx.send(embed=job_obj.to_job_embed())
+    msg = await ctx.send(embed=job_obj.to_job_embed())
     await statistic(ctx, "Job", name, job_dict['name'])
+    reactions=['🗃','🇲','🇸','🇷','🇵'] 
+    #await add_reactions(msg, reactions)
 
 # unit commands
 @bot.command() # info
