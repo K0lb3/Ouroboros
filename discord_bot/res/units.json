@@ -270,7 +270,7 @@
             "JP: [16 AP] [Hard] Ch 3: Ep 3 [1-1]"
         ],
         "leader skill": "Water: +20% PATK",
-        "master ability": "Amazing Grace\n+50 PDEF & +50 MDEF",
+        "master ability": "Amazing Grace\n +50 PDEF & +50 MDEF",
         "link": "http://www.alchemistcodedb.com/unit/liesbet",
         "job 1": "Apprentice Witch",
         "job 2": "Witch",
@@ -349,8 +349,8 @@
         "rarity": "★★★★☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/tina.png",
         "farm": [],
-        "leader skill": "+30% HP & +10% PATK & +10% DEX",
-        "master ability": "Power of Foresight\n+100 Evasion Rate",
+        "leader skill": " +30% HP & +10% PATK & +10% DEX",
+        "master ability": "Power of Foresight\n +100 Evasion Rate",
         "link": "http://www.alchemistcodedb.com/unit/tina",
         "job 1": "Hunter",
         "job 2": "Wind Wielder",
@@ -540,8 +540,6 @@
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/alai.png",
         "farm": [
             "GL: [16 AP] [Hard] Ch 1: Ep 1 [2-4]",
-            "GL: [24 AP] [Hard] Ch 1: Ep 2 [3-1]",
-            "GL: [32 AP] [Hard] Ch 1: Ep 4 [1-6]",
             "GL: [32 AP] [Hard] Ch 1: Ep 5 [2-7]",
             "GL: [40 AP] [Hard] Ch 2: Ep 2 [2-4]",
             "GL: [40 AP] [Hard] Ch 2: Ep 3 [3-9]",
@@ -705,7 +703,6 @@
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/riga.png",
         "farm": [
             "GL: [16 AP] [Hard] Ch 1: Ep 1 [1-10]",
-            "GL: [24 AP] [Hard] Ch 1: Ep 2 [2-10]",
             "GL: [32 AP] [Hard] Ch 1: Ep 3 [3-10]",
             "GL: [32 AP] [Hard] Ch 1: Ep 5 [2-4]",
             "GL: [40 AP] [Hard] Ch 2: Ep 1 [3-10]",
@@ -789,7 +786,6 @@
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/rinn.png",
         "farm": [
             "GL: [16 AP] [Hard] Ch 1: Ep 1 [2-5]",
-            "GL: [32 AP] [Hard] Ch 1: Ep 5 [2-10]",
             "GL: [40 AP] [Hard] Ch 2: Ep 2 [2-5]",
             "GL: [40 AP] [Hard] Ch 2: Ep 4 [1-10]",
             "JP: [16 AP] [Hard] Ch 1: Ep 1 [2-5]",
@@ -868,7 +864,6 @@
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/gain.png",
         "farm": [
             "GL: [16 AP] [Hard] Ch 1: Ep 1 [3-2]",
-            "GL: [24 AP] [Hard] Ch 1: Ep 3 [1-9]",
             "GL: [40 AP] [Hard] Ch 1: Ep 5 [3-10]",
             "GL: [40 AP] [Hard] Ch 2: Ep 2 [3-2]",
             "GL: [40 AP] [Hard] Ch 2: Ep 4 [2-10]",
@@ -956,7 +951,7 @@
             "JP: [16 AP] [Hard] Ch 1: Ep 1 [2-10]",
             "JP: [32 AP] [Hard] Ch 3: Ep 4 [1-9]"
         ],
-        "leader skill": "+10% Max Jewels",
+        "leader skill": " +10% Max Jewels",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/alexis",
         "job 1": "Priest",
@@ -1202,9 +1197,7 @@
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/meil.png",
         "farm": [
             "GL: [24 AP] [Hard] Ch 1: Ep 2 [2-5]",
-            "GL: [24 AP] [Hard] Ch 1: Ep 3 [3-7]",
             "GL: [32 AP] [Hard] Ch 1: Ep 5 [1-5]",
-            "GL: [40 AP] [Hard] Ch 2: Ep 1 [3-2]",
             "GL: [40 AP] [Hard] Ch 2: Ep 3 [2-10]",
             "JP: [20 AP] [Hard] Ch 1: Ep 5 [1-5]",
             "JP: [32 AP] [Hard] Ch 3: Ep 4 [2-7]"
@@ -1286,8 +1279,6 @@
         "farm": [
             "GL: [20 AP] [Hard] Ch 1: Ep 2 [2-4]",
             "GL: [24 AP] [Hard] Ch 1: Ep 3 [3-2]",
-            "GL: [32 AP] [Hard] Ch 1: Ep 5 [1-4]",
-            "GL: [40 AP] [Hard] Ch 2: Ep 1 [3-1]",
             "GL: [40 AP] [Hard] Ch 2: Ep 3 [2-9]",
             "JP: [20 AP] [Hard] Ch 1: Ep 2 [2-4]",
             "JP: [32 AP] [Hard] Ch 2: Ep 3 [2-9]"
@@ -1367,7 +1358,6 @@
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/meli.png",
         "farm": [
             "GL: [20 AP] [Hard] Ch 1: Ep 1 [3-9]",
-            "GL: [24 AP] [Hard] Ch 1: Ep 3 [1-10]",
             "GL: [32 AP] [Hard] Ch 1: Ep 4 [3-4]",
             "GL: [40 AP] [Hard] Ch 2: Ep 3 [1-10]",
             "GL: [40 AP] [Hard] Ch 2: Ep 4 [3-9]",
@@ -1451,9 +1441,6 @@
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/runb.png",
         "farm": [
             "GL: [20 AP] [Hard] Ch 1: Ep 1 [3-10]",
-            "GL: [24 AP] [Hard] Ch 1: Ep 3 [2-9]",
-            "GL: [32 AP] [Hard] Ch 1: Ep 4 [3-6]",
-            "GL: [40 AP] [Hard] Ch 2: Ep 1 [2-9]",
             "GL: [40 AP] [Hard] Ch 2: Ep 3 [2-4]",
             "GL: [40 AP] [Hard] Ch 2: Ep 4 [3-10]",
             "JP: [20 AP] [Hard] Ch 1: Ep 1 [3-10]",
@@ -1617,6 +1604,7 @@
         "rarity": "★★★★☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/hazu.png",
         "farm": [
+            "GL: [24 AP] [Hard] Ch 1: Ep 2 [3-1]",
             "JP: [28 AP] [Hard] Ch 1: Ep 2 [3-1]"
         ],
         "leader skill": "Wind: +20% PATK",
@@ -1695,7 +1683,7 @@
         "farm": [
             "JP: [24 AP] [Hard] Ch 3: Ep 2 [2-4]"
         ],
-        "leader skill": "+5 Silence Res",
+        "leader skill": " +5 Silence Res",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/jake",
         "job 1": "Mage",
@@ -1772,7 +1760,7 @@
             "GL: [40 AP] [Hard] Ch 3: Ep 1 [2-4]",
             "JP: [24 AP] [Hard] Ch 3: Ep 1 [2-4]"
         ],
-        "leader skill": "+10 Missile ATK",
+        "leader skill": " +10 Missile ATK",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/riche",
         "job 1": "Soldier",
@@ -1850,7 +1838,7 @@
             "GL: [40 AP] [Hard] Ch 3: Ep 1 [2-9]",
             "JP: [24 AP] [Hard] Ch 3: Ep 1 [2-9]"
         ],
-        "leader skill": "+10 Missile ATK",
+        "leader skill": " +10 Missile ATK",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/elaine",
         "job 1": "Hunter",
@@ -1924,9 +1912,10 @@
         "rarity": "★★★☆☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/vane.png",
         "farm": [
+            "GL: [40 AP] [Hard] Ch 2: Ep 1 [3-1]",
             "JP: [24 AP] [Hard] Ch 2: Ep 1 [3-1]"
         ],
-        "leader skill": "+10 Magic ATK",
+        "leader skill": " +10 Magic ATK",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/vanekis",
         "job 1": "Thief",
@@ -2007,7 +1996,7 @@
         "farm": [
             "JP: [24 AP] [Hard] Ch 3: Ep 1 [3-9]"
         ],
-        "leader skill": "+5 Hit Rate",
+        "leader skill": " +5 Hit Rate",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/amis",
         "job 1": "Priest",
@@ -2166,7 +2155,7 @@
         "farm": [
             "JP: [24 AP] [Hard] Ch 3: Ep 1 [3-1]"
         ],
-        "leader skill": "+10 Slash ATK",
+        "leader skill": " +10 Slash ATK",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/mizuchi",
         "job 1": "Hunter",
@@ -2240,9 +2229,10 @@
         "rarity": "★★★☆☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/kaza.png",
         "farm": [
+            "GL: [40 AP] [Hard] Ch 2: Ep 1 [3-2]",
             "JP: [24 AP] [Hard] Ch 2: Ep 1 [3-2]"
         ],
-        "leader skill": "+10 Strike ATK",
+        "leader skill": " +10 Strike ATK",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/kazahaya",
         "job 1": "Thief",
@@ -2395,7 +2385,7 @@
         "rarity": "★★★☆☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/yuan.png",
         "farm": [],
-        "leader skill": "+5 Evasion Rate",
+        "leader skill": " +5 Evasion Rate",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/yuan",
         "job 1": "Hunter",
@@ -2471,7 +2461,7 @@
         "farm": [
             "JP: [24 AP] [Hard] Ch 3: Ep 2 [1-10]"
         ],
-        "leader skill": "+5 Blind Res",
+        "leader skill": " +5 Blind Res",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/decel",
         "job 1": "Mage",
@@ -2547,7 +2537,7 @@
         "farm": [
             "JP: [24 AP] [Hard] Ch 3: Ep 2 [3-2]"
         ],
-        "leader skill": "+5 Evasion Rate",
+        "leader skill": " +5 Evasion Rate",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/ennis",
         "job 1": "Priest",
@@ -2621,9 +2611,10 @@
         "rarity": "★★★☆☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/anne.png",
         "farm": [
+            "GL: [40 AP] [Hard] Ch 2: Ep 1 [2-9]",
             "JP: [24 AP] [Hard] Ch 2: Ep 1 [2-9]"
         ],
-        "leader skill": "+5 Magic ATK",
+        "leader skill": " +5 Magic ATK",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/annerose",
         "job 1": "Mage",
@@ -2780,7 +2771,7 @@
         "farm": [
             "JP: [24 AP] [Hard] Ch 3: Ep 2 [2-5]"
         ],
-        "leader skill": "+10 All Status Res",
+        "leader skill": " +10 All Status Res",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/ayllu",
         "job 1": "Bard",
@@ -2850,7 +2841,7 @@
         "farm": [
             "JP: [24 AP] [Hard] Ch 3: Ep 2 [2-10]"
         ],
-        "leader skill": "+10 Missile ATK",
+        "leader skill": " +10 Missile ATK",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/sarauzu",
         "job 1": "Hunter",
@@ -2927,7 +2918,7 @@
         "farm": [
             "JP: [24 AP] [Hard] Ch 3: Ep 2 [3-9]"
         ],
-        "leader skill": "+10 Magic ATK",
+        "leader skill": " +10 Magic ATK",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/rion",
         "job 1": "Bard",
@@ -3079,9 +3070,10 @@
         "rarity": "★★★☆☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/almi.png",
         "farm": [
+            "GL: [32 AP] [Hard] Ch 1: Ep 5 [2-10]",
             "JP: [24 AP] [Hard] Ch 1: Ep 5 [2-10]"
         ],
-        "leader skill": "+10 Missile ATK",
+        "leader skill": " +10 Missile ATK",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/almila",
         "job 1": "Hunter",
@@ -3162,7 +3154,7 @@
         "farm": [
             "JP: [24 AP] [Hard] Ch 3: Ep 2 [3-1]"
         ],
-        "leader skill": "+10 Magic ATK",
+        "leader skill": " +10 Magic ATK",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/michael",
         "job 1": "Mage",
@@ -3243,7 +3235,7 @@
         "farm": [
             "JP: [24 AP] [Hard] Ch 3: Ep 2 [2-9]"
         ],
-        "leader skill": "+10 Slash ATK",
+        "leader skill": " +10 Slash ATK",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/arkill",
         "job 1": "Thief",
@@ -3394,7 +3386,7 @@
         "rarity": "★★★★☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/mian.png",
         "farm": [],
-        "leader skill": "+10% MDEF",
+        "leader skill": " +10% MDEF",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/miannu",
         "job 1": "Priest",
@@ -3472,7 +3464,7 @@
             "GL: [40 AP] [Hard] Ch 3: Ep 1 [1-10]",
             "JP: [28 AP] [Hard] Ch 3: Ep 1 [1-10]"
         ],
-        "leader skill": "+20 Magic ATK",
+        "leader skill": " +20 Magic ATK",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/mare",
         "job 1": "Mage",
@@ -3635,10 +3627,9 @@
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/free.png",
         "farm": [
             "GL: [40 AP] [Hard] Ch 2: Ep 2 [3-1]",
-            "GL: [40 AP] [Hard] Ch 3: Ep 1 [2-5]",
             "JP: [28 AP] [Hard] Ch 3: Ep 1 [2-5]"
         ],
-        "leader skill": "+20 Pierce ATK",
+        "leader skill": " +20 Pierce ATK",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/freed",
         "job 1": "Soldier",
@@ -3712,9 +3703,10 @@
         "rarity": "★★★★☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/dilg.png",
         "farm": [
+            "GL: [24 AP] [Hard] Ch 1: Ep 2 [2-10]",
             "JP: [28 AP] [Hard] Ch 1: Ep 2 [2-10]"
         ],
-        "leader skill": "+20 Slash ATK",
+        "leader skill": " +20 Slash ATK",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/dilga",
         "job 1": "Soldier",
@@ -3795,7 +3787,7 @@
         "farm": [
             "JP: [28 AP] [Hard] Ch 3: Ep 1 [3-2]"
         ],
-        "leader skill": "+20 Slash ATK",
+        "leader skill": " +20 Slash ATK",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/sutorie",
         "job 1": "Thief",
@@ -3873,7 +3865,7 @@
             "GL: [40 AP] [Hard] Ch 2: Ep 1 [2-4]",
             "JP: [28 AP] [Hard] Ch 1: Ep 1 [2-4]"
         ],
-        "leader skill": "-5 Cast Time Ratio",
+        "leader skill": " -5 Cast Time Ratio",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/chihaya",
         "job 1": "Dancer",
@@ -3955,8 +3947,8 @@
             "GL: [32 AP] [Hard] Ch 1: Ep 4 [2-9]",
             "JP: [28 AP] [Hard] Ch 1: Ep 4 [2-9]"
         ],
-        "leader skill": "-5 Cast Time Ratio",
-        "master ability": "Sugar Boost\n+20 PDEF & +20 MDEF & Auto Heal ",
+        "leader skill": " -5 Cast Time Ratio",
+        "master ability": "Sugar Boost\n +20 PDEF & +20 MDEF & Auto Heal ",
         "link": "http://www.alchemistcodedb.com/unit/rofia",
         "job 1": "Magic Swordsman",
         "job 2": "Enchanter",
@@ -4038,7 +4030,7 @@
             "GL: [32 AP] [Hard] Ch 1: Ep 4 [2-8]",
             "JP: [28 AP] [Hard] Ch 1: Ep 4 [2-8]"
         ],
-        "leader skill": "+20 Pierce ATK",
+        "leader skill": " +20 Pierce ATK",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/lamia",
         "job 1": "Spearman",
@@ -4115,8 +4107,8 @@
             "GL: [24 AP] [Hard] Ch 1: Ep 2 [3-2]",
             "JP: [28 AP] [Hard] Ch 1: Ep 2 [3-2]"
         ],
-        "leader skill": "+20 Pierce ATK",
-        "master ability": "Hero Aura\n+10 Pierce ATK & +50 HP",
+        "leader skill": " +20 Pierce ATK",
+        "master ability": "Hero Aura\n +10 Pierce ATK & +50 HP",
         "link": "http://www.alchemistcodedb.com/unit/zangetsu",
         "job 1": "Samurai",
         "job 2": "Martial Artist",
@@ -4189,9 +4181,10 @@
         "rarity": "★★★★☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/megi.png",
         "farm": [
+            "GL: [32 AP] [Hard] Ch 1: Ep 4 [1-6]",
             "JP: [28 AP] [Hard] Ch 1: Ep 4 [1-6]"
         ],
-        "leader skill": "+20 Missile ATK",
+        "leader skill": " +20 Missile ATK",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/megistos",
         "job 1": "Crafter",
@@ -4268,7 +4261,7 @@
             "GL: [32 AP] [Hard] Ch 1: Ep 4 [1-9]",
             "JP: [28 AP] [Hard] Ch 1: Ep 4 [1-9]"
         ],
-        "leader skill": "+20 Strike ATK",
+        "leader skill": " +20 Strike ATK",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/lucia",
         "job 1": "Beast Tamer",
@@ -4351,7 +4344,7 @@
             "GL: [32 AP] [Hard] Ch 1: Ep 4 [2-10]",
             "JP: [28 AP] [Hard] Ch 1: Ep 4 [2-10]"
         ],
-        "leader skill": "+20 Missile ATK",
+        "leader skill": " +20 Missile ATK",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/chalice",
         "job 1": "Gunner",
@@ -4434,7 +4427,7 @@
             "GL: [40 AP] [Hard] Ch 2: Ep 2 [2-10]",
             "JP: [28 AP] [Hard] Ch 1: Ep 4 [2-5]"
         ],
-        "leader skill": "+10 Evasion Rate",
+        "leader skill": " +10 Evasion Rate",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/rahu",
         "job 1": "Chronomancer",
@@ -4518,7 +4511,7 @@
             "JP: [32 AP] [Hard] Ch 1: Ep 3 [1-7]"
         ],
         "leader skill": "Dark: +30% PATK",
-        "master ability": "Schwarzlose\n+100 HP & +10 AGI & +15 Evasion Rate",
+        "master ability": "Schwarzlose\n +100 HP & +10 AGI & +15 Evasion Rate",
         "link": "http://www.alchemistcodedb.com/unit/anastasia",
         "job 1": "Dark Knight",
         "job 2": "Crafter",
@@ -4599,8 +4592,8 @@
             "GL: [24 AP] [Hard] Ch 1: Ep 2 [3-9]",
             "JP: [32 AP] [Hard] Ch 1: Ep 2 [3-9]"
         ],
-        "leader skill": "+30 Slash ATK",
-        "master ability": "Hero of Wrath\n+10 Slash ATK & +10 AGI",
+        "leader skill": " +30 Slash ATK",
+        "master ability": "Hero of Wrath\n +10 Slash ATK & +10 AGI",
         "link": "http://www.alchemistcodedb.com/unit/zahar",
         "job 1": "Dark Knight",
         "job 2": "Dragon Knight",
@@ -4681,8 +4674,8 @@
             "GL: [24 AP] [Hard] Ch 1: Ep 2 [3-10]",
             "JP: [32 AP] [Hard] Ch 1: Ep 2 [3-10]"
         ],
-        "leader skill": "+10 CRIT Rate",
-        "master ability": "Scarlet Flame Charge\n+1 MOVE & +10 AGI",
+        "leader skill": " +10 CRIT Rate",
+        "master ability": "Scarlet Flame Charge\n +1 MOVE & +10 AGI",
         "link": "http://www.alchemistcodedb.com/unit/cloe",
         "job 1": "Holy Knight",
         "job 2": "Spearman",
@@ -4770,10 +4763,11 @@
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/yomi.png",
         "farm": [
+            "GL: [24 AP] [Hard] Ch 1: Ep 3 [3-7]",
             "JP: [32 AP] [Hard] Ch 1: Ep 3 [3-7]"
         ],
-        "leader skill": "+30 Strike ATK",
-        "master ability": "Moon Blade\n+20 PATK & +10 LUCK & +1 Skill Use Count",
+        "leader skill": " +30 Strike ATK",
+        "master ability": "Moon Blade\n +20 PATK & +10 LUCK & +1 Skill Use Count",
         "link": "http://www.alchemistcodedb.com/unit/yomi",
         "job 1": "Shrine Maiden",
         "job 2": "Ninja",
@@ -4851,10 +4845,11 @@
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/vett.png",
         "farm": [
+            "GL: [24 AP] [Hard] Ch 1: Ep 3 [1-10]",
             "JP: [32 AP] [Hard] Ch 1: Ep 3 [1-10]"
         ],
-        "leader skill": "+30 Slash ATK",
-        "master ability": "Scarlet Flame Dash\n+15 Slash ATK & +20 AGI",
+        "leader skill": " +30 Slash ATK",
+        "master ability": "Scarlet Flame Dash\n +15 Slash ATK & +20 AGI",
         "link": "http://www.alchemistcodedb.com/unit/vettel",
         "job 1": "Magic Swordsman",
         "job 2": "Holy Cavalier",
@@ -5252,10 +5247,11 @@
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/eliz.png",
         "farm": [
+            "GL: [24 AP] [Hard] Ch 1: Ep 3 [1-9]",
             "JP: [32 AP] [Hard] Ch 1: Ep 3 [1-9]"
         ],
         "leader skill": "Water: +20% PDEF & +10% HP",
-        "master ability": "Eliza Booster Pills\n+15 PDEF & +35 MDEF & +10 AGI",
+        "master ability": "Eliza Booster Pills\n +15 PDEF & +35 MDEF & +10 AGI",
         "link": "http://www.alchemistcodedb.com/unit/elizabeth",
         "job 1": "Professor",
         "job 2": "Chronomancer",
@@ -5333,10 +5329,11 @@
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/magn.png",
         "farm": [
+            "GL: [24 AP] [Hard] Ch 1: Ep 3 [2-9]",
             "JP: [32 AP] [Hard] Ch 1: Ep 3 [2-9]"
         ],
         "leader skill": "Thunder: +20% PDEF & +10% HP",
-        "master ability": "Maximum Bet\n+20 Missile ATK & +70 HP",
+        "master ability": "Maximum Bet\n +20 Missile ATK & +70 HP",
         "link": "http://www.alchemistcodedb.com/unit/magnus",
         "job 1": "Gunner",
         "job 2": "Machinist",
@@ -5417,7 +5414,7 @@
             "JP: [32 AP] [Hard] Ch 1: Ep 3 [2-10]"
         ],
         "leader skill": "Wind: +30% PATK",
-        "master ability": "Platina Lineage\n+70 HP & +40 PDEF & Auto Jewel ",
+        "master ability": "Platina Lineage\n +70 HP & +40 PDEF & Auto Jewel ",
         "link": "http://www.alchemistcodedb.com/unit/flamel",
         "job 1": "Mage",
         "job 2": "Magic Swordsman",
@@ -5491,7 +5488,7 @@
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/balt.png",
         "farm": [],
         "leader skill": "Wind: +20% PATK & +5 Evasion Rate",
-        "master ability": "Hawk Talon\n+15 Slash ATK & +1 MOVE",
+        "master ability": "Hawk Talon\n +15 Slash ATK & +1 MOVE",
         "link": "http://www.alchemistcodedb.com/unit/balt",
         "job 1": "Twin-Blade Swordsman",
         "job 2": "Thief",
@@ -5571,7 +5568,7 @@
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/miel.png",
         "farm": [],
         "leader skill": "Light: +20% PATK & -5 Charge Time Ratio",
-        "master ability": "Atachi's Will\n+200 HP & -33 Cast Time Ratio",
+        "master ability": "Atachi's Will\n +200 HP & -33 Cast Time Ratio",
         "link": "http://www.alchemistcodedb.com/unit/mielikki",
         "job 1": "Enchanter",
         "job 2": "Mage",
@@ -5650,6 +5647,7 @@
         "rarity": "★★★★☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/merd.png",
         "farm": [
+            "GL: [32 AP] [Hard] Ch 1: Ep 5 [1-4]",
             "JP: [28 AP] [Hard] Ch 1: Ep 5 [1-4]"
         ],
         "leader skill": "Fire: +20% PATK",
@@ -5956,7 +5954,7 @@
             "JP: [32 AP] [Hard] Ch 1: Ep 3 [3-10]"
         ],
         "leader skill": "Dark: +20% PATK & +10% HP",
-        "master ability": "Playing With Rocks\n+200 HP & +20 AGI & +20 Jewels Obtained",
+        "master ability": "Playing With Rocks\n +200 HP & +20 AGI & +20 Jewels Obtained",
         "link": "http://www.alchemistcodedb.com/unit/rosa",
         "job 1": "Dark Knight",
         "job 2": "Dragon Cavalier",
@@ -6036,12 +6034,12 @@
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/eve.png",
         "farm": [],
         "leader skill": "Fire: +30% PATK",
-        "master ability": "1-Carat Sparkle\n+100 MATK & +15 Elemental Res",
+        "master ability": "1-Carat Sparkle\n +100 MATK & +15 Elemental Res",
         "link": "http://www.alchemistcodedb.com/unit/eve",
         "job 1": "Bride",
         "job 2": "Chronomancer",
         "job 3": "Holy Brawler",
-        "jc 1": "Shine: Wed F",
+        "jc 1": "Pure Brideᴶᴶ\n[light focus]",
         "jc 2": "",
         "jc 3": "Holy Brawler [Senju]ᴶ\n[multi-hit]",
         "inputs": [
@@ -6115,12 +6113,12 @@
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/frai.png",
         "farm": [],
         "leader skill": "Light: +30% PATK",
-        "master ability": "Gentleman's Honor\n+50 MATK & +15 AGI & +30 Magic Res",
+        "master ability": "Gentleman's Honor\n +50 MATK & +15 AGI & +30 Magic Res",
         "link": "http://www.alchemistcodedb.com/unit/fraise",
         "job 1": "Bridegroom",
         "job 2": "Samurai",
         "job 3": "Holy Cavalier",
-        "jc 1": "Shine: Wed M",
+        "jc 1": "Pure Bridegroomᴶᴶ\n[light focus]",
         "jc 2": "",
         "jc 3": "Holy Cavalier [Isaiyah]ᴶ\n[slash resistance]",
         "inputs": [
@@ -6278,7 +6276,7 @@
         "job 3": "Bridegroom",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Fire: Wed M",
+        "jc 3": "Passionate Bridegroomᴶᴶ\n[fire focus]",
         "inputs": [
             "Veloz",
             "Veros"
@@ -6346,12 +6344,12 @@
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/lucr.png",
         "farm": [],
         "leader skill": "Thunder: +50% PATK",
-        "master ability": "Brilliant Dress\n+30 Magic ATK & Auto Jewel ",
+        "master ability": "Brilliant Dress\n +30 Magic ATK & Auto Jewel ",
         "link": "http://www.alchemistcodedb.com/unit/lucretia",
         "job 1": "Bride",
         "job 2": "Mage",
         "job 3": "Professor",
-        "jc 1": "Lucre: Wed F",
+        "jc 1": "Bride+ᴶᴶ",
         "jc 2": "",
         "jc 3": "Professor [Honey]ᴶ\n[more charms and bind/daze skills]",
         "inputs": [
@@ -6422,7 +6420,7 @@
             "JP: [32 AP] [Hard] Ch 1: Ep 3 [3-9]"
         ],
         "leader skill": "Light: +50% PATK",
-        "master ability": "Cute Is Superior\n+10 AGI & +150 HP",
+        "master ability": "Cute Is Superior\n +10 AGI & +150 HP",
         "link": "http://www.alchemistcodedb.com/unit/suzuka",
         "job 1": "Samurai",
         "job 2": "Ninja",
@@ -6664,7 +6662,7 @@
             "JP: [32 AP] [Hard] Ch 1: Ep 3 [3-2]"
         ],
         "leader skill": "Water: +30% MATK & +20% PDEF",
-        "master ability": "Fatigue Attack\n+15 Magic ATK & +20 Guts",
+        "master ability": "Fatigue Attack\n +15 Magic ATK & +20 Guts",
         "link": "http://www.alchemistcodedb.com/unit/fungliu",
         "job 1": "Mage",
         "job 2": "Sage",
@@ -6738,10 +6736,11 @@
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/ryle.png",
         "farm": [
+            "GL: [32 AP] [Hard] Ch 1: Ep 4 [3-6]",
             "JP: [32 AP] [Hard] Ch 1: Ep 4 [3-6]"
         ],
         "leader skill": "Light: +30% PATK & +20% HP",
-        "master ability": "Desert Broom\n+20 Missile ATK & +20 Hit Rate",
+        "master ability": "Desert Broom\n +20 Missile ATK & +20 Hit Rate",
         "link": "http://www.alchemistcodedb.com/unit/ryle",
         "job 1": "Ranger",
         "job 2": "Twin-Blade Swordsman",
@@ -6823,7 +6822,7 @@
             "JP: [32 AP] [Hard] Ch 1: Ep 4 [3-4]"
         ],
         "leader skill": "Dark: +50% PATK",
-        "master ability": "Reactive Wall\n+100 HP",
+        "master ability": "Reactive Wall\n +100 HP",
         "link": "http://www.alchemistcodedb.com/unit/albell",
         "job 1": "Machinist",
         "job 2": "Thief",
@@ -6905,7 +6904,7 @@
             "JP: [32 AP] [Hard] Ch 1: Ep 4 [3-10]"
         ],
         "leader skill": "Water: +50% PATK",
-        "master ability": "Cute Is Justice\n+15 Strike ATK & +1 MOVE",
+        "master ability": "Cute Is Justice\n +15 Strike ATK & +1 MOVE",
         "link": "http://www.alchemistcodedb.com/unit/shayna",
         "job 1": "Holy Brawler",
         "job 2": "Dragon Knight",
@@ -6986,7 +6985,7 @@
             "JP: [32 AP] [Hard] Ch 1: Ep 5 [2-4]"
         ],
         "leader skill": "Fire: +50% PATK",
-        "master ability": "Dark Belief\n+25 Slash Res & +100 HP",
+        "master ability": "Dark Belief\n +25 Slash Res & +100 HP",
         "link": "http://www.alchemistcodedb.com/unit/reimei",
         "job 1": "Ninja",
         "job 2": "Martial Artist",
@@ -7269,7 +7268,7 @@
             "JP: [32 AP] [Hard] Ch 2: Ep 2 [2-4]"
         ],
         "leader skill": "Water: +50% PATK",
-        "master ability": "Hard starboard!\n+100 PATK & +100 HP & +50 PDEF",
+        "master ability": "Hard starboard!\n +100 PATK & +100 HP & +50 PDEF",
         "link": "http://www.alchemistcodedb.com/unit/shenmei",
         "job 1": "Pirate",
         "job 2": "Thief",
@@ -7345,7 +7344,7 @@
             "JP: [32 AP] [Hard] Ch 2: Ep 1 [2-10]"
         ],
         "leader skill": "Wind: +50% PATK",
-        "master ability": "Fox Day\n+1 MOVE & +10 AGI & +25 Damage",
+        "master ability": "Fox Day\n +1 MOVE & +10 AGI & +25 Damage",
         "link": "http://www.alchemistcodedb.com/jp/unit/tamamo",
         "job 1": "Shrine Maiden",
         "job 2": "Mage",
@@ -7931,7 +7930,7 @@
             "JP: [32 AP] [Hard] Ch 1: Ep 5 [3-1]"
         ],
         "leader skill": "Dark: +50% PATK",
-        "master ability": "Legendary Pirate's Trace\n+10 Initial Jewels & +10 Elemental Res",
+        "master ability": "Legendary Pirate's Trace\n +10 Initial Jewels & +10 Elemental Res",
         "link": "http://www.alchemistcodedb.com/unit/gormalas",
         "job 1": "Pirate",
         "job 2": "Dragon Knight",
@@ -8236,7 +8235,7 @@
             "JP: [32 AP] [Hard] Ch 1: Ep 5 [3-4]"
         ],
         "leader skill": "Light: +30% HP & +20% PATK",
-        "master ability": "Fragile Happiness\n+150 HP & +100 PATK & -5 Reduced Jewel Cost",
+        "master ability": "Fragile Happiness\n +150 HP & +100 PATK & -5 Reduced Jewel Cost",
         "link": "http://www.alchemistcodedb.com/unit/spica",
         "job 1": "Warrior",
         "job 2": "Thief",
@@ -8398,7 +8397,7 @@
             "JP: [32 AP] [Hard] Ch 2: Ep 4 [2-4]"
         ],
         "leader skill": "Thunder: +30% MATK & +20% PDEF",
-        "master ability": "Wish to the First Star\n+100 HP & +10 AGI & -33 Cast Time Ratio",
+        "master ability": "Wish to the First Star\n +100 HP & +10 AGI & -33 Cast Time Ratio",
         "link": "http://www.alchemistcodedb.com/unit/deneb",
         "job 1": "Astrologer",
         "job 2": "Crafter",
@@ -8787,7 +8786,7 @@
             "JP: [32 AP] [Hard] Ch 2: Ep 4 [3-1]"
         ],
         "leader skill": "Fire: +30% HP & +20% MATK",
-        "master ability": "Brave Invocation\n+20 Magic ATK & +15 AGI",
+        "master ability": "Brave Invocation\n +20 Magic ATK & +15 AGI",
         "link": "http://www.alchemistcodedb.com/unit/lupinus",
         "job 1": "Summoner",
         "job 2": "Chronomancer",
@@ -8860,6 +8859,7 @@
         "rarity": "★★★★☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/vict.png",
         "farm": [
+            "GL: [40 AP] [Hard] Ch 3: Ep 1 [2-5]",
             "JP: [28 AP] [Hard] Ch 2: Ep 2 [3-1]"
         ],
         "leader skill": "Light: +30% HP",
@@ -9021,7 +9021,7 @@
             "JP: [32 AP] [Hard] Ch 2: Ep 4 [2-10]"
         ],
         "leader skill": "Thunder: +30% HP & +20% PATK",
-        "master ability": "Nature's Ensemble\n+70 Initial Jewels & +1 Skill Use Count",
+        "master ability": "Nature's Ensemble\n +70 Initial Jewels & +1 Skill Use Count",
         "link": "http://www.alchemistcodedb.com/unit/aruba",
         "job 1": "Merchant",
         "job 2": "Beast Tamer",
@@ -9401,7 +9401,7 @@
             "JP: [32 AP] [Hard] Ch 2: Ep 4 [3-2]"
         ],
         "leader skill": "Thunder: +20% HP & +30% PATK",
-        "master ability": "Glorious Colosseum\n+15 Initial Jewels & +100 PATK",
+        "master ability": "Glorious Colosseum\n +15 Initial Jewels & +100 PATK",
         "link": "http://www.alchemistcodedb.com/unit/teona",
         "job 1": "Valkyrie",
         "job 2": "Dragon Knight",
@@ -9483,7 +9483,7 @@
             "JP: [32 AP] [Hard] Ch 2: Ep 3 [3-1]"
         ],
         "leader skill": "Wind: +20% HP & +30% PATK",
-        "master ability": "+100 PATK & +15 AGI",
+        "master ability": " +100 PATK & +15 AGI",
         "link": "http://www.alchemistcodedb.com/unit/rameses",
         "job 1": "Dragon Cavalier",
         "job 2": "Dark Cavalier",
@@ -9560,7 +9560,7 @@
             "JP: [32 AP] [Hard] Ch 2: Ep 4 [3-9]"
         ],
         "leader skill": "Fire: +30% HP & +20% PATK",
-        "master ability": "+100 HP & +50 PDEF & +50 MDEF",
+        "master ability": " +100 HP & +50 PDEF & +50 MDEF",
         "link": "http://www.alchemistcodedb.com/unit/dorothea",
         "job 1": "Necromancer",
         "job 2": "Magic Swordsman",
@@ -9790,7 +9790,7 @@
             "JP: [32 AP] [Hard] Ch 2: Ep 4 [3-10]"
         ],
         "leader skill": "Dark: +40% PATK & +5 Evasion Rate",
-        "master ability": "+100 PATK & +10 Evasion Rate",
+        "master ability": " +100 PATK & +10 Evasion Rate",
         "link": "http://www.alchemistcodedb.com/unit/asuwado",
         "job 1": "Shadow Assassin",
         "job 2": "Twin-Blade Swordsman",
@@ -9872,7 +9872,7 @@
             "JP: [32 AP] [Hard] Ch 2: Ep 3 [3-9]"
         ],
         "leader skill": "Water: +30% MATK & +20% HP",
-        "master ability": "+300 HP & +50 MATK & +1 Skill Use Count",
+        "master ability": " +300 HP & +50 MATK & +1 Skill Use Count",
         "link": "http://www.alchemistcodedb.com/unit/sophia",
         "job 1": "Astrologer",
         "job 2": "Bishop",
@@ -9947,7 +9947,7 @@
         "farm": [
             "JP: [28 AP] [Hard] Ch 2: Ep 3 [2-5]"
         ],
-        "leader skill": "+20 Missile ATK",
+        "leader skill": " +20 Missile ATK",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/kyaroru",
         "job 1": "Machinist",
@@ -10029,7 +10029,7 @@
             "JP: [32 AP] [Hard] Ch 3: Ep 2 [3-10]"
         ],
         "leader skill": "Wind: +30 Slash ATK & +20% HP",
-        "master ability": "+100 PATK & +50 Counter Res",
+        "master ability": " +100 PATK & +50 Counter Res",
         "link": "http://www.alchemistcodedb.com/unit/setsuna",
         "job 1": "Blademaster",
         "job 2": "Martial Artist",
@@ -10105,7 +10105,7 @@
             "JP: [32 AP] [Hard] Ch 2: Ep 4 [2-9]"
         ],
         "leader skill": "Fire: +50% HP",
-        "master ability": "+20 Missile ATK",
+        "master ability": " +20 Missile ATK",
         "link": "http://www.alchemistcodedb.com/unit/hazel",
         "job 1": "Machinist",
         "job 2": "Magic Swordsman",
@@ -10186,7 +10186,7 @@
             "JP: [32 AP] [Hard] Ch 2: Ep 4 [2-5]"
         ],
         "leader skill": "Thunder: +50% PATK",
-        "master ability": "+25 Initial Jewels & +15 Strike ATK",
+        "master ability": " +25 Initial Jewels & +15 Strike ATK",
         "link": "http://www.alchemistcodedb.com/jp/unit/eizan",
         "job 1": "Blacksmith",
         "job 2": "Samurai",
@@ -10555,7 +10555,7 @@
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/iriy.png",
         "farm": [],
-        "leader skill": "+30 Magic ATK",
+        "leader skill": " +30 Magic ATK",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/iriya",
         "job 1": "Master Magician",
@@ -10631,7 +10631,7 @@
         "rarity": "★★★☆☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/arch.png",
         "farm": [],
-        "leader skill": "+25% HP",
+        "leader skill": " +25% HP",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/archer",
         "job 1": "Archer",
@@ -10932,7 +10932,7 @@
         "rarity": "★★★☆☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/rena.png",
         "farm": [],
-        "leader skill": "+20 Magic ATK",
+        "leader skill": " +20 Magic ATK",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/rena",
         "job 1": "Actress",
@@ -11462,7 +11462,7 @@
             "JP: [32 AP] [Hard] Ch 3: Ep 3 [3-2]"
         ],
         "leader skill": "Water: +50% HP",
-        "master ability": "-5 Reduced Jewel Cost",
+        "master ability": " -5 Reduced Jewel Cost",
         "link": "http://www.alchemistcodedb.com/jp/unit/mikoto",
         "job 1": "Priestess",
         "job 2": "Ninja",
@@ -11531,7 +11531,7 @@
             "JP: [32 AP] [Hard] Ch 3: Ep 3 [2-10]"
         ],
         "leader skill": "Light: +50% HP",
-        "master ability": "+50 Healing & +70 Max Jewels",
+        "master ability": " +50 Healing & +70 Max Jewels",
         "link": "http://www.alchemistcodedb.com/unit/margaret",
         "job 1": "Merchant",
         "job 2": "Magic Swordsman",
@@ -11607,7 +11607,7 @@
             "JP: [32 AP] [Hard] Ch 3: Ep 3 [3-9]"
         ],
         "leader skill": "Thunder: +50% HP",
-        "master ability": "+50 PATK & +500 HP",
+        "master ability": " +50 PATK & +500 HP",
         "link": "http://www.alchemistcodedb.com/unit/meifan",
         "job 1": "Martial Master",
         "job 2": "Thief",
@@ -11684,7 +11684,7 @@
             "JP: [32 AP] [Hard] Ch 3: Ep 3 [1-10]"
         ],
         "leader skill": "Fire: +30 Missile ATK & +20% HP",
-        "master ability": "+2 RANGE & +40 Wind DMG & +10 AGI",
+        "master ability": " +2 RANGE & +40 Wind DMG & +10 AGI",
         "link": "http://www.alchemistcodedb.com/unit/vivi",
         "job 1": "Magia Gunslinger",
         "job 2": "Gunner",
@@ -11898,7 +11898,7 @@
             "JP: [32 AP] [Hard] Ch 3: Ep 3 [3-1]"
         ],
         "leader skill": "Light: +20% HP & +30 Magic ATK",
-        "master ability": "+20 AGI & +30 MATK",
+        "master ability": " +20 AGI & +30 MATK",
         "link": "http://www.alchemistcodedb.com/unit/neica",
         "job 1": "Battle Mage",
         "job 2": "Magic Swordsman",
@@ -11980,7 +11980,7 @@
             "JP: [32 AP] [Hard] Ch 3: Ep 3 [2-9]"
         ],
         "leader skill": "Water: +30% HP & +20% PATK",
-        "master ability": "+300 HP & +40 Initial Jewels",
+        "master ability": " +300 HP & +40 Initial Jewels",
         "link": "http://www.alchemistcodedb.com/jp/unit/yunagi",
         "job 1": "Dark Cavalier",
         "job 2": "Ninja",
@@ -12474,7 +12474,7 @@
             "JP: [32 AP] [Hard] Ch 3: Ep 4 [3-1]"
         ],
         "leader skill": "Thunder: +30 Magic ATK & +20% HP",
-        "master ability": "+300 HP & +40 DEX & +1 MOVE",
+        "master ability": " +300 HP & +40 DEX & +1 MOVE",
         "link": "http://www.alchemistcodedb.com/jp/unit/chao",
         "job 1": "Battle Mage",
         "job 2": "Twin-Blade Swordsman",
@@ -12678,7 +12678,7 @@
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/liz_hat.png",
         "farm": [],
-        "leader skill": "+20 Guts",
+        "leader skill": " +20 Guts",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/lizardmen-hat",
         "job 1": "Spearman",
@@ -14664,7 +14664,7 @@
         "rarity": "★★★☆☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/rh_rain.png",
         "farm": [],
-        "leader skill": "-5 Reduced Jewel Cost",
+        "leader skill": " -5 Reduced Jewel Cost",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/rh-rainy",
         "job 1": "Magic Swordsman",
@@ -16120,7 +16120,7 @@
         "rarity": "★★★★☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/hish.png",
         "farm": [],
-        "leader skill": "+20 Magic ATK",
+        "leader skill": " +20 Magic ATK",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/hisharmu",
         "job 1": "Geomancer",
@@ -17145,7 +17145,7 @@
         "rarity": "★★★☆☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/fa_envy.png",
         "farm": [],
-        "leader skill": "+50% PATK & +50% MATK & -30% PDEF & -30% MDEF",
+        "leader skill": " +50% PATK & +50% MATK & -30% PDEF & -30% MDEF",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/fa-envy",
         "job 1": "Dark Knight",
@@ -18031,7 +18031,7 @@
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/guil.png",
         "farm": [],
-        "leader skill": "+20% HP & +20% MDEF & +10 Magic Res",
+        "leader skill": " +20% HP & +20% MDEF & +10 Magic Res",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/guildford",
         "job 1": "Sacred Knight",
@@ -19663,7 +19663,7 @@
         "rarity": "★★★★☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/liz_hat.png",
         "farm": [],
-        "leader skill": "+25% HP & +5 Guts",
+        "leader skill": " +25% HP & +5 Guts",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/apr-liz",
         "job 1": "Lizardmanᴶ",
@@ -20005,7 +20005,7 @@
         "leader skill": "Fire: +50% HP & +30% PATK & +10 Hit Rate",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/cry-arthur",
-        "job 1": "Investigator Heroᴶ",
+        "job 1": "Seeker of Truthᴶ",
         "job 2": "Holy Brawler",
         "job 3": "Holy Cavalier",
         "jc 1": "",
@@ -20074,7 +20074,7 @@
         "leader skill": "Light: +50% HP & +30% PATK & +20 Dark DMG",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/more",
-        "job 1": "JB_STRB_SHINEᴶ",
+        "job 1": "Desert Inferno: Dawnᴶᴶ",
         "job 2": "Wild Beast Tamer",
         "job 3": "Warrior",
         "jc 1": "",

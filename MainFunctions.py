@@ -401,7 +401,7 @@ def buff(buff, lv, mlv, array=False):
                 'stat':'Elemental Res'
             })
         for m in mods:
-            text += text + ' {value}{mod} {stat} &'.format(value=m['value'],mod=m['mod'],stat=m['stat'])
+            text += ' {value}{mod} {stat} &'.format(value=m['value'],mod=m['mod'],stat=m['stat'])
     return mods if array else text[:-2]
 
 
