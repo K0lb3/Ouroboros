@@ -1,4 +1,5 @@
 from os import environ
+
 global FOOTER_URL
 FOOTER_URL={
     'UNIT': "https://drive.google.com/uc?export=download&id=1PckfnsMfNkguRZ9-2XVM6MT_ZOrG2-Lr",
@@ -11,7 +12,7 @@ global prefix
 prefix='o?'
 
 global BOT_TOKEN
-BOT_TOKEN = os.environ.get('DISCORD_BOT_TOKEN')
+BOT_TOKEN = environ.get('DISCORD_BOT_TOKEN')
 
 global PRESENCES
 PRESENCES=[
