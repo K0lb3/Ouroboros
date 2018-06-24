@@ -168,9 +168,9 @@ async def on_reaction_add(reaction, user):
                 if emoji in job_e:
                     job=getattr(unit_obj,job_e[emoji]).replace('ᴶ','').split('\n')[0]
                     unit = unit_obj.name.replace('ᴶ','')
-                    job_dict = find_best(jobs, job, True)
+                    job_dict = find_best(jobs, job)
                     if unit not in job_dict['units']:
-                        job_dict = find_best(jobs, '{unit} {job}'.format(unit=unit, job=job),True)
+                        job_dict = find_best(jobs, '{unit} {job}'.format(unit=unit, job=job))
 
                     job_obj = Job(source=job_dict)
                     await msg.edit(embed=unit_obj.to_unit_job_embed(job=job_obj))
