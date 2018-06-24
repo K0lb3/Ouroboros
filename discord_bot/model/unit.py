@@ -72,7 +72,7 @@ class Unit(Model):
                 'inline': False,
             })
 
-        embed = self.to_embed(fields=fields)
+        embed = self.to_embed(title_key='general info, overall rank:',fields=fields)
 
         if 'total' in self.tierlist:
             embed.title += " [{tier}]".format(tier=self.tierlist.get('total'))
@@ -86,7 +86,7 @@ class Unit(Model):
             {'name': 'illustrator', 'value': self.ILLUST, },
             'CV', 'PROFILE',
         ]
-        return self.to_embed(fields=fields)
+        return self.to_embed(title_key='lore ',fields=fields)
 
     def to_art_embeds(self):
         embeds = []
@@ -145,7 +145,6 @@ class Unit(Model):
         ]
 
         fields = [
-            {'name': 'Job',         'value': job.name,                          'inline': False},
             {'name': 'description', 'value': getattr(job, 'long description'),  'inline': False},
             {'name': 'formula',     'value': getattr(job, 'formula'),           'inline': False},
             {'name': 'weapon',      'value': getattr(job, 'weapon')},
@@ -154,9 +153,9 @@ class Unit(Model):
             {'name': 'jump',        'value': job.stats['Jump']},
             {'name': 'JM bonus',    'value': ' , '.join(jm_values), 'inline':False},
             {'name': 'modifiers',   'value': '\n'.join(modifiers)},
-            {'name': 'max stats (modifiers applied)', 'value': '\n'.join(stats)},
+            {'name': 'max stats (without JM bonus)', 'value': '\n'.join(stats)},
         ]
 
-        embed = self.to_embed(fields=fields)
+        embed = self.to_embed(title_key=job.name,fields=fields)
 
         return embed
