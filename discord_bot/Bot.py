@@ -8,22 +8,7 @@ from discord.ext import commands
 from model import *
 
 # Constants
-prefix='o?'
 bot = commands.Bot(command_prefix=prefix)
-PRESENCES=[
-        'WIP Job: o?job',
-        'Collabs: o?collabs',
-        'Unit: o?unit',
-        'Lore: o?lore',
-        'Art:  o?art',
-        'Gear: o?gear',
-        'Farm: o?farm',
-        'Ranking: o?arena',
-        'Arena Enemy: o?rank x'
-        'Tierlist: o?tierlist',
-        'Info: o?info',
-        'Help: o?help'
-        ]
 
 #functions
 def loadFiles(files):
@@ -164,7 +149,7 @@ async def on_reaction_add(reaction, user):
     if (type(emoji)==str) and user != bot.user and msg.author == bot.user:
         membed=msg.embeds[0]
         if FOOTER_URL['UNIT'] == membed.footer.icon_url:
-            unit_dict = find_best(units, membed.title.replace('ᴶ',''))
+            unit_dict = find_best(units, membed.author.name.replace('ᴶ',''))
             unit_obj = Unit(source=unit_dict)
 
             if emoji=='🗃': #main page
@@ -181,15 +166,17 @@ async def on_reaction_add(reaction, user):
                     '6⃣':'jc 3'
                     }
                 if emoji in job_e:
-                    job_dict = find_best(jobs, getattr(unit_obj,job_e[emoji]))
-                    if unit_obj.name not in job_dict['units']:
-                        job_dict = find_best(jobs, '{unit} {job}'.format(unit=unit_obj.name, job=getattr(unit_obj,job_e[emoji])))
+                    job=getattr(unit_obj,job_e[emoji]).replace('ᴶ','').split('\n')[0]
+                    unit = unit_obj.name.replace('ᴶ','')
+                    job_dict = find_best(jobs, job, True)
+                    if unit not in job_dict['units']:
+                        job_dict = find_best(jobs, '{unit} {job}'.format(unit=unit, job=job),True)
 
                     job_obj = Job(source=job_dict)
                     await msg.edit(embed=unit_obj.to_unit_job_embed(job=job_obj))
 
         elif FOOTER_URL['JOB'] == membed.footer.icon_url:
-            job_dict = find_best(jobs, membed.title.replace('ᴶ',''))
+            job_dict = find_best(jobs, membed.author.name.replace('ᴶ',''))
             job_obj = Job(source=job_dict)
 
             if emoji=='🗃': #main page
@@ -240,7 +227,7 @@ async def job(ctx, *, name):
     msg = await ctx.send(embed=job_obj.to_job_embed())
     await statistic(ctx, "Job", name, job_dict['name'])
     reactions=['🗃','🇲','🇸','🇷','🇵'] 
-    #await add_reactions(msg, reactions)
+    await add_reactions(msg, reactions)
 
 # unit commands
 @bot.command() # info
@@ -263,7 +250,7 @@ async def unit(ctx, *, name):
         if getattr(unit_obj, key, "")!="":
             reactions.append(value)
 
-    #await add_reactions(msg, reactions)
+    await add_reactions(msg, reactions)
     await statistic(ctx, "Unit", name, unit_dict['name'])
 
 
@@ -474,5 +461,4 @@ async def help(ctx):
 
 [loc]=loadFiles(['LocalizedMasterParam.json'])
 [units,drops,gears,jobs]=convertDBS(loadFiles(['units.json','drops.json','gear.json','jobs.json']))
-BOT_TOKEN = os.environ.get('DISCORD_BOT_TOKEN')
 bot.run(BOT_TOKEN)

@@ -18,15 +18,21 @@ class Job(Model):
             if key.lower() not in Job._IGNORE_STATS
         ]
 
+        jm_values = [
+            "{key}: {value}{mod}".format(key=value['stat'], value=value['value'],mod=value['mod'])
+            for value in getattr(self,'job master buff')
+        ]
+
         fields = [
             {'name': 'description', 'value': getattr(self, 'long description'), 'inline': False},
-            {'name': 'formula', 'value': getattr(self, 'formula'), 'inline': False},
+            {'name': 'formula',     'value': getattr(self, 'formula'), 'inline': False},
             'weapon','origin',
-            {'name': 'move', 'value': self.stats['Move']},
-            {'name': 'jump', 'value': self.stats['Jump']},
-            {'name': 'modifiers', 'value': ' | '.join(modifiers), 'inline': False},
-            {'name': 'stats', 'value': '\n'.join(stats)},
-            {'name': 'units', 'value': '\n'.join(self.units)},
+            {'name': 'move',        'value': self.stats['Move']},
+            {'name': 'jump',        'value': self.stats['Jump']},
+            {'name': 'modifiers',   'value': ' , '.join(modifiers), 'inline': False},
+            {'name': 'JM bonus',    'value': ' , '.join(jm_values), 'inline':False},
+            {'name': 'stats',       'value': '\n'.join(stats)},
+            {'name': 'units',       'value': '\n'.join(self.units)},
         ]
 
         embed = self.to_embed(fields=fields)

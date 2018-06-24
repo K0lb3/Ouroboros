@@ -14,11 +14,13 @@ class Model(ABC):
 
     def to_embed(self, title_key='name', thumbnail_key='icon', url_key='link', fields=[]):
         embed = Embed(
-            title=getattr(self, title_key, None),
-            url=getattr(self, url_key, None)
+            title=getattr(self, title_key, title_key),
+            url=getattr(self, url_key, url_key)
         )
-        embed.set_thumbnail(url=getattr(self, thumbnail_key, None))
+        embed.set_thumbnail(url=getattr(self, thumbnail_key, thumbnail_key))
+    #    return (self.fix_fields(embed=Embed,fields=fields))
 
+    #def fix_fields(self,embed=Embed ,fields=[]):
         for field in fields:
             if isinstance(field, str):
                 args = {

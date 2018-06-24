@@ -22,6 +22,8 @@ class Unit(Model):
         embed = super(Unit, self).to_embed(
             title_key=title_key, thumbnail_key=thumbnail_key, url_key=url_key, fields=fields
             )
+        embed.set_author(name=self.inputs[0], url=self.link)
+
         embed.color = Unit.ELEMENT_COLOR.get(self.element, Unit.DEFAULT_ELEMENT_COLOR)
         embed.set_footer(text='ᴶ - japan only', icon_url=FOOTER_URL['UNIT'])
 
@@ -137,6 +139,11 @@ class Unit(Model):
             for key, value in rstats.items()
         ]
         
+        jm_values = [
+            "{key}: {value}{mod}".format(key=value['stat'], value=value['value'],mod=value['mod'])
+            for value in getattr(job,'job master buff')
+        ]
+
         fields = [
             {'name': 'Job',         'value': job.name,                          'inline': False},
             {'name': 'description', 'value': getattr(job, 'long description'),  'inline': False},
@@ -145,6 +152,7 @@ class Unit(Model):
             {'name': 'origin',      'value': getattr(job, 'origin')},
             {'name': 'move',        'value': job.stats['Move']},
             {'name': 'jump',        'value': job.stats['Jump']},
+            {'name': 'JM bonus',    'value': ' , '.join(jm_values), 'inline':False},
             {'name': 'modifiers',   'value': '\n'.join(modifiers)},
             {'name': 'max stats (modifiers applied)', 'value': '\n'.join(stats)},
         ]
