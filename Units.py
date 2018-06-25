@@ -1,85 +1,82 @@
 from MainFunctions import *
 import jellyfish
 
-
-def master_ability(unit, cMaster, loc):
-    skill = cMaster[cMaster[unit['ability']]['skl1']]
-
-    text = (loc[skill['iname']]['NAME']+"\n") if skill['iname'] in loc else ""
-
-    if 't_buff' in skill:
-        text += buff(cMaster[skill['t_buff']], 2, 2).replace('%', '')
-
-    if 't_cond' in skill:
-        if 't_buff' in skill:
-            text += ' & '
-        text += condition(cMaster[skill['t_cond']], 2, 2).replace('[100%]', '')
-
-    return text
-
-
-def add_tierlist(units):
-    [tierlist] = loadFiles(['tierlist_gl.json'])
-    # convert tierlist
-    tierlist = tierlist['Tier List']
-
-    rating = ["", "D", "D/C", "C", "C/B", "B",
-              "B/A", "A", "A/S", "S", "S/SS", "SS"]
-
-    tl = {}
-    for row in range(1, len(tierlist)):
-        for i in range(0, 6):
-            j = i*6+1
-            tl[tierlist[row][j]] = {
-                'job 1': tierlist[row][j+1],
-                'job 2': tierlist[row][j+2],
-                'job 3': tierlist[row][j+3],
-                'jc': tierlist[row][j+4],
-                'total': ""
-            }
-    # add total
-    for i in tl:
-        best = 0
-        for j in tl[i]:
-            try:
-                index = rating.index(tl[i][j])
-                if index > best:
-                    best = index
-            except:
-                pass
-        tl[i]['total'] = rating[best]
-
-    # add tierlist to units
-    for i in tl:
-        if len(i) > 30:
-            continue
-
-        found = 0
-        for u in units:
-            if units[u]['name'] == i:
-                units[u]['tierlist'] = tl[i]
-                found = 1
-                break
-        if found == 0:
-            max = 0
-            best = ""
-            for u in units:
-                if 'tierlist' in units[u]:
-                    continue
-                sim = jellyfish.jaro_winkler(i, units[u]['name'])
-                if sim > max:
-                    max = sim
-                    best = u
-            if max > 0.85:
-                units[best]['tierlist'] = tl[i]
-                print(i + ' to ' + best + ' sim: ' + str(max))
-
-    return units
-
-
 def Units():
     global ParamTypes
     global birth
+
+    def master_ability(unit, cMaster, loc):
+        skill = cMaster[cMaster[unit['ability']]['skl1']]
+
+        text = (loc[skill['iname']]['NAME']+"\n") if skill['iname'] in loc else ""
+
+        if 't_buff' in skill:
+            text += buff(cMaster[skill['t_buff']], 2, 2).replace('%', '')
+
+        if 't_cond' in skill:
+            if 't_buff' in skill:
+                text += ' & '
+            text += condition(cMaster[skill['t_cond']], 2, 2).replace('[100%]', '')
+
+        return text
+
+    def add_tierlist(units):
+        [tierlist] = loadFiles(['tierlist_gl.json'])
+        # convert tierlist
+        tierlist = tierlist['Tier List']
+
+        rating = ["", "D", "D/C", "C", "C/B", "B",
+                "B/A", "A", "A/S", "S", "S/SS", "SS"]
+
+        tl = {}
+        for row in range(1, len(tierlist)):
+            for i in range(0, 6):
+                j = i*6+1
+                tl[tierlist[row][j]] = {
+                    'job 1': tierlist[row][j+1],
+                    'job 2': tierlist[row][j+2],
+                    'job 3': tierlist[row][j+3],
+                    'jc': tierlist[row][j+4],
+                    'total': ""
+                }
+        # add total
+        for i in tl:
+            best = 0
+            for j in tl[i]:
+                try:
+                    index = rating.index(tl[i][j])
+                    if index > best:
+                        best = index
+                except:
+                    pass
+            tl[i]['total'] = rating[best]
+
+        # add tierlist to units
+        for i in tl:
+            if len(i) > 30:
+                continue
+
+            found = 0
+            for u in units:
+                if units[u]['name'] == i:
+                    units[u]['tierlist'] = tl[i]
+                    found = 1
+                    break
+            if found == 0:
+                max = 0
+                best = ""
+                for u in units:
+                    if 'tierlist' in units[u]:
+                        continue
+                    sim = jellyfish.jaro_winkler(i, units[u]['name'])
+                    if sim > max:
+                        max = sim
+                        best = u
+                if max > 0.85:
+                    units[best]['tierlist'] = tl[i]
+                    print(i + ' to ' + best + ' sim: ' + str(max))
+
+        return units
 
     jobe = {}  # missing job evolves
     mjob = {}  # missing jobs
@@ -122,12 +119,13 @@ def Units():
 
     units = {}
 
-    for unit in jp['Unit']:
-        if unit['ai'] != "AI_PLAYER":
-            print('End at: ', unit['iname'])
-            break
+    ulist= convertSubMaster(jp['Unit'])
+    ulist.update(convertSubMaster(gl['Unit']))
 
-        iname = unit['iname']
+    for iname,unit in ulist.items():
+        if unit['ai'] != 'AI_PLAYER':
+            break
+        [main, mainc]= [gl, glc] if iname in glc else [jp, jpc]
 
         units[iname] = {
             'iname': iname,
@@ -141,8 +139,8 @@ def Units():
             'rarity': rarity(unit['rare'], unit['raremax']),
             'icon': 'http://cdn.alchemistcodedb.com/images/units/profiles/' + unit["img"] + ".png",
             'farm': pieces[unit['piece']] if ('piece' in unit and unit['piece'] in pieces) else [],
-            'leader skill': buff(jpc[jpc[unit['ls6']]['t_buff']], 2, 2) if ('ls6' in unit) and ('t_buff' in jpc[unit['ls6']]) else "/",
-            'master ability': master_ability(unit, jpc, loc) if 'ability' in unit else "",
+            'leader skill': buff(mainc[mainc[unit['ls6']]['t_buff']], 2, 2) if ('ls6' in unit) and ('t_buff' in mainc[unit['ls6']]) else "/",
+            'master ability': master_ability(unit, mainc, loc) if 'ability' in unit else "",
             # 'shard quests': drops[unit['piece']],
             'link': 'http://www.alchemistcodedb.com/' + (''if iname in glc else 'jp/') + 'unit/' + iname.replace('UN_V2_', "").replace('_', "-").lower(),
             'job 1': "",
@@ -152,7 +150,8 @@ def Units():
             'jc 2': "",
             'jc 3': "",
             'inputs': [],
-            "stats":    {},
+            "stats":    calc_stat_grow(unit, main, 85),
+            "max_stats":   {},
             "min_stats":   {},
         }
 
@@ -170,7 +169,7 @@ def Units():
             "luk":  "LUCK",
         }
         for stat in stats:
-            units[iname]['stats'][stats[stat]] = unit['m'+stat]
+            units[iname]['max_stats'][stats[stat]] = unit['m'+stat]
             units[iname]['min_stats'][stats[stat]] = unit[stat]
 
         # add lore

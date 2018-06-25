@@ -31,7 +31,19 @@
             "Rogi"
         ],
         "stats": {
-            "HP": 796,
+            "HP": 780,
+            "Max Jewels": 155,
+            "PATK": 133,
+            "PDEF": 93,
+            "MATK": 117,
+            "MDEF": 87,
+            "DEX": 117,
+            "AGI": 85,
+            "CRIT": 125,
+            "LUCK": 127
+        },
+        "max_stats": {
+            "HP": 780,
             "Max Jewels": 155,
             "PATK": 133,
             "PDEF": 93,
@@ -43,7 +55,7 @@
             "LUCK": 127
         },
         "min_stats": {
-            "HP": 88,
+            "HP": 86,
             "Max Jewels": 40,
             "PATK": 37,
             "PDEF": 34,
@@ -117,7 +129,19 @@
             "Dios"
         ],
         "stats": {
-            "HP": 741,
+            "HP": 758,
+            "Max Jewels": 155,
+            "PATK": 136,
+            "PDEF": 89,
+            "MATK": 117,
+            "MDEF": 83,
+            "DEX": 119,
+            "AGI": 82,
+            "CRIT": 131,
+            "LUCK": 127
+        },
+        "max_stats": {
+            "HP": 758,
             "Max Jewels": 155,
             "PATK": 136,
             "PDEF": 89,
@@ -129,7 +153,7 @@
             "LUCK": 127
         },
         "min_stats": {
-            "HP": 103,
+            "HP": 105,
             "Max Jewels": 40,
             "PATK": 40,
             "PDEF": 45,
@@ -156,11 +180,6 @@
                 "name": "default",
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/dios.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/dios-closeup.png"
-            },
-            {
-                "name": "Grow_Dios",
-                "full": "http://cdn.alchemistcodedb.com/images/units/artworks/dios_grow_dios.png",
-                "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/dios_grow_dios-closeup.png"
             }
         ],
         "tierlist": {
@@ -203,7 +222,19 @@
             "Edgar"
         ],
         "stats": {
-            "HP": 690,
+            "HP": 712,
+            "Max Jewels": 159,
+            "PATK": 131,
+            "PDEF": 88,
+            "MATK": 119,
+            "MDEF": 82,
+            "DEX": 139,
+            "AGI": 88,
+            "CRIT": 146,
+            "LUCK": 133
+        },
+        "max_stats": {
+            "HP": 712,
             "Max Jewels": 159,
             "PATK": 131,
             "PDEF": 88,
@@ -215,7 +246,7 @@
             "LUCK": 133
         },
         "min_stats": {
-            "HP": 73,
+            "HP": 75,
             "Max Jewels": 41,
             "PATK": 37,
             "PDEF": 25,
@@ -283,7 +314,19 @@
             "Lizbeth"
         ],
         "stats": {
-            "HP": 661,
+            "HP": 652,
+            "Max Jewels": 165,
+            "PATK": 112,
+            "PDEF": 102,
+            "MATK": 126,
+            "MDEF": 95,
+            "DEX": 126,
+            "AGI": 82,
+            "CRIT": 104,
+            "LUCK": 126
+        },
+        "max_stats": {
+            "HP": 652,
             "Max Jewels": 165,
             "PATK": 112,
             "PDEF": 102,
@@ -295,7 +338,7 @@
             "LUCK": 126
         },
         "min_stats": {
-            "HP": 74,
+            "HP": 73,
             "Max Jewels": 47,
             "PATK": 35,
             "PDEF": 34,
@@ -362,7 +405,19 @@
             "Tina"
         ],
         "stats": {
-            "HP": 704,
+            "HP": 733,
+            "Max Jewels": 171,
+            "PATK": 147,
+            "PDEF": 91,
+            "MATK": 131,
+            "MDEF": 100,
+            "DEX": 147,
+            "AGI": 89,
+            "CRIT": 133,
+            "LUCK": 129
+        },
+        "max_stats": {
+            "HP": 733,
             "Max Jewels": 171,
             "PATK": 147,
             "PDEF": 91,
@@ -374,7 +429,7 @@
             "LUCK": 129
         },
         "min_stats": {
-            "HP": 82,
+            "HP": 85,
             "Max Jewels": 48,
             "PATK": 40,
             "PDEF": 29,
@@ -429,7 +484,19 @@
             "Amane"
         ],
         "stats": {
-            "HP": 1864,
+            "HP": 364,
+            "Max Jewels": 184,
+            "PATK": 140,
+            "PDEF": 100,
+            "MATK": 140,
+            "MDEF": 100,
+            "DEX": 140,
+            "AGI": 85,
+            "CRIT": 140,
+            "LUCK": 140
+        },
+        "max_stats": {
+            "HP": 364,
             "Max Jewels": 184,
             "PATK": 140,
             "PDEF": 100,
@@ -441,7 +508,7 @@
             "LUCK": 140
         },
         "min_stats": {
-            "HP": 226,
+            "HP": 76,
             "Max Jewels": 46,
             "PATK": 39,
             "PDEF": 28,
@@ -465,18 +532,18 @@
         "name": "Kamui",
         "inofficial": "Kamui",
         "gender": "♂",
-        "element": "Fire",
-        "country": "Desert Zone",
+        "element": "/",
+        "country": "/",
         "collab": "",
         "collab short": "",
-        "rarity": "★★☆☆☆",
-        "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/past_kamu.png",
+        "rarity": "★★☆",
+        "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/kamu.png",
         "farm": [],
-        "leader skill": "Fire: +40% HP & +20 Strike ATK & +5 Hit Rate",
+        "leader skill": "/",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/kamui",
-        "job 1": "Holy Brawlerᴶ",
-        "job 2": "Spiral Style Masterᴶ",
+        "job 1": "",
+        "job 2": "",
         "job 3": "",
         "jc 1": "",
         "jc 2": "",
@@ -485,28 +552,40 @@
             "Kamui"
         ],
         "stats": {
-            "HP": 625,
+            "HP": 364,
             "Max Jewels": 184,
-            "PATK": 125,
-            "PDEF": 78,
-            "MATK": 155,
-            "MDEF": 74,
-            "DEX": 120,
-            "AGI": 80,
-            "CRIT": 120,
-            "LUCK": 125
+            "PATK": 140,
+            "PDEF": 100,
+            "MATK": 140,
+            "MDEF": 100,
+            "DEX": 140,
+            "AGI": 85,
+            "CRIT": 140,
+            "LUCK": 140
+        },
+        "max_stats": {
+            "HP": 364,
+            "Max Jewels": 184,
+            "PATK": 140,
+            "PDEF": 100,
+            "MATK": 140,
+            "MDEF": 100,
+            "DEX": 140,
+            "AGI": 85,
+            "CRIT": 140,
+            "LUCK": 140
         },
         "min_stats": {
-            "HP": 84,
-            "Max Jewels": 47,
-            "PATK": 34,
+            "HP": 76,
+            "Max Jewels": 46,
+            "PATK": 39,
             "PDEF": 28,
-            "MATK": 31,
-            "MDEF": 24,
-            "DEX": 33,
-            "AGI": 47,
-            "CRIT": 33,
-            "LUCK": 35
+            "MATK": 39,
+            "MDEF": 28,
+            "DEX": 39,
+            "AGI": 50,
+            "CRIT": 39,
+            "LUCK": 39
         },
         "PROFILE": "砂漠地帯に隠れ住むセフィラの民の青年。練精術の扱いに優れ、その資質から守り人の務めを任されている。淡々とした言動とは異なり、世話好きな面が強く、仲間から頼りにされる存在。ただ、本人は他者の心情の機微には疎い。",
         "COUNTRY": "砂漠地帯",
@@ -522,8 +601,8 @@
         "artworks": [
             {
                 "name": "default",
-                "full": "http://cdn.alchemistcodedb.com/images/units/artworks/past_kamu.png",
-                "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/past_kamu-closeup.png"
+                "full": "http://cdn.alchemistcodedb.com/images/units/artworks/kamu.png",
+                "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/kamu-closeup.png"
             }
         ]
     },
@@ -559,7 +638,19 @@
             "Alaia"
         ],
         "stats": {
-            "HP": 316,
+            "HP": 343,
+            "Max Jewels": 156,
+            "PATK": 109,
+            "PDEF": 74,
+            "MATK": 115,
+            "MDEF": 77,
+            "DEX": 123,
+            "AGI": 94,
+            "CRIT": 115,
+            "LUCK": 123
+        },
+        "max_stats": {
+            "HP": 343,
             "Max Jewels": 156,
             "PATK": 109,
             "PDEF": 74,
@@ -571,7 +662,7 @@
             "LUCK": 123
         },
         "min_stats": {
-            "HP": 67,
+            "HP": 70,
             "Max Jewels": 41,
             "PATK": 33,
             "PDEF": 21,
@@ -641,7 +732,19 @@
             "Lucido"
         ],
         "stats": {
-            "HP": 325,
+            "HP": 370,
+            "Max Jewels": 140,
+            "PATK": 119,
+            "PDEF": 78,
+            "MATK": 105,
+            "MDEF": 69,
+            "DEX": 109,
+            "AGI": 86,
+            "CRIT": 121,
+            "LUCK": 109
+        },
+        "max_stats": {
+            "HP": 370,
             "Max Jewels": 140,
             "PATK": 119,
             "PDEF": 78,
@@ -653,7 +756,7 @@
             "LUCK": 109
         },
         "min_stats": {
-            "HP": 66,
+            "HP": 70,
             "Max Jewels": 37,
             "PATK": 34,
             "PDEF": 22,
@@ -724,7 +827,19 @@
             "Regart"
         ],
         "stats": {
-            "HP": 513,
+            "HP": 487,
+            "Max Jewels": 140,
+            "PATK": 119,
+            "PDEF": 70,
+            "MATK": 109,
+            "MDEF": 67,
+            "DEX": 116,
+            "AGI": 91,
+            "CRIT": 121,
+            "LUCK": 115
+        },
+        "max_stats": {
+            "HP": 487,
             "Max Jewels": 140,
             "PATK": 119,
             "PDEF": 70,
@@ -736,7 +851,7 @@
             "LUCK": 115
         },
         "min_stats": {
-            "HP": 83,
+            "HP": 81,
             "Max Jewels": 37,
             "PATK": 34,
             "PDEF": 21,
@@ -804,7 +919,19 @@
             "Rin"
         ],
         "stats": {
-            "HP": 297,
+            "HP": 363,
+            "Max Jewels": 166,
+            "PATK": 95,
+            "PDEF": 65,
+            "MATK": 125,
+            "MDEF": 83,
+            "DEX": 97,
+            "AGI": 79,
+            "CRIT": 103,
+            "LUCK": 115
+        },
+        "max_stats": {
+            "HP": 363,
             "Max Jewels": 166,
             "PATK": 95,
             "PDEF": 65,
@@ -816,7 +943,7 @@
             "LUCK": 115
         },
         "min_stats": {
-            "HP": 62,
+            "HP": 69,
             "Max Jewels": 43,
             "PATK": 29,
             "PDEF": 18,
@@ -884,7 +1011,19 @@
             "Gain"
         ],
         "stats": {
-            "HP": 338,
+            "HP": 387,
+            "Max Jewels": 134,
+            "PATK": 123,
+            "PDEF": 73,
+            "MATK": 103,
+            "MDEF": 62,
+            "DEX": 121,
+            "AGI": 94,
+            "CRIT": 121,
+            "LUCK": 117
+        },
+        "max_stats": {
+            "HP": 387,
             "Max Jewels": 134,
             "PATK": 123,
             "PDEF": 73,
@@ -896,7 +1035,7 @@
             "LUCK": 117
         },
         "min_stats": {
-            "HP": 68,
+            "HP": 73,
             "Max Jewels": 35,
             "PATK": 35,
             "PDEF": 22,
@@ -964,7 +1103,19 @@
             "Alexis"
         ],
         "stats": {
-            "HP": 291,
+            "HP": 329,
+            "Max Jewels": 158,
+            "PATK": 105,
+            "PDEF": 66,
+            "MATK": 121,
+            "MDEF": 83,
+            "DEX": 109,
+            "AGI": 80,
+            "CRIT": 109,
+            "LUCK": 109
+        },
+        "max_stats": {
+            "HP": 329,
             "Max Jewels": 158,
             "PATK": 105,
             "PDEF": 66,
@@ -976,7 +1127,7 @@
             "LUCK": 109
         },
         "min_stats": {
-            "HP": 62,
+            "HP": 66,
             "Max Jewels": 41,
             "PATK": 30,
             "PDEF": 18,
@@ -1050,7 +1201,19 @@
             "Porin"
         ],
         "stats": {
-            "HP": 283,
+            "HP": 313,
+            "Max Jewels": 168,
+            "PATK": 95,
+            "PDEF": 59,
+            "MATK": 125,
+            "MDEF": 83,
+            "DEX": 112,
+            "AGI": 83,
+            "CRIT": 103,
+            "LUCK": 119
+        },
+        "max_stats": {
+            "HP": 313,
             "Max Jewels": 168,
             "PATK": 95,
             "PDEF": 59,
@@ -1062,7 +1225,7 @@
             "LUCK": 119
         },
         "min_stats": {
-            "HP": 62,
+            "HP": 65,
             "Max Jewels": 44,
             "PATK": 29,
             "PDEF": 17,
@@ -1135,7 +1298,19 @@
             "Anju"
         ],
         "stats": {
-            "HP": 322,
+            "HP": 377,
+            "Max Jewels": 162,
+            "PATK": 114,
+            "PDEF": 64,
+            "MATK": 119,
+            "MDEF": 80,
+            "DEX": 117,
+            "AGI": 91,
+            "CRIT": 109,
+            "LUCK": 123
+        },
+        "max_stats": {
+            "HP": 377,
             "Max Jewels": 162,
             "PATK": 114,
             "PDEF": 64,
@@ -1147,7 +1322,7 @@
             "LUCK": 123
         },
         "min_stats": {
-            "HP": 64,
+            "HP": 69,
             "Max Jewels": 42,
             "PATK": 31,
             "PDEF": 19,
@@ -1216,7 +1391,19 @@
             "Meili"
         ],
         "stats": {
-            "HP": 305,
+            "HP": 365,
+            "Max Jewels": 172,
+            "PATK": 90,
+            "PDEF": 57,
+            "MATK": 131,
+            "MDEF": 89,
+            "DEX": 99,
+            "AGI": 76,
+            "CRIT": 99,
+            "LUCK": 115
+        },
+        "max_stats": {
+            "HP": 365,
             "Max Jewels": 172,
             "PATK": 90,
             "PDEF": 57,
@@ -1228,7 +1415,7 @@
             "LUCK": 115
         },
         "min_stats": {
-            "HP": 61,
+            "HP": 67,
             "Max Jewels": 45,
             "PATK": 28,
             "PDEF": 16,
@@ -1296,7 +1483,19 @@
             "Alfred"
         ],
         "stats": {
-            "HP": 320,
+            "HP": 373,
+            "Max Jewels": 144,
+            "PATK": 119,
+            "PDEF": 68,
+            "MATK": 109,
+            "MDEF": 67,
+            "DEX": 135,
+            "AGI": 95,
+            "CRIT": 123,
+            "LUCK": 119
+        },
+        "max_stats": {
+            "HP": 373,
             "Max Jewels": 144,
             "PATK": 119,
             "PDEF": 68,
@@ -1308,7 +1507,7 @@
             "LUCK": 119
         },
         "min_stats": {
-            "HP": 65,
+            "HP": 70,
             "Max Jewels": 38,
             "PATK": 34,
             "PDEF": 20,
@@ -1379,7 +1578,19 @@
             "Meria"
         ],
         "stats": {
-            "HP": 318,
+            "HP": 368,
+            "Max Jewels": 164,
+            "PATK": 111,
+            "PDEF": 61,
+            "MATK": 121,
+            "MDEF": 78,
+            "DEX": 115,
+            "AGI": 85,
+            "CRIT": 103,
+            "LUCK": 125
+        },
+        "max_stats": {
+            "HP": 368,
             "Max Jewels": 164,
             "PATK": 111,
             "PDEF": 61,
@@ -1391,7 +1602,7 @@
             "LUCK": 125
         },
         "min_stats": {
-            "HP": 63,
+            "HP": 68,
             "Max Jewels": 43,
             "PATK": 32,
             "PDEF": 18,
@@ -1460,7 +1671,19 @@
             "Rambert"
         ],
         "stats": {
-            "HP": 369,
+            "HP": 404,
+            "Max Jewels": 134,
+            "PATK": 129,
+            "PDEF": 74,
+            "MATK": 97,
+            "MDEF": 68,
+            "DEX": 109,
+            "AGI": 86,
+            "CRIT": 115,
+            "LUCK": 115
+        },
+        "max_stats": {
+            "HP": 404,
             "Max Jewels": 134,
             "PATK": 129,
             "PDEF": 74,
@@ -1472,7 +1695,7 @@
             "LUCK": 115
         },
         "min_stats": {
-            "HP": 70,
+            "HP": 73,
             "Max Jewels": 35,
             "PATK": 35,
             "PDEF": 22,
@@ -1543,7 +1766,19 @@
             "Gath"
         ],
         "stats": {
-            "HP": 307,
+            "HP": 361,
+            "Max Jewels": 166,
+            "PATK": 99,
+            "PDEF": 64,
+            "MATK": 125,
+            "MDEF": 90,
+            "DEX": 113,
+            "AGI": 86,
+            "CRIT": 105,
+            "LUCK": 121
+        },
+        "max_stats": {
+            "HP": 361,
             "Max Jewels": 166,
             "PATK": 99,
             "PDEF": 64,
@@ -1555,7 +1790,7 @@
             "LUCK": 121
         },
         "min_stats": {
-            "HP": 63,
+            "HP": 68,
             "Max Jewels": 43,
             "PATK": 30,
             "PDEF": 19,
@@ -1620,7 +1855,19 @@
             "Hazuki"
         ],
         "stats": {
-            "HP": 380,
+            "HP": 416,
+            "Max Jewels": 222,
+            "PATK": 134,
+            "PDEF": 90,
+            "MATK": 154,
+            "MDEF": 127,
+            "DEX": 135,
+            "AGI": 80,
+            "CRIT": 126,
+            "LUCK": 150
+        },
+        "max_stats": {
+            "HP": 416,
             "Max Jewels": 222,
             "PATK": 134,
             "PDEF": 90,
@@ -1632,7 +1879,7 @@
             "LUCK": 150
         },
         "min_stats": {
-            "HP": 75,
+            "HP": 79,
             "Max Jewels": 55,
             "PATK": 37,
             "PDEF": 24,
@@ -1696,7 +1943,19 @@
             "Jake"
         ],
         "stats": {
-            "HP": 305,
+            "HP": 357,
+            "Max Jewels": 166,
+            "PATK": 114,
+            "PDEF": 61,
+            "MATK": 123,
+            "MDEF": 87,
+            "DEX": 115,
+            "AGI": 85,
+            "CRIT": 103,
+            "LUCK": 125
+        },
+        "max_stats": {
+            "HP": 357,
             "Max Jewels": 166,
             "PATK": 114,
             "PDEF": 61,
@@ -1708,7 +1967,7 @@
             "LUCK": 125
         },
         "min_stats": {
-            "HP": 63,
+            "HP": 68,
             "Max Jewels": 43,
             "PATK": 31,
             "PDEF": 18,
@@ -1774,7 +2033,19 @@
             "Lish"
         ],
         "stats": {
-            "HP": 335,
+            "HP": 389,
+            "Max Jewels": 136,
+            "PATK": 127,
+            "PDEF": 74,
+            "MATK": 101,
+            "MDEF": 66,
+            "DEX": 127,
+            "AGI": 88,
+            "CRIT": 131,
+            "LUCK": 109
+        },
+        "max_stats": {
+            "HP": 389,
             "Max Jewels": 136,
             "PATK": 127,
             "PDEF": 74,
@@ -1786,7 +2057,7 @@
             "LUCK": 109
         },
         "min_stats": {
-            "HP": 67,
+            "HP": 72,
             "Max Jewels": 36,
             "PATK": 34,
             "PDEF": 22,
@@ -1851,7 +2122,19 @@
             "Elaine"
         ],
         "stats": {
-            "HP": 321,
+            "HP": 369,
+            "Max Jewels": 136,
+            "PATK": 127,
+            "PDEF": 74,
+            "MATK": 105,
+            "MDEF": 68,
+            "DEX": 129,
+            "AGI": 92,
+            "CRIT": 127,
+            "LUCK": 109
+        },
+        "max_stats": {
+            "HP": 369,
             "Max Jewels": 136,
             "PATK": 127,
             "PDEF": 74,
@@ -1863,7 +2146,7 @@
             "LUCK": 109
         },
         "min_stats": {
-            "HP": 65,
+            "HP": 70,
             "Max Jewels": 36,
             "PATK": 34,
             "PDEF": 21,
@@ -1928,7 +2211,19 @@
             "Vanekis"
         ],
         "stats": {
-            "HP": 319,
+            "HP": 350,
+            "Max Jewels": 158,
+            "PATK": 107,
+            "PDEF": 66,
+            "MATK": 129,
+            "MDEF": 83,
+            "DEX": 113,
+            "AGI": 86,
+            "CRIT": 107,
+            "LUCK": 111
+        },
+        "max_stats": {
+            "HP": 350,
             "Max Jewels": 158,
             "PATK": 107,
             "PDEF": 66,
@@ -1940,7 +2235,7 @@
             "LUCK": 111
         },
         "min_stats": {
-            "HP": 64,
+            "HP": 68,
             "Max Jewels": 41,
             "PATK": 31,
             "PDEF": 18,
@@ -2009,7 +2304,19 @@
             "Amis"
         ],
         "stats": {
-            "HP": 321,
+            "HP": 381,
+            "Max Jewels": 156,
+            "PATK": 116,
+            "PDEF": 69,
+            "MATK": 115,
+            "MDEF": 77,
+            "DEX": 113,
+            "AGI": 88,
+            "CRIT": 113,
+            "LUCK": 119
+        },
+        "max_stats": {
+            "HP": 381,
             "Max Jewels": 156,
             "PATK": 116,
             "PDEF": 69,
@@ -2021,7 +2328,7 @@
             "LUCK": 119
         },
         "min_stats": {
-            "HP": 65,
+            "HP": 71,
             "Max Jewels": 41,
             "PATK": 32,
             "PDEF": 19,
@@ -2092,7 +2399,19 @@
             "Isyuna"
         ],
         "stats": {
-            "HP": 321,
+            "HP": 371,
+            "Max Jewels": 132,
+            "PATK": 129,
+            "PDEF": 70,
+            "MATK": 101,
+            "MDEF": 66,
+            "DEX": 120,
+            "AGI": 92,
+            "CRIT": 121,
+            "LUCK": 115
+        },
+        "max_stats": {
+            "HP": 371,
             "Max Jewels": 132,
             "PATK": 129,
             "PDEF": 70,
@@ -2104,7 +2423,7 @@
             "LUCK": 115
         },
         "min_stats": {
-            "HP": 66,
+            "HP": 71,
             "Max Jewels": 35,
             "PATK": 35,
             "PDEF": 21,
@@ -2168,7 +2487,19 @@
             "Mizuchi"
         ],
         "stats": {
-            "HP": 320,
+            "HP": 369,
+            "Max Jewels": 136,
+            "PATK": 123,
+            "PDEF": 72,
+            "MATK": 107,
+            "MDEF": 64,
+            "DEX": 135,
+            "AGI": 97,
+            "CRIT": 127,
+            "LUCK": 115
+        },
+        "max_stats": {
+            "HP": 369,
             "Max Jewels": 136,
             "PATK": 123,
             "PDEF": 72,
@@ -2180,7 +2511,7 @@
             "LUCK": 115
         },
         "min_stats": {
-            "HP": 65,
+            "HP": 70,
             "Max Jewels": 36,
             "PATK": 35,
             "PDEF": 20,
@@ -2245,7 +2576,19 @@
             "Kazahaya"
         ],
         "stats": {
-            "HP": 315,
+            "HP": 362,
+            "Max Jewels": 134,
+            "PATK": 131,
+            "PDEF": 72,
+            "MATK": 103,
+            "MDEF": 69,
+            "DEX": 129,
+            "AGI": 97,
+            "CRIT": 123,
+            "LUCK": 115
+        },
+        "max_stats": {
+            "HP": 362,
             "Max Jewels": 134,
             "PATK": 131,
             "PDEF": 72,
@@ -2257,7 +2600,7 @@
             "LUCK": 115
         },
         "min_stats": {
-            "HP": 67,
+            "HP": 72,
             "Max Jewels": 35,
             "PATK": 35,
             "PDEF": 20,
@@ -2324,7 +2667,19 @@
             "Ciel"
         ],
         "stats": {
-            "HP": 307,
+            "HP": 376,
+            "Max Jewels": 156,
+            "PATK": 109,
+            "PDEF": 65,
+            "MATK": 119,
+            "MDEF": 81,
+            "DEX": 121,
+            "AGI": 86,
+            "CRIT": 123,
+            "LUCK": 115
+        },
+        "max_stats": {
+            "HP": 376,
             "Max Jewels": 156,
             "PATK": 109,
             "PDEF": 65,
@@ -2336,7 +2691,7 @@
             "LUCK": 115
         },
         "min_stats": {
-            "HP": 64,
+            "HP": 71,
             "Max Jewels": 41,
             "PATK": 31,
             "PDEF": 18,
@@ -2398,7 +2753,19 @@
             "Yuan"
         ],
         "stats": {
-            "HP": 334,
+            "HP": 358,
+            "Max Jewels": 136,
+            "PATK": 129,
+            "PDEF": 68,
+            "MATK": 107,
+            "MDEF": 68,
+            "DEX": 129,
+            "AGI": 97,
+            "CRIT": 133,
+            "LUCK": 109
+        },
+        "max_stats": {
+            "HP": 358,
             "Max Jewels": 136,
             "PATK": 129,
             "PDEF": 68,
@@ -2410,7 +2777,7 @@
             "LUCK": 109
         },
         "min_stats": {
-            "HP": 66,
+            "HP": 69,
             "Max Jewels": 36,
             "PATK": 35,
             "PDEF": 20,
@@ -2474,7 +2841,19 @@
             "Decel"
         ],
         "stats": {
-            "HP": 285,
+            "HP": 343,
+            "Max Jewels": 158,
+            "PATK": 105,
+            "PDEF": 63,
+            "MATK": 127,
+            "MDEF": 80,
+            "DEX": 120,
+            "AGI": 85,
+            "CRIT": 105,
+            "LUCK": 121
+        },
+        "max_stats": {
+            "HP": 343,
             "Max Jewels": 158,
             "PATK": 105,
             "PDEF": 63,
@@ -2486,7 +2865,7 @@
             "LUCK": 121
         },
         "min_stats": {
-            "HP": 62,
+            "HP": 68,
             "Max Jewels": 41,
             "PATK": 32,
             "PDEF": 17,
@@ -2550,7 +2929,19 @@
             "Ennis"
         ],
         "stats": {
-            "HP": 291,
+            "HP": 341,
+            "Max Jewels": 164,
+            "PATK": 105,
+            "PDEF": 65,
+            "MATK": 121,
+            "MDEF": 83,
+            "DEX": 115,
+            "AGI": 85,
+            "CRIT": 108,
+            "LUCK": 131
+        },
+        "max_stats": {
+            "HP": 341,
             "Max Jewels": 164,
             "PATK": 105,
             "PDEF": 65,
@@ -2562,7 +2953,7 @@
             "LUCK": 131
         },
         "min_stats": {
-            "HP": 63,
+            "HP": 68,
             "Max Jewels": 43,
             "PATK": 32,
             "PDEF": 18,
@@ -2628,7 +3019,19 @@
             "Anne Rose"
         ],
         "stats": {
-            "HP": 304,
+            "HP": 376,
+            "Max Jewels": 162,
+            "PATK": 103,
+            "PDEF": 66,
+            "MATK": 123,
+            "MDEF": 83,
+            "DEX": 111,
+            "AGI": 80,
+            "CRIT": 109,
+            "LUCK": 115
+        },
+        "max_stats": {
+            "HP": 376,
             "Max Jewels": 162,
             "PATK": 103,
             "PDEF": 66,
@@ -2640,7 +3043,7 @@
             "LUCK": 115
         },
         "min_stats": {
-            "HP": 63,
+            "HP": 70,
             "Max Jewels": 42,
             "PATK": 30,
             "PDEF": 18,
@@ -2708,7 +3111,19 @@
             "Gein"
         ],
         "stats": {
-            "HP": 367,
+            "HP": 407,
+            "Max Jewels": 161,
+            "PATK": 137,
+            "PDEF": 94,
+            "MATK": 125,
+            "MDEF": 94,
+            "DEX": 146,
+            "AGI": 85,
+            "CRIT": 121,
+            "LUCK": 128
+        },
+        "max_stats": {
+            "HP": 407,
             "Max Jewels": 161,
             "PATK": 137,
             "PDEF": 94,
@@ -2720,7 +3135,7 @@
             "LUCK": 128
         },
         "min_stats": {
-            "HP": 73,
+            "HP": 77,
             "Max Jewels": 41,
             "PATK": 38,
             "PDEF": 26,
@@ -2785,7 +3200,19 @@
             "Airyu"
         ],
         "stats": {
-            "HP": 291,
+            "HP": 340,
+            "Max Jewels": 164,
+            "PATK": 105,
+            "PDEF": 66,
+            "MATK": 123,
+            "MDEF": 90,
+            "DEX": 117,
+            "AGI": 85,
+            "CRIT": 105,
+            "LUCK": 131
+        },
+        "max_stats": {
+            "HP": 340,
             "Max Jewels": 164,
             "PATK": 105,
             "PDEF": 66,
@@ -2797,7 +3224,7 @@
             "LUCK": 131
         },
         "min_stats": {
-            "HP": 63,
+            "HP": 68,
             "Max Jewels": 43,
             "PATK": 32,
             "PDEF": 18,
@@ -2855,7 +3282,19 @@
             "Sarauz"
         ],
         "stats": {
-            "HP": 329,
+            "HP": 385,
+            "Max Jewels": 138,
+            "PATK": 121,
+            "PDEF": 77,
+            "MATK": 103,
+            "MDEF": 68,
+            "DEX": 137,
+            "AGI": 89,
+            "CRIT": 129,
+            "LUCK": 109
+        },
+        "max_stats": {
+            "HP": 385,
             "Max Jewels": 138,
             "PATK": 121,
             "PDEF": 77,
@@ -2867,7 +3306,7 @@
             "LUCK": 109
         },
         "min_stats": {
-            "HP": 67,
+            "HP": 72,
             "Max Jewels": 36,
             "PATK": 34,
             "PDEF": 22,
@@ -2932,7 +3371,19 @@
             "Rion"
         ],
         "stats": {
-            "HP": 791,
+            "HP": 714,
+            "Max Jewels": 164,
+            "PATK": 109,
+            "PDEF": 74,
+            "MATK": 131,
+            "MDEF": 87,
+            "DEX": 111,
+            "AGI": 83,
+            "CRIT": 105,
+            "LUCK": 119
+        },
+        "max_stats": {
+            "HP": 714,
             "Max Jewels": 164,
             "PATK": 109,
             "PDEF": 74,
@@ -2944,7 +3395,7 @@
             "LUCK": 119
         },
         "min_stats": {
-            "HP": 113,
+            "HP": 105,
             "Max Jewels": 43,
             "PATK": 31,
             "PDEF": 20,
@@ -3009,7 +3460,19 @@
             "Patty"
         ],
         "stats": {
-            "HP": 353,
+            "HP": 390,
+            "Max Jewels": 175,
+            "PATK": 125,
+            "PDEF": 84,
+            "MATK": 131,
+            "MDEF": 89,
+            "DEX": 135,
+            "AGI": 94,
+            "CRIT": 123,
+            "LUCK": 143
+        },
+        "max_stats": {
+            "HP": 390,
             "Max Jewels": 175,
             "PATK": 125,
             "PDEF": 84,
@@ -3021,7 +3484,7 @@
             "LUCK": 143
         },
         "min_stats": {
-            "HP": 71,
+            "HP": 75,
             "Max Jewels": 45,
             "PATK": 35,
             "PDEF": 23,
@@ -3086,7 +3549,19 @@
             "Almira"
         ],
         "stats": {
-            "HP": 385,
+            "HP": 435,
+            "Max Jewels": 153,
+            "PATK": 137,
+            "PDEF": 91,
+            "MATK": 117,
+            "MDEF": 79,
+            "DEX": 145,
+            "AGI": 94,
+            "CRIT": 141,
+            "LUCK": 129
+        },
+        "max_stats": {
+            "HP": 435,
             "Max Jewels": 153,
             "PATK": 137,
             "PDEF": 91,
@@ -3098,7 +3573,7 @@
             "LUCK": 129
         },
         "min_stats": {
-            "HP": 73,
+            "HP": 78,
             "Max Jewels": 39,
             "PATK": 38,
             "PDEF": 26,
@@ -3167,7 +3642,19 @@
             "Michael"
         ],
         "stats": {
-            "HP": 332,
+            "HP": 352,
+            "Max Jewels": 183,
+            "PATK": 111,
+            "PDEF": 73,
+            "MATK": 148,
+            "MDEF": 103,
+            "DEX": 123,
+            "AGI": 79,
+            "CRIT": 111,
+            "LUCK": 133
+        },
+        "max_stats": {
+            "HP": 352,
             "Max Jewels": 183,
             "PATK": 111,
             "PDEF": 73,
@@ -3179,7 +3666,7 @@
             "LUCK": 133
         },
         "min_stats": {
-            "HP": 70,
+            "HP": 72,
             "Max Jewels": 47,
             "PATK": 33,
             "PDEF": 20,
@@ -3249,7 +3736,19 @@
             "Aqil"
         ],
         "stats": {
-            "HP": 887,
+            "HP": 726,
+            "Max Jewels": 157,
+            "PATK": 135,
+            "PDEF": 88,
+            "MATK": 125,
+            "MDEF": 85,
+            "DEX": 141,
+            "AGI": 91,
+            "CRIT": 127,
+            "LUCK": 129
+        },
+        "max_stats": {
+            "HP": 726,
             "Max Jewels": 157,
             "PATK": 135,
             "PDEF": 88,
@@ -3261,7 +3760,7 @@
             "LUCK": 129
         },
         "min_stats": {
-            "HP": 127,
+            "HP": 111,
             "Max Jewels": 40,
             "PATK": 38,
             "PDEF": 25,
@@ -3325,7 +3824,19 @@
             "Kuon"
         ],
         "stats": {
-            "HP": 349,
+            "HP": 403,
+            "Max Jewels": 181,
+            "PATK": 121,
+            "PDEF": 73,
+            "MATK": 133,
+            "MDEF": 96,
+            "DEX": 129,
+            "AGI": 80,
+            "CRIT": 125,
+            "LUCK": 133
+        },
+        "max_stats": {
+            "HP": 403,
             "Max Jewels": 181,
             "PATK": 121,
             "PDEF": 73,
@@ -3337,7 +3848,7 @@
             "LUCK": 133
         },
         "min_stats": {
-            "HP": 70,
+            "HP": 75,
             "Max Jewels": 46,
             "PATK": 34,
             "PDEF": 20,
@@ -3400,7 +3911,19 @@
             "Miannu"
         ],
         "stats": {
-            "HP": 312,
+            "HP": 372,
+            "Max Jewels": 187,
+            "PATK": 107,
+            "PDEF": 68,
+            "MATK": 143,
+            "MDEF": 105,
+            "DEX": 116,
+            "AGI": 76,
+            "CRIT": 111,
+            "LUCK": 127
+        },
+        "max_stats": {
+            "HP": 372,
             "Max Jewels": 187,
             "PATK": 107,
             "PDEF": 68,
@@ -3412,7 +3935,7 @@
             "LUCK": 127
         },
         "min_stats": {
-            "HP": 67,
+            "HP": 73,
             "Max Jewels": 48,
             "PATK": 31,
             "PDEF": 19,
@@ -3478,7 +4001,19 @@
             "Mea"
         ],
         "stats": {
-            "HP": 364,
+            "HP": 400,
+            "Max Jewels": 177,
+            "PATK": 117,
+            "PDEF": 76,
+            "MATK": 137,
+            "MDEF": 94,
+            "DEX": 129,
+            "AGI": 85,
+            "CRIT": 129,
+            "LUCK": 120
+        },
+        "max_stats": {
+            "HP": 400,
             "Max Jewels": 177,
             "PATK": 117,
             "PDEF": 76,
@@ -3490,7 +4025,7 @@
             "LUCK": 120
         },
         "min_stats": {
-            "HP": 72,
+            "HP": 75,
             "Max Jewels": 45,
             "PATK": 33,
             "PDEF": 21,
@@ -3565,7 +4100,19 @@
             "Celine"
         ],
         "stats": {
-            "HP": 331,
+            "HP": 391,
+            "Max Jewels": 185,
+            "PATK": 109,
+            "PDEF": 73,
+            "MATK": 145,
+            "MDEF": 102,
+            "DEX": 117,
+            "AGI": 77,
+            "CRIT": 113,
+            "LUCK": 127
+        },
+        "max_stats": {
+            "HP": 391,
             "Max Jewels": 185,
             "PATK": 109,
             "PDEF": 73,
@@ -3577,7 +4124,7 @@
             "LUCK": 127
         },
         "min_stats": {
-            "HP": 67,
+            "HP": 73,
             "Max Jewels": 47,
             "PATK": 31,
             "PDEF": 20,
@@ -3642,7 +4189,19 @@
             "Freed"
         ],
         "stats": {
-            "HP": 423,
+            "HP": 436,
+            "Max Jewels": 151,
+            "PATK": 137,
+            "PDEF": 90,
+            "MATK": 109,
+            "MDEF": 76,
+            "DEX": 131,
+            "AGI": 88,
+            "CRIT": 139,
+            "LUCK": 123
+        },
+        "max_stats": {
+            "HP": 436,
             "Max Jewels": 151,
             "PATK": 137,
             "PDEF": 90,
@@ -3654,7 +4213,7 @@
             "LUCK": 123
         },
         "min_stats": {
-            "HP": 78,
+            "HP": 79,
             "Max Jewels": 39,
             "PATK": 38,
             "PDEF": 25,
@@ -3719,7 +4278,19 @@
             "Dilga"
         ],
         "stats": {
-            "HP": 630,
+            "HP": 435,
+            "Max Jewels": 147,
+            "PATK": 137,
+            "PDEF": 93,
+            "MATK": 109,
+            "MDEF": 77,
+            "DEX": 121,
+            "AGI": 83,
+            "CRIT": 125,
+            "LUCK": 133
+        },
+        "max_stats": {
+            "HP": 435,
             "Max Jewels": 147,
             "PATK": 137,
             "PDEF": 93,
@@ -3731,7 +4302,7 @@
             "LUCK": 133
         },
         "min_stats": {
-            "HP": 81,
+            "HP": 79,
             "Max Jewels": 38,
             "PATK": 38,
             "PDEF": 26,
@@ -3801,7 +4372,19 @@
             "Sutorie"
         ],
         "stats": {
-            "HP": 843,
+            "HP": 742,
+            "Max Jewels": 159,
+            "PATK": 133,
+            "PDEF": 87,
+            "MATK": 125,
+            "MDEF": 85,
+            "DEX": 141,
+            "AGI": 88,
+            "CRIT": 137,
+            "LUCK": 120
+        },
+        "max_stats": {
+            "HP": 742,
             "Max Jewels": 159,
             "PATK": 133,
             "PDEF": 87,
@@ -3813,7 +4396,7 @@
             "LUCK": 120
         },
         "min_stats": {
-            "HP": 121,
+            "HP": 110,
             "Max Jewels": 41,
             "PATK": 37,
             "PDEF": 24,
@@ -3878,7 +4461,19 @@
             "Chihaya"
         ],
         "stats": {
-            "HP": 363,
+            "HP": 381,
+            "Max Jewels": 169,
+            "PATK": 129,
+            "PDEF": 82,
+            "MATK": 131,
+            "MDEF": 94,
+            "DEX": 137,
+            "AGI": 92,
+            "CRIT": 133,
+            "LUCK": 131
+        },
+        "max_stats": {
+            "HP": 381,
             "Max Jewels": 169,
             "PATK": 129,
             "PDEF": 82,
@@ -3890,7 +4485,7 @@
             "LUCK": 131
         },
         "min_stats": {
-            "HP": 74,
+            "HP": 76,
             "Max Jewels": 43,
             "PATK": 36,
             "PDEF": 22,
@@ -3961,7 +4556,19 @@
             "Rofia"
         ],
         "stats": {
-            "HP": 882,
+            "HP": 803,
+            "Max Jewels": 194,
+            "PATK": 136,
+            "PDEF": 96,
+            "MATK": 161,
+            "MDEF": 119,
+            "DEX": 138,
+            "AGI": 80,
+            "CRIT": 128,
+            "LUCK": 142
+        },
+        "max_stats": {
+            "HP": 803,
             "Max Jewels": 194,
             "PATK": 136,
             "PDEF": 96,
@@ -3973,7 +4580,7 @@
             "LUCK": 142
         },
         "min_stats": {
-            "HP": 127,
+            "HP": 119,
             "Max Jewels": 48,
             "PATK": 38,
             "PDEF": 26,
@@ -4043,7 +4650,19 @@
             "Lamia"
         ],
         "stats": {
-            "HP": 480,
+            "HP": 466,
+            "Max Jewels": 172,
+            "PATK": 150,
+            "PDEF": 105,
+            "MATK": 126,
+            "MDEF": 97,
+            "DEX": 144,
+            "AGI": 83,
+            "CRIT": 149,
+            "LUCK": 123
+        },
+        "max_stats": {
+            "HP": 466,
             "Max Jewels": 172,
             "PATK": 150,
             "PDEF": 105,
@@ -4055,7 +4674,7 @@
             "LUCK": 123
         },
         "min_stats": {
-            "HP": 88,
+            "HP": 87,
             "Max Jewels": 43,
             "PATK": 41,
             "PDEF": 29,
@@ -4120,7 +4739,19 @@
             "Zangetsu"
         ],
         "stats": {
-            "HP": 460,
+            "HP": 479,
+            "Max Jewels": 170,
+            "PATK": 163,
+            "PDEF": 92,
+            "MATK": 128,
+            "MDEF": 91,
+            "DEX": 156,
+            "AGI": 94,
+            "CRIT": 154,
+            "LUCK": 138
+        },
+        "max_stats": {
+            "HP": 479,
             "Max Jewels": 170,
             "PATK": 163,
             "PDEF": 92,
@@ -4132,7 +4763,7 @@
             "LUCK": 138
         },
         "min_stats": {
-            "HP": 84,
+            "HP": 86,
             "Max Jewels": 42,
             "PATK": 43,
             "PDEF": 27,
@@ -4197,7 +4828,19 @@
             "Megistos"
         ],
         "stats": {
-            "HP": 435,
+            "HP": 454,
+            "Max Jewels": 182,
+            "PATK": 138,
+            "PDEF": 100,
+            "MATK": 131,
+            "MDEF": 100,
+            "DEX": 148,
+            "AGI": 85,
+            "CRIT": 146,
+            "LUCK": 140
+        },
+        "max_stats": {
+            "HP": 454,
             "Max Jewels": 182,
             "PATK": 138,
             "PDEF": 100,
@@ -4209,7 +4852,7 @@
             "LUCK": 140
         },
         "min_stats": {
-            "HP": 80,
+            "HP": 82,
             "Max Jewels": 45,
             "PATK": 38,
             "PDEF": 26,
@@ -4275,7 +4918,19 @@
             "Lucia"
         ],
         "stats": {
-            "HP": 463,
+            "HP": 461,
+            "Max Jewels": 164,
+            "PATK": 154,
+            "PDEF": 107,
+            "MATK": 122,
+            "MDEF": 85,
+            "DEX": 156,
+            "AGI": 94,
+            "CRIT": 142,
+            "LUCK": 142
+        },
+        "max_stats": {
+            "HP": 461,
             "Max Jewels": 164,
             "PATK": 154,
             "PDEF": 107,
@@ -4358,7 +5013,19 @@
             "Chalice"
         ],
         "stats": {
-            "HP": 410,
+            "HP": 462,
+            "Max Jewels": 174,
+            "PATK": 148,
+            "PDEF": 102,
+            "MATK": 123,
+            "MDEF": 96,
+            "DEX": 168,
+            "AGI": 91,
+            "CRIT": 165,
+            "LUCK": 140
+        },
+        "max_stats": {
+            "HP": 462,
             "Max Jewels": 174,
             "PATK": 148,
             "PDEF": 102,
@@ -4370,7 +5037,7 @@
             "LUCK": 140
         },
         "min_stats": {
-            "HP": 80,
+            "HP": 85,
             "Max Jewels": 43,
             "PATK": 41,
             "PDEF": 28,
@@ -4441,7 +5108,19 @@
             "Rafu"
         ],
         "stats": {
-            "HP": 386,
+            "HP": 416,
+            "Max Jewels": 198,
+            "PATK": 128,
+            "PDEF": 90,
+            "MATK": 156,
+            "MDEF": 117,
+            "DEX": 136,
+            "AGI": 80,
+            "CRIT": 128,
+            "LUCK": 142
+        },
+        "max_stats": {
+            "HP": 416,
             "Max Jewels": 198,
             "PATK": 128,
             "PDEF": 90,
@@ -4453,7 +5132,7 @@
             "LUCK": 142
         },
         "min_stats": {
-            "HP": 76,
+            "HP": 79,
             "Max Jewels": 49,
             "PATK": 36,
             "PDEF": 24,
@@ -4523,7 +5202,19 @@
             "Anastasia"
         ],
         "stats": {
-            "HP": 409,
+            "HP": 457,
+            "Max Jewels": 162,
+            "PATK": 172,
+            "PDEF": 99,
+            "MATK": 130,
+            "MDEF": 90,
+            "DEX": 140,
+            "AGI": 86,
+            "CRIT": 167,
+            "LUCK": 140
+        },
+        "max_stats": {
+            "HP": 457,
             "Max Jewels": 162,
             "PATK": 172,
             "PDEF": 99,
@@ -4535,7 +5226,7 @@
             "LUCK": 140
         },
         "min_stats": {
-            "HP": 79,
+            "HP": 84,
             "Max Jewels": 40,
             "PATK": 47,
             "PDEF": 27,
@@ -4605,7 +5296,19 @@
             "Zahar"
         ],
         "stats": {
-            "HP": 414,
+            "HP": 437,
+            "Max Jewels": 172,
+            "PATK": 165,
+            "PDEF": 99,
+            "MATK": 130,
+            "MDEF": 90,
+            "DEX": 144,
+            "AGI": 86,
+            "CRIT": 159,
+            "LUCK": 129
+        },
+        "max_stats": {
+            "HP": 437,
             "Max Jewels": 172,
             "PATK": 165,
             "PDEF": 99,
@@ -4617,7 +5320,7 @@
             "LUCK": 129
         },
         "min_stats": {
-            "HP": 80,
+            "HP": 82,
             "Max Jewels": 43,
             "PATK": 43,
             "PDEF": 27,
@@ -4687,7 +5390,19 @@
             "Chloe"
         ],
         "stats": {
-            "HP": 509,
+            "HP": 471,
+            "Max Jewels": 170,
+            "PATK": 152,
+            "PDEF": 116,
+            "MATK": 128,
+            "MDEF": 103,
+            "DEX": 130,
+            "AGI": 80,
+            "CRIT": 136,
+            "LUCK": 134
+        },
+        "max_stats": {
+            "HP": 471,
             "Max Jewels": 170,
             "PATK": 152,
             "PDEF": 116,
@@ -4699,7 +5414,7 @@
             "LUCK": 134
         },
         "min_stats": {
-            "HP": 90,
+            "HP": 86,
             "Max Jewels": 42,
             "PATK": 42,
             "PDEF": 31,
@@ -4731,11 +5446,6 @@
                 "name": "Childhood Skin",
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/cloe_l_cloe.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/cloe_l_cloe-closeup.png"
-            },
-            {
-                "name": "Anniv",
-                "full": "http://cdn.alchemistcodedb.com/images/units/artworks/cloe_anniv.png",
-                "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/cloe_anniv-closeup.png"
             },
             {
                 "name": "Kaigan",
@@ -4779,7 +5489,19 @@
             "Yomi"
         ],
         "stats": {
-            "HP": 412,
+            "HP": 452,
+            "Max Jewels": 166,
+            "PATK": 154,
+            "PDEF": 91,
+            "MATK": 126,
+            "MDEF": 88,
+            "DEX": 153,
+            "AGI": 92,
+            "CRIT": 155,
+            "LUCK": 140
+        },
+        "max_stats": {
+            "HP": 452,
             "Max Jewels": 166,
             "PATK": 154,
             "PDEF": 91,
@@ -4791,7 +5513,7 @@
             "LUCK": 140
         },
         "min_stats": {
-            "HP": 80,
+            "HP": 84,
             "Max Jewels": 41,
             "PATK": 42,
             "PDEF": 26,
@@ -4862,7 +5584,19 @@
             "Veteru"
         ],
         "stats": {
-            "HP": 774,
+            "HP": 737,
+            "Max Jewels": 178,
+            "PATK": 154,
+            "PDEF": 105,
+            "MATK": 140,
+            "MDEF": 103,
+            "DEX": 140,
+            "AGI": 85,
+            "CRIT": 144,
+            "LUCK": 140
+        },
+        "max_stats": {
+            "HP": 737,
             "Max Jewels": 178,
             "PATK": 154,
             "PDEF": 105,
@@ -4874,7 +5608,7 @@
             "LUCK": 140
         },
         "min_stats": {
-            "HP": 118,
+            "HP": 114,
             "Max Jewels": 44,
             "PATK": 42,
             "PDEF": 29,
@@ -4948,7 +5682,19 @@
             "POTK Tyrfing"
         ],
         "stats": {
-            "HP": 386,
+            "HP": 398,
+            "Max Jewels": 155,
+            "PATK": 140,
+            "PDEF": 93,
+            "MATK": 117,
+            "MDEF": 87,
+            "DEX": 117,
+            "AGI": 86,
+            "CRIT": 125,
+            "LUCK": 127
+        },
+        "max_stats": {
+            "HP": 398,
             "Max Jewels": 155,
             "PATK": 140,
             "PDEF": 93,
@@ -4960,7 +5706,7 @@
             "LUCK": 127
         },
         "min_stats": {
-            "HP": 73,
+            "HP": 75,
             "Max Jewels": 40,
             "PATK": 39,
             "PDEF": 26,
@@ -5029,7 +5775,19 @@
             "POTK Laevateinn"
         ],
         "stats": {
-            "HP": 422,
+            "HP": 448,
+            "Max Jewels": 162,
+            "PATK": 172,
+            "PDEF": 94,
+            "MATK": 130,
+            "MDEF": 90,
+            "DEX": 140,
+            "AGI": 90,
+            "CRIT": 175,
+            "LUCK": 140
+        },
+        "max_stats": {
+            "HP": 448,
             "Max Jewels": 162,
             "PATK": 172,
             "PDEF": 94,
@@ -5041,7 +5799,7 @@
             "LUCK": 140
         },
         "min_stats": {
-            "HP": 81,
+            "HP": 83,
             "Max Jewels": 40,
             "PATK": 47,
             "PDEF": 26,
@@ -5110,7 +5868,19 @@
             "BF Vargas"
         ],
         "stats": {
-            "HP": 390,
+            "HP": 434,
+            "Max Jewels": 155,
+            "PATK": 142,
+            "PDEF": 83,
+            "MATK": 117,
+            "MDEF": 79,
+            "DEX": 119,
+            "AGI": 82,
+            "CRIT": 131,
+            "LUCK": 127
+        },
+        "max_stats": {
+            "HP": 434,
             "Max Jewels": 155,
             "PATK": 142,
             "PDEF": 83,
@@ -5122,7 +5892,7 @@
             "LUCK": 127
         },
         "min_stats": {
-            "HP": 76,
+            "HP": 81,
             "Max Jewels": 40,
             "PATK": 40,
             "PDEF": 23,
@@ -5186,7 +5956,19 @@
             "BF Selena"
         ],
         "stats": {
-            "HP": 734,
+            "HP": 755,
+            "Max Jewels": 178,
+            "PATK": 154,
+            "PDEF": 105,
+            "MATK": 140,
+            "MDEF": 108,
+            "DEX": 140,
+            "AGI": 85,
+            "CRIT": 144,
+            "LUCK": 147
+        },
+        "max_stats": {
+            "HP": 755,
             "Max Jewels": 178,
             "PATK": 154,
             "PDEF": 105,
@@ -5198,7 +5980,7 @@
             "LUCK": 147
         },
         "min_stats": {
-            "HP": 112,
+            "HP": 114,
             "Max Jewels": 44,
             "PATK": 42,
             "PDEF": 29,
@@ -5263,7 +6045,19 @@
             "Elizabeth"
         ],
         "stats": {
-            "HP": 383,
+            "HP": 417,
+            "Max Jewels": 200,
+            "PATK": 127,
+            "PDEF": 88,
+            "MATK": 156,
+            "MDEF": 129,
+            "DEX": 158,
+            "AGI": 79,
+            "CRIT": 128,
+            "LUCK": 148
+        },
+        "max_stats": {
+            "HP": 417,
             "Max Jewels": 200,
             "PATK": 127,
             "PDEF": 88,
@@ -5275,7 +6069,7 @@
             "LUCK": 148
         },
         "min_stats": {
-            "HP": 76,
+            "HP": 80,
             "Max Jewels": 50,
             "PATK": 35,
             "PDEF": 24,
@@ -5345,7 +6139,19 @@
             "Magnus"
         ],
         "stats": {
-            "HP": 377,
+            "HP": 414,
+            "Max Jewels": 174,
+            "PATK": 161,
+            "PDEF": 105,
+            "MATK": 134,
+            "MDEF": 101,
+            "DEX": 168,
+            "AGI": 95,
+            "CRIT": 158,
+            "LUCK": 147
+        },
+        "max_stats": {
+            "HP": 414,
             "Max Jewels": 174,
             "PATK": 161,
             "PDEF": 105,
@@ -5357,7 +6163,7 @@
             "LUCK": 147
         },
         "min_stats": {
-            "HP": 73,
+            "HP": 76,
             "Max Jewels": 43,
             "PATK": 44,
             "PDEF": 29,
@@ -5426,7 +6232,19 @@
             "Flamel"
         ],
         "stats": {
-            "HP": 823,
+            "HP": 730,
+            "Max Jewels": 197,
+            "PATK": 138,
+            "PDEF": 102,
+            "MATK": 153,
+            "MDEF": 108,
+            "DEX": 138,
+            "AGI": 83,
+            "CRIT": 132,
+            "LUCK": 142
+        },
+        "max_stats": {
+            "HP": 730,
             "Max Jewels": 197,
             "PATK": 138,
             "PDEF": 102,
@@ -5438,7 +6256,7 @@
             "LUCK": 142
         },
         "min_stats": {
-            "HP": 121,
+            "HP": 112,
             "Max Jewels": 49,
             "PATK": 38,
             "PDEF": 28,
@@ -5501,7 +6319,19 @@
             "Baruto"
         ],
         "stats": {
-            "HP": 440,
+            "HP": 461,
+            "Max Jewels": 175,
+            "PATK": 169,
+            "PDEF": 95,
+            "MATK": 136,
+            "MDEF": 94,
+            "DEX": 163,
+            "AGI": 95,
+            "CRIT": 155,
+            "LUCK": 150
+        },
+        "max_stats": {
+            "HP": 461,
             "Max Jewels": 175,
             "PATK": 169,
             "PDEF": 95,
@@ -5513,7 +6343,7 @@
             "LUCK": 150
         },
         "min_stats": {
-            "HP": 85,
+            "HP": 87,
             "Max Jewels": 43,
             "PATK": 46,
             "PDEF": 27,
@@ -5581,7 +6411,19 @@
             "Mierikki"
         ],
         "stats": {
-            "HP": 397,
+            "HP": 406,
+            "Max Jewels": 208,
+            "PATK": 128,
+            "PDEF": 91,
+            "MATK": 169,
+            "MDEF": 125,
+            "DEX": 134,
+            "AGI": 81,
+            "CRIT": 130,
+            "LUCK": 146
+        },
+        "max_stats": {
+            "HP": 406,
             "Max Jewels": 208,
             "PATK": 128,
             "PDEF": 91,
@@ -5593,7 +6435,7 @@
             "LUCK": 146
         },
         "min_stats": {
-            "HP": 75,
+            "HP": 76,
             "Max Jewels": 52,
             "PATK": 36,
             "PDEF": 25,
@@ -5664,7 +6506,19 @@
             "Merda"
         ],
         "stats": {
-            "HP": 398,
+            "HP": 427,
+            "Max Jewels": 168,
+            "PATK": 160,
+            "PDEF": 96,
+            "MATK": 132,
+            "MDEF": 91,
+            "DEX": 156,
+            "AGI": 98,
+            "CRIT": 162,
+            "LUCK": 142
+        },
+        "max_stats": {
+            "HP": 427,
             "Max Jewels": 168,
             "PATK": 160,
             "PDEF": 96,
@@ -5676,7 +6530,7 @@
             "LUCK": 142
         },
         "min_stats": {
-            "HP": 76,
+            "HP": 79,
             "Max Jewels": 42,
             "PATK": 44,
             "PDEF": 26,
@@ -5738,7 +6592,19 @@
             "Retzius"
         ],
         "stats": {
-            "HP": 371,
+            "HP": 411,
+            "Max Jewels": 151,
+            "PATK": 137,
+            "PDEF": 90,
+            "MATK": 113,
+            "MDEF": 78,
+            "DEX": 144,
+            "AGI": 92,
+            "CRIT": 133,
+            "LUCK": 142
+        },
+        "max_stats": {
+            "HP": 411,
             "Max Jewels": 151,
             "PATK": 137,
             "PDEF": 90,
@@ -5750,7 +6616,7 @@
             "LUCK": 142
         },
         "min_stats": {
-            "HP": 72,
+            "HP": 76,
             "Max Jewels": 39,
             "PATK": 38,
             "PDEF": 25,
@@ -5812,7 +6678,19 @@
             "Sabareta"
         ],
         "stats": {
-            "HP": 366,
+            "HP": 421,
+            "Max Jewels": 166,
+            "PATK": 146,
+            "PDEF": 93,
+            "MATK": 117,
+            "MDEF": 83,
+            "DEX": 137,
+            "AGI": 82,
+            "CRIT": 141,
+            "LUCK": 140
+        },
+        "max_stats": {
+            "HP": 421,
             "Max Jewels": 166,
             "PATK": 146,
             "PDEF": 93,
@@ -5824,7 +6702,7 @@
             "LUCK": 140
         },
         "min_stats": {
-            "HP": 72,
+            "HP": 78,
             "Max Jewels": 41,
             "PATK": 40,
             "PDEF": 26,
@@ -5890,7 +6768,19 @@
             "Reagen"
         ],
         "stats": {
-            "HP": 393,
+            "HP": 425,
+            "Max Jewels": 205,
+            "PATK": 156,
+            "PDEF": 88,
+            "MATK": 146,
+            "MDEF": 109,
+            "DEX": 180,
+            "AGI": 85,
+            "CRIT": 145,
+            "LUCK": 146
+        },
+        "max_stats": {
+            "HP": 425,
             "Max Jewels": 205,
             "PATK": 156,
             "PDEF": 88,
@@ -5902,7 +6792,7 @@
             "LUCK": 146
         },
         "min_stats": {
-            "HP": 77,
+            "HP": 81,
             "Max Jewels": 51,
             "PATK": 43,
             "PDEF": 24,
@@ -5967,7 +6857,19 @@
             "Roza"
         ],
         "stats": {
-            "HP": 426,
+            "HP": 453,
+            "Max Jewels": 172,
+            "PATK": 172,
+            "PDEF": 101,
+            "MATK": 132,
+            "MDEF": 91,
+            "DEX": 133,
+            "AGI": 94,
+            "CRIT": 152,
+            "LUCK": 138
+        },
+        "max_stats": {
+            "HP": 453,
             "Max Jewels": 172,
             "PATK": 172,
             "PDEF": 101,
@@ -5979,7 +6881,7 @@
             "LUCK": 138
         },
         "min_stats": {
-            "HP": 82,
+            "HP": 85,
             "Max Jewels": 43,
             "PATK": 47,
             "PDEF": 27,
@@ -6046,7 +6948,19 @@
             "Eve"
         ],
         "stats": {
-            "HP": 664,
+            "HP": 725,
+            "Max Jewels": 184,
+            "PATK": 166,
+            "PDEF": 92,
+            "MATK": 153,
+            "MDEF": 111,
+            "DEX": 166,
+            "AGI": 87,
+            "CRIT": 135,
+            "LUCK": 140
+        },
+        "max_stats": {
+            "HP": 725,
             "Max Jewels": 184,
             "PATK": 166,
             "PDEF": 92,
@@ -6058,7 +6972,7 @@
             "LUCK": 140
         },
         "min_stats": {
-            "HP": 105,
+            "HP": 111,
             "Max Jewels": 46,
             "PATK": 46,
             "PDEF": 26,
@@ -6126,7 +7040,19 @@
             "Frayze"
         ],
         "stats": {
-            "HP": 512,
+            "HP": 495,
+            "Max Jewels": 178,
+            "PATK": 154,
+            "PDEF": 118,
+            "MATK": 140,
+            "MDEF": 98,
+            "DEX": 140,
+            "AGI": 85,
+            "CRIT": 144,
+            "LUCK": 147
+        },
+        "max_stats": {
+            "HP": 495,
             "Max Jewels": 178,
             "PATK": 154,
             "PDEF": 118,
@@ -6138,7 +7064,7 @@
             "LUCK": 147
         },
         "min_stats": {
-            "HP": 96,
+            "HP": 94,
             "Max Jewels": 44,
             "PATK": 42,
             "PDEF": 32,
@@ -6202,7 +7128,19 @@
             "Hayate"
         ],
         "stats": {
-            "HP": 412,
+            "HP": 439,
+            "Max Jewels": 166,
+            "PATK": 150,
+            "PDEF": 91,
+            "MATK": 126,
+            "MDEF": 105,
+            "DEX": 154,
+            "AGI": 94,
+            "CRIT": 150,
+            "LUCK": 158
+        },
+        "max_stats": {
+            "HP": 439,
             "Max Jewels": 166,
             "PATK": 150,
             "PDEF": 91,
@@ -6214,7 +7152,7 @@
             "LUCK": 158
         },
         "min_stats": {
-            "HP": 80,
+            "HP": 83,
             "Max Jewels": 41,
             "PATK": 41,
             "PDEF": 25,
@@ -6282,7 +7220,19 @@
             "Veros"
         ],
         "stats": {
-            "HP": 385,
+            "HP": 447,
+            "Max Jewels": 176,
+            "PATK": 117,
+            "PDEF": 84,
+            "MATK": 97,
+            "MDEF": 87,
+            "DEX": 126,
+            "AGI": 79,
+            "CRIT": 121,
+            "LUCK": 140
+        },
+        "max_stats": {
+            "HP": 447,
             "Max Jewels": 176,
             "PATK": 117,
             "PDEF": 84,
@@ -6294,7 +7244,7 @@
             "LUCK": 140
         },
         "min_stats": {
-            "HP": 75,
+            "HP": 81,
             "Max Jewels": 44,
             "PATK": 32,
             "PDEF": 23,
@@ -6356,7 +7306,19 @@
             "Lucretia"
         ],
         "stats": {
-            "HP": 385,
+            "HP": 430,
+            "Max Jewels": 200,
+            "PATK": 131,
+            "PDEF": 133,
+            "MATK": 191,
+            "MDEF": 112,
+            "DEX": 147,
+            "AGI": 96,
+            "CRIT": 126,
+            "LUCK": 133
+        },
+        "max_stats": {
+            "HP": 430,
             "Max Jewels": 200,
             "PATK": 131,
             "PDEF": 133,
@@ -6368,7 +7330,7 @@
             "LUCK": 133
         },
         "min_stats": {
-            "HP": 76,
+            "HP": 81,
             "Max Jewels": 50,
             "PATK": 36,
             "PDEF": 36,
@@ -6432,7 +7394,19 @@
             "Suzuka"
         ],
         "stats": {
-            "HP": 409,
+            "HP": 456,
+            "Max Jewels": 172,
+            "PATK": 182,
+            "PDEF": 81,
+            "MATK": 134,
+            "MDEF": 91,
+            "DEX": 150,
+            "AGI": 96,
+            "CRIT": 162,
+            "LUCK": 154
+        },
+        "max_stats": {
+            "HP": 456,
             "Max Jewels": 172,
             "PATK": 182,
             "PDEF": 81,
@@ -6444,7 +7418,7 @@
             "LUCK": 154
         },
         "min_stats": {
-            "HP": 80,
+            "HP": 85,
             "Max Jewels": 43,
             "PATK": 49,
             "PDEF": 22,
@@ -6476,11 +7450,6 @@
                 "name": "Kimono Skin",
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/suzu_newy.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/suzu_newy-closeup.png"
-            },
-            {
-                "name": "S_Cute",
-                "full": "http://cdn.alchemistcodedb.com/images/units/artworks/suzu_s_cute.png",
-                "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/suzu_s_cute-closeup.png"
             }
         ],
         "tierlist": {
@@ -6516,7 +7485,19 @@
             "Kanon"
         ],
         "stats": {
-            "HP": 612,
+            "HP": 536,
+            "Max Jewels": 163,
+            "PATK": 131,
+            "PDEF": 87,
+            "MATK": 123,
+            "MDEF": 85,
+            "DEX": 135,
+            "AGI": 88,
+            "CRIT": 129,
+            "LUCK": 133
+        },
+        "max_stats": {
+            "HP": 536,
             "Max Jewels": 163,
             "PATK": 131,
             "PDEF": 87,
@@ -6528,7 +7509,7 @@
             "LUCK": 133
         },
         "min_stats": {
-            "HP": 98,
+            "HP": 90,
             "Max Jewels": 42,
             "PATK": 37,
             "PDEF": 24,
@@ -6576,7 +7557,7 @@
         "inofficial": "Kadanoba",
         "gender": "♂",
         "element": "Fire",
-        "country": "Northern Pride",
+        "country": "Foreign World",
         "collab": "Sacred Stone Memories",
         "collab short": "SSM",
         "rarity": "★★★★★",
@@ -6598,7 +7579,19 @@
             "SSM Cadanova"
         ],
         "stats": {
-            "HP": 493,
+            "HP": 516,
+            "Max Jewels": 172,
+            "PATK": 162,
+            "PDEF": 109,
+            "MATK": 130,
+            "MDEF": 103,
+            "DEX": 134,
+            "AGI": 89,
+            "CRIT": 152,
+            "LUCK": 136
+        },
+        "max_stats": {
+            "HP": 516,
             "Max Jewels": 172,
             "PATK": 162,
             "PDEF": 109,
@@ -6610,7 +7603,7 @@
             "LUCK": 136
         },
         "min_stats": {
-            "HP": 92,
+            "HP": 94,
             "Max Jewels": 43,
             "PATK": 44,
             "PDEF": 31,
@@ -6675,7 +7668,19 @@
             "Feng Liu"
         ],
         "stats": {
-            "HP": 413,
+            "HP": 458,
+            "Max Jewels": 206,
+            "PATK": 124,
+            "PDEF": 90,
+            "MATK": 174,
+            "MDEF": 127,
+            "DEX": 130,
+            "AGI": 80,
+            "CRIT": 126,
+            "LUCK": 142
+        },
+        "max_stats": {
+            "HP": 458,
             "Max Jewels": 206,
             "PATK": 124,
             "PDEF": 90,
@@ -6687,7 +7692,7 @@
             "LUCK": 142
         },
         "min_stats": {
-            "HP": 82,
+            "HP": 86,
             "Max Jewels": 51,
             "PATK": 35,
             "PDEF": 24,
@@ -6753,7 +7758,19 @@
             "Lyle"
         ],
         "stats": {
-            "HP": 423,
+            "HP": 476,
+            "Max Jewels": 172,
+            "PATK": 167,
+            "PDEF": 100,
+            "MATK": 130,
+            "MDEF": 88,
+            "DEX": 178,
+            "AGI": 100,
+            "CRIT": 148,
+            "LUCK": 148
+        },
+        "max_stats": {
+            "HP": 476,
             "Max Jewels": 172,
             "PATK": 167,
             "PDEF": 100,
@@ -6765,7 +7782,7 @@
             "LUCK": 148
         },
         "min_stats": {
-            "HP": 82,
+            "HP": 87,
             "Max Jewels": 43,
             "PATK": 46,
             "PDEF": 28,
@@ -6835,7 +7852,19 @@
             "Arber"
         ],
         "stats": {
-            "HP": 411,
+            "HP": 449,
+            "Max Jewels": 165,
+            "PATK": 150,
+            "PDEF": 100,
+            "MATK": 143,
+            "MDEF": 105,
+            "DEX": 176,
+            "AGI": 95,
+            "CRIT": 172,
+            "LUCK": 140
+        },
+        "max_stats": {
+            "HP": 449,
             "Max Jewels": 165,
             "PATK": 150,
             "PDEF": 100,
@@ -6847,7 +7876,7 @@
             "LUCK": 140
         },
         "min_stats": {
-            "HP": 80,
+            "HP": 84,
             "Max Jewels": 41,
             "PATK": 41,
             "PDEF": 28,
@@ -6916,7 +7945,19 @@
             "Shayna"
         ],
         "stats": {
-            "HP": 459,
+            "HP": 481,
+            "Max Jewels": 180,
+            "PATK": 161,
+            "PDEF": 110,
+            "MATK": 136,
+            "MDEF": 99,
+            "DEX": 158,
+            "AGI": 88,
+            "CRIT": 140,
+            "LUCK": 129
+        },
+        "max_stats": {
+            "HP": 481,
             "Max Jewels": 180,
             "PATK": 161,
             "PDEF": 110,
@@ -6928,7 +7969,7 @@
             "LUCK": 129
         },
         "min_stats": {
-            "HP": 89,
+            "HP": 92,
             "Max Jewels": 45,
             "PATK": 44,
             "PDEF": 30,
@@ -6997,7 +8038,19 @@
             "Reimei"
         ],
         "stats": {
-            "HP": 435,
+            "HP": 457,
+            "Max Jewels": 168,
+            "PATK": 177,
+            "PDEF": 96,
+            "MATK": 128,
+            "MDEF": 90,
+            "DEX": 156,
+            "AGI": 97,
+            "CRIT": 172,
+            "LUCK": 133
+        },
+        "max_stats": {
+            "HP": 457,
             "Max Jewels": 168,
             "PATK": 177,
             "PDEF": 96,
@@ -7009,7 +8062,7 @@
             "LUCK": 133
         },
         "min_stats": {
-            "HP": 83,
+            "HP": 86,
             "Max Jewels": 42,
             "PATK": 48,
             "PDEF": 26,
@@ -7073,7 +8126,19 @@
             "Soleil"
         ],
         "stats": {
-            "HP": 380,
+            "HP": 423,
+            "Max Jewels": 214,
+            "PATK": 126,
+            "PDEF": 91,
+            "MATK": 158,
+            "MDEF": 148,
+            "DEX": 132,
+            "AGI": 80,
+            "CRIT": 128,
+            "LUCK": 149
+        },
+        "max_stats": {
+            "HP": 423,
             "Max Jewels": 214,
             "PATK": 126,
             "PDEF": 91,
@@ -7085,7 +8150,7 @@
             "LUCK": 149
         },
         "min_stats": {
-            "HP": 76,
+            "HP": 80,
             "Max Jewels": 54,
             "PATK": 35,
             "PDEF": 25,
@@ -7148,7 +8213,19 @@
             "Milish"
         ],
         "stats": {
-            "HP": 779,
+            "HP": 759,
+            "Max Jewels": 153,
+            "PATK": 135,
+            "PDEF": 90,
+            "MATK": 125,
+            "MDEF": 87,
+            "DEX": 151,
+            "AGI": 65,
+            "CRIT": 131,
+            "LUCK": 127
+        },
+        "max_stats": {
+            "HP": 759,
             "Max Jewels": 153,
             "PATK": 135,
             "PDEF": 90,
@@ -7160,7 +8237,7 @@
             "LUCK": 127
         },
         "min_stats": {
-            "HP": 114,
+            "HP": 112,
             "Max Jewels": 39,
             "PATK": 38,
             "PDEF": 25,
@@ -7233,6 +8310,18 @@
             "CRIT": 128,
             "LUCK": 149
         },
+        "max_stats": {
+            "HP": 512,
+            "Max Jewels": 214,
+            "PATK": 126,
+            "PDEF": 91,
+            "MATK": 158,
+            "MDEF": 148,
+            "DEX": 132,
+            "AGI": 80,
+            "CRIT": 128,
+            "LUCK": 149
+        },
         "min_stats": {
             "HP": 89,
             "Max Jewels": 54,
@@ -7280,7 +8369,19 @@
             "Shenmei"
         ],
         "stats": {
-            "HP": 599,
+            "HP": 565,
+            "Max Jewels": 172,
+            "PATK": 150,
+            "PDEF": 102,
+            "MATK": 132,
+            "MDEF": 94,
+            "DEX": 152,
+            "AGI": 92,
+            "CRIT": 146,
+            "LUCK": 144
+        },
+        "max_stats": {
+            "HP": 565,
             "Max Jewels": 172,
             "PATK": 150,
             "PDEF": 102,
@@ -7292,7 +8393,7 @@
             "LUCK": 144
         },
         "min_stats": {
-            "HP": 99,
+            "HP": 96,
             "Max Jewels": 43,
             "PATK": 41,
             "PDEF": 28,
@@ -7367,6 +8468,18 @@
             "CRIT": 148,
             "LUCK": 147
         },
+        "max_stats": {
+            "HP": 419,
+            "Max Jewels": 194,
+            "PATK": 147,
+            "PDEF": 90,
+            "MATK": 151,
+            "MDEF": 103,
+            "DEX": 148,
+            "AGI": 94,
+            "CRIT": 148,
+            "LUCK": 147
+        },
         "min_stats": {
             "HP": 82,
             "Max Jewels": 48,
@@ -7430,7 +8543,19 @@
             "Courage"
         ],
         "stats": {
-            "HP": 400,
+            "HP": 464,
+            "Max Jewels": 172,
+            "PATK": 152,
+            "PDEF": 99,
+            "MATK": 130,
+            "MDEF": 94,
+            "DEX": 173,
+            "AGI": 89,
+            "CRIT": 154,
+            "LUCK": 140
+        },
+        "max_stats": {
+            "HP": 464,
             "Max Jewels": 172,
             "PATK": 152,
             "PDEF": 99,
@@ -7442,7 +8567,7 @@
             "LUCK": 140
         },
         "min_stats": {
-            "HP": 78,
+            "HP": 85,
             "Max Jewels": 43,
             "PATK": 42,
             "PDEF": 27,
@@ -7504,7 +8629,19 @@
             "Kagura"
         ],
         "stats": {
-            "HP": 589,
+            "HP": 524,
+            "Max Jewels": 194,
+            "PATK": 107,
+            "PDEF": 78,
+            "MATK": 151,
+            "MDEF": 105,
+            "DEX": 115,
+            "AGI": 80,
+            "CRIT": 119,
+            "LUCK": 137
+        },
+        "max_stats": {
+            "HP": 524,
             "Max Jewels": 194,
             "PATK": 107,
             "PDEF": 78,
@@ -7516,7 +8653,7 @@
             "LUCK": 137
         },
         "min_stats": {
-            "HP": 93,
+            "HP": 86,
             "Max Jewels": 48,
             "PATK": 30,
             "PDEF": 21,
@@ -7586,7 +8723,19 @@
             "SSM Kudanstein"
         ],
         "stats": {
-            "HP": 442,
+            "HP": 461,
+            "Max Jewels": 170,
+            "PATK": 158,
+            "PDEF": 102,
+            "MATK": 128,
+            "MDEF": 91,
+            "DEX": 148,
+            "AGI": 89,
+            "CRIT": 150,
+            "LUCK": 138
+        },
+        "max_stats": {
+            "HP": 461,
             "Max Jewels": 170,
             "PATK": 158,
             "PDEF": 102,
@@ -7598,7 +8747,7 @@
             "LUCK": 138
         },
         "min_stats": {
-            "HP": 83,
+            "HP": 85,
             "Max Jewels": 42,
             "PATK": 43,
             "PDEF": 28,
@@ -7667,6 +8816,18 @@
             "EO Fencer"
         ],
         "stats": {
+            "HP": 346,
+            "Max Jewels": 172,
+            "PATK": 110,
+            "PDEF": 45,
+            "MATK": 129,
+            "MDEF": 87,
+            "DEX": 127,
+            "AGI": 80,
+            "CRIT": 129,
+            "LUCK": 127
+        },
+        "max_stats": {
             "HP": 346,
             "Max Jewels": 172,
             "PATK": 110,
@@ -7747,6 +8908,18 @@
             "CRIT": 292,
             "LUCK": 140
         },
+        "max_stats": {
+            "HP": 452,
+            "Max Jewels": 184,
+            "PATK": 152,
+            "PDEF": 99,
+            "MATK": 140,
+            "MDEF": 100,
+            "DEX": 146,
+            "AGI": 85,
+            "CRIT": 292,
+            "LUCK": 140
+        },
         "min_stats": {
             "HP": 90,
             "Max Jewels": 46,
@@ -7805,6 +8978,18 @@
             "EO Shaman"
         ],
         "stats": {
+            "HP": 412,
+            "Max Jewels": 192,
+            "PATK": 138,
+            "PDEF": 79,
+            "MATK": 150,
+            "MDEF": 158,
+            "DEX": 140,
+            "AGI": 85,
+            "CRIT": 140,
+            "LUCK": 140
+        },
+        "max_stats": {
             "HP": 412,
             "Max Jewels": 192,
             "PATK": 138,
@@ -7884,6 +9069,18 @@
             "CRIT": 180,
             "LUCK": 132
         },
+        "max_stats": {
+            "HP": 502,
+            "Max Jewels": 176,
+            "PATK": 156,
+            "PDEF": 96,
+            "MATK": 132,
+            "MDEF": 121,
+            "DEX": 163,
+            "AGI": 103,
+            "CRIT": 180,
+            "LUCK": 132
+        },
         "min_stats": {
             "HP": 89,
             "Max Jewels": 44,
@@ -7943,7 +9140,19 @@
             "Golmaras"
         ],
         "stats": {
-            "HP": 785,
+            "HP": 743,
+            "Max Jewels": 174,
+            "PATK": 156,
+            "PDEF": 105,
+            "MATK": 128,
+            "MDEF": 94,
+            "DEX": 152,
+            "AGI": 91,
+            "CRIT": 144,
+            "LUCK": 140
+        },
+        "max_stats": {
+            "HP": 743,
             "Max Jewels": 174,
             "PATK": 156,
             "PDEF": 105,
@@ -7955,7 +9164,7 @@
             "LUCK": 140
         },
         "min_stats": {
-            "HP": 119,
+            "HP": 115,
             "Max Jewels": 43,
             "PATK": 43,
             "PDEF": 29,
@@ -8036,6 +9245,18 @@
             "CRIT": 132,
             "LUCK": 144
         },
+        "max_stats": {
+            "HP": 907,
+            "Max Jewels": 198,
+            "PATK": 136,
+            "PDEF": 97,
+            "MATK": 152,
+            "MDEF": 109,
+            "DEX": 138,
+            "AGI": 85,
+            "CRIT": 132,
+            "LUCK": 144
+        },
         "min_stats": {
             "HP": 129,
             "Max Jewels": 49,
@@ -8095,7 +9316,19 @@
             "SSM Seida"
         ],
         "stats": {
-            "HP": 406,
+            "HP": 451,
+            "Max Jewels": 198,
+            "PATK": 186,
+            "PDEF": 97,
+            "MATK": 144,
+            "MDEF": 104,
+            "DEX": 185,
+            "AGI": 108,
+            "CRIT": 145,
+            "LUCK": 144
+        },
+        "max_stats": {
+            "HP": 451,
             "Max Jewels": 198,
             "PATK": 186,
             "PDEF": 97,
@@ -8107,7 +9340,7 @@
             "LUCK": 144
         },
         "min_stats": {
-            "HP": 78,
+            "HP": 83,
             "Max Jewels": 49,
             "PATK": 52,
             "PDEF": 27,
@@ -8171,7 +9404,19 @@
             "SSM Monzein"
         ],
         "stats": {
-            "HP": 511,
+            "HP": 499,
+            "Max Jewels": 174,
+            "PATK": 161,
+            "PDEF": 116,
+            "MATK": 122,
+            "MDEF": 89,
+            "DEX": 152,
+            "AGI": 86,
+            "CRIT": 143,
+            "LUCK": 140
+        },
+        "max_stats": {
+            "HP": 499,
             "Max Jewels": 174,
             "PATK": 161,
             "PDEF": 116,
@@ -8183,7 +9428,7 @@
             "LUCK": 140
         },
         "min_stats": {
-            "HP": 95,
+            "HP": 94,
             "Max Jewels": 43,
             "PATK": 45,
             "PDEF": 32,
@@ -8247,7 +9492,19 @@
             "Spica"
         ],
         "stats": {
-            "HP": 449,
+            "HP": 466,
+            "Max Jewels": 172,
+            "PATK": 155,
+            "PDEF": 106,
+            "MATK": 125,
+            "MDEF": 86,
+            "DEX": 133,
+            "AGI": 94,
+            "CRIT": 137,
+            "LUCK": 138
+        },
+        "max_stats": {
+            "HP": 466,
             "Max Jewels": 172,
             "PATK": 155,
             "PDEF": 106,
@@ -8259,7 +9516,7 @@
             "LUCK": 138
         },
         "min_stats": {
-            "HP": 87,
+            "HP": 88,
             "Max Jewels": 43,
             "PATK": 42,
             "PDEF": 28,
@@ -8333,7 +9590,19 @@
             "Vincent"
         ],
         "stats": {
-            "HP": 429,
+            "HP": 463,
+            "Max Jewels": 206,
+            "PATK": 124,
+            "PDEF": 95,
+            "MATK": 169,
+            "MDEF": 133,
+            "DEX": 130,
+            "AGI": 84,
+            "CRIT": 126,
+            "LUCK": 142
+        },
+        "max_stats": {
+            "HP": 463,
             "Max Jewels": 206,
             "PATK": 124,
             "PDEF": 95,
@@ -8345,7 +9614,7 @@
             "LUCK": 142
         },
         "min_stats": {
-            "HP": 85,
+            "HP": 89,
             "Max Jewels": 51,
             "PATK": 35,
             "PDEF": 25,
@@ -8409,7 +9678,19 @@
             "Deneb"
         ],
         "stats": {
-            "HP": 976,
+            "HP": 849,
+            "Max Jewels": 214,
+            "PATK": 110,
+            "PDEF": 95,
+            "MATK": 136,
+            "MDEF": 148,
+            "DEX": 163,
+            "AGI": 80,
+            "CRIT": 155,
+            "LUCK": 150
+        },
+        "max_stats": {
+            "HP": 849,
             "Max Jewels": 214,
             "PATK": 110,
             "PDEF": 95,
@@ -8421,7 +9702,7 @@
             "LUCK": 150
         },
         "min_stats": {
-            "HP": 132,
+            "HP": 119,
             "Max Jewels": 54,
             "PATK": 39,
             "PDEF": 27,
@@ -8486,7 +9767,19 @@
             "Grantz"
         ],
         "stats": {
-            "HP": 357,
+            "HP": 410,
+            "Max Jewels": 166,
+            "PATK": 162,
+            "PDEF": 74,
+            "MATK": 127,
+            "MDEF": 82,
+            "DEX": 141,
+            "AGI": 85,
+            "CRIT": 140,
+            "LUCK": 133
+        },
+        "max_stats": {
+            "HP": 410,
             "Max Jewels": 166,
             "PATK": 162,
             "PDEF": 74,
@@ -8498,7 +9791,7 @@
             "LUCK": 133
         },
         "min_stats": {
-            "HP": 74,
+            "HP": 79,
             "Max Jewels": 41,
             "PATK": 40,
             "PDEF": 25,
@@ -8565,7 +9858,19 @@
             "Peridot"
         ],
         "stats": {
-            "HP": 519,
+            "HP": 401,
+            "Max Jewels": 164,
+            "PATK": 114,
+            "PDEF": 80,
+            "MATK": 123,
+            "MDEF": 87,
+            "DEX": 117,
+            "AGI": 74,
+            "CRIT": 116,
+            "LUCK": 120
+        },
+        "max_stats": {
+            "HP": 401,
             "Max Jewels": 164,
             "PATK": 114,
             "PDEF": 80,
@@ -8577,7 +9882,7 @@
             "LUCK": 120
         },
         "min_stats": {
-            "HP": 83,
+            "HP": 71,
             "Max Jewels": 41,
             "PATK": 30,
             "PDEF": 20,
@@ -8641,7 +9946,19 @@
             "SSM Yauras"
         ],
         "stats": {
-            "HP": 425,
+            "HP": 452,
+            "Max Jewels": 168,
+            "PATK": 152,
+            "PDEF": 106,
+            "MATK": 123,
+            "MDEF": 90,
+            "DEX": 162,
+            "AGI": 92,
+            "CRIT": 146,
+            "LUCK": 152
+        },
+        "max_stats": {
+            "HP": 452,
             "Max Jewels": 168,
             "PATK": 152,
             "PDEF": 106,
@@ -8653,7 +9970,7 @@
             "LUCK": 152
         },
         "min_stats": {
-            "HP": 82,
+            "HP": 84,
             "Max Jewels": 42,
             "PATK": 42,
             "PDEF": 26,
@@ -8722,7 +10039,19 @@
             "SSM Zain"
         ],
         "stats": {
-            "HP": 775,
+            "HP": 740,
+            "Max Jewels": 182,
+            "PATK": 172,
+            "PDEF": 111,
+            "MATK": 146,
+            "MDEF": 109,
+            "DEX": 133,
+            "AGI": 92,
+            "CRIT": 150,
+            "LUCK": 140
+        },
+        "max_stats": {
+            "HP": 740,
             "Max Jewels": 182,
             "PATK": 172,
             "PDEF": 111,
@@ -8734,7 +10063,7 @@
             "LUCK": 140
         },
         "min_stats": {
-            "HP": 119,
+            "HP": 115,
             "Max Jewels": 45,
             "PATK": 42,
             "PDEF": 31,
@@ -8798,7 +10127,19 @@
             "Lupinus"
         ],
         "stats": {
-            "HP": 420,
+            "HP": 465,
+            "Max Jewels": 208,
+            "PATK": 124,
+            "PDEF": 157,
+            "MATK": 171,
+            "MDEF": 117,
+            "DEX": 132,
+            "AGI": 80,
+            "CRIT": 128,
+            "LUCK": 140
+        },
+        "max_stats": {
+            "HP": 465,
             "Max Jewels": 208,
             "PATK": 124,
             "PDEF": 157,
@@ -8810,7 +10151,7 @@
             "LUCK": 140
         },
         "min_stats": {
-            "HP": 78,
+            "HP": 82,
             "Max Jewels": 52,
             "PATK": 35,
             "PDEF": 29,
@@ -8875,7 +10216,19 @@
             "Victor"
         ],
         "stats": {
-            "HP": 430,
+            "HP": 434,
+            "Max Jewels": 160,
+            "PATK": 143,
+            "PDEF": 93,
+            "MATK": 121,
+            "MDEF": 87,
+            "DEX": 139,
+            "AGI": 92,
+            "CRIT": 135,
+            "LUCK": 135
+        },
+        "max_stats": {
+            "HP": 434,
             "Max Jewels": 160,
             "PATK": 143,
             "PDEF": 93,
@@ -8957,7 +10310,19 @@
             "SSM Othima"
         ],
         "stats": {
-            "HP": 447,
+            "HP": 486,
+            "Max Jewels": 214,
+            "PATK": 124,
+            "PDEF": 152,
+            "MATK": 150,
+            "MDEF": 165,
+            "DEX": 120,
+            "AGI": 89,
+            "CRIT": 116,
+            "LUCK": 120
+        },
+        "max_stats": {
+            "HP": 486,
             "Max Jewels": 214,
             "PATK": 124,
             "PDEF": 152,
@@ -8969,7 +10334,7 @@
             "LUCK": 120
         },
         "min_stats": {
-            "HP": 85,
+            "HP": 89,
             "Max Jewels": 54,
             "PATK": 35,
             "PDEF": 28,
@@ -9034,7 +10399,19 @@
             "Alba"
         ],
         "stats": {
-            "HP": 458,
+            "HP": 472,
+            "Max Jewels": 208,
+            "PATK": 152,
+            "PDEF": 94,
+            "MATK": 125,
+            "MDEF": 117,
+            "DEX": 146,
+            "AGI": 93,
+            "CRIT": 128,
+            "LUCK": 160
+        },
+        "max_stats": {
+            "HP": 472,
             "Max Jewels": 208,
             "PATK": 152,
             "PDEF": 94,
@@ -9046,7 +10423,7 @@
             "LUCK": 160
         },
         "min_stats": {
-            "HP": 87,
+            "HP": 88,
             "Max Jewels": 52,
             "PATK": 40,
             "PDEF": 26,
@@ -9121,6 +10498,18 @@
             "CRIT": 155,
             "LUCK": 150
         },
+        "max_stats": {
+            "HP": 419,
+            "Max Jewels": 192,
+            "PATK": 110,
+            "PDEF": 95,
+            "MATK": 145,
+            "MDEF": 148,
+            "DEX": 163,
+            "AGI": 85,
+            "CRIT": 155,
+            "LUCK": 150
+        },
         "min_stats": {
             "HP": 78,
             "Max Jewels": 48,
@@ -9179,7 +10568,19 @@
             "POTK Shekinah"
         ],
         "stats": {
-            "HP": 408,
+            "HP": 451,
+            "Max Jewels": 201,
+            "PATK": 148,
+            "PDEF": 95,
+            "MATK": 136,
+            "MDEF": 129,
+            "DEX": 185,
+            "AGI": 110,
+            "CRIT": 160,
+            "LUCK": 150
+        },
+        "max_stats": {
+            "HP": 451,
             "Max Jewels": 201,
             "PATK": 148,
             "PDEF": 95,
@@ -9191,7 +10592,7 @@
             "LUCK": 150
         },
         "min_stats": {
-            "HP": 78,
+            "HP": 82,
             "Max Jewels": 50,
             "PATK": 42,
             "PDEF": 27,
@@ -9261,7 +10662,19 @@
             "POTK Cita"
         ],
         "stats": {
-            "HP": 552,
+            "HP": 551,
+            "Max Jewels": 189,
+            "PATK": 153,
+            "PDEF": 105,
+            "MATK": 127,
+            "MDEF": 88,
+            "DEX": 141,
+            "AGI": 96,
+            "CRIT": 140,
+            "LUCK": 140
+        },
+        "max_stats": {
+            "HP": 551,
             "Max Jewels": 189,
             "PATK": 153,
             "PDEF": 105,
@@ -9337,7 +10750,19 @@
             "POTK Masamune"
         ],
         "stats": {
-            "HP": 408,
+            "HP": 446,
+            "Max Jewels": 164,
+            "PATK": 172,
+            "PDEF": 80,
+            "MATK": 123,
+            "MDEF": 87,
+            "DEX": 158,
+            "AGI": 96,
+            "CRIT": 165,
+            "LUCK": 140
+        },
+        "max_stats": {
+            "HP": 446,
             "Max Jewels": 164,
             "PATK": 172,
             "PDEF": 80,
@@ -9349,7 +10774,7 @@
             "LUCK": 140
         },
         "min_stats": {
-            "HP": 78,
+            "HP": 81,
             "Max Jewels": 41,
             "PATK": 47,
             "PDEF": 20,
@@ -9414,7 +10839,19 @@
             "Theona"
         ],
         "stats": {
-            "HP": 477,
+            "HP": 472,
+            "Max Jewels": 172,
+            "PATK": 157,
+            "PDEF": 98,
+            "MATK": 125,
+            "MDEF": 96,
+            "DEX": 133,
+            "AGI": 96,
+            "CRIT": 144,
+            "LUCK": 136
+        },
+        "max_stats": {
+            "HP": 472,
             "Max Jewels": 172,
             "PATK": 157,
             "PDEF": 98,
@@ -9483,7 +10920,7 @@
             "JP: [32 AP] [Hard] Ch 2: Ep 3 [3-1]"
         ],
         "leader skill": "Wind: +20% HP & +30% PATK",
-        "master ability": " +100 PATK & +15 AGI",
+        "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/rameses",
         "job 1": "Dragon Cavalier",
         "job 2": "Dark Cavalier",
@@ -9496,7 +10933,19 @@
             "Ramesses"
         ],
         "stats": {
-            "HP": 453,
+            "HP": 479,
+            "Max Jewels": 172,
+            "PATK": 175,
+            "PDEF": 101,
+            "MATK": 131,
+            "MDEF": 93,
+            "DEX": 148,
+            "AGI": 92,
+            "CRIT": 152,
+            "LUCK": 138
+        },
+        "max_stats": {
+            "HP": 479,
             "Max Jewels": 172,
             "PATK": 175,
             "PDEF": 101,
@@ -9508,7 +10957,7 @@
             "LUCK": 138
         },
         "min_stats": {
-            "HP": 88,
+            "HP": 91,
             "Max Jewels": 43,
             "PATK": 48,
             "PDEF": 28,
@@ -9560,7 +11009,7 @@
             "JP: [32 AP] [Hard] Ch 2: Ep 4 [3-9]"
         ],
         "leader skill": "Fire: +30% HP & +20% PATK",
-        "master ability": " +100 HP & +50 PDEF & +50 MDEF",
+        "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/dorothea",
         "job 1": "Necromancer",
         "job 2": "Magic Swordsman",
@@ -9573,7 +11022,19 @@
             "Dorothia"
         ],
         "stats": {
-            "HP": 818,
+            "HP": 777,
+            "Max Jewels": 186,
+            "PATK": 153,
+            "PDEF": 120,
+            "MATK": 132,
+            "MDEF": 110,
+            "DEX": 143,
+            "AGI": 98,
+            "CRIT": 152,
+            "LUCK": 145
+        },
+        "max_stats": {
+            "HP": 777,
             "Max Jewels": 186,
             "PATK": 153,
             "PDEF": 120,
@@ -9585,7 +11046,7 @@
             "LUCK": 145
         },
         "min_stats": {
-            "HP": 125,
+            "HP": 121,
             "Max Jewels": 44,
             "PATK": 41,
             "PDEF": 30,
@@ -9651,7 +11112,19 @@
             "Leida"
         ],
         "stats": {
-            "HP": 425,
+            "HP": 475,
+            "Max Jewels": 191,
+            "PATK": 151,
+            "PDEF": 65,
+            "MATK": 128,
+            "MDEF": 145,
+            "DEX": 137,
+            "AGI": 91,
+            "CRIT": 141,
+            "LUCK": 135
+        },
+        "max_stats": {
+            "HP": 475,
             "Max Jewels": 191,
             "PATK": 151,
             "PDEF": 65,
@@ -9663,7 +11136,7 @@
             "LUCK": 135
         },
         "min_stats": {
-            "HP": 80,
+            "HP": 85,
             "Max Jewels": 47,
             "PATK": 40,
             "PDEF": 18,
@@ -9726,7 +11199,19 @@
             "Ellique"
         ],
         "stats": {
-            "HP": 419,
+            "HP": 439,
+            "Max Jewels": 164,
+            "PATK": 112,
+            "PDEF": 81,
+            "MATK": 112,
+            "MDEF": 73,
+            "DEX": 130,
+            "AGI": 91,
+            "CRIT": 120,
+            "LUCK": 126
+        },
+        "max_stats": {
+            "HP": 439,
             "Max Jewels": 164,
             "PATK": 112,
             "PDEF": 81,
@@ -9738,7 +11223,7 @@
             "LUCK": 126
         },
         "min_stats": {
-            "HP": 80,
+            "HP": 82,
             "Max Jewels": 41,
             "PATK": 31,
             "PDEF": 22,
@@ -9790,7 +11275,7 @@
             "JP: [32 AP] [Hard] Ch 2: Ep 4 [3-10]"
         ],
         "leader skill": "Dark: +40% PATK & +5 Evasion Rate",
-        "master ability": " +100 PATK & +10 Evasion Rate",
+        "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/asuwado",
         "job 1": "Shadow Assassin",
         "job 2": "Twin-Blade Swordsman",
@@ -9803,7 +11288,19 @@
             "Aswad"
         ],
         "stats": {
-            "HP": 408,
+            "HP": 453,
+            "Max Jewels": 176,
+            "PATK": 187,
+            "PDEF": 91,
+            "MATK": 128,
+            "MDEF": 91,
+            "DEX": 158,
+            "AGI": 95,
+            "CRIT": 152,
+            "LUCK": 146
+        },
+        "max_stats": {
+            "HP": 453,
             "Max Jewels": 176,
             "PATK": 187,
             "PDEF": 91,
@@ -9815,7 +11312,7 @@
             "LUCK": 146
         },
         "min_stats": {
-            "HP": 80,
+            "HP": 84,
             "Max Jewels": 44,
             "PATK": 52,
             "PDEF": 25,
@@ -9872,7 +11369,7 @@
             "JP: [32 AP] [Hard] Ch 2: Ep 3 [3-9]"
         ],
         "leader skill": "Water: +30% MATK & +20% HP",
-        "master ability": " +300 HP & +50 MATK & +1 Skill Use Count",
+        "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/sophia",
         "job 1": "Astrologer",
         "job 2": "Bishop",
@@ -9884,7 +11381,19 @@
             "Sophia"
         ],
         "stats": {
-            "HP": 443,
+            "HP": 488,
+            "Max Jewels": 202,
+            "PATK": 124,
+            "PDEF": 91,
+            "MATK": 158,
+            "MDEF": 118,
+            "DEX": 136,
+            "AGI": 90,
+            "CRIT": 132,
+            "LUCK": 146
+        },
+        "max_stats": {
+            "HP": 488,
             "Max Jewels": 202,
             "PATK": 124,
             "PDEF": 91,
@@ -9896,7 +11405,7 @@
             "LUCK": 146
         },
         "min_stats": {
-            "HP": 88,
+            "HP": 92,
             "Max Jewels": 50,
             "PATK": 35,
             "PDEF": 25,
@@ -9960,7 +11469,19 @@
             "Carol"
         ],
         "stats": {
-            "HP": 430,
+            "HP": 469,
+            "Max Jewels": 172,
+            "PATK": 140,
+            "PDEF": 91,
+            "MATK": 121,
+            "MDEF": 89,
+            "DEX": 160,
+            "AGI": 90,
+            "CRIT": 143,
+            "LUCK": 133
+        },
+        "max_stats": {
+            "HP": 469,
             "Max Jewels": 172,
             "PATK": 140,
             "PDEF": 91,
@@ -9972,7 +11493,7 @@
             "LUCK": 133
         },
         "min_stats": {
-            "HP": 83,
+            "HP": 87,
             "Max Jewels": 43,
             "PATK": 39,
             "PDEF": 25,
@@ -9999,11 +11520,6 @@
                 "name": "default",
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/kyar.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/kyar-closeup.png"
-            },
-            {
-                "name": "Xmas",
-                "full": "http://cdn.alchemistcodedb.com/images/units/artworks/kyar_xmas.png",
-                "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/kyar_xmas-closeup.png"
             }
         ],
         "tierlist": {
@@ -10029,7 +11545,7 @@
             "JP: [32 AP] [Hard] Ch 3: Ep 2 [3-10]"
         ],
         "leader skill": "Wind: +30 Slash ATK & +20% HP",
-        "master ability": " +100 PATK & +50 Counter Res",
+        "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/setsuna",
         "job 1": "Blademaster",
         "job 2": "Martial Artist",
@@ -10041,7 +11557,19 @@
             "Setsuna"
         ],
         "stats": {
-            "HP": 420,
+            "HP": 442,
+            "Max Jewels": 176,
+            "PATK": 162,
+            "PDEF": 96,
+            "MATK": 128,
+            "MDEF": 93,
+            "DEX": 148,
+            "AGI": 95,
+            "CRIT": 164,
+            "LUCK": 140
+        },
+        "max_stats": {
+            "HP": 442,
             "Max Jewels": 176,
             "PATK": 162,
             "PDEF": 96,
@@ -10053,7 +11581,7 @@
             "LUCK": 140
         },
         "min_stats": {
-            "HP": 81,
+            "HP": 83,
             "Max Jewels": 44,
             "PATK": 44,
             "PDEF": 26,
@@ -10105,7 +11633,7 @@
             "JP: [32 AP] [Hard] Ch 2: Ep 4 [2-9]"
         ],
         "leader skill": "Fire: +50% HP",
-        "master ability": " +20 Missile ATK",
+        "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/hazel",
         "job 1": "Machinist",
         "job 2": "Magic Swordsman",
@@ -10117,7 +11645,19 @@
             "Hazel"
         ],
         "stats": {
-            "HP": 896,
+            "HP": 806,
+            "Max Jewels": 182,
+            "PATK": 150,
+            "PDEF": 111,
+            "MATK": 142,
+            "MDEF": 111,
+            "DEX": 166,
+            "AGI": 94,
+            "CRIT": 164,
+            "LUCK": 140
+        },
+        "max_stats": {
+            "HP": 806,
             "Max Jewels": 182,
             "PATK": 150,
             "PDEF": 111,
@@ -10129,7 +11669,7 @@
             "LUCK": 140
         },
         "min_stats": {
-            "HP": 132,
+            "HP": 123,
             "Max Jewels": 45,
             "PATK": 41,
             "PDEF": 31,
@@ -10156,11 +11696,6 @@
                 "name": "default",
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/haze.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/haze-closeup.png"
-            },
-            {
-                "name": "Xmas",
-                "full": "http://cdn.alchemistcodedb.com/images/units/artworks/haze_xmas.png",
-                "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/haze_xmas-closeup.png"
             }
         ],
         "tierlist": {
@@ -10199,6 +11734,18 @@
             "Eizen"
         ],
         "stats": {
+            "HP": 492,
+            "Max Jewels": 178,
+            "PATK": 151,
+            "PDEF": 100,
+            "MATK": 128,
+            "MDEF": 91,
+            "DEX": 152,
+            "AGI": 87,
+            "CRIT": 150,
+            "LUCK": 140
+        },
+        "max_stats": {
             "HP": 492,
             "Max Jewels": 178,
             "PATK": 151,
@@ -10284,6 +11831,18 @@
             "CRIT": 133,
             "LUCK": 131
         },
+        "max_stats": {
+            "HP": 411,
+            "Max Jewels": 189,
+            "PATK": 131,
+            "PDEF": 87,
+            "MATK": 151,
+            "MDEF": 108,
+            "DEX": 137,
+            "AGI": 94,
+            "CRIT": 133,
+            "LUCK": 131
+        },
         "min_stats": {
             "HP": 81,
             "Max Jewels": 47,
@@ -10342,7 +11901,19 @@
             "Fate Saber"
         ],
         "stats": {
-            "HP": 397,
+            "HP": 426,
+            "Max Jewels": 172,
+            "PATK": 171,
+            "PDEF": 116,
+            "MATK": 125,
+            "MDEF": 96,
+            "DEX": 133,
+            "AGI": 99,
+            "CRIT": 144,
+            "LUCK": 136
+        },
+        "max_stats": {
+            "HP": 426,
             "Max Jewels": 172,
             "PATK": 171,
             "PDEF": 116,
@@ -10354,7 +11925,7 @@
             "LUCK": 136
         },
         "min_stats": {
-            "HP": 81,
+            "HP": 84,
             "Max Jewels": 43,
             "PATK": 46,
             "PDEF": 37,
@@ -10418,7 +11989,19 @@
             "Fate Gilgamesh"
         ],
         "stats": {
-            "HP": 792,
+            "HP": 728,
+            "Max Jewels": 164,
+            "PATK": 152,
+            "PDEF": 197,
+            "MATK": 164,
+            "MDEF": 170,
+            "DEX": 117,
+            "AGI": 95,
+            "CRIT": 125,
+            "LUCK": 120
+        },
+        "max_stats": {
+            "HP": 728,
             "Max Jewels": 164,
             "PATK": 152,
             "PDEF": 197,
@@ -10430,7 +12013,7 @@
             "LUCK": 120
         },
         "min_stats": {
-            "HP": 120,
+            "HP": 114,
             "Max Jewels": 41,
             "PATK": 40,
             "PDEF": 40,
@@ -10494,7 +12077,19 @@
             "Fate Rin Tohsaka"
         ],
         "stats": {
-            "HP": 441,
+            "HP": 466,
+            "Max Jewels": 214,
+            "PATK": 145,
+            "PDEF": 152,
+            "MATK": 132,
+            "MDEF": 160,
+            "DEX": 135,
+            "AGI": 89,
+            "CRIT": 116,
+            "LUCK": 123
+        },
+        "max_stats": {
+            "HP": 466,
             "Max Jewels": 214,
             "PATK": 145,
             "PDEF": 152,
@@ -10506,7 +12101,7 @@
             "LUCK": 123
         },
         "min_stats": {
-            "HP": 80,
+            "HP": 83,
             "Max Jewels": 54,
             "PATK": 37,
             "PDEF": 28,
@@ -10570,7 +12165,19 @@
             "Fate Illyasviel"
         ],
         "stats": {
-            "HP": 412,
+            "HP": 463,
+            "Max Jewels": 221,
+            "PATK": 95,
+            "PDEF": 115,
+            "MATK": 149,
+            "MDEF": 166,
+            "DEX": 133,
+            "AGI": 91,
+            "CRIT": 121,
+            "LUCK": 126
+        },
+        "max_stats": {
+            "HP": 463,
             "Max Jewels": 221,
             "PATK": 95,
             "PDEF": 115,
@@ -10582,7 +12189,7 @@
             "LUCK": 126
         },
         "min_stats": {
-            "HP": 73,
+            "HP": 78,
             "Max Jewels": 55,
             "PATK": 29,
             "PDEF": 20,
@@ -10646,7 +12253,19 @@
             "Fate Archer"
         ],
         "stats": {
-            "HP": 449,
+            "HP": 555,
+            "Max Jewels": 166,
+            "PATK": 135,
+            "PDEF": 94,
+            "MATK": 127,
+            "MDEF": 82,
+            "DEX": 131,
+            "AGI": 82,
+            "CRIT": 110,
+            "LUCK": 92
+        },
+        "max_stats": {
+            "HP": 555,
             "Max Jewels": 166,
             "PATK": 135,
             "PDEF": 94,
@@ -10658,7 +12277,7 @@
             "LUCK": 92
         },
         "min_stats": {
-            "HP": 79,
+            "HP": 90,
             "Max Jewels": 41,
             "PATK": 36,
             "PDEF": 25,
@@ -10721,7 +12340,19 @@
             "Fate Yomi"
         ],
         "stats": {
-            "HP": 467,
+            "HP": 538,
+            "Max Jewels": 195,
+            "PATK": 183,
+            "PDEF": 121,
+            "MATK": 152,
+            "MDEF": 121,
+            "DEX": 102,
+            "AGI": 92,
+            "CRIT": 133,
+            "LUCK": 109
+        },
+        "max_stats": {
+            "HP": 538,
             "Max Jewels": 195,
             "PATK": 183,
             "PDEF": 121,
@@ -10733,7 +12364,7 @@
             "LUCK": 109
         },
         "min_stats": {
-            "HP": 83,
+            "HP": 90,
             "Max Jewels": 41,
             "PATK": 39,
             "PDEF": 28,
@@ -10796,7 +12427,19 @@
             "Fate Lamia"
         ],
         "stats": {
-            "HP": 443,
+            "HP": 487,
+            "Max Jewels": 172,
+            "PATK": 150,
+            "PDEF": 126,
+            "MATK": 126,
+            "MDEF": 97,
+            "DEX": 144,
+            "AGI": 102,
+            "CRIT": 158,
+            "LUCK": 123
+        },
+        "max_stats": {
+            "HP": 487,
             "Max Jewels": 172,
             "PATK": 150,
             "PDEF": 126,
@@ -10808,7 +12451,7 @@
             "LUCK": 123
         },
         "min_stats": {
-            "HP": 84,
+            "HP": 89,
             "Max Jewels": 43,
             "PATK": 41,
             "PDEF": 31,
@@ -10871,7 +12514,19 @@
             "Fate Zahar"
         ],
         "stats": {
-            "HP": 449,
+            "HP": 477,
+            "Max Jewels": 172,
+            "PATK": 171,
+            "PDEF": 102,
+            "MATK": 130,
+            "MDEF": 90,
+            "DEX": 146,
+            "AGI": 91,
+            "CRIT": 159,
+            "LUCK": 129
+        },
+        "max_stats": {
+            "HP": 477,
             "Max Jewels": 172,
             "PATK": 171,
             "PDEF": 102,
@@ -10883,7 +12538,7 @@
             "LUCK": 129
         },
         "min_stats": {
-            "HP": 81,
+            "HP": 84,
             "Max Jewels": 43,
             "PATK": 45,
             "PDEF": 30,
@@ -10945,6 +12600,18 @@
             "Rena"
         ],
         "stats": {
+            "HP": 372,
+            "Max Jewels": 180,
+            "PATK": 123,
+            "PDEF": 88,
+            "MATK": 130,
+            "MDEF": 91,
+            "DEX": 133,
+            "AGI": 83,
+            "CRIT": 129,
+            "LUCK": 129
+        },
+        "max_stats": {
             "HP": 372,
             "Max Jewels": 180,
             "PATK": 123,
@@ -11018,7 +12685,19 @@
             "Sieg"
         ],
         "stats": {
-            "HP": 428,
+            "HP": 438,
+            "Max Jewels": 170,
+            "PATK": 143,
+            "PDEF": 105,
+            "MATK": 132,
+            "MDEF": 103,
+            "DEX": 128,
+            "AGI": 78,
+            "CRIT": 140,
+            "LUCK": 140
+        },
+        "max_stats": {
+            "HP": 438,
             "Max Jewels": 170,
             "PATK": 143,
             "PDEF": 105,
@@ -11030,7 +12709,7 @@
             "LUCK": 140
         },
         "min_stats": {
-            "HP": 81,
+            "HP": 82,
             "Max Jewels": 42,
             "PATK": 39,
             "PDEF": 30,
@@ -11110,6 +12789,18 @@
             "CRIT": 155,
             "LUCK": 141
         },
+        "max_stats": {
+            "HP": 507,
+            "Max Jewels": 166,
+            "PATK": 148,
+            "PDEF": 91,
+            "MATK": 127,
+            "MDEF": 82,
+            "DEX": 168,
+            "AGI": 101,
+            "CRIT": 155,
+            "LUCK": 141
+        },
         "min_stats": {
             "HP": 90,
             "Max Jewels": 41,
@@ -11168,7 +12859,19 @@
             "SN Sakura"
         ],
         "stats": {
-            "HP": 420,
+            "HP": 460,
+            "Max Jewels": 180,
+            "PATK": 140,
+            "PDEF": 97,
+            "MATK": 138,
+            "MDEF": 97,
+            "DEX": 146,
+            "AGI": 89,
+            "CRIT": 154,
+            "LUCK": 140
+        },
+        "max_stats": {
+            "HP": 460,
             "Max Jewels": 180,
             "PATK": 140,
             "PDEF": 97,
@@ -11180,7 +12883,7 @@
             "LUCK": 140
         },
         "min_stats": {
-            "HP": 81,
+            "HP": 85,
             "Max Jewels": 45,
             "PATK": 39,
             "PDEF": 27,
@@ -11245,7 +12948,19 @@
             "SN Dark Princess Yomi"
         ],
         "stats": {
-            "HP": 443,
+            "HP": 480,
+            "Max Jewels": 186,
+            "PATK": 138,
+            "PDEF": 87,
+            "MATK": 132,
+            "MDEF": 84,
+            "DEX": 179,
+            "AGI": 98,
+            "CRIT": 146,
+            "LUCK": 144
+        },
+        "max_stats": {
+            "HP": 480,
             "Max Jewels": 186,
             "PATK": 138,
             "PDEF": 87,
@@ -11257,7 +12972,7 @@
             "LUCK": 144
         },
         "min_stats": {
-            "HP": 85,
+            "HP": 89,
             "Max Jewels": 46,
             "PATK": 38,
             "PDEF": 24,
@@ -11321,7 +13036,19 @@
             "POTK Forcas"
         ],
         "stats": {
-            "HP": 448,
+            "HP": 455,
+            "Max Jewels": 174,
+            "PATK": 178,
+            "PDEF": 102,
+            "MATK": 128,
+            "MDEF": 94,
+            "DEX": 146,
+            "AGI": 93,
+            "CRIT": 142,
+            "LUCK": 134
+        },
+        "max_stats": {
+            "HP": 455,
             "Max Jewels": 174,
             "PATK": 178,
             "PDEF": 102,
@@ -11398,7 +13125,19 @@
             "POTK Bashosen"
         ],
         "stats": {
-            "HP": 396,
+            "HP": 436,
+            "Max Jewels": 176,
+            "PATK": 167,
+            "PDEF": 106,
+            "MATK": 132,
+            "MDEF": 100,
+            "DEX": 183,
+            "AGI": 92,
+            "CRIT": 165,
+            "LUCK": 140
+        },
+        "max_stats": {
+            "HP": 436,
             "Max Jewels": 176,
             "PATK": 167,
             "PDEF": 106,
@@ -11410,7 +13149,7 @@
             "LUCK": 140
         },
         "min_stats": {
-            "HP": 77,
+            "HP": 81,
             "Max Jewels": 44,
             "PATK": 46,
             "PDEF": 29,
@@ -11485,6 +13224,18 @@
             "CRIT": 146,
             "LUCK": 160
         },
+        "max_stats": {
+            "HP": 429,
+            "Max Jewels": 177,
+            "PATK": 132,
+            "PDEF": 97,
+            "MATK": 155,
+            "MDEF": 105,
+            "DEX": 152,
+            "AGI": 100,
+            "CRIT": 146,
+            "LUCK": 160
+        },
         "min_stats": {
             "HP": 82,
             "Max Jewels": 47,
@@ -11531,7 +13282,7 @@
             "JP: [32 AP] [Hard] Ch 3: Ep 3 [2-10]"
         ],
         "leader skill": "Light: +50% HP",
-        "master ability": " +50 Healing & +70 Max Jewels",
+        "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/margaret",
         "job 1": "Merchant",
         "job 2": "Magic Swordsman",
@@ -11543,7 +13294,19 @@
             "Margaret"
         ],
         "stats": {
-            "HP": 947,
+            "HP": 797,
+            "Max Jewels": 204,
+            "PATK": 143,
+            "PDEF": 103,
+            "MATK": 163,
+            "MDEF": 106,
+            "DEX": 140,
+            "AGI": 91,
+            "CRIT": 135,
+            "LUCK": 144
+        },
+        "max_stats": {
+            "HP": 797,
             "Max Jewels": 204,
             "PATK": 143,
             "PDEF": 103,
@@ -11555,7 +13318,7 @@
             "LUCK": 144
         },
         "min_stats": {
-            "HP": 135,
+            "HP": 120,
             "Max Jewels": 51,
             "PATK": 34,
             "PDEF": 27,
@@ -11607,7 +13370,7 @@
             "JP: [32 AP] [Hard] Ch 3: Ep 3 [3-9]"
         ],
         "leader skill": "Thunder: +50% HP",
-        "master ability": " +50 PATK & +500 HP",
+        "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/meifan",
         "job 1": "Martial Master",
         "job 2": "Thief",
@@ -11620,7 +13383,19 @@
             "Meifan"
         ],
         "stats": {
-            "HP": 417,
+            "HP": 438,
+            "Max Jewels": 174,
+            "PATK": 158,
+            "PDEF": 103,
+            "MATK": 128,
+            "MDEF": 88,
+            "DEX": 142,
+            "AGI": 89,
+            "CRIT": 152,
+            "LUCK": 136
+        },
+        "max_stats": {
+            "HP": 438,
             "Max Jewels": 174,
             "PATK": 158,
             "PDEF": 103,
@@ -11632,7 +13407,7 @@
             "LUCK": 136
         },
         "min_stats": {
-            "HP": 80,
+            "HP": 82,
             "Max Jewels": 43,
             "PATK": 43,
             "PDEF": 29,
@@ -11684,7 +13459,7 @@
             "JP: [32 AP] [Hard] Ch 3: Ep 3 [1-10]"
         ],
         "leader skill": "Fire: +30 Missile ATK & +20% HP",
-        "master ability": " +2 RANGE & +40 Wind DMG & +10 AGI",
+        "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/vivi",
         "job 1": "Magia Gunslinger",
         "job 2": "Gunner",
@@ -11697,7 +13472,19 @@
             "ViVi"
         ],
         "stats": {
-            "HP": 400,
+            "HP": 437,
+            "Max Jewels": 190,
+            "PATK": 128,
+            "PDEF": 91,
+            "MATK": 148,
+            "MDEF": 108,
+            "DEX": 142,
+            "AGI": 88,
+            "CRIT": 138,
+            "LUCK": 140
+        },
+        "max_stats": {
+            "HP": 437,
             "Max Jewels": 190,
             "PATK": 128,
             "PDEF": 91,
@@ -11709,7 +13496,7 @@
             "LUCK": 140
         },
         "min_stats": {
-            "HP": 78,
+            "HP": 82,
             "Max Jewels": 47,
             "PATK": 36,
             "PDEF": 25,
@@ -11771,6 +13558,18 @@
             "Yuto"
         ],
         "stats": {
+            "HP": 318,
+            "Max Jewels": 162,
+            "PATK": 89,
+            "PDEF": 90,
+            "MATK": 121,
+            "MDEF": 77,
+            "DEX": 143,
+            "AGI": 77,
+            "CRIT": 133,
+            "LUCK": 137
+        },
+        "max_stats": {
             "HP": 318,
             "Max Jewels": 162,
             "PATK": 89,
@@ -11852,6 +13651,18 @@
             "CRIT": 151,
             "LUCK": 147
         },
+        "max_stats": {
+            "HP": 430,
+            "Max Jewels": 171,
+            "PATK": 181,
+            "PDEF": 108,
+            "MATK": 138,
+            "MDEF": 94,
+            "DEX": 158,
+            "AGI": 84,
+            "CRIT": 151,
+            "LUCK": 147
+        },
         "min_stats": {
             "HP": 83,
             "Max Jewels": 41,
@@ -11898,7 +13709,7 @@
             "JP: [32 AP] [Hard] Ch 3: Ep 3 [3-1]"
         ],
         "leader skill": "Light: +20% HP & +30 Magic ATK",
-        "master ability": " +20 AGI & +30 MATK",
+        "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/neica",
         "job 1": "Battle Mage",
         "job 2": "Magic Swordsman",
@@ -11911,7 +13722,19 @@
             "Neika"
         ],
         "stats": {
-            "HP": 831,
+            "HP": 753,
+            "Max Jewels": 196,
+            "PATK": 128,
+            "PDEF": 103,
+            "MATK": 164,
+            "MDEF": 114,
+            "DEX": 132,
+            "AGI": 84,
+            "CRIT": 128,
+            "LUCK": 136
+        },
+        "max_stats": {
+            "HP": 753,
             "Max Jewels": 196,
             "PATK": 128,
             "PDEF": 103,
@@ -11923,7 +13746,7 @@
             "LUCK": 136
         },
         "min_stats": {
-            "HP": 129,
+            "HP": 121,
             "Max Jewels": 49,
             "PATK": 36,
             "PDEF": 29,
@@ -12004,6 +13827,18 @@
             "CRIT": 152,
             "LUCK": 140
         },
+        "max_stats": {
+            "HP": 410,
+            "Max Jewels": 176,
+            "PATK": 152,
+            "PDEF": 100,
+            "MATK": 136,
+            "MDEF": 94,
+            "DEX": 144,
+            "AGI": 91,
+            "CRIT": 152,
+            "LUCK": 140
+        },
         "min_stats": {
             "HP": 79,
             "Max Jewels": 44,
@@ -12063,7 +13898,19 @@
             "Marianne"
         ],
         "stats": {
-            "HP": 454,
+            "HP": 483,
+            "Max Jewels": 174,
+            "PATK": 153,
+            "PDEF": 81,
+            "MATK": 121,
+            "MDEF": 90,
+            "DEX": 154,
+            "AGI": 85,
+            "CRIT": 131,
+            "LUCK": 133
+        },
+        "max_stats": {
+            "HP": 483,
             "Max Jewels": 174,
             "PATK": 153,
             "PDEF": 81,
@@ -12075,7 +13922,7 @@
             "LUCK": 133
         },
         "min_stats": {
-            "HP": 90,
+            "HP": 93,
             "Max Jewels": 43,
             "PATK": 42,
             "PDEF": 22,
@@ -12151,6 +13998,18 @@
             "CRIT": 158,
             "LUCK": 140
         },
+        "max_stats": {
+            "HP": 507,
+            "Max Jewels": 175,
+            "PATK": 160,
+            "PDEF": 97,
+            "MATK": 122,
+            "MDEF": 90,
+            "DEX": 154,
+            "AGI": 92,
+            "CRIT": 158,
+            "LUCK": 140
+        },
         "min_stats": {
             "HP": 91,
             "Max Jewels": 43,
@@ -12209,6 +14068,18 @@
             "DIS Seraphina"
         ],
         "stats": {
+            "HP": 411,
+            "Max Jewels": 196,
+            "PATK": 165,
+            "PDEF": 96,
+            "MATK": 175,
+            "MDEF": 113,
+            "DEX": 154,
+            "AGI": 89,
+            "CRIT": 148,
+            "LUCK": 140
+        },
+        "max_stats": {
             "HP": 411,
             "Max Jewels": 196,
             "PATK": 165,
@@ -12290,6 +14161,18 @@
             "CRIT": 146,
             "LUCK": 136
         },
+        "max_stats": {
+            "HP": 441,
+            "Max Jewels": 180,
+            "PATK": 152,
+            "PDEF": 103,
+            "MATK": 128,
+            "MDEF": 94,
+            "DEX": 144,
+            "AGI": 95,
+            "CRIT": 146,
+            "LUCK": 136
+        },
         "min_stats": {
             "HP": 84,
             "Max Jewels": 45,
@@ -12348,6 +14231,18 @@
             "DIS Rin"
         ],
         "stats": {
+            "HP": 521,
+            "Max Jewels": 179,
+            "PATK": 152,
+            "PDEF": 130,
+            "MATK": 128,
+            "MDEF": 93,
+            "DEX": 156,
+            "AGI": 92,
+            "CRIT": 148,
+            "LUCK": 140
+        },
+        "max_stats": {
             "HP": 521,
             "Max Jewels": 179,
             "PATK": 152,
@@ -12428,6 +14323,18 @@
             "CRIT": 132,
             "LUCK": 115
         },
+        "max_stats": {
+            "HP": 391,
+            "Max Jewels": 154,
+            "PATK": 115,
+            "PDEF": 72,
+            "MATK": 115,
+            "MDEF": 75,
+            "DEX": 157,
+            "AGI": 78,
+            "CRIT": 132,
+            "LUCK": 115
+        },
         "min_stats": {
             "HP": 75,
             "Max Jewels": 40,
@@ -12486,6 +14393,18 @@
             "Chao"
         ],
         "stats": {
+            "HP": 455,
+            "Max Jewels": 194,
+            "PATK": 128,
+            "PDEF": 100,
+            "MATK": 140,
+            "MDEF": 108,
+            "DEX": 146,
+            "AGI": 89,
+            "CRIT": 138,
+            "LUCK": 146
+        },
+        "max_stats": {
             "HP": 455,
             "Max Jewels": 194,
             "PATK": 128,
@@ -12566,6 +14485,18 @@
             "CRIT": 152,
             "LUCK": 134
         },
+        "max_stats": {
+            "HP": 434,
+            "Max Jewels": 179,
+            "PATK": 162,
+            "PDEF": 102,
+            "MATK": 126,
+            "MDEF": 91,
+            "DEX": 152,
+            "AGI": 91,
+            "CRIT": 152,
+            "LUCK": 134
+        },
         "min_stats": {
             "HP": 83,
             "Max Jewels": 45,
@@ -12624,6 +14555,18 @@
             "Nasario"
         ],
         "stats": {
+            "HP": 852,
+            "Max Jewels": 210,
+            "PATK": 134,
+            "PDEF": 155,
+            "MATK": 190,
+            "MDEF": 115,
+            "DEX": 134,
+            "AGI": 80,
+            "CRIT": 128,
+            "LUCK": 142
+        },
+        "max_stats": {
             "HP": 852,
             "Max Jewels": 210,
             "PATK": 134,
@@ -12702,6 +14645,18 @@
             "CRIT": 123,
             "LUCK": 113
         },
+        "max_stats": {
+            "HP": 523,
+            "Max Jewels": 151,
+            "PATK": 127,
+            "PDEF": 72,
+            "MATK": 99,
+            "MDEF": 59,
+            "DEX": 121,
+            "AGI": 84,
+            "CRIT": 123,
+            "LUCK": 113
+        },
         "min_stats": {
             "HP": 91,
             "Max Jewels": 39,
@@ -12750,6 +14705,18 @@
             "DIS Lahar"
         ],
         "stats": {
+            "HP": 791,
+            "Max Jewels": 181,
+            "PATK": 157,
+            "PDEF": 132,
+            "MATK": 167,
+            "MDEF": 118,
+            "DEX": 153,
+            "AGI": 93,
+            "CRIT": 153,
+            "LUCK": 143
+        },
+        "max_stats": {
             "HP": 791,
             "Max Jewels": 181,
             "PATK": 157,
@@ -12831,6 +14798,18 @@
             "CRIT": 151,
             "LUCK": 147
         },
+        "max_stats": {
+            "HP": 444,
+            "Max Jewels": 171,
+            "PATK": 189,
+            "PDEF": 102,
+            "MATK": 121,
+            "MDEF": 94,
+            "DEX": 158,
+            "AGI": 89,
+            "CRIT": 151,
+            "LUCK": 147
+        },
         "min_stats": {
             "HP": 85,
             "Max Jewels": 41,
@@ -12889,6 +14868,18 @@
             "DIS Prinny"
         ],
         "stats": {
+            "HP": 458,
+            "Max Jewels": 165,
+            "PATK": 150,
+            "PDEF": 110,
+            "MATK": 138,
+            "MDEF": 120,
+            "DEX": 140,
+            "AGI": 85,
+            "CRIT": 140,
+            "LUCK": 125
+        },
+        "max_stats": {
             "HP": 458,
             "Max Jewels": 165,
             "PATK": 150,
@@ -12969,6 +14960,18 @@
             "CRIT": 141,
             "LUCK": 129
         },
+        "max_stats": {
+            "HP": 562,
+            "Max Jewels": 198,
+            "PATK": 137,
+            "PDEF": 91,
+            "MATK": 117,
+            "MDEF": 79,
+            "DEX": 182,
+            "AGI": 94,
+            "CRIT": 141,
+            "LUCK": 129
+        },
         "min_stats": {
             "HP": 124,
             "Max Jewels": 49,
@@ -13027,6 +15030,18 @@
             "DIS Rosa"
         ],
         "stats": {
+            "HP": 482,
+            "Max Jewels": 172,
+            "PATK": 172,
+            "PDEF": 121,
+            "MATK": 190,
+            "MDEF": 170,
+            "DEX": 133,
+            "AGI": 98,
+            "CRIT": 152,
+            "LUCK": 138
+        },
+        "max_stats": {
             "HP": 482,
             "Max Jewels": 172,
             "PATK": 172,
@@ -13106,6 +15121,18 @@
             "CRIT": 133,
             "LUCK": 142
         },
+        "max_stats": {
+            "HP": 455,
+            "Max Jewels": 191,
+            "PATK": 128,
+            "PDEF": 90,
+            "MATK": 158,
+            "MDEF": 85,
+            "DEX": 142,
+            "AGI": 97,
+            "CRIT": 133,
+            "LUCK": 142
+        },
         "min_stats": {
             "HP": 88,
             "Max Jewels": 47,
@@ -13162,6 +15189,18 @@
             "Suiran"
         ],
         "stats": {
+            "HP": 458,
+            "Max Jewels": 184,
+            "PATK": 161,
+            "PDEF": 108,
+            "MATK": 121,
+            "MDEF": 96,
+            "DEX": 162,
+            "AGI": 96,
+            "CRIT": 145,
+            "LUCK": 141
+        },
+        "max_stats": {
             "HP": 458,
             "Max Jewels": 184,
             "PATK": 161,
@@ -13241,6 +15280,18 @@
             "CRIT": 155,
             "LUCK": 124
         },
+        "max_stats": {
+            "HP": 369,
+            "Max Jewels": 144,
+            "PATK": 141,
+            "PDEF": 74,
+            "MATK": 104,
+            "MDEF": 68,
+            "DEX": 136,
+            "AGI": 87,
+            "CRIT": 155,
+            "LUCK": 124
+        },
         "min_stats": {
             "HP": 70,
             "Max Jewels": 36,
@@ -13297,6 +15348,18 @@
             "Jin"
         ],
         "stats": {
+            "HP": 456,
+            "Max Jewels": 198,
+            "PATK": 179,
+            "PDEF": 105,
+            "MATK": 138,
+            "MDEF": 103,
+            "DEX": 179,
+            "AGI": 96,
+            "CRIT": 150,
+            "LUCK": 133
+        },
+        "max_stats": {
             "HP": 456,
             "Max Jewels": 198,
             "PATK": 179,
@@ -13369,6 +15432,18 @@
             "Noah"
         ],
         "stats": {
+            "HP": 585,
+            "Max Jewels": 187,
+            "PATK": 125,
+            "PDEF": 81,
+            "MATK": 148,
+            "MDEF": 130,
+            "DEX": 157,
+            "AGI": 88,
+            "CRIT": 155,
+            "LUCK": 135
+        },
+        "max_stats": {
             "HP": 585,
             "Max Jewels": 187,
             "PATK": 125,
@@ -13453,6 +15528,18 @@
             "CRIT": 157,
             "LUCK": 146
         },
+        "max_stats": {
+            "HP": 514,
+            "Max Jewels": 176,
+            "PATK": 179,
+            "PDEF": 89,
+            "MATK": 143,
+            "MDEF": 117,
+            "DEX": 152,
+            "AGI": 98,
+            "CRIT": 157,
+            "LUCK": 146
+        },
         "min_stats": {
             "HP": 99,
             "Max Jewels": 44,
@@ -13509,6 +15596,18 @@
             "Olga"
         ],
         "stats": {
+            "HP": 902,
+            "Max Jewels": 182,
+            "PATK": 166,
+            "PDEF": 120,
+            "MATK": 133,
+            "MDEF": 116,
+            "DEX": 145,
+            "AGI": 93,
+            "CRIT": 152,
+            "LUCK": 146
+        },
+        "max_stats": {
             "HP": 902,
             "Max Jewels": 182,
             "PATK": 166,
@@ -13587,6 +15686,18 @@
             "CRIT": 141,
             "LUCK": 159
         },
+        "max_stats": {
+            "HP": 414,
+            "Max Jewels": 162,
+            "PATK": 149,
+            "PDEF": 100,
+            "MATK": 121,
+            "MDEF": 89,
+            "DEX": 135,
+            "AGI": 88,
+            "CRIT": 141,
+            "LUCK": 159
+        },
         "min_stats": {
             "HP": 76,
             "Max Jewels": 40,
@@ -13643,6 +15754,18 @@
             "Justin"
         ],
         "stats": {
+            "HP": 374,
+            "Max Jewels": 150,
+            "PATK": 120,
+            "PDEF": 77,
+            "MATK": 110,
+            "MDEF": 74,
+            "DEX": 108,
+            "AGI": 83,
+            "CRIT": 142,
+            "LUCK": 118
+        },
+        "max_stats": {
             "HP": 374,
             "Max Jewels": 150,
             "PATK": 120,
@@ -13723,6 +15846,18 @@
             "CRIT": 132,
             "LUCK": 136
         },
+        "max_stats": {
+            "HP": 928,
+            "Max Jewels": 186,
+            "PATK": 140,
+            "PDEF": 106,
+            "MATK": 158,
+            "MDEF": 108,
+            "DEX": 136,
+            "AGI": 85,
+            "CRIT": 132,
+            "LUCK": 136
+        },
         "min_stats": {
             "HP": 133,
             "Max Jewels": 46,
@@ -13792,6 +15927,18 @@
             "CRIT": 152,
             "LUCK": 140
         },
+        "max_stats": {
+            "HP": 421,
+            "Max Jewels": 182,
+            "PATK": 177,
+            "PDEF": 97,
+            "MATK": 132,
+            "MDEF": 94,
+            "DEX": 150,
+            "AGI": 92,
+            "CRIT": 152,
+            "LUCK": 140
+        },
         "min_stats": {
             "HP": 83,
             "Max Jewels": 45,
@@ -13850,6 +15997,18 @@
             "FF Gladiolus"
         ],
         "stats": {
+            "HP": 476,
+            "Max Jewels": 172,
+            "PATK": 162,
+            "PDEF": 117,
+            "MATK": 130,
+            "MDEF": 100,
+            "DEX": 140,
+            "AGI": 92,
+            "CRIT": 138,
+            "LUCK": 140
+        },
+        "max_stats": {
             "HP": 476,
             "Max Jewels": 172,
             "PATK": 162,
@@ -13931,6 +16090,18 @@
             "CRIT": 124,
             "LUCK": 118
         },
+        "max_stats": {
+            "HP": 403,
+            "Max Jewels": 150,
+            "PATK": 124,
+            "PDEF": 82,
+            "MATK": 110,
+            "MDEF": 79,
+            "DEX": 126,
+            "AGI": 79,
+            "CRIT": 124,
+            "LUCK": 118
+        },
         "min_stats": {
             "HP": 77,
             "Max Jewels": 37,
@@ -13989,6 +16160,18 @@
             "FF Aranea"
         ],
         "stats": {
+            "HP": 458,
+            "Max Jewels": 176,
+            "PATK": 162,
+            "PDEF": 111,
+            "MATK": 134,
+            "MDEF": 104,
+            "DEX": 146,
+            "AGI": 95,
+            "CRIT": 152,
+            "LUCK": 146
+        },
+        "max_stats": {
             "HP": 458,
             "Max Jewels": 176,
             "PATK": 162,
@@ -14068,6 +16251,18 @@
             "CRIT": 132,
             "LUCK": 142
         },
+        "max_stats": {
+            "HP": 484,
+            "Max Jewels": 205,
+            "PATK": 134,
+            "PDEF": 118,
+            "MATK": 155,
+            "MDEF": 126,
+            "DEX": 160,
+            "AGI": 90,
+            "CRIT": 132,
+            "LUCK": 142
+        },
         "min_stats": {
             "HP": 90,
             "Max Jewels": 51,
@@ -14125,6 +16320,18 @@
             "Leonia"
         ],
         "stats": {
+            "HP": 449,
+            "Max Jewels": 173,
+            "PATK": 141,
+            "PDEF": 115,
+            "MATK": 133,
+            "MDEF": 90,
+            "DEX": 163,
+            "AGI": 92,
+            "CRIT": 122,
+            "LUCK": 147
+        },
+        "max_stats": {
             "HP": 449,
             "Max Jewels": 173,
             "PATK": 141,
@@ -14206,6 +16413,18 @@
             "CRIT": 151,
             "LUCK": 122
         },
+        "max_stats": {
+            "HP": 773,
+            "Max Jewels": 171,
+            "PATK": 181,
+            "PDEF": 164,
+            "MATK": 138,
+            "MDEF": 201,
+            "DEX": 158,
+            "AGI": 85,
+            "CRIT": 151,
+            "LUCK": 122
+        },
         "min_stats": {
             "HP": 160,
             "Max Jewels": 82,
@@ -14265,6 +16484,18 @@
             "SSM Fier"
         ],
         "stats": {
+            "HP": 472,
+            "Max Jewels": 214,
+            "PATK": 124,
+            "PDEF": 207,
+            "MATK": 150,
+            "MDEF": 220,
+            "DEX": 200,
+            "AGI": 94,
+            "CRIT": 116,
+            "LUCK": 55
+        },
+        "max_stats": {
             "HP": 472,
             "Max Jewels": 214,
             "PATK": 124,
@@ -14344,6 +16575,18 @@
             "CRIT": 192,
             "LUCK": 144
         },
+        "max_stats": {
+            "HP": 448,
+            "Max Jewels": 225,
+            "PATK": 120,
+            "PDEF": 106,
+            "MATK": 134,
+            "MDEF": 116,
+            "DEX": 177,
+            "AGI": 93,
+            "CRIT": 192,
+            "LUCK": 144
+        },
         "min_stats": {
             "HP": 85,
             "Max Jewels": 56,
@@ -14400,6 +16643,18 @@
             "Edwin"
         ],
         "stats": {
+            "HP": 606,
+            "Max Jewels": 170,
+            "PATK": 123,
+            "PDEF": 102,
+            "MATK": 121,
+            "MDEF": 88,
+            "DEX": 117,
+            "AGI": 88,
+            "CRIT": 128,
+            "LUCK": 126
+        },
+        "max_stats": {
             "HP": 606,
             "Max Jewels": 170,
             "PATK": 123,
@@ -14481,6 +16736,18 @@
             "CRIT": 148,
             "LUCK": 138
         },
+        "max_stats": {
+            "HP": 484,
+            "Max Jewels": 172,
+            "PATK": 158,
+            "PDEF": 100,
+            "MATK": 132,
+            "MDEF": 93,
+            "DEX": 152,
+            "AGI": 95,
+            "CRIT": 148,
+            "LUCK": 138
+        },
         "min_stats": {
             "HP": 88,
             "Max Jewels": 43,
@@ -14540,6 +16807,18 @@
             "RH Eruka"
         ],
         "stats": {
+            "HP": 402,
+            "Max Jewels": 194,
+            "PATK": 138,
+            "PDEF": 96,
+            "MATK": 152,
+            "MDEF": 108,
+            "DEX": 175,
+            "AGI": 95,
+            "CRIT": 148,
+            "LUCK": 140
+        },
+        "max_stats": {
             "HP": 402,
             "Max Jewels": 194,
             "PATK": 138,
@@ -14621,6 +16900,18 @@
             "CRIT": 138,
             "LUCK": 156
         },
+        "max_stats": {
+            "HP": 440,
+            "Max Jewels": 198,
+            "PATK": 126,
+            "PDEF": 102,
+            "MATK": 144,
+            "MDEF": 103,
+            "DEX": 144,
+            "AGI": 97,
+            "CRIT": 138,
+            "LUCK": 156
+        },
         "min_stats": {
             "HP": 85,
             "Max Jewels": 49,
@@ -14680,6 +16971,18 @@
             "RH Rainy"
         ],
         "stats": {
+            "HP": 785,
+            "Max Jewels": 170,
+            "PATK": 118,
+            "PDEF": 79,
+            "MATK": 141,
+            "MDEF": 89,
+            "DEX": 122,
+            "AGI": 84,
+            "CRIT": 118,
+            "LUCK": 118
+        },
+        "max_stats": {
             "HP": 785,
             "Max Jewels": 170,
             "PATK": 118,
@@ -14758,6 +17061,18 @@
             "CRIT": 133,
             "LUCK": 148
         },
+        "max_stats": {
+            "HP": 731,
+            "Max Jewels": 193,
+            "PATK": 146,
+            "PDEF": 125,
+            "MATK": 172,
+            "MDEF": 115,
+            "DEX": 146,
+            "AGI": 92,
+            "CRIT": 133,
+            "LUCK": 148
+        },
         "min_stats": {
             "HP": 118,
             "Max Jewels": 48,
@@ -14814,6 +17129,18 @@
             "Hugo"
         ],
         "stats": {
+            "HP": 436,
+            "Max Jewels": 186,
+            "PATK": 149,
+            "PDEF": 99,
+            "MATK": 185,
+            "MDEF": 108,
+            "DEX": 182,
+            "AGI": 97,
+            "CRIT": 149,
+            "LUCK": 146
+        },
+        "max_stats": {
             "HP": 436,
             "Max Jewels": 186,
             "PATK": 149,
@@ -14893,6 +17220,18 @@
             "CRIT": 151,
             "LUCK": 122
         },
+        "max_stats": {
+            "HP": 431,
+            "Max Jewels": 151,
+            "PATK": 162,
+            "PDEF": 80,
+            "MATK": 112,
+            "MDEF": 81,
+            "DEX": 155,
+            "AGI": 98,
+            "CRIT": 151,
+            "LUCK": 122
+        },
         "min_stats": {
             "HP": 83,
             "Max Jewels": 38,
@@ -14951,6 +17290,18 @@
             "POTK Eros"
         ],
         "stats": {
+            "HP": 445,
+            "Max Jewels": 186,
+            "PATK": 162,
+            "PDEF": 114,
+            "MATK": 129,
+            "MDEF": 115,
+            "DEX": 178,
+            "AGI": 105,
+            "CRIT": 154,
+            "LUCK": 140
+        },
+        "max_stats": {
             "HP": 445,
             "Max Jewels": 186,
             "PATK": 162,
@@ -15036,6 +17387,18 @@
             "CRIT": 124,
             "LUCK": 134
         },
+        "max_stats": {
+            "HP": 369,
+            "Max Jewels": 165,
+            "PATK": 113,
+            "PDEF": 71,
+            "MATK": 111,
+            "MDEF": 82,
+            "DEX": 132,
+            "AGI": 74,
+            "CRIT": 124,
+            "LUCK": 134
+        },
         "min_stats": {
             "HP": 71,
             "Max Jewels": 41,
@@ -15099,6 +17462,18 @@
             "SN Yuri"
         ],
         "stats": {
+            "HP": 435,
+            "Max Jewels": 178,
+            "PATK": 150,
+            "PDEF": 99,
+            "MATK": 121,
+            "MDEF": 93,
+            "DEX": 154,
+            "AGI": 89,
+            "CRIT": 168,
+            "LUCK": 140
+        },
+        "max_stats": {
             "HP": 435,
             "Max Jewels": 178,
             "PATK": 150,
@@ -15182,6 +17557,18 @@
             "CRIT": 166,
             "LUCK": 134
         },
+        "max_stats": {
+            "HP": 468,
+            "Max Jewels": 176,
+            "PATK": 142,
+            "PDEF": 121,
+            "MATK": 126,
+            "MDEF": 101,
+            "DEX": 156,
+            "AGI": 100,
+            "CRIT": 166,
+            "LUCK": 134
+        },
         "min_stats": {
             "HP": 90,
             "Max Jewels": 44,
@@ -15238,6 +17625,18 @@
             "Fujika"
         ],
         "stats": {
+            "HP": 338,
+            "Max Jewels": 187,
+            "PATK": 121,
+            "PDEF": 88,
+            "MATK": 147,
+            "MDEF": 108,
+            "DEX": 136,
+            "AGI": 85,
+            "CRIT": 121,
+            "LUCK": 127
+        },
+        "max_stats": {
             "HP": 338,
             "Max Jewels": 187,
             "PATK": 121,
@@ -15319,6 +17718,18 @@
             "CRIT": 158,
             "LUCK": 112
         },
+        "max_stats": {
+            "HP": 412,
+            "Max Jewels": 168,
+            "PATK": 142,
+            "PDEF": 106,
+            "MATK": 138,
+            "MDEF": 105,
+            "DEX": 162,
+            "AGI": 96,
+            "CRIT": 158,
+            "LUCK": 112
+        },
         "min_stats": {
             "HP": 130,
             "Max Jewels": 84,
@@ -15378,6 +17789,18 @@
             "SSM Noin"
         ],
         "stats": {
+            "HP": 492,
+            "Max Jewels": 174,
+            "PATK": 156,
+            "PDEF": 105,
+            "MATK": 141,
+            "MDEF": 123,
+            "DEX": 152,
+            "AGI": 94,
+            "CRIT": 169,
+            "LUCK": 110
+        },
+        "max_stats": {
             "HP": 492,
             "Max Jewels": 174,
             "PATK": 156,
@@ -15459,6 +17882,18 @@
             "CRIT": 146,
             "LUCK": 72
         },
+        "max_stats": {
+            "HP": 425,
+            "Max Jewels": 177,
+            "PATK": 148,
+            "PDEF": 102,
+            "MATK": 165,
+            "MDEF": 135,
+            "DEX": 161,
+            "AGI": 100,
+            "CRIT": 146,
+            "LUCK": 72
+        },
         "min_stats": {
             "HP": 135,
             "Max Jewels": 94,
@@ -15516,6 +17951,18 @@
             "Faylin"
         ],
         "stats": {
+            "HP": 422,
+            "Max Jewels": 162,
+            "PATK": 105,
+            "PDEF": 78,
+            "MATK": 125,
+            "MDEF": 90,
+            "DEX": 130,
+            "AGI": 87,
+            "CRIT": 138,
+            "LUCK": 122
+        },
+        "max_stats": {
             "HP": 422,
             "Max Jewels": 162,
             "PATK": 105,
@@ -15595,6 +18042,18 @@
             "CRIT": 170,
             "LUCK": 140
         },
+        "max_stats": {
+            "HP": 466,
+            "Max Jewels": 179,
+            "PATK": 162,
+            "PDEF": 115,
+            "MATK": 128,
+            "MDEF": 115,
+            "DEX": 150,
+            "AGI": 99,
+            "CRIT": 170,
+            "LUCK": 140
+        },
         "min_stats": {
             "HP": 90,
             "Max Jewels": 44,
@@ -15652,6 +18111,18 @@
             "Thetis"
         ],
         "stats": {
+            "HP": 603,
+            "Max Jewels": 179,
+            "PATK": 162,
+            "PDEF": 121,
+            "MATK": 128,
+            "MDEF": 122,
+            "DEX": 143,
+            "AGI": 94,
+            "CRIT": 152,
+            "LUCK": 136
+        },
+        "max_stats": {
             "HP": 603,
             "Max Jewels": 179,
             "PATK": 162,
@@ -15732,6 +18203,18 @@
             "CRIT": 144,
             "LUCK": 142
         },
+        "max_stats": {
+            "HP": 519,
+            "Max Jewels": 176,
+            "PATK": 144,
+            "PDEF": 108,
+            "MATK": 136,
+            "MDEF": 96,
+            "DEX": 148,
+            "AGI": 88,
+            "CRIT": 144,
+            "LUCK": 142
+        },
         "min_stats": {
             "HP": 98,
             "Max Jewels": 44,
@@ -15801,6 +18284,18 @@
             "CRIT": 136,
             "LUCK": 144
         },
+        "max_stats": {
+            "HP": 444,
+            "Max Jewels": 212,
+            "PATK": 134,
+            "PDEF": 114,
+            "MATK": 154,
+            "MDEF": 114,
+            "DEX": 157,
+            "AGI": 88,
+            "CRIT": 136,
+            "LUCK": 144
+        },
         "min_stats": {
             "HP": 86,
             "Max Jewels": 53,
@@ -15858,6 +18353,18 @@
             "EMD Shenmei"
         ],
         "stats": {
+            "HP": 452,
+            "Max Jewels": 194,
+            "PATK": 156,
+            "PDEF": 126,
+            "MATK": 157,
+            "MDEF": 112,
+            "DEX": 163,
+            "AGI": 92,
+            "CRIT": 149,
+            "LUCK": 199
+        },
+        "max_stats": {
             "HP": 452,
             "Max Jewels": 194,
             "PATK": 156,
@@ -15938,6 +18445,18 @@
             "CRIT": 119,
             "LUCK": 100
         },
+        "max_stats": {
+            "HP": 328,
+            "Max Jewels": 150,
+            "PATK": 125,
+            "PDEF": 79,
+            "MATK": 110,
+            "MDEF": 66,
+            "DEX": 120,
+            "AGI": 94,
+            "CRIT": 119,
+            "LUCK": 100
+        },
         "min_stats": {
             "HP": 63,
             "Max Jewels": 37,
@@ -16005,6 +18524,18 @@
             "CRIT": 148,
             "LUCK": 155
         },
+        "max_stats": {
+            "HP": 586,
+            "Max Jewels": 196,
+            "PATK": 147,
+            "PDEF": 110,
+            "MATK": 166,
+            "MDEF": 109,
+            "DEX": 160,
+            "AGI": 98,
+            "CRIT": 148,
+            "LUCK": 155
+        },
         "min_stats": {
             "HP": 106,
             "Max Jewels": 50,
@@ -16061,6 +18592,18 @@
             "Emma"
         ],
         "stats": {
+            "HP": 504,
+            "Max Jewels": 230,
+            "PATK": 134,
+            "PDEF": 114,
+            "MATK": 155,
+            "MDEF": 121,
+            "DEX": 160,
+            "AGI": 97,
+            "CRIT": 132,
+            "LUCK": 155
+        },
+        "max_stats": {
             "HP": 504,
             "Max Jewels": 230,
             "PATK": 134,
@@ -16145,6 +18688,18 @@
             "CRIT": 130,
             "LUCK": 136
         },
+        "max_stats": {
+            "HP": 889,
+            "Max Jewels": 180,
+            "PATK": 138,
+            "PDEF": 100,
+            "MATK": 176,
+            "MDEF": 104,
+            "DEX": 141,
+            "AGI": 93,
+            "CRIT": 130,
+            "LUCK": 136
+        },
         "min_stats": {
             "HP": 123,
             "Max Jewels": 45,
@@ -16202,6 +18757,18 @@
             "Reidou"
         ],
         "stats": {
+            "HP": 962,
+            "Max Jewels": 196,
+            "PATK": 134,
+            "PDEF": 137,
+            "MATK": 184,
+            "MDEF": 111,
+            "DEX": 138,
+            "AGI": 91,
+            "CRIT": 131,
+            "LUCK": 141
+        },
+        "max_stats": {
             "HP": 962,
             "Max Jewels": 196,
             "PATK": 134,
@@ -16280,6 +18847,18 @@
             "CRIT": 150,
             "LUCK": 140
         },
+        "max_stats": {
+            "HP": 468,
+            "Max Jewels": 174,
+            "PATK": 142,
+            "PDEF": 119,
+            "MATK": 125,
+            "MDEF": 95,
+            "DEX": 140,
+            "AGI": 88,
+            "CRIT": 150,
+            "LUCK": 140
+        },
         "min_stats": {
             "HP": 90,
             "Max Jewels": 43,
@@ -16336,6 +18915,18 @@
             "D'Artagnan"
         ],
         "stats": {
+            "HP": 429,
+            "Max Jewels": 169,
+            "PATK": 170,
+            "PDEF": 80,
+            "MATK": 109,
+            "MDEF": 99,
+            "DEX": 144,
+            "AGI": 94,
+            "CRIT": 166,
+            "LUCK": 140
+        },
+        "max_stats": {
             "HP": 429,
             "Max Jewels": 169,
             "PATK": 170,
@@ -16415,6 +19006,18 @@
             "CRIT": 140,
             "LUCK": 144
         },
+        "max_stats": {
+            "HP": 689,
+            "Max Jewels": 189,
+            "PATK": 178,
+            "PDEF": 104,
+            "MATK": 118,
+            "MDEF": 100,
+            "DEX": 146,
+            "AGI": 96,
+            "CRIT": 140,
+            "LUCK": 144
+        },
         "min_stats": {
             "HP": 112,
             "Max Jewels": 47,
@@ -16471,6 +19074,18 @@
             "Ines"
         ],
         "stats": {
+            "HP": 408,
+            "Max Jewels": 176,
+            "PATK": 113,
+            "PDEF": 84,
+            "MATK": 158,
+            "MDEF": 130,
+            "DEX": 141,
+            "AGI": 94,
+            "CRIT": 130,
+            "LUCK": 145
+        },
+        "max_stats": {
             "HP": 408,
             "Max Jewels": 176,
             "PATK": 113,
@@ -16549,6 +19164,18 @@
             "CRIT": 161,
             "LUCK": 138
         },
+        "max_stats": {
+            "HP": 611,
+            "Max Jewels": 203,
+            "PATK": 122,
+            "PDEF": 118,
+            "MATK": 169,
+            "MDEF": 120,
+            "DEX": 173,
+            "AGI": 102,
+            "CRIT": 161,
+            "LUCK": 138
+        },
         "min_stats": {
             "HP": 108,
             "Max Jewels": 51,
@@ -16616,6 +19243,18 @@
             "CRIT": 152,
             "LUCK": 126
         },
+        "max_stats": {
+            "HP": 676,
+            "Max Jewels": 186,
+            "PATK": 158,
+            "PDEF": 146,
+            "MATK": 172,
+            "MDEF": 198,
+            "DEX": 176,
+            "AGI": 95,
+            "CRIT": 152,
+            "LUCK": 126
+        },
         "min_stats": {
             "HP": 91,
             "Max Jewels": 40,
@@ -16672,6 +19311,18 @@
             "Birgitta"
         ],
         "stats": {
+            "HP": 483,
+            "Max Jewels": 206,
+            "PATK": 121,
+            "PDEF": 137,
+            "MATK": 202,
+            "MDEF": 111,
+            "DEX": 138,
+            "AGI": 87,
+            "CRIT": 131,
+            "LUCK": 141
+        },
+        "max_stats": {
             "HP": 483,
             "Max Jewels": 206,
             "PATK": 121,
@@ -16753,6 +19404,18 @@
             "CRIT": 169,
             "LUCK": 132
         },
+        "max_stats": {
+            "HP": 455,
+            "Max Jewels": 174,
+            "PATK": 156,
+            "PDEF": 95,
+            "MATK": 141,
+            "MDEF": 98,
+            "DEX": 144,
+            "AGI": 92,
+            "CRIT": 169,
+            "LUCK": 132
+        },
         "min_stats": {
             "HP": 80,
             "Max Jewels": 51,
@@ -16811,6 +19474,18 @@
             "FA Pride"
         ],
         "stats": {
+            "HP": 895,
+            "Max Jewels": 179,
+            "PATK": 108,
+            "PDEF": 72,
+            "MATK": 142,
+            "MDEF": 133,
+            "DEX": 122,
+            "AGI": 93,
+            "CRIT": 169,
+            "LUCK": 125
+        },
+        "max_stats": {
             "HP": 895,
             "Max Jewels": 179,
             "PATK": 108,
@@ -16881,6 +19556,21 @@
             "FA Alphonse"
         ],
         "stats": {
+            "HP": 747,
+            "Max Jewels": 148,
+            "PATK": 109,
+            "PDEF": 67,
+            "MATK": 97,
+            "MDEF": 67,
+            "DEX": 134,
+            "AGI": 70,
+            "CRIT": 115,
+            "LUCK": 127,
+            "Posion Res": 100,
+            "Paralyse": 100,
+            "Sleep Res": 100
+        },
+        "max_stats": {
             "HP": 747,
             "Max Jewels": 148,
             "PATK": 109,
@@ -16962,6 +19652,18 @@
             "CRIT": 146,
             "LUCK": 134
         },
+        "max_stats": {
+            "HP": 497,
+            "Max Jewels": 180,
+            "PATK": 159,
+            "PDEF": 102,
+            "MATK": 152,
+            "MDEF": 103,
+            "DEX": 154,
+            "AGI": 95,
+            "CRIT": 146,
+            "LUCK": 134
+        },
         "min_stats": {
             "HP": 92,
             "Max Jewels": 45,
@@ -17021,6 +19723,18 @@
             "FA Hawkeye"
         ],
         "stats": {
+            "HP": 419,
+            "Max Jewels": 176,
+            "PATK": 154,
+            "PDEF": 99,
+            "MATK": 134,
+            "MDEF": 96,
+            "DEX": 162,
+            "AGI": 91,
+            "CRIT": 160,
+            "LUCK": 140
+        },
+        "max_stats": {
             "HP": 419,
             "Max Jewels": 176,
             "PATK": 154,
@@ -17102,6 +19816,18 @@
             "CRIT": 153,
             "LUCK": 143
         },
+        "max_stats": {
+            "HP": 447,
+            "Max Jewels": 181,
+            "PATK": 157,
+            "PDEF": 132,
+            "MATK": 167,
+            "MDEF": 118,
+            "DEX": 153,
+            "AGI": 93,
+            "CRIT": 153,
+            "LUCK": 143
+        },
         "min_stats": {
             "HP": 85,
             "Max Jewels": 41,
@@ -17160,6 +19886,18 @@
             "FA Envy"
         ],
         "stats": {
+            "HP": 498,
+            "Max Jewels": 174,
+            "PATK": 156,
+            "PDEF": 105,
+            "MATK": 141,
+            "MDEF": 123,
+            "DEX": 152,
+            "AGI": 94,
+            "CRIT": 169,
+            "LUCK": 110
+        },
+        "max_stats": {
             "HP": 498,
             "Max Jewels": 174,
             "PATK": 156,
@@ -17241,6 +19979,18 @@
             "CRIT": 143,
             "LUCK": 125
         },
+        "max_stats": {
+            "HP": 571,
+            "Max Jewels": 186,
+            "PATK": 170,
+            "PDEF": 118,
+            "MATK": 165,
+            "MDEF": 125,
+            "DEX": 130,
+            "AGI": 95,
+            "CRIT": 143,
+            "LUCK": 125
+        },
         "min_stats": {
             "HP": 92,
             "Max Jewels": 46,
@@ -17297,6 +20047,18 @@
             "Cordelia"
         ],
         "stats": {
+            "HP": 516,
+            "Max Jewels": 172,
+            "PATK": 177,
+            "PDEF": 102,
+            "MATK": 127,
+            "MDEF": 117,
+            "DEX": 142,
+            "AGI": 92,
+            "CRIT": 153,
+            "LUCK": 133
+        },
+        "max_stats": {
             "HP": 516,
             "Max Jewels": 172,
             "PATK": 177,
@@ -17375,6 +20137,18 @@
             "CRIT": 165,
             "LUCK": 142
         },
+        "max_stats": {
+            "HP": 448,
+            "Max Jewels": 180,
+            "PATK": 118,
+            "PDEF": 150,
+            "MATK": 110,
+            "MDEF": 130,
+            "DEX": 155,
+            "AGI": 88,
+            "CRIT": 165,
+            "LUCK": 142
+        },
         "min_stats": {
             "HP": 94,
             "Max Jewels": 47,
@@ -17431,6 +20205,18 @@
             "Tsang Lei"
         ],
         "stats": {
+            "HP": 798,
+            "Max Jewels": 190,
+            "PATK": 121,
+            "PDEF": 137,
+            "MATK": 199,
+            "MDEF": 120,
+            "DEX": 138,
+            "AGI": 89,
+            "CRIT": 131,
+            "LUCK": 146
+        },
+        "max_stats": {
             "HP": 798,
             "Max Jewels": 190,
             "PATK": 121,
@@ -17511,6 +20297,18 @@
             "CRIT": 210,
             "LUCK": 140
         },
+        "max_stats": {
+            "HP": 514,
+            "Max Jewels": 170,
+            "PATK": 160,
+            "PDEF": 135,
+            "MATK": 110,
+            "MDEF": 110,
+            "DEX": 131,
+            "AGI": 109,
+            "CRIT": 210,
+            "LUCK": 140
+        },
         "min_stats": {
             "HP": 91,
             "Max Jewels": 40,
@@ -17569,6 +20367,18 @@
             "POTK Artemis"
         ],
         "stats": {
+            "HP": 404,
+            "Max Jewels": 215,
+            "PATK": 60,
+            "PDEF": 130,
+            "MATK": 180,
+            "MDEF": 168,
+            "DEX": 240,
+            "AGI": 96,
+            "CRIT": 153,
+            "LUCK": 112
+        },
+        "max_stats": {
             "HP": 404,
             "Max Jewels": 215,
             "PATK": 60,
@@ -17650,6 +20460,18 @@
             "CRIT": 160,
             "LUCK": 92
         },
+        "max_stats": {
+            "HP": 624,
+            "Max Jewels": 174,
+            "PATK": 172,
+            "PDEF": 110,
+            "MATK": 140,
+            "MDEF": 118,
+            "DEX": 128,
+            "AGI": 90,
+            "CRIT": 160,
+            "LUCK": 92
+        },
         "min_stats": {
             "HP": 125,
             "Max Jewels": 86,
@@ -17706,6 +20528,18 @@
             "Belta"
         ],
         "stats": {
+            "HP": 465,
+            "Max Jewels": 180,
+            "PATK": 160,
+            "PDEF": 160,
+            "MATK": 100,
+            "MDEF": 200,
+            "DEX": 190,
+            "AGI": 90,
+            "CRIT": 140,
+            "LUCK": 180
+        },
+        "max_stats": {
             "HP": 465,
             "Max Jewels": 180,
             "PATK": 160,
@@ -17787,6 +20621,18 @@
             "CRIT": 172,
             "LUCK": 155
         },
+        "max_stats": {
+            "HP": 587,
+            "Max Jewels": 194,
+            "PATK": 161,
+            "PDEF": 107,
+            "MATK": 122,
+            "MDEF": 111,
+            "DEX": 131,
+            "AGI": 93,
+            "CRIT": 172,
+            "LUCK": 155
+        },
         "min_stats": {
             "HP": 108,
             "Max Jewels": 50,
@@ -17843,6 +20689,18 @@
             "Lotia"
         ],
         "stats": {
+            "HP": 546,
+            "Max Jewels": 198,
+            "PATK": 186,
+            "PDEF": 121,
+            "MATK": 116,
+            "MDEF": 124,
+            "DEX": 163,
+            "AGI": 94,
+            "CRIT": 165,
+            "LUCK": 152
+        },
+        "max_stats": {
             "HP": 546,
             "Max Jewels": 198,
             "PATK": 186,
@@ -17921,6 +20779,18 @@
             "CRIT": 151,
             "LUCK": 142
         },
+        "max_stats": {
+            "HP": 551,
+            "Max Jewels": 192,
+            "PATK": 162,
+            "PDEF": 102,
+            "MATK": 190,
+            "MDEF": 132,
+            "DEX": 169,
+            "AGI": 97,
+            "CRIT": 151,
+            "LUCK": 142
+        },
         "min_stats": {
             "HP": 107,
             "Max Jewels": 50,
@@ -17977,6 +20847,18 @@
             "Aisha"
         ],
         "stats": {
+            "HP": 741,
+            "Max Jewels": 210,
+            "PATK": 151,
+            "PDEF": 147,
+            "MATK": 211,
+            "MDEF": 129,
+            "DEX": 145,
+            "AGI": 90,
+            "CRIT": 121,
+            "LUCK": 150
+        },
+        "max_stats": {
             "HP": 741,
             "Max Jewels": 210,
             "PATK": 151,
@@ -18056,6 +20938,18 @@
             "CRIT": 153,
             "LUCK": 112
         },
+        "max_stats": {
+            "HP": 500,
+            "Max Jewels": 170,
+            "PATK": 145,
+            "PDEF": 115,
+            "MATK": 180,
+            "MDEF": 117,
+            "DEX": 130,
+            "AGI": 98,
+            "CRIT": 153,
+            "LUCK": 112
+        },
         "min_stats": {
             "HP": 85,
             "Max Jewels": 40,
@@ -18112,6 +21006,18 @@
             "Teresa"
         ],
         "stats": {
+            "HP": 632,
+            "Max Jewels": 160,
+            "PATK": 212,
+            "PDEF": 106,
+            "MATK": 125,
+            "MDEF": 124,
+            "DEX": 133,
+            "AGI": 100,
+            "CRIT": 137,
+            "LUCK": 138
+        },
+        "max_stats": {
             "HP": 632,
             "Max Jewels": 160,
             "PATK": 212,
@@ -18191,6 +21097,18 @@
             "CRIT": 240,
             "LUCK": 100
         },
+        "max_stats": {
+            "HP": 630,
+            "Max Jewels": 198,
+            "PATK": 170,
+            "PDEF": 80,
+            "MATK": 140,
+            "MDEF": 115,
+            "DEX": 185,
+            "AGI": 94,
+            "CRIT": 240,
+            "LUCK": 100
+        },
         "min_stats": {
             "HP": 125,
             "Max Jewels": 48,
@@ -18248,6 +21166,18 @@
             "Kureto"
         ],
         "stats": {
+            "HP": 450,
+            "Max Jewels": 176,
+            "PATK": 195,
+            "PDEF": 70,
+            "MATK": 128,
+            "MDEF": 93,
+            "DEX": 148,
+            "AGI": 95,
+            "CRIT": 164,
+            "LUCK": 140
+        },
+        "max_stats": {
             "HP": 450,
             "Max Jewels": 176,
             "PATK": 195,
@@ -18328,6 +21258,18 @@
             "CRIT": 121,
             "LUCK": 150
         },
+        "max_stats": {
+            "HP": 552,
+            "Max Jewels": 210,
+            "PATK": 122,
+            "PDEF": 88,
+            "MATK": 198,
+            "MDEF": 129,
+            "DEX": 113,
+            "AGI": 90,
+            "CRIT": 121,
+            "LUCK": 150
+        },
         "min_stats": {
             "HP": 105,
             "Max Jewels": 55,
@@ -18386,6 +21328,18 @@
             "FF Cor"
         ],
         "stats": {
+            "HP": 621,
+            "Max Jewels": 198,
+            "PATK": 162,
+            "PDEF": 122,
+            "MATK": 114,
+            "MDEF": 90,
+            "DEX": 175,
+            "AGI": 92,
+            "CRIT": 165,
+            "LUCK": 152
+        },
+        "max_stats": {
             "HP": 621,
             "Max Jewels": 198,
             "PATK": 162,
@@ -18466,6 +21420,18 @@
             "CRIT": 132,
             "LUCK": 155
         },
+        "max_stats": {
+            "HP": 503,
+            "Max Jewels": 212,
+            "PATK": 128,
+            "PDEF": 133,
+            "MATK": 155,
+            "MDEF": 139,
+            "DEX": 132,
+            "AGI": 92,
+            "CRIT": 132,
+            "LUCK": 155
+        },
         "min_stats": {
             "HP": 98,
             "Max Jewels": 56,
@@ -18524,6 +21490,18 @@
             "POTK Black Killer Laevateinn"
         ],
         "stats": {
+            "HP": 631,
+            "Max Jewels": 182,
+            "PATK": 194,
+            "PDEF": 115,
+            "MATK": 122,
+            "MDEF": 108,
+            "DEX": 146,
+            "AGI": 90,
+            "CRIT": 151,
+            "LUCK": 141
+        },
+        "max_stats": {
             "HP": 631,
             "Max Jewels": 182,
             "PATK": 194,
@@ -18604,6 +21582,18 @@
             "CRIT": 137,
             "LUCK": 136
         },
+        "max_stats": {
+            "HP": 618,
+            "Max Jewels": 171,
+            "PATK": 142,
+            "PDEF": 132,
+            "MATK": 122,
+            "MDEF": 108,
+            "DEX": 130,
+            "AGI": 103,
+            "CRIT": 137,
+            "LUCK": 136
+        },
         "min_stats": {
             "HP": 114,
             "Max Jewels": 52,
@@ -18662,6 +21652,18 @@
             "POTK Freikugel"
         ],
         "stats": {
+            "HP": 541,
+            "Max Jewels": 189,
+            "PATK": 167,
+            "PDEF": 121,
+            "MATK": 188,
+            "MDEF": 124,
+            "DEX": 178,
+            "AGI": 89,
+            "CRIT": 137,
+            "LUCK": 138
+        },
+        "max_stats": {
             "HP": 541,
             "Max Jewels": 189,
             "PATK": 167,
@@ -18742,6 +21744,18 @@
             "CRIT": 125,
             "LUCK": 140
         },
+        "max_stats": {
+            "HP": 337,
+            "Max Jewels": 202,
+            "PATK": 138,
+            "PDEF": 138,
+            "MATK": 198,
+            "MDEF": 137,
+            "DEX": 181,
+            "AGI": 97,
+            "CRIT": 125,
+            "LUCK": 140
+        },
         "min_stats": {
             "HP": 74,
             "Max Jewels": 53,
@@ -18798,6 +21812,18 @@
             "Fiona"
         ],
         "stats": {
+            "HP": 372,
+            "Max Jewels": 185,
+            "PATK": 123,
+            "PDEF": 110,
+            "MATK": 126,
+            "MDEF": 80,
+            "DEX": 133,
+            "AGI": 85,
+            "CRIT": 129,
+            "LUCK": 129
+        },
+        "max_stats": {
             "HP": 372,
             "Max Jewels": 185,
             "PATK": 123,
@@ -18876,6 +21902,18 @@
             "CRIT": 165,
             "LUCK": 152
         },
+        "max_stats": {
+            "HP": 630,
+            "Max Jewels": 198,
+            "PATK": 200,
+            "PDEF": 135,
+            "MATK": 116,
+            "MDEF": 124,
+            "DEX": 163,
+            "AGI": 98,
+            "CRIT": 165,
+            "LUCK": 152
+        },
         "min_stats": {
             "HP": 108,
             "Max Jewels": 48,
@@ -18932,6 +21970,18 @@
             "Natalie"
         ],
         "stats": {
+            "HP": 504,
+            "Max Jewels": 210,
+            "PATK": 151,
+            "PDEF": 97,
+            "MATK": 205,
+            "MDEF": 115,
+            "DEX": 148,
+            "AGI": 100,
+            "CRIT": 121,
+            "LUCK": 100
+        },
+        "max_stats": {
             "HP": 504,
             "Max Jewels": 210,
             "PATK": 151,
@@ -19011,6 +22061,18 @@
             "CRIT": 110,
             "LUCK": 144
         },
+        "max_stats": {
+            "HP": 384,
+            "Max Jewels": 167,
+            "PATK": 96,
+            "PDEF": 68,
+            "MATK": 126,
+            "MDEF": 94,
+            "DEX": 99,
+            "AGI": 79,
+            "CRIT": 110,
+            "LUCK": 144
+        },
         "min_stats": {
             "HP": 74,
             "Max Jewels": 40,
@@ -19078,6 +22140,18 @@
             "CRIT": 121,
             "LUCK": 150
         },
+        "max_stats": {
+            "HP": 741,
+            "Max Jewels": 215,
+            "PATK": 151,
+            "PDEF": 146,
+            "MATK": 211,
+            "MDEF": 129,
+            "DEX": 152,
+            "AGI": 92,
+            "CRIT": 121,
+            "LUCK": 150
+        },
         "min_stats": {
             "HP": 134,
             "Max Jewels": 50,
@@ -19134,6 +22208,18 @@
             "Ren"
         ],
         "stats": {
+            "HP": 804,
+            "Max Jewels": 176,
+            "PATK": 182,
+            "PDEF": 96,
+            "MATK": 128,
+            "MDEF": 93,
+            "DEX": 148,
+            "AGI": 98,
+            "CRIT": 164,
+            "LUCK": 140
+        },
+        "max_stats": {
             "HP": 804,
             "Max Jewels": 176,
             "PATK": 182,
@@ -19215,6 +22301,18 @@
             "CRIT": 163,
             "LUCK": 80
         },
+        "max_stats": {
+            "HP": 802,
+            "Max Jewels": 220,
+            "PATK": 182,
+            "PDEF": 123,
+            "MATK": 232,
+            "MDEF": 122,
+            "DEX": 136,
+            "AGI": 99,
+            "CRIT": 163,
+            "LUCK": 80
+        },
         "min_stats": {
             "HP": 133,
             "Max Jewels": 58,
@@ -19271,6 +22369,18 @@
             "Leticia"
         ],
         "stats": {
+            "HP": 493,
+            "Max Jewels": 211,
+            "PATK": 162,
+            "PDEF": 108,
+            "MATK": 192,
+            "MDEF": 135,
+            "DEX": 161,
+            "AGI": 96,
+            "CRIT": 146,
+            "LUCK": 92
+        },
+        "max_stats": {
             "HP": 493,
             "Max Jewels": 211,
             "PATK": 162,
@@ -19350,6 +22460,18 @@
             "CRIT": 160,
             "LUCK": 92
         },
+        "max_stats": {
+            "HP": 1028,
+            "Max Jewels": 174,
+            "PATK": 202,
+            "PDEF": 118,
+            "MATK": 110,
+            "MDEF": 118,
+            "DEX": 185,
+            "AGI": 100,
+            "CRIT": 160,
+            "LUCK": 92
+        },
         "min_stats": {
             "HP": 103,
             "Max Jewels": 48,
@@ -19406,6 +22528,18 @@
             "Ira"
         ],
         "stats": {
+            "HP": 852,
+            "Max Jewels": 196,
+            "PATK": 134,
+            "PDEF": 135,
+            "MATK": 190,
+            "MDEF": 118,
+            "DEX": 138,
+            "AGI": 91,
+            "CRIT": 131,
+            "LUCK": 141
+        },
+        "max_stats": {
             "HP": 852,
             "Max Jewels": 196,
             "PATK": 134,
@@ -19485,6 +22619,18 @@
             "CRIT": 137,
             "LUCK": 138
         },
+        "max_stats": {
+            "HP": 892,
+            "Max Jewels": 160,
+            "PATK": 212,
+            "PDEF": 106,
+            "MATK": 125,
+            "MDEF": 124,
+            "DEX": 168,
+            "AGI": 96,
+            "CRIT": 137,
+            "LUCK": 138
+        },
         "min_stats": {
             "HP": 101,
             "Max Jewels": 36,
@@ -19541,6 +22687,18 @@
             "Ankh"
         ],
         "stats": {
+            "HP": 902,
+            "Max Jewels": 198,
+            "PATK": 200,
+            "PDEF": 135,
+            "MATK": 116,
+            "MDEF": 124,
+            "DEX": 163,
+            "AGI": 98,
+            "CRIT": 165,
+            "LUCK": 152
+        },
+        "max_stats": {
             "HP": 902,
             "Max Jewels": 198,
             "PATK": 200,
@@ -19620,6 +22778,18 @@
             "CRIT": 145,
             "LUCK": 150
         },
+        "max_stats": {
+            "HP": 387,
+            "Max Jewels": 229,
+            "PATK": 185,
+            "PDEF": 114,
+            "MATK": 212,
+            "MDEF": 123,
+            "DEX": 186,
+            "AGI": 98,
+            "CRIT": 145,
+            "LUCK": 150
+        },
         "min_stats": {
             "HP": 87,
             "Max Jewels": 57,
@@ -19676,6 +22846,18 @@
             "Liz"
         ],
         "stats": {
+            "HP": 600,
+            "Max Jewels": 160,
+            "PATK": 140,
+            "PDEF": 120,
+            "MATK": 80,
+            "MDEF": 100,
+            "DEX": 130,
+            "AGI": 90,
+            "CRIT": 131,
+            "LUCK": 120
+        },
+        "max_stats": {
             "HP": 600,
             "Max Jewels": 160,
             "PATK": 140,
@@ -19754,6 +22936,18 @@
             "CRIT": 150,
             "LUCK": 140
         },
+        "max_stats": {
+            "HP": 539,
+            "Max Jewels": 185,
+            "PATK": 175,
+            "PDEF": 100,
+            "MATK": 128,
+            "MDEF": 91,
+            "DEX": 170,
+            "AGI": 82,
+            "CRIT": 150,
+            "LUCK": 140
+        },
         "min_stats": {
             "HP": 101,
             "Max Jewels": 11,
@@ -19810,6 +23004,18 @@
             "Orion"
         ],
         "stats": {
+            "HP": 800,
+            "Max Jewels": 198,
+            "PATK": 200,
+            "PDEF": 135,
+            "MATK": 116,
+            "MDEF": 90,
+            "DEX": 166,
+            "AGI": 101,
+            "CRIT": 156,
+            "LUCK": 152
+        },
+        "max_stats": {
             "HP": 800,
             "Max Jewels": 198,
             "PATK": 200,
@@ -19890,6 +23096,18 @@
             "CRIT": 149,
             "LUCK": 122
         },
+        "max_stats": {
+            "HP": 666,
+            "Max Jewels": 188,
+            "PATK": 169,
+            "PDEF": 111,
+            "MATK": 74,
+            "MDEF": 153,
+            "DEX": 256,
+            "AGI": 95,
+            "CRIT": 149,
+            "LUCK": 122
+        },
         "min_stats": {
             "HP": 108,
             "Max Jewels": 45,
@@ -19948,6 +23166,18 @@
             "CR Merlinus"
         ],
         "stats": {
+            "HP": 732,
+            "Max Jewels": 232,
+            "PATK": 112,
+            "PDEF": 136,
+            "MATK": 199,
+            "MDEF": 172,
+            "DEX": 172,
+            "AGI": 97,
+            "CRIT": 142,
+            "LUCK": 143
+        },
+        "max_stats": {
             "HP": 732,
             "Max Jewels": 232,
             "PATK": 112,
@@ -20028,6 +23258,18 @@
             "CRIT": 194,
             "LUCK": 135
         },
+        "max_stats": {
+            "HP": 934,
+            "Max Jewels": 160,
+            "PATK": 190,
+            "PDEF": 188,
+            "MATK": 135,
+            "MDEF": 172,
+            "DEX": 220,
+            "AGI": 95,
+            "CRIT": 194,
+            "LUCK": 135
+        },
         "min_stats": {
             "HP": 179,
             "Max Jewels": 38,
@@ -20085,6 +23327,18 @@
             "Moa"
         ],
         "stats": {
+            "HP": 762,
+            "Max Jewels": 160,
+            "PATK": 212,
+            "PDEF": 106,
+            "MATK": 125,
+            "MDEF": 124,
+            "DEX": 168,
+            "AGI": 98,
+            "CRIT": 146,
+            "LUCK": 138
+        },
+        "max_stats": {
             "HP": 762,
             "Max Jewels": 160,
             "PATK": 212,
