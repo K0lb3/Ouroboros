@@ -83,22 +83,23 @@ def job_create(job, glc, jpc, loc):
         elif type(inp)==list:
             abil={}
             i=1
-            for skl in inp:
-                abil['skl'+str(i)]=skl
+            for abils in inp:
+                abil['skl'+str(i)]=mainc[abils]['skl1']
+                i+=1
             ability={
                 'iname':'',
                 'name': name,
                 'expr': '',
                 'skills':[]
                 }            
-
         
 
         i=1
         while 'skl'+str(i) in abil:
-            skl=mainc[abil['skl'+str(i)]]
+            skli=abil['skl'+str(i)]
+            skl=mainc[skli]
             try:
-                copy=loc[skl['iname']]
+                copy=loc[skli]
                 ability['skills'].append({
                     'name': copy['NAME'],
                     'expr': copy['EXPR'],
@@ -121,14 +122,14 @@ def job_create(job, glc, jpc, loc):
     for r in j['ranks']:
         i=1
         while 'learn'+str(i) in r:
-            skl=r['learn'+str(i)]
-            slot=mainc[skl]['slot']
+            abil=r['learn'+str(i)]
+            slot=mainc[abil]['slot']
             if slot==0:   #Action, ~ from EAbilitySlot
-                sub=skl
+                sub=abil
             elif slot==2: #Reaction,
-                reactives.append(skl)
+                reactives.append(abil)
             elif slot==1: #Support,
-                passives.append(skl)
+                passives.append(abil)
             i+=1
 
     return {
