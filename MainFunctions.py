@@ -208,14 +208,13 @@ ParamTypes = {
     "136": "Dark DMG",
 }
 
+Grow_Curves={}
 
 def similarity(ori, inp):
     return (jellyfish.jaro_winkler(inp, ori))
 
-
 def cPath():
     return os.path.dirname(os.path.realpath(__file__))
-
 
 def loadFiles(files):
     ret = []
@@ -237,7 +236,6 @@ def loadFiles(files):
 
     return ret
 
-
 def loadOut(files):
     ret = []
     dir = os.path.dirname(os.path.realpath(__file__))+'\\out'
@@ -258,7 +256,6 @@ def loadOut(files):
 
     return ret
 
-
 def saveAsJSON(name, var):
     os.makedirs(name[:name.rindex("\\")], exist_ok=True)
     with open(name, "wb") as f:
@@ -271,7 +268,6 @@ def saveAsJSON(name, var):
     #    print('Codecs Error, Retry')
     #    saveAsJSON(name,var)
     return 1
-
 
 def Translation():
     [loc, trans] = loadFiles(
@@ -289,7 +285,6 @@ def Translation():
 
     return loc
 
-
 def convertMaster(master):
     ma = {}
     for main in master:
@@ -302,7 +297,7 @@ def convertMaster(master):
 
 def convertSubMaster(main):
     ma = {}
-    for sub in master[main]:
+    for sub in main:
         try:
             ma[sub['iname']] = sub
         except:
@@ -325,7 +320,6 @@ def element(type):
     if type in [0, 111111]:
         return 'all'
     return 'error'
-
 
 def buff(buff, lv, mlv, array=False):
     global ParamTypes
@@ -404,7 +398,6 @@ def buff(buff, lv, mlv, array=False):
             text += ' {value}{mod} {stat} &'.format(value=m['value'],mod=m['mod'],stat=m['stat'])
     return mods if array else text[:-2]
 
-
 def condition(cond, lv,  mlv):
     condType = {
         0: 'Poison',
@@ -440,6 +433,59 @@ def condition(cond, lv,  mlv):
     else:
         return(condType[cond['conds'][0]])
 
+def calc_stat_grow(item, master, lv):
+    global Grow_Curves
+    if len(Grow_Curves)==0:
+        for j in master['Grow']:
+            Grow_Curves[j['type']]=j['curve']
+
+    stats={
+        "hp":   "HP",
+        'mp':   "Max Jewels",
+        "atk":  "PATK",
+        "def":  "PDEF",
+        "mag":  "MATK",
+        "mnd":  "MDEF",
+        "dex":  "DEX",
+        "spd":  "AGI",
+        "cri":  "CRIT",
+        "luk":  "LUCK",
+        "rpo": "Posion Res",
+        "rpa": "Paralyse",
+        "rst": "Stun Res",
+        "rsl": "Sleep Res",
+        "rch": "Charm Res",
+        "rsn": "Petrify Res",
+        "rbl": "Blind Res",
+        "rns": "Silence Res",
+        "rnm": "Bind Res",
+        "rna": "Daze Res",
+        "rzo": "Infect Res",
+        "rde": "Death entence Res",
+        "rkn": "Knockback Res",
+        "rdf": "Debuff Res",
+        "rbe": "Beserk Res",
+        "rcs": "Stop Res",
+        "rcu": "Quick Res",
+        "rcd": "Delay Res",
+        "rdo": "Slow Res",
+        "rra": "Rage Res",
+        "rsa": "Single Target Res",
+        "raa": "AOE Res",
+        "rdc": "Decrease CT Res",
+        "ric": "Increase CT Res",
+        }
+    #select curve
+    for curve in Grow_Curves[item['grow']]:
+        if lv <= curve['lv']:
+            break
+    LV_MOD=(lv-1)/(curve['lv']-1)
+    ret=({
+        stat:int(item['m'+key] + (LV_MOD * curve[key]/100 * (item['m'+key]-item['m'+key])/(item['m'+key])))
+        for key,stat in stats.items()
+        if key in item
+        })
+    return(ret)
 
 def rarity(base, max):
     text = ""
@@ -449,7 +495,6 @@ def rarity(base, max):
         text += "☆"
 
     return text
-
 
 def GSSUpload(obj, sheet, id='1wze5mJCLeTZtBJiCrlOL4UMqUqc9mdBO_3siL2JtI3w'):
     url = 'https://script.google.com/macros/s/AKfycbzMqkHxhLsiMWqtFDmMHzqgT4a1R8yhBAxHN6YRkeN1lotYmsfg/exec'
@@ -468,7 +513,6 @@ def GSSUpload(obj, sheet, id='1wze5mJCLeTZtBJiCrlOL4UMqUqc9mdBO_3siL2JtI3w'):
     else:
         print(res)
         print(response.status_code, response.reason)  # HTTPs
-
 
 def dmg_formula(weaponParam):
     WeaponFormulaTypes = {
@@ -518,7 +562,6 @@ def dmg_formula(weaponParam):
 
     return Formulas[WeaponFormulaTypes[weaponParam['formula']]]
 
-
 def dmg_calc(weaponParam, attacker, statusParam1, statusParam2):
     #  int num1 = 1;
     #  StatusParam statusParam1 = attacker.CurrentStatus.param;
@@ -565,7 +608,6 @@ def dmg_calc(weaponParam, attacker, statusParam1, statusParam2):
         "MagDexLuk": weaponParam.atk * (100 * (int(statusParam1.mag) + int(statusParam1.dex) / 2 + int(statusParam1.luk) / 2)) / 20 / 100,
         #default : statusParam1.atk;
     }
-
 
 def name_collab(iname, loc):
     global u_m_names
@@ -614,7 +656,6 @@ def name_collab(iname, loc):
         u_m_names['UN_V2_'+iname] = {'generic': name, 'NAME': ""}
 
     return [name, collab, collab_short]
-
 
 def FanTranslatedNames(wyte, master, loc):
     wunit = {}
