@@ -405,9 +405,9 @@ def buff(buff, lv, mlv, array=False):
         text=text[:-3]
         if rate!=100:
             text+= ' [{chance}%]'.format(chance=rate)
-    else:
-        mod.append(restriction)
-        mod.append({'chance':rate})
+    #else:
+        #mods.append(restriction)
+        #mods.append({'chance':rate})
 
     return mods if array else text
 
