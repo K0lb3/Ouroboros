@@ -1475,6 +1475,33 @@
         "long des": "",
         "units": "Magnus ,Albea ,Carol ,Hazel ,Bashosen ,Suiran ,Yuri ,Pride ,Artemis ,Shirma"
     },
+    "JB_LNC_TINATSU": {
+        "iname": "JB_LNC_TINATSU",
+        "name": "Machinist: Tinatsuᴶ",
+        "japan": "Machinery・Partizan\nマシーナリー・パルチザン",
+        "kanji": "マシーナリー・パルチザン",
+        "short des": "",
+        "long des": "",
+        "units": "Strauss ,Albea ,Richie"
+    },
+    "JB_LNC_THUNDER": {
+        "iname": "JB_LNC_THUNDER",
+        "name": "Machinist: Thunderᴶ",
+        "japan": "Machinery・Oriaga\nマシーナリー・オレアガ",
+        "kanji": "マシーナリー・オレアガ",
+        "short des": "thunder focus",
+        "long des": "",
+        "units": "Magnus ,Caris"
+    },
+    "JB_LNC_WIND": {
+        "iname": "JB_LNC_WIND",
+        "name": "Machinist: Windᴶ",
+        "japan": "Machinery・Diana\nマシーナリー・ディアナ",
+        "kanji": "マシーナリー・ディアナ",
+        "short des": "wind focus",
+        "long des": "",
+        "units": "Shirma ,Suiran"
+    },
     "JB_LOGI_ARM": {
         "iname": "JB_LOGI_ARM",
         "name": "Soldier",
@@ -1537,6 +1564,33 @@
         "short des": "",
         "long des": "",
         "units": "Lucille ,Leydow ,Aisha ,Nina ,Ira ,Black Killer Artemis"
+    },
+    "JB_MAD_ATK": {
+        "iname": "JB_MAD_ATK",
+        "name": "Magic Marksman: ATKᴶ",
+        "japan": "Magia Controller: Requiem\n魔弾操師【レクイエム】",
+        "kanji": "魔弾操師【レクイエム】",
+        "short des": "",
+        "long des": "",
+        "units": "Lucia"
+    },
+    "JB_MAD_MDEF": {
+        "iname": "JB_MAD_MDEF",
+        "name": "Magic Marksman: MDEFᴶ",
+        "japan": "Magia Controller: Symphony\n魔弾操師【シンフォニー】",
+        "kanji": "魔弾操師【シンフォニー】",
+        "short des": "",
+        "long des": "",
+        "units": "Aisha ,Ira"
+    },
+    "JB_MAD_DEF": {
+        "iname": "JB_MAD_DEF",
+        "name": "Magic Marksman: DEFᴶ",
+        "japan": "Magia Controller: Serenade\n魔弾操師【セレナーデ】",
+        "kanji": "魔弾操師【セレナーデ】",
+        "short des": "",
+        "long des": "",
+        "units": "Raydo , Nina"
     },
     "JB_MAH": {
         "iname": "JB_MAH",
