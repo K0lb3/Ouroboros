@@ -545,8 +545,20 @@ def dmg_formula(weaponParam):
         13: "MagSpdDex",
         14: "AtkDexLuk",
         15: "MagDexLuk",
+        16: "Luk",
+        17: "Dex",
+        18: "Spd",
+        19: "Cri",
         20: "Def",
         21: "Mnd",
+        22: "AtkRndLuk",
+        23: "MagRndLuk",
+        24: "AtkEAt",
+        25: "MagEMg",
+        26: "AtkDefEDf",
+        27: "MagMndEMd",
+        28: "LukELk",
+        29: "MHp",
     }
 
     def modifier(num):
@@ -557,6 +569,11 @@ def dmg_formula(weaponParam):
         "Def":    modifier(weaponParam['atk']/10) + " PDEF",
         "Mag":    modifier(weaponParam['atk']/10) + " MATK",
         "Mnd":    modifier(weaponParam['atk']/10) + " MDEF",
+        "Luk":    modifier(weaponParam['atk']/10) + " LUCK",
+        "Dex":    modifier(weaponParam['atk']/10) + " DEX",
+        "Spd":    modifier(weaponParam['atk']/10) + " AGI",
+        "Cri":    modifier(weaponParam['atk']/10) + " CRIT",
+        "Mhp":    modifier(weaponParam['atk']/10) + " MAX HP",
         "AtkSpd": modifier(weaponParam['atk']/15) + " (PATK + AGI)",
         "MagSpd": modifier(weaponParam['atk']/15) + " (MATK + AGI)",
         "AtkDex": modifier(weaponParam['atk']/20) + " (PATK + DEX)",
@@ -564,63 +581,28 @@ def dmg_formula(weaponParam):
         "AtkLuk": modifier(weaponParam['atk']/20) + " (PATK + LUCK)",
         "MagLuk": modifier(weaponParam['atk']/20) + " (MATK + LUCK)",
         "AtkMag": modifier(weaponParam['atk']/20) + " (PATK + MATK)",
-        "SpAtk": modifier(weaponParam['atk']/10) + " PATK * random(150% to 250%)",
-        "SpMag": modifier(weaponParam['atk']/10) + " MATK * (20% + MATK/(MATK + Target's MDEF))",
+        "SpAtk":  modifier(weaponParam['atk']/10) + " PATK * random(150% to 250%)",
+        "SpMag":  modifier(weaponParam['atk']/10) + " MATK * (20% + MATK/(MATK + Target's MDEF))",
+        "AtkRndLuk": modifier(weaponParam['atk']/10) + " (3*PATK + (1 + 0~[LV/10]) * LUCK)",
+        "MagRndLuk": modifier(weaponParam['atk']/10) + " (3*MATK + (1 + 0~[LV/10]) * LUCK)",
         "AtkSpdDex": modifier(weaponParam['atk']/20) + " (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "MagSpdDex": modifier(weaponParam['atk']/20) + " (MATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "AtkDexLuk": modifier(weaponParam['atk']/20) + " (PATK + DEX/2 + LUCK/2)",
         "MagDexLuk": modifier(weaponParam['atk']/20) + " (MATK + DEX/2 + LUCK/2)",
-        #default = statusParam1.atk;
+        "AtkEAt":    modifier(weaponParam['atk']/10) + " (2*PATK - Target's ATK)",
+        "MagEMg":    modifier(weaponParam['atk']/10) + " (2*MATK - Target's MATK)",
+        "LukELk":    modifier(weaponParam['atk']/10) + " (2*LUCK - Target's LUCK)",
+        "AtkDefEDf": modifier(weaponParam['atk']/10) + " (PATK + PDEF - Target's PDEF)",
+        "MagMndEMd": modifier(weaponParam['atk']/10) + " (MATK + MDEF - Target's MDEF)",
+        #default = PATK;
     }
 
     return Formulas[WeaponFormulaTypes[weaponParam['formula']]]
 
 def dmg_calc(weaponParam, attacker, statusParam1, statusParam2):
-    #  int num1 = 1;
-    #  StatusParam statusParam1 = attacker.CurrentStatus.param;
-    #  StatusParam statusParam2 = defender == null ? (StatusParam) null : defender.CurrentStatus.param;
-    #  int num2;
-    WeaponFormulaTypes = [
-        "None",
-        "Atk",
-        "Mag",
-        "AtkSpd",
-        "MagSpd",
-        "AtkDex",
-        "MagDex",
-        "AtkLuk",
-        "MagLuk",
-        "AtkMag",
-        "SpAtk",
-        "SpMag",
-        "AtkSpdDex",
-        "MagSpdDex",
-        "AtkDexLuk",
-        "MagDexLuk",
-    ]
-
-    Formulas = {  # WeaponFormulaTypes[master[weapon]['formula']]):
-        "Atk": weaponParam.atk * (100 * int(statusParam1.atk) / 10) / 100,
-        "Mag": weaponParam.atk * (100 * int(statusParam1.mag) / 10) / 100,
-        "AtkSpd": weaponParam.atk * (100 * (int(statusParam1.atk) + int(statusParam1.spd))) / 15 / 100,
-        "MagSpd": weaponParam.atk * (100 * (int(statusParam1.mag) + int(statusParam1.spd))) / 15 / 100,
-        "AtkDex": weaponParam.atk * (100 * (int(statusParam1.atk) + int(statusParam1.dex))) / 20 / 100,
-        "MagDex": weaponParam.atk * (100 * (int(statusParam1.mag) + int(statusParam1.dex))) / 20 / 100,
-        "AtkLuk": weaponParam.atk * (100 * (int(statusParam1.atk) + int(statusParam1.luk))) / 20 / 100,
-        "MagLuk": weaponParam.atk * (100 * (int(statusParam1.mag) + int(statusParam1.luk))) / 20 / 100,
-        "AtkMag": weaponParam.atk * (100 * (int(statusParam1.atk) + int(statusParam1.mag))) / 20 / 100,
-        # "SpAtk": {
-        #    if (int(statusParam1.atk) > 0)
-        #      num1 += int(((long) this.GetRandom() % (long) int(statusParam1.atk)))
-        #    num2 = int(weaponParam.atk) * (100 * int(statusParam1.atk) / 10) * (50 + 100 * (1+()) / int(statusParam1.atk)) / 10000
-        # },
-        "SpMag": int(weaponParam.atk) * (100 * int(statusParam1.mag) / 10) * (20 + 100 / (int(statusParam1.mag) + num3) * int(statusParam1.mag)) / 10000,
-        "AtkSpdDex": weaponParam.atk * (100 * (int(statusParam1.atk) + int(statusParam1.spd) / 2 + int(statusParam1.spd) * attacker.Lv / 100 + int(statusParam1.dex / 4))) / 20 / 100,
-        "MagSpdDex": weaponParam.atk * (100 * (int(statusParam1.mag) + int(statusParam1.spd) / 2 + int(statusParam1.spd) * attacker.Lv / 100 + int(statusParam1.dex / 4))) / 20 / 100,
-        "AtkDexLuk": weaponParam.atk * (100 * (int(statusParam1.atk) + int(statusParam1.dex) / 2 + int(statusParam1.luk) / 2)) / 20 / 100,
-        "MagDexLuk": weaponParam.atk * (100 * (int(statusParam1.mag) + int(statusParam1.dex) / 2 + int(statusParam1.luk) / 2)) / 20 / 100,
-        #default : statusParam1.atk;
-    }
+    #placeholder for now
+    #formula in BattleCore.css
+    return dmg
 
 def name_collab(iname, loc):
     global u_m_names
