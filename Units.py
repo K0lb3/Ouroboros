@@ -8,7 +8,7 @@ def Units():
     def master_ability(unit, cMaster, loc):
         skill = cMaster[cMaster[unit['ability']]['skl1']]
 
-        text = (loc[skill['iname']]['NAME']+"\n") if skill['iname'] in loc else ""
+        text = (loc[skill['iname']]['name']+"\n") if skill['iname'] in loc else ""
 
         if 't_buff' in skill:
             text += buff(cMaster[skill['t_buff']], 2, 2).replace('%', '')
@@ -40,6 +40,7 @@ def Units():
                     'total': ""
                 }
         # add total
+        invalid=[]
         for i in tl:
             best = 0
             for j in tl[i]:
@@ -48,12 +49,13 @@ def Units():
                     if index > best:
                         best = index
                 except:
-                    pass
+                    invalid.append(i)
             tl[i]['total'] = rating[best]
+
 
         # add tierlist to units
         for i in tl:
-            if len(i) > 30:
+            if i in invalid:
                 continue
 
             found = 0
@@ -184,7 +186,7 @@ def Units():
             for s in unit['skins']:
                 if jpc[s]['asset'] != 'unique':
                     units[iname]['artworks'].append({
-                        'name':     loc[s]['NAME'] if s in loc else s[(7+len(unit['img'])):].replace('-', ' ').title(),
+                        'name':     loc[s]['name'] if s in loc else s[(7+len(unit['img'])):].replace('-', ' ').title(),
                         'full':     art_link+unit['img'] + '_' + jpc[s]['asset']+'.png',
                         'closeup':  art_link+unit['img'] + '_' + jpc[s]['asset']+'-closeup.png',
                     })
@@ -203,10 +205,10 @@ def Units():
                 job = jpc[i]['job']
 
                 if job not in loc:
-                    mjob[job] = {'unit': iname, 'NAME': ""}
+                    mjob[job] = {'unit': iname, 'name': ""}
 
                 units[iname]['job ' +
-                             str(j)] = job if not job in loc else loc[job]['NAME']
+                             str(j)] = job if not job in loc else loc[job]['name']
                 if job not in glc:
                     units[iname]['job '+str(j)] += 'ᴶ'
 
@@ -223,7 +225,7 @@ def Units():
                 j += 1
                 if i == js['cjob']:
                     try:
-                        jname = loc[js['job']]['NAME']
+                        jname = loc[js['job']]['name']
                         if js['iname'] in glc:
                             if 'tierlist' in units[js['target_unit']] and units[js['target_unit']]['tierlist']['jc'] != "":
                                 units[js['target_unit']]['tierlist']['jc ' +
@@ -239,12 +241,12 @@ def Units():
                         je = (re_job.search(js['job']))
 
                         jem = je.group(2) if (je.group(
-                            1)+'_'+je.group(2)) not in loc else loc[je.group(1)+'_'+je.group(2)]['NAME']
+                            1)+'_'+je.group(2)) not in loc else loc[je.group(1)+'_'+je.group(2)]['name']
                         jname = (jem + ': ' + je.group(3)
                                  ).replace('_', ' ').title()
 
                         if jname not in jobe:
-                            jobe[js['job']] = {'generic': (jname), 'NAME': ""}
+                            jobe[js['job']] = {'generic': (jname), 'name': ""}
                             print(jname)
 
                     units[js['target_unit']]['jc '+str(j)] = jname

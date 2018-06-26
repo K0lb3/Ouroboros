@@ -983,7 +983,7 @@
             "Job2": "Crafter\nクラフター",
             "Job3": "Gunner\nガンナー",
             "JC1": "N/A",
-            "JC2": "N/A",
+            "JC2": "Machinery・Partizan\nマシーナリー・パルチザン",
             "JC3": "N/A",
             "ELB": "N/A",
             "Acquire": "Rare Summon",
@@ -1254,7 +1254,7 @@
             "Job3": "Crafter\nクラフター",
             "JC1": "N/A",
             "JC2": "N/A",
-            "JC3": "N/A",
+            "JC3": "Machinery・Partizan\nマシーナリー・パルチザン",
             "ELB": "N/A",
             "Acquire": "Rare Summon",
             "Origin": "Slothstein",
@@ -1338,7 +1338,7 @@
             "Romanji": "kazahaya",
             "Rarity": "★★★☆☆",
             "Element": "Wind",
-            "LeaderSkill": "All: 10%BluntDMG+",
+            "LeaderSkill": "All: 10%BlowDMG+",
             "Job1": "Thief\nシーフ",
             "Job2": "Monk\n武闘家",
             "Job3": "Ninja\n忍者",
@@ -1578,7 +1578,7 @@
             "Romanji": "rushia",
             "Rarity": "★★★★☆",
             "Element": "Wind",
-            "LeaderSkill": "All: 20%BluntDMG+",
+            "LeaderSkill": "All: 20%BlowDMG+",
             "Job1": "Beast Tamer\n獣使い",
             "Job2": "Monk\n武闘家",
             "Job3": "Saint of Fist\n拳聖",
@@ -1643,7 +1643,7 @@
             "Job2": "Crafter\nクラフター",
             "Job3": "Sniper\nスナイパー",
             "JC1": "N/A",
-            "JC2": "N/A",
+            "JC2": "Machinery・Oriaga\nマシーナリー・オレアガ",
             "JC3": "Excel Sniper\nエクシエルスナイパー",
             "ELB": "N/A",
             "Acquire": "Rare Summon",
@@ -1968,11 +1968,11 @@
             "Romanji": "yomi",
             "Rarity": "★★★★★",
             "Element": "Wind",
-            "LeaderSkill": "All: 30%BluntDMG+",
+            "LeaderSkill": "All: 30%BlowDMG+",
             "Job1": "Shrine Maiden\n巫女",
             "Job2": "Ninja\n忍者",
             "Job3": "Saint of Fist\n拳聖",
-            "JC1": "N/A",
+            "JC1": "Moonlit Violet\n籠紫の月影",
             "JC2": "N/A",
             "JC3": "Saint of Fist: Maitreya\n拳聖【弥勒】",
             "ELB": "N/A",
@@ -2303,7 +2303,7 @@
             "Job2": "Machinery\nマシーナリー",
             "Job3": "Ninja\n忍者",
             "JC1": "N/A",
-            "JC2": "N/A",
+            "JC2": "Machinery・Oriaga\nマシーナリー・オレアガ",
             "JC3": "Ninja: Genbu\n忍者【玄武】",
             "ELB": "=HYPERLINK(\"#gid=1732246061&range=A273\",IMAGE(\"https://i.imgur.com/N6yxpEE.png)\"))",
             "Acquire": "Rare Summon",
@@ -2872,7 +2872,7 @@
             "Job1": "Machinery\nマシーナリー",
             "Job2": "Thief\nシーフ",
             "Job3": "Sniper\nスナイパー",
-            "JC1": "N/A",
+            "JC1": "Machinery・Partizan\nマシーナリー・パルチザン",
             "JC2": "N/A",
             "JC3": "Sniper: Barrel\nスナイパー【バレル】",
             "ELB": "N/A",
@@ -5394,7 +5394,7 @@
             "Job3": "Machinery\nマシーナリー",
             "JC1": "N/A",
             "JC2": "N/A",
-            "JC3": "N/A",
+            "JC3": "Machinery・Diana\nマシーナリー・ディアナ",
             "ELB": "N/A",
             "Acquire": "Rare Summon: April",
             "Origin": "Wadatsumi",
@@ -6652,7 +6652,7 @@
             "Job1": "\nMagia Controller\n魔弾操師",
             "Job2": "Beast Tamer\n獣使い",
             "Job3": "Dark Knight\nダークナイト",
-            "JC1": "N/A",
+            "JC1": "Magia Controller: Requiem\n魔弾操師【レクイエム】",
             "JC2": "N/A",
             "JC3": "Dark Knight: Spion\nダークナイト【シュピオン】",
             "ELB": "N/A",
@@ -6742,7 +6742,7 @@
             "Job1": "\nMagia Controller\n魔弾操師",
             "Job2": "Magic Knight\n魔法剣士",
             "Job3": "Sage\n賢者",
-            "JC1": "N/A",
+            "JC1": "Magia Controller: Serenade\n魔弾操師【セレナーデ】",
             "JC2": "Magic Knight: Chimera\n魔法剣士【キマイラ】",
             "JC3": "N/A",
             "ELB": "N/A",
@@ -7492,7 +7492,7 @@
             "Job1": "\nMagia Controller\n魔弾操師",
             "Job2": "Sage\n賢者",
             "Job3": "Assassin\n暗殺者",
-            "JC1": "N/A",
+            "JC1": "Magia Controller: Symphony\n魔弾操師【シンフォニー】",
             "JC2": "Sage: Obelisk\n賢者【オベリスク】",
             "JC3": "N/A",
             "ELB": "N/A",
@@ -7704,7 +7704,7 @@
             "Job3": "Machinery\nマシーナリー",
             "JC1": "Martial Master: Beast Render\n破獣・マーシャルマスター",
             "JC2": "N/A",
-            "JC3": "N/A",
+            "JC3": "Machinery・Diana\nマシーナリー・ディアナ",
             "ELB": "N/A",
             "Acquire": "Rare Summon: January 2018",
             "Origin": "Wrathtris",
@@ -8034,7 +8034,7 @@
             "Job3": "\nMagia Controller\n魔弾操師",
             "JC1": "Summoner of Tir Na Nog\nティルナノグの召喚師",
             "JC2": "N/A",
-            "JC3": "N/A",
+            "JC3": "Magia Controller: Serenade\n魔弾操師【セレナーデ】",
             "ELB": "N/A",
             "Acquire": "Limited Rare Summon: Mid-February 2018",
             "Origin": "Saga",
@@ -8092,7 +8092,7 @@
             "Job1": "\nMagia Controller\n魔弾操師",
             "Job2": "Ninja\n忍者",
             "Job3": "Magia Shooter\nマギアシューター",
-            "JC1": "N/A",
+            "JC1": "Magia Controller: Symphony\n魔弾操師【シンフォニー】",
             "JC2": "Ninja: Byakko\n忍者【白虎】",
             "JC3": "N/A",
             "ELB": "N/A",
@@ -29479,6 +29479,1268 @@
             "Main.Technique 召喚術": "",
             "Sub.Technique 基本召喚術": "",
             "\nReactive Upgrade": ""
+        }
+    ],
+    "JEP6": [
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "=image(\"http://i.imgur.com/WfMANOc.png\")",
+            "": "セミオートマチック  チューンナップ+2",
+            "Main.Technique 砲撃": "Name",
+            "Sub.Technique 基本砲撃": "Name",
+            "\nPassive Upgrade": "Name"
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "Semi Automatic",
+            "Main.Technique 砲撃": "English Name",
+            "Sub.Technique 基本砲撃": "English Name",
+            "\nPassive Upgrade": "English Name"
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "Passive",
+            "Main.Technique 砲撃": "Cost",
+            "Sub.Technique 基本砲撃": "Cost",
+            "\nPassive Upgrade": "Type"
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "Scaling",
+            "Sub.Technique 基本砲撃": "Scaling",
+            "\nPassive Upgrade": "Level Learned"
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "Dex Massive UP\n器用さ大幅アップ",
+            "Main.Technique 砲撃": "Range",
+            "Sub.Technique 基本砲撃": "Range",
+            "\nPassive Upgrade": "Effect"
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Job Enchant: Arber / Sarauz / Lish",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "Area",
+            "Sub.Technique 基本砲撃": "Area",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Job Changes",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Job Enchant Icon",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Job Scroll",
+            "": "",
+            "Main.Technique 砲撃": "Height",
+            "Sub.Technique 基本砲撃": "Height",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "Cast Speed",
+            "Sub.Technique 基本砲撃": "Cast Speed",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "Usage",
+            "Sub.Technique 基本砲撃": "Usage",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Trait",
+            "": "",
+            "Main.Technique 砲撃": "Effect",
+            "Sub.Technique 基本砲撃": "Effect",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Job Master [Enchant] Bonus",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "HP",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "MATK",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "MDEF",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "SPD",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "HP",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Machinery・Oriaga\nマシーナリー・オレアガ",
+            "": "",
+            "Main.Technique 砲撃": "Main.Technique 砲撃",
+            "Sub.Technique 基本砲撃": "Sub.Technique 基本砲撃",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "=image(\"http://i.imgur.com/z4YcrA2.png\")",
+            "": "",
+            "Main.Technique 砲撃": "Name",
+            "Sub.Technique 基本砲撃": "Name",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "English Name",
+            "Sub.Technique 基本砲撃": "English Name",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "Cost",
+            "Sub.Technique 基本砲撃": "Cost",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "Scaling",
+            "Sub.Technique 基本砲撃": "Scaling",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "Range",
+            "Sub.Technique 基本砲撃": "Range",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Job Enchant: Magnus / Chalice",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "Area",
+            "Sub.Technique 基本砲撃": "Area",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Job Changes",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Job Enchant Icon",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Job Scroll",
+            "": "",
+            "Main.Technique 砲撃": "Height",
+            "Sub.Technique 基本砲撃": "Height",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "Cast Speed",
+            "Sub.Technique 基本砲撃": "Cast Speed",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "Usage",
+            "Sub.Technique 基本砲撃": "Usage",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Trait",
+            "": "",
+            "Main.Technique 砲撃": "Effect",
+            "Sub.Technique 基本砲撃": "Effect",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Job Master [Enchant] Bonus",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "HP",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "MATK",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "MDEF",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "SPD",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "HP",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Machinery・Diana\nマシーナリー・ディアナ",
+            "": "",
+            "Main.Technique 砲撃": "Main.Technique 砲撃",
+            "Sub.Technique 基本砲撃": "Sub.Technique 基本砲撃",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "=image(\"https://i.imgur.com/lbSfnSI.png\")",
+            "": "",
+            "Main.Technique 砲撃": "Name",
+            "Sub.Technique 基本砲撃": "Name",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "English Name",
+            "Sub.Technique 基本砲撃": "English Name",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "Cost",
+            "Sub.Technique 基本砲撃": "Cost",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "Scaling",
+            "Sub.Technique 基本砲撃": "Scaling",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "Range",
+            "Sub.Technique 基本砲撃": "Range",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Job Enchant: Silma / Suiran",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "Area",
+            "Sub.Technique 基本砲撃": "Area",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Job Changes",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Job Enchant Icon",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Job Scroll",
+            "": "",
+            "Main.Technique 砲撃": "Height",
+            "Sub.Technique 基本砲撃": "Height",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "Cast Speed",
+            "Sub.Technique 基本砲撃": "Cast Speed",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "Usage",
+            "Sub.Technique 基本砲撃": "Usage",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Trait",
+            "": "",
+            "Main.Technique 砲撃": "Effect",
+            "Sub.Technique 基本砲撃": "Effect",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Job Master [Enchant] Bonus",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "HP",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "MATK",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "MDEF",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "SPD",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "HP",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Magia Controller: Requiem\n魔弾操師【レクイエム】",
+            "": "",
+            "Main.Technique 砲撃": "Main.Technique 魔弾技",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": "\nPassive Upgrade"
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "=image(\"http://i.imgur.com/FGqeRqg.png\")",
+            "": "マークスチャージ  フィジカルチャージ",
+            "Main.Technique 砲撃": "Name",
+            "Sub.Technique 基本砲撃": "Name",
+            "\nPassive Upgrade": "Name"
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "Max Charge",
+            "Main.Technique 砲撃": "English Name",
+            "Sub.Technique 基本砲撃": "English Name",
+            "\nPassive Upgrade": "English Name"
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "Passive",
+            "Main.Technique 砲撃": "Cost",
+            "Sub.Technique 基本砲撃": "Cost",
+            "\nPassive Upgrade": "Type"
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "Scaling",
+            "Sub.Technique 基本砲撃": "Scaling",
+            "\nPassive Upgrade": "Level Learned"
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "HP UP & DarkRES UP & ShotDMG UP\nHP上限・闇耐性・射撃攻撃力アップ",
+            "Main.Technique 砲撃": "Range",
+            "Sub.Technique 基本砲撃": "Range",
+            "\nPassive Upgrade": "Effect"
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Job Enchant: Rusha",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "Area",
+            "Sub.Technique 基本砲撃": "Area",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Job Changes",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Job Enchant Icon",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Job Scroll",
+            "": "",
+            "Main.Technique 砲撃": "Height",
+            "Sub.Technique 基本砲撃": "Height",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "Cast Speed",
+            "Sub.Technique 基本砲撃": "Cast Speed",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "Usage",
+            "Sub.Technique 基本砲撃": "Usage",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Trait",
+            "": "",
+            "Main.Technique 砲撃": "Effect",
+            "Sub.Technique 基本砲撃": "Effect",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Job Master [Enchant] Bonus",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "HP",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "PATK",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "DEX",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "AGI",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "CRIT",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "HP",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Magia Controller: Symphony\n魔弾操師【シンフォニー】",
+            "": "",
+            "Main.Technique 砲撃": "Main.Technique 魔弾技",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": "Sub.Technique 基本魔弾技"
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "=image(\"https://i.imgur.com/vVUY5GV.png\")",
+            "": "シェルサークル チャリティサークル",
+            "Main.Technique 砲撃": "Name",
+            "Sub.Technique 基本砲撃": "Name",
+            "\nPassive Upgrade": "Name"
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "Shell Circle",
+            "Main.Technique 砲撃": "English Name",
+            "Sub.Technique 基本砲撃": "English Name",
+            "\nPassive Upgrade": "English Name"
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "Cost",
+            "Sub.Technique 基本砲撃": "Cost",
+            "\nPassive Upgrade": "Cost"
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "Scaling",
+            "Sub.Technique 基本砲撃": "Scaling",
+            "\nPassive Upgrade": "Scaling"
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "Range",
+            "Sub.Technique 基本砲撃": "Range",
+            "\nPassive Upgrade": "Range"
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Job Enchant: Aisha / Ira",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "=image(\"http://i.imgur.com/G2PvRkm.png\")",
+            "Main.Technique 砲撃": "Area",
+            "Sub.Technique 基本砲撃": "Area",
+            "\nPassive Upgrade": "Area"
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Job Changes",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Job Enchant Icon",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Job Scroll",
+            "": "2",
+            "Main.Technique 砲撃": "Height",
+            "Sub.Technique 基本砲撃": "Height",
+            "\nPassive Upgrade": "Height"
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "-",
+            "Main.Technique 砲撃": "Cast Speed",
+            "Sub.Technique 基本砲撃": "Cast Speed",
+            "\nPassive Upgrade": "Cast Speed"
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "3",
+            "Main.Technique 砲撃": "Usage",
+            "Sub.Technique 基本砲撃": "Usage",
+            "\nPassive Upgrade": "Usage"
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Trait",
+            "": "Set Trap at targeted tiles. Trap will increase SpellRES & disappear after certain Unit Time\n指定箇所に魔法耐性アップの『バフパネル』を設置&『バフパネル』は一定時間経過で消滅\r\n[射程:4,範囲:十字1マス,高低差:3]",
+            "Main.Technique 砲撃": "Effect",
+            "Sub.Technique 基本砲撃": "Effect",
+            "\nPassive Upgrade": "Effect"
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Job Master [Enchant] Bonus",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "HP",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "PATK",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "DEX",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "AGI",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "CRIT",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "HP",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Magia Controller: Serenade\n魔弾操師【セレナーデ】",
+            "": "",
+            "Main.Technique 砲撃": "Main.Technique 魔弾技",
+            "Sub.Technique 基本砲撃": "Sub.Technique 基本魔弾技",
+            "\nPassive Upgrade": "\nReactive Upgrade"
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "=image(\"https://i.imgur.com/oNWkoak.png\")",
+            "": "ペインプロテクション ペインコントロール",
+            "Main.Technique 砲撃": "Name",
+            "Sub.Technique 基本砲撃": "Name",
+            "\nPassive Upgrade": "Name"
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "Pain Protection",
+            "Main.Technique 砲撃": "English Name",
+            "Sub.Technique 基本砲撃": "English Name",
+            "\nPassive Upgrade": "English Name"
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "Reactive",
+            "Main.Technique 砲撃": "Cost",
+            "Sub.Technique 基本砲撃": "Cost",
+            "\nPassive Upgrade": "Type"
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "Scaling",
+            "Sub.Technique 基本砲撃": "Scaling",
+            "\nPassive Upgrade": "Level Learned"
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "物理攻撃による被ダメージ時に確率でダメージを軽減",
+            "Main.Technique 砲撃": "Range",
+            "Sub.Technique 基本砲撃": "Range",
+            "\nPassive Upgrade": "Effect"
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Job Enchant: Reidou / Nina",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "Area",
+            "Sub.Technique 基本砲撃": "Area",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Job Changes",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Job Enchant Icon",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Job Scroll",
+            "": "",
+            "Main.Technique 砲撃": "Height",
+            "Sub.Technique 基本砲撃": "Height",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "Cast Speed",
+            "Sub.Technique 基本砲撃": "Cast Speed",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "",
+            "": "",
+            "Main.Technique 砲撃": "Usage",
+            "Sub.Technique 基本砲撃": "Usage",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Trait",
+            "": "",
+            "Main.Technique 砲撃": "Effect",
+            "Sub.Technique 基本砲撃": "Effect",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "Job Master [Enchant] Bonus",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "HP",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "PATK",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "DEX",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "AGI",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "CRIT",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
+        },
+        {
+            "Machinery・Partizan\nマシーナリー・パルチザン": "HP",
+            "": "",
+            "Main.Technique 砲撃": "",
+            "Sub.Technique 基本砲撃": "",
+            "\nPassive Upgrade": ""
         }
     ],
     "EnlightenLB": [
@@ -98300,6 +99562,14 @@
             "Notes": ""
         },
         {
+            "INDEX": "2018-06-25T14:00:00.000Z",
+            "Compendium": "New Update",
+            "Reason": "Update",
+            "Units": "Arber, Sauraz, Lish, Magnus, Chalice, Silma, Suiran\nRusha, Aisha, Ira, Reidou, Nina",
+            "Jobs": "Machinery JE\n\nMagia Controller JE\n\nYOMI JOB CHANGE",
+            "Notes": "Machinery + Magia Controller JE\nhttps://al.fg-games.co.jp/news/23151/\n\nYOMI JOB CHANGE\nhttps://al.fg-games.co.jp/news/23319/"
+        },
+        {
             "INDEX": "2018-06-16T14:00:00.000Z",
             "Compendium": "New Update",
             "Reason": "Update",
@@ -99348,7 +100618,7 @@
             "Name": "Kazahaya",
             "Rarity": "★★★☆☆",
             "Element": "Wind",
-            "LeaderSkill": "All: 10%BluntDMG+",
+            "LeaderSkill": "All: 10%BlowDMG+",
             "Jobs": "Jobs: Thief\nシーフ\n・Monk\n武闘家\n・Ninja\n忍者",
             "Job Change": "Ninja: Genbu\n忍者【玄武】",
             "Overall Tier": "",
@@ -99460,7 +100730,7 @@
             "Name": "Lucia",
             "Rarity": "★★★★☆",
             "Element": "Wind",
-            "LeaderSkill": "All: 20%BluntDMG+",
+            "LeaderSkill": "All: 20%BlowDMG+",
             "Jobs": "Jobs: Beast Tamer\n獣使い\n・Monk\n武闘家\n・Saint of Fist\n拳聖",
             "Job Change": "Saint of Fist+\n拳聖",
             "Overall Tier": "",
@@ -99642,7 +100912,7 @@
             "Name": "Yomi",
             "Rarity": "★★★★★",
             "Element": "Wind",
-            "LeaderSkill": "All: 30%BluntDMG+",
+            "LeaderSkill": "All: 30%BlowDMG+",
             "Jobs": "Jobs: Shrine Maiden\n巫女\n・Ninja\n忍者\n・Saint of Fist\n拳聖",
             "Job Change": "Saint of Fist: Maitreya\n拳聖【弥勒】",
             "Overall Tier": "",

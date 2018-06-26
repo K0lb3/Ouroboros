@@ -57,7 +57,7 @@ def convertLoc(file):
 
             if iname not in loc:
                 loc[iname] = {}
-            loc[iname][type] = text
+            loc[iname][type.lower()] = text
 
     return loc
     # pattern=r'^SRPG_(.+)Param_(.+)\_([^\t]+)\t(.*)\n$'#r'(?<=Param_)(.*)(?=\_).(.*)\t(.*)\n'
@@ -88,7 +88,7 @@ def convertUnit(file):
 
             if iname not in unit:
                 unit[iname] = {}
-            unit[iname][type] = text
+            unit[iname][type.lower()] = text
 
     return unit
 

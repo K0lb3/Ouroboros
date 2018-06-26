@@ -60,13 +60,13 @@ def job_create(job, glc, jpc, loc):
 
     def locFunc(iname):
         try:
-            return loc[job]['NAME']
+            return loc[job]['name']
         except:
             print(job)
             jb = job.split('_')
             base = jb[0]+'_'+jb[1]
             if base in loc:
-                return loc[base]['NAME']+': '+' '.join(jb[2:])
+                return loc[base]['name']+': '+' '.join(jb[2:])
             else:
                 return job[3:].replace('_', ' ').title()
     
@@ -76,8 +76,8 @@ def job_create(job, glc, jpc, loc):
             abil=mainc[iname]
             ability={
                 'iname':iname,
-                'name': loc[iname]['NAME'] if iname in loc else abil['name'],
-                'expr': loc[iname]['EXPR'] if iname in loc else abil['expr'],
+                'name': loc[iname]['name'] if iname in loc else abil['name'],
+                'expr': loc[iname]['expr'] if iname in loc else abil['expr'],
                 'skills':[]
                 }
         elif type(inp)==list:
@@ -101,8 +101,8 @@ def job_create(job, glc, jpc, loc):
             try:
                 copy=loc[skli]
                 ability['skills'].append({
-                    'name': copy['NAME'],
-                    'expr': copy['EXPR'],
+                    'name': copy['name'],
+                    'expr': copy['expr'],
                     #'lv':   abil['lv'+str(i)],
                     #'effect': skl["eff_val_max"],
                     })
@@ -141,7 +141,7 @@ def job_create(job, glc, jpc, loc):
         'long description':  loc[job]['long des'] if job in loc and 'long des' in loc[job] else "",
         'icon': 'http://cdn.alchemistcodedb.com/images/jobs/icons/'+j['mdl']+'.png',
         'token': 'http://cdn.alchemistcodedb.com/images/items/icons/'+mainc[j['ranks'][0]['eqid1']]['icon']+'.png',
-        'origin': loc[j['origin']]['NAME'] if 'origin' in j else "",
+        'origin': loc[j['origin']]['name'] if 'origin' in j else "",
         'units': [],
         'jobe': [],
         'main': ability(j['fixabl']),

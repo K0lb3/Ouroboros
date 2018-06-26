@@ -238,9 +238,9 @@
         ],
         "ability": [
             {
-                "NAME": "Force Elemental",
-                "EXPR": "Greatly raises Fire/Water/Wind/Thunder Res of ally units in area around self for one turn [Area: Diamond (5), Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Force Elemental",
+                "expr": "Greatly raises Fire/Water/Wind/Thunder Res of ally units in area around self for one turn [Area: Diamond (5), Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ARMO_ROBE3_WA"
             }
@@ -446,9 +446,9 @@
         ],
         "ability": [
             {
-                "NAME": "Shock to Kill",
-                "EXPR": "Inflicts Light Phys Dmg (strong vs humans) on target",
-                "MAPEFF": " ",
+                "name": "Shock to Kill",
+                "expr": "Inflicts Light Phys Dmg (strong vs humans) on target",
+                "mapeff": " ",
                 "restriction": "Tyrfing",
                 "iname": "SK_ARM_SHOCK_TO_KILL"
             }
@@ -476,9 +476,9 @@
         ],
         "ability": [
             {
-                "NAME": "I'll Do This Alone!",
-                "EXPR": "Inflicts Dark Phys Dmg on target",
-                "MAPEFF": " ",
+                "name": "I'll Do This Alone!",
+                "expr": "Inflicts Dark Phys Dmg on target",
+                "mapeff": " ",
                 "restriction": "Laevateinn",
                 "iname": "SK_ANK_HITORI_DE_DEKIRUSHI"
             }
@@ -508,9 +508,9 @@
         ],
         "ability": [
             {
-                "NAME": "Final Burst",
-                "EXPR": "Inflicts Fire Phys Dmg on target",
-                "MAPEFF": " ",
+                "name": "Final Burst",
+                "expr": "Inflicts Fire Phys Dmg on target",
+                "mapeff": " ",
                 "restriction": "Vargas",
                 "iname": "SK_ANK_FINAL_BURST"
             }
@@ -538,9 +538,9 @@
         ],
         "ability": [
             {
-                "NAME": "Last Blizzard",
-                "EXPR": "Inflicts Water Phys Dmg on target",
-                "MAPEFF": " ",
+                "name": "Last Blizzard",
+                "expr": "Inflicts Water Phys Dmg on target",
+                "mapeff": " ",
                 "restriction": "Selena",
                 "iname": "SK_SEI_LAST_BLIZZARD"
             }
@@ -570,9 +570,9 @@
         ],
         "ability": [
             {
-                "NAME": "Demon Summoning",
-                "EXPR": "Area attack (strong vs demons) & doubles own PDEF for three turns [Range: 3, Area: Cross (3), Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Demon Summoning",
+                "expr": "Area attack (strong vs demons) & doubles own PDEF for three turns [Range: 3, Area: Cross (3), Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "Sabareta",
                 "iname": "SK_ARMS_SABARETA_MA"
             }
@@ -750,16 +750,16 @@
         ],
         "ability": [
             {
-                "NAME": "Flaming Crimson Blade",
-                "EXPR": "Inflicts Fire Phys Dmg on target",
-                "MAPEFF": " ",
+                "name": "Flaming Crimson Blade",
+                "expr": "Inflicts Fire Phys Dmg on target",
+                "mapeff": " ",
                 "restriction": "Cadanova",
                 "iname": "SK_KADA_WEPON"
             },
             {
-                "NAME": "Miracle Kanon Slash",
-                "EXPR": "Inflicts Light Phys Dmg on target",
-                "MAPEFF": " ",
+                "name": "Miracle Kanon Slash",
+                "expr": "Inflicts Light Phys Dmg on target",
+                "mapeff": " ",
                 "restriction": "Kanon",
                 "iname": "SK_CANON_WEPON"
             }
@@ -854,9 +854,9 @@
         ],
         "ability": [
             {
-                "NAME": "Crystal Break",
-                "EXPR": "Inflicts Light Phys Dmg on target & triples own PDEF for next turn",
-                "MAPEFF": " ",
+                "name": "Crystal Break",
+                "expr": "Inflicts Light Phys Dmg on target & triples own PDEF for next turn",
+                "mapeff": " ",
                 "restriction": "Chloe",
                 "iname": "SK_ARMS_SWO_CLOE"
             }
@@ -990,9 +990,9 @@
         ],
         "ability": [
             {
-                "NAME": "Big Blue Sea",
-                "EXPR": "Phys Dmg & strong vs demons [Range: 1, Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Big Blue Sea",
+                "expr": "Phys Dmg & strong vs demons [Range: 1, Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_ARMS_SAB_CAPTAIN"
             }
@@ -1044,9 +1044,9 @@
         ],
         "ability": [
             {
-                "NAME": "Warlock Buster",
-                "EXPR": "Phys Dmg & strong vs demons [Range: 5, Height Range: Unlimited]",
-                "MAPEFF": " ",
+                "name": "Warlock Buster",
+                "expr": "Phys Dmg & strong vs demons [Range: 5, Height Range: Unlimited]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_ARMS_RIF_SNIPER"
             }
@@ -1096,9 +1096,9 @@
         ],
         "ability": [
             {
-                "NAME": "Kagutsuchi",
-                "EXPR": "Magic attack (strong vs Templar) & raises own MATK for three turns [Range: 3, Area: Cross (3), Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Kagutsuchi",
+                "expr": "Magic attack (strong vs Templar) & raises own MATK for three turns [Range: 3, Area: Cross (3), Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "Kagura",
                 "iname": "SK_ARMS_ROD_KAGURA"
             }
@@ -1126,9 +1126,9 @@
         ],
         "ability": [
             {
-                "NAME": "The End",
-                "EXPR": "Inflicts Dark Phys Dmg & 100% Hit [Range: 3, Height Range: 3] & raises own CRIT by 50% for two turns",
-                "MAPEFF": " ",
+                "name": "The End",
+                "expr": "Inflicts Dark Phys Dmg & 100% Hit [Range: 3, Height Range: 3] & raises own CRIT by 50% for two turns",
+                "mapeff": " ",
                 "restriction": "Kudanstein",
                 "iname": "SK_ARMS_LAN_KUDHAN_WA"
             }
@@ -1157,9 +1157,9 @@
         ],
         "ability": [
             {
-                "NAME": "Symphonic Stub",
-                "EXPR": "Inflicts Wind Phys Dmg on target & greatly raises own Evasion Rate for physical/magical attacks until next turn",
-                "MAPEFF": " ",
+                "name": "Symphonic Stub",
+                "expr": "Inflicts Wind Phys Dmg on target & greatly raises own Evasion Rate for physical/magical attacks until next turn",
+                "mapeff": " ",
                 "restriction": "Fencer",
                 "iname": "SK_ARM_FEN_WEPON"
             }
@@ -1190,9 +1190,9 @@
         ],
         "ability": [
             {
-                "NAME": "Armament -Offering-",
-                "EXPR": "Inflicts Dark Phys Dmg & Death Sentence with chance of critical [Range: 4, Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Armament -Offering-",
+                "expr": "Inflicts Dark Phys Dmg & Death Sentence with chance of critical [Range: 4, Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "Reaper",
                 "iname": "SK_ARM_REA_WEPON"
             }
@@ -1227,9 +1227,9 @@
         ],
         "ability": [
             {
-                "NAME": "Reverent Light of Protection",
-                "EXPR": "Fully recovers HP of units in area around self & doubles units' PDEF/MDEF until next turn",
-                "MAPEFF": " ",
+                "name": "Reverent Light of Protection",
+                "expr": "Fully recovers HP of units in area around self & doubles units' PDEF/MDEF until next turn",
+                "mapeff": " ",
                 "restriction": "Shaman",
                 "iname": "SK_ARM_SHE_WEPON"
             }
@@ -1263,9 +1263,9 @@
         ],
         "ability": [
             {
-                "NAME": "Demon Crushing Edge",
-                "EXPR": "Phys Dmg & strong vs demons [Range: 1, Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Demon Crushing Edge",
+                "expr": "Phys Dmg & strong vs demons [Range: 1, Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_ARMS_KUNAI_02_WA"
             }
@@ -1317,9 +1317,9 @@
         ],
         "ability": [
             {
-                "NAME": "Chakram Dance",
-                "EXPR": "Inflicts Phys Dmg & lowers enemy's Slash ATK for three turns [Range: 2, Height Range: 1]",
-                "MAPEFF": " ",
+                "name": "Chakram Dance",
+                "expr": "Inflicts Phys Dmg & lowers enemy's Slash ATK for three turns [Range: 2, Height Range: 1]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_ARMS_CHAKRAM_02_WA"
             }
@@ -1371,9 +1371,9 @@
         ],
         "ability": [
             {
-                "NAME": "Fortified Guard",
-                "EXPR": "Raises PDEF/MDEF on units within area around self [Area: Cross (3)]",
-                "MAPEFF": " ",
+                "name": "Fortified Guard",
+                "expr": "Raises PDEF/MDEF on units within area around self [Area: Cross (3)]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_ARMO_SHIELD_02_WA"
             }
@@ -1401,9 +1401,9 @@
         ],
         "ability": [
             {
-                "NAME": "Majestic Lead",
-                "EXPR": "Raises Slash ATK of ally units within area around self [Area: Diamond (5)]",
-                "MAPEFF": " ",
+                "name": "Majestic Lead",
+                "expr": "Raises Slash ATK of ally units within area around self [Area: Diamond (5)]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_ARMS_HARP_02_WA"
             }
@@ -1459,9 +1459,9 @@
         ],
         "ability": [
             {
-                "NAME": "Double Edged Execution",
-                "EXPR": "Deals damage two squares forward [Range: 2, Area: 1 sq line, Height Range: 1]",
-                "MAPEFF": " ",
+                "name": "Double Edged Execution",
+                "expr": "Deals damage two squares forward [Range: 2, Area: 1 sq line, Height Range: 1]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_ARMS_AXE_02_WA"
             }
@@ -1518,9 +1518,9 @@
         ],
         "ability": [
             {
-                "NAME": "Guardian's Arrow",
-                "EXPR": "Inflicts Wind Phys Dmg on enemy units within target area & casts Quicken on self for three turns [Range: 6, Area: Cross (3), Height Range: Unlimited]",
-                "MAPEFF": " ",
+                "name": "Guardian's Arrow",
+                "expr": "Inflicts Wind Phys Dmg on enemy units within target area & casts Quicken on self for three turns [Range: 6, Area: Cross (3), Height Range: Unlimited]",
+                "mapeff": " ",
                 "restriction": "Seida",
                 "iname": "SK_ARMS_SEDA_BOW_WA"
             }
@@ -1553,9 +1553,9 @@
         ],
         "ability": [
             {
-                "NAME": "Lightning Axe",
-                "EXPR": "Inflicts Thunder Phys Dmg on enemy units within target area & raises own PATK for three turns [Range: 3 sq line]",
-                "MAPEFF": " ",
+                "name": "Lightning Axe",
+                "expr": "Inflicts Thunder Phys Dmg on enemy units within target area & raises own PATK for three turns [Range: 3 sq line]",
+                "mapeff": " ",
                 "restriction": "Monzein",
                 "iname": "SK_ARMS_MONZ_AXE_WA"
             }
@@ -1587,9 +1587,9 @@
         ],
         "ability": [
             {
-                "NAME": "Feather Headdress",
-                "EXPR": "Raises All Elements Res of 1 ally unit [Range: 3, Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Feather Headdress",
+                "expr": "Raises All Elements Res of 1 ally unit [Range: 3, Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_ACCS_CANO_HEAD_WA"
             }
@@ -1637,9 +1637,9 @@
         ],
         "ability": [
             {
-                "NAME": "Starlight Waltz",
-                "EXPR": "Slightly recovers own HP & raises normal attack Range by 2 for three turns",
-                "MAPEFF": " ",
+                "name": "Starlight Waltz",
+                "expr": "Slightly recovers own HP & raises normal attack Range by 2 for three turns",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_ARMS_TAROT_01_WA"
             }
@@ -1695,9 +1695,9 @@
         ],
         "ability": [
             {
-                "NAME": "Great Blade of Darkness",
-                "EXPR": "Inflicts Phys Dmg & casts Quicken status on self",
-                "MAPEFF": " ",
+                "name": "Great Blade of Darkness",
+                "expr": "Inflicts Phys Dmg & casts Quicken status on self",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_ARMS_GREAT_SWORD_012_WA"
             }
@@ -1753,9 +1753,9 @@
         ],
         "ability": [
             {
-                "NAME": "Aura Evasion",
-                "EXPR": "Raises Evasion Rate of ally units within area around self [Area: Diamond (5), Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Aura Evasion",
+                "expr": "Raises Evasion Rate of ally units within area around self [Area: Diamond (5), Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_ARMS_DSWO_02_WA"
             }
@@ -1811,9 +1811,9 @@
         ],
         "ability": [
             {
-                "NAME": "Comeback Support",
-                "EXPR": "Recovers HP of ally unit [Range: 6, Height Range: 3]",
-                "MAPEFF": " ",
+                "name": "Comeback Support",
+                "expr": "Recovers HP of ally unit [Range: 6, Height Range: 3]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_ARMS_ROD_02_WA"
             }
@@ -1870,9 +1870,9 @@
         ],
         "ability": [
             {
-                "NAME": "Eternal Rose",
-                "EXPR": "Inflicts 4-hit Dmg & raises own AGI for three turns [Range: 1, Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Eternal Rose",
+                "expr": "Inflicts 4-hit Dmg & raises own AGI for three turns [Range: 1, Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "Yauras",
                 "iname": "SK_ARMS_YAUL_SOL_WA"
             }
@@ -2043,9 +2043,9 @@
         ],
         "ability": [
             {
-                "NAME": "Trick or Treat",
-                "EXPR": "Ability: Recovers 50% of target ally unit's HP [Range: 3, Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Trick or Treat",
+                "expr": "Ability: Recovers 50% of target ally unit's HP [Range: 3, Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_ACCS_HALLOWEEN_2016_WA"
             }
@@ -2093,9 +2093,9 @@
         ],
         "ability": [
             {
-                "NAME": "Chemical Sprinkle",
-                "EXPR": "Inflicts Mag Dmg (Medium) [Range: 3, Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Chemical Sprinkle",
+                "expr": "Inflicts Mag Dmg (Medium) [Range: 3, Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ARMS_MEDICHINE_02_WA"
             }
@@ -2151,9 +2151,9 @@
         ],
         "ability": [
             {
-                "NAME": "Beast Blow",
-                "EXPR": "Inflicts Phys Dmg (Low) on enemy units in area around self [Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Beast Blow",
+                "expr": "Inflicts Phys Dmg (Low) on enemy units in area around self [Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ARMS_BEAST_01_WA"
             }
@@ -2203,9 +2203,9 @@
         ],
         "ability": [
             {
-                "NAME": "Shining Blade",
-                "EXPR": "Inflicts large Phys Dmg on single target & greatly reduces Slash ATK for three turns",
-                "MAPEFF": " ",
+                "name": "Shining Blade",
+                "expr": "Inflicts large Phys Dmg on single target & greatly reduces Slash ATK for three turns",
+                "mapeff": " ",
                 "restriction": "Zeke",
                 "iname": "SK_AF_ARMS_SWO_ZEKE_01_WA"
             }
@@ -2232,9 +2232,9 @@
         ],
         "ability": [
             {
-                "NAME": "Valhalla Shift",
-                "EXPR": "Swaps positions with target [Range: 3, Height Range: 4]",
-                "MAPEFF": " ",
+                "name": "Valhalla Shift",
+                "expr": "Swaps positions with target [Range: 3, Height Range: 4]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_ARMS_LAN_03_WA"
             }
@@ -2265,9 +2265,9 @@
         ],
         "ability": [
             {
-                "NAME": "Blossoming Flame Strike",
-                "EXPR": "Inflicts Phys Dmg & raises own PATK and Evasion for three turns [Range: 1, Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Blossoming Flame Strike",
+                "expr": "Inflicts Phys Dmg & raises own PATK and Evasion for three turns [Range: 1, Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "Masamune",
                 "iname": "SK_ARMS_KATANA_MASAMUNE_01_WA"
             }
@@ -2298,9 +2298,9 @@
         ],
         "ability": [
             {
-                "NAME": "Kill the Nightmare",
-                "EXPR": "Inflicts Phys Dmg & raises own Range by 1 for three turns [Range: 5, Height Range: Unlimited]",
-                "MAPEFF": " ",
+                "name": "Kill the Nightmare",
+                "expr": "Inflicts Phys Dmg & raises own Range by 1 for three turns [Range: 5, Height Range: Unlimited]",
+                "mapeff": " ",
                 "restriction": "Shekinah",
                 "iname": "SK_ARMS_BOW_SHEKINAH_01_WA"
             }
@@ -2333,9 +2333,9 @@
         ],
         "ability": [
             {
-                "NAME": "Killing Chop",
-                "EXPR": "Inflicts Phys Dmg (High) & absorbs part of Dmg inflicted back as HP [Range: 1, Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Killing Chop",
+                "expr": "Inflicts Phys Dmg (High) & absorbs part of Dmg inflicted back as HP [Range: 1, Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "Cita",
                 "iname": "SK_ARMS_AXE_SITA_01_WA"
             }
@@ -2367,9 +2367,9 @@
         ],
         "ability": [
             {
-                "NAME": "Chaotic Jewel Craze",
-                "EXPR": "Absorbs Jewels & MOVE +1 [Range:3, Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Chaotic Jewel Craze",
+                "expr": "Absorbs Jewels & MOVE +1 [Range:3, Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_ARMS_NEC_02_WA"
             }
@@ -2399,9 +2399,9 @@
         ],
         "ability": [
             {
-                "NAME": "Divine Speed Summon",
-                "EXPR": "Summons swift spirit, greatly boosting all stats, especially AGI, for three turns",
-                "MAPEFF": " ",
+                "name": "Divine Speed Summon",
+                "expr": "Summons swift spirit, greatly boosting all stats, especially AGI, for three turns",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_ARMS_MIK_02_WA"
             }
@@ -2457,9 +2457,9 @@
         ],
         "ability": [
             {
-                "NAME": "Direct Kill",
-                "EXPR": "Inflicts Phys Dmg; long-range attack fired in a straight line [Range: 5, Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Direct Kill",
+                "expr": "Inflicts Phys Dmg; long-range attack fired in a straight line [Range: 5, Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_ARMS_THI_02_WA"
             }
@@ -2515,9 +2515,9 @@
         ],
         "ability": [
             {
-                "NAME": "Misfortune",
-                "EXPR": "Inflicts Mag Dmg; diamond-shaped Range and Scope & greatly raises own MATK for three turns",
-                "MAPEFF": " ",
+                "name": "Misfortune",
+                "expr": "Inflicts Mag Dmg; diamond-shaped Range and Scope & greatly raises own MATK for three turns",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_ARMS_SEN_04_WA"
             }
@@ -2548,9 +2548,9 @@
         ],
         "ability": [
             {
-                "NAME": "Ill Atmosphere",
-                "EXPR": "Inflicts Mag Dmg on enemy units within target area & lowers enemy AGI for three turns [Range: 4, Area: Diamond (5), Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Ill Atmosphere",
+                "expr": "Inflicts Mag Dmg on enemy units within target area & lowers enemy AGI for three turns [Range: 4, Area: Diamond (5), Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "Othima",
                 "iname": "SK_ARMS_OTHI_01_WA"
             }
@@ -2582,9 +2582,9 @@
         ],
         "ability": [
             {
-                "NAME": "Original Jewel Forging",
-                "EXPR": "Casts Auto Jewel Regen on self for five turns",
-                "MAPEFF": " ",
+                "name": "Original Jewel Forging",
+                "expr": "Casts Auto Jewel Regen on self for five turns",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_ARMS_HAMMER_02_WA"
             }
@@ -2640,9 +2640,9 @@
         ],
         "ability": [
             {
-                "NAME": "Hallucination",
-                "EXPR": "Recovers HP of ally units within area around self (no charge time) [Area: Diamond (5), Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Hallucination",
+                "expr": "Recovers HP of ally units within area around self (no charge time) [Area: Diamond (5), Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_ARMS_DOC_04_WA"
             }
@@ -2672,9 +2672,9 @@
         ],
         "ability": [
             {
-                "NAME": "Present for You",
-                "EXPR": "Recovers target ally unit's Jewels [Range: 4, Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Present for You",
+                "expr": "Recovers target ally unit's Jewels [Range: 4, Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_ACCS_SNOWMAN_HAT_WA"
             }
@@ -2703,9 +2703,9 @@
         ],
         "ability": [
             {
-                "NAME": "Excalibur",
-                "EXPR": "Inflicts Wind Phys Dmg & raises own Missile Res for three turns [Range: 4, Height Range: 3]",
-                "MAPEFF": " ",
+                "name": "Excalibur",
+                "expr": "Inflicts Wind Phys Dmg & raises own Missile Res for three turns [Range: 4, Height Range: 3]",
+                "mapeff": " ",
                 "restriction": "Saber",
                 "iname": "SK_AF_ARMS_EXCALIBUR_WA"
             }
@@ -2740,9 +2740,9 @@
         ],
         "ability": [
             {
-                "NAME": "Average One",
-                "EXPR": "Inflicts Fire Mag Dmg & Stop & raises own MATK for three turns [Range: 5, Height Range: 3]",
-                "MAPEFF": " ",
+                "name": "Average One",
+                "expr": "Inflicts Fire Mag Dmg & Stop & raises own MATK for three turns [Range: 5, Height Range: 3]",
+                "mapeff": " ",
                 "restriction": "Rin Tohsaka",
                 "iname": "SK_AF_ACCS_TOSAKA_PENDANT_WA"
             }
@@ -2772,9 +2772,9 @@
         ],
         "ability": [
             {
-                "NAME": "Do It Berserker",
-                "EXPR": "Inflicts Water Phys Dmg & raises own MATK/AGI for three turns [Range: 4, Height Range: 3]",
-                "MAPEFF": " ",
+                "name": "Do It Berserker",
+                "expr": "Inflicts Water Phys Dmg & raises own MATK/AGI for three turns [Range: 4, Height Range: 3]",
+                "mapeff": " ",
                 "restriction": "Illyasviel",
                 "iname": "SK_AF_ACCS_IRIYA_BIRD_WA"
             }
@@ -2804,9 +2804,9 @@
         ],
         "ability": [
             {
-                "NAME": "Gate of Babylon",
-                "EXPR": "Inflicts Thunder Phys Dmg on units within target area & raises own All Elements Res for three turns [Range: 4, Area: Diamond (5), Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Gate of Babylon",
+                "expr": "Inflicts Thunder Phys Dmg on units within target area & raises own All Elements Res for three turns [Range: 4, Area: Diamond (5), Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "Gilgamesh",
                 "iname": "SK_AF_ACCS_GILG_SWORD_WA"
             }
@@ -2836,9 +2836,9 @@
         ],
         "ability": [
             {
-                "NAME": "Unlimited Blade Works",
-                "EXPR": "Inflicts Thunder Phys Dmg & raises own Slash Res for three turns [Range: 5, Height Range: Unlimited->3]",
-                "MAPEFF": " ",
+                "name": "Unlimited Blade Works",
+                "expr": "Inflicts Thunder Phys Dmg & raises own Slash Res for three turns [Range: 5, Height Range: Unlimited->3]",
+                "mapeff": " ",
                 "restriction": "Archer",
                 "iname": "SK_AF_ARMS_KANSYOUBAKUYA_WA"
             }
@@ -2868,9 +2868,9 @@
         ],
         "ability": [
             {
-                "NAME": "Sound of Spring",
-                "EXPR": "Raises Max HP of target unit for five turns [Range: 4, Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Sound of Spring",
+                "expr": "Raises Max HP of target unit for five turns [Range: 4, Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_ACCS_DOREI_WA"
             }
@@ -2898,9 +2898,9 @@
         ],
         "ability": [
             {
-                "NAME": "April Breeze",
-                "EXPR": "MOVE +2 for target unit [Range: 4, Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "April Breeze",
+                "expr": "MOVE +2 for target unit [Range: 4, Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_ACCS_HAMAYA_WA"
             }
@@ -2928,9 +2928,9 @@
         ],
         "ability": [
             {
-                "NAME": "Spirit of Blades",
-                "EXPR": "Raises PDEF/MDEF by 150% for one turn",
-                "MAPEFF": " ",
+                "name": "Spirit of Blades",
+                "expr": "Raises PDEF/MDEF by 150% for one turn",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ARMS_SAM02_WA"
             }
@@ -2986,9 +2986,9 @@
         ],
         "ability": [
             {
-                "NAME": "Nitro Charge",
-                "EXPR": "Doubles own PATK for one turn",
-                "MAPEFF": " ",
+                "name": "Nitro Charge",
+                "expr": "Doubles own PATK for one turn",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ARMS_LNC_02_WA"
             }
@@ -3044,9 +3044,9 @@
         ],
         "ability": [
             {
-                "NAME": "Divine Tailwind",
-                "EXPR": "Raises PATK and AGI of all allies [Area: Whole Map, Height Range: Unlimited]",
-                "MAPEFF": " ",
+                "name": "Divine Tailwind",
+                "expr": "Raises PATK and AGI of all allies [Area: Whole Map, Height Range: Unlimited]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ARMS_KAM_02_WA"
             }
@@ -3076,9 +3076,9 @@
         ],
         "ability": [
             {
-                "NAME": "Jewelry Credit",
-                "EXPR": "Casts Auto Jewel Charge on units within area around self [Area: Cross (3), Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Jewelry Credit",
+                "expr": "Casts Auto Jewel Charge on units within area around self [Area: Cross (3), Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ARMS_SHN_02_WA"
             }
@@ -3108,9 +3108,9 @@
         ],
         "ability": [
             {
-                "NAME": "Purging Dragon Roar",
-                "EXPR": "Inflicts Phys Dmg on units within target area [Range: 4, Area: Diamond (5), Height Range: 3]",
-                "MAPEFF": " ",
+                "name": "Purging Dragon Roar",
+                "expr": "Inflicts Phys Dmg on units within target area [Range: 4, Area: Diamond (5), Height Range: 3]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AB_AF_ARMS_BLA_02_WA"
             }
@@ -3159,9 +3159,9 @@
         ],
         "ability": [
             {
-                "NAME": "Vital Shot",
-                "EXPR": "Recovers HP of target & removes statuses [Range: 5, Height Range: Unlimited]",
-                "MAPEFF": " ",
+                "name": "Vital Shot",
+                "expr": "Recovers HP of target & removes statuses [Range: 5, Height Range: Unlimited]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AB_AF_ARMS_MAJ_02_WA"
             }
@@ -3211,9 +3211,9 @@
         ],
         "ability": [
             {
-                "NAME": "Sinister Gaze",
-                "EXPR": "Inflicts Dark Mag Dmg on units within target area & raises own MATK/AGI for three turns [Range: 4, Area: Diamond (5), Height Range: 3]",
-                "MAPEFF": " ",
+                "name": "Sinister Gaze",
+                "expr": "Inflicts Dark Mag Dmg on units within target area & raises own MATK/AGI for three turns [Range: 4, Area: Diamond (5), Height Range: 3]",
+                "mapeff": " ",
                 "restriction": "female",
                 "iname": "SK_ARMS_RENA_01_WA"
             }
@@ -3242,9 +3242,9 @@
         ],
         "ability": [
             {
-                "NAME": "Scarlet's Hidden Flame",
-                "EXPR": "Inflicts Fire Phys Dmg on units within target area & raises own MOVE by 1 & casts Auto Jewel Charge status on self for three turns [Range: 2, Area: Square (3), Height Range: 3]",
-                "MAPEFF": " ",
+                "name": "Scarlet's Hidden Flame",
+                "expr": "Inflicts Fire Phys Dmg on units within target area & raises own MOVE by 1 & casts Auto Jewel Charge status on self for three turns [Range: 2, Area: Square (3), Height Range: 3]",
+                "mapeff": " ",
                 "restriction": "Miuna",
                 "iname": "SK_ARMS_MIUNA_01_WA"
             }
@@ -3278,16 +3278,16 @@
         ],
         "ability": [
             {
-                "NAME": "Rising Sun",
-                "EXPR": "Inflicts Light Phys Dmg on units within target area & casts Quicken on self [Area: Diamond (5), Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Rising Sun",
+                "expr": "Inflicts Light Phys Dmg on units within target area & casts Quicken on self [Area: Diamond (5), Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "Zain",
                 "iname": "SK_ARMS_SWO_ZAYI_01_ZAYI_WA"
             },
             {
-                "NAME": "Eternal Glow",
-                "EXPR": "Inflicts Light Phys Dmg on units within target area & raises own All Elements Res for three turns [Range: 4, Area: Diamond (5), Height Range: 3]",
-                "MAPEFF": " ",
+                "name": "Eternal Glow",
+                "expr": "Inflicts Light Phys Dmg on units within target area & raises own All Elements Res for three turns [Range: 4, Area: Diamond (5), Height Range: 3]",
+                "mapeff": " ",
                 "restriction": "Kanon",
                 "iname": "SK_ARMS_SWO_ZAYI_01_CANO_WA"
             }
@@ -3320,9 +3320,9 @@
         ],
         "ability": [
             {
-                "NAME": "Blossom's Fury",
-                "EXPR": "Casts PATK/MATK +50% and Jewels Obtained +15 on ally units within area around self for one turn [Area: Diamond (5), Height Range: 3]",
-                "MAPEFF": " ",
+                "name": "Blossom's Fury",
+                "expr": "Casts PATK/MATK +50% and Jewels Obtained +15 on ally units within area around self for one turn [Area: Diamond (5), Height Range: 3]",
+                "mapeff": " ",
                 "restriction": "Sakura",
                 "iname": "SK_ARMS_SAKURA_00_WA"
             }
@@ -3355,9 +3355,9 @@
         ],
         "ability": [
             {
-                "NAME": "Hell Rising",
-                "EXPR": "Inflicts 5-hit Dmg on target [Range: 4, Height Range: 3]",
-                "MAPEFF": " ",
+                "name": "Hell Rising",
+                "expr": "Inflicts 5-hit Dmg on target [Range: 4, Height Range: 3]",
+                "mapeff": " ",
                 "restriction": "Forcas",
                 "iname": "SK_ARMS_FOLCAS_00_WA"
             }
@@ -3390,9 +3390,9 @@
         ],
         "ability": [
             {
-                "NAME": "War Princess Fan",
-                "EXPR": "Casts PATK Up, DEX +50%, and Evasion Rate +30 on ally units within target area for one turn [Range: 3, Area: Diamond (5), Height Range: 3]",
-                "MAPEFF": " ",
+                "name": "War Princess Fan",
+                "expr": "Casts PATK Up, DEX +50%, and Evasion Rate +30 on ally units within target area for one turn [Range: 3, Area: Diamond (5), Height Range: 3]",
+                "mapeff": " ",
                 "restriction": "Bashosen",
                 "iname": "SK_AF_ARMS_BASYOSEN_01_WA"
             }
@@ -3421,9 +3421,9 @@
         ],
         "ability": [
             {
-                "NAME": "Skeleton Soul Eater",
-                "EXPR": "Inflicts Dark Dmg on enemy units within target area [Range: 4, Area: Diamond (5), Height Range: 3]",
-                "MAPEFF": " ",
+                "name": "Skeleton Soul Eater",
+                "expr": "Inflicts Dark Dmg on enemy units within target area [Range: 4, Area: Diamond (5), Height Range: 3]",
+                "mapeff": " ",
                 "restriction": "Yomi",
                 "iname": "SK_AF_ARMS_S_YOMI_00_WA"
             }
@@ -3455,9 +3455,9 @@
         ],
         "ability": [
             {
-                "NAME": "Recovery Hearts",
-                "EXPR": "Attributes: Removes all statuses inflicted on target ally unit [Range: 3, Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Recovery Hearts",
+                "expr": "Attributes: Removes all statuses inflicted on target ally unit [Range: 3, Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_ACCS_CHOKER_WA"
             }
@@ -3485,9 +3485,9 @@
         ],
         "ability": [
             {
-                "NAME": "Trench Protector",
-                "EXPR": "Raises Missile Res of ally units within target area for one turn",
-                "MAPEFF": " ",
+                "name": "Trench Protector",
+                "expr": "Raises Missile Res of ally units within target area for one turn",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_ARMS_HWIZ_02_WA"
             }
@@ -3517,9 +3517,9 @@
         ],
         "ability": [
             {
-                "NAME": "Jumping Shift",
-                "EXPR": "Inflicts Phys Dmg on units within target area & raises own MOVE/JUMP for one turn",
-                "MAPEFF": " ",
+                "name": "Jumping Shift",
+                "expr": "Inflicts Phys Dmg on units within target area & raises own MOVE/JUMP for one turn",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_ARMS_SOL_04_WA"
             }
@@ -3550,9 +3550,9 @@
         ],
         "ability": [
             {
-                "NAME": "Banishment",
-                "EXPR": "Inflicts 3-hit Dark Phys Dmg (Medium) & ignores DEF when attacking from behind & greatly raises own AGI until next turn [Range: 1, Height Range: 3]",
-                "MAPEFF": " ",
+                "name": "Banishment",
+                "expr": "Inflicts 3-hit Dark Phys Dmg (Medium) & ignores DEF when attacking from behind & greatly raises own AGI until next turn [Range: 1, Height Range: 3]",
+                "mapeff": " ",
                 "restriction": "Basheeny",
                 "iname": "SK_ARMS_BASINI_01_WA"
             }
@@ -3614,9 +3614,9 @@
         ],
         "ability": [
             {
-                "NAME": "Demonic Defense",
-                "EXPR": "Raises Magic Res of ally units within target area for one turn",
-                "MAPEFF": " ",
+                "name": "Demonic Defense",
+                "expr": "Raises Magic Res of ally units within target area for one turn",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ARMO_ARMOR_04_WA"
             }
@@ -3643,9 +3643,9 @@
         ],
         "ability": [
             {
-                "NAME": "Guardian Shell",
-                "EXPR": "Raises Slash Res of ally units within target area for one turn",
-                "MAPEFF": " ",
+                "name": "Guardian Shell",
+                "expr": "Raises Slash Res of ally units within target area for one turn",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ARMO_SHIELD_03_WA"
             }
@@ -3886,9 +3886,9 @@
         ],
         "ability": [
             {
-                "NAME": "Scapegoat",
-                "EXPR": "Absorbs HP from enemy units within target area [SCOPE: Cross (3), Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Scapegoat",
+                "expr": "Absorbs HP from enemy units within target area [SCOPE: Cross (3), Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ARMS_SPE_02_WA"
             }
@@ -3944,9 +3944,9 @@
         ],
         "ability": [
             {
-                "NAME": "Shower of Arrows",
-                "EXPR": "Inflicts Phys Dmg on units within target area & interrupts charging [Range: 4, Area: Cross (3), Height Range: Unlimited]",
-                "MAPEFF": " ",
+                "name": "Shower of Arrows",
+                "expr": "Inflicts Phys Dmg on units within target area & interrupts charging [Range: 4, Area: Cross (3), Height Range: Unlimited]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ARMS_HUN_02_WA"
             }
@@ -3976,9 +3976,9 @@
         ],
         "ability": [
             {
-                "NAME": "Guardian Soul",
-                "EXPR": "Greatly raises Strike Res of ally units within target area for one turn [Range: 3, Area: Cross (3), Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Guardian Soul",
+                "expr": "Greatly raises Strike Res of ally units within target area for one turn [Range: 3, Area: Cross (3), Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ARMO_GAUNTLET_02_WA"
             }
@@ -4005,9 +4005,9 @@
         ],
         "ability": [
             {
-                "NAME": "General Howling",
-                "EXPR": "Raises All Elements Res of ally units within target area for three turns [Range: 3, Area: Cross (3), Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "General Howling",
+                "expr": "Raises All Elements Res of ally units within target area for three turns [Range: 3, Area: Cross (3), Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ACCS_NECKLACE_01_WA"
             }
@@ -4035,9 +4035,9 @@
         ],
         "ability": [
             {
-                "NAME": "Purple Poison Three Evils",
-                "EXPR": "Inflicts 3-hit Dark Dmg on target & Poison & raises own AGI until next turn [Range: 5, Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Purple Poison Three Evils",
+                "expr": "Inflicts 3-hit Dark Dmg on target & Poison & raises own AGI until next turn [Range: 5, Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "Jin",
                 "iname": "SK_AF_ARMS_ZIN_00_WA"
             }
@@ -4065,9 +4065,9 @@
         ],
         "ability": [
             {
-                "NAME": "Mute Stricken",
-                "EXPR": "Inflicts Phys Dmg on enemy units in area around self & move after attacking [Area: Cross (3), Height Range: 2, MOVE Area: Diamond (7)]",
-                "MAPEFF": " ",
+                "name": "Mute Stricken",
+                "expr": "Inflicts Phys Dmg on enemy units in area around self & move after attacking [Area: Cross (3), Height Range: 2, MOVE Area: Diamond (7)]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ARMS_NIN_04_WA"
             }
@@ -4097,9 +4097,9 @@
         ],
         "ability": [
             {
-                "NAME": "Demon Deflector",
-                "EXPR": "Inflicts Phys Dmg on units within target area with chance of critical & lowers target's MATK [Range: 4, Area: Cross (3), Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Demon Deflector",
+                "expr": "Inflicts Phys Dmg on units within target area with chance of critical & lowers target's MATK [Range: 4, Area: Cross (3), Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ARMS_NEC_03_WA"
             }
@@ -4126,9 +4126,9 @@
         ],
         "ability": [
             {
-                "NAME": "Auto Regeneration",
-                "EXPR": "Casts Auto Heal on self",
-                "MAPEFF": " ",
+                "name": "Auto Regeneration",
+                "expr": "Casts Auto Heal on self",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ARMO_BEGINNER_WA"
             }
@@ -4156,9 +4156,9 @@
         ],
         "ability": [
             {
-                "NAME": "Sacred Prayer",
-                "EXPR": "Will survive fatal Dmg and stay alive on verge of death only once.",
-                "MAPEFF": " ",
+                "name": "Sacred Prayer",
+                "expr": "Will survive fatal Dmg and stay alive on verge of death only once.",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ARMO_SHIELD_04_WA"
             }
@@ -4185,9 +4185,9 @@
         ],
         "ability": [
             {
-                "NAME": "Life Embrace",
-                "EXPR": "Recovers HP of units within target area & reduces Jewels Spent for three turns [Range: 3, Area: Cross (3), Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Life Embrace",
+                "expr": "Recovers HP of units within target area & reduces Jewels Spent for three turns [Range: 3, Area: Cross (3), Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ACCS_RING_01_WA"
             }
@@ -4219,37 +4219,37 @@
         ],
         "ability": [
             {
-                "NAME": "Templar: Magic Defense",
-                "EXPR": "Greatly raises MDEF of ally units in area around self for three turns [Area: Diamond (5), Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Templar: Magic Defense",
+                "expr": "Greatly raises MDEF of ally units in area around self for three turns [Area: Diamond (5), Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "Ahato",
                 "iname": "SK_AF_ACCS_RING_02_WA_ACHAD"
             },
             {
-                "NAME": "Templar: Magic Assault",
-                "EXPR": "Greatly raises MATK of ally units in area around self for three turns [Area: Diamond (5), Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Templar: Magic Assault",
+                "expr": "Greatly raises MATK of ally units in area around self for three turns [Area: Diamond (5), Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "Fier",
                 "iname": "SK_AF_ACCS_RING_02_WA_VIER"
             },
             {
-                "NAME": "Templar: Firm Assault",
-                "EXPR": "Greatly raises PATK of ally units in area around self for three turns [Area: Diamond (5), Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Templar: Firm Assault",
+                "expr": "Greatly raises PATK of ally units in area around self for three turns [Area: Diamond (5), Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "Zuiva",
                 "iname": "SK_AF_ACCS_RING_02_WA_ZYVA"
             },
             {
-                "NAME": "Templar: Satisfaction",
-                "EXPR": "Greatly raises CRIT of ally units in area around self for three turns [Area: Diamond (5), Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Templar: Satisfaction",
+                "expr": "Greatly raises CRIT of ally units in area around self for three turns [Area: Diamond (5), Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "Noin",
                 "iname": "SK_AF_ACCS_RING_02_WA_NOIN"
             },
             {
-                "NAME": "Templar: Vivid Life",
-                "EXPR": "Greatly raises Max HP of ally units in area around self for three turns [Area: Diamond (5), Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Templar: Vivid Life",
+                "expr": "Greatly raises Max HP of ally units in area around self for three turns [Area: Diamond (5), Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "Fury",
                 "iname": "SK_AF_ACCS_RING_02_WA_FURY"
             }
@@ -4455,9 +4455,9 @@
         ],
         "ability": [
             {
-                "NAME": "Phantom Mirage",
-                "EXPR": "Raises Evasion Rate of ally units within area around self for three turns [Area: Diamond (5), Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Phantom Mirage",
+                "expr": "Raises Evasion Rate of ally units within area around self for three turns [Area: Diamond (5), Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ARMS_ARM_03_WA"
             }
@@ -4487,9 +4487,9 @@
         ],
         "ability": [
             {
-                "NAME": "Rain Maker",
-                "EXPR": "Raises own LCK and reduces Jewels Spent for three turns",
-                "MAPEFF": " ",
+                "name": "Rain Maker",
+                "expr": "Raises own LCK and reduces Jewels Spent for three turns",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ARMS_WEA_02_WA"
             }
@@ -4520,9 +4520,9 @@
         ],
         "ability": [
             {
-                "NAME": "Bionic Eye Unseen",
-                "EXPR": "Inflicts Wind Phys Dmg on units within target area & cancels all buffs/debuffs casts on them [Range: 2, Area: Lateral (3), Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Bionic Eye Unseen",
+                "expr": "Inflicts Wind Phys Dmg on units within target area & cancels all buffs/debuffs casts on them [Range: 2, Area: Lateral (3), Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "Ahato",
                 "iname": "SK_AF_ACCS_ACHA_01_WA"
             }
@@ -4551,9 +4551,9 @@
         ],
         "ability": [
             {
-                "NAME": "Dance Incense Last Perfume",
-                "EXPR": "Inflicts 4-hit Thunder Mag Dmg [Range: 5, Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Dance Incense Last Perfume",
+                "expr": "Inflicts 4-hit Thunder Mag Dmg [Range: 5, Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "Fier",
                 "iname": "SK_ARMS_VIER_01_WA"
             }
@@ -4643,9 +4643,9 @@
         ],
         "ability": [
             {
-                "NAME": "Limited Burst",
-                "EXPR": "Inflicts non-elemental Missile Dmg on units within target area & raises own Missile ATK for three turns [Range: 5, Area: Cross (3), Height Range: 3]",
-                "MAPEFF": " ",
+                "name": "Limited Burst",
+                "expr": "Inflicts non-elemental Missile Dmg on units within target area & raises own Missile ATK for three turns [Range: 5, Area: Cross (3), Height Range: 3]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ARMS_SNI_04_WA"
             }
@@ -4675,9 +4675,9 @@
         ],
         "ability": [
             {
-                "NAME": "Bagua Revitalization",
-                "EXPR": "Places a panel that automatically recovers HP (The panel disappears after being activated three times) [Range: 4, Area: Cross (3), Height Range: 3]",
-                "MAPEFF": " ",
+                "name": "Bagua Revitalization",
+                "expr": "Places a panel that automatically recovers HP (The panel disappears after being activated three times) [Range: 4, Area: Cross (3), Height Range: 3]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ARMS_HUU_02_WA"
             }
@@ -4796,9 +4796,9 @@
         ],
         "ability": [
             {
-                "NAME": "Curse Destroyer",
-                "EXPR": "Fully recovers HP of self and nearby ally units & removes all statuses [Area: Diamond (5), Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Curse Destroyer",
+                "expr": "Fully recovers HP of self and nearby ally units & removes all statuses [Area: Diamond (5), Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "Amaterasu",
                 "iname": "SK_AF_ARMS_S_AMAT_00_WA"
             }
@@ -4828,9 +4828,9 @@
         ],
         "ability": [
             {
-                "NAME": "3-Strike Dragon Fist",
-                "EXPR": "Inflicts 3-hit non-elemental Phys Dmg on units within target area [Range: 3, Area: 1 sq line, Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "3-Strike Dragon Fist",
+                "expr": "Inflicts 3-hit non-elemental Phys Dmg on units within target area [Range: 3, Area: 1 sq line, Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ARMS_STR_02_WA"
             }
@@ -4881,9 +4881,9 @@
         ],
         "ability": [
             {
-                "NAME": "A Hundred Blossoms of Romance",
-                "EXPR": "Inflicts 4-hit Light Missile Dmg on target & 100% Hit & absorbs part of damage inflicted as HP [Range: 5, Height Range: Unlimited]",
-                "MAPEFF": " ",
+                "name": "A Hundred Blossoms of Romance",
+                "expr": "Inflicts 4-hit Light Missile Dmg on target & 100% Hit & absorbs part of damage inflicted as HP [Range: 5, Height Range: Unlimited]",
+                "mapeff": " ",
                 "restriction": "Eros",
                 "iname": "SK_AF_ARMS_POK_EROS_00_WA"
             }
@@ -4914,9 +4914,9 @@
         ],
         "ability": [
             {
-                "NAME": "Scattered Flowers of Thunder",
-                "EXPR": "Inflicts 3-hit Thunder Slash Dmg on target & greatly raises PDEF/MDEF until next turn [Range: 1, Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Scattered Flowers of Thunder",
+                "expr": "Inflicts 3-hit Thunder Slash Dmg on target & greatly raises PDEF/MDEF until next turn [Range: 1, Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "Yuri",
                 "iname": "SK_AF_ARMS_S_YURI_00_WA"
             }
@@ -4946,9 +4946,9 @@
         ],
         "ability": [
             {
-                "NAME": "Over Ocean",
-                "EXPR": "Inflicts Phys Dmg on target (fired in a straight line) & doubles own PATK for next turn [Range: 3, Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Over Ocean",
+                "expr": "Inflicts Phys Dmg on target (fired in a straight line) & doubles own PATK for next turn [Range: 3, Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ARMS_KAI_04_WA"
             }
@@ -4978,9 +4978,9 @@
         ],
         "ability": [
             {
-                "NAME": "Tidal Drain",
-                "EXPR": "Absorbs HP from target unit [Range: 4, Height Range: 3]",
-                "MAPEFF": " ",
+                "name": "Tidal Drain",
+                "expr": "Absorbs HP from target unit [Range: 4, Height Range: 3]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ACCS_RING_03_WA"
             }
@@ -5008,9 +5008,9 @@
         ],
         "ability": [
             {
-                "NAME": "Twin Thrusting Blade",
-                "EXPR": "Inflicts 4-hit Light Slash Dmg on target unit & 100% Hit with chance of critical & greatly raises own Hit Rate for three turns [Range: 1, Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Twin Thrusting Blade",
+                "expr": "Inflicts 4-hit Light Slash Dmg on target unit & 100% Hit with chance of critical & greatly raises own Hit Rate for three turns [Range: 1, Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "Zuiva",
                 "iname": "SK_AF_ARMS_ZYVA_01_WA"
             }
@@ -5041,9 +5041,9 @@
         ],
         "ability": [
             {
-                "NAME": "Roaring Testosterone",
-                "EXPR": "Inflicts Dark Strike Dmg on units within target area & raises own AGI for three turns [Range: 3, Area: Cross (3), Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Roaring Testosterone",
+                "expr": "Inflicts Dark Strike Dmg on units within target area & raises own AGI for three turns [Range: 3, Area: Cross (3), Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "Noin",
                 "iname": "SK_AF_ARMO_NOIN_01_WA"
             }
@@ -5072,9 +5072,9 @@
         ],
         "ability": [
             {
-                "NAME": "Mystic Curse Unseen",
-                "EXPR": "Greatly lowers Hit Rate/COMBO of enemy units within target area for one turn [Range: 5, Area: Cross (3), Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Mystic Curse Unseen",
+                "expr": "Greatly lowers Hit Rate/COMBO of enemy units within target area for one turn [Range: 5, Area: Cross (3), Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "Fury",
                 "iname": "SK_AF_ARMS_FURY_01_WA"
             }
@@ -5104,9 +5104,9 @@
         ],
         "ability": [
             {
-                "NAME": "Cheers of the Deep Sea",
-                "EXPR": "Recovers own HP and raises Hit Rate for three turns",
-                "MAPEFF": " ",
+                "name": "Cheers of the Deep Sea",
+                "expr": "Recovers own HP and raises Hit Rate for three turns",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ARMS_SAM_04_WA"
             }
@@ -5136,9 +5136,9 @@
         ],
         "ability": [
             {
-                "NAME": "Jewel Raider",
-                "EXPR": "After moving, absorbs Jewels from target & raises PDEF for one turn [Range: 4, Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Jewel Raider",
+                "expr": "After moving, absorbs Jewels from target & raises PDEF for one turn [Range: 4, Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ARMS_BEAST_03_WA"
             }
@@ -5293,9 +5293,9 @@
         ],
         "ability": [
             {
-                "NAME": "Obsorb Quartet",
-                "EXPR": "Absorbs Jewels from units within target area [Area: Square (3), Height Range: 3]",
-                "MAPEFF": " ",
+                "name": "Obsorb Quartet",
+                "expr": "Absorbs Jewels from units within target area [Area: Square (3), Height Range: 3]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ARMS_MAD_01_WA"
             }
@@ -5351,9 +5351,9 @@
         ],
         "ability": [
             {
-                "NAME": "Range Resist",
-                "EXPR": "Greatly increases own Area Attack Res for one turn",
-                "MAPEFF": " ",
+                "name": "Range Resist",
+                "expr": "Greatly increases own Area Attack Res for one turn",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ARMO_ARMOR_06_WA"
             }
@@ -5413,9 +5413,9 @@
         ],
         "ability": [
             {
-                "NAME": "Furious Bicorn Rush",
-                "EXPR": "Inflicts non-elemental Pierce Dmg & raises own MOVE by 1 for three turns [Range: 4, Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Furious Bicorn Rush",
+                "expr": "Inflicts non-elemental Pierce Dmg & raises own MOVE by 1 for three turns [Range: 4, Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ARMS_SPE_04_WA"
             }
@@ -5445,9 +5445,9 @@
         ],
         "ability": [
             {
-                "NAME": "Star Gazer",
-                "EXPR": "Recovers HP of ally units within target area & raises Max HP for three turns & recovers amount raised [Range: 3, Area: Cross (3), Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Star Gazer",
+                "expr": "Recovers HP of ally units within target area & raises Max HP for three turns & recovers amount raised [Range: 3, Area: Cross (3), Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ACCS_EARRING_02_WA"
             }
@@ -5497,9 +5497,9 @@
         ],
         "ability": [
             {
-                "NAME": "Triple Mega-Blast",
-                "EXPR": "Inflicts 3-hit Wind Mag Dmg on units within target area [Range: 4, Area: Cross (3), Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Triple Mega-Blast",
+                "expr": "Inflicts 3-hit Wind Mag Dmg on units within target area [Range: 4, Area: Cross (3), Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "Uzuma",
                 "iname": "SK_AF_ACCS_HOURGLASS_01_WA"
             }
@@ -5527,9 +5527,9 @@
         ],
         "ability": [
             {
-                "NAME": "Zero-Gravity Space",
-                "EXPR": "Casts Auto Jewel Regen on self & raises MOVE/JUMP by 1 on next turn",
-                "MAPEFF": " ",
+                "name": "Zero-Gravity Space",
+                "expr": "Casts Auto Jewel Regen on self & raises MOVE/JUMP by 1 on next turn",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ARMS_PSI_01_WA"
             }
@@ -5582,9 +5582,9 @@
         ],
         "ability": [
             {
-                "NAME": "Comet",
-                "EXPR": "Sacrifices own HP and performs area attack that inflicts Phys Dmg on enemy units in area around self & move after attacking [Range: 1, Area: Square, Height Range: 2, Move Area: Diamond (9)]",
-                "MAPEFF": " ",
+                "name": "Comet",
+                "expr": "Sacrifices own HP and performs area attack that inflicts Phys Dmg on enemy units in area around self & move after attacking [Range: 1, Area: Square, Height Range: 2, Move Area: Diamond (9)]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ARMS_NIN_05_WA"
             }
@@ -5614,9 +5614,9 @@
         ],
         "ability": [
             {
-                "NAME": "Berserk or Treat",
-                "EXPR": "Inflicts Confuse status on target unit (greatly raises PATK & greatly lowers PDEF) [Range: 3, Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Berserk or Treat",
+                "expr": "Inflicts Confuse status on target unit (greatly raises PATK & greatly lowers PDEF) [Range: 3, Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ACCS_DOLL_02"
             }
@@ -5644,9 +5644,9 @@
         ],
         "ability": [
             {
-                "NAME": "Stardust Blessing",
-                "EXPR": "Raises own MATK for three turns",
-                "MAPEFF": " ",
+                "name": "Stardust Blessing",
+                "expr": "Raises own MATK for three turns",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ARMO_HAT_01_WA"
             }
@@ -5673,9 +5673,9 @@
         ],
         "ability": [
             {
-                "NAME": "Chronos Drive",
-                "EXPR": "Casts Quicken on target and self [Range: 3, Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Chronos Drive",
+                "expr": "Casts Quicken on target and self [Range: 3, Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ACCS_CLOCK_01_WA"
             }
@@ -5820,9 +5820,9 @@
         ],
         "ability": [
             {
-                "NAME": "Sunshine Burst",
-                "EXPR": "Inflicts Light Phys Dmg on units in area around self & nullifies all debuffs/statuses inflicted on self for three turns [Area: Diamond (5), Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Sunshine Burst",
+                "expr": "Inflicts Light Phys Dmg on units in area around self & nullifies all debuffs/statuses inflicted on self for three turns [Area: Diamond (5), Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ARMS_TEM_02_WA"
             }
@@ -5852,9 +5852,9 @@
         ],
         "ability": [
             {
-                "NAME": "Corona Burst",
-                "EXPR": "Inflicts Mag Dmg & Knockback on units in area around self [Area: Cross (3), Height Range: 2]",
-                "MAPEFF": " ",
+                "name": "Corona Burst",
+                "expr": "Inflicts Mag Dmg & Knockback on units in area around self [Area: Cross (3), Height Range: 2]",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ACCS_BRACELET_02_WA"
             }
@@ -5997,9 +5997,9 @@
         ],
         "ability": [
             {
-                "NAME": "Dragon-God Roar",
-                "EXPR": "Doubles own Pierce ATK and PDEF for one turn",
-                "MAPEFF": " ",
+                "name": "Dragon-God Roar",
+                "expr": "Doubles own Pierce ATK and PDEF for one turn",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ARMO_ARMOR_07_WA"
             }
@@ -6026,9 +6026,9 @@
         ],
         "ability": [
             {
-                "NAME": "Divine War Soul",
-                "EXPR": "Raises Slash Res/Strike Res for three turns after appearing on map",
-                "MAPEFF": " ",
+                "name": "Divine War Soul",
+                "expr": "Raises Slash Res/Strike Res for three turns after appearing on map",
+                "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ACCS_NECKLACE_02_WA"
             }
@@ -6096,9 +6096,9 @@
         ],
         "ability": [
             {
-                "NAME": "Water of Lore ",
-                "EXPR": "Casts Auto Heal on self",
-                "MAPEFF": " ",
+                "name": "Water of Lore ",
+                "expr": "Casts Auto Heal on self",
+                "mapeff": " ",
                 "restriction": "Selena",
                 "iname": "SK_ACCS_GL_CRYSTALROSE"
             }

@@ -272,13 +272,13 @@ def saveAsJSON(name, var):
 def Translation():
     [loc, trans] = loadFiles(
         ['LocalizedMasterParam.json', 'TranslationsS.json'])
-    copy = ['']
+    
     for i in trans:
         if i in loc:
-            loc[i].update(trans[i])
+            trans[i].update(loc[i])
+            loc[i]=trans[i]
         else:
             loc[i] = trans[i]
-            loc[i]['NAME'] = trans[i]['name']
 
         if len(loc[i]['long des']) == 0:
             loc[i]['long des'] = loc[i]['short des']
@@ -635,7 +635,7 @@ def name_collab(iname, loc):
 
     # unknown name
     try:
-        name = loc['UN_V2_'+iname]['NAME']
+        name = loc['UN_V2_'+iname]['name']
     except:
         name = iname.replace('_', ' ')
         prefix = {
@@ -686,7 +686,7 @@ def FanTranslatedNames(wyte, master, loc):
             [name, collab, collab_short] = name_collab(unit['iname'], loc)
             c = {
                 'iname': unit['iname'],
-                'official': loc[unit['iname']]['NAME'] if unit['iname'] in loc else name,
+                'official': loc[unit['iname']]['name'] if unit['iname'] in loc else name,
                 'generated': name,
                 'inofficial': "",
                 'collab': collab,

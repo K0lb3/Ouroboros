@@ -78,7 +78,7 @@ ECastTypes=["Chant","Charge","Jump"]
 DamageTypes=["None","TotalDamage","PhyDamage","MagDamage"]
 ShieldTypes=["None","UseCount","Hp","Limitter","MAX"]
 
-def convert_raw_skill(skl):
+def convert_raw_skill(skl,loc):
   SkillKey = {
       "iname"	:	"iname",
       "name"	:	"name",
@@ -216,6 +216,8 @@ def convert_raw_skill(skl):
   if "shield_d_type" in skl:
     skill["shield_damage_type"] = DamageTypes[skl["shield_d_type"]]
 
+  if skill['iname'] in loc:
+    skill.update(loc[skill['iname']])
   return skill
 
 '''	

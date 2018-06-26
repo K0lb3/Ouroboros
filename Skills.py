@@ -10,7 +10,7 @@ def Get_Skills(ability,master,loc):
     while 'skl'+str(s) in ability:
         siname=ability['skl'+str(s)]
 
-        skill=convert_raw_skill(master[siname])
+        skill=convert_raw_skill(master[siname],loc)
         skills[siname]=skill
         s+=1
     

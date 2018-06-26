@@ -19,8 +19,7 @@ def gear():
         c = {'iname': iname, 'type': [
             'None', 'Weapon', 'Armor', 'Accessory'][g['type']]}  # current
         if iname in loc:
-            for i in loc[iname]:
-                c[i.lower()] = loc[iname][i]
+            c.update(loc[iname])
         else:
             try:
                 c.update({

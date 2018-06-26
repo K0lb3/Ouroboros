@@ -2,65 +2,79 @@ from MainFunctions import *
 
 
 def drops():
-    [quests, master, jp, locM, locQ] = loadFiles(
-        ['QuestParam.json', 'MasterParam.json', 'MasterParamJP.json', 'LocalizedMasterParam.json', 'LocalizedQuestParam.json'])
-    quest = quests['quests']
-    master = convertMaster(master)
-    jp = convertMaster(jp)
+    [qdrop,locM, locQ, qmaster,master] = loadFiles(
+        ['QuestDropParam.json','LocalizedMasterParam.json', 'LocalizedQuestParam.json','QuestParam.json','MasterParam.json'])
+    qmaster=convertMaster(qmaster)
+    master=convertMaster(master)
+    qdrop_c=convertMaster(qdrop)
+
     export = {}
+    #fix quests first
+    for item in qdrop['simpleQuestDrops']:
+        for quest in item["questlist"]:
+            try:
+                if item['iname'] not in qdrop_c[quest]['droplist']:
+                    qdrop_c[quest]['droplist'].append(item['iname'])
+            except KeyError:
+                try:
+                    qdrop_c[quest]['droplist']=[item['iname']]
+                except:
+                    pass
 
-    def loc(iname):
-        if iname in locM:
-            return(locM[iname]['NAME'])
-        else:
-            return(iname[6:].replace('_', ' ').title())
 
-    def loc_drops(drops, loc):
-        ret = []
-        for d in drops:
-            ret.append(loc(d))
-        return(ret)
+    def generate_droplist(qlist):
+        story=[]
+        hard=[]
+        event=[]
 
-    def icon(iname):
-        if iname in master:
-            return master[d]['icon']
-        elif d in jp:
-            return jp[d]['icon']
+        def loc_drops(drops):
+            ret=[]
+            for drop in drops:
+                ret.append(locM[drop]['name'])
+            return(ret)
 
-        return iname
+        for quest in qlist:
+            q=qmaster[quest]
+            if 'pt' not in q:
+                continue
 
-    drop = {}
-    for q in quest:
-        if 'drops' in q and len(q['drops']):
-            for d in q['drops']:
-                if d not in drop:
-                    drop[d] = {
-                        'iname':    d,
-                        'name':    loc(d),
-                        'link':    'http://www.alchemistcodedb.com/item/{iname}'.format(iname=d.replace('_', '-').lower()),
-                        'icon':    'http://cdn.alchemistcodedb.com/images/items/icons/{icon}.png'.format(icon=icon(d)),
-                        'story':    [],
-                        'event':    []
-                    }
-
-                if (q['iname'] in locQ) and ('Ch ' in locQ[q['iname']]['TITLE']):
-                    drop[d]['story'].append({
-                        'name': '[{cost} AP] {title}'.format(cost=str(q['pt']), title=locQ[q['iname']]['TITLE']),
-                        'drops': loc_drops(q['drops'], loc)
-                    })
+            try:
+                if (quest in locQ) and ('Ch ' in locQ[quest]['title']):
+                    story.append({
+                        'name': '[{cost} AP] {title}'.format(cost=str(q['pt']), title=locQ[quest]['title']),
+                        'drops': loc_drops(qdrop_c[quest]['droplist'])
+                        })
                 else:
-                    drop[d]['event'].append({
-                        'name': '[{cost} AP] {MP} {title}'.format(cost=str(q['pt']), MP='MP' if 'multi' in q else "", title=locQ[q['iname']]['NAME'] if q['iname'] in locQ else q['iname']),
-                        'drops': loc_drops(q['drops'], loc)
-                    })
-    #print(json.dumps(drop, indent=4))
-    for i in drop:
-        drop[i]['inputs'] = [drop[i]['name']]
-    return(drop)
+                    event.append({
+                        'name': '[{cost} AP] {MP} {title}'.format(cost=str(q['pt']), MP='MP' if 'multi' in q else "", title=locQ[quest]['name'] if quest in locQ else quest),
+                        'drops': loc_drops(qdrop_c[quest]['droplist'])
+                        })
+            except:
+                print(quest)
+
+        return({'story':story,'hard':hard,'event':event})
+
+    #listing them in earnest now
+    for item in qdrop['simpleQuestDrops']:
+        iname=item['iname']
+
+        drops=generate_droplist(item['questlist'])
+
+        export[iname]={
+            'iname':iname,
+            'name': locM[iname]['name'],
+            'inputs': [locM[iname]['name']],
+            'link': 'http://www.alchemistcodedb.com/item/{iname}'.format(iname=iname.replace('_', '-').lower()),
+            'icon': 'http://cdn.alchemistcodedb.com/images/items/icons/{icon}.png'.format(icon=master[iname]['icon']),
+            'story':drops['story'],
+            #'hard': drops['hard'],
+            'event':drops['event']
+            }
+    
+    return(export)
 
 
 # save to out
 path = cPath()+'\\out\\'
-drop = drops()
-saveAsJSON(path+'drops.json', drop)
+saveAsJSON(path+'drops.json', drops())
 # GSSUpload(drop,"drops")
