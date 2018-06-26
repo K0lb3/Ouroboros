@@ -20,8 +20,15 @@ class Ability(Model):
         )
 
     def __str__(self):
-        return '\n'.join([
-            "[{name}]({link})".format(name=self.name, link=self.link),
-            "Restriction: {rest}".format(rest=self.restriction),
-            self.expr,
-        ])
+        if self.restriction != "":
+            return '\n'.join([
+                "[{name}]({link})".format(name=self.name, link=self.link),
+                "Restriction: {rest}".format(rest=self.restriction),
+                self.expr,
+            ])
+        else:
+            return '\n'.join([
+                "[{name}]({link})".format(name=self.name, link=self.link),
+                self.expr,
+            ])
+            
