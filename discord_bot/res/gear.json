@@ -769,8 +769,8 @@
             "5": "+50 PATK & +6 Jewels Obtained & +25 Fire Res & +75 HP"
         },
         "atk_buff": {
-            "4": "Self: +25% MDEF",
-            "5": "Self: +30% MDEF"
+            "4": "Self: +25% MDEF [30%]",
+            "5": "Self: +30% MDEF [30%]"
         }
     },
     "AF_ARMS_ROD_WIZARD_DAI": {
@@ -894,8 +894,8 @@
             "5": "+30 PATK & +25 DEX & +5 AGI"
         },
         "atk_buff": {
-            "4": "Target: -30% PATK",
-            "5": "Target: -30% PATK"
+            "4": "Target: -30% PATK [20%]",
+            "5": "Target: -30% PATK [20%]"
         }
     },
     "AF_ARMS_BOW_02": {
@@ -919,9 +919,9 @@
             "5": "+25 PATK & +20 DEX"
         },
         "atk_buff": {
-            "3": "Target: -25% PDEF",
-            "4": "Target: -25% PDEF",
-            "5": "Target: -25% PDEF"
+            "3": "Target: -25% PDEF [20%]",
+            "4": "Target: -25% PDEF [20%]",
+            "5": "Target: -25% PDEF [20%]"
         }
     },
     "AF_ARMS_GLV_01": {
@@ -944,8 +944,8 @@
             "5": "+35 PATK & +25 DEX & +5 AGI"
         },
         "atk_buff": {
-            "4": "Self: +30% PATK",
-            "5": "Self: +30% PATK"
+            "4": "Self: +30% PATK [20%]",
+            "5": "Self: +30% PATK [20%]"
         }
     },
     "AF_ARMS_GLV_02": {
@@ -969,9 +969,9 @@
             "5": "+30 PATK & +20 DEX"
         },
         "atk_buff": {
-            "3": "Self: +25% DEX",
-            "4": "Self: +25% DEX",
-            "5": "Self: +25% DEX"
+            "3": "Self: +25% DEX [20%]",
+            "4": "Self: +25% DEX [20%]",
+            "5": "Self: +25% DEX [20%]"
         }
     },
     "AF_ARMS_SAB_CAPTAIN": {
@@ -1002,8 +1002,8 @@
             "5": "+30 PATK & +15 CRIT & +15 Thunder Res & +45 HP"
         },
         "atk_buff": {
-            "4": "Self: +30% PATK",
-            "5": "Self: +30% PATK"
+            "4": "Self: +30% PATK [20%]",
+            "5": "Self: +30% PATK [20%]"
         }
     },
     "AF_ARMS_SAB_PIRATE": {
@@ -1169,8 +1169,8 @@
             "5": "+40 PATK & +20 PDEF & +5 AGI & +10 Thunder Res & +30 HP"
         },
         "atk_buff": {
-            "4": "Self: +18 Evasion Rate",
-            "5": "Self: +20 Evasion Rate"
+            "4": "Self: +18 Evasion Rate [20%]",
+            "5": "Self: +20 Evasion Rate [20%]"
         }
     },
     "AF_ARMS_REA_SICKLE": {
@@ -1275,8 +1275,8 @@
             "5": "+35 PATK & +5 AGI & +20 DEX"
         },
         "atk_buff": {
-            "4": "Self: +27 PDEF",
-            "5": "Self: +30 PDEF"
+            "4": "Self: +27 PDEF [25%]",
+            "5": "Self: +30 PDEF [25%]"
         }
     },
     "AF_ARMS_KUNAI_03": {
@@ -1471,8 +1471,8 @@
             "5": "+50 PATK & +30 HP & +15 CRIT"
         },
         "atk_buff": {
-            "4": "Self: +18% PDEF",
-            "5": "Self: +20% PDEF"
+            "4": "Self: +18% PDEF [50%]",
+            "5": "Self: +20% PDEF [50%]"
         }
     },
     "AF_ARMS_AXE_03": {
@@ -1496,9 +1496,9 @@
             "5": "+40 PATK & +25 HP"
         },
         "atk_buff": {
-            "3": "Self: +16% PATK",
-            "4": "Self: +18% PATK",
-            "5": "Self: +20% PATK"
+            "3": "Self: +16% PATK [35%]",
+            "4": "Self: +18% PATK [35%]",
+            "5": "Self: +20% PATK [35%]"
         }
     },
     "AF_ARMS_SEDA_BOW": {
@@ -1566,9 +1566,9 @@
             "5": "+35 PATK & +20 HP & +20 PDEF"
         },
         "atk_buff": {
-            "3": "Target: -12% PDEF",
-            "4": "Target: -14% PDEF",
-            "5": "Target: -15% PDEF"
+            "3": "Target: -12% PDEF [25%]",
+            "4": "Target: -14% PDEF [25%]",
+            "5": "Target: -15% PDEF [25%]"
         }
     },
     "AF_ACCS_CANO_HEAD": {
@@ -1649,8 +1649,8 @@
             "5": "+40 MATK & +30 HP & +20 PDEF"
         },
         "atk_buff": {
-            "4": "Self: +18% PDEF",
-            "5": "Self: +20% PDEF"
+            "4": "Self: +18% PDEF [50%]",
+            "5": "Self: +20% PDEF [50%]"
         }
     },
     "AF_ARMS_TAROT_02": {
@@ -1674,9 +1674,9 @@
             "5": "+30 MATK & +20 MDEF"
         },
         "atk_buff": {
-            "3": "Self: +16% MDEF",
-            "4": "Self: +18% MDEF",
-            "5": "Self: +20% MDEF"
+            "3": "Self: +16% MDEF [35%]",
+            "4": "Self: +18% MDEF [35%]",
+            "5": "Self: +20% MDEF [35%]"
         }
     },
     "AF_ARMS_GREAT_SWORD_01": {
@@ -1707,8 +1707,8 @@
             "5": "+45 PATK & +30 HP & +10 CRIT"
         },
         "atk_buff": {
-            "4": "Self: +6 AGI",
-            "5": "Self: +7 AGI"
+            "4": "Self: +6 AGI [50%]",
+            "5": "Self: +7 AGI [50%]"
         }
     },
     "AF_ARMS_GREAT_SWORD_02": {
@@ -1732,9 +1732,9 @@
             "5": "+30 PATK & +20 HP"
         },
         "atk_buff": {
-            "3": "Self: +16% PATK",
-            "4": "Self: +18% PATK",
-            "5": "Self: +20% PATK"
+            "3": "Self: +16% PATK [35%]",
+            "4": "Self: +18% PATK [35%]",
+            "5": "Self: +20% PATK [35%]"
         }
     },
     "AF_ARMS_DSWO_02": {
@@ -1765,8 +1765,8 @@
             "5": "+40 PATK & +5 AGI & +30 HP"
         },
         "atk_buff": {
-            "4": "Self: +22 Evasion Rate",
-            "5": "Self: +25 Evasion Rate"
+            "4": "Self: +22 Evasion Rate [50%]",
+            "5": "Self: +25 Evasion Rate [50%]"
         }
     },
     "AF_ARMS_DSWO_03": {
@@ -1790,9 +1790,9 @@
             "5": "+35 PATK & +3 AGI"
         },
         "atk_buff": {
-            "3": "Self: +16% PATK",
-            "4": "Self: +18% PATK",
-            "5": "Self: +20% PATK"
+            "3": "Self: +16% PATK [35%]",
+            "4": "Self: +18% PATK [35%]",
+            "5": "Self: +20% PATK [35%]"
         }
     },
     "AF_ARMS_ROD_02": {
@@ -1823,8 +1823,8 @@
             "5": "+40 MATK & +30 Max Jewels & +10 Jewels Obtained"
         },
         "atk_buff": {
-            "4": "Self: +18% MATK",
-            "5": "Self: +20% MATK"
+            "4": "Self: +18% MATK [50%]",
+            "5": "Self: +20% MATK [50%]"
         }
     },
     "AF_ARMS_ROD_03": {
@@ -1848,9 +1848,9 @@
             "5": "+30 MATK & +20 MDEF"
         },
         "atk_buff": {
-            "3": "Self: +16% PDEF",
-            "4": "Self: +18% PDEF",
-            "5": "Self: +20% PDEF"
+            "3": "Self: +16% PDEF [35%]",
+            "4": "Self: +18% PDEF [35%]",
+            "5": "Self: +20% PDEF [35%]"
         }
     },
     "AF_ARMS_SWO_YAUL_01": {
@@ -2105,8 +2105,8 @@
             "5": "+40 MATK & +30 LUCK & +30 Max Jewels"
         },
         "atk_buff": {
-            "4": "Self: +25% PDEF",
-            "5": "Self: +30% PDEF"
+            "4": "Self: +25% PDEF [30%]",
+            "5": "Self: +30% PDEF [30%]"
         }
     },
     "AF_ARMS_MEDICHINE_03": {
@@ -2130,9 +2130,9 @@
             "5": "+30 MATK & +20 Max Jewels"
         },
         "atk_buff": {
-            "3": "Self: +18% MDEF",
-            "4": "Self: +21% MDEF",
-            "5": "Self: +25% MDEF"
+            "3": "Self: +18% MDEF [30%]",
+            "4": "Self: +21% MDEF [30%]",
+            "5": "Self: +25% MDEF [30%]"
         }
     },
     "AF_ARMS_BEAST_01": {
@@ -2244,8 +2244,8 @@
             "5": "+45 PATK & +35 HP & +15 CRIT"
         },
         "atk_buff": {
-            "4": "Self: +18% PATK",
-            "5": "Self: +20% PATK"
+            "4": "Self: +18% PATK [25%]",
+            "5": "Self: +20% PATK [25%]"
         }
     },
     "AF_ARMS_KATANA_MASAMUNE_01": {
@@ -2277,8 +2277,8 @@
             "5": "+40 PATK & +30 HP & +7 AGI"
         },
         "atk_buff": {
-            "4": "Self: +5 AGI",
-            "5": "Self: +7 AGI"
+            "4": "Self: +5 AGI [25%]",
+            "5": "Self: +7 AGI [25%]"
         }
     },
     "AF_ARMS_BOW_SHEKINAH_01": {
@@ -2311,9 +2311,9 @@
             "5": "+20 PATK & +15 CRIT"
         },
         "atk_buff": {
-            "3": "Self: +8 Evasion Rate",
-            "4": "Self: +9 Evasion Rate",
-            "5": "Self: +10 Evasion Rate"
+            "3": "Self: +8 Evasion Rate [25%]",
+            "4": "Self: +9 Evasion Rate [25%]",
+            "5": "Self: +10 Evasion Rate [25%]"
         }
     },
     "AF_ARMS_AXE_SITA_01": {
@@ -2346,9 +2346,9 @@
             "5": "+20 PATK & +30 HP"
         },
         "atk_buff": {
-            "3": "Self: +13% PDEF",
-            "4": "Self: +14% PDEF",
-            "5": "Self: +15% PDEF"
+            "3": "Self: +13% PDEF [25%]",
+            "4": "Self: +14% PDEF [25%]",
+            "5": "Self: +15% PDEF [25%]"
         }
     },
     "AF_ARMS_NEC_02": {
@@ -2379,8 +2379,8 @@
             "5": "+45 PATK & +40 HP & +6 Jewels Obtained"
         },
         "atk_buff": {
-            "4": "Target: -36% PATK",
-            "5": "Target: -40% PATK"
+            "4": "Target: -36% PATK [40%]",
+            "5": "Target: -40% PATK [40%]"
         }
     },
     "AF_ARMS_MIK_02": {
@@ -2436,9 +2436,9 @@
             "5": "+30 MATK & +10 LUCK"
         },
         "atk_buff": {
-            "3": "Target: -24% PATK",
-            "4": "Target: -27% PATK",
-            "5": "Target: -30% PATK"
+            "3": "Target: -24% PATK [40%]",
+            "4": "Target: -27% PATK [40%]",
+            "5": "Target: -30% PATK [40%]"
         }
     },
     "AF_ARMS_THI_02": {
@@ -2494,9 +2494,9 @@
             "5": "+40 PATK & +25 DEX"
         },
         "atk_buff": {
-            "3": "Target: -24% PDEF",
-            "4": "Target: -27% PDEF",
-            "5": "Target: -30% PDEF"
+            "3": "Target: -24% PDEF [40%]",
+            "4": "Target: -27% PDEF [40%]",
+            "5": "Target: -30% PDEF [40%]"
         }
     },
     "AF_ARMS_SEN_04": {
@@ -2527,8 +2527,8 @@
             "5": "+40 MATK & +15 AGI & +60 HP"
         },
         "atk_buff": {
-            "4": "Self: +34% PDEF",
-            "5": "Self: +40% PDEF"
+            "4": "Self: +34% PDEF [40%]",
+            "5": "Self: +40% PDEF [40%]"
         }
     },
     "AF_ARMS_OTHI_01": {
@@ -2619,9 +2619,9 @@
             "5": "+40 PATK & +30 HP"
         },
         "atk_buff": {
-            "3": "Self: +23% PATK",
-            "4": "Self: +26% PATK",
-            "5": "Self: +30% PATK"
+            "3": "Self: +23% PATK [30%]",
+            "4": "Self: +26% PATK [30%]",
+            "5": "Self: +30% PATK [30%]"
         }
     },
     "AF_ARMS_DOC_04": {
@@ -2717,10 +2717,10 @@
             "5": "+45 PATK & +20 MDEF & +18 CRIT"
         },
         "atk_buff": {
-            "2": "Self: +14 AGI",
-            "3": "Self: +16 AGI",
-            "4": "Self: +18 AGI",
-            "5": "Self: +20 AGI"
+            "2": "Self: +14 AGI [30%]",
+            "3": "Self: +16 AGI [30%]",
+            "4": "Self: +18 AGI [30%]",
+            "5": "Self: +20 AGI [30%]"
         }
     },
     "AF_ACCS_TOSAKA_PENDANT": {
@@ -2848,8 +2848,8 @@
             "5": "+50 HP & +14 PDEF & +14 MDEF"
         },
         "atk_buff": {
-            "4": "Self: +28% PATK",
-            "5": "Self: +30% PATK"
+            "4": "Self: +28% PATK [30%]",
+            "5": "Self: +30% PATK [30%]"
         }
     },
     "AF_ACCS_DOREI": {
@@ -2940,8 +2940,8 @@
             "5": "+50 PATK & +10 AGI & +30 DEX"
         },
         "atk_buff": {
-            "4": "Self: +17% PATK",
-            "5": "Self: +20% PATK"
+            "4": "Self: +17% PATK [50%]",
+            "5": "Self: +20% PATK [50%]"
         }
     },
     "AF_ARMS_SAM03": {
@@ -2965,9 +2965,9 @@
             "5": "+40 PATK & +20 DEX"
         },
         "atk_buff": {
-            "3": "Target: -22% PDEF",
-            "4": "Target: -26% PDEF",
-            "5": "Target: -30% PDEF"
+            "3": "Target: -22% PDEF [30%]",
+            "4": "Target: -26% PDEF [30%]",
+            "5": "Target: -30% PDEF [30%]"
         }
     },
     "AF_ARMS_LNC_02": {
@@ -2998,8 +2998,8 @@
             "5": "+40 DEX & +40 PATK & +8 AGI"
         },
         "atk_buff": {
-            "4": "Self: +25% PDEF",
-            "5": "Self: +30% PDEF"
+            "4": "Self: +25% PDEF [50%]",
+            "5": "Self: +30% PDEF [50%]"
         }
     },
     "AF_ARMS_LNC_03": {
@@ -3023,9 +3023,9 @@
             "5": "+40 DEX & +5 AGI"
         },
         "atk_buff": {
-            "3": "Self: +14% MDEF",
-            "4": "Self: +17% MDEF",
-            "5": "Self: +20% MDEF"
+            "3": "Self: +14% MDEF [30%]",
+            "4": "Self: +17% MDEF [30%]",
+            "5": "Self: +20% MDEF [30%]"
         }
     },
     "AF_ARMS_KAM_02": {
@@ -3056,8 +3056,8 @@
             "5": "+40 MATK & +40 LUCK & +30 PDEF"
         },
         "atk_buff": {
-            "4": "Self: +25% MATK",
-            "5": "Self: +30% MATK"
+            "4": "Self: +25% MATK [30%]",
+            "5": "Self: +30% MATK [30%]"
         }
     },
     "AF_ARMS_SHN_02": {
@@ -3171,8 +3171,8 @@
             "5": "+50 MATK & +8 AGI & +40 HP"
         },
         "atk_buff": {
-            "4": "Self: +25% MATK",
-            "5": "Self: +30% MATK"
+            "4": "Self: +25% MATK [30%]",
+            "5": "Self: +30% MATK [30%]"
         }
     },
     "AF_ARMS_1STANNIVERSARY": {
@@ -3255,9 +3255,9 @@
             "5": "+45 HP & +20 PATK & +18 Initial Jewels"
         },
         "atk_buff": {
-            "3": "Self: +14% PDEF",
-            "4": "Self: +17% PDEF",
-            "5": "Self: +20% PDEF"
+            "3": "Self: +14% PDEF [30%]",
+            "4": "Self: +17% PDEF [30%]",
+            "5": "Self: +20% PDEF [30%]"
         }
     },
     "AF_ARMS_SWO_ZAYI_01": {
@@ -3298,9 +3298,9 @@
             "5": "+30 PATK & +30 MDEF & +5 Jewels Obtained"
         },
         "atk_buff": {
-            "3": "Self: +14% PATK",
-            "4": "Self: +17% PATK",
-            "5": "Self: +20% PATK"
+            "3": "Self: +14% PATK [30%]",
+            "4": "Self: +17% PATK [30%]",
+            "5": "Self: +20% PATK [30%]"
         }
     },
     "AF_ARMS_SAKURA_00": {
@@ -3333,9 +3333,9 @@
             "5": "+30 PATK & +5 AGI & +15 DEX"
         },
         "atk_buff": {
-            "3": "Self: +10% PDEF & +10% MDEF",
-            "4": "Self: +10% PDEF & +10% MDEF",
-            "5": "Self: +10% PDEF & +10% MDEF"
+            "3": "Self: +10% PDEF & +10% MDEF [40%]",
+            "4": "Self: +10% PDEF & +10% MDEF [40%]",
+            "5": "Self: +10% PDEF & +10% MDEF [40%]"
         }
     },
     "AF_ARMS_FOLCAS_00": {
@@ -3368,9 +3368,9 @@
             "5": "+25 PATK & +8 AGI & +10 CRIT"
         },
         "atk_buff": {
-            "3": "Target: -10% PDEF",
-            "4": "Target: -10% PDEF",
-            "5": "Target: -10% PDEF"
+            "3": "Target: -10% PDEF [25%]",
+            "4": "Target: -10% PDEF [25%]",
+            "5": "Target: -10% PDEF [25%]"
         }
     },
     "AF_ARMS_BASYOSEN_01": {
@@ -3434,9 +3434,9 @@
             "5": "+20 PATK & +15 PDEF & +15 MDEF"
         },
         "atk_buff": {
-            "3": "Target: -10% PATK & -10% MATK",
-            "4": "Target: -10% PATK & -10% MATK",
-            "5": "Target: -10% PATK & -10% MATK"
+            "3": "Target: -10% PATK & -10% MATK [25%]",
+            "4": "Target: -10% PATK & -10% MATK [25%]",
+            "5": "Target: -10% PATK & -10% MATK [25%]"
         }
     },
     "AF_ACCS_CHOKER": {
@@ -3497,8 +3497,8 @@
             "5": "+40 MATK & +20 PDEF & +60 HP"
         },
         "atk_buff": {
-            "4": "Self: +18% PDEF",
-            "5": "Self: +20% PDEF"
+            "4": "Self: +18% PDEF [50%]",
+            "5": "Self: +20% PDEF [50%]"
         }
     },
     "AF_ARMS_SOL_04": {
@@ -3529,8 +3529,8 @@
             "5": "+40 PATK & +20 PDEF & +15 CRIT"
         },
         "atk_buff": {
-            "4": "Self: +25% PATK",
-            "5": "Self: +30% PATK"
+            "4": "Self: +25% PATK [30%]",
+            "5": "Self: +30% PATK [30%]"
         }
     },
     "AF_ARMS_BASINI_01": {
@@ -3563,8 +3563,8 @@
             "5": "+20 PATK & +30 CRIT & +8 AGI"
         },
         "atk_buff": {
-            "4": "Self: +10 AGI",
-            "5": "Self: +10 AGI"
+            "4": "Self: +10 AGI [20%]",
+            "5": "Self: +10 AGI [20%]"
         }
     },
     "AF_ARMS_DIS_USAL_01": {
@@ -3714,9 +3714,9 @@
             "5": "+25 HP & +25 PATK & +5 Jewels Obtained"
         },
         "atk_buff": {
-            "3": "Self: +16% PATK",
-            "4": "Self: +18% PATK",
-            "5": "Self: +20% PATK"
+            "3": "Self: +16% PATK [50%]",
+            "4": "Self: +18% PATK [50%]",
+            "5": "Self: +20% PATK [50%]"
         }
     },
     "AF_ARMS_DIS_SERA_01": {
@@ -3747,9 +3747,9 @@
             "5": ""
         },
         "atk_buff": {
-            "3": "Self: +33% DEX",
-            "4": "Self: +36% DEX",
-            "5": "Self: +40% DEX"
+            "3": "Self: +33% DEX [50%]",
+            "4": "Self: +36% DEX [50%]",
+            "5": "Self: +40% DEX [50%]"
         }
     },
     "AF_ARMS_DIS_REDM_01": {
@@ -3780,9 +3780,9 @@
             "5": ""
         },
         "atk_buff": {
-            "3": "Self: +16% PDEF",
-            "4": "Self: +18% PDEF",
-            "5": "Self: +20% PDEF"
+            "3": "Self: +16% PDEF [50%]",
+            "4": "Self: +18% PDEF [50%]",
+            "5": "Self: +20% PDEF [50%]"
         }
     },
     "AF_ARMS_DIS_LAHA_01": {
@@ -3898,8 +3898,8 @@
             "5": "+45 PATK & +40 CRIT & +5 Jewels Obtained"
         },
         "atk_buff": {
-            "4": "Self: +18% PATK",
-            "5": "Self: +20% PATK"
+            "4": "Self: +18% PATK [25%]",
+            "5": "Self: +20% PATK [25%]"
         }
     },
     "AF_ARMS_SPE_03": {
@@ -3923,9 +3923,9 @@
             "5": "+35 PATK & +30 CRIT"
         },
         "atk_buff": {
-            "3": "Self: +16% PDEF",
-            "4": "Self: +18% PDEF",
-            "5": "Self: +20% PDEF"
+            "3": "Self: +16% PDEF [25%]",
+            "4": "Self: +18% PDEF [25%]",
+            "5": "Self: +20% PDEF [25%]"
         }
     },
     "AF_ARMS_HUN_02": {
@@ -3956,8 +3956,8 @@
             "5": "+40 PATK & +25 DEX & +10 Hit Rate"
         },
         "atk_buff": {
-            "4": "Target: -10% AGI",
-            "5": "Target: -10% AGI"
+            "4": "Target: -10% AGI [25%]",
+            "5": "Target: -10% AGI [25%]"
         }
     },
     "AF_ARMO_GAUNTLET_02": {
@@ -4347,7 +4347,7 @@
             "5": "+20 PATK & +20 MATK & +10 Max Jewels"
         },
         "atk_buff": {
-            "5": "Self: +10% PATK"
+            "5": "Self: +10% PATK [25%]"
         }
     },
     "AF_ARMS_FF15_GLAD_01": {
@@ -4378,7 +4378,7 @@
             "5": "+30 HP & +20 PATK & +30 PDEF"
         },
         "atk_buff": {
-            "5": "Target: -20% PDEF"
+            "5": "Target: -20% PDEF [25%]"
         }
     },
     "AF_ARMS_FF15_ARAN_01": {
@@ -4409,7 +4409,7 @@
             "5": "+30 PATK & +10 DEX & +50 HP"
         },
         "atk_buff": {
-            "5": "Self: +2 JUMP"
+            "5": "Self: +2 JUMP [30%]"
         }
     },
     "AF_ARMO_FF15_SHIELD": {
@@ -4467,8 +4467,8 @@
             "5": "+40 PATK & +40 MATK & +10 Evasion Rate"
         },
         "atk_buff": {
-            "4": "Self: +1 MOVE",
-            "5": "Self: +1 MOVE"
+            "4": "Self: +1 MOVE [20%]",
+            "5": "Self: +1 MOVE [20%]"
         }
     },
     "AF_ARMS_WEA_02": {
@@ -4499,8 +4499,8 @@
             "5": "+40 MATK & +40 LUCK & +30 Max Jewels"
         },
         "atk_buff": {
-            "4": "Self: +9 AGI",
-            "5": "Self: +10 AGI"
+            "4": "Self: +9 AGI [50%]",
+            "5": "Self: +10 AGI [50%]"
         }
     },
     "AF_ACCS_ACHA_01": {
@@ -4655,8 +4655,8 @@
             "5": "+30 PATK & +40 DEX & +8 AGI"
         },
         "atk_buff": {
-            "4": "Target: -13 AGI",
-            "5": "Target: -15 AGI"
+            "4": "Target: -13 AGI [20%]",
+            "5": "Target: -15 AGI [20%]"
         }
     },
     "AF_ARMS_HUU_02": {
@@ -4745,7 +4745,7 @@
             "5": "+25 MATK & +30 DEX & +5 Initial Jewels"
         },
         "atk_buff": {
-            "5": "Self: +20% MATK"
+            "5": "Self: +20% MATK [20%]"
         }
     },
     "AF_ARMS_RH_ATO_01": {
@@ -4776,7 +4776,7 @@
             "5": "+20 PATK & +20 DEX & +8 AGI"
         },
         "atk_buff": {
-            "5": "Self: +15 AGI"
+            "5": "Self: +15 AGI [20%]"
         }
     },
     "AF_ARMS_S_AMAT_00": {
@@ -4808,8 +4808,8 @@
             "5": "+40 MATK & +40 LUCK & +10 AGI"
         },
         "atk_buff": {
-            "4": "Self: +20% PDEF",
-            "5": "Self: +20% PDEF"
+            "4": "Self: +20% PDEF [30%]",
+            "5": "Self: +20% PDEF [30%]"
         }
     },
     "AF_ARMS_STR_02": {
@@ -4894,7 +4894,7 @@
             "5": "+30 PATK & +20 DEX & +5 AGI"
         },
         "atk_buff": {
-            "5": "Self: +20 Hit Rate"
+            "5": "Self: +20 Hit Rate [20%]"
         }
     },
     "AF_ARMS_S_YURI_00": {
@@ -4927,7 +4927,7 @@
             "5": "+30 PATK & +15 PDEF & +5 AGI"
         },
         "atk_buff": {
-            "5": "Self: +20% PDEF & +20% PATK"
+            "5": "Self: +20% PDEF & +20% PATK [20%]"
         }
     },
     "AF_ARMS_KAI_04": {
@@ -4958,8 +4958,8 @@
             "5": "+50 PATK & +50 HP & +10 Initial Jewels"
         },
         "atk_buff": {
-            "4": "Self: +30% PATK",
-            "5": "Self: +30% PATK"
+            "4": "Self: +30% PATK [20%]",
+            "5": "Self: +30% PATK [20%]"
         }
     },
     "AF_ACCS_RING_03": {
@@ -5021,7 +5021,7 @@
             "5": "+30 PATK & +30 CRIT & +15 Hit Rate"
         },
         "atk_buff": {
-            "5": "Self: +25 CRIT Rate"
+            "5": "Self: +25 CRIT Rate [25%]"
         }
     },
     "AF_ARMO_NOIN_01": {
@@ -5116,8 +5116,8 @@
             "5": "+50 PATK & +65 HP & +40 DEX"
         },
         "atk_buff": {
-            "4": "Self: +15% AGI",
-            "5": "Self: +15% AGI"
+            "4": "Self: +15% AGI [30%]",
+            "5": "Self: +15% AGI [30%]"
         }
     },
     "AF_ARMS_BEAST_03": {
@@ -5148,8 +5148,8 @@
             "5": "+45 PATK & +65 HP & +12 AGI"
         },
         "atk_buff": {
-            "4": "Self: +1 MOVE",
-            "5": "Self: +1 MOVE"
+            "4": "Self: +1 MOVE [30%]",
+            "5": "Self: +1 MOVE [30%]"
         }
     },
     "AF_ARMO_FUNDOSHI_02": {
@@ -5220,8 +5220,8 @@
             "5": "+50 PATK & +40 DEX & +8 AGI"
         },
         "atk_buff": {
-            "4": "Self: +26 Hit Rate",
-            "5": "Self: +30 Hit Rate"
+            "4": "Self: +26 Hit Rate [30%]",
+            "5": "Self: +30 Hit Rate [30%]"
         }
     },
     "AF_ACCS_SQ_BELT_01": {
@@ -5272,9 +5272,9 @@
             "5": "+30 PDEF & +30 MDEF & +5 AGI"
         },
         "atk_buff": {
-            "3": "Self: +20% PDEF",
-            "4": "Self: +20% PDEF",
-            "5": "Self: +20% PDEF"
+            "3": "Self: +20% PDEF [30%]",
+            "4": "Self: +20% PDEF [30%]",
+            "5": "Self: +20% PDEF [30%]"
         }
     },
     "AF_ARMS_MAD_01": {
@@ -5305,8 +5305,8 @@
             "5": "+50 MATK & +40 DEX & +20 Max Jewels"
         },
         "atk_buff": {
-            "4": "Self: +25% MATK",
-            "5": "Self: +25% MATK"
+            "4": "Self: +25% MATK [30%]",
+            "5": "Self: +25% MATK [30%]"
         }
     },
     "AF_ARMS_MAD_02": {
@@ -5425,8 +5425,8 @@
             "5": "+40 PATK & +10 AGI & +30 CRIT & +10 CRIT Rate & +10 Hit Rate"
         },
         "atk_buff": {
-            "4": "Self: +43 PDEF",
-            "5": "Self: +50 PDEF"
+            "4": "Self: +43 PDEF [30%]",
+            "5": "Self: +50 PDEF [30%]"
         }
     },
     "AF_ACCS_EARRING_02": {
@@ -5561,9 +5561,9 @@
             "5": "+35 MATK & +10 MDEF"
         },
         "atk_buff": {
-            "3": "Self: +20% MATK",
-            "4": "Self: +20% MATK",
-            "5": "Self: +20% MATK"
+            "3": "Self: +20% MATK [30%]",
+            "4": "Self: +20% MATK [30%]",
+            "5": "Self: +20% MATK [30%]"
         }
     },
     "AF_ARMS_NIN_05": {
@@ -5594,8 +5594,8 @@
             "5": "+20 Initial Jewels & +30 PATK & +50 DEX"
         },
         "atk_buff": {
-            "4": "Self: +28 Evasion Rate",
-            "5": "Self: +30 Evasion Rate"
+            "4": "Self: +28 Evasion Rate [30%]",
+            "5": "Self: +30 Evasion Rate [30%]"
         }
     },
     "AF_ACCS_DOLL_02": {
@@ -5832,8 +5832,8 @@
             "5": "+30 PATK & +50 MATK & +15 Max Jewels"
         },
         "atk_buff": {
-            "4": "Self: -15 Jewels Spent",
-            "5": "Self: -15 Jewels Spent"
+            "4": "Self: -15 Jewels Spent [30%]",
+            "5": "Self: -15 Jewels Spent [30%]"
         }
     },
     "AF_ACCS_BRACELET_02": {

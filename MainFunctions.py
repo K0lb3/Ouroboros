@@ -326,16 +326,21 @@ def buff(buff, lv, mlv, array=False):
 
     text = ""
 
+    mods = []
+    restriction={}
+    rate= buff['rate'] if 'rate' in buff else 100
+
     if 'elem' in buff:
-        text += element(buff['elem']).title()+':'
+        text += element(buff['elem']).title()+': '
+        restriction['element']=element(buff['elem'])
     if 'birth' in buff:
-        text += (birth[buff['birth']]).title()+':'
+        text += (birth[buff['birth']]).title()+': '
+        restriction['birth']=element(buff['birth'])
 
     allElem = {'mod': "", 'index': []}
     allAtk = {'mod': "", 'index': []}
 
     used = ['type', 'vmax', 'vini']
-    mods = []
     for i in range(1, 9):
         for u in used:
             if (u+'0'+str(i)) in buff:
@@ -394,9 +399,17 @@ def buff(buff, lv, mlv, array=False):
                 'mod': allElem['mod'][1], 
                 'stat':'Elemental Res'
             })
+
         for m in mods:
-            text += ' {value}{mod} {stat} &'.format(value=m['value'],mod=m['mod'],stat=m['stat'])
-    return mods if array else text[:-2]
+            text += '{value}{mod} {stat} & '.format(value=m['value'],mod=m['mod'],stat=m['stat'])
+        text=text[:-3]
+        if rate!=100:
+            text+= ' [{chance}%]'.format(chance=rate)
+    else:
+        mod.append(restriction)
+        mod.append({'chance':rate})
+
+    return mods if array else text
 
 def condition(cond, lv,  mlv):
     condType = {
