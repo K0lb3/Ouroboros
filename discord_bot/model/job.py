@@ -59,7 +59,6 @@ class Job(Model):
 
     def to_skill_embed(self, tree_):
         tree=getattr(self, tree_)
-        print(tree)
 
         fields = [
             {'name':'description','value': tree['expr'], 'inline':False},
