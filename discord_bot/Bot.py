@@ -328,7 +328,7 @@ async def rank(ctx,*,input):
     units=[]
     for unit in enemy['units']:
         c={
-            'name'  : loc[unit['iname']]['NAME'],
+            'name'  : loc[unit['iname']]['name'],
             'LB'    : unit['plus'],
             'LV'    : unit['lv'],
             'jobs'  : [],
@@ -340,7 +340,7 @@ async def rank(ctx,*,input):
                 seljob=len(c['jobs'])
             #basic job info
             cjob={
-                'name'  :   loc[job['iname']]['NAME'],
+                'name'  :   loc[job['iname']]['name'],
                 'LV'    :   str(job['rank']), #if equip wthout empty jm,
                 'gears'  :   [],
                 'abilities':    []
@@ -356,13 +356,13 @@ async def rank(ctx,*,input):
             #gear
             for gear in job['artis']:
                 cjob['gears'].append({
-                    'name'  : loc[gear['iname']]['NAME'],
+                    'name'  : loc[gear['iname']]['name'],
                     'rarity': str(gear['rare']+1),
                 })
             #abilities
             for abil in job['abils']:
                 cjob['abilities'].append({
-                    'name'  : loc[abil['iname']]['NAME'],
+                    'name'  : loc[abil['iname']]['name'],
                     'lv'    : str(abil['exp']+1),
                 })
             c['jobs'].append(cjob)

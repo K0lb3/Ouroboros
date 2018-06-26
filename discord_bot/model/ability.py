@@ -7,11 +7,11 @@ class Ability(Model):
 
     @property
     def name(self):
-        return self._source.get('NAME')
+        return self._source.get('name')
 
     @property
     def expr(self):
-        return self._source.get('EXPR')
+        return self._source.get('expr')
 
     @property
     def link(self):

@@ -81,10 +81,10 @@ class Unit(Model):
 
     def to_lore_embed(self):
         fields = [
-            {'name': 'Birthday', 'value': self.BIRTH, },
-            'COUNTRY', 'HEIGHT', 'WEIGHT', 'ZODIAC', 'BLOOD', 'FAVORITE', 'HOBBY',
-            {'name': 'illustrator', 'value': self.ILLUST, },
-            'CV', 'PROFILE',
+            {'name': 'Birthday', 'value': self.birth, },
+            'country', 'height', 'weight', 'zodiac', 'blood', 'favorite', 'hobby',
+            {'name': 'illustrator', 'value': self.illust, },
+            'cv', 'profile',
         ]
         return self.to_embed(title_key='lore ',fields=fields)
 
