@@ -759,6 +759,19 @@ def Skill_GenericDescription(skl,masterc,loc):
         except:
             return ''
 
+    def range():
+        try:
+            return 'Range: {area} ({range})'.format(area=skill['select_range'], range=skill['range_max'])
+        except:
+            pass
+
+    def area():
+        try:
+            return ', Scope: {area} ({range})'.format(area=skill['select_scope'], range=skill['scope'])
+        except:
+            pass
+
+
     #if effect_type == "Equipment":
         #desc=''.formart()()
     if effect_type == "Attack": #"Inflicts Thunder Mag Dmg (High) on units within target area [Range: 4, Area: Diamond (5), Height Range: 2]",
@@ -776,8 +789,15 @@ def Skill_GenericDescription(skl,masterc,loc):
             dmg=s('reaction_damage_type').replace('Total','').replace('Damage',' Dmg').replace('Phy','Phys'),
             chance=s('effect_rate.max',' [Chance: ','%]')
         )
-    #if effect_type == "Heal":
-        #desc=''.formart()()
+    if effect_type == "Heal":
+        try: #heal
+            desc='Heals {mod}% Formula [{range}{height}{area}]'.format(
+                mod=str(skill["effect_value.max"]+100), 
+                range=range(), height=s("effect_height",', Height: ',''), area=area()
+            )
+        except: #prof heal ~ panacea
+            pass
+
     #if effect_type == "Buff":
         #desc=''.formart()()
     #if effect_type == "Debuff":
@@ -826,12 +846,17 @@ def Skill_GenericDescription(skl,masterc,loc):
         #desc=''.formart()()
     #if effect_type == "RateDamageCurrent":
         #desc=''.formart()()
+    #Buff
     if 'self_buff_iname' in skill:
         desc+='\nSelf: '+buff(masterc[skill['self_buff_iname']],2,2)
-
     if 'target_buff_iname' in skill:
         desc+='\nTarget: '+buff(masterc[skill['target_buff_iname']],2,2)
-
+    #Condition
+    if 'self_cond_iname' in skill:
+        desc+='\nSelf: '+condition(masterc[skill['self_cond_iname']],2,2)
+    if 'target_cond_iname' in skill:
+        desc+='\nTarget: '+condition(masterc[skill['target_cond_iname']],2,2)
+    #add to expr
     if desc!= "":
         if 'expr' in skill:
             skill['expr']+='\n'+desc
