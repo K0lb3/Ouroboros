@@ -2,9 +2,6 @@ from MainFunctions import *
 import jellyfish
 
 def Units():
-    global ParamTypes
-    global birth
-
     def master_ability(unit, cMaster, loc):
         skill = cMaster[cMaster[unit['ability']]['skl1']]
 
@@ -151,7 +148,7 @@ def Units():
         [main, mainc]= [gl, glc] if iname in glc else [jp, jpc]
         units[iname] = {
             'iname': iname,
-            'name': FAN[iname]['official'] if iname in FAN else "",
+            'name': FAN[iname]['official'] if iname in FAN else unit['name'],
             'inofficial': FAN[iname]['inofficial'] if iname in FAN else "",
             'gender': "♀" if (unit['sex']-1) else "♂" if (unit['sex']) else "/",
             'element': element(unit['elem']).title() if 'elem' in unit else "/",

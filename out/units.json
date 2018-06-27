@@ -23128,7 +23128,7 @@
     },
     "UN_V2_GL_SIEG": {
         "iname": "UN_V2_GL_SIEG",
-        "name": "",
+        "name": "Siegfried",
         "inofficial": "",
         "gender": "♂",
         "element": "Light",
@@ -23148,7 +23148,7 @@
         "jc 2": "",
         "jc 3": "",
         "inputs": [
-            ""
+            "Siegfried"
         ],
         "stats": {
             "HP": 450,
@@ -23192,13 +23192,6 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/gl_sieg.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/gl_sieg-closeup.png"
             }
-        ],
-        "tierlist": {
-            "job 1": "",
-            "job 2": "",
-            "job 3": "",
-            "jc": "",
-            "total": ""
-        }
+        ]
     }
 }
