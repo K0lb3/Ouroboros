@@ -764,14 +764,18 @@ def Skill_GenericDescription(skl,masterc,loc):
     if effect_type == "Attack": #"Inflicts Thunder Mag Dmg (High) on units within target area [Range: 4, Area: Diamond (5), Height Range: 2]",
         #skill['type'] == 'Attack'
         try:
-            desc='{mod}% {element} {type} DMG [{range}{height}{area}]'.format(
+            desc='{mod}% {element} {type} Dmg [{range}{height}{area}]'.format(
                 mod=str(skill["effect_value.max"]+100), element=s('element_type'), type=s("attack_detail"), 
                 range=s("range_max",'Range: ',''), height=s("effect_height",', Height: ',''), area=s("select_scope",', Area: ')
             )
         except:
             pass #reaction
-    #if effect_type == "Defend":
-        #desc=''.formart()()
+    if effect_type == "Defend":
+        desc='Blocks {value} {dmg}{chance}'.format(
+            value=s('effect_value.max','','%'),
+            dmg=s('reaction_damage_type').replace('Total','').replace('Damage',' Dmg').replace('Phy','Phys'),
+            chance=s('effect_rate.max',' [Chance: ','%]')
+        )
     #if effect_type == "Heal":
         #desc=''.formart()()
     #if effect_type == "Buff":
