@@ -6,6 +6,7 @@ import math
 import requests
 import re
 import jellyfish
+from SkillParam import convert_raw_skill
 
 re_job = re.compile(r'^([^_]*)_([^_]*)_(.*)$')
 ReBr = re.compile(r'(\s+)?(\n)?(\[|\『|\().*')
@@ -741,3 +742,6 @@ def FanTranslatedNames(wyte, master, loc):
             print(i)
     found.update(none)
     return(found)
+
+global ENUM
+ENUM=loadFiles(['ENums.json'])[0]

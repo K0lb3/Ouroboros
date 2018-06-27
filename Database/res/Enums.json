@@ -1,13 +1,13 @@
 {
     "EventType": [
-        "SETUP,",
-        "ENABLE,",
-        "DISABLE,"
+        "SETUP",
+        "ENABLE",
+        "DISABLE"
     ],
     "AIActionType": [
-        "None,",
-        "Follow,",
-        "Homing,"
+        "None",
+        "Follow",
+        "Homing"
     ],
     "AIFlags": {
         "1": "Positioning",
@@ -29,12 +29,12 @@
         "8": "RarityMaxed"
     },
     "InstanceTypes": [
-        "ArtifactData,",
-        "ArtifactParam,"
+        "ArtifactData",
+        "ArtifactParam"
     ],
     "ListSource": [
-        "Normal,",
-        "Kakera,"
+        "Normal",
+        "Kakera"
     ],
     "KakeraHideFlags": {
         "1": "LeastKakera",
@@ -42,41 +42,41 @@
         "4": "EnoughGold"
     },
     "ArtifactTypes": [
-        "None,",
-        "Arms,",
-        "Armor,",
-        "Accessory,"
+        "None",
+        "Arms",
+        "Armor",
+        "Accessory"
     ],
     "AttackDetailTypes": [
-        "None,",
-        "Slash,",
-        "Stab,",
-        "Blow,",
-        "Shot,",
-        "Magic,",
-        "Jump,",
-        "MAX,"
+        "None",
+        "Slash",
+        "Stab",
+        "Blow",
+        "Shot",
+        "Magic",
+        "Jump",
+        "MAX"
     ],
     "AttackTypes": [
-        "None,",
-        "PhyAttack,",
-        "MagAttack,"
+        "None",
+        "PhyAttack",
+        "MagAttack"
     ],
     "PlayerType : byte": [
-        "Player,",
-        "Friend,",
-        "ArenaPlayer,",
-        "MultiPlayer,",
-        "ChatPlayer,"
+        "Player",
+        "Friend",
+        "ArenaPlayer",
+        "MultiPlayer",
+        "ChatPlayer"
     ],
     "AwardGrade": [
-        "None,",
-        "Grade1,",
-        "Grade2,",
-        "Grade3,",
-        "Grade4,",
-        "Grade5,",
-        "GradeEx,"
+        "None",
+        "Grade1",
+        "Grade2",
+        "Grade3",
+        "Grade4",
+        "Grade5",
+        "GradeEx"
     ],
     "Tab": {
         "0": "NONE",
@@ -91,101 +91,101 @@
         "65535": "ALL"
     },
     "BannerType": [
-        "storyQuest,",
-        "eventQuest,",
-        "multiQuest,",
-        "gacha,",
-        "shop,",
-        "url,",
-        "towerQuest,",
-        "unknown,"
+        "storyQuest",
+        "eventQuest",
+        "multiQuest",
+        "gacha",
+        "shop",
+        "url",
+        "towerQuest",
+        "unknown"
     ],
     "BattleBonus": [
-        "EffectRange,",
-        "EffectScope,",
-        "EffectHeight,",
-        "HitRate,",
-        "AvoidRate,",
-        "CriticalRate,",
-        "SlashAttack,",
-        "PierceAttack,",
-        "BlowAttack,",
-        "ShotAttack,",
-        "MagicAttack,",
-        "ReactionAttack,",
-        "JumpAttack,",
-        "GainJewel,",
-        "UsedJewelRate,",
-        "ActionCount,",
-        "GutsRate,",
-        "AutoJewel,",
-        "ChargeTimeRate,",
-        "CastTimeRate,",
-        "BuffTurn,",
-        "DebuffTurn,",
-        "CombinationRange,",
-        "HpCostRate,",
-        "SkillUseCount,",
-        "PoisonDamage,",
-        "PoisonTurn,",
-        "Resist_Slash,",
-        "Resist_Pierce,",
-        "Resist_Blow,",
-        "Resist_Shot,",
-        "Resist_Magic,",
-        "Resist_Reaction,",
-        "Resist_Jump,",
-        "Avoid_Slash,",
-        "Avoid_Pierce,",
-        "Avoid_Blow,",
-        "Avoid_Shot,",
-        "Avoid_Magic,",
-        "Avoid_Reaction,",
-        "Avoid_Jump,",
-        "GainJewelRate,",
-        "UsedJewel,"
+        "EffectRange",
+        "EffectScope",
+        "EffectHeight",
+        "HitRate",
+        "AvoidRate",
+        "CriticalRate",
+        "SlashAttack",
+        "PierceAttack",
+        "BlowAttack",
+        "ShotAttack",
+        "MagicAttack",
+        "ReactionAttack",
+        "JumpAttack",
+        "GainJewel",
+        "UsedJewelRate",
+        "ActionCount",
+        "GutsRate",
+        "AutoJewel",
+        "ChargeTimeRate",
+        "CastTimeRate",
+        "BuffTurn",
+        "DebuffTurn",
+        "CombinationRange",
+        "HpCostRate",
+        "SkillUseCount",
+        "PoisonDamage",
+        "PoisonTurn",
+        "Resist_Slash",
+        "Resist_Pierce",
+        "Resist_Blow",
+        "Resist_Shot",
+        "Resist_Magic",
+        "Resist_Reaction",
+        "Resist_Jump",
+        "Avoid_Slash",
+        "Avoid_Pierce",
+        "Avoid_Blow",
+        "Avoid_Shot",
+        "Avoid_Magic",
+        "Avoid_Reaction",
+        "Avoid_Jump",
+        "GainJewelRate",
+        "UsedJewel"
     ],
     "RESUME_STATE": [
-        "NONE,",
-        "REQUEST,",
-        "WAIT,"
+        "NONE",
+        "REQUEST",
+        "WAIT"
     ],
     "QuestResult": [
-        "Pending,",
-        "Win,",
-        "Lose,",
-        "Retreat,",
-        "Draw,"
+        "Pending",
+        "Win",
+        "Lose",
+        "Retreat",
+        "Draw"
     ],
     "eArenaCalcType": [
-        "UNKNOWN,",
-        "MAP_START,",
-        "UNIT_START,",
-        "AI,",
-        "UNIT_END,",
-        "CAST_SKILL_START,",
-        "CAST_SKILL_END,",
-        "MAP_END,"
+        "UNKNOWN",
+        "MAP_START",
+        "UNIT_START",
+        "AI",
+        "UNIT_END",
+        "CAST_SKILL_START",
+        "CAST_SKILL_END",
+        "MAP_END"
     ],
     "eBudFluct": [
-        "NONE,",
-        "DW_L,",
-        "DW_M,",
-        "DW_S,",
-        "UP_S,",
-        "UP_M,",
-        "UP_L,"
+        "NONE",
+        "DW_L",
+        "DW_M",
+        "DW_S",
+        "UP_S",
+        "UP_M",
+        "UP_L"
     ],
     "eFluctChk": [
-        "DEFAULT,",
-        "ELEMENT,",
-        "ATK_DETAIL,"
+        "DEFAULT",
+        "ELEMENT",
+        "ATK_DETAIL"
     ],
     "eType": [
-        "ASSIST,",
-        "RESIST,",
-        "AVOID,",
-        "MAX,"
+        "ASSIST",
+        "RESIST",
+        "AVOID",
+        "MAX"
     ],
     "eAllType": {
         "7": "MIN",
@@ -193,109 +193,109 @@
         "9": "MAX"
     },
     "eBudStat": [
-        "MHP,",
-        "ATK,",
-        "DEF,",
-        "MAG,",
-        "MND,",
-        "DEX,",
-        "SPD,",
-        "CRI,",
-        "LUK,",
-        "CMB,",
-        "MOV,",
-        "JMP,",
-        "MAX,"
+        "MHP",
+        "ATK",
+        "DEF",
+        "MAG",
+        "MND",
+        "DEX",
+        "SPD",
+        "CRI",
+        "LUK",
+        "CMB",
+        "MOV",
+        "JMP",
+        "MAX"
     ],
     "BtlEndTypes": [
-        "com,",
-        "multi,",
-        "colo,"
+        "com",
+        "multi",
+        "colo"
     ],
     "BtlResultTypes": [
-        "Win,",
-        "Lose,",
-        "Retire,",
-        "Cancel,",
-        "Draw,"
+        "Win",
+        "Lose",
+        "Retire",
+        "Cancel",
+        "Draw"
     ],
     "BuffFlags": {
         "1": "UpReplenish"
     },
     "BuffMethodTypes": [
-        "Add,",
-        "Highest,",
-        "Lowest,"
+        "Add",
+        "Highest",
+        "Lowest"
     ],
     "BuffTypes": [
-        "Buff,",
-        "Debuff,"
+        "Buff",
+        "Debuff"
     ],
     "SelectableType": [
-        "AUTO,",
-        "BUTTON,",
-        "TOGGLE,",
-        "TAB,"
+        "AUTO",
+        "BUTTON",
+        "TOGGLE",
+        "TAB"
     ],
     "Flag": {
         "1": "AUTOLOCK",
         "2": "DRAGMOVELOCK"
     },
     "EType": [
-        "RAID,",
-        "VERSUS,",
-        "TOWER,",
-        "NUM,"
+        "RAID",
+        "VERSUS",
+        "TOWER",
+        "NUM"
     ],
     "EStatus": [
-        "New,",
-        "Challenged,",
-        "Lock,",
-        "Complete,"
+        "New",
+        "Challenged",
+        "Lock",
+        "Complete"
     ],
     "EFilter": [
-        "ALL,",
-        "Unlock,",
-        "Lock,",
-        "Complete,"
+        "ALL",
+        "Unlock",
+        "Lock",
+        "Complete"
     ],
     "eChatType : byte": [
-        "None,",
-        "World,",
-        "Room,"
+        "None",
+        "World",
+        "Room"
     ],
     "MessageTemplateType : byte": [
-        "None,",
-        "OtherUser,",
-        "User,",
-        "System,"
+        "None",
+        "OtherUser",
+        "User",
+        "System"
     ],
     "ColoResetTypes": [
-        "cooldown,",
-        "colocost,"
+        "cooldown",
+        "colocost"
     ],
     "eDispType": [
-        "LEFT,",
-        "RIGHT,",
-        "UP,"
+        "LEFT",
+        "RIGHT",
+        "UP"
     ],
     "ConditionEffectTypes": [
-        "None,",
-        "CureCondition,",
-        "FailCondition,",
-        "ForcedFailCondition,",
-        "RandomFailCondition,",
-        "DisableCondition,"
+        "None",
+        "CureCondition",
+        "FailCondition",
+        "ForcedFailCondition",
+        "RandomFailCondition",
+        "DisableCondition"
     ],
     "Constraint": [
-        "Flexible,",
-        "FixedColumnCount,",
-        "FixedRowCount,"
+        "Flexible",
+        "FixedColumnCount",
+        "FixedRowCount"
     ],
     "CreateItemResult": [
-        "NotEnough,",
-        "CanCreate,",
-        "CanCreateCommon,"
+        "NotEnough",
+        "CanCreate",
+        "CanCreateCommon"
     ],
     "CriticalSections": {
         "1": "Default",
@@ -304,408 +304,408 @@
         "8": "ExDownload"
     },
     "Type": [
-        "None,",
-        "TimesAMonth,"
+        "None",
+        "TimesAMonth"
     ],
     "DamageTypes": [
-        "None,",
-        "TotalDamage,",
-        "PhyDamage,",
-        "MagDamage,"
+        "None",
+        "TotalDamage",
+        "PhyDamage",
+        "MagDamage"
     ],
     "DeadTypes": [
-        "Damage,",
-        "Poison,",
-        "DeathSentence,"
+        "Damage",
+        "Poison",
+        "DeathSentence"
     ],
     "ArrowStates": [
-        "Normal,",
-        "Press,",
-        "Hilit,",
-        "Close,"
+        "Normal",
+        "Press",
+        "Hilit",
+        "Close"
     ],
     "EAbilitySlot": [
-        "Action,",
-        "Support,",
-        "Reaction,"
+        "Action",
+        "Support",
+        "Reaction"
     ],
     "EAbilityType": [
-        "Active,",
-        "Passive,"
+        "Active",
+        "Passive"
     ],
     "EAppType": [
-        "Standard,",
-        "AllKillCount,",
-        "SelfKillCount,"
+        "Standard",
+        "AllKillCount",
+        "SelfKillCount"
     ],
     "EBattleCommand": [
-        "None,",
-        "Attack,",
-        "Skill,",
-        "Item,",
-        "Wait,"
+        "None",
+        "Attack",
+        "Skill",
+        "Item",
+        "Wait"
     ],
     "EBattleFlag": [
-        "Initialized,",
-        "MapStart,",
-        "UnitStart,",
-        "MapCommand,",
-        "Battle,",
-        "PredictResult,",
-        "ComputeAI,"
+        "Initialized",
+        "MapStart",
+        "UnitStart",
+        "MapCommand",
+        "Battle",
+        "PredictResult",
+        "ComputeAI"
     ],
     "ECastTypes": [
-        "Chant,",
-        "Charge,",
-        "Jump,"
+        "Chant",
+        "Charge",
+        "Jump"
     ],
     "ECommonType : byte": [
-        "Graph,",
-        "Piece,",
-        "Soul,",
-        "Num,"
+        "Graph",
+        "Piece",
+        "Soul",
+        "Num"
     ],
     "eDamageDispType": [
-        "Standard,",
-        "Billion,",
-        "Trillion,"
+        "Standard",
+        "Billion",
+        "Trillion"
     ],
     "EEffRange": [
-        "Self,",
-        "SelfNearAlly,"
+        "Self",
+        "SelfNearAlly"
     ],
     "EElement": [
-        "None,",
-        "Fire,",
-        "Water,",
-        "Wind,",
-        "Thunder,",
-        "Shine,",
-        "Dark,"
+        "None",
+        "Fire",
+        "Water",
+        "Wind",
+        "Thunder",
+        "Shine",
+        "Dark"
     ],
     "EEventGimmick": [
-        "None,",
-        "Heal,",
-        "AtkUp,",
-        "DefUp,",
-        "MagUp,",
-        "MndUp,",
-        "RecUp,",
-        "SpdUp,",
-        "CriUp,",
-        "LukUp,",
-        "MovUp,"
+        "None",
+        "Heal",
+        "AtkUp",
+        "DefUp",
+        "MagUp",
+        "MndUp",
+        "RecUp",
+        "SpdUp",
+        "CriUp",
+        "LukUp",
+        "MovUp"
     ],
     "EEventTrigger": [
-        "Stop,",
-        "Dead,",
-        "Initialized,",
-        "ExecuteOnGrid,",
-        "HpDownBorder,",
-        "WdHpDownRate,",
-        "WdHpDownValue,",
-        "WdElapsedTurn,",
-        "WdStandbyGrid,"
+        "Stop",
+        "Dead",
+        "Initialized",
+        "ExecuteOnGrid",
+        "HpDownBorder",
+        "WdHpDownRate",
+        "WdHpDownValue",
+        "WdElapsedTurn",
+        "WdStandbyGrid"
     ],
     "EEventType": [
-        "None,",
-        "Win,",
-        "Lose,",
-        "Treasure,",
-        "Gem,",
-        "Withdraw,"
+        "None",
+        "Win",
+        "Lose",
+        "Treasure",
+        "Gem",
+        "Withdraw"
     ],
     "EffectCheckTargets": [
-        "Target,",
-        "User,"
+        "Target",
+        "User"
     ],
     "EffectCheckTimings": [
-        "ActionStart,",
-        "Eternal,",
-        "SkillEnd,",
-        "AttackEnd,",
-        "DamageEnd,",
-        "GutsEnd,",
-        "ClockCountUp,",
-        "Moment,",
-        "ActionEnd,",
-        "MomentStart,",
-        "PrevApply,"
+        "ActionStart",
+        "Eternal",
+        "SkillEnd",
+        "AttackEnd",
+        "DamageEnd",
+        "GutsEnd",
+        "ClockCountUp",
+        "Moment",
+        "ActionEnd",
+        "MomentStart",
+        "PrevApply"
     ],
     "eGimmickEventType": [
-        "USE_SKILL,",
-        "UNIT_KILL,"
+        "USE_SKILL",
+        "UNIT_KILL"
     ],
     "EGridState": [
-        "Select,",
-        "Target,"
+        "Select",
+        "Target"
     ],
     "EItemType": [
-        "Used,",
-        "UnitPiece,",
-        "ItemPiece,",
-        "Equip,",
-        "Material,",
-        "ExpUpPlayer,",
-        "ExpUpUnit,",
-        "ExpUpSkill,",
-        "ExpUpEquip,",
-        "GoldConvert,",
-        "Ticket,",
-        "ItemPiecePiece,",
-        "Other,",
-        "ExpUpArtifact,",
-        "ArtifactPiece,",
-        "UnitSkin,",
-        "Unit,",
-        "EventCoin,",
-        "UnitSelectItem,",
-        "Award,",
-        "ApHeal,"
+        "Used",
+        "UnitPiece",
+        "ItemPiece",
+        "Equip",
+        "Material",
+        "ExpUpPlayer",
+        "ExpUpUnit",
+        "ExpUpSkill",
+        "ExpUpEquip",
+        "GoldConvert",
+        "Ticket",
+        "ItemPiecePiece",
+        "Other",
+        "ExpUpArtifact",
+        "ArtifactPiece",
+        "UnitSkin",
+        "Unit",
+        "EventCoin",
+        "UnitSelectItem",
+        "Award",
+        "ApHeal"
     ],
     "eKnockBackDir": [
-        "Back,",
-        "Forward,",
-        "Left,",
-        "Right,"
+        "Back",
+        "Forward",
+        "Left",
+        "Right"
     ],
     "eKnockBackDs": [
-        "Target,",
-        "Self,",
-        "Grid,"
+        "Target",
+        "Self",
+        "Grid"
     ],
     "ELineType": [
-        "None,",
-        "Direct,",
-        "Curved,",
-        "Stab,"
+        "None",
+        "Direct",
+        "Curved",
+        "Stab"
     ],
     "eMapBreakAIType": [
-        "NONE,",
-        "ALL,",
-        "PALL,",
-        "EALL,"
+        "NONE",
+        "ALL",
+        "PALL",
+        "EALL"
     ],
     "eMapBreakClashType": [
-        "ALL,",
-        "PALL,",
-        "EALL,",
-        "INVINCIBLE,"
+        "ALL",
+        "PALL",
+        "EALL",
+        "INVINCIBLE"
     ],
     "eMapBreakRayType": [
-        "PASS,",
-        "TERRAIN,"
+        "PASS",
+        "TERRAIN"
     ],
     "eMapBreakSideType": [
-        "UNKNOWN,",
-        "PLAYER,",
-        "ENEMY,"
+        "UNKNOWN",
+        "PLAYER",
+        "ENEMY"
     ],
     "eMapUnitCtCalcType": [
-        "FIXED,",
-        "SCALE,"
+        "FIXED",
+        "SCALE"
     ],
     "EMissionType": [
-        "KillAllEnemy,",
-        "NoDeath,",
-        "LimitedTurn,",
-        "ComboCount,",
-        "MaxSkillCount,",
-        "MaxItemCount,",
-        "MaxPartySize,",
-        "LimitedUnitElement,",
-        "LimitedUnitID,",
-        "NoMercenary,",
-        "Killstreak,",
-        "TotalHealHPMax,",
-        "TotalHealHPMin,",
-        "TotalDamagesTakenMax,",
-        "TotalDamagesTakenMin,",
-        "TotalDamagesMax,",
-        "TotalDamagesMin,",
-        "LimitedCT,",
-        "LimitedContinue,",
-        "NoNpcDeath,",
-        "TargetKillstreak,",
-        "NoTargetDeath,",
-        "BreakObjClashMax,",
-        "BreakObjClashMin,",
-        "WithdrawUnit,",
-        "UseMercenary,",
-        "LimitedUnitID_MainOnly,",
-        "MissionAllCompleteAtOnce,",
-        "OnlyTargetArtifactType,",
-        "OnlyTargetArtifactType_MainOnly,",
-        "OnlyTargetJobs,",
-        "OnlyTargetJobs_MainOnly,",
-        "OnlyTargetUnitBirthplace,",
-        "OnlyTargetUnitBirthplace_MainOnly,",
-        "OnlyTargetSex,",
-        "OnlyTargetSex_MainOnly,",
-        "OnlyHeroUnit,",
-        "OnlyHeroUnit_MainOnly,",
-        "Finisher,",
-        "TotalGetTreasureCount,",
-        "KillstreakByUsingTargetItem,",
-        "KillstreakByUsingTargetSkill,",
-        "MaxPartySize_IgnoreFriend,",
-        "NoAutoMode,",
-        "NoDeath_NoContinue,",
-        "OnlyTargetUnits,",
-        "OnlyTargetUnits_MainOnly,",
-        "LimitedTurn_Leader,",
-        "NoDeathTargetNpcUnits,",
-        "UseTargetSkill,",
-        "TotalKillstreakCount,",
-        "TotalGetGemCount_Over,",
-        "TotalGetGemCount_Less,"
+        "KillAllEnemy",
+        "NoDeath",
+        "LimitedTurn",
+        "ComboCount",
+        "MaxSkillCount",
+        "MaxItemCount",
+        "MaxPartySize",
+        "LimitedUnitElement",
+        "LimitedUnitID",
+        "NoMercenary",
+        "Killstreak",
+        "TotalHealHPMax",
+        "TotalHealHPMin",
+        "TotalDamagesTakenMax",
+        "TotalDamagesTakenMin",
+        "TotalDamagesMax",
+        "TotalDamagesMin",
+        "LimitedCT",
+        "LimitedContinue",
+        "NoNpcDeath",
+        "TargetKillstreak",
+        "NoTargetDeath",
+        "BreakObjClashMax",
+        "BreakObjClashMin",
+        "WithdrawUnit",
+        "UseMercenary",
+        "LimitedUnitID_MainOnly",
+        "MissionAllCompleteAtOnce",
+        "OnlyTargetArtifactType",
+        "OnlyTargetArtifactType_MainOnly",
+        "OnlyTargetJobs",
+        "OnlyTargetJobs_MainOnly",
+        "OnlyTargetUnitBirthplace",
+        "OnlyTargetUnitBirthplace_MainOnly",
+        "OnlyTargetSex",
+        "OnlyTargetSex_MainOnly",
+        "OnlyHeroUnit",
+        "OnlyHeroUnit_MainOnly",
+        "Finisher",
+        "TotalGetTreasureCount",
+        "KillstreakByUsingTargetItem",
+        "KillstreakByUsingTargetSkill",
+        "MaxPartySize_IgnoreFriend",
+        "NoAutoMode",
+        "NoDeath_NoContinue",
+        "OnlyTargetUnits",
+        "OnlyTargetUnits_MainOnly",
+        "LimitedTurn_Leader",
+        "NoDeathTargetNpcUnits",
+        "UseTargetSkill",
+        "TotalKillstreakCount",
+        "TotalGetGemCount_Over",
+        "TotalGetGemCount_Less"
     ],
     "EnchantCategory": [
-        "Assist,",
-        "Resist,"
+        "Assist",
+        "Resist"
     ],
     "EnchantTypes": [
-        "Poison,",
-        "Paralysed,",
-        "Stun,",
-        "Sleep,",
-        "Charm,",
-        "Stone,",
-        "Blind,",
-        "DisableSkill,",
-        "DisableMove,",
-        "DisableAttack,",
-        "Zombie,",
-        "DeathSentence,",
-        "Berserk,",
-        "Knockback,",
-        "ResistBuff,",
-        "ResistDebuff,",
-        "Stop,",
-        "Fast,",
-        "Slow,",
-        "AutoHeal,",
-        "Donsoku,",
-        "Rage,",
-        "GoodSleep,",
-        "AutoJewel,",
-        "DisableHeal,",
-        "SingleAttack,",
-        "AreaAttack,",
-        "DecCT,",
-        "IncCT,"
+        "Poison",
+        "Paralysed",
+        "Stun",
+        "Sleep",
+        "Charm",
+        "Stone",
+        "Blind",
+        "DisableSkill",
+        "DisableMove",
+        "DisableAttack",
+        "Zombie",
+        "DeathSentence",
+        "Berserk",
+        "Knockback",
+        "ResistBuff",
+        "ResistDebuff",
+        "Stop",
+        "Fast",
+        "Slow",
+        "AutoHeal",
+        "Donsoku",
+        "Rage",
+        "GoodSleep",
+        "AutoJewel",
+        "DisableHeal",
+        "SingleAttack",
+        "AreaAttack",
+        "DecCT",
+        "IncCT"
     ],
     "ERarity": [
-        "NN,",
-        "HN,",
-        "RR,",
-        "SR,",
-        "UR,",
-        "LD,"
+        "NN",
+        "HN",
+        "RR",
+        "SR",
+        "UR",
+        "LD"
     ],
     "ESaleType": [
-        "Gold,",
-        "Coin,",
-        "TourCoin,",
-        "ArenaCoin,",
-        "PiecePoint,",
-        "MultiCoin,",
-        "EventCoin,",
-        "Coin_P,"
+        "Gold",
+        "Coin",
+        "TourCoin",
+        "ArenaCoin",
+        "PiecePoint",
+        "MultiCoin",
+        "EventCoin",
+        "Coin_P"
     ],
     "ESelectType": [
-        "Cross,",
-        "Diamond,",
-        "Square,",
-        "Laser,",
-        "All,",
-        "Wall,",
-        "WallPlus,",
-        "Bishop,",
-        "Victory,",
-        "LaserSpread,",
-        "LaserWide,",
-        "Horse,",
-        "LaserTwin,",
-        "LaserTriple,",
-        "SquareOutline,"
+        "Cross",
+        "Diamond",
+        "Square",
+        "Laser",
+        "All",
+        "Wall",
+        "WallPlus",
+        "Bishop",
+        "Victory",
+        "LaserSpread",
+        "LaserWide",
+        "Horse",
+        "LaserTwin",
+        "LaserTriple",
+        "SquareOutline"
     ],
     "ESex": [
-        "Unknown,",
-        "Male,",
-        "Female,"
+        "Unknown",
+        "Male",
+        "Female"
     ],
     "EShopType": [
-        "Normal,",
-        "Tabi,",
-        "Kimagure,",
-        "Monozuki,",
-        "Tour,",
-        "Arena,",
-        "Multi,",
-        "AwakePiece,",
-        "Artifact,",
-        "Event,",
-        "Limited,"
+        "Normal",
+        "Tabi",
+        "Kimagure",
+        "Monozuki",
+        "Tour",
+        "Arena",
+        "Multi",
+        "AwakePiece",
+        "Artifact",
+        "Event",
+        "Limited"
     ],
     "ESkillCondition": [
-        "None,",
-        "Dying,",
-        "MapEffect,",
-        "Weather,"
+        "None",
+        "Dying",
+        "MapEffect",
+        "Weather"
     ],
     "ESkillTarget": [
-        "Self,",
-        "SelfSide,",
-        "EnemySide,",
-        "UnitAll,",
-        "NotSelf,",
-        "GridNoUnit,",
-        "ValidGrid,"
+        "Self",
+        "SelfSide",
+        "EnemySide",
+        "UnitAll",
+        "NotSelf",
+        "GridNoUnit",
+        "ValidGrid"
     ],
     "ESkillTiming": [
-        "Used,",
-        "Passive,",
-        "Wait,",
-        "Dead,",
-        "DamageCalculate,",
-        "DamageControl,",
-        "Reaction,",
-        "FirstReaction,",
-        "Auto,",
-        "Dying,"
+        "Used",
+        "Passive",
+        "Wait",
+        "Dead",
+        "DamageCalculate",
+        "DamageControl",
+        "Reaction",
+        "FirstReaction",
+        "Auto",
+        "Dying"
     ],
     "ESkillType": [
-        "Attack,",
-        "Skill,",
-        "Passive,",
-        "Item,",
-        "Reaction,"
+        "Attack",
+        "Skill",
+        "Passive",
+        "Item",
+        "Reaction"
     ],
     "eTeleportType": [
-        "None,",
-        "Only,",
-        "BeforeSkill,",
-        "AfterSkill,"
+        "None",
+        "Only",
+        "BeforeSkill",
+        "AfterSkill"
     ],
     "eTrickActionTiming": [
-        "UNKNOWN,",
-        "TURN_START,",
-        "TURN_END,"
+        "UNKNOWN",
+        "TURN_START",
+        "TURN_END"
     ],
     "eTrickDamageType": [
-        "NONE,",
-        "DAMAGE,",
-        "HEAL,"
+        "NONE",
+        "DAMAGE",
+        "HEAL"
     ],
     "eTrickSetType": [
-        "GridNoUnit,",
-        "GridAll,"
+        "GridNoUnit",
+        "GridAll"
     ],
     "eTrickVisualType": [
-        "NONE,",
-        "PLAYER,",
-        "ALL,"
+        "NONE",
+        "PLAYER",
+        "ALL"
     ],
     "EUnitCommandFlag": {
         "1": "Move",
@@ -743,11 +743,11 @@
         "268435456": "DisableIncCT"
     },
     "EUnitDirection": [
-        "PositiveX,",
-        "PositiveY,",
-        "NegativeX,",
-        "NegativeY,",
-        "Auto,"
+        "PositiveX",
+        "PositiveY",
+        "NegativeX",
+        "NegativeY",
+        "Auto"
     ],
     "EUnitFlag": {
         "1": "Entried",
@@ -776,234 +776,234 @@
         "8388608": "ToDying"
     },
     "EUnitSide": [
-        "Player,",
-        "Enemy,",
-        "Neutral,"
+        "Player",
+        "Enemy",
+        "Neutral"
     ],
     "EUnitType": [
-        "Unit,",
-        "Treasure,",
-        "Gem,",
-        "EventUnit,",
-        "BreakObj,"
+        "Unit",
+        "Treasure",
+        "Gem",
+        "EventUnit",
+        "BreakObj"
     ],
     "TextSpeedTypes": [
-        "Normal,",
-        "Slow,",
-        "Fast,"
+        "Normal",
+        "Slow",
+        "Fast"
     ],
     "FilterType": [
-        "None,",
-        "Monochrome,",
-        "Sepia,"
+        "None",
+        "Monochrome",
+        "Sepia"
     ],
     "SiblingOrder": [
-        "Root,",
-        "OnDialog,",
-        "OnStandChara,",
-        "OnBackGround,",
-        "ChildOfActor,"
+        "Root",
+        "OnDialog",
+        "OnStandChara",
+        "OnBackGround",
+        "ChildOfActor"
     ],
     "ActorChildOrder": [
-        "Over,",
-        "Under,"
+        "Over",
+        "Under"
     ],
     "StateTypes": [
-        "FadeIn,",
-        "Active,",
-        "FadeOut,",
-        "Inactive,",
-        "None,"
+        "FadeIn",
+        "Active",
+        "FadeOut",
+        "Inactive",
+        "None"
     ],
     "TextPositionTypes": [
-        "Left,",
-        "Center,",
-        "Right,"
+        "Left",
+        "Center",
+        "Right"
     ],
     "VisibleType": [
-        "Visible,",
-        "Invisible,"
+        "Visible",
+        "Invisible"
     ],
     "FadeModes": [
-        "Screen,",
-        "Scene,"
+        "Screen",
+        "Scene"
     ],
     "LookAtTypes": [
-        "WorldPosition,",
-        "GameObject,",
-        "WorldRotate,"
+        "WorldPosition",
+        "GameObject",
+        "WorldRotate"
     ],
     "RotationModes": [
-        "FixedTime,",
-        "Speed,"
+        "FixedTime",
+        "Speed"
     ],
     "AnimeType": [
-        "Custom,",
-        "Idel,"
+        "Custom",
+        "Idel"
     ],
     "RunTypes": [
-        "Time,",
-        "Speed,"
+        "Time",
+        "Speed"
     ],
     "PREFIX_PATH": [
-        "Demo,",
-        "Movie,",
-        "Default,"
+        "Demo",
+        "Movie",
+        "Default"
     ],
     "CameraMoveModes": [
-        "InterpolateToPoint,",
-        "StartEnd,",
-        "SpecificActor,"
+        "InterpolateToPoint",
+        "StartEnd",
+        "SpecificActor"
     ],
     "CameraMoveSpeeds": [
-        "Immediate,",
-        "Normal,",
-        "Fast,",
-        "Slow,"
+        "Immediate",
+        "Normal",
+        "Fast",
+        "Slow"
     ],
     "CameraFadeModes": [
-        "KeepAsIs,",
-        "FadeIn,",
-        "FadeOut,",
-        "FadeInOut,"
+        "KeepAsIs",
+        "FadeIn",
+        "FadeOut",
+        "FadeInOut"
     ],
     "AnimationTypes": [
-        "Custom,",
-        "Idle,"
+        "Custom",
+        "Idle"
     ],
     "ColorModes": [
-        "None,",
-        "Monochrome,",
-        "Blend,"
+        "None",
+        "Monochrome",
+        "Blend"
     ],
     "ToggleTypes": [
-        "Hide,",
-        "Show,",
-        "Summon,"
+        "Hide",
+        "Show",
+        "Summon"
     ],
     "Anchors": [
-        "None,",
-        "TopLeft,",
-        "TopCenter,",
-        "TopRight,",
-        "MiddleLeft,",
-        "Center,",
-        "MiddleRight,",
-        "BottomLeft,",
-        "BottomCenter,",
-        "BottomRight,"
+        "None",
+        "TopLeft",
+        "TopCenter",
+        "TopRight",
+        "MiddleLeft",
+        "Center",
+        "MiddleRight",
+        "BottomLeft",
+        "BottomCenter",
+        "BottomRight"
     ],
     "EventQuestTypes": [
-        "Normal,",
-        "Key,",
-        "Gps,",
-        "Tower,",
-        "Ranking,",
-        "Beginner,"
+        "Normal",
+        "Key",
+        "Gps",
+        "Tower",
+        "Ranking",
+        "Beginner"
     ],
     "StartConditions": [
-        "Auto,",
-        "UnitStart,",
-        "HPBelowPercent,",
-        "Win,",
-        "TurnStart,",
-        "PostMapLoad,",
-        "UnitTurnStart,",
-        "UnitAppear,",
-        "UnitDead,",
-        "StandbyGrid,",
-        "RestHP,",
-        "UseSkill,",
-        "UnitWithdraw,"
+        "Auto",
+        "UnitStart",
+        "HPBelowPercent",
+        "Win",
+        "TurnStart",
+        "PostMapLoad",
+        "UnitTurnStart",
+        "UnitAppear",
+        "UnitDead",
+        "StandbyGrid",
+        "RestHP",
+        "UseSkill",
+        "UnitWithdraw"
     ],
     "CompType": [
-        "EQUAL,",
-        "NOT_EQUAL,",
-        "GREATER,",
-        "GREATER_EQUAL,",
-        "LESS,",
-        "LESS_EQUAL,",
-        "MAX,"
+        "EQUAL",
+        "NOT_EQUAL",
+        "GREATER",
+        "GREATER_EQUAL",
+        "LESS",
+        "LESS_EQUAL",
+        "MAX"
     ],
     "CalcType": [
-        "SCALE,",
-        "FIXED,",
-        "MAX,"
+        "SCALE",
+        "FIXED",
+        "MAX"
     ],
     "SkillTiming": [
-        "BEFORE,",
-        "AFTER,",
-        "MAX,"
+        "BEFORE",
+        "AFTER",
+        "MAX"
     ],
     "PositionTypes": [
-        "OverLeft,",
-        "Left,",
-        "HLeft,",
-        "Center,",
-        "HRight,",
-        "Right,",
-        "OverRight,",
-        "None,"
+        "OverLeft",
+        "Left",
+        "HLeft",
+        "Center",
+        "HRight",
+        "Right",
+        "OverRight",
+        "None"
     ],
     "LayerType": [
-        "Normal,",
-        "Add,",
-        "AlphaBlend,"
+        "Normal",
+        "Add",
+        "AlphaBlend"
     ],
     "Conditions": [
-        "[FlowNode_Condition.Description(\"スタミナが足りているか\", \"クエストを開始するのに必要なスタミナがあるかどうか判定します。\")] QUEST_HASENOUGHSTAMINA,",
-        "[FlowNode_Condition.Description(\"フレンドであるか\")] FRIEND_ISFRIEND,",
-        "[FlowNode_Condition.Description(\"パーティリーダーはリーダースキルを所持しているか?\")] PARTY_LEADERSKILLAVAIL,",
-        "[FlowNode_Condition.Description(\"選択されたフレンドはフレンドスキルを所持しているか?\")] FRIEND_LEADERSKILLAVAIL,",
-        "[FlowNode_Condition.Description(\"パーティのリーダーが設定されているか\")] PARTY_LEADEREXIST,",
-        "[FlowNode_Condition.Description(\"バトルで現在ターゲットしているユニットに対してコマンドが有効であるか判定します。\")] TARGET_COMMANDVALID,",
-        "[FlowNode_Condition.Description(\"クエストから欠片を入手できるか?\")] QUEST_DROPSKAKERA,",
-        "[FlowNode_Condition.Description(\"クエスト最初のターンか?\")] QUEST_FIRSTTURN,",
-        "[FlowNode_Condition.Description(\"サポートしてくれた人にフレンドリクエスト送るべき?\")] QUEST_NEEDFRIENDREQUEST,",
-        "[FlowNode_Condition.Description(\"プレイヤーのレベルが変化した\")] PLAYER_LEVELCHANGED,",
-        "[FlowNode_Condition.Description(\"ニューゲームが選択された\")] NEWGAME,",
-        "[FlowNode_Condition.Description(\"再開用BTLIDが設定されている\")] BTLIDSET,",
-        "[FlowNode_Condition.Description(\"マルチプレイ中?\")] QUEST_ISMULTIPLAY,",
-        "[FlowNode_Condition.Description(\"アリーナプレイ中?\")] QUEST_ISARENA,",
-        "[FlowNode_Condition.Description(\"勝てばアリーナでランクアップする。\")] ARENA_RANKUP,",
-        "QUEST_HASREWARD,",
-        "TERMSOFUSE_AGREED,",
-        "[FlowNode_Condition.Description(\"フレンドは設定されているか？\")] FRIEND_VALID,",
-        "QUEST_ENDSILENT,",
-        "[FlowNode_Condition.Description(\"サポートユニットの契約金額が不足しているか？\")] IS_NOT_ENOUGH_SUPPORT_COST,",
-        "[FlowNode_Condition.Description(\"マルチはアンロックされているか？\")] MULTI_PLAY_IS_UNLOCKED,",
-        "[FlowNode_Condition.Description(\"オートバトル可能か？\")] QUEST_IS_ENABLE_AUTOBATTLE,",
-        "[FlowNode_Condition.Description(\"オートバトル中か？\")] QUEST_IS_AUTOBATTLE,",
-        "DEBUGBUILD,",
-        "[FlowNode_Condition.Description(\"Beginner?\")] IS_BEGINNER,",
-        "[FlowNode_Condition.Description(\"チュートリアルを最後まで行ったか？\")] IS_END_TUTORIAL,",
-        "[FlowNode_Condition.Description(\"ユニットを所持しているか？\")] IS_GET_UNIT,",
-        "[FlowNode_Condition.Description(\"対戦はアンロック済みか？\")] VERSUS_UNLOCK,",
-        "[FlowNode_Condition.Description(\"レビューポップアップを表示するか？\")] QUEST_IS_SHOW_REVIEW,",
-        "[FlowNode_Condition.Description(\"クエストは初回クリアか？\")] QUEST_IS_FIRST_CLEAR,",
-        "[FlowNode_Condition.Description(\"クエストタイプがGPSクエストか？\")] QUEST_IS_GPS,",
-        "[FlowNode_Condition.Description(\"選択中のチャプターがGPSヘッダか？\")] QUEST_IS_GPSCHAPTER_HEAD,",
-        "[FlowNode_Condition.Description(\"選択中のチャプターがGPSクエストか？\")] QUEST_IS_GPSCHAPTER_QUEST,",
-        "[FlowNode_Condition.Description(\"選択中のチャプターに有効なGPSクエストがあるか？\")] QUEST_IS_GPSCHAPTER_QUEST_VALID,",
-        "[FlowNode_Condition.Description(\"GPSギフトが有効かどうか\")] VALID_GPSGIFT,",
-        "[FlowNode_Condition.Description(\"シーン遷移中かどうか\")] SCENE_CHANGING,",
-        "[FlowNode_Condition.Description(\"終了デモ再生条件を満たしているか？\")] QUEST_IS_PLAY_LAST_DEMO,",
-        "[FlowNode_Condition.Description(\"ランキングクエストか？\")] QUEST_IS_RANKINGQUEST,",
-        "[FlowNode_Condition.Description(\"ランキングクエストでハイスコア更新したか？\")] QUEST_IS_RANKINGQUEST_NEWSCORE,",
-        "[FlowNode_Condition.Description(\"ランキングクエストで参加報酬をうけとれたか？\")] QUEST_IS_RANKINGQUEST_JOIN_REWARD,",
-        "[FlowNode_Condition.Description(\"ランキングクエストのリザルトで有効なランクだったか？（集計中は無効なランクになる）\")] QUEST_IS_RANKINGQUEST_RESULT_VALIDRANK,",
-        "[FlowNode_Condition.Description(\"Need to show language selection?\")] SG_LANGUAGE,",
-        "[FlowNode_Condition.Description(\"If account not linked, return TRUE every 24h\")] SG_CHECK_ACCOUNT_LINK,",
-        "[FlowNode_Condition.Description(\"Popup Android Permission Request\")] SG_CHECK_ANDROID_PERMISSION,",
-        "[FlowNode_Condition.Description(\"Check if Free Disk Space is higher than minimum requirement\")] SG_DISK_SPACE_AVAILABLE,",
-        "[FlowNode_Condition.Description(\"Is AutoBattle enabled\")] SG_AUTO_BATTLE_ENABLED,",
-        "[FlowNode_Condition.Description(\"Is SpeedUP enabled\")] SG_SPEEDUP_ENABLED,"
+        "[FlowNode_Condition.Description(\"スタミナが足りているか\", \"クエストを開始するのに必要なスタミナがあるかどうか判定します。\")] QUEST_HASENOUGHSTAMINA",
+        "[FlowNode_Condition.Description(\"フレンドであるか\")] FRIEND_ISFRIEND",
+        "[FlowNode_Condition.Description(\"パーティリーダーはリーダースキルを所持しているか?\")] PARTY_LEADERSKILLAVAIL",
+        "[FlowNode_Condition.Description(\"選択されたフレンドはフレンドスキルを所持しているか?\")] FRIEND_LEADERSKILLAVAIL",
+        "[FlowNode_Condition.Description(\"パーティのリーダーが設定されているか\")] PARTY_LEADEREXIST",
+        "[FlowNode_Condition.Description(\"バトルで現在ターゲットしているユニットに対してコマンドが有効であるか判定します。\")] TARGET_COMMANDVALID",
+        "[FlowNode_Condition.Description(\"クエストから欠片を入手できるか?\")] QUEST_DROPSKAKERA",
+        "[FlowNode_Condition.Description(\"クエスト最初のターンか?\")] QUEST_FIRSTTURN",
+        "[FlowNode_Condition.Description(\"サポートしてくれた人にフレンドリクエスト送るべき?\")] QUEST_NEEDFRIENDREQUEST",
+        "[FlowNode_Condition.Description(\"プレイヤーのレベルが変化した\")] PLAYER_LEVELCHANGED",
+        "[FlowNode_Condition.Description(\"ニューゲームが選択された\")] NEWGAME",
+        "[FlowNode_Condition.Description(\"再開用BTLIDが設定されている\")] BTLIDSET",
+        "[FlowNode_Condition.Description(\"マルチプレイ中?\")] QUEST_ISMULTIPLAY",
+        "[FlowNode_Condition.Description(\"アリーナプレイ中?\")] QUEST_ISARENA",
+        "[FlowNode_Condition.Description(\"勝てばアリーナでランクアップする。\")] ARENA_RANKUP",
+        "QUEST_HASREWARD",
+        "TERMSOFUSE_AGREED",
+        "[FlowNode_Condition.Description(\"フレンドは設定されているか？\")] FRIEND_VALID",
+        "QUEST_ENDSILENT",
+        "[FlowNode_Condition.Description(\"サポートユニットの契約金額が不足しているか？\")] IS_NOT_ENOUGH_SUPPORT_COST",
+        "[FlowNode_Condition.Description(\"マルチはアンロックされているか？\")] MULTI_PLAY_IS_UNLOCKED",
+        "[FlowNode_Condition.Description(\"オートバトル可能か？\")] QUEST_IS_ENABLE_AUTOBATTLE",
+        "[FlowNode_Condition.Description(\"オートバトル中か？\")] QUEST_IS_AUTOBATTLE",
+        "DEBUGBUILD",
+        "[FlowNode_Condition.Description(\"Beginner?\")] IS_BEGINNER",
+        "[FlowNode_Condition.Description(\"チュートリアルを最後まで行ったか？\")] IS_END_TUTORIAL",
+        "[FlowNode_Condition.Description(\"ユニットを所持しているか？\")] IS_GET_UNIT",
+        "[FlowNode_Condition.Description(\"対戦はアンロック済みか？\")] VERSUS_UNLOCK",
+        "[FlowNode_Condition.Description(\"レビューポップアップを表示するか？\")] QUEST_IS_SHOW_REVIEW",
+        "[FlowNode_Condition.Description(\"クエストは初回クリアか？\")] QUEST_IS_FIRST_CLEAR",
+        "[FlowNode_Condition.Description(\"クエストタイプがGPSクエストか？\")] QUEST_IS_GPS",
+        "[FlowNode_Condition.Description(\"選択中のチャプターがGPSヘッダか？\")] QUEST_IS_GPSCHAPTER_HEAD",
+        "[FlowNode_Condition.Description(\"選択中のチャプターがGPSクエストか？\")] QUEST_IS_GPSCHAPTER_QUEST",
+        "[FlowNode_Condition.Description(\"選択中のチャプターに有効なGPSクエストがあるか？\")] QUEST_IS_GPSCHAPTER_QUEST_VALID",
+        "[FlowNode_Condition.Description(\"GPSギフトが有効かどうか\")] VALID_GPSGIFT",
+        "[FlowNode_Condition.Description(\"シーン遷移中かどうか\")] SCENE_CHANGING",
+        "[FlowNode_Condition.Description(\"終了デモ再生条件を満たしているか？\")] QUEST_IS_PLAY_LAST_DEMO",
+        "[FlowNode_Condition.Description(\"ランキングクエストか？\")] QUEST_IS_RANKINGQUEST",
+        "[FlowNode_Condition.Description(\"ランキングクエストでハイスコア更新したか？\")] QUEST_IS_RANKINGQUEST_NEWSCORE",
+        "[FlowNode_Condition.Description(\"ランキングクエストで参加報酬をうけとれたか？\")] QUEST_IS_RANKINGQUEST_JOIN_REWARD",
+        "[FlowNode_Condition.Description(\"ランキングクエストのリザルトで有効なランクだったか？（集計中は無効なランクになる）\")] QUEST_IS_RANKINGQUEST_RESULT_VALIDRANK",
+        "[FlowNode_Condition.Description(\"Need to show language selection?\")] SG_LANGUAGE",
+        "[FlowNode_Condition.Description(\"If account not linked, return TRUE every 24h\")] SG_CHECK_ACCOUNT_LINK",
+        "[FlowNode_Condition.Description(\"Popup Android Permission Request\")] SG_CHECK_ANDROID_PERMISSION",
+        "[FlowNode_Condition.Description(\"Check if Free Disk Space is higher than minimum requirement\")] SG_DISK_SPACE_AVAILABLE",
+        "[FlowNode_Condition.Description(\"Is AutoBattle enabled\")] SG_AUTO_BATTLE_ENABLED",
+        "[FlowNode_Condition.Description(\"Is SpeedUP enabled\")] SG_SPEEDUP_ENABLED"
     ],
     "PrefsType : byte": [
-        "None,",
-        "PlayerPrefs,",
-        "UserInfoManager,",
-        "All,"
+        "None",
+        "PlayerPrefs",
+        "UserInfoManager",
+        "All"
     ],
     "DownloadAssets": {
         "1": "Tutorial",
@@ -1015,63 +1015,63 @@
         "64": "LoginBonus"
     },
     "SceneTypes": [
-        "Additive,",
-        "HomeTown,",
-        "Replace,",
-        "BootScene,"
+        "Additive",
+        "HomeTown",
+        "Replace",
+        "BootScene"
     ],
     "PrefabType": [
-        "SectionParamBar,",
-        "SectionParamShop,",
-        "SectionParamInn,",
-        "DirectResourcePath,",
-        "SectionParamMemberName,"
+        "SectionParamBar",
+        "SectionParamShop",
+        "SectionParamInn",
+        "DirectResourcePath",
+        "SectionParamMemberName"
     ],
     "RESUME_TYPE": [
-        "MULTI,",
-        "VERSUS,",
-        "TOWER,"
+        "MULTI",
+        "VERSUS",
+        "TOWER"
     ],
     "TriBool": [
-        "Unchanged,",
-        "False,",
-        "True,"
+        "Unchanged",
+        "False",
+        "True"
     ],
     "TriggerConditions": [
-        "None,",
-        "FirstTry,",
-        "FirstWin,",
-        "FirstLose,",
-        "Win,",
-        "Lose,"
+        "None",
+        "FirstTry",
+        "FirstWin",
+        "FirstLose",
+        "Win",
+        "Lose"
     ],
     "MODE": [
-        "SetAwardList,",
-        "SetPlayerAward,"
+        "SetAwardList",
+        "SetPlayerAward"
     ],
     "SelectModes": [
-        "Latest,",
-        "DailyChapter,",
-        "DailySection,",
-        "CharacterQuestSection,"
+        "Latest",
+        "DailyChapter",
+        "DailySection",
+        "CharacterQuestSection"
     ],
     "PartyTypes": [
-        "Normal,",
-        "Multi,",
-        "Arena,",
-        "ArenaDefense,"
+        "Normal",
+        "Multi",
+        "Arena",
+        "ArenaDefense"
     ],
     "VariableType": [
-        "None,",
-        "IsEventQuest,",
-        "Hide,",
-        "Show,"
+        "None",
+        "IsEventQuest",
+        "Hide",
+        "Show"
     ],
     "EnableType": [
-        "None,",
-        "IsEventQuest,",
-        "Disable,",
-        "Enable,"
+        "None",
+        "IsEventQuest",
+        "Disable",
+        "Enable"
     ],
     "ActivateFlags": {
         "1": "AutoActivate",
@@ -1089,86 +1089,86 @@
         "17": "UnitSelectDirection"
     },
     "URL_Mode": [
-        "APIHost,",
-        "SiteHost,",
-        "NewsHost,"
+        "APIHost",
+        "SiteHost",
+        "NewsHost"
     ],
     "AnimState": [
-        "IDEL,",
-        "OPEN,",
-        "CLOSE,",
-        "OPENED,",
-        "CLOSED,"
+        "IDEL",
+        "OPEN",
+        "CLOSE",
+        "OPENED",
+        "CLOSED"
     ],
     "Mode": [
-        "Normal,",
-        "Reverse,"
+        "Normal",
+        "Reverse"
     ],
     "SendStatus": [
-        "NONE,",
-        "UNSENT,",
-        "SENDING,",
-        "SENTFAILED,",
-        "SENDED,"
+        "NONE",
+        "UNSENT",
+        "SENDING",
+        "SENTFAILED",
+        "SENDED"
     ],
     "FriendStates": [
-        "None,",
-        "Friend,",
-        "Follow,",
-        "Follwer,"
+        "None",
+        "Friend",
+        "Follow",
+        "Follwer"
     ],
     "GachaCostType": [
-        "NONE,",
-        "COIN,",
-        "COIN_P,",
-        "GOLD,",
-        "TICKET,",
-        "FREE_COIN,",
-        "FREE_GOLD,",
-        "ALL,"
+        "NONE",
+        "COIN",
+        "COIN_P",
+        "GOLD",
+        "TICKET",
+        "FREE_COIN",
+        "FREE_GOLD",
+        "ALL"
     ],
     "GachaNumType": [
-        "NONE,",
-        "SINGLE,",
-        "MULTI,",
-        "ALL,"
+        "NONE",
+        "SINGLE",
+        "MULTI",
+        "ALL"
     ],
     "GachaCategoryType": [
-        "NONE,",
-        "RARE,",
-        "NORMAL,",
-        "STEPUP,",
-        "ALL,"
+        "NONE",
+        "RARE",
+        "NORMAL",
+        "STEPUP",
+        "ALL"
     ],
     "GachaCategory : byte": [
-        "NONE,",
-        "DEFAULT_RARE,",
-        "DEFAULT_NORMAL,"
+        "NONE",
+        "DEFAULT_RARE",
+        "DEFAULT_NORMAL"
     ],
     "GachaResultType": [
-        "None,",
-        "Unit,",
-        "Item,",
-        "Piece,",
-        "Artifact,",
-        "End,"
+        "None",
+        "Unit",
+        "Item",
+        "Piece",
+        "Artifact",
+        "End"
     ],
     "DropClasses": [
-        "Unit,",
-        "Item,"
+        "Unit",
+        "Item"
     ],
     "GachaTypes": [
-        "Normal,",
-        "Rare,",
-        "Vip,"
+        "Normal",
+        "Rare",
+        "Vip"
     ],
     "GachaTabCategory : byte": [
-        "NONE,",
-        "RARE,",
-        "ARTIFACT,",
-        "TICKET,",
-        "NORMAL,",
-        "SPECIAL,"
+        "NONE",
+        "RARE",
+        "ARTIFACT",
+        "TICKET",
+        "NORMAL",
+        "SPECIAL"
     ],
     "BadgeTypes": {
         "1": "Unit",
@@ -1199,71 +1199,71 @@
         "10": "Bundles"
     },
     "QuestInstanceTypes": [
-        "Any,",
-        "Playing,",
-        "Selected,"
+        "Any",
+        "Playing",
+        "Selected"
     ],
     "ArenaPlayerInstanceTypes": [
-        "Any,",
-        "Enemy,"
+        "Any",
+        "Enemy"
     ],
     "UnitInstanceTypes": [
-        "Any,",
-        "OBSOLETE_MainTarget,",
-        "OBSOLETE_SubTarget,",
-        "CurrentTurn,",
-        "ArenaPlayerUnit0,",
-        "ArenaPlayerUnit1,",
-        "ArenaPlayerUnit2,",
-        "EnemyArenaPlayerUnit0,",
-        "EnemyArenaPlayerUnit1,",
-        "EnemyArenaPlayerUnit2,",
-        "PartyUnit0,",
-        "PartyUnit1,",
-        "PartyUnit2,",
-        "VersusUnit,",
-        "MultiUnit,",
-        "MultiTowerUnit,"
+        "Any",
+        "OBSOLETE_MainTarget",
+        "OBSOLETE_SubTarget",
+        "CurrentTurn",
+        "ArenaPlayerUnit0",
+        "ArenaPlayerUnit1",
+        "ArenaPlayerUnit2",
+        "EnemyArenaPlayerUnit0",
+        "EnemyArenaPlayerUnit1",
+        "EnemyArenaPlayerUnit2",
+        "PartyUnit0",
+        "PartyUnit1",
+        "PartyUnit2",
+        "VersusUnit",
+        "MultiUnit",
+        "MultiTowerUnit"
     ],
     "PartyAttackTypes": [
-        "Normal,",
-        "Quest,"
+        "Normal",
+        "Quest"
     ],
     "TargetInstanceTypes": [
-        "Main,",
-        "Sub,"
+        "Main",
+        "Sub"
     ],
     "ItemInstanceTypes": [
-        "Any,",
-        "Inventory,",
-        "QuestReward,",
-        "Equipment,",
-        "EnhanceMaterial,",
-        "EnhanceEquipData,",
-        "SellItem,",
-        "ConsumeItem,"
+        "Any",
+        "Inventory",
+        "QuestReward",
+        "Equipment",
+        "EnhanceMaterial",
+        "EnhanceEquipData",
+        "SellItem",
+        "ConsumeItem"
     ],
     "ArtifactInstanceTypes": [
-        "Any,",
-        "QuestReward,",
-        "Trophy,"
+        "Any",
+        "QuestReward",
+        "Trophy"
     ],
     "TrophyBadgeInstanceTypes": [
-        "Any,",
-        "Normal,",
-        "Daily,",
-        "NormalStory,",
-        "NormalEvent,",
-        "NormalTraining,",
-        "NormalOther,"
+        "Any",
+        "Normal",
+        "Daily",
+        "NormalStory",
+        "NormalEvent",
+        "NormalTraining",
+        "NormalOther"
     ],
     "TrophyConditionInstances": [
-        "List,",
-        "Index,"
+        "List",
+        "Index"
     ],
     "VersusPlayerInstanceType": [
-        "Player,",
-        "Enemy,"
+        "Player",
+        "Enemy"
     ],
     "ParameterTypes": {
         "0": "[GameParameter.ParameterDesc(\"プレイヤーの名前\")] GLOBAL_PLAYER_NAME",
@@ -1852,52 +1852,52 @@
         "2048": "Award"
     },
     "GimmickEventTriggerType": [
-        "None,",
-        "DamageCount,",
-        "DeadUnit,",
-        "OnGrid,"
+        "None",
+        "DamageCount",
+        "DeadUnit",
+        "OnGrid"
     ],
     "CoinListSelectionType": [
-        "None,",
-        "EventShop,",
-        "ArenaShop,",
-        "MultiShop,"
+        "None",
+        "EventShop",
+        "ArenaShop",
+        "MultiShop"
     ],
     "JobRankUpTypes": [
-        "RankUp,",
-        "Unlock,",
-        "ClassChange,"
+        "RankUp",
+        "Unlock",
+        "ClassChange"
     ],
     "EMultiPlayContinue": [
-        "PENDING,",
-        "CONTINUE,",
-        "CANCEL,"
+        "PENDING",
+        "CONTINUE",
+        "CANCEL"
     ],
     "EventQuestListType": [
-        "EventQuest,",
-        "KeyQuest,",
-        "Tower,",
-        "RankingQuest,",
-        "BeginnerQuest,"
+        "EventQuest",
+        "KeyQuest",
+        "Tower",
+        "RankingQuest",
+        "BeginnerQuest"
     ],
     "PurchaseType": [
-        "Bundles,",
-        "Gems,"
+        "Bundles",
+        "Gems"
     ],
     "RecommendType": [
-        "Total,",
-        "Attack,",
-        "Defence,",
-        "Magic,",
-        "Mind,",
-        "Speed,",
-        "AttackTypeSlash,",
-        "AttackTypeStab,",
-        "AttackTypeBlow,",
-        "AttackTypeShot,",
-        "AttackTypeMagic,",
-        "AttackTypeNone,",
-        "Hp,"
+        "Total",
+        "Attack",
+        "Defence",
+        "Magic",
+        "Mind",
+        "Speed",
+        "AttackTypeSlash",
+        "AttackTypeStab",
+        "AttackTypeBlow",
+        "AttackTypeShot",
+        "AttackTypeMagic",
+        "AttackTypeNone",
+        "Hp"
     ],
     "HitReactionTypes": {
         "-1": "None",
@@ -1910,69 +1910,69 @@
         "2": "NewSkin"
     },
     "ItemFilters": [
-        "All,",
-        "Potions,",
-        "Offensive,"
+        "All",
+        "Potions",
+        "Offensive"
     ],
     "ItemType": [
-        "NONE,",
-        "ALL,",
-        "USED,",
-        "EQUIP,",
-        "ITEM_PIECE,",
-        "MATERIAL,",
-        "UNIT_PIECE,"
+        "NONE",
+        "ALL",
+        "USED",
+        "EQUIP",
+        "ITEM_PIECE",
+        "MATERIAL",
+        "UNIT_PIECE"
     ],
     "JewelDamageTypes": [
-        "None,",
-        "Calc,",
-        "Scale,",
-        "Fixed,"
+        "None",
+        "Calc",
+        "Scale",
+        "Fixed"
     ],
     "JobTypes": [
-        "None,",
-        "Attacker,",
-        "Defender,",
-        "Healer,",
-        "Supporter,"
+        "None",
+        "Attacker",
+        "Defender",
+        "Healer",
+        "Supporter"
     ],
     "EState": [
-        "NOP,",
-        "READY,",
-        "START,",
-        "START_CONFIRM,",
-        "EDIT,",
-        "FLOOR_SELECT,",
-        "NUM,"
+        "NOP",
+        "READY",
+        "START",
+        "START_CONFIRM",
+        "EDIT",
+        "FLOOR_SELECT",
+        "NUM"
     ],
     "KeyQuestTypes": [
-        "None,",
-        "Timer,",
-        "Count,"
+        "None",
+        "Timer",
+        "Count"
     ],
     "Result": [
-        "NONE,",
-        "CONFIRM,",
-        "CANCEL,"
+        "NONE",
+        "CONFIRM",
+        "CANCEL"
     ],
     "HealType": [
-        "Hp,",
-        "Jewel,"
+        "Hp",
+        "Jewel"
     ],
     "SelectScene : byte": [
-        "None,",
-        "Gacha,",
-        "LimitedShop,",
-        "EventQuest,",
-        "TowerQuest,",
-        "BuyShop,"
+        "None",
+        "Gacha",
+        "LimitedShop",
+        "EventQuest",
+        "TowerQuest",
+        "BuyShop"
     ],
     "DispConditions": [
-        "None,",
-        "PlayerLvMore,",
-        "PlayerLvLess,",
-        "Beginner,",
-        "NotBeginner,"
+        "None",
+        "PlayerLvMore",
+        "PlayerLvLess",
+        "Beginner",
+        "NotBeginner"
     ],
     "EHitTypes": {
         "1": "BackAttack",
@@ -1987,55 +1987,55 @@
         "512": "PerfectAvoid"
     },
     "TabType : byte": [
-        "NotPeriod,",
-        "Period,",
-        "Read,"
+        "NotPeriod",
+        "Period",
+        "Read"
     ],
     "MoveInputMethods": [
-        "VirtualStick,",
-        "ClickAndGo,"
+        "VirtualStick",
+        "ClickAndGo"
     ],
     "MultiType": [
-        "NONE,",
-        "NORMAL,",
-        "TOWER,"
+        "NONE",
+        "NORMAL",
+        "TOWER"
     ],
     "RewardType : byte": [
-        "Item,",
-        "Gold,",
-        "Coin,",
-        "ArenaCoin,",
-        "MultiCoin,",
-        "KakeraCoin,",
-        "Artifact,"
+        "Item",
+        "Gold",
+        "Coin",
+        "ArenaCoin",
+        "MultiCoin",
+        "KakeraCoin",
+        "Artifact"
     ],
     "MyState": [
-        "NOP,",
-        "CONNECTING,",
-        "LOBBY,",
-        "JOINING,",
-        "ROOM,",
-        "LEAVING,",
-        "NUM,"
+        "NOP",
+        "CONNECTING",
+        "LOBBY",
+        "JOINING",
+        "ROOM",
+        "LEAVING",
+        "NUM"
     ],
     "MyError": [
-        "NOP,",
-        "UNKNOWN,",
-        "ILLEGAL_STATE,",
-        "TIMEOUT,",
-        "TIMEOUT2,",
-        "FULL_CLIENTS,",
-        "ROOM_NAME_DUPLICATED,",
-        "ROOM_IS_FULL,",
-        "ROOM_IS_NOT_EXIST,",
-        "ROOM_IS_NOT_OPEN,",
-        "RAISE_EVENT_FAILED,",
-        "NUM,"
+        "NOP",
+        "UNKNOWN",
+        "ILLEGAL_STATE",
+        "TIMEOUT",
+        "TIMEOUT2",
+        "FULL_CLIENTS",
+        "ROOM_NAME_DUPLICATED",
+        "ROOM_IS_FULL",
+        "ROOM_IS_NOT_EXIST",
+        "ROOM_IS_NOT_OPEN",
+        "RAISE_EVENT_FAILED",
+        "NUM"
     ],
     "SEND_TYPE : byte": [
-        "Normal,",
-        "Resume,",
-        "Sync,"
+        "Normal",
+        "Resume",
+        "Sync"
     ],
     "Alignment": {
         "0": "BottomLeft",
@@ -2266,190 +2266,190 @@
         "13003": "RankingQuest_OutOfPeriod"
     },
     "RequestResults": [
-        "Success,",
-        "Failure,",
-        "Retry,",
-        "Back,",
-        "Timeout,",
-        "Maintenance,",
-        "VersionMismatch,",
-        "InvalidSession,",
-        "IllegalParam,"
+        "Success",
+        "Failure",
+        "Retry",
+        "Back",
+        "Timeout",
+        "Maintenance",
+        "VersionMismatch",
+        "InvalidSession",
+        "IllegalParam"
     ],
     "EConnectMode": [
-        "Online,",
-        "Offline,"
+        "Online",
+        "Offline"
     ],
     "NewBadgeType : byte": [
-        "None,",
-        "Unit,",
-        "Item,",
-        "Artifact,"
+        "None",
+        "Unit",
+        "Item",
+        "Artifact"
     ],
     "NewsTypes": [
-        "None,",
-        "Normal,",
-        "Urgency,"
+        "None",
+        "Normal",
+        "Urgency"
     ],
     "ParamPriorities": [
-        "None,",
-        "High,",
-        "Low,"
+        "None",
+        "High",
+        "Low"
     ],
     "ParamTypes": [
-        "None,",
-        "Hp,",
-        "HpMax,",
-        "Mp,",
-        "MpIni,",
-        "Atk,",
-        "Def,",
-        "Mag,",
-        "Mnd,",
-        "Rec,",
-        "Dex,",
-        "Spd,",
-        "Cri,",
-        "Luk,",
-        "Mov,",
-        "Jmp,",
-        "EffectRange,",
-        "EffectScope,",
-        "EffectHeight,",
-        "Assist_Fire,",
-        "Assist_Water,",
-        "Assist_Wind,",
-        "Assist_Thunder,",
-        "Assist_Shine,",
-        "Assist_Dark,",
-        "Assist_Poison,",
-        "Assist_Paralysed,",
-        "Assist_Stun,",
-        "Assist_Sleep,",
-        "Assist_Charm,",
-        "Assist_Stone,",
-        "Assist_Blind,",
-        "Assist_DisableSkill,",
-        "Assist_DisableMove,",
-        "Assist_DisableAttack,",
-        "Assist_Zombie,",
-        "Assist_DeathSentence,",
-        "Assist_Berserk,",
-        "Assist_Knockback,",
-        "Assist_ResistBuff,",
-        "Assist_ResistDebuff,",
-        "Assist_Stop,",
-        "Assist_Fast,",
-        "Assist_Slow,",
-        "Assist_AutoHeal,",
-        "Assist_Donsoku,",
-        "Assist_Rage,",
-        "Assist_GoodSleep,",
-        "Assist_ConditionAll,",
-        "Resist_Fire,",
-        "Resist_Water,",
-        "Resist_Wind,",
-        "Resist_Thunder,",
-        "Resist_Shine,",
-        "Resist_Dark,",
-        "Resist_Poison,",
-        "Resist_Paralysed,",
-        "Resist_Stun,",
-        "Resist_Sleep,",
-        "Resist_Charm,",
-        "Resist_Stone,",
-        "Resist_Blind,",
-        "Resist_DisableSkill,",
-        "Resist_DisableMove,",
-        "Resist_DisableAttack,",
-        "Resist_Zombie,",
-        "Resist_DeathSentence,",
-        "Resist_Berserk,",
-        "Resist_Knockback,",
-        "Resist_ResistBuff,",
-        "Resist_ResistDebuff,",
-        "Resist_Stop,",
-        "Resist_Fast,",
-        "Resist_Slow,",
-        "Resist_AutoHeal,",
-        "Resist_Donsoku,",
-        "Resist_Rage,",
-        "Resist_GoodSleep,",
-        "Resist_ConditionAll,",
-        "HitRate,",
-        "AvoidRate,",
-        "CriticalRate,",
-        "GainJewel,",
-        "UsedJewelRate,",
-        "ActionCount,",
-        "SlashAttack,",
-        "PierceAttack,",
-        "BlowAttack,",
-        "ShotAttack,",
-        "MagicAttack,",
-        "ReactionAttack,",
-        "JumpAttack,",
-        "GutsRate,",
-        "AutoJewel,",
-        "ChargeTimeRate,",
-        "CastTimeRate,",
-        "BuffTurn,",
-        "DebuffTurn,",
-        "CombinationRange,",
-        "HpCostRate,",
-        "SkillUseCount,",
-        "PoisonDamage,",
-        "PoisonTurn,",
-        "Assist_AutoJewel,",
-        "Resist_AutoJewel,",
-        "Assist_DisableHeal,",
-        "Resist_DisableHeal,",
-        "Resist_Slash,",
-        "Resist_Pierce,",
-        "Resist_Blow,",
-        "Resist_Shot,",
-        "Resist_Magic,",
-        "Resist_Reaction,",
-        "Resist_Jump,",
-        "Avoid_Slash,",
-        "Avoid_Pierce,",
-        "Avoid_Blow,",
-        "Avoid_Shot,",
-        "Avoid_Magic,",
-        "Avoid_Reaction,",
-        "Avoid_Jump,",
-        "GainJewelRate,",
-        "UsedJewel,",
-        "Assist_SingleAttack,",
-        "Assist_AreaAttack,",
-        "Resist_SingleAttack,",
-        "Resist_AreaAttack,",
-        "Assist_DecCT,",
-        "Assist_IncCT,",
-        "Resist_DecCT,",
-        "Resist_IncCT,"
+        "None",
+        "Hp",
+        "HpMax",
+        "Mp",
+        "MpIni",
+        "Atk",
+        "Def",
+        "Mag",
+        "Mnd",
+        "Rec",
+        "Dex",
+        "Spd",
+        "Cri",
+        "Luk",
+        "Mov",
+        "Jmp",
+        "EffectRange",
+        "EffectScope",
+        "EffectHeight",
+        "Assist_Fire",
+        "Assist_Water",
+        "Assist_Wind",
+        "Assist_Thunder",
+        "Assist_Shine",
+        "Assist_Dark",
+        "Assist_Poison",
+        "Assist_Paralysed",
+        "Assist_Stun",
+        "Assist_Sleep",
+        "Assist_Charm",
+        "Assist_Stone",
+        "Assist_Blind",
+        "Assist_DisableSkill",
+        "Assist_DisableMove",
+        "Assist_DisableAttack",
+        "Assist_Zombie",
+        "Assist_DeathSentence",
+        "Assist_Berserk",
+        "Assist_Knockback",
+        "Assist_ResistBuff",
+        "Assist_ResistDebuff",
+        "Assist_Stop",
+        "Assist_Fast",
+        "Assist_Slow",
+        "Assist_AutoHeal",
+        "Assist_Donsoku",
+        "Assist_Rage",
+        "Assist_GoodSleep",
+        "Assist_ConditionAll",
+        "Resist_Fire",
+        "Resist_Water",
+        "Resist_Wind",
+        "Resist_Thunder",
+        "Resist_Shine",
+        "Resist_Dark",
+        "Resist_Poison",
+        "Resist_Paralysed",
+        "Resist_Stun",
+        "Resist_Sleep",
+        "Resist_Charm",
+        "Resist_Stone",
+        "Resist_Blind",
+        "Resist_DisableSkill",
+        "Resist_DisableMove",
+        "Resist_DisableAttack",
+        "Resist_Zombie",
+        "Resist_DeathSentence",
+        "Resist_Berserk",
+        "Resist_Knockback",
+        "Resist_ResistBuff",
+        "Resist_ResistDebuff",
+        "Resist_Stop",
+        "Resist_Fast",
+        "Resist_Slow",
+        "Resist_AutoHeal",
+        "Resist_Donsoku",
+        "Resist_Rage",
+        "Resist_GoodSleep",
+        "Resist_ConditionAll",
+        "HitRate",
+        "AvoidRate",
+        "CriticalRate",
+        "GainJewel",
+        "UsedJewelRate",
+        "ActionCount",
+        "SlashAttack",
+        "PierceAttack",
+        "BlowAttack",
+        "ShotAttack",
+        "MagicAttack",
+        "ReactionAttack",
+        "JumpAttack",
+        "GutsRate",
+        "AutoJewel",
+        "ChargeTimeRate",
+        "CastTimeRate",
+        "BuffTurn",
+        "DebuffTurn",
+        "CombinationRange",
+        "HpCostRate",
+        "SkillUseCount",
+        "PoisonDamage",
+        "PoisonTurn",
+        "Assist_AutoJewel",
+        "Resist_AutoJewel",
+        "Assist_DisableHeal",
+        "Resist_DisableHeal",
+        "Resist_Slash",
+        "Resist_Pierce",
+        "Resist_Blow",
+        "Resist_Shot",
+        "Resist_Magic",
+        "Resist_Reaction",
+        "Resist_Jump",
+        "Avoid_Slash",
+        "Avoid_Pierce",
+        "Avoid_Blow",
+        "Avoid_Shot",
+        "Avoid_Magic",
+        "Avoid_Reaction",
+        "Avoid_Jump",
+        "GainJewelRate",
+        "UsedJewel",
+        "Assist_SingleAttack",
+        "Assist_AreaAttack",
+        "Resist_SingleAttack",
+        "Resist_AreaAttack",
+        "Assist_DecCT",
+        "Assist_IncCT",
+        "Resist_DecCT",
+        "Resist_IncCT"
     ],
     "PartyCondType": [
-        "None,",
-        "Limited,",
-        "Forced,"
+        "None",
+        "Limited",
+        "Forced"
     ],
     "EditPartyTypes": [
-        "Auto,",
-        "Normal,",
-        "Event,",
-        "MP,",
-        "Arena,",
-        "ArenaDef,",
-        "Character,",
-        "Tower,",
-        "Versus,",
-        "MultiTower,"
+        "Auto",
+        "Normal",
+        "Event",
+        "MP",
+        "Arena",
+        "ArenaDef",
+        "Character",
+        "Tower",
+        "Versus",
+        "MultiTower"
     ],
     "PartySlotType": [
-        "Main0,",
-        "Main1,",
-        "Sub0,"
+        "Main0",
+        "Main1",
+        "Sub0"
     ],
     "EDeserializeFlags": {
         "0": "None",
@@ -2462,50 +2462,50 @@
         "64": "Tour"
     },
     "PlayerPartyTypes": [
-        "Normal,",
-        "Event,",
-        "Multiplay,",
-        "Arena,",
-        "ArenaDef,",
-        "Character,",
-        "Tower,",
-        "Versus,",
-        "MultiTower,",
-        "Max,"
+        "Normal",
+        "Event",
+        "Multiplay",
+        "Arena",
+        "ArenaDef",
+        "Character",
+        "Tower",
+        "Versus",
+        "MultiTower",
+        "Max"
     ],
     "EmotionTypes": [
-        "Normal,",
-        "Smile,",
-        "Sad,",
-        "Angry,"
+        "Normal",
+        "Smile",
+        "Sad",
+        "Angry"
     ],
     "PredefinedGlobalEvents": [
-        "REFRESH_COIN_STATUS,",
-        "REFRESH_GOLD_STATUS,",
-        "UNLOAD_MENU,",
-        "ERROR_NETWORK,",
-        "BACK_NETWORK,",
-        "MAINTENANCE_NETWORK,",
-        "REFRESH_PLAYER_STATUS,",
-        "ERROR_APP_QUIT,"
+        "REFRESH_COIN_STATUS",
+        "REFRESH_GOLD_STATUS",
+        "UNLOAD_MENU",
+        "ERROR_NETWORK",
+        "BACK_NETWORK",
+        "MAINTENANCE_NETWORK",
+        "REFRESH_PLAYER_STATUS",
+        "ERROR_APP_QUIT"
     ],
     "QuestBonusObjectiveState": [
-        "NotCompleted,",
-        "Completed,"
+        "NotCompleted",
+        "Completed"
     ],
     "QuestCampaignScopes": [
-        "None,",
-        "Quest,",
-        "QuestType,",
-        "Unit,",
-        "UnitAndQuest,"
+        "None",
+        "Quest",
+        "QuestType",
+        "Unit",
+        "UnitAndQuest"
     ],
     "QuestCampaignValueTypes": [
-        "ExpPlayer,",
-        "ExpUnit,",
-        "DropRate,",
-        "DropNum,",
-        "Ap,"
+        "ExpPlayer",
+        "ExpUnit",
+        "DropRate",
+        "DropNum",
+        "Ap"
     ],
     "EUnlockTypes": {
         "-1": "None",
@@ -2517,9 +2517,9 @@
         "5": "CollaboAbility"
     },
     "QuestDifficulties : byte": [
-        "Normal,",
-        "Elite,",
-        "Extra,"
+        "Normal",
+        "Elite",
+        "Extra"
     ],
     "QuestMultiTypes : short": {
         "0": "NOT_MULTI",
@@ -2536,31 +2536,31 @@
         "4": "HERO"
     },
     "QuestStates : byte": [
-        "New,",
-        "Challenged,",
-        "Cleared,"
+        "New",
+        "Challenged",
+        "Cleared"
     ],
     "QuestTypes : byte": [
-        "Story,",
-        "Multi,",
-        "Arena,",
-        "Tutorial,",
-        "Free,",
-        "Event,",
-        "Character,",
-        "Tower,",
-        "VersusFree,",
-        "VersusRank,",
-        "Gps,",
-        "Extra,",
-        "MultiTower,",
-        "Beginner,"
+        "Story",
+        "Multi",
+        "Arena",
+        "Tutorial",
+        "Free",
+        "Event",
+        "Character",
+        "Tower",
+        "VersusFree",
+        "VersusRank",
+        "Gps",
+        "Extra",
+        "MultiTower",
+        "Beginner"
     ],
     "RankingQuestRewardType": [
-        "item,",
-        "coin,",
-        "artifact,",
-        "unit,"
+        "item",
+        "coin",
+        "artifact",
+        "unit"
     ],
     "RakingQuestScheduleGetFlags": {
         "0": "All",
@@ -2569,217 +2569,217 @@
         "4": "Visible"
     },
     "RankingQuestType": [
-        "Unknown,",
-        "ActionCount,"
+        "Unknown",
+        "ActionCount"
     ],
     "eTargetType": [
-        "MAIN_CAMERA,",
-        "SELECTED,"
+        "MAIN_CAMERA",
+        "SELECTED"
     ],
     "RankingTypes": [
-        "world,",
-        "friend,"
+        "world",
+        "friend"
     ],
     "eAuthStatus": [
-        "None,",
-        "Disable,",
-        "NotSynchronized,",
-        "Synchronized,"
+        "None",
+        "Disable",
+        "NotSynchronized",
+        "Synchronized"
     ],
     "type : byte": [
-        "item,",
-        "unit,",
-        "artifact,"
+        "item",
+        "unit",
+        "artifact"
     ],
     "RestorePoints": [
-        "Home,",
-        "QuestList,",
-        "MP,",
-        "UnitKyouka,",
-        "UnitUnlock,",
-        "Arena,",
-        "UnitCharacterQuest,",
-        "ReplayQuestList,",
-        "UnitKakera,",
-        "Tower,",
-        "EventQuestList,",
-        "CharacterQuestList,",
-        "Versus,",
-        "UnitEvolution,",
-        "MultiTower,"
+        "Home",
+        "QuestList",
+        "MP",
+        "UnitKyouka",
+        "UnitUnlock",
+        "Arena",
+        "UnitCharacterQuest",
+        "ReplayQuestList",
+        "UnitKakera",
+        "Tower",
+        "EventQuestList",
+        "CharacterQuestList",
+        "Versus",
+        "UnitEvolution",
+        "MultiTower"
     ],
     "RewardType": [
-        "Item,",
-        "Gold,",
-        "Coin,",
-        "Artifact,",
-        "Unit,"
+        "Item",
+        "Gold",
+        "Coin",
+        "Artifact",
+        "Unit"
     ],
     "RoleTypes": [
-        "None,",
-        "Zenei,",
-        "Tyuei,",
-        "Kouei,"
+        "None",
+        "Zenei",
+        "Tyuei",
+        "Kouei"
     ],
     "StateTransitionTypes": [
-        "Forward,",
-        "Back,"
+        "Forward",
+        "Back"
     ],
     "ExitRequests": [
-        "None,",
-        "End,",
-        "Restart,"
+        "None",
+        "End",
+        "Restart"
     ],
     "CameraMode": [
-        "DEFAULT,",
-        "UPVIEW,"
+        "DEFAULT",
+        "UPVIEW"
     ],
     "EMultiPlayCommand": [
-        "NOP,",
-        "MOVE_START,",
-        "MOVE,",
-        "GRID_XY,",
-        "MOVE_END,",
-        "MOVE_CANCEL,",
-        "ENTRY_BATTLE,",
-        "GRID_EVENT,",
-        "UNIT_END,",
-        "UNIT_TIME_LIMIT,",
-        "UNIT_XYDIR,",
-        "NUM,"
+        "NOP",
+        "MOVE_START",
+        "MOVE",
+        "GRID_XY",
+        "MOVE_END",
+        "MOVE_CANCEL",
+        "ENTRY_BATTLE",
+        "GRID_EVENT",
+        "UNIT_END",
+        "UNIT_TIME_LIMIT",
+        "UNIT_XYDIR",
+        "NUM"
     ],
     "EMultiPlayRecvDataHeader": [
-        "NOP,",
-        "INPUT,",
-        "CHECK,",
-        "GOODJOB,",
-        "CONTINUE,",
-        "IGNORE_MY_DISCONNECT,",
-        "FINISH_LOAD,",
-        "REQUEST_RESUME,",
-        "RESUME_INFO,",
-        "RESUME_SUCCESS,",
-        "SYNC,",
-        "SYNC_RESUME,",
-        "VS_RETIRE,",
-        "VS_RETIRE_COMFIRM,",
-        "CHEAT_MOVE,",
-        "CHEAT_MP,",
-        "CHEAT_RANGE,",
-        "OTHERPLAYER_DISCONNECT,",
-        "NUM,"
+        "NOP",
+        "INPUT",
+        "CHECK",
+        "GOODJOB",
+        "CONTINUE",
+        "IGNORE_MY_DISCONNECT",
+        "FINISH_LOAD",
+        "REQUEST_RESUME",
+        "RESUME_INFO",
+        "RESUME_SUCCESS",
+        "SYNC",
+        "SYNC_RESUME",
+        "VS_RETIRE",
+        "VS_RETIRE_COMFIRM",
+        "CHEAT_MOVE",
+        "CHEAT_MP",
+        "CHEAT_RANGE",
+        "OTHERPLAYER_DISCONNECT",
+        "NUM"
     ],
     "CHEAT_TYPE": [
-        "MOVE,",
-        "MP,",
-        "RANGE,"
+        "MOVE",
+        "MP",
+        "RANGE"
     ],
     "ENotifyDisconnectedPlayerType": [
-        "NORMAL,",
-        "OWNER,",
-        "OWNER_AND_I_AM_OWNER,"
+        "NORMAL",
+        "OWNER",
+        "OWNER_AND_I_AM_OWNER"
     ],
     "TargetActionTypes": [
-        "None,",
-        "Attack,",
-        "Skill,",
-        "Heal,"
+        "None",
+        "Attack",
+        "Skill",
+        "Heal"
     ],
     "Direction": [
-        "Vertical,",
-        "Horizontal,"
+        "Vertical",
+        "Horizontal"
     ],
     "Type : byte": [
-        "QuestParam_cond,",
-        "QuestParam_world,",
-        "QuestParam_area,",
-        "QuestParam_units,",
-        "QuestParam_ticket,",
-        "ChapterParam_world,",
-        "ChapterParam_section,",
-        "MapParam_battleSceneName,",
-        "MapParam_bgmName,",
-        "MAX_TYPE,"
+        "QuestParam_cond",
+        "QuestParam_world",
+        "QuestParam_area",
+        "QuestParam_units",
+        "QuestParam_ticket",
+        "ChapterParam_world",
+        "ChapterParam_section",
+        "MapParam_battleSceneName",
+        "MapParam_bgmName",
+        "MAX_TYPE"
     ],
     "ShieldTypes": [
-        "None,",
-        "UseCount,",
-        "Hp,",
-        "Limitter,",
-        "MAX,"
+        "None",
+        "UseCount",
+        "Hp",
+        "Limitter",
+        "MAX"
     ],
     "FilterTypes": [
-        "All,",
-        "Used,",
-        "Equip,",
-        "ItemPiece,",
-        "Material,",
-        "UnitPiece,"
+        "All",
+        "Used",
+        "Equip",
+        "ItemPiece",
+        "Material",
+        "UnitPiece"
     ],
     "SkillCategory": [
-        "Damage,",
-        "Heal,",
-        "Support,",
-        "CureCondition,",
-        "FailCondition,",
-        "DisableCondition,"
+        "Damage",
+        "Heal",
+        "Support",
+        "CureCondition",
+        "FailCondition",
+        "DisableCondition"
     ],
     "AuraStopTimings": [
-        "AfterChant,",
-        "BeforeHit,",
-        "AfterHit,"
+        "AfterChant",
+        "BeforeHit",
+        "AfterHit"
     ],
     "TrajectoryTypes": [
-        "Straight,",
-        "Arrow,"
+        "Straight",
+        "Arrow"
     ],
     "MapHitEffectTypes": [
-        "TargetRadial,",
-        "EachTargets,",
-        "EachGrids,",
-        "Directional,",
-        "EachHits,",
-        "InstigatorRadial,"
+        "TargetRadial",
+        "EachTargets",
+        "EachGrids",
+        "Directional",
+        "EachHits",
+        "InstigatorRadial"
     ],
     "eTargetTypeForLaser": [
-        "Default,",
-        "StepFront,",
-        "FrontCenter,"
+        "Default",
+        "StepFront",
+        "FrontCenter"
     ],
     "SkillEffectTargets": [
-        "Target,",
-        "Self,"
+        "Target",
+        "Self"
     ],
     "SkillEffectTypes": [
-        "None,",
-        "Equipment,",
-        "Attack,",
-        "Defend,",
-        "Heal,",
-        "Buff,",
-        "Debuff,",
-        "Revive,",
-        "Shield,",
-        "ReflectDamage,",
-        "DamageControl,",
-        "FailCondition,",
-        "CureCondition,",
-        "DisableCondition,",
-        "GemsGift,",
-        "GemsIncDec,",
-        "Guard,",
-        "Teleport,",
-        "Changing,",
-        "RateHeal,",
-        "RateDamage,",
-        "PerfectAvoid,",
-        "Throw,",
-        "EffReplace,",
-        "SetTrick,",
-        "TransformUnit,",
-        "SetBreakObj,",
-        "ChangeWeather,",
-        "RateDamageCurrent,"
+        "None",
+        "Equipment",
+        "Attack",
+        "Defend",
+        "Heal",
+        "Buff",
+        "Debuff",
+        "Revive",
+        "Shield",
+        "ReflectDamage",
+        "DamageControl",
+        "FailCondition",
+        "CureCondition",
+        "DisableCondition",
+        "GemsGift",
+        "GemsIncDec",
+        "Guard",
+        "Teleport",
+        "Changing",
+        "RateHeal",
+        "RateDamage",
+        "PerfectAvoid",
+        "Throw",
+        "EffReplace",
+        "SetTrick",
+        "TransformUnit",
+        "SetBreakObj",
+        "ChangeWeather",
+        "RateDamageCurrent"
     ],
     "SkillFlags": {
         "1": "EnableRankUp",
@@ -2804,50 +2804,50 @@
         "524288": "PrevApply"
     },
     "SkillLockTypes": [
-        "None,",
-        "PartyMemberUpper,",
-        "PartyMemberLower,",
-        "EnemyMemberUpper,",
-        "EnemyMemberLower,",
-        "HpUpper,",
-        "HpLower,",
-        "OnGrid,"
+        "None",
+        "PartyMemberUpper",
+        "PartyMemberLower",
+        "EnemyMemberUpper",
+        "EnemyMemberLower",
+        "HpUpper",
+        "HpLower",
+        "OnGrid"
     ],
     "SkillParamCalcTypes": [
-        "Add,",
-        "Scale,",
-        "Fixed,"
+        "Add",
+        "Scale",
+        "Fixed"
     ],
     "StatusTypes": [
-        "Hp,",
-        "Mp,",
-        "MpIni,",
-        "Atk,",
-        "Def,",
-        "Mag,",
-        "Mnd,",
-        "Rec,",
-        "Dex,",
-        "Spd,",
-        "Cri,",
-        "Luk,",
-        "Mov,",
-        "Jmp,"
+        "Hp",
+        "Mp",
+        "MpIni",
+        "Atk",
+        "Def",
+        "Mag",
+        "Mnd",
+        "Rec",
+        "Dex",
+        "Spd",
+        "Cri",
+        "Luk",
+        "Mov",
+        "Jmp"
     ],
     "StealTypes": [
-        "None,",
-        "Item,",
-        "Gold,",
-        "Jewel,"
+        "None",
+        "Item",
+        "Gold",
+        "Jewel"
     ],
     "SubQuestTypes : byte": [
-        "Normal,",
-        "Limited,",
-        "Special,"
+        "Normal",
+        "Limited",
+        "Special"
     ],
     "SyncType": [
-        "Override,",
-        "Multi,"
+        "Override",
+        "Multi"
     ],
     "ColorMasks": {
         "1": "R",
@@ -2856,45 +2856,45 @@
         "8": "A"
     },
     "ScrollMode": [
-        "Normal,",
-        "Reverse,"
+        "Normal",
+        "Reverse"
     ],
     "PostureTypes": [
-        "Combat,",
-        "NonCombat,"
+        "Combat",
+        "NonCombat"
     ],
     "HPGaugeModes": [
-        "Normal,",
-        "Attack,",
-        "Target,",
-        "Change,"
+        "Normal",
+        "Attack",
+        "Target",
+        "Change"
     ],
     "PointType": [
-        "Damage,",
-        "Heal,"
+        "Damage",
+        "Heal"
     ],
     "EElementEffectTypes": [
-        "NotEffective,",
-        "Normal,",
-        "Effective,"
+        "NotEffective",
+        "Normal",
+        "Effective"
     ],
     "DeathAnimationTypes": {
         "1": "Normal"
     },
     "IDType": [
-        "ObjectID,",
-        "UnitID,",
-        "ActorID,"
+        "ObjectID",
+        "UnitID",
+        "ActorID"
     ],
     "URLType": [
-        "TermsOfUse,",
-        "PrivacyPolicy,",
-        "HelpCenter,"
+        "TermsOfUse",
+        "PrivacyPolicy",
+        "HelpCenter"
     ],
     "TimeScaleGroups": [
-        "Game,",
-        "HitStop,",
-        "Debug,"
+        "Game",
+        "HitStop",
+        "Debug"
     ],
     "TouchState": {
         "-1": "None",
@@ -2905,145 +2905,145 @@
         "4": "Canceled"
     },
     "TOWER_RANK": [
-        "S,",
-        "A_PLUS,",
-        "A,",
-        "A_MINUS,",
-        "B_PLUS,",
-        "B,",
-        "B_MINUS,",
-        "C_PLUS,",
-        "C,",
-        "C_MINUS,",
-        "D_PLUS,",
-        "D,",
-        "D_MINUS,",
-        "E_PLUS,",
-        "E,",
-        "E_MINUS,",
-        "NUM,"
+        "S",
+        "A_PLUS",
+        "A",
+        "A_MINUS",
+        "B_PLUS",
+        "B",
+        "B_MINUS",
+        "C_PLUS",
+        "C",
+        "C_MINUS",
+        "D_PLUS",
+        "D",
+        "D_MINUS",
+        "E_PLUS",
+        "E",
+        "E_MINUS",
+        "NUM"
     ],
     "TOWER_SCORE_TYPE": [
-        "TURN,",
-        "DIED,",
-        "RETIRE,",
-        "RECOVER,",
-        "NUM,"
+        "TURN",
+        "DIED",
+        "RETIRE",
+        "RECOVER",
+        "NUM"
     ],
     "TrophyCategorys": [
-        "None,",
-        "Story,",
-        "Event,",
-        "Multi,",
-        "Training,",
-        "Campaign,",
-        "Other,"
+        "None",
+        "Story",
+        "Event",
+        "Multi",
+        "Training",
+        "Campaign",
+        "Other"
     ],
     "TrophyConditionTypes": [
-        "none,",
-        "winquest,",
-        "killenemy,",
-        "getitem,",
-        "playerlv,",
-        "winelite,",
-        "winevent,",
-        "gacha,",
-        "multiplay,",
-        "ability,",
-        "soubi,",
-        "buygold,",
-        "vip,",
-        "stamina,",
-        "card,",
-        "arena,",
-        "winarena,",
-        "review,",
-        "followtwitter,",
-        "fggid,",
-        "unitlevel,",
-        "evolutionnum,",
-        "joblevel,",
-        "logincount,",
-        "upunitlevel,",
-        "makeunitlevel,",
-        "unitequip,",
-        "upjoblevel,",
-        "makejoblevel,",
-        "limitbreak,",
-        "evoltiontimes,",
-        "changejob,",
-        "changeability,",
-        "makeabilitylevel,",
-        "winquestsoldier,",
-        "winmulti,",
-        "buyatshop,",
-        "artifacttransmute,",
-        "artifactstrength,",
-        "artifactevolution,",
-        "winmultimore,",
-        "winmultiless,",
-        "collectunits,",
-        "totaljoblv11,",
-        "totalunitlvs,",
-        "childrencomp,",
-        "wintower,",
-        "losequest,",
-        "loseelite,",
-        "loseevent,",
-        "losetower,",
-        "losearena,",
-        "dailyall,",
-        "vs,",
-        "vswin,",
-        "vslose,",
-        "upartifactlevel,",
-        "makeartifactlevel,",
-        "becomearenarank,",
-        "overarenarank,",
-        "tower,",
-        "overtowerscore,",
-        "overvsrankfloor,",
-        "exclear_fire,",
-        "exclear_water,",
-        "exclear_wind,",
-        "exclear_thunder,",
-        "exclear_light,",
-        "exclear_dark,",
-        "exclear_fire_nocon,",
-        "exclear_water_nocon,",
-        "exclear_wind_nocon,",
-        "exclear_thunder_nocon,",
-        "exclear_light_nocon,",
-        "exclear_dark_nocon,",
-        "winstory_extra,",
-        "multitower_help,",
-        "multitower,",
-        "damage_over,",
-        "complete_all_quest_mission,",
-        "has_gold_over,",
-        "fblogin,"
+        "none",
+        "winquest",
+        "killenemy",
+        "getitem",
+        "playerlv",
+        "winelite",
+        "winevent",
+        "gacha",
+        "multiplay",
+        "ability",
+        "soubi",
+        "buygold",
+        "vip",
+        "stamina",
+        "card",
+        "arena",
+        "winarena",
+        "review",
+        "followtwitter",
+        "fggid",
+        "unitlevel",
+        "evolutionnum",
+        "joblevel",
+        "logincount",
+        "upunitlevel",
+        "makeunitlevel",
+        "unitequip",
+        "upjoblevel",
+        "makejoblevel",
+        "limitbreak",
+        "evoltiontimes",
+        "changejob",
+        "changeability",
+        "makeabilitylevel",
+        "winquestsoldier",
+        "winmulti",
+        "buyatshop",
+        "artifacttransmute",
+        "artifactstrength",
+        "artifactevolution",
+        "winmultimore",
+        "winmultiless",
+        "collectunits",
+        "totaljoblv11",
+        "totalunitlvs",
+        "childrencomp",
+        "wintower",
+        "losequest",
+        "loseelite",
+        "loseevent",
+        "losetower",
+        "losearena",
+        "dailyall",
+        "vs",
+        "vswin",
+        "vslose",
+        "upartifactlevel",
+        "makeartifactlevel",
+        "becomearenarank",
+        "overarenarank",
+        "tower",
+        "overtowerscore",
+        "overvsrankfloor",
+        "exclear_fire",
+        "exclear_water",
+        "exclear_wind",
+        "exclear_thunder",
+        "exclear_light",
+        "exclear_dark",
+        "exclear_fire_nocon",
+        "exclear_water_nocon",
+        "exclear_wind_nocon",
+        "exclear_thunder_nocon",
+        "exclear_light_nocon",
+        "exclear_dark_nocon",
+        "winstory_extra",
+        "multitower_help",
+        "multitower",
+        "damage_over",
+        "complete_all_quest_mission",
+        "has_gold_over",
+        "fblogin"
     ],
     "TrophyDispType": [
-        "None,",
-        "Hide,",
-        "Award,",
-        "HideChallenge,"
+        "None",
+        "Hide",
+        "Award",
+        "HideChallenge"
     ],
     "TrophyTypes": [
-        "Normal,",
-        "Daily,",
-        "All,"
+        "Normal",
+        "Daily",
+        "All"
     ],
     "eState": [
-        "OPEN,",
-        "OPENED,",
-        "CLOSE,",
-        "CLOSE_IMMEDIATE,",
-        "CLOSED,"
+        "OPEN",
+        "OPENED",
+        "CLOSE",
+        "CLOSE_IMMEDIATE",
+        "CLOSED"
     ],
     "TrophyType": [
-        "Daily,",
-        "Record,"
+        "Daily",
+        "Record"
     ],
     "TutorialFlags": {
         "1": "GamePlay",
@@ -3066,9 +3066,9 @@
         "4": "BlockRaycast"
     },
     "RefreshTypes": [
-        "None,",
-        "DisplayAll,",
-        "DisplaySlots,"
+        "None",
+        "DisplayAll",
+        "DisplaySlots"
     ],
     "UnitBadgeTypes": {
         "1": "EnableEquipment",
@@ -3078,34 +3078,34 @@
         "16": "EnableClassChange"
     },
     "BuffType": [
-        "NONE,",
-        "ATK,",
-        "DEF,",
-        "MAG,",
-        "MND,",
-        "MAX,"
+        "NONE",
+        "ATK",
+        "DEF",
+        "MAG",
+        "MND",
+        "MAX"
     ],
     "DispType": [
-        "NONE,",
-        "ATK,",
-        "DEF,",
-        "MAG,",
-        "MND,"
+        "NONE",
+        "ATK",
+        "DEF",
+        "MAG",
+        "MND"
     ],
     "EffectType": [
-        "NONE,",
-        "UP,",
-        "DOWN,"
+        "NONE",
+        "UP",
+        "DOWN"
     ],
     "CommandTypes": [
-        "None,",
-        "Move,",
-        "Attack,",
-        "Ability,",
-        "Item,",
-        "Gimmick,",
-        "Map,",
-        "End,"
+        "None",
+        "Move",
+        "Attack",
+        "Ability",
+        "Item",
+        "Gimmick",
+        "Map",
+        "End"
     ],
     "ButtonTypes": {
         "1": "Move",
@@ -3119,50 +3119,50 @@
         "256": "Map"
     },
     "EquipmentType": [
-        "PRIMARY,",
-        "SECONDARY,"
+        "PRIMARY",
+        "SECONDARY"
     ],
     "TemporaryFlags": {
         "1": "TemporaryUnitData",
         "2": "AllowJobChange"
     },
     "UnitEntryTypes": [
-        "None,",
-        "DecrementMember,",
-        "DecrementHp,",
-        "DeadEnemy,",
-        "UsedSkill,",
-        "OnGridEnemy,",
-        "TransformUnit,"
+        "None",
+        "DecrementMember",
+        "DecrementHp",
+        "DeadEnemy",
+        "UsedSkill",
+        "OnGridEnemy",
+        "TransformUnit"
     ],
     "SlotStateTypes": [
-        "Empty,",
-        "HasEquipment,",
-        "NeedMoreLevel,",
-        "Equipped,",
-        "EnableCraft,",
-        "EnableCraftNeedMoreLevel,",
-        "None,",
-        "EnableCommon,",
-        "EnableCommonSoul,",
-        "EnableCommonSoulNeedMoreLevel,"
+        "Empty",
+        "HasEquipment",
+        "NeedMoreLevel",
+        "Equipped",
+        "EnableCraft",
+        "EnableCraftNeedMoreLevel",
+        "None",
+        "EnableCommon",
+        "EnableCommonSoul",
+        "EnableCommonSoulNeedMoreLevel"
     ],
     "GaugeMode": [
-        "Normal,",
-        "Attack,",
-        "Target,",
-        "Change,"
+        "Normal",
+        "Attack",
+        "Target",
+        "Change"
     ],
     "EMarkType": [
-        "None,",
-        "MapChest,",
-        "MapGem,"
+        "None",
+        "MapChest",
+        "MapGem"
     ],
     "EGemIcon": [
-        "Normal,",
-        "Heal,",
-        "CriUp,",
-        "MovUp,"
+        "Normal",
+        "Heal",
+        "CriUp",
+        "MovUp"
     ],
     "SelectType": {
         "0": "NONE",
@@ -3183,37 +3183,37 @@
         "33554432": "KOUJYUN"
     },
     "ContentType": [
-        "NONE,",
-        "UNIT,",
-        "PIECE,",
-        "SUPPORT,"
+        "NONE",
+        "UNIT",
+        "PIECE",
+        "SUPPORT"
     ],
     "ItemTypes": [
-        "PlayerUnits,",
-        "PieceUnits,"
+        "PlayerUnits",
+        "PieceUnits"
     ],
     "PartyBadge": [
-        "Main0,",
-        "Main1,",
-        "Main2,",
-        "Main3,",
-        "Sub0,",
-        "Sub1,",
-        "Max,"
+        "Main0",
+        "Main1",
+        "Main2",
+        "Main3",
+        "Sub0",
+        "Sub1",
+        "Max"
     ],
     "ViewMode": [
-        "UNITLIST,",
-        "SELECTLIST,",
-        "TOWERSELECTLIST,",
-        "PIECELIST,"
+        "UNITLIST",
+        "SELECTLIST",
+        "TOWERSELECTLIST",
+        "PIECELIST"
     ],
     "EditType": [
-        "DEFAULT,",
-        "PARTY,",
-        "PARTY_TOWER,",
-        "EQUIP,",
-        "SUPPORT,",
-        "SHOP_EQUIP,"
+        "DEFAULT",
+        "PARTY",
+        "PARTY_TOWER",
+        "EQUIP",
+        "SUPPORT",
+        "SHOP_EQUIP"
     ],
     "UnlockTargets": {
         "1": "Shop",
@@ -3235,67 +3235,67 @@
         "65536": "MultiVS"
     },
     "ViewInfoType : byte": [
-        "Quest,",
-        "Arena,",
-        "TowerMatch,",
-        "Num,"
+        "Quest",
+        "Arena",
+        "TowerMatch",
+        "Num"
     ],
     "REWARD_TYPE": [
-        "Arrival,",
-        "Season,"
+        "Arrival",
+        "Season"
     ],
     "VERSUS_ITEM_TYPE": [
-        "item,",
-        "gold,",
-        "coin,",
-        "unit,",
-        "artifact,",
-        "award,"
+        "item",
+        "gold",
+        "coin",
+        "unit",
+        "artifact",
+        "award"
     ],
     "VERSUS_TYPE": [
-        "Free,",
-        "Tower,",
-        "Friend,",
-        "NUM,"
+        "Free",
+        "Tower",
+        "Friend",
+        "NUM"
     ],
     "WeaponFormulaTypes": [
-        "None,",
-        "Atk,",
-        "Mag,",
-        "AtkSpd,",
-        "MagSpd,",
-        "AtkDex,",
-        "MagDex,",
-        "AtkLuk,",
-        "MagLuk,",
-        "AtkMag,",
-        "SpAtk,",
-        "SpMag,",
-        "AtkSpdDex,",
-        "MagSpdDex,",
-        "AtkDexLuk,",
-        "MagDexLuk,",
-        "Luk,",
-        "Dex,",
-        "Spd,",
-        "Cri,",
-        "Def,",
-        "Mnd,",
-        "AtkRndLuk,",
-        "MagRndLuk,",
-        "AtkEAt,",
-        "MagEMg,",
-        "AtkDefEDf,",
-        "MagMndEMd,",
-        "LukELk,",
-        "MHp,"
+        "None",
+        "Atk",
+        "Mag",
+        "AtkSpd",
+        "MagSpd",
+        "AtkDex",
+        "MagDex",
+        "AtkLuk",
+        "MagLuk",
+        "AtkMag",
+        "SpAtk",
+        "SpMag",
+        "AtkSpdDex",
+        "MagSpdDex",
+        "AtkDexLuk",
+        "MagDexLuk",
+        "Luk",
+        "Dex",
+        "Spd",
+        "Cri",
+        "Def",
+        "Mnd",
+        "AtkRndLuk",
+        "MagRndLuk",
+        "AtkEAt",
+        "MagEMg",
+        "AtkDefEDf",
+        "MagMndEMd",
+        "LukELk",
+        "MHp"
     ],
     "ReqeustType": [
-        "REQ_GSC,",
-        "REQ_STREAM,"
+        "REQ_GSC",
+        "REQ_STREAM"
     ],
     "EventTypes": [
-        "Opened,",
-        "Closed,"
+        "Opened",
+        "Closed"
     ]
 }

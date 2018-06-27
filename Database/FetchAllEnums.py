@@ -46,7 +46,7 @@ def EnumToJson():
                             line[1]=line[1][:line[1].index(',')]
                             cEnum[1][line[1]]=line[0]
                         else:
-                            cEnum[0].append(line)
+                            cEnum[0].append(line.rstrip(','))
 
                 if len(cEnum[0])==0:
                     use=1

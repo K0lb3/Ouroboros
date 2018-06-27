@@ -1,82 +1,4 @@
-﻿SkillParamCalcTypes = ['Add', 'Scale', 'Fixed', ]
-SkillRankUpValue = ['ini', 'max']
-SkillEffectTargets = ['Target', 'Self', ]
-SkillEffectTypes = [
-    "None",
-    "Equipment",
-    "Attack",
-    "Defend",
-    "Heal",
-    "Buff",
-    "Debuff",
-    "Revive",
-    "Shield",
-    "ReflectDamage",
-    "DamageControl",
-    "FailCondition",
-    "CureCondition",
-    "DisableCondition",
-    "GemsGift",
-    "GemsIncDec",
-    "Guard",
-    "Teleport",
-    "Changing",
-    "RateHeal",
-    "RateDamage",
-    "PerfectAvoid",
-    "Throw",
-    "EffReplace",
-    "SetTrick",
-    "TransformUnit",
-    "SetBreakObj",
-    "ChangeWeather",
-    "RateDamageCurrent",
-]
-SkillCategory = ["Damage", "Heal", "Support",
-                 "CureCondition", "FailCondition", "DisableCondition", ]
-SkillLockTypes = ["None", "PartyMemberUpper2", "PartyMemberLower",
-                  "EnemyMemberUpper", "EnemyMemberLower", "HpUpper", "HpLower", "OnGrid", ]
-SkillFlags = {
-    1: 'EnableRankUp',
-    2: 'EnableChangeRange',
-    4: 'PierceAttack',
-    8: 'SelfTargetSelect',
-    16: 'ExecuteCutin',
-    32: 'ExecuteInBattle',
-    64: 'EnableHeightRangeBonus',
-    128: 'EnableHeightParamAdjust',
-    256: 'EnableUnitLockTarget',
-    512: 'CastBreak',
-    1024: 'JewelAttack',
-    2048: 'ForceHit',
-    4096: 'Suicide',
-    8192: 'SubActuate',
-    16384: 'FixedDamage',
-    32768: 'ForceUnitLock',
-    65536: 'AllDamageReaction',
-    131072: 'ShieldReset',
-    262144: 'IgnoreElement',
-    524288: 'PrevApply',
-}
-
-ESkillType = ["Attack", "Skill", "Passive", "Item", "Reaction"]
-ESkillTiming = ["Used", "Passive", "Wait", "Dead", "DamageCalculate",
-                "DamageControl", "Reaction", "FirstReaction", "Auto"]
-ESkillCondition = ["None",    "Dying",    "MapEffect",    "Weather",]
-ESkillTarget = ["Self","SelfSide","EnemySide","UnitAll","NotSelf","GridNoUnit","ValidGrid"]
-ELineType=["None","Direct","Curved","Stab",]
-ESelectType=["Cross","Diamond","Square","Laser","All","Wall","WallPlus","Bishop","Victory","LaserSpread","LaserWide","Horse","LaserTwin","LaserTriple","SquareOutline",]
-JewelDamageType=["None","Calc","Scale","Fixed",]
-eKnockBackDir=["Back","Forward","Left","Right"]
-eKnockBackDs=["Target","Self","Grid",]
-eTeleportType=["None","Only","BeforeSkill","AfterSkill"]
-eTrickSetType=["GridNoUnit","GridAll"]
-AttackTypes=["None","PhyAttack","MagAttack"]
-AttackDetailTypes=["None","Slash","Stab","Blow","Shot","Magic","Jump","MAX",]
-EElement=["None","Fire","Water","Wind","Thunder","Shine","Dark"]
-ECastTypes=["Chant","Charge","Jump"]
-DamageTypes=["None","TotalDamage","PhyDamage","MagDamage"]
-ShieldTypes=["None","UseCount","Hp","Limitter","MAX"]
+﻿from MainFunctions import ENUM
 
 def convert_raw_skill(skl,loc):
   SkillKey = {
@@ -162,59 +84,61 @@ def convert_raw_skill(skl,loc):
     }
 
   if "type" in skl:
-    skill["type"] = ESkillType[skl["type"]]
+    skill["type"] = ENUM["ESkillType"][skl["type"]]
   if "timing" in skl:
-    skill["timing"] = ESkillTiming[skl["timing"]]
+    skill["timing"] = ENUM["ESkillTiming"][skl["timing"]]
   if "cond" in skl:
-    skill["condition"] = ESkillCondition[skl["cond"]]
+    skill["condition"] = ENUM["ESkillCondition"][skl["cond"]]
   if "target" in skl:
-    skill["target"] = ESkillTarget[skl["target"]]
+    skill["target"] = ENUM["ESkillTarget"][skl["target"]]
   if "line" in skl:
-    skill["line_type"] = ELineType[skl["line"]]
+    skill["line_type"] = ENUM["ELineType"][skl["line"]]
   if "sran" in skl:
-    skill["select_range"] = ESelectType[skl["sran"]]
+    skill["select_range"] = ENUM["ESelectType"][skl["sran"]]
   if"ssco" in skl:
-    skill["select_scope"] = ESelectType[skl["ssco"]]
+    skill["select_scope"] = ENUM["ESelectType"][skl["ssco"]]
   if "combo_rate" in skl:
     skill["ComboDamageRate"] = 100 - skl['combo_rate']
   if "is_cri" in skl:
     skill["IsCritical"] = skl['is_cri']!=0
   if "jdtype" in skl:
-    skill["JewelDamageType"] = JewelDamageTypes[skl["jdtype"]]
+    skill["JewelDamageType"] = ENUM["JewelDamageTypes"][skl["jdtype"]]
   if "jdabs" in skl:
-    skill["IsJewelAbsorb"] =  skl[jdabs] != 0
+    skill["IsJewelAbsorb"] = skl[jdabs] != 0
   if "kb_dir" in skl:
-    skill["KnockBackDir"] = eKnockBackDir[skl["kb_dir"]]
+    skill["KnockBackDir"] = ENUM["eKnockBackDir"][skl["kb_dir"]]
   if "kb_ds" in skl:
-    skill["KnockBackDs"] = eKnockBackDs[skl["kb_ds"]]
+    skill["KnockBackDs"] = ENUM["eKnockBackDs"][skl["kb_ds"]]
   if "tl_type" in skl:
-    skill["TeleportType"] = eTeleportType[skl["tl_type"]]
+    skill["TeleportType"] = ENUM["eTeleportType"][skl["tl_type"]]
   if "tl_target" in skl:
-    skill["TeleportTarget"] = ESkillTarget[skl["tl_target"]]
+    skill["TeleportTarget"] = ENUM["ESkillTarget"][skl["tl_target"]]
   if "tr_set" in skl:
-    skill["TrickSetType"] = eTrickSetType[skl["tr_set"]]
+    skill["TrickSetType"] = ENUM["eTrickSetType"][skl["tr_set"]]
   if "hp_cost_rate" in skl:
     skill["hp_cost_rate"] = min(max(skl["hp_cost_rate"], 0), 100)
   if "eff_type" in skl:
-    skill["effect_type"] = SkillEffectTypes[skl["eff_type"]]
+    skill["effect_type"] = ENUM["SkillEffectTypes"][skl["eff_type"]]
   if "eff_calc" in skl:
-    skill["effect_calc"] = SkillParamCalcTypes[skl["eff_calc"]]
+    skill["effect_calc"] = ENUM["SkillParamCalcTypes"][skl["eff_calc"]]
   if "atk_type" in skl:
-    skill["attack_type"] = AttackTypes[skl["atk_type"]]
+    skill["attack_type"] = ENUM["AttackTypes"][skl["atk_type"]]
   if "atk_det" in skl:
-    skill["attack_detail"] = AttackDetailTypes[skl["atk_det"]]
+    skill["attack_detail"] = ENUM["AttackDetailTypes"][skl["atk_det"]]
   if "elem" in skl:
-    skill["element_type"] = EElement[skl["elem"]]
+    skill["element_type"] = ENUM["EElement"][skl["elem"]]
   if "ct_type" in skl:
-    skill["cast_type"] = ECastTypes[skl["ct_type"]]
+    skill["cast_type"] = ENUM["ECastTypes"][skl["ct_type"]]
   if "react_d_type" in skl:
-    skill["reaction_damage_type"] = DamageTypes[skl["react_d_type"]]
+    skill["reaction_damage_type"] = ENUM["DamageTypes"][skl["react_d_type"]]
   if "ct_calc" in skl:
-    skill["control_ct_calc"] = SkillParamCalcTypes[skl["ct_calc"]]
+    skill["control_ct_calc"] = ENUM["SkillParamCalcTypes"][skl["ct_calc"]]
   if "shield_type" in skl:
-    skill["shield_type"] = ShieldTypes[skl["shield_type"]]
+    skill["shield_type"] = ENUM["ShieldTypes"][skl["shield_type"]]
   if "shield_d_type" in skl:
-    skill["shield_damage_type"] = DamageTypes[skl["shield_d_type"]]
+    skill["shield_damage_type"] = ENUM["DamageTypes"][skl["shield_d_type"]]
+  if "ctrl_d_calc" in skl:
+    skill["control_damage_calc"] = ENUM["SkillParamCalcTypes"][skl["ctrl_d_calc"]]
 
   if skill['iname'] in loc:
     skill.update(loc[skill['iname']])
@@ -232,8 +156,6 @@ def convert_raw_skill(skl,loc):
 	"control_ct_value = new SkillRankUpValue()",
 	"control_damage_rate = new SkillRankUpValue()",
 	"control_damage_value = new SkillRankUpValue()",
-	"control_damage_calc"] = SkillParamCalcTypes[skl[""]]
-if"ctrl_d_calc",
 '''
 
 '''
