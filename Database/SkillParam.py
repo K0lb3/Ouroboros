@@ -1,6 +1,5 @@
-﻿from MainFunctions import ENUM
+﻿def convert_raw_skill(skl,loc,ENUM):
 
-def convert_raw_skill(skl,loc):
   SkillKey = {
       "iname"	:	"iname",
       "name"	:	"name",

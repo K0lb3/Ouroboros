@@ -743,5 +743,99 @@ def FanTranslatedNames(wyte, master, loc):
     found.update(none)
     return(found)
 
+def Skill_GenericDescription(skl,masterc,loc):
+    skill=convert_raw_skill(skl,loc,ENUM)
+    try:
+        effect_type=skill['effect_type']
+    except:
+        #print(skill)
+        return skill
+    
+    desc=""
+
+    def s(key,pre='',post=''):
+        try:
+            return pre+str(skill[key])+post
+        except:
+            return ''
+
+    #if effect_type == "Equipment":
+        #desc=''.formart()()
+    if effect_type == "Attack": #"Inflicts Thunder Mag Dmg (High) on units within target area [Range: 4, Area: Diamond (5), Height Range: 2]",
+        #skill['type'] == 'Attack'
+        try:
+            desc='{mod}% {element} {type} DMG [{range}{height}{area}]'.format(
+                mod=str(skill["effect_value.max"]+100), element=s('element_type'), type=s("attack_detail"), 
+                range=s("range_max",'Range: ',''), height=s("effect_height",', Height: ',''), area=s("select_scope",', Area: ')
+            )
+        except:
+            pass #reaction
+    #if effect_type == "Defend":
+        #desc=''.formart()()
+    #if effect_type == "Heal":
+        #desc=''.formart()()
+    #if effect_type == "Buff":
+        #desc=''.formart()()
+    #if effect_type == "Debuff":
+        #desc=''.formart()()
+    #if effect_type == "Revive":
+        #desc=''.formart()()
+    #if effect_type == "Shield":
+        #desc=''.formart()()
+    #if effect_type == "ReflectDamage":
+        #desc=''.formart()()
+    #if effect_type == "DamageControl":
+        #desc=''.formart()()
+    #if effect_type == "FailCondition":
+        #desc=''.formart()()
+    #if effect_type == "CureCondition":
+        #desc=''.formart()()
+    #if effect_type == "DisableCondition":
+        #desc=''.formart()()
+    #if effect_type == "GemsGift":
+        #desc=''.formart()()
+    #if effect_type == "GemsIncDec":
+        #desc=''.formart()()
+    #if effect_type == "Guard":
+        #desc=''.formart()()
+    #if effect_type == "Teleport":
+        #desc=''.formart()()
+    #if effect_type == "Changing":
+        #desc=''.formart()()
+    #if effect_type == "RateHeal":
+        #desc=''.formart()()
+    #if effect_type == "RateDamage":
+        #desc=''.formart()()
+    #if effect_type == "PerfectAvoid":
+        #desc=''.formart()()
+    #if effect_type == "Throw":
+        #desc=''.formart()()
+    #if effect_type == "EffReplace":
+        #desc=''.formart()()
+    #if effect_type == "SetTrick":
+        #desc=''.formart()()
+    #if effect_type == "TransformUnit":
+        #desc=''.formart()()
+    #if effect_type == "SetBreakObj":
+        #desc=''.formart()()
+    #if effect_type == "ChangeWeather":
+        #desc=''.formart()()
+    #if effect_type == "RateDamageCurrent":
+        #desc=''.formart()()
+    if 'self_buff_iname' in skill:
+        desc+='\nSelf: '+buff(masterc[skill['self_buff_iname']],2,2)
+
+    if 'target_buff_iname' in skill:
+        desc+='\nTarget: '+buff(masterc[skill['target_buff_iname']],2,2)
+
+    if desc!= "":
+        if 'expr' in skill:
+            skill['expr']+='\n'+desc
+        else:
+            skill['expr']=desc
+
+    return(skill)
+
+
 global ENUM
 ENUM=loadFiles(['ENums.json'])[0]
