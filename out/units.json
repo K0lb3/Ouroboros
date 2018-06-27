@@ -178,6 +178,11 @@
                 "name": "default",
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/dios.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/dios-closeup.png"
+            },
+            {
+                "name": "Grow_Dios",
+                "full": "http://cdn.alchemistcodedb.com/images/units/artworks/dios_grow_dios.png",
+                "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/dios_grow_dios-closeup.png"
             }
         ],
         "tierlist": {
@@ -527,18 +532,18 @@
         "name": "Kamui",
         "inofficial": "Kamui",
         "gender": "♂",
-        "element": "/",
+        "element": "Fire",
         "country": "砂漠地帯",
         "collab": "",
         "collab short": "",
         "rarity": "★★☆",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/kamu.png",
         "farm": [],
-        "leader skill": "/",
+        "leader skill": "Fire: +40% HP & +20 Strike ATK & +5 Hit Rate",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/unit/kamui",
-        "job 1": "",
-        "job 2": "",
+        "job 1": "Holy Brawlerᴶ",
+        "job 2": "Spiral Style Masterᴶ",
         "job 3": "",
         "jc 1": "",
         "jc 2": "",
@@ -2006,7 +2011,7 @@
         "job 3": "Crafter",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Machinist: Tinatsu",
+        "jc 3": "Machinist: Tinatsuᴶ",
         "inputs": [
             "Richie",
             "Lish"
@@ -3240,7 +3245,7 @@
         "job 2": "Crafter",
         "job 3": "Gunner",
         "jc 1": "",
-        "jc 2": "Machinist: Tinatsu",
+        "jc 2": "Machinist: Tinatsuᴶ",
         "jc 3": "",
         "inputs": [
             "Strauss",
@@ -4952,7 +4957,7 @@
         "job 2": "Crafter",
         "job 3": "Sniper",
         "jc 1": "",
-        "jc 2": "Machinist: Thunder",
+        "jc 2": "Machinist: Thunderᴶ\n[thunder focus]",
         "jc 3": "Sniper+",
         "inputs": [
             "Caris",
@@ -6067,7 +6072,7 @@
         "job 2": "Machinist",
         "job 3": "Ninja",
         "jc 1": "",
-        "jc 2": "Machinist: Thunder",
+        "jc 2": "Machinist: Thunderᴶ\n[thunder focus]",
         "jc 3": "Ninja [Black Tortoise]ᴶ\n[move-based]",
         "inputs": [
             "Magnus"
@@ -6866,7 +6871,7 @@
         "job 1": "Bride",
         "job 2": "Chronomancer",
         "job 3": "Holy Brawler",
-        "jc 1": "Pure Brideᴶᴶ\n[light focus]",
+        "jc 1": "Pure Brideᴶ\n[light focus]",
         "jc 2": "",
         "jc 3": "Holy Brawler [Senju]ᴶ\n[multi-hit]",
         "inputs": [
@@ -6956,7 +6961,7 @@
         "job 1": "Bridegroom",
         "job 2": "Samurai",
         "job 3": "Holy Cavalier",
-        "jc 1": "Pure Bridegroomᴶᴶ\n[light focus]",
+        "jc 1": "Pure Bridegroomᴶ\n[light focus]",
         "jc 2": "",
         "jc 3": "Holy Cavalier [Isaiyah]ᴶ\n[slash resistance]",
         "inputs": [
@@ -7136,7 +7141,7 @@
         "job 3": "Bridegroom",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Passionate Bridegroomᴶᴶ\n[fire focus]",
+        "jc 3": "Passionate Bridegroomᴶ\n[fire focus]",
         "inputs": [
             "Veloz",
             "Veros"
@@ -7220,7 +7225,7 @@
         "job 1": "Bride",
         "job 2": "Mage",
         "job 3": "Professor",
-        "jc 1": "Bride+ᴶᴶ",
+        "jc 1": "Bride+ᴶ",
         "jc 2": "",
         "jc 3": "Professor [Honey]ᴶ\n[more charms and bind/daze skills]",
         "inputs": [
@@ -7759,7 +7764,7 @@
         "job 1": "Machinist",
         "job 2": "Thief",
         "job 3": "Sniper",
-        "jc 1": "Machinist: Tinatsu",
+        "jc 1": "Machinist: Tinatsuᴶ",
         "jc 2": "",
         "jc 3": "Sniper : Barrelᴶ\n[very long range and increased minimum range]",
         "inputs": [
@@ -8341,7 +8346,7 @@
     },
     "UN_V2_TAMAMO": {
         "iname": "UN_V2_TAMAMO",
-        "name": "Tamamoᴶ",
+        "name": "Tamamo",
         "inofficial": "Tamamo",
         "gender": "♀",
         "element": "Wind",
@@ -8355,7 +8360,7 @@
         ],
         "leader skill": "Wind: +50% PATK",
         "master ability": "Fox Day\n+1 MOVE & +10 AGI & +25 Damage",
-        "link": "http://www.alchemistcodedb.com/jp/unit/tamamo",
+        "link": "http://www.alchemistcodedb.com/unit/tamamo",
         "job 1": "Shrine Maiden",
         "job 2": "Mage",
         "job 3": "Ranger",
@@ -8366,7 +8371,7 @@
             "Tamamo"
         ],
         "stats": {
-            "HP": 419,
+            "HP": 455,
             "Max Jewels": 194,
             "PATK": 147,
             "PDEF": 90,
@@ -8378,7 +8383,7 @@
             "LUCK": 147
         },
         "max_stats": {
-            "HP": 419,
+            "HP": 455,
             "Max Jewels": 194,
             "PATK": 147,
             "PDEF": 90,
@@ -8390,7 +8395,7 @@
             "LUCK": 147
         },
         "min_stats": {
-            "HP": 82,
+            "HP": 86,
             "Max Jewels": 48,
             "PATK": 41,
             "PDEF": 24,
@@ -9108,7 +9113,7 @@
     },
     "UN_V2_SHEHERAZADE": {
         "iname": "UN_V2_SHEHERAZADE",
-        "name": "Scheherazadeᴶ",
+        "name": "Scheherazade",
         "inofficial": "Scheherazāde",
         "gender": "♀",
         "element": "Wind",
@@ -9122,7 +9127,7 @@
         ],
         "leader skill": "Wind: +30% PATK",
         "master ability": "",
-        "link": "http://www.alchemistcodedb.com/jp/unit/sheherazade",
+        "link": "http://www.alchemistcodedb.com/unit/sheherazade",
         "job 1": "Sage",
         "job 2": "Dancer",
         "job 3": "Magic Swordsman",
@@ -9134,7 +9139,7 @@
             "Scheherazāde"
         ],
         "stats": {
-            "HP": 907,
+            "HP": 785,
             "Max Jewels": 198,
             "PATK": 136,
             "PDEF": 97,
@@ -9146,7 +9151,7 @@
             "LUCK": 144
         },
         "max_stats": {
-            "HP": 907,
+            "HP": 785,
             "Max Jewels": 198,
             "PATK": 136,
             "PDEF": 97,
@@ -9158,7 +9163,7 @@
             "LUCK": 144
         },
         "min_stats": {
-            "HP": 129,
+            "HP": 117,
             "Max Jewels": 49,
             "PATK": 38,
             "PDEF": 27,
@@ -10801,7 +10806,7 @@
             "JP: [32 AP] [Hard] Ch 2: Ep 3 [3-1]"
         ],
         "leader skill": "Wind: +20% HP & +30% PATK",
-        "master ability": "",
+        "master ability": "+100 PATK & +15 AGI",
         "link": "http://www.alchemistcodedb.com/unit/rameses",
         "job 1": "Dragon Cavalier",
         "job 2": "Dark Cavalier",
@@ -10889,7 +10894,7 @@
             "JP: [32 AP] [Hard] Ch 2: Ep 4 [3-9]"
         ],
         "leader skill": "Fire: +30% HP & +20% PATK",
-        "master ability": "",
+        "master ability": "+100 HP & +50 PDEF & +50 MDEF",
         "link": "http://www.alchemistcodedb.com/unit/dorothea",
         "job 1": "Necromancer",
         "job 2": "Magic Swordsman",
@@ -11152,7 +11157,7 @@
             "JP: [32 AP] [Hard] Ch 2: Ep 4 [3-10]"
         ],
         "leader skill": "Dark: +40% PATK & +5 Evasion Rate",
-        "master ability": "",
+        "master ability": "+100 PATK & +10 Evasion Rate",
         "link": "http://www.alchemistcodedb.com/unit/asuwado",
         "job 1": "Shadow Assassin",
         "job 2": "Twin-Blade Swordsman",
@@ -11245,7 +11250,7 @@
             "JP: [32 AP] [Hard] Ch 2: Ep 3 [3-9]"
         ],
         "leader skill": "Water: +30% MATK & +20% HP",
-        "master ability": "",
+        "master ability": "+300 HP & +50 MATK & +1 Skill Use Count",
         "link": "http://www.alchemistcodedb.com/unit/sophia",
         "job 1": "Astrologer",
         "job 2": "Bishop",
@@ -11394,6 +11399,11 @@
                 "name": "default",
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/kyar.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/kyar-closeup.png"
+            },
+            {
+                "name": "Xmas",
+                "full": "http://cdn.alchemistcodedb.com/images/units/artworks/kyar_xmas.png",
+                "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/kyar_xmas-closeup.png"
             }
         ],
         "tierlist": {
@@ -11419,7 +11429,7 @@
             "JP: [32 AP] [Hard] Ch 3: Ep 2 [3-10]"
         ],
         "leader skill": "Wind: +30 Slash ATK & +20% HP",
-        "master ability": "",
+        "master ability": "+100 PATK & +50 Counter Res",
         "link": "http://www.alchemistcodedb.com/unit/setsuna",
         "job 1": "Blademaster",
         "job 2": "Martial Artist",
@@ -11506,7 +11516,7 @@
             "JP: [32 AP] [Hard] Ch 2: Ep 4 [2-9]"
         ],
         "leader skill": "Fire: +50% HP",
-        "master ability": "",
+        "master ability": "+20 Missile ATK",
         "link": "http://www.alchemistcodedb.com/unit/hazel",
         "job 1": "Machinist",
         "job 2": "Magic Swordsman",
@@ -11568,6 +11578,11 @@
                 "name": "default",
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/haze.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/haze-closeup.png"
+            },
+            {
+                "name": "Xmas",
+                "full": "http://cdn.alchemistcodedb.com/images/units/artworks/haze_xmas.png",
+                "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/haze_xmas-closeup.png"
             }
         ],
         "tierlist": {
@@ -11580,7 +11595,7 @@
     },
     "UN_V2_EIZAN": {
         "iname": "UN_V2_EIZAN",
-        "name": "Eizanᴶ",
+        "name": "Eizan",
         "inofficial": "Eizen",
         "gender": "♂",
         "element": "Thunder",
@@ -11594,7 +11609,7 @@
         ],
         "leader skill": "Thunder: +50% PATK",
         "master ability": "+25 Initial Jewels & +15 Strike ATK",
-        "link": "http://www.alchemistcodedb.com/jp/unit/eizan",
+        "link": "http://www.alchemistcodedb.com/unit/eizan",
         "job 1": "Blacksmith",
         "job 2": "Samurai",
         "job 3": "Holy Brawler",
@@ -11606,7 +11621,7 @@
             "Eizen"
         ],
         "stats": {
-            "HP": 492,
+            "HP": 480,
             "Max Jewels": 178,
             "PATK": 151,
             "PDEF": 100,
@@ -11618,7 +11633,7 @@
             "LUCK": 140
         },
         "max_stats": {
-            "HP": 492,
+            "HP": 480,
             "Max Jewels": 178,
             "PATK": 151,
             "PDEF": 100,
@@ -11630,7 +11645,7 @@
             "LUCK": 140
         },
         "min_stats": {
-            "HP": 90,
+            "HP": 89,
             "Max Jewels": 44,
             "PATK": 41,
             "PDEF": 28,
@@ -13136,7 +13151,7 @@
             "JP: [32 AP] [Hard] Ch 3: Ep 3 [2-10]"
         ],
         "leader skill": "Light: +50% HP",
-        "master ability": "",
+        "master ability": "+50 Healing & +70 Max Jewels",
         "link": "http://www.alchemistcodedb.com/unit/margaret",
         "job 1": "Merchant",
         "job 2": "Magic Swordsman",
@@ -13223,7 +13238,7 @@
             "JP: [32 AP] [Hard] Ch 3: Ep 3 [3-9]"
         ],
         "leader skill": "Thunder: +50% HP",
-        "master ability": "",
+        "master ability": "+50 PATK & +500 HP",
         "link": "http://www.alchemistcodedb.com/unit/meifan",
         "job 1": "Martial Master",
         "job 2": "Thief",
@@ -13311,7 +13326,7 @@
             "JP: [32 AP] [Hard] Ch 3: Ep 3 [1-10]"
         ],
         "leader skill": "Fire: +30 Missile ATK & +20% HP",
-        "master ability": "",
+        "master ability": "+2 RANGE & +40 Wind DMG & +10 AGI",
         "link": "http://www.alchemistcodedb.com/unit/vivi",
         "job 1": "Magia Gunslinger",
         "job 2": "Gunner",
@@ -13558,7 +13573,7 @@
             "JP: [32 AP] [Hard] Ch 3: Ep 3 [3-1]"
         ],
         "leader skill": "Light: +20% HP & +30 Magic ATK",
-        "master ability": "",
+        "master ability": "+20 AGI & +30 MATK",
         "link": "http://www.alchemistcodedb.com/unit/neica",
         "job 1": "Battle Mage",
         "job 2": "Magic Swordsman",
@@ -15016,7 +15031,7 @@
         "job 3": "Machinist",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Machinist: Wind",
+        "jc 3": "Machinist: Windᴶ\n[wind focus]",
         "inputs": [
             "Suiran"
         ],
@@ -18297,7 +18312,7 @@
         "job 1": "Magic Marksman",
         "job 2": "Beast Tamer",
         "job 3": "Dark Cavalier",
-        "jc 1": "Magic Marksman: Atk",
+        "jc 1": "Magic Marksman: ATKᴶ",
         "jc 2": "",
         "jc 3": "Dark Cavalier [Espion]ᴶ\n[Faster Dark Cav]",
         "inputs": [
@@ -18537,7 +18552,7 @@
         "job 1": "Magic Marksman",
         "job 2": "Magic Swordsman",
         "job 3": "Sage",
-        "jc 1": "Magic Marksman: Def",
+        "jc 1": "Magic Marksman: DEFᴶ",
         "jc 2": "Magic Swordsman : Chimeraᴶ\n[dark skill added]",
         "jc 3": "",
         "inputs": [
@@ -20602,7 +20617,7 @@
         "job 1": "Magic Marksman",
         "job 2": "Sage",
         "job 3": "Shadow Assassin",
-        "jc 1": "Magic Marksman: Mdef",
+        "jc 1": "Magic Marksman: MDEFᴶ",
         "jc 2": "Sage : Obeliskᴶ\n[stronger fire skills]",
         "jc 3": "",
         "inputs": [
@@ -20839,7 +20854,7 @@
         "job 3": "Machinist",
         "jc 1": "Martial Master [Beast]ᴶ\n[Anti-Demon Skills]",
         "jc 2": "",
-        "jc 3": "Machinist: Wind",
+        "jc 3": "Machinist: Windᴶ\n[wind focus]",
         "inputs": [
             "Shirma",
             "Silma"
@@ -21870,7 +21885,7 @@
         "job 3": "Magic Marksman",
         "jc 1": "Summoner of Tir Na Nogᴶ\n[increased damage against dark]",
         "jc 2": "",
-        "jc 3": "Magic Marksman: Def",
+        "jc 3": "Magic Marksman: DEFᴶ",
         "inputs": [
             "Nina"
         ],
@@ -22262,7 +22277,7 @@
         "job 1": "Magic Marksman",
         "job 2": "Ninja",
         "job 3": "Magia Gunslinger",
-        "jc 1": "Magic Marksman: Mdef",
+        "jc 1": "Magic Marksman: MDEFᴶ",
         "jc 2": "Ninja [White Tiger]ᴶ\n[evasion-based]",
         "jc 3": "",
         "inputs": [
@@ -23047,7 +23062,7 @@
         "leader skill": "Light: +50% HP & +30% PATK & +20 Dark DMG",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/more",
-        "job 1": "Desert Inferno: Dawnᴶᴶ",
+        "job 1": "Desert Inferno: Dawnᴶ",
         "job 2": "Wild Beast Tamer",
         "job 3": "Warrior",
         "jc 1": "",
@@ -23110,5 +23125,80 @@
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/more-closeup.png"
             }
         ]
+    },
+    "UN_V2_GL_SIEG": {
+        "iname": "UN_V2_GL_SIEG",
+        "name": "",
+        "inofficial": "",
+        "gender": "♂",
+        "element": "Light",
+        "country": "Envylia",
+        "collab": "",
+        "collab short": "",
+        "rarity": "★★★★★",
+        "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/gl_sieg.png",
+        "farm": [],
+        "leader skill": "+20% HP & +20 Slash ATK",
+        "master ability": "",
+        "link": "http://www.alchemistcodedb.com/unit/gl-sieg",
+        "job 1": "JB_GL_WSM",
+        "job 2": "Holy Brawler",
+        "job 3": "Magic Swordsman",
+        "jc 1": "",
+        "jc 2": "",
+        "jc 3": "",
+        "inputs": [
+            ""
+        ],
+        "stats": {
+            "HP": 450,
+            "Max Jewels": 165,
+            "PATK": 175,
+            "PDEF": 108,
+            "MATK": 135,
+            "MDEF": 88,
+            "DEX": 165,
+            "AGI": 105,
+            "CRIT": 155,
+            "LUCK": 115
+        },
+        "max_stats": {
+            "HP": 450,
+            "Max Jewels": 165,
+            "PATK": 175,
+            "PDEF": 108,
+            "MATK": 135,
+            "MDEF": 88,
+            "DEX": 165,
+            "AGI": 105,
+            "CRIT": 155,
+            "LUCK": 115
+        },
+        "min_stats": {
+            "HP": 135,
+            "Max Jewels": 65,
+            "PATK": 85,
+            "PDEF": 55,
+            "MATK": 65,
+            "MDEF": 45,
+            "DEX": 42,
+            "AGI": 60,
+            "CRIT": 80,
+            "LUCK": 55
+        },
+        "artworks": [
+            {
+                "name": "default",
+                "full": "http://cdn.alchemistcodedb.com/images/units/artworks/gl_sieg.png",
+                "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/gl_sieg-closeup.png"
+            }
+        ],
+        "tierlist": {
+            "job 1": "",
+            "job 2": "",
+            "job 3": "",
+            "jc": "",
+            "total": ""
+        }
     }
 }

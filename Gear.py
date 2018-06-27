@@ -8,6 +8,8 @@ def gear():
     gears = gl['Artifact']
     cmaster = convertMaster(gl)
     cjp = convertMaster(jp)
+    cjp.update(cmaster)
+    
     export = {}
 
     gear = {}

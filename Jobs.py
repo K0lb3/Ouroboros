@@ -187,46 +187,66 @@ def jobs():
     jpc = convertMaster(jp)
     jpS = json.dumps(jp)
 
+    mainc=convertMaster(gl)
+    mainc.update(jpc)    
+
+    #create unit list
+    unit_list={}
+    for unit in gl['Unit']:
+        if 'UN_V2_' not in unit['iname']:
+            print('End at: ', unit['iname'])
+            break
+        if unit['ai'] != "AI_PLAYER":
+            print('End at: ', unit['iname'])
+            break
+        unit_list[unit['iname']]=unit
+
+    for unit in jp['Unit']:
+        if unit['ai'] != "AI_PLAYER":
+            print('End at: ', unit['iname'])
+            break
+        if unit['iname'] in unit_list:
+            unit_list[unit['iname']].update(unit)
+        else:
+            unit.update({'region':'JP'})
+            unit_list[unit['iname']]=unit
+
     # code
     def create_link(unit_in, job_na):
         return 'http://www.alchemistcodedb.com/unit/'+unit_in[6:].replace('_', '').lower()+'#'+job_na.replace(' ', '-').replace('+', '-plus').lower()
 
     jobs = {}
 
-    for unit in jp['Unit']:
-        if unit['ai'] != "AI_PLAYER":
-            print('End at: ', unit['iname'])
-            break
-
+    for uiname,unit in unit_list.items():
         # add jobs
         j = 1
-        l = unit['iname'] in glc and 'vce' in glc[unit['iname']]
-        jpc[unit['iname']]['l'] = l
+        l = uiname in glc and 'vce' in glc[uiname]
+        mainc[uiname]['l'] = l
 
         if 'jobsets' in unit:
             for i in unit['jobsets']:
-                job = jpc[i]['job']
+                job = mainc[i]['job']
                 if job not in jobs:
                     # create job from data
-                    jobs[job] = job_create(job, glc, jpc, loc)
+                    jobs[job] = job_create(job, glc, mainc, loc)
 
                     # add Fan translation
                     try:
-                        jobs[job]['japan'] = wunit[Fan[unit['iname']]
+                        jobs[job]['japan'] = wunit[Fan[uiname]
                                                    ['inofficial2']]['Job'+str(j)]
                     except KeyError:
                         pass
                 # add unit to list
-                n_c = name_collab(unit['iname'], loc)
+                n_c = name_collab(uiname, loc)
                 jobs[job]['units'].append((n_c[0]+' '+n_c[2]).rstrip(' '))
 
                 # add link
                 if len(jobs[job]['link']) < 30:
                     if l and jobs[job]['region'] == 'GL':
                         jobs[job]['link'] = create_link(
-                            unit['iname'], jobs[job]['name'])
+                            uiname, jobs[job]['name'])
                     else:
-                        jobs[job]['link'] = unit['iname']
+                        jobs[job]['link'] = uiname
 
                 j += 1
 
@@ -234,7 +254,7 @@ def jobs():
     for js in jp['JobSet']:
         if 'cjob' in js:
             j = 0
-            for i in jpc[js['target_unit']]['jobsets']:
+            for i in mainc[js['target_unit']]['jobsets']:
                 j += 1
                 if i == js['cjob']:
                     break
@@ -242,19 +262,19 @@ def jobs():
             job = js['job']
             if job not in jobs:
                 # create job from data
-                jobs[job] = job_create(job, glc, jpc, loc)
+                jobs[job] = job_create(job, glc, mainc, loc)
 
                 # fix icon'
                 icon = 'http://cdn.alchemistcodedb.com/images/jobs/icons/'
-                if 'ac2d' in jpc[job] and len(jpc[job]['ac2d']) > len(jpc[job]['mdl']):
-                    icon += jpc[job]['ac2d']+'.png'
+                if 'ac2d' in mainc[job] and len(mainc[job]['ac2d']) > len(mainc[job]['mdl']):
+                    icon += mainc[job]['ac2d']+'.png'
                 else:
-                    icon += jpc[job]['mdl']+'.png'
+                    icon += mainc[job]['mdl']+'.png'
                 jobs[job]['icon'] = icon
 
                 # add link
                 if len(jobs[job]['link']) < 30:
-                    if jpc[js['target_unit']]['l'] and jobs[job]['region'] == 'GL':
+                    if mainc[js['target_unit']]['l'] and jobs[job]['region'] == 'GL':
                         jobs[job]['link'] = create_link(
                             js['target_unit'], jobs[job]['name'])
                     else:

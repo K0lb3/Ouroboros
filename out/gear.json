@@ -6107,5 +6107,34 @@
             "5": "+15 MDEF & +25 Water Res & +6 Jewels Obtained"
         },
         "atk_buff": {}
+    },
+    "AF_ACCS_GL_SIEG_HAT": {
+        "iname": "AF_ACCS_GL_SIEG_HAT",
+        "type": "Accessory",
+        "name": "Wanderer Hat",
+        "expression": "Attributes: HP Up, Status Res Up, Max Jewel Up,Luck Up",
+        "flavor": "A durable and useful hat that protects the wearer while on a long journey. This one seems to have a special enchantment on it.",
+        "tag": "Earring",
+        "rarity": "★★★☆☆",
+        "link": "http://www.alchemistcodedb.com/gear/af-accs-gl-sieg-hat",
+        "icon": "http://cdn.alchemistcodedb.com/images/items/icons/AF_ACCS_GL_SIEG_HAT.png",
+        "inputs": [
+            "Gl Sieg",
+            "Wanderer Hat"
+        ],
+        "ability": [
+            {
+                "NAME": "Winds of Favor",
+                "EXPR": "Winds of Favor",
+                "restriction": "Gl Sieg",
+                "iname": "SK_AF_ACCS_GL_SIEG_HAT_WA"
+            }
+        ],
+        "stats": {
+            "3": "+68 HP & +7% All Statuses & +14 Initial Jewels & +3 LUCK & +13 Max Jewels",
+            "4": "+84 HP & +8% All Statuses & +17 Initial Jewels & +4 LUCK & +14 Max Jewels",
+            "5": "+100 HP & +10% All Statuses & +20 Initial Jewels & +5 LUCK & +15 Max Jewels"
+        },
+        "atk_buff": {}
     }
 }

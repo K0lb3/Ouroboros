@@ -1844,8 +1844,8 @@
             "Leon",
             "Patty",
             "Vincent",
-            "Chiruru",
             "Elrike",
+            "Chiruru",
             "Ines",
             "Iris FF",
             "Merlinus CR"
@@ -2663,11 +2663,11 @@
             "Glanz",
             "Victor",
             "Reida",
-            "Thillie",
             "Lamia Fate",
-            "Rena",
             "Sakura SN",
             "Bashosen",
+            "Thillie",
+            "Rena",
             "Mikoto",
             "Yunagi",
             "Etona DIS",
@@ -2878,8 +2878,8 @@
             "Peridot",
             "Ramses",
             "Elrike",
-            "Miuna",
             "Mei Fang",
+            "Miuna",
             "Usalia DIS",
             "Ravina",
             "Chat Noir",
@@ -3236,9 +3236,9 @@
             "Mielikki",
             "Lucretia",
             "Fung Liu",
-            "Tamamo",
             "Kagura",
             "Peridot",
+            "Tamamo",
             "Rena"
         ],
         "jobe": [
@@ -4978,8 +4978,8 @@
         ],
         "jobe": [
             "Machinist+",
-            "Machinist: TINATSU",
-            "Machinist: THUNDER"
+            "Machinist: Tinatsu",
+            "Machinist: Thunder"
         ],
         "main": {
             "iname": "AB_KUR_UPPER",
@@ -5328,9 +5328,9 @@
             "Ciel",
             "Kuon",
             "Yomi",
-            "Kyubi",
-            "Tamamo",
             "Reida",
+            "Tamamo",
+            "Kyubi",
             "Fairily",
             "Amaterasu SN",
             "Uzuma"
@@ -5488,7 +5488,6 @@
             "Vettel",
             "Flamel",
             "Milis",
-            "Scheherazade",
             "Deneb",
             "Zain",
             "Dorothea",
@@ -5496,6 +5495,8 @@
             "Gilgamesh",
             "Margaret",
             "Neica",
+            "Scheherazade",
+            "Gl Sieg",
             "Nasario",
             "Lahar DIS",
             "Olga",
@@ -6034,8 +6035,8 @@
             "Reimei",
             "Glanz",
             "Masamune",
-            "Eizan",
             "Yomi SN",
+            "Eizan",
             "Blanshett",
             "Jin",
             "Justin",
@@ -6541,8 +6542,9 @@
             "Shayna",
             "Gormalas",
             "Shekinah",
-            "Eizan",
             "Forcas",
+            "Eizan",
+            "Gl Sieg",
             "Basheeny",
             "Daisy",
             "Lotia",
@@ -9118,9 +9120,9 @@
             "Shirma"
         ],
         "jobe": [
-            "Machinist: TINATSU",
-            "Machinist: THUNDER",
-            "Machinist: WIND"
+            "Machinist: Tinatsu",
+            "Machinist: Thunder",
+            "Machinist: Wind"
         ],
         "main": {
             "iname": "AB_LNC_UPPER",
@@ -9632,8 +9634,8 @@
             "Klima"
         ],
         "jobe": [
-            "Bride+ᴶ",
-            "Pure Brideᴶ"
+            "Bride+",
+            "Pure Bride"
         ],
         "main": {
             "iname": "AB_WED_F_UPPER",
@@ -9788,8 +9790,8 @@
             "Veloz"
         ],
         "jobe": [
-            "Passionate Bridegroomᴶ",
-            "Pure Bridegroomᴶ"
+            "Passionate Bridegroom",
+            "Pure Bridegroom"
         ],
         "main": {
             "iname": "AB_WED_M_UPPER",
@@ -10736,18 +10738,18 @@
         "units": [
             "Fung Liu",
             "Soleil",
-            "Scheherazade",
             "Vincent",
             "Peridot",
             "Lupinus",
             "Othima",
-            "Chiruru",
             "Reida",
-            "Thillie",
             "Rin Tohsaka",
             "Margaret",
             "Vivi",
             "Neica",
+            "Scheherazade",
+            "Chiruru",
+            "Thillie",
             "Klima",
             "Raydo",
             "Ines",
@@ -10923,11 +10925,11 @@
         "units": [
             "Ryle",
             "Milis",
-            "Tamamo",
             "Shekinah",
             "Hazel",
             "Archer",
             "Yomi SN",
+            "Tamamo",
             "Eros POTK",
             "Artemis POTK",
             "Belta"
@@ -11563,1667 +11565,6 @@
             "Masou Knight (Devil Spear)"
         ]
     },
-    "JB_FEN": {
-        "iname": "JB_FEN",
-        "name": "Fencer",
-        "japan": "Fencer\nフェンサー",
-        "kanji": "フェンサー",
-        "short description": "",
-        "long description": "",
-        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/fen.png",
-        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_FEN.png",
-        "origin": "Fencer",
-        "units": [
-            "Fencer",
-            "Chloe EO"
-        ],
-        "jobe": [],
-        "main": {
-            "iname": "AB_FEN_UPPER",
-            "name": "Rapier",
-            "expr": "Rapier techniques for use with this job type only",
-            "skills": [
-                {
-                    "name": "Chain Fire",
-                    "expr": "Inflicts Fire Phys Dmg [Range: 1, Height Range: 2]"
-                },
-                {
-                    "name": "Chain Freeze",
-                    "expr": "Inflicts Water Phys Dmg [Range: 1, Height Range: 2]"
-                },
-                {
-                    "name": "Chain Shock",
-                    "expr": "Inflicts Thunder Phys Dmg [Range: 1, Height Range: 2]"
-                },
-                {
-                    "name": "Chain Aero",
-                    "expr": "Inflicts Wind Phys Dmg [Range: 1, Height Range: 2]"
-                }
-            ]
-        },
-        "sub": {
-            "iname": "AB_FEN_LOWER",
-            "name": "Basic Rapier",
-            "expr": "Rapier techniques for use with all job types",
-            "skills": [
-                {
-                    "name": "Predict",
-                    "expr": "Lowers own PDEF/MDEF, and in exchange raises Evasion Rate"
-                },
-                {
-                    "name": "Vision Thrust",
-                    "expr": "Inflicts Phys Dmg & Blind [Range: 1, Height Range: 2]"
-                },
-                {
-                    "name": "Charge Fant",
-                    "expr": "Inflicts Phys Dmg [Range: 1, Height Range: 2]"
-                }
-            ]
-        },
-        "reactives": {
-            "iname": "",
-            "name": "Reactives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Sylphide",
-                    "expr": "Chance of completely evading attacks"
-                }
-            ]
-        },
-        "passives": {
-            "iname": "",
-            "name": "Passives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Rapier Mastery",
-                    "expr": "PATK Up"
-                }
-            ]
-        },
-        "weapon": "Sword",
-        "modifiers": {
-            "HP": -10,
-            "Max Jewels": -5,
-            "Initial Jewels": 25,
-            "PATK": -15,
-            "PDEF": 5,
-            "MATK": 0,
-            "MDEF": -3,
-            "DEX": -8,
-            "AGI": 0,
-            "LUCK": 0,
-            "CRIT": 0,
-            "AVOID": 5
-        },
-        "job master buff": [
-            {
-                "value": "+20",
-                "mod": "%",
-                "stat": "HP"
-            },
-            {
-                "value": "+2",
-                "mod": "%",
-                "stat": "PATK"
-            },
-            {
-                "value": "+4",
-                "mod": "%",
-                "stat": "PDEF"
-            }
-        ],
-        "stats": {
-            "Move": 4,
-            "Jump": 3,
-            "PATK": 209,
-            "PDEF": 168,
-            "DEX": 182,
-            "AGI": 21,
-            "MATK": 45,
-            "LUCK": 60,
-            "CRIT": 99,
-            "HP": 244,
-            "Jewels Obtained": 20,
-            "MDEF": 38,
-            "Fire Res": 7,
-            "Water Res": 5,
-            "Thunder Res": 3,
-            "Wind Res": 5,
-            "Charm Res": 66,
-            "Sleep Res": 71,
-            "Slow Res": 28,
-            "Stun Res": 15,
-            "Paralyze Res": 15,
-            "Petrify Res": 15,
-            "Poison Res": 10
-        },
-        "formula": "130% PATK",
-        "link": "http://www.alchemistcodedb.com/jp/unit/sek-cloe#フェンサー",
-        "inputs": [
-            "Fencer"
-        ]
-    },
-    "JB_H_FEN": {
-        "iname": "JB_H_FEN",
-        "name": "Illusory Swordsman",
-        "japan": "Phantom Fencer\n幻影の剣士",
-        "kanji": "幻影の剣士",
-        "short description": "",
-        "long description": "",
-        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/h_fen.png",
-        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_H_FEN.png",
-        "origin": "Illusory Swordsman",
-        "units": [
-            "Fencer"
-        ],
-        "jobe": [],
-        "main": {
-            "iname": "AB_H_FEN_UPPER",
-            "name": "Elusive Rapier",
-            "expr": "Elusive Rapier techniques for use with this job type only",
-            "skills": [
-                {
-                    "name": "Dazzling Blade Dance",
-                    "expr": "Inflicts Phys Dmg (Low) on target & raises own Evasion Rate [Range: 1, Height Range: 2]"
-                },
-                {
-                    "name": "Sharp Thrust",
-                    "expr": "Inflicts Phys Dmg with chance of inflicting Rage status on target, therefore drawing enemy attacks towards self [Range: 4, Area: Cross (3), Height Range: 2]"
-                },
-                {
-                    "name": "Revenge Thrust",
-                    "expr": "Inflicts Pierce Dmg & Penetrating [Range: 2, Area: 1 sq line, Height Range: 2]"
-                },
-                {
-                    "name": "Wind Curtain",
-                    "expr": "Evades 50% of physical and magical attacks for one turn"
-                }
-            ]
-        },
-        "sub": {
-            "iname": "AB_H_FEN_LOWER",
-            "name": "Basic Elusive Rapier",
-            "expr": "Elusive Rapier techniques for use with all job types",
-            "skills": [
-                {
-                    "name": "Divine Gust",
-                    "expr": "Lowers own PDEF/MDEF, and in exchange greatly raises Evasion Rate"
-                },
-                {
-                    "name": "Light of Recovery",
-                    "expr": "Recovers own HP (Medium)"
-                },
-                {
-                    "name": "Uncharted Exploration",
-                    "expr": "Raises own MOVE by 1 on turn used"
-                }
-            ]
-        },
-        "reactives": {
-            "iname": "",
-            "name": "Reactives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "One Who Has Not",
-                    "expr": "Chance of Evasion Rate being raised for one turn after receiving Dmg"
-                }
-            ]
-        },
-        "passives": {
-            "iname": "",
-            "name": "Passives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Sylph Screen",
-                    "expr": "Raises Evasion Rate"
-                }
-            ]
-        },
-        "weapon": "Sword",
-        "modifiers": {
-            "HP": 0,
-            "Max Jewels": -3,
-            "Initial Jewels": 25,
-            "PATK": 15,
-            "PDEF": 8,
-            "MATK": 1,
-            "MDEF": 0,
-            "DEX": 10,
-            "AGI": -5,
-            "LUCK": 5,
-            "CRIT": 0,
-            "AVOID": 5
-        },
-        "job master buff": [
-            {
-                "value": "+20",
-                "mod": "%",
-                "stat": "HP"
-            },
-            {
-                "value": "+3",
-                "mod": "%",
-                "stat": "PATK"
-            },
-            {
-                "value": "+2",
-                "mod": "%",
-                "stat": "PDEF"
-            },
-            {
-                "value": "+3",
-                "mod": "%",
-                "stat": "AGI"
-            }
-        ],
-        "stats": {
-            "Move": 4,
-            "Jump": 3,
-            "PATK": 181,
-            "PDEF": 168,
-            "DEX": 161,
-            "AGI": 32,
-            "MATK": 45,
-            "LUCK": 60,
-            "CRIT": 99,
-            "HP": 244,
-            "Jewels Obtained": 20,
-            "MDEF": 38,
-            "Fire Res": 7,
-            "Water Res": 5,
-            "Thunder Res": 3,
-            "Wind Res": 5,
-            "Bind Res": 56,
-            "Charm Res": 66,
-            "Sleep Res": 71,
-            "Slow Res": 28,
-            "Stun Res": 15,
-            "Paralyze Res": 15,
-            "Petrify Res": 15,
-            "Poison Res": 10
-        },
-        "formula": "130% PATK",
-        "link": "http://www.alchemistcodedb.com/jp/unit/fencer#幻影の剣士",
-        "inputs": [
-            "Fencer Illusory Swordsman",
-            "Illusory Swordsman",
-            "Fencer",
-            "Fencer Phantom Fencer",
-            "Phantom Fencer"
-        ]
-    },
-    "JB_FEN_N": {
-        "iname": "JB_FEN_N",
-        "name": "Thunder Swordsman",
-        "japan": "Lightening Fencer\n迅雷の剣士",
-        "kanji": "迅雷の剣士",
-        "short description": "",
-        "long description": "",
-        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/fen_n.png",
-        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_FEN_N.png",
-        "origin": "Thunder Swordsman",
-        "units": [
-            "Fencer"
-        ],
-        "jobe": [],
-        "main": {
-            "iname": "AB_FEN_N_UPPER",
-            "name": "True Rapier",
-            "expr": "True Rapier techniques for use with this job type only",
-            "skills": [
-                {
-                    "name": "Disturbing Thrust",
-                    "expr": "Inflicts 2-hit Dmg with chance of critical [Range: 1, Height Range: 2]"
-                },
-                {
-                    "name": "Chain Boost",
-                    "expr": "Doubles own PATK for one turn"
-                },
-                {
-                    "name": "Chain Burst",
-                    "expr": "Inflicts Phys Dmg on units in area around self [Area: Diamond (5), Height Range: 2]"
-                },
-                {
-                    "name": "Resonance",
-                    "expr": "Inflicts Pierce Dmg & Penetrating [Range: 3, Area: 1 sq line, Height Range: 2]"
-                }
-            ]
-        },
-        "sub": {
-            "iname": "AB_FEN_N_LOWER",
-            "name": "Basic True Rapier",
-            "expr": "True Rapier techniques for use with all job types",
-            "skills": [
-                {
-                    "name": "Chain Plus",
-                    "expr": "Inflicts Pierce Dmg & raises own PATK"
-                },
-                {
-                    "name": "Chain Killer",
-                    "expr": "Inflicts Pierce Dmg & interrupts skill charging"
-                },
-                {
-                    "name": "Chain All",
-                    "expr": "Raises Evasion Rate of units in area around self [Area: Diamond (5), Height Range: 2]"
-                }
-            ]
-        },
-        "reactives": {
-            "iname": "",
-            "name": "Reactives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Speed Boost",
-                    "expr": "Raises AGI until next turn when Phys Dmg is received"
-                }
-            ]
-        },
-        "passives": {
-            "iname": "",
-            "name": "Passives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Rapier Mastery Ⅱ",
-                    "expr": "Raises PATK/AGI"
-                }
-            ]
-        },
-        "weapon": "Sword",
-        "modifiers": {
-            "HP": 30,
-            "Max Jewels": 0,
-            "Initial Jewels": 25,
-            "PATK": 10,
-            "PDEF": 25,
-            "MATK": 0,
-            "MDEF": -3,
-            "DEX": 10,
-            "AGI": 10,
-            "LUCK": 0,
-            "CRIT": 10,
-            "AVOID": 7
-        },
-        "job master buff": [
-            {
-                "value": "+22",
-                "mod": "%",
-                "stat": "HP"
-            },
-            {
-                "value": "+6",
-                "mod": "%",
-                "stat": "PATK"
-            },
-            {
-                "value": "+3",
-                "mod": "%",
-                "stat": "PDEF"
-            },
-            {
-                "value": "+3",
-                "mod": "%",
-                "stat": "CRIT"
-            }
-        ],
-        "stats": {
-            "Move": 4,
-            "Jump": 4,
-            "PATK": 235,
-            "PDEF": 156,
-            "DEX": 171,
-            "AGI": 26,
-            "LUCK": 81,
-            "CRIT": 91,
-            "MATK": 57,
-            "MDEF": 50,
-            "HP": 164,
-            "Jewels Obtained": 24,
-            "Fire Res": 7,
-            "Water Res": 4,
-            "Thunder Res": 3,
-            "Wind Res": 5,
-            "Light Res": 5,
-            "Dark Res": 4,
-            "Charm Res": 66,
-            "Sleep Res": 71,
-            "Slow Res": 28,
-            "Stun Res": 15,
-            "Paralyze Res": 15,
-            "Petrify Res": 15,
-            "Poison Res": 10
-        },
-        "formula": "130% PATK",
-        "link": "http://www.alchemistcodedb.com/jp/unit/fencer#迅雷の剣士",
-        "inputs": [
-            "Fencer Thunder Swordsman",
-            "Thunder Swordsman",
-            "Fencer Lightening Fencer",
-            "Lightening Fencer"
-        ]
-    },
-    "JB_REA": {
-        "iname": "JB_REA",
-        "name": "Reaper",
-        "japan": "Reaper\nリーパー",
-        "kanji": "リーパー",
-        "short description": "",
-        "long description": "",
-        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/rea.png",
-        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_DT_REA.png",
-        "origin": "Reaper",
-        "units": [
-            "Reaper"
-        ],
-        "jobe": [],
-        "main": {
-            "iname": "AB_REA_UPPER",
-            "name": "Sickle",
-            "expr": "Sickle techniques for use with this job type only",
-            "skills": [
-                {
-                    "name": "Endless Outfit",
-                    "expr": "Raises own PDEF"
-                },
-                {
-                    "name": "Numbing Scythe",
-                    "expr": "Inflicts Phys Dmg with chance of Paralyze with chance of critical [Range: 1, Height Range: 1]"
-                },
-                {
-                    "name": "Death Judgment",
-                    "expr": "Inflicts Phys Dmg with chance of Sleep with chance of critical [Range: 1, Height Range: 1]"
-                },
-                {
-                    "name": "Cursed Scythe",
-                    "expr": "Inflicts Phys Dmg & Penetrating [Range: 2, Area: 1 sq line, Height Range: 2]"
-                }
-            ]
-        },
-        "sub": {
-            "iname": "AB_REA_LOWER",
-            "name": "Basic Sickle",
-            "expr": "Sickle techniques for use with all job types",
-            "skills": [
-                {
-                    "name": "Sanity Armament",
-                    "expr": "Lowers own PDEF & raises own PATK"
-                },
-                {
-                    "name": "Feeble Sanity",
-                    "expr": "Inflicts Phys Dmg & lowers PDEF with chance of critical [Range: 1, Height Range: 1]"
-                },
-                {
-                    "name": "Fragile Sanity",
-                    "expr": "Inflicts Phys Dmg & lowers PATK with chance of critical [Range: 1, Height Range: 1]"
-                }
-            ]
-        },
-        "reactives": {
-            "iname": "",
-            "name": "Reactives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Flash Wave",
-                    "expr": "Chance of inflicting Blind on attacker when receiving Dmg [Range: 1, Height Range: 2]"
-                }
-            ]
-        },
-        "passives": {
-            "iname": "",
-            "name": "Passives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Scythe Mastery",
-                    "expr": "Raises CRIT Rate"
-                }
-            ]
-        },
-        "weapon": "Greatsword/Scythe",
-        "modifiers": {
-            "HP": -5,
-            "Max Jewels": 0,
-            "Initial Jewels": 25,
-            "PATK": 20,
-            "PDEF": -5,
-            "MATK": 0,
-            "MDEF": -5,
-            "DEX": -5,
-            "AGI": 13,
-            "LUCK": 0,
-            "CRIT": -10,
-            "AVOID": 0
-        },
-        "job master buff": [
-            {
-                "value": "+20",
-                "mod": "%",
-                "stat": "HP"
-            },
-            {
-                "value": "+2",
-                "mod": "%",
-                "stat": "PATK"
-            },
-            {
-                "value": "+3",
-                "mod": "%",
-                "stat": "DEX"
-            },
-            {
-                "value": "+2",
-                "mod": "%",
-                "stat": "CRIT"
-            }
-        ],
-        "stats": {
-            "Move": 3,
-            "Jump": 2,
-            "PATK": 193,
-            "PDEF": 128,
-            "DEX": 186,
-            "AGI": 14,
-            "LUCK": 78,
-            "CRIT": 107,
-            "MATK": 57,
-            "MDEF": 50,
-            "HP": 344,
-            "Jewels Obtained": 16,
-            "Fire Res": 7,
-            "Water Res": 4,
-            "Thunder Res": 3,
-            "Wind Res": 5,
-            "Daze Res": 56,
-            "Debuff Res": 56,
-            "Charm Res": 38,
-            "Sleep Res": 43,
-            "Slow Res": 28,
-            "Stun Res": 15,
-            "Paralyze Res": 15,
-            "Petrify Res": 15,
-            "Light Res": 1,
-            "Poison Res": 10
-        },
-        "formula": "150% PATK",
-        "link": "http://www.alchemistcodedb.com/jp/unit/reaper#リーパー",
-        "inputs": [
-            "Reaper",
-            "Reaper Reaper"
-        ]
-    },
-    "JB_DT_REA": {
-        "iname": "JB_DT_REA",
-        "name": "Death-Spreading Reaper",
-        "japan": "Death Scattering Shinigami\n死を振り撒く死神",
-        "kanji": "死を振り撒く死神",
-        "short description": "",
-        "long description": "",
-        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/dt_rea.png",
-        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_DT_REA.png",
-        "origin": "Death-Spreading Reaper",
-        "units": [
-            "Reaper"
-        ],
-        "jobe": [],
-        "main": {
-            "iname": "AB_DT_REA_UPPER",
-            "name": "Death Sickle",
-            "expr": "Death Scythe techniques for use with this job type only",
-            "skills": [
-                {
-                    "name": "Death Sickle",
-                    "expr": "Inflicts Phys Dmg with chance of Death Sentence with chance of critical [Range: 1, Height Range: 1]"
-                },
-                {
-                    "name": "Vicious Scythe",
-                    "expr": "Inflicts Phys Dmg with chance of Poison with chance of critical [Range: 1, Height Range: 1]"
-                },
-                {
-                    "name": "Ash Scythe",
-                    "expr": "Inflicts Phys Dmg (strong vs demi-humans) on units in area around self [Area: Diamond (5), Height Range: 2]"
-                },
-                {
-                    "name": "Blood Slash",
-                    "expr": "Dark Dmg & Penetrating [Range: 3, Area: 1 sq line, Height Range: 2]"
-                }
-            ]
-        },
-        "sub": {
-            "iname": "AB_DT_REA_LOWER",
-            "name": "Basic Death Sickle",
-            "expr": "Death Scythe techniques for use with all job types",
-            "skills": [
-                {
-                    "name": "Utsusemi Clothing",
-                    "expr": "Raises own AGI"
-                },
-                {
-                    "name": "Black Blade",
-                    "expr": "Inflicts Phys Dmg with chance of Bind with chance of critical [Range: 1, Height Range: 1]"
-                },
-                {
-                    "name": "Scourge Scythe",
-                    "expr": "Inflicts Phys Dmg with chance of Charm with chance of critical [Range: 1, Height Range: 1]"
-                }
-            ]
-        },
-        "reactives": {
-            "iname": "",
-            "name": "Reactives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Underworld Wave",
-                    "expr": "Chance of inflicting Daze on attacker when receiving Dmg [Range: 1, Height Range: 2]"
-                }
-            ]
-        },
-        "passives": {
-            "iname": "",
-            "name": "Passives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Scythe MasteryⅡ",
-                    "expr": "Raises PATK/CRIT Rate"
-                }
-            ]
-        },
-        "weapon": "Greatsword/Scythe",
-        "modifiers": {
-            "HP": 0,
-            "Max Jewels": 0,
-            "Initial Jewels": 25,
-            "PATK": 5,
-            "PDEF": -3,
-            "MATK": 0,
-            "MDEF": -3,
-            "DEX": 15,
-            "AGI": 17,
-            "LUCK": 10,
-            "CRIT": -5,
-            "AVOID": 0
-        },
-        "job master buff": [
-            {
-                "value": "+20",
-                "mod": "%",
-                "stat": "HP"
-            },
-            {
-                "value": "+3",
-                "mod": "%",
-                "stat": "PATK"
-            },
-            {
-                "value": "+3",
-                "mod": "%",
-                "stat": "DEX"
-            },
-            {
-                "value": "+1",
-                "mod": "%",
-                "stat": "CRIT"
-            }
-        ],
-        "stats": {
-            "Move": 3,
-            "Jump": 3,
-            "PATK": 297,
-            "PDEF": 128,
-            "DEX": 165,
-            "AGI": 13,
-            "CRIT": 116,
-            "HP": 336,
-            "MATK": 57,
-            "MDEF": 50,
-            "Jewels Obtained": 36,
-            "LUCK": 63,
-            "Fire Res": 7,
-            "Water Res": 4,
-            "Thunder Res": 3,
-            "Wind Res": 5,
-            "Debuff Res": 56,
-            "Charm Res": 38,
-            "Sleep Res": 43,
-            "Slow Res": 28,
-            "Stun Res": 15,
-            "Paralyze Res": 15,
-            "Petrify Res": 15,
-            "Light Res": 1,
-            "Poison Res": 10
-        },
-        "formula": "150% PATK",
-        "link": "http://www.alchemistcodedb.com/jp/unit/reaper#死を振り撒く死神",
-        "inputs": [
-            "Reaper Death-Spreading Reaper",
-            "Death-Spreading Reaper",
-            "Reaper",
-            "Reaper Death Scattering Shinigami",
-            "Death Scattering Shinigami"
-        ]
-    },
-    "JB_DK_REA": {
-        "iname": "JB_DK_REA",
-        "name": "Death-Delaying Reaper",
-        "japan": "Death Preventing Shinigami\n死を遠ざける死神",
-        "kanji": "死を遠ざける死神",
-        "short description": "",
-        "long description": "",
-        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/dk_rea.png",
-        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_DK_REA.png",
-        "origin": "Death-Delaying Reaper",
-        "units": [
-            "Reaper"
-        ],
-        "jobe": [],
-        "main": {
-            "iname": "AB_DK_REA_UPPER",
-            "name": "Dark Sickle",
-            "expr": "Dark Scythe techniques for use with this job type only",
-            "skills": [
-                {
-                    "name": "Weakening Sanity",
-                    "expr": "Inflicts Phys Dmg on units within target area & lowers PDEF with chance of critical [Range: 4, Area: Cross (3), Height Range: 1]"
-                },
-                {
-                    "name": "Dark Wave",
-                    "expr": "Inflicts Phys Dmg on units within target area & lowers PATK with chance of critical [Range: 4, Area: Cross (3), Height Range: 1]"
-                },
-                {
-                    "name": "Soul Metastasis",
-                    "expr": "Consumes own HP and recovers target's HP (Low) [Range: 3, Height Range: 2]"
-                },
-                {
-                    "name": "Foam Scythe",
-                    "expr": "Consumes large amount of own HP and inflicts Phys Dmg (strong vs demi-humans) on enemy units in area around self that increases according to number of dead allies & chance of critical [Range: 4, Area: Cross (3), Height Range: 2]"
-                }
-            ]
-        },
-        "sub": {
-            "iname": "AB_DK_REA_LOWER",
-            "name": "Basic Dark Sickle",
-            "expr": "Dark Scythe techniques for use with all job types",
-            "skills": [
-                {
-                    "name": "Vitality Absorption",
-                    "expr": "Absorbs HP from target [Range: 4, Height Range: 2]"
-                },
-                {
-                    "name": "Sanity Barrier",
-                    "expr": "Raises own PATK/PDEF"
-                },
-                {
-                    "name": "Black Mist",
-                    "expr": "Lowers AGI/Evasion Rate of units within target area [Range: 4, Area: Diamond (5), Height Range: 1]"
-                }
-            ]
-        },
-        "reactives": {
-            "iname": "",
-            "name": "Reactives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Soul Wave",
-                    "expr": "Absorbs part of Dmg received back as HP [Range: 1, Height Range: 1]"
-                }
-            ]
-        },
-        "passives": {
-            "iname": "",
-            "name": "Passives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Blood of Atonement",
-                    "expr": "Auto Heal"
-                }
-            ]
-        },
-        "weapon": "Greatsword/Scythe",
-        "modifiers": {
-            "HP": 20,
-            "Max Jewels": 0,
-            "Initial Jewels": 25,
-            "PATK": 10,
-            "PDEF": -1,
-            "MATK": 0,
-            "MDEF": -1,
-            "DEX": 15,
-            "AGI": 16,
-            "LUCK": 15,
-            "CRIT": -2,
-            "AVOID": 0
-        },
-        "job master buff": [
-            {
-                "value": "+20",
-                "mod": "%",
-                "stat": "HP"
-            },
-            {
-                "value": "+6",
-                "mod": "%",
-                "stat": "PATK"
-            },
-            {
-                "value": "+1",
-                "mod": "%",
-                "stat": "DEX"
-            },
-            {
-                "value": "+2",
-                "mod": "%",
-                "stat": "AGI"
-            },
-            {
-                "value": "+3",
-                "mod": "%",
-                "stat": "CRIT"
-            }
-        ],
-        "stats": {
-            "Move": 4,
-            "Jump": 3,
-            "PATK": 297,
-            "PDEF": 128,
-            "DEX": 186,
-            "AGI": 34,
-            "CRIT": 123,
-            "HP": 196,
-            "MATK": 57,
-            "MDEF": 50,
-            "Jewels Obtained": 36,
-            "LUCK": 63,
-            "Fire Res": 7,
-            "Water Res": 4,
-            "Thunder Res": 3,
-            "Wind Res": 5,
-            "Charm Res": 38,
-            "Sleep Res": 43,
-            "Slow Res": 28,
-            "Stun Res": 15,
-            "Paralyze Res": 15,
-            "Petrify Res": 15,
-            "Light Res": 1,
-            "Poison Res": 10
-        },
-        "formula": "150% PATK",
-        "link": "http://www.alchemistcodedb.com/jp/unit/reaper#死を遠ざける死神",
-        "inputs": [
-            "Reaper Death-Delaying Reaper",
-            "Death-Delaying Reaper",
-            "Reaper Death Preventing Shinigami",
-            "Death Preventing Shinigami"
-        ]
-    },
-    "JB_SHE": {
-        "iname": "JB_SHE",
-        "name": "Shaman",
-        "japan": "Shaman\nシャーマン",
-        "kanji": "シャーマン",
-        "short description": "",
-        "long description": "",
-        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/she.png",
-        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_H_SHE.png",
-        "origin": "Shaman",
-        "units": [
-            "Shaman"
-        ],
-        "jobe": [],
-        "main": {
-            "iname": "AB_SHE_UPPER",
-            "name": "Grace",
-            "expr": "Grace techniques for use with this job type only",
-            "skills": [
-                {
-                    "name": "Grace: Annihilation",
-                    "expr": "Raises PATK of units in area around self [Area: Diamond (5), Height Range: 2]"
-                },
-                {
-                    "name": "Grace: Guard",
-                    "expr": "Raises PDEF of units in area around self [Area: Diamond (5), Height Range: 2]"
-                },
-                {
-                    "name": "Heaven's Grace",
-                    "expr": "Cancels all buffs/debuffs cast on target [Range: 3, Height Range: 2]"
-                },
-                {
-                    "name": "Grace: Blaze",
-                    "expr": "Inflicts non-elemental Mag Dmg (strong vs undead) [Range: 3, Area: Cross (3), Height Range: 2]"
-                }
-            ]
-        },
-        "sub": {
-            "iname": "AB_SHE_LOWER",
-            "name": "Basic Grace",
-            "expr": "Grace techniques for use with all job types",
-            "skills": [
-                {
-                    "name": "Grace: Flame",
-                    "expr": "Raises Fire Res of units within target area [Area: Diamond (5), Height Range: 2]"
-                },
-                {
-                    "name": "Grace: Slush",
-                    "expr": "Raises Water Res of units within target area [Area: Diamond (5), Height Range: 2]"
-                },
-                {
-                    "name": "Grace: Lightning",
-                    "expr": "Raises Thunder Res of units within target area [Area: Diamond (5), Height Range: 2]"
-                },
-                {
-                    "name": "Grace: Hurricane",
-                    "expr": "Raises Wind Res of units within target area [Area: Diamond (5), Height Range: 2]"
-                }
-            ]
-        },
-        "reactives": {
-            "iname": "",
-            "name": "Reactives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Grace: Purification",
-                    "expr": "When attacked, cancels all buffs cast on attacker [Range: Unlimited, Height Range: Unlimited]"
-                }
-            ]
-        },
-        "passives": {
-            "iname": "",
-            "name": "Passives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Grace Mastery",
-                    "expr": "Raises MDEF"
-                }
-            ]
-        },
-        "weapon": "Cards",
-        "modifiers": {
-            "HP": -10,
-            "Max Jewels": 0,
-            "Initial Jewels": 100,
-            "PATK": -10,
-            "PDEF": 0,
-            "MATK": 0,
-            "MDEF": 0,
-            "DEX": -5,
-            "AGI": -8,
-            "LUCK": 0,
-            "CRIT": -8,
-            "AVOID": 0
-        },
-        "job master buff": [
-            {
-                "value": "+28",
-                "mod": "%",
-                "stat": "HP"
-            },
-            {
-                "value": "+3",
-                "mod": "%",
-                "stat": "MATK"
-            },
-            {
-                "value": "+4",
-                "mod": "%",
-                "stat": "MDEF"
-            }
-        ],
-        "stats": {
-            "Move": 3,
-            "Jump": 2,
-            "MATK": 237,
-            "MDEF": 170,
-            "LUCK": 141,
-            "AGI": 23,
-            "CRIT": 113,
-            "HP": 144,
-            "PATK": 75,
-            "PDEF": 50,
-            "Jewels Obtained": 40,
-            "DEX": 54,
-            "Fire Res": 7,
-            "Water Res": 4,
-            "Thunder Res": 3,
-            "Wind Res": 5,
-            "Petrify Res": 53,
-            "Stop Res": 28,
-            "Silence Res": 28,
-            "Dark Res": 4,
-            "Stun Res": 15,
-            "Paralyze Res": 15,
-            "Sleep Res": 15,
-            "Blind Res": 10,
-            "Light Res": 1
-        },
-        "formula": "90% MATK",
-        "link": "http://www.alchemistcodedb.com/jp/unit/sherman#シャーマン",
-        "inputs": [
-            "Shaman",
-            "Shaman Shaman"
-        ]
-    },
-    "JB_H_SHE": {
-        "iname": "JB_H_SHE",
-        "name": "Maiden of Divine Punishment",
-        "japan": "Shaman:Divine Punishment\n天譴を下す巫子",
-        "kanji": "天譴を下す巫子",
-        "short description": "",
-        "long description": "",
-        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/h_she.png",
-        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_H_SHE.png",
-        "origin": "Maiden of Divine Punishment",
-        "units": [
-            "Shaman"
-        ],
-        "jobe": [],
-        "main": {
-            "iname": "AB_H_SHE_UPPER",
-            "name": "Oracle",
-            "expr": "Oracle techniques for use with this job type only",
-            "skills": [
-                {
-                    "name": "Purification",
-                    "expr": "Inflicts Mag Dmg & Stop [Range: 3, Height Range: 1]"
-                },
-                {
-                    "name": "Past-Life Memories",
-                    "expr": "Casts Quicken on target [Range: 3, Height Range: 1] & casts Quicken on self"
-                },
-                {
-                    "name": "Oracle: Aftershock",
-                    "expr": "Doubles MDEF of target/self for one turn only [Range: 3, Height Range: 2]"
-                },
-                {
-                    "name": "Divine Manifestation",
-                    "expr": "Inflicts Mag Dmg (strong vs undead) & lowers PDEF/MDEF [Range: 5, Height Range: 4]"
-                }
-            ]
-        },
-        "sub": {
-            "iname": "AB_H_SHE_LOWER",
-            "name": "Basic Oracle",
-            "expr": "Oracle techniques for use with all job types",
-            "skills": [
-                {
-                    "name": "Oracle: Three Runs",
-                    "expr": "Raises AGI/DEX/CRIT of target [Range: 3, Height Range: 2]"
-                },
-                {
-                    "name": "Oracle: Telepathy",
-                    "expr": "Swaps positions with target [Range: 4, Height Range: 3] & raises own MATK"
-                },
-                {
-                    "name": "Holy Protection",
-                    "expr": "Allows the target unit to take his/her turn immediately [Range: 3, Height Range: 1]"
-                }
-            ]
-        },
-        "reactives": {
-            "iname": "",
-            "name": "Reactives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Oracle: Conquest",
-                    "expr": "Chance of performing magic counter when receiving Dmg [Range: 4, Height Range: 2]"
-                }
-            ]
-        },
-        "passives": {
-            "iname": "",
-            "name": "Passives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Divine Mastery",
-                    "expr": "Raises MATK/Max Jewels"
-                }
-            ]
-        },
-        "weapon": "Cards",
-        "modifiers": {
-            "HP": 5,
-            "Max Jewels": 0,
-            "Initial Jewels": 100,
-            "PATK": -10,
-            "PDEF": 0,
-            "MATK": 10,
-            "MDEF": 0,
-            "DEX": 0,
-            "AGI": 0,
-            "LUCK": 10,
-            "CRIT": -8,
-            "AVOID": 0
-        },
-        "job master buff": [
-            {
-                "value": "+26",
-                "mod": "%",
-                "stat": "HP"
-            },
-            {
-                "value": "+3",
-                "mod": "%",
-                "stat": "MATK"
-            },
-            {
-                "value": "+4",
-                "mod": "%",
-                "stat": "MDEF"
-            },
-            {
-                "value": "+1",
-                "mod": "%",
-                "stat": "AGI"
-            }
-        ],
-        "stats": {
-            "Move": 3,
-            "Jump": 3,
-            "MATK": 237,
-            "MDEF": 191,
-            "LUCK": 141,
-            "AGI": 23,
-            "CRIT": 113,
-            "HP": 88,
-            "PATK": 75,
-            "PDEF": 92,
-            "Jewels Obtained": 40,
-            "DEX": 54,
-            "Fire Res": 7,
-            "Water Res": 4,
-            "Thunder Res": 3,
-            "Wind Res": 5,
-            "Paralyze Res": 43,
-            "Daze Res": 28,
-            "Bind Res": 28,
-            "Dark Res": 4,
-            "Stun Res": 15,
-            "Sleep Res": 15,
-            "Petrify Res": 25,
-            "Blind Res": 10,
-            "Light Res": 1
-        },
-        "formula": "90% MATK",
-        "link": "http://www.alchemistcodedb.com/jp/unit/sherman#天譴を下す巫子",
-        "inputs": [
-            "Shaman Maiden of Divine Punishment",
-            "Maiden of Divine Punishment",
-            "Shaman",
-            "Shaman Shaman:Divine Punishment",
-            "Shaman:Divine Punishment"
-        ]
-    },
-    "JB_SHE_N": {
-        "iname": "JB_SHE_N",
-        "name": "Maiden of Divine Blessing",
-        "japan": "Shaman:Divine Affection\n天寵を告げし巫子",
-        "kanji": "天寵を告げし巫子",
-        "short description": "",
-        "long description": "",
-        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/she_n.png",
-        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_SHE_N.png",
-        "origin": "Maiden of Divine Blessing",
-        "units": [
-            "Shaman"
-        ],
-        "jobe": [],
-        "main": {
-            "iname": "AB_SHE_N_UPPER",
-            "name": "Holy Prayer",
-            "expr": "Holy Prayer techniques for use with this job type only",
-            "skills": [
-                {
-                    "name": "Compassion",
-                    "expr": "Slightly recovers HP of ally unit [Range: 3, Height Range: 3]"
-                },
-                {
-                    "name": "Bunrei",
-                    "expr": "Casts Auto Heal (Low) on target unit for three turns [Range: 3, Height Range: 3]"
-                },
-                {
-                    "name": "Holy Area",
-                    "expr": "Nullifies all statuses inflicted on units within area around self during turn used [Area: Diamond (5), Height Range: 2]"
-                },
-                {
-                    "name": "Memorial",
-                    "expr": "Recovers HP (High) of ally unit & cancels statuses [Range: 3, Height Range: 4]"
-                }
-            ]
-        },
-        "sub": {
-            "iname": "AB_SHE_N_LOWER",
-            "name": "Basic Holy Prayer",
-            "expr": "Holy Prayer techniques for use with all job types",
-            "skills": [
-                {
-                    "name": "Holy Prayer: Collapse",
-                    "expr": "Raises PDEF/MDEF/All Status Res of units in area around self [Range: Diamond (7), Area: Cross (3), Height Range: 2]"
-                },
-                {
-                    "name": "Holy Prayer: Desolation",
-                    "expr": "Raises Evasion Rate of units in area around self [Range: Diamond (7), Area: Cross (3), Height Range: 2]"
-                },
-                {
-                    "name": "Holy Prayer: Longevity",
-                    "expr": "Raises Max HP of units in area around self [Range: Diamond (7), Area: Cross (3), Height Range: 2]"
-                }
-            ]
-        },
-        "reactives": {
-            "iname": "",
-            "name": "Reactives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Holy Prayer: Report",
-                    "expr": "Chance of casting Auto Heal on self when receiving Dmg"
-                }
-            ]
-        },
-        "passives": {
-            "iname": "",
-            "name": "Passives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Grace MasteryⅡ",
-                    "expr": "Raises MDEF/Max Jewels"
-                }
-            ]
-        },
-        "weapon": "Cards",
-        "modifiers": {
-            "HP": 2,
-            "Max Jewels": 10,
-            "Initial Jewels": 100,
-            "PATK": -5,
-            "PDEF": 10,
-            "MATK": 25,
-            "MDEF": 15,
-            "DEX": 0,
-            "AGI": 0,
-            "LUCK": 25,
-            "CRIT": 5,
-            "AVOID": 0
-        },
-        "job master buff": [
-            {
-                "value": "+26",
-                "mod": "%",
-                "stat": "HP"
-            },
-            {
-                "value": "+4",
-                "mod": "%",
-                "stat": "MATK"
-            },
-            {
-                "value": "+6",
-                "mod": "%",
-                "stat": "MDEF"
-            },
-            {
-                "value": "+1",
-                "mod": "%",
-                "stat": "AGI"
-            }
-        ],
-        "stats": {
-            "Move": 3,
-            "Jump": 3,
-            "MATK": 251,
-            "MDEF": 184,
-            "LUCK": 141,
-            "AGI": 23,
-            "CRIT": 113,
-            "HP": 144,
-            "PATK": 75,
-            "PDEF": 50,
-            "Jewels Obtained": 36,
-            "DEX": 54,
-            "Fire Res": 3,
-            "Water Res": 4,
-            "Thunder Res": 3,
-            "Wind Res": 5,
-            "Max Jewels": 14,
-            "Silence Res": 52,
-            "Petrify Res": 53,
-            "Stop Res": 28,
-            "Dark Res": 4,
-            "Stun Res": 15,
-            "Paralyze Res": 15,
-            "Sleep Res": 15,
-            "Blind Res": 10,
-            "Light Res": 1
-        },
-        "formula": "90% MATK",
-        "link": "http://www.alchemistcodedb.com/jp/unit/sherman#天寵を告げし巫子",
-        "inputs": [
-            "Shaman Maiden of Divine Blessing",
-            "Maiden of Divine Blessing",
-            "Shaman Shaman:Divine Affection",
-            "Shaman:Divine Affection"
-        ]
-    },
-    "JB_DGO": {
-        "iname": "JB_DGO",
-        "name": "Dragoon",
-        "japan": "Dragoon [Collab] Ranged\nドラグーン",
-        "kanji": "ドラグーン",
-        "short description": "",
-        "long description": "",
-        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/dgo.png",
-        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_SNI.png",
-        "origin": "Dragoon",
-        "units": [
-            "Chloe EO"
-        ],
-        "jobe": [],
-        "main": {
-            "iname": "AB_DGO_UPPER",
-            "name": "Bullet Shield",
-            "expr": "Bullet Shield techniques for use with this job type only",
-            "skills": [
-                {
-                    "name": "Prepare to Fire",
-                    "expr": "Raises own PATK/AGI"
-                },
-                {
-                    "name": "Barrage Wall",
-                    "expr": "Inflicts Phys Dmg & lowers PATK [Range: 5, Height Range: 2]"
-                },
-                {
-                    "name": "Dragon Power",
-                    "expr": "Inflicts Dmg that increases according to how low own HP is & Penetrating [Range: 4, Height Range: 2]"
-                },
-                {
-                    "name": "Buster Cannon",
-                    "expr": "Inflicts Phys Dmg on units within target area & ignores DEF & Penetrating [Range: 4, Area: 1 sq line, Height Range: 2]"
-                }
-            ]
-        },
-        "sub": {
-            "iname": "AB_DGO_LOWER",
-            "name": "Basic Bullet Shield",
-            "expr": "Bullet Shield techniques for use with all job types",
-            "skills": [
-                {
-                    "name": "Line Guard",
-                    "expr": "Raises PDEF of units in area around self [Area: Cross (3), Height Range: 2]"
-                },
-                {
-                    "name": "Material Guard",
-                    "expr": "Raises MDEF of units in area around self [Area: Cross (3), Height Range: 2]"
-                },
-                {
-                    "name": "Dragon Roar",
-                    "expr": "Lowers PATK with chance of inflicting Rage status on target, therefore drawing enemy attacks towards self [Range: 4, Height Range: 2]"
-                },
-                {
-                    "name": "Gun Mount",
-                    "expr": "Inflicts Phys Dmg [Range: 4, Area: 1 sq line, Height Range: 2]"
-                }
-            ]
-        },
-        "reactives": {
-            "iname": "",
-            "name": "Reactives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Healing Guard",
-                    "expr": "Absorbs part of Dmg received back as HP [Range: 1, Height Range: 1]"
-                }
-            ]
-        },
-        "passives": {
-            "iname": "",
-            "name": "Passives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Shield Mastery",
-                    "expr": "Raises PDEF & raises power of Bullet Shield/Basic Bullet Shield skills according how low own HP is"
-                }
-            ]
-        },
-        "weapon": "Rifle",
-        "modifiers": {
-            "HP": 5,
-            "Max Jewels": 0,
-            "Initial Jewels": 25,
-            "PATK": 10,
-            "PDEF": 20,
-            "MATK": 0,
-            "MDEF": 0,
-            "DEX": 55,
-            "AGI": 5,
-            "LUCK": 0,
-            "CRIT": 35,
-            "AVOID": 0
-        },
-        "job master buff": [
-            {
-                "value": "+24",
-                "mod": "%",
-                "stat": "HP"
-            },
-            {
-                "value": "+6",
-                "mod": "%",
-                "stat": "PDEF"
-            },
-            {
-                "value": "+3",
-                "mod": "%",
-                "stat": "DEX"
-            },
-            {
-                "value": "+1",
-                "mod": "%",
-                "stat": "CRIT"
-            }
-        ],
-        "stats": {
-            "Move": 3,
-            "Jump": 2,
-            "PATK": 237,
-            "PDEF": 218,
-            "LUCK": 189,
-            "DEX": 173,
-            "MDEF": 35,
-            "AGI": 15,
-            "CRIT": 88,
-            "HP": 309,
-            "Jewels Obtained": 34,
-            "Fire Res": 6,
-            "Water Res": 4,
-            "Thunder Res": 4,
-            "Wind Res": 3,
-            "Light Res": 4,
-            "Paralyze Res": 43,
-            "Daze Res": 28,
-            "Dark Res": 3,
-            "Stun Res": 15,
-            "Sleep Res": 15,
-            "Petrify Res": 15,
-            "MATK": 24,
-            "Poison Res": 10,
-            "Charm Res": 10
-        },
-        "formula": "70% (PATK + DEX)",
-        "link": "http://www.alchemistcodedb.com/jp/unit/sek-cloe#ドラグーン",
-        "inputs": [
-            "Chloe EO",
-            "Chloe EO Dragoon",
-            "Dragoon",
-            "Chloe EO",
-            "Chloe EO Dragoon [Collab] Ranged",
-            "Dragoon [Collab] Ranged"
-        ]
-    },
-    "JB_MAS": {
-        "iname": "JB_MAS",
-        "name": "Masurao",
-        "japan": "Masurao\nマスラオ",
-        "kanji": "マスラオ",
-        "short description": "",
-        "long description": "",
-        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/mas.png",
-        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_MAS.png",
-        "origin": "Masurao",
-        "units": [
-            "Chloe EO"
-        ],
-        "jobe": [],
-        "main": {
-            "iname": "AB_MAS_UPPER",
-            "name": "Multi-Blade",
-            "expr": "Multi-blade techniques for use with this job type only",
-            "skills": [
-                {
-                    "name": "Multi-Blade Attack",
-                    "expr": "Inflicts 2-hit Dmg with chance of critical [Range: 1, Height Range: 2]"
-                },
-                {
-                    "name": "Double Blossom",
-                    "expr": "Inflicts Phys Dmg & Penetrating [Range: 3, Area: 1 sq line, Height Range: 2]"
-                },
-                {
-                    "name": "Flower Piece",
-                    "expr": "Inflicts Phys Dmg that ignores DEF [Range: 1, Height Range: 1]"
-                },
-                {
-                    "name": "A Hundred Blossoms",
-                    "expr": "Inflicts 2-hit Dmg with chance of critical [Range: 1, Height Range: 2]"
-                }
-            ]
-        },
-        "sub": {
-            "iname": "AB_MAS_LOWER",
-            "name": "Basic Multi-Blade",
-            "expr": "Multi-blade techniques for use with all job types",
-            "skills": [
-                {
-                    "name": "Position Advantage",
-                    "expr": "Raises own PATK/DEX"
-                },
-                {
-                    "name": "Penetrate Armor",
-                    "expr": "Inflicts Phys Dmg & lowers DEF [Range: 1, Height Range: 2]"
-                },
-                {
-                    "name": "Mist Slash",
-                    "expr": "Inflicts Phys Dmg & Sleep [Range: 1, Height Range: 2]"
-                },
-                {
-                    "name": "Sky Blade",
-                    "expr": "Inflicts Phys Dmg [Range: 4, Height Range: 2]"
-                }
-            ]
-        },
-        "reactives": {
-            "iname": "",
-            "name": "Reactives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Mutual Success",
-                    "expr": "Chance of performing physical counter when Dmg is received"
-                }
-            ]
-        },
-        "passives": {
-            "iname": "",
-            "name": "Passives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Blade Mastery",
-                    "expr": "PATK Up"
-                }
-            ]
-        },
-        "weapon": "Katana",
-        "modifiers": {
-            "HP": 5,
-            "Max Jewels": 0,
-            "Initial Jewels": 25,
-            "PATK": 55,
-            "PDEF": 8,
-            "MATK": 0,
-            "MDEF": 0,
-            "DEX": 0,
-            "AGI": 7,
-            "LUCK": 0,
-            "CRIT": 40,
-            "AVOID": 0
-        },
-        "job master buff": [
-            {
-                "value": "+20",
-                "mod": "%",
-                "stat": "HP"
-            },
-            {
-                "value": "+4",
-                "mod": "%",
-                "stat": "PATK"
-            },
-            {
-                "value": "+2",
-                "mod": "%",
-                "stat": "DEX"
-            },
-            {
-                "value": "+1",
-                "mod": "%",
-                "stat": "AGI"
-            }
-        ],
-        "stats": {
-            "Move": 4,
-            "Jump": 2,
-            "PATK": 259,
-            "PDEF": 140,
-            "DEX": 210,
-            "AGI": 35,
-            "MATK": 45,
-            "LUCK": 66,
-            "CRIT": 129,
-            "HP": 242,
-            "Jewels Obtained": 28,
-            "MDEF": 38,
-            "Fire Res": 7,
-            "Water Res": 5,
-            "Thunder Res": 3,
-            "Wind Res": 5,
-            "Charm Res": 80,
-            "Sleep Res": 43,
-            "Slow Res": 28,
-            "Stun Res": 15,
-            "Paralyze Res": 15,
-            "Petrify Res": 15,
-            "Poison Res": 10
-        },
-        "formula": "90% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
-        "link": "http://www.alchemistcodedb.com/jp/unit/sek-cloe#マスラオ",
-        "inputs": [
-            "Chloe EO Masurao",
-            "Masurao"
-        ]
-    },
     "JB_SEDA_RAN": {
         "iname": "JB_SEDA_RAN",
         "name": "Venom Archer",
@@ -13735,8 +12076,8 @@
         "origin": "Astrologer",
         "units": [
             "Deneb",
-            "Chiruru",
             "Sophia",
+            "Chiruru",
             "Chao",
             "Emma"
         ],
@@ -15334,163 +13675,6 @@
         "link": "http://www.alchemistcodedb.com/unit/setsuna#blademaster",
         "inputs": [
             "Blademaster"
-        ]
-    },
-    "JB_KAJ": {
-        "iname": "JB_KAJ",
-        "name": "Blacksmith",
-        "japan": "Blacksmith\n鍛冶師",
-        "kanji": "鍛冶師",
-        "short description": "",
-        "long description": "",
-        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/kaj.png",
-        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_KAJ.png",
-        "origin": "Blacksmith",
-        "units": [
-            "Eizan",
-            "Suiran",
-            "Zenn"
-        ],
-        "jobe": [],
-        "main": {
-            "iname": "AB_KAJ_UPPER",
-            "name": "Smithing",
-            "expr": "Smithing techniques for use with this job type only",
-            "skills": [
-                {
-                    "name": "Steel Assault",
-                    "expr": "Raises PDEF of ally units within target area for three turns & buff effect is stackable [Range: 3, Area: Cross (3), Height Range: 3]"
-                },
-                {
-                    "name": "Large Custom Blade",
-                    "expr": "Raises PATK of ally units within target area for three turns & buff effect is stackable [Range: 3, Area: Cross (3), Height Range: 3]"
-                },
-                {
-                    "name": "Shadow Shot",
-                    "expr": "Cancels all buffs/debuffs cast on units within target area [Range: 3, Area: Cross (3), Height Range: 3]"
-                },
-                {
-                    "name": "Seething Tempered Strike",
-                    "expr": "Inflicts Fire Phys Dmg (strong vs metal) on enemy units within target area [Range: 3, Area: Lateral (3), Height Range: 2]"
-                }
-            ]
-        },
-        "sub": {
-            "iname": "AB_KAJ_LOWER",
-            "name": "Basic Smithing",
-            "expr": "Smithing techniques for use with all job types",
-            "skills": [
-                {
-                    "name": "Edge Iron - Missile",
-                    "expr": "Raises Missile ATK of target unit for three turns [Range: 2, Height Range: 3]"
-                },
-                {
-                    "name": "Edge Iron - Pierce",
-                    "expr": "Raises Pierce ATK of target unit for three turns [Range: 2, Height Range: 3]"
-                },
-                {
-                    "name": "Edge Iron - Strike",
-                    "expr": "Raises Strike ATK of target unit for three turns [Range: 2, Height Range: 3]"
-                },
-                {
-                    "name": "Edge Iron - Slash",
-                    "expr": "Raises Slash ATK of target unit for three turns [Range: 2, Height Range: 3]"
-                },
-                {
-                    "name": "Meteoric Iron Fusion",
-                    "expr": "Inflicts Fire Phys Dmg on enemy units within target area [Range: 1 sq line]"
-                }
-            ]
-        },
-        "reactives": {
-            "iname": "",
-            "name": "Reactives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "With Heart and Soul",
-                    "expr": "When receiving Dmg, performs Fire physical counter with chance of lowering enemy's PATK for three turns [Range: 1, Height Range: 3]"
-                }
-            ]
-        },
-        "passives": {
-            "iname": "",
-            "name": "Passives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Clear the Mind",
-                    "expr": "Raises Fire Res/Light Res/Max HP"
-                }
-            ]
-        },
-        "weapon": "Hammer",
-        "modifiers": {
-            "HP": 20,
-            "Max Jewels": 5,
-            "Initial Jewels": 50,
-            "PATK": 3,
-            "PDEF": 15,
-            "MATK": -5,
-            "MDEF": -5,
-            "DEX": 0,
-            "AGI": 10,
-            "LUCK": 0,
-            "CRIT": 8,
-            "AVOID": 0
-        },
-        "job master buff": [
-            {
-                "value": "+22",
-                "mod": "%",
-                "stat": "HP"
-            },
-            {
-                "value": "+4",
-                "mod": "%",
-                "stat": "PATK"
-            },
-            {
-                "value": "+8",
-                "mod": "%",
-                "stat": "PDEF"
-            },
-            {
-                "value": "+1",
-                "mod": "%",
-                "stat": "CRIT"
-            }
-        ],
-        "stats": {
-            "Move": 3,
-            "Jump": 1,
-            "PATK": 284,
-            "PDEF": 271,
-            "DEX": 208,
-            "AGI": 11,
-            "CRIT": 117,
-            "HP": 418,
-            "MATK": 63,
-            "MDEF": 50,
-            "Jewels Obtained": 32,
-            "LUCK": 60,
-            "Fire Res": 13,
-            "Water Res": 5,
-            "Thunder Res": 4,
-            "Wind Res": 5,
-            "Paralyze Res": 53,
-            "Daze Res": 28,
-            "Bind Res": 28,
-            "Stun Res": 15,
-            "Sleep Res": 15,
-            "Petrify Res": 15,
-            "Poison Res": 10,
-            "Charm Res": 10
-        },
-        "formula": "140% PATK",
-        "link": "http://www.alchemistcodedb.com/jp/unit/zenn#鍛冶師",
-        "inputs": [
-            "Blacksmith"
         ]
     },
     "JB_FATE_SABR": {
@@ -17181,151 +15365,6 @@
             "Lancer [F/SN]"
         ]
     },
-    "JB_ACT_F": {
-        "iname": "JB_ACT_F",
-        "name": "Actress",
-        "japan": "Actress\n女優",
-        "kanji": "女優",
-        "short description": "",
-        "long description": "",
-        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/act_f.png",
-        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ACT_F.png",
-        "origin": "Actress",
-        "units": [
-            "Rena"
-        ],
-        "jobe": [],
-        "main": {
-            "iname": "AB_ACT_F_UPPER",
-            "name": "Acting",
-            "expr": "Acting techniques for use with this job type only",
-            "skills": [
-                {
-                    "name": "As You Like It",
-                    "expr": "Raises Max HP of all ally units for three turns & greatly lowers own PDEF/MDEF for one turn [Area: Whole Map, Height Range: Unlimited]"
-                },
-                {
-                    "name": "Little Women",
-                    "expr": "Recovers HP of all ally units & greatly lowers own PDEF/MDEF for one turn [Area: Whole Map, Height Range: Unlimited]"
-                },
-                {
-                    "name": "The Grand Illusion",
-                    "expr": "Inflicts Daze on all enemy units & greatly lowers own PDEF/MDEF for one turn [Area: Whole Map, Height Range: Unlimited]"
-                },
-                {
-                    "name": "Crime and Punishment",
-                    "expr": "Inflicts Dark Phys Dmg on enemy units within target area [Range: 3, Area: Diamond (5), Height Range: 2]"
-                }
-            ]
-        },
-        "sub": {
-            "iname": "AB_ACT_F_LOWER",
-            "name": "Basic Acting",
-            "expr": "Acting techniques for use with all job types",
-            "skills": [
-                {
-                    "name": "The Plumber",
-                    "expr": "Chance of inflicting Stun on all enemy units & greatly lowers PDEF/MDEF for one turn [Area: Whole Map, Height Range: Unlimited]"
-                },
-                {
-                    "name": "Sleeping Beauty",
-                    "expr": "Chance of inflicting Sleep on all enemy units & greatly lowers PDEF/MDEF for one turn [Area: Whole Map, Height Range: Unlimited]"
-                },
-                {
-                    "name": "Forbidden Games",
-                    "expr": "Inflicts Dark Mag Dmg on enemy units within target area [Range: 3, Area: 1 sq line, Height Range: 2]"
-                }
-            ]
-        },
-        "reactives": {
-            "iname": "",
-            "name": "Reactives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Rising Curtain",
-                    "expr": "Chance of casting Auto Jewel Charge on self when receiving Dmg"
-                }
-            ]
-        },
-        "passives": {
-            "iname": "",
-            "name": "Passives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Splendid Glow",
-                    "expr": "Raises Initial Jewels"
-                }
-            ]
-        },
-        "weapon": "Script",
-        "modifiers": {
-            "HP": 0,
-            "Max Jewels": 10,
-            "Initial Jewels": 50,
-            "PATK": -5,
-            "PDEF": 60,
-            "MATK": 5,
-            "MDEF": -12,
-            "DEX": 6,
-            "AGI": 1,
-            "LUCK": 5,
-            "CRIT": 0,
-            "AVOID": 0
-        },
-        "job master buff": [
-            {
-                "value": "+30",
-                "mod": "%",
-                "stat": "HP"
-            },
-            {
-                "value": "+3",
-                "mod": "%",
-                "stat": "MATK"
-            },
-            {
-                "value": "+2",
-                "mod": "%",
-                "stat": "MDEF"
-            }
-        ],
-        "stats": {
-            "Move": 3,
-            "Jump": 2,
-            "MATK": 230,
-            "MDEF": 128,
-            "LUCK": 176,
-            "AGI": 30,
-            "CRIT": 113,
-            "HP": 172,
-            "PATK": 75,
-            "PDEF": 50,
-            "Jewels Obtained": 43,
-            "DEX": 54,
-            "Fire Res": 3,
-            "Water Res": 4,
-            "Thunder Res": 3,
-            "Wind Res": 5,
-            "Paralyze Res": 43,
-            "Daze Res": 28,
-            "Bind Res": 28,
-            "Dark Res": 4,
-            "Stun Res": 15,
-            "Sleep Res": 15,
-            "Petrify Res": 25,
-            "Blind Res": 10,
-            "Light Res": 1
-        },
-        "formula": "90% MATK",
-        "link": "http://www.alchemistcodedb.com/jp/unit/rena#女優",
-        "inputs": [
-            "Rena",
-            "Rena Actress",
-            "Actress"
-        ]
-    },
     "JB_ZEKE_GUA": {
         "iname": "JB_ZEKE_GUA",
         "name": "Holy Cavalier",
@@ -17477,318 +15516,6 @@
         "inputs": [
             "Zeke",
             "Zeke Holy Cavalier"
-        ]
-    },
-    "JB_MIUN_KAJ": {
-        "iname": "JB_MIUN_KAJ",
-        "name": "Master Blacksmith",
-        "japan": "Craftsman\n匠鍛師",
-        "kanji": "匠鍛師",
-        "short description": "",
-        "long description": "",
-        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/miun_kaj.png",
-        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_MIUN_KAJ.png",
-        "origin": "Blacksmith",
-        "units": [
-            "Miuna"
-        ],
-        "jobe": [
-            "Master Blacksmith+"
-        ],
-        "main": {
-            "iname": "AB_MIUN_KAJ_UPPER",
-            "name": "Forging",
-            "expr": "Forging techniques for use with this job type only",
-            "skills": [
-                {
-                    "name": "Flame I - Secret Power",
-                    "expr": "Inflicts Fire Phys Dmg (Medium/strong vs metal) [Range: 1, Height Range: 2]"
-                },
-                {
-                    "name": "Flame II - Secret Blade",
-                    "expr": "Inflicts Fire Phys Dmg (Medium/strong vs metal) on enemy units within target area [Range: 3, Area: Line (3), Height Range: 1]"
-                },
-                {
-                    "name": "Flame III - Secret Clarity",
-                    "expr": "Inflicts Fire Phys Dmg (Medium/strong vs metal) on enemy units within target area [Range: 4, Area: Diamond (5), Height Range: 1]"
-                },
-                {
-                    "name": "Flame IV - Secret Edge",
-                    "expr": "Inflicts Fire Phys Dmg (High/strong vs metal) on enemy units in area around self [Area: Diamond (5), Height Range: 2]"
-                }
-            ]
-        },
-        "sub": {
-            "iname": "AB_MIUN_KAJ_LOWER",
-            "name": "Basic Forging",
-            "expr": "Forging techniques for use with all job types",
-            "skills": [
-                {
-                    "name": "Superior Iron Strength",
-                    "expr": "Raises PATK/PDEF of ally units within target area for three turns & buff effect is stackable up to three times if using same skill [Range: 1, Area: Lateral (3), Height Range: 2]"
-                },
-                {
-                    "name": "Superior Iron Excess",
-                    "expr": "Raises MATK/MDEF of ally units within target area for three turns & buff effect is stackable up to three times if using same skill [Range: 1, Area: Lateral (3), Height Range: 2]"
-                },
-                {
-                    "name": "Superior Iron Reduction",
-                    "expr": "Lowers PATK/MATK of enemy units within target area for three turns & debuff effect is stackable up to three times if using same skill [Range: 1, Area: Lateral (3), Height Range: 2]"
-                },
-                {
-                    "name": "Superior Iron Degradation",
-                    "expr": "Lowers PDEF/MDEF of enemy units within target area for three turns & debuff effect is stackable up to three times if using same skill [Range: 1, Area: Lateral (3), Height Range: 2]"
-                }
-            ]
-        },
-        "reactives": {
-            "iname": "",
-            "name": "Reactives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Total Resolution",
-                    "expr": "When receiving Dmg, performs physical counter with chance of lowering attacker's AGI for three turns [Range: 1, Height Range: 3]"
-                }
-            ]
-        },
-        "passives": {
-            "iname": "",
-            "name": "Passives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Impregnable Fortress",
-                    "expr": "Raises HP and PDEF"
-                }
-            ]
-        },
-        "weapon": "Hammer",
-        "modifiers": {
-            "HP": 20,
-            "Max Jewels": 5,
-            "Initial Jewels": 50,
-            "PATK": 3,
-            "PDEF": -5,
-            "MATK": -5,
-            "MDEF": 0,
-            "DEX": 3,
-            "AGI": 3,
-            "LUCK": 0,
-            "CRIT": 10,
-            "AVOID": 0
-        },
-        "job master buff": [
-            {
-                "value": "+16",
-                "mod": "%",
-                "stat": "HP"
-            },
-            {
-                "value": "+4",
-                "mod": "%",
-                "stat": "PATK"
-            },
-            {
-                "value": "+3",
-                "mod": "%",
-                "stat": "PDEF"
-            },
-            {
-                "value": "+2",
-                "mod": "%",
-                "stat": "AGI"
-            }
-        ],
-        "stats": {
-            "Move": 3,
-            "Jump": 2,
-            "PATK": 270,
-            "PDEF": 166,
-            "DEX": 155,
-            "AGI": 11,
-            "CRIT": 117,
-            "HP": 418,
-            "MATK": 63,
-            "MDEF": 50,
-            "Jewels Obtained": 46,
-            "LUCK": 60,
-            "Fire Res": 13,
-            "Water Res": 5,
-            "Thunder Res": 4,
-            "Wind Res": 5,
-            "Paralyze Res": 53,
-            "Daze Res": 28,
-            "Bind Res": 28,
-            "Stun Res": 15,
-            "Sleep Res": 15,
-            "Petrify Res": 15,
-            "Poison Res": 10,
-            "Charm Res": 10
-        },
-        "formula": "140% PATK",
-        "link": "http://www.alchemistcodedb.com/jp/unit/miuna#匠鍛師",
-        "inputs": [
-            "Miuna Master Blacksmith",
-            "Master Blacksmith",
-            "Miuna",
-            "Miuna Craftsman",
-            "Craftsman"
-        ]
-    },
-    "JB_KAM": {
-        "iname": "JB_KAM",
-        "name": "Priestess",
-        "japan": "Miko\n神子",
-        "kanji": "神子",
-        "short description": "",
-        "long description": "",
-        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/kam.png",
-        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_KAM.png",
-        "origin": "Shrine Maiden",
-        "units": [
-            "Mikoto",
-            "Ato RH",
-            "Amaterasu SN",
-            "Ines"
-        ],
-        "jobe": [],
-        "main": {
-            "iname": "AB_KAM_UPPER",
-            "name": "Prayer",
-            "expr": "Prayer techniques for use with this job type only",
-            "skills": [
-                {
-                    "name": "Harvest Celebration Dance",
-                    "expr": "Lowers Jewels of all enemy units [Area: Whole Map, Height Range: Unlimited]"
-                },
-                {
-                    "name": "Purification of Perception",
-                    "expr": "Inflicts Light Mag Dmg (strong vs undead) on enemy units within target area [Range: 4, Area: Diamond (5), Height Range: 2]"
-                },
-                {
-                    "name": "Prayer of Strength",
-                    "expr": "Greatly raises own stats, especially PDEF & raises PDEF/AGI of ally units within area around self [Area: Diamond (5), Height Range: 2]"
-                },
-                {
-                    "name": "Illuminating Purge",
-                    "expr": "Greatly raises own stats (especially MATK) & raises MATK/AGI of ally units in area around self [Area: Diamond (5), Height Range: 2]"
-                }
-            ]
-        },
-        "sub": {
-            "iname": "AB_KAM_LOWER",
-            "name": "Basic Prayer",
-            "expr": "Prayer techniques for use with all job types",
-            "skills": [
-                {
-                    "name": "Essential Delivery",
-                    "expr": "Absorbs Jewels from single target; diamond-shaped Range [Range: 5, Height Range: 4]"
-                },
-                {
-                    "name": "Evil-Crushing Dance",
-                    "expr": "Lowers MDEF of all enemy units & debuff effect is stackable [Area: Whole Map, Height Range: Unlimited]"
-                },
-                {
-                    "name": "Shield-Crushing Dance",
-                    "expr": "Lowers PDEF of all enemy units & debuff effect is stackable [Area: Whole Map, Height Range: Unlimited]"
-                },
-                {
-                    "name": "Captivating Dance",
-                    "expr": "Chance of inflicting Charm on all enemy units [Area: Whole Map, Height Range: Unlimited]"
-                }
-            ]
-        },
-        "reactives": {
-            "iname": "",
-            "name": "Reactives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Sacrificial Protection",
-                    "expr": "Chance of powerful HP recovery when receiving Dmg"
-                }
-            ]
-        },
-        "passives": {
-            "iname": "",
-            "name": "Passives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Purify Space",
-                    "expr": "Nullifies Daze status"
-                },
-                {
-                    "name": "Holy Ritual",
-                    "expr": "COMBO Scope +1 and increases chance of surviving fatal Dmg"
-                }
-            ]
-        },
-        "weapon": "Praying Staff",
-        "modifiers": {
-            "HP": 3,
-            "Max Jewels": 8,
-            "Initial Jewels": 50,
-            "PATK": -42,
-            "PDEF": -10,
-            "MATK": 20,
-            "MDEF": 0,
-            "DEX": -5,
-            "AGI": 12,
-            "LUCK": 20,
-            "CRIT": 5,
-            "AVOID": 0
-        },
-        "job master buff": [
-            {
-                "value": "+19",
-                "mod": "%",
-                "stat": "HP"
-            },
-            {
-                "value": "+6",
-                "mod": "%",
-                "stat": "MATK"
-            },
-            {
-                "value": "+4",
-                "mod": "%",
-                "stat": "AGI"
-            }
-        ],
-        "stats": {
-            "Move": 4,
-            "Jump": 2,
-            "PATK": 57,
-            "PDEF": 115,
-            "DEX": 101,
-            "AGI": 20,
-            "MATK": 169,
-            "CRIT": 84,
-            "HP": 119,
-            "Jewels Obtained": 30,
-            "MDEF": 120,
-            "LUCK": 236,
-            "Fire Res": 4,
-            "Water Res": 6,
-            "Thunder Res": 4,
-            "Wind Res": 6,
-            "Max Jewels": 53,
-            "Dark Res": 8,
-            "Paralyze Res": 43,
-            "Daze Res": 28,
-            "Stun Res": 15,
-            "Sleep Res": 15,
-            "Petrify Res": 15,
-            "Blind Res": 10,
-            "Charm Res": 10
-        },
-        "formula": "70% (MATK + LUCK)",
-        "link": "http://www.alchemistcodedb.com/jp/unit/ines#神子",
-        "inputs": [
-            "Priestess",
-            "Miko"
         ]
     },
     "JB_BLA": {
@@ -18126,6 +15853,2434 @@
         "inputs": [
             "Magia Gunslinger",
             "Magia Shooter"
+        ]
+    },
+    "JB_KAJ": {
+        "iname": "JB_KAJ",
+        "name": "Blacksmith",
+        "japan": "Blacksmith\n鍛冶師",
+        "kanji": "鍛冶師",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/kaj.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_KAJ.png",
+        "origin": "Blacksmith",
+        "units": [
+            "Eizan",
+            "Suiran",
+            "Zenn"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_KAJ_UPPER",
+            "name": "Smithing",
+            "expr": "Smithing techniques for use with this job type only",
+            "skills": [
+                {
+                    "name": "Steel Assault",
+                    "expr": "Raises PDEF of ally units within target area for three turns & buff effect is stackable [Range: 3, Area: Cross (3), Height Range: 3]"
+                },
+                {
+                    "name": "Large Custom Blade",
+                    "expr": "Raises PATK of ally units within target area for three turns & buff effect is stackable [Range: 3, Area: Cross (3), Height Range: 3]"
+                },
+                {
+                    "name": "Shadow Shot",
+                    "expr": "Cancels all buffs/debuffs cast on units within target area [Range: 3, Area: Cross (3), Height Range: 3]"
+                },
+                {
+                    "name": "Seething Tempered Strike",
+                    "expr": "Inflicts Fire Phys Dmg (strong vs metal) on enemy units within target area [Range: 3, Area: Lateral (3), Height Range: 2]"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_KAJ_LOWER",
+            "name": "Basic Smithing",
+            "expr": "Smithing techniques for use with all job types",
+            "skills": [
+                {
+                    "name": "Edge Iron - Missile",
+                    "expr": "Raises Missile ATK of target unit for three turns [Range: 2, Height Range: 3]"
+                },
+                {
+                    "name": "Edge Iron - Pierce",
+                    "expr": "Raises Pierce ATK of target unit for three turns [Range: 2, Height Range: 3]"
+                },
+                {
+                    "name": "Edge Iron - Strike",
+                    "expr": "Raises Strike ATK of target unit for three turns [Range: 2, Height Range: 3]"
+                },
+                {
+                    "name": "Edge Iron - Slash",
+                    "expr": "Raises Slash ATK of target unit for three turns [Range: 2, Height Range: 3]"
+                },
+                {
+                    "name": "Meteoric Iron Fusion",
+                    "expr": "Inflicts Fire Phys Dmg on enemy units within target area [Range: 1 sq line]"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "With Heart and Soul",
+                    "expr": "When receiving Dmg, performs Fire physical counter with chance of lowering enemy's PATK for three turns [Range: 1, Height Range: 3]"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Clear the Mind",
+                    "expr": "Raises Fire Res/Light Res/Max HP"
+                }
+            ]
+        },
+        "weapon": "Hammer",
+        "modifiers": {
+            "HP": 20,
+            "Max Jewels": 5,
+            "Initial Jewels": 50,
+            "PATK": 3,
+            "PDEF": 15,
+            "MATK": -5,
+            "MDEF": -5,
+            "DEX": 0,
+            "AGI": 10,
+            "LUCK": 0,
+            "CRIT": 8,
+            "AVOID": 0
+        },
+        "job master buff": [
+            {
+                "value": "+22",
+                "mod": "%",
+                "stat": "HP"
+            },
+            {
+                "value": "+4",
+                "mod": "%",
+                "stat": "PATK"
+            },
+            {
+                "value": "+8",
+                "mod": "%",
+                "stat": "PDEF"
+            },
+            {
+                "value": "+1",
+                "mod": "%",
+                "stat": "CRIT"
+            }
+        ],
+        "stats": {
+            "Move": 3,
+            "Jump": 1,
+            "PATK": 284,
+            "PDEF": 271,
+            "DEX": 208,
+            "AGI": 11,
+            "CRIT": 117,
+            "HP": 418,
+            "MATK": 63,
+            "MDEF": 50,
+            "Jewels Obtained": 32,
+            "LUCK": 60,
+            "Fire Res": 13,
+            "Water Res": 5,
+            "Thunder Res": 4,
+            "Wind Res": 5,
+            "Paralyze Res": 53,
+            "Daze Res": 28,
+            "Bind Res": 28,
+            "Stun Res": 15,
+            "Sleep Res": 15,
+            "Petrify Res": 15,
+            "Poison Res": 10,
+            "Charm Res": 10
+        },
+        "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/eizan#blacksmith",
+        "inputs": [
+            "Blacksmith"
+        ]
+    },
+    "JB_GL_WSM": {
+        "iname": "JB_GL_WSM",
+        "name": "Gl Wsm",
+        "japan": "",
+        "kanji": "Wandering Swordsman",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/gl_wsm.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_SOL.png",
+        "origin": "Twin-Blade Swordsman",
+        "units": [
+            "Gl Sieg"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_GL_WSM_UPPER",
+            "name": "Twin Swords",
+            "expr": "Twin Swords techniques for use with this job type only",
+            "skills": [
+                {
+                    "name": "Sealing Strike",
+                    "expr": "Destroy the Jewels of target enemy"
+                },
+                {
+                    "name": "Twin Flashes",
+                    "expr": "2x Light Dmg to target unit with chance of critical. Raises CRIT of self for the next 2 turns"
+                },
+                {
+                    "name": "Blade Dervish",
+                    "expr": "Light slash Dmg to enemies within target area with chance of critical; Raises Evasion for 3 turns"
+                },
+                {
+                    "name": "Relentless Blades",
+                    "expr": "3 Combo hits of Light slash DMG  to target enemy with chance to crit. Inflicts Stop"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_GL_WSM_LOWER",
+            "name": "Basic Twin Swords",
+            "expr": "Twin Swords techniques for use with all job types",
+            "skills": [
+                {
+                    "name": "Focus",
+                    "expr": "Regen Jewels for the next 3 Turns"
+                },
+                {
+                    "name": "Coordinate Efforts",
+                    "expr": "PATK+50% for allies within target area for next 3 turns"
+                },
+                {
+                    "name": "Triple Trouble",
+                    "expr": "Three hits of light slash damage to target enemy; chance of critical "
+                },
+                {
+                    "name": "Shattering Strike",
+                    "expr": "Deal Physical Damage (High) to target enemy that ignores DEF & inflicts Don't Act"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Void Slash",
+                    "expr": "Chance of performing a preemptive strike when being attacked"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Finesse",
+                    "expr": "Raises Evasion and MOV+1"
+                }
+            ]
+        },
+        "weapon": "Twin Swords",
+        "modifiers": {
+            "HP": 23,
+            "Max Jewels": 0,
+            "Initial Jewels": 30,
+            "PATK": 5,
+            "PDEF": 15,
+            "MATK": 0,
+            "MDEF": 8,
+            "DEX": 6,
+            "AGI": 27,
+            "LUCK": 9,
+            "CRIT": 20,
+            "AVOID": 0
+        },
+        "job master buff": [
+            {
+                "value": "+15",
+                "mod": "%",
+                "stat": "HP"
+            },
+            {
+                "value": "+7",
+                "mod": "%",
+                "stat": "PATK"
+            },
+            {
+                "value": "+2",
+                "mod": "%",
+                "stat": "DEX"
+            },
+            {
+                "value": "+5",
+                "mod": "%",
+                "stat": "AGI"
+            }
+        ],
+        "stats": {
+            "Move": 4,
+            "Jump": 3,
+            "PATK": 227,
+            "PDEF": 128,
+            "DEX": 171,
+            "AGI": 26,
+            "LUCK": 93,
+            "CRIT": 143,
+            "MATK": 57,
+            "MDEF": 50,
+            "HP": 268,
+            "Jewels Obtained": 26,
+            "Fire Res": 7,
+            "Water Res": 4,
+            "Thunder Res": 3,
+            "Wind Res": 5,
+            "Max Jewels": 35,
+            "Stun Res": 15,
+            "Paralyze Res": 15,
+            "Sleep Res": 15,
+            "Petrify Res": 15,
+            "Light Res": 1,
+            "Poison Res": 10,
+            "Charm Res": 10
+        },
+        "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/glsieg#gl-wsm",
+        "inputs": [
+            "Gl Sieg",
+            "Gl Sieg Gl Wsm",
+            "Gl Wsm"
+        ]
+    },
+    "JB_FEN": {
+        "iname": "JB_FEN",
+        "name": "Fencer",
+        "japan": "Fencer\nフェンサー",
+        "kanji": "フェンサー",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/fen.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_FEN.png",
+        "origin": "Fencer",
+        "units": [
+            "Fencer",
+            "Chloe EO"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_FEN_UPPER",
+            "name": "Rapier",
+            "expr": "Rapier techniques for use with this job type only",
+            "skills": [
+                {
+                    "name": "Chain Fire",
+                    "expr": "Inflicts Fire Phys Dmg [Range: 1, Height Range: 2]"
+                },
+                {
+                    "name": "Chain Freeze",
+                    "expr": "Inflicts Water Phys Dmg [Range: 1, Height Range: 2]"
+                },
+                {
+                    "name": "Chain Shock",
+                    "expr": "Inflicts Thunder Phys Dmg [Range: 1, Height Range: 2]"
+                },
+                {
+                    "name": "Chain Aero",
+                    "expr": "Inflicts Wind Phys Dmg [Range: 1, Height Range: 2]"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_FEN_LOWER",
+            "name": "Basic Rapier",
+            "expr": "Rapier techniques for use with all job types",
+            "skills": [
+                {
+                    "name": "Predict",
+                    "expr": "Lowers own PDEF/MDEF, and in exchange raises Evasion Rate"
+                },
+                {
+                    "name": "Vision Thrust",
+                    "expr": "Inflicts Phys Dmg & Blind [Range: 1, Height Range: 2]"
+                },
+                {
+                    "name": "Charge Fant",
+                    "expr": "Inflicts Phys Dmg [Range: 1, Height Range: 2]"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Sylphide",
+                    "expr": "Chance of completely evading attacks"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Rapier Mastery",
+                    "expr": "PATK Up"
+                }
+            ]
+        },
+        "weapon": "Sword",
+        "modifiers": {
+            "HP": -10,
+            "Max Jewels": -5,
+            "Initial Jewels": 25,
+            "PATK": -15,
+            "PDEF": 5,
+            "MATK": 0,
+            "MDEF": -3,
+            "DEX": -8,
+            "AGI": 0,
+            "LUCK": 0,
+            "CRIT": 0,
+            "AVOID": 5
+        },
+        "job master buff": [
+            {
+                "value": "+20",
+                "mod": "%",
+                "stat": "HP"
+            },
+            {
+                "value": "+2",
+                "mod": "%",
+                "stat": "PATK"
+            },
+            {
+                "value": "+4",
+                "mod": "%",
+                "stat": "PDEF"
+            }
+        ],
+        "stats": {
+            "Move": 4,
+            "Jump": 3,
+            "PATK": 209,
+            "PDEF": 168,
+            "DEX": 182,
+            "AGI": 21,
+            "MATK": 45,
+            "LUCK": 60,
+            "CRIT": 99,
+            "HP": 244,
+            "Jewels Obtained": 20,
+            "MDEF": 38,
+            "Fire Res": 7,
+            "Water Res": 5,
+            "Thunder Res": 3,
+            "Wind Res": 5,
+            "Charm Res": 66,
+            "Sleep Res": 71,
+            "Slow Res": 28,
+            "Stun Res": 15,
+            "Paralyze Res": 15,
+            "Petrify Res": 15,
+            "Poison Res": 10
+        },
+        "formula": "130% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/sek-cloe#フェンサー",
+        "inputs": [
+            "Fencer"
+        ]
+    },
+    "JB_H_FEN": {
+        "iname": "JB_H_FEN",
+        "name": "Illusory Swordsman",
+        "japan": "Phantom Fencer\n幻影の剣士",
+        "kanji": "幻影の剣士",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/h_fen.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_H_FEN.png",
+        "origin": "Illusory Swordsman",
+        "units": [
+            "Fencer"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_H_FEN_UPPER",
+            "name": "Elusive Rapier",
+            "expr": "Elusive Rapier techniques for use with this job type only",
+            "skills": [
+                {
+                    "name": "Dazzling Blade Dance",
+                    "expr": "Inflicts Phys Dmg (Low) on target & raises own Evasion Rate [Range: 1, Height Range: 2]"
+                },
+                {
+                    "name": "Sharp Thrust",
+                    "expr": "Inflicts Phys Dmg with chance of inflicting Rage status on target, therefore drawing enemy attacks towards self [Range: 4, Area: Cross (3), Height Range: 2]"
+                },
+                {
+                    "name": "Revenge Thrust",
+                    "expr": "Inflicts Pierce Dmg & Penetrating [Range: 2, Area: 1 sq line, Height Range: 2]"
+                },
+                {
+                    "name": "Wind Curtain",
+                    "expr": "Evades 50% of physical and magical attacks for one turn"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_H_FEN_LOWER",
+            "name": "Basic Elusive Rapier",
+            "expr": "Elusive Rapier techniques for use with all job types",
+            "skills": [
+                {
+                    "name": "Divine Gust",
+                    "expr": "Lowers own PDEF/MDEF, and in exchange greatly raises Evasion Rate"
+                },
+                {
+                    "name": "Light of Recovery",
+                    "expr": "Recovers own HP (Medium)"
+                },
+                {
+                    "name": "Uncharted Exploration",
+                    "expr": "Raises own MOVE by 1 on turn used"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "One Who Has Not",
+                    "expr": "Chance of Evasion Rate being raised for one turn after receiving Dmg"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Sylph Screen",
+                    "expr": "Raises Evasion Rate"
+                }
+            ]
+        },
+        "weapon": "Sword",
+        "modifiers": {
+            "HP": 0,
+            "Max Jewels": -3,
+            "Initial Jewels": 25,
+            "PATK": 15,
+            "PDEF": 8,
+            "MATK": 1,
+            "MDEF": 0,
+            "DEX": 10,
+            "AGI": -5,
+            "LUCK": 5,
+            "CRIT": 0,
+            "AVOID": 5
+        },
+        "job master buff": [
+            {
+                "value": "+20",
+                "mod": "%",
+                "stat": "HP"
+            },
+            {
+                "value": "+3",
+                "mod": "%",
+                "stat": "PATK"
+            },
+            {
+                "value": "+2",
+                "mod": "%",
+                "stat": "PDEF"
+            },
+            {
+                "value": "+3",
+                "mod": "%",
+                "stat": "AGI"
+            }
+        ],
+        "stats": {
+            "Move": 4,
+            "Jump": 3,
+            "PATK": 181,
+            "PDEF": 168,
+            "DEX": 161,
+            "AGI": 32,
+            "MATK": 45,
+            "LUCK": 60,
+            "CRIT": 99,
+            "HP": 244,
+            "Jewels Obtained": 20,
+            "MDEF": 38,
+            "Fire Res": 7,
+            "Water Res": 5,
+            "Thunder Res": 3,
+            "Wind Res": 5,
+            "Bind Res": 56,
+            "Charm Res": 66,
+            "Sleep Res": 71,
+            "Slow Res": 28,
+            "Stun Res": 15,
+            "Paralyze Res": 15,
+            "Petrify Res": 15,
+            "Poison Res": 10
+        },
+        "formula": "130% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/fencer#幻影の剣士",
+        "inputs": [
+            "Fencer Illusory Swordsman",
+            "Illusory Swordsman",
+            "Fencer",
+            "Fencer Phantom Fencer",
+            "Phantom Fencer"
+        ]
+    },
+    "JB_FEN_N": {
+        "iname": "JB_FEN_N",
+        "name": "Thunder Swordsman",
+        "japan": "Lightening Fencer\n迅雷の剣士",
+        "kanji": "迅雷の剣士",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/fen_n.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_FEN_N.png",
+        "origin": "Thunder Swordsman",
+        "units": [
+            "Fencer"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_FEN_N_UPPER",
+            "name": "True Rapier",
+            "expr": "True Rapier techniques for use with this job type only",
+            "skills": [
+                {
+                    "name": "Disturbing Thrust",
+                    "expr": "Inflicts 2-hit Dmg with chance of critical [Range: 1, Height Range: 2]"
+                },
+                {
+                    "name": "Chain Boost",
+                    "expr": "Doubles own PATK for one turn"
+                },
+                {
+                    "name": "Chain Burst",
+                    "expr": "Inflicts Phys Dmg on units in area around self [Area: Diamond (5), Height Range: 2]"
+                },
+                {
+                    "name": "Resonance",
+                    "expr": "Inflicts Pierce Dmg & Penetrating [Range: 3, Area: 1 sq line, Height Range: 2]"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_FEN_N_LOWER",
+            "name": "Basic True Rapier",
+            "expr": "True Rapier techniques for use with all job types",
+            "skills": [
+                {
+                    "name": "Chain Plus",
+                    "expr": "Inflicts Pierce Dmg & raises own PATK"
+                },
+                {
+                    "name": "Chain Killer",
+                    "expr": "Inflicts Pierce Dmg & interrupts skill charging"
+                },
+                {
+                    "name": "Chain All",
+                    "expr": "Raises Evasion Rate of units in area around self [Area: Diamond (5), Height Range: 2]"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Speed Boost",
+                    "expr": "Raises AGI until next turn when Phys Dmg is received"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Rapier Mastery Ⅱ",
+                    "expr": "Raises PATK/AGI"
+                }
+            ]
+        },
+        "weapon": "Sword",
+        "modifiers": {
+            "HP": 30,
+            "Max Jewels": 0,
+            "Initial Jewels": 25,
+            "PATK": 10,
+            "PDEF": 25,
+            "MATK": 0,
+            "MDEF": -3,
+            "DEX": 10,
+            "AGI": 10,
+            "LUCK": 0,
+            "CRIT": 10,
+            "AVOID": 7
+        },
+        "job master buff": [
+            {
+                "value": "+22",
+                "mod": "%",
+                "stat": "HP"
+            },
+            {
+                "value": "+6",
+                "mod": "%",
+                "stat": "PATK"
+            },
+            {
+                "value": "+3",
+                "mod": "%",
+                "stat": "PDEF"
+            },
+            {
+                "value": "+3",
+                "mod": "%",
+                "stat": "CRIT"
+            }
+        ],
+        "stats": {
+            "Move": 4,
+            "Jump": 4,
+            "PATK": 235,
+            "PDEF": 156,
+            "DEX": 171,
+            "AGI": 26,
+            "LUCK": 81,
+            "CRIT": 91,
+            "MATK": 57,
+            "MDEF": 50,
+            "HP": 164,
+            "Jewels Obtained": 24,
+            "Fire Res": 7,
+            "Water Res": 4,
+            "Thunder Res": 3,
+            "Wind Res": 5,
+            "Light Res": 5,
+            "Dark Res": 4,
+            "Charm Res": 66,
+            "Sleep Res": 71,
+            "Slow Res": 28,
+            "Stun Res": 15,
+            "Paralyze Res": 15,
+            "Petrify Res": 15,
+            "Poison Res": 10
+        },
+        "formula": "130% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/fencer#迅雷の剣士",
+        "inputs": [
+            "Fencer Thunder Swordsman",
+            "Thunder Swordsman",
+            "Fencer Lightening Fencer",
+            "Lightening Fencer"
+        ]
+    },
+    "JB_REA": {
+        "iname": "JB_REA",
+        "name": "Reaper",
+        "japan": "Reaper\nリーパー",
+        "kanji": "リーパー",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/rea.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_DT_REA.png",
+        "origin": "Reaper",
+        "units": [
+            "Reaper"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_REA_UPPER",
+            "name": "Sickle",
+            "expr": "Sickle techniques for use with this job type only",
+            "skills": [
+                {
+                    "name": "Endless Outfit",
+                    "expr": "Raises own PDEF"
+                },
+                {
+                    "name": "Numbing Scythe",
+                    "expr": "Inflicts Phys Dmg with chance of Paralyze with chance of critical [Range: 1, Height Range: 1]"
+                },
+                {
+                    "name": "Death Judgment",
+                    "expr": "Inflicts Phys Dmg with chance of Sleep with chance of critical [Range: 1, Height Range: 1]"
+                },
+                {
+                    "name": "Cursed Scythe",
+                    "expr": "Inflicts Phys Dmg & Penetrating [Range: 2, Area: 1 sq line, Height Range: 2]"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_REA_LOWER",
+            "name": "Basic Sickle",
+            "expr": "Sickle techniques for use with all job types",
+            "skills": [
+                {
+                    "name": "Sanity Armament",
+                    "expr": "Lowers own PDEF & raises own PATK"
+                },
+                {
+                    "name": "Feeble Sanity",
+                    "expr": "Inflicts Phys Dmg & lowers PDEF with chance of critical [Range: 1, Height Range: 1]"
+                },
+                {
+                    "name": "Fragile Sanity",
+                    "expr": "Inflicts Phys Dmg & lowers PATK with chance of critical [Range: 1, Height Range: 1]"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Flash Wave",
+                    "expr": "Chance of inflicting Blind on attacker when receiving Dmg [Range: 1, Height Range: 2]"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Scythe Mastery",
+                    "expr": "Raises CRIT Rate"
+                }
+            ]
+        },
+        "weapon": "Greatsword/Scythe",
+        "modifiers": {
+            "HP": -5,
+            "Max Jewels": 0,
+            "Initial Jewels": 25,
+            "PATK": 20,
+            "PDEF": -5,
+            "MATK": 0,
+            "MDEF": -5,
+            "DEX": -5,
+            "AGI": 13,
+            "LUCK": 0,
+            "CRIT": -10,
+            "AVOID": 0
+        },
+        "job master buff": [
+            {
+                "value": "+20",
+                "mod": "%",
+                "stat": "HP"
+            },
+            {
+                "value": "+2",
+                "mod": "%",
+                "stat": "PATK"
+            },
+            {
+                "value": "+3",
+                "mod": "%",
+                "stat": "DEX"
+            },
+            {
+                "value": "+2",
+                "mod": "%",
+                "stat": "CRIT"
+            }
+        ],
+        "stats": {
+            "Move": 3,
+            "Jump": 2,
+            "PATK": 193,
+            "PDEF": 128,
+            "DEX": 186,
+            "AGI": 14,
+            "LUCK": 78,
+            "CRIT": 107,
+            "MATK": 57,
+            "MDEF": 50,
+            "HP": 344,
+            "Jewels Obtained": 16,
+            "Fire Res": 7,
+            "Water Res": 4,
+            "Thunder Res": 3,
+            "Wind Res": 5,
+            "Daze Res": 56,
+            "Debuff Res": 56,
+            "Charm Res": 38,
+            "Sleep Res": 43,
+            "Slow Res": 28,
+            "Stun Res": 15,
+            "Paralyze Res": 15,
+            "Petrify Res": 15,
+            "Light Res": 1,
+            "Poison Res": 10
+        },
+        "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/reaper#リーパー",
+        "inputs": [
+            "Reaper",
+            "Reaper Reaper"
+        ]
+    },
+    "JB_DT_REA": {
+        "iname": "JB_DT_REA",
+        "name": "Death-Spreading Reaper",
+        "japan": "Death Scattering Shinigami\n死を振り撒く死神",
+        "kanji": "死を振り撒く死神",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/dt_rea.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_DT_REA.png",
+        "origin": "Death-Spreading Reaper",
+        "units": [
+            "Reaper"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_DT_REA_UPPER",
+            "name": "Death Sickle",
+            "expr": "Death Scythe techniques for use with this job type only",
+            "skills": [
+                {
+                    "name": "Death Sickle",
+                    "expr": "Inflicts Phys Dmg with chance of Death Sentence with chance of critical [Range: 1, Height Range: 1]"
+                },
+                {
+                    "name": "Vicious Scythe",
+                    "expr": "Inflicts Phys Dmg with chance of Poison with chance of critical [Range: 1, Height Range: 1]"
+                },
+                {
+                    "name": "Ash Scythe",
+                    "expr": "Inflicts Phys Dmg (strong vs demi-humans) on units in area around self [Area: Diamond (5), Height Range: 2]"
+                },
+                {
+                    "name": "Blood Slash",
+                    "expr": "Dark Dmg & Penetrating [Range: 3, Area: 1 sq line, Height Range: 2]"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_DT_REA_LOWER",
+            "name": "Basic Death Sickle",
+            "expr": "Death Scythe techniques for use with all job types",
+            "skills": [
+                {
+                    "name": "Utsusemi Clothing",
+                    "expr": "Raises own AGI"
+                },
+                {
+                    "name": "Black Blade",
+                    "expr": "Inflicts Phys Dmg with chance of Bind with chance of critical [Range: 1, Height Range: 1]"
+                },
+                {
+                    "name": "Scourge Scythe",
+                    "expr": "Inflicts Phys Dmg with chance of Charm with chance of critical [Range: 1, Height Range: 1]"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Underworld Wave",
+                    "expr": "Chance of inflicting Daze on attacker when receiving Dmg [Range: 1, Height Range: 2]"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Scythe MasteryⅡ",
+                    "expr": "Raises PATK/CRIT Rate"
+                }
+            ]
+        },
+        "weapon": "Greatsword/Scythe",
+        "modifiers": {
+            "HP": 0,
+            "Max Jewels": 0,
+            "Initial Jewels": 25,
+            "PATK": 5,
+            "PDEF": -3,
+            "MATK": 0,
+            "MDEF": -3,
+            "DEX": 15,
+            "AGI": 17,
+            "LUCK": 10,
+            "CRIT": -5,
+            "AVOID": 0
+        },
+        "job master buff": [
+            {
+                "value": "+20",
+                "mod": "%",
+                "stat": "HP"
+            },
+            {
+                "value": "+3",
+                "mod": "%",
+                "stat": "PATK"
+            },
+            {
+                "value": "+3",
+                "mod": "%",
+                "stat": "DEX"
+            },
+            {
+                "value": "+1",
+                "mod": "%",
+                "stat": "CRIT"
+            }
+        ],
+        "stats": {
+            "Move": 3,
+            "Jump": 3,
+            "PATK": 297,
+            "PDEF": 128,
+            "DEX": 165,
+            "AGI": 13,
+            "CRIT": 116,
+            "HP": 336,
+            "MATK": 57,
+            "MDEF": 50,
+            "Jewels Obtained": 36,
+            "LUCK": 63,
+            "Fire Res": 7,
+            "Water Res": 4,
+            "Thunder Res": 3,
+            "Wind Res": 5,
+            "Debuff Res": 56,
+            "Charm Res": 38,
+            "Sleep Res": 43,
+            "Slow Res": 28,
+            "Stun Res": 15,
+            "Paralyze Res": 15,
+            "Petrify Res": 15,
+            "Light Res": 1,
+            "Poison Res": 10
+        },
+        "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/reaper#死を振り撒く死神",
+        "inputs": [
+            "Reaper Death-Spreading Reaper",
+            "Death-Spreading Reaper",
+            "Reaper",
+            "Reaper Death Scattering Shinigami",
+            "Death Scattering Shinigami"
+        ]
+    },
+    "JB_DK_REA": {
+        "iname": "JB_DK_REA",
+        "name": "Death-Delaying Reaper",
+        "japan": "Death Preventing Shinigami\n死を遠ざける死神",
+        "kanji": "死を遠ざける死神",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/dk_rea.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_DK_REA.png",
+        "origin": "Death-Delaying Reaper",
+        "units": [
+            "Reaper"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_DK_REA_UPPER",
+            "name": "Dark Sickle",
+            "expr": "Dark Scythe techniques for use with this job type only",
+            "skills": [
+                {
+                    "name": "Weakening Sanity",
+                    "expr": "Inflicts Phys Dmg on units within target area & lowers PDEF with chance of critical [Range: 4, Area: Cross (3), Height Range: 1]"
+                },
+                {
+                    "name": "Dark Wave",
+                    "expr": "Inflicts Phys Dmg on units within target area & lowers PATK with chance of critical [Range: 4, Area: Cross (3), Height Range: 1]"
+                },
+                {
+                    "name": "Soul Metastasis",
+                    "expr": "Consumes own HP and recovers target's HP (Low) [Range: 3, Height Range: 2]"
+                },
+                {
+                    "name": "Foam Scythe",
+                    "expr": "Consumes large amount of own HP and inflicts Phys Dmg (strong vs demi-humans) on enemy units in area around self that increases according to number of dead allies & chance of critical [Range: 4, Area: Cross (3), Height Range: 2]"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_DK_REA_LOWER",
+            "name": "Basic Dark Sickle",
+            "expr": "Dark Scythe techniques for use with all job types",
+            "skills": [
+                {
+                    "name": "Vitality Absorption",
+                    "expr": "Absorbs HP from target [Range: 4, Height Range: 2]"
+                },
+                {
+                    "name": "Sanity Barrier",
+                    "expr": "Raises own PATK/PDEF"
+                },
+                {
+                    "name": "Black Mist",
+                    "expr": "Lowers AGI/Evasion Rate of units within target area [Range: 4, Area: Diamond (5), Height Range: 1]"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Soul Wave",
+                    "expr": "Absorbs part of Dmg received back as HP [Range: 1, Height Range: 1]"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Blood of Atonement",
+                    "expr": "Auto Heal"
+                }
+            ]
+        },
+        "weapon": "Greatsword/Scythe",
+        "modifiers": {
+            "HP": 20,
+            "Max Jewels": 0,
+            "Initial Jewels": 25,
+            "PATK": 10,
+            "PDEF": -1,
+            "MATK": 0,
+            "MDEF": -1,
+            "DEX": 15,
+            "AGI": 16,
+            "LUCK": 15,
+            "CRIT": -2,
+            "AVOID": 0
+        },
+        "job master buff": [
+            {
+                "value": "+20",
+                "mod": "%",
+                "stat": "HP"
+            },
+            {
+                "value": "+6",
+                "mod": "%",
+                "stat": "PATK"
+            },
+            {
+                "value": "+1",
+                "mod": "%",
+                "stat": "DEX"
+            },
+            {
+                "value": "+2",
+                "mod": "%",
+                "stat": "AGI"
+            },
+            {
+                "value": "+3",
+                "mod": "%",
+                "stat": "CRIT"
+            }
+        ],
+        "stats": {
+            "Move": 4,
+            "Jump": 3,
+            "PATK": 297,
+            "PDEF": 128,
+            "DEX": 186,
+            "AGI": 34,
+            "CRIT": 123,
+            "HP": 196,
+            "MATK": 57,
+            "MDEF": 50,
+            "Jewels Obtained": 36,
+            "LUCK": 63,
+            "Fire Res": 7,
+            "Water Res": 4,
+            "Thunder Res": 3,
+            "Wind Res": 5,
+            "Charm Res": 38,
+            "Sleep Res": 43,
+            "Slow Res": 28,
+            "Stun Res": 15,
+            "Paralyze Res": 15,
+            "Petrify Res": 15,
+            "Light Res": 1,
+            "Poison Res": 10
+        },
+        "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/reaper#死を遠ざける死神",
+        "inputs": [
+            "Reaper Death-Delaying Reaper",
+            "Death-Delaying Reaper",
+            "Reaper Death Preventing Shinigami",
+            "Death Preventing Shinigami"
+        ]
+    },
+    "JB_SHE": {
+        "iname": "JB_SHE",
+        "name": "Shaman",
+        "japan": "Shaman\nシャーマン",
+        "kanji": "シャーマン",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/she.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_H_SHE.png",
+        "origin": "Shaman",
+        "units": [
+            "Shaman"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_SHE_UPPER",
+            "name": "Grace",
+            "expr": "Grace techniques for use with this job type only",
+            "skills": [
+                {
+                    "name": "Grace: Annihilation",
+                    "expr": "Raises PATK of units in area around self [Area: Diamond (5), Height Range: 2]"
+                },
+                {
+                    "name": "Grace: Guard",
+                    "expr": "Raises PDEF of units in area around self [Area: Diamond (5), Height Range: 2]"
+                },
+                {
+                    "name": "Heaven's Grace",
+                    "expr": "Cancels all buffs/debuffs cast on target [Range: 3, Height Range: 2]"
+                },
+                {
+                    "name": "Grace: Blaze",
+                    "expr": "Inflicts non-elemental Mag Dmg (strong vs undead) [Range: 3, Area: Cross (3), Height Range: 2]"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_SHE_LOWER",
+            "name": "Basic Grace",
+            "expr": "Grace techniques for use with all job types",
+            "skills": [
+                {
+                    "name": "Grace: Flame",
+                    "expr": "Raises Fire Res of units within target area [Area: Diamond (5), Height Range: 2]"
+                },
+                {
+                    "name": "Grace: Slush",
+                    "expr": "Raises Water Res of units within target area [Area: Diamond (5), Height Range: 2]"
+                },
+                {
+                    "name": "Grace: Lightning",
+                    "expr": "Raises Thunder Res of units within target area [Area: Diamond (5), Height Range: 2]"
+                },
+                {
+                    "name": "Grace: Hurricane",
+                    "expr": "Raises Wind Res of units within target area [Area: Diamond (5), Height Range: 2]"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Grace: Purification",
+                    "expr": "When attacked, cancels all buffs cast on attacker [Range: Unlimited, Height Range: Unlimited]"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Grace Mastery",
+                    "expr": "Raises MDEF"
+                }
+            ]
+        },
+        "weapon": "Cards",
+        "modifiers": {
+            "HP": -10,
+            "Max Jewels": 0,
+            "Initial Jewels": 100,
+            "PATK": -10,
+            "PDEF": 0,
+            "MATK": 0,
+            "MDEF": 0,
+            "DEX": -5,
+            "AGI": -8,
+            "LUCK": 0,
+            "CRIT": -8,
+            "AVOID": 0
+        },
+        "job master buff": [
+            {
+                "value": "+28",
+                "mod": "%",
+                "stat": "HP"
+            },
+            {
+                "value": "+3",
+                "mod": "%",
+                "stat": "MATK"
+            },
+            {
+                "value": "+4",
+                "mod": "%",
+                "stat": "MDEF"
+            }
+        ],
+        "stats": {
+            "Move": 3,
+            "Jump": 2,
+            "MATK": 237,
+            "MDEF": 170,
+            "LUCK": 141,
+            "AGI": 23,
+            "CRIT": 113,
+            "HP": 144,
+            "PATK": 75,
+            "PDEF": 50,
+            "Jewels Obtained": 40,
+            "DEX": 54,
+            "Fire Res": 7,
+            "Water Res": 4,
+            "Thunder Res": 3,
+            "Wind Res": 5,
+            "Petrify Res": 53,
+            "Stop Res": 28,
+            "Silence Res": 28,
+            "Dark Res": 4,
+            "Stun Res": 15,
+            "Paralyze Res": 15,
+            "Sleep Res": 15,
+            "Blind Res": 10,
+            "Light Res": 1
+        },
+        "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/sherman#シャーマン",
+        "inputs": [
+            "Shaman",
+            "Shaman Shaman"
+        ]
+    },
+    "JB_H_SHE": {
+        "iname": "JB_H_SHE",
+        "name": "Maiden of Divine Punishment",
+        "japan": "Shaman:Divine Punishment\n天譴を下す巫子",
+        "kanji": "天譴を下す巫子",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/h_she.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_H_SHE.png",
+        "origin": "Maiden of Divine Punishment",
+        "units": [
+            "Shaman"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_H_SHE_UPPER",
+            "name": "Oracle",
+            "expr": "Oracle techniques for use with this job type only",
+            "skills": [
+                {
+                    "name": "Purification",
+                    "expr": "Inflicts Mag Dmg & Stop [Range: 3, Height Range: 1]"
+                },
+                {
+                    "name": "Past-Life Memories",
+                    "expr": "Casts Quicken on target [Range: 3, Height Range: 1] & casts Quicken on self"
+                },
+                {
+                    "name": "Oracle: Aftershock",
+                    "expr": "Doubles MDEF of target/self for one turn only [Range: 3, Height Range: 2]"
+                },
+                {
+                    "name": "Divine Manifestation",
+                    "expr": "Inflicts Mag Dmg (strong vs undead) & lowers PDEF/MDEF [Range: 5, Height Range: 4]"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_H_SHE_LOWER",
+            "name": "Basic Oracle",
+            "expr": "Oracle techniques for use with all job types",
+            "skills": [
+                {
+                    "name": "Oracle: Three Runs",
+                    "expr": "Raises AGI/DEX/CRIT of target [Range: 3, Height Range: 2]"
+                },
+                {
+                    "name": "Oracle: Telepathy",
+                    "expr": "Swaps positions with target [Range: 4, Height Range: 3] & raises own MATK"
+                },
+                {
+                    "name": "Holy Protection",
+                    "expr": "Allows the target unit to take his/her turn immediately [Range: 3, Height Range: 1]"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Oracle: Conquest",
+                    "expr": "Chance of performing magic counter when receiving Dmg [Range: 4, Height Range: 2]"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Divine Mastery",
+                    "expr": "Raises MATK/Max Jewels"
+                }
+            ]
+        },
+        "weapon": "Cards",
+        "modifiers": {
+            "HP": 5,
+            "Max Jewels": 0,
+            "Initial Jewels": 100,
+            "PATK": -10,
+            "PDEF": 0,
+            "MATK": 10,
+            "MDEF": 0,
+            "DEX": 0,
+            "AGI": 0,
+            "LUCK": 10,
+            "CRIT": -8,
+            "AVOID": 0
+        },
+        "job master buff": [
+            {
+                "value": "+26",
+                "mod": "%",
+                "stat": "HP"
+            },
+            {
+                "value": "+3",
+                "mod": "%",
+                "stat": "MATK"
+            },
+            {
+                "value": "+4",
+                "mod": "%",
+                "stat": "MDEF"
+            },
+            {
+                "value": "+1",
+                "mod": "%",
+                "stat": "AGI"
+            }
+        ],
+        "stats": {
+            "Move": 3,
+            "Jump": 3,
+            "MATK": 237,
+            "MDEF": 191,
+            "LUCK": 141,
+            "AGI": 23,
+            "CRIT": 113,
+            "HP": 88,
+            "PATK": 75,
+            "PDEF": 92,
+            "Jewels Obtained": 40,
+            "DEX": 54,
+            "Fire Res": 7,
+            "Water Res": 4,
+            "Thunder Res": 3,
+            "Wind Res": 5,
+            "Paralyze Res": 43,
+            "Daze Res": 28,
+            "Bind Res": 28,
+            "Dark Res": 4,
+            "Stun Res": 15,
+            "Sleep Res": 15,
+            "Petrify Res": 25,
+            "Blind Res": 10,
+            "Light Res": 1
+        },
+        "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/sherman#天譴を下す巫子",
+        "inputs": [
+            "Shaman Maiden of Divine Punishment",
+            "Maiden of Divine Punishment",
+            "Shaman",
+            "Shaman Shaman:Divine Punishment",
+            "Shaman:Divine Punishment"
+        ]
+    },
+    "JB_SHE_N": {
+        "iname": "JB_SHE_N",
+        "name": "Maiden of Divine Blessing",
+        "japan": "Shaman:Divine Affection\n天寵を告げし巫子",
+        "kanji": "天寵を告げし巫子",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/she_n.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_SHE_N.png",
+        "origin": "Maiden of Divine Blessing",
+        "units": [
+            "Shaman"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_SHE_N_UPPER",
+            "name": "Holy Prayer",
+            "expr": "Holy Prayer techniques for use with this job type only",
+            "skills": [
+                {
+                    "name": "Compassion",
+                    "expr": "Slightly recovers HP of ally unit [Range: 3, Height Range: 3]"
+                },
+                {
+                    "name": "Bunrei",
+                    "expr": "Casts Auto Heal (Low) on target unit for three turns [Range: 3, Height Range: 3]"
+                },
+                {
+                    "name": "Holy Area",
+                    "expr": "Nullifies all statuses inflicted on units within area around self during turn used [Area: Diamond (5), Height Range: 2]"
+                },
+                {
+                    "name": "Memorial",
+                    "expr": "Recovers HP (High) of ally unit & cancels statuses [Range: 3, Height Range: 4]"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_SHE_N_LOWER",
+            "name": "Basic Holy Prayer",
+            "expr": "Holy Prayer techniques for use with all job types",
+            "skills": [
+                {
+                    "name": "Holy Prayer: Collapse",
+                    "expr": "Raises PDEF/MDEF/All Status Res of units in area around self [Range: Diamond (7), Area: Cross (3), Height Range: 2]"
+                },
+                {
+                    "name": "Holy Prayer: Desolation",
+                    "expr": "Raises Evasion Rate of units in area around self [Range: Diamond (7), Area: Cross (3), Height Range: 2]"
+                },
+                {
+                    "name": "Holy Prayer: Longevity",
+                    "expr": "Raises Max HP of units in area around self [Range: Diamond (7), Area: Cross (3), Height Range: 2]"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Holy Prayer: Report",
+                    "expr": "Chance of casting Auto Heal on self when receiving Dmg"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Grace MasteryⅡ",
+                    "expr": "Raises MDEF/Max Jewels"
+                }
+            ]
+        },
+        "weapon": "Cards",
+        "modifiers": {
+            "HP": 2,
+            "Max Jewels": 10,
+            "Initial Jewels": 100,
+            "PATK": -5,
+            "PDEF": 10,
+            "MATK": 25,
+            "MDEF": 15,
+            "DEX": 0,
+            "AGI": 0,
+            "LUCK": 25,
+            "CRIT": 5,
+            "AVOID": 0
+        },
+        "job master buff": [
+            {
+                "value": "+26",
+                "mod": "%",
+                "stat": "HP"
+            },
+            {
+                "value": "+4",
+                "mod": "%",
+                "stat": "MATK"
+            },
+            {
+                "value": "+6",
+                "mod": "%",
+                "stat": "MDEF"
+            },
+            {
+                "value": "+1",
+                "mod": "%",
+                "stat": "AGI"
+            }
+        ],
+        "stats": {
+            "Move": 3,
+            "Jump": 3,
+            "MATK": 251,
+            "MDEF": 184,
+            "LUCK": 141,
+            "AGI": 23,
+            "CRIT": 113,
+            "HP": 144,
+            "PATK": 75,
+            "PDEF": 50,
+            "Jewels Obtained": 36,
+            "DEX": 54,
+            "Fire Res": 3,
+            "Water Res": 4,
+            "Thunder Res": 3,
+            "Wind Res": 5,
+            "Max Jewels": 14,
+            "Silence Res": 52,
+            "Petrify Res": 53,
+            "Stop Res": 28,
+            "Dark Res": 4,
+            "Stun Res": 15,
+            "Paralyze Res": 15,
+            "Sleep Res": 15,
+            "Blind Res": 10,
+            "Light Res": 1
+        },
+        "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/sherman#天寵を告げし巫子",
+        "inputs": [
+            "Shaman Maiden of Divine Blessing",
+            "Maiden of Divine Blessing",
+            "Shaman Shaman:Divine Affection",
+            "Shaman:Divine Affection"
+        ]
+    },
+    "JB_DGO": {
+        "iname": "JB_DGO",
+        "name": "Dragoon",
+        "japan": "Dragoon [Collab] Ranged\nドラグーン",
+        "kanji": "ドラグーン",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/dgo.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_SNI.png",
+        "origin": "Dragoon",
+        "units": [
+            "Chloe EO"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_DGO_UPPER",
+            "name": "Bullet Shield",
+            "expr": "Bullet Shield techniques for use with this job type only",
+            "skills": [
+                {
+                    "name": "Prepare to Fire",
+                    "expr": "Raises own PATK/AGI"
+                },
+                {
+                    "name": "Barrage Wall",
+                    "expr": "Inflicts Phys Dmg & lowers PATK [Range: 5, Height Range: 2]"
+                },
+                {
+                    "name": "Dragon Power",
+                    "expr": "Inflicts Dmg that increases according to how low own HP is & Penetrating [Range: 4, Height Range: 2]"
+                },
+                {
+                    "name": "Buster Cannon",
+                    "expr": "Inflicts Phys Dmg on units within target area & ignores DEF & Penetrating [Range: 4, Area: 1 sq line, Height Range: 2]"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_DGO_LOWER",
+            "name": "Basic Bullet Shield",
+            "expr": "Bullet Shield techniques for use with all job types",
+            "skills": [
+                {
+                    "name": "Line Guard",
+                    "expr": "Raises PDEF of units in area around self [Area: Cross (3), Height Range: 2]"
+                },
+                {
+                    "name": "Material Guard",
+                    "expr": "Raises MDEF of units in area around self [Area: Cross (3), Height Range: 2]"
+                },
+                {
+                    "name": "Dragon Roar",
+                    "expr": "Lowers PATK with chance of inflicting Rage status on target, therefore drawing enemy attacks towards self [Range: 4, Height Range: 2]"
+                },
+                {
+                    "name": "Gun Mount",
+                    "expr": "Inflicts Phys Dmg [Range: 4, Area: 1 sq line, Height Range: 2]"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Healing Guard",
+                    "expr": "Absorbs part of Dmg received back as HP [Range: 1, Height Range: 1]"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Shield Mastery",
+                    "expr": "Raises PDEF & raises power of Bullet Shield/Basic Bullet Shield skills according how low own HP is"
+                }
+            ]
+        },
+        "weapon": "Rifle",
+        "modifiers": {
+            "HP": 5,
+            "Max Jewels": 0,
+            "Initial Jewels": 25,
+            "PATK": 10,
+            "PDEF": 20,
+            "MATK": 0,
+            "MDEF": 0,
+            "DEX": 55,
+            "AGI": 5,
+            "LUCK": 0,
+            "CRIT": 35,
+            "AVOID": 0
+        },
+        "job master buff": [
+            {
+                "value": "+24",
+                "mod": "%",
+                "stat": "HP"
+            },
+            {
+                "value": "+6",
+                "mod": "%",
+                "stat": "PDEF"
+            },
+            {
+                "value": "+3",
+                "mod": "%",
+                "stat": "DEX"
+            },
+            {
+                "value": "+1",
+                "mod": "%",
+                "stat": "CRIT"
+            }
+        ],
+        "stats": {
+            "Move": 3,
+            "Jump": 2,
+            "PATK": 237,
+            "PDEF": 218,
+            "LUCK": 189,
+            "DEX": 173,
+            "MDEF": 35,
+            "AGI": 15,
+            "CRIT": 88,
+            "HP": 309,
+            "Jewels Obtained": 34,
+            "Fire Res": 6,
+            "Water Res": 4,
+            "Thunder Res": 4,
+            "Wind Res": 3,
+            "Light Res": 4,
+            "Paralyze Res": 43,
+            "Daze Res": 28,
+            "Dark Res": 3,
+            "Stun Res": 15,
+            "Sleep Res": 15,
+            "Petrify Res": 15,
+            "MATK": 24,
+            "Poison Res": 10,
+            "Charm Res": 10
+        },
+        "formula": "70% (PATK + DEX)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/sek-cloe#ドラグーン",
+        "inputs": [
+            "Chloe EO",
+            "Chloe EO Dragoon",
+            "Dragoon",
+            "Chloe EO",
+            "Chloe EO Dragoon [Collab] Ranged",
+            "Dragoon [Collab] Ranged"
+        ]
+    },
+    "JB_MAS": {
+        "iname": "JB_MAS",
+        "name": "Masurao",
+        "japan": "Masurao\nマスラオ",
+        "kanji": "マスラオ",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/mas.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_MAS.png",
+        "origin": "Masurao",
+        "units": [
+            "Chloe EO"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_MAS_UPPER",
+            "name": "Multi-Blade",
+            "expr": "Multi-blade techniques for use with this job type only",
+            "skills": [
+                {
+                    "name": "Multi-Blade Attack",
+                    "expr": "Inflicts 2-hit Dmg with chance of critical [Range: 1, Height Range: 2]"
+                },
+                {
+                    "name": "Double Blossom",
+                    "expr": "Inflicts Phys Dmg & Penetrating [Range: 3, Area: 1 sq line, Height Range: 2]"
+                },
+                {
+                    "name": "Flower Piece",
+                    "expr": "Inflicts Phys Dmg that ignores DEF [Range: 1, Height Range: 1]"
+                },
+                {
+                    "name": "A Hundred Blossoms",
+                    "expr": "Inflicts 2-hit Dmg with chance of critical [Range: 1, Height Range: 2]"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_MAS_LOWER",
+            "name": "Basic Multi-Blade",
+            "expr": "Multi-blade techniques for use with all job types",
+            "skills": [
+                {
+                    "name": "Position Advantage",
+                    "expr": "Raises own PATK/DEX"
+                },
+                {
+                    "name": "Penetrate Armor",
+                    "expr": "Inflicts Phys Dmg & lowers DEF [Range: 1, Height Range: 2]"
+                },
+                {
+                    "name": "Mist Slash",
+                    "expr": "Inflicts Phys Dmg & Sleep [Range: 1, Height Range: 2]"
+                },
+                {
+                    "name": "Sky Blade",
+                    "expr": "Inflicts Phys Dmg [Range: 4, Height Range: 2]"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Mutual Success",
+                    "expr": "Chance of performing physical counter when Dmg is received"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Blade Mastery",
+                    "expr": "PATK Up"
+                }
+            ]
+        },
+        "weapon": "Katana",
+        "modifiers": {
+            "HP": 5,
+            "Max Jewels": 0,
+            "Initial Jewels": 25,
+            "PATK": 55,
+            "PDEF": 8,
+            "MATK": 0,
+            "MDEF": 0,
+            "DEX": 0,
+            "AGI": 7,
+            "LUCK": 0,
+            "CRIT": 40,
+            "AVOID": 0
+        },
+        "job master buff": [
+            {
+                "value": "+20",
+                "mod": "%",
+                "stat": "HP"
+            },
+            {
+                "value": "+4",
+                "mod": "%",
+                "stat": "PATK"
+            },
+            {
+                "value": "+2",
+                "mod": "%",
+                "stat": "DEX"
+            },
+            {
+                "value": "+1",
+                "mod": "%",
+                "stat": "AGI"
+            }
+        ],
+        "stats": {
+            "Move": 4,
+            "Jump": 2,
+            "PATK": 259,
+            "PDEF": 140,
+            "DEX": 210,
+            "AGI": 35,
+            "MATK": 45,
+            "LUCK": 66,
+            "CRIT": 129,
+            "HP": 242,
+            "Jewels Obtained": 28,
+            "MDEF": 38,
+            "Fire Res": 7,
+            "Water Res": 5,
+            "Thunder Res": 3,
+            "Wind Res": 5,
+            "Charm Res": 80,
+            "Sleep Res": 43,
+            "Slow Res": 28,
+            "Stun Res": 15,
+            "Paralyze Res": 15,
+            "Petrify Res": 15,
+            "Poison Res": 10
+        },
+        "formula": "90% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/sek-cloe#マスラオ",
+        "inputs": [
+            "Chloe EO Masurao",
+            "Masurao"
+        ]
+    },
+    "JB_ACT_F": {
+        "iname": "JB_ACT_F",
+        "name": "Actress",
+        "japan": "Actress\n女優",
+        "kanji": "女優",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/act_f.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ACT_F.png",
+        "origin": "Actress",
+        "units": [
+            "Rena"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_ACT_F_UPPER",
+            "name": "Acting",
+            "expr": "Acting techniques for use with this job type only",
+            "skills": [
+                {
+                    "name": "As You Like It",
+                    "expr": "Raises Max HP of all ally units for three turns & greatly lowers own PDEF/MDEF for one turn [Area: Whole Map, Height Range: Unlimited]"
+                },
+                {
+                    "name": "Little Women",
+                    "expr": "Recovers HP of all ally units & greatly lowers own PDEF/MDEF for one turn [Area: Whole Map, Height Range: Unlimited]"
+                },
+                {
+                    "name": "The Grand Illusion",
+                    "expr": "Inflicts Daze on all enemy units & greatly lowers own PDEF/MDEF for one turn [Area: Whole Map, Height Range: Unlimited]"
+                },
+                {
+                    "name": "Crime and Punishment",
+                    "expr": "Inflicts Dark Phys Dmg on enemy units within target area [Range: 3, Area: Diamond (5), Height Range: 2]"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_ACT_F_LOWER",
+            "name": "Basic Acting",
+            "expr": "Acting techniques for use with all job types",
+            "skills": [
+                {
+                    "name": "The Plumber",
+                    "expr": "Chance of inflicting Stun on all enemy units & greatly lowers PDEF/MDEF for one turn [Area: Whole Map, Height Range: Unlimited]"
+                },
+                {
+                    "name": "Sleeping Beauty",
+                    "expr": "Chance of inflicting Sleep on all enemy units & greatly lowers PDEF/MDEF for one turn [Area: Whole Map, Height Range: Unlimited]"
+                },
+                {
+                    "name": "Forbidden Games",
+                    "expr": "Inflicts Dark Mag Dmg on enemy units within target area [Range: 3, Area: 1 sq line, Height Range: 2]"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Rising Curtain",
+                    "expr": "Chance of casting Auto Jewel Charge on self when receiving Dmg"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Splendid Glow",
+                    "expr": "Raises Initial Jewels"
+                }
+            ]
+        },
+        "weapon": "Script",
+        "modifiers": {
+            "HP": 0,
+            "Max Jewels": 10,
+            "Initial Jewels": 50,
+            "PATK": -5,
+            "PDEF": 60,
+            "MATK": 5,
+            "MDEF": -12,
+            "DEX": 6,
+            "AGI": 1,
+            "LUCK": 5,
+            "CRIT": 0,
+            "AVOID": 0
+        },
+        "job master buff": [
+            {
+                "value": "+30",
+                "mod": "%",
+                "stat": "HP"
+            },
+            {
+                "value": "+3",
+                "mod": "%",
+                "stat": "MATK"
+            },
+            {
+                "value": "+2",
+                "mod": "%",
+                "stat": "MDEF"
+            }
+        ],
+        "stats": {
+            "Move": 3,
+            "Jump": 2,
+            "MATK": 230,
+            "MDEF": 128,
+            "LUCK": 176,
+            "AGI": 30,
+            "CRIT": 113,
+            "HP": 172,
+            "PATK": 75,
+            "PDEF": 50,
+            "Jewels Obtained": 43,
+            "DEX": 54,
+            "Fire Res": 3,
+            "Water Res": 4,
+            "Thunder Res": 3,
+            "Wind Res": 5,
+            "Paralyze Res": 43,
+            "Daze Res": 28,
+            "Bind Res": 28,
+            "Dark Res": 4,
+            "Stun Res": 15,
+            "Sleep Res": 15,
+            "Petrify Res": 25,
+            "Blind Res": 10,
+            "Light Res": 1
+        },
+        "formula": "90% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/rena#女優",
+        "inputs": [
+            "Rena",
+            "Rena Actress",
+            "Actress"
+        ]
+    },
+    "JB_MIUN_KAJ": {
+        "iname": "JB_MIUN_KAJ",
+        "name": "Master Blacksmith",
+        "japan": "Craftsman\n匠鍛師",
+        "kanji": "匠鍛師",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/miun_kaj.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_MIUN_KAJ.png",
+        "origin": "Blacksmith",
+        "units": [
+            "Miuna"
+        ],
+        "jobe": [
+            "Master Blacksmith+"
+        ],
+        "main": {
+            "iname": "AB_MIUN_KAJ_UPPER",
+            "name": "Forging",
+            "expr": "Forging techniques for use with this job type only",
+            "skills": [
+                {
+                    "name": "Flame I - Secret Power",
+                    "expr": "Inflicts Fire Phys Dmg (Medium/strong vs metal) [Range: 1, Height Range: 2]"
+                },
+                {
+                    "name": "Flame II - Secret Blade",
+                    "expr": "Inflicts Fire Phys Dmg (Medium/strong vs metal) on enemy units within target area [Range: 3, Area: Line (3), Height Range: 1]"
+                },
+                {
+                    "name": "Flame III - Secret Clarity",
+                    "expr": "Inflicts Fire Phys Dmg (Medium/strong vs metal) on enemy units within target area [Range: 4, Area: Diamond (5), Height Range: 1]"
+                },
+                {
+                    "name": "Flame IV - Secret Edge",
+                    "expr": "Inflicts Fire Phys Dmg (High/strong vs metal) on enemy units in area around self [Area: Diamond (5), Height Range: 2]"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_MIUN_KAJ_LOWER",
+            "name": "Basic Forging",
+            "expr": "Forging techniques for use with all job types",
+            "skills": [
+                {
+                    "name": "Superior Iron Strength",
+                    "expr": "Raises PATK/PDEF of ally units within target area for three turns & buff effect is stackable up to three times if using same skill [Range: 1, Area: Lateral (3), Height Range: 2]"
+                },
+                {
+                    "name": "Superior Iron Excess",
+                    "expr": "Raises MATK/MDEF of ally units within target area for three turns & buff effect is stackable up to three times if using same skill [Range: 1, Area: Lateral (3), Height Range: 2]"
+                },
+                {
+                    "name": "Superior Iron Reduction",
+                    "expr": "Lowers PATK/MATK of enemy units within target area for three turns & debuff effect is stackable up to three times if using same skill [Range: 1, Area: Lateral (3), Height Range: 2]"
+                },
+                {
+                    "name": "Superior Iron Degradation",
+                    "expr": "Lowers PDEF/MDEF of enemy units within target area for three turns & debuff effect is stackable up to three times if using same skill [Range: 1, Area: Lateral (3), Height Range: 2]"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Total Resolution",
+                    "expr": "When receiving Dmg, performs physical counter with chance of lowering attacker's AGI for three turns [Range: 1, Height Range: 3]"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Impregnable Fortress",
+                    "expr": "Raises HP and PDEF"
+                }
+            ]
+        },
+        "weapon": "Hammer",
+        "modifiers": {
+            "HP": 20,
+            "Max Jewels": 5,
+            "Initial Jewels": 50,
+            "PATK": 3,
+            "PDEF": -5,
+            "MATK": -5,
+            "MDEF": 0,
+            "DEX": 3,
+            "AGI": 3,
+            "LUCK": 0,
+            "CRIT": 10,
+            "AVOID": 0
+        },
+        "job master buff": [
+            {
+                "value": "+16",
+                "mod": "%",
+                "stat": "HP"
+            },
+            {
+                "value": "+4",
+                "mod": "%",
+                "stat": "PATK"
+            },
+            {
+                "value": "+3",
+                "mod": "%",
+                "stat": "PDEF"
+            },
+            {
+                "value": "+2",
+                "mod": "%",
+                "stat": "AGI"
+            }
+        ],
+        "stats": {
+            "Move": 3,
+            "Jump": 2,
+            "PATK": 270,
+            "PDEF": 166,
+            "DEX": 155,
+            "AGI": 11,
+            "CRIT": 117,
+            "HP": 418,
+            "MATK": 63,
+            "MDEF": 50,
+            "Jewels Obtained": 46,
+            "LUCK": 60,
+            "Fire Res": 13,
+            "Water Res": 5,
+            "Thunder Res": 4,
+            "Wind Res": 5,
+            "Paralyze Res": 53,
+            "Daze Res": 28,
+            "Bind Res": 28,
+            "Stun Res": 15,
+            "Sleep Res": 15,
+            "Petrify Res": 15,
+            "Poison Res": 10,
+            "Charm Res": 10
+        },
+        "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/miuna#匠鍛師",
+        "inputs": [
+            "Miuna Master Blacksmith",
+            "Master Blacksmith",
+            "Miuna",
+            "Miuna Craftsman",
+            "Craftsman"
+        ]
+    },
+    "JB_KAM": {
+        "iname": "JB_KAM",
+        "name": "Priestess",
+        "japan": "Miko\n神子",
+        "kanji": "神子",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/kam.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_KAM.png",
+        "origin": "Shrine Maiden",
+        "units": [
+            "Mikoto",
+            "Ato RH",
+            "Amaterasu SN",
+            "Ines"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_KAM_UPPER",
+            "name": "Prayer",
+            "expr": "Prayer techniques for use with this job type only",
+            "skills": [
+                {
+                    "name": "Harvest Celebration Dance",
+                    "expr": "Lowers Jewels of all enemy units [Area: Whole Map, Height Range: Unlimited]"
+                },
+                {
+                    "name": "Purification of Perception",
+                    "expr": "Inflicts Light Mag Dmg (strong vs undead) on enemy units within target area [Range: 4, Area: Diamond (5), Height Range: 2]"
+                },
+                {
+                    "name": "Prayer of Strength",
+                    "expr": "Greatly raises own stats, especially PDEF & raises PDEF/AGI of ally units within area around self [Area: Diamond (5), Height Range: 2]"
+                },
+                {
+                    "name": "Illuminating Purge",
+                    "expr": "Greatly raises own stats (especially MATK) & raises MATK/AGI of ally units in area around self [Area: Diamond (5), Height Range: 2]"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_KAM_LOWER",
+            "name": "Basic Prayer",
+            "expr": "Prayer techniques for use with all job types",
+            "skills": [
+                {
+                    "name": "Essential Delivery",
+                    "expr": "Absorbs Jewels from single target; diamond-shaped Range [Range: 5, Height Range: 4]"
+                },
+                {
+                    "name": "Evil-Crushing Dance",
+                    "expr": "Lowers MDEF of all enemy units & debuff effect is stackable [Area: Whole Map, Height Range: Unlimited]"
+                },
+                {
+                    "name": "Shield-Crushing Dance",
+                    "expr": "Lowers PDEF of all enemy units & debuff effect is stackable [Area: Whole Map, Height Range: Unlimited]"
+                },
+                {
+                    "name": "Captivating Dance",
+                    "expr": "Chance of inflicting Charm on all enemy units [Area: Whole Map, Height Range: Unlimited]"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Sacrificial Protection",
+                    "expr": "Chance of powerful HP recovery when receiving Dmg"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Purify Space",
+                    "expr": "Nullifies Daze status"
+                },
+                {
+                    "name": "Holy Ritual",
+                    "expr": "COMBO Scope +1 and increases chance of surviving fatal Dmg"
+                }
+            ]
+        },
+        "weapon": "Praying Staff",
+        "modifiers": {
+            "HP": 3,
+            "Max Jewels": 8,
+            "Initial Jewels": 50,
+            "PATK": -42,
+            "PDEF": -10,
+            "MATK": 20,
+            "MDEF": 0,
+            "DEX": -5,
+            "AGI": 12,
+            "LUCK": 20,
+            "CRIT": 5,
+            "AVOID": 0
+        },
+        "job master buff": [
+            {
+                "value": "+19",
+                "mod": "%",
+                "stat": "HP"
+            },
+            {
+                "value": "+6",
+                "mod": "%",
+                "stat": "MATK"
+            },
+            {
+                "value": "+4",
+                "mod": "%",
+                "stat": "AGI"
+            }
+        ],
+        "stats": {
+            "Move": 4,
+            "Jump": 2,
+            "PATK": 57,
+            "PDEF": 115,
+            "DEX": 101,
+            "AGI": 20,
+            "MATK": 169,
+            "CRIT": 84,
+            "HP": 119,
+            "Jewels Obtained": 30,
+            "MDEF": 120,
+            "LUCK": 236,
+            "Fire Res": 4,
+            "Water Res": 6,
+            "Thunder Res": 4,
+            "Wind Res": 6,
+            "Max Jewels": 53,
+            "Dark Res": 8,
+            "Paralyze Res": 43,
+            "Daze Res": 28,
+            "Stun Res": 15,
+            "Sleep Res": 15,
+            "Petrify Res": 15,
+            "Blind Res": 10,
+            "Charm Res": 10
+        },
+        "formula": "70% (MATK + LUCK)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/ines#神子",
+        "inputs": [
+            "Priestess",
+            "Miko"
         ]
     },
     "JB_BASI_SOL": {
@@ -30011,7 +30166,7 @@
     },
     "JB_STRB_SHINE": {
         "iname": "JB_STRB_SHINE",
-        "name": "Desert Inferno: Dawnᴶᴶ",
+        "name": "Desert Inferno: Dawnᴶ",
         "japan": "Twillight Rakshasa\n暁光羅刹",
         "kanji": "暁光羅刹",
         "short description": "",
@@ -30150,8 +30305,8 @@
         "link": "http://www.alchemistcodedb.com/jp/unit/more#暁光羅刹",
         "inputs": [
             "More",
-            "More Desert Inferno: Dawnᴶ",
-            "Desert Inferno: Dawnᴶ",
+            "More Desert Inferno: Dawn",
+            "Desert Inferno: Dawn",
             "More",
             "More Twillight Rakshasa",
             "Twillight Rakshasa"
@@ -35448,7 +35603,7 @@
     },
     "JB_LUCRE_WED_F": {
         "iname": "JB_LUCRE_WED_F",
-        "name": "Bride+ᴶᴶ",
+        "name": "Bride+ᴶ",
         "japan": "Lightning Bride\n電撃の花嫁",
         "kanji": "電撃の花嫁",
         "short description": "",
@@ -35606,8 +35761,8 @@
         "link": "http://www.alchemistcodedb.com/jp/unit/lucretia#電撃の花嫁",
         "inputs": [
             "Lucretia",
-            "Lucretia Bride+ᴶ",
-            "Bride+ᴶ",
+            "Lucretia Bride+",
+            "Bride+",
             "Lucretia",
             "Lucretia Lightning Bride",
             "Lightning Bride"
@@ -46126,7 +46281,7 @@
             "Poison Res": 10
         },
         "formula": "85% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
-        "link": "http://www.alchemistcodedb.com/jp/unit/eizan#拳聖【不動】",
+        "link": "http://www.alchemistcodedb.com/unit/eizan#holy-brawler-[fudo]",
         "inputs": [
             "Holy Brawler [Fudo]",
             "Saint of Fist: Fudo"
@@ -49828,7 +49983,7 @@
     },
     "JB_FIRE_WED_M": {
         "iname": "JB_FIRE_WED_M",
-        "name": "Passionate Bridegroomᴶᴶ",
+        "name": "Passionate Bridegroomᴶ",
         "japan": "Passionate Bride\n情熱の花嫁",
         "kanji": "情熱の花婿",
         "short description": "fire focus",
@@ -49985,8 +50140,8 @@
         "link": "http://www.alchemistcodedb.com/jp/unit/veloz#情熱の花婿",
         "inputs": [
             "Veloz",
-            "Veloz Passionate Bridegroomᴶ",
-            "Passionate Bridegroomᴶ",
+            "Veloz Passionate Bridegroom",
+            "Passionate Bridegroom",
             "Veloz",
             "Veloz Passionate Bride",
             "Passionate Bride"
@@ -49994,7 +50149,7 @@
     },
     "JB_SHINE_WED_M": {
         "iname": "JB_SHINE_WED_M",
-        "name": "Pure Bridegroomᴶᴶ",
+        "name": "Pure Bridegroomᴶ",
         "japan": "Pure White Bride\n純白の花嫁",
         "kanji": "純白の花婿",
         "short description": "light focus",
@@ -50155,8 +50310,8 @@
         "link": "http://www.alchemistcodedb.com/jp/unit/fraise#純白の花婿",
         "inputs": [
             "Fraise",
-            "Fraise Pure Bridegroomᴶ",
-            "Pure Bridegroomᴶ",
+            "Fraise Pure Bridegroom",
+            "Pure Bridegroom",
             "Fraise",
             "Fraise Pure White Bride",
             "Pure White Bride"
@@ -50164,7 +50319,7 @@
     },
     "JB_SHINE_WED_F": {
         "iname": "JB_SHINE_WED_F",
-        "name": "Pure Brideᴶᴶ",
+        "name": "Pure Brideᴶ",
         "japan": "Pure White Bride\n純白の花嫁",
         "kanji": "純白の花嫁",
         "short description": "light focus",
@@ -50325,15 +50480,15 @@
         "link": "http://www.alchemistcodedb.com/jp/unit/eve#純白の花嫁",
         "inputs": [
             "Eve",
-            "Eve Pure Brideᴶ",
-            "Pure Brideᴶ",
+            "Eve Pure Bride",
+            "Pure Bride",
             "Eve",
             "Eve Pure White Bride"
         ]
     },
     "JB_LNC_TINATSU": {
         "iname": "JB_LNC_TINATSU",
-        "name": "Machinist: TINATSUᴶ",
+        "name": "Machinist: Tinatsuᴶ",
         "japan": "Machinery・Partizan\nマシーナリー・パルチザン",
         "kanji": "マシーナリー・パルチザン",
         "short description": "",
@@ -50498,17 +50653,17 @@
         "formula": "80% (PATK + DEX)",
         "link": "http://www.alchemistcodedb.com/jp/unit/sarauzu#マシーナリー・パルチザン",
         "inputs": [
-            "Machinist: TINATSU",
+            "Machinist: Tinatsu",
             "Machinery・Partizan"
         ]
     },
     "JB_LNC_THUNDER": {
         "iname": "JB_LNC_THUNDER",
-        "name": "Machinist: THUNDERᴶ",
+        "name": "Machinist: Thunderᴶ",
         "japan": "Machinery・Oriaga\nマシーナリー・オレアガ",
         "kanji": "マシーナリー・オレアガ",
-        "short description": "",
-        "long description": "",
+        "short description": "thunder focus",
+        "long description": "thunder focus",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/lnc00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_LNC_THUNDER.png",
         "origin": "Machinist",
@@ -50664,17 +50819,17 @@
         "formula": "80% (PATK + DEX)",
         "link": "http://www.alchemistcodedb.com/jp/unit/magnus#マシーナリー・オレアガ",
         "inputs": [
-            "Machinist: THUNDER",
+            "Machinist: Thunder",
             "Machinery・Oriaga"
         ]
     },
     "JB_LNC_WIND": {
         "iname": "JB_LNC_WIND",
-        "name": "Machinist: WINDᴶ",
+        "name": "Machinist: Windᴶ",
         "japan": "Machinery・Diana\nマシーナリー・ディアナ",
         "kanji": "マシーナリー・ディアナ",
-        "short description": "",
-        "long description": "",
+        "short description": "wind focus",
+        "long description": "wind focus",
         "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/lnc00.png",
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_LNC_WIND.png",
         "origin": "Machinist",
@@ -50830,7 +50985,7 @@
         "formula": "80% (PATK + DEX)",
         "link": "http://www.alchemistcodedb.com/jp/unit/shirma#マシーナリー・ディアナ",
         "inputs": [
-            "Machinist: WIND",
+            "Machinist: Wind",
             "Machinery・Diana"
         ]
     },

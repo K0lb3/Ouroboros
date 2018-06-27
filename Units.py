@@ -119,30 +119,50 @@ def Units():
     jpc = convertMaster(jp)
     jpS = json.dumps(jp)
 
+    mainc_=convertMaster(gl)
+    mainc_.update(jpc)
+
     units = {}
 
-    ulist= convertSubMaster(jp['Unit'])
-    ulist.update(convertSubMaster(gl['Unit']))
-
-    for iname,unit in ulist.items():
-        if unit['ai'] != 'AI_PLAYER':
+    #create unit list
+    unit_list={}
+    for unit in jp['Unit']:
+        if unit['ai'] != "AI_PLAYER":
+            print('End at: ', unit['iname'])
             break
-        [main, mainc]= [gl, glc] if iname in glc else [jp, jpc]
+        unit_list[unit['iname']]=unit
 
+    for unit in gl['Unit']:
+        if 'UN_V2_' not in unit['iname']:
+            print('End at: ', unit['iname'])
+            break
+        if unit['ai'] != "AI_PLAYER":
+            print('End at: ', unit['iname'])
+            break
+        if unit['iname'] not in unit_list:
+            unit_list[unit['iname']]=unit
+        else:
+            unit_list[unit['iname']].update(unit)
+
+
+
+
+    for iname,unit in unit_list.items():
+        [main, mainc]= [gl, glc] if iname in glc else [jp, jpc]
         units[iname] = {
             'iname': iname,
-            'name': FAN[iname]['official'],
+            'name': FAN[iname]['official'] if iname in FAN else "",
             'inofficial': FAN[iname]['inofficial'] if iname in FAN else "",
             'gender': "♀" if (unit['sex']-1) else "♂" if (unit['sex']) else "/",
             'element': element(unit['elem']).title() if 'elem' in unit else "/",
             'country': birth[unit['birth']] if 'birth' in unit else "/",
-            'collab':  FAN[iname]['collab'],
-            'collab short': FAN[iname]['collab_short'],
+            'collab':  FAN[iname]['collab'] if iname in FAN else "",
+            'collab short': FAN[iname]['collab_short'] if iname in FAN else "",
             'rarity': rarity(unit['rare'], unit['raremax']),
             'icon': 'http://cdn.alchemistcodedb.com/images/units/profiles/' + unit["img"] + ".png",
             'farm': pieces[unit['piece']] if ('piece' in unit and unit['piece'] in pieces) else [],
-            'leader skill': buff(mainc[mainc[unit['ls6']]['t_buff']], 2, 2) if ('ls6' in unit) and ('t_buff' in mainc[unit['ls6']]) else "/",
-            'master ability': master_ability(unit, mainc, loc) if 'ability' in unit else "",
+            'leader skill': buff(mainc_[mainc_[unit['ls6']]['t_buff']], 2, 2) if ('ls6' in unit) and ('t_buff' in mainc_[unit['ls6']]) else "/",
+            'master ability': master_ability(unit, mainc_, loc) if 'ability' in unit else "",
             # 'shard quests': drops[unit['piece']],
             'link': 'http://www.alchemistcodedb.com/' + (''if iname in glc else 'jp/') + 'unit/' + iname.replace('UN_V2_', "").replace('_', "-").lower(),
             'job 1': "",
@@ -152,7 +172,7 @@ def Units():
             'jc 2': "",
             'jc 3': "",
             'inputs': [],
-            "stats":    calc_stat_grow(unit, main, 85),
+            "stats":   calc_stat_grow(unit, main, 85),
             "max_stats":   {},
             "min_stats":   {},
         }
@@ -171,6 +191,7 @@ def Units():
             "luk":  "LUCK",
         }
         for stat in stats:
+            units[iname]['stats'][stats[stat]] = unit['m'+stat]
             units[iname]['max_stats'][stats[stat]] = unit['m'+stat]
             units[iname]['min_stats'][stats[stat]] = unit[stat]
 
@@ -184,11 +205,11 @@ def Units():
             ({'name': "default", 'full': art_link+unit['img']+'.png', 'closeup':art_link+unit['img']+'-closeup.png'})]
         if 'skins' in unit:
             for s in unit['skins']:
-                if jpc[s]['asset'] != 'unique':
+                if mainc_[s]['asset'] != 'unique':
                     units[iname]['artworks'].append({
                         'name':     loc[s]['name'] if s in loc else s[(7+len(unit['img'])):].replace('-', ' ').title(),
-                        'full':     art_link+unit['img'] + '_' + jpc[s]['asset']+'.png',
-                        'closeup':  art_link+unit['img'] + '_' + jpc[s]['asset']+'-closeup.png',
+                        'full':     art_link+unit['img'] + '_' + mainc_[s]['asset']+'.png',
+                        'closeup':  art_link+unit['img'] + '_' + mainc_[s]['asset']+'-closeup.png',
                     })
 
         if (jpS.find('AF_SK_' + unit['img'].upper() + '_BABEL')+1):
@@ -202,7 +223,7 @@ def Units():
         j = 1
         if 'jobsets' in unit:
             for i in unit['jobsets']:
-                job = jpc[i]['job']
+                job = mainc_[i]['job']
 
                 if job not in loc:
                     mjob[job] = {'unit': iname, 'name': ""}
@@ -221,7 +242,7 @@ def Units():
     for js in jp['JobSet']:
         if 'cjob' in js:
             j = 0
-            for i in jpc[js['target_unit']]['jobsets']:
+            for i in mainc_[js['target_unit']]['jobsets']:
                 j += 1
                 if i == js['cjob']:
                     try:

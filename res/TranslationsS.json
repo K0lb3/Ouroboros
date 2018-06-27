@@ -1477,7 +1477,7 @@
     },
     "JB_LNC_TINATSU": {
         "iname": "JB_LNC_TINATSU",
-        "name": "Machinist: Tinatsuᴶ",
+        "name": "Machinist: Tinatsu",
         "japan": "Machinery・Partizan\nマシーナリー・パルチザン",
         "kanji": "マシーナリー・パルチザン",
         "short des": "",
@@ -1486,7 +1486,7 @@
     },
     "JB_LNC_THUNDER": {
         "iname": "JB_LNC_THUNDER",
-        "name": "Machinist: Thunderᴶ",
+        "name": "Machinist: Thunder",
         "japan": "Machinery・Oriaga\nマシーナリー・オレアガ",
         "kanji": "マシーナリー・オレアガ",
         "short des": "thunder focus",
@@ -1495,7 +1495,7 @@
     },
     "JB_LNC_WIND": {
         "iname": "JB_LNC_WIND",
-        "name": "Machinist: Windᴶ",
+        "name": "Machinist: Wind",
         "japan": "Machinery・Diana\nマシーナリー・ディアナ",
         "kanji": "マシーナリー・ディアナ",
         "short des": "wind focus",
@@ -1567,7 +1567,7 @@
     },
     "JB_MAD_ATK": {
         "iname": "JB_MAD_ATK",
-        "name": "Magic Marksman: ATKᴶ",
+        "name": "Magic Marksman: ATK",
         "japan": "Magia Controller: Requiem\n魔弾操師【レクイエム】",
         "kanji": "魔弾操師【レクイエム】",
         "short des": "",
@@ -1576,7 +1576,7 @@
     },
     "JB_MAD_MDEF": {
         "iname": "JB_MAD_MDEF",
-        "name": "Magic Marksman: MDEFᴶ",
+        "name": "Magic Marksman: MDEF",
         "japan": "Magia Controller: Symphony\n魔弾操師【シンフォニー】",
         "kanji": "魔弾操師【シンフォニー】",
         "short des": "",
@@ -1585,7 +1585,7 @@
     },
     "JB_MAD_DEF": {
         "iname": "JB_MAD_DEF",
-        "name": "Magic Marksman: DEFᴶ",
+        "name": "Magic Marksman: DEF",
         "japan": "Magia Controller: Serenade\n魔弾操師【セレナーデ】",
         "kanji": "魔弾操師【セレナーデ】",
         "short des": "",
@@ -2395,7 +2395,7 @@
     },
     "JB_STRB_SHINE": {
         "iname": "JB_STRB_SHINE",
-        "name": "Desert Inferno: Dawnᴶ",
+        "name": "Desert Inferno: Dawn",
         "japan": "Twillight Rakshasa\n暁光羅刹",
         "kanji": "暁光羅刹",
         "short des": "",
@@ -2639,7 +2639,7 @@
     },
     "JB_SHINE_WED_F": {
         "iname": "JB_SHINE_WED_F",
-        "name": "Pure Brideᴶ",
+        "name": "Pure Bride",
         "japan": "N/A",
         "kanji": "純白の花嫁",
         "short des": "light focus",
@@ -2648,7 +2648,7 @@
     },
     "JB_LUCRE_WED_F": {
         "iname": "JB_LUCRE_WED_F",
-        "name": "Bride+ᴶ",
+        "name": "Bride+",
         "japan": "N/A",
         "kanji": "電撃の花嫁",
         "short des": "",
@@ -2666,7 +2666,7 @@
     },
     "JB_FIRE_WED_M": {
         "iname": "JB_FIRE_WED_M",
-        "name": "Passionate Bridegroomᴶ",
+        "name": "Passionate Bridegroom",
         "japan": "N/A",
         "kanji": "情熱の花婿",
         "short des": "fire focus",
@@ -2675,7 +2675,7 @@
     },
     "JB_SHINE_WED_M": {
         "iname": "JB_SHINE_WED_M",
-        "name": "Pure Bridegroomᴶ",
+        "name": "Pure Bridegroom",
         "japan": "N/A",
         "kanji": "純白の花婿",
         "short des": "light focus",
