@@ -37,10 +37,11 @@ class Job(Model):
             if key.lower() not in Job._IGNORE_STATS
         ]
 
-        jm_values = [
-            "{key}: {value}{mod}".format(key=value['stat'], value=value['value'],mod=value['mod'])
-            for value in getattr(self,'job master buff')
+        jm_values=[
+            '{stat}: {value}%'.format(stat=stat, value=int(value*100))
+            for stat,value in getattr(self,"job master buff").items()
         ]
+
 
         fields = [
             {'name': 'description', 'value': getattr(self, 'long description'), 'inline': False},
@@ -48,8 +49,8 @@ class Job(Model):
             'weapon','origin',
             {'name': 'move',        'value': self.stats['Move']},
             {'name': 'jump',        'value': self.stats['Jump']},
-            {'name': 'modifiers',   'value': ' , '.join(modifiers), 'inline': False},
             {'name': 'JM bonus',    'value': ' , '.join(jm_values), 'inline':False},
+            {'name': 'modifiers',   'value': ' , '.join(modifiers), 'inline': False},
             {'name': 'stats (without JM bonus)',       'value': '\n'.join(stats)},
             {'name': 'units',       'value': '\n'.join(self.units)},
         ]

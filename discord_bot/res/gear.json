@@ -1204,10 +1204,10 @@
             "5": "+35 PATK & +15 DEX & +10 CRIT"
         },
         "atk_buff": {
-            "2": "Target: Slow [12%]",
-            "3": "Target: Slow [13%]",
-            "4": "Target: Slow [14%]",
-            "5": "Target: Slow [15%]"
+            "2": "Target: Delay [12%]",
+            "3": "Target: Delay [13%]",
+            "4": "Target: Delay [14%]",
+            "5": "Target: Delay [15%]"
         }
     },
     "AF_ARMS_SHE_TAROT": {
@@ -1241,10 +1241,10 @@
             "5": "+35 MATK & +20 MDEF & +20 Max Jewels"
         },
         "atk_buff": {
-            "2": "Target: Disable Move [12%]",
-            "3": "Target: Disable Move [13%]",
-            "4": "Target: Disable Move [14%]",
-            "5": "Target: Disable Move [15%]"
+            "2": "Target: Bind [12%]",
+            "3": "Target: Bind [13%]",
+            "4": "Target: Bind [14%]",
+            "5": "Target: Bind [15%]"
         }
     },
     "AF_ARMS_KUNAI_02": {
@@ -1438,9 +1438,9 @@
             "5": "+35 PATK & +15 DEX"
         },
         "atk_buff": {
-            "3": "Target: Slow [33%]",
-            "4": "Target: Slow [36%]",
-            "5": "Target: Slow [40%]"
+            "3": "Target: Delay [33%]",
+            "4": "Target: Delay [36%]",
+            "5": "Target: Delay [40%]"
         }
     },
     "AF_ARMS_AXE_02": {
@@ -1531,9 +1531,9 @@
             "5": "+20 PATK & +20 DEX & +5 AGI"
         },
         "atk_buff": {
-            "3": "Target: Disable Attack [19%]",
-            "4": "Target: Disable Attack [22%]",
-            "5": "Target: Disable Attack [25%]"
+            "3": "Target: Daze [19%]",
+            "4": "Target: Daze [22%]",
+            "5": "Target: Daze [25%]"
         }
     },
     "AF_ARMS_MONZ_AXE": {
@@ -2469,8 +2469,8 @@
             "5": "+45 PATK & +45 DEX & +10 AGI"
         },
         "atk_buff": {
-            "4": "Target: Paralysed [50%]",
-            "5": "Target: Paralysed [50%]"
+            "4": "Target: Paralyze [50%]",
+            "5": "Target: Paralyze [50%]"
         }
     },
     "AF_ARMS_THI_03": {
@@ -2561,9 +2561,9 @@
             "5": "+20 Max Jewels & +30 MATK & +5 AGI"
         },
         "atk_buff": {
-            "3": "Target: Slow [33%]",
-            "4": "Target: Slow [36%]",
-            "5": "Target: Slow [40%]"
+            "3": "Target: Delay [33%]",
+            "4": "Target: Delay [36%]",
+            "5": "Target: Delay [40%]"
         }
     },
     "AF_ARMS_HAMMER_02": {
@@ -4316,7 +4316,7 @@
             "5": "+30 PATK & +30 MATK & +30 MDEF"
         },
         "atk_buff": {
-            "5": "Target: Slow [15%]"
+            "5": "Target: Delay [15%]"
         }
     },
     "AF_ARMS_FF15_INGI_01": {
@@ -4712,9 +4712,9 @@
             "5": "+25 MATK & +50 HP"
         },
         "atk_buff": {
-            "3": "Target: Disable Move [33%]",
-            "4": "Target: Disable Move [36%]",
-            "5": "Target: Disable Move [40%]"
+            "3": "Target: Bind [33%]",
+            "4": "Target: Bind [36%]",
+            "5": "Target: Bind [40%]"
         }
     },
     "AF_ARMS_RH_ERUK_01": {
@@ -5085,7 +5085,7 @@
             "5": "+30 MATK & +5 Evasion Rate & +20 Max Jewels"
         },
         "atk_buff": {
-            "5": "Self: Auto Jewel [30%]"
+            "5": "Self: Jewel Auto Charge [30%]"
         }
     },
     "AF_ARMS_SAM_04": {
@@ -5392,9 +5392,9 @@
             "5": "+30 MATK & +7 AGI & +20 LUCK"
         },
         "atk_buff": {
-            "3": "Target: Disable Attack [20%]",
-            "4": "Target: Disable Attack [20%]",
-            "5": "Target: Disable Attack [20%]"
+            "3": "Target: Daze [20%]",
+            "4": "Target: Daze [20%]",
+            "5": "Target: Daze [20%]"
         }
     },
     "AF_ARMS_SPE_04": {
@@ -6105,6 +6105,37 @@
         ],
         "stats": {
             "5": "+15 MDEF & +25 Water Res & +6 Jewels Obtained"
+        },
+        "atk_buff": {}
+    },
+    "AF_ACCS_GL_SIEG_HAT": {
+        "iname": "AF_ACCS_GL_SIEG_HAT",
+        "type": "Accessory",
+        "name": "Wanderer's Hat",
+        "expr": "Attributes: HP Up, Status Res Up, Max Jewel Up, Luck Up",
+        "spec": "No requirements to equip",
+        "flavor": "A durable and useful hat that protects the wearer while on a long journey. This one seems to have a special enchantment on it.",
+        "tag": "Earring",
+        "rarity": "★★★☆☆",
+        "link": "http://www.alchemistcodedb.com/gear/af-accs-gl-sieg-hat",
+        "icon": "http://cdn.alchemistcodedb.com/images/items/icons/AF_ACCS_GL_SIEG_HAT.png",
+        "inputs": [
+            "Sieg",
+            "Wanderer's Hat"
+        ],
+        "ability": [
+            {
+                "name": "Winds of Favor",
+                "expr": "Raises Evasion rate and Slash ATK for 3 Turns",
+                "mapeff": " ",
+                "restriction": "Sieg",
+                "iname": "SK_AF_ACCS_GL_SIEG_HAT_WA"
+            }
+        ],
+        "stats": {
+            "3": "+68 HP & +7% All Statuses & +14 Initial Jewels & +3 LUCK & +13 Max Jewels",
+            "4": "+84 HP & +8% All Statuses & +17 Initial Jewels & +4 LUCK & +14 Max Jewels",
+            "5": "+100 HP & +10% All Statuses & +20 Initial Jewels & +5 LUCK & +15 Max Jewels"
         },
         "atk_buff": {}
     }

@@ -109,28 +109,28 @@ class Unit(Model):
 
         #modifiers
         modifiers = [
-            "{key}: {value}%".format(key=key, value=value)
+            "{key}: {value}%".format(key=key, value=str(value))
             for key, value in job.modifiers.items()
             if value != 0
             ]
 
         #stats
-        #combine stats
+        #unit stats * job-modifier
         rstats={}
-        rstats.update(getattr(self,'stats'))
-        for key, value in job.stats.items():
-            if key.lower() not in _IGNORE_STATS:
-                if key in rstats:
-                    rstats[key] += int(value*84/99)
-                else:
-                    rstats[key] = int(value*84/99)
+        for key, value in self.stats.items():
+            if key in job.modifiers:
+                rstats[key] = int(value*(100+job.modifiers[key])/100)
+            else:
+                rstats[key] = value
 
-        #multiply with modifiers
-        for key, value in job.modifiers.items():
+        rstats['Initial Jewels'] = int(rstats['Max Jewels']*(100+job.modifiers['Initial Jewels'])/100)
+
+        #dd job stats
+        for key, value in job.stats.items():
             if key in rstats:
-                rstats[key] = int(rstats[key]*(value+100)/100)
-            elif key=='Initial Jewels':
-                rstats[key] = int(rstats['Max Jewels']*(value)/100)
+                rstats[key] += value
+            else:
+                rstats[key] = value
                 
 
         #transform to output
@@ -139,9 +139,9 @@ class Unit(Model):
             for key, value in rstats.items()
         ]
         
-        jm_values = [
-            "{key}: {value}{mod}".format(key=value['stat'], value=value['value'],mod=value['mod'])
-            for value in getattr(job,'job master buff')
+        jm_values=[
+            '{stat}: {value}%'.format(stat=stat, value=int(value*100))
+            for stat,value in getattr(job,"job master buff").items()
         ]
 
         fields = [
