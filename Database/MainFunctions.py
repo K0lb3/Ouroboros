@@ -610,7 +610,7 @@ def name_collab(iname, loc):
 
     # collab
     collabs = {
-        'GL':   ['Global', 'Global Exclusive'],
+        #'GL':   ['Global', 'Global Exclusive'],
         'FATE': ['Fate', 'Fate/Stay Night [UBW]'],
         'FA': ['FA', 'Fullmetal Alchemist'],
         'RH': ['RH', 'Radiant Historia'],

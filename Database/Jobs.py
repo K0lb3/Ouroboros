@@ -237,7 +237,7 @@ def jobs():
                     except KeyError:
                         pass
                 # add unit to list
-                n_c = name_collab(uiname, loc)
+                n_c = name_collab(uiname, loc)    
                 jobs[job]['units'].append((n_c[0]+' '+n_c[2]).rstrip(' '))
 
                 # add link

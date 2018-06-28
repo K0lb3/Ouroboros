@@ -5076,7 +5076,7 @@
             "Margaret",
             "Neica",
             "Scheherazade",
-            "Sieg Global",
+            "Siegfried",
             "Nasario",
             "Lahar DIS",
             "Olga",
@@ -6024,7 +6024,7 @@
             "Shekinah",
             "Forcas",
             "Eizan",
-            "Sieg Global",
+            "Siegfried",
             "Basheeny",
             "Daisy",
             "Lotia",
@@ -14527,7 +14527,7 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_SOL.png",
         "origin": "Twin-Blade Swordsman",
         "units": [
-            "Sieg Global"
+            "Siegfried"
         ],
         "jobe": [],
         "main": {
@@ -14648,8 +14648,8 @@
         "formula": "140% PATK",
         "link": "http://www.alchemistcodedb.com/unit/glsieg#wandering-swordsman",
         "inputs": [
-            "Sieg Global",
-            "Sieg Global Wandering Swordsman",
+            "Siegfried",
+            "Siegfried Wandering Swordsman",
             "Wandering Swordsman"
         ]
     },
