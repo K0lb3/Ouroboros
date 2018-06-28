@@ -123,7 +123,7 @@ class Unit(Model):
             else:
                 rstats[key] = value
 
-        rstats['Initial Jewels'] = int(rstats['Max Jewels']*(100+job.modifiers['Initial Jewels'])/100)
+        rstats['Initial Jewels'] = int(rstats['Max Jewels']*job.modifiers['Initial Jewels']/100)
 
         #dd job stats
         for key, value in job.stats.items():
