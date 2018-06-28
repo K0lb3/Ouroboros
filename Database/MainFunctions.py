@@ -6,7 +6,7 @@ import math
 import requests
 import re
 import jellyfish
-from SkillParam import convert_raw_skill
+from convertRawData import *
 
 re_job = re.compile(r'^([^_]*)_([^_]*)_(.*)$')
 ReBr = re.compile(r'(\s+)?(\n)?(\[|\『|\().*')
@@ -427,23 +427,17 @@ def condition(cond, lv,  mlv):
     if len(SYS)==0:
         [SYS]=loadFiles(['sys.json'])
 
-    pre='Resist_' if cond['type']<2 else 'Assist_'
-    EnchantTypes=ENUM['EnchantTypes']
-
-    text=', '.join([
-        SYS[pre+EnchantTypes[c]]
-        for c in cond['conds']
-    ])
+    cond=convRawCondition(cond,SYS,ENUM)
 
     if 'rini' in cond and cond['rini'] < 999:
         rate = math.floor(
             cond['rini'] + ((cond['rmax']-cond['rini']) / (mlv-1) * (lv-1)))
         if len(cond['conds'])<6:
-            return('{cond} [{rate}%]'.format(rate=rate,cond=text))
+            return('{cond} [{rate}%]'.format(rate=rate,cond=', '.join(cond['conds'])))
         else:
-            return('[{rate}%] {cond}'.format(rate=rate,cond=text))
+            return('[{rate}%] {cond}'.format(rate=rate,cond=', '.join(cond['conds'])))
     else:
-        return(text)
+        return(', '.join(cond['conds']))
 
 def calc_stat_grow(item, master, lv):
     global Grow_Curves
@@ -527,38 +521,7 @@ def GSSUpload(obj, sheet, id='1wze5mJCLeTZtBJiCrlOL4UMqUqc9mdBO_3siL2JtI3w'):
         print(response.status_code, response.reason)  # HTTPs
 
 def dmg_formula(weaponParam):
-    WeaponFormulaTypes = {
-        0: "None",
-        1: "Atk",
-        2: "Mag",
-        3: "AtkSpd",
-        4: "MagSpd",
-        5: "AtkDex",
-        6: "MagDex",
-        7: "AtkLuk",
-        8: "MagLuk",
-        9: "AtkMag",
-        10: "SpAtk",
-        11: "SpMag",
-        12: "AtkSpdDex",
-        13: "MagSpdDex",
-        14: "AtkDexLuk",
-        15: "MagDexLuk",
-        16: "Luk",
-        17: "Dex",
-        18: "Spd",
-        19: "Cri",
-        20: "Def",
-        21: "Mnd",
-        22: "AtkRndLuk",
-        23: "MagRndLuk",
-        24: "AtkEAt",
-        25: "MagEMg",
-        26: "AtkDefEDf",
-        27: "MagMndEMd",
-        28: "LukELk",
-        29: "MHp",
-    }
+    WeaponFormulaTypes = ENUM['WeaponFormulaTypes']
 
     def modifier(num):
         return str(int(num*100))+"%"
@@ -593,7 +556,7 @@ def dmg_formula(weaponParam):
         "LukELk":    modifier(weaponParam['atk']/10) + " (2*LUCK - Target's LUCK)",
         "AtkDefEDf": modifier(weaponParam['atk']/10) + " (PATK + PDEF - Target's PDEF)",
         "MagMndEMd": modifier(weaponParam['atk']/10) + " (MATK + MDEF - Target's MDEF)",
-        #default = PATK;
+        #default = PATK
     }
 
     return Formulas[WeaponFormulaTypes[weaponParam['formula']]]
@@ -742,7 +705,7 @@ def FanTranslatedNames(wyte, master, loc):
     return(found)
 
 def Skill_GenericDescription(skl,masterc,loc):
-    skill=convert_raw_skill(skl,loc,ENUM)
+    skill=convertRawSkill(skl,loc,ENUM)
     try:
         effect_type=skill['effect_type']
     except:
@@ -757,17 +720,39 @@ def Skill_GenericDescription(skl,masterc,loc):
         except:
             return ''
 
-    def range():
-        try:
-            return 'Range: {area} ({range})'.format(area=skill['select_range'], range=skill['range_max'])
-        except:
-            pass
+    def span():
+        text=[]
+        if 'range_max' in skill:
+            r ='Range: '
+            if 'select_range' in skill:
+                r+='{area} ({range})'.format(area=str(skill['select_range']),range=skill['range_max'])
+            else:
+                r+=str(skill['range_max'])
+            text.append(r)
+        if 'effect_height' in skill:
+            text.append('Height: {height}'.format(height=str(skill['effect_height'])))
+        if 'scope' in skill:
+            r ='Area: '
+            if 'select_scope' in skill:
+                r+='{area} ({range})'.format(area=str(skill['select_scope']),range=skill['scope'])
+            else:
+                r+=str(skill['scope'])
+            text.append(r)
+        return('[{text}]'.format(text=', '.join(text)))
 
-    def area():
-        try:
-            return ', Scope: {area} ({range})'.format(area=skill['select_scope'], range=skill['scope'])
-        except:
-            pass
+    def de_buffs():
+        text=[]
+        #Buff
+        if 'self_buff_iname' in skill:
+            text.append('Self: '+buff(masterc[skill['self_buff_iname']],2,2))
+        if 'target_buff_iname' in skill:
+            text.append('Target: '+buff(masterc[skill['target_buff_iname']],2,2))
+        #Condition
+        if 'self_cond_iname' in skill:
+            text.append('Self: '+condition(masterc[skill['self_cond_iname']],2,2))
+        if 'target_cond_iname' in skill:
+            text.append('Target: '+condition(masterc[skill['target_cond_iname']],2,2))
+        return(text)
 
 
     #if effect_type == "Equipment":
@@ -775,27 +760,29 @@ def Skill_GenericDescription(skl,masterc,loc):
     if effect_type == "Attack": #"Inflicts Thunder Mag Dmg (High) on units within target area [Range: 4, Area: Diamond (5), Height Range: 2]",
         #skill['type'] == 'Attack'
         try:
-            desc='{mod}% {element} {type} Dmg [{range}{height}{area}]'.format(
+            desc='{mod}% {element} {type} Dmg {span}\n{buffs}'.format(
                 mod=str(skill["effect_value.max"]+100), element=s('element_type'), type=s("attack_detail"), 
-                range=s("range_max",'Range: ',''), height=s("effect_height",', Height: ',''), area=s("select_scope",', Area: ')
+                span=span(), buffs='\n'.join(de_buffs())
             )
-        except:
+        except KeyError:
             pass #reaction
     if effect_type == "Defend":
         desc='Blocks {value} {dmg}{chance}'.format(
             value=s('effect_value.max','','%'),
             dmg=s('reaction_damage_type').replace('Total','').replace('Damage',' Dmg').replace('Phy','Phys'),
-            chance=s('effect_rate.max',' [Chance: ','%]')
+            chance=s('effect_rate.max',' [','% Chance]')
         )
     if effect_type == "Heal":
         try: #heal
-            desc='Heals {mod}% Formula [{range}{height}{area}]'.format(
+            desc='Heals {mod}% Scaling {span}'.format(
                 mod=str(skill["effect_value.max"]+100), 
-                range=range(), height=s("effect_height",', Height: ',''), area=area()
+                span=span()
             )
-        except: #prof heal ~ panacea
-            pass
-
+        except KeyError: #prof heal ~ panacea
+            desc='{buff} {span}'.format(
+                buff= de_buffs(), 
+                span=span()
+            )
     #if effect_type == "Buff":
         #desc=''.formart()()
     #if effect_type == "Debuff":
@@ -844,16 +831,7 @@ def Skill_GenericDescription(skl,masterc,loc):
         #desc=''.formart()()
     #if effect_type == "RateDamageCurrent":
         #desc=''.formart()()
-    #Buff
-    if 'self_buff_iname' in skill:
-        desc+='\nSelf: '+buff(masterc[skill['self_buff_iname']],2,2)
-    if 'target_buff_iname' in skill:
-        desc+='\nTarget: '+buff(masterc[skill['target_buff_iname']],2,2)
-    #Condition
-    if 'self_cond_iname' in skill:
-        desc+='\nSelf: '+condition(masterc[skill['self_cond_iname']],2,2)
-    if 'target_cond_iname' in skill:
-        desc+='\nTarget: '+condition(masterc[skill['target_cond_iname']],2,2)
+
     #add to expr
     if desc!= "":
         if 'expr' in skill:
