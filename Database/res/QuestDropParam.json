@@ -6507,7 +6507,10 @@
         "IT_EQ_SOUL_ENC",
         "IT_EQ_SOUL_GEN",
         "IT_EQ_SOUL_DOC",
-        "IT_EQ_SOUL_DAI"
+        "IT_EQ_SOUL_DAI",
+        "IT_EQ_SOUL_SEN",
+        "IT_EQ_SOUL_HWIZ",
+        "IT_EQ_SOUL_SYO"
       ]
     },
     {
@@ -6632,7 +6635,10 @@
         "IT_EQ_SOUL_ENC",
         "IT_EQ_SOUL_GEN",
         "IT_EQ_SOUL_DOC",
-        "IT_EQ_SOUL_DAI"
+        "IT_EQ_SOUL_DAI",
+        "IT_EQ_SOUL_SEN",
+        "IT_EQ_SOUL_HWIZ",
+        "IT_EQ_SOUL_SYO"
       ]
     },
     {
@@ -18234,7 +18240,7 @@
       "begin_at": "2014/04/10 10:00:00",
       "end_at": "2114/04/12 10:00:00",
       "droplist": [
-        "IT_PI_GATH"
+        "IT_PI_FLAMEL"
       ]
     },
     {
@@ -18618,7 +18624,7 @@
       "begin_at": "2014/04/10 10:00:00",
       "end_at": "2114/04/12 10:00:00",
       "droplist": [
-        "IT_PI_RIGARUTO"
+        "IT_PI_KURAJU"
       ]
     },
     {
@@ -18674,7 +18680,7 @@
       "begin_at": "2014/04/10 10:00:00",
       "end_at": "2114/04/12 10:00:00",
       "droplist": [
-        "IT_PI_GAIN"
+        "IT_PI_VINCENT"
       ]
     },
     {
@@ -24978,6 +24984,193 @@
         "IT_EQ_DIAGRAMPIECE_DOC_TYPE_CHARM",
         "IT_US_JOB_COIN"
       ]
+    },
+    {
+      "iname": "QE_EV_GL_MH_01_01",
+      "begin_at": "2014/04/10 10:00:00",
+      "end_at": "2114/04/12 10:00:00",
+      "droplist": [
+        "IT_EQ_ATK_WOODENSWORD",
+        "IT_EQ_DIAGRAM_VEST",
+        "IT_EQ_DIAGRAM_PEN",
+        "IT_EQ_SPD_FEATHER",
+        "IT_EQ_LUK_SILVERCOIN",
+        "IT_EQ_CRI_NEEDLE"
+      ]
+    },
+    {
+      "iname": "QE_EV_GL_MH_01_02",
+      "begin_at": "2014/04/10 10:00:00",
+      "end_at": "2114/04/12 10:00:00",
+      "droplist": [
+        "IT_EQ_ATK_MACE",
+        "IT_EQ_DIAGRAM_VEST",
+        "IT_EQ_DIAGRAM_PEN",
+        "IT_EQ_MAG_BRANCH",
+        "IT_EQ_DIAGRAM_GROVE",
+        "IT_EQ_HP_CAP"
+      ]
+    },
+    {
+      "iname": "QE_EV_GL_MH_01_03",
+      "begin_at": "2014/04/10 10:00:00",
+      "end_at": "2114/04/12 10:00:00",
+      "droplist": [
+        "IT_EQ_ATK_SABER",
+        "IT_EQ_DEF_MANTLE",
+        "IT_EQ_DEX_INK",
+        "IT_EQ_SPD_GEAR",
+        "IT_EQ_LUK_KEY",
+        "IT_EQ_SPD_FEATHER",
+        "IT_EQ_HP_CAP"
+      ]
+    },
+    {
+      "iname": "QE_EV_GL_MH_01_04",
+      "begin_at": "2014/04/10 10:00:00",
+      "end_at": "2114/04/12 10:00:00",
+      "droplist": [
+        "IT_EQ_ATK_SABER",
+        "IT_EQ_DEF_MANTLE",
+        "IT_EQ_DEX_INK",
+        "IT_EQ_MAG_WAND",
+        "IT_EQ_MND_CHARM",
+        "IT_EQ_DIAGRAM_EARRING"
+      ]
+    },
+    {
+      "iname": "QE_EV_GL_MH_01_05",
+      "begin_at": "2014/04/10 10:00:00",
+      "end_at": "2114/04/12 10:00:00",
+      "droplist": [
+        "IT_EQ_ATK_SABER",
+        "IT_EQ_PIECE_SHELM",
+        "IT_EQ_DEX_INK",
+        "IT_EQ_DIAGRAM_GETA",
+        "IT_EQ_DIAGRAM_RABBIT",
+        "IT_EQ_CRI_DAGGER"
+      ]
+    },
+    {
+      "iname": "QE_EV_GL_MH_01_06",
+      "begin_at": "2014/04/10 10:00:00",
+      "end_at": "2114/04/12 10:00:00",
+      "droplist": [
+        "IT_EQ_PIECE_LANCE",
+        "IT_EQ_PIECE_SHELM",
+        "IT_EQ_PIECE_FURO",
+        "IT_EQ_MAG_MAGICWAND",
+        "IT_EQ_MND_CHARM",
+        "IT_EQ_HP_CAP",
+        "IT_EQ_PIECE_SABER"
+      ]
+    },
+    {
+      "iname": "QE_EV_GL_MH_01_07",
+      "begin_at": "2014/04/10 10:00:00",
+      "end_at": "2114/04/12 10:00:00",
+      "droplist": [
+        "IT_EQ_PIECE_LANCE",
+        "IT_EQ_PIECE_SHELM",
+        "IT_EQ_PIECE_FURO",
+        "IT_EQ_DIAGRAMPIECE_SHINOBI",
+        "IT_EQ_DIAGRAM_CHOKER",
+        "IT_EQ_CRI_DAGGER",
+        "IT_EQ_DIAGRAM_SMALL"
+      ]
+    },
+    {
+      "iname": "QE_EV_GL_MH_01_08",
+      "begin_at": "2014/04/10 10:00:00",
+      "end_at": "2114/04/12 10:00:00",
+      "droplist": [
+        "IT_EQ_PIECE_LANCE",
+        "IT_EQ_PIECE_SHIELD",
+        "IT_EQ_PIECE_FURO",
+        "IT_EQ_MAG_MAGICWAND",
+        "IT_EQ_MND_CHARM",
+        "IT_EQ_DIAGRAM_EARRING",
+        "IT_EQ_DIAGRAMPIECE_BELT",
+        "IT_EQ_GL_DIAGRAMPIECE_WSMCOAT"
+      ]
+    },
+    {
+      "iname": "QE_EV_GL_MH_01_09",
+      "begin_at": "2014/04/10 10:00:00",
+      "end_at": "2114/04/12 10:00:00",
+      "droplist": [
+        "IT_EQ_GL_DIAGRAMPIECE_WSMCOAT",
+        "IT_EQ_PIECE_SWORD",
+        "IT_EQ_PIECE_SHIELD",
+        "IT_EQ_DIAGRAMPIECE_COMPASS",
+        "IT_EQ_PIECE_MACHINEWING",
+        "IT_EQ_PIECE_LANCE",
+        "IT_EQ_DIAGRAM_SMALL",
+        "IT_EQ_DIAGRAMPIECE_BELT"
+      ]
+    },
+    {
+      "iname": "QE_EV_GL_MH_01_10",
+      "begin_at": "2014/04/10 10:00:00",
+      "end_at": "2114/04/12 10:00:00",
+      "droplist": [
+        "IT_EQ_GL_DIAGRAMPIECE_WSMCOAT",
+        "IT_EQ_PIECE_SWORD",
+        "IT_EQ_PIECE_SHIELD",
+        "IT_EQ_DIAGRAMPIECE_COMPASS",
+        "IT_EQ_PIECE_MACHINEWING",
+        "IT_EQ_PIECE_LANCE",
+        "IT_EQ_DIAGRAM_CHOKER"
+      ]
+    },
+    {
+      "iname": "QE_EV_GL_MH_01_EX",
+      "begin_at": "2014/04/10 10:00:00",
+      "end_at": "2114/04/12 10:00:00",
+      "droplist": [
+        "IT_EQ_GL_DIAGRAMPIECE_WSMCOAT",
+        "IT_EQ_PIECE_SWORD",
+        "IT_EQ_PIECE_SHIELD",
+        "IT_EQ_DIAGRAMPIECE_COMPASS",
+        "IT_EQ_PIECE_MACHINEWING",
+        "IT_EQ_PIECE_LANCE",
+        "IT_EQ_DIAGRAM_SMALL",
+        "IT_EQ_DIAGRAM_CHOKER",
+        "IT_EQ_PIECE_ARMOR",
+        "IT_AF_ACCS_GL_SIEG_HAT"
+      ]
+    },
+    {
+      "iname": "QE_EV_GL_MH_01_EX_BOSS1",
+      "begin_at": "2014/04/10 10:00:00",
+      "end_at": "2114/04/12 10:00:00",
+      "droplist": [
+        "IT_EQ_GL_DIAGRAMPIECE_WSMCOAT"
+      ]
+    },
+    {
+      "iname": "QE_EV_GL_MH_01_EX_BOSS2",
+      "begin_at": "2014/04/10 10:00:00",
+      "end_at": "2114/04/12 10:00:00",
+      "droplist": [
+        "IT_AF_ACCS_GL_SIEG_HAT"
+      ]
+    },
+    {
+      "iname": "QE_EV_GL_MH_01_MULTI_EX",
+      "begin_at": "2014/04/10 10:00:00",
+      "end_at": "2114/04/12 10:00:00",
+      "droplist": [
+        "IT_EQ_GL_DIAGRAMPIECE_WSMCOAT",
+        "IT_EQ_PIECE_SWORD",
+        "IT_EQ_PIECE_SHIELD",
+        "IT_EQ_DIAGRAMPIECE_COMPASS",
+        "IT_EQ_PIECE_MACHINEWING",
+        "IT_EQ_PIECE_LANCE",
+        "IT_EQ_DIAGRAM_SMALL",
+        "IT_EQ_DIAGRAM_CHOKER",
+        "IT_EQ_PIECE_ARMOR"
+      ]
     }
   ],
   "simpleLocalMaps": [
@@ -25977,6 +26170,13 @@
       "droplist": [
         "QE_EV_FF_HA_100",
         "NODROP"
+      ]
+    },
+    {
+      "iname": "ev_gl_mh_1_EX_set",
+      "droplist": [
+        "QE_EV_GL_MH_01_EX_BOSS1",
+        "QE_EV_GL_MH_01_EX_BOSS2"
       ]
     },
     {
@@ -29746,7 +29946,8 @@
         "QE_LIMIT_UEXP",
         "QE_LIMIT_UEXP_02",
         "QE_LIMIT_TANABATA",
-        "QE_MULTI_POK2_01"
+        "QE_MULTI_POK2_01",
+        "QE_EV_GL_MH_01_01"
       ]
     },
     {
@@ -29792,7 +29993,8 @@
         "QE_EV_XMAS_01",
         "QE_EV_VALENTINE_01",
         "QE_EV_BEGINNER_05",
-        "QE_MULTI_POK2_01"
+        "QE_MULTI_POK2_01",
+        "QE_EV_GL_MH_01_02"
       ]
     },
     {
@@ -29828,7 +30030,9 @@
         "QE_EV_SEISEKI_DJ_5_01",
         "QE_EV_SEISEKI_DJ_5_02",
         "QE_EV_XMAS_02",
-        "QE_LIMIT_TANABATA"
+        "QE_LIMIT_TANABATA",
+        "QE_EV_GL_MH_01_01",
+        "QE_EV_GL_MH_01_02"
       ]
     },
     {
@@ -29866,7 +30070,8 @@
         "QE_EV_SEISEKI_DJ_5_02",
         "QE_EV_HALL_ALEX_01",
         "QE_EV_XMAS_01",
-        "QE_EV_VALENTINE_01"
+        "QE_EV_VALENTINE_01",
+        "QE_EV_GL_MH_01_02"
       ]
     },
     {
@@ -29914,7 +30119,10 @@
         "QE_EV_BEGINNER_03",
         "QE_LIMIT_UEXP",
         "QE_LIMIT_UEXP_02",
-        "QE_MULTI_POK2_01"
+        "QE_MULTI_POK2_01",
+        "QE_EV_GL_MH_01_02",
+        "QE_EV_GL_MH_01_03",
+        "QE_EV_GL_MH_01_06"
       ]
     },
     {
@@ -29949,7 +30157,9 @@
         "QE_EV_SEISEKI_DJ_5_02",
         "QE_EV_XMAS_03",
         "QE_EV_BEGINNER_03",
-        "QE_LIMIT_TANABATA"
+        "QE_LIMIT_TANABATA",
+        "QE_EV_GL_MH_01_01",
+        "QE_EV_GL_MH_01_02"
       ]
     },
     {
@@ -29993,7 +30203,9 @@
         "QE_EV_VALENTINE_02",
         "QE_EV_BEGINNER_04",
         "QE_LIMIT_TANABATA",
-        "QE_MULTI_POK2_01"
+        "QE_MULTI_POK2_01",
+        "QE_EV_GL_MH_01_01",
+        "QE_EV_GL_MH_01_03"
       ]
     },
     {
@@ -30021,7 +30233,8 @@
         "QE_EV_SEISEKI_DJ_5_01",
         "QE_EV_XMAS_01",
         "QE_EV_BEGINNER_04",
-        "QE_LIMIT_TANABATA"
+        "QE_LIMIT_TANABATA",
+        "QE_EV_GL_MH_01_01"
       ]
     },
     {
@@ -30069,7 +30282,8 @@
         "QE_EV_SEISEKI_DJ_3_02",
         "QE_EV_SEISEKI_DJ_4_05",
         "QE_EV_SEISEKI_DJ_4_06",
-        "QE_EV_SEISEKI_DJ_5_02"
+        "QE_EV_SEISEKI_DJ_5_02",
+        "QE_EV_GL_MH_01_02"
       ]
     },
     {
@@ -30103,7 +30317,8 @@
         "QE_EV_SEISEKI_DJ_5_04",
         "QE_EV_HALL_ALEX_02",
         "QE_EV_XMAS_02",
-        "QE_EV_VALENTINE_02"
+        "QE_EV_VALENTINE_02",
+        "QE_EV_GL_MH_01_04"
       ]
     },
     {
@@ -30197,7 +30412,10 @@
         "QE_EV_SEISEKI_DJ_5_08",
         "QE_EV_HALL_ALEX_02",
         "QE_EV_XMAS_02",
-        "QE_EV_VALENTINE_02"
+        "QE_EV_VALENTINE_02",
+        "QE_EV_GL_MH_01_04",
+        "QE_EV_GL_MH_01_06",
+        "QE_EV_GL_MH_01_08"
       ]
     },
     {
@@ -30239,7 +30457,9 @@
         "QE_EV_SEISEKI_DJ_5_04",
         "QE_EV_SEISEKI_DJ_5_08",
         "QE_EV_XMAS_04",
-        "QE_EV_XMAS_05"
+        "QE_EV_XMAS_05",
+        "QE_EV_GL_MH_01_04",
+        "QE_EV_GL_MH_01_08"
       ]
     },
     {
@@ -30302,7 +30522,9 @@
         "QE_EV_SEISEKI_DJ_5_07",
         "QE_EV_HALL_ALEX_02",
         "QE_EV_XMAS_02",
-        "QE_EV_VALENTINE_02"
+        "QE_EV_VALENTINE_02",
+        "QE_EV_GL_MH_01_05",
+        "QE_EV_GL_MH_01_07"
       ]
     },
     {
@@ -30330,7 +30552,8 @@
         "QE_EV_SEISEKI_DJ_3_05",
         "QE_EV_SEISEKI_DJ_4_05",
         "QE_EV_SEISEKI_DJ_4_06",
-        "QE_EV_SEISEKI_DJ_5_05"
+        "QE_EV_SEISEKI_DJ_5_05",
+        "QE_EV_GL_MH_01_05"
       ]
     },
     {
@@ -30358,7 +30581,8 @@
         "QE_EV_SEISEKI_DJ_3_03",
         "QE_EV_SEISEKI_DJ_4_05",
         "QE_EV_SEISEKI_DJ_4_06",
-        "QE_EV_SEISEKI_DJ_5_03"
+        "QE_EV_SEISEKI_DJ_5_03",
+        "QE_EV_GL_MH_01_03"
       ]
     },
     {
@@ -30386,7 +30610,8 @@
         "QE_EV_SEISEKI_DJ_5_05",
         "QE_EV_HALL_ALEX_01",
         "QE_EV_XMAS_02",
-        "QE_EV_VALENTINE_01"
+        "QE_EV_VALENTINE_01",
+        "QE_EV_GL_MH_01_05"
       ]
     },
     {
@@ -30448,7 +30673,8 @@
         "QE_EV_SEISEKI_DJ_4_07",
         "QE_EV_SEISEKI_DJ_4_08",
         "QE_EV_SEISEKI_DJ_5_06",
-        "QE_MULTI_POK2_01"
+        "QE_MULTI_POK2_01",
+        "QE_EV_GL_MH_01_06"
       ]
     },
     {
@@ -30541,7 +30767,9 @@
         "QE_EV_SEISEKI_DJ_5_06",
         "QE_EV_SEISEKI_DJ_5_07",
         "QE_EV_XMAS_03",
-        "QE_MULTI_POK2_03"
+        "QE_MULTI_POK2_03",
+        "QE_EV_GL_MH_01_05",
+        "QE_EV_GL_MH_01_06"
       ]
     },
     {
@@ -30641,7 +30869,10 @@
         "QE_EV_SEISEKI_DJ_5_07",
         "QE_EV_SEISEKI_DJ_5_08",
         "QE_EV_XMAS_03",
-        "QE_MULTI_POK2_03"
+        "QE_MULTI_POK2_03",
+        "QE_EV_GL_MH_01_06",
+        "QE_EV_GL_MH_01_07",
+        "QE_EV_GL_MH_01_08"
       ]
     },
     {
@@ -30824,7 +31055,8 @@
         "QE_EV_SEISEKI_DJ_4_07",
         "QE_EV_SEISEKI_DJ_4_08",
         "QE_EV_SEISEKI_DJ_5_07",
-        "QE_MULTI_POK2_03"
+        "QE_MULTI_POK2_03",
+        "QE_EV_GL_MH_01_07"
       ]
     },
     {
@@ -31151,7 +31383,11 @@
         "QE_EV_SEISEKI_DJ_5_09",
         "QE_EV_VALENTINE_04",
         "QE_EV_VALENTINE_05",
-        "QE_MULTI_POK_SAM_EX2"
+        "QE_MULTI_POK_SAM_EX2",
+        "QE_EV_GL_MH_01_09",
+        "QE_EV_GL_MH_01_10",
+        "QE_EV_GL_MH_01_EX",
+        "QE_EV_GL_MH_01_MULTI_EX"
       ]
     },
     {
@@ -31238,7 +31474,11 @@
         "QE_EV_SEISEKI_DJ_3_07",
         "QE_EV_SEISEKI_DJ_4_07",
         "QE_EV_SEISEKI_DJ_4_08",
-        "QE_EV_SEISEKI_DJ_5_07"
+        "QE_EV_SEISEKI_DJ_5_07",
+        "QE_EV_GL_MH_01_07",
+        "QE_EV_GL_MH_01_10",
+        "QE_EV_GL_MH_01_EX",
+        "QE_EV_GL_MH_01_MULTI_EX"
       ]
     },
     {
@@ -31280,7 +31520,11 @@
         "QE_EV_SEISEKI_DJ_2_09",
         "QE_EV_SEISEKI_DJ_3_07",
         "QE_EV_SEISEKI_DJ_4_09",
-        "QE_EV_SEISEKI_DJ_5_07"
+        "QE_EV_SEISEKI_DJ_5_07",
+        "QE_EV_GL_MH_01_07",
+        "QE_EV_GL_MH_01_09",
+        "QE_EV_GL_MH_01_EX",
+        "QE_EV_GL_MH_01_MULTI_EX"
       ]
     },
     {
@@ -31322,7 +31566,9 @@
         "QE_EV_VALENTINE_04",
         "QE_EV_VALENTINE_05",
         "QE_MULTI_POK_SAM_EX3",
-        "QE_MULT_SO_SABALETA_LV3"
+        "QE_MULT_SO_SABALETA_LV3",
+        "QE_EV_GL_MH_01_08",
+        "QE_EV_GL_MH_01_09"
       ]
     },
     {
@@ -31469,7 +31715,11 @@
         "QE_MULTI_POK2_05",
         "QE_MULTI_POK_SAM_EX3",
         "QE_MULTI_POK_SAM_EX4",
-        "QE_MULT_SO_SABALETA_LV3"
+        "QE_MULT_SO_SABALETA_LV3",
+        "QE_EV_GL_MH_01_09",
+        "QE_EV_GL_MH_01_10",
+        "QE_EV_GL_MH_01_EX",
+        "QE_EV_GL_MH_01_MULTI_EX"
       ]
     },
     {
@@ -31681,7 +31931,9 @@
         "QE_EV_VALENTINE_05",
         "QE_MULTI_POK_SAM_EX3",
         "QE_MULTI_POK_SAM_EX4",
-        "QE_MULTI_SEISEKI_DJ_4_EX"
+        "QE_MULTI_SEISEKI_DJ_4_EX",
+        "QE_EV_GL_MH_01_EX",
+        "QE_EV_GL_MH_01_MULTI_EX"
       ]
     },
     {
@@ -31782,6 +32034,7 @@
         "QE_TM_IT_EQ_LV4_03",
         "QE_TM_IT_EQ_LV5_03",
         "QE_SO_PERI_06",
+        "QE_CH_FLAMEL_1",
         "QE_EV_SEISEKI_DJ_2_09",
         "QE_EV_SEISEKI_DJ_2_10",
         "QE_EV_SEISEKI_DJ_4_09",
@@ -31838,6 +32091,7 @@
         "QE_TM_IT_EQ_LV4_02",
         "QE_TM_IT_EQ_LV5_01",
         "QE_SO_PERI_EX",
+        "QE_CH_FLAMEL_3",
         "QE_MULT_TM_IT_EQ_LV4_02",
         "QE_MULT_TM_IT_EQ_LV5_01"
       ]
@@ -32128,6 +32382,7 @@
         "QE_ST_HA_020018",
         "QE_TM_IT_EQ_LV4_03",
         "QE_TM_IT_EQ_LV5_03",
+        "QE_CH_ANASTASIA_2",
         "QE_MULT_TM_IT_EQ_LV4_03",
         "QE_MULT_TM_IT_EQ_LV5_03"
       ]
@@ -32182,6 +32437,7 @@
         "QE_TM_IT_EQ_LV4_02",
         "QE_TM_IT_EQ_LV5_01",
         "QE_CH_ZAHAR_1",
+        "QE_CH_ANASTASIA_1",
         "QE_MULT_TM_IT_EQ_LV4_02",
         "QE_MULT_TM_IT_EQ_LV5_01"
       ]
@@ -32286,6 +32542,7 @@
         "QE_SO_ZEKE_2",
         "QE_SO_ZEKE_EX_1",
         "QE_CH_ZAHAR_3",
+        "QE_CH_ANASTASIA_3",
         "QE_MULTI_POK2_05",
         "QE_MULT_TM_IT_EQ_LV4_02",
         "QE_MULT_TM_IT_EQ_LV5_02"
@@ -32382,6 +32639,7 @@
         "QE_CB_BF_GL_EX",
         "QE_CH_ROFI_1",
         "QE_CH_VETTEL_1",
+        "QE_CH_FLAMEL_2",
         "QE_CB_BF_GL_MULTI_EX",
         "QE_MULT_TM_IT_EQ_LV4_02",
         "QE_MULT_TM_IT_EQ_LV5_01"
@@ -32609,8 +32867,7 @@
         "QE_ST_HA_010002",
         "QE_ST_HA_010030",
         "QE_ST_HA_010044",
-        "QE_ST_HA_020010",
-        "QE_ST_HA_020028"
+        "QE_ST_HA_020010"
       ]
     },
     {
@@ -32660,7 +32917,6 @@
       "iname": "IT_PI_GAIN",
       "questlist": [
         "QE_ST_HA_010008",
-        "QE_ST_HA_010050",
         "QE_ST_HA_020018",
         "QE_ST_HA_020036"
       ]
@@ -32693,7 +32949,6 @@
       "iname": "IT_PI_GATH",
       "questlist": [
         "QE_ST_HA_010012",
-        "QE_ST_HA_010026",
         "QE_ST_HA_010040",
         "QE_ST_HA_020006",
         "QE_ST_HA_020024"
@@ -32780,6 +33035,12 @@
       ]
     },
     {
+      "iname": "IT_PI_FLAMEL",
+      "questlist": [
+        "QE_ST_HA_010026"
+      ]
+    },
+    {
       "iname": "IT_PI_YOMI",
       "questlist": [
         "QE_ST_HA_010028"
@@ -32831,6 +33092,12 @@
       "iname": "IT_PI_ALMILA",
       "questlist": [
         "QE_ST_HA_010046"
+      ]
+    },
+    {
+      "iname": "IT_PI_VINCENT",
+      "questlist": [
+        "QE_ST_HA_010050"
       ]
     },
     {
@@ -32908,6 +33175,12 @@
       "questlist": [
         "QE_ST_HA_020020",
         "QE_ST_HA_020038"
+      ]
+    },
+    {
+      "iname": "IT_PI_KURAJU",
+      "questlist": [
+        "QE_ST_HA_020028"
       ]
     },
     {
@@ -33651,6 +33924,27 @@
       ]
     },
     {
+      "iname": "IT_EQ_SOUL_SEN",
+      "questlist": [
+        "QE_WK_JOB_SUN_LV2",
+        "QE_MULTI_JOB_LV2_03"
+      ]
+    },
+    {
+      "iname": "IT_EQ_SOUL_HWIZ",
+      "questlist": [
+        "QE_WK_JOB_SUN_LV2",
+        "QE_MULTI_JOB_LV2_03"
+      ]
+    },
+    {
+      "iname": "IT_EQ_SOUL_SYO",
+      "questlist": [
+        "QE_WK_JOB_SUN_LV2",
+        "QE_MULTI_JOB_LV2_03"
+      ]
+    },
+    {
       "iname": "IT_EQ_SOUL_ARM",
       "questlist": [
         "QE_WK_JOB_MON_LV1",
@@ -34093,7 +34387,8 @@
         "QE_EV_SEISEKI_DJ_4_03",
         "QE_EV_SEISEKI_DJ_5_01",
         "QE_EV_SEISEKI_DJ_5_03",
-        "QE_LIMIT_TANABATA"
+        "QE_LIMIT_TANABATA",
+        "QE_EV_GL_MH_01_01"
       ]
     },
     {
@@ -34325,7 +34620,10 @@
     {
       "iname": "IT_EQ_ATK_SABER",
       "questlist": [
-        "QE_EV_FATE_3"
+        "QE_EV_FATE_3",
+        "QE_EV_GL_MH_01_03",
+        "QE_EV_GL_MH_01_04",
+        "QE_EV_GL_MH_01_05"
       ]
     },
     {
@@ -34337,7 +34635,9 @@
         "QE_EV_SEISEKI_DJ_3_03",
         "QE_EV_SEISEKI_DJ_3_04",
         "QE_EV_SEISEKI_DJ_5_03",
-        "QE_EV_SEISEKI_DJ_5_04"
+        "QE_EV_SEISEKI_DJ_5_04",
+        "QE_EV_GL_MH_01_03",
+        "QE_EV_GL_MH_01_04"
       ]
     },
     {
@@ -34353,7 +34653,10 @@
         "QE_EV_SEISEKI_DJ_3_05",
         "QE_EV_SEISEKI_DJ_5_03",
         "QE_EV_SEISEKI_DJ_5_04",
-        "QE_EV_SEISEKI_DJ_5_05"
+        "QE_EV_SEISEKI_DJ_5_05",
+        "QE_EV_GL_MH_01_03",
+        "QE_EV_GL_MH_01_04",
+        "QE_EV_GL_MH_01_05"
       ]
     },
     {
@@ -34363,7 +34666,8 @@
         "QE_CH_LOGI_EDGA_1",
         "QE_EV_SEISEKI_DJ_03",
         "QE_EV_SEISEKI_DJ_3_03",
-        "QE_EV_SEISEKI_DJ_5_03"
+        "QE_EV_SEISEKI_DJ_5_03",
+        "QE_EV_GL_MH_01_03"
       ]
     },
     {
@@ -34386,7 +34690,9 @@
         "QE_EV_SEISEKI_DJ_3_06",
         "QE_EV_SEISEKI_DJ_3_08",
         "QE_EV_SEISEKI_DJ_5_06",
-        "QE_EV_SEISEKI_DJ_5_08"
+        "QE_EV_SEISEKI_DJ_5_08",
+        "QE_EV_GL_MH_01_06",
+        "QE_EV_GL_MH_01_08"
       ]
     },
     {
@@ -35697,6 +36003,23 @@
       "questlist": [
         "QE_GL_TRIAL_MAGE_3",
         "QE_GL_MULTI_TRIAL_MAGE_3"
+      ]
+    },
+    {
+      "iname": "IT_EQ_GL_DIAGRAMPIECE_WSMCOAT",
+      "questlist": [
+        "QE_EV_GL_MH_01_08",
+        "QE_EV_GL_MH_01_09",
+        "QE_EV_GL_MH_01_10",
+        "QE_EV_GL_MH_01_EX",
+        "QE_EV_GL_MH_01_MULTI_EX"
+      ]
+    },
+    {
+      "iname": "IT_AF_ACCS_GL_SIEG_HAT",
+      "questlist": [
+        "QE_EV_GL_MH_01_EX",
+        "QE_EV_GL_MH_01_MULTI_EX"
       ]
     }
   ]

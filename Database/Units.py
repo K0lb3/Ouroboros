@@ -169,9 +169,7 @@ def Units():
             'jc 2': "",
             'jc 3': "",
             'inputs': [],
-            "stats":   calc_stat_grow(unit, main, 85),
-            "max_stats":   {},
-            "min_stats":   {},
+            "stats":  {}
         }
 
         # add stats
@@ -187,10 +185,10 @@ def Units():
             "cri":  "CRIT",
             "luk":  "LUCK",
         }
-        for stat in stats:
-            units[iname]['stats'][stats[stat]] = unit['m'+stat]
-            units[iname]['max_stats'][stats[stat]] = unit['m'+stat]
-            units[iname]['min_stats'][stats[stat]] = unit[stat]
+        unitLevel=84
+        for raw,con in stats.items():
+            units[iname]['stats'][con] = unit[raw] + math.floor((unit['m'+raw]-unit[raw]) / 99 * (unitLevel - 1))
+
 
         # add lore
         if iname in lore:

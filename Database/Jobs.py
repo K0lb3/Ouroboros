@@ -163,7 +163,7 @@ def job_create(job, glc, jpc, loc):
             'CRIT': mod["cri"],
             'AVOID': mod["avoid"],
         },
-        'job master buff': buff(mainc[mainc[j['master']]['t_buff']],2,2,True),
+        'job master buff': buff(mainc[mainc[j['master']]['t_buff']],1,2,True),
         'stats': job_stats(j, mainc),
         'formula': dmg_formula(mainc[mainc[j['atkskl']]['weapon']]),
         'link': "",

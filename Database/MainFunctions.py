@@ -11,6 +11,7 @@ from SkillParam import convert_raw_skill
 re_job = re.compile(r'^([^_]*)_([^_]*)_(.*)$')
 ReBr = re.compile(r'(\s+)?(\n)?(\[|\『|\().*')
 u_m_names = {}
+SYS={}
 birth = {
     "その他": "Foreign World",
     "エンヴィリア": "Envylia",
@@ -406,46 +407,43 @@ def buff(buff, lv, mlv, array=False):
         text=text[:-3]
         if rate!=100:
             text+= ' [{chance}%]'.format(chance=rate)
-    #else:
+    else:
+        export={
+            mod['stat']:int(mod['value']) if mod['mod']=='' else int(mod['value'])/100
+            for mod in mods
+        }
+        if len(restriction) > 0:
+            export['restriction']=restriction
+        if rate != 100:
+            export['rate']=rate
+
         #mods.append(restriction)
         #mods.append({'chance':rate})
 
-    return mods if array else text
+    return export if array else text
 
 def condition(cond, lv,  mlv):
-    condType = {
-        0: 'Poison',
-        1: 'Paralysed',
-        2: 'Stun',
-        3: 'Sleep',
-        4: 'Charm',
-        5: 'Stone',
-        6: 'Blindness',
-        7: 'Disable Skill',
-        8: 'Disable Move',
-        9: 'Disable Attack',
-        10: 'Zombie',
-        11: 'Death Sentence',
-        12: 'Berserk',
-        13: 'Disable Knockback',
-        14: 'Disable Buff',
-        15: 'Disable Debuff',
-        16: 'Stop',
-        17: 'Quicken',
-        18: 'Slow',
-        19: 'Auto Heal',
-        20: 'Donsoku',
-        21: 'Rage',
-        22: 'Good Sleep',
-        23: 'Auto Jewel',
-        24: 'Disable Heal',
-    }
+    global SYS
+    if len(SYS)==0:
+        [SYS]=loadFiles(['sys.json'])
+
+    pre='Resist_' if cond['type']<2 else 'Assist_'
+    EnchantTypes=ENUM['EnchantTypes']
+
+    text=', '.join([
+        SYS[pre+EnchantTypes[c]]
+        for c in cond['conds']
+    ])
+
     if 'rini' in cond and cond['rini'] < 999:
         rate = math.floor(
-            cond['rini'] + ((cond['rmax']-cond['rini']) * (lv-1) / (mlv-1)))
-        return(condType[cond['conds'][0]] + ' ['+str(rate)+'%]')
+            cond['rini'] + ((cond['rmax']-cond['rini']) / (mlv-1) * (lv-1)))
+        if len(cond['conds'])<6:
+            return('{cond} [{rate}%]'.format(rate=rate,cond=text))
+        else:
+            return('[{rate}%] {cond}'.format(rate=rate,cond=text))
     else:
-        return(condType[cond['conds'][0]])
+        return(text)
 
 def calc_stat_grow(item, master, lv):
     global Grow_Curves
@@ -866,5 +864,5 @@ def Skill_GenericDescription(skl,masterc,loc):
     return(skill)
 
 
-global ENUM
-ENUM=loadFiles(['ENums.json'])[0]
+global ENUM,LENUM
+[ENUM,LENUM]=loadFiles(['ENums.json','locEnums.json'])

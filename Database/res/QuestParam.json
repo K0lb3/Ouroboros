@@ -2825,6 +2825,20 @@
             "name": "限定",
             "expr": "Trial of the Ether",
             "item": "quest_g_mage"
+        },
+        {
+            "iname": "AR_GL_MH_01",
+            "name": "Magni Historia 1",
+            "expr": "Episode 1: Overture",
+            "world": "AREA_DAILY",
+            "chap": "WD_DAILY",
+            "item": "quest_ev_gl_mh"
+        },
+        {
+            "iname": "MULTI_GL_MH",
+            "name": "Magni Historia 1",
+            "expr": "Episode 1: Overture",
+            "item": "quest_ev_gl_mh"
         }
     ],
     "CampaignChildren": [
@@ -51770,6 +51784,275 @@
                     "num": 20
                 }
             ]
+        },
+        {
+            "iname": "OB_EV_GL_MH_01_01",
+            "objective": [
+                {
+                    "type": 0,
+                    "item_type": 0,
+                    "item": "IT_UG_APPLE3",
+                    "num": 2
+                },
+                {
+                    "type": 1,
+                    "item_type": 0,
+                    "item": "IT_US_TICKET",
+                    "num": 2
+                },
+                {
+                    "type": 5,
+                    "val": "3",
+                    "item_type": 0,
+                    "item": "IT_CV_GOLD2",
+                    "num": 2
+                }
+            ]
+        },
+        {
+            "iname": "OB_EV_GL_MH_01_02",
+            "objective": [
+                {
+                    "type": 0,
+                    "item_type": 0,
+                    "item": "IT_UG_APPLE3",
+                    "num": 3
+                },
+                {
+                    "type": 1,
+                    "item_type": 0,
+                    "item": "IT_US_TICKET",
+                    "num": 3
+                },
+                {
+                    "type": 5,
+                    "val": "3",
+                    "item_type": 0,
+                    "item": "IT_CV_GOLD2",
+                    "num": 3
+                }
+            ]
+        },
+        {
+            "iname": "OB_EV_GL_MH_01_03",
+            "objective": [
+                {
+                    "type": 0,
+                    "item_type": 0,
+                    "item": "IT_UG_APPLE4",
+                    "num": 1
+                },
+                {
+                    "type": 1,
+                    "item_type": 0,
+                    "item": "IT_US_SOUBI10TICKET_2",
+                    "num": 1
+                },
+                {
+                    "type": 5,
+                    "val": "3",
+                    "item_type": 0,
+                    "item": "IT_CV_GOLD3",
+                    "num": 1
+                }
+            ]
+        },
+        {
+            "iname": "OB_EV_GL_MH_01_04",
+            "objective": [
+                {
+                    "type": 4,
+                    "val": "0",
+                    "item_type": 0,
+                    "item": "IT_UG_APPLE4",
+                    "num": 2
+                },
+                {
+                    "type": 1,
+                    "item_type": 0,
+                    "item": "IT_US_SOUBI10TICKET_2",
+                    "num": 1
+                },
+                {
+                    "type": 5,
+                    "val": "3",
+                    "item_type": 0,
+                    "item": "IT_CV_GOLD3",
+                    "num": 2
+                }
+            ]
+        },
+        {
+            "iname": "OB_EV_GL_MH_01_05",
+            "objective": [
+                {
+                    "type": 4,
+                    "val": "5",
+                    "item_type": 0,
+                    "item": "IT_UG_APPLE4",
+                    "num": 3
+                },
+                {
+                    "type": 1,
+                    "item_type": 0,
+                    "item": "IT_US_SOUBI10TICKET_2",
+                    "num": 1
+                },
+                {
+                    "type": 5,
+                    "val": "3",
+                    "item_type": 0,
+                    "item": "IT_CV_GOLD3",
+                    "num": 3
+                }
+            ]
+        },
+        {
+            "iname": "OB_EV_GL_MH_01_06",
+            "objective": [
+                {
+                    "type": 4,
+                    "val": "0",
+                    "item_type": 0,
+                    "item": "IT_UG_APPLE4",
+                    "num": 5
+                },
+                {
+                    "type": 1,
+                    "item_type": 0,
+                    "item": "IT_US_SOUBI10TICKET_2",
+                    "num": 1
+                },
+                {
+                    "type": 5,
+                    "val": "3",
+                    "item_type": 0,
+                    "item": "IT_CV_GOLD3",
+                    "num": 5
+                }
+            ]
+        },
+        {
+            "iname": "OB_EV_GL_MH_01_07",
+            "objective": [
+                {
+                    "type": 4,
+                    "val": "0",
+                    "item_type": 0,
+                    "item": "IT_UG_APPLE4",
+                    "num": 5
+                },
+                {
+                    "type": 1,
+                    "item_type": 0,
+                    "item": "IT_US_SOUBI10TICKET_2",
+                    "num": 1
+                },
+                {
+                    "type": 5,
+                    "val": "3",
+                    "item_type": 0,
+                    "item": "IT_CV_GOLD3",
+                    "num": 5
+                }
+            ]
+        },
+        {
+            "iname": "OB_EV_GL_MH_01_08",
+            "objective": [
+                {
+                    "type": 0,
+                    "item_type": 0,
+                    "item": "IT_EQ_ATK_LANCE",
+                    "num": 1
+                },
+                {
+                    "type": 1,
+                    "item_type": 0,
+                    "item": "IT_US_SOUBI10TICKET_2",
+                    "num": 1
+                },
+                {
+                    "type": 5,
+                    "val": "3",
+                    "item_type": 0,
+                    "item": "IT_CV_GOLD3",
+                    "num": 5
+                }
+            ]
+        },
+        {
+            "iname": "OB_EV_GL_MH_01_09",
+            "objective": [
+                {
+                    "type": 4,
+                    "val": "0",
+                    "item_type": 0,
+                    "item": "IT_EQ_DEF_SHIELD",
+                    "num": 1
+                },
+                {
+                    "type": 1,
+                    "item_type": 0,
+                    "item": "IT_US_SOUBI10TICKET_2",
+                    "num": 1
+                },
+                {
+                    "type": 5,
+                    "val": "3",
+                    "item_type": 0,
+                    "item": "IT_CV_GOLD3",
+                    "num": 5
+                }
+            ]
+        },
+        {
+            "iname": "OB_EV_GL_MH_01_10",
+            "objective": [
+                {
+                    "type": 0,
+                    "item_type": 0,
+                    "item": "IT_EQ_ATK_SWORD",
+                    "num": 1
+                },
+                {
+                    "type": 1,
+                    "item_type": 0,
+                    "item": "IT_US_SOUBI10TICKET_2",
+                    "num": 2
+                },
+                {
+                    "type": 5,
+                    "val": "3",
+                    "item_type": 0,
+                    "item": "IT_CV_GOLD3",
+                    "num": 5
+                }
+            ]
+        },
+        {
+            "iname": "OB_EV_GL_MH_01_EX",
+            "objective": [
+                {
+                    "type": 9,
+                    "item_type": 0,
+                    "item": "IT_PI_COMMON_ALL",
+                    "num": 5
+                },
+                {
+                    "type": 4,
+                    "val": "30",
+                    "item_type": 0,
+                    "item": "IT_PI_COMMON_DARK",
+                    "num": 5
+                },
+                {
+                    "type": 1,
+                    "item_type": 0,
+                    "item": "IT_PI_COMMON_LIGHT",
+                    "num": 10
+                }
+            ]
         }
     ],
     "quests": [
@@ -64360,10 +64643,10 @@
             "cond": "敵を全滅させろ",
             "mission": "OB_ST_HA_010026",
             "pieces": [
-                "IT_PI_GATH"
+                "IT_PI_FLAMEL"
             ],
             "drops": [
-                "IT_PI_GATH",
+                "IT_PI_FLAMEL",
                 "IT_EQ_PIECE_MACHINEWING",
                 "IT_EQ_PIECE_DICE",
                 "IT_EQ_PIECE_CHIKUONKI"
@@ -65457,10 +65740,10 @@
             "cond": "敵を全滅させろ",
             "mission": "OB_ST_HA_010050",
             "pieces": [
-                "IT_PI_GAIN"
+                "IT_PI_VINCENT"
             ],
             "drops": [
-                "IT_PI_GAIN",
+                "IT_PI_VINCENT",
                 "IT_EQ_PIECE_TWOSWORDS",
                 "IT_EQ_PIECE_RADIO",
                 "IT_EQ_DIAGRAMPIECE_SHOULDER",
@@ -66709,10 +66992,10 @@
             "cond": "敵を全滅させろ",
             "mission": "OB_ST_HA_020028",
             "pieces": [
-                "IT_PI_RIGARUTO"
+                "IT_PI_KURAJU"
             ],
             "drops": [
-                "IT_PI_RIGARUTO",
+                "IT_PI_KURAJU",
                 "IT_EQ_PIECE_ARMOR",
                 "IT_EQ_DIAGRAMPIECE_CHESS",
                 "IT_EQ_PIECE_LANCE",
@@ -75729,6 +76012,228 @@
             ]
         },
         {
+            "iname": "QE_CH_ANASTASIA_1",
+            "title": "Episode1",
+            "name": "孤高のブロッサム",
+            "expr": "Lv.30から",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_CH_ANASTASIA_1",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_DARKSWORD"
+            ],
+            "type": 6,
+            "world": "WD_CHARA",
+            "area": "UN_V2_ANASTASIA",
+            "units": [
+                "UN_V2_ANASTASIA"
+            ],
+            "pt": 10,
+            "pexp": 10,
+            "uexp": 55,
+            "gold": 2000,
+            "lose": 1,
+            "lv": 30,
+            "evst": "CQ_ANASTASIA_01_a_2d",
+            "aplv": 1,
+            "rdy_cnd_ch": "COND_QECH_ANASTA_1",
+            "not_search": 1,
+            "map": [
+                {
+                    "scn": "bg_01_mati_002_A",
+                    "set": "ch_anasta_lv1_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_CH_ANASTASIA_2",
+            "title": "Episode2",
+            "name": "苛立ち",
+            "expr": "Lv.60から",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_CH_ANASTASIA_2",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_WAIST"
+            ],
+            "type": 6,
+            "world": "WD_CHARA",
+            "area": "UN_V2_ANASTASIA",
+            "cond_quests": [
+                "QE_CH_ANASTASIA_1"
+            ],
+            "units": [
+                "UN_V2_ANASTASIA"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 110,
+            "gold": 3000,
+            "lose": 1,
+            "lv": 60,
+            "evst": "CQ_ANASTASIA_02_a_2d",
+            "aplv": 1,
+            "rdy_cnd_ch": "COND_QECH_ANASTA_2",
+            "not_search": 1,
+            "map": [
+                {
+                    "scn": "bg_01_areti_001_A",
+                    "set": "ch_anasta_lv2_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_CH_ANASTASIA_3",
+            "title": "Episode3",
+            "name": "約束",
+            "expr": "Lv.80から",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_CH_ANASTASIA_3",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_DARKKABUTO"
+            ],
+            "type": 6,
+            "world": "WD_CHARA",
+            "area": "UN_V2_ANASTASIA",
+            "cond_quests": [
+                "QE_CH_ANASTASIA_2"
+            ],
+            "units": [
+                "UN_V2_ANASTASIA"
+            ],
+            "pt": 30,
+            "pexp": 30,
+            "uexp": 250,
+            "gold": 4000,
+            "lose": 1,
+            "lv": 80,
+            "evw": "CQ_ANASTASIA_03_b_2d",
+            "aplv": 1,
+            "rdy_cnd_ch": "COND_QECH_ANASTA_3",
+            "not_search": 1,
+            "map": [
+                {
+                    "scn": "bg_01_areti_007_A",
+                    "set": "ch_anasta_lv3_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_CH_FLAMEL_1",
+            "title": "Episode1",
+            "name": "忍び寄る影",
+            "expr": "Lv.30から",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_CH_FLAMEL_1",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_MAGICBREATH"
+            ],
+            "type": 6,
+            "world": "WD_CHARA",
+            "area": "UN_V2_FLAMEL",
+            "units": [
+                "UN_V2_FLAMEL"
+            ],
+            "pt": 10,
+            "pexp": 10,
+            "uexp": 55,
+            "gold": 2000,
+            "lose": 1,
+            "lv": 30,
+            "evst": "CQ_FLAMEL_01_a_2d",
+            "aplv": 1,
+            "rdy_cnd_ch": "COND_QECH_FLAM_1",
+            "not_search": 1,
+            "map": [
+                {
+                    "scn": "bg_01_sougen_002_A",
+                    "set": "ch_flam_lv1_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_CH_FLAMEL_2",
+            "title": "Episode2",
+            "name": "僕の決意",
+            "expr": "Lv.60から",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_CH_FLAMEL_2",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_CSWORD"
+            ],
+            "type": 6,
+            "world": "WD_CHARA",
+            "area": "UN_V2_FLAMEL",
+            "cond_quests": [
+                "QE_CH_FLAMEL_1"
+            ],
+            "units": [
+                "UN_V2_FLAMEL"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 110,
+            "gold": 3000,
+            "lose": 1,
+            "lv": 60,
+            "evst": "CQ_FLAMEL_02_a_2d",
+            "aplv": 1,
+            "rdy_cnd_ch": "COND_QECH_FLAM_2",
+            "not_search": 1,
+            "map": [
+                {
+                    "scn": "bg_01_sougen_003_A",
+                    "set": "ch_flam_lv2_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_CH_FLAMEL_3",
+            "title": "Episode3",
+            "name": "もふもふ",
+            "expr": "Lv.80から",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_CH_FLAMEL_3",
+            "drops": [
+                "IT_EQ_DIAGRAMPIECE_MUCHI"
+            ],
+            "type": 6,
+            "world": "WD_CHARA",
+            "area": "UN_V2_FLAMEL",
+            "cond_quests": [
+                "QE_CH_FLAMEL_2"
+            ],
+            "units": [
+                "UN_V2_FLAMEL"
+            ],
+            "pt": 30,
+            "pexp": 30,
+            "uexp": 250,
+            "gold": 4000,
+            "lose": 1,
+            "lv": 80,
+            "evw": "CQ_FLAMEL_03_b_2d",
+            "aplv": 1,
+            "rdy_cnd_ch": "COND_QECH_FLAM_3",
+            "not_search": 1,
+            "map": [
+                {
+                    "scn": "bg_01_sougen_004_A",
+                    "set": "ch_flam_lv3_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
             "iname": "QE_EV_SEISEKI_DJ_01",
             "title": "UnitLv5 JobLv1推奨",
             "name": "聖石の追憶1-1　最終試練",
@@ -84274,7 +84779,6 @@
                 "IT_EQ_PIECE_STAFF",
                 "IT_EQ_PIECE_CAPE",
                 "IT_EQ_PIECE_ROD",
-                "IT_EQ_PIECE_MUFFLER",
                 "IT_CV_GOLD1"
             ],
             "type": 5,
@@ -84402,6 +84906,363 @@
                     "set": "GLOBAL_MAGE_3_set",
                     "btl": "plain01",
                     "bgm": "BGM_0015"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_GL_MH_01_01",
+            "title": "【期間限定】",
+            "name": "Stage 1: Seeking the way",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_GL_MH_01_01",
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_GL_MH_01",
+            "hide": 1,
+            "pt": 8,
+            "pexp": 8,
+            "uexp": 20,
+            "gold": 900,
+            "lv": 5,
+            "evst": "EQ_GL_MH_C01_Ep01_01_a_2d",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_01_sougen_002_A",
+                    "set": "ev_gl_mh_1_01_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_GL_MH_01_02",
+            "title": "【期間限定】",
+            "name": "Stage 2: An Uneasy Feeling",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_GL_MH_01_02",
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_GL_MH_01",
+            "hide": 1,
+            "cond_quests": [
+                "QE_EV_GL_MH_01_01"
+            ],
+            "pt": 8,
+            "pexp": 8,
+            "uexp": 50,
+            "gold": 1200,
+            "lv": 10,
+            "evst": "EQ_GL_MH_C01_Ep01_02_a_2d",
+            "evw": "EQ_GL_MH_C01_Ep01_02_b_2d",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_01_sougen_001_A",
+                    "set": "ev_gl_mh_1_02_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_GL_MH_01_03",
+            "title": "【期間限定】",
+            "name": "Stage 3: Sacris Village",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_GL_MH_01_03",
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_GL_MH_01",
+            "hide": 1,
+            "cond_quests": [
+                "QE_EV_GL_MH_01_02"
+            ],
+            "pt": 10,
+            "pexp": 10,
+            "uexp": 100,
+            "gold": 1500,
+            "lv": 15,
+            "evst": "EQ_GL_MH_C01_Ep01_03_a_2d",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_01_sougen_003_A",
+                    "set": "ev_gl_mh_1_03_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_GL_MH_01_04",
+            "title": "【期間限定】",
+            "name": "Stage 4: The Blood Drunk Hunters",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_GL_MH_01_04",
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_GL_MH_01",
+            "hide": 1,
+            "cond_quests": [
+                "QE_EV_GL_MH_01_03"
+            ],
+            "pt": 10,
+            "pexp": 10,
+            "uexp": 150,
+            "gold": 1800,
+            "lv": 20,
+            "evst": "EQ_GL_MH_C01_Ep01_04_a_2d",
+            "evw": "EQ_GL_MH_C01_Ep01_04_b_2d",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_01_areti_001_A",
+                    "set": "ev_gl_mh_1_04_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_GL_MH_01_05",
+            "title": "【期間限定】",
+            "name": "Stage 5: Bonds of Tradition",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_GL_MH_01_05",
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_GL_MH_01",
+            "hide": 1,
+            "cond_quests": [
+                "QE_EV_GL_MH_01_04"
+            ],
+            "pt": 16,
+            "pexp": 16,
+            "uexp": 200,
+            "gold": 2000,
+            "lv": 25,
+            "evst": "EQ_GL_MH_C01_Ep01_05_a_2d",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_01_areti_002_A",
+                    "set": "ev_gl_mh_1_05_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_GL_MH_01_06",
+            "title": "【期間限定】",
+            "name": "Stage 6: Bearer of Burden",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_GL_MH_01_06",
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_GL_MH_01",
+            "hide": 1,
+            "cond_quests": [
+                "QE_EV_GL_MH_01_05"
+            ],
+            "pt": 16,
+            "pexp": 16,
+            "uexp": 250,
+            "gold": 2200,
+            "lv": 30,
+            "evw": "EQ_GL_MH_C01_Ep01_06_b_2d",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_01_sg_mura_002_A",
+                    "set": "ev_gl_mh_1_06_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_GL_MH_01_07",
+            "title": "【期間限定】",
+            "name": "Stage 7: Terror from below",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_GL_MH_01_07",
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_GL_MH_01",
+            "hide": 1,
+            "cond_quests": [
+                "QE_EV_GL_MH_01_06"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 300,
+            "gold": 2400,
+            "lv": 35,
+            "evst": "EQ_GL_MH_C01_Ep01_07_a_2d",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_01_sg_mura_002_N",
+                    "set": "ev_gl_mh_1_07_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_GL_MH_01_08",
+            "title": "【期間限定】",
+            "name": "Stage 8: The Wandering Defender",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_GL_MH_01_08",
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_GL_MH_01",
+            "hide": 1,
+            "cond_quests": [
+                "QE_EV_GL_MH_01_07"
+            ],
+            "pt": 20,
+            "pexp": 20,
+            "uexp": 350,
+            "gold": 2600,
+            "lv": 40,
+            "evw": "EQ_GL_MH_C01_Ep01_08_b_2d",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_01_sg_mura_003_N",
+                    "set": "ev_gl_mh_1_08_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_GL_MH_01_09",
+            "title": "【期間限定】",
+            "name": "Stage 9: What lies beyond",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_GL_MH_01_09",
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_GL_MH_01",
+            "hide": 1,
+            "cond_quests": [
+                "QE_EV_GL_MH_01_08"
+            ],
+            "pt": 24,
+            "pexp": 24,
+            "uexp": 400,
+            "gold": 2800,
+            "lv": 45,
+            "evst": "EQ_GL_MH_C01_Ep01_09_a_2d",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_01_nukemiti_001_N",
+                    "set": "ev_gl_mh_1_09_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_GL_MH_01_10",
+            "title": "【期間限定】",
+            "name": "Stage 10: The True Prize",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_GL_MH_01_10",
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_GL_MH_01",
+            "hide": 1,
+            "cond_quests": [
+                "QE_EV_GL_MH_01_09"
+            ],
+            "pt": 24,
+            "pexp": 24,
+            "uexp": 200,
+            "gold": 1300,
+            "lv": 50,
+            "evst": "EQ_GL_MH_C01_Ep01_10_a_2d",
+            "evw": "EQ_GL_MH_C01_Ep01_10_b_2d",
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_01_nukemiti_002_N",
+                    "set": "ev_gl_mh_1_10_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_GL_MH_01_EX",
+            "title": "【期間限定】",
+            "name": "Overture[EX]",
+            "cond": "敵を全滅させろ",
+            "mission": "OB_EV_GL_MH_01_EX",
+            "type": 5,
+            "subtype": 1,
+            "world": "WD_DAILY",
+            "area": "AR_GL_MH_01",
+            "hide": 1,
+            "cond_quests": [
+                "QE_EV_GL_MH_01_10"
+            ],
+            "pt": 40,
+            "pexp": 40,
+            "uexp": 400,
+            "gold": 5000,
+            "lv": 75,
+            "aplv": 1,
+            "map": [
+                {
+                    "scn": "bg_01_toride_soto_001_A",
+                    "set": "ev_gl_mh_1_EX_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
+                }
+            ]
+        },
+        {
+            "iname": "QE_EV_GL_MH_01_MULTI_EX",
+            "title": "【期間限定】",
+            "name": "Overture[EX]",
+            "cond": "敵を全滅させろ",
+            "type": 1,
+            "subtype": 1,
+            "world": "WD_01",
+            "area": "MULTI_GL_MH",
+            "hide": 1,
+            "pt": 20,
+            "pexp": 40,
+            "uexp": 400,
+            "mcoin": 40,
+            "lv": 75,
+            "multi": 1,
+            "pnum": 4,
+            "unum": 1,
+            "multi_dead": 1,
+            "map": [
+                {
+                    "scn": "bg_01_toride_soto_001_A",
+                    "set": "ev_gl_mh_1_EX_set",
+                    "btl": "plain01",
+                    "bgm": "BGM_0011"
                 }
             ]
         }

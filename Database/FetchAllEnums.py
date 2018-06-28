@@ -54,8 +54,27 @@ def EnumToJson():
                 enum[name]=cEnum[use]
         except PermissionError:
             print('PermissionError:')
-
     
     saveAsJSON(path+'Enums.json',enum)
+
+    with open(path+'sys.json', "rt", encoding='utf8') as f:
+        sys = json.loads(f.read())
+
+    lenum={}
+    for param,items in enum.items():
+        if type(items)==list:
+            lenum[param]=[
+                sys[item] if item in sys else item
+                for item in items
+                ]
+        elif type(items)==dict:
+            lenum[param]={
+                key : sys[item] if item in sys else item
+                for key,item in items.items()
+                }
+        else:
+            print(param, items)
+
+    saveAsJSON(path+'locEnums.json',lenum)
 
 EnumToJson()

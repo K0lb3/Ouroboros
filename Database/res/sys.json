@@ -1484,7 +1484,7 @@
     "MULTI_MENU_LINE": "Recruit on LINE",
     "MULTI_BTN_SHOP": "Exchange Shop",
     "MULTI_BTN_UPDATEROOM": "Update",
-    "MULTI_TELOP_CREATE_OR_JOIN": "Please select whether to recruit a party yourself or to join someone else's party",
+    "MULTI_TELOP_CREATE_OR_JOIN": "Please select whether to recruit a party yourself or to join someone else's party.",
     "MULTI_TELOP_ABOUT_KEY": "If you would like to keep other players from freely entering your room, please switch Restricted Access to On",
     "MULTI_QUEST_RAID": "MP Quest",
     "MULTI_QUEST_VERSUS": "VS Battle Quest",

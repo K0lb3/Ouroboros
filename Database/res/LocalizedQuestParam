@@ -3326,11 +3326,11 @@ SRPG_QuestParam_QE_TM_MAT_DEX_GEM_LV3_NAME	Treasury of Jewels [Adv]
 SRPG_QuestParam_QE_TM_MAT_DEX_GEM_LV3_EXPR	Obtain Equipment Pieces [DEX/Jewels] *Closed at release time
 SRPG_QuestParam_QE_TM_MAT_DEX_GEM_LV3_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_TM_MAT_DEX_GEM_LV3_TITLE	Limited Quest
-SRPG_QuestParam_QE_TM_IT_EQ_LV3_01_NAME	Elite Treasures [Bgn]
+SRPG_QuestParam_QE_TM_IT_EQ_LV3_01_NAME	Elite Treasures [Int]
 SRPG_QuestParam_QE_TM_IT_EQ_LV3_01_EXPR	5★ Equipment Hard Quest (Equivalent to Adv)
 SRPG_QuestParam_QE_TM_IT_EQ_LV3_01_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_TM_IT_EQ_LV3_01_TITLE	Limited Quest
-SRPG_QuestParam_QE_TM_IT_EQ_LV4_01_NAME	Elite Treasures [Int]
+SRPG_QuestParam_QE_TM_IT_EQ_LV4_01_NAME	Elite Treasures [Adv]
 SRPG_QuestParam_QE_TM_IT_EQ_LV4_01_EXPR	March Equipment Quest 1
 SRPG_QuestParam_QE_TM_IT_EQ_LV4_01_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_TM_IT_EQ_LV4_01_TITLE	Limited Quest
@@ -3920,11 +3920,11 @@ SRPG_QuestParam_QE_SO_PERI_EX_TITLE	[Limited Time]
 SRPG_QuestParam_QE_SO_ZEKE_1_NAME	Blood Wolf by Any Other Name - Episode 1
 SRPG_QuestParam_QE_SO_ZEKE_1_EXPR	Encounter with Zeke
 SRPG_QuestParam_QE_SO_ZEKE_1_COND	Defeat all enemy units!
-SRPG_QuestParam_QE_SO_ZEKE_1_TITLE	Limited to Envylia characters
+SRPG_QuestParam_QE_SO_ZEKE_1_TITLE	[Limited Time]
 SRPG_QuestParam_QE_SO_ZEKE_2_NAME	Blood Wolf by Any Other Name - Episode 2
 SRPG_QuestParam_QE_SO_ZEKE_2_EXPR	Encounter with Zeke
 SRPG_QuestParam_QE_SO_ZEKE_2_COND	Defeat all enemy units!
-SRPG_QuestParam_QE_SO_ZEKE_2_TITLE	Limited to Envylia characters
+SRPG_QuestParam_QE_SO_ZEKE_2_TITLE	[Limited Time]
 SRPG_QuestParam_QE_SO_ZEKE_3_NAME	Blood Wolf by Any Other Name - Episode 3
 SRPG_QuestParam_QE_SO_ZEKE_3_EXPR	Encounter with Zeke
 SRPG_QuestParam_QE_SO_ZEKE_3_COND	Defeat all enemy units!
@@ -7142,6 +7142,10 @@ SRPG_ChapterParam_AR_GL_TRIAL_MAGE_NAME	[Limited Time]
 SRPG_ChapterParam_AR_GL_TRIAL_MAGE_EXPR	Trial of the Ether
 SRPG_ChapterParam_MULTI_GL_TRIAL_MAGE_NAME	Max
 SRPG_ChapterParam_MULTI_GL_TRIAL_MAGE_EXPR	Trial of the Ether
+SRPG_ChapterParam_AR_GL_MH_01_NAME	Magni Historia
+SRPG_ChapterParam_AR_GL_MH_01_EXPR	Episode 1: Overture
+SRPG_ChapterParam_MULTI_GL_MH_NAME	Magni Historia
+SRPG_ChapterParam_MULTI_GL_MH_EXPR	Episode 1: Overture
 SRPG_QuestParam_QE_GL_MAGE_1_NAME	Trial of the Ether [Bgn]
 SRPG_QuestParam_QE_GL_MAGE_1_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_GL_MAGE_1_TITLE	[Limited Time]
@@ -7166,3 +7170,51 @@ SRPG_QuestParam_QE_GL_TRIAL_MAGE_3_TITLE	[Limited Time]
 SRPG_QuestParam_QE_GL_MULTI_TRIAL_MAGE_3_NAME	Trial of the Ether [Adv]
 SRPG_QuestParam_QE_GL_MULTI_TRIAL_MAGE_3_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_GL_MULTI_TRIAL_MAGE_3_TITLE	[Limited Time]
+SRPG_QuestParam_QE_EV_GL_MH_01_01_NAME	Stage 1: Seeking the way
+SRPG_QuestParam_QE_EV_GL_MH_01_01_EXPR	 
+SRPG_QuestParam_QE_EV_GL_MH_01_01_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_GL_MH_01_01_TITLE	[Limited Time]
+SRPG_QuestParam_QE_EV_GL_MH_01_02_NAME	Stage 2: An Uneasy Feeling
+SRPG_QuestParam_QE_EV_GL_MH_01_02_EXPR	 
+SRPG_QuestParam_QE_EV_GL_MH_01_02_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_GL_MH_01_02_TITLE	[Limited Time]
+SRPG_QuestParam_QE_EV_GL_MH_01_03_NAME	Stage 3: Sacris Village
+SRPG_QuestParam_QE_EV_GL_MH_01_03_EXPR	 
+SRPG_QuestParam_QE_EV_GL_MH_01_03_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_GL_MH_01_03_TITLE	[Limited Time]
+SRPG_QuestParam_QE_EV_GL_MH_01_04_NAME	Stage 4: The Blood Drunk Hunters
+SRPG_QuestParam_QE_EV_GL_MH_01_04_EXPR	 
+SRPG_QuestParam_QE_EV_GL_MH_01_04_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_GL_MH_01_04_TITLE	[Limited Time]
+SRPG_QuestParam_QE_EV_GL_MH_01_05_NAME	Stage 5: Bonds of Tradition
+SRPG_QuestParam_QE_EV_GL_MH_01_05_EXPR	 
+SRPG_QuestParam_QE_EV_GL_MH_01_05_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_GL_MH_01_05_TITLE	[Limited Time]
+SRPG_QuestParam_QE_EV_GL_MH_01_06_NAME	Stage 6: Bearer of Burden
+SRPG_QuestParam_QE_EV_GL_MH_01_06_EXPR	 
+SRPG_QuestParam_QE_EV_GL_MH_01_06_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_GL_MH_01_06_TITLE	[Limited Time]
+SRPG_QuestParam_QE_EV_GL_MH_01_07_NAME	Stage 7: Terror from below
+SRPG_QuestParam_QE_EV_GL_MH_01_07_EXPR	 
+SRPG_QuestParam_QE_EV_GL_MH_01_07_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_GL_MH_01_07_TITLE	[Limited Time]
+SRPG_QuestParam_QE_EV_GL_MH_01_08_NAME	Stage 8: The Wandering Defender
+SRPG_QuestParam_QE_EV_GL_MH_01_08_EXPR	 
+SRPG_QuestParam_QE_EV_GL_MH_01_08_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_GL_MH_01_08_TITLE	[Limited Time]
+SRPG_QuestParam_QE_EV_GL_MH_01_09_NAME	Stage 9: What lies beyond
+SRPG_QuestParam_QE_EV_GL_MH_01_09_EXPR	 
+SRPG_QuestParam_QE_EV_GL_MH_01_09_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_GL_MH_01_09_TITLE	[Limited Time]
+SRPG_QuestParam_QE_EV_GL_MH_01_10_NAME	Stage 10: The True Prize
+SRPG_QuestParam_QE_EV_GL_MH_01_10_EXPR	 
+SRPG_QuestParam_QE_EV_GL_MH_01_10_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_GL_MH_01_10_TITLE	[Limited Time]
+SRPG_QuestParam_QE_EV_GL_MH_01_EX_NAME	Overture[EX]
+SRPG_QuestParam_QE_EV_GL_MH_01_EX_EXPR	 
+SRPG_QuestParam_QE_EV_GL_MH_01_EX_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_GL_MH_01_EX_TITLE	[Limited Time]
+SRPG_QuestParam_QE_EV_GL_MH_01_MULTI_EX_NAME	Overture[EX]
+SRPG_QuestParam_QE_EV_GL_MH_01_MULTI_EX_EXPR	 
+SRPG_QuestParam_QE_EV_GL_MH_01_MULTI_EX_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_GL_MH_01_MULTI_EX_TITLE	[Limited Time]

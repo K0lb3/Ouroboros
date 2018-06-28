@@ -1,18 +1,18 @@
 {
     "gachas": [
         {
-            "iname": "7Step_Gacha_S1_BFPOTK",
-            "cat": "other",
-            "startat": 1528876800,
-            "endat": 1530172799,
+            "iname": "3Step_Gacha_S1_B14a",
+            "cat": "",
+            "startat": 1530172800,
+            "endat": 1531382399,
             "num": 10,
-            "name": "Special Summon Step 1",
+            "name": "Promo Summon Step 1",
             "cost": {
                 "coin": 500
             },
-            "asset_title": "tab_GL_014_04",
-            "asset_bg": "GachaImages_GL_7step_BFPOTK_June2018",
-            "detail_url": "7step_Gacha_BFPOTK",
+            "asset_title": "tab_GL_014_09",
+            "asset_bg": "GachaImages_GL_3step_Batch14a",
+            "detail_url": "3Step_Gacha_B14a",
             "units": [],
             "ext_type": [
                 "step",
@@ -21,15 +21,116 @@
             "ext_param": {
                 "step": {
                     "index": 0,
-                    "num": 7
+                    "num": 3
                 },
                 "limit_cnt": {
-                    "rest": 7,
+                    "rest": 3,
                     "num": 1
                 }
             },
             "is_valid": 0,
             "group": "",
+            "btext": "",
+            "confirm": "",
+            "bonus_items": [],
+            "pickup_art": []
+        },
+        {
+            "iname": "9Step_Gacha_S1_B14",
+            "cat": "other",
+            "startat": 1530172800,
+            "endat": 1531382399,
+            "num": 10,
+            "name": "Premium Summon Step 1",
+            "cost": {
+                "coin": 2500
+            },
+            "asset_title": "tab_GL_014_08",
+            "asset_bg": "GachaImages_GL_9step_Batch14",
+            "detail_url": "9Step_Gacha_B14",
+            "units": [],
+            "ext_type": [
+                "step",
+                "limit_cnt"
+            ],
+            "ext_param": {
+                "step": {
+                    "index": 0,
+                    "num": 9
+                },
+                "limit_cnt": {
+                    "rest": 9,
+                    "num": 1
+                }
+            },
+            "is_valid": 0,
+            "group": "",
+            "bonus_items": [
+                {
+                    "iname": "IT_CV_GOLD3",
+                    "num": 50
+                }
+            ],
+            "pickup_art": []
+        },
+        {
+            "iname": "Unlimited_5Step_Gacha_S1_GL1",
+            "cat": "",
+            "startat": 1530172800,
+            "endat": 1531382399,
+            "num": 10,
+            "name": "Special Summon Step 1",
+            "cost": {
+                "coin": 500
+            },
+            "asset_title": "tab_GL_014_10",
+            "asset_bg": "GachaImages_GL_Unlimited_5step_GL1",
+            "detail_url": "Unlimited_5Step_GL1",
+            "units": [],
+            "ext_type": [
+                "step"
+            ],
+            "ext_param": {
+                "step": {
+                    "index": 0,
+                    "num": 5
+                }
+            },
+            "is_valid": 0,
+            "group": "",
+            "btext": "",
+            "confirm": "",
+            "bonus_items": [],
+            "pickup_art": []
+        },
+        {
+            "iname": "Daily_Gacha_D01_S1_SoulB14",
+            "cat": "",
+            "startat": 1530172800,
+            "endat": 1530259199,
+            "num": 10,
+            "name": "Daily Soul Summon",
+            "cost": {
+                "coin": 2500
+            },
+            "asset_title": "tab_GL_015_01",
+            "asset_bg": "GachaImages_GL_DailySoul_Batch14",
+            "detail_url": "Daily_Gacha_SoulB14",
+            "units": [],
+            "ext_type": [
+                "limit_cnt",
+                "promise"
+            ],
+            "ext_param": {
+                "limit_cnt": {
+                    "rest": 1,
+                    "num": 1
+                }
+            },
+            "is_valid": 0,
+            "group": "",
+            "btext": "",
+            "confirm": "",
             "bonus_items": [],
             "pickup_art": []
         },
@@ -69,218 +170,18 @@
             "pickup_art": []
         },
         {
-            "iname": "3Step_Gacha_S1_B13a",
+            "iname": "3Step_Gear_S1_B14",
             "cat": "",
-            "startat": 1528876800,
-            "endat": 1530172799,
-            "num": 10,
-            "name": "Promo Summon Step 1",
-            "cost": {
-                "coin": 500
-            },
-            "asset_title": "tab_GL_013_09",
-            "asset_bg": "GachaImages_GL_3step_Batch13a",
-            "detail_url": "3Step_Gacha_B13a",
-            "units": [],
-            "ext_type": [
-                "step",
-                "limit_cnt"
-            ],
-            "ext_param": {
-                "step": {
-                    "index": 0,
-                    "num": 3
-                },
-                "limit_cnt": {
-                    "rest": 3,
-                    "num": 1
-                }
-            },
-            "is_valid": 0,
-            "group": "",
-            "btext": "",
-            "confirm": "",
-            "bonus_items": [],
-            "pickup_art": []
-        },
-        {
-            "iname": "9Step_Gacha_S1_B13",
-            "cat": "other",
-            "startat": 1528876800,
-            "endat": 1530172799,
-            "num": 10,
-            "name": "Premium Summon Step 1",
-            "cost": {
-                "coin": 2500
-            },
-            "asset_title": "tab_GL_013_08",
-            "asset_bg": "GachaImages_GL_9step_Batch13",
-            "detail_url": "9Step_Gacha_B13",
-            "units": [],
-            "ext_type": [
-                "step",
-                "limit_cnt"
-            ],
-            "ext_param": {
-                "step": {
-                    "index": 0,
-                    "num": 9
-                },
-                "limit_cnt": {
-                    "rest": 9,
-                    "num": 1
-                }
-            },
-            "is_valid": 0,
-            "group": "",
-            "bonus_items": [
-                {
-                    "iname": "IT_CV_GOLD3",
-                    "num": 50
-                }
-            ],
-            "pickup_art": []
-        },
-        {
-            "iname": "Unlimited_5Step_Gacha_S1_BFPOTK",
-            "cat": "",
-            "startat": 1528876800,
-            "endat": 1530172799,
-            "num": 10,
-            "name": "Special Summon Step 1",
-            "cost": {
-                "coin": 500
-            },
-            "asset_title": "tab_GL_014_03",
-            "asset_bg": "GachaImages_GL_5step_BFPOTK_June2018",
-            "detail_url": "Unlimited_5Step_BFPOTK",
-            "units": [],
-            "ext_type": [
-                "step"
-            ],
-            "ext_param": {
-                "step": {
-                    "index": 0,
-                    "num": 5
-                }
-            },
-            "is_valid": 0,
-            "group": "",
-            "btext": "",
-            "confirm": "",
-            "bonus_items": [],
-            "pickup_art": []
-        },
-        {
-            "iname": "Daily_Gacha_D07_S2_Soul_BFPOTK",
-            "cat": "",
-            "startat": 1530086400,
-            "endat": 1530172799,
-            "num": 10,
-            "name": "Daily Soul Summon",
-            "cost": {
-                "coin": 2500
-            },
-            "asset_title": "tab_GL_014_07",
-            "asset_bg": "GachaImages_GL_DailySoul_BFPOTK2_June2018",
-            "detail_url": "Daily_Gacha_Soul_BFPOTK_b",
-            "units": [],
-            "ext_type": [
-                "limit_cnt",
-                "promise"
-            ],
-            "ext_param": {
-                "limit_cnt": {
-                    "rest": 1,
-                    "num": 1
-                }
-            },
-            "is_valid": 0,
-            "group": "",
-            "btext": "",
-            "confirm": "",
-            "bonus_items": [],
-            "pickup_art": []
-        },
-        {
-            "iname": "Daily_Gacha_D07_S1_Soul_BFPOTK",
-            "cat": "",
-            "startat": 1530086400,
-            "endat": 1530172799,
-            "num": 10,
-            "name": "Daily Soul Summon",
-            "cost": {
-                "coin": 2500
-            },
-            "asset_title": "tab_GL_014_06",
-            "asset_bg": "GachaImages_GL_DailySoul_BFPOTK1_June2018",
-            "detail_url": "Daily_Gacha_Soul_BFPOTK_a",
-            "units": [],
-            "ext_type": [
-                "limit_cnt",
-                "promise"
-            ],
-            "ext_param": {
-                "limit_cnt": {
-                    "rest": 1,
-                    "num": 1
-                }
-            },
-            "is_valid": 0,
-            "group": "",
-            "btext": "",
-            "confirm": "",
-            "bonus_items": [],
-            "pickup_art": []
-        },
-        {
-            "iname": "3Step_Gear_S1_BFPOTK",
-            "cat": "",
-            "startat": 1528876800,
-            "endat": 1530172799,
-            "num": 10,
-            "name": "Gear Summon Step 1",
-            "cost": {
-                "coin": 300
-            },
-            "asset_title": "tab_GL_014_05",
-            "asset_bg": "GachaImages_GL_3stepGear_BFPOTK_June2018",
-            "detail_url": "3Step_Gear_BFPOTK",
-            "units": [],
-            "ext_type": [
-                "step",
-                "limit_cnt"
-            ],
-            "ext_param": {
-                "step": {
-                    "index": 0,
-                    "num": 3
-                },
-                "limit_cnt": {
-                    "rest": 3,
-                    "num": 1
-                }
-            },
-            "is_valid": 0,
-            "group": "",
-            "btext": "",
-            "confirm": "",
-            "bonus_items": [],
-            "pickup_art": []
-        },
-        {
-            "iname": "3Step_Gear_S1_B13",
-            "cat": "",
-            "startat": 1528876800,
-            "endat": 1530172799,
+            "startat": 1530172800,
+            "endat": 1531382399,
             "num": 10,
             "name": "Gear Summon Step 1",
             "cost": {
                 "coin": 300
             },
             "asset_title": "tab_GL_002_01",
-            "asset_bg": "GachaImages_GL_3stepGear_Batch13",
-            "detail_url": "3Step_Gear_B13",
+            "asset_bg": "GachaImages_GL_3stepGear_Batch14",
+            "detail_url": "3Step_Gear_B14",
             "units": [],
             "ext_type": [
                 "step",
@@ -304,18 +205,18 @@
             "pickup_art": []
         },
         {
-            "iname": "Rare_GearSummon_01_B13_BFPOTK",
+            "iname": "Rare_GearSummon_01_B14",
             "cat": "",
-            "startat": 1528876800,
-            "endat": 1530172799,
+            "startat": 1530172800,
+            "endat": 1531382399,
             "num": 1,
             "name": "Gear Summon",
             "cost": {
                 "coin": 150
             },
             "asset_title": "tab_GL_002_02",
-            "asset_bg": "GachaImages_GL_RareGear_BFPOTK_June2018",
-            "detail_url": "Rare_Gear_B13_BFPOTK",
+            "asset_bg": "GachaImages_GL_RareGear_Batch14",
+            "detail_url": "Rare_Gear_B14",
             "units": [],
             "ext_type": [],
             "ext_param": {},
@@ -325,18 +226,18 @@
             "pickup_art": []
         },
         {
-            "iname": "Rare_GearSummon_10_B13_BFPOTK",
+            "iname": "Rare_GearSummon_10_B14",
             "cat": "",
-            "startat": 1528876800,
-            "endat": 1530172799,
+            "startat": 1530172800,
+            "endat": 1531382399,
             "num": 10,
             "name": "Gear 10-Summon",
             "cost": {
                 "coin": 1500
             },
             "asset_title": "tab_GL_002_02",
-            "asset_bg": "GachaImages_GL_RareGear_BFPOTK_June2018",
-            "detail_url": "Rare_Gear_B13_BFPOTK",
+            "asset_bg": "GachaImages_GL_RareGear_Batch14",
+            "detail_url": "Rare_Gear_B14",
             "units": [],
             "ext_type": [
                 "promise"
@@ -1020,10 +921,10 @@
             "group": ""
         },
         {
-            "iname": "Rare_Gacha_ii",
+            "iname": "Rare_Gacha",
             "cat": "coin_1",
-            "startat": 1528876800,
-            "endat": 1530172799,
+            "startat": 1530172800,
+            "endat": 1530777599,
             "num": 1,
             "name": "Rare Summon",
             "cost": {
@@ -1033,9 +934,10 @@
             "asset_bg": "GachaImages_rare",
             "detail_url": "rare_gacha",
             "units": [
-                "UN_V2_SETSUNA",
-                "UN_V2_SOPHIA",
-                "UN_V2_MARIANNU"
+                "UN_V2_GL_SIEG",
+                "UN_V2_EIZAN",
+                "UN_V2_TAMAMO",
+                "UN_V2_SHEHERAZADE"
             ],
             "ext_type": [],
             "ext_param": {},
@@ -1046,10 +948,10 @@
             "pickup_art": []
         },
         {
-            "iname": "Rare_Gacha_10_ii",
+            "iname": "Rare_Gacha_10",
             "cat": "coin_n",
-            "startat": 1528876800,
-            "endat": 1530172799,
+            "startat": 1530172800,
+            "endat": 1530777599,
             "num": 10,
             "name": "Rare Summon x 10",
             "cost": {
@@ -1059,9 +961,10 @@
             "asset_bg": "GachaImages_rare",
             "detail_url": "rare_gacha",
             "units": [
-                "UN_V2_SETSUNA",
-                "UN_V2_SOPHIA",
-                "UN_V2_MARIANNU"
+                "UN_V2_GL_SIEG",
+                "UN_V2_EIZAN",
+                "UN_V2_TAMAMO",
+                "UN_V2_SHEHERAZADE"
             ],
             "ext_type": [],
             "ext_param": {},

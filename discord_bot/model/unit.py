@@ -121,9 +121,9 @@ class Unit(Model):
         for key, value in job.stats.items():
             if key.lower() not in _IGNORE_STATS:
                 if key in rstats:
-                    rstats[key] += value
+                    rstats[key] += int(value*84/99)
                 else:
-                    rstats[key] = value
+                    rstats[key] = int(value*84/99)
 
         #multiply with modifiers
         for key, value in job.modifiers.items():

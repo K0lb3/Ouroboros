@@ -485,6 +485,17 @@
                     "Saber Piece",
                     "Branch"
                 ]
+            },
+            {
+                "name": "[8 AP]  Stage 1: Seeking the way",
+                "drops": [
+                    "Wooden Sword",
+                    "Vest Diagram",
+                    "Mage's Fountain Pen Diagram",
+                    "Blue Feather",
+                    "Fortune Coin",
+                    "Needle"
+                ]
             }
         ]
     },
@@ -922,6 +933,17 @@
                     "Saber Piece",
                     "Branch"
                 ]
+            },
+            {
+                "name": "[8 AP]  Stage 2: An Uneasy Feeling",
+                "drops": [
+                    "Mace",
+                    "Vest Diagram",
+                    "Mage's Fountain Pen Diagram",
+                    "Branch",
+                    "Gloves Diagram",
+                    "Thick Hat"
+                ]
             }
         ]
     },
@@ -1264,6 +1286,28 @@
                     "Blue Feather",
                     "Fortune Coin",
                     "Needle"
+                ]
+            },
+            {
+                "name": "[8 AP]  Stage 1: Seeking the way",
+                "drops": [
+                    "Wooden Sword",
+                    "Vest Diagram",
+                    "Mage's Fountain Pen Diagram",
+                    "Blue Feather",
+                    "Fortune Coin",
+                    "Needle"
+                ]
+            },
+            {
+                "name": "[8 AP]  Stage 2: An Uneasy Feeling",
+                "drops": [
+                    "Mace",
+                    "Vest Diagram",
+                    "Mage's Fountain Pen Diagram",
+                    "Branch",
+                    "Gloves Diagram",
+                    "Thick Hat"
                 ]
             }
         ]
@@ -1623,6 +1667,17 @@
                     "Gloves Diagram",
                     "Valentine Box",
                     "Rosette Necklace Diagram Piece"
+                ]
+            },
+            {
+                "name": "[8 AP]  Stage 2: An Uneasy Feeling",
+                "drops": [
+                    "Mace",
+                    "Vest Diagram",
+                    "Mage's Fountain Pen Diagram",
+                    "Branch",
+                    "Gloves Diagram",
+                    "Thick Hat"
                 ]
             }
         ]
@@ -2088,6 +2143,41 @@
                     "Saber Piece",
                     "Branch"
                 ]
+            },
+            {
+                "name": "[8 AP]  Stage 2: An Uneasy Feeling",
+                "drops": [
+                    "Mace",
+                    "Vest Diagram",
+                    "Mage's Fountain Pen Diagram",
+                    "Branch",
+                    "Gloves Diagram",
+                    "Thick Hat"
+                ]
+            },
+            {
+                "name": "[10 AP]  Stage 3: Sacris Village",
+                "drops": [
+                    "Saber",
+                    "Leather Cape",
+                    "Ink Jar",
+                    "Harmonic Cogs",
+                    "Traveler's Key",
+                    "Blue Feather",
+                    "Thick Hat"
+                ]
+            },
+            {
+                "name": "[16 AP]  Stage 6: Bearer of Burden",
+                "drops": [
+                    "Great Lance Piece",
+                    "Cross Helmet Piece",
+                    "Stamp of Certain Delivery Piece",
+                    "Magic Staff",
+                    "Charm",
+                    "Thick Hat",
+                    "Saber Piece"
+                ]
             }
         ]
     },
@@ -2423,6 +2513,28 @@
                     "Blue Feather",
                     "Fortune Coin",
                     "Needle"
+                ]
+            },
+            {
+                "name": "[8 AP]  Stage 1: Seeking the way",
+                "drops": [
+                    "Wooden Sword",
+                    "Vest Diagram",
+                    "Mage's Fountain Pen Diagram",
+                    "Blue Feather",
+                    "Fortune Coin",
+                    "Needle"
+                ]
+            },
+            {
+                "name": "[8 AP]  Stage 2: An Uneasy Feeling",
+                "drops": [
+                    "Mace",
+                    "Vest Diagram",
+                    "Mage's Fountain Pen Diagram",
+                    "Branch",
+                    "Gloves Diagram",
+                    "Thick Hat"
                 ]
             }
         ]
@@ -2863,6 +2975,29 @@
                     "Saber Piece",
                     "Branch"
                 ]
+            },
+            {
+                "name": "[8 AP]  Stage 1: Seeking the way",
+                "drops": [
+                    "Wooden Sword",
+                    "Vest Diagram",
+                    "Mage's Fountain Pen Diagram",
+                    "Blue Feather",
+                    "Fortune Coin",
+                    "Needle"
+                ]
+            },
+            {
+                "name": "[10 AP]  Stage 3: Sacris Village",
+                "drops": [
+                    "Saber",
+                    "Leather Cape",
+                    "Ink Jar",
+                    "Harmonic Cogs",
+                    "Traveler's Key",
+                    "Blue Feather",
+                    "Thick Hat"
+                ]
             }
         ]
     },
@@ -3139,6 +3274,17 @@
                     "Fortune Coin",
                     "Needle"
                 ]
+            },
+            {
+                "name": "[8 AP]  Stage 1: Seeking the way",
+                "drops": [
+                    "Wooden Sword",
+                    "Vest Diagram",
+                    "Mage's Fountain Pen Diagram",
+                    "Blue Feather",
+                    "Fortune Coin",
+                    "Needle"
+                ]
             }
         ]
     },
@@ -3368,7 +3514,7 @@
                     "Knight Chess Piece Diagram Piece",
                     "Great Lance Piece",
                     "Mace",
-                    "Rigalt Soul Shard"
+                    "Courage Soul Shard"
                 ]
             },
             {
@@ -3527,6 +3673,17 @@
             },
             {
                 "name": "[20 AP]  Sacred Stone Memories 5-2 Whether Evil or Not",
+                "drops": [
+                    "Mace",
+                    "Vest Diagram",
+                    "Mage's Fountain Pen Diagram",
+                    "Branch",
+                    "Gloves Diagram",
+                    "Thick Hat"
+                ]
+            },
+            {
+                "name": "[8 AP]  Stage 2: An Uneasy Feeling",
                 "drops": [
                     "Mace",
                     "Vest Diagram",
@@ -3845,6 +4002,17 @@
                     "Goggles Piece",
                     "Valentine Box",
                     "Flowery Corsage Diagram Piece"
+                ]
+            },
+            {
+                "name": "[10 AP]  Stage 4: The Blood Drunk Hunters",
+                "drops": [
+                    "Saber",
+                    "Leather Cape",
+                    "Ink Jar",
+                    "Wand",
+                    "Charm",
+                    "Earrings Diagram"
                 ]
             }
         ]
@@ -4742,6 +4910,42 @@
                     "Valentine Box",
                     "Flowery Corsage Diagram Piece"
                 ]
+            },
+            {
+                "name": "[10 AP]  Stage 4: The Blood Drunk Hunters",
+                "drops": [
+                    "Saber",
+                    "Leather Cape",
+                    "Ink Jar",
+                    "Wand",
+                    "Charm",
+                    "Earrings Diagram"
+                ]
+            },
+            {
+                "name": "[16 AP]  Stage 6: Bearer of Burden",
+                "drops": [
+                    "Great Lance Piece",
+                    "Cross Helmet Piece",
+                    "Stamp of Certain Delivery Piece",
+                    "Magic Staff",
+                    "Charm",
+                    "Thick Hat",
+                    "Saber Piece"
+                ]
+            },
+            {
+                "name": "[20 AP]  Stage 8: The Wandering Defender",
+                "drops": [
+                    "Great Lance Piece",
+                    "Lion Monarch Shield Piece",
+                    "Stamp of Certain Delivery Piece",
+                    "Magic Staff",
+                    "Charm",
+                    "Earrings Diagram",
+                    "Black Belt Diagram Piece",
+                    "Wanderer's Longcoat Diagram Piece"
+                ]
             }
         ]
     },
@@ -5125,6 +5329,30 @@
                     "Ouroboros Wreath",
                     "Archmage Book Diagram Piece",
                     "Archmage Staff Diagram Piece"
+                ]
+            },
+            {
+                "name": "[10 AP]  Stage 4: The Blood Drunk Hunters",
+                "drops": [
+                    "Saber",
+                    "Leather Cape",
+                    "Ink Jar",
+                    "Wand",
+                    "Charm",
+                    "Earrings Diagram"
+                ]
+            },
+            {
+                "name": "[20 AP]  Stage 8: The Wandering Defender",
+                "drops": [
+                    "Great Lance Piece",
+                    "Lion Monarch Shield Piece",
+                    "Stamp of Certain Delivery Piece",
+                    "Magic Staff",
+                    "Charm",
+                    "Earrings Diagram",
+                    "Black Belt Diagram Piece",
+                    "Wanderer's Longcoat Diagram Piece"
                 ]
             }
         ]
@@ -5720,6 +5948,29 @@
                     "Valentine Box",
                     "Flowery Corsage Diagram Piece"
                 ]
+            },
+            {
+                "name": "[16 AP]  Stage 5: Bonds of Tradition",
+                "drops": [
+                    "Saber",
+                    "Cross Helmet Piece",
+                    "Ink Jar",
+                    "Single-Tooth Geta Diagram",
+                    "Rabbit's Foot Diagram",
+                    "Dagger"
+                ]
+            },
+            {
+                "name": "[20 AP]  Stage 7: Terror from below",
+                "drops": [
+                    "Great Lance Piece",
+                    "Cross Helmet Piece",
+                    "Stamp of Certain Delivery Piece",
+                    "Shinobi Shoes Diagram Piece",
+                    "Elemental Belt Diagram",
+                    "Dagger",
+                    "Picmy Figurine Diagram"
+                ]
             }
         ]
     },
@@ -5970,6 +6221,17 @@
                 "name": "[30 AP]  Sacred Stone Memories 5-5 Rebellion Introduced",
                 "drops": [
                     "Holy Sword Pendant Piece",
+                    "Cross Helmet Piece",
+                    "Ink Jar",
+                    "Single-Tooth Geta Diagram",
+                    "Rabbit's Foot Diagram",
+                    "Dagger"
+                ]
+            },
+            {
+                "name": "[16 AP]  Stage 5: Bonds of Tradition",
+                "drops": [
+                    "Saber",
                     "Cross Helmet Piece",
                     "Ink Jar",
                     "Single-Tooth Geta Diagram",
@@ -6251,6 +6513,18 @@
                     "Traveler's Key",
                     "Needle"
                 ]
+            },
+            {
+                "name": "[10 AP]  Stage 3: Sacris Village",
+                "drops": [
+                    "Saber",
+                    "Leather Cape",
+                    "Ink Jar",
+                    "Harmonic Cogs",
+                    "Traveler's Key",
+                    "Blue Feather",
+                    "Thick Hat"
+                ]
             }
         ]
     },
@@ -6530,6 +6804,17 @@
                     "Gloves Diagram",
                     "Valentine Box",
                     "Rosette Necklace Diagram Piece"
+                ]
+            },
+            {
+                "name": "[16 AP]  Stage 5: Bonds of Tradition",
+                "drops": [
+                    "Saber",
+                    "Cross Helmet Piece",
+                    "Ink Jar",
+                    "Single-Tooth Geta Diagram",
+                    "Rabbit's Foot Diagram",
+                    "Dagger"
                 ]
             }
         ]
@@ -7123,6 +7408,18 @@
                     "Blue Feather",
                     "Saber Piece",
                     "Branch"
+                ]
+            },
+            {
+                "name": "[16 AP]  Stage 6: Bearer of Burden",
+                "drops": [
+                    "Great Lance Piece",
+                    "Cross Helmet Piece",
+                    "Stamp of Certain Delivery Piece",
+                    "Magic Staff",
+                    "Charm",
+                    "Thick Hat",
+                    "Saber Piece"
                 ]
             }
         ]
@@ -8045,6 +8342,29 @@
                     "Cross Helmet Piece",
                     "Shinobi Shoes Diagram Piece",
                     "Stamp of Certain Delivery Piece"
+                ]
+            },
+            {
+                "name": "[16 AP]  Stage 5: Bonds of Tradition",
+                "drops": [
+                    "Saber",
+                    "Cross Helmet Piece",
+                    "Ink Jar",
+                    "Single-Tooth Geta Diagram",
+                    "Rabbit's Foot Diagram",
+                    "Dagger"
+                ]
+            },
+            {
+                "name": "[16 AP]  Stage 6: Bearer of Burden",
+                "drops": [
+                    "Great Lance Piece",
+                    "Cross Helmet Piece",
+                    "Stamp of Certain Delivery Piece",
+                    "Magic Staff",
+                    "Charm",
+                    "Thick Hat",
+                    "Saber Piece"
                 ]
             }
         ]
@@ -8996,6 +9316,43 @@
                     "Cross Helmet Piece",
                     "Shinobi Shoes Diagram Piece",
                     "Stamp of Certain Delivery Piece"
+                ]
+            },
+            {
+                "name": "[16 AP]  Stage 6: Bearer of Burden",
+                "drops": [
+                    "Great Lance Piece",
+                    "Cross Helmet Piece",
+                    "Stamp of Certain Delivery Piece",
+                    "Magic Staff",
+                    "Charm",
+                    "Thick Hat",
+                    "Saber Piece"
+                ]
+            },
+            {
+                "name": "[20 AP]  Stage 7: Terror from below",
+                "drops": [
+                    "Great Lance Piece",
+                    "Cross Helmet Piece",
+                    "Stamp of Certain Delivery Piece",
+                    "Shinobi Shoes Diagram Piece",
+                    "Elemental Belt Diagram",
+                    "Dagger",
+                    "Picmy Figurine Diagram"
+                ]
+            },
+            {
+                "name": "[20 AP]  Stage 8: The Wandering Defender",
+                "drops": [
+                    "Great Lance Piece",
+                    "Lion Monarch Shield Piece",
+                    "Stamp of Certain Delivery Piece",
+                    "Magic Staff",
+                    "Charm",
+                    "Earrings Diagram",
+                    "Black Belt Diagram Piece",
+                    "Wanderer's Longcoat Diagram Piece"
                 ]
             }
         ]
@@ -10311,7 +10668,7 @@
         ],
         "event": [
             {
-                "name": "[20 AP]  Elite Treasures [Bgn]",
+                "name": "[20 AP]  Elite Treasures [Int]",
                 "drops": [
                     "Magus Hood Piece",
                     "Lion Monarch Shield Piece",
@@ -10474,6 +10831,18 @@
                     "Cross Helmet Piece",
                     "Shinobi Shoes Diagram Piece",
                     "Stamp of Certain Delivery Piece"
+                ]
+            },
+            {
+                "name": "[20 AP]  Stage 7: Terror from below",
+                "drops": [
+                    "Great Lance Piece",
+                    "Cross Helmet Piece",
+                    "Stamp of Certain Delivery Piece",
+                    "Shinobi Shoes Diagram Piece",
+                    "Elemental Belt Diagram",
+                    "Dagger",
+                    "Picmy Figurine Diagram"
                 ]
             }
         ]
@@ -10795,7 +11164,7 @@
                     "Knight Chess Piece Diagram Piece",
                     "Great Lance Piece",
                     "Mace",
-                    "Rigalt Soul Shard"
+                    "Courage Soul Shard"
                 ]
             },
             {
@@ -10827,7 +11196,7 @@
                 ]
             },
             {
-                "name": "[20 AP]  Elite Treasures [Bgn]",
+                "name": "[20 AP]  Elite Treasures [Int]",
                 "drops": [
                     "Magus Hood Piece",
                     "Lion Monarch Shield Piece",
@@ -11408,7 +11777,7 @@
                 ]
             },
             {
-                "name": "[20 AP]  Elite Treasures [Bgn]",
+                "name": "[20 AP]  Elite Treasures [Int]",
                 "drops": [
                     "Magus Hood Piece",
                     "Lion Monarch Shield Piece",
@@ -11819,7 +12188,7 @@
                 ]
             },
             {
-                "name": "[20 AP]  Elite Treasures [Bgn]",
+                "name": "[20 AP]  Elite Treasures [Int]",
                 "drops": [
                     "Magus Hood Piece",
                     "Lion Monarch Shield Piece",
@@ -12383,7 +12752,7 @@
                 ]
             },
             {
-                "name": "[20 AP]  Elite Treasures [Bgn]",
+                "name": "[20 AP]  Elite Treasures [Int]",
                 "drops": [
                     "Magus Hood Piece",
                     "Lion Monarch Shield Piece",
@@ -13388,7 +13757,7 @@
                     "Mechanical Wing Piece",
                     "Dice of Fate Piece",
                     "Gramophone Piece",
-                    "Gato Soul Shard"
+                    "Flamel Soul Shard"
                 ]
             },
             {
@@ -13430,7 +13799,7 @@
                 ]
             },
             {
-                "name": "[30 AP]  Elite Treasures [Int]",
+                "name": "[30 AP]  Elite Treasures [Adv]",
                 "drops": [
                     "Mechanical Wing Piece",
                     "Gear Rod Piece",
@@ -13599,6 +13968,61 @@
                     "Javelin Diagram Piece",
                     "Goggles Piece"
                 ]
+            },
+            {
+                "name": "[24 AP]  Stage 9: What lies beyond",
+                "drops": [
+                    "Wanderer's Longcoat Diagram Piece",
+                    "Sacred Lion Blade Piece",
+                    "Lion Monarch Shield Piece",
+                    "Compass Diagram Piece",
+                    "Mechanical Wing Piece",
+                    "Great Lance Piece",
+                    "Picmy Figurine Diagram",
+                    "Black Belt Diagram Piece"
+                ]
+            },
+            {
+                "name": "[24 AP]  Stage 10: The True Prize",
+                "drops": [
+                    "Wanderer's Longcoat Diagram Piece",
+                    "Sacred Lion Blade Piece",
+                    "Lion Monarch Shield Piece",
+                    "Compass Diagram Piece",
+                    "Mechanical Wing Piece",
+                    "Great Lance Piece",
+                    "Elemental Belt Diagram"
+                ]
+            },
+            {
+                "name": "[40 AP]  Overture[EX]",
+                "drops": [
+                    "Wanderer's Longcoat Diagram Piece",
+                    "Sacred Lion Blade Piece",
+                    "Lion Monarch Shield Piece",
+                    "Compass Diagram Piece",
+                    "Mechanical Wing Piece",
+                    "Great Lance Piece",
+                    "Picmy Figurine Diagram",
+                    "Elemental Belt Diagram",
+                    "Flame Emperor Armor Piece",
+                    "Wanderer's Hat Shard"
+                ]
+            },
+            {
+                "name": "[20 AP] MP Overture[EX]",
+                "drops": [
+                    "Wanderer's Longcoat Diagram Piece",
+                    "Sacred Lion Blade Piece",
+                    "Lion Monarch Shield Piece",
+                    "Compass Diagram Piece",
+                    "Mechanical Wing Piece",
+                    "Great Lance Piece",
+                    "Picmy Figurine Diagram",
+                    "Elemental Belt Diagram",
+                    "Flame Emperor Armor Piece",
+                    "Wanderer's Hat Shard"
+                ]
             }
         ]
     },
@@ -13716,7 +14140,7 @@
                     "Mechanical Wing Piece",
                     "Dice of Fate Piece",
                     "Gramophone Piece",
-                    "Gato Soul Shard"
+                    "Flamel Soul Shard"
                 ]
             },
             {
@@ -13789,7 +14213,7 @@
                 ]
             },
             {
-                "name": "[30 AP]  Elite Treasures [Int]",
+                "name": "[30 AP]  Elite Treasures [Adv]",
                 "drops": [
                     "Mechanical Wing Piece",
                     "Gear Rod Piece",
@@ -14010,7 +14434,7 @@
                     "Mechanical Wing Piece",
                     "Dice of Fate Piece",
                     "Gramophone Piece",
-                    "Gato Soul Shard"
+                    "Flamel Soul Shard"
                 ]
             },
             {
@@ -14179,7 +14603,7 @@
         ],
         "event": [
             {
-                "name": "[20 AP]  Elite Treasures [Bgn]",
+                "name": "[20 AP]  Elite Treasures [Int]",
                 "drops": [
                     "Magus Hood Piece",
                     "Lion Monarch Shield Piece",
@@ -14395,6 +14819,60 @@
                     "Elemental Belt Diagram",
                     "Dagger",
                     "Picmy Figurine Diagram"
+                ]
+            },
+            {
+                "name": "[20 AP]  Stage 7: Terror from below",
+                "drops": [
+                    "Great Lance Piece",
+                    "Cross Helmet Piece",
+                    "Stamp of Certain Delivery Piece",
+                    "Shinobi Shoes Diagram Piece",
+                    "Elemental Belt Diagram",
+                    "Dagger",
+                    "Picmy Figurine Diagram"
+                ]
+            },
+            {
+                "name": "[24 AP]  Stage 10: The True Prize",
+                "drops": [
+                    "Wanderer's Longcoat Diagram Piece",
+                    "Sacred Lion Blade Piece",
+                    "Lion Monarch Shield Piece",
+                    "Compass Diagram Piece",
+                    "Mechanical Wing Piece",
+                    "Great Lance Piece",
+                    "Elemental Belt Diagram"
+                ]
+            },
+            {
+                "name": "[40 AP]  Overture[EX]",
+                "drops": [
+                    "Wanderer's Longcoat Diagram Piece",
+                    "Sacred Lion Blade Piece",
+                    "Lion Monarch Shield Piece",
+                    "Compass Diagram Piece",
+                    "Mechanical Wing Piece",
+                    "Great Lance Piece",
+                    "Picmy Figurine Diagram",
+                    "Elemental Belt Diagram",
+                    "Flame Emperor Armor Piece",
+                    "Wanderer's Hat Shard"
+                ]
+            },
+            {
+                "name": "[20 AP] MP Overture[EX]",
+                "drops": [
+                    "Wanderer's Longcoat Diagram Piece",
+                    "Sacred Lion Blade Piece",
+                    "Lion Monarch Shield Piece",
+                    "Compass Diagram Piece",
+                    "Mechanical Wing Piece",
+                    "Great Lance Piece",
+                    "Picmy Figurine Diagram",
+                    "Elemental Belt Diagram",
+                    "Flame Emperor Armor Piece",
+                    "Wanderer's Hat Shard"
                 ]
             }
         ]
@@ -14762,6 +15240,61 @@
                     "Elemental Belt Diagram",
                     "Dagger",
                     "Picmy Figurine Diagram"
+                ]
+            },
+            {
+                "name": "[20 AP]  Stage 7: Terror from below",
+                "drops": [
+                    "Great Lance Piece",
+                    "Cross Helmet Piece",
+                    "Stamp of Certain Delivery Piece",
+                    "Shinobi Shoes Diagram Piece",
+                    "Elemental Belt Diagram",
+                    "Dagger",
+                    "Picmy Figurine Diagram"
+                ]
+            },
+            {
+                "name": "[24 AP]  Stage 9: What lies beyond",
+                "drops": [
+                    "Wanderer's Longcoat Diagram Piece",
+                    "Sacred Lion Blade Piece",
+                    "Lion Monarch Shield Piece",
+                    "Compass Diagram Piece",
+                    "Mechanical Wing Piece",
+                    "Great Lance Piece",
+                    "Picmy Figurine Diagram",
+                    "Black Belt Diagram Piece"
+                ]
+            },
+            {
+                "name": "[40 AP]  Overture[EX]",
+                "drops": [
+                    "Wanderer's Longcoat Diagram Piece",
+                    "Sacred Lion Blade Piece",
+                    "Lion Monarch Shield Piece",
+                    "Compass Diagram Piece",
+                    "Mechanical Wing Piece",
+                    "Great Lance Piece",
+                    "Picmy Figurine Diagram",
+                    "Elemental Belt Diagram",
+                    "Flame Emperor Armor Piece",
+                    "Wanderer's Hat Shard"
+                ]
+            },
+            {
+                "name": "[20 AP] MP Overture[EX]",
+                "drops": [
+                    "Wanderer's Longcoat Diagram Piece",
+                    "Sacred Lion Blade Piece",
+                    "Lion Monarch Shield Piece",
+                    "Compass Diagram Piece",
+                    "Mechanical Wing Piece",
+                    "Great Lance Piece",
+                    "Picmy Figurine Diagram",
+                    "Elemental Belt Diagram",
+                    "Flame Emperor Armor Piece",
+                    "Wanderer's Hat Shard"
                 ]
             }
         ]
@@ -15212,6 +15745,32 @@
                     "Compass Diagram Piece",
                     "Black Belt Diagram Piece",
                     "Armor of Wrath Shard"
+                ]
+            },
+            {
+                "name": "[20 AP]  Stage 8: The Wandering Defender",
+                "drops": [
+                    "Great Lance Piece",
+                    "Lion Monarch Shield Piece",
+                    "Stamp of Certain Delivery Piece",
+                    "Magic Staff",
+                    "Charm",
+                    "Earrings Diagram",
+                    "Black Belt Diagram Piece",
+                    "Wanderer's Longcoat Diagram Piece"
+                ]
+            },
+            {
+                "name": "[24 AP]  Stage 9: What lies beyond",
+                "drops": [
+                    "Wanderer's Longcoat Diagram Piece",
+                    "Sacred Lion Blade Piece",
+                    "Lion Monarch Shield Piece",
+                    "Compass Diagram Piece",
+                    "Mechanical Wing Piece",
+                    "Great Lance Piece",
+                    "Picmy Figurine Diagram",
+                    "Black Belt Diagram Piece"
                 ]
             }
         ]
@@ -15685,7 +16244,7 @@
         ],
         "event": [
             {
-                "name": "[30 AP]  Elite Treasures [Int]",
+                "name": "[30 AP]  Elite Treasures [Adv]",
                 "drops": [
                     "Mechanical Wing Piece",
                     "Gear Rod Piece",
@@ -15877,7 +16436,7 @@
                     "Knight Chess Piece Diagram Piece",
                     "Great Lance Piece",
                     "Mace",
-                    "Rigalt Soul Shard"
+                    "Courage Soul Shard"
                 ]
             },
             {
@@ -15893,7 +16452,7 @@
         ],
         "event": [
             {
-                "name": "[30 AP]  Elite Treasures [Int]",
+                "name": "[30 AP]  Elite Treasures [Adv]",
                 "drops": [
                     "Mechanical Wing Piece",
                     "Gear Rod Piece",
@@ -16217,7 +16776,7 @@
         ],
         "event": [
             {
-                "name": "[30 AP]  Elite Treasures [Int]",
+                "name": "[30 AP]  Elite Treasures [Adv]",
                 "drops": [
                     "Mechanical Wing Piece",
                     "Gear Rod Piece",
@@ -16600,6 +17159,61 @@
                     "Black Belt Diagram Piece",
                     "Armor of Wrath Shard"
                 ]
+            },
+            {
+                "name": "[24 AP]  Stage 9: What lies beyond",
+                "drops": [
+                    "Wanderer's Longcoat Diagram Piece",
+                    "Sacred Lion Blade Piece",
+                    "Lion Monarch Shield Piece",
+                    "Compass Diagram Piece",
+                    "Mechanical Wing Piece",
+                    "Great Lance Piece",
+                    "Picmy Figurine Diagram",
+                    "Black Belt Diagram Piece"
+                ]
+            },
+            {
+                "name": "[24 AP]  Stage 10: The True Prize",
+                "drops": [
+                    "Wanderer's Longcoat Diagram Piece",
+                    "Sacred Lion Blade Piece",
+                    "Lion Monarch Shield Piece",
+                    "Compass Diagram Piece",
+                    "Mechanical Wing Piece",
+                    "Great Lance Piece",
+                    "Elemental Belt Diagram"
+                ]
+            },
+            {
+                "name": "[40 AP]  Overture[EX]",
+                "drops": [
+                    "Wanderer's Longcoat Diagram Piece",
+                    "Sacred Lion Blade Piece",
+                    "Lion Monarch Shield Piece",
+                    "Compass Diagram Piece",
+                    "Mechanical Wing Piece",
+                    "Great Lance Piece",
+                    "Picmy Figurine Diagram",
+                    "Elemental Belt Diagram",
+                    "Flame Emperor Armor Piece",
+                    "Wanderer's Hat Shard"
+                ]
+            },
+            {
+                "name": "[20 AP] MP Overture[EX]",
+                "drops": [
+                    "Wanderer's Longcoat Diagram Piece",
+                    "Sacred Lion Blade Piece",
+                    "Lion Monarch Shield Piece",
+                    "Compass Diagram Piece",
+                    "Mechanical Wing Piece",
+                    "Great Lance Piece",
+                    "Picmy Figurine Diagram",
+                    "Elemental Belt Diagram",
+                    "Flame Emperor Armor Piece",
+                    "Wanderer's Hat Shard"
+                ]
             }
         ]
     },
@@ -16709,7 +17323,7 @@
         ],
         "event": [
             {
-                "name": "[30 AP]  Elite Treasures [Int]",
+                "name": "[30 AP]  Elite Treasures [Adv]",
                 "drops": [
                     "Mechanical Wing Piece",
                     "Gear Rod Piece",
@@ -17066,7 +17680,7 @@
                 ]
             },
             {
-                "name": "[30 AP]  Elite Treasures [Int]",
+                "name": "[30 AP]  Elite Treasures [Adv]",
                 "drops": [
                     "Mechanical Wing Piece",
                     "Gear Rod Piece",
@@ -17975,7 +18589,7 @@
                 ]
             },
             {
-                "name": "[30 AP]  Elite Treasures [Int]",
+                "name": "[30 AP]  Elite Treasures [Adv]",
                 "drops": [
                     "Mechanical Wing Piece",
                     "Gear Rod Piece",
@@ -18437,7 +19051,7 @@
                     "Knight Chess Piece Diagram Piece",
                     "Great Lance Piece",
                     "Mace",
-                    "Rigalt Soul Shard"
+                    "Courage Soul Shard"
                 ]
             },
             {
@@ -18797,6 +19411,36 @@
                     "White Knight's Garb Diagram Piece",
                     "Plated Dress Diagram Piece",
                     "Glory-Bringers Shard"
+                ]
+            },
+            {
+                "name": "[40 AP]  Overture[EX]",
+                "drops": [
+                    "Wanderer's Longcoat Diagram Piece",
+                    "Sacred Lion Blade Piece",
+                    "Lion Monarch Shield Piece",
+                    "Compass Diagram Piece",
+                    "Mechanical Wing Piece",
+                    "Great Lance Piece",
+                    "Picmy Figurine Diagram",
+                    "Elemental Belt Diagram",
+                    "Flame Emperor Armor Piece",
+                    "Wanderer's Hat Shard"
+                ]
+            },
+            {
+                "name": "[20 AP] MP Overture[EX]",
+                "drops": [
+                    "Wanderer's Longcoat Diagram Piece",
+                    "Sacred Lion Blade Piece",
+                    "Lion Monarch Shield Piece",
+                    "Compass Diagram Piece",
+                    "Mechanical Wing Piece",
+                    "Great Lance Piece",
+                    "Picmy Figurine Diagram",
+                    "Elemental Belt Diagram",
+                    "Flame Emperor Armor Piece",
+                    "Wanderer's Hat Shard"
                 ]
             }
         ]
@@ -19814,6 +20458,12 @@
                 ]
             },
             {
+                "name": "[10 AP]  Approaching Shadow",
+                "drops": [
+                    "Magic Bracelet Diagram Piece"
+                ]
+            },
+            {
                 "name": "[24 AP]  Sacred Stone Memories 2-9 Zangetsu's Ambitions",
                 "drops": [
                     "Magic Bracelet Diagram Piece",
@@ -20026,7 +20676,7 @@
                 ]
             },
             {
-                "name": "[30 AP]  Elite Treasures [Int]",
+                "name": "[30 AP]  Elite Treasures [Adv]",
                 "drops": [
                     "Mechanical Wing Piece",
                     "Gear Rod Piece",
@@ -20346,6 +20996,12 @@
                     "Lapin Earring Diagram Piece",
                     "Briar-Whip of Discipline Diagram Piece",
                     "Forbidden Apple"
+                ]
+            },
+            {
+                "name": "[30 AP]  Fluffy Fluff",
+                "drops": [
+                    "Briar-Whip of Discipline Diagram Piece"
                 ]
             },
             {
@@ -20733,7 +21389,7 @@
                     "Alchemic Radio Piece",
                     "Laboratory Flasks Diagram Piece",
                     "Holy Brawler's Sash Diagram Piece",
-                    "Gyan Soul Shard"
+                    "Vincent Soul Shard"
                 ]
             },
             {
@@ -21280,7 +21936,7 @@
                 ]
             },
             {
-                "name": "[30 AP]  Elite Treasures [Int]",
+                "name": "[30 AP]  Elite Treasures [Adv]",
                 "drops": [
                     "Mechanical Wing Piece",
                     "Gear Rod Piece",
@@ -22005,7 +22661,7 @@
                     "Alchemic Radio Piece",
                     "Laboratory Flasks Diagram Piece",
                     "Holy Brawler's Sash Diagram Piece",
-                    "Gyan Soul Shard"
+                    "Vincent Soul Shard"
                 ]
             },
             {
@@ -22999,6 +23655,12 @@
                 ]
             },
             {
+                "name": "[20 AP]  Irritation",
+                "drops": [
+                    "Engineer's Waist Pouch Diagram Piece"
+                ]
+            },
+            {
                 "name": "[20 AP] MP Treasure of Sages [Hard]",
                 "drops": [
                     "Hunting Cape Diagram Piece",
@@ -23532,6 +24194,12 @@
             },
             {
                 "name": "[10 AP]  Flawless Victory",
+                "drops": [
+                    "Dark Sword Diagram Piece"
+                ]
+            },
+            {
+                "name": "[10 AP]  Majestic Blossoms",
                 "drops": [
                     "Dark Sword Diagram Piece"
                 ]
@@ -24088,7 +24756,7 @@
                     "Alchemic Radio Piece",
                     "Laboratory Flasks Diagram Piece",
                     "Holy Brawler's Sash Diagram Piece",
-                    "Gyan Soul Shard"
+                    "Vincent Soul Shard"
                 ]
             },
             {
@@ -24564,6 +25232,12 @@
             },
             {
                 "name": "[30 AP]  Intensifying Urge",
+                "drops": [
+                    "Sinister Helmet Diagram Piece"
+                ]
+            },
+            {
+                "name": "[30 AP]  Promise",
                 "drops": [
                     "Sinister Helmet Diagram Piece"
                 ]
@@ -25326,6 +26000,12 @@
                 ]
             },
             {
+                "name": "[20 AP]  My Resolve",
+                "drops": [
+                    "Crystal Sword Diagram Piece"
+                ]
+            },
+            {
                 "name": "[20 AP] MP Brave Frontier [EX]",
                 "drops": [
                     "Blue Crystal Rose Shard",
@@ -25919,7 +26599,7 @@
                     "Alchemic Radio Piece",
                     "Laboratory Flasks Diagram Piece",
                     "Holy Brawler's Sash Diagram Piece",
-                    "Gyan Soul Shard"
+                    "Vincent Soul Shard"
                 ]
             }
         ],
@@ -27314,16 +27994,6 @@
                     "Saber Piece",
                     "Rigalt Soul Shard"
                 ]
-            },
-            {
-                "name": "[40 AP] [Hard] Ch 2: Ep 3 [3-2]",
-                "drops": [
-                    "Flame Emperor Armor Piece",
-                    "Knight Chess Piece Diagram Piece",
-                    "Great Lance Piece",
-                    "Mace",
-                    "Rigalt Soul Shard"
-                ]
             }
         ],
         "event": []
@@ -27573,16 +28243,6 @@
                 ]
             },
             {
-                "name": "[40 AP] [Hard] Ch 1: Ep 5 [3-10]",
-                "drops": [
-                    "Orichalcum Blades Piece",
-                    "Alchemic Radio Piece",
-                    "Laboratory Flasks Diagram Piece",
-                    "Holy Brawler's Sash Diagram Piece",
-                    "Gyan Soul Shard"
-                ]
-            },
-            {
                 "name": "[40 AP] [Hard] Ch 2: Ep 2 [3-2]",
                 "drops": [
                     "Lion Gauntlet Diagram Piece",
@@ -27736,15 +28396,6 @@
                 "drops": [
                     "Charm",
                     "Cross Helmet Piece",
-                    "Gato Soul Shard"
-                ]
-            },
-            {
-                "name": "[24 AP] [Hard] Ch 1: Ep 3 [2-10]",
-                "drops": [
-                    "Mechanical Wing Piece",
-                    "Dice of Fate Piece",
-                    "Gramophone Piece",
                     "Gato Soul Shard"
                 ]
             },
@@ -28101,6 +28752,27 @@
         ],
         "event": []
     },
+    "IT_PI_FLAMEL": {
+        "iname": "IT_PI_FLAMEL",
+        "name": "Flamel Soul Shard",
+        "inputs": [
+            "Flamel Soul Shard"
+        ],
+        "link": "http://www.alchemistcodedb.com/item/it-pi-flamel",
+        "icon": "http://cdn.alchemistcodedb.com/images/items/icons/IT_PI_FLAMEL.png",
+        "story": [
+            {
+                "name": "[24 AP] [Hard] Ch 1: Ep 3 [2-10]",
+                "drops": [
+                    "Mechanical Wing Piece",
+                    "Dice of Fate Piece",
+                    "Gramophone Piece",
+                    "Flamel Soul Shard"
+                ]
+            }
+        ],
+        "event": []
+    },
     "IT_PI_YOMI": {
         "iname": "IT_PI_YOMI",
         "name": "Yomi Soul Shard",
@@ -28291,6 +28963,28 @@
                     "Briar-Whip of Discipline Diagram Piece",
                     "Valkyrie Headdress Diagram Piece",
                     "Almira Soul Shard"
+                ]
+            }
+        ],
+        "event": []
+    },
+    "IT_PI_VINCENT": {
+        "iname": "IT_PI_VINCENT",
+        "name": "Vincent Soul Shard",
+        "inputs": [
+            "Vincent Soul Shard"
+        ],
+        "link": "http://www.alchemistcodedb.com/item/it-pi-vincent",
+        "icon": "http://cdn.alchemistcodedb.com/images/items/icons/IT_PI_VINCENT.png",
+        "story": [
+            {
+                "name": "[40 AP] [Hard] Ch 1: Ep 5 [3-10]",
+                "drops": [
+                    "Orichalcum Blades Piece",
+                    "Alchemic Radio Piece",
+                    "Laboratory Flasks Diagram Piece",
+                    "Holy Brawler's Sash Diagram Piece",
+                    "Vincent Soul Shard"
                 ]
             }
         ],
@@ -28582,6 +29276,28 @@
                     "Knight Chess Piece Diagram Piece",
                     "Rainbow Hourglass Piece",
                     "Ciel Soul Shard"
+                ]
+            }
+        ],
+        "event": []
+    },
+    "IT_PI_KURAJU": {
+        "iname": "IT_PI_KURAJU",
+        "name": "Courage Soul Shard",
+        "inputs": [
+            "Courage Soul Shard"
+        ],
+        "link": "http://www.alchemistcodedb.com/item/it-pi-kuraju",
+        "icon": "http://cdn.alchemistcodedb.com/images/items/icons/IT_PI_KURAJU.png",
+        "story": [
+            {
+                "name": "[40 AP] [Hard] Ch 2: Ep 3 [3-2]",
+                "drops": [
+                    "Flame Emperor Armor Piece",
+                    "Knight Chess Piece Diagram Piece",
+                    "Great Lance Piece",
+                    "Mace",
+                    "Courage Soul Shard"
                 ]
             }
         ],
@@ -34064,7 +34780,10 @@
                     "Enchanter Token",
                     "Chronomancer Token",
                     "Professor Token",
-                    "Sage Token"
+                    "Sage Token",
+                    "Astrologer Token",
+                    "Battle Mage Token",
+                    "Summoner Token"
                 ]
             },
             {
@@ -34073,7 +34792,10 @@
                     "Enchanter Token",
                     "Chronomancer Token",
                     "Professor Token",
-                    "Sage Token"
+                    "Sage Token",
+                    "Astrologer Token",
+                    "Battle Mage Token",
+                    "Summoner Token"
                 ]
             }
         ]
@@ -34094,7 +34816,10 @@
                     "Enchanter Token",
                     "Chronomancer Token",
                     "Professor Token",
-                    "Sage Token"
+                    "Sage Token",
+                    "Astrologer Token",
+                    "Battle Mage Token",
+                    "Summoner Token"
                 ]
             },
             {
@@ -34103,7 +34828,10 @@
                     "Enchanter Token",
                     "Chronomancer Token",
                     "Professor Token",
-                    "Sage Token"
+                    "Sage Token",
+                    "Astrologer Token",
+                    "Battle Mage Token",
+                    "Summoner Token"
                 ]
             }
         ]
@@ -34124,7 +34852,10 @@
                     "Enchanter Token",
                     "Chronomancer Token",
                     "Professor Token",
-                    "Sage Token"
+                    "Sage Token",
+                    "Astrologer Token",
+                    "Battle Mage Token",
+                    "Summoner Token"
                 ]
             },
             {
@@ -34133,7 +34864,10 @@
                     "Enchanter Token",
                     "Chronomancer Token",
                     "Professor Token",
-                    "Sage Token"
+                    "Sage Token",
+                    "Astrologer Token",
+                    "Battle Mage Token",
+                    "Summoner Token"
                 ]
             }
         ]
@@ -34154,7 +34888,10 @@
                     "Enchanter Token",
                     "Chronomancer Token",
                     "Professor Token",
-                    "Sage Token"
+                    "Sage Token",
+                    "Astrologer Token",
+                    "Battle Mage Token",
+                    "Summoner Token"
                 ]
             },
             {
@@ -34163,7 +34900,118 @@
                     "Enchanter Token",
                     "Chronomancer Token",
                     "Professor Token",
-                    "Sage Token"
+                    "Sage Token",
+                    "Astrologer Token",
+                    "Battle Mage Token",
+                    "Summoner Token"
+                ]
+            }
+        ]
+    },
+    "IT_EQ_SOUL_SEN": {
+        "iname": "IT_EQ_SOUL_SEN",
+        "name": "Astrologer Token",
+        "inputs": [
+            "Astrologer Token"
+        ],
+        "link": "http://www.alchemistcodedb.com/item/it-eq-soul-sen",
+        "icon": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_SEN.png",
+        "story": [],
+        "event": [
+            {
+                "name": "[30 AP]  Mage's Trial - Mastery",
+                "drops": [
+                    "Enchanter Token",
+                    "Chronomancer Token",
+                    "Professor Token",
+                    "Sage Token",
+                    "Astrologer Token",
+                    "Battle Mage Token",
+                    "Summoner Token"
+                ]
+            },
+            {
+                "name": "[15 AP] MP Mage's Trial - Mastery",
+                "drops": [
+                    "Enchanter Token",
+                    "Chronomancer Token",
+                    "Professor Token",
+                    "Sage Token",
+                    "Astrologer Token",
+                    "Battle Mage Token",
+                    "Summoner Token"
+                ]
+            }
+        ]
+    },
+    "IT_EQ_SOUL_HWIZ": {
+        "iname": "IT_EQ_SOUL_HWIZ",
+        "name": "Battle Mage Token",
+        "inputs": [
+            "Battle Mage Token"
+        ],
+        "link": "http://www.alchemistcodedb.com/item/it-eq-soul-hwiz",
+        "icon": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_HWIZ.png",
+        "story": [],
+        "event": [
+            {
+                "name": "[30 AP]  Mage's Trial - Mastery",
+                "drops": [
+                    "Enchanter Token",
+                    "Chronomancer Token",
+                    "Professor Token",
+                    "Sage Token",
+                    "Astrologer Token",
+                    "Battle Mage Token",
+                    "Summoner Token"
+                ]
+            },
+            {
+                "name": "[15 AP] MP Mage's Trial - Mastery",
+                "drops": [
+                    "Enchanter Token",
+                    "Chronomancer Token",
+                    "Professor Token",
+                    "Sage Token",
+                    "Astrologer Token",
+                    "Battle Mage Token",
+                    "Summoner Token"
+                ]
+            }
+        ]
+    },
+    "IT_EQ_SOUL_SYO": {
+        "iname": "IT_EQ_SOUL_SYO",
+        "name": "Summoner Token",
+        "inputs": [
+            "Summoner Token"
+        ],
+        "link": "http://www.alchemistcodedb.com/item/it-eq-soul-syo",
+        "icon": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_SYO.png",
+        "story": [],
+        "event": [
+            {
+                "name": "[30 AP]  Mage's Trial - Mastery",
+                "drops": [
+                    "Enchanter Token",
+                    "Chronomancer Token",
+                    "Professor Token",
+                    "Sage Token",
+                    "Astrologer Token",
+                    "Battle Mage Token",
+                    "Summoner Token"
+                ]
+            },
+            {
+                "name": "[15 AP] MP Mage's Trial - Mastery",
+                "drops": [
+                    "Enchanter Token",
+                    "Chronomancer Token",
+                    "Professor Token",
+                    "Sage Token",
+                    "Astrologer Token",
+                    "Battle Mage Token",
+                    "Summoner Token"
                 ]
             }
         ]
@@ -37685,6 +38533,17 @@
                     "Fortune Coin",
                     "Needle"
                 ]
+            },
+            {
+                "name": "[8 AP]  Stage 1: Seeking the way",
+                "drops": [
+                    "Wooden Sword",
+                    "Vest Diagram",
+                    "Mage's Fountain Pen Diagram",
+                    "Blue Feather",
+                    "Fortune Coin",
+                    "Needle"
+                ]
             }
         ]
     },
@@ -38999,6 +39858,40 @@
                     "Traveler's Key",
                     "Whistle"
                 ]
+            },
+            {
+                "name": "[10 AP]  Stage 3: Sacris Village",
+                "drops": [
+                    "Saber",
+                    "Leather Cape",
+                    "Ink Jar",
+                    "Harmonic Cogs",
+                    "Traveler's Key",
+                    "Blue Feather",
+                    "Thick Hat"
+                ]
+            },
+            {
+                "name": "[10 AP]  Stage 4: The Blood Drunk Hunters",
+                "drops": [
+                    "Saber",
+                    "Leather Cape",
+                    "Ink Jar",
+                    "Wand",
+                    "Charm",
+                    "Earrings Diagram"
+                ]
+            },
+            {
+                "name": "[16 AP]  Stage 5: Bonds of Tradition",
+                "drops": [
+                    "Saber",
+                    "Cross Helmet Piece",
+                    "Ink Jar",
+                    "Single-Tooth Geta Diagram",
+                    "Rabbit's Foot Diagram",
+                    "Dagger"
+                ]
             }
         ]
     },
@@ -39089,6 +39982,29 @@
                     "Ink Jar",
                     "Wand",
                     "Wool Scarf",
+                    "Earrings Diagram"
+                ]
+            },
+            {
+                "name": "[10 AP]  Stage 3: Sacris Village",
+                "drops": [
+                    "Saber",
+                    "Leather Cape",
+                    "Ink Jar",
+                    "Harmonic Cogs",
+                    "Traveler's Key",
+                    "Blue Feather",
+                    "Thick Hat"
+                ]
+            },
+            {
+                "name": "[10 AP]  Stage 4: The Blood Drunk Hunters",
+                "drops": [
+                    "Saber",
+                    "Leather Cape",
+                    "Ink Jar",
+                    "Wand",
+                    "Charm",
                     "Earrings Diagram"
                 ]
             }
@@ -39230,6 +40146,40 @@
                     "Rabbit's Foot Diagram",
                     "Dagger"
                 ]
+            },
+            {
+                "name": "[10 AP]  Stage 3: Sacris Village",
+                "drops": [
+                    "Saber",
+                    "Leather Cape",
+                    "Ink Jar",
+                    "Harmonic Cogs",
+                    "Traveler's Key",
+                    "Blue Feather",
+                    "Thick Hat"
+                ]
+            },
+            {
+                "name": "[10 AP]  Stage 4: The Blood Drunk Hunters",
+                "drops": [
+                    "Saber",
+                    "Leather Cape",
+                    "Ink Jar",
+                    "Wand",
+                    "Charm",
+                    "Earrings Diagram"
+                ]
+            },
+            {
+                "name": "[16 AP]  Stage 5: Bonds of Tradition",
+                "drops": [
+                    "Saber",
+                    "Cross Helmet Piece",
+                    "Ink Jar",
+                    "Single-Tooth Geta Diagram",
+                    "Rabbit's Foot Diagram",
+                    "Dagger"
+                ]
             }
         ]
     },
@@ -39302,6 +40252,18 @@
                     "Harmonic Cogs",
                     "Traveler's Key",
                     "Needle"
+                ]
+            },
+            {
+                "name": "[10 AP]  Stage 3: Sacris Village",
+                "drops": [
+                    "Saber",
+                    "Leather Cape",
+                    "Ink Jar",
+                    "Harmonic Cogs",
+                    "Traveler's Key",
+                    "Blue Feather",
+                    "Thick Hat"
                 ]
             }
         ]
@@ -39503,6 +40465,31 @@
                     "Earrings Diagram",
                     "Rainbow Hourglass Piece",
                     "Stamp of Certain Delivery Piece"
+                ]
+            },
+            {
+                "name": "[16 AP]  Stage 6: Bearer of Burden",
+                "drops": [
+                    "Great Lance Piece",
+                    "Cross Helmet Piece",
+                    "Stamp of Certain Delivery Piece",
+                    "Magic Staff",
+                    "Charm",
+                    "Thick Hat",
+                    "Saber Piece"
+                ]
+            },
+            {
+                "name": "[20 AP]  Stage 8: The Wandering Defender",
+                "drops": [
+                    "Great Lance Piece",
+                    "Lion Monarch Shield Piece",
+                    "Stamp of Certain Delivery Piece",
+                    "Magic Staff",
+                    "Charm",
+                    "Earrings Diagram",
+                    "Black Belt Diagram Piece",
+                    "Wanderer's Longcoat Diagram Piece"
                 ]
             }
         ]
@@ -47186,6 +48173,128 @@
                     "Saint's Robe Piece",
                     "Lightning Rod Shard",
                     "Gold Ingot"
+                ]
+            }
+        ]
+    },
+    "IT_EQ_GL_DIAGRAMPIECE_WSMCOAT": {
+        "iname": "IT_EQ_GL_DIAGRAMPIECE_WSMCOAT",
+        "name": "Wanderer's Longcoat Diagram Piece",
+        "inputs": [
+            "Wanderer's Longcoat Diagram Piece"
+        ],
+        "link": "http://www.alchemistcodedb.com/item/it-eq-gl-diagrampiece-wsmcoat",
+        "icon": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_GL_DIAGRAM_WSMCOAT.png",
+        "story": [],
+        "event": [
+            {
+                "name": "[20 AP]  Stage 8: The Wandering Defender",
+                "drops": [
+                    "Great Lance Piece",
+                    "Lion Monarch Shield Piece",
+                    "Stamp of Certain Delivery Piece",
+                    "Magic Staff",
+                    "Charm",
+                    "Earrings Diagram",
+                    "Black Belt Diagram Piece",
+                    "Wanderer's Longcoat Diagram Piece"
+                ]
+            },
+            {
+                "name": "[24 AP]  Stage 9: What lies beyond",
+                "drops": [
+                    "Wanderer's Longcoat Diagram Piece",
+                    "Sacred Lion Blade Piece",
+                    "Lion Monarch Shield Piece",
+                    "Compass Diagram Piece",
+                    "Mechanical Wing Piece",
+                    "Great Lance Piece",
+                    "Picmy Figurine Diagram",
+                    "Black Belt Diagram Piece"
+                ]
+            },
+            {
+                "name": "[24 AP]  Stage 10: The True Prize",
+                "drops": [
+                    "Wanderer's Longcoat Diagram Piece",
+                    "Sacred Lion Blade Piece",
+                    "Lion Monarch Shield Piece",
+                    "Compass Diagram Piece",
+                    "Mechanical Wing Piece",
+                    "Great Lance Piece",
+                    "Elemental Belt Diagram"
+                ]
+            },
+            {
+                "name": "[40 AP]  Overture[EX]",
+                "drops": [
+                    "Wanderer's Longcoat Diagram Piece",
+                    "Sacred Lion Blade Piece",
+                    "Lion Monarch Shield Piece",
+                    "Compass Diagram Piece",
+                    "Mechanical Wing Piece",
+                    "Great Lance Piece",
+                    "Picmy Figurine Diagram",
+                    "Elemental Belt Diagram",
+                    "Flame Emperor Armor Piece",
+                    "Wanderer's Hat Shard"
+                ]
+            },
+            {
+                "name": "[20 AP] MP Overture[EX]",
+                "drops": [
+                    "Wanderer's Longcoat Diagram Piece",
+                    "Sacred Lion Blade Piece",
+                    "Lion Monarch Shield Piece",
+                    "Compass Diagram Piece",
+                    "Mechanical Wing Piece",
+                    "Great Lance Piece",
+                    "Picmy Figurine Diagram",
+                    "Elemental Belt Diagram",
+                    "Flame Emperor Armor Piece",
+                    "Wanderer's Hat Shard"
+                ]
+            }
+        ]
+    },
+    "IT_AF_ACCS_GL_SIEG_HAT": {
+        "iname": "IT_AF_ACCS_GL_SIEG_HAT",
+        "name": "Wanderer's Hat Shard",
+        "inputs": [
+            "Wanderer's Hat Shard"
+        ],
+        "link": "http://www.alchemistcodedb.com/item/it-af-accs-gl-sieg-hat",
+        "icon": "http://cdn.alchemistcodedb.com/images/items/icons/AF_ACCS_GL_SIEG_HAT.png",
+        "story": [],
+        "event": [
+            {
+                "name": "[40 AP]  Overture[EX]",
+                "drops": [
+                    "Wanderer's Longcoat Diagram Piece",
+                    "Sacred Lion Blade Piece",
+                    "Lion Monarch Shield Piece",
+                    "Compass Diagram Piece",
+                    "Mechanical Wing Piece",
+                    "Great Lance Piece",
+                    "Picmy Figurine Diagram",
+                    "Elemental Belt Diagram",
+                    "Flame Emperor Armor Piece",
+                    "Wanderer's Hat Shard"
+                ]
+            },
+            {
+                "name": "[20 AP] MP Overture[EX]",
+                "drops": [
+                    "Wanderer's Longcoat Diagram Piece",
+                    "Sacred Lion Blade Piece",
+                    "Lion Monarch Shield Piece",
+                    "Compass Diagram Piece",
+                    "Mechanical Wing Piece",
+                    "Great Lance Piece",
+                    "Picmy Figurine Diagram",
+                    "Elemental Belt Diagram",
+                    "Flame Emperor Armor Piece",
+                    "Wanderer's Hat Shard"
                 ]
             }
         ]

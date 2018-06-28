@@ -467,6 +467,9 @@
     "UN_V2_MARIANNU": {
         "name": "Mirianne"
     },
+    "UN_V2_GL_SIEG": {
+        "name": "Siegfried"
+    },
     "UN_V2_CHAO": {
         "name": "Chao"
     },
@@ -6011,6 +6014,27 @@
     "UN_EV_SUZUKA_KAZAHAYA": {
         "name": "Suzuka - Kazahaya"
     },
+    "UN_EV_GL_HUNTER_AMOS": {
+        "name": "Amos"
+    },
+    "UN_EV_GL_SACRIS_ELDER": {
+        "name": "Sacris Chief"
+    },
+    "UN_EV_GL_SACRIS_GIRL": {
+        "name": "Sacris Villager"
+    },
+    "UN_EV_GL_SACRIS_HUNTER": {
+        "name": "Sacris Hunter"
+    },
+    "UN_V2_EN_GL_ALPHAWOLF": {
+        "name": "Savage Wolf"
+    },
+    "UN_V2_GL_MH_RAIDER": {
+        "name": "Raider"
+    },
+    "UN_V2_GL_SOREN": {
+        "name": "Soren"
+    },
     "DBG_M_ARM": {
         "name": "[♂] Soldier"
     },
@@ -6412,6 +6436,26 @@
     },
     "UN_V2_BR_WALL_CTR_H_MOEBIUS_CUP": {
         "name": "Secret Support Stone [Quicken]"
+    },
+    "AB_GL_WSM_LOWER": {
+        "name": "Basic Twin Swords",
+        "expr": "Twin Swords techniques for use with all job types"
+    },
+    "AB_GL_WSM_UPPER": {
+        "name": "Twin Swords",
+        "expr": "Twin Swords techniques for use with this job type only"
+    },
+    "AB_GL_WSM_REACTIVE": {
+        "name": "Void Slash",
+        "expr": "Chance of performing a preemptive strike when being attacked"
+    },
+    "AB_GL_WSM_SUPPORT_1": {
+        "name": "Finesse",
+        "expr": "Raises Evasion Rate and MOVE +1"
+    },
+    "AB_AF_ACCS_GL_SIEG_HAT": {
+        "name": "Winds of Favor",
+        "expr": "Siegfried-Only Ability"
     },
     "AB_MOU_LOWER": {
         "name": "Basic Beast Mastery",
@@ -13139,7 +13183,7 @@
     },
     "AB_ARM_KADA_WEPON": {
         "name": "Flaming Crimson Blade",
-        "expr": "Cadanova-Only Ability (\"Miracle Kanon Slash\" when equipped on Kanon)"
+        "expr": "Cadanova/Kanon-Only Ability"
     },
     "AB_ARM_CANON_WEPON": {
         "name": "Miracle Kanon Slash",
@@ -14917,6 +14961,11 @@
         "name": "Arena Hero",
         "expr": "Title awarded to players who have won 1000 battles in the Arena"
     },
+    "SK_LS_GL_20_HP_UP_20_SLASH_UP": {
+        "name": "Inspiring Presence",
+        "expr": "Raises HP and Slash ATK by 20% for whole party",
+        "mapeff": " "
+    },
     "AWARD_07005": {
         "name": "King of the Colosseum",
         "expr": "Title awarded to players who have reached Rank 1 in the Arena"
@@ -15124,6 +15173,81 @@
     "AWARD_14004": {
         "name": "Uberman of Eternal Recurrence",
         "expr": "Title awarded to players who have assisted 1000 times in Mystic World Mobius"
+    },
+    "SK_LS_GL_20HPUP_20_ATKUP": {
+        "name": "Inspiring Presence",
+        "expr": "Raises HP and PATK by 20% for whole party",
+        "mapeff": " "
+    },
+    "SK_GL_WSM_ATK": {
+        "name": "WSM Basic Attack",
+        "expr": " ",
+        "mapeff": " "
+    },
+    "SK_GL_WSM_UPPER_1": {
+        "name": "Sealing Slash",
+        "expr": "Destroy the Jewels of target enemy [Range: 4, Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_GL_WSM_UPPER_2": {
+        "name": "Twin Flashes",
+        "expr": "2x Light Dmg to target unit with chance of critical. Raises CRIT of self for the next 2 turns",
+        "mapeff": " "
+    },
+    "SK_GL_WSM_UPPER_3": {
+        "name": "Blade Dervish",
+        "expr": "Light slash Dmg to enemies within target area with chance of critical; Raises Evasion for 3 turns [Area: Square (3) around self, Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_GL_WSM_UPPER_4": {
+        "name": "Relentless Blades",
+        "expr": "3 Combo hits of Light slash Dmg to target enemy with chance to crit. Inflicts Stop",
+        "mapeff": " "
+    },
+    "SK_GL_WSM_LOWER_1": {
+        "name": "Focus Energy",
+        "expr": "Regen Jewels for the next 3 Turns",
+        "mapeff": " "
+    },
+    "SK_GL_WSM_LOWER_2": {
+        "name": "Coordinate Efforts",
+        "expr": "PATK+50% for allies within target area for next 3 turns [Range 3, Area: Cross (3), Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_GL_WSM_LOWER_3": {
+        "name": "Triple Threats",
+        "expr": "Three hits of light slash damage to target enemy; chance of critical (straight trajectory) [Range: 4, Height Range: 3]",
+        "mapeff": " "
+    },
+    "SK_GL_WSM_LOWER_4": {
+        "name": "Shattering Slash",
+        "expr": "Deal Physical Damage (High) to target enemy that ignores DEF & inflicts Daze [Range: 4, Height Range: 3]",
+        "mapeff": " "
+    },
+    "SK_GL_WSM_REACTIVE": {
+        "name": "Void Slash",
+        "expr": "Chance of performing a preemptive strike when being attacked",
+        "mapeff": " "
+    },
+    "SK_GL_WSM_SUPPORT_1": {
+        "name": "Finesse",
+        "expr": "Raises Evasion and MOVE +1",
+        "mapeff": " "
+    },
+    "SK_GL_SIEG_WSM_MASTER": {
+        "name": "Wandering Swordsman Job Master Bonus",
+        "expr": " ",
+        "mapeff": " "
+    },
+    "SK_EQ_GL_WSMCOAT": {
+        "name": "Wanderer's Longcoat",
+        "expr": "CRIT +16, Patk +8, AGI +3, HP +24, LUCK +6, Jewels +10",
+        "mapeff": " "
+    },
+    "SK_AF_ACCS_GL_SIEG_HAT_WA": {
+        "name": "Winds of Favor",
+        "expr": "Raises Evasion rate and Slash ATK for 3 Turns",
+        "mapeff": " "
     },
     "SK_HWIZ_ATK": {
         "name": "ATK Skills (Battle Mage)",
@@ -16451,7 +16575,7 @@
         "mapeff": " "
     },
     "SK_THI_SHY_UPPER_01": {
-        "name": "Jewelry Credit",
+        "name": "Jewelry Dagger",
         "expr": "Transfers Jewels used by self to target ally unit [Range: 2, Height Range: 1]",
         "mapeff": " "
     },
@@ -18867,7 +18991,7 @@
     },
     "SK_SHN_LOWER_03": {
         "name": "Poison Pill",
-        "expr": "Nullifies all statuses inflicted on ally units within area around self [Area: Diamond (5), Height Range: 2]",
+        "expr": "Nullifies all statuses inflicted on ally units within area around self [Area: Square (3) around self, Height Range: 2]",
         "mapeff": " "
     },
     "SK_SHN_LOWER_04": {
@@ -43780,6 +43904,26 @@
         "expr": "Use this ticket to summon one guaranteed Phantom of the Kill unit.",
         "flavor": " "
     },
+    "IT_AF_ACCS_GL_SIEG_HAT": {
+        "name": "Wanderer's Hat Shard",
+        "expr": "Collect 80 of these to create: Wanderer's Hat",
+        "flavor": " "
+    },
+    "IT_EQ_GL_WSMCOAT": {
+        "name": "Wanderer's Longcoat",
+        "expr": "[Wandering Swordsman] CRIT +16, PATK +8, AGI +3, HP +24, LUCK +6, Jewels +10",
+        "flavor": "A finely made longcoat that is well suited for travelers who spend long periods of time on the road. This particular design is durable yet lightweight, providing protection from the elements without burdening the wearer."
+    },
+    "IT_EQ_GL_DIAGRAM_WSMCOAT": {
+        "name": "Wanderer's Longcoat Diagram",
+        "expr": "Required in order to create: Wanderer's Longcoat",
+        "flavor": " "
+    },
+    "IT_EQ_GL_DIAGRAMPIECE_WSMCOAT": {
+        "name": "Wanderer's Longcoat Diagram Piece",
+        "expr": "Collect 80 of these to create: Wanderer's Longcoat Diagram",
+        "flavor": " "
+    },
     "IT_EQ_HP_CAP": {
         "name": "Thick Hat",
         "expr": "HP +16",
@@ -50832,6 +50976,11 @@
     },
     "IT_PI_POK_ARTEMIS": {
         "name": "Artemis Soul Shard",
+        "expr": "Required for Limit Breaks. If you collect enough Soul Shards, you can also transmute the corresponding unit.",
+        "flavor": " "
+    },
+    "IT_PI_GL_SIEG": {
+        "name": "Siegfried Soul Shard",
         "expr": "Required for Limit Breaks. If you collect enough Soul Shards, you can also transmute the corresponding unit.",
         "flavor": " "
     },
@@ -58590,6 +58739,51 @@
         "expr": " ",
         "flavor": "A coin that can be obtained in VS Battles"
     },
+    "IT_US_GL_RARE_10UNIT_TICKET_Default": {
+        "name": "Rare Unit 10-Summon Ticket",
+        "expr": "Use this ticket to summon ten 3-5★ units.",
+        "flavor": " "
+    },
+    "IT_US_GL_5STAR_25SOUL_TICKET_F14": {
+        "name": "Featured 5★ Soul Shard 25-Summon Ticket",
+        "expr": "Use this ticket to summon 25 Soul Shards.",
+        "flavor": " "
+    },
+    "IT_US_GL_5STAR_UNIT_TICKET_B14": {
+        "name": "5★ Unit Summon Ticket",
+        "expr": "Use this ticket to summon one 5★ unit.",
+        "flavor": " "
+    },
+    "IT_US_GL_4STAR_GEAR_TICKET_B14": {
+        "name": "4★ Gear Summon Ticket",
+        "expr": "Use this ticket to summon a 4★ gear item.",
+        "flavor": " "
+    },
+    "IT_SU_GL_5STAR_UNIT_TICKET_F14": {
+        "name": "Featured 5★ Unit Selector",
+        "expr": "Use this ticket to summon the 5★ unit of your choice.",
+        "flavor": " "
+    },
+    "IT_US_GL_5STAR_10EQ_TICKET_B14": {
+        "name": "5★ Equipment 10-Summon Ticket",
+        "expr": "Use this ticket to summon ten 5★ equipment items.",
+        "flavor": " "
+    },
+    "IT_SI_GL_5STAR_50SOUL_TICKET_F14": {
+        "name": "Featured 5★ 50-Soul Shard Selector",
+        "expr": "Use this ticket to summon the 50 Soul Shards of your choice for 5★ units.",
+        "flavor": " "
+    },
+    "IT_US_GL_4PLUS_50PER_TICKET_GL1": {
+        "name": "Featured 5★ Unit 50% Summon Ticket (4★ Minimum)",
+        "expr": "Use this ticket to summon a 4+★ unit with a 50% chance of it being a featured 5★ unit. (Siegfried/Anastasia/Flamel)",
+        "flavor": " "
+    },
+    "IT_US_GL_5STAR_25SOUL_TICKET_GL1": {
+        "name": "Featured 5★ Soul Shard 25-Summon Ticket",
+        "expr": "Use this ticket to summon 25 Soul Shards. (Siegfried/Anastasia/Flamel)",
+        "flavor": " "
+    },
     "IT_US_GL_PREREG_10EQ_TICKET": {
         "name": "Pre-Registration Equipment 10-Summon Ticket",
         "expr": "Use this ticket to summon 10 equipment items.",
@@ -59440,6 +59634,16 @@
         "expr": "Use this ticket to summon a 4★ gear item.",
         "flavor": " "
     },
+    "IT_SET_GL_SIEGFRIED_01": {
+        "name": "Siegfried Equipment Set",
+        "expr": "This set contains rare equipment required for Siegfried. (Jobs: Wandering Swordsman, Magic Swordsman, and Holy Brawler.)",
+        "flavor": " "
+    },
+    "IT_SET_GL_WSM_01": {
+        "name": "Wandering Swordsman Rare Equipment Set",
+        "expr": "This set contains equipment required for the job Wandering Swordsman.",
+        "flavor": " "
+    },
     "IT_AF_ACCS_GL_CRYSTALROSE": {
         "name": "Blue Crystal Rose Shard",
         "expr": "Collect 80 of these to create: Blue Crystal Rose",
@@ -59452,6 +59656,12 @@
     },
     "AF_EMPTY": {
         "name": "[Default Gear] No Equipment",
+        "expr": " ",
+        "spec": " ",
+        "flavor": " "
+    },
+    "AF_GL_WSM": {
+        "name": "[Default Gear] Wandering Swordsman",
         "expr": " ",
         "spec": " ",
         "flavor": " "
@@ -61748,6 +61958,17 @@
         "spec": "No requirements to equip",
         "flavor": "A magical blue rose, with unknown powers. It has been seen worn by a young maiden on her head, and brings calm to the people around her."
     },
+    "AF_ACCS_GL_SIEG_HAT": {
+        "name": "Wanderer's Hat",
+        "expr": "Attributes: HP Up, Status Res Up, Max Jewel Up, Luck Up",
+        "spec": "No requirements to equip",
+        "flavor": "A durable and useful hat that protects the wearer while on a long journey. This one seems to have a special enchantment on it."
+    },
+    "JB_GL_WSM": {
+        "name": "Wandering Swordsman",
+        "charadesc": " ",
+        "otherdesc": " "
+    },
     "JB_STR_MILOKU": {
         "name": "Holy Brawler [Miroku]",
         "charadesc": "<color=yellow>[Strong vs humans]</color> Supreme Battle Trance",
@@ -62380,7 +62601,7 @@
     },
     "JB_LAMI_DGN": {
         "name": "Dragon Cavalier+",
-        "charadesc": "<color=yellow>[Strong vs demons] Eternal Night",
+        "charadesc": "<color=yellow>[Strong vs demons]</color> Eternal Night",
         "otherdesc": " "
     },
     "JB_CHAL_SNI": {
@@ -64420,6 +64641,72 @@
     },
     "BEGINNER_05": {
         "name": "Clear [Training Arena] Checking out Unit Evolving"
+    },
+    "GL_MH_01_01": {
+        "name": "[Magni Historia 1] Clear Overture: Stage 1"
+    },
+    "GL_MH_01_02": {
+        "name": "[Magni Historia 1] Clear Overture: Stage 2"
+    },
+    "GL_MH_01_03": {
+        "name": "[Magni Historia 1] Clear Overture: Stage 3"
+    },
+    "GL_MH_01_04": {
+        "name": "[Magni Historia 1] Clear Overture: Stage 4"
+    },
+    "GL_MH_01_05": {
+        "name": "[Magni Historia 1] Clear Overture: Stage 5"
+    },
+    "GL_MH_01_06": {
+        "name": "[Magni Historia 1] Clear Overture: Stage 6"
+    },
+    "GL_MH_01_07": {
+        "name": "[Magni Historia 1] Clear Overture: Stage 7"
+    },
+    "GL_MH_01_08": {
+        "name": "[Magni Historia 1] Clear Overture: Stage 8"
+    },
+    "GL_MH_01_09": {
+        "name": "[Magni Historia 1] Clear Overture: Stage 9"
+    },
+    "GL_MH_01_10": {
+        "name": "[Magni Historia 1] Clear Overture: Stage 10"
+    },
+    "GL_MH_01_EX_1": {
+        "name": "[Magni Historia 1] Clear Overture [EX] [1]"
+    },
+    "GL_MH_01_EX_2": {
+        "name": "[Magni Historia 1] Clear Overture [EX] [2]"
+    },
+    "GL_MH_01_EX_3": {
+        "name": "[Magni Historia 1] Clear Overture [EX] [3]"
+    },
+    "GL_MH_01_EX_4": {
+        "name": "[Magni Historia 1] Clear Overture [EX] [4]"
+    },
+    "GL_MH_01_EX_5": {
+        "name": "[Magni Historia 1] Clear Overture [EX] [5]"
+    },
+    "GL_MH_01_EX_6": {
+        "name": "[Magni Historia 1] Clear Overture [EX] [6]"
+    },
+    "MULTI_GL_MH_01_EX_1": {
+        "name": "[Magni Historia 1] Clear Overture [EX] [Multiplay] [1]"
+    },
+    "MULTI_GL_MH_01_EX_2": {
+        "name": "[Magni Historia 1] Clear Overture [EX] [Multiplay] [2]"
+    },
+    "MULTI_GL_MH_01_EX_3": {
+        "name": "[Magni Historia 1] Clear Overture [EX] [Multiplay] [3]"
+    },
+    "MULTI_GL_MH_01_EX_4": {
+        "name": "[Magni Historia 1] Clear Overture [EX] [Multiplay] [4]"
+    },
+    "MULTI_GL_MH_01_EX_5": {
+        "name": "[Magni Historia 1] Clear Overture [EX] [Multiplay] [5]"
+    },
+    "MULTI_GL_MH_01_EX_6": {
+        "name": "[Magni Historia 1] Clear Overture [EX] [Multiplay] [6]"
     },
     "BEGINNER_BUGU_01": {
         "name": "[Gear Tutorial Quest] Transmute \"Moon Star\""
@@ -69665,6 +69952,21 @@
     "FLAG_HIDDEN": {
         "name": "Hidden Setting Mission"
     },
+    "GL_MM_01_2July": {
+        "name": "[Monday] Level up any Unit"
+    },
+    "GL_MM_02_2July": {
+        "name": "[Monday] Level up any Ability"
+    },
+    "GL_MM_03_2July": {
+        "name": "[Monday] Raise any unit's Job Level once"
+    },
+    "GL_MM_04_2July": {
+        "name": "[Monday] Clear any Multiplay Quest once"
+    },
+    "GL_MM_05_2July": {
+        "name": "[Monday] Clear any quest with a mercenary once"
+    },
     "CHALLENGE_01": {
         "name": "Clear Challenge Set No.1"
     },
@@ -71462,6 +71764,9 @@
     "POTK_TYRHUNG_GROWTH": {
         "name": "[Limited Time] Tyrfing Training Mission"
     },
+    "GL_MH_1_TROPHY": {
+        "name": "[Magni Historia] Overture"
+    },
     "SEISEKI_DJ_TROPHY": {
         "name": "[Sacred Stone Memories] Entrusted Justice"
     },
@@ -71492,6 +71797,9 @@
     "SEISEKI_DJ_9_TROPHY": {
         "name": "[Sacred Stone Memories] Lion Monarch's Fate"
     },
+    "GL_MH_1_TROPHY_EX_MULTI": {
+        "name": "[Magni Historia] Overture [Multiplay]"
+    },
     "SEISEKI_DJ_TROPHY_EX_MULTI": {
         "name": "[Sacred Stone Memories] Entrusted Justice [EX] [Multiplay]"
     },
@@ -71518,6 +71826,9 @@
     },
     "SEISEKI_DJ_9_TROPHY_EX_MULTI": {
         "name": "[Sacred Stone Memories] Lion Monarch's Fate [EX] [Multiplay]"
+    },
+    "GL_MH_1_TROPHY_EX": {
+        "name": "[Magni Historia] [EX] Overture"
     },
     "SEISEKI_DJ_TROPHY_EX": {
         "name": "[Sacred Stone Memories] Entrusted Justice [EX]"
@@ -71901,13 +72212,13 @@
         "name": "[Limited Time] Harvest Revelry!"
     },
     "GL_HARVEST_TROPHY_MULTI": {
-        "name": "[Limited Time] Harvest Revelry! [Multiplay] "
+        "name": "[Limited Time] Harvest Revelry! [Multiplay]"
     },
     "GL_SO_MIAN_TROPHY": {
         "name": "[Limited Time] Soul Encounter - Mianne Edition"
     },
     "GL_SO_MIAN_TROPHY_MULTI": {
-        "name": "[Limited Time] Soul Encounter - Mianne Edition [Multiplay] "
+        "name": "[Limited Time] Soul Encounter - Mianne Edition [Multiplay]"
     },
     "GL_SO_RETZ_TROPHY": {
         "name": "[Limited Time] Encounter with Retzius"
@@ -71916,25 +72227,25 @@
         "name": "[Limited Time] Call of the Scarlet Flame"
     },
     "GL_WA_CLOE_TROPHY_MULTI": {
-        "name": "[Limited Time] Call of the Scarlet Flame [Multiplay] "
+        "name": "[Limited Time] Call of the Scarlet Flame [Multiplay]"
     },
     "GL_CB_BF_TROPHY": {
         "name": "[Limited Time] Brave Frontier"
     },
     "GL_CB_BF_TROPHY_MULTI": {
-        "name": "[Limited Time] Brave Frontier [Multiplay] "
+        "name": "[Limited Time] Brave Frontier [Multiplay]"
     },
     "GL_SO_SABA_TROPHY": {
         "name": "[Limited Time] Lizards of the Lost Kingdom"
     },
     "GL_SO_SABA_TROPHY_MULTI": {
-        "name": "[Limited Time] Lizards of the Lost Kingdom [Multiplay] "
+        "name": "[Limited Time] Lizards of the Lost Kingdom [Multiplay]"
     },
     "GL_POTA_TROPHY": {
         "name": "[Limited Time] Phantom of the Alchemist"
     },
     "GL_POTA_TROPHY_MULTI": {
-        "name": "[Limited Time] Phantom of the Alchemist [Multiplay] "
+        "name": "[Limited Time] Phantom of the Alchemist [Multiplay]"
     },
     "GL_POTA_TROPHY_GROWTH": {
         "name": "[Limited Time] [Training] Phantom of the Alchemist"
@@ -71946,7 +72257,7 @@
         "name": "[Limited Time] For Whom The Princess Weeps"
     },
     "GL_FWTPW_TROPHY_MULTI": {
-        "name": "[Limited Time] For Whom The Princess Weeps [Multiplay] "
+        "name": "[Limited Time] For Whom The Princess Weeps [Multiplay]"
     },
     "GL_FWTPW_TROPHY_DAILY": {
         "name": "[Limited Time] [Daily] For Whom The Princess Weeps"

@@ -3508,5 +3508,18 @@
         "hobby": "キューピッド活動",
         "illust": "渡り棒",
         "cv": "木野日菜"
+    },
+    "UN_V2_GL_SIEG": {
+        "profile": "Siegfried was an orphan who showed great promise and was recruited into the Holy Guard. He excelled in the training but never got along with the rigid lifestyles and doctrines of the order. A visiting prodigy from Lustburg recognized his ability and offered him a chance to train under her. After he completed his training, he would lend his skills to the Holy Guard as a free agent. ",
+        "country": "Envylia",
+        "height": "185cm",
+        "weight": "70kg",
+        "birth": "Jul 15",
+        "zodiac": "Moon of the Shimmering Dragon",
+        "blood": "Type Pa",
+        "favorite": "Tea",
+        "hobby": "Studying, Exploring, Reading",
+        "illust": "gumi Asia ",
+        "cv": "鈴木 崚汰"
     }
 }

@@ -154,6 +154,7 @@ SRPG_UnitParam_UN_V2_BASINI_NAME	Basheeny
 SRPG_UnitParam_UN_V2_NEICA_NAME	Neica
 SRPG_UnitParam_UN_V2_YUNAGI_NAME	Yunagi
 SRPG_UnitParam_UN_V2_MARIANNU_NAME	Mirianne
+SRPG_UnitParam_UN_V2_GL_SIEG_NAME	Siegfried
 SRPG_UnitParam_UN_V2_CHAO_NAME	Chao
 SRPG_UnitParam_UN_V2_DAISY_NAME	Daisy
 SRPG_UnitParam_UN_V2_NASARIO_NAME	Nasario
@@ -2002,6 +2003,13 @@ SRPG_UnitParam_UN_EV_TINA_MOCA_LIESBET_NAME	Tina - Mocha - Lisbeth
 SRPG_UnitParam_UN_EV_SHADOW_TINA_MOCA_NAME	Tina's Shadow - Mocha's Shadow
 SRPG_UnitParam_UN_EV_TINA_MOCA_LEGA_NAME	Tina - Mocha - Rega
 SRPG_UnitParam_UN_EV_SUZUKA_KAZAHAYA_NAME	Suzuka - Kazahaya
+SRPG_UnitParam_UN_EV_GL_HUNTER_AMOS_NAME	Amos
+SRPG_UnitParam_UN_EV_GL_SACRIS_ELDER_NAME	Sacris Chief
+SRPG_UnitParam_UN_EV_GL_SACRIS_GIRL_NAME	Sacris Villager
+SRPG_UnitParam_UN_EV_GL_SACRIS_HUNTER_NAME	Sacris Hunter
+SRPG_UnitParam_UN_V2_EN_GL_ALPHAWOLF_NAME	Savage Wolf
+SRPG_UnitParam_UN_V2_GL_MH_RAIDER_NAME	Raider
+SRPG_UnitParam_UN_V2_GL_SOREN_NAME	Soren
 SRPG_UnitParam_DBG_M_ARM_NAME	[♂] Soldier
 SRPG_UnitParam_DBG_M_SEI_NAME	[♂] Holy Knight
 SRPG_UnitParam_DBG_M_GUA_NAME	[♂] Holy Cavalier
@@ -2136,6 +2144,16 @@ SRPG_UnitParam_UN_V2_BR_WALL_CTR_H_MOEBIUS_DS1_NAME	(Awaiting Error Support) Dmg
 SRPG_UnitParam_UN_V2_BR_WALL_CTR_H_MOEBIUS_MOVE_NAME	Secret Support Stone [Move+]
 SRPG_UnitParam_UN_V2_BR_WALL_CTR_H_MOEBIUS_HP_NAME	Secret Support Stone [Recover HP]
 SRPG_UnitParam_UN_V2_BR_WALL_CTR_H_MOEBIUS_CUP_NAME	Secret Support Stone [Quicken]
+SRPG_AbilityParam_AB_GL_WSM_LOWER_NAME	Basic Twin Swords
+SRPG_AbilityParam_AB_GL_WSM_LOWER_EXPR	Twin Swords techniques for use with all job types
+SRPG_AbilityParam_AB_GL_WSM_UPPER_NAME	Twin Swords
+SRPG_AbilityParam_AB_GL_WSM_UPPER_EXPR	Twin Swords techniques for use with this job type only
+SRPG_AbilityParam_AB_GL_WSM_REACTIVE_NAME	Void Slash
+SRPG_AbilityParam_AB_GL_WSM_REACTIVE_EXPR	Chance of performing a preemptive strike when being attacked
+SRPG_AbilityParam_AB_GL_WSM_SUPPORT_1_NAME	Finesse
+SRPG_AbilityParam_AB_GL_WSM_SUPPORT_1_EXPR	Raises Evasion Rate and MOVE +1
+SRPG_AbilityParam_AB_AF_ACCS_GL_SIEG_HAT_NAME	Winds of Favor
+SRPG_AbilityParam_AB_AF_ACCS_GL_SIEG_HAT_EXPR	Siegfried-Only Ability
 SRPG_AbilityParam_AB_MOU_LOWER_NAME	Basic Beast Mastery
 SRPG_AbilityParam_AB_MOU_LOWER_EXPR	Beast-taming techniques for use with all job types
 SRPG_AbilityParam_AB_MOU_UPPER_NAME	Wild Beast Mastery
@@ -5499,7 +5517,7 @@ SRPG_AbilityParam_AB_ANK_HITORI_DE_DEKIRUSHI_EXPR	Laevateinn-Only Ability
 SRPG_AbilityParam_AB_ARMS_SABARETA_MA_NAME	Demon Summoning
 SRPG_AbilityParam_AB_ARMS_SABARETA_MA_EXPR	Sabareta-Only Ability
 SRPG_AbilityParam_AB_ARM_KADA_WEPON_NAME	Flaming Crimson Blade
-SRPG_AbilityParam_AB_ARM_KADA_WEPON_EXPR	Cadanova-Only Ability ("Miracle Kanon Slash" when equipped on Kanon)
+SRPG_AbilityParam_AB_ARM_KADA_WEPON_EXPR	Cadanova/Kanon-Only Ability
 SRPG_AbilityParam_AB_ARM_CANON_WEPON_NAME	Miracle Kanon Slash
 SRPG_AbilityParam_AB_ARM_CANON_WEPON_EXPR	Kanon-Only Ability
 SRPG_AbilityParam_AB_ARMS_SWO_CLOE_NAME	Crystal Break
@@ -6388,6 +6406,9 @@ SRPG_AwardParam_AWARD_07003_NAME	Arena Favorite
 SRPG_AwardParam_AWARD_07003_EXPR	Title awarded to players who have won 500 battles in the Arena
 SRPG_AwardParam_AWARD_07004_NAME	Arena Hero
 SRPG_AwardParam_AWARD_07004_EXPR	Title awarded to players who have won 1000 battles in the Arena
+SRPG_SkillParam_SK_LS_GL_20_HP_UP_20_SLASH_UP_NAME	Inspiring Presence
+SRPG_SkillParam_SK_LS_GL_20_HP_UP_20_SLASH_UP_EXPR	Raises HP and Slash ATK by 20% for whole party
+SRPG_SkillParam_SK_LS_GL_20_HP_UP_20_SLASH_UP_MAPEFF	 
 SRPG_AwardParam_AWARD_07005_NAME	King of the Colosseum
 SRPG_AwardParam_AWARD_07005_EXPR	Title awarded to players who have reached Rank 1 in the Arena
 SRPG_AwardParam_AWARD_07006_NAME	Fighting to the Top
@@ -6492,6 +6513,51 @@ SRPG_AwardParam_AWARD_14003_NAME	Helix Savior
 SRPG_AwardParam_AWARD_14003_EXPR	Title awarded to players who have assisted 500 times in Mystic World Mobius
 SRPG_AwardParam_AWARD_14004_NAME	Uberman of Eternal Recurrence
 SRPG_AwardParam_AWARD_14004_EXPR	Title awarded to players who have assisted 1000 times in Mystic World Mobius
+SRPG_SkillParam_SK_LS_GL_20HPUP_20_ATKUP_NAME	Inspiring Presence
+SRPG_SkillParam_SK_LS_GL_20HPUP_20_ATKUP_EXPR	Raises HP and PATK by 20% for whole party
+SRPG_SkillParam_SK_LS_GL_20HPUP_20_ATKUP_MAPEFF	 
+SRPG_SkillParam_SK_GL_WSM_ATK_NAME	WSM Basic Attack
+SRPG_SkillParam_SK_GL_WSM_ATK_EXPR	 
+SRPG_SkillParam_SK_GL_WSM_ATK_MAPEFF	 
+SRPG_SkillParam_SK_GL_WSM_UPPER_1_NAME	Sealing Slash
+SRPG_SkillParam_SK_GL_WSM_UPPER_1_EXPR	Destroy the Jewels of target enemy [Range: 4, Height Range: 2]
+SRPG_SkillParam_SK_GL_WSM_UPPER_1_MAPEFF	 
+SRPG_SkillParam_SK_GL_WSM_UPPER_2_NAME	Twin Flashes
+SRPG_SkillParam_SK_GL_WSM_UPPER_2_EXPR	2x Light Dmg to target unit with chance of critical. Raises CRIT of self for the next 2 turns
+SRPG_SkillParam_SK_GL_WSM_UPPER_2_MAPEFF	 
+SRPG_SkillParam_SK_GL_WSM_UPPER_3_NAME	Blade Dervish
+SRPG_SkillParam_SK_GL_WSM_UPPER_3_EXPR	Light slash Dmg to enemies within target area with chance of critical; Raises Evasion for 3 turns [Area: Square (3) around self, Height Range: 2]
+SRPG_SkillParam_SK_GL_WSM_UPPER_3_MAPEFF	 
+SRPG_SkillParam_SK_GL_WSM_UPPER_4_NAME	Relentless Blades
+SRPG_SkillParam_SK_GL_WSM_UPPER_4_EXPR	3 Combo hits of Light slash Dmg to target enemy with chance to crit. Inflicts Stop
+SRPG_SkillParam_SK_GL_WSM_UPPER_4_MAPEFF	 
+SRPG_SkillParam_SK_GL_WSM_LOWER_1_NAME	Focus Energy
+SRPG_SkillParam_SK_GL_WSM_LOWER_1_EXPR	Regen Jewels for the next 3 Turns
+SRPG_SkillParam_SK_GL_WSM_LOWER_1_MAPEFF	 
+SRPG_SkillParam_SK_GL_WSM_LOWER_2_NAME	Coordinate Efforts
+SRPG_SkillParam_SK_GL_WSM_LOWER_2_EXPR	PATK+50% for allies within target area for next 3 turns [Range 3, Area: Cross (3), Height Range: 2]
+SRPG_SkillParam_SK_GL_WSM_LOWER_2_MAPEFF	 
+SRPG_SkillParam_SK_GL_WSM_LOWER_3_NAME	Triple Threats
+SRPG_SkillParam_SK_GL_WSM_LOWER_3_EXPR	Three hits of light slash damage to target enemy; chance of critical (straight trajectory) [Range: 4, Height Range: 3]
+SRPG_SkillParam_SK_GL_WSM_LOWER_3_MAPEFF	 
+SRPG_SkillParam_SK_GL_WSM_LOWER_4_NAME	Shattering Slash
+SRPG_SkillParam_SK_GL_WSM_LOWER_4_EXPR	Deal Physical Damage (High) to target enemy that ignores DEF & inflicts Daze [Range: 4, Height Range: 3]
+SRPG_SkillParam_SK_GL_WSM_LOWER_4_MAPEFF	 
+SRPG_SkillParam_SK_GL_WSM_REACTIVE_NAME	Void Slash
+SRPG_SkillParam_SK_GL_WSM_REACTIVE_EXPR	Chance of performing a preemptive strike when being attacked
+SRPG_SkillParam_SK_GL_WSM_REACTIVE_MAPEFF	 
+SRPG_SkillParam_SK_GL_WSM_SUPPORT_1_NAME	Finesse
+SRPG_SkillParam_SK_GL_WSM_SUPPORT_1_EXPR	Raises Evasion and MOVE +1
+SRPG_SkillParam_SK_GL_WSM_SUPPORT_1_MAPEFF	 
+SRPG_SkillParam_SK_GL_SIEG_WSM_MASTER_NAME	Wandering Swordsman Job Master Bonus
+SRPG_SkillParam_SK_GL_SIEG_WSM_MASTER_EXPR	 
+SRPG_SkillParam_SK_GL_SIEG_WSM_MASTER_MAPEFF	 
+SRPG_SkillParam_SK_EQ_GL_WSMCOAT_NAME	Wanderer's Longcoat
+SRPG_SkillParam_SK_EQ_GL_WSMCOAT_EXPR	CRIT +16, Patk +8, AGI +3, HP +24, LUCK +6, Jewels +10
+SRPG_SkillParam_SK_EQ_GL_WSMCOAT_MAPEFF	 
+SRPG_SkillParam_SK_AF_ACCS_GL_SIEG_HAT_WA_NAME	Winds of Favor
+SRPG_SkillParam_SK_AF_ACCS_GL_SIEG_HAT_WA_EXPR	Raises Evasion rate and Slash ATK for 3 Turns
+SRPG_SkillParam_SK_AF_ACCS_GL_SIEG_HAT_WA_MAPEFF	 
 SRPG_SkillParam_SK_HWIZ_ATK_NAME	ATK Skills (Battle Mage)
 SRPG_SkillParam_SK_HWIZ_ATK_EXPR	Strike
 SRPG_SkillParam_SK_HWIZ_ATK_MAPEFF	 
@@ -7287,7 +7353,7 @@ SRPG_SkillParam_SK_THI_HIDING_MAPEFF
 SRPG_SkillParam_SK_THI_HIDE_ATTACK_NAME	Sneak Attack
 SRPG_SkillParam_SK_THI_HIDE_ATTACK_EXPR	Inflicts Phys Dmg (High) & chance of critical & ignores DEF when attacking from behind [Range: 1, Height Range: 1]
 SRPG_SkillParam_SK_THI_HIDE_ATTACK_MAPEFF	 
-SRPG_SkillParam_SK_THI_SHY_UPPER_01_NAME	Jewelry Credit
+SRPG_SkillParam_SK_THI_SHY_UPPER_01_NAME	Jewelry Dagger
 SRPG_SkillParam_SK_THI_SHY_UPPER_01_EXPR	Transfers Jewels used by self to target ally unit [Range: 2, Height Range: 1]
 SRPG_SkillParam_SK_THI_SHY_UPPER_01_MAPEFF	 
 SRPG_SkillParam_SK_THI_CURE_EMBRACE_NAME	Healing Dagger
@@ -8737,7 +8803,7 @@ SRPG_SkillParam_SK_SHN_LOWER_02_NAME	Pyramid Scheme
 SRPG_SkillParam_SK_SHN_LOWER_02_EXPR	Inflicts Charm on enemy units within area around self [Area: Diamond (5), Height Range: 2]
 SRPG_SkillParam_SK_SHN_LOWER_02_MAPEFF	 
 SRPG_SkillParam_SK_SHN_LOWER_03_NAME	Poison Pill
-SRPG_SkillParam_SK_SHN_LOWER_03_EXPR	Nullifies all statuses inflicted on ally units within area around self [Area: Diamond (5), Height Range: 2]
+SRPG_SkillParam_SK_SHN_LOWER_03_EXPR	Nullifies all statuses inflicted on ally units within area around self [Area: Square (3) around self, Height Range: 2]
 SRPG_SkillParam_SK_SHN_LOWER_03_MAPEFF	 
 SRPG_SkillParam_SK_SHN_LOWER_04_NAME	Cure Delivery
 SRPG_SkillParam_SK_SHN_LOWER_04_EXPR	Recovers HP (Medium) of ally units within area around self [Area: Square (3) around self, Height Range: 2]
@@ -23685,6 +23751,18 @@ SRPG_ItemParam_IT_US_2017NOV_COLLABO_SOULTICKET_50_FLAVOR
 SRPG_ItemParam_IT_US_2017NOV_COLLABO_TICKET03_NAME	Collab Unit Summon Ticket
 SRPG_ItemParam_IT_US_2017NOV_COLLABO_TICKET03_EXPR	Use this ticket to summon one guaranteed Phantom of the Kill unit.
 SRPG_ItemParam_IT_US_2017NOV_COLLABO_TICKET03_FLAVOR	 
+SRPG_ItemParam_IT_AF_ACCS_GL_SIEG_HAT_NAME	Wanderer's Hat Shard
+SRPG_ItemParam_IT_AF_ACCS_GL_SIEG_HAT_EXPR	Collect 80 of these to create: Wanderer's Hat
+SRPG_ItemParam_IT_AF_ACCS_GL_SIEG_HAT_FLAVOR	 
+SRPG_ItemParam_IT_EQ_GL_WSMCOAT_NAME	Wanderer's Longcoat
+SRPG_ItemParam_IT_EQ_GL_WSMCOAT_EXPR	[Wandering Swordsman] CRIT +16, PATK +8, AGI +3, HP +24, LUCK +6, Jewels +10
+SRPG_ItemParam_IT_EQ_GL_WSMCOAT_FLAVOR	A finely made longcoat that is well suited for travelers who spend long periods of time on the road. This particular design is durable yet lightweight, providing protection from the elements without burdening the wearer.
+SRPG_ItemParam_IT_EQ_GL_DIAGRAM_WSMCOAT_NAME	Wanderer's Longcoat Diagram
+SRPG_ItemParam_IT_EQ_GL_DIAGRAM_WSMCOAT_EXPR	Required in order to create: Wanderer's Longcoat
+SRPG_ItemParam_IT_EQ_GL_DIAGRAM_WSMCOAT_FLAVOR	 
+SRPG_ItemParam_IT_EQ_GL_DIAGRAMPIECE_WSMCOAT_NAME	Wanderer's Longcoat Diagram Piece
+SRPG_ItemParam_IT_EQ_GL_DIAGRAMPIECE_WSMCOAT_EXPR	Collect 80 of these to create: Wanderer's Longcoat Diagram
+SRPG_ItemParam_IT_EQ_GL_DIAGRAMPIECE_WSMCOAT_FLAVOR	 
 SRPG_ItemParam_IT_EQ_HP_CAP_NAME	Thick Hat
 SRPG_ItemParam_IT_EQ_HP_CAP_EXPR	HP +16
 SRPG_ItemParam_IT_EQ_HP_CAP_FLAVOR	Thick hats such as this are worn by both adventurers and regular civilians, male and female, young and old. It may not be much to look at, but is very well-made, and offers lasting durability that will stand up to even the harshest of environments. A popular item in a range of different regions.
@@ -27918,6 +27996,9 @@ SRPG_ItemParam_IT_PI_POK_LONGINUS_FLAVOR
 SRPG_ItemParam_IT_PI_POK_ARTEMIS_NAME	Artemis Soul Shard
 SRPG_ItemParam_IT_PI_POK_ARTEMIS_EXPR	Required for Limit Breaks. If you collect enough Soul Shards, you can also transmute the corresponding unit.
 SRPG_ItemParam_IT_PI_POK_ARTEMIS_FLAVOR	 
+SRPG_ItemParam_IT_PI_GL_SIEG_NAME	Siegfried Soul Shard
+SRPG_ItemParam_IT_PI_GL_SIEG_EXPR	Required for Limit Breaks. If you collect enough Soul Shards, you can also transmute the corresponding unit.
+SRPG_ItemParam_IT_PI_GL_SIEG_FLAVOR	 
 SRPG_ItemParam_IT_PI_COMMON_FIRE_NAME	Fire Soul Shard
 SRPG_ItemParam_IT_PI_COMMON_FIRE_EXPR	Limit Break item for use with Fire characters
 SRPG_ItemParam_IT_PI_COMMON_FIRE_FLAVOR	 
@@ -32571,6 +32652,33 @@ SRPG_ItemParam_IT_US_2016APR_ARTIFACT_SUMMONTICKET_FLAVOR
 SRPG_ItemParam_IT_EVENT_VS_NAME	Battle Coins
 SRPG_ItemParam_IT_EVENT_VS_EXPR	 
 SRPG_ItemParam_IT_EVENT_VS_FLAVOR	A coin that can be obtained in VS Battles
+SRPG_ItemParam_IT_US_GL_RARE_10UNIT_TICKET_Default_NAME	Rare Unit 10-Summon Ticket
+SRPG_ItemParam_IT_US_GL_RARE_10UNIT_TICKET_Default_EXPR	Use this ticket to summon ten 3-5★ units.
+SRPG_ItemParam_IT_US_GL_RARE_10UNIT_TICKET_Default_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_5STAR_25SOUL_TICKET_F14_NAME	Featured 5★ Soul Shard 25-Summon Ticket
+SRPG_ItemParam_IT_US_GL_5STAR_25SOUL_TICKET_F14_EXPR	Use this ticket to summon 25 Soul Shards.
+SRPG_ItemParam_IT_US_GL_5STAR_25SOUL_TICKET_F14_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_B14_NAME	5★ Unit Summon Ticket
+SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_B14_EXPR	Use this ticket to summon one 5★ unit.
+SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_B14_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_4STAR_GEAR_TICKET_B14_NAME	4★ Gear Summon Ticket
+SRPG_ItemParam_IT_US_GL_4STAR_GEAR_TICKET_B14_EXPR	Use this ticket to summon a 4★ gear item.
+SRPG_ItemParam_IT_US_GL_4STAR_GEAR_TICKET_B14_FLAVOR	 
+SRPG_ItemParam_IT_SU_GL_5STAR_UNIT_TICKET_F14_NAME	Featured 5★ Unit Selector
+SRPG_ItemParam_IT_SU_GL_5STAR_UNIT_TICKET_F14_EXPR	Use this ticket to summon the 5★ unit of your choice.
+SRPG_ItemParam_IT_SU_GL_5STAR_UNIT_TICKET_F14_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_5STAR_10EQ_TICKET_B14_NAME	5★ Equipment 10-Summon Ticket
+SRPG_ItemParam_IT_US_GL_5STAR_10EQ_TICKET_B14_EXPR	Use this ticket to summon ten 5★ equipment items.
+SRPG_ItemParam_IT_US_GL_5STAR_10EQ_TICKET_B14_FLAVOR	 
+SRPG_ItemParam_IT_SI_GL_5STAR_50SOUL_TICKET_F14_NAME	Featured 5★ 50-Soul Shard Selector
+SRPG_ItemParam_IT_SI_GL_5STAR_50SOUL_TICKET_F14_EXPR	Use this ticket to summon the 50 Soul Shards of your choice for 5★ units.
+SRPG_ItemParam_IT_SI_GL_5STAR_50SOUL_TICKET_F14_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_4PLUS_50PER_TICKET_GL1_NAME	Featured 5★ Unit 50% Summon Ticket (4★ Minimum)
+SRPG_ItemParam_IT_US_GL_4PLUS_50PER_TICKET_GL1_EXPR	Use this ticket to summon a 4+★ unit with a 50% chance of it being a featured 5★ unit. (Siegfried/Anastasia/Flamel)
+SRPG_ItemParam_IT_US_GL_4PLUS_50PER_TICKET_GL1_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_5STAR_25SOUL_TICKET_GL1_NAME	Featured 5★ Soul Shard 25-Summon Ticket
+SRPG_ItemParam_IT_US_GL_5STAR_25SOUL_TICKET_GL1_EXPR	Use this ticket to summon 25 Soul Shards. (Siegfried/Anastasia/Flamel)
+SRPG_ItemParam_IT_US_GL_5STAR_25SOUL_TICKET_GL1_FLAVOR	 
 SRPG_ItemParam_IT_US_GL_PREREG_10EQ_TICKET_NAME	Pre-Registration Equipment 10-Summon Ticket
 SRPG_ItemParam_IT_US_GL_PREREG_10EQ_TICKET_EXPR	Use this ticket to summon 10 equipment items.
 SRPG_ItemParam_IT_US_GL_PREREG_10EQ_TICKET_FLAVOR	 
@@ -33081,6 +33189,12 @@ SRPG_ItemParam_IT_US_GL_4STAR_GEAR_TICKET_S04_FLAVOR
 SRPG_ItemParam_IT_US_GL_4STAR_GEAR_TICKET_S05_NAME	4★ Gear Summon Ticket
 SRPG_ItemParam_IT_US_GL_4STAR_GEAR_TICKET_S05_EXPR	Use this ticket to summon a 4★ gear item.
 SRPG_ItemParam_IT_US_GL_4STAR_GEAR_TICKET_S05_FLAVOR	 
+SRPG_ItemParam_IT_SET_GL_SIEGFRIED_01_NAME	Siegfried Equipment Set
+SRPG_ItemParam_IT_SET_GL_SIEGFRIED_01_EXPR	This set contains rare equipment required for Siegfried. (Jobs: Wandering Swordsman, Magic Swordsman, and Holy Brawler.)
+SRPG_ItemParam_IT_SET_GL_SIEGFRIED_01_FLAVOR	 
+SRPG_ItemParam_IT_SET_GL_WSM_01_NAME	Wandering Swordsman Rare Equipment Set
+SRPG_ItemParam_IT_SET_GL_WSM_01_EXPR	This set contains equipment required for the job Wandering Swordsman.
+SRPG_ItemParam_IT_SET_GL_WSM_01_FLAVOR	 
 SRPG_ItemParam_IT_AF_ACCS_GL_CRYSTALROSE_NAME	Blue Crystal Rose Shard
 SRPG_ItemParam_IT_AF_ACCS_GL_CRYSTALROSE_EXPR	Collect 80 of these to create: Blue Crystal Rose
 SRPG_ItemParam_IT_AF_ACCS_GL_CRYSTALROSE_FLAVOR	 
@@ -33091,6 +33205,10 @@ SRPG_ArtifactParam_AF_EMPTY_NAME	[Default Gear] No Equipment
 SRPG_ArtifactParam_AF_EMPTY_EXPR	 
 SRPG_ArtifactParam_AF_EMPTY_SPEC	 
 SRPG_ArtifactParam_AF_EMPTY_FLAVOR	 
+SRPG_ArtifactParam_AF_GL_WSM_NAME	[Default Gear] Wandering Swordsman
+SRPG_ArtifactParam_AF_GL_WSM_EXPR	 
+SRPG_ArtifactParam_AF_GL_WSM_SPEC	 
+SRPG_ArtifactParam_AF_GL_WSM_FLAVOR	 
 SRPG_ArtifactParam_AF_ARM_NAME	[Default Gear] Soldier
 SRPG_ArtifactParam_AF_ARM_EXPR	 
 SRPG_ArtifactParam_AF_ARM_SPEC	 
@@ -34619,6 +34737,13 @@ SRPG_ArtifactParam_AF_ACCS_GL_CRYSTALROSE_FLAVOR	A magical blue rose, with unkno
 SRPG_ArtifactParam_AF_SK_DORO_UNIQUE_EXPR	 
 SRPG_ArtifactParam_AF_SK_DORO_UNIQUE_SPEC	 
 SRPG_ArtifactParam_AF_SK_DORO_UNIQUE_FLAVOR	 
+SRPG_ArtifactParam_AF_ACCS_GL_SIEG_HAT_NAME	Wanderer's Hat
+SRPG_ArtifactParam_AF_ACCS_GL_SIEG_HAT_EXPR	Attributes: HP Up, Status Res Up, Max Jewel Up, Luck Up
+SRPG_ArtifactParam_AF_ACCS_GL_SIEG_HAT_SPEC	No requirements to equip
+SRPG_ArtifactParam_AF_ACCS_GL_SIEG_HAT_FLAVOR	A durable and useful hat that protects the wearer while on a long journey. This one seems to have a special enchantment on it.
+SRPG_JobParam_JB_GL_WSM_NAME	Wandering Swordsman
+SRPG_JobParam_JB_GL_WSM_CHARADESC	 
+SRPG_JobParam_JB_GL_WSM_OTHERDESC	 
 SRPG_JobParam_JB_STR_MILOKU_NAME	Holy Brawler [Miroku]
 SRPG_JobParam_JB_STR_MILOKU_CHARADESC	<color=yellow>[Strong vs humans]</color> Supreme Battle Trance
 SRPG_JobParam_JB_STR_MILOKU_OTHERDESC	ATK increases according to AGI/DEX
@@ -34998,7 +35123,7 @@ SRPG_JobParam_JB_SABA_THI_NAME	Thief
 SRPG_JobParam_JB_SABA_THI_CHARADESC	 
 SRPG_JobParam_JB_SABA_THI_OTHERDESC	ATK increases according to AGI/DEX
 SRPG_JobParam_JB_LAMI_DGN_NAME	Dragon Cavalier+
-SRPG_JobParam_JB_LAMI_DGN_CHARADESC	<color=yellow>[Strong vs demons] Eternal Night
+SRPG_JobParam_JB_LAMI_DGN_CHARADESC	<color=yellow>[Strong vs demons]</color> Eternal Night
 SRPG_JobParam_JB_LAMI_DGN_OTHERDESC	 
 SRPG_JobParam_JB_CHAL_SNI_NAME	Sniper+
 SRPG_JobParam_JB_CHAL_SNI_CHARADESC	<color=yellow>[Strong vs airborne]</color> Excelsior Bullet<br><color=yellow>[Strong vs beasts]</color> Bullet Snipe<br><color=yellow>[Strong vs airborne]</color> Piercing Snipe
@@ -35906,6 +36031,28 @@ SRPG_TrophyParam_BEGINNER_02_NAME	Clear [Training Arena] Set Equipment and Raise
 SRPG_TrophyParam_BEGINNER_03_NAME	Clear [Training Arena] Checking out Limit Break
 SRPG_TrophyParam_BEGINNER_04_NAME	Clear [Training Arena] Checking out Job Unlocking
 SRPG_TrophyParam_BEGINNER_05_NAME	Clear [Training Arena] Checking out Unit Evolving
+SRPG_TrophyParam_GL_MH_01_01_NAME	[Magni Historia 1] Clear Overture: Stage 1
+SRPG_TrophyParam_GL_MH_01_02_NAME	[Magni Historia 1] Clear Overture: Stage 2
+SRPG_TrophyParam_GL_MH_01_03_NAME	[Magni Historia 1] Clear Overture: Stage 3
+SRPG_TrophyParam_GL_MH_01_04_NAME	[Magni Historia 1] Clear Overture: Stage 4
+SRPG_TrophyParam_GL_MH_01_05_NAME	[Magni Historia 1] Clear Overture: Stage 5
+SRPG_TrophyParam_GL_MH_01_06_NAME	[Magni Historia 1] Clear Overture: Stage 6
+SRPG_TrophyParam_GL_MH_01_07_NAME	[Magni Historia 1] Clear Overture: Stage 7
+SRPG_TrophyParam_GL_MH_01_08_NAME	[Magni Historia 1] Clear Overture: Stage 8
+SRPG_TrophyParam_GL_MH_01_09_NAME	[Magni Historia 1] Clear Overture: Stage 9
+SRPG_TrophyParam_GL_MH_01_10_NAME	[Magni Historia 1] Clear Overture: Stage 10
+SRPG_TrophyParam_GL_MH_01_EX_1_NAME	[Magni Historia 1] Clear Overture [EX] [1]
+SRPG_TrophyParam_GL_MH_01_EX_2_NAME	[Magni Historia 1] Clear Overture [EX] [2]
+SRPG_TrophyParam_GL_MH_01_EX_3_NAME	[Magni Historia 1] Clear Overture [EX] [3]
+SRPG_TrophyParam_GL_MH_01_EX_4_NAME	[Magni Historia 1] Clear Overture [EX] [4]
+SRPG_TrophyParam_GL_MH_01_EX_5_NAME	[Magni Historia 1] Clear Overture [EX] [5]
+SRPG_TrophyParam_GL_MH_01_EX_6_NAME	[Magni Historia 1] Clear Overture [EX] [6]
+SRPG_TrophyParam_MULTI_GL_MH_01_EX_1_NAME	[Magni Historia 1] Clear Overture [EX] [Multiplay] [1]
+SRPG_TrophyParam_MULTI_GL_MH_01_EX_2_NAME	[Magni Historia 1] Clear Overture [EX] [Multiplay] [2]
+SRPG_TrophyParam_MULTI_GL_MH_01_EX_3_NAME	[Magni Historia 1] Clear Overture [EX] [Multiplay] [3]
+SRPG_TrophyParam_MULTI_GL_MH_01_EX_4_NAME	[Magni Historia 1] Clear Overture [EX] [Multiplay] [4]
+SRPG_TrophyParam_MULTI_GL_MH_01_EX_5_NAME	[Magni Historia 1] Clear Overture [EX] [Multiplay] [5]
+SRPG_TrophyParam_MULTI_GL_MH_01_EX_6_NAME	[Magni Historia 1] Clear Overture [EX] [Multiplay] [6]
 SRPG_TrophyParam_BEGINNER_BUGU_01_NAME	[Gear Tutorial Quest] Transmute "Moon Star"
 SRPG_TrophyParam_BEGINNER_BUGU_02_NAME	[Gear Tutorial Quest] Enhance "Moon Star" to Lv 20
 SRPG_TrophyParam_BEGINNER_BUGU_03_NAME	[Gear Tutorial Quest] Evolve "Moon Star" to 4★
@@ -37654,6 +37801,11 @@ SRPG_TrophyParam_BIRTH_ARKILL_01_NAME	[Happy Birthday Arkil!] Free Arkil Soul Sh
 SRPG_TrophyParam_BIRTH_CIELL_01_NAME	[Happy Birthday Ciel!] Free Ciel Soul Shards!
 SRPG_TrophyParam_BIRTH_MERDA_01_NAME	[Happy Birthday Melda!] Free Melda Soul Shards!
 SRPG_TrophyParam_FLAG_HIDDEN_NAME	Hidden Setting Mission
+SRPG_TrophyParam_GL_MM_01_2July_NAME	[Monday] Level up any Unit
+SRPG_TrophyParam_GL_MM_02_2July_NAME	[Monday] Level up any Ability
+SRPG_TrophyParam_GL_MM_03_2July_NAME	[Monday] Raise any unit's Job Level once
+SRPG_TrophyParam_GL_MM_04_2July_NAME	[Monday] Clear any Multiplay Quest once
+SRPG_TrophyParam_GL_MM_05_2July_NAME	[Monday] Clear any quest with a mercenary once
 SRPG_TrophyParam_CHALLENGE_01_NAME	Clear Challenge Set No.1
 SRPG_TrophyParam_CHALLENGE_01_00_NAME	Clear Chapter 1: Episode 1 [1-2]
 SRPG_TrophyParam_CHALLENGE_01_01_NAME	Raise a unit's Unit Level
@@ -38253,6 +38405,7 @@ SRPG_TrophyCategoryParam_STORY_CHPT4_EP2_NAME	[Story] Chapter 4: Episode 2
 SRPG_TrophyCategoryParam_STORY_CHPT4_EP3_NAME	[Story] Chapter 4: Episode 3
 SRPG_TrophyCategoryParam_STORY_HARD_QUEST_NAME	[Story] Hard Quest
 SRPG_TrophyCategoryParam_POTK_TYRHUNG_GROWTH_NAME	[Limited Time] Tyrfing Training Mission
+SRPG_TrophyCategoryParam_GL_MH_1_TROPHY_NAME	[Magni Historia] Overture
 SRPG_TrophyCategoryParam_SEISEKI_DJ_TROPHY_NAME	[Sacred Stone Memories] Entrusted Justice
 SRPG_TrophyCategoryParam_SEISEKI_DJ_2_TROPHY_NAME	[Sacred Stone Memories] Demonic Spearman
 SRPG_TrophyCategoryParam_SEISEKI_DJ_2_KAGURA_GROWTH_NAME	[Sacred Stone Memories] [Training] Demonic Spearman
@@ -38263,6 +38416,7 @@ SRPG_TrophyCategoryParam_SEISEKI_DJ_6_TROPHY_NAME	[Sacred Stone Memories] Two Sw
 SRPG_TrophyCategoryParam_SEISEKI_DJ_7_TROPHY_NAME	[Sacred Stone Memories] The World's Laws Begin to Fluctuate
 SRPG_TrophyCategoryParam_SEISEKI_DJ_8_TROPHY_NAME	[Sacred Stone Memories] Lion Monarch's Charge
 SRPG_TrophyCategoryParam_SEISEKI_DJ_9_TROPHY_NAME	[Sacred Stone Memories] Lion Monarch's Fate
+SRPG_TrophyCategoryParam_GL_MH_1_TROPHY_EX_MULTI_NAME	[Magni Historia] Overture [Multiplay]
 SRPG_TrophyCategoryParam_SEISEKI_DJ_TROPHY_EX_MULTI_NAME	[Sacred Stone Memories] Entrusted Justice [EX] [Multiplay]
 SRPG_TrophyCategoryParam_SEISEKI_DJ_2_TROPHY_EX_MULTI_NAME	[Sacred Stone Memories] Demonic Spearman [EX] [Multiplay]
 SRPG_TrophyCategoryParam_SEISEKI_DJ_3_TROPHY_EX_MULTI_NAME	[Sacred Stone Memories] Arrow of Destiny [EX] [Multiplay]
@@ -38272,6 +38426,7 @@ SRPG_TrophyCategoryParam_SEISEKI_DJ_6_TROPHY_EX_MULTI_NAME	[Sacred Stone Memorie
 SRPG_TrophyCategoryParam_SEISEKI_DJ_7_TROPHY_EX_MULTI_NAME	[Sacred Stone Memories] The World's Laws Begin to Fluctuate [EX] [Multiplay]
 SRPG_TrophyCategoryParam_SEISEKI_DJ_8_TROPHY_EX_MULTI_NAME	[Sacred Stone Memories] Lion Monarch's Charge [EX] [Multiplay]
 SRPG_TrophyCategoryParam_SEISEKI_DJ_9_TROPHY_EX_MULTI_NAME	[Sacred Stone Memories] Lion Monarch's Fate [EX] [Multiplay]
+SRPG_TrophyCategoryParam_GL_MH_1_TROPHY_EX_NAME	[Magni Historia] [EX] Overture
 SRPG_TrophyCategoryParam_SEISEKI_DJ_TROPHY_EX_NAME	[Sacred Stone Memories] Entrusted Justice [EX]
 SRPG_TrophyCategoryParam_SEISEKI_DJ_2_TROPHY_EX_NAME	[Sacred Stone Memories] Demonic Spearman [EX]
 SRPG_TrophyCategoryParam_SEISEKI_DJ_3_TROPHY_EX_NAME	[Sacred Stone Memories] Arrow of Destiny [EX]
@@ -38399,22 +38554,22 @@ SRPG_TrophyCategoryParam_GL_FATE_TROPHY_EX_NAME	[Limited Time] Fate/stay night [
 SRPG_TrophyCategoryParam_GL_FATE_TROPHY_EX_MULTI_NAME	[Limited Time] Fate/stay night [UBW] [Multiplay] [EX]
 SRPG_TrophyCategoryParam_GL_FATE_TROPHY_DAILY_NAME	[Limited Time] [Daily] Fate/stay night [UBW]
 SRPG_TrophyCategoryParam_GL_HARVEST_TROPHY_NAME	[Limited Time] Harvest Revelry!
-SRPG_TrophyCategoryParam_GL_HARVEST_TROPHY_MULTI_NAME	[Limited Time] Harvest Revelry! [Multiplay] 
+SRPG_TrophyCategoryParam_GL_HARVEST_TROPHY_MULTI_NAME	[Limited Time] Harvest Revelry! [Multiplay]
 SRPG_TrophyCategoryParam_GL_SO_MIAN_TROPHY_NAME	[Limited Time] Soul Encounter - Mianne Edition
-SRPG_TrophyCategoryParam_GL_SO_MIAN_TROPHY_MULTI_NAME	[Limited Time] Soul Encounter - Mianne Edition [Multiplay] 
+SRPG_TrophyCategoryParam_GL_SO_MIAN_TROPHY_MULTI_NAME	[Limited Time] Soul Encounter - Mianne Edition [Multiplay]
 SRPG_TrophyCategoryParam_GL_SO_RETZ_TROPHY_NAME	[Limited Time] Encounter with Retzius
 SRPG_TrophyCategoryParam_GL_WA_CLOE_TROPHY_NAME	[Limited Time] Call of the Scarlet Flame
-SRPG_TrophyCategoryParam_GL_WA_CLOE_TROPHY_MULTI_NAME	[Limited Time] Call of the Scarlet Flame [Multiplay] 
+SRPG_TrophyCategoryParam_GL_WA_CLOE_TROPHY_MULTI_NAME	[Limited Time] Call of the Scarlet Flame [Multiplay]
 SRPG_TrophyCategoryParam_GL_CB_BF_TROPHY_NAME	[Limited Time] Brave Frontier
-SRPG_TrophyCategoryParam_GL_CB_BF_TROPHY_MULTI_NAME	[Limited Time] Brave Frontier [Multiplay] 
+SRPG_TrophyCategoryParam_GL_CB_BF_TROPHY_MULTI_NAME	[Limited Time] Brave Frontier [Multiplay]
 SRPG_TrophyCategoryParam_GL_SO_SABA_TROPHY_NAME	[Limited Time] Lizards of the Lost Kingdom
-SRPG_TrophyCategoryParam_GL_SO_SABA_TROPHY_MULTI_NAME	[Limited Time] Lizards of the Lost Kingdom [Multiplay] 
+SRPG_TrophyCategoryParam_GL_SO_SABA_TROPHY_MULTI_NAME	[Limited Time] Lizards of the Lost Kingdom [Multiplay]
 SRPG_TrophyCategoryParam_GL_POTA_TROPHY_NAME	[Limited Time] Phantom of the Alchemist
-SRPG_TrophyCategoryParam_GL_POTA_TROPHY_MULTI_NAME	[Limited Time] Phantom of the Alchemist [Multiplay] 
+SRPG_TrophyCategoryParam_GL_POTA_TROPHY_MULTI_NAME	[Limited Time] Phantom of the Alchemist [Multiplay]
 SRPG_TrophyCategoryParam_GL_POTA_TROPHY_GROWTH_NAME	[Limited Time] [Training] Phantom of the Alchemist
 SRPG_TrophyCategoryParam_GL_POTA_TROPHY_DAILY_NAME	[Limited Time] [Daily] Phantom of the Alchemist
 SRPG_TrophyCategoryParam_GL_FWTPW_TROPHY_NAME	[Limited Time] For Whom The Princess Weeps
-SRPG_TrophyCategoryParam_GL_FWTPW_TROPHY_MULTI_NAME	[Limited Time] For Whom The Princess Weeps [Multiplay] 
+SRPG_TrophyCategoryParam_GL_FWTPW_TROPHY_MULTI_NAME	[Limited Time] For Whom The Princess Weeps [Multiplay]
 SRPG_TrophyCategoryParam_GL_FWTPW_TROPHY_DAILY_NAME	[Limited Time] [Daily] For Whom The Princess Weeps
 SRPG_TrophyCategoryParam_GL_VELOZ_TROPHY_NAME	[Limited Time] Sound of the Bells
 SRPG_TrophyCategoryParam_GL_VELOZ_TROPHY_EX_NAME	[Limited Time] Sound of the Bells [EX]

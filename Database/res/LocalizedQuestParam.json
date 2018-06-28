@@ -5328,13 +5328,13 @@
         "title": "Limited Quest"
     },
     "QE_TM_IT_EQ_LV3_01": {
-        "name": "Elite Treasures [Bgn]",
+        "name": "Elite Treasures [Int]",
         "expr": "5★ Equipment Hard Quest (Equivalent to Adv)",
         "cond": "Defeat all enemy units!",
         "title": "Limited Quest"
     },
     "QE_TM_IT_EQ_LV4_01": {
-        "name": "Elite Treasures [Int]",
+        "name": "Elite Treasures [Adv]",
         "expr": "March Equipment Quest 1",
         "cond": "Defeat all enemy units!",
         "title": "Limited Quest"
@@ -6218,13 +6218,13 @@
         "name": "Blood Wolf by Any Other Name - Episode 1",
         "expr": "Encounter with Zeke",
         "cond": "Defeat all enemy units!",
-        "title": "Limited to Envylia characters"
+        "title": "[Limited Time]"
     },
     "QE_SO_ZEKE_2": {
         "name": "Blood Wolf by Any Other Name - Episode 2",
         "expr": "Encounter with Zeke",
         "cond": "Defeat all enemy units!",
-        "title": "Limited to Envylia characters"
+        "title": "[Limited Time]"
     },
     "QE_SO_ZEKE_3": {
         "name": "Blood Wolf by Any Other Name - Episode 3",
@@ -11119,6 +11119,14 @@
         "name": "Max",
         "expr": "Trial of the Ether"
     },
+    "AR_GL_MH_01": {
+        "name": "Magni Historia",
+        "expr": "Episode 1: Overture"
+    },
+    "MULTI_GL_MH": {
+        "name": "Magni Historia",
+        "expr": "Episode 1: Overture"
+    },
     "QE_GL_MAGE_1": {
         "name": "Trial of the Ether [Bgn]",
         "cond": "Defeat all enemy units!",
@@ -11156,6 +11164,78 @@
     },
     "QE_GL_MULTI_TRIAL_MAGE_3": {
         "name": "Trial of the Ether [Adv]",
+        "cond": "Defeat all enemy units!",
+        "title": "[Limited Time]"
+    },
+    "QE_EV_GL_MH_01_01": {
+        "name": "Stage 1: Seeking the way",
+        "expr": " ",
+        "cond": "Defeat all enemy units!",
+        "title": "[Limited Time]"
+    },
+    "QE_EV_GL_MH_01_02": {
+        "name": "Stage 2: An Uneasy Feeling",
+        "expr": " ",
+        "cond": "Defeat all enemy units!",
+        "title": "[Limited Time]"
+    },
+    "QE_EV_GL_MH_01_03": {
+        "name": "Stage 3: Sacris Village",
+        "expr": " ",
+        "cond": "Defeat all enemy units!",
+        "title": "[Limited Time]"
+    },
+    "QE_EV_GL_MH_01_04": {
+        "name": "Stage 4: The Blood Drunk Hunters",
+        "expr": " ",
+        "cond": "Defeat all enemy units!",
+        "title": "[Limited Time]"
+    },
+    "QE_EV_GL_MH_01_05": {
+        "name": "Stage 5: Bonds of Tradition",
+        "expr": " ",
+        "cond": "Defeat all enemy units!",
+        "title": "[Limited Time]"
+    },
+    "QE_EV_GL_MH_01_06": {
+        "name": "Stage 6: Bearer of Burden",
+        "expr": " ",
+        "cond": "Defeat all enemy units!",
+        "title": "[Limited Time]"
+    },
+    "QE_EV_GL_MH_01_07": {
+        "name": "Stage 7: Terror from below",
+        "expr": " ",
+        "cond": "Defeat all enemy units!",
+        "title": "[Limited Time]"
+    },
+    "QE_EV_GL_MH_01_08": {
+        "name": "Stage 8: The Wandering Defender",
+        "expr": " ",
+        "cond": "Defeat all enemy units!",
+        "title": "[Limited Time]"
+    },
+    "QE_EV_GL_MH_01_09": {
+        "name": "Stage 9: What lies beyond",
+        "expr": " ",
+        "cond": "Defeat all enemy units!",
+        "title": "[Limited Time]"
+    },
+    "QE_EV_GL_MH_01_10": {
+        "name": "Stage 10: The True Prize",
+        "expr": " ",
+        "cond": "Defeat all enemy units!",
+        "title": "[Limited Time]"
+    },
+    "QE_EV_GL_MH_01_EX": {
+        "name": "Overture[EX]",
+        "expr": " ",
+        "cond": "Defeat all enemy units!",
+        "title": "[Limited Time]"
+    },
+    "QE_EV_GL_MH_01_MULTI_EX": {
+        "name": "Overture[EX]",
+        "expr": " ",
         "cond": "Defeat all enemy units!",
         "title": "[Limited Time]"
     }
