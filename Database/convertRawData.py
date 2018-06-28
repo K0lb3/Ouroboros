@@ -1,6 +1,70 @@
-def convRawCondition(cond,SYS,ENUM):
-    c={}
-    
+RawElement={
+    0: 'Fire',
+    1: 'Water',
+    2: 'Wind',
+    3: 'Thunder',
+    4: 'Light',
+    5: 'Dark',
+    6: '',
+    10:     'Fire',
+    100:    'Water',
+    1000:   'Thunder',
+    10000:  'Wind',
+    100000: 'Light',
+    111111: 'Dark'
+}
+
+
+def convertRawBuff(buff,SYS,ENUM):
+    b={}
+    if 'iname' in buff:
+        b['iname'] =buff['iname']
+    if 'job' in buff:
+        b['job'] = buff['job']
+    if 'buff' in buff:
+        b['buki'] = buff['buki']
+    if 'birth' in buff:
+        b['birth'] = buff['birth']
+    if 'sex' in buff:
+        b['sex'] =  ENUM['ESex'][buff['sex']]
+    if 'elem' in buff:
+        b['elem'] =  RawElement[buff['elem']]
+    if 'rate' in buff:
+        b['rate'] =  buff['rate']
+    if 'turn' in buff:
+        b['turn'] =  buff['turn']
+    if 'chktgt' in buff:
+        b['chk_target'] = ENUM['EffectCheckTargets'][buff['chktgt']]
+    if 'timin' in buff:
+        b['chk_timing'] = ENUM['EffectCheckTimings'][buff['timing']]
+    if 'cond' in buff:
+        b['cond'] = ENUM['ESkillCondition'][buff['cond']]
+    if 'app_type' in buff:
+        b['mAppType'] = ENUM['EAppType'][buff['app_type']]
+    if 'app_mct' in buff:
+        b['mAppMct'] = buff['app_mct']
+    if 'eff_range' in buff:
+        b['mEffRange'] = ENUM['EEffRange'][buff['eff_range']]
+
+    b['buffs']=[]
+    use = ['type', 'vmax', 'vini','calc']
+    for i in range(1, 11):
+        for u in use:
+            if (u+'0'+str(i)) in buff:
+                buff[u+str(i)] = buff[u+'0'+str(i)]
+        try:
+            b['buffs'].append({
+                'type':ENUM['ParamTypes'][buff['type'+str(i)]],
+                'value_ini':buff['vini'+str(i)],
+                'value_max':buff['vmax'+str(i)],
+                'calc':ENUM['SkillParamCalcTypes'][buff['calc'+str(i)]],
+            })
+        except:
+            pass
+    return b
+
+def convertRawCondition(cond,SYS,ENUM):
+    c={} 
     if 'iname' in cond:
         c['iname'] = cond['iname']
     if 'job' in cond:
@@ -12,7 +76,7 @@ def convRawCondition(cond,SYS,ENUM):
     if 'sex' in cond:
         c['sex'] = ENUM['ESex'][cond['sex']]
     if 'elem' in cond:
-        c['elem'] = ENUM['EElement'][cond['elem']]
+        c['elem'] = RawElement[cond['elem']]
     if 'cond' in cond:
         c['cond'] = ENUM['ESkillCondition'][cond['cond']]
     if 'type' in cond:
@@ -203,7 +267,7 @@ def convertRawSkill(skl,loc,ENUM):
   if "atk_det" in skl:
     skill["attack_detail"] = ENUM["AttackDetailTypes"][skl["atk_det"]]
   if "elem" in skl:
-    skill["element_type"] = ENUM["EElement"][skl["elem"]]
+    skill["element_type"] = RawElement[skl["elem"]]
   if "ct_type" in skl:
     skill["cast_type"] = ENUM["ECastTypes"][skl["ct_type"]]
   if "react_d_type" in skl:
