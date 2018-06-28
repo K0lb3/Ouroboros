@@ -11,7 +11,6 @@ from convertRawData import *
 re_job = re.compile(r'^([^_]*)_([^_]*)_(.*)$')
 ReBr = re.compile(r'(\s+)?(\n)?(\[|\『|\().*')
 u_m_names = {}
-SYS={}
 birth = {
     "その他": "Foreign World",
     "エンヴィリア": "Envylia",
@@ -69,145 +68,6 @@ GEAR_TAG = {
     "銃槍": "Gunlance",  # JB_GUNL
     "装備なし": "N/A",  # JB_LUROB01
     "杖剣": "Swordstick",  # JB_HENC_WATER
-}
-
-ParamTypes = {
-    "0": "None",
-    "1": "HP",
-    "2": "HP",
-    "3": "Max Jewels",
-    "4": "Initial Jewels",
-    "5": "PATK",
-    "6": "PDEF",
-    "7": "MATK",
-    "8": "MDEF",
-    "9": "Healing",
-    "10": "DEX",
-    "11": "AGI",
-    "12": "CRIT",
-    "13": "LUCK",
-    "14": "MOVE",
-    "15": "JUMP",
-    "16": "RANGE",
-    "17": "Scope",
-    "18": "Height RANGE",
-    "19": "Fire",
-    "20": "Water",
-    "21": "Wind",
-    "22": "Thunder",
-    "23": "Light",
-    "24": "Dark",
-    "25": "Poison",
-    "26": "Paralyze",
-    "27": "Stun",
-    "28": "Sleep",
-    "29": "Charm",
-    "30": "Petrify",
-    "31": "Blind",
-    "32": "Silence",
-    "33": "Bind",
-    "34": "Daze",
-    "35": "Infect",
-    "36": "Death Sentence",
-    "37": "Berserk",
-    "38": "Knockback",
-    "39": "Buff",
-    "40": "Debuff",
-    "41": "Stop",
-    "42": "Quicken",
-    "43": "Delay",
-    "44": "Auto Heal",
-    "45": "Slow",
-    "46": "Rage",
-    "47": "Sleep",
-    "48": "All Statuses",
-    "49": "Fire Res",
-    "50": "Water Res",
-    "51": "Wind Res",
-    "52": "Thunder Res",
-    "53": "Light Res",
-    "54": "Dark Res",
-    "55": "Poison Res",
-    "56": "Paralyze Res",
-    "57": "Stun Res",
-    "58": "Sleep Res",
-    "59": "Charm Res",
-    "60": "Petrify Res",
-    "61": "Blind Res",
-    "62": "Silence Res",
-    "63": "Bind Res",
-    "64": "Daze Res",
-    "65": "Infect Res",
-    "66": "Death Sentence Res",
-    "67": "Berserk Res",
-    "68": "Knockback Res",
-    "69": "Buff Res",
-    "70": "Debuff Res",
-    "71": "Stop Res",
-    "72": "Quicken Res",
-    "73": "Delay Res",
-    "74": "Auto Heal Res",
-    "75": "Slow Res",
-    "76": "Rage Res",
-    "77": "Sleep Res",
-    "78": "All Status Res",
-    "79": "Hit Rate",
-    "80": "Evasion Rate",
-    "81": "CRIT Rate",
-    "82": "Jewels Obtained",
-    "83": "Jewels Spent",
-    "84": "Action Count Operation",
-    "85": "Slash ATK",
-    "86": "Pierce ATK",
-    "87": "Strike ATK",
-    "88": "Missile ATK",
-    "89": "Magic ATK",
-    "90": "Counter ATK",
-    "91": "JUMP ATK",
-    "92": "Guts",
-    "93": "Auto Jewel Charge",
-    "94": "Charge Time Ratio",
-    "95": "Cast Time Ratio",
-    "96": "Buff Duration",
-    "97": "Debuff Duration",
-    "98": "COMBO Scope",
-    "99": "HP Cost Rate",
-    "100": "Skill Use Count",
-    "101": "Poison Dmg Rate",
-    "102": "Poison Duration",
-    "103": "Jewel Auto Charge",
-    "104": "Jewel Auto Charge Res",
-    "105": "Disable Heal",
-    "106": "Disable Heal Res",
-    "107": "Slash Res",
-    "108": "Pierce Res",
-    "109": "Strike Res",
-    "110": "Missile Res",
-    "111": "Magic Res",
-    "112": "Counter Res",
-    "113": "JUMP Res",
-    "114": "Slash Evasion Rate",
-    "115": "Pierce Evasion Rate",
-    "116": "Strike Evasion Rate",
-    "117": "Missile Evasion Rate",
-    "118": "Magic Evasion Rate",
-    "119": "Counter Evasion Rate",
-    "120": "JUMP Evasion Rate",
-    "122": "Reduced Jewel Cost",
-    "123": "Assist Single-Attack",
-    "124": "Assist Area-Attack",
-    "125": "Resist Single-Attack",
-    "126": "Resist Area-Attack",
-    "127": "Assist Decrease CT",
-    "128": "Assist Increase CT",
-    "129": "Resist Decrease CT",
-    "130": "Resist Increase CT",
-    "131": "Fire DMG",
-    "132": "Water DMG",
-    "133": "Wind DMG",
-    "134": "Thunder DMG",
-    "135": "Light DMG",
-    "136": "Dark DMG",
 }
 
 Grow_Curves={}
@@ -291,10 +151,9 @@ def convertMaster(master):
     ma = {}
     for main in master:
         for sub in master[main]:
-            try:
+            if type(sub) == dict and 'iname' in sub:
                 ma[sub['iname']] = sub
-            except:
-                continue
+
     return ma
 
 def convertSubMaster(main):
@@ -323,119 +182,88 @@ def element(type):
         return 'all'
     return 'error'
 
+def TACScale(ini,max,lv,mlv):
+    return math.floor(ini + ((max-ini) / (mlv-1) * (lv-1)))
+
+
 def buff(buff, lv, mlv, array=False):
-    global ParamTypes
+    buff=convertRawBuff(buff,SYS,ENUM)
 
-    text = ""
+    if array:
+        return([{
+            'type': mod['type'],
+            'value': TACScale(mod['value_ini'],mod['value_max'],lv,mlv),
+            'calc': mod['calc']
+            }
+            for mod in buff['buffs']            
+            ])
 
-    mods = []
-    restriction={}
-    rate= buff['rate'] if 'rate' in buff else 100
+    text=""
 
-    if 'elem' in buff:
-        text += element(buff['elem']).title()+': '
-        restriction['element']=element(buff['elem'])
-    if 'birth' in buff:
-        text += (birth[buff['birth']]).title()+': '
-        restriction['birth']=element(buff['birth'])
-
-    allElem = {'mod': "", 'index': []}
-    allAtk = {'mod': "", 'index': []}
-
-    used = ['type', 'vmax', 'vini']
-    for i in range(1, 9):
-        for u in used:
-            if (u+'0'+str(i)) in buff:
-                buff[u+str(i)] = buff[u+'0'+str(i)]
-
-        if ('type'+str(i) in buff) and ('vmax'+str(i) in buff):
-            btyp = buff['type'+str(i)]
-            bmin = buff['vini'+str(i)]
-            bmax = buff['vmax'+str(i)]
-            bmod = '' if (
-                'calc'+str(i) not in buff or buff['calc'+str(i)] == 0) else '%'
-
-            try:
-                number = math.floor(bmin + ((bmax - bmin) * (lv-1) / (mlv-1)))
-                if number==0:
-                    continue
-                # add + if pos
-                number = '+'+str(number) if number >= 0 else str(number)
-                mods.append({
-                    'value': number, 
-                    'mod': bmod,
-                    'stat': ParamTypes[str(btyp)]
-                    })
-
-                if 84 < btyp and btyp < 92:
-                    allAtk['index'].append(i-1)
-                    allAtk['mod'] = [number, bmod]
-                if 48 < btyp and btyp < 55:
-                    allElem['index'].append(i-1)
-                    allElem['mod'] = [number, bmod]
-            except:
-                print(buff)
-                print(btyp)
-                print(bmin)
-                print(bmax)
-                print(bmod)
-
-        else:
-            break
-
-    # reduce clutter | all elements & all dmg shortening
-    # +25 Slash ATK & +25 Pierce ATK & +25 Strike ATK & +25 Missile ATK & +25 MATK & +25 JUMP ATK
-
-    if not array:
-        if len(allAtk['index']) == 6:
-            mods = [i for j, i in enumerate(mods) if j not in allAtk['index']]
-            mods.append({
-                'value':allAtk['mod'][0],
-                'mod': allAtk['mod'][1],
-                'stat': 'Damage'
-            })
-        if len(allElem['index']) == 6:
-            mods = [i for j, i in enumerate(mods) if j not in allElem['index']]
-            mods.append({
-                'value':allElem['mod'][0],
-                'mod': allElem['mod'][1], 
-                'stat':'Elemental Res'
-            })
-
-        for m in mods:
-            text += '{value}{mod} {stat} & '.format(value=m['value'],mod=m['mod'],stat=m['stat'])
-        text=text[:-3]
-        if rate!=100:
-            text+= ' [{chance}%]'.format(chance=rate)
-    else:
-        export={
-            mod['stat']:int(mod['value']) if mod['mod']=='' else int(mod['value'])/100
-            for mod in mods
+    rest={
+        'job' : 'Job',
+        'birth': 'Country',
+        'sex': 'Gender',
+        'elem': 'Element'
         }
-        if len(restriction) > 0:
-            export['restriction']=restriction
-        if rate != 100:
-            export['rate']=rate
 
-        #mods.append(restriction)
-        #mods.append({'chance':rate})
+    restrictions=[
+        '{rest}: {value}'.format(rest=rest[key],value=buff[key])
+        for key,value in rest.items()
+        if key in buff
+        ]
 
-    return export if array else text
+    def withSign(number):
+        if number<0:
+            return str(number)
+        return '+'+str(number)
 
-def condition(cond, lv,  mlv):
-    global SYS
-    if len(SYS)==0:
-        [SYS]=loadFiles(['sys.json'])
+    mods=[
+        '{value}{calc} {stat}'.format(
+            stat=SYS[mod['type']],
+            value=withSign(TACScale(mod['value_ini'],mod['value_max'],lv,mlv)),
+            calc='%' if 'Scale' == mod['calc'] else ''
+            )
+        for mod in buff['buffs']
+        ]
 
-    cond=convRawCondition(cond,SYS,ENUM)
+    runt=[]
+    if 'rate' in buff and buff['rate']!=100:
+        runt.append('Chance: {chance}%'.format(chance=buff['rate']))
+    if 'turn' in buff and buff['turn']!=0:
+        runt.append('Turns: {turns}'.format(turns=buff['turn']-1))
 
-    if 'rini' in cond and cond['rini'] < 999:
-        rate = math.floor(
-            cond['rini'] + ((cond['rmax']-cond['rini']) / (mlv-1) * (lv-1)))
+    if len(restrictions)!=0:
+        text+='Restriction(s): {rest}\n'.format(rest=', '.join(restrictions))
+    if len(mods)!=0:
+        text+=', '.join(mods)
+    if len(runt)!=0:
+        text+=' [{runt}]'.format(runt=', '.join(runt))
+
+    return text
+
+def condition(cond, lv,  mlv):      
+    cond=convertRawCondition(cond,SYS,ENUM)
+
+    vals=[]
+    if 'turn_ini' in cond:
+        turn = TACScale(cond['turn_ini'],cond['turn_max'],lv,mlv)
+        vals.append('Turns: {turn}'.format(turn=turn-1))
+
+    if 'rate_ini' in cond:
+        rate = TACScale(cond['rate_ini'],cond['rate_max'],lv,mlv)
+        vals.append('Chance: {rate}%'.format(rate=rate))
+
+    if 'value_ini' in cond:
+        value = TACScale(cond['value_ini'],cond['value_max'],lv,mlv)
+        vals.append('Value: {val}'.format(val=value))
+    
+    if len(vals)!=0:
+        vals='[{values}]'.format(values=', '.join(vals))
         if len(cond['conds'])<6:
-            return('{cond} [{rate}%]'.format(rate=rate,cond=', '.join(cond['conds'])))
+            return('{cond} {vals}'.format(vals=vals,cond=', '.join(cond['conds'])))
         else:
-            return('[{rate}%] {cond}'.format(rate=rate,cond=', '.join(cond['conds'])))
+            return('{vals} {cond}'.format(vals=vals,cond=', '.join(cond['conds'])))
     else:
         return(', '.join(cond['conds']))
 
@@ -715,9 +543,9 @@ def Skill_GenericDescription(skl,masterc,loc):
     desc=""
 
     def s(key,pre='',post=''):
-        try:
+        if key in skill:
             return pre+str(skill[key])+post
-        except:
+        else:
             return ''
 
     def span():
@@ -734,7 +562,7 @@ def Skill_GenericDescription(skl,masterc,loc):
         if 'scope' in skill:
             r ='Area: '
             if 'select_scope' in skill:
-                r+='{area} ({range})'.format(area=str(skill['select_scope']),range=skill['scope'])
+                r+='{area} ({range})'.format(area=str(skill['select_scope']),range=math.ceil(skill['scope']*2.1))
             else:
                 r+=str(skill['scope'])
             text.append(r)
@@ -842,5 +670,5 @@ def Skill_GenericDescription(skl,masterc,loc):
     return(skill)
 
 
-global ENUM,LENUM
-[ENUM,LENUM]=loadFiles(['ENums.json','locEnums.json'])
+global ENUM,SYS
+[ENUM,SYS]=loadFiles(['ENums.json','sys.json'])

@@ -10,7 +10,8 @@
         "effect_type": "Buff",
         "reaction_damage_type": "None",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_GL_WSM_ATK",
@@ -34,12 +35,13 @@
         "reaction_damage_type": "None",
         "shield_type": "None",
         "shield_damage_type": "None",
-        "expr": "100%  Slash Dmg [Range: 1, Height: 1]"
+        "expr": " \n100%  Slash Dmg [Range: 1, Height: 1]",
+        "mapeff": " "
     },
     {
         "iname": "SK_GL_WSM_UPPER_1",
-        "name": "Sealing Strike",
-        "expr": "Destroy the Jewels of target enemy\n300%  Slash Dmg [Range: 4, Height: 2]",
+        "name": "Sealing Slash",
+        "expr": "Destroy the Jewels of target enemy [Range: 4, Height Range: 2]\n300%  Slash Dmg [Range: 4, Height: 2]",
         "motion": "gl_wsm_skill106",
         "effect": "eff_gl_wsm_skill103",
         "weapon": "WE_SWORD",
@@ -60,7 +62,8 @@
         "attack_detail": "Slash",
         "reaction_damage_type": "None",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_GL_WSM_UPPER_2",
@@ -89,12 +92,13 @@
         "attack_detail": "Slash",
         "reaction_damage_type": "None",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_GL_WSM_UPPER_3",
         "name": "Blade Dervish",
-        "expr": "Light slash Dmg to enemies within target area with chance of critical; Raises Evasion for 3 turns\n130% Shine Slash Dmg [, Height: 2, Area: Square]\nSelf: +15 Evasion Rate",
+        "expr": "Light slash Dmg to enemies within target area with chance of critical; Raises Evasion for 3 turns [Area: Square (3) around self, Height Range: 2]\n130% Shine Slash Dmg [, Height: 2, Area: Square]\nSelf: +15 Evasion Rate",
         "motion": "gl_wsm_skill105",
         "effect": "eff_sol_skill105",
         "weapon": "WE_SWORD",
@@ -117,12 +121,13 @@
         "element_type": "Shine",
         "reaction_damage_type": "None",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_GL_WSM_UPPER_4",
         "name": "Relentless Blades",
-        "expr": "3 Combo hits of Light slash DMG  to target enemy with chance to crit. Inflicts Stop\n130% Shine Slash Dmg [Range: 1, Height: 2]\nTarget: Stop [100%]",
+        "expr": "3 Combo hits of Light slash Dmg to target enemy with chance to crit. Inflicts Stop\n130% Shine Slash Dmg [Range: 1, Height: 2]\nTarget: Stop [100%]",
         "motion": "gl_wsm_skill107",
         "effect": "eff_sol_skill107",
         "weapon": "WE_SWORD",
@@ -147,11 +152,12 @@
         "element_type": "Shine",
         "reaction_damage_type": "None",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_GL_WSM_LOWER_1",
-        "name": "Focus",
+        "name": "Focus Energy",
         "expr": "Regen Jewels for the next 3 Turns\n\nTarget: Jewel Auto Charge [100%]",
         "motion": "gl_wsm_skill102",
         "effect": "eff_gl_wsm_skill101",
@@ -165,12 +171,13 @@
         "effect_type": "Buff",
         "reaction_damage_type": "None",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_GL_WSM_LOWER_2",
         "name": "Coordinate Efforts",
-        "expr": "PATK+50% for allies within target area for next 3 turns\n\nTarget: +50% PATK",
+        "expr": "PATK+50% for allies within target area for next 3 turns [Range 3, Area: Cross (3), Height Range: 2]\n\nTarget: +50% PATK",
         "motion": "gl_wsm_skill102",
         "effect": "eff_gl_wsm_skill102",
         "cost": 20,
@@ -187,12 +194,13 @@
         "effect_type": "Buff",
         "reaction_damage_type": "None",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_GL_WSM_LOWER_3",
-        "name": "Triple Trouble",
-        "expr": "Three hits of light slash damage to target enemy; chance of critical \n130%  Slash Dmg [Range: 4, Height: 3]",
+        "name": "Triple Threats",
+        "expr": "Three hits of light slash damage to target enemy; chance of critical (straight trajectory) [Range: 4, Height Range: 3]\n130%  Slash Dmg [Range: 4, Height: 3]",
         "motion": "gl_wsm_skill107",
         "effect": "eff_sol_skill107",
         "weapon": "WE_SWORD",
@@ -215,12 +223,13 @@
         "attack_detail": "Slash",
         "reaction_damage_type": "None",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_GL_WSM_LOWER_4",
-        "name": "Shattering Strike",
-        "expr": "Deal Physical Damage (High) to target enemy that ignores DEF & inflicts Don't Act\n135%  Slash Dmg [Range: 4, Height: 3]\nTarget: Daze [100%]",
+        "name": "Shattering Slash",
+        "expr": "Deal Physical Damage (High) to target enemy that ignores DEF & inflicts Daze [Range: 4, Height Range: 3]\n135%  Slash Dmg [Range: 4, Height: 3]\nTarget: Daze [100%]",
         "motion": "gl_wsm_skill106",
         "effect": "eff_sol_skill109",
         "weapon": "WE_SWORD",
@@ -242,7 +251,8 @@
         "attack_detail": "Slash",
         "reaction_damage_type": "None",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_GL_WSM_REACTIVE",
@@ -267,12 +277,13 @@
         "attack_detail": "Slash",
         "reaction_damage_type": "TotalDamage",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_GL_WSM_SUPPORT_1",
         "name": "Finesse",
-        "expr": "Raises Evasion and MOV+1\n\nTarget: +20 Evasion Rate & +1 MOVE",
+        "expr": "Raises Evasion and MOVE +1\n\nTarget: +20 Evasion Rate & +1 MOVE",
         "target_buff_iname": "BUFF_GL_WSM_FINESSE",
         "type": "Passive",
         "timing": "Passive",
@@ -280,11 +291,12 @@
         "effect_type": "Buff",
         "reaction_damage_type": "None",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_GL_SIEG_WSM_MASTER",
-        "name": "(Wandering Swordsman) Job Master Bonus",
+        "name": "Wandering Swordsman Job Master Bonus",
         "target_buff_iname": "BUFF_GL_WSM_MASTER",
         "type": "Passive",
         "timing": "Passive",
@@ -293,12 +305,13 @@
         "reaction_damage_type": "None",
         "shield_type": "None",
         "shield_damage_type": "None",
-        "expr": "\nTarget: +15% HP & +7% PATK & +2% DEX & +5% AGI"
+        "expr": " \n\nTarget: +15% HP & +7% PATK & +2% DEX & +5% AGI",
+        "mapeff": " "
     },
     {
         "iname": "SK_EQ_GL_WSMCOAT",
-        "name": "Wanderer Longcoat",
-        "expr": "CRIT +16, PAtk+8, AGI +3, HP +24, LUCK +6, Jewels +10\n\nTarget: +40 HP & +20 CRIT & +12 PATK & +6 AGI & +9 LUCK & +15 Max Jewels & +10 Jewels Obtained",
+        "name": "Wanderer's Longcoat",
+        "expr": "CRIT +16, Patk +8, AGI +3, HP +24, LUCK +6, Jewels +10\n\nTarget: +40 HP & +20 CRIT & +12 PATK & +6 AGI & +9 LUCK & +15 Max Jewels & +10 Jewels Obtained",
         "target_buff_iname": "BUFF_EQ_GL_WSMCOAT",
         "type": "Item",
         "timing": "Passive",
@@ -306,7 +319,8 @@
         "effect_type": "Equipment",
         "reaction_damage_type": "None",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_AF_ACCS_GL_SIEG_HAT",
@@ -334,7 +348,8 @@
         "target": "Self",
         "effect_type": "Buff",
         "shield_type": "None",
-        "shield_damage_type": "None"
+        "shield_damage_type": "None",
+        "mapeff": " "
     },
     {
         "iname": "SK_HWIZ_ATK",
@@ -1245,7 +1260,7 @@
     {
         "iname": "SK_LOGI_GUA_HEAL",
         "name": "Flame of the Blue Dragon",
-        "expr": "Recovers HP of ally units in area around self with chance of removing all statuses [Area: Cross (3), Height Range: 2]\nHeals 70% Formula [None, Height: 2, Scope: Cross (1)]\nTarget: Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Delay Res, Disable Heal Res [30%]",
+        "expr": "Recovers HP of ally units in area around self with chance of removing all statuses [Area: Cross (3), Height Range: 2]\nHeals 70% Formula [None, Height: 2, Scope: Cross (1)]\nTarget: [30%] Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Delay Res, Disable Heal Res",
         "motion": "gua_skill115",
         "effect": "eff_gua_skill115",
         "weapon": "WE_SWORD",
@@ -1794,7 +1809,7 @@
     {
         "iname": "SK_GUA_HEALING2",
         "name": "War Princess's Embrace",
-        "expr": "Recovers HP of ally units within target area & removes statuses inflicted on them [Area: Diamond (5), Height Range: 2]\n\nTarget: Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Rage Res, Stop Res, Death Sentence Res, Delay Res, Disable Heal Res [100%]",
+        "expr": "Recovers HP of ally units within target area & removes statuses inflicted on them [Area: Diamond (5), Height Range: 2]\n\nTarget: [100%] Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Rage Res, Stop Res, Death Sentence Res, Delay Res, Disable Heal Res",
         "motion": "gua_skill117",
         "effect": "eff_gua_skill120",
         "cost": 30,
@@ -2356,7 +2371,7 @@
     {
         "iname": "SK_DIOS_BAA_HEAL",
         "name": "Vow of Grief",
-        "expr": "Recovers HP of ally units in area around self with chance of removing all statuses [Area: Cross (3), Height Range: 2]\nHeals 70% Formula [None, Height: 2, Scope: Cross (1)]\nTarget: Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Delay Res, Disable Heal Res [30%]",
+        "expr": "Recovers HP of ally units in area around self with chance of removing all statuses [Area: Cross (3), Height Range: 2]\nHeals 70% Formula [None, Height: 2, Scope: Cross (1)]\nTarget: [30%] Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Delay Res, Disable Heal Res",
         "motion": "baa_skill116",
         "effect": "eff_baa_skill116",
         "weapon": "WE_GREAT_SWORD",
@@ -5364,7 +5379,7 @@
     {
         "iname": "SK_DGN_SHIFT_RUDRA",
         "name": "Rudra Cure",
-        "expr": "After moving, removes statuses inflicted on ally units in area around self [Move Area: Diamond (9), Height Range: Unlimited]\n\nTarget: Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Delay Res, Disable Heal Res [100%]",
+        "expr": "After moving, removes statuses inflicted on ally units in area around self [Move Area: Diamond (9), Height Range: Unlimited]\n\nTarget: [100%] Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Delay Res, Disable Heal Res",
         "motion": "dgn_skill112",
         "effect": "eff_onm_skill102",
         "cost": 14,
@@ -5832,7 +5847,7 @@
     {
         "iname": "SK_KAK_TAICYOKANRI",
         "name": "Condition Control",
-        "expr": "Removes all statuses inflicted on self\n\nTarget: Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Delay Res, Disable Heal Res [100%]",
+        "expr": "Removes all statuses inflicted on self\n\nTarget: [100%] Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Delay Res, Disable Heal Res",
         "motion": "kak_skill103",
         "effect": "eff_kak_skill103",
         "cost": 8,
@@ -6188,7 +6203,7 @@
     {
         "iname": "SK_STR_SOUKIKOU",
         "name": "Controlling Focus",
-        "expr": "Removes all statuses inflicted on units in area around self [Range: Cross (3), Height Range: 2]\n\nTarget: Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Delay Res, Disable Heal Res [100%]",
+        "expr": "Removes all statuses inflicted on units in area around self [Range: Cross (3), Height Range: 2]\n\nTarget: [100%] Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Delay Res, Disable Heal Res",
         "motion": "str_skill104",
         "effect": "eff_str_skill104",
         "weapon": "WE_FIST",
@@ -6968,7 +6983,7 @@
     },
     {
         "iname": "SK_THI_SHY_UPPER_01",
-        "name": "Jewelry Credit",
+        "name": "Jewelry Dagger",
         "expr": "Transfers Jewels used by self to target ally unit [Range: 2, Height Range: 1]",
         "motion": "thi_skill112",
         "effect": "eff_thi_skill112",
@@ -9418,7 +9433,7 @@
     {
         "iname": "SK_DRI_HEAL_SHOT",
         "name": "Healing Barrett",
-        "expr": "Recovers HP of ally units within target area with chance of removing all statuses [Range: 3, Area: 1 sq line, Height Range: 2]\nHeals 70% Formula [Range: Laser (3), Height: 2, Scope: Laser (1)]\nTarget: Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Delay Res, Disable Heal Res [50%]",
+        "expr": "Recovers HP of ally units within target area with chance of removing all statuses [Range: 3, Area: 1 sq line, Height Range: 2]\nHeals 70% Formula [Range: Laser (3), Height: 2, Scope: Laser (1)]\nTarget: [50%] Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Delay Res, Disable Heal Res",
         "motion": "gun_skill109",
         "effect": "eff_gun_skill109",
         "weapon": "WE_GUN",
@@ -11402,7 +11417,7 @@
     {
         "iname": "SK_ALEX_PRI_REGENERATE_SQUARE",
         "name": "Exquisite Recovery Doping",
-        "expr": "Greatly recovers HP of ally units in area around self & nullifies all statuses for five turns [Area: Square (3), Height Range: 3]\nHeals 105% Formula [None, Height: 3, Scope: Square (1)]\nTarget: Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Stop, Rage, Death Sentence, Delay, Disable Heal [100%]",
+        "expr": "Greatly recovers HP of ally units in area around self & nullifies all statuses for five turns [Area: Square (3), Height Range: 3]\nHeals 105% Formula [None, Height: 3, Scope: Square (1)]\nTarget: [100%] Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Stop, Rage, Death Sentence, Delay, Disable Heal",
         "motion": "pri_skill104",
         "effect": "eff_pri_skill104",
         "cost": 30,
@@ -11551,7 +11566,7 @@
     {
         "iname": "SK_PRI_AMAZING_GRACE",
         "name": "Curing Grace",
-        "expr": "Completely recovers HP of ally unit & recovers statuses [Range: 3, Height Range: 4]\n\nTarget: Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Rage Res, Stop Res, Death Sentence Res, Delay Res, Disable Heal Res [100%]",
+        "expr": "Completely recovers HP of ally unit & recovers statuses [Range: 3, Height Range: 4]\n\nTarget: [100%] Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Rage Res, Stop Res, Death Sentence Res, Delay Res, Disable Heal Res",
         "motion": "pri_skill109",
         "effect": "eff_pri_skill109",
         "cost": 36,
@@ -11859,7 +11874,7 @@
     {
         "iname": "SK_KUS_BANNOU_YAKU",
         "name": "Panacea",
-        "expr": "Removes all statuses except Death Sentence [Range: 3, Height Range: 2]\n\nTarget: Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Delay Res, Disable Heal Res [100%]",
+        "expr": "Removes all statuses except Death Sentence [Range: 3, Height Range: 2]\n\nTarget: [100%] Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Delay Res, Disable Heal Res",
         "motion": "kus_skill107",
         "effect": "eff_kus_skill107",
         "cost": 16,
@@ -11881,7 +11896,7 @@
     {
         "iname": "SK_KUS_YOBOU_YAKU",
         "name": "Vaccine",
-        "expr": "Nullifies all statuses inflicted on units within target area during turn used [Range: 2, Area: Cross (3), Height Range: 2]\n\nTarget: Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Rage, Death Sentence, Stop, Delay, Disable Heal [100%]",
+        "expr": "Nullifies all statuses inflicted on units within target area during turn used [Range: 2, Area: Cross (3), Height Range: 2]\n\nTarget: [100%] Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Rage, Death Sentence, Stop, Delay, Disable Heal",
         "motion": "kus_skill108",
         "effect": "eff_kus_skill108",
         "cost": 24,
@@ -12249,7 +12264,7 @@
     {
         "iname": "SK_DOC_BANNOU_YAKU",
         "name": "Panacea",
-        "expr": "Removes all statuses except Death Sentence [Range: 3, Height Range: 2]\n\nTarget: Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Delay Res, Disable Heal Res [100%]",
+        "expr": "Removes all statuses except Death Sentence [Range: 3, Height Range: 2]\n\nTarget: [100%] Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Delay Res, Disable Heal Res",
         "motion": "doc_skill111",
         "effect": "eff_doc_skill111",
         "cost": 15,
@@ -12271,7 +12286,7 @@
     {
         "iname": "SK_DOC_YOBOU_YAKU",
         "name": "Vaccine",
-        "expr": "Nullifies all statuses inflicted on units within target area during turn used [Range: 3, Area: Diamond (5), Height Range: 2]\n\nTarget: Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Rage, Death Sentence, Stop, Delay, Disable Heal [100%]",
+        "expr": "Nullifies all statuses inflicted on units within target area during turn used [Range: 3, Area: Diamond (5), Height Range: 2]\n\nTarget: [100%] Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Rage, Death Sentence, Stop, Delay, Disable Heal",
         "motion": "doc_skill112",
         "effect": "eff_doc_skill112",
         "cost": 24,
@@ -14682,7 +14697,7 @@
     {
         "iname": "SK_NEW_HUU_UPPER_1",
         "name": "Divination Fertile Land",
-        "expr": "Recovers HP of ally units within target area + nullifies all statuses inflicted on them during turn used [Range: 2, Area: Square (3), Height Range: 2] \nHeals 65% Formula [Range: Diamond (2), Height: 2, Scope: Square (1)]\nTarget: Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Stop, Rage, Death Sentence, Delay, Disable Heal [100%]",
+        "expr": "Recovers HP of ally units within target area + nullifies all statuses inflicted on them during turn used [Range: 2, Area: Square (3), Height Range: 2] \nHeals 65% Formula [Range: Diamond (2), Height: 2, Scope: Square (1)]\nTarget: [100%] Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Stop, Rage, Death Sentence, Delay, Disable Heal",
         "motion": "huu_skill100",
         "effect": "eff_huu_skill100",
         "cost": 30,
@@ -15852,7 +15867,7 @@
     {
         "iname": "SK_MIK_KIYOMETAMAE",
         "name": "Purify",
-        "expr": "Removes all statuses inflicted on the target\n\nTarget: Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Delay Res, Disable Heal Res [100%]",
+        "expr": "Removes all statuses inflicted on the target\n\nTarget: [100%] Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Delay Res, Disable Heal Res",
         "motion": "mik_skill101",
         "effect": "eff_mik_skill101",
         "cost": 24,
@@ -18535,7 +18550,7 @@
     {
         "iname": "SK_SHN_LOWER_03",
         "name": "Poison Pill",
-        "expr": "Nullifies all statuses inflicted on ally units within area around self [Area: Diamond (5), Height Range: 2]\n\nTarget: Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Stop, Rage, Death Sentence, Delay, Disable Heal [100%]",
+        "expr": "Nullifies all statuses inflicted on ally units within area around self [Area: Square (3) around self, Height Range: 2]\n\nTarget: [100%] Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Stop, Rage, Death Sentence, Delay, Disable Heal",
         "motion": "shn_skill106",
         "effect": "eff_shn_skill106",
         "cost": 24,
@@ -19906,7 +19921,7 @@
     {
         "iname": "SK_SEN_LOWER_2",
         "name": "Conjunction",
-        "expr": "Removes all statuses inflicted on ally unit [Range: 6, Height Range: 3]\n\nTarget: Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Delay Res, Disable Heal Res [100%]",
+        "expr": "Removes all statuses inflicted on ally unit [Range: 6, Height Range: 3]\n\nTarget: [100%] Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Delay Res, Disable Heal Res",
         "motion": "sen_skill101",
         "effect": "eff_sen_skill101",
         "cost": 35,
@@ -21230,7 +21245,7 @@
     {
         "iname": "SK_CANO_SEI_LOWER_2",
         "name": "Unwavering Conviction",
-        "expr": "Nullifies all statuses inflicted on self for three turns\n\nTarget: Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Stop, Rage, Death Sentence, Delay, Disable Heal [100%]",
+        "expr": "Nullifies all statuses inflicted on self for three turns\n\nTarget: [100%] Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Stop, Rage, Death Sentence, Delay, Disable Heal",
         "motion": "3s_cano_arm_skill101",
         "effect": "eff_3s_cano_arm_skill101",
         "cost": 20,
@@ -26134,7 +26149,7 @@
     {
         "iname": "SK_SHE_N_SANCTUARY",
         "name": "Holy Area",
-        "expr": "Nullifies all statuses inflicted on units within area around self during turn used [Area: Diamond (5), Height Range: 2]\n\nTarget: Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Stop, Rage, Death Sentence, Delay, Disable Heal [100%]",
+        "expr": "Nullifies all statuses inflicted on units within area around self during turn used [Area: Diamond (5), Height Range: 2]\n\nTarget: [100%] Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Stop, Rage, Death Sentence, Delay, Disable Heal",
         "motion": "she_n_skill105",
         "effect": "eff_she_n_skill105",
         "cost": 24,
@@ -26153,7 +26168,7 @@
     {
         "iname": "SK_SHE_N_MEMORIAL",
         "name": "Memorial",
-        "expr": "Recovers HP (High) of ally unit & cancels statuses [Range: 3, Height Range: 4]\n\nTarget: Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Delay Res, Disable Heal Res [100%]",
+        "expr": "Recovers HP (High) of ally unit & cancels statuses [Range: 3, Height Range: 4]\n\nTarget: [100%] Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Delay Res, Disable Heal Res",
         "motion": "she_n_skill106",
         "effect": "eff_she_n_skill106",
         "cost": 36,
@@ -27526,7 +27541,7 @@
     {
         "iname": "SK_LIES_2_07",
         "name": "Cure Condition",
-        "expr": "Removes all statuses inflicted on ally units within target area [Range: 4, Area: Cross (3), Height Range: 2]\n\nTarget: Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Delay Res, Disable Heal Res [100%]",
+        "expr": "Removes all statuses inflicted on ally units within target area [Range: 4, Area: Cross (3), Height Range: 2]\n\nTarget: [100%] Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Delay Res, Disable Heal Res",
         "motion": "lies2_skill106",
         "effect": "eff_lies2_skill106",
         "weapon": "WE_LONG_STAFF",
@@ -32373,7 +32388,7 @@
     {
         "iname": "SK_FATE_ASS_LOWER_03",
         "name": "Transparency",
-        "expr": "Nullifies all statuses inflicted on self for five turns\n\nTarget: Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Stop, Rage, Death Sentence, Delay, Disable Heal [100%]",
+        "expr": "Nullifies all statuses inflicted on self for five turns\n\nTarget: [100%] Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Stop, Rage, Death Sentence, Delay, Disable Heal",
         "motion": "fate_ass_skill106",
         "effect": "eff_fate_ass_skill106",
         "cost": 25,
@@ -33843,7 +33858,7 @@
     {
         "iname": "SK_DIS_USAL_03",
         "name": "ステータスガード",
-        "expr": "自身を中心とした正方形範囲の味方に状態異常無効効果[範囲:自身の周囲1マス,高低差:2]\n\nTarget: Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Rage, Death Sentence, Stop, Delay, Disable Heal [100%]",
+        "expr": "自身を中心とした正方形範囲の味方に状態異常無効効果[範囲:自身の周囲1マス,高低差:2]\n\nTarget: [100%] Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Rage, Death Sentence, Stop, Delay, Disable Heal",
         "motion": "dis_usal1_skill102",
         "effect": "eff_dis_usal1_skill102",
         "cost": 24,
@@ -34819,7 +34834,7 @@
     {
         "iname": "SK_DIS_PRIN3_UPPER_1",
         "name": "ワクチン",
-        "expr": "自身を中心とした指定範囲内の味方を3ターンの間、状態異常無効化[範囲:十字1マス,高低差:1]\n\nTarget: Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Stop, Rage, Death Sentence, Delay, Disable Heal [100%]",
+        "expr": "自身を中心とした指定範囲内の味方を3ターンの間、状態異常無効化[範囲:十字1マス,高低差:1]\n\nTarget: [100%] Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Stop, Rage, Death Sentence, Delay, Disable Heal",
         "motion": "dis_prin3_skill100",
         "effect": "eff_dis_prin3_skill100",
         "cost": 20,
@@ -34952,7 +34967,7 @@
     {
         "iname": "SK_DIS_PRIN3_REACTION",
         "name": "逆境チャンス",
-        "expr": "被ダメージ時に3ターンの間、自身を状態異常無効化\n\nTarget: Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Stop, Rage, Death Sentence, Delay, Disable Heal [100%]",
+        "expr": "被ダメージ時に3ターンの間、自身を状態異常無効化\n\nTarget: [100%] Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Stop, Rage, Death Sentence, Delay, Disable Heal",
         "motion": "dis_prin3_skill106",
         "effect": "eff_dis_prin3_skill106",
         "effect_rate.ini": 100,
@@ -36696,7 +36711,7 @@
     {
         "iname": "SK_ONM_UPPER_3",
         "name": "Transcendence",
-        "expr": "Nullifies statuses cast on allies in area around self & move after use [MOVE: Diamond (9), JUMP: 2, Area: Cross (3), Height Range: 2]\n\nTarget: Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Stop, Rage, Death Sentence, Delay, Disable Heal [100%]",
+        "expr": "Nullifies statuses cast on allies in area around self & move after use [MOVE: Diamond (9), JUMP: 2, Area: Cross (3), Height Range: 2]\n\nTarget: [100%] Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Stop, Rage, Death Sentence, Delay, Disable Heal",
         "motion": "onm_skill102",
         "effect": "eff_onm_skill102",
         "cost": 28,
@@ -40394,7 +40409,7 @@
     {
         "iname": "SK_RH_ATO_03",
         "name": "ポラリス",
-        "expr": "自身を中心とした味方の状態異常を3ターン無効化[範囲:菱形2マス,高低差:2]\n\nTarget: Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Stop, Rage, Death Sentence, Disable Heal, Delay [100%]",
+        "expr": "自身を中心とした味方の状態異常を3ターン無効化[範囲:菱形2マス,高低差:2]\n\nTarget: [100%] Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Stop, Rage, Death Sentence, Disable Heal, Delay",
         "motion": "rh_ato_skill102",
         "effect": "eff_rh_ato_skill102",
         "cost": 26,
@@ -42135,7 +42150,7 @@
     {
         "iname": "SK_TINA_HEAL",
         "name": "Mist Cleared",
-        "expr": "Recovers HP of ally units within target area with chance of removing all statuses [Range: 3, Area: Cross (3), Height Range: Unlimited]\nHeals 125% Formula [Range: Diamond (3), Height: 99, Scope: Cross (1)]\nTarget: Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Delay Res, Disable Heal Res [30%]",
+        "expr": "Recovers HP of ally units within target area with chance of removing all statuses [Range: 3, Area: Cross (3), Height Range: Unlimited]\nHeals 125% Formula [Range: Diamond (3), Height: 99, Scope: Cross (1)]\nTarget: [30%] Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Delay Res, Disable Heal Res",
         "motion": "tina01_skill107",
         "effect": "eff_tina01_skill107",
         "weapon": "WE_SEDA_BOW",
@@ -43155,7 +43170,7 @@
     {
         "iname": "SK_SQ_PRI_UPPER_1",
         "name": "リニューライフ",
-        "expr": "自身が消費したジュエルを指定した味方へ受け渡す&状態異常を回復[射程:4,高低差:2]\n\nTarget: Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Disable Heal Res, Delay Res [100%]",
+        "expr": "自身が消費したジュエルを指定した味方へ受け渡す&状態異常を回復[射程:4,高低差:2]\n\nTarget: [100%] Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Disable Heal Res, Delay Res",
         "motion": "sq_pri_skill100",
         "effect": "eff_sq_pri_skill100",
         "cost": 20,
@@ -43176,7 +43191,7 @@
     {
         "iname": "SK_SQ_PRI_UPPER_2",
         "name": "予防の号令",
-        "expr": "自身を中心とした味方の状態異常を3ターン無効化[範囲:正方形5×5マス,高低差:2]\n\nTarget: Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Stop, Rage, Death Sentence, Disable Heal, Delay [100%]",
+        "expr": "自身を中心とした味方の状態異常を3ターン無効化[範囲:正方形5×5マス,高低差:2]\n\nTarget: [100%] Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Stop, Rage, Death Sentence, Disable Heal, Delay",
         "motion": "sq_pri_skill101",
         "effect": "eff_sq_pri_skill101",
         "cost": 24,
@@ -43525,7 +43540,7 @@
     {
         "iname": "SK_SQ_DAN_LOWER_4",
         "name": "リカバリワルツ",
-        "expr": "指定範囲内の味方の全ての状態異常を回復[射程:3,範囲:菱形3マス,高低差:3]\n\nTarget: Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Disable Heal Res, Delay Res [100%]",
+        "expr": "指定範囲内の味方の全ての状態異常を回復[射程:3,範囲:菱形3マス,高低差:3]\n\nTarget: [100%] Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Disable Heal Res, Delay Res",
         "motion": "sq_dan_skill107",
         "effect": "eff_sq_dan_skill107",
         "cost": 36,
@@ -43645,7 +43660,7 @@
     {
         "iname": "SK_SQ_SHEN_GUN_UPPER_3",
         "name": "ドラッグバレット",
-        "expr": "指定した対象のHPを回復&全ての状態異常を回復[射程:4,高低差:2]\nHeals 120% Formula [Range: Diamond (4), Height: 2None]\nTarget: Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Disable Heal Res, Delay Res [100%]",
+        "expr": "指定した対象のHPを回復&全ての状態異常を回復[射程:4,高低差:2]\nHeals 120% Formula [Range: Diamond (4), Height: 2None]\nTarget: [100%] Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Disable Heal Res, Delay Res",
         "motion": "sq_shen_gun_skill102",
         "effect": "eff_sq_gun_skill102",
         "cost": 32,
@@ -43999,7 +44014,7 @@
     {
         "iname": "SK_SQ_GUN_UPPER_3",
         "name": "ドラッグバレット",
-        "expr": "指定した対象のHPを回復&全ての状態異常を回復[射程:4,高低差:2]\nHeals 120% Formula [Range: Diamond (4), Height: 2None]\nTarget: Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Disable Heal Res, Delay Res [100%]",
+        "expr": "指定した対象のHPを回復&全ての状態異常を回復[射程:4,高低差:2]\nHeals 120% Formula [Range: Diamond (4), Height: 2None]\nTarget: [100%] Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Disable Heal Res, Delay Res",
         "motion": "sq_gun_skill102",
         "effect": "eff_sq_gun_skill102",
         "cost": 32,
@@ -48941,7 +48956,7 @@
     {
         "iname": "SK_AB_AF_ARMS_MAJ_02_WA",
         "name": "Vital Shot",
-        "expr": "Recovers HP of target & removes statuses [Range: 5, Height Range: Unlimited]\nHeals 130% Formula [Range: Diamond (5), Height: 99None]\nTarget: Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Disable Heal Res, Delay Res [100%]",
+        "expr": "Recovers HP of target & removes statuses [Range: 5, Height Range: Unlimited]\nHeals 130% Formula [Range: Diamond (5), Height: 99None]\nTarget: [100%] Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Disable Heal Res, Delay Res",
         "motion": "maj_skill180",
         "effect": "eff_maj_skill180",
         "lvcap": 1,
@@ -49338,7 +49353,7 @@
     {
         "iname": "SK_ACCS_CHOKER_WA",
         "name": "Recovery Hearts",
-        "expr": "Attributes: Removes all statuses inflicted on target ally unit [Range: 3, Height Range: 2]\n\nTarget: Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Disable Heal Res, Delay Res [100%]",
+        "expr": "Attributes: Removes all statuses inflicted on target ally unit [Range: 3, Height Range: 2]\n\nTarget: [100%] Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Disable Heal Res, Delay Res",
         "motion": "item0",
         "effect": "eff_item_buff01",
         "lvcap": 1,
@@ -50520,7 +50535,7 @@
     {
         "iname": "SK_AF_ARMS_S_AMAT_00_WA",
         "name": "Curse Destroyer",
-        "expr": "Fully recovers HP of self and nearby ally units & removes all statuses [Area: Diamond (5), Height Range: 2]\n\nTarget: Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Delay Res, Disable Heal Res [100%]",
+        "expr": "Fully recovers HP of self and nearby ally units & removes all statuses [Area: Diamond (5), Height Range: 2]\n\nTarget: [100%] Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Delay Res, Disable Heal Res",
         "motion": "s_amat_skill180",
         "effect": "eff_s_amat_skill180",
         "lvcap": 1,
@@ -52548,7 +52563,7 @@
     {
         "iname": "SK_RAT_ARM_TACKLE_ALL",
         "name": "Tackle + All Statuses",
-        "expr": "Normal Attack & All Statuses (Enemy Unit)\n100% None Blow Dmg [Range: 1, Height: 1]\nTarget: Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow [80%]",
+        "expr": "Normal Attack & All Statuses (Enemy Unit)\n100% None Blow Dmg [Range: 1, Height: 1]\nTarget: [80%] Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow",
         "motion": "rat_arm_atk0",
         "effect": "eff_cmn_atk_strike0",
         "weapon": "WE_LONG_SWORD",
@@ -54394,7 +54409,7 @@
     {
         "iname": "SK_RAT_HALL_08",
         "name": "Happy Halloween!",
-        "expr": "HP Vaccine effect on all enemy units\n\nTarget: Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Rage, Death Sentence, Stop, Delay, Disable Heal [100%]",
+        "expr": "HP Vaccine effect on all enemy units\n\nTarget: [100%] Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Rage, Death Sentence, Stop, Delay, Disable Heal",
         "motion": "rat_wiz_skill101",
         "effect": "eff_man_yuj_skill104",
         "cost": 20,
@@ -59459,7 +59474,7 @@
     {
         "iname": "SK_DIAB_WIZ_CHANGING_HAGAREN_EX3_01",
         "name": "緊急退避(対象を3ターン状態異常無効)",
-        "expr": "互いの位置を入れ替える[射程:99,高低差:99]:エネミーユニット対象\n\nSelf: +80 Evasion Rate & -20 Missile Evasion Rate\nTarget: Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Stop, Rage, Death Sentence, Delay, Disable Heal [100%]",
+        "expr": "互いの位置を入れ替える[射程:99,高低差:99]:エネミーユニット対象\n\nSelf: +80 Evasion Rate & -20 Missile Evasion Rate\nTarget: [100%] Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Stop, Rage, Death Sentence, Delay, Disable Heal",
         "motion": "drg_diab_wiz_skill100",
         "effect": "eff_drg_diab_wiz_skill100",
         "cost": 10,
@@ -59898,7 +59913,7 @@
     {
         "iname": "SK_MAN_YUJ_BANNOUYAKU",
         "name": "Panacea",
-        "expr": "Removes statuses inflicted on target\n\nTarget: Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Delay Res, Disable Heal Res [100%]",
+        "expr": "Removes statuses inflicted on target\n\nTarget: [100%] Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Delay Res, Disable Heal Res",
         "motion": "man_yuj_skill105",
         "effect": "eff_man_yuj_skill105",
         "cost": 10,
@@ -61730,7 +61745,7 @@
     {
         "iname": "SK_MAN_YUJ_REACTION_TOWER02",
         "name": "Mandragora Medicine",
-        "expr": "Counter (Panacea, All)\n\nTarget: Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Delay Res, Disable Heal Res [100%]",
+        "expr": "Counter (Panacea, All)\n\nTarget: [100%] Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Delay Res, Disable Heal Res",
         "motion": "man_yuj_skill105",
         "effect": "eff_man_yuj_skill105",
         "effect_height": 99,
@@ -61746,7 +61761,7 @@
     {
         "iname": "SK_MAN_YUJ_REACTION_TOWER03",
         "name": "Random Special Status",
-        "expr": "(No Poison) Counter: Inflicts random status on all\n\nTarget: Berserk, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow [100%]",
+        "expr": "(No Poison) Counter: Inflicts random status on all\n\nTarget: [100%] Berserk, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow",
         "motion": "man_wiz_skill105",
         "effect": "eff_cmn_atk_strike0",
         "weapon": "WE_FIST",
@@ -63479,7 +63494,7 @@
     {
         "iname": "SK_MAN_AMAZING_GRACE",
         "name": "Mandragora Curing Rest",
-        "expr": "Recovers HP of ally units & removes statuses [Range: 3, Height Range: 3]\nHeals 110% Formula [Range: Diamond (3), Height: 3None]\nTarget: Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Delay Res, Disable Heal Res [100%]",
+        "expr": "Recovers HP of ally units & removes statuses [Range: 3, Height Range: 3]\nHeals 110% Formula [Range: Diamond (3), Height: 3None]\nTarget: [100%] Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Delay Res, Disable Heal Res",
         "motion": "man_yuj_skill101",
         "effect": "eff_man_yuj_skill101",
         "cost": 30,
@@ -63503,7 +63518,7 @@
     {
         "iname": "SK_MAN_AMAZING_GRACE2",
         "name": "Mandragora Curing Rest II",
-        "expr": "Recovers HP of ally units & removes statuses [Range: 4, Height Range: 4]\nHeals 180% Formula [Range: Diamond (4), Height: 4None]\nTarget: Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Delay Res, Disable Heal Res [100%]",
+        "expr": "Recovers HP of ally units & removes statuses [Range: 4, Height Range: 4]\nHeals 180% Formula [Range: Diamond (4), Height: 4None]\nTarget: [100%] Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Delay Res, Disable Heal Res",
         "motion": "man_yuj_skill101",
         "effect": "eff_man_yuj_skill101",
         "cost": 30,
@@ -63527,7 +63542,7 @@
     {
         "iname": "SK_MAN_YUJ_BANNOUYAKU_SQ",
         "name": "マンドラ万能薬",
-        "expr": "範囲内の対象の状態効果を解除\n\nTarget: Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Delay Res, Disable Heal Res [100%]",
+        "expr": "範囲内の対象の状態効果を解除\n\nTarget: [100%] Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Delay Res, Disable Heal Res",
         "motion": "man_yuj_skill105",
         "effect": "eff_man_yuj_skill105",
         "cost": 10,
@@ -66876,7 +66891,7 @@
     {
         "iname": "SK_WIZ_MOBIUS_CON_REC_ALL",
         "name": "Recover from Any Statuses",
-        "expr": "Removes all statuses inflicted on ally units [Range: 3, Area: Diamond (7), Height Range: 3]\n\nTarget: Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Disable Heal Res, Delay Res [100%]",
+        "expr": "Removes all statuses inflicted on ally units [Range: 3, Area: Diamond (7), Height Range: 3]\n\nTarget: [100%] Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Disable Heal Res, Delay Res",
         "motion": "enc_skill101",
         "effect": "eff_sq_dan_skill107",
         "cost": 10,
@@ -75664,7 +75679,7 @@
     {
         "iname": "SK_DIAB_WIZ_YOBOU_YAKU",
         "name": "Netherworld's Phantom Medicine",
-        "expr": "Nullifies all statuses cast on units within target area for three turns & move instantly & raises Evasion Rate & lowers PDEF [Range: Unlimited, Area: Cross (3), Height Range: Unlimited]\n\nTarget: +50 Evasion Rate & -30% PDEF\nTarget: Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Rage, Death Sentence, Stop, Delay, Disable Heal [100%]",
+        "expr": "Nullifies all statuses cast on units within target area for three turns & move instantly & raises Evasion Rate & lowers PDEF [Range: Unlimited, Area: Cross (3), Height Range: Unlimited]\n\nTarget: +50 Evasion Rate & -30% PDEF\nTarget: [100%] Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Rage, Death Sentence, Stop, Delay, Disable Heal",
         "motion": "drg_diab_wiz_skill100",
         "effect": "eff_drg_diab_wiz_skill100",
         "cost": 8,
@@ -83570,7 +83585,7 @@
     {
         "iname": "SK_DMN_WIZ_COATING_MOBIUS_13F_01",
         "name": "All-Status Protection [Permanent]",
-        "expr": "Prevention\n\nTarget: Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Stop, Rage, Death Sentence, Delay, Disable Heal [100%]",
+        "expr": "Prevention\n\nTarget: [100%] Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Stop, Rage, Death Sentence, Delay, Disable Heal",
         "motion": "dmn_wiz_skill112",
         "effect": "eff_dmn_wiz_skill112",
         "cost": 12,
@@ -83675,7 +83690,7 @@
     {
         "iname": "SK_PRI_MOBIUS_17F_01",
         "name": "Global Guard [Permanent]",
-        "expr": "Global Guard [Permanent] (Dies after use)\n\nTarget: Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Stop, Rage, Death Sentence, Delay, Disable Heal [100%]",
+        "expr": "Global Guard [Permanent] (Dies after use)\n\nTarget: [100%] Poison, Paralyze, Stun, Sleep, Charm, Blind, Silence, Bind, Daze, Slow, Petrify, Infect, Berserk, Stop, Rage, Death Sentence, Delay, Disable Heal",
         "motion": "gen_skill102",
         "effect": "eff_doc_skill112",
         "cost": 16,
@@ -88196,7 +88211,7 @@
     {
         "iname": "SK_US_PANACEA",
         "name": "Panacea",
-        "expr": "Medicine that removes all statuses except Death Sentence.\n\nTarget: Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Delay Res, Disable Heal Res [100%]",
+        "expr": "Medicine that removes all statuses except Death Sentence.\n\nTarget: [100%] Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Delay Res, Disable Heal Res",
         "motion": "item0",
         "effect": "eff_item_cure00",
         "range_max": 1,
@@ -89336,7 +89351,7 @@
     {
         "iname": "SK_US_FATE_SANDWICH",
         "name": "Rin's Sandwich",
-        "expr": "Removes all statuses except Death Sentence and slightly recovers HP.\n\nTarget: Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Delay Res, Disable Heal Res [100%]",
+        "expr": "Removes all statuses except Death Sentence and slightly recovers HP.\n\nTarget: [100%] Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Delay Res, Disable Heal Res",
         "motion": "item0",
         "effect": "eff_item_cure00",
         "range_max": 1,
@@ -116173,7 +116188,7 @@
     {
         "iname": "SK_US_APRIL_SALT",
         "name": "Salt Salve",
-        "expr": "Salve that removes all statuses.\n\nTarget: Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Disable Heal Res [100%]",
+        "expr": "Salve that removes all statuses.\n\nTarget: [100%] Poison Res, Paralyze Res, Stun Res, Sleep Res, Charm Res, Blind Res, Silence Res, Bind Res, Daze Res, Slow Res, Petrify Res, Infect Res, Berserk Res, Stop Res, Rage Res, Death Sentence Res, Disable Heal Res",
         "motion": "item0",
         "effect": "eff_item_cure00",
         "range_max": 1,

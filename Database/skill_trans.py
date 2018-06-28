@@ -4,7 +4,15 @@ path=cPath()
 masterc = convertMaster(master)
 loc=Translation()
 skills=[]
+new=[]
 for skl in master['Skill']:
-    skills.append(Skill_GenericDescription(skl,masterc,loc))
+    skill=Skill_GenericDescription(skl,masterc,loc)
+    skills.append(skill)
 
-saveAsJSON(path+'\\Skills.json',skills)
+    if 'expr' in skill:
+        if '\n' in skill['expr']:
+            new.append(skill['expr'].split('\n'))
+
+    
+
+saveAsJSON(path+'\\Skills_gen.json',new)
