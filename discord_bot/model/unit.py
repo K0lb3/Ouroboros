@@ -72,10 +72,10 @@ class Unit(Model):
                 'inline': False,
             })
 
-        embed = self.to_embed(title_key='general info, overall rank:',fields=fields)
+        embed = self.to_embed(title_key='general info',fields=fields)
 
         if 'total' in self.tierlist:
-            embed.title += " [{tier}]".format(tier=self.tierlist.get('total'))
+            embed.title += ", overall rank: [{tier}]".format(tier=self.tierlist.get('total'))
 
         return embed
 
