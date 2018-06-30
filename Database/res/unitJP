@@ -2984,7 +2984,7 @@ UN_V2_TERESA_ZODIAC	闇夢楼の月
 UN_V2_TERESA_BLOOD	Pa型
 UN_V2_TERESA_FAVORITE	平穏・ポピーの花
 UN_V2_TERESA_HOBBY	静かに花を愛でること
-UN_V2_TERESA_ILLUST	だーくろ	
+UN_V2_TERESA_ILLUST	だーくろ		
 UN_V2_TERESA_CV	椎名へきる
 
 UN_V2_POK_BLK_LAEVATEINN_PROFILE	異世界のラグナ大陸から導かれた“怠惰”の大罪を背負うブラックキラーズ。性格は真面目で、どこか達観している。常に気だるげにしているが戦闘時は別。「めんどうだからとりあえず滅ぼす」という考えのもと、積極性を見せる。
@@ -3045,7 +3045,7 @@ UN_V2_FIONA_BLOOD	Kn型
 UN_V2_FIONA_FAVORITE	花・アルちゃん
 UN_V2_FIONA_HOBBY	刺繍・手芸
 UN_V2_FIONA_ILLUST	RINZO
-UN_V2_FIONA_CV	赤司よしか
+UN_V2_FIONA_CV		赤司よしか
 
 UN_V2_L_UROB_PROFILE	人間をより間近で観察したいというウロボロスの欲求から誕生した分離体。ウロボロスの力から切り出された一幻影兵レベルの存在の為か、心身ともに幼さが残る。ウロボロス本体に憧れを持ち、その振る舞いを真似したがる一面も。
 UN_V2_L_UROB_COUNTRY	？
@@ -3287,3 +3287,15 @@ UN_V2_MORE_FAVORITE	恋
 UN_V2_MORE_HOBBY	キューピッド活動
 UN_V2_MORE_ILLUST	渡り棒
 UN_V2_MORE_CV	木野日菜
+
+UN_V2_LEAFA_PROFILE	グリードダイクの思想に染まった若き女将軍。経験は浅いが情報分析力と高い魔力で功績を積み上げてきた、真っ直ぐな心根と律儀な性格の持ち主。国の威信を背負う将軍として、幼く見られて侮られる童顔を非常に気にしている。
+UN_V2_LEAFA_COUNTRY	グリードダイク
+UN_V2_LEAFA_HEIGHT	162cm
+UN_V2_LEAFA_WEIGHT	45kg
+UN_V2_LEAFA_BIRTH	2月26日
+UN_V2_LEAFA_ZODIAC	風女神の月
+UN_V2_LEAFA_BLOOD	Kn型
+UN_V2_LEAFA_FAVORITE	大人として扱われること
+UN_V2_LEAFA_HOBBY	勉強、訓練
+UN_V2_LEAFA_ILLUST	Sam_Ashton
+UN_V2_LEAFA_CV	村川梨衣

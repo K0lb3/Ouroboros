@@ -1,10 +1,6 @@
 import os
 import json
-
-def saveAsJSON(name, var):
-    os.makedirs(name[:name.rindex("\\")], exist_ok=True)
-    with open(name, "wb") as f:
-        f.write(json.dumps(var, indent=4, ensure_ascii=False).encode('utf8'))
+import re
 
 def EnumToJson():
     # path to files
@@ -62,26 +58,14 @@ def EnumToJson():
         except PermissionError:
             print('PermissionError:')
     
-    saveAsJSON(path+'Enums.json',enum)
+    name=(path+'Enums.json')
+    dump=json.dumps(enum, indent=4, ensure_ascii=False)
+    #fix stringified indexes
+    
+    #dump = re.sub( r'"(\d+)"(:)',r'\1\2',dump)
 
-    with open(path+'sys.json', "rt", encoding='utf8') as f:
-        sys = json.loads(f.read())
-
-    lenum={}
-    for param,items in enum.items():
-        if type(items)==list:
-            lenum[param]=[
-                sys[item] if item in sys else item
-                for item in items
-                ]
-        elif type(items)==dict:
-            lenum[param]={
-                key : sys[item] if item in sys else item
-                for key,item in items.items()
-                }
-        else:
-            print(param, items)
-
-    saveAsJSON(path+'locEnums.json',lenum)
+    os.makedirs(name[:name.rindex("\\")], exist_ok=True)
+    with open(name, "wb") as f:
+        f.write(dump.encode('utf8'))
 
 EnumToJson()

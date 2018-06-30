@@ -3509,6 +3509,21 @@
         "illust": "渡り棒",
         "cv": "木野日菜"
     },
+    "UN_V2_LEAFA": {
+        "profile": "グリードダイクの思想に染まった若き女将軍。経験は浅いが情報分析力と高い魔力で功績を積み上げてきた、真っ直ぐな心根と律儀な性格の持ち主。国の威信を背負う将軍として、幼く見られて侮られる童顔を非常に気にしている。",
+        "country": "グリードダイク",
+        "height": "162cm",
+        "weight": "45kg",
+        "birth": "2月26日",
+        "zodiac": "風女神の月",
+        "blood": "Kn型",
+        "favorite": "大人として扱われること",
+        "hobby": "勉強、訓練",
+        "cv": "村川梨衣"
+    },
+    "UN_V2_LEAFA_ILLUST\tSam": {
+        "": "Sam_Ashton"
+    },
     "UN_V2_GL_SIEG": {
         "profile": "Siegfried was an orphan who showed great promise and was recruited into the Holy Guard. He excelled in the training but never got along with the rigid lifestyles and doctrines of the order. A visiting prodigy from Lustburg recognized his ability and offered him a chance to train under her. After he completed his training, he would lend his skills to the Holy Guard as a free agent. ",
         "country": "Envylia",

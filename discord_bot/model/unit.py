@@ -140,8 +140,8 @@ class Unit(Model):
         ]
         
         jm_values=[
-            '{stat}: {value}%'.format(stat=stat, value=int(value*100))
-            for stat,value in getattr(job,"job master buff").items()
+            '{stat}: {value}{mod}'.format(stat=stat['type'], value=int(stat['value']), mod='%'if stat['calc']=='Scale' else '')
+            for stat in getattr(job,"job master buff")
         ]
 
         fields = [

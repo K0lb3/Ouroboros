@@ -270,6 +270,32 @@ def get_files():
     name='sys'
     print(name)
     file = download(LolGL+name).replace("MagicAttack	Modify MATK","MagicAttack	Modify Magic ATK").replace('Modify ','')
+    SYS_FIX={
+        "Assist_ESA_Fire" : "Fire Skill Dmg against Wind",
+        "Assist_ESA_Water" : "Water Skill Dmg against Fire",
+        "Assist_ESA_Wind" : "Wind Skill Dmg against Thunder",
+        "Assist_ESA_Thunder" : "Thunder Skill Dmg against Water",
+        "Assist_ESA_Shine" : "Light Skill Dmg against Dark",
+        "Assist_ESA_Dark" : "Dark Skill Dmg against Light",
+        "Resist_ESA_Fire" : "Fire Skill Dmg Red against Wind",
+        "Resist_ESA_Water" : "Water Skill Dmg Red against Fire",
+        "Resist_ESA_Wind" : "Wind Skill Dmg Red against Thunder",
+        "Resist_ESA_Thunder" : "Thunder Skill Dmg Red against Water",
+        "Resist_ESA_Shine" : "Light Skill Dmg Red against Dark",
+        "Resist_ESA_Dark" : "Dark Skill Dmg Red against Light",
+        "UnitDefenseFire" : "Fire Skill Dmg Red",
+        "UnitDefenseWater" : "Water Skill Dmg Red",
+        "UnitDefenseWind" : "Wind Skill Dmg Red",
+        "UnitDefenseThunder" : "Thunder Skill Dmg Red",
+        "UnitDefenseShine" : "Light Skill Dmg Red",
+        "UnitDefenseDark" : "Dark Skill Dmg Red",
+        "Assist_MaxDamageHp" : "Max HP Dmg",
+        "Assist_MaxDamageMp" : "Max Jewel Dmg",
+        "Resist_MaxDamageHp" : "Max HP Dmg Res",
+        "Resist_MaxDamageMp" : "Max Jewel Dmg Res"
+    }
+    for key, val in SYS_FIX.items():
+        file+= '{key}\t{val}\n'.format(key=key,val=val)
     with open(path+name, "wt", encoding='utf-8') as f:
         f.write(file)
     saveAsJSON(name+'.json', convertSys(file))

@@ -3985,7 +3985,7 @@
         "job 1": "Shrine Maiden",
         "job 2": "Ninja",
         "job 3": "Holy Brawler",
-        "jc 1": "",
+        "jc 1": "Shrine Maiden+ : Moonlit Violetᴶ\n[not really a Shrine Maiden]",
         "jc 2": "",
         "jc 3": "Holy Brawler [Miroku]ᴶ\n[12% regen &  5% jewel regen buff]",
         "inputs": [
@@ -4023,6 +4023,11 @@
                 "name": "Swimsuit Skin",
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/yomi_swim.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/yomi_swim-closeup.png"
+            },
+            {
+                "name": "Kaigan",
+                "full": "http://cdn.alchemistcodedb.com/images/units/artworks/yomi_babel.png",
+                "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/yomi_babel-closeup.png"
             }
         ],
         "tierlist": {
@@ -7852,7 +7857,7 @@
         "job 1": "Valkyrie",
         "job 2": "Dragon Knight",
         "job 3": "Holy Cavalier",
-        "jc 1": "",
+        "jc 1": "Valkyrie: Stingᴶ\n[def focused]",
         "jc 2": "",
         "jc 3": "Holy Cavalier [Porta]ᴶ\n[pierce resistance]",
         "inputs": [
@@ -9740,7 +9745,7 @@
             "JP: [32 AP] [Hard] Ch 3: Ep 3 [1-10]"
         ],
         "leader skill": "Fire: +30 Missile ATK, +20% HP",
-        "master ability": "+2 RANGE, +40 Wind Special ATK, +10 AGI",
+        "master ability": "+2 RANGE, +40 Wind Skill Dmg against Thunder, +10 AGI",
         "link": "http://www.alchemistcodedb.com/unit/vivi",
         "job 1": "Magia Gunslinger",
         "job 2": "Gunner",
@@ -11775,7 +11780,7 @@
         "job 2": "Valkyrie",
         "job 3": "Ninja",
         "jc 1": "",
-        "jc 2": "",
+        "jc 2": "Valkyrie: Dayfallᴶ\n[jump focused]",
         "jc 3": "",
         "inputs": [
             "Ahato",
@@ -14294,7 +14299,7 @@
         "job 1": "Valkyrie",
         "job 2": "Martial Artist",
         "job 3": "Dark Cavalier",
-        "jc 1": "",
+        "jc 1": "Valkyrie: Dayfallᴶ\n[jump focused]",
         "jc 2": "",
         "jc 3": "Dark Cavalier [Espion]ᴶ\n[Faster Dark Cav]",
         "inputs": [
@@ -16048,14 +16053,14 @@
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/carl.png",
         "farm": [],
-        "leader skill": "Fire: +50% HP, +30% PATK, +20 Wind Special ATK",
+        "leader skill": "Fire: +50% HP, +30% PATK, +20 Wind Skill Dmg against Thunder",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/carla",
         "job 1": "Desert Infernoᴶ",
         "job 2": "Valkyrie",
         "job 3": "Necromancer",
         "jc 1": "",
-        "jc 2": "",
+        "jc 2": "Valkyrie: Dayfallᴶ\n[jump focused]",
         "jc 3": "",
         "inputs": [
             "Carla",
@@ -16103,7 +16108,7 @@
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/ankh.png",
         "farm": [],
-        "leader skill": "Water: +30% HP, +20% PATK, +20 Fire Special ATK",
+        "leader skill": "Water: +30% HP, +20% PATK, +20 Assist_ESA_Fire",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/ankh",
         "job 1": "Aqua Gun-Lancerᴶ",
@@ -16157,7 +16162,7 @@
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/nefe.png",
         "farm": [],
-        "leader skill": "Wind: +50% HP, +30% PATK, +20 Thunder Special ATK",
+        "leader skill": "Wind: +50% HP, +30% PATK, +20 Thunder Skill Dmg against Water",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/neferty",
         "job 1": "Sage",
@@ -16320,7 +16325,7 @@
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/orion.png",
         "farm": [],
-        "leader skill": "Thunder: +50% HP, +30% PATK, +20 Water Special ATK",
+        "leader skill": "Thunder: +50% HP, +30% PATK, +20 Water Skill Dmg against Fire",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/orion",
         "job 1": "Emperorᴶ",
@@ -16542,7 +16547,7 @@
         "rarity": "★★★★★",
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/more.png",
         "farm": [],
-        "leader skill": "Light: +50% HP, +30% PATK, +20 Dark Special ATK",
+        "leader skill": "Light: +50% HP, +30% PATK, +20 Dark Skill Dmg against Light",
         "master ability": "",
         "link": "http://www.alchemistcodedb.com/jp/unit/more",
         "job 1": "Desert Inferno: Dawnᴶ",
@@ -16582,6 +16587,59 @@
                 "name": "default",
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/more.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/more-closeup.png"
+            }
+        ]
+    },
+    "UN_V2_LEAFA": {
+        "iname": "UN_V2_LEAFA",
+        "name": "Leafaᴶ",
+        "inofficial": "Leafa",
+        "gender": "♀",
+        "element": "Wind",
+        "country": "グリードダイク",
+        "collab": "",
+        "collab short": "",
+        "rarity": "★★★★★",
+        "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/leafa.png",
+        "farm": [],
+        "leader skill": "Wind: +40% HP, +40% PATK, +20 Missile ATK",
+        "master ability": "",
+        "link": "http://www.alchemistcodedb.com/jp/unit/leafa",
+        "job 1": "Wind Elementalᴶ",
+        "job 2": "Bard",
+        "job 3": "Professor",
+        "jc 1": "",
+        "jc 2": "",
+        "jc 3": "Professor [Aid]ᴶ\n[cures will heal as well]",
+        "inputs": [
+            "Leafa"
+        ],
+        "stats": {
+            "HP": 462,
+            "Max Jewels": 185,
+            "PATK": 142,
+            "PDEF": 103,
+            "MATK": 166,
+            "MDEF": 100,
+            "DEX": 144,
+            "AGI": 85,
+            "CRIT": 135,
+            "LUCK": 84
+        },
+        "profile": "グリードダイクの思想に染まった若き女将軍。経験は浅いが情報分析力と高い魔力で功績を積み上げてきた、真っ直ぐな心根と律儀な性格の持ち主。国の威信を背負う将軍として、幼く見られて侮られる童顔を非常に気にしている。",
+        "height": "162cm",
+        "weight": "45kg",
+        "birth": "2月26日",
+        "zodiac": "風女神の月",
+        "blood": "Kn型",
+        "favorite": "大人として扱われること",
+        "hobby": "勉強、訓練",
+        "cv": "村川梨衣",
+        "artworks": [
+            {
+                "name": "default",
+                "full": "http://cdn.alchemistcodedb.com/images/units/artworks/leafa.png",
+                "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/leafa-closeup.png"
             }
         ]
     },

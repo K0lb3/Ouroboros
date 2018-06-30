@@ -29,7 +29,7 @@ def job_stats(job, main):
                 unc[b['type']]+=b['value']
 
     for typ,value in unc.items():
-        stats[SYS[typ]] = value
+        stats[typ] = value
 
     return(stats)
 
@@ -131,7 +131,7 @@ def job_create(job, glc, jpc, loc):
         'long description':  loc[job]['long des'] if job in loc and 'long des' in loc[job] else "",
         'icon': 'http://cdn.alchemistcodedb.com/images/jobs/icons/'+j['mdl']+'.png',
         'token': 'http://cdn.alchemistcodedb.com/images/items/icons/'+mainc[j['ranks'][0]['eqid1']]['icon']+'.png',
-        'origin': loc[j['origin']]['name'] if 'origin' in j else "",
+        'origin': loc[j['origin']]['name'] if 'origin' in j and j['origin'] in loc else "",
         'units': [],
         'jobe': [],
         'main': ability(j['fixabl']),

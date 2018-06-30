@@ -191,7 +191,7 @@ def buff(buff, lv, mlv, array=False):
 
     if array:
         return([{
-            'type': mod['type'],
+            'type': SYS[mod['type']],
             'value': TACScale(mod['value_ini'],mod['value_max'],lv,mlv),
             'calc': mod['calc']
             }
@@ -671,3 +671,8 @@ def Skill_GenericDescription(skl,masterc,loc):
 
 global ENUM,SYS
 [ENUM,SYS]=loadFiles(['ENums.json','sys.json'])
+
+#hotfixes
+for param in ENUM:
+    if type(ENUM[param])==dict:
+        ENUM[param]={int(k):v for k,v in ENUM[param].items()}
