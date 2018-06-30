@@ -16,9 +16,9 @@
         "ability": [],
         "stats": {
             "2": "+11 PATK",
-            "3": "+14 PATK & +13 Poison",
-            "4": "+17 PATK & +14 Poison",
-            "5": "+20 PATK & +15 Poison"
+            "3": "+14 PATK, +13 Poison",
+            "4": "+17 PATK, +14 Poison",
+            "5": "+20 PATK, +15 Poison"
         },
         "atk_buff": {}
     },
@@ -38,9 +38,9 @@
         ],
         "ability": [],
         "stats": {
-            "3": "+17 PATK & +13 Paralyze & +13 HP",
-            "4": "+21 PATK & +14 Paralyze & +16 HP",
-            "5": "+25 PATK & +15 Paralyze & +20 HP"
+            "3": "+17 PATK, +13 Paralyze, +13 HP",
+            "4": "+21 PATK, +14 Paralyze, +16 HP",
+            "5": "+25 PATK, +15 Paralyze, +20 HP"
         },
         "atk_buff": {}
     },
@@ -61,9 +61,9 @@
         "ability": [],
         "stats": {
             "2": "+11 PATK",
-            "3": "+14 PATK & +13 Silence",
-            "4": "+17 PATK & +14 Silence",
-            "5": "+20 PATK & +15 Silence"
+            "3": "+14 PATK, +13 Silence",
+            "4": "+17 PATK, +14 Silence",
+            "5": "+20 PATK, +15 Silence"
         },
         "atk_buff": {}
     },
@@ -83,8 +83,8 @@
         ],
         "ability": [],
         "stats": {
-            "4": "+25 PATK & +14 Charm & +21 HP & +8 CRIT",
-            "5": "+30 PATK & +15 Charm & +25 HP & +10 CRIT"
+            "4": "+25 PATK, +14 Charm, +21 HP, +8 CRIT",
+            "5": "+30 PATK, +15 Charm, +25 HP, +10 CRIT"
         },
         "atk_buff": {}
     },
@@ -105,9 +105,9 @@
         "ability": [],
         "stats": {
             "2": "+11 MATK",
-            "3": "+14 MATK & +13 Poison",
-            "4": "+17 MATK & +14 Poison",
-            "5": "+20 MATK & +15 Poison"
+            "3": "+14 MATK, +13 Poison",
+            "4": "+17 MATK, +14 Poison",
+            "5": "+20 MATK, +15 Poison"
         },
         "atk_buff": {}
     },
@@ -127,9 +127,9 @@
         ],
         "ability": [],
         "stats": {
-            "3": "+17 MATK & +13 Paralyze & +13 Max Jewels",
-            "4": "+21 MATK & +14 Paralyze & +16 Max Jewels",
-            "5": "+25 MATK & +15 Paralyze & +20 Max Jewels"
+            "3": "+17 MATK, +13 Paralyze, +13 Max Jewels",
+            "4": "+21 MATK, +14 Paralyze, +16 Max Jewels",
+            "5": "+25 MATK, +15 Paralyze, +20 Max Jewels"
         },
         "atk_buff": {}
     },
@@ -150,9 +150,9 @@
         "ability": [],
         "stats": {
             "2": "+11 MATK",
-            "3": "+14 MATK & +13 Silence",
-            "4": "+17 MATK & +14 Silence",
-            "5": "+20 MATK & +15 Silence"
+            "3": "+14 MATK, +13 Silence",
+            "4": "+17 MATK, +14 Silence",
+            "5": "+20 MATK, +15 Silence"
         },
         "atk_buff": {}
     },
@@ -172,8 +172,8 @@
         ],
         "ability": [],
         "stats": {
-            "4": "+25 MATK & +14 Charm & +21 Max Jewels & +8 MDEF",
-            "5": "+30 MATK & +15 Charm & +25 Max Jewels & +10 MDEF"
+            "4": "+25 MATK, +14 Charm, +21 Max Jewels, +8 MDEF",
+            "5": "+30 MATK, +15 Charm, +25 Max Jewels, +10 MDEF"
         },
         "atk_buff": {}
     },
@@ -194,9 +194,9 @@
         "ability": [],
         "stats": {
             "2": "+13 MDEF",
-            "3": "+17 MDEF & +21 Silence Res",
-            "4": "+21 MDEF & +25 Silence Res",
-            "5": "+25 MDEF & +30 Silence Res"
+            "3": "+17 MDEF, +21 Silence Res",
+            "4": "+21 MDEF, +25 Silence Res",
+            "5": "+25 MDEF, +30 Silence Res"
         },
         "atk_buff": {}
     },
@@ -216,9 +216,9 @@
         ],
         "ability": [],
         "stats": {
-            "3": "+21 MDEF & +29 Paralyze Res & +10 PDEF",
-            "4": "+25 MDEF & +34 Paralyze Res & +12 PDEF",
-            "5": "+30 MDEF & +40 Paralyze Res & +15 PDEF"
+            "3": "+21 MDEF, +29 Paralyze Res, +10 PDEF",
+            "4": "+25 MDEF, +34 Paralyze Res, +12 PDEF",
+            "5": "+30 MDEF, +40 Paralyze Res, +15 PDEF"
         },
         "atk_buff": {}
     },
@@ -246,8 +246,8 @@
             }
         ],
         "stats": {
-            "4": "+15 HP & +30 MDEF & +21 LUCK",
-            "5": "+20 HP & +50 MDEF & +30 LUCK"
+            "4": "+15 HP, +30 MDEF, +21 LUCK",
+            "5": "+20 HP, +50 MDEF, +30 LUCK"
         },
         "atk_buff": {}
     },
@@ -267,8 +267,8 @@
         ],
         "ability": [],
         "stats": {
-            "4": "+26 PDEF & +34 Charm Res & +21 HP",
-            "5": "+30 PDEF & +40 Charm Res & +25 HP"
+            "4": "+26 PDEF, +34 Charm Res, +21 HP",
+            "5": "+30 PDEF, +40 Charm Res, +25 HP"
         },
         "atk_buff": {}
     },
@@ -289,9 +289,9 @@
         "ability": [],
         "stats": {
             "2": "+11 PDEF",
-            "3": "+14 PDEF & +21 Bind Res",
-            "4": "+17 PDEF & +25 Bind Res",
-            "5": "+20 PDEF & +30 Bind Res"
+            "3": "+14 PDEF, +21 Bind Res",
+            "4": "+17 PDEF, +25 Bind Res",
+            "5": "+20 PDEF, +30 Bind Res"
         },
         "atk_buff": {}
     },
@@ -311,9 +311,9 @@
         ],
         "ability": [],
         "stats": {
-            "3": "+17 PDEF & +29 Daze Res & +6 PATK",
-            "4": "+21 PDEF & +34 Daze Res & +8 PATK",
-            "5": "+25 PDEF & +40 Daze Res & +10 PATK"
+            "3": "+17 PDEF, +29 Daze Res, +6 PATK",
+            "4": "+21 PDEF, +34 Daze Res, +8 PATK",
+            "5": "+25 PDEF, +40 Daze Res, +10 PATK"
         },
         "atk_buff": {}
     },
@@ -334,9 +334,9 @@
         "ability": [],
         "stats": {
             "2": "+11 PDEF",
-            "3": "+14 PDEF & +21 Poison Res",
-            "4": "+17 PDEF & +25 Poison Res",
-            "5": "+20 PDEF & +30 Poison Res"
+            "3": "+14 PDEF, +21 Poison Res",
+            "4": "+17 PDEF, +25 Poison Res",
+            "5": "+20 PDEF, +30 Poison Res"
         },
         "atk_buff": {}
     },
@@ -357,9 +357,9 @@
         "ability": [],
         "stats": {
             "2": "+19 HP",
-            "3": "+21 HP & +11 All Status Res",
-            "4": "+23 HP & +13 All Status Res",
-            "5": "+25 HP & +15 All Status Res"
+            "3": "+21 HP, +11 All Status Res",
+            "4": "+23 HP, +13 All Status Res",
+            "5": "+25 HP, +15 All Status Res"
         },
         "atk_buff": {}
     },
@@ -379,8 +379,8 @@
         ],
         "ability": [],
         "stats": {
-            "4": "+21 LUCK & +12 Jewels Obtained & +9 Elemental Res",
-            "5": "+25 LUCK & +15 Jewels Obtained & +10 Elemental Res"
+            "4": "+21 LUCK, +12 Jewels Obtained, +9 Fire Res, +9 Water Res, +9 Wind Res, +9 Thunder Res, +9 Light Res, +9 Dark Res, +164 HP",
+            "5": "+25 LUCK, +15 Jewels Obtained, +10 Fire Res, +10 Water Res, +10 Wind Res, +10 Thunder Res, +10 Light Res, +10 Dark Res, +180 HP"
         },
         "atk_buff": {}
     },
@@ -400,9 +400,9 @@
         ],
         "ability": [],
         "stats": {
-            "3": "+4 AGI & +6 DEX & +8 Evasion Rate",
-            "4": "+5 AGI & +6 DEX & +9 Evasion Rate",
-            "5": "+6 AGI & +7 DEX & +10 Evasion Rate"
+            "3": "+4 AGI, +6 DEX, +8 Evasion Rate",
+            "4": "+5 AGI, +6 DEX, +9 Evasion Rate",
+            "5": "+6 AGI, +7 DEX, +10 Evasion Rate"
         },
         "atk_buff": {}
     },
@@ -423,9 +423,9 @@
         "ability": [],
         "stats": {
             "2": "+11 MATK",
-            "3": "+14 MATK & +8 CRIT",
-            "4": "+17 MATK & +9 CRIT",
-            "5": "+20 MATK & +10 CRIT"
+            "3": "+14 MATK, +8 CRIT",
+            "4": "+17 MATK, +9 CRIT",
+            "5": "+20 MATK, +10 CRIT"
         },
         "atk_buff": {}
     },
@@ -454,8 +454,8 @@
             }
         ],
         "stats": {
-            "4": "+30 PATK & +17 DEX & +8 LUCK & +14 Daze",
-            "5": "+35 PATK & +20 DEX & +10 LUCK & +15 Daze"
+            "4": "+30 PATK, +17 DEX, +8 LUCK, +14 Daze",
+            "5": "+35 PATK, +20 DEX, +10 LUCK, +15 Daze"
         },
         "atk_buff": {}
     },
@@ -484,10 +484,10 @@
             }
         ],
         "stats": {
-            "2": "+13 PATK & +5 CRIT",
-            "3": "+17 PATK & +7 CRIT & +13 Bind",
-            "4": "+21 PATK & +8 CRIT & +14 Bind",
-            "5": "+25 PATK & +10 CRIT & +15 Bind"
+            "2": "+13 PATK, +5 CRIT",
+            "3": "+17 PATK, +7 CRIT, +13 Bind",
+            "4": "+21 PATK, +8 CRIT, +14 Bind",
+            "5": "+25 PATK, +10 CRIT, +15 Bind"
         },
         "atk_buff": {}
     },
@@ -516,8 +516,8 @@
             }
         ],
         "stats": {
-            "4": "+34 PATK & +21 HP & +5 Jewels Obtained & +14 Sleep",
-            "5": "+40 PATK & +25 HP & +7 Jewels Obtained & +15 Sleep"
+            "4": "+34 PATK, +21 HP, +5 Jewels Obtained, +14 Sleep",
+            "5": "+40 PATK, +25 HP, +7 Jewels Obtained, +15 Sleep"
         },
         "atk_buff": {}
     },
@@ -546,10 +546,10 @@
             }
         ],
         "stats": {
-            "2": "+12 PATK & +8 PDEF",
-            "3": "+15 PATK & +10 PDEF & +13 Slow",
-            "4": "+19 PATK & +12 PDEF & +14 Slow",
-            "5": "+23 PATK & +15 PDEF & +15 Slow"
+            "2": "+12 PATK, +8 PDEF",
+            "3": "+15 PATK, +10 PDEF, +13 Slow",
+            "4": "+19 PATK, +12 PDEF, +14 Slow",
+            "5": "+23 PATK, +15 PDEF, +15 Slow"
         },
         "atk_buff": {}
     },
@@ -578,8 +578,8 @@
             }
         ],
         "stats": {
-            "4": "+34 PATK & +25 HP & +8 AGI & +14 Daze",
-            "5": "+40 PATK & +30 HP & +10 AGI & +15 Daze"
+            "4": "+34 PATK, +25 HP, +8 AGI, +14 Daze",
+            "5": "+40 PATK, +30 HP, +10 AGI, +15 Daze"
         },
         "atk_buff": {}
     },
@@ -599,9 +599,9 @@
         ],
         "ability": [],
         "stats": {
-            "3": "+17 PATK & +14 DEX & +13 Paralyze",
-            "4": "+21 PATK & +17 DEX & +14 Paralyze",
-            "5": "+25 PATK & +20 DEX & +15 Paralyze"
+            "3": "+17 PATK, +14 DEX, +13 Paralyze",
+            "4": "+21 PATK, +17 DEX, +14 Paralyze",
+            "5": "+25 PATK, +20 DEX, +15 Paralyze"
         },
         "atk_buff": {}
     },
@@ -621,8 +621,8 @@
         ],
         "ability": [],
         "stats": {
-            "4": "+25 PATK & +21 DEX & +8 CRIT & +14 Charm",
-            "5": "+30 PATK & +25 DEX & +10 CRIT & +15 Charm"
+            "4": "+25 PATK, +21 DEX, +8 CRIT, +14 Charm",
+            "5": "+30 PATK, +25 DEX, +10 CRIT, +15 Charm"
         },
         "atk_buff": {}
     },
@@ -642,9 +642,9 @@
         ],
         "ability": [],
         "stats": {
-            "3": "+17 PATK & +14 CRIT & +13 Paralyze",
-            "4": "+21 PATK & +17 CRIT & +14 Paralyze",
-            "5": "+25 PATK & +20 CRIT & +15 Paralyze"
+            "3": "+17 PATK, +14 CRIT, +13 Paralyze",
+            "4": "+21 PATK, +17 CRIT, +14 Paralyze",
+            "5": "+25 PATK, +20 CRIT, +15 Paralyze"
         },
         "atk_buff": {}
     },
@@ -664,8 +664,8 @@
         ],
         "ability": [],
         "stats": {
-            "4": "+25 PATK & +21 CRIT & +8 DEX & +14 Charm",
-            "5": "+30 PATK & +25 CRIT & +10 DEX & +15 Charm"
+            "4": "+25 PATK, +21 CRIT, +8 DEX, +14 Charm",
+            "5": "+30 PATK, +25 CRIT, +10 DEX, +15 Charm"
         },
         "atk_buff": {}
     },
@@ -685,8 +685,8 @@
         ],
         "ability": [],
         "stats": {
-            "4": "+25 PDEF & +17 HP & +8 MDEF & +43 Stop Res",
-            "5": "+30 PDEF & +20 HP & +10 MDEF & +50 Stop Res"
+            "4": "+25 PDEF, +17 HP, +8 MDEF, +43 Stop Res",
+            "5": "+30 PDEF, +20 HP, +10 MDEF, +50 Stop Res"
         },
         "atk_buff": {}
     },
@@ -706,9 +706,9 @@
         ],
         "ability": [],
         "stats": {
-            "3": "+14 PDEF & +21 HP & +29 Debuff Res",
-            "4": "+17 PDEF & +25 HP & +34 Debuff Res",
-            "5": "+20 PDEF & +30 HP & +40 Debuff Res"
+            "3": "+14 PDEF, +21 HP, +29 Debuff Res",
+            "4": "+17 PDEF, +25 HP, +34 Debuff Res",
+            "5": "+20 PDEF, +30 HP, +40 Debuff Res"
         },
         "atk_buff": {}
     },
@@ -728,7 +728,7 @@
         ],
         "ability": [],
         "stats": {
-            "5": "+80 PDEF & +60 MDEF & +50 Light Res & +150 HP"
+            "5": "+80 PDEF, +60 MDEF, +50 Light Res, +150 HP"
         },
         "atk_buff": {}
     },
@@ -765,12 +765,12 @@
             }
         ],
         "stats": {
-            "4": "+30 PATK & +5 Jewels Obtained & +22 Fire Res & +67 HP",
-            "5": "+50 PATK & +6 Jewels Obtained & +25 Fire Res & +75 HP"
+            "4": "+30 PATK, +5 Jewels Obtained, +22 Fire Res, +67 HP",
+            "5": "+50 PATK, +6 Jewels Obtained, +25 Fire Res, +75 HP"
         },
         "atk_buff": {
-            "4": "Self: +25% MDEF [30%]",
-            "5": "Self: +30% MDEF [30%]"
+            "4": "Self: +25% MDEF [Chance: 30%, Turns: 3]",
+            "5": "Self: +30% MDEF [Chance: 30%, Turns: 3]"
         }
     },
     "AF_ARMS_ROD_WIZARD_DAI": {
@@ -789,8 +789,8 @@
         ],
         "ability": [],
         "stats": {
-            "4": "+34 MATK & +12 MDEF & +17 Initial Jewels & +14 Daze",
-            "5": "+40 MATK & +15 MDEF & +20 Initial Jewels & +15 Daze"
+            "4": "+34 MATK, +12 MDEF, +17 Initial Jewels, +14 Daze",
+            "5": "+40 MATK, +15 MDEF, +20 Initial Jewels, +15 Daze"
         },
         "atk_buff": {}
     },
@@ -810,8 +810,8 @@
         ],
         "ability": [],
         "stats": {
-            "4": "+30 PATK & +34 MATK & +8 AGI & +14 Charm",
-            "5": "+35 PATK & +40 MATK & +10 AGI & +15 Charm"
+            "4": "+30 PATK, +34 MATK, +8 AGI, +14 Charm",
+            "5": "+35 PATK, +40 MATK, +10 AGI, +15 Charm"
         },
         "atk_buff": {}
     },
@@ -831,9 +831,9 @@
         ],
         "ability": [],
         "stats": {
-            "3": "+10 PATK & +14 MATK & +13 Bind",
-            "4": "+12 PATK & +17 MATK & +14 Bind",
-            "5": "+15 PATK & +20 MATK & +15 Bind"
+            "3": "+10 PATK, +14 MATK, +13 Bind",
+            "4": "+12 PATK, +17 MATK, +14 Bind",
+            "5": "+15 PATK, +20 MATK, +15 Bind"
         },
         "atk_buff": {}
     },
@@ -862,16 +862,16 @@
             }
         ],
         "stats": {
-            "2": "+22 PATK & +19 HP & +9 CRIT",
-            "3": "+26 PATK & +23 HP & +11 CRIT",
-            "4": "+30 PATK & +26 HP & +13 CRIT",
-            "5": "+35 PATK & +30 HP & +15 CRIT"
+            "2": "+22 PATK, +19 HP, +9 CRIT",
+            "3": "+26 PATK, +23 HP, +11 CRIT",
+            "4": "+30 PATK, +26 HP, +13 CRIT",
+            "5": "+35 PATK, +30 HP, +15 CRIT"
         },
         "atk_buff": {
-            "2": "Self: Quicken [14%]",
-            "3": "Self: Quicken [16%]",
-            "4": "Self: Quicken [18%]",
-            "5": "Self: Quicken [20%]"
+            "2": "Self: Quicken [Chance: 14%, Value: 100]",
+            "3": "Self: Quicken [Chance: 16%, Value: 100]",
+            "4": "Self: Quicken [Chance: 18%, Value: 100]",
+            "5": "Self: Quicken [Chance: 20%, Value: 100]"
         }
     },
     "AF_ARMS_BOW_01": {
@@ -890,12 +890,12 @@
         ],
         "ability": [],
         "stats": {
-            "4": "+26 PATK & +22 DEX & +4 AGI",
-            "5": "+30 PATK & +25 DEX & +5 AGI"
+            "4": "+26 PATK, +22 DEX, +4 AGI",
+            "5": "+30 PATK, +25 DEX, +5 AGI"
         },
         "atk_buff": {
-            "4": "Target: -30% PATK [20%]",
-            "5": "Target: -30% PATK [20%]"
+            "4": "Target: -30% PATK [Chance: 20%, Turns: 2]",
+            "5": "Target: -30% PATK [Chance: 20%, Turns: 2]"
         }
     },
     "AF_ARMS_BOW_02": {
@@ -914,14 +914,14 @@
         ],
         "ability": [],
         "stats": {
-            "3": "+18 PATK & +14 DEX",
-            "4": "+21 PATK & +17 DEX",
-            "5": "+25 PATK & +20 DEX"
+            "3": "+18 PATK, +14 DEX",
+            "4": "+21 PATK, +17 DEX",
+            "5": "+25 PATK, +20 DEX"
         },
         "atk_buff": {
-            "3": "Target: -25% PDEF [20%]",
-            "4": "Target: -25% PDEF [20%]",
-            "5": "Target: -25% PDEF [20%]"
+            "3": "Target: -25% PDEF [Chance: 20%, Turns: 2]",
+            "4": "Target: -25% PDEF [Chance: 20%, Turns: 2]",
+            "5": "Target: -25% PDEF [Chance: 20%, Turns: 2]"
         }
     },
     "AF_ARMS_GLV_01": {
@@ -940,12 +940,12 @@
         ],
         "ability": [],
         "stats": {
-            "4": "+31 PATK & +22 DEX & +4 AGI",
-            "5": "+35 PATK & +25 DEX & +5 AGI"
+            "4": "+31 PATK, +22 DEX, +4 AGI",
+            "5": "+35 PATK, +25 DEX, +5 AGI"
         },
         "atk_buff": {
-            "4": "Self: +30% PATK [20%]",
-            "5": "Self: +30% PATK [20%]"
+            "4": "Self: +30% PATK [Chance: 20%, Turns: 3]",
+            "5": "Self: +30% PATK [Chance: 20%, Turns: 3]"
         }
     },
     "AF_ARMS_GLV_02": {
@@ -964,14 +964,14 @@
         ],
         "ability": [],
         "stats": {
-            "3": "+23 PATK & +14 DEX",
-            "4": "+26 PATK & +17 DEX",
-            "5": "+30 PATK & +20 DEX"
+            "3": "+23 PATK, +14 DEX",
+            "4": "+26 PATK, +17 DEX",
+            "5": "+30 PATK, +20 DEX"
         },
         "atk_buff": {
-            "3": "Self: +25% DEX [20%]",
-            "4": "Self: +25% DEX [20%]",
-            "5": "Self: +25% DEX [20%]"
+            "3": "Self: +25% DEX [Chance: 20%, Turns: 3]",
+            "4": "Self: +25% DEX [Chance: 20%, Turns: 3]",
+            "5": "Self: +25% DEX [Chance: 20%, Turns: 3]"
         }
     },
     "AF_ARMS_SAB_CAPTAIN": {
@@ -998,12 +998,12 @@
             }
         ],
         "stats": {
-            "4": "+26 PATK & +13 CRIT & +13 Thunder Res & +39 HP",
-            "5": "+30 PATK & +15 CRIT & +15 Thunder Res & +45 HP"
+            "4": "+26 PATK, +13 CRIT, +13 Thunder Res, +39 HP",
+            "5": "+30 PATK, +15 CRIT, +15 Thunder Res, +45 HP"
         },
         "atk_buff": {
-            "4": "Self: +30% PATK [20%]",
-            "5": "Self: +30% PATK [20%]"
+            "4": "Self: +30% PATK [Chance: 20%, Turns: 2]",
+            "5": "Self: +30% PATK [Chance: 20%, Turns: 2]"
         }
     },
     "AF_ARMS_SAB_PIRATE": {
@@ -1022,9 +1022,9 @@
         ],
         "ability": [],
         "stats": {
-            "3": "+18 PATK & +11 CRIT & +16 Poison & +16 Blind",
-            "4": "+21 PATK & +13 CRIT & +18 Poison & +18 Blind",
-            "5": "+25 PATK & +15 CRIT & +20 Poison & +20 Blind"
+            "3": "+18 PATK, +11 CRIT, +16 Poison, +16 Blind",
+            "4": "+21 PATK, +13 CRIT, +18 Poison, +18 Blind",
+            "5": "+25 PATK, +15 CRIT, +20 Poison, +20 Blind"
         },
         "atk_buff": {}
     },
@@ -1052,8 +1052,8 @@
             }
         ],
         "stats": {
-            "4": "+26 DEX & +13 CRIT & +13 PATK & +18 Bind",
-            "5": "+30 DEX & +15 CRIT & +15 PATK & +20 Bind"
+            "4": "+26 DEX, +13 CRIT, +13 PATK, +18 Bind",
+            "5": "+30 DEX, +15 CRIT, +15 PATK, +20 Bind"
         },
         "atk_buff": {}
     },
@@ -1073,9 +1073,9 @@
         ],
         "ability": [],
         "stats": {
-            "3": "+18 DEX & +11 CRIT & +16 Silence & +16 Stun",
-            "4": "+21 DEX & +13 CRIT & +18 Silence & +18 Stun",
-            "5": "+25 DEX & +15 CRIT & +20 Silence & +20 Stun"
+            "3": "+18 DEX, +11 CRIT, +16 Silence, +16 Stun",
+            "4": "+21 DEX, +13 CRIT, +18 Silence, +18 Stun",
+            "5": "+25 DEX, +15 CRIT, +20 Silence, +20 Stun"
         },
         "atk_buff": {}
     },
@@ -1104,8 +1104,8 @@
             }
         ],
         "stats": {
-            "4": "+21 MATK & +8 MDEF & +9 LUCK & +9 Max Jewels",
-            "5": "+25 MATK & +10 MDEF & +10 LUCK & +10 Max Jewels"
+            "4": "+21 MATK, +8 MDEF, +9 LUCK, +9 Max Jewels",
+            "5": "+25 MATK, +10 MDEF, +10 LUCK, +10 Max Jewels"
         },
         "atk_buff": {}
     },
@@ -1134,9 +1134,9 @@
             }
         ],
         "stats": {
-            "3": "+29 PATK & +16 CRIT & +3 AGI & +4 Jewels Obtained",
-            "4": "+34 PATK & +18 CRIT & +4 AGI & +5 Jewels Obtained",
-            "5": "+40 PATK & +20 CRIT & +5 AGI & +6 Jewels Obtained"
+            "3": "+29 PATK, +16 CRIT, +3 AGI, +4 Jewels Obtained",
+            "4": "+34 PATK, +18 CRIT, +4 AGI, +5 Jewels Obtained",
+            "5": "+40 PATK, +20 CRIT, +5 AGI, +6 Jewels Obtained"
         },
         "atk_buff": {}
     },
@@ -1165,12 +1165,12 @@
             }
         ],
         "stats": {
-            "4": "+34 PATK & +17 PDEF & +4 AGI & +8 Thunder Res & +25 HP",
-            "5": "+40 PATK & +20 PDEF & +5 AGI & +10 Thunder Res & +30 HP"
+            "4": "+34 PATK, +17 PDEF, +4 AGI, +8 Thunder Res, +25 HP",
+            "5": "+40 PATK, +20 PDEF, +5 AGI, +10 Thunder Res, +30 HP"
         },
         "atk_buff": {
-            "4": "Self: +18 Evasion Rate [20%]",
-            "5": "Self: +20 Evasion Rate [20%]"
+            "4": "Self: +18 Evasion Rate [Chance: 20%, Turns: 2]",
+            "5": "Self: +20 Evasion Rate [Chance: 20%, Turns: 2]"
         }
     },
     "AF_ARMS_REA_SICKLE": {
@@ -1198,16 +1198,16 @@
             }
         ],
         "stats": {
-            "2": "+22 PATK & +9 DEX & +7 CRIT",
-            "3": "+26 PATK & +11 DEX & +8 CRIT",
-            "4": "+30 PATK & +13 DEX & +9 CRIT",
-            "5": "+35 PATK & +15 DEX & +10 CRIT"
+            "2": "+22 PATK, +9 DEX, +7 CRIT",
+            "3": "+26 PATK, +11 DEX, +8 CRIT",
+            "4": "+30 PATK, +13 DEX, +9 CRIT",
+            "5": "+35 PATK, +15 DEX, +10 CRIT"
         },
         "atk_buff": {
-            "2": "Target: Delay [12%]",
-            "3": "Target: Delay [13%]",
-            "4": "Target: Delay [14%]",
-            "5": "Target: Delay [15%]"
+            "2": "Target: Delay [Chance: 12%, Value: 100]",
+            "3": "Target: Delay [Chance: 13%, Value: 100]",
+            "4": "Target: Delay [Chance: 14%, Value: 100]",
+            "5": "Target: Delay [Chance: 15%, Value: 100]"
         }
     },
     "AF_ARMS_SHE_TAROT": {
@@ -1235,16 +1235,16 @@
             }
         ],
         "stats": {
-            "2": "+22 MATK & +11 MDEF & +14 Max Jewels",
-            "3": "+26 MATK & +14 MDEF & +16 Max Jewels",
-            "4": "+30 MATK & +17 MDEF & +18 Max Jewels",
-            "5": "+35 MATK & +20 MDEF & +20 Max Jewels"
+            "2": "+22 MATK, +11 MDEF, +14 Max Jewels",
+            "3": "+26 MATK, +14 MDEF, +16 Max Jewels",
+            "4": "+30 MATK, +17 MDEF, +18 Max Jewels",
+            "5": "+35 MATK, +20 MDEF, +20 Max Jewels"
         },
         "atk_buff": {
-            "2": "Target: Bind [12%]",
-            "3": "Target: Bind [13%]",
-            "4": "Target: Bind [14%]",
-            "5": "Target: Bind [15%]"
+            "2": "Target: Bind [Chance: 12%, Value: 100]",
+            "3": "Target: Bind [Chance: 13%, Value: 100]",
+            "4": "Target: Bind [Chance: 14%, Value: 100]",
+            "5": "Target: Bind [Chance: 15%, Value: 100]"
         }
     },
     "AF_ARMS_KUNAI_02": {
@@ -1271,12 +1271,12 @@
             }
         ],
         "stats": {
-            "4": "+31 PATK & +4 AGI & +17 DEX",
-            "5": "+35 PATK & +5 AGI & +20 DEX"
+            "4": "+31 PATK, +4 AGI, +17 DEX",
+            "5": "+35 PATK, +5 AGI, +20 DEX"
         },
         "atk_buff": {
-            "4": "Self: +27 PDEF [25%]",
-            "5": "Self: +30 PDEF [25%]"
+            "4": "Self: +27 PDEF [Chance: 25%, Turns: 2]",
+            "5": "Self: +30 PDEF [Chance: 25%, Turns: 2]"
         }
     },
     "AF_ARMS_KUNAI_03": {
@@ -1295,9 +1295,9 @@
         ],
         "ability": [],
         "stats": {
-            "3": "+23 PATK & +11 DEX & +11 Paralyze",
-            "4": "+26 PATK & +13 DEX & +13 Paralyze",
-            "5": "+30 PATK & +15 DEX & +15 Paralyze"
+            "3": "+23 PATK, +11 DEX, +11 Paralyze",
+            "4": "+26 PATK, +13 DEX, +13 Paralyze",
+            "5": "+30 PATK, +15 DEX, +15 Paralyze"
         },
         "atk_buff": {}
     },
@@ -1325,12 +1325,12 @@
             }
         ],
         "stats": {
-            "4": "+26 PATK & +4 AGI & +13 DEX",
-            "5": "+30 PATK & +5 AGI & +15 DEX"
+            "4": "+26 PATK, +4 AGI, +13 DEX",
+            "5": "+30 PATK, +5 AGI, +15 DEX"
         },
         "atk_buff": {
-            "4": "Self: Quicken [19%]",
-            "5": "Self: Quicken [20%]"
+            "4": "Self: Quicken [Chance: 19%, Value: 100]",
+            "5": "Self: Quicken [Chance: 20%, Value: 100]"
         }
     },
     "AF_ARMS_CHAKRAM_03": {
@@ -1349,9 +1349,9 @@
         ],
         "ability": [],
         "stats": {
-            "3": "+18 PATK & +11 DEX",
-            "4": "+21 PATK & +13 DEX",
-            "5": "+25 PATK & +15 DEX"
+            "3": "+18 PATK, +11 DEX",
+            "4": "+21 PATK, +13 DEX",
+            "5": "+25 PATK, +15 DEX"
         },
         "atk_buff": {}
     },
@@ -1379,9 +1379,9 @@
             }
         ],
         "stats": {
-            "3": "+11 PDEF & +11 MDEF & +16 HP",
-            "4": "+13 PDEF & +13 MDEF & +18 HP",
-            "5": "+15 PDEF & +15 MDEF & +20 HP"
+            "3": "+11 PDEF, +11 MDEF, +16 HP",
+            "4": "+13 PDEF, +13 MDEF, +18 HP",
+            "5": "+15 PDEF, +15 MDEF, +20 HP"
         },
         "atk_buff": {}
     },
@@ -1409,12 +1409,12 @@
             }
         ],
         "stats": {
-            "4": "+35 PATK & +8 AGI & +13 DEX",
-            "5": "+40 PATK & +10 AGI & +15 DEX"
+            "4": "+35 PATK, +8 AGI, +13 DEX",
+            "5": "+40 PATK, +10 AGI, +15 DEX"
         },
         "atk_buff": {
-            "4": "Target: Stop [32%]",
-            "5": "Target: Stop [35%]"
+            "4": "Target: Stop [Chance: 32%, Value: 100]",
+            "5": "Target: Stop [Chance: 35%, Value: 100]"
         }
     },
     "AF_ARMS_HARP_03": {
@@ -1433,14 +1433,14 @@
         ],
         "ability": [],
         "stats": {
-            "3": "+26 PATK & +11 DEX",
-            "4": "+30 PATK & +13 DEX",
-            "5": "+35 PATK & +15 DEX"
+            "3": "+26 PATK, +11 DEX",
+            "4": "+30 PATK, +13 DEX",
+            "5": "+35 PATK, +15 DEX"
         },
         "atk_buff": {
-            "3": "Target: Delay [33%]",
-            "4": "Target: Delay [36%]",
-            "5": "Target: Delay [40%]"
+            "3": "Target: Delay [Chance: 33%, Value: 100]",
+            "4": "Target: Delay [Chance: 36%, Value: 100]",
+            "5": "Target: Delay [Chance: 40%, Value: 100]"
         }
     },
     "AF_ARMS_AXE_02": {
@@ -1467,12 +1467,12 @@
             }
         ],
         "stats": {
-            "4": "+44 PATK & +26 HP & +13 CRIT",
-            "5": "+50 PATK & +30 HP & +15 CRIT"
+            "4": "+44 PATK, +26 HP, +13 CRIT",
+            "5": "+50 PATK, +30 HP, +15 CRIT"
         },
         "atk_buff": {
-            "4": "Self: +18% PDEF [50%]",
-            "5": "Self: +20% PDEF [50%]"
+            "4": "Self: +18% PDEF [Chance: 50%, Turns: 2]",
+            "5": "Self: +20% PDEF [Chance: 50%, Turns: 2]"
         }
     },
     "AF_ARMS_AXE_03": {
@@ -1491,14 +1491,14 @@
         ],
         "ability": [],
         "stats": {
-            "3": "+30 PATK & +19 HP",
-            "4": "+35 PATK & +22 HP",
-            "5": "+40 PATK & +25 HP"
+            "3": "+30 PATK, +19 HP",
+            "4": "+35 PATK, +22 HP",
+            "5": "+40 PATK, +25 HP"
         },
         "atk_buff": {
-            "3": "Self: +16% PATK [35%]",
-            "4": "Self: +18% PATK [35%]",
-            "5": "Self: +20% PATK [35%]"
+            "3": "Self: +16% PATK [Chance: 35%, Turns: 2]",
+            "4": "Self: +18% PATK [Chance: 35%, Turns: 2]",
+            "5": "Self: +20% PATK [Chance: 35%, Turns: 2]"
         }
     },
     "AF_ARMS_SEDA_BOW": {
@@ -1526,14 +1526,14 @@
             }
         ],
         "stats": {
-            "3": "+14 PATK & +14 DEX & +3 AGI",
-            "4": "+17 PATK & +17 DEX & +4 AGI",
-            "5": "+20 PATK & +20 DEX & +5 AGI"
+            "3": "+14 PATK, +14 DEX, +3 AGI",
+            "4": "+17 PATK, +17 DEX, +4 AGI",
+            "5": "+20 PATK, +20 DEX, +5 AGI"
         },
         "atk_buff": {
-            "3": "Target: Daze [19%]",
-            "4": "Target: Daze [22%]",
-            "5": "Target: Daze [25%]"
+            "3": "Target: Daze [Chance: 19%, Value: 100]",
+            "4": "Target: Daze [Chance: 22%, Value: 100]",
+            "5": "Target: Daze [Chance: 25%, Value: 100]"
         }
     },
     "AF_ARMS_MONZ_AXE": {
@@ -1561,14 +1561,14 @@
             }
         ],
         "stats": {
-            "3": "+27 PATK & +14 HP & +14 PDEF",
-            "4": "+31 PATK & +17 HP & +17 PDEF",
-            "5": "+35 PATK & +20 HP & +20 PDEF"
+            "3": "+27 PATK, +14 HP, +14 PDEF",
+            "4": "+31 PATK, +17 HP, +17 PDEF",
+            "5": "+35 PATK, +20 HP, +20 PDEF"
         },
         "atk_buff": {
-            "3": "Target: -12% PDEF [25%]",
-            "4": "Target: -14% PDEF [25%]",
-            "5": "Target: -15% PDEF [25%]"
+            "3": "Target: -12% PDEF [Chance: 25%, Turns: 2]",
+            "4": "Target: -14% PDEF [Chance: 25%, Turns: 2]",
+            "5": "Target: -15% PDEF [Chance: 25%, Turns: 2]"
         }
     },
     "AF_ACCS_CANO_HEAD": {
@@ -1595,9 +1595,9 @@
             }
         ],
         "stats": {
-            "3": "+16 MDEF & +16 PDEF & +3 AGI",
-            "4": "+18 MDEF & +18 PDEF & +4 AGI",
-            "5": "+20 MDEF & +20 PDEF & +5 AGI"
+            "3": "+16 MDEF, +16 PDEF, +3 AGI",
+            "4": "+18 MDEF, +18 PDEF, +4 AGI",
+            "5": "+20 MDEF, +20 PDEF, +5 AGI"
         },
         "atk_buff": {}
     },
@@ -1617,7 +1617,7 @@
         ],
         "ability": [],
         "stats": {
-            "5": "+50 HP & +3 AGI & +10 Charm Res & +25 Charm"
+            "5": "+50 HP, +3 AGI, +10 Charm Res, +25 Charm"
         },
         "atk_buff": {}
     },
@@ -1645,12 +1645,12 @@
             }
         ],
         "stats": {
-            "4": "+34 MATK & +26 HP & +17 PDEF",
-            "5": "+40 MATK & +30 HP & +20 PDEF"
+            "4": "+34 MATK, +26 HP, +17 PDEF",
+            "5": "+40 MATK, +30 HP, +20 PDEF"
         },
         "atk_buff": {
-            "4": "Self: +18% PDEF [50%]",
-            "5": "Self: +20% PDEF [50%]"
+            "4": "Self: +18% PDEF [Chance: 50%, Turns: 2]",
+            "5": "Self: +20% PDEF [Chance: 50%, Turns: 2]"
         }
     },
     "AF_ARMS_TAROT_02": {
@@ -1669,14 +1669,14 @@
         ],
         "ability": [],
         "stats": {
-            "3": "+23 MATK & +14 MDEF",
-            "4": "+26 MATK & +17 MDEF",
-            "5": "+30 MATK & +20 MDEF"
+            "3": "+23 MATK, +14 MDEF",
+            "4": "+26 MATK, +17 MDEF",
+            "5": "+30 MATK, +20 MDEF"
         },
         "atk_buff": {
-            "3": "Self: +16% MDEF [35%]",
-            "4": "Self: +18% MDEF [35%]",
-            "5": "Self: +20% MDEF [35%]"
+            "3": "Self: +16% MDEF [Chance: 35%, Turns: 2]",
+            "4": "Self: +18% MDEF [Chance: 35%, Turns: 2]",
+            "5": "Self: +20% MDEF [Chance: 35%, Turns: 2]"
         }
     },
     "AF_ARMS_GREAT_SWORD_01": {
@@ -1703,12 +1703,12 @@
             }
         ],
         "stats": {
-            "4": "+39 PATK & +26 HP & +9 CRIT",
-            "5": "+45 PATK & +30 HP & +10 CRIT"
+            "4": "+39 PATK, +26 HP, +9 CRIT",
+            "5": "+45 PATK, +30 HP, +10 CRIT"
         },
         "atk_buff": {
-            "4": "Self: +6 AGI [50%]",
-            "5": "Self: +7 AGI [50%]"
+            "4": "Self: +6 AGI [Chance: 50%, Turns: 2]",
+            "5": "Self: +7 AGI [Chance: 50%, Turns: 2]"
         }
     },
     "AF_ARMS_GREAT_SWORD_02": {
@@ -1727,14 +1727,14 @@
         ],
         "ability": [],
         "stats": {
-            "3": "+23 PATK & +16 HP",
-            "4": "+26 PATK & +18 HP",
-            "5": "+30 PATK & +20 HP"
+            "3": "+23 PATK, +16 HP",
+            "4": "+26 PATK, +18 HP",
+            "5": "+30 PATK, +20 HP"
         },
         "atk_buff": {
-            "3": "Self: +16% PATK [35%]",
-            "4": "Self: +18% PATK [35%]",
-            "5": "Self: +20% PATK [35%]"
+            "3": "Self: +16% PATK [Chance: 35%, Turns: 2]",
+            "4": "Self: +18% PATK [Chance: 35%, Turns: 2]",
+            "5": "Self: +20% PATK [Chance: 35%, Turns: 2]"
         }
     },
     "AF_ARMS_DSWO_02": {
@@ -1761,12 +1761,12 @@
             }
         ],
         "stats": {
-            "4": "+35 PATK & +4 AGI & +26 HP",
-            "5": "+40 PATK & +5 AGI & +30 HP"
+            "4": "+35 PATK, +4 AGI, +26 HP",
+            "5": "+40 PATK, +5 AGI, +30 HP"
         },
         "atk_buff": {
-            "4": "Self: +22 Evasion Rate [50%]",
-            "5": "Self: +25 Evasion Rate [50%]"
+            "4": "Self: +22 Evasion Rate [Chance: 50%, Turns: 2]",
+            "5": "Self: +25 Evasion Rate [Chance: 50%, Turns: 2]"
         }
     },
     "AF_ARMS_DSWO_03": {
@@ -1785,14 +1785,14 @@
         ],
         "ability": [],
         "stats": {
-            "3": "+26 PATK & +2 AGI",
-            "4": "+30 PATK & +2 AGI",
-            "5": "+35 PATK & +3 AGI"
+            "3": "+26 PATK, +2 AGI",
+            "4": "+30 PATK, +2 AGI",
+            "5": "+35 PATK, +3 AGI"
         },
         "atk_buff": {
-            "3": "Self: +16% PATK [35%]",
-            "4": "Self: +18% PATK [35%]",
-            "5": "Self: +20% PATK [35%]"
+            "3": "Self: +16% PATK [Chance: 35%, Turns: 2]",
+            "4": "Self: +18% PATK [Chance: 35%, Turns: 2]",
+            "5": "Self: +20% PATK [Chance: 35%, Turns: 2]"
         }
     },
     "AF_ARMS_ROD_02": {
@@ -1819,12 +1819,12 @@
             }
         ],
         "stats": {
-            "4": "+34 MATK & +27 Max Jewels & +8 Jewels Obtained",
-            "5": "+40 MATK & +30 Max Jewels & +10 Jewels Obtained"
+            "4": "+34 MATK, +27 Max Jewels, +8 Jewels Obtained",
+            "5": "+40 MATK, +30 Max Jewels, +10 Jewels Obtained"
         },
         "atk_buff": {
-            "4": "Self: +18% MATK [50%]",
-            "5": "Self: +20% MATK [50%]"
+            "4": "Self: +18% MATK [Chance: 50%, Turns: 2]",
+            "5": "Self: +20% MATK [Chance: 50%, Turns: 2]"
         }
     },
     "AF_ARMS_ROD_03": {
@@ -1843,14 +1843,14 @@
         ],
         "ability": [],
         "stats": {
-            "3": "+23 MATK & +14 MDEF",
-            "4": "+26 MATK & +17 MDEF",
-            "5": "+30 MATK & +20 MDEF"
+            "3": "+23 MATK, +14 MDEF",
+            "4": "+26 MATK, +17 MDEF",
+            "5": "+30 MATK, +20 MDEF"
         },
         "atk_buff": {
-            "3": "Self: +16% PDEF [35%]",
-            "4": "Self: +18% PDEF [35%]",
-            "5": "Self: +20% PDEF [35%]"
+            "3": "Self: +16% PDEF [Chance: 35%, Turns: 2]",
+            "4": "Self: +18% PDEF [Chance: 35%, Turns: 2]",
+            "5": "Self: +20% PDEF [Chance: 35%, Turns: 2]"
         }
     },
     "AF_ARMS_SWO_YAUL_01": {
@@ -1878,13 +1878,13 @@
             }
         ],
         "stats": {
-            "3": "+13 PATK & +8 HP & +2 Jewels Obtained",
-            "4": "+14 PATK & +9 HP & +2 Jewels Obtained",
-            "5": "+30 PATK & +20 HP & +6 Jewels Obtained"
+            "3": "+13 PATK, +8 HP, +2 Jewels Obtained",
+            "4": "+14 PATK, +9 HP, +2 Jewels Obtained",
+            "5": "+30 PATK, +20 HP, +6 Jewels Obtained"
         },
         "atk_buff": {
-            "4": "Self: Auto Heal [30%]",
-            "5": "Self: Auto Heal [30%]"
+            "4": "Self: Auto Heal [Chance: 30%, Value: 100]",
+            "5": "Self: Auto Heal [Chance: 30%, Value: 100]"
         }
     },
     "AF_ARMO_TOWER_01": {
@@ -1903,7 +1903,7 @@
         ],
         "ability": [],
         "stats": {
-            "5": "+20 Thunder Res & +30 PDEF & +30 MDEF & +5 AGI & +100 Slow Res & +60 HP"
+            "5": "+20 Thunder Res, +30 PDEF, +30 MDEF, +5 AGI, +100 Slow Res, +60 HP"
         },
         "atk_buff": {}
     },
@@ -1923,7 +1923,7 @@
         ],
         "ability": [],
         "stats": {
-            "5": "+20 Water Res & +20 PDEF & +20 MDEF & +50 Stop Res & +100 Delay Res & +60 HP"
+            "5": "+20 Water Res, +20 PDEF, +20 MDEF, +50 Stop Res, +100 Delay Res, +60 HP"
         },
         "atk_buff": {}
     },
@@ -1943,7 +1943,7 @@
         ],
         "ability": [],
         "stats": {
-            "5": "+20 Fire Res & +30 PDEF & +30 MDEF & +25 Max Jewels & +100 Charm Res & +60 HP"
+            "5": "+20 Fire Res, +30 PDEF, +30 MDEF, +25 Max Jewels, +100 Charm Res, +60 HP"
         },
         "atk_buff": {}
     },
@@ -1963,7 +1963,7 @@
         ],
         "ability": [],
         "stats": {
-            "5": "+20 Wind Res & +30 PDEF & +30 MDEF & +110 HP & +100 Silence Res"
+            "5": "+20 Wind Res, +30 PDEF, +30 MDEF, +110 HP, +100 Silence Res"
         },
         "atk_buff": {}
     },
@@ -1983,7 +1983,7 @@
         ],
         "ability": [],
         "stats": {
-            "5": "+20 Dark Res & +30 PDEF & +30 MDEF & +50 Charm Res & +100 Paralyze Res & +60 HP"
+            "5": "+20 Dark Res, +30 PDEF, +30 MDEF, +50 Charm Res, +100 Paralyze Res, +60 HP"
         },
         "atk_buff": {}
     },
@@ -2003,7 +2003,7 @@
         ],
         "ability": [],
         "stats": {
-            "5": "+20 Light Res & +30 PDEF & +30 MDEF & +50 Berserk Res & +50 Rage Res & +100 Petrify Res & +60 HP"
+            "5": "+20 Light Res, +30 PDEF, +30 MDEF, +50 Berserk Res, +50 Rage Res, +100 Petrify Res, +60 HP"
         },
         "atk_buff": {}
     },
@@ -2023,7 +2023,7 @@
         ],
         "ability": [],
         "stats": {
-            "5": "+40 PDEF & +40 MDEF & +12 Elemental Res"
+            "5": "+12 Fire Res, +12 Water Res, +12 Wind Res, +12 Thunder Res, +12 Light Res, +12 Dark Res, +40 PDEF, +40 MDEF, +50 Poison Res, +100 Sleep Res"
         },
         "atk_buff": {}
     },
@@ -2051,9 +2051,9 @@
             }
         ],
         "stats": {
-            "3": "+11 PDEF & +27 HP",
-            "4": "+13 PDEF & +33 HP",
-            "5": "+15 PDEF & +40 HP"
+            "3": "+11 PDEF, +27 HP",
+            "4": "+13 PDEF, +33 HP",
+            "5": "+15 PDEF, +40 HP"
         },
         "atk_buff": {}
     },
@@ -2073,7 +2073,7 @@
         ],
         "ability": [],
         "stats": {
-            "5": "+200 HP & +1 Guts"
+            "5": "+200 HP, +1 Guts"
         },
         "atk_buff": {}
     },
@@ -2101,12 +2101,12 @@
             }
         ],
         "stats": {
-            "4": "+35 MATK & +26 LUCK & +27 Max Jewels",
-            "5": "+40 MATK & +30 LUCK & +30 Max Jewels"
+            "4": "+35 MATK, +26 LUCK, +27 Max Jewels",
+            "5": "+40 MATK, +30 LUCK, +30 Max Jewels"
         },
         "atk_buff": {
-            "4": "Self: +25% PDEF [30%]",
-            "5": "Self: +30% PDEF [30%]"
+            "4": "Self: +25% PDEF [Chance: 30%, Turns: 2]",
+            "5": "Self: +30% PDEF [Chance: 30%, Turns: 2]"
         }
     },
     "AF_ARMS_MEDICHINE_03": {
@@ -2125,14 +2125,14 @@
         ],
         "ability": [],
         "stats": {
-            "3": "+23 MATK & +16 Max Jewels",
-            "4": "+26 MATK & +18 Max Jewels",
-            "5": "+30 MATK & +20 Max Jewels"
+            "3": "+23 MATK, +16 Max Jewels",
+            "4": "+26 MATK, +18 Max Jewels",
+            "5": "+30 MATK, +20 Max Jewels"
         },
         "atk_buff": {
-            "3": "Self: +18% MDEF [30%]",
-            "4": "Self: +21% MDEF [30%]",
-            "5": "Self: +25% MDEF [30%]"
+            "3": "Self: +18% MDEF [Chance: 30%, Turns: 2]",
+            "4": "Self: +21% MDEF [Chance: 30%, Turns: 2]",
+            "5": "Self: +25% MDEF [Chance: 30%, Turns: 2]"
         }
     },
     "AF_ARMS_BEAST_01": {
@@ -2159,8 +2159,8 @@
             }
         ],
         "stats": {
-            "4": "+35 PATK & +13 DEX & +13 AGI & +9 Petrify",
-            "5": "+40 PATK & +15 DEX & +15 AGI & +10 Petrify"
+            "4": "+35 PATK, +13 DEX, +13 AGI, +9 Petrify",
+            "5": "+40 PATK, +15 DEX, +15 AGI, +10 Petrify"
         },
         "atk_buff": {}
     },
@@ -2180,9 +2180,9 @@
         ],
         "ability": [],
         "stats": {
-            "3": "+23 PATK & +8 AGI & +23 Paralyze",
-            "4": "+26 PATK & +9 AGI & +26 Paralyze",
-            "5": "+30 PATK & +10 AGI & +30 Paralyze"
+            "3": "+23 PATK, +8 AGI, +23 Paralyze",
+            "4": "+26 PATK, +9 AGI, +26 Paralyze",
+            "5": "+30 PATK, +10 AGI, +30 Paralyze"
         },
         "atk_buff": {}
     },
@@ -2211,8 +2211,8 @@
             }
         ],
         "stats": {
-            "4": "+44 PATK & +36 HP & +17 PDEF & +14 Daze",
-            "5": "+50 PATK & +40 HP & +20 PDEF & +15 Daze"
+            "4": "+44 PATK, +36 HP, +17 PDEF, +14 Daze",
+            "5": "+50 PATK, +40 HP, +20 PDEF, +15 Daze"
         },
         "atk_buff": {}
     },
@@ -2240,12 +2240,12 @@
             }
         ],
         "stats": {
-            "4": "+38 PATK & +30 HP & +13 CRIT",
-            "5": "+45 PATK & +35 HP & +15 CRIT"
+            "4": "+38 PATK, +30 HP, +13 CRIT",
+            "5": "+45 PATK, +35 HP, +15 CRIT"
         },
         "atk_buff": {
-            "4": "Self: +18% PATK [25%]",
-            "5": "Self: +20% PATK [25%]"
+            "4": "Self: +18% PATK [Chance: 25%, Turns: 2]",
+            "5": "Self: +20% PATK [Chance: 25%, Turns: 2]"
         }
     },
     "AF_ARMS_KATANA_MASAMUNE_01": {
@@ -2273,12 +2273,12 @@
             }
         ],
         "stats": {
-            "4": "+35 PATK & +26 HP & +5 AGI",
-            "5": "+40 PATK & +30 HP & +7 AGI"
+            "4": "+35 PATK, +26 HP, +5 AGI",
+            "5": "+40 PATK, +30 HP, +7 AGI"
         },
         "atk_buff": {
-            "4": "Self: +5 AGI [25%]",
-            "5": "Self: +7 AGI [25%]"
+            "4": "Self: +5 AGI [Chance: 25%, Turns: 2]",
+            "5": "Self: +7 AGI [Chance: 25%, Turns: 2]"
         }
     },
     "AF_ARMS_BOW_SHEKINAH_01": {
@@ -2306,14 +2306,14 @@
             }
         ],
         "stats": {
-            "3": "+14 PATK & +11 CRIT",
-            "4": "+17 PATK & +13 CRIT",
-            "5": "+20 PATK & +15 CRIT"
+            "3": "+14 PATK, +11 CRIT",
+            "4": "+17 PATK, +13 CRIT",
+            "5": "+20 PATK, +15 CRIT"
         },
         "atk_buff": {
-            "3": "Self: +8 Evasion Rate [25%]",
-            "4": "Self: +9 Evasion Rate [25%]",
-            "5": "Self: +10 Evasion Rate [25%]"
+            "3": "Self: +8 Evasion Rate [Chance: 25%, Turns: 2]",
+            "4": "Self: +9 Evasion Rate [Chance: 25%, Turns: 2]",
+            "5": "Self: +10 Evasion Rate [Chance: 25%, Turns: 2]"
         }
     },
     "AF_ARMS_AXE_SITA_01": {
@@ -2341,14 +2341,14 @@
             }
         ],
         "stats": {
-            "3": "+16 PATK & +23 HP",
-            "4": "+18 PATK & +26 HP",
-            "5": "+20 PATK & +30 HP"
+            "3": "+16 PATK, +23 HP",
+            "4": "+18 PATK, +26 HP",
+            "5": "+20 PATK, +30 HP"
         },
         "atk_buff": {
-            "3": "Self: +13% PDEF [25%]",
-            "4": "Self: +14% PDEF [25%]",
-            "5": "Self: +15% PDEF [25%]"
+            "3": "Self: +13% PDEF [Chance: 25%, Turns: 2]",
+            "4": "Self: +14% PDEF [Chance: 25%, Turns: 2]",
+            "5": "Self: +15% PDEF [Chance: 25%, Turns: 2]"
         }
     },
     "AF_ARMS_NEC_02": {
@@ -2375,12 +2375,12 @@
             }
         ],
         "stats": {
-            "4": "+39 PATK & +34 HP & +5 Jewels Obtained",
-            "5": "+45 PATK & +40 HP & +6 Jewels Obtained"
+            "4": "+39 PATK, +34 HP, +5 Jewels Obtained",
+            "5": "+45 PATK, +40 HP, +6 Jewels Obtained"
         },
         "atk_buff": {
-            "4": "Target: -36% PATK [40%]",
-            "5": "Target: -40% PATK [40%]"
+            "4": "Target: -36% PATK [Chance: 40%, Turns: 2]",
+            "5": "Target: -40% PATK [Chance: 40%, Turns: 2]"
         }
     },
     "AF_ARMS_MIK_02": {
@@ -2407,12 +2407,12 @@
             }
         ],
         "stats": {
-            "4": "+34 MATK & +18 LUCK & +8 AGI",
-            "5": "+40 MATK & +20 LUCK & +10 AGI"
+            "4": "+34 MATK, +18 LUCK, +8 AGI",
+            "5": "+40 MATK, +20 LUCK, +10 AGI"
         },
         "atk_buff": {
-            "4": "Self: Quicken [19%]",
-            "5": "Self: Quicken [20%]"
+            "4": "Self: Quicken [Chance: 19%, Value: 100]",
+            "5": "Self: Quicken [Chance: 20%, Value: 100]"
         }
     },
     "AF_ARMS_MIK_03": {
@@ -2431,14 +2431,14 @@
         ],
         "ability": [],
         "stats": {
-            "3": "+21 MATK & +8 LUCK",
-            "4": "+25 MATK & +9 LUCK",
-            "5": "+30 MATK & +10 LUCK"
+            "3": "+21 MATK, +8 LUCK",
+            "4": "+25 MATK, +9 LUCK",
+            "5": "+30 MATK, +10 LUCK"
         },
         "atk_buff": {
-            "3": "Target: -24% PATK [40%]",
-            "4": "Target: -27% PATK [40%]",
-            "5": "Target: -30% PATK [40%]"
+            "3": "Target: -24% PATK [Chance: 40%, Turns: 2]",
+            "4": "Target: -27% PATK [Chance: 40%, Turns: 2]",
+            "5": "Target: -30% PATK [Chance: 40%, Turns: 2]"
         }
     },
     "AF_ARMS_THI_02": {
@@ -2465,12 +2465,12 @@
             }
         ],
         "stats": {
-            "4": "+39 PATK & +39 DEX & +9 AGI",
-            "5": "+45 PATK & +45 DEX & +10 AGI"
+            "4": "+39 PATK, +39 DEX, +9 AGI",
+            "5": "+45 PATK, +45 DEX, +10 AGI"
         },
         "atk_buff": {
-            "4": "Target: Paralyze [50%]",
-            "5": "Target: Paralyze [50%]"
+            "4": "Target: Paralyze [Chance: 50%, Value: 100]",
+            "5": "Target: Paralyze [Chance: 50%, Value: 100]"
         }
     },
     "AF_ARMS_THI_03": {
@@ -2489,14 +2489,14 @@
         ],
         "ability": [],
         "stats": {
-            "3": "+29 PATK & +19 DEX",
-            "4": "+34 PATK & +22 DEX",
-            "5": "+40 PATK & +25 DEX"
+            "3": "+29 PATK, +19 DEX",
+            "4": "+34 PATK, +22 DEX",
+            "5": "+40 PATK, +25 DEX"
         },
         "atk_buff": {
-            "3": "Target: -24% PDEF [40%]",
-            "4": "Target: -27% PDEF [40%]",
-            "5": "Target: -30% PDEF [40%]"
+            "3": "Target: -24% PDEF [Chance: 40%, Turns: 2]",
+            "4": "Target: -27% PDEF [Chance: 40%, Turns: 2]",
+            "5": "Target: -30% PDEF [Chance: 40%, Turns: 2]"
         }
     },
     "AF_ARMS_SEN_04": {
@@ -2523,12 +2523,12 @@
             }
         ],
         "stats": {
-            "4": "+35 MATK & +13 AGI & +54 HP",
-            "5": "+40 MATK & +15 AGI & +60 HP"
+            "4": "+35 MATK, +13 AGI, +54 HP",
+            "5": "+40 MATK, +15 AGI, +60 HP"
         },
         "atk_buff": {
-            "4": "Self: +34% PDEF [40%]",
-            "5": "Self: +40% PDEF [40%]"
+            "4": "Self: +34% PDEF [Chance: 40%, Turns: 2]",
+            "5": "Self: +40% PDEF [Chance: 40%, Turns: 2]"
         }
     },
     "AF_ARMS_OTHI_01": {
@@ -2556,14 +2556,14 @@
             }
         ],
         "stats": {
-            "3": "+16 Max Jewels & +23 MATK & +3 AGI",
-            "4": "+18 Max Jewels & +26 MATK & +4 AGI",
-            "5": "+20 Max Jewels & +30 MATK & +5 AGI"
+            "3": "+16 Max Jewels, +23 MATK, +3 AGI",
+            "4": "+18 Max Jewels, +26 MATK, +4 AGI",
+            "5": "+20 Max Jewels, +30 MATK, +5 AGI"
         },
         "atk_buff": {
-            "3": "Target: Delay [33%]",
-            "4": "Target: Delay [36%]",
-            "5": "Target: Delay [40%]"
+            "3": "Target: Delay [Chance: 33%, Value: 100]",
+            "4": "Target: Delay [Chance: 36%, Value: 100]",
+            "5": "Target: Delay [Chance: 40%, Value: 100]"
         }
     },
     "AF_ARMS_HAMMER_02": {
@@ -2590,12 +2590,12 @@
             }
         ],
         "stats": {
-            "4": "+46 PATK & +26 PDEF & +5 Jewels Obtained",
-            "5": "+50 PATK & +30 PDEF & +6 Jewels Obtained"
+            "4": "+46 PATK, +26 PDEF, +5 Jewels Obtained",
+            "5": "+50 PATK, +30 PDEF, +6 Jewels Obtained"
         },
         "atk_buff": {
-            "4": "Self: Quicken [19%]",
-            "5": "Self: Quicken [20%]"
+            "4": "Self: Quicken [Chance: 19%, Value: 100]",
+            "5": "Self: Quicken [Chance: 20%, Value: 100]"
         }
     },
     "AF_ARMS_HAMMER_03": {
@@ -2614,14 +2614,14 @@
         ],
         "ability": [],
         "stats": {
-            "3": "+33 PATK & +23 HP",
-            "4": "+36 PATK & +26 HP",
-            "5": "+40 PATK & +30 HP"
+            "3": "+33 PATK, +23 HP",
+            "4": "+36 PATK, +26 HP",
+            "5": "+40 PATK, +30 HP"
         },
         "atk_buff": {
-            "3": "Self: +23% PATK [30%]",
-            "4": "Self: +26% PATK [30%]",
-            "5": "Self: +30% PATK [30%]"
+            "3": "Self: +23% PATK [Chance: 30%, Turns: 2]",
+            "4": "Self: +26% PATK [Chance: 30%, Turns: 2]",
+            "5": "Self: +30% PATK [Chance: 30%, Turns: 2]"
         }
     },
     "AF_ARMS_DOC_04": {
@@ -2648,12 +2648,12 @@
             }
         ],
         "stats": {
-            "4": "+36 MATK & +54 HP & +8 Jewels Obtained",
-            "5": "+40 MATK & +60 HP & +10 Jewels Obtained"
+            "4": "+36 MATK, +54 HP, +8 Jewels Obtained",
+            "5": "+40 MATK, +60 HP, +10 Jewels Obtained"
         },
         "atk_buff": {
-            "4": "Self: Quicken [19%]",
-            "5": "Self: Quicken [20%]"
+            "4": "Self: Quicken [Chance: 19%, Value: 100]",
+            "5": "Self: Quicken [Chance: 20%, Value: 100]"
         }
     },
     "AF_ACCS_SNOWMAN_HAT": {
@@ -2680,9 +2680,9 @@
             }
         ],
         "stats": {
-            "3": "+11 PDEF & +14 Max Jewels & +3 Water Res & +10 HP",
-            "4": "+13 PDEF & +17 Max Jewels & +4 Water Res & +12 HP",
-            "5": "+15 PDEF & +20 Max Jewels & +5 Water Res & +15 HP"
+            "3": "+11 PDEF, +14 Max Jewels, +3 Water Res, +10 HP",
+            "4": "+13 PDEF, +17 Max Jewels, +4 Water Res, +12 HP",
+            "5": "+15 PDEF, +20 Max Jewels, +5 Water Res, +15 HP"
         },
         "atk_buff": {}
     },
@@ -2711,16 +2711,16 @@
             }
         ],
         "stats": {
-            "2": "+29 PATK & +12 MDEF & +13 CRIT",
-            "3": "+34 PATK & +14 MDEF & +15 CRIT",
-            "4": "+39 PATK & +17 MDEF & +16 CRIT",
-            "5": "+45 PATK & +20 MDEF & +18 CRIT"
+            "2": "+29 PATK, +12 MDEF, +13 CRIT",
+            "3": "+34 PATK, +14 MDEF, +15 CRIT",
+            "4": "+39 PATK, +17 MDEF, +16 CRIT",
+            "5": "+45 PATK, +20 MDEF, +18 CRIT"
         },
         "atk_buff": {
-            "2": "Self: +14 AGI [30%]",
-            "3": "Self: +16 AGI [30%]",
-            "4": "Self: +18 AGI [30%]",
-            "5": "Self: +20 AGI [30%]"
+            "2": "Self: +14 AGI [Chance: 30%, Turns: 2]",
+            "3": "Self: +16 AGI [Chance: 30%, Turns: 2]",
+            "4": "Self: +18 AGI [Chance: 30%, Turns: 2]",
+            "5": "Self: +20 AGI [Chance: 30%, Turns: 2]"
         }
     },
     "AF_ACCS_TOSAKA_PENDANT": {
@@ -2748,10 +2748,10 @@
             }
         ],
         "stats": {
-            "2": "+38 HP & +19 MATK & +6 Water Res & +9 Sleep",
-            "3": "+45 HP & +23 MATK & +7 Water Res & +11 Sleep",
-            "4": "+52 HP & +26 MATK & +8 Water Res & +13 Sleep",
-            "5": "+60 HP & +30 MATK & +10 Water Res & +15 Sleep"
+            "2": "+38 HP, +19 MATK, +6 Water Res, +9 Sleep",
+            "3": "+45 HP, +23 MATK, +7 Water Res, +11 Sleep",
+            "4": "+52 HP, +26 MATK, +8 Water Res, +13 Sleep",
+            "5": "+60 HP, +30 MATK, +10 Water Res, +15 Sleep"
         },
         "atk_buff": {}
     },
@@ -2780,10 +2780,10 @@
             }
         ],
         "stats": {
-            "2": "+27 HP & +7 PDEF & +7 MDEF & +9 Bind",
-            "3": "+29 HP & +8 PDEF & +8 MDEF & +11 Bind",
-            "4": "+32 HP & +9 PDEF & +9 MDEF & +13 Bind",
-            "5": "+35 HP & +10 PDEF & +10 MDEF & +15 Bind"
+            "2": "+27 HP, +7 PDEF, +7 MDEF, +9 Bind",
+            "3": "+29 HP, +8 PDEF, +8 MDEF, +11 Bind",
+            "4": "+32 HP, +9 PDEF, +9 MDEF, +13 Bind",
+            "5": "+35 HP, +10 PDEF, +10 MDEF, +15 Bind"
         },
         "atk_buff": {}
     },
@@ -2812,10 +2812,10 @@
             }
         ],
         "stats": {
-            "2": "+19 HP & +19 PATK & +3 Jewels Obtained & +6 Paralyze",
-            "3": "+23 HP & +23 PATK & +4 Jewels Obtained & +7 Paralyze",
-            "4": "+26 HP & +26 PATK & +5 Jewels Obtained & +8 Paralyze",
-            "5": "+30 HP & +30 PATK & +6 Jewels Obtained & +10 Paralyze"
+            "2": "+19 HP, +19 PATK, +3 Jewels Obtained, +6 Paralyze",
+            "3": "+23 HP, +23 PATK, +4 Jewels Obtained, +7 Paralyze",
+            "4": "+26 HP, +26 PATK, +5 Jewels Obtained, +8 Paralyze",
+            "5": "+30 HP, +30 PATK, +6 Jewels Obtained, +10 Paralyze"
         },
         "atk_buff": {}
     },
@@ -2844,12 +2844,12 @@
             }
         ],
         "stats": {
-            "4": "+46 HP & +12 PDEF & +12 MDEF",
-            "5": "+50 HP & +14 PDEF & +14 MDEF"
+            "4": "+46 HP, +12 PDEF, +12 MDEF",
+            "5": "+50 HP, +14 PDEF, +14 MDEF"
         },
         "atk_buff": {
-            "4": "Self: +28% PATK [30%]",
-            "5": "Self: +30% PATK [30%]"
+            "4": "Self: +28% PATK [Chance: 30%, Turns: 3]",
+            "5": "Self: +30% PATK [Chance: 30%, Turns: 3]"
         }
     },
     "AF_ACCS_DOREI": {
@@ -2876,9 +2876,9 @@
             }
         ],
         "stats": {
-            "3": "+21 HP & +6 Debuff Res",
-            "4": "+25 HP & +8 Debuff Res",
-            "5": "+100 HP & +20 Debuff Res"
+            "3": "+21 HP, +6 Debuff Res",
+            "4": "+25 HP, +8 Debuff Res",
+            "5": "+100 HP, +20 Debuff Res"
         },
         "atk_buff": {}
     },
@@ -2906,9 +2906,9 @@
             }
         ],
         "stats": {
-            "3": "+1 AGI & +3 All Status Res",
-            "4": "+1 AGI & +4 All Status Res",
-            "5": "+5 AGI & +10 All Status Res"
+            "3": "+1 AGI, +3 All Status Res",
+            "4": "+1 AGI, +4 All Status Res",
+            "5": "+5 AGI, +10 All Status Res"
         },
         "atk_buff": {}
     },
@@ -2936,12 +2936,12 @@
             }
         ],
         "stats": {
-            "4": "+46 PATK & +9 AGI & +27 DEX",
-            "5": "+50 PATK & +10 AGI & +30 DEX"
+            "4": "+46 PATK, +9 AGI, +27 DEX",
+            "5": "+50 PATK, +10 AGI, +30 DEX"
         },
         "atk_buff": {
-            "4": "Self: +17% PATK [50%]",
-            "5": "Self: +20% PATK [50%]"
+            "4": "Self: +17% PATK [Chance: 50%, Turns: 2]",
+            "5": "Self: +20% PATK [Chance: 50%, Turns: 2]"
         }
     },
     "AF_ARMS_SAM03": {
@@ -2960,14 +2960,14 @@
         ],
         "ability": [],
         "stats": {
-            "3": "+33 PATK & +16 DEX",
-            "4": "+36 PATK & +18 DEX",
-            "5": "+40 PATK & +20 DEX"
+            "3": "+33 PATK, +16 DEX",
+            "4": "+36 PATK, +18 DEX",
+            "5": "+40 PATK, +20 DEX"
         },
         "atk_buff": {
-            "3": "Target: -22% PDEF [30%]",
-            "4": "Target: -26% PDEF [30%]",
-            "5": "Target: -30% PDEF [30%]"
+            "3": "Target: -22% PDEF [Chance: 30%, Turns: 2]",
+            "4": "Target: -26% PDEF [Chance: 30%, Turns: 2]",
+            "5": "Target: -30% PDEF [Chance: 30%, Turns: 2]"
         }
     },
     "AF_ARMS_LNC_02": {
@@ -2994,12 +2994,12 @@
             }
         ],
         "stats": {
-            "4": "+36 DEX & +36 PATK & +7 AGI",
-            "5": "+40 DEX & +40 PATK & +8 AGI"
+            "4": "+36 DEX, +36 PATK, +7 AGI",
+            "5": "+40 DEX, +40 PATK, +8 AGI"
         },
         "atk_buff": {
-            "4": "Self: +25% PDEF [50%]",
-            "5": "Self: +30% PDEF [50%]"
+            "4": "Self: +25% PDEF [Chance: 50%, Turns: 2]",
+            "5": "Self: +30% PDEF [Chance: 50%, Turns: 2]"
         }
     },
     "AF_ARMS_LNC_03": {
@@ -3018,14 +3018,14 @@
         ],
         "ability": [],
         "stats": {
-            "3": "+33 DEX & +3 AGI",
-            "4": "+36 DEX & +4 AGI",
-            "5": "+40 DEX & +5 AGI"
+            "3": "+33 DEX, +3 AGI",
+            "4": "+36 DEX, +4 AGI",
+            "5": "+40 DEX, +5 AGI"
         },
         "atk_buff": {
-            "3": "Self: +14% MDEF [30%]",
-            "4": "Self: +17% MDEF [30%]",
-            "5": "Self: +20% MDEF [30%]"
+            "3": "Self: +14% MDEF [Chance: 30%, Turns: 2]",
+            "4": "Self: +17% MDEF [Chance: 30%, Turns: 2]",
+            "5": "Self: +20% MDEF [Chance: 30%, Turns: 2]"
         }
     },
     "AF_ARMS_KAM_02": {
@@ -3052,12 +3052,12 @@
             }
         ],
         "stats": {
-            "4": "+34 MATK & +34 LUCK & +25 PDEF",
-            "5": "+40 MATK & +40 LUCK & +30 PDEF"
+            "4": "+34 MATK, +34 LUCK, +25 PDEF",
+            "5": "+40 MATK, +40 LUCK, +30 PDEF"
         },
         "atk_buff": {
-            "4": "Self: +25% MATK [30%]",
-            "5": "Self: +30% MATK [30%]"
+            "4": "Self: +25% MATK [Chance: 30%, Turns: 2]",
+            "5": "Self: +30% MATK [Chance: 30%, Turns: 2]"
         }
     },
     "AF_ARMS_SHN_02": {
@@ -3084,12 +3084,12 @@
             }
         ],
         "stats": {
-            "4": "+34 PATK & +34 LUCK & +25 Max Jewels",
-            "5": "+40 PATK & +40 LUCK & +30 Max Jewels"
+            "4": "+34 PATK, +34 LUCK, +25 Max Jewels",
+            "5": "+40 PATK, +40 LUCK, +30 Max Jewels"
         },
         "atk_buff": {
-            "4": "Self: Quicken [18%]",
-            "5": "Self: Quicken [20%]"
+            "4": "Self: Quicken [Turns: 2, Chance: 18%, Value: 100]",
+            "5": "Self: Quicken [Turns: 2, Chance: 20%, Value: 100]"
         }
     },
     "AF_ARMS_BLA_02": {
@@ -3116,8 +3116,8 @@
             }
         ],
         "stats": {
-            "4": "+46 PATK & +13 CRIT & +7 AGI & +13 Paralyze",
-            "5": "+50 PATK & +15 CRIT & +8 AGI & +15 Paralyze"
+            "4": "+46 PATK, +13 CRIT, +7 AGI, +13 Paralyze",
+            "5": "+50 PATK, +15 CRIT, +8 AGI, +15 Paralyze"
         },
         "atk_buff": {}
     },
@@ -3137,9 +3137,9 @@
         ],
         "ability": [],
         "stats": {
-            "3": "+33 PATK & +3 AGI & +11 Sleep",
-            "4": "+36 PATK & +4 AGI & +13 Sleep",
-            "5": "+40 PATK & +5 AGI & +15 Sleep"
+            "3": "+33 PATK, +3 AGI, +11 Sleep",
+            "4": "+36 PATK, +4 AGI, +13 Sleep",
+            "5": "+40 PATK, +5 AGI, +15 Sleep"
         },
         "atk_buff": {}
     },
@@ -3167,12 +3167,12 @@
             }
         ],
         "stats": {
-            "4": "+46 MATK & +7 AGI & +36 HP",
-            "5": "+50 MATK & +8 AGI & +40 HP"
+            "4": "+46 MATK, +7 AGI, +36 HP",
+            "5": "+50 MATK, +8 AGI, +40 HP"
         },
         "atk_buff": {
-            "4": "Self: +25% MATK [30%]",
-            "5": "Self: +30% MATK [30%]"
+            "4": "Self: +25% MATK [Chance: 30%, Turns: 2]",
+            "5": "Self: +30% MATK [Chance: 30%, Turns: 2]"
         }
     },
     "AF_ARMS_1STANNIVERSARY": {
@@ -3191,7 +3191,7 @@
         ],
         "ability": [],
         "stats": {
-            "5": "+100 HP & +25 Counter Res"
+            "5": "+100 HP, +25 Counter Res"
         },
         "atk_buff": {}
     },
@@ -3219,9 +3219,9 @@
             }
         ],
         "stats": {
-            "3": "+29 MATK & +8 AGI & +8 Jewels Obtained",
-            "4": "+34 MATK & +9 AGI & +9 Jewels Obtained",
-            "5": "+40 MATK & +10 AGI & +10 Jewels Obtained"
+            "3": "+29 MATK, +8 AGI, +8 Jewels Obtained",
+            "4": "+34 MATK, +9 AGI, +9 Jewels Obtained",
+            "5": "+40 MATK, +10 AGI, +10 Jewels Obtained"
         },
         "atk_buff": {}
     },
@@ -3250,14 +3250,14 @@
             }
         ],
         "stats": {
-            "3": "+34 HP & +14 PATK & +15 Initial Jewels",
-            "4": "+39 HP & +17 PATK & +16 Initial Jewels",
-            "5": "+45 HP & +20 PATK & +18 Initial Jewels"
+            "3": "+34 HP, +14 PATK, +15 Initial Jewels",
+            "4": "+39 HP, +17 PATK, +16 Initial Jewels",
+            "5": "+45 HP, +20 PATK, +18 Initial Jewels"
         },
         "atk_buff": {
-            "3": "Self: +14% PDEF [30%]",
-            "4": "Self: +17% PDEF [30%]",
-            "5": "Self: +20% PDEF [30%]"
+            "3": "Self: +14% PDEF [Chance: 30%, Turns: 2]",
+            "4": "Self: +17% PDEF [Chance: 30%, Turns: 2]",
+            "5": "Self: +20% PDEF [Chance: 30%, Turns: 2]"
         }
     },
     "AF_ARMS_SWO_ZAYI_01": {
@@ -3293,14 +3293,14 @@
             }
         ],
         "stats": {
-            "3": "+8 PATK & +8 MDEF & +1 Jewels Obtained",
-            "4": "+9 PATK & +9 MDEF & +1 Jewels Obtained",
-            "5": "+30 PATK & +30 MDEF & +5 Jewels Obtained"
+            "3": "+8 PATK, +8 MDEF, +1 Jewels Obtained",
+            "4": "+9 PATK, +9 MDEF, +1 Jewels Obtained",
+            "5": "+30 PATK, +30 MDEF, +5 Jewels Obtained"
         },
         "atk_buff": {
-            "3": "Self: +14% PATK [30%]",
-            "4": "Self: +17% PATK [30%]",
-            "5": "Self: +20% PATK [30%]"
+            "3": "Self: +14% PATK [Chance: 30%, Turns: 3]",
+            "4": "Self: +17% PATK [Chance: 30%, Turns: 3]",
+            "5": "Self: +20% PATK [Chance: 30%, Turns: 3]"
         }
     },
     "AF_ARMS_SAKURA_00": {
@@ -3328,14 +3328,14 @@
             }
         ],
         "stats": {
-            "3": "+11 PATK & +1 AGI & +3 DEX",
-            "4": "+13 PATK & +1 AGI & +4 DEX",
-            "5": "+30 PATK & +5 AGI & +15 DEX"
+            "3": "+11 PATK, +1 AGI, +3 DEX",
+            "4": "+13 PATK, +1 AGI, +4 DEX",
+            "5": "+30 PATK, +5 AGI, +15 DEX"
         },
         "atk_buff": {
-            "3": "Self: +10% PDEF & +10% MDEF [40%]",
-            "4": "Self: +10% PDEF & +10% MDEF [40%]",
-            "5": "Self: +10% PDEF & +10% MDEF [40%]"
+            "3": "Self: +10% PDEF, +10% MDEF [Chance: 40%, Turns: 2]",
+            "4": "Self: +10% PDEF, +10% MDEF [Chance: 40%, Turns: 2]",
+            "5": "Self: +10% PDEF, +10% MDEF [Chance: 40%, Turns: 2]"
         }
     },
     "AF_ARMS_FOLCAS_00": {
@@ -3363,14 +3363,14 @@
             }
         ],
         "stats": {
-            "3": "+8 PATK & +2 AGI & +3 CRIT",
-            "4": "+9 PATK & +2 AGI & +4 CRIT",
-            "5": "+25 PATK & +8 AGI & +10 CRIT"
+            "3": "+8 PATK, +2 AGI, +3 CRIT",
+            "4": "+9 PATK, +2 AGI, +4 CRIT",
+            "5": "+25 PATK, +8 AGI, +10 CRIT"
         },
         "atk_buff": {
-            "3": "Target: -10% PDEF [25%]",
-            "4": "Target: -10% PDEF [25%]",
-            "5": "Target: -10% PDEF [25%]"
+            "3": "Target: -10% PDEF [Chance: 25%, Turns: 0]",
+            "4": "Target: -10% PDEF [Chance: 25%, Turns: 0]",
+            "5": "Target: -10% PDEF [Chance: 25%, Turns: 0]"
         }
     },
     "AF_ARMS_BASYOSEN_01": {
@@ -3398,9 +3398,9 @@
             }
         ],
         "stats": {
-            "3": "+6 PATK & +6 DEX",
-            "4": "+7 PATK & +7 DEX",
-            "5": "+15 PATK & +15 DEX & +3 AGI & +5 Jewels Obtained"
+            "3": "+6 PATK, +6 DEX",
+            "4": "+7 PATK, +7 DEX",
+            "5": "+15 PATK, +15 DEX, +3 AGI, +5 Jewels Obtained"
         },
         "atk_buff": {}
     },
@@ -3429,14 +3429,14 @@
             }
         ],
         "stats": {
-            "3": "+7 PATK & +6 PDEF & +6 MDEF",
-            "4": "+8 PATK & +7 PDEF & +7 MDEF",
-            "5": "+20 PATK & +15 PDEF & +15 MDEF"
+            "3": "+7 PATK, +6 PDEF, +6 MDEF",
+            "4": "+8 PATK, +7 PDEF, +7 MDEF",
+            "5": "+20 PATK, +15 PDEF, +15 MDEF"
         },
         "atk_buff": {
-            "3": "Target: -10% PATK & -10% MATK [25%]",
-            "4": "Target: -10% PATK & -10% MATK [25%]",
-            "5": "Target: -10% PATK & -10% MATK [25%]"
+            "3": "Target: -10% PATK, -10% MATK [Chance: 25%, Turns: 3]",
+            "4": "Target: -10% PATK, -10% MATK [Chance: 25%, Turns: 3]",
+            "5": "Target: -10% PATK, -10% MATK [Chance: 25%, Turns: 3]"
         }
     },
     "AF_ACCS_CHOKER": {
@@ -3463,9 +3463,9 @@
             }
         ],
         "stats": {
-            "3": "+2 DEX & +1 AGI & +2 Charm Res",
-            "4": "+2 DEX & +1 AGI & +3 Charm Res",
-            "5": "+10 DEX & +5 AGI & +15 Charm Res"
+            "3": "+2 DEX, +1 AGI, +2 Charm Res",
+            "4": "+2 DEX, +1 AGI, +3 Charm Res",
+            "5": "+10 DEX, +5 AGI, +15 Charm Res"
         },
         "atk_buff": {}
     },
@@ -3493,12 +3493,12 @@
             }
         ],
         "stats": {
-            "4": "+34 MATK & +17 PDEF & +51 HP",
-            "5": "+40 MATK & +20 PDEF & +60 HP"
+            "4": "+34 MATK, +17 PDEF, +51 HP",
+            "5": "+40 MATK, +20 PDEF, +60 HP"
         },
         "atk_buff": {
-            "4": "Self: +18% PDEF [50%]",
-            "5": "Self: +20% PDEF [50%]"
+            "4": "Self: +18% PDEF [Chance: 50%, Turns: 2]",
+            "5": "Self: +20% PDEF [Chance: 50%, Turns: 2]"
         }
     },
     "AF_ARMS_SOL_04": {
@@ -3525,12 +3525,12 @@
             }
         ],
         "stats": {
-            "4": "+34 PATK & +17 PDEF & +13 CRIT",
-            "5": "+40 PATK & +20 PDEF & +15 CRIT"
+            "4": "+34 PATK, +17 PDEF, +13 CRIT",
+            "5": "+40 PATK, +20 PDEF, +15 CRIT"
         },
         "atk_buff": {
-            "4": "Self: +25% PATK [30%]",
-            "5": "Self: +30% PATK [30%]"
+            "4": "Self: +25% PATK [Chance: 30%, Turns: 2]",
+            "5": "Self: +30% PATK [Chance: 30%, Turns: 2]"
         }
     },
     "AF_ARMS_BASINI_01": {
@@ -3558,13 +3558,13 @@
             }
         ],
         "stats": {
-            "3": "+8 PATK & +13 CRIT & +3 AGI",
-            "4": "+9 PATK & +14 CRIT & +3 AGI",
-            "5": "+20 PATK & +30 CRIT & +8 AGI"
+            "3": "+8 PATK, +13 CRIT, +3 AGI",
+            "4": "+9 PATK, +14 CRIT, +3 AGI",
+            "5": "+20 PATK, +30 CRIT, +8 AGI"
         },
         "atk_buff": {
-            "4": "Self: +10 AGI [20%]",
-            "5": "Self: +10 AGI [20%]"
+            "4": "Self: +10 AGI [Chance: 20%, Turns: 2]",
+            "5": "Self: +10 AGI [Chance: 20%, Turns: 2]"
         }
     },
     "AF_ARMS_DIS_USAL_01": {
@@ -3590,12 +3590,12 @@
             }
         ],
         "stats": {
-            "4": "+46 PATK & +26 PDEF & +26 HP",
-            "5": "+50 PATK & +30 PDEF & +30 HP"
+            "4": "+46 PATK, +26 PDEF, +26 HP",
+            "5": "+50 PATK, +30 PDEF, +30 HP"
         },
         "atk_buff": {
-            "4": "Self: Auto Heal [30%]",
-            "5": "Self: Auto Heal [30%]"
+            "4": "Self: Auto Heal [Turns: 3, Chance: 30%, Value: 100]",
+            "5": "Self: Auto Heal [Turns: 3, Chance: 30%, Value: 100]"
         }
     },
     "AF_ARMO_ARMOR_04": {
@@ -3622,8 +3622,8 @@
             }
         ],
         "stats": {
-            "4": "+38 PDEF & +28 MDEF & +43 Delay Res",
-            "5": "+40 PDEF & +30 MDEF & +50 Delay Res"
+            "4": "+38 PDEF, +28 MDEF, +43 Delay Res",
+            "5": "+40 PDEF, +30 MDEF, +50 Delay Res"
         },
         "atk_buff": {}
     },
@@ -3651,8 +3651,8 @@
             }
         ],
         "stats": {
-            "4": "+38 HP & +28 PDEF & +43 Petrify Res",
-            "5": "+40 HP & +30 PDEF & +50 Petrify Res"
+            "4": "+38 HP, +28 PDEF, +43 Petrify Res",
+            "5": "+40 HP, +30 PDEF, +50 Petrify Res"
         },
         "atk_buff": {}
     },
@@ -3678,11 +3678,11 @@
             }
         ],
         "stats": {
-            "1": "+47 HP & +8 Max Jewels & +3 PATK & +3 PDEF & +3 MATK & +3 MDEF & +2 DEX & +2 AGI",
-            "2": "+72 HP & +12 Max Jewels & +5 PATK & +5 PDEF & +5 MATK & +5 MDEF & +2 DEX & +2 AGI",
-            "3": "+98 HP & +16 Max Jewels & +6 PATK & +6 PDEF & +6 MATK & +6 MDEF & +3 DEX & +3 AGI",
-            "4": "+124 HP & +20 Max Jewels & +8 PATK & +8 PDEF & +8 MATK & +8 MDEF & +4 DEX & +4 AGI",
-            "5": "+150 HP & +25 Max Jewels & +10 PATK & +10 PDEF & +10 MATK & +10 MDEF & +5 DEX & +5 AGI"
+            "1": "+47 HP, +8 Max Jewels, +3 PATK, +3 PDEF, +3 MATK, +3 MDEF, +2 DEX, +2 AGI, +2 LUCK, +2 CRIT",
+            "2": "+72 HP, +12 Max Jewels, +5 PATK, +5 PDEF, +5 MATK, +5 MDEF, +2 DEX, +2 AGI, +2 LUCK, +2 CRIT",
+            "3": "+98 HP, +16 Max Jewels, +6 PATK, +6 PDEF, +6 MATK, +6 MDEF, +3 DEX, +3 AGI, +3 LUCK, +3 CRIT",
+            "4": "+124 HP, +20 Max Jewels, +8 PATK, +8 PDEF, +8 MATK, +8 MDEF, +4 DEX, +4 AGI, +4 LUCK, +4 CRIT",
+            "5": "+150 HP, +25 Max Jewels, +10 PATK, +10 PDEF, +10 MATK, +10 MDEF, +5 DEX, +5 AGI, +5 LUCK, +5 CRIT"
         },
         "atk_buff": {}
     },
@@ -3709,14 +3709,14 @@
             }
         ],
         "stats": {
-            "3": "+11 HP & +11 PATK & +2 Jewels Obtained",
-            "4": "+13 HP & +13 PATK & +2 Jewels Obtained",
-            "5": "+25 HP & +25 PATK & +5 Jewels Obtained"
+            "3": "+11 HP, +11 PATK, +2 Jewels Obtained",
+            "4": "+13 HP, +13 PATK, +2 Jewels Obtained",
+            "5": "+25 HP, +25 PATK, +5 Jewels Obtained"
         },
         "atk_buff": {
-            "3": "Self: +16% PATK [50%]",
-            "4": "Self: +18% PATK [50%]",
-            "5": "Self: +20% PATK [50%]"
+            "3": "Self: +16% PATK [Chance: 50%, Turns: 2]",
+            "4": "Self: +18% PATK [Chance: 50%, Turns: 2]",
+            "5": "Self: +20% PATK [Chance: 50%, Turns: 2]"
         }
     },
     "AF_ARMS_DIS_SERA_01": {
@@ -3747,9 +3747,9 @@
             "5": ""
         },
         "atk_buff": {
-            "3": "Self: +33% DEX [50%]",
-            "4": "Self: +36% DEX [50%]",
-            "5": "Self: +40% DEX [50%]"
+            "3": "Self: +33% DEX [Chance: 50%, Turns: 2]",
+            "4": "Self: +36% DEX [Chance: 50%, Turns: 2]",
+            "5": "Self: +40% DEX [Chance: 50%, Turns: 2]"
         }
     },
     "AF_ARMS_DIS_REDM_01": {
@@ -3780,9 +3780,9 @@
             "5": ""
         },
         "atk_buff": {
-            "3": "Self: +16% PDEF [50%]",
-            "4": "Self: +18% PDEF [50%]",
-            "5": "Self: +20% PDEF [50%]"
+            "3": "Self: +16% PDEF [Chance: 50%, Turns: 2]",
+            "4": "Self: +18% PDEF [Chance: 50%, Turns: 2]",
+            "5": "Self: +20% PDEF [Chance: 50%, Turns: 2]"
         }
     },
     "AF_ARMS_DIS_LAHA_01": {
@@ -3808,9 +3808,9 @@
             }
         ],
         "stats": {
-            "3": "+33 PATK & +23 HP & +6 Initial Jewels & +7 Disable Heal",
-            "4": "+36 PATK & +26 HP & +8 Initial Jewels & +8 Disable Heal",
-            "5": "+40 PATK & +30 HP & +10 Initial Jewels & +10 Disable Heal"
+            "3": "+33 PATK, +23 HP, +6 Initial Jewels, +7 Disable Heal",
+            "4": "+36 PATK, +26 HP, +8 Initial Jewels, +8 Disable Heal",
+            "5": "+40 PATK, +30 HP, +10 Initial Jewels, +10 Disable Heal"
         },
         "atk_buff": {}
     },
@@ -3837,9 +3837,9 @@
             }
         ],
         "stats": {
-            "3": "+23 PATK & +4 AGI & +3 Jewels Obtained & +7 Charm",
-            "4": "+26 PATK & +5 AGI & +4 Jewels Obtained & +8 Charm",
-            "5": "+30 PATK & +6 AGI & +5 Jewels Obtained & +10 Charm"
+            "3": "+23 PATK, +4 AGI, +3 Jewels Obtained, +7 Charm",
+            "4": "+26 PATK, +5 AGI, +4 Jewels Obtained, +8 Charm",
+            "5": "+30 PATK, +6 AGI, +5 Jewels Obtained, +10 Charm"
         },
         "atk_buff": {}
     },
@@ -3866,7 +3866,7 @@
             }
         ],
         "stats": {
-            "5": "+50 HP & +40 PATK & +20 PDEF & +5 AGI & +10 Delay"
+            "5": "+50 HP, +40 PATK, +20 PDEF, +5 AGI, +10 Delay"
         },
         "atk_buff": {}
     },
@@ -3894,12 +3894,12 @@
             }
         ],
         "stats": {
-            "4": "+40 PATK & +36 CRIT & +4 Jewels Obtained",
-            "5": "+45 PATK & +40 CRIT & +5 Jewels Obtained"
+            "4": "+40 PATK, +36 CRIT, +4 Jewels Obtained",
+            "5": "+45 PATK, +40 CRIT, +5 Jewels Obtained"
         },
         "atk_buff": {
-            "4": "Self: +18% PATK [25%]",
-            "5": "Self: +20% PATK [25%]"
+            "4": "Self: +18% PATK [Chance: 25%, Turns: 3]",
+            "5": "Self: +20% PATK [Chance: 25%, Turns: 3]"
         }
     },
     "AF_ARMS_SPE_03": {
@@ -3918,14 +3918,14 @@
         ],
         "ability": [],
         "stats": {
-            "3": "+28 PATK & +24 CRIT",
-            "4": "+31 PATK & +27 CRIT",
-            "5": "+35 PATK & +30 CRIT"
+            "3": "+28 PATK, +24 CRIT",
+            "4": "+31 PATK, +27 CRIT",
+            "5": "+35 PATK, +30 CRIT"
         },
         "atk_buff": {
-            "3": "Self: +16% PDEF [25%]",
-            "4": "Self: +18% PDEF [25%]",
-            "5": "Self: +20% PDEF [25%]"
+            "3": "Self: +16% PDEF [Chance: 25%, Turns: 2]",
+            "4": "Self: +18% PDEF [Chance: 25%, Turns: 2]",
+            "5": "Self: +20% PDEF [Chance: 25%, Turns: 2]"
         }
     },
     "AF_ARMS_HUN_02": {
@@ -3952,12 +3952,12 @@
             }
         ],
         "stats": {
-            "4": "+38 PATK & +22 DEX & +8 Hit Rate",
-            "5": "+40 PATK & +25 DEX & +10 Hit Rate"
+            "4": "+38 PATK, +22 DEX, +8 Hit Rate",
+            "5": "+40 PATK, +25 DEX, +10 Hit Rate"
         },
         "atk_buff": {
-            "4": "Target: -10% AGI [25%]",
-            "5": "Target: -10% AGI [25%]"
+            "4": "Target: -10% AGI [Chance: 25%, Turns: 2]",
+            "5": "Target: -10% AGI [Chance: 25%, Turns: 2]"
         }
     },
     "AF_ARMO_GAUNTLET_02": {
@@ -3984,8 +3984,8 @@
             }
         ],
         "stats": {
-            "4": "+36 PDEF & +17 PATK & +17 DEX",
-            "5": "+40 PDEF & +20 PATK & +20 DEX"
+            "4": "+36 PDEF, +17 PATK, +17 DEX",
+            "5": "+40 PDEF, +20 PATK, +20 DEX"
         },
         "atk_buff": {}
     },
@@ -4013,8 +4013,8 @@
             }
         ],
         "stats": {
-            "4": "+6 AGI & +8 Jewels Obtained & +8 PATK",
-            "5": "+10 AGI & +15 Jewels Obtained & +10 PATK"
+            "4": "+6 AGI, +8 Jewels Obtained, +8 PATK",
+            "5": "+10 AGI, +15 Jewels Obtained, +10 PATK"
         },
         "atk_buff": {}
     },
@@ -4043,9 +4043,9 @@
             }
         ],
         "stats": {
-            "3": "+16 PATK & +24 HP & +33 DEX & +8 Daze",
-            "4": "+18 PATK & +27 HP & +36 DEX & +9 Daze",
-            "5": "+20 PATK & +30 HP & +40 DEX & +10 Daze"
+            "3": "+16 PATK, +24 HP, +33 DEX, +8 Daze",
+            "4": "+18 PATK, +27 HP, +36 DEX, +9 Daze",
+            "5": "+20 PATK, +30 HP, +40 DEX, +10 Daze"
         },
         "atk_buff": {}
     },
@@ -4073,12 +4073,12 @@
             }
         ],
         "stats": {
-            "4": "+35 PATK & +5 Jewels Obtained & +4 AGI",
-            "5": "+50 PATK & +10 Jewels Obtained & +10 AGI"
+            "4": "+35 PATK, +5 Jewels Obtained, +4 AGI",
+            "5": "+50 PATK, +10 Jewels Obtained, +10 AGI"
         },
         "atk_buff": {
-            "4": "Self: Quicken [18%]",
-            "5": "Self: Quicken [20%]"
+            "4": "Self: Quicken [Chance: 18%, Value: 100]",
+            "5": "Self: Quicken [Chance: 20%, Value: 100]"
         }
     },
     "AF_ARMS_NEC_03": {
@@ -4105,8 +4105,8 @@
             }
         ],
         "stats": {
-            "4": "+36 PATK & +4 AGI & +9 CRIT & +4 Stop",
-            "5": "+50 PATK & +8 AGI & +20 CRIT & +10 Stop"
+            "4": "+36 PATK, +4 AGI, +9 CRIT, +4 Stop",
+            "5": "+50 PATK, +8 AGI, +20 CRIT, +10 Stop"
         },
         "atk_buff": {}
     },
@@ -4134,9 +4134,9 @@
             }
         ],
         "stats": {
-            "3": "+132 HP & +3 Jewels Obtained",
-            "4": "+141 HP & +4 Jewels Obtained",
-            "5": "+150 HP & +5 Jewels Obtained"
+            "3": "+132 HP, +3 Jewels Obtained",
+            "4": "+141 HP, +4 Jewels Obtained",
+            "5": "+150 HP, +5 Jewels Obtained"
         },
         "atk_buff": {}
     },
@@ -4164,8 +4164,8 @@
             }
         ],
         "stats": {
-            "4": "+28 PDEF & +13 PATK & +8 HP",
-            "5": "+50 PDEF & +30 PATK & +20 HP"
+            "4": "+28 PDEF, +13 PATK, +8 HP",
+            "5": "+50 PDEF, +30 PATK, +20 HP"
         },
         "atk_buff": {}
     },
@@ -4193,8 +4193,8 @@
             }
         ],
         "stats": {
-            "4": "+13 Max Jewels & +13 CRIT & +5 Slash Res",
-            "5": "+30 Max Jewels & +25 CRIT & +10 Slash Res"
+            "4": "+13 Max Jewels, +13 CRIT, +5 Slash Res",
+            "5": "+30 Max Jewels, +25 CRIT, +10 Slash Res"
         },
         "atk_buff": {}
     },
@@ -4255,8 +4255,8 @@
             }
         ],
         "stats": {
-            "4": "+20 PATK & +9 Fire Res & +9 Dark Res & +54 HP",
-            "5": "+50 PATK & +15 Fire Res & +15 Dark Res & +90 HP"
+            "4": "+20 PATK, +9 Fire Res, +9 Dark Res, +54 HP",
+            "5": "+50 PATK, +15 Fire Res, +15 Dark Res, +90 HP"
         },
         "atk_buff": {}
     },
@@ -4283,8 +4283,8 @@
             }
         ],
         "stats": {
-            "4": "+33 DEX & +8 Hit Rate",
-            "5": "+50 DEX & +20 Hit Rate & +10 Missile ATK"
+            "4": "+33 DEX, +8 Hit Rate",
+            "5": "+50 DEX, +20 Hit Rate, +10 Missile ATK"
         },
         "atk_buff": {}
     },
@@ -4311,12 +4311,12 @@
             }
         ],
         "stats": {
-            "3": "+16 PATK & +16 MATK",
-            "4": "+18 PATK & +18 MATK",
-            "5": "+30 PATK & +30 MATK & +30 MDEF"
+            "3": "+16 PATK, +16 MATK",
+            "4": "+18 PATK, +18 MATK",
+            "5": "+30 PATK, +30 MATK, +30 MDEF"
         },
         "atk_buff": {
-            "5": "Target: Delay [15%]"
+            "5": "Target: Delay [Chance: 15%, Value: 100]"
         }
     },
     "AF_ARMS_FF15_INGI_01": {
@@ -4342,12 +4342,12 @@
             }
         ],
         "stats": {
-            "3": "+5 PATK & +5 MATK & +2 Max Jewels",
-            "4": "+6 PATK & +6 MATK & +3 Max Jewels",
-            "5": "+20 PATK & +20 MATK & +10 Max Jewels"
+            "3": "+5 PATK, +5 MATK, +2 Max Jewels",
+            "4": "+6 PATK, +6 MATK, +3 Max Jewels",
+            "5": "+20 PATK, +20 MATK, +10 Max Jewels"
         },
         "atk_buff": {
-            "5": "Self: +10% PATK [25%]"
+            "5": "Self: +10% PATK [Chance: 25%, Turns: 3]"
         }
     },
     "AF_ARMS_FF15_GLAD_01": {
@@ -4373,12 +4373,12 @@
             }
         ],
         "stats": {
-            "3": "+8 HP & +5 PATK & +8 PDEF",
-            "4": "+9 HP & +6 PATK & +9 PDEF",
-            "5": "+30 HP & +20 PATK & +30 PDEF"
+            "3": "+8 HP, +5 PATK, +8 PDEF",
+            "4": "+9 HP, +6 PATK, +9 PDEF",
+            "5": "+30 HP, +20 PATK, +30 PDEF"
         },
         "atk_buff": {
-            "5": "Target: -20% PDEF [25%]"
+            "5": "Target: -20% PDEF [Chance: 25%, Turns: 2]"
         }
     },
     "AF_ARMS_FF15_ARAN_01": {
@@ -4404,12 +4404,12 @@
             }
         ],
         "stats": {
-            "3": "+16 PATK & +3 DEX",
-            "4": "+18 PATK & +4 DEX",
-            "5": "+30 PATK & +10 DEX & +50 HP"
+            "3": "+16 PATK, +3 DEX",
+            "4": "+18 PATK, +4 DEX",
+            "5": "+30 PATK, +10 DEX, +50 HP"
         },
         "atk_buff": {
-            "5": "Self: +2 JUMP [30%]"
+            "5": "Self: +2 JUMP [Chance: 30%, Turns: 1]"
         }
     },
     "AF_ARMO_FF15_SHIELD": {
@@ -4434,8 +4434,8 @@
             }
         ],
         "stats": {
-            "4": "+28 HP & +13 PDEF & +8 Max Jewels",
-            "5": "+50 HP & +30 PDEF & +20 Max Jewels"
+            "4": "+28 HP, +13 PDEF, +8 Max Jewels",
+            "5": "+50 HP, +30 PDEF, +20 Max Jewels"
         },
         "atk_buff": {}
     },
@@ -4463,12 +4463,12 @@
             }
         ],
         "stats": {
-            "4": "+36 PATK & +36 MATK & +8 Evasion Rate",
-            "5": "+40 PATK & +40 MATK & +10 Evasion Rate"
+            "4": "+36 PATK, +36 MATK, +8 Evasion Rate",
+            "5": "+40 PATK, +40 MATK, +10 Evasion Rate"
         },
         "atk_buff": {
-            "4": "Self: +1 MOVE [20%]",
-            "5": "Self: +1 MOVE [20%]"
+            "4": "Self: +1 MOVE [Chance: 20%, Turns: 2]",
+            "5": "Self: +1 MOVE [Chance: 20%, Turns: 2]"
         }
     },
     "AF_ARMS_WEA_02": {
@@ -4495,12 +4495,12 @@
             }
         ],
         "stats": {
-            "4": "+36 MATK & +36 LUCK & +26 Max Jewels",
-            "5": "+40 MATK & +40 LUCK & +30 Max Jewels"
+            "4": "+36 MATK, +36 LUCK, +26 Max Jewels",
+            "5": "+40 MATK, +40 LUCK, +30 Max Jewels"
         },
         "atk_buff": {
-            "4": "Self: +9 AGI [50%]",
-            "5": "Self: +10 AGI [50%]"
+            "4": "Self: +9 AGI [Chance: 50%, Turns: 2]",
+            "5": "Self: +10 AGI [Chance: 50%, Turns: 2]"
         }
     },
     "AF_ACCS_ACHA_01": {
@@ -4528,9 +4528,9 @@
             }
         ],
         "stats": {
-            "3": "+2 AGI & +5 Jewels Obtained & +2 Strike ATK",
-            "4": "+3 AGI & +6 Jewels Obtained & +2 Strike ATK",
-            "5": "+7 AGI & +15 Jewels Obtained & +5 Strike ATK"
+            "3": "+2 AGI, +5 Jewels Obtained, +2 Strike ATK",
+            "4": "+3 AGI, +6 Jewels Obtained, +2 Strike ATK",
+            "5": "+7 AGI, +15 Jewels Obtained, +5 Strike ATK"
         },
         "atk_buff": {}
     },
@@ -4559,9 +4559,9 @@
             }
         ],
         "stats": {
-            "3": "+19 HP & +2 Slash Res",
-            "4": "+22 HP & +2 Slash Res",
-            "5": "+50 HP & +5 Slash Res"
+            "3": "+19 HP, +2 Slash Res",
+            "4": "+22 HP, +2 Slash Res",
+            "5": "+50 HP, +5 Slash Res"
         },
         "atk_buff": {}
     },
@@ -4588,12 +4588,12 @@
             }
         ],
         "stats": {
-            "3": "+10 PATK & +11 CRIT",
-            "4": "+12 PATK & +14 CRIT",
-            "5": "+30 PATK & +30 CRIT & +15 Jewels Obtained"
+            "3": "+10 PATK, +11 CRIT",
+            "4": "+12 PATK, +14 CRIT",
+            "5": "+30 PATK, +30 CRIT, +15 Jewels Obtained"
         },
         "atk_buff": {
-            "5": "Target: Sleep [15%]"
+            "5": "Target: Sleep [Turns: 3, Chance: 15%, Value: 100]"
         }
     },
     "AF_ARMS_RH_RAIN_01": {
@@ -4619,12 +4619,12 @@
             }
         ],
         "stats": {
-            "4": "+44 PATK & +34 CRIT & +5 Missile Res",
-            "5": "+50 PATK & +40 CRIT & +10 Missile Res"
+            "4": "+44 PATK, +34 CRIT, +5 Missile Res",
+            "5": "+50 PATK, +40 CRIT, +10 Missile Res"
         },
         "atk_buff": {
-            "4": "Target: Charm [17%]",
-            "5": "Target: Charm [20%]"
+            "4": "Target: Charm [Turns: 3, Chance: 17%, Value: 100]",
+            "5": "Target: Charm [Turns: 3, Chance: 20%, Value: 100]"
         }
     },
     "AF_ARMS_SNI_04": {
@@ -4651,12 +4651,12 @@
             }
         ],
         "stats": {
-            "4": "+27 PATK & +35 DEX & +7 AGI",
-            "5": "+30 PATK & +40 DEX & +8 AGI"
+            "4": "+27 PATK, +35 DEX, +7 AGI",
+            "5": "+30 PATK, +40 DEX, +8 AGI"
         },
         "atk_buff": {
-            "4": "Target: -13 AGI [20%]",
-            "5": "Target: -15 AGI [20%]"
+            "4": "Target: -13 AGI [Chance: 20%, Turns: 2]",
+            "5": "Target: -15 AGI [Chance: 20%, Turns: 2]"
         }
     },
     "AF_ARMS_HUU_02": {
@@ -4683,12 +4683,12 @@
             }
         ],
         "stats": {
-            "4": "+30 MATK & +18 LUCK & +18 HP",
-            "5": "+50 MATK & +30 LUCK & +30 HP"
+            "4": "+30 MATK, +18 LUCK, +18 HP",
+            "5": "+50 MATK, +30 LUCK, +30 HP"
         },
         "atk_buff": {
-            "4": "Self: Quicken [18%]",
-            "5": "Self: Quicken [20%]"
+            "4": "Self: Quicken [Turns: 2, Chance: 18%, Value: 100]",
+            "5": "Self: Quicken [Turns: 2, Chance: 20%, Value: 100]"
         }
     },
     "AF_ARMS_HUU_03": {
@@ -4707,14 +4707,14 @@
         ],
         "ability": [],
         "stats": {
-            "3": "+18 MATK & +37 HP",
-            "4": "+21 MATK & +43 HP",
-            "5": "+25 MATK & +50 HP"
+            "3": "+18 MATK, +37 HP",
+            "4": "+21 MATK, +43 HP",
+            "5": "+25 MATK, +50 HP"
         },
         "atk_buff": {
-            "3": "Target: Bind [33%]",
-            "4": "Target: Bind [36%]",
-            "5": "Target: Bind [40%]"
+            "3": "Target: Bind [Turns: 3, Chance: 33%, Value: 100]",
+            "4": "Target: Bind [Turns: 3, Chance: 36%, Value: 100]",
+            "5": "Target: Bind [Turns: 3, Chance: 40%, Value: 100]"
         }
     },
     "AF_ARMS_RH_ERUK_01": {
@@ -4740,12 +4740,12 @@
             }
         ],
         "stats": {
-            "3": "+10 MATK & +11 DEX",
-            "4": "+12 MATK & +14 DEX",
-            "5": "+25 MATK & +30 DEX & +5 Initial Jewels"
+            "3": "+10 MATK, +11 DEX",
+            "4": "+12 MATK, +14 DEX",
+            "5": "+25 MATK, +30 DEX, +5 Initial Jewels"
         },
         "atk_buff": {
-            "5": "Self: +20% MATK [20%]"
+            "5": "Self: +20% MATK [Chance: 20%, Turns: 3]"
         }
     },
     "AF_ARMS_RH_ATO_01": {
@@ -4771,12 +4771,12 @@
             }
         ],
         "stats": {
-            "3": "+9 PATK & +9 DEX",
-            "4": "+11 PATK & +11 DEX",
-            "5": "+20 PATK & +20 DEX & +8 AGI"
+            "3": "+9 PATK, +9 DEX",
+            "4": "+11 PATK, +11 DEX",
+            "5": "+20 PATK, +20 DEX, +8 AGI"
         },
         "atk_buff": {
-            "5": "Self: +15 AGI [20%]"
+            "5": "Self: +15 AGI [Chance: 20%, Turns: 2]"
         }
     },
     "AF_ARMS_S_AMAT_00": {
@@ -4804,12 +4804,12 @@
             }
         ],
         "stats": {
-            "4": "+28 MATK & +28 LUCK",
-            "5": "+40 MATK & +40 LUCK & +10 AGI"
+            "4": "+28 MATK, +28 LUCK",
+            "5": "+40 MATK, +40 LUCK, +10 AGI"
         },
         "atk_buff": {
-            "4": "Self: +20% PDEF [30%]",
-            "5": "Self: +20% PDEF [30%]"
+            "4": "Self: +20% PDEF [Chance: 30%, Turns: 2]",
+            "5": "Self: +20% PDEF [Chance: 30%, Turns: 2]"
         }
     },
     "AF_ARMS_STR_02": {
@@ -4836,11 +4836,11 @@
             }
         ],
         "stats": {
-            "4": "+44 PATK & +44 PDEF",
-            "5": "+50 PATK & +50 PDEF"
+            "4": "+44 PATK, +44 PDEF",
+            "5": "+50 PATK, +50 PDEF"
         },
         "atk_buff": {
-            "5": "Self: Quicken [20%]"
+            "5": "Self: Quicken [Turns: 2, Chance: 20%, Value: 100]"
         }
     },
     "AF_ARMO_ARMOR_05": {
@@ -4859,8 +4859,8 @@
         ],
         "ability": [],
         "stats": {
-            "4": "+100 HP & +30 PDEF & +30 MDEF & +15 Reduced Jewel Cost",
-            "5": "+200 HP & +50 PDEF & +50 MDEF & +15 Reduced Jewel Cost"
+            "4": "+100 HP, +30 PDEF, +30 MDEF, +15 Used Jewels",
+            "5": "+200 HP, +50 PDEF, +50 MDEF, +15 Used Jewels"
         },
         "atk_buff": {}
     },
@@ -4889,12 +4889,12 @@
             }
         ],
         "stats": {
-            "3": "+17 PATK & +12 DEX & +2 AGI",
-            "4": "+18 PATK & +13 DEX & +2 AGI",
-            "5": "+30 PATK & +20 DEX & +5 AGI"
+            "3": "+17 PATK, +12 DEX, +2 AGI",
+            "4": "+18 PATK, +13 DEX, +2 AGI",
+            "5": "+30 PATK, +20 DEX, +5 AGI"
         },
         "atk_buff": {
-            "5": "Self: +20 Hit Rate [20%]"
+            "5": "Self: +20 Hit Rate [Chance: 20%, Turns: 3]"
         }
     },
     "AF_ARMS_S_YURI_00": {
@@ -4922,12 +4922,12 @@
             }
         ],
         "stats": {
-            "3": "+17 PATK & +12 PDEF & +2 AGI",
-            "4": "+18 PATK & +12 PDEF & +2 AGI",
-            "5": "+30 PATK & +15 PDEF & +5 AGI"
+            "3": "+17 PATK, +12 PDEF, +2 AGI",
+            "4": "+18 PATK, +12 PDEF, +2 AGI",
+            "5": "+30 PATK, +15 PDEF, +5 AGI"
         },
         "atk_buff": {
-            "5": "Self: +20% PDEF & +20% PATK [20%]"
+            "5": "Self: +20% PDEF, +20% PATK [Chance: 20%, Turns: 2]"
         }
     },
     "AF_ARMS_KAI_04": {
@@ -4954,12 +4954,12 @@
             }
         ],
         "stats": {
-            "4": "+34 PATK & +34 HP & +5 Initial Jewels",
-            "5": "+50 PATK & +50 HP & +10 Initial Jewels"
+            "4": "+34 PATK, +34 HP, +5 Initial Jewels",
+            "5": "+50 PATK, +50 HP, +10 Initial Jewels"
         },
         "atk_buff": {
-            "4": "Self: +30% PATK [20%]",
-            "5": "Self: +30% PATK [20%]"
+            "4": "Self: +30% PATK [Chance: 20%, Turns: 3]",
+            "5": "Self: +30% PATK [Chance: 20%, Turns: 3]"
         }
     },
     "AF_ACCS_RING_03": {
@@ -4986,8 +4986,8 @@
             }
         ],
         "stats": {
-            "4": "+20 PDEF & +9 Water Res & +9 Light Res & +54 HP",
-            "5": "+30 PDEF & +15 Water Res & +15 Light Res & +90 HP"
+            "4": "+20 PDEF, +9 Water Res, +9 Light Res, +54 HP",
+            "5": "+30 PDEF, +15 Water Res, +15 Light Res, +90 HP"
         },
         "atk_buff": {}
     },
@@ -5016,12 +5016,12 @@
             }
         ],
         "stats": {
-            "3": "+10 PATK & +10 CRIT & +3 Hit Rate",
-            "4": "+12 PATK & +12 CRIT & +4 Hit Rate",
-            "5": "+30 PATK & +30 CRIT & +15 Hit Rate"
+            "3": "+10 PATK, +10 CRIT, +3 Hit Rate",
+            "4": "+12 PATK, +12 CRIT, +4 Hit Rate",
+            "5": "+30 PATK, +30 CRIT, +15 Hit Rate"
         },
         "atk_buff": {
-            "5": "Self: +25 CRIT Rate [25%]"
+            "5": "Self: +25 CRIT Rate [Chance: 25%, Turns: 3]"
         }
     },
     "AF_ARMO_NOIN_01": {
@@ -5049,9 +5049,9 @@
             }
         ],
         "stats": {
-            "3": "+18 HP & +10 PDEF & +2 AGI",
-            "4": "+21 HP & +12 PDEF & +2 AGI",
-            "5": "+50 HP & +30 PDEF & +7 AGI"
+            "3": "+18 HP, +10 PDEF, +2 AGI",
+            "4": "+21 HP, +12 PDEF, +2 AGI",
+            "5": "+50 HP, +30 PDEF, +7 AGI"
         },
         "atk_buff": {}
     },
@@ -5080,12 +5080,12 @@
             }
         ],
         "stats": {
-            "3": "+10 MATK & +2 Evasion Rate & +6 Max Jewels",
-            "4": "+12 MATK & +2 Evasion Rate & +8 Max Jewels",
-            "5": "+30 MATK & +5 Evasion Rate & +20 Max Jewels"
+            "3": "+10 MATK, +2 Evasion Rate, +6 Max Jewels",
+            "4": "+12 MATK, +2 Evasion Rate, +8 Max Jewels",
+            "5": "+30 MATK, +5 Evasion Rate, +20 Max Jewels"
         },
         "atk_buff": {
-            "5": "Self: Jewel Auto Charge [30%]"
+            "5": "Self: Jewel Auto Charge [Turns: 3, Chance: 30%, Value: 100]"
         }
     },
     "AF_ARMS_SAM_04": {
@@ -5112,12 +5112,12 @@
             }
         ],
         "stats": {
-            "4": "+34 PATK & +34 HP & +26 DEX",
-            "5": "+50 PATK & +65 HP & +40 DEX"
+            "4": "+34 PATK, +34 HP, +26 DEX",
+            "5": "+50 PATK, +65 HP, +40 DEX"
         },
         "atk_buff": {
-            "4": "Self: +15% AGI [30%]",
-            "5": "Self: +15% AGI [30%]"
+            "4": "Self: +15% AGI [Chance: 30%, Turns: 2]",
+            "5": "Self: +15% AGI [Chance: 30%, Turns: 2]"
         }
     },
     "AF_ARMS_BEAST_03": {
@@ -5144,12 +5144,12 @@
             }
         ],
         "stats": {
-            "4": "+29 PATK & +37 HP & +7 AGI",
-            "5": "+45 PATK & +65 HP & +12 AGI"
+            "4": "+29 PATK, +37 HP, +7 AGI",
+            "5": "+45 PATK, +65 HP, +12 AGI"
         },
         "atk_buff": {
-            "4": "Self: +1 MOVE [30%]",
-            "5": "Self: +1 MOVE [30%]"
+            "4": "Self: +1 MOVE [Chance: 30%, Turns: 2]",
+            "5": "Self: +1 MOVE [Chance: 30%, Turns: 2]"
         }
     },
     "AF_ARMO_FUNDOSHI_02": {
@@ -5168,7 +5168,7 @@
         ],
         "ability": [],
         "stats": {
-            "5": "+50 HP & +6 AGI & +75 Debuff Res & +10 LUCK"
+            "5": "+50 HP, +6 AGI, +75 Debuff Res, +10 LUCK"
         },
         "atk_buff": {}
     },
@@ -5188,8 +5188,8 @@
         ],
         "ability": [],
         "stats": {
-            "4": "+102 HP & +14 All Status Res",
-            "5": "+200 HP & +30 All Status Res"
+            "4": "+102 HP, +14 All Status Res",
+            "5": "+200 HP, +30 All Status Res"
         },
         "atk_buff": {}
     },
@@ -5216,12 +5216,12 @@
             }
         ],
         "stats": {
-            "4": "+34 PATK & +30 DEX & +4 AGI",
-            "5": "+50 PATK & +40 DEX & +8 AGI"
+            "4": "+34 PATK, +30 DEX, +4 AGI",
+            "5": "+50 PATK, +40 DEX, +8 AGI"
         },
         "atk_buff": {
-            "4": "Self: +26 Hit Rate [30%]",
-            "5": "Self: +30 Hit Rate [30%]"
+            "4": "Self: +26 Hit Rate [Chance: 30%, Turns: 3]",
+            "5": "Self: +30 Hit Rate [Chance: 30%, Turns: 3]"
         }
     },
     "AF_ACCS_SQ_BELT_01": {
@@ -5239,8 +5239,8 @@
         ],
         "ability": [],
         "stats": {
-            "4": "+141 HP & +18 PDEF",
-            "5": "+250 HP & +25 PDEF"
+            "4": "+141 HP, +18 PDEF",
+            "5": "+250 HP, +25 PDEF"
         },
         "atk_buff": {}
     },
@@ -5267,14 +5267,14 @@
             }
         ],
         "stats": {
-            "3": "+8 PDEF & +14 MDEF & +1 AGI",
-            "4": "+9 PDEF & +17 MDEF & +1 AGI",
-            "5": "+30 PDEF & +30 MDEF & +5 AGI"
+            "3": "+8 PDEF, +14 MDEF, +1 AGI",
+            "4": "+9 PDEF, +17 MDEF, +1 AGI",
+            "5": "+30 PDEF, +30 MDEF, +5 AGI"
         },
         "atk_buff": {
-            "3": "Self: +20% PDEF [30%]",
-            "4": "Self: +20% PDEF [30%]",
-            "5": "Self: +20% PDEF [30%]"
+            "3": "Self: +20% PDEF [Chance: 30%, Turns: 3]",
+            "4": "Self: +20% PDEF [Chance: 30%, Turns: 3]",
+            "5": "Self: +20% PDEF [Chance: 30%, Turns: 3]"
         }
     },
     "AF_ARMS_MAD_01": {
@@ -5301,12 +5301,12 @@
             }
         ],
         "stats": {
-            "4": "+30 MATK & +21 DEX & +10 Max Jewels",
-            "5": "+50 MATK & +40 DEX & +20 Max Jewels"
+            "4": "+30 MATK, +21 DEX, +10 Max Jewels",
+            "5": "+50 MATK, +40 DEX, +20 Max Jewels"
         },
         "atk_buff": {
-            "4": "Self: +25% MATK [30%]",
-            "5": "Self: +25% MATK [30%]"
+            "4": "Self: +25% MATK [Chance: 30%, Turns: 3]",
+            "5": "Self: +25% MATK [Chance: 30%, Turns: 3]"
         }
     },
     "AF_ARMS_MAD_02": {
@@ -5325,14 +5325,14 @@
         ],
         "ability": [],
         "stats": {
-            "3": "+29 MATK & +6 AGI",
-            "4": "+34 MATK & +7 AGI",
-            "5": "+40 MATK & +8 AGI"
+            "3": "+29 MATK, +6 AGI",
+            "4": "+34 MATK, +7 AGI",
+            "5": "+40 MATK, +8 AGI"
         },
         "atk_buff": {
-            "3": "Self: Auto Heal [16%]",
-            "4": "Self: Auto Heal [18%]",
-            "5": "Self: Auto Heal [20%]"
+            "3": "Self: Auto Heal [Chance: 16%, Value: 100]",
+            "4": "Self: Auto Heal [Chance: 18%, Value: 100]",
+            "5": "Self: Auto Heal [Chance: 20%, Value: 100]"
         }
     },
     "AF_ARMO_ARMOR_06": {
@@ -5359,8 +5359,8 @@
             }
         ],
         "stats": {
-            "4": "+19 Max Jewels & +28 PDEF & +19 MDEF",
-            "5": "+30 Max Jewels & +40 PDEF & +30 MDEF"
+            "4": "+19 Max Jewels, +28 PDEF, +19 MDEF",
+            "5": "+30 Max Jewels, +40 PDEF, +30 MDEF"
         },
         "atk_buff": {}
     },
@@ -5387,14 +5387,14 @@
             }
         ],
         "stats": {
-            "3": "+19 MATK & +3 AGI & +11 LUCK",
-            "4": "+22 MATK & +4 AGI & +13 LUCK",
-            "5": "+30 MATK & +7 AGI & +20 LUCK"
+            "3": "+19 MATK, +3 AGI, +11 LUCK",
+            "4": "+22 MATK, +4 AGI, +13 LUCK",
+            "5": "+30 MATK, +7 AGI, +20 LUCK"
         },
         "atk_buff": {
-            "3": "Target: Daze [20%]",
-            "4": "Target: Daze [20%]",
-            "5": "Target: Daze [20%]"
+            "3": "Target: Daze [Chance: 20%, Value: 100]",
+            "4": "Target: Daze [Chance: 20%, Value: 100]",
+            "5": "Target: Daze [Chance: 20%, Value: 100]"
         }
     },
     "AF_ARMS_SPE_04": {
@@ -5421,12 +5421,12 @@
             }
         ],
         "stats": {
-            "4": "+18 PATK & +4 AGI & +13 CRIT & +4 CRIT Rate & +4 Hit Rate",
-            "5": "+40 PATK & +10 AGI & +30 CRIT & +10 CRIT Rate & +10 Hit Rate"
+            "4": "+18 PATK, +4 AGI, +13 CRIT, +4 CRIT Rate, +4 Hit Rate",
+            "5": "+40 PATK, +10 AGI, +30 CRIT, +10 CRIT Rate, +10 Hit Rate"
         },
         "atk_buff": {
-            "4": "Self: +43 PDEF [30%]",
-            "5": "Self: +50 PDEF [30%]"
+            "4": "Self: +43 PDEF [Chance: 30%, Turns: 2]",
+            "5": "Self: +50 PDEF [Chance: 30%, Turns: 2]"
         }
     },
     "AF_ACCS_EARRING_02": {
@@ -5453,8 +5453,8 @@
             }
         ],
         "stats": {
-            "4": "+4 AGI & +5 LUCK & +4 Jewels Obtained & +9 Paralyze Res",
-            "5": "+10 AGI & +12 LUCK & +10 Jewels Obtained & +20 Paralyze Res"
+            "4": "+4 AGI, +5 LUCK, +4 Jewels Obtained, +9 Paralyze Res",
+            "5": "+10 AGI, +12 LUCK, +10 Jewels Obtained, +20 Paralyze Res"
         },
         "atk_buff": {}
     },
@@ -5474,9 +5474,9 @@
         ],
         "ability": [],
         "stats": {
-            "3": "+18 HP & +12 PATK & +12 MATK & +2 AGI",
-            "4": "+21 HP & +14 PATK & +14 MATK & +3 AGI",
-            "5": "+50 HP & +35 PATK & +35 MATK & +8 AGI"
+            "3": "+18 HP, +12 PATK, +12 MATK, +2 AGI",
+            "4": "+21 HP, +14 PATK, +14 MATK, +3 AGI",
+            "5": "+50 HP, +35 PATK, +35 MATK, +8 AGI"
         },
         "atk_buff": {}
     },
@@ -5505,9 +5505,9 @@
             }
         ],
         "stats": {
-            "3": "+20 HP & +3 Hit Rate & +2 Fire Res",
-            "4": "+24 HP & +4 Hit Rate & +2 Fire Res",
-            "5": "+45 HP & +10 Hit Rate & +5 Fire Res"
+            "3": "+20 HP, +3 Hit Rate, +2 Fire Res",
+            "4": "+24 HP, +4 Hit Rate, +2 Fire Res",
+            "5": "+45 HP, +10 Hit Rate, +5 Fire Res"
         },
         "atk_buff": {}
     },
@@ -5535,8 +5535,8 @@
             }
         ],
         "stats": {
-            "4": "+35 MATK & +15 MDEF & +20 Max Jewels & +10 Daze",
-            "5": "+40 MATK & +20 MDEF & +35 Max Jewels & +15 Daze"
+            "4": "+35 MATK, +15 MDEF, +20 Max Jewels, +10 Daze",
+            "5": "+40 MATK, +20 MDEF, +35 Max Jewels, +15 Daze"
         },
         "atk_buff": {}
     },
@@ -5556,14 +5556,14 @@
         ],
         "ability": [],
         "stats": {
-            "3": "+20 MATK & +5 MDEF",
-            "4": "+25 MATK & +8 MDEF",
-            "5": "+35 MATK & +10 MDEF"
+            "3": "+20 MATK, +5 MDEF",
+            "4": "+25 MATK, +8 MDEF",
+            "5": "+35 MATK, +10 MDEF"
         },
         "atk_buff": {
-            "3": "Self: +20% MATK [30%]",
-            "4": "Self: +20% MATK [30%]",
-            "5": "Self: +20% MATK [30%]"
+            "3": "Self: +20% MATK [Chance: 30%, Turns: 3]",
+            "4": "Self: +20% MATK [Chance: 30%, Turns: 3]",
+            "5": "Self: +20% MATK [Chance: 30%, Turns: 3]"
         }
     },
     "AF_ARMS_NIN_05": {
@@ -5590,12 +5590,12 @@
             }
         ],
         "stats": {
-            "4": "+15 Initial Jewels & +25 PATK & +40 DEX",
-            "5": "+20 Initial Jewels & +30 PATK & +50 DEX"
+            "4": "+15 Initial Jewels, +25 PATK, +40 DEX",
+            "5": "+20 Initial Jewels, +30 PATK, +50 DEX"
         },
         "atk_buff": {
-            "4": "Self: +28 Evasion Rate [30%]",
-            "5": "Self: +30 Evasion Rate [30%]"
+            "4": "Self: +28 Evasion Rate [Chance: 30%, Turns: 2]",
+            "5": "Self: +30 Evasion Rate [Chance: 30%, Turns: 2]"
         }
     },
     "AF_ACCS_DOLL_02": {
@@ -5622,9 +5622,9 @@
             }
         ],
         "stats": {
-            "3": "+20 HP & +5 DEX & +2 CRIT Rate",
-            "4": "+50 HP & +10 DEX & +5 CRIT Rate",
-            "5": "+100 HP & +30 DEX & +15 CRIT Rate"
+            "3": "+20 HP, +5 DEX, +2 CRIT Rate",
+            "4": "+50 HP, +10 DEX, +5 CRIT Rate",
+            "5": "+100 HP, +30 DEX, +15 CRIT Rate"
         },
         "atk_buff": {}
     },
@@ -5652,8 +5652,8 @@
             }
         ],
         "stats": {
-            "4": "+20 MDEF & +3 Hit Rate & +20 Silence Res",
-            "5": "+30 MDEF & +10 Hit Rate & +40 Silence Res"
+            "4": "+20 MDEF, +3 Hit Rate, +20 Silence Res",
+            "5": "+30 MDEF, +10 Hit Rate, +40 Silence Res"
         },
         "atk_buff": {}
     },
@@ -5681,8 +5681,8 @@
             }
         ],
         "stats": {
-            "4": "+100 HP & +3 AGI & +20 Delay Res",
-            "5": "+150 HP & +5 AGI & +40 Delay Res"
+            "4": "+100 HP, +3 AGI, +20 Delay Res",
+            "5": "+150 HP, +5 AGI, +40 Delay Res"
         },
         "atk_buff": {}
     },
@@ -5709,10 +5709,10 @@
             }
         ],
         "stats": {
-            "2": "+3 PATK & +1 AGI & +3 DEX",
-            "3": "+7 PATK & +2 AGI & +7 DEX",
-            "4": "+13 PATK & +4 AGI & +13 DEX",
-            "5": "+30 PATK & +7 AGI & +30 DEX"
+            "2": "+3 PATK, +1 AGI, +3 DEX",
+            "3": "+7 PATK, +2 AGI, +7 DEX",
+            "4": "+13 PATK, +4 AGI, +13 DEX",
+            "5": "+30 PATK, +7 AGI, +30 DEX"
         },
         "atk_buff": {}
     },
@@ -5739,8 +5739,8 @@
             }
         ],
         "stats": {
-            "4": "+50 HP & +20 PDEF",
-            "5": "+150 HP & +50 PDEF & +10 Strike ATK"
+            "4": "+50 HP, +20 PDEF",
+            "5": "+150 HP, +50 PDEF, +10 Strike ATK"
         },
         "atk_buff": {}
     },
@@ -5767,10 +5767,10 @@
             }
         ],
         "stats": {
-            "2": "+5 MATK & +2 Initial Jewels",
-            "3": "+10 MATK & +5 Initial Jewels",
-            "4": "+15 MATK & +8 Initial Jewels & +5 Fire Res & +17 HP",
-            "5": "+30 MATK & +10 Initial Jewels & +10 Fire Res & +30 HP"
+            "2": "+5 MATK, +2 Initial Jewels",
+            "3": "+10 MATK, +5 Initial Jewels",
+            "4": "+15 MATK, +8 Initial Jewels, +5 Fire Res, +17 HP",
+            "5": "+30 MATK, +10 Initial Jewels, +10 Fire Res, +30 HP"
         },
         "atk_buff": {}
     },
@@ -5797,10 +5797,10 @@
             }
         ],
         "stats": {
-            "2": "+3 PATK & +5 DEX",
-            "3": "+8 PATK & +10 DEX",
-            "4": "+15 PATK & +20 DEX & +5 Slow",
-            "5": "+25 PATK & +30 DEX & +10 Slow"
+            "2": "+3 PATK, +5 DEX",
+            "3": "+8 PATK, +10 DEX",
+            "4": "+15 PATK, +20 DEX, +5 Slow",
+            "5": "+25 PATK, +30 DEX, +10 Slow"
         },
         "atk_buff": {}
     },
@@ -5828,12 +5828,12 @@
             }
         ],
         "stats": {
-            "4": "+22 PATK & +36 MATK & +10 Max Jewels",
-            "5": "+30 PATK & +50 MATK & +15 Max Jewels"
+            "4": "+22 PATK, +36 MATK, +10 Max Jewels",
+            "5": "+30 PATK, +50 MATK, +15 Max Jewels"
         },
         "atk_buff": {
-            "4": "Self: -15 Jewels Spent [30%]",
-            "5": "Self: -15 Jewels Spent [30%]"
+            "4": "Self: -15 Jewels Spent [Chance: 30%, Turns: 3]",
+            "5": "Self: -15 Jewels Spent [Chance: 30%, Turns: 3]"
         }
     },
     "AF_ACCS_BRACELET_02": {
@@ -5860,8 +5860,8 @@
             }
         ],
         "stats": {
-            "4": "+9 MATK & +36 MDEF & +6 Light",
-            "5": "+15 MATK & +50 MDEF & +8 Light"
+            "4": "+9 MATK, +36 MDEF, +6 Light",
+            "5": "+15 MATK, +50 MDEF, +8 Light"
         },
         "atk_buff": {}
     },
@@ -5887,8 +5887,8 @@
             }
         ],
         "stats": {
-            "4": "+7 AGI & +28 LUCK & +19 Stop Res",
-            "5": "+10 AGI & +40 LUCK & +60 Stop Res"
+            "4": "+7 AGI, +28 LUCK, +19 Stop Res",
+            "5": "+10 AGI, +40 LUCK, +60 Stop Res"
         },
         "atk_buff": {}
     },
@@ -5915,13 +5915,13 @@
             }
         ],
         "stats": {
-            "2": "+5 PATK & +1 Initial Jewels & +1 Jewels Obtained",
-            "3": "+10 PATK & +3 Initial Jewels & +2 Jewels Obtained",
-            "4": "+16 PATK & +5 Initial Jewels & +3 Jewels Obtained",
-            "5": "+35 PATK & +10 Initial Jewels & +5 Jewels Obtained"
+            "2": "+5 PATK, +1 Initial Jewels, +1 Jewels Obtained",
+            "3": "+10 PATK, +3 Initial Jewels, +2 Jewels Obtained",
+            "4": "+16 PATK, +5 Initial Jewels, +3 Jewels Obtained",
+            "5": "+35 PATK, +10 Initial Jewels, +5 Jewels Obtained"
         },
         "atk_buff": {
-            "5": "Target: Rage [30%]"
+            "5": "Target: Rage [Turns: 3, Chance: 30%, Value: 100]"
         }
     },
     "AF_ACCS_FA_PRID01_01": {
@@ -5947,10 +5947,10 @@
             }
         ],
         "stats": {
-            "2": "+3 PDEF & +5 MDEF",
-            "3": "+7 PDEF & +10 MDEF",
-            "4": "+13 PDEF & +15 MDEF",
-            "5": "+30 PDEF & +35 MDEF & +5 Pierce ATK"
+            "2": "+3 PDEF, +5 MDEF",
+            "3": "+7 PDEF, +10 MDEF",
+            "4": "+13 PDEF, +15 MDEF",
+            "5": "+30 PDEF, +35 MDEF, +5 Pierce ATK"
         },
         "atk_buff": {}
     },
@@ -5977,7 +5977,7 @@
             }
         ],
         "stats": {
-            "5": "+150 HP & +40 PATK & +30 Max Jewels & +10 Assist Single-Attack"
+            "5": "+150 HP, +40 PATK, +30 Max Jewels, +10 Single Target ATK"
         },
         "atk_buff": {}
     },
@@ -6005,8 +6005,8 @@
             }
         ],
         "stats": {
-            "4": "+52 HP & +10 Max Jewels & +9 Bind Res & +10 Daze Res",
-            "5": "+150 HP & +20 Max Jewels & +30 Bind Res & +30 Daze Res"
+            "4": "+52 HP, +10 Max Jewels, +9 Bind Res, +10 Daze Res",
+            "5": "+150 HP, +20 Max Jewels, +30 Bind Res, +30 Daze Res"
         },
         "atk_buff": {}
     },
@@ -6034,8 +6034,8 @@
             }
         ],
         "stats": {
-            "4": "+5 AGI & +11 CRIT Rate & +20 DEX",
-            "5": "+10 AGI & +20 CRIT Rate & +50 DEX"
+            "4": "+5 AGI, +11 CRIT Rate, +20 DEX",
+            "5": "+10 AGI, +20 CRIT Rate, +50 DEX"
         },
         "atk_buff": {}
     },
@@ -6055,7 +6055,7 @@
         ],
         "ability": [],
         "stats": {
-            "5": "+100 HP & +5 Evasion Rate & +15 LUCK"
+            "5": "+100 HP, +5 Evasion Rate, +15 LUCK"
         },
         "atk_buff": {}
     },
@@ -6075,7 +6075,7 @@
         ],
         "ability": [],
         "stats": {
-            "5": "+15 Missile Res & +25 Max Jewels & +12 Jewels Obtained & +50 Slow Res & +50 Bind Res"
+            "5": "+15 Missile Res, +25 Max Jewels, +12 Jewels Obtained, +50 Slow Res, +50 Bind Res"
         },
         "atk_buff": {}
     },
@@ -6104,7 +6104,7 @@
             }
         ],
         "stats": {
-            "5": "+15 MDEF & +25 Water Res & +6 Jewels Obtained"
+            "5": "+15 MDEF, +25 Water Res, +6 Jewels Obtained"
         },
         "atk_buff": {}
     },
@@ -6120,7 +6120,7 @@
         "link": "http://www.alchemistcodedb.com/gear/af-accs-gl-sieg-hat",
         "icon": "http://cdn.alchemistcodedb.com/images/items/icons/AF_ACCS_GL_SIEG_HAT.png",
         "inputs": [
-            "Sieg",
+            "Siegfried",
             "Wanderer's Hat"
         ],
         "ability": [
@@ -6128,14 +6128,14 @@
                 "name": "Winds of Favor",
                 "expr": "Raises Evasion rate and Slash ATK for 3 Turns",
                 "mapeff": " ",
-                "restriction": "Sieg",
+                "restriction": "Siegfried",
                 "iname": "SK_AF_ACCS_GL_SIEG_HAT_WA"
             }
         ],
         "stats": {
-            "3": "+68 HP & +7% All Statuses & +14 Initial Jewels & +3 LUCK & +13 Max Jewels",
-            "4": "+84 HP & +8% All Statuses & +17 Initial Jewels & +4 LUCK & +14 Max Jewels",
-            "5": "+100 HP & +10% All Statuses & +20 Initial Jewels & +5 LUCK & +15 Max Jewels"
+            "3": "+68 HP, +7% All Statuses, +14 Initial Jewels, +3 LUCK, +13 Max Jewels",
+            "4": "+84 HP, +8% All Statuses, +17 Initial Jewels, +4 LUCK, +14 Max Jewels",
+            "5": "+100 HP, +10% All Statuses, +20 Initial Jewels, +5 LUCK, +15 Max Jewels"
         },
         "atk_buff": {}
     }

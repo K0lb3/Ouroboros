@@ -1,6 +1,42 @@
 {
     "gachas": [
         {
+            "iname": "Weekend_Gacha_D01_PaidB14",
+            "cat": "",
+            "startat": 1530345600,
+            "endat": 1530431999,
+            "num": 10,
+            "name": "Weekend Grand Summon",
+            "cost": {
+                "coin_p": 1500
+            },
+            "asset_title": "tab_GL_015_02",
+            "asset_bg": "GachaImages_GL_Weekend_Grand_Batch14",
+            "detail_url": "Weekend_Grand_B14",
+            "units": [],
+            "ext_type": [
+                "limit_cnt",
+                "promise"
+            ],
+            "ext_param": {
+                "limit_cnt": {
+                    "rest": 1,
+                    "num": 1
+                }
+            },
+            "is_valid": 0,
+            "group": "",
+            "btext": "",
+            "confirm": "",
+            "bonus_items": [
+                {
+                    "iname": "IT_CV_GOLD3",
+                    "num": 20
+                }
+            ],
+            "pickup_art": []
+        },
+        {
             "iname": "3Step_Gacha_S1_B14a",
             "cat": "",
             "startat": 1530172800,
@@ -104,10 +140,10 @@
             "pickup_art": []
         },
         {
-            "iname": "Daily_Gacha_D01_S1_SoulB14",
+            "iname": "Daily_Gacha_D03_S1_SoulB14",
             "cat": "",
-            "startat": 1530172800,
-            "endat": 1530259199,
+            "startat": 1530345600,
+            "endat": 1530431999,
             "num": 10,
             "name": "Daily Soul Summon",
             "cost": {

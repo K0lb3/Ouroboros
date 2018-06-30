@@ -70,8 +70,7 @@ def gear():
 
         c['stats'] = {}
         for r in range(g['rini']+1, g['rmax']+2):
-            c['stats'][str(r)] = buff(
-                cmaster[cmaster[g['equip'+str(r)]]['t_buff']], (r+1)*5, 30)
+            c['stats'][str(r)] = buff(cmaster[cmaster[g['equip'+str(r)]]['t_buff']], (r+1)*5, 30)
 
         c['atk_buff'] = {}
         for r in range(g['rini']+1, g['rmax']+2):

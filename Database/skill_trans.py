@@ -16,3 +16,4 @@ for skl in master['Skill']:
     
 
 saveAsJSON(path+'\\Skills_gen.json',new)
+saveAsJSON(path+'\\Skills.json',skills)

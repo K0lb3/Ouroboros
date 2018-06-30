@@ -2427,7 +2427,13 @@
         "Assist_DecCT",
         "Assist_IncCT",
         "Resist_DecCT",
-        "Resist_IncCT"
+        "Resist_IncCT",
+        "Fire Special ATK",
+        "Water Special ATK",
+        "Wind Special ATK",
+        "Thunder Special ATK",
+        "Light Special ATK",
+        "Dark Special ATK"
     ],
     "PartyCondType": [
         "None",

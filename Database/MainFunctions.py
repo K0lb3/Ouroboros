@@ -220,9 +220,9 @@ def buff(buff, lv, mlv, array=False):
 
     mods=[
         '{value}{calc} {stat}'.format(
-            stat=SYS[mod['type']],
+            stat= SYS[mod['type']] if mod['type'] in SYS else mod['type'],
             value=withSign(TACScale(mod['value_ini'],mod['value_max'],lv,mlv)),
-            calc='%' if 'Scale' == mod['calc'] else ''
+            calc='%' if 'Scale' == mod['calc'] else '*Fixed*' if mod['calc']== 'Fixed' else ''
             )
         for mod in buff['buffs']
         ]
@@ -239,7 +239,6 @@ def buff(buff, lv, mlv, array=False):
         text+=', '.join(mods)
     if len(runt)!=0:
         text+=' [{runt}]'.format(runt=', '.join(runt))
-
     return text
 
 def condition(cond, lv,  mlv):      

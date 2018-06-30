@@ -55,6 +55,16 @@ def EnumToJson():
         except PermissionError:
             print('PermissionError:')
     
+    #Fix
+    enum['ParamTypes'].extend([
+        'Fire Special ATK',
+        'Water Special ATK',
+        'Wind Special ATK',
+        'Thunder Special ATK',
+        'Light Special ATK',
+        'Dark Special ATK'
+        ])
+
     saveAsJSON(path+'Enums.json',enum)
 
     with open(path+'sys.json', "rt", encoding='utf8') as f:

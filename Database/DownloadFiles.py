@@ -269,7 +269,7 @@ def get_files():
     #sys
     name='sys'
     print(name)
-    file = download(LolGL+name).replace("MagicAttack\": \"Modify MATK","MagicAttack\": \"Modify Magic ATK")
+    file = download(LolGL+name).replace("MagicAttack	Modify MATK","MagicAttack	Modify Magic ATK").replace('Modify ','')
     with open(path+name, "wt", encoding='utf-8') as f:
         f.write(file)
     saveAsJSON(name+'.json', convertSys(file))

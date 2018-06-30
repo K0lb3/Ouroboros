@@ -8,12 +8,12 @@ def Units():
         text = (loc[skill['iname']]['name']+"\n") if skill['iname'] in loc else ""
 
         if 't_buff' in skill:
-            text += buff(cMaster[skill['t_buff']], 2, 2).replace('%', '')
+            text += buff(cMaster[skill['t_buff']], 2, 2)
 
         if 't_cond' in skill:
             if 't_buff' in skill:
                 text += ' & '
-            text += condition(cMaster[skill['t_cond']], 2, 2).replace('[100%]', '')
+            text += condition(cMaster[skill['t_cond']], 2, 2).replace('[Chance: 100%]', '')
 
         return text
 
@@ -64,16 +64,19 @@ def Units():
             if found == 0:
                 max = 0
                 best = ""
-                for u in units:
-                    if 'tierlist' in units[u]:
+                for iname,obj in units.items():
+                    if 'tierlist' in obj:
                         continue
-                    sim = jellyfish.jaro_winkler(i, units[u]['name'])
-                    if sim > max:
-                        max = sim
-                        best = u
-                if max > 0.85:
+                    for inputs in obj['inputs']:
+                        sim = jellyfish.jaro_winkler(i, inputs.replace('Fate','[F/sn]'))
+                        if sim > max:
+                            max = sim
+                            best = iname
+                if max > 0.90:
                     units[best]['tierlist'] = tl[i]
                     print(i + ' to ' + best + ' sim: ' + str(max))
+                else:
+                    print('Not Found:',i,str(max),best)
 
         return units
 
@@ -158,7 +161,7 @@ def Units():
             'rarity': rarity(unit['rare'], unit['raremax']),
             'icon': 'http://cdn.alchemistcodedb.com/images/units/profiles/' + unit["img"] + ".png",
             'farm': pieces[unit['piece']] if ('piece' in unit and unit['piece'] in pieces) else [],
-            'leader skill': buff(mainc_[mainc_[unit['ls6']]['t_buff']], 2, 2) if ('ls6' in unit) and ('t_buff' in mainc_[unit['ls6']]) else "/",
+            'leader skill': buff(mainc_[mainc_[unit['ls6']]['t_buff']], 1, 2).replace('Restriction(s): ','').replace('Element: ','').replace('Country: ','').replace('\n',': ') if ('ls6' in unit) and ('t_buff' in mainc_[unit['ls6']]) else "/",
             'master ability': master_ability(unit, mainc_, loc) if 'ability' in unit else "",
             # 'shard quests': drops[unit['piece']],
             'link': 'http://www.alchemistcodedb.com/' + (''if iname in glc else 'jp/') + 'unit/' + iname.replace('UN_V2_', "").replace('_', "-").lower(),
@@ -187,7 +190,7 @@ def Units():
         }
         unitLevel=84
         for raw,con in stats.items():
-            units[iname]['stats'][con] = unit[raw] + math.floor((unit['m'+raw]-unit[raw]) / 99 * (unitLevel - 1))
+            units[iname]['stats'][con] = TACScale(unit[raw],unit['m'+raw],unitLevel,100)
 
 
         # add lore
@@ -230,6 +233,28 @@ def Units():
 
                 j += 1
 
+    # add collabs
+    #Gilg, Yomi, Selena,Vargas, eo1
+
+    # add weapon abilities
+
+    # add possible inputs
+    export = {}
+    for u in units:
+        unit = units[u]
+        if unit['name'] not in export:
+            units[u]['inputs'].append(unit['name'])
+            export[unit['name']] = u
+        if len(unit['inofficial']) > 1 and unit['inofficial'] not in export:
+            units[u]['inputs'].append(unit['inofficial'])
+            export[unit['inofficial']] = u
+
+        if len(unit['collab short']) > 1:
+            units[u]['inputs'].append(
+                unit['name'] + ' ' + unit['collab short'])
+            units[u]['inputs'].append(
+                unit['collab short'] + ' ' + unit['name'])
+
     # add tierlist
     units = add_tierlist(units)
 
@@ -268,27 +293,6 @@ def Units():
                     units[js['target_unit']]['jc '+str(j)] = jname
                     break
 
-    # add collabs
-    #Gilg, Yomi, Selena,Vargas, eo1
-
-    # add weapon abilities
-
-    # add possible inputs
-    export = {}
-    for u in units:
-        unit = units[u]
-        if unit['name'] not in export:
-            units[u]['inputs'].append(unit['name'])
-            export[unit['name']] = u
-        if len(unit['inofficial']) > 1 and unit['inofficial'] not in export:
-            units[u]['inputs'].append(unit['inofficial'])
-            export[unit['inofficial']] = u
-
-        if len(unit['collab short']) > 1:
-            units[u]['inputs'].append(
-                unit['name'] + ' ' + unit['collab short'])
-            units[u]['inputs'].append(
-                unit['collab short'] + ' ' + unit['name'])
 
     # add jp tag
     for u in units:

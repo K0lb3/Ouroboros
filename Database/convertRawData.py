@@ -1,18 +1,32 @@
-RawElement={
-    0: 'Fire',
-    1: 'Water',
-    2: 'Wind',
-    3: 'Thunder',
-    4: 'Light',
-    5: 'Dark',
-    6: '',
-    10:     'Fire',
-    100:    'Water',
-    1000:   'Thunder',
-    10000:  'Wind',
-    100000: 'Light',
-    111111: 'Dark'
-}
+RAWELEMENT={
+    0: '',
+    1: 'Fire',
+    2: 'Water',
+    3: 'Wind',
+    4: 'Thunder',
+    5: 'Light',
+    6: 'Dark',
+    10:    'Water',
+    100:   'Wind',
+    1000:  'Thunder',
+    10000: 'Light',
+    100000: 'Dark',
+    111111: ''
+    }
+
+RAWBIRTH = {
+    "その他": "Foreign World",
+    "エンヴィリア": "Envylia",
+    "スロウスシュタイン": "Slothstein",
+    "ルストブルグ": "Lustburg",
+    "サガ地方": "Saga Region",
+    "ラーストリス": "Wratharis",
+    "ワダツミ": "Wadatsumi",
+    "砂漠地帯": "Desert Zone",
+    "ノーザンブライド": "Northern Pride",
+    "グリードダイク": "Greed Dike",
+    "グラトニー＝フォス": "Gluttony Foss"
+    }
 
 
 def convertRawBuff(buff,SYS,ENUM):
@@ -24,11 +38,11 @@ def convertRawBuff(buff,SYS,ENUM):
     if 'buff' in buff:
         b['buki'] = buff['buki']
     if 'birth' in buff:
-        b['birth'] = buff['birth']
+        b['birth'] = RAWBIRTH[buff['birth']]
     if 'sex' in buff:
         b['sex'] =  ENUM['ESex'][buff['sex']]
     if 'elem' in buff:
-        b['elem'] =  RawElement[buff['elem']]
+        b['elem'] =  RAWELEMENT[buff['elem']]
     if 'rate' in buff:
         b['rate'] =  buff['rate']
     if 'turn' in buff:
@@ -49,18 +63,29 @@ def convertRawBuff(buff,SYS,ENUM):
     b['buffs']=[]
     use = ['type', 'vmax', 'vini','calc']
     for i in range(1, 11):
+        missing=[]
         for u in use:
             if (u+'0'+str(i)) in buff:
                 buff[u+str(i)] = buff[u+'0'+str(i)]
-        try:
-            b['buffs'].append({
-                'type':ENUM['ParamTypes'][buff['type'+str(i)]],
-                'value_ini':buff['vini'+str(i)],
-                'value_max':buff['vmax'+str(i)],
-                'calc':ENUM['SkillParamCalcTypes'][buff['calc'+str(i)]],
-            })
-        except:
-            pass
+            if u+str(i) not in buff:
+                missing.append(u)
+
+        if 'type'+str(i) not in buff or len(missing)>2:
+            continue
+
+        for u in missing:
+            buff[u+str(i)]=0
+
+        if buff['vini'+str(i)] == 0 and buff['vmax'+str(i)]==0:
+            continue
+         
+        b['buffs'].append({
+            'type':ENUM['ParamTypes'][buff['type'+str(i)]],
+            'value_ini':buff['vini'+str(i)],
+            'value_max':buff['vmax'+str(i)],
+            'calc':ENUM['SkillParamCalcTypes'][buff['calc'+str(i)]],
+        })
+
     return b
 
 def convertRawCondition(cond,SYS,ENUM):
@@ -76,7 +101,7 @@ def convertRawCondition(cond,SYS,ENUM):
     if 'sex' in cond:
         c['sex'] = ENUM['ESex'][cond['sex']]
     if 'elem' in cond:
-        c['elem'] = RawElement[cond['elem']]
+        c['elem'] = RAWELEMENT[cond['elem']]
     if 'cond' in cond:
         c['cond'] = ENUM['ESkillCondition'][cond['cond']]
     if 'type' in cond:
@@ -267,7 +292,7 @@ def convertRawSkill(skl,loc,ENUM):
   if "atk_det" in skl:
     skill["attack_detail"] = ENUM["AttackDetailTypes"][skl["atk_det"]]
   if "elem" in skl:
-    skill["element_type"] = RawElement[skl["elem"]]
+    skill["element_type"] = RAWELEMENT[skl["elem"]]
   if "ct_type" in skl:
     skill["cast_type"] = ENUM["ECastTypes"][skl["ct_type"]]
   if "react_d_type" in skl:
