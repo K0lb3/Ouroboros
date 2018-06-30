@@ -9,7 +9,7 @@ def saveAsJSON(name, var):
 def EnumToJson():
     # path to files
     path=os.path.dirname(os.path.realpath(__file__))+'\\res\\'
-    mypath = os.path.dirname(os.path.realpath(__file__))+'\\Assembly-CSharp\\SRPG\\'
+    mypath = os.path.dirname(os.path.realpath(__file__))+'\\Assembly_SRPG\\'
     files = os.listdir(mypath)
 
     # enum
@@ -30,6 +30,8 @@ def EnumToJson():
                 cEnum=[[],{}]
                 use=0
                 name=text[0]
+                if ' ' in name:
+                    name=name[:name.index(' ')]
                 bracket=0
 
                 for line in text[1:]:
@@ -41,10 +43,15 @@ def EnumToJson():
                         if bracket==0:
                             break
                     else: #normal entry
+                        if bracket!=1:
+                            continue
                         if '=' in line: # = 16, // 0x00000010"
-                            line=line.split(' = ')
-                            line[1]=line[1][:line[1].index(',')]
-                            cEnum[1][line[1]]=line[0]
+                            try:
+                                line=line.split(' = ',1)
+                                line[1]=line[1].rstrip(',').replace('L','')
+                                cEnum[1][int(line[1],0)]=line[0]
+                            except IndexError:
+                                continue
                         else:
                             cEnum[0].append(line.rstrip(','))
 
@@ -55,16 +62,6 @@ def EnumToJson():
         except PermissionError:
             print('PermissionError:')
     
-    #Fix
-    enum['ParamTypes'].extend([
-        'Fire Special ATK',
-        'Water Special ATK',
-        'Wind Special ATK',
-        'Thunder Special ATK',
-        'Light Special ATK',
-        'Dark Special ATK'
-        ])
-
     saveAsJSON(path+'Enums.json',enum)
 
     with open(path+'sys.json', "rt", encoding='utf8') as f:

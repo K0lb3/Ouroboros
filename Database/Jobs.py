@@ -2,8 +2,6 @@ from MainFunctions import *
 
 
 def job_stats(job, main):
-    global ParamTypes
-
     if type(job) == 'string':
         job = main[job]
     stats = {
@@ -20,26 +18,18 @@ def job_stats(job, main):
             item = main[r['eqid'+str(i)]]
             if 'skill' not in item:
                 continue
-            buff = main[main[item['skill']]['t_buff']]
-            for t in range(1, 9):
-                for u in used:
-                    if (u+'0'+str(t)) in buff:
-                        buff[u+str(t)] = buff[u+'0'+str(t)]
-                try:
-                    btyp = buff['type'+str(t)]
-                    if j == len(job['ranks'])-1:
-                        bmax = buff['vmax'+str(t)]
-                    else:
-                        bmax = buff['vini'+str(t)]
-                    try:
-                        unc[btyp] += bmax
-                    except:
-                        unc[btyp] = bmax
-                except KeyError:
-                    break
+            if j == len(job['ranks'])-1:
+                cbuff = buff(main[main[item['skill']]['t_buff']],2,2,True)
+            else:
+                cbuff = buff(main[main[item['skill']]['t_buff']],1,2,True)
 
-    for typ in unc:
-        stats[ParamTypes[str(typ)]] = unc[typ]
+            for b in cbuff:
+                if b['type'] not in unc:
+                    unc[b['type']]=0
+                unc[b['type']]+=b['value']
+
+    for typ,value in unc.items():
+        stats[SYS[typ]] = value
 
     return(stats)
 
