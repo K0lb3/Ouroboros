@@ -1187,6 +1187,15 @@
         "long des": "",
         "units": "Leticia"
     },
+    "JB_HENC_WIND": {
+        "iname": "JB_HENC_WIND",
+        "name": "Wind Elemental",
+        "japan": "Wind Spirit Controller\n風精霊彩師",
+        "kanji": "風精霊彩師",
+        "short des": "",
+        "long des": "",
+        "units": "Leafa"
+    },
     "JB_HUN": {
         "iname": "JB_HUN",
         "name": "Hunter",
@@ -2574,6 +2583,24 @@
         "long des": "",
         "units": "Teona ,Saber ,Forcas ,Mikoto ,Almira ,Achad ,Paladin ,Dartagnan ,Cordelia ,Carla"
     },
+    "JB_VAL_DEF": {
+        "iname": "JB_VAL_DEF",
+        "name": "Valkyrie: Sting",
+        "japan": "N/A",
+        "kanji": "聖縛のヴァルキリー",
+        "short des": "def focused",
+        "long des": "",
+        "units": "Teona"
+    },
+    "JB_VAL_LAN_JUMP": {
+        "iname": "JB_VAL_LAN_JUMP",
+        "name": "Valkyrie: Dayfall",
+        "japan": "N/A",
+        "kanji": "天墜のヴァルキリー",
+        "short des": "jump focused",
+        "long des": "",
+        "units": "Ahato, Carla, Cordelia"
+    },
     "JB_VANE_DAI": {
         "iname": "JB_VANE_DAI",
         "name": "Sage+",
@@ -2771,6 +2798,15 @@
         "short des": "",
         "long des": "",
         "units": "Yauras"
+    },
+    "JB_YOMI_KAM": {
+        "iname": "JB_YOMI_KAM",
+        "name": "Shrine Maiden+ : Moonlit Violet",
+        "japan": "Moonlit Violet\n籠紫の月影",
+        "kanji": "籠紫の月影",
+        "short des": "not really a Shrine Maiden",
+        "long des": "",
+        "units": "Yomi"
     },
     "JB_YUAN_NIN": {
         "iname": "JB_YUAN_NIN",
