@@ -399,13 +399,13 @@ async def tierlist(ctx):
     embed = discord.Embed(
         title="GL Tierlist",
         description="",
-        url='https://docs.google.com/spreadsheets/d/1DWeFk0wiPaDKAYEcmf_9LnMFYy1nBy2lPTNAX52LkPU/edit#gid=1081890459',
+        url='https://docs.google.com/spreadsheets/d/1DWeFk0wiPaDKAYEcmf_9LnMFYy1nBy2lPTNAX52LkPU/edit#gid=1801149599',
         color=0xeee657,
         )
     #icon
     #embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/453970242914353167/453978923844239362/Chibi_Lucian.png")
     #image
-    embed.set_image(url="https://i.imgur.com/crlzqAL.jpg")
+    embed.set_image(url="https://i.imgur.com/YhfqFHu.jpg")
     embed.set_footer(text='Tierlist by Game, Visualisation by Ｅｉｋｅ/アイケ', icon_url='')
     await ctx.send(embed=embed)
     await statistic(ctx, "Tierlist")
