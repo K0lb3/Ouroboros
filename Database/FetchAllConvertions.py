@@ -1,5 +1,6 @@
 import os
 import json
+from MainFunctions import ENUM
 
 def saveAsJSON(name, var):
     os.makedirs(name[:name.rindex("\\")], exist_ok=True)
@@ -10,10 +11,12 @@ def ConvertAssembly():
     # path to files
     path=os.path.dirname(os.path.realpath(__file__))+'\\res\\'
     mypath = os.path.dirname(os.path.realpath(__file__))+'\\Assembly_SRPG\\'
+    epath = os.path.dirname(os.path.realpath(__file__))+'\\genConvert\\'
     files = os.listdir(mypath)
 
     # Convert
     Convert = {}
+    Link={}
 
     for f in files:
         print(f)
@@ -27,11 +30,11 @@ def ConvertAssembly():
                 file=file[file.index(pre)+len(pre):].replace(' ','')
                 text=file.split('\n')
 
-                name=text[0][:-6] #removing  json)
+                name=text[0][:-5] #removing  json)
                 current=[]
                 bracket=0
 
-                for line in text[1:]:
+                for ind,line in enumerate(text,1):
                     line=line.lstrip(' ').rstrip(' ')
                     if line == '{':
                         bracket+=1
@@ -42,8 +45,11 @@ def ConvertAssembly():
                     else: #normal entry
                         try:
                             [new,old]=line.split('=',1)
-                            if 'this' in new and 'json' in old:
-                                    current.append((bracket,[new,old]))
+                            if 'this.' in new and 'json.' in old:
+                                if 'newstring' in line and '[index]' in text[ind+1]:
+                                    text[ind+1]=text[ind+1].replace('[index]','')
+                                    continue
+                                current.append((bracket,[new,old]))
                         except ValueError:
                             current.append((bracket,[line]))
 
@@ -51,8 +57,10 @@ def ConvertAssembly():
 
                 # convert to code
                 cText='def {name}(json):\n    this={b}'.format(name=name,b='{}')
+                this={}
+                Link[name]={}
                 for bracket, info in current:
-                    this={}
+                    #print(info)
                     indent=bracket*4
 
                     if len(info)==1:
@@ -60,13 +68,23 @@ def ConvertAssembly():
 
                     else:
                         #this inputs
-                        jtext=info[1]
+                        #this[][]preparation
+                        tdirs=info[0].split('.')[1:]
+                        if len(tdirs)>1:
+                            cThis=this
+                            for ind,var in enumerate(tdirs):
+                                if var not in cThis:
+                                    cThis[var]={}
+                                    cText+='{indent}this[\'{inputs}\']\n'.format(inputs='\'][\''.join(tdirs[:ind]),indent=' '*indent)
+                                cThis=cThis[var]
                         #if x is in json
+                        jtext=info[1]
                         j_index=jtext.index('json.')+5
-                        ind=j_index+1
+                        ind=j_index
                         jvar=''
-                        while jtext[ind+1].isalnum():
-                            jvar+=jtext[ind+1]
+                        while jtext[ind].isalnum() or jtext[ind]=='_':
+                            jvar+=jtext[ind]
+                            ind+=1
                         cText+='{indent}if \'{var}\' in json:\n'.format(indent=' '*indent,var=jvar)
                         #reforming json line
                         jtext=jtext.replace('.'+jvar,'[\''+jvar+'\']')
@@ -79,31 +97,27 @@ def ConvertAssembly():
                                 jtext=jtext.replace('('+param+')','')
 
                         indent+=4
-                        #this[][]preparation
-                        tdirs=info[0].split('.')[1:]
-
-                        if len(tdirs)>1:
-                            cThis=this
-                            for ind,var in enumerate(tdirs):
-                                if var not in cThis:
-                                    cThis[var]={}
-                                    cText+='{indent}this[\'{inputs}'+'\']\n'.format(inputs='\'][\''.join(tdirs[:ind]),indent=' '*indent)
-                                cThis=cThis[var]
                                 
                         #final statemant
                         cText+='{indent}{this} = {json}\n'.format(
                             indent=' '*indent,
-                            this= 'this[\'{inputs}'+'\']'.format(inputs='\'][\''.join(tdirs)),
+                            this= 'this[\'{inputs}\']'.format(inputs='\'][\''.join(tdirs)),
                             json= jtext
                             )
+                        Link[name]['.'.join(tdirs)]=jvar
                 cText+='return this\n'
 
-                Convert[name]=cText
+                Convert[name]=cText.replace(';','')
         except PermissionError:
             print('PermissionError:')
     
 
     saveAsJSON(path+'Convert_Try.json',Convert)
+    saveAsJSON(path+'Convert_Link.json',Link)
+    os.makedirs(epath, exist_ok=True)
+    for name,code in Convert.items():
+        with open(epath+name+'.py', "wt",encoding='utf8') as f:
+            f.write(code)
 
 
 
