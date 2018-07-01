@@ -1,60 +1,40 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_HealApWindow
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using GR;
-    using System;
+  [FlowNode.NodeType("UI/HealApWindow", 32741)]
+  [FlowNode.Pin(103, "Home", FlowNode.PinTypes.Input, 103)]
+  [FlowNode.Pin(104, "Quest", FlowNode.PinTypes.Input, 104)]
+  [FlowNode.Pin(105, "HealCoin", FlowNode.PinTypes.Output, 105)]
+  public class FlowNode_HealApWindow : FlowNode_GUI
+  {
+    private bool mIsQuest;
+    private HealAp mHealAp;
 
-    [Pin(0x69, "HealCoin", 1, 0x69), Pin(0x68, "Quest", 0, 0x68), Pin(0x67, "Home", 0, 0x67), NodeType("UI/HealApWindow", 0x7fe5)]
-    public class FlowNode_HealApWindow : FlowNode_GUI
+    public override void OnActivate(int pinID)
     {
-        private bool mIsQuest;
-        private HealAp mHealAp;
-
-        public FlowNode_HealApWindow()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void HealCoin()
-        {
-            base.ActivateOutputLinks(0x69);
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID == 0x67)
-            {
-                goto Label_0010;
-            }
-            if (pinID != 0x68)
-            {
-                goto Label_001F;
-            }
-        Label_0010:
-            this.mIsQuest = pinID == 0x68;
-            pinID = 100;
-        Label_001F:
-            base.OnActivate(pinID);
-            return;
-        }
-
-        protected override void OnCreatePinActive()
-        {
-            bool flag;
-            if (MonoSingleton<GameManager>.Instance.Player.IsHaveHealAPItems() == null)
-            {
-                goto Label_0044;
-            }
-            base.OnCreatePinActive();
-            this.mHealAp = base.Instance.GetComponentInChildren<HealAp>();
-            this.mHealAp.Refresh(this.mIsQuest, this);
-            goto Label_004A;
-        Label_0044:
-            this.HealCoin();
-        Label_004A:
-            return;
-        }
+      if (pinID == 103 || pinID == 104)
+      {
+        this.mIsQuest = pinID == 104;
+        pinID = 100;
+      }
+      base.OnActivate(pinID);
     }
-}
 
+    protected override void OnCreatePinActive()
+    {
+      base.OnCreatePinActive();
+      this.mHealAp = (HealAp) this.Instance.GetComponentInChildren<HealAp>();
+      this.mHealAp.Refresh(this.mIsQuest, this);
+    }
+
+    public void HealCoin()
+    {
+      this.ActivateOutputLinks(105);
+    }
+  }
+}

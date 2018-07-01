@@ -1,36 +1,29 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FriendFoundWindow
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
-
-    public class FriendFoundWindow : MonoBehaviour
+  public class FriendFoundWindow : MonoBehaviour
+  {
+    public FriendFoundWindow()
     {
-        public FriendFoundWindow()
-        {
-            base..ctor();
-            return;
-        }
-
-        private void Awake()
-        {
-            FriendData data;
-            UnitData data2;
-            data = GlobalVars.FoundFriend;
-            if (data == null)
-            {
-                goto Label_0018;
-            }
-            DataSource.Bind<FriendData>(base.get_gameObject(), data);
-        Label_0018:
-            data2 = data.Unit;
-            if (data2 == null)
-            {
-                goto Label_0031;
-            }
-            DataSource.Bind<UnitData>(base.get_gameObject(), data2);
-        Label_0031:
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Awake()
+    {
+      FriendData foundFriend = GlobalVars.FoundFriend;
+      if (foundFriend != null)
+        DataSource.Bind<FriendData>(((Component) this).get_gameObject(), foundFriend);
+      UnitData unit = foundFriend.Unit;
+      if (unit == null)
+        return;
+      DataSource.Bind<UnitData>(((Component) this).get_gameObject(), unit);
+    }
+  }
+}

@@ -1,227 +1,151 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.AbilityRankUpPointAddWindow
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Runtime.CompilerServices;
-    using UnityEngine;
-    using UnityEngine.Events;
-    using UnityEngine.UI;
+  [FlowNode.Pin(1, "Close", FlowNode.PinTypes.Output, 0)]
+  public class AbilityRankUpPointAddWindow : MonoBehaviour, IFlowInterface
+  {
+    [SerializeField]
+    private Text ConfirmText;
+    [SerializeField]
+    private Text FreeCoin;
+    [SerializeField]
+    private Text PaidCoin;
+    [SerializeField]
+    private Text CurrentAmountCoin;
+    [SerializeField]
+    private Button CancelButton;
+    [SerializeField]
+    private Button DecideButton;
+    [SerializeField]
+    private Slider SelectSlider;
+    [SerializeField]
+    private Button PlusButton;
+    [SerializeField]
+    private Button MinusButton;
+    [SerializeField]
+    private Text SelectTotalNum;
+    public AbilityRankUpPointAddWindow.DecideEvent OnDecide;
+    public AbilityRankUpPointAddWindow.CancelEvent OnCancel;
+    private GameManager gm;
 
-    [Pin(1, "Close", 1, 0)]
-    public class AbilityRankUpPointAddWindow : MonoBehaviour, IFlowInterface
+    public AbilityRankUpPointAddWindow()
     {
-        [SerializeField]
-        private Text ConfirmText;
-        [SerializeField]
-        private Text FreeCoin;
-        [SerializeField]
-        private Text PaidCoin;
-        [SerializeField]
-        private Text CurrentAmountCoin;
-        [SerializeField]
-        private Button CancelButton;
-        [SerializeField]
-        private Button DecideButton;
-        [SerializeField]
-        private Slider SelectSlider;
-        [SerializeField]
-        private Button PlusButton;
-        [SerializeField]
-        private Button MinusButton;
-        [SerializeField]
-        private Text SelectTotalNum;
-        public DecideEvent OnDecide;
-        public CancelEvent OnCancel;
-        private GameManager gm;
-
-        public AbilityRankUpPointAddWindow()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void Activated(int pinID)
-        {
-        }
-
-        private void Cancel()
-        {
-            if (this.OnCancel == null)
-            {
-                goto Label_0016;
-            }
-            this.OnCancel();
-        Label_0016:
-            FlowNode_GameObject.ActivateOutputLinks(this, 1);
-            return;
-        }
-
-        private void Decide()
-        {
-            if (this.OnDecide == null)
-            {
-                goto Label_0022;
-            }
-            this.OnDecide((int) this.SelectSlider.get_value());
-        Label_0022:
-            FlowNode_GameObject.ActivateOutputLinks(this, 1);
-            return;
-        }
-
-        private void OnAdd()
-        {
-            if ((this.SelectSlider != null) == null)
-            {
-                goto Label_003D;
-            }
-            this.SelectSlider.set_value(Mathf.Min(this.SelectSlider.get_maxValue(), this.SelectSlider.get_value() + 1f));
-        Label_003D:
-            return;
-        }
-
-        private void OnRemove()
-        {
-            if ((this.SelectSlider != null) == null)
-            {
-                goto Label_003D;
-            }
-            this.SelectSlider.set_value(Mathf.Max(this.SelectSlider.get_minValue(), this.SelectSlider.get_value() - 1f));
-        Label_003D:
-            return;
-        }
-
-        private unsafe void OnValueChanged(float value)
-        {
-            object[] objArray1;
-            int num;
-            int num2;
-            string str;
-            int num3;
-            num3 = (int) value;
-            this.SelectTotalNum.set_text("+" + &num3.ToString());
-            num = (int) this.SelectSlider.get_value();
-            num2 = this.gm.MasterParam.FixParam.AbilityRankupPointCoinRate * num;
-            objArray1 = new object[] { (int) num2, (int) num };
-            str = LocalizedText.Get("sys.CONFIRM_ABILITY_RANKUP_POINT_ADD", objArray1);
-            if ((this.ConfirmText != null) == null)
-            {
-                goto Label_0089;
-            }
-            this.ConfirmText.set_text(str);
-        Label_0089:
-            return;
-        }
-
-        private unsafe void Refresh()
-        {
-            object[] objArray1;
-            int num;
-            int num2;
-            int num3;
-            int num4;
-            int num5;
-            string str;
-            float num6;
-            if ((this.gm == null) == null)
-            {
-                goto Label_0012;
-            }
-            return;
-        Label_0012:
-            num = this.gm.Player.FreeCoin + this.gm.Player.ComCoin;
-            num2 = this.gm.Player.PaidCoin;
-            num3 = this.gm.Player.Coin;
-            if ((this.FreeCoin != null) == null)
-            {
-                goto Label_0079;
-            }
-            this.FreeCoin.set_text(&num.ToString());
-        Label_0079:
-            if ((this.PaidCoin != null) == null)
-            {
-                goto Label_009C;
-            }
-            this.PaidCoin.set_text(&num2.ToString());
-        Label_009C:
-            if ((this.CurrentAmountCoin != null) == null)
-            {
-                goto Label_00BF;
-            }
-            this.CurrentAmountCoin.set_text(&num3.ToString());
-        Label_00BF:
-            if ((this.SelectTotalNum != null) == null)
-            {
-                goto Label_00F9;
-            }
-            this.SelectTotalNum.set_text("+" + &this.SelectSlider.get_value().ToString());
-        Label_00F9:
-            num4 = (int) this.SelectSlider.get_value();
-            num5 = this.gm.MasterParam.FixParam.AbilityRankupPointCoinRate * num4;
-            objArray1 = new object[] { (int) num5, (int) num4 };
-            str = LocalizedText.Get("sys.CONFIRM_ABILITY_RANKUP_POINT_ADD", objArray1);
-            if ((this.ConfirmText != null) == null)
-            {
-                goto Label_0167;
-            }
-            this.ConfirmText.set_text(str);
-        Label_0167:
-            return;
-        }
-
-        private void Start()
-        {
-            int num;
-            int num2;
-            int num3;
-            if ((this.gm == null) == null)
-            {
-                goto Label_001C;
-            }
-            this.gm = MonoSingleton<GameManager>.GetInstanceDirect();
-        Label_001C:
-            if ((this.CancelButton != null) == null)
-            {
-                goto Label_0049;
-            }
-            this.CancelButton.get_onClick().AddListener(new UnityAction(this, this.Cancel));
-        Label_0049:
-            if ((this.DecideButton != null) == null)
-            {
-                goto Label_0076;
-            }
-            this.DecideButton.get_onClick().AddListener(new UnityAction(this, this.Decide));
-        Label_0076:
-            if ((this.PlusButton != null) == null)
-            {
-                goto Label_00A3;
-            }
-            this.PlusButton.get_onClick().AddListener(new UnityAction(this, this.OnAdd));
-        Label_00A3:
-            if ((this.MinusButton != null) == null)
-            {
-                goto Label_00D0;
-            }
-            this.MinusButton.get_onClick().AddListener(new UnityAction(this, this.OnRemove));
-        Label_00D0:
-            if ((this.SelectSlider != null) == null)
-            {
-                goto Label_0194;
-            }
-            num = this.gm.Player.AbilityRankUpCountNum;
-            num2 = this.gm.MasterParam.FixParam.AbilityRankUpPointMax - num;
-            num3 = Mathf.Min(this.gm.Player.Coin, Math.Min(this.gm.MasterParam.FixParam.AbilityRankUpPointAddMax, num2));
-            this.SelectSlider.set_minValue(1f);
-            this.SelectSlider.set_maxValue((float) num3);
-            this.SelectSlider.get_onValueChanged().AddListener(new UnityAction<float>(this, this.OnValueChanged));
-            this.SelectSlider.set_value(this.SelectSlider.get_minValue());
-        Label_0194:
-            this.Refresh();
-            return;
-        }
-
-        public delegate void CancelEvent();
-
-        public delegate void DecideEvent(int value);
+      base.\u002Ector();
     }
-}
 
+    private void Start()
+    {
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.gm, (UnityEngine.Object) null))
+        this.gm = MonoSingleton<GameManager>.GetInstanceDirect();
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.CancelButton, (UnityEngine.Object) null))
+      {
+        // ISSUE: method pointer
+        ((UnityEvent) this.CancelButton.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(Cancel)));
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.DecideButton, (UnityEngine.Object) null))
+      {
+        // ISSUE: method pointer
+        ((UnityEvent) this.DecideButton.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(Decide)));
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.PlusButton, (UnityEngine.Object) null))
+      {
+        // ISSUE: method pointer
+        ((UnityEvent) this.PlusButton.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OnAdd)));
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.MinusButton, (UnityEngine.Object) null))
+      {
+        // ISSUE: method pointer
+        ((UnityEvent) this.MinusButton.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OnRemove)));
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.SelectSlider, (UnityEngine.Object) null))
+      {
+        int num = Mathf.Min(this.gm.Player.Coin, Math.Min((int) this.gm.MasterParam.FixParam.AbilityRankUpPointAddMax, (int) this.gm.MasterParam.FixParam.AbilityRankUpPointMax - this.gm.Player.AbilityRankUpCountNum));
+        this.SelectSlider.set_minValue(1f);
+        this.SelectSlider.set_maxValue((float) num);
+        // ISSUE: method pointer
+        ((UnityEvent<float>) this.SelectSlider.get_onValueChanged()).AddListener(new UnityAction<float>((object) this, __methodptr(OnValueChanged)));
+        this.SelectSlider.set_value(this.SelectSlider.get_minValue());
+      }
+      this.Refresh();
+    }
+
+    private void Refresh()
+    {
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.gm, (UnityEngine.Object) null))
+        return;
+      int num1 = this.gm.Player.FreeCoin + this.gm.Player.ComCoin;
+      int paidCoin = this.gm.Player.PaidCoin;
+      int coin = this.gm.Player.Coin;
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.FreeCoin, (UnityEngine.Object) null))
+        this.FreeCoin.set_text(num1.ToString());
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.PaidCoin, (UnityEngine.Object) null))
+        this.PaidCoin.set_text(paidCoin.ToString());
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.CurrentAmountCoin, (UnityEngine.Object) null))
+        this.CurrentAmountCoin.set_text(coin.ToString());
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.SelectTotalNum, (UnityEngine.Object) null))
+        this.SelectTotalNum.set_text("+" + this.SelectSlider.get_value().ToString());
+      int num2 = (int) this.SelectSlider.get_value();
+      string str = LocalizedText.Get("sys.CONFIRM_ABILITY_RANKUP_POINT_ADD", (object) ((int) this.gm.MasterParam.FixParam.AbilityRankupPointCoinRate * num2), (object) num2);
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ConfirmText, (UnityEngine.Object) null))
+        return;
+      this.ConfirmText.set_text(str);
+    }
+
+    private void OnAdd()
+    {
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.SelectSlider, (UnityEngine.Object) null))
+        return;
+      this.SelectSlider.set_value(Mathf.Min(this.SelectSlider.get_maxValue(), this.SelectSlider.get_value() + 1f));
+    }
+
+    private void OnRemove()
+    {
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.SelectSlider, (UnityEngine.Object) null))
+        return;
+      this.SelectSlider.set_value(Mathf.Max(this.SelectSlider.get_minValue(), this.SelectSlider.get_value() - 1f));
+    }
+
+    private void Cancel()
+    {
+      if (this.OnCancel != null)
+        this.OnCancel();
+      FlowNode_GameObject.ActivateOutputLinks((Component) this, 1);
+    }
+
+    private void Decide()
+    {
+      if (this.OnDecide != null)
+        this.OnDecide((int) this.SelectSlider.get_value());
+      FlowNode_GameObject.ActivateOutputLinks((Component) this, 1);
+    }
+
+    private void OnValueChanged(float value)
+    {
+      this.SelectTotalNum.set_text("+" + ((int) value).ToString());
+      int num = (int) this.SelectSlider.get_value();
+      string str = LocalizedText.Get("sys.CONFIRM_ABILITY_RANKUP_POINT_ADD", (object) ((int) this.gm.MasterParam.FixParam.AbilityRankupPointCoinRate * num), (object) num);
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ConfirmText, (UnityEngine.Object) null))
+        return;
+      this.ConfirmText.set_text(str);
+    }
+
+    public void Activated(int pinID)
+    {
+    }
+
+    public delegate void DecideEvent(int value);
+
+    public delegate void CancelEvent();
+  }
+}

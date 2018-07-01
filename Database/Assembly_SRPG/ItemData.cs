@@ -1,311 +1,297 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ItemData
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+
+namespace SRPG
 {
-    using GR;
-    using System;
+  public class ItemData
+  {
+    private long mUniqueID;
+    private ItemParam mItemParam;
+    private RarityParam mRarityParam;
+    private int mNum;
+    private SkillData mSkill;
+    private ItemData.ItemFlags mFlags;
+    private bool mIsNew;
 
-    public class ItemData
+    public int No
     {
-        private long mUniqueID;
-        private ItemParam mItemParam;
-        private SRPG.RarityParam mRarityParam;
-        private SkillData mSkill;
-        private ItemFlags mFlags;
-        protected int mNum;
-        private bool mIsNew;
-
-        public ItemData()
-        {
-            base..ctor();
-            return;
-        }
-
-        public bool CheckEquipEnhanceMaterial()
-        {
-            return ((this.mItemParam == null) ? 0 : this.mItemParam.CheckEquipEnhanceMaterial());
-        }
-
-        public bool Deserialize(Json_Item json)
-        {
-            return ((json == null) ? 0 : this.Setup(json.iid, json.iname, json.num));
-        }
-
-        public void Gain(int num)
-        {
-            this.mNum = Math.Max(this.mNum + num, 0);
-            return;
-        }
-
-        public bool GetFlag(ItemFlags flag)
-        {
-            return ((0 == (this.mFlags & flag)) == 0);
-        }
-
-        public int GetRankCap()
-        {
-            if (this.mRarityParam == null)
-            {
-                goto Label_0021;
-            }
-            return this.mRarityParam.EquipEnhanceParam.rankcap;
-        Label_0021:
-            return 1;
-        }
-
-        public void ResetAllFlag(ItemFlags flag)
-        {
-            this.mFlags = 0;
-            return;
-        }
-
-        public void ResetFlag(ItemFlags flag)
-        {
-            this.mFlags &= ~flag;
-            return;
-        }
-
-        public void SetFlag(ItemFlags flag)
-        {
-            this.mFlags |= flag;
-            return;
-        }
-
-        public void SetNum(int num)
-        {
-            this.mNum = Math.Max(num, 0);
-            return;
-        }
-
-        public bool Setup(long iid, ItemParam itemParam, int num)
-        {
-            int num2;
-            this.mItemParam = itemParam;
-            this.mUniqueID = iid;
-            this.mNum = num;
-            if (string.IsNullOrEmpty(this.mItemParam.skill) != null)
-            {
-                goto Label_0055;
-            }
-            num2 = 1;
-            this.mSkill = new SkillData();
-            this.mSkill.Setup(this.mItemParam.skill, num2, this.GetRankCap(), null);
-        Label_0055:
-            return 1;
-        }
-
-        public bool Setup(long iid, string iname, int num)
-        {
-            GameManager manager;
-            int num2;
-            manager = MonoSingleton<GameManager>.GetInstanceDirect();
-            this.mItemParam = manager.GetItemParam(iname);
-            DebugUtility.Assert((this.mItemParam == null) == 0, "Failed ItemParam iname \"" + iname + "\" not found.");
-            this.mRarityParam = manager.GetRarityParam(this.mItemParam.rare);
-            this.mUniqueID = iid;
-            this.mNum = num;
-            if (string.IsNullOrEmpty(this.mItemParam.skill) != null)
-            {
-                goto Label_0099;
-            }
-            num2 = 1;
-            this.mSkill = new SkillData();
-            this.mSkill.Setup(this.mItemParam.skill, num2, this.GetRankCap(), null);
-        Label_0099:
-            return 1;
-        }
-
-        public override string ToString()
-        {
-            return (((this.mItemParam == null) ? "None" : this.mItemParam.name) + base.GetType().FullName);
-        }
-
-        public void Used(int num)
-        {
-            this.mNum = Math.Max(this.mNum - num, 0);
-            return;
-        }
-
-        public int No
-        {
-            get
-            {
-                return this.mItemParam.no;
-            }
-        }
-
-        public long UniqueID
-        {
-            get
-            {
-                return this.mUniqueID;
-            }
-        }
-
-        public ItemParam Param
-        {
-            get
-            {
-                return this.mItemParam;
-            }
-        }
-
-        public string ItemID
-        {
-            get
-            {
-                return ((this.mItemParam == null) ? null : this.mItemParam.iname);
-            }
-        }
-
-        public int Num
-        {
-            get
-            {
-                if (this.mItemParam == null)
-                {
-                    goto Label_0022;
-                }
-                return Math.Min(this.mNum, this.mItemParam.cap);
-            Label_0022:
-                return this.mNum;
-            }
-        }
-
-        public int NumNonCap
-        {
-            get
-            {
-                return this.mNum;
-            }
-        }
-
-        public SkillData Skill
-        {
-            get
-            {
-                return this.mSkill;
-            }
-        }
-
-        public bool IsUsed
-        {
-            get
-            {
-                return (this.mNum > 0);
-            }
-        }
-
-        public EItemType ItemType
-        {
-            get
-            {
-                return ((this.mItemParam == null) ? 0 : this.mItemParam.type);
-            }
-        }
-
-        public int Rarity
-        {
-            get
-            {
-                return ((this.mItemParam == null) ? 0 : this.mItemParam.rare);
-            }
-        }
-
-        public SRPG.RarityParam RarityParam
-        {
-            get
-            {
-                return this.mRarityParam;
-            }
-        }
-
-        public int HaveCap
-        {
-            get
-            {
-                return ((this.mItemParam == null) ? 0 : this.mItemParam.cap);
-            }
-        }
-
-        public int InventoryCap
-        {
-            get
-            {
-                return ((this.mItemParam == null) ? 0 : this.mItemParam.invcap);
-            }
-        }
-
-        public int Buy
-        {
-            get
-            {
-                return ((this.mItemParam == null) ? 0 : this.mItemParam.buy);
-            }
-        }
-
-        public int Sell
-        {
-            get
-            {
-                return ((this.mItemParam == null) ? 0 : this.mItemParam.sell);
-            }
-        }
-
-        public RecipeParam Recipe
-        {
-            get
-            {
-                return ((this.mItemParam == null) ? null : this.mItemParam.Recipe);
-            }
-        }
-
-        public bool IsNew
-        {
-            get
-            {
-                return this.GetFlag(1);
-            }
-            set
-            {
-                if (value == null)
-                {
-                    goto Label_0012;
-                }
-                this.SetFlag(1);
-                goto Label_0019;
-            Label_0012:
-                this.ResetFlag(1);
-            Label_0019:
-                return;
-            }
-        }
-
-        public bool IsNewSkin
-        {
-            get
-            {
-                return this.GetFlag(2);
-            }
-            set
-            {
-                if (value == null)
-                {
-                    goto Label_0012;
-                }
-                this.SetFlag(2);
-                goto Label_0019;
-            Label_0012:
-                this.ResetFlag(2);
-            Label_0019:
-                return;
-            }
-        }
-
-        [Flags]
-        public enum ItemFlags
-        {
-            NewItem = 1,
-            NewSkin = 2
-        }
+      get
+      {
+        return this.mItemParam.no;
+      }
     }
-}
 
+    public long UniqueID
+    {
+      get
+      {
+        return this.mUniqueID;
+      }
+    }
+
+    public ItemParam Param
+    {
+      get
+      {
+        return this.mItemParam;
+      }
+    }
+
+    public string ItemID
+    {
+      get
+      {
+        if (this.mItemParam != null)
+          return this.mItemParam.iname;
+        return (string) null;
+      }
+    }
+
+    public int Num
+    {
+      get
+      {
+        if (this.mItemParam != null)
+          return Math.Min(this.mNum, (int) this.mItemParam.cap);
+        return this.mNum;
+      }
+    }
+
+    public int NumNonCap
+    {
+      get
+      {
+        return this.mNum;
+      }
+    }
+
+    public SkillData Skill
+    {
+      get
+      {
+        return this.mSkill;
+      }
+    }
+
+    public bool IsUsed
+    {
+      get
+      {
+        return this.mNum > 0;
+      }
+    }
+
+    public EItemType ItemType
+    {
+      get
+      {
+        if (this.mItemParam != null)
+          return this.mItemParam.type;
+        return EItemType.Used;
+      }
+    }
+
+    public int Rarity
+    {
+      get
+      {
+        if (this.mItemParam != null)
+          return (int) this.mItemParam.rare;
+        return 0;
+      }
+    }
+
+    public RarityParam RarityParam
+    {
+      get
+      {
+        return this.mRarityParam;
+      }
+    }
+
+    public int HaveCap
+    {
+      get
+      {
+        if (this.mItemParam != null)
+          return (int) this.mItemParam.cap;
+        return 0;
+      }
+    }
+
+    public int InventoryCap
+    {
+      get
+      {
+        if (this.mItemParam != null)
+          return (int) this.mItemParam.invcap;
+        return 0;
+      }
+    }
+
+    public int Buy
+    {
+      get
+      {
+        if (this.mItemParam != null)
+          return (int) this.mItemParam.buy;
+        return 0;
+      }
+    }
+
+    public int Sell
+    {
+      get
+      {
+        if (this.mItemParam != null)
+          return (int) this.mItemParam.sell;
+        return 0;
+      }
+    }
+
+    public RecipeParam Recipe
+    {
+      get
+      {
+        if (this.mItemParam != null)
+          return this.mItemParam.Recipe;
+        return (RecipeParam) null;
+      }
+    }
+
+    public void SetFlag(ItemData.ItemFlags flag)
+    {
+      this.mFlags |= flag;
+    }
+
+    public void ResetFlag(ItemData.ItemFlags flag)
+    {
+      this.mFlags &= ~flag;
+    }
+
+    public void ResetAllFlag(ItemData.ItemFlags flag)
+    {
+      this.mFlags = (ItemData.ItemFlags) 0;
+    }
+
+    public bool GetFlag(ItemData.ItemFlags flag)
+    {
+      return (ItemData.ItemFlags) 0 != (this.mFlags & flag);
+    }
+
+    public bool IsNew
+    {
+      get
+      {
+        return this.GetFlag(ItemData.ItemFlags.NewItem);
+      }
+      set
+      {
+        if (value)
+          this.SetFlag(ItemData.ItemFlags.NewItem);
+        else
+          this.ResetFlag(ItemData.ItemFlags.NewItem);
+      }
+    }
+
+    public bool IsNewSkin
+    {
+      get
+      {
+        return this.GetFlag(ItemData.ItemFlags.NewSkin);
+      }
+      set
+      {
+        if (value)
+          this.SetFlag(ItemData.ItemFlags.NewSkin);
+        else
+          this.ResetFlag(ItemData.ItemFlags.NewSkin);
+      }
+    }
+
+    public bool Deserialize(Json_Item json)
+    {
+      if (json != null)
+        return this.Setup(json.iid, json.iname, json.num);
+      return false;
+    }
+
+    public bool Setup(long iid, string iname, int num)
+    {
+      GameManager instanceDirect = MonoSingleton<GameManager>.GetInstanceDirect();
+      this.mItemParam = instanceDirect.GetItemParam(iname);
+      DebugUtility.Assert(this.mItemParam != null, "Failed ItemParam iname \"" + iname + "\" not found.");
+      this.mRarityParam = instanceDirect.GetRarityParam((int) this.mItemParam.rare);
+      this.mUniqueID = iid;
+      this.mNum = num;
+      if (!string.IsNullOrEmpty((string) this.mItemParam.skill))
+      {
+        int rank = 1;
+        this.mSkill = new SkillData();
+        this.mSkill.Setup((string) this.mItemParam.skill, rank, this.GetRankCap(), (MasterParam) null);
+      }
+      return true;
+    }
+
+    public bool Setup(long iid, ItemParam itemParam, int num)
+    {
+      this.mItemParam = itemParam;
+      this.mUniqueID = iid;
+      this.mNum = num;
+      if (!string.IsNullOrEmpty((string) this.mItemParam.skill))
+      {
+        int rank = 1;
+        this.mSkill = new SkillData();
+        this.mSkill.Setup((string) this.mItemParam.skill, rank, this.GetRankCap(), (MasterParam) null);
+      }
+      return true;
+    }
+
+    public void Gain(int num)
+    {
+      this.mNum = Math.Max(this.mNum + num, 0);
+    }
+
+    public void Used(int num)
+    {
+      this.mNum = Math.Max(this.mNum - num, 0);
+    }
+
+    public void SetNum(int num)
+    {
+      this.mNum = Math.Max(num, 0);
+    }
+
+    public override string ToString()
+    {
+      return (this.mItemParam == null ? "None" : this.mItemParam.name) + this.GetType().FullName;
+    }
+
+    public bool CheckEquipEnhanceMaterial()
+    {
+      if (this.mItemParam != null)
+        return this.mItemParam.CheckEquipEnhanceMaterial();
+      return false;
+    }
+
+    public int GetRankCap()
+    {
+      if (this.mRarityParam != null)
+        return (int) this.mRarityParam.EquipEnhanceParam.rankcap;
+      return 1;
+    }
+
+    [Flags]
+    public enum ItemFlags
+    {
+      NewItem = 1,
+      NewSkin = 2,
+    }
+  }
+}

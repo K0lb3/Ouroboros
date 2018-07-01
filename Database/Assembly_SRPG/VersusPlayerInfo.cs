@@ -1,69 +1,46 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.VersusPlayerInfo
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  public class VersusPlayerInfo : MonoBehaviour
+  {
+    public GameObject template;
+    public GameObject parent;
 
-    public class VersusPlayerInfo : MonoBehaviour
+    public VersusPlayerInfo()
     {
-        public GameObject template;
-        public GameObject parent;
-
-        public VersusPlayerInfo()
-        {
-            base..ctor();
-            return;
-        }
-
-        private void RefreshData()
-        {
-            JSON_MyPhotonPlayerParam param;
-            int num;
-            GameObject obj2;
-            param = GlobalVars.SelectedMultiPlayerParam;
-            if (param == null)
-            {
-                goto Label_0080;
-            }
-            num = 0;
-            goto Label_0072;
-        Label_0013:
-            if (param.units[num] != null)
-            {
-                goto Label_0025;
-            }
-            goto Label_006E;
-        Label_0025:
-            obj2 = Object.Instantiate<GameObject>(this.template);
-            if ((obj2 != null) == null)
-            {
-                goto Label_0050;
-            }
-            DataSource.Bind<UnitData>(obj2, param.units[num].unit);
-        Label_0050:
-            obj2.SetActive(1);
-            obj2.get_transform().SetParent(this.parent.get_transform(), 0);
-        Label_006E:
-            num += 1;
-        Label_0072:
-            if (num < ((int) param.units.Length))
-            {
-                goto Label_0013;
-            }
-        Label_0080:
-            return;
-        }
-
-        private void Start()
-        {
-            if ((this.template == null) == null)
-            {
-                goto Label_0012;
-            }
-            return;
-        Label_0012:
-            this.RefreshData();
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Start()
+    {
+      if (Object.op_Equality((Object) this.template, (Object) null))
+        return;
+      this.RefreshData();
+    }
+
+    private void RefreshData()
+    {
+      JSON_MyPhotonPlayerParam multiPlayerParam = GlobalVars.SelectedMultiPlayerParam;
+      if (multiPlayerParam == null)
+        return;
+      for (int index = 0; index < multiPlayerParam.units.Length; ++index)
+      {
+        if (multiPlayerParam.units[index] != null)
+        {
+          GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.template);
+          if (Object.op_Inequality((Object) gameObject, (Object) null))
+            DataSource.Bind<UnitData>(gameObject, multiPlayerParam.units[index].unit);
+          gameObject.SetActive(true);
+          gameObject.get_transform().SetParent(this.parent.get_transform(), false);
+        }
+      }
+    }
+  }
+}

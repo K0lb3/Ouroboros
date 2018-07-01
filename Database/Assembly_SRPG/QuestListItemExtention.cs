@@ -1,103 +1,72 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.QuestListItemExtention
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
-    using UnityEngine.UI;
+  public class QuestListItemExtention : MonoBehaviour, IGameParameter
+  {
+    [SerializeField]
+    private LayoutElement m_LayoutElement;
+    private Vector2 m_InitialLayoutElementMinSize;
+    private Vector2 m_InitialLayoutElementPreferredSize;
 
-    public class QuestListItemExtention : MonoBehaviour, IGameParameter
+    public QuestListItemExtention()
     {
-        [SerializeField]
-        private LayoutElement m_LayoutElement;
-        private Vector2 m_InitialLayoutElementMinSize;
-        private Vector2 m_InitialLayoutElementPreferredSize;
-
-        public QuestListItemExtention()
-        {
-            base..ctor();
-            return;
-        }
-
-        private unsafe void Start()
-        {
-            Vector2 vector;
-            Vector2 vector2;
-            vector = new Vector2();
-            vector2 = new Vector2();
-            &vector.x = this.m_LayoutElement.get_minWidth();
-            &vector.y = this.m_LayoutElement.get_minHeight();
-            &vector2.x = this.m_LayoutElement.get_preferredWidth();
-            &vector2.y = this.m_LayoutElement.get_minHeight();
-            this.m_InitialLayoutElementMinSize = vector;
-            this.m_InitialLayoutElementPreferredSize = vector2;
-            return;
-        }
-
-        private unsafe void Update()
-        {
-            object[] objArray1;
-            bool flag;
-            bool flag2;
-            int num;
-            RectTransform transform;
-            Vector2 vector;
-            Vector2 vector2;
-            Vector2 vector3;
-            Vector2 vector4;
-            this.m_LayoutElement.set_minHeight(160f);
-            flag = 0;
-            flag2 = base.get_gameObject().get_activeInHierarchy();
-            num = 0;
-            goto Label_0042;
-        Label_0025:
-            flag |= base.get_transform().GetChild(num).get_gameObject().get_activeInHierarchy();
-            num += 1;
-        Label_0042:
-            if (num < base.get_transform().get_childCount())
-            {
-                goto Label_0025;
-            }
-            base.get_gameObject().SetActive(flag);
-            base.set_enabled(0);
-            if (flag == null)
-            {
-                goto Label_0114;
-            }
-            transform = base.GetComponent<RectTransform>();
-            if (&this.m_InitialLayoutElementMinSize.x == 0f)
-            {
-                goto Label_00A7;
-            }
-            this.m_LayoutElement.set_minWidth(&transform.get_sizeDelta().x);
-            goto Label_00C1;
-        Label_00A7:
-            this.m_LayoutElement.set_preferredWidth(&transform.get_sizeDelta().x);
-        Label_00C1:
-            if (&this.m_InitialLayoutElementMinSize.y == 0f)
-            {
-                goto Label_00F5;
-            }
-            this.m_LayoutElement.set_minHeight(&transform.get_sizeDelta().y);
-            goto Label_010F;
-        Label_00F5:
-            this.m_LayoutElement.set_preferredHeight(&transform.get_sizeDelta().y);
-        Label_010F:
-            goto Label_016C;
-        Label_0114:
-            this.m_LayoutElement.set_minWidth(&this.m_InitialLayoutElementMinSize.x);
-            this.m_LayoutElement.set_minHeight(&this.m_InitialLayoutElementMinSize.y);
-            this.m_LayoutElement.set_preferredWidth(&this.m_InitialLayoutElementPreferredSize.x);
-            this.m_LayoutElement.set_preferredHeight(&this.m_InitialLayoutElementPreferredSize.y);
-        Label_016C:
-            objArray1 = new object[] { (bool) flag2, " => ", (bool) flag, " child (", (int) base.get_transform().get_childCount(), ")" };
-            Debug.Log(string.Concat(objArray1));
-            return;
-        }
-
-        public void UpdateValue()
-        {
-            base.set_enabled(1);
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Start()
+    {
+      Vector2 vector2_1 = (Vector2) null;
+      Vector2 vector2_2 = (Vector2) null;
+      vector2_1.x = (__Null) (double) this.m_LayoutElement.get_minWidth();
+      vector2_1.y = (__Null) (double) this.m_LayoutElement.get_minHeight();
+      vector2_2.x = (__Null) (double) this.m_LayoutElement.get_preferredWidth();
+      vector2_2.y = (__Null) (double) this.m_LayoutElement.get_minHeight();
+      this.m_InitialLayoutElementMinSize = vector2_1;
+      this.m_InitialLayoutElementPreferredSize = vector2_2;
+    }
+
+    public void UpdateValue()
+    {
+      ((Behaviour) this).set_enabled(true);
+    }
+
+    private void Update()
+    {
+      this.m_LayoutElement.set_minHeight(160f);
+      bool flag = false;
+      bool activeInHierarchy = ((Component) this).get_gameObject().get_activeInHierarchy();
+      for (int index = 0; index < ((Component) this).get_transform().get_childCount(); ++index)
+        flag |= ((Component) ((Component) this).get_transform().GetChild(index)).get_gameObject().get_activeInHierarchy();
+      ((Component) this).get_gameObject().SetActive(flag);
+      ((Behaviour) this).set_enabled(false);
+      if (flag)
+      {
+        RectTransform component = (RectTransform) ((Component) this).GetComponent<RectTransform>();
+        if (this.m_InitialLayoutElementMinSize.x != 0.0)
+          this.m_LayoutElement.set_minWidth((float) component.get_sizeDelta().x);
+        else
+          this.m_LayoutElement.set_preferredWidth((float) component.get_sizeDelta().x);
+        if (this.m_InitialLayoutElementMinSize.y != 0.0)
+          this.m_LayoutElement.set_minHeight((float) component.get_sizeDelta().y);
+        else
+          this.m_LayoutElement.set_preferredHeight((float) component.get_sizeDelta().y);
+      }
+      else
+      {
+        this.m_LayoutElement.set_minWidth((float) this.m_InitialLayoutElementMinSize.x);
+        this.m_LayoutElement.set_minHeight((float) this.m_InitialLayoutElementMinSize.y);
+        this.m_LayoutElement.set_preferredWidth((float) this.m_InitialLayoutElementPreferredSize.x);
+        this.m_LayoutElement.set_preferredHeight((float) this.m_InitialLayoutElementPreferredSize.y);
+      }
+      Debug.Log((object) (activeInHierarchy.ToString() + " => " + (object) flag + " child (" + (object) ((Component) this).get_transform().get_childCount() + ")"));
+    }
+  }
+}

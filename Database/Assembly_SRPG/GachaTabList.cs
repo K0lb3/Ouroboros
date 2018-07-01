@@ -1,73 +1,56 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.GachaTabList
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  public class GachaTabList : MonoBehaviour, IFlowInterface
+  {
+    [SerializeField]
+    private GameObject TabTemplate;
+    [SerializeField]
+    private GameObject RareTab;
+    [SerializeField]
+    private GameObject NormalTab;
+    [SerializeField]
+    private GameObject ArtifactTab;
+    [SerializeField]
+    private GameObject TicketTab;
 
-    public class GachaTabList : MonoBehaviour, IFlowInterface
+    public GachaTabList()
     {
-        [SerializeField]
-        private GameObject TabTemplate;
-        [SerializeField]
-        private GameObject RareTab;
-        [SerializeField]
-        private GameObject NormalTab;
-        [SerializeField]
-        private GameObject ArtifactTab;
-        [SerializeField]
-        private GameObject TicketTab;
-
-        public GachaTabList()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void Activated(int pinID)
-        {
-        }
-
-        private void Refresh()
-        {
-        }
-
-        private void Start()
-        {
-            if ((this.TabTemplate != null) == null)
-            {
-                goto Label_001D;
-            }
-            this.TabTemplate.SetActive(0);
-        Label_001D:
-            if ((this.RareTab != null) == null)
-            {
-                goto Label_003A;
-            }
-            this.RareTab.SetActive(0);
-        Label_003A:
-            if ((this.NormalTab != null) == null)
-            {
-                goto Label_0057;
-            }
-            this.NormalTab.SetActive(0);
-        Label_0057:
-            if ((this.ArtifactTab != null) == null)
-            {
-                goto Label_0074;
-            }
-            this.ArtifactTab.SetActive(0);
-        Label_0074:
-            if ((this.TicketTab != null) == null)
-            {
-                goto Label_0091;
-            }
-            this.TicketTab.SetActive(0);
-        Label_0091:
-            return;
-        }
-
-        private void Update()
-        {
-        }
+      base.\u002Ector();
     }
-}
 
+    public void Activated(int pinID)
+    {
+    }
+
+    private void Start()
+    {
+      if (Object.op_Inequality((Object) this.TabTemplate, (Object) null))
+        this.TabTemplate.SetActive(false);
+      if (Object.op_Inequality((Object) this.RareTab, (Object) null))
+        this.RareTab.SetActive(false);
+      if (Object.op_Inequality((Object) this.NormalTab, (Object) null))
+        this.NormalTab.SetActive(false);
+      if (Object.op_Inequality((Object) this.ArtifactTab, (Object) null))
+        this.ArtifactTab.SetActive(false);
+      if (!Object.op_Inequality((Object) this.TicketTab, (Object) null))
+        return;
+      this.TicketTab.SetActive(false);
+    }
+
+    private void Update()
+    {
+    }
+
+    private void Refresh()
+    {
+    }
+  }
+}

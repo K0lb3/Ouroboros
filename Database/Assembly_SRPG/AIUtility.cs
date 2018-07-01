@@ -1,53 +1,24 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.AIUtility
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    public static class AIUtility
+  public static class AIUtility
+  {
+    public static bool IsFailCondition(EUnitCondition condition)
     {
-        public static bool IsFailCondition(EUnitCondition condition)
-        {
-            if (condition == 0x80000L)
-            {
-                goto Label_0048;
-            }
-            if (condition == 0x400000L)
-            {
-                goto Label_0048;
-            }
-            if (condition == 0x800000L)
-            {
-                goto Label_0048;
-            }
-            if (condition == 0x20000L)
-            {
-                goto Label_0048;
-            }
-            if (condition == 0x8000L)
-            {
-                goto Label_0048;
-            }
-            if (condition != 0x2000L)
-            {
-                goto Label_004A;
-            }
-        Label_0048:
-            return 0;
-        Label_004A:
-            return 1;
-        }
-
-        public static bool IsFailCondition(Unit self, Unit target, EUnitCondition condition)
-        {
-            bool flag;
-            flag = SceneBattle.Instance.Battle.CheckEnemySide(self, target);
-            if (IsFailCondition(condition) == null)
-            {
-                goto Label_001F;
-            }
-            return flag;
-        Label_001F:
-            return (flag == 0);
-        }
+      return condition != EUnitCondition.AutoHeal && condition != EUnitCondition.GoodSleep && (condition != EUnitCondition.AutoJewel && condition != EUnitCondition.Fast) && (condition != EUnitCondition.DisableDebuff && condition != EUnitCondition.DisableKnockback);
     }
-}
 
+    public static bool IsFailCondition(Unit self, Unit target, EUnitCondition condition)
+    {
+      bool flag = SceneBattle.Instance.Battle.CheckEnemySide(self, target);
+      if (AIUtility.IsFailCondition(condition))
+        return flag;
+      return !flag;
+    }
+  }
+}

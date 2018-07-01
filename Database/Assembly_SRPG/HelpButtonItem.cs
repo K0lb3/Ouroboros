@@ -1,154 +1,85 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.HelpButtonItem
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using System.Runtime.CompilerServices;
-    using UnityEngine;
-    using UnityEngine.Events;
-    using UnityEngine.UI;
+  public class HelpButtonItem : MonoBehaviour
+  {
+    public GameObject HelpMainTemplate;
+    public GameObject m_MainWindowBase;
+    public GameObject m_HelpMain;
 
-    public class HelpButtonItem : MonoBehaviour
+    public HelpButtonItem()
     {
-        public GameObject HelpMainTemplate;
-        public GameObject m_MainWindowBase;
-        public GameObject m_HelpMain;
-
-        public HelpButtonItem()
-        {
-            base..ctor();
-            return;
-        }
-
-        [CompilerGenerated]
-        private UnityAction <UpdateParam>m__34A(int n)
-        {
-            <UpdateParam>c__AnonStorey34D storeyd;
-            storeyd = new <UpdateParam>c__AnonStorey34D();
-            storeyd.n = n;
-            storeyd.<>f__this = this;
-            return new UnityAction(storeyd, this.<>m__34B);
-        }
-
-        private void OnSelectMenu(int MenuID)
-        {
-            HelpWindow window;
-            window = base.get_transform().GetComponentInParent<HelpWindow>();
-            if ((window == null) == null)
-            {
-                goto Label_0019;
-            }
-            return;
-        Label_0019:
-            if (window.MiddleHelp == null)
-            {
-                goto Label_0030;
-            }
-            window.CreateMainWindow(MenuID);
-            goto Label_0038;
-        Label_0030:
-            window.UpdateHelpList(1, MenuID);
-        Label_0038:
-            return;
-        }
-
-        private void Start()
-        {
-        }
-
-        private void Update()
-        {
-        }
-
-        private void UpdateParam(int Idx)
-        {
-            HelpWindow window;
-            int num;
-            Transform transform;
-            LText text;
-            string str;
-            string str2;
-            int num2;
-            int num3;
-            int num4;
-            string str3;
-            Button button;
-            Func<int, UnityAction> func;
-            window = base.get_transform().GetComponentInParent<HelpWindow>();
-            if ((window == null) == null)
-            {
-                goto Label_0019;
-            }
-            return;
-        Label_0019:
-            num = Idx;
-            transform = base.get_transform().FindChild("Label");
-            if ((transform != null) == null)
-            {
-                goto Label_011C;
-            }
-            text = transform.GetComponent<LText>();
-            if (window.MiddleHelp == null)
-            {
-                goto Label_00FF;
-            }
-            str = LocalizedText.Get("help.MENU_CATE_NAME_" + ((int) (window.SelectMiddleID + 1)));
-            str2 = LocalizedText.Get("help.MENU_NUM");
-            if (string.IsNullOrEmpty(str2) == null)
-            {
-                goto Label_0081;
-            }
-            return;
-        Label_0081:
-            num2 = int.Parse(str2);
-            num3 = 0;
-            num4 = 0;
-            goto Label_00CC;
-        Label_0095:
-            str3 = LocalizedText.Get("help.MENU_CATE_" + ((int) (num4 + 1)));
-            if (string.Equals(str, str3) == null)
-            {
-                goto Label_00C6;
-            }
-            num3 = num4;
-            goto Label_00D5;
-        Label_00C6:
-            num4 += 1;
-        Label_00CC:
-            if (num4 < num2)
-            {
-                goto Label_0095;
-            }
-        Label_00D5:
-            text.set_text(LocalizedText.Get("help.MENU_" + ((int) ((num3 + Idx) + 1))));
-            num = num3 + Idx;
-            goto Label_011C;
-        Label_00FF:
-            text.set_text(LocalizedText.Get("help.MENU_CATE_NAME_" + ((int) (Idx + 1))));
-        Label_011C:
-            button = base.get_transform().GetComponent<Button>();
-            func = new Func<int, UnityAction>(this.<UpdateParam>m__34A);
-            button.get_onClick().RemoveAllListeners();
-            button.get_onClick().AddListener(func(num));
-            return;
-        }
-
-        [CompilerGenerated]
-        private sealed class <UpdateParam>c__AnonStorey34D
-        {
-            internal int n;
-            internal HelpButtonItem <>f__this;
-
-            public <UpdateParam>c__AnonStorey34D()
-            {
-                base..ctor();
-                return;
-            }
-
-            internal void <>m__34B()
-            {
-                this.<>f__this.OnSelectMenu(this.n);
-                return;
-            }
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Start()
+    {
+    }
+
+    private void Update()
+    {
+    }
+
+    private void UpdateParam(int Idx)
+    {
+      HelpWindow componentInParent = (HelpWindow) ((Component) ((Component) this).get_transform()).GetComponentInParent<HelpWindow>();
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) componentInParent, (UnityEngine.Object) null))
+        return;
+      int num1 = Idx;
+      Transform child = ((Component) this).get_transform().FindChild("Label");
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) child, (UnityEngine.Object) null))
+      {
+        LText component = (LText) ((Component) child).GetComponent<LText>();
+        if (componentInParent.MiddleHelp)
+        {
+          string a = LocalizedText.Get("help.MENU_CATE_NAME_" + (object) (componentInParent.SelectMiddleID + 1));
+          string s = LocalizedText.Get("help.MENU_NUM");
+          if (string.IsNullOrEmpty(s))
+            return;
+          int num2 = int.Parse(s);
+          int num3 = 0;
+          for (int index = 0; index < num2; ++index)
+          {
+            string b = LocalizedText.Get("help.MENU_CATE_" + (object) (index + 1));
+            if (string.Equals(a, b))
+            {
+              num3 = index;
+              break;
+            }
+          }
+          component.set_text(LocalizedText.Get("help.MENU_" + (object) (num3 + Idx + 1)));
+          num1 = num3 + Idx;
+        }
+        else
+          component.set_text(LocalizedText.Get("help.MENU_CATE_NAME_" + (object) (Idx + 1)));
+      }
+      Button component1 = (Button) ((Component) ((Component) this).get_transform()).GetComponent<Button>();
+      // ISSUE: object of a compiler-generated type is created
+      // ISSUE: method pointer
+      Func<int, UnityAction> func = (Func<int, UnityAction>) (n => new UnityAction((object) new HelpButtonItem.\u003CUpdateParam\u003Ec__AnonStorey33B() { n = n, \u003C\u003Ef__this = this }, __methodptr(\u003C\u003Em__390)));
+      ((UnityEventBase) component1.get_onClick()).RemoveAllListeners();
+      ((UnityEvent) component1.get_onClick()).AddListener(func(num1));
+    }
+
+    private void OnSelectMenu(int MenuID)
+    {
+      HelpWindow componentInParent = (HelpWindow) ((Component) ((Component) this).get_transform()).GetComponentInParent<HelpWindow>();
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) componentInParent, (UnityEngine.Object) null))
+        return;
+      if (componentInParent.MiddleHelp)
+        componentInParent.CreateMainWindow(MenuID);
+      else
+        componentInParent.UpdateHelpList(true, MenuID);
+    }
+  }
+}

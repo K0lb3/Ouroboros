@@ -1,59 +1,43 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FriendPresentBadge
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using UnityEngine;
+  public class FriendPresentBadge : MonoBehaviour
+  {
+    public GameObject BadgeObject;
+    [BitMask]
+    public GameManager.BadgeTypes BadgeType;
 
-    public class FriendPresentBadge : MonoBehaviour
+    public FriendPresentBadge()
     {
-        public GameObject BadgeObject;
-        [BitMask]
-        public GameManager.BadgeTypes BadgeType;
-
-        public FriendPresentBadge()
-        {
-            base..ctor();
-            return;
-        }
-
-        private void Start()
-        {
-            if ((this.BadgeObject != null) == null)
-            {
-                goto Label_001D;
-            }
-            this.BadgeObject.SetActive(0);
-        Label_001D:
-            return;
-        }
-
-        private void Update()
-        {
-            GameManager manager;
-            bool flag;
-            if ((this.BadgeObject == null) == null)
-            {
-                goto Label_0012;
-            }
-            return;
-        Label_0012:
-            manager = MonoSingleton<GameManager>.GetInstanceDirect();
-            flag = 0;
-            if ((manager != null) == null)
-            {
-                goto Label_0058;
-            }
-            flag = manager.CheckBadges(this.BadgeType);
-            if (manager.Player == null)
-            {
-                goto Label_004C;
-            }
-            flag |= manager.Player.ValidFriendPresent;
-        Label_004C:
-            this.BadgeObject.SetActive(flag);
-        Label_0058:
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Start()
+    {
+      if (!Object.op_Inequality((Object) this.BadgeObject, (Object) null))
+        return;
+      this.BadgeObject.SetActive(false);
+    }
+
+    private void Update()
+    {
+      if (Object.op_Equality((Object) this.BadgeObject, (Object) null))
+        return;
+      GameManager instanceDirect = MonoSingleton<GameManager>.GetInstanceDirect();
+      if (!Object.op_Inequality((Object) instanceDirect, (Object) null))
+        return;
+      bool flag = instanceDirect.CheckBadges(this.BadgeType);
+      if (instanceDirect.Player != null)
+        flag |= instanceDirect.Player.ValidFriendPresent;
+      this.BadgeObject.SetActive(flag);
+    }
+  }
+}

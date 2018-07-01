@@ -1,231 +1,106 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_SelectLatestChapter
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+
+namespace SRPG
 {
-    using GR;
-    using System;
+  [FlowNode.Pin(0, "In", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(100, "Out", FlowNode.PinTypes.Output, 100)]
+  [FlowNode.NodeType("SRPG/クエスト選択", 32741)]
+  public class FlowNode_SelectLatestChapter : FlowNode
+  {
+    public FlowNode_SelectLatestChapter.SelectModes Selection;
 
-    [Pin(0, "In", 0, 0), NodeType("SRPG/クエスト選択", 0x7fe5), Pin(100, "Out", 1, 100)]
-    public class FlowNode_SelectLatestChapter : FlowNode
+    public static void SelectLatestChapter()
     {
-        public SelectModes Selection;
-
-        public FlowNode_SelectLatestChapter()
+      QuestParam[] quests = MonoSingleton<GameManager>.Instance.Quests;
+      QuestParam questParam = (QuestParam) null;
+      for (int index = 0; index < quests.Length; ++index)
+      {
+        if (quests[index].IsStory)
         {
-            base..ctor();
-            return;
+          questParam = quests[index];
+          if (quests[index].state != QuestStates.Cleared)
+            break;
         }
-
-        public override unsafe void OnActivate(int pinID)
+      }
+      if (questParam == null)
+        return;
+      string chapterId = questParam.ChapterID;
+      ChapterParam[] chapters = MonoSingleton<GameManager>.Instance.Chapters;
+      for (int index = 0; index < chapters.Length; ++index)
+      {
+        if (chapters[index].iname == chapterId)
         {
-            long num;
-            DateTime time;
-            SelectModes modes;
-            DayOfWeek week;
-            if (pinID != null)
-            {
-                goto Label_015E;
-            }
-            switch (this.Selection)
-            {
-                case 0:
-                    goto Label_0028;
-
-                case 1:
-                    goto Label_0032;
-
-                case 2:
-                    goto Label_010E;
-
-                case 3:
-                    goto Label_0131;
-            }
-            goto Label_0154;
-        Label_0028:
-            SelectLatestChapter();
-            goto Label_0155;
-        Label_0032:
-            time = TimeManager.FromUnixTime(Network.GetServerTime());
-            GlobalVars.SelectedSection.Set("WD_DAILY");
-            switch (&time.DayOfWeek)
-            {
-                case 0:
-                    goto Label_007D;
-
-                case 1:
-                    goto Label_0091;
-
-                case 2:
-                    goto Label_00A5;
-
-                case 3:
-                    goto Label_00B9;
-
-                case 4:
-                    goto Label_00CD;
-
-                case 5:
-                    goto Label_00E1;
-
-                case 6:
-                    goto Label_00F5;
-            }
-            goto Label_0109;
-        Label_007D:
-            GlobalVars.SelectedChapter.Set("AR_SUN");
-            goto Label_0109;
-        Label_0091:
-            GlobalVars.SelectedChapter.Set("AR_MON");
-            goto Label_0109;
-        Label_00A5:
-            GlobalVars.SelectedChapter.Set("AR_TUE");
-            goto Label_0109;
-        Label_00B9:
-            GlobalVars.SelectedChapter.Set("AR_WED");
-            goto Label_0109;
-        Label_00CD:
-            GlobalVars.SelectedChapter.Set("AR_THU");
-            goto Label_0109;
-        Label_00E1:
-            GlobalVars.SelectedChapter.Set("AR_FRI");
-            goto Label_0109;
-        Label_00F5:
-            GlobalVars.SelectedChapter.Set("AR_SAT");
-        Label_0109:
-            goto Label_0155;
-        Label_010E:
-            GlobalVars.SelectedSection.Set("WD_DAILY");
-            GlobalVars.SelectedChapter.Set(string.Empty);
-            goto Label_0155;
-        Label_0131:
-            GlobalVars.SelectedSection.Set("WD_CHARA");
-            GlobalVars.SelectedChapter.Set(string.Empty);
-            goto Label_0155;
-        Label_0154:
-            return;
-        Label_0155:
-            base.ActivateOutputLinks(100);
-        Label_015E:
-            return;
+          GlobalVars.SelectedSection.Set(chapters[index].section);
+          GlobalVars.SelectedChapter.Set(chapterId);
+          GlobalVars.SelectedQuestID = (string) null;
+          break;
         }
-
-        public static void SelectLatestChapter()
-        {
-            QuestParam[] paramArray;
-            string str;
-            QuestParam param;
-            int num;
-            string str2;
-            QuestParam param2;
-            int num2;
-            ChapterParam[] paramArray2;
-            int num3;
-            paramArray = MonoSingleton<GameManager>.Instance.Quests;
-            str = null;
-            param = null;
-            num = 0;
-            str2 = PlayerPrefsUtility.GetString(PlayerPrefsUtility.LAST_SELECTED_STORY_QUEST_ID, string.Empty);
-            if (string.IsNullOrEmpty(str2) != null)
-            {
-                goto Label_0089;
-            }
-            param2 = MonoSingleton<GameManager>.Instance.FindQuest(str2);
-            if (param2 == null)
-            {
-                goto Label_0089;
-            }
-            if (param2.Chapter == null)
-            {
-                goto Label_0089;
-            }
-            if (param2.Chapter.sectionParam == null)
-            {
-                goto Label_0089;
-            }
-            if (param2.Chapter.sectionParam.storyPart <= 0)
-            {
-                goto Label_0089;
-            }
-            num = param2.Chapter.sectionParam.storyPart;
-        Label_0089:
-            num2 = 0;
-            goto Label_0104;
-        Label_0091:
-            if (paramArray[num2].IsStory == null)
-            {
-                goto Label_00FE;
-            }
-            if (num <= 0)
-            {
-                goto Label_00E5;
-            }
-            if (paramArray[num2].Chapter == null)
-            {
-                goto Label_00E5;
-            }
-            if (paramArray[num2].Chapter.sectionParam == null)
-            {
-                goto Label_00E5;
-            }
-            if (num == paramArray[num2].Chapter.sectionParam.storyPart)
-            {
-                goto Label_00E5;
-            }
-            goto Label_00FE;
-        Label_00E5:
-            param = paramArray[num2];
-            if (paramArray[num2].state == 2)
-            {
-                goto Label_00FE;
-            }
-            goto Label_010E;
-        Label_00FE:
-            num2 += 1;
-        Label_0104:
-            if (num2 < ((int) paramArray.Length))
-            {
-                goto Label_0091;
-            }
-        Label_010E:
-            if (param == null)
-            {
-                goto Label_01A7;
-            }
-            str = param.ChapterID;
-            paramArray2 = MonoSingleton<GameManager>.Instance.Chapters;
-            num3 = 0;
-            goto Label_019C;
-        Label_012F:
-            if ((paramArray2[num3].iname == str) == null)
-            {
-                goto Label_0196;
-            }
-            GlobalVars.SelectedSection.Set(paramArray2[num3].section);
-            GlobalVars.SelectedChapter.Set(str);
-            if (paramArray2[num3].sectionParam == null)
-            {
-                goto Label_018B;
-            }
-            GlobalVars.SelectedStoryPart.Set(paramArray2[num3].sectionParam.storyPart);
-        Label_018B:
-            GlobalVars.SelectedQuestID = null;
-            goto Label_01A7;
-        Label_0196:
-            num3 += 1;
-        Label_019C:
-            if (num3 < ((int) paramArray2.Length))
-            {
-                goto Label_012F;
-            }
-        Label_01A7:
-            return;
-        }
-
-        public enum SelectModes
-        {
-            Latest,
-            DailyChapter,
-            DailySection,
-            CharacterQuestSection
-        }
+      }
     }
-}
 
+    public override void OnActivate(int pinID)
+    {
+      if (pinID != 0)
+        return;
+      switch (this.Selection)
+      {
+        case FlowNode_SelectLatestChapter.SelectModes.Latest:
+          FlowNode_SelectLatestChapter.SelectLatestChapter();
+          break;
+        case FlowNode_SelectLatestChapter.SelectModes.DailyChapter:
+          DateTime dateTime = TimeManager.FromUnixTime(Network.GetServerTime());
+          GlobalVars.SelectedSection.Set("WD_DAILY");
+          switch (dateTime.DayOfWeek)
+          {
+            case DayOfWeek.Sunday:
+              GlobalVars.SelectedChapter.Set("AR_SUN");
+              break;
+            case DayOfWeek.Monday:
+              GlobalVars.SelectedChapter.Set("AR_MON");
+              break;
+            case DayOfWeek.Tuesday:
+              GlobalVars.SelectedChapter.Set("AR_TUE");
+              break;
+            case DayOfWeek.Wednesday:
+              GlobalVars.SelectedChapter.Set("AR_WED");
+              break;
+            case DayOfWeek.Thursday:
+              GlobalVars.SelectedChapter.Set("AR_THU");
+              break;
+            case DayOfWeek.Friday:
+              GlobalVars.SelectedChapter.Set("AR_FRI");
+              break;
+            case DayOfWeek.Saturday:
+              GlobalVars.SelectedChapter.Set("AR_SAT");
+              break;
+          }
+        case FlowNode_SelectLatestChapter.SelectModes.DailySection:
+          GlobalVars.SelectedSection.Set("WD_DAILY");
+          GlobalVars.SelectedChapter.Set(string.Empty);
+          break;
+        case FlowNode_SelectLatestChapter.SelectModes.CharacterQuestSection:
+          GlobalVars.SelectedSection.Set("WD_CHARA");
+          GlobalVars.SelectedChapter.Set(string.Empty);
+          break;
+        default:
+          return;
+      }
+      this.ActivateOutputLinks(100);
+    }
+
+    public enum SelectModes
+    {
+      Latest,
+      DailyChapter,
+      DailySection,
+      CharacterQuestSection,
+    }
+  }
+}

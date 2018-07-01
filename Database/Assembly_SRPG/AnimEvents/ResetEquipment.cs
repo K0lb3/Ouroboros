@@ -1,44 +1,28 @@
-﻿namespace SRPG.AnimEvents
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.AnimEvents.ResetEquipment
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG.AnimEvents
 {
-    using SRPG;
-    using System;
-    using UnityEngine;
+  public class ResetEquipment : AnimEvent
+  {
+    public bool IsNoResetPrimaryHand;
+    public bool IsNoResetSecondaryHand;
 
-    public class ResetEquipment : AnimEvent
+    public override void OnStart(GameObject go)
     {
-        public bool IsNoResetPrimaryHand;
-        public bool IsNoResetSecondaryHand;
-
-        public ResetEquipment()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnStart(GameObject go)
-        {
-            UnitController controller;
-            controller = go.GetComponentInParent<UnitController>();
-            if (controller != null)
-            {
-                goto Label_0013;
-            }
-            return;
-        Label_0013:
-            if (this.IsNoResetPrimaryHand != null)
-            {
-                goto Label_0025;
-            }
-            controller.ResetEquipmentLists(0);
-        Label_0025:
-            if (this.IsNoResetSecondaryHand != null)
-            {
-                goto Label_0037;
-            }
-            controller.ResetEquipmentLists(1);
-        Label_0037:
-            return;
-        }
+      UnitController componentInParent = (UnitController) go.GetComponentInParent<UnitController>();
+      if (!Object.op_Implicit((Object) componentInParent))
+        return;
+      if (!this.IsNoResetPrimaryHand)
+        componentInParent.ResetEquipmentLists(UnitController.EquipmentType.PRIMARY);
+      if (this.IsNoResetSecondaryHand)
+        return;
+      componentInParent.ResetEquipmentLists(UnitController.EquipmentType.SECONDARY);
     }
+  }
 }
-

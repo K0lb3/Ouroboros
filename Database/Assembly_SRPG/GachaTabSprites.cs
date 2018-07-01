@@ -1,17 +1,20 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.GachaTabSprites
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  public class GachaTabSprites : ScriptableObject
+  {
+    public Sprite[] Sprites;
 
-    public class GachaTabSprites : ScriptableObject
+    public GachaTabSprites()
     {
-        public Sprite[] Sprites;
-
-        public GachaTabSprites()
-        {
-            base..ctor();
-            return;
-        }
+      base.\u002Ector();
     }
+  }
 }
-

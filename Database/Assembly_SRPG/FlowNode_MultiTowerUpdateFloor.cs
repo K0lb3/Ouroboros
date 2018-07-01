@@ -1,98 +1,76 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_MultiTowerUpdateFloor
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    [Pin(0x66, "UpdatePass", 0, 0), Pin(2, "Failure", 1, 0), Pin(1, "Success", 1, 0), NodeType("Multi/UpdateFloor", 0x7fe5), Pin(0x65, "Update", 0, 0)]
-    public class FlowNode_MultiTowerUpdateFloor : FlowNode
+  [FlowNode.Pin(101, "Update", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(102, "UpdatePass", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(2, "Failure", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.NodeType("Multi/UpdateFloor", 32741)]
+  public class FlowNode_MultiTowerUpdateFloor : FlowNode
+  {
+    public override void OnActivate(int pinID)
     {
-        public FlowNode_MultiTowerUpdateFloor()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override unsafe void OnActivate(int pinID)
-        {
-            MyPhoton photon;
-            MyPhoton.MyRoom room;
-            JSON_MyPhotonRoomParam param;
-            MyPhoton photon2;
-            MyPhoton.MyRoom room2;
-            JSON_MyPhotonRoomParam param2;
-            if (pinID != 0x65)
-            {
-                goto Label_00D7;
-            }
-            photon = PunMonoSingleton<MyPhoton>.Instance;
-            if (photon.IsOldestPlayer() != null)
-            {
-                goto Label_002C;
-            }
+      switch (pinID)
+      {
+        case 101:
+          MyPhoton instance1 = PunMonoSingleton<MyPhoton>.Instance;
+          if (!instance1.IsOldestPlayer())
+          {
             DebugUtility.Log("I'm not room owner");
-            base.ActivateOutputLinks(2);
-            return;
-        Label_002C:
-            room = photon.GetCurrentRoom();
-            if (room != null)
-            {
-                goto Label_004C;
-            }
+            this.ActivateOutputLinks(2);
+            break;
+          }
+          MyPhoton.MyRoom currentRoom1 = instance1.GetCurrentRoom();
+          if (currentRoom1 == null)
+          {
             DebugUtility.Log("CurrentRoom is null");
-            base.ActivateOutputLinks(2);
-            return;
-        Label_004C:
-            param = JSON_MyPhotonRoomParam.Parse(room.json);
-            if (param != null)
-            {
-                goto Label_0071;
-            }
+            this.ActivateOutputLinks(2);
+            break;
+          }
+          JSON_MyPhotonRoomParam myPhotonRoomParam = JSON_MyPhotonRoomParam.Parse(currentRoom1.json);
+          if (myPhotonRoomParam == null)
+          {
             DebugUtility.Log("no roomParam");
-            base.ActivateOutputLinks(2);
-            return;
-        Label_0071:
-            param.challegedMTFloor = GlobalVars.SelectedMultiTowerFloor;
-            param.iname = GlobalVars.SelectedMultiTowerID + "_" + &param.challegedMTFloor.ToString();
-            photon.SetRoomParam(param.Serialize());
-            photon.UpdateRoomParam("floor", (int) GlobalVars.SelectedMultiTowerFloor);
-            GlobalVars.SelectedQuestID = param.iname;
-            base.ActivateOutputLinks(1);
-            goto Label_0175;
-        Label_00D7:
-            if (pinID != 0x66)
-            {
-                goto Label_0175;
-            }
-            photon2 = PunMonoSingleton<MyPhoton>.Instance;
-            if (photon2.IsOldestPlayer() != null)
-            {
-                goto Label_0103;
-            }
+            this.ActivateOutputLinks(2);
+            break;
+          }
+          myPhotonRoomParam.challegedMTFloor = GlobalVars.SelectedMultiTowerFloor;
+          myPhotonRoomParam.iname = GlobalVars.SelectedMultiTowerID + "_" + myPhotonRoomParam.challegedMTFloor.ToString();
+          instance1.SetRoomParam(myPhotonRoomParam.Serialize());
+          instance1.UpdateRoomParam("floor", (object) GlobalVars.SelectedMultiTowerFloor);
+          GlobalVars.SelectedQuestID = myPhotonRoomParam.iname;
+          this.ActivateOutputLinks(1);
+          break;
+        case 102:
+          MyPhoton instance2 = PunMonoSingleton<MyPhoton>.Instance;
+          if (!instance2.IsOldestPlayer())
+          {
             DebugUtility.Log("I'm not room owner");
-            base.ActivateOutputLinks(2);
-            return;
-        Label_0103:
-            room2 = photon2.GetCurrentRoom();
-            if (room2 != null)
-            {
-                goto Label_0125;
-            }
+            this.ActivateOutputLinks(2);
+            break;
+          }
+          MyPhoton.MyRoom currentRoom2 = instance2.GetCurrentRoom();
+          if (currentRoom2 == null)
+          {
             DebugUtility.Log("CurrentRoom is null");
-            base.ActivateOutputLinks(2);
-            return;
-        Label_0125:
-            if (JSON_MyPhotonRoomParam.Parse(room2.json) != null)
-            {
-                goto Label_014D;
-            }
+            this.ActivateOutputLinks(2);
+            break;
+          }
+          if (JSON_MyPhotonRoomParam.Parse(currentRoom2.json) == null)
+          {
             DebugUtility.Log("no roomParam");
-            base.ActivateOutputLinks(2);
-            return;
-        Label_014D:
-            photon2.UpdateRoomParam("Lock", (bool) (GlobalVars.EditMultiPlayRoomPassCode != "0"));
-            base.ActivateOutputLinks(1);
-        Label_0175:
-            return;
-        }
+            this.ActivateOutputLinks(2);
+            break;
+          }
+          instance2.UpdateRoomParam("Lock", (object) (GlobalVars.EditMultiPlayRoomPassCode != "0"));
+          this.ActivateOutputLinks(1);
+          break;
+      }
     }
+  }
 }
-

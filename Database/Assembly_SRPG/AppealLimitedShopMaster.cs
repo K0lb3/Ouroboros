@@ -1,38 +1,33 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.AppealLimitedShopMaster
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System;
+
+namespace SRPG
 {
-    using System;
+  public class AppealLimitedShopMaster
+  {
+    public string appeal_id;
+    public long start_at;
+    public long end_at;
+    public int priority;
+    public float pos_x_chara;
+    public float pos_x_text;
 
-    public class AppealLimitedShopMaster
+    public bool Deserialize(JSON_AppealLimitedShopMaster json)
     {
-        public string appeal_id;
-        public long start_at;
-        public long end_at;
-        public int priority;
-        public float pos_x_chara;
-        public float pos_x_text;
-
-        public AppealLimitedShopMaster()
-        {
-            base..ctor();
-            return;
-        }
-
-        public bool Deserialize(JSON_AppealLimitedShopMaster json)
-        {
-            if (json != null)
-            {
-                goto Label_0008;
-            }
-            return 0;
-        Label_0008:
-            this.appeal_id = json.fields.appeal_id;
-            this.start_at = TimeManager.FromDateTime(DateTime.Parse(json.fields.start_at));
-            this.end_at = TimeManager.FromDateTime(DateTime.Parse(json.fields.end_at));
-            this.priority = json.fields.priority;
-            this.pos_x_chara = json.fields.position_chara;
-            this.pos_x_text = json.fields.position_text;
-            return 1;
-        }
+      if (json == null)
+        return false;
+      this.appeal_id = json.fields.appeal_id;
+      this.start_at = TimeManager.FromDateTime(DateTime.Parse(json.fields.start_at));
+      this.end_at = TimeManager.FromDateTime(DateTime.Parse(json.fields.end_at));
+      this.priority = json.fields.priority;
+      this.pos_x_chara = json.fields.position_chara;
+      this.pos_x_text = json.fields.position_text;
+      return true;
     }
+  }
 }
-

@@ -1,138 +1,88 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_Message
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  [FlowNode.Pin(1, "Closed", FlowNode.PinTypes.Output, 1)]
+  [FlowNode.Pin(11, "ForceClose", FlowNode.PinTypes.Input, 11)]
+  [FlowNode.Pin(100, "Opened", FlowNode.PinTypes.Output, 100)]
+  [FlowNode.Pin(101, "ForceClosed", FlowNode.PinTypes.Output, 101)]
+  [FlowNode.NodeType("UI/Message", 32741)]
+  [FlowNode.Pin(10, "Open", FlowNode.PinTypes.Input, 0)]
+  public class FlowNode_Message : FlowNode
+  {
+    public string Text;
+    public bool systemModal;
+    public int systemModalPriority;
+    public GameObject parent;
+    public string parentName;
+    public bool unscaledTime;
+    public bool richTag;
+    public bool anim;
+    public bool input;
+    public float bgAlpha;
+    public float autoClose;
+    private Win_SysMessage_Flx m_Window;
 
-    [Pin(10, "Open", 0, 0), Pin(1, "Closed", 1, 1), Pin(11, "ForceClose", 0, 11), Pin(100, "Opened", 1, 100), Pin(0x65, "ForceClosed", 1, 0x65), NodeType("UI/Message", 0x7fe5)]
-    public class FlowNode_Message : FlowNode
+    public void Update()
     {
-        public string Text;
-        public bool systemModal;
-        public int systemModalPriority;
-        public GameObject parent;
-        public string parentName;
-        public bool unscaledTime;
-        public bool richTag;
-        public bool anim;
-        public bool input;
-        public float bgAlpha;
-        public float autoClose;
-        private Win_SysMessage_Flx m_Window;
-
-        public FlowNode_Message()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override unsafe void OnActivate(int pinID)
-        {
-            string str;
-            GameSettings settings;
-            Canvas canvas;
-            Animator animator;
-            if (pinID != 10)
-            {
-                goto Label_0180;
-            }
-            if (string.IsNullOrEmpty(this.parentName) != null)
-            {
-                goto Label_004F;
-            }
-            this.parent = GameObject.Find(this.parentName);
-            if ((this.parent == null) == null)
-            {
-                goto Label_004F;
-            }
-            DebugUtility.LogWarning("can not found gameObject:" + this.parentName);
-        Label_004F:
-            str = LocalizedText.Get(this.Text);
-            if (this.richTag == null)
-            {
-                goto Label_006D;
-            }
-            str = LocalizedText.ReplaceTag(str);
-        Label_006D:
-            settings = GameSettings.Instance;
-            canvas = UIUtility.PushCanvas(this.systemModal, this.systemModalPriority);
-            if ((this.parent != null) == null)
-            {
-                goto Label_00AC;
-            }
-            canvas.get_transform().SetParent(this.parent.get_transform());
-        Label_00AC:
-            this.m_Window = Object.Instantiate<Win_SysMessage_Flx>(&settings.Dialogs.SysMsgDialog);
-            this.m_Window.get_transform().SetParent(canvas.get_transform(), 0);
-            this.m_Window.Text_Message.set_text(str);
-            this.m_Window.Initialize(this.input, this.bgAlpha);
-            if (this.anim == null)
-            {
-                goto Label_0117;
-            }
-            this.m_Window.StartAnim();
-        Label_0117:
-            if (this.autoClose <= 0f)
-            {
-                goto Label_0138;
-            }
-            this.m_Window.AutoClose(this.autoClose);
-        Label_0138:
-            if (this.m_Window == null)
-            {
-                goto Label_0172;
-            }
-            if (this.unscaledTime == null)
-            {
-                goto Label_0172;
-            }
-            animator = this.m_Window.GetComponent<Animator>();
-            if ((animator != null) == null)
-            {
-                goto Label_0172;
-            }
-            animator.set_updateMode(2);
-        Label_0172:
-            base.ActivateOutputLinks(100);
-            goto Label_01C6;
-        Label_0180:
-            if (pinID != 11)
-            {
-                goto Label_01C6;
-            }
-            if ((this.m_Window == null) == null)
-            {
-                goto Label_019A;
-            }
-            return;
-        Label_019A:
-            if ((this.m_Window != null) == null)
-            {
-                goto Label_01BD;
-            }
-            this.m_Window.BeginClose();
-            this.m_Window = null;
-        Label_01BD:
-            base.ActivateOutputLinks(0x65);
-        Label_01C6:
-            return;
-        }
-
-        public void Update()
-        {
-            if ((this.m_Window != null) == null)
-            {
-                goto Label_0036;
-            }
-            if ((this.m_Window.get_gameObject() == null) == null)
-            {
-                goto Label_002F;
-            }
-            base.ActivateOutputLinks(1);
-        Label_002F:
-            this.m_Window = null;
-        Label_0036:
-            return;
-        }
+      if (!Object.op_Inequality((Object) this.m_Window, (Object) null))
+        return;
+      if (Object.op_Equality((Object) ((Component) this.m_Window).get_gameObject(), (Object) null))
+        this.ActivateOutputLinks(1);
+      this.m_Window = (Win_SysMessage_Flx) null;
     }
-}
 
+    public override void OnActivate(int pinID)
+    {
+      switch (pinID)
+      {
+        case 10:
+          if (!string.IsNullOrEmpty(this.parentName))
+          {
+            this.parent = GameObject.Find(this.parentName);
+            if (Object.op_Equality((Object) this.parent, (Object) null))
+              DebugUtility.LogWarning("can not found gameObject:" + this.parentName);
+          }
+          string text = LocalizedText.Get(this.Text);
+          if (this.richTag)
+            text = LocalizedText.ReplaceTag(text);
+          GameSettings instance = GameSettings.Instance;
+          Canvas canvas = UIUtility.PushCanvas(this.systemModal, this.systemModalPriority);
+          if (Object.op_Inequality((Object) this.parent, (Object) null))
+            ((Component) canvas).get_transform().SetParent(this.parent.get_transform());
+          this.m_Window = (Win_SysMessage_Flx) Object.Instantiate<Win_SysMessage_Flx>((M0) instance.Dialogs.SysMsgDialog);
+          ((Component) this.m_Window).get_transform().SetParent(((Component) canvas).get_transform(), false);
+          this.m_Window.Text_Message.set_text(text);
+          this.m_Window.Initialize(this.input, this.bgAlpha);
+          if (this.anim)
+            this.m_Window.StartAnim();
+          if ((double) this.autoClose > 0.0)
+            this.m_Window.AutoClose(this.autoClose);
+          if (Object.op_Implicit((Object) this.m_Window) && this.unscaledTime)
+          {
+            Animator component = (Animator) ((Component) this.m_Window).GetComponent<Animator>();
+            if (Object.op_Inequality((Object) component, (Object) null))
+              component.set_updateMode((AnimatorUpdateMode) 2);
+          }
+          this.ActivateOutputLinks(100);
+          break;
+        case 11:
+          if (Object.op_Equality((Object) this.m_Window, (Object) null))
+            break;
+          if (Object.op_Inequality((Object) this.m_Window, (Object) null))
+          {
+            this.m_Window.BeginClose();
+            this.m_Window = (Win_SysMessage_Flx) null;
+          }
+          this.ActivateOutputLinks(101);
+          break;
+      }
+    }
+  }
+}

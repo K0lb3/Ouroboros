@@ -1,228 +1,132 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.UnitCompositeWindow
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Collections.Generic;
-    using UnityEngine;
+  [FlowNode.Pin(1, "Refresh", FlowNode.PinTypes.Input, 1)]
+  public class UnitCompositeWindow : MonoBehaviour, IFlowInterface
+  {
+    public RectTransform ItemLayoutParent;
+    public RectTransform CommonItemLayoutParent;
+    public GameObject ItemTemplate;
+    public GameObject CommonItemTemplate;
+    private ItemParam mItemParam;
+    private List<GameObject> mConsumeObjects;
 
-    [Pin(1, "Refresh", 0, 1)]
-    public class UnitCompositeWindow : MonoBehaviour, IFlowInterface
+    public UnitCompositeWindow()
     {
-        public RectTransform ItemLayoutParent;
-        public RectTransform CommonItemLayoutParent;
-        public GameObject ItemTemplate;
-        public GameObject CommonItemTemplate;
-        private ItemParam mItemParam;
-        private List<GameObject> mConsumeObjects;
-
-        public UnitCompositeWindow()
-        {
-            this.mConsumeObjects = new List<GameObject>(10);
-            base..ctor();
-            return;
-        }
-
-        public void Activated(int pinID)
-        {
-            if (pinID != 1)
-            {
-                goto Label_000D;
-            }
-            this.Refresh();
-        Label_000D:
-            return;
-        }
-
-        private void Awake()
-        {
-            if ((this.ItemTemplate != null) == null)
-            {
-                goto Label_002D;
-            }
-            if (this.ItemTemplate.get_activeInHierarchy() == null)
-            {
-                goto Label_002D;
-            }
-            this.ItemTemplate.SetActive(0);
-        Label_002D:
-            return;
-        }
-
-        public ItemData CreateItemData(string iname, int num)
-        {
-            Json_Item item;
-            ItemData data;
-            item = new Json_Item();
-            item.iname = iname;
-            item.num = num;
-            data = new ItemData();
-            data.Deserialize(item);
-            return data;
-        }
-
-        private unsafe void Refresh()
-        {
-            int num;
-            bool flag;
-            Dictionary<string, int> dictionary;
-            NeedEquipItemList list;
-            int num2;
-            int num3;
-            KeyValuePair<string, int> pair;
-            Dictionary<string, int>.Enumerator enumerator;
-            GameObject obj2;
-            GameObject obj3;
-            ConsumeItemData data;
-            byte num4;
-            Dictionary<byte, NeedEquipItemDictionary>.KeyCollection.Enumerator enumerator2;
-            NeedEquipItemDictionary dictionary2;
-            ItemParam param;
-            int num5;
-            ItemParam param2;
-            GameObject obj4;
-            ItemData data2;
-            GameObject obj5;
-            ItemData data3;
-            ItemData data4;
-            CommonConvertItem item;
-            this.mItemParam = MonoSingleton<GameManager>.Instance.GetItemParam(GlobalVars.SelectedCreateItemID);
-            num = 0;
-            flag = 0;
-            dictionary = null;
-            list = new NeedEquipItemList();
-            MonoSingleton<GameManager>.Instance.Player.CheckEnableCreateItem(this.mItemParam, &flag, &num, &dictionary, list);
-            num2 = 0;
-            goto Label_0064;
-        Label_0046:
-            this.mConsumeObjects[num2].get_gameObject().SetActive(0);
-            num2 += 1;
-        Label_0064:
-            if (num2 < this.mConsumeObjects.Count)
-            {
-                goto Label_0046;
-            }
-            if (dictionary == null)
-            {
-                goto Label_0145;
-            }
-            num3 = 0;
-            enumerator = dictionary.GetEnumerator();
-        Label_0087:
-            try
-            {
-                goto Label_0127;
-            Label_008C:
-                pair = &enumerator.Current;
-                if (num3 < this.mConsumeObjects.Count)
-                {
-                    goto Label_00D4;
-                }
-                obj2 = Object.Instantiate<GameObject>(this.ItemTemplate);
-                obj2.get_transform().SetParent(this.ItemLayoutParent, 0);
-                this.mConsumeObjects.Add(obj2);
-            Label_00D4:
-                obj3 = this.mConsumeObjects[num3];
-                data = new ConsumeItemData();
-                data.param = MonoSingleton<GameManager>.Instance.GetItemParam(&pair.Key);
-                data.num = &pair.Value;
-                DataSource.Bind<ConsumeItemData>(obj3, data);
-                obj3.SetActive(1);
-                num3 += 1;
-            Label_0127:
-                if (&enumerator.MoveNext() != null)
-                {
-                    goto Label_008C;
-                }
-                goto Label_0145;
-            }
-            finally
-            {
-            Label_0138:
-                ((Dictionary<string, int>.Enumerator) enumerator).Dispose();
-            }
-        Label_0145:
-            enumerator2 = list.CommonNeedNum.Keys.GetEnumerator();
-        Label_0157:
-            try
-            {
-                goto Label_02D2;
-            Label_015C:
-                num4 = &enumerator2.Current;
-                dictionary2 = list.CommonNeedNum[num4];
-                param = dictionary2.CommonItemParam;
-                if (param == null)
-                {
-                    goto Label_02D2;
-                }
-                num5 = 0;
-                goto Label_02BF;
-            Label_018C:
-                param2 = dictionary2.list[num5].Param;
-                if (param2 != null)
-                {
-                    goto Label_01AD;
-                }
-                goto Label_02B9;
-            Label_01AD:
-                if ((param2.cmn_type - 1) != 2)
-                {
-                    goto Label_0207;
-                }
-                obj4 = Object.Instantiate<GameObject>(this.ItemTemplate);
-                obj4.get_gameObject().SetActive(1);
-                obj4.get_transform().SetParent(this.ItemLayoutParent, 0);
-                data2 = this.CreateItemData(param2.iname, 1);
-                DataSource.Bind<ItemData>(obj4, data2);
-                goto Label_02B9;
-            Label_0207:
-                obj5 = Object.Instantiate<GameObject>(this.CommonItemTemplate);
-                obj5.get_gameObject().SetActive(1);
-                obj5.get_transform().SetParent(this.CommonItemLayoutParent, 0);
-                data3 = MonoSingleton<GameManager>.Instance.Player.FindItemDataByItemID(param2.iname);
-                if (data3 != null)
-                {
-                    goto Label_0263;
-                }
-                data3 = this.CreateItemData(param.iname, 0);
-            Label_0263:
-                data4 = MonoSingleton<GameManager>.Instance.Player.FindItemDataByItemID(param.iname);
-                if (data4 != null)
-                {
-                    goto Label_0292;
-                }
-                data4 = this.CreateItemData(param.iname, 0);
-            Label_0292:
-                obj5.GetComponent<CommonConvertItem>().Bind(data3, data4, dictionary2.list[num5].NeedPiece);
-            Label_02B9:
-                num5 += 1;
-            Label_02BF:
-                if (num5 < dictionary2.list.Count)
-                {
-                    goto Label_018C;
-                }
-            Label_02D2:
-                if (&enumerator2.MoveNext() != null)
-                {
-                    goto Label_015C;
-                }
-                goto Label_02F0;
-            }
-            finally
-            {
-            Label_02E3:
-                ((Dictionary<byte, NeedEquipItemDictionary>.KeyCollection.Enumerator) enumerator2).Dispose();
-            }
-        Label_02F0:
-            DataSource.Bind<ItemParam>(base.get_gameObject(), this.mItemParam);
-            GameParameter.UpdateAll(base.get_gameObject());
-            return;
-        }
-
-        private void Start()
-        {
-            this.Refresh();
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Awake()
+    {
+      if (!Object.op_Inequality((Object) this.ItemTemplate, (Object) null) || !this.ItemTemplate.get_activeInHierarchy())
+        return;
+      this.ItemTemplate.SetActive(false);
+    }
+
+    private void Start()
+    {
+      this.Refresh();
+    }
+
+    public void Activated(int pinID)
+    {
+      if (pinID != 1)
+        return;
+      this.Refresh();
+    }
+
+    private void Refresh()
+    {
+      this.mItemParam = MonoSingleton<GameManager>.Instance.GetItemParam(GlobalVars.SelectedCreateItemID);
+      int cost = 0;
+      bool is_ikkatsu = false;
+      Dictionary<string, int> consumes = (Dictionary<string, int>) null;
+      NeedEquipItemList item_list = new NeedEquipItemList();
+      MonoSingleton<GameManager>.Instance.Player.CheckEnableCreateItem(this.mItemParam, ref is_ikkatsu, ref cost, ref consumes, item_list);
+      for (int index = 0; index < this.mConsumeObjects.Count; ++index)
+        this.mConsumeObjects[index].get_gameObject().SetActive(false);
+      if (consumes != null)
+      {
+        int index = 0;
+        using (Dictionary<string, int>.Enumerator enumerator = consumes.GetEnumerator())
+        {
+          while (enumerator.MoveNext())
+          {
+            KeyValuePair<string, int> current = enumerator.Current;
+            if (index >= this.mConsumeObjects.Count)
+            {
+              GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.ItemTemplate);
+              gameObject.get_transform().SetParent((Transform) this.ItemLayoutParent, false);
+              this.mConsumeObjects.Add(gameObject);
+            }
+            GameObject mConsumeObject = this.mConsumeObjects[index];
+            DataSource.Bind<ConsumeItemData>(mConsumeObject, new ConsumeItemData()
+            {
+              param = MonoSingleton<GameManager>.Instance.GetItemParam(current.Key),
+              num = current.Value
+            });
+            mConsumeObject.SetActive(true);
+            ++index;
+          }
+        }
+      }
+      using (Dictionary<byte, NeedEquipItemDictionary>.KeyCollection.Enumerator enumerator = item_list.CommonNeedNum.Keys.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+        {
+          byte current = enumerator.Current;
+          NeedEquipItemDictionary equipItemDictionary = item_list.CommonNeedNum[current];
+          ItemParam commonItemParam = equipItemDictionary.CommonItemParam;
+          if (commonItemParam != null)
+          {
+            for (int index = 0; index < equipItemDictionary.list.Count; ++index)
+            {
+              ItemParam itemParam = equipItemDictionary.list[index].Param;
+              if (itemParam != null)
+              {
+                if ((int) itemParam.cmn_type - 1 == 2)
+                {
+                  GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.ItemTemplate);
+                  gameObject.get_gameObject().SetActive(true);
+                  gameObject.get_transform().SetParent((Transform) this.ItemLayoutParent, false);
+                  ItemData itemData = this.CreateItemData(itemParam.iname, 1);
+                  DataSource.Bind<ItemData>(gameObject, itemData);
+                }
+                else
+                {
+                  GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.CommonItemTemplate);
+                  gameObject.get_gameObject().SetActive(true);
+                  gameObject.get_transform().SetParent((Transform) this.CommonItemLayoutParent, false);
+                  ItemData data = MonoSingleton<GameManager>.Instance.Player.FindItemDataByItemID(itemParam.iname) ?? this.CreateItemData(commonItemParam.iname, 0);
+                  ItemData cmmon_data = MonoSingleton<GameManager>.Instance.Player.FindItemDataByItemID(commonItemParam.iname) ?? this.CreateItemData(commonItemParam.iname, 0);
+                  ((CommonConvertItem) gameObject.GetComponent<CommonConvertItem>()).Bind(data, cmmon_data, equipItemDictionary.list[index].NeedPiece);
+                }
+              }
+            }
+          }
+        }
+      }
+      DataSource.Bind<ItemParam>(((Component) this).get_gameObject(), this.mItemParam);
+      GameParameter.UpdateAll(((Component) this).get_gameObject());
+    }
+
+    public ItemData CreateItemData(string iname, int num)
+    {
+      Json_Item json = new Json_Item();
+      json.iname = iname;
+      json.num = num;
+      ItemData itemData = new ItemData();
+      itemData.Deserialize(json);
+      return itemData;
+    }
+  }
+}

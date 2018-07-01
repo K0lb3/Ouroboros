@@ -1,46 +1,40 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqBtlComRecord
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System.Text;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Text;
-
-    public class ReqBtlComRecord : WebAPI
+  public class ReqBtlComRecord : WebAPI
+  {
+    public ReqBtlComRecord(string questIname, int page, int id, Network.ResponseCallback response)
     {
-        public ReqBtlComRecord(string questIname, int page, int id, Network.ResponseCallback response)
-        {
-            StringBuilder builder;
-            base..ctor();
-            base.name = "btl/com/record";
-            builder = new StringBuilder();
-            builder.Append("\"iname\":\"" + questIname + "\"");
-            if (page <= 1)
-            {
-                goto Label_0063;
-            }
-            builder.Append(",\"id\":" + ((int) id));
-            builder.Append(",\"page\":" + ((int) page));
-        Label_0063:
-            base.body = CreateRequestString(builder.ToString());
-            base.callback = response;
-            return;
-        }
-
-        private static string CreateRequestString(string body)
-        {
-            StringBuilder builder;
-            builder = new StringBuilder();
-            builder.Append("{\"ticket\":" + ((int) Network.TicketID) + ",");
-            builder.Append("\"access_token\":\"" + Network.SessionID + "\",");
-            builder.Append("\"device_id\":\"" + MonoSingleton<GameManager>.Instance.DeviceId + "\"");
-            if (string.IsNullOrEmpty(body) != null)
-            {
-                goto Label_0083;
-            }
-            builder.Append(",\"param\":{" + body + "}");
-        Label_0083:
-            builder.Append("}");
-            return builder.ToString();
-        }
+      this.name = "btl/com/record";
+      StringBuilder stringBuilder = new StringBuilder();
+      stringBuilder.Append("\"iname\":\"" + questIname + "\"");
+      if (page > 1)
+      {
+        stringBuilder.Append(",\"id\":" + (object) id);
+        stringBuilder.Append(",\"page\":" + (object) page);
+      }
+      this.body = ReqBtlComRecord.CreateRequestString(stringBuilder.ToString());
+      this.callback = response;
     }
-}
 
+    private static string CreateRequestString(string body)
+    {
+      StringBuilder stringBuilder = new StringBuilder();
+      stringBuilder.Append("{\"ticket\":" + (object) Network.TicketID + ",");
+      stringBuilder.Append("\"access_token\":\"" + Network.SessionID + "\",");
+      stringBuilder.Append("\"device_id\":\"" + MonoSingleton<GameManager>.Instance.DeviceId + "\"");
+      if (!string.IsNullOrEmpty(body))
+        stringBuilder.Append(",\"param\":{" + body + "}");
+      stringBuilder.Append("}");
+      return stringBuilder.ToString();
+    }
+  }
+}

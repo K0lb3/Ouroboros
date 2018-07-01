@@ -1,43 +1,39 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_SetTowerWebURL
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using UnityEngine;
+  [FlowNode.Pin(2, "Error", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(1, "Succes", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.NodeType("System/SetTowerWebURL", 32741)]
+  [FlowNode.Pin(0, "Set", FlowNode.PinTypes.Input, 0)]
+  public class FlowNode_SetTowerWebURL : FlowNode
+  {
+    [SerializeField]
+    private string URL;
+    [SerializeField]
+    private string Value;
 
-    [NodeType("System/SetTowerWebURL", 0x7fe5), Pin(2, "Error", 1, 0), Pin(1, "Succes", 1, 0), Pin(0, "Set", 0, 0)]
-    public class FlowNode_SetTowerWebURL : FlowNode
+    public override void OnActivate(int pinID)
     {
-        [SerializeField]
-        private string URL;
-        [SerializeField]
-        private string Value;
-
-        public FlowNode_SetTowerWebURL()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            TowerParam param;
-            if (pinID != null)
-            {
-                goto Label_0049;
-            }
-            param = MonoSingleton<GameManager>.Instance.FindTower(GlobalVars.SelectedTowerID);
-            if (param != null)
-            {
-                goto Label_0025;
-            }
-            base.ActivateOutputLinks(2);
-            return;
-        Label_0025:
-            FlowNode_Variable.Set(this.Value, this.URL + param.URL);
-            base.ActivateOutputLinks(1);
-        Label_0049:
-            return;
-        }
+      if (pinID != 0)
+        return;
+      TowerParam tower = MonoSingleton<GameManager>.Instance.FindTower(GlobalVars.SelectedTowerID);
+      if (tower == null)
+      {
+        this.ActivateOutputLinks(2);
+      }
+      else
+      {
+        FlowNode_Variable.Set(this.Value, this.URL + tower.URL);
+        this.ActivateOutputLinks(1);
+      }
     }
+  }
 }
-

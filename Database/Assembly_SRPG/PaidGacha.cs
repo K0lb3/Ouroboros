@@ -1,24 +1,21 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.PaidGacha
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
+  public class PaidGacha
+  {
+    public int num;
+    public long at;
 
-    public class PaidGacha
+    public bool Deserialize(Json_PaidGacha json)
     {
-        public int num;
-        public long at;
-
-        public PaidGacha()
-        {
-            base..ctor();
-            return;
-        }
-
-        public bool Deserialize(Json_PaidGacha json)
-        {
-            this.num = json.num;
-            this.at = json.at;
-            return 1;
-        }
+      this.num = json.num;
+      this.at = json.at;
+      return true;
     }
+  }
 }
-

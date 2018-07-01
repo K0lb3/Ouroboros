@@ -1,124 +1,94 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.TowerPartyHP
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Runtime.CompilerServices;
-    using UnityEngine;
-    using UnityEngine.UI;
+  public class TowerPartyHP : MonoBehaviour, IGameParameter
+  {
+    public Slider mSlider;
 
-    public class TowerPartyHP : MonoBehaviour, IGameParameter
+    public TowerPartyHP()
     {
-        public Slider mSlider;
-
-        public TowerPartyHP()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void Refresh()
-        {
-            TowerResuponse resuponse;
-            int num;
-            TowerResuponse.PlayerUnit unit;
-            <Refresh>c__AnonStorey3AC storeyac;
-            storeyac = new <Refresh>c__AnonStorey3AC();
-            if ((this.mSlider == null) == null)
-            {
-                goto Label_0018;
-            }
-            return;
-        Label_0018:
-            storeyac.UnitData = DataSource.FindDataOfClass<UnitData>(base.get_gameObject(), null);
-            if (storeyac.UnitData != null)
-            {
-                goto Label_0047;
-            }
-            this.mSlider.get_gameObject().SetActive(0);
-            return;
-        Label_0047:
-            resuponse = MonoSingleton<GameManager>.Instance.TowerResuponse;
-            if (resuponse != null)
-            {
-                goto Label_006A;
-            }
-            this.mSlider.get_gameObject().SetActive(0);
-            return;
-        Label_006A:
-            num = 0;
-            if (resuponse.pdeck != null)
-            {
-                goto Label_00AC;
-            }
-            this.mSlider.get_gameObject().SetActive(1);
-            num = storeyac.UnitData.Status.param.hp;
-            this.SetSliderValue(num, num);
-            return;
-        Label_00AC:
-            unit = resuponse.pdeck.Find(new Predicate<TowerResuponse.PlayerUnit>(storeyac.<>m__423));
-            if (unit != null)
-            {
-                goto Label_00FF;
-            }
-            this.mSlider.get_gameObject().SetActive(1);
-            num = storeyac.UnitData.Status.param.hp;
-            this.SetSliderValue(num, num);
-            return;
-        Label_00FF:
-            if (unit.isDied == null)
-            {
-                goto Label_011C;
-            }
-            this.mSlider.get_gameObject().SetActive(0);
-            return;
-        Label_011C:
-            this.mSlider.get_gameObject().SetActive(1);
-            num = Mathf.Max(storeyac.UnitData.Status.param.hp - unit.dmg, 1);
-            this.SetSliderValue(num, storeyac.UnitData.Status.param.hp);
-            return;
-        }
-
-        private void SetSliderValue(int value, int maxValue)
-        {
-            if ((this.mSlider != null) == null)
-            {
-                goto Label_003B;
-            }
-            this.mSlider.set_maxValue((float) maxValue);
-            this.mSlider.set_minValue(0f);
-            this.mSlider.set_value((float) value);
-        Label_003B:
-            return;
-        }
-
-        private void Start()
-        {
-            this.Refresh();
-            return;
-        }
-
-        public void UpdateValue()
-        {
-            this.Refresh();
-            return;
-        }
-
-        [CompilerGenerated]
-        private sealed class <Refresh>c__AnonStorey3AC
-        {
-            internal SRPG.UnitData UnitData;
-
-            public <Refresh>c__AnonStorey3AC()
-            {
-                base..ctor();
-                return;
-            }
-
-            internal bool <>m__423(TowerResuponse.PlayerUnit x)
-            {
-                return (x.unitname == this.UnitData.UnitParam.iname);
-            }
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Start()
+    {
+      this.Refresh();
+    }
+
+    public void UpdateValue()
+    {
+      this.Refresh();
+    }
+
+    public void Refresh()
+    {
+      // ISSUE: object of a compiler-generated type is created
+      // ISSUE: variable of a compiler-generated type
+      TowerPartyHP.\u003CRefresh\u003Ec__AnonStorey37E refreshCAnonStorey37E = new TowerPartyHP.\u003CRefresh\u003Ec__AnonStorey37E();
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.mSlider, (UnityEngine.Object) null))
+        return;
+      // ISSUE: reference to a compiler-generated field
+      refreshCAnonStorey37E.UnitData = DataSource.FindDataOfClass<UnitData>(((Component) this).get_gameObject(), (UnitData) null);
+      // ISSUE: reference to a compiler-generated field
+      if (refreshCAnonStorey37E.UnitData == null)
+      {
+        ((Component) this.mSlider).get_gameObject().SetActive(false);
+      }
+      else
+      {
+        TowerResuponse towerResuponse = MonoSingleton<GameManager>.Instance.TowerResuponse;
+        if (towerResuponse == null)
+          ((Component) this.mSlider).get_gameObject().SetActive(false);
+        else if (towerResuponse.pdeck == null)
+        {
+          ((Component) this.mSlider).get_gameObject().SetActive(true);
+          // ISSUE: reference to a compiler-generated field
+          int hp = (int) refreshCAnonStorey37E.UnitData.Status.param.hp;
+          this.SetSliderValue(hp, hp);
+        }
+        else
+        {
+          // ISSUE: reference to a compiler-generated method
+          TowerResuponse.PlayerUnit playerUnit = towerResuponse.pdeck.Find(new Predicate<TowerResuponse.PlayerUnit>(refreshCAnonStorey37E.\u003C\u003Em__420));
+          if (playerUnit == null)
+          {
+            ((Component) this.mSlider).get_gameObject().SetActive(true);
+            // ISSUE: reference to a compiler-generated field
+            int hp = (int) refreshCAnonStorey37E.UnitData.Status.param.hp;
+            this.SetSliderValue(hp, hp);
+          }
+          else if (playerUnit.isDied)
+          {
+            ((Component) this.mSlider).get_gameObject().SetActive(false);
+          }
+          else
+          {
+            ((Component) this.mSlider).get_gameObject().SetActive(true);
+            // ISSUE: reference to a compiler-generated field
+            // ISSUE: reference to a compiler-generated field
+            this.SetSliderValue(Mathf.Max((int) refreshCAnonStorey37E.UnitData.Status.param.hp - playerUnit.dmg, 1), (int) refreshCAnonStorey37E.UnitData.Status.param.hp);
+          }
+        }
+      }
+    }
+
+    private void SetSliderValue(int value, int maxValue)
+    {
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mSlider, (UnityEngine.Object) null))
+        return;
+      this.mSlider.set_maxValue((float) maxValue);
+      this.mSlider.set_minValue(0.0f);
+      this.mSlider.set_value((float) value);
+    }
+  }
+}

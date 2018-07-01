@@ -1,302 +1,222 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_CreateItem
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Collections.Generic;
-    using System.Runtime.CompilerServices;
-    using UnityEngine;
+  [FlowNode.Pin(3, "費用が足りない", FlowNode.PinTypes.Output, 3)]
+  [FlowNode.NodeType("System/CreateItem", 32741)]
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
+  [FlowNode.Pin(2, "所持限界に達している", FlowNode.PinTypes.Output, 2)]
+  [FlowNode.Pin(4, "素材が足りない", FlowNode.PinTypes.Output, 4)]
+  [FlowNode.Pin(100, "ワンタップ合成", FlowNode.PinTypes.Input, 100)]
+  [FlowNode.Pin(0, "Request", FlowNode.PinTypes.Input, 0)]
+  public class FlowNode_CreateItem : FlowNode_Network
+  {
+    private ItemParam mItemParam;
 
-    [Pin(1, "Success", 1, 1), Pin(4, "素材が足りない", 1, 4), Pin(0, "Request", 0, 0), Pin(100, "ワンタップ合成", 0, 100), Pin(2, "所持限界に達している", 1, 2), Pin(3, "費用が足りない", 1, 3), NodeType("System/CreateItem", 0x7fe5)]
-    public class FlowNode_CreateItem : FlowNode_Network
+    public override void OnActivate(int pinID)
     {
-        private ItemParam mItemParam;
-
-        public FlowNode_CreateItem()
+      // ISSUE: object of a compiler-generated type is created
+      // ISSUE: variable of a compiler-generated type
+      FlowNode_CreateItem.\u003COnActivate\u003Ec__AnonStorey2C8 activateCAnonStorey2C8 = new FlowNode_CreateItem.\u003COnActivate\u003Ec__AnonStorey2C8();
+      // ISSUE: reference to a compiler-generated field
+      activateCAnonStorey2C8.\u003C\u003Ef__this = this;
+      if (pinID != 0 && pinID != 100)
+        return;
+      // ISSUE: reference to a compiler-generated field
+      activateCAnonStorey2C8.player = MonoSingleton<GameManager>.Instance.Player;
+      this.mItemParam = MonoSingleton<GameManager>.Instance.GetItemParam(GlobalVars.SelectedCreateItemID);
+      // ISSUE: reference to a compiler-generated field
+      if (!activateCAnonStorey2C8.player.CheckItemCapacity(this.mItemParam, 1))
+      {
+        ((Behaviour) this).set_enabled(false);
+        this.ActivateOutputLinks(2);
+      }
+      else if (pinID == 0)
+      {
+        // ISSUE: object of a compiler-generated type is created
+        // ISSUE: variable of a compiler-generated type
+        FlowNode_CreateItem.\u003COnActivate\u003Ec__AnonStorey2C9 activateCAnonStorey2C9 = new FlowNode_CreateItem.\u003COnActivate\u003Ec__AnonStorey2C9();
+        // ISSUE: reference to a compiler-generated field
+        activateCAnonStorey2C9.\u003C\u003Ef__ref\u0024712 = activateCAnonStorey2C8;
+        // ISSUE: reference to a compiler-generated field
+        activateCAnonStorey2C9.\u003C\u003Ef__this = this;
+        // ISSUE: reference to a compiler-generated field
+        if (MonoSingleton<GameManager>.Instance.GetRecipeParam(this.mItemParam.recipe).cost > activateCAnonStorey2C8.player.Gold)
         {
-            base..ctor();
-            return;
+          ((Behaviour) this).set_enabled(false);
+          this.ActivateOutputLinks(3);
         }
-
-        public void CallApi(NeedEquipItemList need_euip_item, PlayerData player)
+        else
         {
-            if (Network.Mode != null)
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: reference to a compiler-generated field
+          activateCAnonStorey2C9.result_type = activateCAnonStorey2C8.player.CheckCreateItem(this.mItemParam);
+          // ISSUE: reference to a compiler-generated field
+          if (activateCAnonStorey2C9.result_type == CreateItemResult.NotEnough)
+          {
+            ((Behaviour) this).set_enabled(false);
+            this.ActivateOutputLinks(4);
+          }
+          else
+          {
+            // ISSUE: reference to a compiler-generated field
+            if (activateCAnonStorey2C9.result_type == CreateItemResult.CanCreateCommon)
             {
-                goto Label_003E;
+              int cost = 0;
+              Dictionary<string, int> consumes = (Dictionary<string, int>) null;
+              bool is_ikkatsu = false;
+              NeedEquipItemList item_list = new NeedEquipItemList();
+              MonoSingleton<GameManager>.GetInstanceDirect().Player.CheckEnableCreateItem(this.mItemParam, ref is_ikkatsu, ref cost, ref consumes, item_list);
+              // ISSUE: reference to a compiler-generated method
+              UIUtility.ConfirmBox(LocalizedText.Get("sys.COMMON_EQUIP_CHECK_MADE", new object[1]
+              {
+                (object) item_list.GetCommonItemListString()
+              }), new UIUtility.DialogResultEvent(activateCAnonStorey2C9.\u003C\u003Em__2A1), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1, (string) null, (string) null);
             }
-            base.ExecRequest(new ReqItemCompositAll(this.mItemParam.iname, need_euip_item.IsEnoughCommon(), new Network.ResponseCallback(this.ResponseCallback)));
-            base.set_enabled(1);
-            goto Label_004B;
-        Label_003E:
-            player.CreateItemAll(this.mItemParam);
-        Label_004B:
-            return;
+            else
+            {
+              // ISSUE: reference to a compiler-generated field
+              // ISSUE: reference to a compiler-generated field
+              this.CallApiNormal(activateCAnonStorey2C8.player, activateCAnonStorey2C9.result_type);
+            }
+          }
         }
-
-        public void CallApiNormal(PlayerData player, CreateItemResult result_type)
+      }
+      else
+      {
+        // ISSUE: object of a compiler-generated type is created
+        // ISSUE: variable of a compiler-generated type
+        FlowNode_CreateItem.\u003COnActivate\u003Ec__AnonStorey2CA activateCAnonStorey2Ca = new FlowNode_CreateItem.\u003COnActivate\u003Ec__AnonStorey2CA();
+        // ISSUE: reference to a compiler-generated field
+        activateCAnonStorey2Ca.\u003C\u003Ef__ref\u0024712 = activateCAnonStorey2C8;
+        // ISSUE: reference to a compiler-generated field
+        activateCAnonStorey2Ca.\u003C\u003Ef__this = this;
+        int cost = 0;
+        Dictionary<string, int> consumes = (Dictionary<string, int>) null;
+        bool is_ikkatsu = false;
+        // ISSUE: reference to a compiler-generated field
+        activateCAnonStorey2Ca.need_euip_item = new NeedEquipItemList();
+        // ISSUE: reference to a compiler-generated field
+        // ISSUE: reference to a compiler-generated field
+        bool flag = activateCAnonStorey2C8.player.CheckEnableCreateItem(this.mItemParam, ref is_ikkatsu, ref cost, ref consumes, activateCAnonStorey2Ca.need_euip_item);
+        // ISSUE: reference to a compiler-generated field
+        if (cost > activateCAnonStorey2C8.player.Gold)
         {
-            if (Network.Mode != null)
-            {
-                goto Label_003C;
-            }
-            base.ExecRequest(new ReqItemComposit(this.mItemParam.iname, result_type == 2, new Network.ResponseCallback(this.ResponseCallback)));
-            base.set_enabled(1);
-            goto Label_0049;
-        Label_003C:
-            player.CreateItem(this.mItemParam);
-        Label_0049:
-            return;
+          ((Behaviour) this).set_enabled(false);
+          this.ActivateOutputLinks(3);
         }
-
-        public override unsafe void OnActivate(int pinID)
+        else
         {
-            object[] objArray2;
-            object[] objArray1;
-            RecipeParam param;
-            int num;
-            Dictionary<string, int> dictionary;
-            bool flag;
-            NeedEquipItemList list;
-            string str;
-            string str2;
-            int num2;
-            Dictionary<string, int> dictionary2;
-            bool flag2;
-            bool flag3;
-            string str3;
-            string str4;
-            <OnActivate>c__AnonStorey268 storey;
-            <OnActivate>c__AnonStorey269 storey2;
-            <OnActivate>c__AnonStorey26A storeya;
-            storey = new <OnActivate>c__AnonStorey268();
-            storey.<>f__this = this;
-            if (pinID == null)
+          // ISSUE: reference to a compiler-generated field
+          if (!flag && !activateCAnonStorey2Ca.need_euip_item.IsEnoughCommon())
+          {
+            ((Behaviour) this).set_enabled(false);
+            this.ActivateOutputLinks(4);
+          }
+          else
+          {
+            // ISSUE: reference to a compiler-generated field
+            if (activateCAnonStorey2Ca.need_euip_item.IsEnoughCommon())
             {
-                goto Label_001E;
+              // ISSUE: reference to a compiler-generated field
+              // ISSUE: reference to a compiler-generated method
+              UIUtility.ConfirmBox(LocalizedText.Get("sys.COMMON_EQUIP_CHECK_ONETAP", new object[1]
+              {
+                (object) activateCAnonStorey2Ca.need_euip_item.GetCommonItemListString()
+              }), new UIUtility.DialogResultEvent(activateCAnonStorey2Ca.\u003C\u003Em__2A2), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1, (string) null, (string) null);
             }
-            if (pinID == 100)
+            else
             {
-                goto Label_001E;
+              // ISSUE: reference to a compiler-generated field
+              // ISSUE: reference to a compiler-generated field
+              this.CallApi(activateCAnonStorey2Ca.need_euip_item, activateCAnonStorey2C8.player);
             }
-            return;
-        Label_001E:
-            storey.player = MonoSingleton<GameManager>.Instance.Player;
-            this.mItemParam = MonoSingleton<GameManager>.Instance.GetItemParam(GlobalVars.SelectedCreateItemID);
-            if (storey.player.CheckItemCapacity(this.mItemParam, 1) != null)
-            {
-                goto Label_006C;
-            }
-            base.set_enabled(0);
-            base.ActivateOutputLinks(2);
-            return;
-        Label_006C:
-            if (pinID != null)
-            {
-                goto Label_018D;
-            }
-            storey2 = new <OnActivate>c__AnonStorey269();
-            storey2.<>f__ref$616 = storey;
-            storey2.<>f__this = this;
-            if (MonoSingleton<GameManager>.Instance.GetRecipeParam(this.mItemParam.recipe).cost <= storey.player.Gold)
-            {
-                goto Label_00C7;
-            }
-            base.set_enabled(0);
-            base.ActivateOutputLinks(3);
-            return;
-        Label_00C7:
-            storey2.result_type = storey.player.CheckCreateItem(this.mItemParam);
-            if (storey2.result_type != null)
-            {
-                goto Label_00FC;
-            }
-            base.set_enabled(0);
-            base.ActivateOutputLinks(4);
-            return;
-        Label_00FC:
-            if (storey2.result_type != 2)
-            {
-                goto Label_0174;
-            }
-            num = 0;
-            dictionary = null;
-            flag = 0;
-            list = new NeedEquipItemList();
-            MonoSingleton<GameManager>.GetInstanceDirect().Player.CheckEnableCreateItem(this.mItemParam, &flag, &num, &dictionary, list);
-            str = list.GetCommonItemListString();
-            objArray1 = new object[] { str };
-            UIUtility.ConfirmBox(LocalizedText.Get("sys.COMMON_EQUIP_CHECK_MADE", objArray1), new UIUtility.DialogResultEvent(storey2.<>m__194), null, null, 0, -1, null, null);
-            goto Label_0188;
-        Label_0174:
-            this.CallApiNormal(storey.player, storey2.result_type);
-        Label_0188:
-            goto Label_0290;
-        Label_018D:
-            storeya = new <OnActivate>c__AnonStorey26A();
-            storeya.<>f__ref$616 = storey;
-            storeya.<>f__this = this;
-            num2 = 0;
-            dictionary2 = null;
-            flag2 = 0;
-            storeya.need_euip_item = new NeedEquipItemList();
-            flag3 = storey.player.CheckEnableCreateItem(this.mItemParam, &flag2, &num2, &dictionary2, storeya.need_euip_item);
-            if (num2 <= storey.player.Gold)
-            {
-                goto Label_01FE;
-            }
-            base.set_enabled(0);
-            base.ActivateOutputLinks(3);
-            return;
-        Label_01FE:
-            if (flag3 != null)
-            {
-                goto Label_0226;
-            }
-            if (storeya.need_euip_item.IsEnoughCommon() != null)
-            {
-                goto Label_0226;
-            }
-            base.set_enabled(0);
-            base.ActivateOutputLinks(4);
-            return;
-        Label_0226:
-            if (storeya.need_euip_item.IsEnoughCommon() == null)
-            {
-                goto Label_027C;
-            }
-            str3 = storeya.need_euip_item.GetCommonItemListString();
-            objArray2 = new object[] { str3 };
-            UIUtility.ConfirmBox(LocalizedText.Get("sys.COMMON_EQUIP_CHECK_ONETAP", objArray2), new UIUtility.DialogResultEvent(storeya.<>m__195), null, null, 0, -1, null, null);
-            goto Label_0290;
-        Label_027C:
-            this.CallApi(storeya.need_euip_item, storey.player);
-        Label_0290:
-            return;
+          }
         }
-
-        public override unsafe void OnSuccess(WWWResult www)
-        {
-            WebAPI.JSON_BodyResponse<Json_PlayerDataAll> response;
-            Exception exception;
-            Network.EErrCode code;
-            if (Network.IsError == null)
-            {
-                goto Label_0040;
-            }
-            code = Network.ErrCode;
-            if (code == 0xc81)
-            {
-                goto Label_0032;
-            }
-            if (code == 0xc82)
-            {
-                goto Label_002B;
-            }
-            goto Label_0039;
-        Label_002B:
-            this.OnFailed();
-            return;
-        Label_0032:
-            this.OnFailed();
-            return;
-        Label_0039:
-            this.OnRetry();
-            return;
-        Label_0040:
-            response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_PlayerDataAll>>(&www.text);
-            DebugUtility.Assert((response == null) == 0, "res == null");
-            if (response.body != null)
-            {
-                goto Label_0070;
-            }
-            this.OnRetry();
-            return;
-        Label_0070:
-            try
-            {
-                MonoSingleton<GameManager>.Instance.Deserialize(response.body.player);
-                MonoSingleton<GameManager>.Instance.Deserialize(response.body.items);
-                goto Label_00B6;
-            }
-            catch (Exception exception1)
-            {
-            Label_009F:
-                exception = exception1;
-                DebugUtility.LogException(exception);
-                this.OnRetry();
-                goto Label_00F1;
-            }
-        Label_00B6:
-            if (this.mItemParam == null)
-            {
-                goto Label_00E6;
-            }
-            UIUtility.SystemMessage(null, string.Format(LocalizedText.Get("sys.UNIT_EQUIPMENT_CREATE_MESSAGE"), this.mItemParam.name), null, null, 0, -1);
-        Label_00E6:
-            Network.RemoveAPI();
-            this.Success();
-        Label_00F1:
-            return;
-        }
-
-        private void Success()
-        {
-            base.set_enabled(0);
-            base.ActivateOutputLinks(1);
-            return;
-        }
-
-        [CompilerGenerated]
-        private sealed class <OnActivate>c__AnonStorey268
-        {
-            internal PlayerData player;
-            internal FlowNode_CreateItem <>f__this;
-
-            public <OnActivate>c__AnonStorey268()
-            {
-                base..ctor();
-                return;
-            }
-        }
-
-        [CompilerGenerated]
-        private sealed class <OnActivate>c__AnonStorey269
-        {
-            internal CreateItemResult result_type;
-            internal FlowNode_CreateItem.<OnActivate>c__AnonStorey268 <>f__ref$616;
-            internal FlowNode_CreateItem <>f__this;
-
-            public <OnActivate>c__AnonStorey269()
-            {
-                base..ctor();
-                return;
-            }
-
-            internal void <>m__194(GameObject go)
-            {
-                this.<>f__this.CallApiNormal(this.<>f__ref$616.player, this.result_type);
-                return;
-            }
-        }
-
-        [CompilerGenerated]
-        private sealed class <OnActivate>c__AnonStorey26A
-        {
-            internal NeedEquipItemList need_euip_item;
-            internal FlowNode_CreateItem.<OnActivate>c__AnonStorey268 <>f__ref$616;
-            internal FlowNode_CreateItem <>f__this;
-
-            public <OnActivate>c__AnonStorey26A()
-            {
-                base..ctor();
-                return;
-            }
-
-            internal void <>m__195(GameObject go)
-            {
-                this.<>f__this.CallApi(this.need_euip_item, this.<>f__ref$616.player);
-                return;
-            }
-        }
+      }
     }
-}
 
+    public void CallApi(NeedEquipItemList need_euip_item, PlayerData player)
+    {
+      if (Network.Mode == Network.EConnectMode.Online)
+      {
+        this.ExecRequest((WebAPI) new ReqItemCompositAll(this.mItemParam.iname, need_euip_item.IsEnoughCommon(), new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+        ((Behaviour) this).set_enabled(true);
+      }
+      else
+        player.CreateItemAll(this.mItemParam);
+    }
+
+    public void CallApiNormal(PlayerData player, CreateItemResult result_type)
+    {
+      if (Network.Mode == Network.EConnectMode.Online)
+      {
+        this.ExecRequest((WebAPI) new ReqItemComposit(this.mItemParam.iname, result_type == CreateItemResult.CanCreateCommon, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+        ((Behaviour) this).set_enabled(true);
+      }
+      else
+        player.CreateItem(this.mItemParam);
+    }
+
+    private void Success()
+    {
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(1);
+    }
+
+    public override void OnSuccess(WWWResult www)
+    {
+      if (Network.IsError)
+      {
+        switch (Network.ErrCode)
+        {
+          case Network.EErrCode.GouseiMaterialShort:
+            this.OnBack();
+            break;
+          case Network.EErrCode.GouseiCostShort:
+            this.OnFailed();
+            break;
+          default:
+            this.OnRetry();
+            break;
+        }
+      }
+      else
+      {
+        WebAPI.JSON_BodyResponse<Json_PlayerDataAll> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_PlayerDataAll>>(www.text);
+        DebugUtility.Assert(jsonObject != null, "res == null");
+        if (jsonObject.body == null)
+        {
+          this.OnRetry();
+        }
+        else
+        {
+          try
+          {
+            MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.player);
+            MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.items);
+          }
+          catch (Exception ex)
+          {
+            DebugUtility.LogException(ex);
+            this.OnRetry();
+            return;
+          }
+          if (this.mItemParam != null)
+            UIUtility.SystemMessage((string) null, string.Format(LocalizedText.Get("sys.UNIT_EQUIPMENT_CREATE_MESSAGE"), (object) this.mItemParam.name), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1);
+          Network.RemoveAPI();
+          this.Success();
+        }
+      }
+    }
+  }
+}

@@ -1,330 +1,160 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.QuestListV2_MultiPlay
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Runtime.CompilerServices;
-    using UnityEngine;
-    using UnityEngine.UI;
+  [FlowNode.Pin(50, "鍵なし", FlowNode.PinTypes.Input, 50)]
+  [FlowNode.Pin(51, "鍵あり", FlowNode.PinTypes.Input, 51)]
+  [FlowNode.Pin(101, "選択された", FlowNode.PinTypes.Output, 101)]
+  [AddComponentMenu("Multi/クエスト一覧")]
+  [FlowNode.Pin(0, "表示", FlowNode.PinTypes.Input, 0)]
+  public class QuestListV2_MultiPlay : MonoBehaviour, IFlowInterface
+  {
+    [Description("リストアイテムとして使用するゲームオブジェクト")]
+    public GameObject ItemTemplate;
+    [Description("詳細画面として使用するゲームオブジェクト")]
+    public GameObject DetailTemplate;
+    private GameObject mDetailInfo;
+    public ScrollRect ScrollRect;
 
-    [Pin(0x65, "選択された", 1, 0x65), Pin(0, "表示", 0, 0), Pin(0x33, "鍵あり", 0, 0x33), AddComponentMenu("Multi/クエスト一覧"), Pin(50, "鍵なし", 0, 50)]
-    public class QuestListV2_MultiPlay : MonoBehaviour, IFlowInterface
+    public QuestListV2_MultiPlay()
     {
-        [Description("リストアイテムとして使用するゲームオブジェクト")]
-        public GameObject ItemTemplate;
-        [Description("詳細画面として使用するゲームオブジェクト")]
-        public GameObject DetailTemplate;
-        private GameObject mDetailInfo;
-        public UnityEngine.UI.ScrollRect ScrollRect;
-
-        public QuestListV2_MultiPlay()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void Activated(int pinID)
-        {
-            if (pinID != null)
-            {
-                goto Label_0011;
-            }
-            this.Refresh();
-            goto Label_004A;
-        Label_0011:
-            if (pinID != 50)
-            {
-                goto Label_002E;
-            }
-            GlobalVars.EditMultiPlayRoomPassCode = null;
-            GameParameter.UpdateValuesOfType(0xe0);
-            goto Label_004A;
-        Label_002E:
-            if (pinID != 0x33)
-            {
-                goto Label_004A;
-            }
-            GlobalVars.EditMultiPlayRoomPassCode = "1";
-            GameParameter.UpdateValuesOfType(0xe0);
-        Label_004A:
-            return;
-        }
-
-        private unsafe void Awake()
-        {
-            string str;
-            int num;
-            GlobalVars.EditMultiPlayRoomPassCode = "0";
-            str = FlowNode_Variable.Get("MultiPlayPasscode");
-            if (string.IsNullOrEmpty(str) != null)
-            {
-                goto Label_003D;
-            }
-            num = 0;
-            if (int.TryParse(str, &num) == null)
-            {
-                goto Label_003D;
-            }
-            if (num == null)
-            {
-                goto Label_003D;
-            }
-            this.Activated(0x33);
-        Label_003D:
-            if ((this.ItemTemplate != null) == null)
-            {
-                goto Label_006A;
-            }
-            if (this.ItemTemplate.get_activeInHierarchy() == null)
-            {
-                goto Label_006A;
-            }
-            this.ItemTemplate.SetActive(0);
-        Label_006A:
-            if ((this.DetailTemplate != null) == null)
-            {
-                goto Label_0097;
-            }
-            if (this.DetailTemplate.get_activeInHierarchy() == null)
-            {
-                goto Label_0097;
-            }
-            this.DetailTemplate.SetActive(0);
-        Label_0097:
-            return;
-        }
-
-        private void OnCloseItemDetail(GameObject go)
-        {
-            if ((this.mDetailInfo != null) == null)
-            {
-                goto Label_0028;
-            }
-            Object.DestroyImmediate(this.mDetailInfo.get_gameObject());
-            this.mDetailInfo = null;
-        Label_0028:
-            return;
-        }
-
-        private void OnOpenItemDetail(GameObject go)
-        {
-            QuestParam param;
-            CanvasGroup group;
-            param = DataSource.FindDataOfClass<QuestParam>(go, null);
-            group = base.get_gameObject().GetComponentInParent<CanvasGroup>();
-            if ((group != null) == null)
-            {
-                goto Label_002C;
-            }
-            if (group.get_interactable() != null)
-            {
-                goto Label_002C;
-            }
-            return;
-        Label_002C:
-            if ((this.mDetailInfo == null) == null)
-            {
-                goto Label_006C;
-            }
-            if (param == null)
-            {
-                goto Label_006C;
-            }
-            this.mDetailInfo = Object.Instantiate<GameObject>(this.DetailTemplate);
-            DataSource.Bind<QuestParam>(this.mDetailInfo, param);
-            this.mDetailInfo.SetActive(1);
-        Label_006C:
-            return;
-        }
-
-        private void OnSelectItem(GameObject go)
-        {
-            QuestParam param;
-            bool flag;
-            <OnSelectItem>c__AnonStorey385 storey;
-            storey = new <OnSelectItem>c__AnonStorey385();
-            storey.go = go;
-            param = DataSource.FindDataOfClass<QuestParam>(storey.go, null);
-            if (param == null)
-            {
-                goto Label_009E;
-            }
-            if ((QuestDropParam.Instance != null) == null)
-            {
-                goto Label_009E;
-            }
-            flag = QuestDropParam.Instance.IsChangedQuestDrops(param);
-            GlobalVars.SetDropTableGeneratedTime();
-            if (flag == null)
-            {
-                goto Label_0077;
-            }
-            if (QuestDropParam.Instance.IsWarningPopupDisable != null)
-            {
-                goto Label_0077;
-            }
-            UIUtility.NegativeSystemMessage(null, LocalizedText.Get("sys.PARTYEDITOR_DROP_TABLE"), new UIUtility.DialogResultEvent(storey.<>m__3CF), null, 0, -1);
-            return;
-        Label_0077:
-            GlobalVars.SelectedQuestID = param.iname;
-            DebugUtility.Log("Select Quest:" + GlobalVars.SelectedQuestID);
-            FlowNode_GameObject.ActivateOutputLinks(this, 0x65);
-        Label_009E:
-            return;
-        }
-
-        public void Refresh()
-        {
-            ListExtras extras;
-            this.RefreshItems();
-            if ((this.ScrollRect != null) == null)
-            {
-                goto Label_004F;
-            }
-            extras = this.ScrollRect.GetComponent<ListExtras>();
-            if ((extras != null) == null)
-            {
-                goto Label_003F;
-            }
-            extras.SetScrollPos(1f);
-            goto Label_004F;
-        Label_003F:
-            this.ScrollRect.set_normalizedPosition(Vector2.get_one());
-        Label_004F:
-            return;
-        }
-
-        private void RefreshItems()
-        {
-            Transform transform;
-            int num;
-            Transform transform2;
-            int num2;
-            QuestParam param;
-            GameObject obj2;
-            ListItemEvents events;
-            transform = base.get_transform();
-            num = transform.get_childCount() - 1;
-            goto Label_004D;
-        Label_0015:
-            transform2 = transform.GetChild(num);
-            if ((transform2 == null) == null)
-            {
-                goto Label_002E;
-            }
-            goto Label_0049;
-        Label_002E:
-            if (transform2.get_gameObject().get_activeSelf() == null)
-            {
-                goto Label_0049;
-            }
-            Object.DestroyImmediate(transform2.get_gameObject());
-        Label_0049:
-            num -= 1;
-        Label_004D:
-            if (num >= 0)
-            {
-                goto Label_0015;
-            }
-            if ((this.ItemTemplate == null) == null)
-            {
-                goto Label_0066;
-            }
-            return;
-        Label_0066:
-            num2 = 0;
-            goto Label_0182;
-        Label_006D:
-            param = MonoSingleton<GameManager>.Instance.Quests[num2];
-            if (param == null)
-            {
-                goto Label_017E;
-            }
-            if (param.type == 1)
-            {
-                goto Label_00A0;
-            }
-            if (param.IsMultiAreaQuest != null)
-            {
-                goto Label_00A0;
-            }
-            goto Label_017E;
-        Label_00A0:
-            if (param.IsMultiEvent == GlobalVars.SelectedMultiPlayQuestIsEvent)
-            {
-                goto Label_00B6;
-            }
-            goto Label_017E;
-        Label_00B6:
-            if (string.IsNullOrEmpty(param.ChapterID) != null)
-            {
-                goto Label_017E;
-            }
-            if (param.ChapterID.Equals(GlobalVars.SelectedMultiPlayArea) != null)
-            {
-                goto Label_00E2;
-            }
-            goto Label_017E;
-        Label_00E2:
-            if (param.IsDateUnlock(-1L) != null)
-            {
-                goto Label_00F5;
-            }
-            goto Label_017E;
-        Label_00F5:
-            obj2 = Object.Instantiate<GameObject>(this.ItemTemplate);
-            obj2.set_hideFlags(0x34);
-            DataSource.Bind<QuestParam>(obj2, param);
-            events = obj2.GetComponent<ListItemEvents>();
-            if ((events != null) == null)
-            {
-                goto Label_0163;
-            }
-            events.OnSelect = new ListItemEvents.ListItemEvent(this.OnSelectItem);
-            events.OnOpenDetail = new ListItemEvents.ListItemEvent(this.OnOpenItemDetail);
-            events.OnCloseDetail = new ListItemEvents.ListItemEvent(this.OnCloseItemDetail);
-        Label_0163:
-            obj2.get_transform().SetParent(transform, 0);
-            obj2.get_gameObject().SetActive(1);
-        Label_017E:
-            num2 += 1;
-        Label_0182:
-            if (num2 < ((int) MonoSingleton<GameManager>.Instance.Quests.Length))
-            {
-                goto Label_006D;
-            }
-            return;
-        }
-
-        private void Start()
-        {
-            this.RefreshItems();
-            return;
-        }
-
-        [CompilerGenerated]
-        private sealed class <OnSelectItem>c__AnonStorey385
-        {
-            internal GameObject go;
-
-            public <OnSelectItem>c__AnonStorey385()
-            {
-                base..ctor();
-                return;
-            }
-
-            internal void <>m__3CF(GameObject obj)
-            {
-                ListItemEvents events;
-                events = this.go.GetComponent<ListItemEvents>();
-                if ((events != null) == null)
-                {
-                    goto Label_001E;
-                }
-                events.OpenDetail();
-            Label_001E:
-                return;
-            }
-        }
+      base.\u002Ector();
     }
-}
 
+    public void Activated(int pinID)
+    {
+      switch (pinID)
+      {
+        case 0:
+          this.Refresh();
+          break;
+        case 50:
+          GlobalVars.EditMultiPlayRoomPassCode = (string) null;
+          GameParameter.UpdateValuesOfType(GameParameter.ParameterTypes.QUEST_MULTI_LOCK);
+          break;
+        case 51:
+          GlobalVars.EditMultiPlayRoomPassCode = "1";
+          GameParameter.UpdateValuesOfType(GameParameter.ParameterTypes.QUEST_MULTI_LOCK);
+          break;
+      }
+    }
+
+    private void Awake()
+    {
+      GlobalVars.EditMultiPlayRoomPassCode = "0";
+      string s = FlowNode_Variable.Get("MultiPlayPasscode");
+      if (!string.IsNullOrEmpty(s))
+      {
+        int result = 0;
+        if (int.TryParse(s, out result) && result != 0)
+          this.Activated(51);
+      }
+      if (Object.op_Inequality((Object) this.ItemTemplate, (Object) null) && this.ItemTemplate.get_activeInHierarchy())
+        this.ItemTemplate.SetActive(false);
+      if (!Object.op_Inequality((Object) this.DetailTemplate, (Object) null) || !this.DetailTemplate.get_activeInHierarchy())
+        return;
+      this.DetailTemplate.SetActive(false);
+    }
+
+    private void Start()
+    {
+      this.RefreshItems();
+    }
+
+    public void Refresh()
+    {
+      this.RefreshItems();
+      if (!Object.op_Inequality((Object) this.ScrollRect, (Object) null))
+        return;
+      ListExtras component = (ListExtras) ((Component) this.ScrollRect).GetComponent<ListExtras>();
+      if (Object.op_Inequality((Object) component, (Object) null))
+        component.SetScrollPos(1f);
+      else
+        this.ScrollRect.set_normalizedPosition(Vector2.get_one());
+    }
+
+    private void RefreshItems()
+    {
+      Transform transform = ((Component) this).get_transform();
+      for (int index = transform.get_childCount() - 1; index >= 0; --index)
+      {
+        Transform child = transform.GetChild(index);
+        if (!Object.op_Equality((Object) child, (Object) null) && ((Component) child).get_gameObject().get_activeSelf())
+          Object.DestroyImmediate((Object) ((Component) child).get_gameObject());
+      }
+      if (Object.op_Equality((Object) this.ItemTemplate, (Object) null))
+        return;
+      for (int index = 0; index < MonoSingleton<GameManager>.Instance.Quests.Length; ++index)
+      {
+        QuestParam quest = MonoSingleton<GameManager>.Instance.Quests[index];
+        if (quest != null && quest.type == QuestTypes.Multi && (quest.IsMultiEvent == GlobalVars.SelectedMultiPlayQuestIsEvent && !string.IsNullOrEmpty(quest.ChapterID)) && (quest.ChapterID.Equals(GlobalVars.SelectedMultiPlayArea) && quest.IsDateUnlock(-1L)))
+        {
+          GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.ItemTemplate);
+          ((Object) gameObject).set_hideFlags((HideFlags) 52);
+          DataSource.Bind<QuestParam>(gameObject, quest);
+          ListItemEvents component = (ListItemEvents) gameObject.GetComponent<ListItemEvents>();
+          if (Object.op_Inequality((Object) component, (Object) null))
+          {
+            component.OnSelect = new ListItemEvents.ListItemEvent(this.OnSelectItem);
+            component.OnOpenDetail = new ListItemEvents.ListItemEvent(this.OnOpenItemDetail);
+            component.OnCloseDetail = new ListItemEvents.ListItemEvent(this.OnCloseItemDetail);
+          }
+          gameObject.get_transform().SetParent(transform, false);
+          gameObject.get_gameObject().SetActive(true);
+        }
+      }
+    }
+
+    private void OnSelectItem(GameObject go)
+    {
+      QuestParam dataOfClass = DataSource.FindDataOfClass<QuestParam>(go, (QuestParam) null);
+      if (dataOfClass == null || !Object.op_Inequality((Object) QuestDropParam.Instance, (Object) null))
+        return;
+      bool flag = QuestDropParam.Instance.IsChangedQuestDrops(dataOfClass);
+      GlobalVars.SetDropTableGeneratedTime();
+      if (flag && !QuestDropParam.Instance.IsWarningPopupDisable)
+      {
+        UIUtility.NegativeSystemMessage((string) null, LocalizedText.Get("sys.PARTYEDITOR_DROP_TABLE"), (UIUtility.DialogResultEvent) (obj =>
+        {
+          ListItemEvents component = (ListItemEvents) go.GetComponent<ListItemEvents>();
+          if (!Object.op_Inequality((Object) component, (Object) null))
+            return;
+          component.OpenDetail();
+        }), (GameObject) null, false, -1);
+      }
+      else
+      {
+        GlobalVars.SelectedQuestID = dataOfClass.iname;
+        DebugUtility.Log("Select Quest:" + GlobalVars.SelectedQuestID);
+        FlowNode_GameObject.ActivateOutputLinks((Component) this, 101);
+      }
+    }
+
+    private void OnCloseItemDetail(GameObject go)
+    {
+      if (!Object.op_Inequality((Object) this.mDetailInfo, (Object) null))
+        return;
+      Object.DestroyImmediate((Object) this.mDetailInfo.get_gameObject());
+      this.mDetailInfo = (GameObject) null;
+    }
+
+    private void OnOpenItemDetail(GameObject go)
+    {
+      QuestParam dataOfClass = DataSource.FindDataOfClass<QuestParam>(go, (QuestParam) null);
+      CanvasGroup componentInParent = (CanvasGroup) ((Component) this).get_gameObject().GetComponentInParent<CanvasGroup>();
+      if (Object.op_Inequality((Object) componentInParent, (Object) null) && !componentInParent.get_interactable() || (!Object.op_Equality((Object) this.mDetailInfo, (Object) null) || dataOfClass == null))
+        return;
+      this.mDetailInfo = (GameObject) Object.Instantiate<GameObject>((M0) this.DetailTemplate);
+      DataSource.Bind<QuestParam>(this.mDetailInfo, dataOfClass);
+      this.mDetailInfo.SetActive(true);
+    }
+  }
+}

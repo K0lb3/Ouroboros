@@ -1,59 +1,43 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_NewGameEmailDevice
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using Gsc.Auth;
+using System;
+
+namespace SRPG
 {
-    using Gsc.Auth;
-    using System;
+  [FlowNode.NodeType("System/NewGameEmailDevice", 32741)]
+  [FlowNode.Pin(11, "Failed", FlowNode.PinTypes.Output, 11)]
+  [FlowNode.Pin(10, "Success", FlowNode.PinTypes.Output, 10)]
+  [FlowNode.Pin(0, "Chain New Account", FlowNode.PinTypes.Input, 0)]
+  public class FlowNode_NewGameEmailDevice : FlowNode
+  {
+    private const int PIN_INPUT = 0;
+    private const int PIN_SUCCESS = 10;
+    private const int PIN_FAILED = 11;
 
-    [Pin(10, "Success", 1, 10), NodeType("System/NewGameEmailDevice", 0x7fe5), Pin(11, "Failed", 1, 11), Pin(0, "Chain New Account", 0, 0)]
-    public class FlowNode_NewGameEmailDevice : FlowNode
+    public override void OnActivate(int pinID)
     {
-        private const int PIN_INPUT = 0;
-        private const int PIN_SUCCESS = 10;
-        private const int PIN_FAILED = 11;
-
-        public FlowNode_NewGameEmailDevice()
-        {
-            base..ctor();
-            return;
-        }
-
-        private unsafe void AddUserResponse(AddDeviceWithEmailAddressAndPasswordResult res)
-        {
-            AddDeviceWithEmailAddressAndPasswordResultCode code;
-            switch (&res.ResultCode)
-            {
-                case 0:
-                    goto Label_0023;
-
-                case 1:
-                    goto Label_0036;
-
-                case 2:
-                    goto Label_0036;
-
-                case 3:
-                    goto Label_0036;
-            }
-            goto Label_0036;
-        Label_0023:
-            GameUtility.ClearPreferences();
-            base.ActivateOutputLinks(10);
-            goto Label_0044;
-        Label_0036:
-            base.ActivateOutputLinks(11);
-        Label_0044:
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != null)
-            {
-                goto Label_0027;
-            }
-            Session.DefaultSession.AddDeviceWithEmailAddressAndPassword(FlowNode_NewGameRegister.gEmail, FlowNode_NewGameRegister.gPassword, new Action<AddDeviceWithEmailAddressAndPasswordResult>(this.AddUserResponse));
-        Label_0027:
-            return;
-        }
+      if (pinID != 0)
+        return;
+      Session.DefaultSession.AddDeviceWithEmailAddressAndPassword(FlowNode_NewGameRegister.gEmail, FlowNode_NewGameRegister.gPassword, new Action<AddDeviceWithEmailAddressAndPasswordResult>(this.AddUserResponse));
     }
-}
 
+    private void AddUserResponse(AddDeviceWithEmailAddressAndPasswordResult res)
+    {
+      switch (res.ResultCode)
+      {
+        case AddDeviceWithEmailAddressAndPasswordResultCode.Success:
+          GameUtility.ClearPreferences();
+          this.ActivateOutputLinks(10);
+          break;
+        default:
+          this.ActivateOutputLinks(11);
+          break;
+      }
+    }
+  }
+}

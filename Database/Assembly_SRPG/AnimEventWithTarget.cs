@@ -1,77 +1,41 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.AnimEventWithTarget
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using SRPG.AnimEvents;
+using UnityEngine;
+
+namespace SRPG
 {
-    using SRPG.AnimEvents;
-    using System;
-    using System.Runtime.InteropServices;
-    using UnityEngine;
+  public abstract class AnimEventWithTarget : AnimEvent
+  {
+    public string BoneName = string.Empty;
+    public Vector3 Offset = Vector3.get_zero();
+    public Vector3 Rotation = Vector3.get_zero();
+    public bool LocalOffset = true;
+    public bool LocalRotation = true;
+    protected const string BONE_NAME_CAMERA = "CAMERA";
 
-    public abstract class AnimEventWithTarget : AnimEvent
+    public void CalcPosition(GameObject go, GameObject prefab, out Vector3 spawnPos, out Quaternion spawnRot)
     {
-        protected const string BONE_NAME_CAMERA = "CAMERA";
-        public string BoneName;
-        public Vector3 Offset;
-        public Vector3 Rotation;
-        public bool LocalOffset;
-        public bool LocalRotation;
-
-        protected AnimEventWithTarget()
-        {
-            this.BoneName = string.Empty;
-            this.Offset = Vector3.get_zero();
-            this.Rotation = Vector3.get_zero();
-            this.LocalOffset = 1;
-            this.LocalRotation = 1;
-            base..ctor();
-            return;
-        }
-
-        public void CalcPosition(GameObject go, GameObject prefab, out Vector3 spawnPos, out Quaternion spawnRot)
-        {
-            this.CalcPosition(go, prefab.get_transform().get_localPosition(), prefab.get_transform().get_localRotation(), spawnPos, spawnRot);
-            return;
-        }
-
-        public unsafe void CalcPosition(GameObject go, Vector3 deltaOffset, Quaternion deltaRotation, out Vector3 spawnPos, out Quaternion spawnRot)
-        {
-            Transform transform;
-            *(spawnPos) = this.Offset + deltaOffset;
-            *(spawnRot) = Quaternion.Euler(&this.Rotation.x, &this.Rotation.y, &this.Rotation.z) * deltaRotation;
-            transform = (string.IsNullOrEmpty(this.BoneName) != null) ? go.get_transform() : GameUtility.findChildRecursively(go.get_transform(), this.BoneName);
-            if ((this as ParticleGenerator) == null)
-            {
-                goto Label_00AD;
-            }
-            if ((this.BoneName == "CAMERA") == null)
-            {
-                goto Label_00AD;
-            }
-            if (Camera.get_main() == null)
-            {
-                goto Label_00AD;
-            }
-            transform = Camera.get_main().get_transform();
-        Label_00AD:
-            if ((transform != null) == null)
-            {
-                goto Label_011F;
-            }
-            if (this.LocalOffset == null)
-            {
-                goto Label_00DD;
-            }
-            *(spawnPos) = transform.TransformPoint(*(spawnPos));
-            goto Label_00FB;
-        Label_00DD:
-            *(spawnPos) = transform.TransformPoint(Vector3.get_zero()) + *(spawnPos);
-        Label_00FB:
-            if (this.LocalRotation == null)
-            {
-                goto Label_011F;
-            }
-            *(spawnRot) = transform.get_rotation() * *(spawnRot);
-        Label_011F:
-            return;
-        }
+      this.CalcPosition(go, prefab.get_transform().get_localPosition(), prefab.get_transform().get_localRotation(), out spawnPos, out spawnRot);
     }
-}
 
+    public void CalcPosition(GameObject go, Vector3 deltaOffset, Quaternion deltaRotation, out Vector3 spawnPos, out Quaternion spawnRot)
+    {
+      spawnPos = Vector3.op_Addition(this.Offset, deltaOffset);
+      spawnRot = Quaternion.op_Multiply(Quaternion.Euler((float) this.Rotation.x, (float) this.Rotation.y, (float) this.Rotation.z), deltaRotation);
+      Transform transform = string.IsNullOrEmpty(this.BoneName) ? go.get_transform() : GameUtility.findChildRecursively(go.get_transform(), this.BoneName);
+      if (this is ParticleGenerator && this.BoneName == "CAMERA" && Object.op_Implicit((Object) Camera.get_main()))
+        transform = ((Component) Camera.get_main()).get_transform();
+      if (!Object.op_Inequality((Object) transform, (Object) null))
+        return;
+      spawnPos = !this.LocalOffset ? Vector3.op_Addition(transform.TransformPoint(Vector3.get_zero()), spawnPos) : transform.TransformPoint(spawnPos);
+      if (!this.LocalRotation)
+        return;
+      spawnRot = Quaternion.op_Multiply(transform.get_rotation(), spawnRot);
+    }
+  }
+}

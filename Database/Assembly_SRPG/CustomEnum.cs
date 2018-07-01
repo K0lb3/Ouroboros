@@ -1,20 +1,23 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.CustomEnum
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  public class CustomEnum : PropertyAttribute
+  {
+    public System.Type EnumType;
+    public int DefaultValue;
 
-    public class CustomEnum : PropertyAttribute
+    public CustomEnum(System.Type enumType, int defaultValue)
     {
-        public Type EnumType;
-        public int DefaultValue;
-
-        public CustomEnum(Type enumType, int defaultValue)
-        {
-            base..ctor();
-            this.EnumType = enumType;
-            this.DefaultValue = defaultValue;
-            return;
-        }
+      this.\u002Ector();
+      this.EnumType = enumType;
+      this.DefaultValue = defaultValue;
     }
+  }
 }
-

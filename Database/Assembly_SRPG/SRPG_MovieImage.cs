@@ -1,92 +1,73 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.SRPG_MovieImage
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
-    using UnityEngine.UI;
+  [FlowNode.Pin(10, "Finished", FlowNode.PinTypes.Output, 1)]
+  [RequireComponent(typeof (CriManaMovieControllerForUI))]
+  [FlowNode.Pin(9, "Started", FlowNode.PinTypes.Output, 0)]
+  public class SRPG_MovieImage : RawImage, IFlowInterface
+  {
+    public const int PINID_STARTED = 9;
+    public const int PINID_FINISHED = 10;
+    private CriManaMovieControllerForUI mMovieController;
+    private bool mPlaying;
 
-    [Pin(9, "Started", 1, 0), Pin(10, "Finished", 1, 1), RequireComponent(typeof(CriManaMovieControllerForUI))]
-    public class SRPG_MovieImage : RawImage, IFlowInterface
+    public SRPG_MovieImage()
     {
-        public const int PINID_STARTED = 9;
-        public const int PINID_FINISHED = 10;
-        private CriManaMovieControllerForUI mMovieController;
-        private bool mPlaying;
-
-        public SRPG_MovieImage()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void Activated(int pinID)
-        {
-        }
-
-        protected override void Awake()
-        {
-            base.Awake();
-            GameUtility.SetNeverSleep();
-            if (Application.get_isPlaying() == null)
-            {
-                goto Label_0054;
-            }
-            MyCriManager.Setup(0);
-            this.mMovieController = base.GetComponent<CriManaMovieControllerForUI>();
-            if ((this.mMovieController != null) == null)
-            {
-                goto Label_0054;
-            }
-            this.mMovieController.set_moviePath(MyCriManager.GetLoadFileName(this.mMovieController.get_moviePath(), 0));
-        Label_0054:
-            return;
-        }
-
-        protected override void OnDestroy()
-        {
-            GameUtility.SetDefaultSleepSetting();
-            base.OnDestroy();
-            return;
-        }
-
-        private void Update()
-        {
-            if ((this.mMovieController != null) == null)
-            {
-                goto Label_00A5;
-            }
-            if (this.mMovieController.get_player().get_status() < 5)
-            {
-                goto Label_00A5;
-            }
-            this.set_material(this.mMovieController.get_material());
-            this.UpdateMaterial();
-            if (this.mMovieController.get_player().get_status() != 5)
-            {
-                goto Label_0074;
-            }
-            if (this.mPlaying != null)
-            {
-                goto Label_00A5;
-            }
-            this.mPlaying = 1;
-            FlowNode_GameObject.ActivateOutputLinks(this, 9);
-            return;
-            goto Label_00A5;
-        Label_0074:
-            if (this.mMovieController.get_player().get_status() != 6)
-            {
-                goto Label_00A5;
-            }
-            if (this.mPlaying == null)
-            {
-                goto Label_00A5;
-            }
-            this.mPlaying = 0;
-            FlowNode_GameObject.ActivateOutputLinks(this, 10);
-            return;
-        Label_00A5:
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    protected virtual void Awake()
+    {
+      ((UIBehaviour) this).Awake();
+      GameUtility.SetNeverSleep();
+      if (!Application.get_isPlaying())
+        return;
+      MyCriManager.Setup(false);
+      this.mMovieController = (CriManaMovieControllerForUI) ((Component) this).GetComponent<CriManaMovieControllerForUI>();
+      if (!Object.op_Inequality((Object) this.mMovieController, (Object) null))
+        return;
+      ((CriManaMovieMaterial) this.mMovieController).set_moviePath(MyCriManager.GetLoadFileName(((CriManaMovieMaterial) this.mMovieController).get_moviePath(), false));
+    }
+
+    private void Update()
+    {
+      if (!Object.op_Inequality((Object) this.mMovieController, (Object) null) || ((CriManaMovieMaterial) this.mMovieController).get_player().get_status() < 5)
+        return;
+      ((Graphic) this).set_material(((CriManaMovieMaterial) this.mMovieController).get_material());
+      ((Graphic) this).UpdateMaterial();
+      if (((CriManaMovieMaterial) this.mMovieController).get_player().get_status() == 5)
+      {
+        if (this.mPlaying)
+          return;
+        this.mPlaying = true;
+        FlowNode_GameObject.ActivateOutputLinks((Component) this, 9);
+      }
+      else
+      {
+        if (((CriManaMovieMaterial) this.mMovieController).get_player().get_status() != 6 || !this.mPlaying)
+          return;
+        this.mPlaying = false;
+        FlowNode_GameObject.ActivateOutputLinks((Component) this, 10);
+      }
+    }
+
+    protected virtual void OnDestroy()
+    {
+      GameUtility.SetDefaultSleepSetting();
+      ((UIBehaviour) this).OnDestroy();
+    }
+
+    public void Activated(int pinID)
+    {
+    }
+  }
+}

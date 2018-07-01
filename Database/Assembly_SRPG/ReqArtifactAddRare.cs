@@ -1,37 +1,23 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqArtifactAddRare
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Text;
+
+namespace SRPG
 {
-    using System;
-    using System.Runtime.InteropServices;
-    using System.Text;
-
-    public class ReqArtifactAddRare : WebAPI
+  public class ReqArtifactAddRare : WebAPI
+  {
+    public ReqArtifactAddRare(long iid, Network.ResponseCallback response)
     {
-        public ReqArtifactAddRare(long iid, Network.ResponseCallback response, string trophyprog, string bingoprog)
-        {
-            StringBuilder builder;
-            base..ctor();
-            builder = WebAPI.GetStringBuilder();
-            builder.Append("\"iid\":");
-            builder.Append(iid);
-            if (string.IsNullOrEmpty(trophyprog) != null)
-            {
-                goto Label_003F;
-            }
-            builder.Append(",");
-            builder.Append(trophyprog);
-        Label_003F:
-            if (string.IsNullOrEmpty(bingoprog) != null)
-            {
-                goto Label_0060;
-            }
-            builder.Append(",");
-            builder.Append(bingoprog);
-        Label_0060:
-            base.name = "unit/job/artifact/rare/add";
-            base.body = WebAPI.GetRequestString(builder.ToString());
-            base.callback = response;
-            return;
-        }
+      StringBuilder stringBuilder = WebAPI.GetStringBuilder();
+      stringBuilder.Append("\"iid\":");
+      stringBuilder.Append(iid);
+      this.name = "unit/job/artifact/rare/add";
+      this.body = WebAPI.GetRequestString(stringBuilder.ToString());
+      this.callback = response;
     }
+  }
 }
-

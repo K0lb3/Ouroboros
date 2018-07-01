@@ -1,29 +1,30 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqBtlTowerComReq
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Text;
+
+namespace SRPG
 {
-    using System;
-    using System.Text;
-
-    public class ReqBtlTowerComReq : WebAPI
+  public class ReqBtlTowerComReq : WebAPI
+  {
+    public ReqBtlTowerComReq(string qid, string fid, PartyData partyIndex, Network.ResponseCallback response)
     {
-        public ReqBtlTowerComReq(string qid, string fid, PartyData partyIndex, Network.ResponseCallback response)
-        {
-            StringBuilder builder;
-            base..ctor();
-            builder = WebAPI.GetStringBuilder();
-            base.name = "tower/btl/req";
-            builder.Append("\"qid\":\"");
-            builder.Append(qid);
-            builder.Append("\",");
-            builder.Append("\"fid\":\"");
-            builder.Append(fid);
-            builder.Append("\",");
-            builder.Append("\"fuid\":\"");
-            builder.Append(GlobalVars.SelectedFriendID);
-            builder.Append("\"");
-            base.body = WebAPI.GetRequestString(builder.ToString());
-            base.callback = response;
-            return;
-        }
+      StringBuilder stringBuilder = WebAPI.GetStringBuilder();
+      this.name = "tower/btl/req";
+      stringBuilder.Append("\"qid\":\"");
+      stringBuilder.Append(qid);
+      stringBuilder.Append("\",");
+      stringBuilder.Append("\"fid\":\"");
+      stringBuilder.Append(fid);
+      stringBuilder.Append("\",");
+      stringBuilder.Append("\"fuid\":\"");
+      stringBuilder.Append(GlobalVars.SelectedFriendID);
+      stringBuilder.Append("\"");
+      this.body = WebAPI.GetRequestString(stringBuilder.ToString());
+      this.callback = response;
     }
+  }
 }
-

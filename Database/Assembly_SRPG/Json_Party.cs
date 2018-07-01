@@ -1,19 +1,16 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.Json_Party
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    public class Json_Party
-    {
-        public string ptype;
-        public long[] units;
-        public int flg_sel;
-        public int flg_seldef;
-
-        public Json_Party()
-        {
-            base..ctor();
-            return;
-        }
-    }
+  public class Json_Party
+  {
+    public string ptype;
+    public long[] units;
+    public int flg_sel;
+    public int flg_seldef;
+  }
 }
-

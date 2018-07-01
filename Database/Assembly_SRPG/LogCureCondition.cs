@@ -1,17 +1,14 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.LogCureCondition
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    public class LogCureCondition : BattleLog
-    {
-        public Unit self;
-        public EUnitCondition condition;
-
-        public LogCureCondition()
-        {
-            base..ctor();
-            return;
-        }
-    }
+  public class LogCureCondition : BattleLog
+  {
+    public Unit self;
+    public EUnitCondition condition;
+  }
 }
-

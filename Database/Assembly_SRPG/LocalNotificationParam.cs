@@ -1,22 +1,18 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.LocalNotificationParam
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System;
+
+namespace SRPG
 {
-    using System;
-
-    [Serializable]
-    public class LocalNotificationParam
-    {
-        public string msg_stamina;
-        public string iOSAct_stamina;
-        public int limitSec_stamina;
-
-        public LocalNotificationParam()
-        {
-            this.msg_stamina = "null";
-            this.iOSAct_stamina = "null";
-            this.limitSec_stamina = 10;
-            base..ctor();
-            return;
-        }
-    }
+  [Serializable]
+  public class LocalNotificationParam
+  {
+    public string msg_stamina = "null";
+    public string iOSAct_stamina = "null";
+    public int limitSec_stamina = 10;
+  }
 }
-

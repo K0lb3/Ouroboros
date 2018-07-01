@@ -1,114 +1,78 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_NetworkIndicator
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Collections.Generic;
+
+namespace SRPG
 {
-    using System;
-    using System.Collections.Generic;
+  [FlowNode.Pin(0, "Destroy", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.NodeType("NetworkIndicator", 32741)]
+  [FlowNode.Pin(5, "Create", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(10, "OnDestroy", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(20, "OnCreate", FlowNode.PinTypes.Output, 0)]
+  public class FlowNode_NetworkIndicator : FlowNode
+  {
+    private FlowNode_NetworkIndicator.NetworkIndicator mRef = new FlowNode_NetworkIndicator.NetworkIndicator();
 
-    [Pin(20, "OnCreate", 1, 0), Pin(0, "Destroy", 0, 0), Pin(10, "OnDestroy", 1, 0), NodeType("NetworkIndicator", 0x7fe5), Pin(5, "Create", 0, 0)]
-    public class FlowNode_NetworkIndicator : FlowNode
+    public static bool NeedDisplay()
     {
-        private NetworkIndicator mRef;
-
-        public FlowNode_NetworkIndicator()
-        {
-            this.mRef = new NetworkIndicator();
-            base..ctor();
-            return;
-        }
-
-        public static bool NeedDisplay()
-        {
-            return NetworkIndicator.NeedDisplay();
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != null)
-            {
-                goto Label_001F;
-            }
-            this.mRef.Disable();
-            base.ActivateOutputLinks(10);
-            goto Label_003A;
-        Label_001F:
-            if (pinID != 5)
-            {
-                goto Label_003A;
-            }
-            this.mRef.Enable();
-            base.ActivateOutputLinks(20);
-        Label_003A:
-            return;
-        }
-
-        protected override void OnDestroy()
-        {
-            this.mRef.Disable();
-            return;
-        }
-
-        private class NetworkIndicator
-        {
-            private static List<FlowNode_NetworkIndicator.NetworkIndicator> mInstances;
-            private bool mActive;
-
-            static NetworkIndicator()
-            {
-                mInstances = new List<FlowNode_NetworkIndicator.NetworkIndicator>();
-                return;
-            }
-
-            public NetworkIndicator()
-            {
-                base..ctor();
-                return;
-            }
-
-            public void Disable()
-            {
-                if (this.mActive == null)
-                {
-                    goto Label_001E;
-                }
-                this.mActive = 0;
-                mInstances.Remove(this);
-            Label_001E:
-                return;
-            }
-
-            public void Enable()
-            {
-                if (this.mActive != null)
-                {
-                    goto Label_001D;
-                }
-                this.mActive = 1;
-                mInstances.Add(this);
-            Label_001D:
-                return;
-            }
-
-            protected override void Finalize()
-            {
-            Label_0000:
-                try
-                {
-                    this.Disable();
-                    goto Label_0012;
-                }
-                finally
-                {
-                Label_000B:
-                    base.Finalize();
-                }
-            Label_0012:
-                return;
-            }
-
-            public static bool NeedDisplay()
-            {
-                return (mInstances.Count > 0);
-            }
-        }
+      return FlowNode_NetworkIndicator.NetworkIndicator.NeedDisplay();
     }
-}
 
+    protected override void OnDestroy()
+    {
+      this.mRef.Disable();
+    }
+
+    public override void OnActivate(int pinID)
+    {
+      if (pinID == 0)
+      {
+        this.mRef.Disable();
+        this.ActivateOutputLinks(10);
+      }
+      else
+      {
+        if (pinID != 5)
+          return;
+        this.mRef.Enable();
+        this.ActivateOutputLinks(20);
+      }
+    }
+
+    private class NetworkIndicator
+    {
+      private static List<FlowNode_NetworkIndicator.NetworkIndicator> mInstances = new List<FlowNode_NetworkIndicator.NetworkIndicator>();
+      private bool mActive;
+
+      public static bool NeedDisplay()
+      {
+        return FlowNode_NetworkIndicator.NetworkIndicator.mInstances.Count > 0;
+      }
+
+      ~NetworkIndicator()
+      {
+        this.Disable();
+      }
+
+      public void Enable()
+      {
+        if (this.mActive)
+          return;
+        this.mActive = true;
+        FlowNode_NetworkIndicator.NetworkIndicator.mInstances.Add(this);
+      }
+
+      public void Disable()
+      {
+        if (!this.mActive)
+          return;
+        this.mActive = false;
+        FlowNode_NetworkIndicator.NetworkIndicator.mInstances.Remove(this);
+      }
+    }
+  }
+}

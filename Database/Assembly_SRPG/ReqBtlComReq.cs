@@ -1,91 +1,77 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqBtlComReq
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Runtime.InteropServices;
+using System.Text;
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using System.Runtime.InteropServices;
-    using System.Text;
-    using UnityEngine;
-
-    public class ReqBtlComReq : WebAPI
+  public class ReqBtlComReq : WebAPI
+  {
+    public ReqBtlComReq(string iname, string fuid, SupportData support, Network.ResponseCallback response, bool multi, int partyIndex, bool isHost = false, int plid = 0, int seat = 0, [Optional] Vector2 location, RankingQuestParam rankingQuestParam = null)
     {
-        public unsafe ReqBtlComReq(string iname, string fuid, SupportData support, Network.ResponseCallback response, bool multi, int partyIndex, bool isHost, int plid, int seat, Vector2 location, RankingQuestParam rankingQuestParam)
-        {
-            StringBuilder builder;
-            base..ctor();
-            builder = WebAPI.GetStringBuilder();
-            base.name = (multi == null) ? "btl/com/req" : "btl/multi/req";
-            builder.Append("\"iname\":\"");
-            builder.Append(iname);
-            builder.Append("\",");
-            if (partyIndex < 0)
-            {
-                goto Label_0071;
-            }
-            builder.Append("\"partyid\":");
-            builder.Append(partyIndex);
-            builder.Append(",");
-        Label_0071:
-            if (multi == null)
-            {
-                goto Label_011D;
-            }
-            builder.Append("\"token\":\"");
-            builder.Append(JsonEscape.Escape(GlobalVars.SelectedMultiPlayRoomName));
-            builder.Append("\",");
-            builder.Append("\"host\":\"");
-            builder.Append((isHost == null) ? "0" : "1");
-            builder.Append("\",");
-            builder.Append("\"plid\":\"");
-            builder.Append(plid);
-            builder.Append("\",");
-            builder.Append("\"seat\":\"");
-            builder.Append(seat);
-            builder.Append("\",");
-            goto Label_0141;
-        Label_011D:
-            builder.Append("\"req_at\":");
-            builder.Append(Network.GetServerTime());
-            builder.Append(",");
-        Label_0141:
-            builder.Append("\"btlparam\":{\"help\":{\"fuid\":");
-            builder.Append("\"" + fuid + "\"");
-            if (support == null)
-            {
-                goto Label_01B7;
-            }
-            if (support.Unit == null)
-            {
-                goto Label_01B7;
-            }
-            builder.Append(",\"elem\":" + ((int) support.Unit.SupportElement));
-            builder.Append(",\"iname\":\"" + support.Unit.UnitID + "\"");
-        Label_01B7:
-            builder.Append("}");
-            if (multi != null)
-            {
-                goto Label_0229;
-            }
-            if (rankingQuestParam == null)
-            {
-                goto Label_0229;
-            }
-            builder.Append(",\"quest_ranking\":{");
-            builder.Append("\"schedule_id\":");
-            builder.Append(rankingQuestParam.schedule_id);
-            builder.Append(",");
-            builder.Append("\"type\":");
-            builder.Append(rankingQuestParam.type);
-            builder.Append("}");
-        Label_0229:
-            builder.Append("},");
-            builder.Append("\"location\":{");
-            builder.Append("\"lat\":" + ((float) &location.x) + ",");
-            builder.Append("\"lng\":" + ((float) &location.y));
-            builder.Append("}");
-            DebugMenu.Log("APIReq", builder.ToString());
-            base.body = WebAPI.GetRequestString(builder.ToString());
-            base.callback = response;
-            return;
-        }
+      StringBuilder stringBuilder = WebAPI.GetStringBuilder();
+      this.name = !multi ? "btl/com/req" : "btl/multi/req";
+      stringBuilder.Append("\"iname\":\"");
+      stringBuilder.Append(iname);
+      stringBuilder.Append("\",");
+      if (partyIndex >= 0)
+      {
+        stringBuilder.Append("\"partyid\":");
+        stringBuilder.Append(partyIndex);
+        stringBuilder.Append(",");
+      }
+      if (multi)
+      {
+        stringBuilder.Append("\"token\":\"");
+        stringBuilder.Append(JsonEscape.Escape(GlobalVars.SelectedMultiPlayRoomName));
+        stringBuilder.Append("\",");
+        stringBuilder.Append("\"host\":\"");
+        stringBuilder.Append(!isHost ? "0" : "1");
+        stringBuilder.Append("\",");
+        stringBuilder.Append("\"plid\":\"");
+        stringBuilder.Append(plid);
+        stringBuilder.Append("\",");
+        stringBuilder.Append("\"seat\":\"");
+        stringBuilder.Append(seat);
+        stringBuilder.Append("\",");
+      }
+      else
+      {
+        stringBuilder.Append("\"req_at\":");
+        stringBuilder.Append(Network.GetServerTime());
+        stringBuilder.Append(",");
+      }
+      stringBuilder.Append("\"btlparam\":{\"help\":{\"fuid\":");
+      stringBuilder.Append("\"" + fuid + "\"");
+      if (support != null && support.Unit != null)
+      {
+        stringBuilder.Append(",\"elem\":" + (object) support.Unit.SupportElement);
+        stringBuilder.Append(",\"iname\":\"" + support.Unit.UnitID + "\"");
+      }
+      stringBuilder.Append("}");
+      if (!multi && rankingQuestParam != null)
+      {
+        stringBuilder.Append(",\"quest_ranking\":{");
+        stringBuilder.Append("\"schedule_id\":");
+        stringBuilder.Append(rankingQuestParam.schedule_id);
+        stringBuilder.Append(",");
+        stringBuilder.Append("\"type\":");
+        stringBuilder.Append((int) rankingQuestParam.type);
+        stringBuilder.Append("}");
+      }
+      stringBuilder.Append("},");
+      stringBuilder.Append("\"location\":{");
+      stringBuilder.Append("\"lat\":" + (object) (float) location.x + ",");
+      stringBuilder.Append("\"lng\":" + (object) (float) location.y);
+      stringBuilder.Append("}");
+      DebugMenu.Log("APIReq", stringBuilder.ToString());
+      this.body = WebAPI.GetRequestString(stringBuilder.ToString());
+      this.callback = response;
     }
+  }
 }
-

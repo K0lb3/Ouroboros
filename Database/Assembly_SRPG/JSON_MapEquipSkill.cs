@@ -1,20 +1,15 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.JSON_MapEquipSkill
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    [Serializable]
-    public class JSON_MapEquipSkill
-    {
-        public string iname;
-        public int rate;
-        public JSON_SkillLockCondition cond;
-        public int check_cnt;
-
-        public JSON_MapEquipSkill()
-        {
-            base..ctor();
-            return;
-        }
-    }
+  public class JSON_MapEquipSkill
+  {
+    public string iname;
+    public int rate;
+    public JSON_SkillLockCondition cond;
+  }
 }
-

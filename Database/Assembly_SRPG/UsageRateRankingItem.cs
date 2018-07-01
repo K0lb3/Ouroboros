@@ -1,67 +1,49 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.UsageRateRankingItem
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using UnityEngine;
-    using UnityEngine.UI;
+  public class UsageRateRankingItem : MonoBehaviour
+  {
+    public Text rank;
+    public Text unit_name;
+    public ImageArray RankIconArray;
+    public RawImage_Transparent JobIcon;
 
-    public class UsageRateRankingItem : MonoBehaviour
+    public UsageRateRankingItem()
     {
-        public Text rank;
-        public Text unit_name;
-        public ImageArray RankIconArray;
-        public RawImage_Transparent JobIcon;
-
-        public UsageRateRankingItem()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void Refresh(int rank_num, RankingUnitData data)
-        {
-            object[] objArray2;
-            object[] objArray1;
-            GameManager manager;
-            JobParam param;
-            UnitParam param2;
-            UnitData data2;
-            manager = MonoSingleton<GameManager>.Instance;
-            param = manager.GetJobParam(data.job_iname);
-            param2 = manager.GetUnitParam(data.unit_iname);
-            data2 = new UnitData();
-            data2.Setup(param2.iname, 0, 1, 1, param.iname, 1, param2.element, 0);
-            DataSource.Bind<UnitData>(base.get_gameObject(), data2);
-            if ((this.rank != null) == null)
-            {
-                goto Label_0085;
-            }
-            objArray1 = new object[] { (int) rank_num };
-            this.rank.set_text(LocalizedText.Get("sys.RANKING_RANK", objArray1));
-        Label_0085:
-            if ((this.unit_name != null) == null)
-            {
-                goto Label_00C8;
-            }
-            objArray2 = new object[] { data2.UnitParam.name, param.name };
-            this.unit_name.set_text(LocalizedText.Get("sys.RANKING_UNIT_NAME", objArray2));
-        Label_00C8:
-            this.RankIconArray.set_enabled((((int) this.RankIconArray.Images.Length) < rank_num) == 0);
-            this.rank.set_enabled(this.RankIconArray.get_enabled() == 0);
-            if ((this.JobIcon != null) == null)
-            {
-                goto Label_0132;
-            }
-            MonoSingleton<GameManager>.Instance.ApplyTextureAsync(this.JobIcon, (param == null) ? null : AssetPath.JobIconSmall(param));
-        Label_0132:
-            if (this.RankIconArray.get_enabled() == null)
-            {
-                goto Label_0150;
-            }
-            this.RankIconArray.ImageIndex = rank_num - 1;
-        Label_0150:
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    public void Refresh(int rank_num, RankingUnitData data)
+    {
+      GameManager instance = MonoSingleton<GameManager>.Instance;
+      JobParam jobParam = instance.GetJobParam(data.job_iname);
+      UnitParam unitParam = instance.GetUnitParam(data.unit_iname);
+      UnitData data1 = new UnitData();
+      data1.Setup(unitParam.iname, 0, 1, 1, jobParam.iname, 1, unitParam.element);
+      DataSource.Bind<UnitData>(((Component) this).get_gameObject(), data1);
+      if (Object.op_Inequality((Object) this.rank, (Object) null))
+        this.rank.set_text(LocalizedText.Get("sys.RANKING_RANK", new object[1]
+        {
+          (object) rank_num
+        }));
+      if (Object.op_Inequality((Object) this.unit_name, (Object) null))
+        this.unit_name.set_text(LocalizedText.Get("sys.RANKING_UNIT_NAME", (object) data1.UnitParam.name, (object) jobParam.name));
+      ((Behaviour) this.RankIconArray).set_enabled(this.RankIconArray.Images.Length >= rank_num);
+      ((Behaviour) this.rank).set_enabled(!((Behaviour) this.RankIconArray).get_enabled());
+      if (Object.op_Inequality((Object) this.JobIcon, (Object) null))
+        MonoSingleton<GameManager>.Instance.ApplyTextureAsync((RawImage) this.JobIcon, jobParam == null ? (string) null : AssetPath.JobIconSmall(jobParam));
+      if (!((Behaviour) this.RankIconArray).get_enabled())
+        return;
+      this.RankIconArray.ImageIndex = rank_num - 1;
+    }
+  }
+}

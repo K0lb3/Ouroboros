@@ -1,87 +1,59 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_ReqChatMessageWorld
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
+  [FlowNode.NodeType("System/ReqChatLogWorld", 32741)]
+  public class FlowNode_ReqChatMessageWorld : FlowNode_ReqChatMessage
+  {
+    private int mChannel;
+    private long mStartID;
+    private int mLimit;
+    private long mExcludeID;
 
-    [NodeType("System/ReqChatLogWorld", 0x7fe5)]
-    public class FlowNode_ReqChatMessageWorld : FlowNode_ReqChatMessage
+    private void ResetParam()
     {
-        private int mChannel;
-        private long mStartID;
-        private int mLimit;
-        private long mExcludeID;
-
-        public FlowNode_ReqChatMessageWorld()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            bool flag;
-            base.set_enabled(1);
-            if (base.mSetup != null)
-            {
-                goto Label_0013;
-            }
-            return;
-        Label_0013:
-            if (pinID != null)
-            {
-                goto Label_0080;
-            }
-            Network.IsIndicator = 0;
-            flag = 0;
-            if ((MonoSingleton<GameManager>.Instance != null) == null)
-            {
-                goto Label_0050;
-            }
-            if (MonoSingleton<GameManager>.Instance.Player == null)
-            {
-                goto Label_0050;
-            }
-            flag = MonoSingleton<GameManager>.Instance.Player.MultiInvitaionFlag;
-        Label_0050:
-            base.ExecRequest(new ReqChatMessage(this.mStartID, this.mChannel, this.mLimit, this.mExcludeID, flag, new Network.ResponseCallback(this.ResponseCallback)));
-        Label_0080:
-            return;
-        }
-
-        private void ResetParam()
-        {
-            this.mChannel = 0;
-            this.mStartID = 0L;
-            this.mLimit = 0;
-            this.mExcludeID = 0L;
-            base.mSetup = 0;
-            return;
-        }
-
-        public override void SetChatMessageInfo(int channel, long start_id, int limit, long exclude_id)
-        {
-            this.ResetParam();
-            this.mChannel = channel;
-            this.mStartID = start_id;
-            this.mLimit = limit;
-            this.mExcludeID = exclude_id;
-            base.mSetup = 1;
-            return;
-        }
-
-        protected override void Success(ChatLog log)
-        {
-            ChatWindow window;
-            window = base.get_gameObject().GetComponent<ChatWindow>();
-            if ((window != null) == null)
-            {
-                goto Label_0020;
-            }
-            window.SetChatLog(log, 1);
-        Label_0020:
-            base.Success(log);
-            return;
-        }
+      this.mChannel = 0;
+      this.mStartID = 0L;
+      this.mLimit = 0;
+      this.mExcludeID = 0L;
+      this.mSetup = false;
     }
-}
 
+    public override void SetChatMessageInfo(int channel, long start_id, int limit, long exclude_id)
+    {
+      this.ResetParam();
+      this.mChannel = channel;
+      this.mStartID = start_id;
+      this.mLimit = limit;
+      this.mExcludeID = exclude_id;
+      this.mSetup = true;
+    }
+
+    public override void OnActivate(int pinID)
+    {
+      ((Behaviour) this).set_enabled(true);
+      if (!this.mSetup || pinID != 0)
+        return;
+      Network.IsIndicator = false;
+      bool isMultiPush = false;
+      if (Object.op_Inequality((Object) MonoSingleton<GameManager>.Instance, (Object) null) && MonoSingleton<GameManager>.Instance.Player != null)
+        isMultiPush = MonoSingleton<GameManager>.Instance.Player.MultiInvitaionFlag;
+      this.ExecRequest((WebAPI) new ReqChatMessage(this.mStartID, this.mChannel, this.mLimit, this.mExcludeID, isMultiPush, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+    }
+
+    protected override void Success(ChatLog log)
+    {
+      ChatWindow component = (ChatWindow) ((Component) this).get_gameObject().GetComponent<ChatWindow>();
+      if (Object.op_Inequality((Object) component, (Object) null))
+        component.SetChatLog(log, ChatWindow.eChatType.World);
+      base.Success(log);
+    }
+  }
+}

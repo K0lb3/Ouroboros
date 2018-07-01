@@ -1,12 +1,15 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.BuffMethodTypes
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    public enum BuffMethodTypes : short
-    {
-        Add = 0,
-        Highest = 1,
-        Lowest = 2
-    }
+  public enum BuffMethodTypes
+  {
+    Add,
+    Highest,
+    Lowest,
+  }
 }
-

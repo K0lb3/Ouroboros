@@ -1,98 +1,62 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ArenaHistory
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using UnityEngine;
+  public class ArenaHistory : SRPG_ListBase
+  {
+    public ListItemEvents ListItem_Normal;
+    public ListItemEvents ListItem_Self;
+    public GameObject DetailWindow;
 
-    public class ArenaHistory : SRPG_ListBase
+    protected override void Start()
     {
-        public ListItemEvents ListItem_Normal;
-        public ListItemEvents ListItem_Self;
-        public GameObject DetailWindow;
-
-        public ArenaHistory()
-        {
-            base..ctor();
-            return;
-        }
-
-        private void OnItemDetail(GameObject go)
-        {
-            ArenaPlayerHistory history;
-            GameObject obj2;
-            if ((this.DetailWindow == null) == null)
-            {
-                goto Label_0012;
-            }
-            return;
-        Label_0012:
-            history = DataSource.FindDataOfClass<ArenaPlayerHistory>(go, null);
-            if (history != null)
-            {
-                goto Label_0021;
-            }
-            return;
-        Label_0021:
-            obj2 = Object.Instantiate<GameObject>(this.DetailWindow);
-            DataSource.Bind<ArenaPlayer>(obj2, history.enemy);
-            obj2.GetComponent<ArenaPlayerInfo>().UpdateValue();
-            return;
-        }
-
-        private void OnItemSelect(GameObject go)
-        {
-        }
-
-        private void Refresh()
-        {
-            Transform transform;
-            ArenaPlayerHistory[] historyArray;
-            GameManager manager;
-            int num;
-            ListItemEvents events;
-            ListItemEvents events2;
-            base.ClearItems();
-            if ((this.ListItem_Normal == null) == null)
-            {
-                goto Label_0018;
-            }
-            return;
-        Label_0018:
-            transform = base.get_transform();
-            historyArray = MonoSingleton<GameManager>.Instance.GetArenaHistory();
-            num = 0;
-            goto Label_00B7;
-        Label_0033:
-            events = null;
-            events2 = Object.Instantiate<ListItemEvents>(this.ListItem_Normal);
-            DataSource.Bind<ArenaPlayerHistory>(events2.get_gameObject(), historyArray[num]);
-            DataSource.Bind<ArenaPlayer>(events2.get_gameObject(), historyArray[num].enemy);
-            events2.OnSelect = new ListItemEvents.ListItemEvent(this.OnItemSelect);
-            events2.OnOpenDetail = new ListItemEvents.ListItemEvent(this.OnItemDetail);
-            base.AddItem(events2);
-            events2.get_transform().SetParent(transform, 0);
-            events2.get_gameObject().SetActive(1);
-            num += 1;
-        Label_00B7:
-            if (num < ((int) historyArray.Length))
-            {
-                goto Label_0033;
-            }
-            return;
-        }
-
-        protected override void Start()
-        {
-            base.Start();
-            if ((this.ListItem_Normal != null) == null)
-            {
-                goto Label_0028;
-            }
-            this.ListItem_Normal.get_gameObject().SetActive(0);
-        Label_0028:
-            this.Refresh();
-            return;
-        }
+      base.Start();
+      if (Object.op_Inequality((Object) this.ListItem_Normal, (Object) null))
+        ((Component) this.ListItem_Normal).get_gameObject().SetActive(false);
+      this.Refresh();
     }
-}
 
+    private void Refresh()
+    {
+      this.ClearItems();
+      if (Object.op_Equality((Object) this.ListItem_Normal, (Object) null))
+        return;
+      Transform transform = ((Component) this).get_transform();
+      ArenaPlayerHistory[] arenaHistory = MonoSingleton<GameManager>.Instance.GetArenaHistory();
+      for (int index = 0; index < arenaHistory.Length; ++index)
+      {
+        ListItemEvents listItemEvents = (ListItemEvents) Object.Instantiate<ListItemEvents>((M0) this.ListItem_Normal);
+        DataSource.Bind<ArenaPlayerHistory>(((Component) listItemEvents).get_gameObject(), arenaHistory[index]);
+        DataSource.Bind<ArenaPlayer>(((Component) listItemEvents).get_gameObject(), arenaHistory[index].enemy);
+        listItemEvents.OnSelect = new ListItemEvents.ListItemEvent(this.OnItemSelect);
+        listItemEvents.OnOpenDetail = new ListItemEvents.ListItemEvent(this.OnItemDetail);
+        this.AddItem(listItemEvents);
+        ((Component) listItemEvents).get_transform().SetParent(transform, false);
+        ((Component) listItemEvents).get_gameObject().SetActive(true);
+      }
+    }
+
+    private void OnItemSelect(GameObject go)
+    {
+    }
+
+    private void OnItemDetail(GameObject go)
+    {
+      if (Object.op_Equality((Object) this.DetailWindow, (Object) null))
+        return;
+      ArenaPlayerHistory dataOfClass = DataSource.FindDataOfClass<ArenaPlayerHistory>(go, (ArenaPlayerHistory) null);
+      if (dataOfClass == null)
+        return;
+      GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.DetailWindow);
+      DataSource.Bind<ArenaPlayer>(gameObject, dataOfClass.enemy);
+      ((ArenaPlayerInfo) gameObject.GetComponent<ArenaPlayerInfo>()).UpdateValue();
+    }
+  }
+}

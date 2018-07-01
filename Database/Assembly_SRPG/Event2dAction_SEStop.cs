@@ -1,72 +1,46 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.Event2dAction_SEStop
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  [EventActionInfo("New/SE停止(2D)", "SEを停止します", 5592405, 4473992)]
+  public class Event2dAction_SEStop : EventAction
+  {
+    public float fadeOutTime = 1f;
+    public string SE_ID;
+    public bool Async;
+    private float elapsedtime;
+    private Event2dAction_SELoop seloop;
 
-    [EventActionInfo("New/SE停止(2D)", "SEを停止します", 0x555555, 0x444488)]
-    public class Event2dAction_SEStop : EventAction
+    public override void OnActivate()
     {
-        public string SE_ID;
-        public bool Async;
-        public float fadeOutTime;
-        private float elapsedtime;
-        private Event2dAction_SELoop seloop;
-
-        public Event2dAction_SEStop()
-        {
-            this.fadeOutTime = 1f;
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate()
-        {
-            this.seloop = Event2dAction_SELoop.Find(this.SE_ID);
-            if ((this.seloop != null) == null)
-            {
-                goto Label_0042;
-            }
-            Debug.Log("seloop.HandleSE.StopDefaultAll");
-            this.seloop.HandleSE.StopDefaultAll(this.fadeOutTime);
-        Label_0042:
-            if (this.Async == null)
-            {
-                goto Label_0054;
-            }
-            base.ActivateNext(1);
-        Label_0054:
-            this.elapsedtime = 0f;
-            return;
-        }
-
-        public override void Update()
-        {
-            this.elapsedtime += Time.get_deltaTime();
-            if (this.elapsedtime <= this.fadeOutTime)
-            {
-                goto Label_006D;
-            }
-            if ((this.seloop != null) == null)
-            {
-                goto Label_0050;
-            }
-            if (this.seloop.enabled == null)
-            {
-                goto Label_0050;
-            }
-            this.seloop.enabled = 0;
-        Label_0050:
-            if (this.Async == null)
-            {
-                goto Label_0067;
-            }
-            base.enabled = 0;
-            goto Label_006D;
-        Label_0067:
-            base.ActivateNext();
-        Label_006D:
-            return;
-        }
+      this.seloop = Event2dAction_SELoop.Find(this.SE_ID);
+      if (Object.op_Inequality((Object) this.seloop, (Object) null))
+      {
+        Debug.Log((object) "seloop.HandleSE.StopDefaultAll");
+        this.seloop.HandleSE.StopDefaultAll(this.fadeOutTime);
+      }
+      if (this.Async)
+        this.ActivateNext(true);
+      this.elapsedtime = 0.0f;
     }
-}
 
+    public override void Update()
+    {
+      this.elapsedtime += Time.get_deltaTime();
+      if ((double) this.elapsedtime <= (double) this.fadeOutTime)
+        return;
+      if (Object.op_Inequality((Object) this.seloop, (Object) null) && this.seloop.enabled)
+        this.seloop.enabled = false;
+      if (this.Async)
+        this.enabled = false;
+      else
+        this.ActivateNext();
+    }
+  }
+}

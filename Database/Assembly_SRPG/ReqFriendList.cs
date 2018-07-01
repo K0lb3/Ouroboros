@@ -1,23 +1,20 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqFriendList
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    public class ReqFriendList : WebAPI
+  public class ReqFriendList : WebAPI
+  {
+    public ReqFriendList(bool is_follow, Network.ResponseCallback response)
     {
-        public ReqFriendList(bool is_follow, Network.ResponseCallback response)
-        {
-            base..ctor();
-            base.name = "friend";
-            base.body = WebAPI.GetRequestString(null);
-            if (is_follow == null)
-            {
-                goto Label_003E;
-            }
-            base.body = WebAPI.GetRequestString("\"is_follower\":" + ((int) 1));
-        Label_003E:
-            base.callback = response;
-            return;
-        }
+      this.name = "friend";
+      this.body = WebAPI.GetRequestString((string) null);
+      if (is_follow)
+        this.body = WebAPI.GetRequestString("\"is_follower\":" + (object) 1);
+      this.callback = response;
     }
+  }
 }
-

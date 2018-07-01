@@ -1,252 +1,193 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_PaymentRequestPurchase
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Runtime.InteropServices;
+  [FlowNode.Pin(100, "Success", FlowNode.PinTypes.Output, 100)]
+  [FlowNode.Pin(201, "AlreadyOwn", FlowNode.PinTypes.Output, 201)]
+  [FlowNode.Pin(202, "Deferred", FlowNode.PinTypes.Output, 202)]
+  [FlowNode.Pin(203, "Cancel", FlowNode.PinTypes.Output, 203)]
+  [FlowNode.Pin(204, "InsufficientBalances", FlowNode.PinTypes.Output, 204)]
+  [FlowNode.Pin(205, "OverLimited", FlowNode.PinTypes.Output, 205)]
+  [FlowNode.Pin(206, "NeedBirthday", FlowNode.PinTypes.Output, 206)]
+  [FlowNode.Pin(300, "ConnectingDialogOpen", FlowNode.PinTypes.Output, 300)]
+  [FlowNode.Pin(301, "ConnectingDialogClose", FlowNode.PinTypes.Output, 301)]
+  [FlowNode.NodeType("Payment/RequestPurchase", 32741)]
+  [FlowNode.Pin(0, "Start", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(200, "Error", FlowNode.PinTypes.Output, 200)]
+  public class FlowNode_PaymentRequestPurchase : FlowNode
+  {
+    private bool mSetDelegate;
 
-    [NodeType("Payment/RequestPurchase", 0x7fe5), Pin(0x12d, "ConnectingDialogClose", 1, 0x12d), Pin(300, "ConnectingDialogOpen", 1, 300), Pin(0xce, "NeedBirthday", 1, 0xce), Pin(0xcd, "OverLimited", 1, 0xcd), Pin(0xcc, "InsufficientBalances", 1, 0xcc), Pin(0xcb, "Cancel", 1, 0xcb), Pin(0xca, "Deferred", 1, 0xca), Pin(0xc9, "AlreadyOwn", 1, 0xc9), Pin(200, "Error", 1, 200), Pin(100, "Success", 1, 100), Pin(0, "Start", 0, 0)]
-    public class FlowNode_PaymentRequestPurchase : FlowNode
+    private void RemoveDelegate()
     {
-        private bool mSetDelegate;
+      if (!this.mSetDelegate)
+        return;
+      MonoSingleton<PaymentManager>.Instance.OnRequestPurchase -= new PaymentManager.RequestPurchaseDelegate(this.OnRequestPurchase);
+      MonoSingleton<PaymentManager>.Instance.OnRequestProcessing -= new PaymentManager.RequestProcessingDelegate(this.OnRequestProcessing);
+      this.mSetDelegate = false;
+      DebugUtility.Log("PaymentRequestPurchase.RemoveDelegate");
+    }
 
-        public FlowNode_PaymentRequestPurchase()
-        {
-            base..ctor();
-            return;
-        }
+    ~FlowNode_PaymentRequestPurchase()
+    {
+      try
+      {
+        this.RemoveDelegate();
+      }
+      finally
+      {
+        // ISSUE: explicit finalizer call
+        // ISSUE: explicit non-virtual call
+        __nonvirtual (((object) this).Finalize());
+      }
+    }
 
-        private void AlreadyOwn()
-        {
-            DebugUtility.LogWarning("RequestPurchase alreadyown");
-            base.set_enabled(0);
-            this.RemoveDelegate();
-            this.CloseProcessingDialog();
-            base.ActivateOutputLinks(0xc9);
-            return;
-        }
+    protected override void OnDestroy()
+    {
+      this.RemoveDelegate();
+      base.OnDestroy();
+    }
 
-        private void Cancel()
-        {
-            DebugUtility.LogWarning("RequestPurchase cancel");
-            base.set_enabled(0);
-            this.RemoveDelegate();
-            this.CloseProcessingDialog();
-            base.ActivateOutputLinks(0xcb);
-            return;
-        }
+    public override void OnActivate(int pinID)
+    {
+      if (pinID != 0)
+        return;
+      if (!this.mSetDelegate)
+      {
+        MonoSingleton<PaymentManager>.Instance.OnRequestPurchase += new PaymentManager.RequestPurchaseDelegate(this.OnRequestPurchase);
+        MonoSingleton<PaymentManager>.Instance.OnRequestProcessing += new PaymentManager.RequestProcessingDelegate(this.OnRequestProcessing);
+        this.mSetDelegate = true;
+        DebugUtility.Log("PaymentRequestPurchase SetDelegate");
+      }
+      ((Behaviour) this).set_enabled(true);
+      DebugUtility.LogWarning("PaymentRequestPurchase start");
+      if (MonoSingleton<PaymentManager>.Instance.RequestPurchase(GlobalVars.SelectedProductID))
+        return;
+      this.Error();
+    }
 
-        public void CloseProcessingDialog()
-        {
-            base.ActivateOutputLinks(0x12d);
-            return;
-        }
+    private void Success()
+    {
+      DebugUtility.LogWarning("RequestPurchase success");
+      ((Behaviour) this).set_enabled(false);
+      this.RemoveDelegate();
+      this.CloseProcessingDialog();
+      this.ActivateOutputLinks(100);
+    }
 
-        private void Deferred()
-        {
-            DebugUtility.LogWarning("RequestPurchase deferred");
-            base.set_enabled(0);
-            this.RemoveDelegate();
-            this.CloseProcessingDialog();
-            base.ActivateOutputLinks(0xca);
-            return;
-        }
+    private void Error()
+    {
+      DebugUtility.LogWarning("RequestPurchase error");
+      ((Behaviour) this).set_enabled(false);
+      this.RemoveDelegate();
+      this.CloseProcessingDialog();
+      this.ActivateOutputLinks(200);
+    }
 
-        private void Error()
-        {
-            DebugUtility.LogWarning("RequestPurchase error");
-            base.set_enabled(0);
-            this.RemoveDelegate();
-            this.CloseProcessingDialog();
-            base.ActivateOutputLinks(200);
-            return;
-        }
+    private void AlreadyOwn()
+    {
+      DebugUtility.LogWarning("RequestPurchase alreadyown");
+      ((Behaviour) this).set_enabled(false);
+      this.RemoveDelegate();
+      this.CloseProcessingDialog();
+      this.ActivateOutputLinks(201);
+    }
 
-        protected override void Finalize()
-        {
-        Label_0000:
-            try
-            {
-                this.RemoveDelegate();
-                goto Label_0012;
-            }
-            finally
-            {
-            Label_000B:
-                base.Finalize();
-            }
-        Label_0012:
-            return;
-        }
+    private void Deferred()
+    {
+      DebugUtility.LogWarning("RequestPurchase deferred");
+      ((Behaviour) this).set_enabled(false);
+      this.RemoveDelegate();
+      this.CloseProcessingDialog();
+      this.ActivateOutputLinks(202);
+    }
 
-        private void InsufficientBalances()
-        {
-            DebugUtility.LogWarning("RequestPurchase insufficient balances");
-            base.set_enabled(0);
-            this.RemoveDelegate();
-            this.CloseProcessingDialog();
-            base.ActivateOutputLinks(0xcc);
-            return;
-        }
+    private void Cancel()
+    {
+      DebugUtility.LogWarning("RequestPurchase cancel");
+      ((Behaviour) this).set_enabled(false);
+      this.RemoveDelegate();
+      this.CloseProcessingDialog();
+      this.ActivateOutputLinks(203);
+    }
 
-        private void NeedBirthday()
-        {
-            DebugUtility.LogWarning("RequestPurchase need birthday");
-            base.set_enabled(0);
-            this.RemoveDelegate();
-            this.CloseProcessingDialog();
-            base.ActivateOutputLinks(0xce);
-            return;
-        }
+    private void InsufficientBalances()
+    {
+      DebugUtility.LogWarning("RequestPurchase insufficient balances");
+      ((Behaviour) this).set_enabled(false);
+      this.RemoveDelegate();
+      this.CloseProcessingDialog();
+      this.ActivateOutputLinks(204);
+    }
 
-        public override void OnActivate(int pinID)
-        {
-            PaymentManager local2;
-            PaymentManager local1;
-            if (pinID != null)
-            {
-                goto Label_009A;
-            }
-            if (this.mSetDelegate != null)
-            {
-                goto Label_006E;
-            }
-            local1 = MonoSingleton<PaymentManager>.Instance;
-            local1.OnRequestPurchase = (PaymentManager.RequestPurchaseDelegate) Delegate.Combine(local1.OnRequestPurchase, new PaymentManager.RequestPurchaseDelegate(this.OnRequestPurchase));
-            local2 = MonoSingleton<PaymentManager>.Instance;
-            local2.OnRequestProcessing = (PaymentManager.RequestProcessingDelegate) Delegate.Combine(local2.OnRequestProcessing, new PaymentManager.RequestProcessingDelegate(this.OnRequestProcessing));
-            this.mSetDelegate = 1;
-            DebugUtility.Log("PaymentRequestPurchase SetDelegate");
-        Label_006E:
-            base.set_enabled(1);
-            DebugUtility.LogWarning("PaymentRequestPurchase start");
-            if (MonoSingleton<PaymentManager>.Instance.RequestPurchase(GlobalVars.SelectedProductID) != null)
-            {
-                goto Label_009A;
-            }
-            this.Error();
-            return;
-        Label_009A:
-            return;
-        }
+    private void OverLimited()
+    {
+      DebugUtility.LogWarning("RequestPurchase over limited");
+      ((Behaviour) this).set_enabled(false);
+      this.RemoveDelegate();
+      this.CloseProcessingDialog();
+      this.ActivateOutputLinks(205);
+    }
 
-        protected override void OnDestroy()
-        {
-            this.RemoveDelegate();
-            base.OnDestroy();
-            return;
-        }
+    private void NeedBirthday()
+    {
+      DebugUtility.LogWarning("RequestPurchase need birthday");
+      ((Behaviour) this).set_enabled(false);
+      this.RemoveDelegate();
+      this.CloseProcessingDialog();
+      this.ActivateOutputLinks(206);
+    }
 
-        public void OnRequestProcessing()
-        {
-            base.ActivateOutputLinks(300);
-            return;
-        }
-
-        public void OnRequestPurchase(PaymentManager.ERequestPurchaseResult result, PaymentManager.CoinRecord record)
-        {
-            if (result == 1)
-            {
-                goto Label_000E;
-            }
-            if (result != -1)
-            {
-                goto Label_0019;
-            }
-        Label_000E:
-            this.Cancel();
-            goto Label_00B5;
-        Label_0019:
-            if (result != 2)
-            {
-                goto Label_002B;
-            }
-            this.AlreadyOwn();
-            goto Label_00B5;
-        Label_002B:
-            if (result != 3)
-            {
-                goto Label_003D;
-            }
-            this.Deferred();
-            goto Label_00B5;
-        Label_003D:
-            if (result != 4)
-            {
-                goto Label_004F;
-            }
-            this.InsufficientBalances();
-            goto Label_00B5;
-        Label_004F:
-            if (result != 5)
-            {
-                goto Label_0061;
-            }
-            this.OverLimited();
-            goto Label_00B5;
-        Label_0061:
-            if (result != 6)
-            {
-                goto Label_0073;
-            }
-            this.NeedBirthday();
-            goto Label_00B5;
-        Label_0073:
-            if (result != null)
-            {
-                goto Label_00AF;
-            }
-            if (record == null)
-            {
-                goto Label_00A4;
-            }
+    public void OnRequestPurchase(PaymentManager.ERequestPurchaseResult result, PaymentManager.CoinRecord record = null)
+    {
+      switch (result)
+      {
+        case PaymentManager.ERequestPurchaseResult.NONE:
+        case PaymentManager.ERequestPurchaseResult.CANCEL:
+          this.Cancel();
+          break;
+        case PaymentManager.ERequestPurchaseResult.SUCCESS:
+          if (record != null)
+          {
             MonoSingleton<GameManager>.Instance.Player.SetCoinPurchaseResult(record);
             MonoSingleton<GameManager>.Instance.Player.GainVipPoint(record.additionalPaidCoin);
-        Label_00A4:
-            this.Success();
-            goto Label_00B5;
-        Label_00AF:
-            this.Error();
-        Label_00B5:
-            return;
-        }
-
-        private void OverLimited()
-        {
-            DebugUtility.LogWarning("RequestPurchase over limited");
-            base.set_enabled(0);
-            this.RemoveDelegate();
-            this.CloseProcessingDialog();
-            base.ActivateOutputLinks(0xcd);
-            return;
-        }
-
-        private void RemoveDelegate()
-        {
-            PaymentManager local2;
-            PaymentManager local1;
-            if (this.mSetDelegate == null)
-            {
-                goto Label_0068;
-            }
-            local1 = MonoSingleton<PaymentManager>.Instance;
-            local1.OnRequestPurchase = (PaymentManager.RequestPurchaseDelegate) Delegate.Remove(local1.OnRequestPurchase, new PaymentManager.RequestPurchaseDelegate(this.OnRequestPurchase));
-            local2 = MonoSingleton<PaymentManager>.Instance;
-            local2.OnRequestProcessing = (PaymentManager.RequestProcessingDelegate) Delegate.Remove(local2.OnRequestProcessing, new PaymentManager.RequestProcessingDelegate(this.OnRequestProcessing));
-            this.mSetDelegate = 0;
-            DebugUtility.Log("PaymentRequestPurchase.RemoveDelegate");
-        Label_0068:
-            return;
-        }
-
-        private void Success()
-        {
-            DebugUtility.LogWarning("RequestPurchase success");
-            base.set_enabled(0);
-            this.RemoveDelegate();
-            this.CloseProcessingDialog();
-            base.ActivateOutputLinks(100);
-            return;
-        }
+          }
+          this.Success();
+          break;
+        case PaymentManager.ERequestPurchaseResult.ALREADY_OWN:
+          this.AlreadyOwn();
+          break;
+        case PaymentManager.ERequestPurchaseResult.DEFERRED:
+          this.Deferred();
+          break;
+        case PaymentManager.ERequestPurchaseResult.INSUFFICIENT_BALANCES:
+          this.InsufficientBalances();
+          break;
+        case PaymentManager.ERequestPurchaseResult.OVER_LIMITED:
+          this.OverLimited();
+          break;
+        case PaymentManager.ERequestPurchaseResult.NEED_BIRTHDAY:
+          this.NeedBirthday();
+          break;
+        default:
+          this.Error();
+          break;
+      }
     }
-}
 
+    public void OnRequestProcessing()
+    {
+    }
+
+    public void CloseProcessingDialog()
+    {
+    }
+  }
+}

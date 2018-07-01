@@ -1,45 +1,46 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqMail
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Text;
+
+namespace SRPG
 {
-    using System;
-    using System.Text;
-
-    public class ReqMail : WebAPI
+  public class ReqMail : WebAPI
+  {
+    public ReqMail(int page, bool isPeriod, bool isRead, Network.ResponseCallback response)
     {
-        public ReqMail(int page, bool isPeriod, bool isRead, Network.ResponseCallback response)
-        {
-            StringBuilder builder;
-            base..ctor();
-            base.name = "mail";
-            builder = WebAPI.GetStringBuilder();
-            builder.Append(this.MakeKeyValue("page", page));
-            builder.Append(",");
-            builder.Append(this.MakeKeyValue("isPeriod", (isPeriod == null) ? 0 : 1));
-            builder.Append(",");
-            builder.Append(this.MakeKeyValue("isRead", (isRead == null) ? 0 : 1));
-            base.body = WebAPI.GetRequestString(builder.ToString());
-            base.callback = response;
-            return;
-        }
-
-        private string MakeKeyValue(string key, int value)
-        {
-            return string.Format("\"{0}\":{1}", key, (int) value);
-        }
-
-        private string MakeKeyValue(string key, long value)
-        {
-            return string.Format("\"{0}\":{1}", key, (long) value);
-        }
-
-        private string MakeKeyValue(string key, float value)
-        {
-            return string.Format("\"{0}\":{1}", key, (float) value);
-        }
-
-        private string MakeKeyValue(string key, string value)
-        {
-            return string.Format("\"{0}\":\"{1}\"", key, value);
-        }
+      this.name = "mail";
+      StringBuilder stringBuilder = WebAPI.GetStringBuilder();
+      stringBuilder.Append(this.MakeKeyValue(nameof (page), page));
+      stringBuilder.Append(",");
+      stringBuilder.Append(this.MakeKeyValue(nameof (isPeriod), !isPeriod ? 0 : 1));
+      stringBuilder.Append(",");
+      stringBuilder.Append(this.MakeKeyValue(nameof (isRead), !isRead ? 0 : 1));
+      this.body = WebAPI.GetRequestString(stringBuilder.ToString());
+      this.callback = response;
     }
-}
 
+    private string MakeKeyValue(string key, int value)
+    {
+      return string.Format("\"{0}\":{1}", (object) key, (object) value);
+    }
+
+    private string MakeKeyValue(string key, float value)
+    {
+      return string.Format("\"{0}\":{1}", (object) key, (object) value);
+    }
+
+    private string MakeKeyValue(string key, long value)
+    {
+      return string.Format("\"{0}\":{1}", (object) key, (object) value);
+    }
+
+    private string MakeKeyValue(string key, string value)
+    {
+      return string.Format("\"{0}\":\"{1}\"", (object) key, (object) value);
+    }
+  }
+}

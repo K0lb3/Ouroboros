@@ -1,44 +1,32 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_MultiPlayErrorMessage
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using System.Runtime.CompilerServices;
-    using UnityEngine;
+  [FlowNode.NodeType("Multi/MultiPlayErrorMessage", 32741)]
+  [FlowNode.Pin(10, "Open", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(100, "Closed", FlowNode.PinTypes.Output, 1)]
+  public class FlowNode_MultiPlayErrorMessage : FlowNode
+  {
+    private GameObject winGO;
 
-    [Pin(10, "Open", 0, 0), Pin(100, "Closed", 1, 1), NodeType("Multi/MultiPlayErrorMessage", 0x7fe5)]
-    public class FlowNode_MultiPlayErrorMessage : FlowNode
+    public override void OnActivate(int pinID)
     {
-        private GameObject winGO;
-
-        public FlowNode_MultiPlayErrorMessage()
-        {
-            base..ctor();
-            return;
-        }
-
-        [CompilerGenerated]
-        private void <OnActivate>m__1A9(GameObject go)
-        {
-            if ((this.winGO != null) == null)
-            {
-                goto Label_0021;
-            }
-            this.winGO = null;
-            base.ActivateOutputLinks(100);
-        Label_0021:
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != 10)
-            {
-                goto Label_002D;
-            }
-            this.winGO = UIUtility.SystemMessage(null, Network.ErrMsg, new UIUtility.DialogResultEvent(this.<OnActivate>m__1A9), null, 0, -1);
-            Network.ResetError();
-        Label_002D:
-            return;
-        }
+      if (pinID != 10)
+        return;
+      this.winGO = UIUtility.SystemMessage((string) null, Network.ErrMsg, (UIUtility.DialogResultEvent) (go =>
+      {
+        if (!Object.op_Inequality((Object) this.winGO, (Object) null))
+          return;
+        this.winGO = (GameObject) null;
+        this.ActivateOutputLinks(100);
+      }), (GameObject) null, false, -1);
+      Network.ResetError();
     }
+  }
 }
-

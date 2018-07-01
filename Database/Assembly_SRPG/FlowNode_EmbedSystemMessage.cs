@@ -1,55 +1,38 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_EmbedSystemMessage
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
+  [FlowNode.Pin(100, "Opened", FlowNode.PinTypes.Output, 100)]
+  [FlowNode.NodeType("UI/EmbedSystemMessage", 32741)]
+  [FlowNode.Pin(10, "Open", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "Done", FlowNode.PinTypes.Output, 1)]
+  public class FlowNode_EmbedSystemMessage : FlowNode
+  {
+    public string m_Msg;
 
-    [NodeType("UI/EmbedSystemMessage", 0x7fe5), Pin(10, "Open", 0, 0), Pin(100, "Opened", 1, 100), Pin(1, "Done", 1, 1)]
-    public class FlowNode_EmbedSystemMessage : FlowNode
+    public override void OnActivate(int pinID)
     {
-        public string m_Msg;
-
-        public FlowNode_EmbedSystemMessage()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override unsafe void OnActivate(int pinID)
-        {
-            bool flag;
-            string str;
-            if (pinID != 10)
-            {
-                goto Label_0057;
-            }
-            flag = 0;
-            str = LocalizedText.Get(this.m_Msg, &flag);
-            if (flag == null)
-            {
-                goto Label_0036;
-            }
-            EmbedSystemMessage.Create(str, new EmbedSystemMessage.SystemMessageEvent(this.OnSystemMessageEvent));
-            goto Label_004E;
-        Label_0036:
-            EmbedSystemMessage.Create(this.m_Msg, new EmbedSystemMessage.SystemMessageEvent(this.OnSystemMessageEvent));
-        Label_004E:
-            base.ActivateOutputLinks(100);
-        Label_0057:
-            return;
-        }
-
-        private void OnSystemMessageEvent(bool yes)
-        {
-            if (yes == null)
-            {
-                goto Label_0013;
-            }
-            base.ActivateOutputLinks(1);
-            goto Label_001B;
-        Label_0013:
-            base.ActivateOutputLinks(2);
-        Label_001B:
-            return;
-        }
+      if (pinID != 10)
+        return;
+      bool success = false;
+      string msg = LocalizedText.Get(this.m_Msg, ref success);
+      if (success)
+        EmbedSystemMessage.Create(msg, new EmbedSystemMessage.SystemMessageEvent(this.OnSystemMessageEvent));
+      else
+        EmbedSystemMessage.Create(this.m_Msg, new EmbedSystemMessage.SystemMessageEvent(this.OnSystemMessageEvent));
+      this.ActivateOutputLinks(100);
     }
-}
 
+    private void OnSystemMessageEvent(bool yes)
+    {
+      if (yes)
+        this.ActivateOutputLinks(1);
+      else
+        this.ActivateOutputLinks(2);
+    }
+  }
+}

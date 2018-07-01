@@ -1,29 +1,25 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_DeactivateInventorySlot
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-
-    [NodeType("UI/DeactivateInventorySlot", 0x7fe5), Pin(100, "Out", 1, 100), Pin(1, "Deactivate", 0, 1)]
-    public class FlowNode_DeactivateInventorySlot : FlowNode
+  [FlowNode.Pin(100, "Out", FlowNode.PinTypes.Output, 100)]
+  [FlowNode.Pin(1, "Deactivate", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.NodeType("UI/DeactivateInventorySlot", 32741)]
+  public class FlowNode_DeactivateInventorySlot : FlowNode
+  {
+    public override void OnActivate(int pinID)
     {
-        public FlowNode_DeactivateInventorySlot()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != 1)
-            {
-                goto Label_0025;
-            }
-            InventorySlot.Active = null;
-            MonoSingleton<GameManager>.Instance.Player.SaveInventory();
-            base.ActivateOutputLinks(100);
-        Label_0025:
-            return;
-        }
+      if (pinID != 1)
+        return;
+      InventorySlot.Active = (InventorySlot) null;
+      MonoSingleton<GameManager>.Instance.Player.SaveInventory();
+      this.ActivateOutputLinks(100);
     }
+  }
 }
-

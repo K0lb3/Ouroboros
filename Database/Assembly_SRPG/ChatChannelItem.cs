@@ -1,103 +1,62 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ChatChannelItem
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
-    using UnityEngine.UI;
+  public class ChatChannelItem : MonoBehaviour
+  {
+    [SerializeField]
+    private GameObject Begginer;
+    [SerializeField]
+    private GameObject ChannelName;
+    [SerializeField]
+    private GameObject Fever;
+    private int mChannelID;
 
-    public class ChatChannelItem : MonoBehaviour
+    public ChatChannelItem()
     {
-        [SerializeField]
-        private GameObject Begginer;
-        [SerializeField]
-        private GameObject ChannelName;
-        [SerializeField]
-        private GameObject Fever;
-        private int mChannelID;
-
-        public ChatChannelItem()
-        {
-            base..ctor();
-            return;
-        }
-
-        private void Awake()
-        {
-            if ((this.Begginer != null) == null)
-            {
-                goto Label_001D;
-            }
-            this.Begginer.SetActive(0);
-        Label_001D:
-            if ((this.ChannelName != null) == null)
-            {
-                goto Label_003A;
-            }
-            this.ChannelName.SetActive(0);
-        Label_003A:
-            if ((this.Fever != null) == null)
-            {
-                goto Label_0057;
-            }
-            this.Fever.SetActive(0);
-        Label_0057:
-            return;
-        }
-
-        public unsafe void Refresh(ChatChannelParam param)
-        {
-            string str;
-            Text text;
-            ImageArray array;
-            if (param != null)
-            {
-                goto Label_0007;
-            }
-            return;
-        Label_0007:
-            if (param.category_id != 2)
-            {
-                goto Label_001F;
-            }
-            this.Begginer.SetActive(1);
-        Label_001F:
-            this.mChannelID = param.id;
-            str = "CH " + &param.id.ToString();
-            if (string.IsNullOrEmpty(param.name) != null)
-            {
-                goto Label_0058;
-            }
-            str = param.name;
-        Label_0058:
-            this.ChannelName.get_transform().FindChild("text").GetComponent<Text>().set_text(str);
-            this.ChannelName.SetActive(1);
-            array = this.Fever.GetComponent<ImageArray>();
-            if (param.fever_level < 15)
-            {
-                goto Label_00AB;
-            }
-            array.ImageIndex = 2;
-            goto Label_00CB;
-        Label_00AB:
-            if (param.fever_level < 10)
-            {
-                goto Label_00C4;
-            }
-            array.ImageIndex = 1;
-            goto Label_00CB;
-        Label_00C4:
-            array.ImageIndex = 0;
-        Label_00CB:
-            this.Fever.SetActive(1);
-            return;
-        }
-
-        public int ChannelID
-        {
-            get
-            {
-                return this.mChannelID;
-            }
-        }
+      base.\u002Ector();
     }
-}
 
+    public int ChannelID
+    {
+      get
+      {
+        return this.mChannelID;
+      }
+    }
+
+    private void Awake()
+    {
+      if (Object.op_Inequality((Object) this.Begginer, (Object) null))
+        this.Begginer.SetActive(false);
+      if (Object.op_Inequality((Object) this.ChannelName, (Object) null))
+        this.ChannelName.SetActive(false);
+      if (!Object.op_Inequality((Object) this.Fever, (Object) null))
+        return;
+      this.Fever.SetActive(false);
+    }
+
+    public void Refresh(ChatChannelParam param)
+    {
+      if (param == null)
+        return;
+      if (param.category_id == 2)
+        this.Begginer.SetActive(true);
+      this.mChannelID = param.id;
+      string str = "CH " + param.id.ToString();
+      if (!string.IsNullOrEmpty(param.name))
+        str = param.name;
+      ((Text) ((Component) this.ChannelName.get_transform().FindChild("text")).GetComponent<Text>()).set_text(str);
+      this.ChannelName.SetActive(true);
+      ((ImageArray) this.Fever.GetComponent<ImageArray>()).ImageIndex = param.fever_level < 15 ? (param.fever_level < 10 ? 0 : 1) : 2;
+      this.Fever.SetActive(true);
+    }
+  }
+}

@@ -1,358 +1,249 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_ReqQuestRanking
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+using System.Text;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Text;
-    using UnityEngine;
+  [FlowNode.Pin(300, "ランキング取得(成功)", FlowNode.PinTypes.Output, 300)]
+  [FlowNode.NodeType("System/ReqQuestRanking")]
+  [FlowNode.Pin(50, "ランキング取得(TOP + 自身)", FlowNode.PinTypes.Input, 50)]
+  [FlowNode.Pin(100, "ランキング取得(TOP)", FlowNode.PinTypes.Input, 100)]
+  [FlowNode.Pin(200, "ランキング取得(自身)", FlowNode.PinTypes.Input, 200)]
+  [FlowNode.Pin(301, "ランキング取得(失敗)", FlowNode.PinTypes.Output, 301)]
+  public class FlowNode_ReqQuestRanking : FlowNode_Network
+  {
+    public const int INPUT_REQUEST_RANKING_TOP_OWN = 50;
+    public const int INPUT_REQUEST_RANKING_TOP = 100;
+    public const int INPUT_REQUEST_RANKING_OWN = 200;
+    public const int OUTPUT_REQUEST_RANKING_SUCCESS = 300;
+    public const int OUTPUT_REQUEST_RANKING_FAILED = 301;
+    [SerializeField]
+    private RankingQuestRankWindow m_TargetWindow;
 
-    [Pin(200, "ランキング取得(自身)", 0, 200), Pin(300, "ランキング取得(成功)", 1, 300), NodeType("System/ReqQuestRanking"), Pin(0x12d, "ランキング取得(失敗)", 1, 0x12d), Pin(50, "ランキング取得(TOP + 自身)", 0, 50), Pin(100, "ランキング取得(TOP)", 0, 100)]
-    public class FlowNode_ReqQuestRanking : FlowNode_Network
+    public override void OnActivate(int pinID)
     {
-        public const int INPUT_REQUEST_RANKING_TOP_OWN = 50;
-        public const int INPUT_REQUEST_RANKING_TOP = 100;
-        public const int INPUT_REQUEST_RANKING_OWN = 200;
-        public const int OUTPUT_REQUEST_RANKING_SUCCESS = 300;
-        public const int OUTPUT_REQUEST_RANKING_FAILED = 0x12d;
-        [SerializeField]
-        private RankingQuestRankWindow m_TargetWindow;
-
-        public FlowNode_ReqQuestRanking()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            RankingQuestParam param;
-            QuestParam param2;
-            param = GlobalVars.SelectedRankingQuestParam;
-            if (GlobalVars.SelectedRankingQuestParam != null)
-            {
-                goto Label_0011;
-            }
-            return;
-        Label_0011:
-            param2 = MonoSingleton<GameManager>.Instance.FindQuest(param.iname);
-            if (pinID != 50)
-            {
-                goto Label_005A;
-            }
-            base.ExecRequest(new API_ReqQuestRanking(param.schedule_id, param.type, param2.iname, 0, 0, new Network.ResponseCallback(this.ResponseCallback_RequestRankingTopOwn)));
-            goto Label_00C8;
-        Label_005A:
-            if (pinID != 100)
-            {
-                goto Label_0092;
-            }
-            base.ExecRequest(new API_ReqQuestRanking(param.schedule_id, param.type, param2.iname, 0, 0, new Network.ResponseCallback(this.ResponseCallback_RequestRankingTop)));
-            goto Label_00C8;
-        Label_0092:
-            if (pinID != 200)
-            {
-                goto Label_00C8;
-            }
-            base.ExecRequest(new API_ReqQuestRanking(param.schedule_id, param.type, param2.iname, 0, 1, new Network.ResponseCallback(this.ResponseCallback_RequestRankingOwn)));
-        Label_00C8:
-            return;
-        }
-
-        public override void OnSuccess(WWWResult www)
-        {
-        }
-
-        private unsafe void ResponseCallback_RequestRankingOwn(WWWResult www)
-        {
-            WebAPI.JSON_BodyResponse<Json> response;
-            RankingQuestUserData[] dataArray;
-            if (FlowNode_Network.HasCommonError(www) == null)
-            {
-                goto Label_000C;
-            }
-            return;
-        Label_000C:
-            if (Network.IsError == null)
-            {
-                goto Label_007E;
-            }
-            if (Network.ErrCode == 0x32c9)
-            {
-                goto Label_0034;
-            }
-            if (Network.ErrCode != 0x32ca)
-            {
-                goto Label_003B;
-            }
-        Label_0034:
-            this.OnFailed();
-            return;
-        Label_003B:
-            if (Network.ErrCode != 0x32cb)
-            {
-                goto Label_0063;
-            }
-            Network.RemoveAPI();
-            base.set_enabled(0);
-            base.ActivateOutputLinks(0x12d);
-            return;
-        Label_0063:
-            if (Network.ErrCode != 0xcf)
-            {
-                goto Label_0077;
-            }
-            goto Label_007E;
-        Label_0077:
-            this.OnRetry();
-            return;
-        Label_007E:
-            response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json>>(&www.text);
-            DebugUtility.Assert((response == null) == 0, "res == null");
-            if (response.body != null)
-            {
-                goto Label_00AE;
-            }
-            this.OnRetry();
-            return;
-        Label_00AE:
-            Network.RemoveAPI();
-            dataArray = RankingQuestUserData.CreateRankingUserDataFromJson(response.body.ranking, GlobalVars.SelectedRankingQuestParam.type);
-            this.m_TargetWindow.SetData(dataArray);
-            this.Success();
-            return;
-        }
-
-        private unsafe void ResponseCallback_RequestRankingTop(WWWResult www)
-        {
-            WebAPI.JSON_BodyResponse<Json> response;
-            RankingQuestUserData[] dataArray;
-            if (FlowNode_Network.HasCommonError(www) == null)
-            {
-                goto Label_000C;
-            }
-            return;
-        Label_000C:
-            if (Network.IsError == null)
-            {
-                goto Label_007E;
-            }
-            if (Network.ErrCode == 0x32c9)
-            {
-                goto Label_0034;
-            }
-            if (Network.ErrCode != 0x32ca)
-            {
-                goto Label_003B;
-            }
-        Label_0034:
-            this.OnFailed();
-            return;
-        Label_003B:
-            if (Network.ErrCode != 0x32cb)
-            {
-                goto Label_0063;
-            }
-            Network.RemoveAPI();
-            base.set_enabled(0);
-            base.ActivateOutputLinks(0x12d);
-            return;
-        Label_0063:
-            if (Network.ErrCode != 0xcf)
-            {
-                goto Label_0077;
-            }
-            goto Label_007E;
-        Label_0077:
-            this.OnRetry();
-            return;
-        Label_007E:
-            DebugUtility.Log(&www.text);
-            response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json>>(&www.text);
-            DebugUtility.Assert((response == null) == 0, "res == null");
-            if (response.body != null)
-            {
-                goto Label_00BA;
-            }
-            this.OnRetry();
-            return;
-        Label_00BA:
-            Network.RemoveAPI();
-            dataArray = RankingQuestUserData.CreateRankingUserDataFromJson(response.body.ranking, GlobalVars.SelectedRankingQuestParam.type);
-            this.m_TargetWindow.SetData(dataArray);
-            this.Success();
-            return;
-        }
-
-        private unsafe void ResponseCallback_RequestRankingTopOwn(WWWResult www)
-        {
-            WebAPI.JSON_BodyResponse<Json> response;
-            RankingQuestUserData[] dataArray;
-            RankingQuestUserData data;
-            if (FlowNode_Network.HasCommonError(www) == null)
-            {
-                goto Label_000C;
-            }
-            return;
-        Label_000C:
-            if (Network.IsError == null)
-            {
-                goto Label_007E;
-            }
-            if (Network.ErrCode == 0x32c9)
-            {
-                goto Label_0034;
-            }
-            if (Network.ErrCode != 0x32ca)
-            {
-                goto Label_003B;
-            }
-        Label_0034:
-            this.OnFailed();
-            return;
-        Label_003B:
-            if (Network.ErrCode != 0x32cb)
-            {
-                goto Label_0063;
-            }
-            Network.RemoveAPI();
-            base.set_enabled(0);
-            base.ActivateOutputLinks(0x12d);
-            return;
-        Label_0063:
-            if (Network.ErrCode != 0xcf)
-            {
-                goto Label_0077;
-            }
-            goto Label_007E;
-        Label_0077:
-            this.OnRetry();
-            return;
-        Label_007E:
-            DebugUtility.Log(&www.text);
-            response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json>>(&www.text);
-            DebugUtility.Assert((response == null) == 0, "res == null");
-            if (response.body != null)
-            {
-                goto Label_00BA;
-            }
-            this.OnRetry();
-            return;
-        Label_00BA:
-            Network.RemoveAPI();
-            dataArray = RankingQuestUserData.CreateRankingUserDataFromJson(response.body.ranking, GlobalVars.SelectedRankingQuestParam.type);
-            data = RankingQuestUserData.CreateRankingUserDataFromJson(response.body.my_info, GlobalVars.SelectedRankingQuestParam.type);
-            this.m_TargetWindow.SetData(dataArray, data);
-            this.Success();
-            return;
-        }
-
-        private void Success()
-        {
-            base.ActivateOutputLinks(300);
-            return;
-        }
-
-        public class API_ReqQuestRanking : WebAPI
-        {
-            public API_ReqQuestRanking(int schedule_id, RankingQuestType type, string quest_id, int rank, bool isOwn, Network.ResponseCallback response)
-            {
-                StringBuilder builder;
-                base..ctor();
-                base.name = "quest/ranking";
-                builder = WebAPI.GetStringBuilder();
-                AppendKeyValue(builder, "schedule_id", schedule_id);
-                builder.Append(",");
-                AppendKeyValue(builder, "type", type);
-                builder.Append(",");
-                AppendKeyValue(builder, "iname", quest_id);
-                builder.Append(",");
-                AppendKeyValue(builder, "rank", rank);
-                builder.Append(",");
-                AppendKeyValue(builder, "is_near", (isOwn == null) ? 0 : 1);
-                base.body = WebAPI.GetRequestString(builder.ToString());
-                base.callback = response;
-                return;
-            }
-
-            private static void AppendKeyValue(StringBuilder sb, string key, int value)
-            {
-                sb.Append("\"");
-                sb.Append(key);
-                sb.Append("\":");
-                sb.Append(value);
-                return;
-            }
-
-            private static void AppendKeyValue(StringBuilder sb, string key, string value)
-            {
-                sb.Append("\"");
-                sb.Append(key);
-                sb.Append("\":\"");
-                sb.Append(value);
-                sb.Append("\"");
-                return;
-            }
-        }
-
-        [Serializable]
-        public class Json
-        {
-            public FlowNode_ReqQuestRanking.Json_OwnRankingData my_info;
-            public FlowNode_ReqQuestRanking.Json_OthersRankingData[] ranking;
-
-            public Json()
-            {
-                base..ctor();
-                return;
-            }
-        }
-
-        [Serializable]
-        public class Json_OthersRankingData
-        {
-            public string uid;
-            public string name;
-            public int rank;
-            public string unit_iname;
-            public int unit_lv;
-            public int job_lv;
-            public int main_score;
-            public int sub_score;
-
-            public Json_OthersRankingData()
-            {
-                base..ctor();
-                return;
-            }
-        }
-
-        [Serializable]
-        public class Json_OwnRankingData
-        {
-            public FlowNode_ReqQuestRanking.Json_UnitDataLight unit;
-            public int rank;
-            public int main_score;
-            public int sub_score;
-
-            public Json_OwnRankingData()
-            {
-                base..ctor();
-                return;
-            }
-        }
-
-        [Serializable]
-        public class Json_UnitDataLight
-        {
-            public string unit_iname;
-            public int unit_lv;
-            public int job_lv;
-
-            public Json_UnitDataLight()
-            {
-                base..ctor();
-                return;
-            }
-        }
+      RankingQuestParam rankingQuestParam = GlobalVars.SelectedRankingQuestParam;
+      if (GlobalVars.SelectedRankingQuestParam == null)
+        return;
+      QuestParam quest = MonoSingleton<GameManager>.Instance.FindQuest(rankingQuestParam.iname);
+      switch (pinID)
+      {
+        case 50:
+          this.ExecRequest((WebAPI) new FlowNode_ReqQuestRanking.API_ReqQuestRanking(rankingQuestParam.schedule_id, rankingQuestParam.type, quest.iname, 0, false, new Network.ResponseCallback(this.ResponseCallback_RequestRankingTopOwn)));
+          break;
+        case 100:
+          this.ExecRequest((WebAPI) new FlowNode_ReqQuestRanking.API_ReqQuestRanking(rankingQuestParam.schedule_id, rankingQuestParam.type, quest.iname, 0, false, new Network.ResponseCallback(this.ResponseCallback_RequestRankingTop)));
+          break;
+        case 200:
+          this.ExecRequest((WebAPI) new FlowNode_ReqQuestRanking.API_ReqQuestRanking(rankingQuestParam.schedule_id, rankingQuestParam.type, quest.iname, 0, true, new Network.ResponseCallback(this.ResponseCallback_RequestRankingOwn)));
+          break;
+      }
     }
-}
 
+    private void Success()
+    {
+      this.ActivateOutputLinks(300);
+    }
+
+    private void ResponseCallback_RequestRankingTopOwn(WWWResult www)
+    {
+      if (FlowNode_Network.HasCommonError(www))
+        return;
+      if (Network.IsError)
+      {
+        switch (Network.ErrCode)
+        {
+          case Network.EErrCode.RankingQuestMaintenance:
+            break;
+          case Network.EErrCode.RankingQuest_NotNewScore:
+          case Network.EErrCode.RankingQuest_AlreadyEntry:
+            this.OnFailed();
+            return;
+          case Network.EErrCode.RankingQuest_OutOfPeriod:
+            Network.RemoveAPI();
+            ((Behaviour) this).set_enabled(false);
+            this.ActivateOutputLinks(301);
+            return;
+          default:
+            this.OnRetry();
+            return;
+        }
+      }
+      DebugUtility.Log(www.text);
+      WebAPI.JSON_BodyResponse<FlowNode_ReqQuestRanking.Json> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<FlowNode_ReqQuestRanking.Json>>(www.text);
+      DebugUtility.Assert(jsonObject != null, "res == null");
+      if (jsonObject.body == null)
+      {
+        this.OnRetry();
+      }
+      else
+      {
+        Network.RemoveAPI();
+        this.m_TargetWindow.SetData(RankingQuestUserData.CreateRankingUserDataFromJson(jsonObject.body.ranking, GlobalVars.SelectedRankingQuestParam.type), RankingQuestUserData.CreateRankingUserDataFromJson(jsonObject.body.my_info, GlobalVars.SelectedRankingQuestParam.type));
+        this.Success();
+      }
+    }
+
+    private void ResponseCallback_RequestRankingTop(WWWResult www)
+    {
+      if (FlowNode_Network.HasCommonError(www))
+        return;
+      if (Network.IsError)
+      {
+        switch (Network.ErrCode)
+        {
+          case Network.EErrCode.RankingQuestMaintenance:
+            break;
+          case Network.EErrCode.RankingQuest_NotNewScore:
+          case Network.EErrCode.RankingQuest_AlreadyEntry:
+            this.OnFailed();
+            return;
+          case Network.EErrCode.RankingQuest_OutOfPeriod:
+            Network.RemoveAPI();
+            ((Behaviour) this).set_enabled(false);
+            this.ActivateOutputLinks(301);
+            return;
+          default:
+            this.OnRetry();
+            return;
+        }
+      }
+      DebugUtility.Log(www.text);
+      WebAPI.JSON_BodyResponse<FlowNode_ReqQuestRanking.Json> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<FlowNode_ReqQuestRanking.Json>>(www.text);
+      DebugUtility.Assert(jsonObject != null, "res == null");
+      if (jsonObject.body == null)
+      {
+        this.OnRetry();
+      }
+      else
+      {
+        Network.RemoveAPI();
+        this.m_TargetWindow.SetData(RankingQuestUserData.CreateRankingUserDataFromJson(jsonObject.body.ranking, GlobalVars.SelectedRankingQuestParam.type));
+        this.Success();
+      }
+    }
+
+    private void ResponseCallback_RequestRankingOwn(WWWResult www)
+    {
+      if (FlowNode_Network.HasCommonError(www))
+        return;
+      if (Network.IsError)
+      {
+        switch (Network.ErrCode)
+        {
+          case Network.EErrCode.RankingQuestMaintenance:
+            break;
+          case Network.EErrCode.RankingQuest_NotNewScore:
+          case Network.EErrCode.RankingQuest_AlreadyEntry:
+            this.OnFailed();
+            return;
+          case Network.EErrCode.RankingQuest_OutOfPeriod:
+            Network.RemoveAPI();
+            ((Behaviour) this).set_enabled(false);
+            this.ActivateOutputLinks(301);
+            return;
+          default:
+            this.OnRetry();
+            return;
+        }
+      }
+      WebAPI.JSON_BodyResponse<FlowNode_ReqQuestRanking.Json> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<FlowNode_ReqQuestRanking.Json>>(www.text);
+      DebugUtility.Assert(jsonObject != null, "res == null");
+      if (jsonObject.body == null)
+      {
+        this.OnRetry();
+      }
+      else
+      {
+        Network.RemoveAPI();
+        this.m_TargetWindow.SetData(RankingQuestUserData.CreateRankingUserDataFromJson(jsonObject.body.ranking, GlobalVars.SelectedRankingQuestParam.type));
+        this.Success();
+      }
+    }
+
+    public override void OnSuccess(WWWResult www)
+    {
+    }
+
+    public class API_ReqQuestRanking : WebAPI
+    {
+      public API_ReqQuestRanking(int schedule_id, RankingQuestType type, string quest_id, int rank, bool isOwn, Network.ResponseCallback response)
+      {
+        this.name = "quest/ranking";
+        StringBuilder stringBuilder = WebAPI.GetStringBuilder();
+        FlowNode_ReqQuestRanking.API_ReqQuestRanking.AppendKeyValue(stringBuilder, nameof (schedule_id), schedule_id);
+        stringBuilder.Append(",");
+        FlowNode_ReqQuestRanking.API_ReqQuestRanking.AppendKeyValue(stringBuilder, nameof (type), (int) type);
+        stringBuilder.Append(",");
+        FlowNode_ReqQuestRanking.API_ReqQuestRanking.AppendKeyValue(stringBuilder, "iname", quest_id);
+        stringBuilder.Append(",");
+        FlowNode_ReqQuestRanking.API_ReqQuestRanking.AppendKeyValue(stringBuilder, nameof (rank), rank);
+        stringBuilder.Append(",");
+        FlowNode_ReqQuestRanking.API_ReqQuestRanking.AppendKeyValue(stringBuilder, "is_near", !isOwn ? 0 : 1);
+        this.body = WebAPI.GetRequestString(stringBuilder.ToString());
+        this.callback = response;
+      }
+
+      private static void AppendKeyValue(StringBuilder sb, string key, int value)
+      {
+        sb.Append("\"");
+        sb.Append(key);
+        sb.Append("\":");
+        sb.Append(value);
+      }
+
+      private static void AppendKeyValue(StringBuilder sb, string key, string value)
+      {
+        sb.Append("\"");
+        sb.Append(key);
+        sb.Append("\":\"");
+        sb.Append(value);
+        sb.Append("\"");
+      }
+    }
+
+    [Serializable]
+    public class Json_UnitDataLight
+    {
+      public string unit_iname;
+      public int unit_lv;
+      public int job_lv;
+    }
+
+    [Serializable]
+    public class Json_OwnRankingData
+    {
+      public FlowNode_ReqQuestRanking.Json_UnitDataLight unit;
+      public int rank;
+      public int main_score;
+      public int sub_score;
+    }
+
+    [Serializable]
+    public class Json_OthersRankingData
+    {
+      public string uid;
+      public string name;
+      public int rank;
+      public string unit_iname;
+      public int unit_lv;
+      public int job_lv;
+      public int main_score;
+      public int sub_score;
+    }
+
+    [Serializable]
+    public class Json
+    {
+      public FlowNode_ReqQuestRanking.Json_OwnRankingData my_info;
+      public FlowNode_ReqQuestRanking.Json_OthersRankingData[] ranking;
+    }
+  }
+}

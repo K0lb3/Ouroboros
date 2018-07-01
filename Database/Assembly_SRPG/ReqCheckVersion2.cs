@@ -1,19 +1,20 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqCheckVersion2
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    public class ReqCheckVersion2 : WebAPI
+  public class ReqCheckVersion2 : WebAPI
+  {
+    public ReqCheckVersion2(string ver, Network.ResponseCallback response)
     {
-        public ReqCheckVersion2(string ver, Network.ResponseCallback response)
-        {
-            base..ctor();
-            base.name = "chkver2";
-            base.body = "{\"ver\":\"";
-            base.body = base.body + ver;
-            base.body = base.body + "\"}";
-            base.callback = response;
-            return;
-        }
+      this.name = "chkver2";
+      this.body = "{\"ver\":\"";
+      this.body += ver;
+      this.body += "\"}";
+      this.callback = response;
     }
+  }
 }
-

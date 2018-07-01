@@ -1,112 +1,84 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_UpdateVersusRoom
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-
-    [Pin(300, "AudienceOn", 0, 300), NodeType("Multi/UpdateRoomParam", 0x7fe5), Pin(0x65, "Reflesh", 0, 0x65), Pin(100, "Update", 0, 100), Pin(0x12d, "AudienceOff", 0, 0x12d), Pin(200, "Finish", 1, 200)]
-    public class FlowNode_UpdateVersusRoom : FlowNode
+  [FlowNode.NodeType("Multi/UpdateRoomParam", 32741)]
+  [FlowNode.Pin(200, "Finish", FlowNode.PinTypes.Output, 200)]
+  [FlowNode.Pin(300, "AudienceOn", FlowNode.PinTypes.Input, 300)]
+  [FlowNode.Pin(301, "AudienceOff", FlowNode.PinTypes.Input, 301)]
+  [FlowNode.Pin(101, "Reflesh", FlowNode.PinTypes.Input, 101)]
+  [FlowNode.Pin(100, "Update", FlowNode.PinTypes.Input, 100)]
+  public class FlowNode_UpdateVersusRoom : FlowNode
+  {
+    public override void OnActivate(int pinID)
     {
-        public FlowNode_UpdateVersusRoom()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            MyPhoton photon;
-            MyPhoton.MyRoom room;
-            JSON_MyPhotonRoomParam param;
-            MyPhoton photon2;
-            MyPhoton.MyRoom room2;
-            JSON_MyPhotonRoomParam param2;
-            MyPhoton photon3;
-            MyPhoton.MyRoom room3;
-            JSON_MyPhotonRoomParam param3;
-            MyPhoton photon4;
-            MyPhoton.MyRoom room4;
-            JSON_MyPhotonRoomParam param4;
-            if (pinID != 100)
+      switch (pinID)
+      {
+        case 100:
+          MyPhoton instance1 = PunMonoSingleton<MyPhoton>.Instance;
+          if (Object.op_Inequality((Object) instance1, (Object) null) && instance1.IsOldestPlayer())
+          {
+            MyPhoton.MyRoom currentRoom = instance1.GetCurrentRoom();
+            if (currentRoom != null)
             {
-                goto Label_0067;
+              JSON_MyPhotonRoomParam myPhotonRoomParam = JSON_MyPhotonRoomParam.Parse(currentRoom.json);
+              myPhotonRoomParam.iname = GlobalVars.SelectedQuestID;
+              instance1.SetRoomParam(myPhotonRoomParam.Serialize());
             }
-            photon = PunMonoSingleton<MyPhoton>.Instance;
-            if ((photon != null) == null)
+          }
+          this.ActivateOutputLinks(200);
+          break;
+        case 101:
+          MyPhoton instance2 = PunMonoSingleton<MyPhoton>.Instance;
+          if (Object.op_Inequality((Object) instance2, (Object) null))
+          {
+            MyPhoton.MyRoom currentRoom = instance2.GetCurrentRoom();
+            if (currentRoom != null)
             {
-                goto Label_0056;
+              GlobalVars.SelectedQuestID = JSON_MyPhotonRoomParam.Parse(currentRoom.json).iname;
+              break;
             }
-            if (photon.IsOldestPlayer() == null)
+            break;
+          }
+          break;
+        case 300:
+          MyPhoton instance3 = PunMonoSingleton<MyPhoton>.Instance;
+          if (Object.op_Inequality((Object) instance3, (Object) null))
+          {
+            MyPhoton.MyRoom currentRoom = instance3.GetCurrentRoom();
+            if (currentRoom != null)
             {
-                goto Label_0056;
+              JSON_MyPhotonRoomParam myPhotonRoomParam = JSON_MyPhotonRoomParam.Parse(currentRoom.json);
+              myPhotonRoomParam.audience = 1;
+              instance3.SetRoomParam(myPhotonRoomParam.Serialize());
+              break;
             }
-            room = photon.GetCurrentRoom();
-            if (room == null)
+            break;
+          }
+          break;
+        case 301:
+          MyPhoton instance4 = PunMonoSingleton<MyPhoton>.Instance;
+          if (Object.op_Inequality((Object) instance4, (Object) null))
+          {
+            MyPhoton.MyRoom currentRoom = instance4.GetCurrentRoom();
+            if (currentRoom != null)
             {
-                goto Label_0056;
+              JSON_MyPhotonRoomParam myPhotonRoomParam = JSON_MyPhotonRoomParam.Parse(currentRoom.json);
+              myPhotonRoomParam.audience = 0;
+              instance4.SetRoomParam(myPhotonRoomParam.Serialize());
+              break;
             }
-            param = JSON_MyPhotonRoomParam.Parse(room.json);
-            param.iname = GlobalVars.SelectedQuestID;
-            photon.SetRoomParam(param.Serialize());
-        Label_0056:
-            base.ActivateOutputLinks(200);
-            goto Label_015C;
-        Label_0067:
-            if (pinID != 0x65)
-            {
-                goto Label_00AF;
-            }
-            photon2 = PunMonoSingleton<MyPhoton>.Instance;
-            if ((photon2 != null) == null)
-            {
-                goto Label_015C;
-            }
-            room2 = photon2.GetCurrentRoom();
-            if (room2 == null)
-            {
-                goto Label_015C;
-            }
-            GlobalVars.SelectedQuestID = JSON_MyPhotonRoomParam.Parse(room2.json).iname;
-            goto Label_015C;
-        Label_00AF:
-            if (pinID != 300)
-            {
-                goto Label_0108;
-            }
-            photon3 = PunMonoSingleton<MyPhoton>.Instance;
-            if ((photon3 != null) == null)
-            {
-                goto Label_015C;
-            }
-            room3 = photon3.GetCurrentRoom();
-            if (room3 == null)
-            {
-                goto Label_015C;
-            }
-            param3 = JSON_MyPhotonRoomParam.Parse(room3.json);
-            param3.audience = 1;
-            photon3.SetRoomParam(param3.Serialize());
-            goto Label_015C;
-        Label_0108:
-            if (pinID != 0x12d)
-            {
-                goto Label_015C;
-            }
-            photon4 = PunMonoSingleton<MyPhoton>.Instance;
-            if ((photon4 != null) == null)
-            {
-                goto Label_015C;
-            }
-            room4 = photon4.GetCurrentRoom();
-            if (room4 == null)
-            {
-                goto Label_015C;
-            }
-            param4 = JSON_MyPhotonRoomParam.Parse(room4.json);
-            param4.audience = 0;
-            photon4.SetRoomParam(param4.Serialize());
-        Label_015C:
-            base.ActivateOutputLinks(200);
-            return;
-        }
+            break;
+          }
+          break;
+      }
+      this.ActivateOutputLinks(200);
     }
+  }
 }
-

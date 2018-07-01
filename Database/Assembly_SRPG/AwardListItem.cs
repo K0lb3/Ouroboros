@@ -1,233 +1,148 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.AwardListItem
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Runtime.InteropServices;
-    using UnityEngine;
-    using UnityEngine.UI;
+  public class AwardListItem : MonoBehaviour
+  {
+    public static readonly string EXTRA_GRADE_IMAGEPATH = "AwardImage/ExtraAwards";
+    public static readonly int MAX_GRADE = 6;
+    [SerializeField]
+    private Image BackGround;
+    [SerializeField]
+    private Text AwardName;
+    [SerializeField]
+    private GameObject Cursor;
+    [SerializeField]
+    private GameObject Badge;
+    private string mAwardIname;
+    private bool mIsSelected;
+    private bool mHasItem;
+    private bool mIsRefresh;
+    private bool mRemove;
+    private GameManager gm;
 
-    public class AwardListItem : MonoBehaviour
+    public AwardListItem()
     {
-        [SerializeField]
-        private Image BackGround;
-        [SerializeField]
-        private Text AwardName;
-        [SerializeField]
-        private GameObject Cursor;
-        [SerializeField]
-        private GameObject Badge;
-        public static readonly string EXTRA_GRADE_IMAGEPATH;
-        public static readonly int MAX_GRADE;
-        private string mAwardIname;
-        private bool mIsSelected;
-        private bool mHasItem;
-        private bool mIsRefresh;
-        private bool mRemove;
-        private GameManager gm;
-
-        static AwardListItem()
-        {
-            EXTRA_GRADE_IMAGEPATH = "AwardImage/ExtraAwards";
-            MAX_GRADE = 6;
-            return;
-        }
-
-        public AwardListItem()
-        {
-            base..ctor();
-            return;
-        }
-
-        private void Awake()
-        {
-            if ((this.BackGround != null) == null)
-            {
-                goto Label_0022;
-            }
-            this.BackGround.get_gameObject().SetActive(0);
-        Label_0022:
-            if ((this.AwardName != null) == null)
-            {
-                goto Label_0059;
-            }
-            this.AwardName.set_text(LocalizedText.Get("sys.TEXT_NO_AWARD"));
-            this.AwardName.get_gameObject().SetActive(0);
-        Label_0059:
-            if ((this.Cursor != null) == null)
-            {
-                goto Label_0076;
-            }
-            this.Cursor.SetActive(0);
-        Label_0076:
-            if ((this.Badge != null) == null)
-            {
-                goto Label_0093;
-            }
-            this.Badge.SetActive(0);
-        Label_0093:
-            return;
-        }
-
-        private AwardParam CreateRemoveAwardData()
-        {
-            AwardParam param;
-            param = new AwardParam();
-            param.grade = -1;
-            param.iname = string.Empty;
-            param.name = LocalizedText.Get("sys.TEXT_REMOVE_AWARD");
-            return param;
-        }
-
-        private void Refresh()
-        {
-            AwardParam param;
-            ImageArray array;
-            if ((this.gm == null) == null)
-            {
-                goto Label_001C;
-            }
-            this.gm = MonoSingleton<GameManager>.Instance;
-        Label_001C:
-            param = null;
-            if (this.mRemove != null)
-            {
-                goto Label_004C;
-            }
-            param = this.gm.MasterParam.GetAwardParam(this.mAwardIname);
-            if (param != null)
-            {
-                goto Label_0053;
-            }
-            return;
-            goto Label_0053;
-        Label_004C:
-            param = this.CreateRemoveAwardData();
-        Label_0053:
-            if ((this.BackGround != null) == null)
-            {
-                goto Label_00F6;
-            }
-            array = this.BackGround.GetComponent<ImageArray>();
-            if ((array != null) == null)
-            {
-                goto Label_00F6;
-            }
-            if (this.mHasItem == null)
-            {
-                goto Label_00DE;
-            }
-            if (MAX_GRADE > param.grade)
-            {
-                goto Label_00CB;
-            }
-            array.ImageIndex = 0;
-            if (string.IsNullOrEmpty(param.bg) != null)
-            {
-                goto Label_00BB;
-            }
-            this.SetExtraAwardImage(param.bg);
-        Label_00BB:
-            param.name = string.Empty;
-            goto Label_00D9;
-        Label_00CB:
-            array.ImageIndex = param.grade + 1;
-        Label_00D9:
-            goto Label_00F6;
-        Label_00DE:
-            array.ImageIndex = (this.mRemove == null) ? 1 : 0;
-        Label_00F6:
-            if ((this.AwardName != null) == null)
-            {
-                goto Label_017B;
-            }
-            if (param.grade != -1)
-            {
-                goto Label_013A;
-            }
-            this.AwardName.set_text(param.name);
-            this.AwardName.get_gameObject().SetActive(1);
-            goto Label_017B;
-        Label_013A:
-            this.AwardName.set_text((this.mHasItem == null) ? LocalizedText.Get("sys.TEXT_NO_AWARD") : param.name);
-            this.AwardName.get_gameObject().SetActive(this.mHasItem);
-        Label_017B:
-            if (this.mRemove != null)
-            {
-                goto Label_01CA;
-            }
-            if ((this.Cursor != null) == null)
-            {
-                goto Label_01CA;
-            }
-            if ((this.Badge != null) == null)
-            {
-                goto Label_01CA;
-            }
-            this.Cursor.SetActive(this.mIsSelected);
-            this.Badge.SetActive(this.mIsSelected);
-        Label_01CA:
-            return;
-        }
-
-        private bool SetExtraAwardImage(string bg)
-        {
-            ImageArray array;
-            SpriteSheet sheet;
-            if (string.IsNullOrEmpty(bg) == null)
-            {
-                goto Label_000D;
-            }
-            return 0;
-        Label_000D:
-            array = this.BackGround.GetComponent<ImageArray>();
-            if ((array != null) == null)
-            {
-                goto Label_004B;
-            }
-            sheet = AssetManager.Load<SpriteSheet>(EXTRA_GRADE_IMAGEPATH);
-            if ((sheet != null) == null)
-            {
-                goto Label_0049;
-            }
-            array.set_sprite(sheet.GetSprite(bg));
-        Label_0049:
-            return 1;
-        Label_004B:
-            return 0;
-        }
-
-        public void SetUp(string iname, bool hasItem, bool selected, bool remove)
-        {
-            if (string.IsNullOrEmpty(iname) == null)
-            {
-                goto Label_001D;
-            }
-            if (remove != null)
-            {
-                goto Label_001D;
-            }
-            DebugUtility.LogError("iname is null!");
-            return;
-        Label_001D:
-            this.mAwardIname = iname;
-            this.mHasItem = hasItem;
-            this.mIsSelected = selected;
-            this.mRemove = remove;
-            this.mIsRefresh = 1;
-            return;
-        }
-
-        private void Update()
-        {
-            if (this.mIsRefresh == null)
-            {
-                goto Label_0018;
-            }
-            this.mIsRefresh = 0;
-            this.Refresh();
-        Label_0018:
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Awake()
+    {
+      if (Object.op_Inequality((Object) this.BackGround, (Object) null))
+        ((Component) this.BackGround).get_gameObject().SetActive(false);
+      if (Object.op_Inequality((Object) this.AwardName, (Object) null))
+      {
+        this.AwardName.set_text(LocalizedText.Get("sys.TEXT_NO_AWARD"));
+        ((Component) this.AwardName).get_gameObject().SetActive(false);
+      }
+      if (Object.op_Inequality((Object) this.Cursor, (Object) null))
+        this.Cursor.SetActive(false);
+      if (!Object.op_Inequality((Object) this.Badge, (Object) null))
+        return;
+      this.Badge.SetActive(false);
+    }
+
+    private void Update()
+    {
+      if (!this.mIsRefresh)
+        return;
+      this.mIsRefresh = false;
+      this.Refresh();
+    }
+
+    public void SetUp(string iname, bool hasItem = false, bool selected = false, bool remove = false)
+    {
+      if (string.IsNullOrEmpty(iname) && !remove)
+      {
+        DebugUtility.LogError("iname is null!");
+      }
+      else
+      {
+        this.mAwardIname = iname;
+        this.mHasItem = hasItem;
+        this.mIsSelected = selected;
+        this.mRemove = remove;
+        this.mIsRefresh = true;
+      }
+    }
+
+    private void Refresh()
+    {
+      if (Object.op_Equality((Object) this.gm, (Object) null))
+        this.gm = MonoSingleton<GameManager>.Instance;
+      AwardParam awardParam;
+      if (!this.mRemove)
+      {
+        awardParam = this.gm.MasterParam.GetAwardParam(this.mAwardIname);
+        if (awardParam == null)
+          return;
+      }
+      else
+        awardParam = this.CreateRemoveAwardData();
+      if (Object.op_Inequality((Object) this.BackGround, (Object) null))
+      {
+        ImageArray component = (ImageArray) ((Component) this.BackGround).GetComponent<ImageArray>();
+        if (Object.op_Inequality((Object) component, (Object) null))
+        {
+          if (this.mHasItem)
+          {
+            if (AwardListItem.MAX_GRADE <= awardParam.grade)
+            {
+              component.ImageIndex = 0;
+              if (!string.IsNullOrEmpty(awardParam.bg))
+                this.SetExtraAwardImage(awardParam.bg);
+              awardParam.name = string.Empty;
+            }
+            else
+              component.ImageIndex = awardParam.grade + 1;
+          }
+          else
+            component.ImageIndex = !this.mRemove ? 1 : 0;
+        }
+      }
+      if (Object.op_Inequality((Object) this.AwardName, (Object) null))
+      {
+        if (awardParam.grade == -1)
+        {
+          this.AwardName.set_text(awardParam.name);
+          ((Component) this.AwardName).get_gameObject().SetActive(true);
+        }
+        else
+        {
+          this.AwardName.set_text(!this.mHasItem ? LocalizedText.Get("sys.TEXT_NO_AWARD") : awardParam.name);
+          ((Component) this.AwardName).get_gameObject().SetActive(this.mHasItem);
+        }
+      }
+      if (this.mRemove || !Object.op_Inequality((Object) this.Cursor, (Object) null) || !Object.op_Inequality((Object) this.Badge, (Object) null))
+        return;
+      this.Cursor.SetActive(this.mIsSelected);
+      this.Badge.SetActive(this.mIsSelected);
+    }
+
+    private AwardParam CreateRemoveAwardData()
+    {
+      return new AwardParam() { grade = -1, iname = string.Empty, name = LocalizedText.Get("sys.TEXT_REMOVE_AWARD") };
+    }
+
+    private bool SetExtraAwardImage(string bg)
+    {
+      if (string.IsNullOrEmpty(bg))
+        return false;
+      ImageArray component = (ImageArray) ((Component) this.BackGround).GetComponent<ImageArray>();
+      if (!Object.op_Inequality((Object) component, (Object) null))
+        return false;
+      SpriteSheet spriteSheet = AssetManager.Load<SpriteSheet>(AwardListItem.EXTRA_GRADE_IMAGEPATH);
+      if (Object.op_Inequality((Object) spriteSheet, (Object) null))
+        component.set_sprite(spriteSheet.GetSprite(bg));
+      return true;
+    }
+  }
+}

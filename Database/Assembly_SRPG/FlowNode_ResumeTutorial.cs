@@ -1,697 +1,333 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_ResumeTutorial
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.Runtime.CompilerServices;
-    using System.Runtime.InteropServices;
-    using UnityEngine;
+  [FlowNode.Pin(16, "ClearResumeVersus", FlowNode.PinTypes.Input, 16)]
+  [FlowNode.NodeType("System/Tutorial")]
+  [FlowNode.Pin(0, "Try", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "Next Step", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(10, "DebugEndMovieLoad", FlowNode.PinTypes.Input, 10)]
+  [FlowNode.Pin(2, "Start Quest", FlowNode.PinTypes.Output, 2)]
+  [FlowNode.Pin(3, "Resume Quest", FlowNode.PinTypes.Output, 3)]
+  [FlowNode.Pin(4, "Tutorial Skipped", FlowNode.PinTypes.Output, 4)]
+  [FlowNode.Pin(5, "Resume Tower", FlowNode.PinTypes.Output, 5)]
+  [FlowNode.Pin(6, "Resume Multi", FlowNode.PinTypes.Output, 6)]
+  [FlowNode.Pin(7, "ClearResumeMulti", FlowNode.PinTypes.Input, 7)]
+  [FlowNode.Pin(8, "ResumeTowerError", FlowNode.PinTypes.Input, 8)]
+  [FlowNode.Pin(11, "DebugMovieLoad", FlowNode.PinTypes.Output, 11)]
+  [FlowNode.Pin(12, "ClearTutorial", FlowNode.PinTypes.Output, 12)]
+  [FlowNode.Pin(13, "Resume Multi Cancel", FlowNode.PinTypes.Output, 13)]
+  [FlowNode.Pin(14, "Resume Versus", FlowNode.PinTypes.Output, 14)]
+  [FlowNode.Pin(15, "Resume Versus Cancel", FlowNode.PinTypes.Output, 15)]
+  [FlowNode.Pin(17, "GotoHome", FlowNode.PinTypes.Input, 17)]
+  [FlowNode.Pin(18, "FgGChainWish", FlowNode.PinTypes.Output, 18)]
+  [FlowNode.Pin(19, "Resume MultiTower", FlowNode.PinTypes.Output, 19)]
+  [FlowNode.Pin(20, "ClearResumeMultiTower", FlowNode.PinTypes.Input, 20)]
+  [FlowNode.Pin(21, "ResumeMultiTower Cancel", FlowNode.PinTypes.Output, 21)]
+  public class FlowNode_ResumeTutorial : FlowNode
+  {
+    private bool mSkipTutorial;
 
-    [Pin(10, "DebugEndMovieLoad", 0, 10), Pin(0x16, "ResumeNormalQuest Cancel", 0, 0x16), Pin(0x15, "ResumeMultiTower Cancel", 1, 0x15), Pin(20, "ClearResumeMultiTower", 0, 20), Pin(0x13, "Resume MultiTower", 1, 0x13), Pin(0x12, "FgGChainWish", 1, 0x12), Pin(0x11, "GotoHome", 0, 0x11), Pin(0x10, "ClearResumeVersus", 0, 0x10), Pin(15, "Resume Versus Cancel", 1, 15), Pin(14, "Resume Versus", 1, 14), Pin(13, "Resume Multi Cancel", 1, 13), Pin(12, "ClearTutorial", 1, 12), Pin(11, "DebugMovieLoad", 1, 11), Pin(8, "ResumeTowerError", 0, 8), Pin(7, "ClearResumeMulti", 0, 7), Pin(6, "Resume Multi", 1, 6), Pin(5, "Resume Tower", 1, 5), Pin(4, "Tutorial Skipped", 1, 4), Pin(3, "Resume Quest", 1, 3), Pin(2, "Start Quest", 1, 2), Pin(1, "Next Step", 0, 1), Pin(0, "Try", 0, 0), NodeType("System/Tutorial")]
-    public class FlowNode_ResumeTutorial : FlowNode
+    public override void OnActivate(int pinID)
     {
-        private bool mSkipTutorial;
-
-        public FlowNode_ResumeTutorial()
-        {
-            base..ctor();
-            return;
-        }
-
-        private void ClearMultiResumeData()
-        {
-            bool? nullable;
+      switch (pinID)
+      {
+        case 0:
+          GameManager instance = MonoSingleton<GameManager>.Instance;
+          ((Behaviour) this).set_enabled(true);
+          if ((long) GlobalVars.BtlID != 0L)
+          {
+            if ((instance.Player.TutorialFlags & 1L) == 0L)
+            {
+              this.ActivateOutputLinks(3);
+              break;
+            }
+            QuestTypes questType = GlobalVars.QuestType;
+            switch (questType)
+            {
+              case QuestTypes.Tower:
+                UIUtility.ConfirmBox(LocalizedText.Get("sys.CONFIRM_RESUMEQUEST"), new UIUtility.DialogResultEvent(this.OnTowerResumeAccept), new UIUtility.DialogResultEvent(this.OnTowerResumeCancel), (GameObject) null, false, -1, (string) null, (string) null);
+                return;
+              case QuestTypes.VersusFree:
+              case QuestTypes.VersusRank:
+                UIUtility.ConfirmBox(LocalizedText.Get("sys.MULTI_VERSUS_CONFIRM_RESUMEQUEST"), new UIUtility.DialogResultEvent(this.OnVersusAccept), new UIUtility.DialogResultEvent(this.OnVersusResumeCancel), (GameObject) null, false, -1, (string) null, (string) null);
+                return;
+              case QuestTypes.MultiTower:
+                UIUtility.ConfirmBox(LocalizedText.Get("sys.MULTI_TOWER_CONFIRM_RESUMEQUEST"), new UIUtility.DialogResultEvent(this.OnMultiTowerAccept), new UIUtility.DialogResultEvent(this.OnMultiTowerResumeCancel), (GameObject) null, false, -1, (string) null, (string) null);
+                return;
+              default:
+                if (questType == QuestTypes.Multi)
+                {
+                  UIUtility.ConfirmBox(LocalizedText.Get("sys.MULTI_CONFIRM_RESUMEQUEST"), new UIUtility.DialogResultEvent(this.OnMultiResumeAccept), new UIUtility.DialogResultEvent(this.OnMultiResumeCancel), (GameObject) null, false, -1, (string) null, (string) null);
+                  return;
+                }
+                UIUtility.ConfirmBox(LocalizedText.Get("sys.CONFIRM_RESUMEQUEST"), new UIUtility.DialogResultEvent(this.OnResumeAccept), new UIUtility.DialogResultEvent(this.OnResumeCancel), (GameObject) null, false, -1, (string) null, (string) null);
+                return;
+            }
+          }
+          else
+          {
             BattleCore.RemoveSuspendData();
-            Network.RequestAPI(new ReqBtlComEnd(GlobalVars.BtlID, 0, 3, null, null, null, null, null, null, new Network.ResponseCallback(this.OnBtlComEnd), 1, null, null, 0, null, 0, new bool?()), 0);
-            GlobalVars.BtlID.Set(0L);
-            return;
-        }
-
-        private void ClearMultiTowerResumeData()
-        {
-            BattleCore.RemoveSuspendData();
-            Network.RequestAPI(new ReqBtlMultiTwEnd(GlobalVars.BtlID, 0, 2, null, null, null, new Network.ResponseCallback(this.OnBtlComEnd), null, null), 0);
-            GlobalVars.BtlID.Set(0L);
-            return;
-        }
-
-        private void ClearResumeData(bool is_rehash)
-        {
-            bool? nullable;
-            BattleCore.RemoveSuspendData();
-            Network.RequestAPI(new ReqBtlComEnd(GlobalVars.BtlID, 0, 3, null, null, null, null, null, null, new Network.ResponseCallback(this.OnBtlComEnd), 0, null, null, 0, null, is_rehash, new bool?()), 0);
-            GlobalVars.BtlID.Set(0L);
-            return;
-        }
-
-        private void ClearTowerResumeData()
-        {
-            BattleCore.RemoveSuspendData();
-            Network.RequestAPI(new ReqTowerBtlComEnd(GlobalVars.BtlID, null, null, 0, 0, 0, 3, null, new Network.ResponseCallback(this.OnBtlComEnd), null, null, null, null), 0);
-            GlobalVars.BtlID.Set(0L);
-            return;
-        }
-
-        private void ClearVersusResumeData()
-        {
-            BattleCore.RemoveSuspendData();
-            Network.RequestAPI(new ReqVersusEnd(GlobalVars.BtlID, 3, null, null, 0, null, null, 0, 0, 0, 0, null, new Network.ResponseCallback(this.OnBtlComEnd), GlobalVars.SelectedMultiPlayVersusType, null, null), 0);
-            GlobalVars.BtlID.Set(0L);
-            return;
-        }
-
-        private void CompleteTutorial()
-        {
-            GameManager manager;
-            MonoSingleton<GameManager>.Instance.UpdateTutorialFlags(1L);
-            base.StartCoroutine(this.WaitCompleteTutorialAsync());
-            return;
-        }
-
-        [DebuggerHidden]
-        private IEnumerator LoadSceneAsync(string sceneName)
-        {
-            <LoadSceneAsync>c__IteratorC9 rc;
-            rc = new <LoadSceneAsync>c__IteratorC9();
-            rc.sceneName = sceneName;
-            rc.<$>sceneName = sceneName;
-            rc.<>f__this = this;
-            return rc;
-        }
-
-        private void LoadStartScene()
-        {
-            base.StartCoroutine(this.LoadSceneAsync("Home"));
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            GameManager manager;
-            QuestTypes types;
-            if (pinID != null)
+            if ((instance.Player.TutorialFlags & 1L) != 0L)
             {
-                goto Label_0235;
+              GlobalVars.IsTutorialEnd = true;
+              if (MonoSingleton<GameManager>.Instance.AuthStatus == ReqFgGAuth.eAuthStatus.Synchronized)
+              {
+                this.LoadStartScene();
+                break;
+              }
+              this.ActivateOutputLinks(18);
+              break;
             }
-            manager = MonoSingleton<GameManager>.Instance;
-            base.set_enabled(1);
-            if (GlobalVars.BtlID == null)
+            instance.UpdateTutorialStep();
+            if (instance.TutorialStep == 0 && GameUtility.IsDebugBuild)
             {
-                goto Label_01AD;
-            }
-            if ((manager.Player.TutorialFlags & 1L) != null)
-            {
-                goto Label_003E;
-            }
-            base.ActivateOutputLinks(3);
-            return;
-        Label_003E:
-            types = GlobalVars.QuestType;
-            switch ((types - 7))
-            {
-                case 0:
-                    goto Label_0080;
-
-                case 1:
-                    goto Label_00E4;
-
-                case 2:
-                    goto Label_00E4;
-
-                case 3:
-                    goto Label_0074;
-
-                case 4:
-                    goto Label_0074;
-
-                case 5:
-                    goto Label_0148;
-
-                case 6:
-                    goto Label_0074;
-
-                case 7:
-                    goto Label_00B2;
-
-                case 8:
-                    goto Label_0074;
-
-                case 9:
-                    goto Label_0116;
-            }
-        Label_0074:
-            if (types == 1)
-            {
-                goto Label_00B2;
-            }
-            goto Label_017A;
-        Label_0080:
-            UIUtility.ConfirmBox(LocalizedText.Get("sys.CONFIRM_RESUMEQUEST"), new UIUtility.DialogResultEvent(this.OnTowerResumeAccept), new UIUtility.DialogResultEvent(this.OnTowerResumeCancel), null, 0, -1, null, null);
-            goto Label_01AC;
-        Label_00B2:
-            UIUtility.ConfirmBox(LocalizedText.Get("sys.MULTI_CONFIRM_RESUMEQUEST"), new UIUtility.DialogResultEvent(this.OnMultiResumeAccept), new UIUtility.DialogResultEvent(this.OnMultiResumeCancel), null, 0, -1, null, null);
-            goto Label_01AC;
-        Label_00E4:
-            UIUtility.ConfirmBox(LocalizedText.Get("sys.MULTI_VERSUS_CONFIRM_RESUMEQUEST"), new UIUtility.DialogResultEvent(this.OnVersusAccept), new UIUtility.DialogResultEvent(this.OnVersusResumeCancel), null, 0, -1, null, null);
-            goto Label_01AC;
-        Label_0116:
-            UIUtility.ConfirmBox(LocalizedText.Get("sys.MULTI_VERSUS_CONFIRM_RESUMEQUEST"), new UIUtility.DialogResultEvent(this.OnVersusAccept), new UIUtility.DialogResultEvent(this.OnVersusResumeCancel), null, 0, -1, null, null);
-            goto Label_01AC;
-        Label_0148:
-            UIUtility.ConfirmBox(LocalizedText.Get("sys.MULTI_TOWER_CONFIRM_RESUMEQUEST"), new UIUtility.DialogResultEvent(this.OnMultiTowerAccept), new UIUtility.DialogResultEvent(this.OnMultiTowerResumeCancel), null, 0, -1, null, null);
-            goto Label_01AC;
-        Label_017A:
-            UIUtility.ConfirmBox(LocalizedText.Get("sys.CONFIRM_RESUMEQUEST"), new UIUtility.DialogResultEvent(this.OnResumeAccept), new UIUtility.DialogResultEvent(this.OnResumeCancel), null, 0, -1, null, null);
-        Label_01AC:
-            return;
-        Label_01AD:
-            BattleCore.RemoveSuspendData();
-            if ((manager.Player.TutorialFlags & 1L) == null)
-            {
-                goto Label_01F0;
-            }
-            GlobalVars.IsTutorialEnd = 1;
-            if (MonoSingleton<GameManager>.Instance.AuthStatus != 3)
-            {
-                goto Label_01E6;
-            }
-            this.LoadStartScene();
-            goto Label_01EF;
-        Label_01E6:
-            base.ActivateOutputLinks(0x12);
-        Label_01EF:
-            return;
-        Label_01F0:
-            manager.UpdateTutorialStep();
-            if (manager.TutorialStep != null)
-            {
-                goto Label_022E;
-            }
-            if (GameUtility.IsDebugBuild == null)
-            {
-                goto Label_022E;
-            }
-            if (GlobalVars.DebugIsPlayTutorial == null)
-            {
-                goto Label_0220;
+              if (GlobalVars.DebugIsPlayTutorial)
+              {
+                this.PlayTutorial();
+                break;
+              }
+              this.mSkipTutorial = true;
+              this.CompleteTutorial();
+              break;
             }
             this.PlayTutorial();
-            goto Label_022D;
-        Label_0220:
-            this.mSkipTutorial = 1;
-            this.CompleteTutorial();
-        Label_022D:
-            return;
-        Label_022E:
-            this.PlayTutorial();
-            return;
-        Label_0235:
-            if (pinID != 1)
-            {
-                goto Label_0251;
-            }
-            MonoSingleton<GameManager>.Instance.CompleteTutorialStep();
-            this.PlayTutorial();
-            goto Label_02D0;
-        Label_0251:
-            if (pinID != 10)
-            {
-                goto Label_0264;
-            }
-            this.PlayTutorial();
-            goto Label_02D0;
-        Label_0264:
-            if (pinID != 7)
-            {
-                goto Label_0276;
-            }
-            this.ClearMultiResumeData();
-            goto Label_02D0;
-        Label_0276:
-            if (pinID != 8)
-            {
-                goto Label_0288;
-            }
-            this.ClearTowerResumeData();
-            goto Label_02D0;
-        Label_0288:
-            if (pinID != 0x10)
-            {
-                goto Label_029B;
-            }
-            this.ClearVersusResumeData();
-            goto Label_02D0;
-        Label_029B:
-            if (pinID != 0x11)
-            {
-                goto Label_02AE;
-            }
-            this.LoadStartScene();
-            goto Label_02D0;
-        Label_02AE:
-            if (pinID != 20)
-            {
-                goto Label_02C1;
-            }
-            this.ClearMultiTowerResumeData();
-            goto Label_02D0;
-        Label_02C1:
-            if (pinID != 0x16)
-            {
-                goto Label_02D0;
-            }
-            this.ClearResumeData(1);
-        Label_02D0:
-            return;
-        }
+            break;
+          }
+        case 1:
+          MonoSingleton<GameManager>.Instance.CompleteTutorialStep();
+          this.PlayTutorial();
+          break;
+        case 7:
+          this.ClearMultiResumeData();
+          break;
+        case 8:
+          this.ClearTowerResumeData();
+          break;
+        case 10:
+          this.PlayTutorial();
+          break;
+        case 16:
+          this.ClearVersusResumeData();
+          break;
+        case 17:
+          this.LoadStartScene();
+          break;
+        case 20:
+          this.ClearMultiTowerResumeData();
+          break;
+      }
+    }
 
-        private unsafe void OnBtlComEnd(WWWResult www)
+    private void OnResumeAccept(GameObject go)
+    {
+      this.ActivateOutputLinks(3);
+    }
+
+    private void OnTowerResumeAccept(GameObject go)
+    {
+      this.ActivateOutputLinks(5);
+    }
+
+    private void OnMultiResumeAccept(GameObject go)
+    {
+      this.ActivateOutputLinks(6);
+    }
+
+    private void OnVersusAccept(GameObject go)
+    {
+      this.ActivateOutputLinks(14);
+    }
+
+    private void OnMultiTowerAccept(GameObject go)
+    {
+      this.ActivateOutputLinks(19);
+    }
+
+    private void OnResumeCancel(GameObject go)
+    {
+      this.ClearResumeData();
+    }
+
+    private void OnTowerResumeCancel(GameObject go)
+    {
+      this.ClearTowerResumeData();
+    }
+
+    private void OnMultiResumeCancel(GameObject go)
+    {
+      this.ActivateOutputLinks(13);
+    }
+
+    private void OnVersusResumeCancel(GameObject go)
+    {
+      this.ActivateOutputLinks(15);
+    }
+
+    private void OnMultiTowerResumeCancel(GameObject go)
+    {
+      this.ActivateOutputLinks(21);
+    }
+
+    private void OnPlayTutorial(GameObject go)
+    {
+      this.ActivateOutputLinks(11);
+    }
+
+    private void OnSkipTutorial(GameObject go)
+    {
+      this.mSkipTutorial = true;
+      this.CompleteTutorial();
+    }
+
+    private void PlayTutorial()
+    {
+      GameManager instance = MonoSingleton<GameManager>.Instance;
+      string nextTutorialStep = instance.GetNextTutorialStep();
+      if (string.IsNullOrEmpty(nextTutorialStep))
+      {
+        this.CompleteTutorial();
+      }
+      else
+      {
+        if (BackgroundDownloader.Instance.IsEnabled)
+          ProgressWindow.Close();
+        if (instance.FindQuest(nextTutorialStep) == null)
         {
-            WebAPI.JSON_BodyResponse<Json_PlayerDataAll> response;
-            Exception exception;
-            Network.EErrCode code;
-            if (FlowNode_Network.HasCommonError(www) == null)
-            {
-                goto Label_000C;
-            }
-            return;
-        Label_000C:
-            if (GlobalVars.QuestType != 7)
-            {
-                goto Label_0023;
-            }
-            if (TowerErrorHandle.Error(null) == null)
-            {
-                goto Label_0023;
-            }
-            return;
-        Label_0023:
-            if (Network.IsError == null)
-            {
-                goto Label_005A;
-            }
-            code = Network.ErrCode;
-            if (code == 0xdac)
-            {
-                goto Label_004E;
-            }
-            if (code == 0xf3c)
-            {
-                goto Label_004E;
-            }
-            goto Label_0054;
-        Label_004E:
+          if (nextTutorialStep.Contains("_SG"))
+          {
+            string sceneName = nextTutorialStep.Split(new string[1]{ "_SG" }, StringSplitOptions.None)[0];
+            Debug.LogWarning((object) ("SG Tutorial: " + nextTutorialStep + ", going to scene: " + sceneName));
+            instance.CompleteTutorialStep();
+            this.StartCoroutine(this.LoadSceneAsync(sceneName));
+          }
+          else
+            this.StartCoroutine(this.LoadSceneAsync(nextTutorialStep));
+        }
+        else
+        {
+          GlobalVars.SelectedQuestID = nextTutorialStep;
+          GlobalVars.SelectedFriendID = string.Empty;
+          this.ActivateOutputLinks(2);
+        }
+      }
+    }
+
+    private void CompleteTutorial()
+    {
+      MonoSingleton<GameManager>.Instance.UpdateTutorialFlags(1L);
+      this.StartCoroutine(this.WaitCompleteTutorialAsync());
+    }
+
+    [DebuggerHidden]
+    private IEnumerator WaitCompleteTutorialAsync()
+    {
+      // ISSUE: object of a compiler-generated type is created
+      return (IEnumerator) new FlowNode_ResumeTutorial.\u003CWaitCompleteTutorialAsync\u003Ec__IteratorD0() { \u003C\u003Ef__this = this };
+    }
+
+    private void ClearResumeData()
+    {
+      BattleCore.RemoveSuspendData();
+      Network.RequestAPI((WebAPI) new ReqBtlComEnd((long) GlobalVars.BtlID, 0, BtlResultTypes.Cancel, (int[]) null, (int[]) null, (int[]) null, (int[]) null, (string[]) null, (Dictionary<OString, OInt>) null, new Network.ResponseCallback(this.OnBtlComEnd), BtlEndTypes.com, (string) null, (string) null, 0, (string) null), false);
+      GlobalVars.BtlID.Set(0L);
+    }
+
+    private void ClearTowerResumeData()
+    {
+      BattleCore.RemoveSuspendData();
+      Network.RequestAPI((WebAPI) new ReqTowerBtlComEnd((long) GlobalVars.BtlID, (Unit[]) null, (Unit[]) null, 0, 0, (byte) 0, BtlResultTypes.Cancel, (RandDeckResult[]) null, new Network.ResponseCallback(this.OnBtlComEnd), (string) null, (string) null, (string) null), false);
+      GlobalVars.BtlID.Set(0L);
+    }
+
+    private void ClearMultiResumeData()
+    {
+      BattleCore.RemoveSuspendData();
+      Network.RequestAPI((WebAPI) new ReqBtlComEnd((long) GlobalVars.BtlID, 0, BtlResultTypes.Cancel, (int[]) null, (int[]) null, (int[]) null, (int[]) null, (string[]) null, (Dictionary<OString, OInt>) null, new Network.ResponseCallback(this.OnBtlComEnd), BtlEndTypes.multi, (string) null, (string) null, 0, (string) null), false);
+      GlobalVars.BtlID.Set(0L);
+    }
+
+    private void ClearVersusResumeData()
+    {
+      BattleCore.RemoveSuspendData();
+      Network.RequestAPI((WebAPI) new ReqVersusEnd((long) GlobalVars.BtlID, BtlResultTypes.Cancel, (string) null, (string) null, 0U, (int[]) null, (int[]) null, 0, 0, 0, 0, new Network.ResponseCallback(this.OnBtlComEnd), GlobalVars.SelectedMultiPlayVersusType, (string) null, (string) null), false);
+      GlobalVars.BtlID.Set(0L);
+    }
+
+    private void ClearMultiTowerResumeData()
+    {
+      BattleCore.RemoveSuspendData();
+      Network.RequestAPI((WebAPI) new ReqBtlMultiTwEnd((long) GlobalVars.BtlID, 0, BtlResultTypes.Retire, (int[]) null, (string[]) null, (string[]) null, new Network.ResponseCallback(this.OnBtlComEnd), (string) null, (string) null), false);
+      GlobalVars.BtlID.Set(0L);
+    }
+
+    private void OnBtlComEnd(WWWResult www)
+    {
+      if (FlowNode_Network.HasCommonError(www) || GlobalVars.QuestType == QuestTypes.Tower && TowerErrorHandle.Error((FlowNode_Network) null))
+        return;
+      if (Network.IsError)
+      {
+        switch (Network.ErrCode)
+        {
+          case Network.EErrCode.QuestEnd:
+          case Network.EErrCode.ColoNoBattle:
+            FlowNode_Network.Failed();
+            break;
+          default:
+            FlowNode_Network.Retry();
+            break;
+        }
+      }
+      else
+      {
+        WebAPI.JSON_BodyResponse<Json_PlayerDataAll> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_PlayerDataAll>>(www.text);
+        if (jsonObject.body == null)
+        {
+          FlowNode_Network.Retry();
+        }
+        else
+        {
+          try
+          {
+            MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.player);
+            MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.units);
+            MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.items);
+            if (jsonObject.body.mails != null)
+              MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.mails);
+          }
+          catch (Exception ex)
+          {
+            DebugUtility.LogException(ex);
             FlowNode_Network.Failed();
             return;
-        Label_0054:
-            FlowNode_Network.Retry();
-            return;
-        Label_005A:
-            response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_PlayerDataAll>>(&www.text);
-            if (response.body != null)
-            {
-                goto Label_0078;
-            }
-            FlowNode_Network.Retry();
-            return;
-        Label_0078:
-            try
-            {
-                MonoSingleton<GameManager>.Instance.Deserialize(response.body.player);
-                MonoSingleton<GameManager>.Instance.Deserialize(response.body.units);
-                MonoSingleton<GameManager>.Instance.Deserialize(response.body.items);
-                if (response.body.mails == null)
-                {
-                    goto Label_00DD;
-                }
-                MonoSingleton<GameManager>.Instance.Deserialize(response.body.mails);
-            Label_00DD:
-                goto Label_00F8;
-            }
-            catch (Exception exception1)
-            {
-            Label_00E2:
-                exception = exception1;
-                DebugUtility.LogException(exception);
-                FlowNode_Network.Failed();
-                goto Label_0103;
-            }
-        Label_00F8:
-            Network.RemoveAPI();
-            this.LoadStartScene();
-        Label_0103:
-            return;
+          }
+          Network.RemoveAPI();
+          this.LoadStartScene();
         }
-
-        private void OnMultiResumeAccept(GameObject go)
-        {
-            base.ActivateOutputLinks(6);
-            return;
-        }
-
-        private void OnMultiResumeCancel(GameObject go)
-        {
-            base.ActivateOutputLinks(13);
-            return;
-        }
-
-        private void OnMultiTowerAccept(GameObject go)
-        {
-            base.ActivateOutputLinks(0x13);
-            return;
-        }
-
-        private void OnMultiTowerResumeCancel(GameObject go)
-        {
-            base.ActivateOutputLinks(0x15);
-            return;
-        }
-
-        private void OnPlayTutorial(GameObject go)
-        {
-            base.ActivateOutputLinks(11);
-            return;
-        }
-
-        private void OnResumeAccept(GameObject go)
-        {
-            base.ActivateOutputLinks(3);
-            return;
-        }
-
-        private void OnResumeCancel(GameObject go)
-        {
-            this.ClearResumeData(0);
-            return;
-        }
-
-        private void OnSkipTutorial(GameObject go)
-        {
-            this.mSkipTutorial = 1;
-            this.CompleteTutorial();
-            return;
-        }
-
-        private void OnTowerResumeAccept(GameObject go)
-        {
-            base.ActivateOutputLinks(5);
-            return;
-        }
-
-        private void OnTowerResumeCancel(GameObject go)
-        {
-            this.ClearTowerResumeData();
-            return;
-        }
-
-        private void OnVersusAccept(GameObject go)
-        {
-            base.ActivateOutputLinks(14);
-            return;
-        }
-
-        private void OnVersusResumeCancel(GameObject go)
-        {
-            base.ActivateOutputLinks(15);
-            return;
-        }
-
-        private void PlayTutorial()
-        {
-            GameManager manager;
-            string str;
-            QuestParam param;
-            manager = MonoSingleton<GameManager>.Instance;
-            str = manager.GetNextTutorialStep();
-            if (string.IsNullOrEmpty(str) == null)
-            {
-                goto Label_001F;
-            }
-            this.CompleteTutorial();
-            return;
-        Label_001F:
-            if (manager.FindQuest(str) != null)
-            {
-                goto Label_003C;
-            }
-            base.StartCoroutine(this.LoadSceneAsync(str));
-            return;
-        Label_003C:
-            GlobalVars.SelectedQuestID = str;
-            GlobalVars.SelectedFriendID = string.Empty;
-            base.ActivateOutputLinks(2);
-            return;
-        }
-
-        [DebuggerHidden]
-        private IEnumerator WaitCompleteTutorialAsync()
-        {
-            <WaitCompleteTutorialAsync>c__IteratorC8 rc;
-            rc = new <WaitCompleteTutorialAsync>c__IteratorC8();
-            rc.<>f__this = this;
-            return rc;
-        }
-
-        [CompilerGenerated]
-        private sealed class <LoadSceneAsync>c__IteratorC9 : IEnumerator, IDisposable, IEnumerator<object>
-        {
-            internal string sceneName;
-            internal SceneRequest <mReq>__0;
-            internal int $PC;
-            internal object $current;
-            internal string <$>sceneName;
-            internal FlowNode_ResumeTutorial <>f__this;
-
-            public <LoadSceneAsync>c__IteratorC9()
-            {
-                base..ctor();
-                return;
-            }
-
-            [DebuggerHidden]
-            public void Dispose()
-            {
-                this.$PC = -1;
-                return;
-            }
-
-            public bool MoveNext()
-            {
-                uint num;
-                bool flag;
-                num = this.$PC;
-                this.$PC = -1;
-                switch (num)
-                {
-                    case 0:
-                        goto Label_002D;
-
-                    case 1:
-                        goto Label_0045;
-
-                    case 2:
-                        goto Label_00A9;
-
-                    case 3:
-                        goto Label_0144;
-
-                    case 4:
-                        goto Label_0166;
-                }
-                goto Label_0195;
-            Label_002D:
-                goto Label_0045;
-            Label_0032:
-                this.$current = null;
-                this.$PC = 1;
-                goto Label_0197;
-            Label_0045:
-                if (AssetDownloader.isDone == null)
-                {
-                    goto Label_0032;
-                }
-                if (GameUtility.Config_UseAssetBundles.Value == null)
-                {
-                    goto Label_00B8;
-                }
-                if (AssetManager.IsAssetBundle(this.sceneName) == null)
-                {
-                    goto Label_00B8;
-                }
-                AssetManager.PrepareAssets(this.sceneName);
-                AssetDownloader.StartDownload(0, 1, 2);
-                if (AssetDownloader.isDone != null)
-                {
-                    goto Label_00B8;
-                }
-                ProgressWindow.OpenGenericDownloadWindow();
-                goto Label_00A9;
-            Label_0096:
-                this.$current = null;
-                this.$PC = 2;
-                goto Label_0197;
-            Label_00A9:
-                if (AssetDownloader.isDone == null)
-                {
-                    goto Label_0096;
-                }
-                ProgressWindow.Close();
-            Label_00B8:
-                if (FadeController.Instance.IsScreenFaded(0) != null)
-                {
-                    goto Label_011A;
-                }
-                FadeController.Instance.FadeTo(new Color(0f, 0f, 0f, 0f), 0f, 0);
-                FadeController.Instance.FadeTo(new Color(0f, 0f, 0f, 1f), 1f, 0);
-            Label_011A:
-                this.<mReq>__0 = AssetManager.LoadSceneAsync(this.sceneName, 0);
-                goto Label_0144;
-            Label_0131:
-                this.$current = null;
-                this.$PC = 3;
-                goto Label_0197;
-            Label_0144:
-                if (GameUtility.IsScreenFading != null)
-                {
-                    goto Label_0131;
-                }
-                goto Label_0166;
-            Label_0153:
-                this.$current = null;
-                this.$PC = 4;
-                goto Label_0197;
-            Label_0166:
-                if (this.<mReq>__0.canBeActivated == null)
-                {
-                    goto Label_0153;
-                }
-                this.<>f__this.set_enabled(0);
-                this.<mReq>__0.ActivateScene();
-                this.$PC = -1;
-            Label_0195:
-                return 0;
-            Label_0197:
-                return 1;
-                return flag;
-            }
-
-            [DebuggerHidden]
-            public void Reset()
-            {
-                throw new NotSupportedException();
-            }
-
-            object IEnumerator<object>.Current
-            {
-                [DebuggerHidden]
-                get
-                {
-                    return this.$current;
-                }
-            }
-
-            object IEnumerator.Current
-            {
-                [DebuggerHidden]
-                get
-                {
-                    return this.$current;
-                }
-            }
-        }
-
-        [CompilerGenerated]
-        private sealed class <WaitCompleteTutorialAsync>c__IteratorC8 : IEnumerator, IDisposable, IEnumerator<object>
-        {
-            internal int $PC;
-            internal object $current;
-            internal FlowNode_ResumeTutorial <>f__this;
-
-            public <WaitCompleteTutorialAsync>c__IteratorC8()
-            {
-                base..ctor();
-                return;
-            }
-
-            [DebuggerHidden]
-            public void Dispose()
-            {
-                this.$PC = -1;
-                return;
-            }
-
-            public bool MoveNext()
-            {
-                uint num;
-                bool flag;
-                num = this.$PC;
-                this.$PC = -1;
-                switch (num)
-                {
-                    case 0:
-                        goto Label_0021;
-
-                    case 1:
-                        goto Label_0039;
-                }
-                goto Label_00A6;
-            Label_0021:
-                goto Label_0039;
-            Label_0026:
-                this.$current = null;
-                this.$PC = 1;
-                goto Label_00A8;
-            Label_0039:
-                if (Network.IsConnecting != null)
-                {
-                    goto Label_0026;
-                }
-                GlobalVars.IsTutorialEnd = 1;
-                this.<>f__this.ActivateOutputLinks(12);
-                if (this.<>f__this.mSkipTutorial == null)
-                {
-                    goto Label_0085;
-                }
-                this.<>f__this.mSkipTutorial = 0;
-                this.<>f__this.ActivateOutputLinks(4);
-                goto Label_00A6;
-            Label_0085:
-                MonoSingleton<GameManager>.Instance.Player.ForceFirstLogin();
-                this.<>f__this.LoadStartScene();
-                this.$PC = -1;
-            Label_00A6:
-                return 0;
-            Label_00A8:
-                return 1;
-                return flag;
-            }
-
-            [DebuggerHidden]
-            public void Reset()
-            {
-                throw new NotSupportedException();
-            }
-
-            object IEnumerator<object>.Current
-            {
-                [DebuggerHidden]
-                get
-                {
-                    return this.$current;
-                }
-            }
-
-            object IEnumerator.Current
-            {
-                [DebuggerHidden]
-                get
-                {
-                    return this.$current;
-                }
-            }
-        }
+      }
     }
-}
 
+    private void LoadStartScene()
+    {
+      this.StartCoroutine(this.LoadSceneAsync("Home"));
+    }
+
+    [DebuggerHidden]
+    private IEnumerator LoadSceneAsync(string sceneName)
+    {
+      // ISSUE: object of a compiler-generated type is created
+      return (IEnumerator) new FlowNode_ResumeTutorial.\u003CLoadSceneAsync\u003Ec__IteratorD1() { sceneName = sceneName, \u003C\u0024\u003EsceneName = sceneName, \u003C\u003Ef__this = this };
+    }
+  }
+}

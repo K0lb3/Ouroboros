@@ -1,23 +1,24 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqTower
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Text;
+
+namespace SRPG
 {
-    using System;
-    using System.Text;
-
-    public class ReqTower : WebAPI
+  public class ReqTower : WebAPI
+  {
+    public ReqTower(string questID, Network.ResponseCallback response)
     {
-        public ReqTower(string questID, Network.ResponseCallback response)
-        {
-            StringBuilder builder;
-            base..ctor();
-            builder = WebAPI.GetStringBuilder();
-            base.name = "tower";
-            builder.Append("\"qid\":\"");
-            builder.Append(questID);
-            builder.Append("\"");
-            base.body = WebAPI.GetRequestString(builder.ToString());
-            base.callback = response;
-            return;
-        }
+      StringBuilder stringBuilder = WebAPI.GetStringBuilder();
+      this.name = "tower";
+      stringBuilder.Append("\"qid\":\"");
+      stringBuilder.Append(questID);
+      stringBuilder.Append("\"");
+      this.body = WebAPI.GetRequestString(stringBuilder.ToString());
+      this.callback = response;
     }
+  }
 }
-

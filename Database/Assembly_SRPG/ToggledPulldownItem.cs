@@ -1,35 +1,25 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ToggledPulldownItem
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  public class ToggledPulldownItem : PulldownItem
+  {
+    public GameObject imageOn;
+    public GameObject imageOff;
 
-    public class ToggledPulldownItem : PulldownItem
+    public override void OnStatusChanged(bool enabled)
     {
-        public GameObject imageOn;
-        public GameObject imageOff;
-
-        public ToggledPulldownItem()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnStatusChanged(bool enabled)
-        {
-            if ((this.imageOn != null) == null)
-            {
-                goto Label_001D;
-            }
-            this.imageOn.SetActive(enabled);
-        Label_001D:
-            if ((this.imageOff != null) == null)
-            {
-                goto Label_003D;
-            }
-            this.imageOff.SetActive(enabled == 0);
-        Label_003D:
-            return;
-        }
+      if (Object.op_Inequality((Object) this.imageOn, (Object) null))
+        this.imageOn.SetActive(enabled);
+      if (!Object.op_Inequality((Object) this.imageOff, (Object) null))
+        return;
+      this.imageOff.SetActive(!enabled);
     }
+  }
 }
-

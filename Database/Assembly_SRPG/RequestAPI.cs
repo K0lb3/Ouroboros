@@ -1,17 +1,18 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.RequestAPI
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    public class RequestAPI : WebAPI
+  public class RequestAPI : WebAPI
+  {
+    public RequestAPI(string url, Network.ResponseCallback response, string text)
     {
-        public RequestAPI(string url, Network.ResponseCallback response, string text)
-        {
-            base..ctor();
-            base.name = url;
-            base.body = WebAPI.GetRequestString(text);
-            base.callback = response;
-            return;
-        }
+      this.name = url;
+      this.body = WebAPI.GetRequestString(text);
+      this.callback = response;
     }
+  }
 }
-

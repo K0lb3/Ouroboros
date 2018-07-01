@@ -1,110 +1,80 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.EventShopBtnBaloon
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
-    using UnityEngine.UI;
+  public class EventShopBtnBaloon : MonoBehaviour
+  {
+    [SerializeField]
+    private Image BaloonChar;
+    [SerializeField]
+    private Image BaloonTextLeft;
+    [SerializeField]
+    private Image BaloonTextRight;
+    [SerializeField]
+    private string ReverseObjectID;
+    [HideInInspector]
+    public Sprite CurrentTextLeftSprite;
+    [HideInInspector]
+    public Sprite CurrentTextRightSprite;
+    [HideInInspector]
+    public Sprite CurrentCharSprite;
+    private GameObject mBaloonChar;
+    private GameObject mBaloonTextLeft;
+    private GameObject mBaloonTextRight;
 
-    public class EventShopBtnBaloon : MonoBehaviour
+    public EventShopBtnBaloon()
     {
-        [SerializeField]
-        private Image BaloonChar;
-        [SerializeField]
-        private Image BaloonTextLeft;
-        [SerializeField]
-        private Image BaloonTextRight;
-        [SerializeField]
-        private string ReverseObjectID;
-        [HideInInspector]
-        public Sprite CurrentTextLeftSprite;
-        [HideInInspector]
-        public Sprite CurrentTextRightSprite;
-        [HideInInspector]
-        public Sprite CurrentCharSprite;
-        private GameObject mBaloonChar;
-        private GameObject mBaloonTextLeft;
-        private GameObject mBaloonTextRight;
-
-        public EventShopBtnBaloon()
-        {
-            base..ctor();
-            return;
-        }
-
-        private void RefreshBaloonImage()
-        {
-            if ((this.BaloonChar != null) == null)
-            {
-                goto Label_0054;
-            }
-            this.BaloonChar.set_sprite(((this.CurrentCharSprite != null) == null) ? this.BaloonChar.get_sprite() : this.CurrentCharSprite);
-            this.BaloonChar.get_gameObject().SetActive(1);
-        Label_0054:
-            if ((this.BaloonTextLeft != null) == null)
-            {
-                goto Label_00A8;
-            }
-            this.BaloonTextLeft.set_sprite(((this.CurrentTextLeftSprite != null) == null) ? this.BaloonTextLeft.get_sprite() : this.CurrentTextLeftSprite);
-            this.BaloonTextLeft.get_gameObject().SetActive(1);
-        Label_00A8:
-            if ((this.BaloonTextRight != null) == null)
-            {
-                goto Label_00FC;
-            }
-            this.BaloonTextRight.set_sprite(((this.CurrentTextRightSprite != null) == null) ? this.BaloonTextRight.get_sprite() : this.CurrentTextRightSprite);
-            this.BaloonTextRight.get_gameObject().SetActive(1);
-        Label_00FC:
-            return;
-        }
-
-        private void Start()
-        {
-            if ((this.BaloonChar != null) == null)
-            {
-                goto Label_0022;
-            }
-            this.BaloonChar.get_gameObject().SetActive(0);
-        Label_0022:
-            if ((this.BaloonTextLeft != null) == null)
-            {
-                goto Label_0044;
-            }
-            this.BaloonTextLeft.get_gameObject().SetActive(0);
-        Label_0044:
-            if ((this.BaloonTextRight != null) == null)
-            {
-                goto Label_0066;
-            }
-            this.BaloonTextRight.get_gameObject().SetActive(0);
-        Label_0066:
-            this.RefreshBaloonImage();
-            this.UpdatePosition();
-            return;
-        }
-
-        private void UpdatePosition()
-        {
-            GameObject obj2;
-            UIProjector projector;
-            if (string.IsNullOrEmpty(this.ReverseObjectID) == null)
-            {
-                goto Label_0011;
-            }
-            return;
-        Label_0011:
-            obj2 = GameObjectID.FindGameObject(this.ReverseObjectID);
-            if ((obj2 != null) == null)
-            {
-                goto Label_0042;
-            }
-            projector = obj2.GetComponent<UIProjector>();
-            if ((projector != null) == null)
-            {
-                goto Label_0042;
-            }
-            projector.ReStart();
-        Label_0042:
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Start()
+    {
+      if (Object.op_Inequality((Object) this.BaloonChar, (Object) null))
+        ((Component) this.BaloonChar).get_gameObject().SetActive(false);
+      if (Object.op_Inequality((Object) this.BaloonTextLeft, (Object) null))
+        ((Component) this.BaloonTextLeft).get_gameObject().SetActive(false);
+      if (Object.op_Inequality((Object) this.BaloonTextRight, (Object) null))
+        ((Component) this.BaloonTextRight).get_gameObject().SetActive(false);
+      this.RefreshBaloonImage();
+      this.UpdatePosition();
+    }
+
+    private void RefreshBaloonImage()
+    {
+      if (Object.op_Inequality((Object) this.BaloonChar, (Object) null))
+      {
+        this.BaloonChar.set_sprite(!Object.op_Inequality((Object) this.CurrentCharSprite, (Object) null) ? this.BaloonChar.get_sprite() : this.CurrentCharSprite);
+        ((Component) this.BaloonChar).get_gameObject().SetActive(true);
+      }
+      if (Object.op_Inequality((Object) this.BaloonTextLeft, (Object) null))
+      {
+        this.BaloonTextLeft.set_sprite(!Object.op_Inequality((Object) this.CurrentTextLeftSprite, (Object) null) ? this.BaloonTextLeft.get_sprite() : this.CurrentTextLeftSprite);
+        ((Component) this.BaloonTextLeft).get_gameObject().SetActive(true);
+      }
+      if (!Object.op_Inequality((Object) this.BaloonTextRight, (Object) null))
+        return;
+      this.BaloonTextRight.set_sprite(!Object.op_Inequality((Object) this.CurrentTextRightSprite, (Object) null) ? this.BaloonTextRight.get_sprite() : this.CurrentTextRightSprite);
+      ((Component) this.BaloonTextRight).get_gameObject().SetActive(true);
+    }
+
+    private void UpdatePosition()
+    {
+      if (string.IsNullOrEmpty(this.ReverseObjectID))
+        return;
+      GameObject gameObject = GameObjectID.FindGameObject(this.ReverseObjectID);
+      if (!Object.op_Inequality((Object) gameObject, (Object) null))
+        return;
+      UIProjector component = (UIProjector) gameObject.GetComponent<UIProjector>();
+      if (!Object.op_Inequality((Object) component, (Object) null))
+        return;
+      component.ReStart();
+    }
+  }
+}

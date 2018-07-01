@@ -1,157 +1,97 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.QuestResultData
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System;
+using System.Collections.Generic;
+
+namespace SRPG
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Runtime.CompilerServices;
+  public class QuestResultData
+  {
+    public int StartExp;
+    public int StartGold;
+    public int StartBonusFlags;
+    public Dictionary<long, UnitData.CharacterQuestParam> CharacterQuest;
+    public Dictionary<long, string> SkillUnlocks;
+    public BattleCore.Record Record;
+    public UnitGetParam GetUnits;
+    public bool IsFirstWin;
+    public Dictionary<long, string> CollaboSkillUnlocks;
 
-    public class QuestResultData
+    public QuestResultData(PlayerData player, int bonusFlags, BattleCore.Record record, List<Unit> units, bool isFirstWin)
     {
-        public int StartExp;
-        public int StartGold;
-        public int StartBonusFlags;
-        public Dictionary<long, UnitData.CharacterQuestParam> CharacterQuest;
-        public Dictionary<long, string> SkillUnlocks;
-        public SRPG.BattleCore.Record Record;
-        public UnitGetParam GetUnits;
-        public bool IsFirstWin;
-        public Dictionary<long, string> CollaboSkillUnlocks;
-
-        public QuestResultData(PlayerData player, int bonusFlags, SRPG.BattleCore.Record record, List<Unit> units, bool isFirstWin)
+      // ISSUE: object of a compiler-generated type is created
+      // ISSUE: variable of a compiler-generated type
+      QuestResultData.\u003CQuestResultData\u003Ec__AnonStorey372 dataCAnonStorey372 = new QuestResultData.\u003CQuestResultData\u003Ec__AnonStorey372();
+      // ISSUE: reference to a compiler-generated field
+      dataCAnonStorey372.units = units;
+      this.CharacterQuest = new Dictionary<long, UnitData.CharacterQuestParam>();
+      this.SkillUnlocks = new Dictionary<long, string>();
+      this.CollaboSkillUnlocks = new Dictionary<long, string>();
+      // ISSUE: explicit constructor call
+      base.\u002Ector();
+      this.StartExp = player.Exp;
+      this.StartGold = player.Gold;
+      this.Record = record;
+      this.StartBonusFlags = bonusFlags;
+      this.IsFirstWin = isFirstWin;
+      if (this.Record.items != null)
+      {
+        ItemParam[] paramLsit = new ItemParam[0];
+        if (this.Record.items.Count != 0)
         {
-            List<ItemParam> list;
-            int num;
-            UnitData.CharacterQuestParam param;
-            List<UnitData> list2;
-            int num2;
-            string str;
-            string str2;
-            <QuestResultData>c__AnonStorey38C storeyc;
-            <QuestResultData>c__AnonStorey38D storeyd;
-            storeyc = new <QuestResultData>c__AnonStorey38C();
-            storeyc.units = units;
-            this.CharacterQuest = new Dictionary<long, UnitData.CharacterQuestParam>();
-            this.SkillUnlocks = new Dictionary<long, string>();
-            this.CollaboSkillUnlocks = new Dictionary<long, string>();
-            base..ctor();
-            this.StartExp = player.Exp;
-            this.StartGold = player.Gold;
-            this.Record = record;
-            this.StartBonusFlags = bonusFlags;
-            this.IsFirstWin = isFirstWin;
-            if (this.Record.items == null)
-            {
-                goto Label_00FE;
-            }
-            list = new List<ItemParam>();
-            if (this.Record.items.Count == null)
-            {
-                goto Label_00ED;
-            }
-            num = 0;
-            goto Label_00D7;
-        Label_0097:
-            if (this.Record.items[num].itemParam != null)
-            {
-                goto Label_00B7;
-            }
-            goto Label_00D3;
-        Label_00B7:
-            list.Add(this.Record.items[num].itemParam);
-        Label_00D3:
-            num += 1;
-        Label_00D7:
-            if (num < this.Record.items.Count)
-            {
-                goto Label_0097;
-            }
-        Label_00ED:
-            this.GetUnits = new UnitGetParam(list.ToArray());
-        Label_00FE:
-            if (storeyc.units.Count <= 1)
-            {
-                goto Label_0211;
-            }
-            storeyd = new <QuestResultData>c__AnonStorey38D();
-            storeyd.<>f__ref$908 = storeyc;
-            storeyd.i = 0;
-            goto Label_01F9;
-        Label_012D:
-            if (storeyc.units[storeyd.i] == null)
-            {
-                goto Label_01E9;
-            }
-            if (storeyc.units[storeyd.i].Side != null)
-            {
-                goto Label_01E9;
-            }
-            if (storeyc.units[storeyd.i].UnitType != null)
-            {
-                goto Label_01E9;
-            }
-            if (player.Units.Find(new Predicate<UnitData>(storeyd.<>m__3DA)) == null)
-            {
-                goto Label_01E9;
-            }
-            param = storeyc.units[storeyd.i].UnitData.GetCurrentCharaEpisodeData();
-            if (param == null)
-            {
-                goto Label_01E9;
-            }
-            this.CharacterQuest.Add(storeyc.units[storeyd.i].UnitData.UniqueID, param);
-        Label_01E9:
-            storeyd.i += 1;
-        Label_01F9:
-            if (storeyd.i < storeyc.units.Count)
-            {
-                goto Label_012D;
-            }
-        Label_0211:
-            list2 = player.Units;
-            num2 = 0;
-            goto Label_0278;
-        Label_0220:
-            str = list2[num2].UnlockedSkillIds();
-            this.SkillUnlocks.Add(list2[num2].UniqueID, str);
-            str2 = list2[num2].UnlockedCollaboSkillIds();
-            this.CollaboSkillUnlocks.Add(list2[num2].UniqueID, str2);
-            num2 += 1;
-        Label_0278:
-            if (num2 < list2.Count)
-            {
-                goto Label_0220;
-            }
-            return;
+          paramLsit = new ItemParam[this.Record.items.Count];
+          for (int index = 0; index < this.Record.items.Count; ++index)
+            paramLsit[index] = this.Record.items[index].mItemParam;
         }
-
-        [CompilerGenerated]
-        private sealed class <QuestResultData>c__AnonStorey38C
+        this.GetUnits = new UnitGetParam(paramLsit);
+      }
+      // ISSUE: reference to a compiler-generated field
+      if (dataCAnonStorey372.units.Count > 1)
+      {
+        // ISSUE: object of a compiler-generated type is created
+        // ISSUE: variable of a compiler-generated type
+        QuestResultData.\u003CQuestResultData\u003Ec__AnonStorey373 dataCAnonStorey373 = new QuestResultData.\u003CQuestResultData\u003Ec__AnonStorey373();
+        // ISSUE: reference to a compiler-generated field
+        dataCAnonStorey373.\u003C\u003Ef__ref\u0024882 = dataCAnonStorey372;
+        // ISSUE: reference to a compiler-generated field
+        // ISSUE: reference to a compiler-generated field
+        // ISSUE: reference to a compiler-generated field
+        // ISSUE: reference to a compiler-generated field
+        for (dataCAnonStorey373.i = 0; dataCAnonStorey373.i < dataCAnonStorey372.units.Count; ++dataCAnonStorey373.i)
         {
-            internal List<Unit> units;
-
-            public <QuestResultData>c__AnonStorey38C()
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: reference to a compiler-generated method
+          if (dataCAnonStorey372.units[dataCAnonStorey373.i] != null && dataCAnonStorey372.units[dataCAnonStorey373.i].Side == EUnitSide.Player && (dataCAnonStorey372.units[dataCAnonStorey373.i].UnitType == EUnitType.Unit && player.Units.Find(new Predicate<UnitData>(dataCAnonStorey373.\u003C\u003Em__3F7)) != null))
+          {
+            // ISSUE: reference to a compiler-generated field
+            // ISSUE: reference to a compiler-generated field
+            UnitData.CharacterQuestParam charaEpisodeData = dataCAnonStorey372.units[dataCAnonStorey373.i].UnitData.GetCurrentCharaEpisodeData();
+            if (charaEpisodeData != null)
             {
-                base..ctor();
-                return;
+              // ISSUE: reference to a compiler-generated field
+              // ISSUE: reference to a compiler-generated field
+              this.CharacterQuest.Add(dataCAnonStorey372.units[dataCAnonStorey373.i].UnitData.UniqueID, charaEpisodeData);
             }
+          }
         }
-
-        [CompilerGenerated]
-        private sealed class <QuestResultData>c__AnonStorey38D
-        {
-            internal int i;
-            internal QuestResultData.<QuestResultData>c__AnonStorey38C <>f__ref$908;
-
-            public <QuestResultData>c__AnonStorey38D()
-            {
-                base..ctor();
-                return;
-            }
-
-            internal bool <>m__3DA(UnitData u)
-            {
-                return (u.UniqueID == this.<>f__ref$908.units[this.i].UnitData.UniqueID);
-            }
-        }
+      }
+      List<UnitData> units1 = player.Units;
+      for (int index = 0; index < units1.Count; ++index)
+      {
+        string str1 = units1[index].UnlockedSkillIds();
+        this.SkillUnlocks.Add(units1[index].UniqueID, str1);
+        string str2 = units1[index].UnlockedCollaboSkillIds();
+        this.CollaboSkillUnlocks.Add(units1[index].UniqueID, str2);
+      }
     }
+  }
 }
-

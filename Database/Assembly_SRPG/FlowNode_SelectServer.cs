@@ -1,36 +1,26 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_SelectServer
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-
-    [NodeType("System/SelectServer", 0x7fe5), Pin(1, "開発用", 0, 1), Pin(2, "Output", 1, 2), Pin(0, "安定版", 0, 0)]
-    public class FlowNode_SelectServer : FlowNode
+  [FlowNode.Pin(1, "開発用", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(2, "Output", FlowNode.PinTypes.Output, 2)]
+  [FlowNode.Pin(0, "安定版", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.NodeType("System/SelectServer", 32741)]
+  public class FlowNode_SelectServer : FlowNode
+  {
+    public override void OnActivate(int pinID)
     {
-        public FlowNode_SelectServer()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            string str;
-            int num;
-            str = "http://localhost:5000/";
-            num = pinID;
-            if (num == 1)
-            {
-                goto Label_0014;
-            }
-            goto Label_001F;
-        Label_0014:
-            Network.SetDefaultHostConfigured(str);
-            goto Label_0024;
-        Label_001F:;
-        Label_0024:
-            base.set_enabled(0);
-            base.ActivateOutputLinks(2);
-            return;
-        }
+      string host = "http://dev01-app.alcww.gumi.sg/";
+      if (pinID == 1)
+        Network.SetDefaultHostConfigured(host);
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(2);
     }
+  }
 }
-

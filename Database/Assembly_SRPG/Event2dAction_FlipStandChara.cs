@@ -1,278 +1,143 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.Event2dAction_FlipStandChara
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using System.Collections.Generic;
-    using UnityEngine;
+  [EventActionInfo("New/立ち絵2/反転(2D)", "立ち絵2を反転します", 5592405, 4473992)]
+  public class Event2dAction_FlipStandChara : EventAction
+  {
+    public static List<EventStandCharaController2> InstancesForFlip = new List<EventStandCharaController2>();
+    public float Time = 1f;
+    private List<RawImage> fadeInList = new List<RawImage>();
+    private List<RawImage> fadeOutList = new List<RawImage>();
+    public string CharaID;
+    public bool async;
+    private GameObject mStandObjectFlip;
+    private EventStandCharaController2 mEVCharaController;
+    private EventStandCharaController2 mEVCharaFlipController;
+    private float offset;
+    private Color InColor;
+    private Color OutColor;
 
-    [EventActionInfo("New/立ち絵2/反転(2D)", "立ち絵2を反転します", 0x555555, 0x444488)]
-    public class Event2dAction_FlipStandChara : EventAction
+    public override void PreStart()
     {
-        public static List<EventStandCharaController2> InstancesForFlip;
-        public string CharaID;
-        public float Time;
-        public bool async;
-        private GameObject mStandObjectFlip;
-        private EventStandCharaController2 mEVCharaController;
-        private EventStandCharaController2 mEVCharaFlipController;
-        private float offset;
-        private Color InColor;
-        private Color OutColor;
-        private List<RawImage> fadeInList;
-        private List<RawImage> fadeOutList;
-
-        static Event2dAction_FlipStandChara()
+      if (string.IsNullOrEmpty(this.CharaID))
+        return;
+      this.mEVCharaController = EventStandCharaController2.FindInstances(this.CharaID);
+      string str = this.CharaID + "_Flip";
+      for (int index = 0; index < Event2dAction_FlipStandChara.InstancesForFlip.Count; ++index)
+      {
+        if (Event2dAction_FlipStandChara.InstancesForFlip[index].CharaID == str)
         {
-            InstancesForFlip = new List<EventStandCharaController2>();
-            return;
+          this.mEVCharaFlipController = Event2dAction_FlipStandChara.InstancesForFlip[index];
+          this.mStandObjectFlip = ((Component) this.mEVCharaFlipController).get_gameObject();
+          break;
         }
-
-        public Event2dAction_FlipStandChara()
-        {
-            this.Time = 1f;
-            this.fadeInList = new List<RawImage>();
-            this.fadeOutList = new List<RawImage>();
-            base..ctor();
-            return;
-        }
-
-        public override unsafe void OnActivate()
-        {
-            RectTransform transform;
-            RectTransform transform2;
-            int num;
-            GameObject obj2;
-            GameObject obj3;
-            int num2;
-            GameObject obj4;
-            GameObject obj5;
-            int num3;
-            int num4;
-            if ((this.mStandObjectFlip == null) == null)
-            {
-                goto Label_0018;
-            }
-            base.ActivateNext();
-            return;
-        Label_0018:
-            if (this.mStandObjectFlip.get_gameObject().get_activeInHierarchy() != null)
-            {
-                goto Label_003E;
-            }
-            this.mStandObjectFlip.get_gameObject().SetActive(1);
-        Label_003E:
-            this.mEVCharaFlipController.Emotion = this.mEVCharaController.Emotion;
-            transform = this.mEVCharaController.get_gameObject().get_transform() as RectTransform;
-            transform2 = this.mStandObjectFlip.get_transform() as RectTransform;
-            transform2.SetParent(transform.get_parent());
-            transform2.set_localScale(transform.get_localScale());
-            transform2.set_anchorMax(transform.get_anchorMax());
-            transform2.set_anchorMin(transform.get_anchorMin());
-            transform2.set_anchoredPosition(transform.get_anchoredPosition());
-            transform2.set_localRotation(transform.get_localRotation() * Quaternion.Euler(0f, 180f, 0f));
-            this.mEVCharaFlipController.Open(0f);
-            num = 0;
-            goto Label_0164;
-        Label_00F3:
-            obj2 = this.mEVCharaController.StandCharaList[num].GetComponent<EventStandChara2>().BodyObject;
-            if ((obj2 != null) == null)
-            {
-                goto Label_0128;
-            }
-            this.fadeOutList.Add(obj2.GetComponent<RawImage>());
-        Label_0128:
-            obj3 = this.mEVCharaController.StandCharaList[num].GetComponent<EventStandChara2>().FaceObject;
-            if ((obj3 != null) == null)
-            {
-                goto Label_0160;
-            }
-            this.fadeOutList.Add(obj3.GetComponent<RawImage>());
-        Label_0160:
-            num += 1;
-        Label_0164:
-            if (num < ((int) this.mEVCharaController.StandCharaList.Length))
-            {
-                goto Label_00F3;
-            }
-            num2 = 0;
-            goto Label_01F7;
-        Label_017F:
-            obj4 = this.mEVCharaFlipController.StandCharaList[num2].GetComponent<EventStandChara2>().BodyObject;
-            if ((obj4 != null) == null)
-            {
-                goto Label_01B8;
-            }
-            this.fadeInList.Add(obj4.GetComponent<RawImage>());
-        Label_01B8:
-            obj5 = this.mEVCharaFlipController.StandCharaList[num2].GetComponent<EventStandChara2>().FaceObject;
-            if ((obj5 != null) == null)
-            {
-                goto Label_01F1;
-            }
-            this.fadeInList.Add(obj5.GetComponent<RawImage>());
-        Label_01F1:
-            num2 += 1;
-        Label_01F7:
-            if (num2 < ((int) this.mEVCharaFlipController.StandCharaList.Length))
-            {
-                goto Label_017F;
-            }
-            num3 = 0;
-            goto Label_024D;
-        Label_0213:
-            if (this.fadeOutList[num3].get_isActiveAndEnabled() == null)
-            {
-                goto Label_0247;
-            }
-            this.InColor = this.fadeOutList[num3].get_color();
-            goto Label_025F;
-        Label_0247:
-            num3 += 1;
-        Label_024D:
-            if (num3 < this.fadeOutList.Count)
-            {
-                goto Label_0213;
-            }
-        Label_025F:
-            this.OutColor = this.InColor;
-            &this.OutColor.a = 0f;
-            num4 = 0;
-            goto Label_02A1;
-        Label_0283:
-            this.fadeInList[num4].set_color(this.InColor);
-            num4 += 1;
-        Label_02A1:
-            if (num4 < this.fadeInList.Count)
-            {
-                goto Label_0283;
-            }
-            this.offset = (float) ((this.Time > 0f) ? 0 : 1);
-            if (this.async == null)
-            {
-                goto Label_02E3;
-            }
-            base.ActivateNext(1);
-        Label_02E3:
-            return;
-        }
-
-        protected override void OnDestroy()
-        {
-            if ((this.mStandObjectFlip != null) == null)
-            {
-                goto Label_0021;
-            }
-            Object.Destroy(this.mStandObjectFlip.get_gameObject());
-        Label_0021:
-            return;
-        }
-
-        public override void PreStart()
-        {
-            string str;
-            int num;
-            if (string.IsNullOrEmpty(this.CharaID) == null)
-            {
-                goto Label_0011;
-            }
-            return;
-        Label_0011:
-            this.mEVCharaController = EventStandCharaController2.FindInstances(this.CharaID);
-            str = this.CharaID + "_Flip";
-            num = 0;
-            goto Label_0080;
-        Label_003A:
-            if ((InstancesForFlip[num].CharaID == str) == null)
-            {
-                goto Label_007C;
-            }
-            this.mEVCharaFlipController = InstancesForFlip[num];
-            this.mStandObjectFlip = this.mEVCharaFlipController.get_gameObject();
-            goto Label_0090;
-        Label_007C:
-            num += 1;
-        Label_0080:
-            if (num < InstancesForFlip.Count)
-            {
-                goto Label_003A;
-            }
-        Label_0090:
-            if ((this.mEVCharaFlipController == null) == null)
-            {
-                goto Label_00F5;
-            }
-            if ((this.mEVCharaController != null) == null)
-            {
-                goto Label_00F5;
-            }
-            this.mStandObjectFlip = Object.Instantiate<GameObject>(this.mEVCharaController.get_gameObject());
-            this.mEVCharaFlipController = this.mStandObjectFlip.GetComponent<EventStandCharaController2>();
-            this.mEVCharaFlipController.CharaID = str;
-            InstancesForFlip.Add(this.mEVCharaFlipController);
-        Label_00F5:
-            return;
-        }
-
-        public override void Update()
-        {
-            int num;
-            Color color;
-            int num2;
-            Color color2;
-            int num3;
-            if (this.offset < 1f)
-            {
-                goto Label_00AB;
-            }
-            this.mEVCharaFlipController.Close(0f);
-            this.mEVCharaFlipController.get_gameObject().SetActive(0);
-            this.mEVCharaController.get_gameObject().GetComponent<RectTransform>().Rotate(new Vector3(0f, 180f, 0f));
-            num = 0;
-            goto Label_007C;
-        Label_0061:
-            this.fadeOutList[num].set_color(this.InColor);
-            num += 1;
-        Label_007C:
-            if (num < this.fadeOutList.Count)
-            {
-                goto Label_0061;
-            }
-            if (this.async == null)
-            {
-                goto Label_00A4;
-            }
-            base.enabled = 0;
-            goto Label_00AA;
-        Label_00A4:
-            base.ActivateNext();
-        Label_00AA:
-            return;
-        Label_00AB:
-            color = Color.Lerp(this.OutColor, this.InColor, this.offset);
-            num2 = 0;
-            goto Label_00E0;
-        Label_00CA:
-            this.fadeInList[num2].set_color(color);
-            num2 += 1;
-        Label_00E0:
-            if (num2 < this.fadeInList.Count)
-            {
-                goto Label_00CA;
-            }
-            color2 = Color.Lerp(this.InColor, this.OutColor, this.offset);
-            num3 = 0;
-            goto Label_012A;
-        Label_0111:
-            this.fadeOutList[num3].set_color(color2);
-            num3 += 1;
-        Label_012A:
-            if (num3 < this.fadeOutList.Count)
-            {
-                goto Label_0111;
-            }
-            this.offset += UnityEngine.Time.get_deltaTime() / this.Time;
-            this.offset = Mathf.Clamp01(this.offset);
-            return;
-        }
+      }
+      if (!Object.op_Equality((Object) this.mEVCharaFlipController, (Object) null) || !Object.op_Inequality((Object) this.mEVCharaController, (Object) null))
+        return;
+      this.mStandObjectFlip = (GameObject) Object.Instantiate<GameObject>((M0) ((Component) this.mEVCharaController).get_gameObject());
+      this.mEVCharaFlipController = (EventStandCharaController2) this.mStandObjectFlip.GetComponent<EventStandCharaController2>();
+      this.mEVCharaFlipController.CharaID = str;
+      Event2dAction_FlipStandChara.InstancesForFlip.Add(this.mEVCharaFlipController);
     }
-}
 
+    public override void OnActivate()
+    {
+      if (Object.op_Equality((Object) this.mStandObjectFlip, (Object) null))
+      {
+        this.ActivateNext();
+      }
+      else
+      {
+        if (!this.mStandObjectFlip.get_gameObject().get_activeInHierarchy())
+          this.mStandObjectFlip.get_gameObject().SetActive(true);
+        this.mEVCharaFlipController.Emotion = this.mEVCharaController.Emotion;
+        RectTransform transform1 = ((Component) this.mEVCharaController).get_gameObject().get_transform() as RectTransform;
+        RectTransform transform2 = this.mStandObjectFlip.get_transform() as RectTransform;
+        ((Transform) transform2).SetParent(((Transform) transform1).get_parent());
+        ((Transform) transform2).set_localScale(((Transform) transform1).get_localScale());
+        transform2.set_anchorMax(transform1.get_anchorMax());
+        transform2.set_anchorMin(transform1.get_anchorMin());
+        transform2.set_anchoredPosition(transform1.get_anchoredPosition());
+        ((Transform) transform2).set_localRotation(Quaternion.op_Multiply(((Transform) transform1).get_localRotation(), Quaternion.Euler(0.0f, 180f, 0.0f)));
+        this.mEVCharaFlipController.Open(0.0f);
+        for (int index = 0; index < this.mEVCharaController.StandCharaList.Length; ++index)
+        {
+          GameObject bodyObject = ((EventStandChara2) this.mEVCharaController.StandCharaList[index].GetComponent<EventStandChara2>()).BodyObject;
+          if (Object.op_Inequality((Object) bodyObject, (Object) null))
+            this.fadeOutList.Add((RawImage) bodyObject.GetComponent<RawImage>());
+          GameObject faceObject = ((EventStandChara2) this.mEVCharaController.StandCharaList[index].GetComponent<EventStandChara2>()).FaceObject;
+          if (Object.op_Inequality((Object) faceObject, (Object) null))
+            this.fadeOutList.Add((RawImage) faceObject.GetComponent<RawImage>());
+        }
+        for (int index = 0; index < this.mEVCharaFlipController.StandCharaList.Length; ++index)
+        {
+          GameObject bodyObject = ((EventStandChara2) this.mEVCharaFlipController.StandCharaList[index].GetComponent<EventStandChara2>()).BodyObject;
+          if (Object.op_Inequality((Object) bodyObject, (Object) null))
+            this.fadeInList.Add((RawImage) bodyObject.GetComponent<RawImage>());
+          GameObject faceObject = ((EventStandChara2) this.mEVCharaFlipController.StandCharaList[index].GetComponent<EventStandChara2>()).FaceObject;
+          if (Object.op_Inequality((Object) faceObject, (Object) null))
+            this.fadeInList.Add((RawImage) faceObject.GetComponent<RawImage>());
+        }
+        for (int index = 0; index < this.fadeOutList.Count; ++index)
+        {
+          if (((Behaviour) this.fadeOutList[index]).get_isActiveAndEnabled())
+          {
+            this.InColor = ((Graphic) this.fadeOutList[index]).get_color();
+            break;
+          }
+        }
+        this.OutColor = this.InColor;
+        this.OutColor.a = (__Null) 0.0;
+        for (int index = 0; index < this.fadeInList.Count; ++index)
+          ((Graphic) this.fadeInList[index]).set_color(this.InColor);
+        this.offset = (double) this.Time > 0.0 ? 0.0f : 1f;
+        if (!this.async)
+          return;
+        this.ActivateNext(true);
+      }
+    }
+
+    public override void Update()
+    {
+      if ((double) this.offset >= 1.0)
+      {
+        this.mEVCharaFlipController.Close(0.0f);
+        ((Component) this.mEVCharaFlipController).get_gameObject().SetActive(false);
+        ((Transform) ((Component) this.mEVCharaController).get_gameObject().GetComponent<RectTransform>()).Rotate(new Vector3(0.0f, 180f, 0.0f));
+        for (int index = 0; index < this.fadeOutList.Count; ++index)
+          ((Graphic) this.fadeOutList[index]).set_color(this.InColor);
+        if (this.async)
+          this.enabled = false;
+        else
+          this.ActivateNext();
+      }
+      else
+      {
+        Color color1 = Color.Lerp(this.OutColor, this.InColor, this.offset);
+        for (int index = 0; index < this.fadeInList.Count; ++index)
+          ((Graphic) this.fadeInList[index]).set_color(color1);
+        Color color2 = Color.Lerp(this.InColor, this.OutColor, this.offset);
+        for (int index = 0; index < this.fadeOutList.Count; ++index)
+          ((Graphic) this.fadeOutList[index]).set_color(color2);
+        this.offset += UnityEngine.Time.get_deltaTime() / this.Time;
+        this.offset = Mathf.Clamp01(this.offset);
+      }
+    }
+
+    protected override void OnDestroy()
+    {
+      if (!Object.op_Inequality((Object) this.mStandObjectFlip, (Object) null))
+        return;
+      Object.Destroy((Object) this.mStandObjectFlip.get_gameObject());
+    }
+  }
+}

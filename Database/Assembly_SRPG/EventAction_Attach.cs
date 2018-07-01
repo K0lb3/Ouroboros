@@ -1,101 +1,64 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.EventAction_Attach
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  [EventActionInfo("アタッチデタッチ", "指定オブジェクトを別オブジェクトにアタッチ/デタッチします。", 5592405, 4473992)]
+  public class EventAction_Attach : EventAction
+  {
+    public bool Detach;
+    public string AttachmentID;
+    [HideInInspector]
+    public string TargetID;
+    [HideInInspector]
+    public string BoneName;
 
-    [EventActionInfo("アタッチデタッチ", "指定オブジェクトを別オブジェクトにアタッチ/デタッチします。", 0x555555, 0x444488)]
-    public class EventAction_Attach : EventAction
+    public override void OnActivate()
     {
-        public bool Detach;
-        public string AttachmentID;
-        [HideInInspector]
-        public string TargetID;
-        [HideInInspector]
-        public string BoneName;
-
-        public EventAction_Attach()
+      GameObject actor = EventAction.FindActor(this.AttachmentID);
+      GameObject gameObject = EventAction.FindActor(this.TargetID);
+      if (Object.op_Equality((Object) actor, (Object) null))
+        Debug.LogError((object) (this.AttachmentID + "は存在しません。"));
+      if (!this.Detach)
+      {
+        if (Object.op_Equality((Object) gameObject, (Object) null))
+          Debug.LogError((object) (this.TargetID + "は存在しません。"));
+        else if (!string.IsNullOrEmpty(this.BoneName))
         {
-            base..ctor();
-            return;
+          Transform childRecursively = GameUtility.findChildRecursively(gameObject.get_transform(), this.BoneName);
+          if (Object.op_Equality((Object) childRecursively, (Object) null))
+          {
+            gameObject = (GameObject) null;
+            Debug.LogError((object) (this.TargetID + "の子供に" + this.BoneName + "は存在しません。"));
+          }
+          else
+            gameObject = ((Component) childRecursively).get_gameObject();
         }
-
-        public override void OnActivate()
+      }
+      if (this.Detach)
+      {
+        if (Object.op_Inequality((Object) actor, (Object) null))
         {
-            GameObject obj2;
-            GameObject obj3;
-            Transform transform;
-            DefaultParentReference reference;
-            DefaultParentReference reference2;
-            obj2 = EventAction.FindActor(this.AttachmentID);
-            obj3 = EventAction.FindActor(this.TargetID);
-            if ((obj2 == null) == null)
-            {
-                goto Label_0039;
-            }
-            Debug.LogError(this.AttachmentID + "は存在しません。");
-        Label_0039:
-            if (this.Detach != null)
-            {
-                goto Label_00C6;
-            }
-            if ((obj3 == null) == null)
-            {
-                goto Label_006A;
-            }
-            Debug.LogError(this.TargetID + "は存在しません。");
-            goto Label_00C6;
-        Label_006A:
-            if (string.IsNullOrEmpty(this.BoneName) != null)
-            {
-                goto Label_00C6;
-            }
-            transform = GameUtility.findChildRecursively(obj3.get_transform(), this.BoneName);
-            if ((transform == null) == null)
-            {
-                goto Label_00BF;
-            }
-            obj3 = null;
-            Debug.LogError(this.TargetID + "の子供に" + this.BoneName + "は存在しません。");
-            goto Label_00C6;
-        Label_00BF:
-            obj3 = transform.get_gameObject();
-        Label_00C6:
-            if (this.Detach == null)
-            {
-                goto Label_010D;
-            }
-            if ((obj2 != null) == null)
-            {
-                goto Label_016B;
-            }
-            reference = obj2.GetComponent<DefaultParentReference>();
-            if ((reference != null) == null)
-            {
-                goto Label_016B;
-            }
-            obj2.get_transform().SetParent(reference.DefaultParent, 1);
-            Object.DestroyImmediate(reference);
-            goto Label_016B;
-        Label_010D:
-            if ((obj2 != null) == null)
-            {
-                goto Label_016B;
-            }
-            if ((obj3 != null) == null)
-            {
-                goto Label_016B;
-            }
-            if ((obj2.GetComponent<DefaultParentReference>() == null) == null)
-            {
-                goto Label_0159;
-            }
-            obj2.get_gameObject().AddComponent<DefaultParentReference>().DefaultParent = obj2.get_transform().get_parent();
-        Label_0159:
-            obj2.get_transform().SetParent(obj3.get_transform(), 0);
-        Label_016B:
-            base.ActivateNext();
-            return;
+          DefaultParentReference component = (DefaultParentReference) actor.GetComponent<DefaultParentReference>();
+          if (Object.op_Inequality((Object) component, (Object) null))
+          {
+            actor.get_transform().SetParent(component.DefaultParent, true);
+            Object.DestroyImmediate((Object) component);
+          }
         }
+      }
+      else if (Object.op_Inequality((Object) actor, (Object) null) && Object.op_Inequality((Object) gameObject, (Object) null))
+      {
+        if (Object.op_Equality((Object) actor.GetComponent<DefaultParentReference>(), (Object) null))
+          ((DefaultParentReference) actor.get_gameObject().AddComponent<DefaultParentReference>()).DefaultParent = actor.get_transform().get_parent();
+        actor.get_transform().SetParent(gameObject.get_transform(), false);
+      }
+      this.ActivateNext();
     }
+  }
 }
-

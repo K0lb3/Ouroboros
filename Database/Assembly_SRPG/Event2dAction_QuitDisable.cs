@@ -1,31 +1,28 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.Event2dAction_QuitDisable
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-
-    [EventActionInfo("強制終了/禁止(2D)", "強制終了を禁止します", 0x555555, 0x444488)]
-    public class Event2dAction_QuitDisable : EventAction
+  [EventActionInfo("強制終了/禁止(2D)", "強制終了を禁止します", 5592405, 4473992)]
+  public class Event2dAction_QuitDisable : EventAction
+  {
+    public override void OnActivate()
     {
-        public Event2dAction_QuitDisable()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate()
-        {
-            EventQuit quit;
-            quit = EventQuit.Find();
-            if ((null == quit) == null)
-            {
-                goto Label_0019;
-            }
-            base.ActivateNext();
-            return;
-        Label_0019:
-            quit.get_gameObject().SetActive(0);
-            base.ActivateNext();
-            return;
-        }
+      EventQuit eventQuit = EventQuit.Find();
+      if (Object.op_Equality((Object) null, (Object) eventQuit))
+      {
+        this.ActivateNext();
+      }
+      else
+      {
+        ((Component) eventQuit).get_gameObject().SetActive(false);
+        this.ActivateNext();
+      }
     }
+  }
 }
-

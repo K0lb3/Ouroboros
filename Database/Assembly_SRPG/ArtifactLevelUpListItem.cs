@@ -1,310 +1,200 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ArtifactLevelUpListItem
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using System.Runtime.CompilerServices;
-    using UnityEngine;
-    using UnityEngine.Events;
-    using UnityEngine.UI;
+  public class ArtifactLevelUpListItem : MonoBehaviour
+  {
+    [SerializeField]
+    private Slider UseExpItemSlider;
+    [SerializeField]
+    private Button PlusBtn;
+    [SerializeField]
+    private Button MinusBtn;
+    [SerializeField]
+    private Text SelectUseNum;
+    [SerializeField]
+    private Toggle CheckUseMax;
+    [SerializeField]
+    private Text UseItemNum;
+    public ArtifactLevelUpListItem.SelectExpItem OnSelect;
+    public ArtifactLevelUpListItem.ChangeToggleEvent ChangeUseMax;
+    public ArtifactLevelUpListItem.CheckSliderValue OnCheck;
+    private string mCurrentItemID;
+    private int mMaxValue;
+    private bool IsLock;
+    private float mPrevValue;
 
-    public class ArtifactLevelUpListItem : MonoBehaviour
+    public ArtifactLevelUpListItem()
     {
-        [SerializeField]
-        private Slider UseExpItemSlider;
-        [SerializeField]
-        private Button PlusBtn;
-        [SerializeField]
-        private Button MinusBtn;
-        [SerializeField]
-        private Text SelectUseNum;
-        [SerializeField]
-        private Toggle CheckUseMax;
-        [SerializeField]
-        private Text UseItemNum;
-        public SelectExpItem OnSelect;
-        public ChangeToggleEvent ChangeUseMax;
-        public CheckSliderValue OnCheck;
-        private string mCurrentItemID;
-        private int mMaxValue;
-        private bool IsLock;
-        private float mPrevValue;
-
-        public ArtifactLevelUpListItem()
-        {
-            this.mCurrentItemID = string.Empty;
-            base..ctor();
-            return;
-        }
-
-        private unsafe void Init()
-        {
-            ArtifactData data;
-            ItemData data2;
-            int num;
-            int num2;
-            float num3;
-            float num4;
-            if (((this.UseExpItemSlider == null) == null) && ((this.SelectUseNum == null) == null))
-            {
-                goto Label_0023;
-            }
-            return;
-        Label_0023:
-            data = DataSource.FindDataOfClass<ArtifactData>(base.get_gameObject(), null);
-            if (data != null)
-            {
-                goto Label_0037;
-            }
-            return;
-        Label_0037:
-            data2 = DataSource.FindDataOfClass<ItemData>(base.get_gameObject(), null);
-            if (data2 != null)
-            {
-                goto Label_004B;
-            }
-            return;
-        Label_004B:
-            num = data.GetGainExpCap() - data.Exp;
-            num2 = Mathf.Max(1, Mathf.Min(data2.Num, Mathf.CeilToInt(((float) num) / ((float) data2.Param.value))));
-            this.mCurrentItemID = data2.Param.iname;
-            this.UseExpItemSlider.get_onValueChanged().RemoveAllListeners();
-            this.UseExpItemSlider.set_minValue(0f);
-            this.UseExpItemSlider.set_maxValue((float) num2);
-            this.UseExpItemSlider.get_onValueChanged().AddListener(new UnityAction<float>(this, this.OnSelectUseNumChanged));
-            this.UseExpItemSlider.set_value(this.UseExpItemSlider.get_minValue());
-            this.SelectUseNum.set_text(&this.UseExpItemSlider.get_value().ToString());
-            if ((this.UseItemNum != null) == null)
-            {
-                goto Label_013E;
-            }
-            this.UseItemNum.set_text(&this.UseExpItemSlider.get_value().ToString());
-        Label_013E:
-            if ((this.CheckUseMax != null) == null)
-            {
-                goto Label_016B;
-            }
-            this.CheckUseMax.onValueChanged.AddListener(new UnityAction<bool>(this, this.OnChangeUseMax));
-        Label_016B:
-            this.mMaxValue = num2;
-            if ((this.PlusBtn != null) == null)
-            {
-                goto Label_01BA;
-            }
-            this.PlusBtn.set_interactable(((this.UseExpItemSlider != null) == null) ? 0 : (this.UseExpItemSlider.get_value() < this.UseExpItemSlider.get_maxValue()));
-        Label_01BA:
-            if ((this.MinusBtn != null) == null)
-            {
-                goto Label_0202;
-            }
-            this.MinusBtn.set_interactable(((this.UseExpItemSlider != null) == null) ? 0 : (this.UseExpItemSlider.get_value() > this.UseExpItemSlider.get_minValue()));
-        Label_0202:
-            return;
-        }
-
-        public bool IsUseMax()
-        {
-            if ((this.CheckUseMax == null) == null)
-            {
-                goto Label_0013;
-            }
-            return 0;
-        Label_0013:
-            return this.CheckUseMax.get_isOn();
-        }
-
-        private void OnAddNum()
-        {
-            if ((this.UseExpItemSlider != null) == null)
-            {
-                goto Label_0028;
-            }
-            this.UseExpItemSlider.set_value(this.UseExpItemSlider.get_value() + 1f);
-        Label_0028:
-            return;
-        }
-
-        public void OnChangeUseMax(bool value)
-        {
-            if (this.ChangeUseMax == null)
-            {
-                goto Label_001D;
-            }
-            this.ChangeUseMax(this.mCurrentItemID, value);
-        Label_001D:
-            return;
-        }
-
-        private void OnRemoveNum()
-        {
-            if ((this.UseExpItemSlider != null) == null)
-            {
-                goto Label_003B;
-            }
-            this.UseExpItemSlider.set_value(this.UseExpItemSlider.get_value() - 1f);
-            this.IsLock = 0;
-            this.PlusBtn.set_interactable(1);
-        Label_003B:
-            return;
-        }
-
-        private void OnSelectUseNumChanged(float value)
-        {
-            int num;
-            if (this.OnCheck == null)
-            {
-                goto Label_0042;
-            }
-            if (value <= this.mPrevValue)
-            {
-                goto Label_0042;
-            }
-            num = this.OnCheck(this.mCurrentItemID, (int) value);
-            if (num < 0)
-            {
-                goto Label_0042;
-            }
-            value = (float) num;
-            this.UseExpItemSlider.set_value(value);
-        Label_0042:
-            if (value <= this.mPrevValue)
-            {
-                goto Label_006B;
-            }
-            if (this.IsLock == null)
-            {
-                goto Label_006B;
-            }
-            this.UseExpItemSlider.set_value(this.mPrevValue);
-            return;
-        Label_006B:
-            if (this.OnSelect == null)
-            {
-                goto Label_0089;
-            }
-            this.OnSelect(this.mCurrentItemID, (int) value);
-        Label_0089:
-            this.Refresh(value);
-            return;
-        }
-
-        private unsafe void Refresh(float value)
-        {
-            int num;
-            int num2;
-            if ((this.UseExpItemSlider == null) == null)
-            {
-                goto Label_0012;
-            }
-            return;
-        Label_0012:
-            this.UseExpItemSlider.set_value((float) Mathf.Min(this.mMaxValue, (int) value));
-            if ((this.SelectUseNum != null) == null)
-            {
-                goto Label_005B;
-            }
-            num = (int) this.UseExpItemSlider.get_value();
-            this.SelectUseNum.set_text(&num.ToString());
-        Label_005B:
-            if ((this.UseItemNum != null) == null)
-            {
-                goto Label_008B;
-            }
-            num2 = (int) this.UseExpItemSlider.get_value();
-            this.UseItemNum.set_text(&num2.ToString());
-        Label_008B:
-            if ((this.PlusBtn != null) == null)
-            {
-                goto Label_00E1;
-            }
-            this.PlusBtn.set_interactable((this.IsLock != null) ? 0 : (((this.UseExpItemSlider != null) == null) ? 0 : (this.UseExpItemSlider.get_value() < this.UseExpItemSlider.get_maxValue())));
-        Label_00E1:
-            if ((this.MinusBtn != null) == null)
-            {
-                goto Label_0129;
-            }
-            this.MinusBtn.set_interactable(((this.UseExpItemSlider != null) == null) ? 0 : (this.UseExpItemSlider.get_value() > this.UseExpItemSlider.get_minValue()));
-        Label_0129:
-            this.mPrevValue = this.UseExpItemSlider.get_value();
-            return;
-        }
-
-        public void Reset()
-        {
-            if ((this.UseExpItemSlider != null) == null)
-            {
-                goto Label_0027;
-            }
-            this.UseExpItemSlider.set_value(this.UseExpItemSlider.get_minValue());
-        Label_0027:
-            if ((this.SelectUseNum != null) == null)
-            {
-                goto Label_0048;
-            }
-            this.SelectUseNum.set_text("0");
-        Label_0048:
-            return;
-        }
-
-        public void SetInputLock(bool islock)
-        {
-            if ((this.PlusBtn != null) == null)
-            {
-                goto Label_001D;
-            }
-            this.PlusBtn.set_interactable(islock);
-        Label_001D:
-            if ((this.UseExpItemSlider != null) == null)
-            {
-                goto Label_005A;
-            }
-            this.UseExpItemSlider.set_interactable((islock != null) ? islock : ((this.UseExpItemSlider.get_value() == 0f) == 0));
-        Label_005A:
-            this.IsLock = islock == 0;
-            return;
-        }
-
-        public void SetUseExpItemSliderValue(int value)
-        {
-            if (value >= 0)
-            {
-                goto Label_0008;
-            }
-            return;
-        Label_0008:
-            this.UseExpItemSlider.get_onValueChanged().RemoveAllListeners();
-            this.Refresh((float) value);
-            this.UseExpItemSlider.get_onValueChanged().AddListener(new UnityAction<float>(this, this.OnSelectUseNumChanged));
-            return;
-        }
-
-        public void SetUseMax(bool is_on)
-        {
-            this.CheckUseMax.set_isOn(is_on);
-            return;
-        }
-
-        private void Start()
-        {
-            if ((this.PlusBtn != null) == null)
-            {
-                goto Label_002D;
-            }
-            this.PlusBtn.get_onClick().AddListener(new UnityAction(this, this.OnAddNum));
-        Label_002D:
-            if ((this.MinusBtn != null) == null)
-            {
-                goto Label_005A;
-            }
-            this.MinusBtn.get_onClick().AddListener(new UnityAction(this, this.OnRemoveNum));
-        Label_005A:
-            this.Init();
-            return;
-        }
-
-        public delegate void ChangeToggleEvent(string iname, bool is_on);
-
-        public delegate int CheckSliderValue(string iname, int value);
-
-        public delegate void SelectExpItem(string iname, int value);
+      base.\u002Ector();
     }
-}
 
+    private void Start()
+    {
+      if (Object.op_Inequality((Object) this.PlusBtn, (Object) null))
+      {
+        // ISSUE: method pointer
+        ((UnityEvent) this.PlusBtn.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OnAddNum)));
+      }
+      if (Object.op_Inequality((Object) this.MinusBtn, (Object) null))
+      {
+        // ISSUE: method pointer
+        ((UnityEvent) this.MinusBtn.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OnRemoveNum)));
+      }
+      this.Init();
+    }
+
+    private void Init()
+    {
+      if (Object.op_Equality((Object) this.UseExpItemSlider, (Object) null) || Object.op_Equality((Object) this.SelectUseNum, (Object) null))
+        return;
+      ArtifactData dataOfClass1 = DataSource.FindDataOfClass<ArtifactData>(((Component) this).get_gameObject(), (ArtifactData) null);
+      if (dataOfClass1 == null)
+        return;
+      ItemData dataOfClass2 = DataSource.FindDataOfClass<ItemData>(((Component) this).get_gameObject(), (ItemData) null);
+      if (dataOfClass2 == null)
+        return;
+      int num1 = dataOfClass1.GetGainExpCap() - dataOfClass1.Exp;
+      int num2 = Mathf.Max(1, Mathf.Min(dataOfClass2.Num, Mathf.CeilToInt((float) num1 / (float) (int) dataOfClass2.Param.value)));
+      this.mCurrentItemID = dataOfClass2.Param.iname;
+      ((UnityEventBase) this.UseExpItemSlider.get_onValueChanged()).RemoveAllListeners();
+      this.UseExpItemSlider.set_minValue(0.0f);
+      this.UseExpItemSlider.set_maxValue((float) num2);
+      // ISSUE: method pointer
+      ((UnityEvent<float>) this.UseExpItemSlider.get_onValueChanged()).AddListener(new UnityAction<float>((object) this, __methodptr(OnSelectUseNumChanged)));
+      this.UseExpItemSlider.set_value(this.UseExpItemSlider.get_minValue());
+      this.SelectUseNum.set_text(this.UseExpItemSlider.get_value().ToString());
+      if (Object.op_Inequality((Object) this.UseItemNum, (Object) null))
+        this.UseItemNum.set_text(this.UseExpItemSlider.get_value().ToString());
+      if (Object.op_Inequality((Object) this.CheckUseMax, (Object) null))
+      {
+        // ISSUE: method pointer
+        ((UnityEvent<bool>) this.CheckUseMax.onValueChanged).AddListener(new UnityAction<bool>((object) this, __methodptr(OnChangeUseMax)));
+      }
+      this.mMaxValue = num2;
+      if (Object.op_Inequality((Object) this.PlusBtn, (Object) null))
+        ((Selectable) this.PlusBtn).set_interactable(Object.op_Inequality((Object) this.UseExpItemSlider, (Object) null) && (double) this.UseExpItemSlider.get_value() < (double) this.UseExpItemSlider.get_maxValue());
+      if (!Object.op_Inequality((Object) this.MinusBtn, (Object) null))
+        return;
+      ((Selectable) this.MinusBtn).set_interactable(Object.op_Inequality((Object) this.UseExpItemSlider, (Object) null) && (double) this.UseExpItemSlider.get_value() > (double) this.UseExpItemSlider.get_minValue());
+    }
+
+    private void Refresh(float value)
+    {
+      if (Object.op_Equality((Object) this.UseExpItemSlider, (Object) null))
+        return;
+      this.UseExpItemSlider.set_value((float) Mathf.Min(this.mMaxValue, (int) value));
+      if (Object.op_Inequality((Object) this.SelectUseNum, (Object) null))
+        this.SelectUseNum.set_text(((int) this.UseExpItemSlider.get_value()).ToString());
+      if (Object.op_Inequality((Object) this.UseItemNum, (Object) null))
+        this.UseItemNum.set_text(((int) this.UseExpItemSlider.get_value()).ToString());
+      if (Object.op_Inequality((Object) this.PlusBtn, (Object) null))
+        ((Selectable) this.PlusBtn).set_interactable(!this.IsLock && (Object.op_Inequality((Object) this.UseExpItemSlider, (Object) null) && (double) this.UseExpItemSlider.get_value() < (double) this.UseExpItemSlider.get_maxValue()));
+      if (Object.op_Inequality((Object) this.MinusBtn, (Object) null))
+        ((Selectable) this.MinusBtn).set_interactable(Object.op_Inequality((Object) this.UseExpItemSlider, (Object) null) && (double) this.UseExpItemSlider.get_value() > (double) this.UseExpItemSlider.get_minValue());
+      this.mPrevValue = this.UseExpItemSlider.get_value();
+    }
+
+    private void OnSelectUseNumChanged(float value)
+    {
+      if (this.OnCheck != null && (double) value > (double) this.mPrevValue)
+      {
+        int num = this.OnCheck(this.mCurrentItemID, (int) value);
+        if (num >= 0)
+        {
+          value = (float) num;
+          this.UseExpItemSlider.set_value(value);
+        }
+      }
+      if ((double) value > (double) this.mPrevValue && this.IsLock)
+      {
+        this.UseExpItemSlider.set_value(this.mPrevValue);
+      }
+      else
+      {
+        if (this.OnSelect != null)
+          this.OnSelect(this.mCurrentItemID, (int) value);
+        this.Refresh(value);
+      }
+    }
+
+    private void OnAddNum()
+    {
+      if (!Object.op_Inequality((Object) this.UseExpItemSlider, (Object) null))
+        return;
+      Slider useExpItemSlider = this.UseExpItemSlider;
+      useExpItemSlider.set_value(useExpItemSlider.get_value() + 1f);
+    }
+
+    private void OnRemoveNum()
+    {
+      if (!Object.op_Inequality((Object) this.UseExpItemSlider, (Object) null))
+        return;
+      Slider useExpItemSlider = this.UseExpItemSlider;
+      useExpItemSlider.set_value(useExpItemSlider.get_value() - 1f);
+      this.IsLock = false;
+      ((Selectable) this.PlusBtn).set_interactable(true);
+    }
+
+    public void OnChangeUseMax(bool value)
+    {
+      if (this.ChangeUseMax == null)
+        return;
+      this.ChangeUseMax(this.mCurrentItemID, value);
+    }
+
+    public bool IsUseMax()
+    {
+      if (Object.op_Equality((Object) this.CheckUseMax, (Object) null))
+        return false;
+      return this.CheckUseMax.get_isOn();
+    }
+
+    public void SetUseExpItemSliderValue(int value)
+    {
+      if (value < 0)
+        return;
+      ((UnityEventBase) this.UseExpItemSlider.get_onValueChanged()).RemoveAllListeners();
+      this.Refresh((float) value);
+      // ISSUE: method pointer
+      ((UnityEvent<float>) this.UseExpItemSlider.get_onValueChanged()).AddListener(new UnityAction<float>((object) this, __methodptr(OnSelectUseNumChanged)));
+    }
+
+    public void Reset()
+    {
+      if (Object.op_Inequality((Object) this.UseExpItemSlider, (Object) null))
+        this.UseExpItemSlider.set_value(this.UseExpItemSlider.get_minValue());
+      if (!Object.op_Inequality((Object) this.SelectUseNum, (Object) null))
+        return;
+      this.SelectUseNum.set_text("0");
+    }
+
+    public void SetInputLock(bool islock)
+    {
+      if (Object.op_Inequality((Object) this.PlusBtn, (Object) null))
+        ((Selectable) this.PlusBtn).set_interactable(islock);
+      if (Object.op_Inequality((Object) this.UseExpItemSlider, (Object) null))
+        ((Selectable) this.UseExpItemSlider).set_interactable(islock ? islock : (double) this.UseExpItemSlider.get_value() != 0.0);
+      this.IsLock = !islock;
+    }
+
+    public void SetUseMax(bool is_on)
+    {
+      this.CheckUseMax.set_isOn(is_on);
+    }
+
+    public delegate void SelectExpItem(string iname, int value);
+
+    public delegate void ChangeToggleEvent(string iname, bool is_on);
+
+    public delegate int CheckSliderValue(string iname, int value);
+  }
+}

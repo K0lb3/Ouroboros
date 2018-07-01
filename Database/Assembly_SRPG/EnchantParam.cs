@@ -1,1165 +1,628 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.EnchantParam
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System;
+
+namespace SRPG
 {
-    using System;
-    using System.Reflection;
+  public class EnchantParam
+  {
+    public static readonly OInt MAX_ENCHANGT = (OInt) Enum.GetNames(typeof (EnchantTypes)).Length;
+    public static readonly ParamTypes[] ConvertAssistParamTypes = new ParamTypes[29]{ ParamTypes.Assist_Poison, ParamTypes.Assist_Paralysed, ParamTypes.Assist_Stun, ParamTypes.Assist_Sleep, ParamTypes.Assist_Charm, ParamTypes.Assist_Stone, ParamTypes.Assist_Blind, ParamTypes.Assist_DisableSkill, ParamTypes.Assist_DisableMove, ParamTypes.Assist_DisableAttack, ParamTypes.Assist_Zombie, ParamTypes.Assist_DeathSentence, ParamTypes.Assist_Berserk, ParamTypes.Assist_Knockback, ParamTypes.Assist_ResistBuff, ParamTypes.Assist_ResistDebuff, ParamTypes.Assist_Stun, ParamTypes.Assist_Fast, ParamTypes.Assist_Slow, ParamTypes.Assist_AutoHeal, ParamTypes.Assist_Donsoku, ParamTypes.Assist_Rage, ParamTypes.Assist_GoodSleep, ParamTypes.Assist_AutoJewel, ParamTypes.Assist_DisableHeal, ParamTypes.Assist_SingleAttack, ParamTypes.Assist_AreaAttack, ParamTypes.Assist_DecCT, ParamTypes.Assist_IncCT };
+    public static readonly ParamTypes[] ConvertResistParamTypes = new ParamTypes[29]{ ParamTypes.Resist_Poison, ParamTypes.Resist_Paralysed, ParamTypes.Resist_Stun, ParamTypes.Resist_Sleep, ParamTypes.Resist_Charm, ParamTypes.Resist_Stone, ParamTypes.Resist_Blind, ParamTypes.Resist_DisableSkill, ParamTypes.Resist_DisableMove, ParamTypes.Resist_DisableAttack, ParamTypes.Resist_Zombie, ParamTypes.Resist_DeathSentence, ParamTypes.Resist_Berserk, ParamTypes.Resist_Knockback, ParamTypes.Resist_ResistBuff, ParamTypes.Resist_ResistDebuff, ParamTypes.Resist_Stun, ParamTypes.Resist_Fast, ParamTypes.Resist_Slow, ParamTypes.Resist_AutoHeal, ParamTypes.Resist_Donsoku, ParamTypes.Resist_Rage, ParamTypes.Resist_GoodSleep, ParamTypes.Resist_AutoJewel, ParamTypes.Resist_DisableHeal, ParamTypes.Resist_SingleAttack, ParamTypes.Resist_AreaAttack, ParamTypes.Resist_DecCT, ParamTypes.Resist_IncCT };
+    public OInt[] values = new OInt[(int) EnchantParam.MAX_ENCHANGT];
 
-    public class EnchantParam
+    public OInt this[EnchantTypes type]
     {
-        public static readonly int MAX_ENCHANGT;
-        public OShort[] values;
-        public static readonly ParamTypes[] ConvertAssistParamTypes;
-        public static readonly ParamTypes[] ConvertResistParamTypes;
-
-        static EnchantParam()
-        {
-            ParamTypes[] typesArray2;
-            ParamTypes[] typesArray1;
-            MAX_ENCHANGT = (int) Enum.GetNames(typeof(EnchantTypes)).Length;
-            typesArray1 = new ParamTypes[] { 
-                0x19, 0x1a, 0x1b, 0x1c, 0x1d, 30, 0x1f, 0x20, 0x21, 0x22, 0x23, 0x24, 0x25, 0x26, 0x27, 40,
-                0x1b, 0x2a, 0x2b, 0x2c, 0x2d, 0x2e, 0x2f, 0x67, 0x69, 0x7b, 0x7c, 0x7f, 0x80, 0x83, 0x84, 0x85,
-                0x86, 0x87, 0x88, 0x95, 150
-            };
-            ConvertAssistParamTypes = typesArray1;
-            typesArray2 = new ParamTypes[] { 
-                0x37, 0x38, 0x39, 0x3a, 0x3b, 60, 0x3d, 0x3e, 0x3f, 0x40, 0x41, 0x42, 0x43, 0x44, 0x45, 70,
-                0x39, 0x48, 0x49, 0x4a, 0x4b, 0x4c, 0x4d, 0x68, 0x6a, 0x7d, 0x7e, 0x81, 130, 0x89, 0x8a, 0x8b,
-                140, 0x8d, 0x8e, 0x97, 0x98
-            };
-            ConvertResistParamTypes = typesArray2;
-            return;
-        }
-
-        public EnchantParam()
-        {
-            this.values = new OShort[MAX_ENCHANGT];
-            base..ctor();
-            return;
-        }
-
-        public unsafe void Add(EnchantParam src)
-        {
-            int num;
-            if (src != null)
-            {
-                goto Label_0007;
-            }
-            return;
-        Label_0007:
-            num = 0;
-            goto Label_004A;
-        Label_000E:
-            *(&(this.values[num])) += *(&(src.values[num]));
-            num += 1;
-        Label_004A:
-            if (num < ((int) this.values.Length))
-            {
-                goto Label_000E;
-            }
-            return;
-        }
-
-        public unsafe void AddConvRate(EnchantParam scale, EnchantParam base_status)
-        {
-            int num;
-            num = 0;
-            goto Label_005D;
-        Label_0007:
-            *(&(this.values[num])) += (*(&(scale.values[num])) * *(&(base_status.values[num]))) / 100;
-            num += 1;
-        Label_005D:
-            if (num < ((int) this.values.Length))
-            {
-                goto Label_0007;
-            }
-            return;
-        }
-
-        public unsafe void AddRate(EnchantParam src)
-        {
-            int num;
-            num = 0;
-            goto Label_005D;
-        Label_0007:
-            *(&(this.values[num])) += (*(&(this.values[num])) * *(&(src.values[num]))) / 100;
-            num += 1;
-        Label_005D:
-            if (num < ((int) this.values.Length))
-            {
-                goto Label_0007;
-            }
-            return;
-        }
-
-        public unsafe void ChoiceHighest(EnchantParam scale, EnchantParam base_status)
-        {
-            int num;
-            num = 0;
-            goto Label_0089;
-        Label_0007:
-            if (*(&(this.values[num])) >= ((*(&(scale.values[num])) * *(&(base_status.values[num]))) / 100))
-            {
-                goto Label_006E;
-            }
-            *(&(this.values[num])) = 0;
-            goto Label_0085;
-        Label_006E:
-            *(&(scale.values[num])) = 0;
-        Label_0085:
-            num += 1;
-        Label_0089:
-            if (num < ((int) this.values.Length))
-            {
-                goto Label_0007;
-            }
-            return;
-        }
-
-        public unsafe void ChoiceLowest(EnchantParam scale, EnchantParam base_status)
-        {
-            int num;
-            num = 0;
-            goto Label_0089;
-        Label_0007:
-            if (*(&(this.values[num])) <= ((*(&(scale.values[num])) * *(&(base_status.values[num]))) / 100))
-            {
-                goto Label_006E;
-            }
-            *(&(this.values[num])) = 0;
-            goto Label_0085;
-        Label_006E:
-            *(&(scale.values[num])) = 0;
-        Label_0085:
-            num += 1;
-        Label_0089:
-            if (num < ((int) this.values.Length))
-            {
-                goto Label_0007;
-            }
-            return;
-        }
-
-        public void Clear()
-        {
-            Array.Clear(this.values, 0, (int) this.values.Length);
-            return;
-        }
-
-        public unsafe void CopyTo(EnchantParam dsc)
-        {
-            int num;
-            if (dsc != null)
-            {
-                goto Label_0007;
-            }
-            return;
-        Label_0007:
-            num = 0;
-            goto Label_0034;
-        Label_000E:
-            *(&(dsc.values[num])) = *(&(this.values[num]));
-            num += 1;
-        Label_0034:
-            if (num < ((int) this.values.Length))
-            {
-                goto Label_000E;
-            }
-            return;
-        }
-
-        public unsafe void Div(int div_val)
-        {
-            int num;
-            if (div_val != null)
-            {
-                goto Label_0007;
-            }
-            return;
-        Label_0007:
-            num = 0;
-            goto Label_0035;
-        Label_000E:
-            *(&(this.values[num])) /= div_val;
-            num += 1;
-        Label_0035:
-            if (num < ((int) this.values.Length))
-            {
-                goto Label_000E;
-            }
-            return;
-        }
-
-        public ParamTypes GetAssistParamTypes(int index)
-        {
-            return ConvertAssistParamTypes[index];
-        }
-
-        public ParamTypes GetResistParamTypes(int index)
-        {
-            return ConvertResistParamTypes[index];
-        }
-
-        public unsafe void Mul(int mul_val)
-        {
-            int num;
-            if (mul_val != null)
-            {
-                goto Label_0007;
-            }
-            return;
-        Label_0007:
-            num = 0;
-            goto Label_0035;
-        Label_000E:
-            *(&(this.values[num])) *= mul_val;
-            num += 1;
-        Label_0035:
-            if (num < ((int) this.values.Length))
-            {
-                goto Label_000E;
-            }
-            return;
-        }
-
-        public unsafe void ReplceHighest(EnchantParam comp)
-        {
-            int num;
-            num = 0;
-            goto Label_005E;
-        Label_0007:
-            if (*(&(this.values[num])) >= *(&(comp.values[num])))
-            {
-                goto Label_005A;
-            }
-            *(&(this.values[num])) = *(&(comp.values[num]));
-        Label_005A:
-            num += 1;
-        Label_005E:
-            if (num < ((int) this.values.Length))
-            {
-                goto Label_0007;
-            }
-            return;
-        }
-
-        public unsafe void ReplceLowest(EnchantParam comp)
-        {
-            int num;
-            num = 0;
-            goto Label_005E;
-        Label_0007:
-            if (*(&(this.values[num])) <= *(&(comp.values[num])))
-            {
-                goto Label_005A;
-            }
-            *(&(this.values[num])) = *(&(comp.values[num]));
-        Label_005A:
-            num += 1;
-        Label_005E:
-            if (num < ((int) this.values.Length))
-            {
-                goto Label_0007;
-            }
-            return;
-        }
-
-        public unsafe void Sub(EnchantParam src)
-        {
-            int num;
-            if (src != null)
-            {
-                goto Label_0007;
-            }
-            return;
-        Label_0007:
-            num = 0;
-            goto Label_004A;
-        Label_000E:
-            *(&(this.values[num])) -= *(&(src.values[num]));
-            num += 1;
-        Label_004A:
-            if (num < ((int) this.values.Length))
-            {
-                goto Label_000E;
-            }
-            return;
-        }
-
-        public unsafe void SubConvRate(EnchantParam scale, EnchantParam base_status)
-        {
-            int num;
-            num = 0;
-            goto Label_005D;
-        Label_0007:
-            *(&(this.values[num])) -= (*(&(scale.values[num])) * *(&(base_status.values[num]))) / 100;
-            num += 1;
-        Label_005D:
-            if (num < ((int) this.values.Length))
-            {
-                goto Label_0007;
-            }
-            return;
-        }
-
-        public unsafe void Swap(EnchantParam src, bool is_rev)
-        {
-            int num;
-            num = 0;
-            goto Label_0074;
-        Label_0007:
-            GameUtility.swap<OShort>(&(this.values[num]), &(src.values[num]));
-            if (is_rev == null)
-            {
-                goto Label_0070;
-            }
-            *(&(this.values[num])) *= -1;
-            *(&(src.values[num])) *= -1;
-        Label_0070:
-            num += 1;
-        Label_0074:
-            if (num < ((int) this.values.Length))
-            {
-                goto Label_0007;
-            }
-            return;
-        }
-
-        public OShort this[EnchantTypes type]
-        {
-            get
-            {
-                return *(&(this.values[type]));
-            }
-            set
-            {
-                *(&(this.values[type])) = value;
-                return;
-            }
-        }
-
-        public OShort poison
-        {
-            get
-            {
-                return *(&(this.values[0]));
-            }
-            set
-            {
-                *(&(this.values[0])) = value;
-                return;
-            }
-        }
-
-        public OShort paralyse
-        {
-            get
-            {
-                return *(&(this.values[1]));
-            }
-            set
-            {
-                *(&(this.values[1])) = value;
-                return;
-            }
-        }
-
-        public OShort stun
-        {
-            get
-            {
-                return *(&(this.values[2]));
-            }
-            set
-            {
-                *(&(this.values[2])) = value;
-                return;
-            }
-        }
-
-        public OShort sleep
-        {
-            get
-            {
-                return *(&(this.values[3]));
-            }
-            set
-            {
-                *(&(this.values[3])) = value;
-                return;
-            }
-        }
-
-        public OShort charm
-        {
-            get
-            {
-                return *(&(this.values[4]));
-            }
-            set
-            {
-                *(&(this.values[4])) = value;
-                return;
-            }
-        }
-
-        public OShort stone
-        {
-            get
-            {
-                return *(&(this.values[5]));
-            }
-            set
-            {
-                *(&(this.values[5])) = value;
-                return;
-            }
-        }
-
-        public OShort blind
-        {
-            get
-            {
-                return *(&(this.values[6]));
-            }
-            set
-            {
-                *(&(this.values[6])) = value;
-                return;
-            }
-        }
-
-        public OShort notskl
-        {
-            get
-            {
-                return *(&(this.values[7]));
-            }
-            set
-            {
-                *(&(this.values[7])) = value;
-                return;
-            }
-        }
-
-        public OShort notmov
-        {
-            get
-            {
-                return *(&(this.values[8]));
-            }
-            set
-            {
-                *(&(this.values[8])) = value;
-                return;
-            }
-        }
-
-        public OShort notatk
-        {
-            get
-            {
-                return *(&(this.values[9]));
-            }
-            set
-            {
-                *(&(this.values[9])) = value;
-                return;
-            }
-        }
-
-        public OShort zombie
-        {
-            get
-            {
-                return *(&(this.values[10]));
-            }
-            set
-            {
-                *(&(this.values[10])) = value;
-                return;
-            }
-        }
-
-        public OShort death
-        {
-            get
-            {
-                return *(&(this.values[11]));
-            }
-            set
-            {
-                *(&(this.values[11])) = value;
-                return;
-            }
-        }
-
-        public OShort berserk
-        {
-            get
-            {
-                return *(&(this.values[12]));
-            }
-            set
-            {
-                *(&(this.values[12])) = value;
-                return;
-            }
-        }
-
-        public OShort knockback
-        {
-            get
-            {
-                return *(&(this.values[13]));
-            }
-            set
-            {
-                *(&(this.values[13])) = value;
-                return;
-            }
-        }
-
-        public OShort resist_buff
-        {
-            get
-            {
-                return *(&(this.values[14]));
-            }
-            set
-            {
-                *(&(this.values[14])) = value;
-                return;
-            }
-        }
-
-        public OShort resist_debuff
-        {
-            get
-            {
-                return *(&(this.values[15]));
-            }
-            set
-            {
-                *(&(this.values[15])) = value;
-                return;
-            }
-        }
-
-        public OShort stop
-        {
-            get
-            {
-                return *(&(this.values[0x10]));
-            }
-            set
-            {
-                *(&(this.values[0x10])) = value;
-                return;
-            }
-        }
-
-        public OShort fast
-        {
-            get
-            {
-                return *(&(this.values[0x11]));
-            }
-            set
-            {
-                *(&(this.values[0x11])) = value;
-                return;
-            }
-        }
-
-        public OShort slow
-        {
-            get
-            {
-                return *(&(this.values[0x12]));
-            }
-            set
-            {
-                *(&(this.values[0x12])) = value;
-                return;
-            }
-        }
-
-        public OShort auto_heal
-        {
-            get
-            {
-                return *(&(this.values[0x13]));
-            }
-            set
-            {
-                *(&(this.values[0x13])) = value;
-                return;
-            }
-        }
-
-        public OShort donsoku
-        {
-            get
-            {
-                return *(&(this.values[20]));
-            }
-            set
-            {
-                *(&(this.values[20])) = value;
-                return;
-            }
-        }
-
-        public OShort rage
-        {
-            get
-            {
-                return *(&(this.values[0x15]));
-            }
-            set
-            {
-                *(&(this.values[0x15])) = value;
-                return;
-            }
-        }
-
-        public OShort good_sleep
-        {
-            get
-            {
-                return *(&(this.values[0x16]));
-            }
-            set
-            {
-                *(&(this.values[0x16])) = value;
-                return;
-            }
-        }
-
-        public OShort auto_jewel
-        {
-            get
-            {
-                return *(&(this.values[0x17]));
-            }
-            set
-            {
-                *(&(this.values[0x17])) = value;
-                return;
-            }
-        }
-
-        public OShort notheal
-        {
-            get
-            {
-                return *(&(this.values[0x18]));
-            }
-            set
-            {
-                *(&(this.values[0x18])) = value;
-                return;
-            }
-        }
-
-        public OShort single_attack
-        {
-            get
-            {
-                return *(&(this.values[0x19]));
-            }
-            set
-            {
-                *(&(this.values[0x19])) = value;
-                return;
-            }
-        }
-
-        public OShort area_attack
-        {
-            get
-            {
-                return *(&(this.values[0x1a]));
-            }
-            set
-            {
-                *(&(this.values[0x1a])) = value;
-                return;
-            }
-        }
-
-        public OShort dec_ct
-        {
-            get
-            {
-                return *(&(this.values[0x1b]));
-            }
-            set
-            {
-                *(&(this.values[0x1b])) = value;
-                return;
-            }
-        }
-
-        public OShort inc_ct
-        {
-            get
-            {
-                return *(&(this.values[0x1c]));
-            }
-            set
-            {
-                *(&(this.values[0x1c])) = value;
-                return;
-            }
-        }
-
-        public OShort esa_fire
-        {
-            get
-            {
-                return *(&(this.values[0x1d]));
-            }
-            set
-            {
-                *(&(this.values[0x1d])) = value;
-                return;
-            }
-        }
-
-        public OShort esa_water
-        {
-            get
-            {
-                return *(&(this.values[30]));
-            }
-            set
-            {
-                *(&(this.values[30])) = value;
-                return;
-            }
-        }
-
-        public OShort esa_wind
-        {
-            get
-            {
-                return *(&(this.values[0x1f]));
-            }
-            set
-            {
-                *(&(this.values[0x1f])) = value;
-                return;
-            }
-        }
-
-        public OShort esa_thunder
-        {
-            get
-            {
-                return *(&(this.values[0x20]));
-            }
-            set
-            {
-                *(&(this.values[0x20])) = value;
-                return;
-            }
-        }
-
-        public OShort esa_shine
-        {
-            get
-            {
-                return *(&(this.values[0x21]));
-            }
-            set
-            {
-                *(&(this.values[0x21])) = value;
-                return;
-            }
-        }
-
-        public OShort esa_dark
-        {
-            get
-            {
-                return *(&(this.values[0x22]));
-            }
-            set
-            {
-                *(&(this.values[0x22])) = value;
-                return;
-            }
-        }
-
-        public OShort max_damage_hp
-        {
-            get
-            {
-                return *(&(this.values[0x23]));
-            }
-            set
-            {
-                *(&(this.values[0x23])) = value;
-                return;
-            }
-        }
-
-        public OShort max_damage_mp
-        {
-            get
-            {
-                return *(&(this.values[0x24]));
-            }
-            set
-            {
-                *(&(this.values[0x24])) = value;
-                return;
-            }
-        }
-
-        public OShort this[EUnitCondition condition]
-        {
-            get
-            {
-                EUnitCondition condition2;
-                condition2 = condition;
-                if (condition2 < 1L)
-                {
-                    goto Label_003C;
-                }
-                if (condition2 > 8L)
-                {
-                    goto Label_003C;
-                }
-                switch (((int) (condition2 - 1L)))
-                {
-                    case 0:
-                        goto Label_0110;
-
-                    case 1:
-                        goto Label_0117;
-
-                    case 2:
-                        goto Label_003C;
-
-                    case 3:
-                        goto Label_011E;
-
-                    case 4:
-                        goto Label_003C;
-
-                    case 5:
-                        goto Label_003C;
-
-                    case 6:
-                        goto Label_003C;
-
-                    case 7:
-                        goto Label_0125;
-                }
-            Label_003C:
-                if (condition2 == 0x10L)
-                {
-                    goto Label_012C;
-                }
-                if (condition2 == 0x20L)
-                {
-                    goto Label_0133;
-                }
-                if (condition2 == 0x40L)
-                {
-                    goto Label_013A;
-                }
-                if (condition2 == 0x80L)
-                {
-                    goto Label_0141;
-                }
-                if (condition2 == 0x100L)
-                {
-                    goto Label_0148;
-                }
-                if (condition2 == 0x200L)
-                {
-                    goto Label_014F;
-                }
-                if (condition2 == 0x400L)
-                {
-                    goto Label_0156;
-                }
-                if (condition2 == 0x800L)
-                {
-                    goto Label_015D;
-                }
-                if (condition2 == 0x1000L)
-                {
-                    goto Label_0164;
-                }
-                if (condition2 == 0x10000L)
-                {
-                    goto Label_016B;
-                }
-                if (condition2 == 0x20000L)
-                {
-                    goto Label_0172;
-                }
-                if (condition2 == 0x40000L)
-                {
-                    goto Label_0179;
-                }
-                if (condition2 == 0x80000L)
-                {
-                    goto Label_0180;
-                }
-                if (condition2 == 0x100000L)
-                {
-                    goto Label_0187;
-                }
-                if (condition2 == 0x200000L)
-                {
-                    goto Label_018E;
-                }
-                if (condition2 == 0x400000L)
-                {
-                    goto Label_0195;
-                }
-                if (condition2 == 0x800000L)
-                {
-                    goto Label_019C;
-                }
-                if (condition2 == 0x1000000L)
-                {
-                    goto Label_01A3;
-                }
-                goto Label_01AA;
-            Label_0110:
-                return this.poison;
-            Label_0117:
-                return this.paralyse;
-            Label_011E:
-                return this.stun;
-            Label_0125:
-                return this.sleep;
-            Label_012C:
-                return this.charm;
-            Label_0133:
-                return this.stone;
-            Label_013A:
-                return this.blind;
-            Label_0141:
-                return this.notskl;
-            Label_0148:
-                return this.notmov;
-            Label_014F:
-                return this.notatk;
-            Label_0156:
-                return this.zombie;
-            Label_015D:
-                return this.death;
-            Label_0164:
-                return this.berserk;
-            Label_016B:
-                return this.stop;
-            Label_0172:
-                return this.fast;
-            Label_0179:
-                return this.slow;
-            Label_0180:
-                return this.auto_heal;
-            Label_0187:
-                return this.donsoku;
-            Label_018E:
-                return this.rage;
-            Label_0195:
-                return this.good_sleep;
-            Label_019C:
-                return this.auto_jewel;
-            Label_01A3:
-                return this.notheal;
-            Label_01AA:
-                return 0;
-            }
-            set
-            {
-                EUnitCondition condition2;
-                condition2 = condition;
-                if (condition2 < 1L)
-                {
-                    goto Label_003C;
-                }
-                if (condition2 > 8L)
-                {
-                    goto Label_003C;
-                }
-                switch (((int) (condition2 - 1L)))
-                {
-                    case 0:
-                        goto Label_0110;
-
-                    case 1:
-                        goto Label_011C;
-
-                    case 2:
-                        goto Label_003C;
-
-                    case 3:
-                        goto Label_0128;
-
-                    case 4:
-                        goto Label_003C;
-
-                    case 5:
-                        goto Label_003C;
-
-                    case 6:
-                        goto Label_003C;
-
-                    case 7:
-                        goto Label_0134;
-                }
-            Label_003C:
-                if (condition2 == 0x10L)
-                {
-                    goto Label_0140;
-                }
-                if (condition2 == 0x20L)
-                {
-                    goto Label_014C;
-                }
-                if (condition2 == 0x40L)
-                {
-                    goto Label_0158;
-                }
-                if (condition2 == 0x80L)
-                {
-                    goto Label_0164;
-                }
-                if (condition2 == 0x100L)
-                {
-                    goto Label_0170;
-                }
-                if (condition2 == 0x200L)
-                {
-                    goto Label_017C;
-                }
-                if (condition2 == 0x400L)
-                {
-                    goto Label_0188;
-                }
-                if (condition2 == 0x800L)
-                {
-                    goto Label_0194;
-                }
-                if (condition2 == 0x1000L)
-                {
-                    goto Label_01A0;
-                }
-                if (condition2 == 0x10000L)
-                {
-                    goto Label_01AC;
-                }
-                if (condition2 == 0x20000L)
-                {
-                    goto Label_01B8;
-                }
-                if (condition2 == 0x40000L)
-                {
-                    goto Label_01C4;
-                }
-                if (condition2 == 0x80000L)
-                {
-                    goto Label_01D0;
-                }
-                if (condition2 == 0x100000L)
-                {
-                    goto Label_01DC;
-                }
-                if (condition2 == 0x200000L)
-                {
-                    goto Label_01E8;
-                }
-                if (condition2 == 0x400000L)
-                {
-                    goto Label_01F4;
-                }
-                if (condition2 == 0x800000L)
-                {
-                    goto Label_0200;
-                }
-                if (condition2 == 0x1000000L)
-                {
-                    goto Label_020C;
-                }
-                goto Label_0218;
-            Label_0110:
-                this.poison = value;
-                goto Label_0218;
-            Label_011C:
-                this.paralyse = value;
-                goto Label_0218;
-            Label_0128:
-                this.stun = value;
-                goto Label_0218;
-            Label_0134:
-                this.sleep = value;
-                goto Label_0218;
-            Label_0140:
-                this.charm = value;
-                goto Label_0218;
-            Label_014C:
-                this.stone = value;
-                goto Label_0218;
-            Label_0158:
-                this.blind = value;
-                goto Label_0218;
-            Label_0164:
-                this.notskl = value;
-                goto Label_0218;
-            Label_0170:
-                this.notmov = value;
-                goto Label_0218;
-            Label_017C:
-                this.notatk = value;
-                goto Label_0218;
-            Label_0188:
-                this.zombie = value;
-                goto Label_0218;
-            Label_0194:
-                this.death = value;
-                goto Label_0218;
-            Label_01A0:
-                this.berserk = value;
-                goto Label_0218;
-            Label_01AC:
-                this.stop = value;
-                goto Label_0218;
-            Label_01B8:
-                this.fast = value;
-                goto Label_0218;
-            Label_01C4:
-                this.slow = value;
-                goto Label_0218;
-            Label_01D0:
-                this.auto_heal = value;
-                goto Label_0218;
-            Label_01DC:
-                this.donsoku = value;
-                goto Label_0218;
-            Label_01E8:
-                this.rage = value;
-                goto Label_0218;
-            Label_01F4:
-                this.good_sleep = value;
-                goto Label_0218;
-            Label_0200:
-                this.auto_jewel = value;
-                goto Label_0218;
-            Label_020C:
-                this.notheal = value;
-            Label_0218:
-                return;
-            }
-        }
+      get
+      {
+        return this.values[(int) type];
+      }
+      set
+      {
+        this.values[(int) type] = value;
+      }
     }
-}
 
+    public OInt poison
+    {
+      get
+      {
+        return this.values[0];
+      }
+      set
+      {
+        this.values[0] = value;
+      }
+    }
+
+    public OInt paralyse
+    {
+      get
+      {
+        return this.values[1];
+      }
+      set
+      {
+        this.values[1] = value;
+      }
+    }
+
+    public OInt stun
+    {
+      get
+      {
+        return this.values[2];
+      }
+      set
+      {
+        this.values[2] = value;
+      }
+    }
+
+    public OInt sleep
+    {
+      get
+      {
+        return this.values[3];
+      }
+      set
+      {
+        this.values[3] = value;
+      }
+    }
+
+    public OInt charm
+    {
+      get
+      {
+        return this.values[4];
+      }
+      set
+      {
+        this.values[4] = value;
+      }
+    }
+
+    public OInt stone
+    {
+      get
+      {
+        return this.values[5];
+      }
+      set
+      {
+        this.values[5] = value;
+      }
+    }
+
+    public OInt blind
+    {
+      get
+      {
+        return this.values[6];
+      }
+      set
+      {
+        this.values[6] = value;
+      }
+    }
+
+    public OInt notskl
+    {
+      get
+      {
+        return this.values[7];
+      }
+      set
+      {
+        this.values[7] = value;
+      }
+    }
+
+    public OInt notmov
+    {
+      get
+      {
+        return this.values[8];
+      }
+      set
+      {
+        this.values[8] = value;
+      }
+    }
+
+    public OInt notatk
+    {
+      get
+      {
+        return this.values[9];
+      }
+      set
+      {
+        this.values[9] = value;
+      }
+    }
+
+    public OInt zombie
+    {
+      get
+      {
+        return this.values[10];
+      }
+      set
+      {
+        this.values[10] = value;
+      }
+    }
+
+    public OInt death
+    {
+      get
+      {
+        return this.values[11];
+      }
+      set
+      {
+        this.values[11] = value;
+      }
+    }
+
+    public OInt berserk
+    {
+      get
+      {
+        return this.values[12];
+      }
+      set
+      {
+        this.values[12] = value;
+      }
+    }
+
+    public OInt knockback
+    {
+      get
+      {
+        return this.values[13];
+      }
+      set
+      {
+        this.values[13] = value;
+      }
+    }
+
+    public OInt resist_buff
+    {
+      get
+      {
+        return this.values[14];
+      }
+      set
+      {
+        this.values[14] = value;
+      }
+    }
+
+    public OInt resist_debuff
+    {
+      get
+      {
+        return this.values[15];
+      }
+      set
+      {
+        this.values[15] = value;
+      }
+    }
+
+    public OInt stop
+    {
+      get
+      {
+        return this.values[16];
+      }
+      set
+      {
+        this.values[16] = value;
+      }
+    }
+
+    public OInt fast
+    {
+      get
+      {
+        return this.values[17];
+      }
+      set
+      {
+        this.values[17] = value;
+      }
+    }
+
+    public OInt slow
+    {
+      get
+      {
+        return this.values[18];
+      }
+      set
+      {
+        this.values[18] = value;
+      }
+    }
+
+    public OInt auto_heal
+    {
+      get
+      {
+        return this.values[19];
+      }
+      set
+      {
+        this.values[19] = value;
+      }
+    }
+
+    public OInt donsoku
+    {
+      get
+      {
+        return this.values[20];
+      }
+      set
+      {
+        this.values[20] = value;
+      }
+    }
+
+    public OInt rage
+    {
+      get
+      {
+        return this.values[21];
+      }
+      set
+      {
+        this.values[21] = value;
+      }
+    }
+
+    public OInt good_sleep
+    {
+      get
+      {
+        return this.values[22];
+      }
+      set
+      {
+        this.values[22] = value;
+      }
+    }
+
+    public OInt auto_jewel
+    {
+      get
+      {
+        return this.values[23];
+      }
+      set
+      {
+        this.values[23] = value;
+      }
+    }
+
+    public OInt notheal
+    {
+      get
+      {
+        return this.values[24];
+      }
+      set
+      {
+        this.values[24] = value;
+      }
+    }
+
+    public OInt single_attack
+    {
+      get
+      {
+        return this.values[25];
+      }
+      set
+      {
+        this.values[25] = value;
+      }
+    }
+
+    public OInt area_attack
+    {
+      get
+      {
+        return this.values[26];
+      }
+      set
+      {
+        this.values[26] = value;
+      }
+    }
+
+    public OInt dec_ct
+    {
+      get
+      {
+        return this.values[27];
+      }
+      set
+      {
+        this.values[27] = value;
+      }
+    }
+
+    public OInt inc_ct
+    {
+      get
+      {
+        return this.values[28];
+      }
+      set
+      {
+        this.values[28] = value;
+      }
+    }
+
+    public OInt this[EUnitCondition condition]
+    {
+      get
+      {
+        EUnitCondition eunitCondition = condition;
+        switch (eunitCondition)
+        {
+          case EUnitCondition.Poison:
+            return this.poison;
+          case EUnitCondition.Paralysed:
+            return this.paralyse;
+          case EUnitCondition.Stun:
+            return this.stun;
+          case EUnitCondition.Sleep:
+            return this.sleep;
+          default:
+            if (eunitCondition == EUnitCondition.Charm)
+              return this.charm;
+            if (eunitCondition == EUnitCondition.Stone)
+              return this.stone;
+            if (eunitCondition == EUnitCondition.Blindness)
+              return this.blind;
+            if (eunitCondition == EUnitCondition.DisableSkill)
+              return this.notskl;
+            if (eunitCondition == EUnitCondition.DisableMove)
+              return this.notmov;
+            if (eunitCondition == EUnitCondition.DisableAttack)
+              return this.notatk;
+            if (eunitCondition == EUnitCondition.Zombie)
+              return this.zombie;
+            if (eunitCondition == EUnitCondition.DeathSentence)
+              return this.death;
+            if (eunitCondition == EUnitCondition.Berserk)
+              return this.berserk;
+            if (eunitCondition == EUnitCondition.Stop)
+              return this.stop;
+            if (eunitCondition == EUnitCondition.Fast)
+              return this.fast;
+            if (eunitCondition == EUnitCondition.Slow)
+              return this.slow;
+            if (eunitCondition == EUnitCondition.AutoHeal)
+              return this.auto_heal;
+            if (eunitCondition == EUnitCondition.Donsoku)
+              return this.donsoku;
+            if (eunitCondition == EUnitCondition.Rage)
+              return this.rage;
+            if (eunitCondition == EUnitCondition.GoodSleep)
+              return this.good_sleep;
+            if (eunitCondition == EUnitCondition.AutoJewel)
+              return this.auto_jewel;
+            if (eunitCondition == EUnitCondition.DisableHeal)
+              return this.notheal;
+            return (OInt) 0;
+        }
+      }
+      set
+      {
+        EUnitCondition eunitCondition = condition;
+        switch (eunitCondition)
+        {
+          case EUnitCondition.Poison:
+            this.poison = value;
+            break;
+          case EUnitCondition.Paralysed:
+            this.paralyse = value;
+            break;
+          case EUnitCondition.Stun:
+            this.stun = value;
+            break;
+          case EUnitCondition.Sleep:
+            this.sleep = value;
+            break;
+          default:
+            if (eunitCondition != EUnitCondition.Charm)
+            {
+              if (eunitCondition != EUnitCondition.Stone)
+              {
+                if (eunitCondition != EUnitCondition.Blindness)
+                {
+                  if (eunitCondition != EUnitCondition.DisableSkill)
+                  {
+                    if (eunitCondition != EUnitCondition.DisableMove)
+                    {
+                      if (eunitCondition != EUnitCondition.DisableAttack)
+                      {
+                        if (eunitCondition != EUnitCondition.Zombie)
+                        {
+                          if (eunitCondition != EUnitCondition.DeathSentence)
+                          {
+                            if (eunitCondition != EUnitCondition.Berserk)
+                            {
+                              if (eunitCondition != EUnitCondition.Stop)
+                              {
+                                if (eunitCondition != EUnitCondition.Fast)
+                                {
+                                  if (eunitCondition != EUnitCondition.Slow)
+                                  {
+                                    if (eunitCondition != EUnitCondition.AutoHeal)
+                                    {
+                                      if (eunitCondition != EUnitCondition.Donsoku)
+                                      {
+                                        if (eunitCondition != EUnitCondition.Rage)
+                                        {
+                                          if (eunitCondition != EUnitCondition.GoodSleep)
+                                          {
+                                            if (eunitCondition != EUnitCondition.AutoJewel)
+                                            {
+                                              if (eunitCondition != EUnitCondition.DisableHeal)
+                                                break;
+                                              this.notheal = value;
+                                              break;
+                                            }
+                                            this.auto_jewel = value;
+                                            break;
+                                          }
+                                          this.good_sleep = value;
+                                          break;
+                                        }
+                                        this.rage = value;
+                                        break;
+                                      }
+                                      this.donsoku = value;
+                                      break;
+                                    }
+                                    this.auto_heal = value;
+                                    break;
+                                  }
+                                  this.slow = value;
+                                  break;
+                                }
+                                this.fast = value;
+                                break;
+                              }
+                              this.stop = value;
+                              break;
+                            }
+                            this.berserk = value;
+                            break;
+                          }
+                          this.death = value;
+                          break;
+                        }
+                        this.zombie = value;
+                        break;
+                      }
+                      this.notatk = value;
+                      break;
+                    }
+                    this.notmov = value;
+                    break;
+                  }
+                  this.notskl = value;
+                  break;
+                }
+                this.blind = value;
+                break;
+              }
+              this.stone = value;
+              break;
+            }
+            this.charm = value;
+            break;
+        }
+      }
+    }
+
+    public void Clear()
+    {
+      Array.Clear((Array) this.values, 0, this.values.Length);
+    }
+
+    public void CopyTo(EnchantParam dsc)
+    {
+      if (dsc == null)
+        return;
+      for (int index = 0; index < this.values.Length; ++index)
+        dsc.values[index] = this.values[index];
+    }
+
+    public void Add(EnchantParam src)
+    {
+      if (src == null)
+        return;
+      for (int index = 0; index < this.values.Length; ++index)
+      {
+        // ISSUE: explicit reference operation
+        // ISSUE: variable of a reference type
+        OInt& local = @this.values[index];
+        // ISSUE: explicit reference operation
+        // ISSUE: explicit reference operation
+        ^local = (OInt) ((int) (^local) + (int) src.values[index]);
+      }
+    }
+
+    public void Sub(EnchantParam src)
+    {
+      if (src == null)
+        return;
+      for (int index = 0; index < this.values.Length; ++index)
+      {
+        // ISSUE: explicit reference operation
+        // ISSUE: variable of a reference type
+        OInt& local = @this.values[index];
+        // ISSUE: explicit reference operation
+        // ISSUE: explicit reference operation
+        ^local = (OInt) ((int) (^local) - (int) src.values[index]);
+      }
+    }
+
+    public void AddRate(EnchantParam src)
+    {
+      for (int index = 0; index < this.values.Length; ++index)
+      {
+        // ISSUE: explicit reference operation
+        // ISSUE: variable of a reference type
+        OInt& local = @this.values[index];
+        // ISSUE: explicit reference operation
+        // ISSUE: explicit reference operation
+        ^local = (OInt) ((int) (^local) + (int) this.values[index] * (int) src.values[index] / 100);
+      }
+    }
+
+    public void ReplceHighest(EnchantParam comp)
+    {
+      for (int index = 0; index < this.values.Length; ++index)
+      {
+        if ((int) this.values[index] < (int) comp.values[index])
+          this.values[index] = comp.values[index];
+      }
+    }
+
+    public void ReplceLowest(EnchantParam comp)
+    {
+      for (int index = 0; index < this.values.Length; ++index)
+      {
+        if ((int) this.values[index] > (int) comp.values[index])
+          this.values[index] = comp.values[index];
+      }
+    }
+
+    public ParamTypes GetAssistParamTypes(int index)
+    {
+      return EnchantParam.ConvertAssistParamTypes[index];
+    }
+
+    public ParamTypes GetResistParamTypes(int index)
+    {
+      return EnchantParam.ConvertResistParamTypes[index];
+    }
+  }
+}

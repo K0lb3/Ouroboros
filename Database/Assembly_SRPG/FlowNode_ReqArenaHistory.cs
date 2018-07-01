@@ -1,76 +1,63 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_ReqArenaHistory
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-
-    [NodeType("Network/btl_colo_history"), Pin(1, "Success", 1, 1), Pin(0, "Request", 0, 0)]
-    public class FlowNode_ReqArenaHistory : FlowNode_Network
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
+  [FlowNode.NodeType("Network/btl_colo_history")]
+  [FlowNode.Pin(0, "Request", FlowNode.PinTypes.Input, 0)]
+  public class FlowNode_ReqArenaHistory : FlowNode_Network
+  {
+    public override void OnActivate(int pinID)
     {
-        public FlowNode_ReqArenaHistory()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != null)
-            {
-                goto Label_0036;
-            }
-            if (Network.Mode != 1)
-            {
-                goto Label_0018;
-            }
-            this.Success();
-            return;
-        Label_0018:
-            base.ExecRequest(new ReqBtlColoHistory(new Network.ResponseCallback(this.ResponseCallback)));
-            base.set_enabled(1);
-        Label_0036:
-            return;
-        }
-
-        public override unsafe void OnSuccess(WWWResult www)
-        {
-            WebAPI.JSON_BodyResponse<JSON_ArenaHistory> response;
-            GameManager manager;
-            Network.EErrCode code;
-            if (Network.IsError == null)
-            {
-                goto Label_0017;
-            }
-            code = Network.ErrCode;
-            this.OnFailed();
-            return;
-        Label_0017:
-            response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<JSON_ArenaHistory>>(&www.text);
-            DebugUtility.Assert((response == null) == 0, "res == null");
-            if (response.body != null)
-            {
-                goto Label_0047;
-            }
-            this.OnFailed();
-            return;
-        Label_0047:
-            if (MonoSingleton<GameManager>.Instance.Deserialize(response.body) != null)
-            {
-                goto Label_0065;
-            }
-            this.OnFailed();
-            return;
-        Label_0065:
-            Network.RemoveAPI();
-            this.Success();
-            return;
-        }
-
-        private void Success()
-        {
-            base.set_enabled(0);
-            base.ActivateOutputLinks(1);
-            return;
-        }
+      if (pinID != 0)
+        return;
+      if (Network.Mode == Network.EConnectMode.Offline)
+      {
+        this.Success();
+      }
+      else
+      {
+        this.ExecRequest((WebAPI) new ReqBtlColoHistory(new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+        ((Behaviour) this).set_enabled(true);
+      }
     }
-}
 
+    private void Success()
+    {
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(1);
+    }
+
+    public override void OnSuccess(WWWResult www)
+    {
+      if (Network.IsError)
+      {
+        Network.EErrCode errCode = Network.ErrCode;
+        this.OnFailed();
+      }
+      else
+      {
+        WebAPI.JSON_BodyResponse<JSON_ArenaHistory> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<JSON_ArenaHistory>>(www.text);
+        DebugUtility.Assert(jsonObject != null, "res == null");
+        if (jsonObject.body == null)
+          this.OnFailed();
+        else if (!MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body))
+        {
+          this.OnFailed();
+        }
+        else
+        {
+          Network.RemoveAPI();
+          this.Success();
+        }
+      }
+    }
+  }
+}

@@ -1,61 +1,44 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_Fade
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
-
-    [Pin(0x65, "Fade In", 0, 1), Pin(1, "Finished", 1, 10), Pin(100, "Fade Out", 0, 0), NodeType("UI/Fade", 0x7fe5)]
-    public class FlowNode_Fade : FlowNode
+  [FlowNode.Pin(101, "Fade In", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(100, "Fade Out", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.NodeType("UI/Fade", 32741)]
+  [FlowNode.Pin(1, "Finished", FlowNode.PinTypes.Output, 10)]
+  public class FlowNode_Fade : FlowNode
+  {
+    public override void OnActivate(int pinID)
     {
-        public FlowNode_Fade()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != 100)
-            {
-                goto Label_0048;
-            }
-            if (FadeController.InstanceExists != null)
-            {
-                goto Label_0027;
-            }
-            FadeController.Instance.FadeTo(Color.get_clear(), 0f, 0);
-        Label_0027:
-            FadeController.Instance.FadeTo(Color.get_black(), 1f, 0);
-            base.set_enabled(1);
-            goto Label_008B;
-        Label_0048:
-            if (pinID != 0x65)
-            {
-                goto Label_008B;
-            }
-            if (FadeController.InstanceExists != null)
-            {
-                goto Label_006F;
-            }
-            FadeController.Instance.FadeTo(Color.get_black(), 0f, 0);
-        Label_006F:
-            FadeController.Instance.FadeTo(Color.get_clear(), 1f, 0);
-            base.set_enabled(1);
-        Label_008B:
-            return;
-        }
-
-        private void Update()
-        {
-            if (FadeController.Instance.IsFading(0) != null)
-            {
-                goto Label_0020;
-            }
-            base.set_enabled(0);
-            base.ActivateOutputLinks(1);
-            return;
-        Label_0020:
-            return;
-        }
+      switch (pinID)
+      {
+        case 100:
+          if (!FadeController.InstanceExists)
+            FadeController.Instance.FadeTo(Color.get_clear(), 0.0f, 0);
+          FadeController.Instance.FadeTo(Color.get_black(), 1f, 0);
+          ((Behaviour) this).set_enabled(true);
+          break;
+        case 101:
+          if (!FadeController.InstanceExists)
+            FadeController.Instance.FadeTo(Color.get_black(), 0.0f, 0);
+          FadeController.Instance.FadeTo(Color.get_clear(), 1f, 0);
+          ((Behaviour) this).set_enabled(true);
+          break;
+      }
     }
-}
 
+    private void Update()
+    {
+      if (FadeController.Instance.IsFading(0))
+        return;
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(1);
+    }
+  }
+}

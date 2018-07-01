@@ -1,168 +1,90 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ShopSetItemListElement
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using UnityEngine;
-    using UnityEngine.UI;
+  public class ShopSetItemListElement : MonoBehaviour
+  {
+    public Text itemName;
+    public GameObject ItemIcon;
+    public GameObject ArtifactIcon;
+    private ItemData mItemData;
+    private ArtifactParam mArtifactParam;
+    private GameObject mDetailWindow;
+    public GameObject ArtifactDetailWindow;
+    public GameObject ItemDetailWindow;
+    private ShopItem mShopItem;
 
-    public class ShopSetItemListElement : MonoBehaviour
+    public ShopSetItemListElement()
     {
-        public Text itemName;
-        public GameObject ItemIcon;
-        public GameObject ItemDetailWindow;
-        public GameObject ArtifactIcon;
-        public GameObject ArtifactDetailWindow;
-        public GameObject ConceptCard;
-        public GameObject ConceptCardDetailWindow;
-        private GameObject mDetailWindow;
-        private ShopItem mShopItem;
-        private ItemData mItemData;
-        private SRPG.ArtifactParam mArtifactParam;
-        private ConceptCardData mConceptCardData;
-
-        public ShopSetItemListElement()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void OnClickDetailArtifact()
-        {
-            ArtifactData data;
-            Json_Artifact artifact;
-            if ((this.mDetailWindow != null) == null)
-            {
-                goto Label_0012;
-            }
-            return;
-        Label_0012:
-            this.mDetailWindow = Object.Instantiate<GameObject>(this.ArtifactDetailWindow);
-            data = new ArtifactData();
-            artifact = new Json_Artifact();
-            artifact.iname = this.mArtifactParam.iname;
-            artifact.rare = this.mArtifactParam.rareini;
-            data.Deserialize(artifact);
-            DataSource.Bind<ArtifactData>(this.mDetailWindow, data);
-            return;
-        }
-
-        public void OnClickDetailConceptCard()
-        {
-            if ((this.mDetailWindow != null) == null)
-            {
-                goto Label_0012;
-            }
-            return;
-        Label_0012:
-            GlobalVars.SelectedConceptCardData.Set(this.mConceptCardData);
-            this.mDetailWindow = Object.Instantiate<GameObject>(this.ConceptCardDetailWindow);
-            return;
-        }
-
-        public void OnClickDetailItem()
-        {
-            ItemData data;
-            if ((this.mDetailWindow != null) == null)
-            {
-                goto Label_0012;
-            }
-            return;
-        Label_0012:
-            this.mDetailWindow = Object.Instantiate<GameObject>(this.ItemDetailWindow);
-            data = MonoSingleton<GameManager>.Instance.Player.FindItemDataByItemID(this.mItemData.Param.iname);
-            DataSource.Bind<ItemData>(this.mDetailWindow, data);
-            DataSource.Bind<ItemParam>(this.mDetailWindow, MonoSingleton<GameManager>.Instance.GetItemParam(this.mItemData.Param.iname));
-            DataSource.Bind<ShopItem>(this.mDetailWindow, this.mShopItem);
-            return;
-        }
-
-        public void SetShopItemDesc(Json_ShopItemDesc item)
-        {
-            this.ItemIcon.SetActive(0);
-            this.ArtifactIcon.SetActive(0);
-            this.ConceptCard.SetActive(0);
-            if (item.IsItem == null)
-            {
-                goto Label_0040;
-            }
-            this.ItemIcon.SetActive(1);
-            goto Label_0093;
-        Label_0040:
-            if (item.IsArtifact == null)
-            {
-                goto Label_005C;
-            }
-            this.ArtifactIcon.SetActive(1);
-            goto Label_0093;
-        Label_005C:
-            if (item.IsConceptCard == null)
-            {
-                goto Label_0078;
-            }
-            this.ConceptCard.SetActive(1);
-            goto Label_0093;
-        Label_0078:
-            DebugUtility.LogError(string.Format("不明な商品タイプが設定されています (item.iname({0}) => {1})", item.iname, item.itype));
-        Label_0093:
-            if (this.mShopItem != null)
-            {
-                goto Label_00A9;
-            }
-            this.mShopItem = new LimitedShopItem();
-        Label_00A9:
-            this.mShopItem.num = item.num;
-            this.mShopItem.iname = item.iname;
-            return;
-        }
-
-        public void SetupConceptCard(ConceptCardData conceptCardData)
-        {
-            ConceptCardIcon icon;
-            this.mConceptCardData = conceptCardData;
-            if ((this.ConceptCard == null) == null)
-            {
-                goto Label_0023;
-            }
-            DebugUtility.LogError("ConceptCard == null");
-            return;
-        Label_0023:
-            icon = this.ConceptCard.GetComponentInChildren<ConceptCardIcon>();
-            if ((icon != null) == null)
-            {
-                goto Label_0042;
-            }
-            icon.Setup(conceptCardData);
-        Label_0042:
-            return;
-        }
-
-        public ItemData itemData
-        {
-            get
-            {
-                return this.mItemData;
-            }
-            set
-            {
-                DataSource.Bind<ItemData>(base.get_gameObject(), value);
-                this.mItemData = value;
-                return;
-            }
-        }
-
-        public SRPG.ArtifactParam ArtifactParam
-        {
-            get
-            {
-                return this.mArtifactParam;
-            }
-            set
-            {
-                DataSource.Bind<SRPG.ArtifactParam>(base.get_gameObject(), value);
-                this.mArtifactParam = value;
-                return;
-            }
-        }
+      base.\u002Ector();
     }
-}
 
+    public ItemData itemData
+    {
+      set
+      {
+        DataSource.Bind<ItemData>(((Component) this).get_gameObject(), value);
+        this.mItemData = value;
+      }
+      get
+      {
+        return this.mItemData;
+      }
+    }
+
+    public ArtifactParam ArtifactParam
+    {
+      set
+      {
+        DataSource.Bind<ArtifactParam>(((Component) this).get_gameObject(), value);
+        this.mArtifactParam = value;
+      }
+      get
+      {
+        return this.mArtifactParam;
+      }
+    }
+
+    public void SetShopItemDesc(Json_ShopItemDesc item)
+    {
+      this.ItemIcon.SetActive(!item.IsArtifact);
+      this.ArtifactIcon.SetActive(item.IsArtifact);
+      if (this.mShopItem == null)
+        this.mShopItem = (ShopItem) new LimitedShopItem();
+      this.mShopItem.num = item.num;
+      this.mShopItem.iname = item.iname;
+    }
+
+    public void OnClickDetailArtifact()
+    {
+      if (Object.op_Inequality((Object) this.mDetailWindow, (Object) null))
+        return;
+      this.mDetailWindow = (GameObject) Object.Instantiate<GameObject>((M0) this.ArtifactDetailWindow);
+      ArtifactData data = new ArtifactData();
+      data.Deserialize(new Json_Artifact()
+      {
+        iname = this.mArtifactParam.iname,
+        rare = this.mArtifactParam.rareini
+      });
+      DataSource.Bind<ArtifactData>(this.mDetailWindow, data);
+    }
+
+    public void OnClickDetailItem()
+    {
+      if (Object.op_Inequality((Object) this.mDetailWindow, (Object) null))
+        return;
+      this.mDetailWindow = (GameObject) Object.Instantiate<GameObject>((M0) this.ItemDetailWindow);
+      DataSource.Bind<ItemData>(this.mDetailWindow, MonoSingleton<GameManager>.Instance.Player.FindItemDataByItemID(this.mItemData.Param.iname));
+      DataSource.Bind<ItemParam>(this.mDetailWindow, MonoSingleton<GameManager>.Instance.GetItemParam(this.mItemData.Param.iname));
+      DataSource.Bind<ShopItem>(this.mDetailWindow, this.mShopItem);
+    }
+  }
+}

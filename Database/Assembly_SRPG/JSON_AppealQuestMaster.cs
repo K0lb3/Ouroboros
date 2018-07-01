@@ -1,29 +1,20 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.JSON_AppealQuestMaster
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
+  public class JSON_AppealQuestMaster
+  {
+    public JSON_AppealQuestMaster.Fields fields;
 
-    public class JSON_AppealQuestMaster
+    public class Fields
     {
-        public Fields fields;
-
-        public JSON_AppealQuestMaster()
-        {
-            base..ctor();
-            return;
-        }
-
-        public class Fields
-        {
-            public string appeal_id;
-            public string start_at;
-            public string end_at;
-
-            public Fields()
-            {
-                base..ctor();
-                return;
-            }
-        }
+      public string appeal_id;
+      public string start_at;
+      public string end_at;
     }
+  }
 }
-

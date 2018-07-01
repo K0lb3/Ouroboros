@@ -1,93 +1,61 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ArenaHistoryInfo
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
-    using UnityEngine.UI;
+  public class ArenaHistoryInfo : MonoBehaviour
+  {
+    [Space(10f)]
+    public Text Ranking;
+    public Text created_at;
+    public Text PlayerName;
+    public Text PlayerLevel;
+    public GameObject unit_icon;
+    public ImageArray result_image;
+    public ImageArray ranking_delta;
+    public ImageArray history_type;
+    public Image NewImage;
 
-    public class ArenaHistoryInfo : MonoBehaviour
+    public ArenaHistoryInfo()
     {
-        [Space(10f)]
-        public Text Ranking;
-        public Text created_at;
-        public Text PlayerName;
-        public Text PlayerLevel;
-        public GameObject unit_icon;
-        public ImageArray result_image;
-        public ImageArray ranking_delta;
-        public ImageArray history_type;
-        public Image NewImage;
-
-        public ArenaHistoryInfo()
-        {
-            base..ctor();
-            return;
-        }
-
-        private void OnEnable()
-        {
-            this.UpdateValue();
-            return;
-        }
-
-        public unsafe void UpdateValue()
-        {
-            ArenaPlayerHistory history;
-            history = DataSource.FindDataOfClass<ArenaPlayerHistory>(base.get_gameObject(), null);
-            if (history != null)
-            {
-                goto Label_0014;
-            }
-            return;
-        Label_0014:
-            this.PlayerLevel.set_text(&history.enemy.PlayerLevel.ToString());
-            if (history.IsWin() == null)
-            {
-                goto Label_004B;
-            }
-            this.result_image.ImageIndex = 0;
-            goto Label_0057;
-        Label_004B:
-            this.result_image.ImageIndex = 1;
-        Label_0057:
-            this.NewImage.get_gameObject().SetActive(history.IsNew());
-            if (history.IsNew() == null)
-            {
-                goto Label_009C;
-            }
-            this.created_at.set_color(new Color(255f, 255f, 0f, 1f));
-        Label_009C:
-            if (history.IsAttack() == null)
-            {
-                goto Label_00B8;
-            }
-            this.history_type.ImageIndex = 0;
-            goto Label_00C4;
-        Label_00B8:
-            this.history_type.ImageIndex = 1;
-        Label_00C4:
-            this.Ranking.set_text(&history.ranking.up.ToString());
-            this.Ranking.get_gameObject().SetActive((history.ranking.up == 0) == 0);
-            if (history.ranking.up <= 0)
-            {
-                goto Label_0122;
-            }
-            this.ranking_delta.ImageIndex = 0;
-            goto Label_0179;
-        Label_0122:
-            if (history.ranking.up >= 0)
-            {
-                goto Label_0168;
-            }
-            this.ranking_delta.ImageIndex = 1;
-            this.Ranking.set_color(new Color(255f, 0f, 0f, 1f));
-            goto Label_0179;
-        Label_0168:
-            this.ranking_delta.get_gameObject().SetActive(0);
-        Label_0179:
-            this.PlayerName.set_text(history.enemy.PlayerName.ToString());
-            this.created_at.set_text(&history.battle_at.ToString("MM/dd HH:mm"));
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    private void OnEnable()
+    {
+      this.UpdateValue();
+    }
+
+    public void UpdateValue()
+    {
+      ArenaPlayerHistory dataOfClass = DataSource.FindDataOfClass<ArenaPlayerHistory>(((Component) this).get_gameObject(), (ArenaPlayerHistory) null);
+      if (dataOfClass == null)
+        return;
+      this.PlayerLevel.set_text(dataOfClass.enemy.PlayerLevel.ToString());
+      this.result_image.ImageIndex = !dataOfClass.IsWin() ? 1 : 0;
+      ((Component) this.NewImage).get_gameObject().SetActive(dataOfClass.IsNew());
+      if (dataOfClass.IsNew())
+        ((Graphic) this.created_at).set_color(new Color((float) byte.MaxValue, (float) byte.MaxValue, 0.0f, 1f));
+      this.history_type.ImageIndex = !dataOfClass.IsAttack() ? 1 : 0;
+      this.Ranking.set_text(dataOfClass.ranking.up.ToString());
+      ((Component) this.Ranking).get_gameObject().SetActive(dataOfClass.ranking.up != 0);
+      if (dataOfClass.ranking.up > 0)
+        this.ranking_delta.ImageIndex = 0;
+      else if (dataOfClass.ranking.up < 0)
+      {
+        this.ranking_delta.ImageIndex = 1;
+        ((Graphic) this.Ranking).set_color(new Color((float) byte.MaxValue, 0.0f, 0.0f, 1f));
+      }
+      else
+        ((Component) this.ranking_delta).get_gameObject().SetActive(false);
+      this.PlayerName.set_text(dataOfClass.enemy.PlayerName.ToString());
+      this.created_at.set_text(dataOfClass.battle_at.ToString("MM/dd HH:mm"));
+    }
+  }
+}

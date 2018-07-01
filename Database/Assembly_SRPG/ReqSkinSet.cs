@@ -1,59 +1,39 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqSkinSet
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Collections.Generic;
+using System.Text;
+
+namespace SRPG
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
-
-    public class ReqSkinSet : WebAPI
+  public class ReqSkinSet : WebAPI
+  {
+    public ReqSkinSet(Dictionary<long, string> sets, Network.ResponseCallback response)
     {
-        public unsafe ReqSkinSet(Dictionary<long, string> sets, Network.ResponseCallback response)
+      StringBuilder stringBuilder = WebAPI.GetStringBuilder();
+      stringBuilder.Append("\"sets\":[");
+      string str = string.Empty;
+      using (Dictionary<long, string>.Enumerator enumerator = sets.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
         {
-            StringBuilder builder;
-            string str;
-            KeyValuePair<long, string> pair;
-            Dictionary<long, string>.Enumerator enumerator;
-            long num;
-            base..ctor();
-            builder = WebAPI.GetStringBuilder();
-            builder.Append("\"sets\":[");
-            str = string.Empty;
-            enumerator = sets.GetEnumerator();
-        Label_0025:
-            try
-            {
-                goto Label_0083;
-            Label_002A:
-                pair = &enumerator.Current;
-                str = str + "{";
-                str = str + "\"iid\":" + &&pair.Key.ToString() + ",";
-                str = str + "\"iname\":\"" + &pair.Value + "\"";
-                str = str + "},";
-            Label_0083:
-                if (&enumerator.MoveNext() != null)
-                {
-                    goto Label_002A;
-                }
-                goto Label_00A0;
-            }
-            finally
-            {
-            Label_0094:
-                ((Dictionary<long, string>.Enumerator) enumerator).Dispose();
-            }
-        Label_00A0:
-            if (str.Length <= 0)
-            {
-                goto Label_00BC;
-            }
-            str = str.Substring(0, str.Length - 1);
-        Label_00BC:
-            builder.Append(str);
-            builder.Append("]");
-            base.name = "unit/skin/set";
-            base.body = WebAPI.GetRequestString(builder.ToString());
-            base.callback = response;
-            return;
+          KeyValuePair<long, string> current = enumerator.Current;
+          str += "{";
+          str = str + "\"iid\":" + current.Key.ToString() + ",";
+          str = str + "\"iname\":\"" + current.Value + "\"";
+          str += "},";
         }
+      }
+      if (str.Length > 0)
+        str = str.Substring(0, str.Length - 1);
+      stringBuilder.Append(str);
+      stringBuilder.Append("]");
+      this.name = "unit/skin/set";
+      this.body = WebAPI.GetRequestString(stringBuilder.ToString());
+      this.callback = response;
     }
+  }
 }
-

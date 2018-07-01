@@ -1,224 +1,136 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_EnhanceEquip
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Collections.Generic;
-
-    [Pin(0, "Request", 0, 0), NodeType("System/EnhanceEquip", 0x7fe5), Pin(2, "費用が足りない", 1, 2), Pin(1, "Success", 1, 1)]
-    public class FlowNode_EnhanceEquip : FlowNode_Network
+  [FlowNode.Pin(2, "費用が足りない", FlowNode.PinTypes.Output, 2)]
+  [FlowNode.Pin(0, "Request", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.NodeType("System/EnhanceEquip", 32741)]
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
+  public class FlowNode_EnhanceEquip : FlowNode_Network
+  {
+    public override void OnActivate(int pinID)
     {
-        public FlowNode_EnhanceEquip()
+      if (pinID != 0 || ((Behaviour) this).get_enabled())
+        return;
+      GameManager instance = MonoSingleton<GameManager>.Instance;
+      PlayerData player = instance.Player;
+      UnitData unitDataByUniqueId = instance.Player.FindUnitDataByUniqueID((long) GlobalVars.SelectedUnitUniqueID);
+      JobData job = unitDataByUniqueId.Jobs[(int) GlobalVars.SelectedUnitJobIndex];
+      int selectedEquipmentSlot = (int) GlobalVars.SelectedEquipmentSlot;
+      EquipData selectedEquipData = GlobalVars.SelectedEquipData;
+      int num = 0;
+      int exp = 0;
+      List<EnhanceMaterial> enhanceMaterials = GlobalVars.SelectedEnhanceMaterials;
+      if (enhanceMaterials == null || enhanceMaterials.Count < 1)
+        return;
+      for (int index = 0; index < enhanceMaterials.Count; ++index)
+      {
+        EnhanceMaterial enhanceMaterial = enhanceMaterials[index];
+        ItemData itemData = enhanceMaterial.item;
+        num += (int) itemData.Param.enhace_cost * selectedEquipData.GetEnhanceCostScale() / 100 * enhanceMaterial.num;
+        exp += (int) itemData.Param.enhace_point * enhanceMaterial.num;
+      }
+      if (num > player.Gold)
+      {
+        this.ActivateOutputLinks(2);
+      }
+      else
+      {
+        selectedEquipData.GainExp(exp);
+        if (unitDataByUniqueId != null)
+          unitDataByUniqueId.CalcStatus();
+        for (int index = 0; index < enhanceMaterials.Count; ++index)
         {
-            base..ctor();
-            return;
+          EnhanceMaterial enhanceMaterial = enhanceMaterials[index];
+          enhanceMaterial.item.Used(enhanceMaterial.num);
         }
-
-        public override void OnActivate(int pinID)
+        player.GainGold(-num);
+        AnalyticsManager.TrackNonPremiumCurrencyUse(AnalyticsManager.NonPremiumCurrencyType.Zeni, (long) num, "Enhance Equip", (string) null);
+        if (Network.Mode == Network.EConnectMode.Online)
         {
-            GameManager manager;
-            PlayerData data;
-            UnitData data2;
-            JobData data3;
-            int num;
-            EquipData data4;
-            int num2;
-            int num3;
-            List<EnhanceMaterial> list;
-            int num4;
-            EnhanceMaterial material;
-            ItemData data5;
-            int num5;
-            EnhanceMaterial material2;
-            ItemData data6;
-            Dictionary<string, int> dictionary;
-            int num6;
-            EnhanceMaterial material3;
-            ItemData data7;
-            Dictionary<string, int> dictionary2;
-            string str;
-            int num7;
-            if (pinID == null)
+          Dictionary<string, int> usedItems = new Dictionary<string, int>();
+          for (int index = 0; index < enhanceMaterials.Count; ++index)
+          {
+            EnhanceMaterial enhanceMaterial = enhanceMaterials[index];
+            ItemData itemData = enhanceMaterial.item;
+            if (enhanceMaterial.num >= 1)
             {
-                goto Label_0007;
+              if (!usedItems.ContainsKey(itemData.ItemID))
+                usedItems[itemData.ItemID] = 0;
+              Dictionary<string, int> dictionary;
+              string itemId;
+              (dictionary = usedItems)[itemId = itemData.ItemID] = dictionary[itemId] + enhanceMaterial.num;
             }
-            return;
-        Label_0007:
-            if (base.get_enabled() == null)
-            {
-                goto Label_0013;
-            }
-            return;
-        Label_0013:
-            manager = MonoSingleton<GameManager>.Instance;
-            data = manager.Player;
-            data2 = manager.Player.FindUnitDataByUniqueID(GlobalVars.SelectedUnitUniqueID);
-            data3 = data2.Jobs[GlobalVars.SelectedUnitJobIndex];
-            num = GlobalVars.SelectedEquipmentSlot;
-            data4 = GlobalVars.SelectedEquipData;
-            num2 = 0;
-            num3 = 0;
-            list = GlobalVars.SelectedEnhanceMaterials;
-            if (list == null)
-            {
-                goto Label_007C;
-            }
-            if (list.Count >= 1)
-            {
-                goto Label_007D;
-            }
-        Label_007C:
-            return;
-        Label_007D:
-            num4 = 0;
-            goto Label_00DC;
-        Label_0085:
-            material = list[num4];
-            data5 = material.item;
-            num2 += ((data5.Param.enhace_cost * data4.GetEnhanceCostScale()) / 100) * material.num;
-            num3 += data5.Param.enhace_point * material.num;
-            num4 += 1;
-        Label_00DC:
-            if (num4 < list.Count)
-            {
-                goto Label_0085;
-            }
-            if (num2 <= data.Gold)
-            {
-                goto Label_0100;
-            }
-            base.ActivateOutputLinks(2);
-            return;
-        Label_0100:
-            data4.GainExp(num3);
-            if (data2 == null)
-            {
-                goto Label_0115;
-            }
-            data2.CalcStatus();
-        Label_0115:
-            num5 = 0;
-            goto Label_0145;
-        Label_011D:
-            material2 = list[num5];
-            material2.item.Used(material2.num);
-            num5 += 1;
-        Label_0145:
-            if (num5 < list.Count)
-            {
-                goto Label_011D;
-            }
-            data.GainGold(-num2);
-            if (Network.Mode != null)
-            {
-                goto Label_0223;
-            }
-            dictionary = new Dictionary<string, int>();
-            num6 = 0;
-            goto Label_01EC;
-        Label_0175:
-            material3 = list[num6];
-            data7 = material3.item;
-            if (material3.num >= 1)
-            {
-                goto Label_019B;
-            }
-            goto Label_01E6;
-        Label_019B:
-            if (dictionary.ContainsKey(data7.ItemID) != null)
-            {
-                goto Label_01BD;
-            }
-            dictionary[data7.ItemID] = 0;
-        Label_01BD:
-            num7 = dictionary2[str];
-            (dictionary2 = dictionary)[str = data7.ItemID] = num7 + material3.num;
-        Label_01E6:
-            num6 += 1;
-        Label_01EC:
-            if (num6 < list.Count)
-            {
-                goto Label_0175;
-            }
-            base.ExecRequest(new ReqEquipExpAdd(data3.UniqueID, num, dictionary, new Network.ResponseCallback(this.ResponseCallback)));
-            base.set_enabled(1);
-            return;
-        Label_0223:
-            this.Success();
-            return;
+          }
+          this.ExecRequest((WebAPI) new ReqEquipExpAdd(job.UniqueID, selectedEquipmentSlot, usedItems, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+          ((Behaviour) this).set_enabled(true);
         }
-
-        public override unsafe void OnSuccess(WWWResult www)
-        {
-            WebAPI.JSON_BodyResponse<Json_PlayerDataAll> response;
-            Exception exception;
-            Network.EErrCode code;
-            if (Network.IsError == null)
-            {
-                goto Label_0046;
-            }
-            switch ((Network.ErrCode - 0xa28))
-            {
-                case 0:
-                    goto Label_0031;
-
-                case 1:
-                    goto Label_0031;
-
-                case 2:
-                    goto Label_0038;
-
-                case 3:
-                    goto Label_0038;
-            }
-            goto Label_003F;
-        Label_0031:
-            this.OnFailed();
-            return;
-        Label_0038:
-            this.OnBack();
-            return;
-        Label_003F:
-            this.OnRetry();
-            return;
-        Label_0046:
-            response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_PlayerDataAll>>(&www.text);
-            DebugUtility.Assert((response == null) == 0, "res == null");
-            if (response.body != null)
-            {
-                goto Label_0076;
-            }
-            this.OnRetry();
-            return;
-        Label_0076:
-            try
-            {
-                MonoSingleton<GameManager>.Instance.Deserialize(response.body.player);
-                MonoSingleton<GameManager>.Instance.Deserialize(response.body.items);
-                MonoSingleton<GameManager>.Instance.Deserialize(response.body.units);
-                goto Label_00D1;
-            }
-            catch (Exception exception1)
-            {
-            Label_00BA:
-                exception = exception1;
-                DebugUtility.LogException(exception);
-                this.OnRetry();
-                goto Label_00DC;
-            }
-        Label_00D1:
-            Network.RemoveAPI();
-            this.Success();
-        Label_00DC:
-            return;
-        }
-
-        private void Success()
-        {
-            MonoSingleton<GameManager>.Instance.Player.OnSoubiPowerUp();
-            base.set_enabled(0);
-            base.ActivateOutputLinks(1);
-            return;
-        }
+        else
+          this.Success();
+      }
     }
-}
 
+    private void Success()
+    {
+      MonoSingleton<GameManager>.Instance.Player.OnSoubiPowerUp();
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(1);
+    }
+
+    public override void OnSuccess(WWWResult www)
+    {
+      if (Network.IsError)
+      {
+        switch (Network.ErrCode)
+        {
+          case Network.EErrCode.NoJobEnforceEquip:
+          case Network.EErrCode.NoEquipEnforce:
+            this.OnFailed();
+            break;
+          case Network.EErrCode.ForceMax:
+          case Network.EErrCode.MaterialShort:
+            this.OnBack();
+            break;
+          default:
+            this.OnRetry();
+            break;
+        }
+      }
+      else
+      {
+        WebAPI.JSON_BodyResponse<Json_PlayerDataAll> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_PlayerDataAll>>(www.text);
+        DebugUtility.Assert(jsonObject != null, "res == null");
+        if (jsonObject.body == null)
+        {
+          this.OnRetry();
+        }
+        else
+        {
+          try
+          {
+            MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.player);
+            MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.items);
+            MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.units);
+          }
+          catch (Exception ex)
+          {
+            DebugUtility.LogException(ex);
+            this.OnRetry();
+            return;
+          }
+          Network.RemoveAPI();
+          this.Success();
+        }
+      }
+    }
+  }
+}

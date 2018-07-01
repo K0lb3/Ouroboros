@@ -1,138 +1,89 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_SellPiece
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Collections.Generic;
-
-    [Pin(1, "Request", 0, 0), Pin(100, "Success", 1, 10), NodeType("System/SellPiece", 0x7fe5)]
-    public class FlowNode_SellPiece : FlowNode_Network
+  [FlowNode.NodeType("System/SellPiece", 32741)]
+  [FlowNode.Pin(1, "Request", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(100, "Success", FlowNode.PinTypes.Output, 10)]
+  public class FlowNode_SellPiece : FlowNode_Network
+  {
+    public override void OnActivate(int pinID)
     {
-        public FlowNode_SellPiece()
+      if (pinID != 1 || ((Behaviour) this).get_enabled())
+        return;
+      PlayerData player = MonoSingleton<GameManager>.Instance.Player;
+      if (Network.Mode == Network.EConnectMode.Offline)
+      {
+        for (int index = 0; index < GlobalVars.ConvertAwakePieceList.Count; ++index)
         {
-            base..ctor();
-            return;
+          SellItem convertAwakePiece = GlobalVars.ConvertAwakePieceList[index];
+          player.GainPiecePoint((int) convertAwakePiece.item.RarityParam.PieceToPoint * convertAwakePiece.num);
+          player.GainItem(convertAwakePiece.item.Param.iname, -convertAwakePiece.num);
+          convertAwakePiece.num = 0;
+          convertAwakePiece.index = -1;
         }
-
-        public override void OnActivate(int pinID)
+        GlobalVars.ConvertAwakePieceList.Clear();
+        this.Success();
+      }
+      else
+      {
+        Dictionary<long, int> sells = new Dictionary<long, int>();
+        List<SellItem> convertAwakePieceList = GlobalVars.ConvertAwakePieceList;
+        for (int index = 0; index < convertAwakePieceList.Count; ++index)
         {
-            PlayerData data;
-            int num;
-            SellItem item;
-            Dictionary<long, int> dictionary;
-            List<SellItem> list;
-            int num2;
-            long num3;
-            int num4;
-            if (pinID != 1)
-            {
-                goto Label_0129;
-            }
-            if (base.get_enabled() == null)
-            {
-                goto Label_0013;
-            }
-            return;
-        Label_0013:
-            data = MonoSingleton<GameManager>.Instance.Player;
-            if (Network.Mode != 1)
-            {
-                goto Label_00B2;
-            }
-            num = 0;
-            goto Label_008D;
-        Label_0030:
-            item = GlobalVars.ConvertAwakePieceList[num];
-            data.GainPiecePoint(item.item.RarityParam.PieceToPoint * item.num);
-            data.GainItem(item.item.Param.iname, -item.num);
-            item.num = 0;
-            item.index = -1;
-            num += 1;
-        Label_008D:
-            if (num < GlobalVars.ConvertAwakePieceList.Count)
-            {
-                goto Label_0030;
-            }
-            GlobalVars.ConvertAwakePieceList.Clear();
-            this.Success();
-            goto Label_0129;
-        Label_00B2:
-            dictionary = new Dictionary<long, int>();
-            list = GlobalVars.ConvertAwakePieceList;
-            num2 = 0;
-            goto Label_00FC;
-        Label_00C7:
-            num3 = list[num2].item.UniqueID;
-            num4 = list[num2].num;
-            dictionary[num3] = num4;
-            num2 += 1;
-        Label_00FC:
-            if (num2 < list.Count)
-            {
-                goto Label_00C7;
-            }
-            base.ExecRequest(new ReqSellPiece(dictionary, new Network.ResponseCallback(this.ResponseCallback)));
-            base.set_enabled(1);
-        Label_0129:
-            return;
+          long uniqueId = convertAwakePieceList[index].item.UniqueID;
+          int num = convertAwakePieceList[index].num;
+          sells[uniqueId] = num;
         }
-
-        public override unsafe void OnSuccess(WWWResult www)
-        {
-            WebAPI.JSON_BodyResponse<Json_PlayerDataAll> response;
-            Exception exception;
-            Network.EErrCode code;
-            if (Network.IsError == null)
-            {
-                goto Label_002E;
-            }
-            if (Network.ErrCode == 0xaf0)
-            {
-                goto Label_0020;
-            }
-            goto Label_0027;
-        Label_0020:
-            this.OnBack();
-            return;
-        Label_0027:
-            this.OnRetry();
-            return;
-        Label_002E:
-            response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_PlayerDataAll>>(&www.text);
-            DebugUtility.Assert((response == null) == 0, "res == null");
-        Label_004C:
-            try
-            {
-                if (response.body != null)
-                {
-                    goto Label_005D;
-                }
-                throw new InvalidJSONException();
-            Label_005D:
-                MonoSingleton<GameManager>.Instance.Deserialize(response.body.player);
-                MonoSingleton<GameManager>.Instance.Deserialize(response.body.items);
-                goto Label_009E;
-            }
-            catch (Exception exception1)
-            {
-            Label_008C:
-                exception = exception1;
-                base.OnRetry(exception);
-                goto Label_00B3;
-            }
-        Label_009E:
-            Network.RemoveAPI();
-            GlobalVars.ConvertAwakePieceList.Clear();
-            this.Success();
-        Label_00B3:
-            return;
-        }
-
-        private void Success()
-        {
-            base.set_enabled(0);
-            base.ActivateOutputLinks(100);
-            return;
-        }
+        this.ExecRequest((WebAPI) new ReqSellPiece(sells, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+        ((Behaviour) this).set_enabled(true);
+      }
     }
-}
 
+    private void Success()
+    {
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(100);
+    }
+
+    public override void OnSuccess(WWWResult www)
+    {
+      if (Network.IsError)
+      {
+        if (Network.ErrCode == Network.EErrCode.NoItemSell)
+          this.OnBack();
+        else
+          this.OnRetry();
+      }
+      else
+      {
+        WebAPI.JSON_BodyResponse<Json_PlayerDataAll> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_PlayerDataAll>>(www.text);
+        DebugUtility.Assert(jsonObject != null, "res == null");
+        try
+        {
+          if (jsonObject.body == null)
+            throw new InvalidJSONException();
+          MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.player);
+          MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.items);
+        }
+        catch (Exception ex)
+        {
+          this.OnRetry(ex);
+          return;
+        }
+        Network.RemoveAPI();
+        GlobalVars.ConvertAwakePieceList.Clear();
+        this.Success();
+      }
+    }
+  }
+}

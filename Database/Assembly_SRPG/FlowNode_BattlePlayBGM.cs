@@ -1,41 +1,33 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_BattlePlayBGM
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-
-    [NodeType("Battle/PlayBGM", 0x7fe5), Pin(1, "停止", 0, 1), Pin(0, "再生", 0, 0)]
-    public class FlowNode_BattlePlayBGM : FlowNode
+  [FlowNode.NodeType("Battle/PlayBGM", 32741)]
+  [FlowNode.Pin(0, "再生", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "停止", FlowNode.PinTypes.Input, 1)]
+  public class FlowNode_BattlePlayBGM : FlowNode
+  {
+    public override void OnActivate(int pinID)
     {
-        public FlowNode_BattlePlayBGM()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != null)
-            {
-                goto Label_0025;
-            }
-            if ((SceneBattle.Instance != null) == null)
-            {
-                goto Label_0046;
-            }
-            SceneBattle.Instance.PlayBGM();
-            goto Label_0046;
-        Label_0025:
-            if (pinID != 1)
-            {
-                goto Label_0046;
-            }
-            if ((SceneBattle.Instance != null) == null)
-            {
-                goto Label_0046;
-            }
-            SceneBattle.Instance.StopBGM();
-        Label_0046:
-            return;
-        }
+      switch (pinID)
+      {
+        case 0:
+          if (!Object.op_Inequality((Object) SceneBattle.Instance, (Object) null))
+            break;
+          SceneBattle.Instance.PlayBGM();
+          break;
+        case 1:
+          if (!Object.op_Inequality((Object) SceneBattle.Instance, (Object) null))
+            break;
+          SceneBattle.Instance.StopBGM();
+          break;
+      }
     }
+  }
 }
-

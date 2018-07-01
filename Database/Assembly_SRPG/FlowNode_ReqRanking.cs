@@ -1,65 +1,51 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_ReqRanking
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-
-    [Pin(1, "Quest", 0, 1), NodeType("System/ReqRanking", 0x7fe5), Pin(0, "Request", 0, 0), Pin(100, "Success", 1, 100), Pin(3, "TowerMuch", 0, 3), Pin(2, "Arena", 0, 2)]
-    public class FlowNode_ReqRanking : FlowNode_Network
+  [FlowNode.Pin(1, "Quest", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.NodeType("System/ReqRanking", 32741)]
+  [FlowNode.Pin(100, "Success", FlowNode.PinTypes.Output, 100)]
+  [FlowNode.Pin(3, "TowerMuch", FlowNode.PinTypes.Input, 3)]
+  [FlowNode.Pin(2, "Arena", FlowNode.PinTypes.Input, 2)]
+  [FlowNode.Pin(0, "Request", FlowNode.PinTypes.Input, 0)]
+  public class FlowNode_ReqRanking : FlowNode_Network
+  {
+    public override void OnActivate(int pinID)
     {
-        public FlowNode_ReqRanking()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            UsageRateRanking ranking;
-            int num;
-            ranking = base.get_gameObject().GetComponent<UsageRateRanking>();
-            num = pinID;
-            switch ((num - 1))
-            {
-                case 0:
-                    goto Label_0027;
-
-                case 1:
-                    goto Label_0033;
-
-                case 2:
-                    goto Label_003F;
-            }
-            goto Label_004B;
-        Label_0027:
-            ranking.OnChangedToggle(0);
-            goto Label_004B;
-        Label_0033:
-            ranking.OnChangedToggle(1);
-            goto Label_004B;
-        Label_003F:
-            ranking.OnChangedToggle(2);
-        Label_004B:
-            pinID = ((pinID <= 0) || (pinID > 3)) ? pinID : 0;
-            if (pinID != null)
-            {
-                goto Label_008B;
-            }
-            base.set_enabled(1);
-            base.ExecRequest(new ReqRanking(UsageRateRanking.ViewInfo, new Network.ResponseCallback(this.ResponseCallback)));
-        Label_008B:
-            return;
-        }
-
-        public override unsafe void OnSuccess(WWWResult www)
-        {
-            WebAPI.JSON_BodyResponse<RankingData[]> response;
-            response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<RankingData[]>>(&www.text);
-            DebugUtility.Assert((response == null) == 0, "res == null");
-            Network.RemoveAPI();
-            MonoSingleton<GameManager>.Instance.Deserialize(response.body);
-            base.ActivateOutputLinks(100);
-            return;
-        }
+      UsageRateRanking component = (UsageRateRanking) ((Component) this).get_gameObject().GetComponent<UsageRateRanking>();
+      switch (pinID)
+      {
+        case 1:
+          component.OnChangedToggle(UsageRateRanking.ViewInfoType.Quest);
+          break;
+        case 2:
+          component.OnChangedToggle(UsageRateRanking.ViewInfoType.Arena);
+          break;
+        case 3:
+          component.OnChangedToggle(UsageRateRanking.ViewInfoType.TowerMatch);
+          break;
+      }
+      pinID = pinID <= 0 || pinID > 3 ? pinID : 0;
+      if (pinID != 0)
+        return;
+      ((Behaviour) this).set_enabled(true);
+      this.ExecRequest((WebAPI) new ReqRanking(UsageRateRanking.ViewInfo, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
     }
-}
 
+    public override void OnSuccess(WWWResult www)
+    {
+      WebAPI.JSON_BodyResponse<RankingData[]> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<RankingData[]>>(www.text);
+      DebugUtility.Assert(jsonObject != null, "res == null");
+      Network.RemoveAPI();
+      MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body);
+      this.ActivateOutputLinks(100);
+    }
+  }
+}

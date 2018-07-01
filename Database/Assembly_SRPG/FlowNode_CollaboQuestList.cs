@@ -1,87 +1,57 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_CollaboQuestList
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using UnityEngine;
-
-    [NodeType("UI/CollaboQuestList")]
-    public class FlowNode_CollaboQuestList : FlowNode_GUI
+  [FlowNode.NodeType("UI/CollaboQuestList")]
+  public class FlowNode_CollaboQuestList : FlowNode_GUI
+  {
+    protected override void OnInstanceCreate()
     {
-        public FlowNode_CollaboQuestList()
+      base.OnInstanceCreate();
+      CollaboSkillQuestList componentInChildren = (CollaboSkillQuestList) this.Instance.GetComponentInChildren<CollaboSkillQuestList>();
+      if (Object.op_Equality((Object) componentInChildren, (Object) null))
+        return;
+      CollaboSkillParam.Pair collaboSkillPair = GlobalVars.SelectedCollaboSkillPair;
+      if (collaboSkillPair == null)
+      {
+        DebugUtility.LogError("CollaboSkillParam.Pair が セットされていない");
+      }
+      else
+      {
+        componentInChildren.CurrentUnit1 = MonoSingleton<GameManager>.Instance.Player.FindUnitDataByUniqueParam(collaboSkillPair.UnitParam1);
+        componentInChildren.CurrentUnit2 = MonoSingleton<GameManager>.Instance.Player.FindUnitDataByUniqueParam(collaboSkillPair.UnitParam2);
+        if (componentInChildren.CurrentUnit1 == null)
+          DebugUtility.LogError("window.CurrentUnit1 == null");
+        else if (componentInChildren.CurrentUnit2 == null)
         {
-            base..ctor();
-            return;
+          DebugUtility.LogError("window.CurrentUnit2 == null");
         }
-
-        private void OnBack(GameObject go, bool visible)
+        else
         {
-            CollaboSkillQuestList list;
-            WindowController controller;
-            if (visible == null)
-            {
-                goto Label_0007;
-            }
-            return;
-        Label_0007:
-            list = base.Instance.GetComponentInChildren<CollaboSkillQuestList>();
-            if ((list == null) != null)
-            {
-                goto Label_0025;
-            }
-            if (visible == null)
-            {
-                goto Label_0026;
-            }
-        Label_0025:
-            return;
-        Label_0026:
-            list.GetComponent<WindowController>().SetCollision(1);
-            list.GetComponent<WindowController>().OnWindowStateChange = null;
-            Object.Destroy(list.get_gameObject());
-            return;
+          ((WindowController) ((Component) componentInChildren).GetComponent<WindowController>()).SetCollision(false);
+          ((WindowController) ((Component) componentInChildren).GetComponent<WindowController>()).OnWindowStateChange = new WindowController.WindowStateChangeEvent(this.OnBack);
+          WindowController.OpenIfAvailable((Component) componentInChildren);
         }
-
-        protected override void OnInstanceCreate()
-        {
-            CollaboSkillQuestList list;
-            CollaboSkillParam.Pair pair;
-            base.OnInstanceCreate();
-            list = base.Instance.GetComponentInChildren<CollaboSkillQuestList>();
-            if ((list == null) == null)
-            {
-                goto Label_001F;
-            }
-            return;
-        Label_001F:
-            pair = GlobalVars.SelectedCollaboSkillPair;
-            if (pair != null)
-            {
-                goto Label_0036;
-            }
-            DebugUtility.LogError("CollaboSkillParam.Pair が セットされていない");
-            return;
-        Label_0036:
-            list.CurrentUnit1 = MonoSingleton<GameManager>.Instance.Player.FindUnitDataByUniqueParam(pair.UnitParam1);
-            list.CurrentUnit2 = MonoSingleton<GameManager>.Instance.Player.FindUnitDataByUniqueParam(pair.UnitParam2);
-            if (list.CurrentUnit1 != null)
-            {
-                goto Label_0082;
-            }
-            DebugUtility.LogError("window.CurrentUnit1 == null");
-            return;
-        Label_0082:
-            if (list.CurrentUnit2 != null)
-            {
-                goto Label_0098;
-            }
-            DebugUtility.LogError("window.CurrentUnit2 == null");
-            return;
-        Label_0098:
-            list.GetComponent<WindowController>().SetCollision(0);
-            list.GetComponent<WindowController>().OnWindowStateChange = new WindowController.WindowStateChangeEvent(this.OnBack);
-            WindowController.OpenIfAvailable(list);
-            return;
-        }
+      }
     }
-}
 
+    private void OnBack(GameObject go, bool visible)
+    {
+      if (visible)
+        return;
+      CollaboSkillQuestList componentInChildren = (CollaboSkillQuestList) this.Instance.GetComponentInChildren<CollaboSkillQuestList>();
+      if (Object.op_Equality((Object) componentInChildren, (Object) null) || visible)
+        return;
+      ((WindowController) ((Component) componentInChildren).GetComponent<WindowController>()).SetCollision(true);
+      ((WindowController) ((Component) componentInChildren).GetComponent<WindowController>()).OnWindowStateChange = (WindowController.WindowStateChangeEvent) null;
+      Object.Destroy((Object) ((Component) componentInChildren).get_gameObject());
+    }
+  }
+}

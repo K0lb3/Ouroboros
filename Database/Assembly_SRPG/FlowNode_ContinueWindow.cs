@@ -1,55 +1,47 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_ContinueWindow
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
-
-    [Pin(10, "Open", 0, 0), Pin(1, "Yes", 1, 1), Pin(11, "ForceClose", 0, 11), Pin(2, "No", 1, 2), NodeType("UI/ContinueWindow", 0x7fe5)]
-    public class FlowNode_ContinueWindow : FlowNode
+  [FlowNode.NodeType("UI/ContinueWindow", 32741)]
+  [FlowNode.Pin(10, "Open", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "Yes", FlowNode.PinTypes.Output, 1)]
+  [FlowNode.Pin(2, "No", FlowNode.PinTypes.Output, 2)]
+  [FlowNode.Pin(11, "ForceClose", FlowNode.PinTypes.Input, 11)]
+  public class FlowNode_ContinueWindow : FlowNode
+  {
+    public override void OnActivate(int pinID)
     {
-        public FlowNode_ContinueWindow()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != 10)
-            {
-                goto Label_004E;
-            }
-            if (ContinueWindow.Create(SceneBattle.Instance.continueWindowRes, new ContinueWindow.ResultEvent(this.OnDecide), new ContinueWindow.ResultEvent(this.OnCancel)) != null)
-            {
-                goto Label_0040;
-            }
-            this.OnCancel(null);
-            goto Label_0049;
-        Label_0040:
-            base.ActivateOutputLinks(100);
-        Label_0049:
-            goto Label_0064;
-        Label_004E:
-            if (pinID != 11)
-            {
-                goto Label_0064;
-            }
-            ContinueWindow.ForceClose();
-            base.ActivateOutputLinks(0x65);
-        Label_0064:
-            return;
-        }
-
-        private void OnCancel(GameObject dialog)
-        {
-            base.ActivateOutputLinks(2);
-            return;
-        }
-
-        private void OnDecide(GameObject dialog)
-        {
-            base.ActivateOutputLinks(1);
-            return;
-        }
+      switch (pinID)
+      {
+        case 10:
+          if (!ContinueWindow.Create(SceneBattle.Instance.continueWindowRes, new ContinueWindow.ResultEvent(this.OnDecide), new ContinueWindow.ResultEvent(this.OnCancel)))
+          {
+            this.OnCancel((GameObject) null);
+            break;
+          }
+          this.ActivateOutputLinks(100);
+          break;
+        case 11:
+          ContinueWindow.ForceClose();
+          this.ActivateOutputLinks(101);
+          break;
+      }
     }
-}
 
+    private void OnDecide(GameObject dialog)
+    {
+      this.ActivateOutputLinks(1);
+    }
+
+    private void OnCancel(GameObject dialog)
+    {
+      this.ActivateOutputLinks(2);
+    }
+  }
+}

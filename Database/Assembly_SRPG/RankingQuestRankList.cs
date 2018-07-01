@@ -1,108 +1,88 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.RankingQuestRankList
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
-    using UnityEngine.Events;
+  public class RankingQuestRankList : MonoBehaviour, ScrollListSetUp
+  {
+    private float Space;
+    private int m_Max;
+    private RankingQuestUserData[] m_UserDatas;
+    private RankingQuestRankWindow m_RankingWindow;
 
-    public class RankingQuestRankList : MonoBehaviour, ScrollListSetUp
+    public RankingQuestRankList()
     {
-        private float Space;
-        private int m_Max;
-        private RankingQuestUserData[] m_UserDatas;
-        private RankingQuestRankWindow m_RankingWindow;
-
-        public RankingQuestRankList()
-        {
-            this.Space = 10f;
-            base..ctor();
-            return;
-        }
-
-        private void OnItemSelect(GameObject go)
-        {
-            this.m_RankingWindow.OnItemSelect(go);
-            return;
-        }
-
-        public unsafe void OnSetUpItems()
-        {
-            ScrollListController controller;
-            RectTransform transform;
-            Vector2 vector;
-            Vector2 vector2;
-            if (this.m_UserDatas != null)
-            {
-                goto Label_000C;
-            }
-            return;
-        Label_000C:
-            controller = base.GetComponent<ScrollListController>();
-            controller.OnItemUpdate.RemoveListener(new UnityAction<int, GameObject>(this, this.OnUpdateItems));
-            controller.OnItemUpdate.AddListener(new UnityAction<int, GameObject>(this, this.OnUpdateItems));
-            base.GetComponentInParent<ScrollRect>().set_movementType(2);
-            transform = base.GetComponent<RectTransform>();
-            vector = transform.get_sizeDelta();
-            vector2 = transform.get_anchoredPosition();
-            this.m_Max = (int) this.m_UserDatas.Length;
-            controller.Space = (controller.ItemScale + this.Space) / controller.ItemScale;
-            &vector2.y = 0f;
-            &vector.y = (controller.ItemScale * controller.Space) * ((float) this.m_Max);
-            transform.set_sizeDelta(vector);
-            transform.set_anchoredPosition(vector2);
-            return;
-        }
-
-        public void OnUpdateItems(int idx, GameObject obj)
-        {
-            ListItemEvents events;
-            RankingQuestInfo info;
-            if (this.m_UserDatas == null)
-            {
-                goto Label_0020;
-            }
-            if (idx < 0)
-            {
-                goto Label_0020;
-            }
-            if (idx < ((int) this.m_UserDatas.Length))
-            {
-                goto Label_002C;
-            }
-        Label_0020:
-            obj.SetActive(0);
-            goto Label_0092;
-        Label_002C:
-            obj.SetActive(1);
-            events = obj.GetComponent<ListItemEvents>();
-            if ((events != null) == null)
-            {
-                goto Label_0058;
-            }
-            events.OnSelect = new ListItemEvents.ListItemEvent(this.OnItemSelect);
-        Label_0058:
-            DataSource.Bind<RankingQuestUserData>(obj, this.m_UserDatas[idx]);
-            DataSource.Bind<UnitData>(obj, this.m_UserDatas[idx].m_UnitData);
-            info = obj.GetComponent<RankingQuestInfo>();
-            if ((info != null) == null)
-            {
-                goto Label_0092;
-            }
-            info.UpdateValue();
-        Label_0092:
-            return;
-        }
-
-        public void SetData(RankingQuestUserData[] data)
-        {
-            this.m_UserDatas = data;
-            return;
-        }
-
-        private void Start()
-        {
-            this.m_RankingWindow = base.GetComponentInParent<RankingQuestRankWindow>();
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Start()
+    {
+      this.m_RankingWindow = (RankingQuestRankWindow) ((Component) this).GetComponentInParent<RankingQuestRankWindow>();
+    }
+
+    public void SetData(RankingQuestUserData[] data)
+    {
+      this.m_UserDatas = data;
+    }
+
+    public void OnSetUpItems()
+    {
+      if (this.m_UserDatas == null)
+        return;
+      ScrollListController component1 = (ScrollListController) ((Component) this).GetComponent<ScrollListController>();
+      ScrollListController.OnItemPositionChange onItemUpdate1 = component1.OnItemUpdate;
+      RankingQuestRankList rankingQuestRankList1 = this;
+      // ISSUE: virtual method pointer
+      UnityAction<int, GameObject> unityAction1 = new UnityAction<int, GameObject>((object) rankingQuestRankList1, __vmethodptr(rankingQuestRankList1, OnUpdateItems));
+      onItemUpdate1.RemoveListener(unityAction1);
+      ScrollListController.OnItemPositionChange onItemUpdate2 = component1.OnItemUpdate;
+      RankingQuestRankList rankingQuestRankList2 = this;
+      // ISSUE: virtual method pointer
+      UnityAction<int, GameObject> unityAction2 = new UnityAction<int, GameObject>((object) rankingQuestRankList2, __vmethodptr(rankingQuestRankList2, OnUpdateItems));
+      onItemUpdate2.AddListener(unityAction2);
+      ((ScrollRect) ((Component) this).GetComponentInParent<ScrollRect>()).set_movementType((ScrollRect.MovementType) 2);
+      RectTransform component2 = (RectTransform) ((Component) this).GetComponent<RectTransform>();
+      Vector2 sizeDelta = component2.get_sizeDelta();
+      Vector2 anchoredPosition = component2.get_anchoredPosition();
+      this.m_Max = this.m_UserDatas.Length;
+      component1.Space = (component1.ItemScale + this.Space) / component1.ItemScale;
+      anchoredPosition.y = (__Null) 0.0;
+      sizeDelta.y = (__Null) ((double) component1.ItemScale * (double) component1.Space * (double) this.m_Max);
+      component2.set_sizeDelta(sizeDelta);
+      component2.set_anchoredPosition(anchoredPosition);
+    }
+
+    public void OnUpdateItems(int idx, GameObject obj)
+    {
+      if (this.m_UserDatas == null || idx < 0 || idx >= this.m_UserDatas.Length)
+      {
+        obj.SetActive(false);
+      }
+      else
+      {
+        obj.SetActive(true);
+        ListItemEvents component1 = (ListItemEvents) obj.GetComponent<ListItemEvents>();
+        if (Object.op_Inequality((Object) component1, (Object) null))
+          component1.OnSelect = new ListItemEvents.ListItemEvent(this.OnItemSelect);
+        DataSource.Bind<RankingQuestUserData>(obj, this.m_UserDatas[idx]);
+        DataSource.Bind<UnitData>(obj, this.m_UserDatas[idx].m_UnitData);
+        RankingQuestInfo component2 = (RankingQuestInfo) obj.GetComponent<RankingQuestInfo>();
+        if (!Object.op_Inequality((Object) component2, (Object) null))
+          return;
+        component2.UpdateValue();
+      }
+    }
+
+    private void OnItemSelect(GameObject go)
+    {
+      this.m_RankingWindow.OnItemSelect(go);
+    }
+  }
+}

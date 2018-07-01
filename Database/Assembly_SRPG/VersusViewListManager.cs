@@ -1,76 +1,57 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.VersusViewListManager
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using UnityEngine;
+  [FlowNode.Pin(1, "Refresh", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(2, "Search", FlowNode.PinTypes.Input, 2)]
+  public class VersusViewListManager : MonoBehaviour, IFlowInterface
+  {
+    public ScrollListController Scroll;
+    public ScrollClamped_VersusViewList ViewList;
 
-    [Pin(2, "Search", 0, 2), Pin(1, "Refresh", 0, 1)]
-    public class VersusViewListManager : MonoBehaviour, IFlowInterface
+    public VersusViewListManager()
     {
-        public ScrollListController Scroll;
-        public ScrollClamped_VersusViewList ViewList;
-
-        public VersusViewListManager()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void Activated(int pinID)
-        {
-            if (pinID != 1)
-            {
-                goto Label_0044;
-            }
-            if ((this.Scroll != null) == null)
-            {
-                goto Label_0051;
-            }
-            if ((this.ViewList != null) == null)
-            {
-                goto Label_0051;
-            }
-            this.ViewList.OnSetUpItems();
-            this.Scroll.Refresh();
-            goto Label_0051;
-        Label_0044:
-            if (pinID != 2)
-            {
-                goto Label_0051;
-            }
-            this.Search();
-        Label_0051:
-            return;
-        }
-
-        private void Search()
-        {
-            GameManager manager;
-            int num;
-            MyPhoton photon;
-            manager = MonoSingleton<GameManager>.Instance;
-            num = GlobalVars.SelectedMultiPlayRoomID;
-            photon = PunMonoSingleton<MyPhoton>.Instance;
-            manager.AudienceRoom = photon.SearchRoom(num);
-            if (manager.AudienceRoom == null)
-            {
-                goto Label_005A;
-            }
-            if (manager.AudienceRoom.start == null)
-            {
-                goto Label_004A;
-            }
-            FlowNode_TriggerLocalEvent.TriggerLocalEvent(this, "AlreadyStartFriendMode");
-            goto Label_0055;
-        Label_004A:
-            FlowNode_TriggerLocalEvent.TriggerLocalEvent(this, "FindRoom");
-        Label_0055:
-            goto Label_0065;
-        Label_005A:
-            FlowNode_TriggerLocalEvent.TriggerLocalEvent(this, "NotFindRoom");
-        Label_0065:
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    public void Activated(int pinID)
+    {
+      switch (pinID)
+      {
+        case 1:
+          if (!Object.op_Inequality((Object) this.Scroll, (Object) null) || !Object.op_Inequality((Object) this.ViewList, (Object) null))
+            break;
+          this.ViewList.OnSetUpItems();
+          this.Scroll.Refresh();
+          break;
+        case 2:
+          this.Search();
+          break;
+      }
+    }
+
+    private void Search()
+    {
+      GameManager instance1 = MonoSingleton<GameManager>.Instance;
+      int selectedMultiPlayRoomId = GlobalVars.SelectedMultiPlayRoomID;
+      MyPhoton instance2 = PunMonoSingleton<MyPhoton>.Instance;
+      instance1.AudienceRoom = instance2.SearchRoom(selectedMultiPlayRoomId);
+      if (instance1.AudienceRoom != null)
+      {
+        if (instance1.AudienceRoom.start)
+          FlowNode_TriggerLocalEvent.TriggerLocalEvent((Component) this, "AlreadyStartFriendMode");
+        else
+          FlowNode_TriggerLocalEvent.TriggerLocalEvent((Component) this, "FindRoom");
+      }
+      else
+        FlowNode_TriggerLocalEvent.TriggerLocalEvent((Component) this, "NotFindRoom");
+    }
+  }
+}

@@ -1,471 +1,177 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.AbilityParam
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Collections.Generic;
-    using System.Runtime.CompilerServices;
-    using System.Runtime.InteropServices;
+  public class AbilityParam
+  {
+    private string localizedNameID;
+    private string localizedExprID;
+    public string iname;
+    public string name;
+    public string expr;
+    public string icon;
+    public EAbilityType type;
+    public EAbilitySlot slot;
+    public OInt lvcap;
+    public bool is_fixed;
+    public LearningSkill[] skills;
+    public string[] condition_units;
+    public string[] condition_jobs;
+    public string condition_birth;
+    public ESex condition_sex;
+    public EElement condition_element;
+    public OInt condition_raremin;
+    public OInt condition_raremax;
 
-    public class AbilityParam
+    protected void localizeFields(string language)
     {
-        public string iname;
-        public string name;
-        public string expr;
-        public string icon;
-        public EAbilityType type;
-        public EAbilitySlot slot;
-        public OInt lvcap;
-        public bool is_fixed;
-        public LearningSkill[] skills;
-        public string[] condition_units;
-        public EUseConditionsType units_conditions_type;
-        public string[] condition_jobs;
-        public EUseConditionsType jobs_conditions_type;
-        public string condition_birth;
-        public ESex condition_sex;
-        public EElement condition_element;
-        public OInt condition_raremin;
-        public OInt condition_raremax;
-        public EAbilityTypeDetail type_detail;
-
-        public AbilityParam()
-        {
-            base..ctor();
-            return;
-        }
-
-        public bool CheckEnableUseAbility(UnitData self, int job_index)
-        {
-            bool flag;
-            bool flag2;
-            <CheckEnableUseAbility>c__AnonStorey2B4 storeyb;
-            <CheckEnableUseAbility>c__AnonStorey2B5 storeyb2;
-            <CheckEnableUseAbility>c__AnonStorey2B6 storeyb3;
-            storeyb = new <CheckEnableUseAbility>c__AnonStorey2B4();
-            storeyb.self = self;
-            if (this.condition_units == null)
-            {
-                goto Label_0054;
-            }
-            flag = (Array.Find<string>(this.condition_units, new Predicate<string>(storeyb.<>m__22A)) == null) == 0;
-            if (((this.units_conditions_type != null) ? (flag == 0) : flag) != null)
-            {
-                goto Label_0054;
-            }
-            return 0;
-        Label_0054:
-            if (this.condition_jobs == null)
-            {
-                goto Label_0133;
-            }
-            storeyb2 = new <CheckEnableUseAbility>c__AnonStorey2B5();
-            storeyb2.job = storeyb.self.GetJobData(job_index);
-            if (storeyb2.job != null)
-            {
-                goto Label_0084;
-            }
-            return 0;
-        Label_0084:
-            flag2 = (Array.Find<string>(this.condition_jobs, new Predicate<string>(storeyb2.<>m__22B)) == null) == 0;
-            if ((flag2 != null) || (string.IsNullOrEmpty(storeyb2.job.Param.origin) != null))
-            {
-                goto Label_0115;
-            }
-            storeyb3 = new <CheckEnableUseAbility>c__AnonStorey2B6();
-            storeyb3.originJobParam = MonoSingleton<GameManager>.GetInstanceDirect().GetJobParam(storeyb2.job.Param.origin);
-            if (storeyb3.originJobParam == null)
-            {
-                goto Label_0115;
-            }
-            flag2 = (Array.Find<string>(this.condition_jobs, new Predicate<string>(storeyb3.<>m__22C)) == null) == 0;
-        Label_0115:
-            if (((this.jobs_conditions_type != null) ? (flag2 == 0) : flag2) != null)
-            {
-                goto Label_0133;
-            }
-            return 0;
-        Label_0133:
-            if (string.IsNullOrEmpty(this.condition_birth) != null)
-            {
-                goto Label_016A;
-            }
-            if ((storeyb.self.UnitParam.birth != this.condition_birth) == null)
-            {
-                goto Label_016A;
-            }
-            return 0;
-        Label_016A:
-            if (this.condition_sex == null)
-            {
-                goto Label_0192;
-            }
-            if (storeyb.self.UnitParam.sex == this.condition_sex)
-            {
-                goto Label_0192;
-            }
-            return 0;
-        Label_0192:
-            if (this.condition_element == null)
-            {
-                goto Label_01B5;
-            }
-            if (storeyb.self.Element == this.condition_element)
-            {
-                goto Label_01B5;
-            }
-            return 0;
-        Label_01B5:
-            if (this.condition_raremax == null)
-            {
-                goto Label_0218;
-            }
-            if (this.condition_raremin > storeyb.self.Rarity)
-            {
-                goto Label_0216;
-            }
-            if (this.condition_raremax < storeyb.self.Rarity)
-            {
-                goto Label_0216;
-            }
-            if (this.condition_raremax >= this.condition_raremin)
-            {
-                goto Label_0218;
-            }
-        Label_0216:
-            return 0;
-        Label_0218:
-            return 1;
-        }
-
-        public bool Deserialize(JSON_AbilityParam json)
-        {
-            int[] numArray1;
-            string[] textArray1;
-            int num;
-            string[] strArray;
-            int num2;
-            int[] numArray;
-            int num3;
-            int num4;
-            int num5;
-            if (json != null)
-            {
-                goto Label_0008;
-            }
-            return 0;
-        Label_0008:
-            this.iname = json.iname;
-            this.name = json.name;
-            this.expr = json.expr;
-            this.icon = json.icon;
-            this.type = json.type;
-            this.slot = json.slot;
-            this.lvcap = Math.Max(json.cap, 1);
-            this.is_fixed = (json.fix == 0) == 0;
-            num = 0;
-            textArray1 = new string[] { json.skl1, json.skl2, json.skl3, json.skl4, json.skl5, json.skl6, json.skl7, json.skl8, json.skl9, json.skl10 };
-            strArray = textArray1;
-            num2 = 0;
-            goto Label_00FF;
-        Label_00E5:
-            if (string.IsNullOrEmpty(strArray[num2]) == null)
-            {
-                goto Label_00F7;
-            }
-            goto Label_0108;
-        Label_00F7:
-            num += 1;
-            num2 += 1;
-        Label_00FF:
-            if (num2 < ((int) strArray.Length))
-            {
-                goto Label_00E5;
-            }
-        Label_0108:
-            if (num <= 0)
-            {
-                goto Label_01C6;
-            }
-            numArray1 = new int[] { json.lv1, json.lv2, json.lv3, json.lv4, json.lv5, json.lv6, json.lv7, json.lv8, json.lv9, json.lv10 };
-            numArray = numArray1;
-            this.skills = new LearningSkill[num];
-            num3 = 0;
-            goto Label_01BE;
-        Label_0186:
-            this.skills[num3] = new LearningSkill();
-            this.skills[num3].iname = strArray[num3];
-            this.skills[num3].locklv = numArray[num3];
-            num3 += 1;
-        Label_01BE:
-            if (num3 < num)
-            {
-                goto Label_0186;
-            }
-        Label_01C6:
-            this.condition_units = null;
-            if (json.units == null)
-            {
-                goto Label_0228;
-            }
-            if (((int) json.units.Length) <= 0)
-            {
-                goto Label_0228;
-            }
-            this.condition_units = new string[(int) json.units.Length];
-            num4 = 0;
-            goto Label_0219;
-        Label_0201:
-            this.condition_units[num4] = json.units[num4];
-            num4 += 1;
-        Label_0219:
-            if (num4 < ((int) json.units.Length))
-            {
-                goto Label_0201;
-            }
-        Label_0228:
-            this.units_conditions_type = json.units_cnds_type;
-            this.condition_jobs = null;
-            if (json.jobs == null)
-            {
-                goto Label_0296;
-            }
-            if (((int) json.jobs.Length) <= 0)
-            {
-                goto Label_0296;
-            }
-            this.condition_jobs = new string[(int) json.jobs.Length];
-            num5 = 0;
-            goto Label_0287;
-        Label_026F:
-            this.condition_jobs[num5] = json.jobs[num5];
-            num5 += 1;
-        Label_0287:
-            if (num5 < ((int) json.jobs.Length))
-            {
-                goto Label_026F;
-            }
-        Label_0296:
-            this.jobs_conditions_type = json.jobs_cnds_type;
-            this.condition_birth = json.birth;
-            this.condition_sex = json.sex;
-            this.condition_element = json.elem;
-            this.condition_raremin = json.rmin;
-            this.condition_raremax = json.rmax;
-            this.type_detail = json.type_detail;
-            return 1;
-        }
-
-        public List<JobParam> FindConditionJobParams(MasterParam masterParam)
-        {
-            List<JobParam> list;
-            int num;
-            JobParam param;
-            string str;
-            GameManager manager;
-            list = new List<JobParam>();
-            if (this.condition_jobs == null)
-            {
-                goto Label_0089;
-            }
-            num = 0;
-            goto Label_007B;
-        Label_0018:
-            if (string.IsNullOrEmpty(this.condition_jobs[num]) == null)
-            {
-                goto Label_002F;
-            }
-            goto Label_0077;
-        Label_002F:
-            param = null;
-            str = this.condition_jobs[num];
-            if (masterParam != null)
-            {
-                goto Label_0062;
-            }
-            manager = MonoSingleton<GameManager>.GetInstanceDirect();
-            if ((manager != null) == null)
-            {
-                goto Label_006A;
-            }
-            param = manager.GetJobParam(str);
-            goto Label_006A;
-        Label_0062:
-            param = masterParam.GetJobParam(str);
-        Label_006A:
-            if (param == null)
-            {
-                goto Label_0077;
-            }
-            list.Add(param);
-        Label_0077:
-            num += 1;
-        Label_007B:
-            if (num < ((int) this.condition_jobs.Length))
-            {
-                goto Label_0018;
-            }
-        Label_0089:
-            return list;
-        }
-
-        public List<UnitParam> FindConditionUnitParams(MasterParam masterParam)
-        {
-            List<UnitParam> list;
-            int num;
-            UnitParam param;
-            string str;
-            GameManager manager;
-            list = new List<UnitParam>();
-            if (this.condition_units == null)
-            {
-                goto Label_0089;
-            }
-            num = 0;
-            goto Label_007B;
-        Label_0018:
-            if (string.IsNullOrEmpty(this.condition_units[num]) == null)
-            {
-                goto Label_002F;
-            }
-            goto Label_0077;
-        Label_002F:
-            param = null;
-            str = this.condition_units[num];
-            if (masterParam != null)
-            {
-                goto Label_0062;
-            }
-            manager = MonoSingleton<GameManager>.GetInstanceDirect();
-            if ((manager != null) == null)
-            {
-                goto Label_006A;
-            }
-            param = manager.GetUnitParam(str);
-            goto Label_006A;
-        Label_0062:
-            param = masterParam.GetUnitParam(str);
-        Label_006A:
-            if (param == null)
-            {
-                goto Label_0077;
-            }
-            list.Add(param);
-        Label_0077:
-            num += 1;
-        Label_007B:
-            if (num < ((int) this.condition_units.Length))
-            {
-                goto Label_0018;
-            }
-        Label_0089:
-            return list;
-        }
-
-        public int GetRankCap()
-        {
-            return this.lvcap;
-        }
-
-        public static string TypeDetailToSpriteSheetKey(EAbilityTypeDetail typeDetail)
-        {
-            string str;
-            EAbilityTypeDetail detail;
-            str = string.Empty;
-            detail = typeDetail;
-            switch ((detail - 1))
-            {
-                case 0:
-                    goto Label_0035;
-
-                case 1:
-                    goto Label_0035;
-
-                case 2:
-                    goto Label_0035;
-
-                case 3:
-                    goto Label_0035;
-
-                case 4:
-                    goto Label_0040;
-
-                case 5:
-                    goto Label_0061;
-
-                case 6:
-                    goto Label_004B;
-
-                case 7:
-                    goto Label_0056;
-            }
-            goto Label_0061;
-        Label_0035:
-            str = "ABILITY_TITLE_NORMAL";
-            goto Label_0066;
-        Label_0040:
-            str = "ABILITY_TITLE_MASTER";
-            goto Label_0066;
-        Label_004B:
-            str = "ABILITY_TITLE_WEAPON";
-            goto Label_0066;
-        Label_0056:
-            str = "ABILITY_TITLE_VISION";
-            goto Label_0066;
-        Label_0061:;
-        Label_0066:
-            return str;
-        }
-
-        [CompilerGenerated]
-        private sealed class <CheckEnableUseAbility>c__AnonStorey2B4
-        {
-            internal UnitData self;
-
-            public <CheckEnableUseAbility>c__AnonStorey2B4()
-            {
-                base..ctor();
-                return;
-            }
-
-            internal bool <>m__22A(string p)
-            {
-                return (p == this.self.UnitParam.iname);
-            }
-        }
-
-        [CompilerGenerated]
-        private sealed class <CheckEnableUseAbility>c__AnonStorey2B5
-        {
-            internal JobData job;
-
-            public <CheckEnableUseAbility>c__AnonStorey2B5()
-            {
-                base..ctor();
-                return;
-            }
-
-            internal bool <>m__22B(string p)
-            {
-                return (p == this.job.JobID);
-            }
-        }
-
-        [CompilerGenerated]
-        private sealed class <CheckEnableUseAbility>c__AnonStorey2B6
-        {
-            internal JobParam originJobParam;
-
-            public <CheckEnableUseAbility>c__AnonStorey2B6()
-            {
-                base..ctor();
-                return;
-            }
-
-            internal bool <>m__22C(string p)
-            {
-                return (p == this.originJobParam.iname);
-            }
-        }
+      this.init();
+      this.name = LocalizedText.SGGet(language, GameUtility.LocalizedMasterParamFileName, this.localizedNameID);
+      this.expr = LocalizedText.SGGet(language, GameUtility.LocalizedMasterParamFileName, this.localizedExprID);
     }
-}
 
+    protected void init()
+    {
+      this.localizedNameID = this.GetType().GenerateLocalizedID(this.iname, "NAME");
+      this.localizedExprID = this.GetType().GenerateLocalizedID(this.iname, "EXPR");
+    }
+
+    public void Deserialize(string language, JSON_AbilityParam json)
+    {
+      this.Deserialize(json);
+      this.localizeFields(language);
+    }
+
+    public bool Deserialize(JSON_AbilityParam json)
+    {
+      if (json == null)
+        return false;
+      this.iname = json.iname;
+      this.name = json.name;
+      this.expr = json.expr;
+      this.icon = json.icon;
+      this.type = (EAbilityType) json.type;
+      this.slot = (EAbilitySlot) json.slot;
+      this.lvcap = (OInt) Math.Max(json.cap, 1);
+      this.is_fixed = json.fix != 0;
+      int length = 0;
+      string[] strArray = new string[10]
+      {
+        json.skl1,
+        json.skl2,
+        json.skl3,
+        json.skl4,
+        json.skl5,
+        json.skl6,
+        json.skl7,
+        json.skl8,
+        json.skl9,
+        json.skl10
+      };
+      for (int index = 0; index < strArray.Length && !string.IsNullOrEmpty(strArray[index]); ++index)
+        ++length;
+      if (length > 0)
+      {
+        int[] numArray = new int[10]
+        {
+          json.lv1,
+          json.lv2,
+          json.lv3,
+          json.lv4,
+          json.lv5,
+          json.lv6,
+          json.lv7,
+          json.lv8,
+          json.lv9,
+          json.lv10
+        };
+        this.skills = new LearningSkill[length];
+        for (int index = 0; index < length; ++index)
+        {
+          this.skills[index] = new LearningSkill();
+          this.skills[index].iname = strArray[index];
+          this.skills[index].locklv = numArray[index];
+        }
+      }
+      this.condition_units = (string[]) null;
+      if (json.units != null && json.units.Length > 0)
+      {
+        this.condition_units = new string[json.units.Length];
+        for (int index = 0; index < json.units.Length; ++index)
+          this.condition_units[index] = json.units[index];
+      }
+      this.condition_jobs = (string[]) null;
+      if (json.jobs != null && json.jobs.Length > 0)
+      {
+        this.condition_jobs = new string[json.jobs.Length];
+        for (int index = 0; index < json.jobs.Length; ++index)
+          this.condition_jobs[index] = json.jobs[index];
+      }
+      this.condition_birth = json.birth;
+      this.condition_sex = (ESex) json.sex;
+      this.condition_element = (EElement) json.elem;
+      this.condition_raremin = (OInt) json.rmin;
+      this.condition_raremax = (OInt) json.rmax;
+      return true;
+    }
+
+    public int GetRankCap()
+    {
+      return (int) this.lvcap;
+    }
+
+    public bool CheckEnableUseAbility(UnitData self, int job_index)
+    {
+      // ISSUE: object of a compiler-generated type is created
+      // ISSUE: variable of a compiler-generated type
+      AbilityParam.\u003CCheckEnableUseAbility\u003Ec__AnonStorey208 abilityCAnonStorey208 = new AbilityParam.\u003CCheckEnableUseAbility\u003Ec__AnonStorey208();
+      // ISSUE: reference to a compiler-generated field
+      abilityCAnonStorey208.self = self;
+      // ISSUE: reference to a compiler-generated method
+      if (this.condition_units != null && Array.Find<string>(this.condition_units, new Predicate<string>(abilityCAnonStorey208.\u003C\u003Em__17D)) == null)
+        return false;
+      if (this.condition_jobs != null)
+      {
+        // ISSUE: object of a compiler-generated type is created
+        // ISSUE: variable of a compiler-generated type
+        AbilityParam.\u003CCheckEnableUseAbility\u003Ec__AnonStorey209 abilityCAnonStorey209 = new AbilityParam.\u003CCheckEnableUseAbility\u003Ec__AnonStorey209();
+        // ISSUE: reference to a compiler-generated field
+        // ISSUE: reference to a compiler-generated field
+        abilityCAnonStorey209.job = abilityCAnonStorey208.self.GetJobData(job_index);
+        // ISSUE: reference to a compiler-generated field
+        if (abilityCAnonStorey209.job == null)
+          return false;
+        // ISSUE: reference to a compiler-generated method
+        if (Array.Find<string>(this.condition_jobs, new Predicate<string>(abilityCAnonStorey209.\u003C\u003Em__17E)) == null)
+        {
+          // ISSUE: object of a compiler-generated type is created
+          // ISSUE: variable of a compiler-generated type
+          AbilityParam.\u003CCheckEnableUseAbility\u003Ec__AnonStorey20A abilityCAnonStorey20A = new AbilityParam.\u003CCheckEnableUseAbility\u003Ec__AnonStorey20A();
+          // ISSUE: reference to a compiler-generated field
+          if (string.IsNullOrEmpty(abilityCAnonStorey209.job.Param.origin))
+            return false;
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: reference to a compiler-generated field
+          abilityCAnonStorey20A.originJobParam = MonoSingleton<GameManager>.GetInstanceDirect().GetJobParam(abilityCAnonStorey209.job.Param.origin);
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: reference to a compiler-generated method
+          if (abilityCAnonStorey20A.originJobParam == null || Array.Find<string>(this.condition_jobs, new Predicate<string>(abilityCAnonStorey20A.\u003C\u003Em__17F)) == null)
+            return false;
+        }
+      }
+      // ISSUE: reference to a compiler-generated field
+      // ISSUE: reference to a compiler-generated field
+      // ISSUE: reference to a compiler-generated field
+      // ISSUE: reference to a compiler-generated field
+      // ISSUE: reference to a compiler-generated field
+      return (string.IsNullOrEmpty(this.condition_birth) || !((string) abilityCAnonStorey208.self.UnitParam.birth != this.condition_birth)) && (this.condition_sex == ESex.Unknown || abilityCAnonStorey208.self.UnitParam.sex == this.condition_sex) && (this.condition_element == EElement.None || abilityCAnonStorey208.self.Element == this.condition_element) && ((int) this.condition_raremax == 0 || (int) this.condition_raremin <= abilityCAnonStorey208.self.Rarity && (int) this.condition_raremax >= abilityCAnonStorey208.self.Rarity && (int) this.condition_raremax >= (int) this.condition_raremin);
+    }
+  }
+}

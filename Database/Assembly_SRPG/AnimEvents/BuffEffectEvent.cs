@@ -1,45 +1,28 @@
-﻿namespace SRPG.AnimEvents
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.AnimEvents.BuffEffectEvent
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG.AnimEvents
 {
-    using SRPG;
-    using System;
-    using UnityEngine;
+  public class BuffEffectEvent : AnimEvent
+  {
+    public bool IsDispTarget = true;
+    public bool IsDispSelf;
 
-    public class BuffEffectEvent : AnimEvent
+    public override void OnStart(GameObject go)
     {
-        public bool IsDispTarget;
-        public bool IsDispSelf;
-
-        public BuffEffectEvent()
-        {
-            this.IsDispTarget = 1;
-            base..ctor();
-            return;
-        }
-
-        public override void OnStart(GameObject go)
-        {
-            TacticsUnitController controller;
-            controller = go.GetComponentInParent<TacticsUnitController>();
-            if (controller != null)
-            {
-                goto Label_0013;
-            }
-            return;
-        Label_0013:
-            if (this.IsDispTarget == null)
-            {
-                goto Label_0024;
-            }
-            controller.BuffEffectTarget();
-        Label_0024:
-            if (this.IsDispSelf == null)
-            {
-                goto Label_0035;
-            }
-            controller.BuffEffectSelf();
-        Label_0035:
-            return;
-        }
+      TacticsUnitController componentInParent = (TacticsUnitController) go.GetComponentInParent<TacticsUnitController>();
+      if (!Object.op_Implicit((Object) componentInParent))
+        return;
+      if (this.IsDispTarget)
+        componentInParent.BuffEffectTarget();
+      if (!this.IsDispSelf)
+        return;
+      componentInParent.BuffEffectSelf();
     }
+  }
 }
-

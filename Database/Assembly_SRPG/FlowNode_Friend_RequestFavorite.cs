@@ -1,178 +1,110 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_Friend_RequestFavorite
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Runtime.CompilerServices;
-    using UnityEngine;
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
+  [FlowNode.NodeType("System/Friend/RequestFavorite", 32741)]
+  [FlowNode.Pin(0, "Request", FlowNode.PinTypes.Input, 0)]
+  public class FlowNode_Friend_RequestFavorite : FlowNode_Network
+  {
+    private string mTargetFuid;
 
-    [NodeType("System/Friend/RequestFavorite", 0x7fe5), Pin(1, "Success", 1, 1), Pin(0, "Request", 0, 0)]
-    public class FlowNode_Friend_RequestFavorite : FlowNode_Network
+    public override void OnActivate(int pinID)
     {
-        private string mTargetFuid;
-        [CompilerGenerated]
-        private static UIUtility.DialogResultEvent <>f__am$cache1;
-
-        public FlowNode_Friend_RequestFavorite()
+      if (pinID != 0)
+        return;
+      // ISSUE: object of a compiler-generated type is created
+      // ISSUE: variable of a compiler-generated type
+      FlowNode_Friend_RequestFavorite.\u003COnActivate\u003Ec__AnonStorey2D9 activateCAnonStorey2D9 = new FlowNode_Friend_RequestFavorite.\u003COnActivate\u003Ec__AnonStorey2D9();
+      if (Network.Mode == Network.EConnectMode.Offline)
+      {
+        this.Success();
+      }
+      else
+      {
+        // ISSUE: reference to a compiler-generated field
+        activateCAnonStorey2D9.fuid = (string) null;
+        if (!string.IsNullOrEmpty(GlobalVars.SelectedFriendID))
         {
-            base..ctor();
-            return;
+          // ISSUE: reference to a compiler-generated field
+          activateCAnonStorey2D9.fuid = GlobalVars.SelectedFriendID;
         }
-
-        [CompilerGenerated]
-        private static void <OnActivate>m__1D7(GameObject go)
+        else if (GlobalVars.FoundFriend != null && !string.IsNullOrEmpty(GlobalVars.FoundFriend.FUID))
         {
+          // ISSUE: reference to a compiler-generated field
+          activateCAnonStorey2D9.fuid = GlobalVars.FoundFriend.FUID;
         }
-
-        [CompilerGenerated]
-        private bool <OnSuccess>m__1D8(FriendData f)
+        // ISSUE: reference to a compiler-generated field
+        if (activateCAnonStorey2D9.fuid == null)
         {
-            return (f.FUID == this.mTargetFuid);
+          this.Success();
         }
-
-        public override void OnActivate(int pinID)
+        else
         {
-            FriendData data;
-            string str;
-            <OnActivate>c__AnonStorey282 storey;
-            if (pinID != null)
+          // ISSUE: reference to a compiler-generated method
+          FriendData friendData = MonoSingleton<GameManager>.Instance.Player.Friends.Find(new Predicate<FriendData>(activateCAnonStorey2D9.\u003C\u003Em__2D0));
+          if (friendData != null)
+          {
+            string empty = string.Empty;
+            if (friendData.IsFavorite)
             {
-                goto Label_0120;
+              UIUtility.SystemMessage((string) null, LocalizedText.Get("sys.FRIEND_ALREADY_FAVORITE"), (UIUtility.DialogResultEvent) (go => {}), (GameObject) null, false, -1);
+              return;
             }
-            storey = new <OnActivate>c__AnonStorey282();
-            if (Network.Mode != 1)
-            {
-                goto Label_001E;
-            }
-            this.Success();
-            return;
-        Label_001E:
-            storey.fuid = null;
-            if (string.IsNullOrEmpty(GlobalVars.SelectedFriendID) != null)
-            {
-                goto Label_0044;
-            }
-            storey.fuid = GlobalVars.SelectedFriendID;
-            goto Label_0072;
-        Label_0044:
-            if (GlobalVars.FoundFriend == null)
-            {
-                goto Label_0072;
-            }
-            if (string.IsNullOrEmpty(GlobalVars.FoundFriend.FUID) != null)
-            {
-                goto Label_0072;
-            }
-            storey.fuid = GlobalVars.FoundFriend.FUID;
-        Label_0072:
-            if (storey.fuid != null)
-            {
-                goto Label_0084;
-            }
-            this.Success();
-            return;
-        Label_0084:
-            data = MonoSingleton<GameManager>.Instance.Player.Friends.Find(new Predicate<FriendData>(storey.<>m__1D6));
-            if (data == null)
-            {
-                goto Label_00F0;
-            }
-            str = string.Empty;
-            if (data.IsFavorite == null)
-            {
-                goto Label_00F0;
-            }
-            str = LocalizedText.Get("sys.FRIEND_ALREADY_FAVORITE");
-            if (<>f__am$cache1 != null)
-            {
-                goto Label_00E1;
-            }
-            <>f__am$cache1 = new UIUtility.DialogResultEvent(FlowNode_Friend_RequestFavorite.<OnActivate>m__1D7);
-        Label_00E1:
-            UIUtility.SystemMessage(null, str, <>f__am$cache1, null, 0, -1);
-            return;
-        Label_00F0:
-            this.mTargetFuid = storey.fuid;
-            base.ExecRequest(new ReqFriendFavoriteAdd(storey.fuid, new Network.ResponseCallback(this.ResponseCallback)));
-            base.set_enabled(1);
-        Label_0120:
-            return;
+          }
+          // ISSUE: reference to a compiler-generated field
+          this.mTargetFuid = activateCAnonStorey2D9.fuid;
+          // ISSUE: reference to a compiler-generated field
+          this.ExecRequest((WebAPI) new ReqFriendFavoriteAdd(activateCAnonStorey2D9.fuid, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+          ((Behaviour) this).set_enabled(true);
         }
-
-        public override unsafe void OnSuccess(WWWResult www)
-        {
-            WebAPI.JSON_BodyResponse<Json_FriendArray> response;
-            FriendData data;
-            Exception exception;
-            response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_FriendArray>>(&www.text);
-            DebugUtility.Assert((response == null) == 0, "res == null");
-            if (Network.IsError == null)
-            {
-                goto Label_002F;
-            }
-            this.OnRetry();
-            return;
-        Label_002F:
-            if (response.body != null)
-            {
-                goto Label_0041;
-            }
-            this.OnRetry();
-            return;
-        Label_0041:
-            if (string.IsNullOrEmpty(this.mTargetFuid) != null)
-            {
-                goto Label_00AB;
-            }
-        Label_0051:
-            try
-            {
-                MonoSingleton<GameManager>.Instance.Deserialize(response.body.friends, 1);
-                data = MonoSingleton<GameManager>.Instance.Player.Friends.Find(new Predicate<FriendData>(this.<OnSuccess>m__1D8));
-                if (data == null)
-                {
-                    goto Label_0094;
-                }
-                GlobalVars.SelectedFriend = data;
-            Label_0094:
-                goto Label_00AB;
-            }
-            catch (Exception exception1)
-            {
-            Label_0099:
-                exception = exception1;
-                base.OnRetry(exception);
-                goto Label_00B6;
-            }
-        Label_00AB:
-            Network.RemoveAPI();
-            this.Success();
-        Label_00B6:
-            return;
-        }
-
-        private void Success()
-        {
-            base.set_enabled(0);
-            base.ActivateOutputLinks(1);
-            return;
-        }
-
-        [CompilerGenerated]
-        private sealed class <OnActivate>c__AnonStorey282
-        {
-            internal string fuid;
-
-            public <OnActivate>c__AnonStorey282()
-            {
-                base..ctor();
-                return;
-            }
-
-            internal bool <>m__1D6(FriendData f)
-            {
-                return (f.FUID == this.fuid);
-            }
-        }
+      }
     }
-}
 
+    private void Success()
+    {
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(1);
+    }
+
+    public override void OnSuccess(WWWResult www)
+    {
+      WebAPI.JSON_BodyResponse<Json_FriendArray> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_FriendArray>>(www.text);
+      DebugUtility.Assert(jsonObject != null, "res == null");
+      if (Network.IsError)
+        this.OnRetry();
+      else if (jsonObject.body == null)
+      {
+        this.OnRetry();
+      }
+      else
+      {
+        if (!string.IsNullOrEmpty(this.mTargetFuid))
+        {
+          try
+          {
+            MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.friends, FriendStates.Friend);
+            FriendData friendData = MonoSingleton<GameManager>.Instance.Player.Friends.Find((Predicate<FriendData>) (f => f.FUID == this.mTargetFuid));
+            if (friendData != null)
+              GlobalVars.SelectedFriend = friendData;
+          }
+          catch (Exception ex)
+          {
+            this.OnRetry(ex);
+            return;
+          }
+        }
+        Network.RemoveAPI();
+        this.Success();
+      }
+    }
+  }
+}

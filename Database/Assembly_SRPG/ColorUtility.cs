@@ -1,67 +1,57 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ColorUtility
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using System.Collections.Generic;
-    using UnityEngine;
+  public static class ColorUtility
+  {
+    private static Dictionary<string, Color32> mNamedColors = new Dictionary<string, Color32>();
 
-    public static class ColorUtility
+    static ColorUtility()
     {
-        private static Dictionary<string, Color32> mNamedColors;
-
-        static ColorUtility()
-        {
-            mNamedColors = new Dictionary<string, Color32>();
-            mNamedColors["aqua"] = new Color32(0, 0xff, 0xff, 0xff);
-            mNamedColors["black"] = new Color32(0, 0, 0, 0xff);
-            mNamedColors["blue"] = new Color32(0, 0, 0xff, 0xff);
-            mNamedColors["brown"] = new Color32(0xa5, 0x2a, 0x2a, 0xff);
-            mNamedColors["cyan"] = new Color32(0, 0xff, 0xff, 0xff);
-            mNamedColors["darkblue"] = new Color32(0, 0, 160, 0xff);
-            mNamedColors["fuchsia"] = new Color32(0xff, 0, 0xff, 0xff);
-            mNamedColors["green"] = new Color32(0, 0x80, 0, 0xff);
-            mNamedColors["grey"] = new Color32(0x80, 0x80, 0x80, 0xff);
-            mNamedColors["lightblue"] = new Color32(0xad, 0xd8, 230, 0xff);
-            mNamedColors["lime"] = new Color32(0, 0xff, 0, 0xff);
-            mNamedColors["magenta"] = new Color32(0xff, 0, 0xff, 0xff);
-            mNamedColors["maroon"] = new Color32(0x80, 0, 0, 0xff);
-            mNamedColors["navy"] = new Color32(0, 0, 0x80, 0xff);
-            mNamedColors["olive"] = new Color32(0x80, 0x80, 0, 0xff);
-            mNamedColors["orange"] = new Color32(0xff, 0xa5, 0, 0xff);
-            mNamedColors["purple"] = new Color32(0x80, 0, 0x80, 0xff);
-            mNamedColors["red"] = new Color32(0xff, 0, 0, 0xff);
-            mNamedColors["silver"] = new Color32(0xc0, 0xc0, 0xc0, 0xff);
-            mNamedColors["teal"] = new Color32(0, 0x80, 0x80, 0xff);
-            mNamedColors["white"] = new Color32(0xff, 0xff, 0xff, 0xff);
-            mNamedColors["yellow"] = new Color32(0xff, 0xff, 0, 0xff);
-            return;
-        }
-
-        public static Color32 GetColor(string name)
-        {
-            if (mNamedColors.ContainsKey(name) == null)
-            {
-                goto Label_001C;
-            }
-            return mNamedColors[name];
-        Label_001C:
-            return new Color32(0, 0, 0, 0xff);
-        }
-
-        public static unsafe Color32 ParseColor(string src)
-        {
-            int num;
-            if (src[0] != 0x23)
-            {
-                goto Label_0049;
-            }
-            if (int.TryParse(src.Substring(1), &num) == null)
-            {
-                goto Label_0049;
-            }
-            return new Color32((byte) (num >> 0x18), (byte) ((num >> 0x10) & 0xff), (byte) ((num >> 8) & 0xff), (byte) (num & 0xff));
-        Label_0049:
-            return GetColor(src);
-        }
+      ColorUtility.mNamedColors["aqua"] = new Color32((byte) 0, byte.MaxValue, byte.MaxValue, byte.MaxValue);
+      ColorUtility.mNamedColors["black"] = new Color32((byte) 0, (byte) 0, (byte) 0, byte.MaxValue);
+      ColorUtility.mNamedColors["blue"] = new Color32((byte) 0, (byte) 0, byte.MaxValue, byte.MaxValue);
+      ColorUtility.mNamedColors["brown"] = new Color32((byte) 165, (byte) 42, (byte) 42, byte.MaxValue);
+      ColorUtility.mNamedColors["cyan"] = new Color32((byte) 0, byte.MaxValue, byte.MaxValue, byte.MaxValue);
+      ColorUtility.mNamedColors["darkblue"] = new Color32((byte) 0, (byte) 0, (byte) 160, byte.MaxValue);
+      ColorUtility.mNamedColors["fuchsia"] = new Color32(byte.MaxValue, (byte) 0, byte.MaxValue, byte.MaxValue);
+      ColorUtility.mNamedColors["green"] = new Color32((byte) 0, (byte) 128, (byte) 0, byte.MaxValue);
+      ColorUtility.mNamedColors["grey"] = new Color32((byte) 128, (byte) 128, (byte) 128, byte.MaxValue);
+      ColorUtility.mNamedColors["lightblue"] = new Color32((byte) 173, (byte) 216, (byte) 230, byte.MaxValue);
+      ColorUtility.mNamedColors["lime"] = new Color32((byte) 0, byte.MaxValue, (byte) 0, byte.MaxValue);
+      ColorUtility.mNamedColors["magenta"] = new Color32(byte.MaxValue, (byte) 0, byte.MaxValue, byte.MaxValue);
+      ColorUtility.mNamedColors["maroon"] = new Color32((byte) 128, (byte) 0, (byte) 0, byte.MaxValue);
+      ColorUtility.mNamedColors["navy"] = new Color32((byte) 0, (byte) 0, (byte) 128, byte.MaxValue);
+      ColorUtility.mNamedColors["olive"] = new Color32((byte) 128, (byte) 128, (byte) 0, byte.MaxValue);
+      ColorUtility.mNamedColors["orange"] = new Color32(byte.MaxValue, (byte) 165, (byte) 0, byte.MaxValue);
+      ColorUtility.mNamedColors["purple"] = new Color32((byte) 128, (byte) 0, (byte) 128, byte.MaxValue);
+      ColorUtility.mNamedColors["red"] = new Color32(byte.MaxValue, (byte) 0, (byte) 0, byte.MaxValue);
+      ColorUtility.mNamedColors["silver"] = new Color32((byte) 192, (byte) 192, (byte) 192, byte.MaxValue);
+      ColorUtility.mNamedColors["teal"] = new Color32((byte) 0, (byte) 128, (byte) 128, byte.MaxValue);
+      ColorUtility.mNamedColors["white"] = new Color32(byte.MaxValue, byte.MaxValue, byte.MaxValue, byte.MaxValue);
+      ColorUtility.mNamedColors["yellow"] = new Color32(byte.MaxValue, byte.MaxValue, (byte) 0, byte.MaxValue);
     }
-}
 
+    public static Color32 GetColor(string name)
+    {
+      if (ColorUtility.mNamedColors.ContainsKey(name))
+        return ColorUtility.mNamedColors[name];
+      return new Color32((byte) 0, (byte) 0, (byte) 0, byte.MaxValue);
+    }
+
+    public static Color32 ParseColor(string src)
+    {
+      int result;
+      if ((int) src[0] == 35 && int.TryParse(src.Substring(1), out result))
+        return new Color32((byte) (result >> 24), (byte) (result >> 16 & (int) byte.MaxValue), (byte) (result >> 8 & (int) byte.MaxValue), (byte) (result & (int) byte.MaxValue));
+      return ColorUtility.GetColor(src);
+    }
+  }
+}

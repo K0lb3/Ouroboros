@@ -1,38 +1,29 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_ClearActiveUnitSlot
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-
-    [Pin(1, "Clear Slot", 0, 1), Pin(100, "Out", 1, 100), NodeType("SRPG/ClearActiveUnitSlot", 0x7fe5)]
-    public class FlowNode_ClearActiveUnitSlot : FlowNode
+  [FlowNode.Pin(100, "Out", FlowNode.PinTypes.Output, 100)]
+  [FlowNode.Pin(1, "Clear Slot", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.NodeType("SRPG/ClearActiveUnitSlot", 32741)]
+  public class FlowNode_ClearActiveUnitSlot : FlowNode
+  {
+    public override void OnActivate(int pinID)
     {
-        public FlowNode_ClearActiveUnitSlot()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            PartyData data;
-            if (pinID != 1)
-            {
-                goto Label_0049;
-            }
-            if ((PartyUnitSlot.Active != null) == null)
-            {
-                goto Label_0040;
-            }
-            data = DataSource.FindDataOfClass<PartyData>(PartyUnitSlot.Active.get_gameObject(), null);
-            if (data == null)
-            {
-                goto Label_0040;
-            }
-            data.SetUnitUniqueID(PartyUnitSlot.Active.Index, 0L);
-        Label_0040:
-            base.ActivateOutputLinks(100);
-        Label_0049:
-            return;
-        }
+      if (pinID != 1)
+        return;
+      if (Object.op_Inequality((Object) PartyUnitSlot.Active, (Object) null))
+      {
+        PartyData dataOfClass = DataSource.FindDataOfClass<PartyData>(((Component) PartyUnitSlot.Active).get_gameObject(), (PartyData) null);
+        if (dataOfClass != null)
+          dataOfClass.SetUnitUniqueID(PartyUnitSlot.Active.Index, 0L);
+      }
+      this.ActivateOutputLinks(100);
     }
+  }
 }
-

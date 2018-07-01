@@ -1,135 +1,99 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.Event2dFade
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using System.Runtime.CompilerServices;
-    using UnityEngine;
-    using UnityEngine.UI;
+  public class Event2dFade : MonoBehaviour
+  {
+    public RawImage mImage;
+    private Color mCurrentColor;
+    private Color mStartColor;
+    private Color mEndColor;
+    private float mCurrentTime;
+    private float mDuration;
+    private bool mInitialized;
 
-    public class Event2dFade : MonoBehaviour
+    public Event2dFade()
     {
-        public RawImage mImage;
-        private Color mCurrentColor;
-        private Color mStartColor;
-        private Color mEndColor;
-        private float mCurrentTime;
-        private float mDuration;
-        private bool mInitialized;
-        [CompilerGenerated]
-        private static Event2dFade <Instance>k__BackingField;
-
-        public Event2dFade()
-        {
-            base..ctor();
-            return;
-        }
-
-        private void Awake()
-        {
-            if ((null != Instance) == null)
-            {
-                goto Label_0016;
-            }
-            Object.Destroy(this);
-        Label_0016:
-            Instance = this;
-            return;
-        }
-
-        public unsafe void FadeTo(Color dest, float time)
-        {
-            if (this.mInitialized != null)
-            {
-                goto Label_0046;
-            }
-            this.mCurrentColor = dest;
-            &this.mCurrentColor.a = 1f - &this.mCurrentColor.a;
-            this.mInitialized = 1;
-            this.mImage.set_color(this.mCurrentColor);
-        Label_0046:
-            if (time <= 0f)
-            {
-                goto Label_0087;
-            }
-            this.mStartColor = this.mCurrentColor;
-            this.mEndColor = dest;
-            this.mCurrentTime = 0f;
-            this.mDuration = time;
-            base.get_gameObject().SetActive(1);
-            goto Label_00D2;
-        Label_0087:
-            this.mCurrentColor = dest;
-            this.mCurrentTime = 0f;
-            this.mDuration = 0f;
-            this.mImage.set_color(this.mCurrentColor);
-            base.get_gameObject().SetActive(&this.mCurrentColor.a > 0f);
-        Label_00D2:
-            return;
-        }
-
-        public static Event2dFade Find()
-        {
-            return Instance;
-        }
-
-        private void OnDestroy()
-        {
-            if ((this == Instance) == null)
-            {
-                goto Label_0016;
-            }
-            Instance = null;
-        Label_0016:
-            return;
-        }
-
-        private unsafe void Update()
-        {
-            float num;
-            if (this.mCurrentTime < this.mDuration)
-            {
-                goto Label_0047;
-            }
-            if (&this.mCurrentColor.a > 0f)
-            {
-                goto Label_0095;
-            }
-            if (GameObjectExtensions.GetActive(base.get_gameObject()) == null)
-            {
-                goto Label_0095;
-            }
-            base.get_gameObject().SetActive(0);
-            goto Label_0095;
-        Label_0047:
-            this.mCurrentTime += Time.get_unscaledDeltaTime();
-            num = Mathf.Clamp01(this.mCurrentTime / this.mDuration);
-            this.mCurrentColor = Color.Lerp(this.mStartColor, this.mEndColor, num);
-            this.mImage.set_color(this.mCurrentColor);
-        Label_0095:
-            return;
-        }
-
-        private static Event2dFade Instance
-        {
-            [CompilerGenerated]
-            get
-            {
-                return <Instance>k__BackingField;
-            }
-            [CompilerGenerated]
-            set
-            {
-                <Instance>k__BackingField = value;
-                return;
-            }
-        }
-
-        public bool IsFading
-        {
-            get
-            {
-                return (this.mCurrentTime < this.mDuration);
-            }
-        }
+      base.\u002Ector();
     }
-}
 
+    private static Event2dFade Instance { get; set; }
+
+    public static Event2dFade Find()
+    {
+      return Event2dFade.Instance;
+    }
+
+    private void Awake()
+    {
+      if (Object.op_Inequality((Object) null, (Object) Event2dFade.Instance))
+        Object.Destroy((Object) this);
+      Event2dFade.Instance = this;
+    }
+
+    private void OnDestroy()
+    {
+      if (!Object.op_Equality((Object) this, (Object) Event2dFade.Instance))
+        return;
+      Event2dFade.Instance = (Event2dFade) null;
+    }
+
+    public bool IsFading
+    {
+      get
+      {
+        return (double) this.mCurrentTime < (double) this.mDuration;
+      }
+    }
+
+    public void FadeTo(Color dest, float time)
+    {
+      if (!this.mInitialized)
+      {
+        this.mCurrentColor = dest;
+        this.mCurrentColor.a = (__Null) (1.0 - this.mCurrentColor.a);
+        this.mInitialized = true;
+        ((Graphic) this.mImage).set_color(this.mCurrentColor);
+      }
+      if ((double) time > 0.0)
+      {
+        this.mStartColor = this.mCurrentColor;
+        this.mEndColor = dest;
+        this.mCurrentTime = 0.0f;
+        this.mDuration = time;
+        ((Component) this).get_gameObject().SetActive(true);
+      }
+      else
+      {
+        this.mCurrentColor = dest;
+        this.mCurrentTime = 0.0f;
+        this.mDuration = 0.0f;
+        ((Graphic) this.mImage).set_color(this.mCurrentColor);
+        ((Component) this).get_gameObject().SetActive(this.mCurrentColor.a > 0.0);
+      }
+    }
+
+    private void Update()
+    {
+      if ((double) this.mCurrentTime >= (double) this.mDuration)
+      {
+        if (this.mCurrentColor.a > 0.0 || !((Component) this).get_gameObject().GetActive())
+          return;
+        ((Component) this).get_gameObject().SetActive(false);
+      }
+      else
+      {
+        this.mCurrentTime += Time.get_unscaledDeltaTime();
+        this.mCurrentColor = Color.Lerp(this.mStartColor, this.mEndColor, Mathf.Clamp01(this.mCurrentTime / this.mDuration));
+        ((Graphic) this.mImage).set_color(this.mCurrentColor);
+      }
+    }
+  }
+}

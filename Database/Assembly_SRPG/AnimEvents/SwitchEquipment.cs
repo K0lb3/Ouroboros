@@ -1,59 +1,43 @@
-﻿namespace SRPG.AnimEvents
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.AnimEvents.SwitchEquipment
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG.AnimEvents
 {
-    using SRPG;
-    using System;
-    using UnityEngine;
+  public class SwitchEquipment : AnimEvent
+  {
+    public SwitchEquipment.eSwitchTarget SwitchPrimaryHand;
+    public SwitchEquipment.eSwitchTarget SwitchSecondaryHand;
 
-    public class SwitchEquipment : AnimEvent
+    public override void OnStart(GameObject go)
     {
-        public eSwitchTarget SwitchPrimaryHand;
-        public eSwitchTarget SwitchSecondaryHand;
-
-        public SwitchEquipment()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnStart(GameObject go)
-        {
-            UnitController controller;
-            controller = go.GetComponentInParent<UnitController>();
-            if (controller != null)
-            {
-                goto Label_0013;
-            }
-            return;
-        Label_0013:
-            if (this.SwitchPrimaryHand == null)
-            {
-                goto Label_002B;
-            }
-            controller.SwitchEquipmentLists(0, this.SwitchPrimaryHand);
-        Label_002B:
-            if (this.SwitchSecondaryHand == null)
-            {
-                goto Label_0043;
-            }
-            controller.SwitchEquipmentLists(1, this.SwitchSecondaryHand);
-        Label_0043:
-            return;
-        }
-
-        public enum eSwitchTarget
-        {
-            NO_CHANGE,
-            Element_0,
-            Element_1,
-            Element_2,
-            Element_3,
-            Element_4,
-            Element_5,
-            Element_6,
-            Element_7,
-            Element_8,
-            Element_9
-        }
+      UnitController componentInParent = (UnitController) go.GetComponentInParent<UnitController>();
+      if (!Object.op_Implicit((Object) componentInParent))
+        return;
+      if (this.SwitchPrimaryHand != SwitchEquipment.eSwitchTarget.NO_CHANGE)
+        componentInParent.SwitchEquipmentLists(UnitController.EquipmentType.PRIMARY, (int) this.SwitchPrimaryHand);
+      if (this.SwitchSecondaryHand == SwitchEquipment.eSwitchTarget.NO_CHANGE)
+        return;
+      componentInParent.SwitchEquipmentLists(UnitController.EquipmentType.SECONDARY, (int) this.SwitchSecondaryHand);
     }
-}
 
+    public enum eSwitchTarget
+    {
+      NO_CHANGE,
+      Element_0,
+      Element_1,
+      Element_2,
+      Element_3,
+      Element_4,
+      Element_5,
+      Element_6,
+      Element_7,
+      Element_8,
+      Element_9,
+    }
+  }
+}

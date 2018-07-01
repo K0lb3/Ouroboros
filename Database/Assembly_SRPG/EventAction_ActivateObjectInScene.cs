@@ -1,88 +1,57 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.EventAction_ActivateObjectInScene
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using System.Collections.Generic;
-    using UnityEngine;
+  [EventActionInfo("New/オブジェクト/シーン内オブジェクトを表示", "シーン内のオブジェクトを表示・非表示します", 5592405, 4473992)]
+  public class EventAction_ActivateObjectInScene : EventAction
+  {
+    public EventAction_ActivateObjectInScene.VisibleType visibleType;
+    public string objectName;
+    public Vector3 objectPosition;
 
-    [EventActionInfo("New/オブジェクト/シーン内オブジェクトを表示", "シーン内のオブジェクトを表示・非表示します", 0x555555, 0x444488)]
-    public class EventAction_ActivateObjectInScene : EventAction
+    public override void OnActivate()
     {
-        public VisibleType visibleType;
-        public string objectName;
-        public Vector3 objectPosition;
-
-        public EventAction_ActivateObjectInScene()
+      if (string.IsNullOrEmpty(this.objectName))
+        return;
+      TacticsSceneSettings lastScene = TacticsSceneSettings.LastScene;
+      if (Object.op_Equality((Object) lastScene, (Object) null))
+        return;
+      List<Transform> transformList = new List<Transform>();
+      float num = float.PositiveInfinity;
+      Transform transform = (Transform) null;
+      Transform[] componentsInChildren = (Transform[]) ((Component) lastScene).get_gameObject().GetComponentsInChildren<Transform>(true);
+      for (int index = 0; index < componentsInChildren.Length; ++index)
+      {
+        if (((Object) componentsInChildren[index]).get_name() == this.objectName)
         {
-            base..ctor();
-            return;
+          Debug.Log((object) "find");
+          transformList.Add(componentsInChildren[index]);
+          Vector3 vector3 = Vector3.op_Subtraction(componentsInChildren[index].get_position(), this.objectPosition);
+          // ISSUE: explicit reference operation
+          float sqrMagnitude = ((Vector3) @vector3).get_sqrMagnitude();
+          if ((double) sqrMagnitude < (double) num)
+          {
+            transform = componentsInChildren[index];
+            num = sqrMagnitude;
+          }
         }
-
-        public override unsafe void OnActivate()
-        {
-            TacticsSceneSettings settings;
-            List<Transform> list;
-            float num;
-            Transform transform;
-            Transform[] transformArray;
-            int num2;
-            float num3;
-            Vector3 vector;
-            if (string.IsNullOrEmpty(this.objectName) == null)
-            {
-                goto Label_0011;
-            }
-            return;
-        Label_0011:
-            settings = TacticsSceneSettings.LastScene;
-            if ((settings == null) == null)
-            {
-                goto Label_0024;
-            }
-            return;
-        Label_0024:
-            list = new List<Transform>();
-            num = (float) 1.0 / (float) 0.0;
-            transform = null;
-            transformArray = settings.get_gameObject().GetComponentsInChildren<Transform>(1);
-            num2 = 0;
-            goto Label_00AE;
-        Label_0048:
-            if ((transformArray[num2].get_name() == this.objectName) == null)
-            {
-                goto Label_00A8;
-            }
-            Debug.Log("find");
-            list.Add(transformArray[num2]);
-            vector = transformArray[num2].get_position() - this.objectPosition;
-            num3 = &vector.get_sqrMagnitude();
-            if (num3 >= num)
-            {
-                goto Label_00A8;
-            }
-            transform = transformArray[num2];
-            num = num3;
-        Label_00A8:
-            num2 += 1;
-        Label_00AE:
-            if (num2 < ((int) transformArray.Length))
-            {
-                goto Label_0048;
-            }
-            if ((transform != null) == null)
-            {
-                goto Label_00D9;
-            }
-            transform.get_gameObject().SetActive(this.visibleType == 0);
-        Label_00D9:
-            base.ActivateNext();
-            return;
-        }
-
-        public enum VisibleType
-        {
-            Visible,
-            Invisible
-        }
+      }
+      if (Object.op_Inequality((Object) transform, (Object) null))
+        ((Component) transform).get_gameObject().SetActive(this.visibleType == EventAction_ActivateObjectInScene.VisibleType.Visible);
+      this.ActivateNext();
     }
-}
 
+    public enum VisibleType
+    {
+      Visible,
+      Invisible,
+    }
+  }
+}

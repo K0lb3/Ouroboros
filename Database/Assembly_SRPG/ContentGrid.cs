@@ -1,62 +1,62 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ContentGrid
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using System.Runtime.InteropServices;
-    using UnityEngine;
+  public struct ContentGrid
+  {
+    public int x;
+    public int y;
 
-    [StructLayout(LayoutKind.Sequential)]
-    public struct ContentGrid
+    public ContentGrid(int _ix, int _iy)
     {
-        public int x;
-        public int y;
-        public ContentGrid(int _ix, int _iy)
-        {
-            this.x = _ix;
-            this.y = _iy;
-            return;
-        }
-
-        public ContentGrid(float _fx, float _fy)
-        {
-            this.x = FloatToInt(_fx);
-            this.y = FloatToInt(_fy);
-            return;
-        }
-
-        public static ContentGrid zero
-        {
-            get
-            {
-                return new ContentGrid(0, 0);
-            }
-        }
-        public float fx
-        {
-            set
-            {
-                this.x = FloatToInt(value);
-                return;
-            }
-        }
-        public float fy
-        {
-            set
-            {
-                this.y = FloatToInt(value);
-                return;
-            }
-        }
-        public static int FloatToInt(float value)
-        {
-            return Mathf.FloorToInt(value);
-        }
-
-        public override string ToString()
-        {
-            object[] objArray1;
-            objArray1 = new object[] { "[Grid: ", (int) this.x, ", ", (int) this.y, "]" };
-            return string.Format(string.Concat(objArray1), new object[0]);
-        }
+      this.x = _ix;
+      this.y = _iy;
     }
-}
 
+    public ContentGrid(float _fx, float _fy)
+    {
+      this.x = ContentGrid.FloatToInt(_fx);
+      this.y = ContentGrid.FloatToInt(_fy);
+    }
+
+    public static ContentGrid zero
+    {
+      get
+      {
+        return new ContentGrid(0, 0);
+      }
+    }
+
+    public float fx
+    {
+      set
+      {
+        this.x = ContentGrid.FloatToInt(value);
+      }
+    }
+
+    public float fy
+    {
+      set
+      {
+        this.y = ContentGrid.FloatToInt(value);
+      }
+    }
+
+    public static int FloatToInt(float value)
+    {
+      return Mathf.FloorToInt(value);
+    }
+
+    public override string ToString()
+    {
+      return string.Format("[Grid: " + (object) this.x + ", " + (object) this.y + "]");
+    }
+  }
+}

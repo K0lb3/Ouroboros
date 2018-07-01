@@ -1,1399 +1,937 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FriendPresentRootWindow
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Runtime.CompilerServices;
-    using UnityEngine;
-    using UnityEngine.UI;
+  public class FriendPresentRootWindow : FlowWindowBase
+  {
+    private static FriendPresentRootWindow.SendStatus m_SendStatus = FriendPresentRootWindow.SendStatus.UNSENT;
+    private FriendPresentRootWindow.SerializeParam m_Param;
+    private FriendPresentRootWindow.Tab m_Tab;
+    private bool m_Destroy;
+    private FriendPresentRootWindow.WantContent.ItemSource m_WantSource;
+    private ContentController m_WantController;
+    private FriendPresentRootWindow.ReceiveContent.ItemSource m_ReceiveSource;
+    private ContentController m_ReceiveController;
+    private FriendPresentRootWindow.SendContent.ItemSource m_SendSource;
+    private ContentController m_SendController;
+    private SerializeValueBehaviour m_ValueList;
+    private Toggle m_ReceiveToggle;
+    private Toggle m_SendToggle;
+    private static FriendPresentRootWindow m_Instance;
 
-    public class FriendPresentRootWindow : FlowWindowBase
+    public override string name
     {
-        private SerializeParam m_Param;
-        private Tab m_Tab;
-        private bool m_Destroy;
-        private WantContent.ItemSource m_WantSource;
-        private ContentController m_WantController;
-        private ReceiveContent.ItemSource m_ReceiveSource;
-        private ContentController m_ReceiveController;
-        private SendContent.ItemSource m_SendSource;
-        private ContentController m_SendController;
-        private SerializeValueBehaviour m_ValueList;
-        private Toggle m_ReceiveToggle;
-        private Toggle m_SendToggle;
-        private static FriendPresentRootWindow m_Instance;
-        private static SendStatus m_SendStatus;
+      get
+      {
+        return nameof (FriendPresentRootWindow);
+      }
+    }
 
-        static FriendPresentRootWindow()
+    public static FriendPresentRootWindow instance
+    {
+      get
+      {
+        return FriendPresentRootWindow.m_Instance;
+      }
+    }
+
+    public static void SetSendStatus(FriendPresentRootWindow.SendStatus status)
+    {
+      FriendPresentRootWindow.m_SendStatus = status;
+    }
+
+    public override void Initialize(FlowWindowBase.SerializeParamBase param)
+    {
+      FriendPresentRootWindow.m_Instance = this;
+      base.Initialize(param);
+      this.m_Param = param as FriendPresentRootWindow.SerializeParam;
+      if (this.m_Param == null)
+        throw new Exception(this.ToString() + " > Failed serializeParam null.");
+      this.m_ValueList = (SerializeValueBehaviour) this.m_Param.window.GetComponent<SerializeValueBehaviour>();
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_ValueList, (UnityEngine.Object) null))
+      {
+        this.m_ReceiveToggle = this.m_ValueList.list.GetUIToggle("tgl_receive");
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_ReceiveToggle, (UnityEngine.Object) null))
+          ((Selectable) this.m_ReceiveToggle).set_interactable(false);
+        this.m_SendToggle = this.m_ValueList.list.GetUIToggle("tgl_send");
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_SendToggle, (UnityEngine.Object) null))
+          ((Selectable) this.m_SendToggle).set_interactable(false);
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_Param.wantList, (UnityEngine.Object) null))
+      {
+        this.m_WantController = (ContentController) this.m_Param.wantList.GetComponentInChildren<ContentController>();
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_WantController, (UnityEngine.Object) null))
+          this.m_WantController.SetWork((object) this);
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_Param.receiveList, (UnityEngine.Object) null))
+      {
+        this.m_ReceiveController = (ContentController) this.m_Param.receiveList.GetComponentInChildren<ContentController>();
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_ReceiveController, (UnityEngine.Object) null))
+          this.m_ReceiveController.SetWork((object) this);
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_Param.sendList, (UnityEngine.Object) null))
+      {
+        this.m_SendController = (ContentController) this.m_Param.sendList.GetComponentInChildren<ContentController>();
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_SendController, (UnityEngine.Object) null))
+          this.m_SendController.SetWork((object) this);
+      }
+      this.Close(true);
+    }
+
+    public override void Release()
+    {
+      this.ReleaseWantList();
+      this.ReleaseReceiveList();
+      this.ReleaseSendList();
+      base.Release();
+      FriendPresentRootWindow.m_Instance = (FriendPresentRootWindow) null;
+    }
+
+    public override int Update()
+    {
+      base.Update();
+      if (this.m_Destroy && this.isClosed)
+      {
+        this.SetActiveChild(false);
+        return 190;
+      }
+      int active = (int) CriticalSection.GetActive();
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_ReceiveToggle, (UnityEngine.Object) null))
+        ((Selectable) this.m_ReceiveToggle).set_interactable(active == 0);
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_SendToggle, (UnityEngine.Object) null))
+        ((Selectable) this.m_SendToggle).set_interactable(active == 0);
+      return -1;
+    }
+
+    private bool SetTab(FriendPresentRootWindow.Tab tab)
+    {
+      bool flag = false;
+      if (this.m_Tab != tab)
+      {
+        flag = true;
+        switch (tab)
         {
-            m_SendStatus = 1;
-            return;
+          case FriendPresentRootWindow.Tab.NONE:
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_Param.tabReceive, (UnityEngine.Object) null))
+              this.m_Param.tabReceive.SetActive(false);
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_Param.tabSend, (UnityEngine.Object) null))
+            {
+              this.m_Param.tabSend.SetActive(false);
+              break;
+            }
+            break;
+          case FriendPresentRootWindow.Tab.RECEIVE:
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_Param.tabReceive, (UnityEngine.Object) null))
+              this.m_Param.tabReceive.SetActive(true);
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_Param.tabSend, (UnityEngine.Object) null))
+            {
+              this.m_Param.tabSend.SetActive(false);
+              break;
+            }
+            break;
+          case FriendPresentRootWindow.Tab.SEND:
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_Param.tabReceive, (UnityEngine.Object) null))
+              this.m_Param.tabReceive.SetActive(false);
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_Param.tabSend, (UnityEngine.Object) null))
+            {
+              this.m_Param.tabSend.SetActive(true);
+              break;
+            }
+            break;
         }
+        this.m_Tab = tab;
+      }
+      return flag;
+    }
 
-        public FriendPresentRootWindow()
+    public void InitializeWantList()
+    {
+      this.ReleaseWantList();
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_WantController, (UnityEngine.Object) null))
+        return;
+      this.m_WantSource = new FriendPresentRootWindow.WantContent.ItemSource();
+      for (int index = 0; index < 3; ++index)
+      {
+        FriendPresentItemParam friendPresentWish = MonoSingleton<GameManager>.Instance.Player.FriendPresentWishList[index];
+        if (friendPresentWish != null)
+          this.m_WantSource.Add(new FriendPresentRootWindow.WantContent.ItemSource.ItemParam(friendPresentWish));
+        else
+          this.m_WantSource.Add(new FriendPresentRootWindow.WantContent.ItemSource.ItemParam((FriendPresentItemParam) null));
+      }
+      this.m_WantController.Initialize((ContentSource) this.m_WantSource, Vector2.get_zero());
+    }
+
+    public void ReleaseWantList()
+    {
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_WantController, (UnityEngine.Object) null))
+        this.m_WantController.Release();
+      this.m_WantSource = (FriendPresentRootWindow.WantContent.ItemSource) null;
+    }
+
+    public void InitializeReceiveList()
+    {
+      this.ReleaseReceiveList();
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_ReceiveController, (UnityEngine.Object) null))
+      {
+        this.m_ReceiveSource = new FriendPresentRootWindow.ReceiveContent.ItemSource();
+        List<FriendPresentReceiveList.Param> list = MonoSingleton<GameManager>.Instance.Player.FriendPresentReceiveList.list;
+        for (int index = 0; index < list.Count; ++index)
         {
-            base..ctor();
-            return;
+          FriendPresentRootWindow.ReceiveContent.ItemSource.ItemParam itemParam = new FriendPresentRootWindow.ReceiveContent.ItemSource.ItemParam(list[index]);
+          if (itemParam.IsValid())
+            this.m_ReceiveSource.Add(itemParam);
         }
+        this.m_ReceiveController.Initialize((ContentSource) this.m_ReceiveSource, Vector2.get_zero());
+      }
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_ValueList, (UnityEngine.Object) null))
+        return;
+      this.m_ValueList.list.SetInteractable("btn_receive", this.m_ReceiveSource.GetCount() != 0);
+    }
 
-        public override void Initialize(FlowWindowBase.SerializeParamBase param)
+    public void ReleaseReceiveList()
+    {
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_ReceiveController, (UnityEngine.Object) null))
+        this.m_ReceiveController.Release();
+      this.m_ReceiveSource = (FriendPresentRootWindow.ReceiveContent.ItemSource) null;
+    }
+
+    public void InitializeSendList()
+    {
+      this.ReleaseSendList();
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_SendController, (UnityEngine.Object) null))
+      {
+        this.m_SendSource = new FriendPresentRootWindow.SendContent.ItemSource();
+        List<FriendData> friends = MonoSingleton<GameManager>.Instance.Player.Friends;
+        for (int index = 0; index < friends.Count; ++index)
         {
-            m_Instance = this;
-            base.Initialize(param);
-            this.m_Param = param as SerializeParam;
-            if (this.m_Param != null)
-            {
-                goto Label_003A;
-            }
-            throw new Exception(this.ToString() + " > Failed serializeParam null.");
-        Label_003A:
-            this.m_ValueList = this.m_Param.window.GetComponent<SerializeValueBehaviour>();
-            if ((this.m_ValueList != null) == null)
-            {
-                goto Label_00D1;
-            }
-            this.m_ReceiveToggle = this.m_ValueList.list.GetUIToggle("tgl_receive");
-            if ((this.m_ReceiveToggle != null) == null)
-            {
-                goto Label_0099;
-            }
-            this.m_ReceiveToggle.set_interactable(0);
-        Label_0099:
-            this.m_SendToggle = this.m_ValueList.list.GetUIToggle("tgl_send");
-            if ((this.m_SendToggle != null) == null)
-            {
-                goto Label_00D1;
-            }
-            this.m_SendToggle.set_interactable(0);
-        Label_00D1:
-            if ((this.m_Param.wantList != null) == null)
-            {
-                goto Label_011A;
-            }
-            this.m_WantController = this.m_Param.wantList.GetComponentInChildren<ContentController>();
-            if ((this.m_WantController != null) == null)
-            {
-                goto Label_011A;
-            }
-            this.m_WantController.SetWork(this);
-        Label_011A:
-            if ((this.m_Param.receiveList != null) == null)
-            {
-                goto Label_0163;
-            }
-            this.m_ReceiveController = this.m_Param.receiveList.GetComponentInChildren<ContentController>();
-            if ((this.m_ReceiveController != null) == null)
-            {
-                goto Label_0163;
-            }
-            this.m_ReceiveController.SetWork(this);
-        Label_0163:
-            if ((this.m_Param.sendList != null) == null)
-            {
-                goto Label_01AC;
-            }
-            this.m_SendController = this.m_Param.sendList.GetComponentInChildren<ContentController>();
-            if ((this.m_SendController != null) == null)
-            {
-                goto Label_01AC;
-            }
-            this.m_SendController.SetWork(this);
-        Label_01AC:
-            base.Close(1);
-            return;
+          FriendData friend = friends[index];
+          if (friend != null && friend.WishStatus != "1")
+          {
+            FriendPresentRootWindow.SendContent.ItemSource.ItemParam itemParam = new FriendPresentRootWindow.SendContent.ItemSource.ItemParam(friend);
+            if (itemParam.IsValid())
+              this.m_SendSource.Add(itemParam);
+          }
         }
+        this.m_SendController.Initialize((ContentSource) this.m_SendSource, Vector2.get_zero());
+      }
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_ValueList, (UnityEngine.Object) null))
+        return;
+      bool flag = false;
+      switch (FriendPresentRootWindow.m_SendStatus)
+      {
+        case FriendPresentRootWindow.SendStatus.NONE:
+          this.m_ValueList.list.SetField("status", string.Empty);
+          flag = false;
+          break;
+        case FriendPresentRootWindow.SendStatus.UNSENT:
+          this.m_ValueList.list.SetField("status", "sys.FRIENDPRESENT_STATUS_UNSENT");
+          flag = true;
+          break;
+        case FriendPresentRootWindow.SendStatus.SENDING:
+          this.m_ValueList.list.SetField("status", "sys.FRIENDPRESENT_STATUS_SENDING");
+          flag = false;
+          break;
+        case FriendPresentRootWindow.SendStatus.SENTFAILED:
+          this.m_ValueList.list.SetField("status", "sys.FRIENDPRESENT_STATUS_SENTFAILED");
+          flag = true;
+          break;
+        case FriendPresentRootWindow.SendStatus.SENDED:
+          this.m_ValueList.list.SetField("status", "sys.FRIENDPRESENT_STATUS_SENDED");
+          flag = true;
+          break;
+      }
+      this.m_ValueList.list.SetInteractable("btn_send", this.m_SendSource.GetCount() != 0 && flag);
+    }
 
-        public void InitializeReceiveList()
-        {
-            List<FriendPresentReceiveList.Param> list;
-            int num;
-            ReceiveContent.ItemSource.ItemParam param;
-            this.ReleaseReceiveList();
-            if ((this.m_ReceiveController != null) == null)
-            {
-                goto Label_0088;
-            }
-            this.m_ReceiveSource = new ReceiveContent.ItemSource();
-            list = MonoSingleton<GameManager>.Instance.Player.FriendPresentReceiveList.list;
-            num = 0;
-            goto Label_0066;
-        Label_003E:
-            param = new ReceiveContent.ItemSource.ItemParam(list[num]);
-            if (param.IsValid() == null)
-            {
-                goto Label_0062;
-            }
-            this.m_ReceiveSource.Add(param);
-        Label_0062:
-            num += 1;
-        Label_0066:
-            if (num < list.Count)
-            {
-                goto Label_003E;
-            }
-            this.m_ReceiveController.Initialize(this.m_ReceiveSource, Vector2.get_zero());
-        Label_0088:
-            if ((this.m_ValueList != null) == null)
-            {
-                goto Label_00C6;
-            }
-            this.m_ValueList.list.SetInteractable("btn_receive", (this.m_ReceiveSource.GetCount() != null) ? 1 : 0);
-        Label_00C6:
-            return;
-        }
+    public void ReleaseSendList()
+    {
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_SendController, (UnityEngine.Object) null))
+        this.m_SendController.Release();
+      this.m_SendSource = (FriendPresentRootWindow.SendContent.ItemSource) null;
+    }
 
-        public void InitializeSendList()
-        {
-            List<FriendData> list;
-            int num;
-            FriendData data;
-            SendContent.ItemSource.ItemParam param;
-            bool flag;
-            SendStatus status;
-            this.ReleaseSendList();
-            if ((this.m_SendController != null) == null)
-            {
-                goto Label_00A0;
-            }
-            this.m_SendSource = new SendContent.ItemSource();
-            list = MonoSingleton<GameManager>.Instance.Player.Friends;
-            num = 0;
-            goto Label_007E;
-        Label_0039:
-            data = list[num];
-            if ((data == null) || ((data.WishStatus != "1") == null))
-            {
-                goto Label_007A;
-            }
-            param = new SendContent.ItemSource.ItemParam(data);
-            if (param.IsValid() == null)
-            {
-                goto Label_007A;
-            }
-            this.m_SendSource.Add(param);
-        Label_007A:
-            num += 1;
-        Label_007E:
-            if (num < list.Count)
-            {
-                goto Label_0039;
-            }
-            this.m_SendController.Initialize(this.m_SendSource, Vector2.get_zero());
-        Label_00A0:
-            if ((this.m_ValueList != null) == null)
-            {
-                goto Label_01B3;
-            }
-            flag = 0;
-            switch (m_SendStatus)
-            {
-                case 0:
-                    goto Label_00DB;
-
-                case 1:
-                    goto Label_00FD;
-
-                case 2:
-                    goto Label_011F;
-
-                case 3:
-                    goto Label_0163;
-
-                case 4:
-                    goto Label_0141;
-            }
-            goto Label_0185;
-        Label_00DB:
-            this.m_ValueList.list.SetField("status", string.Empty);
-            flag = 0;
-            goto Label_0185;
-        Label_00FD:
-            this.m_ValueList.list.SetField("status", "sys.FRIENDPRESENT_STATUS_UNSENT");
-            flag = 1;
-            goto Label_0185;
-        Label_011F:
-            this.m_ValueList.list.SetField("status", "sys.FRIENDPRESENT_STATUS_SENDING");
-            flag = 0;
-            goto Label_0185;
-        Label_0141:
-            this.m_ValueList.list.SetField("status", "sys.FRIENDPRESENT_STATUS_SENDED");
-            flag = 1;
-            goto Label_0185;
-        Label_0163:
-            this.m_ValueList.list.SetField("status", "sys.FRIENDPRESENT_STATUS_SENTFAILED");
-            flag = 1;
-        Label_0185:
-            this.m_ValueList.list.SetInteractable("btn_send", (this.m_SendSource.GetCount() != null) ? flag : 0);
-        Label_01B3:
-            return;
-        }
-
-        public void InitializeWantList()
-        {
-            int num;
-            FriendPresentItemParam param;
-            this.ReleaseWantList();
-            if ((this.m_WantController != null) == null)
-            {
-                goto Label_008D;
-            }
-            this.m_WantSource = new WantContent.ItemSource();
-            num = 0;
-            goto Label_0070;
-        Label_0029:
-            param = MonoSingleton<GameManager>.Instance.Player.FriendPresentWishList[num];
-            if (param == null)
-            {
-                goto Label_005B;
-            }
-            this.m_WantSource.Add(new WantContent.ItemSource.ItemParam(param));
-            goto Label_006C;
-        Label_005B:
-            this.m_WantSource.Add(new WantContent.ItemSource.ItemParam(null));
-        Label_006C:
-            num += 1;
-        Label_0070:
-            if (num < 3)
-            {
-                goto Label_0029;
-            }
-            this.m_WantController.Initialize(this.m_WantSource, Vector2.get_zero());
-        Label_008D:
-            return;
-        }
-
-        public override int OnActivate(int pinId)
-        {
-            if (pinId != 100)
-            {
-                goto Label_0032;
-            }
-            if (this.SetTab(1) == null)
-            {
-                goto Label_0026;
-            }
+    public override int OnActivate(int pinId)
+    {
+      switch (pinId)
+      {
+        case 100:
+          if (this.SetTab(FriendPresentRootWindow.Tab.RECEIVE))
+          {
             this.InitializeWantList();
             this.InitializeReceiveList();
             this.InitializeSendList();
-        Label_0026:
-            base.Open();
-            return 0xbf;
-        Label_0032:
-            if (pinId != 110)
-            {
-                goto Label_004D;
-            }
-            this.m_Destroy = 1;
-            base.Close(0);
-            goto Label_011B;
-        Label_004D:
-            if (pinId != 120)
-            {
-                goto Label_0072;
-            }
-            if (this.SetTab(1) == null)
-            {
-                goto Label_011B;
-            }
+          }
+          this.Open();
+          return 191;
+        case 110:
+          this.m_Destroy = true;
+          this.Close(false);
+          break;
+        case 120:
+          if (this.SetTab(FriendPresentRootWindow.Tab.RECEIVE))
+          {
             this.InitializeWantList();
             this.InitializeReceiveList();
-            goto Label_011B;
-        Label_0072:
-            if (pinId != 130)
-            {
-                goto Label_0094;
-            }
-            if (this.SetTab(2) == null)
-            {
-                goto Label_011B;
-            }
+            break;
+          }
+          break;
+        case 130:
+          if (this.SetTab(FriendPresentRootWindow.Tab.SEND))
+          {
             this.InitializeSendList();
-            goto Label_011B;
-        Label_0094:
-            if (pinId != 140)
-            {
-                goto Label_00A4;
-            }
-            goto Label_011B;
-        Label_00A4:
-            if (pinId != 150)
-            {
-                goto Label_00B4;
-            }
-            goto Label_011B;
-        Label_00B4:
-            if (pinId != 160)
-            {
-                goto Label_00CA;
-            }
-            this.InitializeWantList();
-            goto Label_011B;
-        Label_00CA:
-            if (pinId != 170)
-            {
-                goto Label_00E0;
-            }
-            this.InitializeReceiveList();
-            goto Label_011B;
-        Label_00E0:
-            if (pinId != 0xab)
-            {
-                goto Label_010A;
-            }
-            MonoSingleton<GameManager>.Instance.Player.FriendPresentReceiveList.Clear();
-            this.InitializeReceiveList();
-            goto Label_011B;
-        Label_010A:
-            if (pinId != 180)
-            {
-                goto Label_011B;
-            }
-            this.InitializeSendList();
-        Label_011B:
-            return -1;
+            break;
+          }
+          break;
+        case 160:
+          this.InitializeWantList();
+          break;
+        case 170:
+          this.InitializeReceiveList();
+          break;
+        case 171:
+          MonoSingleton<GameManager>.Instance.Player.FriendPresentReceiveList.Clear();
+          this.InitializeReceiveList();
+          break;
+        case 180:
+          this.InitializeSendList();
+          break;
+      }
+      return -1;
+    }
+
+    public enum Tab
+    {
+      NONE,
+      RECEIVE,
+      SEND,
+    }
+
+    public enum SendStatus
+    {
+      NONE,
+      UNSENT,
+      SENDING,
+      SENTFAILED,
+      SENDED,
+    }
+
+    public static class WantContent
+    {
+      public static FriendPresentRootWindow.WantContent.ItemAccessor clickItem;
+
+      public class ItemAccessor
+      {
+        private ContentNode m_Node;
+        private FriendPresentItemParam m_Present;
+        private FriendPresentItemIcon m_Icon;
+
+        public ContentNode node
+        {
+          get
+          {
+            return this.m_Node;
+          }
+        }
+
+        public FriendPresentItemParam present
+        {
+          get
+          {
+            return this.m_Present;
+          }
+        }
+
+        public FriendPresentItemIcon icon
+        {
+          get
+          {
+            return this.m_Icon;
+          }
+        }
+
+        public int priority
+        {
+          get
+          {
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_Node, (UnityEngine.Object) null))
+              return this.m_Node.index;
+            return 0;
+          }
+        }
+
+        public bool isValid
+        {
+          get
+          {
+            return true;
+          }
+        }
+
+        public void Setup(FriendPresentItemParam present)
+        {
+          this.m_Present = present;
+        }
+
+        public void Bind(ContentNode node)
+        {
+          this.m_Node = node;
+          this.m_Icon = (FriendPresentItemIcon) ((Component) this.m_Node).GetComponent<FriendPresentItemIcon>();
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_Icon, (UnityEngine.Object) null))
+            return;
+          if (this.present != null)
+          {
+            this.m_Icon.Bind(this.present, true);
+          }
+          else
+          {
+            this.m_Icon.Clear();
+            this.m_Icon.Refresh();
+          }
+        }
+
+        public void Clear()
+        {
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_Icon, (UnityEngine.Object) null))
+          {
+            this.m_Icon.Clear();
+            this.m_Icon = (FriendPresentItemIcon) null;
+          }
+          this.m_Node = (ContentNode) null;
+        }
+
+        public void ForceUpdate()
+        {
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_Icon, (UnityEngine.Object) null))
+            return;
+          this.m_Icon.Refresh();
+        }
+      }
+
+      public class ItemSource : ContentSource
+      {
+        private List<FriendPresentRootWindow.WantContent.ItemSource.ItemParam> m_Params = new List<FriendPresentRootWindow.WantContent.ItemSource.ItemParam>();
+
+        public override void Initialize(ContentController controller)
+        {
+          base.Initialize(controller);
+          this.Setup();
         }
 
         public override void Release()
         {
-            this.ReleaseWantList();
-            this.ReleaseReceiveList();
-            this.ReleaseSendList();
-            base.Release();
-            m_Instance = null;
+          base.Release();
+        }
+
+        public void Add(FriendPresentRootWindow.WantContent.ItemSource.ItemParam param)
+        {
+          if (!param.IsValid())
             return;
+          this.m_Params.Add(param);
         }
 
-        public void ReleaseReceiveList()
+        public void Setup()
         {
-            if ((this.m_ReceiveController != null) == null)
-            {
-                goto Label_001C;
-            }
-            this.m_ReceiveController.Release();
-        Label_001C:
-            this.m_ReceiveSource = null;
+          Func<FriendPresentRootWindow.WantContent.ItemSource.ItemParam, bool> predicate = (Func<FriendPresentRootWindow.WantContent.ItemSource.ItemParam, bool>) (prop => true);
+          this.Clear();
+          if (predicate != null)
+            this.SetTable((ContentSource.Param[]) this.m_Params.Where<FriendPresentRootWindow.WantContent.ItemSource.ItemParam>(predicate).ToArray<FriendPresentRootWindow.WantContent.ItemSource.ItemParam>());
+          else
+            this.SetTable((ContentSource.Param[]) this.m_Params.ToArray());
+          this.contentController.Resize(0);
+          bool flag = false;
+          Vector2 anchoredPosition = this.contentController.anchoredPosition;
+          Vector2 lastPageAnchorePos = this.contentController.GetLastPageAnchorePos();
+          if (anchoredPosition.x < lastPageAnchorePos.x)
+          {
+            flag = true;
+            anchoredPosition.x = lastPageAnchorePos.x;
+          }
+          if (anchoredPosition.y < lastPageAnchorePos.y)
+          {
+            flag = true;
+            anchoredPosition.y = lastPageAnchorePos.y;
+          }
+          if (flag)
+            this.contentController.anchoredPosition = anchoredPosition;
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.contentController.scroller, (UnityEngine.Object) null))
             return;
+          this.contentController.scroller.StopMovement();
         }
 
-        public void ReleaseSendList()
+        public class ItemParam : ContentSource.Param
         {
-            if ((this.m_SendController != null) == null)
-            {
-                goto Label_001C;
-            }
-            this.m_SendController.Release();
-        Label_001C:
-            this.m_SendSource = null;
-            return;
-        }
+          private FriendPresentRootWindow.WantContent.ItemAccessor m_Accessor = new FriendPresentRootWindow.WantContent.ItemAccessor();
 
-        public void ReleaseWantList()
-        {
-            if ((this.m_WantController != null) == null)
-            {
-                goto Label_001C;
-            }
-            this.m_WantController.Release();
-        Label_001C:
-            this.m_WantSource = null;
-            return;
-        }
+          public ItemParam(FriendPresentItemParam present)
+          {
+            this.m_Accessor.Setup(present);
+          }
 
-        public static void SetSendStatus(SendStatus status)
-        {
-            m_SendStatus = status;
-            return;
-        }
+          public override bool IsValid()
+          {
+            return this.m_Accessor.isValid;
+          }
 
-        private bool SetTab(Tab tab)
-        {
-            bool flag;
-            Tab tab2;
-            flag = 0;
-            if (this.m_Tab == tab)
-            {
-                goto Label_0129;
-            }
-            flag = 1;
-            tab2 = tab;
-            switch (tab2)
-            {
-                case 0:
-                    goto Label_0029;
-
-                case 1:
-                    goto Label_007C;
-
-                case 2:
-                    goto Label_00CF;
-            }
-            goto Label_0122;
-        Label_0029:
-            if ((this.m_Param.tabReceive != null) == null)
-            {
-                goto Label_0050;
-            }
-            this.m_Param.tabReceive.SetActive(0);
-        Label_0050:
-            if ((this.m_Param.tabSend != null) == null)
-            {
-                goto Label_0122;
-            }
-            this.m_Param.tabSend.SetActive(0);
-            goto Label_0122;
-        Label_007C:
-            if ((this.m_Param.tabReceive != null) == null)
-            {
-                goto Label_00A3;
-            }
-            this.m_Param.tabReceive.SetActive(1);
-        Label_00A3:
-            if ((this.m_Param.tabSend != null) == null)
-            {
-                goto Label_0122;
-            }
-            this.m_Param.tabSend.SetActive(0);
-            goto Label_0122;
-        Label_00CF:
-            if ((this.m_Param.tabReceive != null) == null)
-            {
-                goto Label_00F6;
-            }
-            this.m_Param.tabReceive.SetActive(0);
-        Label_00F6:
-            if ((this.m_Param.tabSend != null) == null)
-            {
-                goto Label_0122;
-            }
-            this.m_Param.tabSend.SetActive(1);
-        Label_0122:
-            this.m_Tab = tab;
-        Label_0129:
-            return flag;
-        }
-
-        public override int Update()
-        {
-            int num;
-            base.Update();
-            if (this.m_Destroy == null)
-            {
-                goto Label_002A;
-            }
-            if (base.isClosed == null)
-            {
-                goto Label_002A;
-            }
-            base.SetActiveChild(0);
-            return 190;
-        Label_002A:
-            num = CriticalSection.GetActive();
-            if ((this.m_ReceiveToggle != null) == null)
-            {
-                goto Label_0050;
-            }
-            this.m_ReceiveToggle.set_interactable(num == 0);
-        Label_0050:
-            if ((this.m_SendToggle != null) == null)
-            {
-                goto Label_0070;
-            }
-            this.m_SendToggle.set_interactable(num == 0);
-        Label_0070:
-            return -1;
-        }
-
-        public override string name
-        {
+          public FriendPresentRootWindow.WantContent.ItemAccessor accerror
+          {
             get
             {
-                return "FriendPresentRootWindow";
+              return this.m_Accessor;
             }
-        }
+          }
 
-        public static FriendPresentRootWindow instance
-        {
+          public FriendPresentItemParam present
+          {
             get
             {
-                return m_Instance;
+              return this.m_Accessor.present;
             }
+          }
+
+          public override void OnEnable(ContentNode node)
+          {
+            this.m_Accessor.Bind(node);
+            this.m_Accessor.ForceUpdate();
+          }
+
+          public override void OnDisable(ContentNode node)
+          {
+            this.m_Accessor.Clear();
+          }
+
+          public override void OnClick(ContentNode node)
+          {
+            FriendPresentRootWindow.WantContent.clickItem = this.m_Accessor;
+            ButtonEvent.Invoke("FRIENDPRESENT_WANTLIST_OPEN", (object) node);
+          }
         }
-
-        public static class ReceiveContent
-        {
-            public static ItemAccessor clickItem;
-
-            static ReceiveContent()
-            {
-            }
-
-            public class ItemAccessor
-            {
-                private ContentNode m_Node;
-                private FriendPresentReceiveList.Param m_Param;
-                private FriendPresentItemIcon m_Icon;
-                private SerializeValueBehaviour m_Value;
-
-                public ItemAccessor()
-                {
-                    base..ctor();
-                    return;
-                }
-
-                public void Bind(ContentNode node)
-                {
-                    this.m_Node = node;
-                    this.m_Icon = this.m_Node.GetComponent<FriendPresentItemIcon>();
-                    if ((this.m_Icon != null) == null)
-                    {
-                        goto Label_003B;
-                    }
-                    this.m_Icon.Bind(this.present, 0);
-                Label_003B:
-                    this.m_Value = this.m_Node.GetComponent<SerializeValueBehaviour>();
-                    if ((this.m_Value != null) == null)
-                    {
-                        goto Label_007D;
-                    }
-                    this.m_Value.list.SetField("num", this.m_Param.num);
-                Label_007D:
-                    return;
-                }
-
-                public void Clear()
-                {
-                    if ((this.m_Icon != null) == null)
-                    {
-                        goto Label_0023;
-                    }
-                    this.m_Icon.Clear();
-                    this.m_Icon = null;
-                Label_0023:
-                    this.m_Value = null;
-                    this.m_Node = null;
-                    return;
-                }
-
-                public void ForceUpdate()
-                {
-                    if ((this.m_Icon != null) == null)
-                    {
-                        goto Label_001C;
-                    }
-                    this.m_Icon.Refresh();
-                Label_001C:
-                    return;
-                }
-
-                public void Setup(FriendPresentReceiveList.Param param)
-                {
-                    this.m_Param = param;
-                    return;
-                }
-
-                public ContentNode node
-                {
-                    get
-                    {
-                        return this.m_Node;
-                    }
-                }
-
-                public FriendPresentReceiveList.Param param
-                {
-                    get
-                    {
-                        return this.m_Param;
-                    }
-                }
-
-                public FriendPresentItemParam present
-                {
-                    get
-                    {
-                        return this.m_Param.present;
-                    }
-                }
-
-                public FriendPresentItemIcon icon
-                {
-                    get
-                    {
-                        return this.m_Icon;
-                    }
-                }
-
-                public bool isValid
-                {
-                    get
-                    {
-                        return ((this.m_Param == null) == 0);
-                    }
-                }
-            }
-
-            public class ItemSource : ContentSource
-            {
-                private List<ItemParam> m_Params;
-                [CompilerGenerated]
-                private static Func<ItemParam, bool> <>f__am$cache1;
-
-                public ItemSource()
-                {
-                    this.m_Params = new List<ItemParam>();
-                    base..ctor();
-                    return;
-                }
-
-                [CompilerGenerated]
-                private static bool <Setup>m__31F(ItemParam prop)
-                {
-                    return 1;
-                }
-
-                public void Add(ItemParam param)
-                {
-                    if (param.IsValid() == null)
-                    {
-                        goto Label_0017;
-                    }
-                    this.m_Params.Add(param);
-                Label_0017:
-                    return;
-                }
-
-                public override void Initialize(ContentController controller)
-                {
-                    base.Initialize(controller);
-                    this.Setup();
-                    return;
-                }
-
-                public override void Release()
-                {
-                    base.Release();
-                    return;
-                }
-
-                public unsafe void Setup()
-                {
-                    Func<ItemParam, bool> func;
-                    bool flag;
-                    Vector2 vector;
-                    Vector2 vector2;
-                    if (<>f__am$cache1 != null)
-                    {
-                        goto Label_0018;
-                    }
-                    <>f__am$cache1 = new Func<ItemParam, bool>(FriendPresentRootWindow.ReceiveContent.ItemSource.<Setup>m__31F);
-                Label_0018:
-                    func = <>f__am$cache1;
-                    this.Clear();
-                    if (func == null)
-                    {
-                        goto Label_0046;
-                    }
-                    base.SetTable(Enumerable.ToArray<ItemParam>(Enumerable.Where<ItemParam>(this.m_Params, func)));
-                    goto Label_0057;
-                Label_0046:
-                    base.SetTable(this.m_Params.ToArray());
-                Label_0057:
-                    base.contentController.Resize(0);
-                    flag = 0;
-                    vector = base.contentController.anchoredPosition;
-                    vector2 = base.contentController.GetLastPageAnchorePos();
-                    if (&vector.x >= &vector2.x)
-                    {
-                        goto Label_00A0;
-                    }
-                    flag = 1;
-                    &vector.x = &vector2.x;
-                Label_00A0:
-                    if (&vector.y >= &vector2.y)
-                    {
-                        goto Label_00C3;
-                    }
-                    flag = 1;
-                    &vector.y = &vector2.y;
-                Label_00C3:
-                    if (flag == null)
-                    {
-                        goto Label_00D5;
-                    }
-                    base.contentController.anchoredPosition = vector;
-                Label_00D5:
-                    if ((base.contentController.scroller != null) == null)
-                    {
-                        goto Label_00FB;
-                    }
-                    base.contentController.scroller.StopMovement();
-                Label_00FB:
-                    return;
-                }
-
-                public class ItemParam : ContentSource.Param
-                {
-                    private FriendPresentRootWindow.ReceiveContent.ItemAccessor m_Accessor;
-
-                    public ItemParam(FriendPresentReceiveList.Param param)
-                    {
-                        this.m_Accessor = new FriendPresentRootWindow.ReceiveContent.ItemAccessor();
-                        base..ctor();
-                        this.m_Accessor.Setup(param);
-                        return;
-                    }
-
-                    public override bool IsValid()
-                    {
-                        return this.m_Accessor.isValid;
-                    }
-
-                    public override void OnClick(ContentNode node)
-                    {
-                    }
-
-                    public override void OnDisable(ContentNode node)
-                    {
-                        this.m_Accessor.Clear();
-                        return;
-                    }
-
-                    public override void OnEnable(ContentNode node)
-                    {
-                        this.m_Accessor.Bind(node);
-                        this.m_Accessor.ForceUpdate();
-                        return;
-                    }
-
-                    public FriendPresentRootWindow.ReceiveContent.ItemAccessor accerror
-                    {
-                        get
-                        {
-                            return this.m_Accessor;
-                        }
-                    }
-
-                    public FriendPresentReceiveList.Param param
-                    {
-                        get
-                        {
-                            return this.m_Accessor.param;
-                        }
-                    }
-
-                    public FriendPresentItemParam present
-                    {
-                        get
-                        {
-                            return this.m_Accessor.present;
-                        }
-                    }
-                }
-            }
-        }
-
-        public static class SendContent
-        {
-            public static ItemAccessor clickItem;
-
-            static SendContent()
-            {
-            }
-
-            public class ItemAccessor
-            {
-                private ContentNode m_Node;
-                private FriendData m_Friend;
-                private FriendPresentItemParam m_Present;
-                private FriendPresentItemIcon m_Icon;
-                private DataSource m_DataSource;
-
-                public ItemAccessor()
-                {
-                    base..ctor();
-                    return;
-                }
-
-                public void Bind(ContentNode node)
-                {
-                    this.m_Node = node;
-                    this.m_DataSource = DataSource.Create(node.get_gameObject());
-                    this.m_DataSource.Add(typeof(FriendData), this.m_Friend);
-                    this.m_DataSource.Add(typeof(UnitData), this.m_Friend.Unit);
-                    this.m_Icon = this.m_Node.GetComponent<FriendPresentItemIcon>();
-                    if ((this.m_Icon != null) == null)
-                    {
-                        goto Label_0087;
-                    }
-                    this.m_Icon.Bind(this.present, 0);
-                Label_0087:
-                    return;
-                }
-
-                public void Clear()
-                {
-                    if ((this.m_DataSource != null) == null)
-                    {
-                        goto Label_0023;
-                    }
-                    this.m_DataSource.Clear();
-                    this.m_DataSource = null;
-                Label_0023:
-                    if ((this.m_Icon != null) == null)
-                    {
-                        goto Label_0046;
-                    }
-                    this.m_Icon.Clear();
-                    this.m_Icon = null;
-                Label_0046:
-                    this.m_Node = null;
-                    return;
-                }
-
-                public void ForceUpdate()
-                {
-                    if ((this.m_Icon != null) == null)
-                    {
-                        goto Label_001C;
-                    }
-                    this.m_Icon.Refresh();
-                Label_001C:
-                    return;
-                }
-
-                public void Setup(FriendData friend)
-                {
-                    this.m_Friend = friend;
-                    if (string.IsNullOrEmpty(friend.Wish) == null)
-                    {
-                        goto Label_0027;
-                    }
-                    this.m_Present = FriendPresentItemParam.DefaultParam;
-                    goto Label_0042;
-                Label_0027:
-                    this.m_Present = MonoSingleton<GameManager>.Instance.MasterParam.GetFriendPresentItemParam(friend.Wish);
-                Label_0042:
-                    return;
-                }
-
-                public ContentNode node
-                {
-                    get
-                    {
-                        return this.m_Node;
-                    }
-                }
-
-                public FriendData friend
-                {
-                    get
-                    {
-                        return this.m_Friend;
-                    }
-                }
-
-                public FriendPresentItemParam present
-                {
-                    get
-                    {
-                        return this.m_Present;
-                    }
-                }
-
-                public FriendPresentItemIcon icon
-                {
-                    get
-                    {
-                        return this.m_Icon;
-                    }
-                }
-
-                public bool isValid
-                {
-                    get
-                    {
-                        if (this.m_Friend == null)
-                        {
-                            goto Label_0018;
-                        }
-                        if (this.m_Present == null)
-                        {
-                            goto Label_0018;
-                        }
-                        return 1;
-                    Label_0018:
-                        return 0;
-                    }
-                }
-            }
-
-            public class ItemSource : ContentSource
-            {
-                private List<ItemParam> m_Params;
-                [CompilerGenerated]
-                private static Func<ItemParam, bool> <>f__am$cache1;
-
-                public ItemSource()
-                {
-                    this.m_Params = new List<ItemParam>();
-                    base..ctor();
-                    return;
-                }
-
-                [CompilerGenerated]
-                private static bool <Setup>m__320(ItemParam prop)
-                {
-                    return 1;
-                }
-
-                public void Add(ItemParam param)
-                {
-                    if (param.IsValid() == null)
-                    {
-                        goto Label_0017;
-                    }
-                    this.m_Params.Add(param);
-                Label_0017:
-                    return;
-                }
-
-                public override void Initialize(ContentController controller)
-                {
-                    base.Initialize(controller);
-                    this.Setup();
-                    return;
-                }
-
-                public override void Release()
-                {
-                    base.Release();
-                    return;
-                }
-
-                public unsafe void Setup()
-                {
-                    Func<ItemParam, bool> func;
-                    bool flag;
-                    Vector2 vector;
-                    Vector2 vector2;
-                    if (<>f__am$cache1 != null)
-                    {
-                        goto Label_0018;
-                    }
-                    <>f__am$cache1 = new Func<ItemParam, bool>(FriendPresentRootWindow.SendContent.ItemSource.<Setup>m__320);
-                Label_0018:
-                    func = <>f__am$cache1;
-                    this.Clear();
-                    if (func == null)
-                    {
-                        goto Label_0046;
-                    }
-                    base.SetTable(Enumerable.ToArray<ItemParam>(Enumerable.Where<ItemParam>(this.m_Params, func)));
-                    goto Label_0057;
-                Label_0046:
-                    base.SetTable(this.m_Params.ToArray());
-                Label_0057:
-                    base.contentController.Resize(0);
-                    flag = 0;
-                    vector = base.contentController.anchoredPosition;
-                    vector2 = base.contentController.GetLastPageAnchorePos();
-                    if (&vector.x >= &vector2.x)
-                    {
-                        goto Label_00A0;
-                    }
-                    flag = 1;
-                    &vector.x = &vector2.x;
-                Label_00A0:
-                    if (&vector.y >= &vector2.y)
-                    {
-                        goto Label_00C3;
-                    }
-                    flag = 1;
-                    &vector.y = &vector2.y;
-                Label_00C3:
-                    if (flag == null)
-                    {
-                        goto Label_00D5;
-                    }
-                    base.contentController.anchoredPosition = vector;
-                Label_00D5:
-                    if ((base.contentController.scroller != null) == null)
-                    {
-                        goto Label_00FB;
-                    }
-                    base.contentController.scroller.StopMovement();
-                Label_00FB:
-                    return;
-                }
-
-                public class ItemParam : ContentSource.Param
-                {
-                    private FriendPresentRootWindow.SendContent.ItemAccessor m_Accessor;
-
-                    public ItemParam(FriendData friend)
-                    {
-                        this.m_Accessor = new FriendPresentRootWindow.SendContent.ItemAccessor();
-                        base..ctor();
-                        this.m_Accessor.Setup(friend);
-                        return;
-                    }
-
-                    public override bool IsValid()
-                    {
-                        return this.m_Accessor.isValid;
-                    }
-
-                    public override void OnClick(ContentNode node)
-                    {
-                    }
-
-                    public override void OnDisable(ContentNode node)
-                    {
-                        this.m_Accessor.Clear();
-                        return;
-                    }
-
-                    public override void OnEnable(ContentNode node)
-                    {
-                        this.m_Accessor.Bind(node);
-                        this.m_Accessor.ForceUpdate();
-                        return;
-                    }
-
-                    public FriendPresentRootWindow.SendContent.ItemAccessor accerror
-                    {
-                        get
-                        {
-                            return this.m_Accessor;
-                        }
-                    }
-
-                    public FriendData friend
-                    {
-                        get
-                        {
-                            return this.m_Accessor.friend;
-                        }
-                    }
-
-                    public FriendPresentItemParam present
-                    {
-                        get
-                        {
-                            return this.m_Accessor.present;
-                        }
-                    }
-                }
-            }
-        }
-
-        public enum SendStatus
-        {
-            NONE,
-            UNSENT,
-            SENDING,
-            SENTFAILED,
-            SENDED
-        }
-
-        [Serializable]
-        public class SerializeParam : FlowWindowBase.SerializeParamBase
-        {
-            public GameObject tabReceive;
-            public GameObject tabSend;
-            public GameObject wantList;
-            public GameObject receiveList;
-            public GameObject sendList;
-
-            public SerializeParam()
-            {
-                base..ctor();
-                return;
-            }
-
-            public override Type type
-            {
-                get
-                {
-                    return typeof(FriendPresentRootWindow);
-                }
-            }
-        }
-
-        public enum Tab
-        {
-            NONE,
-            RECEIVE,
-            SEND
-        }
-
-        public static class WantContent
-        {
-            public static ItemAccessor clickItem;
-
-            static WantContent()
-            {
-            }
-
-            public class ItemAccessor
-            {
-                private ContentNode m_Node;
-                private FriendPresentItemParam m_Present;
-                private FriendPresentItemIcon m_Icon;
-
-                public ItemAccessor()
-                {
-                    base..ctor();
-                    return;
-                }
-
-                public void Bind(ContentNode node)
-                {
-                    this.m_Node = node;
-                    this.m_Icon = this.m_Node.GetComponent<FriendPresentItemIcon>();
-                    if ((this.m_Icon != null) == null)
-                    {
-                        goto Label_0061;
-                    }
-                    if (this.present == null)
-                    {
-                        goto Label_004B;
-                    }
-                    this.m_Icon.Bind(this.present, 1);
-                    goto Label_0061;
-                Label_004B:
-                    this.m_Icon.Clear();
-                    this.m_Icon.Refresh();
-                Label_0061:
-                    return;
-                }
-
-                public void Clear()
-                {
-                    if ((this.m_Icon != null) == null)
-                    {
-                        goto Label_0023;
-                    }
-                    this.m_Icon.Clear();
-                    this.m_Icon = null;
-                Label_0023:
-                    this.m_Node = null;
-                    return;
-                }
-
-                public void ForceUpdate()
-                {
-                    if ((this.m_Icon != null) == null)
-                    {
-                        goto Label_001C;
-                    }
-                    this.m_Icon.Refresh();
-                Label_001C:
-                    return;
-                }
-
-                public void Setup(FriendPresentItemParam present)
-                {
-                    this.m_Present = present;
-                    return;
-                }
-
-                public ContentNode node
-                {
-                    get
-                    {
-                        return this.m_Node;
-                    }
-                }
-
-                public FriendPresentItemParam present
-                {
-                    get
-                    {
-                        return this.m_Present;
-                    }
-                }
-
-                public FriendPresentItemIcon icon
-                {
-                    get
-                    {
-                        return this.m_Icon;
-                    }
-                }
-
-                public int priority
-                {
-                    get
-                    {
-                        return (((this.m_Node != null) == null) ? 0 : this.m_Node.index);
-                    }
-                }
-
-                public bool isValid
-                {
-                    get
-                    {
-                        return 1;
-                    }
-                }
-            }
-
-            public class ItemSource : ContentSource
-            {
-                private List<ItemParam> m_Params;
-                [CompilerGenerated]
-                private static Func<ItemParam, bool> <>f__am$cache1;
-
-                public ItemSource()
-                {
-                    this.m_Params = new List<ItemParam>();
-                    base..ctor();
-                    return;
-                }
-
-                [CompilerGenerated]
-                private static bool <Setup>m__31E(ItemParam prop)
-                {
-                    return 1;
-                }
-
-                public void Add(ItemParam param)
-                {
-                    if (param.IsValid() == null)
-                    {
-                        goto Label_0017;
-                    }
-                    this.m_Params.Add(param);
-                Label_0017:
-                    return;
-                }
-
-                public override void Initialize(ContentController controller)
-                {
-                    base.Initialize(controller);
-                    this.Setup();
-                    return;
-                }
-
-                public override void Release()
-                {
-                    base.Release();
-                    return;
-                }
-
-                public unsafe void Setup()
-                {
-                    Func<ItemParam, bool> func;
-                    bool flag;
-                    Vector2 vector;
-                    Vector2 vector2;
-                    if (<>f__am$cache1 != null)
-                    {
-                        goto Label_0018;
-                    }
-                    <>f__am$cache1 = new Func<ItemParam, bool>(FriendPresentRootWindow.WantContent.ItemSource.<Setup>m__31E);
-                Label_0018:
-                    func = <>f__am$cache1;
-                    this.Clear();
-                    if (func == null)
-                    {
-                        goto Label_0046;
-                    }
-                    base.SetTable(Enumerable.ToArray<ItemParam>(Enumerable.Where<ItemParam>(this.m_Params, func)));
-                    goto Label_0057;
-                Label_0046:
-                    base.SetTable(this.m_Params.ToArray());
-                Label_0057:
-                    base.contentController.Resize(0);
-                    flag = 0;
-                    vector = base.contentController.anchoredPosition;
-                    vector2 = base.contentController.GetLastPageAnchorePos();
-                    if (&vector.x >= &vector2.x)
-                    {
-                        goto Label_00A0;
-                    }
-                    flag = 1;
-                    &vector.x = &vector2.x;
-                Label_00A0:
-                    if (&vector.y >= &vector2.y)
-                    {
-                        goto Label_00C3;
-                    }
-                    flag = 1;
-                    &vector.y = &vector2.y;
-                Label_00C3:
-                    if (flag == null)
-                    {
-                        goto Label_00D5;
-                    }
-                    base.contentController.anchoredPosition = vector;
-                Label_00D5:
-                    if ((base.contentController.scroller != null) == null)
-                    {
-                        goto Label_00FB;
-                    }
-                    base.contentController.scroller.StopMovement();
-                Label_00FB:
-                    return;
-                }
-
-                public class ItemParam : ContentSource.Param
-                {
-                    private FriendPresentRootWindow.WantContent.ItemAccessor m_Accessor;
-
-                    public ItemParam(FriendPresentItemParam present)
-                    {
-                        this.m_Accessor = new FriendPresentRootWindow.WantContent.ItemAccessor();
-                        base..ctor();
-                        this.m_Accessor.Setup(present);
-                        return;
-                    }
-
-                    public override bool IsValid()
-                    {
-                        return this.m_Accessor.isValid;
-                    }
-
-                    public override void OnClick(ContentNode node)
-                    {
-                        FriendPresentRootWindow.WantContent.clickItem = this.m_Accessor;
-                        ButtonEvent.Invoke("FRIENDPRESENT_WANTLIST_OPEN", node);
-                        return;
-                    }
-
-                    public override void OnDisable(ContentNode node)
-                    {
-                        this.m_Accessor.Clear();
-                        return;
-                    }
-
-                    public override void OnEnable(ContentNode node)
-                    {
-                        this.m_Accessor.Bind(node);
-                        this.m_Accessor.ForceUpdate();
-                        return;
-                    }
-
-                    public FriendPresentRootWindow.WantContent.ItemAccessor accerror
-                    {
-                        get
-                        {
-                            return this.m_Accessor;
-                        }
-                    }
-
-                    public FriendPresentItemParam present
-                    {
-                        get
-                        {
-                            return this.m_Accessor.present;
-                        }
-                    }
-                }
-            }
-        }
+      }
     }
-}
 
+    public static class ReceiveContent
+    {
+      public static FriendPresentRootWindow.ReceiveContent.ItemAccessor clickItem;
+
+      public class ItemAccessor
+      {
+        private ContentNode m_Node;
+        private FriendPresentReceiveList.Param m_Param;
+        private FriendPresentItemIcon m_Icon;
+        private SerializeValueBehaviour m_Value;
+
+        public ContentNode node
+        {
+          get
+          {
+            return this.m_Node;
+          }
+        }
+
+        public FriendPresentReceiveList.Param param
+        {
+          get
+          {
+            return this.m_Param;
+          }
+        }
+
+        public FriendPresentItemParam present
+        {
+          get
+          {
+            return this.m_Param.present;
+          }
+        }
+
+        public FriendPresentItemIcon icon
+        {
+          get
+          {
+            return this.m_Icon;
+          }
+        }
+
+        public bool isValid
+        {
+          get
+          {
+            return this.m_Param != null;
+          }
+        }
+
+        public void Setup(FriendPresentReceiveList.Param param)
+        {
+          this.m_Param = param;
+        }
+
+        public void Bind(ContentNode node)
+        {
+          this.m_Node = node;
+          this.m_Icon = (FriendPresentItemIcon) ((Component) this.m_Node).GetComponent<FriendPresentItemIcon>();
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_Icon, (UnityEngine.Object) null))
+            this.m_Icon.Bind(this.present, false);
+          this.m_Value = (SerializeValueBehaviour) ((Component) this.m_Node).GetComponent<SerializeValueBehaviour>();
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_Value, (UnityEngine.Object) null))
+            return;
+          this.m_Value.list.SetField("num", this.m_Param.num);
+        }
+
+        public void Clear()
+        {
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_Icon, (UnityEngine.Object) null))
+          {
+            this.m_Icon.Clear();
+            this.m_Icon = (FriendPresentItemIcon) null;
+          }
+          this.m_Value = (SerializeValueBehaviour) null;
+          this.m_Node = (ContentNode) null;
+        }
+
+        public void ForceUpdate()
+        {
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_Icon, (UnityEngine.Object) null))
+            return;
+          this.m_Icon.Refresh();
+        }
+      }
+
+      public class ItemSource : ContentSource
+      {
+        private List<FriendPresentRootWindow.ReceiveContent.ItemSource.ItemParam> m_Params = new List<FriendPresentRootWindow.ReceiveContent.ItemSource.ItemParam>();
+
+        public override void Initialize(ContentController controller)
+        {
+          base.Initialize(controller);
+          this.Setup();
+        }
+
+        public override void Release()
+        {
+          base.Release();
+        }
+
+        public void Add(FriendPresentRootWindow.ReceiveContent.ItemSource.ItemParam param)
+        {
+          if (!param.IsValid())
+            return;
+          this.m_Params.Add(param);
+        }
+
+        public void Setup()
+        {
+          Func<FriendPresentRootWindow.ReceiveContent.ItemSource.ItemParam, bool> predicate = (Func<FriendPresentRootWindow.ReceiveContent.ItemSource.ItemParam, bool>) (prop => true);
+          this.Clear();
+          if (predicate != null)
+            this.SetTable((ContentSource.Param[]) this.m_Params.Where<FriendPresentRootWindow.ReceiveContent.ItemSource.ItemParam>(predicate).ToArray<FriendPresentRootWindow.ReceiveContent.ItemSource.ItemParam>());
+          else
+            this.SetTable((ContentSource.Param[]) this.m_Params.ToArray());
+          this.contentController.Resize(0);
+          bool flag = false;
+          Vector2 anchoredPosition = this.contentController.anchoredPosition;
+          Vector2 lastPageAnchorePos = this.contentController.GetLastPageAnchorePos();
+          if (anchoredPosition.x < lastPageAnchorePos.x)
+          {
+            flag = true;
+            anchoredPosition.x = lastPageAnchorePos.x;
+          }
+          if (anchoredPosition.y < lastPageAnchorePos.y)
+          {
+            flag = true;
+            anchoredPosition.y = lastPageAnchorePos.y;
+          }
+          if (flag)
+            this.contentController.anchoredPosition = anchoredPosition;
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.contentController.scroller, (UnityEngine.Object) null))
+            return;
+          this.contentController.scroller.StopMovement();
+        }
+
+        public class ItemParam : ContentSource.Param
+        {
+          private FriendPresentRootWindow.ReceiveContent.ItemAccessor m_Accessor = new FriendPresentRootWindow.ReceiveContent.ItemAccessor();
+
+          public ItemParam(FriendPresentReceiveList.Param param)
+          {
+            this.m_Accessor.Setup(param);
+          }
+
+          public override bool IsValid()
+          {
+            return this.m_Accessor.isValid;
+          }
+
+          public FriendPresentRootWindow.ReceiveContent.ItemAccessor accerror
+          {
+            get
+            {
+              return this.m_Accessor;
+            }
+          }
+
+          public FriendPresentReceiveList.Param param
+          {
+            get
+            {
+              return this.m_Accessor.param;
+            }
+          }
+
+          public FriendPresentItemParam present
+          {
+            get
+            {
+              return this.m_Accessor.present;
+            }
+          }
+
+          public override void OnEnable(ContentNode node)
+          {
+            this.m_Accessor.Bind(node);
+            this.m_Accessor.ForceUpdate();
+          }
+
+          public override void OnDisable(ContentNode node)
+          {
+            this.m_Accessor.Clear();
+          }
+
+          public override void OnClick(ContentNode node)
+          {
+          }
+        }
+      }
+    }
+
+    public static class SendContent
+    {
+      public static FriendPresentRootWindow.SendContent.ItemAccessor clickItem;
+
+      public class ItemAccessor
+      {
+        private ContentNode m_Node;
+        private FriendData m_Friend;
+        private FriendPresentItemParam m_Present;
+        private FriendPresentItemIcon m_Icon;
+        private DataSource m_DataSource;
+
+        public ContentNode node
+        {
+          get
+          {
+            return this.m_Node;
+          }
+        }
+
+        public FriendData friend
+        {
+          get
+          {
+            return this.m_Friend;
+          }
+        }
+
+        public FriendPresentItemParam present
+        {
+          get
+          {
+            return this.m_Present;
+          }
+        }
+
+        public FriendPresentItemIcon icon
+        {
+          get
+          {
+            return this.m_Icon;
+          }
+        }
+
+        public bool isValid
+        {
+          get
+          {
+            return this.m_Friend != null && this.m_Present != null;
+          }
+        }
+
+        public void Setup(FriendData friend)
+        {
+          this.m_Friend = friend;
+          if (string.IsNullOrEmpty(friend.Wish))
+            this.m_Present = FriendPresentItemParam.DefaultParam;
+          else
+            this.m_Present = MonoSingleton<GameManager>.Instance.MasterParam.GetFriendPresentItemParam(friend.Wish);
+        }
+
+        public void Bind(ContentNode node)
+        {
+          this.m_Node = node;
+          this.m_DataSource = DataSource.Create(((Component) node).get_gameObject());
+          this.m_DataSource.Add(typeof (FriendData), (object) this.m_Friend);
+          this.m_DataSource.Add(typeof (UnitData), (object) this.m_Friend.Unit);
+          this.m_Icon = (FriendPresentItemIcon) ((Component) this.m_Node).GetComponent<FriendPresentItemIcon>();
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_Icon, (UnityEngine.Object) null))
+            return;
+          this.m_Icon.Bind(this.present, false);
+        }
+
+        public void Clear()
+        {
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_DataSource, (UnityEngine.Object) null))
+          {
+            this.m_DataSource.Clear();
+            this.m_DataSource = (DataSource) null;
+          }
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_Icon, (UnityEngine.Object) null))
+          {
+            this.m_Icon.Clear();
+            this.m_Icon = (FriendPresentItemIcon) null;
+          }
+          this.m_Node = (ContentNode) null;
+        }
+
+        public void ForceUpdate()
+        {
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_Icon, (UnityEngine.Object) null))
+            return;
+          this.m_Icon.Refresh();
+        }
+      }
+
+      public class ItemSource : ContentSource
+      {
+        private List<FriendPresentRootWindow.SendContent.ItemSource.ItemParam> m_Params = new List<FriendPresentRootWindow.SendContent.ItemSource.ItemParam>();
+
+        public override void Initialize(ContentController controller)
+        {
+          base.Initialize(controller);
+          this.Setup();
+        }
+
+        public override void Release()
+        {
+          base.Release();
+        }
+
+        public void Add(FriendPresentRootWindow.SendContent.ItemSource.ItemParam param)
+        {
+          if (!param.IsValid())
+            return;
+          this.m_Params.Add(param);
+        }
+
+        public void Setup()
+        {
+          Func<FriendPresentRootWindow.SendContent.ItemSource.ItemParam, bool> predicate = (Func<FriendPresentRootWindow.SendContent.ItemSource.ItemParam, bool>) (prop => true);
+          this.Clear();
+          if (predicate != null)
+            this.SetTable((ContentSource.Param[]) this.m_Params.Where<FriendPresentRootWindow.SendContent.ItemSource.ItemParam>(predicate).ToArray<FriendPresentRootWindow.SendContent.ItemSource.ItemParam>());
+          else
+            this.SetTable((ContentSource.Param[]) this.m_Params.ToArray());
+          this.contentController.Resize(0);
+          bool flag = false;
+          Vector2 anchoredPosition = this.contentController.anchoredPosition;
+          Vector2 lastPageAnchorePos = this.contentController.GetLastPageAnchorePos();
+          if (anchoredPosition.x < lastPageAnchorePos.x)
+          {
+            flag = true;
+            anchoredPosition.x = lastPageAnchorePos.x;
+          }
+          if (anchoredPosition.y < lastPageAnchorePos.y)
+          {
+            flag = true;
+            anchoredPosition.y = lastPageAnchorePos.y;
+          }
+          if (flag)
+            this.contentController.anchoredPosition = anchoredPosition;
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.contentController.scroller, (UnityEngine.Object) null))
+            return;
+          this.contentController.scroller.StopMovement();
+        }
+
+        public class ItemParam : ContentSource.Param
+        {
+          private FriendPresentRootWindow.SendContent.ItemAccessor m_Accessor = new FriendPresentRootWindow.SendContent.ItemAccessor();
+
+          public ItemParam(FriendData friend)
+          {
+            this.m_Accessor.Setup(friend);
+          }
+
+          public override bool IsValid()
+          {
+            return this.m_Accessor.isValid;
+          }
+
+          public FriendPresentRootWindow.SendContent.ItemAccessor accerror
+          {
+            get
+            {
+              return this.m_Accessor;
+            }
+          }
+
+          public FriendData friend
+          {
+            get
+            {
+              return this.m_Accessor.friend;
+            }
+          }
+
+          public FriendPresentItemParam present
+          {
+            get
+            {
+              return this.m_Accessor.present;
+            }
+          }
+
+          public override void OnEnable(ContentNode node)
+          {
+            this.m_Accessor.Bind(node);
+            this.m_Accessor.ForceUpdate();
+          }
+
+          public override void OnDisable(ContentNode node)
+          {
+            this.m_Accessor.Clear();
+          }
+
+          public override void OnClick(ContentNode node)
+          {
+          }
+        }
+      }
+    }
+
+    [Serializable]
+    public class SerializeParam : FlowWindowBase.SerializeParamBase
+    {
+      public GameObject tabReceive;
+      public GameObject tabSend;
+      public GameObject wantList;
+      public GameObject receiveList;
+      public GameObject sendList;
+
+      public override System.Type type
+      {
+        get
+        {
+          return typeof (FriendPresentRootWindow);
+        }
+      }
+    }
+  }
+}

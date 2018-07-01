@@ -1,112 +1,58 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.EventBanner2
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
-    using UnityEngine.UI;
+  public class EventBanner2 : MonoBehaviour
+  {
+    private Image mTarget;
+    private LoadRequest mLoadRequest;
 
-    public class EventBanner2 : MonoBehaviour
+    public EventBanner2()
     {
-        private Image mTarget;
-        private LoadRequest mLoadRequest;
-
-        public EventBanner2()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void Refresh()
-        {
-            BannerParam param;
-            if (this.mLoadRequest != null)
-            {
-                goto Label_003B;
-            }
-            this.mTarget = base.GetComponent<Image>();
-            param = DataSource.FindDataOfClass<BannerParam>(base.get_gameObject(), null);
-            if (param == null)
-            {
-                goto Label_003B;
-            }
-            this.mLoadRequest = AssetManager.LoadAsync<GachaTabSprites>(param.banner);
-        Label_003B:
-            return;
-        }
-
-        private void Start()
-        {
-            this.Refresh();
-            return;
-        }
-
-        private void Update()
-        {
-            BannerParam param;
-            GachaTabSprites sprites;
-            Sprite[] spriteArray;
-            int num;
-            if (this.mLoadRequest == null)
-            {
-                goto Label_001C;
-            }
-            if ((this.mTarget == null) == null)
-            {
-                goto Label_0024;
-            }
-        Label_001C:
-            base.set_enabled(0);
-            return;
-        Label_0024:
-            if (this.mLoadRequest.isDone != null)
-            {
-                goto Label_0035;
-            }
-            return;
-        Label_0035:
-            param = DataSource.FindDataOfClass<BannerParam>(base.get_gameObject(), null);
-            if (param != null)
-            {
-                goto Label_0049;
-            }
-            return;
-        Label_0049:
-            sprites = this.mLoadRequest.asset as GachaTabSprites;
-            if ((sprites != null) == null)
-            {
-                goto Label_00CE;
-            }
-            if (sprites.Sprites == null)
-            {
-                goto Label_00CE;
-            }
-            if (((int) sprites.Sprites.Length) <= 0)
-            {
-                goto Label_00CE;
-            }
-            spriteArray = sprites.Sprites;
-            num = 0;
-            goto Label_00C5;
-        Label_008D:
-            if ((spriteArray[num] != null) == null)
-            {
-                goto Label_00C1;
-            }
-            if ((spriteArray[num].get_name() == param.banr_sprite) == null)
-            {
-                goto Label_00C1;
-            }
-            this.mTarget.set_sprite(spriteArray[num]);
-        Label_00C1:
-            num += 1;
-        Label_00C5:
-            if (num < ((int) spriteArray.Length))
-            {
-                goto Label_008D;
-            }
-        Label_00CE:
-            base.set_enabled(0);
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Start()
+    {
+      this.mTarget = (Image) ((Component) this).GetComponent<Image>();
+      BannerParam dataOfClass = DataSource.FindDataOfClass<BannerParam>(((Component) this).get_gameObject(), (BannerParam) null);
+      if (dataOfClass == null)
+        return;
+      this.mLoadRequest = AssetManager.LoadAsync<GachaTabSprites>(dataOfClass.banner);
+    }
+
+    private void Update()
+    {
+      if (this.mLoadRequest == null || Object.op_Equality((Object) this.mTarget, (Object) null))
+      {
+        ((Behaviour) this).set_enabled(false);
+      }
+      else
+      {
+        if (!this.mLoadRequest.isDone)
+          return;
+        BannerParam dataOfClass = DataSource.FindDataOfClass<BannerParam>(((Component) this).get_gameObject(), (BannerParam) null);
+        if (dataOfClass == null)
+          return;
+        GachaTabSprites asset = this.mLoadRequest.asset as GachaTabSprites;
+        if (Object.op_Inequality((Object) asset, (Object) null) && asset.Sprites != null && asset.Sprites.Length > 0)
+        {
+          Sprite[] sprites = asset.Sprites;
+          for (int index = 0; index < sprites.Length; ++index)
+          {
+            if (Object.op_Inequality((Object) sprites[index], (Object) null) && ((Object) sprites[index]).get_name() == dataOfClass.banr_sprite)
+              this.mTarget.set_sprite(sprites[index]);
+          }
+        }
+        ((Behaviour) this).set_enabled(false);
+      }
+    }
+  }
+}

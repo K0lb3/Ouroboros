@@ -1,24 +1,21 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.SimpleQuestDropParam
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
+  public class SimpleQuestDropParam
+  {
+    public string item_iname;
+    public string[] questlist;
 
-    public class SimpleQuestDropParam
+    public bool Deserialize(JSON_SimpleQuestDropParam json)
     {
-        public string item_iname;
-        public string[] questlist;
-
-        public SimpleQuestDropParam()
-        {
-            base..ctor();
-            return;
-        }
-
-        public bool Deserialize(JSON_SimpleQuestDropParam json)
-        {
-            this.item_iname = json.iname;
-            this.questlist = json.questlist;
-            return 1;
-        }
+      this.item_iname = json.iname;
+      this.questlist = json.questlist;
+      return true;
     }
+  }
 }
-

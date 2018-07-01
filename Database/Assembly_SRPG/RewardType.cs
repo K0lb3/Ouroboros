@@ -1,17 +1,17 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.RewardType
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    public enum RewardType
-    {
-        Item = 0,
-        Gold = 1,
-        Coin = 2,
-        Artifact = 3,
-        Unit = 4,
-        Award = 5,
-        ConceptCard = 6,
-        Nothing = 100
-    }
+  public enum RewardType
+  {
+    Item,
+    Gold,
+    Coin,
+    Artifact,
+    Unit,
+  }
 }
-

@@ -1,49 +1,34 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.Event2dAction_EndDialog
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
+  [EventActionInfo("会話/閉じる(2D)", "表示されている吹き出しを閉じます", 5592405, 4473992)]
+  public class Event2dAction_EndDialog : EventAction
+  {
+    [StringIsActorID]
+    public string ActorID;
+    private EventDialogBubbleCustom mBubble;
 
-    [EventActionInfo("会話/閉じる(2D)", "表示されている吹き出しを閉じます", 0x555555, 0x444488)]
-    public class Event2dAction_EndDialog : EventAction
+    public override void OnActivate()
     {
-        [StringIsActorID]
-        public string ActorID;
-        private EventDialogBubbleCustom mBubble;
-
-        public Event2dAction_EndDialog()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate()
-        {
-            int num;
-            if (string.IsNullOrEmpty(this.ActorID) == null)
-            {
-                goto Label_0042;
-            }
-            num = EventDialogBubbleCustom.Instances.Count - 1;
-            goto Label_0036;
-        Label_0022:
-            EventDialogBubbleCustom.Instances[num].Close();
-            num -= 1;
-        Label_0036:
-            if (num >= 0)
-            {
-                goto Label_0022;
-            }
-            goto Label_006F;
-        Label_0042:
-            this.mBubble = EventDialogBubbleCustom.Find(this.ActorID);
-            if ((this.mBubble != null) == null)
-            {
-                goto Label_006F;
-            }
-            this.mBubble.Close();
-        Label_006F:
-            base.ActivateNext();
-            return;
-        }
+      if (string.IsNullOrEmpty(this.ActorID))
+      {
+        for (int index = EventDialogBubbleCustom.Instances.Count - 1; index >= 0; --index)
+          EventDialogBubbleCustom.Instances[index].Close();
+      }
+      else
+      {
+        this.mBubble = EventDialogBubbleCustom.Find(this.ActorID);
+        if (Object.op_Inequality((Object) this.mBubble, (Object) null))
+          this.mBubble.Close();
+      }
+      this.ActivateNext();
     }
+  }
 }
-

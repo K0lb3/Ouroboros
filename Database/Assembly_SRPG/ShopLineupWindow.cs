@@ -1,146 +1,62 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ShopLineupWindow
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System.Text;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Text;
-    using UnityEngine;
-    using UnityEngine.UI;
+  public class ShopLineupWindow : MonoBehaviour
+  {
+    [SerializeField]
+    private UnityEngine.UI.Text title;
+    [SerializeField]
+    private UnityEngine.UI.Text lineuplist;
 
-    public class ShopLineupWindow : MonoBehaviour
+    public ShopLineupWindow()
     {
-        [SerializeField]
-        private Text title;
-        [SerializeField]
-        private Text lineuplist;
-
-        public ShopLineupWindow()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void SetItemInames(Json_ShopLineupItem[] lineups)
-        {
-            GameManager manager;
-            StringBuilder builder;
-            int num;
-            Json_ShopLineupItemDetail[] detailArray;
-            int num2;
-            Json_ShopLineupItemDetail detail;
-            EShopItemType type;
-            ItemParam param;
-            ConceptCardParam param2;
-            ArtifactParam param3;
-            if (lineups == null)
-            {
-                goto Label_000F;
-            }
-            if (((int) lineups.Length) > 0)
-            {
-                goto Label_0010;
-            }
-        Label_000F:
-            return;
-        Label_0010:
-            manager = MonoSingleton<GameManager>.Instance;
-            builder = new StringBuilder();
-            num = 0;
-            goto Label_0159;
-        Label_0023:
-            detailArray = lineups[num].items;
-            if (detailArray != null)
-            {
-                goto Label_0037;
-            }
-            goto Label_0155;
-        Label_0037:
-            num2 = 0;
-            goto Label_013F;
-        Label_003F:
-            detail = detailArray[num2];
-            if (detail != null)
-            {
-                goto Label_0051;
-            }
-            goto Label_0139;
-        Label_0051:
-            type = detail.GetShopItemTypeWithIType();
-            if (type != null)
-            {
-                goto Label_0099;
-            }
-            param = manager.GetItemParam(detail.iname);
-            if (param == null)
-            {
-                goto Label_0139;
-            }
-            builder.Append("・" + param.name + "\n");
-            goto Label_0139;
-        Label_0099:
-            if (type != 2)
-            {
-                goto Label_00DE;
-            }
-            param2 = manager.MasterParam.GetConceptCardParam(detail.iname);
-            if (param2 == null)
-            {
-                goto Label_0139;
-            }
-            builder.Append("・" + param2.name + "\n");
-            goto Label_0139;
-        Label_00DE:
-            if (type != 1)
-            {
-                goto Label_0123;
-            }
-            param3 = manager.MasterParam.GetArtifactParam(detail.iname);
-            if (param3 == null)
-            {
-                goto Label_0139;
-            }
-            builder.Append("・" + param3.name + "\n");
-            goto Label_0139;
-        Label_0123:
-            DebugUtility.LogError(string.Format("不明な商品タイプです (item.itype => {0})", detail.itype));
-        Label_0139:
-            num2 += 1;
-        Label_013F:
-            if (num2 < ((int) detailArray.Length))
-            {
-                goto Label_003F;
-            }
-            builder.Append("\n");
-        Label_0155:
-            num += 1;
-        Label_0159:
-            if (num < ((int) lineups.Length))
-            {
-                goto Label_0023;
-            }
-            builder.Append(LocalizedText.Get("sys.MSG_SHOP_LINEUP_CAUTION"));
-            this.lineuplist.set_text(builder.ToString());
-            return;
-        }
-
-        private void Start()
-        {
-            string str;
-            if ((this.lineuplist == null) == null)
-            {
-                goto Label_0012;
-            }
-            return;
-        Label_0012:
-            if ((this.title == null) == null)
-            {
-                goto Label_0024;
-            }
-            return;
-        Label_0024:
-            str = MonoSingleton<GameManager>.Instance.Player.GetShopName(GlobalVars.ShopType);
-            this.title.set_text(LocalizedText.Get(str) + " " + LocalizedText.Get("sys.TITLE_SHOP_LINEUP"));
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Start()
+    {
+      if (Object.op_Equality((Object) this.lineuplist, (Object) null) || Object.op_Equality((Object) this.title, (Object) null))
+        return;
+      this.title.set_text(LocalizedText.Get("sys.TITLE_SHOP_LINEUP") + " (" + LocalizedText.Get(MonoSingleton<GameManager>.Instance.Player.GetShopName(GlobalVars.ShopType)) + ")");
+    }
+
+    public void SetItemInames(ShopLineupParam[] lineups)
+    {
+      if (lineups == null || lineups.Length <= 0)
+        return;
+      GameManager instance = MonoSingleton<GameManager>.Instance;
+      StringBuilder stringBuilder = new StringBuilder();
+      for (int index1 = 0; index1 < lineups.Length; ++index1)
+      {
+        string[] items = lineups[index1].items;
+        for (int index2 = 0; index2 < items.Length; ++index2)
+        {
+          if (items[index2].StartsWith("AF_"))
+          {
+            ArtifactParam artifactParam = instance.MasterParam.GetArtifactParam(items[index2]);
+            if (artifactParam != null)
+              stringBuilder.Append("・" + artifactParam.name + "\n");
+          }
+          else
+          {
+            ItemParam itemParam = instance.GetItemParam(items[index2]);
+            if (itemParam != null)
+              stringBuilder.Append("・" + itemParam.name + "\n");
+          }
+        }
+        stringBuilder.Append("\n");
+      }
+      stringBuilder.Append(LocalizedText.Get("sys.MSG_SHOP_LINEUP_CAUTION"));
+      this.lineuplist.set_text(stringBuilder.ToString());
+    }
+  }
+}

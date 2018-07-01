@@ -1,48 +1,43 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_ReqStorySceneCount
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-
-    [Pin(0, "Requesst", 0, 0), Pin(10, "Success", 1, 10), NodeType("System/ReqStorySceneCount", 0x7fe5)]
-    public class FlowNode_ReqStorySceneCount : FlowNode_Network
+  [FlowNode.Pin(10, "Success", FlowNode.PinTypes.Output, 10)]
+  [FlowNode.Pin(0, "Requesst", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.NodeType("System/ReqStorySceneCount", 32741)]
+  public class FlowNode_ReqStorySceneCount : FlowNode_Network
+  {
+    public override void OnActivate(int pinID)
     {
-        public FlowNode_ReqStorySceneCount()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != null)
-            {
-                goto Label_002E;
-            }
-            base.set_enabled(1);
-            base.ExecRequest(new ReqStorySceneCount(GlobalVars.ReplaySelectedQuestID, new Network.ResponseCallback(this.ResponseCallback)));
-        Label_002E:
-            return;
-        }
-
-        public override void OnSuccess(WWWResult www)
-        {
-            if (Network.IsError == null)
-            {
-                goto Label_0011;
-            }
-            this.OnRetry();
-            return;
-        Label_0011:
-            Network.RemoveAPI();
-            this.Success();
-            return;
-        }
-
-        private void Success()
-        {
-            base.set_enabled(0);
-            base.ActivateOutputLinks(10);
-            return;
-        }
+      if (pinID != 0)
+        return;
+      ((Behaviour) this).set_enabled(true);
+      this.ExecRequest((WebAPI) new ReqStorySceneCount((string) GlobalVars.ReplaySelectedQuestID, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
     }
-}
 
+    private void Success()
+    {
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(10);
+    }
+
+    public override void OnSuccess(WWWResult www)
+    {
+      if (Network.IsError)
+      {
+        this.OnRetry();
+      }
+      else
+      {
+        Network.RemoveAPI();
+        this.Success();
+      }
+    }
+  }
+}

@@ -1,29 +1,30 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqJobEquipV2
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Text;
+
+namespace SRPG
 {
-    using System;
-    using System.Text;
-
-    public class ReqJobEquipV2 : WebAPI
+  public class ReqJobEquipV2 : WebAPI
+  {
+    public ReqJobEquipV2(long iid_unit, string iname_jobset, long slot, bool is_cmn, Network.ResponseCallback response)
     {
-        public ReqJobEquipV2(long iid_unit, string iname_jobset, long slot, bool is_cmn, Network.ResponseCallback response)
-        {
-            StringBuilder builder;
-            base..ctor();
-            base.name = "unit/job/equip/set2";
-            builder = WebAPI.GetStringBuilder();
-            builder.Append("\"iid\":");
-            builder.Append(iid_unit);
-            builder.Append(",\"iname\":\"");
-            builder.Append(iname_jobset);
-            builder.Append("\"");
-            builder.Append(",\"slot\":");
-            builder.Append(slot);
-            builder.Append(",\"is_cmn\":");
-            builder.Append((is_cmn == null) ? 0 : 1);
-            base.body = WebAPI.GetRequestString(builder.ToString());
-            base.callback = response;
-            return;
-        }
+      this.name = "unit/job/equip/set2";
+      StringBuilder stringBuilder = WebAPI.GetStringBuilder();
+      stringBuilder.Append("\"iid\":");
+      stringBuilder.Append(iid_unit);
+      stringBuilder.Append(",\"iname\":\"");
+      stringBuilder.Append(iname_jobset);
+      stringBuilder.Append("\"");
+      stringBuilder.Append(",\"slot\":");
+      stringBuilder.Append(slot);
+      stringBuilder.Append(",\"is_cmn\":");
+      stringBuilder.Append(!is_cmn ? 0 : 1);
+      this.body = WebAPI.GetRequestString(stringBuilder.ToString());
+      this.callback = response;
     }
+  }
 }
-

@@ -1,74 +1,53 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_PrepareSceneChange
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+
+namespace SRPG
 {
-    using GR;
-    using System;
+  [FlowNode.Pin(1, "Cancel", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(100, "Start", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.NodeType("System/PrepareSceneChange")]
+  [FlowNode.Pin(0, "Done", FlowNode.PinTypes.Output, 0)]
+  public class FlowNode_PrepareSceneChange : FlowNodePersistent
+  {
+    private bool mStart;
 
-    [Pin(1, "Cancel", 1, 0), NodeType("System/PrepareSceneChange"), Pin(0, "Done", 1, 0), Pin(100, "Start", 0, 0)]
-    public class FlowNode_PrepareSceneChange : FlowNodePersistent
+    public override void OnActivate(int pinID)
     {
-        private bool mStart;
-
-        public FlowNode_PrepareSceneChange()
-        {
-            base..ctor();
-            return;
-        }
-
-        private void Cancel()
-        {
-            this.Reset();
-            base.ActivateOutputLinks(1);
-            return;
-        }
-
-        private void Done()
-        {
-            this.Reset();
-            base.ActivateOutputLinks(0);
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != 100)
-            {
-                goto Label_0025;
-            }
-            if (MonoSingleton<GameManager>.Instance.PrepareSceneChange() != null)
-            {
-                goto Label_001E;
-            }
-            this.Cancel();
-            return;
-        Label_001E:
-            this.mStart = 1;
-        Label_0025:
-            return;
-        }
-
-        private void Reset()
-        {
-            this.mStart = 0;
-            return;
-        }
-
-        private void Update()
-        {
-            if (this.mStart != null)
-            {
-                goto Label_000C;
-            }
-            return;
-        Label_000C:
-            if (MonoSingleton<GameManager>.Instance.IsImportantJobRunning == null)
-            {
-                goto Label_001C;
-            }
-            return;
-        Label_001C:
-            this.Done();
-            return;
-        }
+      if (pinID != 100)
+        return;
+      if (!MonoSingleton<GameManager>.Instance.PrepareSceneChange())
+        this.Cancel();
+      else
+        this.mStart = true;
     }
-}
 
+    private void Reset()
+    {
+      this.mStart = false;
+    }
+
+    private void Done()
+    {
+      this.Reset();
+      this.ActivateOutputLinks(0);
+    }
+
+    private void Cancel()
+    {
+      this.Reset();
+      this.ActivateOutputLinks(1);
+    }
+
+    private void Update()
+    {
+      if (!this.mStart || MonoSingleton<GameManager>.Instance.IsImportantJobRunning)
+        return;
+      this.Done();
+    }
+  }
+}

@@ -1,54 +1,32 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ChatChannel
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+
+namespace SRPG
 {
-    using GR;
-    using System;
+  public class ChatChannel
+  {
+    public ChatChannelParam[] channels;
 
-    public class ChatChannel
+    public void Deserialize(JSON_ChatChannel json)
     {
-        public ChatChannelParam[] channels;
-
-        public ChatChannel()
+      if (json == null || json.channels == null)
+        return;
+      this.channels = new ChatChannelParam[json.channels.Length];
+      ChatChannelMasterParam[] chatChannelMaster = MonoSingleton<GameManager>.Instance.GetChatChannelMaster();
+      for (int index = 0; index < json.channels.Length; ++index)
+      {
+        this.channels[index] = json.channels[index];
+        if (chatChannelMaster.Length >= this.channels[index].id)
         {
-            base..ctor();
-            return;
+          this.channels[index].category_id = (int) chatChannelMaster[this.channels[index].id - 1].category_id;
+          this.channels[index].name = chatChannelMaster[this.channels[index].id - 1].name;
         }
-
-        public void Deserialize(JSON_ChatChannel json)
-        {
-            ChatChannelMasterParam[] paramArray;
-            int num;
-            if (json != null)
-            {
-                goto Label_0007;
-            }
-            return;
-        Label_0007:
-            if (json.channels == null)
-            {
-                goto Label_00B4;
-            }
-            this.channels = new ChatChannelParam[(int) json.channels.Length];
-            paramArray = MonoSingleton<GameManager>.Instance.GetChatChannelMaster();
-            num = 0;
-            goto Label_00A6;
-        Label_0037:
-            this.channels[num] = json.channels[num];
-            if (((int) paramArray.Length) < this.channels[num].id)
-            {
-                goto Label_00A2;
-            }
-            this.channels[num].category_id = paramArray[this.channels[num].id - 1].category_id;
-            this.channels[num].name = paramArray[this.channels[num].id - 1].name;
-        Label_00A2:
-            num += 1;
-        Label_00A6:
-            if (num < ((int) json.channels.Length))
-            {
-                goto Label_0037;
-            }
-        Label_00B4:
-            return;
-        }
+      }
     }
+  }
 }
-

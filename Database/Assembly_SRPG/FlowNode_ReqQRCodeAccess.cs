@@ -1,120 +1,79 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_ReqQRCodeAccess
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Runtime.InteropServices;
-
-    [Pin(14, "OverUse", 1, 14), Pin(12, "OutOfTerm", 1, 12), Pin(11, "NotFoundSerial", 1, 11), Pin(10, "NotFoundCampaign", 1, 10), Pin(2, "Failed", 1, 2), Pin(1, "Success", 1, 1), Pin(0, "CheckQRCodeAccess", 0, 0), NodeType("Request/QRCodeAccess", 0x7fe5), Pin(13, "AlreadyInputed", 1, 13)]
-    public class FlowNode_ReqQRCodeAccess : FlowNode_Network
+  [FlowNode.Pin(2, "Failed", FlowNode.PinTypes.Output, 2)]
+  [FlowNode.NodeType("Request/QRCodeAccess", 32741)]
+  [FlowNode.Pin(14, "OverUse", FlowNode.PinTypes.Output, 14)]
+  [FlowNode.Pin(10, "NotFoundCampaign", FlowNode.PinTypes.Output, 10)]
+  [FlowNode.Pin(11, "NotFoundSerial", FlowNode.PinTypes.Output, 11)]
+  [FlowNode.Pin(12, "OutOfTerm", FlowNode.PinTypes.Output, 12)]
+  [FlowNode.Pin(13, "AlreadyInputed", FlowNode.PinTypes.Output, 13)]
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
+  [FlowNode.Pin(0, "CheckQRCodeAccess", FlowNode.PinTypes.Input, 0)]
+  public class FlowNode_ReqQRCodeAccess : FlowNode_Network
+  {
+    public override void OnActivate(int pinID)
     {
-        public FlowNode_ReqQRCodeAccess()
+      if (pinID != 0)
+        return;
+      int qrCampaignId = FlowNode_OnUrlSchemeLaunch.QRCampaignID;
+      string qrSerialId = FlowNode_OnUrlSchemeLaunch.QRSerialID;
+      if (qrCampaignId != -1 && !string.IsNullOrEmpty(qrSerialId))
+      {
+        ((Behaviour) this).set_enabled(true);
+        this.ExecRequest((WebAPI) new ReqQRCodeAccess(qrCampaignId, qrSerialId, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+      }
+      else
+        this.Finished((string) null);
+    }
+
+    private void Finished(string msg = null)
+    {
+      FlowNode_OnUrlSchemeLaunch.QRCampaignID = -1;
+      FlowNode_OnUrlSchemeLaunch.QRSerialID = string.Empty;
+      FlowNode_OnUrlSchemeLaunch.IsQRAccess = false;
+      ((Behaviour) this).set_enabled(false);
+      if (string.IsNullOrEmpty(msg))
+        return;
+      UIUtility.SystemMessage((string) null, msg, (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1);
+    }
+
+    public override void OnSuccess(WWWResult www)
+    {
+      if (Network.IsError)
+      {
+        switch (Network.ErrCode)
         {
-            base..ctor();
-            return;
-        }
-
-        private void Finished(string msg)
-        {
-            FlowNode_OnUrlSchemeLaunch.QRCampaignID = -1;
-            FlowNode_OnUrlSchemeLaunch.QRSerialID = string.Empty;
-            FlowNode_OnUrlSchemeLaunch.IsQRAccess = 0;
-            base.set_enabled(0);
-            if (string.IsNullOrEmpty(msg) != null)
-            {
-                goto Label_0034;
-            }
-            UIUtility.SystemMessage(null, msg, null, null, 0, -1);
-        Label_0034:
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            int num;
-            string str;
-            if (pinID != null)
-            {
-                goto Label_0050;
-            }
-            num = FlowNode_OnUrlSchemeLaunch.QRCampaignID;
-            str = FlowNode_OnUrlSchemeLaunch.QRSerialID;
-            if (num == -1)
-            {
-                goto Label_0049;
-            }
-            if (string.IsNullOrEmpty(str) != null)
-            {
-                goto Label_0049;
-            }
-            base.set_enabled(1);
-            base.ExecRequest(new ReqQRCodeAccess(num, str, new Network.ResponseCallback(this.ResponseCallback)));
-            goto Label_0050;
-        Label_0049:
-            this.Finished(null);
-        Label_0050:
-            return;
-        }
-
-        public override unsafe void OnSuccess(WWWResult www)
-        {
-            WebAPI.JSON_BodyResponse<JSON_QRCodeAccess> response;
-            Network.EErrCode code;
-            if (Network.IsError == null)
-            {
-                goto Label_0052;
-            }
-            switch ((Network.ErrCode - 0x1f48))
-            {
-                case 0:
-                    goto Label_0035;
-
-                case 1:
-                    goto Label_0035;
-
-                case 2:
-                    goto Label_0035;
-
-                case 3:
-                    goto Label_0035;
-
-                case 4:
-                    goto Label_0035;
-            }
-            goto Label_004B;
-        Label_0035:
+          case Network.EErrCode.QR_OutOfPeriod:
+          case Network.EErrCode.QR_InvalidQRSerial:
+          case Network.EErrCode.QR_CanNotReward:
+          case Network.EErrCode.QR_LockSerialCampaign:
             Network.RemoveAPI();
             Network.ResetError();
             this.Finished(Network.ErrMsg);
-            return;
-        Label_004B:
-            this.OnRetry();
-            return;
-        Label_0052:
-            response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<JSON_QRCodeAccess>>(&www.text);
-            DebugUtility.Assert((response == null) == 0, "res == null");
-            Network.RemoveAPI();
-            if (response.body.items == null)
-            {
-                goto Label_009A;
-            }
-            MonoSingleton<GameManager>.Instance.Deserialize(response.body.items);
-        Label_009A:
-            this.Finished(response.body.message);
-            return;
+            break;
         }
-
-        private class JSON_QRCodeAccess
-        {
-            public Json_Item[] items;
-            public string message;
-
-            public JSON_QRCodeAccess()
-            {
-                this.message = string.Empty;
-                base..ctor();
-                return;
-            }
-        }
+      }
+      else
+      {
+        WebAPI.JSON_BodyResponse<FlowNode_ReqQRCodeAccess.JSON_QRCodeAccess> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<FlowNode_ReqQRCodeAccess.JSON_QRCodeAccess>>(www.text);
+        DebugUtility.Assert(jsonObject != null, "res == null");
+        Network.RemoveAPI();
+        this.Finished(jsonObject.body.message);
+      }
     }
-}
 
+    private class JSON_QRCodeAccess
+    {
+      public string message = string.Empty;
+    }
+  }
+}

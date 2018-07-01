@@ -1,135 +1,98 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_ReqUnitSelectList
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
+  [FlowNode.NodeType("System/ReqUnitSelectList", 32741)]
+  [FlowNode.Pin(0, "Request", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
+  public class FlowNode_ReqUnitSelectList : FlowNode_Network
+  {
+    public UnitSelectListData mUnitSelectListData;
 
-    [Pin(1, "Success", 1, 1), Pin(0, "Request", 0, 0), NodeType("System/ReqUnitSelectList", 0x7fe5)]
-    public class FlowNode_ReqUnitSelectList : FlowNode_Network
+    public override void OnActivate(int pinID)
     {
-        public UnitSelectListData mUnitSelectListData;
-
-        public FlowNode_ReqUnitSelectList()
+      if (pinID != 0 || ((Behaviour) this).get_enabled())
+        return;
+      if (Network.Mode == Network.EConnectMode.Online)
+      {
+        MailData mail = MonoSingleton<GameManager>.Instance.FindMail((long) GlobalVars.SelectedMailUniqueID);
+        if (mail == null)
         {
-            base..ctor();
-            return;
+          ((Behaviour) this).set_enabled(false);
         }
-
-        private void Deserialize(Json_UnitSelectResponse json)
+        else
         {
-            this.mUnitSelectListData = new UnitSelectListData();
-            this.mUnitSelectListData.Deserialize(json);
-            base.get_gameObject().GetComponent<GetUnitWindow>().RefreshPieceUnit(0, this.mUnitSelectListData);
-            return;
+          ((Behaviour) this).set_enabled(true);
+          this.ExecRequest((WebAPI) new ReqMailSelect(mail.Find(GiftTypes.SelectUnitItem).iname, ReqMailSelect.type.unit, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
         }
-
-        private Json_UnitSelectResponse DummyResponse()
-        {
-            string[] textArray1;
-            string[] strArray;
-            int num;
-            Json_UnitSelectResponse response;
-            GameManager manager;
-            int num2;
-            Json_UnitSelectItem item;
-            textArray1 = new string[] { 
-                "UN_V2_VANEKIS", "UN_V2_AMIS", "UN_V2_ISHUNA", "UN_V2_MIZUCHI", "UN_V2_KAZAHAYA", "UN_V2_CIEL", "UN_V2_YUAN", "UN_V2_DECEL", "UN_V2_ENNIS", "UN_V2_ANNEROSE", "UN_V2_GAYN", "UN_V2_AYLLU", "UN_V2_SARAUZU", "UN_V2_RION", "UN_V2_PATTI", "UN_V2_ALMILA",
-                "UN_V2_MICHAEL", "UN_V2_ARKILL", "UN_V2_KUON", "UN_V2_MIANNU"
-            };
-            strArray = textArray1;
-            num = (int) strArray.Length;
-            response = new Json_UnitSelectResponse();
-            response.select = new Json_UnitSelectItem[num];
-            if ((MonoSingleton<GameManager>.GetInstanceDirect() == null) == null)
-            {
-                goto Label_00E1;
-            }
-            manager = MonoSingleton<GameManager>.Instance;
-        Label_00E1:
-            num2 = 0;
-            goto Label_010C;
-        Label_00E9:
-            item = new Json_UnitSelectItem();
-            item.iname = strArray[num2];
-            response.select[num2] = item;
-            num2 += 1;
-        Label_010C:
-            if (num2 < num)
-            {
-                goto Label_00E9;
-            }
-            return response;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            MailData data;
-            GiftData data2;
-            if (pinID != null)
-            {
-                goto Label_0088;
-            }
-            if (base.get_enabled() == null)
-            {
-                goto Label_0012;
-            }
-            return;
-        Label_0012:
-            if (Network.Mode != null)
-            {
-                goto Label_0076;
-            }
-            data = MonoSingleton<GameManager>.Instance.FindMail(GlobalVars.SelectedMailUniqueID);
-            if (data != null)
-            {
-                goto Label_003F;
-            }
-            base.set_enabled(0);
-            return;
-        Label_003F:
-            base.set_enabled(1);
-            data2 = data.Find(0x100L);
-            base.ExecRequest(new ReqMailSelect(data2.iname, 1, new Network.ResponseCallback(this.ResponseCallback)));
-            goto Label_0088;
-        Label_0076:
-            this.Deserialize(this.DummyResponse());
-            this.Success();
-        Label_0088:
-            return;
-        }
-
-        public override unsafe void OnSuccess(WWWResult www)
-        {
-            WebAPI.JSON_BodyResponse<Json_UnitSelectResponse> response;
-            Network.EErrCode code;
-            if (Network.IsError == null)
-            {
-                goto Label_0017;
-            }
-            code = Network.ErrCode;
-            this.OnRetry();
-            return;
-        Label_0017:
-            response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_UnitSelectResponse>>(&www.text);
-            DebugUtility.Assert((response == null) == 0, "res == null");
-            if (response.body != null)
-            {
-                goto Label_0047;
-            }
-            this.OnRetry();
-            return;
-        Label_0047:
-            Network.RemoveAPI();
-            this.Deserialize(response.body);
-            this.Success();
-            return;
-        }
-
-        private void Success()
-        {
-            base.set_enabled(0);
-            base.ActivateOutputLinks(1);
-            return;
-        }
+      }
+      else
+      {
+        this.Deserialize(this.DummyResponse());
+        this.Success();
+      }
     }
-}
 
+    private Json_UnitSelectResponse DummyResponse()
+    {
+      string[] strArray = new string[20]{ "UN_V2_VANEKIS", "UN_V2_AMIS", "UN_V2_ISHUNA", "UN_V2_MIZUCHI", "UN_V2_KAZAHAYA", "UN_V2_CIEL", "UN_V2_YUAN", "UN_V2_DECEL", "UN_V2_ENNIS", "UN_V2_ANNEROSE", "UN_V2_GAYN", "UN_V2_AYLLU", "UN_V2_SARAUZU", "UN_V2_RION", "UN_V2_PATTI", "UN_V2_ALMILA", "UN_V2_MICHAEL", "UN_V2_ARKILL", "UN_V2_KUON", "UN_V2_MIANNU" };
+      int length = strArray.Length;
+      Json_UnitSelectResponse unitSelectResponse = new Json_UnitSelectResponse();
+      unitSelectResponse.select = new Json_UnitSelectItem[length];
+      if (Object.op_Equality((Object) MonoSingleton<GameManager>.GetInstanceDirect(), (Object) null))
+      {
+        GameManager instance = MonoSingleton<GameManager>.Instance;
+      }
+      for (int index = 0; index < length; ++index)
+        unitSelectResponse.select[index] = new Json_UnitSelectItem()
+        {
+          iname = strArray[index]
+        };
+      return unitSelectResponse;
+    }
+
+    private void Deserialize(Json_UnitSelectResponse json)
+    {
+      this.mUnitSelectListData = new UnitSelectListData();
+      this.mUnitSelectListData.Deserialize(json);
+      ((GetUnitWindow) ((Component) this).get_gameObject().GetComponent<GetUnitWindow>()).RefreshPieceUnit(false, this.mUnitSelectListData);
+    }
+
+    public override void OnSuccess(WWWResult www)
+    {
+      if (Network.IsError)
+      {
+        Network.EErrCode errCode = Network.ErrCode;
+        this.OnRetry();
+      }
+      else
+      {
+        WebAPI.JSON_BodyResponse<Json_UnitSelectResponse> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_UnitSelectResponse>>(www.text);
+        DebugUtility.Assert(jsonObject != null, "res == null");
+        if (jsonObject.body == null)
+        {
+          this.OnRetry();
+        }
+        else
+        {
+          Network.RemoveAPI();
+          this.Deserialize(jsonObject.body);
+          this.Success();
+        }
+      }
+    }
+
+    private void Success()
+    {
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(1);
+    }
+  }
+}

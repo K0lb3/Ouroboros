@@ -1,78 +1,49 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.TimeRecoveryValue
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System;
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  public class TimeRecoveryValue
+  {
+    private float lastUpdateTime = -1f;
+    public OInt val;
+    public OInt valMax;
+    public OInt valRecover;
+    public OLong interval;
+    public OLong at;
 
-    public class TimeRecoveryValue
+    public void Update()
     {
-        public OInt val;
-        public OInt valMax;
-        public OInt valRecover;
-        public OLong interval;
-        public OLong at;
-        private float lastUpdateTime;
-
-        public TimeRecoveryValue()
-        {
-            this.lastUpdateTime = -1f;
-            base..ctor();
-            return;
-        }
-
-        public long GetNextRecoverySec()
-        {
-            long num;
-            long num2;
-            int num3;
-            if (this.val < this.valMax)
-            {
-                goto Label_001E;
-            }
-            return 0L;
-        Label_001E:
-            num2 = Network.GetServerTime() - this.at;
-            num3 = (int) (num2 / this.interval);
-            num2 -= this.interval * ((long) num3);
-            return (this.interval - num2);
-        }
-
-        public void SubValue(int subval)
-        {
-            this.at = Network.GetServerTime();
-            this.val = Math.Max(this.val - subval, 0);
-            return;
-        }
-
-        public void Update()
-        {
-            int num;
-            long num2;
-            long num3;
-            long num4;
-            long num5;
-            if (this.val < this.valMax)
-            {
-                goto Label_001C;
-            }
-            return;
-        Label_001C:
-            if (this.lastUpdateTime != Time.get_realtimeSinceStartup())
-            {
-                goto Label_002D;
-            }
-            return;
-        Label_002D:
-            this.lastUpdateTime = Time.get_realtimeSinceStartup();
-            num = 0;
-            num3 = Network.GetServerTime() - this.at;
-            num4 = this.at;
-            num5 = this.interval;
-            num = (int) (num3 / num5);
-            num4 += ((long) num) * num5;
-            this.at = num4;
-            this.val = Math.Min(this.val + num, this.valMax);
-            return;
-        }
+      if ((int) this.val >= (int) this.valMax || (double) this.lastUpdateTime == (double) Time.get_realtimeSinceStartup())
+        return;
+      this.lastUpdateTime = Time.get_realtimeSinceStartup();
+      long num1 = Network.GetServerTime() - (long) this.at;
+      long at = (long) this.at;
+      long interval = (long) this.interval;
+      int num2 = (int) (num1 / interval);
+      this.at = (OLong) (at + (long) num2 * interval);
+      this.val = (OInt) Math.Min((int) this.val + num2, (int) this.valMax);
     }
-}
 
+    public long GetNextRecoverySec()
+    {
+      if ((int) this.val >= (int) this.valMax)
+        return 0;
+      long num1 = Network.GetServerTime() - (long) this.at;
+      int num2 = (int) (num1 / (long) this.interval);
+      return (long) this.interval - (num1 - (long) this.interval * (long) num2);
+    }
+
+    public void SubValue(int subval)
+    {
+      this.at = (OLong) Network.GetServerTime();
+      this.val = (OInt) Math.Max((int) this.val - subval, 0);
+    }
+  }
+}

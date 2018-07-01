@@ -1,45 +1,41 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ArenaPlayerInfo
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  public class ArenaPlayerInfo : MonoBehaviour
+  {
+    [Space(10f)]
+    public GameObject unit1;
+    public GameObject unit2;
+    public GameObject unit3;
 
-    public class ArenaPlayerInfo : MonoBehaviour
+    public ArenaPlayerInfo()
     {
-        [Space(10f)]
-        public GameObject unit1;
-        public GameObject unit2;
-        public GameObject unit3;
-
-        public ArenaPlayerInfo()
-        {
-            base..ctor();
-            return;
-        }
-
-        private void OnEnable()
-        {
-            this.UpdateValue();
-            return;
-        }
-
-        public void UpdateValue()
-        {
-            ArenaPlayer player;
-            player = DataSource.FindDataOfClass<ArenaPlayer>(base.get_gameObject(), null);
-            if (player != null)
-            {
-                goto Label_0014;
-            }
-            return;
-        Label_0014:
-            DataSource.Bind<ArenaPlayer>(this.unit1, player);
-            DataSource.Bind<ArenaPlayer>(this.unit2, player);
-            DataSource.Bind<ArenaPlayer>(this.unit3, player);
-            this.unit1.GetComponent<UnitIcon>().UpdateValue();
-            this.unit2.GetComponent<UnitIcon>().UpdateValue();
-            this.unit3.GetComponent<UnitIcon>().UpdateValue();
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    private void OnEnable()
+    {
+      this.UpdateValue();
+    }
+
+    public void UpdateValue()
+    {
+      ArenaPlayer dataOfClass = DataSource.FindDataOfClass<ArenaPlayer>(((Component) this).get_gameObject(), (ArenaPlayer) null);
+      if (dataOfClass == null)
+        return;
+      DataSource.Bind<ArenaPlayer>(this.unit1, dataOfClass);
+      DataSource.Bind<ArenaPlayer>(this.unit2, dataOfClass);
+      DataSource.Bind<ArenaPlayer>(this.unit3, dataOfClass);
+      ((UnitIcon) this.unit1.GetComponent<UnitIcon>()).UpdateValue();
+      ((UnitIcon) this.unit2.GetComponent<UnitIcon>()).UpdateValue();
+      ((UnitIcon) this.unit3.GetComponent<UnitIcon>()).UpdateValue();
+    }
+  }
+}

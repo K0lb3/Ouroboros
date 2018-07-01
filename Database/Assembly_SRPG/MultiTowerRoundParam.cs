@@ -1,18 +1,16 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.MultiTowerRoundParam
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Collections.Generic;
+
+namespace SRPG
 {
-    using System;
-    using System.Collections.Generic;
-
-    public class MultiTowerRoundParam
-    {
-        public int Now;
-        public List<int> Round;
-
-        public MultiTowerRoundParam()
-        {
-            base..ctor();
-            return;
-        }
-    }
+  public class MultiTowerRoundParam
+  {
+    public int Now;
+    public List<int> Round;
+  }
 }
-

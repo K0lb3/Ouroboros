@@ -1,195 +1,147 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_FindFriend
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Runtime.CompilerServices;
-    using UnityEngine.Events;
-    using UnityEngine.UI;
+  [FlowNode.Pin(10, "Success", FlowNode.PinTypes.Output, 10)]
+  [FlowNode.Pin(200, "みつからなかった", FlowNode.PinTypes.Output, 200)]
+  [FlowNode.NodeType("System/FindFriend", 32741)]
+  [FlowNode.Pin(0, "FindByUsername", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "FindByID", FlowNode.PinTypes.Input, 1)]
+  public class FlowNode_FindFriend : FlowNode_Network
+  {
+    public InputField InputFieldFriendID;
 
-    [Pin(1, "Success", 1, 1), Pin(0, "Request", 0, 0), NodeType("System/FindFriend", 0x7fe5), Pin(200, "みつからなかった", 1, 200)]
-    public class FlowNode_FindFriend : FlowNode_Network
+    private void Start()
     {
-        public InputField InputFieldFriendID;
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.InputFieldFriendID, (UnityEngine.Object) null))
+        return;
+      // ISSUE: method pointer
+      ((UnityEvent<string>) this.InputFieldFriendID.get_onEndEdit()).AddListener(new UnityAction<string>((object) this, __methodptr(\u003CStart\u003Em__2A4)));
+      ((Behaviour) this).set_enabled(true);
+    }
 
-        public FlowNode_FindFriend()
+    protected override void OnDestroy()
+    {
+      base.OnDestroy();
+      GUtility.SetImmersiveMove();
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.InputFieldFriendID, (UnityEngine.Object) null) || this.InputFieldFriendID.get_onEndEdit() == null)
+        return;
+      ((UnityEventBase) this.InputFieldFriendID.get_onEndEdit()).RemoveAllListeners();
+    }
+
+    private void OnEndEdit(InputField field)
+    {
+      GUtility.SetImmersiveMove();
+    }
+
+    public override void OnActivate(int pinID)
+    {
+      if (pinID != 0 && pinID != 1 || ((Behaviour) this).get_enabled())
+        return;
+      if (Network.Mode == Network.EConnectMode.Offline)
+        this.Failure();
+      else if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.InputFieldFriendID, (UnityEngine.Object) null))
+      {
+        ((Behaviour) this).set_enabled(false);
+      }
+      else
+      {
+        string text = this.InputFieldFriendID.get_text();
+        if (string.IsNullOrEmpty(text))
         {
-            base..ctor();
-            return;
+          ((Behaviour) this).set_enabled(false);
         }
-
-        [CompilerGenerated]
-        private void <Start>m__19C(string)
+        else
         {
-            this.OnEndEdit(this.InputFieldFriendID);
-            return;
+          GlobalVars.SelectedFriendID = string.Empty;
+          switch (pinID)
+          {
+            case 0:
+              this.ExecRequest((WebAPI) new ReqFriendFind(text, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+              break;
+            case 1:
+              this.ExecRequest((WebAPI) new ReqFriendFindByUsername(text, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+              break;
+          }
+          ((Behaviour) this).set_enabled(true);
         }
+      }
+    }
 
-        private void Failure()
-        {
-            base.set_enabled(0);
-            base.ActivateOutputLinks(200);
-            return;
-        }
+    private void Success()
+    {
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(10);
+    }
 
-        public override void OnActivate(int pinID)
-        {
-            string str;
-            if (pinID != null)
-            {
-                goto Label_0085;
-            }
-            if (base.get_enabled() == null)
-            {
-                goto Label_0012;
-            }
-            return;
-        Label_0012:
-            if (Network.Mode != 1)
-            {
-                goto Label_0024;
-            }
-            this.Failure();
-            return;
-        Label_0024:
-            if ((this.InputFieldFriendID == null) == null)
-            {
-                goto Label_003D;
-            }
-            base.set_enabled(0);
-            return;
-        Label_003D:
-            str = this.InputFieldFriendID.get_text();
-            if (string.IsNullOrEmpty(str) == null)
-            {
-                goto Label_005C;
-            }
-            base.set_enabled(0);
-            return;
-        Label_005C:
-            GlobalVars.SelectedFriendID = string.Empty;
-            base.ExecRequest(new ReqFriendFind(str, new Network.ResponseCallback(this.ResponseCallback)));
-            base.set_enabled(1);
-        Label_0085:
-            return;
-        }
+    private void Failure()
+    {
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(200);
+    }
 
-        protected override void OnDestroy()
+    public override void OnSuccess(WWWResult www)
+    {
+      if (Network.IsError)
+      {
+        switch (Network.ErrCode)
         {
-            base.OnDestroy();
-            GUtility.SetImmersiveMove();
-            if ((this.InputFieldFriendID != null) == null)
-            {
-                goto Label_003C;
-            }
-            if (this.InputFieldFriendID.get_onEndEdit() == null)
-            {
-                goto Label_003C;
-            }
-            this.InputFieldFriendID.get_onEndEdit().RemoveAllListeners();
-        Label_003C:
-            return;
-        }
-
-        private void OnEndEdit(InputField field)
-        {
-            GUtility.SetImmersiveMove();
-            return;
-        }
-
-        public override unsafe void OnSuccess(WWWResult www)
-        {
-            WebAPI.JSON_BodyResponse<Json_PlayerDataAll> response;
-            FriendData data;
-            Exception exception;
-            Network.EErrCode code;
-            if (Network.IsError == null)
-            {
-                goto Label_0051;
-            }
-            code = Network.ErrCode;
-            if (code == 0x1770)
-            {
-                goto Label_002B;
-            }
-            if (code == 0x1771)
-            {
-                goto Label_003C;
-            }
-            goto Label_004A;
-        Label_002B:
+          case Network.EErrCode.FindNoFriend:
             Network.RemoveAPI();
             Network.ResetError();
             this.Failure();
-            return;
-        Label_003C:
-            base.set_enabled(0);
+            break;
+          case Network.EErrCode.FindIsMine:
+            ((Behaviour) this).set_enabled(false);
             this.OnBack();
-            return;
-        Label_004A:
+            break;
+          case Network.EErrCode.StringTooShort:
+            ((Behaviour) this).set_enabled(false);
+            this.OnBack();
+            break;
+          default:
             this.OnRetry();
-            return;
-        Label_0051:
-            DebugMenu.Log("API", "find/friend:" + &www.text);
-            response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_PlayerDataAll>>(&www.text);
-            DebugUtility.Assert((response == null) == 0, "res == null");
-            if (response.body != null)
-            {
-                goto Label_009C;
-            }
-            this.OnRetry();
-            return;
-        Label_009C:
-            Network.RemoveAPI();
-        Label_00A1:
-            try
-            {
-                if (response.body.friends == null)
-                {
-                    goto Label_00C4;
-                }
-                if (((int) response.body.friends.Length) >= 1)
-                {
-                    goto Label_00CA;
-                }
-            Label_00C4:
-                throw new InvalidJSONException();
-            Label_00CA:
-                data = new FriendData();
-                data.Deserialize(response.body.friends[0]);
-                GlobalVars.FoundFriend = data;
-                this.Success();
-                goto Label_0106;
-            }
-            catch (Exception exception1)
-            {
-            Label_00F4:
-                exception = exception1;
-                DebugUtility.LogException(exception);
-                this.Failure();
-                goto Label_0106;
-            }
-        Label_0106:
-            return;
+            break;
         }
-
-        private void Start()
+      }
+      else
+      {
+        DebugMenu.Log("API", "find/friend:" + www.text);
+        WebAPI.JSON_BodyResponse<Json_PlayerDataAll> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_PlayerDataAll>>(www.text);
+        DebugUtility.Assert(jsonObject != null, "res == null");
+        if (jsonObject.body == null)
         {
-            if ((this.InputFieldFriendID != null) == null)
-            {
-                goto Label_0034;
-            }
-            this.InputFieldFriendID.get_onEndEdit().AddListener(new UnityAction<string>(this, this.<Start>m__19C));
-            base.set_enabled(1);
-        Label_0034:
-            return;
+          this.OnRetry();
         }
-
-        private void Success()
+        else
         {
-            base.set_enabled(0);
-            base.ActivateOutputLinks(1);
-            return;
+          Network.RemoveAPI();
+          try
+          {
+            if (jsonObject.body.friends == null || jsonObject.body.friends.Length < 1)
+              throw new InvalidJSONException();
+            FriendData friendData = new FriendData();
+            friendData.Deserialize(jsonObject.body.friends[0]);
+            GlobalVars.FoundFriend = friendData;
+            this.Success();
+          }
+          catch (Exception ex)
+          {
+            DebugUtility.LogException(ex);
+            this.Failure();
+          }
         }
+      }
     }
+  }
 }
-

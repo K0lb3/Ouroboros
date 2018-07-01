@@ -1,32 +1,19 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.Event2dAction_EndTelop
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    [EventActionInfo("会話/テロップ閉じる(2D)", "表示されているテロップを閉じます", 0x555555, 0x444488)]
-    public class Event2dAction_EndTelop : EventAction
+  [EventActionInfo("会話/テロップ閉じる(2D)", "表示されているテロップを閉じます", 5592405, 4473992)]
+  public class Event2dAction_EndTelop : EventAction
+  {
+    public override void OnActivate()
     {
-        public Event2dAction_EndTelop()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate()
-        {
-            int num;
-            num = EventTelopBubble.Instances.Count - 1;
-            goto Label_0026;
-        Label_0012:
-            EventTelopBubble.Instances[num].Close();
-            num -= 1;
-        Label_0026:
-            if (num >= 0)
-            {
-                goto Label_0012;
-            }
-            base.ActivateNext();
-            return;
-        }
+      for (int index = EventTelopBubble.Instances.Count - 1; index >= 0; --index)
+        EventTelopBubble.Instances[index].Close();
+      this.ActivateNext();
     }
+  }
 }
-

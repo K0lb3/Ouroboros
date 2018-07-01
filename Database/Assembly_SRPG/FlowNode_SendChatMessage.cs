@@ -1,326 +1,225 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_SendChatMessage
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Collections.Generic;
-    using System.Runtime.InteropServices;
+  [FlowNode.NodeType("System/SendChatMessage", 32741)]
+  [FlowNode.Pin(0, "メッセージ送信", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
+  [FlowNode.Pin(2, "Failure", FlowNode.PinTypes.Output, 2)]
+  [FlowNode.Pin(3, "Interval", FlowNode.PinTypes.Output, 3)]
+  [FlowNode.Pin(4, "スタンプ送信", FlowNode.PinTypes.Input, 4)]
+  public class FlowNode_SendChatMessage : FlowNode_Network
+  {
+    private int mStampId = -1;
+    private int mChannel;
+    private string mRoomToken;
+    private string mMessage;
+    private ChatWindow.eChatType mTargetChatType;
 
-    [Pin(2, "Failure", 1, 2), Pin(3, "Interval", 1, 3), Pin(4, "スタンプ送信", 0, 4), Pin(0, "メッセージ送信", 0, 0), NodeType("System/SendChatMessage", 0x7fe5), Pin(1, "Success", 1, 1)]
-    public class FlowNode_SendChatMessage : FlowNode_Network
+    public override void OnActivate(int pinID)
     {
-        private int mChannel;
-        private string mRoomToken;
-        private string mMessage;
-        private int mStampId;
-        private ChatWindow.eChatType mTargetChatType;
+      if (pinID == 0)
+      {
+        this.ReqestSendMessage();
+      }
+      else
+      {
+        if (pinID != 4)
+          return;
+        this.ReqestSendStamp();
+      }
+    }
 
-        public FlowNode_SendChatMessage()
+    public void SetMessageData(int channle, string message)
+    {
+      this.ResetParam();
+      this.mChannel = channle;
+      this.mMessage = message;
+      this.mTargetChatType = ChatWindow.eChatType.World;
+    }
+
+    public void SetMessageData(string room_token, string message)
+    {
+      this.ResetParam();
+      this.mRoomToken = room_token;
+      this.mMessage = message;
+      this.mTargetChatType = ChatWindow.eChatType.Room;
+    }
+
+    public void SetStampData(int channle, int stamp_id)
+    {
+      this.ResetParam();
+      this.mChannel = channle;
+      this.mStampId = stamp_id;
+      this.mTargetChatType = ChatWindow.eChatType.World;
+    }
+
+    public void SetStampData(string room_token, int stamp_id)
+    {
+      this.ResetParam();
+      this.mRoomToken = room_token;
+      this.mStampId = stamp_id;
+      this.mTargetChatType = ChatWindow.eChatType.Room;
+    }
+
+    public void ResetParam()
+    {
+      this.mChannel = 0;
+      this.mRoomToken = (string) null;
+      this.mMessage = (string) null;
+      this.mStampId = -1;
+      this.mTargetChatType = ChatWindow.eChatType.None;
+    }
+
+    public void ReqestSendMessage()
+    {
+      switch (this.mTargetChatType)
+      {
+        case ChatWindow.eChatType.World:
+          this.RequestSendMessageToWorld(new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback));
+          break;
+        case ChatWindow.eChatType.Room:
+          this.RequestSendMessageToRoom(new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback));
+          break;
+      }
+    }
+
+    public void ReqestSendStamp()
+    {
+      switch (this.mTargetChatType)
+      {
+        case ChatWindow.eChatType.World:
+          this.RequestSendStampToWorld(new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback));
+          break;
+        case ChatWindow.eChatType.Room:
+          this.RequestSendStampToRoom(new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback));
+          break;
+      }
+    }
+
+    private void Success()
+    {
+      ((Behaviour) this).set_enabled(false);
+      this.mChannel = 0;
+      this.mMessage = string.Empty;
+      this.ActivateOutputLinks(1);
+    }
+
+    private void Failure()
+    {
+      ((Behaviour) this).set_enabled(false);
+      this.mChannel = 0;
+      this.mMessage = string.Empty;
+      this.ActivateOutputLinks(2);
+    }
+
+    private void Interval()
+    {
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(3);
+    }
+
+    public override void OnSuccess(WWWResult www)
+    {
+      if (Network.IsError)
+      {
+        if (Network.ErrCode == Network.EErrCode.SendChatInterval)
         {
-            this.mStampId = -1;
-            base..ctor();
-            return;
+          Network.IsIndicator = true;
+          FlowNode_Variable.Set("MESSAGE_CAUTION_SEND_MESSAGE", Network.ErrMsg);
+          Network.RemoveAPI();
+          Network.ResetError();
+          this.Interval();
         }
-
-        private void Failure()
+        else
         {
-            base.set_enabled(0);
-            this.mChannel = 0;
-            this.mMessage = string.Empty;
-            base.ActivateOutputLinks(2);
-            return;
+          Network.IsIndicator = true;
+          Network.RemoveAPI();
+          Network.ResetError();
         }
-
-        private string[] GetRoomMemberUIDs(bool is_ignore_self)
+      }
+      else
+      {
+        FlowNode_Variable.Set("MESSAGE_CAUTION_SEND_MESSAGE", string.Empty);
+        WebAPI.JSON_BodyResponse<JSON_ChatSendRes> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<JSON_ChatSendRes>>(www.text);
+        DebugUtility.Assert(jsonObject != null, "res == null");
+        Network.RemoveAPI();
+        Network.IsIndicator = true;
+        if (jsonObject.body != null)
         {
-            List<string> list;
-            int num;
-            if (ChatWindow.room_member_manager != null)
-            {
-                goto Label_000C;
-            }
-            return null;
-        Label_000C:
-            list = new List<string>();
-            num = 0;
-            goto Label_008C;
-        Label_0019:
-            if (is_ignore_self == null)
-            {
-                goto Label_004D;
-            }
-            if ((MonoSingleton<GameManager>.Instance.DeviceId == ChatWindow.room_member_manager.RoomMembers[num].UID) == null)
-            {
-                goto Label_004D;
-            }
-            goto Label_0088;
-        Label_004D:
-            if (list.Contains(ChatWindow.room_member_manager.RoomMembers[num].UID) != null)
-            {
-                goto Label_0088;
-            }
-            list.Add(ChatWindow.room_member_manager.RoomMembers[num].UID);
-        Label_0088:
-            num += 1;
-        Label_008C:
-            if (num < ChatWindow.room_member_manager.RoomMembers.Count)
-            {
-                goto Label_0019;
-            }
-            return list.ToArray();
-        }
-
-        private void Interval()
-        {
-            base.set_enabled(0);
-            base.ActivateOutputLinks(3);
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != null)
-            {
-                goto Label_0011;
-            }
-            this.ReqestSendMessage();
-            goto Label_001E;
-        Label_0011:
-            if (pinID != 4)
-            {
-                goto Label_001E;
-            }
-            this.ReqestSendStamp();
-        Label_001E:
-            return;
-        }
-
-        public override unsafe void OnSuccess(WWWResult www)
-        {
-            WebAPI.JSON_BodyResponse<JSON_ChatSendRes> response;
-            ChatSendRes res;
-            Network.EErrCode code;
-            if (Network.IsError == null)
-            {
-                goto Label_0057;
-            }
-            if (Network.ErrCode == 0x2136)
-            {
-                goto Label_0020;
-            }
-            goto Label_0046;
-        Label_0020:
-            Network.IsIndicator = 1;
-            FlowNode_Variable.Set("MESSAGE_CAUTION_SEND_MESSAGE", Network.ErrMsg);
-            Network.RemoveAPI();
-            Network.ResetError();
-            this.Interval();
-            return;
-        Label_0046:
-            Network.IsIndicator = 1;
-            Network.RemoveAPI();
-            Network.ResetError();
-            return;
-        Label_0057:
-            FlowNode_Variable.Set("MESSAGE_CAUTION_SEND_MESSAGE", string.Empty);
-            response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<JSON_ChatSendRes>>(&www.text);
-            DebugUtility.Assert((response == null) == 0, "res == null");
-            Network.RemoveAPI();
-            Network.IsIndicator = 1;
-            if (response.body == null)
-            {
-                goto Label_00BE;
-            }
-            res = new ChatSendRes();
-            res.Deserialize(response.body);
-            if (res.IsSuccess == null)
-            {
-                goto Label_00BE;
-            }
+          ChatSendRes chatSendRes = new ChatSendRes();
+          chatSendRes.Deserialize(jsonObject.body);
+          if (chatSendRes.IsSuccess)
+          {
             this.Success();
             return;
-        Label_00BE:
-            this.Failure();
-            return;
+          }
         }
-
-        public void ReqestSendMessage()
-        {
-            ChatWindow.eChatType type;
-            type = this.mTargetChatType;
-            if (type == 1)
-            {
-                goto Label_001A;
-            }
-            if (type == 2)
-            {
-                goto Label_0031;
-            }
-            goto Label_0048;
-        Label_001A:
-            this.RequestSendMessageToWorld(new Network.ResponseCallback(this.ResponseCallback));
-            goto Label_0048;
-        Label_0031:
-            this.RequestSendMessageToRoom(new Network.ResponseCallback(this.ResponseCallback));
-        Label_0048:
-            return;
-        }
-
-        public void ReqestSendStamp()
-        {
-            ChatWindow.eChatType type;
-            type = this.mTargetChatType;
-            if (type == 1)
-            {
-                goto Label_001A;
-            }
-            if (type == 2)
-            {
-                goto Label_0031;
-            }
-            goto Label_0048;
-        Label_001A:
-            this.RequestSendStampToWorld(new Network.ResponseCallback(this.ResponseCallback));
-            goto Label_0048;
-        Label_0031:
-            this.RequestSendStampToRoom(new Network.ResponseCallback(this.ResponseCallback));
-        Label_0048:
-            return;
-        }
-
-        private void RequestSendMessageToRoom(Network.ResponseCallback callback)
-        {
-            string[] strArray;
-            if (string.IsNullOrEmpty(this.mMessage) != null)
-            {
-                goto Label_001C;
-            }
-            if (this.mChannel >= 0)
-            {
-                goto Label_001D;
-            }
-        Label_001C:
-            return;
-        Label_001D:
-            strArray = this.GetRoomMemberUIDs(1);
-            if (strArray == null)
-            {
-                goto Label_0056;
-            }
-            base.set_enabled(1);
-            Network.IsIndicator = 0;
-            base.ExecRequest(new ReqSendChatMessageRoom(this.mRoomToken, WebAPI.EscapeString(this.mMessage), strArray, callback));
-        Label_0056:
-            return;
-        }
-
-        private void RequestSendMessageToWorld(Network.ResponseCallback callback)
-        {
-            if (string.IsNullOrEmpty(this.mMessage) != null)
-            {
-                goto Label_001C;
-            }
-            if (this.mChannel >= 0)
-            {
-                goto Label_001D;
-            }
-        Label_001C:
-            return;
-        Label_001D:
-            base.set_enabled(1);
-            Network.IsIndicator = 0;
-            base.ExecRequest(new ReqSendChatMessageWorld(this.mChannel, WebAPI.EscapeString(this.mMessage), callback));
-            return;
-        }
-
-        private void RequestSendStampToRoom(Network.ResponseCallback callback)
-        {
-            string[] strArray;
-            if (this.mStampId >= 0)
-            {
-                goto Label_000D;
-            }
-            return;
-        Label_000D:
-            strArray = this.GetRoomMemberUIDs(1);
-            if (strArray == null)
-            {
-                goto Label_0041;
-            }
-            base.set_enabled(1);
-            Network.IsIndicator = 0;
-            base.ExecRequest(new ReqSendChatStampRoom(this.mRoomToken, this.mStampId, strArray, callback));
-        Label_0041:
-            return;
-        }
-
-        private void RequestSendStampToWorld(Network.ResponseCallback callback)
-        {
-            if (this.mStampId >= 0)
-            {
-                goto Label_000D;
-            }
-            return;
-        Label_000D:
-            base.set_enabled(1);
-            Network.IsIndicator = 0;
-            base.ExecRequest(new ReqSendChatStampWorld(this.mChannel, this.mStampId, callback));
-            return;
-        }
-
-        public void ResetParam()
-        {
-            this.mChannel = 0;
-            this.mRoomToken = null;
-            this.mMessage = null;
-            this.mStampId = -1;
-            this.mTargetChatType = 0;
-            return;
-        }
-
-        public void SetMessageData(int channle, string message)
-        {
-            this.ResetParam();
-            this.mChannel = channle;
-            this.mMessage = message;
-            this.mTargetChatType = 1;
-            return;
-        }
-
-        public void SetMessageData(string room_token, string message)
-        {
-            this.ResetParam();
-            this.mRoomToken = room_token;
-            this.mMessage = message;
-            this.mTargetChatType = 2;
-            return;
-        }
-
-        public void SetStampData(int channle, int stamp_id)
-        {
-            this.ResetParam();
-            this.mChannel = channle;
-            this.mStampId = stamp_id;
-            this.mTargetChatType = 1;
-            return;
-        }
-
-        public void SetStampData(string room_token, int stamp_id)
-        {
-            this.ResetParam();
-            this.mRoomToken = room_token;
-            this.mStampId = stamp_id;
-            this.mTargetChatType = 2;
-            return;
-        }
-
-        private void Success()
-        {
-            base.set_enabled(0);
-            this.mChannel = 0;
-            this.mMessage = string.Empty;
-            base.ActivateOutputLinks(1);
-            return;
-        }
+        this.Failure();
+      }
     }
-}
 
+    private void RequestSendMessageToWorld(Network.ResponseCallback callback)
+    {
+      if (string.IsNullOrEmpty(this.mMessage) || this.mChannel < 0)
+        return;
+      ((Behaviour) this).set_enabled(true);
+      Network.IsIndicator = false;
+      this.ExecRequest((WebAPI) new ReqSendChatMessageWorld(this.mChannel, WebAPI.EscapeString(this.mMessage), callback));
+    }
+
+    private void RequestSendStampToWorld(Network.ResponseCallback callback)
+    {
+      if (this.mStampId < 0)
+        return;
+      ((Behaviour) this).set_enabled(true);
+      Network.IsIndicator = false;
+      this.ExecRequest((WebAPI) new ReqSendChatStampWorld(this.mChannel, this.mStampId, callback));
+    }
+
+    private void RequestSendMessageToRoom(Network.ResponseCallback callback)
+    {
+      if (string.IsNullOrEmpty(this.mMessage) || this.mChannel < 0)
+        return;
+      string[] roomMemberUiDs = this.GetRoomMemberUIDs(true);
+      if (roomMemberUiDs == null)
+        return;
+      ((Behaviour) this).set_enabled(true);
+      Network.IsIndicator = false;
+      this.ExecRequest((WebAPI) new ReqSendChatMessageRoom(this.mRoomToken, WebAPI.EscapeString(this.mMessage), roomMemberUiDs, callback));
+    }
+
+    private void RequestSendStampToRoom(Network.ResponseCallback callback)
+    {
+      if (this.mStampId < 0)
+        return;
+      string[] roomMemberUiDs = this.GetRoomMemberUIDs(true);
+      if (roomMemberUiDs == null)
+        return;
+      ((Behaviour) this).set_enabled(true);
+      Network.IsIndicator = false;
+      this.ExecRequest((WebAPI) new ReqSendChatStampRoom(this.mRoomToken, this.mStampId, roomMemberUiDs, callback));
+    }
+
+    private string[] GetRoomMemberUIDs(bool is_ignore_self = false)
+    {
+      if (ChatWindow.room_member_manager == null)
+        return (string[]) null;
+      List<string> stringList = new List<string>();
+      for (int index = 0; index < ChatWindow.room_member_manager.RoomMembers.Count; ++index)
+      {
+        if ((!is_ignore_self || !(MonoSingleton<GameManager>.Instance.DeviceId == ChatWindow.room_member_manager.RoomMembers[index].UID)) && !stringList.Contains(ChatWindow.room_member_manager.RoomMembers[index].UID))
+          stringList.Add(ChatWindow.room_member_manager.RoomMembers[index].UID);
+      }
+      return stringList.ToArray();
+    }
+  }
+}

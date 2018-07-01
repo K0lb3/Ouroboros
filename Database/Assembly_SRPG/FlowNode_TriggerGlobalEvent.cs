@@ -1,48 +1,35 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_TriggerGlobalEvent
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  [FlowNode.NodeType("Event/TriggerGlobalEvent", 32741)]
+  [AddComponentMenu("")]
+  [FlowNode.Pin(100, "Trigger", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "Triggered", FlowNode.PinTypes.Output, 2)]
+  public class FlowNode_TriggerGlobalEvent : FlowNode
+  {
+    [StringIsGlobalEventID]
+    public string EventName;
 
-    [Pin(1, "Triggered", 1, 2), Pin(100, "Trigger", 0, 0), NodeType("Event/TriggerGlobalEvent", 0x7fe5), AddComponentMenu("")]
-    public class FlowNode_TriggerGlobalEvent : FlowNode
+    public override string[] GetInfoLines()
     {
-        [StringIsGlobalEventID]
-        public string EventName;
-
-        public FlowNode_TriggerGlobalEvent()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override string[] GetInfoLines()
-        {
-            string[] textArray1;
-            if (string.IsNullOrEmpty(this.EventName) != null)
-            {
-                goto Label_002A;
-            }
-            textArray1 = new string[] { "Event is " + this.EventName };
-            return textArray1;
-        Label_002A:
-            return base.GetInfoLines();
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != 100)
-            {
-                goto Label_002C;
-            }
-            if (string.IsNullOrEmpty(this.EventName) != null)
-            {
-                goto Label_002C;
-            }
-            GlobalEvent.Invoke(this.EventName, this);
-            base.ActivateOutputLinks(1);
-        Label_002C:
-            return;
-        }
+      if (string.IsNullOrEmpty(this.EventName))
+        return base.GetInfoLines();
+      return new string[1]{ "Event is [" + this.EventName + "]" };
     }
-}
 
+    public override void OnActivate(int pinID)
+    {
+      if (pinID != 100 || string.IsNullOrEmpty(this.EventName))
+        return;
+      GlobalEvent.Invoke(this.EventName, (object) this);
+      this.ActivateOutputLinks(1);
+    }
+  }
+}

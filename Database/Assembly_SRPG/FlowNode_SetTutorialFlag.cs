@@ -1,82 +1,74 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_SetTutorialFlag
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using UnityEngine;
+  [FlowNode.Pin(1, "Set", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.NodeType("Tutorial/SetTutorialFlag", 32741)]
+  [FlowNode.Pin(11, "True", FlowNode.PinTypes.Output, 21)]
+  [FlowNode.Pin(3, "Flag Changed (No)", FlowNode.PinTypes.Output, 2)]
+  [FlowNode.Pin(5, "Flag Unchanged", FlowNode.PinTypes.Output, 3)]
+  [FlowNode.Pin(2, "Flag Changed (Yes)", FlowNode.PinTypes.Output, 1)]
+  [FlowNode.Pin(10, "Test", FlowNode.PinTypes.Input, 20)]
+  [FlowNode.Pin(12, "False", FlowNode.PinTypes.Output, 22)]
+  public class FlowNode_SetTutorialFlag : FlowNode
+  {
+    private const int PIN_ID_SET = 1;
+    private const int PIN_ID_UPDATE1 = 2;
+    private const int PIN_ID_UPDATE2 = 3;
+    private const int PIN_ID_NOUPDATE = 5;
+    private const int PIN_ID_TEST = 10;
+    private const int PIN_ID_TRUE = 11;
+    private const int PIN_ID_FALSE = 12;
+    public TutorialFlags mTutorialFlags;
+    public string FlagID;
+    public string ConfirmText;
 
-    [NodeType("Tutorial/SetTutorialFlag", 0x7fe5), Pin(1, "Set", 0, 0), Pin(12, "False", 1, 0x16), Pin(11, "True", 1, 0x15), Pin(10, "Test", 0, 20), Pin(5, "Flag Unchanged", 1, 3), Pin(3, "Flag Changed (No)", 1, 2), Pin(2, "Flag Changed (Yes)", 1, 1)]
-    public class FlowNode_SetTutorialFlag : FlowNode
+    public override void OnActivate(int pinID)
     {
-        private const int PIN_ID_SET = 1;
-        private const int PIN_ID_UPDATE1 = 2;
-        private const int PIN_ID_UPDATE2 = 3;
-        private const int PIN_ID_NOUPDATE = 5;
-        private const int PIN_ID_TEST = 10;
-        private const int PIN_ID_TRUE = 11;
-        private const int PIN_ID_FALSE = 12;
-        public TutorialFlags mTutorialFlags;
-        public string FlagID;
-        public string ConfirmText;
-
-        public FlowNode_SetTutorialFlag()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != 1)
-            {
-                goto Label_0078;
-            }
-            if (MonoSingleton<GameManager>.Instance.IsTutorialFlagSet(this.FlagID) == null)
-            {
-                goto Label_0029;
-            }
-            base.ActivateOutputLinks(5);
-            goto Label_0073;
-        Label_0029:
-            if (string.IsNullOrEmpty(this.ConfirmText) != null)
-            {
-                goto Label_006C;
-            }
-            UIUtility.ConfirmBox(LocalizedText.Get(this.ConfirmText), new UIUtility.DialogResultEvent(this.OnYes), new UIUtility.DialogResultEvent(this.OnNo), null, 1, -1, null, null);
-            goto Label_0073;
-        Label_006C:
-            this.OnYes(null);
-        Label_0073:
-            goto Label_00AC;
-        Label_0078:
-            if (pinID != 10)
-            {
-                goto Label_00AC;
-            }
-            if (MonoSingleton<GameManager>.Instance.IsTutorialFlagSet(this.FlagID) == null)
-            {
-                goto Label_00A3;
-            }
-            base.ActivateOutputLinks(11);
-            goto Label_00AC;
-        Label_00A3:
-            base.ActivateOutputLinks(12);
-        Label_00AC:
-            return;
-        }
-
-        private void OnNo(GameObject go)
-        {
-            MonoSingleton<GameManager>.Instance.UpdateTutorialFlags(this.FlagID);
-            base.ActivateOutputLinks(3);
-            return;
-        }
-
-        private void OnYes(GameObject go)
-        {
-            MonoSingleton<GameManager>.Instance.UpdateTutorialFlags(this.FlagID);
-            base.ActivateOutputLinks(2);
-            return;
-        }
+      switch (pinID)
+      {
+        case 1:
+          MonoSingleton<GameManager>.Instance.UpdateTutorialFlags(this.FlagID);
+          if (MonoSingleton<GameManager>.Instance.IsTutorialFlagSet(this.FlagID))
+          {
+            this.ActivateOutputLinks(5);
+            break;
+          }
+          if (!string.IsNullOrEmpty(this.ConfirmText))
+          {
+            UIUtility.ConfirmBox(LocalizedText.Get(this.ConfirmText), new UIUtility.DialogResultEvent(this.OnYes), new UIUtility.DialogResultEvent(this.OnNo), (GameObject) null, true, -1, (string) null, (string) null);
+            break;
+          }
+          this.OnYes((GameObject) null);
+          break;
+        case 10:
+          if (MonoSingleton<GameManager>.Instance.IsTutorialFlagSet(this.FlagID))
+          {
+            this.ActivateOutputLinks(11);
+            break;
+          }
+          this.ActivateOutputLinks(12);
+          break;
+      }
     }
-}
 
+    private void OnYes(GameObject go)
+    {
+      MonoSingleton<GameManager>.Instance.UpdateTutorialFlags(this.FlagID);
+      this.ActivateOutputLinks(2);
+    }
+
+    private void OnNo(GameObject go)
+    {
+      MonoSingleton<GameManager>.Instance.UpdateTutorialFlags(this.FlagID);
+      this.ActivateOutputLinks(3);
+    }
+  }
+}

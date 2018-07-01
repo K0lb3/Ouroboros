@@ -1,43 +1,32 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqRanking
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Text;
+
+namespace SRPG
 {
-    using System;
-    using System.Text;
-
-    public class ReqRanking : WebAPI
+  public class ReqRanking : WebAPI
+  {
+    public ReqRanking(string[] inames, Network.ResponseCallback response)
     {
-        public ReqRanking(string[] inames, Network.ResponseCallback response)
-        {
-            StringBuilder builder;
-            int num;
-            base..ctor();
-            base.name = "btl/usedunit/multiple";
-            builder = WebAPI.GetStringBuilder();
-            builder.Append("\"inames\":[");
-            num = 0;
-            goto Label_0071;
-        Label_002A:
-            builder.Append("\"");
-            builder.Append(JsonEscape.Escape(inames[num]));
-            if (num != (((int) inames.Length) - 1))
-            {
-                goto Label_0061;
-            }
-            builder.Append("\"]");
-            goto Label_006D;
-        Label_0061:
-            builder.Append("\",");
-        Label_006D:
-            num += 1;
-        Label_0071:
-            if (num < ((int) inames.Length))
-            {
-                goto Label_002A;
-            }
-            base.body = builder.ToString();
-            base.body = WebAPI.GetRequestString(base.body);
-            base.callback = response;
-            return;
-        }
+      this.name = "btl/usedunit/multiple";
+      StringBuilder stringBuilder = WebAPI.GetStringBuilder();
+      stringBuilder.Append("\"inames\":[");
+      for (int index = 0; index < inames.Length; ++index)
+      {
+        stringBuilder.Append("\"");
+        stringBuilder.Append(JsonEscape.Escape(inames[index]));
+        if (index == inames.Length - 1)
+          stringBuilder.Append("\"]");
+        else
+          stringBuilder.Append("\",");
+      }
+      this.body = stringBuilder.ToString();
+      this.body = WebAPI.GetRequestString(this.body);
+      this.callback = response;
     }
+  }
 }
-

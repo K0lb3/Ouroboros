@@ -1,22 +1,25 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.GlobalEventTrigger
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
-
-    [DisallowMultipleComponent, AddComponentMenu("Event/Global Event Trigger")]
-    public class GlobalEventTrigger : MonoBehaviour
+  [DisallowMultipleComponent]
+  [AddComponentMenu("Event/Global Event Trigger")]
+  public class GlobalEventTrigger : MonoBehaviour
+  {
+    public GlobalEventTrigger()
     {
-        public GlobalEventTrigger()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void Trigger(string eventName)
-        {
-            GlobalEvent.Invoke(eventName, base.get_gameObject());
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    public void Trigger(string eventName)
+    {
+      GlobalEvent.Invoke(eventName, (object) ((Component) this).get_gameObject());
+    }
+  }
+}

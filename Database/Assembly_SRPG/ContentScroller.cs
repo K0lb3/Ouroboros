@@ -1,47 +1,32 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ContentScroller
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
+  public class ContentScroller : SRPG_ScrollRect
+  {
+    private ContentController mContentController;
 
-    public class ContentScroller : SRPG_ScrollRect
+    public ContentController contentController
     {
-        private ContentController mContentController;
-
-        public ContentScroller()
-        {
-            base..ctor();
-            return;
-        }
-
-        protected override void LateUpdate()
-        {
-            ContentController controller;
-            base.LateUpdate();
-            if ((this.contentController == null) == null)
-            {
-                goto Label_001A;
-            }
-            return;
-        Label_001A:
-            return;
-        }
-
-        public ContentController contentController
-        {
-            get
-            {
-                if ((this.mContentController == null) == null)
-                {
-                    goto Label_0033;
-                }
-                if ((base.get_content() != null) == null)
-                {
-                    goto Label_0033;
-                }
-                this.mContentController = base.get_content().GetComponent<ContentController>();
-            Label_0033:
-                return this.mContentController;
-            }
-        }
+      get
+      {
+        if (Object.op_Equality((Object) this.mContentController, (Object) null) && Object.op_Inequality((Object) this.get_content(), (Object) null))
+          this.mContentController = (ContentController) ((Component) this.get_content()).GetComponent<ContentController>();
+        return this.mContentController;
+      }
     }
-}
 
+    protected virtual void LateUpdate()
+    {
+      base.LateUpdate();
+      if (Object.op_Equality((Object) this.contentController, (Object) null))
+        ;
+    }
+  }
+}

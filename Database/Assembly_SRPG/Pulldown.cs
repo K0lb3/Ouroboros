@@ -1,509 +1,310 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.Pulldown
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Collections.Generic;
-    using System.Runtime.CompilerServices;
-    using System.Runtime.InteropServices;
-    using UnityEngine;
-    using UnityEngine.Events;
-    using UnityEngine.EventSystems;
-    using UnityEngine.UI;
+  public class Pulldown : Selectable, IBeginDragHandler, IDragHandler, IEndDragHandler, IEventSystemHandler
+  {
+    public Pulldown.SetupPulldownItemEvent OnSetupPulldownItem;
+    public Pulldown.UpdateSelectionEvent OnUpdateSelection;
+    public RectTransform PulldownMenu;
+    public Text SelectionText;
+    public GameObject PulldownItemTemplate;
+    public Text PulldownText;
+    public Graphic PulldownGraphic;
+    public string OpenSE;
+    public string CloseSE;
+    public string SelectSE;
+    public Pulldown.SelectItemEvent OnSelectionChangeDelegate;
+    public UnityAction<int> OnSelectionChange;
+    private int mPrevSelectionIndex;
+    private int mSelectionIndex;
+    private bool mOpened;
+    private bool mAutoClose;
+    private bool mTrackTouchPosititon;
+    private List<PulldownItem> mItems;
+    private bool mPulldownItemInitialized;
+    private bool mPollMouseUp;
 
-    public class Pulldown : Selectable, IBeginDragHandler, IDragHandler, IEndDragHandler, IEventSystemHandler
+    public Pulldown()
     {
-        public SetupPulldownItemEvent OnSetupPulldownItem;
-        public UpdateSelectionEvent OnUpdateSelection;
-        public RectTransform PulldownMenu;
-        public Text SelectionText;
-        public GameObject PulldownItemTemplate;
-        public Text PulldownText;
-        public Graphic PulldownGraphic;
-        public string OpenSE;
-        public string CloseSE;
-        public string SelectSE;
-        public SelectItemEvent OnSelectionChangeDelegate;
-        public UnityAction<int> OnSelectionChange;
-        private int mPrevSelectionIndex;
-        private int mSelectionIndex;
-        private bool mOpened;
-        private bool mAutoClose;
-        private bool mTrackTouchPosititon;
-        private List<PulldownItem> mItems;
-        private bool mPulldownItemInitialized;
-        private bool mPollMouseUp;
-
-        public Pulldown()
-        {
-            this.mPrevSelectionIndex = -1;
-            this.mSelectionIndex = -1;
-            this.mItems = new List<PulldownItem>();
-            base..ctor();
-            return;
-        }
-
-        public virtual PulldownItem AddItem(string label, int value)
-        {
-            PulldownItem item;
-            GameObject obj2;
-            PulldownItem item2;
-            if ((this.PulldownItemTemplate == null) == null)
-            {
-                goto Label_0013;
-            }
-            return null;
-        Label_0013:
-            if (this.mPulldownItemInitialized != null)
-            {
-                goto Label_006C;
-            }
-            this.mPulldownItemInitialized = 1;
-            if (this.OnSetupPulldownItem == null)
-            {
-                goto Label_0047;
-            }
-            item = this.OnSetupPulldownItem(this.PulldownItemTemplate);
-            goto Label_0054;
-        Label_0047:
-            item = this.SetupPulldownItem(this.PulldownItemTemplate);
-        Label_0054:
-            item.Text = this.PulldownText;
-            item.Graphic = this.PulldownGraphic;
-        Label_006C:
-            obj2 = Object.Instantiate<GameObject>(this.PulldownItemTemplate);
-            item2 = obj2.GetComponent<PulldownItem>();
-            if ((item2.Text != null) == null)
-            {
-                goto Label_009C;
-            }
-            item2.Text.set_text(label);
-        Label_009C:
-            item2.Value = value;
-            this.mItems.Add(item2);
-            obj2.get_transform().SetParent(this.PulldownMenu, 0);
-            obj2.SetActive(1);
-            return item2;
-        }
-
-        protected override void Awake()
-        {
-            base.Awake();
-            if ((this.PulldownItemTemplate == null) == null)
-            {
-                goto Label_0039;
-            }
-            if ((this.PulldownText != null) == null)
-            {
-                goto Label_0039;
-            }
-            this.PulldownItemTemplate = this.PulldownText.get_gameObject();
-        Label_0039:
-            return;
-        }
-
-        public void ClearItems()
-        {
-            int num;
-            num = 0;
-            goto Label_0021;
-        Label_0007:
-            Object.Destroy(this.mItems[num].get_gameObject());
-            num += 1;
-        Label_0021:
-            if (num < this.mItems.Count)
-            {
-                goto Label_0007;
-            }
-            this.mItems.Clear();
-            if ((this.SelectionText != null) == null)
-            {
-                goto Label_0073;
-            }
-            if (string.IsNullOrEmpty(this.SelectionText.get_text()) != null)
-            {
-                goto Label_0073;
-            }
-            this.SelectionText.set_text(string.Empty);
-        Label_0073:
-            this.mSelectionIndex = -1;
-            return;
-        }
-
-        private void ClosePulldown(bool se)
-        {
-            if (this.mOpened != null)
-            {
-                goto Label_000C;
-            }
-            return;
-        Label_000C:
-            this.PulldownMenu.get_gameObject().SetActive(0);
-            this.mAutoClose = 0;
-            this.mOpened = 0;
-            if (se == null)
-            {
-                goto Label_0056;
-            }
-            if (string.IsNullOrEmpty(this.CloseSE) != null)
-            {
-                goto Label_0056;
-            }
-            MonoSingleton<MySound>.Instance.PlaySEOneShot(this.CloseSE, 0f);
-        Label_0056:
-            return;
-        }
-
-        public PulldownItem GetCurrentSelection()
-        {
-            return this.GetItemAt(this.mSelectionIndex);
-        }
-
-        public PulldownItem GetItemAt(int index)
-        {
-            return (((0 > index) || (index >= this.mItems.Count)) ? null : this.mItems[index]);
-        }
-
-        public void OnBeginDrag(PointerEventData eventData)
-        {
-        }
-
-        protected override void OnDestroy()
-        {
-            base.OnDestroy();
-            this.ClearItems();
-            return;
-        }
-
-        public void OnDrag(PointerEventData eventData)
-        {
-            if (this.mOpened == null)
-            {
-                goto Label_0012;
-            }
-            this.SelectNearestItem(eventData);
-        Label_0012:
-            return;
-        }
-
-        public unsafe void OnEndDrag(PointerEventData eventData)
-        {
-            Vector2 vector;
-            if (this.mOpened == null)
-            {
-                goto Label_0042;
-            }
-            vector = eventData.get_pressPosition() - eventData.get_position();
-            if (&vector.get_magnitude() <= 5f)
-            {
-                goto Label_0042;
-            }
-            this.SelectNearestItem(eventData);
-            this.ClosePulldown(0);
-            this.TriggerItemChange();
-        Label_0042:
-            return;
-        }
-
-        public override void OnPointerDown(PointerEventData eventData)
-        {
-            base.OnPointerDown(eventData);
-            if (this.IsInteractable() != null)
-            {
-                goto Label_0013;
-            }
-            return;
-        Label_0013:
-            if (this.mOpened == null)
-            {
-                goto Label_0026;
-            }
-            this.ClosePulldown(1);
-            return;
-        Label_0026:
-            this.OpenPulldown();
-            return;
-        }
-
-        public override void OnPointerUp(PointerEventData eventData)
-        {
-            base.OnPointerUp(eventData);
-            this.mAutoClose = 1;
-            return;
-        }
-
-        private void OnPulldownMenuTouch(BaseEventData eventData)
-        {
-            PointerEventData data;
-            data = eventData as PointerEventData;
-            this.SelectNearestItem(data);
-            this.ClosePulldown(0);
-            this.TriggerItemChange();
-            return;
-        }
-
-        private void OpenPulldown()
-        {
-            if (this.mOpened != null)
-            {
-                goto Label_001C;
-            }
-            if (this.mItems.Count > 1)
-            {
-                goto Label_001D;
-            }
-        Label_001C:
-            return;
-        Label_001D:
-            this.PulldownMenu.get_gameObject().SetActive(1);
-            this.mAutoClose = 0;
-            this.mOpened = 1;
-            this.mPollMouseUp = 0;
-            this.mTrackTouchPosititon = 0;
-            if (string.IsNullOrEmpty(this.OpenSE) != null)
-            {
-                goto Label_006F;
-            }
-            MonoSingleton<MySound>.Instance.PlaySEOneShot(this.OpenSE, 0f);
-        Label_006F:
-            return;
-        }
-
-        private unsafe void SelectNearestItem(PointerEventData e)
-        {
-            Vector2 vector;
-            Vector2 vector2;
-            float num;
-            int num2;
-            int num3;
-            RectTransform transform;
-            float num4;
-            Rect rect;
-            vector = e.get_position();
-            num = 3.402823E+38f;
-            num2 = -1;
-            num3 = 0;
-            goto Label_00C1;
-        Label_0017:
-            transform = this.mItems[num3].get_transform() as RectTransform;
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(transform, vector, null, &vector2);
-            if (this.mTrackTouchPosititon == null)
-            {
-                goto Label_0063;
-            }
-            num4 = &vector2.get_magnitude();
-            if (num4 >= num)
-            {
-                goto Label_00BB;
-            }
-            num2 = num3;
-            num = num4;
-            goto Label_00BB;
-        Label_0063:
-            rect = transform.get_rect();
-            if (&rect.get_xMin() > &vector2.x)
-            {
-                goto Label_00BB;
-            }
-            if (&vector2.x >= &rect.get_xMax())
-            {
-                goto Label_00BB;
-            }
-            if (&rect.get_yMin() > &vector2.y)
-            {
-                goto Label_00BB;
-            }
-            if (&vector2.y >= &rect.get_yMax())
-            {
-                goto Label_00BB;
-            }
-            num2 = num3;
-        Label_00BB:
-            num3 += 1;
-        Label_00C1:
-            if (num3 < this.mItems.Count)
-            {
-                goto Label_0017;
-            }
-            if (num2 < 0)
-            {
-                goto Label_00F4;
-            }
-            if (num2 == this.Selection)
-            {
-                goto Label_00ED;
-            }
-            this.mTrackTouchPosititon = 1;
-        Label_00ED:
-            this.Selection = num2;
-        Label_00F4:
-            return;
-        }
-
-        protected virtual PulldownItem SetupPulldownItem(GameObject itemObject)
-        {
-            return itemObject.AddComponent<PulldownItem>();
-        }
-
-        protected override void Start()
-        {
-            EventTrigger.TriggerEvent event2;
-            EventTrigger.Entry entry;
-            EventTrigger trigger;
-            base.Start();
-            if ((this.PulldownItemTemplate != null) == null)
-            {
-                goto Label_0028;
-            }
-            this.PulldownItemTemplate.get_gameObject().SetActive(0);
-        Label_0028:
-            if ((this.PulldownMenu != null) == null)
-            {
-                goto Label_004A;
-            }
-            this.PulldownMenu.get_gameObject().SetActive(0);
-        Label_004A:
-            event2 = new EventTrigger.TriggerEvent();
-            event2.AddListener(new UnityAction<BaseEventData>(this, this.OnPulldownMenuTouch));
-            entry = new EventTrigger.Entry();
-            entry.eventID = 2;
-            entry.callback = event2;
-            trigger = SRPG_Extensions.RequireComponent<EventTrigger>(this.PulldownMenu.get_gameObject());
-            trigger.set_triggers(new List<EventTrigger.Entry>());
-            trigger.get_triggers().Add(entry);
-            return;
-        }
-
-        private void TriggerItemChange()
-        {
-            int num;
-            if (string.IsNullOrEmpty(this.SelectSE) != null)
-            {
-                goto Label_0025;
-            }
-            MonoSingleton<MySound>.Instance.PlaySEOneShot(this.SelectSE, 0f);
-        Label_0025:
-            if (this.mPrevSelectionIndex != this.mSelectionIndex)
-            {
-                goto Label_0037;
-            }
-            return;
-        Label_0037:
-            this.mPrevSelectionIndex = this.mSelectionIndex;
-            num = this.mItems[this.mSelectionIndex].Value;
-            if (this.OnSelectionChange == null)
-            {
-                goto Label_0071;
-            }
-            this.OnSelectionChange.Invoke(num);
-        Label_0071:
-            if (this.OnSelectionChangeDelegate == null)
-            {
-                goto Label_0088;
-            }
-            this.OnSelectionChangeDelegate(num);
-        Label_0088:
-            return;
-        }
-
-        private void Update()
-        {
-            if (this.mAutoClose == null)
-            {
-                goto Label_003B;
-            }
-            if (Input.GetMouseButtonUp(0) == null)
-            {
-                goto Label_003B;
-            }
-            if (this.mPollMouseUp != null)
-            {
-                goto Label_002D;
-            }
-            this.mPollMouseUp = 1;
-            goto Label_003B;
-        Label_002D:
-            this.mAutoClose = 0;
-            this.ClosePulldown(1);
-        Label_003B:
-            return;
-        }
-
-        protected virtual void UpdateSelection()
-        {
-        }
-
-        public int Selection
-        {
-            get
-            {
-                return this.mSelectionIndex;
-            }
-            set
-            {
-                int num;
-                if (this.mSelectionIndex == value)
-                {
-                    goto Label_0024;
-                }
-                if (value < 0)
-                {
-                    goto Label_0024;
-                }
-                if (value < this.mItems.Count)
-                {
-                    goto Label_0025;
-                }
-            Label_0024:
-                return;
-            Label_0025:
-                this.mSelectionIndex = value;
-                num = 0;
-                goto Label_0077;
-            Label_0033:
-                if ((this.mItems[num].Overray != null) == null)
-                {
-                    goto Label_0073;
-                }
-                this.mItems[num].Overray.get_gameObject().SetActive(num == this.mSelectionIndex);
-            Label_0073:
-                num += 1;
-            Label_0077:
-                if (num < this.mItems.Count)
-                {
-                    goto Label_0033;
-                }
-                if ((this.mItems[this.mSelectionIndex].Text != null) == null)
-                {
-                    goto Label_00CF;
-                }
-                this.SelectionText.set_text(this.mItems[this.mSelectionIndex].Text.get_text());
-            Label_00CF:
-                if (this.OnUpdateSelection == null)
-                {
-                    goto Label_00EA;
-                }
-                this.OnUpdateSelection();
-                goto Label_00F0;
-            Label_00EA:
-                this.UpdateSelection();
-            Label_00F0:
-                return;
-            }
-        }
-
-        public int ItemCount
-        {
-            get
-            {
-                return this.mItems.Count;
-            }
-        }
-
-        public delegate void SelectItemEvent(int value);
-
-        public delegate PulldownItem SetupPulldownItemEvent(GameObject go);
-
-        public delegate void UpdateSelectionEvent();
+      base.\u002Ector();
     }
-}
 
+    public int Selection
+    {
+      get
+      {
+        return this.mSelectionIndex;
+      }
+      set
+      {
+        if (this.mSelectionIndex == value || value < 0 || value >= this.mItems.Count)
+          return;
+        this.mSelectionIndex = value;
+        for (int index = 0; index < this.mItems.Count; ++index)
+        {
+          if (Object.op_Inequality((Object) this.mItems[index].Overray, (Object) null))
+            ((Component) this.mItems[index].Overray).get_gameObject().SetActive(index == this.mSelectionIndex);
+        }
+        if (Object.op_Inequality((Object) this.mItems[this.mSelectionIndex].Text, (Object) null))
+          this.SelectionText.set_text(this.mItems[this.mSelectionIndex].Text.get_text());
+        if (this.OnUpdateSelection != null)
+          this.OnUpdateSelection();
+        else
+          this.UpdateSelection();
+      }
+    }
+
+    protected virtual void Awake()
+    {
+      base.Awake();
+      if (!Object.op_Equality((Object) this.PulldownItemTemplate, (Object) null) || !Object.op_Inequality((Object) this.PulldownText, (Object) null))
+        return;
+      this.PulldownItemTemplate = ((Component) this.PulldownText).get_gameObject();
+    }
+
+    protected virtual void Start()
+    {
+      ((UIBehaviour) this).Start();
+      if (Object.op_Inequality((Object) this.PulldownItemTemplate, (Object) null))
+        this.PulldownItemTemplate.get_gameObject().SetActive(false);
+      if (Object.op_Inequality((Object) this.PulldownMenu, (Object) null))
+        ((Component) this.PulldownMenu).get_gameObject().SetActive(false);
+      EventTrigger.TriggerEvent triggerEvent = new EventTrigger.TriggerEvent();
+      // ISSUE: method pointer
+      ((UnityEvent<BaseEventData>) triggerEvent).AddListener(new UnityAction<BaseEventData>((object) this, __methodptr(OnPulldownMenuTouch)));
+      EventTrigger.Entry entry = new EventTrigger.Entry();
+      entry.eventID = (__Null) 2;
+      entry.callback = (__Null) triggerEvent;
+      EventTrigger eventTrigger = ((Component) this.PulldownMenu).get_gameObject().RequireComponent<EventTrigger>();
+      eventTrigger.set_triggers(new List<EventTrigger.Entry>());
+      eventTrigger.get_triggers().Add(entry);
+    }
+
+    protected virtual void OnDestroy()
+    {
+      ((UIBehaviour) this).OnDestroy();
+      this.ClearItems();
+    }
+
+    private void OnPulldownMenuTouch(BaseEventData eventData)
+    {
+      this.SelectNearestItem(eventData as PointerEventData);
+      this.ClosePulldown(false);
+      this.TriggerItemChange();
+    }
+
+    protected virtual PulldownItem SetupPulldownItem(GameObject itemObject)
+    {
+      return (PulldownItem) itemObject.AddComponent<PulldownItem>();
+    }
+
+    public virtual PulldownItem AddItem(string label, int value)
+    {
+      if (Object.op_Equality((Object) this.PulldownItemTemplate, (Object) null))
+        return (PulldownItem) null;
+      if (!this.mPulldownItemInitialized)
+      {
+        this.mPulldownItemInitialized = true;
+        PulldownItem pulldownItem = this.OnSetupPulldownItem == null ? this.SetupPulldownItem(this.PulldownItemTemplate) : this.OnSetupPulldownItem(this.PulldownItemTemplate);
+        pulldownItem.Text = this.PulldownText;
+        pulldownItem.Graphic = this.PulldownGraphic;
+      }
+      GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.PulldownItemTemplate);
+      PulldownItem component = (PulldownItem) gameObject.GetComponent<PulldownItem>();
+      if (Object.op_Inequality((Object) component.Text, (Object) null))
+        component.Text.set_text(label);
+      component.Value = value;
+      this.mItems.Add(component);
+      gameObject.get_transform().SetParent((Transform) this.PulldownMenu, false);
+      gameObject.SetActive(true);
+      return component;
+    }
+
+    private void TriggerItemChange()
+    {
+      if (!string.IsNullOrEmpty(this.SelectSE))
+        MonoSingleton<MySound>.Instance.PlaySEOneShot(this.SelectSE, 0.0f);
+      if (this.mPrevSelectionIndex == this.mSelectionIndex)
+        return;
+      this.mPrevSelectionIndex = this.mSelectionIndex;
+      int num = this.mItems[this.mSelectionIndex].Value;
+      if (this.OnSelectionChange != null)
+        this.OnSelectionChange.Invoke(num);
+      if (this.OnSelectionChangeDelegate == null)
+        return;
+      this.OnSelectionChangeDelegate(num);
+    }
+
+    public void ClearItems()
+    {
+      for (int index = 0; index < this.mItems.Count; ++index)
+        Object.Destroy((Object) ((Component) this.mItems[index]).get_gameObject());
+      this.mItems.Clear();
+      if (Object.op_Inequality((Object) this.SelectionText, (Object) null) && !string.IsNullOrEmpty(this.SelectionText.get_text()))
+        this.SelectionText.set_text(string.Empty);
+      this.mSelectionIndex = -1;
+    }
+
+    private void SelectNearestItem(PointerEventData e)
+    {
+      Vector2 position = e.get_position();
+      float num1 = float.MaxValue;
+      int num2 = -1;
+      for (int index = 0; index < this.mItems.Count; ++index)
+      {
+        RectTransform transform = ((Component) this.mItems[index]).get_transform() as RectTransform;
+        Vector2 vector2;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(transform, position, (Camera) null, ref vector2);
+        if (this.mTrackTouchPosititon)
+        {
+          // ISSUE: explicit reference operation
+          float magnitude = ((Vector2) @vector2).get_magnitude();
+          if ((double) magnitude < (double) num1)
+          {
+            num2 = index;
+            num1 = magnitude;
+          }
+        }
+        else
+        {
+          Rect rect = transform.get_rect();
+          // ISSUE: explicit reference operation
+          // ISSUE: explicit reference operation
+          // ISSUE: explicit reference operation
+          // ISSUE: explicit reference operation
+          if ((double) ((Rect) @rect).get_xMin() <= vector2.x && vector2.x < (double) ((Rect) @rect).get_xMax() && ((double) ((Rect) @rect).get_yMin() <= vector2.y && vector2.y < (double) ((Rect) @rect).get_yMax()))
+            num2 = index;
+        }
+      }
+      if (num2 < 0)
+        return;
+      if (num2 != this.Selection)
+        this.mTrackTouchPosititon = true;
+      this.Selection = num2;
+    }
+
+    public virtual void OnPointerDown(PointerEventData eventData)
+    {
+      base.OnPointerDown(eventData);
+      if (!this.IsInteractable())
+        return;
+      if (this.mOpened)
+        this.ClosePulldown(true);
+      else
+        this.OpenPulldown();
+    }
+
+    private void OpenPulldown()
+    {
+      if (this.mOpened || this.mItems.Count <= 1)
+        return;
+      ((Component) this.PulldownMenu).get_gameObject().SetActive(true);
+      this.mAutoClose = false;
+      this.mOpened = true;
+      this.mPollMouseUp = false;
+      this.mTrackTouchPosititon = false;
+      if (string.IsNullOrEmpty(this.OpenSE))
+        return;
+      MonoSingleton<MySound>.Instance.PlaySEOneShot(this.OpenSE, 0.0f);
+    }
+
+    private void ClosePulldown(bool se = true)
+    {
+      if (!this.mOpened)
+        return;
+      ((Component) this.PulldownMenu).get_gameObject().SetActive(false);
+      this.mAutoClose = false;
+      this.mOpened = false;
+      if (!se || string.IsNullOrEmpty(this.CloseSE))
+        return;
+      MonoSingleton<MySound>.Instance.PlaySEOneShot(this.CloseSE, 0.0f);
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+      if (!this.mOpened)
+        return;
+      this.SelectNearestItem(eventData);
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+      if (!this.mOpened)
+        return;
+      Vector2 vector2 = Vector2.op_Subtraction(eventData.get_pressPosition(), eventData.get_position());
+      // ISSUE: explicit reference operation
+      if ((double) ((Vector2) @vector2).get_magnitude() <= 5.0)
+        return;
+      this.SelectNearestItem(eventData);
+      this.ClosePulldown(false);
+      this.TriggerItemChange();
+    }
+
+    public virtual void OnPointerUp(PointerEventData eventData)
+    {
+      base.OnPointerUp(eventData);
+      this.mAutoClose = true;
+    }
+
+    private void Update()
+    {
+      if (!this.mAutoClose || !Input.GetMouseButtonUp(0))
+        return;
+      if (!this.mPollMouseUp)
+      {
+        this.mPollMouseUp = true;
+      }
+      else
+      {
+        this.mAutoClose = false;
+        this.ClosePulldown(true);
+      }
+    }
+
+    protected virtual void UpdateSelection()
+    {
+    }
+
+    public PulldownItem GetItemAt(int index)
+    {
+      if (0 <= index && index < this.mItems.Count)
+        return this.mItems[index];
+      return (PulldownItem) null;
+    }
+
+    public int ItemCount
+    {
+      get
+      {
+        return this.mItems.Count;
+      }
+    }
+
+    public PulldownItem GetCurrentSelection()
+    {
+      return this.GetItemAt(this.mSelectionIndex);
+    }
+
+    public delegate PulldownItem SetupPulldownItemEvent(GameObject go);
+
+    public delegate void UpdateSelectionEvent();
+
+    public delegate void SelectItemEvent(int value);
+  }
+}

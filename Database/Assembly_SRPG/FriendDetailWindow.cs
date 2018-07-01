@@ -1,428 +1,287 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FriendDetailWindow
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Collections.Generic;
-    using System.Runtime.CompilerServices;
-    using UnityEngine;
-    using UnityEngine.UI;
+  [AddComponentMenu("")]
+  public class FriendDetailWindow : MonoBehaviour
+  {
+    public string ToolTipPrefab;
+    private SerializeValueList m_ValueList;
+    private FriendDetailWindow.Mode m_Mode;
+    private FriendData m_FriendData;
+    private ChatPlayerData m_ChatPlayerData;
+    private SupportElementListRootWindow m_ElementWindow;
+    private GameObject m_ToolTip;
 
-    [AddComponentMenu("")]
-    public class FriendDetailWindow : MonoBehaviour
+    public FriendDetailWindow()
     {
-        public string ToolTipPrefab;
-        private SerializeValueList m_ValueList;
-        private Mode m_Mode;
-        private FriendData m_FriendData;
-        private ChatPlayerData m_ChatPlayerData;
-        private SupportElementListRootWindow m_ElementWindow;
-        private GameObject m_ToolTip;
-        [CompilerGenerated]
-        private static Dictionary<string, int> <>f__switch$map12;
-
-        public FriendDetailWindow()
-        {
-            this.ToolTipPrefab = string.Empty;
-            this.m_Mode = 1;
-            base..ctor();
-            return;
-        }
-
-        private void Awake()
-        {
-        }
-
-        public void Bind()
-        {
-            Mode mode;
-            switch ((this.m_Mode - 1))
-            {
-                case 0:
-                    goto Label_0028;
-
-                case 1:
-                    goto Label_0028;
-
-                case 2:
-                    goto Label_0042;
-
-                case 3:
-                    goto Label_005C;
-
-                case 4:
-                    goto Label_005C;
-            }
-            goto Label_0097;
-        Label_0028:
-            if (GlobalVars.SelectedFriend == null)
-            {
-                goto Label_0097;
-            }
-            this.SetFriendData(GlobalVars.SelectedFriend);
-            goto Label_0097;
-        Label_0042:
-            if (GlobalVars.FoundFriend == null)
-            {
-                goto Label_0097;
-            }
-            this.SetFriendData(GlobalVars.FoundFriend);
-            goto Label_0097;
-        Label_005C:
-            if (GlobalVars.SelectedFriend == null)
-            {
-                goto Label_0076;
-            }
-            this.SetFriendData(GlobalVars.SelectedFriend);
-            goto Label_0092;
-        Label_0076:
-            if (this.m_ChatPlayerData == null)
-            {
-                goto Label_0097;
-            }
-            this.SetFriendData(this.m_ChatPlayerData.ToFriendData());
-        Label_0092:;
-        Label_0097:
-            if (this.m_FriendData == null)
-            {
-                goto Label_00E9;
-            }
-            this.m_ValueList.SetField("fuid", this.m_FriendData.FUID);
-            GlobalVars.SelectedFriend = this.m_FriendData;
-            GlobalVars.SelectedFriendID = this.m_FriendData.FUID;
-            DataSource.Bind<FriendData>(base.get_gameObject(), this.m_FriendData);
-        Label_00E9:
-            return;
-        }
-
-        public unsafe void OnEvent(string key, string value)
-        {
-            string str;
-            Dictionary<string, int> dictionary;
-            int num;
-            str = key;
-            if (str == null)
-            {
-                goto Label_00CD;
-            }
-            if (<>f__switch$map12 != null)
-            {
-                goto Label_005B;
-            }
-            dictionary = new Dictionary<string, int>(5);
-            dictionary.Add("START", 0);
-            dictionary.Add("OPEN", 1);
-            dictionary.Add("REFRESH", 2);
-            dictionary.Add("SELECT", 3);
-            dictionary.Add("HOLD", 4);
-            <>f__switch$map12 = dictionary;
-        Label_005B:
-            if (<>f__switch$map12.TryGetValue(str, &num) == null)
-            {
-                goto Label_00CD;
-            }
-            switch (num)
-            {
-                case 0:
-                    goto Label_008C;
-
-                case 1:
-                    goto Label_00A1;
-
-                case 2:
-                    goto Label_00AC;
-
-                case 3:
-                    goto Label_00B7;
-
-                case 4:
-                    goto Label_00C2;
-            }
-            goto Label_00CD;
-        Label_008C:
-            this.Setup(EventCall.currentValue as SerializeValueList);
-            goto Label_00CD;
-        Label_00A1:
-            this.OnEvent_Open();
-            goto Label_00CD;
-        Label_00AC:
-            this.Refresh();
-            goto Label_00CD;
-        Label_00B7:
-            this.OnEvent_ToolTip();
-            goto Label_00CD;
-        Label_00C2:
-            this.OnEvent_ToolTip();
-        Label_00CD:
-            return;
-        }
-
-        private void OnEvent_Open()
-        {
-            this.Refresh();
-            return;
-        }
-
-        private void OnEvent_ToolTip()
-        {
-            SerializeValueList list;
-            UnitData data;
-            GameObject obj2;
-            GameObject obj3;
-            UnitJobDropdown dropdown;
-            Selectable selectable;
-            Image image;
-            ArtifactSlots slots;
-            AbilitySlots slots2;
-            ConceptCardSlots slots3;
-            if ((this.m_ToolTip != null) == null)
-            {
-                goto Label_0012;
-            }
-            return;
-        Label_0012:
-            list = FlowNode_ButtonEvent.currentValue as SerializeValueList;
-            if (list == null)
-            {
-                goto Label_013E;
-            }
-            data = list.GetDataSource<UnitData>("_self");
-            if (data == null)
-            {
-                goto Label_013E;
-            }
-            if (string.IsNullOrEmpty(this.ToolTipPrefab) != null)
-            {
-                goto Label_013E;
-            }
-            obj3 = Object.Instantiate<GameObject>(AssetManager.Load<GameObject>(this.ToolTipPrefab));
-            DataSource.Bind<UnitData>(obj3, data);
-            dropdown = obj3.GetComponentInChildren<UnitJobDropdown>();
-            if ((dropdown != null) == null)
-            {
-                goto Label_00DA;
-            }
-            dropdown.get_gameObject().SetActive(1);
-            selectable = dropdown.get_gameObject().GetComponent<Selectable>();
-            if ((selectable != null) == null)
-            {
-                goto Label_00A4;
-            }
-            selectable.set_interactable(0);
-        Label_00A4:
-            image = dropdown.get_gameObject().GetComponent<Image>();
-            if ((image != null) == null)
-            {
-                goto Label_00DA;
-            }
-            image.set_color(new Color(0.5f, 0.5f, 0.5f));
-        Label_00DA:
-            slots = obj3.GetComponentInChildren<ArtifactSlots>();
-            slots2 = obj3.GetComponentInChildren<AbilitySlots>();
-            if ((slots != null) == null)
-            {
-                goto Label_0114;
-            }
-            if ((slots2 != null) == null)
-            {
-                goto Label_0114;
-            }
-            slots.Refresh(0);
-            slots2.Refresh(0);
-        Label_0114:
-            slots3 = obj3.GetComponentInChildren<ConceptCardSlots>();
-            if ((slots3 != null) == null)
-            {
-                goto Label_0131;
-            }
-            slots3.Refresh(0);
-        Label_0131:
-            GameParameter.UpdateAll(obj3);
-            this.m_ToolTip = obj3;
-        Label_013E:
-            return;
-        }
-
-        public void Refresh()
-        {
-            bool flag;
-            bool flag2;
-            Mode mode;
-            flag = 0;
-            if ((this.m_ElementWindow != null) == null)
-            {
-                goto Label_002F;
-            }
-            this.m_ElementWindow.SetSupportUnitData(this.m_ValueList.GetObject<UnitData[]>("data_units", null));
-        Label_002F:
-            this.Bind();
-            this.m_ValueList.SetActive(this.m_Mode, 1);
-            switch ((this.m_Mode - 1))
-            {
-                case 0:
-                    goto Label_006F;
-
-                case 1:
-                    goto Label_0076;
-
-                case 2:
-                    goto Label_007B;
-
-                case 3:
-                    goto Label_0080;
-
-                case 4:
-                    goto Label_0080;
-            }
-            goto Label_01D6;
-        Label_006F:
-            flag = 1;
-            goto Label_01D6;
-        Label_0076:
-            goto Label_01D6;
-        Label_007B:
-            goto Label_01D6;
-        Label_0080:
-            flag2 = (this.m_ChatPlayerData == null) ? 0 : (this.m_ChatPlayerData.fuid == MonoSingleton<GameManager>.Instance.Player.FUID);
-            if (this.m_Mode != 5)
-            {
-                goto Label_0102;
-            }
-            this.m_ValueList.SetActive(4, 1);
-            this.m_ValueList.SetActive("btn_block", 1);
-            this.m_ValueList.SetActive("btn_block_on", 1);
-            this.m_ValueList.SetActive("btn_block_off", 0);
-            goto Label_0138;
-        Label_0102:
-            this.m_ValueList.SetActive("btn_block", 1);
-            this.m_ValueList.SetActive("btn_block_on", 0);
-            this.m_ValueList.SetActive("btn_block_off", 1);
-        Label_0138:
-            if (flag2 != null)
-            {
-                goto Label_01AD;
-            }
-            if (this.m_ChatPlayerData == null)
-            {
-                goto Label_01D6;
-            }
-            if (this.m_ChatPlayerData.IsFriend == null)
-            {
-                goto Label_0184;
-            }
-            flag = 1;
-            this.m_ValueList.SetActive("btn_block_friend_add", 0);
-            this.m_ValueList.SetActive("btn_block_friend_remove", 1);
-            goto Label_01A8;
-        Label_0184:
-            this.m_ValueList.SetActive("btn_block_friend_add", 1);
-            this.m_ValueList.SetActive("btn_block_friend_remove", 0);
-        Label_01A8:
-            goto Label_01D1;
-        Label_01AD:
-            this.m_ValueList.SetActive("btn_block", 0);
-            this.m_ValueList.SetActive("btn_block_friend", 0);
-        Label_01D1:;
-        Label_01D6:
-            if (flag == null)
-            {
-                goto Label_0244;
-            }
-            if (this.m_FriendData == null)
-            {
-                goto Label_0220;
-            }
-            if (this.m_FriendData.IsFavorite == null)
-            {
-                goto Label_0220;
-            }
-            this.m_ValueList.SetActive("btn_favorite_on", 1);
-            this.m_ValueList.SetActive("btn_favorite_off", 0);
-            goto Label_0244;
-        Label_0220:
-            this.m_ValueList.SetActive("btn_favorite_on", 0);
-            this.m_ValueList.SetActive("btn_favorite_off", 1);
-        Label_0244:
-            this.m_ValueList.SetActive("btn_favorite", flag);
-            GameParameter.UpdateAll(base.get_gameObject());
-            return;
-        }
-
-        public void SetChatPlayerData(ChatPlayerData data)
-        {
-            this.m_ChatPlayerData = data;
-            this.m_ValueList.SetField("fuid", data.fuid);
-            return;
-        }
-
-        private void SetFriendData(FriendData data)
-        {
-            this.m_FriendData = data;
-            return;
-        }
-
-        private void Setup(SerializeValueList valueList)
-        {
-            if (valueList == null)
-            {
-                goto Label_0012;
-            }
-            this.m_ValueList = valueList;
-            goto Label_001D;
-        Label_0012:
-            this.m_ValueList = new SerializeValueList();
-        Label_001D:
-            this.m_ValueList.SetActive(1, 0);
-            this.m_ValueList.SetActive(2, 0);
-            this.m_ValueList.SetActive(3, 0);
-            this.m_ValueList.SetActive(4, 0);
-            this.m_ValueList.SetActive(5, 0);
-            if (this.m_ValueList.GetBool("notification") == null)
-            {
-                goto Label_007F;
-            }
-            this.m_Mode = 2;
-            goto Label_00F5;
-        Label_007F:
-            if (this.m_ValueList.GetBool("search") == null)
-            {
-                goto Label_00A0;
-            }
-            this.m_Mode = 3;
-            goto Label_00F5;
-        Label_00A0:
-            if (this.m_ValueList.GetBool("block") == null)
-            {
-                goto Label_00C7;
-            }
-            this.m_Mode = 4;
-            GlobalVars.SelectedFriend = null;
-            goto Label_00F5;
-        Label_00C7:
-            if (this.m_ValueList.GetBool("chat") == null)
-            {
-                goto Label_00EE;
-            }
-            this.m_Mode = 5;
-            GlobalVars.SelectedFriend = null;
-            goto Label_00F5;
-        Label_00EE:
-            this.m_Mode = 1;
-        Label_00F5:
-            this.m_ValueList.SetField("mode", ((Mode) this.m_Mode).ToString());
-            this.m_ElementWindow = this.m_ValueList.GetComponent<SupportElementListRootWindow>("element_window");
-            this.Bind();
-            return;
-        }
-
-        public enum Mode
-        {
-            NONE,
-            DEFAULT,
-            NOTIFICATION,
-            SEARCH,
-            BLOCK,
-            CHAT
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Awake()
+    {
+    }
+
+    private void Setup(SerializeValueList valueList)
+    {
+      this.m_ValueList = valueList == null ? new SerializeValueList() : valueList;
+      this.m_ValueList.SetActive(1, false);
+      this.m_ValueList.SetActive(2, false);
+      this.m_ValueList.SetActive(3, false);
+      this.m_ValueList.SetActive(4, false);
+      this.m_ValueList.SetActive(5, false);
+      if (this.m_ValueList.GetBool("notification"))
+        this.m_Mode = FriendDetailWindow.Mode.NOTIFICATION;
+      else if (this.m_ValueList.GetBool("search"))
+        this.m_Mode = FriendDetailWindow.Mode.SEARCH;
+      else if (this.m_ValueList.GetBool("block"))
+      {
+        this.m_Mode = FriendDetailWindow.Mode.BLOCK;
+        GlobalVars.SelectedFriend = (FriendData) null;
+      }
+      else if (this.m_ValueList.GetBool("chat"))
+      {
+        this.m_Mode = FriendDetailWindow.Mode.CHAT;
+        GlobalVars.SelectedFriend = (FriendData) null;
+      }
+      else
+        this.m_Mode = FriendDetailWindow.Mode.DEFAULT;
+      this.m_ValueList.SetField("mode", this.m_Mode.ToString());
+      this.m_ElementWindow = this.m_ValueList.GetComponent<SupportElementListRootWindow>("element_window");
+      this.Bind();
+    }
+
+    public void Refresh()
+    {
+      bool sw = false;
+      if (Object.op_Inequality((Object) this.m_ElementWindow, (Object) null))
+        this.m_ElementWindow.SetSupportUnitData(this.m_ValueList.GetObject<UnitData[]>("data_units", (UnitData[]) null));
+      this.Bind();
+      this.m_ValueList.SetActive((int) this.m_Mode, true);
+      switch (this.m_Mode)
+      {
+        case FriendDetailWindow.Mode.DEFAULT:
+          sw = true;
+          break;
+        case FriendDetailWindow.Mode.BLOCK:
+        case FriendDetailWindow.Mode.CHAT:
+          bool flag = this.m_ChatPlayerData != null && this.m_ChatPlayerData.fuid == MonoSingleton<GameManager>.Instance.Player.FUID;
+          if (this.m_Mode == FriendDetailWindow.Mode.CHAT)
+          {
+            this.m_ValueList.SetActive(4, true);
+            this.m_ValueList.SetActive("btn_block", true);
+            this.m_ValueList.SetActive("btn_block_on", true);
+            this.m_ValueList.SetActive("btn_block_off", false);
+          }
+          else
+          {
+            this.m_ValueList.SetActive("btn_block", true);
+            this.m_ValueList.SetActive("btn_block_on", false);
+            this.m_ValueList.SetActive("btn_block_off", true);
+          }
+          if (!flag)
+          {
+            if (this.m_ChatPlayerData != null)
+            {
+              if (this.m_ChatPlayerData.IsFriend)
+              {
+                sw = true;
+                this.m_ValueList.SetActive("btn_block_friend_add", false);
+                this.m_ValueList.SetActive("btn_block_friend_remove", true);
+                break;
+              }
+              this.m_ValueList.SetActive("btn_block_friend_add", true);
+              this.m_ValueList.SetActive("btn_block_friend_remove", false);
+              break;
+            }
+            break;
+          }
+          this.m_ValueList.SetActive("btn_block", false);
+          this.m_ValueList.SetActive("btn_block_friend", false);
+          break;
+      }
+      if (sw)
+      {
+        if (this.m_FriendData != null && this.m_FriendData.IsFavorite)
+        {
+          this.m_ValueList.SetActive("btn_favorite_on", true);
+          this.m_ValueList.SetActive("btn_favorite_off", false);
+        }
+        else
+        {
+          this.m_ValueList.SetActive("btn_favorite_on", false);
+          this.m_ValueList.SetActive("btn_favorite_off", true);
+        }
+      }
+      this.m_ValueList.SetActive("btn_favorite", sw);
+      GameParameter.UpdateAll(((Component) this).get_gameObject());
+    }
+
+    private void SetFriendData(FriendData data)
+    {
+      this.m_FriendData = data;
+    }
+
+    public void SetChatPlayerData(ChatPlayerData data)
+    {
+      this.m_ChatPlayerData = data;
+      this.m_ValueList.SetField("fuid", data.fuid);
+    }
+
+    public void Bind()
+    {
+      switch (this.m_Mode)
+      {
+        case FriendDetailWindow.Mode.DEFAULT:
+        case FriendDetailWindow.Mode.NOTIFICATION:
+          if (GlobalVars.SelectedFriend != null)
+          {
+            this.SetFriendData(GlobalVars.SelectedFriend);
+            break;
+          }
+          break;
+        case FriendDetailWindow.Mode.SEARCH:
+          if (GlobalVars.FoundFriend != null)
+          {
+            this.SetFriendData(GlobalVars.FoundFriend);
+            break;
+          }
+          break;
+        case FriendDetailWindow.Mode.BLOCK:
+        case FriendDetailWindow.Mode.CHAT:
+          if (GlobalVars.SelectedFriend != null)
+          {
+            this.SetFriendData(GlobalVars.SelectedFriend);
+            break;
+          }
+          if (this.m_ChatPlayerData != null)
+          {
+            this.SetFriendData(this.m_ChatPlayerData.ToFriendData());
+            break;
+          }
+          break;
+      }
+      if (this.m_FriendData == null)
+        return;
+      this.m_ValueList.SetField("fuid", this.m_FriendData.FUID);
+      GlobalVars.SelectedFriend = this.m_FriendData;
+      GlobalVars.SelectedFriendID = this.m_FriendData.FUID;
+      DataSource.Bind<FriendData>(((Component) this).get_gameObject(), this.m_FriendData);
+    }
+
+    public void OnEvent(string key, string value)
+    {
+      string key1 = key;
+      if (key1 == null)
+        return;
+      // ISSUE: reference to a compiler-generated field
+      if (FriendDetailWindow.\u003C\u003Ef__switch\u0024map18 == null)
+      {
+        // ISSUE: reference to a compiler-generated field
+        FriendDetailWindow.\u003C\u003Ef__switch\u0024map18 = new Dictionary<string, int>(5)
+        {
+          {
+            "START",
+            0
+          },
+          {
+            "OPEN",
+            1
+          },
+          {
+            "REFRESH",
+            2
+          },
+          {
+            "SELECT",
+            3
+          },
+          {
+            "HOLD",
+            4
+          }
+        };
+      }
+      int num;
+      // ISSUE: reference to a compiler-generated field
+      if (!FriendDetailWindow.\u003C\u003Ef__switch\u0024map18.TryGetValue(key1, out num))
+        return;
+      switch (num)
+      {
+        case 0:
+          this.Setup(EventCall.currentValue as SerializeValueList);
+          break;
+        case 1:
+          this.OnEvent_Open();
+          break;
+        case 2:
+          this.Refresh();
+          break;
+        case 3:
+          this.OnEvent_ToolTip();
+          break;
+        case 4:
+          this.OnEvent_ToolTip();
+          break;
+      }
+    }
+
+    private void OnEvent_Open()
+    {
+      this.Refresh();
+    }
+
+    private void OnEvent_ToolTip()
+    {
+      if (Object.op_Inequality((Object) this.m_ToolTip, (Object) null))
+        return;
+      SerializeValueList currentValue = FlowNode_ButtonEvent.currentValue as SerializeValueList;
+      if (currentValue == null)
+        return;
+      UnitData dataSource = currentValue.GetDataSource<UnitData>("_self");
+      if (dataSource == null || string.IsNullOrEmpty(this.ToolTipPrefab))
+        return;
+      GameObject root = (GameObject) Object.Instantiate<GameObject>((M0) AssetManager.Load<GameObject>(this.ToolTipPrefab));
+      DataSource.Bind<UnitData>(root, dataSource);
+      UnitJobDropdown componentInChildren1 = (UnitJobDropdown) root.GetComponentInChildren<UnitJobDropdown>();
+      if (Object.op_Inequality((Object) componentInChildren1, (Object) null))
+      {
+        ((Component) componentInChildren1).get_gameObject().SetActive(true);
+        Selectable component1 = (Selectable) ((Component) componentInChildren1).get_gameObject().GetComponent<Selectable>();
+        if (Object.op_Inequality((Object) component1, (Object) null))
+          component1.set_interactable(false);
+        Image component2 = (Image) ((Component) componentInChildren1).get_gameObject().GetComponent<Image>();
+        if (Object.op_Inequality((Object) component2, (Object) null))
+          ((Graphic) component2).set_color(new Color(0.5f, 0.5f, 0.5f));
+      }
+      ArtifactSlots componentInChildren2 = (ArtifactSlots) root.GetComponentInChildren<ArtifactSlots>();
+      AbilitySlots componentInChildren3 = (AbilitySlots) root.GetComponentInChildren<AbilitySlots>();
+      if (Object.op_Inequality((Object) componentInChildren2, (Object) null) && Object.op_Inequality((Object) componentInChildren3, (Object) null))
+      {
+        componentInChildren2.Refresh(false);
+        componentInChildren3.Refresh(false);
+      }
+      GameParameter.UpdateAll(root);
+      this.m_ToolTip = root;
+    }
+
+    public enum Mode
+    {
+      NONE,
+      DEFAULT,
+      NOTIFICATION,
+      SEARCH,
+      BLOCK,
+      CHAT,
+    }
+  }
+}

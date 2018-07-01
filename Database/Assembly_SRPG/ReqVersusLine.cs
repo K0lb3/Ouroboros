@@ -1,19 +1,21 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqVersusLine
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    public class ReqVersusLine : WebAPI
+  public class ReqVersusLine : WebAPI
+  {
+    public ReqVersusLine(string roomname, Network.ResponseCallback response)
     {
-        public ReqVersusLine(string roomname, Network.ResponseCallback response)
-        {
-            base..ctor();
-            base.name = "vs/friendmatch/line/recruitment";
-            base.body = string.Empty;
-            base.body = base.body + "\"token\":\"" + JsonEscape.Escape(roomname) + "\"";
-            base.body = WebAPI.GetRequestString(base.body);
-            base.callback = response;
-            return;
-        }
+      this.name = "vs/friendmatch/line/recruitment";
+      this.body = string.Empty;
+      ReqVersusLine reqVersusLine = this;
+      reqVersusLine.body = reqVersusLine.body + "\"token\":\"" + JsonEscape.Escape(roomname) + "\"";
+      this.body = WebAPI.GetRequestString(this.body);
+      this.callback = response;
     }
+  }
 }
-

@@ -1,44 +1,32 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.VersusMatchingInfo
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using UnityEngine;
-
-    [Pin(2, "DraftMatching", 0, 2), Pin(1, "Matching", 0, 1)]
-    public class VersusMatchingInfo : MonoBehaviour, IFlowInterface
+  [FlowNode.Pin(1, "Matching", FlowNode.PinTypes.Input, 1)]
+  public class VersusMatchingInfo : MonoBehaviour, IFlowInterface
+  {
+    public VersusMatchingInfo()
     {
-        public VersusMatchingInfo()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void Activated(int pinID)
-        {
-            if (pinID != 1)
-            {
-                goto Label_0017;
-            }
-            GlobalVars.IsVersusDraftMode = 0;
-            ProgressWindow.OpenVersusLoadScreen();
-            goto Label_0029;
-        Label_0017:
-            if (pinID != 2)
-            {
-                goto Label_0029;
-            }
-            GlobalVars.IsVersusDraftMode = 1;
-            ProgressWindow.OpenVersusDraftLoadScreen();
-        Label_0029:
-            return;
-        }
-
-        public void Start()
-        {
-            MonoSingleton<GameManager>.Instance.AudienceMode = 0;
-            GlobalVars.IsVersusDraftMode = 0;
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    public void Start()
+    {
+      MonoSingleton<GameManager>.Instance.AudienceMode = false;
+    }
+
+    public void Activated(int pinID)
+    {
+      if (pinID != 1)
+        return;
+      ProgressWindow.OpenVersusLoadScreen();
+    }
+  }
+}

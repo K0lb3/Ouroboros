@@ -1,62 +1,45 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqMailSelect
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Text;
+
+namespace SRPG
 {
-    using System;
-    using System.Text;
-
-    public class ReqMailSelect : WebAPI
+  public class ReqMailSelect : WebAPI
+  {
+    public ReqMailSelect(string ticketid, ReqMailSelect.type type, Network.ResponseCallback response)
     {
-        public ReqMailSelect(string ticketid, type type, Network.ResponseCallback response)
-        {
-            StringBuilder builder;
-            ReqMailSelect.type type2;
-            base..ctor();
-            builder = WebAPI.GetStringBuilder();
-            base.name = "mail/select";
-            builder.Append("\"iname\" : \"");
-            builder.Append(ticketid);
-            builder.Append("\",");
-            builder.Append("\"type\" : \"");
-            type2 = type;
-            switch (type2)
-            {
-                case 0:
-                    goto Label_0060;
-
-                case 1:
-                    goto Label_0071;
-
-                case 2:
-                    goto Label_0082;
-
-                case 3:
-                    goto Label_0093;
-            }
-            goto Label_00A4;
-        Label_0060:
-            builder.Append("item");
-            goto Label_00A4;
-        Label_0071:
-            builder.Append("unit");
-            goto Label_00A4;
-        Label_0082:
-            builder.Append("artifact");
-            goto Label_00A4;
-        Label_0093:
-            builder.Append("conceptcard");
-        Label_00A4:
-            builder.Append("\"");
-            base.body = WebAPI.GetRequestString(builder.ToString());
-            base.callback = response;
-            return;
-        }
-
-        public enum type : byte
-        {
-            item = 0,
-            unit = 1,
-            artifact = 2,
-            conceptcard = 3
-        }
+      StringBuilder stringBuilder = WebAPI.GetStringBuilder();
+      this.name = "mail/select";
+      stringBuilder.Append("\"iname\" : \"");
+      stringBuilder.Append(ticketid);
+      stringBuilder.Append("\",");
+      stringBuilder.Append("\"type\" : \"");
+      switch (type)
+      {
+        case ReqMailSelect.type.item:
+          stringBuilder.Append("item");
+          break;
+        case ReqMailSelect.type.unit:
+          stringBuilder.Append("unit");
+          break;
+        case ReqMailSelect.type.artifact:
+          stringBuilder.Append("artifact");
+          break;
+      }
+      stringBuilder.Append("\"");
+      this.body = WebAPI.GetRequestString(stringBuilder.ToString());
+      this.callback = response;
     }
-}
 
+    public enum type : byte
+    {
+      item,
+      unit,
+      artifact,
+    }
+  }
+}

@@ -1,126 +1,72 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.TacticsSceneCameraUtility
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Runtime.CompilerServices;
-    using UnityEngine;
-
-    [Extension]
-    public static class TacticsSceneCameraUtility
+  public static class TacticsSceneCameraUtility
+  {
+    public static void Create(this TacticsSceneCamera.AllRangeObj self, TacticsSceneCamera.AllRange data)
     {
-        [Extension]
-        public static void Create(TacticsSceneCamera.AllRangeObj self, TacticsSceneCamera.AllRange data)
-        {
-            int num;
-            TacticsSceneCamera.AllRangeObj.GroupObj obj2;
-            if (data.groups == null)
-            {
-                goto Label_0089;
-            }
-            self.data = data;
-            self.groups = new TacticsSceneCamera.AllRangeObj.GroupObj[(int) data.groups.Length];
-            num = 0;
-            goto Label_007B;
-        Label_002C:
-            obj2 = new TacticsSceneCamera.AllRangeObj.GroupObj();
-            obj2.data = data.groups[num];
-            obj2.state = 0;
-            obj2.alpha = 1f;
-            obj2.renders.AddRange(TacticsSceneCamera.GetRenderSets(obj2.data.gobjs, null));
-            self.groups[num] = obj2;
-            num += 1;
-        Label_007B:
-            if (num < ((int) data.groups.Length))
-            {
-                goto Label_002C;
-            }
-        Label_0089:
-            return;
-        }
-
-        [Extension]
-        public static TacticsSceneCamera.AllRange.Group GetGroup(TacticsSceneCamera.AllRange self, GameObject value)
-        {
-            int num;
-            int num2;
-            if (self.groups == null)
-            {
-                goto Label_0079;
-            }
-            num = 0;
-            goto Label_006B;
-        Label_0012:
-            if (self.groups[num].gobjs == null)
-            {
-                goto Label_0067;
-            }
-            num2 = 0;
-            goto Label_0052;
-        Label_002B:
-            if ((self.groups[num].gobjs[num2] == value) == null)
-            {
-                goto Label_004E;
-            }
-            return self.groups[num];
-        Label_004E:
-            num2 += 1;
-        Label_0052:
-            if (num2 < ((int) self.groups[num].gobjs.Length))
-            {
-                goto Label_002B;
-            }
-        Label_0067:
-            num += 1;
-        Label_006B:
-            if (num < ((int) self.groups.Length))
-            {
-                goto Label_0012;
-            }
-        Label_0079:
-            return null;
-        }
-
-        [Extension]
-        public static bool HasObject(TacticsSceneCamera.AllRange.Group self, GameObject value)
-        {
-            int num;
-            if (self.gobjs == null)
-            {
-                goto Label_0039;
-            }
-            num = 0;
-            goto Label_002B;
-        Label_0012:
-            if ((self.gobjs[num] == value) == null)
-            {
-                goto Label_0027;
-            }
-            return 1;
-        Label_0027:
-            num += 1;
-        Label_002B:
-            if (num < ((int) self.gobjs.Length))
-            {
-                goto Label_0012;
-            }
-        Label_0039:
-            return 0;
-        }
-
-        [Extension]
-        public static void Remove(TacticsSceneCamera.AllRange.Group self, GameObject value)
-        {
-            List<GameObject> list;
-            if (self.gobjs == null)
-            {
-                goto Label_002B;
-            }
-            list = new List<GameObject>(self.gobjs);
-            list.Remove(value);
-            self.gobjs = list.ToArray();
-        Label_002B:
-            return;
-        }
+      if (data.groups == null)
+        return;
+      self.data = data;
+      self.groups = new TacticsSceneCamera.AllRangeObj.GroupObj[data.groups.Length];
+      for (int index = 0; index < data.groups.Length; ++index)
+      {
+        TacticsSceneCamera.AllRangeObj.GroupObj groupObj = new TacticsSceneCamera.AllRangeObj.GroupObj();
+        groupObj.data = data.groups[index];
+        groupObj.state = 0;
+        groupObj.alpha = 1f;
+        groupObj.renders.AddRange((IEnumerable<TacticsSceneCamera.RenderSet>) TacticsSceneCamera.GetRenderSets(groupObj.data.gobjs, (string[]) null));
+        self.groups[index] = groupObj;
+      }
     }
-}
 
+    public static TacticsSceneCamera.AllRange.Group GetGroup(this TacticsSceneCamera.AllRange self, GameObject value)
+    {
+      if (self.groups != null)
+      {
+        for (int index1 = 0; index1 < self.groups.Length; ++index1)
+        {
+          if (self.groups[index1].gobjs != null)
+          {
+            for (int index2 = 0; index2 < self.groups[index1].gobjs.Length; ++index2)
+            {
+              if (Object.op_Equality((Object) self.groups[index1].gobjs[index2], (Object) value))
+                return self.groups[index1];
+            }
+          }
+        }
+      }
+      return (TacticsSceneCamera.AllRange.Group) null;
+    }
+
+    public static bool HasObject(this TacticsSceneCamera.AllRange.Group self, GameObject value)
+    {
+      if (self.gobjs != null)
+      {
+        for (int index = 0; index < self.gobjs.Length; ++index)
+        {
+          if (Object.op_Equality((Object) self.gobjs[index], (Object) value))
+            return true;
+        }
+      }
+      return false;
+    }
+
+    public static void Remove(this TacticsSceneCamera.AllRange.Group self, GameObject value)
+    {
+      if (self.gobjs == null)
+        return;
+      List<GameObject> gameObjectList = new List<GameObject>((IEnumerable<GameObject>) self.gobjs);
+      gameObjectList.Remove(value);
+      self.gobjs = gameObjectList.ToArray();
+    }
+  }
+}

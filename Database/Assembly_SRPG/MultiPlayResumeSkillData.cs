@@ -1,18 +1,15 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.MultiPlayResumeSkillData
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    public class MultiPlayResumeSkillData
-    {
-        public Unit user;
-        public Unit check;
-        public SkillData skill;
-
-        public MultiPlayResumeSkillData()
-        {
-            base..ctor();
-            return;
-        }
-    }
+  public class MultiPlayResumeSkillData
+  {
+    public Unit user;
+    public Unit check;
+    public SkillData skill;
+  }
 }
-

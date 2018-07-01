@@ -1,143 +1,70 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_ReqChatBlackList
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
+  [FlowNode.Pin(2, "Maintenance", FlowNode.PinTypes.Output, 2)]
+  [FlowNode.NodeType("System/ReqChatBlackList", 32741)]
+  [FlowNode.Pin(0, "Request", FlowNode.PinTypes.Input, 0)]
+  public class FlowNode_ReqChatBlackList : FlowNode_Network
+  {
+    public int GetLimit = 10;
 
-    [Pin(2, "Maintenance", 1, 2), NodeType("Request/ReqBlackList(ブロックリスト取得)", 0x7fe5), Pin(0, "Request", 0, 0), Pin(1, "Success", 1, 1)]
-    public class FlowNode_ReqChatBlackList : FlowNode_Network
+    public override void OnActivate(int pinID)
     {
-        public int GetLimit;
-        public bool IsGetOnly;
-
-        public FlowNode_ReqChatBlackList()
-        {
-            this.GetLimit = 10;
-            base..ctor();
-            return;
-        }
-
-        private void ChatMaintenance()
-        {
-            BlackList list;
-            if ((this == null) == null)
-            {
-                goto Label_000D;
-            }
-            return;
-        Label_000D:
-            base.set_enabled(0);
-            list = base.get_gameObject().GetComponent<BlackList>();
-            if ((list != null) == null)
-            {
-                goto Label_0037;
-            }
-            list.RefreshMaintenanceMessage(Network.ErrMsg);
-        Label_0037:
-            Network.RemoveAPI();
-            Network.ResetError();
-            base.ActivateOutputLinks(2);
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            string str;
-            int num;
-            if (pinID != null)
-            {
-                goto Label_005B;
-            }
-            str = FlowNode_Variable.Get("BLACKLIST_OFFSET");
-            num = (string.IsNullOrEmpty(str) == null) ? int.Parse(str) : 1;
-            base.ExecRequest(new ReqChatBlackList(num, this.GetLimit, new Network.ResponseCallback(this.ResponseCallback)));
-            if ((this == null) == null)
-            {
-                goto Label_0054;
-            }
-            return;
-        Label_0054:
-            base.set_enabled(0);
-        Label_005B:
-            return;
-        }
-
-        public override unsafe void OnSuccess(WWWResult www)
-        {
-            WebAPI.JSON_BodyResponse<JSON_ChatBlackList> response;
-            ChatBlackList list;
-            ChatBlackListParam param;
-            ChatBlackListParam[] paramArray;
-            int num;
-            BlackList list2;
-            Network.EErrCode code;
-            if (Network.IsError == null)
-            {
-                goto Label_002A;
-            }
-            if (Network.ErrCode == 0xc9)
-            {
-                goto Label_0022;
-            }
-            goto Label_0029;
-        Label_0022:
-            this.ChatMaintenance();
-            return;
-        Label_0029:
-            return;
-        Label_002A:
-            response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<JSON_ChatBlackList>>(&www.text);
-            DebugUtility.Assert((response == null) == 0, "res == null");
-            Network.RemoveAPI();
-            list = new ChatBlackList();
-            list.Deserialize(response.body);
-            if (list != null)
-            {
-                goto Label_0066;
-            }
-            return;
-        Label_0066:
-            GlobalVars.BlockList.Clear();
-            if (this.IsGetOnly == null)
-            {
-                goto Label_00B4;
-            }
-            paramArray = list.lists;
-            num = 0;
-            goto Label_00A5;
-        Label_008A:
-            param = paramArray[num];
-            GlobalVars.BlockList.Add(param.uid);
-            num += 1;
-        Label_00A5:
-            if (num < ((int) paramArray.Length))
-            {
-                goto Label_008A;
-            }
-            goto Label_00D6;
-        Label_00B4:
-            list2 = base.get_gameObject().GetComponent<BlackList>();
-            if ((list2 != null) == null)
-            {
-                goto Label_00D6;
-            }
-            list2.BList = list;
-        Label_00D6:
-            this.Success();
-            return;
-        }
-
-        private void Success()
-        {
-            if ((this == null) == null)
-            {
-                goto Label_000D;
-            }
-            return;
-        Label_000D:
-            base.set_enabled(0);
-            base.ActivateOutputLinks(1);
-            return;
-        }
+      if (pinID != 0)
+        return;
+      string s = FlowNode_Variable.Get("BLACKLIST_OFFSET");
+      this.ExecRequest((WebAPI) new ReqChatBlackList(!string.IsNullOrEmpty(s) ? int.Parse(s) : 1, this.GetLimit, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+      ((Behaviour) this).set_enabled(false);
     }
-}
 
+    private void Success()
+    {
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(1);
+    }
+
+    private void ChatMaintenance()
+    {
+      ((Behaviour) this).set_enabled(false);
+      BlackList component = (BlackList) ((Component) this).get_gameObject().GetComponent<BlackList>();
+      if (Object.op_Inequality((Object) component, (Object) null))
+        component.RefreshMaintenanceMessage(Network.ErrMsg);
+      Network.RemoveAPI();
+      Network.ResetError();
+      this.ActivateOutputLinks(2);
+    }
+
+    public override void OnSuccess(WWWResult www)
+    {
+      if (Network.IsError)
+      {
+        if (Network.ErrCode != Network.EErrCode.ChatMaintenance)
+          return;
+        this.ChatMaintenance();
+      }
+      else
+      {
+        WebAPI.JSON_BodyResponse<JSON_ChatBlackList> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<JSON_ChatBlackList>>(www.text);
+        DebugUtility.Assert(jsonObject != null, "res == null");
+        Network.RemoveAPI();
+        ChatBlackList chatBlackList = new ChatBlackList();
+        chatBlackList.Deserialize(jsonObject.body);
+        if (chatBlackList == null)
+          return;
+        BlackList componentInChildren = (BlackList) ((Component) this).GetComponentInChildren<BlackList>();
+        if (Object.op_Inequality((Object) componentInChildren, (Object) null))
+          componentInChildren.BList = chatBlackList;
+        this.Success();
+      }
+    }
+  }
+}

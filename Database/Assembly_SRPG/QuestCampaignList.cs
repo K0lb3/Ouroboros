@@ -1,222 +1,111 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.QuestCampaignList
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
-    using UnityEngine.UI;
+  public class QuestCampaignList : MonoBehaviour
+  {
+    public GameObject TemplateExpPlayer;
+    public GameObject TemplateExpUnit;
+    public GameObject TemplateExpUnitAll;
+    public GameObject TemplateDrapItem;
+    public GameObject TemplateAp;
+    [Space(10f)]
+    public Text TextConsumeAp;
+    public Color TextConsumeApColor;
 
-    public class QuestCampaignList : MonoBehaviour
+    public QuestCampaignList()
     {
-        public GameObject TemplateExpPlayer;
-        public GameObject TemplateExpUnit;
-        public GameObject TemplateExpUnitAll;
-        public GameObject TemplateDrapItem;
-        public GameObject TemplateAp;
-        public GameObject TemplateTrustUp;
-        public GameObject TemplateTrustIncidence;
-        public GameObject TemplateTrustSpecific;
-        [Space(10f)]
-        public Text TextConsumeAp;
-        public Color TextConsumeApColor;
+      base.\u002Ector();
+    }
 
-        public QuestCampaignList()
+    public void RefreshIcons()
+    {
+      QuestParam dataOfClass1 = DataSource.FindDataOfClass<QuestParam>(((Component) this).get_gameObject(), (QuestParam) null);
+      if (dataOfClass1 != null && dataOfClass1.type == QuestTypes.Tower)
+      {
+        ((Component) this).get_gameObject().SetActive(false);
+      }
+      else
+      {
+        QuestCampaignData[] dataOfClass2 = DataSource.FindDataOfClass<QuestCampaignData[]>(((Component) this).get_gameObject(), (QuestCampaignData[]) null);
+        if (dataOfClass2 == null || dataOfClass2.Length == 0)
         {
-            this.TextConsumeApColor = Color.get_white();
-            base..ctor();
-            return;
+          ((Component) this).get_gameObject().SetActive(false);
         }
-
-        public void RefreshIcons()
+        else
         {
-            QuestParam param;
-            QuestCampaignData[] dataArray;
-            bool flag;
-            int num;
-            GameObject obj2;
-            QuestCampaignData data;
-            QuestCampaignValueTypes types;
-            this.ResetTemplateActive();
-            param = DataSource.FindDataOfClass<QuestParam>(base.get_gameObject(), null);
-            if (param == null)
-            {
-                goto Label_0026;
-            }
-            if (param.type != 7)
-            {
-                goto Label_0026;
-            }
-            return;
-        Label_0026:
-            dataArray = DataSource.FindDataOfClass<QuestCampaignData[]>(base.get_gameObject(), null);
-            if (dataArray == null)
-            {
-                goto Label_0041;
-            }
-            if (((int) dataArray.Length) != null)
-            {
-                goto Label_0042;
-            }
-        Label_0041:
-            return;
-        Label_0042:
-            flag = 0;
-            num = 0;
-            goto Label_0159;
-        Label_004B:
-            if (num != 2)
-            {
-                goto Label_0057;
-            }
-            goto Label_0162;
-        Label_0057:
-            obj2 = null;
-            data = dataArray[num];
+          List<GameObject> gameObjectList = new List<GameObject>();
+          for (int index = 0; index < ((Component) this).get_transform().get_childCount(); ++index)
+          {
+            Transform child = ((Component) this).get_transform().GetChild(index);
+            if (!Object.op_Equality((Object) this.TemplateExpPlayer, (Object) ((Component) child).get_gameObject()) && !Object.op_Equality((Object) this.TemplateExpUnit, (Object) ((Component) child).get_gameObject()) && (!Object.op_Equality((Object) this.TemplateExpUnitAll, (Object) ((Component) child).get_gameObject()) && !Object.op_Equality((Object) this.TemplateDrapItem, (Object) ((Component) child).get_gameObject())) && !Object.op_Equality((Object) this.TemplateAp, (Object) ((Component) child).get_gameObject()))
+              gameObjectList.Add(((Component) child).get_gameObject());
+          }
+          while (gameObjectList.Count != 0)
+          {
+            GameObject gameObject = gameObjectList[0];
+            gameObjectList.Remove(gameObject);
+            Object.DestroyImmediate((Object) gameObject);
+          }
+          bool flag = false;
+          for (int index = 0; index < dataOfClass2.Length && index != 2; ++index)
+          {
+            GameObject gameObject1 = (GameObject) null;
+            QuestCampaignData data = dataOfClass2[index];
             switch (data.type)
             {
-                case 0:
-                    goto Label_0094;
-
-                case 1:
-                    goto Label_00A1;
-
-                case 2:
-                    goto Label_00CC;
-
-                case 3:
-                    goto Label_00CC;
-
-                case 4:
-                    goto Label_00E1;
-
-                case 5:
-                    goto Label_0110;
-
-                case 6:
-                    goto Label_011D;
-
-                case 7:
-                    goto Label_012A;
+              case QuestCampaignValueTypes.ExpPlayer:
+                gameObject1 = this.TemplateExpPlayer;
+                break;
+              case QuestCampaignValueTypes.ExpUnit:
+                gameObject1 = !string.IsNullOrEmpty(data.unit) ? this.TemplateExpUnit : this.TemplateExpUnitAll;
+                break;
+              case QuestCampaignValueTypes.DropRate:
+              case QuestCampaignValueTypes.DropNum:
+                if (!flag)
+                {
+                  gameObject1 = this.TemplateDrapItem;
+                  flag = true;
+                  break;
+                }
+                break;
+              case QuestCampaignValueTypes.Ap:
+                gameObject1 = this.TemplateAp;
+                if (Object.op_Inequality((Object) this.TextConsumeAp, (Object) null))
+                {
+                  ((Graphic) this.TextConsumeAp).set_color(this.TextConsumeApColor);
+                  break;
+                }
+                break;
             }
-            goto Label_0137;
-        Label_0094:
-            obj2 = this.TemplateExpPlayer;
-            goto Label_0137;
-        Label_00A1:
-            if (string.IsNullOrEmpty(data.unit) == null)
+            if (Object.op_Inequality((Object) gameObject1, (Object) null))
             {
-                goto Label_00BF;
+              GameObject gameObject2 = (GameObject) Object.Instantiate<GameObject>((M0) gameObject1);
+              Vector3 localScale = gameObject2.get_transform().get_localScale();
+              gameObject2.get_transform().SetParent(((Component) this).get_transform());
+              gameObject2.get_transform().set_localScale(localScale);
+              DataSource.Bind<QuestCampaignData>(gameObject2, data);
+              gameObject2.SetActive(true);
             }
-            obj2 = this.TemplateExpUnitAll;
-            goto Label_00C7;
-        Label_00BF:
-            obj2 = this.TemplateExpUnit;
-        Label_00C7:
-            goto Label_0137;
-        Label_00CC:
-            if (flag != null)
-            {
-                goto Label_0137;
-            }
-            obj2 = this.TemplateDrapItem;
-            flag = 1;
-            goto Label_0137;
-        Label_00E1:
-            obj2 = this.TemplateAp;
-            if ((this.TextConsumeAp != null) == null)
-            {
-                goto Label_0137;
-            }
-            this.TextConsumeAp.set_color(this.TextConsumeApColor);
-            goto Label_0137;
-        Label_0110:
-            obj2 = this.TemplateTrustUp;
-            goto Label_0137;
-        Label_011D:
-            obj2 = this.TemplateTrustIncidence;
-            goto Label_0137;
-        Label_012A:
-            obj2 = this.TemplateTrustSpecific;
-        Label_0137:
-            if ((obj2 != null) == null)
-            {
-                goto Label_0155;
-            }
-            DataSource.Bind<QuestCampaignData>(obj2, data);
-            obj2.SetActive(1);
-        Label_0155:
-            num += 1;
-        Label_0159:
-            if (num < ((int) dataArray.Length))
-            {
-                goto Label_004B;
-            }
-        Label_0162:
-            if (base.get_gameObject().get_activeSelf() != null)
-            {
-                goto Label_017E;
-            }
-            base.get_gameObject().SetActive(1);
-        Label_017E:
+          }
+          if (((Component) this).get_gameObject().get_activeSelf())
             return;
+          ((Component) this).get_gameObject().SetActive(true);
         }
-
-        private void ResetTemplateActive()
-        {
-            if ((this.TemplateExpPlayer != null) == null)
-            {
-                goto Label_001D;
-            }
-            this.TemplateExpPlayer.SetActive(0);
-        Label_001D:
-            if ((this.TemplateExpUnit != null) == null)
-            {
-                goto Label_003A;
-            }
-            this.TemplateExpUnit.SetActive(0);
-        Label_003A:
-            if ((this.TemplateExpUnitAll != null) == null)
-            {
-                goto Label_0057;
-            }
-            this.TemplateExpUnitAll.SetActive(0);
-        Label_0057:
-            if ((this.TemplateDrapItem != null) == null)
-            {
-                goto Label_0074;
-            }
-            this.TemplateDrapItem.SetActive(0);
-        Label_0074:
-            if ((this.TemplateAp != null) == null)
-            {
-                goto Label_0091;
-            }
-            this.TemplateAp.SetActive(0);
-        Label_0091:
-            if ((this.TemplateTrustUp != null) == null)
-            {
-                goto Label_00AE;
-            }
-            this.TemplateTrustUp.SetActive(0);
-        Label_00AE:
-            if ((this.TemplateTrustIncidence != null) == null)
-            {
-                goto Label_00CB;
-            }
-            this.TemplateTrustIncidence.SetActive(0);
-        Label_00CB:
-            if ((this.TemplateTrustSpecific != null) == null)
-            {
-                goto Label_00E8;
-            }
-            this.TemplateTrustSpecific.SetActive(0);
-        Label_00E8:
-            return;
-        }
-
-        private void Start()
-        {
-            this.RefreshIcons();
-            return;
-        }
+      }
     }
-}
 
+    private void Start()
+    {
+      this.RefreshIcons();
+    }
+  }
+}

@@ -1,18 +1,20 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.PredefinedGlobalEvents
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    public enum PredefinedGlobalEvents
-    {
-        REFRESH_COIN_STATUS,
-        REFRESH_GOLD_STATUS,
-        UNLOAD_MENU,
-        ERROR_NETWORK,
-        BACK_NETWORK,
-        MAINTENANCE_NETWORK,
-        REFRESH_PLAYER_STATUS,
-        ERROR_APP_QUIT,
-        VERSION_MISMATCH_NETWORK
-    }
+  public enum PredefinedGlobalEvents
+  {
+    REFRESH_COIN_STATUS,
+    REFRESH_GOLD_STATUS,
+    UNLOAD_MENU,
+    ERROR_NETWORK,
+    BACK_NETWORK,
+    MAINTENANCE_NETWORK,
+    REFRESH_PLAYER_STATUS,
+    ERROR_APP_QUIT,
+  }
 }
-

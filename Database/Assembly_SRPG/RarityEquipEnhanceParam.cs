@@ -1,36 +1,28 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.RarityEquipEnhanceParam
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
+  public class RarityEquipEnhanceParam
+  {
+    public OInt rankcap;
+    public OInt cost_scale;
+    public RarityEquipEnhanceParam.RankParam[] ranks;
 
-    public class RarityEquipEnhanceParam
+    public RarityEquipEnhanceParam.RankParam GetRankParam(int rank)
     {
-        public OInt rankcap;
-        public OInt cost_scale;
-        public RankParam[] ranks;
-
-        public RarityEquipEnhanceParam()
-        {
-            base..ctor();
-            return;
-        }
-
-        public RankParam GetRankParam(int rank)
-        {
-            return (((rank <= 0) || (rank > ((int) this.ranks.Length))) ? null : this.ranks[rank - 1]);
-        }
-
-        public class RankParam
-        {
-            public OInt need_point;
-            public ReturnItem[] return_item;
-
-            public RankParam()
-            {
-                this.return_item = new ReturnItem[3];
-                base..ctor();
-                return;
-            }
-        }
+      if (rank > 0 && rank <= this.ranks.Length)
+        return this.ranks[rank - 1];
+      return (RarityEquipEnhanceParam.RankParam) null;
     }
-}
 
+    public class RankParam
+    {
+      public ReturnItem[] return_item = new ReturnItem[3];
+      public OInt need_point;
+    }
+  }
+}

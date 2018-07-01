@@ -1,33 +1,26 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.EventAction_DestroyObject
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  [EventActionInfo("New/オブジェクト/削除", "指定のオブジェクトを削除します。", 6702148, 11158596)]
+  public class EventAction_DestroyObject : EventAction
+  {
+    [SerializeField]
+    [StringIsObjectList]
+    public string TargetID;
 
-    [EventActionInfo("New/オブジェクト/削除", "指定のオブジェクトを削除します。", 0x664444, 0xaa4444)]
-    public class EventAction_DestroyObject : EventAction
+    public override void OnActivate()
     {
-        [SerializeField, StringIsObjectList]
-        public string TargetID;
-
-        public EventAction_DestroyObject()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate()
-        {
-            GameObject obj2;
-            obj2 = EventAction.FindActor(this.TargetID);
-            if ((obj2 != null) == null)
-            {
-                goto Label_001E;
-            }
-            Object.Destroy(obj2);
-        Label_001E:
-            base.ActivateNext();
-            return;
-        }
+      GameObject actor = EventAction.FindActor(this.TargetID);
+      if (Object.op_Inequality((Object) actor, (Object) null))
+        Object.Destroy((Object) actor);
+      this.ActivateNext();
     }
+  }
 }
-

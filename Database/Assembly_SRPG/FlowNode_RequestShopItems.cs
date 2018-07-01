@@ -1,103 +1,71 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_RequestShopItems
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
+  [FlowNode.NodeType("System/RequestShopItems", 32741)]
+  [FlowNode.Pin(0, "Request", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
+  public class FlowNode_RequestShopItems : FlowNode_Network
+  {
+    private EShopType mShopType;
 
-    [NodeType("System/RequestShopItems", 0x7fe5), Pin(0, "Request", 0, 0), Pin(1, "Success", 1, 1)]
-    public class FlowNode_RequestShopItems : FlowNode_Network
+    public override void OnActivate(int pinID)
     {
-        private EShopType mShopType;
-
-        public FlowNode_RequestShopItems()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            string str;
-            if (pinID != null)
-            {
-                goto Label_008C;
-            }
-            if (base.get_enabled() == null)
-            {
-                goto Label_0012;
-            }
-            return;
-        Label_0012:
-            if (Network.Mode != null)
-            {
-                goto Label_0086;
-            }
-            this.mShopType = GlobalVars.ShopType;
-            str = ((EShopType) this.mShopType).ToString();
-            if (this.mShopType != 11)
-            {
-                goto Label_0062;
-            }
-            base.ExecRequest(new ReqItemGuerrillaShop(str, new Network.ResponseCallback(this.ResponseCallback)));
-            goto Label_007A;
-        Label_0062:
-            base.ExecRequest(new ReqItemShop(str, new Network.ResponseCallback(this.ResponseCallback)));
-        Label_007A:
-            base.set_enabled(1);
-            goto Label_008C;
-        Label_0086:
-            this.Success();
-        Label_008C:
-            return;
-        }
-
-        public override unsafe void OnSuccess(WWWResult www)
-        {
-            WebAPI.JSON_BodyResponse<Json_ShopResponse> response;
-            ShopData data;
-            Network.EErrCode code;
-            if (Network.IsError == null)
-            {
-                goto Label_0017;
-            }
-            code = Network.ErrCode;
-            this.OnRetry();
-            return;
-        Label_0017:
-            response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_ShopResponse>>(&www.text);
-            DebugUtility.Assert((response == null) == 0, "res == null");
-            if (response.body != null)
-            {
-                goto Label_0047;
-            }
-            this.OnRetry();
-            return;
-        Label_0047:
-            Network.RemoveAPI();
-            data = MonoSingleton<GameManager>.Instance.Player.GetShopData(this.mShopType);
-            if (data != null)
-            {
-                goto Label_006E;
-            }
-            data = new ShopData();
-        Label_006E:
-            if (data.Deserialize(response.body) != null)
-            {
-                goto Label_0086;
-            }
-            this.OnFailed();
-            return;
-        Label_0086:
-            MonoSingleton<GameManager>.Instance.Player.SetShopData(this.mShopType, data);
-            this.Success();
-            return;
-        }
-
-        private void Success()
-        {
-            base.set_enabled(0);
-            base.ActivateOutputLinks(1);
-            return;
-        }
+      if (pinID != 0 || ((Behaviour) this).get_enabled())
+        return;
+      if (Network.Mode == Network.EConnectMode.Online)
+      {
+        this.mShopType = GlobalVars.ShopType;
+        this.ExecRequest((WebAPI) new ReqItemShop(this.mShopType.ToString(), new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+        ((Behaviour) this).set_enabled(true);
+      }
+      else
+        this.Success();
     }
-}
 
+    private void Success()
+    {
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(1);
+    }
+
+    public override void OnSuccess(WWWResult www)
+    {
+      if (Network.IsError)
+      {
+        Network.EErrCode errCode = Network.ErrCode;
+        this.OnRetry();
+      }
+      else
+      {
+        WebAPI.JSON_BodyResponse<Json_ShopResponse> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_ShopResponse>>(www.text);
+        DebugUtility.Assert(jsonObject != null, "res == null");
+        if (jsonObject.body == null)
+        {
+          this.OnRetry();
+        }
+        else
+        {
+          Network.RemoveAPI();
+          ShopData shop = MonoSingleton<GameManager>.Instance.Player.GetShopData(this.mShopType) ?? new ShopData();
+          if (!shop.Deserialize(jsonObject.body))
+          {
+            this.OnFailed();
+          }
+          else
+          {
+            MonoSingleton<GameManager>.Instance.Player.SetShopData(this.mShopType, shop);
+            this.Success();
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,16 +1,19 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.EditorMasterParam
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    public static class EditorMasterParam
+  public static class EditorMasterParam
+  {
+    public static MasterParam Current
     {
-        public static MasterParam Current
-        {
-            get
-            {
-                return null;
-            }
-        }
+      get
+      {
+        return (MasterParam) null;
+      }
     }
+  }
 }
-

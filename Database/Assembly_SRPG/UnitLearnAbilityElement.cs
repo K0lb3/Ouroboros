@@ -1,82 +1,58 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.UnitLearnAbilityElement
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Collections.Generic;
-    using UnityEngine;
+  public class UnitLearnAbilityElement : MonoBehaviour, IFlowInterface
+  {
+    public Transform SkillParent;
+    public GameObject SkillTemplate;
+    private List<GameObject> mSkills;
 
-    public class UnitLearnAbilityElement : MonoBehaviour, IFlowInterface
+    public UnitLearnAbilityElement()
     {
-        public Transform SkillParent;
-        public GameObject SkillTemplate;
-        private List<GameObject> mSkills;
-
-        public UnitLearnAbilityElement()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void Activated(int pinID)
-        {
-        }
-
-        public void Refresh()
-        {
-            AbilityData data;
-            int num;
-            GameObject obj2;
-            SkillParam param;
-            data = DataSource.FindDataOfClass<AbilityData>(base.get_gameObject(), null);
-            if (data == null)
-            {
-                goto Label_00BE;
-            }
-            this.mSkills = new List<GameObject>((int) data.LearningSkills.Length);
-            num = 0;
-            goto Label_00B0;
-        Label_002D:
-            if (data.LearningSkills[num] != null)
-            {
-                goto Label_003F;
-            }
-            goto Label_00AC;
-        Label_003F:
-            if (data.Rank >= data.LearningSkills[num].locklv)
-            {
-                goto Label_005C;
-            }
-            goto Label_00AC;
-        Label_005C:
-            obj2 = Object.Instantiate<GameObject>(this.SkillTemplate);
-            param = MonoSingleton<GameManager>.Instance.GetSkillParam(data.LearningSkills[num].iname);
-            DataSource.Bind<SkillParam>(obj2, param);
-            obj2.get_transform().SetParent(this.SkillParent, 0);
-            obj2.SetActive(1);
-            this.mSkills.Add(obj2);
-        Label_00AC:
-            num += 1;
-        Label_00B0:
-            if (num < ((int) data.LearningSkills.Length))
-            {
-                goto Label_002D;
-            }
-        Label_00BE:
-            base.get_gameObject().SetActive(1);
-            GameParameter.UpdateAll(base.get_gameObject());
-            return;
-        }
-
-        public void Start()
-        {
-            if ((this.SkillTemplate != null) == null)
-            {
-                goto Label_001D;
-            }
-            this.SkillTemplate.SetActive(0);
-        Label_001D:
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    public void Start()
+    {
+      if (!Object.op_Inequality((Object) this.SkillTemplate, (Object) null))
+        return;
+      this.SkillTemplate.SetActive(false);
+    }
+
+    public void Activated(int pinID)
+    {
+    }
+
+    public void Refresh()
+    {
+      AbilityData dataOfClass = DataSource.FindDataOfClass<AbilityData>(((Component) this).get_gameObject(), (AbilityData) null);
+      if (dataOfClass != null)
+      {
+        this.mSkills = new List<GameObject>(dataOfClass.LearningSkills.Length);
+        for (int index = 0; index < dataOfClass.LearningSkills.Length; ++index)
+        {
+          if (dataOfClass.LearningSkills[index] != null && dataOfClass.Rank >= dataOfClass.LearningSkills[index].locklv)
+          {
+            GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.SkillTemplate);
+            SkillParam skillParam = MonoSingleton<GameManager>.Instance.GetSkillParam(dataOfClass.LearningSkills[index].iname);
+            DataSource.Bind<SkillParam>(gameObject, skillParam);
+            gameObject.get_transform().SetParent(this.SkillParent, false);
+            gameObject.SetActive(true);
+            this.mSkills.Add(gameObject);
+          }
+        }
+      }
+      ((Component) this).get_gameObject().SetActive(true);
+      GameParameter.UpdateAll(((Component) this).get_gameObject());
+    }
+  }
+}

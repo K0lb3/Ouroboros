@@ -1,19 +1,15 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.EquipSkillSetting
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    public class EquipSkillSetting
-    {
-        public OString iname;
-        public OInt rate;
-        public SkillLockCondition cond;
-        public OInt check_cnt;
-
-        public EquipSkillSetting()
-        {
-            base..ctor();
-            return;
-        }
-    }
+  public class EquipSkillSetting
+  {
+    public OString iname;
+    public OInt rate;
+    public SkillLockCondition cond;
+  }
 }
-

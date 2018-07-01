@@ -1,51 +1,42 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_ButtonEventLock
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  [AddComponentMenu("")]
+  [FlowNode.NodeType("Event/ButtonEventLock", 13156327)]
+  [FlowNode.Pin(1, "Lock", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(2, "UnLock", FlowNode.PinTypes.Input, 2)]
+  [FlowNode.Pin(3, "Reset", FlowNode.PinTypes.Input, 3)]
+  [FlowNode.Pin(4, "AllReset", FlowNode.PinTypes.Input, 3)]
+  [FlowNode.Pin(10, "Out", FlowNode.PinTypes.Output, 10)]
+  public class FlowNode_ButtonEventLock : FlowNode
+  {
+    public string LockKey;
 
-    [Pin(10, "Out", 1, 10), AddComponentMenu(""), NodeType("Event/ButtonEventLock", 0xc8bfe7), Pin(1, "Lock", 0, 1), Pin(2, "UnLock", 0, 2), Pin(3, "Reset", 0, 3), Pin(4, "AllReset", 0, 3)]
-    public class FlowNode_ButtonEventLock : FlowNode
+    public override void OnActivate(int pinID)
     {
-        public string LockKey;
-
-        public FlowNode_ButtonEventLock()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != 1)
-            {
-                goto Label_0017;
-            }
-            ButtonEvent.Lock(this.LockKey);
-            goto Label_0051;
-        Label_0017:
-            if (pinID != 2)
-            {
-                goto Label_002E;
-            }
-            ButtonEvent.UnLock(this.LockKey);
-            goto Label_0051;
-        Label_002E:
-            if (pinID != 3)
-            {
-                goto Label_0045;
-            }
-            ButtonEvent.ResetLock(this.LockKey);
-            goto Label_0051;
-        Label_0045:
-            if (pinID != 4)
-            {
-                goto Label_0051;
-            }
-            ButtonEvent.Reset();
-        Label_0051:
-            base.ActivateOutputLinks(10);
-            return;
-        }
+      switch (pinID)
+      {
+        case 1:
+          ButtonEvent.Lock(this.LockKey);
+          break;
+        case 2:
+          ButtonEvent.UnLock(this.LockKey);
+          break;
+        case 3:
+          ButtonEvent.ResetLock(this.LockKey);
+          break;
+        case 4:
+          ButtonEvent.Reset();
+          break;
+      }
+      this.ActivateOutputLinks(10);
     }
+  }
 }
-

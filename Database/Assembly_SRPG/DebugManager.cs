@@ -1,89 +1,82 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.DebugManager
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Runtime.CompilerServices;
-    using UnityEngine;
+  [ExecuteInEditMode]
+  [AddComponentMenu("Scripts/SRPG/Manager/Debug")]
+  public class DebugManager : MonoSingleton<DebugManager>
+  {
+    private float mLastCollectNum;
+    private int mAllocMem;
+    private int mAllocPeak;
 
-    [ExecuteInEditMode, AddComponentMenu("Scripts/SRPG/Manager/Debug")]
-    public class DebugManager : MonoSingleton<DebugManager>
+    public bool IsShowed { set; get; }
+
+    public bool IsShowedInEditor { set; get; }
+
+    protected override void Initialize()
     {
-        private float mLastCollectNum;
-        private int mAllocMem;
-        private int mAllocPeak;
-        [CompilerGenerated]
-        private bool <IsShowed>k__BackingField;
-        [CompilerGenerated]
-        private bool <IsShowedInEditor>k__BackingField;
-
-        public DebugManager()
-        {
-            base..ctor();
-            return;
-        }
-
-        protected override void Initialize()
-        {
-            this.IsShowed = 1;
-            this.IsShowedInEditor = 0;
-            Object.DontDestroyOnLoad(this);
-            return;
-        }
-
-        public bool IsWebViewEnable()
-        {
-            return 1;
-        }
-
-        private void Update()
-        {
-            int num;
-            if ((this.IsShowed != null) && ((Application.get_isPlaying() != null) || (this.IsShowedInEditor != null)))
-            {
-                goto Label_0021;
-            }
-            return;
-        Label_0021:
-            num = GC.CollectionCount(0);
-            if (this.mLastCollectNum == ((float) num))
-            {
-                goto Label_0035;
-            }
-        Label_0035:
-            this.mAllocMem = Profiler.get_usedHeapSize();
-            this.mAllocPeak = (this.mAllocMem <= this.mAllocPeak) ? this.mAllocPeak : this.mAllocMem;
-            return;
-        }
-
-        public bool IsShowed
-        {
-            [CompilerGenerated]
-            get
-            {
-                return this.<IsShowed>k__BackingField;
-            }
-            [CompilerGenerated]
-            set
-            {
-                this.<IsShowed>k__BackingField = value;
-                return;
-            }
-        }
-
-        public bool IsShowedInEditor
-        {
-            [CompilerGenerated]
-            get
-            {
-                return this.<IsShowedInEditor>k__BackingField;
-            }
-            [CompilerGenerated]
-            set
-            {
-                this.<IsShowedInEditor>k__BackingField = value;
-                return;
-            }
-        }
+      this.IsShowed = true;
+      this.IsShowedInEditor = false;
+      UnityEngine.Object.DontDestroyOnLoad((UnityEngine.Object) this);
     }
-}
 
+    private void Update()
+    {
+      if (!this.IsShowed || !Application.get_isPlaying() && !this.IsShowedInEditor)
+        return;
+      if ((double) this.mLastCollectNum == (double) GC.CollectionCount(0))
+        ;
+      this.mAllocMem = (int) Profiler.get_usedHeapSize();
+      this.mAllocPeak = this.mAllocMem <= this.mAllocPeak ? this.mAllocPeak : this.mAllocMem;
+    }
+
+    public bool IsWebViewEnable()
+    {
+      if (!GameUtility.IsDebugBuild)
+        return true;
+      string operatingSystem = SystemInfo.get_operatingSystem();
+      if (string.IsNullOrEmpty(operatingSystem))
+        return true;
+      Debug.Log((object) ("Android:" + operatingSystem));
+      string[] strArray1 = operatingSystem.Split(' ');
+      if (strArray1 == null)
+        return true;
+      for (int index1 = 0; index1 < strArray1.Length; ++index1)
+      {
+        string[] strArray2 = strArray1[index1].Split('.');
+        if (strArray2 != null && strArray2.Length >= 2)
+        {
+          int[] numArray = new int[strArray2.Length];
+          bool flag = true;
+          for (int index2 = 0; index2 < strArray2.Length; ++index2)
+          {
+            if (!int.TryParse(strArray2[index2], out numArray[index2]))
+            {
+              flag = false;
+              break;
+            }
+          }
+          if (flag)
+          {
+            if (numArray[0] < 4 || numArray[0] == 4 && numArray[1] <= 3)
+            {
+              Debug.LogWarning((object) "WebView maybe crash");
+              return false;
+            }
+            break;
+          }
+        }
+      }
+      return true;
+    }
+  }
+}

@@ -1,24 +1,18 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.UnityPerformanceReporting
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
-    using UnityEngine.CrashLog;
-
-    public class UnityPerformanceReporting : MonoBehaviour
+  public class UnityPerformanceReporting : MonoBehaviour
+  {
+    public UnityPerformanceReporting()
     {
-        public UnityPerformanceReporting()
-        {
-            base..ctor();
-            return;
-        }
-
-        private void Awake()
-        {
-            string str;
-            str = "8d9b4183-a378-4c53-b66a-b5ac3d9a531a";
-            CrashReporting.Init(str, MyApplicationPlugin.get_version(), string.Empty);
-            return;
-        }
+      base.\u002Ector();
     }
+  }
 }
-

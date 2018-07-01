@@ -1,36 +1,32 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqUnitPlus
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Text;
+
+namespace SRPG
 {
-    using System;
-    using System.Runtime.InteropServices;
-    using System.Text;
-
-    public class ReqUnitPlus : WebAPI
+  public class ReqUnitPlus : WebAPI
+  {
+    public ReqUnitPlus(long iid, Network.ResponseCallback response, string trophyprog = null, string bingoprog = null)
     {
-        public ReqUnitPlus(long iid, Network.ResponseCallback response, string trophyprog, string bingoprog)
-        {
-            StringBuilder builder;
-            base..ctor();
-            base.name = "unit/plus/add";
-            builder = WebAPI.GetStringBuilder();
-            builder.Append("\"iid\":" + ((long) iid));
-            if (string.IsNullOrEmpty(trophyprog) != null)
-            {
-                goto Label_004D;
-            }
-            builder.Append(",");
-            builder.Append(trophyprog);
-        Label_004D:
-            if (string.IsNullOrEmpty(bingoprog) != null)
-            {
-                goto Label_006E;
-            }
-            builder.Append(",");
-            builder.Append(bingoprog);
-        Label_006E:
-            base.body = WebAPI.GetRequestString(builder.ToString());
-            base.callback = response;
-            return;
-        }
+      this.name = "unit/plus/add";
+      StringBuilder stringBuilder = WebAPI.GetStringBuilder();
+      stringBuilder.Append("\"iid\":" + (object) iid);
+      if (!string.IsNullOrEmpty(trophyprog))
+      {
+        stringBuilder.Append(",");
+        stringBuilder.Append(trophyprog);
+      }
+      if (!string.IsNullOrEmpty(bingoprog))
+      {
+        stringBuilder.Append(",");
+        stringBuilder.Append(bingoprog);
+      }
+      this.body = WebAPI.GetRequestString(stringBuilder.ToString());
+      this.callback = response;
     }
+  }
 }
-

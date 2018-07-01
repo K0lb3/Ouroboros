@@ -1,63 +1,39 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_CharacterQuestList
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using UnityEngine;
-
-    [NodeType("UI/CharacterQuestList")]
-    public class FlowNode_CharacterQuestList : FlowNode_GUI
+  [FlowNode.NodeType("UI/CharacterQuestList")]
+  public class FlowNode_CharacterQuestList : FlowNode_GUI
+  {
+    protected override void OnInstanceCreate()
     {
-        public FlowNode_CharacterQuestList()
-        {
-            base..ctor();
-            return;
-        }
-
-        private void OnBack(GameObject go, bool visible)
-        {
-            UnitCharacterQuestWindow window;
-            WindowController controller;
-            if (visible == null)
-            {
-                goto Label_0007;
-            }
-            return;
-        Label_0007:
-            window = base.Instance.GetComponentInChildren<UnitCharacterQuestWindow>();
-            if ((window == null) != null)
-            {
-                goto Label_0025;
-            }
-            if (visible == null)
-            {
-                goto Label_0026;
-            }
-        Label_0025:
-            return;
-        Label_0026:
-            window.GetComponent<WindowController>().SetCollision(1);
-            window.GetComponent<WindowController>().OnWindowStateChange = null;
-            Object.Destroy(window.get_gameObject());
-            return;
-        }
-
-        protected override void OnInstanceCreate()
-        {
-            UnitCharacterQuestWindow window;
-            base.OnInstanceCreate();
-            window = base.Instance.GetComponentInChildren<UnitCharacterQuestWindow>();
-            if ((window == null) == null)
-            {
-                goto Label_001F;
-            }
-            return;
-        Label_001F:
-            window.CurrentUnit = MonoSingleton<GameManager>.Instance.Player.FindUnitDataByUniqueID(GlobalVars.PreBattleUnitUniqueID);
-            window.GetComponent<WindowController>().SetCollision(0);
-            window.GetComponent<WindowController>().OnWindowStateChange = new WindowController.WindowStateChangeEvent(this.OnBack);
-            WindowController.OpenIfAvailable(window);
-            return;
-        }
+      base.OnInstanceCreate();
+      UnitCharacterQuestWindow componentInChildren = (UnitCharacterQuestWindow) this.Instance.GetComponentInChildren<UnitCharacterQuestWindow>();
+      if (Object.op_Equality((Object) componentInChildren, (Object) null))
+        return;
+      componentInChildren.CurrentUnit = MonoSingleton<GameManager>.Instance.Player.FindUnitDataByUniqueID((long) GlobalVars.SelectedUnitUniqueID);
+      ((WindowController) ((Component) componentInChildren).GetComponent<WindowController>()).SetCollision(false);
+      ((WindowController) ((Component) componentInChildren).GetComponent<WindowController>()).OnWindowStateChange = new WindowController.WindowStateChangeEvent(this.OnBack);
+      WindowController.OpenIfAvailable((Component) componentInChildren);
     }
-}
 
+    private void OnBack(GameObject go, bool visible)
+    {
+      if (visible)
+        return;
+      UnitCharacterQuestWindow componentInChildren = (UnitCharacterQuestWindow) this.Instance.GetComponentInChildren<UnitCharacterQuestWindow>();
+      if (Object.op_Equality((Object) componentInChildren, (Object) null) || visible)
+        return;
+      ((WindowController) ((Component) componentInChildren).GetComponent<WindowController>()).SetCollision(true);
+      ((WindowController) ((Component) componentInChildren).GetComponent<WindowController>()).OnWindowStateChange = (WindowController.WindowStateChangeEvent) null;
+      Object.Destroy((Object) ((Component) componentInChildren).get_gameObject());
+    }
+  }
+}

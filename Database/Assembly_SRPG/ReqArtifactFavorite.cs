@@ -1,19 +1,18 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqArtifactFavorite
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    public class ReqArtifactFavorite : WebAPI
+  public class ReqArtifactFavorite : WebAPI
+  {
+    public ReqArtifactFavorite(long iid, bool isFavorite, Network.ResponseCallback response)
     {
-        public ReqArtifactFavorite(long iid, bool isFavorite, Network.ResponseCallback response)
-        {
-            object[] objArray1;
-            base..ctor();
-            base.name = "unit/job/artifact/favorite";
-            objArray1 = new object[] { "\"iid\":", (long) iid, ",\"fav\":", (int) ((isFavorite == null) ? 0 : 1) };
-            base.body = WebAPI.GetRequestString(string.Concat(objArray1));
-            base.callback = response;
-            return;
-        }
+      this.name = "unit/job/artifact/favorite";
+      this.body = WebAPI.GetRequestString("\"iid\":" + (object) iid + ",\"fav\":" + (object) (!isFavorite ? 0 : 1));
+      this.callback = response;
     }
+  }
 }
-

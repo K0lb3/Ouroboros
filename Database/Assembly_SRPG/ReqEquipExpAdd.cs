@@ -1,61 +1,40 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqEquipExpAdd
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Collections.Generic;
+
+namespace SRPG
 {
-    using System;
-    using System.Collections.Generic;
-
-    public class ReqEquipExpAdd : WebAPI
+  public class ReqEquipExpAdd : WebAPI
+  {
+    public ReqEquipExpAdd(long iid, int slot, Dictionary<string, int> usedItems, Network.ResponseCallback response)
     {
-        public unsafe ReqEquipExpAdd(long iid, int slot, Dictionary<string, int> usedItems, Network.ResponseCallback response)
+      this.name = "unit/job/equip/enforce";
+      this.body = "\"iid\":" + (object) iid + ",";
+      ReqEquipExpAdd reqEquipExpAdd = this;
+      reqEquipExpAdd.body = reqEquipExpAdd.body + "\"id_equip\":" + (object) slot + ",";
+      this.body += "\"mats\":[";
+      string str = string.Empty;
+      using (Dictionary<string, int>.Enumerator enumerator = usedItems.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
         {
-            object[] objArray1;
-            string str;
-            KeyValuePair<string, int> pair;
-            Dictionary<string, int>.Enumerator enumerator;
-            string str2;
-            base..ctor();
-            base.name = "unit/job/equip/enforce";
-            base.body = "\"iid\":" + ((long) iid) + ",";
-            str2 = base.body;
-            objArray1 = new object[] { str2, "\"id_equip\":", (int) slot, "," };
-            base.body = string.Concat(objArray1);
-            base.body = base.body + "\"mats\":[";
-            str = string.Empty;
-            enumerator = usedItems.GetEnumerator();
-        Label_0084:
-            try
-            {
-                goto Label_00D9;
-            Label_0089:
-                pair = &enumerator.Current;
-                str = str + "{";
-                str = str + "\"iname\":\"" + &pair.Key + "\",";
-                str = str + "\"num\":" + ((int) &pair.Value);
-                str = str + "},";
-            Label_00D9:
-                if (&enumerator.MoveNext() != null)
-                {
-                    goto Label_0089;
-                }
-                goto Label_00F6;
-            }
-            finally
-            {
-            Label_00EA:
-                ((Dictionary<string, int>.Enumerator) enumerator).Dispose();
-            }
-        Label_00F6:
-            if (str.Length <= 0)
-            {
-                goto Label_0112;
-            }
-            str = str.Substring(0, str.Length - 1);
-        Label_0112:
-            base.body = base.body + str;
-            base.body = base.body + "]";
-            base.body = WebAPI.GetRequestString(base.body);
-            base.callback = response;
-            return;
+          KeyValuePair<string, int> current = enumerator.Current;
+          str += "{";
+          str = str + "\"iname\":\"" + current.Key + "\",";
+          str = str + "\"num\":" + (object) current.Value;
+          str += "},";
         }
+      }
+      if (str.Length > 0)
+        str = str.Substring(0, str.Length - 1);
+      this.body += str;
+      this.body += "]";
+      this.body = WebAPI.GetRequestString(this.body);
+      this.callback = response;
     }
+  }
 }
-

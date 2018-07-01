@@ -1,65 +1,52 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.TowerEnemyListItem
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  public class TowerEnemyListItem : MonoBehaviour
+  {
+    [SerializeField]
+    private GameObject DisableIcon;
+    [SerializeField]
+    private CanvasGroup mCanvasGroup;
 
-    public class TowerEnemyListItem : MonoBehaviour
+    public TowerEnemyListItem()
     {
-        [SerializeField]
-        private GameObject DisableIcon;
-        [SerializeField]
-        private CanvasGroup mCanvasGroup;
-
-        public TowerEnemyListItem()
-        {
-            base..ctor();
-            return;
-        }
-
-        private void Refresh()
-        {
-            Unit unit;
-            unit = DataSource.FindDataOfClass<Unit>(base.get_gameObject(), null);
-            if (unit != null)
-            {
-                goto Label_0014;
-            }
-            return;
-        Label_0014:
-            if (unit.IsDead == null)
-            {
-                goto Label_0034;
-            }
-            this.mCanvasGroup.set_alpha(0.5f);
-            goto Label_0044;
-        Label_0034:
-            this.mCanvasGroup.set_alpha(1f);
-        Label_0044:
-            return;
-        }
-
-        private void Start()
-        {
-            this.UpdateValue();
-            this.Refresh();
-            if ((this.DisableIcon != null) == null)
-            {
-                goto Label_0029;
-            }
-            this.DisableIcon.SetActive(0);
-        Label_0029:
-            return;
-        }
-
-        private void Update()
-        {
-        }
-
-        public void UpdateValue()
-        {
-            this.Refresh();
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Start()
+    {
+      this.UpdateValue();
+      this.Refresh();
+      if (!Object.op_Inequality((Object) this.DisableIcon, (Object) null))
+        return;
+      this.DisableIcon.SetActive(false);
+    }
+
+    private void Update()
+    {
+    }
+
+    private void Refresh()
+    {
+      Unit dataOfClass = DataSource.FindDataOfClass<Unit>(((Component) this).get_gameObject(), (Unit) null);
+      if (dataOfClass == null)
+        return;
+      if (dataOfClass.IsDead)
+        this.mCanvasGroup.set_alpha(0.5f);
+      else
+        this.mCanvasGroup.set_alpha(1f);
+    }
+
+    public void UpdateValue()
+    {
+      this.Refresh();
+    }
+  }
+}

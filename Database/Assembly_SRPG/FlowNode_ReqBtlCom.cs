@@ -1,121 +1,88 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_ReqBtlCom
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 10)]
+  [FlowNode.Pin(100, "Start", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(2, "Reset to Title", FlowNode.PinTypes.Output, 11)]
+  [FlowNode.NodeType("System/ReqBtlCom", 32741)]
+  public class FlowNode_ReqBtlCom : FlowNode_Network
+  {
+    public bool FastRefresh;
+    public bool GetTowerProgress;
 
-    [Pin(100, "Start", 0, 0), Pin(2, "Reset to Title", 1, 11), NodeType("System/ReqBtlCom", 0x7fe5), Pin(1, "Success", 1, 10)]
-    public class FlowNode_ReqBtlCom : FlowNode_Network
+    public override void OnActivate(int pinID)
     {
-        public bool FastRefresh;
-        public bool GetTowerProgress;
-
-        public FlowNode_ReqBtlCom()
-        {
-            base..ctor();
-            return;
-        }
-
-        private void Failure()
-        {
-            base.set_enabled(0);
-            base.ActivateOutputLinks(2);
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != 100)
-            {
-                goto Label_0047;
-            }
-            if (Network.Mode != null)
-            {
-                goto Label_0041;
-            }
-            base.ExecRequest(new ReqBtlCom(new Network.ResponseCallback(this.ResponseCallback), this.FastRefresh, this.GetTowerProgress));
-            base.set_enabled(1);
-            goto Label_0047;
-        Label_0041:
-            this.Success();
-        Label_0047:
-            return;
-        }
-
-        public override unsafe void OnSuccess(WWWResult www)
-        {
-            WebAPI.JSON_BodyResponse<JSON_ReqBtlComResponse> response;
-            GameManager manager;
-            int num;
-            JSON_ReqTowerResuponse.Json_TowerProg prog;
-            TowerParam param;
-            Network.EErrCode code;
-            if (Network.IsError == null)
-            {
-                goto Label_0018;
-            }
-            code = Network.ErrCode;
-            this.OnRetry();
-            return;
-        Label_0018:
-            response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<JSON_ReqBtlComResponse>>(&www.text);
-            DebugUtility.Assert((response == null) == 0, "res == null");
-            Network.RemoveAPI();
-            manager = MonoSingleton<GameManager>.Instance;
-            manager.Player.SetQuestListDirty();
-            manager.ResetJigenQuests();
-            if (manager.Deserialize(response.body.quests) != null)
-            {
-                goto Label_006F;
-            }
-            this.Failure();
-            return;
-        Label_006F:
-            if (response.body.towers == null)
-            {
-                goto Label_00D5;
-            }
-            num = 0;
-            goto Label_00C2;
-        Label_0086:
-            prog = response.body.towers[num];
-            param = manager.FindTower(prog.iname);
-            if (param != null)
-            {
-                goto Label_00AE;
-            }
-            goto Label_00BE;
-        Label_00AE:
-            param.is_unlock = prog.is_open == 1;
-        Label_00BE:
-            num += 1;
-        Label_00C2:
-            if (num < ((int) response.body.towers.Length))
-            {
-                goto Label_0086;
-            }
-        Label_00D5:
-            this.Success();
-            return;
-        }
-
-        private void Success()
-        {
-            base.set_enabled(0);
-            base.ActivateOutputLinks(1);
-            return;
-        }
-
-        public class JSON_ReqBtlComResponse
-        {
-            public JSON_QuestProgress[] quests;
-            public JSON_ReqTowerResuponse.Json_TowerProg[] towers;
-
-            public JSON_ReqBtlComResponse()
-            {
-                base..ctor();
-                return;
-            }
-        }
+      if (pinID != 100)
+        return;
+      if (Network.Mode == Network.EConnectMode.Online)
+      {
+        this.ExecRequest((WebAPI) new ReqBtlCom(new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback), this.FastRefresh, this.GetTowerProgress));
+        ((Behaviour) this).set_enabled(true);
+      }
+      else
+        this.Success();
     }
-}
 
+    private void Success()
+    {
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(1);
+    }
+
+    private void Failure()
+    {
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(2);
+    }
+
+    public override void OnSuccess(WWWResult www)
+    {
+      if (Network.IsError)
+      {
+        Network.EErrCode errCode = Network.ErrCode;
+        this.OnRetry();
+      }
+      else
+      {
+        WebAPI.JSON_BodyResponse<FlowNode_ReqBtlCom.JSON_ReqBtlComResponse> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<FlowNode_ReqBtlCom.JSON_ReqBtlComResponse>>(www.text);
+        DebugUtility.Assert(jsonObject != null, "res == null");
+        Network.RemoveAPI();
+        GameManager instance = MonoSingleton<GameManager>.Instance;
+        instance.Player.SetQuestListDirty();
+        instance.ResetJigenQuests(false);
+        if (!instance.Deserialize(jsonObject.body.quests))
+        {
+          this.Failure();
+        }
+        else
+        {
+          if (jsonObject.body.towers != null)
+          {
+            for (int index = 0; index < jsonObject.body.towers.Length; ++index)
+            {
+              JSON_ReqTowerResuponse.Json_TowerProg tower1 = jsonObject.body.towers[index];
+              TowerParam tower2 = instance.FindTower(tower1.iname);
+              if (tower2 != null)
+                tower2.is_unlock = tower1.is_open == 1;
+            }
+          }
+          this.Success();
+        }
+      }
+    }
+
+    public class JSON_ReqBtlComResponse
+    {
+      public JSON_QuestProgress[] quests;
+      public JSON_ReqTowerResuponse.Json_TowerProg[] towers;
+    }
+  }
+}

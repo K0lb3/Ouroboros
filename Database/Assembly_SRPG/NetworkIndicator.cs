@@ -1,87 +1,122 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.NetworkIndicator
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  public class NetworkIndicator : MonoBehaviour
+  {
+    public GameObject Body;
+    public float FadeTime;
+    public float KeepUp;
+    private CanvasGroup mCanvasGroup;
+    private float mRemainingTime;
+    private string lang;
+    [SerializeField]
+    private Image header;
+    [SerializeField]
+    private Image fotter;
+    [SerializeField]
+    private Sprite[] locHeaderSprites;
+    [SerializeField]
+    private Sprite[] locFotterSprites;
 
-    public class NetworkIndicator : MonoBehaviour
+    public NetworkIndicator()
     {
-        public GameObject Body;
-        public float FadeTime;
-        public float KeepUp;
-        private CanvasGroup mCanvasGroup;
-        private float mRemainingTime;
-
-        public NetworkIndicator()
-        {
-            this.FadeTime = 1f;
-            this.KeepUp = 0.5f;
-            base..ctor();
-            return;
-        }
-
-        private void Start()
-        {
-            if ((this.Body != null) == null)
-            {
-                goto Label_002E;
-            }
-            this.mCanvasGroup = this.Body.GetComponent<CanvasGroup>();
-            this.Body.SetActive(0);
-        Label_002E:
-            return;
-        }
-
-        private void Update()
-        {
-            if (Network.IsIndicator != null)
-            {
-                goto Label_0017;
-            }
-            this.Body.SetActive(0);
-            return;
-        Label_0017:
-            if (Network.IsBusy != null)
-            {
-                goto Label_003F;
-            }
-            if (AssetDownloader.isDone == null)
-            {
-                goto Label_003F;
-            }
-            if (FlowNode_NetworkIndicator.NeedDisplay() != null)
-            {
-                goto Label_003F;
-            }
-            if (EventAction.IsLoading == null)
-            {
-                goto Label_0052;
-            }
-        Label_003F:
-            this.mRemainingTime = this.KeepUp + this.FadeTime;
-        Label_0052:
-            if (this.mRemainingTime <= 0f)
-            {
-                goto Label_00DB;
-            }
-            this.mRemainingTime -= Time.get_unscaledDeltaTime();
-            if ((this.mCanvasGroup != null) == null)
-            {
-                goto Label_00B2;
-            }
-            if (this.FadeTime <= 0f)
-            {
-                goto Label_00B2;
-            }
-            this.mCanvasGroup.set_alpha(Mathf.Clamp01(this.mRemainingTime / this.FadeTime));
-        Label_00B2:
-            if ((this.Body != null) == null)
-            {
-                goto Label_00DB;
-            }
-            this.Body.SetActive(this.mRemainingTime > 0f);
-        Label_00DB:
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Start()
+    {
+      if (!Object.op_Inequality((Object) this.Body, (Object) null))
+        return;
+      this.mCanvasGroup = (CanvasGroup) this.Body.GetComponent<CanvasGroup>();
+      this.Body.SetActive(false);
+    }
+
+    private void Update()
+    {
+      if (!Network.IsIndicator)
+      {
+        this.Body.SetActive(false);
+      }
+      else
+      {
+        if (Network.IsBusy || !AssetDownloader.isDone || (FlowNode_NetworkIndicator.NeedDisplay() || EventAction.IsLoading))
+          this.mRemainingTime = this.KeepUp + this.FadeTime;
+        if ((double) this.mRemainingTime > 0.0)
+        {
+          this.mRemainingTime -= Time.get_unscaledDeltaTime();
+          if (Object.op_Inequality((Object) this.mCanvasGroup, (Object) null) && (double) this.FadeTime > 0.0)
+            this.mCanvasGroup.set_alpha(Mathf.Clamp01(this.mRemainingTime / this.FadeTime));
+          if (Object.op_Inequality((Object) this.Body, (Object) null))
+            this.Body.SetActive((double) this.mRemainingTime > 0.0);
+        }
+        this.SetLocalizedSprite();
+      }
+    }
+
+    private void SetLocalizedSprite()
+    {
+      if (!PlayerPrefs.HasKey("Selected_Language"))
+        return;
+      string configLanguage = GameUtility.Config_Language;
+      if (!(this.lang != configLanguage))
+        return;
+      this.lang = configLanguage;
+      int index = 0;
+      string lang = this.lang;
+      if (lang != null)
+      {
+        // ISSUE: reference to a compiler-generated field
+        if (NetworkIndicator.\u003C\u003Ef__switch\u0024mapF == null)
+        {
+          // ISSUE: reference to a compiler-generated field
+          NetworkIndicator.\u003C\u003Ef__switch\u0024mapF = new Dictionary<string, int>(3)
+          {
+            {
+              "french",
+              0
+            },
+            {
+              "german",
+              1
+            },
+            {
+              "spanish",
+              2
+            }
+          };
+        }
+        int num;
+        // ISSUE: reference to a compiler-generated field
+        if (NetworkIndicator.\u003C\u003Ef__switch\u0024mapF.TryGetValue(lang, out num))
+        {
+          switch (num)
+          {
+            case 0:
+              index = 1;
+              break;
+            case 1:
+              index = 2;
+              break;
+            case 2:
+              index = 3;
+              break;
+          }
+        }
+      }
+      if (this.locHeaderSprites != null && Object.op_Inequality((Object) this.header, (Object) null) && index < this.locHeaderSprites.Length)
+        this.header.set_overrideSprite(this.locHeaderSprites[index]);
+      if (this.locFotterSprites == null || !Object.op_Inequality((Object) this.fotter, (Object) null) || index >= this.locFotterSprites.Length)
+        return;
+      this.fotter.set_overrideSprite(this.locFotterSprites[index]);
+    }
+  }
+}

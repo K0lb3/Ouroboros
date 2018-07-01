@@ -1,45 +1,24 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.Json_ShopItemDesc
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
+  public class Json_ShopItemDesc
+  {
+    public string iname;
+    public int num;
+    public int maxnum;
+    public int boughtnum;
 
-    public class Json_ShopItemDesc
+    public bool IsArtifact
     {
-        public string iname;
-        public int num;
-        public string itype;
-        public int maxnum;
-        public int boughtnum;
-        public int has_count;
-
-        public Json_ShopItemDesc()
-        {
-            base..ctor();
-            return;
-        }
-
-        public bool IsItem
-        {
-            get
-            {
-                return (this.itype == "item");
-            }
-        }
-
-        public bool IsArtifact
-        {
-            get
-            {
-                return (this.itype == "artifact");
-            }
-        }
-
-        public bool IsConceptCard
-        {
-            get
-            {
-                return (this.itype == "concept_card");
-            }
-        }
+      get
+      {
+        return this.iname.StartsWith("AF_");
+      }
     }
+  }
 }
-

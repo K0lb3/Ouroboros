@@ -1,30 +1,33 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqAuthEmailRegister
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    public class ReqAuthEmailRegister : WebAPI
+  public class ReqAuthEmailRegister : WebAPI
+  {
+    public ReqAuthEmailRegister(string email, string password, string device_id, string secret_key, string udid, Network.ResponseCallback response)
     {
-        public ReqAuthEmailRegister(string email, string password, string device_id, string secret_key, string udid, Network.ResponseCallback response)
-        {
-            object[] objArray1;
-            string str;
-            base..ctor();
-            base.name = "auth/email/register";
-            base.body = "{";
-            str = base.body;
-            objArray1 = new object[] { str, "\"ticket\":", (int) Network.TicketID, "," };
-            base.body = string.Concat(objArray1);
-            base.body = base.body + "\"access_token\":\"\",";
-            base.body = base.body + "\"email\":\"" + email + "\",";
-            base.body = base.body + "\"password\":\"" + password + "\",";
-            base.body = base.body + "\"disable_validation_email\":true,";
-            base.body = base.body + "\"device_id\":\"" + device_id + "\",";
-            base.body = base.body + "\"secret_key\":\"" + secret_key + "\",";
-            base.body = base.body + "\"udid\":\"" + udid + "\"";
-            base.body = base.body + "}";
-            base.callback = response;
-            return;
-        }
+      this.name = "auth/email/register";
+      this.body = "{";
+      ReqAuthEmailRegister authEmailRegister1 = this;
+      authEmailRegister1.body = authEmailRegister1.body + "\"ticket\":" + (object) Network.TicketID + ",";
+      this.body += "\"access_token\":\"\",";
+      ReqAuthEmailRegister authEmailRegister2 = this;
+      authEmailRegister2.body = authEmailRegister2.body + "\"email\":\"" + email + "\",";
+      ReqAuthEmailRegister authEmailRegister3 = this;
+      authEmailRegister3.body = authEmailRegister3.body + "\"password\":\"" + password + "\",";
+      this.body += "\"disable_validation_email\":true,";
+      ReqAuthEmailRegister authEmailRegister4 = this;
+      authEmailRegister4.body = authEmailRegister4.body + "\"device_id\":\"" + device_id + "\",";
+      ReqAuthEmailRegister authEmailRegister5 = this;
+      authEmailRegister5.body = authEmailRegister5.body + "\"secret_key\":\"" + secret_key + "\",";
+      ReqAuthEmailRegister authEmailRegister6 = this;
+      authEmailRegister6.body = authEmailRegister6.body + "\"udid\":\"" + udid + "\"";
+      this.body += "}";
+      this.callback = response;
     }
+  }
 }
-

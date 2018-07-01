@@ -1,136 +1,87 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.JobSetParam
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+
+namespace SRPG
 {
-    using GR;
-    using System;
+  public class JobSetParam
+  {
+    public string iname;
+    public string job;
+    public int lock_rarity;
+    public int lock_awakelv;
+    public JobSetParam.JobLock[] lock_jobs;
+    public string jobchange;
+    public string target_unit;
 
-    public class JobSetParam
+    public bool Deserialize(JSON_JobSetParam json)
     {
-        public string iname;
-        public string job;
-        public int lock_rarity;
-        public int lock_awakelv;
-        public JobLock[] lock_jobs;
-        public string jobchange;
-        public string target_unit;
-
-        public JobSetParam()
+      if (json == null)
+        return false;
+      this.iname = json.iname;
+      this.job = json.job;
+      this.jobchange = json.cjob;
+      this.target_unit = json.target_unit;
+      this.lock_rarity = json.lrare;
+      this.lock_awakelv = json.lplus;
+      this.lock_jobs = (JobSetParam.JobLock[]) null;
+      int length = 0;
+      if (!string.IsNullOrEmpty(json.ljob1))
+        ++length;
+      if (!string.IsNullOrEmpty(json.ljob2))
+        ++length;
+      if (!string.IsNullOrEmpty(json.ljob3))
+        ++length;
+      if (length > 0)
+      {
+        this.lock_jobs = new JobSetParam.JobLock[length];
+        int index = 0;
+        if (!string.IsNullOrEmpty(json.ljob1))
         {
-            base..ctor();
-            return;
+          this.lock_jobs[index] = new JobSetParam.JobLock();
+          this.lock_jobs[index].iname = json.ljob1;
+          this.lock_jobs[index].lv = json.llv1;
+          ++index;
         }
-
-        public bool ContainsJob(string iname)
+        if (!string.IsNullOrEmpty(json.ljob2))
         {
-            if (string.IsNullOrEmpty(iname) == null)
-            {
-                goto Label_000D;
-            }
-            return 0;
-        Label_000D:
-            if ((iname == this.job) == null)
-            {
-                goto Label_0020;
-            }
-            return 1;
-        Label_0020:
-            if (this.jobchange != null)
-            {
-                goto Label_002D;
-            }
-            return 0;
-        Label_002D:
-            if ((iname == this.jobchange) == null)
-            {
-                goto Label_0040;
-            }
-            return 1;
-        Label_0040:
-            return MonoSingleton<GameManager>.GetInstanceDirect().MasterParam.GetJobSetParam(this.jobchange).ContainsJob(iname);
+          this.lock_jobs[index] = new JobSetParam.JobLock();
+          this.lock_jobs[index].iname = json.ljob2;
+          this.lock_jobs[index].lv = json.llv2;
+          ++index;
         }
-
-        public bool Deserialize(JSON_JobSetParam json)
+        if (!string.IsNullOrEmpty(json.ljob3))
         {
-            int num;
-            int num2;
-            if (json != null)
-            {
-                goto Label_0008;
-            }
-            return 0;
-        Label_0008:
-            this.iname = json.iname;
-            this.job = json.job;
-            this.jobchange = json.cjob;
-            this.target_unit = json.target_unit;
-            this.lock_rarity = json.lrare;
-            this.lock_awakelv = json.lplus;
-            this.lock_jobs = null;
-            num = 0;
-            if (string.IsNullOrEmpty(json.ljob1) != null)
-            {
-                goto Label_006D;
-            }
-            num += 1;
-        Label_006D:
-            if (string.IsNullOrEmpty(json.ljob2) != null)
-            {
-                goto Label_0081;
-            }
-            num += 1;
-        Label_0081:
-            if (string.IsNullOrEmpty(json.ljob3) != null)
-            {
-                goto Label_0095;
-            }
-            num += 1;
-        Label_0095:
-            if (num <= 0)
-            {
-                goto Label_017F;
-            }
-            this.lock_jobs = new JobLock[num];
-            num2 = 0;
-            if (string.IsNullOrEmpty(json.ljob1) != null)
-            {
-                goto Label_00F1;
-            }
-            this.lock_jobs[num2] = new JobLock();
-            this.lock_jobs[num2].iname = json.ljob1;
-            this.lock_jobs[num2].lv = json.llv1;
-            num2 += 1;
-        Label_00F1:
-            if (string.IsNullOrEmpty(json.ljob2) != null)
-            {
-                goto Label_0138;
-            }
-            this.lock_jobs[num2] = new JobLock();
-            this.lock_jobs[num2].iname = json.ljob2;
-            this.lock_jobs[num2].lv = json.llv2;
-            num2 += 1;
-        Label_0138:
-            if (string.IsNullOrEmpty(json.ljob3) != null)
-            {
-                goto Label_017F;
-            }
-            this.lock_jobs[num2] = new JobLock();
-            this.lock_jobs[num2].iname = json.ljob3;
-            this.lock_jobs[num2].lv = json.llv3;
-            num2 += 1;
-        Label_017F:
-            return 1;
+          this.lock_jobs[index] = new JobSetParam.JobLock();
+          this.lock_jobs[index].iname = json.ljob3;
+          this.lock_jobs[index].lv = json.llv3;
+          int num = index + 1;
         }
-
-        public class JobLock
-        {
-            public string iname;
-            public int lv;
-
-            public JobLock()
-            {
-                base..ctor();
-                return;
-            }
-        }
+      }
+      return true;
     }
-}
 
+    public bool ContainsJob(string iname)
+    {
+      if (string.IsNullOrEmpty(iname))
+        return false;
+      if (iname == this.job)
+        return true;
+      if (this.jobchange == null)
+        return false;
+      if (iname == this.jobchange)
+        return true;
+      return MonoSingleton<GameManager>.GetInstanceDirect().MasterParam.GetJobSetParam(this.jobchange).ContainsJob(iname);
+    }
+
+    public class JobLock
+    {
+      public string iname;
+      public int lv;
+    }
+  }
+}

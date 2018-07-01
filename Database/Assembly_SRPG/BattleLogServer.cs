@@ -1,231 +1,153 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.BattleLogServer
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System;
+using System.Text;
+
+namespace SRPG
 {
-    using System;
-    using System.Reflection;
-    using System.Text;
+  public class BattleLogServer
+  {
+    public static readonly int MAX_REGISTER_BATTLE_LOG = 128;
+    private static readonly int BATTLE_LOG_REPORT_SIZE = 2048;
+    private StringBuilder mReport = new StringBuilder(BattleLogServer.BATTLE_LOG_REPORT_SIZE);
+    private BattleLog[] mLogs;
+    private int mLogNum;
+    private int mLogTop;
 
-    public class BattleLogServer
+    public BattleLogServer()
     {
-        public static readonly int MAX_REGISTER_BATTLE_LOG;
-        private static readonly int BATTLE_LOG_REPORT_SIZE;
-        private BattleLog[] mLogs;
-        private int mLogNum;
-        private int mLogTop;
-        private StringBuilder mReport;
-
-        static BattleLogServer()
-        {
-            MAX_REGISTER_BATTLE_LOG = 0x100;
-            BATTLE_LOG_REPORT_SIZE = 0x800;
-            return;
-        }
-
-        public BattleLogServer()
-        {
-            this.mReport = new StringBuilder(BATTLE_LOG_REPORT_SIZE);
-            base..ctor();
-            this.mLogs = new BattleLog[MAX_REGISTER_BATTLE_LOG];
-            this.Reset();
-            return;
-        }
-
-        public LogType Log<LogType>() where LogType: BattleLog, new()
-        {
-            int num;
-            LogType local;
-            if (this.mLogNum <= ((int) this.mLogs.Length))
-            {
-                goto Label_0024;
-            }
-            DebugUtility.LogError("BattleLog: failed many log.");
-            return (LogType) null;
-        Label_0024:
-            num = (this.mLogTop + this.mLogNum) % ((int) this.mLogs.Length);
-            local = Activator.CreateInstance<LogType>();
-            this.mLogs[num] = (LogType) local;
-            this.mLogNum += 1;
-            return local;
-        }
-
-        public void Release()
-        {
-            int num;
-            if (this.mLogs == null)
-            {
-                goto Label_0034;
-            }
-            num = 0;
-            goto Label_001F;
-        Label_0012:
-            this.mLogs[num] = null;
-            num += 1;
-        Label_001F:
-            if (num < ((int) this.mLogs.Length))
-            {
-                goto Label_0012;
-            }
-            this.mLogs = null;
-        Label_0034:
-            this.mReport = null;
-            return;
-        }
-
-        public void RemoveLog()
-        {
-            if (this.mLogs[this.mLogTop] == null)
-            {
-                goto Label_002A;
-            }
-            this.mLogs[this.mLogTop].Serialize(this.mReport);
-        Label_002A:
-            this.mLogs[this.mLogTop] = null;
-            this.mLogTop = (this.mLogTop + 1) % ((int) this.mLogs.Length);
-            this.mLogNum -= 1;
-            return;
-        }
-
-        public void RemoveLogLast()
-        {
-            int num;
-            if (this.mLogNum > 0)
-            {
-                goto Label_000D;
-            }
-            return;
-        Label_000D:
-            num = (this.mLogTop + (this.mLogNum - 1)) % ((int) this.mLogs.Length);
-            if (num >= 0)
-            {
-                goto Label_002F;
-            }
-            num = 0;
-        Label_002F:
-            this.mLogs[num] = null;
-            this.mLogNum -= 1;
-            return;
-        }
-
-        public void RemoveLogOffs(int offs)
-        {
-            int num;
-            int num2;
-            int num3;
-            int num4;
-            if (offs < 0)
-            {
-                goto Label_0013;
-            }
-            if (offs < this.mLogNum)
-            {
-                goto Label_0014;
-            }
-        Label_0013:
-            return;
-        Label_0014:
-            if (offs != null)
-            {
-                goto Label_0021;
-            }
-            this.RemoveLog();
-            return;
-        Label_0021:
-            num = (this.mLogTop + offs) % ((int) this.mLogs.Length);
-            this.mLogs[num] = null;
-            num2 = 0;
-            goto Label_0081;
-        Label_0043:
-            num3 = (((this.mLogTop + offs) + num2) + 1) % ((int) this.mLogs.Length);
-            num4 = ((this.mLogTop + offs) + num2) % ((int) this.mLogs.Length);
-            this.mLogs[num4] = this.mLogs[num3];
-            num2 += 1;
-        Label_0081:
-            if (num2 < (this.mLogNum - offs))
-            {
-                goto Label_0043;
-            }
-            if (this.mLogNum != MAX_REGISTER_BATTLE_LOG)
-            {
-                goto Label_00BE;
-            }
-            this.mLogs[((this.mLogTop + MAX_REGISTER_BATTLE_LOG) - 1) % ((int) this.mLogs.Length)] = null;
-        Label_00BE:
-            this.mLogNum -= 1;
-            return;
-        }
-
-        public void Reset()
-        {
-            int num;
-            num = 0;
-            goto Label_0014;
-        Label_0007:
-            this.mLogs[num] = null;
-            num += 1;
-        Label_0014:
-            if (num < ((int) this.mLogs.Length))
-            {
-                goto Label_0007;
-            }
-            this.mLogNum = 0;
-            this.mLogTop = 0;
-            return;
-        }
-
-        public BattleLog this[int offset]
-        {
-            get
-            {
-                return this.mLogs[(this.mLogTop + offset) % ((int) this.mLogs.Length)];
-            }
-        }
-
-        public int Num
-        {
-            get
-            {
-                return this.mLogNum;
-            }
-        }
-
-        public int Top
-        {
-            get
-            {
-                return this.mLogTop;
-            }
-        }
-
-        public BattleLog Peek
-        {
-            get
-            {
-                return this.mLogs[this.mLogTop];
-            }
-        }
-
-        public BattleLog Last
-        {
-            get
-            {
-                int num;
-                num = (this.mLogTop + (this.mLogNum - 1)) % ((int) this.mLogs.Length);
-                if (num >= 0)
-                {
-                    goto Label_0022;
-                }
-                num = 0;
-            Label_0022:
-                return this.mLogs[num];
-            }
-        }
-
-        public StringBuilder Report
-        {
-            get
-            {
-                return this.mReport;
-            }
-        }
+      this.mLogs = new BattleLog[BattleLogServer.MAX_REGISTER_BATTLE_LOG];
+      this.Reset();
     }
-}
 
+    public BattleLog this[int offset]
+    {
+      get
+      {
+        return this.mLogs[(this.mLogTop + offset) % this.mLogs.Length];
+      }
+    }
+
+    public int Num
+    {
+      get
+      {
+        return this.mLogNum;
+      }
+    }
+
+    public int Top
+    {
+      get
+      {
+        return this.mLogTop;
+      }
+    }
+
+    public BattleLog Peek
+    {
+      get
+      {
+        return this.mLogs[this.mLogTop];
+      }
+    }
+
+    public BattleLog Last
+    {
+      get
+      {
+        int index = (this.mLogTop + (this.mLogNum - 1)) % this.mLogs.Length;
+        if (index < 0)
+          index = 0;
+        return this.mLogs[index];
+      }
+    }
+
+    public StringBuilder Report
+    {
+      get
+      {
+        return this.mReport;
+      }
+    }
+
+    public void Release()
+    {
+      if (this.mLogs != null)
+      {
+        for (int index = 0; index < this.mLogs.Length; ++index)
+          this.mLogs[index] = (BattleLog) null;
+        this.mLogs = (BattleLog[]) null;
+      }
+      this.mReport = (StringBuilder) null;
+    }
+
+    public void Reset()
+    {
+      for (int index = 0; index < this.mLogs.Length; ++index)
+        this.mLogs[index] = (BattleLog) null;
+      this.mLogNum = 0;
+      this.mLogTop = 0;
+    }
+
+    public LogType Log<LogType>() where LogType : BattleLog, new()
+    {
+      if (this.mLogNum > this.mLogs.Length)
+      {
+        DebugUtility.LogError("failed many log.");
+        return (LogType) null;
+      }
+      int index = (this.mLogTop + this.mLogNum) % this.mLogs.Length;
+      LogType instance = Activator.CreateInstance<LogType>();
+      this.mLogs[index] = (BattleLog) instance;
+      ++this.mLogNum;
+      return instance;
+    }
+
+    public void RemoveLog()
+    {
+      if (this.mLogs[this.mLogTop] != null)
+        this.mLogs[this.mLogTop].Serialize(this.mReport);
+      this.mLogs[this.mLogTop] = (BattleLog) null;
+      this.mLogTop = (this.mLogTop + 1) % this.mLogs.Length;
+      --this.mLogNum;
+    }
+
+    public void RemoveLogLast()
+    {
+      if (this.mLogNum <= 0)
+        return;
+      int index = (this.mLogTop + (this.mLogNum - 1)) % this.mLogs.Length;
+      if (index < 0)
+        index = 0;
+      this.mLogs[index] = (BattleLog) null;
+      --this.mLogNum;
+    }
+
+    public void RemoveLogOffs(int offs)
+    {
+      if (offs < 0 || offs >= this.mLogNum)
+        return;
+      if (offs == 0)
+      {
+        this.RemoveLog();
+      }
+      else
+      {
+        this.mLogs[(this.mLogTop + offs) % this.mLogs.Length] = (BattleLog) null;
+        for (int index1 = 0; index1 < this.mLogNum - offs; ++index1)
+        {
+          int index2 = (this.mLogTop + offs + index1 + 1) % this.mLogs.Length;
+          this.mLogs[(this.mLogTop + offs + index1) % this.mLogs.Length] = this.mLogs[index2];
+        }
+        if (this.mLogNum == BattleLogServer.MAX_REGISTER_BATTLE_LOG)
+          this.mLogs[(this.mLogTop + BattleLogServer.MAX_REGISTER_BATTLE_LOG - 1) % this.mLogs.Length] = (BattleLog) null;
+        --this.mLogNum;
+      }
+    }
+  }
+}

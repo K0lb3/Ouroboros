@@ -1,32 +1,27 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_EventPageListType
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  [FlowNode.Pin(0, "設定", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(100, "完了", FlowNode.PinTypes.Output, 100)]
+  [FlowNode.NodeType("System/EventPageListType")]
+  public class FlowNode_EventPageListType : FlowNode
+  {
+    [SerializeField]
+    private GlobalVars.EventQuestListType m_TargetEventQuestListType;
 
-    [Pin(0, "設定", 0, 0), Pin(100, "完了", 1, 100), NodeType("System/EventPageListType")]
-    public class FlowNode_EventPageListType : FlowNode
+    public override void OnActivate(int pinID)
     {
-        [SerializeField]
-        private GlobalVars.EventQuestListType m_TargetEventQuestListType;
-
-        public FlowNode_EventPageListType()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            base.OnActivate(pinID);
-            if (pinID != null)
-            {
-                goto Label_0021;
-            }
-            GlobalVars.ReqEventPageListType = this.m_TargetEventQuestListType;
-            base.ActivateOutputLinks(100);
-        Label_0021:
-            return;
-        }
+      if (pinID != 0)
+        return;
+      GlobalVars.ReqEventPageListType = this.m_TargetEventQuestListType;
+      this.ActivateOutputLinks(100);
     }
+  }
 }
-

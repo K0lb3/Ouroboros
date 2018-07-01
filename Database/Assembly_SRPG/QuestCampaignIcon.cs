@@ -1,153 +1,97 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.QuestCampaignIcon
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Runtime.InteropServices;
-    using UnityEngine;
-    using UnityEngine.UI;
+  public class QuestCampaignIcon : MonoBehaviour
+  {
+    public Text Text;
+    public Image UnitIcon;
 
-    public class QuestCampaignIcon : MonoBehaviour
+    public QuestCampaignIcon()
     {
-        public UnityEngine.UI.Text Text;
-        public Image UnitIcon;
-
-        public QuestCampaignIcon()
-        {
-            base..ctor();
-            return;
-        }
-
-        private bool SetUnitIcon(QuestCampaignData data)
-        {
-            GameManager manager;
-            UnitParam param;
-            SpriteSheet sheet;
-            ItemParam param2;
-            if (string.IsNullOrEmpty(data.unit) == null)
-            {
-                goto Label_0012;
-            }
-            return 0;
-        Label_0012:
-            manager = MonoSingleton<GameManager>.GetInstanceDirect();
-            param = manager.GetUnitParam(data.unit);
-            if (param == null)
-            {
-                goto Label_006D;
-            }
-            sheet = AssetManager.Load<SpriteSheet>("ItemIcon/small");
-            param2 = manager.GetItemParam(param.piece);
-            if ((this.UnitIcon != null) == null)
-            {
-                goto Label_006B;
-            }
-            this.UnitIcon.set_sprite(sheet.GetSprite(param2.icon));
-        Label_006B:
-            return 1;
-        Label_006D:
-            return 0;
-        }
-
-        private void Start()
-        {
-            QuestCampaignData data;
-            data = DataSource.FindDataOfClass<QuestCampaignData>(base.get_gameObject(), null);
-            if (data != null)
-            {
-                goto Label_0020;
-            }
-            base.get_gameObject().SetActive(0);
-            return;
-        Label_0020:
-            if ((this.UnitIcon != null) == null)
-            {
-                goto Label_004E;
-            }
-            if (this.SetUnitIcon(data) != null)
-            {
-                goto Label_004E;
-            }
-            this.UnitIcon.get_gameObject().SetActive(0);
-        Label_004E:
-            if ((this.Text != null) == null)
-            {
-                goto Label_0076;
-            }
-            this.Text.set_text(this.ValueToString(data.value));
-        Label_0076:
-            return;
-        }
-
-        private unsafe void ValueToFraction(int value, out int num, out int denom)
-        {
-            float num2;
-            int num3;
-            float num4;
-            int num5;
-            int num6;
-            int num7;
-            float num8;
-            float num9;
-            num2 = ((float) value) / 100f;
-            num3 = 10;
-            num4 = 1E-06f;
-            num5 = 1;
-            goto Label_0068;
-        Label_0019:
-            num6 = (int) (num2 * ((float) num5));
-            num7 = num6 + 1;
-            num8 = ((float) num6) / ((float) num5);
-            num9 = ((float) num7) / ((float) num5);
-            if (Mathf.Abs(num8 - num2) >= num4)
-            {
-                goto Label_004D;
-            }
-            *((int*) num) = num6;
-            *((int*) denom) = num5;
-            return;
-        Label_004D:
-            if (Mathf.Abs(num9 - num2) >= num4)
-            {
-                goto Label_0064;
-            }
-            *((int*) num) = num7;
-            *((int*) denom) = num5;
-            return;
-        Label_0064:
-            num5 += 1;
-        Label_0068:
-            if (num5 <= num3)
-            {
-                goto Label_0019;
-            }
-            *((int*) num) = 1;
-            *((int*) denom) = 1;
-            return;
-        }
-
-        private unsafe string ValueToString(int value)
-        {
-            int num;
-            int num2;
-            float num3;
-            float num4;
-            if (value >= 100)
-            {
-                goto Label_002A;
-            }
-            this.ValueToFraction(value, &num, &num2);
-            return string.Format("{0}/{1}", (int) num, (int) num2);
-        Label_002A:
-            if ((value % 100) != null)
-            {
-                goto Label_0050;
-            }
-            return string.Format("{0}", (int) Mathf.FloorToInt(((float) value) / 100f));
-        Label_0050:
-            num3 = (float) Mathf.FloorToInt(((float) value) / 100f);
-            num4 = (float) Mathf.FloorToInt(((float) (value % 100)) / 10f);
-            return string.Format("{0}.{1}", (float) num3, (float) num4);
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Start()
+    {
+      QuestCampaignData dataOfClass = DataSource.FindDataOfClass<QuestCampaignData>(((Component) this).get_gameObject(), (QuestCampaignData) null);
+      if (dataOfClass == null)
+      {
+        ((Component) this).get_gameObject().SetActive(false);
+      }
+      else
+      {
+        if (Object.op_Inequality((Object) this.UnitIcon, (Object) null) && !this.SetUnitIcon(dataOfClass))
+          ((Component) this.UnitIcon).get_gameObject().SetActive(false);
+        if (!Object.op_Inequality((Object) this.Text, (Object) null))
+          return;
+        this.Text.set_text(this.ValueToString(dataOfClass.value));
+      }
+    }
+
+    private bool SetUnitIcon(QuestCampaignData data)
+    {
+      if (string.IsNullOrEmpty(data.unit))
+        return false;
+      GameManager instanceDirect = MonoSingleton<GameManager>.GetInstanceDirect();
+      UnitParam unitParam = instanceDirect.GetUnitParam(data.unit);
+      if (unitParam == null)
+        return false;
+      SpriteSheet spriteSheet = AssetManager.Load<SpriteSheet>("ItemIcon/small");
+      ItemParam itemParam = instanceDirect.GetItemParam((string) unitParam.piece);
+      if (Object.op_Inequality((Object) this.UnitIcon, (Object) null))
+        this.UnitIcon.set_sprite(spriteSheet.GetSprite((string) itemParam.icon));
+      return true;
+    }
+
+    private void ValueToFraction(int value, out int num, out int denom)
+    {
+      float num1 = (float) value / 100f;
+      int num2 = 10;
+      float num3 = 1E-06f;
+      for (int index = 1; index <= num2; ++index)
+      {
+        int num4 = (int) ((double) num1 * (double) index);
+        int num5 = num4 + 1;
+        float num6 = (float) num4 / (float) index;
+        float num7 = (float) num5 / (float) index;
+        if ((double) Mathf.Abs(num6 - num1) < (double) num3)
+        {
+          num = num4;
+          denom = index;
+          return;
+        }
+        if ((double) Mathf.Abs(num7 - num1) < (double) num3)
+        {
+          num = num5;
+          denom = index;
+          return;
+        }
+      }
+      num = 1;
+      denom = 1;
+    }
+
+    private string ValueToString(int value)
+    {
+      if (value < 100)
+      {
+        int num;
+        int denom;
+        this.ValueToFraction(value, out num, out denom);
+        return string.Format("{0}/{1}", (object) num, (object) denom);
+      }
+      if (value % 100 == 0)
+        return string.Format("{0}", (object) Mathf.FloorToInt((float) value / 100f));
+      return string.Format("{0}.{1}", (object) (float) Mathf.FloorToInt((float) value / 100f), (object) (float) Mathf.FloorToInt((float) (value % 100) / 10f));
+    }
+  }
+}

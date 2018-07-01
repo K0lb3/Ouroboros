@@ -1,106 +1,84 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_ReqAbilityRankUp
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Collections.Generic;
-
-    [Pin(1, "Success", 1, 1), NodeType("System/ReqAbilityRankUp", 0x7fe5), Pin(0, "Request", 0, 0)]
-    public class FlowNode_ReqAbilityRankUp : FlowNode_Network
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
+  [FlowNode.NodeType("System/ReqAbilityRankUp", 32741)]
+  [FlowNode.Pin(0, "Request", FlowNode.PinTypes.Input, 0)]
+  public class FlowNode_ReqAbilityRankUp : FlowNode_Network
+  {
+    public override void OnActivate(int pinID)
     {
-        public FlowNode_ReqAbilityRankUp()
+      if (pinID != 0)
+        return;
+      if (Network.Mode == Network.EConnectMode.Online)
+      {
+        Dictionary<long, int> abilitiesRankUp = GlobalVars.AbilitiesRankUp;
+        if (abilitiesRankUp.Count < 1)
         {
-            base..ctor();
-            return;
+          ((Behaviour) this).set_enabled(false);
+          this.Success();
         }
-
-        public override void OnActivate(int pinID)
+        else
         {
-            Dictionary<long, int> dictionary;
-            if (pinID != null)
-            {
-                goto Label_006A;
-            }
-            if (Network.Mode != null)
-            {
-                goto Label_0064;
-            }
-            dictionary = GlobalVars.AbilitiesRankUp;
-            if (dictionary.Count >= 1)
-            {
-                goto Label_0034;
-            }
-            base.set_enabled(0);
-            this.Success();
-            goto Label_005F;
-        Label_0034:
-            base.set_enabled(1);
-            base.ExecRequest(new ReqAbilityRankUp(dictionary, new Network.ResponseCallback(this.ResponseCallback), null, null));
-            GlobalVars.AbilitiesRankUp.Clear();
-        Label_005F:
-            goto Label_006A;
-        Label_0064:
-            this.Success();
-        Label_006A:
-            return;
+          ((Behaviour) this).set_enabled(true);
+          this.ExecRequest((WebAPI) new ReqAbilityRankUp(abilitiesRankUp, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback), (string) null, (string) null));
+          GlobalVars.AbilitiesRankUp.Clear();
         }
-
-        public override unsafe void OnSuccess(WWWResult www)
-        {
-            WebAPI.JSON_BodyResponse<Json_PlayerDataAll> response;
-            Exception exception;
-            Network.EErrCode code;
-            if (Network.IsError == null)
-            {
-                goto Label_002E;
-            }
-            if (Network.ErrCode == 0x898)
-            {
-                goto Label_0020;
-            }
-            goto Label_0027;
-        Label_0020:
-            this.OnBack();
-            return;
-        Label_0027:
-            this.OnRetry();
-            return;
-        Label_002E:
-            response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_PlayerDataAll>>(&www.text);
-            DebugUtility.Assert((response == null) == 0, "res == null");
-            if (response.body != null)
-            {
-                goto Label_005E;
-            }
-            this.OnRetry();
-            return;
-        Label_005E:
-            try
-            {
-                MonoSingleton<GameManager>.Instance.Deserialize(response.body.player);
-                MonoSingleton<GameManager>.Instance.Deserialize(response.body.units);
-                goto Label_00A4;
-            }
-            catch (Exception exception1)
-            {
-            Label_008D:
-                exception = exception1;
-                DebugUtility.LogException(exception);
-                this.OnRetry();
-                goto Label_00AF;
-            }
-        Label_00A4:
-            Network.RemoveAPI();
-            this.Success();
-        Label_00AF:
-            return;
-        }
-
-        private void Success()
-        {
-            base.set_enabled(0);
-            base.ActivateOutputLinks(1);
-            return;
-        }
+      }
+      else
+        this.Success();
     }
-}
 
+    private void Success()
+    {
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(1);
+    }
+
+    public override void OnSuccess(WWWResult www)
+    {
+      if (Network.IsError)
+      {
+        if (Network.ErrCode == Network.EErrCode.AbilityMaterialShort)
+          this.OnBack();
+        else
+          this.OnRetry();
+      }
+      else
+      {
+        WebAPI.JSON_BodyResponse<Json_PlayerDataAll> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_PlayerDataAll>>(www.text);
+        DebugUtility.Assert(jsonObject != null, "res == null");
+        if (jsonObject.body == null)
+        {
+          this.OnRetry();
+        }
+        else
+        {
+          try
+          {
+            MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.player);
+            MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.units);
+          }
+          catch (Exception ex)
+          {
+            DebugUtility.LogException(ex);
+            this.OnRetry();
+            return;
+          }
+          Network.RemoveAPI();
+          this.Success();
+        }
+      }
+    }
+  }
+}

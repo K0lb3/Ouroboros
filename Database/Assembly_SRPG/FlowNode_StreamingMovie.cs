@@ -1,258 +1,124 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_StreamingMovie
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System.Collections;
+using System.Diagnostics;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.Runtime.CompilerServices;
-    using System.Runtime.InteropServices;
-    using UnityEngine;
+  [FlowNode.Pin(5, "Finished", FlowNode.PinTypes.Output, 102)]
+  [FlowNode.Pin(4, "Failed", FlowNode.PinTypes.Output, 101)]
+  [FlowNode.Pin(3, "Success", FlowNode.PinTypes.Output, 100)]
+  [FlowNode.Pin(1000, "Play", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.NodeType("UI/StreamingMovie", 32741)]
+  public class FlowNode_StreamingMovie : FlowNode
+  {
+    public Color FadeColor = Color.get_black();
+    private const int PIN_ID_SUCCESS = 3;
+    private const int PIN_ID_FAILED = 4;
+    private const int PIN_ID_FINISHED = 5;
+    private const int PIN_ID_PLAY = 1000;
+    private const float FadeTime = 1f;
+    public string FileName;
+    private MySound.VolumeHandle hBGMVolume;
+    private MySound.VolumeHandle hVoiceVolume;
+    public string ReplayText;
+    public string RetryText;
+    public bool AutoFade;
 
-    [Pin(3, "Success", 1, 100), Pin(4, "Failed", 1, 0x65), Pin(5, "Finished", 1, 0x66), NodeType("UI/StreamingMovie", 0x7fe5), Pin(0x3e8, "Play", 0, 0)]
-    public class FlowNode_StreamingMovie : FlowNode
+    public override void OnActivate(int pinID)
     {
-        private const int PIN_ID_SUCCESS = 3;
-        private const int PIN_ID_FAILED = 4;
-        private const int PIN_ID_FINISHED = 5;
-        private const int PIN_ID_PLAY = 0x3e8;
-        private const float FadeTime = 1f;
-        public string FileName;
-        private MySound.VolumeHandle hBGMVolume;
-        private MySound.VolumeHandle hVoiceVolume;
-        public string ReplayText;
-        public string RetryText;
-        public bool AutoFade;
-        public Color FadeColor;
-
-        public FlowNode_StreamingMovie()
-        {
-            this.FadeColor = Color.get_black();
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            int num;
-            num = pinID;
-            if (num == 3)
+      switch (pinID)
+      {
+        case 1000:
+          if (Application.get_internetReachability() == null)
+          {
+            if (!string.IsNullOrEmpty(this.RetryText))
             {
-                goto Label_009D;
+              UIUtility.ConfirmBox(LocalizedText.Get(this.RetryText), new UIUtility.DialogResultEvent(this.OnRetry), new UIUtility.DialogResultEvent(this.OnCancelRetry), (GameObject) null, true, -1, (string) null, (string) null);
+              break;
             }
-            if (num == 4)
-            {
-                goto Label_009D;
-            }
-            if (num == 0x3e8)
-            {
-                goto Label_0020;
-            }
-            goto Label_009D;
-        Label_0020:
-            if (Application.get_internetReachability() != null)
-            {
-                goto Label_0082;
-            }
-            if (string.IsNullOrEmpty(this.RetryText) != null)
-            {
-                goto Label_006D;
-            }
-            UIUtility.ConfirmBox(LocalizedText.Get(this.RetryText), new UIUtility.DialogResultEvent(this.OnRetry), new UIUtility.DialogResultEvent(this.OnCancelRetry), null, 1, -1, null, null);
-            goto Label_007D;
-        Label_006D:
-            base.ActivateOutputLinks(4);
-            base.ActivateOutputLinks(5);
-        Label_007D:
-            goto Label_008E;
-        Label_0082:
-            this.Play(this.FileName);
-        Label_008E:
-            goto Label_009D;
-            goto Label_009D;
-        Label_009D:
-            return;
-        }
-
-        private void OnCancelReplay(GameObject go)
-        {
-            base.ActivateOutputLinks(3);
-            base.ActivateOutputLinks(5);
-            return;
-        }
-
-        private void OnCancelRetry(GameObject go)
-        {
-            base.ActivateOutputLinks(4);
-            base.ActivateOutputLinks(5);
-            return;
-        }
-
-        public void OnFinished(bool is_replay)
-        {
-            if (this.hBGMVolume == null)
-            {
-                goto Label_001D;
-            }
-            this.hBGMVolume.Discard();
-            this.hBGMVolume = null;
-        Label_001D:
-            if (this.hVoiceVolume == null)
-            {
-                goto Label_003A;
-            }
-            this.hVoiceVolume.Discard();
-            this.hVoiceVolume = null;
-        Label_003A:
-            if (this.AutoFade == null)
-            {
-                goto Label_005A;
-            }
-            FadeController.Instance.FadeTo(Color.get_clear(), 1f, 0);
-        Label_005A:
-            if (string.IsNullOrEmpty(this.ReplayText) != null)
-            {
-                goto Label_00AA;
-            }
-            if (is_replay != null)
-            {
-                goto Label_00AA;
-            }
-            base.set_enabled(0);
-            UIUtility.ConfirmBox(LocalizedText.Get(this.ReplayText), new UIUtility.DialogResultEvent(this.OnRetry), new UIUtility.DialogResultEvent(this.OnCancelReplay), null, 1, -1, null, null);
-            goto Label_00C1;
-        Label_00AA:
-            base.ActivateOutputLinks(3);
-            base.ActivateOutputLinks(5);
-            base.set_enabled(0);
-        Label_00C1:
-            return;
-        }
-
-        private void OnRetry(GameObject go)
-        {
-            this.OnActivate(0x3e8);
-            return;
-        }
-
-        private void Play(string fileName)
-        {
-            base.set_enabled(1);
-            this.hBGMVolume = new MySound.VolumeHandle(0);
-            this.hBGMVolume.SetVolume(0f, 0f);
-            this.hVoiceVolume = new MySound.VolumeHandle(3);
-            this.hVoiceVolume.SetVolume(0f, 0f);
-            if (this.AutoFade == null)
-            {
-                goto Label_0094;
-            }
-            SRPG_TouchInputModule.LockInput();
-            CriticalSection.Enter(1);
-            FadeController.Instance.FadeTo(this.FadeColor, 1f, 0);
-            base.StartCoroutine(this.PlayDelayed(fileName, new SRPG.StreamingMovie.OnFinished(this.OnFinished)));
-            goto Label_00AD;
-        Label_0094:
-            MonoSingleton<StreamingMovie>.Instance.Play(fileName, new SRPG.StreamingMovie.OnFinished(this.OnFinished), null);
-        Label_00AD:
-            return;
-        }
-
-        [DebuggerHidden]
-        private IEnumerator PlayDelayed(string filename, SRPG.StreamingMovie.OnFinished callback)
-        {
-            <PlayDelayed>c__IteratorCC rcc;
-            rcc = new <PlayDelayed>c__IteratorCC();
-            rcc.filename = filename;
-            rcc.callback = callback;
-            rcc.<$>filename = filename;
-            rcc.<$>callback = callback;
-            return rcc;
-        }
-
-        [CompilerGenerated]
-        private sealed class <PlayDelayed>c__IteratorCC : IEnumerator, IDisposable, IEnumerator<object>
-        {
-            internal string filename;
-            internal StreamingMovie.OnFinished callback;
-            internal int $PC;
-            internal object $current;
-            internal string <$>filename;
-            internal StreamingMovie.OnFinished <$>callback;
-
-            public <PlayDelayed>c__IteratorCC()
-            {
-                base..ctor();
-                return;
-            }
-
-            [DebuggerHidden]
-            public void Dispose()
-            {
-                this.$PC = -1;
-                return;
-            }
-
-            public bool MoveNext()
-            {
-                uint num;
-                bool flag;
-                num = this.$PC;
-                this.$PC = -1;
-                switch (num)
-                {
-                    case 0:
-                        goto Label_0021;
-
-                    case 1:
-                        goto Label_0039;
-                }
-                goto Label_0074;
-            Label_0021:
-                goto Label_0039;
-            Label_0026:
-                this.$current = null;
-                this.$PC = 1;
-                goto Label_0076;
-            Label_0039:
-                if (FadeController.Instance.IsFading(0) != null)
-                {
-                    goto Label_0026;
-                }
-                SRPG_TouchInputModule.UnlockInput(0);
-                CriticalSection.Leave(1);
-                MonoSingleton<StreamingMovie>.Instance.Play(this.filename, this.callback, null);
-                this.$PC = -1;
-            Label_0074:
-                return 0;
-            Label_0076:
-                return 1;
-                return flag;
-            }
-
-            [DebuggerHidden]
-            public void Reset()
-            {
-                throw new NotSupportedException();
-            }
-
-            object IEnumerator<object>.Current
-            {
-                [DebuggerHidden]
-                get
-                {
-                    return this.$current;
-                }
-            }
-
-            object IEnumerator.Current
-            {
-                [DebuggerHidden]
-                get
-                {
-                    return this.$current;
-                }
-            }
-        }
+            this.ActivateOutputLinks(4);
+            this.ActivateOutputLinks(5);
+            break;
+          }
+          this.Play(this.FileName);
+          break;
+      }
     }
-}
 
+    private void Play(string fileName)
+    {
+      ((Behaviour) this).set_enabled(true);
+      this.hBGMVolume = new MySound.VolumeHandle(MySound.EType.BGM);
+      this.hBGMVolume.SetVolume(0.0f, 0.0f);
+      this.hVoiceVolume = new MySound.VolumeHandle(MySound.EType.VOICE);
+      this.hVoiceVolume.SetVolume(0.0f, 0.0f);
+      if (this.AutoFade)
+      {
+        SRPG_TouchInputModule.LockInput();
+        CriticalSection.Enter(CriticalSections.Default);
+        FadeController.Instance.FadeTo(this.FadeColor, 1f, 0);
+        this.StartCoroutine(this.PlayDelayed(fileName, new StreamingMovie.OnFinished(this.OnFinished)));
+      }
+      else
+        MonoSingleton<StreamingMovie>.Instance.Play(fileName, new StreamingMovie.OnFinished(this.OnFinished), (string) null);
+    }
+
+    public void OnFinished()
+    {
+      if (this.hBGMVolume != null)
+      {
+        this.hBGMVolume.Discard();
+        this.hBGMVolume = (MySound.VolumeHandle) null;
+      }
+      if (this.hVoiceVolume != null)
+      {
+        this.hVoiceVolume.Discard();
+        this.hVoiceVolume = (MySound.VolumeHandle) null;
+      }
+      if (this.AutoFade)
+        FadeController.Instance.FadeTo(Color.get_clear(), 1f, 0);
+      if (!string.IsNullOrEmpty(this.ReplayText))
+      {
+        ((Behaviour) this).set_enabled(false);
+        UIUtility.ConfirmBox(LocalizedText.Get(this.ReplayText), new UIUtility.DialogResultEvent(this.OnRetry), new UIUtility.DialogResultEvent(this.OnCancelReplay), (GameObject) null, true, -1, (string) null, (string) null);
+      }
+      else
+      {
+        this.ActivateOutputLinks(3);
+        this.ActivateOutputLinks(5);
+        ((Behaviour) this).set_enabled(false);
+      }
+    }
+
+    private void OnRetry(GameObject go)
+    {
+      this.OnActivate(1000);
+    }
+
+    private void OnCancelRetry(GameObject go)
+    {
+      this.ActivateOutputLinks(4);
+      this.ActivateOutputLinks(5);
+    }
+
+    private void OnCancelReplay(GameObject go)
+    {
+      this.ActivateOutputLinks(3);
+      this.ActivateOutputLinks(5);
+    }
+
+    [DebuggerHidden]
+    private IEnumerator PlayDelayed(string filename, StreamingMovie.OnFinished callback)
+    {
+      // ISSUE: object of a compiler-generated type is created
+      return (IEnumerator) new FlowNode_StreamingMovie.\u003CPlayDelayed\u003Ec__IteratorD4() { filename = filename, callback = callback, \u003C\u0024\u003Efilename = filename, \u003C\u0024\u003Ecallback = callback };
+    }
+  }
+}

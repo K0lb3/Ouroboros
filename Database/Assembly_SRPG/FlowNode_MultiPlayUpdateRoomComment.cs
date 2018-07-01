@@ -1,70 +1,63 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_MultiPlayUpdateRoomComment
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    [Pin(1, "Success", 1, 0), NodeType("Multi/MultiPlayUpdateRoomComment", 0x7fe5), Pin(0x65, "Update", 0, 0), Pin(2, "Failure", 1, 0)]
-    public class FlowNode_MultiPlayUpdateRoomComment : FlowNode
+  [FlowNode.Pin(101, "Update", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.NodeType("Multi/MultiPlayUpdateRoomComment", 32741)]
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(2, "Failure", FlowNode.PinTypes.Output, 0)]
+  public class FlowNode_MultiPlayUpdateRoomComment : FlowNode
+  {
+    public override void OnActivate(int pinID)
     {
-        public FlowNode_MultiPlayUpdateRoomComment()
+      if (pinID != 101)
+        return;
+      MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
+      if (!instance.IsOldestPlayer())
+      {
+        DebugUtility.Log("I'm not room owner");
+        this.ActivateOutputLinks(2);
+      }
+      else
+      {
+        MyPhoton.MyRoom currentRoom = instance.GetCurrentRoom();
+        if (currentRoom == null)
         {
-            base..ctor();
-            return;
+          DebugUtility.Log("CurrentRoom is null");
+          this.ActivateOutputLinks(2);
         }
-
-        public override void OnActivate(int pinID)
+        else
         {
-            MyPhoton photon;
-            MyPhoton.MyRoom room;
-            JSON_MyPhotonRoomParam param;
-            if (pinID != 0x65)
-            {
-                goto Label_00F0;
-            }
-            photon = PunMonoSingleton<MyPhoton>.Instance;
-            if (photon.IsOldestPlayer() != null)
-            {
-                goto Label_002C;
-            }
-            DebugUtility.Log("I'm not room owner");
-            base.ActivateOutputLinks(2);
-            return;
-        Label_002C:
-            room = photon.GetCurrentRoom();
-            if (room != null)
-            {
-                goto Label_004C;
-            }
-            DebugUtility.Log("CurrentRoom is null");
-            base.ActivateOutputLinks(2);
-            return;
-        Label_004C:
-            param = JSON_MyPhotonRoomParam.Parse(room.json);
-            if (param != null)
-            {
-                goto Label_0071;
-            }
+          JSON_MyPhotonRoomParam myPhotonRoomParam = JSON_MyPhotonRoomParam.Parse(currentRoom.json);
+          if (myPhotonRoomParam == null)
+          {
             DebugUtility.Log("no roomParam");
-            base.ActivateOutputLinks(2);
-            return;
-        Label_0071:
+            this.ActivateOutputLinks(2);
+          }
+          else
+          {
             GlobalVars.SelectedMultiPlayRoomComment = GlobalVars.EditMultiPlayRoomComment;
-            param.passCode = GlobalVars.EditMultiPlayRoomPassCode;
-            param.comment = GlobalVars.EditMultiPlayRoomComment;
-            if (MyMsgInput.isLegal(param.comment) != null)
+            myPhotonRoomParam.passCode = GlobalVars.EditMultiPlayRoomPassCode;
+            myPhotonRoomParam.comment = GlobalVars.EditMultiPlayRoomComment;
+            if (!MyMsgInput.isLegal(myPhotonRoomParam.comment))
             {
-                goto Label_00B4;
+              DebugUtility.Log("comment is not legal");
+              this.ActivateOutputLinks(2);
             }
-            DebugUtility.Log("comment is not legal");
-            base.ActivateOutputLinks(2);
-            return;
-        Label_00B4:
-            DebugUtility.Log("comment:" + param.comment);
-            photon.SetRoomParam(param.Serialize());
-            PlayerPrefsUtility.SetString(PlayerPrefsUtility.ROOM_COMMENT_KEY, param.comment, 0);
-            base.ActivateOutputLinks(1);
-        Label_00F0:
-            return;
+            else
+            {
+              DebugUtility.Log("comment:" + myPhotonRoomParam.comment);
+              instance.SetRoomParam(myPhotonRoomParam.Serialize());
+              PlayerPrefsUtility.SetString(PlayerPrefsUtility.ROOM_COMMENT_KEY, myPhotonRoomParam.comment, false);
+              this.ActivateOutputLinks(1);
+            }
+          }
         }
+      }
     }
+  }
 }
-

@@ -1,36 +1,26 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_PlayerLevelUp
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    [NodeType("Battle/プレイヤーレベルアップ", 0x7fe5), Pin(0, "実行", 0, 0), Pin(1, "レベルアップした", 1, 1), Pin(2, "レベルアップしなかった", 1, 2)]
-    public class FlowNode_PlayerLevelUp : FlowNode
+  [FlowNode.Pin(2, "レベルアップしなかった", FlowNode.PinTypes.Output, 2)]
+  [FlowNode.NodeType("Battle/プレイヤーレベルアップ", 32741)]
+  [FlowNode.Pin(0, "実行", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "レベルアップした", FlowNode.PinTypes.Output, 1)]
+  public class FlowNode_PlayerLevelUp : FlowNode
+  {
+    public override void OnActivate(int pinID)
     {
-        public FlowNode_PlayerLevelUp()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            int num;
-            int num2;
-            if (pinID != null)
-            {
-                goto Label_0042;
-            }
-            num = PlayerData.CalcLevelFromExp(GlobalVars.PlayerExpOld);
-            if (PlayerData.CalcLevelFromExp(GlobalVars.PlayerExpNew) != num)
-            {
-                goto Label_003A;
-            }
-            base.ActivateOutputLinks(2);
-            goto Label_0042;
-        Label_003A:
-            base.ActivateOutputLinks(1);
-        Label_0042:
-            return;
-        }
+      if (pinID != 0)
+        return;
+      int num = PlayerData.CalcLevelFromExp((int) GlobalVars.PlayerExpOld);
+      if (PlayerData.CalcLevelFromExp((int) GlobalVars.PlayerExpNew) == num)
+        this.ActivateOutputLinks(2);
+      else
+        this.ActivateOutputLinks(1);
     }
+  }
 }
-

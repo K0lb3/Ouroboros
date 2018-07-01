@@ -1,187 +1,112 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.JSON_MyPhotonRoomParam
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+
+namespace SRPG
 {
-    using GR;
-    using System;
+  public class JSON_MyPhotonRoomParam
+  {
+    public static readonly int LINE_PARAM_ENCODE_KEY = 6789;
+    public string creatorName = string.Empty;
+    public int creatorLV = 1;
+    public string creatorFUID = string.Empty;
+    public string comment = string.Empty;
+    public string passCode = string.Empty;
+    public string iname = string.Empty;
+    public int type;
+    public int isLINE;
+    public int started;
+    public int roomid;
+    public int audience;
+    public int audienceNum;
+    public int unitlv;
+    public int challegedMTFloor;
+    public JSON_MyPhotonPlayerParam[] players;
 
-    public class JSON_MyPhotonRoomParam
+    public static string GetMyCreatorFUID()
     {
-        public static readonly int LINE_PARAM_ENCODE_KEY;
-        public string creatorName;
-        public int creatorLV;
-        public string creatorFUID;
-        public string comment;
-        public string passCode;
-        public int type;
-        public int isLINE;
-        public string iname;
-        public int started;
-        public int roomid;
-        public int audience;
-        public int audienceNum;
-        public int unitlv;
-        public int challegedMTFloor;
-        public int vsmode;
-        public int draft_type;
-        public JSON_MyPhotonPlayerParam[] players;
-
-        static JSON_MyPhotonRoomParam()
-        {
-            LINE_PARAM_ENCODE_KEY = 0x1a85;
-            return;
-        }
-
-        public JSON_MyPhotonRoomParam()
-        {
-            this.creatorName = string.Empty;
-            this.creatorLV = 1;
-            this.creatorFUID = string.Empty;
-            this.comment = string.Empty;
-            this.passCode = string.Empty;
-            this.iname = string.Empty;
-            base..ctor();
-            return;
-        }
-
-        public static string GetMyCreatorFUID()
-        {
-            return ((Network.Mode != 1) ? MonoSingleton<GameManager>.Instance.Player.FUID : MonoSingleton<GameManager>.Instance.UdId);
-        }
-
-        public JSON_MyPhotonPlayerParam GetOwner()
-        {
-            JSON_MyPhotonPlayerParam param;
-            JSON_MyPhotonPlayerParam param2;
-            JSON_MyPhotonPlayerParam[] paramArray;
-            int num;
-            if (this.players != null)
-            {
-                goto Label_000D;
-            }
-            return null;
-        Label_000D:
-            param = null;
-            paramArray = this.players;
-            num = 0;
-            goto Label_004F;
-        Label_001D:
-            param2 = paramArray[num];
-            if (param2.playerIndex > 0)
-            {
-                goto Label_0032;
-            }
-            goto Label_004B;
-        Label_0032:
-            if (param == null)
-            {
-                goto Label_0049;
-            }
-            if (param2.playerIndex >= param.playerIndex)
-            {
-                goto Label_004B;
-            }
-        Label_0049:
-            param = param2;
-        Label_004B:
-            num += 1;
-        Label_004F:
-            if (num < ((int) paramArray.Length))
-            {
-                goto Label_001D;
-            }
-            return param;
-        }
-
-        public int GetOwnerLV()
-        {
-            JSON_MyPhotonPlayerParam param;
-            param = this.GetOwner();
-            return ((param != null) ? param.playerLevel : this.creatorLV);
-        }
-
-        public string GetOwnerName()
-        {
-            JSON_MyPhotonPlayerParam param;
-            param = this.GetOwner();
-            return ((param != null) ? param.playerName : this.creatorName);
-        }
-
-        public static int GetTotalUnitNum(QuestParam param)
-        {
-            if (param != null)
-            {
-                goto Label_0008;
-            }
-            return 0;
-        Label_0008:
-            return (param.unitNum * param.playerNum);
-        }
-
-        public int GetUnitSlotNum()
-        {
-            return this.GetUnitSlotNum(PunMonoSingleton<MyPhoton>.Instance.MyPlayerIndex);
-        }
-
-        public int GetUnitSlotNum(int playerIndex)
-        {
-            QuestParam param;
-            param = MonoSingleton<GameManager>.Instance.FindQuest(this.iname);
-            if (param != null)
-            {
-                goto Label_0019;
-            }
-            return 0;
-        Label_0019:
-            return param.unitNum;
-        }
-
-        public static JSON_MyPhotonRoomParam Parse(string json)
-        {
-            if (json == null)
-            {
-                goto Label_0012;
-            }
-            if (json.Length > 0)
-            {
-                goto Label_0018;
-            }
-        Label_0012:
-            return new JSON_MyPhotonRoomParam();
-        Label_0018:
-            return JSONParser.parseJSONObject<JSON_MyPhotonRoomParam>(json);
-        }
-
-        public string Serialize()
-        {
-            string str;
-            int num;
-            str = "{";
-            str = ((((((((((((((((str + "\"creatorName\":\"" + JsonEscape.Escape(this.creatorName) + "\"") + ",\"creatorLV\":" + ((int) this.creatorLV)) + ",\"creatorFUID\":\"" + JsonEscape.Escape(this.creatorFUID) + "\"") + ",\"comment\":\"" + JsonEscape.Escape(this.comment) + "\"") + ",\"passCode\":\"" + JsonEscape.Escape(this.passCode) + "\"") + ",\"iname\":\"" + JsonEscape.Escape(this.iname) + "\"") + ",\"type\":" + ((int) this.type)) + ",\"isLINE\":" + ((int) this.isLINE)) + ",\"started\":" + ((int) this.started)) + ",\"roomid\":" + ((int) this.roomid)) + ",\"audience\":" + ((int) this.audience)) + ",\"audienceNum\":" + ((int) this.audienceNum)) + ",\"unitlv\":" + ((int) this.unitlv)) + ",\"challegedMTFloor\":" + ((int) GlobalVars.SelectedMultiTowerFloor)) + ",\"vsmode\":" + ((int) this.vsmode)) + ",\"draft_type\":" + ((int) this.draft_type)) + ",\"players\":[";
-            if (this.players == null)
-            {
-                goto Label_01EF;
-            }
-            num = 0;
-            goto Label_01E1;
-        Label_01AC:
-            str = (str + ((num > 0) ? "," : string.Empty)) + this.players[num].Serialize();
-            num += 1;
-        Label_01E1:
-            if (num < ((int) this.players.Length))
-            {
-                goto Label_01AC;
-            }
-        Label_01EF:
-            return ((str + "]") + "}");
-        }
-
-        public enum EType
-        {
-            RAID,
-            VERSUS,
-            TOWER,
-            RANKMATCH,
-            NUM
-        }
+      if (Network.Mode == Network.EConnectMode.Offline)
+        return MonoSingleton<GameManager>.Instance.UdId;
+      return MonoSingleton<GameManager>.Instance.Player.FUID;
     }
-}
 
+    public JSON_MyPhotonPlayerParam GetOwner()
+    {
+      if (this.players == null)
+        return (JSON_MyPhotonPlayerParam) null;
+      JSON_MyPhotonPlayerParam photonPlayerParam = (JSON_MyPhotonPlayerParam) null;
+      foreach (JSON_MyPhotonPlayerParam player in this.players)
+      {
+        if (player.playerIndex > 0 && (photonPlayerParam == null || player.playerID < photonPlayerParam.playerID))
+          photonPlayerParam = player;
+      }
+      return photonPlayerParam;
+    }
+
+    public string GetOwnerName()
+    {
+      JSON_MyPhotonPlayerParam owner = this.GetOwner();
+      if (owner == null)
+        return this.creatorName;
+      return owner.playerName;
+    }
+
+    public int GetOwnerLV()
+    {
+      JSON_MyPhotonPlayerParam owner = this.GetOwner();
+      if (owner == null)
+        return this.creatorLV;
+      return owner.playerLevel;
+    }
+
+    public static JSON_MyPhotonRoomParam Parse(string json)
+    {
+      if (json == null || json.Length <= 0)
+        return new JSON_MyPhotonRoomParam();
+      return JSONParser.parseJSONObject<JSON_MyPhotonRoomParam>(json);
+    }
+
+    public string Serialize()
+    {
+      string str = "{" + "\"creatorName\":\"" + JsonEscape.Escape(this.creatorName) + "\"" + ",\"creatorLV\":" + (object) this.creatorLV + ",\"creatorFUID\":\"" + JsonEscape.Escape(this.creatorFUID) + "\"" + ",\"comment\":\"" + JsonEscape.Escape(this.comment) + "\"" + ",\"passCode\":\"" + JsonEscape.Escape(this.passCode) + "\"" + ",\"iname\":\"" + JsonEscape.Escape(this.iname) + "\"" + ",\"type\":" + (object) this.type + ",\"isLINE\":" + (object) this.isLINE + ",\"started\":" + (object) this.started + ",\"roomid\":" + (object) this.roomid + ",\"audience\":" + (object) this.audience + ",\"audienceNum\":" + (object) this.audienceNum + ",\"unitlv\":" + (object) this.unitlv + ",\"challegedMTFloor\":" + (object) GlobalVars.SelectedMultiTowerFloor + ",\"players\":[";
+      if (this.players != null)
+      {
+        for (int index = 0; index < this.players.Length; ++index)
+          str = str + (index > 0 ? "," : string.Empty) + this.players[index].Serialize();
+      }
+      return str + "]" + "}";
+    }
+
+    public static int GetTotalUnitNum(QuestParam param)
+    {
+      if (param == null)
+        return 0;
+      return (int) param.unitNum * (int) param.playerNum;
+    }
+
+    public int GetUnitSlotNum()
+    {
+      return this.GetUnitSlotNum(PunMonoSingleton<MyPhoton>.Instance.MyPlayerIndex);
+    }
+
+    public int GetUnitSlotNum(int playerIndex)
+    {
+      QuestParam quest = MonoSingleton<GameManager>.Instance.FindQuest(this.iname);
+      if (quest == null)
+        return 0;
+      return (int) quest.unitNum;
+    }
+
+    public enum EType
+    {
+      RAID,
+      VERSUS,
+      TOWER,
+      NUM,
+    }
+  }
+}

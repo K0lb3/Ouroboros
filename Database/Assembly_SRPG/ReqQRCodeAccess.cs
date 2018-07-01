@@ -1,26 +1,27 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqQRCodeAccess
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Text;
+
+namespace SRPG
 {
-    using System;
-    using System.Text;
-
-    public class ReqQRCodeAccess : WebAPI
+  public class ReqQRCodeAccess : WebAPI
+  {
+    public ReqQRCodeAccess(int campaign, string serial, Network.ResponseCallback response)
     {
-        public ReqQRCodeAccess(int campaign, string serial, Network.ResponseCallback response)
-        {
-            StringBuilder builder;
-            base..ctor();
-            base.name = "qr/serial";
-            builder = WebAPI.GetStringBuilder();
-            builder.Append("\"campaign_id\":");
-            builder.Append(campaign);
-            builder.Append(",");
-            builder.Append("\"code\":\"");
-            builder.Append(serial);
-            builder.Append("\"");
-            base.body = WebAPI.GetRequestString(builder.ToString());
-            base.callback = response;
-            return;
-        }
+      this.name = "qr/serial";
+      StringBuilder stringBuilder = WebAPI.GetStringBuilder();
+      stringBuilder.Append("\"campaign_id\":");
+      stringBuilder.Append(campaign);
+      stringBuilder.Append(",");
+      stringBuilder.Append("\"code\":\"");
+      stringBuilder.Append(serial);
+      stringBuilder.Append("\"");
+      this.body = WebAPI.GetRequestString(stringBuilder.ToString());
+      this.callback = response;
     }
+  }
 }
-

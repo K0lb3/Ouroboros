@@ -1,17 +1,18 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqFriendReq
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    public class ReqFriendReq : WebAPI
+  public class ReqFriendReq : WebAPI
+  {
+    public ReqFriendReq(string fuid, Network.ResponseCallback response)
     {
-        public ReqFriendReq(string fuid, Network.ResponseCallback response)
-        {
-            base..ctor();
-            base.name = "friend/req";
-            base.body = WebAPI.GetRequestString("\"fuid\":\"" + fuid + "\"");
-            base.callback = response;
-            return;
-        }
+      this.name = "friend/req";
+      this.body = WebAPI.GetRequestString("\"fuid\":\"" + fuid + "\"");
+      this.callback = response;
     }
+  }
 }
-

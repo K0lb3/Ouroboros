@@ -1,68 +1,57 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_InitEnvironment
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using UnityEngine;
-
-    [Pin(1, "Out", 1, 1), NodeType("System/Init", 0xffff), Pin(0, "In", 0, 0)]
-    public class FlowNode_InitEnvironment : FlowNode
+  [FlowNode.Pin(0, "In", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.NodeType("System/Init", 65535)]
+  [FlowNode.Pin(1, "Out", FlowNode.PinTypes.Output, 1)]
+  public class FlowNode_InitEnvironment : FlowNode
+  {
+    private void Init()
     {
-        public FlowNode_InitEnvironment()
+      GameManager instanceDirect = MonoSingleton<GameManager>.GetInstanceDirect();
+      GameManager gameManager;
+      if (Object.op_Inequality((Object) instanceDirect, (Object) null))
+      {
+        if (instanceDirect.IsRelogin)
         {
-            base..ctor();
-            return;
+          instanceDirect.ResetData();
         }
-
-        private void Init()
+        else
         {
-            GameManager manager;
-            manager = MonoSingleton<GameManager>.GetInstanceDirect();
-            if ((manager != null) == null)
-            {
-                goto Label_0030;
-            }
-            if (manager.IsRelogin == null)
-            {
-                goto Label_0028;
-            }
-            manager.ResetData();
-            goto Label_0030;
-        Label_0028:
-            Object.DestroyImmediate(manager);
-            manager = null;
-        Label_0030:
-            CriticalSection.ForceReset();
-            ButtonEvent.Reset();
-            SRPG_TouchInputModule.UnlockInput(1);
-            PunMonoSingleton<MyPhoton>.Instance.Disconnect();
-            UIUtility.PopCanvasAll();
-            AssetManager.UnloadAll();
-            AssetDownloader.Reset();
-            Network.Reset();
-            manager = MonoSingleton<GameManager>.Instance;
-            GameUtility.ForceSetDefaultSleepSetting();
-            if (GameUtility.IsStripBuild == null)
-            {
-                goto Label_007E;
-            }
-            GameUtility.Config_UseAssetBundles.Value = 1;
-        Label_007E:
-            LocalizedText.UnloadAllTables();
-            SRPG_InputField.ResetInput();
-            return;
+          Object.DestroyImmediate((Object) instanceDirect);
+          gameManager = (GameManager) null;
         }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != null)
-            {
-                goto Label_0014;
-            }
-            this.Init();
-            base.ActivateOutputLinks(1);
-        Label_0014:
-            return;
-        }
+      }
+      CriticalSection.ForceReset();
+      ButtonEvent.Reset();
+      SRPG_TouchInputModule.UnlockInput(true);
+      PunMonoSingleton<MyPhoton>.Instance.Disconnect();
+      UIUtility.PopCanvasAll();
+      AssetManager.UnloadAll();
+      AssetDownloader.Reset();
+      AssetDownloader.ResetTextSetting();
+      Network.Reset();
+      gameManager = MonoSingleton<GameManager>.Instance;
+      GameUtility.ForceSetDefaultSleepSetting();
+      if (GameUtility.IsStripBuild)
+        GameUtility.Config_UseAssetBundles.Value = true;
+      LocalizedText.UnloadAllTables();
     }
-}
 
+    public override void OnActivate(int pinID)
+    {
+      if (pinID != 0)
+        return;
+      this.Init();
+      this.ActivateOutputLinks(1);
+    }
+  }
+}

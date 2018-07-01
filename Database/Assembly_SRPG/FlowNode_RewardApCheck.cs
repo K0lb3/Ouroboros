@@ -1,97 +1,46 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_RewardApCheck
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-
-    [NodeType("Check/RewardApCheck", 0x7fe5), Pin(3, "Overflow", 1, 2), Pin(2, "AlreadyCapped", 1, 2), Pin(1, "Success", 1, 1), Pin(0, "Check", 0, 0)]
-    public class FlowNode_RewardApCheck : FlowNode
+  [FlowNode.Pin(0, "Check", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(3, "Overflow", FlowNode.PinTypes.Output, 2)]
+  [FlowNode.Pin(2, "AlreadyCapped", FlowNode.PinTypes.Output, 2)]
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
+  [FlowNode.NodeType("Check/RewardApCheck", 32741)]
+  public class FlowNode_RewardApCheck : FlowNode
+  {
+    public override void OnActivate(int pinID)
     {
-        public FlowNode_RewardApCheck()
+      if (pinID != 0)
+        return;
+      RewardData rewardData = GlobalVars.LastReward.Get();
+      if (rewardData == null || rewardData.Stamina < 1)
+      {
+        this.ActivateOutputLinks(1);
+      }
+      else
+      {
+        PlayerData player = MonoSingleton<GameManager>.GetInstanceDirect().Player;
+        if (rewardData.Stamina > player.StaminaStockCap)
+          this.ActivateOutputLinks(3);
+        else if (player.Stamina >= player.StaminaStockCap)
         {
-            base..ctor();
-            return;
+          if (rewardData.Exp > 0 || rewardData.Gold > 0 || (rewardData.Coin > 0 || rewardData.ArenaMedal > 0) || (rewardData.MultiCoin > 0 || rewardData.KakeraCoin > 0 || rewardData.Items.Count > 0))
+            this.ActivateOutputLinks(3);
+          else
+            this.ActivateOutputLinks(2);
         }
-
-        public override void OnActivate(int pinID)
-        {
-            RewardData data;
-            PlayerData data2;
-            if (pinID != null)
-            {
-                goto Label_00F7;
-            }
-            data = GlobalVars.LastReward.Get();
-            if (data == null)
-            {
-                goto Label_0023;
-            }
-            if (data.Stamina >= 1)
-            {
-                goto Label_002C;
-            }
-        Label_0023:
-            base.ActivateOutputLinks(1);
-            return;
-        Label_002C:
-            data2 = MonoSingleton<GameManager>.GetInstanceDirect().Player;
-            if (data.Stamina <= data2.StaminaStockCap)
-            {
-                goto Label_0051;
-            }
-            base.ActivateOutputLinks(3);
-            return;
-        Label_0051:
-            if (data2.Stamina < data2.StaminaStockCap)
-            {
-                goto Label_00CD;
-            }
-            if (data.Exp > 0)
-            {
-                goto Label_00BB;
-            }
-            if (data.Gold > 0)
-            {
-                goto Label_00BB;
-            }
-            if (data.Coin > 0)
-            {
-                goto Label_00BB;
-            }
-            if (data.ArenaMedal > 0)
-            {
-                goto Label_00BB;
-            }
-            if (data.MultiCoin > 0)
-            {
-                goto Label_00BB;
-            }
-            if (data.KakeraCoin > 0)
-            {
-                goto Label_00BB;
-            }
-            if (data.Items.Count <= 0)
-            {
-                goto Label_00C4;
-            }
-        Label_00BB:
-            base.ActivateOutputLinks(3);
-            return;
-        Label_00C4:
-            base.ActivateOutputLinks(2);
-            return;
-        Label_00CD:
-            if ((data2.Stamina + data.Stamina) > data2.StaminaStockCap)
-            {
-                goto Label_00EE;
-            }
-            base.ActivateOutputLinks(1);
-            return;
-        Label_00EE:
-            base.ActivateOutputLinks(3);
-            return;
-        Label_00F7:
-            return;
-        }
+        else if (player.Stamina + rewardData.Stamina <= player.StaminaStockCap)
+          this.ActivateOutputLinks(1);
+        else
+          this.ActivateOutputLinks(3);
+      }
     }
+  }
 }
-

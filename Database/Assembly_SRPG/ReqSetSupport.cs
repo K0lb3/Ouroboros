@@ -1,22 +1,23 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqSetSupport
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Text;
+
+namespace SRPG
 {
-    using System;
-    using System.Text;
-
-    public class ReqSetSupport : WebAPI
+  public class ReqSetSupport : WebAPI
+  {
+    public ReqSetSupport(long id, Network.ResponseCallback response)
     {
-        public ReqSetSupport(long id, Network.ResponseCallback response)
-        {
-            StringBuilder builder;
-            base..ctor();
-            builder = WebAPI.GetStringBuilder();
-            base.name = "support/set";
-            builder.Append("\"uiid\":");
-            builder.Append(id);
-            base.body = WebAPI.GetRequestString(builder.ToString());
-            base.callback = response;
-            return;
-        }
+      StringBuilder stringBuilder = WebAPI.GetStringBuilder();
+      this.name = "support/set";
+      stringBuilder.Append("\"uiid\":");
+      stringBuilder.Append(id);
+      this.body = WebAPI.GetRequestString(stringBuilder.ToString());
+      this.callback = response;
     }
+  }
 }
-

@@ -1,71 +1,41 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_GUIRanking
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
+  [FlowNode.Pin(202, "CreateTowerMatch", FlowNode.PinTypes.Input, 202)]
+  [FlowNode.NodeType("UI/GUIRanking", 32741)]
+  [FlowNode.Pin(200, "CreateQuest", FlowNode.PinTypes.Input, 200)]
+  [FlowNode.Pin(201, "CreateArena", FlowNode.PinTypes.Input, 201)]
+  public class FlowNode_GUIRanking : FlowNode_GUI
+  {
+    private UsageRateRanking.ViewInfoType type;
 
-    [Pin(200, "CreateQuest", 0, 200), NodeType("UI/GUIRanking", 0x7fe5), Pin(0xc9, "CreateArena", 0, 0xc9), Pin(0xca, "CreateTowerMatch", 0, 0xca)]
-    public class FlowNode_GUIRanking : FlowNode_GUI
+    public override void OnActivate(int pinID)
     {
-        private UsageRateRanking.ViewInfoType type;
-
-        public FlowNode_GUIRanking()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != 200)
-            {
-                goto Label_0012;
-            }
-            this.type = 0;
-        Label_0012:
-            if (pinID != 0xc9)
-            {
-                goto Label_0024;
-            }
-            this.type = 1;
-        Label_0024:
-            if (pinID != 0xca)
-            {
-                goto Label_0036;
-            }
-            this.type = 2;
-        Label_0036:
-            if (pinID == 200)
-            {
-                goto Label_0057;
-            }
-            if (pinID == 0xc9)
-            {
-                goto Label_0057;
-            }
-            if (pinID != 0xca)
-            {
-                goto Label_005B;
-            }
-        Label_0057:
-            pinID = 100;
-        Label_005B:
-            base.OnActivate(pinID);
-            return;
-        }
-
-        protected override void OnInstanceCreate()
-        {
-            UsageRateRanking ranking;
-            base.OnInstanceCreate();
-            ranking = base.Instance.GetComponentInChildren<UsageRateRanking>();
-            if ((ranking == null) == null)
-            {
-                goto Label_001F;
-            }
-            return;
-        Label_001F:
-            ranking.OnChangedToggle(this.type);
-            return;
-        }
+      if (pinID == 200)
+        this.type = UsageRateRanking.ViewInfoType.Quest;
+      if (pinID == 201)
+        this.type = UsageRateRanking.ViewInfoType.Arena;
+      if (pinID == 202)
+        this.type = UsageRateRanking.ViewInfoType.TowerMatch;
+      if (pinID == 200 || pinID == 201 || pinID == 202)
+        pinID = 100;
+      base.OnActivate(pinID);
     }
-}
 
+    protected override void OnInstanceCreate()
+    {
+      base.OnInstanceCreate();
+      UsageRateRanking componentInChildren = (UsageRateRanking) this.Instance.GetComponentInChildren<UsageRateRanking>();
+      if (Object.op_Equality((Object) componentInChildren, (Object) null))
+        return;
+      componentInChildren.OnChangedToggle(this.type);
+    }
+  }
+}

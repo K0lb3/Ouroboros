@@ -1,120 +1,86 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.AwardSelectConfirmWindow
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using UnityEngine;
-    using UnityEngine.UI;
+  public class AwardSelectConfirmWindow : MonoBehaviour
+  {
+    [SerializeField]
+    private GameObject AwardImg;
+    [SerializeField]
+    private Text AwardName;
+    [SerializeField]
+    private Text ExpText;
+    private GameManager gm;
+    private ImageArray mImageArray;
 
-    public class AwardSelectConfirmWindow : MonoBehaviour
+    public AwardSelectConfirmWindow()
     {
-        [SerializeField]
-        private GameObject AwardImg;
-        [SerializeField]
-        private Text AwardName;
-        [SerializeField]
-        private Text ExpText;
-        private GameManager gm;
-        private ImageArray mImageArray;
-
-        public AwardSelectConfirmWindow()
-        {
-            base..ctor();
-            return;
-        }
-
-        private void Awake()
-        {
-            ImageArray array;
-            if ((this.AwardImg != null) == null)
-            {
-                goto Label_0030;
-            }
-            array = this.AwardImg.GetComponent<ImageArray>();
-            if ((array != null) == null)
-            {
-                goto Label_0030;
-            }
-            this.mImageArray = array;
-        Label_0030:
-            return;
-        }
-
-        private void Refresh()
-        {
-            string str;
-            AwardParam param;
-            str = FlowNode_Variable.Get("CONFIRM_SELECT_AWARD");
-            if (string.IsNullOrEmpty(str) == null)
-            {
-                goto Label_0021;
-            }
-            DebugUtility.LogError("AwardSelectConfirmWindow:select_iname is Null or Empty");
-            return;
-        Label_0021:
-            param = this.gm.MasterParam.GetAwardParam(str);
-            if (param == null)
-            {
-                goto Label_00E5;
-            }
-            if ((this.AwardImg != null) == null)
-            {
-                goto Label_00A1;
-            }
-            if ((this.mImageArray != null) == null)
-            {
-                goto Label_00A1;
-            }
-            if (((int) this.mImageArray.Images.Length) > param.grade)
-            {
-                goto Label_0090;
-            }
-            this.SetExtraAwardImage(param.bg);
-            param.name = string.Empty;
-            goto Label_00A1;
-        Label_0090:
-            this.mImageArray.ImageIndex = param.grade;
-        Label_00A1:
-            if ((this.AwardName != null) == null)
-            {
-                goto Label_00C3;
-            }
-            this.AwardName.set_text(param.name);
-        Label_00C3:
-            if ((this.ExpText != null) == null)
-            {
-                goto Label_00E5;
-            }
-            this.ExpText.set_text(param.expr);
-        Label_00E5:
-            return;
-        }
-
-        private bool SetExtraAwardImage(string bg)
-        {
-            SpriteSheet sheet;
-            if (string.IsNullOrEmpty(bg) == null)
-            {
-                goto Label_000D;
-            }
-            return 0;
-        Label_000D:
-            sheet = AssetManager.Load<SpriteSheet>(AwardListItem.EXTRA_GRADE_IMAGEPATH);
-            if ((sheet != null) == null)
-            {
-                goto Label_0038;
-            }
-            this.mImageArray.set_sprite(sheet.GetSprite(bg));
-            return 1;
-        Label_0038:
-            return 0;
-        }
-
-        private void Start()
-        {
-            this.gm = MonoSingleton<GameManager>.Instance;
-            this.Refresh();
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Awake()
+    {
+      if (!Object.op_Inequality((Object) this.AwardImg, (Object) null))
+        return;
+      ImageArray component = (ImageArray) this.AwardImg.GetComponent<ImageArray>();
+      if (!Object.op_Inequality((Object) component, (Object) null))
+        return;
+      this.mImageArray = component;
+    }
+
+    private void Start()
+    {
+      this.gm = MonoSingleton<GameManager>.Instance;
+      this.Refresh();
+    }
+
+    private void Refresh()
+    {
+      string key = FlowNode_Variable.Get("CONFIRM_SELECT_AWARD");
+      if (string.IsNullOrEmpty(key))
+      {
+        DebugUtility.LogError("AwardSelectConfirmWindow:select_iname is Null or Empty");
+      }
+      else
+      {
+        AwardParam awardParam = this.gm.MasterParam.GetAwardParam(key);
+        if (awardParam == null)
+          return;
+        if (Object.op_Inequality((Object) this.AwardImg, (Object) null) && Object.op_Inequality((Object) this.mImageArray, (Object) null))
+        {
+          if (this.mImageArray.Images.Length <= awardParam.grade)
+          {
+            this.SetExtraAwardImage(awardParam.bg);
+            awardParam.name = string.Empty;
+          }
+          else
+            this.mImageArray.ImageIndex = awardParam.grade;
+        }
+        if (Object.op_Inequality((Object) this.AwardName, (Object) null))
+          this.AwardName.set_text(awardParam.name);
+        if (!Object.op_Inequality((Object) this.ExpText, (Object) null))
+          return;
+        this.ExpText.set_text(awardParam.expr);
+      }
+    }
+
+    private bool SetExtraAwardImage(string bg)
+    {
+      if (string.IsNullOrEmpty(bg))
+        return false;
+      SpriteSheet spriteSheet = AssetManager.Load<SpriteSheet>(AwardListItem.EXTRA_GRADE_IMAGEPATH);
+      if (!Object.op_Inequality((Object) spriteSheet, (Object) null))
+        return false;
+      this.mImageArray.set_sprite(spriteSheet.GetSprite(bg));
+      return true;
+    }
+  }
+}

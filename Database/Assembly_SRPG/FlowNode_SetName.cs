@@ -1,136 +1,123 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_SetName
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using UnityEngine;
+  [FlowNode.NodeType("System/SetName", 32741)]
+  [FlowNode.Pin(100, "Start", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 10)]
+  [FlowNode.Pin(2, "Failure", FlowNode.PinTypes.Output, 11)]
+  [FlowNode.Pin(3, "Rename", FlowNode.PinTypes.Output, 12)]
+  public class FlowNode_SetName : FlowNode_Network
+  {
+    private bool isSettingName;
 
-    [NodeType("System/SetName", 0x7fe5), Pin(100, "Start", 0, 0), Pin(1, "Success", 1, 10), Pin(2, "Failure", 1, 11), Pin(3, "Rename", 1, 12)]
-    public class FlowNode_SetName : FlowNode_Network
+    public override void OnActivate(int pinID)
     {
-        public FlowNode_SetName()
+      if (pinID != 100 || this.isSettingName)
+        return;
+      if (Network.Mode == Network.EConnectMode.Online)
+      {
+        this.isSettingName = true;
+        if (string.IsNullOrEmpty(GlobalVars.EditPlayerName))
+          GlobalVars.EditPlayerName = MonoSingleton<GameManager>.Instance.Player.Name;
+        if (string.IsNullOrEmpty(GlobalVars.EditPlayerName))
         {
-            base..ctor();
-            return;
+          UIUtility.SystemMessage((string) null, LocalizedText.Get("sys.RENAME_PLAYER_NAME"), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1);
+          this.ActivateOutputLinks(3);
+          ((Behaviour) this).set_enabled(false);
         }
-
-        private void Failure()
+        else if (GlobalVars.EditPlayerName.Length < 4 || GlobalVars.EditPlayerName.Length > 12)
         {
-            base.set_enabled(0);
-            base.ActivateOutputLinks(2);
-            return;
+          UIUtility.SystemMessage((string) null, LocalizedText.Get("sys.PLAYER_NAME_INCORRECT_LENGTH"), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1);
+          this.ActivateOutputLinks(3);
+          this.isSettingName = false;
         }
-
-        public override void OnActivate(int pinID)
+        else if (!MyMsgInput.isLegal(GlobalVars.EditPlayerName))
         {
-            if (pinID != 100)
-            {
-                goto Label_00CB;
-            }
-            if (Network.Mode != null)
-            {
-                goto Label_00C5;
-            }
-            if (string.IsNullOrEmpty(GlobalVars.EditPlayerName) == null)
-            {
-                goto Label_0035;
-            }
-            GlobalVars.EditPlayerName = MonoSingleton<GameManager>.Instance.Player.Name;
-        Label_0035:
-            if (string.IsNullOrEmpty(GlobalVars.EditPlayerName) == null)
-            {
-                goto Label_0069;
-            }
-            UIUtility.SystemMessage(null, LocalizedText.Get("sys.RENAME_PLAYER_NAME"), null, null, 0, -1);
-            base.ActivateOutputLinks(3);
-            base.set_enabled(0);
-            return;
-        Label_0069:
-            if (MyMsgInput.isLegal(GlobalVars.EditPlayerName) != null)
-            {
-                goto Label_009D;
-            }
-            UIUtility.SystemMessage(null, LocalizedText.Get("sys.RENAME_PLAYER_NAME"), null, null, 0, -1);
-            base.ActivateOutputLinks(3);
-            base.set_enabled(0);
-            return;
-        Label_009D:
-            base.ExecRequest(new ReqSetName(GlobalVars.EditPlayerName, new Network.ResponseCallback(this.ResponseCallback)));
-            base.set_enabled(1);
-            goto Label_00CB;
-        Label_00C5:
-            this.Success();
-        Label_00CB:
-            return;
+          UIUtility.SystemMessage((string) null, LocalizedText.Get("sys.RENAME_PLAYER_NAME"), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1);
+          this.ActivateOutputLinks(3);
+          this.isSettingName = false;
         }
-
-        public override unsafe void OnSuccess(WWWResult www)
+        else
         {
-            WebAPI.JSON_BodyResponse<Json_PlayerDataAll> response;
-            Exception exception;
-            Network.EErrCode code;
-            if (Network.IsError == null)
-            {
-                goto Label_002E;
-            }
-            if (Network.ErrCode == 0x578)
-            {
-                goto Label_0020;
-            }
-            goto Label_0027;
-        Label_0020:
-            this.OnBack();
-            return;
-        Label_0027:
-            this.OnRetry();
-            return;
-        Label_002E:
-            response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_PlayerDataAll>>(&www.text);
-            DebugUtility.Assert((response == null) == 0, "res == null");
-            if (response.body != null)
-            {
-                goto Label_005E;
-            }
-            this.OnRetry();
-            return;
-        Label_005E:
-            try
-            {
-                MonoSingleton<GameManager>.Instance.Deserialize(response.body.player);
-                MonoSingleton<GameManager>.Instance.Deserialize(response.body.units);
-                MonoSingleton<GameManager>.Instance.Deserialize(response.body.items);
-                MonoSingleton<GameManager>.Instance.Deserialize(response.body.mails);
-                goto Label_00CF;
-            }
-            catch (Exception exception1)
-            {
-            Label_00B8:
-                exception = exception1;
-                Debug.LogException(exception);
-                this.Failure();
-                goto Label_00E0;
-            }
-        Label_00CF:
-            GameParameter.UpdateValuesOfType(0);
-            Network.RemoveAPI();
-            this.Success();
-        Label_00E0:
-            return;
+          this.ExecRequest((WebAPI) new ReqSetName(GlobalVars.EditPlayerName, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+          ((Behaviour) this).set_enabled(true);
         }
-
-        private void Success()
-        {
-            PlayerData data;
-            if (Network.Mode != null)
-            {
-                goto Label_002B;
-            }
-            MyMetaps.TrackTutorialPoint("SetName");
-            MyGrowthPush.registCustomerId(MonoSingleton<GameManager>.Instance.Player.OkyakusamaCode);
-        Label_002B:
-            base.set_enabled(0);
-            base.ActivateOutputLinks(1);
-            return;
-        }
+      }
+      else
+        this.Success();
     }
-}
 
+    private void Success()
+    {
+      if (Network.Mode == Network.EConnectMode.Online)
+      {
+        PlayerData player = MonoSingleton<GameManager>.Instance.Player;
+        PlayerPrefs.SetString("PlayerName", MonoSingleton<GameManager>.Instance.Player.Name);
+      }
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(1);
+    }
+
+    private void Failure()
+    {
+      this.isSettingName = false;
+      this.ActivateOutputLinks(2);
+    }
+
+    public override void OnSuccess(WWWResult www)
+    {
+      if (Network.IsError)
+      {
+        switch (Network.ErrCode)
+        {
+          case Network.EErrCode.IllegalName:
+          case Network.EErrCode.DuplicateName:
+          case Network.EErrCode.SameName:
+            this.isSettingName = false;
+            this.OnBack();
+            break;
+          default:
+            this.OnRetry();
+            break;
+        }
+      }
+      else
+      {
+        WebAPI.JSON_BodyResponse<Json_PlayerDataAll> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_PlayerDataAll>>(www.text);
+        DebugUtility.Assert(jsonObject != null, "res == null");
+        if (jsonObject.body == null)
+        {
+          this.OnRetry();
+        }
+        else
+        {
+          try
+          {
+            MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.player);
+            MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.units);
+            MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.items);
+            MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.mails);
+          }
+          catch (Exception ex)
+          {
+            Debug.LogException(ex);
+            this.Failure();
+            return;
+          }
+          GameParameter.UpdateValuesOfType(GameParameter.ParameterTypes.GLOBAL_PLAYER_NAME);
+          Network.RemoveAPI();
+          this.Success();
+        }
+      }
+    }
+  }
+}

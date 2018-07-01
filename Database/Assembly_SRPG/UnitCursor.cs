@@ -1,100 +1,91 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.UnitCursor
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  public class UnitCursor : MonoBehaviour
+  {
+    public float StartScale;
+    public float LoopScale;
+    public float EndScale;
+    public float Opacity;
+    public float FadeTime;
+    private float mCurrentScale;
+    private float mTime;
+    private float mDuration;
+    private float mDesiredScale;
+    private float mStartScale;
+    private bool mDiscard;
+    private Color mColor;
+    private float mCurrentOpacity;
+    private float mStartOpacity;
+    private float mDesiredOpacity;
 
-    public class UnitCursor : MonoBehaviour
+    public UnitCursor()
     {
-        public float StartScale;
-        public float LoopScale;
-        public float EndScale;
-        public float Opacity;
-        public float FadeTime;
-        private float mCurrentScale;
-        private float mTime;
-        private float mDuration;
-        private float mDesiredScale;
-        private float mStartScale;
-        private bool mDiscard;
-        private UnityEngine.Color mColor;
-        private float mCurrentOpacity;
-        private float mStartOpacity;
-        private float mDesiredOpacity;
-
-        public UnitCursor()
-        {
-            this.StartScale = 2f;
-            this.LoopScale = 1f;
-            this.EndScale = 2f;
-            this.Opacity = 1f;
-            this.FadeTime = 1f;
-            base..ctor();
-            return;
-        }
-
-        private void AnimateScale(float endScale, float opacity, float time, bool destroyLater)
-        {
-            this.mTime = 0f;
-            this.mDuration = time;
-            this.mStartScale = this.mCurrentScale;
-            this.mDesiredScale = endScale;
-            this.mDiscard = destroyLater;
-            this.mStartOpacity = this.mCurrentOpacity;
-            this.mDesiredOpacity = opacity;
-            return;
-        }
-
-        public void FadeOut()
-        {
-            this.AnimateScale(this.EndScale, 0f, this.FadeTime, 1);
-            return;
-        }
-
-        private void Start()
-        {
-            this.mCurrentScale = this.StartScale;
-            this.AnimateScale(this.LoopScale, this.Opacity, this.FadeTime, 0);
-            this.Update();
-            return;
-        }
-
-        private unsafe void Update()
-        {
-            float num;
-            float num2;
-            UnityEngine.Color color;
-            if (this.mTime > this.mDuration)
-            {
-                goto Label_00CA;
-            }
-            this.mTime += Time.get_deltaTime();
-            num2 = Mathf.Sin((Mathf.Clamp01(this.mTime / this.mDuration) * 3.141593f) * 0.5f);
-            this.mCurrentScale = Mathf.Lerp(this.mStartScale, this.mDesiredScale, num2);
-            this.mCurrentOpacity = Mathf.Lerp(this.mStartOpacity, this.mDesiredOpacity, num2);
-            color = this.mColor;
-            &color.a *= this.mCurrentOpacity;
-            base.get_transform().set_localScale(Vector3.get_one() * this.mCurrentScale);
-            base.GetComponent<Renderer>().get_material().SetColor("_color", color);
-            goto Label_00E1;
-        Label_00CA:
-            if (this.mDiscard == null)
-            {
-                goto Label_00E1;
-            }
-            Object.DestroyImmediate(base.get_gameObject());
-            return;
-        Label_00E1:
-            return;
-        }
-
-        public UnityEngine.Color Color
-        {
-            set
-            {
-                this.mColor = value;
-                return;
-            }
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Start()
+    {
+      this.mCurrentScale = this.StartScale;
+      this.AnimateScale(this.LoopScale, this.Opacity, this.FadeTime, false);
+      this.Update();
+    }
+
+    public Color Color
+    {
+      set
+      {
+        this.mColor = value;
+      }
+    }
+
+    private void Update()
+    {
+      if ((double) this.mTime <= (double) this.mDuration)
+      {
+        this.mTime += Time.get_deltaTime();
+        float num = Mathf.Sin((float) ((double) Mathf.Clamp01(this.mTime / this.mDuration) * 3.14159274101257 * 0.5));
+        this.mCurrentScale = Mathf.Lerp(this.mStartScale, this.mDesiredScale, num);
+        this.mCurrentOpacity = Mathf.Lerp(this.mStartOpacity, this.mDesiredOpacity, num);
+        Color mColor = this.mColor;
+        // ISSUE: explicit reference operation
+        // ISSUE: variable of a reference type
+        Color& local = @mColor;
+        // ISSUE: explicit reference operation
+        // ISSUE: explicit reference operation
+        (^local).a = (__Null) ((^local).a * (double) this.mCurrentOpacity);
+        ((Component) this).get_transform().set_localScale(Vector3.op_Multiply(Vector3.get_one(), this.mCurrentScale));
+        ((Renderer) ((Component) this).GetComponent<Renderer>()).get_material().SetColor("_color", mColor);
+      }
+      else
+      {
+        if (!this.mDiscard)
+          return;
+        Object.DestroyImmediate((Object) ((Component) this).get_gameObject());
+      }
+    }
+
+    public void FadeOut()
+    {
+      this.AnimateScale(this.EndScale, 0.0f, this.FadeTime, true);
+    }
+
+    private void AnimateScale(float endScale, float opacity, float time, bool destroyLater)
+    {
+      this.mTime = 0.0f;
+      this.mDuration = time;
+      this.mStartScale = this.mCurrentScale;
+      this.mDesiredScale = endScale;
+      this.mDiscard = destroyLater;
+      this.mStartOpacity = this.mCurrentOpacity;
+      this.mDesiredOpacity = opacity;
+    }
+  }
+}

@@ -1,82 +1,68 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_FgGBtn
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using UnityEngine;
+  [FlowNode.Pin(1, "Output", FlowNode.PinTypes.Output, 1)]
+  [FlowNode.NodeType("FgGID/FgGBtn", 32741)]
+  [FlowNode.Pin(10, "Input", FlowNode.PinTypes.Input, 0)]
+  public class FlowNode_FgGBtn : FlowNode
+  {
+    [FlowNode.ShowInInfo]
+    public string ParameterName = "authStatus";
+    [FlowNode.ShowInInfo]
+    [FlowNode.DropTarget(typeof (GameObject), true)]
+    public GameObject Target;
+    public bool UpdateAnimator;
 
-    [NodeType("FgGID/FgGBtn", 0x7fe5), Pin(10, "Input", 0, 0), Pin(1, "Output", 1, 1)]
-    public class FlowNode_FgGBtn : FlowNode
+    public override string GetCaption()
     {
-        [ShowInInfo]
-        public string ParameterName;
-        [ShowInInfo, DropTarget(typeof(GameObject), true)]
-        public GameObject Target;
-        public bool UpdateAnimator;
-
-        public FlowNode_FgGBtn()
-        {
-            this.ParameterName = "authStatus";
-            base..ctor();
-            return;
-        }
-
-        public override string GetCaption()
-        {
-            return (base.GetCaption() + ":" + this.ParameterName);
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            GameObject obj2;
-            Animator animator;
-            ReqFgGAuth.eAuthStatus status;
-            obj2 = ((this.Target != null) == null) ? base.get_gameObject() : this.Target;
-            animator = obj2.GetComponent<Animator>();
-            switch ((MonoSingleton<GameManager>.Instance.AuthStatus - 1))
-            {
-                case 0:
-                    goto Label_004E;
-
-                case 1:
-                    goto Label_005F;
-
-                case 2:
-                    goto Label_0093;
-            }
-            goto Label_00C7;
-        Label_004E:
-            this.Target.SetActive(0);
-            goto Label_00D8;
-        Label_005F:
-            if ((animator != null) == null)
-            {
-                goto Label_00D8;
-            }
-            animator.SetInteger(this.ParameterName, 2);
-            if (this.UpdateAnimator == null)
-            {
-                goto Label_00D8;
-            }
-            animator.Update(0f);
-            goto Label_00D8;
-        Label_0093:
-            if ((animator != null) == null)
-            {
-                goto Label_00D8;
-            }
-            animator.SetInteger(this.ParameterName, 3);
-            if (this.UpdateAnimator == null)
-            {
-                goto Label_00D8;
-            }
-            animator.Update(0f);
-            goto Label_00D8;
-        Label_00C7:
-            this.Target.SetActive(0);
-        Label_00D8:
-            base.ActivateOutputLinks(1);
-            return;
-        }
+      return base.GetCaption() + ":" + this.ParameterName;
     }
-}
 
+    public override void OnActivate(int pinID)
+    {
+      Animator component = (Animator) (!Object.op_Inequality((Object) this.Target, (Object) null) ? ((Component) this).get_gameObject() : this.Target).GetComponent<Animator>();
+      switch (MonoSingleton<GameManager>.Instance.AuthStatus)
+      {
+        case ReqFgGAuth.eAuthStatus.Disable:
+          this.Target.SetActive(false);
+          break;
+        case ReqFgGAuth.eAuthStatus.NotSynchronized:
+          if (Object.op_Inequality((Object) component, (Object) null))
+          {
+            component.SetInteger(this.ParameterName, 2);
+            if (this.UpdateAnimator)
+            {
+              component.Update(0.0f);
+              break;
+            }
+            break;
+          }
+          break;
+        case ReqFgGAuth.eAuthStatus.Synchronized:
+          if (Object.op_Inequality((Object) component, (Object) null))
+          {
+            component.SetInteger(this.ParameterName, 3);
+            if (this.UpdateAnimator)
+            {
+              component.Update(0.0f);
+              break;
+            }
+            break;
+          }
+          break;
+        default:
+          this.Target.SetActive(false);
+          break;
+      }
+      this.ActivateOutputLinks(1);
+    }
+  }
+}

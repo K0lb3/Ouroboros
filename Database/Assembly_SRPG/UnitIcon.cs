@@ -1,265 +1,199 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.UnitIcon
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Runtime.InteropServices;
-    using UnityEngine;
-    using UnityEngine.UI;
+  public class UnitIcon : BaseIcon
+  {
+    private bool mIsLvActive = true;
+    private const string TooltipPath = "UI/UnitTooltip_1";
+    [Space(10f)]
+    public GameParameter.UnitInstanceTypes InstanceType;
+    public int InstanceIndex;
+    public bool Tooltip;
+    [Space(10f)]
+    public RawImage Icon;
+    public Image Frame;
+    public Image Rarity;
+    public Text Level;
+    public Image Element;
+    public RawImage Job;
+    public GameObject LvParent;
+    public SortBadge SortBadge;
+    public bool AllowJobChange;
 
-    public class UnitIcon : BaseIcon
+    public override bool HasTooltip
     {
-        private const string TooltipPath = "UI/UnitTooltip_1";
-        [Space(10f)]
-        public GameParameter.UnitInstanceTypes InstanceType;
-        public int InstanceIndex;
-        public bool Tooltip;
-        [Space(10f)]
-        public RawImage Icon;
-        public Image Frame;
-        public Image Rarity;
-        public Text Level;
-        public Image Element;
-        public RawImage Job;
-        public GameObject LvParent;
-        public SRPG.SortBadge SortBadge;
-        public bool AllowJobChange;
-        private bool mIsLvActive;
-
-        public UnitIcon()
-        {
-            this.mIsLvActive = 1;
-            base..ctor();
-            return;
-        }
-
-        private void Awake()
-        {
-        }
-
-        public void ClearSortValue()
-        {
-            if ((this.SortBadge != null) == null)
-            {
-                goto Label_0029;
-            }
-            this.SortBadge.get_gameObject().SetActive(0);
-            this.mIsLvActive = 1;
-        Label_0029:
-            return;
-        }
-
-        protected virtual UnitData GetInstanceData()
-        {
-            UnitData data;
-            return SRPG_Extensions.GetInstanceData(this.InstanceType, base.get_gameObject());
-        }
-
-        private void OnDisable()
-        {
-            GameManager manager;
-            manager = MonoSingleton<GameManager>.GetInstanceDirect();
-            if ((manager != null) == null)
-            {
-                goto Label_002F;
-            }
-            if ((this.Icon != null) == null)
-            {
-                goto Label_002F;
-            }
-            manager.CancelTextureLoadRequest(this.Icon);
-        Label_002F:
-            return;
-        }
-
-        private void OnEnable()
-        {
-            this.UpdateValue();
-            return;
-        }
-
-        public unsafe void SetSortValue(GameUtility.UnitSortModes mode, int value, bool isLevelActive)
-        {
-            if ((this.SortBadge != null) == null)
-            {
-                goto Label_00B9;
-            }
-            if (mode == 1)
-            {
-                goto Label_00A1;
-            }
-            if (mode == 13)
-            {
-                goto Label_00A1;
-            }
-            if (mode == null)
-            {
-                goto Label_00A1;
-            }
-            if ((this.SortBadge.Value != null) == null)
-            {
-                goto Label_0053;
-            }
-            this.SortBadge.Value.set_text(&value.ToString());
-        Label_0053:
-            if ((this.SortBadge.Icon != null) == null)
-            {
-                goto Label_0084;
-            }
-            this.SortBadge.Icon.set_sprite(GameSettings.Instance.GetUnitSortModeIcon(mode));
-        Label_0084:
-            this.SortBadge.get_gameObject().SetActive(1);
-            this.mIsLvActive = isLevelActive;
-            goto Label_00B9;
-        Label_00A1:
-            this.SortBadge.get_gameObject().SetActive(0);
-            this.mIsLvActive = 1;
-        Label_00B9:
-            return;
-        }
-
-        protected override void ShowTooltip(Vector2 screen)
-        {
-            UnitData data;
-            if (this.Tooltip == null)
-            {
-                goto Label_003D;
-            }
-            this.UpdatePartyWindow();
-            data = this.GetInstanceData();
-            if (data == null)
-            {
-                goto Label_003D;
-            }
-            data.ShowTooltip(base.get_gameObject(), this.AllowJobChange, new UnitJobDropdown.ParentObjectEvent(this.UpdateValue));
-        Label_003D:
-            return;
-        }
-
-        public void UpdatePartyWindow()
-        {
-            PartyWindow2 window;
-            window = base.GetComponentInParent<PartyWindow2>();
-            if ((window != null) == null)
-            {
-                goto Label_001A;
-            }
-            window.Refresh(1);
-        Label_001A:
-            return;
-        }
-
-        public override unsafe void UpdateValue()
-        {
-            GameSettings settings;
-            UnitData data;
-            int num;
-            int num2;
-            JobParam param;
-            int num3;
-            settings = GameSettings.Instance;
-            data = this.GetInstanceData();
-            if ((this.Icon != null) == null)
-            {
-                goto Label_0052;
-            }
-            MonoSingleton<GameManager>.Instance.ApplyTextureAsync(this.Icon, (data == null) ? null : AssetPath.UnitSkinIconSmall(data.UnitParam, data.GetSelectedSkin(-1), data.CurrentJobId));
-        Label_0052:
-            if ((this.LvParent != null) == null)
-            {
-                goto Label_0074;
-            }
-            this.LvParent.SetActive(this.mIsLvActive);
-        Label_0074:
-            if ((this.Level != null) == null)
-            {
-                goto Label_00CC;
-            }
-            if (data == null)
-            {
-                goto Label_00BB;
-            }
-            this.Level.set_text(&data.Lv.ToString());
-            this.Level.get_gameObject().SetActive(1);
-            goto Label_00CC;
-        Label_00BB:
-            this.Level.get_gameObject().SetActive(0);
-        Label_00CC:
-            if ((((this.Rarity != null) == null) || ((settings != null) == null)) || (((int) settings.UnitIcon_Rarity.Length) <= 0))
-            {
-                goto Label_0145;
-            }
-            if (data == null)
-            {
-                goto Label_0139;
-            }
-            num = 0;
-            if (data.CurrentJob == null)
-            {
-                goto Label_0121;
-            }
-            num = Mathf.Clamp(data.Rarity, 0, ((int) settings.UnitIcon_Rarity.Length) - 1);
-        Label_0121:
-            this.Rarity.set_sprite(settings.UnitIcon_Rarity[num]);
-            goto Label_0145;
-        Label_0139:
-            this.Rarity.set_sprite(null);
-        Label_0145:
-            if ((((this.Frame != null) == null) || ((settings != null) == null)) || (((int) settings.UnitIcon_Frames.Length) <= 0))
-            {
-                goto Label_01C3;
-            }
-            if (data == null)
-            {
-                goto Label_01B7;
-            }
-            num2 = 0;
-            if (data.CurrentJob == null)
-            {
-                goto Label_019F;
-            }
-            num2 = Mathf.Clamp(data.CurrentJob.Rank, 0, ((int) settings.UnitIcon_Frames.Length) - 1);
-        Label_019F:
-            this.Frame.set_sprite(settings.UnitIcon_Frames[num2]);
-            goto Label_01C3;
-        Label_01B7:
-            this.Frame.set_sprite(null);
-        Label_01C3:
-            if (((this.Element != null) == null) || ((settings != null) == null))
-            {
-                goto Label_022E;
-            }
-            if (((data == null) || (0 > data.Element)) || (data.Element >= ((int) settings.Elements_IconSmall.Length)))
-            {
-                goto Label_0222;
-            }
-            this.Element.set_sprite(settings.Elements_IconSmall[data.Element]);
-            goto Label_022E;
-        Label_0222:
-            this.Element.set_sprite(null);
-        Label_022E:
-            if ((this.Job != null) == null)
-            {
-                goto Label_0284;
-            }
-            param = null;
-            if ((data == null) || (data.CurrentJob == null))
-            {
-                goto Label_0260;
-            }
-            param = data.CurrentJob.Param;
-        Label_0260:
-            MonoSingleton<GameManager>.Instance.ApplyTextureAsync(this.Job, (param == null) ? null : AssetPath.JobIconSmall(param));
-        Label_0284:
-            return;
-        }
-
-        public override bool HasTooltip
-        {
-            get
-            {
-                return this.Tooltip;
-            }
-        }
+      get
+      {
+        return this.Tooltip;
+      }
     }
-}
 
+    private void Awake()
+    {
+    }
+
+    private void OnEnable()
+    {
+      this.UpdateValue();
+    }
+
+    private void OnDisable()
+    {
+      GameManager instanceDirect = MonoSingleton<GameManager>.GetInstanceDirect();
+      if (!Object.op_Inequality((Object) instanceDirect, (Object) null) || !Object.op_Inequality((Object) this.Icon, (Object) null))
+        return;
+      instanceDirect.CancelTextureLoadRequest(this.Icon);
+    }
+
+    protected virtual UnitData GetInstanceData()
+    {
+      return this.InstanceType.GetInstanceData(((Component) this).get_gameObject());
+    }
+
+    protected override void ShowTooltip(Vector2 screen)
+    {
+      if (!this.Tooltip)
+        return;
+      this.UpdatePartyWindow();
+      UnitData instanceData = this.GetInstanceData();
+      if (instanceData == null)
+        return;
+      PlayerPartyTypes dataOfClass = DataSource.FindDataOfClass<PlayerPartyTypes>(((Component) this).get_gameObject(), PlayerPartyTypes.Max);
+      GameObject root = (GameObject) Object.Instantiate<GameObject>((M0) AssetManager.Load<GameObject>("UI/UnitTooltip_1"));
+      UnitData data = new UnitData();
+      data.Setup(instanceData);
+      data.TempFlags = instanceData.TempFlags;
+      DataSource.Bind<UnitData>(root, data);
+      DataSource.Bind<PlayerPartyTypes>(root, dataOfClass);
+      UnitJobDropdown componentInChildren1 = (UnitJobDropdown) root.GetComponentInChildren<UnitJobDropdown>();
+      if (Object.op_Inequality((Object) componentInChildren1, (Object) null))
+      {
+        bool flag = (instanceData.TempFlags & UnitData.TemporaryFlags.AllowJobChange) != (UnitData.TemporaryFlags) 0 && this.AllowJobChange && dataOfClass != PlayerPartyTypes.Max;
+        ((Component) componentInChildren1).get_gameObject().SetActive(true);
+        componentInChildren1.UpdateValue = new UnitJobDropdown.ParentObjectEvent(this.UpdateValue);
+        Selectable component1 = (Selectable) ((Component) componentInChildren1).get_gameObject().GetComponent<Selectable>();
+        if (Object.op_Inequality((Object) component1, (Object) null))
+          component1.set_interactable(flag);
+        Image component2 = (Image) ((Component) componentInChildren1).get_gameObject().GetComponent<Image>();
+        if (Object.op_Inequality((Object) component2, (Object) null))
+          ((Graphic) component2).set_color(!flag ? new Color(0.5f, 0.5f, 0.5f) : Color.get_white());
+      }
+      ArtifactSlots componentInChildren2 = (ArtifactSlots) root.GetComponentInChildren<ArtifactSlots>();
+      AbilitySlots componentInChildren3 = (AbilitySlots) root.GetComponentInChildren<AbilitySlots>();
+      if (Object.op_Inequality((Object) componentInChildren2, (Object) null) && Object.op_Inequality((Object) componentInChildren3, (Object) null))
+      {
+        bool enable = (instanceData.TempFlags & UnitData.TemporaryFlags.AllowJobChange) != (UnitData.TemporaryFlags) 0 && this.AllowJobChange && dataOfClass != PlayerPartyTypes.Max;
+        componentInChildren2.Refresh(enable);
+        componentInChildren3.Refresh(enable);
+      }
+      GameParameter.UpdateAll(root);
+    }
+
+    public override void UpdateValue()
+    {
+      GameSettings instance = GameSettings.Instance;
+      UnitData instanceData = this.GetInstanceData();
+      if (Object.op_Inequality((Object) this.Icon, (Object) null))
+        MonoSingleton<GameManager>.Instance.ApplyTextureAsync(this.Icon, instanceData == null ? (string) null : AssetPath.UnitSkinIconSmall(instanceData.UnitParam, instanceData.GetSelectedSkin(-1), instanceData.CurrentJobId));
+      if (Object.op_Inequality((Object) this.LvParent, (Object) null))
+        this.LvParent.SetActive(this.mIsLvActive);
+      if (Object.op_Inequality((Object) this.Level, (Object) null))
+      {
+        if (instanceData != null)
+        {
+          this.Level.set_text(instanceData.Lv.ToString());
+          ((Component) this.Level).get_gameObject().SetActive(true);
+        }
+        else
+          ((Component) this.Level).get_gameObject().SetActive(false);
+      }
+      if (Object.op_Inequality((Object) this.Rarity, (Object) null) && Object.op_Inequality((Object) instance, (Object) null) && instance.UnitIcon_Rarity.Length > 0)
+      {
+        if (instanceData != null)
+        {
+          int index = 0;
+          if (instanceData.CurrentJob != null)
+            index = Mathf.Clamp(instanceData.Rarity, 0, instance.UnitIcon_Rarity.Length - 1);
+          this.Rarity.set_sprite(instance.UnitIcon_Rarity[index]);
+        }
+        else
+          this.Rarity.set_sprite((Sprite) null);
+      }
+      if (Object.op_Inequality((Object) this.Frame, (Object) null) && Object.op_Inequality((Object) instance, (Object) null) && instance.UnitIcon_Frames.Length > 0)
+      {
+        if (instanceData != null)
+        {
+          int index = 0;
+          if (instanceData.CurrentJob != null)
+            index = Mathf.Clamp(instanceData.CurrentJob.Rank, 0, instance.UnitIcon_Frames.Length - 1);
+          this.Frame.set_sprite(instance.UnitIcon_Frames[index]);
+        }
+        else
+          this.Frame.set_sprite((Sprite) null);
+      }
+      if (Object.op_Inequality((Object) this.Element, (Object) null) && Object.op_Inequality((Object) instance, (Object) null))
+      {
+        if (instanceData != null && EElement.None <= instanceData.Element && instanceData.Element < (EElement) instance.Elements_IconSmall.Length)
+          this.Element.set_sprite(instance.Elements_IconSmall[(int) instanceData.Element]);
+        else
+          this.Element.set_sprite((Sprite) null);
+      }
+      if (Object.op_Inequality((Object) this.Job, (Object) null))
+      {
+        JobParam job = (JobParam) null;
+        if (instanceData != null && instanceData.CurrentJob != null)
+          job = instanceData.CurrentJob.Param;
+        MonoSingleton<GameManager>.Instance.ApplyTextureAsync(this.Job, job == null ? (string) null : AssetPath.JobIconSmall(job));
+      }
+      if (!MonoSingleton<GameManager>.Instance.IsTutorial() || instanceData == null || (!(MonoSingleton<GameManager>.Instance.GetNextTutorialStep() == "ShowUnitList") || !(instanceData.UnitID == "UN_V2_LOGI")))
+        return;
+      SGHighlightObject.Instance().highlightedObject = ((Component) this).get_gameObject();
+      SGHighlightObject.Instance().Highlight(string.Empty, "sg_tut_1.017", (SGHighlightObject.OnActivateCallback) null, EventDialogBubble.Anchors.BottomLeft, true, false, false);
+    }
+
+    public void SetSortValue(GameUtility.UnitSortModes mode, int value, bool isLevelActive = true)
+    {
+      if (!Object.op_Inequality((Object) this.SortBadge, (Object) null))
+        return;
+      if (mode != GameUtility.UnitSortModes.Level && mode != GameUtility.UnitSortModes.Rarity && mode != GameUtility.UnitSortModes.Time)
+      {
+        if (Object.op_Inequality((Object) this.SortBadge.Value, (Object) null))
+          this.SortBadge.Value.set_text(value.ToString());
+        if (Object.op_Inequality((Object) this.SortBadge.Icon, (Object) null))
+          this.SortBadge.Icon.set_sprite(GameSettings.Instance.GetUnitSortModeIcon(mode));
+        ((Component) this.SortBadge).get_gameObject().SetActive(true);
+        this.mIsLvActive = isLevelActive;
+      }
+      else
+      {
+        ((Component) this.SortBadge).get_gameObject().SetActive(false);
+        this.mIsLvActive = true;
+      }
+    }
+
+    public void ClearSortValue()
+    {
+      if (!Object.op_Inequality((Object) this.SortBadge, (Object) null))
+        return;
+      ((Component) this.SortBadge).get_gameObject().SetActive(false);
+      this.mIsLvActive = true;
+    }
+
+    public void UpdatePartyWindow()
+    {
+      PartyWindow2 componentInParent = (PartyWindow2) ((Component) this).GetComponentInParent<PartyWindow2>();
+      if (!Object.op_Inequality((Object) componentInParent, (Object) null))
+        return;
+      componentInParent.Refresh(true);
+    }
+  }
+}

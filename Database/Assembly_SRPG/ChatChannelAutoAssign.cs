@@ -1,28 +1,20 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ChatChannelAutoAssign
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
+  public class ChatChannelAutoAssign
+  {
+    public int channel;
 
-    public class ChatChannelAutoAssign
+    public void Deserialize(JSON_ChatChannelAutoAssign json)
     {
-        public int channel;
-
-        public ChatChannelAutoAssign()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void Deserialize(JSON_ChatChannelAutoAssign json)
-        {
-            if (json != null)
-            {
-                goto Label_0007;
-            }
-            return;
-        Label_0007:
-            this.channel = json.channel;
-            return;
-        }
+      if (json == null)
+        return;
+      this.channel = json.channel;
     }
+  }
 }
-

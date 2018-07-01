@@ -1,30 +1,20 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.JSON_InnerObjective
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System;
+
+namespace SRPG
 {
-    using System;
-
-    [Serializable]
-    public class JSON_InnerObjective
-    {
-        public int type;
-        public string val;
-        public string item;
-        public int num;
-        public int item_type;
-        public int is_takeover_progress;
-
-        public JSON_InnerObjective()
-        {
-            base..ctor();
-            return;
-        }
-
-        public bool IsTakeoverProgress
-        {
-            get
-            {
-                return (this.is_takeover_progress == 1);
-            }
-        }
-    }
+  [Serializable]
+  public class JSON_InnerObjective
+  {
+    public int type;
+    public string val;
+    public string item;
+    public int num;
+    public int item_type;
+  }
 }
-

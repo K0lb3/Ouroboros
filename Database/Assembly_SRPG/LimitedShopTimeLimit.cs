@@ -1,120 +1,85 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.LimitedShopTimeLimit
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using UnityEngine;
-    using UnityEngine.UI;
+  public class LimitedShopTimeLimit : MonoBehaviour, IGameParameter
+  {
+    public GameObject Body;
+    public Text Timer;
+    private long mEndTime;
+    private float mRefreshInterval;
 
-    public class LimitedShopTimeLimit : MonoBehaviour, IGameParameter
+    public LimitedShopTimeLimit()
     {
-        public GameObject Body;
-        public Text Timer;
-        private long mEndTime;
-        private float mRefreshInterval;
-
-        public LimitedShopTimeLimit()
-        {
-            this.mRefreshInterval = 1f;
-            base..ctor();
-            return;
-        }
-
-        private unsafe void Refresh()
-        {
-            object[] objArray3;
-            object[] objArray2;
-            object[] objArray1;
-            DateTime time;
-            DateTime time2;
-            TimeSpan span;
-            string str;
-            if (this.mEndTime > 0L)
-            {
-                goto Label_002B;
-            }
-            if ((this.Body != null) == null)
-            {
-                goto Label_002A;
-            }
-            this.Body.SetActive(0);
-        Label_002A:
-            return;
-        Label_002B:
-            if ((this.Body != null) == null)
-            {
-                goto Label_0048;
-            }
-            this.Body.SetActive(1);
-        Label_0048:
-            time = TimeManager.ServerTime;
-            span = TimeManager.FromUnixTime(this.mEndTime) - time;
-            str = null;
-            if (&span.TotalDays < 1.0)
-            {
-                goto Label_009E;
-            }
-            objArray1 = new object[] { (int) &span.Days };
-            str = LocalizedText.Get("sys.QUEST_TIMELIMIT_D", objArray1);
-            goto Label_00FE;
-        Label_009E:
-            if (&span.TotalHours < 1.0)
-            {
-                goto Label_00D8;
-            }
-            objArray2 = new object[] { (int) &span.Hours };
-            str = LocalizedText.Get("sys.QUEST_TIMELIMIT_H", objArray2);
-            goto Label_00FE;
-        Label_00D8:
-            objArray3 = new object[] { (int) Mathf.Max(&span.Minutes, 0) };
-            str = LocalizedText.Get("sys.QUEST_TIMELIMIT_M", objArray3);
-        Label_00FE:
-            if ((this.Timer != null) == null)
-            {
-                goto Label_0131;
-            }
-            if ((this.Timer.get_text() != str) == null)
-            {
-                goto Label_0131;
-            }
-            this.Timer.set_text(str);
-        Label_0131:
-            return;
-        }
-
-        private void Start()
-        {
-            this.UpdateValue();
-            this.Refresh();
-            return;
-        }
-
-        private void Update()
-        {
-            this.mRefreshInterval -= Time.get_unscaledDeltaTime();
-            if (this.mRefreshInterval > 0f)
-            {
-                goto Label_0033;
-            }
-            this.Refresh();
-            this.mRefreshInterval = 1f;
-        Label_0033:
-            return;
-        }
-
-        public void UpdateValue()
-        {
-            LimitedShopData data;
-            this.mEndTime = 0L;
-            if (MonoSingleton<GameManager>.Instance.Player.GetLimitedShopData() == null)
-            {
-                goto Label_003A;
-            }
-            this.mEndTime = GlobalVars.LimitedShopItem.shops.end;
-            this.Refresh();
-            return;
-        Label_003A:
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Start()
+    {
+      this.UpdateValue();
+      this.Refresh();
+    }
+
+    private void Update()
+    {
+      this.mRefreshInterval -= Time.get_unscaledDeltaTime();
+      if ((double) this.mRefreshInterval > 0.0)
+        return;
+      this.Refresh();
+      this.mRefreshInterval = 1f;
+    }
+
+    private void Refresh()
+    {
+      if (this.mEndTime <= 0L)
+      {
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Body, (UnityEngine.Object) null))
+          return;
+        this.Body.SetActive(false);
+      }
+      else
+      {
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Body, (UnityEngine.Object) null))
+          this.Body.SetActive(true);
+        TimeSpan timeSpan = TimeManager.FromUnixTime(this.mEndTime) - TimeManager.ServerTime;
+        string str;
+        if (timeSpan.TotalDays >= 1.0)
+          str = LocalizedText.Get("sys.QUEST_TIMELIMIT_D", new object[1]
+          {
+            (object) timeSpan.Days
+          });
+        else if (timeSpan.TotalHours >= 1.0)
+          str = LocalizedText.Get("sys.QUEST_TIMELIMIT_H", new object[1]
+          {
+            (object) timeSpan.Hours
+          });
+        else
+          str = LocalizedText.Get("sys.QUEST_TIMELIMIT_M", new object[1]
+          {
+            (object) Mathf.Max(timeSpan.Minutes, 0)
+          });
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Timer, (UnityEngine.Object) null) || !(this.Timer.get_text() != str))
+          return;
+        this.Timer.set_text(str);
+      }
+    }
+
+    public void UpdateValue()
+    {
+      this.mEndTime = 0L;
+      if (MonoSingleton<GameManager>.Instance.Player.GetLimitedShopData() == null)
+        return;
+      this.mEndTime = GlobalVars.LimitedShopItem.shops.end;
+      this.Refresh();
+    }
+  }
+}

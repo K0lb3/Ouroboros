@@ -1,76 +1,48 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqAbilityRankUp
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Collections.Generic;
+using System.Text;
+
+namespace SRPG
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Runtime.InteropServices;
-    using System.Text;
-
-    public class ReqAbilityRankUp : WebAPI
+  public class ReqAbilityRankUp : WebAPI
+  {
+    public ReqAbilityRankUp(Dictionary<long, int> abilities, Network.ResponseCallback response, string trophyprog = null, string bingoprog = null)
     {
-        public unsafe ReqAbilityRankUp(Dictionary<long, int> abilities, Network.ResponseCallback response, string trophyprog, string bingoprog)
+      this.name = "unit/job/abil/lvup";
+      StringBuilder stringBuilder = WebAPI.GetStringBuilder();
+      stringBuilder.Append("\"aps\":[");
+      string str = string.Empty;
+      using (Dictionary<long, int>.Enumerator enumerator = abilities.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
         {
-            object[] objArray1;
-            StringBuilder builder;
-            string str;
-            KeyValuePair<long, int> pair;
-            Dictionary<long, int>.Enumerator enumerator;
-            string str2;
-            base..ctor();
-            base.name = "unit/job/abil/lvup";
-            builder = WebAPI.GetStringBuilder();
-            builder.Append("\"aps\":[");
-            str = string.Empty;
-            enumerator = abilities.GetEnumerator();
-        Label_0030:
-            try
-            {
-                goto Label_00A0;
-            Label_0035:
-                pair = &enumerator.Current;
-                str = str + "{";
-                str2 = str;
-                objArray1 = new object[] { str2, "\"iid\":", (long) &pair.Key, "," };
-                str = string.Concat(objArray1);
-                str = str + "\"ap\":" + ((int) &pair.Value);
-                str = str + "},";
-            Label_00A0:
-                if (&enumerator.MoveNext() != null)
-                {
-                    goto Label_0035;
-                }
-                goto Label_00BD;
-            }
-            finally
-            {
-            Label_00B1:
-                ((Dictionary<long, int>.Enumerator) enumerator).Dispose();
-            }
-        Label_00BD:
-            if (str.Length <= 0)
-            {
-                goto Label_00DF;
-            }
-            builder.Append(str.Substring(0, str.Length - 1));
-        Label_00DF:
-            builder.Append("]");
-            if (string.IsNullOrEmpty(trophyprog) != null)
-            {
-                goto Label_010A;
-            }
-            builder.Append(",");
-            builder.Append(trophyprog);
-        Label_010A:
-            if (string.IsNullOrEmpty(bingoprog) != null)
-            {
-                goto Label_012B;
-            }
-            builder.Append(",");
-            builder.Append(bingoprog);
-        Label_012B:
-            base.body = WebAPI.GetRequestString(builder.ToString());
-            base.callback = response;
-            return;
+          KeyValuePair<long, int> current = enumerator.Current;
+          str += "{";
+          str = str + "\"iid\":" + (object) current.Key + ",";
+          str = str + "\"ap\":" + (object) current.Value;
+          str += "},";
         }
+      }
+      if (str.Length > 0)
+        stringBuilder.Append(str.Substring(0, str.Length - 1));
+      stringBuilder.Append("]");
+      if (!string.IsNullOrEmpty(trophyprog))
+      {
+        stringBuilder.Append(",");
+        stringBuilder.Append(trophyprog);
+      }
+      if (!string.IsNullOrEmpty(bingoprog))
+      {
+        stringBuilder.Append(",");
+        stringBuilder.Append(bingoprog);
+      }
+      this.body = WebAPI.GetRequestString(stringBuilder.ToString());
+      this.callback = response;
     }
+  }
 }
-

@@ -1,84 +1,55 @@
-﻿namespace SRPG.AnimEvents
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.AnimEvents.ToggleWeaponFrame
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG.AnimEvents
 {
-    using SRPG;
-    using System;
-    using UnityEngine;
+  public class ToggleWeaponFrame : AnimEvent
+  {
+    public ToggleWeaponFrame.SHOW_TYPE Primary;
+    public ToggleWeaponFrame.SHOW_TYPE Secondary;
 
-    public class ToggleWeaponFrame : AnimEvent
+    public override void OnStart(GameObject go)
     {
-        public SHOW_TYPE Primary;
-        public SHOW_TYPE Secondary;
-
-        public ToggleWeaponFrame()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnEnd(GameObject go)
-        {
-            UnitController controller;
-            bool flag;
-            controller = go.GetComponentInParent<UnitController>();
-            if ((controller == null) == null)
-            {
-                goto Label_0014;
-            }
-            return;
-        Label_0014:
-            flag = 0;
-            if (this.Primary == null)
-            {
-                goto Label_003C;
-            }
-            flag = (this.Primary != 1) ? 0 : 1;
-            controller.SetPrimaryEquipmentsVisible(flag);
-        Label_003C:
-            if (this.Secondary == null)
-            {
-                goto Label_0062;
-            }
-            flag = (this.Secondary != 1) ? 0 : 1;
-            controller.SetSecondaryEquipmentsVisible(flag);
-        Label_0062:
-            return;
-        }
-
-        public override void OnStart(GameObject go)
-        {
-            UnitController controller;
-            bool flag;
-            controller = go.GetComponentInParent<UnitController>();
-            if ((controller == null) == null)
-            {
-                goto Label_0014;
-            }
-            return;
-        Label_0014:
-            flag = 0;
-            if (this.Primary == null)
-            {
-                goto Label_003C;
-            }
-            flag = (this.Primary != 1) ? 1 : 0;
-            controller.SetPrimaryEquipmentsVisible(flag);
-        Label_003C:
-            if (this.Secondary == null)
-            {
-                goto Label_0062;
-            }
-            flag = (this.Secondary != 1) ? 1 : 0;
-            controller.SetSecondaryEquipmentsVisible(flag);
-        Label_0062:
-            return;
-        }
-
-        public enum SHOW_TYPE
-        {
-            KEEP,
-            HIDDEN,
-            VISIBLE
-        }
+      UnitController componentInParent = (UnitController) go.GetComponentInParent<UnitController>();
+      if (Object.op_Equality((Object) componentInParent, (Object) null))
+        return;
+      if (this.Primary != ToggleWeaponFrame.SHOW_TYPE.KEEP)
+      {
+        bool visible = this.Primary != ToggleWeaponFrame.SHOW_TYPE.HIDDEN;
+        componentInParent.SetPrimaryEquipmentsVisible(visible);
+      }
+      if (this.Secondary == ToggleWeaponFrame.SHOW_TYPE.KEEP)
+        return;
+      bool visible1 = this.Secondary != ToggleWeaponFrame.SHOW_TYPE.HIDDEN;
+      componentInParent.SetSecondaryEquipmentsVisible(visible1);
     }
-}
 
+    public override void OnEnd(GameObject go)
+    {
+      UnitController componentInParent = (UnitController) go.GetComponentInParent<UnitController>();
+      if (Object.op_Equality((Object) componentInParent, (Object) null))
+        return;
+      if (this.Primary != ToggleWeaponFrame.SHOW_TYPE.KEEP)
+      {
+        bool visible = this.Primary == ToggleWeaponFrame.SHOW_TYPE.HIDDEN;
+        componentInParent.SetPrimaryEquipmentsVisible(visible);
+      }
+      if (this.Secondary == ToggleWeaponFrame.SHOW_TYPE.KEEP)
+        return;
+      bool visible1 = this.Secondary == ToggleWeaponFrame.SHOW_TYPE.HIDDEN;
+      componentInParent.SetSecondaryEquipmentsVisible(visible1);
+    }
+
+    public enum SHOW_TYPE
+    {
+      KEEP,
+      HIDDEN,
+      VISIBLE,
+    }
+  }
+}

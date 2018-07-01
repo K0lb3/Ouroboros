@@ -1,108 +1,81 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_RemoveFriend
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-
-    [Pin(10, "ひとりフレンド解除", 0, 10), NodeType("System/RemoveFriend", 0x7fe5), Pin(20, "ひとりフレンド解除成功", 1, 20)]
-    public class FlowNode_RemoveFriend : FlowNode_Network
+  [FlowNode.NodeType("System/RemoveFriend", 32741)]
+  [FlowNode.Pin(20, "ひとりフレンド解除成功", FlowNode.PinTypes.Output, 20)]
+  [FlowNode.Pin(10, "ひとりフレンド解除", FlowNode.PinTypes.Input, 10)]
+  public class FlowNode_RemoveFriend : FlowNode_Network
+  {
+    public override void OnActivate(int pinID)
     {
-        public FlowNode_RemoveFriend()
+      if (((Behaviour) this).get_enabled())
+        return;
+      if (pinID == 10)
+      {
+        if (Network.Mode == Network.EConnectMode.Offline)
         {
-            base..ctor();
-            return;
+          this.ActivateOutputLinks(20);
+          ((Behaviour) this).set_enabled(false);
         }
-
-        public override void OnActivate(int pinID)
+        else
         {
-            string[] textArray1;
-            FriendData data;
-            string str;
-            int num;
-            if (base.get_enabled() == null)
-            {
-                goto Label_000C;
-            }
-            return;
-        Label_000C:
-            num = pinID;
-            if (num == 10)
-            {
-                goto Label_001B;
-            }
-            goto Label_0071;
-        Label_001B:
-            if (Network.Mode != 1)
-            {
-                goto Label_0037;
-            }
-            base.ActivateOutputLinks(20);
-            base.set_enabled(0);
-            return;
-        Label_0037:
-            str = GlobalVars.SelectedFriend.FUID;
-            textArray1 = new string[] { str };
-            base.ExecRequest(new ReqFriendRemove(textArray1, new Network.ResponseCallback(this.ResponseCallback)));
-            base.set_enabled(1);
-            goto Label_007D;
-        Label_0071:
-            base.set_enabled(0);
-        Label_007D:
-            return;
+          this.ExecRequest((WebAPI) new ReqFriendRemove(new string[1]
+          {
+            GlobalVars.SelectedFriend.FUID
+          }, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+          ((Behaviour) this).set_enabled(true);
         }
-
-        public override unsafe void OnSuccess(WWWResult www)
-        {
-            WebAPI.JSON_BodyResponse<Json_PlayerDataAll> response;
-            Exception exception;
-            Network.EErrCode code;
-            if (Network.IsError == null)
-            {
-                goto Label_002E;
-            }
-            if (Network.ErrCode == 0x6a4)
-            {
-                goto Label_0020;
-            }
-            goto Label_0027;
-        Label_0020:
-            this.OnBack();
-            return;
-        Label_0027:
-            this.OnRetry();
-            return;
-        Label_002E:
-            response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_PlayerDataAll>>(&www.text);
-            DebugUtility.Assert((response == null) == 0, "res == null");
-            if (response.body != null)
-            {
-                goto Label_005E;
-            }
-            this.OnRetry();
-            return;
-        Label_005E:
-            try
-            {
-                MonoSingleton<GameManager>.Instance.Deserialize(response.body.player);
-                MonoSingleton<GameManager>.Instance.Deserialize(response.body.friends, 1);
-                goto Label_00A5;
-            }
-            catch (Exception exception1)
-            {
-            Label_008E:
-                exception = exception1;
-                DebugUtility.LogException(exception);
-                this.OnRetry();
-                goto Label_00D0;
-            }
-        Label_00A5:
-            MonoSingleton<GameManager>.GetInstanceDirect().RequestUpdateBadges(0x10);
-            Network.RemoveAPI();
-            base.ActivateOutputLinks(20);
-            GameParameter.UpdateValuesOfType(0xcf);
-            base.set_enabled(0);
-        Label_00D0:
-            return;
-        }
+      }
+      else
+        ((Behaviour) this).set_enabled(false);
     }
-}
 
+    public override void OnSuccess(WWWResult www)
+    {
+      if (Network.IsError)
+      {
+        if (Network.ErrCode == Network.EErrCode.RmNoFriend)
+          this.OnBack();
+        else
+          this.OnRetry();
+      }
+      else
+      {
+        WebAPI.JSON_BodyResponse<Json_PlayerDataAll> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_PlayerDataAll>>(www.text);
+        DebugUtility.Assert(jsonObject != null, "res == null");
+        if (jsonObject.body == null)
+        {
+          this.OnRetry();
+        }
+        else
+        {
+          try
+          {
+            MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.player);
+            MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.friends, FriendStates.Friend);
+          }
+          catch (Exception ex)
+          {
+            DebugUtility.LogException(ex);
+            this.OnRetry();
+            return;
+          }
+          MonoSingleton<GameManager>.GetInstanceDirect().RequestUpdateBadges(GameManager.BadgeTypes.DailyMission);
+          Network.RemoveAPI();
+          this.ActivateOutputLinks(20);
+          GameParameter.UpdateValuesOfType(GameParameter.ParameterTypes.PLAYER_FRIENDNUM);
+          ((Behaviour) this).set_enabled(false);
+        }
+      }
+    }
+  }
+}

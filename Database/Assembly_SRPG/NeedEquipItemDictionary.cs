@@ -1,71 +1,66 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.NeedEquipItemDictionary
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System.Collections.Generic;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Collections.Generic;
-    using System.Runtime.InteropServices;
+  public class NeedEquipItemDictionary
+  {
+    public List<NeedEquipItem> list = new List<NeedEquipItem>();
+    private int need_picec;
+    private ItemData data;
+    public ItemParam CommonItemParam;
 
-    public class NeedEquipItemDictionary
+    public NeedEquipItemDictionary(ItemParam item_param, bool is_soul = false)
     {
-        public List<NeedEquipItem> list;
-        private int need_picec;
-        private ItemData data;
-        public ItemParam CommonItemParam;
-
-        public NeedEquipItemDictionary(ItemParam item_param, bool is_soul)
-        {
-            this.list = new List<NeedEquipItem>();
-            base..ctor();
-            this.CommonItemParam = MonoSingleton<GameManager>.Instance.MasterParam.GetCommonEquip(item_param, is_soul);
-            this.data = MonoSingleton<GameManager>.Instance.Player.FindItemDataByItemID(this.CommonItemParam.iname);
-            return;
-        }
-
-        public void Add(ItemParam _param, int _need_picec)
-        {
-            this.list.Add(new NeedEquipItem(_param, _need_picec));
-            this.need_picec += _need_picec;
-            return;
-        }
-
-        public void Remove(ItemParam _param)
-        {
-            NeedEquipItem item;
-            item = this.list[this.list.Count - 1];
-            if (item != null)
-            {
-                goto Label_0020;
-            }
-            return;
-        Label_0020:
-            this.need_picec -= item.NeedPiece;
-            this.list.RemoveAt(this.list.Count - 1);
-            return;
-        }
-
-        public int CommonEquipItemNum
-        {
-            get
-            {
-                return ((this.data == null) ? 0 : this.data.Num);
-            }
-        }
-
-        public bool IsEnough
-        {
-            get
-            {
-                return ((this.CommonEquipItemNum < this.need_picec) == 0);
-            }
-        }
-
-        public int NeedPicec
-        {
-            get
-            {
-                return this.need_picec;
-            }
-        }
+      this.CommonItemParam = MonoSingleton<GameManager>.Instance.MasterParam.GetCommonEquip(item_param, is_soul);
+      this.data = MonoSingleton<GameManager>.Instance.Player.FindItemDataByItemID(this.CommonItemParam.iname);
     }
-}
 
+    public int CommonEquipItemNum
+    {
+      get
+      {
+        if (this.data != null)
+          return this.data.Num;
+        return 0;
+      }
+    }
+
+    public bool IsEnough
+    {
+      get
+      {
+        return this.CommonEquipItemNum >= this.need_picec;
+      }
+    }
+
+    public int NeedPicec
+    {
+      get
+      {
+        return this.need_picec;
+      }
+    }
+
+    public void Add(ItemParam _param, int _need_picec)
+    {
+      this.list.Add(new NeedEquipItem(_param, _need_picec));
+      this.need_picec += _need_picec;
+    }
+
+    public void Remove(ItemParam _param)
+    {
+      NeedEquipItem needEquipItem = this.list[this.list.Count - 1];
+      if (needEquipItem == null)
+        return;
+      this.need_picec -= needEquipItem.NeedPiece;
+      this.list.RemoveAt(this.list.Count - 1);
+    }
+  }
+}

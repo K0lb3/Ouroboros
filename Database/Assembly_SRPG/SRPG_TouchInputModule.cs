@@ -1,822 +1,449 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.SRPG_TouchInputModule
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Collections.Generic;
+using System.Text;
+using UnityEngine;
+using UnityEngine.EventSystems;
+
+namespace SRPG
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Runtime.CompilerServices;
-    using System.Runtime.InteropServices;
-    using System.Text;
-    using UnityEngine;
-    using UnityEngine.EventSystems;
+  [AddComponentMenu("Event/Touch Input Module (SRPG)")]
+  public class SRPG_TouchInputModule : PointerInputModule
+  {
+    private static int mLockCount;
+    public GameObject TouchEffect;
+    private GameObject[] mTouchEffectPool;
+    private int mNumActiveTouchEffects;
+    private bool mTouchEffectPoolInitialized;
+    public SRPG_TouchInputModule.OnDoubleTapDelegate OnDoubleTap;
+    private float mDoubleTap1stReleasedTime;
+    private readonly int BUTTON_INDEX_MAX;
+    private int pressing_button_index;
+    public static bool IsMultiTouching;
+    private Vector2 m_LastMousePosition;
+    private Vector2 m_MousePosition;
+    [SerializeField]
+    private bool m_AllowActivationOnStandalone;
+    private int mPrimaryFingerID;
 
-    [AddComponentMenu("Event/Touch Input Module (SRPG)")]
-    public class SRPG_TouchInputModule : PointerInputModule
+    public SRPG_TouchInputModule()
     {
-        private static int mLockCount;
-        public GameObject TouchEffect;
-        private GameObject[] mTouchEffectPool;
-        private int mNumActiveTouchEffects;
-        private bool mTouchEffectPoolInitialized;
-        public OnDoubleTapDelegate OnDoubleTap;
-        private float mDoubleTap1stReleasedTime;
-        private readonly int BUTTON_INDEX_MAX;
-        private int pressing_button_index;
-        public static bool IsMultiTouching;
-        private Vector2 m_LastMousePosition;
-        private Vector2 m_MousePosition;
-        [SerializeField]
-        private bool m_AllowActivationOnStandalone;
-        private int mPrimaryFingerID;
-        [CompilerGenerated]
-        private bool <IsHandling>k__BackingField;
-        [CompilerGenerated]
-        private static OnDoubleTapDelegate <>f__am$cacheF;
-
-        public SRPG_TouchInputModule()
-        {
-            this.mTouchEffectPool = new GameObject[8];
-            this.mDoubleTap1stReleasedTime = -1f;
-            this.BUTTON_INDEX_MAX = 3;
-            this.pressing_button_index = -1;
-            this.m_AllowActivationOnStandalone = 1;
-            this.mPrimaryFingerID = -1;
-            base..ctor();
-            return;
-        }
-
-        [CompilerGenerated]
-        private static void <Start>m__3F7(Vector2 position)
-        {
-        }
-
-        public override void DeactivateModule()
-        {
-            base.DeactivateModule();
-            base.ClearSelection();
-            return;
-        }
-
-        private unsafe void FakeTouches()
-        {
-            bool flag;
-            bool flag2;
-            bool flag3;
-            int num;
-            int num2;
-            PointerEventData data;
-            PointerEventData data2;
-            RaycastResult result;
-            RaycastResult result2;
-            RaycastResult result3;
-            flag = 0;
-            flag2 = 0;
-            flag3 = 0;
-            if (this.pressing_button_index > -1)
-            {
-                goto Label_0042;
-            }
-            num = 0;
-            goto Label_0036;
-        Label_0019:
-            if (Input.GetMouseButtonDown(num) == null)
-            {
-                goto Label_0032;
-            }
-            this.pressing_button_index = num;
-            flag2 = 1;
-            goto Label_0042;
-        Label_0032:
-            num += 1;
-        Label_0036:
-            if (num < this.BUTTON_INDEX_MAX)
-            {
-                goto Label_0019;
-            }
-        Label_0042:
-            num2 = 0;
-            goto Label_0077;
-        Label_004A:
-            if ((Input.GetMouseButtonUp(num2) == null) || (this.pressing_button_index != num2))
-            {
-                goto Label_0071;
-            }
-            this.pressing_button_index = -1;
-            flag3 = 1;
-            goto Label_0084;
-        Label_0071:
-            num2 += 1;
-        Label_0077:
-            if (num2 < this.BUTTON_INDEX_MAX)
-            {
-                goto Label_004A;
-            }
-        Label_0084:
-            this.IsHandling = (flag2 != null) ? 1 : flag3;
-            data = this.GetMousePointerEventData().GetButtonState(0).get_eventData().buttonData;
-            this.ProcessTouchPress(data, flag2, flag3);
-            if (Input.GetMouseButton(0) != null)
-            {
-                goto Label_00D7;
-            }
-            if (Input.GetMouseButton(1) != null)
-            {
-                goto Label_00D7;
-            }
-            if (Input.GetMouseButton(2) == null)
-            {
-                goto Label_0165;
-            }
-        Label_00D7:
-            this.IsHandling = 1;
-            this.ProcessMove(data);
-            this.ProcessDrag(data);
-            if (&data.get_pointerPressRaycast().get_isValid() == null)
-            {
-                goto Label_0165;
-            }
-            data2 = this.GetMousePointerEventData().GetButtonState(1).get_eventData().buttonData;
-            if (Input.GetMouseButtonDown(1) == null)
-            {
-                goto Label_0134;
-            }
-            data2.set_pointerPressRaycast(data2.get_pointerCurrentRaycast());
-        Label_0134:
-            if (Input.GetMouseButton(1) == null)
-            {
-                goto Label_0165;
-            }
-            flag = &data.get_pointerPressRaycast().get_gameObject() == &data2.get_pointerPressRaycast().get_gameObject();
-        Label_0165:
-            IsMultiTouching = flag;
-            return;
-        }
-
-        private unsafe PointerEventData GetMousePointerEvent(int index)
-        {
-            int[] numArray1;
-            int num;
-            bool flag;
-            PointerEventData data;
-            bool flag2;
-            Vector2 vector;
-            RaycastResult result;
-            numArray1 = new int[] { -1, -2, -3 };
-            num = numArray1[index];
-            flag = Input.GetMouseButtonDown(num);
-            flag2 = base.GetPointerData(num, &data, 1);
-            data.Reset();
-            if (flag2 == null)
-            {
-                goto Label_0045;
-            }
-            data.set_position(Input.get_mousePosition());
-        Label_0045:
-            vector = Input.get_mousePosition();
-            data.set_delta(vector - data.get_position());
-            data.set_position(vector);
-            data.set_scrollDelta(Input.get_mouseScrollDelta());
-            base.get_eventSystem().RaycastAll(data, base.m_RaycastResultCache);
-            result = BaseInputModule.FindFirstRaycast(base.m_RaycastResultCache);
-            data.set_pointerCurrentRaycast(result);
-            if (flag == null)
-            {
-                goto Label_00AF;
-            }
-            data.set_delta(Vector2.get_zero());
-        Label_00AF:
-            return data;
-        }
-
-        private void InitTouchEffects()
-        {
-            int num;
-            if (this.mTouchEffectPoolInitialized == null)
-            {
-                goto Label_000C;
-            }
-            return;
-        Label_000C:
-            if ((this.TouchEffect != null) == null)
-            {
-                goto Label_0074;
-            }
-            num = 0;
-            goto Label_0066;
-        Label_0024:
-            this.mTouchEffectPool[num] = Object.Instantiate<GameObject>(this.TouchEffect);
-            this.mTouchEffectPool[num].SetActive(0);
-            this.mTouchEffectPool[num].get_transform().SetParent(UIUtility.ParticleCanvas.get_transform(), 0);
-            num += 1;
-        Label_0066:
-            if (num < ((int) this.mTouchEffectPool.Length))
-            {
-                goto Label_0024;
-            }
-        Label_0074:
-            this.mTouchEffectPoolInitialized = 1;
-            return;
-        }
-
-        public override bool IsModuleSupported()
-        {
-            return ((this.m_AllowActivationOnStandalone != null) ? 1 : Application.get_isMobilePlatform());
-        }
-
-        public static void LockInput()
-        {
-            mLockCount += 1;
-            EventSystem.get_current().get_currentInputModule().set_enabled(mLockCount == 0);
-            return;
-        }
-
-        public override void Process()
-        {
-            this.IsHandling = 0;
-            if (Application.get_platform() == 7)
-            {
-                goto Label_0032;
-            }
-            if (Application.get_platform() == 2)
-            {
-                goto Label_0032;
-            }
-            if (Application.get_platform() == null)
-            {
-                goto Label_0032;
-            }
-            if (Application.get_platform() != 1)
-            {
-                goto Label_0039;
-            }
-        Label_0032:
-            this.SendUpdateEventToSelectedObject();
-        Label_0039:
-            if (base.get_enabled() != null)
-            {
-                goto Label_0045;
-            }
-            return;
-        Label_0045:
-            if (this.UseFakeInput() == null)
-            {
-                goto Label_005B;
-            }
-            this.FakeTouches();
-            goto Label_0061;
-        Label_005B:
-            this.ProcessTouchEvents();
-        Label_0061:
-            if (this.IsHandling != null)
-            {
-                goto Label_0082;
-            }
-            if (Input.GetKeyDown(0x1b) == null)
-            {
-                goto Label_0082;
-            }
-            BackHandler.Invoke();
-            Input.ResetInputAxes();
-        Label_0082:
-            return;
-        }
-
-        private unsafe void ProcessTouchEvents()
-        {
-            List<GameObject> list;
-            int num;
-            Touch touch;
-            bool flag;
-            bool flag2;
-            PointerEventData data;
-            bool flag3;
-            int num2;
-            int num3;
-            RaycastResult result;
-            RaycastResult result2;
-            list = new List<GameObject>();
-            num = 0;
-            goto Label_00EC;
-        Label_000D:
-            touch = Input.GetTouch(num);
-            data = base.GetTouchPointerEventData(touch, &flag2, &flag);
-            flag3 = 0;
-            if (this.mPrimaryFingerID != -1)
-            {
-                goto Label_0044;
-            }
-            if (flag2 == null)
-            {
-                goto Label_0044;
-            }
-            this.mPrimaryFingerID = &touch.get_fingerId();
-        Label_0044:
-            if ((this.mPrimaryFingerID == &touch.get_fingerId()) == null)
-            {
-                goto Label_00A4;
-            }
-            this.ProcessTouchPress(data, flag2, flag);
-            if (flag != null)
-            {
-                goto Label_0098;
-            }
-            list.Add(&data.get_pointerPressRaycast().get_gameObject());
-            this.ProcessMove(data);
-            this.ProcessDrag(data);
-            goto Label_009F;
-        Label_0098:
-            this.mPrimaryFingerID = -1;
-        Label_009F:
-            goto Label_00DA;
-        Label_00A4:
-            if (flag2 == null)
-            {
-                goto Label_00BE;
-            }
-            data.set_pointerPressRaycast(data.get_pointerCurrentRaycast());
-            goto Label_00DA;
-        Label_00BE:
-            if (flag != null)
-            {
-                goto Label_00DA;
-            }
-            list.Add(&data.get_pointerPressRaycast().get_gameObject());
-        Label_00DA:
-            if (flag == null)
-            {
-                goto Label_00E8;
-            }
-            base.RemovePointerData(data);
-        Label_00E8:
-            num += 1;
-        Label_00EC:
-            if (num < Input.get_touchCount())
-            {
-                goto Label_000D;
-            }
-            IsMultiTouching = 0;
-            if (this.mPrimaryFingerID == -1)
-            {
-                goto Label_0183;
-            }
-            if (list.Count < 2)
-            {
-                goto Label_0183;
-            }
-            num2 = 0;
-            goto Label_0170;
-        Label_011D:
-            if ((list[num2] == null) == null)
-            {
-                goto Label_0131;
-            }
-            return;
-        Label_0131:
-            num3 = num2 + 1;
-            goto Label_015D;
-        Label_013C:
-            if ((list[num2] != list[num3]) == null)
-            {
-                goto Label_0157;
-            }
-            return;
-        Label_0157:
-            num3 += 1;
-        Label_015D:
-            if (num3 < list.Count)
-            {
-                goto Label_013C;
-            }
-            num2 += 1;
-        Label_0170:
-            if (num2 < list.Count)
-            {
-                goto Label_011D;
-            }
-            IsMultiTouching = 1;
-        Label_0183:
-            return;
-        }
-
-        private unsafe void ProcessTouchPress(PointerEventData pointerEvent, bool pressed, bool released)
-        {
-            GameObject obj2;
-            GameObject obj3;
-            GameObject obj4;
-            float num;
-            GameObject obj5;
-            float num2;
-            RaycastResult result;
-            obj2 = &pointerEvent.get_pointerCurrentRaycast().get_gameObject();
-            if (pressed == null)
-            {
-                goto Label_00E9;
-            }
-            pointerEvent.set_eligibleForClick(1);
-            pointerEvent.set_delta(Vector2.get_zero());
-            pointerEvent.set_pressPosition(pointerEvent.get_position());
-            pointerEvent.set_pointerPressRaycast(pointerEvent.get_pointerCurrentRaycast());
-            if ((pointerEvent.get_pointerEnter() != obj2) == null)
-            {
-                goto Label_0060;
-            }
-            base.HandlePointerExitAndEnter(pointerEvent, obj2);
-            pointerEvent.set_pointerEnter(obj2);
-        Label_0060:
-            obj3 = ExecuteEvents.ExecuteHierarchy<IPointerDownHandler>(obj2, pointerEvent, ExecuteEvents.get_pointerDownHandler());
-            if ((obj3 == null) == null)
-            {
-                goto Label_0080;
-            }
-            obj3 = ExecuteEvents.GetEventHandler<IPointerClickHandler>(obj2);
-        Label_0080:
-            if ((obj3 != pointerEvent.get_pointerPress()) == null)
-            {
-                goto Label_00A6;
-            }
-            pointerEvent.set_pointerPress(obj3);
-            pointerEvent.set_rawPointerPress(obj2);
-            pointerEvent.set_clickCount(0);
-        Label_00A6:
-            pointerEvent.set_pointerDrag(ExecuteEvents.GetEventHandler<IDragHandler>(obj2));
-            if ((pointerEvent.get_pointerDrag() != null) == null)
-            {
-                goto Label_00D5;
-            }
-            ExecuteEvents.Execute<IBeginDragHandler>(pointerEvent.get_pointerDrag(), pointerEvent, ExecuteEvents.get_beginDragHandler());
-        Label_00D5:
-            obj4 = ExecuteEvents.GetEventHandler<ISelectHandler>(obj2);
-            base.get_eventSystem().SetSelectedGameObject(obj4, pointerEvent);
-        Label_00E9:
-            if (released == null)
-            {
-                goto Label_0257;
-            }
-            num = Time.get_unscaledTime();
-            if (this.mDoubleTap1stReleasedTime >= 0f)
-            {
-                goto Label_0111;
-            }
-            this.mDoubleTap1stReleasedTime = num;
-            goto Label_014B;
-        Label_0111:
-            if ((num - this.mDoubleTap1stReleasedTime) < 0.3f)
-            {
-                goto Label_012F;
-            }
-            this.mDoubleTap1stReleasedTime = num;
-            goto Label_014B;
-        Label_012F:
-            this.OnDoubleTap(pointerEvent.get_position());
-            this.mDoubleTap1stReleasedTime = -1f;
-        Label_014B:
-            ExecuteEvents.Execute<IPointerUpHandler>(pointerEvent.get_pointerPress(), pointerEvent, ExecuteEvents.get_pointerUpHandler());
-            obj5 = ExecuteEvents.GetEventHandler<IPointerClickHandler>(obj2);
-            if ((pointerEvent.get_pointerPress() == obj5) == null)
-            {
-                goto Label_01E1;
-            }
-            if (pointerEvent.get_eligibleForClick() == null)
-            {
-                goto Label_01E1;
-            }
-            num2 = Time.get_unscaledTime();
-            if ((num2 - pointerEvent.get_clickTime()) >= 0.3f)
-            {
-                goto Label_01AF;
-            }
-            pointerEvent.set_clickCount(pointerEvent.get_clickCount() + 1);
-            goto Label_01B6;
-        Label_01AF:
-            pointerEvent.set_clickCount(1);
-        Label_01B6:
-            pointerEvent.set_clickTime(num2);
-            ExecuteEvents.Execute<IPointerClickHandler>(pointerEvent.get_pointerPress(), pointerEvent, ExecuteEvents.get_pointerClickHandler());
-            this.SpawnTouchEffect(pointerEvent.get_position());
-            goto Label_01FF;
-        Label_01E1:
-            if ((pointerEvent.get_pointerDrag() != null) == null)
-            {
-                goto Label_01FF;
-            }
-            ExecuteEvents.ExecuteHierarchy<IDropHandler>(obj2, pointerEvent, ExecuteEvents.get_dropHandler());
-        Label_01FF:
-            pointerEvent.set_eligibleForClick(0);
-            pointerEvent.set_pointerPress(null);
-            pointerEvent.set_rawPointerPress(null);
-            if ((pointerEvent.get_pointerDrag() != null) == null)
-            {
-                goto Label_0237;
-            }
-            ExecuteEvents.Execute<IEndDragHandler>(pointerEvent.get_pointerDrag(), pointerEvent, ExecuteEvents.get_endDragHandler());
-        Label_0237:
-            pointerEvent.set_pointerDrag(null);
-            ExecuteEvents.ExecuteHierarchy<IPointerExitHandler>(pointerEvent.get_pointerEnter(), pointerEvent, ExecuteEvents.get_pointerExitHandler());
-            pointerEvent.set_pointerEnter(null);
-        Label_0257:
-            return;
-        }
-
-        private bool SendUpdateEventToSelectedObject()
-        {
-            BaseEventData data;
-            if ((base.get_eventSystem().get_currentSelectedGameObject() == null) == null)
-            {
-                goto Label_0018;
-            }
-            return 0;
-        Label_0018:
-            data = this.GetBaseEventData();
-            ExecuteEvents.Execute<IUpdateSelectedHandler>(base.get_eventSystem().get_currentSelectedGameObject(), data, ExecuteEvents.get_updateSelectedHandler());
-            return data.get_used();
-        }
-
-        public override unsafe bool ShouldActivateModule()
-        {
-            bool flag;
-            int num;
-            Touch touch;
-            Vector2 vector;
-            if (base.ShouldActivateModule() != null)
-            {
-                goto Label_000D;
-            }
-            return 0;
-        Label_000D:
-            if (this.UseFakeInput() == null)
-            {
-                goto Label_005D;
-            }
-            flag = ((Input.GetMouseButtonDown(0) != null) || (Input.GetMouseButtonDown(1) != null)) ? 1 : Input.GetMouseButtonDown(2);
-            vector = this.m_MousePosition - this.m_LastMousePosition;
-            flag |= &vector.get_sqrMagnitude() > 0f;
-            return flag;
-        Label_005D:
-            num = 0;
-            goto Label_0097;
-        Label_0064:
-            touch = Input.GetTouch(num);
-            if (&touch.get_phase() == null)
-            {
-                goto Label_0091;
-            }
-            if (&touch.get_phase() == 1)
-            {
-                goto Label_0091;
-            }
-            if (&touch.get_phase() != 2)
-            {
-                goto Label_0093;
-            }
-        Label_0091:
-            return 1;
-        Label_0093:
-            num += 1;
-        Label_0097:
-            if (num < Input.get_touchCount())
-            {
-                goto Label_0064;
-            }
-            return 0;
-        }
-
-        private unsafe void SpawnTouchEffect(Vector2 position)
-        {
-            int num;
-            GameObject obj2;
-            RectTransform transform;
-            Vector2 vector;
-            if (this.mTouchEffectPoolInitialized != null)
-            {
-                goto Label_0011;
-            }
-            this.InitTouchEffects();
-        Label_0011:
-            num = 0;
-            goto Label_0088;
-        Label_0018:
-            if ((this.mTouchEffectPool[num] != null) == null)
-            {
-                goto Label_0084;
-            }
-            if (this.mTouchEffectPool[num].get_activeSelf() != null)
-            {
-                goto Label_0084;
-            }
-            obj2 = this.mTouchEffectPool[num];
-            transform = obj2.get_transform() as RectTransform;
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(transform.get_parent() as RectTransform, position, null, &vector);
-            transform.set_anchoredPosition(vector);
-            obj2.SetActive(1);
-            this.mNumActiveTouchEffects += 1;
-            return;
-        Label_0084:
-            num += 1;
-        Label_0088:
-            if (num < ((int) this.mTouchEffectPool.Length))
-            {
-                goto Label_0018;
-            }
-            return;
-        }
-
-        protected override void Start()
-        {
-            base.Start();
-            UIUtility.InitParticleCanvas();
-            this.InitTouchEffects();
-            if (<>f__am$cacheF != null)
-            {
-                goto Label_0030;
-            }
-            <>f__am$cacheF = new OnDoubleTapDelegate(SRPG_TouchInputModule.<Start>m__3F7);
-        Label_0030:
-            this.OnDoubleTap = (OnDoubleTapDelegate) Delegate.Combine(this.OnDoubleTap, <>f__am$cacheF);
-            return;
-        }
-
-        public override unsafe string ToString()
-        {
-            StringBuilder builder;
-            PointerEventData data;
-            KeyValuePair<int, PointerEventData> pair;
-            Dictionary<int, PointerEventData>.Enumerator enumerator;
-            builder = new StringBuilder();
-            builder.AppendLine((this.UseFakeInput() == null) ? "Input: Touch" : "Input: Faked");
-            if (this.UseFakeInput() == null)
-            {
-                goto Label_008A;
-            }
-            data = base.GetLastPointerEventData(-1);
-            if (data == null)
-            {
-                goto Label_004D;
-            }
-            builder.AppendLine(data.ToString());
-        Label_004D:
-            data = base.GetLastPointerEventData(-2);
-            if (data == null)
-            {
-                goto Label_0069;
-            }
-            builder.AppendLine(data.ToString());
-        Label_0069:
-            data = base.GetLastPointerEventData(-3);
-            if (data == null)
-            {
-                goto Label_00CE;
-            }
-            builder.AppendLine(data.ToString());
-            goto Label_00CE;
-        Label_008A:
-            enumerator = base.m_PointerData.GetEnumerator();
-        Label_0096:
-            try
-            {
-                goto Label_00B1;
-            Label_009B:
-                pair = &enumerator.Current;
-                builder.AppendLine(&pair.ToString());
-            Label_00B1:
-                if (&enumerator.MoveNext() != null)
-                {
-                    goto Label_009B;
-                }
-                goto Label_00CE;
-            }
-            finally
-            {
-            Label_00C2:
-                ((Dictionary<int, PointerEventData>.Enumerator) enumerator).Dispose();
-            }
-        Label_00CE:
-            return builder.ToString();
-        }
-
-        public static void UnlockInput(bool forceReset)
-        {
-            if (forceReset == null)
-            {
-                goto Label_0011;
-            }
-            mLockCount = 0;
-            goto Label_001D;
-        Label_0011:
-            mLockCount -= 1;
-        Label_001D:
-            EventSystem.get_current().get_currentInputModule().set_enabled(mLockCount == 0);
-            return;
-        }
-
-        private void Update()
-        {
-            if (this.mNumActiveTouchEffects <= 0)
-            {
-                goto Label_0012;
-            }
-            this.UpdateTouchEffects();
-        Label_0012:
-            return;
-        }
-
-        public override void UpdateModule()
-        {
-            this.m_LastMousePosition = this.m_MousePosition;
-            this.m_MousePosition = Input.get_mousePosition();
-            return;
-        }
-
-        private void UpdateTouchEffects()
-        {
-            int num;
-            bool flag;
-            UIParticleSystem[] systemArray;
-            int num2;
-            int num3;
-            num = 0;
-            goto Label_009C;
-        Label_0007:
-            if (this.mTouchEffectPool[num].get_activeSelf() == null)
-            {
-                goto Label_0098;
-            }
-            flag = 0;
-            systemArray = this.mTouchEffectPool[num].GetComponentsInChildren<UIParticleSystem>();
-            num2 = ((int) systemArray.Length) - 1;
-            goto Label_004C;
-        Label_0034:
-            if (systemArray[num2].IsAlive() == null)
-            {
-                goto Label_0048;
-            }
-            flag = 1;
-            goto Label_0053;
-        Label_0048:
-            num2 -= 1;
-        Label_004C:
-            if (num2 >= 0)
-            {
-                goto Label_0034;
-            }
-        Label_0053:
-            if (flag != null)
-            {
-                goto Label_0098;
-            }
-            num3 = ((int) systemArray.Length) - 1;
-            goto Label_0074;
-        Label_0065:
-            systemArray[num3].ResetParticleSystem();
-            num3 -= 1;
-        Label_0074:
-            if (num3 >= 0)
-            {
-                goto Label_0065;
-            }
-            this.mTouchEffectPool[num].SetActive(0);
-            this.mNumActiveTouchEffects -= 1;
-        Label_0098:
-            num += 1;
-        Label_009C:
-            if (num < ((int) this.mTouchEffectPool.Length))
-            {
-                goto Label_0007;
-            }
-            return;
-        }
-
-        private bool UseFakeInput()
-        {
-            return (Application.get_isMobilePlatform() == 0);
-        }
-
-        private bool IsHandling
-        {
-            [CompilerGenerated]
-            get
-            {
-                return this.<IsHandling>k__BackingField;
-            }
-            [CompilerGenerated]
-            set
-            {
-                this.<IsHandling>k__BackingField = value;
-                return;
-            }
-        }
-
-        public bool allowActivationOnStandalone
-        {
-            get
-            {
-                return this.m_AllowActivationOnStandalone;
-            }
-            set
-            {
-                this.m_AllowActivationOnStandalone = value;
-                return;
-            }
-        }
-
-        public delegate void OnDoubleTapDelegate(Vector2 position);
+      base.\u002Ector();
     }
-}
 
+    public static void LockInput()
+    {
+      ++SRPG_TouchInputModule.mLockCount;
+      ((Behaviour) EventSystem.get_current().get_currentInputModule()).set_enabled(SRPG_TouchInputModule.mLockCount == 0);
+    }
+
+    public static void UnlockInput(bool forceReset = false)
+    {
+      if (forceReset)
+        SRPG_TouchInputModule.mLockCount = 0;
+      else
+        --SRPG_TouchInputModule.mLockCount;
+      ((Behaviour) EventSystem.get_current().get_currentInputModule()).set_enabled(SRPG_TouchInputModule.mLockCount == 0);
+    }
+
+    private bool IsHandling { get; set; }
+
+    private void InitTouchEffects()
+    {
+      if (this.mTouchEffectPoolInitialized)
+        return;
+      if (Object.op_Inequality((Object) this.TouchEffect, (Object) null))
+      {
+        for (int index = 0; index < this.mTouchEffectPool.Length; ++index)
+        {
+          this.mTouchEffectPool[index] = (GameObject) Object.Instantiate<GameObject>((M0) this.TouchEffect);
+          this.mTouchEffectPool[index].SetActive(false);
+          this.mTouchEffectPool[index].get_transform().SetParent(((Component) UIUtility.ParticleCanvas).get_transform(), false);
+        }
+      }
+      this.mTouchEffectPoolInitialized = true;
+    }
+
+    protected virtual void Start()
+    {
+      ((UIBehaviour) this).Start();
+      UIUtility.InitParticleCanvas();
+      this.InitTouchEffects();
+      this.OnDoubleTap += (SRPG_TouchInputModule.OnDoubleTapDelegate) (position => {});
+    }
+
+    public bool allowActivationOnStandalone
+    {
+      get
+      {
+        return this.m_AllowActivationOnStandalone;
+      }
+      set
+      {
+        this.m_AllowActivationOnStandalone = value;
+      }
+    }
+
+    public virtual void UpdateModule()
+    {
+      this.m_LastMousePosition = this.m_MousePosition;
+      this.m_MousePosition = Vector2.op_Implicit(Input.get_mousePosition());
+    }
+
+    public virtual bool IsModuleSupported()
+    {
+      if (!this.m_AllowActivationOnStandalone)
+        return Application.get_isMobilePlatform();
+      return true;
+    }
+
+    public virtual bool ShouldActivateModule()
+    {
+      if (!((BaseInputModule) this).ShouldActivateModule())
+        return false;
+      if (this.UseFakeInput())
+      {
+        int num1 = Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) ? (true ? 1 : 0) : (Input.GetMouseButtonDown(2) ? 1 : 0);
+        Vector2 vector2 = Vector2.op_Subtraction(this.m_MousePosition, this.m_LastMousePosition);
+        // ISSUE: explicit reference operation
+        int num2 = (double) ((Vector2) @vector2).get_sqrMagnitude() > 0.0 ? 1 : 0;
+        return (num1 | num2) != 0;
+      }
+      for (int index = 0; index < Input.get_touchCount(); ++index)
+      {
+        Touch touch = Input.GetTouch(index);
+        // ISSUE: explicit reference operation
+        // ISSUE: explicit reference operation
+        // ISSUE: explicit reference operation
+        if (((Touch) @touch).get_phase() == null || ((Touch) @touch).get_phase() == 1 || ((Touch) @touch).get_phase() == 2)
+          return true;
+      }
+      return false;
+    }
+
+    private bool UseFakeInput()
+    {
+      return !Application.get_isMobilePlatform();
+    }
+
+    public virtual void Process()
+    {
+      this.IsHandling = false;
+      if (!((Behaviour) this).get_enabled())
+        return;
+      if (this.UseFakeInput())
+        this.FakeTouches();
+      else
+        this.ProcessTouchEvents();
+      if (this.IsHandling || !Input.GetKeyDown((KeyCode) 27) || !Object.op_Equality((Object) SGHighlightObject.Instance(), (Object) null))
+        return;
+      BackHandler.Invoke();
+      Input.ResetInputAxes();
+    }
+
+    private PointerEventData GetMousePointerEvent(int index)
+    {
+      int num = new int[3]{ -1, -2, -3 }[index];
+      bool mouseButtonDown = Input.GetMouseButtonDown(num);
+      PointerEventData pointerEventData;
+      bool pointerData = this.GetPointerData(num, ref pointerEventData, true);
+      ((AbstractEventData) pointerEventData).Reset();
+      if (pointerData)
+        pointerEventData.set_position(Vector2.op_Implicit(Input.get_mousePosition()));
+      Vector2 vector2 = Vector2.op_Implicit(Input.get_mousePosition());
+      pointerEventData.set_delta(Vector2.op_Subtraction(vector2, pointerEventData.get_position()));
+      pointerEventData.set_position(vector2);
+      pointerEventData.set_scrollDelta(Input.get_mouseScrollDelta());
+      ((BaseInputModule) this).get_eventSystem().RaycastAll(pointerEventData, (List<RaycastResult>) ((BaseInputModule) this).m_RaycastResultCache);
+      RaycastResult firstRaycast = BaseInputModule.FindFirstRaycast((List<RaycastResult>) ((BaseInputModule) this).m_RaycastResultCache);
+      pointerEventData.set_pointerCurrentRaycast(firstRaycast);
+      if (mouseButtonDown)
+        pointerEventData.set_delta(Vector2.get_zero());
+      return pointerEventData;
+    }
+
+    private void FakeTouches()
+    {
+      bool flag = false;
+      bool pressed = false;
+      bool released = false;
+      if (this.pressing_button_index <= -1)
+      {
+        for (int index = 0; index < this.BUTTON_INDEX_MAX; ++index)
+        {
+          if (Input.GetMouseButtonDown(index))
+          {
+            this.pressing_button_index = index;
+            pressed = true;
+            break;
+          }
+        }
+      }
+      for (int index = 0; index < this.BUTTON_INDEX_MAX; ++index)
+      {
+        if (Input.GetMouseButtonUp(index) && this.pressing_button_index == index)
+        {
+          this.pressing_button_index = -1;
+          released = true;
+          break;
+        }
+      }
+      this.IsHandling = pressed || released;
+      PointerEventData buttonData1 = (PointerEventData) this.GetMousePointerEventData().GetButtonState((PointerEventData.InputButton) 0).get_eventData().buttonData;
+      this.ProcessTouchPress(buttonData1, pressed, released);
+      if (Input.GetMouseButton(0) || Input.GetMouseButton(1) || Input.GetMouseButton(2))
+      {
+        this.IsHandling = true;
+        this.ProcessMove(buttonData1);
+        this.ProcessDrag(buttonData1);
+        RaycastResult pointerPressRaycast1 = buttonData1.get_pointerPressRaycast();
+        // ISSUE: explicit reference operation
+        if (((RaycastResult) @pointerPressRaycast1).get_isValid())
+        {
+          PointerEventData buttonData2 = (PointerEventData) this.GetMousePointerEventData().GetButtonState((PointerEventData.InputButton) 1).get_eventData().buttonData;
+          if (Input.GetMouseButtonDown(1))
+            buttonData2.set_pointerPressRaycast(buttonData2.get_pointerCurrentRaycast());
+          if (Input.GetMouseButton(1))
+          {
+            RaycastResult pointerPressRaycast2 = buttonData1.get_pointerPressRaycast();
+            // ISSUE: explicit reference operation
+            GameObject gameObject1 = ((RaycastResult) @pointerPressRaycast2).get_gameObject();
+            RaycastResult pointerPressRaycast3 = buttonData2.get_pointerPressRaycast();
+            // ISSUE: explicit reference operation
+            GameObject gameObject2 = ((RaycastResult) @pointerPressRaycast3).get_gameObject();
+            flag = Object.op_Equality((Object) gameObject1, (Object) gameObject2);
+          }
+        }
+      }
+      SRPG_TouchInputModule.IsMultiTouching = flag;
+    }
+
+    private void ProcessTouchEvents()
+    {
+      List<GameObject> gameObjectList1 = new List<GameObject>();
+      for (int index = 0; index < Input.get_touchCount(); ++index)
+      {
+        Touch touch = Input.GetTouch(index);
+        bool pressed;
+        bool released;
+        PointerEventData pointerEventData = this.GetTouchPointerEventData(touch, ref pressed, ref released);
+        if (this.mPrimaryFingerID == -1 && pressed)
+        {
+          // ISSUE: explicit reference operation
+          this.mPrimaryFingerID = ((Touch) @touch).get_fingerId();
+        }
+        // ISSUE: explicit reference operation
+        if (this.mPrimaryFingerID == ((Touch) @touch).get_fingerId())
+        {
+          this.ProcessTouchPress(pointerEventData, pressed, released);
+          if (!released)
+          {
+            List<GameObject> gameObjectList2 = gameObjectList1;
+            RaycastResult pointerPressRaycast = pointerEventData.get_pointerPressRaycast();
+            // ISSUE: explicit reference operation
+            GameObject gameObject = ((RaycastResult) @pointerPressRaycast).get_gameObject();
+            gameObjectList2.Add(gameObject);
+            this.ProcessMove(pointerEventData);
+            this.ProcessDrag(pointerEventData);
+          }
+          else
+            this.mPrimaryFingerID = -1;
+        }
+        else if (pressed)
+          pointerEventData.set_pointerPressRaycast(pointerEventData.get_pointerCurrentRaycast());
+        else if (!released)
+        {
+          List<GameObject> gameObjectList2 = gameObjectList1;
+          RaycastResult pointerPressRaycast = pointerEventData.get_pointerPressRaycast();
+          // ISSUE: explicit reference operation
+          GameObject gameObject = ((RaycastResult) @pointerPressRaycast).get_gameObject();
+          gameObjectList2.Add(gameObject);
+        }
+        if (released)
+          this.RemovePointerData(pointerEventData);
+      }
+      SRPG_TouchInputModule.IsMultiTouching = false;
+      if (this.mPrimaryFingerID == -1 || gameObjectList1.Count < 2)
+        return;
+      for (int index1 = 0; index1 < gameObjectList1.Count; ++index1)
+      {
+        if (Object.op_Equality((Object) gameObjectList1[index1], (Object) null))
+          return;
+        for (int index2 = index1 + 1; index2 < gameObjectList1.Count; ++index2)
+        {
+          if (Object.op_Inequality((Object) gameObjectList1[index1], (Object) gameObjectList1[index2]))
+            return;
+        }
+      }
+      SRPG_TouchInputModule.IsMultiTouching = true;
+    }
+
+    private void ProcessTouchPress(PointerEventData pointerEvent, bool pressed, bool released)
+    {
+      RaycastResult pointerCurrentRaycast = pointerEvent.get_pointerCurrentRaycast();
+      // ISSUE: explicit reference operation
+      GameObject gameObject1 = ((RaycastResult) @pointerCurrentRaycast).get_gameObject();
+      if (pressed)
+      {
+        pointerEvent.set_eligibleForClick(true);
+        pointerEvent.set_delta(Vector2.get_zero());
+        pointerEvent.set_pressPosition(pointerEvent.get_position());
+        pointerEvent.set_pointerPressRaycast(pointerEvent.get_pointerCurrentRaycast());
+        if (Object.op_Inequality((Object) pointerEvent.get_pointerEnter(), (Object) gameObject1))
+        {
+          ((BaseInputModule) this).HandlePointerExitAndEnter(pointerEvent, gameObject1);
+          pointerEvent.set_pointerEnter(gameObject1);
+        }
+        GameObject gameObject2 = ExecuteEvents.ExecuteHierarchy<IPointerDownHandler>(gameObject1, (BaseEventData) pointerEvent, (ExecuteEvents.EventFunction<M0>) ExecuteEvents.get_pointerDownHandler());
+        if (Object.op_Equality((Object) gameObject2, (Object) null))
+          gameObject2 = ExecuteEvents.GetEventHandler<IPointerClickHandler>(gameObject1);
+        if (Object.op_Inequality((Object) gameObject2, (Object) pointerEvent.get_pointerPress()))
+        {
+          pointerEvent.set_pointerPress(gameObject2);
+          pointerEvent.set_rawPointerPress(gameObject1);
+          pointerEvent.set_clickCount(0);
+        }
+        pointerEvent.set_pointerDrag(ExecuteEvents.GetEventHandler<IDragHandler>(gameObject1));
+        if (Object.op_Inequality((Object) pointerEvent.get_pointerDrag(), (Object) null))
+          ExecuteEvents.Execute<IBeginDragHandler>(pointerEvent.get_pointerDrag(), (BaseEventData) pointerEvent, (ExecuteEvents.EventFunction<M0>) ExecuteEvents.get_beginDragHandler());
+        ((BaseInputModule) this).get_eventSystem().SetSelectedGameObject(ExecuteEvents.GetEventHandler<ISelectHandler>(gameObject1), (BaseEventData) pointerEvent);
+      }
+      if (!released)
+        return;
+      float unscaledTime1 = Time.get_unscaledTime();
+      if ((double) this.mDoubleTap1stReleasedTime < 0.0)
+        this.mDoubleTap1stReleasedTime = unscaledTime1;
+      else if ((double) unscaledTime1 - (double) this.mDoubleTap1stReleasedTime >= 0.300000011920929)
+      {
+        this.mDoubleTap1stReleasedTime = unscaledTime1;
+      }
+      else
+      {
+        this.OnDoubleTap(pointerEvent.get_position());
+        this.mDoubleTap1stReleasedTime = -1f;
+      }
+      ExecuteEvents.Execute<IPointerUpHandler>(pointerEvent.get_pointerPress(), (BaseEventData) pointerEvent, (ExecuteEvents.EventFunction<M0>) ExecuteEvents.get_pointerUpHandler());
+      GameObject eventHandler = ExecuteEvents.GetEventHandler<IPointerClickHandler>(gameObject1);
+      if (Object.op_Equality((Object) pointerEvent.get_pointerPress(), (Object) eventHandler) && pointerEvent.get_eligibleForClick())
+      {
+        float unscaledTime2 = Time.get_unscaledTime();
+        if ((double) unscaledTime2 - (double) pointerEvent.get_clickTime() < 0.300000011920929)
+        {
+          PointerEventData pointerEventData = pointerEvent;
+          pointerEventData.set_clickCount(pointerEventData.get_clickCount() + 1);
+        }
+        else
+          pointerEvent.set_clickCount(1);
+        pointerEvent.set_clickTime(unscaledTime2);
+        ExecuteEvents.Execute<IPointerClickHandler>(pointerEvent.get_pointerPress(), (BaseEventData) pointerEvent, (ExecuteEvents.EventFunction<M0>) ExecuteEvents.get_pointerClickHandler());
+        this.SpawnTouchEffect(pointerEvent.get_position());
+      }
+      else if (Object.op_Inequality((Object) pointerEvent.get_pointerDrag(), (Object) null))
+        ExecuteEvents.ExecuteHierarchy<IDropHandler>(gameObject1, (BaseEventData) pointerEvent, (ExecuteEvents.EventFunction<M0>) ExecuteEvents.get_dropHandler());
+      pointerEvent.set_eligibleForClick(false);
+      pointerEvent.set_pointerPress((GameObject) null);
+      pointerEvent.set_rawPointerPress((GameObject) null);
+      if (Object.op_Inequality((Object) pointerEvent.get_pointerDrag(), (Object) null))
+        ExecuteEvents.Execute<IEndDragHandler>(pointerEvent.get_pointerDrag(), (BaseEventData) pointerEvent, (ExecuteEvents.EventFunction<M0>) ExecuteEvents.get_endDragHandler());
+      pointerEvent.set_pointerDrag((GameObject) null);
+      ExecuteEvents.ExecuteHierarchy<IPointerExitHandler>(pointerEvent.get_pointerEnter(), (BaseEventData) pointerEvent, (ExecuteEvents.EventFunction<M0>) ExecuteEvents.get_pointerExitHandler());
+      pointerEvent.set_pointerEnter((GameObject) null);
+    }
+
+    public virtual void DeactivateModule()
+    {
+      ((BaseInputModule) this).DeactivateModule();
+      this.ClearSelection();
+    }
+
+    public virtual string ToString()
+    {
+      StringBuilder stringBuilder = new StringBuilder();
+      stringBuilder.AppendLine(!this.UseFakeInput() ? "Input: Touch" : "Input: Faked");
+      if (this.UseFakeInput())
+      {
+        PointerEventData pointerEventData1 = this.GetLastPointerEventData(-1);
+        if (pointerEventData1 != null)
+          stringBuilder.AppendLine(pointerEventData1.ToString());
+        PointerEventData pointerEventData2 = this.GetLastPointerEventData(-2);
+        if (pointerEventData2 != null)
+          stringBuilder.AppendLine(pointerEventData2.ToString());
+        PointerEventData pointerEventData3 = this.GetLastPointerEventData(-3);
+        if (pointerEventData3 != null)
+          stringBuilder.AppendLine(pointerEventData3.ToString());
+      }
+      else
+      {
+        using (Dictionary<int, PointerEventData>.Enumerator enumerator = ((Dictionary<int, PointerEventData>) this.m_PointerData).GetEnumerator())
+        {
+          while (enumerator.MoveNext())
+          {
+            KeyValuePair<int, PointerEventData> current = enumerator.Current;
+            stringBuilder.AppendLine(current.ToString());
+          }
+        }
+      }
+      return stringBuilder.ToString();
+    }
+
+    private void SpawnTouchEffect(Vector2 position)
+    {
+      if (!this.mTouchEffectPoolInitialized)
+        this.InitTouchEffects();
+      for (int index = 0; index < this.mTouchEffectPool.Length; ++index)
+      {
+        if (Object.op_Inequality((Object) this.mTouchEffectPool[index], (Object) null) && !this.mTouchEffectPool[index].get_activeSelf())
+        {
+          GameObject gameObject = this.mTouchEffectPool[index];
+          RectTransform transform = gameObject.get_transform() as RectTransform;
+          Vector2 vector2;
+          RectTransformUtility.ScreenPointToLocalPointInRectangle(((Transform) transform).get_parent() as RectTransform, position, (Camera) null, ref vector2);
+          transform.set_anchoredPosition(vector2);
+          gameObject.SetActive(true);
+          ++this.mNumActiveTouchEffects;
+          break;
+        }
+      }
+    }
+
+    private void UpdateTouchEffects()
+    {
+      for (int index1 = 0; index1 < this.mTouchEffectPool.Length; ++index1)
+      {
+        if (this.mTouchEffectPool[index1].get_activeSelf())
+        {
+          bool flag = false;
+          UIParticleSystem[] componentsInChildren = (UIParticleSystem[]) this.mTouchEffectPool[index1].GetComponentsInChildren<UIParticleSystem>();
+          for (int index2 = componentsInChildren.Length - 1; index2 >= 0; --index2)
+          {
+            if (componentsInChildren[index2].IsAlive())
+            {
+              flag = true;
+              break;
+            }
+          }
+          if (!flag)
+          {
+            for (int index2 = componentsInChildren.Length - 1; index2 >= 0; --index2)
+              componentsInChildren[index2].ResetParticleSystem();
+            this.mTouchEffectPool[index1].SetActive(false);
+            --this.mNumActiveTouchEffects;
+          }
+        }
+      }
+    }
+
+    private void Update()
+    {
+      if (this.mNumActiveTouchEffects <= 0)
+        return;
+      this.UpdateTouchEffects();
+    }
+
+    public delegate void OnDoubleTapDelegate(Vector2 position);
+  }
+}

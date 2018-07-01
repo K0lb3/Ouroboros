@@ -1,178 +1,111 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_SellItem
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Collections.Generic;
-
-    [Pin(1, "Request", 0, 0), NodeType("System/SellItem", 0x7fe5), Pin(100, "Success", 1, 10), Pin(2, "RequestConvert", 0, 1)]
-    public class FlowNode_SellItem : FlowNode_Network
+  [FlowNode.Pin(2, "RequestConvert", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.NodeType("System/SellItem", 32741)]
+  [FlowNode.Pin(1, "Request", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(100, "Success", FlowNode.PinTypes.Output, 10)]
+  public class FlowNode_SellItem : FlowNode_Network
+  {
+    public override void OnActivate(int pinID)
     {
-        public FlowNode_SellItem()
+      if (pinID != 1 && pinID != 2 || ((Behaviour) this).get_enabled())
+        return;
+      PlayerData player = MonoSingleton<GameManager>.Instance.Player;
+      if (Network.Mode == Network.EConnectMode.Offline)
+      {
+        for (int index = 0; index < GlobalVars.SellItemList.Count; ++index)
         {
-            base..ctor();
-            return;
+          SellItem sellItem = GlobalVars.SellItemList[index];
+          player.GainGold(sellItem.item.Sell * sellItem.num);
+          player.GainItem(sellItem.item.Param.iname, -sellItem.num);
+          sellItem.num = 0;
+          sellItem.index = -1;
+          AnalyticsManager.TrackNonPremiumCurrencyObtain(AnalyticsManager.NonPremiumCurrencyType.Zeni, (long) (sellItem.item.Sell * sellItem.num), "Sell Item", (string) null);
+          AnalyticsManager.TrackNonPremiumCurrencyUse(AnalyticsManager.NonPremiumCurrencyType.Item, (long) sellItem.num, "Sell Item", sellItem.item.ItemID);
         }
-
-        public override void OnActivate(int pinID)
+        GlobalVars.SelectSellItem = (SellItem) null;
+        GlobalVars.SellItemList.Clear();
+        GlobalVars.SellItemList = (List<SellItem>) null;
+        this.Success();
+      }
+      else
+      {
+        Dictionary<long, int> sells = new Dictionary<long, int>();
+        List<SellItem> sellItemList = GlobalVars.SellItemList;
+        for (int index = 0; index < sellItemList.Count; ++index)
         {
-            PlayerData data;
-            int num;
-            SellItem item;
-            Dictionary<long, int> dictionary;
-            List<SellItem> list;
-            int num2;
-            long num3;
-            int num4;
-            if (pinID == 1)
-            {
-                goto Label_000E;
-            }
-            if (pinID != 2)
-            {
-                goto Label_0136;
-            }
-        Label_000E:
-            if (base.get_enabled() == null)
-            {
-                goto Label_001A;
-            }
-            return;
-        Label_001A:
-            data = MonoSingleton<GameManager>.Instance.Player;
-            if (Network.Mode != 1)
-            {
-                goto Label_00BB;
-            }
-            num = 0;
-            goto Label_008A;
-        Label_0037:
-            item = GlobalVars.SellItemList[num];
-            data.GainGold(item.item.Sell * item.num);
-            data.GainItem(item.item.Param.iname, -item.num);
-            item.num = 0;
-            item.index = -1;
-            num += 1;
-        Label_008A:
-            if (num < GlobalVars.SellItemList.Count)
-            {
-                goto Label_0037;
-            }
-            GlobalVars.SelectSellItem = null;
-            GlobalVars.SellItemList.Clear();
-            GlobalVars.SellItemList = null;
-            this.Success();
-            goto Label_0136;
-        Label_00BB:
-            dictionary = new Dictionary<long, int>();
-            list = GlobalVars.SellItemList;
-            num2 = 0;
-            goto Label_0105;
-        Label_00D0:
-            num3 = list[num2].item.UniqueID;
-            num4 = list[num2].num;
-            dictionary[num3] = num4;
-            num2 += 1;
-        Label_0105:
-            if (num2 < list.Count)
-            {
-                goto Label_00D0;
-            }
-            base.ExecRequest(new ReqItemSell(dictionary, pinID == 2, new Network.ResponseCallback(this.ResponseCallback)));
-            base.set_enabled(1);
-        Label_0136:
-            return;
+          long uniqueId = sellItemList[index].item.UniqueID;
+          int num = sellItemList[index].num;
+          sells[uniqueId] = num;
         }
-
-        public override unsafe void OnSuccess(WWWResult www)
-        {
-            WebAPI.JSON_BodyResponse<Json_PlayerDataAll> response;
-            Exception exception;
-            int num;
-            int num2;
-            Network.EErrCode code;
-            if (Network.IsError == null)
-            {
-                goto Label_0057;
-            }
-            code = Network.ErrCode;
-            if (code == 0xaf0)
-            {
-                goto Label_002E;
-            }
-            if (code == 0xaf1)
-            {
-                goto Label_0035;
-            }
-            goto Label_0050;
-        Label_002E:
-            this.OnBack();
-            return;
-        Label_0035:
-            if (GlobalVars.SellItemList == null)
-            {
-                goto Label_0049;
-            }
-            GlobalVars.SellItemList.Clear();
-        Label_0049:
-            this.OnFailed();
-            return;
-        Label_0050:
-            this.OnRetry();
-            return;
-        Label_0057:
-            response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_PlayerDataAll>>(&www.text);
-            DebugUtility.Assert((response == null) == 0, "res == null");
-        Label_0075:
-            try
-            {
-                if (response.body != null)
-                {
-                    goto Label_0086;
-                }
-                throw new InvalidJSONException();
-            Label_0086:
-                MonoSingleton<GameManager>.Instance.Deserialize(response.body.player);
-                MonoSingleton<GameManager>.Instance.Deserialize(response.body.items);
-                goto Label_00C7;
-            }
-            catch (Exception exception1)
-            {
-            Label_00B5:
-                exception = exception1;
-                base.OnRetry(exception);
-                goto Label_012B;
-            }
-        Label_00C7:
-            num = 0;
-            if (GlobalVars.SellItemList == null)
-            {
-                goto Label_0106;
-            }
-            num2 = 0;
-            goto Label_00F6;
-        Label_00DA:
-            num += GlobalVars.SellItemList[num2].item.Sell;
-            num2 += 1;
-        Label_00F6:
-            if (num2 < GlobalVars.SellItemList.Count)
-            {
-                goto Label_00DA;
-            }
-        Label_0106:
-            Network.RemoveAPI();
-            GlobalVars.SellItemList.Clear();
-            MonoSingleton<GameManager>.Instance.Player.OnGoldChange(num);
-            this.Success();
-        Label_012B:
-            return;
-        }
-
-        private void Success()
-        {
-            base.set_enabled(0);
-            base.ActivateOutputLinks(100);
-            return;
-        }
+        this.ExecRequest((WebAPI) new ReqItemSell(sells, pinID == 2, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+        ((Behaviour) this).set_enabled(true);
+      }
     }
-}
 
+    private void Success()
+    {
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(100);
+    }
+
+    public override void OnSuccess(WWWResult www)
+    {
+      if (Network.IsError)
+      {
+        switch (Network.ErrCode)
+        {
+          case Network.EErrCode.NoItemSell:
+            this.OnBack();
+            break;
+          case Network.EErrCode.ConvertAnotherItem:
+            if (GlobalVars.SellItemList != null)
+              GlobalVars.SellItemList.Clear();
+            this.OnFailed();
+            break;
+          default:
+            this.OnRetry();
+            break;
+        }
+      }
+      else
+      {
+        WebAPI.JSON_BodyResponse<Json_PlayerDataAll> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_PlayerDataAll>>(www.text);
+        DebugUtility.Assert(jsonObject != null, "res == null");
+        try
+        {
+          if (jsonObject.body == null)
+            throw new InvalidJSONException();
+          MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.player);
+          MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.items);
+        }
+        catch (Exception ex)
+        {
+          this.OnRetry(ex);
+          return;
+        }
+        int delta = 0;
+        if (GlobalVars.SellItemList != null)
+        {
+          for (int index = 0; index < GlobalVars.SellItemList.Count; ++index)
+            delta += GlobalVars.SellItemList[index].item.Sell;
+        }
+        Network.RemoveAPI();
+        GlobalVars.SellItemList.Clear();
+        MonoSingleton<GameManager>.Instance.Player.OnGoldChange(delta);
+        this.Success();
+      }
+    }
+  }
+}

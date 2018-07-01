@@ -1,75 +1,42 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.GlobalEvent
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Collections.Generic;
+
+namespace SRPG
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Runtime.CompilerServices;
+  public class GlobalEvent
+  {
+    private static Dictionary<string, GlobalEvent.Delegate> mListeners = new Dictionary<string, GlobalEvent.Delegate>();
 
-    public class GlobalEvent
+    public static void AddListener(string eventName, GlobalEvent.Delegate callback)
     {
-        private static Dictionary<string, Delegate> mListeners;
-
-        static GlobalEvent()
-        {
-            mListeners = new Dictionary<string, Delegate>();
-            return;
-        }
-
-        public GlobalEvent()
-        {
-            base..ctor();
-            return;
-        }
-
-        public static void AddListener(string eventName, Delegate callback)
-        {
-            Dictionary<string, Delegate> dictionary;
-            string str;
-            Delegate delegate2;
-            if (mListeners.ContainsKey(eventName) == null)
-            {
-                goto Label_0038;
-            }
-            delegate2 = dictionary[str];
-            (dictionary = mListeners)[str = eventName] = (Delegate) Delegate.Combine(delegate2, callback);
-            goto Label_0044;
-        Label_0038:
-            mListeners[eventName] = callback;
-        Label_0044:
-            return;
-        }
-
-        public static void Invoke(string eventName, object param)
-        {
-            if (mListeners.ContainsKey(eventName) == null)
-            {
-                goto Label_0021;
-            }
-            mListeners[eventName](param);
-        Label_0021:
-            return;
-        }
-
-        public static void RemoveListener(string eventName, Delegate callback)
-        {
-            Dictionary<string, Delegate> dictionary;
-            string str;
-            Delegate delegate2;
-            if (mListeners.ContainsKey(eventName) == null)
-            {
-                goto Label_004F;
-            }
-            delegate2 = dictionary[str];
-            (dictionary = mListeners)[str = eventName] = (Delegate) Delegate.Remove(delegate2, callback);
-            if (mListeners[eventName] != null)
-            {
-                goto Label_004F;
-            }
-            mListeners.Remove(eventName);
-        Label_004F:
-            return;
-        }
-
-        public delegate void Delegate(object caller);
+      if (GlobalEvent.mListeners.ContainsKey(eventName))
+        GlobalEvent.mListeners[eventName] += callback;
+      else
+        GlobalEvent.mListeners[eventName] = callback;
     }
-}
 
+    public static void RemoveListener(string eventName, GlobalEvent.Delegate callback)
+    {
+      if (!GlobalEvent.mListeners.ContainsKey(eventName))
+        return;
+      GlobalEvent.mListeners[eventName] -= callback;
+      if (GlobalEvent.mListeners[eventName] != null)
+        return;
+      GlobalEvent.mListeners.Remove(eventName);
+    }
+
+    public static void Invoke(string eventName, object param)
+    {
+      if (!GlobalEvent.mListeners.ContainsKey(eventName))
+        return;
+      GlobalEvent.mListeners[eventName](param);
+    }
+
+    public delegate void Delegate(object caller);
+  }
+}

@@ -1,56 +1,39 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ShopTitle
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  public class ShopTitle : MonoBehaviour
+  {
+    public ImageArray IamgeArray;
 
-    public class ShopTitle : MonoBehaviour
+    public ShopTitle()
     {
-        public ImageArray IamgeArray;
-
-        public ShopTitle()
-        {
-            base..ctor();
-            return;
-        }
-
-        private void Start()
-        {
-            EShopType type;
-            EShopType type2;
-            type2 = GlobalVars.ShopType;
-            switch (type2)
-            {
-                case 0:
-                    goto Label_0027;
-
-                case 1:
-                    goto Label_0038;
-
-                case 2:
-                    goto Label_0049;
-            }
-            if (type2 == 11)
-            {
-                goto Label_005A;
-            }
-            goto Label_006B;
-        Label_0027:
-            this.IamgeArray.ImageIndex = 0;
-            goto Label_007C;
-        Label_0038:
-            this.IamgeArray.ImageIndex = 1;
-            goto Label_007C;
-        Label_0049:
-            this.IamgeArray.ImageIndex = 2;
-            goto Label_007C;
-        Label_005A:
-            this.IamgeArray.ImageIndex = 3;
-            goto Label_007C;
-        Label_006B:
-            base.get_gameObject().SetActive(0);
-        Label_007C:
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Start()
+    {
+      switch (GlobalVars.ShopType)
+      {
+        case EShopType.Normal:
+          this.IamgeArray.ImageIndex = 0;
+          break;
+        case EShopType.Tabi:
+          this.IamgeArray.ImageIndex = 1;
+          break;
+        case EShopType.Kimagure:
+          this.IamgeArray.ImageIndex = 2;
+          break;
+        default:
+          ((Component) this).get_gameObject().SetActive(false);
+          break;
+      }
+    }
+  }
+}

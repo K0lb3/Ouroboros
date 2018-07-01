@@ -1,17 +1,18 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqBuyGold
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    public class ReqBuyGold : WebAPI
+  public class ReqBuyGold : WebAPI
+  {
+    public ReqBuyGold(int coin, Network.ResponseCallback response)
     {
-        public unsafe ReqBuyGold(int coin, Network.ResponseCallback response)
-        {
-            base..ctor();
-            base.name = "shop/gold/buy";
-            base.body = WebAPI.GetRequestString("\"coin\":" + &coin.ToString());
-            base.callback = response;
-            return;
-        }
+      this.name = "shop/gold/buy";
+      this.body = WebAPI.GetRequestString("\"coin\":" + coin.ToString());
+      this.callback = response;
     }
+  }
 }
-

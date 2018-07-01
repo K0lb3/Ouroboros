@@ -1,63 +1,50 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_RestoreMenuVariable
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  [FlowNode.NodeType("System/RestoreMenuVariable", 32741)]
+  [FlowNode.Pin(11, "== Variable", FlowNode.PinTypes.Output, 10)]
+  [FlowNode.Pin(1, "Compare", FlowNode.PinTypes.Input, 2)]
+  [FlowNode.Pin(0, "Set", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(10, "Assigned", FlowNode.PinTypes.Output, 9)]
+  [FlowNode.Pin(12, "!= Variable", FlowNode.PinTypes.Output, 11)]
+  public class FlowNode_RestoreMenuVariable : FlowNode
+  {
+    private const int PIN_ID_SET = 0;
+    private const int PIN_ID_COMPARE = 1;
+    private const int PIN_ID_ASSIGNED = 10;
+    private const int PIN_ID_EQUAL = 11;
+    private const int PIN_ID_UNEQUAL = 12;
+    public RestorePoints RestorePoint;
+    [HideInInspector]
+    public RestorePoints ResetRestorePoint;
+    [HideInInspector]
+    public bool AutoReset;
 
-    [Pin(11, "== Variable", 1, 10), Pin(12, "!= Variable", 1, 11), NodeType("System/RestoreMenuVariable", 0x7fe5), Pin(0, "Set", 0, 1), Pin(1, "Compare", 0, 2), Pin(10, "Assigned", 1, 9)]
-    public class FlowNode_RestoreMenuVariable : FlowNode
+    public override void OnActivate(int pinID)
     {
-        private const int PIN_ID_SET = 0;
-        private const int PIN_ID_COMPARE = 1;
-        private const int PIN_ID_ASSIGNED = 10;
-        private const int PIN_ID_EQUAL = 11;
-        private const int PIN_ID_UNEQUAL = 12;
-        public RestorePoints RestorePoint;
-        [HideInInspector]
-        public RestorePoints ResetRestorePoint;
-        [HideInInspector]
-        public bool AutoReset;
-
-        public FlowNode_RestoreMenuVariable()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            int num;
-            num = pinID;
-            if (num == null)
-            {
-                goto Label_0014;
-            }
-            if (num == 1)
-            {
-                goto Label_002D;
-            }
-            goto Label_006F;
-        Label_0014:
-            HomeWindow.SetRestorePoint(this.RestorePoint);
-            base.ActivateOutputLinks(10);
-            goto Label_006F;
-        Label_002D:
-            if (HomeWindow.GetRestorePoint() != this.RestorePoint)
-            {
-                goto Label_004B;
-            }
-            base.ActivateOutputLinks(11);
-            goto Label_0054;
-        Label_004B:
-            base.ActivateOutputLinks(12);
-        Label_0054:
-            if (this.AutoReset == null)
-            {
-                goto Label_006F;
-            }
-            HomeWindow.SetRestorePoint(this.ResetRestorePoint);
-        Label_006F:
-            return;
-        }
+      switch (pinID)
+      {
+        case 0:
+          HomeWindow.SetRestorePoint(this.RestorePoint);
+          this.ActivateOutputLinks(10);
+          break;
+        case 1:
+          if (HomeWindow.GetRestorePoint() == this.RestorePoint)
+            this.ActivateOutputLinks(11);
+          else
+            this.ActivateOutputLinks(12);
+          if (!this.AutoReset)
+            break;
+          HomeWindow.SetRestorePoint(this.ResetRestorePoint);
+          break;
+      }
     }
+  }
 }
-

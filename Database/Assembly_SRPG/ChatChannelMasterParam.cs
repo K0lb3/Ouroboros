@@ -1,32 +1,44 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ChatChannelMasterParam
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System;
+
+namespace SRPG
 {
-    using System;
+  public class ChatChannelMasterParam
+  {
+    private string localizedNameID;
+    public int id;
+    public byte category_id;
+    public string name;
 
-    public class ChatChannelMasterParam
+    protected void localizeFields(string language)
     {
-        public int id;
-        public byte category_id;
-        public string name;
-
-        public ChatChannelMasterParam()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void Deserialize(Json_ChatChannelMasterParam json)
-        {
-            if (json != null)
-            {
-                goto Label_000C;
-            }
-            throw new InvalidCastException();
-        Label_000C:
-            this.id = json.fields.id;
-            this.category_id = json.fields.category_id;
-            this.name = json.fields.name;
-            return;
-        }
+      this.init();
+      this.name = LocalizedText.SGGet(language, GameUtility.LocalisedChatChannelName, this.localizedNameID);
     }
-}
 
+    protected void init()
+    {
+      this.localizedNameID = this.GetType().GenerateLocalizedID(this.id.ToString(), "NAME");
+    }
+
+    public void Deserialize(string language, Json_ChatChannelMasterParam json)
+    {
+      this.Deserialize(json);
+      this.localizeFields(language);
+    }
+
+    public void Deserialize(Json_ChatChannelMasterParam json)
+    {
+      if (json == null)
+        throw new InvalidCastException();
+      this.id = json.fields.id;
+      this.category_id = json.fields.category_id;
+      this.name = json.fields.name;
+    }
+  }
+}

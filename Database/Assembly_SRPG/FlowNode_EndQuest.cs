@@ -1,71 +1,57 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_EndQuest
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
+  [FlowNode.Pin(1, "ForceEnd", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(0, "End", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(101, "ForceEnded", FlowNode.PinTypes.Output, 101)]
+  [FlowNode.NodeType("System/クエスト終了", 32741)]
+  public class FlowNode_EndQuest : FlowNode
+  {
+    public bool Restart;
 
-    [NodeType("System/クエスト終了", 0x7fe5), Pin(0x65, "ForceEnded", 1, 0x65), Pin(1, "ForceEnd", 0, 1), Pin(0, "End", 0, 0)]
-    public class FlowNode_EndQuest : FlowNode
+    public override void OnActivate(int pinID)
     {
-        public bool Restart;
-
-        public FlowNode_EndQuest()
+      if (pinID == 0 && Object.op_Inequality((Object) SceneBattle.Instance, (Object) null))
+      {
+        if (Network.Mode == Network.EConnectMode.Offline)
         {
-            base..ctor();
-            return;
+          QuestParam quest = SceneBattle.Instance.Battle.GetQuest();
+          BattleCore.Record questRecord = SceneBattle.Instance.Battle.GetQuestRecord();
+          if (quest != null && questRecord != null)
+            quest.clear_missions |= questRecord.bonusFlags;
         }
-
-        public override void OnActivate(int pinID)
+        SceneBattle.Instance.ExitRequest = !this.Restart ? SceneBattle.ExitRequests.End : SceneBattle.ExitRequests.Restart;
+      }
+      else
+      {
+        if (pinID != 1)
+          return;
+        if (Object.op_Equality((Object) SceneBattle.Instance, (Object) null))
         {
-            QuestParam param;
-            BattleCore.Record record;
-            if ((pinID != null) || ((SceneBattle.Instance != null) == null))
-            {
-                goto Label_0081;
-            }
-            if (Network.Mode != 1)
-            {
-                goto Label_0060;
-            }
-            param = SceneBattle.Instance.Battle.GetQuest();
-            record = SceneBattle.Instance.Battle.GetQuestRecord();
-            if ((param == null) || (record == null))
-            {
-                goto Label_0060;
-            }
-            param.clear_missions |= record.bonusFlags;
-        Label_0060:
-            SceneBattle.Instance.ExitRequest = (this.Restart == null) ? 1 : 2;
-            goto Label_00BA;
-        Label_0081:
-            if (pinID != 1)
-            {
-                goto Label_00BA;
-            }
-            if ((SceneBattle.Instance == null) == null)
-            {
-                goto Label_00A9;
-            }
-            base.set_enabled(0);
-            base.ActivateOutputLinks(0x65);
-            return;
-        Label_00A9:
-            base.set_enabled(1);
-            SceneBattle.Instance.ForceEndQuest();
-        Label_00BA:
-            return;
+          ((Behaviour) this).set_enabled(false);
+          this.ActivateOutputLinks(101);
         }
-
-        private void Update()
+        else
         {
-            if ((SceneBattle.Instance == null) == null)
-            {
-                goto Label_0021;
-            }
-            base.set_enabled(0);
-            base.ActivateOutputLinks(0x65);
-            return;
-        Label_0021:
-            return;
+          ((Behaviour) this).set_enabled(true);
+          SceneBattle.Instance.ForceEndQuest();
         }
+      }
     }
-}
 
+    private void Update()
+    {
+      if (!Object.op_Equality((Object) SceneBattle.Instance, (Object) null))
+        return;
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(101);
+    }
+  }
+}

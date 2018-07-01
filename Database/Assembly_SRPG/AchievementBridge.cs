@@ -1,38 +1,32 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.AchievementBridge
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using UnityEngine;
-
-    public class AchievementBridge : MonoBehaviour
+  public class AchievementBridge : MonoBehaviour
+  {
+    public AchievementBridge()
     {
-        public AchievementBridge()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void OnClick()
-        {
-            GameManager manager;
-            if (GameCenterManager.IsAuth() == null)
-            {
-                goto Label_0031;
-            }
-            manager = MonoSingleton<GameManager>.GetInstanceDirect();
-            if ((manager != null) == null)
-            {
-                goto Label_0027;
-            }
-            manager.Player.UpdateAchievementTrophyStates();
-        Label_0027:
-            GameCenterManager.ShowAchievement();
-            goto Label_0036;
-        Label_0031:
-            GameCenterManager.ReAuth();
-        Label_0036:
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    public void OnClick()
+    {
+      if (GameCenterManager.IsAuth())
+      {
+        GameManager instanceDirect = MonoSingleton<GameManager>.GetInstanceDirect();
+        if (Object.op_Inequality((Object) instanceDirect, (Object) null))
+          instanceDirect.Player.UpdateAchievementTrophyStates();
+        GameCenterManager.ShowAchievement();
+      }
+      else
+        GameCenterManager.ReAuth();
+    }
+  }
+}

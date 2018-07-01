@@ -1,839 +1,570 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ConfigWindow
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Runtime.CompilerServices;
-    using UnityEngine;
-    using UnityEngine.Events;
-    using UnityEngine.UI;
+  [FlowNode.Pin(10, "UpdatePlayerInfo", FlowNode.PinTypes.Input, 0)]
+  public class ConfigWindow : MonoBehaviour, IFlowInterface
+  {
+    public Slider SoundVolume;
+    public Slider MusicVolume;
+    public Slider VoiceVolume;
+    public Toggle UseAssetBundle;
+    public Toggle UseDevServer;
+    public Toggle UseAwsServer;
+    public Toggle NewGame;
+    public Toggle[] InputMethods;
+    public Toggle UseAutoPlay;
+    public Toggle UsePushStamina;
+    public Toggle UsePushNews;
+    public Toggle MultiInvitationFlag;
+    public InputField MultiInvitationComment;
+    public GameObject LoginBonus;
+    public GameObject LoginBonus28days;
+    public InputField AssetVersion;
+    public Toggle UseStgServer;
+    public InputField DevServer;
+    public InputField StgServer;
+    public InputField LangSetting;
+    public Button SwitchServer;
+    public Button SwitchLanguage;
+    public Button CrashButton;
+    private int devServerSetting;
+    private int devLangSetting;
+    public Toggle ToggleChatState;
+    public Toggle ToggleMultiState;
+    public Toggle MultiUserSetting;
+    public InputField MultiUserName;
+    public Toggle UseLocalMasterData;
+    public Button MasterCheckButton;
+    public Button VoiceCopyButton;
+    public InputField ClientExPath;
+    public GameObject AwardState;
+    public GameObject SupportIcon;
+    public GameObject Prefab_NewItemBadge;
+    public GameObject TreasureList;
+    public GameObject TreasureListNode;
+    private List<GameObject> mTreasureListNodes;
+    public bool IsModeSentaku;
 
-    [Pin(10, "UpdatePlayerInfo", 0, 0)]
-    public class ConfigWindow : MonoBehaviour, IFlowInterface
+    public ConfigWindow()
     {
-        public Slider SoundVolume;
-        public Slider MusicVolume;
-        public Slider VoiceVolume;
-        public Toggle UseAssetBundle;
-        public Toggle UseDevServer;
-        public Toggle UseAwsServer;
-        public Toggle NewGame;
-        public Toggle[] InputMethods;
-        public Toggle UseAutoPlay;
-        public Toggle UsePushStamina;
-        public Toggle UsePushNews;
-        public Toggle MultiInvitationFlag;
-        public InputField MultiInvitationComment;
-        public GameObject LoginBonus;
-        public GameObject LoginBonus28days;
-        public InputField AssetVersion;
-        public Toggle ToggleChatState;
-        public Toggle ToggleMultiState;
-        public Toggle MultiUserSetting;
-        public InputField MultiUserName;
-        public Toggle UseLocalMasterData;
-        public Button MasterCheckButton;
-        public Button VoiceCopyButton;
-        public InputField ClientExPath;
-        public GameObject AwardState;
-        public GameObject SupportIcon;
-        public GameObject Prefab_NewItemBadge;
-        public GameObject TreasureList;
-        public GameObject TreasureListNode;
-        private List<GameObject> mTreasureListNodes;
-        [CompilerGenerated]
-        private static UnityAction<float> <>f__am$cache1E;
-        [CompilerGenerated]
-        private static UnityAction<float> <>f__am$cache1F;
-        [CompilerGenerated]
-        private static UnityAction<float> <>f__am$cache20;
-        [CompilerGenerated]
-        private static UnityAction<bool> <>f__am$cache21;
-        [CompilerGenerated]
-        private static UnityAction<bool> <>f__am$cache22;
-        [CompilerGenerated]
-        private static UnityAction<bool> <>f__am$cache23;
-        [CompilerGenerated]
-        private static UnityAction<bool> <>f__am$cache24;
-        [CompilerGenerated]
-        private static UnityAction<bool> <>f__am$cache25;
-        [CompilerGenerated]
-        private static UnityAction<bool> <>f__am$cache26;
-        [CompilerGenerated]
-        private static UnityAction<bool> <>f__am$cache27;
-        [CompilerGenerated]
-        private static UnityAction<string> <>f__am$cache28;
-        [CompilerGenerated]
-        private static UnityAction<bool> <>f__am$cache29;
-        [CompilerGenerated]
-        private static UnityAction<bool> <>f__am$cache2A;
-        [CompilerGenerated]
-        private static UnityAction<bool> <>f__am$cache2B;
-        [CompilerGenerated]
-        private static UnityAction<bool> <>f__am$cache2C;
-
-        public ConfigWindow()
-        {
-            this.InputMethods = new Toggle[0];
-            this.mTreasureListNodes = new List<GameObject>();
-            base..ctor();
-            return;
-        }
-
-        [CompilerGenerated]
-        private static void <Start>m__2E0(float value)
-        {
-            GameUtility.Config_SoundVolume = value;
-            return;
-        }
-
-        [CompilerGenerated]
-        private static void <Start>m__2E1(float value)
-        {
-            GameUtility.Config_MusicVolume = value;
-            return;
-        }
-
-        [CompilerGenerated]
-        private static void <Start>m__2E2(float value)
-        {
-            GameUtility.Config_VoiceVolume = value;
-            return;
-        }
-
-        [CompilerGenerated]
-        private static void <Start>m__2E3(bool yes)
-        {
-            GameUtility.Config_UseAssetBundles.Value = yes;
-            if (yes != null)
-            {
-                goto Label_001B;
-            }
-            AssetDownloader.ClearCache();
-            AssetManager.UnloadAll();
-        Label_001B:
-            return;
-        }
-
-        [CompilerGenerated]
-        private static void <Start>m__2E4(bool yes)
-        {
-            GameUtility.Config_UseDevServer.Value = yes;
-            return;
-        }
-
-        [CompilerGenerated]
-        private static void <Start>m__2E5(bool yes)
-        {
-            GameUtility.Config_UseAwsServer.Value = yes;
-            return;
-        }
-
-        [CompilerGenerated]
-        private static void <Start>m__2E6(bool yes)
-        {
-            GameUtility.Config_UseAutoPlay.Value = yes;
-            return;
-        }
-
-        [CompilerGenerated]
-        private static void <Start>m__2E7(bool yes)
-        {
-            GameUtility.Config_UsePushStamina.Value = yes;
-            return;
-        }
-
-        [CompilerGenerated]
-        private static void <Start>m__2E8(bool yes)
-        {
-            GameUtility.Config_UsePushNews.Value = yes;
-            return;
-        }
-
-        [CompilerGenerated]
-        private static void <Start>m__2E9(bool yes)
-        {
-            GlobalVars.MultiInvitaionFlag = yes;
-            return;
-        }
-
-        [CompilerGenerated]
-        private static void <Start>m__2EA(string text)
-        {
-            GlobalVars.MultiInvitaionComment = text;
-            return;
-        }
-
-        [CompilerGenerated]
-        private static void <Start>m__2EB(bool yes)
-        {
-            GameUtility.Config_ChatState.Value = yes;
-            return;
-        }
-
-        [CompilerGenerated]
-        private static void <Start>m__2EC(bool yes)
-        {
-            GameUtility.Config_MultiState.Value = yes;
-            return;
-        }
-
-        [CompilerGenerated]
-        private static void <Start>m__2ED(bool yes)
-        {
-            GameUtility.Config_NewGame.Value = yes;
-            return;
-        }
-
-        [CompilerGenerated]
-        private void <Start>m__2EE(bool flag)
-        {
-            if ((this.MultiUserName != null) == null)
-            {
-                goto Label_0020;
-            }
-            this.MultiUserName.set_readOnly(flag == 0);
-        Label_0020:
-            return;
-        }
-
-        [CompilerGenerated]
-        private static void <Start>m__2EF(bool yes)
-        {
-            GameUtility.Config_UseLocalData.Value = yes;
-            return;
-        }
-
-        [CompilerGenerated]
-        private void <Start>m__2F0()
-        {
-            string str;
-            string str2;
-            string[] strArray;
-            int num;
-            string str3;
-            str = this.ClientExPath.get_text() + "/Assets/sound";
-            str2 = "Assets/StreamingAssets/";
-            if (string.IsNullOrEmpty(str) != null)
-            {
-                goto Label_007D;
-            }
-            if (Directory.Exists(str) == null)
-            {
-                goto Label_006D;
-            }
-            strArray = Directory.GetFiles(str);
-            num = 0;
-            goto Label_005F;
-        Label_0040:
-            str3 = str2 + Path.GetFileName(strArray[num]);
-            File.Copy(strArray[num], str3, 1);
-            num += 1;
-        Label_005F:
-            if (num < ((int) strArray.Length))
-            {
-                goto Label_0040;
-            }
-            goto Label_007D;
-        Label_006D:
-            Debug.Log("not exist directory" + str);
-        Label_007D:
-            return;
-        }
-
-        public void Activated(int pinID)
-        {
-            if (pinID != 10)
-            {
-                goto Label_000E;
-            }
-            this.UpdatePlayerInfo();
-        Label_000E:
-            return;
-        }
-
-        public static GameObject CreateItemObject(GameObject node, GameObject newIcon, QuestResult.DropItemData item)
-        {
-            GameObject obj2;
-            DropItemIcon icon;
-            GameObject obj3;
-            RectTransform transform;
-            obj2 = Object.Instantiate<GameObject>(node);
-            if ((obj2 != null) == null)
-            {
-                goto Label_00A6;
-            }
-            DataSource.Bind<QuestResult.DropItemData>(obj2, item);
-            if (item.mIsSecret == null)
-            {
-                goto Label_003F;
-            }
-            icon = obj2.GetComponent<DropItemIcon>();
-            if ((icon != null) == null)
-            {
-                goto Label_003F;
-            }
-            icon.IsSecret = 1;
-        Label_003F:
-            obj2.SetActive(1);
-            GameParameter.UpdateAll(obj2);
-            if ((newIcon != null) == null)
-            {
-                goto Label_00A6;
-            }
-            if (item.IsNew == null)
-            {
-                goto Label_00A6;
-            }
-            obj3 = Object.Instantiate<GameObject>(newIcon);
-            if ((obj3 != null) == null)
-            {
-                goto Label_00A6;
-            }
-            transform = obj3.get_transform() as RectTransform;
-            transform.get_gameObject().SetActive(1);
-            transform.set_anchoredPosition(Vector2.get_zero());
-            transform.SetParent(obj2.get_transform(), 0);
-        Label_00A6:
-            return obj2;
-        }
-
-        private void OnInputMethodChange(bool y)
-        {
-            int num;
-            if (y == null)
-            {
-                goto Label_004F;
-            }
-            num = 0;
-            goto Label_0041;
-        Label_000D:
-            if ((this.InputMethods[num] != null) == null)
-            {
-                goto Label_003D;
-            }
-            if (this.InputMethods[num].get_isOn() == null)
-            {
-                goto Label_003D;
-            }
-            GameUtility.Config_InputMethod = num;
-            goto Label_004F;
-        Label_003D:
-            num += 1;
-        Label_0041:
-            if (num < ((int) this.InputMethods.Length))
-            {
-                goto Label_000D;
-            }
-        Label_004F:
-            return;
-        }
-
-        public static void SetupTreasureList(GameObject list, GameObject node, GameObject newIcon, GameObject owner, List<GameObject> itemNodes)
-        {
-            PlayerData data;
-            SceneBattle battle;
-            BattleCore core;
-            BattleCore.Record record;
-            Transform transform;
-            List<QuestResult.DropItemData> list2;
-            int num;
-            bool flag;
-            int num2;
-            QuestResult.DropItemData data2;
-            ItemData data3;
-            List<UnitData> list3;
-            int num3;
-            GameObject obj2;
-            <SetupTreasureList>c__AnonStorey32A storeya;
-            if ((node != null) == null)
-            {
-                goto Label_0013;
-            }
-            node.SetActive(0);
-        Label_0013:
-            if (((newIcon != null) == null) || (newIcon.get_gameObject().get_activeInHierarchy() == null))
-            {
-                goto Label_0036;
-            }
-            newIcon.SetActive(0);
-        Label_0036:
-            data = MonoSingleton<GameManager>.Instance.Player;
-            battle = SceneBattle.Instance;
-            if ((battle != null) == null)
-            {
-                goto Label_038E;
-            }
-            core = battle.Battle;
-            record = new BattleCore.Record();
-            core.GainUnitSteal(record);
-            core.GainUnitDrop(record, 1);
-            DataSource.Bind<BattleCore.Record>(owner, record);
-            if (record == null)
-            {
-                goto Label_038E;
-            }
-            transform = ((list != null) == null) ? node.get_transform().get_parent() : list.get_transform();
-            list2 = new List<QuestResult.DropItemData>();
-            num = 0;
-            goto Label_0329;
-        Label_00AF:
-            flag = 0;
-            num2 = 0;
-            goto Label_018D;
-        Label_00BA:
-            if (list2[num2].mIsSecret == record.items[num].mIsSecret)
-            {
-                goto Label_00E4;
-            }
-            goto Label_0187;
-        Label_00E4:
-            if (list2[num2].IsItem == null)
-            {
-                goto Label_0138;
-            }
-            if (list2[num2].itemParam != record.items[num].itemParam)
-            {
-                goto Label_0187;
-            }
-            list2[num2].Gain(1);
-            flag = 1;
-            goto Label_019B;
-            goto Label_0187;
-        Label_0138:
-            if ((list2[num2].IsConceptCard == null) || (list2[num2].conceptCardParam != record.items[num].conceptCardParam))
-            {
-                goto Label_0187;
-            }
-            list2[num2].Gain(1);
-            flag = 1;
-            goto Label_019B;
-        Label_0187:
-            num2 += 1;
-        Label_018D:
-            if (num2 < list2.Count)
-            {
-                goto Label_00BA;
-            }
-        Label_019B:
-            if (flag == null)
-            {
-                goto Label_01A7;
-            }
-            goto Label_0323;
-        Label_01A7:
-            data2 = new QuestResult.DropItemData();
-            if (record.items[num].IsItem == null)
-            {
-                goto Label_02B4;
-            }
-            data2.SetupDropItemData(2, 0L, record.items[num].itemParam.iname, 1);
-            if (record.items[num].itemParam.type == 0x10)
-            {
-                goto Label_0261;
-            }
-            data3 = data.FindItemDataByItemParam(record.items[num].itemParam);
-            data2.IsNew = (data.ItemEntryExists(record.items[num].itemParam.iname) == null) ? 1 : ((data3 == null) ? 1 : data3.IsNew);
-            goto Label_02AF;
-        Label_0261:
-            storeya = new <SetupTreasureList>c__AnonStorey32A();
-            storeya.iid = record.items[num].itemParam.iname;
-            if (data.Units.Find(new Predicate<UnitData>(storeya.<>m__2F1)) != null)
-            {
-                goto Label_02ED;
-            }
-            data2.IsNew = 1;
-        Label_02AF:
-            goto Label_02ED;
-        Label_02B4:
-            if (record.items[num].IsConceptCard == null)
-            {
-                goto Label_02ED;
-            }
-            data2.SetupDropItemData(3, 0L, record.items[num].conceptCardParam.iname, 1);
-        Label_02ED:
-            data2.mIsSecret = record.items[num].mIsSecret;
-            if (data2.mIsSecret == null)
-            {
-                goto Label_031A;
-            }
-            data2.IsNew = 0;
-        Label_031A:
-            list2.Add(data2);
-        Label_0323:
-            num += 1;
-        Label_0329:
-            if (num < record.items.Count)
-            {
-                goto Label_00AF;
-            }
-            num3 = 0;
-            goto Label_0380;
-        Label_0343:
-            obj2 = CreateItemObject(node, newIcon, list2[num3]);
-            if ((obj2 != null) == null)
-            {
-                goto Label_037A;
-            }
-            obj2.get_transform().SetParent(transform, 0);
-            itemNodes.Add(obj2);
-        Label_037A:
-            num3 += 1;
-        Label_0380:
-            if (num3 < list2.Count)
-            {
-                goto Label_0343;
-            }
-        Label_038E:
-            return;
-        }
-
-        private void Start()
-        {
-            bool flag;
-            string str;
-            int num;
-            MoveInputMethods methods;
-            PlayerData data;
-            UnitData data2;
-            if ((this.SoundVolume != null) == null)
-            {
-                goto Label_004E;
-            }
-            this.SoundVolume.set_value(GameUtility.Config_SoundVolume);
-            if (<>f__am$cache1E != null)
-            {
-                goto Label_0044;
-            }
-            <>f__am$cache1E = new UnityAction<float>(null, <Start>m__2E0);
-        Label_0044:
-            this.SoundVolume.get_onValueChanged().AddListener(<>f__am$cache1E);
-        Label_004E:
-            if ((this.MusicVolume != null) == null)
-            {
-                goto Label_009C;
-            }
-            this.MusicVolume.set_value(GameUtility.Config_MusicVolume);
-            if (<>f__am$cache1F != null)
-            {
-                goto Label_0092;
-            }
-            <>f__am$cache1F = new UnityAction<float>(null, <Start>m__2E1);
-        Label_0092:
-            this.MusicVolume.get_onValueChanged().AddListener(<>f__am$cache1F);
-        Label_009C:
-            if ((this.VoiceVolume != null) == null)
-            {
-                goto Label_00EA;
-            }
-            this.VoiceVolume.set_value(GameUtility.Config_VoiceVolume);
-            if (<>f__am$cache20 != null)
-            {
-                goto Label_00E0;
-            }
-            <>f__am$cache20 = new UnityAction<float>(null, <Start>m__2E2);
-        Label_00E0:
-            this.VoiceVolume.get_onValueChanged().AddListener(<>f__am$cache20);
-        Label_00EA:
-            if ((this.UseAssetBundle != null) == null)
-            {
-                goto Label_013D;
-            }
-            this.UseAssetBundle.set_isOn(GameUtility.Config_UseAssetBundles.Value);
-            if (<>f__am$cache21 != null)
-            {
-                goto Label_0133;
-            }
-            <>f__am$cache21 = new UnityAction<bool>(null, <Start>m__2E3);
-        Label_0133:
-            this.UseAssetBundle.onValueChanged.AddListener(<>f__am$cache21);
-        Label_013D:
-            if ((this.UseDevServer != null) == null)
-            {
-                goto Label_0190;
-            }
-            this.UseDevServer.set_isOn(GameUtility.Config_UseDevServer.Value);
-            if (<>f__am$cache22 != null)
-            {
-                goto Label_0186;
-            }
-            <>f__am$cache22 = new UnityAction<bool>(null, <Start>m__2E4);
-        Label_0186:
-            this.UseDevServer.onValueChanged.AddListener(<>f__am$cache22);
-        Label_0190:
-            if ((this.UseAwsServer != null) == null)
-            {
-                goto Label_01E3;
-            }
-            this.UseAwsServer.set_isOn(GameUtility.Config_UseAwsServer.Value);
-            if (<>f__am$cache23 != null)
-            {
-                goto Label_01D9;
-            }
-            <>f__am$cache23 = new UnityAction<bool>(null, <Start>m__2E5);
-        Label_01D9:
-            this.UseAwsServer.onValueChanged.AddListener(<>f__am$cache23);
-        Label_01E3:
-            if ((this.UseAutoPlay != null) == null)
-            {
-                goto Label_0236;
-            }
-            this.UseAutoPlay.set_isOn(GameUtility.Config_UseAutoPlay.Value);
-            if (<>f__am$cache24 != null)
-            {
-                goto Label_022C;
-            }
-            <>f__am$cache24 = new UnityAction<bool>(null, <Start>m__2E6);
-        Label_022C:
-            this.UseAutoPlay.onValueChanged.AddListener(<>f__am$cache24);
-        Label_0236:
-            if ((this.UsePushStamina != null) == null)
-            {
-                goto Label_0289;
-            }
-            this.UsePushStamina.set_isOn(GameUtility.Config_UsePushStamina.Value);
-            if (<>f__am$cache25 != null)
-            {
-                goto Label_027F;
-            }
-            <>f__am$cache25 = new UnityAction<bool>(null, <Start>m__2E7);
-        Label_027F:
-            this.UsePushStamina.onValueChanged.AddListener(<>f__am$cache25);
-        Label_0289:
-            if ((this.UsePushNews != null) == null)
-            {
-                goto Label_02DC;
-            }
-            this.UsePushNews.set_isOn(GameUtility.Config_UsePushNews.Value);
-            if (<>f__am$cache26 != null)
-            {
-                goto Label_02D2;
-            }
-            <>f__am$cache26 = new UnityAction<bool>(null, <Start>m__2E8);
-        Label_02D2:
-            this.UsePushNews.onValueChanged.AddListener(<>f__am$cache26);
-        Label_02DC:
-            if ((this.MultiInvitationFlag != null) == null)
-            {
-                goto Label_033C;
-            }
-            flag = MonoSingleton<GameManager>.Instance.Player.MultiInvitaionFlag;
-            GlobalVars.MultiInvitaionFlag = flag;
-            this.MultiInvitationFlag.set_isOn(flag);
-            if (<>f__am$cache27 != null)
-            {
-                goto Label_0332;
-            }
-            <>f__am$cache27 = new UnityAction<bool>(null, <Start>m__2E9);
-        Label_0332:
-            this.MultiInvitationFlag.onValueChanged.AddListener(<>f__am$cache27);
-        Label_033C:
-            if ((this.MultiInvitationComment != null) == null)
-            {
-                goto Label_03A7;
-            }
-            str = MonoSingleton<GameManager>.Instance.Player.MultiInvitaionComment;
-            GlobalVars.MultiInvitaionComment = str;
-            if (string.IsNullOrEmpty(str) != null)
-            {
-                goto Label_037A;
-            }
-            SRPG_Extensions.SetText(this.MultiInvitationComment, str);
-        Label_037A:
-            if (<>f__am$cache28 != null)
-            {
-                goto Label_039D;
-            }
-            <>f__am$cache28 = new UnityAction<string>(null, <Start>m__2EA);
-        Label_039D:
-            this.MultiInvitationComment.get_onValueChanged().AddListener(<>f__am$cache28);
-        Label_03A7:
-            if ((this.ToggleChatState != null) == null)
-            {
-                goto Label_03FA;
-            }
-            this.ToggleChatState.set_isOn(GameUtility.Config_ChatState.Value);
-            if (<>f__am$cache29 != null)
-            {
-                goto Label_03F0;
-            }
-            <>f__am$cache29 = new UnityAction<bool>(null, <Start>m__2EB);
-        Label_03F0:
-            this.ToggleChatState.onValueChanged.AddListener(<>f__am$cache29);
-        Label_03FA:
-            if ((this.ToggleMultiState != null) == null)
-            {
-                goto Label_044D;
-            }
-            this.ToggleMultiState.set_isOn(GameUtility.Config_MultiState.Value);
-            if (<>f__am$cache2A != null)
-            {
-                goto Label_0443;
-            }
-            <>f__am$cache2A = new UnityAction<bool>(null, <Start>m__2EC);
-        Label_0443:
-            this.ToggleMultiState.onValueChanged.AddListener(<>f__am$cache2A);
-        Label_044D:
-            if ((this.NewGame != null) == null)
-            {
-                goto Label_04A0;
-            }
-            this.NewGame.set_isOn(GameUtility.Config_NewGame.Value);
-            if (<>f__am$cache2B != null)
-            {
-                goto Label_0496;
-            }
-            <>f__am$cache2B = new UnityAction<bool>(null, <Start>m__2ED);
-        Label_0496:
-            this.NewGame.onValueChanged.AddListener(<>f__am$cache2B);
-        Label_04A0:
-            if ((this.MultiUserSetting != null) == null)
-            {
-                goto Label_04EF;
-            }
-            this.MultiUserSetting.onValueChanged.AddListener(new UnityAction<bool>(this, this.<Start>m__2EE));
-            this.MultiUserSetting.get_gameObject().SetActive(0);
-            this.MultiUserName.get_gameObject().SetActive(0);
-        Label_04EF:
-            if ((this.UseLocalMasterData != null) == null)
-            {
-                goto Label_0553;
-            }
-            this.UseLocalMasterData.set_isOn(GameUtility.Config_UseLocalData.Value);
-            if (<>f__am$cache2C != null)
-            {
-                goto Label_0538;
-            }
-            <>f__am$cache2C = new UnityAction<bool>(null, <Start>m__2EF);
-        Label_0538:
-            this.UseLocalMasterData.onValueChanged.AddListener(<>f__am$cache2C);
-            this.UseLocalMasterData.get_gameObject().SetActive(0);
-        Label_0553:
-            if ((this.VoiceCopyButton != null) == null)
-            {
-                goto Label_05A0;
-            }
-            this.VoiceCopyButton.get_onClick().AddListener(new UnityAction(this, this.<Start>m__2F0));
-            this.VoiceCopyButton.get_gameObject().get_transform().get_parent().get_gameObject().SetActive(0);
-        Label_05A0:
-            num = 0;
-            goto Label_05DC;
-        Label_05A7:
-            if ((this.InputMethods[num] != null) == null)
-            {
-                goto Label_05D8;
-            }
-            this.InputMethods[num].onValueChanged.AddListener(new UnityAction<bool>(this, this.OnInputMethodChange));
-        Label_05D8:
-            num += 1;
-        Label_05DC:
-            if (num < ((int) this.InputMethods.Length))
-            {
-                goto Label_05A7;
-            }
-            methods = GameUtility.Config_InputMethod;
-            if (methods >= ((int) this.InputMethods.Length))
-            {
-                goto Label_061F;
-            }
-            if ((this.InputMethods[methods] != null) == null)
-            {
-                goto Label_061F;
-            }
-            this.InputMethods[methods].set_isOn(1);
-        Label_061F:
-            if ((this.LoginBonus != null) == null)
-            {
-                goto Label_0650;
-            }
-            this.LoginBonus.SetActive((MonoSingleton<GameManager>.Instance.Player.LoginBonus == null) == 0);
-        Label_0650:
-            if ((this.LoginBonus28days != null) == null)
-            {
-                goto Label_0681;
-            }
-            this.LoginBonus28days.SetActive((MonoSingleton<GameManager>.Instance.Player.LoginBonus28days == null) == 0);
-        Label_0681:
-            if ((this.MasterCheckButton != null) == null)
-            {
-                goto Label_06A3;
-            }
-            this.MasterCheckButton.get_gameObject().SetActive(0);
-        Label_06A3:
-            if ((this.AwardState != null) == null)
-            {
-                goto Label_06D4;
-            }
-            data = MonoSingleton<GameManager>.Instance.Player;
-            if (data == null)
-            {
-                goto Label_06D4;
-            }
-            DataSource.Bind<PlayerData>(this.AwardState, data);
-        Label_06D4:
-            if ((this.SupportIcon != null) == null)
-            {
-                goto Label_0714;
-            }
-            data2 = MonoSingleton<GameManager>.Instance.Player.FindUnitDataByUniqueID(GlobalVars.SelectedSupportUnitUniqueID);
-            if (data2 == null)
-            {
-                goto Label_0714;
-            }
-            DataSource.Bind<UnitData>(this.SupportIcon, data2);
-        Label_0714:
-            SetupTreasureList(this.TreasureList, this.TreasureListNode, this.Prefab_NewItemBadge, base.get_gameObject(), this.mTreasureListNodes);
-            GameParameter.UpdateAll(base.get_gameObject());
-            return;
-        }
-
-        private void UpdatePlayerInfo()
-        {
-            PlayerData data;
-            UnitData data2;
-            if ((this.AwardState != null) == null)
-            {
-                goto Label_002E;
-            }
-            data = MonoSingleton<GameManager>.Instance.Player;
-            if (data == null)
-            {
-                goto Label_002E;
-            }
-            DataSource.Bind<PlayerData>(this.AwardState, data);
-        Label_002E:
-            if ((this.SupportIcon != null) == null)
-            {
-                goto Label_006B;
-            }
-            data2 = MonoSingleton<GameManager>.Instance.Player.FindUnitDataByUniqueID(GlobalVars.SelectedSupportUnitUniqueID);
-            if (data2 == null)
-            {
-                goto Label_006B;
-            }
-            DataSource.Bind<UnitData>(this.SupportIcon, data2);
-        Label_006B:
-            GameParameter.UpdateAll(base.get_gameObject());
-            return;
-        }
-
-        [CompilerGenerated]
-        private sealed class <SetupTreasureList>c__AnonStorey32A
-        {
-            internal string iid;
-
-            public <SetupTreasureList>c__AnonStorey32A()
-            {
-                base..ctor();
-                return;
-            }
-
-            internal bool <>m__2F1(UnitData p)
-            {
-                return (p.UnitParam.iname == this.iid);
-            }
-        }
+      base.\u002Ector();
     }
-}
 
+    public void Activated(int pinID)
+    {
+      if (pinID != 10)
+        return;
+      this.UpdatePlayerInfo();
+    }
+
+    private void Start()
+    {
+      this.IsModeSentaku = true;
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.SoundVolume, (UnityEngine.Object) null))
+      {
+        this.SoundVolume.set_value(GameUtility.Config_SoundVolume);
+        Slider.SliderEvent onValueChanged = this.SoundVolume.get_onValueChanged();
+        // ISSUE: reference to a compiler-generated field
+        if (ConfigWindow.\u003C\u003Ef__am\u0024cache28 == null)
+        {
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: method pointer
+          ConfigWindow.\u003C\u003Ef__am\u0024cache28 = new UnityAction<float>((object) null, __methodptr(\u003CStart\u003Em__340));
+        }
+        // ISSUE: reference to a compiler-generated field
+        UnityAction<float> fAmCache28 = ConfigWindow.\u003C\u003Ef__am\u0024cache28;
+        ((UnityEvent<float>) onValueChanged).AddListener(fAmCache28);
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.MusicVolume, (UnityEngine.Object) null))
+      {
+        this.MusicVolume.set_value(GameUtility.Config_MusicVolume);
+        Slider.SliderEvent onValueChanged = this.MusicVolume.get_onValueChanged();
+        // ISSUE: reference to a compiler-generated field
+        if (ConfigWindow.\u003C\u003Ef__am\u0024cache29 == null)
+        {
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: method pointer
+          ConfigWindow.\u003C\u003Ef__am\u0024cache29 = new UnityAction<float>((object) null, __methodptr(\u003CStart\u003Em__341));
+        }
+        // ISSUE: reference to a compiler-generated field
+        UnityAction<float> fAmCache29 = ConfigWindow.\u003C\u003Ef__am\u0024cache29;
+        ((UnityEvent<float>) onValueChanged).AddListener(fAmCache29);
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.VoiceVolume, (UnityEngine.Object) null))
+      {
+        this.VoiceVolume.set_value(GameUtility.Config_VoiceVolume);
+        Slider.SliderEvent onValueChanged = this.VoiceVolume.get_onValueChanged();
+        // ISSUE: reference to a compiler-generated field
+        if (ConfigWindow.\u003C\u003Ef__am\u0024cache2A == null)
+        {
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: method pointer
+          ConfigWindow.\u003C\u003Ef__am\u0024cache2A = new UnityAction<float>((object) null, __methodptr(\u003CStart\u003Em__342));
+        }
+        // ISSUE: reference to a compiler-generated field
+        UnityAction<float> fAmCache2A = ConfigWindow.\u003C\u003Ef__am\u0024cache2A;
+        ((UnityEvent<float>) onValueChanged).AddListener(fAmCache2A);
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.UseAssetBundle, (UnityEngine.Object) null))
+      {
+        this.UseAssetBundle.set_isOn(GameUtility.Config_UseAssetBundles.Value);
+        // ISSUE: variable of the null type
+        __Null onValueChanged = this.UseAssetBundle.onValueChanged;
+        // ISSUE: reference to a compiler-generated field
+        if (ConfigWindow.\u003C\u003Ef__am\u0024cache2B == null)
+        {
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: method pointer
+          ConfigWindow.\u003C\u003Ef__am\u0024cache2B = new UnityAction<bool>((object) null, __methodptr(\u003CStart\u003Em__343));
+        }
+        // ISSUE: reference to a compiler-generated field
+        UnityAction<bool> fAmCache2B = ConfigWindow.\u003C\u003Ef__am\u0024cache2B;
+        ((UnityEvent<bool>) onValueChanged).AddListener(fAmCache2B);
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.UseDevServer, (UnityEngine.Object) null))
+      {
+        this.UseDevServer.set_isOn(GameUtility.Config_UseDevServer.Value);
+        // ISSUE: variable of the null type
+        __Null onValueChanged = this.UseDevServer.onValueChanged;
+        // ISSUE: reference to a compiler-generated field
+        if (ConfigWindow.\u003C\u003Ef__am\u0024cache2C == null)
+        {
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: method pointer
+          ConfigWindow.\u003C\u003Ef__am\u0024cache2C = new UnityAction<bool>((object) null, __methodptr(\u003CStart\u003Em__344));
+        }
+        // ISSUE: reference to a compiler-generated field
+        UnityAction<bool> fAmCache2C = ConfigWindow.\u003C\u003Ef__am\u0024cache2C;
+        ((UnityEvent<bool>) onValueChanged).AddListener(fAmCache2C);
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.UseAwsServer, (UnityEngine.Object) null))
+      {
+        this.UseAwsServer.set_isOn(GameUtility.Config_UseAwsServer.Value);
+        // ISSUE: variable of the null type
+        __Null onValueChanged = this.UseAwsServer.onValueChanged;
+        // ISSUE: reference to a compiler-generated field
+        if (ConfigWindow.\u003C\u003Ef__am\u0024cache2D == null)
+        {
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: method pointer
+          ConfigWindow.\u003C\u003Ef__am\u0024cache2D = new UnityAction<bool>((object) null, __methodptr(\u003CStart\u003Em__345));
+        }
+        // ISSUE: reference to a compiler-generated field
+        UnityAction<bool> fAmCache2D = ConfigWindow.\u003C\u003Ef__am\u0024cache2D;
+        ((UnityEvent<bool>) onValueChanged).AddListener(fAmCache2D);
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.UseAutoPlay, (UnityEngine.Object) null))
+      {
+        this.UseAutoPlay.set_isOn(GameUtility.Config_UseAutoPlay.Value);
+        // ISSUE: variable of the null type
+        __Null onValueChanged = this.UseAutoPlay.onValueChanged;
+        // ISSUE: reference to a compiler-generated field
+        if (ConfigWindow.\u003C\u003Ef__am\u0024cache2E == null)
+        {
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: method pointer
+          ConfigWindow.\u003C\u003Ef__am\u0024cache2E = new UnityAction<bool>((object) null, __methodptr(\u003CStart\u003Em__346));
+        }
+        // ISSUE: reference to a compiler-generated field
+        UnityAction<bool> fAmCache2E = ConfigWindow.\u003C\u003Ef__am\u0024cache2E;
+        ((UnityEvent<bool>) onValueChanged).AddListener(fAmCache2E);
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.UsePushStamina, (UnityEngine.Object) null))
+      {
+        this.UsePushStamina.set_isOn(GameUtility.Config_UsePushStamina.Value);
+        // ISSUE: variable of the null type
+        __Null onValueChanged = this.UsePushStamina.onValueChanged;
+        // ISSUE: reference to a compiler-generated field
+        if (ConfigWindow.\u003C\u003Ef__am\u0024cache2F == null)
+        {
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: method pointer
+          ConfigWindow.\u003C\u003Ef__am\u0024cache2F = new UnityAction<bool>((object) null, __methodptr(\u003CStart\u003Em__347));
+        }
+        // ISSUE: reference to a compiler-generated field
+        UnityAction<bool> fAmCache2F = ConfigWindow.\u003C\u003Ef__am\u0024cache2F;
+        ((UnityEvent<bool>) onValueChanged).AddListener(fAmCache2F);
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.UsePushNews, (UnityEngine.Object) null))
+      {
+        this.UsePushNews.set_isOn(GameUtility.Config_UsePushNews.Value);
+        // ISSUE: variable of the null type
+        __Null onValueChanged = this.UsePushNews.onValueChanged;
+        // ISSUE: reference to a compiler-generated field
+        if (ConfigWindow.\u003C\u003Ef__am\u0024cache30 == null)
+        {
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: method pointer
+          ConfigWindow.\u003C\u003Ef__am\u0024cache30 = new UnityAction<bool>((object) null, __methodptr(\u003CStart\u003Em__348));
+        }
+        // ISSUE: reference to a compiler-generated field
+        UnityAction<bool> fAmCache30 = ConfigWindow.\u003C\u003Ef__am\u0024cache30;
+        ((UnityEvent<bool>) onValueChanged).AddListener(fAmCache30);
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.MultiInvitationFlag, (UnityEngine.Object) null))
+      {
+        bool multiInvitaionFlag = MonoSingleton<GameManager>.Instance.Player.MultiInvitaionFlag;
+        GlobalVars.MultiInvitaionFlag = multiInvitaionFlag;
+        this.MultiInvitationFlag.set_isOn(multiInvitaionFlag);
+        // ISSUE: variable of the null type
+        __Null onValueChanged = this.MultiInvitationFlag.onValueChanged;
+        // ISSUE: reference to a compiler-generated field
+        if (ConfigWindow.\u003C\u003Ef__am\u0024cache31 == null)
+        {
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: method pointer
+          ConfigWindow.\u003C\u003Ef__am\u0024cache31 = new UnityAction<bool>((object) null, __methodptr(\u003CStart\u003Em__349));
+        }
+        // ISSUE: reference to a compiler-generated field
+        UnityAction<bool> fAmCache31 = ConfigWindow.\u003C\u003Ef__am\u0024cache31;
+        ((UnityEvent<bool>) onValueChanged).AddListener(fAmCache31);
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.MultiInvitationComment, (UnityEngine.Object) null))
+      {
+        string invitaionComment = MonoSingleton<GameManager>.Instance.Player.MultiInvitaionComment;
+        GlobalVars.MultiInvitaionComment = invitaionComment;
+        if (!string.IsNullOrEmpty(invitaionComment))
+          this.MultiInvitationComment.SetText(invitaionComment);
+        InputField.OnChangeEvent onValueChanged = this.MultiInvitationComment.get_onValueChanged();
+        // ISSUE: reference to a compiler-generated field
+        if (ConfigWindow.\u003C\u003Ef__am\u0024cache32 == null)
+        {
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: method pointer
+          ConfigWindow.\u003C\u003Ef__am\u0024cache32 = new UnityAction<string>((object) null, __methodptr(\u003CStart\u003Em__34A));
+        }
+        // ISSUE: reference to a compiler-generated field
+        UnityAction<string> fAmCache32 = ConfigWindow.\u003C\u003Ef__am\u0024cache32;
+        ((UnityEvent<string>) onValueChanged).AddListener(fAmCache32);
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ToggleChatState, (UnityEngine.Object) null))
+      {
+        this.ToggleChatState.set_isOn(GameUtility.Config_ChatState.Value);
+        // ISSUE: variable of the null type
+        __Null onValueChanged = this.ToggleChatState.onValueChanged;
+        // ISSUE: reference to a compiler-generated field
+        if (ConfigWindow.\u003C\u003Ef__am\u0024cache33 == null)
+        {
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: method pointer
+          ConfigWindow.\u003C\u003Ef__am\u0024cache33 = new UnityAction<bool>((object) null, __methodptr(\u003CStart\u003Em__34B));
+        }
+        // ISSUE: reference to a compiler-generated field
+        UnityAction<bool> fAmCache33 = ConfigWindow.\u003C\u003Ef__am\u0024cache33;
+        ((UnityEvent<bool>) onValueChanged).AddListener(fAmCache33);
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ToggleMultiState, (UnityEngine.Object) null))
+      {
+        this.ToggleMultiState.set_isOn(GameUtility.Config_MultiState.Value);
+        // ISSUE: variable of the null type
+        __Null onValueChanged = this.ToggleMultiState.onValueChanged;
+        // ISSUE: reference to a compiler-generated field
+        if (ConfigWindow.\u003C\u003Ef__am\u0024cache34 == null)
+        {
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: method pointer
+          ConfigWindow.\u003C\u003Ef__am\u0024cache34 = new UnityAction<bool>((object) null, __methodptr(\u003CStart\u003Em__34C));
+        }
+        // ISSUE: reference to a compiler-generated field
+        UnityAction<bool> fAmCache34 = ConfigWindow.\u003C\u003Ef__am\u0024cache34;
+        ((UnityEvent<bool>) onValueChanged).AddListener(fAmCache34);
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.NewGame, (UnityEngine.Object) null))
+      {
+        this.NewGame.set_isOn(GameUtility.Config_NewGame.Value);
+        // ISSUE: variable of the null type
+        __Null onValueChanged = this.NewGame.onValueChanged;
+        // ISSUE: reference to a compiler-generated field
+        if (ConfigWindow.\u003C\u003Ef__am\u0024cache35 == null)
+        {
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: method pointer
+          ConfigWindow.\u003C\u003Ef__am\u0024cache35 = new UnityAction<bool>((object) null, __methodptr(\u003CStart\u003Em__34D));
+        }
+        // ISSUE: reference to a compiler-generated field
+        UnityAction<bool> fAmCache35 = ConfigWindow.\u003C\u003Ef__am\u0024cache35;
+        ((UnityEvent<bool>) onValueChanged).AddListener(fAmCache35);
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.MultiUserSetting, (UnityEngine.Object) null))
+      {
+        // ISSUE: method pointer
+        ((UnityEvent<bool>) this.MultiUserSetting.onValueChanged).AddListener(new UnityAction<bool>((object) this, __methodptr(\u003CStart\u003Em__34E)));
+        ((Component) this.MultiUserSetting).get_gameObject().SetActive(false);
+        ((Component) this.MultiUserName).get_gameObject().SetActive(false);
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.UseLocalMasterData, (UnityEngine.Object) null))
+      {
+        this.UseLocalMasterData.set_isOn(GameUtility.Config_UseLocalData.Value);
+        // ISSUE: variable of the null type
+        __Null onValueChanged = this.UseLocalMasterData.onValueChanged;
+        // ISSUE: reference to a compiler-generated field
+        if (ConfigWindow.\u003C\u003Ef__am\u0024cache36 == null)
+        {
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: method pointer
+          ConfigWindow.\u003C\u003Ef__am\u0024cache36 = new UnityAction<bool>((object) null, __methodptr(\u003CStart\u003Em__34F));
+        }
+        // ISSUE: reference to a compiler-generated field
+        UnityAction<bool> fAmCache36 = ConfigWindow.\u003C\u003Ef__am\u0024cache36;
+        ((UnityEvent<bool>) onValueChanged).AddListener(fAmCache36);
+        ((Component) this.UseLocalMasterData).get_gameObject().SetActive(false);
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.VoiceCopyButton, (UnityEngine.Object) null))
+      {
+        // ISSUE: method pointer
+        ((UnityEvent) this.VoiceCopyButton.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(\u003CStart\u003Em__350)));
+        ((Component) ((Component) this.VoiceCopyButton).get_gameObject().get_transform().get_parent()).get_gameObject().SetActive(false);
+      }
+      for (int index = 0; index < this.InputMethods.Length; ++index)
+      {
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.InputMethods[index], (UnityEngine.Object) null))
+        {
+          // ISSUE: method pointer
+          ((UnityEvent<bool>) this.InputMethods[index].onValueChanged).AddListener(new UnityAction<bool>((object) this, __methodptr(OnInputMethodChange)));
+        }
+      }
+      MoveInputMethods configInputMethod = GameUtility.Config_InputMethod;
+      if (configInputMethod < (MoveInputMethods) this.InputMethods.Length && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.InputMethods[(int) configInputMethod], (UnityEngine.Object) null))
+        this.InputMethods[(int) configInputMethod].set_isOn(true);
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.LoginBonus, (UnityEngine.Object) null))
+        this.LoginBonus.SetActive(MonoSingleton<GameManager>.Instance.Player.LoginBonus != null);
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.LoginBonus28days, (UnityEngine.Object) null))
+        this.LoginBonus28days.SetActive(MonoSingleton<GameManager>.Instance.Player.LoginBonus28days != null);
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.DevServer, (UnityEngine.Object) null))
+      {
+        string devServerSetting = GameUtility.DevServerSetting;
+        if (!string.IsNullOrEmpty(devServerSetting))
+        {
+          this.DevServer.set_text(devServerSetting);
+          if (devServerSetting == "http://dev01-app.alcww.gumi.sg/")
+            this.devServerSetting = 0;
+          if (devServerSetting == "http://dev02-app.alcww.gumi.sg/")
+            this.devServerSetting = 1;
+          if (devServerSetting == "http://dev03-app.alcww.gumi.sg/")
+            this.devServerSetting = 2;
+          if (devServerSetting == "http://dev04-app.alcww.gumi.sg/")
+            this.devServerSetting = 3;
+          if (devServerSetting == "http://dev05-app.alcww.gumi.sg/")
+            this.devServerSetting = 4;
+          if (devServerSetting == "http://stg-app.alcww.gumi.sg/")
+            this.devServerSetting = 5;
+          if (devServerSetting == "http://stg02-app.alcww.gumi.sg/")
+            this.devServerSetting = 6;
+          if (devServerSetting == "http://dev06-app.alcww.gumi.sg/")
+            this.devServerSetting = 7;
+          if (devServerSetting == "http://stg03-app.alcww.gumi.sg/")
+            this.devServerSetting = 8;
+        }
+        InputField.OnChangeEvent onValueChanged = this.DevServer.get_onValueChanged();
+        // ISSUE: reference to a compiler-generated field
+        if (ConfigWindow.\u003C\u003Ef__am\u0024cache37 == null)
+        {
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: method pointer
+          ConfigWindow.\u003C\u003Ef__am\u0024cache37 = new UnityAction<string>((object) null, __methodptr(\u003CStart\u003Em__351));
+        }
+        // ISSUE: reference to a compiler-generated field
+        UnityAction<string> fAmCache37 = ConfigWindow.\u003C\u003Ef__am\u0024cache37;
+        ((UnityEvent<string>) onValueChanged).AddListener(fAmCache37);
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.SwitchServer, (UnityEngine.Object) null))
+        {
+          // ISSUE: method pointer
+          ((UnityEvent) this.SwitchServer.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(\u003CStart\u003Em__352)));
+        }
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.CrashButton, (UnityEngine.Object) null))
+        {
+          Button.ButtonClickedEvent onClick = this.CrashButton.get_onClick();
+          // ISSUE: reference to a compiler-generated field
+          if (ConfigWindow.\u003C\u003Ef__am\u0024cache38 == null)
+          {
+            // ISSUE: reference to a compiler-generated field
+            // ISSUE: method pointer
+            ConfigWindow.\u003C\u003Ef__am\u0024cache38 = new UnityAction((object) null, __methodptr(\u003CStart\u003Em__353));
+          }
+          // ISSUE: reference to a compiler-generated field
+          UnityAction fAmCache38 = ConfigWindow.\u003C\u003Ef__am\u0024cache38;
+          ((UnityEvent) onClick).AddListener(fAmCache38);
+        }
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.LangSetting, (UnityEngine.Object) null) && ((Component) this.LangSetting).get_gameObject().GetActive())
+      {
+        string configLanguage = GameUtility.Config_Language;
+        if (configLanguage == "english")
+          this.devLangSetting = 0;
+        if (configLanguage == "french")
+          this.devLangSetting = 1;
+        if (configLanguage == "german")
+          this.devLangSetting = 2;
+        if (configLanguage == "spanish")
+          this.devLangSetting = 3;
+        this.LangSetting.set_text(configLanguage);
+        InputField.OnChangeEvent onValueChanged = this.LangSetting.get_onValueChanged();
+        // ISSUE: reference to a compiler-generated field
+        if (ConfigWindow.\u003C\u003Ef__am\u0024cache39 == null)
+        {
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: method pointer
+          ConfigWindow.\u003C\u003Ef__am\u0024cache39 = new UnityAction<string>((object) null, __methodptr(\u003CStart\u003Em__354));
+        }
+        // ISSUE: reference to a compiler-generated field
+        UnityAction<string> fAmCache39 = ConfigWindow.\u003C\u003Ef__am\u0024cache39;
+        ((UnityEvent<string>) onValueChanged).AddListener(fAmCache39);
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.SwitchLanguage, (UnityEngine.Object) null))
+        {
+          // ISSUE: method pointer
+          ((UnityEvent) this.SwitchLanguage.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(\u003CStart\u003Em__355)));
+        }
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.MasterCheckButton, (UnityEngine.Object) null))
+        ((Component) this.MasterCheckButton).get_gameObject().SetActive(false);
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AwardState, (UnityEngine.Object) null))
+      {
+        PlayerData player = MonoSingleton<GameManager>.Instance.Player;
+        if (player != null)
+          DataSource.Bind<PlayerData>(this.AwardState, player);
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.SupportIcon, (UnityEngine.Object) null))
+      {
+        UnitData unitDataByUniqueId = MonoSingleton<GameManager>.Instance.Player.FindUnitDataByUniqueID((long) GlobalVars.SelectedSupportUnitUniqueID);
+        if (unitDataByUniqueId != null)
+          DataSource.Bind<UnitData>(this.SupportIcon, unitDataByUniqueId);
+      }
+      ConfigWindow.SetupTreasureList(this.TreasureList, this.TreasureListNode, this.Prefab_NewItemBadge, ((Component) this).get_gameObject(), this.mTreasureListNodes);
+      GameParameter.UpdateAll(((Component) this).get_gameObject());
+    }
+
+    private void OnInputMethodChange(bool y)
+    {
+      if (!y)
+        return;
+      for (int index = 0; index < this.InputMethods.Length; ++index)
+      {
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.InputMethods[index], (UnityEngine.Object) null) && this.InputMethods[index].get_isOn())
+        {
+          GameUtility.Config_InputMethod = (MoveInputMethods) index;
+          break;
+        }
+      }
+    }
+
+    private void UpdatePlayerInfo()
+    {
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AwardState, (UnityEngine.Object) null))
+      {
+        PlayerData player = MonoSingleton<GameManager>.Instance.Player;
+        if (player != null)
+          DataSource.Bind<PlayerData>(this.AwardState, player);
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.SupportIcon, (UnityEngine.Object) null))
+      {
+        UnitData unitDataByUniqueId = MonoSingleton<GameManager>.Instance.Player.FindUnitDataByUniqueID((long) GlobalVars.SelectedSupportUnitUniqueID);
+        if (unitDataByUniqueId != null)
+          DataSource.Bind<UnitData>(this.SupportIcon, unitDataByUniqueId);
+      }
+      GameParameter.UpdateAll(((Component) this).get_gameObject());
+    }
+
+    public static void SetupTreasureList(GameObject list, GameObject node, GameObject newIcon, GameObject owner, List<GameObject> itemNodes)
+    {
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) node, (UnityEngine.Object) null))
+        node.SetActive(false);
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) newIcon, (UnityEngine.Object) null) && newIcon.get_gameObject().get_activeInHierarchy())
+        newIcon.SetActive(false);
+      PlayerData player = MonoSingleton<GameManager>.Instance.Player;
+      SceneBattle instance = SceneBattle.Instance;
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) instance, (UnityEngine.Object) null))
+        return;
+      BattleCore battle = instance.Battle;
+      BattleCore.Record record = new BattleCore.Record();
+      battle.GainUnitSteal(record);
+      battle.GainUnitDrop(record, true);
+      DataSource.Bind<BattleCore.Record>(owner, record);
+      if (record == null)
+        return;
+      Transform transform = !UnityEngine.Object.op_Inequality((UnityEngine.Object) list, (UnityEngine.Object) null) ? node.get_transform().get_parent() : list.get_transform();
+      List<QuestResult.DropItemData> dropItemDataList = new List<QuestResult.DropItemData>();
+      for (int index1 = 0; index1 < record.items.Count; ++index1)
+      {
+        bool flag = false;
+        for (int index2 = 0; index2 < dropItemDataList.Count; ++index2)
+        {
+          if (dropItemDataList[index2].Param == record.items[index1].mItemParam && dropItemDataList[index2].mIsSecret == record.items[index1].mIsSecret)
+          {
+            dropItemDataList[index2].Gain(1);
+            flag = true;
+            break;
+          }
+        }
+        if (!flag)
+        {
+          ItemData itemDataByItemParam = player.FindItemDataByItemParam(record.items[index1].mItemParam);
+          QuestResult.DropItemData dropItemData = new QuestResult.DropItemData();
+          dropItemData.Setup(0L, record.items[index1].mItemParam.iname, 1);
+          dropItemData.mIsSecret = record.items[index1].mIsSecret;
+          if (record.items[index1].mItemParam.type != EItemType.Unit)
+          {
+            dropItemData.IsNew = !player.ItemEntryExists(record.items[index1].mItemParam.iname) || (itemDataByItemParam == null || itemDataByItemParam.IsNew);
+          }
+          else
+          {
+            // ISSUE: object of a compiler-generated type is created
+            // ISSUE: reference to a compiler-generated method
+            if (player.Units.Find(new Predicate<UnitData>(new ConfigWindow.\u003CSetupTreasureList\u003Ec__AnonStorey322() { iid = record.items[index1].mItemParam.iname }.\u003C\u003Em__356)) == null)
+              dropItemData.IsNew = true;
+          }
+          dropItemDataList.Add(dropItemData);
+        }
+      }
+      for (int index = 0; index < dropItemDataList.Count; ++index)
+      {
+        GameObject itemObject = ConfigWindow.CreateItemObject(node, newIcon, dropItemDataList[index]);
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) itemObject, (UnityEngine.Object) null))
+        {
+          itemObject.get_transform().SetParent(transform, false);
+          itemNodes.Add(itemObject);
+        }
+      }
+    }
+
+    public static GameObject CreateItemObject(GameObject node, GameObject newIcon, QuestResult.DropItemData item)
+    {
+      GameObject root = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) node);
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) root, (UnityEngine.Object) null))
+      {
+        DataSource.Bind<ItemData>(root, (ItemData) item);
+        if (item.mIsSecret)
+        {
+          ItemIcon component = (ItemIcon) root.GetComponent<ItemIcon>();
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
+            component.IsSecret = true;
+        }
+        root.SetActive(true);
+        GameParameter.UpdateAll(root);
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) newIcon, (UnityEngine.Object) null) && item.IsNew)
+        {
+          GameObject gameObject = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) newIcon);
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) gameObject, (UnityEngine.Object) null))
+          {
+            RectTransform transform = gameObject.get_transform() as RectTransform;
+            ((Component) transform).get_gameObject().SetActive(true);
+            transform.set_anchoredPosition(Vector2.get_zero());
+            ((Transform) transform).SetParent(root.get_transform(), false);
+          }
+        }
+      }
+      return root;
+    }
+  }
+}

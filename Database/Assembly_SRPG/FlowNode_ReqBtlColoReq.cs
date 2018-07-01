@@ -1,94 +1,74 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_ReqBtlColoReq
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Runtime.CompilerServices;
+  public class FlowNode_ReqBtlColoReq : FlowNode_Network
+  {
+    private FlowNode_ReqBtlColoReq.OnSuccesDelegate mOnSuccessDelegate;
 
-    public class FlowNode_ReqBtlColoReq : FlowNode_Network
+    public FlowNode_ReqBtlColoReq.OnSuccesDelegate OnSuccessListeners
     {
-        private OnSuccesDelegate mOnSuccessDelegate;
-
-        public FlowNode_ReqBtlColoReq()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override unsafe void OnSuccess(WWWResult www)
-        {
-            WebAPI.JSON_BodyResponse<BattleCore.Json_Battle> response;
-            Network.EErrCode code;
-            if (Network.IsError == null)
-            {
-                goto Label_006A;
-            }
-            switch ((Network.ErrCode - 0xed8))
-            {
-                case 0:
-                    goto Label_0039;
-
-                case 1:
-                    goto Label_0040;
-
-                case 2:
-                    goto Label_0047;
-
-                case 3:
-                    goto Label_004E;
-
-                case 4:
-                    goto Label_0055;
-
-                case 5:
-                    goto Label_005C;
-            }
-            goto Label_0063;
-        Label_0039:
-            this.OnBack();
-            return;
-        Label_0040:
-            this.OnBack();
-            return;
-        Label_0047:
-            this.OnFailed();
-            return;
-        Label_004E:
-            this.OnBack();
-            return;
-        Label_0055:
-            this.OnFailed();
-            return;
-        Label_005C:
-            this.OnBack();
-            return;
-        Label_0063:
-            this.OnRetry();
-            return;
-        Label_006A:
-            response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<BattleCore.Json_Battle>>(&www.text);
-            DebugUtility.Assert((response == null) == 0, "res == null");
-            if (response.body != null)
-            {
-                goto Label_009A;
-            }
-            this.OnRetry();
-            return;
-        Label_009A:
-            Network.RemoveAPI();
-            this.mOnSuccessDelegate(response.body);
-            return;
-        }
-
-        public OnSuccesDelegate OnSuccessListeners
-        {
-            set
-            {
-                this.mOnSuccessDelegate = value;
-                return;
-            }
-        }
-
-        public delegate void OnSuccesDelegate(BattleCore.Json_Battle response);
+      set
+      {
+        this.mOnSuccessDelegate = value;
+      }
     }
-}
 
+    public override void OnSuccess(WWWResult www)
+    {
+      if (Network.IsError)
+      {
+        switch (Network.ErrCode)
+        {
+          case Network.EErrCode.ColoCantSelect:
+            this.OnBack();
+            break;
+          case Network.EErrCode.ColoIsBusy:
+            this.OnBack();
+            break;
+          case Network.EErrCode.ColoCostShort:
+            this.OnFailed();
+            break;
+          case Network.EErrCode.ColoIntervalShort:
+            this.OnBack();
+            break;
+          case Network.EErrCode.ColoBattleNotEnd:
+            this.OnFailed();
+            break;
+          case Network.EErrCode.ColoPlayerLvShort:
+            this.OnBack();
+            break;
+          default:
+            this.OnRetry();
+            break;
+        }
+      }
+      else
+      {
+        WebAPI.JSON_BodyResponse<BattleCore.Json_Battle> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<BattleCore.Json_Battle>>(www.text);
+        DebugUtility.Assert(jsonObject != null, "res == null");
+        if (jsonObject.body == null)
+        {
+          this.OnRetry();
+        }
+        else
+        {
+          Network.RemoveAPI();
+          this.mOnSuccessDelegate(jsonObject.body);
+        }
+      }
+    }
+
+    public override void OnActivate(int pinID)
+    {
+    }
+
+    public delegate void OnSuccesDelegate(BattleCore.Json_Battle response);
+  }
+}

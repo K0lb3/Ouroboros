@@ -1,23 +1,20 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.QuestCampaignData
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
+  public class QuestCampaignData
+  {
+    public QuestCampaignValueTypes type;
+    public string unit;
+    public int value;
 
-    public class QuestCampaignData
+    public float GetRate()
     {
-        public QuestCampaignValueTypes type;
-        public string unit;
-        public int value;
-
-        public QuestCampaignData()
-        {
-            base..ctor();
-            return;
-        }
-
-        public float GetRate()
-        {
-            return (((float) this.value) / 100f);
-        }
+      return (float) this.value / 100f;
     }
+  }
 }
-

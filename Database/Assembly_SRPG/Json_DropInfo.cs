@@ -1,28 +1,18 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.Json_DropInfo
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    public class Json_DropInfo
-    {
-        public string iname;
-        public int num;
-        public string iname_origin;
-        public string type;
-        public int is_new;
-        public int rare;
-        public string get_unit;
-        public int is_gift;
-
-        public Json_DropInfo()
-        {
-            this.iname = string.Empty;
-            this.iname_origin = string.Empty;
-            this.type = string.Empty;
-            this.rare = -1;
-            this.get_unit = string.Empty;
-            base..ctor();
-            return;
-        }
-    }
+  public class Json_DropInfo
+  {
+    public int rare = -1;
+    public string iname;
+    public int num;
+    public string iname_origin;
+    public string type;
+    public int is_new;
+  }
 }
-

@@ -1,131 +1,86 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ArtifactLevelUpConfirmWindow
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Collections.Generic;
-    using System.Runtime.CompilerServices;
-    using UnityEngine;
-    using UnityEngine.Events;
-    using UnityEngine.UI;
+  [FlowNode.Pin(0, "Close", FlowNode.PinTypes.Output, 0)]
+  public class ArtifactLevelUpConfirmWindow : MonoBehaviour, IFlowInterface
+  {
+    [SerializeField]
+    private RectTransform ItemLayoutParent;
+    [SerializeField]
+    private GameObject ItemTemplate;
+    [SerializeField]
+    private Button DecideButton;
+    private List<GameObject> mExpItems;
+    public ArtifactLevelUpConfirmWindow.ConfirmDecideEvent OnDecideEvent;
+    private Dictionary<string, int> mSelectItems;
 
-    [Pin(0, "Close", 1, 0)]
-    public class ArtifactLevelUpConfirmWindow : MonoBehaviour, IFlowInterface
+    public ArtifactLevelUpConfirmWindow()
     {
-        [SerializeField]
-        private RectTransform ItemLayoutParent;
-        [SerializeField]
-        private GameObject ItemTemplate;
-        [SerializeField]
-        private Button DecideButton;
-        private List<GameObject> mExpItems;
-        public ConfirmDecideEvent OnDecideEvent;
-        private Dictionary<string, int> mSelectItems;
-
-        public ArtifactLevelUpConfirmWindow()
-        {
-            this.mExpItems = new List<GameObject>();
-            base..ctor();
-            return;
-        }
-
-        public void Activated(int pinID)
-        {
-        }
-
-        private void Awake()
-        {
-            if ((this.ItemTemplate != null) == null)
-            {
-                goto Label_001D;
-            }
-            this.ItemTemplate.SetActive(0);
-        Label_001D:
-            if ((this.DecideButton != null) == null)
-            {
-                goto Label_004A;
-            }
-            this.DecideButton.get_onClick().AddListener(new UnityAction(this, this.OnDecide));
-        Label_004A:
-            return;
-        }
-
-        private void OnDecide()
-        {
-            if (this.OnDecideEvent == null)
-            {
-                goto Label_0016;
-            }
-            this.OnDecideEvent();
-        Label_0016:
-            FlowNode_GameObject.ActivateOutputLinks(this, 0);
-            return;
-        }
-
-        public unsafe void Refresh(Dictionary<string, int> dict)
-        {
-            GameManager manager;
-            string str;
-            Dictionary<string, int>.KeyCollection.Enumerator enumerator;
-            ItemParam param;
-            ItemData data;
-            GameObject obj2;
-            if (dict == null)
-            {
-                goto Label_0012;
-            }
-            if (dict.Count >= 0)
-            {
-                goto Label_0013;
-            }
-        Label_0012:
-            return;
-        Label_0013:
-            manager = MonoSingleton<GameManager>.Instance;
-            enumerator = dict.Keys.GetEnumerator();
-        Label_0025:
-            try
-            {
-                goto Label_00A9;
-            Label_002A:
-                str = &enumerator.Current;
-                param = manager.MasterParam.GetItemParam(str);
-                if (param == null)
-                {
-                    goto Label_00A9;
-                }
-                if (dict[str] <= 0)
-                {
-                    goto Label_00A9;
-                }
-                data = new ItemData();
-                data.Setup(0L, param, dict[str]);
-                obj2 = Object.Instantiate<GameObject>(this.ItemTemplate);
-                obj2.get_transform().SetParent(this.ItemLayoutParent, 0);
-                DataSource.Bind<ItemData>(obj2, data);
-                this.mExpItems.Add(obj2);
-                obj2.SetActive(1);
-            Label_00A9:
-                if (&enumerator.MoveNext() != null)
-                {
-                    goto Label_002A;
-                }
-                goto Label_00C6;
-            }
-            finally
-            {
-            Label_00BA:
-                ((Dictionary<string, int>.KeyCollection.Enumerator) enumerator).Dispose();
-            }
-        Label_00C6:
-            GameParameter.UpdateAll(base.get_gameObject());
-            return;
-        }
-
-        private void Start()
-        {
-        }
-
-        public delegate void ConfirmDecideEvent();
+      base.\u002Ector();
     }
-}
 
+    public void Activated(int pinID)
+    {
+    }
+
+    private void Awake()
+    {
+      if (Object.op_Inequality((Object) this.ItemTemplate, (Object) null))
+        this.ItemTemplate.SetActive(false);
+      if (!Object.op_Inequality((Object) this.DecideButton, (Object) null))
+        return;
+      // ISSUE: method pointer
+      ((UnityEvent) this.DecideButton.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OnDecide)));
+    }
+
+    private void Start()
+    {
+    }
+
+    public void Refresh(Dictionary<string, int> dict)
+    {
+      if (dict == null || dict.Count < 0)
+        return;
+      GameManager instance = MonoSingleton<GameManager>.Instance;
+      using (Dictionary<string, int>.KeyCollection.Enumerator enumerator = dict.Keys.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+        {
+          string current = enumerator.Current;
+          ItemParam itemParam = instance.MasterParam.GetItemParam(current);
+          if (itemParam != null && dict[current] > 0)
+          {
+            ItemData data = new ItemData();
+            data.Setup(0L, itemParam, dict[current]);
+            GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.ItemTemplate);
+            gameObject.get_transform().SetParent((Transform) this.ItemLayoutParent, false);
+            DataSource.Bind<ItemData>(gameObject, data);
+            this.mExpItems.Add(gameObject);
+            gameObject.SetActive(true);
+          }
+        }
+      }
+      GameParameter.UpdateAll(((Component) this).get_gameObject());
+    }
+
+    private void OnDecide()
+    {
+      if (this.OnDecideEvent != null)
+        this.OnDecideEvent();
+      FlowNode_GameObject.ActivateOutputLinks((Component) this, 0);
+    }
+
+    public delegate void ConfirmDecideEvent();
+  }
+}

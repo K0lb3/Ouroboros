@@ -1,28 +1,28 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.TutorialFlags
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System;
+
+namespace SRPG
 {
-    using System;
-
-    [Flags]
-    public enum TutorialFlags
-    {
-        GamePlay = 1,
-        Magic = 2,
-        Attack_1 = 4,
-        Updown = 8,
-        Evolution = 0x10,
-        Equip = 0x20,
-        UnitShard = 0x40,
-        Ability = 0x80,
-        Attack_2 = 0x100,
-        Move = 0x200,
-        Organize = 0x400,
-        AutoBattle = 0x800,
-        Mission = 0x1000,
-        ConceptCard_1 = 0x2000,
-        ConceptCard_2 = 0x4000,
-        ConceptCard_3 = 0x8000,
-        Tobira_1 = 0x10000,
-        Tobira_2 = 0x20000
-    }
+  [Flags]
+  public enum TutorialFlags
+  {
+    GamePlay = 1,
+    Magic = 2,
+    Attack_1 = 4,
+    Updown = 8,
+    Evolution = 16, // 0x00000010
+    Equip = 32, // 0x00000020
+    UnitShard = 64, // 0x00000040
+    Ability = 128, // 0x00000080
+    Attack_2 = 256, // 0x00000100
+    Move = 512, // 0x00000200
+    Organize = 1024, // 0x00000400
+    AutoBattle = 2048, // 0x00000800
+    Mission = 4096, // 0x00001000
+  }
 }
-

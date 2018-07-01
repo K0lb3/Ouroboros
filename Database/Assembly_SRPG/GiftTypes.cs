@@ -1,25 +1,24 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.GiftTypes
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    public enum GiftTypes : long
-    {
-        Item = 1L,
-        Gold = 2L,
-        Coin = 4L,
-        ArenaCoin = 8L,
-        MultiCoin = 0x10L,
-        KakeraCoin = 0x20L,
-        Artifact = 0x40L,
-        Unit = 0x80L,
-        SelectUnitItem = 0x100L,
-        SelectItem = 0x200L,
-        SelectArtifactItem = 0x400L,
-        Award = 0x800L,
-        ConceptCard = 0x1000L,
-        SelectConceptCardItem = 0x2000L,
-        SelectSummonTickets = 0x2700L,
-        IgnoreReceiveAll = 0x2780L
-    }
+  public enum GiftTypes : long
+  {
+    Item = 1,
+    Gold = 2,
+    Coin = 4,
+    ArenaCoin = 8,
+    MultiCoin = 16, // 0x0000000000000010
+    KakeraCoin = 32, // 0x0000000000000020
+    Artifact = 64, // 0x0000000000000040
+    Unit = 128, // 0x0000000000000080
+    SelectUnitItem = 256, // 0x0000000000000100
+    SelectItem = 512, // 0x0000000000000200
+    SelectArtifactItem = 1024, // 0x0000000000000400
+    Award = 2048, // 0x0000000000000800
+  }
 }
-

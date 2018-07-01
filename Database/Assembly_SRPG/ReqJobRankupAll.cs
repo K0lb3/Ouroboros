@@ -1,60 +1,56 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqJobRankupAll
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Text;
+
+namespace SRPG
 {
-    using System;
-    using System.Text;
-
-    public class ReqJobRankupAll : WebAPI
+  public class ReqJobRankupAll : WebAPI
+  {
+    public ReqJobRankupAll(long iid_unit, string iname_jobset, bool is_cmn, Network.ResponseCallback response)
     {
-        public ReqJobRankupAll(long iid_unit, string iname_jobset, bool is_cmn, Network.ResponseCallback response)
-        {
-            StringBuilder builder;
-            base..ctor();
-            base.name = "unit/job/equip/lvupall";
-            builder = WebAPI.GetStringBuilder();
-            builder.Append("\"uiid\":");
-            builder.Append(iid_unit);
-            builder.Append(",\"jobset\":\"");
-            builder.Append(iname_jobset);
-            builder.Append("\"");
-            builder.Append(",\"is_cmn\":");
-            builder.Append((is_cmn == null) ? 0 : 1);
-            base.body = WebAPI.GetRequestString(builder.ToString());
-            base.callback = response;
-            return;
-        }
-
-        public ReqJobRankupAll(long iid_unit, string iname_jobset, bool is_cmn, int current_rank, int target_rank, int isEquips, Network.ResponseCallback response)
-        {
-            StringBuilder builder;
-            base..ctor();
-            base.name = "unit/job/equip/lvupall";
-            builder = WebAPI.GetStringBuilder();
-            builder.Append("\"uiid\":");
-            builder.Append(iid_unit);
-            builder.Append(",\"jobset\":\"");
-            builder.Append(iname_jobset);
-            builder.Append("\"");
-            builder.Append(",");
-            builder.Append("\"is_cmn\":");
-            builder.Append((is_cmn == null) ? 0 : 1);
-            builder.Append(",");
-            builder.Append("\"current_rank\":");
-            builder.Append(current_rank);
-            builder.Append(",");
-            builder.Append("\"target_rank\":");
-            builder.Append(target_rank);
-            if (isEquips != 1)
-            {
-                goto Label_00E2;
-            }
-            builder.Append(",");
-            builder.Append("\"isEquips\":");
-            builder.Append(isEquips);
-        Label_00E2:
-            base.body = WebAPI.GetRequestString(builder.ToString());
-            base.callback = response;
-            return;
-        }
+      this.name = "unit/job/equip/lvupall";
+      StringBuilder stringBuilder = WebAPI.GetStringBuilder();
+      stringBuilder.Append("\"uiid\":");
+      stringBuilder.Append(iid_unit);
+      stringBuilder.Append(",\"jobset\":\"");
+      stringBuilder.Append(iname_jobset);
+      stringBuilder.Append("\"");
+      stringBuilder.Append(",\"is_cmn\":");
+      stringBuilder.Append(!is_cmn ? 0 : 1);
+      this.body = WebAPI.GetRequestString(stringBuilder.ToString());
+      this.callback = response;
     }
-}
 
+    public ReqJobRankupAll(long iid_unit, string iname_jobset, bool is_cmn, int current_rank, int target_rank, int isEquips, Network.ResponseCallback response)
+    {
+      this.name = "unit/job/equip/lvupall";
+      StringBuilder stringBuilder = WebAPI.GetStringBuilder();
+      stringBuilder.Append("\"uiid\":");
+      stringBuilder.Append(iid_unit);
+      stringBuilder.Append(",\"jobset\":\"");
+      stringBuilder.Append(iname_jobset);
+      stringBuilder.Append("\"");
+      stringBuilder.Append(",");
+      stringBuilder.Append("\"is_cmn\":");
+      stringBuilder.Append(!is_cmn ? 0 : 1);
+      stringBuilder.Append(",");
+      stringBuilder.Append("\"current_rank\":");
+      stringBuilder.Append(current_rank);
+      stringBuilder.Append(",");
+      stringBuilder.Append("\"target_rank\":");
+      stringBuilder.Append(target_rank);
+      if (isEquips == 1)
+      {
+        stringBuilder.Append(",");
+        stringBuilder.Append("\"isEquips\":");
+        stringBuilder.Append(isEquips);
+      }
+      this.body = WebAPI.GetRequestString(stringBuilder.ToString());
+      this.callback = response;
+    }
+  }
+}

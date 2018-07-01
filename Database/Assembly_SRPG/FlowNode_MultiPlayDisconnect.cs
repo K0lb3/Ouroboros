@@ -1,34 +1,24 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_MultiPlayDisconnect
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    [Pin(0, "Disconnect", 0, 0), Pin(1, "Out", 1, 0), NodeType("Multi/MultiPlayDisconnect", 0x7fe5)]
-    public class FlowNode_MultiPlayDisconnect : FlowNode
+  [FlowNode.Pin(0, "Disconnect", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "Out", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.NodeType("Multi/MultiPlayDisconnect", 32741)]
+  public class FlowNode_MultiPlayDisconnect : FlowNode
+  {
+    public override void OnActivate(int pinID)
     {
-        public FlowNode_MultiPlayDisconnect()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            MyPhoton photon;
-            if (pinID != null)
-            {
-                goto Label_0025;
-            }
-            photon = PunMonoSingleton<MyPhoton>.Instance;
-            if (photon.CurrentState == null)
-            {
-                goto Label_001D;
-            }
-            photon.Disconnect();
-        Label_001D:
-            base.ActivateOutputLinks(1);
-        Label_0025:
-            return;
-        }
+      if (pinID != 0)
+        return;
+      MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
+      if (instance.CurrentState != MyPhoton.MyState.NOP)
+        instance.Disconnect();
+      this.ActivateOutputLinks(1);
     }
+  }
 }
-

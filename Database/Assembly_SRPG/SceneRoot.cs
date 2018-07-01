@@ -1,22 +1,25 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.SceneRoot
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
-
-    [ExecuteInEditMode, DisallowMultipleComponent]
-    public class SceneRoot : MonoBehaviour
+  [ExecuteInEditMode]
+  [DisallowMultipleComponent]
+  public class SceneRoot : MonoBehaviour
+  {
+    public SceneRoot()
     {
-        public SceneRoot()
-        {
-            base..ctor();
-            return;
-        }
-
-        protected virtual void Awake()
-        {
-            SceneAwakeObserver.Invoke(base.get_gameObject());
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    protected virtual void Awake()
+    {
+      SceneAwakeObserver.Invoke(((Component) this).get_gameObject());
+    }
+  }
+}

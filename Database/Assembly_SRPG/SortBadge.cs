@@ -1,43 +1,38 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.SortBadge
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
-    using UnityEngine.UI;
+  public class SortBadge : MonoBehaviour
+  {
+    [FourCC]
+    public int ID;
+    public Image Icon;
+    public Text Value;
 
-    public class SortBadge : MonoBehaviour
+    public SortBadge()
     {
-        [FourCC]
-        public int ID;
-        public Image Icon;
-        public Text Value;
-
-        public SortBadge()
-        {
-            base..ctor();
-            return;
-        }
-
-        public unsafe void SetValue(int value)
-        {
-            if ((this.Value != null) == null)
-            {
-                goto Label_0023;
-            }
-            this.Value.set_text(&value.ToString());
-        Label_0023:
-            return;
-        }
-
-        public void SetValue(string value)
-        {
-            if ((this.Value != null) == null)
-            {
-                goto Label_001D;
-            }
-            this.Value.set_text(value);
-        Label_001D:
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    public void SetValue(string value)
+    {
+      if (!Object.op_Inequality((Object) this.Value, (Object) null))
+        return;
+      this.Value.set_text(value);
+    }
+
+    public void SetValue(int value)
+    {
+      if (!Object.op_Inequality((Object) this.Value, (Object) null))
+        return;
+      this.Value.set_text(value.ToString());
+    }
+  }
+}

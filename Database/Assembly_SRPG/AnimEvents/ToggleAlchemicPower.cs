@@ -1,68 +1,47 @@
-﻿namespace SRPG.AnimEvents
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.AnimEvents.ToggleAlchemicPower
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System;
+using UnityEngine;
+
+namespace SRPG.AnimEvents
 {
-    using SRPG;
-    using System;
-    using UnityEngine;
+  public class ToggleAlchemicPower : AnimEvent
+  {
+    private static readonly Color SceneFadeColor = new Color(0.2f, 0.2f, 0.2f, 1f);
+    public bool Invert;
 
-    public class ToggleAlchemicPower : AnimEvent
+    public override void OnStart(GameObject go)
     {
-        private static readonly Color SceneFadeColor;
-        public bool Invert;
-
-        static ToggleAlchemicPower()
-        {
-            SceneFadeColor = new Color(0.2f, 0.2f, 0.2f, 1f);
-            return;
-        }
-
-        public ToggleAlchemicPower()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnEnd(GameObject go)
-        {
-            this.SetRenderMode(go, (float) ((this.Invert == null) ? 1 : 0));
-            return;
-        }
-
-        public override void OnStart(GameObject go)
-        {
-            this.SetRenderMode(go, (float) ((this.Invert == null) ? 0 : 1));
-            return;
-        }
-
-        public override void OnTick(GameObject go, float ratio)
-        {
-            this.SetRenderMode(go, (this.Invert == null) ? ratio : (1f - ratio));
-            return;
-        }
-
-        private unsafe void SetRenderMode(GameObject go, float strength)
-        {
-            UnitController controller;
-            TacticsUnitController[] controllerArray;
-            SceneBattle battle;
-            controller = go.GetComponentInParent<UnitController>();
-            if ((controller != null) == null)
-            {
-                goto Label_001F;
-            }
-            controller.AnimateVessel(strength, 0f);
-        Label_001F:
-            controllerArray = null;
-            if ((SceneBattle.Instance != null) == null)
-            {
-                goto Label_0057;
-            }
-            controllerArray = SceneBattle.Instance.GetActiveUnits();
-            Array.Resize<TacticsUnitController>(&controllerArray, ((int) controllerArray.Length) + 1);
-            controllerArray[((int) controllerArray.Length) - 1] = (TacticsUnitController) controller;
-        Label_0057:
-            FadeController.Instance.BeginSceneFade(Color.Lerp(Color.get_white(), SceneFadeColor, strength), 0f, controllerArray, null);
-            return;
-        }
+      this.SetRenderMode(go, !this.Invert ? 0.0f : 1f);
     }
-}
 
+    public override void OnEnd(GameObject go)
+    {
+      this.SetRenderMode(go, !this.Invert ? 1f : 0.0f);
+    }
+
+    public override void OnTick(GameObject go, float ratio)
+    {
+      this.SetRenderMode(go, !this.Invert ? ratio : 1f - ratio);
+    }
+
+    private void SetRenderMode(GameObject go, float strength)
+    {
+      UnitController componentInParent = (UnitController) go.GetComponentInParent<UnitController>();
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) componentInParent, (UnityEngine.Object) null))
+        componentInParent.AnimateVessel(strength, 0.0f);
+      TacticsUnitController[] array = (TacticsUnitController[]) null;
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null))
+      {
+        array = SceneBattle.Instance.GetActiveUnits();
+        Array.Resize<TacticsUnitController>(ref array, array.Length + 1);
+        array[array.Length - 1] = (TacticsUnitController) componentInParent;
+      }
+      FadeController.Instance.BeginSceneFade(Color.Lerp(Color.get_white(), ToggleAlchemicPower.SceneFadeColor, strength), 0.0f, array, (TacticsUnitController[]) null);
+    }
+  }
+}

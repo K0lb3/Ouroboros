@@ -1,56 +1,51 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.BaseObject
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
+  public abstract class BaseObject
+  {
+    private bool mInitialized;
+    private bool mPaused;
 
-    public abstract class BaseObject
+    public bool IsInitialized
     {
-        private bool mInitialized;
-        private bool mPaused;
-
-        protected BaseObject()
-        {
-            base..ctor();
-            return;
-        }
-
-        public virtual bool Load()
-        {
-            return 1;
-        }
-
-        public virtual void Release()
-        {
-        }
-
-        public virtual void Update()
-        {
-        }
-
-        public bool IsInitialized
-        {
-            get
-            {
-                return this.mInitialized;
-            }
-            set
-            {
-                this.mInitialized = value;
-                return;
-            }
-        }
-
-        public bool IsPaused
-        {
-            get
-            {
-                return this.mPaused;
-            }
-            set
-            {
-                this.mPaused = value;
-                return;
-            }
-        }
+      set
+      {
+        this.mInitialized = value;
+      }
+      get
+      {
+        return this.mInitialized;
+      }
     }
-}
 
+    public bool IsPaused
+    {
+      set
+      {
+        this.mPaused = value;
+      }
+      get
+      {
+        return this.mPaused;
+      }
+    }
+
+    public virtual bool Load()
+    {
+      return true;
+    }
+
+    public virtual void Release()
+    {
+    }
+
+    public virtual void Update()
+    {
+    }
+  }
+}

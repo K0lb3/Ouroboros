@@ -1,56 +1,38 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqUnitExpAdd
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Collections.Generic;
+
+namespace SRPG
 {
-    using System;
-    using System.Collections.Generic;
-
-    public class ReqUnitExpAdd : WebAPI
+  public class ReqUnitExpAdd : WebAPI
+  {
+    public ReqUnitExpAdd(long iid, Dictionary<string, int> usedItems, Network.ResponseCallback response)
     {
-        public unsafe ReqUnitExpAdd(long iid, Dictionary<string, int> usedItems, Network.ResponseCallback response)
+      this.name = "unit/exp/add";
+      this.body = "\"iid\":" + (object) iid + ",";
+      this.body += "\"mats\":[";
+      string str = string.Empty;
+      using (Dictionary<string, int>.Enumerator enumerator = usedItems.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
         {
-            string str;
-            KeyValuePair<string, int> pair;
-            Dictionary<string, int>.Enumerator enumerator;
-            base..ctor();
-            base.name = "unit/exp/add";
-            base.body = "\"iid\":" + ((long) iid) + ",";
-            base.body = base.body + "\"mats\":[";
-            str = string.Empty;
-            enumerator = usedItems.GetEnumerator();
-        Label_004F:
-            try
-            {
-                goto Label_00A4;
-            Label_0054:
-                pair = &enumerator.Current;
-                str = str + "{";
-                str = str + "\"iname\":\"" + &pair.Key + "\",";
-                str = str + "\"num\":" + ((int) &pair.Value);
-                str = str + "},";
-            Label_00A4:
-                if (&enumerator.MoveNext() != null)
-                {
-                    goto Label_0054;
-                }
-                goto Label_00C1;
-            }
-            finally
-            {
-            Label_00B5:
-                ((Dictionary<string, int>.Enumerator) enumerator).Dispose();
-            }
-        Label_00C1:
-            if (str.Length <= 0)
-            {
-                goto Label_00DD;
-            }
-            str = str.Substring(0, str.Length - 1);
-        Label_00DD:
-            base.body = base.body + str;
-            base.body = base.body + "]";
-            base.body = WebAPI.GetRequestString(base.body);
-            base.callback = response;
-            return;
+          KeyValuePair<string, int> current = enumerator.Current;
+          str += "{";
+          str = str + "\"iname\":\"" + current.Key + "\",";
+          str = str + "\"num\":" + (object) current.Value;
+          str += "},";
         }
+      }
+      if (str.Length > 0)
+        str = str.Substring(0, str.Length - 1);
+      this.body += str;
+      this.body += "]";
+      this.body = WebAPI.GetRequestString(this.body);
+      this.callback = response;
     }
+  }
 }
-

@@ -1,52 +1,44 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.LimitedShopLock
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
-    using UnityEngine.UI;
+  [RequireComponent(typeof (Selectable))]
+  public class LimitedShopLock : MonoBehaviour
+  {
+    [SerializeField]
+    private GameObject LockObject;
+    private Button mButton;
 
-    [RequireComponent(typeof(Selectable))]
-    public class LimitedShopLock : MonoBehaviour
+    public LimitedShopLock()
     {
-        [SerializeField]
-        private GameObject LockObject;
-        private Button mButton;
-
-        public LimitedShopLock()
-        {
-            base..ctor();
-            return;
-        }
-
-        private void Awake()
-        {
-            Button button;
-            button = base.GetComponent<Button>();
-            if ((button != null) == null)
-            {
-                goto Label_001A;
-            }
-            this.mButton = button;
-        Label_001A:
-            return;
-        }
-
-        private void Start()
-        {
-            this.UpdateLockState();
-            return;
-        }
-
-        private void UpdateLockState()
-        {
-            if ((this.mButton == null) == null)
-            {
-                goto Label_0012;
-            }
-            return;
-        Label_0012:
-            this.LockObject.SetActive(this.mButton.get_interactable() == 0);
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Awake()
+    {
+      Button component = (Button) ((Component) this).GetComponent<Button>();
+      if (!Object.op_Inequality((Object) component, (Object) null))
+        return;
+      this.mButton = component;
+    }
+
+    private void Start()
+    {
+      this.UpdateLockState();
+    }
+
+    private void UpdateLockState()
+    {
+      if (Object.op_Equality((Object) this.mButton, (Object) null))
+        return;
+      this.LockObject.SetActive(!((Selectable) this.mButton).get_interactable());
+    }
+  }
+}

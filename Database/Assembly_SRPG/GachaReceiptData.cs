@@ -1,41 +1,33 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.GachaReceiptData
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
+  public class GachaReceiptData
+  {
+    public string iname;
+    public string type;
+    public int val;
 
-    public class GachaReceiptData
+    public void Init()
     {
-        public string iname;
-        public string type;
-        public int val;
-
-        public GachaReceiptData()
-        {
-            base..ctor();
-            return;
-        }
-
-        public bool Deserialize(Json_GachaReceipt json)
-        {
-            this.Init();
-            if (json != null)
-            {
-                goto Label_000E;
-            }
-            return 0;
-        Label_000E:
-            this.iname = json.iname;
-            this.type = json.type;
-            this.val = json.val;
-            return 1;
-        }
-
-        public void Init()
-        {
-            this.iname = null;
-            this.type = null;
-            this.val = 0;
-            return;
-        }
+      this.iname = (string) null;
+      this.type = (string) null;
+      this.val = 0;
     }
-}
 
+    public bool Deserialize(Json_GachaReceipt json)
+    {
+      this.Init();
+      if (json == null)
+        return false;
+      this.iname = json.iname;
+      this.type = json.type;
+      this.val = json.val;
+      return true;
+    }
+  }
+}

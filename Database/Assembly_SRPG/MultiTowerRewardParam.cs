@@ -1,100 +1,49 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.MultiTowerRewardParam
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace SRPG
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Runtime.CompilerServices;
+  public class MultiTowerRewardParam
+  {
+    public string iname;
+    public MultiTowerRewardItem[] mReward;
 
-    public class MultiTowerRewardParam
+    public void Deserialize(JSON_MultiTowerRewardParam json)
     {
-        public string iname;
-        public MultiTowerRewardItem[] mReward;
-        [CompilerGenerated]
-        private static Func<MultiTowerRewardItem, int> <>f__am$cache2;
-
-        public MultiTowerRewardParam()
-        {
-            base..ctor();
-            return;
-        }
-
-        [CompilerGenerated]
-        private static int <GetReward>m__25E(MultiTowerRewardItem data)
-        {
-            return data.round_ed;
-        }
-
-        public void Deserialize(JSON_MultiTowerRewardParam json)
-        {
-            int num;
-            if (json != null)
-            {
-                goto Label_000C;
-            }
-            throw new InvalidJSONException();
-        Label_000C:
-            this.iname = json.iname;
-            if (json.rewards == null)
-            {
-                goto Label_0071;
-            }
-            this.mReward = new MultiTowerRewardItem[(int) json.rewards.Length];
-            num = 0;
-            goto Label_0063;
-        Label_003D:
-            this.mReward[num] = new MultiTowerRewardItem();
-            this.mReward[num].Deserialize(json.rewards[num]);
-            num += 1;
-        Label_0063:
-            if (num < ((int) json.rewards.Length))
-            {
-                goto Label_003D;
-            }
-        Label_0071:
-            return;
-        }
-
-        public List<MultiTowerRewardItem> GetReward(int round)
-        {
-            List<MultiTowerRewardItem> list;
-            int num;
-            int num2;
-            int num3;
-            list = new List<MultiTowerRewardItem>();
-            if (this.mReward == null)
-            {
-                goto Label_009B;
-            }
-            if (<>f__am$cache2 != null)
-            {
-                goto Label_002F;
-            }
-            <>f__am$cache2 = new Func<MultiTowerRewardItem, int>(MultiTowerRewardParam.<GetReward>m__25E);
-        Label_002F:
-            num = Enumerable.Max(Enumerable.Select<MultiTowerRewardItem, int>(this.mReward, <>f__am$cache2));
-            num2 = (round < num) ? round : num;
-            num3 = 0;
-            goto Label_008D;
-        Label_0055:
-            if (this.mReward[num3].round_st > num2)
-            {
-                goto Label_0089;
-            }
-            if (this.mReward[num3].round_ed < num2)
-            {
-                goto Label_0089;
-            }
-            list.Add(this.mReward[num3]);
-        Label_0089:
-            num3 += 1;
-        Label_008D:
-            if (num3 < ((int) this.mReward.Length))
-            {
-                goto Label_0055;
-            }
-        Label_009B:
-            return list;
-        }
+      if (json == null)
+        throw new InvalidJSONException();
+      this.iname = json.iname;
+      if (json.rewards == null)
+        return;
+      this.mReward = new MultiTowerRewardItem[json.rewards.Length];
+      for (int index = 0; index < json.rewards.Length; ++index)
+      {
+        this.mReward[index] = new MultiTowerRewardItem();
+        this.mReward[index].Deserialize(json.rewards[index]);
+      }
     }
-}
 
+    public List<MultiTowerRewardItem> GetReward(int round)
+    {
+      List<MultiTowerRewardItem> multiTowerRewardItemList = new List<MultiTowerRewardItem>();
+      if (this.mReward != null)
+      {
+        int num1 = ((IEnumerable<MultiTowerRewardItem>) this.mReward).Select<MultiTowerRewardItem, int>((Func<MultiTowerRewardItem, int>) (data => data.round_ed)).Max();
+        int num2 = round < num1 ? round : num1;
+        for (int index = 0; index < this.mReward.Length; ++index)
+        {
+          if (this.mReward[index].round_st <= num2 && this.mReward[index].round_ed >= num2)
+            multiTowerRewardItemList.Add(this.mReward[index]);
+        }
+      }
+      return multiTowerRewardItemList;
+    }
+  }
+}

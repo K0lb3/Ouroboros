@@ -1,33 +1,25 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_MultiPlayNeedRoomPassCode
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    [Pin(1, "Yes", 1, 0), NodeType("Multi/MultiPlayNeedRoomPassCode", 0x7fe5), Pin(0, "Test", 0, 0), Pin(2, "No", 1, 0)]
-    public class FlowNode_MultiPlayNeedRoomPassCode : FlowNode
+  [FlowNode.Pin(1, "Yes", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.NodeType("Multi/MultiPlayNeedRoomPassCode", 32741)]
+  [FlowNode.Pin(0, "Test", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(2, "No", FlowNode.PinTypes.Output, 0)]
+  public class FlowNode_MultiPlayNeedRoomPassCode : FlowNode
+  {
+    public override void OnActivate(int pinID)
     {
-        public FlowNode_MultiPlayNeedRoomPassCode()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != null)
-            {
-                goto Label_002A;
-            }
-            if (MultiPlayAPIRoom.IsLocked(GlobalVars.SelectedMultiPlayRoomPassCodeHash) == null)
-            {
-                goto Label_0022;
-            }
-            base.ActivateOutputLinks(1);
-            goto Label_002A;
-        Label_0022:
-            base.ActivateOutputLinks(2);
-        Label_002A:
-            return;
-        }
+      if (pinID != 0)
+        return;
+      if (MultiPlayAPIRoom.IsLocked(GlobalVars.SelectedMultiPlayRoomPassCodeHash))
+        this.ActivateOutputLinks(1);
+      else
+        this.ActivateOutputLinks(2);
     }
+  }
 }
-

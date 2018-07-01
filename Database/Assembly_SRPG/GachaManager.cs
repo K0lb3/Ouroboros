@@ -1,508 +1,249 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.GachaManager
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.Runtime.CompilerServices;
-    using UnityEngine;
-    using UnityEngine.UI;
+  public class GachaManager : MonoSingleton<GachaManager>
+  {
+    public GameObject GachaPanel;
+    private List<GachaTopParam> GachaList;
+    public Button NextGachaButton;
+    public Button PrevGachaButton;
+    private List<GachaTopParam2> mGachaListRare;
+    private List<GachaTopParam2> mGachaListNormal;
+    private List<GachaTopParam2> mGachaListTicket;
+    private List<GachaTopParam2> mGachaListArtifact;
+    private List<GachaTopParam2> mGachaListSpecial;
+    private int mUseTicketNum;
+    private string mUseTicketIname;
+    private int mCurrentGachaIndex;
+    private bool mInitalize;
 
-    public class GachaManager : MonoSingleton<GachaManager>
+    public GachaTopParam2[] GachaListRare
     {
-        public GameObject GachaPanel;
-        private List<GachaTopParam> GachaList;
-        public Button NextGachaButton;
-        public Button PrevGachaButton;
-        private List<GachaTopParam2> mGachaListRare;
-        private List<GachaTopParam2> mGachaListNormal;
-        private List<GachaTopParam2> mGachaListTicket;
-        private List<GachaTopParam2> mGachaListArtifact;
-        private List<GachaTopParam2> mGachaListSpecial;
-        private int mUseTicketNum;
-        private string mUseTicketIname;
-        private int mCurrentGachaIndex;
-        private bool mInitalize;
-
-        public GachaManager()
-        {
-            base..ctor();
-            return;
-        }
-
-        private GachaTopParam2 Deserialize(GachaParam param)
-        {
-            GachaTopParam2 param2;
-            if (param != null)
-            {
-                goto Label_0008;
-            }
-            return null;
-        Label_0008:
-            param2 = new GachaTopParam2();
-            param2.iname = param.iname;
-            param2.category = param.category;
-            param2.coin = param.coin;
-            param2.coin_p = param.coin_p;
-            param2.gold = param.gold;
-            param2.num = param.num;
-            param2.ticket = param.ticket_iname;
-            param2.ticket_num = param.ticket_num;
-            param2.units = param.units;
-            param2.step = param.step;
-            param2.step_index = param.step_index;
-            param2.step_num = param.step_num;
-            param2.limit = param.limit;
-            param2.limit_num = param.limit_num;
-            param2.limit_stock = param.limit_stock;
-            param2.type = string.Empty;
-            param2.asset_bg = param.asset_bg;
-            param2.asset_title = param.asset_title;
-            param2.group = param.group;
-            param2.btext = param.btext;
-            param2.confirm = param.confirm;
-            return param2;
-        }
-
-        public GachaTopParam GetCurrentGacha()
-        {
-            return this.GachaList[this.CurrentGachaIndex];
-        }
-
-        private int GetGachaParamIndex(List<GachaTopParam> list, string iname)
-        {
-            int num;
-            GachaTopParam param;
-            string str;
-            string[] strArray;
-            int num2;
-            num = 0;
-            goto Label_005B;
-        Label_0007:
-            param = list[num];
-            if (param == null)
-            {
-                goto Label_0057;
-            }
-            if (param.iname != null)
-            {
-                goto Label_0025;
-            }
-            goto Label_0057;
-        Label_0025:
-            strArray = param.iname;
-            num2 = 0;
-            goto Label_004D;
-        Label_0034:
-            str = strArray[num2];
-            if ((str == iname) == null)
-            {
-                goto Label_0047;
-            }
-            return num;
-        Label_0047:
-            num2 += 1;
-        Label_004D:
-            if (num2 < ((int) strArray.Length))
-            {
-                goto Label_0034;
-            }
-        Label_0057:
-            num += 1;
-        Label_005B:
-            if (num < list.Count)
-            {
-                goto Label_0007;
-            }
-            return 0;
-        }
-
-        protected override void Initialize()
-        {
-            base.Initialize();
-            return;
-        }
-
-        private void OnShiftGacha(Button button)
-        {
-            int num;
-            int num2;
-            int num3;
-            int num4;
-            if (this.mInitalize != null)
-            {
-                goto Label_000C;
-            }
-            return;
-        Label_000C:
-            num = 0;
-            if ((button == this.NextGachaButton) == null)
-            {
-                goto Label_0026;
-            }
-            num = -1;
-            goto Label_0028;
-        Label_0026:
-            num = 1;
-        Label_0028:
-            num2 = this.GachaList.Count;
-            num4 = ((this.mCurrentGachaIndex + num) + num2) % num2;
-            base.StartCoroutine(this.ShiftGachaAsync(num4));
-            return;
-        }
-
-        public void RefreshGachaList()
-        {
-        }
-
-        private void SetupGachaList(GachaParam[] gparams)
-        {
-            int num;
-            int num2;
-            GachaTopParam param;
-            <SetupGachaList>c__AnonStorey212 storey;
-            this.GachaList = new List<GachaTopParam>();
-            num = 0;
-            goto Label_0272;
-        Label_0012:
-            storey = new <SetupGachaList>c__AnonStorey212();
-            storey.group = gparams[num].group;
-            num2 = 0;
-            if (((this.GachaList == null) || (string.IsNullOrEmpty(storey.group) != null)) || (this.GachaList.FindIndex(new Predicate<GachaTopParam>(storey.<>m__100)) == -1))
-            {
-                goto Label_0095;
-            }
-            param = this.GachaList[this.GachaList.FindIndex(new Predicate<GachaTopParam>(storey.<>m__101))];
-            num2 = Array.IndexOf<string>(param.iname, null);
-            goto Label_009B;
-        Label_0095:
-            param = new GachaTopParam();
-        Label_009B:
-            param.iname[num2] = gparams[num].iname;
-            param.category[num2] = gparams[num].category;
-            param.coin[num2] = gparams[num].coin;
-            param.gold[num2] = gparams[num].gold;
-            param.coin_p[num2] = gparams[num].coin_p;
-            param.num[num2] = gparams[num].num;
-            param.ticket[num2] = (string.IsNullOrEmpty(gparams[num].ticket_iname) != null) ? string.Empty : gparams[num].ticket_iname;
-            param.ticket_num[num2] = gparams[num].ticket_num;
-            param.units = gparams[num].units;
-            param.step[num2] = gparams[num].step;
-            param.step_index[num2] = gparams[num].step_index;
-            param.step_num[num2] = gparams[num].step_num;
-            param.limit[num2] = gparams[num].limit;
-            param.limit_num[num2] = gparams[num].limit_num;
-            param.limit_stock[num2] = gparams[num].limit_stock;
-            param.type = string.Empty;
-            param.asset_bg = (string.IsNullOrEmpty(gparams[num].asset_bg) != null) ? string.Empty : gparams[num].asset_bg;
-            param.asset_title = (string.IsNullOrEmpty(gparams[num].asset_title) != null) ? string.Empty : gparams[num].asset_title;
-            param.group = storey.group;
-            param.btext[num2] = gparams[num].btext;
-            param.confirm[num2] = gparams[num].confirm;
-            if (param.coin_p[num2] <= 0)
-            {
-                goto Label_0250;
-            }
-            param.sort.Insert(0, num2);
-            goto Label_025C;
-        Label_0250:
-            param.sort.Add(num2);
-        Label_025C:
-            if (num2 != null)
-            {
-                goto Label_026E;
-            }
-            this.GachaList.Add(param);
-        Label_026E:
-            num += 1;
-        Label_0272:
-            if (num < ((int) gparams.Length))
-            {
-                goto Label_0012;
-            }
-            return;
-        }
-
-        private void SetupGachaList2(GachaParam[] gparams)
-        {
-            int num;
-            GachaTopParam2 param;
-            this.mGachaListRare = new List<GachaTopParam2>();
-            this.mGachaListNormal = new List<GachaTopParam2>();
-            this.mGachaListArtifact = new List<GachaTopParam2>();
-            this.mGachaListTicket = new List<GachaTopParam2>();
-            this.mGachaListSpecial = new List<GachaTopParam2>();
-            num = 0;
-            goto Label_00F9;
-        Label_003E:
-            param = new GachaTopParam2();
-            param = this.Deserialize(gparams[num]);
-            if (gparams[num].category.Contains("coin") == null)
-            {
-                goto Label_0076;
-            }
-            this.mGachaListRare.Add(param);
-            goto Label_00F5;
-        Label_0076:
-            if (gparams[num].category.Contains("gold") == null)
-            {
-                goto Label_009E;
-            }
-            this.mGachaListNormal.Add(param);
-            goto Label_00F5;
-        Label_009E:
-            if (gparams[num].group.Contains("bugu-") == null)
-            {
-                goto Label_00C6;
-            }
-            this.mGachaListArtifact.Add(param);
-            goto Label_00F5;
-        Label_00C6:
-            if (string.IsNullOrEmpty(gparams[num].ticket_iname) != null)
-            {
-                goto Label_00E9;
-            }
-            this.mGachaListTicket.Add(param);
-            goto Label_00F5;
-        Label_00E9:
-            this.mGachaListSpecial.Add(param);
-        Label_00F5:
-            num += 1;
-        Label_00F9:
-            if (num < ((int) gparams.Length))
-            {
-                goto Label_003E;
-            }
-            return;
-        }
-
-        [DebuggerHidden]
-        private IEnumerator ShiftGachaAsync(int index)
-        {
-            <ShiftGachaAsync>c__Iterator75 iterator;
-            iterator = new <ShiftGachaAsync>c__Iterator75();
-            iterator.index = index;
-            iterator.<$>index = index;
-            iterator.<>f__this = this;
-            return iterator;
-        }
-
-        private void Start()
-        {
-            GameManager manager;
-            manager = MonoSingleton<GameManager>.Instance;
-            if (manager.Gachas == null)
-            {
-                goto Label_001F;
-            }
-            if (((int) manager.Gachas.Length) > 0)
-            {
-                goto Label_0020;
-            }
-        Label_001F:
-            return;
-        Label_0020:
-            this.SetupGachaList2(manager.Gachas);
-            this.mInitalize = 1;
-            return;
-        }
-
-        public GachaTopParam2[] GachaListRare
-        {
-            get
-            {
-                return this.mGachaListRare.ToArray();
-            }
-        }
-
-        public GachaTopParam2[] GachaListNormal
-        {
-            get
-            {
-                return this.mGachaListNormal.ToArray();
-            }
-        }
-
-        public GachaTopParam2[] GachaListTicket
-        {
-            get
-            {
-                return this.mGachaListTicket.ToArray();
-            }
-        }
-
-        public GachaTopParam2[] GachaListArtifact
-        {
-            get
-            {
-                return this.mGachaListArtifact.ToArray();
-            }
-        }
-
-        public GachaTopParam2[] GachaListSpecial
-        {
-            get
-            {
-                return this.mGachaListSpecial.ToArray();
-            }
-        }
-
-        public int UseTicketNum
-        {
-            get
-            {
-                return this.mUseTicketNum;
-            }
-            set
-            {
-                this.mUseTicketNum = value;
-                return;
-            }
-        }
-
-        public string UseTicketIname
-        {
-            get
-            {
-                return this.mUseTicketIname;
-            }
-            set
-            {
-                this.mUseTicketIname = value;
-                return;
-            }
-        }
-
-        public int CurrentGachaIndex
-        {
-            get
-            {
-                return this.mCurrentGachaIndex;
-            }
-            set
-            {
-                this.mCurrentGachaIndex = value;
-                return;
-            }
-        }
-
-        [CompilerGenerated]
-        private sealed class <SetupGachaList>c__AnonStorey212
-        {
-            internal string group;
-
-            public <SetupGachaList>c__AnonStorey212()
-            {
-                base..ctor();
-                return;
-            }
-
-            internal bool <>m__100(GachaTopParam s)
-            {
-                return (s.group == this.group);
-            }
-
-            internal bool <>m__101(GachaTopParam s)
-            {
-                return (s.group == this.group);
-            }
-        }
-
-        [CompilerGenerated]
-        private sealed class <ShiftGachaAsync>c__Iterator75 : IEnumerator, IDisposable, IEnumerator<object>
-        {
-            internal GachaWindow <gWindow>__0;
-            internal int index;
-            internal int $PC;
-            internal object $current;
-            internal int <$>index;
-            internal GachaManager <>f__this;
-
-            public <ShiftGachaAsync>c__Iterator75()
-            {
-                base..ctor();
-                return;
-            }
-
-            [DebuggerHidden]
-            public void Dispose()
-            {
-                this.$PC = -1;
-                return;
-            }
-
-            public bool MoveNext()
-            {
-                uint num;
-                bool flag;
-                num = this.$PC;
-                this.$PC = -1;
-                switch (num)
-                {
-                    case 0:
-                        goto Label_0025;
-
-                    case 1:
-                        goto Label_005F;
-
-                    case 2:
-                        goto Label_00AF;
-                }
-                goto Label_00B6;
-            Label_0025:
-                this.<gWindow>__0 = this.<>f__this.GachaPanel.GetComponent<GachaWindow>();
-                if ((this.<gWindow>__0 == null) == null)
-                {
-                    goto Label_005F;
-                }
-                this.$current = null;
-                this.$PC = 1;
-                goto Label_00B8;
-            Label_005F:
-                this.<>f__this.mCurrentGachaIndex = this.index;
-                if (this.<>f__this.mCurrentGachaIndex < this.<>f__this.GachaList.Count)
-                {
-                    goto Label_009C;
-                }
-                this.<>f__this.mCurrentGachaIndex = 0;
-            Label_009C:
-                this.$current = null;
-                this.$PC = 2;
-                goto Label_00B8;
-            Label_00AF:
-                this.$PC = -1;
-            Label_00B6:
-                return 0;
-            Label_00B8:
-                return 1;
-                return flag;
-            }
-
-            [DebuggerHidden]
-            public void Reset()
-            {
-                throw new NotSupportedException();
-            }
-
-            object IEnumerator<object>.Current
-            {
-                [DebuggerHidden]
-                get
-                {
-                    return this.$current;
-                }
-            }
-
-            object IEnumerator.Current
-            {
-                [DebuggerHidden]
-                get
-                {
-                    return this.$current;
-                }
-            }
-        }
+      get
+      {
+        return this.mGachaListRare.ToArray();
+      }
     }
-}
 
+    public GachaTopParam2[] GachaListNormal
+    {
+      get
+      {
+        return this.mGachaListNormal.ToArray();
+      }
+    }
+
+    public GachaTopParam2[] GachaListTicket
+    {
+      get
+      {
+        return this.mGachaListTicket.ToArray();
+      }
+    }
+
+    public GachaTopParam2[] GachaListArtifact
+    {
+      get
+      {
+        return this.mGachaListArtifact.ToArray();
+      }
+    }
+
+    public GachaTopParam2[] GachaListSpecial
+    {
+      get
+      {
+        return this.mGachaListSpecial.ToArray();
+      }
+    }
+
+    public int UseTicketNum
+    {
+      get
+      {
+        return this.mUseTicketNum;
+      }
+      set
+      {
+        this.mUseTicketNum = value;
+      }
+    }
+
+    public string UseTicketIname
+    {
+      get
+      {
+        return this.mUseTicketIname;
+      }
+      set
+      {
+        this.mUseTicketIname = value;
+      }
+    }
+
+    public int CurrentGachaIndex
+    {
+      get
+      {
+        return this.mCurrentGachaIndex;
+      }
+      set
+      {
+        this.mCurrentGachaIndex = value;
+      }
+    }
+
+    public GachaTopParam GetCurrentGacha()
+    {
+      return this.GachaList[this.CurrentGachaIndex];
+    }
+
+    protected override void Initialize()
+    {
+      base.Initialize();
+    }
+
+    private void Start()
+    {
+      GameManager instance = MonoSingleton<GameManager>.Instance;
+      if (instance.Gachas == null || instance.Gachas.Length <= 0)
+        return;
+      this.SetupGachaList2(instance.Gachas);
+      this.mInitalize = true;
+    }
+
+    public void RefreshGachaList()
+    {
+    }
+
+    private void OnShiftGacha(Button button)
+    {
+      if (!this.mInitalize)
+        return;
+      int num = !UnityEngine.Object.op_Equality((UnityEngine.Object) button, (UnityEngine.Object) this.NextGachaButton) ? 1 : -1;
+      int count = this.GachaList.Count;
+      this.StartCoroutine(this.ShiftGachaAsync((this.mCurrentGachaIndex + num + count) % count));
+    }
+
+    [DebuggerHidden]
+    private IEnumerator ShiftGachaAsync(int index)
+    {
+      // ISSUE: object of a compiler-generated type is created
+      return (IEnumerator) new GachaManager.\u003CShiftGachaAsync\u003Ec__Iterator89() { index = index, \u003C\u0024\u003Eindex = index, \u003C\u003Ef__this = this };
+    }
+
+    private void SetupGachaList2(GachaParam[] gparams)
+    {
+      this.mGachaListRare = new List<GachaTopParam2>();
+      this.mGachaListNormal = new List<GachaTopParam2>();
+      this.mGachaListArtifact = new List<GachaTopParam2>();
+      this.mGachaListTicket = new List<GachaTopParam2>();
+      this.mGachaListSpecial = new List<GachaTopParam2>();
+      for (int index = 0; index < gparams.Length; ++index)
+      {
+        GachaTopParam2 gachaTopParam2_1 = new GachaTopParam2();
+        GachaTopParam2 gachaTopParam2_2 = this.Deserialize(gparams[index]);
+        if (gparams[index].category.Contains("coin"))
+          this.mGachaListRare.Add(gachaTopParam2_2);
+        else if (gparams[index].category.Contains("gold"))
+          this.mGachaListNormal.Add(gachaTopParam2_2);
+        else if (gparams[index].group.Contains("bugu-"))
+          this.mGachaListArtifact.Add(gachaTopParam2_2);
+        else if (!string.IsNullOrEmpty(gparams[index].ticket_iname))
+          this.mGachaListTicket.Add(gachaTopParam2_2);
+        else
+          this.mGachaListSpecial.Add(gachaTopParam2_2);
+      }
+    }
+
+    private GachaTopParam2 Deserialize(GachaParam param)
+    {
+      if (param == null)
+        return (GachaTopParam2) null;
+      return new GachaTopParam2() { iname = param.iname, category = param.category, coin = param.coin, coin_p = param.coin_p, gold = param.gold, num = param.num, ticket = param.ticket_iname, ticket_num = param.ticket_num, units = param.units, step = param.step, step_index = param.step_index, step_num = param.step_num, limit = param.limit, limit_num = param.limit_num, limit_stock = param.limit_stock, type = string.Empty, asset_bg = param.asset_bg, asset_title = param.asset_title, group = param.group, btext = param.btext, confirm = param.confirm };
+    }
+
+    private void SetupGachaList(GachaParam[] gparams)
+    {
+      this.GachaList = new List<GachaTopParam>();
+      for (int index1 = 0; index1 < gparams.Length; ++index1)
+      {
+        // ISSUE: object of a compiler-generated type is created
+        // ISSUE: variable of a compiler-generated type
+        GachaManager.\u003CSetupGachaList\u003Ec__AnonStorey291 listCAnonStorey291 = new GachaManager.\u003CSetupGachaList\u003Ec__AnonStorey291();
+        // ISSUE: reference to a compiler-generated field
+        listCAnonStorey291.group = gparams[index1].group;
+        int index2 = 0;
+        GachaTopParam gachaTopParam;
+        // ISSUE: reference to a compiler-generated field
+        // ISSUE: reference to a compiler-generated method
+        if (this.GachaList != null && !string.IsNullOrEmpty(listCAnonStorey291.group) && this.GachaList.FindIndex(new Predicate<GachaTopParam>(listCAnonStorey291.\u003C\u003Em__24D)) != -1)
+        {
+          // ISSUE: reference to a compiler-generated method
+          gachaTopParam = this.GachaList[this.GachaList.FindIndex(new Predicate<GachaTopParam>(listCAnonStorey291.\u003C\u003Em__24E))];
+          index2 = Array.IndexOf<string>(gachaTopParam.iname, (string) null);
+        }
+        else
+          gachaTopParam = new GachaTopParam();
+        gachaTopParam.iname[index2] = gparams[index1].iname;
+        gachaTopParam.category[index2] = gparams[index1].category;
+        gachaTopParam.coin[index2] = gparams[index1].coin;
+        gachaTopParam.gold[index2] = gparams[index1].gold;
+        gachaTopParam.coin_p[index2] = gparams[index1].coin_p;
+        gachaTopParam.num[index2] = gparams[index1].num;
+        gachaTopParam.ticket[index2] = string.IsNullOrEmpty(gparams[index1].ticket_iname) ? string.Empty : gparams[index1].ticket_iname;
+        gachaTopParam.ticket_num[index2] = gparams[index1].ticket_num;
+        gachaTopParam.units = gparams[index1].units;
+        gachaTopParam.step[index2] = gparams[index1].step;
+        gachaTopParam.step_index[index2] = gparams[index1].step_index;
+        gachaTopParam.step_num[index2] = gparams[index1].step_num;
+        gachaTopParam.limit[index2] = gparams[index1].limit;
+        gachaTopParam.limit_num[index2] = gparams[index1].limit_num;
+        gachaTopParam.limit_stock[index2] = gparams[index1].limit_stock;
+        gachaTopParam.type = string.Empty;
+        gachaTopParam.asset_bg = string.IsNullOrEmpty(gparams[index1].asset_bg) ? string.Empty : gparams[index1].asset_bg;
+        gachaTopParam.asset_title = string.IsNullOrEmpty(gparams[index1].asset_title) ? string.Empty : gparams[index1].asset_title;
+        // ISSUE: reference to a compiler-generated field
+        gachaTopParam.group = listCAnonStorey291.group;
+        gachaTopParam.btext[index2] = gparams[index1].btext;
+        gachaTopParam.confirm[index2] = gparams[index1].confirm;
+        if (gachaTopParam.coin_p[index2] > 0)
+          gachaTopParam.sort.Insert(0, index2);
+        else
+          gachaTopParam.sort.Add(index2);
+        if (index2 == 0)
+          this.GachaList.Add(gachaTopParam);
+      }
+    }
+
+    private int GetGachaParamIndex(List<GachaTopParam> list, string iname)
+    {
+      for (int index = 0; index < list.Count; ++index)
+      {
+        GachaTopParam gachaTopParam = list[index];
+        if (gachaTopParam != null && gachaTopParam.iname != null)
+        {
+          foreach (string str in gachaTopParam.iname)
+          {
+            if (str == iname)
+              return index;
+          }
+        }
+      }
+      return 0;
+    }
+  }
+}

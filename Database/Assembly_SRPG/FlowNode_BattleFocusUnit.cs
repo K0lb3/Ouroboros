@@ -1,26 +1,20 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_BattleFocusUnit
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    [NodeType("Battle/FocusUnit", 0x7fe5), Pin(0, "フォーカス", 0, 0)]
-    public class FlowNode_BattleFocusUnit : FlowNode
+  [FlowNode.Pin(0, "フォーカス", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.NodeType("Battle/FocusUnit", 32741)]
+  public class FlowNode_BattleFocusUnit : FlowNode
+  {
+    public override void OnActivate(int pinID)
     {
-        public FlowNode_BattleFocusUnit()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != null)
-            {
-                goto Label_0010;
-            }
-            SceneBattle.Instance.ResetMoveCamera();
-        Label_0010:
-            return;
-        }
+      if (pinID != 0)
+        return;
+      SceneBattle.Instance.ResetMoveCamera();
     }
+  }
 }
-

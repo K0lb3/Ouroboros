@@ -1,50 +1,35 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqMPRoomJoin
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-    using System.Runtime.InteropServices;
-
-    public class ReqMPRoomJoin : WebAPI
+  public class ReqMPRoomJoin : WebAPI
+  {
+    public ReqMPRoomJoin(int roomID, Network.ResponseCallback response, bool LockRoom = false)
     {
-        public ReqMPRoomJoin(int roomID, Network.ResponseCallback response, bool LockRoom)
-        {
-            object[] objArray1;
-            string str;
-            base..ctor();
-            base.name = "btl/room/join";
-            base.body = string.Empty;
-            str = base.body;
-            objArray1 = new object[] { str, "\"roomid\":", (int) roomID, "," };
-            base.body = string.Concat(objArray1);
-            base.body = base.body + "\"pwd\":";
-            base.body = base.body + ((LockRoom == null) ? "\"0\"" : "\"1\"");
-            base.body = WebAPI.GetRequestString(base.body);
-            base.callback = response;
-            return;
-        }
-
-        public class Quest
-        {
-            public string iname;
-
-            public Quest()
-            {
-                base..ctor();
-                return;
-            }
-        }
-
-        public class Response
-        {
-            public string app_id;
-            public string token;
-            public ReqMPRoomJoin.Quest quest;
-
-            public Response()
-            {
-                base..ctor();
-                return;
-            }
-        }
+      this.name = "btl/room/join";
+      this.body = string.Empty;
+      ReqMPRoomJoin reqMpRoomJoin = this;
+      reqMpRoomJoin.body = reqMpRoomJoin.body + "\"roomid\":" + (object) roomID + ",";
+      this.body += "\"pwd\":";
+      this.body += !LockRoom ? "\"0\"" : "\"1\"";
+      this.body = WebAPI.GetRequestString(this.body);
+      this.callback = response;
     }
-}
 
+    public class Quest
+    {
+      public string iname;
+    }
+
+    public class Response
+    {
+      public string app_id;
+      public string token;
+      public ReqMPRoomJoin.Quest quest;
+    }
+  }
+}

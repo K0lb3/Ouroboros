@@ -1,142 +1,88 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ScrollClamped
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
-    using UnityEngine.Events;
+  [RequireComponent(typeof (ScrollListController))]
+  public class ScrollClamped : MonoBehaviour, ScrollListSetUp
+  {
+    private int m_Max;
+    private int[] m_CategoryNum;
 
-    [RequireComponent(typeof(ScrollListController))]
-    public class ScrollClamped : MonoBehaviour, ScrollListSetUp
+    public ScrollClamped()
     {
-        private int m_Max;
-        private int[] m_CategoryNum;
-
-        public ScrollClamped()
-        {
-            base..ctor();
-            return;
-        }
-
-        public unsafe void OnSetUpItems()
-        {
-            HelpWindow window;
-            ScrollListController controller;
-            RectTransform transform;
-            Vector2 vector;
-            string str;
-            window = base.get_transform().GetComponentInParent<HelpWindow>();
-            if ((window == null) == null)
-            {
-                goto Label_0019;
-            }
-            return;
-        Label_0019:
-            controller = base.GetComponent<ScrollListController>();
-            controller.OnItemUpdate.AddListener(new UnityAction<int, GameObject>(this, this.OnUpdateItems));
-            base.GetComponentInParent<ScrollRect>().set_movementType(2);
-            transform = base.GetComponent<RectTransform>();
-            vector = transform.get_sizeDelta();
-            str = "0";
-            if (window.MiddleHelp == null)
-            {
-                goto Label_007C;
-            }
-            this.m_Max = this.m_CategoryNum[window.SelectMiddleID];
-            goto Label_00A2;
-        Label_007C:
-            str = LocalizedText.Get("help.MENU_L_NUM");
-            if (string.IsNullOrEmpty(str) == null)
-            {
-                goto Label_0095;
-            }
-            return;
-        Label_0095:
-            this.m_Max = int.Parse(str);
-        Label_00A2:
-            &vector.y = (controller.ItemScale * 1.2f) * ((float) this.m_Max);
-            transform.set_sizeDelta(vector);
-            return;
-        }
-
-        public void OnUpdateItems(int idx, GameObject obj)
-        {
-            if (idx < 0)
-            {
-                goto Label_0013;
-            }
-            if (idx < this.m_Max)
-            {
-                goto Label_001F;
-            }
-        Label_0013:
-            obj.SetActive(0);
-            goto Label_0037;
-        Label_001F:
-            obj.SetActive(1);
-            obj.SendMessage("UpdateParam", (int) idx);
-        Label_0037:
-            return;
-        }
-
-        public void Start()
-        {
-            string str;
-            int num;
-            string str2;
-            int num2;
-            string str3;
-            string str4;
-            int num3;
-            int num4;
-            int num5;
-            str = LocalizedText.Get("help.MENU_L_NUM");
-            if (string.IsNullOrEmpty(str) == null)
-            {
-                goto Label_0017;
-            }
-            return;
-        Label_0017:
-            num = int.Parse(str);
-            str2 = LocalizedText.Get("help.MENU_NUM");
-            if (string.IsNullOrEmpty(str2) == null)
-            {
-                goto Label_0035;
-            }
-            return;
-        Label_0035:
-            num2 = int.Parse(str2);
-            this.m_CategoryNum = new int[num];
-            num3 = 0;
-            num4 = 0;
-            num5 = 0;
-            goto Label_00CA;
-        Label_0056:
-            str3 = LocalizedText.Get("help.MENU_CATE_NAME_" + ((int) (num5 + 1)));
-            num4 = 0;
-            goto Label_00B1;
-        Label_0078:
-            if (string.Equals(LocalizedText.Get("help.MENU_CATE_" + ((int) (num3 + 1))), str3) != null)
-            {
-                goto Label_00A5;
-            }
-            goto Label_00B9;
-        Label_00A5:
-            num4 += 1;
-            num3 += 1;
-        Label_00B1:
-            if (num3 < num2)
-            {
-                goto Label_0078;
-            }
-        Label_00B9:
-            this.m_CategoryNum[num5] = num4;
-            num5 += 1;
-        Label_00CA:
-            if (num5 < num)
-            {
-                goto Label_0056;
-            }
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    public void Start()
+    {
+      string s1 = LocalizedText.Get("help.MENU_L_NUM");
+      if (string.IsNullOrEmpty(s1))
+        return;
+      int length = int.Parse(s1);
+      string s2 = LocalizedText.Get("help.MENU_NUM");
+      if (string.IsNullOrEmpty(s2))
+        return;
+      int num1 = int.Parse(s2);
+      this.m_CategoryNum = new int[length];
+      int num2 = 0;
+      for (int index = 0; index < length; ++index)
+      {
+        string b = LocalizedText.Get("help.MENU_CATE_NAME_" + (object) (index + 1));
+        int num3 = 0;
+        for (; num2 < num1 && string.Equals(LocalizedText.Get("help.MENU_CATE_" + (object) (num2 + 1)), b); ++num2)
+          ++num3;
+        this.m_CategoryNum[index] = num3;
+      }
+    }
+
+    public void OnSetUpItems()
+    {
+      HelpWindow componentInParent = (HelpWindow) ((Component) ((Component) this).get_transform()).GetComponentInParent<HelpWindow>();
+      if (Object.op_Equality((Object) componentInParent, (Object) null))
+        return;
+      ScrollListController component1 = (ScrollListController) ((Component) this).GetComponent<ScrollListController>();
+      ScrollListController.OnItemPositionChange onItemUpdate = component1.OnItemUpdate;
+      ScrollClamped scrollClamped = this;
+      // ISSUE: virtual method pointer
+      UnityAction<int, GameObject> unityAction = new UnityAction<int, GameObject>((object) scrollClamped, __vmethodptr(scrollClamped, OnUpdateItems));
+      onItemUpdate.AddListener(unityAction);
+      ((ScrollRect) ((Component) this).GetComponentInParent<ScrollRect>()).set_movementType((ScrollRect.MovementType) 2);
+      RectTransform component2 = (RectTransform) ((Component) this).GetComponent<RectTransform>();
+      Vector2 sizeDelta = component2.get_sizeDelta();
+      if (componentInParent.MiddleHelp)
+      {
+        this.m_Max = this.m_CategoryNum[componentInParent.SelectMiddleID];
+      }
+      else
+      {
+        string s = LocalizedText.Get("help.MENU_L_NUM");
+        if (string.IsNullOrEmpty(s))
+          return;
+        this.m_Max = int.Parse(s);
+      }
+      sizeDelta.y = (__Null) ((double) component1.ItemScale * 1.20000004768372 * (double) this.m_Max);
+      component2.set_sizeDelta(sizeDelta);
+    }
+
+    public void OnUpdateItems(int idx, GameObject obj)
+    {
+      if (idx < 0 || idx >= this.m_Max)
+      {
+        obj.SetActive(false);
+      }
+      else
+      {
+        obj.SetActive(true);
+        obj.SendMessage("UpdateParam", (object) idx);
+      }
+    }
+  }
+}

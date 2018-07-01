@@ -1,429 +1,274 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.PlayBackUnitVoice
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Runtime.CompilerServices;
-    using UnityEngine;
-    using UnityEngine.Events;
-    using UnityEngine.UI;
+  public class PlayBackUnitVoice : MonoBehaviour
+  {
+    private readonly float TOOLTIP_POSITION_OFFSET_Y;
+    [SerializeField]
+    private Button CloseButton;
+    [SerializeField]
+    private Button Bg;
+    [SerializeField]
+    private RectTransform ItemParent;
+    [SerializeField]
+    private GameObject ItemTemplate;
+    [SerializeField]
+    private Tooltip Preafab_UnlockConditionsTooltip;
+    private List<GameObject> mItems;
+    private UnitData mCurrentUnit;
+    private long mLastUnitUniqueID;
+    private PlayBackUnitVoiceItem mLastSelectItem;
+    private bool mStartPlayVoice;
+    private UnitData.UnitPlaybackVoiceData mUnitVoiceData;
+    private Tooltip mUnlockConditionsTooltip;
+    private SRPG_ScrollRect mScrollRect;
+    public PlayBackUnitVoice.CloseEvent OnCloseEvent;
 
-    public class PlayBackUnitVoice : MonoBehaviour
+    public PlayBackUnitVoice()
     {
-        private readonly float TOOLTIP_POSITION_OFFSET_Y;
-        [SerializeField]
-        private Button CloseButton;
-        [SerializeField]
-        private Button Bg;
-        [SerializeField]
-        private RectTransform ItemParent;
-        [SerializeField]
-        private GameObject ItemTemplate;
-        [SerializeField]
-        private Tooltip Preafab_UnlockConditionsTooltip;
-        private List<GameObject> mItems;
-        private UnitData mCurrentUnit;
-        private long mLastUnitUniqueID;
-        private PlayBackUnitVoiceItem mLastSelectItem;
-        private bool mStartPlayVoice;
-        private UnitData.UnitPlaybackVoiceData mUnitVoiceData;
-        private Tooltip mUnlockConditionsTooltip;
-        private SRPG_ScrollRect mScrollRect;
-        public CloseEvent OnCloseEvent;
-
-        public PlayBackUnitVoice()
-        {
-            this.TOOLTIP_POSITION_OFFSET_Y = 20f;
-            this.mItems = new List<GameObject>();
-            this.mLastUnitUniqueID = -1L;
-            base..ctor();
-            return;
-        }
-
-        private void Awake()
-        {
-            if ((this.ItemTemplate != null) == null)
-            {
-                goto Label_001D;
-            }
-            this.ItemTemplate.SetActive(0);
-        Label_001D:
-            return;
-        }
-
-        private void OnClose()
-        {
-            WindowController controller;
-            controller = base.get_gameObject().GetComponentInParent<WindowController>();
-            if ((controller == null) == null)
-            {
-                goto Label_0023;
-            }
-            DebugUtility.LogError("WindowControllerが存在しません");
-            return;
-        Label_0023:
-            if (this.mUnitVoiceData == null)
-            {
-                goto Label_0039;
-            }
-            this.mUnitVoiceData.Cleanup();
-        Label_0039:
-            if (this.OnCloseEvent == null)
-            {
-                goto Label_004F;
-            }
-            this.OnCloseEvent();
-        Label_004F:
-            controller.Close();
-            return;
-        }
-
-        private void OnDestroy()
-        {
-            if (this.mUnitVoiceData == null)
-            {
-                goto Label_0016;
-            }
-            this.mUnitVoiceData.Cleanup();
-        Label_0016:
-            return;
-        }
-
-        public void OnOpen()
-        {
-            this.Refresh();
-            return;
-        }
-
-        private void OnScroll(Vector2 _vec)
-        {
-            if ((this.mUnlockConditionsTooltip != null) == null)
-            {
-                goto Label_0023;
-            }
-            this.mUnlockConditionsTooltip.Close();
-            this.mUnlockConditionsTooltip = null;
-        Label_0023:
-            return;
-        }
-
-        private void OnSelect(Button button)
-        {
-            PlayBackUnitVoiceItem item;
-            if ((button == null) == null)
-            {
-                goto Label_0017;
-            }
-            DebugUtility.LogError("Buttonが存在しません");
-            return;
-        Label_0017:
-            item = button.get_gameObject().GetComponentInChildren<PlayBackUnitVoiceItem>();
-            if ((item == null) == null)
-            {
-                goto Label_003A;
-            }
-            DebugUtility.LogError("PlayBackUnitVoiceItemが存在しません");
-            return;
-        Label_003A:
-            if (item.IsLocked == null)
-            {
-                goto Label_0058;
-            }
-            this.mScrollRect.StopMovement();
-            this.ShowUnlockConditionsTooltip(item);
-            return;
-        Label_0058:
-            if ((this.mLastSelectItem != null) == null)
-            {
-                goto Label_0090;
-            }
-            if ((this.mLastSelectItem.CueName != item.CueName) == null)
-            {
-                goto Label_0090;
-            }
-            this.mLastSelectItem.SetPlayingBadge(0);
-        Label_0090:
-            item.SetPlayingBadge(1);
-            this.mLastSelectItem = item;
-            this.PlayVoice(item.CueName);
-            return;
-        }
-
-        private void PlayVoice(string name)
-        {
-            string str;
-            string str2;
-            if (this.mCurrentUnit != null)
-            {
-                goto Label_0016;
-            }
-            DebugUtility.LogError("UnitDataが存在しません");
-            return;
-        Label_0016:
-            if (this.mUnitVoiceData.Voice != null)
-            {
-                goto Label_0031;
-            }
-            DebugUtility.LogError("UnitVoiceが存在しません");
-            return;
-        Label_0031:
-            str = this.mCurrentUnit.GetUnitJobVoiceSheetName(-1);
-            if (string.IsNullOrEmpty(str) == null)
-            {
-                goto Label_0054;
-            }
-            DebugUtility.LogError("UnitDataにボイス設定が存在しません");
-            return;
-        Label_0054:
-            str2 = name.Replace(str + "_", string.Empty);
-            this.mUnitVoiceData.Voice.Play(str2, 0f, 1);
-            this.mStartPlayVoice = 1;
-            return;
-        }
-
-        private unsafe void Refresh()
-        {
-            UnitData data;
-            int num;
-            int num2;
-            int num3;
-            GameObject obj2;
-            SRPG_Button button;
-            int num4;
-            GameObject obj3;
-            PlayBackUnitVoiceItem item;
-            if ((this.mScrollRect != null) == null)
-            {
-                goto Label_003C;
-            }
-            if ((this.mScrollRect.get_verticalScrollbar() != null) == null)
-            {
-                goto Label_003C;
-            }
-            this.mScrollRect.get_verticalScrollbar().set_value(1f);
-        Label_003C:
-            data = DataSource.FindDataOfClass<UnitData>(base.get_gameObject(), null);
-            if (data != null)
-            {
-                goto Label_005A;
-            }
-            DebugUtility.LogError("UnitDataがBindされていません");
-            return;
-        Label_005A:
-            this.mCurrentUnit = data;
-            if (this.mUnitVoiceData == null)
-            {
-                goto Label_00A1;
-            }
-            if (this.mLastUnitUniqueID == -1L)
-            {
-                goto Label_00A1;
-            }
-            if (this.mLastUnitUniqueID == this.mCurrentUnit.UniqueID)
-            {
-                goto Label_00A1;
-            }
-            this.mUnitVoiceData.Cleanup();
-            this.mUnitVoiceData = null;
-        Label_00A1:
-            this.mLastUnitUniqueID = this.mCurrentUnit.UniqueID;
-            if (this.mUnitVoiceData == null)
-            {
-                goto Label_00C8;
-            }
-            this.mUnitVoiceData.Cleanup();
-        Label_00C8:
-            this.mUnitVoiceData = this.mCurrentUnit.GetUnitPlaybackVoiceData();
-            if (this.mItems == null)
-            {
-                goto Label_012E;
-            }
-            num = 0;
-            goto Label_011D;
-        Label_00EB:
-            if ((this.mItems[num] == null) == null)
-            {
-                goto Label_0107;
-            }
-            goto Label_0119;
-        Label_0107:
-            this.mItems[num].SetActive(0);
-        Label_0119:
-            num += 1;
-        Label_011D:
-            if (num < this.mItems.Count)
-            {
-                goto Label_00EB;
-            }
-        Label_012E:
-            if ((this.ItemParent == null) != null)
-            {
-                goto Label_0150;
-            }
-            if ((this.ItemTemplate == null) == null)
-            {
-                goto Label_015B;
-            }
-        Label_0150:
-            DebugUtility.LogError("リストテンプレートが存在しません");
-            return;
-        Label_015B:
-            if (this.mUnitVoiceData.VoiceCueList.Count <= this.mItems.Count)
-            {
-                goto Label_0221;
-            }
-            num2 = this.mUnitVoiceData.VoiceCueList.Count - this.mItems.Count;
-            num3 = 0;
-            goto Label_021A;
-        Label_019F:
-            obj2 = Object.Instantiate<GameObject>(this.ItemTemplate);
-            if ((obj2 == null) == null)
-            {
-                goto Label_01BE;
-            }
-            goto Label_0216;
-        Label_01BE:
-            obj2.get_transform().SetParent(this.ItemParent, 0);
-            this.mItems.Add(obj2);
-            button = obj2.GetComponentInChildren<SRPG_Button>();
-            if ((button == null) == null)
-            {
-                goto Label_0203;
-            }
-            DebugUtility.LogError("Buttonが存在しません");
-            goto Label_0216;
-        Label_0203:
-            button.AddListener(new SRPG_Button.ButtonClickEvent(this.OnSelect));
-        Label_0216:
-            num3 += 1;
-        Label_021A:
-            if (num3 < num2)
-            {
-                goto Label_019F;
-            }
-        Label_0221:
-            num4 = 0;
-            goto Label_02D4;
-        Label_0229:
-            obj3 = this.mItems[num4];
-            item = obj3.GetComponentInChildren<PlayBackUnitVoiceItem>();
-            if ((item == null) == null)
-            {
-                goto Label_0259;
-            }
-            DebugUtility.LogError("PlayBackUnitVoiceItemが取得できません");
-            return;
-        Label_0259:
-            item.SetUp(this.mUnitVoiceData.VoiceCueList[num4]);
-            item.Refresh();
-            item.Unlock();
-            if (this.mUnitVoiceData.VoiceCueList[num4].is_locked == null)
-            {
-                goto Label_02A3;
-            }
-            item.Lock();
-        Label_02A3:
-            obj3.set_name(&this.mUnitVoiceData.VoiceCueList[num4].cueInfo.name);
-            obj3.SetActive(1);
-            num4 += 1;
-        Label_02D4:
-            if (num4 < this.mUnitVoiceData.VoiceCueList.Count)
-            {
-                goto Label_0229;
-            }
-            return;
-        }
-
-        private unsafe void ShowUnlockConditionsTooltip(PlayBackUnitVoiceItem voice_item)
-        {
-            RectTransform transform;
-            Vector2 vector;
-            Vector2 vector2;
-            if ((this.Preafab_UnlockConditionsTooltip == null) == null)
-            {
-                goto Label_0012;
-            }
-            return;
-        Label_0012:
-            if ((this.mUnlockConditionsTooltip == null) == null)
-            {
-                goto Label_0039;
-            }
-            this.mUnlockConditionsTooltip = Object.Instantiate<Tooltip>(this.Preafab_UnlockConditionsTooltip);
-            goto Label_0044;
-        Label_0039:
-            this.mUnlockConditionsTooltip.ResetPosition();
-        Label_0044:
-            transform = voice_item.GetComponent<RectTransform>();
-            vector = new Vector2();
-            &vector.x = 0f;
-            &vector.y = (&transform.get_sizeDelta().y / 2f) + this.TOOLTIP_POSITION_OFFSET_Y;
-            Tooltip.SetTooltipPosition(transform, vector);
-            if ((this.mUnlockConditionsTooltip.TooltipText != null) == null)
-            {
-                goto Label_00B4;
-            }
-            this.mUnlockConditionsTooltip.TooltipText.set_text(voice_item.GetUnlockConditionsText());
-        Label_00B4:
-            return;
-        }
-
-        private void Start()
-        {
-            if ((this.CloseButton != null) == null)
-            {
-                goto Label_002D;
-            }
-            this.CloseButton.get_onClick().AddListener(new UnityAction(this, this.OnClose));
-        Label_002D:
-            if ((this.Bg != null) == null)
-            {
-                goto Label_005A;
-            }
-            this.Bg.get_onClick().AddListener(new UnityAction(this, this.OnClose));
-        Label_005A:
-            this.mScrollRect = base.GetComponentInChildren<SRPG_ScrollRect>();
-            if ((this.mScrollRect != null) == null)
-            {
-                goto Label_0093;
-            }
-            this.mScrollRect.get_onValueChanged().AddListener(new UnityAction<Vector2>(this, this.OnScroll));
-        Label_0093:
-            return;
-        }
-
-        private void Update()
-        {
-            if (this.mStartPlayVoice == null)
-            {
-                goto Label_0071;
-            }
-            if (this.mUnitVoiceData.Voice != null)
-            {
-                goto Label_002F;
-            }
-            this.mStartPlayVoice = 0;
-            this.mLastSelectItem.SetPlayingBadge(0);
-            return;
-        Label_002F:
-            if (this.mUnitVoiceData.Voice.IsPlaying != null)
-            {
-                goto Label_0071;
-            }
-            if ((this.mLastSelectItem == null) == null)
-            {
-                goto Label_005D;
-            }
-            this.mStartPlayVoice = 0;
-            return;
-        Label_005D:
-            this.mLastSelectItem.SetPlayingBadge(0);
-            this.mStartPlayVoice = 0;
-            return;
-        Label_0071:
-            return;
-        }
-
-        public delegate void CloseEvent();
+      base.\u002Ector();
     }
-}
 
+    private void Awake()
+    {
+      if (!Object.op_Inequality((Object) this.ItemTemplate, (Object) null))
+        return;
+      this.ItemTemplate.SetActive(false);
+    }
+
+    private void Start()
+    {
+      if (Object.op_Inequality((Object) this.CloseButton, (Object) null))
+      {
+        // ISSUE: method pointer
+        ((UnityEvent) this.CloseButton.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OnClose)));
+      }
+      if (Object.op_Inequality((Object) this.Bg, (Object) null))
+      {
+        // ISSUE: method pointer
+        ((UnityEvent) this.Bg.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OnClose)));
+      }
+      this.mScrollRect = (SRPG_ScrollRect) ((Component) this).GetComponentInChildren<SRPG_ScrollRect>();
+      if (!Object.op_Inequality((Object) this.mScrollRect, (Object) null))
+        return;
+      // ISSUE: method pointer
+      ((UnityEvent<Vector2>) this.mScrollRect.get_onValueChanged()).AddListener(new UnityAction<Vector2>((object) this, __methodptr(OnScroll)));
+    }
+
+    private void OnScroll(Vector2 _vec)
+    {
+      if (!Object.op_Inequality((Object) this.mUnlockConditionsTooltip, (Object) null))
+        return;
+      this.mUnlockConditionsTooltip.Close();
+      this.mUnlockConditionsTooltip = (Tooltip) null;
+    }
+
+    private void OnDestroy()
+    {
+      if (this.mUnitVoiceData == null)
+        return;
+      this.mUnitVoiceData.Cleanup();
+    }
+
+    private void Update()
+    {
+      if (!this.mStartPlayVoice)
+        return;
+      if (this.mUnitVoiceData.Voice == null)
+      {
+        this.mStartPlayVoice = false;
+        this.mLastSelectItem.SetPlayingBadge(false);
+      }
+      else
+      {
+        if (this.mUnitVoiceData.Voice.IsPlaying)
+          return;
+        if (Object.op_Equality((Object) this.mLastSelectItem, (Object) null))
+        {
+          this.mStartPlayVoice = false;
+        }
+        else
+        {
+          this.mLastSelectItem.SetPlayingBadge(false);
+          this.mStartPlayVoice = false;
+        }
+      }
+    }
+
+    public void OnOpen()
+    {
+      this.Refresh();
+    }
+
+    private void Refresh()
+    {
+      if (Object.op_Inequality((Object) this.mScrollRect, (Object) null) && Object.op_Inequality((Object) this.mScrollRect.get_verticalScrollbar(), (Object) null))
+        this.mScrollRect.get_verticalScrollbar().set_value(1f);
+      UnitData dataOfClass = DataSource.FindDataOfClass<UnitData>(((Component) this).get_gameObject(), (UnitData) null);
+      if (dataOfClass == null)
+      {
+        DebugUtility.LogError("UnitDataがBindされていません");
+      }
+      else
+      {
+        this.mCurrentUnit = dataOfClass;
+        if (this.mUnitVoiceData != null && this.mLastUnitUniqueID != -1L && this.mLastUnitUniqueID != this.mCurrentUnit.UniqueID)
+        {
+          this.mUnitVoiceData.Cleanup();
+          this.mUnitVoiceData = (UnitData.UnitPlaybackVoiceData) null;
+        }
+        this.mLastUnitUniqueID = this.mCurrentUnit.UniqueID;
+        if (this.mUnitVoiceData != null)
+          this.mUnitVoiceData.Cleanup();
+        this.mUnitVoiceData = this.mCurrentUnit.GetUnitPlaybackVoiceData();
+        if (this.mItems != null)
+        {
+          for (int index = 0; index < this.mItems.Count; ++index)
+          {
+            if (!Object.op_Equality((Object) this.mItems[index], (Object) null))
+              this.mItems[index].SetActive(false);
+          }
+        }
+        if (Object.op_Equality((Object) this.ItemParent, (Object) null) || Object.op_Equality((Object) this.ItemTemplate, (Object) null))
+        {
+          DebugUtility.LogError("リストテンプレートが存在しません");
+        }
+        else
+        {
+          if (this.mUnitVoiceData.VoiceCueList.Count > this.mItems.Count)
+          {
+            int num = this.mUnitVoiceData.VoiceCueList.Count - this.mItems.Count;
+            for (int index = 0; index < num; ++index)
+            {
+              GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.ItemTemplate);
+              if (!Object.op_Equality((Object) gameObject, (Object) null))
+              {
+                gameObject.get_transform().SetParent((Transform) this.ItemParent, false);
+                this.mItems.Add(gameObject);
+                SRPG_Button componentInChildren = (SRPG_Button) gameObject.GetComponentInChildren<SRPG_Button>();
+                if (Object.op_Equality((Object) componentInChildren, (Object) null))
+                  DebugUtility.LogError("Buttonが存在しません");
+                else
+                  componentInChildren.AddListener(new SRPG_Button.ButtonClickEvent(this.OnSelect));
+              }
+            }
+          }
+          for (int index = 0; index < this.mUnitVoiceData.VoiceCueList.Count; ++index)
+          {
+            GameObject mItem = this.mItems[index];
+            PlayBackUnitVoiceItem componentInChildren = (PlayBackUnitVoiceItem) mItem.GetComponentInChildren<PlayBackUnitVoiceItem>();
+            if (Object.op_Equality((Object) componentInChildren, (Object) null))
+            {
+              DebugUtility.LogError("PlayBackUnitVoiceItemが取得できません");
+              break;
+            }
+            componentInChildren.SetUp(this.mUnitVoiceData.VoiceCueList[index]);
+            componentInChildren.Refresh();
+            componentInChildren.Unlock();
+            if (this.mUnitVoiceData.VoiceCueList[index].is_locked)
+              componentInChildren.Lock();
+            ((Object) mItem).set_name((string) this.mUnitVoiceData.VoiceCueList[index].cueInfo.name);
+            mItem.SetActive(true);
+          }
+        }
+      }
+    }
+
+    private void OnClose()
+    {
+      WindowController componentInParent = (WindowController) ((Component) this).get_gameObject().GetComponentInParent<WindowController>();
+      if (Object.op_Equality((Object) componentInParent, (Object) null))
+      {
+        DebugUtility.LogError("WindowControllerが存在しません");
+      }
+      else
+      {
+        if (this.mUnitVoiceData != null)
+          this.mUnitVoiceData.Cleanup();
+        if (this.OnCloseEvent != null)
+          this.OnCloseEvent();
+        componentInParent.Close();
+      }
+    }
+
+    private void OnSelect(Button button)
+    {
+      if (Object.op_Equality((Object) button, (Object) null))
+      {
+        DebugUtility.LogError("Buttonが存在しません");
+      }
+      else
+      {
+        PlayBackUnitVoiceItem componentInChildren = (PlayBackUnitVoiceItem) ((Component) button).get_gameObject().GetComponentInChildren<PlayBackUnitVoiceItem>();
+        if (Object.op_Equality((Object) componentInChildren, (Object) null))
+          DebugUtility.LogError("PlayBackUnitVoiceItemが存在しません");
+        else if (componentInChildren.IsLocked)
+        {
+          this.mScrollRect.StopMovement();
+          this.ShowUnlockConditionsTooltip(componentInChildren);
+        }
+        else
+        {
+          if (Object.op_Inequality((Object) this.mLastSelectItem, (Object) null) && this.mLastSelectItem.CueName != componentInChildren.CueName)
+            this.mLastSelectItem.SetPlayingBadge(false);
+          componentInChildren.SetPlayingBadge(true);
+          this.mLastSelectItem = componentInChildren;
+          this.PlayVoice(componentInChildren.CueName);
+        }
+      }
+    }
+
+    private void PlayVoice(string name)
+    {
+      if (this.mCurrentUnit == null)
+        DebugUtility.LogError("UnitDataが存在しません");
+      else if (this.mUnitVoiceData.Voice == null)
+      {
+        DebugUtility.LogError("UnitVoiceが存在しません");
+      }
+      else
+      {
+        string jobVoiceSheetName = this.mCurrentUnit.GetUnitJobVoiceSheetName(-1);
+        if (string.IsNullOrEmpty(jobVoiceSheetName))
+        {
+          DebugUtility.LogError("UnitDataにボイス設定が存在しません");
+        }
+        else
+        {
+          this.mUnitVoiceData.Voice.Play(name.Replace(jobVoiceSheetName + "_", string.Empty), 0.0f, true);
+          this.mStartPlayVoice = true;
+        }
+      }
+    }
+
+    private void ShowUnlockConditionsTooltip(PlayBackUnitVoiceItem voice_item)
+    {
+      if (Object.op_Equality((Object) this.Preafab_UnlockConditionsTooltip, (Object) null))
+        return;
+      if (Object.op_Equality((Object) this.mUnlockConditionsTooltip, (Object) null))
+        this.mUnlockConditionsTooltip = (Tooltip) Object.Instantiate<Tooltip>((M0) this.Preafab_UnlockConditionsTooltip);
+      else
+        this.mUnlockConditionsTooltip.ResetPosition();
+      RectTransform component = (RectTransform) ((Component) voice_item).GetComponent<RectTransform>();
+      Vector2 localPos = (Vector2) null;
+      localPos.x = (__Null) 0.0;
+      localPos.y = (__Null) (component.get_sizeDelta().y / 2.0 + (double) this.TOOLTIP_POSITION_OFFSET_Y);
+      Tooltip.SetTooltipPosition(component, localPos);
+      if (!Object.op_Inequality((Object) this.mUnlockConditionsTooltip.TooltipText, (Object) null))
+        return;
+      this.mUnlockConditionsTooltip.TooltipText.set_text(voice_item.GetUnlockConditionsText());
+    }
+
+    public delegate void CloseEvent();
+  }
+}

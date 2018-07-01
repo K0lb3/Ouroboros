@@ -1,30 +1,28 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.RaidResult
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System.Collections.Generic;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Collections.Generic;
+  public class RaidResult
+  {
+    public List<RaidQuestResult> results = new List<RaidQuestResult>(10);
+    public QuestParam[] chquest = new QuestParam[0];
+    public QuestParam quest;
+    public int pexp;
+    public int uexp;
+    public int gold;
+    public List<UnitData> members;
+    public string[] campaignIds;
 
-    public class RaidResult
+    public RaidResult(PlayerPartyTypes type)
     {
-        public QuestParam quest;
-        public int pexp;
-        public int uexp;
-        public int gold;
-        public List<UnitData> members;
-        public List<RaidQuestResult> results;
-        public QuestParam[] chquest;
-        public string[] campaignIds;
-
-        public RaidResult(PlayerPartyTypes type)
-        {
-            PartyData data;
-            this.results = new List<RaidQuestResult>(10);
-            this.chquest = new QuestParam[0];
-            base..ctor();
-            data = MonoSingleton<GameManager>.Instance.Player.FindPartyOfType(type);
-            this.members = new List<UnitData>(data.MAX_UNIT);
-            return;
-        }
+      this.members = new List<UnitData>(MonoSingleton<GameManager>.Instance.Player.FindPartyOfType(type).MAX_UNIT);
     }
+  }
 }
-

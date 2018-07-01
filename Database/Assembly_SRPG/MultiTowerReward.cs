@@ -1,452 +1,266 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.MultiTowerReward
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Collections.Generic;
-    using System.Runtime.InteropServices;
-    using UnityEngine;
-    using UnityEngine.UI;
+  public class MultiTowerReward : MonoBehaviour
+  {
+    private readonly float WAIT_TIME;
+    private readonly float WAIT_OPEN;
+    public GameObject item;
+    public GameObject root;
+    public GameObject template;
+    public GameObject parent;
+    public GameObject arrival;
+    public Text floorTxt;
+    public Text floorEffTxt;
+    public Text rewardTxt;
+    public Text okTxt;
+    public Text getTxt;
+    public string openAnim;
+    public string nextAnim;
+    public string resultAnim;
+    private int mNow;
+    private int mMax;
+    private float mWaitTime;
+    private MultiTowerReward.MODE mMode;
+    private int mRound;
 
-    public class MultiTowerReward : MonoBehaviour
+    public MultiTowerReward()
     {
-        private readonly float WAIT_TIME;
-        private readonly float WAIT_OPEN;
-        public GameObject item;
-        public GameObject root;
-        public GameObject template;
-        public GameObject parent;
-        public GameObject arrival;
-        public Text floorTxt;
-        public Text floorEffTxt;
-        public Text rewardTxt;
-        public Text okTxt;
-        public Text getTxt;
-        public string openAnim;
-        public string nextAnim;
-        public string resultAnim;
-        private int mNow;
-        private int mMax;
-        private float mWaitTime;
-        private MODE mMode;
-        private int mRound;
-
-        public MultiTowerReward()
-        {
-            this.WAIT_TIME = 0.5f;
-            this.mMode = 1;
-            this.mRound = 1;
-            base..ctor();
-            return;
-        }
-
-        private void CreateResult()
-        {
-            GameManager manager;
-            int num;
-            MultiTowerFloorParam param;
-            List<MultiTowerRewardItem> list;
-            int num2;
-            GameObject obj2;
-            manager = MonoSingleton<GameManager>.Instance;
-            num = GlobalVars.SelectedMultiTowerFloor;
-            param = manager.GetMTFloorParam(GlobalVars.SelectedMultiTowerID, num);
-            if (param == null)
-            {
-                goto Label_00E6;
-            }
-            if ((this.template != null) == null)
-            {
-                goto Label_00E6;
-            }
-            list = manager.GetMTFloorReward(param.reward_id, this.mRound);
-            num2 = 0;
-            goto Label_00C1;
-        Label_004B:
-            obj2 = Object.Instantiate<GameObject>(this.template);
-            if ((obj2 != null) == null)
-            {
-                goto Label_00BB;
-            }
-            DataSource.Bind<MultiTowerFloorParam>(obj2, param);
-            obj2.SetActive(1);
-            if (this.SetData(num2, 0, obj2) == null)
-            {
-                goto Label_00B3;
-            }
-            if ((this.parent != null) == null)
-            {
-                goto Label_00BB;
-            }
-            obj2.get_transform().SetParent(this.parent.get_transform(), 0);
-            goto Label_00BB;
-        Label_00B3:
-            obj2.SetActive(0);
-        Label_00BB:
-            num2 += 1;
-        Label_00C1:
-            if (num2 < list.Count)
-            {
-                goto Label_004B;
-            }
-            this.template.SetActive(0);
-            this.item.SetActive(0);
-        Label_00E6:
-            return;
-        }
-
-        public void OnClickNext()
-        {
-            int num;
-            if (this.mMode != 3)
-            {
-                goto Label_008A;
-            }
-            this.mWaitTime = this.WAIT_TIME;
-            if ((this.mNow += 1) >= this.mMax)
-            {
-                goto Label_004C;
-            }
-            this.mMode = 4;
-            this.ReqAnim(this.nextAnim);
-            goto Label_006C;
-        Label_004C:
-            this.CreateResult();
-            this.ReqAnim(this.resultAnim);
-            this.SetButtonText(0);
-            this.mMode = 5;
-        Label_006C:
-            MonoSingleton<MySound>.Instance.PlaySEOneShot(SoundSettings.Current.Tap, 0f);
-            goto Label_00C1;
-        Label_008A:
-            if (this.mMode != 6)
-            {
-                goto Label_00C1;
-            }
-            MonoSingleton<MySound>.Instance.PlaySEOneShot(SoundSettings.Current.Tap, 0f);
-            FlowNode_TriggerLocalEvent.TriggerLocalEvent(this, "Finish");
-            this.mMode = 0;
-        Label_00C1:
-            return;
-        }
-
-        private void Refresh()
-        {
-            GameManager manager;
-            int num;
-            MultiTowerFloorParam param;
-            List<MultiTowerRewardItem> list;
-            manager = MonoSingleton<GameManager>.Instance;
-            num = GlobalVars.SelectedMultiTowerFloor;
-            param = manager.GetMTFloorParam(GlobalVars.SelectedMultiTowerID, num);
-            if (param != null)
-            {
-                goto Label_0020;
-            }
-            return;
-        Label_0020:
-            if (num >= 0)
-            {
-                goto Label_0028;
-            }
-            return;
-        Label_0028:
-            this.mNow = 0;
-            if (string.IsNullOrEmpty(param.reward_id) != null)
-            {
-                goto Label_005E;
-            }
-            list = manager.GetMTFloorReward(param.reward_id, this.mRound);
-            this.mMax = list.Count;
-        Label_005E:
-            DataSource.Bind<MultiTowerFloorParam>(this.item, param);
-            if ((this.mNow + 1) >= this.mMax)
-            {
-                goto Label_0084;
-            }
-            this.SetButtonText(1);
-        Label_0084:
-            this.mWaitTime = this.WAIT_OPEN;
-            this.mMode = 4;
-            return;
-        }
-
-        private void ReqAnim(string anim)
-        {
-            Animator animator;
-            if ((this.root != null) == null)
-            {
-                goto Label_0030;
-            }
-            animator = this.root.GetComponent<Animator>();
-            if ((animator != null) == null)
-            {
-                goto Label_0030;
-            }
-            animator.Play(anim);
-        Label_0030:
-            return;
-        }
-
-        private void SetButtonText(bool bNext)
-        {
-            if ((this.okTxt != null) == null)
-            {
-                goto Label_0036;
-            }
-            this.okTxt.set_text(LocalizedText.Get((bNext == null) ? "sys.CMD_OK" : "sys.BTN_NEXT"));
-        Label_0036:
-            if (bNext != null)
-            {
-                goto Label_0062;
-            }
-            if ((this.rewardTxt != null) == null)
-            {
-                goto Label_0062;
-            }
-            this.rewardTxt.set_text(LocalizedText.Get("sys.MULTI_TOWER_GIFT"));
-        Label_0062:
-            return;
-        }
-
-        private bool SetData(int idx, bool bPlay, GameObject obj)
-        {
-            GameManager manager;
-            GameObject obj2;
-            MultiTowerFloorParam param;
-            List<MultiTowerRewardItem> list;
-            MultiTowerRewardItem item;
-            MultiTowerRewardItemUI mui;
-            manager = MonoSingleton<GameManager>.Instance;
-            obj2 = ((obj != null) == null) ? this.item : obj;
-            param = manager.GetMTFloorParam(GlobalVars.SelectedMultiTowerID, GlobalVars.SelectedMultiTowerFloor);
-            if (param == null)
-            {
-                goto Label_00CF;
-            }
-            list = manager.GetMTFloorReward(param.reward_id, this.mRound);
-            item = list[idx];
-            if (list == null)
-            {
-                goto Label_00CF;
-            }
-            if (item == null)
-            {
-                goto Label_00CF;
-            }
-            if (item.type != 4)
-            {
-                goto Label_0085;
-            }
-            if (manager.Player.IsHaveAward(item.itemname) == null)
-            {
-                goto Label_0085;
-            }
-            return 0;
-        Label_0085:
-            if ((obj2 != null) == null)
-            {
-                goto Label_00CF;
-            }
-            obj2.SetActive(1);
-            mui = obj2.GetComponent<MultiTowerRewardItemUI>();
-            if ((mui != null) == null)
-            {
-                goto Label_00B5;
-            }
-            mui.SetData(idx);
-        Label_00B5:
-            if (bPlay == null)
-            {
-                goto Label_00C7;
-            }
-            this.ReqAnim(this.openAnim);
-        Label_00C7:
-            this.SetRewardName(idx, param);
-        Label_00CF:
-            if ((this.arrival != null) == null)
-            {
-                goto Label_00EC;
-            }
-            this.arrival.SetActive(0);
-        Label_00EC:
-            return 1;
-        }
-
-        private unsafe void SetRewardName(int idx, MultiTowerFloorParam param)
-        {
-            GameManager manager;
-            List<MultiTowerRewardItem> list;
-            MultiTowerRewardItem item;
-            int num;
-            string str;
-            MultiTowerRewardItem.RewardType type;
-            string str2;
-            string str3;
-            ItemParam param2;
-            ArtifactParam param3;
-            UnitParam param4;
-            AwardParam param5;
-            MultiTowerRewardItem.RewardType type2;
-            manager = MonoSingleton<GameManager>.Instance;
-            item = manager.GetMTFloorReward(param.reward_id, this.mRound)[idx];
-            num = item.num;
-            str = item.itemname;
-            type = item.type;
-            str2 = LocalizedText.Get("sys.MULTI_TOWER_REWARD_GET_MSG");
-            if ((this.rewardTxt != null) == null)
-            {
-                goto Label_01A0;
-            }
-            str3 = string.Empty;
-            type2 = type;
-            switch ((type2 - 1))
-            {
-                case 0:
-                    goto Label_0086;
-
-                case 1:
-                    goto Label_00BF;
-
-                case 2:
-                    goto Label_00F8;
-
-                case 3:
-                    goto Label_013B;
-
-                case 4:
-                    goto Label_011C;
-
-                case 5:
-                    goto Label_00DB;
-            }
-            goto Label_0166;
-        Label_0086:
-            param2 = manager.GetItemParam(str);
-            if (param2 == null)
-            {
-                goto Label_0166;
-            }
-            str3 = param2.name + string.Format(LocalizedText.Get("sys.CROSS_NUM"), (int) num);
-            goto Label_0166;
-        Label_00BF:
-            str3 = string.Format(LocalizedText.Get("sys.CHALLENGE_REWARD_COIN"), (int) num);
-            goto Label_0166;
-        Label_00DB:
-            str3 = &num.ToString() + LocalizedText.Get("sys.GOLD");
-            goto Label_0166;
-        Label_00F8:
-            param3 = manager.MasterParam.GetArtifactParam(str);
-            if (param3 == null)
-            {
-                goto Label_0166;
-            }
-            str3 = param3.name;
-            goto Label_0166;
-        Label_011C:
-            param4 = manager.GetUnitParam(str);
-            if (param4 == null)
-            {
-                goto Label_0166;
-            }
-            str3 = param4.name;
-            goto Label_0166;
-        Label_013B:
-            param5 = manager.GetAwardParam(str);
-            if (param5 == null)
-            {
-                goto Label_0155;
-            }
-            str3 = param5.name;
-        Label_0155:
-            str2 = LocalizedText.Get("sys.MULTI_TOWER_REWARD_GET_MSG");
-        Label_0166:
-            this.rewardTxt.set_text(string.Format(LocalizedText.Get("sys.MULTI_TOWER_REWARD_NAME"), str3));
-            if ((this.getTxt != null) == null)
-            {
-                goto Label_01A0;
-            }
-            this.getTxt.set_text(str2);
-        Label_01A0:
-            return;
-        }
-
-        private void Start()
-        {
-            this.mRound = MonoSingleton<GameManager>.Instance.GetMTRound(GlobalVars.SelectedMultiTowerFloor);
-            this.Refresh();
-            return;
-        }
-
-        private void Update()
-        {
-            MODE mode;
-            switch ((this.mMode - 1))
-            {
-                case 0:
-                    goto Label_0028;
-
-                case 1:
-                    goto Label_0066;
-
-                case 2:
-                    goto Label_00DA;
-
-                case 3:
-                    goto Label_0094;
-
-                case 4:
-                    goto Label_0094;
-            }
-            goto Label_00DA;
-        Label_0028:
-            goto Label_003B;
-        Label_002D:
-            this.mNow += 1;
-        Label_003B:
-            if (this.SetData(this.mNow, 1, null) == null)
-            {
-                goto Label_002D;
-            }
-            this.mMode = 2;
-            this.mWaitTime = this.WAIT_TIME;
-            goto Label_00DA;
-        Label_0066:
-            this.mWaitTime -= Time.get_deltaTime();
-            if (this.mWaitTime > 0f)
-            {
-                goto Label_00DA;
-            }
-            this.mMode = 3;
-            goto Label_00DA;
-        Label_0094:
-            this.mWaitTime -= Time.get_deltaTime();
-            if (this.mWaitTime > 0f)
-            {
-                goto Label_00DA;
-            }
-            if (this.mMode != 5)
-            {
-                goto Label_00CE;
-            }
-            this.mMode = 6;
-            goto Label_00D5;
-        Label_00CE:
-            this.mMode = 1;
-        Label_00D5:;
-        Label_00DA:
-            return;
-        }
-
-        private enum MODE
-        {
-            NONE,
-            REQ,
-            COUNTDOWN,
-            WAIT,
-            NEXT,
-            FINISH,
-            END
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Start()
+    {
+      this.mRound = MonoSingleton<GameManager>.Instance.GetMTRound(GlobalVars.SelectedMultiTowerFloor);
+      this.Refresh();
+    }
+
+    private void Refresh()
+    {
+      GameManager instance = MonoSingleton<GameManager>.Instance;
+      int selectedMultiTowerFloor = GlobalVars.SelectedMultiTowerFloor;
+      MultiTowerFloorParam mtFloorParam = instance.GetMTFloorParam(GlobalVars.SelectedMultiTowerID, selectedMultiTowerFloor);
+      if (mtFloorParam == null || selectedMultiTowerFloor < 0)
+        return;
+      this.mNow = 0;
+      if (!string.IsNullOrEmpty(mtFloorParam.reward_id))
+        this.mMax = instance.GetMTFloorReward(mtFloorParam.reward_id, this.mRound).Count;
+      DataSource.Bind<MultiTowerFloorParam>(this.item, mtFloorParam);
+      if (this.mNow + 1 < this.mMax)
+        this.SetButtonText(true);
+      this.mWaitTime = this.WAIT_OPEN;
+      this.mMode = MultiTowerReward.MODE.NEXT;
+    }
+
+    private void SetButtonText(bool bNext)
+    {
+      if (Object.op_Inequality((Object) this.okTxt, (Object) null))
+        this.okTxt.set_text(LocalizedText.Get(!bNext ? "sys.CMD_OK" : "sys.BTN_NEXT"));
+      if (bNext || !Object.op_Inequality((Object) this.rewardTxt, (Object) null))
+        return;
+      this.rewardTxt.set_text(LocalizedText.Get("sys.MULTI_TOWER_GIFT"));
+    }
+
+    private void Update()
+    {
+      switch (this.mMode)
+      {
+        case MultiTowerReward.MODE.REQ:
+          while (!this.SetData(this.mNow, true, (GameObject) null))
+            ++this.mNow;
+          this.mMode = MultiTowerReward.MODE.COUNTDOWN;
+          this.mWaitTime = this.WAIT_TIME;
+          break;
+        case MultiTowerReward.MODE.COUNTDOWN:
+          this.mWaitTime -= Time.get_deltaTime();
+          if ((double) this.mWaitTime > 0.0)
+            break;
+          this.mMode = MultiTowerReward.MODE.WAIT;
+          break;
+        case MultiTowerReward.MODE.NEXT:
+        case MultiTowerReward.MODE.FINISH:
+          this.mWaitTime -= Time.get_deltaTime();
+          if ((double) this.mWaitTime > 0.0)
+            break;
+          if (this.mMode == MultiTowerReward.MODE.FINISH)
+          {
+            this.mMode = MultiTowerReward.MODE.END;
+            break;
+          }
+          this.mMode = MultiTowerReward.MODE.REQ;
+          break;
+      }
+    }
+
+    private bool SetData(int idx, bool bPlay = false, GameObject obj = null)
+    {
+      GameManager instance = MonoSingleton<GameManager>.Instance;
+      GameObject gameObject = !Object.op_Inequality((Object) obj, (Object) null) ? this.item : obj;
+      MultiTowerFloorParam mtFloorParam = instance.GetMTFloorParam(GlobalVars.SelectedMultiTowerID, GlobalVars.SelectedMultiTowerFloor);
+      if (mtFloorParam != null)
+      {
+        List<MultiTowerRewardItem> mtFloorReward = instance.GetMTFloorReward(mtFloorParam.reward_id, this.mRound);
+        MultiTowerRewardItem multiTowerRewardItem = mtFloorReward[idx];
+        if (mtFloorReward != null && multiTowerRewardItem != null)
+        {
+          if (multiTowerRewardItem.type == MultiTowerRewardItem.RewardType.Award && instance.Player.IsHaveAward(multiTowerRewardItem.itemname))
+            return false;
+          if (Object.op_Inequality((Object) gameObject, (Object) null))
+          {
+            gameObject.SetActive(true);
+            MultiTowerRewardItemUI component = (MultiTowerRewardItemUI) gameObject.GetComponent<MultiTowerRewardItemUI>();
+            if (Object.op_Inequality((Object) component, (Object) null))
+              component.SetData(idx);
+            if (bPlay)
+              this.ReqAnim(this.openAnim);
+            this.SetRewardName(idx, mtFloorParam);
+          }
+        }
+      }
+      if (Object.op_Inequality((Object) this.arrival, (Object) null))
+        this.arrival.SetActive(false);
+      return true;
+    }
+
+    private void SetRewardName(int idx, MultiTowerFloorParam param)
+    {
+      GameManager instance = MonoSingleton<GameManager>.Instance;
+      MultiTowerRewardItem multiTowerRewardItem = instance.GetMTFloorReward(param.reward_id, this.mRound)[idx];
+      int num = multiTowerRewardItem.num;
+      string itemname = multiTowerRewardItem.itemname;
+      MultiTowerRewardItem.RewardType type = multiTowerRewardItem.type;
+      string str1 = LocalizedText.Get("sys.MULTI_TOWER_REWARD_GET_MSG");
+      if (!Object.op_Inequality((Object) this.rewardTxt, (Object) null))
+        return;
+      string str2 = string.Empty;
+      switch (type)
+      {
+        case MultiTowerRewardItem.RewardType.Item:
+          ItemParam itemParam = instance.GetItemParam(itemname);
+          if (itemParam != null)
+          {
+            str2 = itemParam.name + string.Format(LocalizedText.Get("sys.CROSS_NUM"), (object) num);
+            break;
+          }
+          break;
+        case MultiTowerRewardItem.RewardType.Coin:
+          str2 = string.Format(LocalizedText.Get("sys.CHALLENGE_REWARD_COIN"), (object) num);
+          break;
+        case MultiTowerRewardItem.RewardType.Artifact:
+          ArtifactParam artifactParam = instance.MasterParam.GetArtifactParam(itemname);
+          if (artifactParam != null)
+          {
+            str2 = artifactParam.name;
+            break;
+          }
+          break;
+        case MultiTowerRewardItem.RewardType.Award:
+          AwardParam awardParam = instance.GetAwardParam(itemname);
+          if (awardParam != null)
+            str2 = awardParam.name;
+          str1 = LocalizedText.Get("sys.MULTI_TOWER_REWARD_GET_MSG");
+          break;
+        case MultiTowerRewardItem.RewardType.Unit:
+          UnitParam unitParam = instance.GetUnitParam(itemname);
+          if (unitParam != null)
+          {
+            str2 = unitParam.name;
+            break;
+          }
+          break;
+        case MultiTowerRewardItem.RewardType.Gold:
+          str2 = num.ToString() + LocalizedText.Get("sys.GOLD");
+          break;
+      }
+      this.rewardTxt.set_text(string.Format(LocalizedText.Get("sys.MULTI_TOWER_REWARD_NAME"), (object) str2));
+      if (!Object.op_Inequality((Object) this.getTxt, (Object) null))
+        return;
+      this.getTxt.set_text(str1);
+    }
+
+    private void ReqAnim(string anim)
+    {
+      if (!Object.op_Inequality((Object) this.root, (Object) null))
+        return;
+      Animator component = (Animator) this.root.GetComponent<Animator>();
+      if (!Object.op_Inequality((Object) component, (Object) null))
+        return;
+      component.Play(anim);
+    }
+
+    private void CreateResult()
+    {
+      VersusTowerParam versusTowerParam = MonoSingleton<GameManager>.Instance.GetCurrentVersusTowerParam(-1);
+      if (versusTowerParam == null || !Object.op_Inequality((Object) this.template, (Object) null))
+        return;
+      for (int idx = 0; idx < versusTowerParam.SeasonIteminame.Length; ++idx)
+      {
+        GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.template);
+        if (Object.op_Inequality((Object) gameObject, (Object) null))
+        {
+          DataSource.Bind<VersusTowerParam>(gameObject, versusTowerParam);
+          gameObject.SetActive(true);
+          if (this.SetData(idx, false, gameObject))
+          {
+            if (Object.op_Inequality((Object) this.parent, (Object) null))
+              gameObject.get_transform().SetParent(this.parent.get_transform(), false);
+          }
+          else
+            gameObject.SetActive(false);
+        }
+      }
+      this.template.SetActive(false);
+      this.item.SetActive(false);
+    }
+
+    public void OnClickNext()
+    {
+      if (this.mMode == MultiTowerReward.MODE.WAIT)
+      {
+        this.mWaitTime = this.WAIT_TIME;
+        if (++this.mNow < this.mMax)
+        {
+          this.mMode = MultiTowerReward.MODE.NEXT;
+          this.ReqAnim(this.nextAnim);
+        }
+        else
+        {
+          this.CreateResult();
+          this.ReqAnim(this.resultAnim);
+          this.SetButtonText(false);
+          this.mMode = MultiTowerReward.MODE.FINISH;
+        }
+        MonoSingleton<MySound>.Instance.PlaySEOneShot(SoundSettings.Current.Tap, 0.0f);
+      }
+      else
+      {
+        if (this.mMode != MultiTowerReward.MODE.END)
+          return;
+        MonoSingleton<MySound>.Instance.PlaySEOneShot(SoundSettings.Current.Tap, 0.0f);
+        FlowNode_TriggerLocalEvent.TriggerLocalEvent((Component) this, "Finish");
+        this.mMode = MultiTowerReward.MODE.NONE;
+      }
+    }
+
+    private enum MODE
+    {
+      NONE,
+      REQ,
+      COUNTDOWN,
+      WAIT,
+      NEXT,
+      FINISH,
+      END,
+    }
+  }
+}

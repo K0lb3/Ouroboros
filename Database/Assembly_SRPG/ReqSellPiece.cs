@@ -1,62 +1,39 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqSellPiece
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Collections.Generic;
+using System.Text;
+
+namespace SRPG
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
-
-    public class ReqSellPiece : WebAPI
+  public class ReqSellPiece : WebAPI
+  {
+    public ReqSellPiece(Dictionary<long, int> sells, Network.ResponseCallback response)
     {
-        public unsafe ReqSellPiece(Dictionary<long, int> sells, Network.ResponseCallback response)
+      StringBuilder stringBuilder = WebAPI.GetStringBuilder();
+      stringBuilder.Append("\"sells\":[");
+      string str = string.Empty;
+      using (Dictionary<long, int>.Enumerator enumerator = sells.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
         {
-            object[] objArray1;
-            StringBuilder builder;
-            string str;
-            KeyValuePair<long, int> pair;
-            Dictionary<long, int>.Enumerator enumerator;
-            string str2;
-            base..ctor();
-            builder = WebAPI.GetStringBuilder();
-            builder.Append("\"sells\":[");
-            str = string.Empty;
-            enumerator = sells.GetEnumerator();
-        Label_0025:
-            try
-            {
-                goto Label_0095;
-            Label_002A:
-                pair = &enumerator.Current;
-                str = str + "{";
-                str2 = str;
-                objArray1 = new object[] { str2, "\"iid\":", (long) &pair.Key, "," };
-                str = string.Concat(objArray1);
-                str = str + "\"num\":" + ((int) &pair.Value);
-                str = str + "},";
-            Label_0095:
-                if (&enumerator.MoveNext() != null)
-                {
-                    goto Label_002A;
-                }
-                goto Label_00B2;
-            }
-            finally
-            {
-            Label_00A6:
-                ((Dictionary<long, int>.Enumerator) enumerator).Dispose();
-            }
-        Label_00B2:
-            if (str.Length <= 0)
-            {
-                goto Label_00CE;
-            }
-            str = str.Substring(0, str.Length - 1);
-        Label_00CE:
-            builder.Append(str);
-            builder.Append("]");
-            base.name = "shop/piece/sell";
-            base.body = WebAPI.GetRequestString(builder.ToString());
-            base.callback = response;
-            return;
+          KeyValuePair<long, int> current = enumerator.Current;
+          str += "{";
+          str = str + "\"iid\":" + (object) current.Key + ",";
+          str = str + "\"num\":" + (object) current.Value;
+          str += "},";
         }
+      }
+      if (str.Length > 0)
+        str = str.Substring(0, str.Length - 1);
+      stringBuilder.Append(str);
+      stringBuilder.Append("]");
+      this.name = "shop/piece/sell";
+      this.body = WebAPI.GetRequestString(stringBuilder.ToString());
+      this.callback = response;
     }
+  }
 }
-

@@ -1,43 +1,37 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqUnitAwake
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Text;
+
+namespace SRPG
 {
-    using System;
-    using System.Runtime.InteropServices;
-    using System.Text;
-
-    public class ReqUnitAwake : WebAPI
+  public class ReqUnitAwake : WebAPI
+  {
+    public ReqUnitAwake(long iid, Network.ResponseCallback response, string trophyprog = null, string bingoprog = null, int awake_lv = 0)
     {
-        public ReqUnitAwake(long iid, Network.ResponseCallback response, string trophyprog, string bingoprog, int awake_lv)
-        {
-            StringBuilder builder;
-            base..ctor();
-            base.name = "unit/plus/add";
-            builder = WebAPI.GetStringBuilder();
-            builder.Append("\"iid\":" + ((long) iid));
-            if (awake_lv <= 0)
-            {
-                goto Label_005A;
-            }
-            builder.Append(",");
-            builder.Append("\"target_plus\":" + ((int) awake_lv));
-        Label_005A:
-            if (string.IsNullOrEmpty(trophyprog) != null)
-            {
-                goto Label_0079;
-            }
-            builder.Append(",");
-            builder.Append(trophyprog);
-        Label_0079:
-            if (string.IsNullOrEmpty(bingoprog) != null)
-            {
-                goto Label_009A;
-            }
-            builder.Append(",");
-            builder.Append(bingoprog);
-        Label_009A:
-            base.body = WebAPI.GetRequestString(builder.ToString());
-            base.callback = response;
-            return;
-        }
+      this.name = "unit/plus/add";
+      StringBuilder stringBuilder = WebAPI.GetStringBuilder();
+      stringBuilder.Append("\"iid\":" + (object) iid);
+      if (awake_lv > 0)
+      {
+        stringBuilder.Append(",");
+        stringBuilder.Append("\"target_plus\":" + (object) awake_lv);
+      }
+      if (!string.IsNullOrEmpty(trophyprog))
+      {
+        stringBuilder.Append(",");
+        stringBuilder.Append(trophyprog);
+      }
+      if (!string.IsNullOrEmpty(bingoprog))
+      {
+        stringBuilder.Append(",");
+        stringBuilder.Append(bingoprog);
+      }
+      this.body = WebAPI.GetRequestString(stringBuilder.ToString());
+      this.callback = response;
     }
+  }
 }
-

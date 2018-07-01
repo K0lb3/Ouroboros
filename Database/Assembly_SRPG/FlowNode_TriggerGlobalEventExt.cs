@@ -1,63 +1,43 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_TriggerGlobalEventExt
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  [AddComponentMenu("")]
+  [FlowNode.Pin(101, "Back", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.NodeType("Event/TriggerGlobalEventExt", 32741)]
+  public class FlowNode_TriggerGlobalEventExt : FlowNode_TriggerGlobalEvent
+  {
+    [StringIsGlobalEventID]
+    public string CurrEventName;
+    public bool SceneChange;
 
-    [Pin(0x65, "Back", 0, 0), AddComponentMenu(""), NodeType("Event/TriggerGlobalEventExt", 0x7fe5)]
-    public class FlowNode_TriggerGlobalEventExt : FlowNode_TriggerGlobalEvent
+    public override void OnActivate(int pinID)
     {
-        [StringIsGlobalEventID]
-        public string CurrEventName;
-        public bool SceneChange;
-
-        public FlowNode_TriggerGlobalEventExt()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != 100)
-            {
-                goto Label_002F;
-            }
-            if (string.IsNullOrEmpty(base.EventName) != null)
-            {
-                goto Label_002F;
-            }
-            GlobalVars.PreEventName = this.CurrEventName;
-            this.SceneInvoke(base.EventName);
-        Label_002F:
-            if (pinID != 0x65)
-            {
-                goto Label_007D;
-            }
-            if (string.IsNullOrEmpty(GlobalVars.PreEventName) != null)
-            {
-                goto Label_0056;
-            }
-            this.SceneInvoke(GlobalVars.PreEventName);
-            goto Label_0072;
-        Label_0056:
-            if (string.IsNullOrEmpty(base.EventName) != null)
-            {
-                goto Label_0072;
-            }
-            this.SceneInvoke(base.EventName);
-        Label_0072:
-            GlobalVars.PreEventName = this.CurrEventName;
-        Label_007D:
-            return;
-        }
-
-        private void SceneInvoke(string event_name)
-        {
-            GlobalVars.ForceSceneChange = this.SceneChange;
-            GlobalEvent.Invoke(event_name, this);
-            base.ActivateOutputLinks(1);
-            return;
-        }
+      if (pinID == 100 && !string.IsNullOrEmpty(this.EventName))
+      {
+        GlobalVars.PreEventName = this.CurrEventName;
+        this.SceneInvoke(this.EventName);
+      }
+      if (pinID != 101)
+        return;
+      if (!string.IsNullOrEmpty(GlobalVars.PreEventName))
+        this.SceneInvoke(GlobalVars.PreEventName);
+      else if (!string.IsNullOrEmpty(this.EventName))
+        this.SceneInvoke(this.EventName);
+      GlobalVars.PreEventName = this.CurrEventName;
     }
-}
 
+    private void SceneInvoke(string event_name)
+    {
+      GlobalVars.ForceSceneChange = this.SceneChange;
+      GlobalEvent.Invoke(event_name, (object) this);
+      this.ActivateOutputLinks(1);
+    }
+  }
+}

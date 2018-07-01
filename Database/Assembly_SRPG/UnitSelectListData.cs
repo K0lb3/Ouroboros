@@ -1,49 +1,29 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.UnitSelectListData
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System.Collections.Generic;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Collections.Generic;
+  public class UnitSelectListData
+  {
+    public List<UnitSelectListItemData> items;
 
-    public class UnitSelectListData
+    public void Deserialize(Json_UnitSelectResponse json)
     {
-        public List<UnitSelectListItemData> items;
-
-        public UnitSelectListData()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void Deserialize(Json_UnitSelectResponse json)
-        {
-            int num;
-            if (json != null)
-            {
-                goto Label_0007;
-            }
-            return;
-        Label_0007:
-            if (json.select != null)
-            {
-                goto Label_0013;
-            }
-            return;
-        Label_0013:
-            this.items = new List<UnitSelectListItemData>();
-            num = 0;
-            goto Label_0083;
-        Label_0025:
-            this.items.Add(new UnitSelectListItemData());
-            this.items[num].Deserialize(json.select[num]);
-            this.items[num].param = MonoSingleton<GameManager>.Instance.MasterParam.GetUnitParam(this.items[num].iname);
-            num += 1;
-        Label_0083:
-            if (num < ((int) json.select.Length))
-            {
-                goto Label_0025;
-            }
-            return;
-        }
+      if (json == null || json.select == null)
+        return;
+      this.items = new List<UnitSelectListItemData>();
+      for (int index = 0; index < json.select.Length; ++index)
+      {
+        this.items.Add(new UnitSelectListItemData());
+        this.items[index].Deserialize(json.select[index]);
+        this.items[index].param = MonoSingleton<GameManager>.Instance.MasterParam.GetUnitParam(this.items[index].iname);
+      }
     }
+  }
 }
-

@@ -1,127 +1,102 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_ReqTowerReset
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 10)]
+  [FlowNode.NodeType("System/ReqTowerReset", 32741)]
+  [FlowNode.Pin(0, "Request", FlowNode.PinTypes.Input, 0)]
+  public class FlowNode_ReqTowerReset : FlowNode_Network
+  {
+    private long rtime;
+    private byte round;
 
-    [NodeType("System/ReqTowerReset", 0x7fe5), Pin(1, "Success", 1, 10), Pin(0, "Request", 0, 0)]
-    public class FlowNode_ReqTowerReset : FlowNode_Network
+    public override void OnActivate(int pinID)
     {
-        private long rtime;
-        private byte round;
-
-        public FlowNode_ReqTowerReset()
-        {
-            base..ctor();
-            return;
-        }
-
-        private void Failure()
-        {
-            base.set_enabled(0);
-            base.ActivateOutputLinks(2);
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != null)
-            {
-                goto Label_0048;
-            }
-            if (Network.Mode != null)
-            {
-                goto Label_0038;
-            }
-            base.ExecRequest(new ReqTowerReset(GlobalVars.SelectedTowerID, new Network.ResponseCallback(this.ResponseCallback)));
-            base.set_enabled(1);
-            goto Label_0048;
-        Label_0038:
-            GlobalVars.SelectedTowerID = "QE_TW_BABEL";
-            this.Success();
-        Label_0048:
-            return;
-        }
-
-        public override unsafe void OnSuccess(WWWResult www)
-        {
-            TowerResuponse resuponse;
-            WebAPI.JSON_BodyResponse<Json_ReqTowerReset> response;
-            Json_PlayerData data;
-            if (TowerErrorHandle.Error(this) == null)
-            {
-                goto Label_000C;
-            }
-            return;
-        Label_000C:
-            resuponse = MonoSingleton<GameManager>.Instance.TowerResuponse;
-            response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_ReqTowerReset>>(&www.text);
-            DebugUtility.Assert((response == null) == 0, "res == null");
-            Network.RemoveAPI();
-            this.rtime = response.body.rtime;
-            data = new Json_PlayerData();
-            data.coin = new Json_Coin();
-            data.coin.free = response.body.coin.free;
-            data.coin.paid = response.body.coin.paid;
-            data.coin.com = response.body.coin.com;
-            this.round = response.body.round;
-            if (response.body.rank == null)
-            {
-                goto Label_0152;
-            }
-            resuponse.speedRank = response.body.rank.spd_rank;
-            resuponse.techRank = response.body.rank.tec_rank;
-            resuponse.spd_score = response.body.rank.spd_score;
-            resuponse.tec_score = response.body.rank.tec_score;
-            resuponse.ret_score = response.body.rank.ret_score;
-            resuponse.rcv_score = response.body.rank.rcv_score;
-        Label_0152:
-            MonoSingleton<GameManager>.Instance.Player.Deserialize(data, 2);
-            GameParameter.UpdateValuesOfType(7);
-            GlobalVars.SelectedQuestID = MonoSingleton<GameManager>.Instance.FindFirstTowerFloor(MonoSingleton<GameManager>.Instance.TowerResuponse.TowerID).iname;
-            this.Success();
-            return;
-        }
-
-        private void Success()
-        {
-            TowerResuponse resuponse;
-            JSON_ReqTowerResuponse resuponse2;
-            resuponse = MonoSingleton<GameManager>.Instance.TowerResuponse;
-            base.set_enabled(0);
-            resuponse2 = new JSON_ReqTowerResuponse();
-            resuponse2.is_reset = 0;
-            resuponse2.round = this.round;
-            resuponse2.rank = new JSON_ReqTowerResuponse.Json_RankStatus();
-            if (resuponse2.rank == null)
-            {
-                goto Label_00A7;
-            }
-            resuponse2.rank.spd_rank = resuponse.speedRank;
-            resuponse2.rank.tec_rank = resuponse.techRank;
-            resuponse2.rank.spd_score = resuponse.spd_score;
-            resuponse2.rank.tec_score = resuponse.tec_score;
-            resuponse2.rank.ret_score = resuponse.ret_score;
-            resuponse2.rank.rcv_score = resuponse.rcv_score;
-        Label_00A7:
-            MonoSingleton<GameManager>.Instance.Deserialize(resuponse2);
-            MonoSingleton<GameManager>.Instance.TowerResuponse.rtime = this.rtime;
-            base.ActivateOutputLinks(1);
-            return;
-        }
-
-        public class Json_ReqTowerReset
-        {
-            public long rtime;
-            public byte round;
-            public JSON_ReqTowerResuponse.Json_RankStatus rank;
-            public JSON_ReqTowerResuponse.Json_UserCoin coin;
-
-            public Json_ReqTowerReset()
-            {
-                base..ctor();
-                return;
-            }
-        }
+      if (pinID != 0)
+        return;
+      if (Network.Mode == Network.EConnectMode.Online)
+      {
+        this.ExecRequest((WebAPI) new ReqTowerReset(GlobalVars.SelectedTowerID, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+        ((Behaviour) this).set_enabled(true);
+      }
+      else
+      {
+        GlobalVars.SelectedTowerID = "QE_TW_BABEL";
+        this.Success();
+      }
     }
-}
 
+    private void Success()
+    {
+      TowerResuponse towerResuponse = MonoSingleton<GameManager>.Instance.TowerResuponse;
+      ((Behaviour) this).set_enabled(false);
+      JSON_ReqTowerResuponse json = new JSON_ReqTowerResuponse();
+      json.is_reset = (byte) 0;
+      json.round = this.round;
+      json.rank = new JSON_ReqTowerResuponse.Json_RankStatus();
+      if (json.rank != null)
+      {
+        json.rank.spd_rank = towerResuponse.speedRank;
+        json.rank.tec_rank = towerResuponse.techRank;
+        json.rank.spd_score = towerResuponse.spd_score;
+        json.rank.tec_score = towerResuponse.tec_score;
+        json.rank.ret_score = towerResuponse.ret_score;
+        json.rank.rcv_score = towerResuponse.rcv_score;
+      }
+      MonoSingleton<GameManager>.Instance.Deserialize(json);
+      MonoSingleton<GameManager>.Instance.TowerResuponse.rtime = this.rtime;
+      this.ActivateOutputLinks(1);
+    }
+
+    private void Failure()
+    {
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(2);
+    }
+
+    public override void OnSuccess(WWWResult www)
+    {
+      if (TowerErrorHandle.Error((FlowNode_Network) this))
+        return;
+      TowerResuponse towerResuponse = MonoSingleton<GameManager>.Instance.TowerResuponse;
+      WebAPI.JSON_BodyResponse<FlowNode_ReqTowerReset.Json_ReqTowerReset> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<FlowNode_ReqTowerReset.Json_ReqTowerReset>>(www.text);
+      DebugUtility.Assert(jsonObject != null, "res == null");
+      Network.RemoveAPI();
+      this.rtime = jsonObject.body.rtime;
+      Json_PlayerData json = new Json_PlayerData();
+      json.coin = new Json_Coin();
+      json.coin.free = jsonObject.body.coin.free;
+      json.coin.paid = jsonObject.body.coin.paid;
+      json.coin.com = jsonObject.body.coin.com;
+      this.round = jsonObject.body.round;
+      if (jsonObject.body.rank != null)
+      {
+        towerResuponse.speedRank = jsonObject.body.rank.spd_rank;
+        towerResuponse.techRank = jsonObject.body.rank.tec_rank;
+        towerResuponse.spd_score = jsonObject.body.rank.spd_score;
+        towerResuponse.tec_score = jsonObject.body.rank.tec_score;
+        towerResuponse.ret_score = jsonObject.body.rank.ret_score;
+        towerResuponse.rcv_score = jsonObject.body.rank.rcv_score;
+      }
+      MonoSingleton<GameManager>.Instance.Player.Deserialize(json, PlayerData.EDeserializeFlags.Coin);
+      GameParameter.UpdateValuesOfType(GameParameter.ParameterTypes.GLOBAL_PLAYER_COIN);
+      GlobalVars.SelectedQuestID = MonoSingleton<GameManager>.Instance.FindFirstTowerFloor(MonoSingleton<GameManager>.Instance.TowerResuponse.TowerID).iname;
+      this.Success();
+    }
+
+    public class Json_ReqTowerReset
+    {
+      public long rtime;
+      public byte round;
+      public JSON_ReqTowerResuponse.Json_RankStatus rank;
+      public JSON_ReqTowerResuponse.Json_UserCoin coin;
+    }
+  }
+}

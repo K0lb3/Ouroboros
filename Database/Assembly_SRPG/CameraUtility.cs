@@ -1,74 +1,73 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.CameraUtility
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  [AddComponentMenu("Scripts/SRPG/Camera/Utility")]
+  public class CameraUtility : MonoBehaviour
+  {
+    private float mFixedWidth;
+    private float mFixedHeight;
 
-    [AddComponentMenu("Scripts/SRPG/Camera/Utility")]
-    public class CameraUtility : MonoBehaviour
+    public CameraUtility()
     {
-        private float mFixedWidth;
-        private float mFixedHeight;
-
-        public CameraUtility()
-        {
-            this.mFixedWidth = 720f;
-            this.mFixedHeight = 1280f;
-            base..ctor();
-            return;
-        }
-
-        private void Awake()
-        {
-            this.Reset();
-            Object.Destroy(this);
-            return;
-        }
-
-        public float CalcAspectRatio(float w, float h)
-        {
-            return ((1f * w) / h);
-        }
-
-        private unsafe Rect CalcScreenAspect()
-        {
-            float num;
-            float num2;
-            float num3;
-            Rect rect;
-            num = this.CalcAspectRatio(this.mFixedWidth, this.mFixedHeight);
-            num3 = this.CalcAspectRatio((float) Screen.get_width(), (float) Screen.get_height()) / num;
-            &rect..ctor(0f, 0f, 1f, 1f);
-            if (1f <= num3)
-            {
-                goto Label_0089;
-            }
-            &rect.set_x(0f);
-            &rect.set_y((1f - num3) / 2f);
-            &rect.set_width(1f);
-            &rect.set_height(num3);
-            goto Label_00C5;
-        Label_0089:
-            num3 = 1f / num3;
-            &rect.set_x((1f - num3) / 2f);
-            &rect.set_y(0f);
-            &rect.set_width(num3);
-            &rect.set_height(1f);
-        Label_00C5:
-            return rect;
-        }
-
-        public void Reset()
-        {
-            Camera camera;
-            camera = base.GetComponent<Camera>();
-            if ((camera != null) == null)
-            {
-                goto Label_001F;
-            }
-            camera.set_rect(this.CalcScreenAspect());
-        Label_001F:
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Awake()
+    {
+      this.Reset();
+      Object.Destroy((Object) this);
+    }
+
+    public void Reset()
+    {
+      Camera component = (Camera) ((Component) this).GetComponent<Camera>();
+      if (!Object.op_Inequality((Object) component, (Object) null))
+        return;
+      component.set_rect(this.CalcScreenAspect());
+    }
+
+    public float CalcAspectRatio(float w, float h)
+    {
+      return 1f * w / h;
+    }
+
+    private Rect CalcScreenAspect()
+    {
+      float num1 = this.CalcAspectRatio((float) Screen.get_width(), (float) Screen.get_height()) / this.CalcAspectRatio(this.mFixedWidth, this.mFixedHeight);
+      Rect rect;
+      // ISSUE: explicit reference operation
+      ((Rect) @rect).\u002Ector(0.0f, 0.0f, 1f, 1f);
+      if (1.0 > (double) num1)
+      {
+        // ISSUE: explicit reference operation
+        ((Rect) @rect).set_x(0.0f);
+        // ISSUE: explicit reference operation
+        ((Rect) @rect).set_y((float) ((1.0 - (double) num1) / 2.0));
+        // ISSUE: explicit reference operation
+        ((Rect) @rect).set_width(1f);
+        // ISSUE: explicit reference operation
+        ((Rect) @rect).set_height(num1);
+      }
+      else
+      {
+        float num2 = 1f / num1;
+        // ISSUE: explicit reference operation
+        ((Rect) @rect).set_x((float) ((1.0 - (double) num2) / 2.0));
+        // ISSUE: explicit reference operation
+        ((Rect) @rect).set_y(0.0f);
+        // ISSUE: explicit reference operation
+        ((Rect) @rect).set_width(num2);
+        // ISSUE: explicit reference operation
+        ((Rect) @rect).set_height(1f);
+      }
+      return rect;
+    }
+  }
+}

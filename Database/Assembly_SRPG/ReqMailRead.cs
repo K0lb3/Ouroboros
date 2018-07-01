@@ -1,95 +1,70 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqMailRead
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    public class ReqMailRead : WebAPI
+  public class ReqMailRead : WebAPI
+  {
+    public ReqMailRead(long[] mailids, bool period, int page, Network.ResponseCallback response)
     {
-        public unsafe ReqMailRead(long[] mailids, bool period, int page, Network.ResponseCallback response)
-        {
-            int num;
-            base..ctor();
-            base.name = "mail/read";
-            base.body = "\"mailids\":[";
-            num = 0;
-            goto Label_0065;
-        Label_0023:
-            base.body = base.body + &(mailids[num]).ToString();
-            if (num == (((int) mailids.Length) - 1))
-            {
-                goto Label_0061;
-            }
-            base.body = base.body + ",";
-        Label_0061:
-            num += 1;
-        Label_0065:
-            if (num < ((int) mailids.Length))
-            {
-                goto Label_0023;
-            }
-            base.body = base.body + "],";
-            base.body = base.body + "\"page\":";
-            base.body = base.body + ((int) page);
-            base.body = base.body + ",";
-            base.body = base.body + "\"period\":";
-            base.body = base.body + ((int) ((period == null) ? 0 : 1));
-            base.body = WebAPI.GetRequestString(base.body);
-            base.callback = response;
-            return;
-        }
-
-        public unsafe ReqMailRead(long[] mailids, int[] periods, int page, Network.ResponseCallback response)
-        {
-            int num;
-            base..ctor();
-            base.name = "mail/read";
-            base.body = "\"mailids\":[";
-            num = 0;
-            goto Label_0065;
-        Label_0023:
-            base.body = base.body + &(mailids[num]).ToString();
-            if (num == (((int) mailids.Length) - 1))
-            {
-                goto Label_0061;
-            }
-            base.body = base.body + ",";
-        Label_0061:
-            num += 1;
-        Label_0065:
-            if (num < ((int) mailids.Length))
-            {
-                goto Label_0023;
-            }
-            base.body = base.body + "],";
-            base.body = base.body + "\"page\":";
-            base.body = base.body + ((int) page);
-            base.body = base.body + ",";
-            base.body = base.body + "\"period\":";
-            base.body = base.body + ((int) periods[0]);
-            base.body = WebAPI.GetRequestString(base.body);
-            base.callback = response;
-            return;
-        }
-
-        public unsafe ReqMailRead(long mailid, bool period, int page, string iname, Network.ResponseCallback response)
-        {
-            base..ctor();
-            base.name = "mail/read";
-            base.body = "\"mailids\":[";
-            base.body = base.body + &mailid.ToString();
-            base.body = base.body + "],";
-            base.body = base.body + "\"page\":";
-            base.body = base.body + ((int) page);
-            base.body = base.body + ",";
-            base.body = base.body + "\"period\":";
-            base.body = base.body + ((int) ((period == null) ? 0 : 1));
-            base.body = base.body + ",";
-            base.body = base.body + "\"selected\":\"";
-            base.body = base.body + iname;
-            base.body = base.body + "\"";
-            base.body = WebAPI.GetRequestString(base.body);
-            base.callback = response;
-            return;
-        }
+      this.name = "mail/read";
+      this.body = "\"mailids\":[";
+      for (int index = 0; index < mailids.Length; ++index)
+      {
+        this.body += mailids[index].ToString();
+        if (index != mailids.Length - 1)
+          this.body += ",";
+      }
+      this.body += "],";
+      this.body += "\"page\":";
+      this.body += (string) (object) page;
+      this.body += ",";
+      this.body += "\"period\":";
+      this.body += (string) (object) (!period ? 0 : 1);
+      this.body = WebAPI.GetRequestString(this.body);
+      this.callback = response;
     }
-}
 
+    public ReqMailRead(long[] mailids, int[] periods, int page, Network.ResponseCallback response)
+    {
+      this.name = "mail/read";
+      this.body = "\"mailids\":[";
+      for (int index = 0; index < mailids.Length; ++index)
+      {
+        this.body += mailids[index].ToString();
+        if (index != mailids.Length - 1)
+          this.body += ",";
+      }
+      this.body += "],";
+      this.body += "\"page\":";
+      this.body += (string) (object) page;
+      this.body += ",";
+      this.body += "\"period\":";
+      this.body += (string) (object) periods[0];
+      this.body = WebAPI.GetRequestString(this.body);
+      this.callback = response;
+    }
+
+    public ReqMailRead(long mailid, bool period, int page, string iname, Network.ResponseCallback response)
+    {
+      this.name = "mail/read";
+      this.body = "\"mailids\":[";
+      this.body += mailid.ToString();
+      this.body += "],";
+      this.body += "\"page\":";
+      this.body += (string) (object) page;
+      this.body += ",";
+      this.body += "\"period\":";
+      this.body += (string) (object) (!period ? 0 : 1);
+      this.body += ",";
+      this.body += "\"selected\":\"";
+      this.body += iname;
+      this.body += "\"";
+      this.body = WebAPI.GetRequestString(this.body);
+      this.callback = response;
+    }
+  }
+}

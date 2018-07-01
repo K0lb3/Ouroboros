@@ -1,199 +1,133 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.QuestTimeLimit
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
-    using UnityEngine.UI;
+  public class QuestTimeLimit : MonoBehaviour, IGameParameter
+  {
+    public GameObject Body;
+    public Text Timer;
+    public bool IsTTMMSS;
+    private long mEndTime;
+    private float mRefreshInterval;
 
-    public class QuestTimeLimit : MonoBehaviour, IGameParameter
+    public QuestTimeLimit()
     {
-        public GameObject Body;
-        public Text Timer;
-        public bool IsTTMMSS;
-        private long mEndTime;
-        private float mRefreshInterval;
-
-        public QuestTimeLimit()
-        {
-            this.mRefreshInterval = 1f;
-            base..ctor();
-            return;
-        }
-
-        private unsafe void Refresh()
-        {
-            object[] objArray3;
-            object[] objArray2;
-            object[] objArray1;
-            DateTime time;
-            DateTime time2;
-            TimeSpan span;
-            string str;
-            int num;
-            int num2;
-            int num3;
-            if (this.mEndTime > 0L)
-            {
-                goto Label_002B;
-            }
-            if ((this.Body != null) == null)
-            {
-                goto Label_002A;
-            }
-            this.Body.SetActive(0);
-        Label_002A:
-            return;
-        Label_002B:
-            if ((this.Body != null) == null)
-            {
-                goto Label_0048;
-            }
-            this.Body.SetActive(1);
-        Label_0048:
-            time = TimeManager.ServerTime;
-            span = TimeManager.FromUnixTime(this.mEndTime) - time;
-            str = null;
-            if (this.IsTTMMSS == null)
-            {
-                goto Label_0130;
-            }
-            num = Math.Max(Math.Min((&span.Days * 0x18) + &span.Hours, 0x63), 0);
-            num2 = Math.Max(Math.Min(&span.Minutes, 0x3b), 0);
-            num3 = Math.Max(Math.Min(&span.Seconds, 0x3b), 0);
-            str = ((((str + string.Format("{0:D2}", (int) num).ToString()) + ":") + string.Format("{0:D2}", (int) num2).ToString()) + ":") + string.Format("{0:D2}", (int) num3).ToString();
-            goto Label_01CA;
-        Label_0130:
-            if (&span.TotalDays < 1.0)
-            {
-                goto Label_016A;
-            }
-            objArray1 = new object[] { (int) &span.Days };
-            str = LocalizedText.Get("sys.QUEST_TIMELIMIT_D", objArray1);
-            goto Label_01CA;
-        Label_016A:
-            if (&span.TotalHours < 1.0)
-            {
-                goto Label_01A4;
-            }
-            objArray2 = new object[] { (int) &span.Hours };
-            str = LocalizedText.Get("sys.QUEST_TIMELIMIT_H", objArray2);
-            goto Label_01CA;
-        Label_01A4:
-            objArray3 = new object[] { (int) Mathf.Max(&span.Minutes, 0) };
-            str = LocalizedText.Get("sys.QUEST_TIMELIMIT_M", objArray3);
-        Label_01CA:
-            if ((this.Timer != null) == null)
-            {
-                goto Label_01FD;
-            }
-            if ((this.Timer.get_text() != str) == null)
-            {
-                goto Label_01FD;
-            }
-            this.Timer.set_text(str);
-        Label_01FD:
-            return;
-        }
-
-        private void Start()
-        {
-            this.UpdateValue();
-            this.Refresh();
-            return;
-        }
-
-        private void Update()
-        {
-            this.mRefreshInterval -= Time.get_unscaledDeltaTime();
-            if (this.mRefreshInterval > 0f)
-            {
-                goto Label_0033;
-            }
-            this.Refresh();
-            this.mRefreshInterval = 1f;
-        Label_0033:
-            return;
-        }
-
-        public void UpdateValue()
-        {
-            QuestParam param;
-            KeyQuestTypes types;
-            ChapterParam param2;
-            KeyQuestTypes types2;
-            KeyQuestTypes types3;
-            this.mEndTime = 0L;
-            param = DataSource.FindDataOfClass<QuestParam>(base.get_gameObject(), null);
-            if (param == null)
-            {
-                goto Label_008A;
-            }
-            if (param.Chapter == null)
-            {
-                goto Label_008A;
-            }
-            types3 = param.Chapter.GetKeyQuestType();
-            if (types3 == 1)
-            {
-                goto Label_004A;
-            }
-            if (types3 == 2)
-            {
-                goto Label_0060;
-            }
-            goto Label_006D;
-        Label_004A:
-            this.mEndTime = param.Chapter.key_end;
-            goto Label_0083;
-        Label_0060:
-            this.mEndTime = 0L;
-            goto Label_0083;
-        Label_006D:
-            this.mEndTime = param.Chapter.end;
-        Label_0083:
-            this.Refresh();
-            return;
-        Label_008A:
-            param2 = DataSource.FindDataOfClass<ChapterParam>(base.get_gameObject(), null);
-            if (param2 == null)
-            {
-                goto Label_00F2;
-            }
-            types3 = param2.GetKeyQuestType();
-            if (types3 == 1)
-            {
-                goto Label_00BC;
-            }
-            if (types3 == 2)
-            {
-                goto Label_00CD;
-            }
-            goto Label_00DA;
-        Label_00BC:
-            this.mEndTime = param2.key_end;
-            goto Label_00EB;
-        Label_00CD:
-            this.mEndTime = 0L;
-            goto Label_00EB;
-        Label_00DA:
-            this.mEndTime = param2.end;
-        Label_00EB:
-            this.Refresh();
-            return;
-        Label_00F2:
-            if (param == null)
-            {
-                goto Label_0117;
-            }
-            if (param.type != 7)
-            {
-                goto Label_0117;
-            }
-            this.mEndTime = param.end;
-            this.Refresh();
-            return;
-        Label_0117:
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Start()
+    {
+      this.UpdateValue();
+      this.Refresh();
+    }
+
+    private void Update()
+    {
+      this.mRefreshInterval -= Time.get_unscaledDeltaTime();
+      if ((double) this.mRefreshInterval > 0.0)
+        return;
+      this.Refresh();
+      this.mRefreshInterval = 1f;
+    }
+
+    private void Refresh()
+    {
+      if (this.mEndTime <= 0L)
+      {
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Body, (UnityEngine.Object) null))
+          return;
+        this.Body.SetActive(false);
+      }
+      else
+      {
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Body, (UnityEngine.Object) null))
+          this.Body.SetActive(true);
+        TimeSpan timeSpan = TimeManager.FromUnixTime(this.mEndTime) - TimeManager.ServerTime;
+        string str1 = (string) null;
+        string str2;
+        if (this.IsTTMMSS)
+        {
+          int num1 = Math.Max(Math.Min(timeSpan.Days * 24 + timeSpan.Hours, 99), 0);
+          int num2 = Math.Max(Math.Min(timeSpan.Minutes, 59), 0);
+          int num3 = Math.Max(Math.Min(timeSpan.Seconds, 59), 0);
+          str2 = str1 + string.Format("{0:D2}", (object) num1).ToString() + ":" + string.Format("{0:D2}", (object) num2).ToString() + ":" + string.Format("{0:D2}", (object) num3).ToString();
+        }
+        else if (timeSpan.TotalDays >= 1.0)
+          str2 = LocalizedText.Get("sys.QUEST_TIMELIMIT_D", new object[1]
+          {
+            (object) timeSpan.Days
+          });
+        else if (timeSpan.TotalHours >= 1.0)
+          str2 = LocalizedText.Get("sys.QUEST_TIMELIMIT_H", new object[1]
+          {
+            (object) timeSpan.Hours
+          });
+        else
+          str2 = LocalizedText.Get("sys.QUEST_TIMELIMIT_M", new object[1]
+          {
+            (object) Mathf.Max(timeSpan.Minutes, 0)
+          });
+        if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Timer, (UnityEngine.Object) null) || !(this.Timer.get_text() != str2))
+          return;
+        this.Timer.set_text(str2);
+      }
+    }
+
+    public void UpdateValue()
+    {
+      this.mEndTime = 0L;
+      QuestParam dataOfClass1 = DataSource.FindDataOfClass<QuestParam>(((Component) this).get_gameObject(), (QuestParam) null);
+      if (dataOfClass1 != null && dataOfClass1.Chapter != null)
+      {
+        switch (dataOfClass1.Chapter.GetKeyQuestType())
+        {
+          case KeyQuestTypes.Timer:
+            this.mEndTime = dataOfClass1.Chapter.key_end;
+            break;
+          case KeyQuestTypes.Count:
+            this.mEndTime = 0L;
+            break;
+          default:
+            this.mEndTime = dataOfClass1.Chapter.end;
+            break;
+        }
+        this.Refresh();
+      }
+      else
+      {
+        ChapterParam dataOfClass2 = DataSource.FindDataOfClass<ChapterParam>(((Component) this).get_gameObject(), (ChapterParam) null);
+        if (dataOfClass2 != null)
+        {
+          switch (dataOfClass2.GetKeyQuestType())
+          {
+            case KeyQuestTypes.Timer:
+              this.mEndTime = dataOfClass2.key_end;
+              break;
+            case KeyQuestTypes.Count:
+              this.mEndTime = 0L;
+              break;
+            default:
+              this.mEndTime = dataOfClass2.end;
+              break;
+          }
+          this.Refresh();
+        }
+        else
+        {
+          if (dataOfClass1 == null || dataOfClass1.type != QuestTypes.Tower)
+            return;
+          this.mEndTime = dataOfClass1.end;
+          this.Refresh();
+        }
+      }
+    }
+  }
+}

@@ -1,66 +1,44 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.EventQuestShortcut
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using UnityEngine;
+  public class EventQuestShortcut : MonoBehaviour
+  {
+    public GameObject KeyQuestOpenEffect;
 
-    public class EventQuestShortcut : MonoBehaviour
+    public EventQuestShortcut()
     {
-        public GameObject KeyQuestOpenEffect;
-
-        public EventQuestShortcut()
-        {
-            base..ctor();
-            return;
-        }
-
-        private void RefreshSwitchButton()
-        {
-            ChapterParam[] paramArray;
-            bool flag;
-            long num;
-            int num2;
-            paramArray = MonoSingleton<GameManager>.Instance.Chapters;
-            flag = 0;
-            if (paramArray == null)
-            {
-                goto Label_004A;
-            }
-            num = Network.GetServerTime();
-            num2 = 0;
-            goto Label_0041;
-        Label_0020:
-            if (paramArray[num2].IsKeyQuest() == null)
-            {
-                goto Label_003D;
-            }
-            if (paramArray[num2].IsKeyUnlock(num) == null)
-            {
-                goto Label_003D;
-            }
-            flag = 1;
-        Label_003D:
-            num2 += 1;
-        Label_0041:
-            if (num2 < ((int) paramArray.Length))
-            {
-                goto Label_0020;
-            }
-        Label_004A:
-            if ((this.KeyQuestOpenEffect != null) == null)
-            {
-                goto Label_0067;
-            }
-            this.KeyQuestOpenEffect.SetActive(flag);
-        Label_0067:
-            return;
-        }
-
-        private void Start()
-        {
-            this.RefreshSwitchButton();
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Start()
+    {
+      this.RefreshSwitchButton();
+    }
+
+    private void RefreshSwitchButton()
+    {
+      ChapterParam[] chapters = MonoSingleton<GameManager>.Instance.Chapters;
+      bool flag = false;
+      if (chapters != null)
+      {
+        long serverTime = Network.GetServerTime();
+        for (int index = 0; index < chapters.Length; ++index)
+        {
+          if (chapters[index].IsKeyQuest() && chapters[index].IsKeyUnlock(serverTime))
+            flag = true;
+        }
+      }
+      if (!Object.op_Inequality((Object) this.KeyQuestOpenEffect, (Object) null))
+        return;
+      this.KeyQuestOpenEffect.SetActive(flag);
+    }
+  }
+}

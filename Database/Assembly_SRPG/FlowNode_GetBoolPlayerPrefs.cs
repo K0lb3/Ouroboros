@@ -1,39 +1,28 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_GetBoolPlayerPrefs
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
+  [FlowNode.Pin(2, "Check", FlowNode.PinTypes.Input, 2)]
+  [FlowNode.NodeType("System/GetBoolPlayerPrefs", 32741)]
+  [FlowNode.Pin(1, "SetTrue", FlowNode.PinTypes.Output, 1)]
+  [FlowNode.Pin(0, "SetFalse", FlowNode.PinTypes.Output, 0)]
+  public class FlowNode_GetBoolPlayerPrefs : FlowNode
+  {
+    private const int CHECK = 2;
+    private const int GET_FALSE = 0;
+    private const int GET_TRUE = 1;
+    public string Name;
 
-    [Pin(0, "False", 1, 0), Pin(1, "True", 1, 1), Pin(2, "Check", 0, 2), NodeType("System/GetBoolPlayerPrefs", 0x7fe5)]
-    public class FlowNode_GetBoolPlayerPrefs : FlowNode
+    public override void OnActivate(int pinID)
     {
-        private const int CHECK = 2;
-        private const int GET_FALSE = 0;
-        private const int GET_TRUE = 1;
-        public string Name;
-
-        public FlowNode_GetBoolPlayerPrefs()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            int num;
-            int num2;
-            num2 = pinID;
-            if (num2 == 2)
-            {
-                goto Label_000E;
-            }
-            goto Label_0031;
-        Label_000E:
-            num = PlayerPrefsUtility.GetInt(this.Name, 0);
-            base.ActivateOutputLinks((num != 1) ? 0 : 1);
-            return;
-        Label_0031:
-            base.ActivateOutputLinks(0);
-            return;
-        }
+      if (pinID == 2)
+        this.ActivateOutputLinks(PlayerPrefsUtility.GetInt(this.Name, 0) != 1 ? 0 : 1);
+      else
+        this.ActivateOutputLinks(0);
     }
+  }
 }
-

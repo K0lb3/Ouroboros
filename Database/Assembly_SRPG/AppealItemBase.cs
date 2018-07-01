@@ -1,78 +1,68 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.AppealItemBase
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
-    using UnityEngine.UI;
+  public class AppealItemBase : MonoBehaviour
+  {
+    private Sprite mAppealSprite;
+    public Image AppealObject;
 
-    public class AppealItemBase : MonoBehaviour
+    public AppealItemBase()
     {
-        private Sprite mAppealSprite;
-        public Image AppealObject;
-
-        public AppealItemBase()
-        {
-            base..ctor();
-            return;
-        }
-
-        protected virtual void Awake()
-        {
-            if ((this.AppealObject != null) == null)
-            {
-                goto Label_0022;
-            }
-            this.AppealObject.get_gameObject().SetActive(0);
-        Label_0022:
-            return;
-        }
-
-        protected virtual void Destroy()
-        {
-        }
-
-        protected virtual void OnDestroy()
-        {
-        }
-
-        protected virtual void Refresh()
-        {
-            if ((this.mAppealSprite == null) == null)
-            {
-                goto Label_0034;
-            }
-            if ((this.AppealObject != null) == null)
-            {
-                goto Label_0033;
-            }
-            this.AppealObject.get_gameObject().SetActive(0);
-        Label_0033:
-            return;
-        Label_0034:
-            this.AppealObject.get_gameObject().SetActive(1);
-            this.AppealObject.set_sprite(this.mAppealSprite);
-            return;
-        }
-
-        protected virtual void Start()
-        {
-        }
-
-        protected virtual void Update()
-        {
-        }
-
-        public Sprite AppealSprite
-        {
-            get
-            {
-                return this.mAppealSprite;
-            }
-            set
-            {
-                this.mAppealSprite = value;
-                return;
-            }
-        }
+      base.\u002Ector();
     }
-}
 
+    public Sprite AppealSprite
+    {
+      get
+      {
+        return this.mAppealSprite;
+      }
+      set
+      {
+        this.mAppealSprite = value;
+      }
+    }
+
+    protected virtual void Awake()
+    {
+      if (!Object.op_Inequality((Object) this.AppealObject, (Object) null))
+        return;
+      ((Component) this.AppealObject).get_gameObject().SetActive(false);
+    }
+
+    protected virtual void Start()
+    {
+    }
+
+    protected virtual void Update()
+    {
+    }
+
+    protected virtual void Destroy()
+    {
+    }
+
+    protected virtual void Refresh()
+    {
+      if (Object.op_Equality((Object) this.mAppealSprite, (Object) null))
+      {
+        if (!Object.op_Inequality((Object) this.AppealObject, (Object) null))
+          return;
+        ((Component) this.AppealObject).get_gameObject().SetActive(false);
+      }
+      else
+      {
+        ((Component) this.AppealObject).get_gameObject().SetActive(true);
+        this.AppealObject.set_sprite(this.mAppealSprite);
+      }
+    }
+  }
+}

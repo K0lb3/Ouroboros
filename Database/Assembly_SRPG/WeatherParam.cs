@@ -1,139 +1,130 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.WeatherParam
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Collections.Generic;
+
+namespace SRPG
 {
-    using System;
-    using System.Collections.Generic;
+  public class WeatherParam
+  {
+    private List<string> mBuffIdLists = new List<string>();
+    private List<string> mCondIdLists = new List<string>();
+    private string localizedNameID;
+    private string localizedExprID;
+    private string originName;
+    private string mIname;
+    private string mName;
+    private string mExpr;
+    private string mIcon;
+    private string mEffect;
 
-    public class WeatherParam
+    public string OriginName
     {
-        private string mIname;
-        private string mName;
-        private string mExpr;
-        private string mIcon;
-        private string mEffect;
-        private List<string> mBuffIdLists;
-        private List<string> mCondIdLists;
-
-        public WeatherParam()
-        {
-            this.mBuffIdLists = new List<string>();
-            this.mCondIdLists = new List<string>();
-            base..ctor();
-            return;
-        }
-
-        public void Deserialize(JSON_WeatherParam json)
-        {
-            string str;
-            string[] strArray;
-            int num;
-            string str2;
-            string[] strArray2;
-            int num2;
-            if (json != null)
-            {
-                goto Label_0007;
-            }
-            return;
-        Label_0007:
-            this.mIname = json.iname;
-            this.mName = json.name;
-            this.mExpr = json.expr;
-            this.mIcon = json.icon;
-            this.mEffect = json.effect;
-            this.mBuffIdLists.Clear();
-            if (json.buff_ids == null)
-            {
-                goto Label_0084;
-            }
-            strArray = json.buff_ids;
-            num = 0;
-            goto Label_007B;
-        Label_0067:
-            str = strArray[num];
-            this.mBuffIdLists.Add(str);
-            num += 1;
-        Label_007B:
-            if (num < ((int) strArray.Length))
-            {
-                goto Label_0067;
-            }
-        Label_0084:
-            this.mCondIdLists.Clear();
-            if (json.cond_ids == null)
-            {
-                goto Label_00CD;
-            }
-            strArray2 = json.cond_ids;
-            num2 = 0;
-            goto Label_00C2;
-        Label_00AA:
-            str2 = strArray2[num2];
-            this.mCondIdLists.Add(str2);
-            num2 += 1;
-        Label_00C2:
-            if (num2 < ((int) strArray2.Length))
-            {
-                goto Label_00AA;
-            }
-        Label_00CD:
-            return;
-        }
-
-        public string Iname
-        {
-            get
-            {
-                return this.mIname;
-            }
-        }
-
-        public string Name
-        {
-            get
-            {
-                return this.mName;
-            }
-        }
-
-        public string Expr
-        {
-            get
-            {
-                return this.mExpr;
-            }
-        }
-
-        public string Icon
-        {
-            get
-            {
-                return this.mIcon;
-            }
-        }
-
-        public string Effect
-        {
-            get
-            {
-                return this.mEffect;
-            }
-        }
-
-        public List<string> BuffIdLists
-        {
-            get
-            {
-                return this.mBuffIdLists;
-            }
-        }
-
-        public List<string> CondIdLists
-        {
-            get
-            {
-                return this.mCondIdLists;
-            }
-        }
+      get
+      {
+        return this.originName;
+      }
     }
-}
 
+    protected void localizeFields(string language)
+    {
+      this.init();
+      this.originName = this.mName;
+      this.mName = LocalizedText.SGGet(language, GameUtility.LocalizedMasterParamFileName, this.localizedNameID);
+      this.mExpr = LocalizedText.SGGet(language, GameUtility.LocalizedMasterParamFileName, this.localizedExprID);
+    }
+
+    protected void init()
+    {
+      this.localizedNameID = this.GetType().GenerateLocalizedID(this.mIname, "NAME");
+      this.localizedExprID = this.GetType().GenerateLocalizedID(this.mIname, "EXPR");
+    }
+
+    public void Deserialize(string language, JSON_WeatherParam json)
+    {
+      this.Deserialize(json);
+      this.localizeFields(language);
+    }
+
+    public string Iname
+    {
+      get
+      {
+        return this.mIname;
+      }
+    }
+
+    public string Name
+    {
+      get
+      {
+        return this.mName;
+      }
+    }
+
+    public string Expr
+    {
+      get
+      {
+        return this.mExpr;
+      }
+    }
+
+    public string Icon
+    {
+      get
+      {
+        return this.mIcon;
+      }
+    }
+
+    public string Effect
+    {
+      get
+      {
+        return this.mEffect;
+      }
+    }
+
+    public List<string> BuffIdLists
+    {
+      get
+      {
+        return this.mBuffIdLists;
+      }
+    }
+
+    public List<string> CondIdLists
+    {
+      get
+      {
+        return this.mCondIdLists;
+      }
+    }
+
+    public void Deserialize(JSON_WeatherParam json)
+    {
+      if (json == null)
+        return;
+      this.mIname = json.iname;
+      this.mName = json.name;
+      this.mExpr = json.expr;
+      this.mIcon = json.icon;
+      this.mEffect = json.effect;
+      this.mBuffIdLists.Clear();
+      if (json.buff_ids != null)
+      {
+        foreach (string buffId in json.buff_ids)
+          this.mBuffIdLists.Add(buffId);
+      }
+      this.mCondIdLists.Clear();
+      if (json.cond_ids == null)
+        return;
+      foreach (string condId in json.cond_ids)
+        this.mCondIdLists.Add(condId);
+    }
+  }
+}

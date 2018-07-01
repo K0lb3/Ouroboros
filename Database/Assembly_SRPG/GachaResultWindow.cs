@@ -1,85 +1,61 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.GachaResultWindow
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using System.Runtime.CompilerServices;
-    using UnityEngine;
-    using UnityEngine.Events;
-    using UnityEngine.UI;
+  [FlowNode.Pin(0, "Setup", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(10, "Refresh", FlowNode.PinTypes.Output, 10)]
+  public class GachaResultWindow : MonoBehaviour, IFlowInterface
+  {
+    public GameObject ThumbnailListWindow;
+    public Button BackButton;
+    private bool Initalized;
 
-    [Pin(0, "Setup", 0, 0), Pin(10, "Refresh", 1, 10)]
-    public class GachaResultWindow : MonoBehaviour, IFlowInterface
+    public GachaResultWindow()
     {
-        public GameObject ThumbnailListWindow;
-        public Button BackButton;
-        private bool Initalized;
-
-        public GachaResultWindow()
-        {
-            base..ctor();
-            return;
-        }
-
-        [CompilerGenerated]
-        private void <Start>m__326()
-        {
-            this.OnCloseWindow(this.BackButton);
-            return;
-        }
-
-        public void Activated(int pinID)
-        {
-            if (pinID != null)
-            {
-                goto Label_000D;
-            }
-            this.SetUp();
-            return;
-        Label_000D:
-            return;
-        }
-
-        private void OnCloseWindow(Button button)
-        {
-            if (this.Initalized != null)
-            {
-                goto Label_000C;
-            }
-            return;
-        Label_000C:
-            FlowNode_TriggerLocalEvent.TriggerLocalEvent(this, "CLOSED_RESULT");
-            return;
-        }
-
-        private void SetUp()
-        {
-            if (GachaResultData.drops == null)
-            {
-                goto Label_0030;
-            }
-            FlowNode_Variable.Set("GachaResultCurrentDetail", string.Empty);
-            FlowNode_Variable.Set("GachaResultSingle", "0");
-            FlowNode_GameObject.ActivateOutputLinks(this, 10);
-        Label_0030:
-            return;
-        }
-
-        private void Start()
-        {
-            if ((HomeWindow.Current != null) == null)
-            {
-                goto Label_001B;
-            }
-            HomeWindow.Current.SetVisible(1);
-        Label_001B:
-            if ((this.BackButton != null) == null)
-            {
-                goto Label_0048;
-            }
-            this.BackButton.get_onClick().AddListener(new UnityAction(this, this.<Start>m__326));
-        Label_0048:
-            this.Initalized = 1;
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    public void Activated(int pinID)
+    {
+      if (pinID != 0)
+        return;
+      this.SetUp();
+    }
+
+    private void Start()
+    {
+      if (Object.op_Inequality((Object) HomeWindow.Current, (Object) null))
+        HomeWindow.Current.SetVisible(true);
+      if (Object.op_Inequality((Object) this.BackButton, (Object) null))
+      {
+        // ISSUE: method pointer
+        ((UnityEvent) this.BackButton.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(\u003CStart\u003Em__37E)));
+      }
+      this.Initalized = true;
+    }
+
+    private void OnCloseWindow(Button button)
+    {
+      if (!this.Initalized)
+        return;
+      FlowNode_TriggerLocalEvent.TriggerLocalEvent((Component) this, "CLOSED_RESULT");
+    }
+
+    private void SetUp()
+    {
+      if (GachaResultData.drops == null)
+        return;
+      FlowNode_Variable.Set("GachaResultCurrentDetail", string.Empty);
+      FlowNode_Variable.Set("GachaResultSingle", "0");
+      FlowNode_GameObject.ActivateOutputLinks((Component) this, 10);
+    }
+  }
+}

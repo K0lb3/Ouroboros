@@ -1,227 +1,158 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.BattleCameraControl
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Runtime.CompilerServices;
-    using UnityEngine;
-    using UnityEngine.Events;
-    using UnityEngine.UI;
+  public class BattleCameraControl : MonoBehaviour
+  {
+    public Button RotateLeft;
+    public Button RotateRight;
+    public Slider RotationSlider;
+    public Scrollbar RotationScroll;
+    public float RotateAmount;
+    public float RotateTime;
+    private Animator m_Animator;
+    private Canvas m_Canvas;
+    private GraphicRaycaster m_GraphicRaycatser;
+    private bool m_Disp;
 
-    public class BattleCameraControl : MonoBehaviour
+    public BattleCameraControl()
     {
-        public Button RotateLeft;
-        public Button RotateRight;
-        public Slider RotationSlider;
-        public Scrollbar RotationScroll;
-        public float RotateAmount;
-        public float RotateTime;
-        private Animator m_Animator;
-        private Canvas m_Canvas;
-        private GraphicRaycaster m_GraphicRaycatser;
-        private bool m_Disp;
-        [CompilerGenerated]
-        private static Dictionary<string, int> <>f__switch$map5;
-
-        public BattleCameraControl()
-        {
-            this.RotateAmount = 0.25f;
-            this.RotateTime = 0.2f;
-            base..ctor();
-            return;
-        }
-
-        public unsafe void OnEventCall(string key, string value)
-        {
-            string str;
-            Dictionary<string, int> dictionary;
-            int num;
-            str = key;
-            if (str == null)
-            {
-                goto Label_00B3;
-            }
-            if (<>f__switch$map5 != null)
-            {
-                goto Label_0037;
-            }
-            dictionary = new Dictionary<string, int>(2);
-            dictionary.Add("DISP", 0);
-            dictionary.Add("FULLROTATION", 1);
-            <>f__switch$map5 = dictionary;
-        Label_0037:
-            if (<>f__switch$map5.TryGetValue(str, &num) == null)
-            {
-                goto Label_00B3;
-            }
-            if (num == null)
-            {
-                goto Label_005B;
-            }
-            if (num == 1)
-            {
-                goto Label_0083;
-            }
-            goto Label_00B3;
-        Label_005B:
-            if ((value == "on") == null)
-            {
-                goto Label_0077;
-            }
-            this.SetDisp(1);
-            goto Label_007E;
-        Label_0077:
-            this.SetDisp(0);
-        Label_007E:
-            goto Label_00B3;
-        Label_0083:
-            if ((value == "on") == null)
-            {
-                goto Label_00A3;
-            }
-            SceneBattle.Instance.SetFullRotationCamera(1);
-            goto Label_00AE;
-        Label_00A3:
-            SceneBattle.Instance.SetFullRotationCamera(0);
-        Label_00AE:;
-        Label_00B3:
-            return;
-        }
-
-        private void OnRotateLeft()
-        {
-            SceneBattle.Instance.RotateCamera(-this.RotateAmount, this.RotateTime);
-            return;
-        }
-
-        private void OnRotateRight()
-        {
-            SceneBattle.Instance.RotateCamera(this.RotateAmount, this.RotateTime);
-            return;
-        }
-
-        private void OnRotationValueChange(float value)
-        {
-        }
-
-        public void SetDisp(bool value)
-        {
-            Animator animator;
-            if (value == null)
-            {
-                goto Label_0018;
-            }
-            if (SceneBattle.Instance.isUpView == null)
-            {
-                goto Label_0018;
-            }
-            value = 0;
-        Label_0018:
-            animator = base.GetComponent<Animator>();
-            if ((animator != null) == null)
-            {
-                goto Label_0037;
-            }
-            animator.SetBool("open", value);
-        Label_0037:
-            return;
-        }
-
-        private void Start()
-        {
-            if ((this.RotateLeft != null) == null)
-            {
-                goto Label_002D;
-            }
-            this.RotateLeft.get_onClick().AddListener(new UnityAction(this, this.OnRotateLeft));
-        Label_002D:
-            if ((this.RotateRight != null) == null)
-            {
-                goto Label_005A;
-            }
-            this.RotateRight.get_onClick().AddListener(new UnityAction(this, this.OnRotateRight));
-        Label_005A:
-            if ((this.RotationSlider != null) == null)
-            {
-                goto Label_0087;
-            }
-            this.RotationSlider.get_onValueChanged().AddListener(new UnityAction<float>(this, this.OnRotationValueChange));
-        Label_0087:
-            this.m_Animator = base.GetComponent<Animator>();
-            this.m_Canvas = base.GetComponent<Canvas>();
-            this.m_GraphicRaycatser = base.GetComponent<GraphicRaycaster>();
-            this.SetDisp(0);
-            return;
-        }
-
-        private unsafe void Update()
-        {
-            SceneBattle battle;
-            bool flag;
-            AnimatorStateInfo info;
-            battle = SceneBattle.Instance;
-            if ((battle == null) == null)
-            {
-                goto Label_0013;
-            }
-            return;
-        Label_0013:
-            if ((this.RotateLeft != null) == null)
-            {
-                goto Label_0035;
-            }
-            this.RotateLeft.set_interactable(battle.isCameraLeftMove);
-        Label_0035:
-            if ((this.RotateRight != null) == null)
-            {
-                goto Label_0057;
-            }
-            this.RotateRight.set_interactable(battle.isCameraRightMove);
-        Label_0057:
-            if ((this.m_Animator != null) == null)
-            {
-                goto Label_0127;
-            }
-            flag = this.m_Animator.GetBool("open");
-            info = this.m_Animator.GetCurrentAnimatorStateInfo(0);
-            if (flag == null)
-            {
-                goto Label_00DC;
-            }
-            if ((this.m_Canvas != null) == null)
-            {
-                goto Label_00A9;
-            }
-            this.m_Canvas.set_enabled(1);
-        Label_00A9:
-            if (&info.get_normalizedTime() < 1f)
-            {
-                goto Label_0127;
-            }
-            if ((this.m_GraphicRaycatser != null) == null)
-            {
-                goto Label_0127;
-            }
-            this.m_GraphicRaycatser.set_enabled(1);
-            goto Label_0127;
-        Label_00DC:
-            if (&info.get_normalizedTime() < 1f)
-            {
-                goto Label_010A;
-            }
-            if ((this.m_Canvas != null) == null)
-            {
-                goto Label_010A;
-            }
-            this.m_Canvas.set_enabled(0);
-        Label_010A:
-            if ((this.m_GraphicRaycatser != null) == null)
-            {
-                goto Label_0127;
-            }
-            this.m_GraphicRaycatser.set_enabled(0);
-        Label_0127:
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Start()
+    {
+      if (Object.op_Inequality((Object) this.RotateLeft, (Object) null))
+      {
+        // ISSUE: method pointer
+        ((UnityEvent) this.RotateLeft.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OnRotateLeft)));
+      }
+      if (Object.op_Inequality((Object) this.RotateRight, (Object) null))
+      {
+        // ISSUE: method pointer
+        ((UnityEvent) this.RotateRight.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OnRotateRight)));
+      }
+      if (Object.op_Inequality((Object) this.RotationSlider, (Object) null))
+      {
+        // ISSUE: method pointer
+        ((UnityEvent<float>) this.RotationSlider.get_onValueChanged()).AddListener(new UnityAction<float>((object) this, __methodptr(OnRotationValueChange)));
+      }
+      this.m_Animator = (Animator) ((Component) this).GetComponent<Animator>();
+      this.m_Canvas = (Canvas) ((Component) this).GetComponent<Canvas>();
+      this.m_GraphicRaycatser = (GraphicRaycaster) ((Component) this).GetComponent<GraphicRaycaster>();
+      this.SetDisp(false);
+    }
+
+    private void Update()
+    {
+      SceneBattle instance = SceneBattle.Instance;
+      if (Object.op_Equality((Object) instance, (Object) null))
+        return;
+      if (Object.op_Inequality((Object) this.RotateLeft, (Object) null))
+        ((Selectable) this.RotateLeft).set_interactable(instance.isCameraLeftMove);
+      if (Object.op_Inequality((Object) this.RotateRight, (Object) null))
+        ((Selectable) this.RotateRight).set_interactable(instance.isCameraRightMove);
+      if (!Object.op_Inequality((Object) this.m_Animator, (Object) null))
+        return;
+      bool flag = this.m_Animator.GetBool("open");
+      AnimatorStateInfo animatorStateInfo = this.m_Animator.GetCurrentAnimatorStateInfo(0);
+      if (flag)
+      {
+        if (Object.op_Inequality((Object) this.m_Canvas, (Object) null))
+          ((Behaviour) this.m_Canvas).set_enabled(true);
+        // ISSUE: explicit reference operation
+        if ((double) ((AnimatorStateInfo) @animatorStateInfo).get_normalizedTime() < 1.0 || !Object.op_Inequality((Object) this.m_GraphicRaycatser, (Object) null))
+          return;
+        ((Behaviour) this.m_GraphicRaycatser).set_enabled(true);
+      }
+      else
+      {
+        // ISSUE: explicit reference operation
+        if ((double) ((AnimatorStateInfo) @animatorStateInfo).get_normalizedTime() >= 1.0 && Object.op_Inequality((Object) this.m_Canvas, (Object) null))
+          ((Behaviour) this.m_Canvas).set_enabled(false);
+        if (!Object.op_Inequality((Object) this.m_GraphicRaycatser, (Object) null))
+          return;
+        ((Behaviour) this.m_GraphicRaycatser).set_enabled(false);
+      }
+    }
+
+    private void OnRotateLeft()
+    {
+      SceneBattle.Instance.RotateCamera(-this.RotateAmount, this.RotateTime);
+    }
+
+    private void OnRotateRight()
+    {
+      SceneBattle.Instance.RotateCamera(this.RotateAmount, this.RotateTime);
+    }
+
+    private void OnRotationValueChange(float value)
+    {
+    }
+
+    public void SetDisp(bool value)
+    {
+      if (value && SceneBattle.Instance.isUpView)
+        value = false;
+      Animator component = (Animator) ((Component) this).GetComponent<Animator>();
+      if (!Object.op_Inequality((Object) component, (Object) null))
+        return;
+      component.SetBool("open", value);
+    }
+
+    public void OnEventCall(string key, string value)
+    {
+      string key1 = key;
+      if (key1 == null)
+        return;
+      // ISSUE: reference to a compiler-generated field
+      if (BattleCameraControl.\u003C\u003Ef__switch\u0024mapB == null)
+      {
+        // ISSUE: reference to a compiler-generated field
+        BattleCameraControl.\u003C\u003Ef__switch\u0024mapB = new Dictionary<string, int>(2)
+        {
+          {
+            "DISP",
+            0
+          },
+          {
+            "FULLROTATION",
+            1
+          }
+        };
+      }
+      int num;
+      // ISSUE: reference to a compiler-generated field
+      if (!BattleCameraControl.\u003C\u003Ef__switch\u0024mapB.TryGetValue(key1, out num))
+        return;
+      switch (num)
+      {
+        case 0:
+          if (value == "on")
+          {
+            this.SetDisp(true);
+            break;
+          }
+          this.SetDisp(false);
+          break;
+        case 1:
+          if (value == "on")
+          {
+            SceneBattle.Instance.SetFullRotationCamera(true);
+            break;
+          }
+          SceneBattle.Instance.SetFullRotationCamera(false);
+          break;
+      }
+    }
+  }
+}

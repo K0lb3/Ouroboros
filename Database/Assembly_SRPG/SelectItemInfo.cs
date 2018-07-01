@@ -1,53 +1,46 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.SelectItemInfo
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using UnityEngine;
-
-    [Pin(1, "Refresh", 0, 1)]
-    public class SelectItemInfo : MonoBehaviour, IFlowInterface
+  [FlowNode.Pin(1, "Refresh", FlowNode.PinTypes.Input, 1)]
+  public class SelectItemInfo : MonoBehaviour, IFlowInterface
+  {
+    public SelectItemInfo()
     {
-        public SelectItemInfo()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void Activated(int pinID)
-        {
-            if (pinID != 1)
-            {
-                goto Label_000D;
-            }
-            this.Refresh();
-        Label_000D:
-            return;
-        }
-
-        private void Awake()
-        {
-        }
-
-        private void Refresh()
-        {
-            string str;
-            ItemParam param;
-            ItemData data;
-            str = GlobalVars.ItemSelectListItemData.iiname;
-            param = MonoSingleton<GameManager>.Instance.GetItemParam(str);
-            data = MonoSingleton<GameManager>.Instance.Player.FindItemDataByItemID(param.iname);
-            DataSource.Bind<ItemParam>(base.get_gameObject(), param);
-            DataSource.Bind<ItemSelectListItemData>(base.get_gameObject(), GlobalVars.ItemSelectListItemData);
-            DataSource.Bind<ItemData>(base.get_gameObject(), data);
-            GameParameter.UpdateAll(base.get_gameObject());
-            return;
-        }
-
-        private void Start()
-        {
-            this.Refresh();
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Awake()
+    {
+    }
+
+    private void Start()
+    {
+      this.Refresh();
+    }
+
+    public void Activated(int pinID)
+    {
+      if (pinID != 1)
+        return;
+      this.Refresh();
+    }
+
+    private void Refresh()
+    {
+      ItemParam itemParam = MonoSingleton<GameManager>.Instance.GetItemParam(GlobalVars.ItemSelectListItemData.iiname);
+      ItemData itemDataByItemId = MonoSingleton<GameManager>.Instance.Player.FindItemDataByItemID(itemParam.iname);
+      DataSource.Bind<ItemParam>(((Component) this).get_gameObject(), itemParam);
+      DataSource.Bind<ItemSelectListItemData>(((Component) this).get_gameObject(), GlobalVars.ItemSelectListItemData);
+      DataSource.Bind<ItemData>(((Component) this).get_gameObject(), itemDataByItemId);
+      GameParameter.UpdateAll(((Component) this).get_gameObject());
+    }
+  }
+}

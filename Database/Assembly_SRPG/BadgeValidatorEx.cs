@@ -1,66 +1,37 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.BadgeValidatorEx
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using UnityEngine;
+  [DisallowMultipleComponent]
+  public class BadgeValidatorEx : BadgeValidator
+  {
+    [BitMask]
+    public GameManager.BadgeTypes PriorityBadgeType;
 
-    [DisallowMultipleComponent]
-    public class BadgeValidatorEx : BadgeValidator
+    private void Update()
     {
-        [BitMask]
-        public GameManager.BadgeTypes PriorityBadgeType;
-
-        public BadgeValidatorEx()
-        {
-            base..ctor();
-            return;
-        }
-
-        private void Update()
-        {
-            this.UpdateBadge();
-            return;
-        }
-
-        private void UpdateBadge()
-        {
-            int num;
-            GameManager manager;
-            int num2;
-            bool flag;
-            if (base.BadgeType != null)
-            {
-                goto Label_000E;
-            }
-            return;
-        Label_000E:
-            manager = MonoSingleton<GameManager>.GetInstanceDirect();
-            if ((manager == null) != null)
-            {
-                goto Label_0031;
-            }
-            if (manager.CheckBusyBadges(base.BadgeType) == null)
-            {
-                goto Label_0032;
-            }
-        Label_0031:
-            return;
-        Label_0032:
-            num2 = this.PriorityBadgeType;
-            flag = manager.CheckBadges(base.BadgeType);
-            if (num2 == null)
-            {
-                goto Label_005F;
-            }
-            if (manager.CheckBadges(this.PriorityBadgeType) == null)
-            {
-                goto Label_005F;
-            }
-            flag = 0;
-        Label_005F:
-            base.get_gameObject().SetActive(flag);
-            return;
-        }
+      this.UpdateBadge();
     }
-}
 
+    private void UpdateBadge()
+    {
+      if (this.BadgeType == ~GameManager.BadgeTypes.All)
+        return;
+      GameManager instanceDirect = MonoSingleton<GameManager>.GetInstanceDirect();
+      if (Object.op_Equality((Object) instanceDirect, (Object) null) || instanceDirect.CheckBusyBadges(this.BadgeType))
+        return;
+      int priorityBadgeType = (int) this.PriorityBadgeType;
+      bool flag = instanceDirect.CheckBadges(this.BadgeType);
+      if (priorityBadgeType != 0 && instanceDirect.CheckBadges(this.PriorityBadgeType))
+        flag = false;
+      ((Component) this).get_gameObject().SetActive(flag);
+    }
+  }
+}

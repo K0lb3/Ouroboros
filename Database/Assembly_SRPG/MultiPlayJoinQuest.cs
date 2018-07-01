@@ -1,22 +1,24 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.MultiPlayJoinQuest
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
-
-    public class MultiPlayJoinQuest : MonoBehaviour
+  public class MultiPlayJoinQuest : MonoBehaviour
+  {
+    public MultiPlayJoinQuest()
     {
-        public MultiPlayJoinQuest()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void OnClickAll()
-        {
-            GlobalVars.SelectedQuestID = string.Empty;
-            FlowNode_TriggerLocalEvent.TriggerLocalEvent(this, "SEARCH_CATEGORY_QUEST");
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    public void OnClickAll()
+    {
+      GlobalVars.SelectedQuestID = string.Empty;
+      FlowNode_TriggerLocalEvent.TriggerLocalEvent((Component) this, "SEARCH_CATEGORY_QUEST");
+    }
+  }
+}

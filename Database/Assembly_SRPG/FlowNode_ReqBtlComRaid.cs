@@ -1,19 +1,23 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_ReqBtlComRaid
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    [Pin(100, "Request", 0, 0), Pin(2, "Reset to Title", 1, 11), NodeType("System/ReqBtlComRaid", 0x7fe5), Pin(1, "Success", 1, 10)]
-    public class FlowNode_ReqBtlComRaid : FlowNode_Network
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 10)]
+  [FlowNode.Pin(100, "Request", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.NodeType("System/ReqBtlComRaid", 32741)]
+  [FlowNode.Pin(2, "Reset to Title", FlowNode.PinTypes.Output, 11)]
+  public class FlowNode_ReqBtlComRaid : FlowNode_Network
+  {
+    public override void OnSuccess(WWWResult www)
     {
-        public FlowNode_ReqBtlComRaid()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnSuccess(WWWResult www)
-        {
-        }
     }
-}
 
+    public override void OnActivate(int pinID)
+    {
+    }
+  }
+}

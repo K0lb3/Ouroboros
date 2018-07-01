@@ -1,44 +1,34 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.TowerEntryConditoion
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using System.Collections.Generic;
-    using UnityEngine;
-
-    public class TowerEntryConditoion : MonoBehaviour, IGameParameter
+  public class TowerEntryConditoion : MonoBehaviour, IGameParameter
+  {
+    public TowerEntryConditoion()
     {
-        public TowerEntryConditoion()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void UpdateValue()
-        {
-            QuestParam param;
-            List<string> list;
-            int num;
-            param = DataSource.FindDataOfClass<QuestParam>(base.get_gameObject(), null);
-            list = param.GetEntryQuestConditions(1, 1, 1);
-            num = 0;
-            if (param.EntryCondition == null)
-            {
-                goto Label_004E;
-            }
-            if (param.EntryCondition.plvmin <= 0)
-            {
-                goto Label_0039;
-            }
-            num += 1;
-        Label_0039:
-            if (param.EntryCondition.ulvmin <= 0)
-            {
-                goto Label_004E;
-            }
-            num += 1;
-        Label_004E:
-            base.get_gameObject().SetActive(list.Count > num);
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    public void UpdateValue()
+    {
+      QuestParam dataOfClass = DataSource.FindDataOfClass<QuestParam>(((Component) this).get_gameObject(), (QuestParam) null);
+      List<string> entryQuestConditions = dataOfClass.GetEntryQuestConditions(true, true, true);
+      int num = 0;
+      if (dataOfClass.EntryCondition != null)
+      {
+        if (dataOfClass.EntryCondition.plvmin > 0)
+          ++num;
+        if (dataOfClass.EntryCondition.ulvmin > 0)
+          ++num;
+      }
+      ((Component) this).get_gameObject().SetActive(entryQuestConditions.Count > num);
+    }
+  }
+}

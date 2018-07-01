@@ -1,79 +1,47 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.TowerRoundRewardParam
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System.Collections.Generic;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Collections.Generic;
+  public class TowerRoundRewardParam : TowerRewardParam
+  {
+    public List<byte> mRoundList;
 
-    public class TowerRoundRewardParam : TowerRewardParam
+    public void Deserialize(JSON_TowerRoundRewardParam json)
     {
-        public List<byte> mRoundList;
-
-        public TowerRoundRewardParam()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void Deserialize(JSON_TowerRoundRewardParam json)
-        {
-            int num;
-            TowerRewardItem item;
-            if (json != null)
-            {
-                goto Label_000C;
-            }
-            throw new InvalidJSONException();
-        Label_000C:
-            base.iname = json.iname;
-            this.mRoundList = new List<byte>();
-            if (json.rewards == null)
-            {
-                goto Label_008A;
-            }
-            base.mTowerRewardItems = new List<TowerRewardItem>();
-            num = 0;
-            goto Label_007C;
-        Label_0040:
-            item = new TowerRewardItem();
-            item.Deserialize(json.rewards[num]);
-            base.mTowerRewardItems.Add(item);
-            this.mRoundList.Add(json.rewards[num].round_num);
-            num += 1;
-        Label_007C:
-            if (num < ((int) json.rewards.Length))
-            {
-                goto Label_0040;
-            }
-        Label_008A:
-            return;
-        }
-
-        public override List<TowerRewardItem> GetTowerRewardItem()
-        {
-            TowerResuponse resuponse;
-            byte num;
-            List<TowerRewardItem> list;
-            int num2;
-            resuponse = MonoSingleton<GameManager>.Instance.TowerResuponse;
-            num = resuponse.round;
-            list = new List<TowerRewardItem>();
-            num2 = 0;
-            goto Label_0041;
-        Label_001F:
-            if (resuponse.round < num)
-            {
-                goto Label_003D;
-            }
-            list.Add(base.mTowerRewardItems[num2]);
-        Label_003D:
-            num2 += 1;
-        Label_0041:
-            if (num2 < this.mRoundList.Count)
-            {
-                goto Label_001F;
-            }
-            return list;
-        }
+      if (json == null)
+        throw new InvalidJSONException();
+      this.iname = json.iname;
+      this.mRoundList = new List<byte>();
+      if (json.rewards == null)
+        return;
+      this.mTowerRewardItems = new List<TowerRewardItem>();
+      for (int index = 0; index < json.rewards.Length; ++index)
+      {
+        TowerRewardItem towerRewardItem = new TowerRewardItem();
+        towerRewardItem.Deserialize((JSON_TowerRewardItem) json.rewards[index]);
+        this.mTowerRewardItems.Add(towerRewardItem);
+        this.mRoundList.Add(json.rewards[index].round_num);
+      }
     }
-}
 
+    public override List<TowerRewardItem> GetTowerRewardItem()
+    {
+      TowerResuponse towerResuponse = MonoSingleton<GameManager>.Instance.TowerResuponse;
+      byte round = towerResuponse.round;
+      List<TowerRewardItem> towerRewardItemList = new List<TowerRewardItem>();
+      for (int index = 0; index < this.mRoundList.Count; ++index)
+      {
+        if ((int) towerResuponse.round >= (int) round)
+          towerRewardItemList.Add(this.mTowerRewardItems[index]);
+      }
+      return towerRewardItemList;
+    }
+  }
+}

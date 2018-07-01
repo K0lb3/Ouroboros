@@ -1,86 +1,52 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.NewsUtility
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-
-    public class NewsUtility
+  public class NewsUtility
+  {
+    public static bool isNewsDisplay()
     {
-        public NewsUtility()
-        {
-            base..ctor();
-            return;
-        }
-
-        public static void clearNewsType()
-        {
-            GlobalVars.UrgencyPubHash = string.Empty;
-            return;
-        }
-
-        public static NewsTypes getNewsTypes()
-        {
-            if (string.IsNullOrEmpty(GlobalVars.UrgencyPubHash) != null)
-            {
-                goto Label_0011;
-            }
-            return 2;
-        Label_0011:
-            if (string.IsNullOrEmpty(GlobalVars.PubHash) != null)
-            {
-                goto Label_0022;
-            }
-            return 1;
-        Label_0022:
-            return 0;
-        }
-
-        public static bool isNewsDisplay()
-        {
-            return ((getNewsTypes() == 0) == 0);
-        }
-
-        public static void setNewsState(string pub_hash, string urgency_pub_hash, bool force_display)
-        {
-            string str;
-            string str2;
-            str = (string) MonoSingleton<UserInfoManager>.Instance.GetValue("PubHash");
-            if (string.IsNullOrEmpty(pub_hash) != null)
-            {
-                goto Label_0049;
-            }
-            if ((str != pub_hash) != null)
-            {
-                goto Label_0032;
-            }
-            if (force_display == null)
-            {
-                goto Label_0049;
-            }
-        Label_0032:
-            MonoSingleton<UserInfoManager>.Instance.SetValue("PubHash", pub_hash, 1);
-            GlobalVars.PubHash = pub_hash;
-        Label_0049:
-            str2 = (string) MonoSingleton<UserInfoManager>.Instance.GetValue("UrgencyPubHash");
-            if (string.IsNullOrEmpty(urgency_pub_hash) != null)
-            {
-                goto Label_008C;
-            }
-            if ((str2 != urgency_pub_hash) == null)
-            {
-                goto Label_008C;
-            }
-            MonoSingleton<UserInfoManager>.Instance.SetValue("UrgencyPubHash", urgency_pub_hash, 1);
-            GlobalVars.UrgencyPubHash = urgency_pub_hash;
-        Label_008C:
-            return;
-        }
-
-        public enum NewsTypes
-        {
-            None,
-            Normal,
-            Urgency
-        }
+      return NewsUtility.getNewsTypes() != NewsUtility.NewsTypes.None;
     }
-}
 
+    public static void clearNewsType()
+    {
+      GlobalVars.UrgencyPubHash = string.Empty;
+    }
+
+    public static void setNewsState(string pub_hash, string urgency_pub_hash, bool force_display)
+    {
+      string str1 = (string) MonoSingleton<UserInfoManager>.Instance.GetValue("PubHash");
+      if (!string.IsNullOrEmpty(pub_hash) && (str1 != pub_hash || force_display))
+      {
+        MonoSingleton<UserInfoManager>.Instance.SetValue("PubHash", (object) pub_hash, true);
+        GlobalVars.PubHash = pub_hash;
+      }
+      string str2 = (string) MonoSingleton<UserInfoManager>.Instance.GetValue("UrgencyPubHash");
+      if (string.IsNullOrEmpty(urgency_pub_hash) || !(str2 != urgency_pub_hash))
+        return;
+      MonoSingleton<UserInfoManager>.Instance.SetValue("UrgencyPubHash", (object) urgency_pub_hash, true);
+      GlobalVars.UrgencyPubHash = urgency_pub_hash;
+    }
+
+    public static NewsUtility.NewsTypes getNewsTypes()
+    {
+      if (!string.IsNullOrEmpty(GlobalVars.UrgencyPubHash))
+        return NewsUtility.NewsTypes.Urgency;
+      return !string.IsNullOrEmpty(GlobalVars.PubHash) ? NewsUtility.NewsTypes.Normal : NewsUtility.NewsTypes.None;
+    }
+
+    public enum NewsTypes
+    {
+      None,
+      Normal,
+      Urgency,
+    }
+  }
+}

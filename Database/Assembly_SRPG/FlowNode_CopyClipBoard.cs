@@ -1,78 +1,56 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_CopyClipBoard
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using DeviceKit;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
-    using UnityEngine.UI;
+  [FlowNode.Pin(1, "成功", FlowNode.PinTypes.Output, 1)]
+  [FlowNode.Pin(0, "コピー", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(2, "失敗", FlowNode.PinTypes.Output, 2)]
+  [FlowNode.NodeType("System/CopyClipBoard", 32741)]
+  public class FlowNode_CopyClipBoard : FlowNode
+  {
+    [SerializeField]
+    private Text Target;
+    public string LocalizeText;
 
-    [Pin(2, "失敗", 1, 2), Pin(1, "成功", 1, 1), Pin(0, "コピー", 0, 0), NodeType("System/CopyClipBoard", 0x7fe5)]
-    public class FlowNode_CopyClipBoard : FlowNode
+    public override void OnActivate(int pinID)
     {
-        [SerializeField]
-        private Text Target;
-        public string LocalizeText;
-
-        public FlowNode_CopyClipBoard()
-        {
-            base..ctor();
-            return;
-        }
-
-        private bool CopyFrom(string text)
-        {
-            if (string.IsNullOrEmpty(text) == null)
-            {
-                goto Label_000D;
-            }
-            return 0;
-        Label_000D:
-            text = text.Replace("<br>", "\n");
-            GUIUtility.set_systemCopyBuffer(text);
-            return 1;
-        }
-
-        private bool CopyFrom(Text target)
-        {
-            if ((target == null) == null)
-            {
-                goto Label_000E;
-            }
-            return 0;
-        Label_000E:
-            return this.CopyFrom(target.get_text());
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != null)
-            {
-                goto Label_006C;
-            }
-            if (string.IsNullOrEmpty(this.LocalizeText) == null)
-            {
-                goto Label_0041;
-            }
-            if (this.CopyFrom(this.Target) == null)
-            {
-                goto Label_0034;
-            }
-            base.ActivateOutputLinks(1);
-            goto Label_003C;
-        Label_0034:
-            base.ActivateOutputLinks(2);
-        Label_003C:
-            goto Label_006C;
-        Label_0041:
-            if (this.CopyFrom(LocalizedText.Get(this.LocalizeText)) == null)
-            {
-                goto Label_0064;
-            }
-            base.ActivateOutputLinks(1);
-            goto Label_006C;
-        Label_0064:
-            base.ActivateOutputLinks(2);
-        Label_006C:
-            return;
-        }
+      if (pinID != 0)
+        return;
+      if (string.IsNullOrEmpty(this.LocalizeText))
+      {
+        if (this.CopyFrom(this.Target))
+          this.ActivateOutputLinks(1);
+        else
+          this.ActivateOutputLinks(2);
+      }
+      else if (this.CopyFrom(LocalizedText.Get(this.LocalizeText)))
+        this.ActivateOutputLinks(1);
+      else
+        this.ActivateOutputLinks(2);
     }
-}
 
+    private bool CopyFrom(Text target)
+    {
+      if (Object.op_Equality((Object) target, (Object) null))
+        return false;
+      return this.CopyFrom(target.get_text());
+    }
+
+    private bool CopyFrom(string text)
+    {
+      if (string.IsNullOrEmpty(text))
+        return false;
+      text = text.Replace("<br>", "\n");
+      App.SetClipboard(text);
+      return true;
+    }
+  }
+}

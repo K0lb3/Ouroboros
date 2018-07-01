@@ -1,142 +1,52 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.SceneDummyStartup
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System.Collections;
+using System.Diagnostics;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.Runtime.CompilerServices;
-    using UnityEngine;
+  public class SceneDummyStartup : Scene
+  {
+    private static bool mResolutionChanged;
 
-    public class SceneDummyStartup : Scene
+    private new void Awake()
     {
-        private static bool mResolutionChanged;
-
-        public SceneDummyStartup()
-        {
-            base..ctor();
-            return;
-        }
-
-        private void Awake()
-        {
-            object[] objArray1;
-            int num;
-            int num2;
-            float num3;
-            int num4;
-            int num5;
-            int num6;
-            base.Awake();
-            MonoSingleton<UrlScheme>.Instance.Ensure();
-            MonoSingleton<PaymentManager>.Instance.Ensure();
-            MonoSingleton<NetworkError>.Instance.Ensure();
-            if (mResolutionChanged != null)
-            {
-                goto Label_00AC;
-            }
-            num = ScreenUtility.DefaultScreenWidth;
-            num2 = ScreenUtility.DefaultScreenHeight;
-            num3 = ((float) num) / ((float) num2);
-            num4 = Mathf.Min(num2, 750);
-            num5 = Mathf.FloorToInt(num3 * ((float) num4));
-            num6 = num4;
-            ScreenUtility.SetResolution(num5, num6);
-            mResolutionChanged = 1;
-            objArray1 = new object[] { (int) num5, (int) num6, (int) Screen.get_width(), (int) Screen.get_height() };
-            Debug.Log(string.Format("Changing Resolution to [{0} x {1}] from [{2} x {3}]", objArray1));
-        Label_00AC:
-            return;
-        }
-
-        [DebuggerHidden]
-        private IEnumerator Start()
-        {
-            <Start>c__Iterator80 iterator;
-            iterator = new <Start>c__Iterator80();
-            return iterator;
-        }
-
-        [CompilerGenerated]
-        private sealed class <Start>c__Iterator80 : IEnumerator, IDisposable, IEnumerator<object>
-        {
-            internal GameManager <gm>__0;
-            internal int $PC;
-            internal object $current;
-
-            public <Start>c__Iterator80()
-            {
-                base..ctor();
-                return;
-            }
-
-            [DebuggerHidden]
-            public void Dispose()
-            {
-                this.$PC = -1;
-                return;
-            }
-
-            public bool MoveNext()
-            {
-                uint num;
-                bool flag;
-                num = this.$PC;
-                this.$PC = -1;
-                switch (num)
-                {
-                    case 0:
-                        goto Label_0021;
-
-                    case 1:
-                        goto Label_003D;
-                }
-                goto Label_0076;
-            Label_0021:
-                this.$current = new WaitForSeconds(0.1f);
-                this.$PC = 1;
-                goto Label_0078;
-            Label_003D:
-                this.<gm>__0 = MonoSingleton<GameManager>.GetInstanceDirect();
-                if ((this.<gm>__0 != null) == null)
-                {
-                    goto Label_0064;
-                }
-                Object.DestroyImmediate(this.<gm>__0);
-            Label_0064:
-                this.<gm>__0 = MonoSingleton<GameManager>.Instance;
-                this.$PC = -1;
-            Label_0076:
-                return 0;
-            Label_0078:
-                return 1;
-                return flag;
-            }
-
-            [DebuggerHidden]
-            public void Reset()
-            {
-                throw new NotSupportedException();
-            }
-
-            object IEnumerator<object>.Current
-            {
-                [DebuggerHidden]
-                get
-                {
-                    return this.$current;
-                }
-            }
-
-            object IEnumerator.Current
-            {
-                [DebuggerHidden]
-                get
-                {
-                    return this.$current;
-                }
-            }
-        }
+      base.Awake();
+      MonoSingleton<UrlScheme>.Instance.Ensure();
+      MonoSingleton<PaymentManager>.Instance.Ensure();
+      MonoSingleton<NetworkError>.Instance.Ensure();
+      if (SceneDummyStartup.mResolutionChanged)
+        return;
+      int defaultScreenWidth = ScreenUtility.DefaultScreenWidth;
+      int defaultScreenHeight = ScreenUtility.DefaultScreenHeight;
+      float num1 = (float) defaultScreenWidth / (float) defaultScreenHeight;
+      int num2 = Mathf.Min(defaultScreenHeight, 750);
+      int w = Mathf.FloorToInt(num1 * (float) num2);
+      int h = num2;
+      ScreenUtility.SetResolution(w, h);
+      SceneDummyStartup.mResolutionChanged = true;
+      Debug.Log((object) string.Format("Changing Resolution to [{0} x {1}] from [{2} x {3}]", new object[4]
+      {
+        (object) w,
+        (object) h,
+        (object) Screen.get_width(),
+        (object) Screen.get_height()
+      }));
     }
-}
 
+    [DebuggerHidden]
+    private IEnumerator Start()
+    {
+      // ISSUE: object of a compiler-generated type is created
+      // ISSUE: variable of a compiler-generated type
+      SceneDummyStartup.\u003CStart\u003Ec__Iterator92 startCIterator92 = new SceneDummyStartup.\u003CStart\u003Ec__Iterator92();
+      return (IEnumerator) startCIterator92;
+    }
+  }
+}

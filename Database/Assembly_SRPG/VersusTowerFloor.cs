@@ -1,193 +1,115 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.VersusTowerFloor
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using UnityEngine;
-    using UnityEngine.UI;
+  public class VersusTowerFloor : MonoBehaviour
+  {
+    public Text FriendName;
+    public Text FloorText;
+    public GameObject UnitObj;
+    public GameObject FloorInfoObj;
+    public GameObject RingObj;
+    public Sprite CurrentSprite;
+    public Sprite DefaultSprite;
+    public Image FloorImage;
+    private int mCurrentFloor;
 
-    public class VersusTowerFloor : MonoBehaviour
+    public VersusTowerFloor()
     {
-        public Text FriendName;
-        public Text FloorText;
-        public GameObject UnitObj;
-        public GameObject FloorInfoObj;
-        public GameObject RingObj;
-        public Sprite CurrentSprite;
-        public Sprite DefaultSprite;
-        public Image FloorImage;
-        private int mCurrentFloor;
-
-        public VersusTowerFloor()
-        {
-            this.mCurrentFloor = -1;
-            base..ctor();
-            return;
-        }
-
-        public unsafe void Refresh(int idx, int max)
-        {
-            GameManager manager;
-            int num;
-            int num2;
-            VersusFriendScore[] scoreArray;
-            int num3;
-            string str;
-            manager = MonoSingleton<GameManager>.Instance;
-            num = manager.Player.VersusTowerFloor;
-            num2 = idx + 1;
-            if (idx < 0)
-            {
-                goto Label_022C;
-            }
-            if (idx >= max)
-            {
-                goto Label_022C;
-            }
-            this.mCurrentFloor = num2;
-            if ((this.FloorInfoObj != null) == null)
-            {
-                goto Label_0048;
-            }
-            this.FloorInfoObj.SetActive(1);
-        Label_0048:
-            if ((this.FloorText != null) == null)
-            {
-                goto Label_00C4;
-            }
-            this.FloorText.set_text(&num2.ToString() + LocalizedText.Get("sys.MULTI_VERSUS_FLOOR"));
-            if (num2 != num)
-            {
-                goto Label_00A5;
-            }
-            this.FloorText.set_color(new Color(1f, 1f, 0f));
-            goto Label_00C4;
-        Label_00A5:
-            this.FloorText.set_color(new Color(1f, 1f, 1f));
-        Label_00C4:
-            if ((this.FloorImage != null) == null)
-            {
-                goto Label_0125;
-            }
-            if (num2 != num)
-            {
-                goto Label_0103;
-            }
-            if ((this.CurrentSprite != null) == null)
-            {
-                goto Label_0125;
-            }
-            this.FloorImage.set_sprite(this.CurrentSprite);
-            goto Label_0125;
-        Label_0103:
-            if ((this.DefaultSprite != null) == null)
-            {
-                goto Label_0125;
-            }
-            this.FloorImage.set_sprite(this.DefaultSprite);
-        Label_0125:
-            if ((this.RingObj != null) == null)
-            {
-                goto Label_0145;
-            }
-            this.RingObj.SetActive(num == num2);
-        Label_0145:
-            scoreArray = manager.GetVersusFriendScore(num2);
-            if (scoreArray == null)
-            {
-                goto Label_020A;
-            }
-            if (((int) scoreArray.Length) <= 0)
-            {
-                goto Label_020A;
-            }
-            if (num2 == num)
-            {
-                goto Label_020A;
-            }
-            num3 = (int) scoreArray.Length;
-            str = string.Empty;
-            if ((this.UnitObj != null) == null)
-            {
-                goto Label_01AA;
-            }
-            this.UnitObj.SetActive(1);
-            DataSource.Bind<UnitData>(this.UnitObj, scoreArray[0].unit);
-            GameParameter.UpdateAll(this.UnitObj);
-        Label_01AA:
-            num3 -= 1;
-            if (num3 <= 0)
-            {
-                goto Label_01DD;
-            }
-            str = string.Format(LocalizedText.Get("sys.MULTI_VERSUS_FRIEND_NAME"), scoreArray[0].name, (int) num3);
-            goto Label_01E7;
-        Label_01DD:
-            str = scoreArray[0].name;
-        Label_01E7:
-            if ((this.FriendName != null) == null)
-            {
-                goto Label_02A0;
-            }
-            this.FriendName.set_text(str);
-            goto Label_0227;
-        Label_020A:
-            if ((this.UnitObj != null) == null)
-            {
-                goto Label_02A0;
-            }
-            this.UnitObj.SetActive(0);
-        Label_0227:
-            goto Label_02A0;
-        Label_022C:
-            this.mCurrentFloor = -1;
-            if ((this.FloorInfoObj != null) == null)
-            {
-                goto Label_0250;
-            }
-            this.FloorInfoObj.SetActive(0);
-        Label_0250:
-            if ((this.RingObj != null) == null)
-            {
-                goto Label_026D;
-            }
-            this.RingObj.SetActive(0);
-        Label_026D:
-            if ((this.FloorImage != null) == null)
-            {
-                goto Label_02A0;
-            }
-            if ((this.DefaultSprite != null) == null)
-            {
-                goto Label_02A0;
-            }
-            this.FloorImage.set_sprite(this.DefaultSprite);
-        Label_02A0:
-            return;
-        }
-
-        public void SetPlayerObject(GameObject playerObj)
-        {
-            if ((playerObj != null) == null)
-            {
-                goto Label_003F;
-            }
-            playerObj.SetActive(1);
-            if ((this.RingObj != null) == null)
-            {
-                goto Label_003F;
-            }
-            playerObj.get_transform().set_position(this.RingObj.get_transform().get_position());
-        Label_003F:
-            return;
-        }
-
-        public int Floor
-        {
-            get
-            {
-                return this.mCurrentFloor;
-            }
-        }
+      base.\u002Ector();
     }
-}
 
+    public int Floor
+    {
+      get
+      {
+        return this.mCurrentFloor;
+      }
+    }
+
+    public void Refresh(int idx, int max)
+    {
+      GameManager instance = MonoSingleton<GameManager>.Instance;
+      int versusTowerFloor = instance.Player.VersusTowerFloor;
+      int floor = idx + 1;
+      if (idx >= 0 && idx < max)
+      {
+        this.mCurrentFloor = floor;
+        if (Object.op_Inequality((Object) this.FloorInfoObj, (Object) null))
+          this.FloorInfoObj.SetActive(true);
+        if (Object.op_Inequality((Object) this.FloorText, (Object) null))
+        {
+          this.FloorText.set_text(floor.ToString() + LocalizedText.Get("sys.MULTI_VERSUS_FLOOR"));
+          if (floor == versusTowerFloor)
+            ((Graphic) this.FloorText).set_color(new Color(1f, 1f, 0.0f));
+          else
+            ((Graphic) this.FloorText).set_color(new Color(1f, 1f, 1f));
+        }
+        if (Object.op_Inequality((Object) this.FloorImage, (Object) null))
+        {
+          if (floor == versusTowerFloor)
+          {
+            if (Object.op_Inequality((Object) this.CurrentSprite, (Object) null))
+              this.FloorImage.set_sprite(this.CurrentSprite);
+          }
+          else if (Object.op_Inequality((Object) this.DefaultSprite, (Object) null))
+            this.FloorImage.set_sprite(this.DefaultSprite);
+        }
+        if (Object.op_Inequality((Object) this.RingObj, (Object) null))
+          this.RingObj.SetActive(versusTowerFloor == floor);
+        VersusFriendScore[] versusFriendScore = instance.GetVersusFriendScore(floor);
+        if (versusFriendScore != null && versusFriendScore.Length > 0 && floor != versusTowerFloor)
+        {
+          int length = versusFriendScore.Length;
+          string empty = string.Empty;
+          if (Object.op_Inequality((Object) this.UnitObj, (Object) null))
+          {
+            this.UnitObj.SetActive(true);
+            DataSource.Bind<UnitData>(this.UnitObj, versusFriendScore[0].unit);
+            GameParameter.UpdateAll(this.UnitObj);
+          }
+          int num = length - 1;
+          string str = num <= 0 ? versusFriendScore[0].name : string.Format(LocalizedText.Get("sys.MULTI_VERSUS_FRIEND_NAME"), (object) versusFriendScore[0].name, (object) num);
+          if (!Object.op_Inequality((Object) this.FriendName, (Object) null))
+            return;
+          this.FriendName.set_text(str);
+        }
+        else
+        {
+          if (!Object.op_Inequality((Object) this.UnitObj, (Object) null))
+            return;
+          this.UnitObj.SetActive(false);
+        }
+      }
+      else
+      {
+        this.mCurrentFloor = -1;
+        if (Object.op_Inequality((Object) this.FloorInfoObj, (Object) null))
+          this.FloorInfoObj.SetActive(false);
+        if (Object.op_Inequality((Object) this.RingObj, (Object) null))
+          this.RingObj.SetActive(false);
+        if (!Object.op_Inequality((Object) this.FloorImage, (Object) null) || !Object.op_Inequality((Object) this.DefaultSprite, (Object) null))
+          return;
+        this.FloorImage.set_sprite(this.DefaultSprite);
+      }
+    }
+
+    public void SetPlayerObject(GameObject playerObj)
+    {
+      if (!Object.op_Inequality((Object) playerObj, (Object) null))
+        return;
+      playerObj.SetActive(true);
+      if (!Object.op_Inequality((Object) this.RingObj, (Object) null))
+        return;
+      playerObj.get_transform().set_position(this.RingObj.get_transform().get_position());
+    }
+  }
+}

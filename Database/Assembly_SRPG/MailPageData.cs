@@ -1,66 +1,43 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.MailPageData
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Collections.Generic;
+
+namespace SRPG
 {
-    using System;
-    using System.Collections.Generic;
+  public class MailPageData
+  {
+    public List<MailData> mails;
+    public bool hasNext;
+    public bool hasPrev;
+    public int page;
+    public int pageMax;
+    public int mailCount;
 
-    public class MailPageData
+    public void Deserialize(Json_Mail[] mailArray)
     {
-        public List<MailData> mails;
-        public bool hasNext;
-        public bool hasPrev;
-        public int page;
-        public int pageMax;
-        public int mailCount;
-
-        public MailPageData()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void Deserialize(Json_Mail[] mailArray)
-        {
-            Json_Mail mail;
-            Json_Mail[] mailArray2;
-            int num;
-            MailData data;
-            if (this.mails != null)
-            {
-                goto Label_0016;
-            }
-            this.mails = new List<MailData>();
-        Label_0016:
-            if (mailArray == null)
-            {
-                goto Label_0050;
-            }
-            mailArray2 = mailArray;
-            num = 0;
-            goto Label_0047;
-        Label_0025:
-            mail = mailArray2[num];
-            data = new MailData();
-            data.Deserialize(mail);
-            this.mails.Add(data);
-            num += 1;
-        Label_0047:
-            if (num < ((int) mailArray2.Length))
-            {
-                goto Label_0025;
-            }
-        Label_0050:
-            return;
-        }
-
-        public void Deserialize(Json_MailOption mailOption)
-        {
-            this.hasNext = mailOption.hasNext > 0;
-            this.hasPrev = mailOption.hasPrev > 0;
-            this.page = mailOption.currentPage;
-            this.pageMax = mailOption.totalPage;
-            this.mailCount = mailOption.totalCount;
-            return;
-        }
+      if (this.mails == null)
+        this.mails = new List<MailData>();
+      if (mailArray == null)
+        return;
+      foreach (Json_Mail mail in mailArray)
+      {
+        MailData mailData = new MailData();
+        mailData.Deserialize(mail);
+        this.mails.Add(mailData);
+      }
     }
-}
 
+    public void Deserialize(Json_MailOption mailOption)
+    {
+      this.hasNext = (int) mailOption.hasNext > 0;
+      this.hasPrev = (int) mailOption.hasPrev > 0;
+      this.page = mailOption.currentPage;
+      this.pageMax = mailOption.totalPage;
+      this.mailCount = mailOption.totalCount;
+    }
+  }
+}

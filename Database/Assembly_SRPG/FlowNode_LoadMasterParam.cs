@@ -1,143 +1,106 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_LoadMasterParam
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+using System.Threading;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Runtime.InteropServices;
-    using System.Threading;
-    using UnityEngine;
+  [FlowNode.Pin(100, "Finished", FlowNode.PinTypes.Output, 100)]
+  [FlowNode.NodeType("System/LoadMasterParam", 16777215)]
+  [FlowNode.Pin(0, "Start", FlowNode.PinTypes.Input, 0)]
+  public class FlowNode_LoadMasterParam : FlowNode
+  {
+    private Mutex mMutex;
+    private int mResult;
 
-    [Pin(100, "Finished", 1, 100), Pin(0, "Start", 0, 0), NodeType("System/LoadMasterParam", 0xffffff)]
-    public class FlowNode_LoadMasterParam : FlowNode
+    public override void OnActivate(int pinID)
     {
-        private Mutex mMutex;
-        private int mResult;
-
-        public FlowNode_LoadMasterParam()
-        {
-            base..ctor();
-            return;
-        }
-
-        private static unsafe void LoadMasterDataThread(object param)
-        {
-            ThreadStartParam param2;
-            int num;
-            Exception exception;
-            Debug.Log("LoadMasterDataThread");
-            param2 = (ThreadStartParam) param;
-            Debug.Log("LoadMasterDataThread START");
-            num = -1;
-        Label_001D:
-            try
-            {
-                num = (&param2.GameManager.ReloadMasterData(null, null) == null) ? -1 : 1;
-                goto Label_0049;
-            }
-            catch (Exception exception1)
-            {
-            Label_003D:
-                exception = exception1;
-                Debug.LogException(exception);
-                goto Label_0049;
-            }
-        Label_0049:
-            Debug.Log("LoadMasterDataThread END");
-            if (&param2.self.mMutex == null)
-            {
-                goto Label_0094;
-            }
-            &param2.self.mMutex.WaitOne();
-            &param2.self.mResult = num;
-            &param2.self.mMutex.ReleaseMutex();
-        Label_0094:
-            return;
-        }
-
-        public override unsafe void OnActivate(int pinID)
-        {
-            ThreadStartParam param;
-            Thread thread;
-            if (pinID != null)
-            {
-                goto Label_0098;
-            }
-            if (base.get_enabled() != null)
-            {
-                goto Label_0098;
-            }
-            this.mResult = 0;
-            if (GameUtility.Config_UseAssetBundles.Value == null)
-            {
-                goto Label_0088;
-            }
-            base.set_enabled(1);
-            CriticalSection.Enter(1);
-            param = new ThreadStartParam();
-            &param.self = this;
-            &param.GameManager = MonoSingleton<GameManager>.Instance;
-            Debug.Log("Starting Thread");
-            this.mMutex = new Mutex();
-            thread = new Thread(new ParameterizedThreadStart(FlowNode_LoadMasterParam.LoadMasterDataThread));
-            thread.Start((ThreadStartParam) param);
-            goto Label_0098;
-        Label_0088:
-            base.set_enabled(0);
-            base.ActivateOutputLinks(100);
-        Label_0098:
-            return;
-        }
-
-        protected override void OnDestroy()
-        {
-            if (this.mMutex == null)
-            {
-                goto Label_0034;
-            }
-            this.mMutex.WaitOne();
-            this.mMutex.ReleaseMutex();
-            this.mMutex.Close();
-            this.mMutex = null;
-        Label_0034:
-            base.OnDestroy();
-            return;
-        }
-
-        private void Update()
-        {
-            bool flag;
-            if (this.mMutex == null)
-            {
-                goto Label_0082;
-            }
-            this.mMutex.WaitOne();
-            flag = (this.mResult == 0) == 0;
-            this.mMutex.ReleaseMutex();
-            if (flag == null)
-            {
-                goto Label_0082;
-            }
-            this.mMutex.Close();
-            this.mMutex = null;
-            if (this.mResult >= 0)
-            {
-                goto Label_005D;
-            }
-            DebugUtility.LogError("Failed to load MasterParam");
-        Label_005D:
-            base.set_enabled(0);
-            CriticalSection.Leave(1);
-            MonoSingleton<GameManager>.Instance.MasterParam.DumpLoadedLog();
-            base.ActivateOutputLinks(100);
-        Label_0082:
-            return;
-        }
-
-        [StructLayout(LayoutKind.Sequential)]
-        private struct ThreadStartParam
-        {
-            public FlowNode_LoadMasterParam self;
-            public SRPG.GameManager GameManager;
-        }
+      if (pinID != 0 || ((Behaviour) this).get_enabled())
+        return;
+      this.mResult = 0;
+      if (GameUtility.Config_UseAssetBundles.Value)
+      {
+        ((Behaviour) this).set_enabled(true);
+        CriticalSection.Enter(CriticalSections.Default);
+        FlowNode_LoadMasterParam.ThreadStartParam threadStartParam = new FlowNode_LoadMasterParam.ThreadStartParam();
+        threadStartParam.self = this;
+        threadStartParam.GameManager = MonoSingleton<GameManager>.Instance;
+        threadStartParam.Language = GameUtility.Config_Language;
+        Debug.Log((object) "Starting Thread");
+        this.mMutex = new Mutex();
+        new Thread(new ParameterizedThreadStart(FlowNode_LoadMasterParam.LoadMasterDataThread)).Start((object) threadStartParam);
+      }
+      else
+      {
+        ((Behaviour) this).set_enabled(false);
+        this.ActivateOutputLinks(100);
+      }
     }
-}
 
+    protected override void OnDestroy()
+    {
+      if (this.mMutex != null)
+      {
+        this.mMutex.WaitOne();
+        this.mMutex.ReleaseMutex();
+        this.mMutex.Close();
+        this.mMutex = (Mutex) null;
+      }
+      base.OnDestroy();
+    }
+
+    private void Update()
+    {
+      if (this.mMutex == null)
+        return;
+      this.mMutex.WaitOne();
+      bool flag = this.mResult != 0;
+      this.mMutex.ReleaseMutex();
+      if (!flag)
+        return;
+      this.mMutex.Close();
+      this.mMutex = (Mutex) null;
+      if (this.mResult < 0)
+        DebugUtility.LogError("Failed to load MasterParam");
+      ((Behaviour) this).set_enabled(false);
+      CriticalSection.Leave(CriticalSections.Default);
+      MonoSingleton<GameManager>.Instance.MasterParam.DumpLoadedLog();
+      this.ActivateOutputLinks(100);
+    }
+
+    private static void LoadMasterDataThread(object param)
+    {
+      Debug.Log((object) nameof (LoadMasterDataThread));
+      FlowNode_LoadMasterParam.ThreadStartParam threadStartParam = (FlowNode_LoadMasterParam.ThreadStartParam) param;
+      Debug.Log((object) "LoadMasterDataThread START");
+      int num = -1;
+      try
+      {
+        num = !threadStartParam.GameManager.ReloadMasterDataWithLanguage(threadStartParam.Language, (string) null, (string) null) ? -1 : 1;
+      }
+      catch (Exception ex)
+      {
+        Debug.LogException(ex);
+      }
+      Debug.Log((object) "LoadMasterDataThread END");
+      if (threadStartParam.self.mMutex == null)
+        return;
+      threadStartParam.self.mMutex.WaitOne();
+      threadStartParam.self.mResult = num;
+      threadStartParam.self.mMutex.ReleaseMutex();
+    }
+
+    private struct ThreadStartParam
+    {
+      public FlowNode_LoadMasterParam self;
+      public GameManager GameManager;
+      public string Language;
+    }
+  }
+}

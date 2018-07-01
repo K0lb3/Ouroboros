@@ -1,146 +1,71 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.TowerQuestDropItemList
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Collections.Generic;
-    using System.Runtime.CompilerServices;
-    using UnityEngine;
-
-    public class TowerQuestDropItemList : QuestDropItemList
+  public class TowerQuestDropItemList : QuestDropItemList
+  {
+    protected override void Refresh()
     {
-        public TowerQuestDropItemList()
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.ItemTemplate, (UnityEngine.Object) null))
+        return;
+      for (int index = this.mItems.Count - 1; index >= 0; --index)
+        UnityEngine.Object.Destroy((UnityEngine.Object) this.mItems[index]);
+      QuestParam dataOfClass = DataSource.FindDataOfClass<QuestParam>(((Component) this).get_gameObject(), (QuestParam) null);
+      if (dataOfClass == null)
+        return;
+      Transform transform = ((Component) this).get_transform();
+      List<TowerRewardItem> towerRewardItem = MonoSingleton<GameManager>.Instance.FindTowerReward(MonoSingleton<GameManager>.Instance.FindTowerFloor(dataOfClass.iname).reward_id).GetTowerRewardItem();
+      for (int index = 0; index < towerRewardItem.Count; ++index)
+      {
+        // ISSUE: object of a compiler-generated type is created
+        // ISSUE: variable of a compiler-generated type
+        TowerQuestDropItemList.\u003CRefresh\u003Ec__AnonStorey37F refreshCAnonStorey37F = new TowerQuestDropItemList.\u003CRefresh\u003Ec__AnonStorey37F();
+        // ISSUE: reference to a compiler-generated field
+        refreshCAnonStorey37F.item = towerRewardItem[index];
+        // ISSUE: reference to a compiler-generated field
+        // ISSUE: reference to a compiler-generated field
+        if (refreshCAnonStorey37F.item.visible && refreshCAnonStorey37F.item.type != TowerRewardItem.RewardType.Gold)
         {
-            base..ctor();
-            return;
+          GameObject gameObject = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.ItemTemplate);
+          gameObject.get_transform().SetParent(transform, false);
+          gameObject.get_transform().set_localScale(this.ItemTemplate.get_transform().get_localScale());
+          // ISSUE: reference to a compiler-generated field
+          DataSource.Bind<TowerRewardItem>(gameObject, refreshCAnonStorey37F.item);
+          gameObject.SetActive(true);
+          foreach (GameParameter componentsInChild in (GameParameter[]) gameObject.GetComponentsInChildren<GameParameter>())
+            componentsInChild.Index = index;
+          TowerRewardUI componentInChildren1 = (TowerRewardUI) gameObject.GetComponentInChildren<TowerRewardUI>();
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) componentInChildren1, (UnityEngine.Object) null))
+            componentInChildren1.Refresh();
+          // ISSUE: reference to a compiler-generated field
+          if (refreshCAnonStorey37F.item.type == TowerRewardItem.RewardType.Artifact)
+          {
+            // ISSUE: reference to a compiler-generated field
+            ArtifactParam artifactParam = MonoSingleton<GameManager>.Instance.MasterParam.GetArtifactParam(refreshCAnonStorey37F.item.iname);
+            DataSource.Bind<ArtifactParam>(gameObject, artifactParam);
+            ArtifactIcon componentInChildren2 = (ArtifactIcon) gameObject.GetComponentInChildren<ArtifactIcon>();
+            if (UnityEngine.Object.op_Equality((UnityEngine.Object) componentInChildren2, (UnityEngine.Object) null))
+              break;
+            ((Behaviour) componentInChildren2).set_enabled(true);
+            componentInChildren2.UpdateValue();
+            // ISSUE: reference to a compiler-generated method
+            if (MonoSingleton<GameManager>.Instance.Player.Artifacts.Find(new Predicate<ArtifactData>(refreshCAnonStorey37F.\u003C\u003Em__424)) != null)
+              break;
+            // ISSUE: reference to a compiler-generated field
+            refreshCAnonStorey37F.item.is_new = true;
+            break;
+          }
         }
-
-        protected override void Refresh()
-        {
-            int num;
-            QuestParam param;
-            Transform transform;
-            TowerFloorParam param2;
-            TowerRewardParam param3;
-            List<TowerRewardItem> list;
-            int num2;
-            GameObject obj2;
-            GameParameter[] parameterArray;
-            int num3;
-            TowerRewardUI dui;
-            ArtifactParam param4;
-            ArtifactIcon icon;
-            ArtifactData data;
-            <Refresh>c__AnonStorey3AD storeyad;
-            if ((base.ItemTemplate == null) == null)
-            {
-                goto Label_0012;
-            }
-            return;
-        Label_0012:
-            num = base.mItems.Count - 1;
-            goto Label_003A;
-        Label_0025:
-            Object.Destroy(base.mItems[num]);
-            num -= 1;
-        Label_003A:
-            if (num >= 0)
-            {
-                goto Label_0025;
-            }
-            param = DataSource.FindDataOfClass<QuestParam>(base.get_gameObject(), null);
-            if (param == null)
-            {
-                goto Label_0218;
-            }
-            transform = base.get_transform();
-            param2 = MonoSingleton<GameManager>.Instance.FindTowerFloor(param.iname);
-            list = MonoSingleton<GameManager>.Instance.FindTowerReward(param2.reward_id).GetTowerRewardItem();
-            num2 = 0;
-            goto Label_020A;
-        Label_008F:
-            storeyad = new <Refresh>c__AnonStorey3AD();
-            storeyad.item = list[num2];
-            if (storeyad.item.visible == null)
-            {
-                goto Label_0204;
-            }
-            if (storeyad.item.type != 1)
-            {
-                goto Label_00CE;
-            }
-            goto Label_0204;
-        Label_00CE:
-            obj2 = Object.Instantiate<GameObject>(base.ItemTemplate);
-            obj2.get_transform().SetParent(transform, 0);
-            obj2.get_transform().set_localScale(base.ItemTemplate.get_transform().get_localScale());
-            DataSource.Bind<TowerRewardItem>(obj2, storeyad.item);
-            obj2.SetActive(1);
-            parameterArray = obj2.GetComponentsInChildren<GameParameter>();
-            num3 = 0;
-            goto Label_013E;
-        Label_012C:
-            parameterArray[num3].Index = num2;
-            num3 += 1;
-        Label_013E:
-            if (num3 < ((int) parameterArray.Length))
-            {
-                goto Label_012C;
-            }
-            dui = obj2.GetComponentInChildren<TowerRewardUI>();
-            if ((dui != null) == null)
-            {
-                goto Label_0166;
-            }
-            dui.Refresh();
-        Label_0166:
-            if (storeyad.item.type != 6)
-            {
-                goto Label_0204;
-            }
-            param4 = MonoSingleton<GameManager>.Instance.MasterParam.GetArtifactParam(storeyad.item.iname);
-            DataSource.Bind<ArtifactParam>(obj2, param4);
-            icon = obj2.GetComponentInChildren<ArtifactIcon>();
-            if ((icon == null) == null)
-            {
-                goto Label_01B9;
-            }
-            goto Label_0218;
-        Label_01B9:
-            icon.set_enabled(1);
-            icon.UpdateValue();
-            if (MonoSingleton<GameManager>.Instance.Player.Artifacts.Find(new Predicate<ArtifactData>(storeyad.<>m__427)) != null)
-            {
-                goto Label_0218;
-            }
-            storeyad.item.is_new = 1;
-            goto Label_0218;
-        Label_0204:
-            num2 += 1;
-        Label_020A:
-            if (num2 < list.Count)
-            {
-                goto Label_008F;
-            }
-        Label_0218:
-            return;
-        }
-
-        [CompilerGenerated]
-        private sealed class <Refresh>c__AnonStorey3AD
-        {
-            internal TowerRewardItem item;
-
-            public <Refresh>c__AnonStorey3AD()
-            {
-                base..ctor();
-                return;
-            }
-
-            internal bool <>m__427(ArtifactData x)
-            {
-                return (x.ArtifactParam.iname == this.item.iname);
-            }
-        }
+      }
     }
+  }
 }
-

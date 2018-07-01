@@ -1,208 +1,112 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.UnitQueue
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using System.Runtime.InteropServices;
-    using UnityEngine;
-    using UnityEngine.UI;
+  public class UnitQueue : MonoBehaviour
+  {
+    public static UnitQueue Instance;
+    public GameObject[] Items;
+    public UnitQueue.Layer[] Units;
+    public Button[] UnitButtons;
+    public GameObject LastUnit;
+    private Unit[] mCurrentUnits;
 
-    public class UnitQueue : MonoBehaviour
+    public UnitQueue()
     {
-        public static UnitQueue Instance;
-        public GameObject[] Items;
-        public Layer[] Units;
-        public Button[] UnitButtons;
-        public GameObject LastUnit;
-        private Unit[] mCurrentUnits;
-
-        public UnitQueue()
-        {
-            this.Items = new GameObject[0];
-            this.Units = new Layer[0];
-            this.UnitButtons = new Button[0];
-            base..ctor();
-            return;
-        }
-
-        private void OnDisable()
-        {
-            if ((Instance == this) == null)
-            {
-                goto Label_0016;
-            }
-            Instance = null;
-        Label_0016:
-            return;
-        }
-
-        private void OnEnable()
-        {
-            if ((Instance == null) == null)
-            {
-                goto Label_0016;
-            }
-            Instance = this;
-        Label_0016:
-            return;
-        }
-
-        public unsafe void Refresh(Unit unit)
-        {
-            int num;
-            int num2;
-            num = 0;
-            goto Label_00C5;
-        Label_0007:
-            if (this.mCurrentUnits[num] != unit)
-            {
-                goto Label_00C1;
-            }
-            if (num >= ((int) this.Items.Length))
-            {
-                goto Label_0043;
-            }
-            if ((this.Items[num] != null) == null)
-            {
-                goto Label_0043;
-            }
-            GameParameter.UpdateAll(this.Items[num]);
-        Label_0043:
-            if (num >= ((int) this.Units.Length))
-            {
-                goto Label_00C1;
-            }
-            if (&(this.Units[num]).Layers == null)
-            {
-                goto Label_00C1;
-            }
-            num2 = 0;
-            goto Label_00A8;
-        Label_006E:
-            if ((&(this.Units[num]).Layers[num2] != null) == null)
-            {
-                goto Label_00A4;
-            }
-            GameParameter.UpdateAll(&(this.Units[num]).Layers[num2]);
-        Label_00A4:
-            num2 += 1;
-        Label_00A8:
-            if (num2 < ((int) &(this.Units[num]).Layers.Length))
-            {
-                goto Label_006E;
-            }
-        Label_00C1:
-            num += 1;
-        Label_00C5:
-            if (num < ((int) this.mCurrentUnits.Length))
-            {
-                goto Label_0007;
-            }
-            return;
-        }
-
-        public unsafe void Refresh(int offset)
-        {
-            SceneBattle battle;
-            BattleCore core;
-            int num;
-            int num2;
-            BattleCore.OrderData data;
-            Unit unit;
-            int num3;
-            battle = SceneBattle.Instance;
-            if ((battle == null) == null)
-            {
-                goto Label_0013;
-            }
-            return;
-        Label_0013:
-            core = battle.Battle;
-            if (core != null)
-            {
-                goto Label_0021;
-            }
-            return;
-        Label_0021:
-            if (core.Order.Count != null)
-            {
-                goto Label_0032;
-            }
-            return;
-        Label_0032:
-            num = Mathf.Max((int) this.Items.Length, (int) this.Units.Length);
-            num2 = 0;
-            goto Label_0168;
-        Label_004F:
-            data = core.Order[num2 % core.Order.Count];
-            unit = data.Unit;
-            if (num2 >= ((int) this.mCurrentUnits.Length))
-            {
-                goto Label_008A;
-            }
-            this.mCurrentUnits[num2] = unit;
-        Label_008A:
-            if (num2 >= ((int) this.Items.Length))
-            {
-                goto Label_00D6;
-            }
-            if ((this.Items[num2] != null) == null)
-            {
-                goto Label_00D6;
-            }
-            DataSource.Bind<Unit>(this.Items[num2], unit);
-            DataSource.Bind<BattleCore.OrderData>(this.Items[num2], data);
-            GameParameter.UpdateAll(this.Items[num2]);
-        Label_00D6:
-            if (num2 >= ((int) this.Units.Length))
-            {
-                goto Label_0164;
-            }
-            num3 = 0;
-            goto Label_014A;
-        Label_00EC:
-            if ((&(this.Units[num2]).Layers[num3] == null) == null)
-            {
-                goto Label_0110;
-            }
-            goto Label_0144;
-        Label_0110:
-            DataSource.Bind<Unit>(&(this.Units[num2]).Layers[num3], unit);
-            GameParameter.UpdateAll(&(this.Units[num2]).Layers[num3]);
-        Label_0144:
-            num3 += 1;
-        Label_014A:
-            if (num3 < ((int) &(this.Units[num2]).Layers.Length))
-            {
-                goto Label_00EC;
-            }
-        Label_0164:
-            num2 += 1;
-        Label_0168:
-            if (num2 < num)
-            {
-                goto Label_004F;
-            }
-            if ((this.LastUnit != null) == null)
-            {
-                goto Label_01BE;
-            }
-            DataSource.Bind<Unit>(this.LastUnit, core.Order[0].Unit);
-            DataSource.Bind<BattleCore.OrderData>(this.LastUnit, core.Order[0]);
-            GameParameter.UpdateAll(this.LastUnit);
-        Label_01BE:
-            return;
-        }
-
-        private void Start()
-        {
-            this.mCurrentUnits = new Unit[Mathf.Max((int) this.Items.Length, (int) this.Units.Length)];
-            return;
-        }
-
-        [Serializable, StructLayout(LayoutKind.Sequential)]
-        public struct Layer
-        {
-            public GameObject[] Layers;
-        }
+      base.\u002Ector();
     }
-}
 
+    public void Refresh(Unit unit)
+    {
+      for (int index1 = 0; index1 < this.mCurrentUnits.Length; ++index1)
+      {
+        if (this.mCurrentUnits[index1] == unit)
+        {
+          if (index1 < this.Items.Length && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Items[index1], (UnityEngine.Object) null))
+            GameParameter.UpdateAll(this.Items[index1]);
+          if (index1 < this.Units.Length && this.Units[index1].Layers != null)
+          {
+            for (int index2 = 0; index2 < this.Units[index1].Layers.Length; ++index2)
+            {
+              if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Units[index1].Layers[index2], (UnityEngine.Object) null))
+                GameParameter.UpdateAll(this.Units[index1].Layers[index2]);
+            }
+          }
+        }
+      }
+    }
+
+    private void Start()
+    {
+      this.mCurrentUnits = new Unit[Mathf.Max(this.Items.Length, this.Units.Length)];
+    }
+
+    public void Refresh(int offset = 0)
+    {
+      SceneBattle instance = SceneBattle.Instance;
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) instance, (UnityEngine.Object) null))
+        return;
+      BattleCore battle = instance.Battle;
+      if (battle == null || battle.Order.Count == 0)
+        return;
+      int num = Mathf.Max(this.Items.Length, this.Units.Length);
+      for (int index1 = 0; index1 < num; ++index1)
+      {
+        BattleCore.OrderData data = battle.Order[index1 % battle.Order.Count];
+        Unit unit = data.Unit;
+        if (index1 < this.mCurrentUnits.Length)
+          this.mCurrentUnits[index1] = unit;
+        if (index1 < this.Items.Length && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Items[index1], (UnityEngine.Object) null))
+        {
+          DataSource.Bind<Unit>(this.Items[index1], unit);
+          DataSource.Bind<BattleCore.OrderData>(this.Items[index1], data);
+          GameParameter.UpdateAll(this.Items[index1]);
+        }
+        if (index1 < this.Units.Length)
+        {
+          for (int index2 = 0; index2 < this.Units[index1].Layers.Length; ++index2)
+          {
+            if (!UnityEngine.Object.op_Equality((UnityEngine.Object) this.Units[index1].Layers[index2], (UnityEngine.Object) null))
+            {
+              DataSource.Bind<Unit>(this.Units[index1].Layers[index2], unit);
+              GameParameter.UpdateAll(this.Units[index1].Layers[index2]);
+            }
+          }
+        }
+      }
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.LastUnit, (UnityEngine.Object) null))
+        return;
+      DataSource.Bind<Unit>(this.LastUnit, battle.Order[0].Unit);
+      DataSource.Bind<BattleCore.OrderData>(this.LastUnit, battle.Order[0]);
+      GameParameter.UpdateAll(this.LastUnit);
+    }
+
+    private void OnEnable()
+    {
+      if (!UnityEngine.Object.op_Equality((UnityEngine.Object) UnitQueue.Instance, (UnityEngine.Object) null))
+        return;
+      UnitQueue.Instance = this;
+    }
+
+    private void OnDisable()
+    {
+      if (!UnityEngine.Object.op_Equality((UnityEngine.Object) UnitQueue.Instance, (UnityEngine.Object) this))
+        return;
+      UnitQueue.Instance = (UnitQueue) null;
+    }
+
+    [Serializable]
+    public struct Layer
+    {
+      public GameObject[] Layers;
+    }
+  }
+}

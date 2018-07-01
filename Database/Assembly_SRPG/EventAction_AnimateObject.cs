@@ -1,90 +1,50 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.EventAction_AnimateObject
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  [EventActionInfo("オブジェクト/アニメーション (レガシー)", "オブジェクトにアタッチされたアニメーションを再生します。", 5592405, 4473992)]
+  public class EventAction_AnimateObject : EventAction
+  {
+    public string ObjectID;
+    [HideInInspector]
+    public string AnimationID;
 
-    [EventActionInfo("オブジェクト/アニメーション (レガシー)", "オブジェクトにアタッチされたアニメーションを再生します。", 0x555555, 0x444488)]
-    public class EventAction_AnimateObject : EventAction
+    private static void PlayAnimation(Animation animation, string animationID)
     {
-        public string ObjectID;
-        [HideInInspector]
-        public string AnimationID;
-
-        public EventAction_AnimateObject()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate()
-        {
-            GameObject[] objArray;
-            int num;
-            Animation animation;
-            int num2;
-            Animation animation2;
-            objArray = GameObjectID.FindGameObjects(this.ObjectID);
-            num = 0;
-            goto Label_0046;
-        Label_0013:
-            if ((objArray[num] != null) == null)
-            {
-                goto Label_0042;
-            }
-            animation = objArray[num].GetComponent<Animation>();
-            if ((animation != null) == null)
-            {
-                goto Label_0042;
-            }
-            PlayAnimation(animation, this.AnimationID);
-        Label_0042:
-            num += 1;
-        Label_0046:
-            if (num < ((int) objArray.Length))
-            {
-                goto Label_0013;
-            }
-            num2 = 0;
-            goto Label_00CE;
-        Label_0056:
-            if ((base.Sequence.SpawnedObjects[num2] != null) == null)
-            {
-                goto Label_00CA;
-            }
-            if ((base.Sequence.SpawnedObjects[num2].get_name() == this.ObjectID) == null)
-            {
-                goto Label_00CA;
-            }
-            animation2 = base.Sequence.SpawnedObjects[num2].GetComponent<Animation>();
-            if ((animation2 != null) == null)
-            {
-                goto Label_00CA;
-            }
-            PlayAnimation(animation2, this.AnimationID);
-        Label_00CA:
-            num2 += 1;
-        Label_00CE:
-            if (num2 < base.Sequence.SpawnedObjects.Count)
-            {
-                goto Label_0056;
-            }
-            base.ActivateNext();
-            return;
-        }
-
-        private static void PlayAnimation(Animation animation, string animationID)
-        {
-            AnimationClip clip;
-            clip = animation.GetClip(animationID);
-            if ((clip != null) == null)
-            {
-                goto Label_001B;
-            }
-            animation.set_clip(clip);
-        Label_001B:
-            animation.Play(animationID);
-            return;
-        }
+      AnimationClip clip = animation.GetClip(animationID);
+      if (Object.op_Inequality((Object) clip, (Object) null))
+        animation.set_clip(clip);
+      animation.Play(animationID);
     }
-}
 
+    public override void OnActivate()
+    {
+      GameObject[] gameObjects = GameObjectID.FindGameObjects(this.ObjectID);
+      for (int index = 0; index < gameObjects.Length; ++index)
+      {
+        if (Object.op_Inequality((Object) gameObjects[index], (Object) null))
+        {
+          Animation component = (Animation) gameObjects[index].GetComponent<Animation>();
+          if (Object.op_Inequality((Object) component, (Object) null))
+            EventAction_AnimateObject.PlayAnimation(component, this.AnimationID);
+        }
+      }
+      for (int index = 0; index < this.Sequence.SpawnedObjects.Count; ++index)
+      {
+        if (Object.op_Inequality((Object) this.Sequence.SpawnedObjects[index], (Object) null) && ((Object) this.Sequence.SpawnedObjects[index]).get_name() == this.ObjectID)
+        {
+          Animation component = (Animation) this.Sequence.SpawnedObjects[index].GetComponent<Animation>();
+          if (Object.op_Inequality((Object) component, (Object) null))
+            EventAction_AnimateObject.PlayAnimation(component, this.AnimationID);
+        }
+      }
+      this.ActivateNext();
+    }
+  }
+}

@@ -1,23 +1,20 @@
-﻿namespace SRPG.AnimEvents
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.AnimEvents.TargetState
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG.AnimEvents
 {
-    using System;
+  public class TargetState : AnimEvent
+  {
+    public TargetState.StateTypes State;
 
-    public class TargetState : AnimEvent
+    public enum StateTypes
     {
-        public StateTypes State;
-
-        public TargetState()
-        {
-            base..ctor();
-            return;
-        }
-
-        public enum StateTypes
-        {
-            Stand,
-            Down,
-            Kirimomi
-        }
+      Stand,
+      Down,
+      Kirimomi,
     }
+  }
 }
-

@@ -1,55 +1,36 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.GachaTopParam
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Collections.Generic;
+
+namespace SRPG
 {
-    using System;
-    using System.Collections.Generic;
-
-    public class GachaTopParam
-    {
-        public string[] iname;
-        public string[] category;
-        public int[] coin;
-        public int[] gold;
-        public int[] coin_p;
-        public List<UnitParam> units;
-        public int[] num;
-        public string[] ticket;
-        public int[] ticket_num;
-        public bool[] step;
-        public int[] step_num;
-        public int[] step_index;
-        public bool[] limit;
-        public int[] limit_num;
-        public int[] limit_stock;
-        public string type;
-        public string asset_title;
-        public string asset_bg;
-        public string group;
-        public string[] btext;
-        public string[] confirm;
-        public List<int> sort;
-
-        public GachaTopParam()
-        {
-            this.iname = new string[4];
-            this.category = new string[4];
-            this.coin = new int[4];
-            this.gold = new int[4];
-            this.coin_p = new int[4];
-            this.num = new int[4];
-            this.ticket = new string[4];
-            this.ticket_num = new int[4];
-            this.step = new bool[4];
-            this.step_num = new int[4];
-            this.step_index = new int[4];
-            this.limit = new bool[4];
-            this.limit_num = new int[4];
-            this.limit_stock = new int[4];
-            this.btext = new string[4];
-            this.confirm = new string[4];
-            this.sort = new List<int>();
-            base..ctor();
-            return;
-        }
-    }
+  public class GachaTopParam
+  {
+    public string[] iname = new string[4];
+    public string[] category = new string[4];
+    public int[] coin = new int[4];
+    public int[] gold = new int[4];
+    public int[] coin_p = new int[4];
+    public int[] num = new int[4];
+    public string[] ticket = new string[4];
+    public int[] ticket_num = new int[4];
+    public bool[] step = new bool[4];
+    public int[] step_num = new int[4];
+    public int[] step_index = new int[4];
+    public bool[] limit = new bool[4];
+    public int[] limit_num = new int[4];
+    public int[] limit_stock = new int[4];
+    public string[] btext = new string[4];
+    public string[] confirm = new string[4];
+    public List<int> sort = new List<int>();
+    public List<UnitParam> units;
+    public string type;
+    public string asset_title;
+    public string asset_bg;
+    public string group;
+  }
 }
-

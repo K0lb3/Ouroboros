@@ -1,112 +1,54 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.QuestDropItemList
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using System.Collections.Generic;
-    using UnityEngine;
+  public class QuestDropItemList : MonoBehaviour
+  {
+    public GameObject ItemTemplate;
+    protected List<GameObject> mItems;
 
-    public class QuestDropItemList : MonoBehaviour
+    public QuestDropItemList()
     {
-        public GameObject ItemTemplate;
-        protected List<GameObject> mItems;
-
-        public QuestDropItemList()
-        {
-            this.mItems = new List<GameObject>();
-            base..ctor();
-            return;
-        }
-
-        protected virtual void Refresh()
-        {
-            int num;
-            QuestParam param;
-            List<BattleCore.DropItemParam> list;
-            int num2;
-            BattleCore.DropItemParam param2;
-            GameObject obj2;
-            if ((this.ItemTemplate == null) == null)
-            {
-                goto Label_0012;
-            }
-            return;
-        Label_0012:
-            num = this.mItems.Count - 1;
-            goto Label_003A;
-        Label_0025:
-            Object.Destroy(this.mItems[num]);
-            num -= 1;
-        Label_003A:
-            if (num >= 0)
-            {
-                goto Label_0025;
-            }
-            param = DataSource.FindDataOfClass<QuestParam>(base.get_gameObject(), null);
-            if (param == null)
-            {
-                goto Label_0114;
-            }
-            if ((QuestDropParam.Instance != null) == null)
-            {
-                goto Label_0114;
-            }
-            list = QuestDropParam.Instance.GetQuestDropItemParamList(param.iname, GlobalVars.GetDropTableGeneratedDateTime());
-            if (list == null)
-            {
-                goto Label_0114;
-            }
-            num2 = 0;
-            goto Label_0108;
-        Label_0087:
-            param2 = list[num2];
-            if (param2 != null)
-            {
-                goto Label_009C;
-            }
-            goto Label_0104;
-        Label_009C:
-            obj2 = Object.Instantiate<GameObject>(this.ItemTemplate);
-            if (param2.IsItem == null)
-            {
-                goto Label_00C8;
-            }
-            DataSource.Bind<ItemParam>(obj2, param2.itemParam);
-            goto Label_00E2;
-        Label_00C8:
-            if (param2.IsConceptCard == null)
-            {
-                goto Label_00E2;
-            }
-            DataSource.Bind<ConceptCardParam>(obj2, param2.conceptCardParam);
-        Label_00E2:
-            obj2.get_transform().SetParent(base.get_transform(), 0);
-            obj2.SetActive(1);
-            GameParameter.UpdateAll(obj2);
-        Label_0104:
-            num2 += 1;
-        Label_0108:
-            if (num2 < list.Count)
-            {
-                goto Label_0087;
-            }
-        Label_0114:
-            return;
-        }
-
-        private void Start()
-        {
-            if ((this.ItemTemplate != null) == null)
-            {
-                goto Label_002D;
-            }
-            if (this.ItemTemplate.get_activeInHierarchy() == null)
-            {
-                goto Label_002D;
-            }
-            this.ItemTemplate.SetActive(0);
-        Label_002D:
-            this.Refresh();
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Start()
+    {
+      if (Object.op_Inequality((Object) this.ItemTemplate, (Object) null) && this.ItemTemplate.get_activeInHierarchy())
+        this.ItemTemplate.SetActive(false);
+      this.Refresh();
+    }
+
+    protected virtual void Refresh()
+    {
+      if (Object.op_Equality((Object) this.ItemTemplate, (Object) null))
+        return;
+      for (int index = this.mItems.Count - 1; index >= 0; --index)
+        Object.Destroy((Object) this.mItems[index]);
+      QuestParam dataOfClass = DataSource.FindDataOfClass<QuestParam>(((Component) this).get_gameObject(), (QuestParam) null);
+      if (dataOfClass == null || !Object.op_Inequality((Object) QuestDropParam.Instance, (Object) null))
+        return;
+      List<ItemParam> questDropList = QuestDropParam.Instance.GetQuestDropList(dataOfClass.iname, GlobalVars.GetDropTableGeneratedDateTime());
+      if (questDropList == null)
+        return;
+      for (int index = 0; index < questDropList.Count; ++index)
+      {
+        ItemParam data = questDropList[index];
+        if (data != null)
+        {
+          GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.ItemTemplate);
+          DataSource.Bind<ItemParam>(gameObject, data);
+          gameObject.get_transform().SetParent(((Component) this).get_transform(), false);
+          gameObject.SetActive(true);
+        }
+      }
+    }
+  }
+}

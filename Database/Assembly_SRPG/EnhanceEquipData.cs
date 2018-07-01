@@ -1,18 +1,15 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.EnhanceEquipData
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    public class EnhanceEquipData
-    {
-        public EquipData equip;
-        public int gainexp;
-        public bool is_enhanced;
-
-        public EnhanceEquipData()
-        {
-            base..ctor();
-            return;
-        }
-    }
+  public class EnhanceEquipData
+  {
+    public EquipData equip;
+    public int gainexp;
+    public bool is_enhanced;
+  }
 }
-

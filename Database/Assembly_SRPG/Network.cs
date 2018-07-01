@@ -1,1195 +1,846 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.Network
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using Gsc;
+using Gsc.App.NetworkHelper;
+using Gsc.Network;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Text.RegularExpressions;
+using UnityEngine;
+using UnityEngine.Experimental.Networking;
+
+namespace SRPG
 {
-    using GR;
-    using Gsc;
-    using Gsc.App;
-    using Gsc.App.NetworkHelper;
-    using Gsc.Network;
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.Runtime.CompilerServices;
-    using System.Runtime.InteropServices;
-    using System.Text;
-    using System.Text.RegularExpressions;
-    using UnityEngine;
-    using UnityEngine.Experimental.Networking;
+  [AddComponentMenu("Scripts/SRPG/Manager/Network")]
+  public class Network : MonoSingleton<SRPG.Network>
+  {
+    public static readonly float WEBAPI_TIMEOUT_SEC = 60f;
+    public static SRPG.Network.EConnectMode Mode = SRPG.Network.EConnectMode.Offline;
+    public static readonly string OfficialUrl = "https://www.facebook.com/thealchemistcode/";
+    public static readonly string DefaultHost = "https://app.alcww.gumi.sg/";
+    public static readonly string DefaultDLHost = "https://app.alcww.gumi.sg/";
+    public static readonly string DefaultSiteHost = "https://alchemistcode.com";
+    public static readonly string DefaultNewsHost = "https://alchemistcode.com";
+    private static AndroidJavaClass mSystemClock = new AndroidJavaClass("android.os.SystemClock");
+    private string mSessionID = string.Empty;
+    private string mVersion = string.Empty;
+    private string mAssets = string.Empty;
+    private string mAssetsEx = string.Empty;
+    private int mTicket = 1;
+    private List<WebAPI> mRequests = new List<WebAPI>(4);
+    private bool mIndicator = true;
+    private string mDefaultHostConfigured = SRPG.Network.DefaultHost;
+    public static SRPG.Network.RequestResults RequestResult;
+    private static long ServerTime;
+    private static long LastRealTime;
+    private bool mBusy;
+    private bool mRetry;
+    private bool mError;
+    private string mErrMsg;
+    private SRPG.Network.EErrCode mErrCode;
+    private bool mImmediateMode;
+    private WebAPI mCurrentRequest;
+    private UnityWebRequest mWebReq;
+    private bool mAbort;
+    private bool mNoVersion;
+    private bool mForceBusy;
 
-    [AddComponentMenu("Scripts/SRPG/Manager/Network")]
-    public class Network : MonoSingleton<Network>
+    public static bool IsImmediateMode
     {
-        public static RequestResults RequestResult;
-        public static readonly float WEBAPI_TIMEOUT_SEC;
-        public static EConnectMode Mode;
-        public static readonly string OfficialUrl;
-        public static readonly string DefaultHost;
-        public static readonly string DefaultDLHost;
-        public static readonly string DefaultSiteHost;
-        public static readonly string DefaultNewsHost;
-        private static long ServerTime;
-        private static long LastRealTime;
-        private string mSessionID;
-        private string mVersion;
-        private string mAssets;
-        private string mAssetsEx;
-        private int mTicket;
-        private bool mBusy;
-        private bool mRetry;
-        private bool mError;
-        private string mErrMsg;
-        private EErrCode mErrCode;
-        private bool mImmediateMode;
-        private WebAPI mCurrentRequest;
-        private List<WebAPI> mRequests;
-        private bool mIndicator;
-        private UnityWebRequest mWebReq;
-        private bool mAbort;
-        private bool mNoVersion;
-        private bool mForceBusy;
-        private string mDefaultHostConfigured;
-
-        static Network()
-        {
-            WEBAPI_TIMEOUT_SEC = 60f;
-            Mode = 1;
-            OfficialUrl = "https://al.fg-games.co.jp/";
-            DefaultHost = "https://alchemist.gu3.jp/";
-            DefaultDLHost = "https://alchemist.gu3.jp/";
-            DefaultSiteHost = "https://st-al.fg-games.co.jp/";
-            DefaultNewsHost = "https://st-al.fg-games.co.jp/";
-            return;
-        }
-
-        public Network()
-        {
-            this.mSessionID = string.Empty;
-            this.mVersion = string.Empty;
-            this.mAssets = string.Empty;
-            this.mAssetsEx = string.Empty;
-            this.mTicket = 1;
-            this.mRequests = new List<WebAPI>(4);
-            this.mIndicator = 1;
-            this.mDefaultHostConfigured = DefaultHost;
-            base..ctor();
-            return;
-        }
-
-        public static void Abort()
-        {
-            if (uniWebRequest == null)
-            {
-                goto Label_001A;
-            }
-            uniWebRequest.Abort();
-            Aborted = 1;
-        Label_001A:
-            return;
-        }
-
-        [DebuggerHidden]
-        private static IEnumerator Connecting(WebAPI api)
-        {
-            <Connecting>c__Iterator183 iterator;
-            iterator = new <Connecting>c__Iterator183();
-            iterator.api = api;
-            iterator.<$>api = api;
-            return iterator;
-        }
-
-        private void ConnectingGsc(WebAPI api)
-        {
-            TicketID += 1;
-            IsError = 0;
-            ErrCode = 0;
-            MonoSingleton<Network>.Instance.mCurrentRequest = api;
-            GsccBridge.Send(api, 0);
-            return;
-        }
-
-        public static void ConnectingResponse(WebResponse response, ResponseCallback callback)
-        {
-            ErrCode = response.ErrorCode;
-            ErrMsg = response.ErrorMessage;
-            IsError = (ErrCode == 0) == 0;
-            if (FlowNode_Network.HasCommonError(response.Result) == null)
-            {
-                goto Label_0037;
-            }
-            return;
-        Label_0037:
-            if (callback == null)
-            {
-                goto Label_0069;
-            }
-            if (response.ServerTime == null)
-            {
-                goto Label_0053;
-            }
-            ServerTime = response.ServerTime;
-        Label_0053:
-            LastRealTime = GetSystemUptime();
-            callback(response.Result);
-        Label_0069:
-            return;
-        }
-
-        private static string FindMessage(string response)
-        {
-            Regex regex;
-            Match match;
-            regex = new Regex("\"stat_msg\":\"(?<stat_msg>.+?)\"[,}]", 0);
-            if (regex.Match(response).Success != null)
-            {
-                goto Label_0025;
-            }
-            return string.Empty;
-        Label_0025:
-            return regex.Match(response).Result("${stat_msg}");
-        }
-
-        private static int FindStat(string response)
-        {
-            Regex regex;
-            Match match;
-            regex = new Regex("\"stat\":(?<stat>\\d+)", 0);
-            if (regex.Match(response).Success != null)
-            {
-                goto Label_0021;
-            }
-            return 0;
-        Label_0021:
-            return Convert.ToInt32(regex.Match(response).Result("${stat}"));
-        }
-
-        private static long FindTime(string response)
-        {
-            Regex regex;
-            Match match;
-            regex = new Regex("\"time\":(?<time>\\d+)", 0);
-            if (regex.Match(response).Success != null)
-            {
-                goto Label_0022;
-            }
-            return 0L;
-        Label_0022:
-            return Convert.ToInt64(regex.Match(response).Result("${time}"));
-        }
-
-        public static string GetDefaultHostConfigured()
-        {
-            return MonoSingleton<Network>.Instance.mDefaultHostConfigured;
-        }
-
-        public static long GetServerTime()
-        {
-            long num;
-            if (Mode != 1)
-            {
-                goto Label_0011;
-            }
-            return TimeManager.Now();
-        Label_0011:
-            num = GetSystemUptime();
-            return (ServerTime + (num - LastRealTime));
-        }
-
-        private static long GetSystemUptime()
-        {
-            return (long) Time.get_realtimeSinceStartup();
-        }
-
-        protected override void Initialize()
-        {
-            Reset();
-            Object.DontDestroyOnLoad(this);
-            return;
-        }
-
-        protected override void Release()
-        {
-        }
-
-        public static void RemoveAPI()
-        {
-            GsccBridge.Reset();
-            if (MonoSingleton<Network>.Instance.mImmediateMode == null)
-            {
-                goto Label_0020;
-            }
-            MonoSingleton<Network>.Instance.mImmediateMode = 0;
-            return;
-        Label_0020:
-            if (MonoSingleton<Network>.Instance.mRequests.Count > 0)
-            {
-                goto Label_0040;
-            }
-            DebugUtility.LogWarning("Instance.mRequestsGsc.Count <= 0");
-            return;
-        Label_0040:
-            MonoSingleton<Network>.Instance.mRequests.Remove(MonoSingleton<Network>.Instance.mCurrentRequest);
-            if (MonoSingleton<Network>.Instance.mRequests.Count != null)
-            {
-                goto Label_0074;
-            }
-            CriticalSection.Leave(2);
-        Label_0074:
-            return;
-        }
-
-        public static void RequestAPI(WebAPI api, bool highPriority)
-        {
-            DebugUtility.Log("Request WebAPI: " + api.name);
-            if (highPriority == null)
-            {
-                goto Label_0031;
-            }
-            MonoSingleton<Network>.Instance.mRequests.Insert(0, api);
-            goto Label_0041;
-        Label_0031:
-            MonoSingleton<Network>.Instance.mRequests.Add(api);
-        Label_0041:
-            if (MonoSingleton<Network>.Instance.mRequests.Count != 1)
-            {
-                goto Label_005C;
-            }
-            CriticalSection.Enter(2);
-        Label_005C:
-            return;
-        }
-
-        public static void RequestAPIImmediate(WebAPI api, bool autoRetry)
-        {
-            MonoSingleton<Network>.Instance.mImmediateMode = 1;
-            GsccBridge.SendImmediate(api);
-            if (MonoSingleton<Network>.Instance.mImmediateMode == null)
-            {
-                goto Label_0049;
-            }
-            MonoSingleton<Network>.Instance.mImmediateMode = 0;
-            if (autoRetry == null)
-            {
-                goto Label_0049;
-            }
-            TicketID -= 1;
-            ResetError();
-            RequestAPI(api, 1);
-        Label_0049:
-            return;
-        }
-
-        public static void Reset()
-        {
-            MonoSingleton<Network>.Instance.mTicket = 1;
-            MonoSingleton<Network>.Instance.mRequests.Clear();
-            GsccBridge.Reset();
-            return;
-        }
-
-        public static void ResetError()
-        {
-            MonoSingleton<Network>.Instance.mError = 0;
-            return;
-        }
-
-        public static void SetDefaultHostConfigured(string host)
-        {
-            MonoSingleton<Network>.Instance.mDefaultHostConfigured = host;
-            return;
-        }
-
-        public static void SetRetry()
-        {
-            GsccBridge.Retry();
-            return;
-        }
-
-        public static void SetServerInvalidDeviceError()
-        {
-            ErrCode = 0x1389;
-            ErrMsg = LocalizedText.Get("sys.AUTHORIZEERR");
-            IsError = 1;
-            return;
-        }
-
-        public static void SetServerMetaDataAsError()
-        {
-            ErrCode = -1;
-            ErrMsg = LocalizedText.Get("embed.NETWORKERR");
-            IsError = 1;
-            return;
-        }
-
-        public static void SetServerMetaDataAsError(EErrCode code, string msg)
-        {
-            ErrCode = code;
-            ErrMsg = msg;
-            IsError = 1;
-            return;
-        }
-
-        public static void SetServerSessionExpired()
-        {
-            ErrCode = 0x2af8;
-            ErrMsg = LocalizedText.Get("embed.DMM_EXPIRED");
-            IsError = 1;
-            return;
-        }
-
-        public static void SetServerTime(long time)
-        {
-            if (time == null)
-            {
-                goto Label_000C;
-            }
-            ServerTime = time;
-        Label_000C:
-            LastRealTime = GetSystemUptime();
-            return;
-        }
-
-        private void Update()
-        {
-            WebAPI bapi;
-            if (IsBusy == null)
-            {
-                goto Label_000B;
-            }
-            return;
-        Label_000B:
-            if (IsError == null)
-            {
-                goto Label_0016;
-            }
-            return;
-        Label_0016:
-            if (IsForceBusy == null)
-            {
-                goto Label_0021;
-            }
-            return;
-        Label_0021:
-            if (this.mRequests.Count <= 0)
-            {
-                goto Label_006A;
-            }
-            bapi = this.mRequests[0];
-            if (bapi == null)
-            {
-                goto Label_006A;
-            }
-            if (bapi.reqtype != null)
-            {
-                goto Label_005C;
-            }
-            this.ConnectingGsc(bapi);
-            goto Label_0069;
-        Label_005C:
-            base.StartCoroutine(Connecting(bapi));
-        Label_0069:
-            return;
-        Label_006A:
-            return;
-        }
-
-        public static bool IsImmediateMode
-        {
-            get
-            {
-                return MonoSingleton<Network>.Instance.mImmediateMode;
-            }
-        }
-
-        public static Environment GetEnvironment
-        {
-            get
-            {
-                Configuration configuration;
-                return &SDK.Configuration.GetEnv<Environment>();
-            }
-        }
-
-        public static string Host
-        {
-            get
-            {
-                Environment environment;
-                return &GetEnvironment.ServerUrl;
-            }
-        }
-
-        public static string DLHost
-        {
-            get
-            {
-                Environment environment;
-                return &GetEnvironment.DLHost;
-            }
-        }
-
-        public static string SiteHost
-        {
-            get
-            {
-                Environment environment;
-                return &GetEnvironment.SiteHost;
-            }
-        }
-
-        public static string NewsHost
-        {
-            get
-            {
-                Environment environment;
-                return &GetEnvironment.NewsHost;
-            }
-        }
-
-        public static string Digest
-        {
-            get
-            {
-                Environment environment;
-                return &GetEnvironment.Digest;
-            }
-        }
-
-        public static string Pub
-        {
-            get
-            {
-                Environment environment;
-                return &GetEnvironment.Pub;
-            }
-        }
-
-        public static string PubU
-        {
-            get
-            {
-                Environment environment;
-                return &GetEnvironment.PubU;
-            }
-        }
-
-        public static string AssetVersion
-        {
-            get
-            {
-                return MonoSingleton<Network>.Instance.mAssets;
-            }
-            set
-            {
-                MonoSingleton<Network>.Instance.mAssets = value;
-                return;
-            }
-        }
-
-        public static string AssetVersionEx
-        {
-            get
-            {
-                return MonoSingleton<Network>.Instance.mAssetsEx;
-            }
-            set
-            {
-                MonoSingleton<Network>.Instance.mAssetsEx = value;
-                return;
-            }
-        }
-
-        public static string Version
-        {
-            get
-            {
-                return MonoSingleton<Network>.Instance.mVersion;
-            }
-            set
-            {
-                MonoSingleton<Network>.Instance.mVersion = value;
-                return;
-            }
-        }
-
-        public static string SessionID
-        {
-            get
-            {
-                return MonoSingleton<Network>.Instance.mSessionID;
-            }
-            set
-            {
-                MonoSingleton<Network>.Instance.mSessionID = value;
-                return;
-            }
-        }
-
-        public static int TicketID
-        {
-            get
-            {
-                return MonoSingleton<Network>.Instance.mTicket;
-            }
-            private set
-            {
-                MonoSingleton<Network>.Instance.mTicket = value;
-                return;
-            }
-        }
-
-        public static bool IsBusy
-        {
-            get
-            {
-                return ((MonoSingleton<Network>.Instance.mBusy != null) ? 1 : ((WebQueue.defaultQueue == null) ? 0 : WebQueue.defaultQueue.isRunning));
-            }
-            private set
-            {
-                MonoSingleton<Network>.Instance.mBusy = value;
-                return;
-            }
-        }
-
-        public static bool IsRetry
-        {
-            get
-            {
-                return MonoSingleton<Network>.Instance.mRetry;
-            }
-            set
-            {
-                MonoSingleton<Network>.Instance.mRetry = value;
-                return;
-            }
-        }
-
-        public static bool IsError
-        {
-            get
-            {
-                return ((MonoSingleton<Network>.Instance.mError != null) ? 1 : GsccBridge.HasUnhandledTasks);
-            }
-            private set
-            {
-                MonoSingleton<Network>.Instance.mError = value;
-                return;
-            }
-        }
-
-        public static string ErrMsg
-        {
-            get
-            {
-                return MonoSingleton<Network>.Instance.mErrMsg;
-            }
-            set
-            {
-                MonoSingleton<Network>.Instance.mErrMsg = value;
-                return;
-            }
-        }
-
-        public static EErrCode ErrCode
-        {
-            get
-            {
-                return MonoSingleton<Network>.Instance.mErrCode;
-            }
-            set
-            {
-                MonoSingleton<Network>.Instance.mErrCode = value;
-                return;
-            }
-        }
-
-        public static bool IsConnecting
-        {
-            get
-            {
-                return ((IsBusy != null) ? 1 : (MonoSingleton<Network>.Instance.mRequests.Count > 0));
-            }
-        }
-
-        public static bool IsIndicator
-        {
-            get
-            {
-                return MonoSingleton<Network>.Instance.mIndicator;
-            }
-            set
-            {
-                MonoSingleton<Network>.Instance.mIndicator = value;
-                return;
-            }
-        }
-
-        public static UnityWebRequest uniWebRequest
-        {
-            get
-            {
-                return MonoSingleton<Network>.Instance.mWebReq;
-            }
-            set
-            {
-                MonoSingleton<Network>.Instance.mWebReq = value;
-                return;
-            }
-        }
-
-        public static bool IsStreamConnecting
-        {
-            get
-            {
-                return ((uniWebRequest == null) == 0);
-            }
-        }
-
-        public static bool Aborted
-        {
-            get
-            {
-                return MonoSingleton<Network>.Instance.mAbort;
-            }
-            set
-            {
-                MonoSingleton<Network>.Instance.mAbort = value;
-                return;
-            }
-        }
-
-        public static bool IsNoVersion
-        {
-            get
-            {
-                return MonoSingleton<Network>.Instance.mNoVersion;
-            }
-            set
-            {
-                MonoSingleton<Network>.Instance.mNoVersion = value;
-                return;
-            }
-        }
-
-        public static bool IsForceBusy
-        {
-            get
-            {
-                return MonoSingleton<Network>.Instance.mForceBusy;
-            }
-            set
-            {
-                MonoSingleton<Network>.Instance.mForceBusy = value;
-                return;
-            }
-        }
-
-        public static long LastConnectionTime
-        {
-            get
-            {
-                return ServerTime;
-            }
-        }
-
-        [CompilerGenerated]
-        private sealed class <Connecting>c__Iterator183 : IEnumerator, IDisposable, IEnumerator<object>
-        {
-            internal WebAPI api;
-            internal string <apiname>__0;
-            internal string <body>__1;
-            internal Network.ResponseCallback <complete>__2;
-            internal byte[] <req>__3;
-            internal Dictionary<string, string> <header>__4;
-            internal string <url>__5;
-            internal UnityWebRequest <webReq>__6;
-            internal Dictionary<string, string>.KeyCollection.Enumerator <$s_1262>__7;
-            internal string <key>__8;
-            internal int $PC;
-            internal object $current;
-            internal WebAPI <$>api;
-
-            public <Connecting>c__Iterator183()
-            {
-                base..ctor();
-                return;
-            }
-
-            [DebuggerHidden]
-            public void Dispose()
-            {
-                uint num;
-                num = this.$PC;
-                this.$PC = -1;
-                switch (num)
-                {
-                    case 0:
-                        goto Label_003D;
-
-                    case 1:
-                        goto Label_0021;
-                }
-                goto Label_003D;
-            Label_0021:
-                try
-                {
-                    goto Label_003D;
-                }
-                finally
-                {
-                Label_0026:
-                    if (this.<webReq>__6 == null)
-                    {
-                        goto Label_003C;
-                    }
-                    this.<webReq>__6.Dispose();
-                Label_003C:;
-                }
-            Label_003D:
-                return;
-            }
-
-            public unsafe bool MoveNext()
-            {
-                object[] objArray1;
-                uint num;
-                bool flag;
-                bool flag2;
-                num = this.$PC;
-                this.$PC = -1;
-                flag = 0;
-                switch (num)
-                {
-                    case 0:
-                        goto Label_0023;
-
-                    case 1:
-                        goto Label_0132;
-                }
-                goto Label_03F1;
-            Label_0023:
-                this.<apiname>__0 = this.api.name;
-                this.<body>__1 = this.api.body;
-                this.<complete>__2 = this.api.callback;
-                Network.TicketID += 1;
-                Network.IsBusy = 1;
-                Network.IsError = 0;
-                Network.ErrCode = 0;
-                this.<req>__3 = null;
-                if (string.IsNullOrEmpty(this.<body>__1) != null)
-                {
-                    goto Label_00A1;
-                }
-                this.<req>__3 = Encoding.UTF8.GetBytes(this.<body>__1);
-            Label_00A1:
-                this.<header>__4 = new Dictionary<string, string>();
-                GsccBridge.SetBaseCustomHeaders(new Action<string, string>(this.<header>__4.Add), this.api.GumiTransactionId);
-                Network.IsIndicator = 0;
-                this.<url>__5 = Network.Host + this.<apiname>__0;
-                if (Network.Host.EndsWith("/") != null)
-                {
-                    goto Label_0119;
-                }
-                this.<url>__5 = Network.Host + "/" + this.<apiname>__0;
-            Label_0119:
-                this.<webReq>__6 = new UnityWebRequest(this.<url>__5, "POST");
-                num = -3;
-            Label_0132:
-                try
-                {
-                    switch ((num - 1))
-                    {
-                        case 0:
-                            goto Label_021D;
-                    }
-                    Network.uniWebRequest = this.<webReq>__6;
-                    this.<webReq>__6.set_uploadHandler(new UploadHandlerRaw(this.<req>__3));
-                    this.<$s_1262>__7 = this.<header>__4.Keys.GetEnumerator();
-                Label_0175:
-                    try
-                    {
-                        goto Label_01C2;
-                    Label_017A:
-                        this.<key>__8 = &this.<$s_1262>__7.Current;
-                        if ((this.<key>__8 != "User-Agent") == null)
-                        {
-                            goto Label_01C2;
-                        }
-                        this.<webReq>__6.SetRequestHeader(this.<key>__8, this.<header>__4[this.<key>__8]);
-                    Label_01C2:
-                        if (&this.<$s_1262>__7.MoveNext() != null)
-                        {
-                            goto Label_017A;
-                        }
-                        goto Label_01E8;
-                    }
-                    finally
-                    {
-                    Label_01D7:
-                        ((Dictionary<string, string>.KeyCollection.Enumerator) this.<$s_1262>__7).Dispose();
-                    }
-                Label_01E8:
-                    this.<webReq>__6.set_downloadHandler(this.api.dlHandler);
-                    this.$current = this.<webReq>__6.Send();
-                    this.$PC = 1;
-                    flag = 1;
-                    goto Label_03F3;
-                Label_021D:
-                    objArray1 = new object[] { "error:", this.<webReq>__6.get_error(), "/isDone:", (bool) this.<webReq>__6.get_isDone(), "/isError:", (bool) this.<webReq>__6.get_isError() };
-                    DebugUtility.Log(string.Concat(objArray1));
-                    if (this.<webReq>__6.get_isDone() == null)
-                    {
-                        goto Label_0301;
-                    }
-                    Network.ErrCode = 0;
-                    if (Network.Aborted != null)
-                    {
-                        goto Label_0301;
-                    }
-                    Network.ErrMsg = this.<webReq>__6.get_error();
-                    if (string.IsNullOrEmpty(Network.ErrMsg) != null)
-                    {
-                        goto Label_02D2;
-                    }
-                    Network.ErrCode = -1;
-                    Network.ErrMsg = LocalizedText.Get("embed.NETWORKERR");
-                    goto Label_0301;
-                Label_02D2:
-                    if (this.<webReq>__6.get_downloadHandler() == null)
-                    {
-                        goto Label_0301;
-                    }
-                    Network.ErrCode = Network.FindStat(((DownloadLogger) this.<webReq>__6.get_downloadHandler()).Response);
-                Label_0301:
-                    if (Network.ErrCode == null)
-                    {
-                        goto Label_0311;
-                    }
-                    Network.IsError = 1;
-                Label_0311:
-                    if (this.<complete>__2 == null)
-                    {
-                        goto Label_038F;
-                    }
-                    if (this.<webReq>__6.get_downloadHandler() == null)
-                    {
-                        goto Label_0370;
-                    }
-                    Network.ServerTime = Network.FindTime(((DownloadLogger) this.<webReq>__6.get_downloadHandler()).Response);
-                    this.<complete>__2(new WWWResult(((DownloadLogger) this.<webReq>__6.get_downloadHandler()).Response));
-                Label_0370:
-                    Network.LastRealTime = Network.GetSystemUptime();
-                    MonoSingleton<Network>.Instance.mCurrentRequest = this.api;
-                    goto Label_03A4;
-                Label_038F:
-                    MonoSingleton<Network>.Instance.mCurrentRequest = this.api;
-                    Network.RemoveAPI();
-                Label_03A4:
-                    goto Label_03C4;
-                }
-                finally
-                {
-                Label_03A9:
-                    if (flag == null)
-                    {
-                        goto Label_03AD;
-                    }
-                Label_03AD:
-                    if (this.<webReq>__6 == null)
-                    {
-                        goto Label_03C3;
-                    }
-                    this.<webReq>__6.Dispose();
-                Label_03C3:;
-                }
-            Label_03C4:
-                Network.Aborted = 0;
-                Network.IsIndicator = 1;
-                this.<header>__4 = null;
-                this.<req>__3 = null;
-                Network.IsBusy = 0;
-                Network.uniWebRequest = null;
-                this.$PC = -1;
-            Label_03F1:
-                return 0;
-            Label_03F3:
-                return 1;
-                return flag2;
-            }
-
-            [DebuggerHidden]
-            public void Reset()
-            {
-                throw new NotSupportedException();
-            }
-
-            object IEnumerator<object>.Current
-            {
-                [DebuggerHidden]
-                get
-                {
-                    return this.$current;
-                }
-            }
-
-            object IEnumerator.Current
-            {
-                [DebuggerHidden]
-                get
-                {
-                    return this.$current;
-                }
-            }
-        }
-
-        public enum EConnectMode
-        {
-            Online,
-            Offline
-        }
-
-        public enum EErrCode
-        {
-            TimeOut = -2,
-            Failed = -1,
-            Success = 0,
-            Unknown = 1,
-            Version = 2,
-            AssetVersion = 3,
-            NoVersionDbg = 4,
-            NoSID = 100,
-            Maintenance = 200,
-            ChatMaintenance = 0xc9,
-            MultiMaintenance = 0xca,
-            VsMaintenance = 0xcb,
-            BattleRecordMaintenance = 0xcc,
-            MultiVersionMaintenance = 0xcd,
-            MultiTowerMaintenance = 0xce,
-            RankingQuestMaintenance = 0xcf,
-            IllegalParam = 300,
-            API = 400,
-            NoFile = 0x3e8,
-            NoVersion = 0x44c,
-            SessionFailure = 0x4b0,
-            CreateStopped = 0x514,
-            IllegalName = 0x578,
-            NoMail = 0x5dc,
-            MailReadable = 0x5dd,
-            ReqFriendRequestMax = 0x640,
-            ReqFriendIsFull = 0x641,
-            ReqNoFriend = 0x642,
-            ReqFriendRegistered = 0x643,
-            ReqFriendRequesting = 0x644,
-            RmNoFriend = 0x6a4,
-            RmFriendIsMe = 0x6a5,
-            FindNoFriend = 0x1770,
-            FindIsMine = 0x1771,
-            ApprNoFriend = 0x170c,
-            ApprNoRequest = 0x170d,
-            ApprRequestMax = 0x170e,
-            ApprFriendIsFull = 0x170f,
-            NoUnitParty = 0x708,
-            IllegalParty = 0x709,
-            ExpMaterialShort = 0x76c,
-            RareMaterialShort = 0x7d0,
-            RarePlayerLvShort = 0x7d1,
-            PlusMaterialShot = 0x834,
-            PlusPlayerLvShort = 0x835,
-            AbilityMaterialShort = 0x898,
-            AbilityNotFound = 0x899,
-            NoJobSetJob = 0x8fc,
-            CantSelectJob = 0x8fd,
-            NoUnitSetJob = 0x8fe,
-            NoAbilitySetAbility = 0x960,
-            NoJobSetAbility = 0x961,
-            UnsetAbility = 0x962,
-            NoJobSetEquip = 0x9c4,
-            NoEquipItem = 0x9c5,
-            Equipped = 0x9c6,
-            NoJobEnforceEquip = 0xa28,
-            NoEquipEnforce = 0xa29,
-            ForceMax = 0xa2a,
-            MaterialShort = 0xa2b,
-            EnforcePlayerLvShort = 0xa2c,
-            NoJobLvUpEquip = 0xa8c,
-            EquipNotComp = 0xa8d,
-            PlusShort = 0xa8e,
-            UnitAddExist = 0x1644,
-            UnitAddCostShort = 0x1645,
-            UnitAddCantUnlock = 0x1646,
-            ArtifactBoxLimit = 0x2328,
-            ArtifactPieceShort = 0x2329,
-            ArtifactMatShort = 0x232a,
-            ArtifactFavorite = 0x232b,
-            SkinNoSkin = 0x2332,
-            SkinNoJob = 0x2333,
-            NoItemSell = 0xaf0,
-            ConvertAnotherItem = 0xaf1,
-            StaminaCoinShort = 0xb54,
-            AddStaminaLimit = 0xb55,
-            AbilityCoinShort = 0xbb8,
-            AbilityVipLvShort = 0xbb9,
-            AbilityPlayerLvShort = 0xbba,
-            GouseiNoTarget = 0xc80,
-            GouseiMaterialShort = 0xc81,
-            GouseiCostShort = 0xc82,
-            UnSelectable = 0xce4,
-            OutOfDateQuest = 0xce5,
-            QuestNotEnd = 0xce6,
-            ChallengeLimit = 0xce7,
-            RecordLimitUpload = 0xced,
-            QuestResume = 0xd48,
-            QuestEnd = 0xdac,
-            ContinueCostShort = 0xe10,
-            CantContinue = 0xe11,
-            ColoCantSelect = 0xed8,
-            ColoIsBusy = 0xed9,
-            ColoCostShort = 0xeda,
-            ColoIntervalShort = 0xedb,
-            ColoBattleNotEnd = 0xedc,
-            ColoPlayerLvShort = 0xedd,
-            ColoVipShort = 0xede,
-            ColoRankLower = 0xedf,
-            ColoNoBattle = 0xf3c,
-            ColoRankModify = 0xf3d,
-            ColoMyRankModify = 0xf3e,
-            RaidTicketShort = 0x15e0,
-            ColoResetCostShort = 0x157c,
-            NoGacha = 0xfa0,
-            GachaCostShort = 0xfa1,
-            GachaItemMax = 0xfa2,
-            GachaNotFree = 0xfa3,
-            GachaPaidLimitOver = 0xfa4,
-            GachaPlyLvOver = 0xfa5,
-            GachaPlyNewOver = 0xfa6,
-            GachaLimitSoldOut = 0xfa7,
-            GachaLimitCntOver = 0xfa8,
-            GachaOutofPeriod = 0xfaa,
-            TrophyRewarded = 0x1004,
-            TrophyOutOfDate = 0x1005,
-            TrophyRollBack = 0x1006,
-            BingoOutofDateReceive = 0x1010,
-            ShopRefreshCostShort = 0x1068,
-            ShopRefreshLvSort = 0x1069,
-            ShopSoldOut = 0x10cc,
-            ShopBuyCostShort = 0x10cd,
-            ShopBuyLvShort = 0x10ce,
-            ShopBuyNotFound = 0x10cf,
-            ShopBuyItemNotFound = 0x10d0,
-            ShopRefreshItemList = 0x10d1,
-            ShopBuyOutofItemPeriod = 0x10d2,
-            GoldBuyCostShort = 0x1130,
-            GoldBuyLimit = 0x1131,
-            ShopBuyOutofPeriod = 0x1133,
-            ProductIllegalDate = 0x1194,
-            ProductPurchaseMax = 0x11f8,
-            ProductCantPurchase = 0x11f9,
-            HikkoshiNoToken = 0x125c,
-            NoBtlInfo = 0xe74,
-            MultiPlayerLvShort = 0xe75,
-            MultiBtlNotEnd = 0xe76,
-            MultiVersionMismatch = 0xe78,
-            RoomFailedMakeRoom = 0x12c0,
-            RoomIllegalComment = 0x12c1,
-            RoomNoRoom = 0x1324,
-            NoWatching = 0x1325,
-            RoomPlayerLvShort = 0x16a8,
-            NoDevice = 0x1388,
-            Authorize = 0x1389,
-            GauthNoSid = 0x138a,
-            ReturnForceTitle = 0x138b,
-            MigrateIllCode = 0x13ec,
-            MigrateSameDev = 0x13ed,
-            MigrateLockCode = 0x13ee,
-            CountLimitForPlayer = 0x1f45,
-            ChargeError = 0x1fa4,
-            ChargeAge000 = 0x1fa5,
-            ChargeVipRemains = 0x1fa6,
-            FirstChargeInvalid = 0x1fa7,
-            FirstChargeNoLog = 0x1fa8,
-            FirstChargeReceipt = 0x1fa9,
-            FirstChargePast = 0x1faa,
-            LimitedShopOutOfPeriod = 0x1133,
-            LimitedShopOutOfBuyLimit = 0x1135,
-            EventShopOutOfPeriod = 0x1133,
-            EventShopOutOfBuyLimit = 0x1135,
-            NoChannelAction = 0x2134,
-            NoUserAction = 0x2135,
-            SendChatInterval = 0x2136,
-            CanNotAddBlackList = 0x2137,
-            NotLocation = 0x191,
-            NotGpsQuest = 0xcec,
-            NotGpsMail = 0x2198,
-            ReceivedGpsMail = 0x2199,
-            AcheiveMigrateIllcode = 0x2260,
-            AcheiveMigrateNoCoop = 0x2261,
-            AcheiveMigrateLock = 0x2262,
-            AcheiveMigrateAuthorize = 0x2263,
-            TowerLocked = 0x2009,
-            ConditionsErr = 0x200a,
-            NotRecovery_permit = 0x200b,
-            NotExist_tower = 0x2013,
-            NotExist_reward = 0x2014,
-            NotExist_floor = 0x2015,
-            NoMatch_party = 0x201d,
-            NoMatch_mid = 0x201e,
-            IncorrectCoin = 0x2027,
-            IncorrectBtlparam = 0x2028,
-            AlreadyClear = 0x2031,
-            AlreadyBtlend = 0x2032,
-            FaildRegistration = 0x2033,
-            FaildReset = 0x2034,
-            VS_NotSelfBattle = 0x2710,
-            VS_NotPlayer = 0x2711,
-            VS_NotQuestInfo = 0x2712,
-            VS_NotLINERoomInfo = 0x2713,
-            VS_FailRoomID = 0x2714,
-            VS_BattleEnd = 0x2715,
-            VS_NotQuestData = 0x2716,
-            VS_NotPhotonAppID = 0x2717,
-            VS_Version = 0x2718,
-            VS_IllComment = 0x2719,
-            VS_LvShort = 0x271a,
-            VS_BattleNotEnd = 0x271b,
-            VS_NoRoom = 0x271c,
-            VS_ComBattleEnd = 0x271d,
-            VS_FaildSeasonGift = 0x271e,
-            VS_TowerNotPlay = 0x271f,
-            VS_NotContinuousEnemy = 0x2720,
-            VS_RowerNotMatching = 0x2721,
-            VS_EnableTimeOutOfPriod = 0x2722,
-            DmmSessionExpired = 0x2af8,
-            QR_OutOfPeriod = 0x1f48,
-            QR_InvalidQRSerial = 0x1f49,
-            QR_CanNotReward = 0x1f4a,
-            QR_LockSerialCampaign = 0x1f4b,
-            QR_AlreadyRewardSkin = 0x1f4c,
-            QuestBookmark_RequestMax = 0x2774,
-            QuestBookmark_AlreadyLimited = 0x2775,
-            MT_NotClearFloor = 0x2ee1,
-            MT_AlreadyFinish = 0x2ee2,
-            MT_NoRoom = 0x2ee3,
-            RankingQuest_NotNewScore = 0x32c9,
-            RankingQuest_AlreadyEntry = 0x32ca,
-            RankingQuest_OutOfPeriod = 0x32cb,
-            Gallery_MigrationInProgress = 0x36b1,
-            Gift_ConceptCardBoxLimit = 0x233c,
-            RepelledBlockList = 0x1326
-        }
-
-        public enum RequestResults
-        {
-            Success,
-            Failure,
-            Retry,
-            Back,
-            Timeout,
-            Maintenance,
-            VersionMismatch,
-            InvalidSession,
-            IllegalParam
-        }
-
-        public delegate void ResponseCallback(WWWResult result);
+      get
+      {
+        return MonoSingleton<SRPG.Network>.Instance.mImmediateMode;
+      }
     }
-}
 
+    public static void SetDefaultHostConfigured(string host)
+    {
+      MonoSingleton<SRPG.Network>.Instance.mDefaultHostConfigured = host;
+    }
+
+    public static string GetDefaultHostConfigured()
+    {
+      return MonoSingleton<SRPG.Network>.Instance.mDefaultHostConfigured;
+    }
+
+    public static Gsc.App.Environment GetEnvironment
+    {
+      get
+      {
+        return SDK.Configuration.GetEnv<Gsc.App.Environment>();
+      }
+    }
+
+    public static string Host
+    {
+      get
+      {
+        return SRPG.Network.GetEnvironment.ServerUrl;
+      }
+    }
+
+    public static string DLHost
+    {
+      get
+      {
+        return SRPG.Network.GetEnvironment.DLHost;
+      }
+    }
+
+    public static string SiteHost
+    {
+      get
+      {
+        return SRPG.Network.GetEnvironment.SiteHost;
+      }
+    }
+
+    public static string NewsHost
+    {
+      get
+      {
+        return SRPG.Network.GetEnvironment.NewsHost;
+      }
+    }
+
+    public static string Digest
+    {
+      get
+      {
+        return SRPG.Network.GetEnvironment.Digest;
+      }
+    }
+
+    public static string Pub
+    {
+      get
+      {
+        return SRPG.Network.GetEnvironment.Pub;
+      }
+    }
+
+    public static string PubU
+    {
+      get
+      {
+        return SRPG.Network.GetEnvironment.PubU;
+      }
+    }
+
+    public static string AssetVersion
+    {
+      get
+      {
+        return MonoSingleton<SRPG.Network>.Instance.mAssets;
+      }
+      set
+      {
+        MonoSingleton<SRPG.Network>.Instance.mAssets = value;
+      }
+    }
+
+    public static string AssetVersionEx
+    {
+      get
+      {
+        return MonoSingleton<SRPG.Network>.Instance.mAssetsEx;
+      }
+      set
+      {
+        MonoSingleton<SRPG.Network>.Instance.mAssetsEx = value;
+      }
+    }
+
+    public static string Version
+    {
+      get
+      {
+        return MonoSingleton<SRPG.Network>.Instance.mVersion;
+      }
+      set
+      {
+        MonoSingleton<SRPG.Network>.Instance.mVersion = value;
+      }
+    }
+
+    public static string SessionID
+    {
+      get
+      {
+        return MonoSingleton<SRPG.Network>.Instance.mSessionID;
+      }
+      set
+      {
+        MonoSingleton<SRPG.Network>.Instance.mSessionID = value;
+      }
+    }
+
+    public static int TicketID
+    {
+      get
+      {
+        return MonoSingleton<SRPG.Network>.Instance.mTicket;
+      }
+      private set
+      {
+        MonoSingleton<SRPG.Network>.Instance.mTicket = value;
+      }
+    }
+
+    public static bool IsBusy
+    {
+      get
+      {
+        if (MonoSingleton<SRPG.Network>.Instance.mBusy)
+          return true;
+        if (WebQueue.defaultQueue != null)
+          return WebQueue.defaultQueue.isRunning;
+        return false;
+      }
+      private set
+      {
+        MonoSingleton<SRPG.Network>.Instance.mBusy = value;
+      }
+    }
+
+    public static bool IsRetry
+    {
+      get
+      {
+        return MonoSingleton<SRPG.Network>.Instance.mRetry;
+      }
+      set
+      {
+        MonoSingleton<SRPG.Network>.Instance.mRetry = value;
+      }
+    }
+
+    public static bool IsError
+    {
+      get
+      {
+        if (!MonoSingleton<SRPG.Network>.Instance.mError)
+          return GsccBridge.HasUnhandledTasks;
+        return true;
+      }
+      private set
+      {
+        MonoSingleton<SRPG.Network>.Instance.mError = value;
+      }
+    }
+
+    public static string ErrMsg
+    {
+      get
+      {
+        return MonoSingleton<SRPG.Network>.Instance.mErrMsg;
+      }
+      set
+      {
+        MonoSingleton<SRPG.Network>.Instance.mErrMsg = value;
+      }
+    }
+
+    public static SRPG.Network.EErrCode ErrCode
+    {
+      get
+      {
+        return MonoSingleton<SRPG.Network>.Instance.mErrCode;
+      }
+      set
+      {
+        MonoSingleton<SRPG.Network>.Instance.mErrCode = value;
+      }
+    }
+
+    public static bool IsConnecting
+    {
+      get
+      {
+        if (!SRPG.Network.IsBusy)
+          return MonoSingleton<SRPG.Network>.Instance.mRequests.Count > 0;
+        return true;
+      }
+    }
+
+    public static bool IsIndicator
+    {
+      get
+      {
+        return MonoSingleton<SRPG.Network>.Instance.mIndicator;
+      }
+      set
+      {
+        MonoSingleton<SRPG.Network>.Instance.mIndicator = value;
+      }
+    }
+
+    public static UnityWebRequest uniWebRequest
+    {
+      get
+      {
+        return MonoSingleton<SRPG.Network>.Instance.mWebReq;
+      }
+      set
+      {
+        MonoSingleton<SRPG.Network>.Instance.mWebReq = value;
+      }
+    }
+
+    public static bool IsStreamConnecting
+    {
+      get
+      {
+        return SRPG.Network.uniWebRequest != null;
+      }
+    }
+
+    public static bool Aborted
+    {
+      get
+      {
+        return MonoSingleton<SRPG.Network>.Instance.mAbort;
+      }
+      set
+      {
+        MonoSingleton<SRPG.Network>.Instance.mAbort = value;
+      }
+    }
+
+    public static bool IsNoVersion
+    {
+      get
+      {
+        return MonoSingleton<SRPG.Network>.Instance.mNoVersion;
+      }
+      set
+      {
+        MonoSingleton<SRPG.Network>.Instance.mNoVersion = value;
+      }
+    }
+
+    public static bool IsForceBusy
+    {
+      get
+      {
+        return MonoSingleton<SRPG.Network>.Instance.mForceBusy;
+      }
+      set
+      {
+        MonoSingleton<SRPG.Network>.Instance.mForceBusy = value;
+      }
+    }
+
+    protected override void Initialize()
+    {
+      SRPG.Network.Reset();
+      UnityEngine.Object.DontDestroyOnLoad((UnityEngine.Object) this);
+    }
+
+    protected override void Release()
+    {
+    }
+
+    public static void Reset()
+    {
+      MonoSingleton<SRPG.Network>.Instance.mTicket = 1;
+      MonoSingleton<SRPG.Network>.Instance.mRequests.Clear();
+      GsccBridge.Reset();
+    }
+
+    public static void RequestAPI(WebAPI api, bool highPriority = false)
+    {
+      if (highPriority)
+        MonoSingleton<SRPG.Network>.Instance.mRequests.Insert(0, api);
+      else
+        MonoSingleton<SRPG.Network>.Instance.mRequests.Add(api);
+      if (MonoSingleton<SRPG.Network>.Instance.mRequests.Count != 1)
+        return;
+      CriticalSection.Enter(CriticalSections.Network);
+    }
+
+    public static void RequestAPIImmediate(WebAPI api, bool autoRetry)
+    {
+      MonoSingleton<SRPG.Network>.Instance.mImmediateMode = true;
+      GsccBridge.SendImmediate(api);
+      if (!MonoSingleton<SRPG.Network>.Instance.mImmediateMode)
+        return;
+      MonoSingleton<SRPG.Network>.Instance.mImmediateMode = false;
+      if (!autoRetry)
+        return;
+      --SRPG.Network.TicketID;
+      SRPG.Network.ResetError();
+      SRPG.Network.RequestAPI(api, true);
+    }
+
+    public static void RemoveAPI()
+    {
+      GsccBridge.Reset();
+      if (MonoSingleton<SRPG.Network>.Instance.mImmediateMode)
+        MonoSingleton<SRPG.Network>.Instance.mImmediateMode = false;
+      else if (MonoSingleton<SRPG.Network>.Instance.mRequests.Count <= 0)
+      {
+        DebugUtility.LogWarning("Instance.mRequestsGsc.Count <= 0");
+      }
+      else
+      {
+        MonoSingleton<SRPG.Network>.Instance.mRequests.Remove(MonoSingleton<SRPG.Network>.Instance.mCurrentRequest);
+        if (MonoSingleton<SRPG.Network>.Instance.mRequests.Count != 0)
+          return;
+        CriticalSection.Leave(CriticalSections.Network);
+      }
+    }
+
+    public static void ResetError()
+    {
+      MonoSingleton<SRPG.Network>.Instance.mError = false;
+    }
+
+    public static void SetRetry()
+    {
+      GsccBridge.Retry();
+    }
+
+    private static int FindStat(string response)
+    {
+      Regex regex = new Regex("\"stat\":(?<stat>\\d+)", RegexOptions.None);
+      if (!regex.Match(response).Success)
+        return 0;
+      return Convert.ToInt32(regex.Match(response).Result("${stat}"));
+    }
+
+    private static string FindMessage(string response)
+    {
+      Regex regex = new Regex("\"stat_msg\":\"(?<stat_msg>.+?)\"[,}]", RegexOptions.None);
+      if (!regex.Match(response).Success)
+        return string.Empty;
+      return regex.Match(response).Result("${stat_msg}");
+    }
+
+    private static string FindLocalizedMessage(string response)
+    {
+      Regex regex1 = new Regex("\"stat_msg\":\"(?<stat_msg>.+?)\"[,}]", RegexOptions.None);
+      string configLanguage = GameUtility.Config_Language;
+      Regex regex2;
+      if (configLanguage != null)
+      {
+        // ISSUE: reference to a compiler-generated field
+        if (SRPG.Network.\u003C\u003Ef__switch\u0024map1D == null)
+        {
+          // ISSUE: reference to a compiler-generated field
+          SRPG.Network.\u003C\u003Ef__switch\u0024map1D = new Dictionary<string, int>(3)
+          {
+            {
+              "french",
+              0
+            },
+            {
+              "german",
+              1
+            },
+            {
+              "spanish",
+              2
+            }
+          };
+        }
+        int num;
+        // ISSUE: reference to a compiler-generated field
+        if (SRPG.Network.\u003C\u003Ef__switch\u0024map1D.TryGetValue(configLanguage, out num))
+        {
+          switch (num)
+          {
+            case 0:
+              regex2 = new Regex("\"fr\":\"(?<stat_msg>.+?)\"[,}]", RegexOptions.None);
+              goto label_9;
+            case 1:
+              regex2 = new Regex("\"de\":\"(?<stat_msg>.+?)\"[,}]", RegexOptions.None);
+              goto label_9;
+            case 2:
+              regex2 = new Regex("\"es\":\"(?<stat_msg>.+?)\"[,}]", RegexOptions.None);
+              goto label_9;
+          }
+        }
+      }
+      regex2 = new Regex("\"en\":\"(?<stat_msg>.+?)\"[,}]", RegexOptions.None);
+label_9:
+      if (!regex2.Match(response).Success)
+        return string.Empty;
+      return regex2.Match(response).Result("${stat_msg}");
+    }
+
+    private static long FindTime(string response)
+    {
+      Regex regex = new Regex("\"time\":(?<time>\\d+)", RegexOptions.None);
+      if (!regex.Match(response).Success)
+        return 0;
+      return Convert.ToInt64(regex.Match(response).Result("${time}"));
+    }
+
+    public static long GetServerTime()
+    {
+      if (SRPG.Network.Mode == SRPG.Network.EConnectMode.Offline)
+        return TimeManager.Now();
+      long systemUptime = SRPG.Network.GetSystemUptime();
+      return SRPG.Network.ServerTime + (systemUptime - SRPG.Network.LastRealTime);
+    }
+
+    public static long LastConnectionTime
+    {
+      get
+      {
+        return SRPG.Network.ServerTime;
+      }
+    }
+
+    private void Update()
+    {
+      if (SRPG.Network.IsBusy || SRPG.Network.IsError || (SRPG.Network.IsForceBusy || this.mRequests.Count <= 0))
+        return;
+      WebAPI mRequest = this.mRequests[0];
+      if (mRequest == null)
+        return;
+      if (mRequest.reqtype == WebAPI.ReqeustType.REQ_GSC)
+        this.ConnectingGsc(mRequest);
+      else
+        this.StartCoroutine(SRPG.Network.Connecting(mRequest));
+    }
+
+    private void ConnectingGsc(WebAPI api)
+    {
+      ++SRPG.Network.TicketID;
+      SRPG.Network.IsError = false;
+      SRPG.Network.ErrCode = SRPG.Network.EErrCode.Success;
+      MonoSingleton<SRPG.Network>.Instance.mCurrentRequest = api;
+      GsccBridge.Send(api, false);
+    }
+
+    public static void ConnectingResponse(WebResponse response, SRPG.Network.ResponseCallback callback)
+    {
+      SRPG.Network.ErrCode = response.ErrorCode;
+      SRPG.Network.ErrMsg = response.ErrorMessage;
+      SRPG.Network.IsError = SRPG.Network.ErrCode != SRPG.Network.EErrCode.Success;
+      if (!string.IsNullOrEmpty(SRPG.Network.ErrMsg) && SRPG.Network.ErrMsg.Contains("500"))
+      {
+        SRPG.Network.ErrCode = SRPG.Network.EErrCode.Unknown;
+        SRPG.Network.ErrMsg = LocalizedText.Get("errorcode.1_MESSAGE");
+      }
+      else if (SRPG.Network.ErrCode == SRPG.Network.EErrCode.Failed)
+        SRPG.Network.ErrMsg = LocalizedText.Get("embed.NETWORKERR");
+      else if (SRPG.Network.IsError)
+        SRPG.Network.ErrMsg = SRPG.Network.ErrCode != SRPG.Network.EErrCode.Maintenance ? LocalizedText.Get("errorcode." + ((int) SRPG.Network.ErrCode).ToString() + "_MESSAGE") : SRPG.Network.FindLocalizedMessage(response.Result.text);
+      if (FlowNode_Network.HasCommonError(response.Result) || callback == null)
+        return;
+      if (response.ServerTime != 0L)
+        SRPG.Network.ServerTime = response.ServerTime;
+      SRPG.Network.LastRealTime = SRPG.Network.GetSystemUptime();
+      callback(response.Result);
+    }
+
+    public static void SetServerTime(long time)
+    {
+      if (time != 0L)
+        SRPG.Network.ServerTime = time;
+      SRPG.Network.LastRealTime = SRPG.Network.GetSystemUptime();
+    }
+
+    [DebuggerHidden]
+    private static IEnumerator Connecting(WebAPI api)
+    {
+      // ISSUE: object of a compiler-generated type is created
+      return (IEnumerator) new SRPG.Network.\u003CConnecting\u003Ec__Iterator144() { api = api, \u003C\u0024\u003Eapi = api };
+    }
+
+    public static void SetServerSessionExpired()
+    {
+      SRPG.Network.ErrCode = SRPG.Network.EErrCode.DmmSessionExpired;
+      SRPG.Network.ErrMsg = LocalizedText.Get("embed.DMM_EXPIRED");
+      SRPG.Network.IsError = true;
+    }
+
+    public static void SetServerMetaDataAsError()
+    {
+      SRPG.Network.ErrCode = SRPG.Network.EErrCode.Failed;
+      SRPG.Network.ErrMsg = LocalizedText.Get("embed.NETWORKERR");
+      SRPG.Network.IsError = true;
+    }
+
+    public static void SetServerInvalidDeviceError()
+    {
+      SRPG.Network.ErrCode = SRPG.Network.EErrCode.Authorize;
+      SRPG.Network.ErrMsg = LocalizedText.Get("sys.AUTHORIZEERR");
+      SRPG.Network.IsError = true;
+    }
+
+    public static void SetServerMetaDataAsError(SRPG.Network.EErrCode code, string msg)
+    {
+      SRPG.Network.ErrCode = code;
+      SRPG.Network.ErrMsg = msg;
+      SRPG.Network.IsError = true;
+    }
+
+    private static long GetSystemUptime()
+    {
+      if (GameUtility.IsDebugBuild)
+        return (long) Time.get_realtimeSinceStartup();
+      return ((AndroidJavaObject) SRPG.Network.mSystemClock).CallStatic<long>("elapsedRealtime", new object[0]) / 1000L;
+    }
+
+    public static void Abort()
+    {
+      if (SRPG.Network.uniWebRequest == null)
+        return;
+      SRPG.Network.uniWebRequest.Abort();
+      SRPG.Network.Aborted = true;
+    }
+
+    public enum EErrCode
+    {
+      TimeOut = -2,
+      Failed = -1,
+      Success = 0,
+      Unknown = 1,
+      Version = 2,
+      AssetVersion = 3,
+      NoVersionDbg = 4,
+      NoSID = 100, // 0x00000064
+      Maintenance = 200, // 0x000000C8
+      ChatMaintenance = 201, // 0x000000C9
+      MultiMaintenance = 202, // 0x000000CA
+      VsMaintenance = 203, // 0x000000CB
+      BattleRecordMaintenance = 204, // 0x000000CC
+      MultiVersionMaintenance = 205, // 0x000000CD
+      MultiTowerMaintenance = 206, // 0x000000CE
+      RankingQuestMaintenance = 207, // 0x000000CF
+      IllegalParam = 300, // 0x0000012C
+      API = 400, // 0x00000190
+      NotLocation = 401, // 0x00000191
+      NoFile = 1000, // 0x000003E8
+      NoVersion = 1100, // 0x0000044C
+      SessionFailure = 1200, // 0x000004B0
+      CreateStopped = 1300, // 0x00000514
+      IllegalName = 1400, // 0x00000578
+      DuplicateName = 1401, // 0x00000579
+      SameName = 1402, // 0x0000057A
+      NoMail = 1500, // 0x000005DC
+      MailReadable = 1501, // 0x000005DD
+      ReqFriendRequestMax = 1600, // 0x00000640
+      ReqFriendIsFull = 1601, // 0x00000641
+      ReqNoFriend = 1602, // 0x00000642
+      ReqFriendRegistered = 1603, // 0x00000643
+      ReqFriendRequesting = 1604, // 0x00000644
+      RmNoFriend = 1700, // 0x000006A4
+      RmFriendIsMe = 1701, // 0x000006A5
+      NoUnitParty = 1800, // 0x00000708
+      IllegalParty = 1801, // 0x00000709
+      ExpMaterialShort = 1900, // 0x0000076C
+      RareMaterialShort = 2000, // 0x000007D0
+      RarePlayerLvShort = 2001, // 0x000007D1
+      PlusMaterialShot = 2100, // 0x00000834
+      PlusPlayerLvShort = 2101, // 0x00000835
+      AbilityMaterialShort = 2200, // 0x00000898
+      AbilityNotFound = 2201, // 0x00000899
+      NoJobSetJob = 2300, // 0x000008FC
+      CantSelectJob = 2301, // 0x000008FD
+      NoUnitSetJob = 2302, // 0x000008FE
+      NoAbilitySetAbility = 2400, // 0x00000960
+      NoJobSetAbility = 2401, // 0x00000961
+      UnsetAbility = 2402, // 0x00000962
+      NoJobSetEquip = 2500, // 0x000009C4
+      NoEquipItem = 2501, // 0x000009C5
+      Equipped = 2502, // 0x000009C6
+      NoJobEnforceEquip = 2600, // 0x00000A28
+      NoEquipEnforce = 2601, // 0x00000A29
+      ForceMax = 2602, // 0x00000A2A
+      MaterialShort = 2603, // 0x00000A2B
+      EnforcePlayerLvShort = 2604, // 0x00000A2C
+      NoJobLvUpEquip = 2700, // 0x00000A8C
+      EquipNotComp = 2701, // 0x00000A8D
+      PlusShort = 2702, // 0x00000A8E
+      NoItemSell = 2800, // 0x00000AF0
+      ConvertAnotherItem = 2801, // 0x00000AF1
+      StaminaCoinShort = 2900, // 0x00000B54
+      AddStaminaLimit = 2901, // 0x00000B55
+      AbilityCoinShort = 3000, // 0x00000BB8
+      AbilityVipLvShort = 3001, // 0x00000BB9
+      AbilityPlayerLvShort = 3002, // 0x00000BBA
+      GouseiNoTarget = 3200, // 0x00000C80
+      GouseiMaterialShort = 3201, // 0x00000C81
+      GouseiCostShort = 3202, // 0x00000C82
+      UnSelectable = 3300, // 0x00000CE4
+      OutOfDateQuest = 3301, // 0x00000CE5
+      QuestNotEnd = 3302, // 0x00000CE6
+      ChallengeLimit = 3303, // 0x00000CE7
+      NotGpsQuest = 3308, // 0x00000CEC
+      RecordLimitUpload = 3309, // 0x00000CED
+      QuestResume = 3400, // 0x00000D48
+      QuestEnd = 3500, // 0x00000DAC
+      ContinueCostShort = 3600, // 0x00000E10
+      CantContinue = 3601, // 0x00000E11
+      NoBtlInfo = 3700, // 0x00000E74
+      MultiPlayerLvShort = 3701, // 0x00000E75
+      MultiBtlNotEnd = 3702, // 0x00000E76
+      MultiVersionMismatch = 3704, // 0x00000E78
+      ColoCantSelect = 3800, // 0x00000ED8
+      ColoIsBusy = 3801, // 0x00000ED9
+      ColoCostShort = 3802, // 0x00000EDA
+      ColoIntervalShort = 3803, // 0x00000EDB
+      ColoBattleNotEnd = 3804, // 0x00000EDC
+      ColoPlayerLvShort = 3805, // 0x00000EDD
+      ColoVipShort = 3806, // 0x00000EDE
+      ColoRankLower = 3807, // 0x00000EDF
+      ColoNoBattle = 3900, // 0x00000F3C
+      ColoRankModify = 3901, // 0x00000F3D
+      ColoMyRankModify = 3902, // 0x00000F3E
+      NoGacha = 4000, // 0x00000FA0
+      GachaCostShort = 4001, // 0x00000FA1
+      GachaItemMax = 4002, // 0x00000FA2
+      GachaNotFree = 4003, // 0x00000FA3
+      GachaPaidLimitOver = 4004, // 0x00000FA4
+      GachaPlyLvOver = 4005, // 0x00000FA5
+      GachaPlyNewOver = 4006, // 0x00000FA6
+      GachaLimitSoldOut = 4007, // 0x00000FA7
+      GachaLimitCntOver = 4008, // 0x00000FA8
+      TrophyRewarded = 4100, // 0x00001004
+      TrophyOutOfDate = 4101, // 0x00001005
+      TrophyRollBack = 4102, // 0x00001006
+      BingoOutofDateReceive = 4112, // 0x00001010
+      ShopRefreshCostShort = 4200, // 0x00001068
+      ShopRefreshLvSort = 4201, // 0x00001069
+      ShopSoldOut = 4300, // 0x000010CC
+      ShopBuyCostShort = 4301, // 0x000010CD
+      ShopBuyLvShort = 4302, // 0x000010CE
+      ShopBuyNotFound = 4303, // 0x000010CF
+      ShopBuyItemNotFound = 4304, // 0x000010D0
+      GoldBuyCostShort = 4400, // 0x00001130
+      GoldBuyLimit = 4401, // 0x00001131
+      EventShopOutOfPeriod = 4403, // 0x00001133
+      LimitedShopOutOfPeriod = 4403, // 0x00001133
+      EventShopOutOfBuyLimit = 4405, // 0x00001135
+      LimitedShopOutOfBuyLimit = 4405, // 0x00001135
+      ProductIllegalDate = 4500, // 0x00001194
+      ProductPurchaseMax = 4600, // 0x000011F8
+      ProductCantPurchase = 4601, // 0x000011F9
+      HikkoshiNoToken = 4700, // 0x0000125C
+      RoomFailedMakeRoom = 4800, // 0x000012C0
+      RoomIllegalComment = 4801, // 0x000012C1
+      RoomNoRoom = 4900, // 0x00001324
+      NoWatching = 4901, // 0x00001325
+      NoDevice = 5000, // 0x00001388
+      Authorize = 5001, // 0x00001389
+      GauthNoSid = 5002, // 0x0000138A
+      ReturnForceTitle = 5003, // 0x0000138B
+      MissingRelatedID = 5006, // 0x0000138E
+      MigrateIllCode = 5100, // 0x000013EC
+      MigrateSameDev = 5101, // 0x000013ED
+      MigrateLockCode = 5102, // 0x000013EE
+      AccountSuspended = 5104, // 0x000013F0
+      ColoResetCostShort = 5500, // 0x0000157C
+      RaidTicketShort = 5600, // 0x000015E0
+      UnitAddExist = 5700, // 0x00001644
+      UnitAddCostShort = 5701, // 0x00001645
+      UnitAddCantUnlock = 5702, // 0x00001646
+      RoomPlayerLvShort = 5800, // 0x000016A8
+      ApprNoFriend = 5900, // 0x0000170C
+      ApprNoRequest = 5901, // 0x0000170D
+      ApprRequestMax = 5902, // 0x0000170E
+      ApprFriendIsFull = 5903, // 0x0000170F
+      FindNoFriend = 6000, // 0x00001770
+      FindIsMine = 6001, // 0x00001771
+      StringTooShort = 6002, // 0x00001772
+      CountLimitForPlayer = 8005, // 0x00001F45
+      QR_OutOfPeriod = 8008, // 0x00001F48
+      QR_InvalidQRSerial = 8009, // 0x00001F49
+      QR_CanNotReward = 8010, // 0x00001F4A
+      QR_LockSerialCampaign = 8011, // 0x00001F4B
+      ChargeError = 8100, // 0x00001FA4
+      ChargeAge000 = 8101, // 0x00001FA5
+      ChargeVipRemains = 8102, // 0x00001FA6
+      TowerLocked = 8201, // 0x00002009
+      ConditionsErr = 8202, // 0x0000200A
+      NotRecovery_permit = 8203, // 0x0000200B
+      NotExist_tower = 8211, // 0x00002013
+      NotExist_reward = 8212, // 0x00002014
+      NotExist_floor = 8213, // 0x00002015
+      NoMatch_party = 8221, // 0x0000201D
+      NoMatch_mid = 8222, // 0x0000201E
+      IncorrectCoin = 8231, // 0x00002027
+      IncorrectBtlparam = 8232, // 0x00002028
+      AlreadyClear = 8241, // 0x00002031
+      AlreadyBtlend = 8242, // 0x00002032
+      FaildRegistration = 8243, // 0x00002033
+      FaildReset = 8244, // 0x00002034
+      NoChannelAction = 8500, // 0x00002134
+      NoUserAction = 8501, // 0x00002135
+      SendChatInterval = 8502, // 0x00002136
+      CanNotAddBlackList = 8503, // 0x00002137
+      NotGpsMail = 8600, // 0x00002198
+      ReceivedGpsMail = 8601, // 0x00002199
+      AcheiveMigrateIllcode = 8800, // 0x00002260
+      AcheiveMigrateNoCoop = 8801, // 0x00002261
+      AcheiveMigrateLock = 8802, // 0x00002262
+      AcheiveMigrateAuthorize = 8803, // 0x00002263
+      ArtifactBoxLimit = 9000, // 0x00002328
+      ArtifactPieceShort = 9001, // 0x00002329
+      ArtifactMatShort = 9002, // 0x0000232A
+      ArtifactFavorite = 9003, // 0x0000232B
+      SkinNoSkin = 9010, // 0x00002332
+      SkinNoJob = 9011, // 0x00002333
+      VS_NotSelfBattle = 10000, // 0x00002710
+      VS_NotPlayer = 10001, // 0x00002711
+      VS_NotQuestInfo = 10002, // 0x00002712
+      VS_NotLINERoomInfo = 10003, // 0x00002713
+      VS_FailRoomID = 10004, // 0x00002714
+      VS_BattleEnd = 10005, // 0x00002715
+      VS_NotQuestData = 10006, // 0x00002716
+      VS_NotPhotonAppID = 10007, // 0x00002717
+      VS_Version = 10008, // 0x00002718
+      VS_IllComment = 10009, // 0x00002719
+      VS_LvShort = 10010, // 0x0000271A
+      VS_BattleNotEnd = 10011, // 0x0000271B
+      VS_NoRoom = 10012, // 0x0000271C
+      VS_ComBattleEnd = 10013, // 0x0000271D
+      VS_FaildSeasonGift = 10014, // 0x0000271E
+      VS_TowerNotPlay = 10015, // 0x0000271F
+      VS_NotContinuousEnemy = 10016, // 0x00002720
+      VS_RowerNotMatching = 10017, // 0x00002721
+      QuestBookmark_RequestMax = 10100, // 0x00002774
+      QuestBookmark_AlreadyLimited = 10101, // 0x00002775
+      DmmSessionExpired = 11000, // 0x00002AF8
+      MT_NotClearFloor = 12001, // 0x00002EE1
+      MT_AlreadyFinish = 12002, // 0x00002EE2
+      MT_NoRoom = 12003, // 0x00002EE3
+      RankingQuest_NotNewScore = 13001, // 0x000032C9
+      RankingQuest_AlreadyEntry = 13002, // 0x000032CA
+      RankingQuest_OutOfPeriod = 13003, // 0x000032CB
+    }
+
+    public enum RequestResults
+    {
+      Success,
+      Failure,
+      Retry,
+      Back,
+      Timeout,
+      Maintenance,
+      VersionMismatch,
+      InvalidSession,
+      IllegalParam,
+    }
+
+    public enum EConnectMode
+    {
+      Online,
+      Offline,
+    }
+
+    public delegate void ResponseCallback(WWWResult result);
+  }
+}

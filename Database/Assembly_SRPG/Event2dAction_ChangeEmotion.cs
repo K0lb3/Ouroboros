@@ -1,41 +1,30 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.Event2dAction_ChangeEmotion
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
+  [EventActionInfo("New/立ち絵2/表情切替", "指定したキャラの表情を切り替えます。", 5592405, 4473992)]
+  public class Event2dAction_ChangeEmotion : EventAction
+  {
+    public string CharaID;
+    public string Emotion;
 
-    [EventActionInfo("New/立ち絵2/表情切替", "指定したキャラの表情を切り替えます。", 0x555555, 0x444488)]
-    public class Event2dAction_ChangeEmotion : EventAction
+    public override void PreStart()
     {
-        public string CharaID;
-        public string Emotion;
-
-        public Event2dAction_ChangeEmotion()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate()
-        {
-            EventStandCharaController2 controller;
-            if (string.IsNullOrEmpty(this.CharaID) != null)
-            {
-                goto Label_0044;
-            }
-            if (string.IsNullOrEmpty(this.Emotion) != null)
-            {
-                goto Label_0044;
-            }
-            controller = EventStandCharaController2.FindInstances(this.CharaID);
-            controller.Emotion = this.Emotion;
-            controller.UpdateEmotion(this.Emotion);
-        Label_0044:
-            base.ActivateNext();
-            return;
-        }
-
-        public override void PreStart()
-        {
-        }
     }
-}
 
+    public override void OnActivate()
+    {
+      if (!string.IsNullOrEmpty(this.CharaID) && !string.IsNullOrEmpty(this.Emotion))
+      {
+        EventStandCharaController2 instances = EventStandCharaController2.FindInstances(this.CharaID);
+        instances.Emotion = this.Emotion;
+        instances.UpdateEmotion(this.Emotion);
+      }
+      this.ActivateNext();
+    }
+  }
+}

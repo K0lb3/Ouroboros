@@ -1,69 +1,51 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_SendAlterMaster
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-
-    [Pin(0, "Request", 0, 0), NodeType("System/SendAlterCheck", 0x7fe5), Pin(10, "Success", 1, 10), Pin(11, "Failed", 1, 11)]
-    public class FlowNode_SendAlterMaster : FlowNode_Network
+  [FlowNode.NodeType("System/SendAlterCheck", 32741)]
+  [FlowNode.Pin(0, "Request", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(10, "Success", FlowNode.PinTypes.Output, 10)]
+  [FlowNode.Pin(11, "Failed", FlowNode.PinTypes.Output, 11)]
+  public class FlowNode_SendAlterMaster : FlowNode_Network
+  {
+    public override void OnActivate(int pinID)
     {
-        public FlowNode_SendAlterMaster()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            string str;
-            string str2;
-            if (pinID != null)
-            {
-                goto Label_0058;
-            }
-            str = MonoSingleton<GameManager>.GetInstanceDirect().DigestHash;
-            str2 = MonoSingleton<GameManager>.GetInstanceDirect().AlterCheckHash;
-            if (string.IsNullOrEmpty(str) != null)
-            {
-                goto Label_0051;
-            }
-            if (string.IsNullOrEmpty(str2) != null)
-            {
-                goto Label_0051;
-            }
-            base.ExecRequest(new ReqSendAlterData(new Network.ResponseCallback(this.ResponseCallback)));
-            base.set_enabled(1);
-            return;
-        Label_0051:
-            this.Success();
-            return;
-        Label_0058:
-            return;
-        }
-
-        public override void OnSuccess(WWWResult www)
-        {
-            Network.EErrCode code;
-            if (Network.IsError == null)
-            {
-                goto Label_0015;
-            }
-            code = Network.ErrCode;
-        Label_0015:
-            Network.RemoveAPI();
-            PlayerPrefsUtility.SetString(PlayerPrefsUtility.ALTER_PREV_CHECK_HASH, MonoSingleton<GameManager>.Instance.AlterCheckHash, 0);
-            this.Success();
-            return;
-        }
-
-        private void Success()
-        {
-            MonoSingleton<GameManager>.GetInstanceDirect().AlterCheckHash = null;
-            MonoSingleton<GameManager>.GetInstanceDirect().DigestHash = null;
-            MonoSingleton<GameManager>.GetInstanceDirect().PrevCheckHash = null;
-            base.set_enabled(0);
-            base.ActivateOutputLinks(10);
-            return;
-        }
+      if (pinID != 0)
+        return;
+      if (!string.IsNullOrEmpty(MonoSingleton<GameManager>.GetInstanceDirect().DigestHash) && !string.IsNullOrEmpty(MonoSingleton<GameManager>.GetInstanceDirect().AlterCheckHash))
+      {
+        this.ExecRequest((WebAPI) new ReqSendAlterData(new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+        ((Behaviour) this).set_enabled(true);
+      }
+      else
+        this.Success();
     }
-}
 
+    private void Success()
+    {
+      MonoSingleton<GameManager>.GetInstanceDirect().AlterCheckHash = (string) null;
+      MonoSingleton<GameManager>.GetInstanceDirect().DigestHash = (string) null;
+      MonoSingleton<GameManager>.GetInstanceDirect().PrevCheckHash = (string) null;
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(10);
+    }
+
+    public override void OnSuccess(WWWResult www)
+    {
+      if (Network.IsError)
+      {
+        Network.EErrCode errCode = Network.ErrCode;
+      }
+      Network.RemoveAPI();
+      PlayerPrefsUtility.SetString(PlayerPrefsUtility.ALTER_PREV_CHECK_HASH, MonoSingleton<GameManager>.Instance.AlterCheckHash, false);
+      this.Success();
+    }
+  }
+}

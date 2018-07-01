@@ -1,202 +1,99 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.StoryQuestShortcut
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using UnityEngine;
-    using UnityEngine.UI;
+  [FlowNode.Pin(100, "イベントページへ", FlowNode.PinTypes.Output, 100)]
+  [FlowNode.Pin(0, "ノーマルクエスト", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "キークエスト", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(2, "塔クエスト", FlowNode.PinTypes.Input, 2)]
+  public class StoryQuestShortcut : MonoBehaviour, IFlowInterface
+  {
+    public Button EventQuestButton;
+    public Button KeyQuestButton;
+    public Button TowerQuestButton;
+    public GameObject KeyQuestOpenEffect;
 
-    [Pin(1, "キークエスト", 0, 1), Pin(0, "ノーマルクエスト", 0, 0), Pin(100, "イベントページへ", 1, 100), Pin(2, "塔クエスト", 0, 2)]
-    public class StoryQuestShortcut : MonoBehaviour, IFlowInterface
+    public StoryQuestShortcut()
     {
-        public Button EventQuestButton;
-        public Button KeyQuestButton;
-        public Button TowerQuestButton;
-        public GameObject KeyQuestOpenEffect;
-
-        public StoryQuestShortcut()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void Activated(int pinID)
-        {
-            int num;
-            num = pinID;
-            switch (num)
-            {
-                case 0:
-                    goto Label_0019;
-
-                case 1:
-                    goto Label_0024;
-
-                case 2:
-                    goto Label_002F;
-            }
-            goto Label_003A;
-        Label_0019:
-            GlobalVars.ReqEventPageListType = 0;
-            goto Label_003A;
-        Label_0024:
-            GlobalVars.ReqEventPageListType = 1;
-            goto Label_003A;
-        Label_002F:
-            GlobalVars.ReqEventPageListType = 2;
-        Label_003A:
-            FlowNode_GameObject.ActivateOutputLinks(this, 100);
-            return;
-        }
-
-        public bool IsOpendTower()
-        {
-            GameManager manager;
-            QuestParam[] paramArray;
-            long num;
-            int num2;
-            TowerParam param;
-            int num3;
-            int num4;
-            manager = MonoSingleton<GameManager>.Instance;
-            paramArray = manager.Player.AvailableQuests;
-            num = Network.GetServerTime();
-            num2 = 0;
-            goto Label_0089;
-        Label_001F:
-            param = manager.Towers[num2];
-            num3 = 0;
-            goto Label_007B;
-        Label_0031:
-            if (paramArray[num3].type == 7)
-            {
-                goto Label_0045;
-            }
-            goto Label_0075;
-        Label_0045:
-            if ((paramArray[num3].iname != param.iname) == null)
-            {
-                goto Label_0064;
-            }
-            goto Label_0075;
-        Label_0064:
-            if (paramArray[num3].IsDateUnlock(num) == null)
-            {
-                goto Label_0075;
-            }
-            return 1;
-        Label_0075:
-            num3 += 1;
-        Label_007B:
-            if (num3 < ((int) paramArray.Length))
-            {
-                goto Label_0031;
-            }
-            num2 += 1;
-        Label_0089:
-            if (num2 < ((int) manager.Towers.Length))
-            {
-                goto Label_001F;
-            }
-            num4 = 0;
-            goto Label_00C9;
-        Label_009F:
-            if (paramArray[num4].IsMultiTower != null)
-            {
-                goto Label_00B2;
-            }
-            goto Label_00C3;
-        Label_00B2:
-            if (paramArray[num4].IsDateUnlock(num) == null)
-            {
-                goto Label_00C3;
-            }
-            return 1;
-        Label_00C3:
-            num4 += 1;
-        Label_00C9:
-            if (num4 < ((int) paramArray.Length))
-            {
-                goto Label_009F;
-            }
-            return 0;
-        }
-
-        private void Start()
-        {
-            ChapterParam[] paramArray;
-            bool flag;
-            bool flag2;
-            long num;
-            int num2;
-            LevelLock @lock;
-            paramArray = MonoSingleton<GameManager>.Instance.Chapters;
-            flag = 0;
-            flag2 = 0;
-            if (paramArray == null)
-            {
-                goto Label_0063;
-            }
-            num = Network.GetServerTime();
-            num2 = 0;
-            goto Label_0059;
-        Label_0023:
-            if (paramArray[num2].IsKeyQuest() == null)
-            {
-                goto Label_0053;
-            }
-            if (paramArray[num2].IsDateUnlock(num) == null)
-            {
-                goto Label_0042;
-            }
-            flag2 = 1;
-        Label_0042:
-            if (paramArray[num2].IsKeyUnlock(num) == null)
-            {
-                goto Label_0053;
-            }
-            flag = 1;
-        Label_0053:
-            num2 += 1;
-        Label_0059:
-            if (num2 < ((int) paramArray.Length))
-            {
-                goto Label_0023;
-            }
-        Label_0063:
-            if ((this.KeyQuestOpenEffect != null) == null)
-            {
-                goto Label_0080;
-            }
-            this.KeyQuestOpenEffect.SetActive(flag);
-        Label_0080:
-            if ((this.KeyQuestButton != null) == null)
-            {
-                goto Label_00AE;
-            }
-            this.KeyQuestButton.get_gameObject().SetActive(1);
-            this.KeyQuestButton.set_interactable(flag2);
-        Label_00AE:
-            if ((this.TowerQuestButton != null) == null)
-            {
-                goto Label_0117;
-            }
-            @lock = this.TowerQuestButton.GetComponent<LevelLock>();
-            if ((@lock != null) == null)
-            {
-                goto Label_0106;
-            }
-            @lock.UpdateLockState();
-            if (this.TowerQuestButton.get_interactable() == null)
-            {
-                goto Label_0117;
-            }
-            this.TowerQuestButton.set_interactable(this.IsOpendTower());
-            goto Label_0117;
-        Label_0106:
-            this.TowerQuestButton.set_interactable(this.IsOpendTower());
-        Label_0117:
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Start()
+    {
+      ChapterParam[] chapters = MonoSingleton<GameManager>.Instance.Chapters;
+      bool flag1 = false;
+      bool flag2 = false;
+      if (chapters != null)
+      {
+        long serverTime = Network.GetServerTime();
+        for (int index = 0; index < chapters.Length; ++index)
+        {
+          if (chapters[index].IsKeyQuest())
+          {
+            if (chapters[index].IsDateUnlock(serverTime))
+              flag2 = true;
+            if (chapters[index].IsKeyUnlock(serverTime))
+              flag1 = true;
+          }
+        }
+      }
+      if (Object.op_Inequality((Object) this.KeyQuestOpenEffect, (Object) null))
+        this.KeyQuestOpenEffect.SetActive(flag1);
+      if (Object.op_Inequality((Object) this.KeyQuestButton, (Object) null))
+      {
+        ((Component) this.KeyQuestButton).get_gameObject().SetActive(true);
+        ((Selectable) this.KeyQuestButton).set_interactable(flag2);
+      }
+      if (!Object.op_Inequality((Object) this.TowerQuestButton, (Object) null))
+        return;
+      ((Selectable) this.TowerQuestButton).set_interactable(this.IsOpendTower());
+    }
+
+    public void Activated(int pinID)
+    {
+      switch (pinID)
+      {
+        case 0:
+          GlobalVars.ReqEventPageListType = GlobalVars.EventQuestListType.EventQuest;
+          break;
+        case 1:
+          GlobalVars.ReqEventPageListType = GlobalVars.EventQuestListType.KeyQuest;
+          break;
+        case 2:
+          GlobalVars.ReqEventPageListType = GlobalVars.EventQuestListType.Tower;
+          break;
+      }
+      FlowNode_GameObject.ActivateOutputLinks((Component) this, 100);
+    }
+
+    public bool IsOpendTower()
+    {
+      GameManager instance = MonoSingleton<GameManager>.Instance;
+      QuestParam[] availableQuests = instance.Player.AvailableQuests;
+      long serverTime = Network.GetServerTime();
+      for (int index1 = 0; index1 < instance.Towers.Length; ++index1)
+      {
+        TowerParam tower = instance.Towers[index1];
+        for (int index2 = 0; index2 < availableQuests.Length; ++index2)
+        {
+          if (availableQuests[index2].type == QuestTypes.Tower && !(availableQuests[index2].iname != tower.iname) && availableQuests[index2].IsDateUnlock(serverTime))
+            return true;
+        }
+      }
+      for (int index = 0; index < availableQuests.Length; ++index)
+      {
+        if (availableQuests[index].IsMultiTower && availableQuests[index].IsDateUnlock(serverTime))
+          return true;
+      }
+      return false;
+    }
+  }
+}

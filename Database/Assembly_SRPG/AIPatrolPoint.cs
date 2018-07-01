@@ -1,27 +1,25 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.AIPatrolPoint
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System;
+
+namespace SRPG
 {
-    using System;
+  [Serializable]
+  public class AIPatrolPoint
+  {
+    public int x;
+    public int y;
+    public int length;
 
-    [Serializable]
-    public class AIPatrolPoint
+    public void CopyTo(AIPatrolPoint dst)
     {
-        public int x;
-        public int y;
-        public int length;
-
-        public AIPatrolPoint()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void CopyTo(AIPatrolPoint dst)
-        {
-            dst.x = this.x;
-            dst.y = this.y;
-            dst.length = this.length;
-            return;
-        }
+      dst.x = this.x;
+      dst.y = this.y;
+      dst.length = this.length;
     }
+  }
 }
-

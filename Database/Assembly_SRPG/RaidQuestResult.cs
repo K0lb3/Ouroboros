@@ -1,20 +1,17 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.RaidQuestResult
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    public class RaidQuestResult
-    {
-        public int index;
-        public int pexp;
-        public int uexp;
-        public int gold;
-        public QuestResult.DropItemData[] drops;
-
-        public RaidQuestResult()
-        {
-            base..ctor();
-            return;
-        }
-    }
+  public class RaidQuestResult
+  {
+    public int index;
+    public int pexp;
+    public int uexp;
+    public int gold;
+    public ItemData[] drops;
+  }
 }
-

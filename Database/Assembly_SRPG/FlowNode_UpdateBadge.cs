@@ -1,30 +1,25 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_UpdateBadge
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+
+namespace SRPG
 {
-    using GR;
-    using System;
+  [FlowNode.Pin(10, "Output", FlowNode.PinTypes.Output, 10)]
+  [FlowNode.NodeType("UI/UpdateBadge", 32741)]
+  [FlowNode.Pin(1, "Start", FlowNode.PinTypes.Input, 0)]
+  public class FlowNode_UpdateBadge : FlowNode
+  {
+    public GameManager.BadgeTypes type;
 
-    [NodeType("UI/UpdateBadge", 0x7fe5), Pin(10, "Output", 1, 10), Pin(1, "Start", 0, 0)]
-    public class FlowNode_UpdateBadge : FlowNode
+    public override void OnActivate(int pinID)
     {
-        public GameManager.BadgeTypes type;
-
-        public FlowNode_UpdateBadge()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != 1)
-            {
-                goto Label_0017;
-            }
-            MonoSingleton<GameManager>.Instance.RequestUpdateBadges(this.type);
-        Label_0017:
-            base.ActivateOutputLinks(10);
-            return;
-        }
+      if (pinID == 1)
+        MonoSingleton<GameManager>.Instance.RequestUpdateBadges(this.type);
+      this.ActivateOutputLinks(10);
     }
+  }
 }
-

@@ -1,32 +1,29 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_Platform
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
+  [FlowNode.NodeType("Platform/Switch", 32741)]
+  [FlowNode.Pin(103, "DMM", FlowNode.PinTypes.Output, 103)]
+  [FlowNode.Pin(104, "EDITOR", FlowNode.PinTypes.Output, 104)]
+  [FlowNode.Pin(0, "Start", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(101, "iOS", FlowNode.PinTypes.Output, 101)]
+  [FlowNode.Pin(102, "Android", FlowNode.PinTypes.Output, 102)]
+  public class FlowNode_Platform : FlowNode
+  {
+    private const int PIN_PLATFORM_IOS = 101;
+    private const int PIN_PLATFORM_ANDROID = 102;
+    private const int PIN_PLATFORM_DMM = 103;
+    private const int PIN_PLATFORM_EDITOR = 104;
 
-    [Pin(0x67, "DMM", 1, 0x67), Pin(0x68, "EDITOR", 1, 0x68), Pin(0, "Start", 0, 0), Pin(0x65, "iOS", 1, 0x65), Pin(0x66, "Android", 1, 0x66), NodeType("Platform/Switch", 0x7fe5)]
-    public class FlowNode_Platform : FlowNode
+    public override void OnActivate(int pinID)
     {
-        private const int PIN_PLATFORM_IOS = 0x65;
-        private const int PIN_PLATFORM_ANDROID = 0x66;
-        private const int PIN_PLATFORM_DMM = 0x67;
-        private const int PIN_PLATFORM_EDITOR = 0x68;
-
-        public FlowNode_Platform()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != null)
-            {
-                goto Label_0010;
-            }
-            base.ActivateOutputLinks(0x67);
-            return;
-        Label_0010:
-            return;
-        }
+      if (pinID != 0)
+        return;
+      this.ActivateOutputLinks(102);
     }
+  }
 }
-

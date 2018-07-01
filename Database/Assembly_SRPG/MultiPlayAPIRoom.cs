@@ -1,94 +1,53 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.MultiPlayAPIRoom
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Security.Cryptography;
+using System.Text;
+
+namespace SRPG
 {
-    using System;
-    using System.Security.Cryptography;
-    using System.Text;
+  public class MultiPlayAPIRoom
+  {
+    private static readonly string LOCKED = "1";
+    public int roomid;
+    public string comment;
+    public MultiPlayAPIRoom.Quest quest;
+    public string pwd_hash;
+    public int limit;
+    public int unitlv;
+    public int clear;
+    public int num;
+    public MultiPlayAPIRoom.Owner owner;
 
-    public class MultiPlayAPIRoom
+    public static string CalcHash(string pwd)
     {
-        private static readonly string LOCKED;
-        public int roomid;
-        public string comment;
-        public Quest quest;
-        public string pwd_hash;
-        public int limit;
-        public int unitlv;
-        public int clear;
-        public int is_clear;
-        public int floor;
-        public int num;
-        public Owner owner;
-
-        static MultiPlayAPIRoom()
-        {
-            LOCKED = "1";
-            return;
-        }
-
-        public MultiPlayAPIRoom()
-        {
-            base..ctor();
-            return;
-        }
-
-        public static string CalcHash(string pwd)
-        {
-            MD5 md;
-            byte[] buffer;
-            byte[] buffer2;
-            StringBuilder builder;
-            int num;
-            if (string.IsNullOrEmpty(pwd) == null)
-            {
-                goto Label_0011;
-            }
-            return string.Empty;
-        Label_0011:
-            md = new MD5CryptoServiceProvider();
-            buffer = Encoding.UTF8.GetBytes(pwd);
-            buffer2 = md.ComputeHash(buffer);
-            builder = new StringBuilder();
-            num = 0;
-            goto Label_0054;
-        Label_0039:
-            builder.AppendFormat("{0:x2}", (byte) buffer2[num]);
-            num += 1;
-        Label_0054:
-            if (num < ((int) buffer2.Length))
-            {
-                goto Label_0039;
-            }
-            return builder.ToString();
-        }
-
-        public static bool IsLocked(string pwd)
-        {
-            return (pwd == LOCKED);
-        }
-
-        public class Owner
-        {
-            public string name;
-            public string level;
-            public Json_Unit[] units;
-
-            public Owner()
-            {
-                base..ctor();
-                return;
-            }
-        }
-
-        public class Quest
-        {
-            public string iname;
-
-            public Quest()
-            {
-                base..ctor();
-                return;
-            }
-        }
+      if (string.IsNullOrEmpty(pwd))
+        return string.Empty;
+      byte[] hash = new MD5CryptoServiceProvider().ComputeHash(Encoding.UTF8.GetBytes(pwd));
+      StringBuilder stringBuilder = new StringBuilder();
+      for (int index = 0; index < hash.Length; ++index)
+        stringBuilder.AppendFormat("{0:x2}", (object) hash[index]);
+      return stringBuilder.ToString();
     }
-}
 
+    public static bool IsLocked(string pwd)
+    {
+      return pwd == MultiPlayAPIRoom.LOCKED;
+    }
+
+    public class Quest
+    {
+      public string iname;
+    }
+
+    public class Owner
+    {
+      public string name;
+      public string level;
+      public Json_Unit[] units;
+    }
+  }
+}

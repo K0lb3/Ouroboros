@@ -1,51 +1,44 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_SupportSet
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using UnityEngine;
+  [FlowNode.Pin(0, "Request", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.NodeType("System/SupportSet", 32741)]
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
+  public class FlowNode_SupportSet : FlowNode_Network
+  {
+    public GameObject UnitParent;
 
-    [Pin(1, "Success", 1, 1), Pin(0, "Request", 0, 0), NodeType("System/SupportSet", 0x7fe5)]
-    public class FlowNode_SupportSet : FlowNode_Network
+    public override void OnSuccess(WWWResult www)
     {
-        public GameObject UnitParent;
-
-        public FlowNode_SupportSet()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            UnitData data;
-            data = MonoSingleton<GameManager>.Instance.Player.FindUnitDataByUniqueID(GlobalVars.SelectedSupportUnitUniqueID);
-            base.ExecRequest(new ReqSetSupport(data.UniqueID, new Network.ResponseCallback(this.ResponseCallback)));
-            return;
-        }
-
-        public override void OnSuccess(WWWResult www)
-        {
-            UnitData data;
-            Network.EErrCode code;
-            if (Network.IsError == null)
-            {
-                goto Label_0017;
-            }
-            code = Network.ErrCode;
-            this.OnFailed();
-            return;
-        Label_0017:
-            data = MonoSingleton<GameManager>.Instance.Player.FindUnitDataByUniqueID(GlobalVars.SelectedSupportUnitUniqueID);
-            DataSource.Bind<UnitData>(this.UnitParent, data);
-            GameParameter.UpdateAll(base.get_gameObject());
-            Network.RemoveAPI();
-            base.ActivateOutputLinks(1);
-            return;
-        }
-
-        private void OnUnitSelect(long uniqueID)
-        {
-        }
+      if (Network.IsError)
+      {
+        Network.EErrCode errCode = Network.ErrCode;
+        this.OnFailed();
+      }
+      else
+      {
+        DataSource.Bind<UnitData>(this.UnitParent, MonoSingleton<GameManager>.Instance.Player.FindUnitDataByUniqueID((long) GlobalVars.SelectedSupportUnitUniqueID));
+        GameParameter.UpdateAll(((Component) this).get_gameObject());
+        Network.RemoveAPI();
+        this.ActivateOutputLinks(1);
+      }
     }
-}
 
+    public override void OnActivate(int pinID)
+    {
+      this.ExecRequest((WebAPI) new ReqSetSupport(MonoSingleton<GameManager>.Instance.Player.FindUnitDataByUniqueID((long) GlobalVars.SelectedSupportUnitUniqueID).UniqueID, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+    }
+
+    private void OnUnitSelect(long uniqueID)
+    {
+    }
+  }
+}

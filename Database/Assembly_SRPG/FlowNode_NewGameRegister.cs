@@ -1,122 +1,62 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_NewGameRegister
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Runtime.CompilerServices;
+  [FlowNode.Pin(10, "Success", FlowNode.PinTypes.Output, 10)]
+  [FlowNode.NodeType("System/NewGameRegister", 32741)]
+  [FlowNode.Pin(0, "Create New Account", FlowNode.PinTypes.Input, 0)]
+  public class FlowNode_NewGameRegister : FlowNode_Network
+  {
+    public static string gPassword = "DmmPassword";
 
-    [Pin(0, "Create New Account", 0, 0), NodeType("System/NewGameRegister", 0x7fe5), Pin(10, "Success", 1, 10)]
-    public class FlowNode_NewGameRegister : FlowNode_Network
+    public static string gDeviceID { get; set; }
+
+    public static string gEmail { get; set; }
+
+    public override void OnActivate(int pinID)
     {
-        public static string gPassword;
-        [CompilerGenerated]
-        private static string <gDeviceID>k__BackingField;
-        [CompilerGenerated]
-        private static string <gEmail>k__BackingField;
-
-        static FlowNode_NewGameRegister()
-        {
-            gPassword = "DmmPassword";
-            return;
-        }
-
-        public FlowNode_NewGameRegister()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            string str;
-            string str2;
-            if (pinID != null)
-            {
-                goto Label_0047;
-            }
-            MonoSingleton<GameManager>.Instance.InitAuth();
-            str = MonoSingleton<GameManager>.Instance.SecretKey;
-            str2 = MonoSingleton<GameManager>.Instance.UdId;
-            base.ExecRequest(new ReqGetDeviceID(str, str2, new Network.ResponseCallback(this.ResponseCallback)));
-            base.set_enabled(1);
-        Label_0047:
-            return;
-        }
-
-        public override unsafe void OnSuccess(WWWResult www)
-        {
-            WebAPI.JSON_BodyResponse<JSON_DeviceID> response;
-            Network.EErrCode code;
-            if (Network.IsError == null)
-            {
-                goto Label_002E;
-            }
-            if (Network.ErrCode == 0x4b0)
-            {
-                goto Label_0020;
-            }
-            goto Label_0027;
-        Label_0020:
-            this.OnFailed();
-            return;
-        Label_0027:
-            this.OnFailed();
-            return;
-        Label_002E:
-            response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<JSON_DeviceID>>(&www.text);
-            DebugUtility.Assert((response == null) == 0, "res == null");
-            gDeviceID = response.body.device_id;
-            Network.RemoveAPI();
-            this.Success();
-            return;
-        }
-
-        private void Success()
-        {
-            base.set_enabled(0);
-            base.ActivateOutputLinks(10);
-            return;
-        }
-
-        public static string gDeviceID
-        {
-            [CompilerGenerated]
-            get
-            {
-                return <gDeviceID>k__BackingField;
-            }
-            [CompilerGenerated]
-            set
-            {
-                <gDeviceID>k__BackingField = value;
-                return;
-            }
-        }
-
-        public static string gEmail
-        {
-            [CompilerGenerated]
-            get
-            {
-                return <gEmail>k__BackingField;
-            }
-            [CompilerGenerated]
-            set
-            {
-                <gEmail>k__BackingField = value;
-                return;
-            }
-        }
-
-        private class JSON_DeviceID
-        {
-            public string device_id;
-
-            public JSON_DeviceID()
-            {
-                base..ctor();
-                return;
-            }
-        }
+      if (pinID != 0)
+        return;
+      MonoSingleton<GameManager>.Instance.InitAuth();
+      this.ExecRequest((WebAPI) new ReqGetDeviceID(MonoSingleton<GameManager>.Instance.SecretKey, MonoSingleton<GameManager>.Instance.UdId, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+      ((Behaviour) this).set_enabled(true);
     }
-}
 
+    private void Success()
+    {
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(10);
+    }
+
+    public override void OnSuccess(WWWResult www)
+    {
+      if (Network.IsError)
+      {
+        if (Network.ErrCode == Network.EErrCode.SessionFailure)
+          this.OnFailed();
+        else
+          this.OnFailed();
+      }
+      else
+      {
+        WebAPI.JSON_BodyResponse<FlowNode_NewGameRegister.JSON_DeviceID> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<FlowNode_NewGameRegister.JSON_DeviceID>>(www.text);
+        DebugUtility.Assert(jsonObject != null, "res == null");
+        FlowNode_NewGameRegister.gDeviceID = jsonObject.body.device_id;
+        Network.RemoveAPI();
+        this.Success();
+      }
+    }
+
+    private class JSON_DeviceID
+    {
+      public string device_id;
+    }
+  }
+}

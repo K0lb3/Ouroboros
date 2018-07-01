@@ -1,49 +1,36 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_SetBoolPlayerPrefs
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
+  [FlowNode.Pin(2, "Result", FlowNode.PinTypes.Output, 2)]
+  [FlowNode.Pin(0, "SetFalse", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.NodeType("System/SetBoolPlayerPrefs", 32741)]
+  [FlowNode.Pin(1, "SetTrue", FlowNode.PinTypes.Input, 1)]
+  public class FlowNode_SetBoolPlayerPrefs : FlowNode
+  {
+    private const int SET_FALSE = 0;
+    private const int SET_TRUE = 1;
+    public string Name;
 
-    [Pin(2, "Result", 1, 2), NodeType("System/SetBoolPlayerPrefs", 0x7fe5), Pin(1, "SetTrue", 0, 1), Pin(0, "SetFalse", 0, 0)]
-    public class FlowNode_SetBoolPlayerPrefs : FlowNode
+    public override void OnActivate(int pinID)
     {
-        private const int SET_FALSE = 0;
-        private const int SET_TRUE = 1;
-        public string Name;
-
-        public FlowNode_SetBoolPlayerPrefs()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            bool flag;
-            int num;
-            flag = 0;
-            num = pinID;
-            if (num == null)
-            {
-                goto Label_0016;
-            }
-            if (num == 1)
-            {
-                goto Label_0029;
-            }
-            goto Label_003C;
-        Label_0016:
-            flag = PlayerPrefsUtility.SetInt(this.Name, 0, 1);
-            goto Label_003C;
-        Label_0029:
-            flag = PlayerPrefsUtility.SetInt(this.Name, 1, 1);
-        Label_003C:
-            if (flag != null)
-            {
-                goto Label_004C;
-            }
-            DebugUtility.Log("PlayerPrefsの設定に失敗しました");
-        Label_004C:
-            return;
-        }
+      bool flag = false;
+      switch (pinID)
+      {
+        case 0:
+          flag = PlayerPrefsUtility.SetInt(this.Name, 0, true);
+          break;
+        case 1:
+          flag = PlayerPrefsUtility.SetInt(this.Name, 1, true);
+          break;
+      }
+      if (!flag)
+        return;
+      DebugUtility.Log("PlayerPrefsの設定に失敗しました");
     }
+  }
 }
-

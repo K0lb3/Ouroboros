@@ -1,68 +1,48 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.SRPG_ToggleButton
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
-    using UnityEngine.EventSystems;
-    using UnityEngine.UI;
+  [AddComponentMenu("UI/Toggle Button (SRPG)")]
+  public class SRPG_ToggleButton : SRPG_Button
+  {
+    private bool mIsOn;
+    public bool AutoToggle;
 
-    [AddComponentMenu("UI/Toggle Button (SRPG)")]
-    public class SRPG_ToggleButton : SRPG_Button
+    public bool IsOn
     {
-        private bool mIsOn;
-        public bool AutoToggle;
-
-        public SRPG_ToggleButton()
-        {
-            base..ctor();
-            return;
-        }
-
-        protected override void DoStateTransition(Selectable.SelectionState state, bool instant)
-        {
-            if (((state != null) && (state != 1)) && (state != 2))
-            {
-                goto Label_0028;
-            }
-            state = (this.mIsOn == null) ? 0 : 2;
-        Label_0028:
-            base.DoStateTransition(state, instant);
-            return;
-        }
-
-        public override void OnPointerClick(PointerEventData eventData)
-        {
-            if (this.IsInteractable() == null)
-            {
-                goto Label_0025;
-            }
-            if (this.AutoToggle == null)
-            {
-                goto Label_0025;
-            }
-            this.IsOn = this.IsOn == 0;
-        Label_0025:
-            base.OnPointerClick(eventData);
-            return;
-        }
-
-        public bool IsOn
-        {
-            get
-            {
-                return this.mIsOn;
-            }
-            set
-            {
-                if (this.mIsOn == value)
-                {
-                    goto Label_002C;
-                }
-                this.mIsOn = value;
-                this.DoStateTransition((this.mIsOn == null) ? 0 : 2, 0);
-            Label_002C:
-                return;
-            }
-        }
+      get
+      {
+        return this.mIsOn;
+      }
+      set
+      {
+        if (this.mIsOn == value)
+          return;
+        this.mIsOn = value;
+        this.DoStateTransition(!this.mIsOn ? (Selectable.SelectionState) 0 : (Selectable.SelectionState) 2, false);
+      }
     }
-}
 
+    protected virtual void DoStateTransition(Selectable.SelectionState state, bool instant)
+    {
+      if (state == null || state == 1 || state == 2)
+        state = !this.mIsOn ? (Selectable.SelectionState) 0 : (Selectable.SelectionState) 2;
+      ((Selectable) this).DoStateTransition(state, instant);
+    }
+
+    public override void OnPointerClick(PointerEventData eventData)
+    {
+      if (((Selectable) this).IsInteractable() && this.AutoToggle)
+        this.IsOn = !this.IsOn;
+      base.OnPointerClick(eventData);
+    }
+  }
+}

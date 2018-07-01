@@ -1,27 +1,30 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.GenericSlotFlags
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  [DisallowMultipleComponent]
+  public class GenericSlotFlags : MonoBehaviour
+  {
+    [BitMask]
+    public GenericSlotFlags.VisibleFlags Flags;
 
-    [DisallowMultipleComponent]
-    public class GenericSlotFlags : MonoBehaviour
+    public GenericSlotFlags()
     {
-        [BitMask]
-        public VisibleFlags Flags;
-
-        public GenericSlotFlags()
-        {
-            base..ctor();
-            return;
-        }
-
-        [Flags]
-        public enum VisibleFlags
-        {
-            Empty = 1,
-            NonEmpty = 2,
-            Locked = 4
-        }
+      base.\u002Ector();
     }
-}
 
+    [System.Flags]
+    public enum VisibleFlags
+    {
+      Empty = 1,
+      NonEmpty = 2,
+      Locked = 4,
+    }
+  }
+}

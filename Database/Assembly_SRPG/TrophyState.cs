@@ -1,64 +1,37 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.TrophyState
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System;
+
+namespace SRPG
 {
-    using System;
+  public class TrophyState
+  {
+    public int[] Count = new int[0];
+    public string iname;
+    public bool IsEnded;
+    public int StartYMD;
+    public DateTime RewardedAt;
+    public bool IsDirty;
+    public TrophyParam Param;
+    public bool IsSending;
 
-    public class TrophyState
+    public bool IsCompleted
     {
-        public string iname;
-        public bool IsEnded;
-        public int[] Count;
-        public int StartYMD;
-        public DateTime RewardedAt;
-        public bool IsDirty;
-        public TrophyParam Param;
-        public bool IsSending;
-
-        public TrophyState()
+      get
+      {
+        if (this.Param == null || this.Count.Length < this.Param.Objectives.Length)
+          return false;
+        for (int index = 0; index < this.Param.Objectives.Length && index < this.Count.Length; ++index)
         {
-            this.Count = new int[0];
-            base..ctor();
-            return;
+          if (this.Count[index] < this.Param.Objectives[index].RequiredCount)
+            return false;
         }
-
-        public bool IsCompleted
-        {
-            get
-            {
-                int num;
-                if (this.Param == null)
-                {
-                    goto Label_0025;
-                }
-                if (((int) this.Count.Length) >= ((int) this.Param.Objectives.Length))
-                {
-                    goto Label_0027;
-                }
-            Label_0025:
-                return 0;
-            Label_0027:
-                num = 0;
-                goto Label_0053;
-            Label_002E:
-                if (this.Count[num] >= this.Param.Objectives[num].RequiredCount)
-                {
-                    goto Label_004F;
-                }
-                return 0;
-            Label_004F:
-                num += 1;
-            Label_0053:
-                if (num >= ((int) this.Param.Objectives.Length))
-                {
-                    goto Label_0074;
-                }
-                if (num < ((int) this.Count.Length))
-                {
-                    goto Label_002E;
-                }
-            Label_0074:
-                return 1;
-            }
-        }
+        return true;
+      }
     }
+  }
 }
-

@@ -1,73 +1,53 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.EventAction_CameraShake
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  [EventActionInfo("カメラ/シェイク", "画面を揺らします。", 5592405, 4473992)]
+  public class EventAction_CameraShake : EventAction
+  {
+    public float Duration = 0.3f;
+    public float FrequencyX = 12.51327f;
+    public float FrequencyY = 20.4651f;
+    public float AmplitudeX = 1f;
+    public float AmplitudeY = 1f;
+    public bool Async;
 
-    [EventActionInfo("カメラ/シェイク", "画面を揺らします。", 0x555555, 0x444488)]
-    public class EventAction_CameraShake : EventAction
+    public override void OnActivate()
     {
-        public float Duration;
-        public float FrequencyX;
-        public float FrequencyY;
-        public float AmplitudeX;
-        public float AmplitudeY;
-        public bool Async;
-
-        public EventAction_CameraShake()
+      if ((double) this.Duration <= 0.0)
+      {
+        this.ActivateNext();
+      }
+      else
+      {
+        Camera main = Camera.get_main();
+        if (Object.op_Inequality((Object) main, (Object) null))
         {
-            this.Duration = 0.3f;
-            this.FrequencyX = 12.51327f;
-            this.FrequencyY = 20.4651f;
-            this.AmplitudeX = 1f;
-            this.AmplitudeY = 1f;
-            base..ctor();
-            return;
+          CameraShakeEffect cameraShakeEffect = (CameraShakeEffect) ((Component) main).get_gameObject().AddComponent<CameraShakeEffect>();
+          cameraShakeEffect.Duration = this.Duration;
+          cameraShakeEffect.FrequencyX = this.FrequencyX;
+          cameraShakeEffect.FrequencyY = this.FrequencyY;
+          cameraShakeEffect.AmplitudeX = this.AmplitudeX;
+          cameraShakeEffect.AmplitudeY = this.AmplitudeY;
         }
-
-        public override void OnActivate()
-        {
-            Camera camera;
-            CameraShakeEffect effect;
-            if (this.Duration > 0f)
-            {
-                goto Label_0017;
-            }
-            base.ActivateNext();
-            return;
-        Label_0017:
-            camera = Camera.get_main();
-            if ((camera != null) == null)
-            {
-                goto Label_0071;
-            }
-            effect = camera.get_gameObject().AddComponent<CameraShakeEffect>();
-            effect.Duration = this.Duration;
-            effect.FrequencyX = this.FrequencyX;
-            effect.FrequencyY = this.FrequencyY;
-            effect.AmplitudeX = this.AmplitudeX;
-            effect.AmplitudeY = this.AmplitudeY;
-        Label_0071:
-            if (this.Async == null)
-            {
-                goto Label_0082;
-            }
-            base.ActivateNext();
-        Label_0082:
-            return;
-        }
-
-        public override void Update()
-        {
-            this.Duration -= Time.get_deltaTime();
-            if (this.Duration > 0f)
-            {
-                goto Label_0029;
-            }
-            base.ActivateNext();
-            return;
-        Label_0029:
-            return;
-        }
+        if (!this.Async)
+          return;
+        this.ActivateNext();
+      }
     }
-}
 
+    public override void Update()
+    {
+      this.Duration -= Time.get_deltaTime();
+      if ((double) this.Duration > 0.0)
+        return;
+      this.ActivateNext();
+    }
+  }
+}

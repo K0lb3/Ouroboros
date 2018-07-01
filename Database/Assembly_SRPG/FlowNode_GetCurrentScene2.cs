@@ -1,106 +1,64 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_GetCurrentScene2
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
+  [FlowNode.Pin(106, "Unknown", FlowNode.PinTypes.Output, 106)]
+  [FlowNode.Pin(100, "Other", FlowNode.PinTypes.Output, 100)]
+  [FlowNode.Pin(101, "Single", FlowNode.PinTypes.Output, 101)]
+  [FlowNode.Pin(102, "Multi", FlowNode.PinTypes.Output, 102)]
+  [FlowNode.Pin(103, "HomeMulti", FlowNode.PinTypes.Output, 103)]
+  [FlowNode.Pin(104, "Home", FlowNode.PinTypes.Output, 104)]
+  [FlowNode.Pin(105, "Title", FlowNode.PinTypes.Output, 105)]
+  [FlowNode.NodeType("Scene/GetCurrentScene2", 32741)]
+  [FlowNode.Pin(0, "Input", FlowNode.PinTypes.Input, 0)]
+  public class FlowNode_GetCurrentScene2 : FlowNode
+  {
+    public string HomeString = "Home";
+    public string TownString = "town";
 
-    [Pin(100, "Other", 1, 100), Pin(110, "Cancel", 1, 110), Pin(0x6a, "Unknown", 1, 0x6a), Pin(0x69, "Title", 1, 0x69), Pin(0x68, "Home", 1, 0x68), Pin(0x67, "HomeMulti", 1, 0x67), Pin(0x66, "Multi", 1, 0x66), Pin(0x65, "Single", 1, 0x65), Pin(0, "Input", 0, 0), NodeType("Scene/GetCurrentScene2", 0x7fe5)]
-    public class FlowNode_GetCurrentScene2 : FlowNode
+    public override void OnActivate(int pinID)
     {
-        public string HomeString;
-        public string TownString;
-
-        public FlowNode_GetCurrentScene2()
-        {
-            this.HomeString = "Home";
-            this.TownString = "town";
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            GameUtility.EScene scene;
-            int num;
-            if (pinID != null)
-            {
-                goto Label_010E;
-            }
-            if ((CanvasStack.Top != null) == null)
-            {
-                goto Label_0034;
-            }
-            if (CanvasStack.Top.GetComponent<CanvasStack>().SystemModal == null)
-            {
-                goto Label_0034;
-            }
-            base.ActivateOutputLinks(110);
-            return;
-        Label_0034:
-            if (StreamingMovie.IsPlaying == null)
-            {
-                goto Label_0048;
-            }
-            base.ActivateOutputLinks(110);
-            return;
-        Label_0048:
-            scene = GameUtility.GetCurrentScene();
-            num = 0x6a;
-            if (scene != 1)
-            {
-                goto Label_006A;
-            }
-            DebugUtility.Log("FlowNode_GetCurrentScene2:EScene.BATTLE");
-            num = 0x65;
-            goto Label_0106;
-        Label_006A:
-            if (scene != 2)
-            {
-                goto Label_0083;
-            }
-            DebugUtility.Log("FlowNode_GetCurrentScene2:EScene.BATTLE_MULTI");
-            num = 0x66;
-            goto Label_0106;
-        Label_0083:
-            if (scene != 4)
-            {
-                goto Label_009C;
-            }
-            DebugUtility.Log("FlowNode_GetCurrentScene2:EScene.HOME_MULTI");
-            num = 0x67;
-            goto Label_0106;
-        Label_009C:
-            if (scene != 5)
-            {
-                goto Label_00B5;
-            }
-            DebugUtility.Log("FlowNode_GetCurrentScene2:EScene.TITLE");
-            num = 0x69;
-            goto Label_0106;
-        Label_00B5:
-            if (scene != 3)
-            {
-                goto Label_00F9;
-            }
-            DebugUtility.Log("FlowNode_GetCurrentScene2:EScene.NOT_HOME");
-            num = 100;
-            if (HomeWindow.Current == null)
-            {
-                goto Label_0106;
-            }
-            if (HomeWindow.Current.DesiredSceneIsHome == null)
-            {
-                goto Label_0106;
-            }
+      if (pinID != 0)
+        return;
+      switch (GameUtility.GetCurrentScene())
+      {
+        case GameUtility.EScene.BATTLE:
+          DebugUtility.Log("FlowNode_GetCurrentScene2:EScene.BATTLE");
+          this.ActivateOutputLinks(101);
+          break;
+        case GameUtility.EScene.BATTLE_MULTI:
+          DebugUtility.Log("FlowNode_GetCurrentScene2:EScene.BATTLE_MULTI");
+          this.ActivateOutputLinks(102);
+          break;
+        case GameUtility.EScene.HOME:
+          DebugUtility.Log("FlowNode_GetCurrentScene2:EScene.NOT_HOME");
+          int pinID1 = 100;
+          if (Object.op_Implicit((Object) HomeWindow.Current) && HomeWindow.Current.DesiredSceneIsHome)
+          {
             DebugUtility.Log("FlowNode_GetCurrentScene2:EScene.NONE");
-            num = 0x68;
-            goto Label_0106;
-        Label_00F9:
-            DebugUtility.Log("FlowNode_GetCurrentScene2:EScene.UNKNOWN");
-            num = 0x6a;
-        Label_0106:
-            base.ActivateOutputLinks(num);
-        Label_010E:
-            return;
-        }
+            pinID1 = 104;
+          }
+          this.ActivateOutputLinks(pinID1);
+          break;
+        case GameUtility.EScene.HOME_MULTI:
+          DebugUtility.Log("FlowNode_GetCurrentScene2:EScene.HOME_MULTI");
+          this.ActivateOutputLinks(103);
+          break;
+        case GameUtility.EScene.TITLE:
+          DebugUtility.Log("FlowNode_GetCurrentScene2:EScene.TITLE");
+          this.ActivateOutputLinks(105);
+          break;
+        default:
+          DebugUtility.Log("FlowNode_GetCurrentScene2:EScene.UNKNOWN");
+          this.ActivateOutputLinks(106);
+          break;
+      }
     }
+  }
 }
-

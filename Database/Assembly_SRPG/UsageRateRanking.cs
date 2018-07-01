@@ -1,227 +1,135 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.UsageRateRanking
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Collections.Generic;
-    using System.Runtime.CompilerServices;
-    using UnityEngine;
-    using UnityEngine.Events;
-    using UnityEngine.UI;
+  [FlowNode.Pin(1, "Refresh", FlowNode.PinTypes.Input, 1)]
+  public class UsageRateRanking : MonoBehaviour, IFlowInterface
+  {
+    public static readonly string[] ViewInfo = new string[3]{ "quest", "arena", "tower_match" };
+    public GameObject ItemBase;
+    public GameObject Parent;
+    public GameObject Aggregating;
+    private List<UsageRateRankingItem> Items;
+    public Scrollbar ItemScrollBar;
+    private UsageRateRanking.ViewInfoType mNowViewInfoType;
+    public Toggle[] RankingToggle;
 
-    [Pin(1, "Refresh", 0, 1)]
-    public class UsageRateRanking : MonoBehaviour, IFlowInterface
+    public UsageRateRanking()
     {
-        public GameObject ItemBase;
-        public GameObject Parent;
-        public GameObject Aggregating;
-        private List<UsageRateRankingItem> Items;
-        public Scrollbar ItemScrollBar;
-        private ViewInfoType mNowViewInfoType;
-        public Toggle[] RankingToggle;
-        public static readonly string[] ViewInfo;
-
-        static UsageRateRanking()
-        {
-            string[] textArray1;
-            textArray1 = new string[] { "quest", "arena", "tower_match" };
-            ViewInfo = textArray1;
-            return;
-        }
-
-        public UsageRateRanking()
-        {
-            this.Items = new List<UsageRateRankingItem>();
-            base..ctor();
-            return;
-        }
-
-        public void Activated(int pinID)
-        {
-            if (pinID != 1)
-            {
-                goto Label_000D;
-            }
-            this.Refresh();
-        Label_000D:
-            return;
-        }
-
-        public void OnChangedToggle(ViewInfoType index)
-        {
-            int num;
-            this.mNowViewInfoType = index;
-            if ((this.ItemScrollBar != null) == null)
-            {
-                goto Label_0028;
-            }
-            this.ItemScrollBar.set_value(1f);
-        Label_0028:
-            num = 0;
-            goto Label_0049;
-        Label_002F:
-            this.RankingToggle[num].set_isOn(this.NowViewInfoIndex == num);
-            num += 1;
-        Label_0049:
-            if (num < ((int) this.RankingToggle.Length))
-            {
-                goto Label_002F;
-            }
-            this.Refresh();
-            return;
-        }
-
-        private void OnChangedToggle(int index)
-        {
-            this.OnChangedToggle((byte) index);
-            return;
-        }
-
-        private void Refresh()
-        {
-            Dictionary<string, RankingData> dictionary;
-            RankingData data;
-            int num;
-            GameObject obj2;
-            UsageRateRankingItem item;
-            int num2;
-            dictionary = MonoSingleton<GameManager>.Instance.UnitRanking;
-            if (dictionary.ContainsKey(this.NowViewInfo) != null)
-            {
-                goto Label_0029;
-            }
-            this.Aggregating.SetActive(1);
-            return;
-        Label_0029:
-            data = dictionary[this.NowViewInfo];
-            this.Aggregating.SetActive((data.isReady == 1) == 0);
-            if (data.isReady == 1)
-            {
-                goto Label_005A;
-            }
-            return;
-        Label_005A:
-            num = 0;
-            goto Label_00E4;
-        Label_0061:
-            if (this.Items.Count > num)
-            {
-                goto Label_00C4;
-            }
-            obj2 = Object.Instantiate<GameObject>(this.ItemBase);
-            obj2.get_transform().SetParent(this.Parent.get_transform(), 0);
-            item = obj2.GetComponent<UsageRateRankingItem>();
-            if ((item != null) == null)
-            {
-                goto Label_00C4;
-            }
-            item.get_gameObject().SetActive(1);
-            this.Items.Add(item);
-        Label_00C4:
-            this.Items[num].Refresh(num + 1, data.ranking[num]);
-            num += 1;
-        Label_00E4:
-            if (num < ((int) data.ranking.Length))
-            {
-                goto Label_0061;
-            }
-            GameParameter.UpdateAll(base.get_gameObject());
-            if (((int) data.ranking.Length) >= this.Items.Count)
-            {
-                goto Label_0154;
-            }
-            num2 = (int) data.ranking.Length;
-            goto Label_0142;
-        Label_0124:
-            this.Items[num2].get_gameObject().SetActive(0);
-            num2 += 1;
-        Label_0142:
-            if (num2 < this.Items.Count)
-            {
-                goto Label_0124;
-            }
-        Label_0154:
-            return;
-        }
-
-        public void Start()
-        {
-            int num;
-            <Start>c__AnonStorey3E6 storeye;
-            if (this.RankingToggle == null)
-            {
-                goto Label_006E;
-            }
-            num = 0;
-            goto Label_0060;
-        Label_0012:
-            storeye = new <Start>c__AnonStorey3E6();
-            storeye.<>f__this = this;
-            if ((this.RankingToggle[num] == null) == null)
-            {
-                goto Label_0037;
-            }
-            goto Label_005C;
-        Label_0037:
-            storeye.index = num;
-            this.RankingToggle[num].onValueChanged.AddListener(new UnityAction<bool>(storeye, this.<>m__491));
-        Label_005C:
-            num += 1;
-        Label_0060:
-            if (num < ((int) this.RankingToggle.Length))
-            {
-                goto Label_0012;
-            }
-        Label_006E:
-            return;
-        }
-
-        public byte NowViewInfoIndex
-        {
-            get
-            {
-                return this.mNowViewInfoType;
-            }
-        }
-
-        public string NowViewInfo
-        {
-            get
-            {
-                return ViewInfo[this.NowViewInfoIndex];
-            }
-        }
-
-        [CompilerGenerated]
-        private sealed class <Start>c__AnonStorey3E6
-        {
-            internal int index;
-            internal UsageRateRanking <>f__this;
-
-            public <Start>c__AnonStorey3E6()
-            {
-                base..ctor();
-                return;
-            }
-
-            internal void <>m__491(bool value)
-            {
-                if (value == null)
-                {
-                    goto Label_0017;
-                }
-                this.<>f__this.OnChangedToggle(this.index);
-            Label_0017:
-                return;
-            }
-        }
-
-        public enum ViewInfoType : byte
-        {
-            Quest = 0,
-            Arena = 1,
-            TowerMatch = 2,
-            Num = 3
-        }
+      base.\u002Ector();
     }
-}
 
+    public byte NowViewInfoIndex
+    {
+      get
+      {
+        return (byte) this.mNowViewInfoType;
+      }
+    }
+
+    public string NowViewInfo
+    {
+      get
+      {
+        return UsageRateRanking.ViewInfo[(int) this.NowViewInfoIndex];
+      }
+    }
+
+    public void Start()
+    {
+      if (this.RankingToggle == null)
+        return;
+      for (int index = 0; index < this.RankingToggle.Length; ++index)
+      {
+        // ISSUE: object of a compiler-generated type is created
+        // ISSUE: variable of a compiler-generated type
+        UsageRateRanking.\u003CStart\u003Ec__AnonStorey3A4 startCAnonStorey3A4 = new UsageRateRanking.\u003CStart\u003Ec__AnonStorey3A4();
+        // ISSUE: reference to a compiler-generated field
+        startCAnonStorey3A4.\u003C\u003Ef__this = this;
+        if (!Object.op_Equality((Object) this.RankingToggle[index], (Object) null))
+        {
+          // ISSUE: reference to a compiler-generated field
+          startCAnonStorey3A4.index = index;
+          // ISSUE: method pointer
+          ((UnityEvent<bool>) this.RankingToggle[index].onValueChanged).AddListener(new UnityAction<bool>((object) startCAnonStorey3A4, __methodptr(\u003C\u003Em__470)));
+        }
+      }
+    }
+
+    public void Activated(int pinID)
+    {
+      if (pinID != 1)
+        return;
+      this.Refresh();
+    }
+
+    private void Refresh()
+    {
+      Dictionary<string, RankingData> unitRanking = MonoSingleton<GameManager>.Instance.UnitRanking;
+      if (!unitRanking.ContainsKey(this.NowViewInfo))
+      {
+        this.Aggregating.SetActive(true);
+      }
+      else
+      {
+        RankingData rankingData = unitRanking[this.NowViewInfo];
+        this.Aggregating.SetActive(rankingData.isReady != 1);
+        if (rankingData.isReady != 1)
+          return;
+        for (int index = 0; index < rankingData.ranking.Length; ++index)
+        {
+          if (this.Items.Count <= index)
+          {
+            GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.ItemBase);
+            gameObject.get_transform().SetParent(this.Parent.get_transform(), false);
+            UsageRateRankingItem component = (UsageRateRankingItem) gameObject.GetComponent<UsageRateRankingItem>();
+            if (Object.op_Inequality((Object) component, (Object) null))
+            {
+              ((Component) component).get_gameObject().SetActive(true);
+              this.Items.Add(component);
+            }
+          }
+          this.Items[index].Refresh(index + 1, rankingData.ranking[index]);
+        }
+        GameParameter.UpdateAll(((Component) this).get_gameObject());
+        if (rankingData.ranking.Length >= this.Items.Count)
+          return;
+        for (int length = rankingData.ranking.Length; length < this.Items.Count; ++length)
+          ((Component) this.Items[length]).get_gameObject().SetActive(false);
+      }
+    }
+
+    private void OnChangedToggle(int index)
+    {
+      this.OnChangedToggle((UsageRateRanking.ViewInfoType) index);
+    }
+
+    public void OnChangedToggle(UsageRateRanking.ViewInfoType index)
+    {
+      this.mNowViewInfoType = index;
+      if (Object.op_Inequality((Object) this.ItemScrollBar, (Object) null))
+        this.ItemScrollBar.set_value(1f);
+      for (int index1 = 0; index1 < this.RankingToggle.Length; ++index1)
+        this.RankingToggle[index1].set_isOn((int) this.NowViewInfoIndex == index1);
+      this.Refresh();
+    }
+
+    public enum ViewInfoType : byte
+    {
+      Quest,
+      Arena,
+      TowerMatch,
+      Num,
+    }
+  }
+}

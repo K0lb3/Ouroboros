@@ -1,41 +1,31 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqSendChatMessageRoom
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Text;
+
+namespace SRPG
 {
-    using System;
-    using System.Text;
-
-    public class ReqSendChatMessageRoom : WebAPI
+  public class ReqSendChatMessageRoom : WebAPI
+  {
+    public ReqSendChatMessageRoom(string room_token, string message, string[] uids, Network.ResponseCallback response)
     {
-        public ReqSendChatMessageRoom(string room_token, string message, string[] uids, Network.ResponseCallback response)
-        {
-            StringBuilder builder;
-            int num;
-            base..ctor();
-            builder = WebAPI.GetStringBuilder();
-            base.name = "chat/room/send";
-            builder.Append("\"room_token\":\"" + room_token + "\",");
-            builder.Append("\"message\":\"" + message + "\",");
-            builder.Append("\"uids\":[");
-            num = 0;
-            goto Label_008C;
-        Label_0058:
-            builder.Append("\"" + uids[num] + "\"");
-            if (num == (((int) uids.Length) - 1))
-            {
-                goto Label_0088;
-            }
-            builder.Append(",");
-        Label_0088:
-            num += 1;
-        Label_008C:
-            if (num < ((int) uids.Length))
-            {
-                goto Label_0058;
-            }
-            builder.Append("]");
-            base.body = WebAPI.GetRequestString(builder.ToString());
-            base.callback = response;
-            return;
-        }
+      StringBuilder stringBuilder = WebAPI.GetStringBuilder();
+      this.name = "chat/room/send";
+      stringBuilder.Append("\"room_token\":\"" + room_token + "\",");
+      stringBuilder.Append("\"message\":\"" + message + "\",");
+      stringBuilder.Append("\"uids\":[");
+      for (int index = 0; index < uids.Length; ++index)
+      {
+        stringBuilder.Append("\"" + uids[index] + "\"");
+        if (index != uids.Length - 1)
+          stringBuilder.Append(",");
+      }
+      stringBuilder.Append("]");
+      this.body = WebAPI.GetRequestString(stringBuilder.ToString());
+      this.callback = response;
     }
+  }
 }
-

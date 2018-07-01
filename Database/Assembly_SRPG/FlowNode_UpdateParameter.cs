@@ -1,52 +1,31 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_UpdateParameter
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  [FlowNode.Pin(1, "Updated", FlowNode.PinTypes.Output, 1)]
+  [FlowNode.Pin(101, "UpdateAll", FlowNode.PinTypes.Input, 2)]
+  [AddComponentMenu("")]
+  [FlowNode.Pin(100, "Update", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.NodeType("UI/UpdateParameter", 32741)]
+  public class FlowNode_UpdateParameter : FlowNode
+  {
+    [FlowNode.ShowInInfo]
+    [FlowNode.DropTarget(typeof (GameObject), false)]
+    public GameObject Target;
 
-    [Pin(1, "Updated", 1, 1), AddComponentMenu(""), NodeType("UI/UpdateParameter", 0x7fe5), Pin(100, "Update", 0, 0), Pin(0x65, "UpdateAll", 0, 2)]
-    public class FlowNode_UpdateParameter : FlowNode
+    public override void OnActivate(int pinID)
     {
-        [ShowInInfo, DropTarget(typeof(GameObject), false)]
-        public GameObject Target;
-
-        public FlowNode_UpdateParameter()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            Component[] componentArray;
-            int num;
-            if (pinID == 100)
-            {
-                goto Label_0010;
-            }
-            if (pinID != 0x65)
-            {
-                goto Label_0065;
-            }
-        Label_0010:
-            if ((this.Target != null) == null)
-            {
-                goto Label_0065;
-            }
-            componentArray = this.Target.GetComponentsInChildren(typeof(IGameParameter), pinID == 0x65);
-            num = 0;
-            goto Label_0054;
-        Label_0043:
-            ((IGameParameter) componentArray[num]).UpdateValue();
-            num += 1;
-        Label_0054:
-            if (num < ((int) componentArray.Length))
-            {
-                goto Label_0043;
-            }
-            base.ActivateOutputLinks(1);
-        Label_0065:
-            return;
-        }
+      if (pinID != 100 && pinID != 101 || !Object.op_Inequality((Object) this.Target, (Object) null))
+        return;
+      foreach (IGameParameter componentsInChild in this.Target.GetComponentsInChildren(typeof (IGameParameter), pinID == 101))
+        componentsInChild.UpdateValue();
+      this.ActivateOutputLinks(1);
     }
+  }
 }
-

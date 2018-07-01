@@ -1,236 +1,115 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.QuestBookmarkKakeraWindow
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Collections.Generic;
-    using System.Runtime.CompilerServices;
-    using UnityEngine;
-    using UnityEngine.UI;
+  [FlowNode.Pin(1, "Refresh", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(100, "クエスト選択", FlowNode.PinTypes.Output, 100)]
+  public class QuestBookmarkKakeraWindow : MonoBehaviour, IFlowInterface
+  {
+    [SerializeField]
+    private RectTransform QuestListParent;
+    [SerializeField]
+    private GameObject QuestListItemTemplate;
+    private List<GameObject> mGainedQuests;
 
-    [Pin(100, "クエスト選択", 1, 100), Pin(1, "Refresh", 0, 1)]
-    public class QuestBookmarkKakeraWindow : MonoBehaviour, IFlowInterface
+    public QuestBookmarkKakeraWindow()
     {
-        [SerializeField]
-        private RectTransform QuestListParent;
-        [SerializeField]
-        private GameObject QuestListItemTemplate;
-        private List<GameObject> mGainedQuests;
-
-        public QuestBookmarkKakeraWindow()
-        {
-            this.mGainedQuests = new List<GameObject>();
-            base..ctor();
-            return;
-        }
-
-        public void Activated(int pinID)
-        {
-            if (pinID != 1)
-            {
-                goto Label_0012;
-            }
-            GameParameter.UpdateAll(base.get_gameObject());
-        Label_0012:
-            return;
-        }
-
-        private void AddPanel(QuestParam questparam, QuestParam[] availableQuests)
-        {
-            GameObject obj2;
-            SRPG_Button button;
-            Button button2;
-            bool flag;
-            bool flag2;
-            <AddPanel>c__AnonStorey378 storey;
-            storey = new <AddPanel>c__AnonStorey378();
-            storey.questparam = questparam;
-            if (storey.questparam != null)
-            {
-                goto Label_001C;
-            }
-            return;
-        Label_001C:
-            if (storey.questparam.IsMulti == null)
-            {
-                goto Label_002E;
-            }
-            return;
-        Label_002E:
-            obj2 = Object.Instantiate<GameObject>(this.QuestListItemTemplate);
-            button = obj2.GetComponent<SRPG_Button>();
-            if ((button != null) == null)
-            {
-                goto Label_005F;
-            }
-            button.AddListener(new SRPG_Button.ButtonClickEvent(this.OnQuestSelect));
-        Label_005F:
-            this.mGainedQuests.Add(obj2);
-            button2 = obj2.GetComponent<Button>();
-            if ((button2 != null) == null)
-            {
-                goto Label_00B9;
-            }
-            flag = storey.questparam.IsDateUnlock(-1L);
-            flag2 = (Array.Find<QuestParam>(availableQuests, new Predicate<QuestParam>(storey.<>m__3B6)) == null) == 0;
-            button2.set_interactable((flag == null) ? 0 : flag2);
-        Label_00B9:
-            DataSource.Bind<QuestParam>(obj2, storey.questparam);
-            obj2.get_transform().SetParent(this.QuestListParent, 0);
-            obj2.SetActive(1);
-            return;
-        }
-
-        private void Awake()
-        {
-            if ((this.QuestListItemTemplate != null) == null)
-            {
-                goto Label_001D;
-            }
-            this.QuestListItemTemplate.SetActive(0);
-        Label_001D:
-            return;
-        }
-
-        private void OnQuestSelect(SRPG_Button button)
-        {
-            int num;
-            bool flag;
-            QuestParam[] paramArray;
-            bool flag2;
-            <OnQuestSelect>c__AnonStorey379 storey;
-            storey = new <OnQuestSelect>c__AnonStorey379();
-            num = this.mGainedQuests.IndexOf(button.get_gameObject());
-            storey.quest = DataSource.FindDataOfClass<QuestParam>(this.mGainedQuests[num], null);
-            if (storey.quest == null)
-            {
-                goto Label_00C8;
-            }
-            if (storey.quest.IsDateUnlock(-1L) != null)
-            {
-                goto Label_0069;
-            }
-            UIUtility.NegativeSystemMessage(null, LocalizedText.Get("sys.DISABLE_QUEST_DATE_UNLOCK"), null, null, 0, -1);
-            return;
-        Label_0069:
-            if (((Array.Find<QuestParam>(MonoSingleton<GameManager>.Instance.Player.AvailableQuests, new Predicate<QuestParam>(storey.<>m__3B7)) == null) == 0) != null)
-            {
-                goto Label_00AF;
-            }
-            UIUtility.NegativeSystemMessage(null, LocalizedText.Get("sys.DISABLE_QUEST_CHALLENGE"), null, null, 0, -1);
-            return;
-        Label_00AF:
-            GlobalVars.SelectedQuestID = storey.quest.iname;
-            FlowNode_GameObject.ActivateOutputLinks(this, 100);
-        Label_00C8:
-            return;
-        }
-
-        public void Refresh(UnitParam unit, IEnumerable<QuestParam> quests)
-        {
-            if (unit == null)
-            {
-                goto Label_000C;
-            }
-            if (quests != null)
-            {
-                goto Label_000D;
-            }
-        Label_000C:
-            return;
-        Label_000D:
-            DataSource.Bind<UnitParam>(base.get_gameObject(), unit);
-            this.RefreshGainedQuests(unit, quests);
-            GameParameter.UpdateAll(base.get_gameObject());
-            return;
-        }
-
-        private void RefreshGainedQuests(UnitParam unit, IEnumerable<QuestParam> quests)
-        {
-            QuestParam[] paramArray;
-            QuestParam param;
-            IEnumerator<QuestParam> enumerator;
-            if ((this.QuestListItemTemplate == null) != null)
-            {
-                goto Label_0028;
-            }
-            if ((this.QuestListParent == null) != null)
-            {
-                goto Label_0028;
-            }
-            if (unit != null)
-            {
-                goto Label_0029;
-            }
-        Label_0028:
-            return;
-        Label_0029:
-            if ((QuestDropParam.Instance != null) == null)
-            {
-                goto Label_007F;
-            }
-            paramArray = MonoSingleton<GameManager>.Instance.Player.AvailableQuests;
-            enumerator = quests.GetEnumerator();
-        Label_0050:
-            try
-            {
-                goto Label_0064;
-            Label_0055:
-                param = enumerator.Current;
-                this.AddPanel(param, paramArray);
-            Label_0064:
-                if (enumerator.MoveNext() != null)
-                {
-                    goto Label_0055;
-                }
-                goto Label_007F;
-            }
-            finally
-            {
-            Label_0074:
-                if (enumerator != null)
-                {
-                    goto Label_0078;
-                }
-            Label_0078:
-                enumerator.Dispose();
-            }
-        Label_007F:
-            return;
-        }
-
-        [CompilerGenerated]
-        private sealed class <AddPanel>c__AnonStorey378
-        {
-            internal QuestParam questparam;
-
-            public <AddPanel>c__AnonStorey378()
-            {
-                base..ctor();
-                return;
-            }
-
-            internal bool <>m__3B6(QuestParam p)
-            {
-                return (p == this.questparam);
-            }
-        }
-
-        [CompilerGenerated]
-        private sealed class <OnQuestSelect>c__AnonStorey379
-        {
-            internal QuestParam quest;
-
-            public <OnQuestSelect>c__AnonStorey379()
-            {
-                base..ctor();
-                return;
-            }
-
-            internal bool <>m__3B7(QuestParam p)
-            {
-                return (p == this.quest);
-            }
-        }
+      base.\u002Ector();
     }
-}
 
+    public void Activated(int pinID)
+    {
+      if (pinID != 1)
+        return;
+      GameParameter.UpdateAll(((Component) this).get_gameObject());
+    }
+
+    private void Awake()
+    {
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.QuestListItemTemplate, (UnityEngine.Object) null))
+        return;
+      this.QuestListItemTemplate.SetActive(false);
+    }
+
+    public void Refresh(UnitParam unit, IEnumerable<QuestParam> quests)
+    {
+      if (unit == null || quests == null)
+        return;
+      DataSource.Bind<UnitParam>(((Component) this).get_gameObject(), unit);
+      this.RefreshGainedQuests(unit, quests);
+      GameParameter.UpdateAll(((Component) this).get_gameObject());
+    }
+
+    private void RefreshGainedQuests(UnitParam unit, IEnumerable<QuestParam> quests)
+    {
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.QuestListItemTemplate, (UnityEngine.Object) null) || UnityEngine.Object.op_Equality((UnityEngine.Object) this.QuestListParent, (UnityEngine.Object) null) || (unit == null || !UnityEngine.Object.op_Inequality((UnityEngine.Object) QuestDropParam.Instance, (UnityEngine.Object) null)))
+        return;
+      QuestParam[] availableQuests = MonoSingleton<GameManager>.Instance.Player.AvailableQuests;
+      foreach (QuestParam quest in quests)
+        this.AddPanel(quest, availableQuests);
+    }
+
+    private void AddPanel(QuestParam questparam, QuestParam[] availableQuests)
+    {
+      if (questparam == null || questparam.IsMulti)
+        return;
+      GameObject gameObject = (GameObject) UnityEngine.Object.Instantiate<GameObject>((M0) this.QuestListItemTemplate);
+      SRPG_Button component1 = (SRPG_Button) gameObject.GetComponent<SRPG_Button>();
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component1, (UnityEngine.Object) null))
+        component1.AddListener(new SRPG_Button.ButtonClickEvent(this.OnQuestSelect));
+      this.mGainedQuests.Add(gameObject);
+      Button component2 = (Button) gameObject.GetComponent<Button>();
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component2, (UnityEngine.Object) null))
+      {
+        bool flag1 = questparam.IsDateUnlock(-1L);
+        bool flag2 = Array.Find<QuestParam>(availableQuests, (Predicate<QuestParam>) (p => p == questparam)) != null;
+        ((Selectable) component2).set_interactable(flag1 && flag2);
+      }
+      DataSource.Bind<QuestParam>(gameObject, questparam);
+      gameObject.get_transform().SetParent((Transform) this.QuestListParent, false);
+      gameObject.SetActive(true);
+    }
+
+    private void OnQuestSelect(SRPG_Button button)
+    {
+      // ISSUE: object of a compiler-generated type is created
+      // ISSUE: variable of a compiler-generated type
+      QuestBookmarkKakeraWindow.\u003COnQuestSelect\u003Ec__AnonStorey361 selectCAnonStorey361 = new QuestBookmarkKakeraWindow.\u003COnQuestSelect\u003Ec__AnonStorey361();
+      int index = this.mGainedQuests.IndexOf(((Component) button).get_gameObject());
+      // ISSUE: reference to a compiler-generated field
+      selectCAnonStorey361.quest = DataSource.FindDataOfClass<QuestParam>(this.mGainedQuests[index], (QuestParam) null);
+      // ISSUE: reference to a compiler-generated field
+      if (selectCAnonStorey361.quest == null)
+        return;
+      // ISSUE: reference to a compiler-generated field
+      if (!selectCAnonStorey361.quest.IsDateUnlock(-1L))
+      {
+        UIUtility.NegativeSystemMessage((string) null, LocalizedText.Get("sys.DISABLE_QUEST_DATE_UNLOCK"), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1);
+      }
+      else
+      {
+        // ISSUE: reference to a compiler-generated method
+        if (Array.Find<QuestParam>(MonoSingleton<GameManager>.Instance.Player.AvailableQuests, new Predicate<QuestParam>(selectCAnonStorey361.\u003C\u003Em__3DC)) == null)
+        {
+          UIUtility.NegativeSystemMessage((string) null, LocalizedText.Get("sys.DISABLE_QUEST_CHALLENGE"), (UIUtility.DialogResultEvent) null, (GameObject) null, false, -1);
+        }
+        else
+        {
+          // ISSUE: reference to a compiler-generated field
+          GlobalVars.SelectedQuestID = selectCAnonStorey361.quest.iname;
+          FlowNode_GameObject.ActivateOutputLinks((Component) this, 100);
+        }
+      }
+    }
+  }
+}

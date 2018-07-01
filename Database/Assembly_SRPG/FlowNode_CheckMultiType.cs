@@ -1,44 +1,35 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_CheckMultiType
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    [Pin(100, "Coop", 1, 100), Pin(200, "Versus", 1, 200), Pin(0x270f, "Invalid", 1, 0x270f), Pin(0, "Check", 0, 0), NodeType("Multi/CheckSchemeType", 0x7fe5), Pin(300, "Tower", 1, 300)]
-    public class FlowNode_CheckMultiType : FlowNode
+  [FlowNode.NodeType("Multi/CheckSchemeType", 32741)]
+  [FlowNode.Pin(9999, "Invalid", FlowNode.PinTypes.Output, 9999)]
+  [FlowNode.Pin(300, "Tower", FlowNode.PinTypes.Output, 300)]
+  [FlowNode.Pin(200, "Versus", FlowNode.PinTypes.Output, 200)]
+  [FlowNode.Pin(100, "Coop", FlowNode.PinTypes.Output, 100)]
+  [FlowNode.Pin(0, "Check", FlowNode.PinTypes.Input, 0)]
+  public class FlowNode_CheckMultiType : FlowNode
+  {
+    public override void OnActivate(int pinID)
     {
-        public FlowNode_CheckMultiType()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != null)
-            {
-                goto Label_0060;
-            }
-            if (FlowNode_OnUrlSchemeLaunch.LINEParam_Pending.type != null)
-            {
-                goto Label_0023;
-            }
-            base.ActivateOutputLinks(100);
-            goto Label_0060;
-        Label_0023:
-            if (FlowNode_OnUrlSchemeLaunch.LINEParam_Pending.type != 1)
-            {
-                goto Label_0044;
-            }
-            base.ActivateOutputLinks(200);
-            goto Label_0060;
-        Label_0044:
-            if (FlowNode_OnUrlSchemeLaunch.LINEParam_Pending.type != 2)
-            {
-                goto Label_0060;
-            }
-            base.ActivateOutputLinks(300);
-        Label_0060:
-            return;
-        }
+      if (pinID != 0)
+        return;
+      if (FlowNode_OnUrlSchemeLaunch.LINEParam_Pending.type == JSON_MyPhotonRoomParam.EType.RAID)
+        this.ActivateOutputLinks(100);
+      else if (FlowNode_OnUrlSchemeLaunch.LINEParam_Pending.type == JSON_MyPhotonRoomParam.EType.VERSUS)
+      {
+        this.ActivateOutputLinks(200);
+      }
+      else
+      {
+        if (FlowNode_OnUrlSchemeLaunch.LINEParam_Pending.type != JSON_MyPhotonRoomParam.EType.TOWER)
+          return;
+        this.ActivateOutputLinks(300);
+      }
     }
+  }
 }
-

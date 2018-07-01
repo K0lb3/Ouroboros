@@ -1,37 +1,29 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_SetScrollPosition
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
-    using UnityEngine.UI;
+  [FlowNode.NodeType("UI/SetScrollPosition")]
+  [FlowNode.Pin(1, "Out", FlowNode.PinTypes.Output, 1)]
+  [FlowNode.Pin(0, "In", FlowNode.PinTypes.Input, 0)]
+  public class FlowNode_SetScrollPosition : FlowNode
+  {
+    public ScrollRect ScrollRect;
+    public Vector2 NormalizedPosition;
 
-    [NodeType("UI/SetScrollPosition"), Pin(0, "In", 0, 0), Pin(1, "Out", 1, 1)]
-    public class FlowNode_SetScrollPosition : FlowNode
+    public override void OnActivate(int pinID)
     {
-        public UnityEngine.UI.ScrollRect ScrollRect;
-        public Vector2 NormalizedPosition;
-
-        public FlowNode_SetScrollPosition()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != null)
-            {
-                goto Label_0030;
-            }
-            if ((this.ScrollRect != null) == null)
-            {
-                goto Label_0028;
-            }
-            this.ScrollRect.set_normalizedPosition(this.NormalizedPosition);
-        Label_0028:
-            base.ActivateOutputLinks(1);
-        Label_0030:
-            return;
-        }
+      if (pinID != 0)
+        return;
+      if (Object.op_Inequality((Object) this.ScrollRect, (Object) null))
+        this.ScrollRect.set_normalizedPosition(this.NormalizedPosition);
+      this.ActivateOutputLinks(1);
     }
+  }
 }
-

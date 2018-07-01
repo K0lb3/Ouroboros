@@ -1,45 +1,34 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.QuestBonusObjectiveList
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  [AddComponentMenu("UI/リスト/ボーナス勝利条件")]
+  public class QuestBonusObjectiveList : MonoBehaviour
+  {
+    public GameObject ItemTemplate;
 
-    [AddComponentMenu("UI/リスト/ボーナス勝利条件")]
-    public class QuestBonusObjectiveList : MonoBehaviour
+    public QuestBonusObjectiveList()
     {
-        public GameObject ItemTemplate;
-
-        public QuestBonusObjectiveList()
-        {
-            base..ctor();
-            return;
-        }
-
-        private void Awake()
-        {
-            if ((this.ItemTemplate != null) == null)
-            {
-                goto Label_002D;
-            }
-            if (this.ItemTemplate.get_activeInHierarchy() == null)
-            {
-                goto Label_002D;
-            }
-            this.ItemTemplate.SetActive(0);
-        Label_002D:
-            return;
-        }
-
-        private void Start()
-        {
-            QuestParam param;
-            if (DataSource.FindDataOfClass<QuestParam>(base.get_gameObject(), null) != null)
-            {
-                goto Label_0014;
-            }
-            return;
-        Label_0014:
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Awake()
+    {
+      if (!Object.op_Inequality((Object) this.ItemTemplate, (Object) null) || !this.ItemTemplate.get_activeInHierarchy())
+        return;
+      this.ItemTemplate.SetActive(false);
+    }
+
+    private void Start()
+    {
+      if (DataSource.FindDataOfClass<QuestParam>(((Component) this).get_gameObject(), (QuestParam) null) == null)
+        ;
+    }
+  }
+}

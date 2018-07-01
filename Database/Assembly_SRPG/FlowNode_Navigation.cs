@@ -1,52 +1,45 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_Navigation
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
+  [FlowNode.NodeType("UI/Navigation", 32741)]
+  [FlowNode.Pin(1, "Show", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(2, "Discard", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(99, "Discard This", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(10, "Output", FlowNode.PinTypes.Output, 2)]
+  public class FlowNode_Navigation : FlowNode
+  {
+    public NavigationWindow Template;
+    [StringIsTextID(false)]
+    public string TextID;
+    public NavigationWindow.Alignment Alignment;
 
-    [Pin(1, "Show", 0, 0), Pin(11, "Destory", 1, 3), Pin(10, "Output", 1, 2), Pin(2, "Discard", 0, 1), NodeType("UI/Navigation", 0x7fe5)]
-    public class FlowNode_Navigation : FlowNode
+    protected override void OnDestroy()
     {
-        public NavigationWindow Template;
-        [StringIsTextID(false)]
-        public string TextID;
-        public SRPG.NavigationWindow.Alignment Alignment;
-
-        public FlowNode_Navigation()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            int num;
-            num = pinID;
-            if (num == 1)
-            {
-                goto Label_0015;
-            }
-            if (num == 2)
-            {
-                goto Label_003F;
-            }
-            goto Label_005B;
-        Label_0015:
-            NavigationWindow.Show(this.Template, LocalizedText.Get(this.TextID), this.Alignment);
-            base.ActivateOutputLinks(10);
-            goto Label_005B;
-        Label_003F:
-            NavigationWindow.DiscardCurrent();
-            base.ActivateOutputLinks(10);
-            base.ActivateOutputLinks(11);
-        Label_005B:
-            return;
-        }
-
-        protected override void OnDestroy()
-        {
-            base.OnDestroy();
-            NavigationWindow.DiscardCurrent();
-            return;
-        }
+      base.OnDestroy();
+      NavigationWindow.DiscardCurrent();
     }
-}
 
+    public override void OnActivate(int pinID)
+    {
+      switch (pinID)
+      {
+        case 1:
+          NavigationWindow.Show(this.Template, LocalizedText.Get(this.TextID), this.Alignment);
+          this.ActivateOutputLinks(10);
+          break;
+        case 2:
+          NavigationWindow.DiscardCurrent();
+          this.ActivateOutputLinks(10);
+          break;
+        case 99:
+          NavigationWindow.DiscardByTxt(LocalizedText.Get(this.TextID));
+          break;
+      }
+    }
+  }
+}

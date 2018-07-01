@@ -1,90 +1,70 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_BuyCoin
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-
-    [Pin(0, "Buy", 0, 0), Pin(1, "Success", 1, 1), NodeType("System/BuyCoin", 0x7fe5)]
-    public class FlowNode_BuyCoin : FlowNode_Network
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
+  [FlowNode.NodeType("System/BuyCoin", 32741)]
+  [FlowNode.Pin(0, "Buy", FlowNode.PinTypes.Input, 0)]
+  public class FlowNode_BuyCoin : FlowNode_Network
+  {
+    public override void OnActivate(int pinID)
     {
-        public FlowNode_BuyCoin()
-        {
-            base..ctor();
-            return;
-        }
-
-        private void Failure()
-        {
-            PunMonoSingleton<MyPhoton>.Instance.EnableKeepAlive(1);
-            base.set_enabled(0);
-            base.ActivateOutputLinks(2);
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            string str;
-            string str2;
-            string str3;
-            int num;
-            int num2;
-            int num3;
-            if (pinID != null)
-            {
-                goto Label_007D;
-            }
-            if (Network.Mode != null)
-            {
-                goto Label_0048;
-            }
-            base.set_enabled(1);
-            str = "p_10_coin";
-            str2 = "test_receipt";
-            str3 = "test_transactionid";
-            base.ExecRequest(new ReqProductBuy(str, str2, str3, new Network.ResponseCallback(this.ResponseCallback)));
-            goto Label_007D;
-        Label_0048:
-            num = 0;
-            num2 = 10;
-            num3 = 0;
-            MonoSingleton<GameManager>.Instance.Player.DEBUG_ADD_COIN(num, num2, num3);
-            PunMonoSingleton<MyPhoton>.Instance.EnableKeepAlive(1);
-            base.set_enabled(0);
-            this.Success();
-        Label_007D:
-            return;
-        }
-
-        public override unsafe void OnSuccess(WWWResult www)
-        {
-            WebAPI.JSON_BodyResponse<Json_PlayerDataAll> response;
-            PlayerData.EDeserializeFlags flags;
-            response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_PlayerDataAll>>(&www.text);
-            DebugUtility.Assert((response == null) == 0, "res == null");
-            if (response.body != null)
-            {
-                goto Label_0030;
-            }
-            this.OnFailed();
-            return;
-        Label_0030:
-            flags = 2;
-            if (MonoSingleton<GameManager>.Instance.Player.Deserialize(response.body.player, flags) != null)
-            {
-                goto Label_0059;
-            }
-            this.OnFailed();
-            return;
-        Label_0059:
-            Network.RemoveAPI();
-            this.Success();
-            return;
-        }
-
-        private void Success()
-        {
-            base.ActivateOutputLinks(1);
-            return;
-        }
+      if (pinID != 0)
+        return;
+      if (Network.Mode == Network.EConnectMode.Online)
+      {
+        ((Behaviour) this).set_enabled(true);
+        this.ExecRequest((WebAPI) new ReqProductBuy("p_10_coin", "test_receipt", "test_transactionid", new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+      }
+      else
+      {
+        MonoSingleton<GameManager>.Instance.Player.DEBUG_ADD_COIN(0, 10, 0);
+        PunMonoSingleton<MyPhoton>.Instance.EnableKeepAlive(true);
+        ((Behaviour) this).set_enabled(false);
+        this.Success();
+      }
     }
-}
 
+    private void Success()
+    {
+      this.ActivateOutputLinks(1);
+    }
+
+    private void Failure()
+    {
+      PunMonoSingleton<MyPhoton>.Instance.EnableKeepAlive(true);
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(2);
+    }
+
+    public override void OnSuccess(WWWResult www)
+    {
+      WebAPI.JSON_BodyResponse<Json_PlayerDataAll> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_PlayerDataAll>>(www.text);
+      DebugUtility.Assert(jsonObject != null, "res == null");
+      if (jsonObject.body == null)
+      {
+        this.OnFailed();
+      }
+      else
+      {
+        PlayerData.EDeserializeFlags flag = PlayerData.EDeserializeFlags.Coin;
+        if (!MonoSingleton<GameManager>.Instance.Player.Deserialize(jsonObject.body.player, flag))
+        {
+          this.OnFailed();
+        }
+        else
+        {
+          Network.RemoveAPI();
+          this.Success();
+        }
+      }
+    }
+  }
+}

@@ -1,102 +1,55 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.BuffBit
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System;
+
+namespace SRPG
 {
-    using System;
+  public class BuffBit
+  {
+    private static readonly int MaxBitArray = SkillParam.MAX_PARAMTYPES / 32 + 1;
+    public int[] bits = new int[BuffBit.MaxBitArray];
 
-    public class BuffBit
+    public void SetBit(ParamTypes type)
     {
-        private static readonly int MaxBitArray;
-        public int[] bits;
-
-        static BuffBit()
-        {
-            MaxBitArray = (SkillParam.MAX_PARAMTYPES / 0x20) + 1;
-            return;
-        }
-
-        public BuffBit()
-        {
-            this.bits = new int[MaxBitArray];
-            base..ctor();
-            return;
-        }
-
-        public bool CheckBit(ParamTypes type)
-        {
-            int num;
-            int num2;
-            int num3;
-            num = type;
-            num2 = num / 0x20;
-            num3 = num % 0x20;
-            return (((this.bits[num2] & (1 << (num3 & 0x1f))) == 0) == 0);
-        }
-
-        public bool CheckEffect()
-        {
-            int num;
-            num = 0;
-            goto Label_001A;
-        Label_0007:
-            if (this.bits[num] == null)
-            {
-                goto Label_0016;
-            }
-            return 1;
-        Label_0016:
-            num += 1;
-        Label_001A:
-            if (num < ((int) this.bits.Length))
-            {
-                goto Label_0007;
-            }
-            return 0;
-        }
-
-        public void Clear()
-        {
-            Array.Clear(this.bits, 0, (int) this.bits.Length);
-            return;
-        }
-
-        public void CopyTo(BuffBit dsc)
-        {
-            int num;
-            num = 0;
-            goto Label_001B;
-        Label_0007:
-            dsc.bits[num] = this.bits[num];
-            num += 1;
-        Label_001B:
-            if (num < ((int) this.bits.Length))
-            {
-                goto Label_0007;
-            }
-            return;
-        }
-
-        public unsafe void ResetBit(ParamTypes type)
-        {
-            int num;
-            int num2;
-            int num3;
-            num = type;
-            num2 = num / 0x20;
-            num3 = num % 0x20;
-            *((int*) &(this.bits[num2])) &= ~(1 << ((num3 & 0x1f) & 0x1f));
-            return;
-        }
-
-        public unsafe void SetBit(ParamTypes type)
-        {
-            int num;
-            int num2;
-            int num3;
-            num = type;
-            num2 = num / 0x20;
-            num3 = num % 0x20;
-            *((int*) &(this.bits[num2])) |= 1 << ((num3 & 0x1f) & 0x1f);
-            return;
-        }
+      int num = (int) type;
+      this.bits[num / 32] |= 1 << num % 32;
     }
-}
 
+    public void ResetBit(ParamTypes type)
+    {
+      int num = (int) type;
+      this.bits[num / 32] &= ~(1 << num % 32);
+    }
+
+    public bool CheckBit(ParamTypes type)
+    {
+      int num = (int) type;
+      return (this.bits[num / 32] & 1 << num % 32) != 0;
+    }
+
+    public void CopyTo(BuffBit dsc)
+    {
+      for (int index = 0; index < this.bits.Length; ++index)
+        dsc.bits[index] = this.bits[index];
+    }
+
+    public void Clear()
+    {
+      Array.Clear((Array) this.bits, 0, this.bits.Length);
+    }
+
+    public bool CheckEffect()
+    {
+      for (int index = 0; index < this.bits.Length; ++index)
+      {
+        if (this.bits[index] != 0)
+          return true;
+      }
+      return false;
+    }
+  }
+}

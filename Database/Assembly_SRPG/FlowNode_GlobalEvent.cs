@@ -1,63 +1,52 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_GlobalEvent
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  [FlowNode.Pin(1, "Triggered", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.NodeType("Event/GlobalEvent", 58751)]
+  [AddComponentMenu("")]
+  public class FlowNode_GlobalEvent : FlowNodePersistent
+  {
+    [StringIsGlobalEventID]
+    public string EventName;
+    private string mRegisteredEventName;
 
-    [NodeType("Event/GlobalEvent", 0xe57f), AddComponentMenu(""), Pin(1, "Triggered", 1, 0)]
-    public class FlowNode_GlobalEvent : FlowNodePersistent
+    public override string[] GetInfoLines()
     {
-        [StringIsGlobalEventID]
-        public string EventName;
-        private string mRegisteredEventName;
-
-        public FlowNode_GlobalEvent()
-        {
-            base..ctor();
-            return;
-        }
-
-        protected override void Awake()
-        {
-            base.Awake();
-            if (string.IsNullOrEmpty(this.EventName) != null)
-            {
-                goto Label_0039;
-            }
-            GlobalEvent.AddListener(this.EventName, new GlobalEvent.Delegate(this.OnGlobalEvent));
-            this.mRegisteredEventName = this.EventName;
-        Label_0039:
-            return;
-        }
-
-        public override string[] GetInfoLines()
-        {
-            string[] textArray1;
-            if (string.IsNullOrEmpty(this.EventName) != null)
-            {
-                goto Label_002A;
-            }
-            textArray1 = new string[] { "Event is " + this.EventName };
-            return textArray1;
-        Label_002A:
-            return base.GetInfoLines();
-        }
-
-        protected override void OnDestroy()
-        {
-            if (string.IsNullOrEmpty(this.mRegisteredEventName) != null)
-            {
-                goto Label_0027;
-            }
-            GlobalEvent.RemoveListener(this.mRegisteredEventName, new GlobalEvent.Delegate(this.OnGlobalEvent));
-        Label_0027:
-            return;
-        }
-
-        private void OnGlobalEvent(object obj)
-        {
-            base.ActivateOutputLinks(1);
-            return;
-        }
+      if (string.IsNullOrEmpty(this.EventName))
+        return base.GetInfoLines();
+      return new string[1]{ "Event is [" + this.EventName + "]" };
     }
-}
 
+    protected override void Awake()
+    {
+      base.Awake();
+      if (string.IsNullOrEmpty(this.EventName))
+        return;
+      GlobalEvent.AddListener(this.EventName, new GlobalEvent.Delegate(this.OnGlobalEvent));
+      this.mRegisteredEventName = this.EventName;
+    }
+
+    protected override void OnDestroy()
+    {
+      if (string.IsNullOrEmpty(this.mRegisteredEventName))
+        return;
+      GlobalEvent.RemoveListener(this.mRegisteredEventName, new GlobalEvent.Delegate(this.OnGlobalEvent));
+    }
+
+    private void OnGlobalEvent(object obj)
+    {
+      this.ActivateOutputLinks(1);
+    }
+
+    public override void OnActivate(int pinID)
+    {
+    }
+  }
+}

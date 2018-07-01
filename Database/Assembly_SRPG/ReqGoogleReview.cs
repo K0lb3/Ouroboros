@@ -1,20 +1,18 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqGoogleReview
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-    using System.Text;
-
-    public class ReqGoogleReview : WebAPI
+  public class ReqGoogleReview : WebAPI
+  {
+    public ReqGoogleReview(Network.ResponseCallback response)
     {
-        public ReqGoogleReview(Network.ResponseCallback response)
-        {
-            StringBuilder builder;
-            base..ctor();
-            base.name = "serial/register/greview";
-            builder = WebAPI.GetStringBuilder();
-            base.body = WebAPI.GetRequestString(builder.ToString());
-            base.callback = response;
-            return;
-        }
+      this.name = "serial/register/greview";
+      this.body = WebAPI.GetRequestString(WebAPI.GetStringBuilder().ToString());
+      this.callback = response;
     }
+  }
 }
-

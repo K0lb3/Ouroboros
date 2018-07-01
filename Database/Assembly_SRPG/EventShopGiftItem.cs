@@ -1,54 +1,32 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.EventShopGiftItem
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
-    using UnityEngine.UI;
+  public class EventShopGiftItem : MonoBehaviour
+  {
+    public Text Amount;
+    public Text Name;
+    public GameObject ItemIcon;
+    public GameObject ArtifactIcon;
 
-    public class EventShopGiftItem : MonoBehaviour
+    public EventShopGiftItem()
     {
-        public Text Amount;
-        public Text Name;
-        public GameObject ItemIcon;
-        public GameObject ArtifactIcon;
-        public ConceptCardIcon m_ConceptCardIcon;
-
-        public EventShopGiftItem()
-        {
-            base..ctor();
-            return;
-        }
-
-        public unsafe void SetShopItemInfo(Json_ShopItemDesc shop_item_desc, string name, int amount)
-        {
-            int num;
-            this.ItemIcon.SetActive(0);
-            this.ArtifactIcon.SetActive(0);
-            this.m_ConceptCardIcon.get_gameObject().SetActive(0);
-            if (shop_item_desc.IsItem == null)
-            {
-                goto Label_0045;
-            }
-            this.ItemIcon.SetActive(1);
-            goto Label_007D;
-        Label_0045:
-            if (shop_item_desc.IsArtifact == null)
-            {
-                goto Label_0061;
-            }
-            this.ArtifactIcon.SetActive(1);
-            goto Label_007D;
-        Label_0061:
-            if (shop_item_desc.IsConceptCard == null)
-            {
-                goto Label_007D;
-            }
-            this.m_ConceptCardIcon.get_gameObject().SetActive(1);
-        Label_007D:
-            num = shop_item_desc.num * amount;
-            this.Amount.set_text(&num.ToString());
-            this.Name.set_text(name);
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    public void SetShopItemInfo(Json_ShopItemDesc shop_item_desc, string name)
+    {
+      this.ItemIcon.SetActive(!shop_item_desc.IsArtifact);
+      this.ArtifactIcon.SetActive(shop_item_desc.IsArtifact);
+      this.Amount.set_text(shop_item_desc.num.ToString());
+      this.Name.set_text(name);
+    }
+  }
+}

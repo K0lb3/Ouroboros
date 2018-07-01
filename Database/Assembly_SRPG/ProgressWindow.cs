@@ -1,656 +1,326 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ProgressWindow
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.IO;
-    using System.Runtime.CompilerServices;
-    using System.Runtime.InteropServices;
-    using UnityEngine;
-    using UnityEngine.UI;
+  public class ProgressWindow : MonoBehaviour
+  {
+    private static ProgressWindow mInstance;
+    public Animator WindowAnimator;
+    public Slider ProgressBar;
+    public ProgressWindow.ProgressRatio Ratios;
+    public string CloseTrigger;
+    public float DestroyDelay;
+    public Text Title;
+    public Text Lore;
+    public Text Percentage;
+    public string PercentageFormat;
+    public Text Complete;
+    public string CompleteFormat;
+    public ImageArray Phase;
+    public GameObject notice0;
+    public GameObject notice1;
+    [SerializeField]
+    private GameObject noticeTxt;
+    [SerializeField]
+    private Text downloadTxt;
+    public string ImageTable;
+    public RawImage[] Images;
+    public float DisplayImageThreshold;
+    public GameObject ImageGroup;
+    public GameObject buttonL;
+    public GameObject buttonR;
+    public Text introduction;
+    public float MinVisibleTime;
+    private float mLoadTime;
+    private float mLoadProgress;
+    private long mKeepTotalDownloadSize;
+    private long mKeepCurrentDownloadSize;
+    private string previousLanguage;
+    private int mCurrentImageIndex;
+    private List<KeyValuePair<string, string>> mImagePairs;
 
-    public class ProgressWindow : MonoBehaviour
+    public ProgressWindow()
     {
-        private static ProgressWindow mInstance;
-        public Animator WindowAnimator;
-        public Slider ProgressBar;
-        public ProgressRatio Ratios;
-        public string CloseTrigger;
-        public float DestroyDelay;
-        public Text Title;
-        public Text Lore;
-        public Text Percentage;
-        public string PercentageFormat;
-        public Text Complete;
-        public string CompleteFormat;
-        public ImageArray Phase;
-        public GameObject notice0;
-        public GameObject notice1;
-        public string ImageTable;
-        public RawImage[] Images;
-        public float DisplayImageThreshold;
-        public GameObject ImageGroup;
-        public float MinVisibleTime;
-        private float mLoadTime;
-        private float mLoadProgress;
-        private long mKeepTotalDownloadSize;
-        private long mKeepCurrentDownloadSize;
-        private int mCurrentImageIndex;
-        private List<KeyValuePair<string, string>> mImagePairs;
-
-        public ProgressWindow()
-        {
-            this.Ratios = new ProgressRatio(1f, 0f);
-            this.CloseTrigger = "done";
-            this.DestroyDelay = 1f;
-            this.PercentageFormat = "{0:0}%";
-            this.CompleteFormat = "{0:0}/{1:0}";
-            this.DisplayImageThreshold = 2f;
-            this.mKeepTotalDownloadSize = -1L;
-            this.mKeepCurrentDownloadSize = -1L;
-            this.mCurrentImageIndex = -1;
-            this.mImagePairs = new List<KeyValuePair<string, string>>();
-            base..ctor();
-            return;
-        }
-
-        [DebuggerHidden]
-        private IEnumerator AnimationThread()
-        {
-            <AnimationThread>c__Iterator12E iteratore;
-            iteratore = new <AnimationThread>c__Iterator12E();
-            iteratore.<>f__this = this;
-            return iteratore;
-        }
-
-        public static void Close()
-        {
-            Animator animator;
-            if ((mInstance != null) == null)
-            {
-                goto Label_008E;
-            }
-            animator = ((mInstance.WindowAnimator != null) == null) ? mInstance.GetComponent<Animator>() : mInstance.WindowAnimator;
-            if ((animator != null) == null)
-            {
-                goto Label_005B;
-            }
-            animator.SetTrigger(mInstance.CloseTrigger);
-        Label_005B:
-            if (mInstance.DestroyDelay < 0f)
-            {
-                goto Label_0088;
-            }
-            Object.Destroy(mInstance.get_gameObject(), mInstance.DestroyDelay);
-        Label_0088:
-            mInstance = null;
-        Label_008E:
-            return;
-        }
-
-        private void LoadImageTable()
-        {
-            char[] chArray1;
-            TextAsset asset;
-            StringReader reader;
-            string str;
-            string[] strArray;
-            asset = Resources.Load<TextAsset>(this.ImageTable);
-            if ((asset == null) == null)
-            {
-                goto Label_0019;
-            }
-            return;
-        Label_0019:
-            reader = new StringReader(asset.get_text());
-            goto Label_005D;
-        Label_002A:
-            if (string.IsNullOrEmpty(str) != null)
-            {
-                goto Label_005D;
-            }
-            chArray1 = new char[] { 9 };
-            strArray = str.Split(chArray1);
-            this.mImagePairs.Add(new KeyValuePair<string, string>(strArray[0], strArray[1]));
-        Label_005D:
-            if ((str = reader.ReadLine()) != null)
-            {
-                goto Label_002A;
-            }
-            return;
-        }
-
-        private void OnDisable()
-        {
-            if ((mInstance == this) == null)
-            {
-                goto Label_0016;
-            }
-            mInstance = null;
-        Label_0016:
-            return;
-        }
-
-        private void OnEnable()
-        {
-            if ((mInstance == null) == null)
-            {
-                goto Label_0016;
-            }
-            mInstance = this;
-        Label_0016:
-            return;
-        }
-
-        public static void OpenGenericDownloadWindow()
-        {
-            GameObject obj2;
-            Object.Instantiate<GameObject>(AssetManager.Load<GameObject>("UI/AssetsDownloading"));
-            return;
-        }
-
-        public static void OpenQuestLoadScreen(QuestParam quest)
-        {
-            string str;
-            string str2;
-            str = null;
-            str2 = null;
-            if (quest == null)
-            {
-                goto Label_0050;
-            }
-            str = quest.name;
-            if (quest.type != 7)
-            {
-                goto Label_0034;
-            }
-            str = quest.title + " " + quest.name;
-        Label_0034:
-            if (string.IsNullOrEmpty(quest.storyTextID) != null)
-            {
-                goto Label_0050;
-            }
-            str2 = LocalizedText.Get(quest.storyTextID);
-        Label_0050:
-            OpenQuestLoadScreen(str, str2);
-            return;
-        }
-
-        public static void OpenQuestLoadScreen(string title, string lore)
-        {
-            ProgressWindow window;
-            ProgressWindow window2;
-            if ((mInstance == null) == null)
-            {
-                goto Label_007E;
-            }
-            window = null;
-            if (MonoSingleton<GameManager>.Instance.IsVersusMode() == null)
-            {
-                goto Label_004B;
-            }
-            if (GlobalVars.IsVersusDraftMode != null)
-            {
-                goto Label_003B;
-            }
-            window = AssetManager.Load<ProgressWindow>("UI/QuestLoadScreen_VS");
-            goto Label_0046;
-        Label_003B:
-            window = AssetManager.Load<ProgressWindow>("UI/QuestLoadScreen_Draft");
-        Label_0046:
-            goto Label_0056;
-        Label_004B:
-            window = AssetManager.Load<ProgressWindow>("UI/QuestLoadScreen");
-        Label_0056:
-            if ((window != null) == null)
-            {
-                goto Label_007E;
-            }
-            Object.DontDestroyOnLoad(Object.Instantiate<ProgressWindow>(window).get_gameObject());
-            GameUtility.FadeIn(0.1f);
-        Label_007E:
-            if (string.IsNullOrEmpty(title) == null)
-            {
-                goto Label_0090;
-            }
-            title = string.Empty;
-        Label_0090:
-            if (string.IsNullOrEmpty(lore) == null)
-            {
-                goto Label_00A2;
-            }
-            lore = string.Empty;
-        Label_00A2:
-            SetTexts(title, lore);
-            return;
-        }
-
-        public static void OpenRankMatchLoadScreen()
-        {
-            ProgressWindow window;
-            ProgressWindow window2;
-            if ((mInstance == null) == null)
-            {
-                goto Label_0045;
-            }
-            window = null;
-            window = AssetManager.Load<ProgressWindow>("UI/HomeRankMatch_Matching");
-            if ((window != null) == null)
-            {
-                goto Label_0045;
-            }
-            Object.DontDestroyOnLoad(Object.Instantiate<ProgressWindow>(window).get_gameObject());
-            GameUtility.FadeIn(0.1f);
-        Label_0045:
-            return;
-        }
-
-        public static void OpenVersusDraftLoadScreen()
-        {
-            ProgressWindow window;
-            ProgressWindow window2;
-            if ((mInstance == null) == null)
-            {
-                goto Label_0045;
-            }
-            window = null;
-            window = AssetManager.Load<ProgressWindow>("UI/HomeVersus_DraftMatching");
-            if ((window != null) == null)
-            {
-                goto Label_0045;
-            }
-            Object.DontDestroyOnLoad(Object.Instantiate<ProgressWindow>(window).get_gameObject());
-            GameUtility.FadeIn(0.1f);
-        Label_0045:
-            return;
-        }
-
-        public static void OpenVersusLoadScreen()
-        {
-            ProgressWindow window;
-            ProgressWindow window2;
-            if ((mInstance == null) == null)
-            {
-                goto Label_0045;
-            }
-            window = null;
-            window = AssetManager.Load<ProgressWindow>("UI/HomeMultiPlay_VersusMatching");
-            if ((window != null) == null)
-            {
-                goto Label_0045;
-            }
-            Object.DontDestroyOnLoad(Object.Instantiate<ProgressWindow>(window).get_gameObject());
-            GameUtility.FadeIn(0.1f);
-        Label_0045:
-            return;
-        }
-
-        public static void SetDestroyDelay(float delay)
-        {
-            if ((mInstance != null) == null)
-            {
-                goto Label_001B;
-            }
-            mInstance.DestroyDelay = delay;
-        Label_001B:
-            return;
-        }
-
-        public static void SetLoadProgress(float t)
-        {
-            if ((mInstance != null) == null)
-            {
-                goto Label_001B;
-            }
-            mInstance.mLoadProgress = t;
-        Label_001B:
-            return;
-        }
-
-        public static void SetTexts(string title, string lore)
-        {
-            if ((mInstance != null) == null)
-            {
-                goto Label_005A;
-            }
-            if ((mInstance.Title != null) == null)
-            {
-                goto Label_0035;
-            }
-            mInstance.Title.set_text(title);
-        Label_0035:
-            if ((mInstance.Lore != null) == null)
-            {
-                goto Label_005A;
-            }
-            mInstance.Lore.set_text(lore);
-        Label_005A:
-            return;
-        }
-
-        private void Start()
-        {
-            int num;
-            if (this.Images == null)
-            {
-                goto Label_006E;
-            }
-            num = 0;
-            goto Label_0060;
-        Label_0012:
-            if ((this.Images[num] != null) == null)
-            {
-                goto Label_005C;
-            }
-            if ((this.Images[num].get_material() != null) == null)
-            {
-                goto Label_005C;
-            }
-            this.Images[num].set_material(new Material(this.Images[num].get_material()));
-        Label_005C:
-            num += 1;
-        Label_0060:
-            if (num < ((int) this.Images.Length))
-            {
-                goto Label_0012;
-            }
-        Label_006E:
-            if (string.IsNullOrEmpty(this.ImageTable) != null)
-            {
-                goto Label_0091;
-            }
-            this.LoadImageTable();
-            base.StartCoroutine(this.AnimationThread());
-        Label_0091:
-            if ((this.ImageGroup != null) == null)
-            {
-                goto Label_00AE;
-            }
-            this.ImageGroup.SetActive(0);
-        Label_00AE:
-            return;
-        }
-
-        private unsafe void Update()
-        {
-            float num;
-            long num2;
-            long num3;
-            int num4;
-            string str;
-            string str2;
-            num = 0f;
-            this.mLoadTime += Time.get_unscaledDeltaTime();
-            if (&this.Ratios.Download <= 0f)
-            {
-                goto Label_0041;
-            }
-            num += AssetDownloader.Progress / &this.Ratios.Download;
-        Label_0041:
-            if (&this.Ratios.Deserilize <= 0f)
-            {
-                goto Label_006B;
-            }
-            num += this.mLoadProgress / &this.Ratios.Deserilize;
-        Label_006B:
-            num /= &this.Ratios.Download + &this.Ratios.Deserilize;
-            this.ProgressBar.set_value(num);
-            num2 = AssetDownloader.TotalDownloadSize;
-            num3 = AssetDownloader.CurrentDownloadSize;
-            num4 = AssetDownloader.Phase;
-            if ((this.Phase != null) == null)
-            {
-                goto Label_00C0;
-            }
-            this.Phase.ImageIndex = num4;
-        Label_00C0:
-            if ((this.notice0 != null) == null)
-            {
-                goto Label_00F5;
-            }
-            if (num4 != 1)
-            {
-                goto Label_00E9;
-            }
-            this.notice0.SetActive(1);
-            goto Label_00F5;
-        Label_00E9:
-            this.notice0.SetActive(0);
-        Label_00F5:
-            if ((this.notice1 != null) == null)
-            {
-                goto Label_012A;
-            }
-            if (num4 != 1)
-            {
-                goto Label_011E;
-            }
-            this.notice1.SetActive(1);
-            goto Label_012A;
-        Label_011E:
-            this.notice1.SetActive(0);
-        Label_012A:
-            if ((this.Percentage != null) == null)
-            {
-                goto Label_0179;
-            }
-            str = string.Format(this.PercentageFormat, (int) ((int) (num * 100f)));
-            if ((this.Percentage.get_text() != str) == null)
-            {
-                goto Label_0179;
-            }
-            this.Percentage.set_text(str);
-        Label_0179:
-            if ((this.Complete != null) == null)
-            {
-                goto Label_01F5;
-            }
-            if (this.mKeepTotalDownloadSize == num2)
-            {
-                goto Label_01A5;
-            }
-            this.mKeepTotalDownloadSize = num2;
-            this.mKeepCurrentDownloadSize = -1L;
-        Label_01A5:
-            if (this.mKeepCurrentDownloadSize >= num3)
-            {
-                goto Label_01F5;
-            }
-            this.mKeepCurrentDownloadSize = num3;
-            str2 = string.Format(this.CompleteFormat, (long) num3, (long) num2);
-            if ((this.Complete.get_text() != str2) == null)
-            {
-                goto Label_01F5;
-            }
-            this.Complete.set_text(str2);
-        Label_01F5:
-            return;
-        }
-
-        public static bool ShouldKeepVisible
-        {
-            get
-            {
-                if ((mInstance != null) == null)
-                {
-                    goto Label_0027;
-                }
-                return (mInstance.mLoadTime < mInstance.MinVisibleTime);
-            Label_0027:
-                return 0;
-            }
-        }
-
-        [CompilerGenerated]
-        private sealed class <AnimationThread>c__Iterator12E : IEnumerator, IDisposable, IEnumerator<object>
-        {
-            internal int <r>__0;
-            internal ResourceRequest <req>__1;
-            internal Animation <anim>__2;
-            internal int $PC;
-            internal object $current;
-            internal ProgressWindow <>f__this;
-
-            public <AnimationThread>c__Iterator12E()
-            {
-                base..ctor();
-                return;
-            }
-
-            [DebuggerHidden]
-            public void Dispose()
-            {
-                this.$PC = -1;
-                return;
-            }
-
-            public unsafe bool MoveNext()
-            {
-                uint num;
-                KeyValuePair<string, string> pair;
-                KeyValuePair<string, string> pair2;
-                bool flag;
-                num = this.$PC;
-                this.$PC = -1;
-                switch (num)
-                {
-                    case 0:
-                        goto Label_002D;
-
-                    case 1:
-                        goto Label_004F;
-
-                    case 2:
-                        goto Label_0127;
-
-                    case 3:
-                        goto Label_019A;
-
-                    case 4:
-                        goto Label_0207;
-                }
-                goto Label_024A;
-            Label_002D:
-                this.$current = new WaitForSeconds(this.<>f__this.DisplayImageThreshold);
-                this.$PC = 1;
-                goto Label_024C;
-            Label_004F:
-                goto Label_0217;
-            Label_0054:
-                this.<r>__0 = Random.Range(0, this.<>f__this.mImagePairs.Count - 1);
-                if (this.<>f__this.mImagePairs.Count < 2)
-                {
-                    goto Label_009E;
-                }
-                if (this.<>f__this.mCurrentImageIndex == this.<r>__0)
-                {
-                    goto Label_0054;
-                }
-            Label_009E:
-                this.<>f__this.mCurrentImageIndex = this.<r>__0;
-                if (0 > this.<r>__0)
-                {
-                    goto Label_01BC;
-                }
-                if (this.<r>__0 >= this.<>f__this.mImagePairs.Count)
-                {
-                    goto Label_01BC;
-                }
-                pair = this.<>f__this.mImagePairs[this.<r>__0];
-                this.<req>__1 = Resources.LoadAsync<Texture2D>(&pair.Key);
-                if (this.<req>__1.get_isDone() != null)
-                {
-                    goto Label_0127;
-                }
-                this.$current = this.<req>__1;
-                this.$PC = 2;
-                goto Label_024C;
-            Label_0127:
-                this.<>f__this.Images[0].set_texture(this.<req>__1.get_asset() as Texture);
-                pair2 = this.<>f__this.mImagePairs[this.<r>__0];
-                this.<req>__1 = Resources.LoadAsync<Texture2D>(&pair2.Value);
-                if (this.<req>__1.get_isDone() != null)
-                {
-                    goto Label_019A;
-                }
-                this.$current = this.<req>__1;
-                this.$PC = 3;
-                goto Label_024C;
-            Label_019A:
-                this.<>f__this.Images[1].set_texture(this.<req>__1.get_asset() as Texture);
-            Label_01BC:
-                this.<>f__this.ImageGroup.SetActive(1);
-                this.<anim>__2 = this.<>f__this.ImageGroup.GetComponent<Animation>();
-                this.<anim>__2.Play();
-                goto Label_0207;
-            Label_01F4:
-                this.$current = null;
-                this.$PC = 4;
-                goto Label_024C;
-            Label_0207:
-                if (this.<anim>__2.get_isPlaying() != null)
-                {
-                    goto Label_01F4;
-                }
-            Label_0217:
-                if ((this.<>f__this.ImageGroup != null) == null)
-                {
-                    goto Label_0243;
-                }
-                if (this.<>f__this.mImagePairs.Count > 0)
-                {
-                    goto Label_0054;
-                }
-            Label_0243:
-                this.$PC = -1;
-            Label_024A:
-                return 0;
-            Label_024C:
-                return 1;
-                return flag;
-            }
-
-            [DebuggerHidden]
-            public void Reset()
-            {
-                throw new NotSupportedException();
-            }
-
-            object IEnumerator<object>.Current
-            {
-                [DebuggerHidden]
-                get
-                {
-                    return this.$current;
-                }
-            }
-
-            object IEnumerator.Current
-            {
-                [DebuggerHidden]
-                get
-                {
-                    return this.$current;
-                }
-            }
-        }
-
-        [Serializable, StructLayout(LayoutKind.Sequential)]
-        public struct ProgressRatio
-        {
-            [Range(0f, 1f)]
-            public float Download;
-            [Range(0f, 1f)]
-            public float Deserilize;
-            public ProgressRatio(float a, float b)
-            {
-                this.Download = a;
-                this.Deserilize = b;
-                return;
-            }
-        }
+      base.\u002Ector();
     }
-}
 
+    public static void OpenGenericDownloadWindow()
+    {
+      UnityEngine.Object.Instantiate<GameObject>((M0) AssetManager.Load<GameObject>("UI/AssetsDownloading"));
+    }
+
+    public static void OpenVersusLoadScreen()
+    {
+      if (!UnityEngine.Object.op_Equality((UnityEngine.Object) ProgressWindow.mInstance, (UnityEngine.Object) null))
+        return;
+      ProgressWindow progressWindow = AssetManager.Load<ProgressWindow>("UI/HomeMultiPlay_VersusMatching");
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) progressWindow, (UnityEngine.Object) null))
+        return;
+      UnityEngine.Object.DontDestroyOnLoad((UnityEngine.Object) ((Component) UnityEngine.Object.Instantiate<ProgressWindow>((M0) progressWindow)).get_gameObject());
+      GameUtility.FadeIn(0.1f);
+    }
+
+    public static void OpenBackgroundDownloaderBar()
+    {
+      ProgressWindow progressWindow = AssetManager.Load<ProgressWindow>("SGDevelopment/Tutorial/BackgroundDownloaderBar");
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) progressWindow, (UnityEngine.Object) null))
+        return;
+      UnityEngine.Object.DontDestroyOnLoad((UnityEngine.Object) ((Component) UnityEngine.Object.Instantiate<ProgressWindow>((M0) progressWindow)).get_gameObject());
+    }
+
+    public static void OpenQuestLoadScreen(string title, string lore)
+    {
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) ProgressWindow.mInstance, (UnityEngine.Object) null))
+      {
+        ProgressWindow progressWindow = !MonoSingleton<GameManager>.Instance.IsVersusMode() ? AssetManager.Load<ProgressWindow>("UI/QuestLoadScreen") : AssetManager.Load<ProgressWindow>("UI/QuestLoadScreen_VS");
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) progressWindow, (UnityEngine.Object) null))
+        {
+          UnityEngine.Object.DontDestroyOnLoad((UnityEngine.Object) ((Component) UnityEngine.Object.Instantiate<ProgressWindow>((M0) progressWindow)).get_gameObject());
+          GameUtility.FadeIn(0.1f);
+        }
+      }
+      if (string.IsNullOrEmpty(title))
+        title = string.Empty;
+      if (string.IsNullOrEmpty(lore))
+        lore = string.Empty;
+      ProgressWindow.SetTexts(title, lore);
+    }
+
+    public static void OpenQuestLoadScreen(QuestParam quest)
+    {
+      string title = (string) null;
+      string lore = (string) null;
+      if (quest != null)
+      {
+        title = quest.name;
+        if (quest.type == QuestTypes.Tower)
+          title = quest.title + " " + quest.name;
+        if (!string.IsNullOrEmpty(quest.storyTextID))
+          lore = LocalizedText.Get(quest.storyTextID);
+      }
+      ProgressWindow.OpenQuestLoadScreen(title, lore);
+    }
+
+    public static void SetTexts(string title, string lore)
+    {
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) ProgressWindow.mInstance, (UnityEngine.Object) null))
+        return;
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) ProgressWindow.mInstance.Title, (UnityEngine.Object) null))
+        ProgressWindow.mInstance.Title.set_text(title);
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) ProgressWindow.mInstance.Lore, (UnityEngine.Object) null))
+        return;
+      ProgressWindow.mInstance.Lore.set_text(lore);
+    }
+
+    public static void SetLoadProgress(float t)
+    {
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) ProgressWindow.mInstance, (UnityEngine.Object) null))
+        return;
+      ProgressWindow.mInstance.mLoadProgress = t;
+    }
+
+    public static void SetDestroyDelay(float delay)
+    {
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) ProgressWindow.mInstance, (UnityEngine.Object) null))
+        return;
+      ProgressWindow.mInstance.DestroyDelay = delay;
+    }
+
+    public static void Close()
+    {
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) ProgressWindow.mInstance, (UnityEngine.Object) null))
+        return;
+      Animator animator = !UnityEngine.Object.op_Inequality((UnityEngine.Object) ProgressWindow.mInstance.WindowAnimator, (UnityEngine.Object) null) ? (Animator) ((Component) ProgressWindow.mInstance).GetComponent<Animator>() : ProgressWindow.mInstance.WindowAnimator;
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) animator, (UnityEngine.Object) null))
+        animator.SetTrigger(ProgressWindow.mInstance.CloseTrigger);
+      if ((double) ProgressWindow.mInstance.DestroyDelay >= 0.0)
+        UnityEngine.Object.Destroy((UnityEngine.Object) ((Component) ProgressWindow.mInstance).get_gameObject(), ProgressWindow.mInstance.DestroyDelay);
+      ProgressWindow.mInstance = (ProgressWindow) null;
+    }
+
+    private void Start()
+    {
+      this.mCurrentImageIndex = 0;
+      if (UnityEngine.Object.op_Implicit((UnityEngine.Object) this.introduction))
+      {
+        this.previousLanguage = GameUtility.Config_Language;
+        if (GameUtility.Config_Language != "None")
+          this.introduction.set_text(LocalizedText.Get("download.FLAVOUR_TEXT" + (object) (this.mCurrentImageIndex + 1)));
+        else
+          this.introduction.set_text(string.Empty);
+      }
+      if (this.Images != null)
+      {
+        for (int index = 0; index < this.Images.Length; ++index)
+        {
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Images[index], (UnityEngine.Object) null) && UnityEngine.Object.op_Inequality((UnityEngine.Object) ((Graphic) this.Images[index]).get_material(), (UnityEngine.Object) null))
+            ((Graphic) this.Images[index]).set_material(new Material(((Graphic) this.Images[index]).get_material()));
+        }
+      }
+      if (!string.IsNullOrEmpty(this.ImageTable))
+      {
+        this.LoadImageTable();
+        this.StartCoroutine(this.AnimationThread());
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ImageGroup, (UnityEngine.Object) null))
+        this.ImageGroup.SetActive(false);
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.downloadTxt, (UnityEngine.Object) null))
+        return;
+      this.downloadTxt.set_text(LocalizedText.Get("download.FILE_CHECK"));
+    }
+
+    private void OnEnable()
+    {
+      if (!UnityEngine.Object.op_Equality((UnityEngine.Object) ProgressWindow.mInstance, (UnityEngine.Object) null))
+        return;
+      ProgressWindow.mInstance = this;
+    }
+
+    private void OnDisable()
+    {
+      if (!UnityEngine.Object.op_Equality((UnityEngine.Object) ProgressWindow.mInstance, (UnityEngine.Object) this))
+        return;
+      ProgressWindow.mInstance = (ProgressWindow) null;
+    }
+
+    public static bool ShouldKeepVisible
+    {
+      get
+      {
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) ProgressWindow.mInstance, (UnityEngine.Object) null))
+          return (double) ProgressWindow.mInstance.mLoadTime < (double) ProgressWindow.mInstance.MinVisibleTime;
+        return false;
+      }
+    }
+
+    public void MovePrevious()
+    {
+      --this.mCurrentImageIndex;
+      if (this.mImagePairs.Count == 0)
+        this.LoadImageTable();
+      if (this.mCurrentImageIndex < 0)
+        this.mCurrentImageIndex = this.mImagePairs.Count - 1;
+      this.introduction.set_text(LocalizedText.Get("download.FLAVOUR_TEXT" + (object) (this.mCurrentImageIndex + 1)));
+      this.StartCoroutine(this.AnimationThread());
+    }
+
+    public void MoveNext()
+    {
+      ++this.mCurrentImageIndex;
+      if (this.mImagePairs.Count == 0)
+        this.LoadImageTable();
+      if (this.mCurrentImageIndex > this.mImagePairs.Count - 1)
+        this.mCurrentImageIndex = 0;
+      this.introduction.set_text(LocalizedText.Get("download.FLAVOUR_TEXT" + (object) (this.mCurrentImageIndex + 1)));
+      this.StartCoroutine(this.AnimationThread());
+    }
+
+    private void Update()
+    {
+      float num1 = 0.0f;
+      this.mLoadTime += Time.get_unscaledDeltaTime();
+      if ((double) this.Ratios.Download > 0.0)
+        num1 += AssetDownloader.Progress / this.Ratios.Download;
+      if ((double) this.Ratios.Deserilize > 0.0)
+        num1 += this.mLoadProgress / this.Ratios.Deserilize;
+      float num2 = num1 / (this.Ratios.Download + this.Ratios.Deserilize);
+      this.ProgressBar.set_value(num2);
+      long totalDownloadSize = AssetDownloader.TotalDownloadSize;
+      long currentDownloadSize = AssetDownloader.CurrentDownloadSize;
+      int phase = (int) AssetDownloader.Phase;
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Phase, (UnityEngine.Object) null))
+        this.Phase.ImageIndex = phase;
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.downloadTxt, (UnityEngine.Object) null))
+      {
+        if (phase == 0)
+          this.downloadTxt.set_text(LocalizedText.Get("download.FILE_CHECK"));
+        else
+          this.downloadTxt.set_text(LocalizedText.Get("download.DATA_DOWNLOAD"));
+      }
+      if (UnityEngine.Object.op_Implicit((UnityEngine.Object) this.noticeTxt))
+      {
+        if (phase == 1)
+          this.noticeTxt.SetActive(true);
+        else
+          this.noticeTxt.SetActive(false);
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Percentage, (UnityEngine.Object) null))
+      {
+        string str = string.Format(this.PercentageFormat, (object) (int) ((double) num2 * 100.0));
+        if (this.Percentage.get_text() != str)
+          this.Percentage.set_text(str);
+      }
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Complete, (UnityEngine.Object) null))
+      {
+        if (this.mKeepTotalDownloadSize != totalDownloadSize)
+        {
+          this.mKeepTotalDownloadSize = totalDownloadSize;
+          this.mKeepCurrentDownloadSize = -1L;
+        }
+        if (this.mKeepCurrentDownloadSize < currentDownloadSize)
+        {
+          this.mKeepCurrentDownloadSize = currentDownloadSize;
+          string str = string.Format(this.CompleteFormat, (object) currentDownloadSize, (object) totalDownloadSize);
+          if (this.Complete.get_text() != str)
+            this.Complete.set_text(str);
+        }
+      }
+      if (!UnityEngine.Object.op_Implicit((UnityEngine.Object) this.introduction) || !(this.previousLanguage != GameUtility.Config_Language))
+        return;
+      this.previousLanguage = GameUtility.Config_Language;
+      this.introduction.set_text(LocalizedText.Get("download.FLAVOUR_TEXT" + (object) (this.mCurrentImageIndex + 1)));
+    }
+
+    [DebuggerHidden]
+    private IEnumerator AnimationThread()
+    {
+      // ISSUE: object of a compiler-generated type is created
+      return (IEnumerator) new ProgressWindow.\u003CAnimationThread\u003Ec__Iterator10B() { \u003C\u003Ef__this = this };
+    }
+
+    private void LoadImageTable()
+    {
+      TextAsset textAsset = (TextAsset) Resources.Load<TextAsset>(this.ImageTable);
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) textAsset, (UnityEngine.Object) null))
+        return;
+      StringReader stringReader = new StringReader(textAsset.get_text());
+      string str;
+      while ((str = stringReader.ReadLine()) != null)
+      {
+        if (!string.IsNullOrEmpty(str))
+        {
+          string[] strArray = str.Split('\t');
+          this.mImagePairs.Add(new KeyValuePair<string, string>(strArray[0], strArray[1]));
+        }
+      }
+    }
+
+    [Serializable]
+    public struct ProgressRatio
+    {
+      [Range(0.0f, 1f)]
+      public float Download;
+      [Range(0.0f, 1f)]
+      public float Deserilize;
+
+      public ProgressRatio(float a, float b)
+      {
+        this.Download = a;
+        this.Deserilize = b;
+      }
+    }
+  }
+}

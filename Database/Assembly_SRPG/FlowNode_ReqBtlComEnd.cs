@@ -1,85 +1,67 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_ReqBtlComEnd
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Runtime.CompilerServices;
+  public class FlowNode_ReqBtlComEnd : FlowNode_Network
+  {
+    private FlowNode_ReqBtlComEnd.OnSuccesDelegate mOnSuccessDelegate;
 
-    public class FlowNode_ReqBtlComEnd : FlowNode_Network
+    public FlowNode_ReqBtlComEnd.OnSuccesDelegate OnSuccessListeners
     {
-        private OnSuccesDelegate mOnSuccessDelegate;
-
-        public FlowNode_ReqBtlComEnd()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-        }
-
-        public override unsafe void OnSuccess(WWWResult www)
-        {
-            WebAPI.JSON_BodyResponse<Json_PlayerDataAll> response;
-            Exception exception;
-            Network.EErrCode code;
-            if (Network.IsError == null)
-            {
-                goto Label_002E;
-            }
-            if (Network.ErrCode == 0xdac)
-            {
-                goto Label_0020;
-            }
-            goto Label_0027;
-        Label_0020:
-            this.OnFailed();
-            return;
-        Label_0027:
-            this.OnRetry();
-            return;
-        Label_002E:
-            response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_PlayerDataAll>>(&www.text);
-            DebugUtility.Assert((response == null) == 0, "res == null");
-            if (response.body != null)
-            {
-                goto Label_005E;
-            }
-            this.OnRetry();
-            return;
-        Label_005E:
-            try
-            {
-                MonoSingleton<GameManager>.Instance.Deserialize(response.body.player);
-                MonoSingleton<GameManager>.Instance.Deserialize(response.body.units);
-                MonoSingleton<GameManager>.Instance.Deserialize(response.body.items);
-                goto Label_00B9;
-            }
-            catch (Exception exception1)
-            {
-            Label_00A2:
-                exception = exception1;
-                DebugUtility.LogException(exception);
-                this.OnRetry();
-                goto Label_00C9;
-            }
-        Label_00B9:
-            Network.RemoveAPI();
-            this.mOnSuccessDelegate();
-        Label_00C9:
-            return;
-        }
-
-        public OnSuccesDelegate OnSuccessListeners
-        {
-            set
-            {
-                this.mOnSuccessDelegate = value;
-                return;
-            }
-        }
-
-        public delegate void OnSuccesDelegate();
+      set
+      {
+        this.mOnSuccessDelegate = value;
+      }
     }
-}
 
+    public override void OnActivate(int pinID)
+    {
+    }
+
+    public override void OnSuccess(WWWResult www)
+    {
+      if (Network.IsError)
+      {
+        if (Network.ErrCode == Network.EErrCode.QuestEnd)
+          this.OnFailed();
+        else
+          this.OnRetry();
+      }
+      else
+      {
+        WebAPI.JSON_BodyResponse<Json_PlayerDataAll> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_PlayerDataAll>>(www.text);
+        DebugUtility.Assert(jsonObject != null, "res == null");
+        if (jsonObject.body == null)
+        {
+          this.OnRetry();
+        }
+        else
+        {
+          try
+          {
+            MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.player);
+            MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.units);
+            MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.items);
+          }
+          catch (Exception ex)
+          {
+            DebugUtility.LogException(ex);
+            this.OnRetry();
+            return;
+          }
+          Network.RemoveAPI();
+          this.mOnSuccessDelegate();
+        }
+      }
+    }
+
+    public delegate void OnSuccesDelegate();
+  }
+}

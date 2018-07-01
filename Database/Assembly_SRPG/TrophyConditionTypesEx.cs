@@ -1,60 +1,33 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.TrophyConditionTypesEx
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-    using System.Runtime.CompilerServices;
-
-    [Extension]
-    public static class TrophyConditionTypesEx
+  public static class TrophyConditionTypesEx
+  {
+    public static bool IsExtraClear(this TrophyConditionTypes type)
     {
-        [Extension]
-        public static bool IsExtraClear(TrophyConditionTypes type)
-        {
-            TrophyConditionTypes types;
-            types = type;
-            switch ((types - 0x3f))
-            {
-                case 0:
-                    goto Label_0040;
-
-                case 1:
-                    goto Label_0040;
-
-                case 2:
-                    goto Label_0040;
-
-                case 3:
-                    goto Label_0040;
-
-                case 4:
-                    goto Label_0040;
-
-                case 5:
-                    goto Label_0040;
-
-                case 6:
-                    goto Label_0040;
-
-                case 7:
-                    goto Label_0040;
-
-                case 8:
-                    goto Label_0040;
-
-                case 9:
-                    goto Label_0040;
-
-                case 10:
-                    goto Label_0040;
-
-                case 11:
-                    goto Label_0040;
-            }
-            goto Label_0042;
-        Label_0040:
-            return 1;
-        Label_0042:
-            return 0;
-        }
+      switch (type)
+      {
+        case TrophyConditionTypes.exclear_fire:
+        case TrophyConditionTypes.exclear_water:
+        case TrophyConditionTypes.exclear_wind:
+        case TrophyConditionTypes.exclear_thunder:
+        case TrophyConditionTypes.exclear_light:
+        case TrophyConditionTypes.exclear_dark:
+        case TrophyConditionTypes.exclear_fire_nocon:
+        case TrophyConditionTypes.exclear_water_nocon:
+        case TrophyConditionTypes.exclear_wind_nocon:
+        case TrophyConditionTypes.exclear_thunder_nocon:
+        case TrophyConditionTypes.exclear_light_nocon:
+        case TrophyConditionTypes.exclear_dark_nocon:
+          return true;
+        default:
+          return false;
+      }
     }
+  }
 }
-

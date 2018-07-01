@@ -1,72 +1,51 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.CharacterLighting
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
-
-    public class CharacterLighting : MonoBehaviour
+  public class CharacterLighting : MonoBehaviour
+  {
+    public CharacterLighting()
     {
-        public CharacterLighting()
-        {
-            base..ctor();
-            return;
-        }
-
-        private void Start()
-        {
-            this.Update();
-            return;
-        }
-
-        private unsafe void Update()
-        {
-            Vector3 vector;
-            StaticLightVolume volume;
-            Color color;
-            Color color2;
-            GameSettings settings;
-            MeshRenderer[] rendererArray;
-            int num;
-            SkinnedMeshRenderer[] rendererArray2;
-            int num2;
-            vector = base.get_transform().get_position();
-            volume = StaticLightVolume.FindVolume(vector);
-            if ((volume == null) == null)
-            {
-                goto Label_003B;
-            }
-            settings = GameSettings.Instance;
-            color = settings.Character_DefaultDirectLitColor;
-            color2 = settings.Character_DefaultIndirectLitColor;
-            goto Label_0046;
-        Label_003B:
-            volume.CalcLightColor(vector, &color, &color2);
-        Label_0046:
-            rendererArray = base.GetComponentsInChildren<MeshRenderer>();
-            num = 0;
-            goto Label_0086;
-        Label_0056:
-            rendererArray[num].get_material().SetColor("_directLitColor", color);
-            rendererArray[num].get_material().SetColor("_indirectLitColor", color2);
-            num += 1;
-        Label_0086:
-            if (num < ((int) rendererArray.Length))
-            {
-                goto Label_0056;
-            }
-            rendererArray2 = base.GetComponentsInChildren<SkinnedMeshRenderer>();
-            num2 = 0;
-            goto Label_00D1;
-        Label_00A1:
-            rendererArray2[num2].get_material().SetColor("_directLitColor", color);
-            rendererArray2[num2].get_material().SetColor("_indirectLitColor", color2);
-            num2 += 1;
-        Label_00D1:
-            if (num2 < ((int) rendererArray2.Length))
-            {
-                goto Label_00A1;
-            }
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Start()
+    {
+      this.Update();
+    }
+
+    private void Update()
+    {
+      Vector3 position = ((Component) this).get_transform().get_position();
+      StaticLightVolume volume = StaticLightVolume.FindVolume(position);
+      Color directLit;
+      Color indirectLit;
+      if (Object.op_Equality((Object) volume, (Object) null))
+      {
+        GameSettings instance = GameSettings.Instance;
+        directLit = instance.Character_DefaultDirectLitColor;
+        indirectLit = instance.Character_DefaultIndirectLitColor;
+      }
+      else
+        volume.CalcLightColor(position, out directLit, out indirectLit);
+      MeshRenderer[] componentsInChildren1 = (MeshRenderer[]) ((Component) this).GetComponentsInChildren<MeshRenderer>();
+      for (int index = 0; index < componentsInChildren1.Length; ++index)
+      {
+        ((Renderer) componentsInChildren1[index]).get_material().SetColor("_directLitColor", directLit);
+        ((Renderer) componentsInChildren1[index]).get_material().SetColor("_indirectLitColor", indirectLit);
+      }
+      SkinnedMeshRenderer[] componentsInChildren2 = (SkinnedMeshRenderer[]) ((Component) this).GetComponentsInChildren<SkinnedMeshRenderer>();
+      for (int index = 0; index < componentsInChildren2.Length; ++index)
+      {
+        ((Renderer) componentsInChildren2[index]).get_material().SetColor("_directLitColor", directLit);
+        ((Renderer) componentsInChildren2[index]).get_material().SetColor("_indirectLitColor", indirectLit);
+      }
+    }
+  }
+}

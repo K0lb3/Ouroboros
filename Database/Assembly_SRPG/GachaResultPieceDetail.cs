@@ -1,114 +1,81 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.GachaResultPieceDetail
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
-    using UnityEngine.Events;
-    using UnityEngine.UI;
+  [FlowNode.Pin(2, "Refreshed", FlowNode.PinTypes.Output, 2)]
+  [FlowNode.Pin(1, "Refresh", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(100, "Close", FlowNode.PinTypes.Output, 100)]
+  public class GachaResultPieceDetail : MonoBehaviour, IFlowInterface
+  {
+    private readonly int OUT_CLOSE_DETAIL;
+    public GameObject PieceInfo;
+    public GameObject Bg;
+    private ItemData mCurrentPiece;
+    [SerializeField]
+    private Button BackBtn;
 
-    [Pin(100, "Close", 1, 100), Pin(2, "Refreshed", 1, 2), Pin(1, "Refresh", 0, 1)]
-    public class GachaResultPieceDetail : MonoBehaviour, IFlowInterface
+    public GachaResultPieceDetail()
     {
-        private readonly int OUT_CLOSE_DETAIL;
-        public GameObject PieceInfo;
-        public GameObject Bg;
-        private ItemData mCurrentPiece;
-        [SerializeField]
-        private Button BackBtn;
-
-        public GachaResultPieceDetail()
-        {
-            this.OUT_CLOSE_DETAIL = 100;
-            base..ctor();
-            return;
-        }
-
-        public void Activated(int pinID)
-        {
-            this.Refresh();
-            return;
-        }
-
-        private void OnCloseDetail()
-        {
-            FlowNode_GameObject.ActivateOutputLinks(this, this.OUT_CLOSE_DETAIL);
-            return;
-        }
-
-        private void OnEnable()
-        {
-            Animator animator;
-            CanvasGroup group;
-            animator = base.GetComponent<Animator>();
-            if ((animator != null) == null)
-            {
-                goto Label_001F;
-            }
-            animator.SetBool("close", 0);
-        Label_001F:
-            if ((this.Bg != null) == null)
-            {
-                goto Label_0056;
-            }
-            group = this.Bg.GetComponent<CanvasGroup>();
-            if ((group != null) == null)
-            {
-                goto Label_0056;
-            }
-            group.set_interactable(1);
-            group.set_blocksRaycasts(1);
-        Label_0056:
-            this.Refresh();
-            return;
-        }
-
-        private void Refresh()
-        {
-            if ((this.PieceInfo == null) == null)
-            {
-                goto Label_0012;
-            }
-            return;
-        Label_0012:
-            DataSource.Bind<ItemData>(this.PieceInfo, this.mCurrentPiece);
-            GameParameter.UpdateAll(this.PieceInfo);
-            FlowNode_GameObject.ActivateOutputLinks(this, 2);
-            return;
-        }
-
-        public void Setup(ItemData _data)
-        {
-            this.mCurrentPiece = _data;
-            return;
-        }
-
-        public void Setup(int _index)
-        {
-            ItemParam param;
-            int num;
-            ItemData data;
-            param = GachaResultData.drops[_index].item;
-            num = GachaResultData.drops[_index].num;
-            if (param == null)
-            {
-                goto Label_0038;
-            }
-            data = new ItemData();
-            data.Setup(0L, param, num);
-            this.Setup(data);
-        Label_0038:
-            return;
-        }
-
-        private void Start()
-        {
-            if ((this.BackBtn != null) == null)
-            {
-                goto Label_002D;
-            }
-            this.BackBtn.get_onClick().AddListener(new UnityAction(this, this.OnCloseDetail));
-        Label_002D:
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    public void Activated(int pinID)
+    {
+      this.Refresh();
+    }
+
+    private void Start()
+    {
+      if (!Object.op_Inequality((Object) this.BackBtn, (Object) null))
+        return;
+      // ISSUE: method pointer
+      ((UnityEvent) this.BackBtn.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OnCloseDetail)));
+    }
+
+    private void OnEnable()
+    {
+      Animator component1 = (Animator) ((Component) this).GetComponent<Animator>();
+      if (Object.op_Inequality((Object) component1, (Object) null))
+        component1.SetBool("close", false);
+      if (Object.op_Inequality((Object) this.Bg, (Object) null))
+      {
+        CanvasGroup component2 = (CanvasGroup) this.Bg.GetComponent<CanvasGroup>();
+        if (Object.op_Inequality((Object) component2, (Object) null))
+        {
+          component2.set_interactable(true);
+          component2.set_blocksRaycasts(true);
+        }
+      }
+      this.Refresh();
+    }
+
+    private void OnCloseDetail()
+    {
+      FlowNode_GameObject.ActivateOutputLinks((Component) this, this.OUT_CLOSE_DETAIL);
+    }
+
+    private void Refresh()
+    {
+      if (Object.op_Equality((Object) this.PieceInfo, (Object) null))
+        return;
+      int index = int.Parse(FlowNode_Variable.Get("GachaResultDataIndex"));
+      ItemParam itemParam = GachaResultData.drops[index].item;
+      int num = GachaResultData.drops[index].num;
+      if (itemParam == null)
+        return;
+      this.mCurrentPiece = new ItemData();
+      this.mCurrentPiece.Setup(0L, itemParam, num);
+      DataSource.Bind<ItemData>(this.PieceInfo, this.mCurrentPiece);
+      GameParameter.UpdateAll(this.PieceInfo);
+      FlowNode_GameObject.ActivateOutputLinks((Component) this, 2);
+    }
+  }
+}

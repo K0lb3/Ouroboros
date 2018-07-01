@@ -1,24 +1,27 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.CustomFieldAttribute
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System;
+
+namespace SRPG
 {
-    using System;
-
-    public class CustomFieldAttribute : Attribute
+  public class CustomFieldAttribute : Attribute
+  {
+    public CustomFieldAttribute(string _text, CustomFieldAttribute.Type _type)
     {
-        public CustomFieldAttribute(string _text, Type _type)
-        {
-            base..ctor();
-            return;
-        }
-
-        public enum Type
-        {
-            MonoBehaviour,
-            GameObject,
-            UIText,
-            UIRawImage,
-            UIImage,
-            UISprite
-        }
     }
-}
 
+    public enum Type
+    {
+      MonoBehaviour,
+      GameObject,
+      UIText,
+      UIRawImage,
+      UIImage,
+      UISprite,
+    }
+  }
+}

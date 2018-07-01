@@ -1,30 +1,22 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.MagnificationParam
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
+  public class MagnificationParam
+  {
+    public string iname;
+    public int[] atkMagnifications;
 
-    public class MagnificationParam
+    public void Deserialize(JSON_MagnificationParam json)
     {
-        public string iname;
-        public int[] atkMagnifications;
-
-        public MagnificationParam()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void Deserialize(JSON_MagnificationParam json)
-        {
-            if (json != null)
-            {
-                goto Label_000C;
-            }
-            throw new InvalidJSONException();
-        Label_000C:
-            this.iname = json.iname;
-            this.atkMagnifications = json.atk;
-            return;
-        }
+      if (json == null)
+        throw new InvalidJSONException();
+      this.iname = json.iname;
+      this.atkMagnifications = json.atk;
     }
+  }
 }
-

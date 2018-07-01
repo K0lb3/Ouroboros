@@ -1,66 +1,42 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_AppVer
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  [FlowNode.Pin(0, "In", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "Default", FlowNode.PinTypes.Output, 1)]
+  [FlowNode.NodeType("System/App Version", 32741)]
+  public class FlowNode_AppVer : FlowNode
+  {
+    [FlexibleArray]
+    public string[] Versions = new string[0];
 
-    [NodeType("System/App Version", 0x7fe5), Pin(0, "In", 0, 0), Pin(1, "Default", 1, 1)]
-    public class FlowNode_AppVer : FlowNode
+    public override FlowNode.Pin[] GetDynamicPins()
     {
-        [FlexibleArray]
-        public string[] Versions;
-
-        public FlowNode_AppVer()
-        {
-            this.Versions = new string[0];
-            base..ctor();
-            return;
-        }
-
-        public override FlowNode.Pin[] GetDynamicPins()
-        {
-            FlowNode.Pin[] pinArray;
-            int num;
-            pinArray = new FlowNode.Pin[(int) this.Versions.Length];
-            num = 0;
-            goto Label_0030;
-        Label_0015:
-            pinArray[num] = new FlowNode.Pin(2 + num, this.Versions[num], 1, 2 + num);
-            num += 1;
-        Label_0030:
-            if (num < ((int) this.Versions.Length))
-            {
-                goto Label_0015;
-            }
-            return pinArray;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            int num;
-            if (pinID != null)
-            {
-                goto Label_0049;
-            }
-            num = 0;
-            goto Label_0033;
-        Label_000D:
-            if ((Application.get_version() == this.Versions[num]) == null)
-            {
-                goto Label_002F;
-            }
-            base.ActivateOutputLinks(2 + num);
-            return;
-        Label_002F:
-            num += 1;
-        Label_0033:
-            if (num < ((int) this.Versions.Length))
-            {
-                goto Label_000D;
-            }
-            base.ActivateOutputLinks(1);
-        Label_0049:
-            return;
-        }
+      FlowNode.Pin[] pinArray = new FlowNode.Pin[this.Versions.Length];
+      for (int index = 0; index < this.Versions.Length; ++index)
+        pinArray[index] = new FlowNode.Pin(2 + index, this.Versions[index], FlowNode.PinTypes.Output, 2 + index);
+      return pinArray;
     }
-}
 
+    public override void OnActivate(int pinID)
+    {
+      if (pinID != 0)
+        return;
+      for (int index = 0; index < this.Versions.Length; ++index)
+      {
+        if (Application.get_version() == this.Versions[index])
+        {
+          this.ActivateOutputLinks(2 + index);
+          return;
+        }
+      }
+      this.ActivateOutputLinks(1);
+    }
+  }
+}

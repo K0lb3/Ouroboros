@@ -1,79 +1,73 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.SectionParam
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
+  public class SectionParam
+  {
+    private string localizedNameID;
+    private string localizedExprID;
+    public string iname;
+    public string name;
+    public string expr;
+    public long start;
+    public long end;
+    public bool hidden;
+    public string home;
+    public string unit;
+    public string prefabPath;
+    public string shop;
+    public string inn;
+    public string bar;
+    public string bgm;
 
-    public class SectionParam
+    protected void localizeFields(string language)
     {
-        public string iname;
-        public string name;
-        public string expr;
-        public long start;
-        public long end;
-        public bool hidden;
-        public string home;
-        public string unit;
-        public string prefabPath;
-        public string shop;
-        public string inn;
-        public string bar;
-        public string bgm;
-        public int storyPart;
-        public string releaseKeyQuest;
-
-        public SectionParam()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void Deserialize(JSON_SectionParam json)
-        {
-            if (json != null)
-            {
-                goto Label_000C;
-            }
-            throw new InvalidJSONException();
-        Label_000C:
-            this.iname = json.iname;
-            this.name = json.name;
-            this.expr = json.expr;
-            this.start = json.start;
-            this.end = json.end;
-            this.hidden = (json.hide == 0) == 0;
-            this.home = json.home;
-            this.unit = json.unit;
-            this.prefabPath = json.item;
-            this.shop = json.shop;
-            this.inn = json.inn;
-            this.bar = json.bar;
-            this.bgm = json.bgm;
-            this.storyPart = json.story_part;
-            this.releaseKeyQuest = json.release_key_quest;
-            return;
-        }
-
-        public bool IsDateUnlock()
-        {
-            long num;
-            num = Network.GetServerTime();
-            if (this.end == null)
-            {
-                goto Label_002D;
-            }
-            if (this.start > num)
-            {
-                goto Label_002B;
-            }
-            if (num >= this.end)
-            {
-                goto Label_002B;
-            }
-            return 1;
-        Label_002B:
-            return 0;
-        Label_002D:
-            return (this.hidden == 0);
-        }
+      this.init();
+      this.name = LocalizedText.SGGet(language, GameUtility.LocalizedQuestParamFileName, this.localizedNameID);
+      this.expr = LocalizedText.SGGet(language, GameUtility.LocalizedQuestParamFileName, this.localizedExprID);
     }
-}
 
+    protected void init()
+    {
+      this.localizedNameID = this.GetType().GenerateLocalizedID(this.iname, "NAME");
+      this.localizedExprID = this.GetType().GenerateLocalizedID(this.iname, "EXPR");
+    }
+
+    public void Deserialize(string language, JSON_SectionParam json)
+    {
+      this.Deserialize(json);
+      this.localizeFields(language);
+    }
+
+    public void Deserialize(JSON_SectionParam json)
+    {
+      if (json == null)
+        throw new InvalidJSONException();
+      this.iname = json.iname;
+      this.name = json.name;
+      this.expr = json.expr;
+      this.start = json.start;
+      this.end = json.end;
+      this.hidden = json.hide != 0;
+      this.home = json.home;
+      this.unit = json.unit;
+      this.prefabPath = json.item;
+      this.shop = json.shop;
+      this.inn = json.inn;
+      this.bar = json.bar;
+      this.bgm = json.bgm;
+    }
+
+    public bool IsDateUnlock()
+    {
+      long serverTime = Network.GetServerTime();
+      if (this.end == 0L)
+        return !this.hidden;
+      return this.start <= serverTime && serverTime < this.end;
+    }
+  }
+}

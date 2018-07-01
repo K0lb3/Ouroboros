@@ -1,145 +1,92 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.GachaResultArtifactDetail
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using UnityEngine;
-    using UnityEngine.Events;
-    using UnityEngine.UI;
+  [FlowNode.Pin(100, "Close", FlowNode.PinTypes.Output, 100)]
+  [FlowNode.Pin(1, "Refresh", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(2, "Refreshed", FlowNode.PinTypes.Output, 2)]
+  public class GachaResultArtifactDetail : MonoBehaviour, IFlowInterface
+  {
+    private readonly int OUT_CLOSE_DETAIL;
+    public GameObject ArtifactInfo;
+    public GameObject Bg;
+    private ArtifactData mCurrentArtifact;
+    [SerializeField]
+    private Button BackBtn;
 
-    [Pin(2, "Refreshed", 1, 2), Pin(1, "Refresh", 0, 1), Pin(100, "Close", 1, 100)]
-    public class GachaResultArtifactDetail : MonoBehaviour, IFlowInterface
+    public GachaResultArtifactDetail()
     {
-        private readonly int OUT_CLOSE_DETAIL;
-        public GameObject ArtifactInfo;
-        public GameObject Bg;
-        private ArtifactData mCurrentArtifact;
-        [SerializeField]
-        private Button BackBtn;
-
-        public GachaResultArtifactDetail()
-        {
-            this.OUT_CLOSE_DETAIL = 100;
-            base..ctor();
-            return;
-        }
-
-        public void Activated(int pinID)
-        {
-            this.Refresh();
-            return;
-        }
-
-        private ArtifactData CreateArtifactData(ArtifactParam param, int rarity)
-        {
-            ArtifactData data;
-            Json_Artifact artifact;
-            data = new ArtifactData();
-            artifact = new Json_Artifact();
-            artifact.iid = 1L;
-            artifact.exp = 0;
-            artifact.iname = param.iname;
-            artifact.fav = 0;
-            artifact.rare = Math.Min(Math.Max(param.rareini, rarity), param.raremax);
-            data.Deserialize(artifact);
-            return data;
-        }
-
-        private void OnCloseDetail()
-        {
-            FlowNode_GameObject.ActivateOutputLinks(this, this.OUT_CLOSE_DETAIL);
-            return;
-        }
-
-        private void OnEnable()
-        {
-            Animator animator;
-            CanvasGroup group;
-            animator = base.GetComponent<Animator>();
-            if ((animator != null) == null)
-            {
-                goto Label_001F;
-            }
-            animator.SetBool("close", 0);
-        Label_001F:
-            if ((this.Bg != null) == null)
-            {
-                goto Label_0056;
-            }
-            group = this.Bg.GetComponent<CanvasGroup>();
-            if ((group != null) == null)
-            {
-                goto Label_0056;
-            }
-            group.set_interactable(1);
-            group.set_blocksRaycasts(1);
-        Label_0056:
-            return;
-        }
-
-        private void Refresh()
-        {
-            ArtifactParam param;
-            if ((this.ArtifactInfo == null) == null)
-            {
-                goto Label_0012;
-            }
-            return;
-        Label_0012:
-            param = null;
-            if (string.IsNullOrEmpty(GlobalVars.SelectedArtifactID) != null)
-            {
-                goto Label_006C;
-            }
-            param = MonoSingleton<GameManager>.Instance.MasterParam.GetArtifactParam(GlobalVars.SelectedArtifactID);
-            if (param != null)
-            {
-                goto Label_003F;
-            }
-            return;
-        Label_003F:
-            this.mCurrentArtifact = new ArtifactData();
-            this.mCurrentArtifact = this.CreateArtifactData(param, param.rareini);
-            GlobalVars.SelectedArtifactID = string.Empty;
-        Label_006C:
-            DataSource.Bind<ArtifactData>(this.ArtifactInfo, this.mCurrentArtifact);
-            GameParameter.UpdateAll(this.ArtifactInfo);
-            FlowNode_GameObject.ActivateOutputLinks(this, 2);
-            return;
-        }
-
-        public void Setup(ArtifactData _artifact)
-        {
-            this.mCurrentArtifact = _artifact;
-            return;
-        }
-
-        public void Setup(int _index)
-        {
-            ArtifactParam param;
-            int num;
-            ArtifactData data;
-            param = GachaResultData.drops[_index].artifact;
-            num = GachaResultData.drops[_index].Rare;
-            if (param == null)
-            {
-                goto Label_0030;
-            }
-            data = this.CreateArtifactData(param, num);
-            this.Setup(data);
-        Label_0030:
-            return;
-        }
-
-        private void Start()
-        {
-            if ((this.BackBtn != null) == null)
-            {
-                goto Label_002D;
-            }
-            this.BackBtn.get_onClick().AddListener(new UnityAction(this, this.OnCloseDetail));
-        Label_002D:
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    public void Activated(int pinID)
+    {
+      this.Refresh();
+    }
+
+    private void Start()
+    {
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BackBtn, (UnityEngine.Object) null))
+        return;
+      // ISSUE: method pointer
+      ((UnityEvent) this.BackBtn.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OnCloseDetail)));
+    }
+
+    private void OnEnable()
+    {
+      Animator component1 = (Animator) ((Component) this).GetComponent<Animator>();
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component1, (UnityEngine.Object) null))
+        component1.SetBool("close", false);
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Bg, (UnityEngine.Object) null))
+        return;
+      CanvasGroup component2 = (CanvasGroup) this.Bg.GetComponent<CanvasGroup>();
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component2, (UnityEngine.Object) null))
+        return;
+      component2.set_interactable(true);
+      component2.set_blocksRaycasts(true);
+    }
+
+    private void OnCloseDetail()
+    {
+      FlowNode_GameObject.ActivateOutputLinks((Component) this, this.OUT_CLOSE_DETAIL);
+    }
+
+    private void Refresh()
+    {
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.ArtifactInfo, (UnityEngine.Object) null))
+        return;
+      int index = int.Parse(FlowNode_Variable.Get("GachaResultDataIndex"));
+      ArtifactParam artifact = GachaResultData.drops[index].artifact;
+      if (artifact == null)
+        return;
+      this.mCurrentArtifact = new ArtifactData();
+      this.mCurrentArtifact = this.CreateArtifactData(artifact, GachaResultData.drops[index].Rare);
+      DataSource.Bind<ArtifactData>(this.ArtifactInfo, this.mCurrentArtifact);
+      GameParameter.UpdateAll(this.ArtifactInfo);
+      FlowNode_GameObject.ActivateOutputLinks((Component) this, 2);
+    }
+
+    private ArtifactData CreateArtifactData(ArtifactParam param, int rarity)
+    {
+      ArtifactData artifactData = new ArtifactData();
+      artifactData.Deserialize(new Json_Artifact()
+      {
+        iid = 1L,
+        exp = 0,
+        iname = param.iname,
+        fav = 0,
+        rare = Math.Min(Math.Max(param.rareini, rarity), param.raremax)
+      });
+      return artifactData;
+    }
+  }
+}

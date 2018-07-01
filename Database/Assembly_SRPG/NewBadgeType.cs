@@ -1,13 +1,16 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.NewBadgeType
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    public enum NewBadgeType : byte
-    {
-        None = 0,
-        Unit = 1,
-        Item = 2,
-        Artifact = 3
-    }
+  public enum NewBadgeType : byte
+  {
+    None,
+    Unit,
+    Item,
+    Artifact,
+  }
 }
-

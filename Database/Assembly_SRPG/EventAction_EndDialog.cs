@@ -1,45 +1,25 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.EventAction_EndDialog
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
+  [EventActionInfo("会話/閉じる", "表示されている吹き出しを閉じます", 5592456, 5592490)]
+  public class EventAction_EndDialog : EventAction
+  {
+    [StringIsActorID]
+    public string ActorID;
 
-    [EventActionInfo("会話/閉じる", "表示されている吹き出しを閉じます", 0x555588, 0x5555aa)]
-    public class EventAction_EndDialog : EventAction
+    public override void OnActivate()
     {
-        [StringIsActorID]
-        public string ActorID;
-
-        public EventAction_EndDialog()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate()
-        {
-            int num;
-            num = EventDialogBubble.Instances.Count - 1;
-            goto Label_0056;
-        Label_0012:
-            if (string.IsNullOrEmpty(this.ActorID) != null)
-            {
-                goto Label_0042;
-            }
-            if ((EventDialogBubble.Instances[num].BubbleID == this.ActorID) == null)
-            {
-                goto Label_0052;
-            }
-        Label_0042:
-            EventDialogBubble.Instances[num].Close();
-        Label_0052:
-            num -= 1;
-        Label_0056:
-            if (num >= 0)
-            {
-                goto Label_0012;
-            }
-            base.ActivateNext();
-            return;
-        }
+      for (int index = EventDialogBubble.Instances.Count - 1; index >= 0; --index)
+      {
+        if (string.IsNullOrEmpty(this.ActorID) || EventDialogBubble.Instances[index].BubbleID == this.ActorID)
+          EventDialogBubble.Instances[index].Close();
+      }
+      this.ActivateNext();
     }
+  }
 }
-

@@ -1,71 +1,56 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.LimitedShopWindow
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using UnityEngine;
-    using UnityEngine.UI;
+  [FlowNode.Pin(11, "退店", FlowNode.PinTypes.Output, 11)]
+  [FlowNode.Pin(10, "換金", FlowNode.PinTypes.Output, 10)]
+  public class LimitedShopWindow : MonoBehaviour, IFlowInterface
+  {
+    private static readonly string ImgPathPrefix = "MenuChar/MenuChar_Shop_";
+    public RawImage ImgBackGround;
+    public RawImage ImgNPC;
+    [Space(16f)]
+    public ImageArray NamePlateImages;
 
-    [Pin(10, "換金", 1, 10), Pin(11, "退店", 1, 11)]
-    public class LimitedShopWindow : MonoBehaviour, IFlowInterface
+    public LimitedShopWindow()
     {
-        public RawImage ImgBackGround;
-        public RawImage ImgNPC;
-        [Space(16f)]
-        public ImageArray NamePlateImages;
-        private static readonly string ImgPathPrefix;
-
-        static LimitedShopWindow()
-        {
-            ImgPathPrefix = "MenuChar/MenuChar_Shop_";
-            return;
-        }
-
-        public LimitedShopWindow()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void Activated(int pinID)
-        {
-        }
-
-        private void Awake()
-        {
-        }
-
-        private void OnDestroy()
-        {
-            GameManager local1;
-            if ((MonoSingleton<GameManager>.GetInstanceDirect() != null) == null)
-            {
-                goto Label_0036;
-            }
-            local1 = MonoSingleton<GameManager>.GetInstanceDirect();
-            local1.OnSceneChange = (GameManager.SceneChangeEvent) Delegate.Remove(local1.OnSceneChange, new GameManager.SceneChangeEvent(this.OnGoOutShop));
-        Label_0036:
-            return;
-        }
-
-        private bool OnGoOutShop()
-        {
-            FlowNode_GameObject.ActivateOutputLinks(this, 11);
-            return 1;
-        }
-
-        private void Start()
-        {
-            GameManager local1;
-            if ((this.ImgNPC != null) == null)
-            {
-                goto Label_0037;
-            }
-            this.ImgNPC.set_texture(AssetManager.Load<Texture2D>(ImgPathPrefix + ((EShopType) 10).ToString()));
-        Label_0037:
-            local1 = MonoSingleton<GameManager>.Instance;
-            local1.OnSceneChange = (GameManager.SceneChangeEvent) Delegate.Combine(local1.OnSceneChange, new GameManager.SceneChangeEvent(this.OnGoOutShop));
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Awake()
+    {
+    }
+
+    private void Start()
+    {
+      if (Object.op_Inequality((Object) this.ImgNPC, (Object) null))
+        this.ImgNPC.set_texture((Texture) AssetManager.Load<Texture2D>(LimitedShopWindow.ImgPathPrefix + EShopType.Limited.ToString()));
+      MonoSingleton<GameManager>.Instance.OnSceneChange += new GameManager.SceneChangeEvent(this.OnGoOutShop);
+    }
+
+    public void Activated(int pinID)
+    {
+    }
+
+    private void OnDestroy()
+    {
+      if (!Object.op_Inequality((Object) MonoSingleton<GameManager>.GetInstanceDirect(), (Object) null))
+        return;
+      MonoSingleton<GameManager>.GetInstanceDirect().OnSceneChange -= new GameManager.SceneChangeEvent(this.OnGoOutShop);
+    }
+
+    private bool OnGoOutShop()
+    {
+      FlowNode_GameObject.ActivateOutputLinks((Component) this, 11);
+      return true;
+    }
+  }
+}

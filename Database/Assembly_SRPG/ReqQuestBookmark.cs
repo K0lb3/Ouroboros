@@ -1,17 +1,18 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqQuestBookmark
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    public class ReqQuestBookmark : WebAPI
+  public class ReqQuestBookmark : WebAPI
+  {
+    public ReqQuestBookmark(Network.ResponseCallback response)
     {
-        public ReqQuestBookmark(Network.ResponseCallback response)
-        {
-            base..ctor();
-            base.name = "quest/favorite";
-            base.body = WebAPI.GetRequestString(null);
-            base.callback = response;
-            return;
-        }
+      this.name = "quest/favorite";
+      this.body = WebAPI.GetRequestString((string) null);
+      this.callback = response;
     }
+  }
 }
-

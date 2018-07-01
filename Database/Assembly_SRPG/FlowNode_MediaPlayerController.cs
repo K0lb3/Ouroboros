@@ -1,209 +1,162 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_MediaPlayerController
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine.Events;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine.Events;
+  [FlowNode.Pin(20, "Pause", FlowNode.PinTypes.Input, 20)]
+  [FlowNode.NodeType("AVProVideo/MediaPlayerController")]
+  [FlowNode.Pin(10, "Play", FlowNode.PinTypes.Input, 10)]
+  [FlowNode.Pin(30, "Stop", FlowNode.PinTypes.Input, 30)]
+  [FlowNode.Pin(40, "Skip", FlowNode.PinTypes.Input, 40)]
+  [FlowNode.Pin(50, "Unload", FlowNode.PinTypes.Input, 50)]
+  [FlowNode.Pin(60, "Reload", FlowNode.PinTypes.Input, 60)]
+  [FlowNode.Pin(1000, "OnReady", FlowNode.PinTypes.Output, 1000)]
+  [FlowNode.Pin(1010, "OnFirstFrameReady", FlowNode.PinTypes.Output, 1010)]
+  [FlowNode.Pin(1020, "OnBufferingStart", FlowNode.PinTypes.Output, 1020)]
+  [FlowNode.Pin(1021, "OnBufferingEnd", FlowNode.PinTypes.Output, 1021)]
+  [FlowNode.Pin(1022, "OnBufferingTimeout", FlowNode.PinTypes.Output, 1022)]
+  [FlowNode.Pin(1030, "OnEnd", FlowNode.PinTypes.Output, 1030)]
+  [FlowNode.Pin(1040, "OnError", FlowNode.PinTypes.Output, 1040)]
+  [FlowNode.Pin(1050, "OnLoadFailed", FlowNode.PinTypes.Output, 1050)]
+  public class FlowNode_MediaPlayerController : FlowNodePersistent
+  {
+    public const int PIN_ID_PLAY = 10;
+    public const int PIN_ID_PAUSE = 20;
+    public const int PIN_ID_STOP = 30;
+    public const int PIN_ID_SKIP = 40;
+    public const int PIN_ID_UNLOAD = 50;
+    public const int PIN_ID_RELOAD = 60;
+    public const int PIN_ID_ON_READY = 1000;
+    public const int PIN_ID_ON_FIRST_FRAME_READY = 1010;
+    public const int PIN_ID_ON_BUFFERING_START = 1020;
+    public const int PIN_ID_ON_BUFFERING_END = 1021;
+    public const int PIN_ID_ON_BUFFERING_TIMEOUT = 1022;
+    public const int PIN_ID_ON_END = 1030;
+    public const int PIN_ID_ON_ERROR = 1040;
+    public const int PIN_ID_ON_LOAD_FAILED = 1050;
+    public MediaPlayerWrapper m_MediaPlayerWrapper;
+    public bool m_EnableBufferingTimeout;
+    public float m_BufferingGraceTime;
 
-    [Pin(0x41a, "OnLoadFailed", 1, 0x41a), Pin(0x3e8, "OnReady", 1, 0x3e8), Pin(0x3f2, "OnFirstFrameReady", 1, 0x3f2), Pin(0x3fc, "OnBufferingStart", 1, 0x3fc), Pin(0x3fd, "OnBufferingEnd", 1, 0x3fd), Pin(0x3fe, "OnBufferingTimeout", 1, 0x3fe), Pin(0x406, "OnEnd", 1, 0x406), Pin(0x410, "OnError", 1, 0x410), NodeType("AVProVideo/MediaPlayerController"), Pin(10, "Play", 0, 10), Pin(20, "Pause", 0, 20), Pin(30, "Stop", 0, 30), Pin(40, "Skip", 0, 40), Pin(50, "Unload", 0, 50), Pin(60, "Reload", 0, 60)]
-    public class FlowNode_MediaPlayerController : FlowNodePersistent
+    private void Start()
     {
-        public const int PIN_ID_PLAY = 10;
-        public const int PIN_ID_PAUSE = 20;
-        public const int PIN_ID_STOP = 30;
-        public const int PIN_ID_SKIP = 40;
-        public const int PIN_ID_UNLOAD = 50;
-        public const int PIN_ID_RELOAD = 60;
-        public const int PIN_ID_ON_READY = 0x3e8;
-        public const int PIN_ID_ON_FIRST_FRAME_READY = 0x3f2;
-        public const int PIN_ID_ON_BUFFERING_START = 0x3fc;
-        public const int PIN_ID_ON_BUFFERING_END = 0x3fd;
-        public const int PIN_ID_ON_BUFFERING_TIMEOUT = 0x3fe;
-        public const int PIN_ID_ON_END = 0x406;
-        public const int PIN_ID_ON_ERROR = 0x410;
-        public const int PIN_ID_ON_LOAD_FAILED = 0x41a;
-        public MediaPlayerWrapper m_MediaPlayerWrapper;
-        public bool m_EnableBufferingTimeout;
-        public float m_BufferingGraceTime;
-
-        public FlowNode_MediaPlayerController()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void Load(string url)
-        {
-            this.m_MediaPlayerWrapper.LoadFromURL(url, 0);
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != 10)
-            {
-                goto Label_0018;
-            }
-            this.m_MediaPlayerWrapper.Play();
-            goto Label_008C;
-        Label_0018:
-            if (pinID != 20)
-            {
-                goto Label_0030;
-            }
-            this.m_MediaPlayerWrapper.Pause();
-            goto Label_008C;
-        Label_0030:
-            if (pinID != 30)
-            {
-                goto Label_0048;
-            }
-            this.m_MediaPlayerWrapper.Stop();
-            goto Label_008C;
-        Label_0048:
-            if (pinID != 40)
-            {
-                goto Label_0060;
-            }
-            this.m_MediaPlayerWrapper.SkipToEnd();
-            goto Label_008C;
-        Label_0060:
-            if (pinID != 50)
-            {
-                goto Label_0078;
-            }
-            this.m_MediaPlayerWrapper.Unload();
-            goto Label_008C;
-        Label_0078:
-            if (pinID != 60)
-            {
-                goto Label_008C;
-            }
-            this.m_MediaPlayerWrapper.Reload(0);
-        Label_008C:
-            return;
-        }
-
-        private void OnBufferingEnd()
-        {
-            base.ActivateOutputLinks(0x3fd);
-            return;
-        }
-
-        private void OnBufferingStart()
-        {
-            base.ActivateOutputLinks(0x3fc);
-            return;
-        }
-
-        private void OnBufferingTimeout()
-        {
-            base.ActivateOutputLinks(0x3fe);
-            return;
-        }
-
-        private void OnError()
-        {
-            base.ActivateOutputLinks(0x410);
-            return;
-        }
-
-        private void OnFinished()
-        {
-            base.ActivateOutputLinks(0x406);
-            return;
-        }
-
-        private void OnFirstFrameReady()
-        {
-            base.ActivateOutputLinks(0x3f2);
-            return;
-        }
-
-        private void OnLoadFailed()
-        {
-            base.ActivateOutputLinks(0x41a);
-            return;
-        }
-
-        private void OnMediaPlayerEvent(MediaPlayerWrapper.Event.Type eventType)
-        {
-            if (eventType != 1)
-            {
-                goto Label_0012;
-            }
-            this.OnReady();
-            goto Label_008F;
-        Label_0012:
-            if (eventType != 3)
-            {
-                goto Label_0024;
-            }
-            this.OnFirstFrameReady();
-            goto Label_008F;
-        Label_0024:
-            if (eventType != 4)
-            {
-                goto Label_0036;
-            }
-            this.OnFinished();
-            goto Label_008F;
-        Label_0036:
-            if (eventType != 6)
-            {
-                goto Label_0048;
-            }
-            this.OnError();
-            goto Label_008F;
-        Label_0048:
-            if (eventType != 11)
-            {
-                goto Label_005B;
-            }
-            this.OnBufferingStart();
-            goto Label_008F;
-        Label_005B:
-            if (eventType != 12)
-            {
-                goto Label_006E;
-            }
-            this.OnBufferingEnd();
-            goto Label_008F;
-        Label_006E:
-            if (eventType != 13)
-            {
-                goto Label_0081;
-            }
-            this.OnBufferingTimeout();
-            goto Label_008F;
-        Label_0081:
-            if (eventType != 10)
-            {
-                goto Label_008F;
-            }
-            this.OnLoadFailed();
-        Label_008F:
-            return;
-        }
-
-        private void OnReady()
-        {
-            base.ActivateOutputLinks(0x3e8);
-            return;
-        }
-
-        public void SetVolume(float value)
-        {
-            this.m_MediaPlayerWrapper.SetVolume(value);
-            return;
-        }
-
-        private void Start()
-        {
-            this.m_MediaPlayerWrapper.Events.RemoveListener(new UnityAction<MediaPlayerWrapper.Event.Type>(this, this.OnMediaPlayerEvent));
-            this.m_MediaPlayerWrapper.Events.AddListener(new UnityAction<MediaPlayerWrapper.Event.Type>(this, this.OnMediaPlayerEvent));
-            this.m_MediaPlayerWrapper.EnableBufferingTimeout = this.m_EnableBufferingTimeout;
-            this.m_MediaPlayerWrapper.BufferingGraceTime = this.m_BufferingGraceTime;
-            return;
-        }
+      // ISSUE: method pointer
+      this.m_MediaPlayerWrapper.Events.RemoveListener(new UnityAction<MediaPlayerWrapper.Event.Type>((object) this, __methodptr(OnMediaPlayerEvent)));
+      // ISSUE: method pointer
+      this.m_MediaPlayerWrapper.Events.AddListener(new UnityAction<MediaPlayerWrapper.Event.Type>((object) this, __methodptr(OnMediaPlayerEvent)));
+      this.m_MediaPlayerWrapper.EnableBufferingTimeout = this.m_EnableBufferingTimeout;
+      this.m_MediaPlayerWrapper.BufferingGraceTime = this.m_BufferingGraceTime;
     }
-}
 
+    public override void OnActivate(int pinID)
+    {
+      switch (pinID)
+      {
+        case 10:
+          this.m_MediaPlayerWrapper.Play();
+          break;
+        case 20:
+          this.m_MediaPlayerWrapper.Pause();
+          break;
+        case 30:
+          this.m_MediaPlayerWrapper.Stop();
+          break;
+        case 40:
+          this.m_MediaPlayerWrapper.SkipToEnd();
+          break;
+        case 50:
+          this.m_MediaPlayerWrapper.Unload();
+          break;
+        case 60:
+          this.m_MediaPlayerWrapper.Reload(false);
+          break;
+      }
+    }
+
+    public void Load(string url)
+    {
+      this.m_MediaPlayerWrapper.LoadFromURL(url, false);
+    }
+
+    public void SetVolume(float value)
+    {
+      this.m_MediaPlayerWrapper.SetVolume(value);
+    }
+
+    private void OnMediaPlayerEvent(MediaPlayerWrapper.Event.Type eventType)
+    {
+      switch (eventType)
+      {
+        case MediaPlayerWrapper.Event.Type.ReadyToPlay:
+          this.OnReady();
+          break;
+        case MediaPlayerWrapper.Event.Type.FirstFrameReady:
+          this.OnFirstFrameReady();
+          break;
+        case MediaPlayerWrapper.Event.Type.FinishedPlaying:
+          this.OnFinished();
+          break;
+        case MediaPlayerWrapper.Event.Type.Error:
+          this.OnError();
+          break;
+        case MediaPlayerWrapper.Event.Type.LoadFailed:
+          this.OnLoadFailed();
+          break;
+        case MediaPlayerWrapper.Event.Type.BufferingStart:
+          this.OnBufferingStart();
+          break;
+        case MediaPlayerWrapper.Event.Type.BufferingEnd:
+          this.OnBufferingEnd();
+          break;
+        case MediaPlayerWrapper.Event.Type.BufferingTimeout:
+          this.OnBufferingTimeout();
+          break;
+      }
+    }
+
+    private void OnReady()
+    {
+      this.ActivateOutputLinks(1000);
+    }
+
+    private void OnFirstFrameReady()
+    {
+      this.ActivateOutputLinks(1010);
+    }
+
+    private void OnFinished()
+    {
+      this.ActivateOutputLinks(1030);
+    }
+
+    private void OnBufferingStart()
+    {
+      this.ActivateOutputLinks(1020);
+    }
+
+    private void OnBufferingEnd()
+    {
+      this.ActivateOutputLinks(1021);
+    }
+
+    private void OnBufferingTimeout()
+    {
+      this.ActivateOutputLinks(1022);
+    }
+
+    private void OnError()
+    {
+      this.ActivateOutputLinks(1040);
+    }
+
+    private void OnLoadFailed()
+    {
+      this.ActivateOutputLinks(1050);
+    }
+  }
+}

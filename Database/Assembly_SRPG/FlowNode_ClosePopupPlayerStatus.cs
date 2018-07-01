@@ -1,55 +1,37 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_ClosePopupPlayerStatus
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-
-    [Pin(1, "Success", 1, 1), Pin(0, "Request", 0, 0), NodeType("System/ClosePopup", 0x7fe5)]
-    public class FlowNode_ClosePopupPlayerStatus : FlowNode
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
+  [FlowNode.Pin(0, "Request", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.NodeType("System/ClosePopup", 32741)]
+  public class FlowNode_ClosePopupPlayerStatus : FlowNode
+  {
+    public override void OnActivate(int pinID)
     {
-        public FlowNode_ClosePopupPlayerStatus()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            Win_Btn_DecideCancel_FL_C l_fl_c;
-            Win_Btn_DecideCancel_FL_C l_fl_c2;
-            if (pinID != null)
-            {
-                goto Label_0075;
-            }
-            if ((FlowNode_BuyGold.ConfirmBoxObj != null) == null)
-            {
-                goto Label_0039;
-            }
-            l_fl_c = FlowNode_BuyGold.ConfirmBoxObj.GetComponent<Win_Btn_DecideCancel_FL_C>();
-            if ((l_fl_c != null) == null)
-            {
-                goto Label_0033;
-            }
-            l_fl_c.BeginClose();
-        Label_0033:
-            FlowNode_BuyGold.ConfirmBoxObj = null;
-        Label_0039:
-            if ((FlowNode_BuyStamina.ConfirmBoxObj != null) == null)
-            {
-                goto Label_006C;
-            }
-            l_fl_c2 = FlowNode_BuyStamina.ConfirmBoxObj.GetComponent<Win_Btn_DecideCancel_FL_C>();
-            if ((l_fl_c2 != null) == null)
-            {
-                goto Label_0066;
-            }
-            l_fl_c2.BeginClose();
-        Label_0066:
-            FlowNode_BuyStamina.ConfirmBoxObj = null;
-        Label_006C:
-            base.ActivateOutputLinks(1);
-            return;
-        Label_0075:
-            return;
-        }
+      if (pinID != 0)
+        return;
+      if (Object.op_Inequality((Object) FlowNode_BuyGold.ConfirmBoxObj, (Object) null))
+      {
+        Win_Btn_DecideCancel_FL_C component = (Win_Btn_DecideCancel_FL_C) FlowNode_BuyGold.ConfirmBoxObj.GetComponent<Win_Btn_DecideCancel_FL_C>();
+        if (Object.op_Inequality((Object) component, (Object) null))
+          component.BeginClose();
+        FlowNode_BuyGold.ConfirmBoxObj = (GameObject) null;
+      }
+      if (Object.op_Inequality((Object) FlowNode_BuyStamina.ConfirmBoxObj, (Object) null))
+      {
+        Win_Btn_DecideCancel_FL_C component = (Win_Btn_DecideCancel_FL_C) FlowNode_BuyStamina.ConfirmBoxObj.GetComponent<Win_Btn_DecideCancel_FL_C>();
+        if (Object.op_Inequality((Object) component, (Object) null))
+          component.BeginClose();
+        FlowNode_BuyStamina.ConfirmBoxObj = (GameObject) null;
+      }
+      this.ActivateOutputLinks(1);
     }
+  }
 }
-

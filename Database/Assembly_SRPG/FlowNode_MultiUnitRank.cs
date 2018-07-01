@@ -1,64 +1,56 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_MultiUnitRank
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-
-    [Pin(100, "Request", 0, 100), NodeType("Multi/Ranking", 0x7fe5), Pin(200, "Finish", 1, 200), Pin(0xc9, "Error", 1, 0xc9)]
-    public class FlowNode_MultiUnitRank : FlowNode_Network
+  [FlowNode.Pin(100, "Request", FlowNode.PinTypes.Input, 100)]
+  [FlowNode.Pin(200, "Finish", FlowNode.PinTypes.Output, 200)]
+  [FlowNode.Pin(201, "Error", FlowNode.PinTypes.Output, 201)]
+  [FlowNode.NodeType("Multi/Ranking", 32741)]
+  public class FlowNode_MultiUnitRank : FlowNode_Network
+  {
+    public override void OnActivate(int pinID)
     {
-        public FlowNode_MultiUnitRank()
-        {
-            base..ctor();
-            return;
-        }
-
-        private void Failure()
-        {
-            base.set_enabled(0);
-            base.ActivateOutputLinks(0xc9);
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != 100)
-            {
-                goto Label_002B;
-            }
-            base.set_enabled(1);
-            base.ExecRequest(new ReqMultiRank(GlobalVars.SelectedQuestID, new Network.ResponseCallback(this.ResponseCallback)));
-        Label_002B:
-            return;
-        }
-
-        public override unsafe void OnSuccess(WWWResult www)
-        {
-            WebAPI.JSON_BodyResponse<ReqMultiRank.Json_MultiRank> response;
-            GameManager manager;
-            Network.EErrCode code;
-            if (Network.IsError == null)
-            {
-                goto Label_001C;
-            }
-            code = Network.ErrCode;
-            Network.RemoveAPI();
-            this.Failure();
-            return;
-        Label_001C:
-            response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<ReqMultiRank.Json_MultiRank>>(&www.text);
-            DebugUtility.Assert((response == null) == 0, "res is null");
-            Network.RemoveAPI();
-            MonoSingleton<GameManager>.Instance.Deserialize(response.body);
-            this.Success();
-            return;
-        }
-
-        private void Success()
-        {
-            base.set_enabled(0);
-            base.ActivateOutputLinks(200);
-            return;
-        }
+      if (pinID != 100)
+        return;
+      ((Behaviour) this).set_enabled(true);
+      this.ExecRequest((WebAPI) new ReqMultiRank(GlobalVars.SelectedQuestID, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
     }
-}
 
+    private void Failure()
+    {
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(201);
+    }
+
+    private void Success()
+    {
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(200);
+    }
+
+    public override void OnSuccess(WWWResult www)
+    {
+      if (Network.IsError)
+      {
+        Network.EErrCode errCode = Network.ErrCode;
+        Network.RemoveAPI();
+        this.Failure();
+      }
+      else
+      {
+        WebAPI.JSON_BodyResponse<ReqMultiRank.Json_MultiRank> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<ReqMultiRank.Json_MultiRank>>(www.text);
+        DebugUtility.Assert(jsonObject != null, "res is null");
+        Network.RemoveAPI();
+        MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body);
+        this.Success();
+      }
+    }
+  }
+}

@@ -1,37 +1,36 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.CurrencyTracker
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+
+namespace SRPG
 {
-    using GR;
-    using System;
+  public class CurrencyTracker
+  {
+    public int Gold;
+    public int Coin;
+    public int ArenaCoin;
+    public int MultiCoin;
 
-    public class CurrencyTracker
+    public CurrencyTracker()
     {
-        public int Gold;
-        public int Coin;
-        public int ArenaCoin;
-        public int MultiCoin;
-
-        public CurrencyTracker()
-        {
-            PlayerData data;
-            base..ctor();
-            data = MonoSingleton<GameManager>.Instance.Player;
-            this.Gold = data.Gold;
-            this.Coin = data.Coin;
-            this.ArenaCoin = data.ArenaCoin;
-            this.MultiCoin = data.MultiCoin;
-            return;
-        }
-
-        public void EndTracking()
-        {
-            PlayerData data;
-            data = MonoSingleton<GameManager>.Instance.Player;
-            this.Gold = data.Gold - this.Gold;
-            this.Coin = data.Coin - this.Coin;
-            this.ArenaCoin = data.ArenaCoin - this.ArenaCoin;
-            this.MultiCoin = data.MultiCoin - this.MultiCoin;
-            return;
-        }
+      PlayerData player = MonoSingleton<GameManager>.Instance.Player;
+      this.Gold = player.Gold;
+      this.Coin = player.Coin;
+      this.ArenaCoin = player.ArenaCoin;
+      this.MultiCoin = player.MultiCoin;
     }
-}
 
+    public void EndTracking()
+    {
+      PlayerData player = MonoSingleton<GameManager>.Instance.Player;
+      this.Gold = player.Gold - this.Gold;
+      this.Coin = player.Coin - this.Coin;
+      this.ArenaCoin = player.ArenaCoin - this.ArenaCoin;
+      this.MultiCoin = player.MultiCoin - this.MultiCoin;
+    }
+  }
+}

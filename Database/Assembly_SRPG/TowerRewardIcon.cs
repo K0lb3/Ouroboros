@@ -1,87 +1,58 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.TowerRewardIcon
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  public class TowerRewardIcon : MonoBehaviour
+  {
+    public GameParameter ItemIcon;
+    public RawImage_Transparent BaseImage;
+    public BitmapText NumText;
+    public Texture GoldImage;
+    public Texture CoinImage;
+    public Texture ArenaCoinImage;
+    public Texture MultiCoinImage;
+    public Texture KakeraCoinImage;
 
-    public class TowerRewardIcon : MonoBehaviour
+    public TowerRewardIcon()
     {
-        public GameParameter ItemIcon;
-        public RawImage_Transparent BaseImage;
-        public BitmapText NumText;
-        public Texture GoldImage;
-        public Texture CoinImage;
-        public Texture ArenaCoinImage;
-        public Texture MultiCoinImage;
-        public Texture KakeraCoinImage;
-
-        public TowerRewardIcon()
-        {
-            base..ctor();
-            return;
-        }
-
-        public unsafe void Refresh()
-        {
-            TowerRewardItem item;
-            TowerRewardItem.RewardType type;
-            this.ItemIcon.set_enabled(0);
-            item = DataSource.FindDataOfClass<TowerRewardItem>(base.get_gameObject(), null);
-            if (item != null)
-            {
-                goto Label_0020;
-            }
-            return;
-        Label_0020:
-            this.NumText.text = &item.num.ToString();
-            switch (item.type)
-            {
-                case 0:
-                    goto Label_0064;
-
-                case 1:
-                    goto Label_0080;
-
-                case 2:
-                    goto Label_0096;
-
-                case 3:
-                    goto Label_00AC;
-
-                case 4:
-                    goto Label_00C2;
-
-                case 5:
-                    goto Label_00D8;
-
-                case 6:
-                    goto Label_00EE;
-            }
-            goto Label_00F3;
-        Label_0064:
-            this.ItemIcon.set_enabled(1);
-            this.ItemIcon.UpdateValue();
-            goto Label_00F8;
-        Label_0080:
-            this.BaseImage.set_texture(this.GoldImage);
-            goto Label_00F8;
-        Label_0096:
-            this.BaseImage.set_texture(this.CoinImage);
-            goto Label_00F8;
-        Label_00AC:
-            this.BaseImage.set_texture(this.ArenaCoinImage);
-            goto Label_00F8;
-        Label_00C2:
-            this.BaseImage.set_texture(this.MultiCoinImage);
-            goto Label_00F8;
-        Label_00D8:
-            this.BaseImage.set_texture(this.KakeraCoinImage);
-            goto Label_00F8;
-        Label_00EE:
-            goto Label_00F8;
-        Label_00F3:;
-        Label_00F8:
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    public void Refresh()
+    {
+      ((Behaviour) this.ItemIcon).set_enabled(false);
+      TowerRewardItem dataOfClass = DataSource.FindDataOfClass<TowerRewardItem>(((Component) this).get_gameObject(), (TowerRewardItem) null);
+      if (dataOfClass == null)
+        return;
+      this.NumText.text = dataOfClass.num.ToString();
+      switch (dataOfClass.type)
+      {
+        case TowerRewardItem.RewardType.Item:
+          ((Behaviour) this.ItemIcon).set_enabled(true);
+          this.ItemIcon.UpdateValue();
+          break;
+        case TowerRewardItem.RewardType.Gold:
+          this.BaseImage.set_texture(this.GoldImage);
+          break;
+        case TowerRewardItem.RewardType.Coin:
+          this.BaseImage.set_texture(this.CoinImage);
+          break;
+        case TowerRewardItem.RewardType.ArenaCoin:
+          this.BaseImage.set_texture(this.ArenaCoinImage);
+          break;
+        case TowerRewardItem.RewardType.MultiCoin:
+          this.BaseImage.set_texture(this.MultiCoinImage);
+          break;
+        case TowerRewardItem.RewardType.KakeraCoin:
+          this.BaseImage.set_texture(this.KakeraCoinImage);
+          break;
+      }
+    }
+  }
+}

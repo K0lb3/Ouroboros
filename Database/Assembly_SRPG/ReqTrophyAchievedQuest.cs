@@ -1,21 +1,22 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqTrophyAchievedQuest
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Text;
+
+namespace SRPG
 {
-    using System;
-    using System.Text;
-
-    public class ReqTrophyAchievedQuest : WebAPI
+  public class ReqTrophyAchievedQuest : WebAPI
+  {
+    public ReqTrophyAchievedQuest(string iname, Network.ResponseCallback response)
     {
-        public ReqTrophyAchievedQuest(string iname, Network.ResponseCallback response)
-        {
-            StringBuilder builder;
-            base..ctor();
-            base.name = "trophy/history";
-            builder = WebAPI.GetStringBuilder();
-            builder.Append("\"iname\":\"" + iname + "\"");
-            base.body = WebAPI.GetRequestString(builder.ToString());
-            base.callback = response;
-            return;
-        }
+      this.name = "trophy/history";
+      StringBuilder stringBuilder = WebAPI.GetStringBuilder();
+      stringBuilder.Append("\"iname\":\"" + iname + "\"");
+      this.body = WebAPI.GetRequestString(stringBuilder.ToString());
+      this.callback = response;
     }
+  }
 }
-

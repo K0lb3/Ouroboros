@@ -1,62 +1,46 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_BattlePause
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-
-    [Pin(100, "Out", 1, 100), NodeType("Battle/Pause", 0x7fe5), Pin(1, "再開", 0, 1), Pin(0, "一時停止", 0, 0)]
-    public class FlowNode_BattlePause : FlowNode
+  [FlowNode.NodeType("Battle/Pause", 32741)]
+  [FlowNode.Pin(0, "一時停止", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "再開", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(100, "Out", FlowNode.PinTypes.Output, 100)]
+  public class FlowNode_BattlePause : FlowNode
+  {
+    private bool IsPauseAllowed
     {
-        public FlowNode_BattlePause()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (this.IsPauseAllowed == null)
-            {
-                goto Label_001B;
-            }
-            if ((SceneBattle.Instance == null) == null)
-            {
-                goto Label_002F;
-            }
-        Label_001B:
-            DebugUtility.Log("=== BattlePause => OutputLinks(100) ===");
-            base.ActivateOutputLinks(100);
-            return;
-        Label_002F:
-            if (pinID != null)
-            {
-                goto Label_004E;
-            }
-            SceneBattle.Instance.Pause(1);
-            base.ActivateOutputLinks(100);
-            goto Label_0069;
-        Label_004E:
-            if (pinID != 1)
-            {
-                goto Label_0069;
-            }
-            SceneBattle.Instance.Pause(0);
-            base.ActivateOutputLinks(100);
-        Label_0069:
-            return;
-        }
-
-        private bool IsPauseAllowed
-        {
-            get
-            {
-                if (GameUtility.GetCurrentScene() != 2)
-                {
-                    goto Label_000D;
-                }
-                return 0;
-            Label_000D:
-                return 1;
-            }
-        }
+      get
+      {
+        return GameUtility.GetCurrentScene() != GameUtility.EScene.BATTLE_MULTI;
+      }
     }
-}
 
+    public override void OnActivate(int pinID)
+    {
+      if (!this.IsPauseAllowed || Object.op_Equality((Object) SceneBattle.Instance, (Object) null))
+      {
+        DebugUtility.Log("=== BattlePause => OutputLinks(100) ===");
+        this.ActivateOutputLinks(100);
+      }
+      else if (pinID == 0)
+      {
+        SceneBattle.Instance.Pause(true);
+        this.ActivateOutputLinks(100);
+      }
+      else
+      {
+        if (pinID != 1)
+          return;
+        SceneBattle.Instance.Pause(false);
+        this.ActivateOutputLinks(100);
+      }
+    }
+  }
+}

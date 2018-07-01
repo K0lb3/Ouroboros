@@ -1,55 +1,44 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ParamChangeEffects
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System;
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using System.Runtime.InteropServices;
-    using UnityEngine;
+  public class ParamChangeEffects : ScriptableObject
+  {
+    [HideInInspector]
+    public ParamChangeEffects.EffectData[] Effects;
 
-    public class ParamChangeEffects : ScriptableObject
+    public ParamChangeEffects()
     {
-        [HideInInspector]
-        public EffectData[] Effects;
-
-        public ParamChangeEffects()
-        {
-            this.Effects = new EffectData[0];
-            base..ctor();
-            return;
-        }
-
-        public unsafe Sprite FindSprite(string type, bool isDebuff)
-        {
-            int num;
-            num = 0;
-            goto Label_0051;
-        Label_0007:
-            if ((&(this.Effects[num]).TypeName == type) == null)
-            {
-                goto Label_004D;
-            }
-            if (isDebuff == null)
-            {
-                goto Label_003B;
-            }
-            return &(this.Effects[num]).OnDebuff;
-        Label_003B:
-            return &(this.Effects[num]).OnBuff;
-        Label_004D:
-            num += 1;
-        Label_0051:
-            if (num < ((int) this.Effects.Length))
-            {
-                goto Label_0007;
-            }
-            return null;
-        }
-
-        [Serializable, StructLayout(LayoutKind.Sequential)]
-        public struct EffectData
-        {
-            public string TypeName;
-            public Sprite OnBuff;
-            public Sprite OnDebuff;
-        }
+      base.\u002Ector();
     }
-}
 
+    public Sprite FindSprite(string type, bool isDebuff)
+    {
+      for (int index = 0; index < this.Effects.Length; ++index)
+      {
+        if (this.Effects[index].TypeName == type)
+        {
+          if (isDebuff)
+            return this.Effects[index].OnDebuff;
+          return this.Effects[index].OnBuff;
+        }
+      }
+      return (Sprite) null;
+    }
+
+    [Serializable]
+    public struct EffectData
+    {
+      public string TypeName;
+      public Sprite OnBuff;
+      public Sprite OnDebuff;
+    }
+  }
+}

@@ -1,147 +1,99 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.VirtualStick
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+using UnityEngine.EventSystems;
+
+namespace SRPG
 {
-    using System;
-    using System.Runtime.CompilerServices;
-    using UnityEngine;
-    using UnityEngine.EventSystems;
+  public class VirtualStick : MonoBehaviour
+  {
+    public static VirtualStick Instance;
+    public RectTransform VirtualStickBG;
+    public RectTransform VirtualStickFG;
+    public RectTransform TouchArea;
+    private bool mTouched;
+    private Vector3 mTouchStart;
+    private Vector3 mTouchPos;
+    private Vector3 mVelocity;
+    public string OpenFlagName;
 
-    public class VirtualStick : MonoBehaviour
+    public VirtualStick()
     {
-        public static VirtualStick Instance;
-        public RectTransform VirtualStickBG;
-        public RectTransform VirtualStickFG;
-        public RectTransform TouchArea;
-        private bool mTouched;
-        private Vector3 mTouchStart;
-        private Vector3 mTouchPos;
-        private Vector3 mVelocity;
-        public string OpenFlagName;
-
-        public VirtualStick()
-        {
-            this.mVelocity = Vector3.get_zero();
-            this.OpenFlagName = "open";
-            base..ctor();
-            return;
-        }
-
-        [CompilerGenerated]
-        private unsafe void <Start>m__49A(PointerEventData eventData)
-        {
-            Animator animator;
-            GameObject obj2;
-            Vector3 vector;
-            RectTransform transform;
-            RaycastResult result;
-            this.VirtualStickBG.GetComponent<Animator>().SetBool(this.OpenFlagName, 1);
-            vector = &eventData.get_pointerCurrentRaycast().get_gameObject().get_transform().InverseTransformPoint(eventData.get_position());
-            transform = (RectTransform) this.VirtualStickBG.get_transform();
-            transform.set_anchoredPosition(new Vector2(&vector.x, &vector.y));
-            this.mTouchStart = vector;
-            this.mTouchPos = vector;
-            this.mTouched = 1;
-            this.mVelocity = Vector3.get_zero();
-            return;
-        }
-
-        [CompilerGenerated]
-        private void <Start>m__49B(PointerEventData eventData)
-        {
-            Animator animator;
-            this.VirtualStickBG.GetComponent<Animator>().SetBool(this.OpenFlagName, 0);
-            this.mTouched = 0;
-            this.mVelocity = Vector3.get_zero();
-            return;
-        }
-
-        [CompilerGenerated]
-        private void <Start>m__49C(PointerEventData eventData)
-        {
-            GameObject obj2;
-            Vector3 vector;
-            vector = eventData.get_pointerPress().get_transform().InverseTransformPoint(eventData.get_position());
-            this.mTouchPos = vector;
-            return;
-        }
-
-        public unsafe Vector2 GetVelocity(Transform cameraTransform)
-        {
-            Vector3 vector;
-            Vector3 vector2;
-            if ((cameraTransform != null) == null)
-            {
-                goto Label_0094;
-            }
-            vector = cameraTransform.get_forward();
-            vector2 = cameraTransform.get_right();
-            &vector.y = 0f;
-            &vector.Normalize();
-            &vector2.y = 0f;
-            &vector2.Normalize();
-            return new Vector2((&vector2.x * &this.mVelocity.x) + (&vector.x * &this.mVelocity.y), (&vector2.z * &this.mVelocity.x) + (&vector.z * &this.mVelocity.y));
-        Label_0094:
-            return this.mVelocity;
-        }
-
-        private void OnDisable()
-        {
-            if ((Instance == this) == null)
-            {
-                goto Label_0016;
-            }
-            Instance = null;
-        Label_0016:
-            return;
-        }
-
-        private void OnEnable()
-        {
-            if ((Instance == null) == null)
-            {
-                goto Label_0016;
-            }
-            Instance = this;
-        Label_0016:
-            return;
-        }
-
-        private void Start()
-        {
-            UIEventListener listener;
-            listener = UIEventListener.Get(this.TouchArea);
-            listener.onPointerDown = new UIEventListener.PointerEvent(this.<Start>m__49A);
-            listener.onPointerUp = new UIEventListener.PointerEvent(this.<Start>m__49B);
-            listener.onDrag = new UIEventListener.PointerEvent(this.<Start>m__49C);
-            return;
-        }
-
-        private unsafe void Update()
-        {
-            Vector3 vector;
-            RectTransform transform;
-            RectTransform transform2;
-            float num;
-            Vector2 vector2;
-            Vector2 vector3;
-            if (this.mTouched == null)
-            {
-                goto Label_009F;
-            }
-            vector = this.mTouchPos - this.mTouchStart;
-            transform = (RectTransform) this.VirtualStickFG.get_transform();
-            transform2 = (RectTransform) this.VirtualStickBG.get_transform();
-            num = (&transform2.get_sizeDelta().x - &transform.get_sizeDelta().x) * 0.5f;
-            if (&vector.get_magnitude() < num)
-            {
-                goto Label_0080;
-            }
-            vector = &vector.get_normalized() * num;
-        Label_0080:
-            transform.set_anchoredPosition(vector);
-            this.mVelocity = vector * (1f / num);
-        Label_009F:
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    private void OnEnable()
+    {
+      if (!Object.op_Equality((Object) VirtualStick.Instance, (Object) null))
+        return;
+      VirtualStick.Instance = this;
+    }
+
+    private void OnDisable()
+    {
+      if (!Object.op_Equality((Object) VirtualStick.Instance, (Object) this))
+        return;
+      VirtualStick.Instance = (VirtualStick) null;
+    }
+
+    public Vector2 GetVelocity(Transform cameraTransform)
+    {
+      if (!Object.op_Inequality((Object) cameraTransform, (Object) null))
+        return Vector2.op_Implicit(this.mVelocity);
+      Vector3 forward = cameraTransform.get_forward();
+      Vector3 right = cameraTransform.get_right();
+      forward.y = (__Null) 0.0;
+      // ISSUE: explicit reference operation
+      ((Vector3) @forward).Normalize();
+      right.y = (__Null) 0.0;
+      // ISSUE: explicit reference operation
+      ((Vector3) @right).Normalize();
+      return new Vector2((float) (right.x * this.mVelocity.x + forward.x * this.mVelocity.y), (float) (right.z * this.mVelocity.x + forward.z * this.mVelocity.y));
+    }
+
+    private void Start()
+    {
+      UIEventListener uiEventListener = UIEventListener.Get((Component) this.TouchArea);
+      uiEventListener.onPointerDown = (UIEventListener.PointerEvent) (eventData =>
+      {
+        ((Animator) ((Component) this.VirtualStickBG).GetComponent<Animator>()).SetBool(this.OpenFlagName, true);
+        RaycastResult pointerCurrentRaycast = eventData.get_pointerCurrentRaycast();
+        // ISSUE: explicit reference operation
+        Vector3 vector3 = ((RaycastResult) @pointerCurrentRaycast).get_gameObject().get_transform().InverseTransformPoint(Vector2.op_Implicit(eventData.get_position()));
+        ((RectTransform) ((Component) this.VirtualStickBG).get_transform()).set_anchoredPosition(new Vector2((float) vector3.x, (float) vector3.y));
+        this.mTouchStart = vector3;
+        this.mTouchPos = vector3;
+        this.mTouched = true;
+        this.mVelocity = Vector3.get_zero();
+      });
+      uiEventListener.onPointerUp = (UIEventListener.PointerEvent) (eventData =>
+      {
+        ((Animator) ((Component) this.VirtualStickBG).GetComponent<Animator>()).SetBool(this.OpenFlagName, false);
+        this.mTouched = false;
+        this.mVelocity = Vector3.get_zero();
+      });
+      uiEventListener.onDrag = (UIEventListener.PointerEvent) (eventData => this.mTouchPos = eventData.get_pointerPress().get_transform().InverseTransformPoint(Vector2.op_Implicit(eventData.get_position())));
+    }
+
+    private void Update()
+    {
+      if (!this.mTouched)
+        return;
+      Vector3 vector3 = Vector3.op_Subtraction(this.mTouchPos, this.mTouchStart);
+      RectTransform transform = (RectTransform) ((Component) this.VirtualStickFG).get_transform();
+      float num = (float) ((((RectTransform) ((Component) this.VirtualStickBG).get_transform()).get_sizeDelta().x - transform.get_sizeDelta().x) * 0.5);
+      // ISSUE: explicit reference operation
+      if ((double) ((Vector3) @vector3).get_magnitude() >= (double) num)
+      {
+        // ISSUE: explicit reference operation
+        vector3 = Vector3.op_Multiply(((Vector3) @vector3).get_normalized(), num);
+      }
+      transform.set_anchoredPosition(Vector2.op_Implicit(vector3));
+      this.mVelocity = Vector3.op_Multiply(vector3, 1f / num);
+    }
+  }
+}

@@ -1,51 +1,35 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.EventAction_WaitSeconds
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  [EventActionInfo("待機/秒数を指定", "指定した時間の間スクリプトの実行を停止します。", 5592405, 4473992)]
+  public class EventAction_WaitSeconds : EventAction
+  {
+    public float WaitSeconds = 1f;
+    private float mTimer;
 
-    [EventActionInfo("待機/秒数を指定", "指定した時間の間スクリプトの実行を停止します。", 0x555555, 0x444488)]
-    public class EventAction_WaitSeconds : EventAction
+    public override void OnActivate()
     {
-        public float WaitSeconds;
-        private float mTimer;
-
-        public EventAction_WaitSeconds()
-        {
-            this.WaitSeconds = 1f;
-            base..ctor();
-            return;
-        }
-
-        public override void GoToEndState()
-        {
-            this.mTimer = 0f;
-            return;
-        }
-
-        public override void OnActivate()
-        {
-            this.mTimer = this.WaitSeconds;
-            return;
-        }
-
-        public override void SkipImmediate()
-        {
-            this.mTimer = 0f;
-            return;
-        }
-
-        public override void Update()
-        {
-            this.mTimer -= Time.get_deltaTime();
-            if (this.mTimer > 0f)
-            {
-                goto Label_0029;
-            }
-            base.ActivateNext();
-            return;
-        Label_0029:
-            return;
-        }
+      this.mTimer = this.WaitSeconds;
     }
-}
 
+    public override void Update()
+    {
+      this.mTimer -= Time.get_deltaTime();
+      if ((double) this.mTimer > 0.0)
+        return;
+      this.ActivateNext();
+    }
+
+    public override void SkipImmediate()
+    {
+      this.mTimer = 0.0f;
+    }
+  }
+}

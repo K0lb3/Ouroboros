@@ -1,67 +1,48 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.TowerUnitIsDead
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Runtime.CompilerServices;
-    using UnityEngine;
+  public class TowerUnitIsDead : MonoBehaviour, IGameParameter
+  {
+    public GameObject dead;
+    public GameObject target;
+    public CanvasGroup canvas_group;
 
-    public class TowerUnitIsDead : MonoBehaviour, IGameParameter
+    public TowerUnitIsDead()
     {
-        public GameObject dead;
-        public GameObject target;
-        public CanvasGroup canvas_group;
-
-        public TowerUnitIsDead()
-        {
-            base..ctor();
-            return;
-        }
-
-        private void Start()
-        {
-            this.UpdateValue();
-            return;
-        }
-
-        public void UpdateValue()
-        {
-            TowerResuponse resuponse;
-            TowerResuponse.PlayerUnit unit;
-            <UpdateValue>c__AnonStorey3B1 storeyb;
-            storeyb = new <UpdateValue>c__AnonStorey3B1();
-            this.dead.SetActive(0);
-            storeyb.data = DataSource.FindDataOfClass<UnitData>(this.target, null);
-            if (storeyb.data == null)
-            {
-                goto Label_0077;
-            }
-            resuponse = MonoSingleton<GameManager>.Instance.TowerResuponse;
-            if (resuponse.pdeck == null)
-            {
-                goto Label_0077;
-            }
-            unit = resuponse.pdeck.Find(new Predicate<TowerResuponse.PlayerUnit>(storeyb.<>m__430));
-            this.dead.SetActive((unit == null) ? 0 : unit.isDied);
-        Label_0077:
-            return;
-        }
-
-        [CompilerGenerated]
-        private sealed class <UpdateValue>c__AnonStorey3B1
-        {
-            internal UnitData data;
-
-            public <UpdateValue>c__AnonStorey3B1()
-            {
-                base..ctor();
-                return;
-            }
-
-            internal bool <>m__430(TowerResuponse.PlayerUnit x)
-            {
-                return (this.data.UnitParam.iname == x.unitname);
-            }
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Start()
+    {
+      this.UpdateValue();
+    }
+
+    public void UpdateValue()
+    {
+      // ISSUE: object of a compiler-generated type is created
+      // ISSUE: variable of a compiler-generated type
+      TowerUnitIsDead.\u003CUpdateValue\u003Ec__AnonStorey382 valueCAnonStorey382 = new TowerUnitIsDead.\u003CUpdateValue\u003Ec__AnonStorey382();
+      this.dead.SetActive(false);
+      // ISSUE: reference to a compiler-generated field
+      valueCAnonStorey382.data = DataSource.FindDataOfClass<UnitData>(this.target, (UnitData) null);
+      // ISSUE: reference to a compiler-generated field
+      if (valueCAnonStorey382.data == null)
+        return;
+      TowerResuponse towerResuponse = MonoSingleton<GameManager>.Instance.TowerResuponse;
+      if (towerResuponse.pdeck == null)
+        return;
+      // ISSUE: reference to a compiler-generated method
+      TowerResuponse.PlayerUnit playerUnit = towerResuponse.pdeck.Find(new Predicate<TowerResuponse.PlayerUnit>(valueCAnonStorey382.\u003C\u003Em__42D));
+      this.dead.SetActive(playerUnit != null && playerUnit.isDied);
+    }
+  }
+}

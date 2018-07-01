@@ -1,213 +1,153 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.TowerQuestList
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Collections.Generic;
-    using UnityEngine;
-    using UnityEngine.Events;
-    using UnityEngine.UI;
+  [FlowNode.Pin(100, "フロア選択", FlowNode.PinTypes.Output, 100)]
+  [FlowNode.Pin(0, "更新", FlowNode.PinTypes.Input, 0)]
+  public class TowerQuestList : MonoBehaviour, IFlowInterface, ScrollListSetUp
+  {
+    [SerializeField]
+    private TowerQuestInfo info;
+    [SerializeField]
+    private TowerScrollListController mScrollListController;
+    [SerializeField]
+    private ListItemEvents mListItemTemplate;
+    [SerializeField]
+    private Button mChallenge;
+    private List<TowerFloorParam> mFloorParams;
+    private bool isInitialized;
 
-    [Pin(0, "更新", 0, 0), Pin(100, "フロア選択", 1, 100)]
-    public class TowerQuestList : MonoBehaviour, IFlowInterface, ScrollListSetUp
+    public TowerQuestList()
     {
-        [SerializeField]
-        private TowerQuestInfo info;
-        [SerializeField]
-        private TowerScrollListController mScrollListController;
-        [SerializeField]
-        private ListItemEvents mListItemTemplate;
-        [SerializeField]
-        private Button mChallenge;
-        private List<TowerFloorParam> mFloorParams;
-        private bool isInitialized;
-
-        public TowerQuestList()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void Activated(int pinID)
-        {
-            if (pinID != null)
-            {
-                goto Label_0022;
-            }
-            if (this.isInitialized == null)
-            {
-                goto Label_001C;
-            }
-            this.Refresh();
-            goto Label_0022;
-        Label_001C:
-            this.Initialize();
-        Label_0022:
-            return;
-        }
-
-        private void Initialize()
-        {
-            TowerFloorParam param;
-            TowerFloorParam param2;
-            this.isInitialized = 1;
-            this.mFloorParams = MonoSingleton<GameManager>.Instance.FindTowerFloors(GlobalVars.SelectedTowerID);
-            this.mListItemTemplate.OnSelect = new ListItemEvents.ListItemEvent(this.OnSelectItem);
-            this.mScrollListController.OnListItemFocus.AddListener(new UnityAction<GameObject>(this, this.OnScrollStop));
-            this.mScrollListController.UpdateList();
-            if (MonoSingleton<GameManager>.Instance.TowerResuponse == null)
-            {
-                goto Label_009E;
-            }
-            param = MonoSingleton<GameManager>.Instance.TowerResuponse.GetCurrentFloor();
-            if (param == null)
-            {
-                goto Label_00CE;
-            }
-            this.ScrollToCurrentFloor(param);
-            GlobalVars.SelectedQuestID = param.iname;
-            FlowNode_GameObject.ActivateOutputLinks(this, 100);
-            goto Label_00CE;
-        Label_009E:
-            param2 = MonoSingleton<GameManager>.Instance.FindFirstTowerFloor(GlobalVars.SelectedTowerID);
-            if (param2 == null)
-            {
-                goto Label_00CE;
-            }
-            this.ScrollToCurrentFloor(param2);
-            GlobalVars.SelectedQuestID = param2.iname;
-            FlowNode_GameObject.ActivateOutputLinks(this, 100);
-        Label_00CE:
-            return;
-        }
-
-        private void OnScrollStop(GameObject go)
-        {
-            TowerFloorParam param;
-            param = DataSource.FindDataOfClass<TowerFloorParam>(go, null);
-            if (param != null)
-            {
-                goto Label_000F;
-            }
-            return;
-        Label_000F:
-            GlobalVars.SelectedQuestID = param.iname;
-            FlowNode_GameObject.ActivateOutputLinks(this, 100);
-            return;
-        }
-
-        private void OnSelectItem(GameObject go)
-        {
-            TowerFloorParam param;
-            int num;
-            param = DataSource.FindDataOfClass<TowerFloorParam>(go, null);
-            if (param != null)
-            {
-                goto Label_000F;
-            }
-            return;
-        Label_000F:
-            num = this.mFloorParams.IndexOf(param);
-            this.mScrollListController.SetScrollTo((this.mScrollListController.ItemScaleMargin * ((float) num)) - (this.mScrollListController.ItemScaleMargin * 2f));
-            GlobalVars.SelectedQuestID = param.iname;
-            FlowNode_GameObject.ActivateOutputLinks(this, 100);
-            return;
-        }
-
-        public unsafe void OnSetUpItems()
-        {
-            RectTransform transform;
-            Vector2 vector;
-            if (this.mFloorParams != null)
-            {
-                goto Label_0020;
-            }
-            this.mFloorParams = MonoSingleton<GameManager>.Instance.FindTowerFloors(GlobalVars.SelectedTowerID);
-        Label_0020:
-            this.mScrollListController.OnItemUpdate.AddListener(new UnityAction<int, GameObject>(this, this.OnUpdateItems));
-            base.GetComponentInParent<ScrollRect>().set_movementType(2);
-            transform = base.GetComponent<RectTransform>();
-            vector = transform.get_sizeDelta();
-            &vector.y = this.mScrollListController.ItemScaleMargin * ((float) this.mFloorParams.Count);
-            transform.set_sizeDelta(vector);
-            return;
-        }
-
-        public void OnUpdateItems(int idx, GameObject obj)
-        {
-            TowerQuestListItem item;
-            TowerQuestListItem item2;
-            ListItemEvents events;
-            if (this.mFloorParams != null)
-            {
-                goto Label_0020;
-            }
-            this.mFloorParams = MonoSingleton<GameManager>.Instance.FindTowerFloors(GlobalVars.SelectedTowerID);
-        Label_0020:
-            if (idx >= 0)
-            {
-                goto Label_0033;
-            }
-            obj.SetActive(0);
-            goto Label_00E8;
-        Label_0033:
-            if (idx < this.mFloorParams.Count)
-            {
-                goto Label_0072;
-            }
-            DataSource.Bind<TowerFloorParam>(obj, null);
-            obj.SetActive(1);
-            item = obj.GetComponent<TowerQuestListItem>();
-            if ((item != null) == null)
-            {
-                goto Label_00E8;
-            }
-            item.UpdateParam(null, 0);
-            goto Label_00E8;
-        Label_0072:
-            obj.SetActive(1);
-            DataSource.Bind<TowerFloorParam>(obj, this.mFloorParams[idx]);
-            item2 = obj.GetComponent<TowerQuestListItem>();
-            if ((item2 != null) == null)
-            {
-                goto Label_00C3;
-            }
-            item2.UpdateParam(this.mFloorParams[idx], this.mFloorParams[idx].FloorIndex + 1);
-        Label_00C3:
-            events = obj.GetComponent<ListItemEvents>();
-            if ((events != null) == null)
-            {
-                goto Label_00E8;
-            }
-            events.OnSelect = new ListItemEvents.ListItemEvent(this.OnSelectItem);
-        Label_00E8:
-            return;
-        }
-
-        private void Refresh()
-        {
-            this.mFloorParams = MonoSingleton<GameManager>.Instance.FindTowerFloors(GlobalVars.SelectedTowerID);
-            this.mScrollListController.UpdateList();
-            this.ScrollToCurrentFloor();
-            return;
-        }
-
-        public void ScrollToCurrentFloor()
-        {
-            TowerFloorParam param;
-            int num;
-            param = MonoSingleton<GameManager>.Instance.TowerResuponse.GetCurrentFloor();
-            num = this.mFloorParams.IndexOf(param);
-            this.mScrollListController.SetScrollTo((this.mScrollListController.ItemScaleMargin * ((float) num)) - (this.mScrollListController.ItemScaleMargin * 2f));
-            return;
-        }
-
-        public void ScrollToCurrentFloor(TowerFloorParam floorParam)
-        {
-            int num;
-            num = this.mFloorParams.IndexOf(floorParam);
-            this.mScrollListController.SetAnchoredPosition((this.mScrollListController.ItemScaleMargin * ((float) num)) - (this.mScrollListController.ItemScaleMargin * 2f));
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    public void Activated(int pinID)
+    {
+      if (pinID != 0)
+        return;
+      if (this.isInitialized)
+        this.Refresh();
+      else
+        this.Initialize();
+    }
+
+    public void ScrollToCurrentFloor()
+    {
+      this.mScrollListController.SetScrollTo((float) ((double) this.mScrollListController.ItemScaleMargin * (double) this.mFloorParams.IndexOf(MonoSingleton<GameManager>.Instance.TowerResuponse.GetCurrentFloor()) - (double) this.mScrollListController.ItemScaleMargin * 2.0));
+    }
+
+    public void ScrollToCurrentFloor(TowerFloorParam floorParam)
+    {
+      this.mScrollListController.SetAnchoredPosition((float) ((double) this.mScrollListController.ItemScaleMargin * (double) this.mFloorParams.IndexOf(floorParam) - (double) this.mScrollListController.ItemScaleMargin * 2.0));
+    }
+
+    private void Initialize()
+    {
+      this.isInitialized = true;
+      this.mFloorParams = MonoSingleton<GameManager>.Instance.FindTowerFloors(GlobalVars.SelectedTowerID);
+      this.mListItemTemplate.OnSelect = new ListItemEvents.ListItemEvent(this.OnSelectItem);
+      // ISSUE: method pointer
+      this.mScrollListController.OnListItemFocus.AddListener(new UnityAction<GameObject>((object) this, __methodptr(OnScrollStop)));
+      this.mScrollListController.UpdateList();
+      if (MonoSingleton<GameManager>.Instance.TowerResuponse != null)
+      {
+        TowerFloorParam currentFloor = MonoSingleton<GameManager>.Instance.TowerResuponse.GetCurrentFloor();
+        if (currentFloor == null)
+          return;
+        this.ScrollToCurrentFloor(currentFloor);
+        GlobalVars.SelectedQuestID = currentFloor.iname;
+        FlowNode_GameObject.ActivateOutputLinks((Component) this, 100);
+      }
+      else
+      {
+        TowerFloorParam firstTowerFloor = MonoSingleton<GameManager>.Instance.FindFirstTowerFloor(GlobalVars.SelectedTowerID);
+        if (firstTowerFloor == null)
+          return;
+        this.ScrollToCurrentFloor(firstTowerFloor);
+        GlobalVars.SelectedQuestID = firstTowerFloor.iname;
+        FlowNode_GameObject.ActivateOutputLinks((Component) this, 100);
+      }
+    }
+
+    private void Refresh()
+    {
+      this.mFloorParams = MonoSingleton<GameManager>.Instance.FindTowerFloors(GlobalVars.SelectedTowerID);
+      this.mScrollListController.UpdateList();
+    }
+
+    public void OnSetUpItems()
+    {
+      if (this.mFloorParams == null)
+        this.mFloorParams = MonoSingleton<GameManager>.Instance.FindTowerFloors(GlobalVars.SelectedTowerID);
+      TowerScrollListController.OnItemPositionChange onItemUpdate = this.mScrollListController.OnItemUpdate;
+      TowerQuestList towerQuestList = this;
+      // ISSUE: virtual method pointer
+      UnityAction<int, GameObject> unityAction = new UnityAction<int, GameObject>((object) towerQuestList, __vmethodptr(towerQuestList, OnUpdateItems));
+      onItemUpdate.AddListener(unityAction);
+      ((ScrollRect) ((Component) this).GetComponentInParent<ScrollRect>()).set_movementType((ScrollRect.MovementType) 2);
+      RectTransform component = (RectTransform) ((Component) this).GetComponent<RectTransform>();
+      Vector2 sizeDelta = component.get_sizeDelta();
+      sizeDelta.y = (__Null) ((double) this.mScrollListController.ItemScaleMargin * (double) this.mFloorParams.Count);
+      component.set_sizeDelta(sizeDelta);
+    }
+
+    public void OnUpdateItems(int idx, GameObject obj)
+    {
+      if (this.mFloorParams == null)
+        this.mFloorParams = MonoSingleton<GameManager>.Instance.FindTowerFloors(GlobalVars.SelectedTowerID);
+      if (idx < 0)
+        obj.SetActive(false);
+      else if (idx >= this.mFloorParams.Count)
+      {
+        DataSource.Bind<TowerFloorParam>(obj, (TowerFloorParam) null);
+        obj.SetActive(true);
+        TowerQuestListItem component = (TowerQuestListItem) obj.GetComponent<TowerQuestListItem>();
+        if (!Object.op_Inequality((Object) component, (Object) null))
+          return;
+        component.UpdateParam((TowerFloorParam) null, 0);
+      }
+      else
+      {
+        obj.SetActive(true);
+        DataSource.Bind<TowerFloorParam>(obj, this.mFloorParams[idx]);
+        TowerQuestListItem component1 = (TowerQuestListItem) obj.GetComponent<TowerQuestListItem>();
+        if (Object.op_Inequality((Object) component1, (Object) null))
+          component1.UpdateParam(this.mFloorParams[idx], (int) this.mFloorParams[idx].FloorIndex + 1);
+        ListItemEvents component2 = (ListItemEvents) obj.GetComponent<ListItemEvents>();
+        if (!Object.op_Inequality((Object) component2, (Object) null))
+          return;
+        component2.OnSelect = new ListItemEvents.ListItemEvent(this.OnSelectItem);
+      }
+    }
+
+    private void OnScrollStop(GameObject go)
+    {
+      TowerFloorParam dataOfClass = DataSource.FindDataOfClass<TowerFloorParam>(go, (TowerFloorParam) null);
+      if (dataOfClass == null)
+        return;
+      GlobalVars.SelectedQuestID = dataOfClass.iname;
+      FlowNode_GameObject.ActivateOutputLinks((Component) this, 100);
+    }
+
+    private void OnSelectItem(GameObject go)
+    {
+      TowerFloorParam dataOfClass = DataSource.FindDataOfClass<TowerFloorParam>(go, (TowerFloorParam) null);
+      if (dataOfClass == null)
+        return;
+      this.mScrollListController.SetScrollTo((float) ((double) this.mScrollListController.ItemScaleMargin * (double) this.mFloorParams.IndexOf(dataOfClass) - (double) this.mScrollListController.ItemScaleMargin * 2.0));
+      GlobalVars.SelectedQuestID = dataOfClass.iname;
+      FlowNode_GameObject.ActivateOutputLinks((Component) this, 100);
+    }
+  }
+}

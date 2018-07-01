@@ -1,113 +1,70 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_PartyWindow
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
+  [FlowNode.NodeType("UI/PartyWindow")]
+  public class FlowNode_PartyWindow : FlowNode_GUI
+  {
+    public bool ShowQuestInfo = true;
+    public bool UseQuest = true;
+    public PartyWindow2.EditPartyTypes PartyType;
+    public FlowNode_PartyWindow.TriBool BackButton;
+    public FlowNode_PartyWindow.TriBool ForwardButton;
+    public FlowNode_PartyWindow.TriBool ShowRaidInfo;
 
-    [NodeType("UI/PartyWindow")]
-    public class FlowNode_PartyWindow : FlowNode_GUI
+    protected override void OnInstanceCreate()
     {
-        public PartyWindow2.EditPartyTypes PartyType;
-        public bool ShowQuestInfo;
-        public bool UseQuest;
-        public bool ForceRefresh;
-        public TriBool BackButton;
-        public TriBool ForwardButton;
-        public TriBool ShowRaidInfo;
-        public TriBool EnableTeamAssign;
-
-        public FlowNode_PartyWindow()
-        {
-            this.ShowQuestInfo = 1;
-            this.UseQuest = 1;
-            base..ctor();
-            return;
-        }
-
-        private void OffCanvas(PartyWindow2 pw)
-        {
-            PartyWindow2 window;
-            if (this.PartyType != 9)
-            {
-                goto Label_0031;
-            }
-            window = pw.GetComponent<PartyWindow2>();
-            if ((window != null) == null)
-            {
-                goto Label_0031;
-            }
-            window.MainRect.get_gameObject().SetActive(0);
-        Label_0031:
-            return;
-        }
-
-        protected override void OnCreatePinActive()
-        {
-            PartyWindow2 window;
-            if ((base.Instance != null) == null)
-            {
-                goto Label_003D;
-            }
-            window = base.Instance.GetComponent<PartyWindow2>();
-            if ((window != null) == null)
-            {
-                goto Label_003C;
-            }
-            this.OffCanvas(window);
-            window.Reopen(this.ForceRefresh);
-        Label_003C:
-            return;
-        Label_003D:
-            base.OnCreatePinActive();
-            return;
-        }
-
-        protected override void OnInstanceCreate()
-        {
-            PartyWindow2 window;
-            base.OnInstanceCreate();
-            window = base.Instance.GetComponentInChildren<PartyWindow2>();
-            if ((window == null) == null)
-            {
-                goto Label_001F;
-            }
-            return;
-        Label_001F:
-            window.PartyType = this.PartyType;
-            window.ShowQuestInfo = this.ShowQuestInfo;
-            window.UseQuestInfo = this.UseQuest;
-            if (this.BackButton == null)
-            {
-                goto Label_005D;
-            }
-            window.ShowBackButton = this.BackButton == 2;
-        Label_005D:
-            if (this.ForwardButton == null)
-            {
-                goto Label_0077;
-            }
-            window.ShowForwardButton = this.ForwardButton == 2;
-        Label_0077:
-            if (this.ShowRaidInfo == null)
-            {
-                goto Label_0091;
-            }
-            window.ShowRaidInfo = this.ShowRaidInfo == 2;
-        Label_0091:
-            if (this.EnableTeamAssign == null)
-            {
-                goto Label_00AB;
-            }
-            window.EnableTeamAssign = this.EnableTeamAssign == 2;
-        Label_00AB:
-            this.OffCanvas(window);
-            return;
-        }
-
-        public enum TriBool
-        {
-            Unchanged,
-            False,
-            True
-        }
+      base.OnInstanceCreate();
+      PartyWindow2 componentInChildren = (PartyWindow2) this.Instance.GetComponentInChildren<PartyWindow2>();
+      if (Object.op_Equality((Object) componentInChildren, (Object) null))
+        return;
+      componentInChildren.PartyType = this.PartyType;
+      componentInChildren.ShowQuestInfo = this.ShowQuestInfo;
+      componentInChildren.UseQuestInfo = this.UseQuest;
+      if (this.BackButton != FlowNode_PartyWindow.TriBool.Unchanged)
+        componentInChildren.ShowBackButton = this.BackButton == FlowNode_PartyWindow.TriBool.True;
+      if (this.ForwardButton != FlowNode_PartyWindow.TriBool.Unchanged)
+        componentInChildren.ShowForwardButton = this.ForwardButton == FlowNode_PartyWindow.TriBool.True;
+      if (this.ShowRaidInfo != FlowNode_PartyWindow.TriBool.Unchanged)
+        componentInChildren.ShowRaidInfo = this.ShowRaidInfo == FlowNode_PartyWindow.TriBool.True;
+      this.OffCanvas(componentInChildren);
     }
-}
 
+    protected override void OnCreatePinActive()
+    {
+      if (Object.op_Inequality((Object) this.Instance, (Object) null))
+      {
+        PartyWindow2 component = (PartyWindow2) this.Instance.GetComponent<PartyWindow2>();
+        if (!Object.op_Inequality((Object) component, (Object) null))
+          return;
+        this.OffCanvas(component);
+        component.Reopen();
+      }
+      else
+        base.OnCreatePinActive();
+    }
+
+    private void OffCanvas(PartyWindow2 pw)
+    {
+      if (this.PartyType != PartyWindow2.EditPartyTypes.MultiTower)
+        return;
+      PartyWindow2 component = (PartyWindow2) ((Component) pw).GetComponent<PartyWindow2>();
+      if (!Object.op_Inequality((Object) component, (Object) null))
+        return;
+      ((Component) component.MainRect).get_gameObject().SetActive(false);
+    }
+
+    public enum TriBool
+    {
+      Unchanged,
+      False,
+      True,
+    }
+  }
+}

@@ -1,162 +1,102 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_YesNoDialog
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  [FlowNode.NodeType("UI/YesNoDialog", 32741)]
+  [FlowNode.Pin(10, "Open", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "Yes", FlowNode.PinTypes.Output, 1)]
+  [FlowNode.Pin(2, "No", FlowNode.PinTypes.Output, 2)]
+  [FlowNode.Pin(11, "ForceClose", FlowNode.PinTypes.Input, 11)]
+  [FlowNode.Pin(100, "Opened", FlowNode.PinTypes.Output, 100)]
+  [FlowNode.Pin(101, "ForceClosed", FlowNode.PinTypes.Output, 101)]
+  public class FlowNode_YesNoDialog : FlowNode
+  {
+    public string Title;
+    public string Text;
+    public bool systemModal;
+    public int systemModalPriority;
+    public GameObject parent;
+    public string parentName;
+    public bool richTag;
+    public bool unscaledTime;
+    public string yesText;
+    public string noText;
+    private GameObject winGO;
 
-    [Pin(1, "Yes", 1, 1), Pin(0x65, "ForceClosed", 1, 0x65), Pin(11, "ForceClose", 0, 11), Pin(2, "No", 1, 2), Pin(100, "Opened", 1, 100), Pin(10, "Open", 0, 0), NodeType("UI/YesNoDialog", 0x7fe5)]
-    public class FlowNode_YesNoDialog : FlowNode
+    public override string[] GetInfoLines()
     {
-        public string Title;
-        public string Text;
-        public bool systemModal;
-        public int systemModalPriority;
-        public GameObject parent;
-        public string parentName;
-        public bool richTag;
-        public bool unscaledTime;
-        public string yesText;
-        public string noText;
-        private GameObject winGO;
-
-        public FlowNode_YesNoDialog()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override string[] GetInfoLines()
-        {
-            string[] textArray1;
-            if (string.IsNullOrEmpty(this.Text) != null)
-            {
-                goto Label_002A;
-            }
-            textArray1 = new string[] { "Text is " + this.Text };
-            return textArray1;
-        Label_002A:
-            return base.GetInfoLines();
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            string str;
-            string str2;
-            string str3;
-            string str4;
-            Animator animator;
-            Win_Btn_DecideCancel_FL_C l_fl_c;
-            Win_Btn_YN_Title_Flx flx;
-            if (pinID != 10)
-            {
-                goto Label_0185;
-            }
-            if (string.IsNullOrEmpty(this.parentName) != null)
-            {
-                goto Label_004F;
-            }
-            this.parent = GameObject.Find(this.parentName);
-            if ((this.parent == null) == null)
-            {
-                goto Label_004F;
-            }
-            DebugUtility.LogWarning("can not found gameObject:" + this.parentName);
-        Label_004F:
-            str = LocalizedText.Get(this.Text);
-            if (this.richTag == null)
-            {
-                goto Label_006D;
-            }
-            str = LocalizedText.ReplaceTag(str);
-        Label_006D:
-            str2 = (string.IsNullOrEmpty(this.yesText) == null) ? this.yesText : null;
-            str3 = (string.IsNullOrEmpty(this.noText) == null) ? this.noText : null;
-            if (string.IsNullOrEmpty(this.Title) == null)
-            {
-                goto Label_00F4;
-            }
-            this.winGO = UIUtility.ConfirmBox(str, new UIUtility.DialogResultEvent(this.OnClickOK), new UIUtility.DialogResultEvent(this.OnClickCancel), this.parent, this.systemModal, this.systemModalPriority, str2, str3);
-            goto Label_0139;
-        Label_00F4:
-            str4 = LocalizedText.Get(this.Title);
-            this.winGO = UIUtility.ConfirmBoxTitle(str4, str, new UIUtility.DialogResultEvent(this.OnClickOK), new UIUtility.DialogResultEvent(this.OnClickCancel), this.parent, this.systemModal, this.systemModalPriority, str2, str3);
-        Label_0139:
-            if (((this.winGO != null) == null) || (this.unscaledTime == null))
-            {
-                goto Label_0177;
-            }
-            animator = this.winGO.GetComponent<Animator>();
-            if ((animator != null) == null)
-            {
-                goto Label_0177;
-            }
-            animator.set_updateMode(2);
-        Label_0177:
-            base.ActivateOutputLinks(100);
-            goto Label_0241;
-        Label_0185:
-            if (pinID != 11)
-            {
-                goto Label_0241;
-            }
-            if ((this.winGO == null) == null)
-            {
-                goto Label_019F;
-            }
-            return;
-        Label_019F:
-            if (string.IsNullOrEmpty(this.Title) == null)
-            {
-                goto Label_01F6;
-            }
-            l_fl_c = ((this.winGO == null) == null) ? this.winGO.GetComponent<Win_Btn_DecideCancel_FL_C>() : null;
-            this.winGO = null;
-            if ((l_fl_c != null) == null)
-            {
-                goto Label_0238;
-            }
-            l_fl_c.BeginClose();
-            l_fl_c = null;
-            goto Label_0238;
-        Label_01F6:
-            flx = ((this.winGO == null) == null) ? this.winGO.GetComponent<Win_Btn_YN_Title_Flx>() : null;
-            this.winGO = null;
-            if ((flx != null) == null)
-            {
-                goto Label_0238;
-            }
-            flx.BeginClose();
-            flx = null;
-        Label_0238:
-            base.ActivateOutputLinks(0x65);
-        Label_0241:
-            return;
-        }
-
-        private void OnClickCancel(GameObject go)
-        {
-            if ((this.winGO == null) == null)
-            {
-                goto Label_0012;
-            }
-            return;
-        Label_0012:
-            this.winGO = null;
-            base.ActivateOutputLinks(2);
-            return;
-        }
-
-        private void OnClickOK(GameObject go)
-        {
-            if ((this.winGO == null) == null)
-            {
-                goto Label_0012;
-            }
-            return;
-        Label_0012:
-            this.winGO = null;
-            base.ActivateOutputLinks(1);
-            return;
-        }
+      if (string.IsNullOrEmpty(this.Text))
+        return base.GetInfoLines();
+      return new string[1]{ "Text is [" + this.Text + "]" };
     }
-}
 
+    public override void OnActivate(int pinID)
+    {
+      switch (pinID)
+      {
+        case 10:
+          if (!string.IsNullOrEmpty(this.parentName))
+          {
+            this.parent = GameObject.Find(this.parentName);
+            if (Object.op_Equality((Object) this.parent, (Object) null))
+              DebugUtility.LogWarning("can not found gameObject:" + this.parentName);
+          }
+          string text = LocalizedText.Get(this.Text);
+          if (this.richTag)
+            text = LocalizedText.ReplaceTag(text);
+          string yesText = !string.IsNullOrEmpty(this.yesText) ? this.yesText : (string) null;
+          string noText = !string.IsNullOrEmpty(this.noText) ? this.noText : (string) null;
+          this.winGO = !string.IsNullOrEmpty(this.Title) ? UIUtility.ConfirmBoxTitle(LocalizedText.Get(this.Title), text, new UIUtility.DialogResultEvent(this.OnClickOK), new UIUtility.DialogResultEvent(this.OnClickCancel), this.parent, this.systemModal, this.systemModalPriority, yesText, noText) : UIUtility.ConfirmBox(text, new UIUtility.DialogResultEvent(this.OnClickOK), new UIUtility.DialogResultEvent(this.OnClickCancel), this.parent, this.systemModal, this.systemModalPriority, yesText, noText);
+          if (Object.op_Inequality((Object) this.winGO, (Object) null) && this.unscaledTime)
+          {
+            Animator component = (Animator) this.winGO.GetComponent<Animator>();
+            if (Object.op_Inequality((Object) component, (Object) null))
+              component.set_updateMode((AnimatorUpdateMode) 2);
+          }
+          this.ActivateOutputLinks(100);
+          break;
+        case 11:
+          if (Object.op_Equality((Object) this.winGO, (Object) null))
+            break;
+          if (string.IsNullOrEmpty(this.Title))
+          {
+            Win_Btn_DecideCancel_FL_C btnDecideCancelFlC = !Object.op_Equality((Object) this.winGO, (Object) null) ? (Win_Btn_DecideCancel_FL_C) this.winGO.GetComponent<Win_Btn_DecideCancel_FL_C>() : (Win_Btn_DecideCancel_FL_C) null;
+            this.winGO = (GameObject) null;
+            if (Object.op_Inequality((Object) btnDecideCancelFlC, (Object) null))
+              btnDecideCancelFlC.BeginClose();
+          }
+          else
+          {
+            Win_Btn_YN_Title_Flx winBtnYnTitleFlx = !Object.op_Equality((Object) this.winGO, (Object) null) ? (Win_Btn_YN_Title_Flx) this.winGO.GetComponent<Win_Btn_YN_Title_Flx>() : (Win_Btn_YN_Title_Flx) null;
+            this.winGO = (GameObject) null;
+            if (Object.op_Inequality((Object) winBtnYnTitleFlx, (Object) null))
+              winBtnYnTitleFlx.BeginClose();
+          }
+          this.ActivateOutputLinks(101);
+          break;
+      }
+    }
+
+    private void OnClickOK(GameObject go)
+    {
+      if (Object.op_Equality((Object) this.winGO, (Object) null))
+        return;
+      this.winGO = (GameObject) null;
+      this.ActivateOutputLinks(1);
+    }
+
+    private void OnClickCancel(GameObject go)
+    {
+      if (Object.op_Equality((Object) this.winGO, (Object) null))
+        return;
+      this.winGO = (GameObject) null;
+      this.ActivateOutputLinks(2);
+    }
+  }
+}

@@ -1,397 +1,258 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.VersusAudienceManager
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Collections.Generic;
-    using UnityEngine;
+  public class VersusAudienceManager
+  {
+    public static readonly float CONNECTTIME_MAX = 30f;
+    public readonly int RETRY_MAX = 30;
+    private Dictionary<int, List<SceneBattle.MultiPlayRecvData>> mTurnLog = new Dictionary<int, List<SceneBattle.MultiPlayRecvData>>();
+    private string mNonAnalyzeLog = string.Empty;
+    private AudienceStartParam mStartedParam;
+    private JSON_MyPhotonRoomParam mRoomParam;
+    private DownloadLogger mDownloadLogger;
+    private int mReadCnt;
+    private int mSkipReadMax;
+    private int mRetryStartQuestCnt;
+    private bool mSkipLog;
+    private float mNoneConnectedTime;
+    private VersusAudienceManager.CONNECT_STATE mState;
 
-    public class VersusAudienceManager
+    public bool IsConnected
     {
-        public static readonly float CONNECTTIME_MAX;
-        public readonly int RETRY_MAX;
-        private Dictionary<int, List<SceneBattle.MultiPlayRecvData>> mTurnLog;
-        private AudienceStartParam mStartedParam;
-        private JSON_MyPhotonRoomParam mRoomParam;
-        private DownloadLogger mDownloadLogger;
-        private int mReadCnt;
-        private int mSkipReadMax;
-        private int mRetryStartQuestCnt;
-        private bool mSkipLog;
-        private float mNoneConnectedTime;
-        private string mNonAnalyzeLog;
-        private CONNECT_STATE mState;
-
-        static VersusAudienceManager()
-        {
-            CONNECTTIME_MAX = 30f;
-            return;
-        }
-
-        public VersusAudienceManager()
-        {
-            this.RETRY_MAX = 30;
-            this.mTurnLog = new Dictionary<int, List<SceneBattle.MultiPlayRecvData>>();
-            this.mNonAnalyzeLog = string.Empty;
-            base..ctor();
-            return;
-        }
-
-        public void Add(string data)
-        {
-            this.Analyze(data);
-            this.mState = 2;
-            this.mNoneConnectedTime = 0f;
-            return;
-        }
-
-        public void AddStartQuest()
-        {
-            this.mRetryStartQuestCnt += 1;
-            return;
-        }
-
-        public unsafe void Analyze(string log)
-        {
-            string str;
-            string str2;
-            AudienceLog log2;
-            byte[] buffer;
-            SceneBattle.MultiPlayRecvData data;
-            SceneBattle.MultiPlayRecvBinData data2;
-            string str3;
-            str = string.Empty;
-            str2 = string.Empty;
-            if (string.IsNullOrEmpty(this.mNonAnalyzeLog) != null)
-            {
-                goto Label_0035;
-            }
-            log = this.mNonAnalyzeLog + log;
-            this.mNonAnalyzeLog = string.Empty;
-        Label_0035:
-            if (log.IndexOf("creatorName") == -1)
-            {
-                goto Label_004D;
-            }
-            str = log;
-            goto Label_0147;
-        Label_004D:
-            if (log.IndexOf("players") == -1)
-            {
-                goto Label_0065;
-            }
-            str2 = log;
-            goto Label_0147;
-        Label_0065:
-            if (log.IndexOf("bm") == -1)
-            {
-                goto Label_00F4;
-            }
-        Label_0076:
-            try
-            {
-                buffer = MyEncrypt.Decrypt(JsonUtility.FromJson<AudienceLog>(log).bm);
-                if (GameUtility.Binary2Object<SceneBattle.MultiPlayRecvData>(&data, buffer) == null)
-                {
-                    goto Label_00DD;
-                }
-                if (this.mTurnLog.ContainsKey(data.b) != null)
-                {
-                    goto Label_00C4;
-                }
-                this.mTurnLog[data.b] = new List<SceneBattle.MultiPlayRecvData>();
-            Label_00C4:
-                this.mTurnLog[data.b].Add(data);
-            Label_00DD:
-                goto Label_00EF;
-            }
-            catch
-            {
-            Label_00E2:
-                this.mNonAnalyzeLog = log;
-                goto Label_00EF;
-            }
-        Label_00EF:
-            goto Label_0147;
-        Label_00F4:
-            if (log.IndexOf("bin") == -1)
-            {
-                goto Label_0140;
-            }
-        Label_0105:
-            try
-            {
-                data2 = JsonUtility.FromJson<SceneBattle.MultiPlayRecvBinData>(log);
-                GameUtility.Binary2Object<string>(&str3, data2.bin);
-                this.Analyze(str3);
-                goto Label_01A5;
-            }
-            catch
-            {
-            Label_012E:
-                this.mNonAnalyzeLog = log;
-                goto Label_013B;
-            }
-        Label_013B:
-            goto Label_0147;
-        Label_0140:
-            this.mNonAnalyzeLog = log;
-        Label_0147:
-            if (string.IsNullOrEmpty(str) != null)
-            {
-                goto Label_0176;
-            }
-        Label_0152:
-            try
-            {
-                this.mRoomParam = JSON_MyPhotonRoomParam.Parse(str);
-                goto Label_0176;
-            }
-            catch
-            {
-            Label_0163:
-                Debug.LogWarning(str);
-                this.mNonAnalyzeLog = str;
-                goto Label_0176;
-            }
-        Label_0176:
-            if (string.IsNullOrEmpty(str2) != null)
-            {
-                goto Label_01A5;
-            }
-        Label_0181:
-            try
-            {
-                this.mStartedParam = JSONParser.parseJSONObject<AudienceStartParam>(str2);
-                goto Label_01A5;
-            }
-            catch
-            {
-            Label_0192:
-                Debug.LogWarning(str2);
-                this.mNonAnalyzeLog = str2;
-                goto Label_01A5;
-            }
-        Label_01A5:
-            return;
-        }
-
-        public void Disconnect()
-        {
-            this.mState = 0;
-            return;
-        }
-
-        public void FinishLoad()
-        {
-            this.mSkipReadMax = this.LogLength;
-            return;
-        }
-
-        public unsafe SceneBattle.MultiPlayRecvData GetData()
-        {
-            List<SceneBattle.MultiPlayRecvData> list;
-            int num;
-            Dictionary<int, List<SceneBattle.MultiPlayRecvData>>.KeyCollection.Enumerator enumerator;
-            int num2;
-            if (this.mReadCnt >= this.LogLength)
-            {
-                goto Label_007C;
-            }
-            list = new List<SceneBattle.MultiPlayRecvData>();
-            enumerator = this.mTurnLog.Keys.GetEnumerator();
-        Label_0028:
-            try
-            {
-                goto Label_0047;
-            Label_002D:
-                num = &enumerator.Current;
-                list.AddRange(this.mTurnLog[num]);
-            Label_0047:
-                if (&enumerator.MoveNext() != null)
-                {
-                    goto Label_002D;
-                }
-                goto Label_0064;
-            }
-            finally
-            {
-            Label_0058:
-                ((Dictionary<int, List<SceneBattle.MultiPlayRecvData>>.KeyCollection.Enumerator) enumerator).Dispose();
-            }
-        Label_0064:
-            return list[this.mReadCnt++];
-        Label_007C:
-            return null;
-        }
-
-        public JSON_MyPhotonRoomParam GetRoomParam()
-        {
-            return this.mRoomParam;
-        }
-
-        public AudienceStartParam GetStartedParam()
-        {
-            return this.mStartedParam;
-        }
-
-        public void Reset()
-        {
-            if (this.mTurnLog != null)
-            {
-                goto Label_0016;
-            }
-            this.mTurnLog = new Dictionary<int, List<SceneBattle.MultiPlayRecvData>>();
-        Label_0016:
-            this.mTurnLog.Clear();
-            this.mStartedParam = null;
-            this.mRoomParam = null;
-            this.mNonAnalyzeLog = null;
-            this.mReadCnt = 0;
-            this.mRetryStartQuestCnt = 0;
-            this.mDownloadLogger = null;
-            this.mDownloadLogger = new DownloadLogger();
-            this.mDownloadLogger.Manager = this;
-            this.mState = 1;
-            return;
-        }
-
-        public void ResetTime()
-        {
-            this.mNoneConnectedTime = 0f;
-            this.mState = 1;
-            return;
-        }
-
-        public void Restore()
-        {
-            if (this.mReadCnt <= 0)
-            {
-                goto Label_001A;
-            }
-            this.mReadCnt -= 1;
-        Label_001A:
-            return;
-        }
-
-        public void Update()
-        {
-            if (this.mState != 2)
-            {
-                goto Label_0035;
-            }
-            this.mNoneConnectedTime += Time.get_deltaTime();
-            if (this.mNoneConnectedTime < CONNECTTIME_MAX)
-            {
-                goto Label_0035;
-            }
-            this.mState = 0;
-        Label_0035:
-            return;
-        }
-
-        public bool IsConnected
-        {
-            get
-            {
-                return (this.mState == 2);
-            }
-        }
-
-        public bool IsDisconnected
-        {
-            get
-            {
-                return (this.mState == 0);
-            }
-        }
-
-        public DownloadLogger Logger
-        {
-            get
-            {
-                return this.mDownloadLogger;
-            }
-        }
-
-        public bool IsRetryError
-        {
-            get
-            {
-                return ((this.mRetryStartQuestCnt < this.RETRY_MAX) == 0);
-            }
-        }
-
-        private int LogLength
-        {
-            get
-            {
-                int num;
-                int num2;
-                Dictionary<int, List<SceneBattle.MultiPlayRecvData>>.KeyCollection.Enumerator enumerator;
-                num = 0;
-                enumerator = this.mTurnLog.Keys.GetEnumerator();
-            Label_0013:
-                try
-                {
-                    goto Label_0034;
-                Label_0018:
-                    num2 = &enumerator.Current;
-                    num += this.mTurnLog[num2].Count;
-                Label_0034:
-                    if (&enumerator.MoveNext() != null)
-                    {
-                        goto Label_0018;
-                    }
-                    goto Label_0051;
-                }
-                finally
-                {
-                Label_0045:
-                    ((Dictionary<int, List<SceneBattle.MultiPlayRecvData>>.KeyCollection.Enumerator) enumerator).Dispose();
-                }
-            Label_0051:
-                return num;
-            }
-        }
-
-        public bool SkipMode
-        {
-            set
-            {
-                this.mSkipLog = value;
-                return;
-            }
-        }
-
-        public bool IsSkipEnd
-        {
-            get
-            {
-                if (this.mSkipLog == null)
-                {
-                    goto Label_001A;
-                }
-                return (this.mSkipReadMax == this.mReadCnt);
-            Label_001A:
-                return 1;
-            }
-        }
-
-        public bool IsEnd
-        {
-            get
-            {
-            Label_001B:
-                return (((Network.IsStreamConnecting == null) && (this.mReadCnt == this.LogLength)) ? 1 : Network.IsError);
-            }
-        }
-
-        private enum CONNECT_STATE
-        {
-            NONE,
-            REQ,
-            CONNECTED
-        }
+      get
+      {
+        return this.mState == VersusAudienceManager.CONNECT_STATE.CONNECTED;
+      }
     }
-}
 
+    public bool IsDisconnected
+    {
+      get
+      {
+        return this.mState == VersusAudienceManager.CONNECT_STATE.NONE;
+      }
+    }
+
+    public DownloadLogger Logger
+    {
+      get
+      {
+        return this.mDownloadLogger;
+      }
+    }
+
+    public bool IsRetryError
+    {
+      get
+      {
+        return this.mRetryStartQuestCnt >= this.RETRY_MAX;
+      }
+    }
+
+    private int LogLength
+    {
+      get
+      {
+        int num = 0;
+        using (Dictionary<int, List<SceneBattle.MultiPlayRecvData>>.KeyCollection.Enumerator enumerator = this.mTurnLog.Keys.GetEnumerator())
+        {
+          while (enumerator.MoveNext())
+          {
+            int current = enumerator.Current;
+            num += this.mTurnLog[current].Count;
+          }
+        }
+        return num;
+      }
+    }
+
+    public void Analyze(string log)
+    {
+      string json = string.Empty;
+      string src = string.Empty;
+      if (!string.IsNullOrEmpty(this.mNonAnalyzeLog))
+      {
+        log = this.mNonAnalyzeLog + log;
+        this.mNonAnalyzeLog = string.Empty;
+      }
+      if (log.IndexOf("creatorName") != -1)
+        json = log;
+      else if (log.IndexOf("players") != -1)
+        src = log;
+      else if (log.IndexOf("bm") != -1)
+      {
+        try
+        {
+          byte[] data = MyEncrypt.Decrypt(((AudienceLog) JsonUtility.FromJson<AudienceLog>(log)).bm);
+          SceneBattle.MultiPlayRecvData buffer;
+          if (GameUtility.Binary2Object<SceneBattle.MultiPlayRecvData>(out buffer, data))
+          {
+            if (!this.mTurnLog.ContainsKey(buffer.b))
+              this.mTurnLog[buffer.b] = new List<SceneBattle.MultiPlayRecvData>();
+            this.mTurnLog[buffer.b].Add(buffer);
+          }
+        }
+        catch
+        {
+          this.mNonAnalyzeLog = log;
+        }
+      }
+      else
+        this.mNonAnalyzeLog = log;
+      if (!string.IsNullOrEmpty(json))
+      {
+        try
+        {
+          this.mRoomParam = JSON_MyPhotonRoomParam.Parse(json);
+        }
+        catch
+        {
+          Debug.LogWarning((object) json);
+          this.mNonAnalyzeLog = json;
+        }
+      }
+      if (string.IsNullOrEmpty(src))
+        return;
+      try
+      {
+        this.mStartedParam = JSONParser.parseJSONObject<AudienceStartParam>(src);
+      }
+      catch
+      {
+        Debug.LogWarning((object) src);
+        this.mNonAnalyzeLog = src;
+      }
+    }
+
+    public void AddStartQuest()
+    {
+      ++this.mRetryStartQuestCnt;
+    }
+
+    public AudienceStartParam GetStartedParam()
+    {
+      return this.mStartedParam;
+    }
+
+    public JSON_MyPhotonRoomParam GetRoomParam()
+    {
+      return this.mRoomParam;
+    }
+
+    public SceneBattle.MultiPlayRecvData GetData()
+    {
+      if (this.mReadCnt >= this.LogLength)
+        return (SceneBattle.MultiPlayRecvData) null;
+      List<SceneBattle.MultiPlayRecvData> multiPlayRecvDataList = new List<SceneBattle.MultiPlayRecvData>();
+      using (Dictionary<int, List<SceneBattle.MultiPlayRecvData>>.KeyCollection.Enumerator enumerator = this.mTurnLog.Keys.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+        {
+          int current = enumerator.Current;
+          multiPlayRecvDataList.AddRange((IEnumerable<SceneBattle.MultiPlayRecvData>) this.mTurnLog[current]);
+        }
+      }
+      return multiPlayRecvDataList[this.mReadCnt++];
+    }
+
+    public void Restore()
+    {
+      if (this.mReadCnt <= 0)
+        return;
+      --this.mReadCnt;
+    }
+
+    public void Reset()
+    {
+      if (this.mTurnLog == null)
+        this.mTurnLog = new Dictionary<int, List<SceneBattle.MultiPlayRecvData>>();
+      this.mTurnLog.Clear();
+      this.mStartedParam = (AudienceStartParam) null;
+      this.mRoomParam = (JSON_MyPhotonRoomParam) null;
+      this.mNonAnalyzeLog = (string) null;
+      this.mReadCnt = 0;
+      this.mRetryStartQuestCnt = 0;
+      this.mDownloadLogger = (DownloadLogger) null;
+      this.mDownloadLogger = new DownloadLogger();
+      this.mDownloadLogger.Manager = this;
+      this.mState = VersusAudienceManager.CONNECT_STATE.REQ;
+    }
+
+    public void Add(string data)
+    {
+      this.Analyze(data);
+      this.mState = VersusAudienceManager.CONNECT_STATE.CONNECTED;
+      this.mNoneConnectedTime = 0.0f;
+    }
+
+    public void Disconnect()
+    {
+      this.mState = VersusAudienceManager.CONNECT_STATE.NONE;
+    }
+
+    public void FinishLoad()
+    {
+      this.mSkipReadMax = this.LogLength;
+    }
+
+    public void Update()
+    {
+      if (this.mState != VersusAudienceManager.CONNECT_STATE.CONNECTED)
+        return;
+      this.mNoneConnectedTime += Time.get_deltaTime();
+      if ((double) this.mNoneConnectedTime < (double) VersusAudienceManager.CONNECTTIME_MAX)
+        return;
+      this.mState = VersusAudienceManager.CONNECT_STATE.NONE;
+    }
+
+    public void ResetTime()
+    {
+      this.mNoneConnectedTime = 0.0f;
+      this.mState = VersusAudienceManager.CONNECT_STATE.REQ;
+    }
+
+    public bool SkipMode
+    {
+      set
+      {
+        this.mSkipLog = value;
+      }
+    }
+
+    public bool IsSkipEnd
+    {
+      get
+      {
+        if (this.mSkipLog)
+          return this.mSkipReadMax == this.mReadCnt;
+        return true;
+      }
+    }
+
+    public bool IsEnd
+    {
+      get
+      {
+        if (Network.IsStreamConnecting || this.mReadCnt != this.LogLength)
+          return Network.IsError;
+        return true;
+      }
+    }
+
+    private enum CONNECT_STATE
+    {
+      NONE,
+      REQ,
+      CONNECTED,
+    }
+  }
+}

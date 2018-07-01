@@ -1,13 +1,16 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ECommonType
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    public enum ECommonType : byte
-    {
-        Graph = 0,
-        Piece = 1,
-        Soul = 2,
-        Num = 3
-    }
+  public enum ECommonType : byte
+  {
+    Graph,
+    Piece,
+    Soul,
+    Num,
+  }
 }
-

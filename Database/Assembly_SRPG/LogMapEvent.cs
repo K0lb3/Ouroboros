@@ -1,61 +1,34 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.LogMapEvent
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
+  public class LogMapEvent : BattleLog
+  {
+    public BuffBit buff = new BuffBit();
+    public BuffBit debuff = new BuffBit();
+    public Unit self;
+    public Unit target;
+    public EEventType type;
+    public EEventGimmick gimmick;
+    public int heal;
 
-    public class LogMapEvent : BattleLog
+    public bool IsBuffEffect()
     {
-        public Unit self;
-        public Unit target;
-        public EEventType type;
-        public EEventGimmick gimmick;
-        public int heal;
-        public BuffBit buff;
-        public BuffBit debuff;
-
-        public LogMapEvent()
-        {
-            this.buff = new BuffBit();
-            this.debuff = new BuffBit();
-            base..ctor();
-            return;
-        }
-
-        public bool IsBuffEffect()
-        {
-            int num;
-            int num2;
-            num = 0;
-            goto Label_001F;
-        Label_0007:
-            if (this.buff.bits[num] == null)
-            {
-                goto Label_001B;
-            }
-            return 1;
-        Label_001B:
-            num += 1;
-        Label_001F:
-            if (num < ((int) this.buff.bits.Length))
-            {
-                goto Label_0007;
-            }
-            num2 = 0;
-            goto Label_0051;
-        Label_0039:
-            if (this.debuff.bits[num2] == null)
-            {
-                goto Label_004D;
-            }
-            return 1;
-        Label_004D:
-            num2 += 1;
-        Label_0051:
-            if (num2 < ((int) this.debuff.bits.Length))
-            {
-                goto Label_0039;
-            }
-            return 0;
-        }
+      for (int index = 0; index < this.buff.bits.Length; ++index)
+      {
+        if (this.buff.bits[index] != 0)
+          return true;
+      }
+      for (int index = 0; index < this.debuff.bits.Length; ++index)
+      {
+        if (this.debuff.bits[index] != 0)
+          return true;
+      }
+      return false;
     }
+  }
 }
-

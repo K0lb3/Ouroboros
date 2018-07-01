@@ -1,225 +1,155 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ShopSellSelectNumWindow
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
-    using UnityEngine.Events;
-    using UnityEngine.UI;
+  [FlowNode.Pin(101, "キャンセル", FlowNode.PinTypes.Output, 11)]
+  [FlowNode.Pin(100, "決定", FlowNode.PinTypes.Output, 10)]
+  [FlowNode.Pin(1, "Refresh", FlowNode.PinTypes.Input, 1)]
+  public class ShopSellSelectNumWindow : MonoBehaviour, IFlowInterface
+  {
+    public Text TxtTitle;
+    public Text TxtSellItemPriceStr;
+    public Text TxtSellNumStr;
+    public Text TxtSellTotalPriceStr;
+    public Text TxtDecide;
+    public Slider SellNumSlider;
+    public Button BtnDecide;
+    public Button BtnCancel;
+    public Button BtnPlus;
+    public Button BtnMinus;
+    private int mSaveSellNum;
 
-    [Pin(1, "Refresh", 0, 1), Pin(100, "決定", 1, 10), Pin(0x65, "キャンセル", 1, 11)]
-    public class ShopSellSelectNumWindow : MonoBehaviour, IFlowInterface
+    public ShopSellSelectNumWindow()
     {
-        public Text TxtTitle;
-        public Text TxtSellItemPriceStr;
-        public Text TxtSellNumStr;
-        public Text TxtSellTotalPriceStr;
-        public Text TxtDecide;
-        public Slider SellNumSlider;
-        public Button BtnDecide;
-        public Button BtnCancel;
-        public Button BtnPlus;
-        public Button BtnMinus;
-        private int mSaveSellNum;
-
-        public ShopSellSelectNumWindow()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void Activated(int pinID)
-        {
-            if (pinID != 1)
-            {
-                goto Label_000D;
-            }
-            this.Refresh();
-        Label_000D:
-            return;
-        }
-
-        private void Awake()
-        {
-        }
-
-        private void OnAddNum()
-        {
-            SellItem item;
-            item = GlobalVars.SelectSellItem;
-            if (item != null)
-            {
-                goto Label_000D;
-            }
-            return;
-        Label_000D:
-            if (item.num >= item.item.Num)
-            {
-                goto Label_0031;
-            }
-            item.num += 1;
-        Label_0031:
-            if ((this.SellNumSlider != null) == null)
-            {
-                goto Label_0054;
-            }
-            this.SellNumSlider.set_value((float) item.num);
-        Label_0054:
-            return;
-        }
-
-        private void OnCancel()
-        {
-            GlobalVars.SelectSellItem.num = this.mSaveSellNum;
-            FlowNode_GameObject.ActivateOutputLinks(this, 0x65);
-            return;
-        }
-
-        private void OnDecide()
-        {
-            SellItem item;
-            item = GlobalVars.SelectSellItem;
-            if (item.num <= 0)
-            {
-                goto Label_0032;
-            }
-            if (GlobalVars.SellItemList.Contains(item) != null)
-            {
-                goto Label_004C;
-            }
-            GlobalVars.SellItemList.Add(item);
-            goto Label_004C;
-        Label_0032:
-            item.index = -1;
-            item.num = 0;
-            GlobalVars.SellItemList.Remove(item);
-        Label_004C:
-            FlowNode_GameObject.ActivateOutputLinks(this, 100);
-            return;
-        }
-
-        private void OnRemoveNum()
-        {
-            SellItem item;
-            item = GlobalVars.SelectSellItem;
-            if (item != null)
-            {
-                goto Label_000D;
-            }
-            return;
-        Label_000D:
-            if (item.num <= 0)
-            {
-                goto Label_0027;
-            }
-            item.num -= 1;
-        Label_0027:
-            if ((this.SellNumSlider != null) == null)
-            {
-                goto Label_004A;
-            }
-            this.SellNumSlider.set_value((float) item.num);
-        Label_004A:
-            return;
-        }
-
-        private void OnSellNumChanged(float value)
-        {
-            SellItem item;
-            item = GlobalVars.SelectSellItem;
-            if (item != null)
-            {
-                goto Label_000D;
-            }
-            return;
-        Label_000D:
-            item.num = (int) value;
-            GameParameter.UpdateAll(base.get_gameObject());
-            return;
-        }
-
-        private void Refresh()
-        {
-            SellItem item;
-            item = GlobalVars.SelectSellItem;
-            if (item != null)
-            {
-                goto Label_000D;
-            }
-            return;
-        Label_000D:
-            if ((this.SellNumSlider != null) == null)
-            {
-                goto Label_0073;
-            }
-            this.SellNumSlider.get_onValueChanged().RemoveAllListeners();
-            this.SellNumSlider.set_maxValue((float) item.item.Num);
-            this.SellNumSlider.get_onValueChanged().AddListener(new UnityAction<float>(this, this.OnSellNumChanged));
-            this.SellNumSlider.set_value((float) item.num);
-        Label_0073:
-            this.mSaveSellNum = item.num;
-            DataSource.Bind<SellItem>(base.get_gameObject(), item);
-            GameParameter.UpdateAll(base.get_gameObject());
-            return;
-        }
-
-        private void Start()
-        {
-            if ((this.TxtTitle != null) == null)
-            {
-                goto Label_0026;
-            }
-            this.TxtTitle.set_text(LocalizedText.Get("sys.SHOP_SELL_SELECTNUM_TITLE"));
-        Label_0026:
-            if ((this.TxtSellItemPriceStr != null) == null)
-            {
-                goto Label_004C;
-            }
-            this.TxtSellItemPriceStr.set_text(LocalizedText.Get("sys.SELL_PRICE"));
-        Label_004C:
-            if ((this.TxtSellNumStr != null) == null)
-            {
-                goto Label_0072;
-            }
-            this.TxtSellNumStr.set_text(LocalizedText.Get("sys.SELL_NUM"));
-        Label_0072:
-            if ((this.TxtSellTotalPriceStr != null) == null)
-            {
-                goto Label_0098;
-            }
-            this.TxtSellTotalPriceStr.set_text(LocalizedText.Get("sys.SELL_PRICE"));
-        Label_0098:
-            if ((this.TxtDecide != null) == null)
-            {
-                goto Label_00BE;
-            }
-            this.TxtDecide.set_text(LocalizedText.Get("sys.CMD_DECIDE"));
-        Label_00BE:
-            if ((this.BtnDecide != null) == null)
-            {
-                goto Label_00EB;
-            }
-            this.BtnDecide.get_onClick().AddListener(new UnityAction(this, this.OnDecide));
-        Label_00EB:
-            if ((this.BtnCancel != null) == null)
-            {
-                goto Label_0118;
-            }
-            this.BtnCancel.get_onClick().AddListener(new UnityAction(this, this.OnCancel));
-        Label_0118:
-            if ((this.BtnPlus != null) == null)
-            {
-                goto Label_0145;
-            }
-            this.BtnPlus.get_onClick().AddListener(new UnityAction(this, this.OnAddNum));
-        Label_0145:
-            if ((this.BtnMinus != null) == null)
-            {
-                goto Label_0172;
-            }
-            this.BtnMinus.get_onClick().AddListener(new UnityAction(this, this.OnRemoveNum));
-        Label_0172:
-            this.Refresh();
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Awake()
+    {
+    }
+
+    private void Start()
+    {
+      if (Object.op_Inequality((Object) this.TxtTitle, (Object) null))
+        this.TxtTitle.set_text(LocalizedText.Get("sys.SHOP_SELL_SELECTNUM_TITLE"));
+      if (Object.op_Inequality((Object) this.TxtSellItemPriceStr, (Object) null))
+        this.TxtSellItemPriceStr.set_text(LocalizedText.Get("sys.SELL_PRICE"));
+      if (Object.op_Inequality((Object) this.TxtSellNumStr, (Object) null))
+        this.TxtSellNumStr.set_text(LocalizedText.Get("sys.SELL_NUM"));
+      if (Object.op_Inequality((Object) this.TxtSellTotalPriceStr, (Object) null))
+        this.TxtSellTotalPriceStr.set_text(LocalizedText.Get("sys.SELL_PRICE"));
+      if (Object.op_Inequality((Object) this.TxtDecide, (Object) null))
+        this.TxtDecide.set_text(LocalizedText.Get("sys.CMD_DECIDE"));
+      if (Object.op_Inequality((Object) this.BtnDecide, (Object) null))
+      {
+        // ISSUE: method pointer
+        ((UnityEvent) this.BtnDecide.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OnDecide)));
+      }
+      if (Object.op_Inequality((Object) this.BtnCancel, (Object) null))
+      {
+        // ISSUE: method pointer
+        ((UnityEvent) this.BtnCancel.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OnCancel)));
+      }
+      if (Object.op_Inequality((Object) this.BtnPlus, (Object) null))
+      {
+        // ISSUE: method pointer
+        ((UnityEvent) this.BtnPlus.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OnAddNum)));
+      }
+      if (Object.op_Inequality((Object) this.BtnMinus, (Object) null))
+      {
+        // ISSUE: method pointer
+        ((UnityEvent) this.BtnMinus.get_onClick()).AddListener(new UnityAction((object) this, __methodptr(OnRemoveNum)));
+      }
+      this.Refresh();
+    }
+
+    public void Activated(int pinID)
+    {
+      if (pinID != 1)
+        return;
+      this.Refresh();
+    }
+
+    private void OnAddNum()
+    {
+      SellItem selectSellItem = GlobalVars.SelectSellItem;
+      if (selectSellItem == null)
+        return;
+      if (selectSellItem.num < selectSellItem.item.Num)
+        ++selectSellItem.num;
+      if (!Object.op_Inequality((Object) this.SellNumSlider, (Object) null))
+        return;
+      this.SellNumSlider.set_value((float) selectSellItem.num);
+    }
+
+    private void OnRemoveNum()
+    {
+      SellItem selectSellItem = GlobalVars.SelectSellItem;
+      if (selectSellItem == null)
+        return;
+      if (selectSellItem.num > 0)
+        --selectSellItem.num;
+      if (!Object.op_Inequality((Object) this.SellNumSlider, (Object) null))
+        return;
+      this.SellNumSlider.set_value((float) selectSellItem.num);
+    }
+
+    private void Refresh()
+    {
+      SellItem selectSellItem = GlobalVars.SelectSellItem;
+      if (selectSellItem == null)
+        return;
+      if (Object.op_Inequality((Object) this.SellNumSlider, (Object) null))
+      {
+        ((UnityEventBase) this.SellNumSlider.get_onValueChanged()).RemoveAllListeners();
+        this.SellNumSlider.set_maxValue((float) selectSellItem.item.Num);
+        // ISSUE: method pointer
+        ((UnityEvent<float>) this.SellNumSlider.get_onValueChanged()).AddListener(new UnityAction<float>((object) this, __methodptr(OnSellNumChanged)));
+        this.SellNumSlider.set_value((float) selectSellItem.num);
+      }
+      this.mSaveSellNum = selectSellItem.num;
+      DataSource.Bind<SellItem>(((Component) this).get_gameObject(), selectSellItem);
+      GameParameter.UpdateAll(((Component) this).get_gameObject());
+    }
+
+    private void OnSellNumChanged(float value)
+    {
+      SellItem selectSellItem = GlobalVars.SelectSellItem;
+      if (selectSellItem == null)
+        return;
+      selectSellItem.num = (int) value;
+      GameParameter.UpdateAll(((Component) this).get_gameObject());
+    }
+
+    private void OnDecide()
+    {
+      SellItem selectSellItem = GlobalVars.SelectSellItem;
+      if (selectSellItem.num > 0)
+      {
+        if (!GlobalVars.SellItemList.Contains(selectSellItem))
+          GlobalVars.SellItemList.Add(selectSellItem);
+      }
+      else
+      {
+        selectSellItem.index = -1;
+        selectSellItem.num = 0;
+        GlobalVars.SellItemList.Remove(selectSellItem);
+      }
+      FlowNode_GameObject.ActivateOutputLinks((Component) this, 100);
+    }
+
+    private void OnCancel()
+    {
+      GlobalVars.SelectSellItem.num = this.mSaveSellNum;
+      FlowNode_GameObject.ActivateOutputLinks((Component) this, 101);
+    }
+  }
+}

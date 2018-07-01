@@ -1,127 +1,95 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.RankingQuestButton
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
-    using UnityEngine.UI;
+  [FlowNode.Pin(0, "Set ranking quest", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(100, "Success", FlowNode.PinTypes.Output, 100)]
+  public class RankingQuestButton : MonoBehaviour, IGameParameter, IFlowInterface
+  {
+    private const int PERIOD_STATE_ICON_INDEX_OPEN = 0;
+    private const int PERIOD_STATE_ICON_INDEX_WAIT = 1;
+    private const int PERIOD_STATE_ICON_INDEX_VISIBLE = 2;
+    [SerializeField]
+    private ImageArray m_PeriodStateIcon;
+    [SerializeField]
+    private Text m_Time;
 
-    [Pin(100, "Success", 1, 100), Pin(0, "Set ranking quest", 0, 0)]
-    public class RankingQuestButton : MonoBehaviour, IGameParameter, IFlowInterface
+    public RankingQuestButton()
     {
-        private const int PERIOD_STATE_ICON_INDEX_OPEN = 0;
-        private const int PERIOD_STATE_ICON_INDEX_WAIT = 1;
-        private const int PERIOD_STATE_ICON_INDEX_VISIBLE = 2;
-        [SerializeField]
-        private ImageArray m_PeriodStateIcon;
-        [SerializeField]
-        private Text m_Time;
-
-        public RankingQuestButton()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void Activated(int pinID)
-        {
-            RankingQuestParam param;
-            if (pinID != null)
-            {
-                goto Label_0032;
-            }
-            param = DataSource.FindDataOfClass<RankingQuestParam>(base.get_gameObject(), null);
-            if (param == null)
-            {
-                goto Label_0032;
-            }
-            GlobalVars.SelectedQuestID = param.iname;
-            GlobalVars.SelectedRankingQuestParam = param;
-            FlowNode_GameObject.ActivateOutputLinks(this, 100);
-        Label_0032:
-            return;
-        }
-
-        private void Start()
-        {
-            this.UpdateValue();
-            return;
-        }
-
-        public unsafe void UpdateValue()
-        {
-            object[] objArray3;
-            object[] objArray2;
-            object[] objArray1;
-            RankingQuestParam param;
-            DateTime time;
-            TimeSpan span;
-            param = DataSource.FindDataOfClass<RankingQuestParam>(base.get_gameObject(), null);
-            if (param != null)
-            {
-                goto Label_0024;
-            }
-            base.get_gameObject().SetActive(0);
-            goto Label_01B6;
-        Label_0024:
-            time = TimeManager.ServerTime;
-            base.get_gameObject().SetActive(1);
-            if (param.scheduleParam.IsAvailablePeriod(time) == null)
-            {
-                goto Label_0155;
-            }
-            if ((this.m_PeriodStateIcon != null) == null)
-            {
-                goto Label_0064;
-            }
-            this.m_PeriodStateIcon.ImageIndex = 0;
-        Label_0064:
-            span = param.scheduleParam.endAt - time;
-            if ((this.m_Time != null) == null)
-            {
-                goto Label_01B6;
-            }
-            if (&span.TotalDays < 1.0)
-            {
-                goto Label_00CB;
-            }
-            objArray1 = new object[] { (int) &span.Days };
-            this.m_Time.set_text(LocalizedText.Get("sys.RANKING_QUEST_QUEST_BANNER_DAY", objArray1));
-            goto Label_013F;
-        Label_00CB:
-            if (&span.TotalHours < 1.0)
-            {
-                goto Label_010F;
-            }
-            objArray2 = new object[] { (int) &span.Hours };
-            this.m_Time.set_text(LocalizedText.Get("sys.RANKING_QUEST_QUEST_BANNER_HOUR", objArray2));
-            goto Label_013F;
-        Label_010F:
-            objArray3 = new object[] { (int) Mathf.Max(&span.Minutes, 0) };
-            this.m_Time.set_text(LocalizedText.Get("sys.RANKING_QUEST_QUEST_BANNER_MINUTE", objArray3));
-        Label_013F:
-            this.m_Time.get_gameObject().SetActive(1);
-            goto Label_01B6;
-        Label_0155:
-            if (param.scheduleParam.IsAvailableVisiblePeriod(time) == null)
-            {
-                goto Label_01AA;
-            }
-            if ((this.m_PeriodStateIcon != null) == null)
-            {
-                goto Label_0183;
-            }
-            this.m_PeriodStateIcon.ImageIndex = 2;
-        Label_0183:
-            if ((this.m_Time != null) == null)
-            {
-                goto Label_01B6;
-            }
-            this.m_Time.get_gameObject().SetActive(0);
-            goto Label_01B6;
-        Label_01AA:
-            base.get_gameObject().SetActive(0);
-        Label_01B6:
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Start()
+    {
+      this.UpdateValue();
+    }
+
+    public void Activated(int pinID)
+    {
+      if (pinID != 0)
+        return;
+      RankingQuestParam dataOfClass = DataSource.FindDataOfClass<RankingQuestParam>(((Component) this).get_gameObject(), (RankingQuestParam) null);
+      if (dataOfClass == null)
+        return;
+      GlobalVars.SelectedQuestID = dataOfClass.iname;
+      GlobalVars.SelectedRankingQuestParam = dataOfClass;
+      FlowNode_GameObject.ActivateOutputLinks((Component) this, 100);
+    }
+
+    public void UpdateValue()
+    {
+      RankingQuestParam dataOfClass = DataSource.FindDataOfClass<RankingQuestParam>(((Component) this).get_gameObject(), (RankingQuestParam) null);
+      if (dataOfClass == null)
+      {
+        ((Component) this).get_gameObject().SetActive(false);
+      }
+      else
+      {
+        DateTime serverTime = TimeManager.ServerTime;
+        ((Component) this).get_gameObject().SetActive(true);
+        if (dataOfClass.scheduleParam.IsAvailablePeriod(serverTime))
+        {
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_PeriodStateIcon, (UnityEngine.Object) null))
+            this.m_PeriodStateIcon.ImageIndex = 0;
+          TimeSpan timeSpan = dataOfClass.scheduleParam.endAt - serverTime;
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_Time, (UnityEngine.Object) null))
+            return;
+          if (timeSpan.TotalDays >= 1.0)
+            this.m_Time.set_text(LocalizedText.Get("sys.RANKING_QUEST_QUEST_BANNER_DAY", new object[1]
+            {
+              (object) timeSpan.Days
+            }));
+          else if (timeSpan.TotalHours >= 1.0)
+            this.m_Time.set_text(LocalizedText.Get("sys.RANKING_QUEST_QUEST_BANNER_HOUR", new object[1]
+            {
+              (object) timeSpan.Hours
+            }));
+          else
+            this.m_Time.set_text(LocalizedText.Get("sys.RANKING_QUEST_QUEST_BANNER_MINUTE", new object[1]
+            {
+              (object) Mathf.Max(timeSpan.Minutes, 0)
+            }));
+          ((Component) this.m_Time).get_gameObject().SetActive(true);
+        }
+        else if (dataOfClass.scheduleParam.IsAvailableVisiblePeriod(serverTime))
+        {
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_PeriodStateIcon, (UnityEngine.Object) null))
+            this.m_PeriodStateIcon.ImageIndex = 2;
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_Time, (UnityEngine.Object) null))
+            return;
+          ((Component) this.m_Time).get_gameObject().SetActive(false);
+        }
+        else
+          ((Component) this).get_gameObject().SetActive(false);
+      }
+    }
+  }
+}

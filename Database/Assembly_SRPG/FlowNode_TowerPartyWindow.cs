@@ -1,84 +1,58 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_TowerPartyWindow
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
+  [FlowNode.NodeType("UI/TowerPartyWindow")]
+  public class FlowNode_TowerPartyWindow : FlowNode_GUI
+  {
+    public bool ShowQuestInfo = true;
+    public PartyWindow2.EditPartyTypes PartyType;
+    public FlowNode_TowerPartyWindow.TriBool BackButton;
+    public FlowNode_TowerPartyWindow.TriBool ForwardButton;
+    public FlowNode_TowerPartyWindow.TriBool ShowRaidInfo;
 
-    [NodeType("UI/TowerPartyWindow")]
-    public class FlowNode_TowerPartyWindow : FlowNode_GUI
+    protected override void OnInstanceCreate()
     {
-        public PartyWindow2.EditPartyTypes PartyType;
-        public bool ShowQuestInfo;
-        public TriBool BackButton;
-        public TriBool ForwardButton;
-        public TriBool ShowRaidInfo;
-
-        public FlowNode_TowerPartyWindow()
-        {
-            this.ShowQuestInfo = 1;
-            base..ctor();
-            return;
-        }
-
-        protected override void OnCreatePinActive()
-        {
-            TowerPartyWindow window;
-            if ((base.Instance != null) == null)
-            {
-                goto Label_003C;
-            }
-            window = base.Instance.GetComponent<TowerPartyWindow>();
-            if ((window != null) == null)
-            {
-                goto Label_003B;
-            }
-            window.Reopen(0);
-            GameParameter.UpdateAll(window.get_gameObject());
-        Label_003B:
-            return;
-        Label_003C:
-            base.OnCreatePinActive();
-            return;
-        }
-
-        protected override void OnInstanceCreate()
-        {
-            TowerPartyWindow window;
-            base.OnInstanceCreate();
-            window = base.Instance.GetComponentInChildren<TowerPartyWindow>();
-            if ((window == null) == null)
-            {
-                goto Label_001F;
-            }
-            return;
-        Label_001F:
-            window.PartyType = this.PartyType;
-            window.ShowQuestInfo = this.ShowQuestInfo;
-            if (this.BackButton == null)
-            {
-                goto Label_0051;
-            }
-            window.ShowBackButton = this.BackButton == 2;
-        Label_0051:
-            if (this.ForwardButton == null)
-            {
-                goto Label_006B;
-            }
-            window.ShowForwardButton = this.ForwardButton == 2;
-        Label_006B:
-            if (this.ShowRaidInfo == null)
-            {
-                goto Label_0085;
-            }
-            window.ShowRaidInfo = this.ShowRaidInfo == 2;
-        Label_0085:
-            return;
-        }
-
-        public enum TriBool
-        {
-            Unchanged,
-            False,
-            True
-        }
+      base.OnInstanceCreate();
+      TowerPartyWindow componentInChildren = (TowerPartyWindow) this.Instance.GetComponentInChildren<TowerPartyWindow>();
+      if (Object.op_Equality((Object) componentInChildren, (Object) null))
+        return;
+      componentInChildren.PartyType = this.PartyType;
+      componentInChildren.ShowQuestInfo = this.ShowQuestInfo;
+      if (this.BackButton != FlowNode_TowerPartyWindow.TriBool.Unchanged)
+        componentInChildren.ShowBackButton = this.BackButton == FlowNode_TowerPartyWindow.TriBool.True;
+      if (this.ForwardButton != FlowNode_TowerPartyWindow.TriBool.Unchanged)
+        componentInChildren.ShowForwardButton = this.ForwardButton == FlowNode_TowerPartyWindow.TriBool.True;
+      if (this.ShowRaidInfo == FlowNode_TowerPartyWindow.TriBool.Unchanged)
+        return;
+      componentInChildren.ShowRaidInfo = this.ShowRaidInfo == FlowNode_TowerPartyWindow.TriBool.True;
     }
-}
 
+    protected override void OnCreatePinActive()
+    {
+      if (Object.op_Inequality((Object) this.Instance, (Object) null))
+      {
+        TowerPartyWindow component = (TowerPartyWindow) this.Instance.GetComponent<TowerPartyWindow>();
+        if (!Object.op_Inequality((Object) component, (Object) null))
+          return;
+        component.Reopen();
+        GameParameter.UpdateAll(((Component) component).get_gameObject());
+      }
+      else
+        base.OnCreatePinActive();
+    }
+
+    public enum TriBool
+    {
+      Unchanged,
+      False,
+      True,
+    }
+  }
+}

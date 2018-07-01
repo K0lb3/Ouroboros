@@ -1,55 +1,48 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ItemListDetailWindow
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using UnityEngine;
-
-    [Pin(1, "Reload", 0, 1)]
-    public class ItemListDetailWindow : MonoBehaviour, IFlowInterface
+  [FlowNode.Pin(1, "Reload", FlowNode.PinTypes.Input, 1)]
+  public class ItemListDetailWindow : MonoBehaviour, IFlowInterface
+  {
+    public ItemListDetailWindow()
     {
-        public ItemListDetailWindow()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void Activated(int pinID)
-        {
-            this.Refresh();
-            return;
-        }
-
-        private void Refresh()
-        {
-            ItemData data;
-            ItemParam param;
-            data = MonoSingleton<GameManager>.Instance.Player.FindItemDataByItemID(GlobalVars.SelectedItemID);
-            if (data == null)
-            {
-                goto Label_002C;
-            }
-            DataSource.Bind<ItemData>(base.get_gameObject(), data);
-            goto Label_0054;
-        Label_002C:
-            param = MonoSingleton<GameManager>.Instance.MasterParam.GetItemParam(GlobalVars.SelectedItemID);
-            if (param != null)
-            {
-                goto Label_0048;
-            }
-            return;
-        Label_0048:
-            DataSource.Bind<ItemParam>(base.get_gameObject(), param);
-        Label_0054:
-            GameParameter.UpdateAll(base.get_gameObject());
-            base.set_enabled(1);
-            return;
-        }
-
-        private void Start()
-        {
-            this.Refresh();
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    public void Activated(int pinID)
+    {
+      this.Refresh();
+    }
+
+    private void Start()
+    {
+      this.Refresh();
+    }
+
+    private void Refresh()
+    {
+      ItemData itemDataByItemId = MonoSingleton<GameManager>.Instance.Player.FindItemDataByItemID(GlobalVars.SelectedItemID);
+      if (itemDataByItemId != null)
+      {
+        DataSource.Bind<ItemData>(((Component) this).get_gameObject(), itemDataByItemId);
+      }
+      else
+      {
+        ItemParam itemParam = MonoSingleton<GameManager>.Instance.MasterParam.GetItemParam(GlobalVars.SelectedItemID);
+        if (itemParam == null)
+          return;
+        DataSource.Bind<ItemParam>(((Component) this).get_gameObject(), itemParam);
+      }
+      GameParameter.UpdateAll(((Component) this).get_gameObject());
+      ((Behaviour) this).set_enabled(true);
+    }
+  }
+}

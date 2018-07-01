@@ -1,278 +1,228 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_ReqWishList
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+using System.Text;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Text;
-    using UnityEngine;
+  [FlowNode.Pin(100, "Get", FlowNode.PinTypes.Input, 100)]
+  [FlowNode.Pin(110, "ウィッシュリスト取得完了", FlowNode.PinTypes.Output, 110)]
+  [FlowNode.Pin(120, "ウィッシュリスト取得失敗", FlowNode.PinTypes.Output, 120)]
+  [FlowNode.Pin(200, "Set", FlowNode.PinTypes.Input, 200)]
+  [FlowNode.Pin(210, "ウィッシュリスト設定完了", FlowNode.PinTypes.Output, 210)]
+  [FlowNode.Pin(220, "ウィッシュリスト設定失敗", FlowNode.PinTypes.Output, 220)]
+  [FlowNode.NodeType("System/WebApi/WishList", 32741)]
+  public class FlowNode_ReqWishList : FlowNode_Network
+  {
+    private FlowNode_ReqWishList.ApiBase m_Api;
 
-    [Pin(110, "ウィッシュリスト取得完了", 1, 110), Pin(200, "Set", 0, 200), Pin(210, "ウィッシュリスト設定完了", 1, 210), Pin(220, "ウィッシュリスト設定失敗", 1, 220), NodeType("System/WebApi/WishList", 0x7fe5), Pin(100, "Get", 0, 100), Pin(120, "ウィッシュリスト取得失敗", 1, 120)]
-    public class FlowNode_ReqWishList : FlowNode_Network
+    public override void OnActivate(int pinID)
     {
-        private ApiBase m_Api;
-
-        public FlowNode_ReqWishList()
+      if (this.m_Api != null)
+      {
+        DebugUtility.LogError("同時に複数の通信が入ると駄目！");
+      }
+      else
+      {
+        switch (pinID)
         {
-            base..ctor();
-            return;
+          case 100:
+            this.m_Api = (FlowNode_ReqWishList.ApiBase) new FlowNode_ReqWishList.Api_WishList(this);
+            break;
+          case 200:
+            FriendPresentRootWindow.WantContent.ItemAccessor clickItem1 = FriendPresentRootWindow.WantContent.clickItem;
+            FriendPresentWantWindow.Content.ItemAccessor clickItem2 = FriendPresentWantWindow.Content.clickItem;
+            if (clickItem1 != null && clickItem2 != null)
+            {
+              this.m_Api = (FlowNode_ReqWishList.ApiBase) new FlowNode_ReqWishList.Api_WishListSet(this, clickItem2.presentId, clickItem1.priority);
+              break;
+            }
+            break;
         }
-
-        public override void OnActivate(int pinID)
-        {
-            FriendPresentRootWindow.WantContent.ItemAccessor accessor;
-            FriendPresentWantWindow.Content.ItemAccessor accessor2;
-            if (this.m_Api == null)
-            {
-                goto Label_0016;
-            }
-            DebugUtility.LogError("同時に複数の通信が入ると駄目！");
-            return;
-        Label_0016:
-            if (pinID != 100)
-            {
-                goto Label_002F;
-            }
-            this.m_Api = new Api_WishList(this);
-            goto Label_006A;
-        Label_002F:
-            if (pinID != 200)
-            {
-                goto Label_006A;
-            }
-            accessor = FriendPresentRootWindow.WantContent.clickItem;
-            accessor2 = FriendPresentWantWindow.Content.clickItem;
-            if (accessor == null)
-            {
-                goto Label_006A;
-            }
-            if (accessor2 == null)
-            {
-                goto Label_006A;
-            }
-            this.m_Api = new Api_WishListSet(this, accessor2.presentId, accessor.priority);
-        Label_006A:
-            if (this.m_Api == null)
-            {
-                goto Label_0087;
-            }
-            this.m_Api.Start();
-            base.set_enabled(1);
-        Label_0087:
-            return;
-        }
-
-        public override void OnSuccess(WWWResult www)
-        {
-            if (this.m_Api == null)
-            {
-                goto Label_001E;
-            }
-            this.m_Api.Complete(www);
-            this.m_Api = null;
-        Label_001E:
-            return;
-        }
-
-        public class Api_WishList : FlowNode_ReqWishList.ApiBase
-        {
-            public Api_WishList(FlowNode_ReqWishList node)
-            {
-                base..ctor(node);
-                return;
-            }
-
-            public override unsafe void Complete(WWWResult www)
-            {
-                WebAPI.JSON_BodyResponse<FriendPresentWishList.Json[]> response;
-                if (Network.IsError == null)
-                {
-                    goto Label_0016;
-                }
-                base.m_Node.OnFailed();
-                return;
-            Label_0016:
-                DebugMenu.Log("API", this.url + ":" + &www.text);
-                response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<FriendPresentWishList.Json[]>>(&www.text);
-                DebugUtility.Assert((response == null) == 0, "res == null");
-                if (response.body == null)
-                {
-                    goto Label_0070;
-                }
-                MonoSingleton<GameManager>.Instance.Deserialize(response.body);
-            Label_0070:
-                Network.RemoveAPI();
-                this.Success();
-                return;
-            }
-
-            public override void Failed()
-            {
-                base.m_Node.ActivateOutputLinks(120);
-                Network.RemoveAPI();
-                Network.ResetError();
-                base.m_Node.set_enabled(0);
-                return;
-            }
-
-            public override void Success()
-            {
-                base.m_Node.ActivateOutputLinks(110);
-                base.m_Node.set_enabled(0);
-                return;
-            }
-
-            public override string url
-            {
-                get
-                {
-                    return "wishlist";
-                }
-            }
-        }
-
-        public class Api_WishListSet : FlowNode_ReqWishList.ApiBase
-        {
-            private string m_Id;
-            private int m_Priority;
-
-            public Api_WishListSet(FlowNode_ReqWishList node, string iname, int priority)
-            {
-                base..ctor(node);
-                this.m_Id = iname;
-                this.m_Priority = priority;
-                return;
-            }
-
-            public override unsafe void Complete(WWWResult www)
-            {
-                WebAPI.JSON_BodyResponse<Json> response;
-                if (Network.IsError == null)
-                {
-                    goto Label_0016;
-                }
-                base.m_Node.OnFailed();
-                return;
-            Label_0016:
-                DebugMenu.Log("API", this.url + ":" + &www.text);
-                response = JsonUtility.FromJson<WebAPI.JSON_BodyResponse<Json>>(&www.text);
-                DebugUtility.Assert((response == null) == 0, "res == null");
-                if (response.body == null)
-                {
-                    goto Label_008B;
-                }
-                if (response.body.result == null)
-                {
-                    goto Label_008B;
-                }
-                MonoSingleton<GameManager>.Instance.Player.SetWishList(this.m_Id, this.m_Priority);
-            Label_008B:
-                Network.RemoveAPI();
-                this.Success();
-                return;
-            }
-
-            public override void Failed()
-            {
-                base.m_Node.ActivateOutputLinks(220);
-                Network.RemoveAPI();
-                Network.ResetError();
-                base.m_Node.set_enabled(0);
-                return;
-            }
-
-            public override void Success()
-            {
-                base.m_Node.ActivateOutputLinks(210);
-                base.m_Node.set_enabled(0);
-                return;
-            }
-
-            public override string url
-            {
-                get
-                {
-                    return "wishlist/set";
-                }
-            }
-
-            public override string req
-            {
-                get
-                {
-                    StringBuilder builder;
-                    builder = new StringBuilder(0x80);
-                    builder.Append("\"iname\":\"" + this.m_Id + "\"");
-                    builder.Append(",\"priority\":" + ((int) (this.m_Priority + 1)));
-                    return builder.ToString();
-                }
-            }
-
-            [Serializable]
-            public class Json
-            {
-                public bool result;
-
-                public Json()
-                {
-                    base..ctor();
-                    return;
-                }
-            }
-        }
-
-        public class ApiBase
-        {
-            protected FlowNode_ReqWishList m_Node;
-            protected RequestAPI m_Request;
-
-            public ApiBase(FlowNode_ReqWishList node)
-            {
-                base..ctor();
-                this.m_Node = node;
-                return;
-            }
-
-            public virtual void Complete(WWWResult www)
-            {
-            }
-
-            public virtual void Failed()
-            {
-            }
-
-            public virtual void Start()
-            {
-                if (Network.Mode != null)
-                {
-                    goto Label_003C;
-                }
-                this.m_Node.ExecRequest(new RequestAPI(this.url, new Network.ResponseCallback(this.m_Node.ResponseCallback), this.req));
-                goto Label_0042;
-            Label_003C:
-                this.Failed();
-            Label_0042:
-                return;
-            }
-
-            public virtual void Success()
-            {
-            }
-
-            public virtual string url
-            {
-                get
-                {
-                    return string.Empty;
-                }
-            }
-
-            public virtual string req
-            {
-                get
-                {
-                    return null;
-                }
-            }
-        }
+        if (this.m_Api == null)
+          return;
+        this.m_Api.Start();
+        ((Behaviour) this).set_enabled(true);
+      }
     }
-}
 
+    public override void OnSuccess(WWWResult www)
+    {
+      if (this.m_Api == null)
+        return;
+      this.m_Api.Complete(www);
+      this.m_Api = (FlowNode_ReqWishList.ApiBase) null;
+    }
+
+    public class ApiBase
+    {
+      protected FlowNode_ReqWishList m_Node;
+      protected RequestAPI m_Request;
+
+      public ApiBase(FlowNode_ReqWishList node)
+      {
+        this.m_Node = node;
+      }
+
+      public virtual string url
+      {
+        get
+        {
+          return string.Empty;
+        }
+      }
+
+      public virtual string req
+      {
+        get
+        {
+          return (string) null;
+        }
+      }
+
+      public virtual void Success()
+      {
+      }
+
+      public virtual void Failed()
+      {
+      }
+
+      public virtual void Complete(WWWResult www)
+      {
+      }
+
+      public virtual void Start()
+      {
+        if (Network.Mode == Network.EConnectMode.Online)
+          this.m_Node.ExecRequest((WebAPI) new RequestAPI(this.url, new Network.ResponseCallback(((FlowNode_Network) this.m_Node).ResponseCallback), this.req));
+        else
+          this.Failed();
+      }
+    }
+
+    public class Api_WishList : FlowNode_ReqWishList.ApiBase
+    {
+      public Api_WishList(FlowNode_ReqWishList node)
+        : base(node)
+      {
+      }
+
+      public override string url
+      {
+        get
+        {
+          return "wishlist";
+        }
+      }
+
+      public override void Success()
+      {
+        this.m_Node.ActivateOutputLinks(110);
+        ((Behaviour) this.m_Node).set_enabled(false);
+      }
+
+      public override void Failed()
+      {
+        this.m_Node.ActivateOutputLinks(120);
+        Network.RemoveAPI();
+        Network.ResetError();
+        ((Behaviour) this.m_Node).set_enabled(false);
+      }
+
+      public override void Complete(WWWResult www)
+      {
+        if (Network.IsError)
+        {
+          this.m_Node.OnFailed();
+        }
+        else
+        {
+          DebugMenu.Log("API", this.url + ":" + www.text);
+          WebAPI.JSON_BodyResponse<FriendPresentWishList.Json[]> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<FriendPresentWishList.Json[]>>(www.text);
+          DebugUtility.Assert(jsonObject != null, "res == null");
+          if (jsonObject.body != null)
+            MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body);
+          Network.RemoveAPI();
+          this.Success();
+        }
+      }
+    }
+
+    public class Api_WishListSet : FlowNode_ReqWishList.ApiBase
+    {
+      private string m_Id;
+      private int m_Priority;
+
+      public Api_WishListSet(FlowNode_ReqWishList node, string iname, int priority)
+        : base(node)
+      {
+        this.m_Id = iname;
+        this.m_Priority = priority;
+      }
+
+      public override string url
+      {
+        get
+        {
+          return "wishlist/set";
+        }
+      }
+
+      public override string req
+      {
+        get
+        {
+          StringBuilder stringBuilder = new StringBuilder(128);
+          stringBuilder.Append("\"iname\":\"" + this.m_Id + "\"");
+          stringBuilder.Append(",\"priority\":" + (object) (this.m_Priority + 1));
+          return stringBuilder.ToString();
+        }
+      }
+
+      public override void Success()
+      {
+        this.m_Node.ActivateOutputLinks(210);
+        ((Behaviour) this.m_Node).set_enabled(false);
+      }
+
+      public override void Failed()
+      {
+        this.m_Node.ActivateOutputLinks(220);
+        Network.RemoveAPI();
+        Network.ResetError();
+        ((Behaviour) this.m_Node).set_enabled(false);
+      }
+
+      public override void Complete(WWWResult www)
+      {
+        if (Network.IsError)
+        {
+          this.m_Node.OnFailed();
+        }
+        else
+        {
+          DebugMenu.Log("API", this.url + ":" + www.text);
+          WebAPI.JSON_BodyResponse<FlowNode_ReqWishList.Api_WishListSet.Json> jsonBodyResponse = (WebAPI.JSON_BodyResponse<FlowNode_ReqWishList.Api_WishListSet.Json>) JsonUtility.FromJson<WebAPI.JSON_BodyResponse<FlowNode_ReqWishList.Api_WishListSet.Json>>(www.text);
+          DebugUtility.Assert(jsonBodyResponse != null, "res == null");
+          if (jsonBodyResponse.body != null && jsonBodyResponse.body.result)
+            MonoSingleton<GameManager>.Instance.Player.SetWishList(this.m_Id, this.m_Priority);
+          Network.RemoveAPI();
+          this.Success();
+        }
+      }
+
+      [Serializable]
+      public class Json
+      {
+        public bool result;
+      }
+    }
+  }
+}

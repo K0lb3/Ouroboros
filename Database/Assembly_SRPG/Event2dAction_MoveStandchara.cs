@@ -1,113 +1,82 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.Event2dAction_MoveStandchara
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  [EventActionInfo("立ち絵/移動(2D)", "立ち絵を指定した位置に移動させます。", 5592405, 4473992)]
+  public class Event2dAction_MoveStandchara : EventAction
+  {
+    private const float MOVE_TIME = 0.5f;
+    public string CharaID;
+    public float MoveTime;
+    public EventStandChara.PositionTypes MoveTo;
+    private EventStandChara mStandChara;
+    private Vector3 FromPosition;
+    private Vector3 ToPosition;
+    private float offset;
 
-    [EventActionInfo("立ち絵/移動(2D)", "立ち絵を指定した位置に移動させます。", 0x555555, 0x444488)]
-    public class Event2dAction_MoveStandchara : EventAction
+    public override void PreStart()
     {
-        private const float MOVE_TIME = 0.5f;
-        public string CharaID;
-        public float MoveTime;
-        public EventStandChara.PositionTypes MoveTo;
-        private EventStandChara mStandChara;
-        private Vector3 FromPosition;
-        private Vector3 ToPosition;
-        private float offset;
-
-        public Event2dAction_MoveStandchara()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override unsafe void OnActivate()
-        {
-            RectTransform transform;
-            RectTransform transform2;
-            float num;
-            float num2;
-            Rect rect;
-            Rect rect2;
-            Rect rect3;
-            Rect rect4;
-            if ((this.mStandChara == null) == null)
-            {
-                goto Label_0018;
-            }
-            base.ActivateNext();
-            return;
-        Label_0018:
-            if (this.MoveTime > 0f)
-            {
-                goto Label_0033;
-            }
-            this.MoveTime = 0.5f;
-        Label_0033:
-            this.FromPosition = this.mStandChara.get_transform().get_localPosition();
-            transform = this.mStandChara.GetComponent<RectTransform>();
-            transform2 = base.ActiveCanvas.get_transform() as RectTransform;
-            num = (&transform2.get_rect().get_width() / 2f) - (&transform.get_rect().get_width() / 2f);
-            num2 = (&transform2.get_rect().get_width() / 2f) + (&transform.get_rect().get_width() / 2f);
-            if (this.MoveTo != null)
-            {
-                goto Label_00EC;
-            }
-            this.ToPosition = new Vector3(-num, &this.FromPosition.y, &this.FromPosition.z);
-        Label_00EC:
-            if (this.MoveTo != 1)
-            {
-                goto Label_011E;
-            }
-            this.ToPosition = new Vector3(0f, &this.FromPosition.y, &this.FromPosition.z);
-        Label_011E:
-            if (this.MoveTo != 2)
-            {
-                goto Label_014C;
-            }
-            this.ToPosition = new Vector3(num, &this.FromPosition.y, &this.FromPosition.z);
-        Label_014C:
-            if (this.MoveTo != 3)
-            {
-                goto Label_017B;
-            }
-            this.ToPosition = new Vector3(-num2, &this.FromPosition.y, &this.FromPosition.z);
-        Label_017B:
-            if (this.MoveTo != 4)
-            {
-                goto Label_01A9;
-            }
-            this.ToPosition = new Vector3(num2, &this.FromPosition.y, &this.FromPosition.z);
-        Label_01A9:
-            return;
-        }
-
-        public override void PreStart()
-        {
-            if ((this.mStandChara == null) == null)
-            {
-                goto Label_0022;
-            }
-            this.mStandChara = EventStandChara.Find(this.CharaID);
-        Label_0022:
-            return;
-        }
-
-        public override void Update()
-        {
-            this.mStandChara.get_transform().set_localPosition(this.FromPosition + Vector3.Scale(this.ToPosition - this.FromPosition, new Vector3(this.offset, this.offset, this.offset)));
-            this.offset += Time.get_deltaTime() / this.MoveTime;
-            if (this.offset < 1f)
-            {
-                goto Label_0099;
-            }
-            this.offset = 1f;
-            this.mStandChara.get_transform().set_localPosition(this.ToPosition);
-            base.ActivateNext();
-            return;
-        Label_0099:
-            return;
-        }
+      if (!Object.op_Equality((Object) this.mStandChara, (Object) null))
+        return;
+      this.mStandChara = EventStandChara.Find(this.CharaID);
     }
-}
 
+    public override void OnActivate()
+    {
+      if (Object.op_Equality((Object) this.mStandChara, (Object) null))
+      {
+        this.ActivateNext();
+      }
+      else
+      {
+        if ((double) this.MoveTime <= 0.0)
+          this.MoveTime = 0.5f;
+        this.FromPosition = ((Component) this.mStandChara).get_transform().get_localPosition();
+        RectTransform component = (RectTransform) ((Component) this.mStandChara).GetComponent<RectTransform>();
+        RectTransform transform = ((Component) this.ActiveCanvas).get_transform() as RectTransform;
+        Rect rect1 = transform.get_rect();
+        // ISSUE: explicit reference operation
+        double num1 = (double) ((Rect) @rect1).get_width() / 2.0;
+        Rect rect2 = component.get_rect();
+        // ISSUE: explicit reference operation
+        double num2 = (double) ((Rect) @rect2).get_width() / 2.0;
+        float num3 = (float) (num1 - num2);
+        Rect rect3 = transform.get_rect();
+        // ISSUE: explicit reference operation
+        double num4 = (double) ((Rect) @rect3).get_width() / 2.0;
+        Rect rect4 = component.get_rect();
+        // ISSUE: explicit reference operation
+        double num5 = (double) ((Rect) @rect4).get_width() / 2.0;
+        float num6 = (float) (num4 + num5);
+        if (this.MoveTo == EventStandChara.PositionTypes.Left)
+          this.ToPosition = new Vector3(-num3, (float) this.FromPosition.y, (float) this.FromPosition.z);
+        if (this.MoveTo == EventStandChara.PositionTypes.Center)
+          this.ToPosition = new Vector3(0.0f, (float) this.FromPosition.y, (float) this.FromPosition.z);
+        if (this.MoveTo == EventStandChara.PositionTypes.Right)
+          this.ToPosition = new Vector3(num3, (float) this.FromPosition.y, (float) this.FromPosition.z);
+        if (this.MoveTo == EventStandChara.PositionTypes.OverLeft)
+          this.ToPosition = new Vector3(-num6, (float) this.FromPosition.y, (float) this.FromPosition.z);
+        if (this.MoveTo != EventStandChara.PositionTypes.OverRight)
+          return;
+        this.ToPosition = new Vector3(num6, (float) this.FromPosition.y, (float) this.FromPosition.z);
+      }
+    }
+
+    public override void Update()
+    {
+      ((Component) this.mStandChara).get_transform().set_localPosition(Vector3.op_Addition(this.FromPosition, Vector3.Scale(Vector3.op_Subtraction(this.ToPosition, this.FromPosition), new Vector3(this.offset, this.offset, this.offset))));
+      this.offset += Time.get_deltaTime() / this.MoveTime;
+      if ((double) this.offset < 1.0)
+        return;
+      this.offset = 1f;
+      ((Component) this.mStandChara).get_transform().set_localPosition(this.ToPosition);
+      this.ActivateNext();
+    }
+  }
+}

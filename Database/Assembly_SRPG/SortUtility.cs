@@ -1,71 +1,30 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.SortUtility
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System;
+using System.Collections.Generic;
+
+namespace SRPG
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Runtime.CompilerServices;
-
-    public static class SortUtility
+  public static class SortUtility
+  {
+    public static void StableSort<T>(List<T> list, Comparison<T> comparison)
     {
-        public static unsafe void StableSort<T>(List<T> list, Comparison<T> comparison)
-        {
-            List<KeyValuePair<int, T>> list2;
-            int num;
-            int num2;
-            <StableSort>c__AnonStorey1CA<T> storeyca;
-            KeyValuePair<int, T> pair;
-            storeyca = new <StableSort>c__AnonStorey1CA<T>();
-            storeyca.comparison = comparison;
-            list2 = new List<KeyValuePair<int, T>>(list.Count);
-            num = 0;
-            goto Label_0037;
-        Label_0020:
-            list2.Add(new KeyValuePair<int, T>(num, list[num]));
-            num += 1;
-        Label_0037:
-            if (num < list.Count)
-            {
-                goto Label_0020;
-            }
-            list2.Sort(new Comparison<KeyValuePair<int, T>>(storeyca.<>m__71));
-            num2 = 0;
-            goto Label_0077;
-        Label_005C:
-            pair = list2[num2];
-            list[num2] = &pair.Value;
-            num2 += 1;
-        Label_0077:
-            if (num2 < list.Count)
-            {
-                goto Label_005C;
-            }
-            return;
-        }
-
-        [CompilerGenerated]
-        private sealed class <StableSort>c__AnonStorey1CA<T>
-        {
-            internal Comparison<T> comparison;
-
-            public <StableSort>c__AnonStorey1CA()
-            {
-                base..ctor();
-                return;
-            }
-
-            internal unsafe int <>m__71(KeyValuePair<int, T> x, KeyValuePair<int, T> y)
-            {
-                int num;
-                int num2;
-                num = this.comparison(&x.Value, &y.Value);
-                if (num != null)
-                {
-                    goto Label_0037;
-                }
-                num = &&x.Key.CompareTo(&y.Key);
-            Label_0037:
-                return num;
-            }
-        }
+      List<KeyValuePair<int, T>> keyValuePairList = new List<KeyValuePair<int, T>>(list.Count);
+      for (int key = 0; key < list.Count; ++key)
+        keyValuePairList.Add(new KeyValuePair<int, T>(key, list[key]));
+      keyValuePairList.Sort((Comparison<KeyValuePair<int, T>>) ((x, y) =>
+      {
+        int num = comparison(x.Value, y.Value);
+        if (num == 0)
+          num = x.Key.CompareTo(y.Key);
+        return num;
+      }));
+      for (int index = 0; index < list.Count; ++index)
+        list[index] = keyValuePairList[index].Value;
     }
+  }
 }
-

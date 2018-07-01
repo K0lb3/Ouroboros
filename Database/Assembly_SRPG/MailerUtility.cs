@@ -1,21 +1,18 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.MailerUtility
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using gu3.Device;
+
+namespace SRPG
 {
-    using DeviceKit;
-    using System;
-
-    public class MailerUtility
+  public class MailerUtility
+  {
+    public static void Launch(string mailto, string subject, string body)
     {
-        public MailerUtility()
-        {
-            base..ctor();
-            return;
-        }
-
-        public static void Launch(string mailto, string subject, string body)
-        {
-            App.LaunchMailer(mailto, subject, body.Replace("\n", "%0A"));
-            return;
-        }
+      Application.LaunchMailer(mailto, subject, body);
     }
+  }
 }
-

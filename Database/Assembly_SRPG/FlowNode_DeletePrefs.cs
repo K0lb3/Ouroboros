@@ -1,62 +1,42 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_DeletePrefs
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+
+namespace SRPG
 {
-    using GR;
-    using System;
+  [FlowNode.Pin(10, "Success", FlowNode.PinTypes.Output, 10)]
+  [FlowNode.Pin(0, "Request", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.NodeType("System/DeletePrefs", 32741)]
+  [FlowNode.Pin(11, "Failed", FlowNode.PinTypes.Output, 11)]
+  public class FlowNode_DeletePrefs : FlowNode
+  {
+    public FlowNode_DeletePrefs.PrefsType Type;
 
-    [Pin(0, "Request", 0, 0), Pin(11, "Failed", 1, 11), Pin(10, "Success", 1, 10), NodeType("System/DeletePrefs", 0x7fe5)]
-    public class FlowNode_DeletePrefs : FlowNode
+    public override void OnActivate(int pinID)
     {
-        public PrefsType Type;
-
-        public FlowNode_DeletePrefs()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            bool flag;
-            if (pinID != null)
-            {
-                goto Label_0064;
-            }
-            if (this.Type == 1)
-            {
-                goto Label_001E;
-            }
-            if (this.Type != 3)
-            {
-                goto Label_0039;
-            }
-        Label_001E:
-            flag = GameUtility.Config_UseAssetBundles.Value;
-            PlayerPrefsUtility.DeleteAll();
-            GameUtility.Config_UseAssetBundles.Value = flag;
-        Label_0039:
-            if (this.Type == 2)
-            {
-                goto Label_0051;
-            }
-            if (this.Type != 3)
-            {
-                goto Label_005B;
-            }
-        Label_0051:
-            MonoSingleton<UserInfoManager>.Instance.Delete();
-        Label_005B:
-            base.ActivateOutputLinks(10);
-        Label_0064:
-            return;
-        }
-
-        public enum PrefsType : byte
-        {
-            None = 0,
-            PlayerPrefs = 1,
-            UserInfoManager = 2,
-            All = 3
-        }
+      if (pinID != 0)
+        return;
+      if (this.Type == FlowNode_DeletePrefs.PrefsType.PlayerPrefs || this.Type == FlowNode_DeletePrefs.PrefsType.All)
+      {
+        bool flag = GameUtility.Config_UseAssetBundles.Value;
+        PlayerPrefsUtility.DeleteAll();
+        GameUtility.Config_UseAssetBundles.Value = flag;
+      }
+      if (this.Type == FlowNode_DeletePrefs.PrefsType.UserInfoManager || this.Type == FlowNode_DeletePrefs.PrefsType.All)
+        MonoSingleton<UserInfoManager>.Instance.Delete();
+      this.ActivateOutputLinks(10);
     }
-}
 
+    public enum PrefsType : byte
+    {
+      None,
+      PlayerPrefs,
+      UserInfoManager,
+      All,
+    }
+  }
+}

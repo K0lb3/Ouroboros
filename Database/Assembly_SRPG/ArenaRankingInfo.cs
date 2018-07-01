@@ -1,70 +1,55 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ArenaRankingInfo
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
-    using UnityEngine.UI;
+  public class ArenaRankingInfo : MonoBehaviour
+  {
+    [Space(10f)]
+    public Text Ranking;
+    public Text PlayerName;
+    public Text PlayerKOs;
+    public ImageArray ranking_image;
 
-    public class ArenaRankingInfo : MonoBehaviour
+    public ArenaRankingInfo()
     {
-        [Space(10f)]
-        public Text Ranking;
-        public Text PlayerName;
-        public Text PlayerKOs;
-        public ImageArray ranking_image;
-
-        public ArenaRankingInfo()
-        {
-            base..ctor();
-            return;
-        }
-
-        private void OnEnable()
-        {
-            this.UpdateValue();
-            return;
-        }
-
-        public unsafe void UpdateValue()
-        {
-            ArenaPlayer player;
-            player = DataSource.FindDataOfClass<ArenaPlayer>(base.get_gameObject(), null);
-            if (player != null)
-            {
-                goto Label_0014;
-            }
-            return;
-        Label_0014:
-            if (player.ArenaRank > 3)
-            {
-                goto Label_0047;
-            }
-            this.ranking_image.ImageIndex = player.ArenaRank;
-            this.Ranking.get_gameObject().SetActive(0);
-            goto Label_009A;
-        Label_0047:
-            if ((this.ranking_image != null) == null)
-            {
-                goto Label_0064;
-            }
-            this.ranking_image.ImageIndex = 0;
-        Label_0064:
-            this.Ranking.get_gameObject().SetActive(1);
-            this.Ranking.set_text(&player.ArenaRank.ToString() + LocalizedText.Get("sys.ARENA_LBL_RANK"));
-        Label_009A:
-            if (string.IsNullOrEmpty(player.PlayerName) != null)
-            {
-                goto Label_00C0;
-            }
-            this.PlayerName.set_text(player.PlayerName.ToString());
-        Label_00C0:
-            if ((player.battle_at > DateTime.MinValue) == null)
-            {
-                goto Label_00F0;
-            }
-            this.PlayerKOs.set_text(&player.battle_at.ToString("MM/dd HH:mm"));
-        Label_00F0:
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    private void OnEnable()
+    {
+      this.UpdateValue();
+    }
+
+    public void UpdateValue()
+    {
+      ArenaPlayer dataOfClass = DataSource.FindDataOfClass<ArenaPlayer>(((Component) this).get_gameObject(), (ArenaPlayer) null);
+      if (dataOfClass == null)
+        return;
+      if (dataOfClass.ArenaRank <= 3)
+      {
+        this.ranking_image.ImageIndex = dataOfClass.ArenaRank;
+        ((Component) this.Ranking).get_gameObject().SetActive(false);
+      }
+      else
+      {
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ranking_image, (UnityEngine.Object) null))
+          this.ranking_image.ImageIndex = 0;
+        ((Component) this.Ranking).get_gameObject().SetActive(true);
+        this.Ranking.set_text(string.Format(LocalizedText.Get("sys.RANKING_RANK"), (object) dataOfClass.ArenaRank.ToString()));
+      }
+      if (!string.IsNullOrEmpty(dataOfClass.PlayerName))
+        this.PlayerName.set_text(dataOfClass.PlayerName.ToString());
+      if (!(dataOfClass.battle_at > DateTime.MinValue))
+        return;
+      this.PlayerKOs.set_text(dataOfClass.battle_at.ToString(GameUtility.Localized_TimePattern_Short));
+    }
+  }
+}

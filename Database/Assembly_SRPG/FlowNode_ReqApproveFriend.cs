@@ -1,130 +1,99 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_ReqApproveFriend
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
+  [FlowNode.NodeType("System/ApproveFriend", 32741)]
+  [FlowNode.Pin(0, "Request", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
+  public class FlowNode_ReqApproveFriend : FlowNode_Network
+  {
+    private string req_fuid;
 
-    [Pin(0, "Request", 0, 0), Pin(1, "Success", 1, 1), NodeType("System/ApproveFriend", 0x7fe5)]
-    public class FlowNode_ReqApproveFriend : FlowNode_Network
+    public override void OnActivate(int pinID)
     {
-        private string req_fuid;
-
-        public FlowNode_ReqApproveFriend()
+      this.req_fuid = (string) null;
+      if (pinID != 0)
+        return;
+      if (Network.Mode == Network.EConnectMode.Offline)
+      {
+        this.Success();
+      }
+      else
+      {
+        string fuid = (string) null;
+        if (!string.IsNullOrEmpty(GlobalVars.SelectedFriendID))
+          fuid = GlobalVars.SelectedFriendID;
+        else if (GlobalVars.FoundFriend != null && !string.IsNullOrEmpty(GlobalVars.FoundFriend.FUID))
+          fuid = GlobalVars.FoundFriend.FUID;
+        if (fuid == null)
         {
-            base..ctor();
-            return;
+          this.Success();
         }
-
-        public override void OnActivate(int pinID)
+        else
         {
-            string str;
-            this.req_fuid = null;
-            if (pinID != null)
-            {
-                goto Label_0097;
-            }
-            if (Network.Mode != 1)
-            {
-                goto Label_001F;
-            }
-            this.Success();
-            return;
-        Label_001F:
-            str = null;
-            if (string.IsNullOrEmpty(GlobalVars.SelectedFriendID) != null)
-            {
-                goto Label_003B;
-            }
-            str = GlobalVars.SelectedFriendID;
-            goto Label_0064;
-        Label_003B:
-            if (GlobalVars.FoundFriend == null)
-            {
-                goto Label_0064;
-            }
-            if (string.IsNullOrEmpty(GlobalVars.FoundFriend.FUID) != null)
-            {
-                goto Label_0064;
-            }
-            str = GlobalVars.FoundFriend.FUID;
-        Label_0064:
-            if (str != null)
-            {
-                goto Label_0071;
-            }
-            this.Success();
-            return;
-        Label_0071:
-            base.ExecRequest(new ReqFriendApprove(str, new Network.ResponseCallback(this.ResponseCallback)));
-            this.req_fuid = str;
-            base.set_enabled(1);
-        Label_0097:
-            return;
+          this.ExecRequest((WebAPI) new ReqFriendApprove(fuid, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+          this.req_fuid = fuid;
+          ((Behaviour) this).set_enabled(true);
         }
-
-        public override unsafe void OnSuccess(WWWResult www)
-        {
-            WebAPI.JSON_BodyResponse<Json_ApproveFriend> response;
-            Exception exception;
-            Network.EErrCode code;
-            if (Network.IsError == null)
-            {
-                goto Label_0039;
-            }
-            code = Network.ErrCode;
-            if (code == 0x170e)
-            {
-                goto Label_002B;
-            }
-            if (code == 0x170f)
-            {
-                goto Label_002B;
-            }
-            goto Label_0032;
-        Label_002B:
-            this.OnBack();
-            return;
-        Label_0032:
-            this.OnRetry();
-            return;
-        Label_0039:
-            response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_ApproveFriend>>(&www.text);
-            DebugUtility.Assert((response == null) == 0, "res == null");
-            if (response.body != null)
-            {
-                goto Label_0069;
-            }
-            this.OnRetry();
-            return;
-        Label_0069:
-            try
-            {
-                MonoSingleton<GameManager>.Instance.Player.RemoveFriendFollower(this.req_fuid);
-                MonoSingleton<GameManager>.Instance.Deserialize(response.body.player);
-                MonoSingleton<GameManager>.Instance.Deserialize(response.body.friends, 1);
-                MonoSingleton<GameManager>.Instance.Player.FirstFriendCount = response.body.first_count;
-                goto Label_00DA;
-            }
-            catch (Exception exception1)
-            {
-            Label_00C8:
-                exception = exception1;
-                base.OnRetry(exception);
-                goto Label_00E5;
-            }
-        Label_00DA:
-            Network.RemoveAPI();
-            this.Success();
-        Label_00E5:
-            return;
-        }
-
-        private void Success()
-        {
-            base.set_enabled(0);
-            GameParameter.UpdateValuesOfType(0xcf);
-            base.ActivateOutputLinks(1);
-            return;
-        }
+      }
     }
-}
 
+    private void Success()
+    {
+      ((Behaviour) this).set_enabled(false);
+      GameParameter.UpdateValuesOfType(GameParameter.ParameterTypes.PLAYER_FRIENDNUM);
+      this.ActivateOutputLinks(1);
+    }
+
+    public override void OnSuccess(WWWResult www)
+    {
+      if (Network.IsError)
+      {
+        switch (Network.ErrCode)
+        {
+          case Network.EErrCode.ApprRequestMax:
+          case Network.EErrCode.ApprFriendIsFull:
+            this.OnBack();
+            break;
+          default:
+            this.OnRetry();
+            break;
+        }
+      }
+      else
+      {
+        WebAPI.JSON_BodyResponse<Json_ApproveFriend> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_ApproveFriend>>(www.text);
+        DebugUtility.Assert(jsonObject != null, "res == null");
+        if (jsonObject.body == null)
+        {
+          this.OnRetry();
+        }
+        else
+        {
+          try
+          {
+            MonoSingleton<GameManager>.Instance.Player.RemoveFriendFollower(this.req_fuid);
+            MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.player);
+            MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.friends, FriendStates.Friend);
+            MonoSingleton<GameManager>.Instance.Player.FirstFriendCount = jsonObject.body.first_count;
+          }
+          catch (Exception ex)
+          {
+            this.OnRetry(ex);
+            return;
+          }
+          Network.RemoveAPI();
+          this.Success();
+        }
+      }
+    }
+  }
+}

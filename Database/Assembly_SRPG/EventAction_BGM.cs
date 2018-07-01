@@ -1,81 +1,34 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.EventAction_BGM
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+
+namespace SRPG
 {
-    using GR;
-    using System;
+  [EventActionInfo("BGM再生", "BGMを再生します", 7368789, 8947780)]
+  public class EventAction_BGM : EventAction
+  {
+    public static readonly int DEMO_BGM_ST = 34;
+    public static readonly int DEMO_BGM_ED = 99;
+    public string BGM;
 
-    [EventActionInfo("BGM再生", "BGMを再生します", 0x707055, 0x888844)]
-    public class EventAction_BGM : EventAction
+    public override void OnActivate()
     {
-        public static readonly int DEMO_BGM_ST;
-        public static readonly int DEMO_BGM_ED;
-        public string BGM;
-
-        static EventAction_BGM()
-        {
-            DEMO_BGM_ST = 0x22;
-            DEMO_BGM_ED = 0x63;
-            return;
-        }
-
-        public EventAction_BGM()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override string[] GetUnManagedAssetListData()
-        {
-            string[] textArray1;
-            string[] strArray;
-            if (string.IsNullOrEmpty(this.BGM) != null)
-            {
-                goto Label_0038;
-            }
-            if (string.IsNullOrEmpty(this.BGM) != null)
-            {
-                goto Label_0038;
-            }
-            textArray1 = new string[] { this.BGM };
-            strArray = textArray1;
-            return EventAction.GetUnManagedStreamAssets(strArray, 1);
-        Label_0038:
-            return null;
-        }
-
-        public override void OnActivate()
-        {
-            EventScript.ScriptSequence sequence;
-            if (string.IsNullOrEmpty(this.BGM) == null)
-            {
-                goto Label_0039;
-            }
-            MonoSingleton<MySound>.Instance.StopBGM();
-            if (SceneBattle.Instance == null)
-            {
-                goto Label_00A8;
-            }
-            SceneBattle.Instance.EventPlayBgmID = null;
-            goto Label_00A8;
-        Label_0039:
-            MonoSingleton<MySound>.Instance.PlayBGM(this.BGM, null, EventAction.IsUnManagedAssets(this.BGM, 1));
-            if (SceneBattle.Instance == null)
-            {
-                goto Label_00A8;
-            }
-            sequence = (base.Sequence == null) ? null : base.Sequence.ParentSequence;
-            if (sequence == null)
-            {
-                goto Label_00A8;
-            }
-            if (sequence.IsSavePlayBgmID == null)
-            {
-                goto Label_00A8;
-            }
-            SceneBattle.Instance.EventPlayBgmID = this.BGM;
-        Label_00A8:
-            base.ActivateNext();
-            return;
-        }
+      if (string.IsNullOrEmpty(this.BGM))
+        MonoSingleton<MySound>.Instance.StopBGM();
+      else
+        MonoSingleton<MySound>.Instance.PlayBGM(this.BGM, (string) null, EventAction.IsUnManagedAssets(this.BGM, true));
+      this.ActivateNext();
     }
-}
 
+    public override string[] GetUnManagedAssetListData()
+    {
+      if (string.IsNullOrEmpty(this.BGM) || string.IsNullOrEmpty(this.BGM))
+        return (string[]) null;
+      return EventAction.GetUnManagedStreamAssets(new string[1]{ this.BGM }, true);
+    }
+  }
+}

@@ -1,44 +1,29 @@
-﻿namespace SRPG.AnimEvents
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.AnimEvents.ToggleUnitDisp
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG.AnimEvents
 {
-    using SRPG;
-    using System;
-    using UnityEngine;
-
-    public class ToggleUnitDisp : AnimEvent
+  public class ToggleUnitDisp : AnimEvent
+  {
+    public override void OnStart(GameObject go)
     {
-        public ToggleUnitDisp()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnEnd(GameObject go)
-        {
-            UnitController controller;
-            controller = go.GetComponentInParent<UnitController>();
-            if (controller != null)
-            {
-                goto Label_0013;
-            }
-            return;
-        Label_0013:
-            controller.SetVisible(1);
-            return;
-        }
-
-        public override void OnStart(GameObject go)
-        {
-            UnitController controller;
-            controller = go.GetComponentInParent<UnitController>();
-            if (controller != null)
-            {
-                goto Label_0013;
-            }
-            return;
-        Label_0013:
-            controller.SetVisible(0);
-            return;
-        }
+      UnitController componentInParent = (UnitController) go.GetComponentInParent<UnitController>();
+      if (!Object.op_Implicit((Object) componentInParent))
+        return;
+      componentInParent.SetVisible(false);
     }
-}
 
+    public override void OnEnd(GameObject go)
+    {
+      UnitController componentInParent = (UnitController) go.GetComponentInParent<UnitController>();
+      if (!Object.op_Implicit((Object) componentInParent))
+        return;
+      componentInParent.SetVisible(true);
+    }
+  }
+}

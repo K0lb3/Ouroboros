@@ -1,30 +1,43 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqMultiTwRoom
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    public class ReqMultiTwRoom : WebAPI
+  public class ReqMultiTwRoom : WebAPI
+  {
+    public ReqMultiTwRoom(string fuid, string iname, int floor, Network.ResponseCallback response)
     {
-        public ReqMultiTwRoom(string fuid, string iname, int floor, Network.ResponseCallback response)
-        {
-            base..ctor();
-            base.name = "btl/multi/tower/room";
-            base.body = string.Empty;
-            base.body = base.body + "\"iname\":\"" + JsonEscape.Escape(iname) + "\"";
-            base.body = WebAPI.GetRequestString(base.body);
-            base.callback = response;
-            return;
-        }
-
-        public class Response
-        {
-            public MultiPlayAPIRoom[] rooms;
-
-            public Response()
-            {
-                base..ctor();
-                return;
-            }
-        }
+      this.name = "btl/multi/tower/room";
+      this.body = string.Empty;
+      if (!string.IsNullOrEmpty(fuid))
+      {
+        ReqMultiTwRoom reqMultiTwRoom = this;
+        reqMultiTwRoom.body = reqMultiTwRoom.body + "\"fuid\":\"" + JsonEscape.Escape(fuid) + "\"";
+      }
+      if (!string.IsNullOrEmpty(iname))
+      {
+        if (!string.IsNullOrEmpty(this.body))
+          this.body += ",";
+        ReqMultiTwRoom reqMultiTwRoom = this;
+        reqMultiTwRoom.body = reqMultiTwRoom.body + "\"iname\":\"" + JsonEscape.Escape(iname) + "\"";
+      }
+      if (!string.IsNullOrEmpty(iname))
+      {
+        if (!string.IsNullOrEmpty(this.body))
+          this.body += ",";
+        ReqMultiTwRoom reqMultiTwRoom = this;
+        reqMultiTwRoom.body = reqMultiTwRoom.body + "\"floor\":" + (object) floor;
+      }
+      this.body = WebAPI.GetRequestString(this.body);
+      this.callback = response;
     }
-}
 
+    public class Response
+    {
+      public MultiPlayAPIRoom[] rooms;
+    }
+  }
+}

@@ -1,236 +1,198 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.GameCenterManager
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GooglePlayGames;
+using GooglePlayGames.BasicApi;
+using GR;
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Collections.Generic;
-    using UnityEngine;
+  public class GameCenterManager
+  {
+    private static List<AchievementParam> mAchievementList;
+    private static int mIsValidEnvironment;
 
-    public class GameCenterManager
+    public static bool isValidEnvironment()
     {
-        private static List<AchievementParam> mAchievementList;
-
-        static GameCenterManager()
+      if (GameCenterManager.mIsValidEnvironment != 0)
+        return GameCenterManager.mIsValidEnvironment == 1;
+      string deviceModel = SystemInfo.get_deviceModel();
+      string operatingSystem = SystemInfo.get_operatingSystem();
+      if (!string.IsNullOrEmpty(deviceModel))
+      {
+        if (!string.IsNullOrEmpty(operatingSystem))
         {
-        }
-
-        public GameCenterManager()
-        {
-            base..ctor();
-            return;
-        }
-
-        public static void Auth()
-        {
-            if (isValidEnvironment() != null)
+          try
+          {
+            string lower1 = deviceModel.ToLower();
+            string lower2 = operatingSystem.ToLower();
+            string[] strArray1 = lower1.Split(' ');
+            string[] strArray2 = lower2.Split(' ');
+            string str_maker = strArray1[0];
+            string str_device = strArray1[1];
+            string str_osversion = strArray2[2].Split('.')[0] + (object) '.' + strArray2[2].Split('.')[1];
+            IgnoreDevice ignoreDevice = new IgnoreDevice();
+            ignoreDevice.SetDevices("samsung", new string[5]
             {
-                goto Label_000B;
-            }
-            return;
-        Label_000B:
-            return;
+              "SC-02E",
+              "SGH-N025",
+              "SC-03E",
+              "SGH-N035",
+              "SC-04E"
+            }, "4.3");
+            GameCenterManager.mIsValidEnvironment = !ignoreDevice.checkIgnoreDevice(str_maker, str_device, str_osversion) ? 1 : -1;
+          }
+          catch (Exception ex)
+          {
+            Debug.Log((object) ("<DeviceCheck:EXCEPTION> " + ex.Message + "\n-----------------------\n" + ex.StackTrace));
+            GameCenterManager.mIsValidEnvironment = 1;
+          }
+          return GameCenterManager.mIsValidEnvironment == 1;
         }
-
-        public static List<AchievementParam> GetAchievementData()
-        {
-            string str;
-            JSON_AchievementParam[] paramArray;
-            JSON_AchievementParam param;
-            JSON_AchievementParam[] paramArray2;
-            int num;
-            AchievementParam param2;
-            if (mAchievementList == null)
-            {
-                goto Label_0010;
-            }
-            return mAchievementList;
-        Label_0010:
-            mAchievementList = new List<AchievementParam>();
-            str = string.Empty;
-            paramArray = JSONParser.parseJSONArray<JSON_AchievementParam>(AssetManager.LoadTextData("GameCenter/acheivement"));
-            if (paramArray != null)
-            {
-                goto Label_003A;
-            }
-            return null;
-        Label_003A:
-            paramArray2 = paramArray;
-            num = 0;
-            goto Label_00AA;
-        Label_0044:
-            param = paramArray2[num];
-            param2 = new AchievementParam();
-            param2.id = param.fields.id;
-            param2.iname = param.fields.iname;
-            param2.ios = param.fields.ios;
-            param2.googleplay = param.fields.googleplay;
-            mAchievementList.Add(param2);
-            num += 1;
-        Label_00AA:
-            if (num < ((int) paramArray2.Length))
-            {
-                goto Label_0044;
-            }
-            return mAchievementList;
-        }
-
-        private static unsafe AchievementParam GetAchievementParam(string iname)
-        {
-            List<AchievementParam> list;
-            AchievementParam param;
-            List<AchievementParam>.Enumerator enumerator;
-            AchievementParam param2;
-            list = GetAchievementData();
-            if (list == null)
-            {
-                goto Label_0018;
-            }
-            if (list.Count >= 1)
-            {
-                goto Label_001A;
-            }
-        Label_0018:
-            return null;
-        Label_001A:
-            enumerator = list.GetEnumerator();
-        Label_0021:
-            try
-            {
-                goto Label_0046;
-            Label_0026:
-                param = &enumerator.Current;
-                if ((param.iname == iname) == null)
-                {
-                    goto Label_0046;
-                }
-                param2 = param;
-                goto Label_0065;
-            Label_0046:
-                if (&enumerator.MoveNext() != null)
-                {
-                    goto Label_0026;
-                }
-                goto Label_0063;
-            }
-            finally
-            {
-            Label_0057:
-                ((List<AchievementParam>.Enumerator) enumerator).Dispose();
-            }
-        Label_0063:
-            return null;
-        Label_0065:
-            return param2;
-        }
-
-        public static void GetLeaderboardData()
-        {
-        }
-
-        public static bool IsAuth()
-        {
-            return 1;
-        }
-
-        public static bool isValidEnvironment()
-        {
-            return 1;
-        }
-
-        private static void ProcessAuthGameCenter(bool success)
-        {
-            if (success == null)
-            {
-                goto Label_0015;
-            }
-            Debug.Log("[GameCenter]UserLogin Success!!");
-            goto Label_001F;
-        Label_0015:
-            Debug.Log("[GameCenter]UserLogin Failed!!");
-        Label_001F:
-            return;
-        }
-
-        public static void ReAuth()
-        {
-            if (isValidEnvironment() != null)
-            {
-                goto Label_000B;
-            }
-            return;
-        Label_000B:
-            return;
-        }
-
-        public static void SendAchievementProgress(AchievementParam param)
-        {
-            if (param != null)
-            {
-                goto Label_0007;
-            }
-            return;
-        Label_0007:
-            SendAchievementProgressInternal(param.AchievementID);
-            return;
-        }
-
-        public static void SendAchievementProgress(string iname)
-        {
-            AchievementParam param;
-            param = GetAchievementParam(iname);
-            if (param != null)
-            {
-                goto Label_000E;
-            }
-            return;
-        Label_000E:
-            SendAchievementProgressInternal(param.AchievementID);
-            return;
-        }
-
-        public static void SendAchievementProgress(string achievement_id, long progress)
-        {
-        }
-
-        public static void SendAchievementProgressInternal(string achievementID)
-        {
-            long num;
-            if (string.IsNullOrEmpty(achievementID) == null)
-            {
-                goto Label_000C;
-            }
-            return;
-        Label_000C:
-            num = 100L;
-            SendAchievementProgress(achievementID, num);
-            return;
-        }
-
-        public static void SendLeaderBoardScore(string leader_board_id, long score)
-        {
-        }
-
-        public static void ShowAchievement()
-        {
-        }
-
-        public static void ShowLeaderBoard()
-        {
-        }
-
-        public static bool IsLogin
-        {
-            get
-            {
-                if (Social.get_localUser() != null)
-                {
-                    goto Label_0016;
-                }
-                DebugUtility.Log("[GameCenterManager]Login Error!");
-                return 0;
-            Label_0016:
-                return Social.get_localUser().get_authenticated();
-            }
-        }
+      }
+      return true;
     }
-}
 
+    public static void Auth()
+    {
+      if (!GameCenterManager.isValidEnvironment())
+        return;
+      PlayGamesPlatform.InitializeInstance(new PlayGamesClientConfiguration.Builder().Build());
+      PlayGamesPlatform.Activate();
+      if (PlayGamesPlatform.Instance.localUser.get_authenticated())
+        return;
+      PlayGamesPlatform.Instance.Authenticate(new Action<bool>(GameCenterManager.ProcessAuthGameCenter), true);
+    }
+
+    public static void ReAuth()
+    {
+      if (!GameCenterManager.isValidEnvironment() || PlayGamesPlatform.Instance.localUser.get_authenticated())
+        return;
+      PlayGamesPlatform.Instance.Authenticate(new Action<bool>(GameCenterManager.ProcessAuthGameCenter));
+    }
+
+    public static bool IsAuth()
+    {
+      return PlayGamesPlatform.Instance.localUser.get_authenticated();
+    }
+
+    private static void ProcessAuthGameCenter(bool success)
+    {
+      if (success)
+        Debug.Log((object) "[GameCenter]UserLogin Success!!");
+      else
+        Debug.Log((object) "[GameCenter]UserLogin Failed!!");
+    }
+
+    public static void ShowLeaderBoard()
+    {
+      Social.ShowLeaderboardUI();
+    }
+
+    public static void ShowAchievement()
+    {
+      Social.ShowAchievementsUI();
+    }
+
+    public static void SendLeaderBoardScore(string leader_board_id, long score)
+    {
+      if (!Social.get_localUser().get_authenticated())
+        return;
+      Social.ReportScore(score, leader_board_id, (Action<bool>) (success => Debug.Log((object) "[GameCenter]ReportScore Success!!")));
+    }
+
+    public static bool IsLogin
+    {
+      get
+      {
+        if (Social.get_localUser() != null)
+          return Social.get_localUser().get_authenticated();
+        DebugUtility.Log("[GameCenterManager]Login Error!");
+        return false;
+      }
+    }
+
+    public static void SendAchievementProgress(string achievement_id, long progress)
+    {
+      if (!GameCenterManager.IsLogin)
+        return;
+      Social.ReportProgress(achievement_id, (double) progress, (Action<bool>) (success =>
+      {
+        if (success)
+          DebugUtility.Log("[Achievement]Send Success!(AchievementID:" + achievement_id + " Progress:" + (object) progress + ")");
+        else
+          DebugUtility.Log("[Achievement]Send Failed!(AchievementID:" + achievement_id + " Progress:" + (object) progress + ")");
+      }));
+    }
+
+    public static void GetLeaderboardData()
+    {
+    }
+
+    public static List<AchievementParam> GetAchievementData()
+    {
+      if (GameCenterManager.mAchievementList != null)
+        return GameCenterManager.mAchievementList;
+      GameCenterManager.mAchievementList = new List<AchievementParam>();
+      string empty = string.Empty;
+      JSON_AchievementParam[] jsonArray = JSONParser.parseJSONArray<JSON_AchievementParam>(AssetManager.LoadTextData("GameCenter/acheivement"));
+      if (jsonArray == null)
+        return (List<AchievementParam>) null;
+      foreach (JSON_AchievementParam achievementParam in jsonArray)
+        GameCenterManager.mAchievementList.Add(new AchievementParam()
+        {
+          id = achievementParam.fields.id,
+          iname = achievementParam.fields.iname,
+          ios = achievementParam.fields.ios,
+          googleplay = achievementParam.fields.googleplay
+        });
+      return GameCenterManager.mAchievementList;
+    }
+
+    private static AchievementParam GetAchievementParam(string iname)
+    {
+      List<AchievementParam> achievementData = GameCenterManager.GetAchievementData();
+      if (achievementData == null || achievementData.Count < 1)
+        return (AchievementParam) null;
+      using (List<AchievementParam>.Enumerator enumerator = achievementData.GetEnumerator())
+      {
+        while (enumerator.MoveNext())
+        {
+          AchievementParam current = enumerator.Current;
+          if (current.iname == iname)
+            return current;
+        }
+      }
+      return (AchievementParam) null;
+    }
+
+    public static void SendAchievementProgress(string iname)
+    {
+      AchievementParam achievementParam = GameCenterManager.GetAchievementParam(iname);
+      if (achievementParam == null)
+        return;
+      GameCenterManager.SendAchievementProgressInternal(achievementParam.AchievementID);
+    }
+
+    public static void SendAchievementProgress(AchievementParam param)
+    {
+      if (param == null)
+        return;
+      GameCenterManager.SendAchievementProgressInternal(param.AchievementID);
+    }
+
+    public static void SendAchievementProgressInternal(string achievementID)
+    {
+      if (string.IsNullOrEmpty(achievementID))
+        return;
+      long progress = 100;
+      GameCenterManager.SendAchievementProgress(achievementID, progress);
+    }
+  }
+}

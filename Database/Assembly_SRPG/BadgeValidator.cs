@@ -1,52 +1,38 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.BadgeValidator
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using UnityEngine;
+  [DisallowMultipleComponent]
+  public class BadgeValidator : MonoBehaviour
+  {
+    [BitMask]
+    public GameManager.BadgeTypes BadgeType;
 
-    [DisallowMultipleComponent]
-    public class BadgeValidator : MonoBehaviour
+    public BadgeValidator()
     {
-        [BitMask]
-        public GameManager.BadgeTypes BadgeType;
-
-        public BadgeValidator()
-        {
-            base..ctor();
-            return;
-        }
-
-        private void Update()
-        {
-            this.UpdateBadge();
-            return;
-        }
-
-        private void UpdateBadge()
-        {
-            int num;
-            GameManager manager;
-            if (this.BadgeType != null)
-            {
-                goto Label_000E;
-            }
-            return;
-        Label_000E:
-            manager = MonoSingleton<GameManager>.GetInstanceDirect();
-            if ((manager == null) != null)
-            {
-                goto Label_0031;
-            }
-            if (manager.CheckBusyBadges(this.BadgeType) == null)
-            {
-                goto Label_0032;
-            }
-        Label_0031:
-            return;
-        Label_0032:
-            base.get_gameObject().SetActive(MonoSingleton<GameManager>.GetInstanceDirect().CheckBadges(this.BadgeType));
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Update()
+    {
+      this.UpdateBadge();
+    }
+
+    private void UpdateBadge()
+    {
+      if (this.BadgeType == ~GameManager.BadgeTypes.All)
+        return;
+      GameManager instanceDirect = MonoSingleton<GameManager>.GetInstanceDirect();
+      if (Object.op_Equality((Object) instanceDirect, (Object) null) || instanceDirect.CheckBusyBadges(this.BadgeType))
+        return;
+      ((Component) this).get_gameObject().SetActive(MonoSingleton<GameManager>.GetInstanceDirect().CheckBadges(this.BadgeType));
+    }
+  }
+}

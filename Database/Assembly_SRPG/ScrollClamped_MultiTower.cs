@@ -1,117 +1,89 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ScrollClamped_MultiTower
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Collections.Generic;
-    using UnityEngine;
-    using UnityEngine.Events;
+  [RequireComponent(typeof (ScrollListController))]
+  public class ScrollClamped_MultiTower : MonoBehaviour, ScrollListSetUp
+  {
+    private readonly float OFFSET;
+    private readonly int MARGIN;
+    private int mMax;
+    public float Space;
+    public ScrollAutoFit AutoFit;
+    public MultiTowerInfo TowerInfo;
 
-    [RequireComponent(typeof(ScrollListController))]
-    public class ScrollClamped_MultiTower : MonoBehaviour, ScrollListSetUp
+    public ScrollClamped_MultiTower()
     {
-        private readonly float OFFSET;
-        private readonly int MARGIN;
-        private int mMax;
-        public float Space;
-        public ScrollAutoFit AutoFit;
-        public MultiTowerInfo TowerInfo;
-
-        public ScrollClamped_MultiTower()
-        {
-            this.OFFSET = 2f;
-            this.MARGIN = 5;
-            this.Space = 1f;
-            base..ctor();
-            return;
-        }
-
-        public unsafe void OnSetUpItems()
-        {
-            List<MultiTowerFloorParam> list;
-            ScrollListController controller;
-            RectTransform transform;
-            Vector2 vector;
-            Vector2 vector2;
-            float num;
-            float num2;
-            list = MonoSingleton<GameManager>.Instance.GetMTAllFloorParam(GlobalVars.SelectedMultiTowerID);
-            if (list == null)
-            {
-                goto Label_0022;
-            }
-            this.mMax = list.Count;
-        Label_0022:
-            this.mMax += this.MARGIN;
-            controller = base.GetComponent<ScrollListController>();
-            controller.OnItemUpdate.AddListener(new UnityAction<int, GameObject>(this, this.OnUpdateItems));
-            base.GetComponentInParent<ScrollRect>().set_movementType(2);
-            transform = base.GetComponent<RectTransform>();
-            vector = transform.get_sizeDelta();
-            vector2 = transform.get_anchoredPosition();
-            num = controller.ItemScale * this.Space;
-            num2 = num - controller.ItemScale;
-            &vector2.y = controller.ItemScale * this.OFFSET;
-            &vector.y = (num * ((float) (this.mMax - this.MARGIN))) - num2;
-            transform.set_sizeDelta(vector);
-            transform.set_anchoredPosition(vector2);
-            if ((this.AutoFit != null) == null)
-            {
-                goto Label_00F7;
-            }
-            this.AutoFit.ItemScale = controller.ItemScale * this.Space;
-        Label_00F7:
-            this.TowerInfo.Init();
-            return;
-        }
-
-        public void OnUpdateItems(int idx, GameObject obj)
-        {
-            GameManager manager;
-            MultiTowerFloorParam param;
-            DataSource source;
-            MultiTowerFloorInfo info;
-            manager = MonoSingleton<GameManager>.Instance;
-            if (idx < 0)
-            {
-                goto Label_0019;
-            }
-            if (idx < this.mMax)
-            {
-                goto Label_0025;
-            }
-        Label_0019:
-            obj.SetActive(0);
-            goto Label_007F;
-        Label_0025:
-            obj.SetActive(1);
-            param = manager.GetMTFloorParam(GlobalVars.SelectedMultiTowerID, idx + 1);
-            if (param == null)
-            {
-                goto Label_004D;
-            }
-            DataSource.Bind<MultiTowerFloorParam>(obj, param);
-            goto Label_0066;
-        Label_004D:
-            source = obj.GetComponent<DataSource>();
-            if ((source != null) == null)
-            {
-                goto Label_0066;
-            }
-            source.Clear();
-        Label_0066:
-            info = obj.GetComponent<MultiTowerFloorInfo>();
-            if ((info != null) == null)
-            {
-                goto Label_007F;
-            }
-            info.Refresh();
-        Label_007F:
-            return;
-        }
-
-        public void Start()
-        {
-        }
+      base.\u002Ector();
     }
-}
 
+    public void Start()
+    {
+    }
+
+    public void OnSetUpItems()
+    {
+      List<MultiTowerFloorParam> mtAllFloorParam = MonoSingleton<GameManager>.Instance.GetMTAllFloorParam(GlobalVars.SelectedMultiTowerID);
+      if (mtAllFloorParam != null)
+        this.mMax = mtAllFloorParam.Count;
+      this.mMax += this.MARGIN;
+      ScrollListController component1 = (ScrollListController) ((Component) this).GetComponent<ScrollListController>();
+      ScrollListController.OnItemPositionChange onItemUpdate = component1.OnItemUpdate;
+      ScrollClamped_MultiTower clampedMultiTower = this;
+      // ISSUE: virtual method pointer
+      UnityAction<int, GameObject> unityAction = new UnityAction<int, GameObject>((object) clampedMultiTower, __vmethodptr(clampedMultiTower, OnUpdateItems));
+      onItemUpdate.AddListener(unityAction);
+      ((ScrollRect) ((Component) this).GetComponentInParent<ScrollRect>()).set_movementType((ScrollRect.MovementType) 2);
+      RectTransform component2 = (RectTransform) ((Component) this).GetComponent<RectTransform>();
+      Vector2 sizeDelta = component2.get_sizeDelta();
+      Vector2 anchoredPosition = component2.get_anchoredPosition();
+      float num1 = component1.ItemScale * this.Space;
+      float num2 = num1 - component1.ItemScale;
+      anchoredPosition.y = (__Null) ((double) component1.ItemScale * (double) this.OFFSET);
+      sizeDelta.y = (__Null) ((double) num1 * (double) (this.mMax - this.MARGIN) - (double) num2);
+      component2.set_sizeDelta(sizeDelta);
+      component2.set_anchoredPosition(anchoredPosition);
+      if (Object.op_Inequality((Object) this.AutoFit, (Object) null))
+        this.AutoFit.ItemScale = component1.ItemScale * this.Space;
+      this.TowerInfo.Init();
+    }
+
+    public void OnUpdateItems(int idx, GameObject obj)
+    {
+      GameManager instance = MonoSingleton<GameManager>.Instance;
+      if (idx < 0 || idx >= this.mMax)
+      {
+        obj.SetActive(false);
+      }
+      else
+      {
+        obj.SetActive(true);
+        MultiTowerFloorParam mtFloorParam = instance.GetMTFloorParam(GlobalVars.SelectedMultiTowerID, idx + 1);
+        if (mtFloorParam != null)
+        {
+          DataSource.Bind<MultiTowerFloorParam>(obj, mtFloorParam);
+        }
+        else
+        {
+          DataSource component = (DataSource) obj.GetComponent<DataSource>();
+          if (Object.op_Inequality((Object) component, (Object) null))
+            component.Clear();
+        }
+        MultiTowerFloorInfo component1 = (MultiTowerFloorInfo) obj.GetComponent<MultiTowerFloorInfo>();
+        if (!Object.op_Inequality((Object) component1, (Object) null))
+          return;
+        component1.Refresh();
+      }
+    }
+  }
+}

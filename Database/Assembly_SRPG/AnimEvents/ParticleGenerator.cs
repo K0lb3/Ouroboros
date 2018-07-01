@@ -1,96 +1,59 @@
-﻿namespace SRPG.AnimEvents
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.AnimEvents.ParticleGenerator
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG.AnimEvents
 {
-    using SRPG;
-    using System;
-    using UnityEngine;
+  public class ParticleGenerator : AnimEventWithTarget
+  {
+    public GameObject Template;
+    public bool Attach;
+    public bool NotParticle;
 
-    public class ParticleGenerator : AnimEventWithTarget
+    public override void OnStart(GameObject go)
     {
-        public GameObject Template;
-        public bool Attach;
-        public bool NotParticle;
-
-        public ParticleGenerator()
-        {
-            base..ctor();
-            return;
-        }
-
-        protected virtual void OnGenerate(GameObject go)
-        {
-        }
-
-        public override unsafe void OnStart(GameObject go)
-        {
-            Vector3 vector;
-            Quaternion quaternion;
-            GameObject obj2;
-            Vector3 vector2;
-            Transform transform;
-            DestructTimer timer;
-            Vector3 vector3;
-            Vector3 vector4;
-            if ((this.Template == null) == null)
-            {
-                goto Label_0012;
-            }
-            return;
-        Label_0012:
-            base.CalcPosition(go, this.Template, &vector, &quaternion);
-            obj2 = (GameObject) Object.Instantiate(this.Template, vector, quaternion);
-            if (this.NotParticle != null)
-            {
-                goto Label_0048;
-            }
-            GameUtility.RequireComponent<OneShotParticle>(obj2);
-        Label_0048:
-            if ((&go.get_transform().get_lossyScale().x * &go.get_transform().get_lossyScale().z) >= 0f)
-            {
-                goto Label_00A6;
-            }
-            vector2 = obj2.get_transform().get_localScale();
-            &vector2.z *= -1f;
-            obj2.get_transform().set_localScale(vector2);
-        Label_00A6:
-            if (this.Attach == null)
-            {
-                goto Label_011E;
-            }
-            if (string.IsNullOrEmpty(base.BoneName) != null)
-            {
-                goto Label_011E;
-            }
-            transform = GameUtility.findChildRecursively(go.get_transform(), base.BoneName);
-            if ((base.BoneName == "CAMERA") == null)
-            {
-                goto Label_0104;
-            }
-            if (Camera.get_main() == null)
-            {
-                goto Label_0104;
-            }
-            transform = Camera.get_main().get_transform();
-        Label_0104:
-            if ((transform != null) == null)
-            {
-                goto Label_011E;
-            }
-            obj2.get_transform().SetParent(transform);
-        Label_011E:
-            this.OnGenerate(obj2);
-            if (base.End <= (base.Start + 0.1f))
-            {
-                goto Label_0164;
-            }
-            timer = GameUtility.RequireComponent<DestructTimer>(obj2);
-            if (timer == null)
-            {
-                goto Label_0164;
-            }
-            timer.Timer = base.End - base.Start;
-        Label_0164:
-            return;
-        }
+      if (Object.op_Equality((Object) this.Template, (Object) null))
+        return;
+      Vector3 spawnPos;
+      Quaternion spawnRot;
+      this.CalcPosition(go, this.Template, out spawnPos, out spawnRot);
+      GameObject go1 = (GameObject) Object.Instantiate((Object) this.Template, spawnPos, spawnRot);
+      if (!this.NotParticle)
+        GameUtility.RequireComponent<OneShotParticle>(go1);
+      if (go.get_transform().get_lossyScale().x * go.get_transform().get_lossyScale().z < 0.0)
+      {
+        Vector3 localScale = go1.get_transform().get_localScale();
+        // ISSUE: explicit reference operation
+        // ISSUE: variable of a reference type
+        Vector3& local = @localScale;
+        // ISSUE: explicit reference operation
+        // ISSUE: explicit reference operation
+        (^local).z = (__Null) ((^local).z * -1.0);
+        go1.get_transform().set_localScale(localScale);
+      }
+      if (this.Attach && !string.IsNullOrEmpty(this.BoneName))
+      {
+        Transform transform = GameUtility.findChildRecursively(go.get_transform(), this.BoneName);
+        if (this.BoneName == "CAMERA" && Object.op_Implicit((Object) Camera.get_main()))
+          transform = ((Component) Camera.get_main()).get_transform();
+        if (Object.op_Inequality((Object) transform, (Object) null))
+          go1.get_transform().SetParent(transform);
+      }
+      this.OnGenerate(go1);
+      if ((double) this.End <= (double) this.Start + 0.100000001490116)
+        return;
+      DestructTimer destructTimer = GameUtility.RequireComponent<DestructTimer>(go1);
+      if (!Object.op_Implicit((Object) destructTimer))
+        return;
+      destructTimer.Timer = this.End - this.Start;
     }
-}
 
+    protected virtual void OnGenerate(GameObject go)
+    {
+    }
+  }
+}

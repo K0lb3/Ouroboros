@@ -1,43 +1,37 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.WindowControllerEvent
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  public class WindowControllerEvent : StateMachineBehaviour
+  {
+    public WindowControllerEvent.EventTypes Type;
 
-    public class WindowControllerEvent : StateMachineBehaviour
+    public WindowControllerEvent()
     {
-        public EventTypes Type;
-
-        public WindowControllerEvent()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-        {
-            WindowController controller;
-            controller = animator.GetComponent<WindowController>();
-            if ((controller != null) == null)
-            {
-                goto Label_002F;
-            }
-            if (this.Type != null)
-            {
-                goto Label_0029;
-            }
-            controller.OnOpen();
-            goto Label_002F;
-        Label_0029:
-            controller.OnClose();
-        Label_002F:
-            return;
-        }
-
-        public enum EventTypes
-        {
-            Opened,
-            Closed
-        }
+      base.\u002Ector();
     }
-}
 
+    public virtual void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+      WindowController component = (WindowController) ((Component) animator).GetComponent<WindowController>();
+      if (!Object.op_Inequality((Object) component, (Object) null))
+        return;
+      if (this.Type == WindowControllerEvent.EventTypes.Opened)
+        component.OnOpen();
+      else
+        component.OnClose();
+    }
+
+    public enum EventTypes
+    {
+      Opened,
+      Closed,
+    }
+  }
+}

@@ -1,67 +1,50 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.TowerHPColor
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using UnityEngine;
-    using UnityEngine.UI;
+  public class TowerHPColor : MonoBehaviour, IGameParameter
+  {
+    private const float BorderGreen = 1f;
+    private const float BorderRed = 0.2f;
+    [SerializeField]
+    private Image image;
+    [SerializeField]
+    private Sprite ColorBlue;
+    [SerializeField]
+    private Sprite ColorGreen;
+    [SerializeField]
+    private Sprite ColorRed;
 
-    public class TowerHPColor : MonoBehaviour, IGameParameter
+    public TowerHPColor()
     {
-        private const float BorderGreen = 1f;
-        private const float BorderRed = 0.2f;
-        [SerializeField]
-        private Image image;
-        [SerializeField]
-        private Sprite ColorBlue;
-        [SerializeField]
-        private Sprite ColorGreen;
-        [SerializeField]
-        private Sprite ColorRed;
-
-        public TowerHPColor()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void ChangeValue(int hp, int max_hp)
-        {
-            float num;
-            num = ((float) hp) / ((float) max_hp);
-            if (num < 1f)
-            {
-                goto Label_0027;
-            }
-            this.image.set_sprite(this.ColorBlue);
-            goto Label_0059;
-        Label_0027:
-            if (num <= 0.2f)
-            {
-                goto Label_0048;
-            }
-            this.image.set_sprite(this.ColorGreen);
-            goto Label_0059;
-        Label_0048:
-            this.image.set_sprite(this.ColorRed);
-        Label_0059:
-            return;
-        }
-
-        public void UpdateValue()
-        {
-            UnitData data;
-            int num;
-            data = DataSource.FindDataOfClass<UnitData>(base.get_gameObject(), null);
-            if (data != null)
-            {
-                goto Label_0014;
-            }
-            return;
-        Label_0014:
-            num = MonoSingleton<GameManager>.Instance.TowerResuponse.GetPlayerUnitHP(data);
-            this.ChangeValue(num, data.Status.param.hp);
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    public void UpdateValue()
+    {
+      UnitData dataOfClass = DataSource.FindDataOfClass<UnitData>(((Component) this).get_gameObject(), (UnitData) null);
+      if (dataOfClass == null)
+        return;
+      this.ChangeValue(MonoSingleton<GameManager>.Instance.TowerResuponse.GetPlayerUnitHP(dataOfClass), (int) dataOfClass.Status.param.hp);
+    }
+
+    public void ChangeValue(int hp, int max_hp)
+    {
+      float num = (float) hp / (float) max_hp;
+      if ((double) num >= 1.0)
+        this.image.set_sprite(this.ColorBlue);
+      else if ((double) num > 0.200000002980232)
+        this.image.set_sprite(this.ColorGreen);
+      else
+        this.image.set_sprite(this.ColorRed);
+    }
+  }
+}

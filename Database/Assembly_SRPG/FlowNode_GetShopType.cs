@@ -1,91 +1,63 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_GetShopType
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    [Pin(100, "Normal", 1, 0), Pin(0x65, "Tabi", 1, 1), Pin(0x6a, "Multi", 1, 6), Pin(0x66, "Kimagure", 1, 2), Pin(0x67, "Monozuki", 1, 3), Pin(0x6b, "AwakePiece", 1, 7), Pin(0x6c, "Artifact", 1, 8), Pin(0x6d, "Limited", 1, 9), Pin(0x68, "Arena", 1, 4), Pin(1, "Test", 0, 10), Pin(0x69, "Tour", 1, 5), NodeType("System/GetShopType", 0x7fe5)]
-    public class FlowNode_GetShopType : FlowNode
+  [FlowNode.Pin(104, "Arena", FlowNode.PinTypes.Output, 4)]
+  [FlowNode.Pin(109, "Limited", FlowNode.PinTypes.Output, 9)]
+  [FlowNode.Pin(108, "Artifact", FlowNode.PinTypes.Output, 8)]
+  [FlowNode.Pin(107, "AwakePiece", FlowNode.PinTypes.Output, 7)]
+  [FlowNode.Pin(106, "Multi", FlowNode.PinTypes.Output, 6)]
+  [FlowNode.Pin(105, "Tour", FlowNode.PinTypes.Output, 5)]
+  [FlowNode.Pin(103, "Monozuki", FlowNode.PinTypes.Output, 3)]
+  [FlowNode.Pin(101, "Tabi", FlowNode.PinTypes.Output, 1)]
+  [FlowNode.NodeType("System/GetShopType", 32741)]
+  [FlowNode.Pin(100, "Normal", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(102, "Kimagure", FlowNode.PinTypes.Output, 2)]
+  [FlowNode.Pin(1, "Test", FlowNode.PinTypes.Input, 10)]
+  public class FlowNode_GetShopType : FlowNode
+  {
+    public override void OnActivate(int pinID)
     {
-        public FlowNode_GetShopType()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != 1)
-            {
-                goto Label_00C8;
-            }
-            if (GlobalVars.ShopType != 1)
-            {
-                goto Label_001B;
-            }
-            pinID = 0x65;
-            goto Label_00C0;
-        Label_001B:
-            if (GlobalVars.ShopType != 2)
-            {
-                goto Label_002F;
-            }
-            pinID = 0x66;
-            goto Label_00C0;
-        Label_002F:
-            if (GlobalVars.ShopType != 3)
-            {
-                goto Label_0043;
-            }
-            pinID = 0x67;
-            goto Label_00C0;
-        Label_0043:
-            if (GlobalVars.ShopType != 5)
-            {
-                goto Label_0057;
-            }
-            pinID = 0x68;
-            goto Label_00C0;
-        Label_0057:
-            if (GlobalVars.ShopType != 4)
-            {
-                goto Label_006B;
-            }
-            pinID = 0x69;
-            goto Label_00C0;
-        Label_006B:
-            if (GlobalVars.ShopType != 6)
-            {
-                goto Label_007F;
-            }
-            pinID = 0x6a;
-            goto Label_00C0;
-        Label_007F:
-            if (GlobalVars.ShopType != 7)
-            {
-                goto Label_0093;
-            }
-            pinID = 0x6b;
-            goto Label_00C0;
-        Label_0093:
-            if (GlobalVars.ShopType != 8)
-            {
-                goto Label_00A7;
-            }
-            pinID = 0x6c;
-            goto Label_00C0;
-        Label_00A7:
-            if (GlobalVars.ShopType != 10)
-            {
-                goto Label_00BC;
-            }
-            pinID = 0x6d;
-            goto Label_00C0;
-        Label_00BC:
-            pinID = 100;
-        Label_00C0:
-            base.ActivateOutputLinks(pinID);
-        Label_00C8:
-            return;
-        }
+      if (pinID != 1)
+        return;
+      switch (GlobalVars.ShopType)
+      {
+        case EShopType.Tabi:
+          pinID = 101;
+          break;
+        case EShopType.Kimagure:
+          pinID = 102;
+          break;
+        case EShopType.Monozuki:
+          pinID = 103;
+          break;
+        case EShopType.Tour:
+          pinID = 105;
+          break;
+        case EShopType.Arena:
+          pinID = 104;
+          break;
+        case EShopType.Multi:
+          pinID = 106;
+          break;
+        case EShopType.AwakePiece:
+          pinID = 107;
+          break;
+        case EShopType.Artifact:
+          pinID = 108;
+          break;
+        case EShopType.Limited:
+          pinID = 109;
+          break;
+        default:
+          pinID = 100;
+          break;
+      }
+      this.ActivateOutputLinks(pinID);
     }
+  }
 }
-

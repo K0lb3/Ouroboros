@@ -1,25 +1,24 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.UnitSubSetting
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
+  public class UnitSubSetting
+  {
+    public eMapUnitCtCalcType startCtCalc;
+    public OInt startCtVal;
 
-    public class UnitSubSetting
+    public UnitSubSetting()
     {
-        public eMapUnitCtCalcType startCtCalc;
-        public OInt startCtVal;
-
-        public UnitSubSetting()
-        {
-            base..ctor();
-            return;
-        }
-
-        public UnitSubSetting(JSON_MapPartySubCT json)
-        {
-            base..ctor();
-            this.startCtCalc = json.ct_calc;
-            this.startCtVal = json.ct_val;
-            return;
-        }
     }
-}
 
+    public UnitSubSetting(JSON_MapPartySubCT json)
+    {
+      this.startCtCalc = (eMapUnitCtCalcType) json.ct_calc;
+      this.startCtVal = (OInt) json.ct_val;
+    }
+  }
+}

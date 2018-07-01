@@ -1,61 +1,50 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_TowerRanking
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-
-    [Pin(0xc9, "Error", 1, 0xc9), Pin(200, "Finish", 1, 200), Pin(100, "Request", 0, 100), NodeType("System/TowerRank", 0x7fe5)]
-    public class FlowNode_TowerRanking : FlowNode_Network
+  [FlowNode.Pin(200, "Finish", FlowNode.PinTypes.Output, 200)]
+  [FlowNode.Pin(201, "Error", FlowNode.PinTypes.Output, 201)]
+  [FlowNode.NodeType("System/TowerRank", 32741)]
+  [FlowNode.Pin(100, "Request", FlowNode.PinTypes.Input, 100)]
+  public class FlowNode_TowerRanking : FlowNode_Network
+  {
+    public override void OnActivate(int pinID)
     {
-        public FlowNode_TowerRanking()
-        {
-            base..ctor();
-            return;
-        }
-
-        private void Failure()
-        {
-            base.set_enabled(0);
-            base.ActivateOutputLinks(0xc9);
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != 100)
-            {
-                goto Label_002B;
-            }
-            base.set_enabled(1);
-            base.ExecRequest(new ReqTowerRank(GlobalVars.SelectedTowerID, new Network.ResponseCallback(this.ResponseCallback)));
-        Label_002B:
-            return;
-        }
-
-        public override unsafe void OnSuccess(WWWResult www)
-        {
-            TowerResuponse resuponse;
-            WebAPI.JSON_BodyResponse<ReqTowerRank.JSON_TowerRankResponse> response;
-            if (TowerErrorHandle.Error(this) == null)
-            {
-                goto Label_000C;
-            }
-            return;
-        Label_000C:
-            resuponse = MonoSingleton<GameManager>.Instance.TowerResuponse;
-            response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<ReqTowerRank.JSON_TowerRankResponse>>(&www.text);
-            DebugUtility.Assert((response == null) == 0, "res == null");
-            Network.RemoveAPI();
-            resuponse.Deserialize(response.body);
-            this.Success();
-            return;
-        }
-
-        private void Success()
-        {
-            base.set_enabled(0);
-            base.ActivateOutputLinks(200);
-            return;
-        }
+      if (pinID != 100)
+        return;
+      ((Behaviour) this).set_enabled(true);
+      this.ExecRequest((WebAPI) new ReqTowerRank(GlobalVars.SelectedTowerID, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
     }
-}
 
+    private void Success()
+    {
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(200);
+    }
+
+    private void Failure()
+    {
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(201);
+    }
+
+    public override void OnSuccess(WWWResult www)
+    {
+      if (TowerErrorHandle.Error((FlowNode_Network) this))
+        return;
+      TowerResuponse towerResuponse = MonoSingleton<GameManager>.Instance.TowerResuponse;
+      WebAPI.JSON_BodyResponse<ReqTowerRank.JSON_TowerRankResponse> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<ReqTowerRank.JSON_TowerRankResponse>>(www.text);
+      DebugUtility.Assert(jsonObject != null, "res == null");
+      Network.RemoveAPI();
+      towerResuponse.Deserialize(jsonObject.body);
+      this.Success();
+    }
+  }
+}

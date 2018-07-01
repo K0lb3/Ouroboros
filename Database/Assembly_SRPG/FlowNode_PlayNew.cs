@@ -1,126 +1,101 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_PlayNew
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
+  [FlowNode.NodeType("System/PlayNew", 32741)]
+  [FlowNode.Pin(10, "Start", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 10)]
+  [FlowNode.Pin(2, "Reset to Title", FlowNode.PinTypes.Output, 11)]
+  public class FlowNode_PlayNew : FlowNode_Network
+  {
+    public bool IsDebug;
 
-    [Pin(1, "Success", 1, 10), NodeType("System/PlayNew", 0x7fe5), Pin(2, "Reset to Title", 1, 11), Pin(10, "Start", 0, 0)]
-    public class FlowNode_PlayNew : FlowNode_Network
+    public void SetDebug(bool check)
     {
-        public bool IsDebug;
+      this.IsDebug = check;
+    }
 
-        public FlowNode_PlayNew()
+    public override void OnActivate(int pinID)
+    {
+      if (pinID != 10)
+        return;
+      if (Network.Mode == Network.EConnectMode.Online)
+      {
+        this.ExecRequest((WebAPI) new ReqPlayNew(this.IsDebug, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+        ((Behaviour) this).set_enabled(true);
+      }
+      else
+        this.Success();
+    }
+
+    private void Success()
+    {
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(1);
+    }
+
+    private void Failure()
+    {
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(2);
+    }
+
+    public override void OnSuccess(WWWResult www)
+    {
+      if (Network.IsError)
+      {
+        if (Network.ErrCode == Network.EErrCode.CreateStopped)
+          this.OnRetry();
+        else
+          this.OnFailed();
+      }
+      else
+      {
+        WebAPI.JSON_BodyResponse<Json_PlayerDataAll> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_PlayerDataAll>>(www.text);
+        DebugUtility.Assert(jsonObject != null, "res == null");
+        Network.RemoveAPI();
+        if (jsonObject.body == null)
         {
-            base..ctor();
-            return;
+          this.Failure();
         }
-
-        private void Failure()
+        else
         {
-            base.set_enabled(0);
-            base.ActivateOutputLinks(2);
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != 10)
+          GameManager instance = MonoSingleton<GameManager>.Instance;
+          try
+          {
+            instance.Deserialize(jsonObject.body.player);
+            instance.Deserialize(jsonObject.body.units);
+            instance.Deserialize(jsonObject.body.items);
+            if (!instance.Deserialize(jsonObject.body.mails))
             {
-                goto Label_0041;
+              this.Failure();
+              return;
             }
-            if (Network.Mode != null)
-            {
-                goto Label_003B;
-            }
-            base.ExecRequest(new ReqPlayNew(this.IsDebug, new Network.ResponseCallback(this.ResponseCallback)));
-            base.set_enabled(1);
-            goto Label_0041;
-        Label_003B:
-            this.Success();
-        Label_0041:
-            return;
-        }
-
-        public override unsafe void OnSuccess(WWWResult www)
-        {
-            WebAPI.JSON_BodyResponse<Json_PlayerDataAll> response;
-            GameManager manager;
-            Exception exception;
-            Network.EErrCode code;
-            if (Network.IsError == null)
-            {
-                goto Label_002E;
-            }
-            if (Network.ErrCode == 0x514)
-            {
-                goto Label_0020;
-            }
-            goto Label_0027;
-        Label_0020:
-            this.OnRetry();
-            return;
-        Label_0027:
-            this.OnFailed();
-            return;
-        Label_002E:
-            response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_PlayerDataAll>>(&www.text);
-            DebugUtility.Assert((response == null) == 0, "res == null");
-            Network.RemoveAPI();
-            if (response.body != null)
-            {
-                goto Label_0063;
-            }
+            instance.Deserialize(jsonObject.body.parties);
+            instance.Deserialize(jsonObject.body.friends);
+            instance.Deserialize(jsonObject.body.notify);
+            instance.Deserialize(jsonObject.body.skins);
+          }
+          catch (Exception ex)
+          {
+            DebugUtility.LogException(ex);
             this.Failure();
             return;
-        Label_0063:
-            manager = MonoSingleton<GameManager>.Instance;
-        Label_0069:
-            try
-            {
-                manager.Deserialize(response.body.player);
-                manager.Deserialize(response.body.units);
-                manager.Deserialize(response.body.items);
-                if (manager.Deserialize(response.body.mails) != null)
-                {
-                    goto Label_00BD;
-                }
-                this.Failure();
-                goto Label_0149;
-            Label_00BD:
-                manager.Deserialize(response.body.parties);
-                manager.Deserialize(response.body.friends);
-                manager.Deserialize(response.body.notify);
-                manager.Deserialize(response.body.skins);
-                goto Label_011D;
-            }
-            catch (Exception exception1)
-            {
-            Label_0106:
-                exception = exception1;
-                DebugUtility.LogException(exception);
-                this.Failure();
-                goto Label_0149;
-            }
-        Label_011D:
-            GameUtility.Config_OkyakusamaCode = manager.Player.OkyakusamaCode;
-            GlobalVars.CustomerID = manager.Player.CUID;
-            manager.PostLogin();
-            this.Success();
-        Label_0149:
-            return;
+          }
+          GameUtility.Config_OkyakusamaCode = instance.Player.OkyakusamaCode;
+          GlobalVars.CustomerID = instance.Player.CUID;
+          instance.PostLogin();
+          this.Success();
         }
-
-        public void SetDebug(bool check)
-        {
-            this.IsDebug = check;
-            return;
-        }
-
-        private void Success()
-        {
-            base.set_enabled(0);
-            base.ActivateOutputLinks(1);
-            return;
-        }
+      }
     }
+  }
 }
-

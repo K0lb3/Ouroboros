@@ -1,17 +1,14 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.JSON_ChatLog
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    public class JSON_ChatLog
-    {
-        public ChatLogParam[] messages;
-        public Player player;
-
-        public JSON_ChatLog()
-        {
-            base..ctor();
-            return;
-        }
-    }
+  public class JSON_ChatLog
+  {
+    public ChatLogParam[] messages;
+    public Player player;
+  }
 }
-

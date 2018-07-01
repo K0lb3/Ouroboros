@@ -1,106 +1,79 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_FriendList
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
+  [FlowNode.Pin(2, "Request(フレンド申請も含む)", FlowNode.PinTypes.Input, 2)]
+  [FlowNode.NodeType("Network/FriendList", 32741)]
+  [FlowNode.Pin(0, "Request", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
+  public class FlowNode_FriendList : FlowNode_Network
+  {
+    private bool IsFollower;
 
-    [Pin(1, "Success", 1, 1), NodeType("Network/FriendList", 0x7fe5), Pin(2, "Request(フレンド申請も含む)", 0, 2), Pin(0, "Request", 0, 0)]
-    public class FlowNode_FriendList : FlowNode_Network
+    public override void OnActivate(int pinID)
     {
-        private bool IsFollower;
-
-        public FlowNode_FriendList()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID == null)
-            {
-                goto Label_000D;
-            }
-            if (pinID != 2)
-            {
-                goto Label_0059;
-            }
-        Label_000D:
-            this.IsFollower = pinID == 2;
-            if (base.get_enabled() == null)
-            {
-                goto Label_0023;
-            }
-            return;
-        Label_0023:
-            if (Network.Mode != 1)
-            {
-                goto Label_0035;
-            }
-            this.Success();
-            return;
-        Label_0035:
-            base.ExecRequest(new ReqFriendList(this.IsFollower, new Network.ResponseCallback(this.ResponseCallback)));
-            base.set_enabled(1);
-        Label_0059:
-            return;
-        }
-
-        public override unsafe void OnSuccess(WWWResult www)
-        {
-            WebAPI.JSON_BodyResponse<Json_FriendList> response;
-            GameManager manager;
-            InnWindow window;
-            Exception exception;
-            if (Network.IsError == null)
-            {
-                goto Label_0011;
-            }
-            this.OnFailed();
-            return;
-        Label_0011:
-            DebugMenu.Log("API", "friend:" + &www.text);
-            response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_FriendList>>(&www.text);
-            DebugUtility.Assert((response == null) == 0, "res == null");
-            Network.RemoveAPI();
-            manager = MonoSingleton<GameManager>.Instance;
-        Label_0055:
-            try
-            {
-                manager.Deserialize(response.body.friends, 1);
-                if (this.IsFollower == null)
-                {
-                    goto Label_00A6;
-                }
-                manager.Player.FollowerNum = response.body.follower_count;
-                window = base.get_gameObject().GetComponentInChildren<InnWindow>();
-                if ((window != null) == null)
-                {
-                    goto Label_00A6;
-                }
-                window.Refresh();
-            Label_00A6:
-                manager.Player.FirstFriendCount = response.body.first_count;
-                this.Success();
-                goto Label_00D8;
-            }
-            catch (Exception exception1)
-            {
-            Label_00C7:
-                exception = exception1;
-                DebugUtility.LogException(exception);
-                goto Label_00DF;
-            }
-        Label_00D8:
-            base.set_enabled(0);
-        Label_00DF:
-            return;
-        }
-
-        private void Success()
-        {
-            base.ActivateOutputLinks(1);
-            return;
-        }
+      if (pinID != 0 && pinID != 2)
+        return;
+      this.IsFollower = pinID == 2;
+      if (((Behaviour) this).get_enabled())
+        return;
+      if (Network.Mode == Network.EConnectMode.Offline)
+      {
+        this.Success();
+      }
+      else
+      {
+        this.ExecRequest((WebAPI) new ReqFriendList(this.IsFollower, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+        ((Behaviour) this).set_enabled(true);
+      }
     }
-}
 
+    private void Success()
+    {
+      this.ActivateOutputLinks(1);
+    }
+
+    public override void OnSuccess(WWWResult www)
+    {
+      if (Network.IsError)
+      {
+        this.OnFailed();
+      }
+      else
+      {
+        DebugMenu.Log("API", "friend:" + www.text);
+        WebAPI.JSON_BodyResponse<Json_FriendList> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_FriendList>>(www.text);
+        DebugUtility.Assert(jsonObject != null, "res == null");
+        Network.RemoveAPI();
+        GameManager instance = MonoSingleton<GameManager>.Instance;
+        try
+        {
+          instance.Deserialize(jsonObject.body.friends, FriendStates.Friend);
+          if (this.IsFollower)
+          {
+            instance.Player.FollowerNum = jsonObject.body.follower_count;
+            InnWindow componentInChildren = (InnWindow) ((Component) this).get_gameObject().GetComponentInChildren<InnWindow>();
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) componentInChildren, (UnityEngine.Object) null))
+              componentInChildren.Refresh();
+          }
+          instance.Player.FirstFriendCount = jsonObject.body.first_count;
+          this.Success();
+        }
+        catch (Exception ex)
+        {
+          DebugUtility.LogException(ex);
+          return;
+        }
+        ((Behaviour) this).set_enabled(false);
+      }
+    }
+  }
+}

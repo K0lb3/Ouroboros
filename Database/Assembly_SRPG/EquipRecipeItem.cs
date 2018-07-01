@@ -1,75 +1,52 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.EquipRecipeItem
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
-    using UnityEngine.UI;
+  public class EquipRecipeItem : MonoBehaviour
+  {
+    public Color DefaultLineColor;
+    public Color CommonEquipLineColor;
+    public Color DefaultTextColor;
+    public Color CommonEquipTextColor;
+    public Image[] Lines;
+    public Text EquipItemNum;
+    public GameObject CommonText;
+    public GameObject CommonIcon;
 
-    public class EquipRecipeItem : MonoBehaviour
+    public EquipRecipeItem()
     {
-        public Color DefaultLineColor;
-        public Color CommonEquipLineColor;
-        public Color DefaultTextColor;
-        public Color CommonEquipTextColor;
-        public Image[] Lines;
-        public Text EquipItemNum;
-        public GameObject CommonText;
-        public GameObject CommonIcon;
-
-        public EquipRecipeItem()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void SetIsCommon(bool is_common)
-        {
-            if ((this.EquipItemNum == null) == null)
-            {
-                goto Label_0012;
-            }
-            return;
-        Label_0012:
-            this.EquipItemNum.set_color((is_common == null) ? this.DefaultTextColor : this.CommonEquipTextColor);
-            if ((this.CommonText != null) == null)
-            {
-                goto Label_0051;
-            }
-            this.CommonText.SetActive(is_common);
-        Label_0051:
-            if ((this.CommonIcon != null) == null)
-            {
-                goto Label_006E;
-            }
-            this.CommonIcon.SetActive(is_common);
-        Label_006E:
-            return;
-        }
-
-        public void SetIsCommonLine(bool is_common)
-        {
-            int num;
-            if (this.Lines != null)
-            {
-                goto Label_000C;
-            }
-            return;
-        Label_000C:
-            num = 0;
-            goto Label_003B;
-        Label_0013:
-            this.Lines[num].set_color((is_common == null) ? this.DefaultLineColor : this.CommonEquipLineColor);
-            num += 1;
-        Label_003B:
-            if (num < ((int) this.Lines.Length))
-            {
-                goto Label_0013;
-            }
-            return;
-        }
-
-        private void Start()
-        {
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Start()
+    {
+    }
+
+    public void SetIsCommon(bool is_common)
+    {
+      if (Object.op_Equality((Object) this.EquipItemNum, (Object) null))
+        return;
+      ((Graphic) this.EquipItemNum).set_color(!is_common ? this.DefaultTextColor : this.CommonEquipTextColor);
+      if (Object.op_Inequality((Object) this.CommonText, (Object) null))
+        this.CommonText.SetActive(is_common);
+      if (!Object.op_Inequality((Object) this.CommonIcon, (Object) null))
+        return;
+      this.CommonIcon.SetActive(is_common);
+    }
+
+    public void SetIsCommonLine(bool is_common)
+    {
+      if (this.Lines == null)
+        return;
+      for (int index = 0; index < this.Lines.Length; ++index)
+        ((Graphic) this.Lines[index]).set_color(!is_common ? this.DefaultLineColor : this.CommonEquipLineColor);
+    }
+  }
+}

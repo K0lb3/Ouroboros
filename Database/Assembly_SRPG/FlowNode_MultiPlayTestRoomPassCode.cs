@@ -1,45 +1,34 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_MultiPlayTestRoomPassCode
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    [Pin(2, "NG", 1, 0), Pin(1, "OK", 1, 0), Pin(0, "Test", 0, 0), NodeType("Multi/MultiPlayTestRoomPassCode", 0x7fe5)]
-    public class FlowNode_MultiPlayTestRoomPassCode : FlowNode
+  [FlowNode.NodeType("Multi/MultiPlayTestRoomPassCode", 32741)]
+  [FlowNode.Pin(0, "Test", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(2, "NG", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(1, "OK", FlowNode.PinTypes.Output, 0)]
+  public class FlowNode_MultiPlayTestRoomPassCode : FlowNode
+  {
+    public override void OnActivate(int pinID)
     {
-        public FlowNode_MultiPlayTestRoomPassCode()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            string[] textArray1;
-            string str;
-            if (pinID != null)
-            {
-                goto Label_008E;
-            }
-            if (string.IsNullOrEmpty(GlobalVars.SelectedMultiPlayRoomPassCodeHash) == null)
-            {
-                goto Label_0022;
-            }
-            base.ActivateOutputLinks(1);
-            goto Label_008E;
-        Label_0022:
-            str = MultiPlayAPIRoom.CalcHash(GlobalVars.EditMultiPlayRoomPassCode);
-            textArray1 = new string[] { "CheckPass...:", GlobalVars.EditMultiPlayRoomPassCode, " > ", str, " vs ", GlobalVars.SelectedMultiPlayRoomPassCodeHash };
-            DebugUtility.Log(string.Concat(textArray1));
-            if (GlobalVars.SelectedMultiPlayRoomPassCodeHash.Equals(str) == null)
-            {
-                goto Label_0086;
-            }
-            base.ActivateOutputLinks(1);
-            goto Label_008E;
-        Label_0086:
-            base.ActivateOutputLinks(2);
-        Label_008E:
-            return;
-        }
+      if (pinID != 0)
+        return;
+      if (string.IsNullOrEmpty(GlobalVars.SelectedMultiPlayRoomPassCodeHash))
+      {
+        this.ActivateOutputLinks(1);
+      }
+      else
+      {
+        string str = MultiPlayAPIRoom.CalcHash(GlobalVars.EditMultiPlayRoomPassCode);
+        DebugUtility.Log("CheckPass...:" + GlobalVars.EditMultiPlayRoomPassCode + " > " + str + " vs " + GlobalVars.SelectedMultiPlayRoomPassCodeHash);
+        if (GlobalVars.SelectedMultiPlayRoomPassCodeHash.Equals(str))
+          this.ActivateOutputLinks(1);
+        else
+          this.ActivateOutputLinks(2);
+      }
     }
+  }
 }
-

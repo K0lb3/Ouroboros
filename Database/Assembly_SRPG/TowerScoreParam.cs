@@ -1,38 +1,31 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.TowerScoreParam
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
+  public class TowerScoreParam
+  {
+    public string Rank;
+    public OInt Score;
+    public OInt TurnCnt;
+    public OInt DiedCnt;
+    public OInt RetireCnt;
+    public OInt RecoverCnt;
 
-    public class TowerScoreParam
+    public bool Deserialize(JSON_TowerScore json)
     {
-        public string Rank;
-        public OInt Score;
-        public OInt TurnCnt;
-        public OInt DiedCnt;
-        public OInt RetireCnt;
-        public OInt RecoverCnt;
-
-        public TowerScoreParam()
-        {
-            base..ctor();
-            return;
-        }
-
-        public bool Deserialize(JSON_TowerScoreThreshold json)
-        {
-            if (json != null)
-            {
-                goto Label_0008;
-            }
-            return 0;
-        Label_0008:
-            this.Rank = json.rank;
-            this.Score = json.score;
-            this.TurnCnt = json.turn;
-            this.DiedCnt = json.died;
-            this.RetireCnt = json.retire;
-            this.RecoverCnt = json.recover;
-            return 1;
-        }
+      if (json == null)
+        return false;
+      this.Rank = json.rank;
+      this.Score = (OInt) json.score;
+      this.TurnCnt = (OInt) json.turn;
+      this.DiedCnt = (OInt) json.died;
+      this.RetireCnt = (OInt) json.retire;
+      this.RecoverCnt = (OInt) json.recover;
+      return true;
     }
+  }
 }
-

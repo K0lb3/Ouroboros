@@ -1,102 +1,66 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ShareString
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Collections.Generic;
+
+namespace SRPG
 {
-    using System;
-    using System.Collections.Generic;
+  public class ShareString
+  {
+    private List<List<string>> m_string_types = new List<List<string>>();
 
-    public class ShareString
+    public ShareString()
     {
-        private List<List<string>> m_string_types;
-
-        public ShareString()
-        {
-            int num;
-            List<string> list;
-            this.m_string_types = new List<List<string>>();
-            base..ctor();
-            num = 0;
-            goto Label_002E;
-        Label_0018:
-            list = new List<string>();
-            this.m_string_types.Add(list);
-            num += 1;
-        Label_002E:
-            if (num < 9)
-            {
-                goto Label_0018;
-            }
-            return;
-        }
-
-        private List<string> ChoiceDicitionary(Type type)
-        {
-            if (type < this.m_string_types.Count)
-            {
-                goto Label_0013;
-            }
-            return null;
-        Label_0013:
-            return this.m_string_types[type];
-        }
-
-        public string Get(Type type, short index)
-        {
-            List<string> list;
-            list = this.ChoiceDicitionary(type);
-            if (index == -1)
-            {
-                goto Label_001B;
-            }
-            if (index < list.Count)
-            {
-                goto Label_0021;
-            }
-        Label_001B:
-            return string.Empty;
-        Label_0021:
-            return list[index];
-        }
-
-        public short Set(Type type, string val)
-        {
-            List<string> list;
-            short num;
-            if (string.IsNullOrEmpty(val) == null)
-            {
-                goto Label_000D;
-            }
-            return -1;
-        Label_000D:
-            list = this.ChoiceDicitionary(type);
-            num = (short) list.IndexOf(val);
-            if (num != -1)
-            {
-                goto Label_005E;
-            }
-            if (list.Count < 0x7fff)
-            {
-                goto Label_004F;
-            }
-            DebugUtility.LogError("The registered character has exceeded the prescribed value. ShareString.Type = " + ((Type) type) + ", Please change short to int.");
-        Label_004F:
-            num = (short) list.Count;
-            list.Add(val);
-        Label_005E:
-            return num;
-        }
-
-        public enum Type : byte
-        {
-            QuestParam_cond = 0,
-            QuestParam_world = 1,
-            QuestParam_area = 2,
-            QuestParam_units = 3,
-            QuestParam_ticket = 4,
-            ChapterParam_world = 5,
-            ChapterParam_section = 6,
-            MapParam_battleSceneName = 7,
-            MapParam_bgmName = 8,
-            MAX_TYPE = 9
-        }
+      for (int index = 0; index < 9; ++index)
+        this.m_string_types.Add(new List<string>());
     }
-}
 
+    public short Set(ShareString.Type type, string val)
+    {
+      if (string.IsNullOrEmpty(val))
+        return -1;
+      List<string> stringList = this.ChoiceDicitionary(type);
+      short num = (short) stringList.IndexOf(val);
+      if ((int) num == -1)
+      {
+        if (stringList.Count >= (int) short.MaxValue)
+          DebugUtility.LogError("The registered character has exceeded the prescribed value. ShareString.Type = " + (object) type + ", Please change short to int.");
+        num = (short) stringList.Count;
+        stringList.Add(val);
+      }
+      return num;
+    }
+
+    public string Get(ShareString.Type type, short index)
+    {
+      List<string> stringList = this.ChoiceDicitionary(type);
+      if ((int) index == -1 || (int) index >= stringList.Count)
+        return string.Empty;
+      return stringList[(int) index];
+    }
+
+    private List<string> ChoiceDicitionary(ShareString.Type type)
+    {
+      if (type >= (ShareString.Type) this.m_string_types.Count)
+        return (List<string>) null;
+      return this.m_string_types[(int) type];
+    }
+
+    public enum Type : byte
+    {
+      QuestParam_cond,
+      QuestParam_world,
+      QuestParam_area,
+      QuestParam_units,
+      QuestParam_ticket,
+      ChapterParam_world,
+      ChapterParam_section,
+      MapParam_battleSceneName,
+      MapParam_bgmName,
+      MAX_TYPE,
+    }
+  }
+}

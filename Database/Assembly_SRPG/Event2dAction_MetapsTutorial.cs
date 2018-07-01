@@ -1,40 +1,28 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.Event2dAction_MetapsTutorial
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
+  [EventActionInfo("MetapsTutorial用", "チュートリアルのトラッキング埋め込み用", 5592405, 4473992)]
+  public class Event2dAction_MetapsTutorial : EventAction
+  {
+    public string Point = string.Empty;
 
-    [EventActionInfo("MetapsTutorial用", "チュートリアルのトラッキング埋め込み用", 0x555555, 0x444488)]
-    public class Event2dAction_MetapsTutorial : EventAction
+    public override void OnActivate()
     {
-        public string Point;
-
-        public Event2dAction_MetapsTutorial()
+      if (!string.IsNullOrEmpty(this.Point))
+      {
+        try
         {
-            this.Point = string.Empty;
-            base..ctor();
-            return;
         }
-
-        public override void OnActivate()
+        catch
         {
-            if (string.IsNullOrEmpty(this.Point) != null)
-            {
-                goto Label_0027;
-            }
-        Label_0010:
-            try
-            {
-                MyMetaps.TrackTutorialPoint(this.Point);
-                goto Label_0027;
-            }
-            catch
-            {
-            Label_0021:
-                goto Label_0027;
-            }
-        Label_0027:
-            base.ActivateNext();
-            return;
         }
+      }
+      this.ActivateNext();
     }
+  }
 }
-

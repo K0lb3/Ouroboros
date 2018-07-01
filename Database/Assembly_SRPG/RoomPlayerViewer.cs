@@ -1,70 +1,40 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.RoomPlayerViewer
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  public class RoomPlayerViewer : MonoBehaviour
+  {
+    public GameObject[] PartyUnitSlots;
 
-    public class RoomPlayerViewer : MonoBehaviour
+    public RoomPlayerViewer()
     {
-        public GameObject[] PartyUnitSlots;
-
-        public RoomPlayerViewer()
-        {
-            this.PartyUnitSlots = new GameObject[3];
-            base..ctor();
-            return;
-        }
-
-        private void Start()
-        {
-            JSON_MyPhotonPlayerParam param;
-            int num;
-            int num2;
-            param = GlobalVars.SelectedMultiPlayerParam;
-            if (param == null)
-            {
-                goto Label_0022;
-            }
-            if (param.units == null)
-            {
-                goto Label_0022;
-            }
-            if (this.PartyUnitSlots != null)
-            {
-                goto Label_0023;
-            }
-        Label_0022:
-            return;
-        Label_0023:
-            num = 0;
-            goto Label_0079;
-        Label_002A:
-            num2 = 0;
-            goto Label_0067;
-        Label_0031:
-            if (param.units[num2].slotID != num)
-            {
-                goto Label_0063;
-            }
-            DataSource.Bind<UnitData>(this.PartyUnitSlots[num], param.units[num2].unit);
-            goto Label_0075;
-        Label_0063:
-            num2 += 1;
-        Label_0067:
-            if (num2 < ((int) param.units.Length))
-            {
-                goto Label_0031;
-            }
-        Label_0075:
-            num += 1;
-        Label_0079:
-            if (num < ((int) this.PartyUnitSlots.Length))
-            {
-                goto Label_002A;
-            }
-            DataSource.Bind<JSON_MyPhotonPlayerParam>(base.get_gameObject(), param);
-            GameParameter.UpdateAll(base.get_gameObject());
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Start()
+    {
+      JSON_MyPhotonPlayerParam multiPlayerParam = GlobalVars.SelectedMultiPlayerParam;
+      if (multiPlayerParam == null || multiPlayerParam.units == null || this.PartyUnitSlots == null)
+        return;
+      for (int index1 = 0; index1 < this.PartyUnitSlots.Length; ++index1)
+      {
+        for (int index2 = 0; index2 < multiPlayerParam.units.Length; ++index2)
+        {
+          if (multiPlayerParam.units[index2].slotID == index1)
+          {
+            DataSource.Bind<UnitData>(this.PartyUnitSlots[index1], multiPlayerParam.units[index2].unit);
+            break;
+          }
+        }
+      }
+      DataSource.Bind<JSON_MyPhotonPlayerParam>(((Component) this).get_gameObject(), multiPlayerParam);
+      GameParameter.UpdateAll(((Component) this).get_gameObject());
+    }
+  }
+}

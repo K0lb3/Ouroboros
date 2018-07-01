@@ -1,29 +1,26 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqBtlComGps
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Text;
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using System.Runtime.InteropServices;
-    using System.Text;
-    using UnityEngine;
-
-    public class ReqBtlComGps : WebAPI
+  public class ReqBtlComGps : WebAPI
+  {
+    public ReqBtlComGps(Network.ResponseCallback response, Vector2 location)
     {
-        public unsafe ReqBtlComGps(Network.ResponseCallback response, Vector2 location, bool isMulti)
-        {
-            StringBuilder builder;
-            base..ctor();
-            builder = WebAPI.GetStringBuilder();
-            base.name = "btl/com/areaquest";
-            builder.Append("\"location\":{");
-            builder.Append("\"lat\":" + ((float) &location.x) + ",");
-            builder.Append("\"lng\":" + ((float) &location.y));
-            builder.Append("}");
-            builder.Append(",");
-            builder.Append("\"is_multi\":");
-            builder.Append((isMulti == null) ? 0 : 1);
-            base.body = WebAPI.GetRequestString(builder.ToString());
-            base.callback = response;
-            return;
-        }
+      StringBuilder stringBuilder = WebAPI.GetStringBuilder();
+      this.name = "btl/com/areaquest";
+      stringBuilder.Append("\"location\":{");
+      stringBuilder.Append("\"lat\":" + (object) (float) location.x + ",");
+      stringBuilder.Append("\"lng\":" + (object) (float) location.y);
+      stringBuilder.Append("}");
+      this.body = WebAPI.GetRequestString(stringBuilder.ToString());
+      this.callback = response;
     }
+  }
 }
-

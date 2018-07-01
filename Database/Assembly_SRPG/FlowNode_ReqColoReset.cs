@@ -1,92 +1,80 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_ReqColoReset
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
+  [FlowNode.Pin(0, "Request", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.NodeType("Network/btl_colo_reset", 32741)]
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
+  public class FlowNode_ReqColoReset : FlowNode_Network
+  {
+    public ColoResetTypes ResetType;
 
-    [Pin(1, "Success", 1, 1), Pin(0, "Request", 0, 0), NodeType("Network/btl_colo_reset", 0x7fe5)]
-    public class FlowNode_ReqColoReset : FlowNode_Network
+    public override void OnActivate(int pinID)
     {
-        public ColoResetTypes ResetType;
-
-        public FlowNode_ReqColoReset()
-        {
-            base..ctor();
-            return;
-        }
-
-        private int getRequiredCoin()
-        {
-            return 1;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != null)
-            {
-                goto Label_003C;
-            }
-            if (Network.Mode != 1)
-            {
-                goto Label_0018;
-            }
-            this.Success();
-            return;
-        Label_0018:
-            base.ExecRequest(new ReqBtlColoReset(this.ResetType, new Network.ResponseCallback(this.ResponseCallback)));
-            base.set_enabled(1);
-        Label_003C:
-            return;
-        }
-
-        public override unsafe void OnSuccess(WWWResult www)
-        {
-            WebAPI.JSON_BodyResponse<Json_PlayerDataAll> response;
-            Exception exception;
-            Network.EErrCode code;
-            if (Network.IsError == null)
-            {
-                goto Label_0017;
-            }
-            code = Network.ErrCode;
-            this.OnFailed();
-            return;
-        Label_0017:
-            response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_PlayerDataAll>>(&www.text);
-            DebugUtility.Assert((response == null) == 0, "res == null");
-            if (response.body != null)
-            {
-                goto Label_0047;
-            }
-            this.OnFailed();
-            return;
-        Label_0047:
-            try
-            {
-                MonoSingleton<GameManager>.Instance.Player.Deserialize(response.body.player);
-                goto Label_007D;
-            }
-            catch (Exception exception1)
-            {
-            Label_0066:
-                exception = exception1;
-                DebugUtility.LogException(exception);
-                this.OnFailed();
-                goto Label_00A4;
-            }
-        Label_007D:
-            Network.RemoveAPI();
-            MyMetaps.TrackSpendCoin(((ColoResetTypes) this.ResetType).ToString(), this.getRequiredCoin());
-            this.Success();
-        Label_00A4:
-            return;
-        }
-
-        private void Success()
-        {
-            base.set_enabled(0);
-            base.ActivateOutputLinks(1);
-            return;
-        }
+      if (pinID != 0)
+        return;
+      if (Network.Mode == Network.EConnectMode.Offline)
+      {
+        this.Success();
+      }
+      else
+      {
+        this.ExecRequest((WebAPI) new ReqBtlColoReset(this.ResetType, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+        ((Behaviour) this).set_enabled(true);
+      }
     }
-}
 
+    private void Success()
+    {
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(1);
+    }
+
+    public override void OnSuccess(WWWResult www)
+    {
+      if (Network.IsError)
+      {
+        Network.EErrCode errCode = Network.ErrCode;
+        this.OnFailed();
+      }
+      else
+      {
+        WebAPI.JSON_BodyResponse<Json_PlayerDataAll> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_PlayerDataAll>>(www.text);
+        DebugUtility.Assert(jsonObject != null, "res == null");
+        if (jsonObject.body == null)
+        {
+          this.OnFailed();
+        }
+        else
+        {
+          try
+          {
+            MonoSingleton<GameManager>.Instance.Player.Deserialize(jsonObject.body.player);
+          }
+          catch (Exception ex)
+          {
+            DebugUtility.LogException(ex);
+            this.OnFailed();
+            return;
+          }
+          Network.RemoveAPI();
+          AnalyticsManager.TrackOriginalCurrencyUse(ESaleType.Coin, this.getRequiredCoin(), this.ResetType.ToString());
+          this.Success();
+        }
+      }
+    }
+
+    private int getRequiredCoin()
+    {
+      return 1;
+    }
+  }
+}

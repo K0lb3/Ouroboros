@@ -1,106 +1,83 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_ReqAwardList
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using UnityEngine;
+  [FlowNode.Pin(0, "所持称号取得", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(10, "Success", FlowNode.PinTypes.Output, 10)]
+  [FlowNode.NodeType("System/ReqAwardList", 32741)]
+  [FlowNode.Pin(11, "Failure", FlowNode.PinTypes.Output, 11)]
+  public class FlowNode_ReqAwardList : FlowNode_Network
+  {
+    [FlowNode.ShowInInfo]
+    [FlowNode.DropTarget(typeof (GameObject), true)]
+    public GameObject Target;
+    public FlowNode_ReqAwardList.MODE mMode;
 
-    [Pin(0, "所持称号取得", 0, 0), NodeType("System/ReqAwardList", 0x7fe5), Pin(10, "Success", 1, 10), Pin(11, "Failure", 1, 11)]
-    public class FlowNode_ReqAwardList : FlowNode_Network
+    public override void OnActivate(int pinID)
     {
-        [DropTarget(typeof(GameObject), true), ShowInInfo]
-        public GameObject Target;
-        public MODE mMode;
-
-        public FlowNode_ReqAwardList()
-        {
-            base..ctor();
-            return;
-        }
-
-        private void Failure()
-        {
-            base.set_enabled(0);
-            base.ActivateOutputLinks(11);
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != null)
-            {
-                goto Label_0024;
-            }
-            base.ExecRequest(new ReqAwardList(new Network.ResponseCallback(this.ResponseCallback)));
-            base.set_enabled(1);
-        Label_0024:
-            return;
-        }
-
-        public override unsafe void OnSuccess(WWWResult www)
-        {
-            WebAPI.JSON_BodyResponse<Json_ResAwardList> response;
-            AwardList list;
-            GameManager manager;
-            Network.EErrCode code;
-            if (Network.IsError == null)
-            {
-                goto Label_0017;
-            }
-            code = Network.ErrCode;
-            this.OnRetry();
-            return;
-        Label_0017:
-            response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_ResAwardList>>(&www.text);
-            DebugUtility.Assert((response == null) == 0, "res == null");
-            Network.RemoveAPI();
-            if (response.body != null)
-            {
-                goto Label_004C;
-            }
-            this.Failure();
-            return;
-        Label_004C:
-            if (this.mMode != null)
-            {
-                goto Label_00A7;
-            }
-            if ((this.Target == null) != null)
-            {
-                goto Label_007E;
-            }
-            if ((this.Target.GetComponent<AwardList>() == null) == null)
-            {
-                goto Label_0085;
-            }
-        Label_007E:
-            this.Failure();
-            return;
-        Label_0085:
-            this.Target.GetComponent<AwardList>().SetOpenAwards(response.body.awards);
-            goto Label_00CF;
-        Label_00A7:
-            if (this.mMode != 1)
-            {
-                goto Label_00CF;
-            }
-            MonoSingleton<GameManager>.Instance.Player.SetHaveAward(response.body.awards);
-        Label_00CF:
-            this.Success();
-            return;
-        }
-
-        private void Success()
-        {
-            base.set_enabled(0);
-            base.ActivateOutputLinks(10);
-            return;
-        }
-
-        public enum MODE
-        {
-            SetAwardList,
-            SetPlayerAward
-        }
+      if (pinID != 0)
+        return;
+      this.ExecRequest((WebAPI) new ReqAwardList(new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+      ((Behaviour) this).set_enabled(true);
     }
-}
 
+    private void Success()
+    {
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(10);
+    }
+
+    private void Failure()
+    {
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(11);
+    }
+
+    public override void OnSuccess(WWWResult www)
+    {
+      if (Network.IsError)
+      {
+        Network.EErrCode errCode = Network.ErrCode;
+        this.OnRetry();
+      }
+      else
+      {
+        WebAPI.JSON_BodyResponse<Json_ResAwardList> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_ResAwardList>>(www.text);
+        DebugUtility.Assert(jsonObject != null, "res == null");
+        Network.RemoveAPI();
+        if (jsonObject.body == null)
+        {
+          this.Failure();
+        }
+        else
+        {
+          if (this.mMode == FlowNode_ReqAwardList.MODE.SetAwardList)
+          {
+            if (Object.op_Equality((Object) this.Target, (Object) null) || Object.op_Equality((Object) this.Target.GetComponent<AwardList>(), (Object) null))
+            {
+              this.Failure();
+              return;
+            }
+            ((AwardList) this.Target.GetComponent<AwardList>()).SetOpenAwards(jsonObject.body.awards);
+          }
+          else if (this.mMode == FlowNode_ReqAwardList.MODE.SetPlayerAward)
+            MonoSingleton<GameManager>.Instance.Player.SetHaveAward(jsonObject.body.awards);
+          this.Success();
+        }
+      }
+    }
+
+    public enum MODE
+    {
+      SetAwardList,
+      SetPlayerAward,
+    }
+  }
+}

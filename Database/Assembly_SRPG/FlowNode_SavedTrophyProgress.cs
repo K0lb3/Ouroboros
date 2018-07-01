@@ -1,35 +1,31 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_SavedTrophyProgress
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-
-    [Pin(2, "UpdateByGameManager", 0, 2), Pin(1, "LoadTrophyProgress", 0, 1), Pin(0, "Success", 1, 0), NodeType("System/SavedTrophyProgress", 0x7fe5)]
-    public class FlowNode_SavedTrophyProgress : FlowNode
+  [FlowNode.Pin(0, "Success", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.Pin(1, "LoadTrophyProgress", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(2, "UpdateByGameManager", FlowNode.PinTypes.Input, 2)]
+  [FlowNode.NodeType("System/SavedTrophyProgress", 32741)]
+  public class FlowNode_SavedTrophyProgress : FlowNode
+  {
+    public override void OnActivate(int pinID)
     {
-        public FlowNode_SavedTrophyProgress()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != 1)
-            {
-                goto Label_0016;
-            }
-            MonoSingleton<GameManager>.Instance.LoadUpdateTrophyList();
-            goto Label_002C;
-        Label_0016:
-            if (pinID != 2)
-            {
-                goto Label_002C;
-            }
-            MonoSingleton<GameManager>.Instance.update_trophy_lock.LockClear();
-        Label_002C:
-            base.ActivateOutputLinks(0);
-            return;
-        }
+      switch (pinID)
+      {
+        case 1:
+          MonoSingleton<GameManager>.Instance.LoadUpdateTrophyList();
+          break;
+        case 2:
+          MonoSingleton<GameManager>.Instance.update_trophy_lock.LockClear();
+          break;
+      }
+      this.ActivateOutputLinks(0);
     }
+  }
 }
-

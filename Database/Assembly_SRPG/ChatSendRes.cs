@@ -1,36 +1,28 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ChatSendRes
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
+  public class ChatSendRes
+  {
+    public byte is_success;
 
-    public class ChatSendRes
+    public bool IsSuccess
     {
-        public byte is_success;
-
-        public ChatSendRes()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void Deserialize(JSON_ChatSendRes json)
-        {
-            if (json != null)
-            {
-                goto Label_0007;
-            }
-            return;
-        Label_0007:
-            this.is_success = json.is_success;
-            return;
-        }
-
-        public bool IsSuccess
-        {
-            get
-            {
-                return (this.is_success == 1);
-            }
-        }
+      get
+      {
+        return (int) this.is_success == 1;
+      }
     }
-}
 
+    public void Deserialize(JSON_ChatSendRes json)
+    {
+      if (json == null)
+        return;
+      this.is_success = json.is_success;
+    }
+  }
+}

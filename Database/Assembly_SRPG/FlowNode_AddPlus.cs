@@ -1,96 +1,76 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_AddPlus
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-
-    [Pin(0, "Request", 0, 0), NodeType("System/AddPlus", 0x7fe5), Pin(1, "Success", 1, 1)]
-    public class FlowNode_AddPlus : FlowNode_Network
+  [FlowNode.NodeType("System/AddPlus", 32741)]
+  [FlowNode.Pin(0, "Request", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
+  public class FlowNode_AddPlus : FlowNode_Network
+  {
+    public override void OnActivate(int pinID)
     {
-        public FlowNode_AddPlus()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            long num;
-            if (pinID != null)
-            {
-                goto Label_0044;
-            }
-            if (Network.Mode != 1)
-            {
-                goto Label_0018;
-            }
-            this.Success();
-            return;
-        Label_0018:
-            num = GlobalVars.SelectedUnitUniqueID;
-            base.ExecRequest(new ReqUnitPlus(num, new Network.ResponseCallback(this.ResponseCallback), null, null));
-            base.set_enabled(1);
-        Label_0044:
-            return;
-        }
-
-        public override unsafe void OnSuccess(WWWResult www)
-        {
-            WebAPI.JSON_BodyResponse<Json_PlayerDataAll> response;
-            Exception exception;
-            Network.EErrCode code;
-            if (Network.IsError == null)
-            {
-                goto Label_002E;
-            }
-            if (Network.ErrCode == 0x834)
-            {
-                goto Label_0020;
-            }
-            goto Label_0027;
-        Label_0020:
-            this.OnFailed();
-            return;
-        Label_0027:
-            this.OnRetry();
-            return;
-        Label_002E:
-            response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_PlayerDataAll>>(&www.text);
-            DebugUtility.Assert((response == null) == 0, "res == null");
-            if (response.body != null)
-            {
-                goto Label_005E;
-            }
-            this.OnRetry();
-            return;
-        Label_005E:
-            try
-            {
-                MonoSingleton<GameManager>.Instance.Deserialize(response.body.player);
-                MonoSingleton<GameManager>.Instance.Deserialize(response.body.items);
-                MonoSingleton<GameManager>.Instance.Deserialize(response.body.units);
-                goto Label_00B9;
-            }
-            catch (Exception exception1)
-            {
-            Label_00A2:
-                exception = exception1;
-                DebugUtility.LogException(exception);
-                this.OnRetry();
-                goto Label_00C4;
-            }
-        Label_00B9:
-            Network.RemoveAPI();
-            this.Success();
-        Label_00C4:
-            return;
-        }
-
-        private void Success()
-        {
-            base.set_enabled(0);
-            base.ActivateOutputLinks(1);
-            return;
-        }
+      if (pinID != 0)
+        return;
+      if (Network.Mode == Network.EConnectMode.Offline)
+      {
+        this.Success();
+      }
+      else
+      {
+        this.ExecRequest((WebAPI) new ReqUnitPlus((long) GlobalVars.SelectedUnitUniqueID, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback), (string) null, (string) null));
+        ((Behaviour) this).set_enabled(true);
+      }
     }
-}
 
+    private void Success()
+    {
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(1);
+    }
+
+    public override void OnSuccess(WWWResult www)
+    {
+      if (Network.IsError)
+      {
+        if (Network.ErrCode == Network.EErrCode.PlusMaterialShot)
+          this.OnFailed();
+        else
+          this.OnRetry();
+      }
+      else
+      {
+        WebAPI.JSON_BodyResponse<Json_PlayerDataAll> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_PlayerDataAll>>(www.text);
+        DebugUtility.Assert(jsonObject != null, "res == null");
+        if (jsonObject.body == null)
+        {
+          this.OnRetry();
+        }
+        else
+        {
+          try
+          {
+            MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.player);
+            MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.items);
+            MonoSingleton<GameManager>.Instance.Deserialize(jsonObject.body.units);
+          }
+          catch (Exception ex)
+          {
+            DebugUtility.LogException(ex);
+            this.OnRetry();
+            return;
+          }
+          Network.RemoveAPI();
+          this.Success();
+        }
+      }
+    }
+  }
+}

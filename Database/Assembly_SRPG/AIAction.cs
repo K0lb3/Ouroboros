@@ -1,24 +1,17 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.AIAction
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    public class AIAction
-    {
-        public OString skill;
-        public OInt type;
-        public OInt turn;
-        public OBool notBlock;
-        public eAIActionNoExecAct noExecAct;
-        public int nextActIdx;
-        public eAIActionNextTurnAct nextTurnAct;
-        public int turnActIdx;
-        public SkillLockCondition cond;
-
-        public AIAction()
-        {
-            base..ctor();
-            return;
-        }
-    }
+  public class AIAction
+  {
+    public OString skill;
+    public OInt type;
+    public OInt turn;
+    public OBool notBlock;
+    public SkillLockCondition cond;
+  }
 }
-

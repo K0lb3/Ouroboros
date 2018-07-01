@@ -1,56 +1,40 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.BattleUnitDetailElement
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  public class BattleUnitDetailElement : MonoBehaviour
+  {
+    public ImageArray ImageElement;
+    public ImageArray ImageFluct;
 
-    public class BattleUnitDetailElement : MonoBehaviour
+    public BattleUnitDetailElement()
     {
-        public ImageArray ImageElement;
-        public ImageArray ImageFluct;
-
-        public BattleUnitDetailElement()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void SetElement(EElement elem, BattleUnitDetail.eBudFluct fluct)
-        {
-            int num;
-            int num2;
-            if (this.ImageElement == null)
-            {
-                goto Label_0038;
-            }
-            num = elem;
-            if (num < 0)
-            {
-                goto Label_0038;
-            }
-            if (num >= ((int) this.ImageElement.Images.Length))
-            {
-                goto Label_0038;
-            }
-            this.ImageElement.ImageIndex = num;
-        Label_0038:
-            if (this.ImageFluct == null)
-            {
-                goto Label_0086;
-            }
-            this.ImageFluct.get_gameObject().SetActive((fluct == 0) == 0);
-            if (fluct == null)
-            {
-                goto Label_0086;
-            }
-            num2 = fluct;
-            if (num2 >= ((int) this.ImageFluct.Images.Length))
-            {
-                goto Label_0086;
-            }
-            this.ImageFluct.ImageIndex = num2;
-        Label_0086:
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    public void SetElement(EElement elem, BattleUnitDetail.eBudFluct fluct)
+    {
+      if (Object.op_Implicit((Object) this.ImageElement))
+      {
+        int num = (int) elem;
+        if (num >= 0 && num < this.ImageElement.Images.Length)
+          this.ImageElement.ImageIndex = num;
+      }
+      if (!Object.op_Implicit((Object) this.ImageFluct))
+        return;
+      ((Component) this.ImageFluct).get_gameObject().SetActive(fluct != BattleUnitDetail.eBudFluct.NONE);
+      if (fluct == BattleUnitDetail.eBudFluct.NONE)
+        return;
+      int num1 = (int) fluct;
+      if (num1 >= this.ImageFluct.Images.Length)
+        return;
+      this.ImageFluct.ImageIndex = num1;
+    }
+  }
+}

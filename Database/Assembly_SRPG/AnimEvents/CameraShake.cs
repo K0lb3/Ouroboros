@@ -1,37 +1,24 @@
-﻿namespace SRPG.AnimEvents
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.AnimEvents.CameraShake
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG.AnimEvents
 {
-    using System;
-    using UnityEngine;
+  public class CameraShake : AnimEvent
+  {
+    public float FrequencyX = 10f;
+    public float FrequencyY = 10f;
+    public float AmplitudeX = 1f;
+    public float AmplitudeY = 1f;
 
-    public class CameraShake : AnimEvent
+    public Quaternion CalcOffset(float time, float randX, float randY)
     {
-        public float FrequencyX;
-        public float FrequencyY;
-        public float AmplitudeX;
-        public float AmplitudeY;
-
-        public CameraShake()
-        {
-            this.FrequencyX = 10f;
-            this.FrequencyY = 10f;
-            this.AmplitudeX = 1f;
-            this.AmplitudeY = 1f;
-            base..ctor();
-            return;
-        }
-
-        public Quaternion CalcOffset(float time, float randX, float randY)
-        {
-            float num;
-            float num2;
-            float num3;
-            Quaternion quaternion;
-            num = 1f - ((base.Start >= base.End) ? 0f : ((time - base.Start) / (base.End - base.Start)));
-            num2 = (Mathf.Sin(((time + randX) * this.FrequencyX) * 3.141593f) * this.AmplitudeX) * num;
-            num3 = (Mathf.Sin(((time + randY) * this.FrequencyY) * 3.141593f) * this.AmplitudeY) * num;
-            quaternion = Quaternion.AngleAxis(num2, Vector3.get_up()) * Quaternion.AngleAxis(num3, Vector3.get_right());
-            return quaternion;
-        }
+      float num = (float) (1.0 - ((double) this.Start >= (double) this.End ? 0.0 : ((double) time - (double) this.Start) / ((double) this.End - (double) this.Start)));
+      return Quaternion.op_Multiply(Quaternion.AngleAxis(Mathf.Sin((float) (((double) time + (double) randX) * (double) this.FrequencyX * 3.14159274101257)) * this.AmplitudeX * num, Vector3.get_up()), Quaternion.AngleAxis(Mathf.Sin((float) (((double) time + (double) randY) * (double) this.FrequencyY * 3.14159274101257)) * this.AmplitudeY * num, Vector3.get_right()));
     }
+  }
 }
-

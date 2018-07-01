@@ -1,46 +1,32 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_TriggerButtonEvent
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  [FlowNode.Pin(100, "Trigger", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.NodeType("Event/TriggerButtonEvent", 16087213)]
+  [AddComponentMenu("")]
+  [FlowNode.Pin(1, "Triggered", FlowNode.PinTypes.Output, 2)]
+  public class FlowNode_TriggerButtonEvent : FlowNode
+  {
+    public string EventName = string.Empty;
+    public SerializeValue Value = new SerializeValue();
+    public bool Force;
 
-    [Pin(100, "Trigger", 0, 0), NodeType("Event/TriggerButtonEvent", 0xf578ad), AddComponentMenu(""), Pin(1, "Triggered", 1, 2)]
-    public class FlowNode_TriggerButtonEvent : FlowNode
+    public override void OnActivate(int pinID)
     {
-        public bool Force;
-        public string EventName;
-        public SerializeValue Value;
-
-        public FlowNode_TriggerButtonEvent()
-        {
-            this.EventName = string.Empty;
-            this.Value = new SerializeValue();
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != 100)
-            {
-                goto Label_0052;
-            }
-            if (string.IsNullOrEmpty(this.EventName) != null)
-            {
-                goto Label_0052;
-            }
-            if (this.Force == null)
-            {
-                goto Label_0039;
-            }
-            ButtonEvent.ForceInvoke(this.EventName, this.Value);
-            goto Label_004A;
-        Label_0039:
-            ButtonEvent.Invoke(this.EventName, this.Value);
-        Label_004A:
-            base.ActivateOutputLinks(1);
-        Label_0052:
-            return;
-        }
+      if (pinID != 100 || string.IsNullOrEmpty(this.EventName))
+        return;
+      if (this.Force)
+        ButtonEvent.ForceInvoke(this.EventName, (object) this.Value);
+      else
+        ButtonEvent.Invoke(this.EventName, (object) this.Value);
+      this.ActivateOutputLinks(1);
     }
+  }
 }
-

@@ -1,19 +1,20 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.TowerRecoverData
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
+  public class TowerRecoverData
+  {
+    public string towerID;
+    public int useCoin;
 
-    public class TowerRecoverData
+    public TowerRecoverData(string towerID, int useCoin)
     {
-        public string towerID;
-        public int useCoin;
-
-        public TowerRecoverData(string towerID, int useCoin)
-        {
-            base..ctor();
-            this.towerID = towerID;
-            this.useCoin = useCoin;
-            return;
-        }
+      this.towerID = towerID;
+      this.useCoin = useCoin;
     }
+  }
 }
-

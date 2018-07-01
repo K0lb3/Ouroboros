@@ -1,36 +1,27 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqFriendRemove
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    public class ReqFriendRemove : WebAPI
+  public class ReqFriendRemove : WebAPI
+  {
+    public ReqFriendRemove(string[] fuids, Network.ResponseCallback response)
     {
-        public ReqFriendRemove(string[] fuids, Network.ResponseCallback response)
-        {
-            int num;
-            base..ctor();
-            base.name = "friend/remove";
-            base.body = "\"fuids\":[";
-            num = 0;
-            goto Label_0066;
-        Label_0023:
-            base.body = base.body + "\"" + fuids[num] + "\"";
-            if (num == (((int) fuids.Length) - 1))
-            {
-                goto Label_0062;
-            }
-            base.body = base.body + ",";
-        Label_0062:
-            num += 1;
-        Label_0066:
-            if (num < ((int) fuids.Length))
-            {
-                goto Label_0023;
-            }
-            base.body = base.body + "]";
-            base.body = WebAPI.GetRequestString(base.body);
-            base.callback = response;
-            return;
-        }
+      this.name = "friend/remove";
+      this.body = "\"fuids\":[";
+      for (int index = 0; index < fuids.Length; ++index)
+      {
+        ReqFriendRemove reqFriendRemove = this;
+        reqFriendRemove.body = reqFriendRemove.body + "\"" + fuids[index] + "\"";
+        if (index != fuids.Length - 1)
+          this.body += ",";
+      }
+      this.body += "]";
+      this.body = WebAPI.GetRequestString(this.body);
+      this.callback = response;
     }
+  }
 }
-

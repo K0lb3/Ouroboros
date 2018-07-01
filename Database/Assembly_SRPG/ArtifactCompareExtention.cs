@@ -1,66 +1,46 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ArtifactCompareExtention
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-    using System.Runtime.CompilerServices;
-
-    [Extension]
-    public static class ArtifactCompareExtention
+  public static class ArtifactCompareExtention
+  {
+    public static int CompareByID(this ArtifactParam x, ArtifactParam y)
     {
-        [Extension]
-        public static int CompareByID(ArtifactData x, ArtifactData y)
-        {
-            return CompareByID(x.ArtifactParam, y.ArtifactParam);
-        }
-
-        [Extension]
-        public static int CompareByID(ArtifactParam x, ArtifactParam y)
-        {
-            return string.Compare(x.iname, y.iname);
-        }
-
-        [Extension]
-        public static int CompareByType(ArtifactData x, ArtifactData y)
-        {
-            return CompareByType(x.ArtifactParam, y.ArtifactParam);
-        }
-
-        [Extension]
-        public static int CompareByType(ArtifactParam x, ArtifactParam y)
-        {
-            if (x.type <= y.type)
-            {
-                goto Label_0013;
-            }
-            return 1;
-        Label_0013:
-            if (x.type >= y.type)
-            {
-                goto Label_0026;
-            }
-            return -1;
-        Label_0026:
-            return 0;
-        }
-
-        [Extension]
-        public static int CompareByTypeAndID(ArtifactData x, ArtifactData y)
-        {
-            return CompareByTypeAndID(x.ArtifactParam, y.ArtifactParam);
-        }
-
-        [Extension]
-        public static int CompareByTypeAndID(ArtifactParam x, ArtifactParam y)
-        {
-            int num;
-            num = CompareByType(x, y);
-            if (num == null)
-            {
-                goto Label_0010;
-            }
-            return num;
-        Label_0010:
-            return CompareByID(x, y);
-        }
+      return string.Compare(x.iname, y.iname);
     }
-}
 
+    public static int CompareByID(this ArtifactData x, ArtifactData y)
+    {
+      return x.ArtifactParam.CompareByID(y.ArtifactParam);
+    }
+
+    public static int CompareByType(this ArtifactParam x, ArtifactParam y)
+    {
+      if (x.type > y.type)
+        return 1;
+      return x.type < y.type ? -1 : 0;
+    }
+
+    public static int CompareByType(this ArtifactData x, ArtifactData y)
+    {
+      return x.ArtifactParam.CompareByType(y.ArtifactParam);
+    }
+
+    public static int CompareByTypeAndID(this ArtifactParam x, ArtifactParam y)
+    {
+      int num = x.CompareByType(y);
+      if (num != 0)
+        return num;
+      return x.CompareByID(y);
+    }
+
+    public static int CompareByTypeAndID(this ArtifactData x, ArtifactData y)
+    {
+      return x.ArtifactParam.CompareByTypeAndID(y.ArtifactParam);
+    }
+  }
+}

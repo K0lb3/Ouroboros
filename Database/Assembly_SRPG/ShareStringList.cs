@@ -1,129 +1,73 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ShareStringList
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+
+namespace SRPG
 {
-    using GR;
-    using System;
+  public class ShareStringList
+  {
+    private short[] mIndexs;
+    private ShareString.Type mType;
 
-    public class ShareStringList
+    public ShareStringList(ShareString.Type type)
     {
-        private short[] mIndexs;
-        private ShareString.Type mType;
-
-        public ShareStringList(ShareString.Type type)
-        {
-            base..ctor();
-            this.mType = type;
-            return;
-        }
-
-        public void Clear()
-        {
-            this.mIndexs = null;
-            this.mType = 0;
-            return;
-        }
-
-        public string Get(int index)
-        {
-            if (this.mIndexs == null)
-            {
-                goto Label_0019;
-            }
-            if (index < ((int) this.mIndexs.Length))
-            {
-                goto Label_001B;
-            }
-        Label_0019:
-            return null;
-        Label_001B:
-            return Singleton<ShareVariable>.Instance.str.Get(this.mType, this.mIndexs[index]);
-        }
-
-        public string[] GetList()
-        {
-            string[] strArray;
-            int num;
-            if (this.mIndexs == null)
-            {
-                goto Label_0019;
-            }
-            if (((int) this.mIndexs.Length) >= 0)
-            {
-                goto Label_001B;
-            }
-        Label_0019:
-            return null;
-        Label_001B:
-            strArray = new string[(int) this.mIndexs.Length];
-            num = 0;
-            goto Label_0054;
-        Label_0030:
-            strArray[num] = Singleton<ShareVariable>.Instance.str.Get(this.mType, this.mIndexs[num]);
-            num += 1;
-        Label_0054:
-            if (num < ((int) this.mIndexs.Length))
-            {
-                goto Label_0030;
-            }
-            return strArray;
-        }
-
-        public bool IsNotNull()
-        {
-            return ((this.mIndexs == null) == 0);
-        }
-
-        public void Set(int index, string value)
-        {
-            if (this.mIndexs == null)
-            {
-                goto Label_0019;
-            }
-            if (index < ((int) this.mIndexs.Length))
-            {
-                goto Label_001A;
-            }
-        Label_0019:
-            return;
-        Label_001A:
-            this.mIndexs[index] = Singleton<ShareVariable>.Instance.str.Set(this.mType, value);
-            return;
-        }
-
-        public void Setup(int length)
-        {
-            int num;
-            this.mIndexs = new short[length];
-            num = 0;
-            goto Label_0020;
-        Label_0013:
-            this.mIndexs[num] = -1;
-            num += 1;
-        Label_0020:
-            if (num < length)
-            {
-                goto Label_0013;
-            }
-            return;
-        }
-
-        public int Length
-        {
-            get
-            {
-                if (this.mIndexs == null)
-                {
-                    goto Label_0019;
-                }
-                if (((int) this.mIndexs.Length) >= 0)
-                {
-                    goto Label_001B;
-                }
-            Label_0019:
-                return 0;
-            Label_001B:
-                return (int) this.mIndexs.Length;
-            }
-        }
+      this.mType = type;
     }
-}
 
+    public int Length
+    {
+      get
+      {
+        if (this.mIndexs == null || this.mIndexs.Length < 0)
+          return 0;
+        return this.mIndexs.Length;
+      }
+    }
+
+    public void Setup(int length)
+    {
+      this.mIndexs = new short[length];
+      for (int index = 0; index < length; ++index)
+        this.mIndexs[index] = (short) -1;
+    }
+
+    public void Clear()
+    {
+      this.mIndexs = (short[]) null;
+      this.mType = ShareString.Type.QuestParam_cond;
+    }
+
+    public bool IsNotNull()
+    {
+      return this.mIndexs != null;
+    }
+
+    public string[] GetList()
+    {
+      if (this.mIndexs == null || this.mIndexs.Length < 0)
+        return (string[]) null;
+      string[] strArray = new string[this.mIndexs.Length];
+      for (int index = 0; index < this.mIndexs.Length; ++index)
+        strArray[index] = Singleton<ShareVariable>.Instance.str.Get(this.mType, this.mIndexs[index]);
+      return strArray;
+    }
+
+    public string Get(int index)
+    {
+      if (this.mIndexs == null || index >= this.mIndexs.Length)
+        return (string) null;
+      return Singleton<ShareVariable>.Instance.str.Get(this.mType, this.mIndexs[index]);
+    }
+
+    public void Set(int index, string value)
+    {
+      if (this.mIndexs == null || index >= this.mIndexs.Length)
+        return;
+      this.mIndexs[index] = Singleton<ShareVariable>.Instance.str.Set(this.mType, value);
+    }
+  }
+}

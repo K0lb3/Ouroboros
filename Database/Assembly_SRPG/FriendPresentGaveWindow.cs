@@ -1,431 +1,287 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FriendPresentGaveWindow
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Runtime.CompilerServices;
-    using UnityEngine;
+  public class FriendPresentGaveWindow : FlowWindowBase
+  {
+    private List<string> m_FriendUidList = new List<string>();
+    private FriendPresentGaveWindow.Content.ItemSource m_ContentSource;
+    private ContentController m_ContentController;
+    private static FriendPresentGaveWindow m_Instance;
 
-    public class FriendPresentGaveWindow : FlowWindowBase
+    public override string name
     {
-        private Content.ItemSource m_ContentSource;
-        private ContentController m_ContentController;
-        private List<string> m_FriendUidList;
-        private static FriendPresentGaveWindow m_Instance;
+      get
+      {
+        return nameof (FriendPresentGaveWindow);
+      }
+    }
 
-        public FriendPresentGaveWindow()
+    public static FriendPresentGaveWindow instance
+    {
+      get
+      {
+        return FriendPresentGaveWindow.m_Instance;
+      }
+    }
+
+    public override void Initialize(FlowWindowBase.SerializeParamBase param)
+    {
+      FriendPresentGaveWindow.m_Instance = this;
+      base.Initialize(param);
+      FriendPresentGaveWindow.SerializeParam serializeParam = param as FriendPresentGaveWindow.SerializeParam;
+      if (serializeParam == null)
+        throw new Exception(this.ToString() + " > Failed serializeParam null.");
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) serializeParam.list, (UnityEngine.Object) null))
+      {
+        this.m_ContentController = (ContentController) serializeParam.list.GetComponentInChildren<ContentController>();
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_ContentController, (UnityEngine.Object) null))
+          this.m_ContentController.SetWork((object) this);
+      }
+      this.Close(true);
+    }
+
+    public override void Release()
+    {
+      this.ReleaseContentList();
+      base.Release();
+      FriendPresentGaveWindow.m_Instance = (FriendPresentGaveWindow) null;
+    }
+
+    public override int Update()
+    {
+      base.Update();
+      if (!this.isClosed)
+        return -1;
+      this.SetActiveChild(false);
+      return 390;
+    }
+
+    public void InitializeContentList()
+    {
+      this.ReleaseContentList();
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_ContentController, (UnityEngine.Object) null))
+        return;
+      this.m_ContentSource = new FriendPresentGaveWindow.Content.ItemSource();
+      for (int index = 0; index < this.m_FriendUidList.Count; ++index)
+      {
+        FriendPresentGaveWindow.Content.ItemSource.ItemParam itemParam = new FriendPresentGaveWindow.Content.ItemSource.ItemParam(this.m_FriendUidList[index]);
+        if (itemParam.IsValid())
+          this.m_ContentSource.Add(itemParam);
+      }
+      this.m_ContentController.Initialize((ContentSource) this.m_ContentSource, Vector2.get_zero());
+    }
+
+    public void ReleaseContentList()
+    {
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_ContentController, (UnityEngine.Object) null))
+        this.m_ContentController.Release();
+      this.m_ContentSource = (FriendPresentGaveWindow.Content.ItemSource) null;
+    }
+
+    public void ClearFuids()
+    {
+      this.m_FriendUidList.Clear();
+    }
+
+    public void AddUid(string uid)
+    {
+      this.m_FriendUidList.Add(uid);
+    }
+
+    public override int OnActivate(int pinId)
+    {
+      switch (pinId)
+      {
+        case 300:
+          this.InitializeContentList();
+          this.Open();
+          break;
+        case 310:
+          this.Close(false);
+          break;
+      }
+      return -1;
+    }
+
+    public static class Content
+    {
+      public static FriendPresentGaveWindow.Content.ItemAccessor clickItem;
+
+      public class ItemAccessor
+      {
+        private ContentNode m_Node;
+        private FriendData m_FriendData;
+
+        public ContentNode node
         {
-            this.m_FriendUidList = new List<string>();
-            base..ctor();
-            return;
+          get
+          {
+            return this.m_Node;
+          }
         }
 
-        public void AddUid(string uid)
+        public FriendData friendData
         {
-            this.m_FriendUidList.Add(uid);
-            return;
+          get
+          {
+            return this.m_FriendData;
+          }
         }
 
-        public void ClearFuids()
+        public bool isValid
         {
-            this.m_FriendUidList.Clear();
-            return;
+          get
+          {
+            return this.m_FriendData != null;
+          }
         }
 
-        public override void Initialize(FlowWindowBase.SerializeParamBase param)
+        public void Setup(string uid)
         {
-            SerializeParam param2;
-            m_Instance = this;
-            base.Initialize(param);
-            param2 = param as SerializeParam;
-            if (param2 != null)
-            {
-                goto Label_0030;
-            }
-            throw new Exception(this.ToString() + " > Failed serializeParam null.");
-        Label_0030:
-            if ((param2.list != null) == null)
-            {
-                goto Label_006F;
-            }
-            this.m_ContentController = param2.list.GetComponentInChildren<ContentController>();
-            if ((this.m_ContentController != null) == null)
-            {
-                goto Label_006F;
-            }
-            this.m_ContentController.SetWork(this);
-        Label_006F:
-            base.Close(1);
-            return;
+          this.m_FriendData = MonoSingleton<GameManager>.Instance.Player.Friends.Find((Predicate<FriendData>) (prop => prop.UID == uid));
         }
 
-        public void InitializeContentList()
+        public void Bind(ContentNode node)
         {
-            int num;
-            Content.ItemSource.ItemParam param;
-            this.ReleaseContentList();
-            if ((this.m_ContentController != null) == null)
-            {
-                goto Label_007D;
-            }
-            this.m_ContentSource = new Content.ItemSource();
-            num = 0;
-            goto Label_0056;
-        Label_0029:
-            param = new Content.ItemSource.ItemParam(this.m_FriendUidList[num]);
-            if (param.IsValid() == null)
-            {
-                goto Label_0052;
-            }
-            this.m_ContentSource.Add(param);
-        Label_0052:
-            num += 1;
-        Label_0056:
-            if (num < this.m_FriendUidList.Count)
-            {
-                goto Label_0029;
-            }
-            this.m_ContentController.Initialize(this.m_ContentSource, Vector2.get_zero());
-        Label_007D:
+          this.m_Node = node;
+          SerializeValueBehaviour component = (SerializeValueBehaviour) ((Component) this.m_Node).GetComponent<SerializeValueBehaviour>();
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
             return;
+          component.list.SetField("name", this.m_FriendData.PlayerName);
         }
 
-        public override int OnActivate(int pinId)
+        public void Clear()
         {
-            if (pinId != 300)
-            {
-                goto Label_001C;
-            }
-            this.InitializeContentList();
-            base.Open();
-            goto Label_002E;
-        Label_001C:
-            if (pinId != 310)
-            {
-                goto Label_002E;
-            }
-            base.Close(0);
-        Label_002E:
-            return -1;
+          this.m_Node = (ContentNode) null;
+        }
+
+        public void ForceUpdate()
+        {
+        }
+      }
+
+      public class ItemSource : ContentSource
+      {
+        private List<FriendPresentGaveWindow.Content.ItemSource.ItemParam> m_Params = new List<FriendPresentGaveWindow.Content.ItemSource.ItemParam>();
+
+        public override void Initialize(ContentController controller)
+        {
+          base.Initialize(controller);
+          this.Setup();
         }
 
         public override void Release()
         {
-            this.ReleaseContentList();
-            base.Release();
-            m_Instance = null;
+          base.Release();
+        }
+
+        public void Add(FriendPresentGaveWindow.Content.ItemSource.ItemParam param)
+        {
+          if (!param.IsValid())
             return;
+          this.m_Params.Add(param);
         }
 
-        public void ReleaseContentList()
+        public void Setup()
         {
-            if ((this.m_ContentController != null) == null)
-            {
-                goto Label_001C;
-            }
-            this.m_ContentController.Release();
-        Label_001C:
-            this.m_ContentSource = null;
+          Func<FriendPresentGaveWindow.Content.ItemSource.ItemParam, bool> predicate = (Func<FriendPresentGaveWindow.Content.ItemSource.ItemParam, bool>) (prop => true);
+          this.Clear();
+          if (predicate != null)
+            this.SetTable((ContentSource.Param[]) this.m_Params.Where<FriendPresentGaveWindow.Content.ItemSource.ItemParam>(predicate).ToArray<FriendPresentGaveWindow.Content.ItemSource.ItemParam>());
+          else
+            this.SetTable((ContentSource.Param[]) this.m_Params.ToArray());
+          this.contentController.Resize(0);
+          bool flag = false;
+          Vector2 anchoredPosition = this.contentController.anchoredPosition;
+          Vector2 lastPageAnchorePos = this.contentController.GetLastPageAnchorePos();
+          if (anchoredPosition.x < lastPageAnchorePos.x)
+          {
+            flag = true;
+            anchoredPosition.x = lastPageAnchorePos.x;
+          }
+          if (anchoredPosition.y < lastPageAnchorePos.y)
+          {
+            flag = true;
+            anchoredPosition.y = lastPageAnchorePos.y;
+          }
+          if (flag)
+            this.contentController.anchoredPosition = anchoredPosition;
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.contentController.scroller, (UnityEngine.Object) null))
             return;
+          this.contentController.scroller.StopMovement();
         }
 
-        public override int Update()
+        public class ItemParam : ContentSource.Param
         {
-            base.Update();
-            if (base.isClosed == null)
-            {
-                goto Label_001F;
-            }
-            base.SetActiveChild(0);
-            return 390;
-        Label_001F:
-            return -1;
-        }
+          private FriendPresentGaveWindow.Content.ItemAccessor m_Accessor = new FriendPresentGaveWindow.Content.ItemAccessor();
 
-        public override string name
-        {
+          public ItemParam(string uid)
+          {
+            this.m_Accessor.Setup(uid);
+          }
+
+          public override bool IsValid()
+          {
+            return this.m_Accessor.isValid;
+          }
+
+          public FriendPresentGaveWindow.Content.ItemAccessor accerror
+          {
             get
             {
-                return "FriendPresentGaveWindow";
+              return this.m_Accessor;
             }
-        }
+          }
 
-        public static FriendPresentGaveWindow instance
-        {
+          public FriendData friendData
+          {
             get
             {
-                return m_Instance;
+              return this.m_Accessor.friendData;
             }
+          }
+
+          public override void OnEnable(ContentNode node)
+          {
+            this.m_Accessor.Bind(node);
+            this.m_Accessor.ForceUpdate();
+          }
+
+          public override void OnDisable(ContentNode node)
+          {
+            this.m_Accessor.Clear();
+          }
+
+          public override void OnClick(ContentNode node)
+          {
+          }
         }
-
-        public static class Content
-        {
-            public static ItemAccessor clickItem;
-
-            static Content()
-            {
-            }
-
-            public class ItemAccessor
-            {
-                private ContentNode m_Node;
-                private FriendData m_FriendData;
-
-                public ItemAccessor()
-                {
-                    base..ctor();
-                    return;
-                }
-
-                public void Bind(ContentNode node)
-                {
-                    SerializeValueBehaviour behaviour;
-                    this.m_Node = node;
-                    behaviour = this.m_Node.GetComponent<SerializeValueBehaviour>();
-                    if ((behaviour != null) == null)
-                    {
-                        goto Label_003A;
-                    }
-                    behaviour.list.SetField("name", this.m_FriendData.PlayerName);
-                Label_003A:
-                    return;
-                }
-
-                public void Clear()
-                {
-                    this.m_Node = null;
-                    return;
-                }
-
-                public void ForceUpdate()
-                {
-                }
-
-                public void Setup(string uid)
-                {
-                    PlayerData data;
-                    <Setup>c__AnonStorey33C storeyc;
-                    storeyc = new <Setup>c__AnonStorey33C();
-                    storeyc.uid = uid;
-                    data = MonoSingleton<GameManager>.Instance.Player;
-                    this.m_FriendData = data.Friends.Find(new Predicate<FriendData>(storeyc.<>m__31B));
-                    return;
-                }
-
-                public ContentNode node
-                {
-                    get
-                    {
-                        return this.m_Node;
-                    }
-                }
-
-                public FriendData friendData
-                {
-                    get
-                    {
-                        return this.m_FriendData;
-                    }
-                }
-
-                public bool isValid
-                {
-                    get
-                    {
-                        return ((this.m_FriendData == null) == 0);
-                    }
-                }
-
-                [CompilerGenerated]
-                private sealed class <Setup>c__AnonStorey33C
-                {
-                    internal string uid;
-
-                    public <Setup>c__AnonStorey33C()
-                    {
-                        base..ctor();
-                        return;
-                    }
-
-                    internal bool <>m__31B(FriendData prop)
-                    {
-                        return (prop.UID == this.uid);
-                    }
-                }
-            }
-
-            public class ItemSource : ContentSource
-            {
-                private List<ItemParam> m_Params;
-                [CompilerGenerated]
-                private static Func<ItemParam, bool> <>f__am$cache1;
-
-                public ItemSource()
-                {
-                    this.m_Params = new List<ItemParam>();
-                    base..ctor();
-                    return;
-                }
-
-                [CompilerGenerated]
-                private static bool <Setup>m__31C(ItemParam prop)
-                {
-                    return 1;
-                }
-
-                public void Add(ItemParam param)
-                {
-                    if (param.IsValid() == null)
-                    {
-                        goto Label_0017;
-                    }
-                    this.m_Params.Add(param);
-                Label_0017:
-                    return;
-                }
-
-                public override void Initialize(ContentController controller)
-                {
-                    base.Initialize(controller);
-                    this.Setup();
-                    return;
-                }
-
-                public override void Release()
-                {
-                    base.Release();
-                    return;
-                }
-
-                public unsafe void Setup()
-                {
-                    Func<ItemParam, bool> func;
-                    bool flag;
-                    Vector2 vector;
-                    Vector2 vector2;
-                    if (<>f__am$cache1 != null)
-                    {
-                        goto Label_0018;
-                    }
-                    <>f__am$cache1 = new Func<ItemParam, bool>(FriendPresentGaveWindow.Content.ItemSource.<Setup>m__31C);
-                Label_0018:
-                    func = <>f__am$cache1;
-                    this.Clear();
-                    if (func == null)
-                    {
-                        goto Label_0046;
-                    }
-                    base.SetTable(Enumerable.ToArray<ItemParam>(Enumerable.Where<ItemParam>(this.m_Params, func)));
-                    goto Label_0057;
-                Label_0046:
-                    base.SetTable(this.m_Params.ToArray());
-                Label_0057:
-                    base.contentController.Resize(0);
-                    flag = 0;
-                    vector = base.contentController.anchoredPosition;
-                    vector2 = base.contentController.GetLastPageAnchorePos();
-                    if (&vector.x >= &vector2.x)
-                    {
-                        goto Label_00A0;
-                    }
-                    flag = 1;
-                    &vector.x = &vector2.x;
-                Label_00A0:
-                    if (&vector.y >= &vector2.y)
-                    {
-                        goto Label_00C3;
-                    }
-                    flag = 1;
-                    &vector.y = &vector2.y;
-                Label_00C3:
-                    if (flag == null)
-                    {
-                        goto Label_00D5;
-                    }
-                    base.contentController.anchoredPosition = vector;
-                Label_00D5:
-                    if ((base.contentController.scroller != null) == null)
-                    {
-                        goto Label_00FB;
-                    }
-                    base.contentController.scroller.StopMovement();
-                Label_00FB:
-                    return;
-                }
-
-                public class ItemParam : ContentSource.Param
-                {
-                    private FriendPresentGaveWindow.Content.ItemAccessor m_Accessor;
-
-                    public ItemParam(string uid)
-                    {
-                        this.m_Accessor = new FriendPresentGaveWindow.Content.ItemAccessor();
-                        base..ctor();
-                        this.m_Accessor.Setup(uid);
-                        return;
-                    }
-
-                    public override bool IsValid()
-                    {
-                        return this.m_Accessor.isValid;
-                    }
-
-                    public override void OnClick(ContentNode node)
-                    {
-                    }
-
-                    public override void OnDisable(ContentNode node)
-                    {
-                        this.m_Accessor.Clear();
-                        return;
-                    }
-
-                    public override void OnEnable(ContentNode node)
-                    {
-                        this.m_Accessor.Bind(node);
-                        this.m_Accessor.ForceUpdate();
-                        return;
-                    }
-
-                    public FriendPresentGaveWindow.Content.ItemAccessor accerror
-                    {
-                        get
-                        {
-                            return this.m_Accessor;
-                        }
-                    }
-
-                    public FriendData friendData
-                    {
-                        get
-                        {
-                            return this.m_Accessor.friendData;
-                        }
-                    }
-                }
-            }
-        }
-
-        [Serializable]
-        public class SerializeParam : FlowWindowBase.SerializeParamBase
-        {
-            public GameObject list;
-
-            public SerializeParam()
-            {
-                base..ctor();
-                return;
-            }
-
-            public override Type type
-            {
-                get
-                {
-                    return typeof(FriendPresentGaveWindow);
-                }
-            }
-        }
+      }
     }
-}
 
+    [Serializable]
+    public class SerializeParam : FlowWindowBase.SerializeParamBase
+    {
+      public GameObject list;
+
+      public override System.Type type
+      {
+        get
+        {
+          return typeof (FriendPresentGaveWindow);
+        }
+      }
+    }
+  }
+}

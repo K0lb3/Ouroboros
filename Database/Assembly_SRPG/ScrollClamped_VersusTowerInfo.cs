@@ -1,97 +1,72 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ScrollClamped_VersusTowerInfo
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using UnityEngine;
-    using UnityEngine.Events;
+  [RequireComponent(typeof (ScrollListController))]
+  public class ScrollClamped_VersusTowerInfo : MonoBehaviour, ScrollListSetUp
+  {
+    private readonly int MARGIN;
+    public float Space;
+    private int m_Max;
 
-    [RequireComponent(typeof(ScrollListController))]
-    public class ScrollClamped_VersusTowerInfo : MonoBehaviour, ScrollListSetUp
+    public ScrollClamped_VersusTowerInfo()
     {
-        private readonly int MARGIN;
-        public float Space;
-        private int m_Max;
-
-        public ScrollClamped_VersusTowerInfo()
-        {
-            this.MARGIN = 5;
-            this.Space = 1f;
-            base..ctor();
-            return;
-        }
-
-        public unsafe void OnSetUpItems()
-        {
-            GameManager manager;
-            VersusTowerParam[] paramArray;
-            int num;
-            ScrollListController controller;
-            RectTransform transform;
-            Vector2 vector;
-            manager = MonoSingleton<GameManager>.Instance;
-            paramArray = manager.GetVersusTowerParam();
-            if (paramArray == null)
-            {
-                goto Label_006A;
-            }
-            num = 0;
-            goto Label_004E;
-        Label_001A:
-            if (string.Equals(paramArray[num].VersusTowerID, manager.VersusTowerMatchName) != null)
-            {
-                goto Label_003C;
-            }
-            goto Label_004A;
-        Label_003C:
-            this.m_Max += 1;
-        Label_004A:
-            num += 1;
-        Label_004E:
-            if (num < ((int) paramArray.Length))
-            {
-                goto Label_001A;
-            }
-            this.m_Max += this.MARGIN;
-        Label_006A:
-            controller = base.GetComponent<ScrollListController>();
-            controller.OnItemUpdate.AddListener(new UnityAction<int, GameObject>(this, this.OnUpdateItems));
-            base.GetComponentInParent<ScrollRect>().set_movementType(2);
-            transform = base.GetComponent<RectTransform>();
-            vector = transform.get_sizeDelta();
-            &vector.y = (controller.ItemScale * this.Space) * ((float) this.m_Max);
-            transform.set_sizeDelta(vector);
-            return;
-        }
-
-        public void OnUpdateItems(int idx, GameObject obj)
-        {
-            VersusTowerFloor floor;
-            if (idx < 0)
-            {
-                goto Label_0013;
-            }
-            if (idx < this.m_Max)
-            {
-                goto Label_001F;
-            }
-        Label_0013:
-            obj.SetActive(0);
-            goto Label_004D;
-        Label_001F:
-            obj.SetActive(1);
-            floor = obj.GetComponent<VersusTowerFloor>();
-            if ((floor != null) == null)
-            {
-                goto Label_004D;
-            }
-            floor.Refresh(idx, this.m_Max - this.MARGIN);
-        Label_004D:
-            return;
-        }
-
-        public void Start()
-        {
-        }
+      base.\u002Ector();
     }
-}
 
+    public void Start()
+    {
+    }
+
+    public void OnSetUpItems()
+    {
+      GameManager instance = MonoSingleton<GameManager>.Instance;
+      VersusTowerParam[] versusTowerParam = instance.GetVersusTowerParam();
+      if (versusTowerParam != null)
+      {
+        for (int index = 0; index < versusTowerParam.Length; ++index)
+        {
+          if (string.Equals((string) versusTowerParam[index].VersusTowerID, instance.VersusTowerMatchName))
+            ++this.m_Max;
+        }
+        this.m_Max += this.MARGIN;
+      }
+      ScrollListController component1 = (ScrollListController) ((Component) this).GetComponent<ScrollListController>();
+      ScrollListController.OnItemPositionChange onItemUpdate = component1.OnItemUpdate;
+      ScrollClamped_VersusTowerInfo clampedVersusTowerInfo = this;
+      // ISSUE: virtual method pointer
+      UnityAction<int, GameObject> unityAction = new UnityAction<int, GameObject>((object) clampedVersusTowerInfo, __vmethodptr(clampedVersusTowerInfo, OnUpdateItems));
+      onItemUpdate.AddListener(unityAction);
+      ((ScrollRect) ((Component) this).GetComponentInParent<ScrollRect>()).set_movementType((ScrollRect.MovementType) 2);
+      RectTransform component2 = (RectTransform) ((Component) this).GetComponent<RectTransform>();
+      Vector2 sizeDelta = component2.get_sizeDelta();
+      sizeDelta.y = (__Null) ((double) component1.ItemScale * (double) this.Space * (double) this.m_Max);
+      component2.set_sizeDelta(sizeDelta);
+    }
+
+    public void OnUpdateItems(int idx, GameObject obj)
+    {
+      if (idx < 0 || idx >= this.m_Max)
+      {
+        obj.SetActive(false);
+      }
+      else
+      {
+        obj.SetActive(true);
+        VersusTowerFloor component = (VersusTowerFloor) obj.GetComponent<VersusTowerFloor>();
+        if (!Object.op_Inequality((Object) component, (Object) null))
+          return;
+        component.Refresh(idx, this.m_Max - this.MARGIN);
+      }
+    }
+  }
+}

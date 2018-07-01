@@ -1,31 +1,26 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_Notify
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using UnityEngine;
+  [FlowNode.Pin(10, "output", FlowNode.PinTypes.Output, 10)]
+  [FlowNode.Pin(1, "Start", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.NodeType("System/Notify", 32741)]
+  public class FlowNode_Notify : FlowNode
+  {
+    public GameObject NotifyListTemplate;
 
-    [Pin(10, "output", 1, 10), Pin(1, "Start", 0, 0), NodeType("System/Notify", 0x7fe5)]
-    public class FlowNode_Notify : FlowNode
+    public override void OnActivate(int pinID)
     {
-        public GameObject NotifyListTemplate;
-
-        public FlowNode_Notify()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != 1)
-            {
-                goto Label_0017;
-            }
-            MonoSingleton<GameManager>.Instance.InitNotifyList(this.NotifyListTemplate);
-        Label_0017:
-            base.ActivateOutputLinks(10);
-            return;
-        }
+      if (pinID == 1)
+        MonoSingleton<GameManager>.Instance.InitNotifyList(this.NotifyListTemplate);
+      this.ActivateOutputLinks(10);
     }
+  }
 }
-

@@ -1,51 +1,42 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_FgGStatus
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+
+namespace SRPG
 {
-    using GR;
-    using System;
+  [FlowNode.Pin(4, "連携済み", FlowNode.PinTypes.Output, 3)]
+  [FlowNode.Pin(1, "Input", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.NodeType("FgGID/FgGStatus", 32741)]
+  [FlowNode.Pin(2, "非表示", FlowNode.PinTypes.Output, 1)]
+  [FlowNode.Pin(3, "未連携", FlowNode.PinTypes.Output, 2)]
+  public class FlowNode_FgGStatus : FlowNode
+  {
+    private const int PIN_ID_INPUT = 1;
+    private const int PIN_ID_DISABLE = 2;
+    private const int PIN_ID_NOT_SYNCHRONIZED = 3;
+    private const int PIN_ID_SYNCHRONIZED = 4;
 
-    [Pin(3, "未連携", 1, 2), Pin(4, "連携済み", 1, 3), Pin(2, "非表示", 1, 1), Pin(1, "Input", 0, 0), NodeType("FgGID/FgGStatus", 0x7fe5)]
-    public class FlowNode_FgGStatus : FlowNode
+    public override void OnActivate(int pinID)
     {
-        private const int PIN_ID_INPUT = 1;
-        private const int PIN_ID_DISABLE = 2;
-        private const int PIN_ID_NOT_SYNCHRONIZED = 3;
-        private const int PIN_ID_SYNCHRONIZED = 4;
-
-        public FlowNode_FgGStatus()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            ReqFgGAuth.eAuthStatus status;
-            switch ((MonoSingleton<GameManager>.Instance.AuthStatus - 1))
-            {
-                case 0:
-                    goto Label_0024;
-
-                case 1:
-                    goto Label_0031;
-
-                case 2:
-                    goto Label_003E;
-            }
-            goto Label_004B;
-        Label_0024:
-            base.ActivateOutputLinks(2);
-            goto Label_0058;
-        Label_0031:
-            base.ActivateOutputLinks(3);
-            goto Label_0058;
-        Label_003E:
-            base.ActivateOutputLinks(4);
-            goto Label_0058;
-        Label_004B:
-            base.ActivateOutputLinks(2);
-        Label_0058:
-            return;
-        }
+      switch (MonoSingleton<GameManager>.Instance.AuthStatus)
+      {
+        case ReqFgGAuth.eAuthStatus.Disable:
+          this.ActivateOutputLinks(2);
+          break;
+        case ReqFgGAuth.eAuthStatus.NotSynchronized:
+          this.ActivateOutputLinks(3);
+          break;
+        case ReqFgGAuth.eAuthStatus.Synchronized:
+          this.ActivateOutputLinks(4);
+          break;
+        default:
+          this.ActivateOutputLinks(2);
+          break;
+      }
     }
+  }
 }
-

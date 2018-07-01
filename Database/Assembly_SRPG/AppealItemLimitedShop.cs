@@ -1,379 +1,157 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.AppealItemLimitedShop
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+using System.Collections;
+using System.Diagnostics;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.Runtime.CompilerServices;
-    using UnityEngine;
-    using UnityEngine.UI;
+  public class AppealItemLimitedShop : AppealItemBase
+  {
+    private readonly string SPRITES_PATH = "AppealSprites/limitedshop";
+    private readonly string MASTER_PATH = "Data/appeal/AppealLimitedShop";
+    [SerializeField]
+    private Image AppealChara;
+    [SerializeField]
+    private RectTransform AppealCharaRect;
+    [SerializeField]
+    private Image AppealTextL;
+    [SerializeField]
+    private Image AppealTextR;
+    [SerializeField]
+    private RectTransform AppealTextRect;
+    [SerializeField]
+    private Button LimitedShopButton;
+    [SerializeField]
+    private GameObject LockObject;
+    private string mAppealID;
+    private float mPosX_Chara;
+    private float mPosX_Text;
+    private bool IsLoaded;
+    private bool mIsInitialized;
+    private Sprite CharaSprite;
+    private Sprite TextLSprite;
+    private Sprite TextRSprite;
 
-    public class AppealItemLimitedShop : AppealItemBase
+    public bool IsInitialized
     {
-        private readonly string SPRITES_PATH;
-        private readonly string MASTER_PATH;
-        [SerializeField]
-        private Image AppealChara;
-        [SerializeField]
-        private RectTransform AppealCharaRect;
-        [SerializeField]
-        private Image AppealTextL;
-        [SerializeField]
-        private Image AppealTextR;
-        [SerializeField]
-        private RectTransform AppealTextRect;
-        [SerializeField]
-        private Button LimitedShopButton;
-        [SerializeField]
-        private GameObject LockObject;
-        private string mAppealID;
-        private float mPosX_Chara;
-        private float mPosX_Text;
-        private bool IsLoaded;
-        private bool mIsInitialized;
-        private Sprite CharaSprite;
-        private Sprite TextLSprite;
-        private Sprite TextRSprite;
-
-        public AppealItemLimitedShop()
-        {
-            this.SPRITES_PATH = "AppealSprites/limitedshop";
-            this.MASTER_PATH = "Data/appeal/AppealLimitedShop";
-            base..ctor();
-            return;
-        }
-
-        protected override unsafe void Awake()
-        {
-            Vector2 vector;
-            Vector2 vector2;
-            base.Awake();
-            if ((this.AppealChara != null) == null)
-            {
-                goto Label_0028;
-            }
-            this.AppealChara.get_gameObject().SetActive(0);
-        Label_0028:
-            if ((this.AppealTextL != null) == null)
-            {
-                goto Label_004A;
-            }
-            this.AppealTextL.get_gameObject().SetActive(0);
-        Label_004A:
-            if ((this.AppealTextR != null) == null)
-            {
-                goto Label_006C;
-            }
-            this.AppealTextR.get_gameObject().SetActive(0);
-        Label_006C:
-            if ((this.AppealCharaRect != null) == null)
-            {
-                goto Label_0096;
-            }
-            this.mPosX_Chara = &this.AppealCharaRect.get_anchoredPosition().x;
-        Label_0096:
-            if ((this.AppealTextRect != null) == null)
-            {
-                goto Label_00C0;
-            }
-            this.mPosX_Text = &this.AppealTextRect.get_anchoredPosition().x;
-        Label_00C0:
-            return;
-        }
-
-        protected override void Destroy()
-        {
-            base.Destroy();
-            return;
-        }
-
-        private bool LoadAppealMaster(string path)
-        {
-            string str;
-            JSON_AppealLimitedShopMaster[] masterArray;
-            long num;
-            AppealLimitedShopMaster master;
-            JSON_AppealLimitedShopMaster master2;
-            JSON_AppealLimitedShopMaster[] masterArray2;
-            int num2;
-            AppealLimitedShopMaster master3;
-            Exception exception;
-            bool flag;
-            if (string.IsNullOrEmpty(path) == null)
-            {
-                goto Label_000D;
-            }
-            return 0;
-        Label_000D:
-            str = AssetManager.LoadTextData(path);
-            if (string.IsNullOrEmpty(str) == null)
-            {
-                goto Label_0021;
-            }
-            return 0;
-        Label_0021:
-            try
-            {
-                masterArray = JSONParser.parseJSONArray<JSON_AppealLimitedShopMaster>(str);
-                if (masterArray != null)
-                {
-                    goto Label_0034;
-                }
-                throw new InvalidJSONException();
-            Label_0034:
-                num = Network.GetServerTime();
-                master = new AppealLimitedShopMaster();
-                masterArray2 = masterArray;
-                num2 = 0;
-                goto Label_00AA;
-            Label_004B:
-                master2 = masterArray2[num2];
-                master3 = new AppealLimitedShopMaster();
-                if (master3.Deserialize(master2) == null)
-                {
-                    goto Label_00A4;
-                }
-                if (master3.start_at > num)
-                {
-                    goto Label_00A4;
-                }
-                if (master3.end_at <= num)
-                {
-                    goto Label_00A4;
-                }
-                if (master != null)
-                {
-                    goto Label_008F;
-                }
-                master = master3;
-                goto Label_00A4;
-            Label_008F:
-                if (master.priority >= master3.priority)
-                {
-                    goto Label_00A4;
-                }
-                master = master3;
-            Label_00A4:
-                num2 += 1;
-            Label_00AA:
-                if (num2 < ((int) masterArray2.Length))
-                {
-                    goto Label_004B;
-                }
-                if (master == null)
-                {
-                    goto Label_00DF;
-                }
-                this.mAppealID = master.appeal_id;
-                this.mPosX_Chara = master.pos_x_chara;
-                this.mPosX_Text = master.pos_x_text;
-            Label_00DF:
-                goto Label_00FA;
-            }
-            catch (Exception exception1)
-            {
-            Label_00E4:
-                exception = exception1;
-                DebugUtility.LogException(exception);
-                flag = 0;
-                goto Label_00FC;
-            }
-        Label_00FA:
-            return 1;
-        Label_00FC:
-            return flag;
-        }
-
-        [DebuggerHidden]
-        private IEnumerator LoadAppealResourcess(string path)
-        {
-            <LoadAppealResourcess>c__IteratorE1 re;
-            re = new <LoadAppealResourcess>c__IteratorE1();
-            re.path = path;
-            re.<$>path = path;
-            re.<>f__this = this;
-            return re;
-        }
-
-        protected override unsafe void Refresh()
-        {
-            Vector2 vector;
-            Vector2 vector2;
-            this.AppealChara.get_gameObject().SetActive(((this.AppealChara != null) == null) ? 0 : (this.CharaSprite != null));
-            this.AppealTextL.get_gameObject().SetActive(((this.AppealTextL != null) == null) ? 0 : (this.TextLSprite != null));
-            this.AppealTextR.get_gameObject().SetActive(((this.AppealTextR != null) == null) ? 0 : (this.TextRSprite != null));
-            this.AppealChara.set_sprite(this.CharaSprite);
-            this.AppealTextL.set_sprite(this.TextLSprite);
-            this.AppealTextR.set_sprite(this.TextRSprite);
-            this.AppealTextRect.set_anchoredPosition(new Vector2(this.mPosX_Text, &this.AppealTextRect.get_anchoredPosition().y));
-            this.AppealCharaRect.set_anchoredPosition(new Vector2(this.mPosX_Chara, &this.AppealCharaRect.get_anchoredPosition().y));
-            this.LimitedShopButton.set_interactable(1);
-            if ((this.LockObject != null) == null)
-            {
-                goto Label_013E;
-            }
-            this.LockObject.SetActive(0);
-        Label_013E:
-            this.mIsInitialized = 1;
-            return;
-        }
-
-        protected override void Start()
-        {
-            base.Start();
-            if (this.LoadAppealMaster(this.MASTER_PATH) == null)
-            {
-                goto Label_002A;
-            }
-            base.StartCoroutine(this.LoadAppealResourcess(this.SPRITES_PATH));
-        Label_002A:
-            MonoSingleton<GameManager>.Instance.IsLimitedShopOpen = 1;
-            if (string.IsNullOrEmpty(this.mAppealID) == null)
-            {
-                goto Label_008A;
-            }
-            if ((this.LimitedShopButton != null) == null)
-            {
-                goto Label_008A;
-            }
-            this.LimitedShopButton.set_interactable(0);
-            if ((this.LockObject != null) == null)
-            {
-                goto Label_008A;
-            }
-            MonoSingleton<GameManager>.Instance.IsLimitedShopOpen = 0;
-            this.LockObject.SetActive(1);
-        Label_008A:
-            return;
-        }
-
-        protected override void Update()
-        {
-            if (this.IsLoaded == null)
-            {
-                goto Label_001C;
-            }
-            if (this.mIsInitialized != null)
-            {
-                goto Label_001C;
-            }
-            this.Refresh();
-        Label_001C:
-            return;
-        }
-
-        public bool IsInitialized
-        {
-            get
-            {
-                return this.mIsInitialized;
-            }
-        }
-
-        [CompilerGenerated]
-        private sealed class <LoadAppealResourcess>c__IteratorE1 : IEnumerator, IDisposable, IEnumerator<object>
-        {
-            internal string path;
-            internal AppealBallonSprites <sprites>__0;
-            internal LoadRequest <resources>__1;
-            internal int $PC;
-            internal object $current;
-            internal string <$>path;
-            internal AppealItemLimitedShop <>f__this;
-
-            public <LoadAppealResourcess>c__IteratorE1()
-            {
-                base..ctor();
-                return;
-            }
-
-            [DebuggerHidden]
-            public void Dispose()
-            {
-                this.$PC = -1;
-                return;
-            }
-
-            public bool MoveNext()
-            {
-                uint num;
-                bool flag;
-                num = this.$PC;
-                this.$PC = -1;
-                switch (num)
-                {
-                    case 0:
-                        goto Label_0025;
-
-                    case 1:
-                        goto Label_006A;
-
-                    case 2:
-                        goto Label_0128;
-                }
-                goto Label_012F;
-            Label_0025:
-                if (string.IsNullOrEmpty(this.path) != null)
-                {
-                    goto Label_0115;
-                }
-                this.<sprites>__0 = null;
-                this.<resources>__1 = AssetManager.LoadAsync<AppealBallonSprites>(this.path);
-                this.$current = this.<resources>__1.StartCoroutine();
-                this.$PC = 1;
-                goto Label_0131;
-            Label_006A:
-                this.<sprites>__0 = this.<resources>__1.asset as AppealBallonSprites;
-                if ((this.<sprites>__0 != null) == null)
-                {
-                    goto Label_0115;
-                }
-                if (string.IsNullOrEmpty(this.<>f__this.mAppealID) != null)
-                {
-                    goto Label_0115;
-                }
-                this.<>f__this.CharaSprite = this.<sprites>__0.GetSprite(this.<>f__this.mAppealID);
-                this.<>f__this.TextLSprite = this.<sprites>__0.GetSpriteTextL(this.<>f__this.mAppealID);
-                this.<>f__this.TextRSprite = this.<sprites>__0.GetSpriteTextR(this.<>f__this.mAppealID);
-                this.<>f__this.IsLoaded = 1;
-            Label_0115:
-                this.$current = null;
-                this.$PC = 2;
-                goto Label_0131;
-            Label_0128:
-                this.$PC = -1;
-            Label_012F:
-                return 0;
-            Label_0131:
-                return 1;
-                return flag;
-            }
-
-            [DebuggerHidden]
-            public void Reset()
-            {
-                throw new NotSupportedException();
-            }
-
-            object IEnumerator<object>.Current
-            {
-                [DebuggerHidden]
-                get
-                {
-                    return this.$current;
-                }
-            }
-
-            object IEnumerator.Current
-            {
-                [DebuggerHidden]
-                get
-                {
-                    return this.$current;
-                }
-            }
-        }
+      get
+      {
+        return this.mIsInitialized;
+      }
     }
-}
 
+    protected override void Awake()
+    {
+      base.Awake();
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AppealChara, (UnityEngine.Object) null))
+        ((Component) this.AppealChara).get_gameObject().SetActive(false);
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AppealTextL, (UnityEngine.Object) null))
+        ((Component) this.AppealTextL).get_gameObject().SetActive(false);
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AppealTextR, (UnityEngine.Object) null))
+        ((Component) this.AppealTextR).get_gameObject().SetActive(false);
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AppealCharaRect, (UnityEngine.Object) null))
+        this.mPosX_Chara = (float) this.AppealCharaRect.get_anchoredPosition().x;
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AppealTextRect, (UnityEngine.Object) null))
+        return;
+      this.mPosX_Text = (float) this.AppealTextRect.get_anchoredPosition().x;
+    }
+
+    protected override void Start()
+    {
+      base.Start();
+      if (this.LoadAppealMaster(this.MASTER_PATH))
+        this.StartCoroutine(this.LoadAppealResourcess(this.SPRITES_PATH));
+      MonoSingleton<GameManager>.Instance.IsLimitedShopOpen = true;
+      if (!string.IsNullOrEmpty(this.mAppealID) || !UnityEngine.Object.op_Inequality((UnityEngine.Object) this.LimitedShopButton, (UnityEngine.Object) null))
+        return;
+      ((Selectable) this.LimitedShopButton).set_interactable(false);
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.LockObject, (UnityEngine.Object) null))
+        return;
+      MonoSingleton<GameManager>.Instance.IsLimitedShopOpen = false;
+      this.LockObject.SetActive(true);
+    }
+
+    protected override void Update()
+    {
+      if (!this.IsLoaded || this.mIsInitialized)
+        return;
+      this.Refresh();
+    }
+
+    protected override void Refresh()
+    {
+      ((Component) this.AppealChara).get_gameObject().SetActive(UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AppealChara, (UnityEngine.Object) null) && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.CharaSprite, (UnityEngine.Object) null));
+      ((Component) this.AppealTextL).get_gameObject().SetActive(UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AppealTextL, (UnityEngine.Object) null) && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TextLSprite, (UnityEngine.Object) null));
+      ((Component) this.AppealTextR).get_gameObject().SetActive(UnityEngine.Object.op_Inequality((UnityEngine.Object) this.AppealTextR, (UnityEngine.Object) null) && UnityEngine.Object.op_Inequality((UnityEngine.Object) this.TextRSprite, (UnityEngine.Object) null));
+      this.AppealChara.set_sprite(this.CharaSprite);
+      this.AppealTextL.set_sprite(this.TextLSprite);
+      this.AppealTextR.set_sprite(this.TextRSprite);
+      this.AppealTextRect.set_anchoredPosition(new Vector2(this.mPosX_Text, (float) this.AppealTextRect.get_anchoredPosition().y));
+      this.AppealCharaRect.set_anchoredPosition(new Vector2(this.mPosX_Chara, (float) this.AppealCharaRect.get_anchoredPosition().y));
+      ((Selectable) this.LimitedShopButton).set_interactable(true);
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.LockObject, (UnityEngine.Object) null))
+        this.LockObject.SetActive(false);
+      this.mIsInitialized = true;
+    }
+
+    protected override void Destroy()
+    {
+      base.Destroy();
+    }
+
+    private bool LoadAppealMaster(string path)
+    {
+      if (string.IsNullOrEmpty(path))
+        return false;
+      string src = AssetManager.LoadTextData(path);
+      if (string.IsNullOrEmpty(src))
+        return false;
+      try
+      {
+        JSON_AppealLimitedShopMaster[] jsonArray = JSONParser.parseJSONArray<JSON_AppealLimitedShopMaster>(src);
+        if (jsonArray == null)
+          throw new InvalidJSONException();
+        long serverTime = Network.GetServerTime();
+        AppealLimitedShopMaster limitedShopMaster1 = new AppealLimitedShopMaster();
+        foreach (JSON_AppealLimitedShopMaster json in jsonArray)
+        {
+          AppealLimitedShopMaster limitedShopMaster2 = new AppealLimitedShopMaster();
+          if (limitedShopMaster2.Deserialize(json) && limitedShopMaster2.start_at <= serverTime && limitedShopMaster2.end_at > serverTime)
+          {
+            if (limitedShopMaster1 == null)
+              limitedShopMaster1 = limitedShopMaster2;
+            else if (limitedShopMaster1.priority < limitedShopMaster2.priority)
+              limitedShopMaster1 = limitedShopMaster2;
+          }
+        }
+        if (limitedShopMaster1 != null)
+        {
+          this.mAppealID = limitedShopMaster1.appeal_id;
+          this.mPosX_Chara = limitedShopMaster1.pos_x_chara;
+          this.mPosX_Text = limitedShopMaster1.pos_x_text;
+        }
+      }
+      catch (Exception ex)
+      {
+        DebugUtility.LogException(ex);
+        return false;
+      }
+      return true;
+    }
+
+    [DebuggerHidden]
+    private IEnumerator LoadAppealResourcess(string path)
+    {
+      // ISSUE: object of a compiler-generated type is created
+      return (IEnumerator) new AppealItemLimitedShop.\u003CLoadAppealResourcess\u003Ec__IteratorDC() { path = path, \u003C\u0024\u003Epath = path, \u003C\u003Ef__this = this };
+    }
+  }
+}

@@ -1,105 +1,69 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_MessageBoxNoTitle
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using System.Runtime.CompilerServices;
-    using UnityEngine;
+  [FlowNode.NodeType("UI/MessageBoxNoTitle", 32741)]
+  [FlowNode.Pin(10, "Open", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "Closed", FlowNode.PinTypes.Output, 1)]
+  [FlowNode.Pin(11, "ForceClose", FlowNode.PinTypes.Input, 11)]
+  [FlowNode.Pin(100, "Opened", FlowNode.PinTypes.Output, 100)]
+  [FlowNode.Pin(101, "ForceClosed", FlowNode.PinTypes.Output, 101)]
+  public class FlowNode_MessageBoxNoTitle : FlowNode
+  {
+    public string Text;
+    public bool systemModal;
+    public int systemModalPriority;
+    public GameObject parent;
+    public string parentName;
+    public bool unscaledTime;
+    public bool richTag;
+    private GameObject winGO;
 
-    [Pin(1, "Closed", 1, 1), NodeType("UI/MessageBoxNoTitle", 0x7fe5), Pin(10, "Open", 0, 0), Pin(11, "ForceClose", 0, 11), Pin(100, "Opened", 1, 100), Pin(0x65, "ForceClosed", 1, 0x65)]
-    public class FlowNode_MessageBoxNoTitle : FlowNode
+    public override void OnActivate(int pinID)
     {
-        public string Text;
-        public bool systemModal;
-        public int systemModalPriority;
-        public GameObject parent;
-        public string parentName;
-        public bool unscaledTime;
-        public bool richTag;
-        private GameObject winGO;
-
-        public FlowNode_MessageBoxNoTitle()
-        {
-            base..ctor();
-            return;
-        }
-
-        [CompilerGenerated]
-        private void <OnActivate>m__1A6(GameObject go)
-        {
-            if ((this.winGO != null) == null)
-            {
-                goto Label_0020;
-            }
-            this.winGO = null;
-            base.ActivateOutputLinks(1);
-        Label_0020:
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            string str;
-            Animator animator;
-            Win_Btn_Decide_Flx flx;
-            if (pinID != 10)
-            {
-                goto Label_00DF;
-            }
-            if (string.IsNullOrEmpty(this.parentName) != null)
-            {
-                goto Label_004F;
-            }
+      switch (pinID)
+      {
+        case 10:
+          if (!string.IsNullOrEmpty(this.parentName))
+          {
             this.parent = GameObject.Find(this.parentName);
-            if ((this.parent == null) == null)
-            {
-                goto Label_004F;
-            }
-            DebugUtility.LogWarning("can not found gameObject:" + this.parentName);
-        Label_004F:
-            str = LocalizedText.Get(this.Text);
-            if (this.richTag == null)
-            {
-                goto Label_006D;
-            }
+            if (Object.op_Equality((Object) this.parent, (Object) null))
+              DebugUtility.LogWarning("can not found gameObject:" + this.parentName);
+          }
+          string str = LocalizedText.Get(this.Text);
+          if (this.richTag)
             str = LocalizedText.ReplaceTag(str);
-        Label_006D:
-            this.winGO = UIUtility.SystemMessage(str, new UIUtility.DialogResultEvent(this.<OnActivate>m__1A6), this.parent, this.systemModal, this.systemModalPriority);
-            if ((this.winGO == null) || (this.unscaledTime == null))
-            {
-                goto Label_00D1;
-            }
-            animator = this.winGO.GetComponent<Animator>();
-            if ((animator != null) == null)
-            {
-                goto Label_00D1;
-            }
-            animator.set_updateMode(2);
-        Label_00D1:
-            base.ActivateOutputLinks(100);
-            goto Label_0140;
-        Label_00DF:
-            if (pinID != 11)
-            {
-                goto Label_0140;
-            }
-            if ((this.winGO == null) == null)
-            {
-                goto Label_00F9;
-            }
-            return;
-        Label_00F9:
-            flx = ((this.winGO == null) == null) ? this.winGO.GetComponent<Win_Btn_Decide_Flx>() : null;
-            this.winGO = null;
-            if ((flx != null) == null)
-            {
-                goto Label_0137;
-            }
-            flx.BeginClose();
-            flx = null;
-        Label_0137:
-            base.ActivateOutputLinks(0x65);
-        Label_0140:
-            return;
-        }
+          this.winGO = UIUtility.SystemMessage(str, (UIUtility.DialogResultEvent) (go =>
+          {
+            if (!Object.op_Inequality((Object) this.winGO, (Object) null))
+              return;
+            this.winGO = (GameObject) null;
+            this.ActivateOutputLinks(1);
+          }), this.parent, this.systemModal, this.systemModalPriority);
+          if (Object.op_Implicit((Object) this.winGO) && this.unscaledTime)
+          {
+            Animator component = (Animator) this.winGO.GetComponent<Animator>();
+            if (Object.op_Inequality((Object) component, (Object) null))
+              component.set_updateMode((AnimatorUpdateMode) 2);
+          }
+          this.ActivateOutputLinks(100);
+          break;
+        case 11:
+          if (Object.op_Equality((Object) this.winGO, (Object) null))
+            break;
+          Win_Btn_Decide_Flx winBtnDecideFlx = !Object.op_Equality((Object) this.winGO, (Object) null) ? (Win_Btn_Decide_Flx) this.winGO.GetComponent<Win_Btn_Decide_Flx>() : (Win_Btn_Decide_Flx) null;
+          this.winGO = (GameObject) null;
+          if (Object.op_Inequality((Object) winBtnDecideFlx, (Object) null))
+            winBtnDecideFlx.BeginClose();
+          this.ActivateOutputLinks(101);
+          break;
+      }
     }
+  }
 }
-

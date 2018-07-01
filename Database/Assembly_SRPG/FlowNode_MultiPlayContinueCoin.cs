@@ -1,143 +1,99 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_MultiPlayContinueCoin
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-
-    [NodeType("Multi/MultiPlayContinueCoin", 0x7fe5), Pin(0, "Revive", 0, 0), Pin(1, "Success", 1, 1), Pin(2, "コインが足りない", 1, 2), Pin(3, "Continue", 0, 3)]
-    public class FlowNode_MultiPlayContinueCoin : FlowNode_Network
+  [FlowNode.Pin(3, "Continue", FlowNode.PinTypes.Input, 3)]
+  [FlowNode.NodeType("Multi/MultiPlayContinueCoin", 32741)]
+  [FlowNode.Pin(0, "Revive", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
+  [FlowNode.Pin(2, "コインが足りない", FlowNode.PinTypes.Output, 2)]
+  public class FlowNode_MultiPlayContinueCoin : FlowNode_Network
+  {
+    public override void OnActivate(int pinID)
     {
-        public FlowNode_MultiPlayContinueCoin()
+      if (pinID != 0 && pinID != 3)
+        return;
+      SceneBattle instance = SceneBattle.Instance;
+      int coin = (int) (pinID != 0 ? MonoSingleton<GameManager>.Instance.MasterParam.FixParam.ContinueCoinCost : MonoSingleton<GameManager>.Instance.MasterParam.FixParam.ContinueCoinCostMulti);
+      if (Object.op_Inequality((Object) instance, (Object) null) && instance.Battle != null && instance.Battle.IsMultiTower)
+        coin = (int) MonoSingleton<GameManager>.Instance.MasterParam.FixParam.ContinueCoinCostMultiTower;
+      if (MonoSingleton<GameManager>.Instance.Player.Coin < coin)
+      {
+        ((Behaviour) this).set_enabled(false);
+        this.ActivateOutputLinks(2);
+      }
+      else if (Network.Mode == Network.EConnectMode.Offline)
+      {
+        if (!MonoSingleton<GameManager>.Instance.Player.DEBUG_CONSUME_COIN(coin))
         {
-            base..ctor();
-            return;
+          ((Behaviour) this).set_enabled(false);
+          this.ActivateOutputLinks(2);
         }
-
-        private void Failure()
-        {
-            base.set_enabled(0);
-            base.ActivateOutputLinks(3);
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            SceneBattle battle;
-            int num;
-            int num2;
-            PlayerData data;
-            BattleCore.Record record;
-            if ((pinID != null) && (pinID != 3))
-            {
-                goto Label_0141;
-            }
-            battle = SceneBattle.Instance;
-            num = (pinID != null) ? MonoSingleton<GameManager>.Instance.MasterParam.FixParam.ContinueCoinCost : MonoSingleton<GameManager>.Instance.MasterParam.FixParam.ContinueCoinCostMulti;
-            if ((battle != null) == null)
-            {
-                goto Label_008D;
-            }
-            if (battle.Battle == null)
-            {
-                goto Label_008D;
-            }
-            if (battle.Battle.IsMultiTower == null)
-            {
-                goto Label_008D;
-            }
-            num = MonoSingleton<GameManager>.Instance.MasterParam.FixParam.ContinueCoinCostMultiTower;
-        Label_008D:
-            if (MonoSingleton<GameManager>.Instance.Player.Coin >= num)
-            {
-                goto Label_00B4;
-            }
-            base.set_enabled(0);
-            base.ActivateOutputLinks(2);
-            return;
-        Label_00B4:
-            if (Network.Mode != 1)
-            {
-                goto Label_00F1;
-            }
-            if (MonoSingleton<GameManager>.Instance.Player.DEBUG_CONSUME_COIN(num) != null)
-            {
-                goto Label_00E6;
-            }
-            base.set_enabled(0);
-            base.ActivateOutputLinks(2);
-            return;
-        Label_00E6:
-            this.Success();
-            goto Label_0141;
-        Label_00F1:
-            record = SceneBattle.Instance.Battle.GetQuestRecord();
-            base.ExecRequest(new ReqBtlComCont(SceneBattle.Instance.Battle.BtlID, record, new Network.ResponseCallback(this.ResponseCallback), 1, SceneBattle.Instance.Battle.IsMultiTower));
-            base.set_enabled(1);
-        Label_0141:
-            return;
-        }
-
-        public override unsafe void OnSuccess(WWWResult www)
-        {
-            WebAPI.JSON_BodyResponse<BattleCore.Json_BattleCont> response;
-            PlayerData.EDeserializeFlags flags;
-            SceneBattle battle;
-            int num;
-            Network.EErrCode code;
-            if (Network.IsError == null)
-            {
-                goto Label_0018;
-            }
-            code = Network.ErrCode;
-            this.OnFailed();
-            return;
-        Label_0018:
-            response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<BattleCore.Json_BattleCont>>(&www.text);
-            DebugUtility.Assert((response == null) == 0, "res == null");
-            if (response.body != null)
-            {
-                goto Label_0048;
-            }
-            this.OnFailed();
-            return;
-        Label_0048:
-            GlobalVars.MultiPlayBattleCont = response.body;
-            flags = 0;
-            flags |= 2;
-            if (MonoSingleton<GameManager>.Instance.Player.Deserialize(response.body.player, flags) != null)
-            {
-                goto Label_0080;
-            }
-            this.OnFailed();
-            return;
-        Label_0080:
-            Network.RemoveAPI();
-            battle = SceneBattle.Instance;
-            num = MonoSingleton<GameManager>.Instance.MasterParam.FixParam.ContinueCoinCostMulti;
-            if ((battle != null) == null)
-            {
-                goto Label_00E6;
-            }
-            if (battle.Battle == null)
-            {
-                goto Label_00E6;
-            }
-            if (battle.Battle.IsMultiTower == null)
-            {
-                goto Label_00E6;
-            }
-            num = MonoSingleton<GameManager>.Instance.MasterParam.FixParam.ContinueCoinCostMultiTower;
-        Label_00E6:
-            MyMetaps.TrackSpendCoin("ContinueMultiQuest", num);
-            this.Success();
-            return;
-        }
-
-        private void Success()
-        {
-            base.set_enabled(0);
-            base.ActivateOutputLinks(1);
-            return;
-        }
+        else
+          this.Success();
+      }
+      else
+      {
+        BattleCore.Record questRecord = SceneBattle.Instance.Battle.GetQuestRecord();
+        this.ExecRequest((WebAPI) new ReqBtlComCont(SceneBattle.Instance.Battle.BtlID, questRecord, new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback), true, SceneBattle.Instance.Battle.IsMultiTower));
+        ((Behaviour) this).set_enabled(true);
+      }
     }
-}
 
+    private void Success()
+    {
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(1);
+    }
+
+    private void Failure()
+    {
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(3);
+    }
+
+    public override void OnSuccess(WWWResult www)
+    {
+      if (Network.IsError)
+      {
+        Network.EErrCode errCode = Network.ErrCode;
+        this.OnFailed();
+      }
+      else
+      {
+        WebAPI.JSON_BodyResponse<BattleCore.Json_BattleCont> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<BattleCore.Json_BattleCont>>(www.text);
+        DebugUtility.Assert(jsonObject != null, "res == null");
+        if (jsonObject.body == null)
+        {
+          this.OnFailed();
+        }
+        else
+        {
+          GlobalVars.MultiPlayBattleCont = jsonObject.body;
+          PlayerData.EDeserializeFlags flag = (PlayerData.EDeserializeFlags) (0 | 2);
+          if (!MonoSingleton<GameManager>.Instance.Player.Deserialize(jsonObject.body.player, flag))
+          {
+            this.OnFailed();
+          }
+          else
+          {
+            Network.RemoveAPI();
+            SceneBattle instance = SceneBattle.Instance;
+            int num = (int) MonoSingleton<GameManager>.Instance.MasterParam.FixParam.ContinueCoinCostMulti;
+            if (Object.op_Inequality((Object) instance, (Object) null) && instance.Battle != null && instance.Battle.IsMultiTower)
+              num = (int) MonoSingleton<GameManager>.Instance.MasterParam.FixParam.ContinueCoinCostMultiTower;
+            AnalyticsManager.TrackOriginalCurrencyUse(ESaleType.Coin, (int) MonoSingleton<GameManager>.Instance.MasterParam.FixParam.ContinueCoinCostMulti, "ContinueMultiQuest");
+            this.Success();
+          }
+        }
+      }
+    }
+  }
+}

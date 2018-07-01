@@ -1,31 +1,25 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_RestoreMenu
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
+  [FlowNode.NodeType("System/Set Restore Menu", 32741)]
+  [FlowNode.Pin(1, "Set", FlowNode.PinTypes.Input, 1)]
+  [FlowNode.Pin(10, "Out", FlowNode.PinTypes.Output, 10)]
+  public class FlowNode_RestoreMenu : FlowNode
+  {
+    [FlowNode.ShowInInfo]
+    public RestorePoints RestorePoint;
 
-    [Pin(1, "Set", 0, 1), Pin(10, "Out", 1, 10), NodeType("System/Set Restore Menu", 0x7fe5)]
-    public class FlowNode_RestoreMenu : FlowNode
+    public override void OnActivate(int pinID)
     {
-        [ShowInInfo]
-        public RestorePoints RestorePoint;
-
-        public FlowNode_RestoreMenu()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != 1)
-            {
-                goto Label_001C;
-            }
-            HomeWindow.SetRestorePoint(this.RestorePoint);
-            base.ActivateOutputLinks(10);
-            return;
-        Label_001C:
-            return;
-        }
+      if (pinID != 1)
+        return;
+      HomeWindow.SetRestorePoint(this.RestorePoint);
+      this.ActivateOutputLinks(10);
     }
+  }
 }
-

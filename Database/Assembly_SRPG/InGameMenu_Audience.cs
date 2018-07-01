@@ -1,309 +1,192 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.InGameMenu_Audience
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Runtime.CompilerServices;
-    using UnityEngine;
-    using UnityEngine.UI;
+  [FlowNode.Pin(2, "Give Up", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(100, "Close Give Up Window", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "Start Debug", FlowNode.PinTypes.Input, 0)]
+  public class InGameMenu_Audience : MonoBehaviour, IFlowInterface
+  {
+    public const int PINID_DEBUG = 1;
+    public const int PINID_GIVEUP = 2;
+    public const int PINID_CLOSE_GIVEUP_WINDOW = 100;
+    public GameObject ExitButton;
+    public GenericSlot[] Units_1P;
+    public GenericSlot[] Units_2P;
+    public Text Name1P;
+    public Text Name2P;
+    public Text TotalAtk1P;
+    public Text TotalAtk2P;
+    public Text Lv1P;
+    public Text Lv2P;
+    private GameObject mExitWindow;
+    private List<GameObject> mButtonObj;
 
-    [Pin(100, "Close Give Up Window", 0, 0), Pin(2, "Give Up", 0, 0), Pin(1, "Start Debug", 0, 0)]
-    public class InGameMenu_Audience : MonoBehaviour, IFlowInterface
+    public InGameMenu_Audience()
     {
-        public const int PINID_DEBUG = 1;
-        public const int PINID_GIVEUP = 2;
-        public const int PINID_CLOSE_GIVEUP_WINDOW = 100;
-        public GameObject ExitButton;
-        public GenericSlot[] Units_1P;
-        public GenericSlot[] Units_2P;
-        public Text Name1P;
-        public Text Name2P;
-        public Text TotalAtk1P;
-        public Text TotalAtk2P;
-        public Text Lv1P;
-        public Text Lv2P;
-        private GameObject mExitWindow;
-        private List<GameObject> mButtonObj;
-
-        public InGameMenu_Audience()
-        {
-            this.Units_1P = new GenericSlot[0];
-            this.Units_2P = new GenericSlot[0];
-            this.mButtonObj = new List<GameObject>();
-            base..ctor();
-            return;
-        }
-
-        public void Activated(int pinID)
-        {
-            string str;
-            Win_Btn_DecideCancel_FL_C l_fl_c;
-            int num;
-            num = pinID;
-            if (num == 1)
-            {
-                goto Label_008B;
-            }
-            if (num == 2)
-            {
-                goto Label_0022;
-            }
-            if (num == 100)
-            {
-                goto Label_0050;
-            }
-            goto Label_008B;
-            goto Label_008B;
-        Label_0022:
-            str = LocalizedText.Get("sys.MULTI_VERSUS_COMFIRM_EXIT");
-            this.mExitWindow = UIUtility.ConfirmBox(str, new UIUtility.DialogResultEvent(this.OnGiveUp), null, null, 1, 1, null, null);
-            goto Label_008B;
-        Label_0050:
-            if ((this.mExitWindow != null) == null)
-            {
-                goto Label_008B;
-            }
-            l_fl_c = this.mExitWindow.GetComponent<Win_Btn_DecideCancel_FL_C>();
-            if ((l_fl_c != null) == null)
-            {
-                goto Label_007F;
-            }
-            l_fl_c.BeginClose();
-        Label_007F:
-            this.mExitWindow = null;
-        Label_008B:
-            return;
-        }
-
-        private void OnDestroy()
-        {
-            if ((SceneBattle.Instance != null) == null)
-            {
-                goto Label_0036;
-            }
-            SceneBattle.Instance.OnQuestEnd = (SceneBattle.QuestEndEvent) Delegate.Remove(SceneBattle.Instance.OnQuestEnd, new SceneBattle.QuestEndEvent(this.OnQuestEnd));
-        Label_0036:
-            return;
-        }
-
-        private void OnGiveUp(GameObject go)
-        {
-            CanvasGroup group;
-            Network.Abort();
-            if ((SceneBattle.Instance != null) == null)
-            {
-                goto Label_001F;
-            }
-            SceneBattle.Instance.ForceEndQuest();
-        Label_001F:
-            group = base.GetComponent<CanvasGroup>();
-            if ((group != null) == null)
-            {
-                goto Label_0039;
-            }
-            group.set_blocksRaycasts(0);
-        Label_0039:
-            return;
-        }
-
-        private void OnQuestEnd()
-        {
-            this.Activated(100);
-            return;
-        }
-
-        private unsafe void Start()
-        {
-            SceneBattle battle;
-            List<JSON_MyPhotonPlayerParam> list;
-            List<Unit> list2;
-            GenericSlot[] slotArray;
-            Text text;
-            Text text2;
-            Text text3;
-            Button button;
-            Unit unit;
-            <Start>c__AnonStorey34F storeyf;
-            <Start>c__AnonStorey350 storey;
-            <Start>c__AnonStorey351 storey2;
-            battle = SceneBattle.Instance;
-            if (this.mButtonObj == null)
-            {
-                goto Label_0021;
-            }
-            this.mButtonObj.Clear();
-            goto Label_002C;
-        Label_0021:
-            this.mButtonObj = new List<GameObject>();
-        Label_002C:
-            if ((this.ExitButton != null) == null)
-            {
-                goto Label_0049;
-            }
-            this.ExitButton.SetActive(1);
-        Label_0049:
-            if ((battle != null) == null)
-            {
-                goto Label_02C0;
-            }
-            list = battle.AudiencePlayer;
-            list2 = battle.Battle.AllUnits;
-            slotArray = null;
-            text = null;
-            text2 = null;
-            text3 = null;
-            storeyf = new <Start>c__AnonStorey34F();
-            storeyf.i = 0;
-            goto Label_02AE;
-        Label_0087:
-            storey = new <Start>c__AnonStorey350();
-            storey.units = list[storeyf.i].units;
-            slotArray = (storeyf.i != null) ? this.Units_2P : this.Units_1P;
-            if (slotArray == null)
-            {
-                goto Label_01C5;
-            }
-            storey2 = new <Start>c__AnonStorey351();
-            storey2.<>f__ref$847 = storeyf;
-            storey2.<>f__ref$848 = storey;
-            storey2.j = 0;
-            goto Label_01B6;
-        Label_00F1:
-            if (storey2.j >= ((int) storey.units.Length))
-            {
-                goto Label_0197;
-            }
-            slotArray[storey2.j].SetSlotData<UnitData>(storey.units[storey2.j].unit);
-            button = slotArray[storey2.j].GetComponent<Button>();
-            if ((button != null) == null)
-            {
-                goto Label_01A6;
-            }
-            unit = list2.Find(new Predicate<Unit>(storey2.<>m__34D));
-            if (unit == null)
-            {
-                goto Label_01A6;
-            }
-            DataSource.Bind<Unit>(button.get_gameObject(), unit);
-            this.mButtonObj.Add(button.get_gameObject());
-            button.set_interactable(unit.IsDeadCondition() == 0);
-            goto Label_01A6;
-        Label_0197:
-            slotArray[storey2.j].SetSlotData<UnitData>(null);
-        Label_01A6:
-            storey2.j += 1;
-        Label_01B6:
-            if (storey2.j < ((int) slotArray.Length))
-            {
-                goto Label_00F1;
-            }
-        Label_01C5:
-            text = (storeyf.i != null) ? this.Name2P : this.Name1P;
-            if ((text != null) == null)
-            {
-                goto Label_020A;
-            }
-            text.set_text(list[storeyf.i].playerName);
-        Label_020A:
-            text2 = (storeyf.i != null) ? this.TotalAtk2P : this.TotalAtk1P;
-            if ((text2 != null) == null)
-            {
-                goto Label_0254;
-            }
-            text2.set_text(&list[storeyf.i].totalAtk.ToString());
-        Label_0254:
-            text3 = (storeyf.i != null) ? this.Lv2P : this.Lv1P;
-            if ((text2 != null) == null)
-            {
-                goto Label_029E;
-            }
-            text3.set_text(&list[storeyf.i].playerLevel.ToString());
-        Label_029E:
-            storeyf.i += 1;
-        Label_02AE:
-            if (storeyf.i < list.Count)
-            {
-                goto Label_0087;
-            }
-        Label_02C0:
-            return;
-        }
-
-        private void Update()
-        {
-            int num;
-            Unit unit;
-            Button button;
-            if (this.mButtonObj == null)
-            {
-                goto Label_006D;
-            }
-            num = 0;
-            goto Label_005C;
-        Label_0012:
-            unit = DataSource.FindDataOfClass<Unit>(this.mButtonObj[num], null);
-            if (unit == null)
-            {
-                goto Label_0058;
-            }
-            button = this.mButtonObj[num].GetComponent<Button>();
-            if ((button != null) == null)
-            {
-                goto Label_0058;
-            }
-            button.set_interactable(unit.IsDeadCondition() == 0);
-        Label_0058:
-            num += 1;
-        Label_005C:
-            if (num < this.mButtonObj.Count)
-            {
-                goto Label_0012;
-            }
-        Label_006D:
-            return;
-        }
-
-        [CompilerGenerated]
-        private sealed class <Start>c__AnonStorey34F
-        {
-            internal int i;
-
-            public <Start>c__AnonStorey34F()
-            {
-                base..ctor();
-                return;
-            }
-        }
-
-        [CompilerGenerated]
-        private sealed class <Start>c__AnonStorey350
-        {
-            internal JSON_MyPhotonPlayerParam.UnitDataElem[] units;
-
-            public <Start>c__AnonStorey350()
-            {
-                base..ctor();
-                return;
-            }
-        }
-
-        [CompilerGenerated]
-        private sealed class <Start>c__AnonStorey351
-        {
-            internal int j;
-            internal InGameMenu_Audience.<Start>c__AnonStorey34F <>f__ref$847;
-            internal InGameMenu_Audience.<Start>c__AnonStorey350 <>f__ref$848;
-
-            public <Start>c__AnonStorey351()
-            {
-                base..ctor();
-                return;
-            }
-
-            internal bool <>m__34D(Unit un)
-            {
-                return ((un.OwnerPlayerIndex != (this.<>f__ref$847.i + 1)) ? 0 : (un.UnitData.UnitParam.iname == this.<>f__ref$848.units[this.j].unit.UnitParam.iname));
-            }
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Start()
+    {
+      SceneBattle instance = SceneBattle.Instance;
+      if (this.mButtonObj != null)
+        this.mButtonObj.Clear();
+      else
+        this.mButtonObj = new List<GameObject>();
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.ExitButton, (UnityEngine.Object) null))
+        this.ExitButton.SetActive(true);
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) instance, (UnityEngine.Object) null))
+        return;
+      List<JSON_MyPhotonPlayerParam> audiencePlayer = instance.AudiencePlayer;
+      List<Unit> allUnits = instance.Battle.AllUnits;
+      // ISSUE: object of a compiler-generated type is created
+      // ISSUE: variable of a compiler-generated type
+      InGameMenu_Audience.\u003CStart\u003Ec__AnonStorey33D startCAnonStorey33D = new InGameMenu_Audience.\u003CStart\u003Ec__AnonStorey33D();
+      // ISSUE: reference to a compiler-generated field
+      // ISSUE: reference to a compiler-generated field
+      // ISSUE: reference to a compiler-generated field
+      for (startCAnonStorey33D.i = 0; startCAnonStorey33D.i < audiencePlayer.Count; ++startCAnonStorey33D.i)
+      {
+        // ISSUE: object of a compiler-generated type is created
+        // ISSUE: variable of a compiler-generated type
+        InGameMenu_Audience.\u003CStart\u003Ec__AnonStorey33E startCAnonStorey33E = new InGameMenu_Audience.\u003CStart\u003Ec__AnonStorey33E();
+        // ISSUE: reference to a compiler-generated field
+        // ISSUE: reference to a compiler-generated field
+        startCAnonStorey33E.units = audiencePlayer[startCAnonStorey33D.i].units;
+        // ISSUE: reference to a compiler-generated field
+        GenericSlot[] genericSlotArray = startCAnonStorey33D.i != 0 ? this.Units_2P : this.Units_1P;
+        if (genericSlotArray != null)
+        {
+          // ISSUE: object of a compiler-generated type is created
+          // ISSUE: variable of a compiler-generated type
+          InGameMenu_Audience.\u003CStart\u003Ec__AnonStorey33F startCAnonStorey33F = new InGameMenu_Audience.\u003CStart\u003Ec__AnonStorey33F();
+          // ISSUE: reference to a compiler-generated field
+          startCAnonStorey33F.\u003C\u003Ef__ref\u0024829 = startCAnonStorey33D;
+          // ISSUE: reference to a compiler-generated field
+          startCAnonStorey33F.\u003C\u003Ef__ref\u0024830 = startCAnonStorey33E;
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: reference to a compiler-generated field
+          for (startCAnonStorey33F.j = 0; startCAnonStorey33F.j < genericSlotArray.Length; ++startCAnonStorey33F.j)
+          {
+            // ISSUE: reference to a compiler-generated field
+            // ISSUE: reference to a compiler-generated field
+            if (startCAnonStorey33F.j < startCAnonStorey33E.units.Length)
+            {
+              // ISSUE: reference to a compiler-generated field
+              // ISSUE: reference to a compiler-generated field
+              // ISSUE: reference to a compiler-generated field
+              genericSlotArray[startCAnonStorey33F.j].SetSlotData<UnitData>(startCAnonStorey33E.units[startCAnonStorey33F.j].unit);
+              // ISSUE: reference to a compiler-generated field
+              Button component = (Button) ((Component) genericSlotArray[startCAnonStorey33F.j]).GetComponent<Button>();
+              if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
+              {
+                // ISSUE: reference to a compiler-generated method
+                Unit data = allUnits.Find(new Predicate<Unit>(startCAnonStorey33F.\u003C\u003Em__392));
+                if (data != null)
+                {
+                  DataSource.Bind<Unit>(((Component) component).get_gameObject(), data);
+                  this.mButtonObj.Add(((Component) component).get_gameObject());
+                  ((Selectable) component).set_interactable(!data.IsDeadCondition());
+                }
+              }
+            }
+            else
+            {
+              // ISSUE: reference to a compiler-generated field
+              genericSlotArray[startCAnonStorey33F.j].SetSlotData<UnitData>((UnitData) null);
+            }
+          }
+        }
+        // ISSUE: reference to a compiler-generated field
+        Text text1 = startCAnonStorey33D.i != 0 ? this.Name2P : this.Name1P;
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) text1, (UnityEngine.Object) null))
+        {
+          // ISSUE: reference to a compiler-generated field
+          text1.set_text(audiencePlayer[startCAnonStorey33D.i].playerName);
+        }
+        // ISSUE: reference to a compiler-generated field
+        Text text2 = startCAnonStorey33D.i != 0 ? this.TotalAtk2P : this.TotalAtk1P;
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) text2, (UnityEngine.Object) null))
+        {
+          // ISSUE: reference to a compiler-generated field
+          text2.set_text(audiencePlayer[startCAnonStorey33D.i].totalAtk.ToString());
+        }
+        // ISSUE: reference to a compiler-generated field
+        Text text3 = startCAnonStorey33D.i != 0 ? this.Lv2P : this.Lv1P;
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) text2, (UnityEngine.Object) null))
+        {
+          // ISSUE: reference to a compiler-generated field
+          text3.set_text(audiencePlayer[startCAnonStorey33D.i].playerLevel.ToString());
+        }
+      }
+    }
+
+    private void OnDestroy()
+    {
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null))
+        return;
+      SceneBattle.Instance.OnQuestEnd -= new SceneBattle.QuestEndEvent(this.OnQuestEnd);
+    }
+
+    private void OnQuestEnd()
+    {
+      this.Activated(100);
+    }
+
+    public void Activated(int pinID)
+    {
+      switch (pinID)
+      {
+        case 2:
+          this.mExitWindow = UIUtility.ConfirmBox(LocalizedText.Get("sys.MULTI_VERSUS_COMFIRM_EXIT"), new UIUtility.DialogResultEvent(this.OnGiveUp), (UIUtility.DialogResultEvent) null, (GameObject) null, true, 1, (string) null, (string) null);
+          break;
+        case 100:
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.mExitWindow, (UnityEngine.Object) null))
+            break;
+          Win_Btn_DecideCancel_FL_C component = (Win_Btn_DecideCancel_FL_C) this.mExitWindow.GetComponent<Win_Btn_DecideCancel_FL_C>();
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
+            component.BeginClose();
+          this.mExitWindow = (GameObject) null;
+          break;
+      }
+    }
+
+    private void OnGiveUp(GameObject go)
+    {
+      Network.Abort();
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) SceneBattle.Instance, (UnityEngine.Object) null))
+        SceneBattle.Instance.ForceEndQuest();
+      CanvasGroup component = (CanvasGroup) ((Component) this).GetComponent<CanvasGroup>();
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
+        return;
+      component.set_blocksRaycasts(false);
+    }
+
+    private void Update()
+    {
+      if (this.mButtonObj == null)
+        return;
+      for (int index = 0; index < this.mButtonObj.Count; ++index)
+      {
+        Unit dataOfClass = DataSource.FindDataOfClass<Unit>(this.mButtonObj[index], (Unit) null);
+        if (dataOfClass != null)
+        {
+          Button component = (Button) this.mButtonObj[index].GetComponent<Button>();
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
+            ((Selectable) component).set_interactable(!dataOfClass.IsDeadCondition());
+        }
+      }
+    }
+  }
+}

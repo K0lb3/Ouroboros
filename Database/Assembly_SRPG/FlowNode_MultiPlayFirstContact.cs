@@ -1,27 +1,24 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_MultiPlayFirstContact
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-
-    [Pin(2, "no", 1, 0), NodeType("Multi/MultiPlayFirstContact", 0x7fe5), Pin(0, "exist", 0, 0), Pin(1, "yes", 1, 0)]
-    public class FlowNode_MultiPlayFirstContact : FlowNode
+  [FlowNode.Pin(0, "exist", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "yes", FlowNode.PinTypes.Output, 0)]
+  [FlowNode.NodeType("Multi/MultiPlayFirstContact", 32741)]
+  [FlowNode.Pin(2, "no", FlowNode.PinTypes.Output, 0)]
+  public class FlowNode_MultiPlayFirstContact : FlowNode
+  {
+    public override void OnActivate(int pinID)
     {
-        public FlowNode_MultiPlayFirstContact()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != null)
-            {
-                goto Label_0034;
-            }
-        Label_0027:
-            base.ActivateOutputLinks((((SceneBattle.Instance == null) == null) && (SceneBattle.Instance.FirstContact > 0)) ? 1 : 2);
-        Label_0034:
-            return;
-        }
+      if (pinID != 0)
+        return;
+      this.ActivateOutputLinks(Object.op_Equality((Object) SceneBattle.Instance, (Object) null) || SceneBattle.Instance.FirstContact <= 0 ? 2 : 1);
     }
+  }
 }
-

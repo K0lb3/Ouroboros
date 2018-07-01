@@ -1,67 +1,46 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_MultiTowerShowDetail
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using UnityEngine;
+  [FlowNode.Pin(0, "Start", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
+  [FlowNode.NodeType("Multi/MultiTowerShowDetail", 32741)]
+  public class FlowNode_MultiTowerShowDetail : FlowNode
+  {
+    [SerializeField]
+    private GameObject DetailObject;
 
-    [Pin(1, "Success", 1, 1), Pin(0, "Start", 0, 0), NodeType("Multi/MultiTowerShowDetail", 0x7fe5)]
-    public class FlowNode_MultiTowerShowDetail : FlowNode
+    public override void OnActivate(int pinID)
     {
-        [SerializeField]
-        private GameObject DetailObject;
-
-        public FlowNode_MultiTowerShowDetail()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != null)
-            {
-                goto Label_0014;
-            }
-            this.OnClickDetail();
-            base.ActivateOutputLinks(1);
-        Label_0014:
-            return;
-        }
-
-        public void OnClickDetail()
-        {
-            QuestParam param;
-            MultiTowerFloorParam param2;
-            GameObject obj2;
-            QuestCampaignData[] dataArray;
-            MultiTowerQuestInfo info;
-            param = DataSource.FindDataOfClass<QuestParam>(base.get_gameObject(), null);
-            param2 = DataSource.FindDataOfClass<MultiTowerFloorParam>(base.get_gameObject(), null);
-            if (param2 != null)
-            {
-                goto Label_0030;
-            }
-            param2 = MonoSingleton<GameManager>.Instance.GetMTFloorParam(GlobalVars.SelectedQuestID);
-        Label_0030:
-            if (((this.DetailObject != null) == null) || (param == null))
-            {
-                goto Label_00A5;
-            }
-            obj2 = Object.Instantiate<GameObject>(this.DetailObject);
-            DataSource.Bind<QuestParam>(obj2, param);
-            dataArray = MonoSingleton<GameManager>.Instance.FindQuestCampaigns(param);
-            DataSource.Bind<QuestCampaignData[]>(obj2, (((int) dataArray.Length) != null) ? dataArray : null);
-            DataSource.Bind<QuestParam>(obj2, param);
-            DataSource.Bind<MultiTowerFloorParam>(obj2, param2);
-            info = obj2.GetComponent<MultiTowerQuestInfo>();
-            if ((info != null) == null)
-            {
-                goto Label_00A5;
-            }
-            info.Refresh();
-        Label_00A5:
-            return;
-        }
+      if (pinID != 0)
+        return;
+      this.OnClickDetail();
+      this.ActivateOutputLinks(1);
     }
-}
 
+    public void OnClickDetail()
+    {
+      QuestParam dataOfClass = DataSource.FindDataOfClass<QuestParam>(((Component) this).get_gameObject(), (QuestParam) null);
+      MultiTowerFloorParam data = DataSource.FindDataOfClass<MultiTowerFloorParam>(((Component) this).get_gameObject(), (MultiTowerFloorParam) null) ?? MonoSingleton<GameManager>.Instance.GetMTFloorParam(GlobalVars.SelectedMultiTowerID, GlobalVars.SelectedMultiTowerFloor);
+      if (!Object.op_Inequality((Object) this.DetailObject, (Object) null) || dataOfClass == null)
+        return;
+      GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.DetailObject);
+      DataSource.Bind<QuestParam>(gameObject, dataOfClass);
+      QuestCampaignData[] questCampaigns = MonoSingleton<GameManager>.Instance.FindQuestCampaigns(dataOfClass);
+      DataSource.Bind<QuestCampaignData[]>(gameObject, questCampaigns.Length != 0 ? questCampaigns : (QuestCampaignData[]) null);
+      DataSource.Bind<QuestParam>(gameObject, dataOfClass);
+      DataSource.Bind<MultiTowerFloorParam>(gameObject, data);
+      MultiTowerQuestInfo component = (MultiTowerQuestInfo) gameObject.GetComponent<MultiTowerQuestInfo>();
+      if (!Object.op_Inequality((Object) component, (Object) null))
+        return;
+      component.Refresh();
+    }
+  }
+}

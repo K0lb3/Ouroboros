@@ -1,41 +1,29 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqBtlComCont
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    public class ReqBtlComCont : WebAPI
+  public class ReqBtlComCont : WebAPI
+  {
+    public ReqBtlComCont(long btlid, BattleCore.Record record, Network.ResponseCallback response, bool multi, bool isMT)
     {
-        public ReqBtlComCont(long btlid, BattleCore.Record record, Network.ResponseCallback response, bool multi, bool isMT)
-        {
-            string str;
-            base..ctor();
-            if (isMT == null)
-            {
-                goto Label_001D;
-            }
-            base.name = "btl/multi/tower/cont";
-            goto Label_0039;
-        Label_001D:
-            base.name = (multi == null) ? "btl/com/cont" : "btl/multi/cont";
-        Label_0039:
-            if (record == null)
-            {
-                goto Label_009D;
-            }
-            base.body = "\"btlid\":" + ((long) btlid) + ",";
-            if (string.IsNullOrEmpty(WebAPI.GetBtlEndParamString(record, multi)) != null)
-            {
-                goto Label_0087;
-            }
-            base.body = base.body + WebAPI.GetBtlEndParamString(record, multi);
-        Label_0087:
-            base.body = WebAPI.GetRequestString(base.body);
-            goto Label_00BD;
-        Label_009D:
-            base.body = WebAPI.GetRequestString("\"btlid\":\"" + ((long) btlid) + "\"");
-        Label_00BD:
-            base.callback = response;
-            return;
-        }
+      if (isMT)
+        this.name = "btl/multi/tower/cont";
+      else
+        this.name = !multi ? "btl/com/cont" : "btl/multi/cont";
+      if (record != null)
+      {
+        this.body = "\"btlid\":" + (object) btlid + ",";
+        if (!string.IsNullOrEmpty(WebAPI.GetBtlEndParamString(record, multi)))
+          this.body += WebAPI.GetBtlEndParamString(record, multi);
+        this.body = WebAPI.GetRequestString(this.body);
+      }
+      else
+        this.body = WebAPI.GetRequestString("\"btlid\":\"" + (object) btlid + "\"");
+      this.callback = response;
     }
+  }
 }
-

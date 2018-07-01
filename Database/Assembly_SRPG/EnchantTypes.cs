@@ -1,46 +1,41 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.EnchantTypes
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    public enum EnchantTypes
-    {
-        Poison,
-        Paralysed,
-        Stun,
-        Sleep,
-        Charm,
-        Stone,
-        Blind,
-        DisableSkill,
-        DisableMove,
-        DisableAttack,
-        Zombie,
-        DeathSentence,
-        Berserk,
-        Knockback,
-        ResistBuff,
-        ResistDebuff,
-        Stop,
-        Fast,
-        Slow,
-        AutoHeal,
-        Donsoku,
-        Rage,
-        GoodSleep,
-        AutoJewel,
-        DisableHeal,
-        SingleAttack,
-        AreaAttack,
-        DecCT,
-        IncCT,
-        ESA_Fire,
-        ESA_Water,
-        ESA_Wind,
-        ESA_Thunder,
-        ESA_Shine,
-        ESA_Dark,
-        MaxDamageHp,
-        MaxDamageMp
-    }
+  public enum EnchantTypes
+  {
+    Poison,
+    Paralysed,
+    Stun,
+    Sleep,
+    Charm,
+    Stone,
+    Blind,
+    DisableSkill,
+    DisableMove,
+    DisableAttack,
+    Zombie,
+    DeathSentence,
+    Berserk,
+    Knockback,
+    ResistBuff,
+    ResistDebuff,
+    Stop,
+    Fast,
+    Slow,
+    AutoHeal,
+    Donsoku,
+    Rage,
+    GoodSleep,
+    AutoJewel,
+    DisableHeal,
+    SingleAttack,
+    AreaAttack,
+    DecCT,
+    IncCT,
+  }
 }
-

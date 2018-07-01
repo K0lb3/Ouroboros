@@ -1,136 +1,82 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_SelectUnit
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+
+namespace SRPG
 {
-    using GR;
-    using System;
+  [FlowNode.NodeType("System/Select Unit", 32741)]
+  [FlowNode.Pin(0, "Select", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.Pin(1, "Selected", FlowNode.PinTypes.Output, 1)]
+  [FlowNode.Pin(2, "Unit Not Found", FlowNode.PinTypes.Output, 2)]
+  public class FlowNode_SelectUnit : FlowNode
+  {
+    public int EquipSlot = -1;
+    public string UnitID;
+    public long UniqueID;
+    public bool KeepSelection;
+    public bool SelectJob;
+    public string JobID;
+    public bool SelectEquipSlot;
 
-    [NodeType("System/Select Unit", 0x7fe5), Pin(2, "Unit Not Found", 1, 2), Pin(1, "Selected", 1, 1), Pin(0, "Select", 0, 0)]
-    public class FlowNode_SelectUnit : FlowNode
+    public override void OnActivate(int pinID)
     {
-        public string UnitID;
-        public long UniqueID;
-        public bool KeepSelection;
-        public bool SelectJob;
-        public string JobID;
-        public bool SelectEquipSlot;
-        public int EquipSlot;
-
-        public FlowNode_SelectUnit()
+      UnitData unitData = (UnitData) null;
+      if (pinID != 0)
+        return;
+      int pinID1 = 2;
+      PlayerData player = MonoSingleton<GameManager>.Instance.Player;
+      if (!string.IsNullOrEmpty(this.UnitID))
+      {
+        if ((unitData = player.FindUnitDataByUnitID(this.UnitID)) != null)
         {
-            this.EquipSlot = -1;
-            base..ctor();
-            return;
+          GlobalVars.SelectedUnitUniqueID.Set(unitData.UniqueID);
+          pinID1 = 1;
         }
-
-        public override void OnActivate(int pinID)
-        {
-            UnitData data;
-            int num;
-            PlayerData data2;
-            int num2;
-            int num3;
-            data = null;
-            if (pinID == null)
-            {
-                goto Label_0011;
-            }
-            goto Label_018E;
-        Label_0011:
-            num = 2;
-            data2 = MonoSingleton<GameManager>.Instance.Player;
-            if (string.IsNullOrEmpty(this.UnitID) != null)
-            {
-                goto Label_0058;
-            }
-            if ((data = data2.FindUnitDataByUnitID(this.UnitID)) == null)
-            {
-                goto Label_0088;
-            }
-            GlobalVars.SelectedUnitUniqueID.Set(data.UniqueID);
-            num = 1;
-            goto Label_0088;
-        Label_0058:
-            if (this.UniqueID == null)
-            {
-                goto Label_0088;
-            }
-            if ((data = data2.FindUnitDataByUniqueID(this.UniqueID)) == null)
-            {
-                goto Label_0088;
-            }
-            GlobalVars.SelectedUnitUniqueID.Set(data.UniqueID);
-            num = 1;
-        Label_0088:
-            if (num != 1)
-            {
-                goto Label_0136;
-            }
-            if (this.SelectJob == null)
-            {
-                goto Label_0116;
-            }
-            num2 = 0;
-            goto Label_00C7;
-        Label_00A1:
-            if ((data.Jobs[num2].JobID == this.JobID) == null)
-            {
-                goto Label_00C3;
-            }
-            goto Label_00D5;
-        Label_00C3:
-            num2 += 1;
-        Label_00C7:
-            if (num2 < ((int) data.Jobs.Length))
-            {
-                goto Label_00A1;
-            }
-        Label_00D5:
-            if (num2 >= ((int) data.Jobs.Length))
-            {
-                goto Label_00FF;
-            }
-            GlobalVars.SelectedJobUniqueID.Set(data.Jobs[num2].UniqueID);
-            goto Label_0116;
-        Label_00FF:
-            if (this.KeepSelection != null)
-            {
-                goto Label_0116;
-            }
-            GlobalVars.SelectedJobUniqueID.Set(0L);
-        Label_0116:
-            if (this.SelectEquipSlot == null)
-            {
-                goto Label_0181;
-            }
+      }
+      else if (this.UniqueID != 0L && (unitData = player.FindUnitDataByUniqueID(this.UniqueID)) != null)
+      {
+        GlobalVars.SelectedUnitUniqueID.Set(unitData.UniqueID);
+        pinID1 = 1;
+      }
+      switch (pinID1)
+      {
+        case 1:
+          if (this.SelectJob)
+          {
+            int index = 0;
+            while (index < unitData.Jobs.Length && !(unitData.Jobs[index].JobID == this.JobID))
+              ++index;
+            if (index < unitData.Jobs.Length)
+              GlobalVars.SelectedJobUniqueID.Set(unitData.Jobs[index].UniqueID);
+            else if (!this.KeepSelection)
+              GlobalVars.SelectedJobUniqueID.Set(0L);
+          }
+          if (this.SelectEquipSlot)
+          {
             GlobalVars.SelectedEquipmentSlot.Set(this.EquipSlot);
-            goto Label_0181;
-        Label_0136:
-            if (num != 2)
-            {
-                goto Label_0181;
-            }
-            if (this.KeepSelection != null)
-            {
-                goto Label_0181;
-            }
+            break;
+          }
+          break;
+        case 2:
+          if (!this.KeepSelection)
+          {
             GlobalVars.SelectedUnitUniqueID.Set(0L);
-            if (this.SelectJob == null)
+            if (this.SelectJob)
+              GlobalVars.SelectedJobUniqueID.Set(0L);
+            if (this.SelectEquipSlot)
             {
-                goto Label_016B;
+              GlobalVars.SelectedEquipmentSlot.Set(-1);
+              break;
             }
-            GlobalVars.SelectedJobUniqueID.Set(0L);
-        Label_016B:
-            if (this.SelectEquipSlot == null)
-            {
-                goto Label_0181;
-            }
-            GlobalVars.SelectedEquipmentSlot.Set(-1);
-        Label_0181:
-            base.ActivateOutputLinks(num);
-            goto Label_0193;
-        Label_018E:;
-        Label_0193:
-            return;
-        }
+            break;
+          }
+          break;
+      }
+      this.ActivateOutputLinks(pinID1);
     }
+  }
 }
-

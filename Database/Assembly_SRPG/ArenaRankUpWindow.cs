@@ -1,56 +1,46 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ArenaRankUpWindow
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using UnityEngine;
-    using UnityEngine.UI;
+  public class ArenaRankUpWindow : MonoBehaviour
+  {
+    public Text OldRank;
+    public Text NewRank;
+    public Text DeltaRank;
 
-    public class ArenaRankUpWindow : MonoBehaviour
+    public ArenaRankUpWindow()
     {
-        public Text OldRank;
-        public Text NewRank;
-        public Text DeltaRank;
-
-        public ArenaRankUpWindow()
-        {
-            base..ctor();
-            return;
-        }
-
-        private unsafe void Start()
-        {
-            GameManager manager;
-            ArenaBattleResponse response;
-            int num;
-            RewardData data;
-            RewardWindow window;
-            int num2;
-            if ((SceneBattle.Instance == null) == null)
-            {
-                goto Label_0011;
-            }
-            return;
-        Label_0011:
-            manager = MonoSingleton<GameManager>.Instance;
-            response = GlobalVars.ResultArenaBattleResponse;
-            num = manager.Player.ArenaRankBest - response.new_rank;
-            data = new RewardData();
-            data.ArenaMedal = response.reward_info.arenacoin;
-            data.Coin = response.reward_info.coin;
-            DataSource.Bind<RewardData>(base.get_gameObject(), data);
-            this.OldRank.set_text(&manager.Player.ArenaRankBest.ToString());
-            this.NewRank.set_text(&response.new_rank.ToString());
-            this.DeltaRank.set_text(&num.ToString());
-            this.DeltaRank.set_enabled(num > 0);
-            window = base.GetComponentInChildren<RewardWindow>();
-            if ((window != null) == null)
-            {
-                goto Label_00D6;
-            }
-            window.Refresh();
-        Label_00D6:
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    private void Start()
+    {
+      if (Object.op_Equality((Object) SceneBattle.Instance, (Object) null))
+        return;
+      GameManager instance = MonoSingleton<GameManager>.Instance;
+      ArenaBattleResponse arenaBattleResponse = GlobalVars.ResultArenaBattleResponse;
+      int num = instance.Player.ArenaRankBest - arenaBattleResponse.new_rank;
+      DataSource.Bind<RewardData>(((Component) this).get_gameObject(), new RewardData()
+      {
+        ArenaMedal = arenaBattleResponse.reward_info.arenacoin,
+        Coin = arenaBattleResponse.reward_info.coin
+      });
+      this.OldRank.set_text(instance.Player.ArenaRankBest.ToString());
+      this.NewRank.set_text(arenaBattleResponse.new_rank.ToString());
+      this.DeltaRank.set_text(num.ToString());
+      ((Behaviour) this.DeltaRank).set_enabled(num > 0);
+      RewardWindow componentInChildren = (RewardWindow) ((Component) this).GetComponentInChildren<RewardWindow>();
+      if (!Object.op_Inequality((Object) componentInChildren, (Object) null))
+        return;
+      componentInChildren.Refresh();
+    }
+  }
+}

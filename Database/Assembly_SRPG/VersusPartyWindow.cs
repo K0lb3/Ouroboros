@@ -1,128 +1,71 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.VersusPartyWindow
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Collections.Generic;
-    using System.Runtime.CompilerServices;
-    using UnityEngine;
-
-    [Pin(8, "同一グリッド", 1, 8), Pin(7, "ユニット配置へ", 1, 7)]
-    public class VersusPartyWindow : PartyWindow2
+  [FlowNode.Pin(7, "ユニット配置へ", FlowNode.PinTypes.Output, 7)]
+  [FlowNode.Pin(8, "同一グリッド", FlowNode.PinTypes.Output, 8)]
+  public class VersusPartyWindow : PartyWindow2
+  {
+    protected override int AvailableMainMemberSlots
     {
-        [CompilerGenerated]
-        private static UIUtility.DialogResultEvent <>f__am$cache0;
-
-        public VersusPartyWindow()
-        {
-            base..ctor();
-            return;
-        }
-
-        [CompilerGenerated]
-        private static void <PostForwardPressed>m__499(GameObject dialog)
-        {
-        }
-
-        public void OnClickEdit()
-        {
-            base.SaveAndActivatePin(7);
-            return;
-        }
-
-        protected override void OnItemSlotsChange()
-        {
-        }
-
-        protected override void PostForwardPressed()
-        {
-            GameManager manager;
-            PlayerData data;
-            PartyData data2;
-            long num;
-            List<int> list;
-            int num2;
-            string str;
-            <PostForwardPressed>c__AnonStorey3E9 storeye;
-            data = MonoSingleton<GameManager>.Instance.Player;
-            data2 = base.mCurrentParty.PartyData;
-            list = new List<int>();
-            num2 = 0;
-            goto Label_00FE;
-        Label_0028:
-            if (((base.mCurrentParty.Units[num2] == null) ? 0L : base.mCurrentParty.Units[num2].UniqueID) == null)
-            {
-                goto Label_00F8;
-            }
-            storeye = new <PostForwardPressed>c__AnonStorey3E9();
-            if (data2.PartyType != 10)
-            {
-                goto Label_007C;
-            }
-            str = PlayerPrefsUtility.RANKMATCH_ID_KEY;
-            goto Label_0083;
-        Label_007C:
-            str = PlayerPrefsUtility.VERSUS_ID_KEY;
-        Label_0083:
-            storeye.idx = data.GetVersusPlacement(str + ((int) num2));
-            if (list.FindIndex(new Predicate<int>(storeye.<>m__498)) == -1)
-            {
-                goto Label_00EA;
-            }
-            if (<>f__am$cache0 != null)
-            {
-                goto Label_00DB;
-            }
-            <>f__am$cache0 = new UIUtility.DialogResultEvent(VersusPartyWindow.<PostForwardPressed>m__499);
-        Label_00DB:
-            UIUtility.NegativeSystemMessage(null, LocalizedText.Get("sys.MULTI_VERSUS_SAME_POS"), <>f__am$cache0, null, 0, -1);
-            return;
-        Label_00EA:
-            list.Add(storeye.idx);
-        Label_00F8:
-            num2 += 1;
-        Label_00FE:
-            if (num2 < data2.MAX_UNIT)
-            {
-                goto Label_0028;
-            }
-            base.PostForwardPressed();
-            return;
-        }
-
-        protected override void SetItemSlot(int slotIndex, ItemData item)
-        {
-            base.mCurrentItems[slotIndex] = item;
-            return;
-        }
-
-        private void Update()
-        {
-        }
-
-        protected override int AvailableMainMemberSlots
-        {
-            get
-            {
-                return base.mCurrentParty.PartyData.MAX_UNIT;
-            }
-        }
-
-        [CompilerGenerated]
-        private sealed class <PostForwardPressed>c__AnonStorey3E9
-        {
-            internal int idx;
-
-            public <PostForwardPressed>c__AnonStorey3E9()
-            {
-                base..ctor();
-                return;
-            }
-
-            internal bool <>m__498(int d)
-            {
-                return (d == this.idx);
-            }
-        }
+      get
+      {
+        return this.mCurrentParty.PartyData.MAX_UNIT;
+      }
     }
-}
 
+    protected override void OnItemSlotsChange()
+    {
+    }
+
+    protected override void SetItemSlot(int slotIndex, ItemData item)
+    {
+      this.mCurrentItems[slotIndex] = item;
+    }
+
+    private void Update()
+    {
+    }
+
+    protected override void PostForwardPressed()
+    {
+      PlayerData player = MonoSingleton<GameManager>.Instance.Player;
+      PartyData partyData = this.mCurrentParty.PartyData;
+      List<int> intList = new List<int>();
+      for (int index = 0; index < partyData.MAX_UNIT; ++index)
+      {
+        if ((this.mCurrentParty.Units[index] == null ? 0L : this.mCurrentParty.Units[index].UniqueID) != 0L)
+        {
+          // ISSUE: object of a compiler-generated type is created
+          // ISSUE: variable of a compiler-generated type
+          VersusPartyWindow.\u003CPostForwardPressed\u003Ec__AnonStorey3A5 pressedCAnonStorey3A5 = new VersusPartyWindow.\u003CPostForwardPressed\u003Ec__AnonStorey3A5();
+          // ISSUE: reference to a compiler-generated field
+          pressedCAnonStorey3A5.idx = player.GetVersusPlacement(PlayerPrefsUtility.VERSUS_ID_KEY + (object) index);
+          // ISSUE: reference to a compiler-generated method
+          if (intList.FindIndex(new Predicate<int>(pressedCAnonStorey3A5.\u003C\u003Em__471)) != -1)
+          {
+            UIUtility.NegativeSystemMessage((string) null, LocalizedText.Get("sys.MULTI_VERSUS_SAME_POS"), (UIUtility.DialogResultEvent) (dialog => {}), (GameObject) null, false, -1);
+            return;
+          }
+          // ISSUE: reference to a compiler-generated field
+          intList.Add(pressedCAnonStorey3A5.idx);
+        }
+      }
+      base.PostForwardPressed();
+    }
+
+    public void OnClickEdit()
+    {
+      this.SaveAndActivatePin(7);
+    }
+  }
+}

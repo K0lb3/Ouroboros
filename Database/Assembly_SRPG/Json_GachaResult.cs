@@ -1,27 +1,20 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.Json_GachaResult
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
-
-    public class Json_GachaResult
-    {
-        public Json_DropInfo[] add;
-        public Json_DropInfo[] add_mail;
-        public Json_GachaReceipt receipt;
-        public Json_PlayerData player;
-        public Json_Item[] items;
-        public Json_Unit[] units;
-        public Json_Mail[] mails;
-        public Json_Artifact[] artifacts;
-        public int is_pending;
-        public int rest;
-
-        public Json_GachaResult()
-        {
-            this.is_pending = -1;
-            this.rest = -1;
-            base..ctor();
-            return;
-        }
-    }
+  public class Json_GachaResult
+  {
+    public Json_DropInfo[] add;
+    public Json_DropInfo[] addMail;
+    public Json_GachaReceipt receipt;
+    public Json_PlayerData player;
+    public Json_Item[] items;
+    public Json_Unit[] units;
+    public Json_Mail[] mails;
+    public Json_Artifact[] artifacts;
+  }
 }
-

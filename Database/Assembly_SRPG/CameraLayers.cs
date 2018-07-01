@@ -1,66 +1,40 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.CameraLayers
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  public class CameraLayers : MonoBehaviour
+  {
+    public Camera Overlay;
 
-    public class CameraLayers : MonoBehaviour
+    public CameraLayers()
     {
-        public Camera Overlay;
-
-        public CameraLayers()
-        {
-            base..ctor();
-            return;
-        }
-
-        private void LateUpdate()
-        {
-            Camera camera;
-            Camera camera2;
-            Camera[] cameraArray;
-            int num;
-            camera = base.GetComponent<Camera>();
-            cameraArray = base.GetComponentsInChildren<Camera>();
-            num = 0;
-            goto Label_0029;
-        Label_0015:
-            camera2 = cameraArray[num];
-            camera2.set_fieldOfView(camera.get_fieldOfView());
-            num += 1;
-        Label_0029:
-            if (num < ((int) cameraArray.Length))
-            {
-                goto Label_0015;
-            }
-            return;
-        }
-
-        public static void Setup(Camera parent)
-        {
-            if ((parent == null) == null)
-            {
-                goto Label_000D;
-            }
-            return;
-        Label_000D:
-            if ((parent.GetComponent<CameraLayers>() != null) == null)
-            {
-                goto Label_001F;
-            }
-            return;
-        Label_001F:
-            parent.get_gameObject().AddComponent<CameraLayers>();
-            return;
-        }
-
-        private unsafe void Start()
-        {
-            GameSettings settings;
-            settings = GameSettings.Instance;
-            this.Overlay = (Camera) Object.Instantiate(&settings.Cameras.OverlayCamera, Vector3.get_zero(), Quaternion.get_identity());
-            this.Overlay.get_transform().SetParent(base.get_transform(), 0);
-            return;
-        }
+      base.\u002Ector();
     }
-}
 
+    public static void Setup(Camera parent)
+    {
+      if (Object.op_Equality((Object) parent, (Object) null) || Object.op_Inequality((Object) ((Component) parent).GetComponent<CameraLayers>(), (Object) null))
+        return;
+      ((Component) parent).get_gameObject().AddComponent<CameraLayers>();
+    }
+
+    private void Start()
+    {
+      this.Overlay = (Camera) Object.Instantiate((Object) GameSettings.Instance.Cameras.OverlayCamera, Vector3.get_zero(), Quaternion.get_identity());
+      ((Component) this.Overlay).get_transform().SetParent(((Component) this).get_transform(), false);
+    }
+
+    private void LateUpdate()
+    {
+      Camera component = (Camera) ((Component) this).GetComponent<Camera>();
+      foreach (Camera componentsInChild in (Camera[]) ((Component) this).GetComponentsInChildren<Camera>())
+        componentsInChild.set_fieldOfView(component.get_fieldOfView());
+    }
+  }
+}

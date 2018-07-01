@@ -1,123 +1,79 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.EmbedSystemMessageEx
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using System.Runtime.CompilerServices;
-    using UnityEngine;
-    using UnityEngine.Events;
-    using UnityEngine.UI;
+  public class EmbedSystemMessageEx : MonoBehaviour
+  {
+    public const string PrefabPath = "e/UI/EmbedSystemMessageEx";
+    public Text Message;
+    public GameObject ButtonTemplate;
+    public GameObject ButtonBase;
 
-    public class EmbedSystemMessageEx : MonoBehaviour
+    public EmbedSystemMessageEx()
     {
-        public const string PrefabPath = "e/UI/EmbedSystemMessageEx";
-        public Text Message;
-        public GameObject ButtonTemplate;
-        public GameObject ButtonBase;
-
-        public EmbedSystemMessageEx()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void AddButton(string btn_text, bool is_close, SystemMessageEvent callback)
-        {
-            GameObject obj2;
-            LText text;
-            Button button;
-            ButtonEvent event2;
-            <AddButton>c__AnonStorey32B storeyb;
-            storeyb = new <AddButton>c__AnonStorey32B();
-            storeyb.callback = callback;
-            if ((this.ButtonTemplate == null) == null)
-            {
-                goto Label_0021;
-            }
-            return;
-        Label_0021:
-            if ((this.ButtonBase == null) == null)
-            {
-                goto Label_0033;
-            }
-            return;
-        Label_0033:
-            obj2 = Object.Instantiate<GameObject>(this.ButtonTemplate);
-            obj2.SetActive(1);
-            text = obj2.GetComponentInChildren<LText>();
-            if ((text != null) == null)
-            {
-                goto Label_0060;
-            }
-            text.set_text(btn_text);
-        Label_0060:
-            button = obj2.GetComponentInChildren<Button>();
-            if ((button != null) == null)
-            {
-                goto Label_008B;
-            }
-            button.get_onClick().AddListener(new UnityAction(storeyb, this.<>m__2F2));
-        Label_008B:
-            event2 = obj2.GetComponentInChildren<ButtonEvent>();
-            if ((event2 != null) == null)
-            {
-                goto Label_00A5;
-            }
-            event2.set_enabled(is_close);
-        Label_00A5:
-            obj2.get_transform().SetParent(this.ButtonBase.get_transform(), 0);
-            return;
-        }
-
-        private void Awake()
-        {
-            if ((this.ButtonTemplate != null) == null)
-            {
-                goto Label_001D;
-            }
-            this.ButtonTemplate.SetActive(0);
-        Label_001D:
-            return;
-        }
-
-        public static EmbedSystemMessageEx Create(string msg)
-        {
-            EmbedSystemMessageEx ex;
-            ex = Object.Instantiate<EmbedSystemMessageEx>(Resources.Load<EmbedSystemMessageEx>("e/UI/EmbedSystemMessageEx"));
-            ex.Body = msg;
-            return ex;
-        }
-
-        public string Body
-        {
-            get
-            {
-                return this.Message.get_text();
-            }
-            set
-            {
-                this.Message.set_text(value);
-                return;
-            }
-        }
-
-        [CompilerGenerated]
-        private sealed class <AddButton>c__AnonStorey32B
-        {
-            internal EmbedSystemMessageEx.SystemMessageEvent callback;
-
-            public <AddButton>c__AnonStorey32B()
-            {
-                base..ctor();
-                return;
-            }
-
-            internal void <>m__2F2()
-            {
-                this.callback(1);
-                return;
-            }
-        }
-
-        public delegate void SystemMessageEvent(bool yes);
+      base.\u002Ector();
     }
-}
 
+    public static EmbedSystemMessageEx Create(string msg)
+    {
+      EmbedSystemMessageEx embedSystemMessageEx = (EmbedSystemMessageEx) Object.Instantiate<EmbedSystemMessageEx>(Resources.Load<EmbedSystemMessageEx>("e/UI/EmbedSystemMessageEx"));
+      embedSystemMessageEx.Body = msg;
+      return embedSystemMessageEx;
+    }
+
+    public void AddButton(string btn_text, bool is_close, EmbedSystemMessageEx.SystemMessageEvent callback)
+    {
+      // ISSUE: object of a compiler-generated type is created
+      // ISSUE: variable of a compiler-generated type
+      EmbedSystemMessageEx.\u003CAddButton\u003Ec__AnonStorey323 buttonCAnonStorey323 = new EmbedSystemMessageEx.\u003CAddButton\u003Ec__AnonStorey323();
+      // ISSUE: reference to a compiler-generated field
+      buttonCAnonStorey323.callback = callback;
+      if (Object.op_Equality((Object) this.ButtonTemplate, (Object) null) || Object.op_Equality((Object) this.ButtonBase, (Object) null))
+        return;
+      GameObject gameObject = (GameObject) Object.Instantiate<GameObject>((M0) this.ButtonTemplate);
+      gameObject.SetActive(true);
+      LText componentInChildren1 = (LText) gameObject.GetComponentInChildren<LText>();
+      if (Object.op_Inequality((Object) componentInChildren1, (Object) null))
+        componentInChildren1.set_text(btn_text);
+      Button componentInChildren2 = (Button) gameObject.GetComponentInChildren<Button>();
+      if (Object.op_Inequality((Object) componentInChildren2, (Object) null))
+      {
+        // ISSUE: method pointer
+        ((UnityEvent) componentInChildren2.get_onClick()).AddListener(new UnityAction((object) buttonCAnonStorey323, __methodptr(\u003C\u003Em__357)));
+      }
+      ButtonEvent componentInChildren3 = (ButtonEvent) gameObject.GetComponentInChildren<ButtonEvent>();
+      if (Object.op_Inequality((Object) componentInChildren3, (Object) null))
+        ((Behaviour) componentInChildren3).set_enabled(is_close);
+      gameObject.get_transform().SetParent(this.ButtonBase.get_transform(), false);
+    }
+
+    private void Awake()
+    {
+      if (!Object.op_Inequality((Object) this.ButtonTemplate, (Object) null))
+        return;
+      this.ButtonTemplate.SetActive(false);
+    }
+
+    public string Body
+    {
+      set
+      {
+        this.Message.set_text(value);
+      }
+      get
+      {
+        return this.Message.get_text();
+      }
+    }
+
+    public delegate void SystemMessageEvent(bool yes);
+  }
+}

@@ -1,281 +1,177 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.AwardItem
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using UnityEngine;
-    using UnityEngine.UI;
+  [FlowNode.Pin(0, "UpdateConfigPlayerInfo", FlowNode.PinTypes.Input, 0)]
+  public class AwardItem : MonoBehaviour, IFlowInterface
+  {
+    [SerializeField]
+    private GameObject AwardBG;
+    [SerializeField]
+    private Text AwardTxt;
+    public AwardItem.PlayerType Type;
+    private ImageArray mImageArray;
+    private bool IsDone;
+    private string mSelectedAward;
+    private bool IsRefresh;
+    private AwardParam mAwardParam;
 
-    [Pin(0, "UpdateConfigPlayerInfo", 0, 0)]
-    public class AwardItem : MonoBehaviour, IFlowInterface
+    public AwardItem()
     {
-        [SerializeField]
-        private GameObject AwardBG;
-        [SerializeField]
-        private Text AwardTxt;
-        public PlayerType Type;
-        private ImageArray mImageArray;
-        private bool IsDone;
-        private string mSelectedAward;
-        private bool IsRefresh;
-        private AwardParam mAwardParam;
+      base.\u002Ector();
+    }
 
-        public AwardItem()
-        {
-            base..ctor();
-            return;
-        }
+    public void Activated(int pinID)
+    {
+      if (pinID != 0)
+        return;
+      this.IsRefresh = false;
+      this.SetUp();
+    }
 
-        public void Activated(int pinID)
-        {
-            if (pinID != null)
-            {
-                goto Label_0013;
-            }
-            this.IsRefresh = 0;
-            this.SetUp();
-        Label_0013:
-            return;
-        }
+    private void Awake()
+    {
+      if (Object.op_Inequality((Object) this.AwardBG, (Object) null))
+      {
+        this.AwardBG.SetActive(false);
+        ImageArray component = (ImageArray) this.AwardBG.GetComponent<ImageArray>();
+        if (Object.op_Inequality((Object) component, (Object) null))
+          this.mImageArray = component;
+      }
+      if (!Object.op_Inequality((Object) this.AwardTxt, (Object) null))
+        return;
+      this.AwardTxt.set_text(LocalizedText.Get("sys.TEXT_NOT_SELECT"));
+      ((Component) this.AwardTxt).get_gameObject().SetActive(false);
+    }
 
-        private void Awake()
-        {
-            ImageArray array;
-            if ((this.AwardBG != null) == null)
-            {
-                goto Label_003C;
-            }
-            this.AwardBG.SetActive(0);
-            array = this.AwardBG.GetComponent<ImageArray>();
-            if ((array != null) == null)
-            {
-                goto Label_003C;
-            }
-            this.mImageArray = array;
-        Label_003C:
-            if ((this.AwardTxt != null) == null)
-            {
-                goto Label_0073;
-            }
-            this.AwardTxt.set_text(LocalizedText.Get("sys.TEXT_NOT_SELECT"));
-            this.AwardTxt.get_gameObject().SetActive(0);
-        Label_0073:
-            return;
-        }
+    private void Start()
+    {
+      this.Initialize();
+    }
 
-        private void Initialize()
-        {
-            this.SetUp();
-            this.IsRefresh = 0;
-            return;
-        }
+    private void OnEnable()
+    {
+      this.Initialize();
+    }
 
-        private void OnEnable()
-        {
-            this.Initialize();
-            return;
-        }
+    private void Initialize()
+    {
+      this.SetUp();
+      this.IsRefresh = false;
+    }
 
-        private void Refresh()
+    private void Update()
+    {
+      if (!this.IsDone || this.IsRefresh)
+        return;
+      this.IsRefresh = true;
+      this.Refresh();
+    }
+
+    private void SetUp()
+    {
+      string str = string.Empty;
+      if (this.Type == AwardItem.PlayerType.Player)
+      {
+        PlayerData dataOfClass = DataSource.FindDataOfClass<PlayerData>(((Component) this).get_gameObject(), (PlayerData) null);
+        if (dataOfClass != null)
+          str = dataOfClass.SelectedAward;
+      }
+      else if (this.Type == AwardItem.PlayerType.Friend)
+      {
+        FriendData dataOfClass = DataSource.FindDataOfClass<FriendData>(((Component) this).get_gameObject(), (FriendData) null);
+        if (dataOfClass != null)
+          str = dataOfClass.SelectAward;
+      }
+      else if (this.Type == AwardItem.PlayerType.ArenaPlayer)
+      {
+        ArenaPlayer dataOfClass = DataSource.FindDataOfClass<ArenaPlayer>(((Component) this).get_gameObject(), (ArenaPlayer) null);
+        if (dataOfClass != null)
+          str = dataOfClass.SelectAward;
+      }
+      else if (this.Type == AwardItem.PlayerType.MultiPlayer)
+      {
+        JSON_MyPhotonPlayerParam dataOfClass = DataSource.FindDataOfClass<JSON_MyPhotonPlayerParam>(((Component) this).get_gameObject(), (JSON_MyPhotonPlayerParam) null);
+        if (dataOfClass != null)
+          str = dataOfClass.award;
+      }
+      else if (this.Type == AwardItem.PlayerType.ChatPlayer)
+      {
+        ChatPlayerData dataOfClass = DataSource.FindDataOfClass<ChatPlayerData>(((Component) this).get_gameObject(), (ChatPlayerData) null);
+        if (dataOfClass != null)
+          str = dataOfClass.award;
+      }
+      this.mSelectedAward = str;
+      if (!string.IsNullOrEmpty(this.mSelectedAward))
+      {
+        AwardParam awardParam = MonoSingleton<GameManager>.Instance.MasterParam.GetAwardParam(this.mSelectedAward);
+        if (awardParam != null)
+          this.mAwardParam = awardParam;
+      }
+      else
+        this.mAwardParam = (AwardParam) null;
+      this.IsDone = true;
+    }
+
+    private void Refresh()
+    {
+      this.SetUp();
+      if (this.mAwardParam != null)
+      {
+        if (Object.op_Inequality((Object) this.mImageArray, (Object) null))
         {
-            this.SetUp();
-            if (this.mAwardParam == null)
-            {
-                goto Label_00B0;
-            }
-            if ((this.mImageArray != null) == null)
-            {
-                goto Label_00D1;
-            }
-            if (((int) this.mImageArray.Images.Length) > this.mAwardParam.grade)
-            {
-                goto Label_005B;
-            }
+          if (this.mImageArray.Images.Length <= this.mAwardParam.grade)
+          {
             this.SetExtraAwardImage();
             this.AwardTxt.set_text(string.Empty);
-            goto Label_00AB;
-        Label_005B:
+          }
+          else
+          {
             this.mImageArray.ImageIndex = this.mAwardParam.grade;
-            this.AwardTxt.set_text((string.IsNullOrEmpty(this.mAwardParam.name) != null) ? LocalizedText.Get("sys.TEXT_NOT_SELECT") : this.mAwardParam.name);
-        Label_00AB:
-            goto Label_00D1;
-        Label_00B0:
-            this.mImageArray.ImageIndex = 0;
-            this.AwardTxt.set_text(LocalizedText.Get("sys.TEXT_NOT_SELECT"));
-        Label_00D1:
-            if ((this.AwardBG != null) == null)
-            {
-                goto Label_00EE;
-            }
-            this.AwardBG.SetActive(1);
-        Label_00EE:
-            if ((this.AwardTxt != null) == null)
-            {
-                goto Label_0110;
-            }
-            this.AwardTxt.get_gameObject().SetActive(1);
-        Label_0110:
-            return;
+            this.AwardTxt.set_text(string.IsNullOrEmpty(this.mAwardParam.name) ? LocalizedText.Get("sys.TEXT_NOT_SELECT") : this.mAwardParam.name);
+          }
         }
-
-        private bool SetExtraAwardImage()
-        {
-            string str;
-            SpriteSheet sheet;
-            if (this.mAwardParam != null)
-            {
-                goto Label_000D;
-            }
-            return 0;
-        Label_000D:
-            str = this.mAwardParam.bg;
-            if (string.IsNullOrEmpty(str) != null)
-            {
-                goto Label_004F;
-            }
-            sheet = AssetManager.Load<SpriteSheet>(AwardListItem.EXTRA_GRADE_IMAGEPATH);
-            if ((sheet != null) == null)
-            {
-                goto Label_004D;
-            }
-            this.mImageArray.set_sprite(sheet.GetSprite(str));
-        Label_004D:
-            return 1;
-        Label_004F:
-            return 0;
-        }
-
-        private void SetUp()
-        {
-            string str;
-            PlayerData data;
-            FriendData data2;
-            ArenaPlayer player;
-            JSON_MyPhotonPlayerParam param;
-            ChatPlayerData data3;
-            TowerResuponse.TowerRankParam param2;
-            AwardParam param3;
-            str = string.Empty;
-            if (this.Type != null)
-            {
-                goto Label_0030;
-            }
-            data = DataSource.FindDataOfClass<PlayerData>(base.get_gameObject(), null);
-            if (data == null)
-            {
-                goto Label_010B;
-            }
-            str = data.SelectedAward;
-            goto Label_010B;
-        Label_0030:
-            if (this.Type != 1)
-            {
-                goto Label_005B;
-            }
-            data2 = DataSource.FindDataOfClass<FriendData>(base.get_gameObject(), null);
-            if (data2 == null)
-            {
-                goto Label_010B;
-            }
-            str = data2.SelectAward;
-            goto Label_010B;
-        Label_005B:
-            if (this.Type != 2)
-            {
-                goto Label_0086;
-            }
-            player = DataSource.FindDataOfClass<ArenaPlayer>(base.get_gameObject(), null);
-            if (player == null)
-            {
-                goto Label_010B;
-            }
-            str = player.SelectAward;
-            goto Label_010B;
-        Label_0086:
-            if (this.Type != 3)
-            {
-                goto Label_00B4;
-            }
-            param = DataSource.FindDataOfClass<JSON_MyPhotonPlayerParam>(base.get_gameObject(), null);
-            if (param == null)
-            {
-                goto Label_010B;
-            }
-            str = param.award;
-            goto Label_010B;
-        Label_00B4:
-            if (this.Type != 4)
-            {
-                goto Label_00E2;
-            }
-            data3 = DataSource.FindDataOfClass<ChatPlayerData>(base.get_gameObject(), null);
-            if (data3 == null)
-            {
-                goto Label_010B;
-            }
-            str = data3.award;
-            goto Label_010B;
-        Label_00E2:
-            if (this.Type != 5)
-            {
-                goto Label_010B;
-            }
-            param2 = DataSource.FindDataOfClass<TowerResuponse.TowerRankParam>(base.get_gameObject(), null);
-            if (param2 == null)
-            {
-                goto Label_010B;
-            }
-            str = param2.selected_award;
-        Label_010B:
-            this.mSelectedAward = str;
-            if (string.IsNullOrEmpty(this.mSelectedAward) != null)
-            {
-                goto Label_014D;
-            }
-            param3 = MonoSingleton<GameManager>.Instance.MasterParam.GetAwardParam(this.mSelectedAward);
-            if (param3 == null)
-            {
-                goto Label_0154;
-            }
-            this.mAwardParam = param3;
-            goto Label_0154;
-        Label_014D:
-            this.mAwardParam = null;
-        Label_0154:
-            this.IsDone = 1;
-            return;
-        }
-
-        private void Start()
-        {
-            this.Initialize();
-            return;
-        }
-
-        private void Update()
-        {
-            if (this.IsDone == null)
-            {
-                goto Label_0023;
-            }
-            if (this.IsRefresh != null)
-            {
-                goto Label_0023;
-            }
-            this.IsRefresh = 1;
-            this.Refresh();
-        Label_0023:
-            return;
-        }
-
-        public enum PlayerType : byte
-        {
-            Player = 0,
-            Friend = 1,
-            ArenaPlayer = 2,
-            MultiPlayer = 3,
-            ChatPlayer = 4,
-            TowerPlayer = 5
-        }
+      }
+      else
+      {
+        this.mImageArray.ImageIndex = 0;
+        this.AwardTxt.set_text(LocalizedText.Get("sys.TEXT_NOT_SELECT"));
+      }
+      if (Object.op_Inequality((Object) this.AwardBG, (Object) null))
+        this.AwardBG.SetActive(true);
+      if (!Object.op_Inequality((Object) this.AwardTxt, (Object) null))
+        return;
+      ((Component) this.AwardTxt).get_gameObject().SetActive(true);
     }
-}
 
+    private bool SetExtraAwardImage()
+    {
+      if (this.mAwardParam == null)
+        return false;
+      string bg = this.mAwardParam.bg;
+      if (string.IsNullOrEmpty(bg))
+        return false;
+      SpriteSheet spriteSheet = AssetManager.Load<SpriteSheet>(AwardListItem.EXTRA_GRADE_IMAGEPATH);
+      if (Object.op_Inequality((Object) spriteSheet, (Object) null))
+        this.mImageArray.set_sprite(spriteSheet.GetSprite(bg));
+      return true;
+    }
+
+    public enum PlayerType : byte
+    {
+      Player,
+      Friend,
+      ArenaPlayer,
+      MultiPlayer,
+      ChatPlayer,
+    }
+  }
+}

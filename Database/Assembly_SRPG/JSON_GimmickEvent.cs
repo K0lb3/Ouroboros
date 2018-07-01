@@ -1,41 +1,29 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.JSON_GimmickEvent
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System;
+
+namespace SRPG
 {
-    using System;
-
-    [Serializable]
-    public class JSON_GimmickEvent
-    {
-        public int ev_type;
-        public string skill;
-        public string su_iname;
-        public string su_tag;
-        public string st_iname;
-        public string st_tag;
-        public int type;
-        public string cu_iname;
-        public string cu_tag;
-        public string ct_iname;
-        public string ct_tag;
-        public int count;
-        public int[] x;
-        public int[] y;
-
-        public JSON_GimmickEvent()
-        {
-            this.skill = string.Empty;
-            this.su_iname = string.Empty;
-            this.su_tag = string.Empty;
-            this.st_iname = string.Empty;
-            this.st_tag = string.Empty;
-            this.cu_iname = string.Empty;
-            this.cu_tag = string.Empty;
-            this.ct_iname = string.Empty;
-            this.ct_tag = string.Empty;
-            this.x = new int[1];
-            this.y = new int[1];
-            base..ctor();
-            return;
-        }
-    }
+  [Serializable]
+  public class JSON_GimmickEvent
+  {
+    public string skill = string.Empty;
+    public string su_iname = string.Empty;
+    public string su_tag = string.Empty;
+    public string st_iname = string.Empty;
+    public string st_tag = string.Empty;
+    public string cu_iname = string.Empty;
+    public string cu_tag = string.Empty;
+    public string ct_iname = string.Empty;
+    public string ct_tag = string.Empty;
+    public int[] x = new int[1];
+    public int[] y = new int[1];
+    public int ev_type;
+    public int type;
+    public int count;
+  }
 }
-

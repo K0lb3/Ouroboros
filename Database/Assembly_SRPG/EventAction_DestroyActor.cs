@@ -1,39 +1,29 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.EventAction_DestroyActor
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using UnityEngine;
+
+namespace SRPG
 {
-    using System;
-    using UnityEngine;
+  [EventActionInfo("New/アクター/削除", "指定のアクターを削除します。", 6702148, 11158596)]
+  public class EventAction_DestroyActor : EventAction
+  {
+    [StringIsActorList]
+    public string ActorID;
 
-    [EventActionInfo("New/アクター/削除", "指定のアクターを削除します。", 0x664444, 0xaa4444)]
-    public class EventAction_DestroyActor : EventAction
+    public override void OnActivate()
     {
-        [StringIsActorList]
-        public string ActorID;
-
-        public EventAction_DestroyActor()
-        {
-            base..ctor();
-            return;
-        }
-
-        public override void OnActivate()
-        {
-            GameObject obj2;
-            TacticsUnitController controller;
-            obj2 = EventAction.FindActor(this.ActorID);
-            if ((obj2 != null) == null)
-            {
-                goto Label_0036;
-            }
-            controller = obj2.GetComponent<TacticsUnitController>();
-            if ((controller != null) == null)
-            {
-                goto Label_0036;
-            }
-            Object.Destroy(controller.get_gameObject());
-        Label_0036:
-            base.ActivateNext();
-            return;
-        }
+      GameObject actor = EventAction.FindActor(this.ActorID);
+      if (Object.op_Inequality((Object) actor, (Object) null))
+      {
+        TacticsUnitController component = (TacticsUnitController) actor.GetComponent<TacticsUnitController>();
+        if (Object.op_Inequality((Object) component, (Object) null))
+          Object.Destroy((Object) ((Component) component).get_gameObject());
+      }
+      this.ActivateNext();
     }
+  }
 }
-

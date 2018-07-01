@@ -5,7 +5,7 @@ import re
 def EnumToJson():
     # path to files
     path=os.path.dirname(os.path.realpath(__file__))+'\\res\\'
-    mypath = os.path.dirname(os.path.realpath(__file__))+'\\Assembly_SRPG\\'
+    mypath = os.path.dirname(os.path.realpath(__file__))+'\\Assembly_SRPG_JP\\'
     files = os.listdir(mypath)
 
     # enum

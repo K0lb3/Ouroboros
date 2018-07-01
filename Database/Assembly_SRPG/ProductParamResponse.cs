@@ -1,54 +1,30 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ProductParamResponse
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Collections.Generic;
+
+namespace SRPG
 {
-    using System;
-    using System.Collections.Generic;
+  public class ProductParamResponse
+  {
+    public List<ProductParam> products = new List<ProductParam>();
 
-    public class ProductParamResponse
+    public bool Deserialize(JSON_ProductParamResponse json)
     {
-        public List<ProductParam> products;
-
-        public ProductParamResponse()
-        {
-            this.products = new List<ProductParam>();
-            base..ctor();
-            return;
-        }
-
-        public bool Deserialize(JSON_ProductParamResponse json)
-        {
-            int num;
-            ProductParam param;
-            if (json == null)
-            {
-                goto Label_0011;
-            }
-            if (json.products != null)
-            {
-                goto Label_0013;
-            }
-        Label_0011:
-            return 1;
-        Label_0013:
-            this.products.Clear();
-            num = 0;
-            goto Label_0050;
-        Label_0025:
-            param = new ProductParam();
-            if (param.Deserialize(json.products[num]) != null)
-            {
-                goto Label_0040;
-            }
-            return 0;
-        Label_0040:
-            this.products.Add(param);
-            num += 1;
-        Label_0050:
-            if (num < ((int) json.products.Length))
-            {
-                goto Label_0025;
-            }
-            return 1;
-        }
+      if (json == null || json.products == null)
+        return true;
+      this.products.Clear();
+      for (int index = 0; index < json.products.Length; ++index)
+      {
+        ProductParam productParam = new ProductParam();
+        if (!productParam.Deserialize(json.products[index]))
+          return false;
+        this.products.Add(productParam);
+      }
+      return true;
     }
+  }
 }
-

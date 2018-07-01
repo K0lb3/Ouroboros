@@ -1,840 +1,508 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.MultiInvitationSendWindow
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Runtime.CompilerServices;
-    using UnityEngine;
-    using UnityEngine.UI;
+  public class MultiInvitationSendWindow : FlowWindowBase
+  {
+    private static MultiInvitationSendWindow m_Instance = (MultiInvitationSendWindow) null;
+    private static List<string> m_Invited = new List<string>();
+    private List<string> m_SendList = new List<string>();
+    private const int CHECK_MAX = 5;
+    private MultiInvitationSendWindow.SerializeParam m_Param;
+    private bool m_Destroy;
+    private MultiInvitationSendWindow.Content.ItemSource m_ContentSource;
+    private ContentController m_ContentController;
+    private SerializeValueBehaviour m_ValueList;
 
-    public class MultiInvitationSendWindow : FlowWindowBase
+    public override string name
     {
-        private const int CHECK_MAX = 5;
-        private SerializeParam m_Param;
-        private bool m_Destroy;
-        private Content.ItemSource m_ContentSource;
-        private ContentController m_ContentController;
-        private SerializeValueBehaviour m_ValueList;
-        private List<string> m_SendList;
-        private static MultiInvitationSendWindow m_Instance;
-        private static List<string> m_Invited;
-        [CompilerGenerated]
-        private static Comparison<FriendData> <>f__am$cache8;
+      get
+      {
+        return "FriendInvicationSendWindow";
+      }
+    }
 
-        static MultiInvitationSendWindow()
+    public static MultiInvitationSendWindow instance
+    {
+      get
+      {
+        return MultiInvitationSendWindow.m_Instance;
+      }
+    }
+
+    public static void ClearInvited()
+    {
+      MultiInvitationSendWindow.m_Invited.Clear();
+    }
+
+    public static void AddInvited(string uid)
+    {
+      MultiInvitationSendWindow.m_Invited.Add(uid);
+    }
+
+    public override void Initialize(FlowWindowBase.SerializeParamBase param)
+    {
+      MultiInvitationSendWindow.m_Instance = this;
+      base.Initialize(param);
+      this.m_Param = param as MultiInvitationSendWindow.SerializeParam;
+      if (this.m_Param == null)
+        throw new Exception(this.ToString() + " > Failed serializeParam null.");
+      this.m_ValueList = (SerializeValueBehaviour) this.m_Param.window.GetComponent<SerializeValueBehaviour>();
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_ValueList, (UnityEngine.Object) null))
+        this.m_ValueList.list.SetField("checkmax", 5);
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_Param.list, (UnityEngine.Object) null))
+      {
+        this.m_ContentController = (ContentController) this.m_Param.list.GetComponentInChildren<ContentController>();
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_ContentController, (UnityEngine.Object) null))
+          this.m_ContentController.SetWork((object) this);
+      }
+      this.Close(true);
+    }
+
+    public override void Release()
+    {
+      this.ReleaseContentList();
+      base.Release();
+      MultiInvitationSendWindow.m_Instance = (MultiInvitationSendWindow) null;
+    }
+
+    public override int Update()
+    {
+      base.Update();
+      if (this.m_Destroy && this.isClosed)
+      {
+        this.SetActiveChild(false);
+        return 191;
+      }
+      this.RefreshUI();
+      return -1;
+    }
+
+    private void RefreshUI()
+    {
+      if (this.m_ContentSource == null)
+        return;
+      int count = this.m_ContentSource.GetCount();
+      if (this.m_SendList.Count >= 5)
+      {
+        for (int index = 0; index < count; ++index)
         {
-            m_Instance = null;
-            m_Invited = new List<string>();
+          // ISSUE: object of a compiler-generated type is created
+          // ISSUE: variable of a compiler-generated type
+          MultiInvitationSendWindow.\u003CRefreshUI\u003Ec__AnonStorey349 uiCAnonStorey349 = new MultiInvitationSendWindow.\u003CRefreshUI\u003Ec__AnonStorey349();
+          // ISSUE: reference to a compiler-generated field
+          uiCAnonStorey349.param = this.m_ContentSource.GetParam(index) as MultiInvitationSendWindow.Content.ItemSource.ItemParam;
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: reference to a compiler-generated field
+          if (uiCAnonStorey349.param != null && uiCAnonStorey349.param.IsValid())
+          {
+            // ISSUE: reference to a compiler-generated method
+            if (this.m_SendList.FindIndex(new Predicate<string>(uiCAnonStorey349.\u003C\u003Em__3A9)) == -1)
+            {
+              // ISSUE: reference to a compiler-generated field
+              uiCAnonStorey349.param.accessor.SetHatch(false);
+            }
+            else
+            {
+              // ISSUE: reference to a compiler-generated field
+              uiCAnonStorey349.param.accessor.SetHatch(true);
+            }
+          }
+        }
+      }
+      else
+      {
+        for (int index = 0; index < count; ++index)
+        {
+          MultiInvitationSendWindow.Content.ItemSource.ItemParam itemParam = this.m_ContentSource.GetParam(index) as MultiInvitationSendWindow.Content.ItemSource.ItemParam;
+          if (itemParam != null && itemParam.IsValid())
+            itemParam.accessor.SetHatch(true);
+        }
+      }
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_ValueList, (UnityEngine.Object) null))
+        return;
+      this.m_ValueList.list.SetField("checknum", this.m_SendList.Count);
+      this.m_ValueList.list.SetInteractable("btn_invication", this.m_SendList.Count > 0);
+    }
+
+    public void InitializeContentList()
+    {
+      this.ReleaseContentList();
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_ContentController, (UnityEngine.Object) null))
+        return;
+      this.m_ContentSource = new MultiInvitationSendWindow.Content.ItemSource();
+      List<FriendData> list = new List<FriendData>((IEnumerable<FriendData>) MonoSingleton<GameManager>.Instance.Player.Friends);
+      MyPhoton instance = PunMonoSingleton<MyPhoton>.Instance;
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) instance, (UnityEngine.Object) null))
+      {
+        List<MyPhoton.MyPlayer> roomPlayerList = instance.GetRoomPlayerList();
+        for (int index1 = 0; index1 < roomPlayerList.Count; ++index1)
+        {
+          if (roomPlayerList[index1] != null && !string.IsNullOrEmpty(roomPlayerList[index1].json))
+          {
+            // ISSUE: object of a compiler-generated type is created
+            // ISSUE: variable of a compiler-generated type
+            MultiInvitationSendWindow.\u003CInitializeContentList\u003Ec__AnonStorey34A listCAnonStorey34A = new MultiInvitationSendWindow.\u003CInitializeContentList\u003Ec__AnonStorey34A();
+            // ISSUE: reference to a compiler-generated field
+            listCAnonStorey34A.param = JSON_MyPhotonPlayerParam.Parse(roomPlayerList[index1].json);
+            // ISSUE: reference to a compiler-generated field
+            if (listCAnonStorey34A.param != null)
+            {
+              // ISSUE: reference to a compiler-generated method
+              int index2 = list.FindIndex(new Predicate<FriendData>(listCAnonStorey34A.\u003C\u003Em__3AA));
+              if (index2 != -1)
+                list.RemoveAt(index2);
+            }
+          }
+        }
+      }
+      for (int index = 0; index < list.Count; ++index)
+      {
+        // ISSUE: object of a compiler-generated type is created
+        // ISSUE: variable of a compiler-generated type
+        MultiInvitationSendWindow.\u003CInitializeContentList\u003Ec__AnonStorey34B listCAnonStorey34B = new MultiInvitationSendWindow.\u003CInitializeContentList\u003Ec__AnonStorey34B();
+        // ISSUE: reference to a compiler-generated field
+        listCAnonStorey34B.data = list[index];
+        bool flag = false;
+        // ISSUE: reference to a compiler-generated field
+        if (listCAnonStorey34B.data != null)
+        {
+          // ISSUE: reference to a compiler-generated method
+          if (MultiInvitationSendWindow.m_Invited.FindIndex(new Predicate<string>(listCAnonStorey34B.\u003C\u003Em__3AB)) != -1)
+          {
+            flag = true;
+          }
+          else
+          {
+            // ISSUE: reference to a compiler-generated field
+            if (!listCAnonStorey34B.data.MultiPush)
+            {
+              flag = true;
+            }
+            else
+            {
+              // ISSUE: reference to a compiler-generated field
+              if (TimeManager.GetUnixSec(DateTime.Now) - listCAnonStorey34B.data.LastLogin > 86400L)
+                flag = true;
+            }
+          }
+        }
+        else
+          flag = true;
+        if (flag)
+        {
+          list.RemoveAt(index);
+          --index;
+        }
+      }
+      SortUtility.StableSort<FriendData>(list, (Comparison<FriendData>) ((p1, p2) => (!p1.IsFavorite ? p1.LastLogin : long.MaxValue).CompareTo(!p2.IsFavorite ? p2.LastLogin : long.MaxValue)));
+      list.Reverse();
+      for (int index = 0; index < list.Count; ++index)
+      {
+        FriendData friend = list[index];
+        if (friend != null)
+        {
+          MultiInvitationSendWindow.Content.ItemSource.ItemParam itemParam = new MultiInvitationSendWindow.Content.ItemSource.ItemParam(friend);
+          if (itemParam.IsValid())
+            this.m_ContentSource.Add(itemParam);
+        }
+      }
+      this.m_ContentController.Initialize((ContentSource) this.m_ContentSource, Vector2.get_zero());
+    }
+
+    public void ReleaseContentList()
+    {
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_ContentController, (UnityEngine.Object) null))
+        this.m_ContentController.Release();
+      this.m_ContentSource = (MultiInvitationSendWindow.Content.ItemSource) null;
+      this.m_SendList.Clear();
+    }
+
+    public string[] GetSendList()
+    {
+      List<string> stringList = new List<string>();
+      for (int index = 0; index < this.m_SendList.Count; ++index)
+      {
+        if (this.m_SendList[index] != null)
+          stringList.Add(this.m_SendList[index]);
+      }
+      return stringList.ToArray();
+    }
+
+    public bool IsSendList(string uid)
+    {
+      return this.m_SendList.FindIndex((Predicate<string>) (prop => prop == uid)) != -1;
+    }
+
+    public override int OnActivate(int pinId)
+    {
+      switch (pinId)
+      {
+        case 100:
+          this.InitializeContentList();
+          this.RefreshUI();
+          this.Open();
+          break;
+        case 110:
+          this.m_Destroy = true;
+          this.Close(false);
+          break;
+        case 120:
+          SerializeValueList currentValue = FlowNode_ButtonEvent.currentValue as SerializeValueList;
+          if (currentValue != null)
+          {
+            MultiInvitationSendWindow.Content.ItemAccessor dataSource = currentValue.GetDataSource<MultiInvitationSendWindow.Content.ItemAccessor>("_self");
+            if (dataSource != null && dataSource.isValid)
+            {
+              string uid = dataSource.friend.UID;
+              if (!this.IsSendList(uid))
+              {
+                dataSource.isOn = true;
+                this.m_SendList.Add(uid);
+                break;
+              }
+              dataSource.isOn = false;
+              this.m_SendList.Remove(uid);
+              break;
+            }
+            break;
+          }
+          break;
+        case 130:
+          return 190;
+      }
+      return -1;
+    }
+
+    public static class Content
+    {
+      public static MultiInvitationSendWindow.Content.ItemAccessor clickItem;
+
+      public class ItemAccessor
+      {
+        private ContentNode m_Node;
+        private FriendData m_Friend;
+        private DataSource m_DataSource;
+        private Toggle m_Toggle;
+        private GameObject m_Hatch;
+
+        public ContentNode node
+        {
+          get
+          {
+            return this.m_Node;
+          }
+        }
+
+        public FriendData friend
+        {
+          get
+          {
+            return this.m_Friend;
+          }
+        }
+
+        public Toggle tgl
+        {
+          get
+          {
+            return this.m_Toggle;
+          }
+        }
+
+        public bool isOn
+        {
+          set
+          {
+            if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_Toggle, (UnityEngine.Object) null))
+              return;
+            this.m_Toggle.set_isOn(value);
+          }
+          get
+          {
+            if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_Toggle, (UnityEngine.Object) null))
+              return this.m_Toggle.get_isOn();
+            return false;
+          }
+        }
+
+        public bool isValid
+        {
+          get
+          {
+            return this.m_Friend != null;
+          }
+        }
+
+        public void Setup(FriendData friend)
+        {
+          this.m_Friend = friend;
+        }
+
+        public void Bind(ContentNode node)
+        {
+          this.m_Node = node;
+          this.m_DataSource = DataSource.Create(((Component) node).get_gameObject());
+          this.m_DataSource.Add(typeof (FriendData), (object) this.m_Friend);
+          this.m_DataSource.Add(typeof (UnitData), (object) this.m_Friend.Unit);
+          this.m_DataSource.Add(typeof (MultiInvitationSendWindow.Content.ItemAccessor), (object) this);
+          SerializeValueBehaviour component = (SerializeValueBehaviour) ((Component) this.m_Node).GetComponent<SerializeValueBehaviour>();
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
             return;
+          bool flag = MultiInvitationSendWindow.instance != null && MultiInvitationSendWindow.instance.IsSendList(this.m_Friend.UID);
+          this.m_Toggle = component.list.GetUIToggle("toggle");
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_Toggle, (UnityEngine.Object) null))
+            this.m_Toggle.set_isOn(flag);
+          this.m_Hatch = component.list.GetGameObject("hatch");
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_Hatch, (UnityEngine.Object) null))
+            this.m_Hatch.SetActive(false);
+          component.list.SetField("comment", this.m_Friend.MultiComment);
         }
 
-        public MultiInvitationSendWindow()
+        public void Clear()
         {
-            this.m_SendList = new List<string>();
-            base..ctor();
+          if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_DataSource, (UnityEngine.Object) null))
+          {
+            this.m_DataSource.Clear();
+            this.m_DataSource = (DataSource) null;
+          }
+          this.m_Node = (ContentNode) null;
+          this.m_Toggle = (Toggle) null;
+          this.m_Hatch = (GameObject) null;
+        }
+
+        public void ForceUpdate()
+        {
+        }
+
+        public void SetHatch(bool value)
+        {
+          if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.m_Hatch, (UnityEngine.Object) null))
             return;
+          this.m_Hatch.SetActive(!value);
         }
+      }
 
-        [CompilerGenerated]
-        private static unsafe int <InitializeContentList>m__36C(FriendData p1, FriendData p2)
-        {
-            long num;
-            long num2;
-            num = (p1.IsFavorite == null) ? p1.LastLogin : 0x7fffffffffffffffL;
-            num2 = (p2.IsFavorite == null) ? p2.LastLogin : 0x7fffffffffffffffL;
-            return &num.CompareTo(num2);
-        }
+      public class ItemSource : ContentSource
+      {
+        private List<MultiInvitationSendWindow.Content.ItemSource.ItemParam> m_Params = new List<MultiInvitationSendWindow.Content.ItemSource.ItemParam>();
 
-        public static void AddInvited(string uid)
+        public override void Initialize(ContentController controller)
         {
-            m_Invited.Add(uid);
-            return;
-        }
-
-        public static void ClearInvited()
-        {
-            m_Invited.Clear();
-            return;
-        }
-
-        public string[] GetSendList()
-        {
-            List<string> list;
-            int num;
-            list = new List<string>();
-            num = 0;
-            goto Label_0034;
-        Label_000D:
-            if (this.m_SendList[num] == null)
-            {
-                goto Label_0030;
-            }
-            list.Add(this.m_SendList[num]);
-        Label_0030:
-            num += 1;
-        Label_0034:
-            if (num < this.m_SendList.Count)
-            {
-                goto Label_000D;
-            }
-            return list.ToArray();
-        }
-
-        public override void Initialize(FlowWindowBase.SerializeParamBase param)
-        {
-            m_Instance = this;
-            base.Initialize(param);
-            this.m_Param = param as SerializeParam;
-            if (this.m_Param != null)
-            {
-                goto Label_003A;
-            }
-            throw new Exception(this.ToString() + " > Failed serializeParam null.");
-        Label_003A:
-            this.m_ValueList = this.m_Param.window.GetComponent<SerializeValueBehaviour>();
-            if ((this.m_ValueList != null) == null)
-            {
-                goto Label_0077;
-            }
-            this.m_ValueList.list.SetField("checkmax", 5);
-        Label_0077:
-            if ((this.m_Param.list != null) == null)
-            {
-                goto Label_00C0;
-            }
-            this.m_ContentController = this.m_Param.list.GetComponentInChildren<ContentController>();
-            if ((this.m_ContentController != null) == null)
-            {
-                goto Label_00C0;
-            }
-            this.m_ContentController.SetWork(this);
-        Label_00C0:
-            base.Close(1);
-            return;
-        }
-
-        public void InitializeContentList()
-        {
-            List<FriendData> list;
-            MyPhoton photon;
-            List<MyPhoton.MyPlayer> list2;
-            int num;
-            int num2;
-            int num3;
-            bool flag;
-            long num4;
-            int num5;
-            FriendData data;
-            Content.ItemSource.ItemParam param;
-            <InitializeContentList>c__AnonStorey360 storey;
-            <InitializeContentList>c__AnonStorey361 storey2;
-            this.ReleaseContentList();
-            if ((this.m_ContentController != null) == null)
-            {
-                goto Label_022A;
-            }
-            this.m_ContentSource = new Content.ItemSource();
-            list = new List<FriendData>(MonoSingleton<GameManager>.Instance.Player.Friends);
-            photon = PunMonoSingleton<MyPhoton>.Instance;
-            if ((photon != null) == null)
-            {
-                goto Label_00D9;
-            }
-            list2 = photon.GetRoomPlayerList();
-            num = 0;
-            goto Label_00CD;
-        Label_0057:
-            if (list2[num] == null)
-            {
-                goto Label_00C9;
-            }
-            if (string.IsNullOrEmpty(list2[num].json) != null)
-            {
-                goto Label_00C9;
-            }
-            storey = new <InitializeContentList>c__AnonStorey360();
-            storey.param = JSON_MyPhotonPlayerParam.Parse(list2[num].json);
-            if (storey.param == null)
-            {
-                goto Label_00C9;
-            }
-            num2 = list.FindIndex(new Predicate<FriendData>(storey.<>m__36A));
-            if (num2 == -1)
-            {
-                goto Label_00C9;
-            }
-            list.RemoveAt(num2);
-        Label_00C9:
-            num += 1;
-        Label_00CD:
-            if (num < list2.Count)
-            {
-                goto Label_0057;
-            }
-        Label_00D9:
-            num3 = 0;
-            goto Label_0190;
-        Label_00E1:
-            storey2 = new <InitializeContentList>c__AnonStorey361();
-            storey2.data = list[num3];
-            flag = 0;
-            if (storey2.data == null)
-            {
-                goto Label_0172;
-            }
-            if (m_Invited.FindIndex(new Predicate<string>(storey2.<>m__36B)) == -1)
-            {
-                goto Label_012B;
-            }
-            flag = 1;
-            goto Label_016D;
-        Label_012B:
-            if (storey2.data.MultiPush != null)
-            {
-                goto Label_0144;
-            }
-            flag = 1;
-            goto Label_016D;
-        Label_0144:
-            if ((TimeManager.GetUnixSec(DateTime.Now) - storey2.data.LastLogin) <= 0x15180L)
-            {
-                goto Label_0175;
-            }
-            flag = 1;
-        Label_016D:
-            goto Label_0175;
-        Label_0172:
-            flag = 1;
-        Label_0175:
-            if (flag == null)
-            {
-                goto Label_018A;
-            }
-            list.RemoveAt(num3);
-            num3 -= 1;
-        Label_018A:
-            num3 += 1;
-        Label_0190:
-            if (num3 < list.Count)
-            {
-                goto Label_00E1;
-            }
-            if (<>f__am$cache8 != null)
-            {
-                goto Label_01B6;
-            }
-            <>f__am$cache8 = new Comparison<FriendData>(MultiInvitationSendWindow.<InitializeContentList>m__36C);
-        Label_01B6:
-            SortUtility.StableSort<FriendData>(list, <>f__am$cache8);
-            list.Reverse();
-            num5 = 0;
-            goto Label_0207;
-        Label_01CE:
-            data = list[num5];
-            if (data == null)
-            {
-                goto Label_0201;
-            }
-            param = new Content.ItemSource.ItemParam(data);
-            if (param.IsValid() == null)
-            {
-                goto Label_0201;
-            }
-            this.m_ContentSource.Add(param);
-        Label_0201:
-            num5 += 1;
-        Label_0207:
-            if (num5 < list.Count)
-            {
-                goto Label_01CE;
-            }
-            this.m_ContentController.Initialize(this.m_ContentSource, Vector2.get_zero());
-        Label_022A:
-            return;
-        }
-
-        public bool IsSendList(string uid)
-        {
-            <IsSendList>c__AnonStorey362 storey;
-            storey = new <IsSendList>c__AnonStorey362();
-            storey.uid = uid;
-            return ((this.m_SendList.FindIndex(new Predicate<string>(storey.<>m__36D)) == -1) == 0);
-        }
-
-        public override int OnActivate(int pinId)
-        {
-            SerializeValueList list;
-            Content.ItemAccessor accessor;
-            string str;
-            bool flag;
-            if (pinId != 100)
-            {
-                goto Label_001F;
-            }
-            this.InitializeContentList();
-            this.RefreshUI();
-            base.Open();
-            goto Label_00CF;
-        Label_001F:
-            if (pinId != 110)
-            {
-                goto Label_003A;
-            }
-            this.m_Destroy = 1;
-            base.Close(0);
-            goto Label_00CF;
-        Label_003A:
-            if (pinId != 120)
-            {
-                goto Label_00BE;
-            }
-            list = FlowNode_ButtonEvent.currentValue as SerializeValueList;
-            if (list == null)
-            {
-                goto Label_00CF;
-            }
-            accessor = list.GetDataSource<Content.ItemAccessor>("_self");
-            if (accessor == null)
-            {
-                goto Label_00CF;
-            }
-            if (accessor.isValid == null)
-            {
-                goto Label_00CF;
-            }
-            str = accessor.friend.UID;
-            if ((this.IsSendList(str) == 0) == null)
-            {
-                goto Label_00A5;
-            }
-            accessor.isOn = 1;
-            this.m_SendList.Add(str);
-            goto Label_00B9;
-        Label_00A5:
-            accessor.isOn = 0;
-            this.m_SendList.Remove(str);
-        Label_00B9:
-            goto Label_00CF;
-        Label_00BE:
-            if (pinId != 130)
-            {
-                goto Label_00CF;
-            }
-            return 190;
-        Label_00CF:
-            return -1;
-        }
-
-        private void RefreshUI()
-        {
-            int num;
-            int num2;
-            int num3;
-            Content.ItemSource.ItemParam param;
-            <RefreshUI>c__AnonStorey35F storeyf;
-            if (this.m_ContentSource == null)
-            {
-                goto Label_0158;
-            }
-            num = this.m_ContentSource.GetCount();
-            if (this.m_SendList.Count < 5)
-            {
-                goto Label_00C2;
-            }
-            num2 = 0;
-            goto Label_00B6;
-        Label_002F:
-            storeyf = new <RefreshUI>c__AnonStorey35F();
-            storeyf.param = this.m_ContentSource.GetParam(num2) as Content.ItemSource.ItemParam;
-            if (storeyf.param == null)
-            {
-                goto Label_00B2;
-            }
-            if (storeyf.param.IsValid() == null)
-            {
-                goto Label_00B2;
-            }
-            if (this.m_SendList.FindIndex(new Predicate<string>(storeyf.<>m__369)) != -1)
-            {
-                goto Label_00A0;
-            }
-            storeyf.param.accessor.SetHatch(0);
-            goto Label_00B2;
-        Label_00A0:
-            storeyf.param.accessor.SetHatch(1);
-        Label_00B2:
-            num2 += 1;
-        Label_00B6:
-            if (num2 < num)
-            {
-                goto Label_002F;
-            }
-            goto Label_0103;
-        Label_00C2:
-            num3 = 0;
-            goto Label_00FC;
-        Label_00C9:
-            param = this.m_ContentSource.GetParam(num3) as Content.ItemSource.ItemParam;
-            if (param == null)
-            {
-                goto Label_00F8;
-            }
-            if (param.IsValid() == null)
-            {
-                goto Label_00F8;
-            }
-            param.accessor.SetHatch(1);
-        Label_00F8:
-            num3 += 1;
-        Label_00FC:
-            if (num3 < num)
-            {
-                goto Label_00C9;
-            }
-        Label_0103:
-            if ((this.m_ValueList != null) == null)
-            {
-                goto Label_0158;
-            }
-            this.m_ValueList.list.SetField("checknum", this.m_SendList.Count);
-            this.m_ValueList.list.SetInteractable("btn_invication", this.m_SendList.Count > 0);
-        Label_0158:
-            return;
+          base.Initialize(controller);
+          this.Setup();
         }
 
         public override void Release()
         {
-            this.ReleaseContentList();
-            base.Release();
-            m_Instance = null;
+          base.Release();
+        }
+
+        public void Add(MultiInvitationSendWindow.Content.ItemSource.ItemParam param)
+        {
+          if (!param.IsValid())
             return;
+          this.m_Params.Add(param);
         }
 
-        public void ReleaseContentList()
+        public void Setup()
         {
-            if ((this.m_ContentController != null) == null)
-            {
-                goto Label_001C;
-            }
-            this.m_ContentController.Release();
-        Label_001C:
-            this.m_ContentSource = null;
-            this.m_SendList.Clear();
-            return;
+          Func<MultiInvitationSendWindow.Content.ItemSource.ItemParam, bool> predicate = (Func<MultiInvitationSendWindow.Content.ItemSource.ItemParam, bool>) (prop => true);
+          this.Clear();
+          if (predicate != null)
+            this.SetTable((ContentSource.Param[]) this.m_Params.Where<MultiInvitationSendWindow.Content.ItemSource.ItemParam>(predicate).ToArray<MultiInvitationSendWindow.Content.ItemSource.ItemParam>());
+          else
+            this.SetTable((ContentSource.Param[]) this.m_Params.ToArray());
+          this.contentController.Resize(0);
+          bool flag = false;
+          Vector2 anchoredPosition = this.contentController.anchoredPosition;
+          Vector2 lastPageAnchorePos = this.contentController.GetLastPageAnchorePos();
+          if (anchoredPosition.x < lastPageAnchorePos.x)
+          {
+            flag = true;
+            anchoredPosition.x = lastPageAnchorePos.x;
+          }
+          if (anchoredPosition.y < lastPageAnchorePos.y)
+          {
+            flag = true;
+            anchoredPosition.y = lastPageAnchorePos.y;
+          }
+          if (flag)
+            this.contentController.anchoredPosition = anchoredPosition;
+          this.contentController.scroller.StopMovement();
         }
 
-        public override int Update()
+        public class ItemParam : ContentSource.Param
         {
-            base.Update();
-            if (this.m_Destroy == null)
-            {
-                goto Label_002A;
-            }
-            if (base.isClosed == null)
-            {
-                goto Label_002A;
-            }
-            base.SetActiveChild(0);
-            return 0xbf;
-        Label_002A:
-            this.RefreshUI();
-            return -1;
-        }
+          private MultiInvitationSendWindow.Content.ItemAccessor m_Accessor = new MultiInvitationSendWindow.Content.ItemAccessor();
 
-        public override string name
-        {
+          public ItemParam(FriendData friend)
+          {
+            this.m_Accessor.Setup(friend);
+          }
+
+          public override bool IsValid()
+          {
+            return this.m_Accessor.isValid;
+          }
+
+          public MultiInvitationSendWindow.Content.ItemAccessor accessor
+          {
             get
             {
-                return "FriendInvicationSendWindow";
+              return this.m_Accessor;
             }
-        }
+          }
 
-        public static MultiInvitationSendWindow instance
-        {
+          public FriendData friend
+          {
             get
             {
-                return m_Instance;
+              return this.m_Accessor.friend;
             }
+          }
+
+          public override void OnEnable(ContentNode node)
+          {
+            this.m_Accessor.Bind(node);
+            this.m_Accessor.ForceUpdate();
+          }
+
+          public override void OnDisable(ContentNode node)
+          {
+            this.m_Accessor.Clear();
+          }
+
+          public override void OnClick(ContentNode node)
+          {
+          }
         }
-
-        [CompilerGenerated]
-        private sealed class <InitializeContentList>c__AnonStorey360
-        {
-            internal JSON_MyPhotonPlayerParam param;
-
-            public <InitializeContentList>c__AnonStorey360()
-            {
-                base..ctor();
-                return;
-            }
-
-            internal bool <>m__36A(FriendData prop)
-            {
-                return (prop.UID == this.param.UID);
-            }
-        }
-
-        [CompilerGenerated]
-        private sealed class <InitializeContentList>c__AnonStorey361
-        {
-            internal FriendData data;
-
-            public <InitializeContentList>c__AnonStorey361()
-            {
-                base..ctor();
-                return;
-            }
-
-            internal bool <>m__36B(string prop)
-            {
-                return (prop == this.data.UID);
-            }
-        }
-
-        [CompilerGenerated]
-        private sealed class <IsSendList>c__AnonStorey362
-        {
-            internal string uid;
-
-            public <IsSendList>c__AnonStorey362()
-            {
-                base..ctor();
-                return;
-            }
-
-            internal bool <>m__36D(string prop)
-            {
-                return (prop == this.uid);
-            }
-        }
-
-        [CompilerGenerated]
-        private sealed class <RefreshUI>c__AnonStorey35F
-        {
-            internal MultiInvitationSendWindow.Content.ItemSource.ItemParam param;
-
-            public <RefreshUI>c__AnonStorey35F()
-            {
-                base..ctor();
-                return;
-            }
-
-            internal bool <>m__369(string prop)
-            {
-                return (prop == this.param.friend.UID);
-            }
-        }
-
-        public static class Content
-        {
-            public static ItemAccessor clickItem;
-
-            static Content()
-            {
-            }
-
-            public class ItemAccessor
-            {
-                private ContentNode m_Node;
-                private FriendData m_Friend;
-                private DataSource m_DataSource;
-                private Toggle m_Toggle;
-                private GameObject m_Hatch;
-
-                public ItemAccessor()
-                {
-                    base..ctor();
-                    return;
-                }
-
-                public void Bind(ContentNode node)
-                {
-                    SerializeValueBehaviour behaviour;
-                    bool flag;
-                    this.m_Node = node;
-                    this.m_DataSource = DataSource.Create(node.get_gameObject());
-                    this.m_DataSource.Add(typeof(FriendData), this.m_Friend);
-                    this.m_DataSource.Add(typeof(UnitData), this.m_Friend.Unit);
-                    this.m_DataSource.Add(typeof(MultiInvitationSendWindow.Content.ItemAccessor), this);
-                    behaviour = this.m_Node.GetComponent<SerializeValueBehaviour>();
-                    if ((behaviour != null) == null)
-                    {
-                        goto Label_0128;
-                    }
-                    flag = (MultiInvitationSendWindow.instance == null) ? 0 : MultiInvitationSendWindow.instance.IsSendList(this.m_Friend.UID);
-                    this.m_Toggle = behaviour.list.GetUIToggle("toggle");
-                    if ((this.m_Toggle != null) == null)
-                    {
-                        goto Label_00DA;
-                    }
-                    this.m_Toggle.set_isOn(flag);
-                Label_00DA:
-                    this.m_Hatch = behaviour.list.GetGameObject("hatch");
-                    if ((this.m_Hatch != null) == null)
-                    {
-                        goto Label_010D;
-                    }
-                    this.m_Hatch.SetActive(0);
-                Label_010D:
-                    behaviour.list.SetField("comment", this.m_Friend.MultiComment);
-                Label_0128:
-                    return;
-                }
-
-                public void Clear()
-                {
-                    if ((this.m_DataSource != null) == null)
-                    {
-                        goto Label_0023;
-                    }
-                    this.m_DataSource.Clear();
-                    this.m_DataSource = null;
-                Label_0023:
-                    this.m_Node = null;
-                    this.m_Toggle = null;
-                    this.m_Hatch = null;
-                    return;
-                }
-
-                public void ForceUpdate()
-                {
-                }
-
-                public void SetHatch(bool value)
-                {
-                    if ((this.m_Hatch != null) == null)
-                    {
-                        goto Label_0020;
-                    }
-                    this.m_Hatch.SetActive(value == 0);
-                Label_0020:
-                    return;
-                }
-
-                public void Setup(FriendData friend)
-                {
-                    this.m_Friend = friend;
-                    return;
-                }
-
-                public ContentNode node
-                {
-                    get
-                    {
-                        return this.m_Node;
-                    }
-                }
-
-                public FriendData friend
-                {
-                    get
-                    {
-                        return this.m_Friend;
-                    }
-                }
-
-                public Toggle tgl
-                {
-                    get
-                    {
-                        return this.m_Toggle;
-                    }
-                }
-
-                public bool isOn
-                {
-                    get
-                    {
-                        return (((this.m_Toggle != null) == null) ? 0 : this.m_Toggle.get_isOn());
-                    }
-                    set
-                    {
-                        if ((this.m_Toggle != null) == null)
-                        {
-                            goto Label_001D;
-                        }
-                        this.m_Toggle.set_isOn(value);
-                    Label_001D:
-                        return;
-                    }
-                }
-
-                public bool isValid
-                {
-                    get
-                    {
-                        return ((this.m_Friend == null) == 0);
-                    }
-                }
-            }
-
-            public class ItemSource : ContentSource
-            {
-                private List<ItemParam> m_Params;
-                [CompilerGenerated]
-                private static Func<ItemParam, bool> <>f__am$cache1;
-
-                public ItemSource()
-                {
-                    this.m_Params = new List<ItemParam>();
-                    base..ctor();
-                    return;
-                }
-
-                [CompilerGenerated]
-                private static bool <Setup>m__36E(ItemParam prop)
-                {
-                    return 1;
-                }
-
-                public void Add(ItemParam param)
-                {
-                    if (param.IsValid() == null)
-                    {
-                        goto Label_0017;
-                    }
-                    this.m_Params.Add(param);
-                Label_0017:
-                    return;
-                }
-
-                public override void Initialize(ContentController controller)
-                {
-                    base.Initialize(controller);
-                    this.Setup();
-                    return;
-                }
-
-                public override void Release()
-                {
-                    base.Release();
-                    return;
-                }
-
-                public unsafe void Setup()
-                {
-                    Func<ItemParam, bool> func;
-                    bool flag;
-                    Vector2 vector;
-                    Vector2 vector2;
-                    if (<>f__am$cache1 != null)
-                    {
-                        goto Label_0018;
-                    }
-                    <>f__am$cache1 = new Func<ItemParam, bool>(MultiInvitationSendWindow.Content.ItemSource.<Setup>m__36E);
-                Label_0018:
-                    func = <>f__am$cache1;
-                    this.Clear();
-                    if (func == null)
-                    {
-                        goto Label_0046;
-                    }
-                    base.SetTable(Enumerable.ToArray<ItemParam>(Enumerable.Where<ItemParam>(this.m_Params, func)));
-                    goto Label_0057;
-                Label_0046:
-                    base.SetTable(this.m_Params.ToArray());
-                Label_0057:
-                    base.contentController.Resize(0);
-                    flag = 0;
-                    vector = base.contentController.anchoredPosition;
-                    vector2 = base.contentController.GetLastPageAnchorePos();
-                    if (&vector.x >= &vector2.x)
-                    {
-                        goto Label_00A0;
-                    }
-                    flag = 1;
-                    &vector.x = &vector2.x;
-                Label_00A0:
-                    if (&vector.y >= &vector2.y)
-                    {
-                        goto Label_00C3;
-                    }
-                    flag = 1;
-                    &vector.y = &vector2.y;
-                Label_00C3:
-                    if (flag == null)
-                    {
-                        goto Label_00D5;
-                    }
-                    base.contentController.anchoredPosition = vector;
-                Label_00D5:
-                    base.contentController.scroller.StopMovement();
-                    return;
-                }
-
-                public class ItemParam : ContentSource.Param
-                {
-                    private MultiInvitationSendWindow.Content.ItemAccessor m_Accessor;
-
-                    public ItemParam(FriendData friend)
-                    {
-                        this.m_Accessor = new MultiInvitationSendWindow.Content.ItemAccessor();
-                        base..ctor();
-                        this.m_Accessor.Setup(friend);
-                        return;
-                    }
-
-                    public override bool IsValid()
-                    {
-                        return this.m_Accessor.isValid;
-                    }
-
-                    public override void OnClick(ContentNode node)
-                    {
-                    }
-
-                    public override void OnDisable(ContentNode node)
-                    {
-                        this.m_Accessor.Clear();
-                        return;
-                    }
-
-                    public override void OnEnable(ContentNode node)
-                    {
-                        this.m_Accessor.Bind(node);
-                        this.m_Accessor.ForceUpdate();
-                        return;
-                    }
-
-                    public MultiInvitationSendWindow.Content.ItemAccessor accessor
-                    {
-                        get
-                        {
-                            return this.m_Accessor;
-                        }
-                    }
-
-                    public FriendData friend
-                    {
-                        get
-                        {
-                            return this.m_Accessor.friend;
-                        }
-                    }
-                }
-            }
-        }
-
-        [Serializable]
-        public class SerializeParam : FlowWindowBase.SerializeParamBase
-        {
-            public GameObject list;
-
-            public SerializeParam()
-            {
-                base..ctor();
-                return;
-            }
-
-            public override Type type
-            {
-                get
-                {
-                    return typeof(MultiInvitationSendWindow);
-                }
-            }
-        }
+      }
     }
-}
 
+    [Serializable]
+    public class SerializeParam : FlowWindowBase.SerializeParamBase
+    {
+      public GameObject list;
+
+      public override System.Type type
+      {
+        get
+        {
+          return typeof (MultiInvitationSendWindow);
+        }
+      }
+    }
+  }
+}

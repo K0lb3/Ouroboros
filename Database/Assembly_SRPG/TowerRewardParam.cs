@@ -1,55 +1,37 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.TowerRewardParam
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Collections.Generic;
+
+namespace SRPG
 {
-    using System;
-    using System.Collections.Generic;
+  public class TowerRewardParam
+  {
+    public string iname;
+    protected List<TowerRewardItem> mTowerRewardItems;
 
-    public class TowerRewardParam
+    public void Deserialize(JSON_TowerRewardParam json)
     {
-        public string iname;
-        protected List<TowerRewardItem> mTowerRewardItems;
-
-        public TowerRewardParam()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void Deserialize(JSON_TowerRewardParam json)
-        {
-            int num;
-            TowerRewardItem item;
-            if (json != null)
-            {
-                goto Label_000C;
-            }
-            throw new InvalidJSONException();
-        Label_000C:
-            this.iname = json.iname;
-            if (json.rewards == null)
-            {
-                goto Label_0067;
-            }
-            this.mTowerRewardItems = new List<TowerRewardItem>();
-            num = 0;
-            goto Label_0059;
-        Label_0035:
-            item = new TowerRewardItem();
-            item.Deserialize(json.rewards[num]);
-            this.mTowerRewardItems.Add(item);
-            num += 1;
-        Label_0059:
-            if (num < ((int) json.rewards.Length))
-            {
-                goto Label_0035;
-            }
-        Label_0067:
-            return;
-        }
-
-        public virtual List<TowerRewardItem> GetTowerRewardItem()
-        {
-            return this.mTowerRewardItems;
-        }
+      if (json == null)
+        throw new InvalidJSONException();
+      this.iname = json.iname;
+      if (json.rewards == null)
+        return;
+      this.mTowerRewardItems = new List<TowerRewardItem>();
+      for (int index = 0; index < json.rewards.Length; ++index)
+      {
+        TowerRewardItem towerRewardItem = new TowerRewardItem();
+        towerRewardItem.Deserialize(json.rewards[index]);
+        this.mTowerRewardItems.Add(towerRewardItem);
+      }
     }
-}
 
+    public virtual List<TowerRewardItem> GetTowerRewardItem()
+    {
+      return this.mTowerRewardItems;
+    }
+  }
+}

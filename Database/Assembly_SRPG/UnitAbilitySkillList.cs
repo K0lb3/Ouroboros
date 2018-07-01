@@ -1,161 +1,131 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.UnitAbilitySkillList
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Runtime.CompilerServices;
-    using UnityEngine;
-    using UnityEngine.UI;
+  public class UnitAbilitySkillList : MonoBehaviour
+  {
+    public ListItemEvents ItemTemplate;
+    public ScrollRect ScrollViewRect;
+    public UnitAbilitySkillList.SelectSkillEvent OnSelectSkill;
+    private List<ListItemEvents> mItems;
+    private Unit mUnit;
+    private bool isCommandTutorial;
 
-    public class UnitAbilitySkillList : MonoBehaviour
+    public UnitAbilitySkillList()
     {
-        public ListItemEvents ItemTemplate;
-        public ScrollRect ScrollViewRect;
-        public SelectSkillEvent OnSelectSkill;
-        private List<ListItemEvents> mItems;
-        private Unit mUnit;
-
-        public UnitAbilitySkillList()
-        {
-            this.mItems = new List<ListItemEvents>();
-            base..ctor();
-            return;
-        }
-
-        [CompilerGenerated]
-        private void <Refresh>m__438(GameObject go)
-        {
-            SkillData data;
-            data = DataSource.FindDataOfClass<SkillData>(go, null);
-            this.SelectSkill(data);
-            return;
-        }
-
-        private void DestroyItems()
-        {
-            int num;
-            num = 0;
-            goto Label_0021;
-        Label_0007:
-            Object.Destroy(this.mItems[num].get_gameObject());
-            num += 1;
-        Label_0021:
-            if (num < this.mItems.Count)
-            {
-                goto Label_0007;
-            }
-            this.mItems.Clear();
-            return;
-        }
-
-        public void Refresh()
-        {
-            AbilityData data;
-            Transform transform;
-            int num;
-            ListItemEvents events;
-            SkillData data2;
-            Selectable selectable;
-            UnitAbilitySkillListItem item;
-            bool flag;
-            this.DestroyItems();
-            if ((this.ItemTemplate == null) == null)
-            {
-                goto Label_0022;
-            }
-            Debug.LogError("ItemTemplate が未設定です。");
-            return;
-        Label_0022:
-            data = DataSource.FindDataOfClass<AbilityData>(base.get_gameObject(), null);
-            if (data != null)
-            {
-                goto Label_0040;
-            }
-            Debug.LogWarning("AbilityData を参照できません。");
-            return;
-        Label_0040:
-            this.ScrollViewRect.set_normalizedPosition(new Vector2(0.5f, 1f));
-            GameParameter.UpdateAll(base.get_gameObject());
-            transform = this.ItemTemplate.get_transform().get_parent();
-            num = 0;
-            goto Label_01D9;
-        Label_007D:
-            events = Object.Instantiate<ListItemEvents>(this.ItemTemplate);
-            events.get_transform().SetParent(transform, 0);
-            this.mItems.Add(events);
-            data2 = data.Skills[num];
-            DataSource.Bind<SkillData>(events.get_gameObject(), data2);
-            DataSource.Bind<Unit>(events.get_gameObject(), this.mUnit);
-            events.get_gameObject().SetActive(1);
-            events.OnSelect = new ListItemEvents.ListItemEvent(this.<Refresh>m__438);
-            selectable = events.GetComponentInChildren<Selectable>();
-            if ((selectable == null) == null)
-            {
-                goto Label_0109;
-            }
-            selectable = events.GetComponent<Selectable>();
-        Label_0109:
-            if ((selectable != null) == null)
-            {
-                goto Label_016E;
-            }
-            selectable.set_interactable(this.mUnit.CheckEnableUseSkill(data2, 0));
-            if (selectable.get_interactable() == null)
-            {
-                goto Label_014C;
-            }
-            selectable.set_interactable(this.mUnit.IsUseSkillCollabo(data2, 1));
-        Label_014C:
-            selectable.set_enabled(selectable.get_enabled() == 0);
-            selectable.set_enabled(selectable.get_enabled() == 0);
-        Label_016E:
-            item = events.get_gameObject().GetComponent<UnitAbilitySkillListItem>();
-            if ((item != null) == null)
-            {
-                goto Label_01D5;
-            }
-            flag = this.mUnit.CheckEnableSkillUseCount(data2) == 0;
-            item.SetSkillCount(this.mUnit.GetSkillUseCount(data2), this.mUnit.GetSkillUseCountMax(data2), flag);
-            item.SetCastSpeed(data2.CastSpeed);
-        Label_01D5:
-            num += 1;
-        Label_01D9:
-            if (num < data.Skills.Count)
-            {
-                goto Label_007D;
-            }
-            return;
-        }
-
-        public void Refresh(Unit self)
-        {
-            this.mUnit = self;
-            this.Refresh();
-            return;
-        }
-
-        private void SelectSkill(SkillData skill)
-        {
-            if (skill == null)
-            {
-                goto Label_0012;
-            }
-            this.OnSelectSkill(skill);
-        Label_0012:
-            return;
-        }
-
-        public void Start()
-        {
-            if ((this.ItemTemplate != null) == null)
-            {
-                goto Label_0022;
-            }
-            this.ItemTemplate.get_gameObject().SetActive(0);
-        Label_0022:
-            return;
-        }
-
-        public delegate void SelectSkillEvent(SkillData skill);
+      base.\u002Ector();
     }
-}
 
+    public void Start()
+    {
+      if (!Object.op_Inequality((Object) this.ItemTemplate, (Object) null))
+        return;
+      ((Component) this.ItemTemplate).get_gameObject().SetActive(false);
+    }
+
+    public void Refresh(Unit self)
+    {
+      this.mUnit = self;
+      this.Refresh();
+    }
+
+    public void Refresh()
+    {
+      this.DestroyItems();
+      if (Object.op_Equality((Object) this.ItemTemplate, (Object) null))
+      {
+        Debug.LogError((object) "ItemTemplate が未設定です。");
+      }
+      else
+      {
+        AbilityData dataOfClass = DataSource.FindDataOfClass<AbilityData>(((Component) this).get_gameObject(), (AbilityData) null);
+        if (dataOfClass == null)
+        {
+          Debug.LogWarning((object) "AbilityData を参照できません。");
+        }
+        else
+        {
+          this.isCommandTutorial = false;
+          GameManager instance = MonoSingleton<GameManager>.Instance;
+          if ((instance.Player.TutorialFlags & 1L) == 0L && (instance.GetNextTutorialStep() == "ShowAbilityCommand" || instance.GetNextTutorialStep() == "ShowMACommand"))
+          {
+            instance.CompleteTutorialStep();
+            this.isCommandTutorial = true;
+          }
+          this.ScrollViewRect.set_normalizedPosition(new Vector2(0.5f, 1f));
+          GameParameter.UpdateAll(((Component) this).get_gameObject());
+          Transform parent = ((Component) this.ItemTemplate).get_transform().get_parent();
+          for (int index = 0; index < dataOfClass.Skills.Count; ++index)
+          {
+            ListItemEvents listItemEvents = (ListItemEvents) Object.Instantiate<ListItemEvents>((M0) this.ItemTemplate);
+            ((Component) listItemEvents).get_transform().SetParent(parent, false);
+            this.mItems.Add(listItemEvents);
+            SkillData skill = dataOfClass.Skills[index];
+            DataSource.Bind<SkillData>(((Component) listItemEvents).get_gameObject(), skill);
+            DataSource.Bind<Unit>(((Component) listItemEvents).get_gameObject(), this.mUnit);
+            ((Component) listItemEvents).get_gameObject().SetActive(true);
+            listItemEvents.OnSelect = (ListItemEvents.ListItemEvent) (go => this.SelectSkill(DataSource.FindDataOfClass<SkillData>(go, (SkillData) null)));
+            Selectable selectable = (Selectable) ((Component) listItemEvents).GetComponentInChildren<Selectable>();
+            if (Object.op_Equality((Object) selectable, (Object) null))
+              selectable = (Selectable) ((Component) listItemEvents).GetComponent<Selectable>();
+            if (Object.op_Inequality((Object) selectable, (Object) null))
+            {
+              selectable.set_interactable(this.mUnit.CheckEnableUseSkill(skill, false));
+              if (selectable.get_interactable())
+                selectable.set_interactable(this.mUnit.IsUseSkillCollabo(skill, true));
+              ((Behaviour) selectable).set_enabled(!((Behaviour) selectable).get_enabled());
+              ((Behaviour) selectable).set_enabled(!((Behaviour) selectable).get_enabled());
+            }
+            UnitAbilitySkillListItem component = (UnitAbilitySkillListItem) ((Component) listItemEvents).get_gameObject().GetComponent<UnitAbilitySkillListItem>();
+            if (Object.op_Inequality((Object) component, (Object) null))
+            {
+              bool noLimit = !this.mUnit.CheckEnableSkillUseCount(skill);
+              component.SetSkillCount((int) this.mUnit.GetSkillUseCount(skill), (int) this.mUnit.GetSkillUseCountMax(skill), noLimit);
+              component.SetCastSpeed(skill.CastSpeed);
+            }
+            if (this.isCommandTutorial)
+            {
+              if (skill.SkillID == "SK_SEI_SWORD_CRASH")
+              {
+                SGHighlightObject.Instance().highlightedObject = ((Component) listItemEvents).get_gameObject();
+                SGHighlightObject.Instance().Highlight(string.Empty, "sg_tut_0.005", (SGHighlightObject.OnActivateCallback) null, EventDialogBubble.Anchors.TopLeft, false, false, false);
+              }
+              else if (skill.SkillID == "SK_SEI_SHINING_CROSS_TUTORIAL")
+              {
+                SGHighlightObject.Instance().highlightedObject = ((Component) listItemEvents).get_gameObject();
+                SGHighlightObject.Instance().Highlight(string.Empty, "sg_tut_0.009", (SGHighlightObject.OnActivateCallback) null, EventDialogBubble.Anchors.BottomLeft, false, false, false);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    private void SelectSkill(SkillData skill)
+    {
+      if (skill != null)
+        this.OnSelectSkill(skill);
+      if (!this.isCommandTutorial)
+        return;
+      MonoSingleton<GameManager>.Instance.CompleteTutorialStep();
+    }
+
+    private void DestroyItems()
+    {
+      for (int index = 0; index < this.mItems.Count; ++index)
+        Object.Destroy((Object) ((Component) this.mItems[index]).get_gameObject());
+      this.mItems.Clear();
+    }
+
+    public delegate void SelectSkillEvent(SkillData skill);
+  }
+}

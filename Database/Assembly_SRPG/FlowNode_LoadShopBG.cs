@@ -1,133 +1,71 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_LoadShopBG
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System.Reflection;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Reflection;
-    using UnityEngine;
+  [FlowNode.Pin(1, "Done", FlowNode.PinTypes.Output, 1)]
+  [FlowNode.NodeType("LoadShopBG", 32741)]
+  [FlowNode.Pin(0, "Load", FlowNode.PinTypes.Input, 0)]
+  public class FlowNode_LoadShopBG : FlowNode
+  {
+    public string BasePath = "ShopBG";
+    public FlowNode_LoadShopBG.PrefabType Type;
+    public string TypeString;
+    public Transform Parent;
+    public bool WorldPositionStays;
 
-    [Pin(1, "Done", 1, 1), Pin(0, "Load", 0, 0), NodeType("LoadShopBG", 0x7fe5)]
-    public class FlowNode_LoadShopBG : FlowNode
+    public override void OnActivate(int pinID)
     {
-        public PrefabType Type;
-        public string TypeString;
-        public string BasePath;
-        public Transform Parent;
-        public bool WorldPositionStays;
-
-        public FlowNode_LoadShopBG()
+      if (pinID != 0)
+        return;
+      SectionParam currentSectionParam = MonoSingleton<GameManager>.Instance.GetCurrentSectionParam();
+      string name = (string) null;
+      if (this.Type == FlowNode_LoadShopBG.PrefabType.DirectResourcePath)
+        name = this.TypeString;
+      else if (currentSectionParam != null)
+      {
+        if (this.Type == FlowNode_LoadShopBG.PrefabType.SectionParamBar)
+          name = currentSectionParam.bar;
+        else if (this.Type == FlowNode_LoadShopBG.PrefabType.SectionParamShop)
+          name = currentSectionParam.shop;
+        else if (this.Type == FlowNode_LoadShopBG.PrefabType.SectionParamInn)
+          name = currentSectionParam.inn;
+        else if (this.Type == FlowNode_LoadShopBG.PrefabType.SectionParamMemberName)
         {
-            this.BasePath = "ShopBG";
-            base..ctor();
-            return;
+          FieldInfo field = currentSectionParam.GetType().GetField(this.TypeString);
+          if ((object) field != null && (object) field.FieldType == (object) typeof (string))
+            name = (string) field.GetValue((object) currentSectionParam);
         }
-
-        public override void OnActivate(int pinID)
+      }
+      if (name != null && !string.IsNullOrEmpty(this.BasePath))
+        name = this.BasePath + "/" + name;
+      if (name != null && Object.op_Inequality((Object) this.Parent, (Object) null))
+      {
+        GameObject gameObject1 = AssetManager.Load<GameObject>(name);
+        if (Object.op_Inequality((Object) gameObject1, (Object) null))
         {
-            SectionParam param;
-            string str;
-            System.Type type;
-            FieldInfo info;
-            System.Type type2;
-            GameObject obj2;
-            GameObject obj3;
-            if (pinID != null)
-            {
-                goto Label_0153;
-            }
-            param = MonoSingleton<GameManager>.Instance.GetCurrentSectionParam();
-            str = null;
-            if (this.Type != 3)
-            {
-                goto Label_002B;
-            }
-            str = this.TypeString;
-            goto Label_00C9;
-        Label_002B:
-            if (param != null)
-            {
-                goto Label_0036;
-            }
-            goto Label_00C9;
-        Label_0036:
-            if (this.Type != null)
-            {
-                goto Label_004D;
-            }
-            str = param.bar;
-            goto Label_00C9;
-        Label_004D:
-            if (this.Type != 1)
-            {
-                goto Label_0065;
-            }
-            str = param.shop;
-            goto Label_00C9;
-        Label_0065:
-            if (this.Type != 2)
-            {
-                goto Label_007D;
-            }
-            str = param.inn;
-            goto Label_00C9;
-        Label_007D:
-            if (this.Type != 4)
-            {
-                goto Label_00C9;
-            }
-            info = param.GetType().GetField(this.TypeString);
-            if (info == null)
-            {
-                goto Label_00C9;
-            }
-            if (info.FieldType != typeof(string))
-            {
-                goto Label_00C9;
-            }
-            str = (string) info.GetValue(param);
-        Label_00C9:
-            if (str == null)
-            {
-                goto Label_00F1;
-            }
-            if (string.IsNullOrEmpty(this.BasePath) != null)
-            {
-                goto Label_00F1;
-            }
-            str = this.BasePath + "/" + str;
-        Label_00F1:
-            if (str == null)
-            {
-                goto Label_014B;
-            }
-            if ((this.Parent != null) == null)
-            {
-                goto Label_014B;
-            }
-            obj2 = AssetManager.Load<GameObject>(str);
-            if ((obj2 != null) == null)
-            {
-                goto Label_014B;
-            }
-            obj3 = Object.Instantiate<GameObject>(obj2);
-            if ((obj3 != null) == null)
-            {
-                goto Label_014B;
-            }
-            obj3.get_transform().SetParent(this.Parent, this.WorldPositionStays);
-        Label_014B:
-            base.ActivateOutputLinks(1);
-        Label_0153:
-            return;
+          GameObject gameObject2 = (GameObject) Object.Instantiate<GameObject>((M0) gameObject1);
+          if (Object.op_Inequality((Object) gameObject2, (Object) null))
+            gameObject2.get_transform().SetParent(this.Parent, this.WorldPositionStays);
         }
-
-        public enum PrefabType
-        {
-            SectionParamBar,
-            SectionParamShop,
-            SectionParamInn,
-            DirectResourcePath,
-            SectionParamMemberName
-        }
+      }
+      this.ActivateOutputLinks(1);
     }
-}
 
+    public enum PrefabType
+    {
+      SectionParamBar,
+      SectionParamShop,
+      SectionParamInn,
+      DirectResourcePath,
+      SectionParamMemberName,
+    }
+  }
+}

@@ -1,255 +1,179 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.UIValidator
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text.RegularExpressions;
-    using UnityEngine;
-    using UnityEngine.Events;
-    using UnityEngine.UI;
+  [DisallowMultipleComponent]
+  [RequireComponent(typeof (Selectable))]
+  public class UIValidator : MonoBehaviour
+  {
+    public static List<UIValidator> Validators = new List<UIValidator>();
+    [BitMask]
+    public CriticalSections Mask;
+    public InputField Input;
+    public InputField[] ExtraInput;
+    [BitMask]
+    public UIValidator.ToggleMasks ToggleMask;
 
-    [RequireComponent(typeof(Selectable)), DisallowMultipleComponent]
-    public class UIValidator : MonoBehaviour
+    public UIValidator()
     {
-        public static List<UIValidator> Validators;
-        [BitMask]
-        public CriticalSections Mask;
-        public InputField Input;
-        [BitMask]
-        public ToggleMasks ToggleMask;
-
-        static UIValidator()
-        {
-            Validators = new List<UIValidator>();
-            return;
-        }
-
-        public UIValidator()
-        {
-            this.ToggleMask = 1;
-            base..ctor();
-            return;
-        }
-
-        private unsafe bool IsEmoji(char a)
-        {
-            string str;
-            if (char.IsSurrogate(a) == null)
-            {
-                goto Label_000D;
-            }
-            return 1;
-        Label_000D:
-            str = "[-]|[-]|[-]|[-]|\x00ee[\x0098-\x009d][\x0080-\x00bf]|(?:\x00ee[\x00b1-\x00b3\x00b5\x00b6\x00bd-\x00bf]|\x00ef[\x0081-\x0083])[\x0080-\x00bf]|\x00ee[\x0080\x0081\x0084\x0085\x0088\x0089\x008c\x008d\x0090\x0091\x0094][\x0080-\x00bf]|(?:(?:#|[0-9])⃣)";
-            if (Regex.IsMatch(&a.ToString(), str) == null)
-            {
-                goto Label_0027;
-            }
-            return 1;
-        Label_0027:
-            return 0;
-        }
-
-        private bool IsEmojiWork(char a)
-        {
-            string str;
-            int[] numArray;
-            int num;
-            int[] numArray2;
-            int num2;
-            str = "\x00a9\x00ae   ‼⁉™ℹ↩↪⌚⌛⏩⏪⏫⏬⏰⏳Ⓜ▪▫▶◀◻◼◽◾☀☁☎☑☔☕☝☺♈♉♊♋♌♍♎♏♐♑♒♓♠♣♥♦♨♻♿⚓⚠⚡⚪⚫⚽⚾⛄⛅⛎⛔⛪⛲⛳⛵⛺⛽✂✅✈✉✊✋✌✏✒✔✖✨✳✴❄❇❌❎❓❔❕❗❤➕➖➗➡➰⤴⤵⬅⬆⬇⬛⬜⭐⭕〰〽㊗㊙";
-            if (str.IndexOf(a) < 0)
-            {
-                goto Label_0015;
-            }
-            return 1;
-        Label_0015:
-            numArray = new int[] { 
-                0x1f004, 0x1f0cf, 0x1f170, 0x1f171, 0x1f17e, 0x1f17f, 0x1f18e, 0x1f201, 0x1f202, 0x1f21a, 0x1f22f, 0x1f250, 0x1f251, 0x1f30f, 0x1f311, 0x1f313,
-                0x1f314, 0x1f315, 0x1f319, 0x1f31b, 0x1f31f, 0x1f320, 0x1f330, 0x1f331, 0x1f334, 0x1f335, 0x1f3c6, 0x1f3c8, 0x1f3ca, 0x1f40c, 0x1f40d, 0x1f40e,
-                0x1f411, 0x1f412, 0x1f414, 0x1f417, 0x1f418, 0x1f419, 0x1f440, 0x1f4ee, 0x1f503, 0x1f60f, 0x1f612, 0x1f613, 0x1f614, 0x1f616, 0x1f618, 0x1f61a,
-                0x1f61c, 0x1f61d, 0x1f61e, 0x1f62d, 0x1f635, 0x1f683, 0x1f684, 0x1f685, 0x1f687, 0x1f689, 0x1f68c, 0x1f68f, 0x1f691, 0x1f692, 0x1f693, 0x1f695,
-                0x1f697, 0x1f699, 0x1f69a, 0x1f6a2, 0x1f6a4, 0x1f6a5, 0x1f6b2, 0x1f6b6, 0x1f6b9, 0x1f6c0, 0x1f1e8, 0x1f1f3, 0x1f1e9, 0x1f1ea, 0x1f1ea, 0x1f1f8,
-                0x1f1eb, 0x1f1f7, 0x1f1ec, 0x1f1e7, 0x1f1ee, 0x1f1f9, 0x1f1ef, 0x1f1f5, 0x1f1f0, 0x1f1f7, 0x1f1f7, 0x1f1fa, 0x1f1fa, 0x1f1f8
-            };
-            num = 0;
-            goto Label_003E;
-        Label_002F:
-            if (numArray[num] != a)
-            {
-                goto Label_003A;
-            }
-            return 1;
-        Label_003A:
-            num += 1;
-        Label_003E:
-            if (num < ((int) numArray.Length))
-            {
-                goto Label_002F;
-            }
-            numArray2 = new int[] { 
-                0x2194, 0x2199, 0x1f191, 0x1f19a, 0x1f232, 0x1f23a, 0x1f300, 0x1f30c, 0x1f337, 0x1f34f, 0x1f351, 0x1f37b, 0x1f380, 0x1f393, 0x1f3a0, 0x1f3c4,
-                0x1f3e0, 0x1f3e3, 0x1f3e5, 0x1f3f0, 0x1f41a, 0x1f429, 0x1f42b, 0x1f43e, 0x1f442, 0x1f464, 0x1f466, 0x1f46b, 0x1f46e, 0x1f4ac, 0x1f4ae, 0x1f4b5,
-                0x1f4b8, 0x1f4eb, 0x1f4f0, 0x1f4f7, 0x1f4f9, 0x1f4fc, 0x1f50a, 0x1f514, 0x1f516, 0x1f52b, 0x1f52e, 0x1f53d, 0x1f550, 0x1f55b, 0x1f5fb, 0x1f5ff,
-                0x1f601, 0x1f606, 0x1f609, 0x1f60d, 0x1f620, 0x1f625, 0x1f628, 0x1f62b, 0x1f630, 0x1f633, 0x1f637, 0x1f640, 0x1f645, 0x1f680, 0x1f6a7, 0x1f6ad,
-                0x1f6ba, 0x1f6be
-            };
-            num2 = 0;
-            goto Label_0080;
-        Label_0062:
-            if (numArray2[num2] > a)
-            {
-                goto Label_007A;
-            }
-            if (a > numArray2[num2 + 1])
-            {
-                goto Label_007A;
-            }
-            return 1;
-        Label_007A:
-            num2 += 2;
-        Label_0080:
-            if (num2 < ((int) numArray2.Length))
-            {
-                goto Label_0062;
-            }
-            return 0;
-        }
-
-        private void OnDisable()
-        {
-            Validators.Remove(this);
-            return;
-        }
-
-        private void OnEnable()
-        {
-            Validators.Add(this);
-            return;
-        }
-
-        private void OnInputFieldChange(string value)
-        {
-            int num;
-            num = 0;
-            goto Label_0034;
-        Label_0007:
-            if (this.IsEmoji(value[num]) == null)
-            {
-                goto Label_0030;
-            }
-            this.Input.set_text(value.Remove(num));
-            goto Label_0040;
-        Label_0030:
-            num += 1;
-        Label_0034:
-            if (num < value.Length)
-            {
-                goto Label_0007;
-            }
-        Label_0040:
-            this.UpdateInteractable(CriticalSection.GetActive());
-            return;
-        }
-
-        private void Start()
-        {
-            if ((this.Input != null) == null)
-            {
-                goto Label_002D;
-            }
-            this.Input.get_onValueChanged().AddListener(new UnityAction<string>(this, this.OnInputFieldChange));
-        Label_002D:
-            this.UpdateInteractable(CriticalSection.GetActive());
-            return;
-        }
-
-        private void UpdateInteractable(CriticalSections csMask)
-        {
-            bool flag;
-            Selectable selectable;
-            Selectable selectable2;
-            CanvasGroup group;
-            flag = 1;
-            if ((csMask & this.Mask) == null)
-            {
-                goto Label_0011;
-            }
-            flag = 0;
-        Label_0011:
-            if ((this.Input != null) == null)
-            {
-                goto Label_0039;
-            }
-            if (string.IsNullOrEmpty(this.Input.get_text()) == null)
-            {
-                goto Label_0039;
-            }
-            flag = 0;
-        Label_0039:
-            if ((this.ToggleMask & 2) == null)
-            {
-                goto Label_0060;
-            }
-            selectable = base.GetComponent<Selectable>();
-            if ((selectable != null) == null)
-            {
-                goto Label_0060;
-            }
-            selectable.set_enabled(flag);
-        Label_0060:
-            if ((this.ToggleMask & 1) == null)
-            {
-                goto Label_0087;
-            }
-            selectable2 = base.GetComponent<Selectable>();
-            if ((selectable2 != null) == null)
-            {
-                goto Label_0087;
-            }
-            selectable2.set_interactable(flag);
-        Label_0087:
-            if ((this.ToggleMask & 4) == null)
-            {
-                goto Label_00AE;
-            }
-            group = base.GetComponent<CanvasGroup>();
-            if ((group != null) == null)
-            {
-                goto Label_00AE;
-            }
-            group.set_blocksRaycasts(flag);
-        Label_00AE:
-            return;
-        }
-
-        public static void UpdateValidators(CriticalSections updateMask, CriticalSections activeMask)
-        {
-            int num;
-            num = Validators.Count - 1;
-            goto Label_003E;
-        Label_0012:
-            if ((Validators[num].Mask & updateMask) == null)
-            {
-                goto Label_003A;
-            }
-            Validators[num].UpdateInteractable(activeMask);
-        Label_003A:
-            num -= 1;
-        Label_003E:
-            if (num >= 0)
-            {
-                goto Label_0012;
-            }
-            return;
-        }
-
-        [Flags]
-        public enum ToggleMasks
-        {
-            Interactable = 1,
-            Enable = 2,
-            BlockRaycast = 4
-        }
+      base.\u002Ector();
     }
-}
 
+    public static void UpdateValidators(CriticalSections updateMask, CriticalSections activeMask)
+    {
+      for (int index = UIValidator.Validators.Count - 1; index >= 0; --index)
+      {
+        if ((UIValidator.Validators[index].Mask & updateMask) != (CriticalSections) 0)
+          UIValidator.Validators[index].UpdateInteractable(activeMask);
+      }
+    }
+
+    private void Start()
+    {
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Input, (UnityEngine.Object) null))
+      {
+        // ISSUE: method pointer
+        ((UnityEvent<string>) this.Input.get_onValueChanged()).AddListener(new UnityAction<string>((object) this, __methodptr(OnInputFieldChange)));
+      }
+      if (this.ExtraInput != null)
+      {
+        // ISSUE: object of a compiler-generated type is created
+        // ISSUE: variable of a compiler-generated type
+        UIValidator.\u003CStart\u003Ec__AnonStorey2B9 startCAnonStorey2B9 = new UIValidator.\u003CStart\u003Ec__AnonStorey2B9();
+        // ISSUE: reference to a compiler-generated field
+        startCAnonStorey2B9.\u003C\u003Ef__this = this;
+        foreach (InputField inputField in this.ExtraInput)
+        {
+          // ISSUE: reference to a compiler-generated field
+          startCAnonStorey2B9.i = inputField;
+          // ISSUE: reference to a compiler-generated field
+          // ISSUE: method pointer
+          ((UnityEvent<string>) startCAnonStorey2B9.i.get_onValueChanged()).AddListener(new UnityAction<string>((object) startCAnonStorey2B9, __methodptr(\u003C\u003Em__287)));
+        }
+      }
+      this.UpdateInteractable(CriticalSection.GetActive());
+    }
+
+    private void UpdateInteractable(CriticalSections csMask)
+    {
+      bool flag = true;
+      if ((csMask & this.Mask) != (CriticalSections) 0)
+        flag = false;
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.Input, (UnityEngine.Object) null) && string.IsNullOrEmpty(this.Input.get_text()))
+        flag = false;
+      if (this.ExtraInput != null)
+      {
+        foreach (InputField inputField in this.ExtraInput)
+        {
+          if (string.IsNullOrEmpty(inputField.get_text()))
+          {
+            flag = false;
+            break;
+          }
+        }
+      }
+      if ((this.ToggleMask & UIValidator.ToggleMasks.Enable) != (UIValidator.ToggleMasks) 0)
+      {
+        Selectable component = (Selectable) ((Component) this).GetComponent<Selectable>();
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
+          ((Behaviour) component).set_enabled(flag);
+      }
+      if ((this.ToggleMask & UIValidator.ToggleMasks.Interactable) != (UIValidator.ToggleMasks) 0)
+      {
+        Selectable component = (Selectable) ((Component) this).GetComponent<Selectable>();
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) component, (UnityEngine.Object) null))
+          component.set_interactable(flag);
+      }
+      if ((this.ToggleMask & UIValidator.ToggleMasks.BlockRaycast) == (UIValidator.ToggleMasks) 0)
+        return;
+      CanvasGroup component1 = (CanvasGroup) ((Component) this).GetComponent<CanvasGroup>();
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) component1, (UnityEngine.Object) null))
+        return;
+      component1.set_blocksRaycasts(flag);
+    }
+
+    private void OnEnable()
+    {
+      UIValidator.Validators.Add(this);
+    }
+
+    private void OnDisable()
+    {
+      UIValidator.Validators.Remove(this);
+    }
+
+    private bool IsEmoji(char a)
+    {
+      if (char.IsSurrogate(a))
+        return true;
+      string pattern = "[\xE63E-\xE6A5]|[\xE6AC-\xE6AE]|[\xE6B1-\xE6BA]|[\xE6CE-\xE757]|î[\x0098-\x009D][\x0080-¿]|(?:î[±-\x00B3µ¶\x00BD-¿]|ï[\x0081-\x0083])[\x0080-¿]|î[\x0080\x0081\x0084\x0085\x0088\x0089\x008C\x008D\x0090\x0091\x0094][\x0080-¿]|(?:(?:#|[0-9])⃣)";
+      return Regex.IsMatch(a.ToString(), pattern);
+    }
+
+    private bool IsEmojiWork(char a)
+    {
+      if ("©®   ‼⁉™ℹ↩↪⌚⌛⏩⏪⏫⏬⏰⏳Ⓜ▪▫▶◀◻◼◽◾☀☁☎☑☔☕☝☺♈♉♊♋♌♍♎♏♐♑♒♓♠♣♥♦♨♻♿⚓⚠⚡⚪⚫⚽⚾⛄⛅⛎⛔⛪⛲⛳⛵⛺⛽✂✅✈✉✊✋✌✏✒✔✖✨✳✴❄❇❌❎❓❔❕❗❤➕➖➗➡➰⤴⤵⬅⬆⬇⬛⬜⭐⭕〰〽㊗㊙".IndexOf(a) >= 0)
+        return true;
+      int[] numArray1 = new int[94]{ 126980, 127183, 127344, 127345, 127358, 127359, 127374, 127489, 127490, 127514, 127535, 127568, 127569, 127759, 127761, 127763, 127764, 127765, 127769, 127771, 127775, 127776, 127792, 127793, 127796, 127797, 127942, 127944, 127946, 128012, 128013, 128014, 128017, 128018, 128020, 128023, 128024, 128025, 128064, 128238, 128259, 128527, 128530, 128531, 128532, 128534, 128536, 128538, 128540, 128541, 128542, 128557, 128565, 128643, 128644, 128645, 128647, 128649, 128652, 128655, 128657, 128658, 128659, 128661, 128663, 128665, 128666, 128674, 128676, 128677, 128690, 128694, 128697, 128704, 127464, 127475, 127465, 127466, 127466, 127480, 127467, 127479, 127468, 127463, 127470, 127481, 127471, 127477, 127472, 127479, 127479, 127482, 127482, 127480 };
+      foreach (int num in numArray1)
+      {
+        if (num == (int) a)
+          return true;
+      }
+      int[] numArray2 = new int[66]{ 8596, 8601, 127377, 127386, 127538, 127546, 127744, 127756, 127799, 127823, 127825, 127867, 127872, 127891, 127904, 127940, 127968, 127971, 127973, 127984, 128026, 128041, 128043, 128062, 128066, 128100, 128102, 128107, 128110, 128172, 128174, 128181, 128184, 128235, 128240, 128247, 128249, 128252, 128266, 128276, 128278, 128299, 128302, 128317, 128336, 128347, 128507, 128511, 128513, 128518, 128521, 128525, 128544, 128549, 128552, 128555, 128560, 128563, 128567, 128576, 128581, 128640, 128679, 128685, 128698, 128702 };
+      int index = 0;
+      while (index < numArray2.Length)
+      {
+        if (numArray2[index] <= (int) a && (int) a <= numArray2[index + 1])
+          return true;
+        index += 2;
+      }
+      return false;
+    }
+
+    private void OnInputFieldChange(string value)
+    {
+      for (int startIndex = 0; startIndex < value.Length; ++startIndex)
+      {
+        if (this.IsEmoji(value[startIndex]))
+        {
+          this.Input.set_text(value.Remove(startIndex));
+          break;
+        }
+      }
+      this.UpdateInteractable(CriticalSection.GetActive());
+    }
+
+    private void OnInputFieldChange(string value, InputField input)
+    {
+      for (int startIndex = 0; startIndex < value.Length; ++startIndex)
+      {
+        if (this.IsEmoji(value[startIndex]))
+        {
+          input.set_text(value.Remove(startIndex));
+          break;
+        }
+      }
+      this.UpdateInteractable(CriticalSection.GetActive());
+    }
+
+    [Flags]
+    public enum ToggleMasks
+    {
+      Interactable = 1,
+      Enable = 2,
+      BlockRaycast = 4,
+    }
+  }
+}

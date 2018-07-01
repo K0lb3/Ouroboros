@@ -1,1020 +1,650 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.EventDialogBubble
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Text.RegularExpressions;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Runtime.CompilerServices;
-    using System.Runtime.InteropServices;
-    using System.Text;
-    using System.Text.RegularExpressions;
-    using UnityEngine;
-    using UnityEngine.UI;
+  public class EventDialogBubble : MonoBehaviour
+  {
+    public static List<EventDialogBubble> Instances = new List<EventDialogBubble>();
+    private static Regex regEndTag = new Regex("^\\s*/\\s*([a-zA-Z0-9]+)\\s*");
+    private static Regex regColor = new Regex("color=(#?[a-z0-9]+)");
+    public const float TopMargin = 30f;
+    public const float BottomMargin = 20f;
+    public const float LeftMargin = 20f;
+    public const float RightMargin = 20f;
+    public RawImage PortraitFront;
+    public UnityEngine.UI.Text NameText;
+    public UnityEngine.UI.Text BodyText;
+    [NonSerialized]
+    public Texture2D CustomEmotion;
+    private PortraitSet mPortraitSet;
+    private PortraitSet.EmotionTypes mDesiredEmotion;
+    private PortraitSet.EmotionTypes mCurrentEmotion;
+    public string VisibilityBoolName;
+    public Animator BubbleAnimator;
+    public string OpenedStateName;
+    public string ClosedStateName;
+    [NonSerialized]
+    public string BubbleID;
+    private bool mCloseAndDestroy;
+    private MySound.Voice mVoice;
+    private readonly float VoiceFadeOutSec;
+    private bool mSkipFadeOut;
+    public float FadeInTime;
+    public float FadeOutTime;
+    public float FadeOutInterval;
+    private EventDialogBubble.Character[] mCharacters;
+    private int mNumCharacters;
+    public float NewLineInterval;
+    [NonSerialized]
+    public EventAction_Dialog.TextSpeedTypes TextSpeed;
+    public bool AutoExpandWidth;
+    public float MaxBodyTextWidth;
+    private float mBaseWidth;
+    private float mStartTime;
+    private bool mTextNeedsUpdate;
+    private string mTextQueue;
+    private bool mFadingOut;
+    private bool mShouldOpen;
+    private EventDialogBubble.Anchors mAnchor;
 
-    public class EventDialogBubble : MonoBehaviour
+    public EventDialogBubble()
     {
-        public const float TopMargin = 30f;
-        public const float BottomMargin = 20f;
-        public const float LeftMargin = 20f;
-        public const float RightMargin = 20f;
-        public static List<EventDialogBubble> Instances;
-        public RawImage PortraitFront;
-        public Text NameText;
-        public Text BodyText;
-        [NonSerialized]
-        public Texture2D CustomEmotion;
-        private SRPG.PortraitSet mPortraitSet;
-        private SRPG.PortraitSet.EmotionTypes mDesiredEmotion;
-        private SRPG.PortraitSet.EmotionTypes mCurrentEmotion;
-        public string VisibilityBoolName;
-        public Animator BubbleAnimator;
-        public string OpenedStateName;
-        public string ClosedStateName;
-        [NonSerialized]
-        public string BubbleID;
-        private bool mCloseAndDestroy;
-        private MySound.Voice mVoice;
-        private readonly float VoiceFadeOutSec;
-        private bool mSkipFadeOut;
-        public float FadeInTime;
-        public float FadeOutTime;
-        public float FadeOutInterval;
-        private Character[] mCharacters;
-        private int mNumCharacters;
-        public float NewLineInterval;
-        [NonSerialized]
-        public EventAction_Dialog.TextSpeedTypes TextSpeed;
-        public bool AutoExpandWidth;
-        public float MaxBodyTextWidth;
-        private float mBaseWidth;
-        private float mStartTime;
-        private bool mTextNeedsUpdate;
-        private string mTextQueue;
-        private static Regex regEndTag;
-        private static Regex regColor;
-        private bool mFadingOut;
-        private bool mShouldOpen;
-        private Anchors mAnchor;
-        [CompilerGenerated]
-        private string <VoiceSheetName>k__BackingField;
-        [CompilerGenerated]
-        private string <VoiceCueName>k__BackingField;
-
-        static EventDialogBubble()
-        {
-            Instances = new List<EventDialogBubble>();
-            regEndTag = new Regex(@"^\s*/\s*([a-zA-Z0-9]+)\s*");
-            regColor = new Regex("color=(#?[a-z0-9]+)");
-            return;
-        }
-
-        public EventDialogBubble()
-        {
-            this.VisibilityBoolName = "open";
-            this.OpenedStateName = "opened";
-            this.ClosedStateName = "closed";
-            this.VoiceFadeOutSec = 0.1f;
-            this.FadeInTime = 1f;
-            this.FadeOutTime = 0.5f;
-            this.FadeOutInterval = 0.05f;
-            this.NewLineInterval = 0.5f;
-            this.AutoExpandWidth = 1;
-            this.MaxBodyTextWidth = 800f;
-            base..ctor();
-            return;
-        }
-
-        public unsafe void AdjustWidth(string bodyText)
-        {
-            Element[] elementArray;
-            StringBuilder builder;
-            int num;
-            float num2;
-            float num3;
-            RectTransform transform;
-            Vector2 vector;
-            if ((this.BodyText == null) != null)
-            {
-                goto Label_001C;
-            }
-            if (this.AutoExpandWidth != null)
-            {
-                goto Label_001D;
-            }
-        Label_001C:
-            return;
-        Label_001D:
-            elementArray = SplitTags(bodyText);
-            builder = new StringBuilder((int) elementArray.Length);
-            num = 0;
-            goto Label_0059;
-        Label_0034:
-            if (string.IsNullOrEmpty(elementArray[num].Value) != null)
-            {
-                goto Label_0055;
-            }
-            builder.Append(elementArray[num].Value);
-        Label_0055:
-            num += 1;
-        Label_0059:
-            if (num < ((int) elementArray.Length))
-            {
-                goto Label_0034;
-            }
-            num2 = this.BodyText.get_cachedTextGeneratorForLayout().GetPreferredWidth(builder.ToString(), this.BodyText.GetGenerationSettings(Vector2.get_zero())) / this.BodyText.get_pixelsPerUnit();
-            num3 = Mathf.Min(num2, this.MaxBodyTextWidth) + this.mBaseWidth;
-            transform = base.get_transform() as RectTransform;
-            vector = transform.get_sizeDelta();
-            &vector.x = Mathf.Max(&vector.x, num3);
-            transform.set_sizeDelta(vector);
-            return;
-        }
-
-        private unsafe void Awake()
-        {
-            RectTransform transform;
-            RectTransform transform2;
-            Rect rect;
-            Rect rect2;
-            Instances.Add(this);
-            if ((this.BodyText != null) == null)
-            {
-                goto Label_005C;
-            }
-            transform = base.get_transform() as RectTransform;
-            transform2 = this.BodyText.get_transform() as RectTransform;
-            this.mBaseWidth = &transform.get_rect().get_width() - &transform2.get_rect().get_width();
-        Label_005C:
-            return;
-        }
-
-        private unsafe void BeginFadeOut()
-        {
-            int num;
-            int num2;
-            if (this.mSkipFadeOut == null)
-            {
-                goto Label_003E;
-            }
-            num = 0;
-            goto Label_002D;
-        Label_0012:
-            &(this.mCharacters[num]).TimeOffset = this.FadeOutTime;
-            num += 1;
-        Label_002D:
-            if (num < this.mNumCharacters)
-            {
-                goto Label_0012;
-            }
-            goto Label_0076;
-        Label_003E:
-            num2 = 0;
-            goto Label_006A;
-        Label_0045:
-            &(this.mCharacters[num2]).TimeOffset = (((float) num2) * this.FadeOutInterval) + this.FadeOutTime;
-            num2 += 1;
-        Label_006A:
-            if (num2 < this.mNumCharacters)
-            {
-                goto Label_0045;
-            }
-        Label_0076:
-            this.mSkipFadeOut = 0;
-            this.mStartTime = Time.get_time();
-            this.mFadingOut = 1;
-            return;
-        }
-
-        public void Close()
-        {
-            this.FadeOutVoice();
-            this.SetVisibility(0);
-            return;
-        }
-
-        public static void DiscardAll()
-        {
-            int num;
-            num = Instances.Count - 1;
-            goto Label_005B;
-        Label_0012:
-            if (Instances[num].get_gameObject().get_activeInHierarchy() != null)
-            {
-                goto Label_0046;
-            }
-            Object.Destroy(Instances[num].get_gameObject());
-            goto Label_0057;
-        Label_0046:
-            Instances[num].mCloseAndDestroy = 1;
-        Label_0057:
-            num -= 1;
-        Label_005B:
-            if (num >= 0)
-            {
-                goto Label_0012;
-            }
-            Instances.Clear();
-            return;
-        }
-
-        private void FadeOutVoice()
-        {
-            if (this.mVoice != null)
-            {
-                goto Label_000C;
-            }
-            return;
-        Label_000C:
-            this.mVoice.StopAll(this.VoiceFadeOutSec);
-            this.mVoice.Cleanup();
-            this.mVoice = null;
-            return;
-        }
-
-        public static EventDialogBubble Find(string id)
-        {
-            int num;
-            num = Instances.Count - 1;
-            goto Label_003D;
-        Label_0012:
-            if ((Instances[num].BubbleID == id) == null)
-            {
-                goto Label_0039;
-            }
-            return Instances[num];
-        Label_0039:
-            num -= 1;
-        Label_003D:
-            if (num >= 0)
-            {
-                goto Label_0012;
-            }
-            return null;
-        }
-
-        private unsafe void FlushText()
-        {
-            string str;
-            EventAction_Dialog.TextSpeedTypes types;
-            int num;
-            Ctx ctx;
-            str = this.mTextQueue;
-            this.mTextQueue = null;
-            if ((this.mCharacters != null) && (((int) this.mCharacters.Length) >= str.Length))
-            {
-                goto Label_003F;
-            }
-            this.mCharacters = new Character[str.Length * 2];
-        Label_003F:
-            str = str.Replace("<br>", "\n");
-            types = 0;
-            num = 0;
-            ctx = new Ctx();
-            &ctx.Interval = SRPG_Extensions.ToFloat(types);
-            &ctx.Color = ((this.BodyText != null) == null) ? Color.get_black() : this.BodyText.get_color();
-            this.mNumCharacters = 0;
-            this.Parse(SplitTags(str), &num, null, ctx);
-            if ((this.BodyText != null) == null)
-            {
-                goto Label_00D3;
-            }
-            this.BodyText.set_text(string.Empty);
-        Label_00D3:
-            this.mStartTime = Time.get_time() + this.FadeInTime;
-            this.mTextNeedsUpdate = this.mNumCharacters > 0;
-            this.mFadingOut = 0;
-            this.mCurrentEmotion = this.Emotion;
-            if (string.IsNullOrEmpty(this.VoiceSheetName) != null)
-            {
-                goto Label_0127;
-            }
-            if (string.IsNullOrEmpty(this.VoiceCueName) == null)
-            {
-                goto Label_0132;
-            }
-        Label_0127:
-            this.FadeOutVoice();
-            goto Label_016F;
-        Label_0132:
-            this.mVoice = new MySound.Voice(this.VoiceSheetName, null, null, EventAction.IsUnManagedAssets(this.VoiceSheetName, 0));
-            this.mVoice.Play(this.VoiceCueName, 0f, 0);
-            this.VoiceCueName = null;
-        Label_016F:
-            return;
-        }
-
-        public void Forward()
-        {
-            this.FadeOutVoice();
-            if (this.Finished == null)
-            {
-                goto Label_0011;
-            }
-        Label_0011:
-            return;
-        }
-
-        private void OnDestroy()
-        {
-            this.FadeOutVoice();
-            Instances.Remove(this);
-            return;
-        }
-
-        private void OnEnable()
-        {
-            this.mStartTime = Time.get_time();
-            return;
-        }
-
-        public void Open()
-        {
-            this.SetVisibility(1);
-            return;
-        }
-
-        private unsafe void Parse(Element[] c, ref int n, string end, Ctx ctx)
-        {
-            Match match;
-            Color32 color;
-            goto Label_00ED;
-        Label_0005:
-            if (string.IsNullOrEmpty(c[*((int*) n)].Tag) != null)
-            {
-                goto Label_00D6;
-            }
-            if ((match = regEndTag.Match(c[*((int*) n)].Tag)).Success == null)
-            {
-                goto Label_0065;
-            }
-            if ((match.Groups[1].Value == end) == null)
-            {
-                goto Label_005A;
-            }
-            *((int*) n) += 1;
-            return;
-        Label_005A:
-            *((int*) n) += 1;
-            goto Label_00ED;
-        Label_0065:
-            if ((match = regColor.Match(c[*((int*) n)].Tag)).Success == null)
-            {
-                goto Label_00CB;
-            }
-            *((int*) n) += 1;
-            color = &ctx.Color;
-            &ctx.Color = ColorUtility.ParseColor(match.Groups[1].Value);
-            this.Parse(c, n, "color", ctx);
-            &ctx.Color = color;
-            goto Label_00ED;
-        Label_00CB:
-            *((int*) n) += 1;
-            goto Label_00ED;
-        Label_00D6:
-            this.PushCharacters(c[*((int*) n)].Value, ctx);
-            *((int*) n) += 1;
-        Label_00ED:
-            if (*(((int*) n)) < ((int) c.Length))
-            {
-                goto Label_0005;
-            }
-            return;
-        }
-
-        private unsafe void PushCharacters(string s, Ctx ctx)
-        {
-            float num;
-            int num2;
-            float num3;
-            num = (this.mNumCharacters <= 0) ? 0f : &(this.mCharacters[this.mNumCharacters - 1]).TimeOffset;
-            num2 = 0;
-            goto Label_00A9;
-        Label_0036:
-            num3 = &ctx.Interval;
-            if (s[num2] != 10)
-            {
-                goto Label_0053;
-            }
-            num3 = this.NewLineInterval;
-        Label_0053:
-            *(&(this.mCharacters[this.mNumCharacters])) = new Character(s[num2], &ctx.Color, num3, num + num3);
-            num = &(this.mCharacters[this.mNumCharacters]).TimeOffset;
-            this.mNumCharacters += 1;
-            num2 += 1;
-        Label_00A9:
-            if (num2 < s.Length)
-            {
-                goto Label_0036;
-            }
-            return;
-        }
-
-        public void SetBody(string text)
-        {
-            if (this.mTextQueue != null)
-            {
-                goto Label_0029;
-            }
-            if (this.mNumCharacters > 0)
-            {
-                goto Label_0029;
-            }
-            this.mTextQueue = text;
-            this.FlushText();
-            goto Label_0036;
-        Label_0029:
-            this.BeginFadeOut();
-            this.mTextQueue = text;
-        Label_0036:
-            return;
-        }
-
-        public void SetName(string name)
-        {
-            if ((this.NameText != null) == null)
-            {
-                goto Label_001D;
-            }
-            this.NameText.set_text(name);
-        Label_001D:
-            return;
-        }
-
-        private void SetVisibility(bool open)
-        {
-            this.mShouldOpen = open;
-            if (base.get_enabled() != null)
-            {
-                goto Label_001F;
-            }
-            base.set_enabled(1);
-            this.UpdateStateBool();
-        Label_001F:
-            return;
-        }
-
-        public unsafe void Skip()
-        {
-            float num;
-            int num2;
-            num = Time.get_time();
-            if (this.IsPrinting == null)
-            {
-                goto Label_0065;
-            }
-            if ((num - this.mStartTime) <= 0.1f)
-            {
-                goto Label_0065;
-            }
-            num2 = 0;
-            goto Label_0044;
-        Label_002A:
-            &(this.mCharacters[num2]).TimeOffset = 0f;
-            num2 += 1;
-        Label_0044:
-            if (num2 < this.mNumCharacters)
-            {
-                goto Label_002A;
-            }
-            this.mStartTime = num - this.FadeInTime;
-            this.mSkipFadeOut = 1;
-        Label_0065:
-            return;
-        }
-
-        private static Element[] SplitTags(string s)
-        {
-            int num;
-            List<Element> list;
-            bool flag;
-            Element element;
-            string str;
-            num = 0;
-            list = new List<Element>();
-            goto Label_00CB;
-        Label_000D:
-            flag = 0;
-            element = new Element();
-            list.Add(element);
-            str = string.Empty;
-            if (s[num] != 60)
-            {
-                goto Label_0096;
-            }
-            flag = 1;
-            num += 1;
-            goto Label_0055;
-        Label_003C:
-            str = str + ((char) s[num++]);
-        Label_0055:
-            if (num >= s.Length)
-            {
-                goto Label_006F;
-            }
-            if (s[num] != 0x3e)
-            {
-                goto Label_003C;
-            }
-        Label_006F:
-            num += 1;
-            goto Label_00B0;
-            goto Label_0096;
-        Label_007D:
-            str = str + ((char) s[num++]);
-        Label_0096:
-            if (num >= s.Length)
-            {
-                goto Label_00B0;
-            }
-            if (s[num] != 60)
-            {
-                goto Label_007D;
-            }
-        Label_00B0:
-            if (flag == null)
-            {
-                goto Label_00C3;
-            }
-            element.Tag = str;
-            goto Label_00CB;
-        Label_00C3:
-            element.Value = str;
-        Label_00CB:
-            if (num < s.Length)
-            {
-                goto Label_000D;
-            }
-            return list.ToArray();
-        }
-
-        private void Start()
-        {
-            this.mShouldOpen = 1;
-            return;
-        }
-
-        public void StopVoice()
-        {
-            if (this.mVoice != null)
-            {
-                goto Label_000C;
-            }
-            return;
-        Label_000C:
-            this.mVoice.StopAll(0f);
-            this.mVoice = null;
-            return;
-        }
-
-        private unsafe void Update()
-        {
-            AnimatorStateInfo info;
-            AnimatorStateInfo info2;
-            AnimatorStateInfo info3;
-            this.UpdatePortrait();
-            if (this.mCloseAndDestroy == null)
-            {
-                goto Label_007B;
-            }
-            this.mShouldOpen = 0;
-            if ((this.BubbleAnimator != null) == null)
-            {
-                goto Label_006F;
-            }
-            if (string.IsNullOrEmpty(this.ClosedStateName) != null)
-            {
-                goto Label_006F;
-            }
-            this.UpdateStateBool();
-            if (&this.BubbleAnimator.GetCurrentAnimatorStateInfo(0).IsName(this.ClosedStateName) == null)
-            {
-                goto Label_007A;
-            }
-            Object.Destroy(base.get_gameObject());
-            return;
-            goto Label_007A;
-        Label_006F:
-            Object.Destroy(base.get_gameObject());
-        Label_007A:
-            return;
-        Label_007B:
-            if ((this.BubbleAnimator != null) == null)
-            {
-                goto Label_010E;
-            }
-            this.UpdateStateBool();
-            if (this.mShouldOpen != null)
-            {
-                goto Label_00D3;
-            }
-            if (string.IsNullOrEmpty(this.ClosedStateName) != null)
-            {
-                goto Label_00D3;
-            }
-            if (&this.BubbleAnimator.GetCurrentAnimatorStateInfo(0).IsName(this.ClosedStateName) == null)
-            {
-                goto Label_00D3;
-            }
-            this.mNumCharacters = 0;
-        Label_00D3:
-            if (string.IsNullOrEmpty(this.OpenedStateName) != null)
-            {
-                goto Label_010E;
-            }
-            if (&this.BubbleAnimator.GetCurrentAnimatorStateInfo(0).IsName(this.OpenedStateName) != null)
-            {
-                goto Label_010E;
-            }
-            this.mStartTime = Time.get_time();
-            return;
-        Label_010E:
-            if (this.mNumCharacters != null)
-            {
-                goto Label_012F;
-            }
-            if (string.IsNullOrEmpty(this.mTextQueue) != null)
-            {
-                goto Label_012F;
-            }
-            this.FlushText();
-        Label_012F:
-            if (this.mNumCharacters <= 0)
-            {
-                goto Label_0141;
-            }
-            this.UpdateText();
-        Label_0141:
-            return;
-        }
-
-        private void UpdatePortrait()
-        {
-            if ((this.PortraitFront == null) != null)
-            {
-                goto Label_0033;
-            }
-            if ((this.PortraitSet == null) == null)
-            {
-                goto Label_0034;
-            }
-            if ((this.CustomEmotion == null) == null)
-            {
-                goto Label_0034;
-            }
-        Label_0033:
-            return;
-        Label_0034:
-            if ((this.CustomEmotion == null) == null)
-            {
-                goto Label_0066;
-            }
-            this.PortraitFront.set_texture(this.PortraitSet.GetEmotionImage(this.mCurrentEmotion));
-            goto Label_0077;
-        Label_0066:
-            this.PortraitFront.set_texture(this.CustomEmotion);
-        Label_0077:
-            return;
-        }
-
-        private void UpdateStateBool()
-        {
-            if ((this.BubbleAnimator != null) == null)
-            {
-                goto Label_0028;
-            }
-            this.BubbleAnimator.SetBool(this.VisibilityBoolName, this.mShouldOpen);
-        Label_0028:
-            return;
-        }
-
-        private unsafe void UpdateText()
-        {
-            float num;
-            StringBuilder builder;
-            int num2;
-            float num3;
-            Color32 color;
-            float num4;
-            StringBuilder builder2;
-            int num5;
-            float num6;
-            Color32 color2;
-            if (this.mFadingOut != null)
-            {
-                goto Label_013E;
-            }
-            if (this.mTextNeedsUpdate == null)
-            {
-                goto Label_025E;
-            }
-            num = Time.get_time();
-            builder = new StringBuilder(this.mNumCharacters);
-            num2 = 0;
-            goto Label_00DF;
-        Label_002F:
-            num3 = Mathf.Clamp01(1f - (((this.mStartTime + &(this.mCharacters[num2]).TimeOffset) - num) / this.FadeInTime));
-            if (num3 > 0f)
-            {
-                goto Label_006C;
-            }
-            goto Label_00EB;
-        Label_006C:
-            color = &(this.mCharacters[num2]).Color;
-            &color.a = (byte) (((float) &color.a) * num3);
-            builder.Append("<color=");
-            builder.Append(SRPG_Extensions.ToColorValue(color));
-            builder.Append(">");
-            builder.Append(&(this.mCharacters[num2]).Code);
-            builder.Append("</color>");
-            num2 += 1;
-        Label_00DF:
-            if (num2 < this.mNumCharacters)
-            {
-                goto Label_002F;
-            }
-        Label_00EB:
-            if ((this.BodyText != null) == null)
-            {
-                goto Label_010D;
-            }
-            this.BodyText.set_text(builder.ToString());
-        Label_010D:
-            if ((this.mStartTime + &(this.mCharacters[this.mNumCharacters - 1]).TimeOffset) > num)
-            {
-                goto Label_025E;
-            }
-            this.mTextNeedsUpdate = 0;
-            goto Label_025E;
-        Label_013E:
-            num4 = Time.get_time();
-            builder2 = new StringBuilder(this.mNumCharacters);
-            num5 = 0;
-            goto Label_0201;
-        Label_015A:
-            num6 = Mathf.Clamp01(((this.mStartTime + &(this.mCharacters[num5]).TimeOffset) - num4) / this.FadeOutTime);
-            color2 = &(this.mCharacters[num5]).Color;
-            &color2.a = (byte) (((float) &color2.a) * num6);
-            builder2.Append("<color=");
-            builder2.Append(SRPG_Extensions.ToColorValue(color2));
-            builder2.Append(">");
-            builder2.Append(&(this.mCharacters[num5]).Code);
-            builder2.Append("</color>");
-            num5 += 1;
-        Label_0201:
-            if (num5 < this.mNumCharacters)
-            {
-                goto Label_015A;
-            }
-            if ((this.BodyText != null) == null)
-            {
-                goto Label_0231;
-            }
-            this.BodyText.set_text(builder2.ToString());
-        Label_0231:
-            if ((this.mStartTime + &(this.mCharacters[this.mNumCharacters - 1]).TimeOffset) > num4)
-            {
-                goto Label_025E;
-            }
-            this.mNumCharacters = 0;
-        Label_025E:
-            return;
-        }
-
-        public SRPG.PortraitSet PortraitSet
-        {
-            get
-            {
-                return this.mPortraitSet;
-            }
-            set
-            {
-                this.mPortraitSet = value;
-                return;
-            }
-        }
-
-        public SRPG.PortraitSet.EmotionTypes Emotion
-        {
-            get
-            {
-                return this.mDesiredEmotion;
-            }
-            set
-            {
-                this.mDesiredEmotion = value;
-                if (this.mTextQueue != null)
-                {
-                    goto Label_001E;
-                }
-                this.mCurrentEmotion = this.mDesiredEmotion;
-            Label_001E:
-                return;
-            }
-        }
-
-        public string VoiceSheetName
-        {
-            [CompilerGenerated]
-            get
-            {
-                return this.<VoiceSheetName>k__BackingField;
-            }
-            [CompilerGenerated]
-            set
-            {
-                this.<VoiceSheetName>k__BackingField = value;
-                return;
-            }
-        }
-
-        public string VoiceCueName
-        {
-            [CompilerGenerated]
-            get
-            {
-                return this.<VoiceCueName>k__BackingField;
-            }
-            [CompilerGenerated]
-            set
-            {
-                this.<VoiceCueName>k__BackingField = value;
-                return;
-            }
-        }
-
-        public bool IsPrinting
-        {
-            get
-            {
-                return (((this.mFadingOut != null) || (this.mTextNeedsUpdate == null)) ? 0 : (this.mNumCharacters > 0));
-            }
-        }
-
-        public bool Finished
-        {
-            get
-            {
-                return ((this.mFadingOut != null) ? 0 : (this.mTextNeedsUpdate == 0));
-            }
-        }
-
-        public Anchors Anchor
-        {
-            get
-            {
-                return this.mAnchor;
-            }
-            set
-            {
-                RectTransform transform;
-                Anchors anchors;
-                Vector2 vector;
-                if (this.mAnchor != value)
-                {
-                    goto Label_000D;
-                }
-                return;
-            Label_000D:
-                transform = base.GetComponent<RectTransform>();
-                this.mAnchor = value;
-                switch ((this.mAnchor - 1))
-                {
-                    case 0:
-                        goto Label_0053;
-
-                    case 1:
-                        goto Label_00A0;
-
-                    case 2:
-                        goto Label_00ED;
-
-                    case 3:
-                        goto Label_013A;
-
-                    case 4:
-                        goto Label_02BB;
-
-                    case 5:
-                        goto Label_0187;
-
-                    case 6:
-                        goto Label_01D4;
-
-                    case 7:
-                        goto Label_0221;
-
-                    case 8:
-                        goto Label_026E;
-                }
-                goto Label_02BB;
-            Label_0053:
-                vector = new Vector2(0f, 1f);
-                transform.set_anchorMax(vector);
-                transform.set_anchorMin(vector);
-                transform.set_pivot(new Vector2(0f, 1f));
-                transform.set_anchoredPosition(new Vector2(20f, -30f));
-                goto Label_02BB;
-            Label_00A0:
-                vector = new Vector2(0.5f, 1f);
-                transform.set_anchorMax(vector);
-                transform.set_anchorMin(vector);
-                transform.set_pivot(new Vector2(0.5f, 1f));
-                transform.set_anchoredPosition(new Vector2(0f, -30f));
-                goto Label_02BB;
-            Label_00ED:
-                vector = new Vector2(1f, 1f);
-                transform.set_anchorMax(vector);
-                transform.set_anchorMin(vector);
-                transform.set_pivot(new Vector2(1f, 1f));
-                transform.set_anchoredPosition(new Vector2(-20f, -30f));
-                goto Label_02BB;
-            Label_013A:
-                vector = new Vector2(0f, 0.5f);
-                transform.set_anchorMax(vector);
-                transform.set_anchorMin(vector);
-                transform.set_pivot(new Vector2(0f, 0.5f));
-                transform.set_anchoredPosition(new Vector2(20f, 0f));
-                goto Label_02BB;
-            Label_0187:
-                vector = new Vector2(1f, 0.5f);
-                transform.set_anchorMax(vector);
-                transform.set_anchorMin(vector);
-                transform.set_pivot(new Vector2(1f, 0.5f));
-                transform.set_anchoredPosition(new Vector2(-20f, 0f));
-                goto Label_02BB;
-            Label_01D4:
-                vector = new Vector2(0f, 0f);
-                transform.set_anchorMax(vector);
-                transform.set_anchorMin(vector);
-                transform.set_pivot(new Vector2(0f, 0f));
-                transform.set_anchoredPosition(new Vector2(20f, 20f));
-                goto Label_02BB;
-            Label_0221:
-                vector = new Vector2(0.5f, 0f);
-                transform.set_anchorMax(vector);
-                transform.set_anchorMin(vector);
-                transform.set_pivot(new Vector2(0.5f, 0f));
-                transform.set_anchoredPosition(new Vector2(0f, 20f));
-                goto Label_02BB;
-            Label_026E:
-                vector = new Vector2(1f, 0f);
-                transform.set_anchorMax(vector);
-                transform.set_anchorMin(vector);
-                transform.set_pivot(new Vector2(1f, 0f));
-                transform.set_anchoredPosition(new Vector2(-20f, 20f));
-            Label_02BB:
-                return;
-            }
-        }
-
-        public enum Anchors
-        {
-            None,
-            TopLeft,
-            TopCenter,
-            TopRight,
-            MiddleLeft,
-            Center,
-            MiddleRight,
-            BottomLeft,
-            BottomCenter,
-            BottomRight
-        }
-
-        [StructLayout(LayoutKind.Sequential)]
-        private struct Character
-        {
-            public char Code;
-            public Color32 Color;
-            public float Interval;
-            public float TimeOffset;
-            public Character(char code, Color32 color, float interval, float timeOffset)
-            {
-                interval = Mathf.Max(interval, 0.01f);
-                this.Code = code;
-                this.Color = color;
-                this.Interval = interval;
-                this.TimeOffset = timeOffset;
-                return;
-            }
-        }
-
-        [StructLayout(LayoutKind.Sequential)]
-        private struct Ctx
-        {
-            public Color32 Color;
-            public float Interval;
-        }
-
-        private class Element
-        {
-            public string Tag;
-            public string Value;
-
-            public Element()
-            {
-                base..ctor();
-                return;
-            }
-        }
+      base.\u002Ector();
     }
-}
 
+    public PortraitSet PortraitSet
+    {
+      set
+      {
+        this.mPortraitSet = value;
+      }
+      get
+      {
+        return this.mPortraitSet;
+      }
+    }
+
+    public PortraitSet.EmotionTypes Emotion
+    {
+      set
+      {
+        this.mDesiredEmotion = value;
+        if (this.mTextQueue != null)
+          return;
+        this.mCurrentEmotion = this.mDesiredEmotion;
+      }
+      get
+      {
+        return this.mDesiredEmotion;
+      }
+    }
+
+    public string VoiceSheetName { get; set; }
+
+    public string VoiceCueName { get; set; }
+
+    public static EventDialogBubble Find(string id)
+    {
+      for (int index = EventDialogBubble.Instances.Count - 1; index >= 0; --index)
+      {
+        if (EventDialogBubble.Instances[index].BubbleID == id)
+          return EventDialogBubble.Instances[index];
+      }
+      return (EventDialogBubble) null;
+    }
+
+    public static void DiscardAll()
+    {
+      for (int index = EventDialogBubble.Instances.Count - 1; index >= 0; --index)
+      {
+        if (!((Component) EventDialogBubble.Instances[index]).get_gameObject().get_activeInHierarchy())
+          UnityEngine.Object.Destroy((UnityEngine.Object) ((Component) EventDialogBubble.Instances[index]).get_gameObject());
+        else
+          EventDialogBubble.Instances[index].mCloseAndDestroy = true;
+      }
+      EventDialogBubble.Instances.Clear();
+    }
+
+    private void UpdatePortrait()
+    {
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.PortraitFront, (UnityEngine.Object) null) || UnityEngine.Object.op_Equality((UnityEngine.Object) this.PortraitSet, (UnityEngine.Object) null) && UnityEngine.Object.op_Equality((UnityEngine.Object) this.CustomEmotion, (UnityEngine.Object) null))
+        return;
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.CustomEmotion, (UnityEngine.Object) null))
+        this.PortraitFront.set_texture((Texture) this.PortraitSet.GetEmotionImage(this.mCurrentEmotion));
+      else
+        this.PortraitFront.set_texture((Texture) this.CustomEmotion);
+    }
+
+    private void Awake()
+    {
+      EventDialogBubble.Instances.Add(this);
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BodyText, (UnityEngine.Object) null))
+        return;
+      RectTransform transform1 = ((Component) this).get_transform() as RectTransform;
+      RectTransform transform2 = ((Component) this.BodyText).get_transform() as RectTransform;
+      Rect rect1 = transform1.get_rect();
+      // ISSUE: explicit reference operation
+      double width1 = (double) ((Rect) @rect1).get_width();
+      Rect rect2 = transform2.get_rect();
+      // ISSUE: explicit reference operation
+      double width2 = (double) ((Rect) @rect2).get_width();
+      this.mBaseWidth = (float) (width1 - width2);
+    }
+
+    private void OnDestroy()
+    {
+      this.FadeOutVoice();
+      EventDialogBubble.Instances.Remove(this);
+    }
+
+    private void FadeOutVoice()
+    {
+      if (this.mVoice == null)
+        return;
+      this.mVoice.StopAll(this.VoiceFadeOutSec);
+      this.mVoice.Cleanup();
+      this.mVoice = (MySound.Voice) null;
+    }
+
+    public void StopVoice()
+    {
+      if (this.mVoice == null)
+        return;
+      this.mVoice.StopAll(0.0f);
+      this.mVoice = (MySound.Voice) null;
+    }
+
+    public bool IsPrinting
+    {
+      get
+      {
+        if (!this.mFadingOut && this.mTextNeedsUpdate)
+          return this.mNumCharacters > 0;
+        return false;
+      }
+    }
+
+    public void Skip()
+    {
+      float time = Time.get_time();
+      if (!this.IsPrinting || (double) time - (double) this.mStartTime <= 0.100000001490116)
+        return;
+      for (int index = 0; index < this.mNumCharacters; ++index)
+        this.mCharacters[index].TimeOffset = 0.0f;
+      this.mStartTime = time - this.FadeInTime;
+      this.mSkipFadeOut = true;
+    }
+
+    public void AdjustWidth(string bodyText)
+    {
+      if (UnityEngine.Object.op_Equality((UnityEngine.Object) this.BodyText, (UnityEngine.Object) null) || !this.AutoExpandWidth)
+        return;
+      EventDialogBubble.Element[] elementArray = EventDialogBubble.SplitTags(bodyText);
+      StringBuilder stringBuilder = new StringBuilder(elementArray.Length);
+      for (int index = 0; index < elementArray.Length; ++index)
+      {
+        if (!string.IsNullOrEmpty(elementArray[index].Value))
+          stringBuilder.Append(elementArray[index].Value);
+      }
+      float num = Mathf.Min(this.BodyText.get_cachedTextGeneratorForLayout().GetPreferredWidth(stringBuilder.ToString(), this.BodyText.GetGenerationSettings(Vector2.get_zero())) / this.BodyText.get_pixelsPerUnit(), this.MaxBodyTextWidth) + this.mBaseWidth;
+      RectTransform transform = ((Component) this).get_transform() as RectTransform;
+      Vector2 sizeDelta = transform.get_sizeDelta();
+      sizeDelta.x = (__Null) (double) Mathf.Max((float) sizeDelta.x, num);
+      transform.set_sizeDelta(sizeDelta);
+    }
+
+    public void SetName(string name)
+    {
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.NameText, (UnityEngine.Object) null))
+        return;
+      this.NameText.set_text(name);
+    }
+
+    private static EventDialogBubble.Element[] SplitTags(string s)
+    {
+      int index1 = 0;
+      List<EventDialogBubble.Element> elementList = new List<EventDialogBubble.Element>();
+      while (index1 < s.Length)
+      {
+        bool flag = false;
+        EventDialogBubble.Element element = new EventDialogBubble.Element();
+        elementList.Add(element);
+        string empty = string.Empty;
+        if ((int) s[index1] == 60)
+        {
+          flag = true;
+          int index2 = index1 + 1;
+          while (index2 < s.Length && (int) s[index2] != 62)
+            empty += (string) (object) s[index2++];
+          index1 = index2 + 1;
+        }
+        else
+        {
+          while (index1 < s.Length && (int) s[index1] != 60)
+            empty += (string) (object) s[index1++];
+        }
+        if (flag)
+          element.Tag = empty;
+        else
+          element.Value = empty;
+      }
+      return elementList.ToArray();
+    }
+
+    private void Parse(EventDialogBubble.Element[] c, ref int n, string end, EventDialogBubble.Ctx ctx)
+    {
+      while (n < c.Length)
+      {
+        if (!string.IsNullOrEmpty(c[n].Tag))
+        {
+          Match match1;
+          if ((match1 = EventDialogBubble.regEndTag.Match(c[n].Tag)).Success)
+          {
+            if (match1.Groups[1].Value == end)
+            {
+              ++n;
+              break;
+            }
+            ++n;
+          }
+          else
+          {
+            Match match2;
+            if ((match2 = EventDialogBubble.regColor.Match(c[n].Tag)).Success)
+            {
+              ++n;
+              Color32 color = ctx.Color;
+              ctx.Color = ColorUtility.ParseColor(match2.Groups[1].Value);
+              this.Parse(c, ref n, "color", ctx);
+              ctx.Color = color;
+            }
+            else
+              ++n;
+          }
+        }
+        else
+        {
+          this.PushCharacters(c[n].Value, ctx);
+          ++n;
+        }
+      }
+    }
+
+    private void PushCharacters(string s, EventDialogBubble.Ctx ctx)
+    {
+      float num = this.mNumCharacters <= 0 ? 0.0f : this.mCharacters[this.mNumCharacters - 1].TimeOffset;
+      for (int index = 0; index < s.Length; ++index)
+      {
+        float interval = ctx.Interval;
+        if ((int) s[index] == 10)
+          interval = this.NewLineInterval;
+        this.mCharacters[this.mNumCharacters] = new EventDialogBubble.Character(s[index], ctx.Color, interval, num + interval);
+        num = this.mCharacters[this.mNumCharacters].TimeOffset;
+        ++this.mNumCharacters;
+      }
+    }
+
+    private void FlushText()
+    {
+      string mTextQueue = this.mTextQueue;
+      this.mTextQueue = (string) null;
+      if (this.mCharacters == null || this.mCharacters.Length < mTextQueue.Length)
+        this.mCharacters = new EventDialogBubble.Character[mTextQueue.Length * 2];
+      string s = mTextQueue.Replace("<br>", "\n");
+      EventAction_Dialog.TextSpeedTypes speed = EventAction_Dialog.TextSpeedTypes.Normal;
+      int n = 0;
+      EventDialogBubble.Ctx ctx = new EventDialogBubble.Ctx();
+      ctx.Interval = speed.ToFloat();
+      ctx.Color = Color32.op_Implicit(!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BodyText, (UnityEngine.Object) null) ? Color.get_black() : ((Graphic) this.BodyText).get_color());
+      this.mNumCharacters = 0;
+      this.Parse(EventDialogBubble.SplitTags(s), ref n, (string) null, ctx);
+      if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BodyText, (UnityEngine.Object) null))
+        this.BodyText.set_text(string.Empty);
+      this.mStartTime = Time.get_time() + this.FadeInTime;
+      this.mTextNeedsUpdate = this.mNumCharacters > 0;
+      this.mFadingOut = false;
+      this.mCurrentEmotion = this.Emotion;
+      if (string.IsNullOrEmpty(this.VoiceSheetName) || string.IsNullOrEmpty(this.VoiceCueName))
+      {
+        this.FadeOutVoice();
+      }
+      else
+      {
+        this.mVoice = new MySound.Voice(this.VoiceSheetName, (string) null, (string) null, EventAction.IsUnManagedAssets(this.VoiceSheetName, false));
+        this.mVoice.Play(this.VoiceCueName, 0.0f, false);
+        this.VoiceCueName = (string) null;
+      }
+    }
+
+    public void SetBody(string text)
+    {
+      if (this.mTextQueue == null && this.mNumCharacters <= 0)
+      {
+        this.mTextQueue = text;
+        this.FlushText();
+      }
+      else
+      {
+        this.BeginFadeOut();
+        this.mTextQueue = text;
+      }
+    }
+
+    private void OnEnable()
+    {
+      this.mStartTime = Time.get_time();
+    }
+
+    private void Start()
+    {
+      this.mShouldOpen = true;
+    }
+
+    private void BeginFadeOut()
+    {
+      if (this.mSkipFadeOut)
+      {
+        for (int index = 0; index < this.mNumCharacters; ++index)
+          this.mCharacters[index].TimeOffset = this.FadeOutTime;
+      }
+      else
+      {
+        for (int index = 0; index < this.mNumCharacters; ++index)
+          this.mCharacters[index].TimeOffset = (float) index * this.FadeOutInterval + this.FadeOutTime;
+      }
+      this.mSkipFadeOut = false;
+      this.mStartTime = Time.get_time();
+      this.mFadingOut = true;
+    }
+
+    public bool Finished
+    {
+      get
+      {
+        if (!this.mFadingOut)
+          return !this.mTextNeedsUpdate;
+        return false;
+      }
+    }
+
+    public void Open()
+    {
+      this.SetVisibility(true);
+    }
+
+    public void Close()
+    {
+      this.FadeOutVoice();
+      this.SetVisibility(false);
+    }
+
+    private void SetVisibility(bool open)
+    {
+      this.mShouldOpen = open;
+      if (((Behaviour) this).get_enabled())
+        return;
+      ((Behaviour) this).set_enabled(true);
+      this.UpdateStateBool();
+    }
+
+    public void Forward()
+    {
+      this.FadeOutVoice();
+      if (this.Finished)
+        ;
+    }
+
+    private void UpdateText()
+    {
+      if (!this.mFadingOut)
+      {
+        if (!this.mTextNeedsUpdate)
+          return;
+        float time = Time.get_time();
+        StringBuilder stringBuilder = new StringBuilder(this.mNumCharacters);
+        for (int index = 0; index < this.mNumCharacters; ++index)
+        {
+          float num = Mathf.Clamp01((float) (1.0 - ((double) this.mStartTime + (double) this.mCharacters[index].TimeOffset - (double) time) / (double) this.FadeInTime));
+          if ((double) num > 0.0)
+          {
+            Color32 color = this.mCharacters[index].Color;
+            color.a = (__Null) (int) (byte) ((double) (float) color.a * (double) num);
+            stringBuilder.Append("<color=");
+            stringBuilder.Append(color.ToColorValue());
+            stringBuilder.Append(">");
+            stringBuilder.Append(this.mCharacters[index].Code);
+            stringBuilder.Append("</color>");
+          }
+          else
+            break;
+        }
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BodyText, (UnityEngine.Object) null))
+          this.BodyText.set_text(stringBuilder.ToString());
+        if ((double) this.mStartTime + (double) this.mCharacters[this.mNumCharacters - 1].TimeOffset > (double) time)
+          return;
+        this.mTextNeedsUpdate = false;
+      }
+      else
+      {
+        float time = Time.get_time();
+        StringBuilder stringBuilder = new StringBuilder(this.mNumCharacters);
+        for (int index = 0; index < this.mNumCharacters; ++index)
+        {
+          float num = Mathf.Clamp01((this.mStartTime + this.mCharacters[index].TimeOffset - time) / this.FadeOutTime);
+          Color32 color = this.mCharacters[index].Color;
+          color.a = (__Null) (int) (byte) ((double) (float) color.a * (double) num);
+          stringBuilder.Append("<color=");
+          stringBuilder.Append(color.ToColorValue());
+          stringBuilder.Append(">");
+          stringBuilder.Append(this.mCharacters[index].Code);
+          stringBuilder.Append("</color>");
+        }
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BodyText, (UnityEngine.Object) null))
+          this.BodyText.set_text(stringBuilder.ToString());
+        if ((double) this.mStartTime + (double) this.mCharacters[this.mNumCharacters - 1].TimeOffset > (double) time)
+          return;
+        this.mNumCharacters = 0;
+      }
+    }
+
+    private void UpdateStateBool()
+    {
+      if (!UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BubbleAnimator, (UnityEngine.Object) null))
+        return;
+      this.BubbleAnimator.SetBool(this.VisibilityBoolName, this.mShouldOpen);
+    }
+
+    private void Update()
+    {
+      this.UpdatePortrait();
+      if (this.mCloseAndDestroy)
+      {
+        this.mShouldOpen = false;
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BubbleAnimator, (UnityEngine.Object) null) && !string.IsNullOrEmpty(this.ClosedStateName))
+        {
+          this.UpdateStateBool();
+          AnimatorStateInfo animatorStateInfo = this.BubbleAnimator.GetCurrentAnimatorStateInfo(0);
+          // ISSUE: explicit reference operation
+          if (!((AnimatorStateInfo) @animatorStateInfo).IsName(this.ClosedStateName))
+            return;
+          UnityEngine.Object.Destroy((UnityEngine.Object) ((Component) this).get_gameObject());
+        }
+        else
+          UnityEngine.Object.Destroy((UnityEngine.Object) ((Component) this).get_gameObject());
+      }
+      else
+      {
+        if (UnityEngine.Object.op_Inequality((UnityEngine.Object) this.BubbleAnimator, (UnityEngine.Object) null))
+        {
+          this.UpdateStateBool();
+          if (!this.mShouldOpen && !string.IsNullOrEmpty(this.ClosedStateName))
+          {
+            AnimatorStateInfo animatorStateInfo = this.BubbleAnimator.GetCurrentAnimatorStateInfo(0);
+            // ISSUE: explicit reference operation
+            if (((AnimatorStateInfo) @animatorStateInfo).IsName(this.ClosedStateName))
+              this.mNumCharacters = 0;
+          }
+          if (!string.IsNullOrEmpty(this.OpenedStateName))
+          {
+            AnimatorStateInfo animatorStateInfo = this.BubbleAnimator.GetCurrentAnimatorStateInfo(0);
+            // ISSUE: explicit reference operation
+            if (!((AnimatorStateInfo) @animatorStateInfo).IsName(this.OpenedStateName))
+            {
+              this.mStartTime = Time.get_time();
+              return;
+            }
+          }
+        }
+        if (this.mNumCharacters == 0 && !string.IsNullOrEmpty(this.mTextQueue))
+          this.FlushText();
+        if (this.mNumCharacters <= 0)
+          return;
+        this.UpdateText();
+      }
+    }
+
+    public EventDialogBubble.Anchors Anchor
+    {
+      set
+      {
+        if (this.mAnchor == value)
+          return;
+        RectTransform component = (RectTransform) ((Component) this).GetComponent<RectTransform>();
+        this.mAnchor = value;
+        switch (this.mAnchor)
+        {
+          case EventDialogBubble.Anchors.TopLeft:
+            RectTransform rectTransform1 = component;
+            Vector2 vector2_1 = new Vector2(0.0f, 1f);
+            component.set_anchorMax(vector2_1);
+            Vector2 vector2_2 = vector2_1;
+            rectTransform1.set_anchorMin(vector2_2);
+            component.set_pivot(new Vector2(0.0f, 1f));
+            component.set_anchoredPosition(new Vector2(20f, -30f));
+            break;
+          case EventDialogBubble.Anchors.TopCenter:
+            RectTransform rectTransform2 = component;
+            Vector2 vector2_3 = new Vector2(0.5f, 1f);
+            component.set_anchorMax(vector2_3);
+            Vector2 vector2_4 = vector2_3;
+            rectTransform2.set_anchorMin(vector2_4);
+            component.set_pivot(new Vector2(0.5f, 1f));
+            component.set_anchoredPosition(new Vector2(0.0f, -30f));
+            break;
+          case EventDialogBubble.Anchors.TopRight:
+            RectTransform rectTransform3 = component;
+            Vector2 vector2_5 = new Vector2(1f, 1f);
+            component.set_anchorMax(vector2_5);
+            Vector2 vector2_6 = vector2_5;
+            rectTransform3.set_anchorMin(vector2_6);
+            component.set_pivot(new Vector2(1f, 1f));
+            component.set_anchoredPosition(new Vector2(-20f, -30f));
+            break;
+          case EventDialogBubble.Anchors.MiddleLeft:
+            RectTransform rectTransform4 = component;
+            Vector2 vector2_7 = new Vector2(0.0f, 0.5f);
+            component.set_anchorMax(vector2_7);
+            Vector2 vector2_8 = vector2_7;
+            rectTransform4.set_anchorMin(vector2_8);
+            component.set_pivot(new Vector2(0.0f, 0.5f));
+            component.set_anchoredPosition(new Vector2(20f, 0.0f));
+            break;
+          case EventDialogBubble.Anchors.MiddleRight:
+            RectTransform rectTransform5 = component;
+            Vector2 vector2_9 = new Vector2(1f, 0.5f);
+            component.set_anchorMax(vector2_9);
+            Vector2 vector2_10 = vector2_9;
+            rectTransform5.set_anchorMin(vector2_10);
+            component.set_pivot(new Vector2(1f, 0.5f));
+            component.set_anchoredPosition(new Vector2(-20f, 0.0f));
+            break;
+          case EventDialogBubble.Anchors.BottomLeft:
+            RectTransform rectTransform6 = component;
+            Vector2 vector2_11 = new Vector2(0.0f, 0.0f);
+            component.set_anchorMax(vector2_11);
+            Vector2 vector2_12 = vector2_11;
+            rectTransform6.set_anchorMin(vector2_12);
+            component.set_pivot(new Vector2(0.0f, 0.0f));
+            component.set_anchoredPosition(new Vector2(20f, 20f));
+            break;
+          case EventDialogBubble.Anchors.BottomCenter:
+            RectTransform rectTransform7 = component;
+            Vector2 vector2_13 = new Vector2(0.5f, 0.0f);
+            component.set_anchorMax(vector2_13);
+            Vector2 vector2_14 = vector2_13;
+            rectTransform7.set_anchorMin(vector2_14);
+            component.set_pivot(new Vector2(0.5f, 0.0f));
+            component.set_anchoredPosition(new Vector2(0.0f, 20f));
+            break;
+          case EventDialogBubble.Anchors.BottomRight:
+            RectTransform rectTransform8 = component;
+            Vector2 vector2_15 = new Vector2(1f, 0.0f);
+            component.set_anchorMax(vector2_15);
+            Vector2 vector2_16 = vector2_15;
+            rectTransform8.set_anchorMin(vector2_16);
+            component.set_pivot(new Vector2(1f, 0.0f));
+            component.set_anchoredPosition(new Vector2(-20f, 20f));
+            break;
+        }
+      }
+      get
+      {
+        return this.mAnchor;
+      }
+    }
+
+    private struct Character
+    {
+      public char Code;
+      public Color32 Color;
+      public float Interval;
+      public float TimeOffset;
+
+      public Character(char code, Color32 color, float interval, float timeOffset)
+      {
+        interval = Mathf.Max(interval, 0.01f);
+        this.Code = code;
+        this.Color = color;
+        this.Interval = interval;
+        this.TimeOffset = timeOffset;
+      }
+    }
+
+    private class Element
+    {
+      public string Tag;
+      public string Value;
+    }
+
+    private struct Ctx
+    {
+      public Color32 Color;
+      public float Interval;
+    }
+
+    public enum Anchors
+    {
+      None,
+      TopLeft,
+      TopCenter,
+      TopRight,
+      MiddleLeft,
+      Center,
+      MiddleRight,
+      BottomLeft,
+      BottomCenter,
+      BottomRight,
+    }
+  }
+}

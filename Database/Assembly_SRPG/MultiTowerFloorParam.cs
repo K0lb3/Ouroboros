@@ -1,222 +1,175 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.MultiTowerFloorParam
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System.Collections.Generic;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-    using System.Collections.Generic;
-    using System.Runtime.InteropServices;
+  public class MultiTowerFloorParam
+  {
+    public List<MapParam> map = new List<MapParam>(BattleCore.MAX_MAP);
+    protected string localizedNameID;
+    protected string localizedExprID;
+    protected string localizedCondID;
+    protected string localizedTitleID;
+    private QuestParam CachedQuestParam;
+    private QuestParam BaseQuest;
+    public int id;
+    public string title;
+    public string name;
+    public string expr;
+    public string cond;
+    public string tower_id;
+    public int cond_floor;
+    public string reward_id;
+    public short pt;
+    public short FloorIndex;
+    public short floor;
+    public short lv;
+    public short joblv;
+    public short unitnum;
+    public short notcon;
+    public bool DownLoaded;
+    public string error_messarge;
+    public string me_id;
+    public int is_wth_no_chg;
+    public string wth_set_id;
 
-    public class MultiTowerFloorParam
+    protected void localizeFields(string language)
     {
-        public List<MapParam> map;
-        private QuestParam CachedQuestParam;
-        private QuestParam BaseQuest;
-        public int id;
-        public string title;
-        public string name;
-        public string expr;
-        public string cond;
-        public string tower_id;
-        public int cond_floor;
-        public string reward_id;
-        public short pt;
-        public short FloorIndex;
-        public short floor;
-        public short lv;
-        public short joblv;
-        public short unitnum;
-        public short notcon;
-        public bool DownLoaded;
-        public string error_messarge;
-        public string me_id;
-        public int is_wth_no_chg;
-        public string wth_set_id;
-
-        public MultiTowerFloorParam()
-        {
-            this.map = new List<MapParam>(BattleCore.MAX_MAP);
-            base..ctor();
-            return;
-        }
-
-        public QuestParam Clone(QuestParam original, bool useCache)
-        {
-            if (useCache == null)
-            {
-                goto Label_0036;
-            }
-            if (this.CachedQuestParam != null)
-            {
-                goto Label_002F;
-            }
-            this.CachedQuestParam = this.ConvertQuestParam((original == null) ? this.BaseQuest : original);
-        Label_002F:
-            return this.CachedQuestParam;
-        Label_0036:
-            return this.ConvertQuestParam((original == null) ? this.BaseQuest : original);
-        }
-
-        private unsafe QuestParam ConvertQuestParam(QuestParam original)
-        {
-            string[] textArray1;
-            GameManager manager;
-            JSON_QuestParam param;
-            QuestParam param2;
-            int num;
-            JSON_MapParam param3;
-            TowerRewardParam param4;
-            List<TowerRewardItem> list;
-            int num2;
-            TowerRewardItem item;
-            QuestParam param5;
-            if (original != null)
-            {
-                goto Label_0008;
-            }
-            return null;
-        Label_0008:
-            manager = MonoSingleton<GameManager>.Instance;
-            param = new JSON_QuestParam();
-            param.iname = this.tower_id + "_" + &this.floor.ToString();
-            param.title = this.title;
-            param.name = this.name;
-            param.expr = this.expr;
-            param.cond = this.cond;
-            if (this.cond_floor == null)
-            {
-                goto Label_00AD;
-            }
-            param2 = manager.FindQuest(this.tower_id + "_" + ((int) this.cond_floor));
-            if (param2 == null)
-            {
-                goto Label_00AD;
-            }
-            textArray1 = new string[] { param2.iname };
-            param.cond_quests = textArray1;
-        Label_00AD:
-            param.map = new JSON_MapParam[this.map.Count];
-            param.lv = this.lv;
-            param.pt = this.pt;
-            num = 0;
-            goto Label_016F;
-        Label_00E2:
-            param3 = new JSON_MapParam();
-            param3.set = this.map[num].mapSetName;
-            param3.scn = this.map[num].mapSceneName;
-            param3.bgm = this.map[num].bgmName;
-            param3.btl = this.map[num].battleSceneName;
-            param3.ev = this.map[num].eventSceneName;
-            param.map[num] = param3;
-            num += 1;
-        Label_016F:
-            if (num < this.map.Count)
-            {
-                goto Label_00E2;
-            }
-            param.area = original.ChapterID;
-            param.type = original.type;
-            param.notcon = this.notcon;
-            param.notitm = 1;
-            param.pnum = original.playerNum;
-            param.gold = 0;
-            param.is_unit_chg = 0;
-            param.multi = 1;
-            param.me_id = this.me_id;
-            param.is_wth_no_chg = this.is_wth_no_chg;
-            param.wth_set_id = this.wth_set_id;
-            param4 = MonoSingleton<GameManager>.Instance.FindTowerReward(this.reward_id);
-            if (param4 == null)
-            {
-                goto Label_0264;
-            }
-            list = param4.GetTowerRewardItem();
-            num2 = 0;
-            goto Label_0256;
-        Label_021F:
-            item = list[num2];
-            if (item != null)
-            {
-                goto Label_0236;
-            }
-            goto Label_0250;
-        Label_0236:
-            if (item.type != 1)
-            {
-                goto Label_0250;
-            }
-            param.gold = item.num;
-        Label_0250:
-            num2 += 1;
-        Label_0256:
-            if (num2 < list.Count)
-            {
-                goto Label_021F;
-            }
-        Label_0264:
-            param5 = new QuestParam();
-            param5.Deserialize(param);
-            param5.EntryCondition = original.EntryCondition;
-            param5.unitNum = this.unitnum;
-            return param5;
-        }
-
-        public void Deserialize(JSON_MultiTowerFloorParam json)
-        {
-            int num;
-            MapParam param;
-            GameManager manager;
-            QuestParam param2;
-            if (json != null)
-            {
-                goto Label_000C;
-            }
-            throw new InvalidJSONException();
-        Label_000C:
-            this.id = json.id;
-            this.title = json.title;
-            this.name = json.name;
-            this.expr = json.expr;
-            this.cond = json.cond;
-            this.tower_id = json.tower_id;
-            this.cond_floor = json.cond_floor;
-            this.pt = json.pt;
-            this.lv = json.lv;
-            this.joblv = json.joblv;
-            this.reward_id = json.reward_id;
-            this.floor = json.floor;
-            this.unitnum = json.unitnum;
-            this.notcon = json.notcon;
-            this.me_id = json.me_id;
-            this.is_wth_no_chg = json.is_wth_no_chg;
-            this.wth_set_id = json.wth_set_id;
-            this.map.Clear();
-            if (json.map == null)
-            {
-                goto Label_0127;
-            }
-            num = 0;
-            goto Label_0119;
-        Label_00F5:
-            param = new MapParam();
-            param.Deserialize(json.map[num]);
-            this.map.Add(param);
-            num += 1;
-        Label_0119:
-            if (num < ((int) json.map.Length))
-            {
-                goto Label_00F5;
-            }
-        Label_0127:
-            manager = MonoSingleton<GameManager>.Instance;
-            this.BaseQuest = manager.FindQuest(this.tower_id);
-            param2 = this.GetQuestParam();
-            manager.AddMTQuest(param2.iname, param2);
-            return;
-        }
-
-        public QuestParam GetQuestParam()
-        {
-            return this.Clone(null, 1);
-        }
+      this.init();
+      this.name = LocalizedText.SGGet(language, GameUtility.LocalizedQuestParamFileName, this.localizedNameID);
+      this.expr = LocalizedText.SGGet(language, GameUtility.LocalizedQuestParamFileName, this.localizedExprID);
+      this.title = LocalizedText.SGGet(language, GameUtility.LocalizedQuestParamFileName, this.localizedTitleID);
+      this.cond = LocalizedText.SGGet(language, GameUtility.LocalizedQuestParamFileName, this.localizedCondID);
     }
-}
 
+    protected void init()
+    {
+      string id = this.tower_id + (object) '_' + this.floor.ToString();
+      this.localizedNameID = this.GetType().GenerateLocalizedID(id, "NAME");
+      this.localizedExprID = this.GetType().GenerateLocalizedID(id, "EXPR");
+      this.localizedCondID = this.GetType().GenerateLocalizedID(id, "COND");
+      this.localizedTitleID = this.GetType().GenerateLocalizedID(id, "TITLE");
+    }
+
+    public void Deserialize(string language, JSON_MultiTowerFloorParam json)
+    {
+      this.Deserialize(json);
+      this.localizeFields(language);
+    }
+
+    public QuestParam Clone(QuestParam original, bool useCache = false)
+    {
+      if (!useCache)
+        return this.ConvertQuestParam(original == null ? this.BaseQuest : original);
+      if (this.CachedQuestParam == null)
+        this.CachedQuestParam = this.ConvertQuestParam(original == null ? this.BaseQuest : original);
+      return this.CachedQuestParam;
+    }
+
+    public QuestParam GetQuestParam()
+    {
+      return this.Clone((QuestParam) null, true);
+    }
+
+    private QuestParam ConvertQuestParam(QuestParam original)
+    {
+      if (original == null)
+        return (QuestParam) null;
+      GameManager instance = MonoSingleton<GameManager>.Instance;
+      JSON_QuestParam json = new JSON_QuestParam();
+      json.iname = this.tower_id + "_" + this.floor.ToString();
+      json.title = this.title;
+      json.name = this.name;
+      json.expr = this.expr;
+      json.cond = this.cond;
+      if (this.cond_floor != 0)
+      {
+        QuestParam quest = instance.FindQuest(this.tower_id + "_" + (object) this.cond_floor);
+        if (quest != null)
+          json.cond_quests = new string[1]{ quest.iname };
+      }
+      json.map = new JSON_MapParam[this.map.Count];
+      json.lv = (int) this.lv;
+      json.pt = (int) this.pt;
+      for (int index = 0; index < this.map.Count; ++index)
+        json.map[index] = new JSON_MapParam()
+        {
+          set = this.map[index].mapSetName,
+          scn = this.map[index].mapSceneName,
+          bgm = this.map[index].bgmName,
+          btl = this.map[index].battleSceneName,
+          ev = this.map[index].eventSceneName
+        };
+      json.area = original.ChapterID;
+      json.type = (int) original.type;
+      json.notcon = (int) this.notcon;
+      json.notitm = 1;
+      json.pnum = (int) original.playerNum;
+      json.gold = 0;
+      json.is_unit_chg = 0;
+      json.multi = 1;
+      json.me_id = this.me_id;
+      json.is_wth_no_chg = this.is_wth_no_chg;
+      json.wth_set_id = this.wth_set_id;
+      TowerRewardParam towerReward = MonoSingleton<GameManager>.Instance.FindTowerReward(this.reward_id);
+      if (towerReward != null)
+      {
+        List<TowerRewardItem> towerRewardItem1 = towerReward.GetTowerRewardItem();
+        for (int index = 0; index < towerRewardItem1.Count; ++index)
+        {
+          TowerRewardItem towerRewardItem2 = towerRewardItem1[index];
+          if (towerRewardItem2 != null && towerRewardItem2.type == TowerRewardItem.RewardType.Gold)
+            json.gold = towerRewardItem2.num;
+        }
+      }
+      QuestParam questParam = new QuestParam();
+      questParam.Deserialize(json);
+      questParam.EntryCondition = original.EntryCondition;
+      questParam.unitNum = (OShort) this.unitnum;
+      return questParam;
+    }
+
+    public void Deserialize(JSON_MultiTowerFloorParam json)
+    {
+      if (json == null)
+        throw new InvalidJSONException();
+      this.id = json.id;
+      this.title = json.title;
+      this.name = json.name;
+      this.expr = json.expr;
+      this.cond = json.cond;
+      this.tower_id = json.tower_id;
+      this.cond_floor = json.cond_floor;
+      this.pt = json.pt;
+      this.lv = json.lv;
+      this.joblv = json.joblv;
+      this.reward_id = json.reward_id;
+      this.floor = json.floor;
+      this.unitnum = json.unitnum;
+      this.notcon = json.notcon;
+      this.me_id = json.me_id;
+      this.is_wth_no_chg = json.is_wth_no_chg;
+      this.wth_set_id = json.wth_set_id;
+      this.map.Clear();
+      if (json.map != null)
+      {
+        for (int index = 0; index < json.map.Length; ++index)
+        {
+          MapParam mapParam = new MapParam();
+          mapParam.Deserialize(json.map[index]);
+          this.map.Add(mapParam);
+        }
+      }
+      GameManager instance = MonoSingleton<GameManager>.Instance;
+      this.BaseQuest = instance.FindQuest(this.tower_id);
+      QuestParam questParam = this.GetQuestParam();
+      instance.AddMTQuest(questParam.iname, questParam);
+    }
+  }
+}

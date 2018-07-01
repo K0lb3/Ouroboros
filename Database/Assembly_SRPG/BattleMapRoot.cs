@@ -1,426 +1,212 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.BattleMapRoot
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Collections.Generic;
+
+namespace SRPG
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Runtime.InteropServices;
+  public class BattleMapRoot
+  {
+    private List<BattleMapRoot.Element> m_CalcStack = new List<BattleMapRoot.Element>();
+    private int m_Width;
+    private int m_Height;
+    private BattleMapRoot.Element[] m_Elements;
+    private int m_TotalCost;
+    private BattleMapRoot.Element m_Start;
+    private BattleMapRoot.Element m_End;
 
-    public class BattleMapRoot
+    public void Initialize(int gridWidth, int gridHeight, Grid[,] gridMap)
     {
-        private int m_Width;
-        private int m_Height;
-        private Element[] m_Elements;
-        private int m_TotalCost;
-        private Element m_Start;
-        private Element m_End;
-        private List<Element> m_CalcStack;
-
-        public BattleMapRoot()
+      this.m_Width = gridWidth;
+      this.m_Height = gridHeight;
+      this.m_Elements = new BattleMapRoot.Element[this.m_Height * this.m_Width];
+      for (int index1 = 0; index1 < gridHeight; ++index1)
+      {
+        for (int index2 = 0; index2 < gridWidth; ++index2)
         {
-            this.m_CalcStack = new List<Element>();
-            base..ctor();
-            return;
+          int index3 = index1 * gridWidth + index2;
+          Grid grid = gridMap[index2, index1];
+          this.m_Elements[index3] = new BattleMapRoot.Element()
+          {
+            grid = grid
+          };
         }
-
-        private unsafe void _CalcRootInit(int moveHeight, GridMap<int> walkableField)
+      }
+      BattleMapRoot.Element[] elementArray = new BattleMapRoot.Element[4];
+      for (int index1 = 0; index1 < gridHeight; ++index1)
+      {
+        for (int index2 = 0; index2 < gridWidth; ++index2)
         {
-            int num;
-            Element element;
-            int num2;
-            int num3;
-            this.m_TotalCost = 0x7fffffff;
-            this.m_Start = null;
-            this.m_End = null;
-            this.m_CalcStack.Clear();
-            num = 0;
-            goto Label_00D5;
-        Label_002B:
-            element = this.m_Elements[num];
-            element.cost = 0x7fffffff;
-            element.root = null;
-            num2 = 0;
-            goto Label_00C3;
-        Label_004D:
-            num3 = &(element.link[num2]).cost;
-            if (moveHeight >= &(element.link[num2]).height)
-            {
-                goto Label_0083;
-            }
-            num3 += 0x2710;
-            goto Label_00AD;
-        Label_0083:
-            if (walkableField.get(element.grid.x, element.grid.y) >= 0)
-            {
-                goto Label_00AD;
-            }
-            num3 += 0x4e20;
-        Label_00AD:
-            &(element.link[num2]).calc_cost = num3;
-            num2 += 1;
-        Label_00C3:
-            if (num2 < ((int) element.link.Length))
-            {
-                goto Label_004D;
-            }
-            num += 1;
-        Label_00D5:
-            if (num < ((int) this.m_Elements.Length))
-            {
-                goto Label_002B;
-            }
-            return;
+          int index3 = index1 * gridWidth + index2;
+          BattleMapRoot.Element element1 = this.m_Elements[index3];
+          int length = 0;
+          if (index2 - 1 >= 0)
+          {
+            BattleMapRoot.Element element2 = this.GetElement(index3 - 1);
+            if (element2 != null)
+              elementArray[length++] = element2;
+          }
+          if (index2 + 1 < gridWidth)
+          {
+            BattleMapRoot.Element element2 = this.GetElement(index3 + 1);
+            if (element2 != null)
+              elementArray[length++] = element2;
+          }
+          if (index1 - 1 >= 0)
+          {
+            BattleMapRoot.Element element2 = this.GetElement(index3 - gridWidth);
+            if (element2 != null)
+              elementArray[length++] = element2;
+          }
+          if (index1 + 1 < gridHeight)
+          {
+            BattleMapRoot.Element element2 = this.GetElement(index3 + gridWidth);
+            if (element2 != null)
+              elementArray[length++] = element2;
+          }
+          element1.link = new BattleMapRoot.Link[length];
+          for (int index4 = 0; index4 < length; ++index4)
+          {
+            element1.link[index4].element = elementArray[index4];
+            element1.link[index4].cost = elementArray[index4].grid.cost;
+            element1.link[index4].height = elementArray[index4].grid.height - element1.grid.height;
+          }
         }
-
-        private unsafe void _CalcRootSubroutine(Element element)
-        {
-            int num;
-            int num2;
-            Link link;
-            if (element.cost < this.m_TotalCost)
-            {
-                goto Label_0012;
-            }
-            return;
-        Label_0012:
-            if (element.link == null)
-            {
-                goto Label_002A;
-            }
-            if (((int) element.link.Length) != null)
-            {
-                goto Label_002B;
-            }
-        Label_002A:
-            return;
-        Label_002B:
-            num = 0;
-            num2 = 0;
-            goto Label_00AF;
-        Label_0034:
-            link = *(&(element.link[num2]));
-            num = element.cost + &link.calc_cost;
-            if (num < &link.element.cost)
-            {
-                goto Label_006C;
-            }
-            goto Label_00AB;
-        Label_006C:
-            &link.element.cost = num;
-            &link.element.root = element;
-            this.m_CalcStack.Remove(&link.element);
-            this.m_CalcStack.Add(&link.element);
-        Label_00AB:
-            num2 += 1;
-        Label_00AF:
-            if (num2 < ((int) element.link.Length))
-            {
-                goto Label_0034;
-            }
-            return;
-        }
-
-        public bool CalcRoot(int startX, int startY, int endX, int endY, int moveHeight, GridMap<int> walkableField)
-        {
-            Element element;
-            if ((this.m_Elements != null) && (((int) this.m_Elements.Length) != null))
-            {
-                goto Label_001A;
-            }
-            return 0;
-        Label_001A:
-            if ((startX != endX) || (startY != endY))
-            {
-                goto Label_002B;
-            }
-            return 0;
-        Label_002B:
-            this._CalcRootInit(moveHeight, walkableField);
-            this.m_Start = this.GetElement(startX, startY);
-            if (this.m_Start != null)
-            {
-                goto Label_0050;
-            }
-            return 0;
-        Label_0050:
-            this.m_End = this.GetElement(endX, endY);
-            if (this.m_End != null)
-            {
-                goto Label_006C;
-            }
-            return 0;
-        Label_006C:
-            this.m_Start.cost = 0;
-            this.m_CalcStack.Add(this.m_Start);
-            goto Label_00CB;
-        Label_008E:
-            element = this.m_CalcStack[0];
-            this.m_CalcStack.RemoveAt(0);
-            if (element != this.m_End)
-            {
-                goto Label_00C4;
-            }
-            this.m_TotalCost = element.cost;
-            goto Label_00CB;
-        Label_00C4:
-            this._CalcRootSubroutine(element);
-        Label_00CB:
-            if (this.m_CalcStack.Count > 0)
-            {
-                goto Label_008E;
-            }
-            return ((this.m_TotalCost != 0x7fffffff) ? 1 : 0);
-        }
-
-        private Element GetElement(int index)
-        {
-            if (index < 0)
-            {
-                goto Label_0015;
-            }
-            if (index < ((int) this.m_Elements.Length))
-            {
-                goto Label_0017;
-            }
-        Label_0015:
-            return null;
-        Label_0017:
-            return this.m_Elements[index];
-        }
-
-        private Element GetElement(int x, int y)
-        {
-            if (x < 0)
-            {
-                goto Label_0026;
-            }
-            if (x >= this.m_Width)
-            {
-                goto Label_0026;
-            }
-            if (y < 0)
-            {
-                goto Label_0026;
-            }
-            if (y < this.m_Height)
-            {
-                goto Label_0028;
-            }
-        Label_0026:
-            return null;
-        Label_0028:
-            return this.m_Elements[(y * this.m_Width) + x];
-        }
-
-        public Grid[] GetRoot()
-        {
-            List<Grid> list;
-            Element element;
-            if (this.m_Start == null)
-            {
-                goto Label_0016;
-            }
-            if (this.m_End != null)
-            {
-                goto Label_0018;
-            }
-        Label_0016:
-            return null;
-        Label_0018:
-            list = new List<Grid>();
-            element = this.m_End;
-            list.Add(element.grid);
-            goto Label_004E;
-        Label_0036:
-            list.Add(element.root.grid);
-            element = element.root;
-        Label_004E:
-            if (element.root != null)
-            {
-                goto Label_0036;
-            }
-            if (list.Count >= 2)
-            {
-                goto Label_0067;
-            }
-            return null;
-        Label_0067:
-            list.Reverse();
-            if (list[0] == this.m_Start.grid)
-            {
-                goto Label_0086;
-            }
-            return null;
-        Label_0086:
-            return list.ToArray();
-        }
-
-        public unsafe void Initialize(int gridWidth, int gridHeight, Grid[,] gridMap)
-        {
-            int num;
-            int num2;
-            int num3;
-            Grid grid;
-            Element element;
-            Element[] elementArray;
-            int num4;
-            int num5;
-            int num6;
-            Element element2;
-            Element element3;
-            int num7;
-            int num8;
-            this.m_Width = gridWidth;
-            this.m_Height = gridHeight;
-            this.m_Elements = new Element[this.m_Height * this.m_Width];
-            num = 0;
-            goto Label_006B;
-        Label_002D:
-            num2 = 0;
-            goto Label_0060;
-        Label_0034:
-            num3 = (num * gridWidth) + num2;
-            grid = gridMap[num2, num];
-            element = new Element();
-            element.grid = grid;
-            this.m_Elements[num3] = element;
-            num2 += 1;
-        Label_0060:
-            if (num2 < gridWidth)
-            {
-                goto Label_0034;
-            }
-            num += 1;
-        Label_006B:
-            if (num < gridHeight)
-            {
-                goto Label_002D;
-            }
-            elementArray = new Element[4];
-            num4 = 0;
-            goto Label_01EA;
-        Label_0082:
-            num5 = 0;
-            goto Label_01DC;
-        Label_008A:
-            num6 = (num4 * gridWidth) + num5;
-            element2 = this.m_Elements[num6];
-            element3 = null;
-            num7 = 0;
-            if ((num5 - 1) < 0)
-            {
-                goto Label_00CD;
-            }
-            element3 = this.GetElement(num6 - 1);
-            if (element3 == null)
-            {
-                goto Label_00CD;
-            }
-            elementArray[num7++] = element3;
-        Label_00CD:
-            if ((num5 + 1) >= gridWidth)
-            {
-                goto Label_00F6;
-            }
-            element3 = this.GetElement(num6 + 1);
-            if (element3 == null)
-            {
-                goto Label_00F6;
-            }
-            elementArray[num7++] = element3;
-        Label_00F6:
-            if ((num4 - 1) < 0)
-            {
-                goto Label_011F;
-            }
-            element3 = this.GetElement(num6 - gridWidth);
-            if (element3 == null)
-            {
-                goto Label_011F;
-            }
-            elementArray[num7++] = element3;
-        Label_011F:
-            if ((num4 + 1) >= gridHeight)
-            {
-                goto Label_0148;
-            }
-            element3 = this.GetElement(num6 + gridWidth);
-            if (element3 == null)
-            {
-                goto Label_0148;
-            }
-            elementArray[num7++] = element3;
-        Label_0148:
-            element2.link = new Link[num7];
-            num8 = 0;
-            goto Label_01CD;
-        Label_015E:
-            &(element2.link[num8]).element = elementArray[num8];
-            &(element2.link[num8]).cost = elementArray[num8].grid.cost;
-            &(element2.link[num8]).height = elementArray[num8].grid.height - element2.grid.height;
-            num8 += 1;
-        Label_01CD:
-            if (num8 < num7)
-            {
-                goto Label_015E;
-            }
-            num5 += 1;
-        Label_01DC:
-            if (num5 < gridWidth)
-            {
-                goto Label_008A;
-            }
-            num4 += 1;
-        Label_01EA:
-            if (num4 < gridHeight)
-            {
-                goto Label_0082;
-            }
-            return;
-        }
-
-        public void Release()
-        {
-            this.m_Elements = null;
-            this.m_Start = null;
-            this.m_End = null;
-            this.m_CalcStack.Clear();
-            return;
-        }
-
-        private class Element
-        {
-            public Grid grid;
-            public BattleMapRoot.Link[] link;
-            public int cost;
-            public BattleMapRoot.Element root;
-
-            public Element()
-            {
-                base..ctor();
-                return;
-            }
-
-            public override string ToString()
-            {
-                object[] objArray1;
-                objArray1 = new object[] { (int) this.grid.x, (int) this.grid.y, (int) this.cost, (int) ((this.link == null) ? 0 : ((int) this.link.Length)) };
-                return string.Format("pos[{0:D2},{1:D2}] cost[{2}] links[{3}] root[{4}]", objArray1);
-            }
-        }
-
-        [StructLayout(LayoutKind.Sequential)]
-        private struct Link
-        {
-            public BattleMapRoot.Element element;
-            public int cost;
-            public int calc_cost;
-            public int height;
-            public override string ToString()
-            {
-                object[] objArray1;
-                objArray1 = new object[] { (int) this.element.grid.x, (int) this.element.grid.y, (int) this.cost, (int) this.height, (int) this.calc_cost };
-                return string.Format("pos[{0:D2},{1:D2}] cost[{2}] height[{3}] total[{4}]", objArray1);
-            }
-        }
+      }
     }
-}
 
+    public void Release()
+    {
+      this.m_Elements = (BattleMapRoot.Element[]) null;
+      this.m_Start = (BattleMapRoot.Element) null;
+      this.m_End = (BattleMapRoot.Element) null;
+      this.m_CalcStack.Clear();
+    }
+
+    public bool CalcRoot(int startX, int startY, int endX, int endY, int moveHeight, GridMap<int> walkableField)
+    {
+      if (this.m_Elements == null || this.m_Elements.Length == 0 || startX == endX && startY == endY)
+        return false;
+      this._CalcRootInit(moveHeight, walkableField);
+      this.m_Start = this.GetElement(startX, startY);
+      if (this.m_Start == null)
+        return false;
+      this.m_End = this.GetElement(endX, endY);
+      if (this.m_End == null)
+        return false;
+      this.m_Start.cost = 0;
+      this.m_CalcStack.Add(this.m_Start);
+      while (this.m_CalcStack.Count > 0)
+      {
+        BattleMapRoot.Element calc = this.m_CalcStack[0];
+        this.m_CalcStack.RemoveAt(0);
+        if (calc == this.m_End)
+          this.m_TotalCost = calc.cost;
+        else
+          this._CalcRootSubroutine(calc);
+      }
+      return this.m_TotalCost != int.MaxValue;
+    }
+
+    private void _CalcRootInit(int moveHeight, GridMap<int> walkableField)
+    {
+      this.m_TotalCost = int.MaxValue;
+      this.m_Start = (BattleMapRoot.Element) null;
+      this.m_End = (BattleMapRoot.Element) null;
+      this.m_CalcStack.Clear();
+      for (int index1 = 0; index1 < this.m_Elements.Length; ++index1)
+      {
+        BattleMapRoot.Element element = this.m_Elements[index1];
+        element.cost = int.MaxValue;
+        element.root = (BattleMapRoot.Element) null;
+        for (int index2 = 0; index2 < element.link.Length; ++index2)
+        {
+          int cost = element.link[index2].cost;
+          if (moveHeight < element.link[index2].height)
+            cost += 10000;
+          else if (walkableField.get(element.grid.x, element.grid.y) < 0)
+            cost += 20000;
+          element.link[index2].calc_cost = cost;
+        }
+      }
+    }
+
+    private void _CalcRootSubroutine(BattleMapRoot.Element element)
+    {
+      if (element.cost >= this.m_TotalCost || element.link == null || element.link.Length == 0)
+        return;
+      for (int index = 0; index < element.link.Length; ++index)
+      {
+        BattleMapRoot.Link link = element.link[index];
+        int num = element.cost + link.calc_cost;
+        if (num < link.element.cost)
+        {
+          link.element.cost = num;
+          link.element.root = element;
+          this.m_CalcStack.Remove(link.element);
+          this.m_CalcStack.Add(link.element);
+        }
+      }
+    }
+
+    public Grid[] GetRoot()
+    {
+      if (this.m_Start == null || this.m_End == null)
+        return (Grid[]) null;
+      List<Grid> gridList = new List<Grid>();
+      BattleMapRoot.Element element = this.m_End;
+      gridList.Add(element.grid);
+      for (; element.root != null; element = element.root)
+        gridList.Add(element.root.grid);
+      if (gridList.Count < 2)
+        return (Grid[]) null;
+      gridList.Reverse();
+      if (gridList[0] != this.m_Start.grid)
+        return (Grid[]) null;
+      return gridList.ToArray();
+    }
+
+    private BattleMapRoot.Element GetElement(int index)
+    {
+      if (index < 0 || index >= this.m_Elements.Length)
+        return (BattleMapRoot.Element) null;
+      return this.m_Elements[index];
+    }
+
+    private BattleMapRoot.Element GetElement(int x, int y)
+    {
+      if (x < 0 || x >= this.m_Width || (y < 0 || y >= this.m_Height))
+        return (BattleMapRoot.Element) null;
+      return this.m_Elements[y * this.m_Width + x];
+    }
+
+    private struct Link
+    {
+      public BattleMapRoot.Element element;
+      public int cost;
+      public int calc_cost;
+      public int height;
+
+      public override string ToString()
+      {
+        return string.Format("pos[{0:D2},{1:D2}] cost[{2}] height[{3}] total[{4}]", (object) this.element.grid.x, (object) this.element.grid.y, (object) this.cost, (object) this.height, (object) this.calc_cost);
+      }
+    }
+
+    private class Element
+    {
+      public Grid grid;
+      public BattleMapRoot.Link[] link;
+      public int cost;
+      public BattleMapRoot.Element root;
+
+      public override string ToString()
+      {
+        return string.Format("pos[{0:D2},{1:D2}] cost[{2}] links[{3}] root[{4}]", new object[4]{ (object) this.grid.x, (object) this.grid.y, (object) this.cost, (object) (this.link == null ? 0 : this.link.Length) });
+      }
+    }
+  }
+}

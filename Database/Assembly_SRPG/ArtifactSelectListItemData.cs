@@ -1,27 +1,23 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ArtifactSelectListItemData
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+namespace SRPG
 {
-    using System;
+  public class ArtifactSelectListItemData
+  {
+    public string iname;
+    public int id;
+    public int num;
+    public ArtifactParam param;
 
-    public class ArtifactSelectListItemData
+    public void Deserialize(Json_ArtifactSelectItem json)
     {
-        public string iname;
-        public int id;
-        public int num;
-        public ArtifactParam param;
-
-        public ArtifactSelectListItemData()
-        {
-            base..ctor();
-            return;
-        }
-
-        public void Deserialize(Json_ArtifactSelectItem json)
-        {
-            this.iname = json.iname;
-            this.id = json.id;
-            this.num = json.num;
-            return;
-        }
+      this.iname = json.iname;
+      this.id = (int) json.id;
+      this.num = (int) json.num;
     }
+  }
 }
-

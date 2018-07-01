@@ -1,67 +1,44 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.AIActionTable
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Collections.Generic;
+
+namespace SRPG
 {
-    using System;
-    using System.Collections.Generic;
+  public class AIActionTable
+  {
+    public List<AIAction> actions = new List<AIAction>();
+    public int looped;
 
-    public class AIActionTable
+    public void Clear()
     {
-        public List<AIAction> actions;
-        public int looped;
-
-        public AIActionTable()
-        {
-            this.actions = new List<AIAction>();
-            base..ctor();
-            return;
-        }
-
-        public void Clear()
-        {
-            this.actions.Clear();
-            this.looped = 0;
-            return;
-        }
-
-        public void CopyTo(AIActionTable result)
-        {
-            int num;
-            AIAction action;
-            if (result != null)
-            {
-                goto Label_0007;
-            }
-            return;
-        Label_0007:
-            result.actions.Clear();
-            num = 0;
-            goto Label_0124;
-        Label_0019:
-            action = new AIAction();
-            action.skill = this.actions[num].skill;
-            action.type = this.actions[num].type;
-            action.turn = this.actions[num].turn;
-            action.notBlock = this.actions[num].notBlock;
-            action.noExecAct = this.actions[num].noExecAct;
-            action.nextActIdx = this.actions[num].nextActIdx;
-            action.nextTurnAct = this.actions[num].nextTurnAct;
-            action.turnActIdx = this.actions[num].turnActIdx;
-            if (this.actions[num].cond == null)
-            {
-                goto Label_0114;
-            }
-            action.cond = new SkillLockCondition();
-            this.actions[num].cond.CopyTo(action.cond);
-        Label_0114:
-            result.actions.Add(action);
-            num += 1;
-        Label_0124:
-            if (num < this.actions.Count)
-            {
-                goto Label_0019;
-            }
-            result.looped = this.looped;
-            return;
-        }
+      this.actions.Clear();
+      this.looped = 0;
     }
-}
 
+    public void CopyTo(AIActionTable result)
+    {
+      if (result == null)
+        return;
+      result.actions.Clear();
+      for (int index = 0; index < this.actions.Count; ++index)
+      {
+        AIAction aiAction = new AIAction();
+        aiAction.skill = this.actions[index].skill;
+        aiAction.type = this.actions[index].type;
+        aiAction.turn = this.actions[index].turn;
+        aiAction.notBlock = this.actions[index].notBlock;
+        if (this.actions[index].cond != null)
+        {
+          aiAction.cond = new SkillLockCondition();
+          this.actions[index].cond.CopyTo(aiAction.cond);
+        }
+        result.actions.Add(aiAction);
+      }
+      result.looped = this.looped;
+    }
+  }
+}

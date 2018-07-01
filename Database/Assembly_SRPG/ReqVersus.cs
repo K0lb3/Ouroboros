@@ -1,59 +1,36 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.ReqVersus
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Text;
+
+namespace SRPG
 {
-    using System;
-    using System.Runtime.InteropServices;
-    using System.Text;
-
-    public class ReqVersus : WebAPI
+  public class ReqVersus : WebAPI
+  {
+    public ReqVersus(string iname, int plid, int seat, string uid, Network.ResponseCallback response, VERSUS_TYPE type)
     {
-        public ReqVersus(string iname, int plid, int seat, string uid, VersusStatusData param, int num, Network.ResponseCallback response, VERSUS_TYPE type, int draft_id, int enemy_draft_id)
-        {
-            StringBuilder builder;
-            base..ctor();
-            builder = WebAPI.GetStringBuilder();
-            base.name = "vs/" + ((VERSUS_TYPE) type).ToString().ToLower() + "match/req";
-            builder.Append("\"iname\":\"");
-            builder.Append(JsonEscape.Escape(iname));
-            builder.Append("\",");
-            builder.Append("\"token\":\"");
-            builder.Append(JsonEscape.Escape(GlobalVars.SelectedMultiPlayRoomName));
-            builder.Append("\",");
-            builder.Append("\"plid\":\"");
-            builder.Append(plid);
-            builder.Append("\",");
-            builder.Append("\"seat\":\"");
-            builder.Append(seat);
-            builder.Append("\",");
-            builder.Append("\"uid\":\"");
-            builder.Append(uid);
-            builder.Append("\"");
-            builder.Append(",");
-            builder.Append("\"status\":{");
-            builder.Append("\"hp\":" + ((int) param.Hp) + ",");
-            builder.Append("\"atk\":" + ((int) param.Atk) + ",");
-            builder.Append("\"def\":" + ((int) param.Def) + ",");
-            builder.Append("\"matk\":" + ((int) param.Matk) + ",");
-            builder.Append("\"mdef\":" + ((int) param.Mdef) + ",");
-            builder.Append("\"dex\":" + ((int) param.Dex) + ",");
-            builder.Append("\"spd\":" + ((int) param.Spd) + ",");
-            builder.Append("\"cri\":" + ((int) param.Cri) + ",");
-            builder.Append("\"luck\":" + ((int) param.Luck) + ",");
-            builder.Append("\"cmb\":" + ((int) param.Cmb) + ",");
-            builder.Append("\"move\":" + ((int) param.Move) + ",");
-            builder.Append("\"jmp\":" + ((int) param.Jmp));
-            builder.Append("}");
-            builder.Append(",\"member_count\":" + ((int) num));
-            if (draft_id <= 0)
-            {
-                goto Label_02E8;
-            }
-            builder.Append(",\"draft_id\":" + ((int) draft_id));
-            builder.Append(",\"enemy_draft_id\":" + ((int) enemy_draft_id));
-        Label_02E8:
-            base.body = WebAPI.GetRequestString(builder.ToString());
-            base.callback = response;
-            return;
-        }
+      StringBuilder stringBuilder = WebAPI.GetStringBuilder();
+      this.name = "vs/" + type.ToString().ToLower() + "match/req";
+      stringBuilder.Append("\"iname\":\"");
+      stringBuilder.Append("QE_VS_TEST_00");
+      stringBuilder.Append("\",");
+      stringBuilder.Append("\"token\":\"");
+      stringBuilder.Append(JsonEscape.Escape(GlobalVars.SelectedMultiPlayRoomName));
+      stringBuilder.Append("\",");
+      stringBuilder.Append("\"plid\":\"");
+      stringBuilder.Append(plid);
+      stringBuilder.Append("\",");
+      stringBuilder.Append("\"seat\":\"");
+      stringBuilder.Append(seat);
+      stringBuilder.Append("\",");
+      stringBuilder.Append("\"uid\":\"");
+      stringBuilder.Append(uid);
+      stringBuilder.Append("\"");
+      this.body = WebAPI.GetRequestString(stringBuilder.ToString());
+      this.callback = response;
     }
+  }
 }
-

@@ -1,262 +1,198 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.EventStandChara2
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SRPG
 {
-    using System;
-    using System.Collections.Generic;
-    using UnityEngine;
+  public class EventStandChara2 : MonoBehaviour
+  {
+    public static List<EventStandChara2> Instances = new List<EventStandChara2>();
+    public const float FADEIN_TIME = 0.3f;
+    public const float FADEOUT_TIME = 0.5f;
+    public string CharaID;
+    [HideInInspector]
+    public bool mClose;
+    public GameObject FaceObject;
+    public GameObject BodyObject;
+    private float[] AnchorPostionX;
+    private float mFadeTime;
+    private bool IsFading;
+    private EventStandChara2.StateTypes mState;
 
-    public class EventStandChara2 : MonoBehaviour
+    public EventStandChara2()
     {
-        public const float FADEIN_TIME = 0.3f;
-        public const float FADEOUT_TIME = 0.5f;
-        public static List<EventStandChara2> Instances;
-        public string CharaID;
-        [HideInInspector]
-        public bool mClose;
-        public GameObject FaceObject;
-        public GameObject BodyObject;
-        private float[] AnchorPostionX;
-        private float mFadeTime;
-        private bool IsFading;
-        private StateTypes mState;
-
-        static EventStandChara2()
-        {
-            Instances = new List<EventStandChara2>();
-            return;
-        }
-
-        public EventStandChara2()
-        {
-            this.AnchorPostionX = new float[] { -1f, 0.2f, 0.35f, 0.5f, 0.65f, 0.8f, 2f };
-            base..ctor();
-            return;
-        }
-
-        private void Awake()
-        {
-            Instances.Add(this);
-            this.mFadeTime = 0f;
-            this.IsFading = 0;
-            return;
-        }
-
-        public void Close()
-        {
-            if (this.mClose == null)
-            {
-                goto Label_000C;
-            }
-            return;
-        Label_000C:
-            this.mClose = 1;
-            this.StartFadeOut();
-            return;
-        }
-
-        public static void DiscardAll()
-        {
-            int num;
-            num = Instances.Count - 1;
-            goto Label_0045;
-        Label_0012:
-            if (Instances[num].get_gameObject().get_activeInHierarchy() != null)
-            {
-                goto Label_0041;
-            }
-            Object.Destroy(Instances[num].get_gameObject());
-        Label_0041:
-            num -= 1;
-        Label_0045:
-            if (num >= 0)
-            {
-                goto Label_0012;
-            }
-            Instances.Clear();
-            return;
-        }
-
-        private unsafe void FadeIn(float time)
-        {
-            Color color;
-            color = this.FaceObject.GetComponent<RawImage>().get_color();
-            this.FaceObject.GetComponent<RawImage>().set_color(new Color(&color.r, &color.g, &color.b, Mathf.Lerp(1f, 0f, time)));
-            color = this.BodyObject.GetComponent<RawImage>().get_color();
-            this.BodyObject.GetComponent<RawImage>().set_color(new Color(&color.r, &color.g, &color.b, Mathf.Lerp(1f, 0f, time)));
-            return;
-        }
-
-        private unsafe void FadeOut(float time)
-        {
-            Color color;
-            color = this.FaceObject.GetComponent<RawImage>().get_color();
-            this.FaceObject.GetComponent<RawImage>().set_color(new Color(&color.r, &color.g, &color.b, Mathf.Lerp(0f, 1f, time)));
-            color = this.BodyObject.GetComponent<RawImage>().get_color();
-            this.BodyObject.GetComponent<RawImage>().set_color(new Color(&color.r, &color.g, &color.b, Mathf.Lerp(0f, 1f, time)));
-            return;
-        }
-
-        public static EventStandChara2 Find(string id)
-        {
-            int num;
-            num = Instances.Count - 1;
-            goto Label_003D;
-        Label_0012:
-            if ((Instances[num].CharaID == id) == null)
-            {
-                goto Label_0039;
-            }
-            return Instances[num];
-        Label_0039:
-            num -= 1;
-        Label_003D:
-            if (num >= 0)
-            {
-                goto Label_0012;
-            }
-            return null;
-        }
-
-        public float GetAnchorPostionX(int index)
-        {
-            return (((index < 0) || (index >= ((int) this.AnchorPostionX.Length))) ? 0f : this.AnchorPostionX[index]);
-        }
-
-        public static string[] GetCharaIDs()
-        {
-            List<string> list;
-            int num;
-            list = new List<string>();
-            num = Instances.Count - 1;
-            goto Label_0032;
-        Label_0018:
-            list.Add(Instances[num].CharaID);
-            num -= 1;
-        Label_0032:
-            if (num >= 0)
-            {
-                goto Label_0018;
-            }
-            return list.ToArray();
-        }
-
-        private void OnDestroy()
-        {
-            Instances.Remove(this);
-            this.mState = 3;
-            return;
-        }
-
-        public void Open()
-        {
-            if (this.mClose != null)
-            {
-                goto Label_000C;
-            }
-            return;
-        Label_000C:
-            this.mClose = 0;
-            this.StartFadeIn();
-            return;
-        }
-
-        public void StartFadeIn()
-        {
-            this.IsFading = 1;
-            this.mFadeTime = 0.3f;
-            this.mState = 0;
-            return;
-        }
-
-        public void StartFadeOut()
-        {
-            this.IsFading = 1;
-            this.mFadeTime = 0.5f;
-            this.mState = 2;
-            return;
-        }
-
-        private void Update()
-        {
-            if (this.IsFading != null)
-            {
-                goto Label_000C;
-            }
-            return;
-        Label_000C:
-            this.mFadeTime -= Time.get_deltaTime();
-            if (this.mFadeTime > 0f)
-            {
-                goto Label_0041;
-            }
-            this.mFadeTime = 0f;
-            this.IsFading = 0;
-            return;
-        Label_0041:
-            if (this.mState != null)
-            {
-                goto Label_005D;
-            }
-            this.FadeIn(this.mFadeTime);
-            goto Label_0075;
-        Label_005D:
-            if (this.mState != 2)
-            {
-                goto Label_0075;
-            }
-            this.FadeOut(this.mFadeTime);
-        Label_0075:
-            return;
-        }
-
-        public bool IsClose
-        {
-            get
-            {
-                return this.mClose;
-            }
-        }
-
-        public bool Fading
-        {
-            get
-            {
-                return this.IsFading;
-            }
-        }
-
-        public StateTypes State
-        {
-            get
-            {
-                return this.mState;
-            }
-            set
-            {
-                this.mState = value;
-                return;
-            }
-        }
-
-        public enum PositionTypes
-        {
-            OverLeft,
-            Left,
-            HLeft,
-            Center,
-            HRight,
-            Right,
-            OverRight,
-            None
-        }
-
-        public enum StateTypes
-        {
-            FadeIn,
-            Active,
-            FadeOut,
-            Inactive,
-            None
-        }
+      base.\u002Ector();
     }
-}
 
+    public bool IsClose
+    {
+      get
+      {
+        return this.mClose;
+      }
+    }
+
+    public bool Fading
+    {
+      get
+      {
+        return this.IsFading;
+      }
+    }
+
+    public EventStandChara2.StateTypes State
+    {
+      get
+      {
+        return this.mState;
+      }
+      set
+      {
+        this.mState = value;
+      }
+    }
+
+    public static EventStandChara2 Find(string id)
+    {
+      for (int index = EventStandChara2.Instances.Count - 1; index >= 0; --index)
+      {
+        if (EventStandChara2.Instances[index].CharaID == id)
+          return EventStandChara2.Instances[index];
+      }
+      return (EventStandChara2) null;
+    }
+
+    public static void DiscardAll()
+    {
+      for (int index = EventStandChara2.Instances.Count - 1; index >= 0; --index)
+      {
+        if (!((Component) EventStandChara2.Instances[index]).get_gameObject().get_activeInHierarchy())
+          Object.Destroy((Object) ((Component) EventStandChara2.Instances[index]).get_gameObject());
+      }
+      EventStandChara2.Instances.Clear();
+    }
+
+    public static string[] GetCharaIDs()
+    {
+      List<string> stringList = new List<string>();
+      for (int index = EventStandChara2.Instances.Count - 1; index >= 0; --index)
+        stringList.Add(EventStandChara2.Instances[index].CharaID);
+      return stringList.ToArray();
+    }
+
+    private void Awake()
+    {
+      EventStandChara2.Instances.Add(this);
+      this.mFadeTime = 0.0f;
+      this.IsFading = false;
+    }
+
+    private void OnDestroy()
+    {
+      EventStandChara2.Instances.Remove(this);
+      this.mState = EventStandChara2.StateTypes.Inactive;
+    }
+
+    public void Open()
+    {
+      if (!this.mClose)
+        return;
+      this.mClose = false;
+      this.StartFadeIn();
+    }
+
+    public void Close()
+    {
+      if (this.mClose)
+        return;
+      this.mClose = true;
+      this.StartFadeOut();
+    }
+
+    public void StartFadeIn()
+    {
+      this.IsFading = true;
+      this.mFadeTime = 0.3f;
+      this.mState = EventStandChara2.StateTypes.FadeIn;
+    }
+
+    public void StartFadeOut()
+    {
+      this.IsFading = true;
+      this.mFadeTime = 0.5f;
+      this.mState = EventStandChara2.StateTypes.FadeOut;
+    }
+
+    private void Update()
+    {
+      if (!this.IsFading)
+        return;
+      this.mFadeTime -= Time.get_deltaTime();
+      if ((double) this.mFadeTime <= 0.0)
+      {
+        this.mFadeTime = 0.0f;
+        this.IsFading = false;
+      }
+      else if (this.mState == EventStandChara2.StateTypes.FadeIn)
+      {
+        this.FadeIn(this.mFadeTime);
+      }
+      else
+      {
+        if (this.mState != EventStandChara2.StateTypes.FadeOut)
+          return;
+        this.FadeOut(this.mFadeTime);
+      }
+    }
+
+    private void FadeIn(float time)
+    {
+      Color color1 = ((Graphic) this.FaceObject.GetComponent<RawImage>()).get_color();
+      ((Graphic) this.FaceObject.GetComponent<RawImage>()).set_color(new Color((float) color1.r, (float) color1.g, (float) color1.b, Mathf.Lerp(1f, 0.0f, time)));
+      Color color2 = ((Graphic) this.BodyObject.GetComponent<RawImage>()).get_color();
+      ((Graphic) this.BodyObject.GetComponent<RawImage>()).set_color(new Color((float) color2.r, (float) color2.g, (float) color2.b, Mathf.Lerp(1f, 0.0f, time)));
+    }
+
+    private void FadeOut(float time)
+    {
+      Color color1 = ((Graphic) this.FaceObject.GetComponent<RawImage>()).get_color();
+      ((Graphic) this.FaceObject.GetComponent<RawImage>()).set_color(new Color((float) color1.r, (float) color1.g, (float) color1.b, Mathf.Lerp(0.0f, 1f, time)));
+      Color color2 = ((Graphic) this.BodyObject.GetComponent<RawImage>()).get_color();
+      ((Graphic) this.BodyObject.GetComponent<RawImage>()).set_color(new Color((float) color2.r, (float) color2.g, (float) color2.b, Mathf.Lerp(0.0f, 1f, time)));
+    }
+
+    public float GetAnchorPostionX(int index)
+    {
+      if (index >= 0 && index < this.AnchorPostionX.Length)
+        return this.AnchorPostionX[index];
+      return 0.0f;
+    }
+
+    public enum PositionTypes
+    {
+      OverLeft,
+      Left,
+      HLeft,
+      Center,
+      HRight,
+      Right,
+      OverRight,
+      None,
+    }
+
+    public enum StateTypes
+    {
+      FadeIn,
+      Active,
+      FadeOut,
+      Inactive,
+      None,
+    }
+  }
+}

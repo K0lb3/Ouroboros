@@ -1,120 +1,84 @@
-﻿namespace SRPG
+﻿// Decompiled with JetBrains decompiler
+// Type: SRPG.FlowNode_ReqGachaList
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: FE644F5D-682F-4D6E-964D-A0DD77A288F7
+// Assembly location: C:\Users\André\Desktop\Assembly-CSharp.dll
+
+using GR;
+using System;
+using UnityEngine;
+
+namespace SRPG
 {
-    using GR;
-    using System;
-
-    [NodeType("Network/gacha", 0x7fe5), Pin(0, "Request", 0, 0), Pin(1, "Success", 1, 1), Pin(2, "Failure", 1, 2), Pin(3, "ToCheckPending(引き直し召喚チェック)", 1, 3)]
-    public class FlowNode_ReqGachaList : FlowNode_Network
+  [FlowNode.Pin(0, "Request", FlowNode.PinTypes.Input, 0)]
+  [FlowNode.NodeType("Network/gacha", 32741)]
+  [FlowNode.Pin(2, "Failure", FlowNode.PinTypes.Output, 2)]
+  [FlowNode.Pin(1, "Success", FlowNode.PinTypes.Output, 1)]
+  public class FlowNode_ReqGachaList : FlowNode_Network
+  {
+    public override void OnActivate(int pinID)
     {
-        private const int PIN_IN_REQUEST = 0;
-        private const int PIN_OT_REQUEST_SUCCESS = 1;
-        private const int PIN_OT_REQUEST_FAILURE = 2;
-        private const int PIN_OT_TO_GACHA_PENDING = 3;
+      if (pinID != 0)
+        return;
+      if (Network.Mode == Network.EConnectMode.Offline)
+      {
+        this.Success();
+      }
+      else
+      {
+        this.ExecRequest((WebAPI) new ReqGacha(new Network.ResponseCallback(((FlowNode_Network) this).ResponseCallback)));
+        ((Behaviour) this).set_enabled(true);
+      }
+    }
 
-        public FlowNode_ReqGachaList()
+    private void Success()
+    {
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(1);
+    }
+
+    private void Failure()
+    {
+      ((Behaviour) this).set_enabled(false);
+      this.ActivateOutputLinks(2);
+    }
+
+    public override void OnSuccess(WWWResult www)
+    {
+      if (Network.IsError)
+      {
+        Network.EErrCode errCode = Network.ErrCode;
+        this.OnRetry();
+      }
+      else
+      {
+        WebAPI.JSON_BodyResponse<Json_GachaList> jsonObject = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_GachaList>>(www.text);
+        DebugUtility.Assert(jsonObject != null, "res == null");
+        Network.RemoveAPI();
+        if (jsonObject.body == null)
         {
-            base..ctor();
-            return;
+          this.Failure();
         }
-
-        private void Failure()
+        else
         {
-            base.set_enabled(0);
-            base.ActivateOutputLinks(2);
-            return;
-        }
-
-        public override void OnActivate(int pinID)
-        {
-            if (pinID != null)
+          GameManager instance = MonoSingleton<GameManager>.Instance;
+          try
+          {
+            if (!instance.Deserialize(jsonObject.body))
             {
-                goto Label_0036;
+              this.Failure();
+              return;
             }
-            if (Network.Mode != 1)
-            {
-                goto Label_0018;
-            }
-            this.Success();
-            return;
-        Label_0018:
-            base.ExecRequest(new ReqGacha(new Network.ResponseCallback(this.ResponseCallback)));
-            base.set_enabled(1);
-        Label_0036:
-            return;
-        }
-
-        public override unsafe void OnSuccess(WWWResult www)
-        {
-            WebAPI.JSON_BodyResponse<Json_GachaList> response;
-            GameManager manager;
-            Exception exception;
-            Network.EErrCode code;
-            if (Network.IsError == null)
-            {
-                goto Label_0017;
-            }
-            code = Network.ErrCode;
-            this.OnRetry();
-            return;
-        Label_0017:
-            response = JSONParser.parseJSONObject<WebAPI.JSON_BodyResponse<Json_GachaList>>(&www.text);
-            DebugUtility.Assert((response == null) == 0, "res == null");
-            Network.RemoveAPI();
-            if (response.body != null)
-            {
-                goto Label_004C;
-            }
+          }
+          catch (Exception ex)
+          {
+            DebugUtility.LogException(ex);
             this.Failure();
             return;
-        Label_004C:
-            manager = MonoSingleton<GameManager>.Instance;
-        Label_0052:
-            try
-            {
-                if (manager.Deserialize(response.body) != null)
-                {
-                    goto Label_006E;
-                }
-                this.Failure();
-                goto Label_00B9;
-            Label_006E:
-                goto Label_008A;
-            }
-            catch (Exception exception1)
-            {
-            Label_0073:
-                exception = exception1;
-                DebugUtility.LogException(exception);
-                this.Failure();
-                goto Label_00B9;
-            }
-        Label_008A:
-            GachaResultData.Reset();
-            if ((FlowNode_Variable.Get("REDRAW_GACHA_PENDING") == "1") == null)
-            {
-                goto Label_00B3;
-            }
-            this.ToCheckPending();
-            goto Label_00B9;
-        Label_00B3:
-            this.Success();
-        Label_00B9:
-            return;
+          }
+          this.Success();
         }
-
-        private void Success()
-        {
-            base.set_enabled(0);
-            base.ActivateOutputLinks(1);
-            return;
-        }
-
-        private void ToCheckPending()
-        {
-            base.set_enabled(0);
-            base.ActivateOutputLinks(3);
-            return;
-        }
+      }
     }
+  }
 }
-
