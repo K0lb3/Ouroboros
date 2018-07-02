@@ -2,7 +2,7 @@ import os
 import json
 def loadFiles2(files):
     ret = []
-    dir = os.path.dirname(os.path.realpath(__file__)).replace('\\ParamFunctions','\\resources\\')
+    dir = os.path.dirname(os.path.realpath(__file__)).replace('\\ParamFunctions','\\resources\\GameFiles\\')
 
     for file in files:
         with open(dir + file, "rt", encoding='utf8') as f:
