@@ -1,6 +1,8 @@
 import os
 import json
-def loadFiles2(files):
+from Functions.Translation import TRANSLATION
+
+def loadGameFiles2(files):
     ret = []
     dir = os.path.dirname(os.path.realpath(__file__)).replace('\\ParamFunctions','\\resources\\GameFiles\\')
 
@@ -8,7 +10,7 @@ def loadFiles2(files):
         with open(dir + file, "rt", encoding='utf8') as f:
             ret.append(json.loads(f.read()))
     return ret
-[ENUM,SYS]=loadFiles2(['ENums.json','sys.json'])
+[ENUM,SYS,UNITLORE]=loadGameFiles2(['ENums.json','sys.json','unit.json'])
 
 #hotfixes
 for param in ENUM:

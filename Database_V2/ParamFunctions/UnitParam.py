@@ -1,4 +1,4 @@
-from ParamFunctions._variables import RAWBIRTH,RAWELEMENT,ENUM
+from ParamFunctions._variables import RAWBIRTH,RAWELEMENT,ENUM,TRANSLATION,UNITLORE
 
 def UnitParam(json):
     this={}#UnitParamjson)
@@ -9,7 +9,18 @@ def UnitParam(json):
     if 'iname' in json:
         this['iname'] = json['iname']
     if 'name' in json:
-        this['name'] = json['name']
+        this['name'] = TRANSLATION[json['iname']]['name'] if json['iname'] in TRANSLATION else json['name']
+        this['kanji'] = json['name']
+    if 'height' in json:
+        this['height'] = json['height']
+    if 'weight' in json:
+        this['weight'] = json['weight']
+    if 'birth' in json:
+        this['birth'] = RAWBIRTH[json['birth']]
+    if 'birth_id' in json:
+        this['birthID'] = json['birth_id']
+    if json['iname'] in UNITLORE:
+        this['lore']= UNITLORE[json['iname']]
     if 'ai' in json:
         this['ai'] = json['ai']
     if 'mdl' in json:
@@ -18,10 +29,6 @@ def UnitParam(json):
         this['grow'] = json['grow']
     if 'piece' in json:
         this['piece'] = json['piece']
-    if 'birth' in json:
-        this['birth'] = RAWBIRTH[json['birth']]
-    if 'birth_id' in json:
-        this['birthID'] = json['birth_id']
     if 'skill' in json:
         this['skill'] = json['skill']
     if 'ability' in json:
@@ -52,10 +59,6 @@ def UnitParam(json):
         this['summon'] = json['notsmn']==0
     if 'available_at' in json:
         this['available_at'] = DateTime.Parse
-    if 'height' in json:
-        this['height'] = json['height']
-    if 'weight' in json:
-        this['weight'] = json['weight']
     if 'jt' in json:
         this['jobtype'] = ENUM['JobTypes'][json['jt']]
     if 'role' in json:

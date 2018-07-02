@@ -11,7 +11,7 @@ def similarity(ori, inp):
 
 def loadFiles(files):
     ret = []
-    dir = os.path.dirname(os.path.realpath(__file__))+'\\resources'
+    dir = os.path.dirname(os.path.realpath(__file__))+'\\resources\\GameFiles\\'
 
     for file in files:
         path = dir+'\\' + file
