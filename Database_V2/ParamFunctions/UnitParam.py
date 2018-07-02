@@ -1,4 +1,5 @@
-from MainFunctions import ENUM
+from ParamFunctions._variables import RAWBIRTH,RAWELEMENT,ENUM
+
 def UnitParam(json):
     this={}#UnitParamjson)
     #if(json==null)
@@ -18,10 +19,9 @@ def UnitParam(json):
     if 'piece' in json:
         this['piece'] = json['piece']
     if 'birth' in json:
-        this['birth'] = json['birth']
+        this['birth'] = RAWBIRTH[json['birth']]
     if 'birth_id' in json:
         this['birthID'] = json['birth_id']
-        this['birth'] = json['birth']
     if 'skill' in json:
         this['skill'] = json['skill']
     if 'ability' in json:
@@ -41,7 +41,7 @@ def UnitParam(json):
     if 'type' in json:
         this['type'] = ENUM['EUnitType'][json['type']]
     if 'elem' in json:
-        this['element'] = ENUM['EElement'][json['elem']]
+        this['element'] = RAWELEMENT[json['elem']]
     if 'hero' in json:
         this['hero'] = json['hero']
     if 'search' in json:
@@ -83,7 +83,7 @@ def UnitParam(json):
     if 'jobsets' in json:
         this['jobsets'] = json['jobsets']
     if 'tag' in json:
-        this['tags'] = json['tag']
+        this['tags'] = json['tag'].split(',')
     #stats
     this['ini_status']={}
     this['ini_status']['param']={}
@@ -160,6 +160,7 @@ def UnitParam(json):
 
     this['max_status']={}
     this['max_status']['param']={}
+    this['max_status']['enchant_resist']={}
     if 'mhp' in json:
         this['max_status']['param']['hp'] = json['mhp']
     if 'mmp' in json:
@@ -180,8 +181,6 @@ def UnitParam(json):
         this['max_status']['param']['cri'] = json['mcri']
     if 'mluk' in json:
         this['max_status']['param']['luk'] = json['mluk']
-    this['max_status']={}
-    this['max_status']['enchant_resist']={}
     if 'mrpo' in json:
         this['max_status']['enchant_resist']['poison'] = json['mrpo']
     if 'mrpa' in json:
