@@ -1,1 +1,2 @@
-from ParamFunctions.UnitParam import *
+from ParamFunctions.UnitParam import UnitParam
+from ParamFunctions.AbilityParam import AbilityParam

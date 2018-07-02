@@ -260,6 +260,7 @@ def UnitParam(json):
         this['recipes'][4] = json['recipe5']
     if 'recipe6' in json:
         this['recipes'][5] = json['recipe6']
+        
     if 'img' in json:
         this['image'] = json['img']
     if 'vce' in json:

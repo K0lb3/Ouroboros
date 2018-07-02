@@ -8,10 +8,11 @@ def createAIO():
     #loc = Translation()
 
     #some tries first
+    main='Ability'
     export={}
-    for unit in master_gl['Unit']:
-        export[unit['iname']]=UnitParam(unit)
+    for unit in master_gl[main]:
+        export[unit['iname']]=AbilityParam(unit)
 
-    saveAsJSON('Test.json',export)
+    saveAsJSON(main+'.json',export)
 
 createAIO()
