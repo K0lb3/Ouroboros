@@ -1,5 +1,6 @@
 def SkillParam(json):
     this={}#SkillParamjson)
+    #if(json==null)
     #returnfalse
     if 'iname' in json:
         this['iname'] = json['iname']
@@ -87,20 +88,30 @@ def SkillParam(json):
         this['KnockBackDs'] = ENUM['eKnockBackDs'][json['kb_ds']]
     if 'dmg_dt' in json:
         this['DamageDispType'] = ENUM['eDamageDispType'][json['dmg_dt']]
-    #this.ReplaceTargetIdLists.Clear()
+    #this.ReplaceTargetIdLists=(List<string>)null
+    #if(json.rp_tgt_ids!=null)
+        #this.ReplaceTargetIdLists=newList<string>()
         #foreach(stringrpTgtIdinjson.rp_tgt_ids)
         #this.ReplaceTargetIdLists.Add(rpTgtId)
-    #this.ReplaceChangeIdLists.Clear()
+    #this.ReplaceChangeIdLists=(List<string>)null
+    #if(json.rp_chg_ids!=null&&this.ReplaceTargetIdLists!=null)
+        #this.ReplaceChangeIdLists=newList<string>()
         #foreach(stringrpChgIdinjson.rp_chg_ids)
         #this.ReplaceChangeIdLists.Add(rpChgId)
+    #if(this.ReplaceTargetIdLists!=null&&this.ReplaceChangeIdLists!=null&&this.ReplaceTargetIdLists.Count!=this.ReplaceChangeIdLists.Count)
         #this.ReplaceTargetIdLists.Clear()
         #this.ReplaceChangeIdLists.Clear()
-    #this.AbilityReplaceTargetIdLists.Clear()
+    #this.AbilityReplaceTargetIdLists=(List<string>)null
+    #if(json.ab_rp_tgt_ids!=null)
+        #this.AbilityReplaceTargetIdLists=newList<string>()
         #foreach(stringabRpTgtIdinjson.ab_rp_tgt_ids)
         #this.AbilityReplaceTargetIdLists.Add(abRpTgtId)
-    #this.AbilityReplaceChangeIdLists.Clear()
+    #this.AbilityReplaceChangeIdLists=(List<string>)null
+    #if(json.ab_rp_chg_ids!=null&&this.AbilityReplaceTargetIdLists!=null)
+        #this.AbilityReplaceChangeIdLists=newList<string>()
         #foreach(stringabRpChgIdinjson.ab_rp_chg_ids)
         #this.AbilityReplaceChangeIdLists.Add(abRpChgId)
+    #if(this.AbilityReplaceTargetIdLists!=null&&this.AbilityReplaceChangeIdLists!=null&&this.AbilityReplaceTargetIdLists.Count!=this.AbilityReplaceChangeIdLists.Count)
         #this.AbilityReplaceTargetIdLists.Clear()
         #this.AbilityReplaceChangeIdLists.Clear()
     if 'cs_voice' in json:
@@ -131,6 +142,77 @@ def SkillParam(json):
         this['ElementSpcAtkRate'] = json['elem_tk']
     if 'max_dmg' in json:
         this['MaxDamageValue'] = json['max_dmg']
+    if 'ci_cc_id' in json:
+        this['CutInConceptCardId'] = json['ci_cc_id']
+    if 'jhp_val' in json:
+        this['JudgeHpVal'] = json['jhp_val']
+    if 'jhp_calc' in json:
+        this['JudgeHpCalc'] = ENUM['SkillParamCalcTypes'][json['jhp_calc']]
+    if 'ac_fr_ab_id' in json:
+        this['AcFromAbilId'] = json['ac_fr_ab_id']
+    if 'ac_to_ab_id' in json:
+        this['AcToAbilId'] = json['ac_to_ab_id']
+    if 'ac_turn' in json:
+        this['AcTurn'] = json['ac_turn']
+    if 'eff_htnrate' in json:
+        this['EffectHitTargetNumRate'] = json['eff_htnrate']
+    if 'aag' in json:
+        this['AbsorbAndGive'] = ENUM['eAbsorbAndGive'][json['aag']]
+    if 'target_ex' in json:
+        this['TargetEx'] = ENUM['eSkillTargetEx'][json['target_ex']]
+    if 'jmp_tk' in json:
+        this['JumpSpcAtkRate'] = json['jmp_tk']
+    #this.flags=(SkillFlags)0
+    #if(json.cutin!=0)
+    #this.flags|=SkillFlags.ExecuteCutin
+    #if(json.isbtl!=0)
+    #this.flags|=SkillFlags.ExecuteInBattle
+    #if(json.chran!=0)
+    #this.flags|=SkillFlags.EnableChangeRange
+    #if(json.sonoba!=0)
+    #this.flags|=SkillFlags.SelfTargetSelect
+    #if(json.pierce!=0)
+    #this.flags|=SkillFlags.PierceAttack
+    #if(json.hbonus!=0)
+    #this.flags|=SkillFlags.EnableHeightRangeBonus
+    #if(json.ehpa!=0)
+    #this.flags|=SkillFlags.EnableHeightParamAdjust
+    #if(json.utgt!=0)
+    #this.flags|=SkillFlags.EnableUnitLockTarget
+    #if(json.ctbreak!=0)
+    #this.flags|=SkillFlags.CastBreak
+    #if(json.mpatk!=0)
+    #this.flags|=SkillFlags.JewelAttack
+    #if(json.fhit!=0)
+    #this.flags|=SkillFlags.ForceHit
+    #if(json.suicide!=0)
+    #this.flags|=SkillFlags.Suicide
+    #if(json.sub_actuate!=0)
+    #this.flags|=SkillFlags.SubActuate
+    #if(json.is_fixed!=0)
+    #this.flags|=SkillFlags.FixedDamage
+    #if(json.f_ulock!=0)
+    #this.flags|=SkillFlags.ForceUnitLock
+    #if(json.ad_react!=0)
+    #this.flags|=SkillFlags.AllDamageReaction
+    #if(json.ig_elem!=0)
+    #this.flags|=SkillFlags.IgnoreElement
+    #if(json.is_pre_apply!=0)
+    #this.flags|=SkillFlags.PrevApply
+    #if(json.jhp_over!=0)
+    #this.flags|=SkillFlags.JudgeHpOver
+    #if(json.is_mhm_dmg!=0)
+    #this.flags|=SkillFlags.MhmDamage
+    #if(json.ac_is_self!=0)
+    #this.flags|=SkillFlags.AcSelf
+    #if(json.ac_is_reset!=0)
+    #this.flags|=SkillFlags.AcReset
+    #if(json.is_htndiv!=0)
+    #this.flags|=SkillFlags.HitTargetNumDiv
+    #if(json.is_no_ccc!=0)
+    #this.flags|=SkillFlags.NoChargeCalcCT
+    #if(json.jmpbreak!=0)
+    #this.flags|=SkillFlags.JumpBreak
     if 'hp_cost' in json:
         this['hp_cost'] = json['hp_cost']
     if 'hp_cost_rate' in json:
@@ -141,6 +223,7 @@ def SkillParam(json):
         this['effect_type'] = ENUM['SkillEffectTypes'][json['eff_type']]
     if 'eff_calc' in json:
         this['effect_calc'] = ENUM['SkillParamCalcTypes'][json['eff_calc']]
+    #this.effect_rate=newSkillRankUpValue()
     this['']
     this['effect_rate']
     if 'eff_rate_ini' in json:
@@ -148,6 +231,7 @@ def SkillParam(json):
     this['effect_rate']
     if 'eff_rate_max' in json:
         this['effect_rate']['max'] = json['eff_rate_max']
+    #this.effect_value=newSkillRankUpValue()
     this['']
     this['effect_value']
     if 'eff_val_ini' in json:
@@ -155,6 +239,7 @@ def SkillParam(json):
     this['effect_value']
     if 'eff_val_max' in json:
         this['effect_value']['max'] = json['eff_val_max']
+    #this.effect_range=newSkillRankUpValue()
     this['']
     this['effect_range']
     if 'eff_range_ini' in json:
@@ -176,6 +261,9 @@ def SkillParam(json):
         this['attack_detail'] = ENUM['AttackDetailTypes'][json['atk_det']]
     if 'elem' in json:
         this['element_type'] = ENUM['EElement'][json['elem']]
+    #this.element_value=(SkillRankUpValue)null
+    #if(this.element_type!=EElement.None)
+        #this.element_value=newSkillRankUpValue()
         this['']
         this['element_value']
         if 'elem_ini' in json:
@@ -185,8 +273,10 @@ def SkillParam(json):
             this['element_value']['max'] = json['elem_max']
     if 'ct_type' in json:
         this['cast_type'] = ENUM['ECastTypes'][json['ct_type']]
+    #this.cast_speed=(SkillRankUpValue)null
     if 'ct_spd_ini' in json:
         this['type'] = =ESkillType.Skill&&)
+        #this.cast_speed=newSkillRankUpValue()
         this['']
         this['cast_speed']
         if 'ct_spd_ini' in json:
@@ -198,11 +288,16 @@ def SkillParam(json):
         this['absorb_damage_rate'] = json['abs_d_rate']
     if 'react_d_type' in json:
         this['reaction_damage_type'] = ENUM['DamageTypes'][json['react_d_type']]
-    #this.reaction_det_lists.Clear()
+    #this.reaction_det_lists=(List<AttackDetailTypes>)null
+    #if(json.react_dets!=null)
+        #this.reaction_det_lists=newList<AttackDetailTypes>()
         #foreach(AttackDetailTypesreactDetinjson.react_dets)
         #this.reaction_det_lists.Add(reactDet)
+    #this.control_ct_rate=(SkillRankUpValue)null
+    #this.control_ct_value=(SkillRankUpValue)null
     if 'ct_val_ini' in json:
         this['control_ct_calc'] = =SkillParamCalcTypes.Fixed||json['ct_val_ini']!=0||json.ct_val_max!=0)
+        #this.control_ct_rate=newSkillRankUpValue()
         this['']
         this['control_ct_rate']
         if 'ct_rate_ini' in json:
@@ -210,6 +305,7 @@ def SkillParam(json):
         this['control_ct_rate']
         if 'ct_rate_max' in json:
             this['control_ct_rate']['max'] = json['ct_rate_max']
+        #this.control_ct_value=newSkillRankUpValue()
         this['']
         this['control_ct_value']
         if 'ct_val_ini' in json:
@@ -231,6 +327,10 @@ def SkillParam(json):
         this['shield_type'] = ENUM['ShieldTypes'][json['shield_type']]
     if 'shield_d_type' in json:
         this['shield_damage_type'] = ENUM['DamageTypes'][json['shield_d_type']]
+    #this.shield_turn=(SkillRankUpValue)null
+    #this.shield_value=(SkillRankUpValue)null
+    #if(this.shield_type!=ShieldTypes.None&&this.shield_damage_type!=DamageTypes.None)
+        #this.shield_turn=newSkillRankUpValue()
         this['']
         this['shield_turn']
         if 'shield_turn_ini' in json:
@@ -238,6 +338,7 @@ def SkillParam(json):
         this['shield_turn']
         if 'shield_turn_max' in json:
             this['shield_turn']['max'] = json['shield_turn_max']
+        #this.shield_value=newSkillRankUpValue()
         this['']
         this['shield_value']
         if 'shield_ini' in json:
@@ -245,6 +346,10 @@ def SkillParam(json):
         this['shield_value']
         if 'shield_max' in json:
             this['shield_value']['max'] = json['shield_max']
+        #if(json.shield_reset!=0)
+        #this.flags|=SkillFlags.ShieldReset
+    #if(this.reaction_damage_type!=DamageTypes.None||this.shield_damage_type!=DamageTypes.None)
+        #this.control_damage_rate=newSkillRankUpValue()
         this['']
         this['control_damage_rate']
         if 'ctrl_d_rate_ini' in json:
@@ -252,6 +357,7 @@ def SkillParam(json):
         this['control_damage_rate']
         if 'ctrl_d_rate_max' in json:
             this['control_damage_rate']['max'] = json['ctrl_d_rate_max']
+        #this.control_damage_value=newSkillRankUpValue()
         this['']
         this['control_damage_value']
         if 'ctrl_d_ini' in json:
@@ -261,36 +367,59 @@ def SkillParam(json):
             this['control_damage_value']['max'] = json['ctrl_d_max']
         if 'ctrl_d_calc' in json:
             this['control_damage_calc'] = ENUM['SkillParamCalcTypes'][json['ctrl_d_calc']]
+    #SkillEffectTypeseffectType=this.effect_type
     #switch(effectType)
         #caseSkillEffectTypes.Teleport:
         #caseSkillEffectTypes.Changing:
         #caseSkillEffectTypes.Throw:
+        #this.scope=(OInt)0
+        #this.select_scope=ESelectType.Cross
         #break
         #caseSkillEffectTypes.RateDamage:
+        #if(this.attack_type==AttackTypes.None)
+            #this.attack_type=AttackTypes.PhyAttack
             #break
         #break
         #default:
+        #if(effectType==SkillEffectTypes.Attack||effectType==SkillEffectTypes.ReflectDamage||effectType==SkillEffectTypes.RateDamageCurrent)
         #gotocaseSkillEffectTypes.RateDamage
         #else
         #break
+    #if(this.select_range==ESelectType.Laser)
+        #this.select_scope=ESelectType.Laser
+        #this.scope=(OInt)Math.Max((int)this.scope,1)
     #else
         #switch(this.select_range)
             #caseESelectType.LaserSpread:
+            #this.select_scope=ESelectType.LaserSpread
             #break
             #caseESelectType.LaserWide:
+            #this.select_scope=ESelectType.LaserWide
             #break
             #caseESelectType.LaserTwin:
+            #this.select_scope=ESelectType.LaserTwin
             #break
             #caseESelectType.LaserTriple:
+            #this.select_scope=ESelectType.LaserTriple
             #break
         #switch(this.select_scope)
             #caseESelectType.LaserSpread:
             #caseESelectType.LaserWide:
             #caseESelectType.LaserTwin:
             #caseESelectType.LaserTriple:
+            #this.scope=(OInt)1
             #break
+    #if(this.TeleportType!=eTeleportType.None)
+        #if(!this.IsTargetGridNoUnit&&this.TeleportType!=eTeleportType.BeforeSkill)
+        #this.target=ESkillTarget.GridNoUnit
         #if(this.IsTargetTeleport)
             #if(this.IsCastSkill())
+            #this.cast_speed=(SkillRankUpValue)null
+            #if((int)this.scope!=0)
+            #this.scope=(OInt)0
     #if(this.IsTargetValidGrid&&!this.IsTrickSkill())
+    #this.target=ESkillTarget.GridNoUnit
+    #if(this.timing==ESkillTiming.Auto&&this.effect_type==SkillEffectTypes.Attack)
+    #this.effect_type=SkillEffectTypes.Buff
     #returntrue
 return this

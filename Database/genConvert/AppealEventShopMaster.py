@@ -1,5 +1,6 @@
 def AppealEventShopMaster(json):
     this={}#AppealEventShopMasterjson)
+    #if(json==null)
     #returnfalse
     if 'fields' in json:
         this['appeal_id'] = json['fields'].appeal_id

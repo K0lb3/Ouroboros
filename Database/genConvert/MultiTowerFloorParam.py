@@ -1,5 +1,6 @@
 def MultiTowerFloorParam(json):
     this={}#MultiTowerFloorParamjson)
+    #if(json==null)
     #thrownewInvalidJSONException()
     if 'id' in json:
         this['id'] = json['id']
@@ -36,7 +37,13 @@ def MultiTowerFloorParam(json):
     if 'wth_set_id' in json:
         this['wth_set_id'] = json['wth_set_id']
     #this.map.Clear()
-            #mapParam.Deserialize(json.map[index])
+    #if(json.map!=null)
+        #for(intindex=0index<json.map.Length++index)
+            #MapParammapParam=newMapParam()
+            #mapParam.Deserialize(json.map)
             #this.map.Add(mapParam)
+    #GameManagerinstance=MonoSingleton<GameManager>.Instance
+    #this.BaseQuest=instance.FindQuest(this.tower_id)
+    #QuestParamquestParam=this.GetQuestParam()
     #instance.AddMTQuest(questParam.iname,questParam)
 return this

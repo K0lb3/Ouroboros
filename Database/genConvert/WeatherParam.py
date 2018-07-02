@@ -1,5 +1,6 @@
 def WeatherParam(json):
     this={}#WeatherParamjson)
+    #if(json==null)
     #return
     if 'iname' in json:
         this['mIname'] = json['iname']
@@ -12,9 +13,11 @@ def WeatherParam(json):
     if 'effect' in json:
         this['mEffect'] = json['effect']
     #this.mBuffIdLists.Clear()
+    #if(json.buff_ids!=null)
         #foreach(stringbuffIdinjson.buff_ids)
         #this.mBuffIdLists.Add(buffId)
     #this.mCondIdLists.Clear()
+    #if(json.cond_ids==null)
     #return
     #foreach(stringcondIdinjson.cond_ids)
     #this.mCondIdLists.Add(condId)

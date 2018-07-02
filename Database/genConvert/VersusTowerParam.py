@@ -1,5 +1,6 @@
 def VersusTowerParam(json):
     this={}#VersusTowerParamjson)
+    #if(json==null)
     #return
     if 'vstower_id' in json:
         this['VersusTowerID'] = json['vstower_id']
@@ -19,46 +20,55 @@ def VersusTowerParam(json):
         this['DownFloor'] = json['downfloor']
     if 'resetfloor' in json:
         this['ResetFloor'] = json['resetfloor']
+    #if(json.winitem!=null&&json.win_itemnum!=null)
+        #if(json.winitem.Length!=json.win_itemnum.Length)
         #Debug.LogError((object)"VersusTowerParam[WinItem]isInvalid")
         if 'winitem' in json:
             this['WinIteminame'] = newOString[json['winitem'].Length]
-        if 'win_itemnum' in json:
-            this['WinItemNum'] = newOInt[json['win_itemnum'].Length]
+        #for(intindex=0index<json.winitem.Length++index)
         if 'winitem' in json:
-            this['WinIteminame[index]'] = json['winitem'][index]
+            this['WinIteminame'] = json['winitem']
+        #for(intindex=0index<json.win_itemnum.Length++index)
         if 'win_itemnum' in json:
-            this['WinItemNum[index]'] = json['win_itemnum'][index]
+            this['WinItemNum'] = json['win_itemnum']
+    #if(json.joinitem!=null&&json.join_itemnum!=null)
+        #if(json.joinitem.Length!=json.join_itemnum.Length)
         #Debug.LogError((object)"VersusTowerParam[LoseItem]isInvalid")
         if 'joinitem' in json:
             this['JoinIteminame'] = newOString[json['joinitem'].Length]
-        if 'join_itemnum' in json:
-            this['JoinItemNum'] = newOInt[json['join_itemnum'].Length]
+        #for(intindex=0index<json.joinitem.Length++index)
         if 'joinitem' in json:
-            this['JoinIteminame[index]'] = json['joinitem'][index]
+            this['JoinIteminame'] = json['joinitem']
+        #for(intindex=0index<json.join_itemnum.Length++index)
         if 'join_itemnum' in json:
-            this['JoinItemNum[index]'] = json['join_itemnum'][index]
+            this['JoinItemNum'] = json['join_itemnum']
+    #if(json.spbtl_item!=null&&json.spbtl_itemnum!=null)
+        #if(json.spbtl_item.Length!=json.spbtl_itemnum.Length)
         #Debug.LogError((object)"VersusTowerParam[SpecialItem]isInvalid")
         if 'spbtl_item' in json:
             this['SpIteminame'] = newOString[json['spbtl_item'].Length]
-        if 'spbtl_itemnum' in json:
-            this['SpItemnum'] = newOInt[json['spbtl_itemnum'].Length]
+        #for(intindex=0index<json.spbtl_item.Length++index)
         if 'spbtl_item' in json:
-            this['SpIteminame[index]'] = json['spbtl_item'][index]
+            this['SpIteminame'] = json['spbtl_item']
+        #for(intindex=0index<json.spbtl_itemnum.Length++index)
         if 'spbtl_itemnum' in json:
-            this['SpItemnum[index]'] = json['spbtl_itemnum'][index]
+            this['SpItemnum'] = json['spbtl_itemnum']
+    #if(json.season_item!=null&&json.season_itemnum!=null&&json.season_itype!=null)
+        #if(json.season_item.Length!=json.season_itemnum.Length)
         #Debug.LogError((object)"VersusTowerParam[SeasonItem]isInvalid")
         if 'season_item' in json:
             this['SeasonIteminame'] = newOString[json['season_item'].Length]
         if 'season_itype' in json:
             this['SeasonItemType'] = newVERSUS_ITEM_TYPE[json['season_itype'].Length]
-        if 'season_itemnum' in json:
-            this['SeasonItemnum'] = newOInt[json['season_itemnum'].Length]
+        #for(intindex=0index<json.season_item.Length++index)
         if 'season_item' in json:
-            this['SeasonIteminame[index]'] = json['season_item'][index]
+            this['SeasonIteminame'] = json['season_item']
+        #for(intindex=0index<json.season_itype.Length++index)
         if 'season_itype' in json:
-            this['SeasonItemType[index]'] = ENUM['VERSUS_ITEM_TYPE'][json['season_itype']]
+            this['SeasonItemType'] = ENUM['VERSUS_ITEM_TYPE'][json['season_itype']]
+        #for(intindex=0index<json.season_itemnum.Length++index)
         if 'season_itemnum' in json:
-            this['SeasonItemnum[index]'] = json['season_itemnum'][index]
+            this['SeasonItemnum'] = json['season_itemnum']
     #if(string.IsNullOrEmpty(json.arrival_item))
     #return
     if 'arrival_item' in json:

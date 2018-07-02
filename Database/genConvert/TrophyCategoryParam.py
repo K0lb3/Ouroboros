@@ -1,10 +1,10 @@
 def TrophyCategoryParam(json):
     this={}#TrophyCategoryParamjson)
+    #if(json==null)
     #returnfalse
     if 'iname' in json:
         this['iname'] = json['iname']
-    if 'name' in json:
-        this['name'] = json['name']
+    #this.hash_code=this.iname.GetHashCode()
     if 'is_not_pull' in json:
         this['is_not_pull'] = json['is_not_pull']==1
     if 'day_reset' in json:

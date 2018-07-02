@@ -1,5 +1,6 @@
 def TowerParam(json):
     this={}#TowerParamjson)
+    #if(json==null)
     #thrownewInvalidJSONException()
     if 'iname' in json:
         this['iname'] = json['iname']
@@ -35,4 +36,8 @@ def TowerParam(json):
         this['unlock_quest'] = json['unlock_quest']
     if 'url' in json:
         this['URL'] = json['url']
+    if 'floor_reset_coin' in json:
+        this['floor_reset_coin'] = json['floor_reset_coin']
+    if 'score_iname' in json:
+        this['score_iname'] = json['score_iname']
 return this

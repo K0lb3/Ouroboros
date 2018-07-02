@@ -1,5 +1,6 @@
 def EvaluationParam(json):
     this={}#EvaluationParamjson)
+    #if(json==null)
     #returnfalse
     if 'iname' in json:
         this['iname'] = json['iname']

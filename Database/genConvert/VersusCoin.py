@@ -1,5 +1,6 @@
 def VersusCoin(json):
     this={}#VersusCoinjson)
+    #if(json==null)
     #return
     if 'iname' in json:
         this['iname'] = json['iname']

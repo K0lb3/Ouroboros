@@ -22,5 +22,7 @@ def QuestCampaignChildParam(json):
         this['expUnit'] = json['exp_unit']
     if 'ap_rate' in json:
         this['apRate'] = json['ap_rate']
+    #this.parents=newQuestCampaignParentParam[0]
+    #this.campaignTrust=(QuestCampaignTrust)null
     #returntrue
 return this

@@ -1,5 +1,6 @@
 def BreakObjParam(json):
     this={}#BreakObjParamjson)
+    #if(json==null)
     #return
     if 'iname' in json:
         this['mIname'] = json['iname']
@@ -19,8 +20,15 @@ def BreakObjParam(json):
         this['mRayType'] = ENUM['eMapBreakRayType'][json['ray_type']]
     if 'is_ui' in json:
         this['mIsUI'] = json['is_ui']!=0
+    #this.mRestHps=(int)null
     #if(!string.IsNullOrEmpty(json.rest_hps))
-                #int.TryParse(strArray[index],outresult)
+        #stringstrArray=json.rest_hps.Split(',')
+        #if(strArray!=null&&strArray.Length!=0)
+            #this.mRestHps=newint[strArray.Length]
+            #for(intindex=0index<strArray.Length++index)
+                #intresult=0
+                #int.TryParse(strArray,outresult)
+                #this.mRestHps=result
     if 'clock' in json:
         this['mAliveClock'] = json['clock']
     if 'appear_dir' in json:

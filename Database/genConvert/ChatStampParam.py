@@ -1,5 +1,6 @@
 def ChatStampParam(json):
     this={}#ChatStampParamjson)
+    #if(json==null||json.fields==null)
     #returnfalse
     if 'fields' in json:
         this['id'] = json['fields'].id

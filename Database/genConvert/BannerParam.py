@@ -1,5 +1,6 @@
 def BannerParam(json):
     this={}#BannerParamjson)
+    #if(json==null)
     #returnfalse
     #try
         if 'iname' in json:
@@ -18,6 +19,10 @@ def BannerParam(json):
             this['end_at'] = json['end_at']
         if 'priority' in json:
             this['priority'] = json['priority']>0?json['priority']:int.MaxValue
+        if 'message' in json:
+            this['message'] = json['message']
+        if 'is_not_home' in json:
+            this['is_not_home'] = json['is_not_home']==1
     #catch(Exceptionex)
         #Debug.LogException(ex)
         #returnfalse

@@ -1,5 +1,6 @@
 def TowerFloorParam(json):
     this={}#TowerFloorParamjson)
+    #if(json==null)
     #thrownewInvalidJSONException()
     if 'iname' in json:
         this['iname'] = json['iname']
@@ -39,13 +40,15 @@ def TowerFloorParam(json):
         this['is_wth_no_chg'] = json['is_wth_no_chg']
     if 'wth_set_id' in json:
         this['wth_set_id'] = json['wth_set_id']
-        if 'rand_tag' in json:
-            this['rand_tag'] = newbyte[json['rand_tag'].Length]
-        if 'rand_tag' in json:
-            this['rand_tag[index]'] = json['rand_tag'][index]
     if 'naut' in json:
         this['naut'] = json['naut']
     #this.map.Clear()
-            #mapParam.Deserialize(json.map[index])
+    if 'mission' in json:
+        this['mission'] = json['mission']
+    #if(json.map!=null)
+        #for(intindex=0index<json.map.Length++index)
+            #MapParammapParam=newMapParam()
+            #mapParam.Deserialize(json.map)
             #this.map.Add(mapParam)
+    #this.BaseQuest=MonoSingleton<GameManager>.Instance.FindBaseQuest(QuestTypes.Tower,this.tower_id)
 return this

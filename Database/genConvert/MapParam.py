@@ -1,5 +1,6 @@
 def MapParam(json):
     this={}#MapParamjson)
+    #if(json==null)
     #thrownewInvalidJSONException()
     if 'scn' in json:
         this['mapSceneName'] = json['scn']

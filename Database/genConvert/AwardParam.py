@@ -1,5 +1,6 @@
 def AwardParam(json):
     this={}#AwardParamjson)
+    #if(json==null)
     #returnfalse
     if 'id' in json:
         this['id'] = json['id']
@@ -15,6 +16,7 @@ def AwardParam(json):
         this['bg'] = json['bg']
     if 'txt_img' in json:
         this['txt_img'] = json['txt_img']
+    #this.start_at=DateTime.MinValue
     #if(!string.IsNullOrEmpty(json.start_at))
     #DateTime.TryParse(json.start_at,outthis.start_at)
     if 'grade' in json:

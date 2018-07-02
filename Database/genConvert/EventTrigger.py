@@ -1,5 +1,6 @@
 def EventTrigger(json):
     this={}#EventTriggerjson)
+    #if(json==null)
     #returnfalse
     if 'trg' in json:
         this['mTrigger'] = ENUM['EEventTrigger'][json['trg']]
@@ -13,5 +14,7 @@ def EventTrigger(json):
         this['mIntValue'] = json['ival']
     if 'cnt' in json:
         this['mCount'] = json['cnt']
+    if 'tag' in json:
+        this['mTag'] = json['tag']
     #returntrue
 return this

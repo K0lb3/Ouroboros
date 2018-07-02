@@ -1,5 +1,6 @@
 def VersusMatchingParam(json):
     this={}#VersusMatchingParamjson)
+    #if(json==null)
     #return
     if 'key' in json:
         this['MatchKey'] = json['key']

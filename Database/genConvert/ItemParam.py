@@ -1,5 +1,6 @@
 def ItemParam(json):
     this={}#ItemParamjson)
+    #if(json==null)
     #returnfalse
     if 'iname' in json:
         this['iname'] = json['iname']
@@ -11,6 +12,8 @@ def ItemParam(json):
         this['flavor'] = json['flavor']
     if 'type' in json:
         this['type'] = ENUM['EItemType'][json['type']]
+    if 'tabtype' in json:
+        this['tabtype'] = ENUM['EItemTabType'][json['tabtype']]
     if 'rare' in json:
         this['rare'] = json['rare']
     if 'cap' in json:
@@ -45,10 +48,13 @@ def ItemParam(json):
         this['skill'] = json['skill']
     if 'recipe' in json:
         this['recipe'] = json['recipe']
+    #this.quests=(string)null
     if 'is_valuables' in json:
         this['is_valuables'] = json['is_valuables']>0
     if 'cmn_type' in json:
         this['cmn_type'] = json['cmn_type']
+    #if(json.quests!=null)
+        #for(intindex=0index<json.quests.Length++index)
         if 'quests' in json:
             this['quests'] = json['quests']
     #returntrue

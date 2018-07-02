@@ -1,5 +1,6 @@
-def TowerScore(json):
-    this={}#TowerScorejson)
+def TowerScoreThreshold(json):
+    this={}#TowerScoreThresholdjson)
+    #if(json==null)
     #returnfalse
     if 'rank' in json:
         this['Rank'] = json['rank']

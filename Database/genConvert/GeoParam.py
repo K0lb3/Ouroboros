@@ -1,5 +1,6 @@
 def GeoParam(json):
     this={}#GeoParamjson)
+    #if(json==null)
     #returnfalse
     if 'iname' in json:
         this['iname'] = json['iname']

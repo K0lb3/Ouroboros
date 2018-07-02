@@ -1,19 +1,29 @@
 def TrophyParam(json):
     this={}#TrophyParamjson)
+    #if(json==null)
     #returnfalse
+    #if(json.flg_quests==null)
+        #this.RequiredTrophies=newstring[0]
     #else
+        #for(intindex=0index<json.flg_quests.Length++index)
         if 'flg_quests' in json:
             this['RequiredTrophies'] = json['flg_quests']
+    #this.Objectives=newTrophyObjective[1]
+    #for(intindex=0index<1++index)
+        #this.Objectives=newTrophyObjective()
+        #this.Objectives.Param=this
+        #this.Objectives.index=index
         this['']
-        this['Objectives[index]']
+        this['Objectives']
         if 'type' in json:
-            this['Objectives[index]']['type'] = ENUM['TrophyConditionTypes'][json['type']]
-        this['Objectives[index]']
+            this['Objectives']['type'] = ENUM['TrophyConditionTypes'][json['type']]
+        this['Objectives']
         if 'ival' in json:
-            this['Objectives[index]']['ival'] = json['ival']
-        this['Objectives[index]']
+            this['Objectives']['ival'] = json['ival']
+        #if(json.sval!=null)
+        this['Objectives']
         if 'sval' in json:
-            this['Objectives[index]']['sval'] = newList<string>json['sval'])
+            this['Objectives']['sval'] = newList<string>json['sval'])
     if 'iname' in json:
         this['iname'] = json['iname']
     if 'name' in json:
@@ -35,9 +45,13 @@ def TrophyParam(json):
     #if(!string.IsNullOrEmpty(json.category))
         if 'category' in json:
             this['category_hash_code'] = json['category'].GetHashCode
+        #this.is_none_category_hash=false
     if 'category' in json:
         this['Category'] = json['category']
     if 'disp' in json:
         this['DispType'] = ENUM['TrophyDispType'][json['disp']]
+    #this.Items=TrophyParam.InitializeItems(json)
+    #this.Artifacts=TrophyParam.InitializeArtifacts(json)
+    #this.ConceptCards=TrophyParam.InitializeConceptCards(json)
     #returntrue
 return this

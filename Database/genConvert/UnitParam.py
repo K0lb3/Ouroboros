@@ -1,5 +1,6 @@
 def UnitParam(json):
     this={}#UnitParamjson)
+    #if(json==null)
     #returnfalse
     if 'no' in json:
         this['no'] = json['no']
@@ -16,6 +17,9 @@ def UnitParam(json):
     if 'piece' in json:
         this['piece'] = json['piece']
     if 'birth' in json:
+        this['birth'] = json['birth']
+    if 'birth_id' in json:
+        this['birthID'] = json['birth_id']
         this['birth'] = json['birth']
     if 'skill' in json:
         this['skill'] = json['skill']
@@ -50,6 +54,7 @@ def UnitParam(json):
             if 'available_at' in json:
                 this['available_at'] = DateTime.Parse
         #catch
+            #this.available_at=DateTime.MaxValue
     if 'height' in json:
         this['height'] = json['height']
     if 'weight' in json:
@@ -69,9 +74,11 @@ def UnitParam(json):
     if 'ma_lv' in json:
         this['ma_lv'] = json['ma_lv']
         if 'skins' in json:
-            this['skins'] = newOString[json['skins'].Length]
-        if 'skins' in json:
-            this['skins[index]'] = json['skins'][index]
+            this['skins'] = json['skins']
+    #if(UnitParam.NoJobStatus.IsExistParam(json))
+        #this.no_job_status=newUnitParam.NoJobStatus()
+        #this.no_job_status.SetParam(json)
+    #if(this.type==EUnitType.EventUnit)
     if 'djob' in json:
         this['djob'] = json['djob']
     if 'dbuki' in json:
@@ -83,13 +90,21 @@ def UnitParam(json):
         if 'dabi' in json:
             this['default_abilities[index]'] = json['dabi'][index]
     #returntrue
+    #if(json.jobsets!=null)
+        #for(intindex=0index<this.jobsets.Length++index)
         if 'jobsets' in json:
-            this['jobsets'] = newOString[json['jobsets'].Length]
-        if 'jobsets' in json:
-            this['jobsets[index]'] = json['jobsets'][index]
+            this['jobsets'] = json['jobsets']
+    #if(json.tag!=null)
     if 'tag' in json:
         this['tags'] = json['tag'].Split
-    this['']
+    #if(this.ini_status==null)
+    #this.ini_status=newUnitParam.Status()
+    #this.ini_status.SetParamIni(json)
+    #this.ini_status.SetEnchentParamIni(json)
+    #if(this.max_status==null)
+    #this.max_status=newUnitParam.Status()
+    #this.max_status.SetParamMax(json)
+    #this.max_status.SetEnchentParamMax(json)
     this['ini_status']
     this['ini_status']['param']
     if 'hp' in json:
@@ -300,33 +315,37 @@ def UnitParam(json):
     if 'mric' in json:
         this['max_status']['enchant_resist']['inc_ct'] = json['mric']
     if 'ls1' in json:
-        this['leader_skills[0]'] = json['ls1']
+        this['leader_skills'][0] = json['ls1']
     if 'ls2' in json:
-        this['leader_skills[1]'] = json['ls2']
+        this['leader_skills'][1] = json['ls2']
     if 'ls3' in json:
-        this['leader_skills[2]'] = json['ls3']
+        this['leader_skills'][2] = json['ls3']
     if 'ls4' in json:
-        this['leader_skills[3]'] = json['ls4']
+        this['leader_skills'][3] = json['ls4']
     if 'ls5' in json:
-        this['leader_skills[4]'] = json['ls5']
+        this['leader_skills'][4] = json['ls5']
     if 'ls6' in json:
-        this['leader_skills[5]'] = json['ls6']
+        this['leader_skills'][5] = json['ls6']
     if 'recipe1' in json:
-        this['recipes[0]'] = json['recipe1']
+        this['recipes'][0] = json['recipe1']
     if 'recipe2' in json:
-        this['recipes[1]'] = json['recipe2']
+        this['recipes'][1] = json['recipe2']
     if 'recipe3' in json:
-        this['recipes[2]'] = json['recipe3']
+        this['recipes'][2] = json['recipe3']
     if 'recipe4' in json:
-        this['recipes[3]'] = json['recipe4']
+        this['recipes'][3] = json['recipe4']
     if 'recipe5' in json:
-        this['recipes[4]'] = json['recipe5']
+        this['recipes'][4] = json['recipe5']
     if 'recipe6' in json:
-        this['recipes[5]'] = json['recipe6']
+        this['recipes'][5] = json['recipe6']
     if 'img' in json:
         this['image'] = json['img']
     if 'vce' in json:
         this['voice'] = json['vce']
+    #this.flag.Set(2,json.no_trw==0)
+    #this.flag.Set(3,json.no_kb==0)
+    if 'unlck_t' in json:
+        this['unlock_time'] = json['unlck_t']
         if 'jidx' in json:
             this['job_option_index'] = newOString[json['jidx'].Length]
         if 'jidx' in json:

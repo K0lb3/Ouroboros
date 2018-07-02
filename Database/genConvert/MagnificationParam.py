@@ -1,5 +1,6 @@
 def MagnificationParam(json):
     this={}#MagnificationParamjson)
+    #if(json==null)
     #thrownewInvalidJSONException()
     if 'iname' in json:
         this['iname'] = json['iname']

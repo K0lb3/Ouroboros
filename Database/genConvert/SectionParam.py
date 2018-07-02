@@ -1,5 +1,6 @@
 def SectionParam(json):
     this={}#SectionParamjson)
+    #if(json==null)
     #thrownewInvalidJSONException()
     if 'iname' in json:
         this['iname'] = json['iname']
@@ -27,4 +28,8 @@ def SectionParam(json):
         this['bar'] = json['bar']
     if 'bgm' in json:
         this['bgm'] = json['bgm']
+    if 'story_part' in json:
+        this['storyPart'] = json['story_part']
+    if 'release_key_quest' in json:
+        this['releaseKeyQuest'] = json['release_key_quest']
 return this

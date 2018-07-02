@@ -1,5 +1,6 @@
 def MultiTowerRewardItem(json):
     this={}#MultiTowerRewardItemjson)
+    #if(json==null)
     #thrownewInvalidJSONException()
     if 'round_st' in json:
         this['round_st'] = json['round_st']

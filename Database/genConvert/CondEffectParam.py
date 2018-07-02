@@ -1,5 +1,6 @@
 def CondEffectParam(json):
     this={}#CondEffectParamjson)
+    #if(json==null)
     #returnfalse
     if 'iname' in json:
         this['iname'] = json['iname']
@@ -35,10 +36,19 @@ def CondEffectParam(json):
         this['turn_max'] = json['tmax']
     if 'curse' in json:
         this['curse'] = json['curse']
+    #this.conditions=(EUnitCondition)null
+    #if(json.conds!=null)
         if 'conds' in json:
             this['conditions'] = newEUnitCondition[json['conds'].Length]
+        #for(intindex=0index<json.conds.Length++index)
+            #if(json.conds>=0)
             if 'conds' in json:
-                this['conditions[index]'] = ENUM['EUnitCondition'][json['conds']]
+                this['conditions'] = ENUM['EUnitCondition'][json['conds']]
+    #this.BuffIds=(string)null
+    #if(json.buffs!=null)
+        #for(intindex=0index<json.buffs.Length++index)
+        if 'buffs' in json:
+            this['BuffIds'] = json['buffs']
     if 'v_poi' in json:
         this['v_poison_rate'] = json['v_poi']
     if 'v_poifix' in json:

@@ -9,12 +9,15 @@
         "lvcap": "cap",
         "is_fixed": "fix",
         "condition_units": "units",
+        "units_conditions_type": "units_cnds_type",
         "condition_jobs": "jobs",
+        "jobs_conditions_type": "jobs_cnds_type",
         "condition_birth": "birth",
         "condition_sex": "sex",
         "condition_element": "elem",
         "condition_raremin": "rmin",
-        "condition_raremax": "rmax"
+        "condition_raremax": "rmax",
+        "type_detail": "type_detail"
     },
     "AchievementParam": {
         "id": "fields",
@@ -37,11 +40,20 @@
         "DisableSupportActionHpBorder": "notsup_hp",
         "DisableSupportActionMemberBorder": "notsup_num",
         "SkillCategoryPriorities": "skil_prio",
-        "SkillCategoryPriorities[index]": "skil_prio",
         "BuffPriorities": "buff_prio",
-        "BuffPriorities[index]": "buff_prio",
-        "ConditionPriorities": "cond_prio",
-        "ConditionPriorities[index]": "cond_prio"
+        "ConditionPriorities": "cond_prio"
+    },
+    "AppealChargeParam_": {
+        "m_AppealId": "fields",
+        "m_BeforeImg": "fields",
+        "m_AfterImg": "fields",
+        "m_StartAt": "fields",
+        "m_EndAt": "fields"
+    },
+    "AppealEventMaster": {
+        "appeal_id": "fields",
+        "start_at": "fields",
+        "end_at": "fields"
     },
     "AppealEventShopMaster": {
         "appeal_id": "fields",
@@ -73,8 +85,6 @@
     "ArtifactParam": {
         "iname": "iname",
         "name": "name",
-        "expr": "expr",
-        "flavor": "flavor",
         "spec": "spec",
         "asset": "asset",
         "voice": "voice",
@@ -144,9 +154,10 @@
         "banr_sprite": "banr_sprite",
         "begin_at": "begin_at",
         "end_at": "end_at",
-        "priority": "priority"
+        "priority": "priority",
+        "message": "message",
+        "is_not_home": "is_not_home"
     },
-    "Ma": {},
     "BreakObjParam": {
         "mIname": "iname",
         "mName": "name",
@@ -166,41 +177,23 @@
         "buki": "buki",
         "birth": "birth",
         "sex": "sex",
+        "un_group": "un_group",
         "elem": "elem",
         "rate": "rate",
         "turn": "turn",
         "chk_target": "chktgt",
         "chk_timing": "timing",
         "cond": "cond",
+        "mUpTiming": "up_timing",
         "mAppType": "app_type",
         "mAppMct": "app_mct",
         "mEffRange": "eff_range",
-        "buffs[index].value_ini": "vini10",
-        "buffs[index].value_max": "vmax10",
-        "buffs[index].calc": "calc10"
+        "buffs[index].value_ini": "vini11",
+        "buffs[index].value_max": "vmax11",
+        "buffs[index].value_one": "vone11",
+        "buffs[index].calc": "calc11",
+        "custom_targets": "custom_targets"
     },
-    "BundleItemInfo[]": {},
-    "BundleParam": {
-        "mProductId": "product_id",
-        "mPlatform": "platform",
-        "mName": "name",
-        "mDescription": "description",
-        "mAdditionalPaidCoin": "additional_paid_coin",
-        "mAdditionalFreeCoin": "additional_free_coin",
-        "mEndDate": "end_date",
-        "mImage": "image",
-        "mDisplayOrder": "display_order",
-        "mMaxPurchaseLimit": "max_purchase_limit",
-        "mPurchaseLimit": "max_purchase_limit",
-        "mContents.Items": "contents",
-        "mContents.Units": "contents",
-        "mContents.Equipments": "contents"
-    },
-    "BundleItemInfo": {
-        "Name": "iname",
-        "Quantity": "num"
-    },
-    "BundleParamResponse": {},
     "ChallengeCategoryParam": {
         "iname": "iname",
         "prio": "prio"
@@ -226,7 +219,6 @@
     },
     "ChatBlackList": {
         "lists": "blacklist",
-        "lists[index]": "blacklist",
         "total": "total"
     },
     "ChatBlackListRes": {
@@ -239,7 +231,6 @@
     "ChatChannelAutoAssign": {
         "channel": "channel"
     },
-    "ChatLog": {},
     "ChatPlayerData": {
         "name": "name",
         "exp": "exp",
@@ -263,6 +254,67 @@
         "mUnitIname": "uname",
         "mAbilityIname": "abid"
     },
+    "ConceptCardConditionsParam": {
+        "iname": "iname",
+        "unit_group": "un_group",
+        "units_conditions_type": "units_cnds_type",
+        "job_group": "job_group",
+        "jobs_conditions_type": "jobs_cnds_type",
+        "sex": "sex",
+        "birth_id": "birth_id",
+        "element_sum": "el_fire"
+    },
+    "ConceptCard": {
+        "mUniqueID": "iid",
+        "mExp": "exp",
+        "mTrust": "trust",
+        "mFavorite": "fav",
+        "mTrustBonus": "trust_bonus",
+        "mAwakeCount": "plus",
+        "mConceptCardParam": "iname"
+    },
+    "ConceptCardEquipParam": {
+        "cnds_iname": "cnds_iname",
+        "card_skill": "card_skill",
+        "add_card_skill_buff_awake": "add_card_skill_buff_awake",
+        "add_card_skill_buff_lvmax": "add_card_skill_buff_lvmax",
+        "abil_iname": "abil_iname",
+        "abil_iname_lvmax": "abil_iname_lvmax",
+        "statusup_skill": "statusup_skill",
+        "skin": "skin"
+    },
+    "ConceptCardMaterial": {
+        "mUniqueID": "id",
+        "mIName": "iname",
+        "mNum": "num",
+        "mParam": "iname"
+    },
+    "ConceptCardParamjson,MasterParammaster=": {
+        "iname": "iname",
+        "name": "name",
+        "expr": "expr",
+        "type": "type",
+        "icon": "icon",
+        "rare": "rare",
+        "sell": "sell",
+        "en_cost": "en_cost",
+        "en_exp": "en_exp",
+        "en_trust": "en_trust",
+        "trust_reward": "trust_reward",
+        "first_get_unit": "first_get_unit",
+        "lvcap": "lvcap",
+        "effects": "effects",
+        "not_sale": "not_sale"
+    },
+    "ConceptCardTrustRewardItemParam": {
+        "reward_type": "reward_type",
+        "iname": "reward_iname",
+        "reward_num": "reward_num"
+    },
+    "ConceptCardTrustRewardParam": {
+        "iname": "iname",
+        "rewards": "rewards"
+    },
     "CondEffectParam": {
         "iname": "iname",
         "job": "job",
@@ -283,6 +335,7 @@
         "curse": "curse",
         "conditions": "conds",
         "conditions[index]": "conds",
+        "BuffIds": "buffs",
         "v_poison_rate": "v_poi",
         "v_poison_fix": "v_poifix",
         "v_paralyse_rate": "v_par",
@@ -299,6 +352,18 @@
         "v_auto_hp_heal_fix": "v_ahpfix",
         "v_auto_mp_heal_fix": "v_ampfix"
     },
+    "CustomTargetParam": {
+        "iname": "iname",
+        "units": "units",
+        "jobs": "jobs",
+        "unit_groups": "unit_groups",
+        "job_groups": "job_groups",
+        "first_job": "first_job",
+        "second_job": "second_job",
+        "third_job": "third_job",
+        "sex": "sex",
+        "birth_id": "birth_id"
+    },
     "EvaluationParam": {
         "iname": "iname",
         "value": "val",
@@ -313,7 +378,6 @@
         "status.cri": "cri",
         "status.luk": "luk"
     },
-    "EventShopItemListSet[]shopi": {},
     "EventShopItemListSet": {
         "id": "id",
         "iname": "item",
@@ -324,8 +388,11 @@
         "saleType": "cost",
         "cost_iname": "cost",
         "is_reset": "isreset",
+        "start": "start",
+        "end": "end",
         "is_soldout": "sold",
-        "children": "children"
+        "children": "children",
+        "shopItemType": "item"
     },
     "EventTrigger": {
         "mTrigger": "trg",
@@ -333,7 +400,8 @@
         "mGimmickType": "detail",
         "mStrValue": "sval",
         "mIntValue": "ival",
-        "mCount": "cnt"
+        "mCount": "cnt",
+        "mTag": "tag"
     },
     "FixParam": {
         "CriticalRate_Cri_Multiply": "mulcri",
@@ -366,21 +434,18 @@
         "StaminaAdd": "stmnadd",
         "StaminaAdd2": "stmnadd2",
         "StaminaAddCost": "stmncost",
-        "StaminaAddCost[index]": "stmncost",
         "CaveStaminaMax": "cavemax",
         "CaveStaminaRecoveryVal": "caverec",
         "CaveStaminaRecoverySec": "cavesec",
         "CaveStaminaStockCap": "cavecap",
         "CaveStaminaAdd": "caveadd",
         "CaveStaminaAddCost": "cavecost",
-        "CaveStaminaAddCost[index]": "cavecost",
         "ChallengeArenaMax": "arenamax",
         "ChallengeArenaCoolDownSec": "arenasec",
         "ArenaMedalMultipler": "arenamedal",
         "ArenaCoinRewardMultipler": "arenacoin",
         "ArenaResetCooldownCost": "arenaccost",
         "ArenaResetTicketCost": "arenatcost",
-        "ArenaResetTicketCost[index]": "arenatcost",
         "ChallengeTourMax": "tourmax",
         "ChallengeMultiMax": "multimax",
         "AwakeRate": "awakerate",
@@ -404,9 +469,7 @@
         "AvoidParamScale": "avoid_scale",
         "MaxAvoidRate": "avoid_rate_max",
         "ShopUpdateTime": "shop_update_time",
-        "ShopUpdateTime[index]": "shop_update_time",
         "Products": "products",
-        "Products[index]": "products",
         "VipCardProduct": "vip_product",
         "VipCardDate": "vip_date",
         "FreeGachaGoldMax": "ggmax",
@@ -418,7 +481,6 @@
         "ChallengeEliteMax": "elitemax",
         "EliteResetMax": "elite_reset_max",
         "EliteResetCosts": "elite_reset_cost",
-        "EliteResetCosts[index]": "elite_reset_cost",
         "DefaultCondTurns[EUnitCondition.Poison]": "ct_poi",
         "DefaultCondTurns[EUnitCondition.Paralysed]": "ct_par",
         "DefaultCondTurns[EUnitCondition.Stun]": "ct_stu",
@@ -448,6 +510,14 @@
         "DefaultCondTurns[EUnitCondition.DisableAreaAttack]": "ct_daa",
         "DefaultCondTurns[EUnitCondition.DisableDecCT]": "ct_ddc",
         "DefaultCondTurns[EUnitCondition.DisableIncCT]": "ct_dic",
+        "DefaultCondTurns[EUnitCondition.DisableEsaFire]": "ct_esa",
+        "DefaultCondTurns[EUnitCondition.DisableEsaWater]": "ct_esa",
+        "DefaultCondTurns[EUnitCondition.DisableEsaWind]": "ct_esa",
+        "DefaultCondTurns[EUnitCondition.DisableEsaThunder]": "ct_esa",
+        "DefaultCondTurns[EUnitCondition.DisableEsaShine]": "ct_esa",
+        "DefaultCondTurns[EUnitCondition.DisableEsaDark]": "ct_esa",
+        "DefaultCondTurns[EUnitCondition.DisableMaxDamageHp]": "ct_mdh",
+        "DefaultCondTurns[EUnitCondition.DisableMaxDamageMp]": "ct_mdm",
         "RandomEffectMax": "yuragi",
         "ChargeTimeMax": "ct_max",
         "ChargeTimeDecWait": "ct_wait",
@@ -479,6 +549,7 @@
         "PartyNumTower": "ptnum_tow",
         "PartyNumVersus": "ptnum_vs",
         "PartyNumMultiTower": "ptnum_mt",
+        "PartyNumOrdeal": "ptnum_ordeal",
         "IsDisableSuspend": "notsus",
         "SuspendSaveInterval": "sus_int",
         "IsJobMaster": "jobms",
@@ -486,11 +557,9 @@
         "DefaultClockUpValue": "fast_val",
         "DefaultClockDownValue": "slow_val",
         "EquipArtifactSlotUnlock": "equip_artifact_slot_unlock",
-        "EquipArtifactSlotUnlock[index]": "equip_artifact_slot_unlock",
         "KnockBackHeight": "kb_gh",
         "ThrowHeight": "th_gh",
         "ArtifactRarePiece": "art_rare_pi",
-        "ArtifactRarePiece[index]": "art_rare_pi",
         "ArtifactCommonPiece": "art_cmn_pi",
         "SoulCommonPiece": "soul_rare",
         "EquipCommonPiece": "equ_rare_pi",
@@ -505,10 +574,27 @@
         "FirstFriendCoin": "firstfriend_coin",
         "CombinationRate": "cmb_rate",
         "WeakUpRate": "weak_up",
-        "ResistDownRate": "resist_dw"
+        "ResistDownRate": "resist_dw",
+        "OrdealCT": "ordeal_ct",
+        "EsaAssist": "esa_assist",
+        "EsaResist": "esa_resist",
+        "CardSellMul": "card_sell_mul",
+        "CardExpMul": "card_exp_mul",
+        "CardMax": "card_max",
+        "CardTrustMax": "card_trust_max",
+        "CardTrustPileUp": "card_trust_en_bonus",
+        "CardAwakeUnlockLevelCap": "card_awake_unlock_lvcap",
+        "TobiraLvCap": "tobira_lv_cap",
+        "TobiraUnitLvCapBonus": "tobira_unit_lv_cap",
+        "TobiraUnlockElem": "tobira_unlock_elem",
+        "TobiraUnlockBirth": "tobira_unlock_birth",
+        "IniValRec": "ini_rec",
+        "GuerrillaVal": "guerrilla_val",
+        "DraftSelectSeconds": "draft_select_sec",
+        "DraftOrganizeSeconds": "draft_organize_sec",
+        "DraftPlaceSeconds": "draft_place_sec"
     },
-    "ReqTowerResuponse": {},
-    "FriendPresentItemParam": {
+    "FriendPresentItemParamjson,MasterParammaster=": {
         "m_Id": "iname",
         "m_Name": "name",
         "m_Expr": "expr",
@@ -518,60 +604,6 @@
         "m_BeginAt": "begin_at",
         "m_EndAt": "end_at"
     },
-    "MasterParam": {
-        "mUnitParam": "Unit",
-        "mUnitDictionary": "Unit",
-        "mSkillParam": "Skill",
-        "mSkillDictionary": "Skill",
-        "mBuffEffectParam": "Buff",
-        "mCondEffectParam": "Cond",
-        "mAbilityParam": "Ability",
-        "mAbilityDictionary": "Ability",
-        "mItemParam": "Item",
-        "mItemDictionary": "Item",
-        "mArtifactParam": "Artifact",
-        "mArtifactDictionary": "Artifact",
-        "mWeaponParam": "Weapon",
-        "mRecipeParam": "Recipe",
-        "mJobParam": "Job",
-        "mJobSetParam": "JobSet",
-        "mJobsetDictionary": "Unit",
-        "mGrowParam": "Grow",
-        "mAIParam": "AI",
-        "mGeoParam": "Geo",
-        "mRarityParam": "Rarity",
-        "mShopParam": "Shop",
-        "mPlayerParamTbl": "Player",
-        "mPlayerExpTbl": "PlayerLvTbl",
-        "mPlayerExpTbl[index]": "PlayerLvTbl",
-        "mUnitExpTbl": "UnitLvTbl",
-        "mUnitExpTbl[index]": "UnitLvTbl",
-        "mArtifactExpTbl": "ArtifactLvTbl",
-        "mArtifactExpTbl[index]": "ArtifactLvTbl",
-        "mAbilityExpTbl": "AbilityRank",
-        "mAbilityExpTbl[index]": "AbilityRank",
-        "mAwakePieceTbl": "AwakePieceTbl",
-        "mAwakePieceTbl[index]": "AwakePieceTbl",
-        "mLocalNotificationParam.msg_stamina": "LocalNotification",
-        "mLocalNotificationParam.iOSAct_stamina": "LocalNotification",
-        "mLocalNotificationParam.limitSec_stamina": "LocalNotification",
-        "mStreamingMovies": "Mov",
-        "mStreamingMovies[index].alias": "Mov",
-        "mStreamingMovies[index].path": "Mov",
-        "mAwardParam": "Award",
-        "mAwardDictionary": "Award",
-        "mVersusMatching": "VersusMatchKey",
-        "mVersusMatchCond": "VersusMatchCond",
-        "mTowerScore": "TowerScore",
-        "mTowerRankTbl": "TowerRank",
-        "mTowerRankTbl[index]": "TowerRank",
-        "mMultiLimitUnitLv": "MultilimitUnitLv",
-        "mMultiLimitUnitLv[index]": "MultilimitUnitLv"
-    },
-    "QuestProgress[]": {},
-    "QuestProgress": {},
-    "ArenaRankingjson,ReqBtlColoRanking.RankingTypes": {},
-    "ArenaHistory": {},
     "GeoParam": {
         "iname": "iname",
         "name": "name",
@@ -581,12 +613,23 @@
     "GrowParam": {
         "type": "type"
     },
+    "GuerrillaShopAdventQuestParam": {
+        "id": "id",
+        "qid": "qid"
+    },
+    "GuerrillaShopScheduleParam": {
+        "id": "id",
+        "begin_at": "begin_at",
+        "end_at": "end_at",
+        "accum_ap": "accum_ap",
+        "open_time": "open_time",
+        "cool_time": "cool_time"
+    },
     "ItemParam": {
         "iname": "iname",
         "name": "name",
-        "expr": "expr",
-        "flavor": "flavor",
         "type": "type",
+        "tabtype": "tabtype",
         "rare": "rare",
         "cap": "cap",
         "invcap": "invcap",
@@ -608,7 +651,12 @@
         "cmn_type": "cmn_type",
         "quests": "quests"
     },
-    "JobParam": {
+    "JobGroupParam": {
+        "iname": "iname",
+        "jobs": "jobs",
+        "name": "name"
+    },
+    "JobParamjson,MasterParammaster_p": {
         "iname": "iname",
         "name": "name",
         "expr": "expr",
@@ -637,7 +685,20 @@
         "MapEffectAbility": "me_abl",
         "IsMapEffectRevReso": "is_me_rr",
         "DescCharacteristic": "desc_ch",
-        "DescOther": "desc_ot"
+        "DescOther": "desc_ot",
+        "status.hp": "hp",
+        "status.mp": "mp",
+        "status.atk": "atk",
+        "status.def": "def",
+        "status.mag": "mag",
+        "status.mnd": "mnd",
+        "status.dex": "dex",
+        "status.spd": "spd",
+        "status.cri": "cri",
+        "status.luk": "luk",
+        "avoid": "avoid",
+        "inimp": "inimp",
+        "unit_image": "unit_image"
     },
     "JobRankParam": {
         "JobChangeCost": "chcost",
@@ -654,18 +715,6 @@
         "equips[3]": "eqid4",
         "equips[4]": "eqid5",
         "equips[5]": "eqid6",
-        "status.hp": "hp",
-        "status.mp": "mp",
-        "status.atk": "atk",
-        "status.def": "def",
-        "status.mag": "mag",
-        "status.mnd": "mnd",
-        "status.dex": "dex",
-        "status.spd": "spd",
-        "status.cri": "cri",
-        "status.luk": "luk",
-        "avoid": "avoid",
-        "inimp": "inimp",
         "learnings[num1++]": "learn2"
     },
     "JobSetParam": {
@@ -678,7 +727,6 @@
         "lock_jobs[index].iname": "ljob3",
         "lock_jobs[index].lv": "llv3"
     },
-    "LimitedShopItemListSet[]shopi": {},
     "LimitedShopItemListSet": {
         "id": "id",
         "iname": "item",
@@ -688,8 +736,11 @@
         "saleValue": "cost",
         "saleType": "cost",
         "is_reset": "isreset",
+        "start": "start",
+        "end": "end",
         "is_soldout": "sold",
-        "children": "children"
+        "children": "children",
+        "shopItemType": "item"
     },
     "LoginInfoParam": {
         "iname": "iname",
@@ -713,6 +764,51 @@
         "battleSceneName": "btl",
         "eventSceneName": "ev",
         "bgmName": "bgm"
+    },
+    "MasterParam": {
+        "mUnitParam": "Unit",
+        "mUnitDictionary": "Unit",
+        "mSkillParam": "Skill",
+        "mSkillDictionary": "Skill",
+        "mBuffEffectParam": "Buff",
+        "mCondEffectParam": "Cond",
+        "mAbilityParam": "Ability",
+        "mAbilityDictionary": "Ability",
+        "mItemParam": "Item",
+        "mItemDictionary": "Item",
+        "mArtifactParam": "Artifact",
+        "mArtifactDictionary": "Artifact",
+        "mWeaponParam": "Weapon",
+        "mRecipeParam": "Recipe",
+        "mJobParam": "Job",
+        "mJobSetParam": "JobSet",
+        "mJobsetDictionary": "Unit",
+        "mGrowParam": "Grow",
+        "mAIParam": "AI",
+        "mGeoParam": "Geo",
+        "mRarityParam": "Rarity",
+        "mShopParam": "Shop",
+        "mPlayerParamTbl": "Player",
+        "mPlayerExpTbl": "PlayerLvTbl",
+        "mUnitExpTbl": "UnitLvTbl",
+        "mArtifactExpTbl": "ArtifactLvTbl",
+        "mAbilityExpTbl": "AbilityRank",
+        "mAwakePieceTbl": "AwakePieceTbl",
+        "mLocalNotificationParam.msg_stamina": "LocalNotification",
+        "mLocalNotificationParam.iOSAct_stamina": "LocalNotification",
+        "mLocalNotificationParam.limitSec_stamina": "LocalNotification",
+        "mStreamingMovies": "Mov",
+        "mStreamingMovies[index].alias": "Mov",
+        "mStreamingMovies[index].path": "Mov",
+        "mAwardParam": "Award",
+        "mAwardDictionary": "Award",
+        "mVersusMatching": "VersusMatchKey",
+        "mVersusMatchCond": "VersusMatchCond",
+        "mTowerScores": "TowerScore",
+        "mTowerRankTbl": "TowerRank",
+        "mMultiLimitUnitLv": "MultilimitUnitLv",
+        "mSkillAbilityDeriveParam": "SkillAbilityDerive",
+        "mTipsParam": "Tips"
     },
     "MultiTowerFloorParam": {
         "id": "id",
@@ -748,6 +844,12 @@
         "iname": "iname",
         "objective": "objective"
     },
+    "ConceptCardconcept_c": {
+        "mVersusPoint": "point"
+    },
+    "ConceptCard[]concept_cards,boolis_data_override=": {
+        "mVersusPoint": "point"
+    },
     "PlayerParam": {
         "pt": "pt",
         "ucap": "ucap",
@@ -764,11 +866,8 @@
         "mAdditionalFreeCoin": "additional_free_coin",
         "mSale.Name": "sale",
         "mSale.Description": "sale",
-        "mSale.AdditionalFreeCoin": "sale",
-        "mEnabled": "enabled",
-        "mRemainingDays": "remaining_days"
+        "mSale.AdditionalFreeCoin": "sale"
     },
-    "ProductParamResponse": {},
     "ProductSaleParam": {
         "ProductId": "fields",
         "Platform": "fields",
@@ -794,6 +893,12 @@
     "QuestCampaignParentParam": {
         "iname": "iname",
         "children": "children"
+    },
+    "QuestCampaignTrust": {
+        "iname": "children_iname",
+        "concept_card": "concept_card",
+        "card_trust_lottery_rate": "card_trust_lottery_rate",
+        "card_trust_qe_bonus": "card_trust_qe_bonus"
     },
     "QuestClearUnlockUnitDataParam": {
         "iname": "iname",
@@ -831,7 +936,6 @@
         "birth[index4]": "birth",
         "party_type": "party_type"
     },
-    "QuestDropParam": {},
     "QuestParam": {
         "iname": "iname",
         "name": "name",
@@ -899,7 +1003,26 @@
         "IsMultiLeaderSkill": "is_multileader",
         "MapEffectId": "me_id",
         "IsWeatherNoChange": "is_wth_no_chg",
-        "WeatherSetId": "wth_set_id"
+        "WeatherSetId": "wth_set_id",
+        "FirstClearItems": "fclr_items",
+        "questParty": "party_id"
+    },
+    "QuestPartyParam": {
+        "iname": "iname",
+        "type_1": "type_1",
+        "type_2": "type_2",
+        "type_3": "type_3",
+        "type_4": "type_4",
+        "support_type": "support_type",
+        "subtype_1": "subtype_1",
+        "subtype_2": "subtype_2",
+        "unit_1": "unit_1",
+        "unit_2": "unit_2",
+        "unit_3": "unit_3",
+        "unit_4": "unit_4",
+        "subunit_1": "subunit_1",
+        "subunit_2": "subunit_2",
+        "l_npc_rare": "l_npc_rare"
     },
     "RankingQuestParam": {
         "schedule_id": "schedule_id",
@@ -945,7 +1068,9 @@
         "GrowStatus.spd": "spd",
         "GrowStatus.cri": "cri",
         "GrowStatus.luk": "luk",
-        "DropSE": "drop"
+        "DropSE": "drop",
+        "ConceptCardLvCap": "card_lvcap",
+        "ConceptCardAwakeCountMax": "card_awake_count"
     },
     "RecipeParam": {
         "iname": "iname",
@@ -964,17 +1089,19 @@
         "shop": "shop",
         "inn": "inn",
         "bar": "bar",
-        "bgm": "bgm"
+        "bgm": "bgm",
+        "storyPart": "story_part",
+        "releaseKeyQuest": "release_key_quest"
     },
     "ShopParam": {
         "iname": "iname",
         "UpdateCostType": "upd_type",
-        "UpdateCosts": "upd_costs",
-        "UpdateCosts[index]": "upd_costs"
+        "UpdateCosts": "upd_costs"
     },
     "SimpleDropTableParam": {
         "iname": "iname",
-        "dropList": "droplist"
+        "dropList": "droplist",
+        "dropcards": "dropcards"
     },
     "SimpleLocalMapsParam": {
         "iname": "iname",
@@ -983,6 +1110,13 @@
     "SimpleQuestDropParam": {
         "item_iname": "iname",
         "questlist": "questlist"
+    },
+    "SkillAbilityDeriveParam": {
+        "iname": "iname",
+        "base_abils": "base_abils",
+        "derive_abils": "derive_abils",
+        "base_skills": "base_skills",
+        "derive_skills": "derive_skills"
     },
     "SkillParam": {
         "iname": "iname",
@@ -1042,6 +1176,16 @@
         "WeatherId": "wth_id",
         "ElementSpcAtkRate": "elem_tk",
         "MaxDamageValue": "max_dmg",
+        "CutInConceptCardId": "ci_cc_id",
+        "JudgeHpVal": "jhp_val",
+        "JudgeHpCalc": "jhp_calc",
+        "AcFromAbilId": "ac_fr_ab_id",
+        "AcToAbilId": "ac_to_ab_id",
+        "AcTurn": "ac_turn",
+        "EffectHitTargetNumRate": "eff_htnrate",
+        "AbsorbAndGive": "aag",
+        "TargetEx": "target_ex",
+        "JumpSpcAtkRate": "jmp_tk",
         "hp_cost": "hp_cost",
         "hp_cost_rate": "hp_cost_rate",
         "random_hit_rate": "rhit",
@@ -1088,6 +1232,80 @@
         "control_damage_value.max": "ctrl_d_max",
         "control_damage_calc": "ctrl_d_calc"
     },
+    "StatusCoefficientParam": {
+        "mHP": "hp",
+        "mAttack": "atk",
+        "mDefense": "def",
+        "mMagAttack": "matk",
+        "mMagDefense": "mdef",
+        "mDex": "dex",
+        "mSpeed": "spd",
+        "mCritical": "cri",
+        "mLuck": "luck",
+        "mCombo": "cmb",
+        "mMove": "move",
+        "mJump": "jmp"
+    },
+    "TipsParam": {
+        "iname": "iname",
+        "type": "type",
+        "order": "order",
+        "title": "title",
+        "text": "text",
+        "images": "images",
+        "hide": "hide",
+        "cond_text": "cond_text"
+    },
+    "TobiraCategoriesParam": {
+        "mCategory": "category",
+        "mName": "name"
+    },
+    "TobiraConditionParam": {
+        "mCondType": "conds_type",
+        "mCondIname": "conds_iname"
+    },
+    "TobiraCondsParam": {
+        "mUnitIname": "unit_iname",
+        "mCategory": "category"
+    },
+    "TobiraCondsUnitParam": {
+        "mId": "id",
+        "mUnitIname": "unit_iname",
+        "mLevel": "lv",
+        "mAwakeLevel": "awake_lv",
+        "mJobIname": "job_iname",
+        "mJobLevel": "job_lv",
+        "mCategory": "category",
+        "mTobiraLv": "tobira_lv"
+    },
+    "TobiraLearnAbilityParam": {
+        "mAbilityIname": "abil_iname",
+        "mLevel": "learn_lv",
+        "mAddType": "add_type",
+        "mAbilityOverwrite": "abil_overwrite"
+    },
+    "TobiraParam": {
+        "mUnitIname": "unit_iname",
+        "mEnable": "enable",
+        "mCategory": "category",
+        "mRecipeId": "recipe_id",
+        "mSkillIname": "skill_iname",
+        "mOverwriteLeaderSkillIname": "overwrite_ls_iname",
+        "mPriority": "priority"
+    },
+    "TobiraRecipeMaterialParam": {
+        "mIname": "iname",
+        "mNum": "num"
+    },
+    "TobiraRecipeParam": {
+        "mRecipeIname": "recipe_iname",
+        "mLevel": "tobira_lv",
+        "mCost": "cost",
+        "mUnitPieceNum": "unit_piece_num",
+        "mElementNum": "piece_elem_num",
+        "mUnlockElementNum": "unlock_elem_num",
+        "mUnlockBirthNum": "unlock_birth_num"
+    },
     "TowerFloorParam": {
         "iname": "iname",
         "title": "title",
@@ -1108,9 +1326,8 @@
         "me_id": "me_id",
         "is_wth_no_chg": "is_wth_no_chg",
         "wth_set_id": "wth_set_id",
-        "rand_tag": "rand_tag",
-        "rand_tag[index]": "rand_tag",
-        "naut": "naut"
+        "naut": "naut",
+        "mission": "mission"
     },
     "TowerParam": {
         "iname": "iname",
@@ -1129,24 +1346,79 @@
         "is_view_ranking": "is_view_ranking",
         "unlock_level": "unlock_level",
         "unlock_quest": "unlock_quest",
-        "URL": "url"
+        "URL": "url",
+        "floor_reset_coin": "floor_reset_coin",
+        "score_iname": "score_iname"
     },
     "ReqTowerResupons": {
+        "turn_num": "turn_num",
+        "died_num": "died_num",
+        "retire_num": "retire_num",
+        "recover_num": "recovery_num",
+        "speedRank": "spd_rank",
+        "techRank": "tec_rank",
+        "spd_score": "spd_score",
+        "tec_score": "tec_score",
+        "ret_score": "ret_score",
+        "rcv_score": "rcv_score",
+        "challenge_num": "challenge_num",
+        "lose_num": "lose_num",
+        "reset_num": "reset_num",
+        "challenge_score": "challenge_score",
+        "lose_score": "lose_score",
+        "reset_score": "reset_score",
         "SpdRank": "speed",
         "SpdRank[index].lv": "speed",
         "SpdRank[index].name": "speed",
         "SpdRank[index].rank": "speed",
         "SpdRank[index].score": "speed",
+        "SpdRank[index].selected_award": "speed",
         "TecRank": "technical",
         "TecRank[index].lv": "technical",
         "TecRank[index].name": "technical",
         "TecRank[index].rank": "technical",
         "TecRank[index].score": "technical",
+        "TecRank[index].selected_award": "technical",
         "status.fname": "fname",
-        "status.state": "questStates"
+        "status.state": "questStates",
+        "FloorScores.TurnNum": "score",
+        "FloorScores.DiedNum": "score",
+        "FloorScores.RecoveryNum": "score",
+        "FloorScores.RetireNum": "score",
+        "FloorScores.FloorResetNum": "score",
+        "FloorScores.LoseNum": "score",
+        "FloorScores.ChallengeNum": "score",
+        "FloorSpdRank": "speed",
+        "FloorSpdRank[index].lv": "speed",
+        "FloorSpdRank[index].name": "speed",
+        "FloorSpdRank[index].rank": "speed",
+        "FloorSpdRank[index].score": "speed",
+        "FloorSpdRank[index].selected_award": "speed",
+        "FloorTecRank": "technical",
+        "FloorTecRank[index].lv": "technical",
+        "FloorTecRank[index].name": "technical",
+        "FloorTecRank[index].rank": "technical",
+        "FloorTecRank[index].score": "technical",
+        "FloorTecRank[index].selected_award": "technical"
     },
-    "ReqTowerResuponse.Json_TowerPlayerUnit[": {},
-    "ReqTowerResuponse.Json_TowerEnemyUnit[": {},
+    "ReqTowerResuponse.Json_RankStatus": {
+        "turn_num": "turn_num",
+        "died_num": "died_num",
+        "retire_num": "retire_num",
+        "recover_num": "recovery_num",
+        "speedRank": "spd_rank",
+        "techRank": "tec_rank",
+        "spd_score": "spd_score",
+        "tec_score": "tec_score",
+        "ret_score": "ret_score",
+        "rcv_score": "rcv_score",
+        "challenge_num": "challenge_num",
+        "lose_num": "lose_num",
+        "reset_num": "reset_num",
+        "challenge_score": "challenge_score",
+        "lose_score": "lose_score",
+        "reset_score": "reset_score"
+    },
     "ReqTowerResuponse.Json_TowerStatus": {
         "status.fname": "fname",
         "status.state": "questStates"
@@ -1163,7 +1435,7 @@
     "TowerRoundRewardParam": {
         "iname": "iname"
     },
-    "TowerScore": {
+    "TowerScoreThreshold": {
         "Rank": "rank",
         "Score": "score",
         "TurnCnt": "turn",
@@ -1198,7 +1470,6 @@
     },
     "TrophyCategoryParam": {
         "iname": "iname",
-        "name": "name",
         "is_not_pull": "is_not_pull",
         "days": "day_reset",
         "beginner": "bgnr",
@@ -1223,117 +1494,49 @@
         "Category": "category",
         "DispType": "disp"
     },
-    "UnitParam": {
-        "no": "no",
+    "UnitGroupParam": {
         "iname": "iname",
         "name": "name",
-        "ai": "ai",
+        "units": "units"
+    },
+    "UnitJobOverwriteParam": {
+        "mUnitIname": "unit_iname",
+        "mJobIname": "job_iname",
+        "mAvoid": "avoid",
+        "mInimp": "inimp",
+        "status.hp": "hp",
+        "status.mp": "mp",
+        "status.atk": "atk",
+        "status.def": "def",
+        "status.mag": "mag",
+        "status.mnd": "mnd",
+        "status.dex": "dex",
+        "status.spd": "spd",
+        "status.cri": "cri",
+        "status.luk": "luk"
+    },
+    "UnitParam": {
+        "iname": "iname",
+        "name": "name",
         "model": "mdl",
         "grow": "grow",
         "piece": "piece",
         "birth": "birth",
-        "skill": "skill",
+        "birthID": "birth_id",
         "ability": "ability",
         "ma_quest": "ma_quest",
-        "sw": "sw",
-        "sh": "sh",
         "sex": "sex",
         "rare": "rare",
         "raremax": "raremax",
         "type": "type",
         "element": "elem",
-        "hero": "hero",
         "search": "search",
-        "stopped": "stop",
-        "summon": "notsmn",
         "available_at": "available_at",
         "height": "height",
         "weight": "weight",
-        "jobtype": "jt",
-        "role": "role",
-        "mov": "mov",
-        "jmp": "jmp",
-        "inimp": "inimp",
-        "ma_rarity": "ma_rarity",
-        "ma_lv": "ma_lv",
         "skins": "skins",
-        "skins[index]": "skins",
-        "djob": "djob",
-        "dbuki": "dbuki",
-        "default_skill": "dskl",
-        "default_abilities": "dabi",
-        "default_abilities[index]": "dabi",
         "jobsets": "jobsets",
-        "jobsets[index]": "jobsets",
         "tags": "tag",
-        "ini_status.param.hp": "hp",
-        "ini_status.param.mp": "mp",
-        "ini_status.param.atk": "atk",
-        "ini_status.param.def": "def",
-        "ini_status.param.mag": "mag",
-        "ini_status.param.mnd": "mnd",
-        "ini_status.param.dex": "dex",
-        "ini_status.param.spd": "spd",
-        "ini_status.param.cri": "cri",
-        "ini_status.param.luk": "luk",
-        "ini_status.enchant_resist.poison": "rpo",
-        "ini_status.enchant_resist.paralyse": "rpa",
-        "ini_status.enchant_resist.stun": "rst",
-        "ini_status.enchant_resist.sleep": "rsl",
-        "ini_status.enchant_resist.charm": "rch",
-        "ini_status.enchant_resist.stone": "rsn",
-        "ini_status.enchant_resist.blind": "rbl",
-        "ini_status.enchant_resist.notskl": "rns",
-        "ini_status.enchant_resist.notmov": "rnm",
-        "ini_status.enchant_resist.notatk": "rna",
-        "ini_status.enchant_resist.zombie": "rzo",
-        "ini_status.enchant_resist.death": "rde",
-        "ini_status.enchant_resist.knockback": "rkn",
-        "ini_status.enchant_resist.resist_debuff": "rdf",
-        "ini_status.enchant_resist.berserk": "rbe",
-        "ini_status.enchant_resist.stop": "rcs",
-        "ini_status.enchant_resist.fast": "rcu",
-        "ini_status.enchant_resist.slow": "rcd",
-        "ini_status.enchant_resist.donsoku": "rdo",
-        "ini_status.enchant_resist.rage": "rra",
-        "ini_status.enchant_resist.single_attack": "rsa",
-        "ini_status.enchant_resist.area_attack": "raa",
-        "ini_status.enchant_resist.dec_ct": "rdc",
-        "ini_status.enchant_resist.inc_ct": "ric",
-        "max_status.param.hp": "mhp",
-        "max_status.param.mp": "mmp",
-        "max_status.param.atk": "matk",
-        "max_status.param.def": "mdef",
-        "max_status.param.mag": "mmag",
-        "max_status.param.mnd": "mmnd",
-        "max_status.param.dex": "mdex",
-        "max_status.param.spd": "mspd",
-        "max_status.param.cri": "mcri",
-        "max_status.param.luk": "mluk",
-        "max_status.enchant_resist.poison": "mrpo",
-        "max_status.enchant_resist.paralyse": "mrpa",
-        "max_status.enchant_resist.stun": "mrst",
-        "max_status.enchant_resist.sleep": "mrsl",
-        "max_status.enchant_resist.charm": "mrch",
-        "max_status.enchant_resist.stone": "mrsn",
-        "max_status.enchant_resist.blind": "mrbl",
-        "max_status.enchant_resist.notskl": "mrns",
-        "max_status.enchant_resist.notmov": "mrnm",
-        "max_status.enchant_resist.notatk": "mrna",
-        "max_status.enchant_resist.zombie": "mrzo",
-        "max_status.enchant_resist.death": "mrde",
-        "max_status.enchant_resist.knockback": "mrkn",
-        "max_status.enchant_resist.resist_debuff": "mrdf",
-        "max_status.enchant_resist.berserk": "mrbe",
-        "max_status.enchant_resist.stop": "mrcs",
-        "max_status.enchant_resist.fast": "mrcu",
-        "max_status.enchant_resist.slow": "mrcd",
-        "max_status.enchant_resist.donsoku": "mrdo",
-        "max_status.enchant_resist.rage": "mrra",
-        "max_status.enchant_resist.single_attack": "mrsa",
-        "max_status.enchant_resist.area_attack": "mraa",
-        "max_status.enchant_resist.dec_ct": "mrdc",
-        "max_status.enchant_resist.inc_ct": "mric",
         "leader_skills[0]": "ls1",
         "leader_skills[1]": "ls2",
         "leader_skills[2]": "ls3",
@@ -1348,14 +1551,13 @@
         "recipes[5]": "recipe6",
         "image": "img",
         "voice": "vce",
-        "job_option_index": "jidx",
-        "job_option_index[index]": "jidx",
-        "job_images": "jimgs",
-        "job_images[index]": "jimgs",
-        "job_voices": "jvcs",
-        "job_voices[index]": "jvcs",
-        "is_throw": "no_trw",
-        "is_knock_back": "no_kb"
+        "unlock_time": "unlck_t"
+    },
+    "UnitUnlockTimeParam": {
+        "iname": "iname",
+        "name": "name",
+        "begin_at": "begin_at",
+        "end_at": "end_at"
     },
     "UnlockParam": {
         "iname": "iname",
@@ -1363,12 +1565,38 @@
         "PlayerLevel": "lv",
         "VipRank": "vip"
     },
+    "VersusCoinCampParam": {
+        "iname": "iname",
+        "coinrate": "rate",
+        "begin_at": "begin_at",
+        "end_at": "end_at"
+    },
     "VersusCoin": {
         "iname": "iname",
         "coin_iname": "coin_iname",
         "win_cnt": "win_cnt",
         "lose_cnt": "lose_cnt",
         "draw_cnt": "draw_cnt"
+    },
+    "VersusEnableTimeParam": {
+        "mScheduleId": "id",
+        "mVersusType": "mode",
+        "mBeginAt": "begin_at",
+        "mEndAt": "end_at",
+        "mDraftType": "draft_type"
+    },
+    "VersusEnableTimeScheduleParam": {
+        "mBegin": "begin_time",
+        "mOpen": "open_time",
+        "mQuestIname": "quest_iname"
+    },
+    "VersusFirstWinBonus": {
+        "id": "id",
+        "rewards[index].type": "rewards",
+        "rewards[index].iname": "rewards",
+        "rewards[index].num": "rewards",
+        "begin_at": "begin_at",
+        "end_at": "end_at"
     },
     "VersusMatchCondParam": {
         "Floor": "floor",
@@ -1380,6 +1608,64 @@
         "MatchKeyHash": "key",
         "MatchLinePoint": "point"
     },
+    "VersusRankClassParam": {
+        "mScheduleId": "schedule_id",
+        "mClass": "type",
+        "mUpPoint": "up_pt",
+        "mDownPoint": "down_pt",
+        "mDownLosingStreak": "down_losing_streak",
+        "mRewardId": "reward_id",
+        "mWinPointMax": "win_pt_max",
+        "mWinPointMin": "win_pt_min",
+        "mLosePointMax": "lose_pt_max",
+        "mLosePointMin": "lose_pt_min"
+    },
+    "VersusRankMissionParam": {
+        "mIName": "iname",
+        "mName": "name",
+        "mExpire": "expr",
+        "mType": "type",
+        "mSVal": "sval",
+        "mIVal": "ival",
+        "mRewardId": "reward_id"
+    },
+    "VersusRankMissionScheduleParam": {
+        "mScheduleId": "schedule_id",
+        "mIName": "iname"
+    },
+    "VersusRankParam": {
+        "mId": "id",
+        "mVSMode": "btl_mode",
+        "mName": "name",
+        "mLimit": "limit",
+        "mWinPointBase": "win_pt_base",
+        "mLosePointBase": "lose_pt_base",
+        "mHUrl": "hurl",
+        "mBeginAt": "begin_at",
+        "mEndAt": "end_at"
+    },
+    "VersusRankRankingRewardParam": {
+        "mScheduleId": "schedule_id",
+        "mRankBegin": "rank_begin",
+        "mRankEnd": "rank_end",
+        "mRewardId": "reward_id"
+    },
+    "VersusRankRewardRewardParam": {
+        "mType": "item_type",
+        "mIName": "item_iname",
+        "mNum": "item_num"
+    },
+    "VersusRankRewardParam": {
+        "mRewardId": "reward_id"
+    },
+    "VersusRule": {
+        "id": "id",
+        "mode": "vsmode",
+        "coin": "getcoin",
+        "coinrate": "rate",
+        "begin_at": "begin_at",
+        "end_at": "end_at"
+    },
     "VersusSchedule": {
         "tower_iname": "tower_iname",
         "iname": "iname",
@@ -1387,6 +1673,19 @@
         "end_at": "end_at",
         "gift_begin_at": "gift_begin_at",
         "gift_end_at": "gift_end_at"
+    },
+    "VersusStreakWinBonus": {
+        "id": "id",
+        "wincnt": "wincnt",
+        "rewards[index].type": "rewards",
+        "rewards[index].iname": "rewards",
+        "rewards[index].num": "rewards"
+    },
+    "VersusStreakWinSchedule": {
+        "id": "id",
+        "judge": "judge",
+        "begin_at": "begin_at",
+        "end_at": "end_at"
     },
     "VersusTowerParam": {
         "VersusTowerID": "vstower_id",
@@ -1399,21 +1698,13 @@
         "DownFloor": "downfloor",
         "ResetFloor": "resetfloor",
         "WinIteminame": "winitem",
-        "WinItemNum": "win_itemnum",
-        "WinIteminame[index]": "winitem",
         "WinItemNum[index]": "win_itemnum",
         "JoinIteminame": "joinitem",
-        "JoinItemNum": "join_itemnum",
-        "JoinIteminame[index]": "joinitem",
         "JoinItemNum[index]": "join_itemnum",
         "SpIteminame": "spbtl_item",
-        "SpItemnum": "spbtl_itemnum",
-        "SpIteminame[index]": "spbtl_item",
         "SpItemnum[index]": "spbtl_itemnum",
         "SeasonIteminame": "season_item",
         "SeasonItemType": "season_itype",
-        "SeasonItemnum": "season_itemnum",
-        "SeasonIteminame[index]": "season_item",
         "SeasonItemType[index]": "season_itype",
         "SeasonItemnum[index]": "season_itemnum",
         "ArrivalIteminame": "arrival_item",

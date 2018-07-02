@@ -1,5 +1,6 @@
 def PlayerParam(json):
     this={}#PlayerParamjson)
+    #if(json==null)
     #returnfalse
     if 'pt' in json:
         this['pt'] = json['pt']

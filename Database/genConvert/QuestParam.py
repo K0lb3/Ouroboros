@@ -1,5 +1,6 @@
 def QuestParam(json):
     this={}#QuestParamjson)
+    #if(json==null)
     #thrownewInvalidJSONException()
     if 'iname' in json:
         this['iname'] = json['iname']
@@ -35,6 +36,7 @@ def QuestParam(json):
         this['challengeLimit'] = CheckCast.to_short
     if 'dayreset' in json:
         this['dayReset'] = json['dayreset']
+    #if((int)this.multi!=0)
         #if(json.pnum*json.unum>QuestParam.MULTI_MAX_TOTAL_UNIT)
         #DebugUtility.LogError("iname:"+json.iname+"/Currenttotalunitis"+(object)(json.pnum*json.unum)+".Pleasesetthetotalnumberofunitsto"+(object)QuestParam.MULTI_MAX_TOTAL_UNIT)
         #if(json.unum>QuestParam.MULTI_MAX_PLAYER_UNIT)
@@ -55,6 +57,7 @@ def QuestParam(json):
         this['type'] = ENUM['QuestTypes'][json['type']]
     if 'subtype' in json:
         this['subtype'] = ENUM['SubQuestTypes'][json['subtype']]
+    #this.cond_quests=(string)null
     #this.units.Clear()
     if 'area' in json:
         this['ChapterID'] = json['area']
@@ -74,8 +77,12 @@ def QuestParam(json):
         this['navigation'] = json['nav']
     if 'ajob' in json:
         this['AllowedJobs'] = json['ajob']
+    #this.AllowedTags=(QuestParam.Tags)0
     #if(!string.IsNullOrEmpty(json.atag))
-            #if(!string.IsNullOrEmpty(strArray[index]))
+        #stringstrArray=json.atag.Split(',')
+        #for(intindex=0index<strArray.Length++index)
+            #if(!string.IsNullOrEmpty(strArray))
+            #this.AllowedTags|=(QuestParam.Tags)Enum.Parse(typeof(QuestParam.Tags),strArray)
     if 'phyb' in json:
         this['PhysBonus'] = json['phyb']+100
     if 'magb' in json:
@@ -86,14 +93,53 @@ def QuestParam(json):
         this['ItemLayout'] = json['i_lyt']
     if 'not_search' in json:
         this['notSearch'] = json['not_search']!=0
+    #ObjectiveParamobjective=MonoSingleton<GameManager>.GetInstanceDirect().FindObjective(json.mission)
+    #if(objective!=null)
+        #this.bonusObjective=newQuestBonusObjective[objective.objective.Length]
+        #for(intindex=0index<objective.objective.Length++index)
+            #this.bonusObjective=newQuestBonusObjective()
+            #this.bonusObjective.Type=(EMissionType)objective.objective.type
+            #this.bonusObjective.TypeParam=objective.objective.val
+            #this.bonusObjective.item=objective.objective.item
+            #this.bonusObjective.itemNum=objective.objective.num
+            #this.bonusObjective.itemType=(RewardType)objective.objective.item_type
+            #this.bonusObjective.IsTakeoverProgress=objective.objective.IsTakeoverProgress
+    #ObjectiveParamtowerObjective=MonoSingleton<GameManager>.GetInstanceDirect().FindTowerObjective(json.tower_mission)
+    #if(towerObjective!=null)
+        #this.bonusObjective=newQuestBonusObjective[towerObjective.objective.Length]
+        #for(intindex=0index<towerObjective.objective.Length++index)
+            #this.bonusObjective=newQuestBonusObjective()
+            #this.bonusObjective.Type=(EMissionType)towerObjective.objective.type
+            #this.bonusObjective.TypeParam=towerObjective.objective.val
+            #this.bonusObjective.item=towerObjective.objective.item
+            #this.bonusObjective.itemNum=towerObjective.objective.num
+            #this.bonusObjective.itemType=(RewardType)towerObjective.objective.item_type
+            #this.bonusObjective.IsTakeoverProgress=towerObjective.objective.IsTakeoverProgress
+        #this.mission_values=newint[towerObjective.objective.Length]
+    #MagnificationParammagnification=MonoSingleton<GameManager>.GetInstanceDirect().FindMagnification(json.atk_mag)
+    #if(magnification!=null&&magnification.atkMagnifications!=null)
+    #this.AtkTypeMags=magnification.atkMagnifications
+    #QuestCondParamquestCond1=MonoSingleton<GameManager>.GetInstanceDirect().FindQuestCond(json.rdy_cnd)
+    #if(questCond1!=null)
+    #this.EntryCondition=questCond1
+    #QuestCondParamquestCond2=MonoSingleton<GameManager>.GetInstanceDirect().FindQuestCond(json.rdy_cnd_ch)
+    #if(questCond2!=null)
+    #this.EntryConditionCh=questCond2
     if 'mode' in json:
         this['difficulty'] = ENUM['QuestDifficulties'][json['mode']]
+    #if(json.units!=null)
         #this.units.Setup(json.units.Length)
-        #this.units.Set(index,json.units[index])
+        #for(intindex=0index<json.units.Length++index)
+        #this.units.Set(index,json.units)
+    #if(json.cond_quests!=null)
+        #for(intindex=0index<json.cond_quests.Length++index)
         if 'cond_quests' in json:
             this['cond_quests'] = json['cond_quests']
     #this.map.Clear()
-            #mapParam.Deserialize(json.map[index])
+    #if(json.map!=null)
+        #for(intindex=0index<json.map.Length++index)
+            #MapParammapParam=newMapParam()
+            #mapParam.Deserialize(json.map)
             #this.map.Add(mapParam)
     if 'evst' in json:
         this['event_start'] = json['evst']
@@ -147,4 +193,10 @@ def QuestParam(json):
         this['IsWeatherNoChange'] = json['is_wth_no_chg']!=0
     if 'wth_set_id' in json:
         this['WeatherSetId'] = json['wth_set_id']
+    #if(json.fclr_items!=null)
+        #for(intindex=0index<json.fclr_items.Length++index)
+        if 'fclr_items' in json:
+            this['FirstClearItems'] = json['fclr_items']
+    if 'party_id' in json:
+        this['questParty'] = MonoSingleton<GameManager>.GetInstanceDirect.FindQuestParty(json['party_id'])
 return this

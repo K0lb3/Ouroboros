@@ -10,7 +10,7 @@ def saveAsJSON(name, var):
 def ConvertAssembly():
     # path to files
     path=os.path.dirname(os.path.realpath(__file__))+'\\res\\'
-    mypath = os.path.dirname(os.path.realpath(__file__))+'\\Assembly_SRPG\\'
+    mypath = os.path.dirname(os.path.realpath(__file__))+'\\Assembly_SRPG_JP\\'
     epath = os.path.dirname(os.path.realpath(__file__))+'\\genConvert\\'
     files = os.listdir(mypath)
 
@@ -33,7 +33,7 @@ def ConvertAssembly():
                 name=text[0][:-5] #removing  json)
                 current=[]
                 bracket=0
-
+                found=0
                 for ind,line in enumerate(text,1):
                     line=line.lstrip(' ').rstrip(' ')
                     if line == '{':
@@ -46,13 +46,18 @@ def ConvertAssembly():
                         try:
                             [new,old]=line.split('=',1)
                             if 'this.' in new and 'json.' in old:
-                                if 'newstring' in line and '[index]' in text[ind+1]:
+                                if 'new' in line and '[index]' in text[ind+1]:
                                     text[ind+1]=text[ind+1].replace('[index]','')
                                     continue
                                 current.append((bracket,[new,old]))
+                                found+=1
+                            else:
+                                current.append((bracket,[line]))
                         except ValueError:
                             current.append((bracket,[line]))
 
+                if found==0:
+                    continue
                 print(str(len(current)))
 
                 # convert to code
@@ -77,6 +82,7 @@ def ConvertAssembly():
                                     cThis[var]={}
                                     cText+='{indent}this[\'{inputs}\']\n'.format(inputs='\'][\''.join(tdirs[:ind]),indent=' '*indent)
                                 cThis=cThis[var]
+
                         #if x is in json
                         jtext=info[1]
                         j_index=jtext.index('json.')+5
@@ -99,15 +105,29 @@ def ConvertAssembly():
                         indent+=4
                                 
                         #final statemant
+                        this_path='this'
+                        for var in tdirs:
+                            var=var.split('[')
+                            this_path+='[\'{}\']'.format(var[0])
+                            print(var)
+                            if len(var)>=2:
+                                for pa in var[1]:
+                                    pa=pa.split(']')
+                                    this_path+='[{}]'.format(pa[0])
+                                    print(pa)
+                                    if len(pa)>=2 and pa[1] != '':
+                                        this_path+='[\'{}\']'.format(pa[1])
+
+                                
                         cText+='{indent}{this} = {json}\n'.format(
                             indent=' '*indent,
-                            this= 'this[\'{inputs}\']'.format(inputs='\'][\''.join(tdirs)),
+                            this= this_path,#'this[\'{inputs}\']'.format(inputs='\'][\''.join(tdirs)),
                             json= jtext
                             )
                         Link[name]['.'.join(tdirs)]=jvar
                 cText+='return this\n'
 
-                Convert[name]=cText.replace(';','')
+                Convert[name]=cText.replace(';','').replace('[index]','').replace('[]','').replace('[i][n][d][e][x]','')
         except PermissionError:
             print('PermissionError:')
     

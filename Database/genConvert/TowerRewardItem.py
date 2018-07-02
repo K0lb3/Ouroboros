@@ -1,5 +1,6 @@
 def TowerRewardItem(json):
     this={}#TowerRewardItemjson)
+    #if(json==null)
     #thrownewInvalidJSONException()
     if 'iname' in json:
         this['iname'] = json['iname']

@@ -1,5 +1,6 @@
 def UnlockParam(json):
     this={}#UnlockParamjson)
+    #if(json==null)
     #returnfalse
     if 'iname' in json:
         this['iname'] = json['iname']

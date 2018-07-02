@@ -1,5 +1,6 @@
 def LimitedShopItemListSet(json):
     this={}#LimitedShopItemListSetjson)
+    #if(json==null||json.item==null||(string.IsNullOrEmpty(json.item.iname)||json.cost==null)||string.IsNullOrEmpty(json.cost.type))
     #returnfalse
     if 'id' in json:
         this['id'] = json['id']
@@ -17,9 +18,24 @@ def LimitedShopItemListSet(json):
         this['saleType'] = ShopData.String2SaleType
     if 'isreset' in json:
         this['is_reset'] = json['isreset']==1
+    if 'start' in json:
+        this['start'] = json['start']
+    if 'end' in json:
+        this['end'] = json['end']
     if 'sold' in json:
         this['is_soldout'] = json['sold']>0
+    #if(json.children!=null)
     if 'children' in json:
         this['children'] = json['children']
+    #if(json.children!=null)
+        #this.shopItemType=EShopItemType.Set
+    #else
+        if 'item' in json:
+            this['shopItemType'] = ShopData.String2ShopItemType
+        #if(this.shopItemType==EShopItemType.Unknown)
+        if 'item' in json:
+            this['shopItemType'] = ShopData.Iname2ShopItemType
+    #if(this.IsConceptCard)
+    #MonoSingleton<GameManager>.Instance.Player.SetConceptCardNum(this.iname,json.item.has_count)
     #returntrue
 return this

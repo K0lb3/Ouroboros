@@ -1,5 +1,6 @@
 def VipParam(json):
     this={}#VipParamjson)
+    #if(json==null)
     #returnfalse
     if 'exp' in json:
         this['NextRankNeedPoint'] = json['exp']

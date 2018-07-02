@@ -1,5 +1,6 @@
 def ProductSaleParam(json):
     this={}#ProductSaleParamjson)
+    #if(json==null)
     #returnfalse
     if 'fields' in json:
         this['ProductId'] = json['fields'].product_id

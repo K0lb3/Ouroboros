@@ -1,5 +1,6 @@
 def WeaponParam(json):
     this={}#WeaponParamjson)
+    #if(json==null)
     #returnfalse
     if 'iname' in json:
         this['iname'] = json['iname']

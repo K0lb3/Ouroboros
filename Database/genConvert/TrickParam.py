@@ -1,5 +1,6 @@
 def TrickParam(json):
     this={}#TrickParamjson)
+    #if(json==null)
     #return
     if 'iname' in json:
         this['mIname'] = json['iname']

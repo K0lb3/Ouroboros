@@ -1,5 +1,6 @@
 def QuestClearUnlockUnitDataParam(json):
     this={}#QuestClearUnlockUnitDataParamjson)
+    #if(json==null)
     #return
     if 'iname' in json:
         this['iname'] = json['iname']
@@ -23,6 +24,7 @@ def QuestClearUnlockUnitDataParam(json):
         this['alv'] = json['alv']
     if 'qcnd' in json:
         this['qcnd'] = json['qcnd']>0
+    #if(json.qids==null)
     #return
     if 'qids' in json:
         this['qids'] = newstring[json['qids'].Length]

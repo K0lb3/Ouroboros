@@ -1,5 +1,6 @@
 def VersusSchedule(json):
     this={}#VersusSchedulejson)
+    #if(json==null)
     #return
     if 'tower_iname' in json:
         this['tower_iname'] = json['tower_iname']
@@ -14,6 +15,10 @@ def VersusSchedule(json):
     if 'gift_end_at' in json:
         this['gift_end_at'] = json['gift_end_at']
     #try
+        #this.BeginDate=DateTime.Parse(this.begin_at)
+        #this.EndDate=DateTime.Parse(this.end_at)
+        #this.GiftBeginDate=DateTime.Parse(this.gift_begin_at)
+        #this.GiftEndDate=DateTime.Parse(this.gift_end_at)
     #catch(Exceptionex)
         #DebugUtility.Log(ex.ToString())
 return this

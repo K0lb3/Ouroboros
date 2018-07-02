@@ -1,5 +1,6 @@
 def AchievementParam(json):
     this={}#AchievementParamjson)
+    #if(json==null)
     #returnfalse
     if 'fields' in json:
         this['id'] = json['fields'].id
