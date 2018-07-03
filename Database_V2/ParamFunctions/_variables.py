@@ -47,7 +47,7 @@ RAWBIRTH = {
     "グラトニー＝フォス": "Gluttony Foss"
     }
 
-TAG_GEAR = {
+TAG_ARTIFACT = {
     "剣": "Sword",
     "杖": "Rod",
     "ローブ": "Robe",
@@ -90,4 +90,31 @@ TAG_GEAR = {
     "銃槍": "Gunlance",  # JB_GUNL
     "装備なし": "N/A",  # JB_LUROB01
     "杖剣": "Swordstick",  # JB_HENC_WATER
-}
+
+    "カタール": "Placeholder",
+    "ほうき": "Placeholder",
+    "メイス": "Placeholder",
+    }
+
+TAG_UNIT= {
+    "人族": "Human",
+    "男性": "Male",
+    "女性": "Female",
+    "モンスター": "Monster",
+    "十戒衆": "Ten Commandments",
+    "亜人種": "Subordinate",
+    "メタル": "Metal",
+    "異族": "Special",
+    "魔獣": "Beast",
+    "植物": "Plant",
+    "魔人": "Demon",
+    "機械": "Machine",
+    "昆虫": "Insect",
+    "不定形": "Amorphous",
+    "浮遊": "Floating",
+    "FOE": "Enemy",
+    "水棲": "Aquatic Lifeform",
+    "壊せるオブジェクト": "Breakable Objects",
+
+    "不死者": "Placeholder",
+    }

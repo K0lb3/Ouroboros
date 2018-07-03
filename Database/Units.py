@@ -154,8 +154,7 @@ def Units():
             'name': FAN[iname]['official'] if iname in FAN else unit['name'],
             'inofficial': FAN[iname]['inofficial'] if iname in FAN else "",
             'gender': "♀" if (unit['sex']-1) else "♂" if (unit['sex']) else "/",
-            'element': element(unit['elem']).title() if 'elem' in unit else "/",
-            'country': birth[unit['birth']] if 'birth' in unit else "/",
+            'element': RAWELEMENT[unit['elem']].title() if 'elem' in unit else "/",
             'collab':  FAN[iname]['collab'] if iname in FAN else "",
             'collab short': FAN[iname]['collab_short'] if iname in FAN else "",
             'rarity': rarity(unit['rare'], unit['raremax']),
@@ -196,19 +195,31 @@ def Units():
         # add lore
         if iname in lore:
             units[iname].update(lore[iname])
+        if 'birth' in unit:
+            unit['country']= RAWBIRTH[unit['birth']] 
 
         # add artworks
         art_link = 'http://cdn.alchemistcodedb.com/images/units/artworks/'
         units[iname]['artworks'] = [
             ({'name': "default", 'full': art_link+unit['img']+'.png', 'closeup':art_link+unit['img']+'-closeup.png'})]
-        if 'skins' in unit:
-            for s in unit['skins']:
-                if mainc_[s]['asset'] != 'unique':
-                    units[iname]['artworks'].append({
-                        'name':     loc[s]['name'] if s in loc else s[(7+len(unit['img'])):].replace('-', ' ').title(),
-                        'full':     art_link+unit['img'] + '_' + mainc_[s]['asset']+'.png',
-                        'closeup':  art_link+unit['img'] + '_' + mainc_[s]['asset']+'-closeup.png',
-                    })
+        if 'skins' in mainc_[iname]:
+            skins=[]
+            for skin in mainc_[iname]['skins']:
+                if mainc_[skin]['asset'] != 'unique':
+                    skins.append(mainc_[skin]['asset'])
+            if iname in jpc:
+                for skin in jpc[iname]['skins']:
+                    if jpc[skin]['asset'] != 'unique':
+                        asset=jpc[skin]['asset']
+                        if asset not in skins:
+                            skins.append(asset)
+
+            for s in skins:
+                units[iname]['artworks'].append({
+                    'name':     loc[s]['name'] if s in loc else s[(7+len(unit['img'])):].replace('-', ' ').title(),
+                    'full':     art_link+unit['img'] + '_' + s+'.png',
+                    'closeup':  art_link+unit['img'] + '_' + s+'-closeup.png',
+                })
 
         if (jpS.find('AF_SK_' + unit['img'].upper() + '_BABEL')+1):
             units[iname]['artworks'].append({

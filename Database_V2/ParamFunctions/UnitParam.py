@@ -1,4 +1,4 @@
-from ParamFunctions._variables import RAWBIRTH,RAWELEMENT,ENUM,TRANSLATION,UNITLORE
+from ParamFunctions._variables import RAWBIRTH,RAWELEMENT,ENUM,TRANSLATION,UNITLORE,TAG_UNIT
 
 def UnitParam(json):
     this={}#UnitParamjson)
@@ -85,8 +85,13 @@ def UnitParam(json):
         this['default_abilities'] = json['dabi']
     if 'jobsets' in json:
         this['jobsets'] = json['jobsets']
+    
     if 'tag' in json:
-        this['tags'] = json['tag'].split(',')
+        this['tags']=[
+            TAG_UNIT[tag]
+            for tag in json['tag'].split(',')
+        ]
+        
     #stats
     this['ini_status']={}
     this['ini_status']['param']={}
