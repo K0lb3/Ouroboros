@@ -18,7 +18,7 @@ for param in ENUM:
         ENUM[param]={int(k):v for k,v in ENUM[param].items()}
 
 RAWELEMENT={
-    0: '',
+    0: 'None',
     1: 'Fire',
     2: 'Water',
     3: 'Wind',
@@ -30,7 +30,7 @@ RAWELEMENT={
     1000:  'Thunder',
     10000: 'Light',
     100000: 'Dark',
-    111111: '', 
+    111111: 'None', 
     }
 
 RAWBIRTH = {
