@@ -1,7 +1,5 @@
 def TobiraLearnAbilityParam(json):
-    this={}#TobiraLearnAbilityParamjson)
-    #if(json==null)
-    #return
+    this={}
     if 'abil_iname' in json:
         this['mAbilityIname'] = json['abil_iname']
     if 'learn_lv' in json:
@@ -10,4 +8,4 @@ def TobiraLearnAbilityParam(json):
         this['mAddType'] = json['add_type']
     if 'abil_overwrite' in json:
         this['mAbilityOverwrite'] = json['abil_overwrite']
-return this
+    return this

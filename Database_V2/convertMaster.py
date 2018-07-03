@@ -22,10 +22,14 @@ def createAIO():
     #    entry['iname']:ItemParam(entry)
     #    for entry in master_gl['Item']
     #}
-    export={
-        entry['iname']:SkillParam(entry)
-        for entry in master_gl['Skill']
-    }
-    saveAsJSON('Skill'+'.json',export)
+    #export['Skill']={
+    #    entry['iname']:SkillParam(entry)
+    #    for entry in master_gl['Skill']
+    #}
+    export=[
+        TobiraParam(entry)
+        for entry in master_jp['Tobira']
+    ]
+    saveAsJSON('Tobira'+'.json',export)
 
 createAIO()
