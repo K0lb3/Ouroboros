@@ -1,3 +1,4 @@
+from ParamFunctions._variables import RAWBIRTH,RAWELEMENT,ENUM
 def CondEffectParam(json):
     this={}#CondEffectParamjson)
     #if(json==null)
@@ -9,11 +10,11 @@ def CondEffectParam(json):
     if 'buki' in json:
         this['buki'] = json['buki']
     if 'birth' in json:
-        this['birth'] = json['birth']
+        this['birth'] = RAWBIRTH[json['birth']]
     if 'sex' in json:
         this['sex'] = ENUM['ESex'][json['sex']]
     if 'elem' in json:
-        this['elem'] = ENUM['EElement'][json['elem']]
+        this['elem'] = RAWELEMENT[json['elem']]
     if 'cond' in json:
         this['cond'] = ENUM['ESkillCondition'][json['cond']]
     if 'type' in json:
@@ -36,19 +37,13 @@ def CondEffectParam(json):
         this['turn_max'] = json['tmax']
     if 'curse' in json:
         this['curse'] = json['curse']
-    #this.conditions=(EUnitCondition)null
-    #if(json.conds!=null)
-        if 'conds' in json:
-            this['conditions'] = newEUnitCondition[json['conds'].Length]
-        #for(intindex=0index<json.conds.Length++index)
-            #if(json.conds>=0)
-            if 'conds' in json:
-                this['conditions'] = ENUM['EUnitCondition'][json['conds']]
-    #this.BuffIds=(string)null
-    #if(json.buffs!=null)
-        #for(intindex=0index<json.buffs.Length++index)
-        if 'buffs' in json:
-            this['BuffIds'] = json['buffs']
+    if 'conds' in json:
+        this['conditions'] = [
+            ENUM['EUnitCondition'][pow(2,cond)]
+            for cond in json['conds']
+        ]
+    if 'buffs' in json:
+        this['BuffIds'] = json['buffs']
     if 'v_poi' in json:
         this['v_poison_rate'] = json['v_poi']
     if 'v_poifix' in json:
@@ -79,5 +74,4 @@ def CondEffectParam(json):
         this['v_auto_hp_heal_fix'] = json['v_ahpfix']
     if 'v_ampfix' in json:
         this['v_auto_mp_heal_fix'] = json['v_ampfix']
-    #returntrue
-return this
+    return this

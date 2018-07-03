@@ -1,3 +1,4 @@
 from ParamFunctions.UnitParam import UnitParam
 from ParamFunctions.AbilityParam import AbilityParam
 from ParamFunctions.ArtifactParam import ArtifactParam
+from ParamFunctions.CondEffectParam import CondEffectParam
