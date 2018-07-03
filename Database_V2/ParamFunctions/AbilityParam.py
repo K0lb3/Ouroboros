@@ -5,19 +5,16 @@ def AbilityParam(json):
     if 'iname' in json:
         this['iname'] = json['iname']
 
+    if 'name' in json:
+        this['kanji'] = json['name']
     if json['iname'] in TRANSLATION:
-        loc = TRANSLATION[json['iname']]
-        if 'name' in json:
-            this['name'] = loc['name']
-            this['kanji'] = json['name']
-        if 'expr' in json:
-            this['expr'] = loc['expr']
-    else:
-        if 'name' in json:
-            this['name'] = json['name']
-            this['kanji'] = json['name']
-        if 'expr' in json:
-            this['expr'] = json['expr']
+        json.updae(TRANSLATION[json['iname']])
+    
+    if 'name' in json:
+        this['name'] = json['name'] 
+    if 'expr' in json:
+        this['expr'] = json['expr']
+
     
     if 'icon' in json:
         this['icon'] = json['icon']        

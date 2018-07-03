@@ -5,23 +5,20 @@ def ArtifactParam(json):
     #returnfalse
     if 'iname' in json:
         this['iname'] = json['iname']
-    if json['iname'] in TRANSLATION:
-        loc = TRANSLATION[json['iname']]
-        this['name'] = loc['name']
+
+    if 'name' in json:
         this['kanji'] = json['name']
-        this['expr'] = loc['expr']
-        this['flavor'] = loc['flavor']
-        this['spec'] = loc['spec']
-    else:
-        if 'name' in json:
-            this['name'] = json['name']
-            this['kanji'] = json['name']
-        if 'expr' in json:
-            this['expr'] = json['expr']
-        if 'flavor' in json:
-            this['flavor'] = json['flavor']
-        if 'spec' in json:
-            this['spec'] = json['spec']
+    if json['iname'] in TRANSLATION:
+        json.updae(TRANSLATION[json['iname']])
+    
+    if 'name' in json:
+        this['name'] = json['name'] 
+    if 'expr' in json:
+        this['expr'] = json['expr']
+    if 'flavor' in json:
+        this['flavor'] = json['flavor']
+    if 'spec' in json:
+        this['spec'] = json['spec']
 
     if 'asset' in json:
         this['asset'] = json['asset']
