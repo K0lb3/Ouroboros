@@ -30,7 +30,7 @@ RAWELEMENT={
     1000:  'Thunder',
     10000: 'Light',
     100000: 'Dark',
-    111111: ''
+    111111: '', 
     }
 
 RAWBIRTH = {
