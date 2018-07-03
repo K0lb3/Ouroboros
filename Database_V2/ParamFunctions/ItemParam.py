@@ -1,3 +1,4 @@
+from ParamFunctions._variables import ENUM,TRANSLATION
 def ItemParam(json):
     this={}#ItemParamjson)
     #if(json==null)
@@ -5,11 +6,17 @@ def ItemParam(json):
     if 'iname' in json:
         this['iname'] = json['iname']
     if 'name' in json:
-        this['name'] = json['name']
+        this['kanji'] = json['name']
+    if json['iname'] in TRANSLATION:
+        json.update(TRANSLATION[json['iname']])
+    
+    if 'name' in json:
+        this['name'] = json['name'] 
     if 'expr' in json:
         this['expr'] = json['expr']
     if 'flavor' in json:
         this['flavor'] = json['flavor']
+
     if 'type' in json:
         this['type'] = ENUM['EItemType'][json['type']]
     if 'tabtype' in json:
@@ -21,7 +28,7 @@ def ItemParam(json):
     if 'invcap' in json:
         this['invcap'] = json['invcap']
     if 'eqlv' in json:
-        this['equipLv'] = Math.Max(json['eqlv'],1)
+        this['equipLv'] = max(json['eqlv'],1)
     if 'coin' in json:
         this['coin'] = json['coin']
     if 'tc' in json:
@@ -48,14 +55,11 @@ def ItemParam(json):
         this['skill'] = json['skill']
     if 'recipe' in json:
         this['recipe'] = json['recipe']
-    #this.quests=(string)null
     if 'is_valuables' in json:
         this['is_valuables'] = json['is_valuables']>0
     if 'cmn_type' in json:
         this['cmn_type'] = json['cmn_type']
-    #if(json.quests!=null)
-        #for(intindex=0index<json.quests.Length++index)
-        if 'quests' in json:
-            this['quests'] = json['quests']
+    if 'quests' in json:
+        this['quests'] = json['quests']
     #returntrue
-return this
+    return this

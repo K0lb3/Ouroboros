@@ -8,11 +8,20 @@ def createAIO():
     #loc = Translation()
 
     #some tries first
-    main='Artifact'
     export={}
-    for unit in master_gl[main]:
-        export[unit['iname']]=ArtifactParam(unit)
-
-    saveAsJSON(main+'.json',export)
+    #export['Fix']=FixParam(master_gl[main])
+    #export['Buff']={
+    #    buff['iname']:BuffEffectParam(buff)
+    #    for buff in master_gl['Buff']
+    #}
+    #export['Job']={
+    #    entry['iname']:JobParam(entry)
+    #    for entry in master_gl['Job']
+    #}
+    export={
+        entry['iname']:ItemParam(entry)
+        for entry in master_gl['Item']
+    }
+    saveAsJSON('Item'+'.json',export)
 
 createAIO()

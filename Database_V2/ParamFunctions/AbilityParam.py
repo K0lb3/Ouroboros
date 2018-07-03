@@ -8,7 +8,7 @@ def AbilityParam(json):
     if 'name' in json:
         this['kanji'] = json['name']
     if json['iname'] in TRANSLATION:
-        json.updae(TRANSLATION[json['iname']])
+        json.update(TRANSLATION[json['iname']])
     
     if 'name' in json:
         this['name'] = json['name'] 

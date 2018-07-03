@@ -5,3 +5,4 @@ from ParamFunctions.CondEffectParam import CondEffectParam
 from ParamFunctions.BuffEffectParam import BuffEffectParam
 from ParamFunctions.FixParam import FixParam
 from ParamFunctions.JobParam import JobParam
+from ParamFunctions.ItemParam import ItemParam
