@@ -90,10 +90,9 @@ TAG_ARTIFACT = {
     "銃槍": "Gunlance",  # JB_GUNL
     "装備なし": "N/A",  # JB_LUROB01
     "杖剣": "Swordstick",  # JB_HENC_WATER
-
-    "カタール": "Placeholder",
-    "ほうき": "Placeholder",
-    "メイス": "Placeholder",
+    "カタール": "Qatar", #[Default Gear] Assassin
+    "ほうき": "Broom", #[Default Gear] Shrine Maiden",
+    "メイス": "Mace", #[Default Gear] Exclusive: Salomo (Thief)
     }
 
 TAG_UNIT= {
@@ -115,6 +114,5 @@ TAG_UNIT= {
     "FOE": "Enemy",
     "水棲": "Aquatic Lifeform",
     "壊せるオブジェクト": "Breakable Objects",
-
-    "不死者": "Placeholder",
+    "不死者": "Undead"
     }
