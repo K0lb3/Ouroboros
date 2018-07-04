@@ -1,7 +1,6 @@
+from ParamFunctions._variables import ENUM
 def BreakObjParam(json):
     this={}#BreakObjParamjson)
-    #if(json==null)
-    #return
     if 'iname' in json:
         this['mIname'] = json['iname']
     if 'name' in json:
@@ -18,19 +17,13 @@ def BreakObjParam(json):
         this['mSideType'] = ENUM['eMapBreakSideType'][json['side_type']]
     if 'ray_type' in json:
         this['mRayType'] = ENUM['eMapBreakRayType'][json['ray_type']]
-    if 'is_ui' in json:
-        this['mIsUI'] = json['is_ui']!=0
-    #this.mRestHps=(int)null
-    #if(!string.IsNullOrEmpty(json.rest_hps))
-        #stringstrArray=json.rest_hps.Split(',')
-        #if(strArray!=null&&strArray.Length!=0)
-            #this.mRestHps=newint[strArray.Length]
-            #for(intindex=0index<strArray.Length++index)
-                #intresult=0
-                #int.TryParse(strArray,outresult)
-                #this.mRestHps=result
+    
+    this['mIsUI'] = True if 'is_ui' in json and json[is_ui] != 0 else False
+
+    if 'json.rest_hps' in json:
+        this['mRestHps']=json['rest_hps'].split(',')
     if 'clock' in json:
         this['mAliveClock'] = json['clock']
     if 'appear_dir' in json:
         this['mAppearDir'] = ENUM['EUnitDirection'][json['appear_dir']]
-return this
+    return this

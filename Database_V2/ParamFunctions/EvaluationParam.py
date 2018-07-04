@@ -1,14 +1,10 @@
 def EvaluationParam(json):
     this={}#EvaluationParamjson)
-    #if(json==null)
-    #returnfalse
     if 'iname' in json:
         this['iname'] = json['iname']
     if 'val' in json:
         this['value'] = json['val']
-    #this.status.Clear()
-    this['']
-    this['status']
+    this['status']={}
     if 'hp' in json:
         this['status']['hp'] = json['hp']
     this['status']
@@ -39,4 +35,4 @@ def EvaluationParam(json):
     if 'luk' in json:
         this['status']['luk'] = json['luk']
     #returntrue
-return this
+    return this

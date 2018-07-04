@@ -1,7 +1,5 @@
 def VipParam(json):
     this={}#VipParamjson)
-    #if(json==null)
-    #returnfalse
     if 'exp' in json:
         this['NextRankNeedPoint'] = json['exp']
     if 'ticket' in json:
@@ -16,5 +14,4 @@ def VipParam(json):
         this['ResetEliteNum'] = json['reset_elite']
     if 'reset_arena' in json:
         this['ResetArenaNum'] = json['reset_arena']
-    #returntrue
-return this
+    return this
