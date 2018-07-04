@@ -9,8 +9,8 @@ def createAIO():
 
     #some tries first
     export={}
-    #export['Fix']=FixParam(master_gl[main])
-    #export['Buff']={
+    #export=FixParam(master_gl['Fix'])
+    #export={
     #    buff['iname']:BuffEffectParam(buff)
     #    for buff in master_gl['Buff']
     #}
@@ -26,10 +26,10 @@ def createAIO():
     #    entry['iname']:SkillParam(entry)
     #    for entry in master_gl['Skill']
     #}
-    export=[
-        TobiraParam(entry)
-        for entry in master_jp['Tobira']
-    ]
-    saveAsJSON('Tobira'+'.json',export)
+    #export=[
+    #    TobiraParam(entry)
+    #    for entry in master_jp['Tobira']
+    #]
+    saveAsJSON('Buff'+'.json',export)
 
 createAIO()

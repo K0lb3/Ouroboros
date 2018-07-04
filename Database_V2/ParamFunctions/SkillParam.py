@@ -311,7 +311,7 @@ def SkillParam(json):
     if 'shield_d_type' in json:
         this['shield_damage_type'] = ENUM['DamageTypes'][json['shield_d_type']]
 
-    if('shield_type' in this and this['shield_type']!='None' and this['shield_damage_type']!='None'):
+    if('shield_type' in this and this['shield_type']!='None') and ('shield_damage_type' in this and this['shield_damage_type']!='None'):
         this['shield_turn']={}
         if 'shield_turn_ini' in json:
             this['shield_turn']['ini'] = json['shield_turn_ini']

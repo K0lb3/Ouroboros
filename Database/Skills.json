@@ -37844,7 +37844,7 @@
         "motion": "ff15_ingi_skill107",
         "effect": "eff_ff15_ingi_skill107",
         "weapon": "WE_GREAT_SWORD",
-        "cost": 46,
+        "cost": 36,
         "count": 3,
         "range_max": 4,
         "effect_height": 2,
@@ -50052,7 +50052,7 @@
     {
         "iname": "SK_AF_ARMS_FF15_INGI_01_WA",
         "name": "賢者の炎",
-        "expr": "指定範囲内の対象に火属性の魔法ダメージ&攻撃禁止効果[射程:4マス,範囲:菱形2マス,高低差:3]\n160% Fire Magic Dmg [Range: Diamond (4), Height: 3, Area: Diamond (5)]\nTarget: Daze [Chance: 100%, Value: 100]",
+        "expr": "範囲内の対象に火属性の魔法攻撃&攻撃禁止効果[射程:4,範囲:菱形2マス,高低差:3]\n160% Fire Magic Dmg [Range: Diamond (4), Height: 3, Area: Diamond (5)]\nTarget: Daze [Chance: 100%, Value: 100]",
         "motion": "ff15_ingi_skill180",
         "effect": "eff_ff15_ingi_skill180",
         "weapon": "WE_MAGIC_SWORD",
@@ -116004,7 +116004,6 @@
     {
         "iname": "SK_ME_OCE_SHOOTER_DOWN",
         "name": "[Map Effect] Ocean Missile Group (Fragile)",
-        "expr": "HP/PATK/DEX -20%",
         "MapEffectDesc": "<color=red>HP、物攻、器用さ20%ダウン</color>",
         "target_buff_iname": "BUFF_ME_SHOOTER_DOWN",
         "type": "Passive",
@@ -116012,6 +116011,7 @@
         "condition": "MapEffect",
         "target": "Self",
         "effect_type": "Buff",
+        "expr": "HP/PATK/DEX -20%",
         "mapeff": "<color=red>HP/PATK/DEX -20%</color>"
     },
     {

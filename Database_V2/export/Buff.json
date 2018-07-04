@@ -22196,7 +22196,7 @@
     },
     "BUFF_LS_30_U_HP_SLEEP_SOUND": {
         "iname": "BUFF_LS_30_U_HP_SLEEP_SOUND",
-        "elem": "",
+        "elem": "None",
         "chk_target": "Target",
         "chk_timing": "Eternal",
         "buffs": [
@@ -22525,7 +22525,7 @@
     },
     "BUFF_LS_15_U_DEF": {
         "iname": "BUFF_LS_15_U_DEF",
-        "elem": "",
+        "elem": "None",
         "chk_target": "Target",
         "chk_timing": "Eternal",
         "buffs": [
@@ -22542,7 +22542,7 @@
     },
     "BUFF_LS_25_U_DEF": {
         "iname": "BUFF_LS_25_U_DEF",
-        "elem": "",
+        "elem": "None",
         "chk_target": "Target",
         "chk_timing": "Eternal",
         "buffs": [
@@ -22783,7 +22783,7 @@
     },
     "BUFF_LS_5_U_AVO_5_U_MPGET": {
         "iname": "BUFF_LS_5_U_AVO_5_U_MPGET",
-        "elem": "",
+        "elem": "None",
         "chk_target": "Target",
         "chk_timing": "Eternal",
         "buffs": [
@@ -23043,7 +23043,7 @@
     },
     "BUFF_LS_5_U_A_ELEM_ALL": {
         "iname": "BUFF_LS_5_U_A_ELEM_ALL",
-        "elem": "",
+        "elem": "None",
         "chk_target": "Target",
         "chk_timing": "Eternal",
         "buffs": [
@@ -23095,7 +23095,7 @@
     },
     "BUFF_LS_10_U_A_ELEM_ALL": {
         "iname": "BUFF_LS_10_U_A_ELEM_ALL",
-        "elem": "",
+        "elem": "None",
         "chk_target": "Target",
         "chk_timing": "Eternal",
         "buffs": [
@@ -23375,7 +23375,7 @@
     },
     "BUFF_LS_5_U_R_ELEM_ALL": {
         "iname": "BUFF_LS_5_U_R_ELEM_ALL",
-        "elem": "",
+        "elem": "None",
         "chk_target": "Target",
         "chk_timing": "Eternal",
         "buffs": [
@@ -23427,7 +23427,7 @@
     },
     "BUFF_LS_10_U_R_ELEM_ALL": {
         "iname": "BUFF_LS_10_U_R_ELEM_ALL",
-        "elem": "",
+        "elem": "None",
         "chk_target": "Target",
         "chk_timing": "Eternal",
         "buffs": [
@@ -24055,7 +24055,7 @@
     },
     "BUFF_LS_10_U_MAGIC_10_D_CAST": {
         "iname": "BUFF_LS_10_U_MAGIC_10_D_CAST",
-        "elem": "",
+        "elem": "None",
         "chk_target": "Target",
         "chk_timing": "Eternal",
         "buffs": [
@@ -28595,7 +28595,7 @@
     },
     "BUFF_LS_30_U_MAG_10_U_MAGIC": {
         "iname": "BUFF_LS_30_U_MAG_10_U_MAGIC",
-        "elem": "",
+        "elem": "None",
         "chk_target": "Target",
         "chk_timing": "Eternal",
         "buffs": [
@@ -53928,22 +53928,22 @@
             },
             {
                 "type": "Dex",
-                "value_ini": 30,
-                "value_max": 45,
+                "value_ini": 34,
+                "value_max": 51,
                 "value_one": 0,
                 "calc": "Add"
             },
             {
                 "type": "Atk",
-                "value_ini": 22,
-                "value_max": 33,
+                "value_ini": 28,
+                "value_max": 42,
                 "value_one": 0,
                 "calc": "Add"
             },
             {
                 "type": "Mag",
-                "value_ini": 12,
-                "value_max": 18,
+                "value_ini": 22,
+                "value_max": 33,
                 "value_one": 0,
                 "calc": "Add"
             },
@@ -81492,8 +81492,8 @@
         "buffs": [
             {
                 "type": "HpMax",
-                "value_ini": 11,
-                "value_max": 11,
+                "value_ini": 19,
+                "value_max": 19,
                 "value_one": 0,
                 "calc": "Scale"
             },

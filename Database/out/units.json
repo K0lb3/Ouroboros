@@ -96,7 +96,7 @@
         "job 2": "Dark Knight",
         "job 3": "",
         "jc 1": "",
-        "jc 2": "Dark Cavalier+ᴶ",
+        "jc 2": "Dark Cavalier+",
         "jc 3": "",
         "inputs": [
             "Dias",
@@ -11369,7 +11369,7 @@
     },
     "UN_V2_FF15_NOCTIS": {
         "iname": "UN_V2_FF15_NOCTIS",
-        "name": "Noctisᴶ",
+        "name": "Noctis",
         "inofficial": "Noctis",
         "gender": "♂",
         "element": "Water",
@@ -11380,7 +11380,7 @@
         "farm": [],
         "leader skill": "Water: +40% HP, -10 Cast Time Ratio",
         "master ability": "",
-        "link": "http://www.alchemistcodedb.com/jp/unit/ff15-noctis",
+        "link": "http://www.alchemistcodedb.com/unit/ff15-noctis",
         "job 1": "Lucian's Heir",
         "job 2": "Magic Swordsman",
         "job 3": "Battle Mage",
@@ -11393,7 +11393,7 @@
             "FF Noctis"
         ],
         "stats": {
-            "HP": 799,
+            "HP": 714,
             "Max Jewels": 163,
             "PATK": 123,
             "PDEF": 93,
@@ -11425,7 +11425,7 @@
     },
     "UN_V2_FF15_IGNIS": {
         "iname": "UN_V2_FF15_IGNIS",
-        "name": "Ignisᴶ",
+        "name": "Ignis",
         "inofficial": "Ignis",
         "gender": "♂",
         "element": "Wind",
@@ -11436,7 +11436,7 @@
         "farm": [],
         "leader skill": "Wind: +40% PATK, +10 CRIT Rate",
         "master ability": "",
-        "link": "http://www.alchemistcodedb.com/jp/unit/ff15-ignis",
+        "link": "http://www.alchemistcodedb.com/unit/ff15-ignis",
         "job 1": "Prince's Hand",
         "job 2": "Crafter",
         "job 3": "Shadow Assassin",
@@ -11449,7 +11449,7 @@
             "FF Ignis"
         ],
         "stats": {
-            "HP": 366,
+            "HP": 405,
             "Max Jewels": 159,
             "PATK": 156,
             "PDEF": 85,
@@ -11481,7 +11481,7 @@
     },
     "UN_V2_FF15_GLADIOLUS": {
         "iname": "UN_V2_FF15_GLADIOLUS",
-        "name": "Gladiolusᴶ",
+        "name": "Gladiolus",
         "inofficial": "Gladiolus",
         "gender": "♂",
         "element": "Fire",
@@ -11492,7 +11492,7 @@
         "farm": [],
         "leader skill": "Fire: +20% HP, +30% PATK",
         "master ability": "",
-        "link": "http://www.alchemistcodedb.com/jp/unit/ff15-gladiolus",
+        "link": "http://www.alchemistcodedb.com/unit/ff15-gladiolus",
         "job 1": "Prince's Shield",
         "job 2": "Martial Artist",
         "job 3": "Holy Cavalier",
@@ -11505,7 +11505,7 @@
             "FF Gladiolus"
         ],
         "stats": {
-            "HP": 412,
+            "HP": 386,
             "Max Jewels": 151,
             "PATK": 142,
             "PDEF": 103,
@@ -11537,7 +11537,7 @@
     },
     "UN_V2_FF15_PROMPUTO": {
         "iname": "UN_V2_FF15_PROMPUTO",
-        "name": "Promputoᴶ",
+        "name": "Promputo",
         "inofficial": "Prompto",
         "gender": "♂",
         "element": "Thunder",
@@ -11548,7 +11548,7 @@
         "farm": [],
         "leader skill": "Thunder: +10 Missile ATK, +20% DEX",
         "master ability": "",
-        "link": "http://www.alchemistcodedb.com/jp/unit/ff15-promputo",
+        "link": "http://www.alchemistcodedb.com/unit/ff15-promputo",
         "job 1": "Gunner",
         "job 2": "Holy Knight",
         "job 3": "Prince's Best Friend",
@@ -11562,7 +11562,7 @@
             "FF Promputo"
         ],
         "stats": {
-            "HP": 350,
+            "HP": 393,
             "Max Jewels": 131,
             "PATK": 109,
             "PDEF": 72,
@@ -11594,7 +11594,7 @@
     },
     "UN_V2_FF15_ARANEA": {
         "iname": "UN_V2_FF15_ARANEA",
-        "name": "Araneaᴶ",
+        "name": "Aranea",
         "inofficial": "Aranea",
         "gender": "♀",
         "element": "Dark",
@@ -11605,7 +11605,7 @@
         "farm": [],
         "leader skill": "Dark: +30 Pierce ATK, +20% HP",
         "master ability": "",
-        "link": "http://www.alchemistcodedb.com/jp/unit/ff15-aranea",
+        "link": "http://www.alchemistcodedb.com/unit/ff15-aranea",
         "job 1": "Commodore",
         "job 2": "Twin-Blade Swordsman",
         "job 3": "Dark Cavalier",
@@ -11618,7 +11618,7 @@
             "FF Aranea"
         ],
         "stats": {
-            "HP": 398,
+            "HP": 407,
             "Max Jewels": 154,
             "PATK": 142,
             "PDEF": 98,

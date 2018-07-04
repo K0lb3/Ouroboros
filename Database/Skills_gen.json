@@ -6168,7 +6168,7 @@
         "Self: +50% PATK, +10% AGI, +20 Evasion Rate [Turns: 3]"
     ],
     [
-        "指定範囲内の対象に火属性の魔法ダメージ&攻撃禁止効果[射程:4マス,範囲:菱形2マス,高低差:3]",
+        "範囲内の対象に火属性の魔法攻撃&攻撃禁止効果[射程:4,範囲:菱形2マス,高低差:3]",
         "160% Fire Magic Dmg [Range: Diamond (4), Height: 3, Area: Diamond (5)]",
         "Target: Daze [Chance: 100%, Value: 100]"
     ],
