@@ -7,7 +7,7 @@ def TobiraParam(json):
     if 'enable' in json:
         this['mEnable'] = json['enable']==1
     if 'category' in json:
-        this['mCategory'] = ENUM['CATEGORY'][json['category']]
+        this['mCategory'] = ENUM['Category'][json['category']]
     if 'recipe_id' in json:
         this['mRecipeId'] = json['recipe_id']
     if 'skill_iname' in json:

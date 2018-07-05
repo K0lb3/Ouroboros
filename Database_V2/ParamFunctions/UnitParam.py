@@ -58,7 +58,7 @@ def UnitParam(json):
     if 'notsmn' in json:
         this['summon'] = json['notsmn']==0
     if 'available_at' in json:
-        this['available_at'] = DateTime.Parse
+        this['available_at'] = json['available_at']
     if 'jt' in json:
         this['jobtype'] = ENUM['JobTypes'][json['jt']]
     if 'role' in json:

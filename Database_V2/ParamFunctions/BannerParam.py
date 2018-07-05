@@ -1,9 +1,11 @@
+from ParamFunctions._variables import ENUM
 def BannerParam(json):
     this={}#BannerParamjson)
     if 'iname' in json:
         this['iname'] = json['iname']
     if 'type' in json:
-        this['type'] = ENUM['BannerType'][json['type']]
+        this['type'] = json['type']
+        #this['type'] = ENUM['BannerType'][json['type']]
     if 'sval' in json:
         this['sval'] = json['sval']
     if 'banr' in json:

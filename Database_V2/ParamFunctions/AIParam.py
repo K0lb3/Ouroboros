@@ -62,7 +62,7 @@ def AIParam(json):
             ]
     if 'cond_prio' in json:
         this['ConditionPriorities'] = [
-            ENUM['EUnitCondition'][cond]
+            ENUM['EUnitCondition'][pow(2,cond)]
             for cond in json['cond_prio']
             ]
     #returntrue

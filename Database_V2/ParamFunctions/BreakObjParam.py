@@ -18,7 +18,7 @@ def BreakObjParam(json):
     if 'ray_type' in json:
         this['mRayType'] = ENUM['eMapBreakRayType'][json['ray_type']]
     
-    this['mIsUI'] = True if 'is_ui' in json and json[is_ui] != 0 else False
+    this['mIsUI'] = True if 'is_ui' in json and json['is_ui'] != 0 else False
 
     if 'json.rest_hps' in json:
         this['mRestHps']=json['rest_hps'].split(',')

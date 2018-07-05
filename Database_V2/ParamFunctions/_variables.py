@@ -44,7 +44,12 @@ RAWBIRTH = {
     "砂漠地帯": "Desert Zone",
     "ノーザンブライド": "Northern Pride",
     "グリードダイク": "Greed Dike",
-    "グラトニー＝フォス": "Gluttony Foss"
+    "グラトニー＝フォス": "Gluttony Foss",
+    '神戸あいしす':'Kobe Aisushi', #placeholder? only one Doro enemy and 8 buffs/conds
+    '神戸IJ': 'Kobe IJ',
+    'ラットン田崎': 'Tasaki Kobe',
+    '神戸芸人': 'Kobe Entertainer',
+    '神戸師範': 'Comedian Sihan Kobe'
     }
 
 TAG_ARTIFACT = {
@@ -114,5 +119,5 @@ TAG_UNIT= {
     "FOE": "Enemy",
     "水棲": "Aquatic Lifeform",
     "壊せるオブジェクト": "Breakable Objects",
-    "不死者": "Undead"
+    "不死者": "Undead",
     }

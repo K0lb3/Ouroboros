@@ -1,12 +1,11 @@
 def ChallengeCategoryParam(json):
     this={}#ChallengeCategoryParamjson)
-    #if(json==null)
-    #returnfalse
     if 'iname' in json:
         this['iname'] = json['iname']
-    #this.begin_at.Set(json.begin_at,DateTime.MinValue)
-    #this.end_at.Set(json.end_at,DateTime.MaxValue)
+    
+    this['begin_at'] = json['begin_at'] if 'begin_at' in json else False
+    this['end_at'] = json['end_at'] if 'end_at' in json else False
     if 'prio' in json:
         this['prio'] = json['prio']
     #returntrue
-return this
+    return this

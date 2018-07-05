@@ -1,35 +1,37 @@
 from MainFunctions import *
-from ParamFunctions import *
+import ParamFunctions
 
 def createAIO():
-    [master_gl,master_jp]=loadFiles(['MasterParam.json','MasterParamJP.json'])
-    #[master_gl, master_jp,quest_gl, quest_jp, lore, wyte] = loadFiles(
-    #    ['MasterParam.json', 'MasterParamJP.json', 'QuestParam.json','QuestParamJP.json', 'unit.json', 'wytesong.json'])
+    master=FuseMasterParams()
     #loc = Translation()
 
     #some tries first
     export={}
-    #export=FixParam(master_gl['Fix'])
-    #export={
-    #    buff['iname']:BuffEffectParam(buff)
-    #    for buff in master_gl['Buff']
-    #}
-    #export['Job']={
-    #    entry['iname']:JobParam(entry)
-    #    for entry in master_gl['Job']
-    #}
-    #export['Item']={
-    #    entry['iname']:ItemParam(entry)
-    #    for entry in master_gl['Item']
-    #}
-    #export['Skill']={
-    #    entry['iname']:SkillParam(entry)
-    #    for entry in master_gl['Skill']
-    #}
-    #export=[
-    #    TobiraParam(entry)
-    #    for entry in master_jp['Tobira']
-    #]
-    saveAsJSON('Buff'+'.json',export)
+    for main in master:
+        method= getattr(ParamFunctions, main+'Param',False)
+        if not method:
+            method= getattr(ParamFunctions, main+'EffectParam',False)
+        if method:
+            if type(master[main])==dict: #like FIxParam
+                export[main]=method(master[main])
+            elif type(master[main])==list:
+                if 'iname' in master[main][0]:#most Params
+                    export[main]={
+                        entry['iname']:method(entry)
+                        for entry in master[main]
+                        }
+                else: #like Tobira
+                    export[main]=[
+                        method(entry)
+                        for entry in master[main]
+                        ]
+                print('Success: '+main) 
+            else:
+                 print('Failed: '+main)           
+        else:
+            print('Not Found: '+main)
+
+
+    saveAsJSON('AIO.json',export)
 
 createAIO()

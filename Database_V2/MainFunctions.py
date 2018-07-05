@@ -78,3 +78,26 @@ def dmg_formula(weaponParam):
     }
 
     return Formulas[WeaponFormulaTypes[weaponParam['formula']]]
+
+def match(original, new):
+    for entry in new:
+        if entry in original:
+            if type(new[entry])==dict:
+                original[entry]=match(original[entry],new[entry])
+            elif type(new[entry])==list:
+                for i in new[entry]:
+                    if i not in original[entry]:
+                        original[entry].append(i)
+            elif 1:
+                pass
+        else:
+            original[entry]=new[entry]
+    return original
+            
+
+def FuseMasterParams():
+    mains = loadFiles(
+    ['MasterParam.json', 'MasterParamJP.json',])# 'QuestParam.json','QuestParamJP.json', 'QuestDropParam.json'])
+    for i in range(1,len(mains)):
+        mains[0]=match(mains[0],mains[i])
+    return mains[0]
