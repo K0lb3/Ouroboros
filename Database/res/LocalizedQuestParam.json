@@ -483,6 +483,18 @@
         "name": "[Limited Time]",
         "expr": "[Limited Time] Wadatsumi's Dance [Hard]"
     },
+    "AR_JIGEN_EXP_FF15": {
+        "name": "Max",
+        "expr": "Apple Garden"
+    },
+    "AR_FF15": {
+        "name": "FINAL FANTASY XV Collab Event",
+        "expr": "FFXV Collab"
+    },
+    "AR_FF15_EX": {
+        "name": "FINAL FANTASY XV Collab Event EX",
+        "expr": "FFXV Collab"
+    },
     "AR_SO_RETZIUS": {
         "name": "[Limited Time]",
         "expr": "Encounter with Retzius"
@@ -1246,6 +1258,10 @@
     "MULTI_SO_CELLIERS": {
         "name": "Max",
         "expr": "Crystal-Shot Heart"
+    },
+    "MULTI_FF15_EX": {
+        "name": "FINAL FANTASY XV Collab Event EX",
+        "expr": "FFXV Collab"
     },
     "MULTI_WEDDING_2017_EX": {
         "name": "Max",
@@ -5129,6 +5145,12 @@
         "cond": "Defeat all enemy units!",
         "title": "[1/Day]"
     },
+    "QE_TM_EXP_FF15_LV1": {
+        "name": "Apple Garden FINAL FANTASY XV",
+        "expr": "EXP Quest: Apples/Gold Ingots",
+        "cond": "Defeat all enemy units!",
+        "title": "[Max 1/d]"
+    },
     "QE_TM_ZEN_LV1": {
         "name": "Gold Rush [Bgn]",
         "expr": "Zeni Quest: Zeni Conversion Items",
@@ -8536,6 +8558,120 @@
         "cond": "Defeat all enemy units!",
         "title": "[Battlefield Drama Evolution]"
     },
+    "QE_EV_FF15_1": {
+        "name": "EP1 Prologue",
+        "expr": "FFXV Collab Quest",
+        "cond": "Defeat all enemy units!",
+        "title": "Unit Lv10 JobLv1 Recommended"
+    },
+    "QE_EV_FF15_2": {
+        "name": "EP2 Meeting",
+        "expr": "FFXV Collab Quest",
+        "cond": "Defeat all enemy units!",
+        "title": "Unit Lv20 JobLv2 Recommended"
+    },
+    "QE_EV_FF15_3": {
+        "name": "EP3 Hunt",
+        "expr": "FFXV Collab Quest",
+        "cond": "Defeat all enemy units!",
+        "title": "Unit Lv30 JobLv3 Recommended"
+    },
+    "QE_EV_FF15_4": {
+        "name": "EP4 Camp",
+        "expr": "FFXV Collab Quest",
+        "cond": "Defeat all enemy units!",
+        "title": "Unit Lv35 JobLv4 Recommended"
+    },
+    "QE_EV_FF15_5": {
+        "name": "EP5 Alchemy",
+        "expr": "FFXV Collab Quest",
+        "cond": "Fight off Aranea!",
+        "title": "Unit Lv40 JobLv6 Recommended"
+    },
+    "QE_EV_FF15_6": {
+        "name": "EP6 Encounter",
+        "expr": "FFXV Collab Quest",
+        "cond": "Defeat all enemy units!",
+        "title": "Unit Lv45 JobLv6 Recommended"
+    },
+    "QE_EV_FF15_7": {
+        "name": "EP7 Rest",
+        "expr": "FFXV Collab Quest",
+        "cond": "Defeat all enemy units!",
+        "title": "Unit Lv50 JobLv7 Recommended"
+    },
+    "QE_EV_FF15_8": {
+        "name": "EP8 Father",
+        "expr": "FFXV Collab Quest",
+        "cond": "Defeat all enemy units!",
+        "title": "Unit Lv55 JobLv8 Recommended"
+    },
+    "QE_EV_FF15_9": {
+        "name": "EP9 Highwind",
+        "expr": "FFXV Collab Quest",
+        "cond": "Defeat all enemy units!",
+        "title": "Unit Lv60 JobLv9 Recommended"
+    },
+    "QE_EV_FF15_10": {
+        "name": "EP10 Goodbye",
+        "expr": "FFXV Collab Quest",
+        "cond": "Defeat all enemy units!",
+        "title": "Unit Lv65 JobLv10 Recommended"
+    },
+    "QE_EV_FF15_HA": {
+        "name": "FINAL FANTASY XV Collab",
+        "expr": "FFXV Collab Quest",
+        "cond": "Defeat all enemy units!",
+        "title": "[Hard]"
+    },
+    "QE_EV_FF15_EX_1": {
+        "name": "FINAL FANTASY XV Collab [EX1]",
+        "expr": "FFXV Collab Quest",
+        "cond": "Defeat all foes except Mandragoras!",
+        "title": "Hard Quest"
+    },
+    "QE_EV_FF15_EX_2": {
+        "name": "FINAL FANTASY XV Collab [EX2]",
+        "expr": "FFXV Collab Quest",
+        "cond": "Defeat all enemy units!",
+        "title": "Hard Quest"
+    },
+    "QE_EV_FF15_EX_3": {
+        "name": "FINAL FANTASY XV Collab [EX3]",
+        "expr": "FFXV Collab Quest",
+        "cond": "Defeat all enemy units!",
+        "title": "Hard Quest"
+    },
+    "QE_EV_FF15_EX_4": {
+        "name": "FINAL FANTASY XV Collab [EX4]",
+        "expr": "FFXV Collab Quest",
+        "cond": "Defeat all enemy units!",
+        "title": "Hard Quest"
+    },
+    "QE_EV_FF15_EX_SP_1": {
+        "name": "FINAL FANTASY XV Collab [EX1+]",
+        "expr": "FFXV Collab Quest",
+        "cond": "Defeat all foes except Mandragoras!",
+        "title": "Super Hard Quest"
+    },
+    "QE_EV_FF15_EX_SP_2": {
+        "name": "FINAL FANTASY XV Collab [EX2+]",
+        "expr": "FFXV Collab Quest",
+        "cond": "Defeat all enemy units!",
+        "title": "Super Hard Quest"
+    },
+    "QE_EV_FF15_EX_SP_3": {
+        "name": "FINAL FANTASY XV Collab [EX3+]",
+        "expr": "FFXV Collab Quest",
+        "cond": "Defeat all enemy units!",
+        "title": "Super Hard Quest"
+    },
+    "QE_EV_FF15_EX_SP_4": {
+        "name": "FINAL FANTASY XV Collab [EX4+]",
+        "expr": "FFXV Collab Quest",
+        "cond": "Defeat all enemy units!",
+        "title": "Super Hard Quest"
+    },
     "QE_EV_3TITLE_1": {
         "name": "The Sun God and the Golden Key Episode 1",
         "expr": "3-Title Swimsuit Collab Quest",
@@ -9120,7 +9256,7 @@
     },
     "QE_ARENA_27": {
         "name": "Arena [Ruins]",
-        "expr": "Thunder Units ATK Power +20%, Charge Time -30%",
+        "expr": "Thunder Units ATK Power +20%, Cast Time -30%",
         "cond": "Defeat all enemy units!",
         "title": "Arena"
     },
@@ -9186,7 +9322,7 @@
     },
     "QE_VS_08": {
         "name": "Ruins",
-        "expr": "Map Effect: Charge Time -30%",
+        "expr": "Map Effect: Cast Time -30%",
         "cond": "Defeat all enemy units!",
         "title": "Duel"
     },
@@ -9252,7 +9388,7 @@
     },
     "QE_VS_TOWER_02": {
         "name": "Ruins",
-        "expr": "Map Effect: Charge Time -30% & Dmg Dealt -50%",
+        "expr": "Map Effect: Cast Time -30% & Dmg Dealt -50%",
         "cond": "Defeat all enemy units!",
         "title": "Tower Match β"
     },
@@ -9285,6 +9421,30 @@
         "expr": "CM Release Celebration Treasure Contest!",
         "cond": "Collect the treasure within the time limit!",
         "title": "[1/Day]"
+    },
+    "QE_EV_MULTI_FF15_EX_1": {
+        "name": "FINAL FANTASY XV Collab [EX1]",
+        "expr": "FFXV Collab Quest",
+        "cond": "Defeat all foes except Mandragoras!",
+        "title": "Hard Quest"
+    },
+    "QE_EV_MULTI_FF15_EX_2": {
+        "name": "FINAL FANTASY XV Collab [EX2]",
+        "expr": "FFXV Collab Quest",
+        "cond": "Defeat all enemy units!",
+        "title": "Hard Quest"
+    },
+    "QE_EV_MULTI_FF15_EX_3": {
+        "name": "FINAL FANTASY XV Collab [EX3]",
+        "expr": "FFXV Collab Quest",
+        "cond": "Defeat all enemy units!",
+        "title": "Hard Quest"
+    },
+    "QE_EV_MULTI_FF15_EX_4": {
+        "name": "FINAL FANTASY XV Collab [EX4]",
+        "expr": "FFXV Collab Quest",
+        "cond": "Defeat all enemy units!",
+        "title": "Hard Quest"
     },
     "QE_MULTI_EV_FATE_EX_1": {
         "name": "Fate/stay night [UBW] [EX+] Stage 1",

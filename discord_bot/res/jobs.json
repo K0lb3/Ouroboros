@@ -439,7 +439,7 @@
             "skills": [
                 {
                     "name": "Reaper's Beckoning",
-                    "expr": "Inflicts Phys Dmg (Low) on target with chance of wreaking Death Sentence<br> [Range: 1, Height Range: 1]"
+                    "expr": "Inflicts Phys Dmg (Low) on target with chance of wreaking Death Sentence <br>[Range: 1, Height Range: 1]"
                 },
                 {
                     "name": "Dark Saber",
@@ -2196,9 +2196,9 @@
         "units": [
             "Alaia",
             "Neica",
+            "Noctis FF",
             "Chao",
             "Noah",
-            "Noctis FF",
             "Fujika",
             "Birgitta",
             "Kevin",
@@ -2225,7 +2225,7 @@
                 },
                 {
                     "name": "Luminous Chant",
-                    "expr": "Inflicts Light Mag Dmg (Low) on units within target area & greatly reduces charge time for next turn [Range: 4, Area: Cross (5), Height Range: 2]"
+                    "expr": "Inflicts Light Mag Dmg (Low) on units within target area & greatly reduces cast time for next turn [Range: 4, Area: Cross (5), Height Range: 2]"
                 },
                 {
                     "name": "Intersecting Thunder",
@@ -2274,7 +2274,7 @@
             "skills": [
                 {
                     "name": "Shell Charge",
-                    "expr": "Raises PDEF & reduces charge time by 1/5"
+                    "expr": "Raises PDEF & reduces cast time by 1/5"
                 },
                 {
                     "name": "Sorcery Pair",
@@ -4121,8 +4121,8 @@
             "Magnus",
             "Aswald",
             "Vivi",
-            "Justin",
             "Promputo FF",
+            "Justin",
             "Hawkeye FA"
         ],
         "jobe": [],
@@ -4725,7 +4725,7 @@
                 },
                 {
                     "name": "Swift Charge",
-                    "expr": "Reduces charge time by 1/3"
+                    "expr": "Reduces cast time by 1/3"
                 }
             ]
         },
@@ -5021,9 +5021,9 @@
             "Shenmei",
             "Courage",
             "Deneb",
+            "Ignis FF",
             "Seraphina DIS",
             "Daisy",
-            "Ignis FF",
             "Gunner EMD",
             "Hisham",
             "Belta"
@@ -5203,9 +5203,9 @@
             "Cita",
             "Setsuna",
             "Rin Tohsaka",
+            "Gladiolus FF",
             "Killia DIS",
             "Blanshett",
-            "Gladiolus FF",
             "Leoniaz",
             "Stock RH",
             "Zuiva",
@@ -5557,10 +5557,10 @@
             "Neica",
             "Scheherazade",
             "Siegfried",
+            "Noctis FF",
             "Nasario",
             "Lahar DIS",
             "Olga",
-            "Noctis FF",
             "Edwin",
             "Rainy RH",
             "Raydo",
@@ -6809,7 +6809,7 @@
             "skills": [
                 {
                     "name": "Reaper's Beckoning",
-                    "expr": "Inflicts Phys Dmg (Low) on target with chance of wreaking Death Sentence<br> [Range: 1, Height Range: 1]"
+                    "expr": "Inflicts Phys Dmg (Low) on target with chance of wreaking Death Sentence <br>[Range: 1, Height Range: 1]"
                 },
                 {
                     "name": "Dark Saber",
@@ -6966,11 +6966,11 @@
             "Gilgamesh",
             "Zeke",
             "Mei Fang",
+            "Aranea FF",
             "Yunagi",
             "Ravina",
             "Zofia",
             "Chat Noir",
-            "Aranea FF",
             "Leoniaz",
             "Annika",
             "Lucia",
@@ -7161,8 +7161,8 @@
             "Zain",
             "Victor",
             "Teona",
-            "Miuna",
             "Gladiolus FF",
+            "Miuna",
             "Edwin",
             "Izayoi",
             "Teresa",
@@ -7768,7 +7768,7 @@
             "skills": [
                 {
                     "name": "Reaper's Beckoning",
-                    "expr": "Inflicts Phys Dmg (Low) on target with chance of wreaking Death Sentence<br> [Range: 1, Height Range: 1]"
+                    "expr": "Inflicts Phys Dmg (Low) on target with chance of wreaking Death Sentence <br>[Range: 1, Height Range: 1]"
                 },
                 {
                     "name": "Dark Saber",
@@ -9355,12 +9355,12 @@
             "Masamune",
             "Aswald",
             "Archer",
+            "Aranea FF",
             "Yuto",
             "Basheeny",
             "Chao",
             "Blanshett",
             "Zofia",
-            "Aranea FF",
             "Hugo",
             "Wrath FA",
             "Lotia",
@@ -12218,7 +12218,7 @@
                 },
                 {
                     "name": "Quincunx",
-                    "expr": "Halves ally unit's charge time for three turns [Range: 3, Height Range: 2]"
+                    "expr": "Halves ally unit's cast time for three turns [Range: 3, Height Range: 2]"
                 }
             ]
         },
@@ -13465,9 +13465,9 @@
         "units": [
             "Aswald",
             "Setsuna",
+            "Ignis FF",
             "Killia DIS",
             "Chat Noir",
-            "Ignis FF",
             "Fury",
             "Aisha",
             "Kurt",
@@ -14797,7 +14797,7 @@
             "skills": [
                 {
                     "name": "High-Speed Divine Words",
-                    "expr": "Reduces charge time by 2/5"
+                    "expr": "Reduces cast time by 2/5"
                 }
             ]
         },
@@ -16186,7 +16186,7 @@
                 },
                 {
                     "name": "Shattering Slash",
-                    "expr": "Deal Physical Damage (High) to target enemy that ignores DEF & inflicts Daze [Range: 4, Height Range: 3]"
+                    "expr": "Deal Physical Damage (High) to target enemy that ignores DEF & inflicts Daze"
                 }
             ]
         },
@@ -16281,6 +16281,810 @@
             "Siegfried",
             "Siegfried Wandering Swordsman",
             "Wandering Swordsman"
+        ]
+    },
+    "JB_FF15_NOCT": {
+        "iname": "JB_FF15_NOCT",
+        "name": "Prince of Lucis",
+        "japan": "Lucis Prince\nルシスの王子",
+        "kanji": "ルシスの王子",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/ff15_noct.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ARM.png",
+        "origin": "Prince of Lucis",
+        "units": [
+            "Noctis FF"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_FF15_NOCT_UPPER",
+            "name": "Royal Blood",
+            "expr": "Royal Blood techniques for use with this job type only",
+            "skills": [
+                {
+                    "name": "Sweep",
+                    "expr": "Inflicts Phys Dmg on units within target area [Range: 1, Area: Lateral (3), Height Range: 2]"
+                },
+                {
+                    "name": "Warp-Strike",
+                    "expr": "After moving, inflicts Phys Dmg on target enemy unit & greatly raises AGI until next turn [Range: Diamond (13), Height Range: 2]"
+                },
+                {
+                    "name": "Point-Warp",
+                    "expr": "After moving, recovers HP of units in area around self [MOVE Area: Diamond (7), Height Range: Unlimited]"
+                },
+                {
+                    "name": "Tricast: Blizzaga",
+                    "expr": "Inflicts 3-hit Water Mag Dmg on enemy units within target area [Range: 4, Area: Diamond (5), Height Range: 2]"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_FF15_NOCT_LOWER",
+            "name": "Basic Royal Blood",
+            "expr": "Royal Blood techniques for use with all job types",
+            "skills": [
+                {
+                    "name": "Shield Bash",
+                    "expr": "Inflicts Phys Dmg on target unit & raises own PATK [Range: 1, Height Range: 1]"
+                },
+                {
+                    "name": "Marksman",
+                    "expr": "Inflicts Phys Dmg & Daze on target unit [Range: 4, Height Range: Unlimited]"
+                },
+                {
+                    "name": "Venomcast: Thundara",
+                    "expr": "Inflicts Thunder Mag Dmg & Poison on units within target area [Range: 4, Area: Cross (3), Height Range: 2]"
+                },
+                {
+                    "name": "Stopcast: Fira",
+                    "expr": "Inflicts Fire Mag Dmg & Stop on target unit [Range: 4, Height Range: 2]"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Parry",
+                    "expr": "Performs physical counter when Dmg is received [Range: 1, Height Range: 2]"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Just Hangin' Around",
+                    "expr": "Dmg modifier for all attacks"
+                },
+                {
+                    "name": "Savior's Force",
+                    "expr": "Raises PATK/MATK of self and adjacent allies when one or more ally units are in adjacent squares"
+                }
+            ]
+        },
+        "weapon": "Sword",
+        "modifiers": {
+            "HP": 0,
+            "Max Jewels": 23,
+            "Initial Jewels": 100,
+            "PATK": 15,
+            "PDEF": 30,
+            "MATK": 140,
+            "MDEF": 60,
+            "DEX": 10,
+            "AGI": 20,
+            "LUCK": 0,
+            "CRIT": 0,
+            "AVOID": 0
+        },
+        "job master buff": [
+            {
+                "type": "HP",
+                "value": 11,
+                "calc": "Scale"
+            },
+            {
+                "type": "MATK",
+                "value": 6,
+                "calc": "Scale"
+            },
+            {
+                "type": "MDEF",
+                "value": 3,
+                "calc": "Scale"
+            },
+            {
+                "type": "AGI",
+                "value": 4,
+                "calc": "Scale"
+            }
+        ],
+        "stats": {
+            "Move": 3,
+            "Jump": 2,
+            "MATK": 147,
+            "PDEF": 152,
+            "DEX": 153,
+            "AGI": 34,
+            "CRIT": 88,
+            "HP": 231,
+            "PATK": 214,
+            "MDEF": 89,
+            "LUCK": 75,
+            "Jewels Obtained": 47,
+            "Fire Res": 7,
+            "Water Res": 4,
+            "Thunder Res": 3,
+            "Wind Res": 5,
+            "Petrify Res": 43,
+            "Stop Res": 28,
+            "Silence Res": 28,
+            "Stun Res": 15,
+            "Paralyze Res": 15,
+            "Sleep Res": 15,
+            "Light Res": 1,
+            "Poison Res": 10,
+            "Charm Res": 10
+        },
+        "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/ff15noctis#prince-of-lucis",
+        "inputs": [
+            "Noctis FF",
+            "Noctis FF Prince of Lucis",
+            "Prince of Lucis",
+            "Noctis FF",
+            "Noctis FF Lucis Prince",
+            "Lucis Prince"
+        ]
+    },
+    "JB_FF15_INGI": {
+        "iname": "JB_FF15_INGI",
+        "name": "Prince's Advisor",
+        "japan": "Prince's Aide\n王子の側付き",
+        "kanji": "王子の側付き",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/ff15_ingi.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ARM.png",
+        "origin": "Prince's Advisor",
+        "units": [
+            "Ignis FF"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_FF15_INGI_UPPER",
+            "name": "Advisor",
+            "expr": "Advisor techniques for use with this job type only",
+            "skills": [
+                {
+                    "name": "Regroup",
+                    "expr": "Casts Auto Heal on ally units in area around self [Range: Cross (3), Height Range: 2]"
+                },
+                {
+                    "name": "Venom Fang",
+                    "expr": "Inflicts 2-hit Phys Dmg & Poison on target unit with chance of critical [Range: 1, Height Range: 2]"
+                },
+                {
+                    "name": "Deathblow",
+                    "expr": "Inflicts 2-hit Phys Dmg on target unit with chance of critical [Range: 3, Area: 1 sq line, Height Range: 2]"
+                },
+                {
+                    "name": "Mark",
+                    "expr": "Inflicts 3-hit Phys Dmg on target unit with chance of critical & raises own AGI until next turn [Range: 4, Height Range: 3]"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_FF15_INGI_LOWER",
+            "name": "Basic Advisor",
+            "expr": "Advisor techniques for use with all job types",
+            "skills": [
+                {
+                    "name": "Regenerate",
+                    "expr": "Recovers HP of target ally unit [Range: 2, Height Range: 3]"
+                },
+                {
+                    "name": "Sweep",
+                    "expr": "Inflicts Phys Dmg on units within target area [Range: 1, Area: Lateral (3), Height Range: 2]"
+                },
+                {
+                    "name": "Lancet",
+                    "expr": "Absorbs HP from enemy units within target area [Range: 2, Area: Special (Fan), Height Range: 2]"
+                },
+                {
+                    "name": "Spear Throw",
+                    "expr": "Inflicts Phys Dmg (Penetrating) on target unit [Range: 4, Height Range: 2]"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "First Aid",
+                    "expr": "Chance of recovering HP when Dmg is received"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Savior's Vengeance",
+                    "expr": "Raises CRIT Rate of self and adjacent allies when one or more ally units are in adjacent squares"
+                },
+                {
+                    "name": "Enhanced Venom Fang",
+                    "expr": "Venom Fang (more powerful & increased Poison effect)"
+                }
+            ]
+        },
+        "weapon": "Twin Swords",
+        "modifiers": {
+            "HP": 28,
+            "Max Jewels": 5,
+            "Initial Jewels": 25,
+            "PATK": 3,
+            "PDEF": 3,
+            "MATK": 0,
+            "MDEF": 3,
+            "DEX": -5,
+            "AGI": 25,
+            "LUCK": 5,
+            "CRIT": 50,
+            "AVOID": 0
+        },
+        "job master buff": [
+            {
+                "type": "HP",
+                "value": 19,
+                "calc": "Scale"
+            },
+            {
+                "type": "PATK",
+                "value": 3,
+                "calc": "Scale"
+            },
+            {
+                "type": "AGI",
+                "value": 4,
+                "calc": "Scale"
+            },
+            {
+                "type": "CRIT",
+                "value": 4,
+                "calc": "Scale"
+            }
+        ],
+        "stats": {
+            "Move": 4,
+            "Jump": 2,
+            "PATK": 309,
+            "PDEF": 118,
+            "DEX": 267,
+            "AGI": 25,
+            "LUCK": 69,
+            "CRIT": 109,
+            "MATK": 143,
+            "MDEF": 40,
+            "HP": 224,
+            "Jewels Obtained": 32,
+            "Fire Res": 7,
+            "Water Res": 5,
+            "Thunder Res": 3,
+            "Wind Res": 5,
+            "Max Jewels": 28,
+            "Charm Res": 38,
+            "Sleep Res": 43,
+            "Slow Res": 28,
+            "Stun Res": 15,
+            "Paralyze Res": 15,
+            "Petrify Res": 15,
+            "Poison Res": 20
+        },
+        "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/ff15ignis#prince's-advisor",
+        "inputs": [
+            "Ignis FF",
+            "Ignis FF Prince's Advisor",
+            "Prince's Advisor",
+            "Ignis FF",
+            "Ignis FF Prince's Aide",
+            "Prince's Aide"
+        ]
+    },
+    "JB_FF15_PROM": {
+        "iname": "JB_FF15_PROM",
+        "name": "Prince's Best Friend",
+        "japan": "Prince's Best Friend\n王子の親友",
+        "kanji": "王子の親友",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/ff15_prom.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_FF15_PROM.png",
+        "origin": "Prince's Best Friend",
+        "units": [
+            "Promputo FF"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_FF15_PROM_UPPER",
+            "name": "Camaraderie",
+            "expr": "Camaraderie techniques for use with this job type only",
+            "skills": [
+                {
+                    "name": "Piercer",
+                    "expr": "Inflicts Phys Dmg on target unit & lowers target's PDEF [Range: 4, Height Range: Unlimited]"
+                },
+                {
+                    "name": "Ballistic",
+                    "expr": "Inflicts Phys Dmg & Stun on units in area around self with chance of critical [Area: Square (3) around self, Height Range: 2]"
+                },
+                {
+                    "name": "Deathblow",
+                    "expr": "Inflicts Phys Dmg on units within target area [Range: 3, Area: Special (Fan), Height Range: 2]"
+                },
+                {
+                    "name": "First Shot",
+                    "expr": "Inflicts Phys Dmg on target unit & raises own AGI until next turn"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_FF15_PROM_LOWER",
+            "name": "Basic Camaraderie",
+            "expr": "Camaraderie techniques for use with all job types",
+            "skills": [
+                {
+                    "name": "Snapshot",
+                    "expr": "Transfers Jewels used by self to target ally unit [Range: 3, Height Range: 3]"
+                },
+                {
+                    "name": "Shock Drop",
+                    "expr": "Inflicts Phys Dmg on units in area around self with chance of inflicting Paralyze [Area: Cross (3), Height Range: 2]"
+                },
+                {
+                    "name": "Starshell",
+                    "expr": "Inflicts Phys Dmg on units within target area with chance of inflicting Confuse [Range: 4, Area: Cross (3), Height Range: Unlimited]"
+                },
+                {
+                    "name": "Gravisphere",
+                    "expr": "Inflicts Phys Dmg (Penetrating) on units within target area with chance of inflicting Bind [Range: 4, Area: Cross (3), Height Range: Unlimited]"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Scintilla",
+                    "expr": "Chance of performing physical counter & inflicting Daze when Dmg is received [Range: 4, Height Range: Unlimited]"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Journey Scribe",
+                    "expr": "Raises DEX/CRIT"
+                },
+                {
+                    "name": "Comeback",
+                    "expr": "Raises Max HP"
+                }
+            ]
+        },
+        "weapon": "Gun",
+        "modifiers": {
+            "HP": 0,
+            "Max Jewels": 0,
+            "Initial Jewels": 25,
+            "PATK": 4,
+            "PDEF": -10,
+            "MATK": 0,
+            "MDEF": -7,
+            "DEX": 8,
+            "AGI": 23,
+            "LUCK": 0,
+            "CRIT": 14,
+            "AVOID": 0
+        },
+        "job master buff": [
+            {
+                "type": "HP",
+                "value": 8,
+                "calc": "Scale"
+            },
+            {
+                "type": "PATK",
+                "value": 3,
+                "calc": "Scale"
+            },
+            {
+                "type": "DEX",
+                "value": 3,
+                "calc": "Scale"
+            },
+            {
+                "type": "AGI",
+                "value": 2,
+                "calc": "Scale"
+            },
+            {
+                "type": "CRIT",
+                "value": 4,
+                "calc": "Scale"
+            }
+        ],
+        "stats": {
+            "Move": 3,
+            "Jump": 1,
+            "PATK": 191,
+            "PDEF": 155,
+            "LUCK": 198,
+            "DEX": 183,
+            "MDEF": 47,
+            "AGI": 33,
+            "CRIT": 115,
+            "HP": 198,
+            "Paralyze Res": 58,
+            "Jewels Obtained": 24,
+            "MATK": 42,
+            "Fire Res": 6,
+            "Water Res": 4,
+            "Thunder Res": 11,
+            "Wind Res": 3,
+            "Daze Res": 28,
+            "Bind Res": 28,
+            "Dark Res": 3,
+            "Stun Res": 15,
+            "Sleep Res": 15,
+            "Petrify Res": 15,
+            "Poison Res": 10,
+            "Charm Res": 10
+        },
+        "formula": "65% (PATK + DEX)",
+        "link": "http://www.alchemistcodedb.com/unit/ff15promputo#prince's-best-friend",
+        "inputs": [
+            "Promputo FF",
+            "Promputo FF Prince's Best Friend",
+            "Prince's Best Friend"
+        ]
+    },
+    "JB_FF15_GLAD": {
+        "iname": "JB_FF15_GLAD",
+        "name": "Prince's Protector",
+        "japan": "Prince's Escort\n王子の護衛",
+        "kanji": "王子の護衛",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/ff15_glad.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ARM.png",
+        "origin": "Prince's Protector",
+        "units": [
+            "Gladiolus FF"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_FF15_GLAD_UPPER",
+            "name": "Protector",
+            "expr": "Protector techniques for use with this job type only",
+            "skills": [
+                {
+                    "name": "Deathblow",
+                    "expr": "Inflicts Phys Dmg on units within target area [Range: 1, Area: Lateral (3), Height Range: 2]"
+                },
+                {
+                    "name": "Cyclone",
+                    "expr": "Inflicts Phys Dmg & Stun on target unit & lowers CT [Range: 1, Height Range: 2]"
+                },
+                {
+                    "name": "Tempest",
+                    "expr": "Inflicts Phys Dmg on units in area around self & lowers PATK/MATK with chance of critical [Area: Diamond (5), Height Range: 2]"
+                },
+                {
+                    "name": "Dawnhammer",
+                    "expr": "Inflicts Phys Dmg on target unit with chance of critical [Range: 1, Height Range: 2]"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_FF15_GLAD_LOWER",
+            "name": "Basic Protector",
+            "expr": "Protector techniques for use with all job types",
+            "skills": [
+                {
+                    "name": "Royal Guard",
+                    "expr": "Raises PDEF/MDEF of ally units in area around self [Area: Diamond (5), Height Range: 2]"
+                },
+                {
+                    "name": "Engage",
+                    "expr": "After moving, inflicts Dmg on target enemy unit [Range: Diamond (9), Height Range: 1]"
+                },
+                {
+                    "name": "Antagonize",
+                    "expr": "Inflicts Phys Dmg on target unit & ignores DEF [Range: 1, Height Range: 2]"
+                },
+                {
+                    "name": "Reflex",
+                    "expr": "Inflicts Phys Dmg on units in area around self & raises own Evasion Rate [Area: Square (3) around self, Height Range: 2]"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Guard",
+                    "expr": "Performs physical attack when Dmg is received with chance of reducing Dmg"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Royal Shield",
+                    "expr": "Raises Max HP"
+                },
+                {
+                    "name": "Savior's Fortitude",
+                    "expr": "Raises PDEF of self and adjacent allies when one or more ally units are in adjacent squares"
+                }
+            ]
+        },
+        "weapon": "Greatsword/Scythe",
+        "modifiers": {
+            "HP": 20,
+            "Max Jewels": 0,
+            "Initial Jewels": 25,
+            "PATK": 45,
+            "PDEF": 10,
+            "MATK": -10,
+            "MDEF": 10,
+            "DEX": -6,
+            "AGI": 9,
+            "LUCK": 0,
+            "CRIT": 6,
+            "AVOID": 0
+        },
+        "job master buff": [
+            {
+                "type": "HP",
+                "value": 14,
+                "calc": "Scale"
+            },
+            {
+                "type": "PATK",
+                "value": 3,
+                "calc": "Scale"
+            },
+            {
+                "type": "PDEF",
+                "value": 6,
+                "calc": "Scale"
+            },
+            {
+                "type": "CRIT",
+                "value": 1,
+                "calc": "Scale"
+            }
+        ],
+        "stats": {
+            "Move": 3,
+            "Jump": 2,
+            "PATK": 297,
+            "PDEF": 213,
+            "DEX": 147,
+            "AGI": 13,
+            "CRIT": 88,
+            "HP": 336,
+            "MATK": 57,
+            "MDEF": 135,
+            "Jewels Obtained": 32,
+            "LUCK": 45,
+            "Fire Res": 6,
+            "Water Res": 12,
+            "Thunder Res": 3,
+            "Wind Res": 5,
+            "Charm Res": 38,
+            "Sleep Res": 43,
+            "Slow Res": 28,
+            "Stun Res": 15,
+            "Paralyze Res": 15,
+            "Petrify Res": 15,
+            "Light Res": 1,
+            "Poison Res": 10
+        },
+        "formula": "150% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/ff15gladiolus#prince's-protector",
+        "inputs": [
+            "Gladiolus FF",
+            "Gladiolus FF Prince's Protector",
+            "Prince's Protector",
+            "Gladiolus FF",
+            "Gladiolus FF Prince's Escort",
+            "Prince's Escort"
+        ]
+    },
+    "JB_FF15_ARAN": {
+        "iname": "JB_FF15_ARAN",
+        "name": "Imperial Commodore",
+        "japan": "Brigadier General\n帝国准将",
+        "kanji": "帝国准将",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/ff15_aran.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ARM.png",
+        "origin": "Imperial Commodore",
+        "units": [
+            "Aranea FF"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_FF15_ARAN_UPPER",
+            "name": "Imperial Commodore",
+            "expr": "Imperial Commodore techniques for use with this job type only",
+            "skills": [
+                {
+                    "name": "Dive Attack I",
+                    "expr": "JUMP status & upon landing inflicts Pierce Dmg on target [Range: 4, Height Range: 2]"
+                },
+                {
+                    "name": "Dive Attack II",
+                    "expr": "JUMP status & upon landing inflicts Pierce Dmg on target & raises own PATK [Range: 4, Height Range: 3]"
+                },
+                {
+                    "name": "Dive Attack III",
+                    "expr": "JUMP status & upon landing inflicts Pierce Dmg on target & lowers target's PDEF [Range: 4, Height Range: 3]"
+                },
+                {
+                    "name": "Dive Attack IV",
+                    "expr": "JUMP status & upon landing inflicts Pierce Dmg on target [Range: 4, Height Range: 4]"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_FF15_ARAN_LOWER",
+            "name": "Basic Imperial Commodore",
+            "expr": "Imperial Commodore techniques for use with all job types",
+            "skills": [
+                {
+                    "name": "Reverse Roundhouse-Kick",
+                    "expr": "Inflicts Phys Dmg & Slow on target unit [Range: 1, Height Range: 2]"
+                },
+                {
+                    "name": "Aero-Charge Thrust",
+                    "expr": "After moving, inflicts Phys Dmg on target enemy unit [Range: Diamond (7), Height Range: 3]"
+                },
+                {
+                    "name": "Frontal Thrust",
+                    "expr": "Inflicts Phys Dmg (Penetrating) on target unit [Range: 3, Height Range: 2]"
+                },
+                {
+                    "name": "High Roundhouse-Kick",
+                    "expr": "Inflicts Phys Dmg & Bind & Daze on target unit [Range: 1, Height Range: 3]"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Counter Stab",
+                    "expr": "Performs physical counter (Penetrating) when Dmg is received [Range: 2, Height Range: 3]"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Inertia Controller",
+                    "expr": "MOVE +1 and JUMP +1"
+                },
+                {
+                    "name": "Power of the Airborne Division",
+                    "expr": "Raises power & reduces jump time for the ability \"Imperial Commodore\""
+                }
+            ]
+        },
+        "weapon": "Spear",
+        "modifiers": {
+            "HP": 52,
+            "Max Jewels": 10,
+            "Initial Jewels": 34,
+            "PATK": 8,
+            "PDEF": 15,
+            "MATK": -40,
+            "MDEF": 40,
+            "DEX": 10,
+            "AGI": 40,
+            "LUCK": 0,
+            "CRIT": 10,
+            "AVOID": 0
+        },
+        "job master buff": [
+            {
+                "type": "HP",
+                "value": 14,
+                "calc": "Scale"
+            },
+            {
+                "type": "PATK",
+                "value": 6,
+                "calc": "Scale"
+            },
+            {
+                "type": "PDEF",
+                "value": 2,
+                "calc": "Scale"
+            },
+            {
+                "type": "CRIT",
+                "value": 2,
+                "calc": "Scale"
+            }
+        ],
+        "stats": {
+            "Move": 4,
+            "Jump": 5,
+            "PATK": 304,
+            "PDEF": 198,
+            "DEX": 147,
+            "AGI": 15,
+            "LUCK": 78,
+            "CRIT": 184,
+            "MATK": 54,
+            "MDEF": 120,
+            "HP": 248,
+            "Jewels Obtained": 36,
+            "Fire Res": 6,
+            "Water Res": 4,
+            "Thunder Res": 4,
+            "Wind Res": 5,
+            "Charm Res": 38,
+            "Sleep Res": 43,
+            "Slow Res": 28,
+            "Stun Res": 15,
+            "Paralyze Res": 25,
+            "Petrify Res": 15,
+            "Light Res": 1,
+            "Poison Res": 10
+        },
+        "formula": "140% PATK",
+        "link": "http://www.alchemistcodedb.com/unit/ff15aranea#imperial-commodore",
+        "inputs": [
+            "Aranea FF",
+            "Aranea FF Imperial Commodore",
+            "Imperial Commodore",
+            "Aranea FF",
+            "Aranea FF Brigadier General",
+            "Brigadier General"
         ]
     },
     "JB_FEN": {
@@ -21372,810 +22176,6 @@
         "link": "http://www.alchemistcodedb.com/jp/unit/ren#隠密",
         "inputs": [
             "Spy"
-        ]
-    },
-    "JB_FF15_NOCT": {
-        "iname": "JB_FF15_NOCT",
-        "name": "Lucian's Heir",
-        "japan": "Lucis Prince\nルシスの王子",
-        "kanji": "ルシスの王子",
-        "short description": "",
-        "long description": "",
-        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/ff15_noct.png",
-        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ARM.png",
-        "origin": "Lucian's Heir",
-        "units": [
-            "Noctis FF"
-        ],
-        "jobe": [],
-        "main": {
-            "iname": "AB_FF15_NOCT_UPPER",
-            "name": "王子技",
-            "expr": "ジョブ固有の王子技",
-            "skills": [
-                {
-                    "name": "なぎ払い",
-                    "expr": "指定範囲内の対象に物理ダメージ[射程:1,範囲:横3マス,高低差:2]"
-                },
-                {
-                    "name": "シフトブレイク",
-                    "expr": "範囲内の指定した敵に、移動後物理ダメージ&次ターンまで素早さ大幅UP[射程:菱形6マス,高低差:2]"
-                },
-                {
-                    "name": "マップシフト",
-                    "expr": "指定パネル移動後、自身を中心にHP回復[移動範囲:菱形3マス,高低差:無制限]"
-                },
-                {
-                    "name": "3連ブリザガ",
-                    "expr": "指定範囲内の対象に水属性の3連続魔法ダメージ[射程:4,範囲:菱形2マス,高低差:2]"
-                }
-            ]
-        },
-        "sub": {
-            "iname": "AB_FF15_NOCT_LOWER",
-            "name": "基本王子技",
-            "expr": "ジョブ汎用の王子技",
-            "skills": [
-                {
-                    "name": "盾殴り",
-                    "expr": "指定した対象に物理ダメージ&自身の物攻UP[射程:1,高低差:1]"
-                },
-                {
-                    "name": "射撃",
-                    "expr": "指定した対象に物理ダメージ&ドンアク効果[射程:4,高低差:無制限]"
-                },
-                {
-                    "name": "ポイズンサンダラ",
-                    "expr": "指定範囲内の対象に雷属性の魔法ダメージ&毒効果[射程:4,範囲:十字1マス,高低差:2]"
-                },
-                {
-                    "name": "ストップファイラ",
-                    "expr": "指定した対象に火属性の魔法ダメージ&ストップ効果[射程:4,高低差:2]"
-                }
-            ]
-        },
-        "reactives": {
-            "iname": "",
-            "name": "Reactives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "パリィ",
-                    "expr": "被ダメージ時に物理カウンター[射程:1,高低差:2]"
-                }
-            ]
-        },
-        "passives": {
-            "iname": "",
-            "name": "Passives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "王家の力",
-                    "expr": "全ての攻撃にダメージ補正"
-                },
-                {
-                    "name": "マイティリカバー",
-                    "expr": "隣接する味方が居る場合、自身&隣接する味方の物攻&魔攻UP"
-                }
-            ]
-        },
-        "weapon": "Sword",
-        "modifiers": {
-            "HP": 0,
-            "Max Jewels": 23,
-            "Initial Jewels": 100,
-            "PATK": 15,
-            "PDEF": 30,
-            "MATK": 140,
-            "MDEF": 60,
-            "DEX": 10,
-            "AGI": 20,
-            "LUCK": 0,
-            "CRIT": 0,
-            "AVOID": 0
-        },
-        "job master buff": [
-            {
-                "type": "HP",
-                "value": 11,
-                "calc": "Scale"
-            },
-            {
-                "type": "MATK",
-                "value": 6,
-                "calc": "Scale"
-            },
-            {
-                "type": "MDEF",
-                "value": 3,
-                "calc": "Scale"
-            },
-            {
-                "type": "AGI",
-                "value": 4,
-                "calc": "Scale"
-            }
-        ],
-        "stats": {
-            "Move": 3,
-            "Jump": 2,
-            "MATK": 147,
-            "PDEF": 152,
-            "DEX": 153,
-            "AGI": 34,
-            "CRIT": 88,
-            "HP": 231,
-            "PATK": 214,
-            "MDEF": 89,
-            "LUCK": 75,
-            "Jewels Obtained": 47,
-            "Fire Res": 7,
-            "Water Res": 4,
-            "Thunder Res": 3,
-            "Wind Res": 5,
-            "Petrify Res": 43,
-            "Stop Res": 28,
-            "Silence Res": 28,
-            "Stun Res": 15,
-            "Paralyze Res": 15,
-            "Sleep Res": 15,
-            "Light Res": 1,
-            "Poison Res": 10,
-            "Charm Res": 10
-        },
-        "formula": "140% PATK",
-        "link": "http://www.alchemistcodedb.com/jp/unit/ff15-noctis#ルシスの王子",
-        "inputs": [
-            "Noctis FF",
-            "Noctis FF Lucian's Heir",
-            "Lucian's Heir",
-            "Noctis FF",
-            "Noctis FF Lucis Prince",
-            "Lucis Prince"
-        ]
-    },
-    "JB_FF15_INGI": {
-        "iname": "JB_FF15_INGI",
-        "name": "Prince's Hand",
-        "japan": "Prince's Aide\n王子の側付き",
-        "kanji": "王子の側付き",
-        "short description": "",
-        "long description": "",
-        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/ff15_ingi.png",
-        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ARM.png",
-        "origin": "Prince's Hand",
-        "units": [
-            "Ignis FF"
-        ],
-        "jobe": [],
-        "main": {
-            "iname": "AB_FF15_INGI_UPPER",
-            "name": "側付き技",
-            "expr": "ジョブ固有の側付き技",
-            "skills": [
-                {
-                    "name": "ギャザリング",
-                    "expr": "自身を中心にHP自動回復効果[範囲:十字1マス,高低差:2]"
-                },
-                {
-                    "name": "シンクラッシュ",
-                    "expr": "指定した対象に2連撃の物理ダメージ&毒効果&確率でクリティカル発生[射程:1,高低差:2]"
-                },
-                {
-                    "name": "フェイタルアタック",
-                    "expr": "指定範囲の対象に2連撃の物理ダメージ&確率でクリティカル発生[射程:3,範囲:幅1マスの直線,高低差:2]"
-                },
-                {
-                    "name": "マーク",
-                    "expr": "指定した対象に3連撃の物理ダメージ&次ターンまで自身の素早さUP&確率でクリティカル発生[射程:4,高低差:3]"
-                }
-            ]
-        },
-        "sub": {
-            "iname": "AB_FF15_INGI_LOWER",
-            "name": "基本側付き技",
-            "expr": "ジョブ汎用の側付き技",
-            "skills": [
-                {
-                    "name": "隠しアイテム",
-                    "expr": "指定した味方のHP回復[射程:2,高低差:3]"
-                },
-                {
-                    "name": "なぎ払い",
-                    "expr": "指定範囲内の対象に物理ダメージ[射程:1,範囲:横3マス,高低差:2]"
-                },
-                {
-                    "name": "竜剣",
-                    "expr": "指定範囲内の敵に対して体力吸収[射程:2,範囲:特殊（扇）,高低差:2]"
-                },
-                {
-                    "name": "槍投げ",
-                    "expr": "指定した対象に物理ダメージ&貫通効果[射程:4,高低差:2]"
-                }
-            ]
-        },
-        "reactives": {
-            "iname": "",
-            "name": "Reactives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "応急処置",
-                    "expr": "被ダメージ時に確率でHP回復"
-                }
-            ]
-        },
-        "passives": {
-            "iname": "",
-            "name": "Passives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "リベンジリカバー",
-                    "expr": "隣接する味方が居る場合、自身&隣接する味方のクリティカル率UP"
-                },
-                {
-                    "name": "シンクラッシュ強化",
-                    "expr": "『シンクラッシュ』の威力向上&毒効果UP"
-                }
-            ]
-        },
-        "weapon": "Twin Swords",
-        "modifiers": {
-            "HP": 25,
-            "Max Jewels": 0,
-            "Initial Jewels": 25,
-            "PATK": 3,
-            "PDEF": 3,
-            "MATK": 0,
-            "MDEF": 3,
-            "DEX": -5,
-            "AGI": 25,
-            "LUCK": 5,
-            "CRIT": 50,
-            "AVOID": 0
-        },
-        "job master buff": [
-            {
-                "type": "HP",
-                "value": 11,
-                "calc": "Scale"
-            },
-            {
-                "type": "PATK",
-                "value": 3,
-                "calc": "Scale"
-            },
-            {
-                "type": "AGI",
-                "value": 4,
-                "calc": "Scale"
-            },
-            {
-                "type": "CRIT",
-                "value": 4,
-                "calc": "Scale"
-            }
-        ],
-        "stats": {
-            "Move": 4,
-            "Jump": 2,
-            "PATK": 288,
-            "PDEF": 118,
-            "DEX": 253,
-            "AGI": 25,
-            "LUCK": 69,
-            "CRIT": 109,
-            "MATK": 108,
-            "MDEF": 40,
-            "HP": 224,
-            "Jewels Obtained": 32,
-            "Fire Res": 7,
-            "Water Res": 5,
-            "Thunder Res": 3,
-            "Wind Res": 5,
-            "Max Jewels": 28,
-            "Charm Res": 38,
-            "Sleep Res": 43,
-            "Slow Res": 28,
-            "Stun Res": 15,
-            "Paralyze Res": 15,
-            "Petrify Res": 15,
-            "Poison Res": 20
-        },
-        "formula": "150% PATK",
-        "link": "http://www.alchemistcodedb.com/jp/unit/ff15-ignis#王子の側付き",
-        "inputs": [
-            "Ignis FF",
-            "Ignis FF Prince's Hand",
-            "Prince's Hand",
-            "Ignis FF",
-            "Ignis FF Prince's Aide",
-            "Prince's Aide"
-        ]
-    },
-    "JB_FF15_GLAD": {
-        "iname": "JB_FF15_GLAD",
-        "name": "Prince's Shield",
-        "japan": "Prince's Escort\n王子の護衛",
-        "kanji": "王子の護衛",
-        "short description": "",
-        "long description": "",
-        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/ff15_glad.png",
-        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ARM.png",
-        "origin": "Prince's Shield",
-        "units": [
-            "Gladiolus FF"
-        ],
-        "jobe": [],
-        "main": {
-            "iname": "AB_FF15_GLAD_UPPER",
-            "name": "護衛技",
-            "expr": "ジョブ固有の護衛技",
-            "skills": [
-                {
-                    "name": "フェイタルアタック",
-                    "expr": "指定範囲内の対象に物理ダメージ[射程:1,範囲:横3マス,高低差:2]"
-                },
-                {
-                    "name": "サイクロン",
-                    "expr": "指定した対象に物理ダメージ&スタン効果&CT減少[射程:1,高低差:2]"
-                },
-                {
-                    "name": "テンペスト",
-                    "expr": "自身を中心に物理ダメージ&物攻・魔攻DOWN&確率でクリティカル発生[範囲:菱形2マス,高低差:2]"
-                },
-                {
-                    "name": "ドーンブレイカー",
-                    "expr": "指定した対象に物理ダメージ&確率でクリティカル発生[射程:1,高低差:2]"
-                }
-            ]
-        },
-        "sub": {
-            "iname": "AB_FF15_GLAD_LOWER",
-            "name": "基本護衛技",
-            "expr": "ジョブ汎用の護衛技",
-            "skills": [
-                {
-                    "name": "ロイヤルガード",
-                    "expr": "自身を中心とした味方に物防・魔防UP[範囲:菱形2マス,高低差:2]"
-                },
-                {
-                    "name": "ファストブレイク",
-                    "expr": "範囲内の指定した敵に、移動後ダメージ[射程:菱形4マス,高低差:1]"
-                },
-                {
-                    "name": "シンクガード",
-                    "expr": "指定した対象に物理ダメージ&防御無視[射程:1,高低差:2]"
-                },
-                {
-                    "name": "見切る",
-                    "expr": "自身を中心に物理ダメージ&自身の回避率UP[範囲:自身の周囲1マス,高低差:2]"
-                }
-            ]
-        },
-        "reactives": {
-            "iname": "",
-            "name": "Reactives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "ガード",
-                    "expr": "物理攻撃の被ダメージ時に確率でダメージ軽減"
-                }
-            ]
-        },
-        "passives": {
-            "iname": "",
-            "name": "Passives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "王の盾",
-                    "expr": "HP上限UP"
-                },
-                {
-                    "name": "プロテスリカバー",
-                    "expr": "隣接する味方が居る場合、自身&隣接する味方の物防UP"
-                }
-            ]
-        },
-        "weapon": "Greatsword/Scythe",
-        "modifiers": {
-            "HP": 20,
-            "Max Jewels": 0,
-            "Initial Jewels": 25,
-            "PATK": 45,
-            "PDEF": 10,
-            "MATK": -10,
-            "MDEF": 10,
-            "DEX": -6,
-            "AGI": 9,
-            "LUCK": 0,
-            "CRIT": 6,
-            "AVOID": 0
-        },
-        "job master buff": [
-            {
-                "type": "HP",
-                "value": 14,
-                "calc": "Scale"
-            },
-            {
-                "type": "PATK",
-                "value": 3,
-                "calc": "Scale"
-            },
-            {
-                "type": "PDEF",
-                "value": 6,
-                "calc": "Scale"
-            },
-            {
-                "type": "CRIT",
-                "value": 1,
-                "calc": "Scale"
-            }
-        ],
-        "stats": {
-            "Move": 3,
-            "Jump": 2,
-            "PATK": 297,
-            "PDEF": 213,
-            "DEX": 147,
-            "AGI": 13,
-            "CRIT": 88,
-            "HP": 336,
-            "MATK": 57,
-            "MDEF": 135,
-            "Jewels Obtained": 32,
-            "LUCK": 45,
-            "Fire Res": 6,
-            "Water Res": 12,
-            "Thunder Res": 3,
-            "Wind Res": 5,
-            "Charm Res": 38,
-            "Sleep Res": 43,
-            "Slow Res": 28,
-            "Stun Res": 15,
-            "Paralyze Res": 15,
-            "Petrify Res": 15,
-            "Light Res": 1,
-            "Poison Res": 10
-        },
-        "formula": "150% PATK",
-        "link": "http://www.alchemistcodedb.com/jp/unit/ff15-gladiolus#王子の護衛",
-        "inputs": [
-            "Gladiolus FF",
-            "Gladiolus FF Prince's Shield",
-            "Prince's Shield",
-            "Gladiolus FF",
-            "Gladiolus FF Prince's Escort",
-            "Prince's Escort"
-        ]
-    },
-    "JB_FF15_PROM": {
-        "iname": "JB_FF15_PROM",
-        "name": "Prince's Best Friend",
-        "japan": "Prince's Best Friend\n王子の親友",
-        "kanji": "王子の親友",
-        "short description": "",
-        "long description": "",
-        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/ff15_prom.png",
-        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_FF15_PROM.png",
-        "origin": "Prince's Best Friend",
-        "units": [
-            "Promputo FF"
-        ],
-        "jobe": [],
-        "main": {
-            "iname": "AB_FF15_PROM_UPPER",
-            "name": "親友技",
-            "expr": "ジョブ固有の親友技",
-            "skills": [
-                {
-                    "name": "ペネトレイト",
-                    "expr": "指定した対象に物理ダメージ&対象の物防DOWN[射程:4,高低差:無制限]"
-                },
-                {
-                    "name": "バレットファン",
-                    "expr": "自身を中心に物理ダメージ&スタン効果&確率でクリティカル発生[範囲:自身の周囲1マス,高低差:2]"
-                },
-                {
-                    "name": "フェイタルアタック",
-                    "expr": "指定範囲内の対象に物理ダメージ[射程:3,範囲:特殊（扇）,高低差:2]"
-                },
-                {
-                    "name": "スターターピストル",
-                    "expr": "指定した対象に物理ダメージ&次ターンまで自身の素早さUP[射程:4,高低差:無制限]"
-                }
-            ]
-        },
-        "sub": {
-            "iname": "AB_FF15_PROM_LOWER",
-            "name": "基本親友技",
-            "expr": "ジョブ汎用の親友技",
-            "skills": [
-                {
-                    "name": "スナップショット",
-                    "expr": "自分が消費したジュエルを指定した味方へ受け渡す[射程:3,高低差:3]"
-                },
-                {
-                    "name": "シンクレイド",
-                    "expr": "自身を中心に物理ダメージ&確率でマヒ効果[範囲:十字1マス,高低差:2]"
-                },
-                {
-                    "name": "スターシェル",
-                    "expr": "指定範囲内の対象に物理ダメージ&確率で狂化効果[射程:4,範囲:十字1マス,高低差:無制限]"
-                },
-                {
-                    "name": "コンダクター",
-                    "expr": "指定範囲内の対象に物理ダメージ&確率で移動禁止効果&貫通効果[射程:4,範囲:十字1マス,高低差:無制限]"
-                }
-            ]
-        },
-        "reactives": {
-            "iname": "",
-            "name": "Reactives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "閃光撃ち",
-                    "expr": "被ダメージ時に確率で物理カウンター&攻撃禁止効果[射程:4,高低差:無制限]"
-                }
-            ]
-        },
-        "passives": {
-            "iname": "",
-            "name": "Passives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "旅の記録者",
-                    "expr": "器用さ&会心UP"
-                },
-                {
-                    "name": "フルリカバー",
-                    "expr": "HP上限UP"
-                }
-            ]
-        },
-        "weapon": "Gun",
-        "modifiers": {
-            "HP": 0,
-            "Max Jewels": 0,
-            "Initial Jewels": 25,
-            "PATK": 4,
-            "PDEF": -10,
-            "MATK": 0,
-            "MDEF": -7,
-            "DEX": 8,
-            "AGI": 23,
-            "LUCK": 0,
-            "CRIT": 14,
-            "AVOID": 0
-        },
-        "job master buff": [
-            {
-                "type": "HP",
-                "value": 8,
-                "calc": "Scale"
-            },
-            {
-                "type": "PATK",
-                "value": 3,
-                "calc": "Scale"
-            },
-            {
-                "type": "DEX",
-                "value": 3,
-                "calc": "Scale"
-            },
-            {
-                "type": "AGI",
-                "value": 2,
-                "calc": "Scale"
-            },
-            {
-                "type": "CRIT",
-                "value": 4,
-                "calc": "Scale"
-            }
-        ],
-        "stats": {
-            "Move": 3,
-            "Jump": 1,
-            "PATK": 191,
-            "PDEF": 155,
-            "LUCK": 198,
-            "DEX": 183,
-            "MDEF": 47,
-            "AGI": 33,
-            "CRIT": 115,
-            "HP": 198,
-            "Paralyze Res": 58,
-            "Jewels Obtained": 24,
-            "MATK": 42,
-            "Fire Res": 6,
-            "Water Res": 4,
-            "Thunder Res": 11,
-            "Wind Res": 3,
-            "Daze Res": 28,
-            "Bind Res": 28,
-            "Dark Res": 3,
-            "Stun Res": 15,
-            "Sleep Res": 15,
-            "Petrify Res": 15,
-            "Poison Res": 10,
-            "Charm Res": 10
-        },
-        "formula": "65% (PATK + DEX)",
-        "link": "http://www.alchemistcodedb.com/jp/unit/ff15-promputo#王子の親友",
-        "inputs": [
-            "Promputo FF",
-            "Promputo FF Prince's Best Friend",
-            "Prince's Best Friend"
-        ]
-    },
-    "JB_FF15_ARAN": {
-        "iname": "JB_FF15_ARAN",
-        "name": "Commodore",
-        "japan": "Brigadier General\n帝国准将",
-        "kanji": "帝国准将",
-        "short description": "",
-        "long description": "",
-        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/ff15_aran.png",
-        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ARM.png",
-        "origin": "Commodore",
-        "units": [
-            "Aranea FF"
-        ],
-        "jobe": [],
-        "main": {
-            "iname": "AB_FF15_ARAN_UPPER",
-            "name": "帝国准将技",
-            "expr": "ジョブ固有の帝国准将技",
-            "skills": [
-                {
-                    "name": "急降下攻撃Ⅰ",
-                    "expr": "ジャンプ効果&着地時に対象に刺突ダメージ[射程:4,高低差:2]"
-                },
-                {
-                    "name": "急降下攻撃Ⅱ",
-                    "expr": "ジャンプ効果&着地時に対象に刺突ダメージ&自身の物攻UP[射程:4,高低差:3]"
-                },
-                {
-                    "name": "急降下攻撃Ⅲ",
-                    "expr": "ジャンプ効果&着地時に対象に刺突ダメージ&対象の物防DOWN[射程:4,高低差:3]"
-                },
-                {
-                    "name": "急降下攻撃Ⅳ",
-                    "expr": "ジャンプ効果&着地時に対象に刺突ダメージ[射程:4,高低差:4]"
-                }
-            ]
-        },
-        "sub": {
-            "iname": "AB_FF15_ARAN_LOWER",
-            "name": "基本帝国准将技",
-            "expr": "ジョブ汎用の帝国准将技",
-            "skills": [
-                {
-                    "name": "背面回し蹴り",
-                    "expr": "指定した対象に物理ダメージ&対象に鈍足効果[射程:1,高低差:2]"
-                },
-                {
-                    "name": "飛行突進突き",
-                    "expr": "範囲内の指定した敵に、移動後物理ダメージ[射程:菱形3マス,高低差:3]"
-                },
-                {
-                    "name": "正面突き",
-                    "expr": "指定した対象に物理ダメージ&貫通効果[射程:3,高低差:2]"
-                },
-                {
-                    "name": "上段回し蹴り",
-                    "expr": "指定した対象に物理ダメージ&対象に移動禁止&攻撃禁止[射程:1,高低差:3]"
-                }
-            ]
-        },
-        "reactives": {
-            "iname": "",
-            "name": "Reactives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "カウンター突き",
-                    "expr": "被ダメージ時に物理カウンター&貫通効果[射程:2,高低差:3]"
-                }
-            ]
-        },
-        "passives": {
-            "iname": "",
-            "name": "Passives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "慣性制御装置",
-                    "expr": "移動力+1、移動高低差+1"
-                },
-                {
-                    "name": "空中機動師団の力",
-                    "expr": "アビリティ『帝国准将技』の強化&ジャンプ時間短縮"
-                }
-            ]
-        },
-        "weapon": "Spear",
-        "modifiers": {
-            "HP": 52,
-            "Max Jewels": 10,
-            "Initial Jewels": 34,
-            "PATK": 8,
-            "PDEF": 15,
-            "MATK": -40,
-            "MDEF": 40,
-            "DEX": 10,
-            "AGI": 40,
-            "LUCK": 0,
-            "CRIT": 10,
-            "AVOID": 0
-        },
-        "job master buff": [
-            {
-                "type": "HP",
-                "value": 14,
-                "calc": "Scale"
-            },
-            {
-                "type": "PATK",
-                "value": 6,
-                "calc": "Scale"
-            },
-            {
-                "type": "PDEF",
-                "value": 2,
-                "calc": "Scale"
-            },
-            {
-                "type": "CRIT",
-                "value": 2,
-                "calc": "Scale"
-            }
-        ],
-        "stats": {
-            "Move": 4,
-            "Jump": 5,
-            "PATK": 304,
-            "PDEF": 198,
-            "DEX": 147,
-            "AGI": 15,
-            "LUCK": 78,
-            "CRIT": 184,
-            "MATK": 54,
-            "MDEF": 120,
-            "HP": 248,
-            "Jewels Obtained": 36,
-            "Fire Res": 6,
-            "Water Res": 4,
-            "Thunder Res": 4,
-            "Wind Res": 5,
-            "Charm Res": 38,
-            "Sleep Res": 43,
-            "Slow Res": 28,
-            "Stun Res": 15,
-            "Paralyze Res": 25,
-            "Petrify Res": 15,
-            "Light Res": 1,
-            "Poison Res": 10
-        },
-        "formula": "140% PATK",
-        "link": "http://www.alchemistcodedb.com/jp/unit/ff15-aranea#帝国准将",
-        "inputs": [
-            "Aranea FF",
-            "Aranea FF Commodore",
-            "Commodore",
-            "Aranea FF",
-            "Aranea FF Brigadier General",
-            "Brigadier General"
         ]
     },
     "JB_WEA": {
@@ -27420,7 +27420,7 @@
                 },
                 {
                     "name": "Luminous Chant",
-                    "expr": "Inflicts Light Mag Dmg (Low) on units within target area & greatly reduces charge time for next turn [Range: 4, Area: Cross (5), Height Range: 2]"
+                    "expr": "Inflicts Light Mag Dmg (Low) on units within target area & greatly reduces cast time for next turn [Range: 4, Area: Cross (5), Height Range: 2]"
                 },
                 {
                     "name": "Intersecting Thunder",
@@ -27469,7 +27469,7 @@
             "skills": [
                 {
                     "name": "Shell Charge",
-                    "expr": "Raises PDEF & reduces charge time by 1/5"
+                    "expr": "Raises PDEF & reduces cast time by 1/5"
                 },
                 {
                     "name": "Sorcery Pair",
@@ -36774,7 +36774,7 @@
                 },
                 {
                     "name": "Hexagram",
-                    "expr": "Reduces own charge time by 1/2 for three turns & reduces charge time of ally units within target area by 1/4 [Area: Diamond (5), Height Range: 2]"
+                    "expr": "Reduces own cast time by 1/2 for three turns & reduces cast time of ally units within target area by 1/4 [Area: Diamond (5), Height Range: 2]"
                 }
             ]
         },
@@ -37487,7 +37487,7 @@
                 },
                 {
                     "name": "Luminous Chant",
-                    "expr": "Inflicts Light Mag Dmg (Low) on units within target area & greatly reduces charge time for next turn [Range: 4, Area: Cross (5), Height Range: 2]"
+                    "expr": "Inflicts Light Mag Dmg (Low) on units within target area & greatly reduces cast time for next turn [Range: 4, Area: Cross (5), Height Range: 2]"
                 },
                 {
                     "name": "交叉噴炎",
@@ -37540,7 +37540,7 @@
             "skills": [
                 {
                     "name": "Shell Charge",
-                    "expr": "Raises PDEF & reduces charge time by 1/5"
+                    "expr": "Raises PDEF & reduces cast time by 1/5"
                 },
                 {
                     "name": "Sorcery Pair",
@@ -48766,7 +48766,7 @@
                 },
                 {
                     "name": "Swift Charge",
-                    "expr": "Reduces charge time by 1/3"
+                    "expr": "Reduces cast time by 1/3"
                 }
             ]
         },
@@ -48966,7 +48966,7 @@
                 },
                 {
                     "name": "Swift Charge",
-                    "expr": "Reduces charge time by 1/3"
+                    "expr": "Reduces cast time by 1/3"
                 }
             ]
         },
@@ -49164,7 +49164,7 @@
                 },
                 {
                     "name": "Swift Charge",
-                    "expr": "Reduces charge time by 1/3"
+                    "expr": "Reduces cast time by 1/3"
                 }
             ]
         },
@@ -49363,7 +49363,7 @@
                 },
                 {
                     "name": "Swift Charge",
-                    "expr": "Reduces charge time by 1/3"
+                    "expr": "Reduces cast time by 1/3"
                 }
             ]
         },

@@ -1802,6 +1802,61 @@ UN_V2_JUSTIN_FAVORITE	Good coffee, mirrors
 UN_V2_JUSTIN_HOBBY	Fashion
 UN_V2_JUSTIN_ILLUST	さいのすけ
 UN_V2_JUSTIN_CV	石井康嗣
+UN_V2_FF15_NOCTIS_PROFILE	Noctis is heir to the throne of Lucis. He set off from the royal capital together with his companions in order to wed Lunafreya. He's a shy and introverted young man, but possesses inner strength and kindness. When it comes to fishing, one of his hobbies, he also shows a very enthusiastic side.
+UN_V2_FF15_NOCTIS_COUNTRY	The Kingdom of Lucis
+UN_V2_FF15_NOCTIS_HEIGHT	176cm
+UN_V2_FF15_NOCTIS_WEIGHT	─kg
+UN_V2_FF15_NOCTIS_BIRTH	Aug 30
+UN_V2_FF15_NOCTIS_ZODIAC	─
+UN_V2_FF15_NOCTIS_BLOOD	Type -
+UN_V2_FF15_NOCTIS_FAVORITE	─
+UN_V2_FF15_NOCTIS_HOBBY	Getting high scores in video games
+UN_V2_FF15_NOCTIS_ILLUST	─
+UN_V2_FF15_NOCTIS_CV	─
+UN_V2_FF15_IGNIS_PROFILE	Ignis was raised alongside Prince Noctis in order to one day serve as advisor to the future king. He uses the knowledge acquired through his intensive education to aid the prince on his journey. An earnest and diligent young man, he enjoys cooking and never stops continuing to hone his skills--partly in order to find ways to feed Noctis vegetables, which the prince dislikes.
+UN_V2_FF15_IGNIS_COUNTRY	The Kingdom of Lucis
+UN_V2_FF15_IGNIS_HEIGHT	183cm
+UN_V2_FF15_IGNIS_WEIGHT	─kg
+UN_V2_FF15_IGNIS_BIRTH	Feb 7
+UN_V2_FF15_IGNIS_ZODIAC	─
+UN_V2_FF15_IGNIS_BLOOD	Type -
+UN_V2_FF15_IGNIS_FAVORITE	─
+UN_V2_FF15_IGNIS_HOBBY	Studying recipes
+UN_V2_FF15_IGNIS_ILLUST	─
+UN_V2_FF15_IGNIS_CV	─
+UN_V2_FF15_GLADIOLUS_PROFILE	Gladiolus is a spirited young man who serves as the "Shield of the King." It is his duty to protect the royal family of Lucis. Not only is he a bodyguard to Noctis, he is also his friend--he taught him to use a sword when he was a boy, and is like a big brother to him. Although his large build and rough manner make some people nervous around him, he's a sincere and very trustworthy man.
+UN_V2_FF15_GLADIOLUS_COUNTRY	The Kingdom of Lucis
+UN_V2_FF15_GLADIOLUS_HEIGHT	198cm
+UN_V2_FF15_GLADIOLUS_WEIGHT	─kg
+UN_V2_FF15_GLADIOLUS_BIRTH	Apr 2
+UN_V2_FF15_GLADIOLUS_ZODIAC	─
+UN_V2_FF15_GLADIOLUS_BLOOD	Type -
+UN_V2_FF15_GLADIOLUS_FAVORITE	─
+UN_V2_FF15_GLADIOLUS_HOBBY	Camping
+UN_V2_FF15_GLADIOLUS_ILLUST	─
+UN_V2_FF15_GLADIOLUS_CV	─
+UN_V2_FF15_PROMPUTO_PROFILE	Prompto met Noctis in school, and the two became best friends. Although raised in a normal family, he strives to be of assistance to his companions and lighten their heavy burdens. The party's playful mood maker, he always has a camera in hand, ready to capture memories of the journey.
+UN_V2_FF15_PROMPUTO_COUNTRY	The Kingdom of Lucis
+UN_V2_FF15_PROMPUTO_HEIGHT	173cm
+UN_V2_FF15_PROMPUTO_WEIGHT	─kg
+UN_V2_FF15_PROMPUTO_BIRTH	Oct 25
+UN_V2_FF15_PROMPUTO_ZODIAC	─
+UN_V2_FF15_PROMPUTO_BLOOD	Type -
+UN_V2_FF15_PROMPUTO_FAVORITE	─
+UN_V2_FF15_PROMPUTO_HOBBY	Photography
+UN_V2_FF15_PROMPUTO_ILLUST	─
+UN_V2_FF15_PROMPUTO_CV	─
+UN_V2_FF15_ARANEA_PROFILE	Aranea is commodore of the airborne division of the Niflheim Empire's army, and is known as the "Mercenary Captain." She wields a magitek lance, which she uses to perform aerial attacks. A big sister-like character, she has the total loyalty of her subordinates. She's a free-spirited and forward-thinking woman, but also has a cute side, and when treated like a lady is easily embarrassed.
+UN_V2_FF15_ARANEA_COUNTRY	The Empire of Niflheim
+UN_V2_FF15_ARANEA_HEIGHT	Approx. 167cm
+UN_V2_FF15_ARANEA_WEIGHT	─kg
+UN_V2_FF15_ARANEA_BIRTH	─
+UN_V2_FF15_ARANEA_ZODIAC	─
+UN_V2_FF15_ARANEA_BLOOD	Type -
+UN_V2_FF15_ARANEA_FAVORITE	─
+UN_V2_FF15_ARANEA_HOBBY	─
+UN_V2_FF15_ARANEA_ILLUST	─
+UN_V2_FF15_ARANEA_CV	─
 UN_V2_KLIMA_PROFILE	Klima is a young girl who grew up in the remote countryside of Wratharis and has a strong sensitivity to Alchemia that occurs in the natural world. Ever since a young age she has possessed the ability to manipulate the Alchemia in the atmosphere and the weather. Because she grew up in such a quiet and peaceful place, despite her astonishing powers she has a very carefree and easygoing personality.
 UN_V2_KLIMA_COUNTRY	Wratharis
 UN_V2_KLIMA_HEIGHT	151cm
@@ -2297,6 +2352,39 @@ UN_V2_GUILDFORD_FAVORITE
 UN_V2_GUILDFORD_HOBBY	
 UN_V2_GUILDFORD_ILLUST	―
 UN_V2_GUILDFORD_CV	三上哲
+UN_V2_FF15_REGIS_PROFILE	Regis is the current king of Lucis Kingdom, and father to Noctis. Using the power of the Crystal to maintain the magic barrier that protects the royal capital has caused him to age beyond his years. He is a benevolent ruler who puts his people above all else, and in return is trusted deeply by them.
+UN_V2_FF15_REGIS_COUNTRY	The Kingdom of Lucis
+UN_V2_FF15_REGIS_HEIGHT	185cm
+UN_V2_FF15_REGIS_WEIGHT	─kg
+UN_V2_FF15_REGIS_BIRTH	─
+UN_V2_FF15_REGIS_ZODIAC	─
+UN_V2_FF15_REGIS_BLOOD	Type -
+UN_V2_FF15_REGIS_FAVORITE	─
+UN_V2_FF15_REGIS_HOBBY	─
+UN_V2_FF15_REGIS_ILLUST	─
+UN_V2_FF15_REGIS_CV	─
+UN_V2_FF15_COR_PROFILE	Cor is head of the Lucian Crownsguard, and has sworn loyalty to King Regis. Known as "Cor the Immortal," he is regarded as one of the three most powerful warriors in the Kingdom of Lucis. He is a stubborn man, and very strict with Prince Noctis and his companions, but this is because he sees it as his duty to watch over them.
+UN_V2_FF15_COR_COUNTRY	The Kingdom of Lucis
+UN_V2_FF15_COR_HEIGHT	191cm
+UN_V2_FF15_COR_WEIGHT	─kg
+UN_V2_FF15_COR_BIRTH	─
+UN_V2_FF15_COR_ZODIAC	─
+UN_V2_FF15_COR_BLOOD	Type -
+UN_V2_FF15_COR_FAVORITE	─
+UN_V2_FF15_COR_HOBBY	─
+UN_V2_FF15_COR_ILLUST	─
+UN_V2_FF15_COR_CV	─
+UN_V2_FF15_IRIS_PROFILE	Iris is the younger sister of Gladiolus, and a good friend of Prince Noctis and the others. She's a strong girl who always remains positive. In battle she plays a support role, though she does have some skill in hand-to-hand combat. Noctis saved her from danger when she was a little girl, and ever since then she has had a secret crush on him.
+UN_V2_FF15_IRIS_COUNTRY	The Kingdom of Lucis
+UN_V2_FF15_IRIS_HEIGHT	161cm
+UN_V2_FF15_IRIS_WEIGHT	─kg
+UN_V2_FF15_IRIS_BIRTH	─
+UN_V2_FF15_IRIS_ZODIAC	─
+UN_V2_FF15_IRIS_BLOOD	Type -
+UN_V2_FF15_IRIS_FAVORITE	─
+UN_V2_FF15_IRIS_HOBBY	─
+UN_V2_FF15_IRIS_ILLUST	─
+UN_V2_FF15_IRIS_CV	─
 UN_V2_SHIRMA_PROFILE	
 UN_V2_SHIRMA_COUNTRY	Wratharis
 UN_V2_SHIRMA_HEIGHT	153cm
@@ -2482,5 +2570,5 @@ UN_V2_GL_SIEG_ZODIAC	Moon of the Shimmering Dragon
 UN_V2_GL_SIEG_BLOOD	Type Pa
 UN_V2_GL_SIEG_FAVORITE	Tea
 UN_V2_GL_SIEG_HOBBY	Studying, Exploring, Reading
-UN_V2_GL_SIEG_ILLUST	gumi Asia 
+UN_V2_GL_SIEG_ILLUST	gumi Asia
 UN_V2_GL_SIEG_CV	鈴木 崚汰

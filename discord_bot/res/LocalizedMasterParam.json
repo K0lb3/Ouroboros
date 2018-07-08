@@ -509,6 +509,21 @@
     "UN_V2_JUSTIN": {
         "name": "Justin"
     },
+    "UN_V2_FF15_NOCTIS": {
+        "name": "Noctis"
+    },
+    "UN_V2_FF15_IGNIS": {
+        "name": "Ignis"
+    },
+    "UN_V2_FF15_GLADIOLUS": {
+        "name": "Gladiolus"
+    },
+    "UN_V2_FF15_PROMPUTO": {
+        "name": "Prompto"
+    },
+    "UN_V2_FF15_ARANEA": {
+        "name": "Aranea"
+    },
     "UN_V2_KLIMA": {
         "name": "Klima"
     },
@@ -1676,6 +1691,9 @@
     "UN_V2_EN_KERBEROS_SOUL2": {
         "name": "Ennea-Soul Cerberus"
     },
+    "UN_V2_EN_KERBEROS_FF15EX3": {
+        "name": "Loyal Cerberus"
+    },
     "UN_V2_EN_KERBEROS_MOBIUS_01": {
         "name": "Cerberus"
     },
@@ -1727,6 +1745,9 @@
     "UN_V2_EN_ALBURMIN": {
         "name": "Vermin"
     },
+    "UN_V2_EN_ALBURMIN_FF15EX": {
+        "name": "Vermin 100"
+    },
     "UN_V2_EN_ALBURMIN_TOWER": {
         "name": "Servant Insect (Undead)"
     },
@@ -1768,6 +1789,9 @@
     },
     "UN_V2_EN_BEETLE": {
         "name": "Beetle"
+    },
+    "UN_V2_EN_BEETLE_FF15EX": {
+        "name": "Beetle Leader"
     },
     "UN_V2_EN_BEETLE_TOWER": {
         "name": "Ashgreen Beetle"
@@ -1865,6 +1889,9 @@
     "UN_V2_EN_VENUS_SEC_SOLO": {
         "name": "Venus"
     },
+    "UN_V2_EN_VENUS_SEC_FF15_EX1": {
+        "name": "Queen"
+    },
     "UN_V2_EN_FAMILIAR_G": {
         "name": "Gigantic Familiar"
     },
@@ -1927,6 +1954,9 @@
     },
     "UN_V2_EN_COURT_WIZARD_KAGE": {
         "name": "Court Mage Shadow"
+    },
+    "UN_V2_EN_DIOS_BAA_LONG_FF15": {
+        "name": "Dias"
     },
     "UN_V2_EN_COURT_WIZARD_XMAS": {
         "name": "Wilderness Mage"
@@ -2960,6 +2990,30 @@
     "UN_V2_EN_AJ7000_ITEM_GENERAL": {
         "name": "Items General"
     },
+    "UN_V2_EN_RELIGION_FIGTHER_ANK_FF": {
+        "name": "Black Knight"
+    },
+    "UN_V2_FF15_BEHEMOTH": {
+        "name": "Deadeye"
+    },
+    "UN_V2_FF15_METAL_CACTUAR": {
+        "name": "Metal Cactuar"
+    },
+    "UN_V2_FF15_METAL_CACTUAR2": {
+        "name": "Metal Cactuar"
+    },
+    "UN_V2_FF15_METAL_CACTUAR3": {
+        "name": "Metal Cactuar"
+    },
+    "UN_V2_FF15_MAGIC_ARMOR": {
+        "name": "MA-X Cuirass"
+    },
+    "UN_V2_FF15_MAGIC_ARMOR_EX": {
+        "name": "MA-X Cuirass"
+    },
+    "UN_V2_FF15_MAGIC_SOL": {
+        "name": "Magitek Axeman"
+    },
     "UN_V2_EN_PST_UZUSIOMARU": {
         "name": "Uzushiomaru"
     },
@@ -3549,6 +3603,9 @@
         "name": "Anastasia"
     },
     "UN_V2_EN_PATTI_ODO_VELOZ": {
+        "name": "Patty"
+    },
+    "UN_V2_EN_PATTI_ODO_FF_15": {
         "name": "Patty"
     },
     "UN_V2_EN_ELIZABETH_PRI_NICO2": {
@@ -4408,6 +4465,63 @@
     },
     "UN_V2_EN_BLANCHETT_KAK": {
         "name": "Blanshett"
+    },
+    "UN_V2_EN_FF15_NOCTIS_NOCT": {
+        "name": "Noctis"
+    },
+    "UN_V2_EN_FF15_NOCTIS_MAH": {
+        "name": "Noctis"
+    },
+    "UN_V2_EN_FF15_NOCTIS_HWIZ": {
+        "name": "Noctis"
+    },
+    "UN_V2_EN_FF15_NOCTIS_NOCT_WEP": {
+        "name": "Noctis"
+    },
+    "UN_V2_EN_FF15_IGNIS_INGI": {
+        "name": "Ignis"
+    },
+    "UN_V2_EN_FF15_IGNIS_KUR": {
+        "name": "Ignis"
+    },
+    "UN_V2_EN_FF15_IGNIS_KIL": {
+        "name": "Ignis"
+    },
+    "UN_V2_EN_FF15_IGNIS_INGI_WEP": {
+        "name": "Ignis"
+    },
+    "UN_V2_EN_FF15_GLADIOLUS_GLAD": {
+        "name": "Gladiolus"
+    },
+    "UN_V2_EN_FF15_GLADIOLUS_KAK": {
+        "name": "Gladiolus"
+    },
+    "UN_V2_EN_FF15_GLADIOLUS_GUA": {
+        "name": "Gladiolus"
+    },
+    "UN_V2_EN_FF15_GLADIOLUS_GLAD_WEP": {
+        "name": "Gladiolus"
+    },
+    "UN_V2_EN_FF15_PROMPUTO_GUN": {
+        "name": "Prompto"
+    },
+    "UN_V2_EN_FF15_PROMPUTO_SEI": {
+        "name": "Prompto"
+    },
+    "UN_V2_EN_FF15_PROMPUTO_PROM_03": {
+        "name": "Prompto"
+    },
+    "UN_V2_EN_FF15_ARANEA_ARAN": {
+        "name": "Aranea"
+    },
+    "UN_V2_EN_FF15_ARANEA_SOL": {
+        "name": "Aranea"
+    },
+    "UN_V2_EN_FF15_ARANEA_BAA": {
+        "name": "Aranea"
+    },
+    "UN_V2_EN_FF15_ARANEA_UNIQUE": {
+        "name": "Aranea"
     },
     "UN_V2_EDWIN_GUA": {
         "name": "Edwin"
@@ -8905,6 +9019,106 @@
         "name": "Mirage",
         "expr": "Reaction Ability for use with all job types"
     },
+    "AB_FF15_NOCT_UPPER": {
+        "name": "Royal Blood",
+        "expr": "Royal Blood techniques for use with this job type only"
+    },
+    "AB_FF15_NOCT_LOWER": {
+        "name": "Basic Royal Blood",
+        "expr": "Royal Blood techniques for use with all job types"
+    },
+    "AB_FF15_NOCT_REACTION_01": {
+        "name": "Parry",
+        "expr": "Reaction Ability for use with all job types"
+    },
+    "AB_FF15_NOCT_SUPPORT_01": {
+        "name": "Just Hangin' Around",
+        "expr": "Support Ability for use with all job types"
+    },
+    "AB_FF15_NOCT_SUPPORT_02": {
+        "name": "Savior's Force",
+        "expr": "Support Ability for use with all job types"
+    },
+    "AB_FF15_INGI_UPPER": {
+        "name": "Advisor",
+        "expr": "Advisor techniques for use with this job type only"
+    },
+    "AB_FF15_INGI_LOWER": {
+        "name": "Basic Advisor",
+        "expr": "Advisor techniques for use with all job types"
+    },
+    "AB_FF15_INGI_REACTION_01": {
+        "name": "First Aid",
+        "expr": "Reaction Ability for use with all job types"
+    },
+    "AB_FF15_INGI_SUPPORT_01": {
+        "name": "Savior's Vengeance",
+        "expr": "Support Ability for use with all job types"
+    },
+    "AB_FF15_INGI_SUPPORT_02": {
+        "name": "Enhanced Venom Fang",
+        "expr": "Support Ability for use with all job types"
+    },
+    "AB_FF15_GLAD_UPPER": {
+        "name": "Protector",
+        "expr": "Protector techniques for use with this job type only"
+    },
+    "AB_FF15_GLAD_LOWER": {
+        "name": "Basic Protector",
+        "expr": "Protector techniques for use with all job types"
+    },
+    "AB_FF15_GLAD_REACTION_01": {
+        "name": "Guard",
+        "expr": "Reaction Ability for use with all job types"
+    },
+    "AB_FF15_GLAD_SUPPORT_01": {
+        "name": "Royal Shield",
+        "expr": "Support Ability for use with all job types"
+    },
+    "AB_FF15_GLAD_SUPPORT_02": {
+        "name": "Savior's Fortitude",
+        "expr": "Support Ability for use with all job types"
+    },
+    "AB_FF15_PROM_UPPER": {
+        "name": "Camaraderie",
+        "expr": "Camaraderie techniques for use with this job type only"
+    },
+    "AB_FF15_PROM_LOWER": {
+        "name": "Basic Camaraderie",
+        "expr": "Camaraderie techniques for use with all job types"
+    },
+    "AB_FF15_PROM_REACTION_01": {
+        "name": "Scintilla",
+        "expr": "Reaction Ability for use with all job types"
+    },
+    "AB_FF15_PROM_SUPPORT_01": {
+        "name": "Journey Scribe",
+        "expr": "Support Ability for use with all job types"
+    },
+    "AB_FF15_PROM_SUPPORT_02": {
+        "name": "Comeback",
+        "expr": "Support Ability for use with all job types"
+    },
+    "AB_FF15_ARAN_UPPER": {
+        "name": "Imperial Commodore",
+        "expr": "Imperial Commodore techniques for use with this job type only"
+    },
+    "AB_FF15_ARAN_LOWER": {
+        "name": "Basic Imperial Commodore",
+        "expr": "Imperial Commodore techniques for use with all job types"
+    },
+    "AB_FF15_ARAN_REACTION_01": {
+        "name": "Counter Stab",
+        "expr": "Reaction Ability for use with all job types"
+    },
+    "AB_FF15_ARAN_SUPPORT_01": {
+        "name": "Inertia Controller",
+        "expr": "Support Ability for use with all job types"
+    },
+    "AB_FF15_ARAN_SUPPORT_02": {
+        "name": "Power of the Airborne Division",
+        "expr": "Support Ability for use with all job types"
+    },
     "AB_ACHA_STR_LOWER": {
         "name": "7 Basic Tactics",
         "expr": "Seven-tactics techniques for use with all job types"
@@ -9211,7 +9425,7 @@
     },
     "AB_MIELIKKI_MA_01": {
         "name": "Master Ability",
-        "expr": "Raises Max HP & reduces charge time by 1/3"
+        "expr": "Raises Max HP & reduces cast time by 1/3"
     },
     "AB_ROSA_MA_01": {
         "name": "Master Ability",
@@ -9275,7 +9489,7 @@
     },
     "AB_DENEB_MA_01": {
         "name": "Master Ability",
-        "expr": "Raises HP/AGI & reduces charge time by 1/3"
+        "expr": "Raises HP/AGI & reduces cast time by 1/3"
     },
     "AB_LUPINUS_MA_01": {
         "name": "Master Ability",
@@ -9933,8 +10147,64 @@
         "name": "Mandragora Self Destruction [Mythical Beast Effect]",
         "expr": "Enemy Unit Abilities"
     },
+    "AB_MAN_WIZ_FF15EX1": {
+        "name": "Mandragora Skill [FFXVEX1]",
+        "expr": "Enemy Unit Abilities"
+    },
+    "AB_MAN_WIZ_FF15EX1_REACTION": {
+        "name": "Mandragora Reaction Charm [FFXVEX1]",
+        "expr": "Enemy Unit Abilities"
+    },
+    "AB_MAN_WIZ_FF15EX1_REACTION2": {
+        "name": "Mandragora Reaction All-Zero 2 [FFXVEX1]",
+        "expr": "Enemy Unit Abilities"
+    },
+    "AB_MAN_WIZ_FF15EX1_REACTION3": {
+        "name": "Mandragora Reaction Barrier [FFXVEX1]",
+        "expr": "Enemy Unit Abilities"
+    },
+    "AB_MAN_WIZ_FF15EX1_REACTION4": {
+        "name": "Mandragora Reaction Stop [FFXVEX1]",
+        "expr": "Enemy Unit Abilities"
+    },
+    "AB_MAN_WIZ_FF15EX1_REACTION6": {
+        "name": "Mandragora Reaction Jewel Regen [FFXVEX1]",
+        "expr": "Enemy Unit Abilities"
+    },
+    "AB_MAN_WIZ_FF15EX1_REACTION9": {
+        "name": "Mandragora Reaction Stun [FFXVEX1]",
+        "expr": "Enemy Unit Abilities"
+    },
+    "AB_MAN_YUJ_COND_POI_FF": {
+        "name": "Mandragora for FF Collab [Poison]",
+        "expr": "Enemy Unit Abilities"
+    },
+    "AB_MAN_YUJ_COND_PAR_FF": {
+        "name": "Mandragora for FF Collab [Paralyze]",
+        "expr": "Enemy Unit Abilities"
+    },
+    "AB_MAN_YUJ_COND_CHA_FF": {
+        "name": "Mandragora for FF Collab [Charm]",
+        "expr": "Enemy Unit Abilities"
+    },
+    "AB_MAN_WIZ_FF15EX1_REACTION5": {
+        "name": "Mandragora Reaction All-Dmg-Miss [FFXVEX1]",
+        "expr": "Enemy Unit Abilities"
+    },
+    "AB_MAN_WIZ_FF15EX1_REACTION5_S": {
+        "name": "Mandragora Reaction Minor All-Dmg-Miss [FFXVEX1]",
+        "expr": "Enemy Unit Abilities"
+    },
+    "AB_MAN_WIZ_FF15EX1_REACTION7": {
+        "name": "Mandragora Reaction Set (Individual Jewel Regen & Complete Stun) [FFXVEX1]",
+        "expr": "Enemy Unit Abilities"
+    },
     "AB_MAN_WIZ_TOWER_REACTION7_SOL": {
         "name": "Mandragora React Set (Individual Jewel Recovery & Individual Stun) [Tower]",
+        "expr": "Enemy Unit Abilities"
+    },
+    "AB_MAN_WIZ_FF15EX1_REACTION10": {
+        "name": "Mandragora Reaction Rare Treat [FFXVEX1]",
         "expr": "Enemy Unit Abilities"
     },
     "AB_MAN_WIZ_TOWER_REACTION_01": {
@@ -10621,6 +10891,10 @@
         "name": "Venus (2nd Form) Reaction for Veda 100F",
         "expr": "Enemy Unit Abilities"
     },
+    "AB_VENUS_SEC_FF15_EX1": {
+        "name": "Venus (2nd Form) For FFXVEX Tower",
+        "expr": "Enemy Unit Abilities"
+    },
     "AB_TOWER_FUHSI_HP1": {
         "name": "Limited to Health No Buffs Item Realm 90F+ Step",
         "expr": "Item Realm 80F+ Stats Up"
@@ -10796,6 +11070,38 @@
     "AB_WEA_UPPER_TOWER": {
         "name": "TOWER_ENEMY Snail (50~100% Slow)",
         "expr": "Weather arts for use with this job type only"
+    },
+    "AB_BAA_FF_15_DIOS": {
+        "name": "Dias Phantoms Transmute",
+        "expr": "Dias Phantoms Transmute"
+    },
+    "AB_BEHEMOTH_WAZA": {
+        "name": "FFXV Collab Behemoth Skills",
+        "expr": "Enemy Unit Abilities"
+    },
+    "AB_BEHEMOTH_REACTION": {
+        "name": "FFXV Collab Behemoth Reaction",
+        "expr": "Enemy Unit Abilities"
+    },
+    "AB_M_CACT_WAZA": {
+        "name": "FFXV Collab Metal Cactuar Skills",
+        "expr": "Enemy Unit Abilities"
+    },
+    "AB_M_CACT_REACTION": {
+        "name": "FFXV Collab Metal Cactuar Reaction",
+        "expr": "Enemy Unit Abilities"
+    },
+    "AB_MAGIC_ARM_WAZA": {
+        "name": "FFXV Collab Magitek Armor (Mega) Skills",
+        "expr": "Enemy Unit Abilities"
+    },
+    "AB_MAGIC_ARM_REACTION": {
+        "name": "FFXV Collab Magitek Armor (Mega) Reaction",
+        "expr": "Enemy Unit Abilities"
+    },
+    "AB_MAGIC_SOL_WAZA": {
+        "name": "FFXV Collab Magitek Armor (Humanoid) Skills",
+        "expr": "Enemy Unit Abilities"
     },
     "AB_MARMOT_REGENERATE": {
         "name": "Prototype Regeneration",
@@ -13077,6 +13383,14 @@
         "name": "Dragon Cavalier+: JobLv11 Complete Equipment Set",
         "expr": "Enemy Unit Abilities"
     },
+    "AB_FF15_ARAN_JLV11": {
+        "name": "[FFXV] Aranea: Job Lv11 Complete Equipment Set",
+        "expr": "Enemy Unit Abilities"
+    },
+    "AB_FF15_ARAN_JOBMASTER": {
+        "name": "[FFXV] Aranea: Job Master Bonus Set",
+        "expr": "Enemy Unit Abilities"
+    },
     "AB_ACHA_STR_JLV11": {
         "name": "7-Tactic Master (Ahato): Job 11 Complete Equipment Set",
         "expr": "Enemy Unit Abilities"
@@ -13116,6 +13430,10 @@
     "AB_YAUL_YAUL_SOL_LV11": {
         "name": "(Yauras): Job 11 Complete Equipment Set",
         "expr": "Enemy Unit Abilities"
+    },
+    "AB_EN_FF15_ARAN_UPPER": {
+        "name": "Imperial Commodore",
+        "expr": "Imperial Commodore techniques for use with this job type only"
     },
     "AB_AF_ARMO_ROBE3": {
         "name": "Force Elemental",
@@ -13335,7 +13653,7 @@
     },
     "AB_AF_ARMS_DOC_04": {
         "name": "Hallucination",
-        "expr": "Recovers HP of ally units within area around self (no charge time) [Area: Diamond (5), Height Range: 2]"
+        "expr": "Recovers HP of ally units within area around self (no cast time) [Area: Diamond (5), Height Range: 2]"
     },
     "AB_AF_ACCS_SNOWMAN_HAT": {
         "name": "Present for You",
@@ -13508,6 +13826,30 @@
     "AB_AF_ACCS_RING_02_FURY": {
         "name": "Templar Limited Abilities",
         "expr": "Gear Ability can only be used by Templar. Ability varies according to unit."
+    },
+    "AB_AF_ARMS_FF15_PROM_01": {
+        "name": "Trigger-Happy",
+        "expr": "This ability can only be used by Prompto when using the job \"Prince's Best Friend\""
+    },
+    "AB_AF_ARMS_FF15_NOCT_01": {
+        "name": "The Royal Arms",
+        "expr": "This ability can only be used by Noctis when using the job \"Prince of Lucis\""
+    },
+    "AB_AF_ARMS_FF15_INGI_01": {
+        "name": "Sagefire",
+        "expr": "This ability can only be used by Ignis when using the job \"Prince's Advisor\""
+    },
+    "AB_AF_ARMS_FF15_GLAD_01": {
+        "name": "Impulse",
+        "expr": "This ability can only be used by Gladiolus when using the job \"Prince's Protector\""
+    },
+    "AB_AF_ARMS_FF15_ARAN_01": {
+        "name": "Highwind",
+        "expr": "This ability can only be used by Aranea when using the job \"Imperial Commodore\""
+    },
+    "AB_AF_ARMO_FF15_SHIELD_01": {
+        "name": "Radiate Jewels",
+        "expr": "Casts Jewels Obtained Up & Jewel Auto Regen (Low) on ally units in area around self [Area: Cross (3), Height Range: 3]"
     },
     "AB_AF_ARMS_ARM_03": {
         "name": "Phantom Mirage",
@@ -14753,6 +15095,26 @@
         "name": "King of Heroes: Map Effect Ability",
         "expr": "[Map Effect Set]"
     },
+    "AB_ME_FF15_NOCT": {
+        "name": "Prince of Lucis: Map Effect Ability",
+        "expr": "[Map Effect Set]"
+    },
+    "AB_ME_FF15_INGI": {
+        "name": "Prince's Advisor: Map Effect Ability",
+        "expr": "[Map Effect Set]"
+    },
+    "AB_ME_FF15_GLAD": {
+        "name": "Prince's Protector: Map Effect Ability",
+        "expr": "[Map Effect Set]"
+    },
+    "AB_ME_FF15_PROM": {
+        "name": "Prince's Best Friend: Map Effect Ability",
+        "expr": "[Map Effect Set]"
+    },
+    "AB_ME_FF15_ARAN": {
+        "name": "Imperial Commodore: Map Effect Ability",
+        "expr": "[Map Effect Set]"
+    },
     "AB_ME_MAD": {
         "name": "Magic Marksman: Map Effect Ability",
         "expr": "[Map Effect Set]"
@@ -15221,7 +15583,7 @@
     },
     "SK_GL_WSM_LOWER_4": {
         "name": "Shattering Slash",
-        "expr": "Deal Physical Damage (High) to target enemy that ignores DEF & inflicts Daze [Range: 4, Height Range: 3]",
+        "expr": "Deal Physical Damage (High) to target enemy that ignores DEF & inflicts Daze",
         "mapeff": " "
     },
     "SK_GL_WSM_REACTIVE": {
@@ -15266,7 +15628,7 @@
     },
     "SK_HWIZ_UPPER_3": {
         "name": "Luminous Chant",
-        "expr": "Inflicts Light Mag Dmg (Low) on units within target area & greatly reduces charge time for next turn [Range: 4, Area: Cross (5), Height Range: 2]",
+        "expr": "Inflicts Light Mag Dmg (Low) on units within target area & greatly reduces cast time for next turn [Range: 4, Area: Cross (5), Height Range: 2]",
         "mapeff": " "
     },
     "SK_HWIZ_UPPER_4": {
@@ -15301,7 +15663,7 @@
     },
     "SK_HWIZ_SUPPORT_1": {
         "name": "Shell Charge",
-        "expr": "Raises PDEF & reduces charge time by 1/5",
+        "expr": "Raises PDEF & reduces cast time by 1/5",
         "mapeff": " "
     },
     "SK_HWIZ_SUPPORT_2": {
@@ -15621,7 +15983,7 @@
     },
     "SK_ANK_BLOOD_REAPER": {
         "name": "Reaper's Beckoning",
-        "expr": "Inflicts Phys Dmg (Low) on target with chance of wreaking Death Sentence<br> [Range: 1, Height Range: 1]",
+        "expr": "Inflicts Phys Dmg (Low) on target with chance of wreaking Death Sentence <br>[Range: 1, Height Range: 1]",
         "mapeff": " "
     },
     "SK_ANK_BLOOD_CIRCULAR": {
@@ -17866,7 +18228,7 @@
     },
     "SK_ENC_FAST_CHANT": {
         "name": "Swift Charge",
-        "expr": "Reduces charge time by 1/3",
+        "expr": "Reduces cast time by 1/3",
         "mapeff": " "
     },
     "SK_WIZ_ATK": {
@@ -19276,12 +19638,12 @@
     },
     "SK_SEN_LOWER_4": {
         "name": "Quincunx",
-        "expr": "Halves ally unit's charge time for three turns [Range: 3, Height Range: 2]",
+        "expr": "Halves ally unit's cast time for three turns [Range: 3, Height Range: 2]",
         "mapeff": " "
     },
     "SK_SEN_LOWER_4_DENEB": {
         "name": "Hexagram",
-        "expr": "Reduces own charge time by 1/2 for three turns & reduces charge time of ally units within target area by 1/4 [Area: Diamond (5), Height Range: 2]",
+        "expr": "Reduces own cast time by 1/2 for three turns & reduces cast time of ally units within target area by 1/4 [Area: Diamond (5), Height Range: 2]",
         "mapeff": " "
     },
     "SK_SEN_UPPER_1": {
@@ -21556,7 +21918,7 @@
     },
     "SK_FATE_CAS_SUPPORT_1": {
         "name": "High-Speed Divine Words",
-        "expr": "Reduces charge time by 2/5",
+        "expr": "Reduces cast time by 2/5",
         "mapeff": " "
     },
     "SK_FATE_BSKR_ATK": {
@@ -22152,6 +22514,436 @@
     "SK_WEA_MASTER": {
         "name": "Diviner Job Master Bonus",
         "expr": " ",
+        "mapeff": " "
+    },
+    "SK_FF15_NOCT_ATK_01": {
+        "name": "Attack (FFXV_NOCT)",
+        "expr": "[FFXV] Noctis",
+        "mapeff": " "
+    },
+    "SK_FF15_NOCT_01": {
+        "name": "Sweep",
+        "expr": "Inflicts Phys Dmg on units within target area [Range: 1, Area: Lateral (3), Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_FF15_NOCT_02": {
+        "name": "Warp-Strike",
+        "expr": "After moving, inflicts Phys Dmg on target enemy unit & greatly raises AGI until next turn [Range: Diamond (13), Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_FF15_NOCT_03": {
+        "name": "Point-Warp",
+        "expr": "After moving, recovers HP of units in area around self [MOVE Area: Diamond (7), Height Range: Unlimited]",
+        "mapeff": " "
+    },
+    "SK_FF15_NOCT_04": {
+        "name": "Tricast: Blizzaga",
+        "expr": "Inflicts 3-hit Water Mag Dmg on enemy units within target area [Range: 4, Area: Diamond (5), Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_FF15_NOCT_05": {
+        "name": "Shield Bash",
+        "expr": "Inflicts Phys Dmg on target unit & raises own PATK [Range: 1, Height Range: 1]",
+        "mapeff": " "
+    },
+    "SK_FF15_NOCT_06": {
+        "name": "Marksman",
+        "expr": "Inflicts Phys Dmg & Daze on target unit [Range: 4, Height Range: Unlimited]",
+        "mapeff": " "
+    },
+    "SK_FF15_NOCT_07": {
+        "name": "Venomcast: Thundara",
+        "expr": "Inflicts Thunder Mag Dmg & Poison on units within target area [Range: 4, Area: Cross (3), Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_FF15_NOCT_08": {
+        "name": "Stopcast: Fira",
+        "expr": "Inflicts Fire Mag Dmg & Stop on target unit [Range: 4, Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_FF15_NOCT_REACTION_01": {
+        "name": "Parry",
+        "expr": "Performs physical counter when Dmg is received [Range: 1, Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_FF15_NOCT_SUPPORT_01": {
+        "name": "Just Hangin' Around",
+        "expr": "Dmg modifier for all attacks",
+        "mapeff": " "
+    },
+    "SK_FF15_NOCT_SUPPORT_02": {
+        "name": "Savior's Force",
+        "expr": "Raises PATK/MATK of self and adjacent allies when one or more ally units are in adjacent squares",
+        "mapeff": " "
+    },
+    "SK_FF15_INGI_ATK_01": {
+        "name": "Attack (FFXV_INGI)",
+        "expr": "[FFXV] Ignis",
+        "mapeff": " "
+    },
+    "SK_FF15_INGI_01": {
+        "name": "Regroup",
+        "expr": "Casts Auto Heal on ally units in area around self [Range: Cross (3), Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_FF15_INGI_02": {
+        "name": "Venom Fang",
+        "expr": "Inflicts 2-hit Phys Dmg & Poison on target unit with chance of critical [Range: 1, Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_FF15_INGI_02B": {
+        "name": "Venom Fang",
+        "expr": "Inflicts 2-hit Phys Dmg & Poison on target unit with chance of critical [Range: 1, Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_FF15_INGI_03": {
+        "name": "Deathblow",
+        "expr": "Inflicts 2-hit Phys Dmg on target unit with chance of critical [Range: 3, Area: 1 sq line, Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_FF15_INGI_04": {
+        "name": "Mark",
+        "expr": "Inflicts 3-hit Phys Dmg on target unit with chance of critical & raises own AGI until next turn [Range: 4, Height Range: 3]",
+        "mapeff": " "
+    },
+    "SK_FF15_INGI_05": {
+        "name": "Regenerate",
+        "expr": "Recovers HP of target ally unit [Range: 2, Height Range: 3]",
+        "mapeff": " "
+    },
+    "SK_FF15_INGI_06": {
+        "name": "Sweep",
+        "expr": "Inflicts Phys Dmg on units within target area [Range: 1, Area: Lateral (3), Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_FF15_INGI_07": {
+        "name": "Lancet",
+        "expr": "Absorbs HP from enemy units within target area [Range: 2, Area: Special (Fan), Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_FF15_INGI_08": {
+        "name": "Spear Throw",
+        "expr": "Inflicts Phys Dmg (Penetrating) on target unit [Range: 4, Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_FF15_INGI_REACTION_01": {
+        "name": "First Aid",
+        "expr": "Chance of recovering HP when Dmg is received",
+        "mapeff": " "
+    },
+    "SK_FF15_INGI_SUPPORT_01": {
+        "name": "Savior's Vengeance",
+        "expr": "Raises CRIT Rate of self and adjacent allies when one or more ally units are in adjacent squares",
+        "mapeff": " "
+    },
+    "SK_FF15_INGI_SUPPORT_02": {
+        "name": "Enhanced Venom Fang",
+        "expr": "Venom Fang (more powerful & increased Poison effect)",
+        "mapeff": " "
+    },
+    "SK_FF15_GLAD_ATK_01": {
+        "name": "Attack (FFXV_GLAD)",
+        "expr": "[FFXV] Gladiolus",
+        "mapeff": " "
+    },
+    "SK_FF15_GLAD_01": {
+        "name": "Royal Guard",
+        "expr": "Raises PDEF/MDEF of ally units in area around self [Area: Diamond (5), Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_FF15_GLAD_02": {
+        "name": "Cyclone",
+        "expr": "Inflicts Phys Dmg & Stun on target unit & lowers CT [Range: 1, Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_FF15_GLAD_03": {
+        "name": "Tempest",
+        "expr": "Inflicts Phys Dmg on units in area around self & lowers PATK/MATK with chance of critical [Area: Diamond (5), Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_FF15_GLAD_04": {
+        "name": "Dawnhammer",
+        "expr": "Inflicts Phys Dmg on target unit with chance of critical [Range: 1, Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_FF15_GLAD_05": {
+        "name": "Deathblow",
+        "expr": "Inflicts Phys Dmg on units within target area [Range: 1, Area: Lateral (3), Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_FF15_GLAD_06": {
+        "name": "Engage",
+        "expr": "After moving, inflicts Dmg on target enemy unit [Range: Diamond (9), Height Range: 1]",
+        "mapeff": " "
+    },
+    "SK_FF15_GLAD_07": {
+        "name": "Antagonize",
+        "expr": "Inflicts Phys Dmg on target unit & ignores DEF [Range: 1, Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_FF15_GLAD_08": {
+        "name": "Reflex",
+        "expr": "Inflicts Phys Dmg on units in area around self & raises own Evasion Rate [Area: Square (3) around self, Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_FF15_GLAD_REACTION_01": {
+        "name": "Guard",
+        "expr": "Performs physical attack when Dmg is received with chance of reducing Dmg",
+        "mapeff": " "
+    },
+    "SK_FF15_GLAD_SUPPORT_01": {
+        "name": "Royal Shield",
+        "expr": "Raises Max HP",
+        "mapeff": " "
+    },
+    "SK_FF15_GLAD_SUPPORT_02": {
+        "name": "Savior's Fortitude",
+        "expr": "Raises PDEF of self and adjacent allies when one or more ally units are in adjacent squares",
+        "mapeff": " "
+    },
+    "SK_FF15_PROM_ATK_01": {
+        "name": "Attack (FFXV_PROM)",
+        "expr": "[FFXV] Prompto",
+        "mapeff": " "
+    },
+    "SK_FF15_PROM_01": {
+        "name": "Piercer",
+        "expr": "Inflicts Phys Dmg on target unit & lowers target's PDEF [Range: 4, Height Range: Unlimited]",
+        "mapeff": " "
+    },
+    "SK_FF15_PROM_02": {
+        "name": "Ballistic",
+        "expr": "Inflicts Phys Dmg & Stun on units in area around self with chance of critical [Area: Square (3) around self, Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_FF15_PROM_03": {
+        "name": "Deathblow",
+        "expr": "Inflicts Phys Dmg on units within target area [Range: 3, Area: Special (Fan), Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_FF15_PROM_04": {
+        "name": "First Shot",
+        "expr": "Inflicts Phys Dmg on target unit & raises own AGI until next turn",
+        "mapeff": " "
+    },
+    "SK_FF15_PROM_05": {
+        "name": "Snapshot",
+        "expr": "Transfers Jewels used by self to target ally unit [Range: 3, Height Range: 3]",
+        "mapeff": " "
+    },
+    "SK_FF15_PROM_06": {
+        "name": "Shock Drop",
+        "expr": "Inflicts Phys Dmg on units in area around self with chance of inflicting Paralyze [Area: Cross (3), Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_FF15_PROM_07": {
+        "name": "Starshell",
+        "expr": "Inflicts Phys Dmg on units within target area with chance of inflicting Confuse [Range: 4, Area: Cross (3), Height Range: Unlimited]",
+        "mapeff": " "
+    },
+    "SK_FF15_PROM_08": {
+        "name": "Gravisphere",
+        "expr": "Inflicts Phys Dmg (Penetrating) on units within target area with chance of inflicting Bind [Range: 4, Area: Cross (3), Height Range: Unlimited]",
+        "mapeff": " "
+    },
+    "SK_FF15_PROM_REACTION_01": {
+        "name": "Scintilla",
+        "expr": "Chance of performing physical counter & inflicting Daze when Dmg is received [Range: 4, Height Range: Unlimited]",
+        "mapeff": " "
+    },
+    "SK_FF15_PROM_SUPPORT_01": {
+        "name": "Journey Scribe",
+        "expr": "Raises DEX/CRIT",
+        "mapeff": " "
+    },
+    "SK_FF15_PROM_SUPPORT_02": {
+        "name": "Comeback",
+        "expr": "Raises Max HP",
+        "mapeff": " "
+    },
+    "SK_FF15_ARAN_ATK_01": {
+        "name": "Attack (FFXV_ANAN)",
+        "expr": "[FFXV] Aranea",
+        "mapeff": " "
+    },
+    "SK_FF15_ARAN_01": {
+        "name": "Dive Attack I",
+        "expr": "JUMP status & upon landing inflicts Pierce Dmg on target [Range: 4, Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_FF15_ARAN_02": {
+        "name": "Dive Attack II",
+        "expr": "JUMP status & upon landing inflicts Pierce Dmg on target & raises own PATK [Range: 4, Height Range: 3]",
+        "mapeff": " "
+    },
+    "SK_FF15_ARAN_03": {
+        "name": "Dive Attack III",
+        "expr": "JUMP status & upon landing inflicts Pierce Dmg on target & lowers target's PDEF [Range: 4, Height Range: 3]",
+        "mapeff": " "
+    },
+    "SK_FF15_ARAN_04": {
+        "name": "Dive Attack IV",
+        "expr": "JUMP status & upon landing inflicts Pierce Dmg on target [Range: 4, Height Range: 4]",
+        "mapeff": " "
+    },
+    "SK_FF15_ARAN_01B": {
+        "name": "Dive Attack I",
+        "expr": "JUMP status & upon landing inflicts Pierce Dmg on target [Range: 4, Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_FF15_ARAN_02B": {
+        "name": "Dive Attack II",
+        "expr": "JUMP status & upon landing inflicts Pierce Dmg on target & raises own PATK [Range: 4, Height Range: 3]",
+        "mapeff": " "
+    },
+    "SK_FF15_ARAN_03B": {
+        "name": "Dive Attack III",
+        "expr": "JUMP status & upon landing inflicts Pierce Dmg on target & lowers target's PDEF [Range: 4, Height Range: 3]",
+        "mapeff": " "
+    },
+    "SK_FF15_ARAN_04B": {
+        "name": "Dive Attack IV",
+        "expr": "JUMP status & upon landing inflicts Pierce Dmg on units within target area [Range: 4, Area: Diamond (5), Height Range: 4]",
+        "mapeff": " "
+    },
+    "SK_FF15_ARAN_05": {
+        "name": "Reverse Roundhouse-Kick",
+        "expr": "Inflicts Phys Dmg & Slow on target unit [Range: 1, Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_FF15_ARAN_06": {
+        "name": "Aero-Charge Thrust",
+        "expr": "After moving, inflicts Phys Dmg on target enemy unit [Range: Diamond (7), Height Range: 3]",
+        "mapeff": " "
+    },
+    "SK_FF15_ARAN_07": {
+        "name": "Frontal Thrust",
+        "expr": "Inflicts Phys Dmg (Penetrating) on target unit [Range: 3, Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_FF15_ARAN_08": {
+        "name": "High Roundhouse-Kick",
+        "expr": "Inflicts Phys Dmg & Bind & Daze on target unit [Range: 1, Height Range: 3]",
+        "mapeff": " "
+    },
+    "SK_FF15_ARAN_REACTION_01": {
+        "name": "Counter Stab",
+        "expr": "Performs physical counter (Penetrating) when Dmg is received [Range: 2, Height Range: 3]",
+        "mapeff": " "
+    },
+    "SK_FF15_ARAN_SUPPORT_01": {
+        "name": "Inertia Controller",
+        "expr": "MOVE +1 and JUMP +1",
+        "mapeff": " "
+    },
+    "SK_FF15_ARAN_SUPPORT_02": {
+        "name": "Power of the Airborne Division",
+        "expr": "Raises power & reduces jump time for the ability \"Imperial Commodore\"",
+        "mapeff": " "
+    },
+    "SK_FF15_BEHEMOTH_ATK01": {
+        "name": "Attack (FFXV_BEHEMOTH)",
+        "expr": "Slash",
+        "mapeff": " "
+    },
+    "SK_FF15_BEHEMOTH_01": {
+        "name": "Tail Strike",
+        "expr": "ATK Skill [Range: Fan Laser]",
+        "mapeff": " "
+    },
+    "SK_FF15_BEHEMOTH_02": {
+        "name": "Roar",
+        "expr": "Lowers CT of units in area around self [Area: Square]",
+        "mapeff": " "
+    },
+    "SK_FF15_BEHEMOTH_03": {
+        "name": "Dig Out",
+        "expr": "ATK Skill (Penetrating) [Range: Cross]",
+        "mapeff": " "
+    },
+    "SK_FF15_BEHEMOTH_04": {
+        "name": "Trample",
+        "expr": "Counter ATK Skill [Range: Cross]",
+        "mapeff": " "
+    },
+    "SK_FF15_M_CACT_ATK01": {
+        "name": "Attack (FFXV_M_CACT)",
+        "expr": "Strike",
+        "mapeff": " "
+    },
+    "SK_FF15_M_CACT_01": {
+        "name": "Needle Meteor",
+        "expr": "Phys Dmg & Poison [Range: Diamond, Area: Diamond]",
+        "mapeff": " "
+    },
+    "SK_FF15_M_CACT_02": {
+        "name": "Ten Thousand Needles",
+        "expr": "Fixed Phys Dmg to single target [Range: Diamond]",
+        "mapeff": " "
+    },
+    "SK_FF15_M_CACT_02_99": {
+        "name": "Ten Thousand Needles",
+        "expr": "Fixed Phys Dmg to single target [Range: Diamond] (99th Use Ver.)",
+        "mapeff": " "
+    },
+    "SK_FF15_M_CACT_03": {
+        "name": "1,000 Needles",
+        "expr": "Counter ATK Skill (Ignores DEF) [Area: Diamond]",
+        "mapeff": " "
+    },
+    "SK_FF15_MAGIC_ARM_ATK01": {
+        "name": "Attack (FFXV_MAGIC_ARM)",
+        "expr": "Strike",
+        "mapeff": " "
+    },
+    "SK_FF15_MAGIC_ARM_01": {
+        "name": "Machine Gun",
+        "expr": "Area attack [Area: Fan Laser]",
+        "mapeff": " "
+    },
+    "SK_FF15_MAGIC_ARM_02": {
+        "name": "Missile Drop",
+        "expr": "Area attack [Range: Cross, Area: Diamond]",
+        "mapeff": " "
+    },
+    "SK_FF15_MAGIC_ARM_03": {
+        "name": "Shrapnel",
+        "expr": "Area attack centered around self [Area: Diamond]",
+        "mapeff": " "
+    },
+    "SK_FF15_MAGIC_ARM_01_2": {
+        "name": "Machine Gun",
+        "expr": "Area attack (Ignores DEF) [Area: Fan Laser]",
+        "mapeff": " "
+    },
+    "SK_FF15_MAGIC_ARM_02_2": {
+        "name": "Missile Drop",
+        "expr": "Area attack (Ignores DEF) [Range: Diamond, Area: Cross]",
+        "mapeff": " "
+    },
+    "SK_FF15_MAGIC_ARM_03_2": {
+        "name": "Shrapnel",
+        "expr": "Area attack centered around self (Ignores DEF) [Area: Diamond]",
+        "mapeff": " "
+    },
+    "SK_FF15_MAGIC_ARM_04": {
+        "name": "Thunder Thrust",
+        "expr": "Counter (Chance of inflicting Poison)",
+        "mapeff": " "
+    },
+    "SK_FF15_MAGIC_SOL_ATK01": {
+        "name": "Attack (FFXV_MAGIC_SOL)",
+        "expr": "Slash",
+        "mapeff": " "
+    },
+    "SK_FF15_MAGIC_SOL_01": {
+        "name": "Energy Shot",
+        "expr": "Inflicts Missile Dmg [Range: Diamond]",
+        "mapeff": " "
+    },
+    "SK_FF15_MAGIC_SOL_02": {
+        "name": "Roundhouse Kick",
+        "expr": "Area attack centered around self [Area: Square]",
         "mapeff": " "
     },
     "SK_ACHA_STR_ATK": {
@@ -22961,7 +23753,7 @@
     },
     "SK_MIELIKKI_MA_01": {
         "name": "Atachi's Will",
-        "expr": "Raises Max HP & reduces charge time by 1/3",
+        "expr": "Raises Max HP & reduces cast time by 1/3",
         "mapeff": " "
     },
     "SK_ROSA_MA_01": {
@@ -23046,7 +23838,7 @@
     },
     "SK_DENEB_MA_01": {
         "name": "Wish to the First Star",
-        "expr": "Raises HP/AGI & reduces charge time by 1/3",
+        "expr": "Raises HP/AGI & reduces cast time by 1/3",
         "mapeff": " "
     },
     "SK_LUPINUS_MA_01": {
@@ -23266,7 +24058,7 @@
     },
     "SK_ARMS_DOC_04_WA": {
         "name": "Hallucination",
-        "expr": "Recovers HP of ally units within area around self (no charge time) [Area: Diamond (5), Height Range: 2]",
+        "expr": "Recovers HP of ally units within area around self (no cast time) [Area: Diamond (5), Height Range: 2]",
         "mapeff": " "
     },
     "SK_ACCS_SNOWMAN_HAT_WA": {
@@ -23467,6 +24259,36 @@
     "SK_AF_ACCS_RING_01_WA": {
         "name": "Life Embrace",
         "expr": "Recovers HP of units within target area & reduces Jewels Spent for three turns [Range: 3, Area: Cross (3), Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_AF_ARMS_FF15_PROM_01_WA": {
+        "name": "Trigger-Happy",
+        "expr": "Inflicts Thunder Phys Dmg on target enemy unit & lowers CT to 0 [Range: Diamond (9), Height Range: 3]",
+        "mapeff": " "
+    },
+    "SK_AF_ARMS_FF15_NOCT_01_WA": {
+        "name": "The Royal Arms",
+        "expr": "Inflicts 4-hit non-elemental Phys Dmg on target enemy unit & raises own PATK/AGI/Evasion Rate for three turns [Range: Diamond (9), Height Range: 3]",
+        "mapeff": " "
+    },
+    "SK_AF_ARMS_FF15_INGI_01_WA": {
+        "name": "Sagefire",
+        "expr": "Inflicts Fire Mag Dmg & Daze on enemy units within target area [Range: 4, Area: Diamond (5), Height Range: 3]",
+        "mapeff": " "
+    },
+    "SK_AF_ARMS_FF15_GLAD_01_WA": {
+        "name": "Impulse",
+        "expr": "Inflicts Phys Dmg & AGI Down & Stun on enemy units within target area [Range: 3, Area: Lateral (3), Height Range: 3]",
+        "mapeff": " "
+    },
+    "SK_AF_ARMS_FF15_ARAN_01_WA": {
+        "name": "Highwind",
+        "expr": "Inflicts non-elemental Phys Dmg on target enemy unit & 100% Hit & ignores DEF with chance of critical & raises PATK for one turn [Range: 4, Height Range: 4]",
+        "mapeff": " "
+    },
+    "SK_AF_ARMO_FF15_SHIELD_01_WA": {
+        "name": "Radiate Jewels",
+        "expr": "Casts Jewels Obtained Up & Jewel Auto Regen (Low) on ally units in area around self [Area: Cross (3), Height Range: 3]",
         "mapeff": " "
     },
     "SK_AF_ARMS_ARM_03_WA": {
@@ -24227,6 +25049,11 @@
     "SK_RAT_HALL_09": {
         "name": "Carrot & Stick",
         "expr": "Inflicts Charm on target enemy unit",
+        "mapeff": " "
+    },
+    "SK_RAT_WIZ_DYNAMITE_REACTION_FF": {
+        "name": "Self Destruction [Mythical Beast Effect]",
+        "expr": "Inflicts Phys Dmg (Extra-High) on units in area around self & self-destructs [Area: Diamond (5), Height Range: 2]",
         "mapeff": " "
     },
     "SK_RAT_DOWN_SLASH_DEF": {
@@ -25644,6 +26471,11 @@
         "expr": "Casts Auto Heal on self for three turns",
         "mapeff": " "
     },
+    "SK_MAN_YUJ_LONG_SHIELD_FF15": {
+        "name": "Long Barrier [DEF x8]",
+        "expr": "Raises PDEF/MDEF for seven turns [Area: Whole Map, Height Range: Unlimited]",
+        "mapeff": " "
+    },
     "SK_MAN_YUJ_JEM_REGENERATE_WIDE": {
         "name": "Major Jewel Regen",
         "expr": "Casts Jewel Auto Charge on all enemy units for three turns",
@@ -25772,6 +26604,41 @@
     "SK_MAN_YUJ_STO_ZERO_RE": {
         "name": "All Null Waves+",
         "expr": "[Item Realm] Reaction Ability: Cancels all buffs/debuffs [Area: Whole Map, Height Range: Unlimited]",
+        "mapeff": " "
+    },
+    "SK_MAN_YUJ_STO_ZERO_RE_FF15EX1": {
+        "name": "Barrier-Removal Hit",
+        "expr": "[FFXVEX1] Reaction Ability: Cancels all buffs/debuffs [Area: Whole Map, Height Range: Unlimited]",
+        "mapeff": " "
+    },
+    "SK_MAN_YUJ_STOP_WIDE_RE_FF15EX1": {
+        "name": "Self-Timer",
+        "expr": "Casts Stop on self",
+        "mapeff": " "
+    },
+    "SK_MAN_YUJ_JEM_RE_FF15EX1": {
+        "name": "Drink This",
+        "expr": "[FFXVEX1] Recovers own Reaction Jewels",
+        "mapeff": " "
+    },
+    "SK_MAN_YUJ_STAN_RE_FF15EX1": {
+        "name": "Feign Death",
+        "expr": "Casts Stun on self",
+        "mapeff": " "
+    },
+    "SK_MAN_YUJ_STAN_RE_FF15EX1_ALL": {
+        "name": "Feign Death",
+        "expr": "Casts Stun on all ally units for four turns & recovers own Reaction Jewels",
+        "mapeff": " "
+    },
+    "SK_MAN_YUJ_STAN_RE_FF15EX1_SOL": {
+        "name": "Feign Death",
+        "expr": "Casts Stun on self for four turns & recovers own Reaction Jewels",
+        "mapeff": " "
+    },
+    "SK_MAN_YUJ_KAIFUKU_FF15": {
+        "name": "(2nd) Rare Treat! Mandragora",
+        "expr": "Recovers Jewels of all ally units [Area: Whole Map, Height Range: Unlimited]",
         "mapeff": " "
     },
     "SK_MAN_YUJ_STO_ZERO": {
@@ -27209,6 +28076,11 @@
         "expr": "Cerberus (Ranged Wind Breath) (Enemy Unit)",
         "mapeff": " "
     },
+    "SK_KERB_ATK_FF15EX3": {
+        "name": "[Normal ATK] Cerberus",
+        "expr": "Cerberus (Ranged Wind Breath) (Enemy Unit)",
+        "mapeff": " "
+    },
     "SK_KERB_BREATH_FIRE_L": {
         "name": "Ranged Fire Breath",
         "expr": "Inflicts Fire Mag Dmg on enemy units within target area [Range: 2, Area: Lateral (3), Height Range: 2]",
@@ -27260,7 +28132,7 @@
         "mapeff": " "
     },
     "SK_KERB_POI_ATK": {
-        "name": "Venom Fang",
+        "name": "Poison Fang",
         "expr": "Inflicts Phys Dmg & Poison on target unit [Range: 1, Height Range: 1]",
         "mapeff": " "
     },
@@ -28037,6 +28909,31 @@
     "SK_VENUS_SEC_ATK": {
         "name": "[Normal ATK] Venus (2nd Form)",
         "expr": "Normal Attack: Medium-range magic (fires light bullet) [Range: 2, Height Range: 2]",
+        "mapeff": " "
+    },
+    "SK_VENUS_SEC_ATK_FF15_EX1_A": {
+        "name": "Queen's Horizontal Strike",
+        "expr": "Inflicts Phys Dmg on units within target area [Range: 41x41 cross, Height Range: 0]",
+        "mapeff": " "
+    },
+    "SK_VENUS_SEC_ATK_FF15_EX1_B": {
+        "name": "Queen's 45°",
+        "expr": "[Weak ver.] Inflicts Phys Dmg on units within target area [Range: 41x41 cross, Height Range: 0]",
+        "mapeff": " "
+    },
+    "SK_VENUS_SEC_ATK_FF15_EX1_AS": {
+        "name": "Queen's Horizontal Strike",
+        "expr": "Inflicts Phys Dmg on units within target area [Range: 41x41 cross, Height Range: 0]",
+        "mapeff": " "
+    },
+    "SK_VENUS_SEC_ATK_FF15_EX1_BS": {
+        "name": "Queen's 45°",
+        "expr": "[Weak ver.] Inflicts Phys Dmg on units within target area [Range: 41x41 cross, Height Range: 0]",
+        "mapeff": " "
+    },
+    "SK_VENUS_SEC_ATK_FF15_TOWER": {
+        "name": "Nail Beam",
+        "expr": "Inflicts Phys Dmg on units within target area [Range: 41x41 cross, Height Range: 0]",
         "mapeff": " "
     },
     "SK_VENUS_SEC_QUEENS_BLEEZE": {
@@ -30401,7 +31298,7 @@
     },
     "SK_LS_10_U_MAGIC_10_D_CAST": {
         "name": "Cryptic Fervor",
-        "expr": "Raises Mag Dmg by 10% & reduces charge time by 10% for whole party",
+        "expr": "Raises Mag Dmg by 10% & reduces cast time by 10% for whole party",
         "mapeff": " "
     },
     "SK_LS_CHARISMA": {
@@ -30415,18 +31312,18 @@
         "mapeff": " "
     },
     "SK_LS_5_D_CHARGE_TIME": {
-        "name": "Charge Time -5%",
-        "expr": "Reduces charge time by 5% for whole party",
+        "name": "Cast Time -5%",
+        "expr": "Reduces cast time by 5% for whole party",
         "mapeff": " "
     },
     "SK_LS_10_D_CHARGE_TIME": {
-        "name": "Charge Time -10%",
-        "expr": "Reduces charge time by 10% for whole party",
+        "name": "Cast Time -10%",
+        "expr": "Reduces cast time by 10% for whole party",
         "mapeff": " "
     },
     "SK_LS_5_U_CAST": {
         "name": "Cryptic Revelation",
-        "expr": "Reduces charge time by 5% for whole party",
+        "expr": "Reduces cast time by 5% for whole party",
         "mapeff": " "
     },
     "SK_LS_10_U_CRI": {
@@ -30501,7 +31398,7 @@
     },
     "SK_LS_ELEM_FIRE_30_U_MAG_10_D_CAST": {
         "name": "Raging Fire's Worship",
-        "expr": "Raises MATK by 30% & reduces charge time by 10% for Fire units",
+        "expr": "Raises MATK by 30% & reduces cast time by 10% for Fire units",
         "mapeff": " "
     },
     "SK_LS_ELEM_FIRE_30_U_MAG_20_U_MP": {
@@ -30661,7 +31558,7 @@
     },
     "SK_LS_ELEM_WATER_40_U_HP_10_D_CT": {
         "name": "Pure Water's Heartbeat",
-        "expr": "Raises HP by 40% & reduces charge time by 10% for Water units",
+        "expr": "Raises HP by 40% & reduces cast time by 10% for Water units",
         "mapeff": " "
     },
     "SK_LS_ELEM_WATER_40_U_HP_5_U_AVO": {
@@ -30951,7 +31848,7 @@
     },
     "SK_LS_ELEM_THUNDER_40_U_HP_10_D_CT": {
         "name": "Thunderer's Heartbeat",
-        "expr": "Raises HP by 40% & reduces charge time by 10% for Thunder units",
+        "expr": "Raises HP by 40% & reduces cast time by 10% for Thunder units",
         "mapeff": " "
     },
     "SK_LS_ELEM_THUNDER_30_U_ATK_20_U_HP": {
@@ -31707,6 +32604,11 @@
     "SK_US_FATE_SANDWICH": {
         "name": "Rin's Sandwich",
         "expr": "Removes all statuses except Death Sentence and slightly recovers HP.",
+        "mapeff": " "
+    },
+    "SK_US_FF_CONS_STEW": {
+        "name": "King's Stew",
+        "expr": "Greatly recovers unit's HP & raises PATK",
         "mapeff": " "
     },
     "SK_EQ_HP_CAP": {
@@ -33359,6 +34261,41 @@
         "expr": "PATK +10, DEX +8, AGI +6, LUCK +10, Jewels Obtained +6",
         "mapeff": " "
     },
+    "SK_EQ_FF15_NOCT": {
+        "name": "For Noctis",
+        "expr": "[Equipment Effect] PATK +30, AGI +6, Jewels Obtained +2, PDEF +18, HP +10",
+        "mapeff": " "
+    },
+    "SK_EQ_FF15_INGI": {
+        "name": "For Ignis",
+        "expr": "[Equipment Effect] AGI +3, DEX +30, PATK +22, MATK +12, Max Jewels +8",
+        "mapeff": " "
+    },
+    "SK_EQ_FF15_GLAD": {
+        "name": "For Gladiolus",
+        "expr": "[Equipment Effect] HP +40, PATK +28, PDEF +20, MDEF +20, Water Res +2",
+        "mapeff": " "
+    },
+    "SK_EQ_FF15_PROM01": {
+        "name": "For Prompto [1]",
+        "expr": "[Equipment Effect] PATK +20, PDEF +12, DEX +12, Jewels Obtained +2, Thunder Res +2",
+        "mapeff": " "
+    },
+    "SK_EQ_FF15_PROM02": {
+        "name": "For Prompto [2]",
+        "expr": "[Equipment Effect] HP +14, PATK +8, DEX +8, MATK +6",
+        "mapeff": " "
+    },
+    "SK_EQ_FF15_PROM03": {
+        "name": "For Prompto [3]",
+        "expr": "[Equipment Effect] AGI +6, MDEF +4, LCK +6, Paralyze Res +1",
+        "mapeff": " "
+    },
+    "SK_EQ_FF15_ARAN": {
+        "name": "For Aranea",
+        "expr": "[Equipment Effect] PATK +30, CRIT +16, PDEF +20, HP +16, MDEF +20",
+        "mapeff": " "
+    },
     "SK_EQ_LAHA_CLOTHES": {
         "name": "Garb to Succeed the Demon King",
         "expr": "[Equipment Effect] PATK +18, AGI +8, CRIT +10, DEX +16, Charm Res +2",
@@ -34720,7 +35657,7 @@
         "mapeff": " "
     },
     "SK_AF_ARMO_TOWER_06": {
-        "name": "Armor of Mystic Thunder",
+        "name": "Armor of Mystic Darkness",
         "expr": "Light Res +20, PDEF +30, MDEF +30, Confuse/Rage Res +50, Petrify Res +50",
         "mapeff": " "
     },
@@ -35297,6 +36234,86 @@
     "SK_AF_ACCS_RING_02_5": {
         "name": "Templar Ring 5★",
         "expr": "PATK +50, Fire Res +15, Dark Res +15",
+        "mapeff": " "
+    },
+    "SK_AF_ARMS_FF15_PROM_01_4": {
+        "name": "Camera 4★",
+        "expr": "Attributes: DEX Up, Hit Rate Up, Missile ATK Up (Added when evolving to 5★)",
+        "mapeff": " "
+    },
+    "SK_AF_ARMS_FF15_PROM_01_5": {
+        "name": "Camera 5★",
+        "expr": "Attributes: DEX Up, Hit Rate Up, Missile ATK Up (Added when evolving to 5★)",
+        "mapeff": " "
+    },
+    "SK_AF_ARMS_FF15_INGI_01_4": {
+        "name": "Zwill Crossblades 4★",
+        "expr": "Attributes: PATK Up, MATK Up, Max Jewels Up (Chance of PATK Up added when evolving to 5★)<br>Enables Master Ability when equipped on Ignis (Inflicts Fire Mag Dmg & Daze on units within target area [Range: 4, Area: Diamond (5), Height Range: 3])",
+        "mapeff": " "
+    },
+    "SK_AF_ARMS_FF15_INGI_01_5": {
+        "name": "Zwill Crossblades 5★",
+        "expr": "Attributes: PATK Up, MATK Up, Max Jewels Up (Chance of PATK Up added when evolving to 5★)<br>Enables Master Ability when equipped on Ignis (Inflicts Fire Mag Dmg & Daze on units within target area [Range: 4, Area: Diamond (5), Height Range: 3])",
+        "mapeff": " "
+    },
+    "SK_AF_ARMS_FF15_INGI_01_5_AS": {
+        "name": "Zwill Crossblades 5★",
+        "expr": "Chance of PATK Up",
+        "mapeff": " "
+    },
+    "SK_AF_ARMS_FF15_GRAD_01_4": {
+        "name": "Hardedge 4★",
+        "expr": "Attributes: HP Up, PATK Up, PDEF Up (Chance of PDEF Down added when evolving to 5★)<br>Enables Master Ability when equipped on Gladiolus (Inflicts Phys Dmg & AGI Down & Stun on units within target area [Range: 3, Area: Lateral (3), Height Range: 3])",
+        "mapeff": " "
+    },
+    "SK_AF_ARMS_FF15_GRAD_01_5": {
+        "name": "Hardedge 5★",
+        "expr": "Attributes: HP Up, PATK Up, PDEF Up (Chance of PDEF Down added when evolving to 5★)<br>Enables Master Ability when equipped on Gladiolus (Inflicts Phys Dmg & AGI Down & Stun on units within target area [Range: 3, Area: Lateral (3), Height Range: 3])",
+        "mapeff": " "
+    },
+    "SK_AF_ARMS_FF15_GRAD_01_5_AS": {
+        "name": "Hardedge 5★",
+        "expr": "Chance of PDEF Down",
+        "mapeff": " "
+    },
+    "SK_AF_ARMO_FF15_SHIELD_04": {
+        "name": "Absorb Shield 4★",
+        "expr": "Attributes: HP Up, PDEF Up, Jewels Obtained Up",
+        "mapeff": " "
+    },
+    "SK_AF_ARMO_FF15_SHIELD_05": {
+        "name": "Absorb Shield 5★",
+        "expr": "Attributes: HP Up, PDEF Up, Jewels Obtained Up",
+        "mapeff": " "
+    },
+    "SK_AF_ARMS_FF15_NOCT_01_4": {
+        "name": "Sword of the Father 4★",
+        "expr": "Attributes: PATK Up, MATK Up",
+        "mapeff": " "
+    },
+    "SK_AF_ARMS_FF15_NOCT_01_5": {
+        "name": "Sword of the Father 5★",
+        "expr": "Attributes: PATK Up, MATK Up, MDEF Up",
+        "mapeff": " "
+    },
+    "SK_AF_ARMS_FF15_NOCT_01_AS": {
+        "name": "Sword of the Father AS",
+        "expr": "Attributes: Chance of Delay (15%)",
+        "mapeff": " "
+    },
+    "SK_AF_ARMS_FF15_ARAN_01_4": {
+        "name": "Stoss Spear 4★",
+        "expr": "Attributes: PATK Up, DEX Up",
+        "mapeff": " "
+    },
+    "SK_AF_ARMS_FF15_ARAN_01_5": {
+        "name": "Stoss Spear 5★",
+        "expr": "Attributes: PATK Up, DEX Up, HP Up",
+        "mapeff": " "
+    },
+    "SK_AF_ARMS_FF15_ARAN_01_AS": {
+        "name": "Stoss Spear AS",
+        "expr": "Attributes: Chance of JUMP +2 (50%)",
         "mapeff": " "
     },
     "SK_AF_ARMS_ARM_03": {
@@ -36357,6 +37374,31 @@
     "SK_YUAN_NIN_MASTER": {
         "name": "Ninja+ (Yuan) Job Master Bonus",
         "expr": " ",
+        "mapeff": " "
+    },
+    "SK_FF15_NOCT_MASTER": {
+        "name": "Job Master Bonus",
+        "expr": "For Noctis",
+        "mapeff": " "
+    },
+    "SK_FF15_INGI_MASTER": {
+        "name": "Job Master Bonus",
+        "expr": "For Ignis",
+        "mapeff": " "
+    },
+    "SK_FF15_GLAD_MASTER": {
+        "name": "Job Master Bonus",
+        "expr": "For Gladiolus",
+        "mapeff": " "
+    },
+    "SK_FF15_PROM_MASTER": {
+        "name": "Job Master Bonus",
+        "expr": "For Prompto",
+        "mapeff": " "
+    },
+    "SK_FF15_ARAN_MASTER": {
+        "name": "Job Master Bonus",
+        "expr": "For Aranea",
         "mapeff": " "
     },
     "SK_DIOS_BAA_2_MASTER": {
@@ -38994,6 +40036,16 @@
         "expr": "Dragon Knight: JLv11",
         "mapeff": " "
     },
+    "SK_FF15_ARAN_JLV11": {
+        "name": "[FFXV] Aranea: Job Lv11 Complete Equipment Set",
+        "expr": "[FFXV] Aranea: Job Lv11 Complete Equipment Set",
+        "mapeff": " "
+    },
+    "SK_FF15_ARAN_JOBMASTER": {
+        "name": "[FFXV] Aranea: Job Master Bonus Set",
+        "expr": "[FFXV] Aranea: Job Master Bonus Set",
+        "mapeff": " "
+    },
     "SK_ACHA_STR_JLV11": {
         "name": "7-Tactic Master (Ahato): Job 11 Complete Equipment Set",
         "expr": "7-Tactic Master (Ahato): Job 11 Complete Equipment Set",
@@ -40156,8 +41208,8 @@
     },
     "SK_ME_MAGIC_CASTLE_SYO": {
         "name": "[Unused: Magic City] Summoner",
-        "expr": "[Map Effect] Charge Time -20%",
-        "mapeff": "<color=cyan>Charge Time -20%</color>"
+        "expr": "[Map Effect] Cast Time -20%",
+        "mapeff": "<color=cyan>Cast Time -20%</color>"
     },
     "SK_ME_MAGIC_CASTLE_SEN": {
         "name": "[Unused: Magic City] Astrologer",
@@ -40171,13 +41223,13 @@
     },
     "SK_ME_MAGIC_CASTLE_LIES1": {
         "name": "[Unused: Magic City] Apprentice Witch",
-        "expr": "[Map Effect] Charge Time -20%",
-        "mapeff": "<color=cyan>Charge Time -20%</color>"
+        "expr": "[Map Effect] Cast Time -20%",
+        "mapeff": "<color=cyan>Cast Time -20%</color>"
     },
     "SK_ME_MAGIC_CASTLE_LIES2": {
         "name": "[Unused: Magic City] Witch",
-        "expr": "[Map Effect] Charge Time -20%, MDEF -20%",
-        "mapeff": "<color=cyan>Charge Time -20%, MDEF -20%</color>"
+        "expr": "[Map Effect] Cast Time -20%, MDEF -20%",
+        "mapeff": "<color=cyan>Cast Time -20%, MDEF -20%</color>"
     },
     "SK_ME_MAGIC_CASTLE_OTHI_WIZ": {
         "name": "[Unused: Magic City] Phantom Master",
@@ -40606,8 +41658,8 @@
     },
     "SK_ME_SNW_SUPPORT_QCAST": {
         "name": "[Map Effect] Snow Plains Support Group + Fast Charge",
-        "expr": "HP +20%, AGI +10%, Charge Time -20%",
-        "mapeff": "<color=cyan>HP +20%, AGI +10%, Charge Time -20%</color>"
+        "expr": "HP +20%, AGI +10%, Cast Time -20%",
+        "mapeff": "<color=cyan>HP +20%, AGI +10%, Cast Time -20%</color>"
     },
     "SK_ME_SNW_WIZARD": {
         "name": "[Map Effect] Snow Plains MATK Group",
@@ -40636,8 +41688,8 @@
     },
     "SK_ME_MAG_WIZARD_QCAST": {
         "name": "[Map Effect] Magic City MATK Group + Fast Charge",
-        "expr": "HP/MATK +20%, Charge Time -20%",
-        "mapeff": "<color=cyan>HP/MATK +20%, Charge Time -20%</color>"
+        "expr": "HP/MATK +20%, Cast Time -20%",
+        "mapeff": "<color=cyan>HP/MATK +20%, Cast Time -20%</color>"
     },
     "SK_ME_MAG_SUPPORT_CT500": {
         "name": "[Map Effect] Magic City Support Group + CT500",
@@ -40646,8 +41698,8 @@
     },
     "SK_ME_MAG_SUPPORT_QCAST": {
         "name": "[Map Effect] Magic City Support Group + Fast Charge",
-        "expr": "HP +20%, AGI +10%, Charge Time -20%",
-        "mapeff": "<color=cyan>HP +20%, AGI +10%, Charge Time -20%</color>"
+        "expr": "HP +20%, AGI +10%, Cast Time -20%",
+        "mapeff": "<color=cyan>HP +20%, AGI +10%, Cast Time -20%</color>"
     },
     "SK_ME_CEM_WARRIOR": {
         "name": "[Map Effect] Graveyard PATK Group",
@@ -41789,6 +42841,11 @@
         "expr": "An apple that raises a unit's Exp (extra-large amount).",
         "flavor": "This apple is said to be imbued with memories of the Land of Shinobi. These memories are inherited by the user, and live on forever inside him or her. It's mechanized, and can move autonomously--caution is advised, as if left unattended it may wander off by itself."
     },
+    "IT_US_FF_CONS_STEW": {
+        "name": "King's Stew",
+        "expr": "Raises PATK & greatly recovers HP",
+        "flavor": "This stew is packed with vegetables and the meat of a ferocious monster. Its seasoning requires careful attention, and it must be constantly stirred in order to stop it from burning, but the end result is well worth it."
+    },
     "IT_US_POTION": {
         "name": "Healing Potion",
         "expr": "Medicine that recovers a unit's HP (small amount).",
@@ -42058,6 +43115,11 @@
         "name": "Acorny Apple",
         "expr": "An apple that raises a unit's Exp (extra-large amount).",
         "flavor": "This apple is said to be imbued with the memories of adventurers who attempted to conquer the Yggdrasil Labyrinth. These memories are inherited by the user, and live on forever inside him or her. It contains the knowledge and wisdom required to complete the maze, and is extremely valuable."
+    },
+    "IT_UG_APPLE_FF15": {
+        "name": "Moogle Apple",
+        "expr": "An apple that raises a unit's Exp (extra-large amount).",
+        "flavor": "This apple is said to be imbued with memories of the tender love that a young girl put into a moogle doll. When taken in hand, the girl's bittersweet love for a certain prince flows forth from it, filling the bearer with a surging power."
     },
     "IT_UG_APPLE_80CP": {
         "name": "[800K Celebration] Cryptic Apple",
@@ -43459,6 +44521,21 @@
         "expr": "Use this ticket to summon one 3★, 4★, 4-5★, or 5★ Rare Summon unit of your choice. (Units released on or before 3/1/2017 only. Includes Sacred Stone units [Cadanova, Kudanstein, Seida, Monzein, Yauras, Zain, Othima, Miuna, and Basheeny], but does not include Templar units [Acht, Vier, Sieba, Neun, and Füry], limited units [Uzuma, Blitz, and Birgitta], or collab units.)",
         "flavor": " "
     },
+    "IT_US_FF15_SOULTICKET": {
+        "name": "[FFXV] Unit Soul Shard Summon Ticket",
+        "expr": "Use this ticket to obtain Soul Shards for one FFXV Collab unit.",
+        "flavor": " "
+    },
+    "IT_US_2017JUNE_COLLABO_TICKET": {
+        "name": "Collaboration Unit Summon Ticket",
+        "expr": "Use this ticket to summon one guaranteed FFXV collab unit.",
+        "flavor": " "
+    },
+    "IT_SU_FF15_TICKET": {
+        "name": "Collab Unit Selector",
+        "expr": "Use this ticket to summon one FFXV Collab unit (Noctis, Ignis, Gladiolus, or Aranea) of your choice.",
+        "flavor": " "
+    },
     "IT_SA_S4_BUGU_TICKET07": {
         "name": "4★ Gear Selector",
         "expr": "Use this ticket to summon one 4★ piece of gear.",
@@ -43467,6 +44544,41 @@
     "IT_SI_2017_JUNE_PI_TICKET": {
         "name": "[Jun] Soul Shards Selector",
         "expr": "Use this ticket to summon 50 Soul Shards for one 3★, 4★, 4-5★, or 5★ Rare Summon unit of your choice. (Units released on or before 6/1 only. Includes Sacred Stone Memories and limited-time units [Balt, Mielikki, Eve, Fraise, and Lucretia], but does not include collab units.)",
+        "flavor": " "
+    },
+    "IT_US_FF15_SOULTICKET_25": {
+        "name": "[FFXV] Unit Soul Shard 25-Summon Ticket",
+        "expr": "Use this ticket to obtain 25 Soul Shards for one FFXV Collab unit.",
+        "flavor": " "
+    },
+    "IT_US_FF15_SOULTICKET_50": {
+        "name": "[FFXV] Unit Soul Shard 50-Summon Ticket",
+        "expr": "Use this ticket to obtain 50 Soul Shards for one FFXV Collab unit.",
+        "flavor": " "
+    },
+    "IT_US_FF15_PICKUP_TICKET": {
+        "name": "[FFXV] Featured Unit Summon Ticket",
+        "expr": "Use this ticket to use a Summon featuring FFXV Collab units.",
+        "flavor": " "
+    },
+    "IT_US_FF15_PICKUP_10PERTICKET": {
+        "name": "[FFXV] Unit 10% Summon Ticket",
+        "expr": "Use this ticket to summon either one FFXV Collab unit (10% chance) or a 3-5★, 4★, or 4-5★ unit.",
+        "flavor": " "
+    },
+    "IT_US_FF15_SOULTICKET_10-30": {
+        "name": "[Max 30x] [FFXV] Soul Shard Summon Ticket",
+        "expr": "Use this ticket for a chance to obtain 10-30 Soul Shards for one FFXV Collab unit.",
+        "flavor": " "
+    },
+    "IT_US_FF15_SOULTICKET_20-40": {
+        "name": "[Max 40x] [FFXV] Soul Shard Summon Ticket",
+        "expr": "Use this ticket for a chance to obtain 20-40 Soul Shards for one FFXV Collab unit.",
+        "flavor": " "
+    },
+    "IT_US_FF15_SOULTICKET_30-50SP": {
+        "name": "[FFXV] Soul Shard Special Summon Ticket",
+        "expr": "Use this ticket for a chance to obtain 30-50 Soul Shards for one FFXV Collab unit, or Rainbow Soul Shards.",
         "flavor": " "
     },
     "IT_US_SOULTICKET_25": {
@@ -43527,6 +44639,11 @@
     "IT_US_2017_CM_RARE5EV_TICKET": {
         "name": "5★ Potential Unit Summon Ticket",
         "expr": "Use this ticket to summon one guaranteed 5★ Rare Summon unit or 4-5★ unit. (Units released on or before 6/1 only.)",
+        "flavor": " "
+    },
+    "IT_SI_2017_FF15_PI_TICKET": {
+        "name": "Collab Unit Soul Shard Selector",
+        "expr": "Use this ticket to summon 50 Soul Shards for the FFXV Collab unit of your choice (Noctis, Ignis, Gladiolus, or Aranea.)",
         "flavor": " "
     },
     "IT_SI_SEISEKI_2017_JUNE_PI_TICKET": {
@@ -45559,6 +46676,41 @@
         "expr": "[Strie/Assassin+-Only Equipment] CRIT +36, MATK +16, AGI +4, Petrify Res +7, Stun Res +10",
         "flavor": "The jewels worn by Strie. Everything she wears is elegant, extravagant, and expensive. To Strie they signify her chasing her dream as a gambler, and they're worth far more to her than their monetary value."
     },
+    "IT_EQ_FF15_NOCT": {
+        "name": "Noctis's Fatigues",
+        "expr": "[Noctis/Prince of Lucis-Only Equipment] PATK +30, AGI +6, Jewels Obtained +2, PDEF +18, HP +10, Petrify Res +8, Stop Res +8, Silence Res +8",
+        "flavor": "The combat gear worn by Noctis. Not only is it functional and easy to move around in, it's also stylish. All official Lucian attire is black, and this outfit--designed especially for Noctis--is no exception."
+    },
+    "IT_EQ_FF15_INGI": {
+        "name": "Ignis's Fatigues",
+        "expr": "[Ignis/Prince's Advisor-Only Equipment] AGI +3, DEX +30, PATK +22, MATK +12, Max Jewels +8, Charm Res +8, Sleep Res +8, Slow Res +8",
+        "flavor": "The Crownsguard combat gear worn by Ignis. The color black has special significance in the Kingdom of Lucis, and is the color of all official Crownsguard attire. Although designed for combat, this outfit is quite formal, featuring a tuxedo-style jacket and pants with side stripes."
+    },
+    "IT_EQ_FF15_GLAD": {
+        "name": "Gladiolus's Fatigues",
+        "expr": "[Gladiolus/Prince's Protector-Only Equipment] HP +40, PATK +28, PDEF +20, MDEF +20, Water Res +2, Charm Res +8, Sleep Res +8, Slow Res +8",
+        "flavor": "The Crownsguard combat gear worn by Gladiolus. The color black has special significance in the Kingdom of Lucis, and is the color of all official Crownsguard attire. Gladiolus' outfit is tough-looking and leather-centric, and all black."
+    },
+    "IT_EQ_FF15_PROM01": {
+        "name": "Prompto's Fatigues",
+        "expr": "[Prompto/Prince's Best Friend-Only Equipment] PATK +20, PDEF +12, DEX +12, Jewels Obtained +2, Thunder Res +2, Paralyze Res +8, Daze Res +8, Bind Res +8",
+        "flavor": "The Crownsguard combat gear worn by Prompto. The color black has special significance in the Kingdom of Lucis, and is the color of all official Crownsguard attire. Prompto's outfit has a real street-fashion vibe to it, with a sleeveless vest and leopard-print pants."
+    },
+    "IT_EQ_FF15_PROM02": {
+        "name": "Prompto's Gloves",
+        "expr": "[Prompto/Prince's Best Friend-Only Equipment] HP +14, PATK +8, DEX +8, MATK +6",
+        "flavor": "The fingerless leather gloves worn by Prompto. They're perfect for keeping a tight grip on his camera, as well as for wielding weapons. What's more, they help accentuate the hand signs he makes for photos..."
+    },
+    "IT_EQ_FF15_PROM03": {
+        "name": "Prompto's Bandana",
+        "expr": "[Prompto/Prince's Best Friend-Only Equipment] AGI +6, MDEF +4, LCK +6, Paralyze Res +5",
+        "flavor": "The bandana that Prompto wears wrapped around his right arm. It's black, to match the rest of his outfit, and is worn more as a fashion accessory than for defensive purposes."
+    },
+    "IT_EQ_FF15_ARAN": {
+        "name": "Aranea's Helmet",
+        "expr": "[Aranea/Imperial Commodore-Only Equipment] PATK +30, CRIT +16, PDEF +20, HP +16, MDEF +20, Charm Res +8, Sleep Res +8, Slow Res +8",
+        "flavor": "The helmet worn in combat by Imperial Commodore Aranea Highwind. Despite being a helmet, it serves more to protect the face than the top of the head, with a sharp, iron grille-like front."
+    },
     "IT_EQ_DIOS_SWORD": {
         "name": "Desire Blade",
         "expr": "[Dias/Dark Cavalier+-Only Equipment] PATK +19, MATK +16, AGI +3, CRIT +16, Petrify Res +7, Charm Res +8, Sleep Res +8, Slow Res +8",
@@ -46247,6 +47399,16 @@
     "IT_EQ_PIECE_PRIN3_BOMB": {
         "name": "Prinny Bomb Piece",
         "expr": "Collect 60 of these to create: Prinny Bomb",
+        "flavor": " "
+    },
+    "IT_EQ_PIECE_FF15_PROM03": {
+        "name": "Prompto's Bandana Piece",
+        "expr": "Collect 10 of these to create: Prompto's Bandana",
+        "flavor": " "
+    },
+    "IT_EQ_PIECE_FF15_PROM02": {
+        "name": "Prompto's Gloves Piece",
+        "expr": "Collect 20 of these to create: Prompto's Gloves",
         "flavor": " "
     },
     "IT_EQ_PIECE_COMMON": {
@@ -47432,6 +48594,31 @@
     "IT_EQ_DIAGRAM_SUTO_ACCE": {
         "name": "Guilty Jewels Diagram",
         "expr": "Required in order to create: Guilty Jewels",
+        "flavor": " "
+    },
+    "IT_EQ_DIAGRAM_FF15_NOCT": {
+        "name": "Noctis's Fatigues Diagram",
+        "expr": "Required in order to create: Noctis's Fatigues",
+        "flavor": " "
+    },
+    "IT_EQ_DIAGRAM_FF15_INGI": {
+        "name": "Ignis's Fatigues Diagram",
+        "expr": "Required in order to create: Ignis's Fatigues",
+        "flavor": " "
+    },
+    "IT_EQ_DIAGRAM_FF15_GLAD": {
+        "name": "Gladiolus's Fatigues Diagram",
+        "expr": "Required in order to create: Gladiolus's Fatigues",
+        "flavor": " "
+    },
+    "IT_EQ_DIAGRAM_FF15_PROM01": {
+        "name": "Prompto's Fatigues Diagram",
+        "expr": "Required in order to create: Prompto's Fatigues",
+        "flavor": " "
+    },
+    "IT_EQ_DIAGRAM_FF15_ARAN": {
+        "name": "Aranea's Helmet Diagram",
+        "expr": "Required in order to create: Aranea's Helmet",
         "flavor": " "
     },
     "IT_EQ_DIAGRAM_DIOS_SWORD": {
@@ -48944,6 +50131,31 @@
         "expr": "Collect 80 of these to create: Guilty Jewels Diagram",
         "flavor": " "
     },
+    "IT_EQ_DIAGRAMPIECE_FF15_NOCT": {
+        "name": "Noctis's Fatigues Diagram Piece",
+        "expr": "Collect 80 of these to create: Noctis's Fatigues Diagram",
+        "flavor": " "
+    },
+    "IT_EQ_DIAGRAMPIECE_FF15_INGI": {
+        "name": "Ignis's Fatigues Diagram Piece",
+        "expr": "Collect 80 of these to create: Ignis's Fatigues Diagram",
+        "flavor": " "
+    },
+    "IT_EQ_DIAGRAMPIECE_FF15_GLAD": {
+        "name": "Gladiolus's Fatigues Diagram Piece",
+        "expr": "Collect 80 of these to create: Gladiolus's Fatigues Diagram",
+        "flavor": " "
+    },
+    "IT_EQ_DIAGRAMPIECE_FF15_PROM01": {
+        "name": "Prompto's Fatigues Diagram Piece",
+        "expr": "Collect 80 of these to create: Prompto's Fatigues Diagram",
+        "flavor": " "
+    },
+    "IT_EQ_DIAGRAMPIECE_FF15_ARAN": {
+        "name": "Aranea's Helmet Diagram Piece",
+        "expr": "Collect 80 of these to create: Aranea's Helmet Diagram",
+        "flavor": " "
+    },
     "IT_EQ_DIAGRAMPIECE_DIOS_SWORD": {
         "name": "Desire Blade Diagram Piece",
         "expr": "Collect 80 of these to create: Desire Blade Diagram",
@@ -49894,6 +51106,11 @@
         "expr": "Required in order for Dias to change to the \"Dark Cavalier+\" job type",
         "flavor": " "
     },
+    "IT_EQ_SOUL_FF15_PROM": {
+        "name": "Prince's Best Friend Token",
+        "expr": "Required in order for Prompto to change to the \"Prince's Best Friend\" job type",
+        "flavor": " "
+    },
     "IT_EQ_SOUL_ACHA_STR": {
         "name": "7 Tactics Master Token",
         "expr": "Required in order to change to the \"Seven Tactics Master\" job type",
@@ -50794,6 +52011,31 @@
         "expr": "Required for Limit Breaks. If you collect enough Soul Shards, you can also transmute the corresponding unit.",
         "flavor": " "
     },
+    "IT_PI_FF15_NOCTIS": {
+        "name": "Noctis Soul Shard",
+        "expr": "Required for Limit Breaks. If you collect enough Soul Shards, you can also transmute the corresponding unit.",
+        "flavor": " "
+    },
+    "IT_PI_FF15_IGNIS": {
+        "name": "Ignis Soul Shard",
+        "expr": "Required for Limit Breaks. If you collect enough Soul Shards, you can also transmute the corresponding unit.",
+        "flavor": " "
+    },
+    "IT_PI_FF15_GLADIOLUS": {
+        "name": "Gladiolus Soul Shard",
+        "expr": "Required for Limit Breaks. If you collect enough Soul Shards, you can also transmute the corresponding unit.",
+        "flavor": " "
+    },
+    "IT_PI_FF15_PROMPUTO": {
+        "name": "Prompto Soul Shard",
+        "expr": "Required for Limit Breaks. If you collect enough Soul Shards, you can also transmute the corresponding unit.",
+        "flavor": " "
+    },
+    "IT_PI_FF15_ARANEA": {
+        "name": "Aranea Soul Shard",
+        "expr": "Required for Limit Breaks. If you collect enough Soul Shards, you can also transmute the corresponding unit.",
+        "flavor": " "
+    },
     "IT_PI_KLIMA": {
         "name": "Klima Soul Shard",
         "expr": "Required for Limit Breaks. If you collect enough Soul Shards, you can also transmute the corresponding unit.",
@@ -51225,7 +52467,7 @@
         "flavor": "A dish that has been around in Arcadia for a very long time. When it reached Babel, it started to be made with Alchemia-rich eggs, and proved a big hit for its nutritious qualities. It's also a favorite meal of Fencers."
     },
     "IT_EV_PROMPUTO": {
-        "name": "Choco Doll",
+        "name": "Chocobo Doll",
         "expr": "Can be used to evolve Prompto",
         "flavor": "A plush chocobo that was sold at a carnival. Prompto loves chocobos, and he immediately took a photo when he saw one on display. Apparently a photo alone wasn't enough, though, and he quickly headed to buy one."
     },
@@ -51645,8 +52887,8 @@
         "flavor": " "
     },
     "IT_AF_ARMO_TOWER_06": {
-        "name": "Armor of Mystic Thunder Shard",
-        "expr": "Collect 777 of these to create: Armor of Mystic Thunder",
+        "name": "Armor of Mystic Darkness Shard",
+        "expr": "Collect 777 of these to create: Armor of Mystic Darkness",
         "flavor": " "
     },
     "IT_AF_ARMO_TOWER_07": {
@@ -51947,6 +53189,36 @@
     "IT_AF_ACCS_RING_02": {
         "name": "Ring Guard - Black Flames Shard",
         "expr": "Collect 150 of these to create: Ring Guard - Black Flames",
+        "flavor": " "
+    },
+    "IT_AF_ARMS_FF15_PROM_01": {
+        "name": "Camera Shard",
+        "expr": "Collect 150 of these to create: Camera",
+        "flavor": " "
+    },
+    "IT_AF_ARMS_FF15_NOCT_01": {
+        "name": "Sword of the Father Shard",
+        "expr": "Collect 80 of these to create: Sword of the Father",
+        "flavor": " "
+    },
+    "IT_AF_ARMS_FF15_INGI_01": {
+        "name": "Zwill Crossblades Shard",
+        "expr": "Collect 80 of these to create: Zwill Crossblades",
+        "flavor": " "
+    },
+    "IT_AF_ARMS_FF15_GLAD_01": {
+        "name": "Hardedge Shard",
+        "expr": "Collect 80 of these to create: Hardedge",
+        "flavor": " "
+    },
+    "IT_AF_ARMS_FF15_ARAN_01": {
+        "name": "Stoss Spear Shard",
+        "expr": "Collect 80 of these to create: Stoss Spear",
+        "flavor": " "
+    },
+    "IT_AF_ARMO_FF15_SHIELD": {
+        "name": "Absorb Shield Shard",
+        "expr": "Collect 150 of these to create: Absorb Shield",
         "flavor": " "
     },
     "IT_AF_ARMS_ARM_03": {
@@ -52407,6 +53679,11 @@
     "IT_SK_ASUW_MARR": {
         "name": "Aswald Wedding Skin",
         "expr": "This skin is only for use with the unit Aswald. In order to use it, you must own the unit.",
+        "flavor": " "
+    },
+    "IT_SK_FF15_ARAN_UNIQUE": {
+        "name": "Aranea Character Skin",
+        "expr": "This skin is only for use with the unit Aranea. In order to use it, you must own the unit.",
         "flavor": " "
     },
     "IT_SK_TAMAMO_MARR": {
@@ -54294,6 +55571,31 @@
         "expr": "[Collaboration Celebration] This great value set contains loads of items needed to enhance units.",
         "flavor": " "
     },
+    "IT_SET_FATE_GENTEI_01": {
+        "name": "Collaboration Limited Set",
+        "expr": "[Collaboration Celebration] This limited edition set contains 10 of each of the collaboration items.",
+        "flavor": " "
+    },
+    "IT_SET_FATE_GENTEI_02": {
+        "name": "Collaboration Lion Set [EX]",
+        "expr": "[Collaboration Celebration] This set contains 10 of the two main pieces of equipment that are required at high Job Levels.",
+        "flavor": " "
+    },
+    "IT_SET_FATE_GENTEI_03": {
+        "name": "Collaboration Mage Set [EX]",
+        "expr": "[Collaboration Celebration] This set contains 10 of the two main pieces of equipment that are required at high Job Levels. (For Magic-related jobs.)",
+        "flavor": " "
+    },
+    "IT_SET_FATE_GENTEI_04": {
+        "name": "[FFXV] PATK Set SP",
+        "expr": "[FFXV Collab] This set contains rare equipment that is required for physical attack jobs.<br>",
+        "flavor": " "
+    },
+    "IT_SET_FATE_GENTEI_05": {
+        "name": "[FFXV] MATK Set SP",
+        "expr": "[FFXV Collab] This set contains rare equipment that is required for magical attack jobs.<br>",
+        "flavor": " "
+    },
     "IT_SET_SABER_01": {
         "name": "Saber Specific Equipment Set",
         "expr": "This set contains rare equipment required for the unit Saber. (Jobs: Saber, Holy Knight, and Valkyrie)",
@@ -54656,12 +55958,12 @@
     },
     "IT_SET_SHISHI_1ST_SP": {
         "name": "1st Anniversary Lion Set Sp",
-        "expr": "[1st Anniversary Campaign] This set contains 5 of the two main pieces of equipment that are required at high Job Levels.",
+        "expr": "[1st Anniversary Campaign] This set contains 5 each of the two main pieces of equipment that are required at high Job Levels.",
         "flavor": " "
     },
     "IT_SET_MADOU_1ST_SP": {
         "name": "1st Anniversary Mage Set Sp",
-        "expr": "[1st Anniversary Campaign] This set contains 5 of the two main pieces of equipment that are required at high Job Levels. (For Magic-related jobs.)",
+        "expr": "[1st Anniversary Campaign] This set contains 5 each of the two main pieces of equipment that are required at high Job Levels. (For Magic-related jobs.)",
         "flavor": " "
     },
     "IT_SET_1ST_BUKKOU_01": {
@@ -54931,12 +56233,12 @@
     },
     "IT_SET_SHISHI_150_SP": {
         "name": "Weakened Limited Lion Set Sp",
-        "expr": "[Weekend Limited] This set contains 5 of the two main pieces of equipment that are required at high Job Levels. Special weekend-only price!",
+        "expr": "[Weekend Limited] This set contains 5 each of the two main pieces of equipment that are required at high Job Levels. Special weekend-only price!",
         "flavor": " "
     },
     "IT_SET_MADOU_150_SP": {
         "name": "Weekend Limited Mage Set Sp",
-        "expr": "[Weekend Limited] This set contains 5 of the two main pieces of equipment that are required at high Job Levels. (For Magic-related jobs.) Special weekend-only price!",
+        "expr": "[Weekend Limited] This set contains 5 each of the two main pieces of equipment that are required at high Job Levels. (For Magic-related jobs.) Special weekend-only price!",
         "flavor": " "
     },
     "IT_SET_SA_2017_MAR_BUGU_TICKET": {
@@ -55481,12 +56783,12 @@
     },
     "IT_SET_SHISHI_160_SP": {
         "name": "1.6 Million Downloads Celebration Lion Set Sp",
-        "expr": "[1.6 Million Downloads Celebration] This set contains 5 of the two main pieces of equipment that are required at high Job Levels.",
+        "expr": "[1.6 Million Downloads Celebration] This set contains 5 each of the two main pieces of equipment that are required at high Job Levels.",
         "flavor": " "
     },
     "IT_SET_MADOU_160_SP": {
         "name": "1.6 Million Downloads Celebration Mage Set Sp",
-        "expr": "[1.6 Million Downloads Celebration] This set contains 5 of the two main pieces of equipment that are required at high Job Levels. (For Magic-related jobs.)",
+        "expr": "[1.6 Million Downloads Celebration] This set contains 5 each of the two main pieces of equipment that are required at high Job Levels. (For Magic-related jobs.)",
         "flavor": " "
     },
     "IT_SET_160_H_01": {
@@ -55539,6 +56841,31 @@
         "expr": "Use this ticket to summon 5 Soul Shards for one 5★ Water unit (Othima, Yauras, Ravina, Yunagi, Mikoto, Sophia, Shayna, Shenmei, Elizabeth, or Fung Liu) of your choice. Can be purchased using Paid Gems. (Once purchased, the ticket will be shown in your Gifts. When you claim the gift, you will be taken to the unit selection screen.)",
         "flavor": " "
     },
+    "IT_SET_FF15_NOCT_01": {
+        "name": "Noctis Equipment Set",
+        "expr": "This set contains rare equipment required for the collab unit Noctis. (Jobs: Prince of Lucis, Magic Swordsman, and Battle Mage)",
+        "flavor": " "
+    },
+    "IT_SET_FF15_NOCT_J": {
+        "name": "Prince of Lucis Rare Equipment",
+        "expr": "This set contains equipment required for the Noctis-only job Prince of Lucis.",
+        "flavor": " "
+    },
+    "IT_SET_APPLE_FF15_01": {
+        "name": "Moogle Apple x20",
+        "expr": "This set contains 20 valuable Moogle Apples, which can be used to greatly raise Unit Level. Can be purchased using Zeni.",
+        "flavor": " "
+    },
+    "IT_SET_FF15_STARTER_01": {
+        "name": "Alchemist Code Starter Set",
+        "expr": "[Collaboration Celebration] This special set is very helpful when you're starting out. Contains units and evolution/enhancement items to help you on your way!",
+        "flavor": " "
+    },
+    "IT_SET_FF15_BOOSTER_01": {
+        "name": "FFXV Collab Booster Set",
+        "expr": "[Collaboration Celebration] This great value set contains loads of items needed to enhance units.",
+        "flavor": " "
+    },
     "IT_SET_RENSEI_A_CMCP": {
         "name": "CM Celebration PATK Transmute Set",
         "expr": "[TV Ad & Collab Celebration] This set contains items required when transmuting job-specific equipment. Special price to celebrate the TV ad and collaborations!",
@@ -55552,6 +56879,36 @@
     "IT_SET_SOUL_HWIZ": {
         "name": "Battle Mage Token x6",
         "expr": "This set contains all six of the tokens needed in order to unlock the Battle Mage job.",
+        "flavor": " "
+    },
+    "IT_SET_FF15_INGI_01": {
+        "name": "Ignis Equipment Set",
+        "expr": "This set contains rare equipment required for the collab unit Ignis. (Jobs: Prince's Advisor, Crafter, and Assassin)",
+        "flavor": " "
+    },
+    "IT_SET_FF15_INGI_J": {
+        "name": "Prince's Advisor Rare Equipment Set",
+        "expr": "This set contains equipment required for the Ignis-only job Prince's Advisor.",
+        "flavor": " "
+    },
+    "IT_SET_FF15_GLAD_01": {
+        "name": "Gladiolus Equipment Set",
+        "expr": "This set contains rare equipment required for the collab unit Gladiolus. (Jobs: Prince's Protector, Martial Artist, and Holy Cavalier)",
+        "flavor": " "
+    },
+    "IT_SET_FF15_GLAD_J": {
+        "name": "Prince's Protector Rare Equipment Set",
+        "expr": "This set contains equipment required for the Gladiolus-only job Prince's Protector.",
+        "flavor": " "
+    },
+    "IT_SET_FF15_ARAN_01": {
+        "name": "Aranea Equipment Set",
+        "expr": "This set contains rare equipment required for the collab unit Aranea. (Jobs: Imperial Commodore, Twin-Blade Swordsman, and Dark Cavalier)",
+        "flavor": " "
+    },
+    "IT_SET_FF15_ARAN_J": {
+        "name": "Imperial Commodore Rare Equipment Set",
+        "expr": "This set contains equipment required for the Aranea-only job Imperial Commodore.",
         "flavor": " "
     },
     "IT_SET_KLIM_01": {
@@ -55591,12 +56948,12 @@
     },
     "IT_SET_SHISHI_CM_SP": {
         "name": "CM Celebration Lion Set Sp",
-        "expr": "[TV Ad & Collab Celebration] This set contains 5 of the two main pieces of equipment that are required at high Job Levels.",
+        "expr": "[TV Ad & Collab Celebration] This set contains 5 each of the two main pieces of equipment that are required at high Job Levels.",
         "flavor": " "
     },
     "IT_SET_MADOU_CM_SP": {
         "name": "CM Celebration Mage Set Sp",
-        "expr": "[TV Ad & Collab Celebration] This set contains 5 of the two main pieces of equipment that are required at high Job Levels. (For Magic-related jobs.)",
+        "expr": "[TV Ad & Collab Celebration] This set contains 5 each of the two main pieces of equipment that are required at high Job Levels. (For Magic-related jobs.)",
         "flavor": " "
     },
     "IT_SET_BOX_01": {
@@ -55622,6 +56979,11 @@
     "IT_SET_BOX_BIGGINER": {
         "name": "TV Ad Celebration Beginner Box",
         "expr": "[TV Ad & Collab Celebration] Pick this up first! This excellent-value set is packed with items that can be used to enhance low-level units. Can be purchased using Zeni.",
+        "flavor": " "
+    },
+    "IT_SET_2017_FF15_PI_TICKET": {
+        "name": "Collab Unit Soul Shard Selector",
+        "expr": "This ticket can be used to summon 50 Soul Shards for one FFXV Collab unit of your choice (Noctis, Ignis, Gladiolus, or Aranea.) Can be purchased using Paid Gems. (Once purchased, the ticket will be shown in your Gifts. Please note that the ticket will NOT be shown in the list of tickets on the Summon page.)",
         "flavor": " "
     },
     "IT_SET_SOUL_SYO": {
@@ -56221,12 +57583,12 @@
     },
     "IT_SET_SHISHI_KINEN_SP": {
         "name": "Sacred Stone Side-Story Celebration! Lion Set SP",
-        "expr": "[Sacred Stone Memories Side-Story: Hourglass of Life and Death Celebration] This set contains 5 of the two main pieces of equipment that are required at high Job Levels.",
+        "expr": "[Sacred Stone Memories Side-Story: Hourglass of Life and Death Celebration] This set contains 5 each of the two main pieces of equipment that are required at high Job Levels.",
         "flavor": " "
     },
     "IT_SET_MADOU_KINEN_SP": {
         "name": "Sacred Stone Side-Story Celebration! Mage Set SP",
-        "expr": "[Sacred Stone Memories Side-Story: Hourglass of Life and Death Celebration] This set contains 5 of the two main pieces of equipment that are required at high Job Levels. (For Magic-related jobs.)",
+        "expr": "[Sacred Stone Memories Side-Story: Hourglass of Life and Death Celebration] This set contains 5 each of the two main pieces of equipment that are required at high Job Levels. (For Magic-related jobs.)",
         "flavor": " "
     },
     "IT_SET_IT_UG_APPLE5_KINEN": {
@@ -56381,12 +57743,12 @@
     },
     "IT_SET_SHISHI_SP_2017_1026": {
         "name": "Update Celebration Lion Set SP",
-        "expr": "[Update Celebration] This set contains 5 of the two main pieces of equipment that are required at high Job Levels.",
+        "expr": "[Update Celebration] This set contains 5 each of the two main pieces of equipment that are required at high Job Levels.",
         "flavor": " "
     },
     "IT_SET_MADOU_SP_2017_1026": {
         "name": "Update Celebration Mage Set SP",
-        "expr": "[Update Celebration] This set contains 5 of the two main pieces of equipment that are required at high Job Levels. (For Magic-related jobs.)",
+        "expr": "[Update Celebration] This set contains 5 each of the two main pieces of equipment that are required at high Job Levels. (For Magic-related jobs.)",
         "flavor": " "
     },
     "IT_SET_SOUBI_SP_2017_1026": {
@@ -58739,6 +60101,26 @@
         "expr": " ",
         "flavor": "A coin that can be obtained in VS Battles"
     },
+    "IT_US_GL_4PLUS_10EQ_TICKET_B14": {
+        "name": "4+★ Equipment 10-Summon Ticket",
+        "expr": "Use this ticket to summon ten 4+★ equipment items.",
+        "flavor": " "
+    },
+    "IT_SI_GL_5STAR_25SOUL_TICKET_FF15a": {
+        "name": "[FFXV] Featured 5★ 25-Soul Shard Selector",
+        "expr": "Use this ticket to summon 25 5★ Soul Shards of your choice from Final Fantasy XV. (Noctis/Ignis)",
+        "flavor": " "
+    },
+    "IT_US_GL_5STAR_10PER_TICKET_FF15a": {
+        "name": "[FFXV] Featured Collaboration Unit 10% Summon Ticket",
+        "expr": "Use this ticket to summon a unit with a 10% chance of it being a Final Fantasy XV collaboration unit. (Noctis/Ignis)",
+        "flavor": " "
+    },
+    "IT_SU_GL_5STAR_UNIT_TICKET_EARLYBIRD": {
+        "name": "[Commencement Bundle] 5★ Unit Selector",
+        "expr": "Use this ticket to summon the 5★ unit of your choice from a fixed pool of units. (Shayna/Suzuka/Albea/Teona/Lupinus/Balt)",
+        "flavor": " "
+    },
     "IT_US_GL_RARE_10UNIT_TICKET_Default": {
         "name": "Rare Unit 10-Summon Ticket",
         "expr": "Use this ticket to summon ten 3-5★ units.",
@@ -59654,6 +61036,61 @@
         "expr": "Exchange this coin for fabulous items in the Global v2.0 Celebration Coin Exchange Shop.",
         "flavor": "Welcome to THE ALCHEMIST CODE Version 2.0!"
     },
+    "IT_EVENT_GL_LUCKYPENNY_JULY": {
+        "name": "Lucky Penny",
+        "expr": "Use this coin to exchange for items in the Lucky Penny Exchange Shop.",
+        "flavor": "A coin that can be obtained from July's Login Bonus and Mission Rewards."
+    },
+    "IT_EVENT_GL_LUCKYDIME_JULY": {
+        "name": "Lucky Dime",
+        "expr": "Use this coin to exchange for items in the Lucky Dime Exchange Shop.",
+        "flavor": "A coin that can be obtained from some summon bonuses in July."
+    },
+    "IT_SET_GL_SHISHI_01": {
+        "name": "Lion Set",
+        "expr": "This set contains 5 each of the two main pieces of equipment that are required at high Job Levels.",
+        "flavor": " "
+    },
+    "IT_SET_GL_MADOU_01": {
+        "name": "Mage Set",
+        "expr": "This set contains 5 each of the two main pieces of equipment that are required at high Job Levels. (For Magic-related jobs.)",
+        "flavor": " "
+    },
+    "IT_SET_GL_APPLE5_01": {
+        "name": "Crystal Apple x20",
+        "expr": "This set contains 20 very rare Crystal Apples.",
+        "flavor": " "
+    },
+    "IT_SET_GL_COLLAB_BOOSTER_01": {
+        "name": "[Collaboration Celebration] Booster Set",
+        "expr": "[Collaboration Celebration] This great value set contains loads of items needed to enhance units.",
+        "flavor": " "
+    },
+    "IT_US_GL_5STAR_UNIT_TICKET_FF15_NOCTIS": {
+        "name": "[FFXV] Noctis Summon Ticket",
+        "expr": "Use this ticket to summon Noctis from Final Fantasy XV.",
+        "flavor": " "
+    },
+    "IT_US_GL_5STAR_UNIT_TICKET_FF15_IGNIS": {
+        "name": "[FFXV] Ignis Summon Ticket",
+        "expr": "Use this ticket to summon Ignis from Final Fantasy XV.",
+        "flavor": " "
+    },
+    "IT_US_GL_5STAR_UNIT_TICKET_FF15": {
+        "name": "[FFXV] 5★ Unit Summon Ticket",
+        "expr": "Use this ticket to summon a 5★ unit from Final Fantasy XV.",
+        "flavor": " "
+    },
+    "IT_US_GL_5STAR_10SOUL_TICKET_SS5": {
+        "name": "[Sacred Stone Memories] 5★ Soul Shard 10-Summon Ticket",
+        "expr": "Use this Ticket to obtain 10 5★ Unit Soul Shards from Sacred Stone Memories. (Yauras/Zain/Kudanstein/Cadanova)",
+        "flavor": " "
+    },
+    "IT_US_GL_5STAR_UNIT_TICKET_B14SS5": {
+        "name": "5★ Unit Summon Ticket",
+        "expr": "Use this ticket to summon one 5★ unit.",
+        "flavor": " "
+    },
     "AF_EMPTY": {
         "name": "[Default Gear] No Equipment",
         "expr": " ",
@@ -60308,6 +61745,42 @@
         "spec": " ",
         "flavor": " "
     },
+    "AF_FF15_NOCT": {
+        "name": "[Default Gear] [FFXV] Noctis",
+        "expr": " ",
+        "spec": " ",
+        "flavor": " "
+    },
+    "AF_FF15_INGI": {
+        "name": "[Default Gear] [FFXV] Ignis",
+        "expr": " ",
+        "spec": " ",
+        "flavor": " "
+    },
+    "AF_FF15_GLAD": {
+        "name": "[Default Gear] [FFXV] Gladiolus",
+        "expr": " ",
+        "spec": " ",
+        "flavor": " "
+    },
+    "AF_FF15_PROM": {
+        "name": "[Default Gear] [FFXV] Prompto",
+        "expr": " ",
+        "spec": " ",
+        "flavor": " "
+    },
+    "AF_FF15_ARAN": {
+        "name": "[Default Gear] [FFXV] Aranea",
+        "expr": " ",
+        "spec": " ",
+        "flavor": " "
+    },
+    "AF_FF15_MAG_SOL": {
+        "name": "[Default Gear] [FFXV] Noctis",
+        "expr": " ",
+        "spec": " ",
+        "flavor": " "
+    },
     "AF_ACHA_SGUARD": {
         "name": "[Default Gear] Exclusive: (Ahato)",
         "expr": " ",
@@ -60951,7 +62424,7 @@
         "flavor": "This suit of armor is cloaked in mystery, and can only be obtained by those who have conquered Mystic Tower Veda. It is made from the same material as the tower, and has also been imbued with Light energy. Also boosts resistance against Dark attacks."
     },
     "AF_ARMO_TOWER_06": {
-        "name": "Armor of Mystic Thunder",
+        "name": "Armor of Mystic Darkness",
         "expr": "Attributes: HP Up, Light Res Up, PDEF Up, MDEF Up, Confuse/Rage Res Up, Petrify Res Up",
         "spec": "Equippable on Dark Units",
         "flavor": "This suit of armor is cloaked in mystery, and can only be obtained by those who have conquered Mystic Tower Veda. It is made from the same material as the tower, and has also been imbued with Dark energy. Also boosts resistance against Light attacks."
@@ -61102,7 +62575,7 @@
     },
     "AF_ACCS_TOSAKA_PENDANT": {
         "name": "Tohsaka's Pendant",
-        "expr": "Attributes: HP Up, MATK Up, Water Res Up, Chance of inflicting Sleep<br>  3★ to 5★ Enables Master Ability when equipped on Rin Tohsaka when her job type is \"Jewel Magician\" (Inflicts Fire Mag Dmg & Stop & raises own MATK for three turns [Range: 5, Height Range: 3])",
+        "expr": "Attributes: HP Up, MATK Up, Water Res Up, Chance of inflicting Sleep <br> 3★ to 5★ Enables Master Ability when equipped on Rin Tohsaka when her job type is \"Jewel Magician\" (Inflicts Fire Mag Dmg & Stop & raises own MATK for three turns [Range: 5, Height Range: 3])",
         "spec": "No requirements to equip",
         "flavor": "This pendant is set with a gemstone that was left to Rin by her father. It glows a deep crimson, and is imbued with the magical energy of the successive heads of the Tohsaka family. When equipped by Rin Tohsaka, who is able to use all five of the Great Elements, it can be used to unleash even greater flame energy."
     },
@@ -61345,6 +62818,42 @@
         "expr": "Attributes: HP Up, PATK Up, Fire Res Up, Dark Res Up<br>Gear Ability unlocked when evolving to 5★ (Gear Ability can only be used by Templar units. Ability varies according to unit.)",
         "spec": "No requirements to equip",
         "flavor": "This ring was created using techniques unique to Lost Blue. It raises resistance against Fire and Dark-elemental attacks, but exactly why it does this is unclear. It boosts a range of stats when wielded, but only the members of the Templar know how to use it properly."
+    },
+    "AF_ARMS_FF15_PROM_01": {
+        "name": "Camera",
+        "expr": "Attributes: DEX Up, Hit Rate Up, Missile ATK Up (Added when evolving to 5★)<br>Enables Master Ability when equipped on Prompto when his job type is \"Prince's Best Friend\" (Inflicts Thunder Phys Dmg on target enemy unit & lowers CT to 0 [Range: Diamond (9), Height Range: 3])",
+        "spec": "No requirements to equip",
+        "flavor": "Prompto's trusty camera. He carries it at all times in order to take photographs of the journey, but it is also said to increase his \"ability to see things clearly\" and thus boost accuracy."
+    },
+    "AF_ARMS_FF15_NOCT_01": {
+        "name": "Sword of the Father",
+        "expr": "Attributes: PATK Up, MATK Up (MDEF Up with chance of Delay added when evolving to 5★)<br>Enables Master Ability when equipped on Noctis when his job type is \"Prince of Lucis\" (Inflicts 4-hit non-elemental Phys Dmg on target enemy unit & raises own PATK/AGI/Evasion Rate [Range: Diamond (9), Height Range: 3])",
+        "spec": "No requirements to equip",
+        "flavor": "This sword can only be wielded by Noctis, heir to the Lucian throne. It is a symbol of his father the king's love, and the king's power resides within it. When equipped by Noctis it allows him to use the power of Armiger."
+    },
+    "AF_ARMS_FF15_INGI_01": {
+        "name": "Zwill Crossblades",
+        "expr": "Attributes: PATK Up, MATK Up, Max Jewels Up (Chance of PATK Up added when evolving to 5★)<br>Enables Master Ability when equipped on Ignis (Inflicts Fire Mag Dmg & Daze on units within target area [Range: 4, Area: Diamond (5), Height Range: 3])",
+        "spec": "No requirements to equip",
+        "flavor": "The dagger used by Ignis. It is said to be a weapon for a true master who is able to fell foes without receiving a single scratch, and simply equipping it boosts physical attack power and Max Jewels."
+    },
+    "AF_ARMS_FF15_GLAD_01": {
+        "name": "Hardedge",
+        "expr": "Attributes: HP Up, PATK Up, PDEF Up (Chance of PDEF Down added when evolving to 5★)<br>Enables Master Ability when equipped on Gladiolus (Inflicts Phys Dmg & AGI Down & Stun on units within target area [Range: 3, Area: Lateral (3), Height Range: 3])",
+        "spec": "No requirements to equip",
+        "flavor": "The greatsword wielded by Gladiolus. It's famed for its ability to hit its target with the utmost accuracy, and simply equipping it raises physical attack power. It is also said to occasionally lower its target's defensive power."
+    },
+    "AF_ARMS_FF15_ARAN_01": {
+        "name": "Stoss Spear",
+        "expr": "Attributes: PATK Up, DEX Up (HP Up with chance of JUMP Up added when evolving to 5★)<br>Enables Master Ability when equipped on Aranea when her job type is \"Imperial Commodore\" (Inflicts non-elemental Phys Dmg on target enemy unit & 100% Hit & ignores DEF with chance of critical & raises PATK for one turn [Range: 4, Height Range: 4])",
+        "spec": "No requirements to equip",
+        "flavor": "The lance used by Imperial Commodore Aranea Highwind. Enhanced using magiteknology, it's an extremely difficult weapon to wield, and no one other than Aranea can do so effectively. When equipped by Aranea it allows her to unleash the Highwind attack."
+    },
+    "AF_ARMO_FF15_SHIELD": {
+        "name": "Absorb Shield",
+        "expr": "Attributes: HP Up, Max Jewels Up, PDEF Up<br>Gear Ability: Casts Jewels Obtained Up & Auto Jewel Regen (Low) on ally units in area around self [Area: Cross (3), Height Range: 3]",
+        "spec": "No requirements to equip",
+        "flavor": "A unique shield created using Insomnian technology. When equipped it is said to be able to absorb shocks and then release them as \"Auto Jewel Regen\" and \"Jewels Obtained Up\" boosts to allies in the surrounding area."
     },
     "AF_ARMS_ARM_03": {
         "name": "Mirage Sword",
@@ -61857,6 +63366,12 @@
         "flavor": " "
     },
     "AF_SK_BALT_UNIQUE": {
+        "name": "Character Skin",
+        "expr": " ",
+        "spec": " ",
+        "flavor": " "
+    },
+    "AF_SK_FF15_ARAN_UNIQUE": {
         "name": "Character Skin",
         "expr": " ",
         "spec": " ",
@@ -62999,6 +64514,31 @@
         "charadesc": " ",
         "otherdesc": " "
     },
+    "JB_FF15_NOCT": {
+        "name": "Prince of Lucis",
+        "charadesc": " ",
+        "otherdesc": " "
+    },
+    "JB_FF15_INGI": {
+        "name": "Prince's Advisor",
+        "charadesc": " ",
+        "otherdesc": " "
+    },
+    "JB_FF15_GLAD": {
+        "name": "Prince's Protector",
+        "charadesc": " ",
+        "otherdesc": " "
+    },
+    "JB_FF15_PROM": {
+        "name": "Prince's Best Friend",
+        "charadesc": " ",
+        "otherdesc": "ATK increases according to DEX"
+    },
+    "JB_FF15_ARAN": {
+        "name": "Imperial Commodore",
+        "charadesc": " ",
+        "otherdesc": " "
+    },
     "JB_MAD": {
         "name": "Magic Marksman",
         "charadesc": "<color=yellow>[Strong vs machines]</color> Burst Force<br><color=yellow>[Strong vs airborne]</color> Quarter Raid",
@@ -63386,6 +64926,26 @@
     },
     "JB_WIZ_KAGE": {
         "name": "Court Mage Shadow",
+        "charadesc": " ",
+        "otherdesc": " "
+    },
+    "JB_FF15_BEHEMOTH": {
+        "name": "Behemoth",
+        "charadesc": " ",
+        "otherdesc": " "
+    },
+    "JB_FF15_METAL_CACTUAR": {
+        "name": "Metal Cactuar",
+        "charadesc": " ",
+        "otherdesc": " "
+    },
+    "JB_FF15_MAGIC_ARM": {
+        "name": "Magitek Armor (Mega)",
+        "charadesc": " ",
+        "otherdesc": " "
+    },
+    "JB_FF15_MAGIC_SOL": {
+        "name": "Magitek Armor (Humanoid)",
         "charadesc": " ",
         "otherdesc": " "
     },
@@ -64183,6 +65743,219 @@
     "SO_DARTAGNAN_EX_M_01": {
         "name": "Clear Stairway to Heaven [EX] [Multiplay] [3/3]"
     },
+    "RECORD_FF15_EP1_N_1": {
+        "name": "Clear EP1 Prologue 1 time"
+    },
+    "RECORD_FF15_EP1_N_2": {
+        "name": "Clear EP1 Prologue 3 times"
+    },
+    "RECORD_FF15_EP1_N_3": {
+        "name": "Clear EP1 Prologue 5 times"
+    },
+    "RECORD_FF15_EP2_N_1": {
+        "name": "Clear EP2 Meeting 1 time"
+    },
+    "RECORD_FF15_EP2_N_2": {
+        "name": "Clear EP2 Meeting 3 times"
+    },
+    "RECORD_FF15_EP2_N_3": {
+        "name": "Clear EP2 Meeting 5 times"
+    },
+    "RECORD_FF15_EP3_N_1": {
+        "name": "Clear EP3 Hunt 1 time"
+    },
+    "RECORD_FF15_EP3_N_2": {
+        "name": "Clear EP3 Hunt 3 times"
+    },
+    "RECORD_FF15_EP3_N_3": {
+        "name": "Clear EP3 Hunt 5 times"
+    },
+    "RECORD_FF15_EP4_N_1": {
+        "name": "Clear EP4 Camp 1 time"
+    },
+    "RECORD_FF15_EP4_N_2": {
+        "name": "Clear EP4 Camp 5 times"
+    },
+    "RECORD_FF15_EP4_N_3": {
+        "name": "Clear EP4 Camp 10 times"
+    },
+    "RECORD_FF15_EP5_N_1": {
+        "name": "Clear EP5 Alchemy 1 time"
+    },
+    "RECORD_FF15_EP5_N_2": {
+        "name": "Clear EP5 Alchemy 5 times"
+    },
+    "RECORD_FF15_EP5_N_3": {
+        "name": "Clear EP5 Alchemy 10 times"
+    },
+    "RECORD_FF15_EP6_N_1": {
+        "name": "Clear EP6 Encounter 1 time"
+    },
+    "RECORD_FF15_EP6_N_2": {
+        "name": "Clear EP6 Encounter 5 times"
+    },
+    "RECORD_FF15_EP6_N_3": {
+        "name": "Clear EP6 Encounter 10 times"
+    },
+    "RECORD_FF15_EP7_N_1": {
+        "name": "Clear EP7 Rest 1 time"
+    },
+    "RECORD_FF15_EP7_N_2": {
+        "name": "Clear EP7 Rest 5 times"
+    },
+    "RECORD_FF15_EP7_N_3": {
+        "name": "Clear EP7 Rest 10 times"
+    },
+    "RECORD_FF15_EP8_N_1": {
+        "name": "Clear EP8 Father 1 time"
+    },
+    "RECORD_FF15_EP8_N_2": {
+        "name": "Clear EP8 Father 5 times"
+    },
+    "RECORD_FF15_EP8_N_3": {
+        "name": "Clear EP8 Father 10 times"
+    },
+    "RECORD_FF15_EP9_N_1": {
+        "name": "Clear EP9 Highwind 1 time"
+    },
+    "RECORD_FF15_EP9_N_2": {
+        "name": "Clear EP9 Highwind 5 times"
+    },
+    "RECORD_FF15_EP9_N_3": {
+        "name": "Clear EP9 Highwind 10 times"
+    },
+    "RECORD_FF15_EP10_N_1": {
+        "name": "Clear EP10 Goodbye 1 time"
+    },
+    "RECORD_FF15_EP10_N_2": {
+        "name": "Clear EP10 Goodbye 5 times"
+    },
+    "RECORD_FF15_EP10_N_3": {
+        "name": "Clear EP10 Goodbye 10 times"
+    },
+    "RECORD_FF15_METAL_01": {
+        "name": "Defeat 10 Metal Cactuars"
+    },
+    "RECORD_FF15_METAL_02": {
+        "name": "Defeat 25 Metal Cactuars"
+    },
+    "RECORD_FF15_METAL_03": {
+        "name": "Defeat 50 Metal Cactuars"
+    },
+    "RECORD_FF15_METAL_04": {
+        "name": "Defeat 75 Metal Cactuars"
+    },
+    "RECORD_FF15_METAL_05": {
+        "name": "Defeat 100 Metal Cactuars"
+    },
+    "RECORD_FF15_PROMPUTO_0１": {
+        "name": "Raise Prompto's Level to 30"
+    },
+    "RECORD_FF15_PROMPUTO_02": {
+        "name": "Evolve Prompto to 4★"
+    },
+    "RECORD_FF15_PROMPUTO_03": {
+        "name": "Raise Prompto's Level to 50"
+    },
+    "RECORD_FF15_PROMPUTO_04": {
+        "name": "Evolve Prompto to 5★"
+    },
+    "RECORD_FF15_EX1_01": {
+        "name": "Clear FINAL FANTASY XV Collab [EX1] 1 time"
+    },
+    "RECORD_FF15_EX1_02": {
+        "name": "Clear FINAL FANTASY XV Collab [EX1] 3 times"
+    },
+    "RECORD_FF15_EX1_03": {
+        "name": "Clear FINAL FANTASY XV Collab [EX1] 5 times"
+    },
+    "RECORD_FF15_EX1_04": {
+        "name": "Clear FINAL FANTASY XV Collab [EX1] 10 times"
+    },
+    "RECORD_FF15_EX1_M_01": {
+        "name": "Clear FINAL FANTASY XV Collab [EX1][Multiplay] 1 time"
+    },
+    "RECORD_FF15_EX1_M_02": {
+        "name": "Clear FINAL FANTASY XV Collab [EX1][Multiplay] 3 times"
+    },
+    "RECORD_FF15_EX1_M_03": {
+        "name": "Clear FINAL FANTASY XV Collab [EX1][Multiplay] 5 times"
+    },
+    "RECORD_FF15_EX2_01": {
+        "name": "Clear FINAL FANTASY XV Collab [EX2] 1 time"
+    },
+    "RECORD_FF15_EX2_02": {
+        "name": "Clear FINAL FANTASY XV Collab [EX2] 3 times"
+    },
+    "RECORD_FF15_EX2_03": {
+        "name": "Clear FINAL FANTASY XV Collab [EX2] 5 times"
+    },
+    "RECORD_FF15_EX2_04": {
+        "name": "Clear FINAL FANTASY XV Collab [EX2] 10 times"
+    },
+    "RECORD_FF15_EX2_M_01": {
+        "name": "Clear FINAL FANTASY XV Collab [EX2][Multiplay] 1 time"
+    },
+    "RECORD_FF15_EX2_M_02": {
+        "name": "Clear FINAL FANTASY XV Collab [EX2][Multiplay] 3 times"
+    },
+    "RECORD_FF15_EX2_M_03": {
+        "name": "Clear FINAL FANTASY XV Collab [EX2][Multiplay] 5 times"
+    },
+    "RECORD_FF15_EX3_01": {
+        "name": "Clear FINAL FANTASY XV Collab [EX3] 1 time"
+    },
+    "RECORD_FF15_EX3_02": {
+        "name": "Clear FINAL FANTASY XV Collab [EX3] 3 times"
+    },
+    "RECORD_FF15_EX3_03": {
+        "name": "Clear FINAL FANTASY XV Collab [EX3] 5 times"
+    },
+    "RECORD_FF15_EX3_04": {
+        "name": "Clear FINAL FANTASY XV Collab [EX3] 10 times"
+    },
+    "RECORD_FF15_EX3_M_01": {
+        "name": "Clear FINAL FANTASY XV Collab [EX3][Multiplay] 1 time"
+    },
+    "RECORD_FF15_EX3_M_02": {
+        "name": "Clear FINAL FANTASY XV Collab [EX3][Multiplay] 3 times"
+    },
+    "RECORD_FF15_EX3_M_03": {
+        "name": "Clear FINAL FANTASY XV Collab [EX3][Multiplay] 5 times"
+    },
+    "RECORD_FF15_EX4_01": {
+        "name": "Clear FINAL FANTASY XV Collab [EX4] 1 time"
+    },
+    "RECORD_FF15_EX4_02": {
+        "name": "Clear FINAL FANTASY XV Collab [EX4] 3 times"
+    },
+    "RECORD_FF15_EX4_03": {
+        "name": "Clear FINAL FANTASY XV Collab [EX4] 5 times"
+    },
+    "RECORD_FF15_EX4_04": {
+        "name": "Clear FINAL FANTASY XV Collab [EX4] 10 times"
+    },
+    "RECORD_FF15_EX4_M_01": {
+        "name": "Clear FINAL FANTASY XV Collab [EX4][Multiplay] 1 time"
+    },
+    "RECORD_FF15_EX4_M_02": {
+        "name": "Clear FINAL FANTASY XV Collab [EX4][Multiplay] 3 times"
+    },
+    "RECORD_FF15_EX4_M_03": {
+        "name": "Clear FINAL FANTASY XV Collab [EX4][Multiplay] 5 times"
+    },
+    "RECORD_FF15_EX1_SP_01": {
+        "name": "Clear FINAL FANTASY XV Collab [EX1+] 1 time"
+    },
+    "RECORD_FF15_EX2_SP_01": {
+        "name": "Clear FINAL FANTASY XV Collab [EX2+] 1 time"
+    },
+    "RECORD_FF15_EX3_SP_01": {
+        "name": "Clear FINAL FANTASY XV Collab [EX3+] 1 time"
+    },
+    "RECORD_FF15_EX4_SP_01": {
+        "name": "Clear FINAL FANTASY XV Collab [EX4+] 1 time"
+    },
     "RECORD_2017_WEDDING_1_01": {
         "name": "Clear Marriage-Go-Round - Act 1 [1]"
     },
@@ -64616,7 +66389,7 @@
         "name": "Clear the Item Realm three times"
     },
     "RECORD_2017_MAR_DIS2_06": {
-        "name": "Enhance a piece of gear once"
+        "name": "Enhance Gear once"
     },
     "RECORD_2017_MAR_DIS2_07": {
         "name": "Clear all the missions"
@@ -67209,6 +68982,144 @@
     },
     "DAILY_2017APR_1_11": {
         "name": "Clear all the Daily Missions!"
+    },
+    "DAILY_FFXV_20170526_1": {
+        "name": "[Limited Time] Hunt [Bgn]"
+    },
+    "DAILY_FFXV_20170526_2": {
+        "name": "[Limited Time] Hunt [Int]"
+    },
+    "DAILY_FFXV_20170526_3": {
+        "name": "[Limited Time] Hunt [Adv]"
+    },
+    "DAILY_FFXV_20170527_1": {
+        "name": "[Limited Time] Hunt [Bgn]"
+    },
+    "DAILY_FFXV_20170527_2": {
+        "name": "[Limited Time] Hunt [Int]"
+    },
+    "DAILY_FFXV_20170527_3": {
+        "name": "[Limited Time] Hunt [Adv]"
+    },
+    "DAILY_FFXV_20170528_1": {
+        "name": "[Limited Time] Hunt [Bgn]"
+    },
+    "DAILY_FFXV_20170528_2": {
+        "name": "[Limited Time] Hunt [Int]"
+    },
+    "DAILY_FFXV_20170528_3": {
+        "name": "[Limited Time] Hunt [Adv]"
+    },
+    "DAILY_FFXV_20170529_1": {
+        "name": "[Limited Time] Hunt [Bgn]"
+    },
+    "DAILY_FFXV_20170529_2": {
+        "name": "[Limited Time] Hunt [Int]"
+    },
+    "DAILY_FFXV_20170529_3": {
+        "name": "[Limited Time] Hunt [Adv]"
+    },
+    "DAILY_FFXV_20170530_1": {
+        "name": "[Limited Time] Hunt [Bgn]"
+    },
+    "DAILY_FFXV_20170530_2": {
+        "name": "[Limited Time] Hunt [Int]"
+    },
+    "DAILY_FFXV_20170530_3": {
+        "name": "[Limited Time] Hunt [Adv]"
+    },
+    "DAILY_FFXV_20170531_1": {
+        "name": "[Limited Time] Hunt [Bgn]"
+    },
+    "DAILY_FFXV_20170531_2": {
+        "name": "[Limited Time] Hunt [Int]"
+    },
+    "DAILY_FFXV_20170531_3": {
+        "name": "[Limited Time] Hunt [Adv]"
+    },
+    "DAILY_FFXV_20170609_1": {
+        "name": "[Limited Time] Second Hunt [Bgn]"
+    },
+    "DAILY_FFXV_20170609_2": {
+        "name": "[Limited Time] Second Hunt [Int]"
+    },
+    "DAILY_FFXV_20170609_3": {
+        "name": "[Limited Time] Second Hunt [Adv]"
+    },
+    "DAILY_FFXV_20170610_1": {
+        "name": "[Limited Time] Second Hunt [Bgn]"
+    },
+    "DAILY_FFXV_20170610_2": {
+        "name": "[Limited Time] Second Hunt [Int]"
+    },
+    "DAILY_FFXV_20170610_3": {
+        "name": "[Limited Time] Second Hunt [Adv]"
+    },
+    "DAILY_FFXV_20170611_1": {
+        "name": "[Limited Time] Second Hunt [Bgn]"
+    },
+    "DAILY_FFXV_20170611_2": {
+        "name": "[Limited Time] Second Hunt [Int]"
+    },
+    "DAILY_FFXV_20170611_3": {
+        "name": "[Limited Time] Second Hunt [Adv]"
+    },
+    "DAILY_FFXV_20170612_1": {
+        "name": "[Limited Time] Second Hunt [Bgn]"
+    },
+    "DAILY_FFXV_20170612_2": {
+        "name": "[Limited Time] Second Hunt [Int]"
+    },
+    "DAILY_FFXV_20170612_3": {
+        "name": "[Limited Time] Second Hunt [Adv]"
+    },
+    "DAILY_FFXV_20170613_1": {
+        "name": "[Limited Time] Second Hunt [Bgn]"
+    },
+    "DAILY_FFXV_20170613_2": {
+        "name": "[Limited Time] Second Hunt [Int]"
+    },
+    "DAILY_FFXV_20170613_3": {
+        "name": "[Limited Time] Second Hunt [Adv]"
+    },
+    "DAILY_FFXV_20170614_1": {
+        "name": "[Limited Time] Second Hunt [Bgn]"
+    },
+    "DAILY_FFXV_20170614_2": {
+        "name": "[Limited Time] Second Hunt [Int]"
+    },
+    "DAILY_FFXV_20170614_3": {
+        "name": "[Limited Time] Second Hunt [Adv]"
+    },
+    "DAILY_FFXV_20170615_1": {
+        "name": "[Limited Time] Second Hunt [Bgn]"
+    },
+    "DAILY_FFXV_20170615_2": {
+        "name": "[Limited Time] Second Hunt [Int]"
+    },
+    "DAILY_FFXV_20170615_3": {
+        "name": "[Limited Time] Second Hunt [Adv]"
+    },
+    "DAILY_FFXV_20170616_1": {
+        "name": "[Limited Time] Clear EP1 Prologue once"
+    },
+    "DAILY_FFXV_20170617_1": {
+        "name": "[Limited Time] Defeat three Metal Cactuars"
+    },
+    "DAILY_FFXV_20170618_1": {
+        "name": "[Limited Time] Defeat five Magitek Axemen"
+    },
+    "DAILY_FFXV_20170619_1": {
+        "name": "[Limited Time] Clear EP3 Hunt"
+    },
+    "DAILY_FFXV_20170620_1": {
+        "name": "[Limited Time] Defeat one Deadeye"
+    },
+    "DAILY_FFXV_20170621_1": {
+        "name": "[Limited Time] Clear EP5 Alchemy"
+    },
+    "DAILY_FFXV_20170622_1": {
+        "name": "[Limited Time] Clear Sacred Stone Memories 1-1 The Last Trial once"
     },
     "DAILY_POK_20170616_1": {
         "name": "[Limited Time] Clear Phantom of the Alchemist - Act 1 once"
@@ -69952,6 +71863,69 @@
     "FLAG_HIDDEN": {
         "name": "Hidden Setting Mission"
     },
+    "GL_DAILY_FFXV_20180705_1": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Bgn]"
+    },
+    "GL_DAILY_FFXV_20180705_2": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Int]"
+    },
+    "GL_DAILY_FFXV_20180705_3": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Adv]"
+    },
+    "GL_DAILY_FFXV_20180706_1": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Bgn]"
+    },
+    "GL_DAILY_FFXV_20180706_2": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Int]"
+    },
+    "GL_DAILY_FFXV_20180706_3": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Adv]"
+    },
+    "GL_DAILY_FFXV_20180707_1": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Bgn]"
+    },
+    "GL_DAILY_FFXV_20180707_2": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Int]"
+    },
+    "GL_DAILY_FFXV_20180707_3": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Adv]"
+    },
+    "GL_DAILY_FFXV_20180708_1": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Bgn]"
+    },
+    "GL_DAILY_FFXV_20180708_2": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Int]"
+    },
+    "GL_DAILY_FFXV_20180708_3": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Adv]"
+    },
+    "GL_DAILY_FFXV_20180709_1": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Bgn]"
+    },
+    "GL_DAILY_FFXV_20180709_2": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Int]"
+    },
+    "GL_DAILY_FFXV_20180709_3": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Adv]"
+    },
+    "GL_DAILY_FFXV_20180710_1": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Bgn]"
+    },
+    "GL_DAILY_FFXV_20180710_2": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Int]"
+    },
+    "GL_DAILY_FFXV_20180710_3": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Adv]"
+    },
+    "GL_DAILY_FFXV_20180711_1": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Bgn]"
+    },
+    "GL_DAILY_FFXV_20180711_2": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Int]"
+    },
+    "GL_DAILY_FFXV_20180711_3": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Adv]"
+    },
     "GL_MM_01_2July": {
         "name": "[Monday] Level up any Unit"
     },
@@ -69965,6 +71939,21 @@
         "name": "[Monday] Clear any Multiplay Quest once"
     },
     "GL_MM_05_2July": {
+        "name": "[Monday] Clear any quest with a mercenary once"
+    },
+    "GL_MM_01_9July": {
+        "name": "[Monday] Level up any Unit"
+    },
+    "GL_MM_02_9July": {
+        "name": "[Monday] Level up any Ability"
+    },
+    "GL_MM_03_9July": {
+        "name": "[Monday] Raise any unit's Job Level once"
+    },
+    "GL_MM_04_9July": {
+        "name": "[Monday] Clear any Multiplay Quest once"
+    },
+    "GL_MM_05_9July": {
         "name": "[Monday] Clear any quest with a mercenary once"
     },
     "CHALLENGE_01": {
@@ -70147,6 +72136,36 @@
     "CHALLENGE_06_08": {
         "name": "Clear Chapter 1: Episode 5 [3-10]"
     },
+    "FF15_01": {
+        "name": "Clear Challenge Set"
+    },
+    "FF15_01_00": {
+        "name": "Clear EP1 Prologue"
+    },
+    "FF15_01_01": {
+        "name": "Clear EP2 Meeting"
+    },
+    "FF15_01_02": {
+        "name": "Clear EP3 Hunt"
+    },
+    "FF15_01_03": {
+        "name": "Clear EP4 Camp"
+    },
+    "FF15_01_04": {
+        "name": "Clear EP5 Alchemy"
+    },
+    "FF15_01_05": {
+        "name": "Clear EP6 Encounter"
+    },
+    "FF15_01_06": {
+        "name": "Clear EP7 Rest"
+    },
+    "FF15_01_07": {
+        "name": "Clear EP8 Father"
+    },
+    "FF15_01_08": {
+        "name": "Clear EP9 Highwind"
+    },
     "CHALLENGE_07": {
         "name": "Clear Challenge Set No.7"
     },
@@ -70178,7 +72197,7 @@
         "name": "Clear Sacred Stone Memories [4-10]"
     },
     "POK_01": {
-        "name": ""
+        "name": "Clear Challenge Set"
     },
     "POK_01_00": {
         "name": "Clear Phantom of the Alchemist - Act 1"
@@ -70208,7 +72227,7 @@
         "name": "Clear Phantom of the Alchemist 2 [Int] [Multiplay]"
     },
     "POK_02": {
-        "name": ""
+        "name": "Clear Challenge Set"
     },
     "POK_02_00": {
         "name": "Raise Tyrfing's Level to 30"
@@ -70278,6 +72297,9 @@
     },
     "DAILY_GL2017OCT_2_11": {
         "name": "[Bonus Daily] Play a Multiplay Quest"
+    },
+    "DAILY_GLCLEARALL_JULY2018": {
+        "name": "[July Bonus Mission] Clear all Essential Daily Missions"
     },
     "GL_MM_01_05Feb": {
         "name": "[Monday] Level up any Unit"
@@ -71509,6 +73531,9 @@
     "7DAY_LIMITED_MISSION": {
         "name": "[Seven-Day Only Mission]"
     },
+    "GL_JULY_BONUS_MISSION": {
+        "name": "July Bonus Mission"
+    },
     "2M_CELEBRATION_MON_AUG28": {
         "name": "[2 Million Downloads Celebration] Special Monday Mission 8/28"
     },
@@ -71538,6 +73563,66 @@
     },
     "MON_OCT30": {
         "name": "Special Monday Mission 10/30"
+    },
+    "FFXV_DAILY_MAY26": {
+        "name": "[FFXV Collab] Daily Hunt 5/26"
+    },
+    "FFXV_DAILY_MAY27": {
+        "name": "[FFXV Collab] Daily Hunt 5/27"
+    },
+    "FFXV_DAILY_MAY28": {
+        "name": "[FFXV Collab] Daily Hunt 5/28"
+    },
+    "FFXV_DAILY_MAY29": {
+        "name": "[FFXV Collab] Daily Hunt 5/29"
+    },
+    "FFXV_DAILY_MAY30": {
+        "name": "[FFXV Collab] Daily Hunt 5/30"
+    },
+    "FFXV_DAILY_MAY31": {
+        "name": "[FFXV Collab] Daily Hunt 5/31"
+    },
+    "FFXV_DAILY_JUN09": {
+        "name": "[FFXV Collab] Second Daily Hunt 6/9"
+    },
+    "FFXV_DAILY_JUN10": {
+        "name": "[FFXV Collab] Second Daily Hunt 6/10"
+    },
+    "FFXV_DAILY_JUN11": {
+        "name": "[FFXV Collab] Second Daily Hunt 6/11"
+    },
+    "FFXV_DAILY_JUN12": {
+        "name": "[FFXV Collab] Second Daily Hunt 6/12"
+    },
+    "FFXV_DAILY_JUN13": {
+        "name": "[FFXV Collab] Second Daily Hunt 6/13"
+    },
+    "FFXV_DAILY_JUN14": {
+        "name": "[FFXV Collab] Second Daily Hunt 6/14"
+    },
+    "FFXV_DAILY_JUN15": {
+        "name": "[FFXV Collab] Second Daily Hunt 6/15"
+    },
+    "FFXV_DAILY_JUN16": {
+        "name": "[FFXV Collab] Special Daily Mission 6/16"
+    },
+    "FFXV_DAILY_JUN17": {
+        "name": "[FFXV Collab] Special Daily Mission 6/17"
+    },
+    "FFXV_DAILY_JUN18": {
+        "name": "[FFXV Collab] Special Daily Mission 6/18"
+    },
+    "FFXV_DAILY_JUN19": {
+        "name": "[FFXV Collab] Special Daily Mission 6/19"
+    },
+    "FFXV_DAILY_JUN20": {
+        "name": "[FFXV Collab] Special Daily Mission 6/20"
+    },
+    "FFXV_DAILY_JUN21": {
+        "name": "[FFXV Collab] Special Daily Mission 6/21"
+    },
+    "FFXV_DAILY_JUN22": {
+        "name": "[FFXV Collab] Special Daily Mission 6/22"
     },
     "POTK_DAILY_JUN16": {
         "name": "[Phantom of the Kill Collab] Special Daily Mission 6/16"
@@ -71661,6 +73746,21 @@
     },
     "POTK_TROPHY_EX": {
         "name": "[Revival] [FgG Collab] For Whom the Princess Weeps [EX]"
+    },
+    "FF15_TROPHY": {
+        "name": "[Limited Time] FFXV Collab Event Quest"
+    },
+    "FF15_TROPHY_EX": {
+        "name": "[Limited Time] FFXV Collab Event Quest EX"
+    },
+    "FF15_TROPHY_EX_MULTI": {
+        "name": "[Limited Time] FFXV Collab Event Quest EX [Multiplay]"
+    },
+    "FF15_DEFEAT_METALCACTUS": {
+        "name": "[Limited Time] Defeat the Metal Cactuar!"
+    },
+    "FF15_PROMPUTO_GROWTH": {
+        "name": "[Limited Time] Prompto Training Mission"
     },
     "CUMULATIVE_LOGIN_BONUS": {
         "name": "Accumulative Login Bonus"
@@ -72289,6 +74389,27 @@
     "GL_STORY_COMPLETION": {
         "name": "[Story] Completion Milestones"
     },
+    "GL_FF15_DAILY_JUL05": {
+        "name": "[FFXV] Daily Mission"
+    },
+    "GL_FF15_DAILY_JUL06": {
+        "name": "[FFXV] Daily Mission"
+    },
+    "GL_FF15_DAILY_JUL07": {
+        "name": "[FFXV] Daily Mission"
+    },
+    "GL_FF15_DAILY_JUL08": {
+        "name": "[FFXV] Daily Mission"
+    },
+    "GL_FF15_DAILY_JUL09": {
+        "name": "[FFXV] Daily Mission"
+    },
+    "GL_FF15_DAILY_JUL10": {
+        "name": "[FFXV] Daily Mission"
+    },
+    "GL_FF15_DAILY_JUL11": {
+        "name": "[FFXV] Daily Mission"
+    },
     "TR_MAP_POI_01": {
         "name": "Poison Grid",
         "expr": "Poison Status Grid (Disappears once activated)"
@@ -72902,12 +75023,12 @@
     },
     "IT_SET_GL_200_SHISHI": {
         "name": "[2 Million Downloads!] Celebration Lion Set",
-        "expr": "[2 Million Downloads!] This set contains 5 of the two main pieces of equipment that are required at high Job Levels.",
+        "expr": "[2 Million Downloads!] This set contains 5 each of the two main pieces of equipment that are required at high Job Levels.",
         "flavor": " "
     },
     "IT_SET_GL_200_MADOU": {
         "name": "[2 Million Downloads!] Celebration Mage Set",
-        "expr": "[2 Million Downloads!] This set contains 5 of the two main pieces of equipment that are required at high Job Levels. (For Magic-related jobs.)",
+        "expr": "[2 Million Downloads!] This set contains 5 each of the two main pieces of equipment that are required at high Job Levels. (For Magic-related jobs.)",
         "flavor": " "
     },
     "IT_SET_GL_200_TICKET": {
@@ -72962,12 +75083,12 @@
     },
     "IT_SET_GL_500_SHISHI": {
         "name": "[5 Million Downloads Worldwide!] Lion Set",
-        "expr": "[5 Million Downloads Worldwide!] This set contains 5 of the two main pieces of equipment that are required at high Job Levels.",
+        "expr": "[5 Million Downloads Worldwide!] This set contains 5 each of the two main pieces of equipment that are required at high Job Levels.",
         "flavor": " "
     },
     "IT_SET_GL_500_MADOU": {
         "name": "[5 Million Downloads Worldwide!] Mage Set",
-        "expr": "[5 Million Downloads Worldwide!] This set contains 5 of the two main pieces of equipment that are required at high Job Levels. (For Magic-related jobs.)",
+        "expr": "[5 Million Downloads Worldwide!] This set contains 5 each of the two main pieces of equipment that are required at high Job Levels. (For Magic-related jobs.)",
         "flavor": " "
     },
     "IT_SET_GL_500_TICKET": {
@@ -72992,12 +75113,12 @@
     },
     "IT_SET_GL_500_SHISHI_SP": {
         "name": "[5 Million Downloads Worldwide!] Lion Set [SP]",
-        "expr": "[5 Million Downloads Worldwide!] This set contains 5 of the two main pieces of equipment that are required at high Job Levels.",
+        "expr": "[5 Million Downloads Worldwide!] This set contains 5 each of the two main pieces of equipment that are required at high Job Levels.",
         "flavor": " "
     },
     "IT_SET_GL_500_MADOU_SP": {
         "name": "[5 Million Downloads Worldwide!] Mage Set [SP]",
-        "expr": "[5 Million Downloads Worldwide!] This set contains 5 of the two main pieces of equipment that are required at high Job Levels. (For Magic-related jobs.)",
+        "expr": "[5 Million Downloads Worldwide!] This set contains 5 each of the two main pieces of equipment that are required at high Job Levels. (For Magic-related jobs.)",
         "flavor": " "
     },
     "IT_SET_GL_500_BUKKOU_01": {

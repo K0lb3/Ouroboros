@@ -240,6 +240,12 @@ SRPG_ChapterParam_AR_MULTI_TIHAYA2_NAME	[Limited Time]
 SRPG_ChapterParam_AR_MULTI_TIHAYA2_EXPR	[Limited Time] Wadatsumi's Dance [Hard]
 SRPG_ChapterParam_AR_MULTI_TIHAYA_NAME	[Limited Time]
 SRPG_ChapterParam_AR_MULTI_TIHAYA_EXPR	[Limited Time] Wadatsumi's Dance [Hard]
+SRPG_ChapterParam_AR_JIGEN_EXP_FF15_NAME	Max
+SRPG_ChapterParam_AR_JIGEN_EXP_FF15_EXPR	Apple Garden
+SRPG_ChapterParam_AR_FF15_NAME	FINAL FANTASY XV Collab Event
+SRPG_ChapterParam_AR_FF15_EXPR	FFXV Collab
+SRPG_ChapterParam_AR_FF15_EX_NAME	FINAL FANTASY XV Collab Event EX
+SRPG_ChapterParam_AR_FF15_EX_EXPR	FFXV Collab
 SRPG_ChapterParam_AR_SO_RETZIUS_NAME	[Limited Time]
 SRPG_ChapterParam_AR_SO_RETZIUS_EXPR	Encounter with Retzius
 SRPG_ChapterParam_AR_EVENT_BF_NAME	[Limited Time]
@@ -622,6 +628,8 @@ SRPG_ChapterParam_MULTI_SO_JUSTIN_NAME	Max
 SRPG_ChapterParam_MULTI_SO_JUSTIN_EXPR	Justin's Justice
 SRPG_ChapterParam_MULTI_SO_CELLIERS_NAME	Max
 SRPG_ChapterParam_MULTI_SO_CELLIERS_EXPR	Crystal-Shot Heart
+SRPG_ChapterParam_MULTI_FF15_EX_NAME	FINAL FANTASY XV Collab Event EX
+SRPG_ChapterParam_MULTI_FF15_EX_EXPR	FFXV Collab
 SRPG_ChapterParam_MULTI_WEDDING_2017_EX_NAME	Max
 SRPG_ChapterParam_MULTI_WEDDING_2017_EX_EXPR	Marriage-Go-Round
 SRPG_ChapterParam_MULTI_AR_WA_ZIN_EX_NAME	Return to the Underworld [EX]
@@ -3194,6 +3202,10 @@ SRPG_QuestParam_QE_TM_EXP_GOLD_3TITLE_NAME	Apple Gold Rush!
 SRPG_QuestParam_QE_TM_EXP_GOLD_3TITLE_EXPR	Apple & Gold Rush
 SRPG_QuestParam_QE_TM_EXP_GOLD_3TITLE_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_TM_EXP_GOLD_3TITLE_TITLE	[1/Day]
+SRPG_QuestParam_QE_TM_EXP_FF15_LV1_NAME	Apple Garden FINAL FANTASY XV
+SRPG_QuestParam_QE_TM_EXP_FF15_LV1_EXPR	EXP Quest: Apples/Gold Ingots
+SRPG_QuestParam_QE_TM_EXP_FF15_LV1_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_TM_EXP_FF15_LV1_TITLE	[Max 1/d]
 SRPG_QuestParam_QE_TM_ZEN_LV1_NAME	Gold Rush [Bgn]
 SRPG_QuestParam_QE_TM_ZEN_LV1_EXPR	Zeni Quest: Zeni Conversion Items
 SRPG_QuestParam_QE_TM_ZEN_LV1_COND	Defeat all enemy units!
@@ -5465,6 +5477,82 @@ SRPG_QuestParam_QE_EV_POK_SAM_KEY_EX1_NAME	For Whom the Princess Vanishes [EX]
 SRPG_QuestParam_QE_EV_POK_SAM_KEY_EX1_EXPR	PotK / Shinobi Collab True_End_EX
 SRPG_QuestParam_QE_EV_POK_SAM_KEY_EX1_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_EV_POK_SAM_KEY_EX1_TITLE	[Battlefield Drama Evolution]
+SRPG_QuestParam_QE_EV_FF15_1_NAME	EP1 Prologue
+SRPG_QuestParam_QE_EV_FF15_1_EXPR	FFXV Collab Quest
+SRPG_QuestParam_QE_EV_FF15_1_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_FF15_1_TITLE	Unit Lv10 JobLv1 Recommended
+SRPG_QuestParam_QE_EV_FF15_2_NAME	EP2 Meeting
+SRPG_QuestParam_QE_EV_FF15_2_EXPR	FFXV Collab Quest
+SRPG_QuestParam_QE_EV_FF15_2_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_FF15_2_TITLE	Unit Lv20 JobLv2 Recommended
+SRPG_QuestParam_QE_EV_FF15_3_NAME	EP3 Hunt
+SRPG_QuestParam_QE_EV_FF15_3_EXPR	FFXV Collab Quest
+SRPG_QuestParam_QE_EV_FF15_3_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_FF15_3_TITLE	Unit Lv30 JobLv3 Recommended
+SRPG_QuestParam_QE_EV_FF15_4_NAME	EP4 Camp
+SRPG_QuestParam_QE_EV_FF15_4_EXPR	FFXV Collab Quest
+SRPG_QuestParam_QE_EV_FF15_4_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_FF15_4_TITLE	Unit Lv35 JobLv4 Recommended
+SRPG_QuestParam_QE_EV_FF15_5_NAME	EP5 Alchemy
+SRPG_QuestParam_QE_EV_FF15_5_EXPR	FFXV Collab Quest
+SRPG_QuestParam_QE_EV_FF15_5_COND	Fight off Aranea!
+SRPG_QuestParam_QE_EV_FF15_5_TITLE	Unit Lv40 JobLv6 Recommended
+SRPG_QuestParam_QE_EV_FF15_6_NAME	EP6 Encounter
+SRPG_QuestParam_QE_EV_FF15_6_EXPR	FFXV Collab Quest
+SRPG_QuestParam_QE_EV_FF15_6_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_FF15_6_TITLE	Unit Lv45 JobLv6 Recommended
+SRPG_QuestParam_QE_EV_FF15_7_NAME	EP7 Rest
+SRPG_QuestParam_QE_EV_FF15_7_EXPR	FFXV Collab Quest
+SRPG_QuestParam_QE_EV_FF15_7_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_FF15_7_TITLE	Unit Lv50 JobLv7 Recommended
+SRPG_QuestParam_QE_EV_FF15_8_NAME	EP8 Father
+SRPG_QuestParam_QE_EV_FF15_8_EXPR	FFXV Collab Quest
+SRPG_QuestParam_QE_EV_FF15_8_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_FF15_8_TITLE	Unit Lv55 JobLv8 Recommended
+SRPG_QuestParam_QE_EV_FF15_9_NAME	EP9 Highwind
+SRPG_QuestParam_QE_EV_FF15_9_EXPR	FFXV Collab Quest
+SRPG_QuestParam_QE_EV_FF15_9_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_FF15_9_TITLE	Unit Lv60 JobLv9 Recommended
+SRPG_QuestParam_QE_EV_FF15_10_NAME	EP10 Goodbye
+SRPG_QuestParam_QE_EV_FF15_10_EXPR	FFXV Collab Quest
+SRPG_QuestParam_QE_EV_FF15_10_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_FF15_10_TITLE	Unit Lv65 JobLv10 Recommended
+SRPG_QuestParam_QE_EV_FF15_HA_NAME	FINAL FANTASY XV Collab
+SRPG_QuestParam_QE_EV_FF15_HA_EXPR	FFXV Collab Quest
+SRPG_QuestParam_QE_EV_FF15_HA_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_FF15_HA_TITLE	[Hard]
+SRPG_QuestParam_QE_EV_FF15_EX_1_NAME	FINAL FANTASY XV Collab [EX1]
+SRPG_QuestParam_QE_EV_FF15_EX_1_EXPR	FFXV Collab Quest
+SRPG_QuestParam_QE_EV_FF15_EX_1_COND	Defeat all foes except Mandragoras!
+SRPG_QuestParam_QE_EV_FF15_EX_1_TITLE	Hard Quest
+SRPG_QuestParam_QE_EV_FF15_EX_2_NAME	FINAL FANTASY XV Collab [EX2]
+SRPG_QuestParam_QE_EV_FF15_EX_2_EXPR	FFXV Collab Quest
+SRPG_QuestParam_QE_EV_FF15_EX_2_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_FF15_EX_2_TITLE	Hard Quest
+SRPG_QuestParam_QE_EV_FF15_EX_3_NAME	FINAL FANTASY XV Collab [EX3]
+SRPG_QuestParam_QE_EV_FF15_EX_3_EXPR	FFXV Collab Quest
+SRPG_QuestParam_QE_EV_FF15_EX_3_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_FF15_EX_3_TITLE	Hard Quest
+SRPG_QuestParam_QE_EV_FF15_EX_4_NAME	FINAL FANTASY XV Collab [EX4]
+SRPG_QuestParam_QE_EV_FF15_EX_4_EXPR	FFXV Collab Quest
+SRPG_QuestParam_QE_EV_FF15_EX_4_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_FF15_EX_4_TITLE	Hard Quest
+SRPG_QuestParam_QE_EV_FF15_EX_SP_1_NAME	FINAL FANTASY XV Collab [EX1+]
+SRPG_QuestParam_QE_EV_FF15_EX_SP_1_EXPR	FFXV Collab Quest
+SRPG_QuestParam_QE_EV_FF15_EX_SP_1_COND	Defeat all foes except Mandragoras!
+SRPG_QuestParam_QE_EV_FF15_EX_SP_1_TITLE	Super Hard Quest
+SRPG_QuestParam_QE_EV_FF15_EX_SP_2_NAME	FINAL FANTASY XV Collab [EX2+]
+SRPG_QuestParam_QE_EV_FF15_EX_SP_2_EXPR	FFXV Collab Quest
+SRPG_QuestParam_QE_EV_FF15_EX_SP_2_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_FF15_EX_SP_2_TITLE	Super Hard Quest
+SRPG_QuestParam_QE_EV_FF15_EX_SP_3_NAME	FINAL FANTASY XV Collab [EX3+]
+SRPG_QuestParam_QE_EV_FF15_EX_SP_3_EXPR	FFXV Collab Quest
+SRPG_QuestParam_QE_EV_FF15_EX_SP_3_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_FF15_EX_SP_3_TITLE	Super Hard Quest
+SRPG_QuestParam_QE_EV_FF15_EX_SP_4_NAME	FINAL FANTASY XV Collab [EX4+]
+SRPG_QuestParam_QE_EV_FF15_EX_SP_4_EXPR	FFXV Collab Quest
+SRPG_QuestParam_QE_EV_FF15_EX_SP_4_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_FF15_EX_SP_4_TITLE	Super Hard Quest
 SRPG_QuestParam_QE_EV_3TITLE_1_NAME	The Sun God and the Golden Key Episode 1
 SRPG_QuestParam_QE_EV_3TITLE_1_EXPR	3-Title Swimsuit Collab Quest
 SRPG_QuestParam_QE_EV_3TITLE_1_COND	Defeat all enemy units!
@@ -5854,7 +5942,7 @@ SRPG_QuestParam_QE_ARENA_26_EXPR	Water Units ATK Power +20%, Missile Dmg +30%
 SRPG_QuestParam_QE_ARENA_26_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_ARENA_26_TITLE	Arena
 SRPG_QuestParam_QE_ARENA_27_NAME	Arena [Ruins]
-SRPG_QuestParam_QE_ARENA_27_EXPR	Thunder Units ATK Power +20%, Charge Time -30%
+SRPG_QuestParam_QE_ARENA_27_EXPR	Thunder Units ATK Power +20%, Cast Time -30%
 SRPG_QuestParam_QE_ARENA_27_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_ARENA_27_TITLE	Arena
 SRPG_QuestParam_QE_ARENA_28_NAME	Arena [Canal]
@@ -5898,7 +5986,7 @@ SRPG_QuestParam_QE_VS_06_EXPR	Map Effect: HP +100% & Crit Rate +25%
 SRPG_QuestParam_QE_VS_06_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_VS_06_TITLE	Duel
 SRPG_QuestParam_QE_VS_08_NAME	Ruins
-SRPG_QuestParam_QE_VS_08_EXPR	Map Effect: Charge Time -30%
+SRPG_QuestParam_QE_VS_08_EXPR	Map Effect: Cast Time -30%
 SRPG_QuestParam_QE_VS_08_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_VS_08_TITLE	Duel
 SRPG_QuestParam_QE_VS_09_NAME	RuinsⅡ
@@ -5942,7 +6030,7 @@ SRPG_QuestParam_QE_VS_TOWER_01_EXPR	Map Effect: None
 SRPG_QuestParam_QE_VS_TOWER_01_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_VS_TOWER_01_TITLE	Tower Match β
 SRPG_QuestParam_QE_VS_TOWER_02_NAME	Ruins
-SRPG_QuestParam_QE_VS_TOWER_02_EXPR	Map Effect: Charge Time -30% & Dmg Dealt -50%
+SRPG_QuestParam_QE_VS_TOWER_02_EXPR	Map Effect: Cast Time -30% & Dmg Dealt -50%
 SRPG_QuestParam_QE_VS_TOWER_02_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_VS_TOWER_02_TITLE	Tower Match β
 SRPG_QuestParam_QE_VS_TOWER_03_NAME	RuinsⅡ
@@ -5965,6 +6053,22 @@ SRPG_QuestParam_QE_CM_BONUS_BATTLE1_NAME	CM Release Celebration Treasure Contest
 SRPG_QuestParam_QE_CM_BONUS_BATTLE1_EXPR	CM Release Celebration Treasure Contest!
 SRPG_QuestParam_QE_CM_BONUS_BATTLE1_COND	Collect the treasure within the time limit!
 SRPG_QuestParam_QE_CM_BONUS_BATTLE1_TITLE	[1/Day]
+SRPG_QuestParam_QE_EV_MULTI_FF15_EX_1_NAME	FINAL FANTASY XV Collab [EX1]
+SRPG_QuestParam_QE_EV_MULTI_FF15_EX_1_EXPR	FFXV Collab Quest
+SRPG_QuestParam_QE_EV_MULTI_FF15_EX_1_COND	Defeat all foes except Mandragoras!
+SRPG_QuestParam_QE_EV_MULTI_FF15_EX_1_TITLE	Hard Quest
+SRPG_QuestParam_QE_EV_MULTI_FF15_EX_2_NAME	FINAL FANTASY XV Collab [EX2]
+SRPG_QuestParam_QE_EV_MULTI_FF15_EX_2_EXPR	FFXV Collab Quest
+SRPG_QuestParam_QE_EV_MULTI_FF15_EX_2_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_MULTI_FF15_EX_2_TITLE	Hard Quest
+SRPG_QuestParam_QE_EV_MULTI_FF15_EX_3_NAME	FINAL FANTASY XV Collab [EX3]
+SRPG_QuestParam_QE_EV_MULTI_FF15_EX_3_EXPR	FFXV Collab Quest
+SRPG_QuestParam_QE_EV_MULTI_FF15_EX_3_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_MULTI_FF15_EX_3_TITLE	Hard Quest
+SRPG_QuestParam_QE_EV_MULTI_FF15_EX_4_NAME	FINAL FANTASY XV Collab [EX4]
+SRPG_QuestParam_QE_EV_MULTI_FF15_EX_4_EXPR	FFXV Collab Quest
+SRPG_QuestParam_QE_EV_MULTI_FF15_EX_4_COND	Defeat all enemy units!
+SRPG_QuestParam_QE_EV_MULTI_FF15_EX_4_TITLE	Hard Quest
 SRPG_QuestParam_QE_MULTI_EV_FATE_EX_1_NAME	Fate/stay night [UBW] [EX+] Stage 1
 SRPG_QuestParam_QE_MULTI_EV_FATE_EX_1_EXPR	Fate Collab - Act 1 [EX]
 SRPG_QuestParam_QE_MULTI_EV_FATE_EX_1_COND	Defeat all enemy units!

@@ -47,7 +47,7 @@ def TrophyParam(json):
         for typ, iname, num in find: 
             if iname in json:
                 this[typ].append({
-                    'iname' : iname,
-                    'num' : num
+                    'iname' : json[iname],
+                    'num' : json[num]
                 })
     return this

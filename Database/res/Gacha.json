@@ -1,18 +1,18 @@
 {
     "gachas": [
         {
-            "iname": "Weekend_Gacha_D01_PaidB14",
+            "iname": "Daily_Gacha_D01_PaidSS5a",
             "cat": "",
-            "startat": 1530345600,
-            "endat": 1530431999,
+            "startat": 1530691200,
+            "endat": 1530863999,
             "num": 10,
-            "name": "Weekend Grand Summon",
+            "name": "Grand Unit Summon",
             "cost": {
                 "coin_p": 1500
             },
-            "asset_title": "tab_GL_015_02",
-            "asset_bg": "GachaImages_GL_Weekend_Grand_Batch14",
-            "detail_url": "Weekend_Grand_B14",
+            "asset_title": "tab_GL_015_09",
+            "asset_bg": "GachaImages_GL_Grand_Unit_SS5a_JULY2018",
+            "detail_url": "Grand_Unit_Summon_SS5a_JULY",
             "units": [],
             "ext_type": [
                 "limit_cnt",
@@ -30,10 +30,172 @@
             "confirm": "",
             "bonus_items": [
                 {
-                    "iname": "IT_CV_GOLD3",
-                    "num": 20
+                    "iname": "IT_EVENT_GL_LUCKYDIME_JULY",
+                    "num": 100
                 }
             ],
+            "pickup_art": []
+        },
+        {
+            "iname": "5Step_Gacha_S1_FF15a",
+            "cat": "",
+            "startat": 1530691200,
+            "endat": 1531987199,
+            "num": 10,
+            "name": "Special Summon Step 1",
+            "cost": {
+                "coin": 500
+            },
+            "asset_title": "tab_GL_015_04",
+            "asset_bg": "GachaImages_GL_5step_FF15a",
+            "detail_url": "5Step_Gacha_FF15a",
+            "units": [],
+            "ext_type": [
+                "step",
+                "limit_cnt"
+            ],
+            "ext_param": {
+                "step": {
+                    "index": 0,
+                    "num": 5
+                },
+                "limit_cnt": {
+                    "rest": 5,
+                    "num": 1
+                }
+            },
+            "is_valid": 0,
+            "group": "",
+            "btext": "",
+            "confirm": "",
+            "bonus_items": [],
+            "pickup_art": []
+        },
+        {
+            "iname": "Daily_Gacha_D01_S1_SS5a_JULY",
+            "cat": "",
+            "startat": 1530691200,
+            "endat": 1530863999,
+            "num": 1,
+            "name": "Daily Special Summon Step 1",
+            "cost": {
+                "coin": 250
+            },
+            "asset_title": "tab_GL_015_08",
+            "asset_bg": "GachaImages_GL_3stepDaily_SS5a_JULY2018",
+            "detail_url": "3step_Daily_Gacha_SS5a_JULY",
+            "units": [],
+            "ext_type": [
+                "step",
+                "limit_cnt"
+            ],
+            "ext_param": {
+                "step": {
+                    "index": 0,
+                    "num": 3
+                },
+                "limit_cnt": {
+                    "rest": 3,
+                    "num": 1
+                }
+            },
+            "is_valid": 0,
+            "group": "",
+            "btext": "",
+            "confirm": "",
+            "bonus_items": [
+                {
+                    "iname": "IT_CV_GOLD3",
+                    "num": 5
+                }
+            ],
+            "pickup_art": []
+        },
+        {
+            "iname": "9Step_Gacha_S1_SS5_JULY",
+            "cat": "other",
+            "startat": 1530691200,
+            "endat": 1531987199,
+            "num": 10,
+            "name": "Premium Summon Step 1",
+            "cost": {
+                "coin": 2500
+            },
+            "asset_title": "tab_GL_015_07",
+            "asset_bg": "GachaImages_GL_9step_SS5_JULY2018",
+            "detail_url": "9Step_Gacha_SS5_JULY",
+            "units": [],
+            "ext_type": [
+                "step",
+                "limit_cnt"
+            ],
+            "ext_param": {
+                "step": {
+                    "index": 0,
+                    "num": 9
+                },
+                "limit_cnt": {
+                    "rest": 9,
+                    "num": 1
+                }
+            },
+            "is_valid": 0,
+            "group": "",
+            "bonus_items": [
+                {
+                    "iname": "IT_CV_GOLD3",
+                    "num": 50
+                }
+            ],
+            "pickup_art": []
+        },
+        {
+            "iname": "Unlimited_Gacha_FF15a",
+            "cat": "",
+            "startat": 1530691200,
+            "endat": 1531382399,
+            "num": 10,
+            "name": "Unlimited Unit Summon",
+            "cost": {
+                "coin": 2500
+            },
+            "asset_title": "tab_GL_015_03",
+            "asset_bg": "GachaImages_GL_Unlimited_FF15a",
+            "detail_url": "Unlimited_FF15a",
+            "units": [],
+            "ext_type": [],
+            "ext_param": {},
+            "is_valid": 0,
+            "group": "",
+            "bonus_items": [
+                {
+                    "iname": "IT_US_GL_5STAR_10PER_TICKET_FF15a",
+                    "num": 1
+                }
+            ],
+            "pickup_art": []
+        },
+        {
+            "iname": "Unlimited_Gacha_SoulSS5a_JULY",
+            "cat": "",
+            "startat": 1530691200,
+            "endat": 1531382399,
+            "num": 3,
+            "name": "Unlimited Soul Summon",
+            "cost": {
+                "coin": 300
+            },
+            "asset_title": "tab_GL_016_01",
+            "asset_bg": "GachaImages_GL_UnlimitedSoul_SS5a_JULY2018",
+            "detail_url": "UnlimitedSoul_SS5a_JULY",
+            "units": [],
+            "ext_type": [
+                "promise"
+            ],
+            "ext_param": {},
+            "is_valid": 0,
+            "group": "",
+            "bonus_items": [],
             "pickup_art": []
         },
         {
@@ -140,10 +302,10 @@
             "pickup_art": []
         },
         {
-            "iname": "Daily_Gacha_D03_S1_SoulB14",
+            "iname": "Daily_Gacha_D07_S1_SoulB14",
             "cat": "",
-            "startat": 1530345600,
-            "endat": 1530431999,
+            "startat": 1530691200,
+            "endat": 1530777599,
             "num": 10,
             "name": "Daily Soul Summon",
             "cost": {
@@ -202,6 +364,85 @@
             "group": "",
             "btext": "",
             "confirm": "",
+            "bonus_items": [],
+            "pickup_art": []
+        },
+        {
+            "iname": "3Step_Gear_S1_FF15a",
+            "cat": "",
+            "startat": 1530691200,
+            "endat": 1531382399,
+            "num": 10,
+            "name": "Gear Summon Step 1",
+            "cost": {
+                "coin": 300
+            },
+            "asset_title": "tab_GL_015_06",
+            "asset_bg": "GachaImages_GL_3stepGear_FF15a",
+            "detail_url": "3Step_Gear_FF15a",
+            "units": [],
+            "ext_type": [
+                "step",
+                "limit_cnt"
+            ],
+            "ext_param": {
+                "step": {
+                    "index": 0,
+                    "num": 3
+                },
+                "limit_cnt": {
+                    "rest": 3,
+                    "num": 1
+                }
+            },
+            "is_valid": 0,
+            "group": "",
+            "btext": "",
+            "confirm": "",
+            "bonus_items": [],
+            "pickup_art": []
+        },
+        {
+            "iname": "Rare_GearSummon_01_FF15a",
+            "cat": "",
+            "startat": 1530691200,
+            "endat": 1531382399,
+            "num": 1,
+            "name": "Gear Summon",
+            "cost": {
+                "coin": 150
+            },
+            "asset_title": "tab_GL_015_05",
+            "asset_bg": "GachaImages_GL_RareGear_FF15a",
+            "detail_url": "Rare_Gear_FF15a",
+            "units": [],
+            "ext_type": [],
+            "ext_param": {},
+            "is_valid": 0,
+            "group": "Gear_FF15a",
+            "bonus_items": [],
+            "pickup_art": []
+        },
+        {
+            "iname": "Rare_GearSummon_10_FF15a",
+            "cat": "",
+            "startat": 1530691200,
+            "endat": 1531382399,
+            "num": 10,
+            "name": "Gear 10-Summon",
+            "cost": {
+                "coin": 1500
+            },
+            "asset_title": "tab_GL_015_05",
+            "asset_bg": "GachaImages_GL_RareGear_FF15a",
+            "detail_url": "Rare_Gear_FF15a",
+            "units": [],
+            "ext_type": [
+                "promise"
+            ],
+            "ext_param": {},
+            "is_valid": 0,
+            "group": "Gear_FF15a",
             "bonus_items": [],
             "pickup_art": []
         },
@@ -957,10 +1198,10 @@
             "group": ""
         },
         {
-            "iname": "Rare_Gacha",
+            "iname": "Rare_Gacha_ii",
             "cat": "coin_1",
-            "startat": 1530172800,
-            "endat": 1530777599,
+            "startat": 1530691200,
+            "endat": 1531987199,
             "num": 1,
             "name": "Rare Summon",
             "cost": {
@@ -970,10 +1211,9 @@
             "asset_bg": "GachaImages_rare",
             "detail_url": "rare_gacha",
             "units": [
-                "UN_V2_GL_SIEG",
-                "UN_V2_EIZAN",
-                "UN_V2_TAMAMO",
-                "UN_V2_SHEHERAZADE"
+                "UN_V2_ZAYIN",
+                "UN_V2_YAULAS",
+                "UN_V2_OTHIMA"
             ],
             "ext_type": [],
             "ext_param": {},
@@ -984,10 +1224,10 @@
             "pickup_art": []
         },
         {
-            "iname": "Rare_Gacha_10",
+            "iname": "Rare_Gacha_10_ii",
             "cat": "coin_n",
-            "startat": 1530172800,
-            "endat": 1530777599,
+            "startat": 1530691200,
+            "endat": 1531987199,
             "num": 10,
             "name": "Rare Summon x 10",
             "cost": {
@@ -997,10 +1237,9 @@
             "asset_bg": "GachaImages_rare",
             "detail_url": "rare_gacha",
             "units": [
-                "UN_V2_GL_SIEG",
-                "UN_V2_EIZAN",
-                "UN_V2_TAMAMO",
-                "UN_V2_SHEHERAZADE"
+                "UN_V2_ZAYIN",
+                "UN_V2_YAULAS",
+                "UN_V2_OTHIMA"
             ],
             "ext_type": [],
             "ext_param": {},
