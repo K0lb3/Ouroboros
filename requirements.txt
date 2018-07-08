@@ -1,10 +1,2 @@
-aiohttp==3.3.1
-async-timeout==3.0.0
-attrs==18.1.0
-chardet==3.0.4
 git+https://github.com/Rapptz/discord.py.git@rewrite#egg=discord.py
-idna==2.6
-jellyfish==0.6.1
-multidict==4.3.1
-websockets==3.4
-yarl==1.2.4
+jellyfish
