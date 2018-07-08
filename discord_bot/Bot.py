@@ -143,10 +143,16 @@ async def on_ready():
     bot.loop.create_task(status_task(PRESENCES))
 
 @bot.event
-async def on_reaction_add(reaction, user):
-    msg=reaction.message
-    emoji=reaction.emoji
-    if (type(emoji)==str) and user != bot.user and msg.author == bot.user:
+async def on_raw_reaction_add(payload):
+    #message_id #int – The message ID that got or lost a reaction.
+    #user_id #int – The user ID who added or removed the reaction.
+    #channel_id #int – The channel ID where the reaction got added or removed.
+    #guild_id #Optional[int] – The guild ID where the reaction got added or removed, if applicable.
+    #emoji #PartialEmoji – The custom or unicode emoji being used.
+    msg = await bot.get_channel(payload.channel_id).get_message(payload.message_id)
+    emoji = payload.emoji.name
+    if payload.user_id != bot.user.id and msg.author == bot.user:
+        print(emoji)
         membed=msg.embeds[0]
         if FOOTER_URL['UNIT'] == membed.footer.icon_url:
             unit_dict = find_best(units, membed.author.name.replace('ᴶ',''))
