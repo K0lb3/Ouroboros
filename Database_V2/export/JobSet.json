@@ -1,0 +1,5747 @@
+{
+    "JS_ZYVA01": {
+        "iname": "JS_ZYVA01",
+        "job": "JB_ZYVA01",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_NOIN01": {
+        "iname": "JS_NOIN01",
+        "job": "JB_NOIN01",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_FURY01": {
+        "iname": "JS_FURY01",
+        "job": "JB_FURY01",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_ZYVA_02_KAK": {
+        "iname": "JS_ZYVA_02_KAK",
+        "job": "JB_KAK",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_ZYVA01"
+        }
+    },
+    "JS_ZYVA_03_MFEN": {
+        "iname": "JS_ZYVA_03_MFEN",
+        "job": "JB_MFEN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_ZYVA01"
+        }
+    },
+    "JS_NOIN_02_SAM": {
+        "iname": "JS_NOIN_02_SAM",
+        "job": "JB_SAM",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_NOIN01"
+        }
+    },
+    "JS_NOIN_03_WOR": {
+        "iname": "JS_NOIN_03_WOR",
+        "job": "JB_WOR",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_NOIN01"
+        }
+    },
+    "JS_FURY_02_DOC": {
+        "iname": "JS_FURY_02_DOC",
+        "job": "JB_DOC",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_FURY01"
+        }
+    },
+    "JS_FURY_03_KIL": {
+        "iname": "JS_FURY_03_KIL",
+        "job": "JB_KIL",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_FURY01"
+        }
+    },
+    "JS_ANNIKA_02_GEN": {
+        "iname": "JS_ANNIKA_02_GEN",
+        "job": "JB_GEN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_HUU"
+        }
+    },
+    "JS_ANNIKA_03_BAA": {
+        "iname": "JS_ANNIKA_03_BAA",
+        "job": "JB_BAA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_HUU"
+        }
+    },
+    "JS_HUGO_02_SOL": {
+        "iname": "JS_HUGO_02_SOL",
+        "job": "JB_SOL",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_SNI"
+        }
+    },
+    "JS_HUGO_03_MAJ": {
+        "iname": "JS_HUGO_03_MAJ",
+        "job": "JB_MAJ",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_SNI"
+        }
+    },
+    "JS_FAIRLILY_02_MIK": {
+        "iname": "JS_FAIRLILY_02_MIK",
+        "job": "JB_MIK",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_WEA"
+        }
+    },
+    "JS_FAIRLILY_03_SHN": {
+        "iname": "JS_FAIRLILY_03_SHN",
+        "job": "JB_SHN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_WEA"
+        }
+    },
+    "JS_EDWIN_02_MAH": {
+        "iname": "JS_EDWIN_02_MAH",
+        "job": "JB_MAH",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_GUA"
+        }
+    },
+    "JS_EDWIN_03_WOR": {
+        "iname": "JS_EDWIN_03_WOR",
+        "job": "JB_WOR",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_GUA"
+        }
+    },
+    "JS_DIS_LAHA": {
+        "iname": "JS_DIS_LAHA",
+        "job": "JB_DIS_LAHA",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_DIS_LAHA_02_MAH": {
+        "iname": "JS_DIS_LAHA_02_MAH",
+        "job": "JB_MAH",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_DIS_LAHA"
+        }
+    },
+    "JS_DIS_LAHA_03_NEC": {
+        "iname": "JS_DIS_LAHA_03_NEC",
+        "job": "JB_NEC",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_DIS_LAHA"
+        }
+    },
+    "JS_DIS_ETON": {
+        "iname": "JS_DIS_ETON",
+        "job": "JB_DIS_ETON",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_DIS_ETONI_02_NIN": {
+        "iname": "JS_DIS_ETONI_02_NIN",
+        "job": "JB_NIN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_DIS_ETON"
+        }
+    },
+    "JS_DIS_ETON_03_MFEN": {
+        "iname": "JS_DIS_ETON_03_MFEN",
+        "job": "JB_MFEN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_DIS_ETON"
+        }
+    },
+    "JS_DIS_PRIN2": {
+        "iname": "JS_DIS_PRIN2",
+        "job": "JB_DIS_PRIN2",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_DIS_PRIN3": {
+        "iname": "JS_DIS_PRIN3",
+        "job": "JB_DIS_PRIN3",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_DIS_PRIN2"
+        }
+    },
+    "JS_DIS_PRIN1": {
+        "iname": "JS_DIS_PRIN1",
+        "job": "JB_DIS_PRIN1",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_DIS_PRIN2"
+        }
+    },
+    "JS_DIS_THI": {
+        "iname": "JS_DIS_THI",
+        "job": "JB_DIS_THI",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_DIS_ALMI_02_VAL": {
+        "iname": "JS_DIS_ALMI_02_VAL",
+        "job": "JB_VAL",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_DIS_THI"
+        }
+    },
+    "JS_DIS_SAM": {
+        "iname": "JS_DIS_SAM",
+        "job": "JB_DIS_SAM",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_DIS_SAM"
+        }
+    },
+    "JS_DIS_DEMON": {
+        "iname": "JS_DIS_DEMON",
+        "job": "JB_DIS_DEMON",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_DIS_ROSA_02_ENC": {
+        "iname": "JS_DIS_ROSA_02_ENC",
+        "job": "JB_ENC",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_DIS_DEMON"
+        }
+    },
+    "JS_DIS_WIZ": {
+        "iname": "JS_DIS_WIZ",
+        "job": "JB_DIS_WIZ",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_DIS_DEMON"
+        }
+    },
+    "JS_BASI_SOL": {
+        "iname": "JS_BASI_SOL",
+        "job": "JB_BASI_SOL",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_BASI_02_SOL": {
+        "iname": "JS_BASI_02_SOL",
+        "job": "JB_SOL",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_BASI_SOL"
+        }
+    },
+    "JS_BASI_03_STR": {
+        "iname": "JS_BASI_03_STR",
+        "job": "JB_STR",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_BASI_SOL"
+        }
+    },
+    "JS_HWIZ": {
+        "iname": "JS_HWIZ",
+        "job": "JB_HWIZ",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_NEICA_02_MAH": {
+        "iname": "JS_NEICA_02_MAH",
+        "job": "JB_MAH",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_HWIZ"
+        }
+    },
+    "JS_NEICA_03_DAI": {
+        "iname": "JS_NEICA_03_DAI",
+        "job": "JB_DAI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_HWIZ"
+        }
+    },
+    "JS_YUNAGI_02_NIN": {
+        "iname": "JS_YUNAGI_02_NIN",
+        "job": "JB_NIN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_BAA"
+        }
+    },
+    "JS_YUNAGI_03_WOR": {
+        "iname": "JS_YUNAGI_03_WOR",
+        "job": "JB_WOR",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_BAA"
+        }
+    },
+    "JS_MARIANNU_02_ANK": {
+        "iname": "JS_MARIANNU_02_ANK",
+        "job": "JB_ANK",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_NEC"
+        }
+    },
+    "JS_MARIANNU_03_SHN": {
+        "iname": "JS_MARIANNU_03_SHN",
+        "job": "JB_SHN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_NEC"
+        }
+    },
+    "JS_FATE_ASS": {
+        "iname": "JS_FATE_ASS",
+        "job": "JB_FATE_ASS",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_FATE_CAS": {
+        "iname": "JS_FATE_CAS",
+        "job": "JB_FATE_CAS",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_FATE_BSKR": {
+        "iname": "JS_FATE_BSKR",
+        "job": "JB_FATE_BSKR",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_FATE_LAN": {
+        "iname": "JS_FATE_LAN",
+        "job": "JB_FATE_LAN",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_FATE_SABR": {
+        "iname": "JS_FATE_SABR",
+        "job": "JB_FATE_SABR",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_SABR_02_SEI": {
+        "iname": "JS_SABR_02_SEI",
+        "job": "JB_SEI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_FATE_SABR"
+        }
+    },
+    "JS_SABR_03_VAL": {
+        "iname": "JS_SABR_03_VAL",
+        "job": "JB_VAL",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_FATE_SABR"
+        }
+    },
+    "JS_FATE_SABR_WEP": {
+        "iname": "JS_FATE_SABR_WEP",
+        "job": "JB_FATE_SABR_WEP",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_FATE_GOLD": {
+        "iname": "JS_FATE_GOLD",
+        "job": "JB_FATE_GOLD",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_GILGAMESH_02_MAH": {
+        "iname": "JS_GILGAMESH_02_MAH",
+        "job": "JB_MAH",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_FATE_GOLD"
+        }
+    },
+    "JS_GILGAMESH_03_BAA": {
+        "iname": "JS_GILGAMESH_03_BAA",
+        "job": "JB_BAA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_FATE_GOLD"
+        }
+    },
+    "JS_FATE_GOLD_WEP": {
+        "iname": "JS_FATE_GOLD_WEP",
+        "job": "JB_FATE_GOLD_WEP",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_FATE_ARCH": {
+        "iname": "JS_FATE_ARCH",
+        "job": "JB_FATE_ARCH",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_FATE_ZAHAR_02_BSKR": {
+        "iname": "JS_FATE_ZAHAR_02_BSKR",
+        "job": "JB_FATE_BSKR",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_FATE_ARCH"
+        }
+    },
+    "JS_FATE_ZAHAR_03_LAN": {
+        "iname": "JS_FATE_ZAHAR_03_LAN",
+        "job": "JB_FATE_LAN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_FATE_ARCH"
+        }
+    },
+    "JS_FATE_EMIYA": {
+        "iname": "JS_FATE_EMIYA",
+        "job": "JB_FATE_EMIYA",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_ARCHER_02_SOL": {
+        "iname": "JS_ARCHER_02_SOL",
+        "job": "JB_SOL",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_FATE_EMIYA"
+        }
+    },
+    "JS_ARCHER_03_RAN": {
+        "iname": "JS_ARCHER_03_RAN",
+        "job": "JB_RAN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_FATE_EMIYA"
+        }
+    },
+    "JS_FATE_EMIYA_WEP": {
+        "iname": "JS_FATE_EMIYA_WEP",
+        "job": "JB_FATE_EMIYA_WEP",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_FATE_TMAG": {
+        "iname": "JS_FATE_TMAG",
+        "job": "JB_FATE_TMAG",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_TOSAKA_RINN_02_KAK": {
+        "iname": "JS_TOSAKA_RINN_02_KAK",
+        "job": "JB_KAK",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_FATE_TMAG"
+        }
+    },
+    "JS_TOSAKA_RINN_03_DAI": {
+        "iname": "JS_TOSAKA_RINN_03_DAI",
+        "job": "JB_DAI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_FATE_TMAG"
+        }
+    },
+    "JS_FATE_TMAG_WEP": {
+        "iname": "JS_FATE_TMAG_WEP",
+        "job": "JB_FATE_TMAG_WEP",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_FATE_IMAG": {
+        "iname": "JS_FATE_IMAG",
+        "job": "JB_FATE_IMAG",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_IRIYA_02_GEN": {
+        "iname": "JS_IRIYA_02_GEN",
+        "job": "JB_GEN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_FATE_IMAG"
+        }
+    },
+    "JS_IRIYA_03_ENC": {
+        "iname": "JS_IRIYA_03_ENC",
+        "job": "JB_ENC",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_FATE_IMAG"
+        }
+    },
+    "JS_FATE_IMAG_WEP": {
+        "iname": "JS_FATE_IMAG_WEP",
+        "job": "JB_FATE_IMAG_WEP",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_FATE_LAMIA_02_ASS": {
+        "iname": "JS_FATE_LAMIA_02_ASS",
+        "job": "JB_FATE_ASS",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_FATE_SABR"
+        }
+    },
+    "JS_FATE_LAMIA_02_NIN": {
+        "iname": "JS_FATE_LAMIA_02_NIN",
+        "job": "JB_NIN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_FATE_SABR"
+        }
+    },
+    "JS_FATE_RIDR": {
+        "iname": "JS_FATE_RIDR",
+        "job": "JB_FATE_RIDR",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_FATE_YOMI_02_NEC": {
+        "iname": "JS_FATE_YOMI_02_NEC",
+        "job": "JB_NEC",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_FATE_RIDR"
+        }
+    },
+    "JS_FATE_YOMI_03_CAS": {
+        "iname": "JS_FATE_YOMI_03_CAS",
+        "job": "JB_FATE_CAS",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_FATE_RIDR"
+        }
+    },
+    "JS_ARM": {
+        "iname": "JS_ARM",
+        "job": "JB_ARM",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_SEI": {
+        "iname": "JS_SEI",
+        "job": "JB_SEI",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_GUA": {
+        "iname": "JS_GUA",
+        "job": "JB_GUA",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_ANK": {
+        "iname": "JS_ANK",
+        "job": "JB_ANK",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_BAA": {
+        "iname": "JS_BAA",
+        "job": "JB_BAA",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_MAH": {
+        "iname": "JS_MAH",
+        "job": "JB_MAH",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_SAM": {
+        "iname": "JS_SAM",
+        "job": "JB_SAM",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_KAK": {
+        "iname": "JS_KAK",
+        "job": "JB_KAK",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_STR": {
+        "iname": "JS_STR",
+        "job": "JB_STR",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_LAN": {
+        "iname": "JS_LAN",
+        "job": "JB_LAN",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_SPE": {
+        "iname": "JS_SPE",
+        "job": "JB_SPE",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_DGR": {
+        "iname": "JS_DGR",
+        "job": "JB_DGR",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_DGN": {
+        "iname": "JS_DGN",
+        "job": "JB_DGN",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_THI": {
+        "iname": "JS_THI",
+        "job": "JB_THI",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_ASS": {
+        "iname": "JS_ASS",
+        "job": "JB_ASS",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_NIN": {
+        "iname": "JS_NIN",
+        "job": "JB_NIN",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_HUN": {
+        "iname": "JS_HUN",
+        "job": "JB_HUN",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_GUN": {
+        "iname": "JS_GUN",
+        "job": "JB_GUN",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_SNI": {
+        "iname": "JS_SNI",
+        "job": "JB_SNI",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_KUR": {
+        "iname": "JS_KUR",
+        "job": "JB_KUR",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_LNC": {
+        "iname": "JS_LNC",
+        "job": "JB_LNC",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_WIZ": {
+        "iname": "JS_WIZ",
+        "job": "JB_WIZ",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_DAI": {
+        "iname": "JS_DAI",
+        "job": "JB_DAI",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_YUJ": {
+        "iname": "JS_YUJ",
+        "job": "JB_YUJ",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_PRI": {
+        "iname": "JS_PRI",
+        "job": "JB_PRI",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_KUS": {
+        "iname": "JS_KUS",
+        "job": "JB_KUS",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_DOC": {
+        "iname": "JS_DOC",
+        "job": "JB_DOC",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_ENC": {
+        "iname": "JS_ENC",
+        "job": "JB_ENC",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_SYO": {
+        "iname": "JS_SYO",
+        "job": "JB_SYO",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_GEN": {
+        "iname": "JS_GEN",
+        "job": "JB_GEN",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_HUU": {
+        "iname": "JS_HUU",
+        "job": "JB_HUU",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_BAR": {
+        "iname": "JS_BAR",
+        "job": "JB_BAR",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_ODO": {
+        "iname": "JS_ODO",
+        "job": "JB_ODO",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_KEM": {
+        "iname": "JS_KEM",
+        "job": "JB_KEM",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_KEN": {
+        "iname": "JS_KEN",
+        "job": "JB_KEN",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_SOL": {
+        "iname": "JS_SOL",
+        "job": "JB_SOL",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_WOR": {
+        "iname": "JS_WOR",
+        "job": "JB_WOR",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_KAI": {
+        "iname": "JS_KAI",
+        "job": "JB_KAI",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_SHN": {
+        "iname": "JS_SHN",
+        "job": "JB_SHN",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_KAJ": {
+        "iname": "JS_KAJ",
+        "job": "JB_KAJ",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_EN_KAJ": {
+        "iname": "JS_EN_KAJ",
+        "job": "JB_EN_KAJ",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_MFEN": {
+        "iname": "JS_MFEN",
+        "job": "JB_MFEN",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_GYA": {
+        "iname": "JS_GYA",
+        "job": "JB_GYA",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_VAL": {
+        "iname": "JS_VAL",
+        "job": "JB_VAL",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_NEC": {
+        "iname": "JS_NEC",
+        "job": "JB_NEC",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_MEI": {
+        "iname": "JS_MEI",
+        "job": "JB_MEI",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_MIK": {
+        "iname": "JS_MIK",
+        "job": "JB_MIK",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_KAM": {
+        "iname": "JS_KAM",
+        "job": "JB_KAM",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_ONM": {
+        "iname": "JS_ONM",
+        "job": "JB_ONM",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_WEA": {
+        "iname": "JS_WEA",
+        "job": "JB_WEA",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_WED_M": {
+        "iname": "JS_WED_M",
+        "job": "JB_WED_M",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_WED_F": {
+        "iname": "JS_WED_F",
+        "job": "JB_WED_F",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_RAN": {
+        "iname": "JS_RAN",
+        "job": "JB_RAN",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_SEN": {
+        "iname": "JS_SEN",
+        "job": "JB_SEN",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_BLA": {
+        "iname": "JS_BLA",
+        "job": "JB_BLA",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_MAJ": {
+        "iname": "JS_MAJ",
+        "job": "JB_MAJ",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_MAD": {
+        "iname": "JS_MAD",
+        "job": "JB_MAD",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_TYRH_ARM": {
+        "iname": "JS_TYRH_ARM",
+        "job": "JB_TYRH_ARM",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_LEAV_ANK": {
+        "iname": "JS_LEAV_ANK",
+        "job": "JB_LEAV_ANK",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_LEAV_ANK_ENE_WEP": {
+        "iname": "JS_LEAV_ANK_ENE_WEP",
+        "job": "JB_LEAV_ANK_ENE_WEP",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_VARG_ARM": {
+        "iname": "JS_VARG_ARM",
+        "job": "JB_VARG_ARM",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_FEN": {
+        "iname": "JS_FEN",
+        "job": "JB_FEN",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_REA": {
+        "iname": "JS_REA",
+        "job": "JB_REA",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_SHE": {
+        "iname": "JS_SHE",
+        "job": "JB_SHE",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_DGO": {
+        "iname": "JS_DGO",
+        "job": "JB_DGO",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_FEN_N": {
+        "iname": "JS_FEN_N",
+        "job": "JB_FEN_N",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_SABA_THI": {
+        "iname": "JS_SABA_THI",
+        "job": "JB_SABA_THI",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_SELE_SELE1": {
+        "iname": "JS_SELE_SELE1",
+        "job": "JB_SELE_SELE1",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_CANO_ARM": {
+        "iname": "JS_CANO_ARM",
+        "job": "JB_CANO_ARM",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_CANO_SEI": {
+        "iname": "JS_CANO_SEI",
+        "job": "JB_CANO_SEI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_CANO_ARM"
+        }
+    },
+    "JS_CANO_SEI_SKIN": {
+        "iname": "JS_CANO_SEI_SKIN",
+        "job": "JB_CANO_SEI_SKIN",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_CANO_LORD": {
+        "iname": "JS_CANO_LORD",
+        "job": "JB_CANO_LORD",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_CANO_ARM"
+        }
+    },
+    "JS_CADA_SEI": {
+        "iname": "JS_CADA_SEI",
+        "job": "JB_CADA_SEI",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_KUDH_LAN": {
+        "iname": "JS_KUDH_LAN",
+        "job": "JB_KUDH_LAN",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_SEDA_RAN": {
+        "iname": "JS_SEDA_RAN",
+        "job": "JB_SEDA_RAN",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_MONZ_WOR": {
+        "iname": "JS_MONZ_WOR",
+        "job": "JB_MONZ_WOR",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_ZAYI_LORD": {
+        "iname": "JS_ZAYI_LORD",
+        "job": "JB_ZAYI_LORD",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_YAUL_SOL": {
+        "iname": "JS_YAUL_SOL",
+        "job": "JB_YAUL_SOL",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_OTHI_WIZ": {
+        "iname": "JS_OTHI_WIZ",
+        "job": "JB_OTHI_WIZ",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_SAROMO_THI": {
+        "iname": "JS_SAROMO_THI",
+        "job": "JB_SAROMO_THI",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_KIL": {
+        "iname": "JS_KIL",
+        "job": "JB_KIL",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_PSI": {
+        "iname": "JS_PSI",
+        "job": "JB_PSI",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_ACT_F": {
+        "iname": "JS_ACT_F",
+        "job": "JB_ACT_F",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_ACT_F_WEP": {
+        "iname": "JS_ACT_F_WEP",
+        "job": "JB_ACT_F_WEP",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_MIUN_KAJ": {
+        "iname": "JS_MIUN_KAJ",
+        "job": "JB_MIUN_KAJ",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_MIUN_KAJ_WEP": {
+        "iname": "JS_MIUN_KAJ_WEP",
+        "job": "JB_MIUN_KAJ_WEP",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_MIUN_02_THI": {
+        "iname": "JS_MIUN_02_THI",
+        "job": "JB_THI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_MIUN_KAJ"
+        }
+    },
+    "JS_MIUN_03_GUA": {
+        "iname": "JS_MIUN_03_GUA",
+        "job": "JB_GUA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_MIUN_KAJ"
+        }
+    },
+    "JS_LOGI_DEMO": {
+        "iname": "JS_LOGI_DEMO",
+        "job": "JB_LOGI_SEI_TUTORIAL",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_DIOS_DEMO": {
+        "iname": "JS_DIOS_DEMO",
+        "job": "JB_DIOS_ANK_TUTORIAL",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_DIOS_DEMO_AFTER": {
+        "iname": "JS_DIOS_DEMO_AFTER",
+        "job": "JB_DIOS_ANK_AFTER",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_LOGI_01_ARM": {
+        "iname": "JS_LOGI_01_ARM",
+        "job": "JB_LOGI_ARM",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_LOGI_02_SEI": {
+        "iname": "JS_LOGI_02_SEI",
+        "job": "JB_LOGI_SEI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_LOGI_ARM"
+        }
+    },
+    "JS_DIOS_01_ARM": {
+        "iname": "JS_DIOS_01_ARM",
+        "job": "JB_DIOS_ARM",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_DIOS_02_ANK": {
+        "iname": "JS_DIOS_02_ANK",
+        "job": "JB_DIOS_ANK",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_DIOS_ARM"
+        }
+    },
+    "JS_TYRHUNG_02_SEI": {
+        "iname": "JS_TYRHUNG_02_SEI",
+        "job": "JB_TYRH_SEI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_TYRH_ARM"
+        }
+    },
+    "JS_TYRHUNG_03_GUA": {
+        "iname": "JS_TYRHUNG_03_GUA",
+        "job": "JB_TYRH_GUA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_TYRH_ARM"
+        }
+    },
+    "JS_TYRHUNG_GUA_ENE_WEP": {
+        "iname": "JS_TYRHUNG_GUA_ENE_WEP",
+        "job": "JB_TYRH_GUA_ENE_WEP",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_LAEVATEINN_02_NIN": {
+        "iname": "JS_LAEVATEINN_02_NIN",
+        "job": "JB_LEAV_NIN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_LEAV_ANK"
+        }
+    },
+    "JS_LAEVATEINN_03_BAA": {
+        "iname": "JS_LAEVATEINN_03_BAA",
+        "job": "JB_LEAV_BAA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_LEAV_ANK"
+        }
+    },
+    "JS_VARGAS_02_VARG1": {
+        "iname": "JS_VARGAS_02_VARG1",
+        "job": "JB_VARG_VARG1",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_VARG_ARM"
+        }
+    },
+    "JS_VARGAS_03_VARG2": {
+        "iname": "JS_VARGAS_03_VARG2",
+        "job": "JB_VARG_VARG2",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_VARG_ARM"
+        }
+    },
+    "JS_SELENA_02_MAH": {
+        "iname": "JS_SELENA_02_MAH",
+        "job": "JB_SELE_MAH",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_SELE_SELE1"
+        }
+    },
+    "JS_SELENA_03_SELE2": {
+        "iname": "JS_SELENA_03_SELE2",
+        "job": "JB_SELE_SELE2",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_SELE_SELE1"
+        }
+    },
+    "JS_EDGA_01_GUN": {
+        "iname": "JS_EDGA_01_GUN",
+        "job": "JB_EDGA_GUN",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_EDGA_02_DRI": {
+        "iname": "JS_EDGA_02_DRI",
+        "job": "JB_EDGA_DRI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_EDGA_GUN"
+        }
+    },
+    "JS_LIES_01_PRI": {
+        "iname": "JS_LIES_01_PRI",
+        "job": "JB_LIES_PRI",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_LIES_02_LIES_2": {
+        "iname": "JS_LIES_02_LIES_2",
+        "job": "JB_LIES_2",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_LIES_PRI"
+        }
+    },
+    "JS_ALAIA_02_ODO": {
+        "iname": "JS_ALAIA_02_ODO",
+        "job": "JB_ODO",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_BAR"
+        }
+    },
+    "JS_ALAIA_03_HWIZ": {
+        "iname": "JS_ALAIA_03_HWIZ",
+        "job": "JB_HWIZ",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_BAR"
+        }
+    },
+    "JS_LUCIDO_02_ARM": {
+        "iname": "JS_LUCIDO_02_ARM",
+        "job": "JB_ARM",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_HUN"
+        }
+    },
+    "JS_LUCIDO_03_NIN": {
+        "iname": "JS_LUCIDO_03_NIN",
+        "job": "JB_NIN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_HUN"
+        }
+    },
+    "JS_RIGARUTO_02_HUN": {
+        "iname": "JS_RIGARUTO_02_HUN",
+        "job": "JB_HUN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_THI"
+        }
+    },
+    "JS_RIGARUTO_03_KAI": {
+        "iname": "JS_RIGARUTO_03_KAI",
+        "job": "JB_KAI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_THI"
+        }
+    },
+    "JS_RINN_02_YUJ": {
+        "iname": "JS_RINN_02_YUJ",
+        "job": "JB_YUJ",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_WIZ"
+        }
+    },
+    "JS_RINN_03_GEN": {
+        "iname": "JS_RINN_03_GEN",
+        "job": "JB_GEN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_WIZ"
+        }
+    },
+    "JS_JAKE_02_BAR": {
+        "iname": "JS_JAKE_02_BAR",
+        "job": "JB_BAR",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_WIZ"
+        }
+    },
+    "JS_JAKE_03_KUS": {
+        "iname": "JS_JAKE_03_KUS",
+        "job": "JB_KUS",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_WIZ"
+        }
+    },
+    "JS_RICHE_02_HUN": {
+        "iname": "JS_RICHE_02_HUN",
+        "job": "JB_HUN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_ARM"
+        }
+    },
+    "JS_RICHE_03_KUR": {
+        "iname": "JS_RICHE_03_KUR",
+        "job": "JB_KUR",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_ARM"
+        }
+    },
+    "JS_GAIN_02_THI": {
+        "iname": "JS_GAIN_02_THI",
+        "job": "JB_THI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_ARM"
+        }
+    },
+    "JS_GAIN_03_KEM": {
+        "iname": "JS_GAIN_03_KEM",
+        "job": "JB_KEM",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_ARM"
+        }
+    },
+    "JS_ELAINE_02_THI": {
+        "iname": "JS_ELAINE_02_THI",
+        "job": "JB_THI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_HUN"
+        }
+    },
+    "JS_ELAINE_03_GUN": {
+        "iname": "JS_ELAINE_03_GUN",
+        "job": "JB_GUN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_HUN"
+        }
+    },
+    "JS_ALEXIS_02_HUN": {
+        "iname": "JS_ALEXIS_02_HUN",
+        "job": "JB_HUN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_YUJ"
+        }
+    },
+    "JS_ALEXIS_03_PRI": {
+        "iname": "JS_ALEXIS_03_PRI",
+        "job": "JB_PRI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_YUJ"
+        }
+    },
+    "JS_VANEKIS_02_WIZ": {
+        "iname": "JS_VANEKIS_02_WIZ",
+        "job": "JB_WIZ",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_THI"
+        }
+    },
+    "JS_VANEKIS_03_ENC": {
+        "iname": "JS_VANEKIS_03_ENC",
+        "job": "JB_ENC",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_THI"
+        }
+    },
+    "JS_ANJOU_02_YUJ": {
+        "iname": "JS_ANJOU_02_YUJ",
+        "job": "JB_YUJ",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_YUJ"
+        }
+    },
+    "JS_ANJOU_03_ODO": {
+        "iname": "JS_ANJOU_03_ODO",
+        "job": "JB_ODO",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_YUJ"
+        }
+    },
+    "JS_POLLIN_02_WIZ": {
+        "iname": "JS_POLLIN_02_WIZ",
+        "job": "JB_WIZ",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_BAR"
+        }
+    },
+    "JS_POLLIN_03_YUJ": {
+        "iname": "JS_POLLIN_03_YUJ",
+        "job": "JB_YUJ",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_BAR"
+        }
+    },
+    "JS_MEILY_02_YUJ": {
+        "iname": "JS_MEILY_02_YUJ",
+        "job": "JB_YUJ",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_WIZ"
+        }
+    },
+    "JS_MEILY_03_PRI": {
+        "iname": "JS_MEILY_03_PRI",
+        "job": "JB_PRI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_WIZ"
+        }
+    },
+    "JS_ALFRED_02_BAR": {
+        "iname": "JS_ALFRED_02_BAR",
+        "job": "JB_BAR",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_THI"
+        }
+    },
+    "JS_ALFRED_03_GUN": {
+        "iname": "JS_ALFRED_03_GUN",
+        "job": "JB_GUN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_THI"
+        }
+    },
+    "JS_AMIS_02_BAR": {
+        "iname": "JS_AMIS_02_BAR",
+        "job": "JB_BAR",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_YUJ"
+        }
+    },
+    "JS_AMIS_03_KUR": {
+        "iname": "JS_AMIS_03_KUR",
+        "job": "JB_KUR",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_YUJ"
+        }
+    },
+    "JS_AYLLU_02_PRI": {
+        "iname": "JS_AYLLU_02_PRI",
+        "job": "JB_PRI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_BAR"
+        }
+    },
+    "JS_AYLLU_03_KUS": {
+        "iname": "JS_AYLLU_03_KUS",
+        "job": "JB_KUS",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_BAR"
+        }
+    },
+    "JS_ISHUNA_02_HUN": {
+        "iname": "JS_ISHUNA_02_HUN",
+        "job": "JB_HUN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_THI"
+        }
+    },
+    "JS_ISHUNA_03_KAK": {
+        "iname": "JS_ISHUNA_03_KAK",
+        "job": "JB_KAK",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_THI"
+        }
+    },
+    "JS_MELIA_02_BAR": {
+        "iname": "JS_MELIA_02_BAR",
+        "job": "JB_BAR",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_YUJ"
+        }
+    },
+    "JS_MELIA_03_KUS": {
+        "iname": "JS_MELIA_03_KUS",
+        "job": "JB_KUS",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_YUJ"
+        }
+    },
+    "JS_MIZUCHI_02_THI": {
+        "iname": "JS_MIZUCHI_02_THI",
+        "job": "JB_THI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_HUN"
+        }
+    },
+    "JS_MIZUCHI_03_NIN": {
+        "iname": "JS_MIZUCHI_03_NIN",
+        "job": "JB_NIN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_HUN"
+        }
+    },
+    "JS_RUNBELL_02_THI": {
+        "iname": "JS_RUNBELL_02_THI",
+        "job": "JB_THI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_ARM"
+        }
+    },
+    "JS_RUNBELL_03_SEI": {
+        "iname": "JS_RUNBELL_03_SEI",
+        "job": "JB_SEI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_ARM"
+        }
+    },
+    "JS_KAZAHAYA_02_KAK": {
+        "iname": "JS_KAZAHAYA_02_KAK",
+        "job": "JB_KAK",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_THI"
+        }
+    },
+    "JS_KAZAHAYA_03_NIN": {
+        "iname": "JS_KAZAHAYA_03_NIN",
+        "job": "JB_NIN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_THI"
+        }
+    },
+    "JS_CIEL_02_MIK": {
+        "iname": "JS_CIEL_02_MIK",
+        "job": "JB_MIK",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_THI"
+        }
+    },
+    "JS_CIEL_03_PRI": {
+        "iname": "JS_CIEL_03_PRI",
+        "job": "JB_PRI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_THI"
+        }
+    },
+    "JS_YUAN_02_THI": {
+        "iname": "JS_YUAN_02_THI",
+        "job": "JB_THI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_HUN"
+        }
+    },
+    "JS_YUAN_03_NIN": {
+        "iname": "JS_YUAN_03_NIN",
+        "job": "JB_NIN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_HUN"
+        }
+    },
+    "JS_GATH_02_WIZ": {
+        "iname": "JS_GATH_02_WIZ",
+        "job": "JB_WIZ",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_BAR"
+        }
+    },
+    "JS_GATH_03_ENC": {
+        "iname": "JS_GATH_03_ENC",
+        "job": "JB_ENC",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_BAR"
+        }
+    },
+    "JS_SARAUZU_02_KUR": {
+        "iname": "JS_SARAUZU_02_KUR",
+        "job": "JB_KUR",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_HUN"
+        }
+    },
+    "JS_SARAUZU_03_GUN": {
+        "iname": "JS_SARAUZU_03_GUN",
+        "job": "JB_GUN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_HUN"
+        }
+    },
+    "JS_RION_02_WIZ": {
+        "iname": "JS_RION_02_WIZ",
+        "job": "JB_WIZ",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_BAR"
+        }
+    },
+    "JS_RION_03_MAH": {
+        "iname": "JS_RION_03_MAH",
+        "job": "JB_MAH",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_BAR"
+        }
+    },
+    "JS_DECEL_02_THI": {
+        "iname": "JS_DECEL_02_THI",
+        "job": "JB_THI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_WIZ"
+        }
+    },
+    "JS_DECEL_03_KUS": {
+        "iname": "JS_DECEL_03_KUS",
+        "job": "JB_KUS",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_WIZ"
+        }
+    },
+    "JS_ENNIS_02_KUS": {
+        "iname": "JS_ENNIS_02_KUS",
+        "job": "JB_KUS",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_YUJ"
+        }
+    },
+    "JS_ENNIS_03_ODO": {
+        "iname": "JS_ENNIS_03_ODO",
+        "job": "JB_ODO",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_YUJ"
+        }
+    },
+    "JS_PATTI_02_ODO": {
+        "iname": "JS_PATTI_02_ODO",
+        "job": "JB_ODO",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_BAR"
+        }
+    },
+    "JS_PATTI_03_ENC": {
+        "iname": "JS_PATTI_03_ENC",
+        "job": "JB_ENC",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_BAR"
+        }
+    },
+    "JS_KUON_02_KUS": {
+        "iname": "JS_KUON_02_KUS",
+        "job": "JB_KUS",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_YUJ"
+        }
+    },
+    "JS_KUON_03_MIK": {
+        "iname": "JS_KUON_03_MIK",
+        "job": "JB_MIK",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_YUJ"
+        }
+    },
+    "JS_MIANNU_02_WIZ": {
+        "iname": "JS_MIANNU_02_WIZ",
+        "job": "JB_WIZ",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_YUJ"
+        }
+    },
+    "JS_MIANNU_03_PRI": {
+        "iname": "JS_MIANNU_03_PRI",
+        "job": "JB_PRI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_YUJ"
+        }
+    },
+    "JS_MARE_01_WIZ": {
+        "iname": "JS_MARE_01_WIZ",
+        "job": "JB_WIZ",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_MARE_02_PRI": {
+        "iname": "JS_MARE_02_PRI",
+        "job": "JB_PRI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_WIZ"
+        }
+    },
+    "JS_MARE_03_NIN": {
+        "iname": "JS_MARE_03_NIN",
+        "job": "JB_NIN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_WIZ"
+        }
+    },
+    "JS_CELINE_02_PRI": {
+        "iname": "JS_CELINE_02_PRI",
+        "job": "JB_PRI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_WIZ"
+        }
+    },
+    "JS_CELINE_03_GEN": {
+        "iname": "JS_CELINE_03_GEN",
+        "job": "JB_GEN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_WIZ"
+        }
+    },
+    "JS_ALMILA_02_KEM": {
+        "iname": "JS_ALMILA_02_KEM",
+        "job": "JB_KEM",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_HUN"
+        }
+    },
+    "JS_ALMILA_03_SNI": {
+        "iname": "JS_ALMILA_03_SNI",
+        "job": "JB_SNI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_HUN"
+        }
+    },
+    "JS_FREED_02_KAK": {
+        "iname": "JS_FREED_02_KAK",
+        "job": "JB_KAK",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_ARM"
+        }
+    },
+    "JS_FREED_03_DGR": {
+        "iname": "JS_FREED_03_DGR",
+        "job": "JB_DGR",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_ARM"
+        }
+    },
+    "JS_DILGA_02_KAK": {
+        "iname": "JS_DILGA_02_KAK",
+        "job": "JB_KAK",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_ARM"
+        }
+    },
+    "JS_DILGA_03_SEI": {
+        "iname": "JS_DILGA_03_SEI",
+        "job": "JB_SEI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_ARM"
+        }
+    },
+    "JS_SUTORIE_02_GUN": {
+        "iname": "JS_SUTORIE_02_GUN",
+        "job": "JB_GUN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_THI"
+        }
+    },
+    "JS_SUTORIE_03_MAH": {
+        "iname": "JS_SUTORIE_03_MAH",
+        "job": "JB_MAH",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_THI"
+        }
+    },
+    "JS_MICHAEL_02_KUS": {
+        "iname": "JS_MICHAEL_02_KUS",
+        "job": "JB_KUS",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_WIZ"
+        }
+    },
+    "JS_MICHAEL_03_GEN": {
+        "iname": "JS_MICHAEL_03_GEN",
+        "job": "JB_GEN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_WIZ"
+        }
+    },
+    "JS_CHIHAYA_02_SAM": {
+        "iname": "JS_CHIHAYA_02_SAM",
+        "job": "JB_SAM",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_ODO"
+        }
+    },
+    "JS_CHIHAYA_03_GEN": {
+        "iname": "JS_CHIHAYA_03_GEN",
+        "job": "JB_GEN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_ODO"
+        }
+    },
+    "JS_ARKILL_02_KEM": {
+        "iname": "JS_ARKILL_02_KEM",
+        "job": "JB_KEM",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_THI"
+        }
+    },
+    "JS_ARKILL_03_MAH": {
+        "iname": "JS_ARKILL_03_MAH",
+        "job": "JB_MAH",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_THI"
+        }
+    },
+    "JS_ROFIA_02_ENC": {
+        "iname": "JS_ROFIA_02_ENC",
+        "job": "JB_ENC",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_MAH"
+        }
+    },
+    "JS_ROFIA_03_GEN": {
+        "iname": "JS_ROFIA_03_GEN",
+        "job": "JB_GEN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_MAH"
+        }
+    },
+    "JS_LAMIA_02_SEI": {
+        "iname": "JS_LAMIA_02_SEI",
+        "job": "JB_SEI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_LAN"
+        }
+    },
+    "JS_LAMIA_03_DGR": {
+        "iname": "JS_LAMIA_03_DGR",
+        "job": "JB_DGR",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_LAN"
+        }
+    },
+    "JS_YOMI_02_NIN": {
+        "iname": "JS_YOMI_02_NIN",
+        "job": "JB_NIN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_MIK"
+        }
+    },
+    "JS_YOMI_03_STR": {
+        "iname": "JS_YOMI_03_STR",
+        "job": "JB_STR",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_MIK"
+        }
+    },
+    "JS_ZANGETSU_02_KAK": {
+        "iname": "JS_ZANGETSU_02_KAK",
+        "job": "JB_KAK",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_SAM"
+        }
+    },
+    "JS_ZANGETSU_03_DGN": {
+        "iname": "JS_ZANGETSU_03_DGN",
+        "job": "JB_DGN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_SAM"
+        }
+    },
+    "JS_ZAHAR_02_DGR": {
+        "iname": "JS_ZAHAR_02_DGR",
+        "job": "JB_DGR",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_ANK"
+        }
+    },
+    "JS_ZAHAR_03_BAA": {
+        "iname": "JS_ZAHAR_03_BAA",
+        "job": "JB_BAA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_ANK"
+        }
+    },
+    "JS_CLOE_02_LAN": {
+        "iname": "JS_CLOE_02_LAN",
+        "job": "JB_LAN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_SEI"
+        }
+    },
+    "JS_CLOE_03_GUA": {
+        "iname": "JS_CLOE_03_GUA",
+        "job": "JB_GUA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_SEI"
+        }
+    },
+    "JS_LUCIA_02_KAK": {
+        "iname": "JS_LUCIA_02_KAK",
+        "job": "JB_KAK",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_KEM"
+        }
+    },
+    "JS_LUCIA_03_STR": {
+        "iname": "JS_LUCIA_03_STR",
+        "job": "JB_STR",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_KEM"
+        }
+    },
+    "JS_CHALICE_02_KUR": {
+        "iname": "JS_CHALICE_02_KUR",
+        "job": "JB_KUR",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_GUN"
+        }
+    },
+    "JS_CHALICE_03_SNI": {
+        "iname": "JS_CHALICE_03_SNI",
+        "job": "JB_SNI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_GUN"
+        }
+    },
+    "JS_MEGISTOS_02_PRI": {
+        "iname": "JS_MEGISTOS_02_PRI",
+        "job": "JB_PRI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_KUR"
+        }
+    },
+    "JS_MEGISTOS_03_GUN": {
+        "iname": "JS_MEGISTOS_03_GUN",
+        "job": "JB_GUN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_KUR"
+        }
+    },
+    "JS_ANNEROSE_02_KUR": {
+        "iname": "JS_ANNEROSE_02_KUR",
+        "job": "JB_KUR",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_WIZ"
+        }
+    },
+    "JS_ANNEROSE_03_PRI": {
+        "iname": "JS_ANNEROSE_03_PRI",
+        "job": "JB_PRI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_WIZ"
+        }
+    },
+    "JS_RAHU_02_PRI": {
+        "iname": "JS_RAHU_02_PRI",
+        "job": "JB_PRI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_GEN"
+        }
+    },
+    "JS_RAHU_03_ENC": {
+        "iname": "JS_RAHU_03_ENC",
+        "job": "JB_ENC",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_GEN"
+        }
+    },
+    "JS_VETTEL_02_GUA": {
+        "iname": "JS_VETTEL_02_GUA",
+        "job": "JB_GUA",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_MAH"
+        }
+    },
+    "JS_VETTEL_03_SAM": {
+        "iname": "JS_VETTEL_03_SAM",
+        "job": "JB_SAM",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_MAH"
+        }
+    },
+    "JS_ELIZABETH_02_GEN": {
+        "iname": "JS_ELIZABETH_02_GEN",
+        "job": "JB_GEN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_DOC"
+        }
+    },
+    "JS_ELIZABETH_03_PRI": {
+        "iname": "JS_ELIZABETH_03_PRI",
+        "job": "JB_PRI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_DOC"
+        }
+    },
+    "JS_ANASTASIA_02_KUR": {
+        "iname": "JS_ANASTASIA_02_KUR",
+        "job": "JB_KUR",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_ANK"
+        }
+    },
+    "JS_ANASTASIA_03_BAA": {
+        "iname": "JS_ANASTASIA_03_BAA",
+        "job": "JB_BAA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_ANK"
+        }
+    },
+    "JS_GAYN_02_DOC": {
+        "iname": "JS_GAYN_02_DOC",
+        "job": "JB_DOC",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_THI"
+        }
+    },
+    "JS_GAYN_03_SEI": {
+        "iname": "JS_GAYN_03_SEI",
+        "job": "JB_SEI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_THI"
+        }
+    },
+    "JS_HAZUKI_02_DOC": {
+        "iname": "JS_HAZUKI_02_DOC",
+        "job": "JB_DOC",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_WIZ"
+        }
+    },
+    "JS_HAZUKI_03_ENC": {
+        "iname": "JS_HAZUKI_03_ENC",
+        "job": "JB_ENC",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_WIZ"
+        }
+    },
+    "JS_MAGNUS_02_LNC": {
+        "iname": "JS_MAGNUS_02_LNC",
+        "job": "JB_LNC",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_GUN"
+        }
+    },
+    "JS_MAGNUS_03_NIN": {
+        "iname": "JS_MAGNUS_03_NIN",
+        "job": "JB_NIN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_GUN"
+        }
+    },
+    "JS_FLAMEL_02_MAH": {
+        "iname": "JS_FLAMEL_02_MAH",
+        "job": "JB_MAH",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_WIZ"
+        }
+    },
+    "JS_FLAMEL_03_KEM": {
+        "iname": "JS_FLAMEL_03_KEM",
+        "job": "JB_KEM",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_WIZ"
+        }
+    },
+    "JS_BALT_02_THI": {
+        "iname": "JS_BALT_02_THI",
+        "job": "JB_THI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_SOL"
+        }
+    },
+    "JS_BALT_03_BAA": {
+        "iname": "JS_BALT_03_BAA",
+        "job": "JB_BAA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_SOL"
+        }
+    },
+    "JS_MIELIKKI_02_WIZ": {
+        "iname": "JS_MIELIKKI_02_WIZ",
+        "job": "JB_WIZ",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_ENC"
+        }
+    },
+    "JS_MIELIKKI_03_PRI": {
+        "iname": "JS_MIELIKKI_03_PRI",
+        "job": "JB_PRI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_ENC"
+        }
+    },
+    "JS_MERDA_02_THI": {
+        "iname": "JS_MERDA_02_THI",
+        "job": "JB_THI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_KEM"
+        }
+    },
+    "JS_MERDA_03_SAM": {
+        "iname": "JS_MERDA_03_SAM",
+        "job": "JB_SAM",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_KEM"
+        }
+    },
+    "JS_RETZIUS_02_KEM": {
+        "iname": "JS_RETZIUS_02_KEM",
+        "job": "JB_KEM",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_ARM"
+        }
+    },
+    "JS_RETZIUS_03_SOL": {
+        "iname": "JS_RETZIUS_03_SOL",
+        "job": "JB_SOL",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_ARM"
+        }
+    },
+    "JS_SABALETA_02_HUN": {
+        "iname": "JS_SABALETA_02_HUN",
+        "job": "JB_HUN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_SABA_THI"
+        }
+    },
+    "JS_SABALETA_03_ANK": {
+        "iname": "JS_SABALETA_03_ANK",
+        "job": "JB_ANK",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_SABA_THI"
+        }
+    },
+    "JS_REGEN_02_SNI": {
+        "iname": "JS_REGEN_02_SNI",
+        "job": "JB_SNI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_KUS"
+        }
+    },
+    "JS_REGEN_03_GEN": {
+        "iname": "JS_REGEN_03_GEN",
+        "job": "JB_GEN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_KUS"
+        }
+    },
+    "JS_ROSA_02_DGN": {
+        "iname": "JS_ROSA_02_DGN",
+        "job": "JB_DGN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_ANK"
+        }
+    },
+    "JS_ROSA_03_NIN": {
+        "iname": "JS_ROSA_03_NIN",
+        "job": "JB_NIN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_ANK"
+        }
+    },
+    "JS_EVE_02_GEN": {
+        "iname": "JS_EVE_02_GEN",
+        "job": "JB_GEN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_WED_F"
+        }
+    },
+    "JS_EVE_03_STR": {
+        "iname": "JS_EVE_03_STR",
+        "job": "JB_STR",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_WED_F"
+        }
+    },
+    "JS_FRAISE_02_SAM": {
+        "iname": "JS_FRAISE_02_SAM",
+        "job": "JB_SAM",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_WED_M"
+        }
+    },
+    "JS_FRAISE_03_GUA": {
+        "iname": "JS_FRAISE_03_GUA",
+        "job": "JB_GUA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_WED_M"
+        }
+    },
+    "JS_HAYATE_02_KAK": {
+        "iname": "JS_HAYATE_02_KAK",
+        "job": "JB_KAK",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_HUN"
+        }
+    },
+    "JS_HAYATE_03_NIN": {
+        "iname": "JS_HAYATE_03_NIN",
+        "job": "JB_NIN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_HUN"
+        }
+    },
+    "JS_VELOZ_02_THI": {
+        "iname": "JS_VELOZ_02_THI",
+        "job": "JB_THI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_KUR"
+        }
+    },
+    "JS_VELOZ_03_WED_M": {
+        "iname": "JS_VELOZ_03_WED_M",
+        "job": "JB_WED_M",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_KUR"
+        }
+    },
+    "JS_LUCRETIA_02_WIZ": {
+        "iname": "JS_LUCRETIA_02_WIZ",
+        "job": "JB_WIZ",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_WED_F"
+        }
+    },
+    "JS_LUCRETIA_03_DOC": {
+        "iname": "JS_LUCRETIA_03_DOC",
+        "job": "JB_DOC",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_WED_F"
+        }
+    },
+    "JS_SUZUKA_02_NIN": {
+        "iname": "JS_SUZUKA_02_NIN",
+        "job": "JB_NIN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_SAM"
+        }
+    },
+    "JS_SUZUKA_03_BAA": {
+        "iname": "JS_SUZUKA_03_BAA",
+        "job": "JB_BAA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_SAM"
+        }
+    },
+    "JS_CADANOVA_02_DGR": {
+        "iname": "JS_CADANOVA_02_DGR",
+        "job": "JB_DGR",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_CADA_SEI"
+        }
+    },
+    "JS_CADANOVA_03_GUA": {
+        "iname": "JS_CADANOVA_03_GUA",
+        "job": "JB_CADA_GUA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_CADA_SEI"
+        }
+    },
+    "JS_FUNGLIU_02_DAI": {
+        "iname": "JS_FUNGLIU_02_DAI",
+        "job": "JB_DAI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_WIZ"
+        }
+    },
+    "JS_FUNGLIU_03_ENC": {
+        "iname": "JS_FUNGLIU_03_ENC",
+        "job": "JB_ENC",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_WIZ"
+        }
+    },
+    "JS_RYLE_02_SOL": {
+        "iname": "JS_RYLE_02_SOL",
+        "job": "JB_SOL",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_RAN"
+        }
+    },
+    "JS_RYLE_03_KEM": {
+        "iname": "JS_RYLE_03_KEM",
+        "job": "JB_KEM",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_RAN"
+        }
+    },
+    "JS_ALBELL_02_THI": {
+        "iname": "JS_ALBELL_02_THI",
+        "job": "JB_THI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_LNC"
+        }
+    },
+    "JS_ALBELL_03_SNI": {
+        "iname": "JS_ALBELL_03_SNI",
+        "job": "JB_SNI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_LNC"
+        }
+    },
+    "JS_SHAYNA_02_DGR": {
+        "iname": "JS_SHAYNA_02_DGR",
+        "job": "JB_DGR",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_STR"
+        }
+    },
+    "JS_SHAYNA_03_GEN": {
+        "iname": "JS_SHAYNA_03_GEN",
+        "job": "JB_GEN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_STR"
+        }
+    },
+    "JS_REIMEI_02_KAK": {
+        "iname": "JS_REIMEI_02_KAK",
+        "job": "JB_KAK",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_NIN"
+        }
+    },
+    "JS_REIMEI_03_SAM": {
+        "iname": "JS_REIMEI_03_SAM",
+        "job": "JB_SAM",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_NIN"
+        }
+    },
+    "JS_SOLEIL_02_PRI": {
+        "iname": "JS_SOLEIL_02_PRI",
+        "job": "JB_PRI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_DAI"
+        }
+    },
+    "JS_SOLEIL_03_ENC": {
+        "iname": "JS_SOLEIL_03_ENC",
+        "job": "JB_ENC",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_DAI"
+        }
+    },
+    "JS_MILIS_02_MAH": {
+        "iname": "JS_MILIS_02_MAH",
+        "job": "JB_MAH",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_HUN"
+        }
+    },
+    "JS_MILIS_03_RAN": {
+        "iname": "JS_MILIS_03_RAN",
+        "job": "JB_RAN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_HUN"
+        }
+    },
+    "JS_SHENMEI_02_THI": {
+        "iname": "JS_SHENMEI_02_THI",
+        "job": "JB_THI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_KAI"
+        }
+    },
+    "JS_SHENMEI_03_KUR": {
+        "iname": "JS_SHENMEI_03_KUR",
+        "job": "JB_KUR",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_KAI"
+        }
+    },
+    "JS_TAMAMO_02_WIZ": {
+        "iname": "JS_TAMAMO_02_WIZ",
+        "job": "JB_WIZ",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_MIK"
+        }
+    },
+    "JS_TAMAMO_03_RAN": {
+        "iname": "JS_TAMAMO_03_RAN",
+        "job": "JB_RAN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_MIK"
+        }
+    },
+    "JS_KURAJU_02_KUR": {
+        "iname": "JS_KURAJU_02_KUR",
+        "job": "JB_KUR",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_SNI"
+        }
+    },
+    "JS_KURAJU_03_ANK": {
+        "iname": "JS_KURAJU_03_ANK",
+        "job": "JB_ANK",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_SNI"
+        }
+    },
+    "JS_KAGURA_02_KAGU_WIZ": {
+        "iname": "JS_KAGURA_02_KAGU_WIZ",
+        "job": "JB_KAGU_WIZ",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_WIZ"
+        }
+    },
+    "JS_KUDHANSTEIN_02_KAK": {
+        "iname": "JS_KUDHANSTEIN_02_KAK",
+        "job": "JB_KAK",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_KUDH_LAN"
+        }
+    },
+    "JS_KUDHANSTEIN_03_BAA": {
+        "iname": "JS_KUDHANSTEIN_03_BAA",
+        "job": "JB_BAA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_KUDH_LAN"
+        }
+    },
+    "JS_FENC_02_H_FEN": {
+        "iname": "JS_FENC_02_H_FEN",
+        "job": "JB_H_FEN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_FEN"
+        }
+    },
+    "JS_FENC_03_FEN_N": {
+        "iname": "JS_FENC_03_FEN_N",
+        "job": "JB_FEN_N",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_FEN"
+        }
+    },
+    "JS_REAP_02_DT_REA": {
+        "iname": "JS_REAP_02_DT_REA",
+        "job": "JB_DT_REA",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_REA"
+        }
+    },
+    "JS_REAP_03_DK_REA": {
+        "iname": "JS_REAP_03_DK_REA",
+        "job": "JB_DK_REA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_REA"
+        }
+    },
+    "JS_SHER_02_H_SHE": {
+        "iname": "JS_SHER_02_H_SHE",
+        "job": "JB_H_SHE",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_SHE"
+        }
+    },
+    "JS_SHER_03_SHE_N": {
+        "iname": "JS_SHER_03_SHE_N",
+        "job": "JB_SHE_N",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_SHE"
+        }
+    },
+    "JS_SEK_CLOE_02_FEN": {
+        "iname": "JS_SEK_CLOE_02_FEN",
+        "job": "JB_FEN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_DGO"
+        }
+    },
+    "JS_SEK_CLOE_03_MAS": {
+        "iname": "JS_SEK_CLOE_03_MAS",
+        "job": "JB_MAS",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_DGO"
+        }
+    },
+    "JS_GORM_02_DGR": {
+        "iname": "JS_GORM_02_DGR",
+        "job": "JB_DGR",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_KAI"
+        }
+    },
+    "JS_GORM_03_STR": {
+        "iname": "JS_GORM_03_STR",
+        "job": "JB_STR",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_KAI"
+        }
+    },
+    "JS_SHEH_02_ODO": {
+        "iname": "JS_SHEH_02_ODO",
+        "job": "JB_ODO",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_DAI"
+        }
+    },
+    "JS_SHEH_03_MAH": {
+        "iname": "JS_SHEH_03_MAH",
+        "job": "JB_MAH",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_DAI"
+        }
+    },
+    "JS_SEIDA_02_HUN": {
+        "iname": "JS_SEIDA_02_HUN",
+        "job": "JB_HUN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_SEDA_RAN"
+        }
+    },
+    "JS_SEIDA_03_NIN": {
+        "iname": "JS_SEIDA_03_NIN",
+        "job": "JB_NIN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_SEDA_RAN"
+        }
+    },
+    "JS_MONZEIN_02_DGR": {
+        "iname": "JS_MONZEIN_02_DGR",
+        "job": "JB_DGR",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_MONZ_WOR"
+        }
+    },
+    "JS_MONZEIN_03_GUA": {
+        "iname": "JS_MONZEIN_03_GUA",
+        "job": "JB_GUA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_MONZ_WOR"
+        }
+    },
+    "JS_SPICA_02_THI": {
+        "iname": "JS_SPICA_02_THI",
+        "job": "JB_THI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_WOR"
+        }
+    },
+    "JS_SPICA_03_DGN": {
+        "iname": "JS_SPICA_03_DGN",
+        "job": "JB_DGN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_WOR"
+        }
+    },
+    "JS_VINCENT_02_BAR": {
+        "iname": "JS_VINCENT_02_BAR",
+        "job": "JB_BAR",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_DAI"
+        }
+    },
+    "JS_VINCENT_03_DOC": {
+        "iname": "JS_VINCENT_03_DOC",
+        "job": "JB_DOC",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_DAI"
+        }
+    },
+    "JS_DENEB_02_KUR": {
+        "iname": "JS_DENEB_02_KUR",
+        "job": "JB_KUR",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_SEN"
+        }
+    },
+    "JS_DENEB_03_MAH": {
+        "iname": "JS_DENEB_03_MAH",
+        "job": "JB_MAH",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_SEN"
+        }
+    },
+    "JS_GLANZ_02_BAA": {
+        "iname": "JS_GLANZ_02_BAA",
+        "job": "JB_BAA",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_NIN"
+        }
+    },
+    "JS_GLANZ_03_SAM": {
+        "iname": "JS_GLANZ_03_SAM",
+        "job": "JB_SAM",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_NIN"
+        }
+    },
+    "JS_PERIDOT_02_THI": {
+        "iname": "JS_PERIDOT_02_THI",
+        "job": "JB_THI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_WIZ"
+        }
+    },
+    "JS_PERIDOT_03_DAI": {
+        "iname": "JS_PERIDOT_03_DAI",
+        "job": "JB_DAI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_WIZ"
+        }
+    },
+    "JS_ZAYI_02_MAH": {
+        "iname": "JS_ZAYI_02_MAH",
+        "job": "JB_MAH",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_ZAYI_LORD"
+        }
+    },
+    "JS_ZAYI_03_GUA": {
+        "iname": "JS_ZAYI_03_GUA",
+        "job": "JB_GUA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_ZAYI_LORD"
+        }
+    },
+    "JS_YAUL_02_KAK": {
+        "iname": "JS_YAUL_02_KAK",
+        "job": "JB_KAK",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_YAUL_SOL"
+        }
+    },
+    "JS_YAUL_03_SOL": {
+        "iname": "JS_YAUL_03_SOL",
+        "job": "JB_SOL",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_YAUL_SOL"
+        }
+    },
+    "JS_KAGU_DAI": {
+        "iname": "JS_KAGU_DAI",
+        "job": "JB_KAGU_DAI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_WIZ"
+        }
+    },
+    "JS_LUPI_GEN": {
+        "iname": "JS_LUPI_GEN",
+        "job": "JB_GEN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_SYO"
+        }
+    },
+    "JS_LUPI_DAI": {
+        "iname": "JS_LUPI_DAI",
+        "job": "JB_DAI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_SYO"
+        }
+    },
+    "JS_VICT_NIN": {
+        "iname": "JS_VICT_NIN",
+        "job": "JB_NIN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_GUA"
+        }
+    },
+    "JS_LUPI_SOL": {
+        "iname": "JS_LUPI_SOL",
+        "job": "JB_SOL",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_GUA"
+        }
+    },
+    "JS_ARUBA_02_KEM": {
+        "iname": "JS_ARUBA_02_KEM",
+        "job": "JB_KEM",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_SHN"
+        }
+    },
+    "JS_ARUBA_03_DGN": {
+        "iname": "JS_ARUBA_03_DGN",
+        "job": "JB_DGN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_SHN"
+        }
+    },
+    "JS_CHIRURU_02_BAR": {
+        "iname": "JS_CHIRURU_02_BAR",
+        "job": "JB_BAR",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_SEN"
+        }
+    },
+    "JS_CHIRURU_03_DAI": {
+        "iname": "JS_CHIRURU_03_DAI",
+        "job": "JB_DAI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_SEN"
+        }
+    },
+    "JS_ZEKE_02_BAA": {
+        "iname": "JS_ZEKE_02_BAA",
+        "job": "JB_BAA",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_SEI"
+        }
+    },
+    "JS_ZEKE_03_GUA": {
+        "iname": "JS_ZEKE_03_GUA",
+        "job": "JB_ZEKE_GUA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_SEI"
+        }
+    },
+    "JS_SHEKINAH_02_HUN": {
+        "iname": "JS_SHEKINAH_02_HUN",
+        "job": "JB_HUN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_RAN"
+        }
+    },
+    "JS_SHEKINAH_03_STR": {
+        "iname": "JS_SHEKINAH_03_STR",
+        "job": "JB_STR",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_RAN"
+        }
+    },
+    "JS_SITA_02_KAK": {
+        "iname": "JS_SITA_02_KAK",
+        "job": "JB_KAK",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_WOR"
+        }
+    },
+    "JS_SITA_03_KAI": {
+        "iname": "JS_SITA_03_KAI",
+        "job": "JB_KAI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_WOR"
+        }
+    },
+    "JS_MASAMUNE_02_SOL": {
+        "iname": "JS_MASAMUNE_02_SOL",
+        "job": "JB_SOL",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_SAM"
+        }
+    },
+    "JS_MASAMUNE_03_BAA": {
+        "iname": "JS_MASAMUNE_03_BAA",
+        "job": "JB_BAA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_SAM"
+        }
+    },
+    "JS_TEONA_02_DGR": {
+        "iname": "JS_TEONA_02_DGR",
+        "job": "JB_DGR",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_VAL"
+        }
+    },
+    "JS_TEONA_03_GUA": {
+        "iname": "JS_TEONA_03_GUA",
+        "job": "JB_GUA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_VAL"
+        }
+    },
+    "JS_RAMESES_02_BAA": {
+        "iname": "JS_RAMESES_02_BAA",
+        "job": "JB_BAA",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_DGN"
+        }
+    },
+    "JS_RAMESES_03_THI": {
+        "iname": "JS_RAMESES_03_THI",
+        "job": "JB_THI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_DGN"
+        }
+    },
+    "JS_DOROTHEA_02_MAH": {
+        "iname": "JS_DOROTHEA_02_MAH",
+        "job": "JB_MAH",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_NEC"
+        }
+    },
+    "JS_DOROTHEA_03_WOR": {
+        "iname": "JS_DOROTHEA_03_WOR",
+        "job": "JB_WOR",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_NEC"
+        }
+    },
+    "JS_REIDA_02_DAI": {
+        "iname": "JS_REIDA_02_DAI",
+        "job": "JB_DAI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_MIK"
+        }
+    },
+    "JS_REIDA_03_NIN": {
+        "iname": "JS_REIDA_03_NIN",
+        "job": "JB_NIN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_MIK"
+        }
+    },
+    "JS_ASUWADO_02_SOL": {
+        "iname": "JS_ASUWADO_02_SOL",
+        "job": "JB_SOL",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_KIL"
+        }
+    },
+    "JS_ASUWADO_03_GUN": {
+        "iname": "JS_ASUWADO_03_GUN",
+        "job": "JB_GUN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_KIL"
+        }
+    },
+    "JS_SOPHIA_02_PRI": {
+        "iname": "JS_SOPHIA_02_PRI",
+        "job": "JB_PRI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_SEN"
+        }
+    },
+    "JS_SOPHIA_03_ENC": {
+        "iname": "JS_SOPHIA_03_ENC",
+        "job": "JB_ENC",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_SEN"
+        }
+    },
+    "JS_KYARORU_02_HUN": {
+        "iname": "JS_KYARORU_02_HUN",
+        "job": "JB_HUN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_LNC"
+        }
+    },
+    "JS_KYARORU_03_SHN": {
+        "iname": "JS_KYARORU_03_SHN",
+        "job": "JB_SHN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_LNC"
+        }
+    },
+    "JS_OTHIMA_02_ENC": {
+        "iname": "JS_OTHIMA_02_ENC",
+        "job": "JB_ENC",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_OTHI_WIZ"
+        }
+    },
+    "JS_OTHIMA_03_DAI": {
+        "iname": "JS_OTHIMA_03_DAI",
+        "job": "JB_DAI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_OTHI_WIZ"
+        }
+    },
+    "JS_ERURIKE_02_BAR": {
+        "iname": "JS_ERURIKE_02_BAR",
+        "job": "JB_BAR",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_THI"
+        }
+    },
+    "JS_ERURIKE_03_SHN": {
+        "iname": "JS_ERURIKE_03_SHN",
+        "job": "JB_SHN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_THI"
+        }
+    },
+    "JS_EIZAN_02_SAM": {
+        "iname": "JS_EIZAN_02_SAM",
+        "job": "JB_SAM",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_KAJ"
+        }
+    },
+    "JS_EIZAN_03_STR": {
+        "iname": "JS_EIZAN_03_STR",
+        "job": "JB_STR",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_KAJ"
+        }
+    },
+    "JS_THILLIE_02_DAI": {
+        "iname": "JS_THILLIE_02_DAI",
+        "job": "JB_DAI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_KEM"
+        }
+    },
+    "JS_THILLIE_03_NIN": {
+        "iname": "JS_THILLIE_03_NIN",
+        "job": "JB_NIN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_KEM"
+        }
+    },
+    "JS_SETS_02_KAK": {
+        "iname": "JS_SETS_02_KAK",
+        "job": "JB_KAK",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_MFEN"
+        }
+    },
+    "JS_SETS_03_KIL": {
+        "iname": "JS_SETS_03_KIL",
+        "job": "JB_KIL",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_MFEN"
+        }
+    },
+    "JS_HAZE_02_MAH": {
+        "iname": "JS_HAZE_02_MAH",
+        "job": "JB_MAH",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_LNC"
+        }
+    },
+    "JS_HAZE_02_RAN": {
+        "iname": "JS_HAZE_02_RAN",
+        "job": "JB_RAN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_LNC"
+        }
+    },
+    "JS_RENA_02_WIZ": {
+        "iname": "JS_RENA_02_WIZ",
+        "job": "JB_WIZ",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_ACT_F"
+        }
+    },
+    "JS_RENA_03_NIN": {
+        "iname": "JS_RENA_03_NIN",
+        "job": "JB_NIN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_ACT_F"
+        }
+    },
+    "JS_MIKOTO_02_NIN": {
+        "iname": "JS_MIKOTO_02_NIN",
+        "job": "JB_NIN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_KAM"
+        }
+    },
+    "JS_MIKOTO_03_VAL": {
+        "iname": "JS_MIKOTO_03_VAL",
+        "job": "JB_VAL",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_KAM"
+        }
+    },
+    "JS_MARGARET_02_MAH": {
+        "iname": "JS_MARGARET_02_MAH",
+        "job": "JB_MAH",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_SHN"
+        }
+    },
+    "JS_MARGARET_03_DAI": {
+        "iname": "JS_MARGARET_03_DAI",
+        "job": "JB_DAI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_SHN"
+        }
+    },
+    "JS_MEIFAN_02_THI": {
+        "iname": "JS_MEIFAN_02_THI",
+        "job": "JB_THI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_BLA"
+        }
+    },
+    "JS_MEIFAN_03_BAA": {
+        "iname": "JS_MEIFAN_03_BAA",
+        "job": "JB_BAA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_BLA"
+        }
+    },
+    "JS_VIVI_02_GUN": {
+        "iname": "JS_VIVI_02_GUN",
+        "job": "JB_GUN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_MAJ"
+        }
+    },
+    "JS_VIVI_03_DAI": {
+        "iname": "JS_VIVI_03_DAI",
+        "job": "JB_DAI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_MAJ"
+        }
+    },
+    "JS_S_SAKURA_02_NIN": {
+        "iname": "JS_S_SAKURA_02_NIN",
+        "job": "JB_NIN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_MFEN"
+        }
+    },
+    "JS_S_SAKURA_03_WOR": {
+        "iname": "JS_S_SAKURA_03_WOR",
+        "job": "JB_WOR",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_MFEN"
+        }
+    },
+    "JS_FOLCAS_02_LAN": {
+        "iname": "JS_FOLCAS_02_LAN",
+        "job": "JB_LAN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_VAL"
+        }
+    },
+    "JS_FOLCAS_03_STR": {
+        "iname": "JS_FOLCAS_03_STR",
+        "job": "JB_STR",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_VAL"
+        }
+    },
+    "JS_S_YOMI_02_SAM": {
+        "iname": "JS_S_YOMI_02_SAM",
+        "job": "JB_SAM",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_RAN"
+        }
+    },
+    "JS_S_YOMI_03_SHN": {
+        "iname": "JS_S_YOMI_03_SHN",
+        "job": "JB_SHN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_RAN"
+        }
+    },
+    "JS_BASYOSEN_02_NIN": {
+        "iname": "JS_BASYOSEN_02_NIN",
+        "job": "JB_NIN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_LNC"
+        }
+    },
+    "JS_BASYOSEN_03_SNI": {
+        "iname": "JS_BASYOSEN_03_SNI",
+        "job": "JB_SNI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_LNC"
+        }
+    },
+    "JS_YUTO_02_SOL": {
+        "iname": "JS_YUTO_02_SOL",
+        "job": "JB_SOL",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_KEM"
+        }
+    },
+    "JS_YUTO_03_WOR": {
+        "iname": "JS_YUTO_03_WOR",
+        "job": "JB_WOR",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_KEM"
+        }
+    },
+    "JS_DIS_KILL": {
+        "iname": "JS_DIS_KILL",
+        "job": "JB_DIS_KILL",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_DIS_KILL_02_KAK": {
+        "iname": "JS_DIS_KILL_02_KAK",
+        "job": "JB_KAK",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_DIS_KILL"
+        }
+    },
+    "JS_DIS_KILL_03_KIL": {
+        "iname": "JS_DIS_KILL_03_KIL",
+        "job": "JB_KIL",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_DIS_KILL"
+        }
+    },
+    "JS_DIS_SERA": {
+        "iname": "JS_DIS_SERA",
+        "job": "JB_DIS_SERA",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_DIS_SERA_02_KUR": {
+        "iname": "JS_DIS_SERA_02_KUR",
+        "job": "JB_KUR",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_DIS_SERA"
+        }
+    },
+    "JS_DIS_SERA_03_MAJ": {
+        "iname": "JS_DIS_SERA_03_MAJ",
+        "job": "JB_MAJ",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_DIS_SERA"
+        }
+    },
+    "JS_DIS_REDM": {
+        "iname": "JS_DIS_REDM",
+        "job": "JB_DIS_REDM",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_DIS_REDM_02_DGR": {
+        "iname": "JS_DIS_REDM_02_DGR",
+        "job": "JB_DGR",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_DIS_REDM"
+        }
+    },
+    "JS_DIS_REDM_03_WOR": {
+        "iname": "JS_DIS_REDM_03_WOR",
+        "job": "JB_WOR",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_DIS_REDM"
+        }
+    },
+    "JS_DIS_ARCH": {
+        "iname": "JS_DIS_ARCH",
+        "job": "JB_DIS_ARCH",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_DIS_RINN_02_HUN": {
+        "iname": "JS_DIS_RINN_02_HUN",
+        "job": "JB_HUN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_DIS_ARCH"
+        }
+    },
+    "JS_DIS_RINN_03_DIS_CAT": {
+        "iname": "JS_DIS_RINN_03_DIS_CAT",
+        "job": "JB_DIS_CAT",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_DIS_ARCH"
+        }
+    },
+    "JS_DIS_USAL": {
+        "iname": "JS_DIS_USAL",
+        "job": "JB_DIS_USAL",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_DIS_USAL_02_THI": {
+        "iname": "JS_DIS_USAL_02_THI",
+        "job": "JB_THI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_DIS_USAL"
+        }
+    },
+    "JS_DIS_USAL_03_GEN": {
+        "iname": "JS_DIS_USAL_03_GEN",
+        "job": "JB_GEN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_DIS_USAL"
+        }
+    },
+    "JS_CHAO_02_SOL": {
+        "iname": "JS_CHAO_02_SOL",
+        "job": "JB_SOL",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_HWIZ"
+        }
+    },
+    "JS_CHAO_03_SEN": {
+        "iname": "JS_CHAO_03_SEN",
+        "job": "JB_SEN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_HWIZ"
+        }
+    },
+    "JS_DAIS_02_KUR": {
+        "iname": "JS_DAIS_02_KUR",
+        "job": "JB_KUR",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_SPE"
+        }
+    },
+    "JS_DAIS_03_STR": {
+        "iname": "JS_DAIS_03_STR",
+        "job": "JB_STR",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_SPE"
+        }
+    },
+    "JS_NASA_02_MAH": {
+        "iname": "JS_NASA_02_MAH",
+        "job": "JB_MAH",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_SYO"
+        }
+    },
+    "JS_NASA_03_ENC": {
+        "iname": "JS_NASA_03_ENC",
+        "job": "JB_ENC",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_SYO"
+        }
+    },
+    "JS_LAVI_02_THI": {
+        "iname": "JS_LAVI_02_THI",
+        "job": "JB_THI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_MAJ"
+        }
+    },
+    "JS_LAVI_03_BAA": {
+        "iname": "JS_LAVI_03_BAA",
+        "job": "JB_BAA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_MAJ"
+        }
+    },
+    "JS_SUIR_02_KEM": {
+        "iname": "JS_SUIR_02_KEM",
+        "job": "JB_KEM",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_KAJ"
+        }
+    },
+    "JS_SUIR_03_LNC": {
+        "iname": "JS_SUIR_03_LNC",
+        "job": "JB_LNC",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_KAJ"
+        }
+    },
+    "JS_BLAN_02_SAM": {
+        "iname": "JS_BLAN_02_SAM",
+        "job": "JB_SAM",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_SOL"
+        }
+    },
+    "JS_BLAN_03_KAK": {
+        "iname": "JS_BLAN_03_KAK",
+        "job": "JB_KAK",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_SOL"
+        }
+    },
+    "JS_LIZD_LAN": {
+        "iname": "JS_LIZD_LAN",
+        "job": "JB_LIZD_LAN",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_ZOPHIE_02_SOL": {
+        "iname": "JS_ZOPHIE_02_SOL",
+        "job": "JB_SOL",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_NEC"
+        }
+    },
+    "JS_ZOPHIE_03_BAA": {
+        "iname": "JS_ZOPHIE_03_BAA",
+        "job": "JB_BAA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_NEC"
+        }
+    },
+    "JS_ZIN_02_SAM": {
+        "iname": "JS_ZIN_02_SAM",
+        "job": "JB_SAM",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_ONM"
+        }
+    },
+    "JS_ZIN_03_WOR": {
+        "iname": "JS_ZIN_03_WOR",
+        "job": "JB_WOR",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_ONM"
+        }
+    },
+    "JS_NOAH_02_KUS": {
+        "iname": "JS_NOAH_02_KUS",
+        "job": "JB_KUS",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_HWIZ"
+        }
+    },
+    "JS_NOAH_03_KAI": {
+        "iname": "JS_NOAH_03_KAI",
+        "job": "JB_KAI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_HWIZ"
+        }
+    },
+    "JS_OLGA_02_MAH": {
+        "iname": "JS_OLGA_02_MAH",
+        "job": "JB_MAH",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_BLA"
+        }
+    },
+    "JS_OLGA_03_ONM": {
+        "iname": "JS_OLGA_03_ONM",
+        "job": "JB_ONM",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_BLA"
+        }
+    },
+    "JS_CHATNOIR_02_THI": {
+        "iname": "JS_CHATNOIR_02_THI",
+        "job": "JB_THI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_KIL"
+        }
+    },
+    "JS_CHATNOIR_03_BAA": {
+        "iname": "JS_CHATNOIR_03_BAA",
+        "job": "JB_BAA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_KIL"
+        }
+    },
+    "JS_JUSTIN_02_SAM": {
+        "iname": "JS_JUSTIN_02_SAM",
+        "job": "JB_SAM",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_GUN"
+        }
+    },
+    "JS_JUSTIN_03_SNI": {
+        "iname": "JS_JUSTIN_03_SNI",
+        "job": "JB_SNI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_GUN"
+        }
+    },
+    "JS_KLIM_02_WED_F": {
+        "iname": "JS_KLIM_02_WED_F",
+        "job": "JB_WED_F",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_WEA"
+        }
+    },
+    "JS_KLIM_03_DAI": {
+        "iname": "JS_KLIM_03_DAI",
+        "job": "JB_DAI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_WEA"
+        }
+    },
+    "JS_LEONIA_02_KAK": {
+        "iname": "JS_LEONIA_02_KAK",
+        "job": "JB_KAK",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_SPE"
+        }
+    },
+    "JS_LEONIA_03_BAA": {
+        "iname": "JS_LEONIA_03_BAA",
+        "job": "JB_BAA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_SPE"
+        }
+    },
+    "JS_FF15_NOCT": {
+        "iname": "JS_FF15_NOCT",
+        "job": "JB_FF15_NOCT",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_FF15_NOCT_02_MAH": {
+        "iname": "JS_FF15_NOCT_02_MAH",
+        "job": "JB_MAH",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_FF15_NOCT"
+        }
+    },
+    "JS_FF15_NOCT_03_HWIZ": {
+        "iname": "JS_FF15_NOCT_03_HWIZ",
+        "job": "JB_HWIZ",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_FF15_NOCT"
+        }
+    },
+    "JS_FF15_NOCT_WEP": {
+        "iname": "JS_FF15_NOCT_WEP",
+        "job": "JB_FF15_NOCT",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_FF15_INGI": {
+        "iname": "JS_FF15_INGI",
+        "job": "JB_FF15_INGI",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_FF15_INGI_02_KUR": {
+        "iname": "JS_FF15_INGI_02_KUR",
+        "job": "JB_KUR",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_FF15_INGI"
+        }
+    },
+    "JS_FF15_INGI_03_KIL": {
+        "iname": "JS_FF15_INGI_03_KIL",
+        "job": "JB_KIL",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_FF15_INGI"
+        }
+    },
+    "JS_FF15_INGI_WEP": {
+        "iname": "JS_FF15_INGI_WEP",
+        "job": "JB_FF15_INGI",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_FF15_GLAD": {
+        "iname": "JS_FF15_GLAD",
+        "job": "JB_FF15_GLAD",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_FF15_GLAD_02_KAK": {
+        "iname": "JS_FF15_GLAD_02_KAK",
+        "job": "JB_KAK",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_FF15_GLAD"
+        }
+    },
+    "JS_FF15_GLAD_03_GUA": {
+        "iname": "JS_FF15_GLAD_03_GUA",
+        "job": "JB_GUA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_FF15_GLAD"
+        }
+    },
+    "JS_FF15_GLAD_WEP": {
+        "iname": "JS_FF15_GLAD_WEP",
+        "job": "JB_FF15_GLAD",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_FF15_PROM_02_SEI": {
+        "iname": "JS_FF15_PROM_02_SEI",
+        "job": "JB_SEI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_GUN"
+        }
+    },
+    "JS_FF15_PROM_03": {
+        "iname": "JS_FF15_PROM_03",
+        "job": "JB_FF15_PROM",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_GUN"
+        }
+    },
+    "JS_FF15_ARAN": {
+        "iname": "JS_FF15_ARAN",
+        "job": "JB_FF15_ARAN",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_FF15_ARAN_02_SOL": {
+        "iname": "JS_FF15_ARAN_02_SOL",
+        "job": "JB_SOL",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_FF15_ARAN"
+        }
+    },
+    "JS_FF15_ARAN_03_BAA": {
+        "iname": "JS_FF15_ARAN_03_BAA",
+        "job": "JB_BAA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_FF15_ARAN"
+        }
+    },
+    "JS_FF15_ARAN_WEP": {
+        "iname": "JS_FF15_ARAN_WEP",
+        "job": "JB_FF15_ARAN",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_ACHA_STR": {
+        "iname": "JS_ACHA_STR",
+        "job": "JB_ACHA_STR",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_ACHA_02_VAL": {
+        "iname": "JS_ACHA_02_VAL",
+        "job": "JB_VAL",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_ACHA_STR"
+        }
+    },
+    "JS_ACHA_03_NIN": {
+        "iname": "JS_ACHA_03_NIN",
+        "job": "JB_NIN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_ACHA_STR"
+        }
+    },
+    "JS_VIER_WIZ": {
+        "iname": "JS_VIER_WIZ",
+        "job": "JB_VIER_WIZ",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_VIER_02_GEN": {
+        "iname": "JS_VIER_02_GEN",
+        "job": "JB_GEN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_VIER_WIZ"
+        }
+    },
+    "JS_VIER_03_SYO": {
+        "iname": "JS_VIER_03_SYO",
+        "job": "JB_SYO",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_VIER_WIZ"
+        }
+    },
+    "JS_RH_STOC": {
+        "iname": "JS_RH_STOC",
+        "job": "JB_RH_STOC",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_RH_STOC_02_KAK": {
+        "iname": "JS_RH_STOC_02_KAK",
+        "job": "JB_KAK",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_RH_STOC"
+        }
+    },
+    "JS_RH_STOC_03_ONM": {
+        "iname": "JS_RH_STOC_03_ONM",
+        "job": "JB_ONM",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_RH_STOC"
+        }
+    },
+    "JS_RH_ERUK": {
+        "iname": "JS_RH_ERUK",
+        "job": "JB_RH_ERUK",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_RH_ERUK_02_GEN": {
+        "iname": "JS_RH_ERUK_02_GEN",
+        "job": "JB_GEN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_RH_ERUK"
+        }
+    },
+    "JS_RH_ERUK_03_SNI": {
+        "iname": "JS_RH_ERUK_03_SNI",
+        "job": "JB_SNI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_RH_ERUK"
+        }
+    },
+    "JS_RH_ATO": {
+        "iname": "JS_RH_ATO",
+        "job": "JB_RH_ATO",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_RH_ATO_02_ODO": {
+        "iname": "JS_RH_ATO_02_ODO",
+        "job": "JB_ODO",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_RH_ATO"
+        }
+    },
+    "JS_RH_ATO_03_KAM": {
+        "iname": "JS_RH_ATO_03_KAM",
+        "job": "JB_KAM",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_RH_ATO"
+        }
+    },
+    "JS_RH_RAIN_02_ENC": {
+        "iname": "JS_RH_RAIN_02_ENC",
+        "job": "JB_ENC",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_MAH"
+        }
+    },
+    "JS_RH_RAIN": {
+        "iname": "JS_RH_RAIN",
+        "job": "JB_RH_RAIN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_MAH"
+        }
+    },
+    "JS_CELLIERS_02_THI": {
+        "iname": "JS_CELLIERS_02_THI",
+        "job": "JB_THI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_DGN"
+        }
+    },
+    "JS_CELLIERS_03_NIN": {
+        "iname": "JS_CELLIERS_03_NIN",
+        "job": "JB_NIN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_DGN"
+        }
+    },
+    "JS_POK_EROS_02_THI": {
+        "iname": "JS_POK_EROS_02_THI",
+        "job": "JB_THI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_RAN"
+        }
+    },
+    "JS_POK_EROS_03_SNI": {
+        "iname": "JS_POK_EROS_03_SNI",
+        "job": "JB_SNI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_RAN"
+        }
+    },
+    "JS_S_AMATERASU_02_DOC": {
+        "iname": "JS_S_AMATERASU_02_DOC",
+        "job": "JB_DOC",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_MIK"
+        }
+    },
+    "JS_S_AMATERASU_03_KAM": {
+        "iname": "JS_S_AMATERASU_03_KAM",
+        "job": "JB_KAM",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_MIK"
+        }
+    },
+    "JS_S_YURI_02_NIN": {
+        "iname": "JS_S_YURI_02_NIN",
+        "job": "JB_NIN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_MFEN"
+        }
+    },
+    "JS_S_YURI_03_LNC": {
+        "iname": "JS_S_YURI_03_LNC",
+        "job": "JB_LNC",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_MFEN"
+        }
+    },
+    "JS_PRISCILA_02_SAM": {
+        "iname": "JS_PRISCILA_02_SAM",
+        "job": "JB_SAM",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_SPE"
+        }
+    },
+    "JS_PRISCILA_03_ONM": {
+        "iname": "JS_PRISCILA_03_ONM",
+        "job": "JB_ONM",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_SPE"
+        }
+    },
+    "JS_FUJICA_02_ENC": {
+        "iname": "JS_FUJICA_02_ENC",
+        "job": "JB_ENC",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_GEN"
+        }
+    },
+    "JS_FUJICA_03_HWIZ": {
+        "iname": "JS_FUJICA_03_HWIZ",
+        "job": "JB_HWIZ",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_GEN"
+        }
+    },
+    "JS_TINA_01_HUN": {
+        "iname": "JS_TINA_01_HUN",
+        "job": "JB_TINA_HUN",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_TINA_02_TINA01": {
+        "iname": "JS_TINA_02_TINA01",
+        "job": "JB_TINA01",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_TINA_HUN"
+        }
+    },
+    "JS_MOCA_01_LAN": {
+        "iname": "JS_MOCA_01_LAN",
+        "job": "JB_MOCA01",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_FEIRIN_02_ODO": {
+        "iname": "JS_FEIRIN_02_ODO",
+        "job": "JB_ODO",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_NEC"
+        }
+    },
+    "JS_FEIRIN_03_SAM": {
+        "iname": "JS_FEIRIN_03_SAM",
+        "job": "JB_SAM",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_NEC"
+        }
+    },
+    "JS_TETIS_02_NIN": {
+        "iname": "JS_TETIS_02_NIN",
+        "job": "JB_NIN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_BLA"
+        }
+    },
+    "JS_TETIS_03_NEC": {
+        "iname": "JS_TETIS_03_NEC",
+        "job": "JB_NEC",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_SAM"
+        }
+    },
+    "JS_MOU": {
+        "iname": "JS_MOU",
+        "job": "JB_MOU",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_TOMAS_02_KAK": {
+        "iname": "JS_TOMAS_02_KAK",
+        "job": "JB_KAK",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_MOU"
+        }
+    },
+    "JS_TOMAS_03_WOR": {
+        "iname": "JS_TOMAS_03_WOR",
+        "job": "JB_WOR",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_MOU"
+        }
+    },
+    "JS_SQ_PAL": {
+        "iname": "JS_SQ_PAL",
+        "job": "JB_SQ_PAL",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_SQ_PAL_02_KEM": {
+        "iname": "JS_SQ_PAL_02_KEM",
+        "job": "JB_KEM",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_SQ_PAL"
+        }
+    },
+    "JS_SQ_PAL_03_VAL": {
+        "iname": "JS_SQ_PAL_03_VAL",
+        "job": "JB_VAL",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_SQ_PAL"
+        }
+    },
+    "JS_SQ_PRI": {
+        "iname": "JS_SQ_PRI",
+        "job": "JB_SQ_PRI",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_SQ_PRI_02_ENC": {
+        "iname": "JS_SQ_PRI_02_ENC",
+        "job": "JB_ENC",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_SQ_PRI"
+        }
+    },
+    "JS_SQ_PRI_03_WEA": {
+        "iname": "JS_SQ_PRI_03_WEA",
+        "job": "JB_WEA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_SQ_PRI"
+        }
+    },
+    "JS_SQ_GUN_02_KUR": {
+        "iname": "JS_SQ_GUN_02_KUR",
+        "job": "JB_KUR",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_HUN"
+        }
+    },
+    "JS_SQ_GUN": {
+        "iname": "JS_SQ_GUN",
+        "job": "JB_SQ_GUN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_HUN"
+        }
+    },
+    "JS_SQ_DAN": {
+        "iname": "JS_SQ_DAN",
+        "job": "JB_SQ_DAN",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_SQ_SHEN_02_SHN": {
+        "iname": "JS_SQ_SHEN_02_SHN",
+        "job": "JB_SHN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_SQ_DAN"
+        }
+    },
+    "JS_SQ_SHEN_GUN": {
+        "iname": "JS_SQ_SHEN_GUN",
+        "job": "JB_SQ_SHEN_GUN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_SQ_DAN"
+        }
+    },
+    "JS_LUCILLE_02_KEM": {
+        "iname": "JS_LUCILLE_02_KEM",
+        "job": "JB_KEM",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_MAD"
+        }
+    },
+    "JS_LUCILLE_03_BAA": {
+        "iname": "JS_LUCILLE_03_BAA",
+        "job": "JB_BAA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_MAD"
+        }
+    },
+    "JS_EMA_02_ENC": {
+        "iname": "JS_EMA_02_ENC",
+        "job": "JB_ENC",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_WEA"
+        }
+    },
+    "JS_EMA_03_SEN": {
+        "iname": "JS_EMA_03_SEN",
+        "job": "JB_SEN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_WEA"
+        }
+    },
+    "JS_HISHARMU_02_KUR": {
+        "iname": "JS_HISHARMU_02_KUR",
+        "job": "JB_KUR",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_HUU"
+        }
+    },
+    "JS_HISHARMU_03_KAI": {
+        "iname": "JS_HISHARMU_03_KAI",
+        "job": "JB_KAI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_HUU"
+        }
+    },
+    "JS_LEY_02_MAH": {
+        "iname": "JS_LEY_02_MAH",
+        "job": "JB_MAH",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_MAD"
+        }
+    },
+    "JS_LEY_03_DAI": {
+        "iname": "JS_LEY_03_DAI",
+        "job": "JB_DAI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_MAD"
+        }
+    },
+    "JS_IZA_02_SAM": {
+        "iname": "JS_IZA_02_SAM",
+        "job": "JB_SAM",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_MOU"
+        }
+    },
+    "JS_IZA_03_GUA": {
+        "iname": "JS_IZA_03_GUA",
+        "job": "JB_GUA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_MOU"
+        }
+    },
+    "JS_DAR_02_NIN": {
+        "iname": "JS_DAR_02_NIN",
+        "job": "JB_NIN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_SPE"
+        }
+    },
+    "JS_DAR_03_VAL": {
+        "iname": "JS_DAR_03_VAL",
+        "job": "JB_VAL",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_SPE"
+        }
+    },
+    "JS_WON_02_KAK": {
+        "iname": "JS_WON_02_KAK",
+        "job": "JB_KAK",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_ONM"
+        }
+    },
+    "JS_WON_03_KAI": {
+        "iname": "JS_WON_03_KAI",
+        "job": "JB_KAI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_ONM"
+        }
+    },
+    "JS_INES_02_BAR": {
+        "iname": "JS_INES_02_BAR",
+        "job": "JB_BAR",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_KAM"
+        }
+    },
+    "JS_INES_03_DAI": {
+        "iname": "JS_INES_03_DAI",
+        "job": "JB_DAI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_KAM"
+        }
+    },
+    "JS_UZUM_02_MIK": {
+        "iname": "JS_UZUM_02_MIK",
+        "job": "JB_MIK",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_PSI"
+        }
+    },
+    "JS_UZUM_03_MAJ": {
+        "iname": "JS_UZUM_03_MAJ",
+        "job": "JB_MAJ",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_PSI"
+        }
+    },
+    "JS_BLIT_02_ONM": {
+        "iname": "JS_BLIT_02_ONM",
+        "job": "JB_ONM",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_PSI"
+        }
+    },
+    "JS_BLIT_03_BAA": {
+        "iname": "JS_BLIT_03_BAA",
+        "job": "JB_BAA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_PSI"
+        }
+    },
+    "JS_BIRGITTA_02_MOU": {
+        "iname": "JS_BIRGITTA_02_MOU",
+        "job": "JB_MOU",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_SYO"
+        }
+    },
+    "JS_BIRGITTA_03_HWIZ": {
+        "iname": "JS_BIRGITTA_03_HWIZ",
+        "job": "JB_HWIZ",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_SYO"
+        }
+    },
+    "JS_FA_EDWA01": {
+        "iname": "JS_FA_EDWA01",
+        "job": "JB_FA_EDWA01",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_FA_EDWA_02_KAK": {
+        "iname": "JS_FA_EDWA_02_KAK",
+        "job": "JB_KAK",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {}
+    },
+    "JS_FA_EDWA_03_MFEN": {
+        "iname": "JS_FA_EDWA_03_MFEN",
+        "job": "JB_MFEN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {}
+    },
+    "JS_FA_PRID01": {
+        "iname": "JS_FA_PRID01",
+        "job": "JB_FA_PRID01",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_FA_PRID_02_MAH": {
+        "iname": "JS_FA_PRID_02_MAH",
+        "job": "JB_MAH",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {}
+    },
+    "JS_FA_PRID_03_LNC": {
+        "iname": "JS_FA_PRID_03_LNC",
+        "job": "JB_LNC",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {}
+    },
+    "JS_TEM": {
+        "iname": "JS_TEM",
+        "job": "JB_TEM",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_TORI_02_PRI": {
+        "iname": "JS_TORI_02_PRI",
+        "job": "JB_PRI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {}
+    },
+    "JS_TORI_03_BLA": {
+        "iname": "JS_TORI_03_BLA",
+        "job": "JB_BLA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {}
+    },
+    "JS_CORDELIA_02_KAK": {
+        "iname": "JS_CORDELIA_02_KAK",
+        "job": "JB_KAK",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_VAL"
+        }
+    },
+    "JS_CORDELIA_03_BAA": {
+        "iname": "JS_CORDELIA_03_BAA",
+        "job": "JB_BAA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_VAL"
+        }
+    },
+    "JS_FA_ALPH01": {
+        "iname": "JS_FA_ALPH01",
+        "job": "JB_FA_ALPH01",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_FA_ALPH_02_THI": {
+        "iname": "JS_FA_ALPH_02_THI",
+        "job": "JB_THI",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_FA_ALPH01"
+        }
+    },
+    "JS_FA_ALPH_03_SEI": {
+        "iname": "JS_FA_ALPH_03_SEI",
+        "job": "JB_SEI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_FA_ALPH01"
+        }
+    },
+    "JS_FA_MAST01": {
+        "iname": "JS_FA_MAST01",
+        "job": "JB_FA_MAST01",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_FA_MAST_02_NIN": {
+        "iname": "JS_FA_MAST_02_NIN",
+        "job": "JB_NIN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_FA_MAST01"
+        }
+    },
+    "JS_FA_MAST_03_PSI": {
+        "iname": "JS_FA_MAST_03_PSI",
+        "job": "JB_PSI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_FA_MAST01"
+        }
+    },
+    "JS_FA_HAWK01": {
+        "iname": "JS_FA_HAWK01",
+        "job": "JB_FA_HAWK01",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_FA_HAWK_02_GUN": {
+        "iname": "JS_FA_HAWK_02_GUN",
+        "job": "JB_GUN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_FA_HAWK01"
+        }
+    },
+    "JS_FA_HAWK_03_SNI": {
+        "iname": "JS_FA_HAWK_03_SNI",
+        "job": "JB_SNI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_FA_HAWK01"
+        }
+    },
+    "JS_FA_WRAT01": {
+        "iname": "JS_FA_WRAT01",
+        "job": "JB_FA_WRAT01",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_FA_WRAT_02_SOL": {
+        "iname": "JS_FA_WRAT_02_SOL",
+        "job": "JB_SOL",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_FA_WRAT01"
+        }
+    },
+    "JS_FA_WRAT_03_BAA": {
+        "iname": "JS_FA_WRAT_03_BAA",
+        "job": "JB_BAA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_FA_WRAT01"
+        }
+    },
+    "JS_FA_ENVY_02_KAK": {
+        "iname": "JS_FA_ENVY_02_KAK",
+        "job": "JB_KAK",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_ANK"
+        }
+    },
+    "JS_FA_ENVY01": {
+        "iname": "JS_FA_ENVY01",
+        "job": "JB_FA_ENVY01",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_ANK"
+        }
+    },
+    "JS_LEGA_THI": {
+        "iname": "JS_LEGA_THI",
+        "job": "JB_LEGA_THI",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_SHADOW_TINA_TINA01": {
+        "iname": "JS_SHADOW_TINA_TINA01",
+        "job": "JB_SHADOW_TINA",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_SHADOW_MOCA_LAN": {
+        "iname": "JS_SHADOW_MOCA_LAN",
+        "job": "JB_SHADOW_MOCA",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_ITSUKI_02_KAK": {
+        "iname": "JS_ITSUKI_02_KAK",
+        "job": "JB_KAK",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_ONM"
+        }
+    },
+    "JS_ITSUKI_03_BAA": {
+        "iname": "JS_ITSUKI_03_BAA",
+        "job": "JB_BAA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_ONM"
+        }
+    },
+    "JS_TSANGLEI_02_ENC": {
+        "iname": "JS_TSANGLEI_02_ENC",
+        "job": "JB_ENC",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_SYO"
+        }
+    },
+    "JS_TSANGLEI_03_HUU": {
+        "iname": "JS_TSANGLEI_03_HUU",
+        "job": "JB_HUU",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_SYO"
+        }
+    },
+    "JS_POK_LONGINUS_02_ANK": {
+        "iname": "JS_POK_LONGINUS_02_ANK",
+        "job": "JB_ANK",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_SPE"
+        }
+    },
+    "JS_POK_LONGINUS_03_DGN": {
+        "iname": "JS_POK_LONGINUS_03_DGN",
+        "job": "JB_DGN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_SPE"
+        }
+    },
+    "JS_POK_ARTEMIS_02_ODO": {
+        "iname": "JS_POK_ARTEMIS_02_ODO",
+        "job": "JB_ODO",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_RAN"
+        }
+    },
+    "JS_POK_ARTEMIS_03_LNC": {
+        "iname": "JS_POK_ARTEMIS_03_LNC",
+        "job": "JB_LNC",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_RAN"
+        }
+    },
+    "JS_DIS_EN_PRIN": {
+        "iname": "JS_DIS_EN_PRIN",
+        "job": "JB_DIS_EN_PRIN",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_DIS_EN_PRIN_EX": {
+        "iname": "JS_DIS_EN_PRIN_EX",
+        "job": "JB_DIS_EN_PRIN_EX",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_SHEKINAH_RAN_ENE_WEP": {
+        "iname": "JS_SHEKINAH_RAN_ENE_WEP",
+        "job": "JB_SHEKINAH_RAN_ENE_WEP",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_SITA_WOR_ENE_WEP": {
+        "iname": "JS_SITA_WOR_ENE_WEP",
+        "job": "JB_SITA_WOR_ENE_WEP",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_MASA_BAA_ENE_WEP": {
+        "iname": "JS_MASA_BAA_ENE_WEP",
+        "job": "JB_MASA_BAA_ENE_WEP",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_SHAYNA_DGR_WEP": {
+        "iname": "JS_SHAYNA_DGR_WEP",
+        "job": "JB_SHAYNA_DGR_WEP",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_ROSA_ANK_WEP": {
+        "iname": "JS_ROSA_ANK_WEP",
+        "job": "JB_ROSA_ANK_WEP",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_MICHAEL_WIZ_WEP": {
+        "iname": "JS_MICHAEL_WIZ_WEP",
+        "job": "JB_MICHAEL_WIZ_WEP",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_ROFIA_GEN_WEP": {
+        "iname": "JS_ROFIA_GEN_WEP",
+        "job": "JB_ROFIA_GEN_WEP",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_RAT_ARM": {
+        "iname": "JS_RAT_ARM",
+        "job": "JB_RAT_ARM",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_RAT_WIZ": {
+        "iname": "JS_RAT_WIZ",
+        "job": "JB_RAT_WIZ",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_LIZ_LAN": {
+        "iname": "JS_LIZ_LAN",
+        "job": "JB_LIZ_LAN",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_LIZ_HUN": {
+        "iname": "JS_LIZ_HUN",
+        "job": "JB_LIZ_HUN",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_WOL_ARM": {
+        "iname": "JS_WOL_ARM",
+        "job": "JB_WOL_ARM",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_WOL_ENC": {
+        "iname": "JS_WOL_ENC",
+        "job": "JB_WOL_ENC",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_MAN_YUJ": {
+        "iname": "JS_MAN_YUJ",
+        "job": "JB_MAN_YUJ",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_MAN_WIZ": {
+        "iname": "JS_MAN_WIZ",
+        "job": "JB_MAN_WIZ",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_DMN_WIZ": {
+        "iname": "JS_DMN_WIZ",
+        "job": "JB_DMN_WIZ",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_POK_IZK_HUN": {
+        "iname": "JS_POK_IZK_HUN",
+        "job": "JB_POK_IZK_HUN",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_POK_IZK_HUN2": {
+        "iname": "JS_POK_IZK_HUN2",
+        "job": "JB_POK_IZK_HUN2",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_POK_IZK_ANK": {
+        "iname": "JS_POK_IZK_ANK",
+        "job": "JB_POK_IZK_ANK",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_POK_IZK_ANK2": {
+        "iname": "JS_POK_IZK_ANK2",
+        "job": "JB_POK_IZK_ANK2",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_POK_IZK_ANK3": {
+        "iname": "JS_POK_IZK_ANK3",
+        "job": "JB_POK_IZK_ANK3",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_POK_IZK_ARM": {
+        "iname": "JS_POK_IZK_ARM",
+        "job": "JB_POK_IZK_ARM",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_POK_IZK_WIZ": {
+        "iname": "JS_POK_IZK_WIZ",
+        "job": "JB_POK_IZK_WIZ",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_IZK_ARM": {
+        "iname": "JS_IZK_ARM",
+        "job": "JB_IZK_ARM",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_IZK_YUJ": {
+        "iname": "JS_IZK_YUJ",
+        "job": "JB_IZK_YUJ",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_IZK_WIZ": {
+        "iname": "JS_IZK_WIZ",
+        "job": "JB_IZK_WIZ",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_IZK_HUN": {
+        "iname": "JS_IZK_HUN",
+        "job": "JB_IZK_HUN",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_IZK_LAN": {
+        "iname": "JS_IZK_LAN",
+        "job": "JB_IZK_LAN",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_IZK_KAK": {
+        "iname": "JS_IZK_KAK",
+        "job": "JB_IZK_KAK",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_ZEKE_SEI": {
+        "iname": "JS_ZEKE_SEI",
+        "job": "JB_ZEKE_SEI",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_LOGI_SEI": {
+        "iname": "JS_LOGI_SEI",
+        "job": "JB_LOGI_SEI",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_DIOS_ANK": {
+        "iname": "JS_DIOS_ANK",
+        "job": "JB_DIOS_ANK",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_AJ2000_ARM": {
+        "iname": "JS_AJ2000_ARM",
+        "job": "JB_AJ2000_ARM",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_AJ2500_ARM": {
+        "iname": "JS_AJ2500_ARM",
+        "job": "JB_AJ2500_ARM",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_AJ3000_ARM": {
+        "iname": "JS_AJ3000_ARM",
+        "job": "JB_AJ3000_ARM",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_AJ3500_GUN": {
+        "iname": "JS_AJ3500_GUN",
+        "job": "JB_AJ3500_GUN",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_AJ10_ARM": {
+        "iname": "JS_AJ10_ARM",
+        "job": "JB_AJ10_ARM",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_AJ4000_GUN": {
+        "iname": "JS_AJ4000_GUN",
+        "job": "JB_AJ4000_GUN",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_AJ5000_ARM": {
+        "iname": "JS_AJ5000_ARM",
+        "job": "JB_AJ5000_ARM",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_AJ6000_KAK": {
+        "iname": "JS_AJ6000_KAK",
+        "job": "JB_AJ6000_KAK",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_AJ7000_MAH": {
+        "iname": "JS_AJ7000_MAH",
+        "job": "JB_AJ7000_MAH",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_AJ7000_MAH_ITEM": {
+        "iname": "JS_AJ7000_MAH_ITEM",
+        "job": "JB_AJ7000_MAH_ITEM",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_DON_TARAS_KAK": {
+        "iname": "JS_DON_TARAS_KAK",
+        "job": "JB_DON_TARAS_KAK",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_DON_TARAS_STR": {
+        "iname": "JS_DON_TARAS_STR",
+        "job": "JB_DON_TARAS_STR",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_MACHINE_LAN": {
+        "iname": "JS_MACHINE_LAN",
+        "job": "JB_MACHINE_LAN",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_MACHINE_KAK": {
+        "iname": "JS_MACHINE_KAK",
+        "job": "JB_MACHINE_KAK",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_MACHINE_PRI": {
+        "iname": "JS_MACHINE_PRI",
+        "job": "JB_MACHINE_PRI",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_MACHINE_ARM": {
+        "iname": "JS_MACHINE_ARM",
+        "job": "JB_MACHINE_ARM",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_MACHINE_GUN": {
+        "iname": "JS_MACHINE_GUN",
+        "job": "JB_MACHINE_GUN",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_MACHINE_WIZ": {
+        "iname": "JS_MACHINE_WIZ",
+        "job": "JB_MACHINE_WIZ",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_BUG01": {
+        "iname": "JS_BUG01",
+        "job": "JB_BUG01",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_BUG01_ITEM92": {
+        "iname": "JS_BUG01_ITEM92",
+        "job": "JB_BUG01_ITEM92",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_BUG01_NICO3": {
+        "iname": "JS_BUG01_NICO3",
+        "job": "JB_BUG01_NICO3",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_BUG02": {
+        "iname": "JS_BUG02",
+        "job": "JB_BUG02",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_BAA_SO_ZEKE": {
+        "iname": "JS_BAA_SO_ZEKE",
+        "job": "JB_BAA_SO_ZEKE",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_WIZ_ACE": {
+        "iname": "JS_WIZ_ACE",
+        "job": "JB_WIZ_ACE",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_DAI_ACE": {
+        "iname": "JS_DAI_ACE",
+        "job": "JB_DAI_ACE",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_ELEONORA _DAI_ACE": {
+        "iname": "JS_ELEONORA _DAI_ACE",
+        "job": "JB_ELEONORA _DAI_ACE",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_KAISER_STR": {
+        "iname": "JS_KAISER_STR",
+        "job": "JB_KAISER_STR",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_VENUS_DAI": {
+        "iname": "JS_VENUS_DAI",
+        "job": "JB_VENUS_DAI",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_FAMILIAR_DGN": {
+        "iname": "JS_FAMILIAR_DGN",
+        "job": "JB_FAMILIAR_DGN",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_PST_BOSS00": {
+        "iname": "JS_PST_BOSS00",
+        "job": "JB_PST_BOSS00",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_PST_MON00": {
+        "iname": "JS_PST_MON00",
+        "job": "JB_PST_MON00",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_WIZ_KAGE": {
+        "iname": "JS_WIZ_KAGE",
+        "job": "JB_WIZ_KAGE",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_MEL_WIZ": {
+        "iname": "JS_MEL_WIZ",
+        "job": "JB_MEL_WIZ",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_VENUS_SEC_DAI": {
+        "iname": "JS_VENUS_SEC_DAI",
+        "job": "JB_VENUS_SEC_DAI",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_FF15_BEHEMOTH": {
+        "iname": "JS_FF15_BEHEMOTH",
+        "job": "JB_FF15_BEHEMOTH",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_FF15_METAL_CACTUAR": {
+        "iname": "JS_FF15_METAL_CACTUAR",
+        "job": "JB_FF15_METAL_CACTUAR",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_FF15_MAGIC_ARMOR": {
+        "iname": "JS_FF15_MAGIC_ARMOR",
+        "job": "JB_FF15_MAGIC_ARM",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_FF15_MAGIC_SOL": {
+        "iname": "JS_FF15_MAGIC_SOL",
+        "job": "JB_FF15_MAGIC_SOL",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_PST_UZUSIOMARU": {
+        "iname": "JS_PST_UZUSIOMARU",
+        "job": "JB_PST_UZUSIOMARU",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_PST_UZUSIOMARU_B": {
+        "iname": "JS_PST_UZUSIOMARU_B",
+        "job": "JB_PST_UZUSIOMARU_B",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_GIVOL_PRIOR01": {
+        "iname": "JS_GIVOL_PRIOR01",
+        "job": "JB_GIVOL_PRIOR01",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_JAMS01": {
+        "iname": "JS_JAMS01",
+        "job": "JB_JAMS01",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_JAM01": {
+        "iname": "JS_JAM01",
+        "job": "JB_JAM01",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_SQ_PETAL01": {
+        "iname": "JS_SQ_PETAL01",
+        "job": "JB_SQ_PETAL01",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_SQ_ALRUNA01": {
+        "iname": "JS_SQ_ALRUNA01",
+        "job": "JB_SQ_ALRUNA01",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_RAHU_NICO2_FUKUDA": {
+        "iname": "JS_RAHU_NICO2_FUKUDA",
+        "job": "JB_RAHU_NICO2_FUKUDA",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_BALT_NICO2_FUKUDA": {
+        "iname": "JS_BALT_NICO2_FUKUDA",
+        "job": "JB_BALT_NICO2_FUKUDA",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_BASI_NICO2_FUKUDA": {
+        "iname": "JS_BASI_NICO2_FUKUDA",
+        "job": "JB_BASI_NICO2_FUKUDA",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_CHIHAYA_NICO2_FUKUDA": {
+        "iname": "JS_CHIHAYA_NICO2_FUKUDA",
+        "job": "JB_CHIHAYA_NICO2_FUKUDA",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_YAULAS_NICO2_FUKUDA": {
+        "iname": "JS_YAULAS_NICO2_FUKUDA",
+        "job": "JB_YAULAS_NICO2_FUKUDA",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_MAD_TRIAL": {
+        "iname": "JS_MAD_TRIAL",
+        "job": "JB_MAD_TRIAL",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_PSI_TRIAL": {
+        "iname": "JS_PSI_TRIAL",
+        "job": "JB_PSI_TRIAL",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_GL_SIEG1": {
+        "iname": "JS_GL_SIEG1",
+        "job": "JB_GL_WSM",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_GL_SIEG3": {
+        "iname": "JS_GL_SIEG3",
+        "job": "JB_MAH",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_GL_WSM"
+        }
+    },
+    "JS_GL_SIEG2": {
+        "iname": "JS_GL_SIEG2",
+        "job": "JB_STR",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_GL_WSM"
+        }
+    },
+    "JS_MICHAEL_04_MICH_DOC": {
+        "iname": "JS_MICHAEL_04_MICH_DOC",
+        "job": "JB_MICH_DOC",
+        "jobchange": "JS_MICHAEL_02_KUS",
+        "target_unit": "UN_V2_MICHAEL",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_KUS",
+            "lv": 11
+        }
+    },
+    "JS_RAHU_04_GEN": {
+        "iname": "JS_RAHU_04_GEN",
+        "job": "JB_RAHU_GEN",
+        "jobchange": "JS_GEN",
+        "target_unit": "UN_V2_RAHU",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_GEN",
+            "lv": 11
+        }
+    },
+    "JS_POLLIN_04_BAR": {
+        "iname": "JS_POLLIN_04_BAR",
+        "job": "JB_POLLIN_BAR",
+        "jobchange": "JS_BAR",
+        "target_unit": "UN_V2_POLLIN",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_BAR",
+            "lv": 11
+        }
+    },
+    "JS_CHALICE_04_CHAL_SNI": {
+        "iname": "JS_CHALICE_04_CHAL_SNI",
+        "job": "JB_CHAL_SNI",
+        "jobchange": "JS_CHALICE_03_SNI",
+        "target_unit": "UN_V2_CHALICE",
+        "lock_rarity": 0,
+        "lock_jobs": {
+            "iname": "JB_SNI",
+            "lv": 11
+        }
+    },
+    "JS_ROFIA_04_ROFI_GEN": {
+        "iname": "JS_ROFIA_04_ROFI_GEN",
+        "job": "JB_ROFI_GEN",
+        "jobchange": "JS_ROFIA_03_GEN",
+        "target_unit": "UN_V2_ROFIA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_GEN",
+            "lv": 11
+        }
+    },
+    "JS_ANASTASIA_04_ANAS_BAA": {
+        "iname": "JS_ANASTASIA_04_ANAS_BAA",
+        "job": "JB_ANAS_BAA",
+        "jobchange": "JS_ANASTASIA_03_BAA",
+        "target_unit": "UN_V2_ANASTASIA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_BAA",
+            "lv": 11
+        }
+    },
+    "JS_FLAMEL_04_FLAM_KEM": {
+        "iname": "JS_FLAMEL_04_FLAM_KEM",
+        "job": "JB_FLAM_KEM",
+        "jobchange": "JS_FLAMEL_03_KEM",
+        "target_unit": "UN_V2_FLAMEL",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_KEM",
+            "lv": 11
+        }
+    },
+    "JS_LAMIA_04_LAMI_DGN": {
+        "iname": "JS_LAMIA_04_LAMI_DGN",
+        "job": "JB_LAMI_DGN",
+        "jobchange": "JS_LAMIA_03_DGR",
+        "target_unit": "UN_V2_LAMIA",
+        "lock_rarity": 0,
+        "lock_jobs": {
+            "iname": "JB_DGR",
+            "lv": 11
+        }
+    },
+    "JS_DILGA_04_DILG_GUA": {
+        "iname": "JS_DILGA_04_DILG_GUA",
+        "job": "JB_DILG_GUA",
+        "jobchange": "JS_DILGA_03_SEI",
+        "target_unit": "UN_V2_DILGA",
+        "lock_rarity": 0,
+        "lock_jobs": {
+            "iname": "JB_SEI",
+            "lv": 11
+        }
+    },
+    "JS_BALT_04_BALT_SOL": {
+        "iname": "JS_BALT_04_BALT_SOL",
+        "job": "JB_BALT_SOL",
+        "jobchange": "JS_SOL",
+        "target_unit": "UN_V2_BALT",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_SOL",
+            "lv": 11
+        }
+    },
+    "JS_LAEVATEINN_04_BAA_2": {
+        "iname": "JS_LAEVATEINN_04_BAA_2",
+        "job": "JB_LEAV_BAA_2",
+        "jobchange": "JS_LAEVATEINN_03_BAA",
+        "target_unit": "UN_V2_LAEVATEINN",
+        "lock_rarity": 0,
+        "lock_jobs": {
+            "iname": "JB_LEAV_BAA",
+            "lv": 11
+        }
+    },
+    "JS_LOGI_04_GUA": {
+        "iname": "JS_LOGI_04_GUA",
+        "job": "JB_LOGI_GUA",
+        "jobchange": "JS_LOGI_02_SEI",
+        "target_unit": "UN_V2_LOGI",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_LOGI_SEI",
+            "lv": 11
+        }
+    },
+    "JS_CHIHAYA_04_CHIH_ODO": {
+        "iname": "JS_CHIHAYA_04_CHIH_ODO",
+        "job": "JB_CHIHAYA_ODO",
+        "jobchange": "JS_ODO",
+        "target_unit": "UN_V2_CHIHAYA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_ODO",
+            "lv": 11
+        }
+    },
+    "JS_DIOS_04_DIOS_BAA": {
+        "iname": "JS_DIOS_04_DIOS_BAA",
+        "job": "JB_DIOS_BAA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_DIOS_ANK",
+            "lv": 11
+        }
+    }
+}

@@ -1,0 +1,72 @@
+{
+    "Challenge_Normal": {
+        "iname": "Challenge_Normal",
+        "begin_at": false,
+        "end_at": false,
+        "prio": 0
+    },
+    "Challenge_Hagaren": {
+        "iname": "Challenge_Hagaren",
+        "begin_at": "2017/11/10 15:00:00",
+        "end_at": "2017/11/24 23:59:59"
+    },
+    "Challenge_FF15": {
+        "iname": "Challenge_FF15",
+        "begin_at": "2017/12/27 15:10:00",
+        "end_at": "2018/01/27 14:59:59"
+    },
+    "Challenge_Pok_2": {
+        "iname": "Challenge_Pok_2",
+        "begin_at": "2018/01/18 15:00:00",
+        "end_at": "2018/02/08 14:59:59",
+        "prio": 5
+    },
+    "Challenge_2Year": {
+        "iname": "Challenge_2Year",
+        "begin_at": "2018/01/28 15:00:00",
+        "end_at": false,
+        "prio": 7
+    },
+    "Challenge_500memory": {
+        "iname": "Challenge_500memory",
+        "begin_at": "2018/03/22 15:00:00",
+        "end_at": "2018/03/31 23:59:59",
+        "prio": 8
+    },
+    "Challenge_Interlude": {
+        "iname": "Challenge_Interlude",
+        "begin_at": "2018/04/12 15:00:00",
+        "end_at": "2018/04/30 23:59:59",
+        "prio": 9
+    },
+    "Challenge_Pok_2018": {
+        "iname": "Challenge_Pok_2018",
+        "begin_at": false,
+        "end_at": "2018/05/16 23:59:59",
+        "prio": 10
+    },
+    "Challenge_CRYUNI_2018": {
+        "iname": "Challenge_CRYUNI_2018",
+        "begin_at": "2018/05/24 15:00:00",
+        "end_at": "2018/06/28 23:59:59",
+        "prio": 11
+    },
+    "Challenge_Chapter_5": {
+        "iname": "Challenge_Chapter_5",
+        "begin_at": false,
+        "end_at": "2018/06/30 23:59:59",
+        "prio": 12
+    },
+    "Challenge_Wedding_2018": {
+        "iname": "Challenge_Wedding_2018",
+        "begin_at": false,
+        "end_at": "2018/06/30 23:59:59",
+        "prio": 13
+    },
+    "Challenge_Babel_Wada": {
+        "iname": "Challenge_Babel_Wada",
+        "begin_at": false,
+        "end_at": "2018/07/31 23:59:59",
+        "prio": 14
+    }
+}

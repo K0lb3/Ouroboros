@@ -22,6 +22,7 @@ def WeatherSetParam(json):
         this['mChangeWeatherIdLists']=json['ch_wth']
     if('ch_rate' in json and len(json['ch_rate'])!=0):
         this['mChangeWeatherRateLists']=json['ch_rate']
-    for i in range(0,   len(json['ch_wth']) - len(json['ch_rate']) ):
-        this['mChangeWeatherRateLists'].append(0)
+    if 'ch_wth' in json and 'ch_rate' in json:
+        for i in range(0,   len(json['ch_wth']) - len(json['ch_rate']) ):
+            this['mChangeWeatherRateLists'].append(0)
     return this
