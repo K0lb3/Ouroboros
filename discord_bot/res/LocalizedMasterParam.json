@@ -9425,7 +9425,7 @@
     },
     "AB_MIELIKKI_MA_01": {
         "name": "Master Ability",
-        "expr": "Raises Max HP & reduces cast time by 1/3"
+        "expr": "Raises Max HP & reduces cast time by 1/3"
     },
     "AB_ROSA_MA_01": {
         "name": "Master Ability",
@@ -13653,7 +13653,7 @@
     },
     "AB_AF_ARMS_DOC_04": {
         "name": "Hallucination",
-        "expr": "Recovers HP of ally units within area around self (no cast time) [Area: Diamond (5), Height Range: 2]"
+        "expr": "Recovers HP of ally units within area around self (no cast time) [Area: Diamond (5), Height Range: 2]"
     },
     "AB_AF_ACCS_SNOWMAN_HAT": {
         "name": "Present for You",
@@ -22688,7 +22688,7 @@
     },
     "SK_FF15_GLAD_REACTION_01": {
         "name": "Guard",
-        "expr": "Performs physical attack when Dmg is received with chance of reducing Dmg",
+        "expr": "Chance of reducing Dmg from physical attack",
         "mapeff": " "
     },
     "SK_FF15_GLAD_SUPPORT_01": {
@@ -23753,7 +23753,7 @@
     },
     "SK_MIELIKKI_MA_01": {
         "name": "Atachi's Will",
-        "expr": "Raises Max HP & reduces cast time by 1/3",
+        "expr": "Raises Max HP & reduces cast time by 1/3",
         "mapeff": " "
     },
     "SK_ROSA_MA_01": {
@@ -24058,7 +24058,7 @@
     },
     "SK_ARMS_DOC_04_WA": {
         "name": "Hallucination",
-        "expr": "Recovers HP of ally units within area around self (no cast time) [Area: Diamond (5), Height Range: 2]",
+        "expr": "Recovers HP of ally units within area around self (no cast time) [Area: Diamond (5), Height Range: 2]",
         "mapeff": " "
     },
     "SK_ACCS_SNOWMAN_HAT_WA": {
@@ -29303,7 +29303,7 @@
     },
     "SK_BAA_JEWEL_DRAIN_WIDE_S": {
         "name": "Jewel Drain+ (revised)",
-        "expr": "Absorbs Jewels from target [Range: 5, Height Range: Unlimited] (No charge time ver.)",
+        "expr": "Absorbs Jewels from target [Range: 5, Height Range: Unlimited] (No cast time ver.)",
         "mapeff": " "
     },
     "SK_BLACK_KNIGHT_BOMB": {
@@ -31513,7 +31513,7 @@
     },
     "SK_LS_ELEM_WATER_150_P_HP_5_D_CHARGE_TIME": {
         "name": "Pure Water's Breath",
-        "expr": "Raises HP by 150 & reduces charge time by 5% for Water units",
+        "expr": "Raises HP by 150 & reduces cast time by 5% for Water units",
         "mapeff": " "
     },
     "SK_LS_ELEM_WATER_30_U_HP": {
@@ -31538,7 +31538,7 @@
     },
     "SK_LS_ELEM_WATER_40_U_HP_10_D_CHARGE_TIME": {
         "name": "Pure Water's Heartbeat",
-        "expr": "Raises HP by 40% & reduces charge time by 10% for Water units",
+        "expr": "Raises HP by 40% & reduces cast time by 10% for Water units",
         "mapeff": " "
     },
     "SK_LS_ELEM_WATER_40_U_HP_10_U_MP": {
@@ -31723,7 +31723,7 @@
     },
     "SK_LS_ELEM_WIND_40_U_HP_10_D_CHARGE_TIME": {
         "name": "Fresh Wind's Heartbeat",
-        "expr": "Raises HP by 40% & reduces charge time by 10% for Wind units",
+        "expr": "Raises HP by 40% & reduces cast time by 10% for Wind units",
         "mapeff": " "
     },
     "SK_LS_ELEM_WIND_50_U_HP": {
@@ -31933,7 +31933,7 @@
     },
     "SK_LS_ELEM_SHINE_20_U_ATK_5_D_CHARGE_TIME": {
         "name": "Light of Dawn's Boon",
-        "expr": "Raises PATK by 20% & charge time by 5% for Light units",
+        "expr": "Raises PATK by 20% & cast time by 5% for Light units",
         "mapeff": " "
     },
     "SK_LS_ELEM_SHINE_50_U_ATK": {
@@ -32013,7 +32013,7 @@
     },
     "SK_LS_ELEM_SHINE_40_U_HP_10_D_CHARGE_TIME": {
         "name": "Light of Dawn's Heartbeat",
-        "expr": "Raises HP by 40% & reduces charge time by 10% for Light units",
+        "expr": "Raises HP by 40% & reduces cast time by 10% for Light units",
         "mapeff": " "
     },
     "SK_LS_ELEM_SHINE_30_U_HP_20_UP_SHINEDEF": {
@@ -32108,7 +32108,7 @@
     },
     "SK_LS_ELEM_DARK_40_U_HP_10_D_CHARGE_TIME": {
         "name": "Twilight's Heartbeat",
-        "expr": "Raises HP by 40% & reduces charge time by 10% for Dark units",
+        "expr": "Raises HP by 40% & reduces cast time by 10% for Dark units",
         "mapeff": " "
     },
     "SK_LS_ELEM_DARK_30_U_HP_20_U_ATK_20_U_DEF": {
@@ -41208,8 +41208,8 @@
     },
     "SK_ME_MAGIC_CASTLE_SYO": {
         "name": "[Unused: Magic City] Summoner",
-        "expr": "[Map Effect] Cast Time -20%",
-        "mapeff": "<color=cyan>Cast Time -20%</color>"
+        "expr": "[Map Effect] Cast Time -20%",
+        "mapeff": "<color=cyan>Cast Time -20%</color>"
     },
     "SK_ME_MAGIC_CASTLE_SEN": {
         "name": "[Unused: Magic City] Astrologer",
@@ -41223,8 +41223,8 @@
     },
     "SK_ME_MAGIC_CASTLE_LIES1": {
         "name": "[Unused: Magic City] Apprentice Witch",
-        "expr": "[Map Effect] Cast Time -20%",
-        "mapeff": "<color=cyan>Cast Time -20%</color>"
+        "expr": "[Map Effect] Cast Time -20%",
+        "mapeff": "<color=cyan>Cast Time -20%</color>"
     },
     "SK_ME_MAGIC_CASTLE_LIES2": {
         "name": "[Unused: Magic City] Witch",
@@ -41658,8 +41658,8 @@
     },
     "SK_ME_SNW_SUPPORT_QCAST": {
         "name": "[Map Effect] Snow Plains Support Group + Fast Charge",
-        "expr": "HP +20%, AGI +10%, Cast Time -20%",
-        "mapeff": "<color=cyan>HP +20%, AGI +10%, Cast Time -20%</color>"
+        "expr": "HP +20%, AGI +10%, Cast Time -20%",
+        "mapeff": "<color=cyan>HP +20%, AGI +10%, Cast Time -20%</color>"
     },
     "SK_ME_SNW_WIZARD": {
         "name": "[Map Effect] Snow Plains MATK Group",
@@ -41698,8 +41698,8 @@
     },
     "SK_ME_MAG_SUPPORT_QCAST": {
         "name": "[Map Effect] Magic City Support Group + Fast Charge",
-        "expr": "HP +20%, AGI +10%, Cast Time -20%",
-        "mapeff": "<color=cyan>HP +20%, AGI +10%, Cast Time -20%</color>"
+        "expr": "HP +20%, AGI +10%, Cast Time -20%",
+        "mapeff": "<color=cyan>HP +20%, AGI +10%, Cast Time -20%</color>"
     },
     "SK_ME_CEM_WARRIOR": {
         "name": "[Map Effect] Graveyard PATK Group",
@@ -46689,7 +46689,7 @@
     "IT_EQ_FF15_GLAD": {
         "name": "Gladiolus's Fatigues",
         "expr": "[Gladiolus/Prince's Protector-Only Equipment] HP +40, PATK +28, PDEF +20, MDEF +20, Water Res +2, Charm Res +8, Sleep Res +8, Slow Res +8",
-        "flavor": "The Crownsguard combat gear worn by Gladiolus. The color black has special significance in the Kingdom of Lucis, and is the color of all official Crownsguard attire. Gladiolus' outfit is tough-looking and leather-centric, and all black."
+        "flavor": "The Crownsguard combat gear worn by Gladiolus. The color black has special significance in the Kingdom of Lucis, and is the color of all official Crownsguard attire. Gladiolus's outfit is tough-looking and leather-centric, and all black."
     },
     "IT_EQ_FF15_PROM01": {
         "name": "Prompto's Fatigues",
@@ -53812,7 +53812,7 @@
         "flavor": " "
     },
     "IT_SET_CADANOVA_01": {
-        "name": "Cadanova Specific Equipment Set",
+        "name": "Cadanova Equipment Set",
         "expr": "This set contains rare equipment required for Cadanova. (Jobs: Dragon Slayer, Dragon Knight, and Flame Dragon King.)",
         "flavor": " "
     },
@@ -54092,7 +54092,7 @@
         "flavor": " "
     },
     "IT_SET_KUDHANSTEIN_01": {
-        "name": "Kudan Specific Equipment Set",
+        "name": "Kudan Equipment Set",
         "expr": "This set contains rare equipment required for Kudanstein. (Jobs: Demonic Spearman, Martial Artist, and Dark Cavalier.)",
         "flavor": " "
     },
@@ -54492,7 +54492,7 @@
         "flavor": " "
     },
     "IT_SET_FENCER_01": {
-        "name": "Fencer Specific Equipment Set",
+        "name": "Fencer Equipment Set",
         "expr": "This set contains rare equipment required for Fencer units. (Jobs: Fencer, Illusory Swordsman, and Thunder Swordsman.)",
         "flavor": " "
     },
@@ -54562,12 +54562,12 @@
         "flavor": " "
     },
     "IT_SET_SEIDA_01": {
-        "name": "Seida Specific Equipment Set",
+        "name": "Seida Equipment Set",
         "expr": "This set contains rare equipment required for Seida. (Jobs: Venom Archer, Hunter, and Ninja.)",
         "flavor": " "
     },
     "IT_SET_MONZEIN_01": {
-        "name": "Monzein Specific Equipment Set",
+        "name": "Monzein Equipment Set",
         "expr": "This set contains rare equipment required for Monzein. (Jobs: Indomitable Axe Knight , Dragon Knight, and Holy Cavalier.)",
         "flavor": " "
     },
@@ -54807,12 +54807,12 @@
         "flavor": " "
     },
     "IT_SET_ZAYI_01": {
-        "name": "Zain Specific Equipment Set",
+        "name": "Zain Equipment Set",
         "expr": "This set contains rare equipment required for Zain. (Jobs: Lord Commander, Magic Swordsman, and Holy Cavalier.)",
         "flavor": " "
     },
     "IT_SET_YAUL_01": {
-        "name": "Yauras Specific Equipment Set",
+        "name": "Yauras Equipment Set",
         "expr": "This set contains rare equipment required for Yauras. (Jobs: Twin-Blade Knight, Martial Artist, and Twin-Blade Swordsman.)",
         "flavor": " "
     },
@@ -55212,7 +55212,7 @@
         "flavor": " "
     },
     "IT_SET_OTHI_01": {
-        "name": "Othima Specific Equipment Set",
+        "name": "Othima Equipment Set",
         "expr": "This set contains rare equipment required for Othima. (Jobs: Phantom Master, Enchanter, and Sage.)",
         "flavor": " "
     },
@@ -55597,7 +55597,7 @@
         "flavor": " "
     },
     "IT_SET_SABER_01": {
-        "name": "Saber Specific Equipment Set",
+        "name": "Saber Equipment Set",
         "expr": "This set contains rare equipment required for the unit Saber. (Jobs: Saber, Holy Knight, and Valkyrie)",
         "flavor": " "
     },
@@ -55607,7 +55607,7 @@
         "flavor": " "
     },
     "IT_SET_TOSAKA_RINN_01": {
-        "name": "Rin Tohsaka Specific Equipment Set",
+        "name": "Rin Tohsaka Equipment Set",
         "expr": "This set contains rare equipment required for the unit Rin Tohsaka. (Jobs: Jewel Magician, Martial Artist, and Sage)",
         "flavor": " "
     },
@@ -55642,7 +55642,7 @@
         "flavor": " "
     },
     "IT_SET_IRIYA_01": {
-        "name": "Illya Specific Equipment Set",
+        "name": "Illya Equipment Set",
         "expr": "This set contains rare equipment required for the unit Illyasviel. (Jobs: Master Magician, Chronomancer, and Enchanter)",
         "flavor": " "
     },
@@ -61081,6 +61081,46 @@
         "expr": "Use this ticket to summon a 5★ unit from Final Fantasy XV.",
         "flavor": " "
     },
+    "IT_US_GL_5STAR_UNIT_TICKET_FF15_ARANEA": {
+        "name": "[FFXV] Aranea Summon Ticket",
+        "expr": "Use this ticket to summon Aranea from Final Fantasy XV.",
+        "flavor": " "
+    },
+    "IT_US_GL_5STAR_UNIT_TICKET_FF15_GLADIOLUS": {
+        "name": "[FFXV] Gladiolus Summon Ticket",
+        "expr": "Use this ticket to summon Gladiolus from Final Fantasy XV.",
+        "flavor": " "
+    },
+    "IT_SI_GL_5STAR_25SOUL_TICKET_FF15b": {
+        "name": "[FFXV] Featured 5★ 25-Soul Shard Selector",
+        "expr": "Use this ticket to summon 25 5★ Soul Shards of your choice from Final Fantasy XV. (Aranea/Gladiolus)",
+        "flavor": " "
+    },
+    "IT_US_GL_5STAR_10PER_TICKET_FF15b": {
+        "name": "[FFXV] Featured Collaboration Unit 10% Summon Ticket",
+        "expr": "Use this ticket to summon a unit with a 10% chance of it being a Final Fantasy XV collaboration unit. (Aranea/Gladiolus)",
+        "flavor": " "
+    },
+    "IT_US_GL_RARE_UNIT_TICKET_B14": {
+        "name": "Rare Unit Summon Ticket",
+        "expr": "Use this ticket to summon one 3-5★ unit.",
+        "flavor": " "
+    },
+    "IT_US_GL_RARE_10EQ_TICKET_B14": {
+        "name": "3+★ Equipment 10-Summon Ticket",
+        "expr": "Use this ticket to summon ten 3+★ equipment items.",
+        "flavor": " "
+    },
+    "IT_US_GL_4PLUS_UNIT_TICKET_B14": {
+        "name": "4+★ Unit Summon Ticket",
+        "expr": "Use this ticket to summon one 4+★ unit.",
+        "flavor": " "
+    },
+    "IT_US_GL_RARE_10UNIT_TICKET_B14": {
+        "name": "Rare Unit 10-Summon Ticket",
+        "expr": "Use this ticket to summon ten 3-5★ units.",
+        "flavor": " "
+    },
     "IT_US_GL_5STAR_10SOUL_TICKET_SS5": {
         "name": "[Sacred Stone Memories] 5★ Soul Shard 10-Summon Ticket",
         "expr": "Use this Ticket to obtain 10 5★ Unit Soul Shards from Sacred Stone Memories. (Yauras/Zain/Kudanstein/Cadanova)",
@@ -61089,6 +61129,11 @@
     "IT_US_GL_5STAR_UNIT_TICKET_B14SS5": {
         "name": "5★ Unit Summon Ticket",
         "expr": "Use this ticket to summon one 5★ unit.",
+        "flavor": " "
+    },
+    "IT_US_GL_5STAR_10SOUL_TICKET_SS5b": {
+        "name": "[Sacred Stone Memories] 5★ Soul Shard 10-Summon Ticket",
+        "expr": "Use this Ticket to obtain 10 5★ Unit Soul Shards from Sacred Stone Memories. (Othima/Seida/Monzein)",
         "flavor": " "
     },
     "AF_EMPTY": {
@@ -71956,6 +72001,84 @@
     "GL_MM_05_9July": {
         "name": "[Monday] Clear any quest with a mercenary once"
     },
+    "GL_MM_01_16July": {
+        "name": "[Monday] Level up any Unit"
+    },
+    "GL_MM_02_16July": {
+        "name": "[Monday] Level up any Ability"
+    },
+    "GL_MM_03_16July": {
+        "name": "[Monday] Raise any unit's Job Level once"
+    },
+    "GL_MM_04_16July": {
+        "name": "[Monday] Clear any Multiplay Quest once"
+    },
+    "GL_MM_05_16July": {
+        "name": "[Monday] Clear any quest with a mercenary once"
+    },
+    "GL_DAILY_FFXV_20180712_1": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Bgn]"
+    },
+    "GL_DAILY_FFXV_20180712_2": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Int]"
+    },
+    "GL_DAILY_FFXV_20180712_3": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Adv]"
+    },
+    "GL_DAILY_FFXV_20180713_1": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Bgn]"
+    },
+    "GL_DAILY_FFXV_20180713_2": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Int]"
+    },
+    "GL_DAILY_FFXV_20180713_3": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Adv]"
+    },
+    "GL_DAILY_FFXV_20180714_1": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Bgn]"
+    },
+    "GL_DAILY_FFXV_20180714_2": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Int]"
+    },
+    "GL_DAILY_FFXV_20180714_3": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Adv]"
+    },
+    "GL_DAILY_FFXV_20180715_1": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Bgn]"
+    },
+    "GL_DAILY_FFXV_20180715_2": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Int]"
+    },
+    "GL_DAILY_FFXV_20180715_3": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Adv]"
+    },
+    "GL_DAILY_FFXV_20180716_1": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Bgn]"
+    },
+    "GL_DAILY_FFXV_20180716_2": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Int]"
+    },
+    "GL_DAILY_FFXV_20180716_3": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Adv]"
+    },
+    "GL_DAILY_FFXV_20180717_1": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Bgn]"
+    },
+    "GL_DAILY_FFXV_20180717_2": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Int]"
+    },
+    "GL_DAILY_FFXV_20180717_3": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Adv]"
+    },
+    "GL_DAILY_FFXV_20180718_1": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Bgn]"
+    },
+    "GL_DAILY_FFXV_20180718_2": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Int]"
+    },
+    "GL_DAILY_FFXV_20180718_3": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Adv]"
+    },
     "CHALLENGE_01": {
         "name": "Clear Challenge Set No.1"
     },
@@ -72105,6 +72228,36 @@
     },
     "CHALLENGE_05_08": {
         "name": "Clear Chapter 1: Episode 4 [3-5]"
+    },
+    "FF15_02": {
+        "name": "Clear Challenge Set"
+    },
+    "FF15_02_00": {
+        "name": "Clear EP10 Goodbye"
+    },
+    "FF15_02_01": {
+        "name": "Limit Break 5 times"
+    },
+    "FF15_02_02": {
+        "name": "Equip a unit with equipment"
+    },
+    "FF15_02_03": {
+        "name": "Change a unit's Job"
+    },
+    "FF15_02_04": {
+        "name": "Raise any unit's Job Level twice"
+    },
+    "FF15_02_05": {
+        "name": "Transmute Gear once"
+    },
+    "FF15_02_06": {
+        "name": "Enhance Gear once"
+    },
+    "FF15_02_07": {
+        "name": "Evolve Gear once"
+    },
+    "FF15_02_08": {
+        "name": "Enhance Gear to Lv30"
     },
     "CHALLENGE_06": {
         "name": "Clear Challenge Set No.6"
@@ -74408,6 +74561,27 @@
         "name": "[FFXV] Daily Mission"
     },
     "GL_FF15_DAILY_JUL11": {
+        "name": "[FFXV] Daily Mission"
+    },
+    "GL_FF15_DAILY_JUL12": {
+        "name": "[FFXV] Daily Mission"
+    },
+    "GL_FF15_DAILY_JUL13": {
+        "name": "[FFXV] Daily Mission"
+    },
+    "GL_FF15_DAILY_JUL14": {
+        "name": "[FFXV] Daily Mission"
+    },
+    "GL_FF15_DAILY_JUL15": {
+        "name": "[FFXV] Daily Mission"
+    },
+    "GL_FF15_DAILY_JUL16": {
+        "name": "[FFXV] Daily Mission"
+    },
+    "GL_FF15_DAILY_JUL17": {
+        "name": "[FFXV] Daily Mission"
+    },
+    "GL_FF15_DAILY_JUL18": {
         "name": "[FFXV] Daily Mission"
     },
     "TR_MAP_POI_01": {

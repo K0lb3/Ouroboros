@@ -1864,7 +1864,10 @@
             "Leafa"
         ],
         "jobe": [
-            "Bard+"
+            "Bard+",
+            "Bard: HEAL",
+            "Bard: MDEF",
+            "Bard: DARK"
         ],
         "main": {
             "iname": "AB_BAR_UPPER",
@@ -3264,7 +3267,8 @@
             "Kagura",
             "Peridot",
             "Tamamo",
-            "Rena"
+            "Rena",
+            "Rebecca"
         ],
         "jobe": [
             "Sage+",
@@ -3601,7 +3605,8 @@
             "Annika",
             "Fujika",
             "Tsukuyomi SN",
-            "Fiona"
+            "Fiona",
+            "Alma"
         ],
         "jobe": [
             "Chronomancer+"
@@ -3774,8 +3779,8 @@
             "Retzius",
             "Ryle",
             "Aruba",
-            "Thillie",
             "Yuto",
+            "Thillie",
             "Suiran",
             "Paladin EMD",
             "Lucia"
@@ -13472,7 +13477,8 @@
             "Aisha",
             "Kurt",
             "Thol",
-            "Niguru"
+            "Niguru",
+            "Alma"
         ],
         "jobe": [
             "Shadow Assassin : Night",
@@ -16834,7 +16840,7 @@
             "skills": [
                 {
                     "name": "Guard",
-                    "expr": "Performs physical attack when Dmg is received with chance of reducing Dmg"
+                    "expr": "Chance of reducing Dmg from physical attack"
                 }
             ]
         },
@@ -16855,9 +16861,9 @@
         },
         "weapon": "Greatsword/Scythe",
         "modifiers": {
-            "HP": 20,
+            "HP": 30,
             "Max Jewels": 0,
-            "Initial Jewels": 25,
+            "Initial Jewels": 35,
             "PATK": 45,
             "PDEF": 10,
             "MATK": -10,
@@ -16871,7 +16877,7 @@
         "job master buff": [
             {
                 "type": "HP",
-                "value": 14,
+                "value": 22,
                 "calc": "Scale"
             },
             {
@@ -16894,13 +16900,13 @@
             "Move": 3,
             "Jump": 2,
             "PATK": 297,
-            "PDEF": 213,
+            "PDEF": 248,
             "DEX": 147,
-            "AGI": 13,
+            "AGI": 17,
             "CRIT": 88,
-            "HP": 336,
+            "HP": 392,
             "MATK": 57,
-            "MDEF": 135,
+            "MDEF": 142,
             "Jewels Obtained": 32,
             "LUCK": 45,
             "Fire Res": 6,
@@ -22194,7 +22200,8 @@
             "Princess EMD",
             "Emma",
             "Tsukuyomi SN",
-            "Neferty"
+            "Neferty",
+            "Rebecca"
         ],
         "jobe": [],
         "main": {
@@ -22343,7 +22350,7 @@
             "Blind Res": 10
         },
         "formula": "70% (MATK + LUCK)",
-        "link": "http://www.alchemistcodedb.com/jp/unit/neferty#天候師",
+        "link": "http://www.alchemistcodedb.com/jp/unit/rebecca#天候師",
         "inputs": [
             "Diviner",
             "Forecaster"
@@ -24924,7 +24931,8 @@
             "Aisha",
             "Nina",
             "Ira",
-            "Black Killer Artemis POTK"
+            "Black Killer Artemis POTK",
+            "Rebecca"
         ],
         "jobe": [
             "Magic Marksman: ATK",
@@ -25078,7 +25086,7 @@
             "Poison Res": 10
         },
         "formula": "75% (MATK + DEX)",
-        "link": "http://www.alchemistcodedb.com/jp/unit/pok-blk-artemis#魔弾操師",
+        "link": "http://www.alchemistcodedb.com/jp/unit/rebecca#魔弾操師",
         "inputs": [
             "Magic Marksman"
         ]
@@ -29034,7 +29042,7 @@
             "skills": [
                 {
                     "name": "反彩セイレーン",
-                    "expr": "物理攻撃に対し確率で、先制反撃で3ターン自身を中心とした味方の物防アップ（3回まで重複可）&スキル攻撃にも発動[範囲:菱形2マス,高低差2]"
+                    "expr": "物理攻撃に対し確率で、先制反撃で3ターン自身を中心とした味方の物防アップ（3回まで重複可）&スキル攻撃にも発動[範囲:菱形2マス,高低差:2]"
                 }
             ]
         },
@@ -30587,7 +30595,7 @@
             "skills": [
                 {
                     "name": "反彩セイレーン",
-                    "expr": "物理攻撃に対し確率で、先制反撃で3ターン自身を中心とした味方の物防アップ（3回まで重複可）&スキル攻撃にも発動[範囲:菱形2マス,高低差2]"
+                    "expr": "物理攻撃に対し確率で、先制反撃で3ターン自身を中心とした味方の物防アップ（3回まで重複可）&スキル攻撃にも発動[範囲:菱形2マス,高低差:2]"
                 }
             ]
         },
@@ -30675,6 +30683,170 @@
             "Leafa",
             "Leafa Wind Spirit Controller",
             "Wind Spirit Controller"
+        ]
+    },
+    "JB_ALMA01": {
+        "iname": "JB_ALMA01",
+        "name": "Alma01ᴶ",
+        "japan": "",
+        "kanji": "武闘魔女",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/alma01.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_MAD.png",
+        "origin": "",
+        "units": [
+            "Alma"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_ALMA01_UPPER",
+            "name": "闘魔技",
+            "expr": "ジョブ固有の闘魔技",
+            "skills": [
+                {
+                    "name": "アルマまっしぐら",
+                    "expr": "移動後自身のCTを40増加[移動範囲:菱形4マス,移動高低差:2]"
+                },
+                {
+                    "name": "思い切りぶっ飛ばす",
+                    "expr": "範囲内の対象に光属性の打撃攻撃&3ターンCTアップ効果無効[射程:1,範囲:横3マス,高低差:2]"
+                },
+                {
+                    "name": "情報屋の口車",
+                    "expr": "3ターン敵のバフ効果無効化[射程:3,高低差:3]"
+                },
+                {
+                    "name": "水平アルマシュート",
+                    "expr": "隣接する対象を無人パネルに移動[投擲距離:菱形4,高低差:3]"
+                },
+                {
+                    "name": "アルマ無双",
+                    "expr": "範囲内の対象に光属性の3連撃の打撃攻撃&対人特効[射程:3,範囲:幅1マスの直線,高低差:2]"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_ALMA01_LOWER",
+            "name": "基本闘魔技",
+            "expr": "ジョブ汎用の闘魔技",
+            "skills": [
+                {
+                    "name": "高カロリー強化",
+                    "expr": "1ターン自身の魔攻3倍"
+                },
+                {
+                    "name": "アルマの優しさ",
+                    "expr": "自身を中心とした範囲内の味方の状態異常を回復[範囲:十字1マス,高低差:2]"
+                },
+                {
+                    "name": "アルマ連脚",
+                    "expr": "移動後自身を中心とした範囲内の対象に光属性の打撃攻撃&CT半減[射程:3,範囲:正方形1マス,高低差:2]"
+                },
+                {
+                    "name": "メルヴィ直伝発勁",
+                    "expr": "自身を中心とした範囲内の対象に麻痺効果&攻撃禁止効果[範囲:十字2マス,高低差:2]"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "魔法結界",
+                    "expr": "魔法攻撃による被ダメージ時に確率でダメージを軽減"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "ハス家の血脈",
+                    "expr": "HP25%以下の場合魔攻・素早さアップ"
+                },
+                {
+                    "name": "情報通の気概",
+                    "expr": "魔攻・器用さアップ"
+                }
+            ]
+        },
+        "weapon": "Gloves",
+        "modifiers": {
+            "HP": 35,
+            "Max Jewels": 5,
+            "Initial Jewels": 25,
+            "PATK": 0,
+            "PDEF": -10,
+            "MATK": 30,
+            "MDEF": 0,
+            "DEX": 20,
+            "AGI": 18,
+            "LUCK": 0,
+            "CRIT": 20,
+            "AVOID": 0
+        },
+        "job master buff": [
+            {
+                "type": "HP",
+                "value": 30,
+                "calc": "Scale"
+            },
+            {
+                "type": "MATK",
+                "value": 4,
+                "calc": "Scale"
+            },
+            {
+                "type": "AGI",
+                "value": 2,
+                "calc": "Scale"
+            },
+            {
+                "type": "CRIT",
+                "value": 2,
+                "calc": "Scale"
+            }
+        ],
+        "stats": {
+            "Move": 4,
+            "Jump": 2,
+            "MATK": 237,
+            "MDEF": 195,
+            "DEX": 213,
+            "AGI": 31,
+            "CRIT": 112,
+            "HP": 490,
+            "LUCK": 132,
+            "PATK": 51,
+            "Jewels Obtained": 36,
+            "PDEF": 70,
+            "Fire Res": 4,
+            "Water Res": 4,
+            "Thunder Res": 3,
+            "Wind Res": 6,
+            "Hit Rate": 7,
+            "Dark Res": 9,
+            "Charm Res": 28,
+            "Sleep Res": 43,
+            "Slow Res": 28,
+            "Stun Res": 25,
+            "Paralyze Res": 15,
+            "Petrify Res": 25,
+            "Blind Res": 10,
+            "Light Res": 1,
+            "Poison Res": 10
+        },
+        "formula": "85% (MATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/alma#武闘魔女",
+        "inputs": [
+            "Alma",
+            "Alma Alma01",
+            "Alma01"
         ]
     },
     "JB_KUDH_LAN2": {
@@ -37495,7 +37667,7 @@
                 },
                 {
                     "name": "七色魔炎",
-                    "expr": "敵に火属性の魔法攻撃&毒効果&睡眠効果[射程:3,高低差:2]"
+                    "expr": "敵に火属性の魔法攻撃&猛毒効果&睡眠効果[射程:3,高低差:2]"
                 }
             ]
         },
@@ -40790,6 +40962,7 @@
             "Kurt",
             "Killia DIS",
             "Thol",
+            "Alma",
             "Setsuna",
             "Chat Noir",
             "Sabareta"
@@ -48659,6 +48832,7 @@
             "Tsang Lei",
             "Rosa DIS",
             "Soleil",
+            "Lofia",
             "Mielikki"
         ],
         "jobe": [],
@@ -52828,7 +53002,536 @@
         "formula": "140% PATK",
         "link": "http://www.alchemistcodedb.com/jp/unit/achad#天墜のヴァルキリー",
         "inputs": [
-            "Valkyrie: Dayfall",
+            "Valkyrie: Dayfall"
+        ]
+    },
+    "JB_BAR_HEAL": {
+        "iname": "JB_BAR_HEAL",
+        "name": "Bard: HEALᴶ",
+        "japan": "N/A",
+        "kanji": "黎明の吟遊詩人",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/bar00.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_BAR_HEAL.png",
+        "origin": "Bard",
+        "units": [
+            "Gato",
+            "Ange",
+            "Alyu"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_BAR_UPPER_HEAL",
+            "name": "詩歌",
+            "expr": "ジョブ固有の詩歌",
+            "skills": [
+                {
+                    "name": "Lullaby",
+                    "expr": "Inflicts Sleep on units within target area [Range: 4, Area: Diamond (5), Height Range: 1]"
+                },
+                {
+                    "name": "Song of the Artist",
+                    "expr": "Raises DEX for one turn & buff effect is stackable up to three times if using same skill [Area: Whole Map, Height Range: Unlimited]"
+                },
+                {
+                    "name": "Song of the Hunter",
+                    "expr": "Raises AGI for one turn & buff effect is stackable up to three times if using same skill [Area: Whole Map, Height Range: Unlimited]"
+                },
+                {
+                    "name": "全治癒の詩",
+                    "expr": "マップ全域の味方のHPを割合回復&治癒力アップ（3回まで重複可）[範囲:マップ全体,高低差:無制限]"
+                },
+                {
+                    "name": "Song of the Hero",
+                    "expr": "Raises all stats for one turn [Range: 4, Area: Cross (3), Height Range: Unlimited]"
+                },
+                {
+                    "name": "暁光の詩",
+                    "expr": "範囲内の味方に1ターンの強制麻痺効果（麻痺中の物防・魔防10倍&必ず行動不可）[範囲:菱形3マス,高低差:4]"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_BAR_LOWER_HEAL",
+            "name": "基本詩歌",
+            "expr": "ジョブ汎用の詩歌",
+            "skills": [
+                {
+                    "name": "Song of the Warrior",
+                    "expr": "Raises PATK for one turn & buff effect is stackable up to three times if using same skill. [Area: Whole Map, Height Range: Unlimited]"
+                },
+                {
+                    "name": "Song of the Guardian",
+                    "expr": "Raises PDEF for one turn & buff effect is stackable up to three times if using same skill [Area: Whole Map, Height Range: Unlimited]"
+                },
+                {
+                    "name": "Song of Wisdom",
+                    "expr": "Raises MATK for one turn & buff effect is stackable up to three times if using same skill [Area: Whole Map, Height Range: Unlimited]"
+                },
+                {
+                    "name": "Song of Concealment",
+                    "expr": "Raises MDEF for one turn & buff effect is stackable up to three times if using same skill [Area: Whole Map, Height Range: Unlimited]"
+                },
+                {
+                    "name": "大幸運の詩",
+                    "expr": "1ターンマップ全域の味方の運アップ（3回まで重複可）[範囲:マップ全体,高低差:無制限]"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Twist",
+                    "expr": "Steals Jewels from attacker when Dmg is received"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Sound of Slumber",
+                    "expr": "Recovers HP and Jewels when asleep"
+                },
+                {
+                    "name": "Echo",
+                    "expr": "Increases turn duration of buffs cast by self"
+                }
+            ]
+        },
+        "weapon": "Harp",
+        "modifiers": {
+            "HP": 10,
+            "Max Jewels": 8,
+            "Initial Jewels": 50,
+            "PATK": 3,
+            "PDEF": 1,
+            "MATK": 9,
+            "MDEF": 12,
+            "DEX": 15,
+            "AGI": 4,
+            "LUCK": 6,
+            "CRIT": 4,
+            "AVOID": 0
+        },
+        "job master buff": [
+            {
+                "type": "HP",
+                "value": 27,
+                "calc": "Scale"
+            },
+            {
+                "type": "DEX",
+                "value": 6,
+                "calc": "Scale"
+            },
+            {
+                "type": "AGI",
+                "value": 2,
+                "calc": "Scale"
+            },
+            {
+                "type": "LUCK",
+                "value": 3,
+                "calc": "Scale"
+            },
+            {
+                "type": "HP",
+                "value": 100,
+                "calc": "Add"
+            }
+        ],
+        "stats": {
+            "Move": 3,
+            "Jump": 2,
+            "PATK": 181,
+            "PDEF": 140,
+            "DEX": 245,
+            "AGI": 35,
+            "MATK": 87,
+            "LUCK": 102,
+            "CRIT": 99,
+            "HP": 188,
+            "Jewels Obtained": 20,
+            "MDEF": 38,
+            "Fire Res": 7,
+            "Water Res": 5,
+            "Thunder Res": 3,
+            "Wind Res": 5,
+            "Charm Res": 45,
+            "Paralyze Res": 50,
+            "Daze Res": 28,
+            "Bind Res": 35,
+            "Stun Res": 15,
+            "Sleep Res": 15,
+            "Petrify Res": 15,
+            "Poison Res": 10
+        },
+        "formula": "60% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/gath#黎明の吟遊詩人",
+        "inputs": [
+            "Bard: HEAL"
+        ]
+    },
+    "JB_BAR_MDEF": {
+        "iname": "JB_BAR_MDEF",
+        "name": "Bard: MDEFᴶ",
+        "japan": "N/A",
+        "kanji": "日輪の吟遊詩人",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/bar00.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_BAR_MDEF.png",
+        "origin": "Bard",
+        "units": [
+            "Alaia",
+            "Leafa"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_BAR_UPPER_DEF",
+            "name": "詩歌",
+            "expr": "ジョブ固有の詩歌",
+            "skills": [
+                {
+                    "name": "Lullaby",
+                    "expr": "Inflicts Sleep on units within target area [Range: 4, Area: Diamond (5), Height Range: 1]"
+                },
+                {
+                    "name": "Song of the Artist",
+                    "expr": "Raises DEX for one turn & buff effect is stackable up to three times if using same skill [Area: Whole Map, Height Range: Unlimited]"
+                },
+                {
+                    "name": "Song of the Hunter",
+                    "expr": "Raises AGI for one turn & buff effect is stackable up to three times if using same skill [Area: Whole Map, Height Range: Unlimited]"
+                },
+                {
+                    "name": "Healing Poem",
+                    "expr": "Recovers HP of all ally units [Area: Whole Map, Height Range: Unlimited]"
+                },
+                {
+                    "name": "Song of the Hero",
+                    "expr": "Raises all stats for one turn [Range: 4, Area: Cross (3), Height Range: Unlimited]"
+                },
+                {
+                    "name": "暁光の詩",
+                    "expr": "範囲内の味方に1ターンの強制麻痺効果（麻痺中の物防・魔防10倍&必ず行動不可）[範囲:菱形3マス,高低差:4]"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_BAR_LOWER_DEF",
+            "name": "基本詩歌",
+            "expr": "ジョブ汎用の詩歌",
+            "skills": [
+                {
+                    "name": "Song of the Warrior",
+                    "expr": "Raises PATK for one turn & buff effect is stackable up to three times if using same skill. [Area: Whole Map, Height Range: Unlimited]"
+                },
+                {
+                    "name": "Song of the Guardian",
+                    "expr": "Raises PDEF for one turn & buff effect is stackable up to three times if using same skill [Area: Whole Map, Height Range: Unlimited]"
+                },
+                {
+                    "name": "Song of Wisdom",
+                    "expr": "Raises MATK for one turn & buff effect is stackable up to three times if using same skill [Area: Whole Map, Height Range: Unlimited]"
+                },
+                {
+                    "name": "護魔の詩",
+                    "expr": "1ターンマップ全域の味方の魔法耐性・魔防アップ（3回まで重複可）[範囲:マップ全体,高低差:無制限]"
+                },
+                {
+                    "name": "Song of Fortune",
+                    "expr": "Raises LUCK for one turn & buff effect is stackable up to three times if using same skill [Area: Whole Map, Height Range: Unlimited]"
+                },
+                {
+                    "name": "ブレイクサーガ",
+                    "expr": "マップ全域の敵に無区分攻撃&詠唱を強制中断[範囲:マップ全体,高低差:無制限]"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Twist",
+                    "expr": "Steals Jewels from attacker when Dmg is received"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Sound of Slumber",
+                    "expr": "Recovers HP and Jewels when asleep"
+                },
+                {
+                    "name": "Echo",
+                    "expr": "Increases turn duration of buffs cast by self"
+                }
+            ]
+        },
+        "weapon": "Harp",
+        "modifiers": {
+            "HP": 12,
+            "Max Jewels": 7,
+            "Initial Jewels": 50,
+            "PATK": 3,
+            "PDEF": 1,
+            "MATK": 9,
+            "MDEF": 15,
+            "DEX": 14,
+            "AGI": 4,
+            "LUCK": 6,
+            "CRIT": 4,
+            "AVOID": 0
+        },
+        "job master buff": [
+            {
+                "type": "HP",
+                "value": 27,
+                "calc": "Scale"
+            },
+            {
+                "type": "DEX",
+                "value": 6,
+                "calc": "Scale"
+            },
+            {
+                "type": "AGI",
+                "value": 2,
+                "calc": "Scale"
+            },
+            {
+                "type": "LUCK",
+                "value": 3,
+                "calc": "Scale"
+            },
+            {
+                "type": "HP",
+                "value": 100,
+                "calc": "Add"
+            }
+        ],
+        "stats": {
+            "Move": 3,
+            "Jump": 2,
+            "PATK": 181,
+            "PDEF": 140,
+            "DEX": 224,
+            "AGI": 39,
+            "MATK": 94,
+            "LUCK": 102,
+            "CRIT": 99,
+            "HP": 188,
+            "Jewels Obtained": 20,
+            "MDEF": 38,
+            "Fire Res": 7,
+            "Water Res": 5,
+            "Thunder Res": 3,
+            "Wind Res": 5,
+            "Charm Res": 28,
+            "Paralyze Res": 50,
+            "Daze Res": 28,
+            "Bind Res": 28,
+            "Stun Res": 15,
+            "Sleep Res": 15,
+            "Petrify Res": 15,
+            "Poison Res": 10
+        },
+        "formula": "60% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/alaia#日輪の吟遊詩人",
+        "inputs": [
+            "Bard: MDEF"
+        ]
+    },
+    "JB_BAR_DARK": {
+        "iname": "JB_BAR_DARK",
+        "name": "Bard: DARKᴶ",
+        "japan": "N/A",
+        "kanji": "黄昏の吟遊詩人",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/bar00.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_BAR_DARK.png",
+        "origin": "Bard",
+        "units": [
+            "Chiruru",
+            "Amis"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_BAR_UPPER_RES_SHINE",
+            "name": "詩歌",
+            "expr": "ジョブ固有の詩歌",
+            "skills": [
+                {
+                    "name": "常夜の子守唄",
+                    "expr": "範囲内の対象に睡眠効果&闇属性耐性ダウン[射程:4,範囲:菱形2マス,高低差:1]"
+                },
+                {
+                    "name": "Song of the Artist",
+                    "expr": "Raises DEX for one turn & buff effect is stackable up to three times if using same skill [Area: Whole Map, Height Range: Unlimited]"
+                },
+                {
+                    "name": "Song of the Hunter",
+                    "expr": "Raises AGI for one turn & buff effect is stackable up to three times if using same skill [Area: Whole Map, Height Range: Unlimited]"
+                },
+                {
+                    "name": "Healing Poem",
+                    "expr": "Recovers HP of all ally units [Area: Whole Map, Height Range: Unlimited]"
+                },
+                {
+                    "name": "Song of the Hero",
+                    "expr": "Raises all stats for one turn [Range: 4, Area: Cross (3), Height Range: Unlimited]"
+                },
+                {
+                    "name": "黄昏の詩",
+                    "expr": "1ターンマップ全域の味方の光属性耐性アップ（3回まで重複可）[範囲:マップ全体,高低差:無制限]"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_BAR_LOWER_RES_SHINE",
+            "name": "基本詩歌",
+            "expr": "ジョブ汎用の詩歌",
+            "skills": [
+                {
+                    "name": "Song of the Warrior",
+                    "expr": "Raises PATK for one turn & buff effect is stackable up to three times if using same skill. [Area: Whole Map, Height Range: Unlimited]"
+                },
+                {
+                    "name": "Song of the Guardian",
+                    "expr": "Raises PDEF for one turn & buff effect is stackable up to three times if using same skill [Area: Whole Map, Height Range: Unlimited]"
+                },
+                {
+                    "name": "Song of Wisdom",
+                    "expr": "Raises MATK for one turn & buff effect is stackable up to three times if using same skill [Area: Whole Map, Height Range: Unlimited]"
+                },
+                {
+                    "name": "Song of Concealment",
+                    "expr": "Raises MDEF for one turn & buff effect is stackable up to three times if using same skill [Area: Whole Map, Height Range: Unlimited]"
+                },
+                {
+                    "name": "Song of Fortune",
+                    "expr": "Raises LUCK for one turn & buff effect is stackable up to three times if using same skill [Area: Whole Map, Height Range: Unlimited]"
+                },
+                {
+                    "name": "スナッチメロディ",
+                    "expr": "範囲内の対象に闇属性の無区分攻撃&ジュエルダメージ[射程:4,範囲:菱形2マス,高低差:2]"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Twist",
+                    "expr": "Steals Jewels from attacker when Dmg is received"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Sound of Slumber",
+                    "expr": "Recovers HP and Jewels when asleep"
+                },
+                {
+                    "name": "Echo",
+                    "expr": "Increases turn duration of buffs cast by self"
+                }
+            ]
+        },
+        "weapon": "Harp",
+        "modifiers": {
+            "HP": 10,
+            "Max Jewels": 9,
+            "Initial Jewels": 50,
+            "PATK": 2,
+            "PDEF": 0,
+            "MATK": 8,
+            "MDEF": 10,
+            "DEX": 16,
+            "AGI": 4,
+            "LUCK": 6,
+            "CRIT": 5,
+            "AVOID": 0
+        },
+        "job master buff": [
+            {
+                "type": "HP",
+                "value": 27,
+                "calc": "Scale"
+            },
+            {
+                "type": "DEX",
+                "value": 6,
+                "calc": "Scale"
+            },
+            {
+                "type": "AGI",
+                "value": 2,
+                "calc": "Scale"
+            },
+            {
+                "type": "LUCK",
+                "value": 3,
+                "calc": "Scale"
+            },
+            {
+                "type": "HP",
+                "value": 100,
+                "calc": "Add"
+            }
+        ],
+        "stats": {
+            "Move": 3,
+            "Jump": 2,
+            "PATK": 181,
+            "PDEF": 140,
+            "DEX": 259,
+            "AGI": 35,
+            "MATK": 87,
+            "LUCK": 109,
+            "CRIT": 99,
+            "HP": 188,
+            "Jewels Obtained": 20,
+            "MDEF": 38,
+            "Fire Res": 7,
+            "Water Res": 5,
+            "Thunder Res": 3,
+            "Wind Res": 5,
+            "Light Res": 7,
+            "Charm Res": 28,
+            "Paralyze Res": 50,
+            "Daze Res": 28,
+            "Bind Res": 28,
+            "Stun Res": 15,
+            "Sleep Res": 15,
+            "Petrify Res": 15,
+            "Poison Res": 10
+        },
+        "formula": "60% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/chiruru#黄昏の吟遊詩人",
+        "inputs": [
+            "Bard: DARK",
             "N/A"
         ]
     }

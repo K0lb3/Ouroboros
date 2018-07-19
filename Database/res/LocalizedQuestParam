@@ -5065,26 +5065,26 @@ SRPG_QuestParam_QE_EV_SWIM_GORM_EX_SP_NAME	[Ex+] Savage Sea Warrior -Storm Legen
 SRPG_QuestParam_QE_EV_SWIM_GORM_EX_SP_EXPR	Swimsuit Event - EX+
 SRPG_QuestParam_QE_EV_SWIM_GORM_EX_SP_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_EV_SWIM_GORM_EX_SP_TITLE	Extreme Hard Quest
-SRPG_QuestParam_QE_EV_SWIM_DILG_01_NAME	Pirate Raid
+SRPG_QuestParam_QE_EV_SWIM_DILG_01_NAME	Pirate Raid - Episode 1
 SRPG_QuestParam_QE_EV_SWIM_DILG_01_EXPR	Swimsuit Event - Act 1
 SRPG_QuestParam_QE_EV_SWIM_DILG_01_COND	Defeat all enemy units!
-SRPG_QuestParam_QE_EV_SWIM_DILG_01_TITLE	Episode 1
-SRPG_QuestParam_QE_EV_SWIM_DILG_02_NAME	The Black Keels
+SRPG_QuestParam_QE_EV_SWIM_DILG_01_TITLE	[Limited Time]
+SRPG_QuestParam_QE_EV_SWIM_DILG_02_NAME	The Black Keels - Episode 2
 SRPG_QuestParam_QE_EV_SWIM_DILG_02_EXPR	Swimsuit Event - Act 2
 SRPG_QuestParam_QE_EV_SWIM_DILG_02_COND	Defeat all enemy units!
-SRPG_QuestParam_QE_EV_SWIM_DILG_02_TITLE	Episode 2
-SRPG_QuestParam_QE_EV_SWIM_DILG_03_NAME	Ship-Deck Battle
+SRPG_QuestParam_QE_EV_SWIM_DILG_02_TITLE	[Limited Time]
+SRPG_QuestParam_QE_EV_SWIM_DILG_03_NAME	Ship-Deck Battle - Episode 3
 SRPG_QuestParam_QE_EV_SWIM_DILG_03_EXPR	Swimsuit Event - Act 3
 SRPG_QuestParam_QE_EV_SWIM_DILG_03_COND	Defeat all enemy units!
-SRPG_QuestParam_QE_EV_SWIM_DILG_03_TITLE	Episode 3
-SRPG_QuestParam_QE_EV_SWIM_DILG_04_NAME	Man of the Sea
+SRPG_QuestParam_QE_EV_SWIM_DILG_03_TITLE	[Limited Time]
+SRPG_QuestParam_QE_EV_SWIM_DILG_04_NAME	Man of the Sea - Episode 4
 SRPG_QuestParam_QE_EV_SWIM_DILG_04_EXPR	Swimsuit Event - Act 4
 SRPG_QuestParam_QE_EV_SWIM_DILG_04_COND	Defeat all enemy units!
-SRPG_QuestParam_QE_EV_SWIM_DILG_04_TITLE	Episode 4
-SRPG_QuestParam_QE_EV_SWIM_DILG_05_NAME	A True Man's Uniform
+SRPG_QuestParam_QE_EV_SWIM_DILG_04_TITLE	[Limited Time]
+SRPG_QuestParam_QE_EV_SWIM_DILG_05_NAME	A True Man's Uniform - Episode 5
 SRPG_QuestParam_QE_EV_SWIM_DILG_05_EXPR	Swimsuit Event - Act 5
 SRPG_QuestParam_QE_EV_SWIM_DILG_05_COND	Defeat all enemy units!
-SRPG_QuestParam_QE_EV_SWIM_DILG_05_TITLE	Episode 5
+SRPG_QuestParam_QE_EV_SWIM_DILG_05_TITLE	[Limited Time]
 SRPG_QuestParam_QE_EV_SWIM_DILG_06_NAME	Savage Sea Warrior [EX]
 SRPG_QuestParam_QE_EV_SWIM_DILG_06_EXPR	Swimsuit Event - Extra Stage
 SRPG_QuestParam_QE_EV_SWIM_DILG_06_COND	Defeat all enemy units!
@@ -5517,7 +5517,7 @@ SRPG_QuestParam_QE_EV_FF15_10_NAME	EP10 Goodbye
 SRPG_QuestParam_QE_EV_FF15_10_EXPR	FFXV Collab Quest
 SRPG_QuestParam_QE_EV_FF15_10_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_EV_FF15_10_TITLE	Unit Lv65 JobLv10 Recommended
-SRPG_QuestParam_QE_EV_FF15_HA_NAME	FINAL FANTASY XV Collab
+SRPG_QuestParam_QE_EV_FF15_HA_NAME	FINAL FANTASY XV Collab [Hard]
 SRPG_QuestParam_QE_EV_FF15_HA_EXPR	FFXV Collab Quest
 SRPG_QuestParam_QE_EV_FF15_HA_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_EV_FF15_HA_TITLE	[Hard]
@@ -5942,7 +5942,7 @@ SRPG_QuestParam_QE_ARENA_26_EXPR	Water Units ATK Power +20%, Missile Dmg +30%
 SRPG_QuestParam_QE_ARENA_26_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_ARENA_26_TITLE	Arena
 SRPG_QuestParam_QE_ARENA_27_NAME	Arena [Ruins]
-SRPG_QuestParam_QE_ARENA_27_EXPR	Thunder Units ATK Power +20%, Cast Time -30%
+SRPG_QuestParam_QE_ARENA_27_EXPR	Thunder Units ATK Power +20%, Cast Time -30%
 SRPG_QuestParam_QE_ARENA_27_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_ARENA_27_TITLE	Arena
 SRPG_QuestParam_QE_ARENA_28_NAME	Arena [Canal]
@@ -5986,7 +5986,7 @@ SRPG_QuestParam_QE_VS_06_EXPR	Map Effect: HP +100% & Crit Rate +25%
 SRPG_QuestParam_QE_VS_06_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_VS_06_TITLE	Duel
 SRPG_QuestParam_QE_VS_08_NAME	Ruins
-SRPG_QuestParam_QE_VS_08_EXPR	Map Effect: Cast Time -30%
+SRPG_QuestParam_QE_VS_08_EXPR	Map Effect: Cast Time -30%
 SRPG_QuestParam_QE_VS_08_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_VS_08_TITLE	Duel
 SRPG_QuestParam_QE_VS_09_NAME	RuinsⅡ
@@ -6030,7 +6030,7 @@ SRPG_QuestParam_QE_VS_TOWER_01_EXPR	Map Effect: None
 SRPG_QuestParam_QE_VS_TOWER_01_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_VS_TOWER_01_TITLE	Tower Match β
 SRPG_QuestParam_QE_VS_TOWER_02_NAME	Ruins
-SRPG_QuestParam_QE_VS_TOWER_02_EXPR	Map Effect: Cast Time -30% & Dmg Dealt -50%
+SRPG_QuestParam_QE_VS_TOWER_02_EXPR	Map Effect: Cast Time -30% & Dmg Dealt -50%
 SRPG_QuestParam_QE_VS_TOWER_02_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_VS_TOWER_02_TITLE	Tower Match β
 SRPG_QuestParam_QE_VS_TOWER_03_NAME	RuinsⅡ

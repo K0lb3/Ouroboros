@@ -23,12 +23,14 @@ api_gl={
 
 api=api_gl
 
-path=os.path.dirname(os.path.realpath(__file__))+'\\res\\'
+path=os.path.dirname(os.path.realpath(__file__))+'\\resources\\'
 os.makedirs(path, exist_ok=True)
 ###########functions#####################################
 
-def saveAsJSON(name, var):
+def saveAsJSON(name, var, subdir=False):
     global path
+    if subdir:
+        name=subdir+'\\'+name
     with open(path+name, "wb") as f:
         f.write(json.dumps(var, indent=4, ensure_ascii=False).encode('utf8'))
 
@@ -103,6 +105,16 @@ def convertSys(file):
         else:
             sys[line[0]]=''
     return sys
+
+def convertParam(file):
+    for main,tree in file.items():
+        if type(tree)==list and type(tree[0]) == dict and 'iname' in tree[0]:
+            new_tree={}
+            for obj in tree:
+                new_tree[obj['iname']]=obj
+            file[main]=new_tree
+    return file
+            
 ###########API##########################################
 
 
@@ -230,15 +242,15 @@ def get_files():
     print('global')
     # MasterParam
     print('MasterParam')
-    saveAsJSON('MasterParam.json', req_param('master'))
+    saveAsJSON('MasterParam.json', convertParam(req_param('master')),'GameFiles')
 
     # QuestParam
     print('QuestParam')
-    saveAsJSON('QuestParam.json', req_param('quest'))
+    saveAsJSON('QuestParam.json', convertParam(req_param('quest')),'GameFiles')
 
     #Gacha
     print('Gacha')
-    saveAsJSON('Gacha.json', req_gacha())
+    saveAsJSON('Gacha.json', req_gacha(),'GameFiles')
 
     # from bitucket
 
@@ -249,7 +261,7 @@ def get_files():
     file = download(Rangedz+name)
     with open(path+name, "wt", encoding='utf-8') as f:
         f.write(file)
-    saveAsJSON(name+'.json', convertLoc(file))
+    saveAsJSON(name+'.json', convertLoc(file),'GameFiles')
 
     # LocalizedQuestParam
     name = 'LocalizedQuestParam'
@@ -257,13 +269,13 @@ def get_files():
     file = download(Rangedz+name)
     with open(path+name, "wt", encoding='utf-8') as f:
         f.write(file)
-    saveAsJSON(name+'.json', convertLoc(file))
+    saveAsJSON(name+'.json', convertLoc(file),'GameFiles')
 
     # QuestDropParam
     name='QuestDropParam.json'
     print(name)
     file = download(Rangedz+name)
-    with open(path+name, "wt", encoding='utf-8') as f:
+    with open(path+'GameFiles\\'+name, "wt", encoding='utf-8') as f:
         f.write(file)
 
     #sys
@@ -298,7 +310,7 @@ def get_files():
         file+= '{key}\t{val}\n'.format(key=key,val=val)
     with open(path+name, "wt", encoding='utf-8') as f:
         f.write(file)
-    saveAsJSON(name+'.json', convertSys(file))
+    saveAsJSON(name+'.json', convertSys(file),'GameFiles')
 
     
 
@@ -319,7 +331,7 @@ def get_files():
         f.write(file)
 
     unit.update(convertUnit(file))
-    saveAsJSON(name+'.json', unit)
+    saveAsJSON(name+'.json', unit,'GameFiles')
 
 #japan - Lolaturface
     print("jp")
@@ -327,12 +339,12 @@ def get_files():
     name = 'MasterParamJP.json'
     print(name)
     file = download(LolJP+'MasterParam.json', 'utf-8')
-    saveAsJSON(name, json.loads(file))
+    saveAsJSON(name, convertParam(json.loads(file)),'GameFiles')
 
     name = 'QuestParamJP.json'
     print(name)
     file = download(LolJP+'QuestParam.json', 'utf-8')
-    saveAsJSON(name, json.loads(file))
+    saveAsJSON(name, convertParam(json.loads(file)),'GameFiles')
 
 # wytesong's compendium
     print('wytesong\'s copendium')

@@ -3619,7 +3619,7 @@ SRPG_AbilityParam_AB_FLAMEL_MA_01_EXPR	Casts Jewel Auto Charge & raises PDEF and
 SRPG_AbilityParam_AB_BALT_MA_01_NAME	Master Ability
 SRPG_AbilityParam_AB_BALT_MA_01_EXPR	Raises Slash ATK & MOVE +1
 SRPG_AbilityParam_AB_MIELIKKI_MA_01_NAME	Master Ability
-SRPG_AbilityParam_AB_MIELIKKI_MA_01_EXPR	Raises Max HP & reduces cast time by 1/3
+SRPG_AbilityParam_AB_MIELIKKI_MA_01_EXPR	Raises Max HP & reduces cast time by 1/3
 SRPG_AbilityParam_AB_ROSA_MA_01_NAME	Master Ability
 SRPG_AbilityParam_AB_ROSA_MA_01_EXPR	Raises Max HP, AGI, and Jewels Obtained
 SRPG_AbilityParam_AB_EVE_MA_01_NAME	Master Ability
@@ -5733,7 +5733,7 @@ SRPG_AbilityParam_AB_ARMS_OTHI_01_WA_EXPR	Othima-Only Ability
 SRPG_AbilityParam_AB_AF_ARMS_HAMMER_02_NAME	Original Jewel Forging
 SRPG_AbilityParam_AB_AF_ARMS_HAMMER_02_EXPR	Casts Auto Jewel Regen on self for five turns
 SRPG_AbilityParam_AB_AF_ARMS_DOC_04_NAME	Hallucination
-SRPG_AbilityParam_AB_AF_ARMS_DOC_04_EXPR	Recovers HP of ally units within area around self (no cast time) [Area: Diamond (5), Height Range: 2]
+SRPG_AbilityParam_AB_AF_ARMS_DOC_04_EXPR	Recovers HP of ally units within area around self (no cast time) [Area: Diamond (5), Height Range: 2]
 SRPG_AbilityParam_AB_AF_ACCS_SNOWMAN_HAT_NAME	Present for You
 SRPG_AbilityParam_AB_AF_ACCS_SNOWMAN_HAT_EXPR	Recovers target ally unit's Jewels [Range: 4, Height Range: 2]
 SRPG_AbilityParam_AB_AF_ACCS_DOREI_NAME	Sound of Spring
@@ -10966,7 +10966,7 @@ SRPG_SkillParam_SK_FF15_GLAD_08_NAME	Reflex
 SRPG_SkillParam_SK_FF15_GLAD_08_EXPR	Inflicts Phys Dmg on units in area around self & raises own Evasion Rate [Area: Square (3) around self, Height Range: 2]
 SRPG_SkillParam_SK_FF15_GLAD_08_MAPEFF	 
 SRPG_SkillParam_SK_FF15_GLAD_REACTION_01_NAME	Guard
-SRPG_SkillParam_SK_FF15_GLAD_REACTION_01_EXPR	Performs physical attack when Dmg is received with chance of reducing Dmg
+SRPG_SkillParam_SK_FF15_GLAD_REACTION_01_EXPR	Chance of reducing Dmg from physical attack
 SRPG_SkillParam_SK_FF15_GLAD_REACTION_01_MAPEFF	 
 SRPG_SkillParam_SK_FF15_GLAD_SUPPORT_01_NAME	Royal Shield
 SRPG_SkillParam_SK_FF15_GLAD_SUPPORT_01_EXPR	Raises Max HP
@@ -11605,7 +11605,7 @@ SRPG_SkillParam_SK_BALT_MA_01_NAME	Hawk Talon
 SRPG_SkillParam_SK_BALT_MA_01_EXPR	Raises Slash ATK & MOVE +1
 SRPG_SkillParam_SK_BALT_MA_01_MAPEFF	 
 SRPG_SkillParam_SK_MIELIKKI_MA_01_NAME	Atachi's Will
-SRPG_SkillParam_SK_MIELIKKI_MA_01_EXPR	Raises Max HP & reduces cast time by 1/3
+SRPG_SkillParam_SK_MIELIKKI_MA_01_EXPR	Raises Max HP & reduces cast time by 1/3
 SRPG_SkillParam_SK_MIELIKKI_MA_01_MAPEFF	 
 SRPG_SkillParam_SK_ROSA_MA_01_NAME	Playing With Rocks
 SRPG_SkillParam_SK_ROSA_MA_01_EXPR	Raises Max HP, AGI, and Jewels Obtained
@@ -11788,7 +11788,7 @@ SRPG_SkillParam_SK_ARMS_HAMMER_02_WA_NAME	Original Jewel Forging
 SRPG_SkillParam_SK_ARMS_HAMMER_02_WA_EXPR	Casts Auto Jewel Regen on self for five turns
 SRPG_SkillParam_SK_ARMS_HAMMER_02_WA_MAPEFF	 
 SRPG_SkillParam_SK_ARMS_DOC_04_WA_NAME	Hallucination
-SRPG_SkillParam_SK_ARMS_DOC_04_WA_EXPR	Recovers HP of ally units within area around self (no cast time) [Area: Diamond (5), Height Range: 2]
+SRPG_SkillParam_SK_ARMS_DOC_04_WA_EXPR	Recovers HP of ally units within area around self (no cast time) [Area: Diamond (5), Height Range: 2]
 SRPG_SkillParam_SK_ARMS_DOC_04_WA_MAPEFF	 
 SRPG_SkillParam_SK_ACCS_SNOWMAN_HAT_WA_NAME	Present for You
 SRPG_SkillParam_SK_ACCS_SNOWMAN_HAT_WA_EXPR	Recovers target ally unit's Jewels [Range: 4, Height Range: 2]
@@ -14935,7 +14935,7 @@ SRPG_SkillParam_SK_BAA_JEWEL_DRAIN_TOWER_NAME	Jewel Drain+ [Scope: 6, Range: 3x3
 SRPG_SkillParam_SK_BAA_JEWEL_DRAIN_TOWER_EXPR	Absorbs Jewels from target [Range: 6, Height Range: Unlimited] Non-charging ver.
 SRPG_SkillParam_SK_BAA_JEWEL_DRAIN_TOWER_MAPEFF	 
 SRPG_SkillParam_SK_BAA_JEWEL_DRAIN_WIDE_S_NAME	Jewel Drain+ (revised)
-SRPG_SkillParam_SK_BAA_JEWEL_DRAIN_WIDE_S_EXPR	Absorbs Jewels from target [Range: 5, Height Range: Unlimited] (No charge time ver.)
+SRPG_SkillParam_SK_BAA_JEWEL_DRAIN_WIDE_S_EXPR	Absorbs Jewels from target [Range: 5, Height Range: Unlimited] (No cast time ver.)
 SRPG_SkillParam_SK_BAA_JEWEL_DRAIN_WIDE_S_MAPEFF	 
 SRPG_SkillParam_SK_BLACK_KNIGHT_BOMB_NAME	Dark Bomber
 SRPG_SkillParam_SK_BLACK_KNIGHT_BOMB_EXPR	Inflicts Phys Dmg (High) on enemy units within target area [Range: 4, Area: 2, Height Range: 2]
@@ -16261,7 +16261,7 @@ SRPG_SkillParam_SK_LS_ELEM_WATER_20_U_DEF_10_U_HP_NAME	Pure Water's Formation
 SRPG_SkillParam_SK_LS_ELEM_WATER_20_U_DEF_10_U_HP_EXPR	Raises PDEF by 20% & HP by 10% for Water units
 SRPG_SkillParam_SK_LS_ELEM_WATER_20_U_DEF_10_U_HP_MAPEFF	 
 SRPG_SkillParam_SK_LS_ELEM_WATER_150_P_HP_5_D_CHARGE_TIME_NAME	Pure Water's Breath
-SRPG_SkillParam_SK_LS_ELEM_WATER_150_P_HP_5_D_CHARGE_TIME_EXPR	Raises HP by 150 & reduces charge time by 5% for Water units
+SRPG_SkillParam_SK_LS_ELEM_WATER_150_P_HP_5_D_CHARGE_TIME_EXPR	Raises HP by 150 & reduces cast time by 5% for Water units
 SRPG_SkillParam_SK_LS_ELEM_WATER_150_P_HP_5_D_CHARGE_TIME_MAPEFF	 
 SRPG_SkillParam_SK_LS_ELEM_WATER_30_U_HP_NAME	Pure Water's Heartbeat
 SRPG_SkillParam_SK_LS_ELEM_WATER_30_U_HP_EXPR	Raises HP by 30% for Water units
@@ -16276,7 +16276,7 @@ SRPG_SkillParam_SK_LS_ELEM_WATER_30_U_HP_20_U_MAG_NAME	Pure Water's Heartbeat
 SRPG_SkillParam_SK_LS_ELEM_WATER_30_U_HP_20_U_MAG_EXPR	Raises HP by 30% & MATK by 20% for Water units
 SRPG_SkillParam_SK_LS_ELEM_WATER_30_U_HP_20_U_MAG_MAPEFF	 
 SRPG_SkillParam_SK_LS_ELEM_WATER_40_U_HP_10_D_CHARGE_TIME_NAME	Pure Water's Heartbeat
-SRPG_SkillParam_SK_LS_ELEM_WATER_40_U_HP_10_D_CHARGE_TIME_EXPR	Raises HP by 40% & reduces charge time by 10% for Water units
+SRPG_SkillParam_SK_LS_ELEM_WATER_40_U_HP_10_D_CHARGE_TIME_EXPR	Raises HP by 40% & reduces cast time by 10% for Water units
 SRPG_SkillParam_SK_LS_ELEM_WATER_40_U_HP_10_D_CHARGE_TIME_MAPEFF	 
 SRPG_SkillParam_SK_LS_ELEM_WATER_40_U_HP_10_U_MP_NAME	Pure Water's Heartbeat
 SRPG_SkillParam_SK_LS_ELEM_WATER_40_U_HP_10_U_MP_EXPR	Raises HP by 40% & Max Jewels by 10% for Water units
@@ -16387,7 +16387,7 @@ SRPG_SkillParam_SK_LS_ELEM_WIND_40_U_HP_10_U_MP_NAME	Fresh Wind's Heartbeat
 SRPG_SkillParam_SK_LS_ELEM_WIND_40_U_HP_10_U_MP_EXPR	Raises HP by 40% & Max Jewels by 10% for Wind units
 SRPG_SkillParam_SK_LS_ELEM_WIND_40_U_HP_10_U_MP_MAPEFF	 
 SRPG_SkillParam_SK_LS_ELEM_WIND_40_U_HP_10_D_CHARGE_TIME_NAME	Fresh Wind's Heartbeat
-SRPG_SkillParam_SK_LS_ELEM_WIND_40_U_HP_10_D_CHARGE_TIME_EXPR	Raises HP by 40% & reduces charge time by 10% for Wind units
+SRPG_SkillParam_SK_LS_ELEM_WIND_40_U_HP_10_D_CHARGE_TIME_EXPR	Raises HP by 40% & reduces cast time by 10% for Wind units
 SRPG_SkillParam_SK_LS_ELEM_WIND_40_U_HP_10_D_CHARGE_TIME_MAPEFF	 
 SRPG_SkillParam_SK_LS_ELEM_WIND_50_U_HP_NAME	Fresh Wind's Heartbeat
 SRPG_SkillParam_SK_LS_ELEM_WIND_50_U_HP_EXPR	Raises HP by 50% for Wind units
@@ -16513,7 +16513,7 @@ SRPG_SkillParam_SK_LS_ELEM_SHINE_30_U_ATK_10_U_DARK_NAME	Light of Dawn's Trance
 SRPG_SkillParam_SK_LS_ELEM_SHINE_30_U_ATK_10_U_DARK_EXPR	Raises PATK by 30% & Dark Res by 10% for Light units
 SRPG_SkillParam_SK_LS_ELEM_SHINE_30_U_ATK_10_U_DARK_MAPEFF	 
 SRPG_SkillParam_SK_LS_ELEM_SHINE_20_U_ATK_5_D_CHARGE_TIME_NAME	Light of Dawn's Boon
-SRPG_SkillParam_SK_LS_ELEM_SHINE_20_U_ATK_5_D_CHARGE_TIME_EXPR	Raises PATK by 20% & charge time by 5% for Light units
+SRPG_SkillParam_SK_LS_ELEM_SHINE_20_U_ATK_5_D_CHARGE_TIME_EXPR	Raises PATK by 20% & cast time by 5% for Light units
 SRPG_SkillParam_SK_LS_ELEM_SHINE_20_U_ATK_5_D_CHARGE_TIME_MAPEFF	 
 SRPG_SkillParam_SK_LS_ELEM_SHINE_50_U_ATK_NAME	Light of Dawn's Worship
 SRPG_SkillParam_SK_LS_ELEM_SHINE_50_U_ATK_EXPR	Raises PATK by 50% for Light units
@@ -16561,7 +16561,7 @@ SRPG_SkillParam_SK_LS_ELEM_SHINE_40_U_ATK_5_U_AVO_NAME	Light of Dawn's Worship
 SRPG_SkillParam_SK_LS_ELEM_SHINE_40_U_ATK_5_U_AVO_EXPR	Raises PATK by 40% & Evasion Rate by 5% for Light units
 SRPG_SkillParam_SK_LS_ELEM_SHINE_40_U_ATK_5_U_AVO_MAPEFF	 
 SRPG_SkillParam_SK_LS_ELEM_SHINE_40_U_HP_10_D_CHARGE_TIME_NAME	Light of Dawn's Heartbeat
-SRPG_SkillParam_SK_LS_ELEM_SHINE_40_U_HP_10_D_CHARGE_TIME_EXPR	Raises HP by 40% & reduces charge time by 10% for Light units
+SRPG_SkillParam_SK_LS_ELEM_SHINE_40_U_HP_10_D_CHARGE_TIME_EXPR	Raises HP by 40% & reduces cast time by 10% for Light units
 SRPG_SkillParam_SK_LS_ELEM_SHINE_40_U_HP_10_D_CHARGE_TIME_MAPEFF	 
 SRPG_SkillParam_SK_LS_ELEM_SHINE_30_U_HP_20_UP_SHINEDEF_NAME	Light of Dawn's Heartbeat
 SRPG_SkillParam_SK_LS_ELEM_SHINE_30_U_HP_20_UP_SHINEDEF_EXPR	Raises HP by 30% & Dark res by 20% for Light units
@@ -16618,7 +16618,7 @@ SRPG_SkillParam_SK_LS_ELEM_40_U_HP_10_UP_SHINEDEF_NAME	Twilight's Heartbeat
 SRPG_SkillParam_SK_LS_ELEM_40_U_HP_10_UP_SHINEDEF_EXPR	Raises HP by 40% & Light Res by 10% for Dark units
 SRPG_SkillParam_SK_LS_ELEM_40_U_HP_10_UP_SHINEDEF_MAPEFF	 
 SRPG_SkillParam_SK_LS_ELEM_DARK_40_U_HP_10_D_CHARGE_TIME_NAME	Twilight's Heartbeat
-SRPG_SkillParam_SK_LS_ELEM_DARK_40_U_HP_10_D_CHARGE_TIME_EXPR	Raises HP by 40% & reduces charge time by 10% for Dark units
+SRPG_SkillParam_SK_LS_ELEM_DARK_40_U_HP_10_D_CHARGE_TIME_EXPR	Raises HP by 40% & reduces cast time by 10% for Dark units
 SRPG_SkillParam_SK_LS_ELEM_DARK_40_U_HP_10_D_CHARGE_TIME_MAPEFF	 
 SRPG_SkillParam_SK_LS_ELEM_DARK_30_U_HP_20_U_ATK_20_U_DEF_NAME	Twilight's Heartbeat
 SRPG_SkillParam_SK_LS_ELEM_DARK_30_U_HP_20_U_ATK_20_U_DEF_EXPR	Raises HP by 30% & PATK/PDEF by 20% for Dark units
@@ -22078,8 +22078,8 @@ SRPG_SkillParam_SK_ME_MAGIC_CASTLE_ENC_NAME	[Unused: Magic City] Enchanter
 SRPG_SkillParam_SK_ME_MAGIC_CASTLE_ENC_EXPR	[Map Effect] AGI +10%
 SRPG_SkillParam_SK_ME_MAGIC_CASTLE_ENC_MAPEFF	<color=cyan>AGI +10%</color>
 SRPG_SkillParam_SK_ME_MAGIC_CASTLE_SYO_NAME	[Unused: Magic City] Summoner
-SRPG_SkillParam_SK_ME_MAGIC_CASTLE_SYO_EXPR	[Map Effect] Cast Time -20%
-SRPG_SkillParam_SK_ME_MAGIC_CASTLE_SYO_MAPEFF	<color=cyan>Cast Time -20%</color>
+SRPG_SkillParam_SK_ME_MAGIC_CASTLE_SYO_EXPR	[Map Effect] Cast Time -20%
+SRPG_SkillParam_SK_ME_MAGIC_CASTLE_SYO_MAPEFF	<color=cyan>Cast Time -20%</color>
 SRPG_SkillParam_SK_ME_MAGIC_CASTLE_SEN_NAME	[Unused: Magic City] Astrologer
 SRPG_SkillParam_SK_ME_MAGIC_CASTLE_SEN_EXPR	[Map Effect] Initial CT Bonus
 SRPG_SkillParam_SK_ME_MAGIC_CASTLE_SEN_MAPEFF	<color=cyan>Initial CT Bonus</color>
@@ -22087,8 +22087,8 @@ SRPG_SkillParam_SK_ME_MAGIC_CASTLE_HWIZ_NAME	[Unused: Magic City] Battle Mage
 SRPG_SkillParam_SK_ME_MAGIC_CASTLE_HWIZ_EXPR	[Map Effect] PDEF +20%, MDEF +20%
 SRPG_SkillParam_SK_ME_MAGIC_CASTLE_HWIZ_MAPEFF	<color=cyan>PDEF +20%, MDEF +20%</color>
 SRPG_SkillParam_SK_ME_MAGIC_CASTLE_LIES1_NAME	[Unused: Magic City] Apprentice Witch
-SRPG_SkillParam_SK_ME_MAGIC_CASTLE_LIES1_EXPR	[Map Effect] Cast Time -20%
-SRPG_SkillParam_SK_ME_MAGIC_CASTLE_LIES1_MAPEFF	<color=cyan>Cast Time -20%</color>
+SRPG_SkillParam_SK_ME_MAGIC_CASTLE_LIES1_EXPR	[Map Effect] Cast Time -20%
+SRPG_SkillParam_SK_ME_MAGIC_CASTLE_LIES1_MAPEFF	<color=cyan>Cast Time -20%</color>
 SRPG_SkillParam_SK_ME_MAGIC_CASTLE_LIES2_NAME	[Unused: Magic City] Witch
 SRPG_SkillParam_SK_ME_MAGIC_CASTLE_LIES2_EXPR	[Map Effect] Cast Time -20%, MDEF -20%
 SRPG_SkillParam_SK_ME_MAGIC_CASTLE_LIES2_MAPEFF	<color=cyan>Cast Time -20%, MDEF -20%</color>
@@ -22348,8 +22348,8 @@ SRPG_SkillParam_SK_ME_SNW_MAGICSWORD_NAME	[Map Effect] Snow Plains PATK MATK Gro
 SRPG_SkillParam_SK_ME_SNW_MAGICSWORD_EXPR	HP/PATK/MATK +20%
 SRPG_SkillParam_SK_ME_SNW_MAGICSWORD_MAPEFF	<color=cyan>HP/PATK/MATK +20%</color>
 SRPG_SkillParam_SK_ME_SNW_SUPPORT_QCAST_NAME	[Map Effect] Snow Plains Support Group + Fast Charge
-SRPG_SkillParam_SK_ME_SNW_SUPPORT_QCAST_EXPR	HP +20%, AGI +10%, Cast Time -20%
-SRPG_SkillParam_SK_ME_SNW_SUPPORT_QCAST_MAPEFF	<color=cyan>HP +20%, AGI +10%, Cast Time -20%</color>
+SRPG_SkillParam_SK_ME_SNW_SUPPORT_QCAST_EXPR	HP +20%, AGI +10%, Cast Time -20%
+SRPG_SkillParam_SK_ME_SNW_SUPPORT_QCAST_MAPEFF	<color=cyan>HP +20%, AGI +10%, Cast Time -20%</color>
 SRPG_SkillParam_SK_ME_SNW_WIZARD_NAME	[Map Effect] Snow Plains MATK Group
 SRPG_SkillParam_SK_ME_SNW_WIZARD_EXPR	HP/MATK +20%
 SRPG_SkillParam_SK_ME_SNW_WIZARD_MAPEFF	<color=cyan>HP/MATK +20%</color>
@@ -22372,8 +22372,8 @@ SRPG_SkillParam_SK_ME_MAG_SUPPORT_CT500_NAME	[Map Effect] Magic City Support Gro
 SRPG_SkillParam_SK_ME_MAG_SUPPORT_CT500_EXPR	Initial CT Bonus
 SRPG_SkillParam_SK_ME_MAG_SUPPORT_CT500_MAPEFF	<color=cyan>Initial CT Bonus</color>
 SRPG_SkillParam_SK_ME_MAG_SUPPORT_QCAST_NAME	[Map Effect] Magic City Support Group + Fast Charge
-SRPG_SkillParam_SK_ME_MAG_SUPPORT_QCAST_EXPR	HP +20%, AGI +10%, Cast Time -20%
-SRPG_SkillParam_SK_ME_MAG_SUPPORT_QCAST_MAPEFF	<color=cyan>HP +20%, AGI +10%, Cast Time -20%</color>
+SRPG_SkillParam_SK_ME_MAG_SUPPORT_QCAST_EXPR	HP +20%, AGI +10%, Cast Time -20%
+SRPG_SkillParam_SK_ME_MAG_SUPPORT_QCAST_MAPEFF	<color=cyan>HP +20%, AGI +10%, Cast Time -20%</color>
 SRPG_SkillParam_SK_ME_CEM_WARRIOR_NAME	[Map Effect] Graveyard PATK Group
 SRPG_SkillParam_SK_ME_CEM_WARRIOR_EXPR	HP/PATK +20%
 SRPG_SkillParam_SK_ME_CEM_WARRIOR_MAPEFF	<color=cyan>HP/PATK +20%</color>
@@ -25367,7 +25367,7 @@ SRPG_ItemParam_IT_EQ_FF15_INGI_EXPR	[Ignis/Prince's Advisor-Only Equipment] AGI 
 SRPG_ItemParam_IT_EQ_FF15_INGI_FLAVOR	The Crownsguard combat gear worn by Ignis. The color black has special significance in the Kingdom of Lucis, and is the color of all official Crownsguard attire. Although designed for combat, this outfit is quite formal, featuring a tuxedo-style jacket and pants with side stripes.
 SRPG_ItemParam_IT_EQ_FF15_GLAD_NAME	Gladiolus's Fatigues
 SRPG_ItemParam_IT_EQ_FF15_GLAD_EXPR	[Gladiolus/Prince's Protector-Only Equipment] HP +40, PATK +28, PDEF +20, MDEF +20, Water Res +2, Charm Res +8, Sleep Res +8, Slow Res +8
-SRPG_ItemParam_IT_EQ_FF15_GLAD_FLAVOR	The Crownsguard combat gear worn by Gladiolus. The color black has special significance in the Kingdom of Lucis, and is the color of all official Crownsguard attire. Gladiolus' outfit is tough-looking and leather-centric, and all black.
+SRPG_ItemParam_IT_EQ_FF15_GLAD_FLAVOR	The Crownsguard combat gear worn by Gladiolus. The color black has special significance in the Kingdom of Lucis, and is the color of all official Crownsguard attire. Gladiolus's outfit is tough-looking and leather-centric, and all black.
 SRPG_ItemParam_IT_EQ_FF15_PROM01_NAME	Prompto's Fatigues
 SRPG_ItemParam_IT_EQ_FF15_PROM01_EXPR	[Prompto/Prince's Best Friend-Only Equipment] PATK +20, PDEF +12, DEX +12, Jewels Obtained +2, Thunder Res +2, Paralyze Res +8, Daze Res +8, Bind Res +8
 SRPG_ItemParam_IT_EQ_FF15_PROM01_FLAVOR	The Crownsguard combat gear worn by Prompto. The color black has special significance in the Kingdom of Lucis, and is the color of all official Crownsguard attire. Prompto's outfit has a real street-fashion vibe to it, with a sleeveless vest and leopard-print pants.
@@ -29640,7 +29640,7 @@ SRPG_ItemParam_IT_SET_MAINSTAY_01_FLAVOR
 SRPG_ItemParam_IT_SET_MAG_01_NAME	MATK-Type Required Equipment Set
 SRPG_ItemParam_IT_SET_MAG_01_EXPR	This set contains equipment required for magical attack jobs.
 SRPG_ItemParam_IT_SET_MAG_01_FLAVOR	 
-SRPG_ItemParam_IT_SET_CADANOVA_01_NAME	Cadanova Specific Equipment Set
+SRPG_ItemParam_IT_SET_CADANOVA_01_NAME	Cadanova Equipment Set
 SRPG_ItemParam_IT_SET_CADANOVA_01_EXPR	This set contains rare equipment required for Cadanova. (Jobs: Dragon Slayer, Dragon Knight, and Flame Dragon King.)
 SRPG_ItemParam_IT_SET_CADANOVA_01_FLAVOR	 
 SRPG_ItemParam_IT_SET_FUNGLIU_01_NAME	Fung Liu Equipment Set
@@ -29808,7 +29808,7 @@ SRPG_ItemParam_IT_SET_EQUP_MIT_01_FLAVOR
 SRPG_ItemParam_IT_SET_ALMILA_01_NAME	Almira Equipment Set
 SRPG_ItemParam_IT_SET_ALMILA_01_EXPR	This set contains rare equipment required for Almira. (Jobs: Hunter, Beast Tamer, and Sniper.)
 SRPG_ItemParam_IT_SET_ALMILA_01_FLAVOR	 
-SRPG_ItemParam_IT_SET_KUDHANSTEIN_01_NAME	Kudan Specific Equipment Set
+SRPG_ItemParam_IT_SET_KUDHANSTEIN_01_NAME	Kudan Equipment Set
 SRPG_ItemParam_IT_SET_KUDHANSTEIN_01_EXPR	This set contains rare equipment required for Kudanstein. (Jobs: Demonic Spearman, Martial Artist, and Dark Cavalier.)
 SRPG_ItemParam_IT_SET_KUDHANSTEIN_01_FLAVOR	 
 SRPG_ItemParam_IT_SET_SHENMEI_01_NAME	Shenmei Equipment Set
@@ -30048,7 +30048,7 @@ SRPG_ItemParam_IT_SET_MAJUTU_H_01_FLAVOR
 SRPG_ItemParam_IT_SET_HOURGLASS_01_NAME	Rainbow Hourglass x10
 SRPG_ItemParam_IT_SET_HOURGLASS_01_EXPR	This set contains 10 Rainbow Hourglasses, which are required items for fusing equipment.
 SRPG_ItemParam_IT_SET_HOURGLASS_01_FLAVOR	 
-SRPG_ItemParam_IT_SET_FENCER_01_NAME	Fencer Specific Equipment Set
+SRPG_ItemParam_IT_SET_FENCER_01_NAME	Fencer Equipment Set
 SRPG_ItemParam_IT_SET_FENCER_01_EXPR	This set contains rare equipment required for Fencer units. (Jobs: Fencer, Illusory Swordsman, and Thunder Swordsman.)
 SRPG_ItemParam_IT_SET_FENCER_01_FLAVOR	 
 SRPG_ItemParam_IT_SET_FEN_01_NAME	Fencer Rare Equipment Set
@@ -30090,10 +30090,10 @@ SRPG_ItemParam_IT_SET_TYRH_01_FLAVOR
 SRPG_ItemParam_IT_SET_NIN_01_NAME	Ninja Rare Equipment Set
 SRPG_ItemParam_IT_SET_NIN_01_EXPR	This set contains equipment required for the job Ninja.
 SRPG_ItemParam_IT_SET_NIN_01_FLAVOR	 
-SRPG_ItemParam_IT_SET_SEIDA_01_NAME	Seida Specific Equipment Set
+SRPG_ItemParam_IT_SET_SEIDA_01_NAME	Seida Equipment Set
 SRPG_ItemParam_IT_SET_SEIDA_01_EXPR	This set contains rare equipment required for Seida. (Jobs: Venom Archer, Hunter, and Ninja.)
 SRPG_ItemParam_IT_SET_SEIDA_01_FLAVOR	 
-SRPG_ItemParam_IT_SET_MONZEIN_01_NAME	Monzein Specific Equipment Set
+SRPG_ItemParam_IT_SET_MONZEIN_01_NAME	Monzein Equipment Set
 SRPG_ItemParam_IT_SET_MONZEIN_01_EXPR	This set contains rare equipment required for Monzein. (Jobs: Indomitable Axe Knight , Dragon Knight, and Holy Cavalier.)
 SRPG_ItemParam_IT_SET_MONZEIN_01_FLAVOR	 
 SRPG_ItemParam_IT_SET_SPICA_01_NAME	Spica Equipment Set
@@ -30237,10 +30237,10 @@ SRPG_ItemParam_IT_SET_SOUL_DAI_01_FLAVOR
 SRPG_ItemParam_IT_SET_SOUL_ODO_01_NAME	Dancer Token x6
 SRPG_ItemParam_IT_SET_SOUL_ODO_01_EXPR	This set contains all six of the tokens needed in order to unlock the Dancer job.
 SRPG_ItemParam_IT_SET_SOUL_ODO_01_FLAVOR	 
-SRPG_ItemParam_IT_SET_ZAYI_01_NAME	Zain Specific Equipment Set
+SRPG_ItemParam_IT_SET_ZAYI_01_NAME	Zain Equipment Set
 SRPG_ItemParam_IT_SET_ZAYI_01_EXPR	This set contains rare equipment required for Zain. (Jobs: Lord Commander, Magic Swordsman, and Holy Cavalier.)
 SRPG_ItemParam_IT_SET_ZAYI_01_FLAVOR	 
-SRPG_ItemParam_IT_SET_YAUL_01_NAME	Yauras Specific Equipment Set
+SRPG_ItemParam_IT_SET_YAUL_01_NAME	Yauras Equipment Set
 SRPG_ItemParam_IT_SET_YAUL_01_EXPR	This set contains rare equipment required for Yauras. (Jobs: Twin-Blade Knight, Martial Artist, and Twin-Blade Swordsman.)
 SRPG_ItemParam_IT_SET_YAUL_01_FLAVOR	 
 SRPG_ItemParam_IT_SET_LUPI_01_NAME	Lupinus Equipment Set
@@ -30480,7 +30480,7 @@ SRPG_ItemParam_IT_SET_VEDA_R_01_FLAVOR
 SRPG_ItemParam_IT_SET_VEDA_H_01_NAME	Veda Required Equipment Set
 SRPG_ItemParam_IT_SET_VEDA_H_01_EXPR	[Mystic Tower Veda Celebration] This great-value set contains equipment required from Job Lv. 10 and up.
 SRPG_ItemParam_IT_SET_VEDA_H_01_FLAVOR	 
-SRPG_ItemParam_IT_SET_OTHI_01_NAME	Othima Specific Equipment Set
+SRPG_ItemParam_IT_SET_OTHI_01_NAME	Othima Equipment Set
 SRPG_ItemParam_IT_SET_OTHI_01_EXPR	This set contains rare equipment required for Othima. (Jobs: Phantom Master, Enchanter, and Sage.)
 SRPG_ItemParam_IT_SET_OTHI_01_FLAVOR	 
 SRPG_ItemParam_IT_SET_ASUW_01_NAME	Aswald Equipment Set
@@ -30711,13 +30711,13 @@ SRPG_ItemParam_IT_SET_FATE_GENTEI_04_FLAVOR
 SRPG_ItemParam_IT_SET_FATE_GENTEI_05_NAME	[FFXV] MATK Set SP
 SRPG_ItemParam_IT_SET_FATE_GENTEI_05_EXPR	[FFXV Collab] This set contains rare equipment that is required for magical attack jobs.<br>
 SRPG_ItemParam_IT_SET_FATE_GENTEI_05_FLAVOR	 
-SRPG_ItemParam_IT_SET_SABER_01_NAME	Saber Specific Equipment Set
+SRPG_ItemParam_IT_SET_SABER_01_NAME	Saber Equipment Set
 SRPG_ItemParam_IT_SET_SABER_01_EXPR	This set contains rare equipment required for the unit Saber. (Jobs: Saber, Holy Knight, and Valkyrie)
 SRPG_ItemParam_IT_SET_SABER_01_FLAVOR	 
 SRPG_ItemParam_IT_SET_FATE_SABR_01_NAME	Saber Rare Equipment Set
 SRPG_ItemParam_IT_SET_FATE_SABR_01_EXPR	This set contains equipment required for the collaboration job Saber.
 SRPG_ItemParam_IT_SET_FATE_SABR_01_FLAVOR	 
-SRPG_ItemParam_IT_SET_TOSAKA_RINN_01_NAME	Rin Tohsaka Specific Equipment Set
+SRPG_ItemParam_IT_SET_TOSAKA_RINN_01_NAME	Rin Tohsaka Equipment Set
 SRPG_ItemParam_IT_SET_TOSAKA_RINN_01_EXPR	This set contains rare equipment required for the unit Rin Tohsaka. (Jobs: Jewel Magician, Martial Artist, and Sage)
 SRPG_ItemParam_IT_SET_TOSAKA_RINN_01_FLAVOR	 
 SRPG_ItemParam_IT_SET_FATE_TMAG_01_NAME	Jewel Magician Rare Equipment Set
@@ -30738,7 +30738,7 @@ SRPG_ItemParam_IT_SET_FATE_ASS_01_FLAVOR
 SRPG_ItemParam_IT_SET_FATE_LAN_01_NAME	Lancer Rare Equipment Set
 SRPG_ItemParam_IT_SET_FATE_LAN_01_EXPR	This set contains equipment required for the collaboration job Lancer.
 SRPG_ItemParam_IT_SET_FATE_LAN_01_FLAVOR	 
-SRPG_ItemParam_IT_SET_IRIYA_01_NAME	Illya Specific Equipment Set
+SRPG_ItemParam_IT_SET_IRIYA_01_NAME	Illya Equipment Set
 SRPG_ItemParam_IT_SET_IRIYA_01_EXPR	This set contains rare equipment required for the unit Illyasviel. (Jobs: Master Magician, Chronomancer, and Enchanter)
 SRPG_ItemParam_IT_SET_IRIYA_01_FLAVOR	 
 SRPG_ItemParam_IT_SET_FATE_IMAG_01_NAME	Master Magician Rare Equipment Set
@@ -34002,12 +34002,39 @@ SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_FF15_IGNIS_FLAVOR
 SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_FF15_NAME	[FFXV] 5★ Unit Summon Ticket
 SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_FF15_EXPR	Use this ticket to summon a 5★ unit from Final Fantasy XV.
 SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_FF15_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_FF15_ARANEA_NAME	[FFXV] Aranea Summon Ticket
+SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_FF15_ARANEA_EXPR	Use this ticket to summon Aranea from Final Fantasy XV.
+SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_FF15_ARANEA_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_FF15_GLADIOLUS_NAME	[FFXV] Gladiolus Summon Ticket
+SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_FF15_GLADIOLUS_EXPR	Use this ticket to summon Gladiolus from Final Fantasy XV.
+SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_FF15_GLADIOLUS_FLAVOR	 
+SRPG_ItemParam_IT_SI_GL_5STAR_25SOUL_TICKET_FF15b_NAME	[FFXV] Featured 5★ 25-Soul Shard Selector
+SRPG_ItemParam_IT_SI_GL_5STAR_25SOUL_TICKET_FF15b_EXPR	Use this ticket to summon 25 5★ Soul Shards of your choice from Final Fantasy XV. (Aranea/Gladiolus)
+SRPG_ItemParam_IT_SI_GL_5STAR_25SOUL_TICKET_FF15b_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_5STAR_10PER_TICKET_FF15b_NAME	[FFXV] Featured Collaboration Unit 10% Summon Ticket
+SRPG_ItemParam_IT_US_GL_5STAR_10PER_TICKET_FF15b_EXPR	Use this ticket to summon a unit with a 10% chance of it being a Final Fantasy XV collaboration unit. (Aranea/Gladiolus)
+SRPG_ItemParam_IT_US_GL_5STAR_10PER_TICKET_FF15b_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_RARE_UNIT_TICKET_B14_NAME	Rare Unit Summon Ticket
+SRPG_ItemParam_IT_US_GL_RARE_UNIT_TICKET_B14_EXPR	Use this ticket to summon one 3-5★ unit.
+SRPG_ItemParam_IT_US_GL_RARE_UNIT_TICKET_B14_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_RARE_10EQ_TICKET_B14_NAME	3+★ Equipment 10-Summon Ticket
+SRPG_ItemParam_IT_US_GL_RARE_10EQ_TICKET_B14_EXPR	Use this ticket to summon ten 3+★ equipment items.
+SRPG_ItemParam_IT_US_GL_RARE_10EQ_TICKET_B14_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_4PLUS_UNIT_TICKET_B14_NAME	4+★ Unit Summon Ticket
+SRPG_ItemParam_IT_US_GL_4PLUS_UNIT_TICKET_B14_EXPR	Use this ticket to summon one 4+★ unit.
+SRPG_ItemParam_IT_US_GL_4PLUS_UNIT_TICKET_B14_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_RARE_10UNIT_TICKET_B14_NAME	Rare Unit 10-Summon Ticket
+SRPG_ItemParam_IT_US_GL_RARE_10UNIT_TICKET_B14_EXPR	Use this ticket to summon ten 3-5★ units.
+SRPG_ItemParam_IT_US_GL_RARE_10UNIT_TICKET_B14_FLAVOR	 
 SRPG_ItemParam_IT_US_GL_5STAR_10SOUL_TICKET_SS5_NAME	[Sacred Stone Memories] 5★ Soul Shard 10-Summon Ticket
 SRPG_ItemParam_IT_US_GL_5STAR_10SOUL_TICKET_SS5_EXPR	Use this Ticket to obtain 10 5★ Unit Soul Shards from Sacred Stone Memories. (Yauras/Zain/Kudanstein/Cadanova)
 SRPG_ItemParam_IT_US_GL_5STAR_10SOUL_TICKET_SS5_FLAVOR	 
 SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_B14SS5_NAME	5★ Unit Summon Ticket
 SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_B14SS5_EXPR	Use this ticket to summon one 5★ unit.
 SRPG_ItemParam_IT_US_GL_5STAR_UNIT_TICKET_B14SS5_FLAVOR	 
+SRPG_ItemParam_IT_US_GL_5STAR_10SOUL_TICKET_SS5b_NAME	[Sacred Stone Memories] 5★ Soul Shard 10-Summon Ticket
+SRPG_ItemParam_IT_US_GL_5STAR_10SOUL_TICKET_SS5b_EXPR	Use this Ticket to obtain 10 5★ Unit Soul Shards from Sacred Stone Memories. (Othima/Seida/Monzein)
+SRPG_ItemParam_IT_US_GL_5STAR_10SOUL_TICKET_SS5b_FLAVOR	 
 SRPG_ArtifactParam_AF_EMPTY_NAME	[Default Gear] No Equipment
 SRPG_ArtifactParam_AF_EMPTY_EXPR	 
 SRPG_ArtifactParam_AF_EMPTY_SPEC	 
@@ -38835,6 +38862,32 @@ SRPG_TrophyParam_GL_MM_02_9July_NAME	[Monday] Level up any Ability
 SRPG_TrophyParam_GL_MM_03_9July_NAME	[Monday] Raise any unit's Job Level once
 SRPG_TrophyParam_GL_MM_04_9July_NAME	[Monday] Clear any Multiplay Quest once
 SRPG_TrophyParam_GL_MM_05_9July_NAME	[Monday] Clear any quest with a mercenary once
+SRPG_TrophyParam_GL_MM_01_16July_NAME	[Monday] Level up any Unit
+SRPG_TrophyParam_GL_MM_02_16July_NAME	[Monday] Level up any Ability
+SRPG_TrophyParam_GL_MM_03_16July_NAME	[Monday] Raise any unit's Job Level once
+SRPG_TrophyParam_GL_MM_04_16July_NAME	[Monday] Clear any Multiplay Quest once
+SRPG_TrophyParam_GL_MM_05_16July_NAME	[Monday] Clear any quest with a mercenary once
+SRPG_TrophyParam_GL_DAILY_FFXV_20180712_1_NAME	[Limited Time] [FFXV] Daily Mission [Bgn]
+SRPG_TrophyParam_GL_DAILY_FFXV_20180712_2_NAME	[Limited Time] [FFXV] Daily Mission [Int]
+SRPG_TrophyParam_GL_DAILY_FFXV_20180712_3_NAME	[Limited Time] [FFXV] Daily Mission [Adv]
+SRPG_TrophyParam_GL_DAILY_FFXV_20180713_1_NAME	[Limited Time] [FFXV] Daily Mission [Bgn]
+SRPG_TrophyParam_GL_DAILY_FFXV_20180713_2_NAME	[Limited Time] [FFXV] Daily Mission [Int]
+SRPG_TrophyParam_GL_DAILY_FFXV_20180713_3_NAME	[Limited Time] [FFXV] Daily Mission [Adv]
+SRPG_TrophyParam_GL_DAILY_FFXV_20180714_1_NAME	[Limited Time] [FFXV] Daily Mission [Bgn]
+SRPG_TrophyParam_GL_DAILY_FFXV_20180714_2_NAME	[Limited Time] [FFXV] Daily Mission [Int]
+SRPG_TrophyParam_GL_DAILY_FFXV_20180714_3_NAME	[Limited Time] [FFXV] Daily Mission [Adv]
+SRPG_TrophyParam_GL_DAILY_FFXV_20180715_1_NAME	[Limited Time] [FFXV] Daily Mission [Bgn]
+SRPG_TrophyParam_GL_DAILY_FFXV_20180715_2_NAME	[Limited Time] [FFXV] Daily Mission [Int]
+SRPG_TrophyParam_GL_DAILY_FFXV_20180715_3_NAME	[Limited Time] [FFXV] Daily Mission [Adv]
+SRPG_TrophyParam_GL_DAILY_FFXV_20180716_1_NAME	[Limited Time] [FFXV] Daily Mission [Bgn]
+SRPG_TrophyParam_GL_DAILY_FFXV_20180716_2_NAME	[Limited Time] [FFXV] Daily Mission [Int]
+SRPG_TrophyParam_GL_DAILY_FFXV_20180716_3_NAME	[Limited Time] [FFXV] Daily Mission [Adv]
+SRPG_TrophyParam_GL_DAILY_FFXV_20180717_1_NAME	[Limited Time] [FFXV] Daily Mission [Bgn]
+SRPG_TrophyParam_GL_DAILY_FFXV_20180717_2_NAME	[Limited Time] [FFXV] Daily Mission [Int]
+SRPG_TrophyParam_GL_DAILY_FFXV_20180717_3_NAME	[Limited Time] [FFXV] Daily Mission [Adv]
+SRPG_TrophyParam_GL_DAILY_FFXV_20180718_1_NAME	[Limited Time] [FFXV] Daily Mission [Bgn]
+SRPG_TrophyParam_GL_DAILY_FFXV_20180718_2_NAME	[Limited Time] [FFXV] Daily Mission [Int]
+SRPG_TrophyParam_GL_DAILY_FFXV_20180718_3_NAME	[Limited Time] [FFXV] Daily Mission [Adv]
 SRPG_TrophyParam_CHALLENGE_01_NAME	Clear Challenge Set No.1
 SRPG_TrophyParam_CHALLENGE_01_00_NAME	Clear Chapter 1: Episode 1 [1-2]
 SRPG_TrophyParam_CHALLENGE_01_01_NAME	Raise a unit's Unit Level
@@ -38885,6 +38938,16 @@ SRPG_TrophyParam_CHALLENGE_05_05_NAME	Raise a unit's Unit Level to 50
 SRPG_TrophyParam_CHALLENGE_05_06_NAME	Raise a unit's Job Level to 9
 SRPG_TrophyParam_CHALLENGE_05_07_NAME	Raise a unit's Ability Level to 15
 SRPG_TrophyParam_CHALLENGE_05_08_NAME	Clear Chapter 1: Episode 4 [3-5]
+SRPG_TrophyParam_FF15_02_NAME	Clear Challenge Set
+SRPG_TrophyParam_FF15_02_00_NAME	Clear EP10 Goodbye
+SRPG_TrophyParam_FF15_02_01_NAME	Limit Break 5 times
+SRPG_TrophyParam_FF15_02_02_NAME	Equip a unit with equipment
+SRPG_TrophyParam_FF15_02_03_NAME	Change a unit's Job
+SRPG_TrophyParam_FF15_02_04_NAME	Raise any unit's Job Level twice
+SRPG_TrophyParam_FF15_02_05_NAME	Transmute Gear once
+SRPG_TrophyParam_FF15_02_06_NAME	Enhance Gear once
+SRPG_TrophyParam_FF15_02_07_NAME	Evolve Gear once
+SRPG_TrophyParam_FF15_02_08_NAME	Enhance Gear to Lv30
 SRPG_TrophyParam_CHALLENGE_06_NAME	Clear Challenge Set No.6
 SRPG_TrophyParam_CHALLENGE_06_00_NAME	Clear Chapter 1: Episode 5 [1-10]
 SRPG_TrophyParam_CHALLENGE_06_01_NAME	Battle in the Arena 5 times
@@ -39653,6 +39716,13 @@ SRPG_TrophyCategoryParam_GL_FF15_DAILY_JUL08_NAME	[FFXV] Daily Mission
 SRPG_TrophyCategoryParam_GL_FF15_DAILY_JUL09_NAME	[FFXV] Daily Mission
 SRPG_TrophyCategoryParam_GL_FF15_DAILY_JUL10_NAME	[FFXV] Daily Mission
 SRPG_TrophyCategoryParam_GL_FF15_DAILY_JUL11_NAME	[FFXV] Daily Mission
+SRPG_TrophyCategoryParam_GL_FF15_DAILY_JUL12_NAME	[FFXV] Daily Mission
+SRPG_TrophyCategoryParam_GL_FF15_DAILY_JUL13_NAME	[FFXV] Daily Mission
+SRPG_TrophyCategoryParam_GL_FF15_DAILY_JUL14_NAME	[FFXV] Daily Mission
+SRPG_TrophyCategoryParam_GL_FF15_DAILY_JUL15_NAME	[FFXV] Daily Mission
+SRPG_TrophyCategoryParam_GL_FF15_DAILY_JUL16_NAME	[FFXV] Daily Mission
+SRPG_TrophyCategoryParam_GL_FF15_DAILY_JUL17_NAME	[FFXV] Daily Mission
+SRPG_TrophyCategoryParam_GL_FF15_DAILY_JUL18_NAME	[FFXV] Daily Mission
 SRPG_TrickParam_TR_MAP_POI_01_NAME	Poison Grid
 SRPG_TrickParam_TR_MAP_POI_01_EXPR	Poison Status Grid (Disappears once activated)
 SRPG_TrickParam_TR_MAP_POI_02_NAME	Poison Grid

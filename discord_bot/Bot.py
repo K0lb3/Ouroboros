@@ -149,7 +149,10 @@ async def on_raw_reaction_add(payload):
     #channel_id #int – The channel ID where the reaction got added or removed.
     #guild_id #Optional[int] – The guild ID where the reaction got added or removed, if applicable.
     #emoji #PartialEmoji – The custom or unicode emoji being used.
-    msg = await bot.get_channel(payload.channel_id).get_message(payload.message_id)
+    try:
+        msg = await bot.get_channel(payload.channel_id).get_message(payload.message_id)
+    except:
+        return 0
     emoji = payload.emoji.name
     if payload.user_id != bot.user.id and msg.author == bot.user:
         print(emoji)

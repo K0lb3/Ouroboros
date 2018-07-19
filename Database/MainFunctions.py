@@ -3,8 +3,6 @@ import os
 import json
 import re
 import math
-import requests
-import re
 import jellyfish
 from convertRawData import *
 

@@ -14,7 +14,10 @@ def loadTranslations():
 def loadLoc():
     path = os.path.dirname(os.path.realpath(__file__)).replace('\\Functions','\\resources\\GameFiles\\')
     with open(path+'LocalizedMasterParam.json', "rt", encoding='utf8') as f:
-       return (json.loads(f.read()))
+        ret= (json.loads(f.read()))
+    with open(path+'sys.json', "rt", encoding='utf8') as f:
+        ret.update(json.loads(f.read()))
+    return ret
 
 def FuseTranslations():
     loc=loadLoc()

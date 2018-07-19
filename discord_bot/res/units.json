@@ -433,6 +433,11 @@
                 "name": "default",
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/kamu.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/kamu-closeup.png"
+            },
+            {
+                "name": "Amu",
+                "full": "http://cdn.alchemistcodedb.com/images/units/artworks/kamu_grow_past_kamu.png",
+                "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/kamu_grow_past_kamu-closeup.png"
             }
         ]
     },
@@ -460,7 +465,7 @@
         "job 1": "Bard",
         "job 2": "Dancer",
         "job 3": "Battle Mage",
-        "jc 1": "",
+        "jc 1": "Bard: Mdef",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -949,7 +954,7 @@
         "job 1": "Bard",
         "job 2": "Priest",
         "job 3": "Dancer",
-        "jc 1": "",
+        "jc 1": "Bard: Heal",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -1291,7 +1296,7 @@
         "job 1": "Bard",
         "job 2": "Mage",
         "job 3": "Enchanter",
-        "jc 1": "",
+        "jc 1": "Bard: Heal",
         "jc 2": "",
         "jc 3": "",
         "inputs": [
@@ -1681,7 +1686,7 @@
         "job 2": "Bard",
         "job 3": "Crafter",
         "jc 1": "",
-        "jc 2": "",
+        "jc 2": "Bard: Dark",
         "jc 3": "",
         "inputs": [
             "Amis"
@@ -2325,7 +2330,7 @@
         "job 1": "Bard",
         "job 2": "Bishop",
         "job 3": "Chemist",
-        "jc 1": "",
+        "jc 1": "Bard: Heal",
         "jc 2": "",
         "jc 3": "Professor [Mud]ᴶ\n[much stronger buffs]",
         "inputs": [
@@ -2361,7 +2366,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/ayll.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/ayll-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "D",
+            "job 2": "C",
+            "job 3": "D",
+            "jc": "",
+            "total": "C"
+        }
     },
     "UN_V2_SARAUZU": {
         "iname": "UN_V2_SARAUZU",
@@ -2619,9 +2631,9 @@
         "tierlist": {
             "job 1": "D",
             "job 2": "C",
-            "job 3": "S",
+            "job 3": "A",
             "jc": "",
-            "total": "S"
+            "total": "A"
         }
     },
     "UN_V2_MICHAEL": {
@@ -3307,7 +3319,7 @@
         "job 2": "Enchanter",
         "job 3": "Chronomancer",
         "jc 1": "",
-        "jc 2": "",
+        "jc 2": "Zero Enchanterᴶ\n[buff dispeller]",
         "jc 3": "Chronomancer+",
         "inputs": [
             "Lofia",
@@ -3570,7 +3582,7 @@
         "job 3": "Holy Brawler",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Holy Brawler+ᴶ",
+        "jc 3": "Holy Brawler+",
         "inputs": [
             "Lucian",
             "Lucia"
@@ -7611,7 +7623,7 @@
         "job 2": "Bard",
         "job 3": "Sage",
         "jc 1": "",
-        "jc 2": "",
+        "jc 2": "Bard: Dark",
         "jc 3": "Sage : Carnacᴶ\n[stronger water skills]",
         "inputs": [
             "Chiruru"
@@ -9423,14 +9435,7 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/s_yomi.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/s_yomi-closeup.png"
             }
-        ],
-        "tierlist": {
-            "job 1": "B",
-            "job 2": "C",
-            "job 3": "A",
-            "jc": "",
-            "total": "A"
-        }
+        ]
     },
     "UN_V2_FOLCAS": {
         "iname": "UN_V2_FOLCAS",
@@ -9808,7 +9813,7 @@
     },
     "UN_V2_YUTO": {
         "iname": "UN_V2_YUTO",
-        "name": "Yutoᴶ",
+        "name": "Yuto",
         "inofficial": "Yuto",
         "gender": "♂",
         "element": "Fire",
@@ -9819,7 +9824,7 @@
         "farm": [],
         "leader skill": "Fire: +5 Jewels Obtained",
         "master ability": "",
-        "link": "http://www.alchemistcodedb.com/jp/unit/yuto",
+        "link": "http://www.alchemistcodedb.com/unit/yuto",
         "job 1": "Beast Tamer",
         "job 2": "Twin-Blade Swordsman",
         "job 3": "Warrior",
@@ -9830,7 +9835,7 @@
             "Yuto"
         ],
         "stats": {
-            "HP": 276,
+            "HP": 309,
             "Max Jewels": 142,
             "PATK": 78,
             "PDEF": 79,
@@ -9979,7 +9984,7 @@
             }
         ],
         "tierlist": {
-            "job 1": "S",
+            "job 1": "SS",
             "job 2": "SS",
             "job 3": "SS",
             "jc": "",
@@ -10459,7 +10464,7 @@
             "JP: [32 AP] [Hard] Ch 3: Ep 4 [3-4]"
         ],
         "leader skill": "Fire: +30 Pierce ATK, +20% HP",
-        "master ability": "",
+        "master ability": "+50 PATK, +15 Initial Jewels, +1 MOVE",
         "link": "http://www.alchemistcodedb.com/jp/unit/daisy",
         "job 1": "Sacred Lancer",
         "job 2": "Crafter",
@@ -10894,7 +10899,7 @@
         "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/lavi.png",
         "farm": [],
         "leader skill": "Water: +30% HP, +20% MATK",
-        "master ability": "",
+        "master ability": "+1 RANGE, +8 Jewels Obtained, +10 AGI",
         "link": "http://www.alchemistcodedb.com/jp/unit/lavina",
         "job 1": "Magia Gunslinger",
         "job 2": "Thief",
@@ -11407,7 +11412,7 @@
             "FF Noctis"
         ],
         "stats": {
-            "HP": 714,
+            "HP": 799,
             "Max Jewels": 163,
             "PATK": 123,
             "PDEF": 93,
@@ -11437,8 +11442,8 @@
             }
         ],
         "tierlist": {
-            "job 1": "",
-            "job 2": "",
+            "job 1": "S",
+            "job 2": "A",
             "job 3": "SS",
             "jc": "",
             "total": "SS"
@@ -11500,11 +11505,11 @@
             }
         ],
         "tierlist": {
-            "job 1": "",
-            "job 2": "",
-            "job 3": "",
+            "job 1": "S",
+            "job 2": "B",
+            "job 3": "A",
             "jc": "",
-            "total": ""
+            "total": "S"
         }
     },
     "UN_V2_FF15_GLADIOLUS": {
@@ -11533,7 +11538,7 @@
             "FF Gladiolus"
         ],
         "stats": {
-            "HP": 386,
+            "HP": 434,
             "Max Jewels": 151,
             "PATK": 142,
             "PDEF": 103,
@@ -11563,11 +11568,11 @@
             }
         ],
         "tierlist": {
-            "job 1": "",
-            "job 2": "",
-            "job 3": "",
+            "job 1": "S",
+            "job 2": "S",
+            "job 3": "SS",
             "jc": "",
-            "total": ""
+            "total": "SS"
         }
     },
     "UN_V2_FF15_PROMPUTO": {
@@ -11626,11 +11631,11 @@
             }
         ],
         "tierlist": {
-            "job 1": "",
-            "job 2": "",
-            "job 3": "",
+            "job 1": "D",
+            "job 2": "C",
+            "job 3": "C",
             "jc": "",
-            "total": ""
+            "total": "C"
         }
     },
     "UN_V2_FF15_ARANEA": {
@@ -11659,7 +11664,7 @@
             "FF Aranea"
         ],
         "stats": {
-            "HP": 407,
+            "HP": 413,
             "Max Jewels": 154,
             "PATK": 142,
             "PDEF": 98,
@@ -11689,11 +11694,11 @@
             }
         ],
         "tierlist": {
-            "job 1": "",
-            "job 2": "",
-            "job 3": "",
+            "job 1": "S",
+            "job 2": "S",
+            "job 3": "SS",
             "jc": "",
-            "total": ""
+            "total": "SS"
         }
     },
     "UN_V2_KLIMA": {
@@ -16653,7 +16658,7 @@
         "job 2": "Bard",
         "job 3": "Professor",
         "jc 1": "",
-        "jc 2": "",
+        "jc 2": "Bard: Mdef",
         "jc 3": "Professor [Aid]ᴶ\n[cures will heal as well]",
         "inputs": [
             "Leafa"
@@ -16685,6 +16690,114 @@
                 "name": "default",
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/leafa.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/leafa-closeup.png"
+            }
+        ]
+    },
+    "UN_V2_ALMA": {
+        "iname": "UN_V2_ALMA",
+        "name": "Almaᴶ",
+        "inofficial": "",
+        "gender": "♀",
+        "element": "Light",
+        "collab": "",
+        "collab short": "",
+        "rarity": "★★★★★",
+        "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/n_alma.png",
+        "farm": [],
+        "leader skill": "Light: +40% HP, +40 Strike ATK, +20 Dark Res",
+        "master ability": "",
+        "link": "http://www.alchemistcodedb.com/jp/unit/alma",
+        "job 1": "JB_ALMA01ᴶ",
+        "job 2": "Chronomancer",
+        "job 3": "Shadow Assassin",
+        "jc 1": "",
+        "jc 2": "",
+        "jc 3": "Shadow Assassin : Nightᴶ\n[buff dispeller]",
+        "inputs": [
+            "Alma"
+        ],
+        "stats": {
+            "HP": 685,
+            "Max Jewels": 168,
+            "PATK": 106,
+            "PDEF": 102,
+            "MATK": 189,
+            "MDEF": 89,
+            "DEX": 152,
+            "AGI": 87,
+            "CRIT": 155,
+            "LUCK": 124
+        },
+        "profile": "ビーナス魔法学校に通う女学生。ウロボロスの力を介した触媒により、その時の記憶をもとに召喚された。好奇心旺盛な性格で、噂話を集める独自の情報網を持っている。リズベットの友人として様々な面で彼女をサポートする。",
+        "country": "ルストブルグ",
+        "height": "156cm",
+        "weight": "50kg",
+        "birth": "7月3日",
+        "zodiac": "光揺籠の月",
+        "blood": "Ki型",
+        "favorite": "噂話",
+        "hobby": "噂話の真実を探る",
+        "illust": "RINZO",
+        "cv": "森永理科",
+        "artworks": [
+            {
+                "name": "default",
+                "full": "http://cdn.alchemistcodedb.com/images/units/artworks/n_alma.png",
+                "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/n_alma-closeup.png"
+            }
+        ]
+    },
+    "UN_V2_REBECCA": {
+        "iname": "UN_V2_REBECCA",
+        "name": "Rebeccaᴶ",
+        "inofficial": "",
+        "gender": "♀",
+        "element": "Thunder",
+        "collab": "",
+        "collab short": "",
+        "rarity": "★★★☆☆",
+        "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/reve.png",
+        "farm": [],
+        "leader skill": "Lustburg: +40% HP, +30 Magic ATK",
+        "master ability": "",
+        "link": "http://www.alchemistcodedb.com/jp/unit/rebecca",
+        "job 1": "Mage",
+        "job 2": "Magic Marksman",
+        "job 3": "Diviner",
+        "jc 1": "",
+        "jc 2": "",
+        "jc 3": "",
+        "inputs": [
+            "Rebecca"
+        ],
+        "stats": {
+            "HP": 309,
+            "Max Jewels": 179,
+            "PATK": 107,
+            "PDEF": 84,
+            "MATK": 125,
+            "MDEF": 106,
+            "DEX": 113,
+            "AGI": 80,
+            "CRIT": 114,
+            "LUCK": 119
+        },
+        "profile": "ビーナス魔法学校に通う名家の令嬢。ウロボロスの力を介した触媒により、その時の記憶をもとに召喚された。名家出身でプライドが高く、他者を見下す傾向があったが、リズベットやアルマと心を通わせ、互いに尊敬し合う友達に。",
+        "country": "ルストブルグ",
+        "height": "160cm",
+        "weight": "51kg",
+        "birth": "5月23日",
+        "zodiac": "雷鳴帝の月",
+        "blood": "Qe型",
+        "favorite": "母に褒められること",
+        "hobby": "アフタヌーンティー",
+        "illust": "RINZO",
+        "cv": "氷青",
+        "artworks": [
+            {
+                "name": "default",
+                "full": "http://cdn.alchemistcodedb.com/images/units/artworks/reve.png",
+                "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/reve-closeup.png"
             }
         ]
     },

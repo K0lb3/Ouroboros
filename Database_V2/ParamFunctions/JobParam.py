@@ -100,6 +100,7 @@ def JobParam(json):
             JobRankParam(rank)
             for rank in json['ranks']
         ]
+    
     #stat calc would be here, ignored for now
     #if(master_param!=null)
     #this.CreateBuffList(master_param)

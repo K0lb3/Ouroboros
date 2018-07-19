@@ -7941,34 +7941,34 @@
         "title": "Extreme Hard Quest"
     },
     "QE_EV_SWIM_DILG_01": {
-        "name": "Pirate Raid",
+        "name": "Pirate Raid - Episode 1",
         "expr": "Swimsuit Event - Act 1",
         "cond": "Defeat all enemy units!",
-        "title": "Episode 1"
+        "title": "[Limited Time]"
     },
     "QE_EV_SWIM_DILG_02": {
-        "name": "The Black Keels",
+        "name": "The Black Keels - Episode 2",
         "expr": "Swimsuit Event - Act 2",
         "cond": "Defeat all enemy units!",
-        "title": "Episode 2"
+        "title": "[Limited Time]"
     },
     "QE_EV_SWIM_DILG_03": {
-        "name": "Ship-Deck Battle",
+        "name": "Ship-Deck Battle - Episode 3",
         "expr": "Swimsuit Event - Act 3",
         "cond": "Defeat all enemy units!",
-        "title": "Episode 3"
+        "title": "[Limited Time]"
     },
     "QE_EV_SWIM_DILG_04": {
-        "name": "Man of the Sea",
+        "name": "Man of the Sea - Episode 4",
         "expr": "Swimsuit Event - Act 4",
         "cond": "Defeat all enemy units!",
-        "title": "Episode 4"
+        "title": "[Limited Time]"
     },
     "QE_EV_SWIM_DILG_05": {
-        "name": "A True Man's Uniform",
+        "name": "A True Man's Uniform - Episode 5",
         "expr": "Swimsuit Event - Act 5",
         "cond": "Defeat all enemy units!",
-        "title": "Episode 5"
+        "title": "[Limited Time]"
     },
     "QE_EV_SWIM_DILG_06": {
         "name": "Savage Sea Warrior [EX]",
@@ -8619,7 +8619,7 @@
         "title": "Unit Lv65 JobLv10 Recommended"
     },
     "QE_EV_FF15_HA": {
-        "name": "FINAL FANTASY XV Collab",
+        "name": "FINAL FANTASY XV Collab [Hard]",
         "expr": "FFXV Collab Quest",
         "cond": "Defeat all enemy units!",
         "title": "[Hard]"
@@ -9256,7 +9256,7 @@
     },
     "QE_ARENA_27": {
         "name": "Arena [Ruins]",
-        "expr": "Thunder Units ATK Power +20%, Cast Time -30%",
+        "expr": "Thunder Units ATK Power +20%, Cast Time -30%",
         "cond": "Defeat all enemy units!",
         "title": "Arena"
     },
@@ -9322,7 +9322,7 @@
     },
     "QE_VS_08": {
         "name": "Ruins",
-        "expr": "Map Effect: Cast Time -30%",
+        "expr": "Map Effect: Cast Time -30%",
         "cond": "Defeat all enemy units!",
         "title": "Duel"
     },
@@ -9388,7 +9388,7 @@
     },
     "QE_VS_TOWER_02": {
         "name": "Ruins",
-        "expr": "Map Effect: Cast Time -30% & Dmg Dealt -50%",
+        "expr": "Map Effect: Cast Time -30% & Dmg Dealt -50%",
         "cond": "Defeat all enemy units!",
         "title": "Tower Match β"
     },
