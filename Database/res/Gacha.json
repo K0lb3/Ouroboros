@@ -1,10 +1,46 @@
 {
     "gachas": [
         {
-            "iname": "Daily_Gacha_D01_PaidJuly2018a",
+            "iname": "Weekend_Gacha_D02_PaidFF15c",
             "cat": "",
-            "startat": 1531987200,
-            "endat": 1532073599,
+            "startat": 1532246400,
+            "endat": 1532332799,
+            "num": 10,
+            "name": "Weekend Grand Summon",
+            "cost": {
+                "coin_p": 1500
+            },
+            "asset_title": "tab_GL_017_08",
+            "asset_bg": "GachaImages_GL_Weekend_Grand_FF15b",
+            "detail_url": "Weekend_Grand_FF15c",
+            "units": [],
+            "ext_type": [
+                "limit_cnt",
+                "promise"
+            ],
+            "ext_param": {
+                "limit_cnt": {
+                    "rest": 1,
+                    "num": 1
+                }
+            },
+            "is_valid": 0,
+            "group": "",
+            "btext": "",
+            "confirm": "",
+            "bonus_items": [
+                {
+                    "iname": "IT_CV_GOLD3",
+                    "num": 20
+                }
+            ],
+            "pickup_art": []
+        },
+        {
+            "iname": "Daily_Gacha_D04_PaidJuly2018a",
+            "cat": "",
+            "startat": 1532246400,
+            "endat": 1532332799,
             "num": 10,
             "name": "Grand Unit Summon",
             "cost": {
@@ -110,10 +146,10 @@
             "pickup_art": []
         },
         {
-            "iname": "Daily_Gacha_D01_S1_July2018a",
+            "iname": "Daily_Gacha_D04_S1_July2018a",
             "cat": "",
-            "startat": 1531987200,
-            "endat": 1532073599,
+            "startat": 1532246400,
+            "endat": 1532332799,
             "num": 1,
             "name": "Daily Special Summon Step 1",
             "cost": {
@@ -185,6 +221,37 @@
                     "num": 50
                 }
             ],
+            "pickup_art": []
+        },
+        {
+            "iname": "Weekend_Gacha_D02_SoulFF15c",
+            "cat": "",
+            "startat": 1532246400,
+            "endat": 1532332799,
+            "num": 10,
+            "name": "Weekend Special Soul Summon",
+            "cost": {
+                "coin": 2500
+            },
+            "asset_title": "tab_GL_015_10",
+            "asset_bg": "GachaImages_GL_LimitedSoul_FF15b",
+            "detail_url": "Weekend_Gacha_Soul_FF15b",
+            "units": [],
+            "ext_type": [
+                "limit_cnt",
+                "promise"
+            ],
+            "ext_param": {
+                "limit_cnt": {
+                    "rest": 1,
+                    "num": 1
+                }
+            },
+            "is_valid": 0,
+            "group": "",
+            "btext": "",
+            "confirm": "",
+            "bonus_items": [],
             "pickup_art": []
         },
         {
@@ -834,6 +901,27 @@
             "group": ""
         },
         {
+            "iname": "GL_3to4_Gear_Ticket_CB",
+            "cat": "",
+            "startat": 1514793600,
+            "endat": 4090678560,
+            "num": 1,
+            "name": "3-4★ Gear Summon Ticket",
+            "cost": {
+                "ticket": {
+                    "iname": "IT_US_GL_3TO4_GEAR_TICKET_CB",
+                    "num": 1
+                }
+            },
+            "detail_url": "GL_3to4_Gear_Ticket",
+            "ext_type": [
+                "ticket"
+            ],
+            "is_valid": 0,
+            "bonus_items": [],
+            "group": ""
+        },
+        {
             "iname": "GL_5star_01shards_Shinobi",
             "cat": "",
             "startat": 1516867200,
@@ -1002,6 +1090,27 @@
             "group": ""
         },
         {
+            "iname": "GL_Rare_10Eq_Ticket_B12",
+            "cat": "",
+            "startat": 1514793600,
+            "endat": 4090678560,
+            "num": 10,
+            "name": "Rare Equipment 10-Summon Ticket",
+            "cost": {
+                "ticket": {
+                    "iname": "IT_US_GL_RARE_10EQ_TICKET_B12",
+                    "num": 1
+                }
+            },
+            "detail_url": "GL_Rare_10Eq_Ticket",
+            "ext_type": [
+                "ticket"
+            ],
+            "is_valid": 0,
+            "bonus_items": [],
+            "group": ""
+        },
+        {
             "iname": "GL_Rare_10Eq_Ticket_B5",
             "cat": "",
             "startat": 1502649360,
@@ -1015,6 +1124,27 @@
                 }
             },
             "detail_url": "GL_Rare_10Eq_Ticket_B5",
+            "ext_type": [
+                "ticket"
+            ],
+            "is_valid": 0,
+            "bonus_items": [],
+            "group": ""
+        },
+        {
+            "iname": "GL_4plus_10Eq_Ticket_B13",
+            "cat": "",
+            "startat": 1514793600,
+            "endat": 4090678560,
+            "num": 10,
+            "name": "4+★ Equipment 10-Summon Ticket",
+            "cost": {
+                "ticket": {
+                    "iname": "IT_US_GL_4PLUS_10EQ_TICKET_B13",
+                    "num": 1
+                }
+            },
+            "detail_url": "GL_4plus_10Eq_Ticket",
             "ext_type": [
                 "ticket"
             ],

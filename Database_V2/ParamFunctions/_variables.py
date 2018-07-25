@@ -96,7 +96,7 @@ TAG_ARTIFACT = {
     "装備なし": "N/A",  # JB_LUROB01
     "杖剣": "Swordstick",  # JB_HENC_WATER
     "カタール": "Qatar", #[Default Gear] Assassin
-    "ほうき": "Broom", #[Default Gear] Shrine Maiden",
+    "ほうき": "Broom", #[Default Gear] Shrine Maiden,
     "メイス": "Mace", #[Default Gear] Exclusive: Salomo (Thief)
     }
 

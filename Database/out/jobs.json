@@ -2693,9 +2693,9 @@
             "Lamia Fate",
             "Sakura SN",
             "Bashosen",
+            "Mikoto",
             "Thillie",
             "Rena",
-            "Mikoto",
             "Yunagi",
             "Etona DIS",
             "Ahato",
@@ -17093,6 +17093,167 @@
             "Brigadier General"
         ]
     },
+    "JB_KAM": {
+        "iname": "JB_KAM",
+        "name": "Priestess",
+        "japan": "Miko\n神子",
+        "kanji": "神子",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/kam.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_KAM.png",
+        "origin": "Shrine Maiden",
+        "units": [
+            "Mikoto",
+            "Ato RH",
+            "Amaterasu SN",
+            "Ines"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_KAM_UPPER",
+            "name": "Prayer",
+            "expr": "Prayer techniques for use with this job type only",
+            "skills": [
+                {
+                    "name": "Harvest Celebration Dance",
+                    "expr": "Lowers Jewels of all enemy units [Area: Whole Map, Height Range: Unlimited]"
+                },
+                {
+                    "name": "Purification of Perception",
+                    "expr": "Inflicts Light Mag Dmg (strong vs undead) on enemy units within target area [Range: 4, Area: Diamond (5), Height Range: 2]"
+                },
+                {
+                    "name": "Prayer of Strength",
+                    "expr": "Greatly raises own stats, especially PDEF & raises PDEF/AGI of ally units within area around self [Area: Diamond (5), Height Range: 2]"
+                },
+                {
+                    "name": "Illuminating Purge",
+                    "expr": "Greatly raises own stats (especially MATK) & raises MATK/AGI of ally units in area around self [Area: Diamond (5), Height Range: 2]"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_KAM_LOWER",
+            "name": "Basic Prayer",
+            "expr": "Prayer techniques for use with all job types",
+            "skills": [
+                {
+                    "name": "Essential Delivery",
+                    "expr": "Absorbs Jewels from single target; diamond-shaped Range [Range: 5, Height Range: 4]"
+                },
+                {
+                    "name": "Evil-Crushing Dance",
+                    "expr": "Lowers MDEF of all enemy units & debuff effect is stackable [Area: Whole Map, Height Range: Unlimited]"
+                },
+                {
+                    "name": "Shield-Crushing Dance",
+                    "expr": "Lowers PDEF of all enemy units & debuff effect is stackable [Area: Whole Map, Height Range: Unlimited]"
+                },
+                {
+                    "name": "Captivating Dance",
+                    "expr": "Chance of inflicting Charm on all enemy units [Area: Whole Map, Height Range: Unlimited]"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Sacrificial Protection",
+                    "expr": "Chance of powerful HP recovery when receiving Dmg"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Purify Space",
+                    "expr": "Nullifies Daze status"
+                },
+                {
+                    "name": "Holy Ritual",
+                    "expr": "COMBO Scope +1 and increases chance of surviving fatal Dmg"
+                }
+            ]
+        },
+        "weapon": "Praying Staff",
+        "modifiers": {
+            "HP": 3,
+            "Max Jewels": 8,
+            "Initial Jewels": 50,
+            "PATK": -42,
+            "PDEF": -10,
+            "MATK": 20,
+            "MDEF": 0,
+            "DEX": -5,
+            "AGI": 12,
+            "LUCK": 20,
+            "CRIT": 5,
+            "AVOID": 0
+        },
+        "job master buff": [
+            {
+                "type": "HP",
+                "value": 19,
+                "calc": "Scale"
+            },
+            {
+                "type": "MATK",
+                "value": 6,
+                "calc": "Scale"
+            },
+            {
+                "type": "AGI",
+                "value": 4,
+                "calc": "Scale"
+            },
+            {
+                "type": "LUCK",
+                "value": 2,
+                "calc": "Scale"
+            }
+        ],
+        "stats": {
+            "Move": 4,
+            "Jump": 2,
+            "PATK": 57,
+            "PDEF": 115,
+            "DEX": 101,
+            "AGI": 20,
+            "MATK": 169,
+            "CRIT": 84,
+            "HP": 239,
+            "Jewels Obtained": 30,
+            "MDEF": 120,
+            "LUCK": 236,
+            "Fire Res": 4,
+            "Water Res": 6,
+            "Thunder Res": 4,
+            "Wind Res": 6,
+            "Max Jewels": 53,
+            "Dark Res": 8,
+            "Paralyze Res": 43,
+            "Daze Res": 28,
+            "Bind Res": 28,
+            "Stun Res": 15,
+            "Sleep Res": 15,
+            "Petrify Res": 15,
+            "Blind Res": 10,
+            "Charm Res": 10
+        },
+        "formula": "70% (MATK + LUCK)",
+        "link": "http://www.alchemistcodedb.com/unit/mikoto#priestess",
+        "inputs": [
+            "Priestess",
+            "Miko"
+        ]
+    },
     "JB_FEN": {
         "iname": "JB_FEN",
         "name": "Fencer",
@@ -19065,167 +19226,6 @@
             "Miuna",
             "Miuna Craftsman",
             "Craftsman"
-        ]
-    },
-    "JB_KAM": {
-        "iname": "JB_KAM",
-        "name": "Priestess",
-        "japan": "Miko\n神子",
-        "kanji": "神子",
-        "short description": "",
-        "long description": "",
-        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/kam.png",
-        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_KAM.png",
-        "origin": "Shrine Maiden",
-        "units": [
-            "Mikoto",
-            "Ato RH",
-            "Amaterasu SN",
-            "Ines"
-        ],
-        "jobe": [],
-        "main": {
-            "iname": "AB_KAM_UPPER",
-            "name": "Prayer",
-            "expr": "Prayer techniques for use with this job type only",
-            "skills": [
-                {
-                    "name": "Harvest Celebration Dance",
-                    "expr": "Lowers Jewels of all enemy units [Area: Whole Map, Height Range: Unlimited]"
-                },
-                {
-                    "name": "Purification of Perception",
-                    "expr": "Inflicts Light Mag Dmg (strong vs undead) on enemy units within target area [Range: 4, Area: Diamond (5), Height Range: 2]"
-                },
-                {
-                    "name": "Prayer of Strength",
-                    "expr": "Greatly raises own stats, especially PDEF & raises PDEF/AGI of ally units within area around self [Area: Diamond (5), Height Range: 2]"
-                },
-                {
-                    "name": "Illuminating Purge",
-                    "expr": "Greatly raises own stats (especially MATK) & raises MATK/AGI of ally units in area around self [Area: Diamond (5), Height Range: 2]"
-                }
-            ]
-        },
-        "sub": {
-            "iname": "AB_KAM_LOWER",
-            "name": "Basic Prayer",
-            "expr": "Prayer techniques for use with all job types",
-            "skills": [
-                {
-                    "name": "Essential Delivery",
-                    "expr": "Absorbs Jewels from single target; diamond-shaped Range [Range: 5, Height Range: 4]"
-                },
-                {
-                    "name": "Evil-Crushing Dance",
-                    "expr": "Lowers MDEF of all enemy units & debuff effect is stackable [Area: Whole Map, Height Range: Unlimited]"
-                },
-                {
-                    "name": "Shield-Crushing Dance",
-                    "expr": "Lowers PDEF of all enemy units & debuff effect is stackable [Area: Whole Map, Height Range: Unlimited]"
-                },
-                {
-                    "name": "Captivating Dance",
-                    "expr": "Chance of inflicting Charm on all enemy units [Area: Whole Map, Height Range: Unlimited]"
-                }
-            ]
-        },
-        "reactives": {
-            "iname": "",
-            "name": "Reactives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Sacrificial Protection",
-                    "expr": "Chance of powerful HP recovery when receiving Dmg"
-                }
-            ]
-        },
-        "passives": {
-            "iname": "",
-            "name": "Passives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Purify Space",
-                    "expr": "Nullifies Daze status"
-                },
-                {
-                    "name": "Holy Ritual",
-                    "expr": "COMBO Scope +1 and increases chance of surviving fatal Dmg"
-                }
-            ]
-        },
-        "weapon": "Praying Staff",
-        "modifiers": {
-            "HP": 3,
-            "Max Jewels": 8,
-            "Initial Jewels": 50,
-            "PATK": -42,
-            "PDEF": -10,
-            "MATK": 20,
-            "MDEF": 0,
-            "DEX": -5,
-            "AGI": 12,
-            "LUCK": 20,
-            "CRIT": 5,
-            "AVOID": 0
-        },
-        "job master buff": [
-            {
-                "type": "HP",
-                "value": 19,
-                "calc": "Scale"
-            },
-            {
-                "type": "MATK",
-                "value": 6,
-                "calc": "Scale"
-            },
-            {
-                "type": "AGI",
-                "value": 4,
-                "calc": "Scale"
-            },
-            {
-                "type": "LUCK",
-                "value": 2,
-                "calc": "Scale"
-            }
-        ],
-        "stats": {
-            "Move": 4,
-            "Jump": 2,
-            "PATK": 57,
-            "PDEF": 115,
-            "DEX": 101,
-            "AGI": 20,
-            "MATK": 169,
-            "CRIT": 84,
-            "HP": 239,
-            "Jewels Obtained": 30,
-            "MDEF": 120,
-            "LUCK": 236,
-            "Fire Res": 4,
-            "Water Res": 6,
-            "Thunder Res": 4,
-            "Wind Res": 6,
-            "Max Jewels": 53,
-            "Dark Res": 8,
-            "Paralyze Res": 43,
-            "Daze Res": 28,
-            "Bind Res": 28,
-            "Stun Res": 15,
-            "Sleep Res": 15,
-            "Petrify Res": 15,
-            "Blind Res": 10,
-            "Charm Res": 10
-        },
-        "formula": "70% (MATK + LUCK)",
-        "link": "http://www.alchemistcodedb.com/jp/unit/ines#神子",
-        "inputs": [
-            "Priestess",
-            "Miko"
         ]
     },
     "JB_BASI_SOL": {
@@ -22597,7 +22597,7 @@
             "skills": [
                 {
                     "name": "Flower Concentrate",
-                    "expr": "Raises MATK/charge speed & lowers HP"
+                    "expr": "Raises MATK/cast speed & lowers HP"
                 }
             ]
         },
@@ -30688,7 +30688,7 @@
     "JB_ALMA01": {
         "iname": "JB_ALMA01",
         "name": "Alma01ᴶ",
-        "japan": "",
+        "japan": "Battle Witch\n武闘魔女",
         "kanji": "武闘魔女",
         "short description": "",
         "long description": "",
@@ -30846,7 +30846,10 @@
         "inputs": [
             "Alma",
             "Alma Alma01",
-            "Alma01"
+            "Alma01",
+            "Alma",
+            "Alma Battle Witch",
+            "Battle Witch"
         ]
     },
     "JB_KUDH_LAN2": {
@@ -32479,7 +32482,7 @@
     "JB_POLLIN_BAR": {
         "iname": "JB_POLLIN_BAR",
         "name": "Bard+",
-        "japan": "Bard+\n吟遊詩人+",
+        "japan": "Lily of the Valley Songstress\n君影草の歌姫",
         "kanji": "吟遊詩人＋",
         "short description": "",
         "long description": "",
@@ -32638,7 +32641,10 @@
         "inputs": [
             "Polin",
             "Polin Bard+",
-            "Bard+"
+            "Bard+",
+            "Polin",
+            "Polin Lily of the Valley Songstress",
+            "Lily of the Valley Songstress"
         ]
     },
     "JB_KIL_ANTI_MAGIC": {
@@ -52680,7 +52686,7 @@
     "JB_VAL_DEF": {
         "iname": "JB_VAL_DEF",
         "name": "Valkyrie: Stingᴶ",
-        "japan": "N/A",
+        "japan": "Holy Binding Valkyrie\n聖縛のヴァルキリー",
         "kanji": "聖縛のヴァルキリー",
         "short description": "def focused",
         "long description": "def focused",
@@ -52843,13 +52849,14 @@
             "Teona Valkyrie: Sting",
             "Valkyrie: Sting",
             "Teona",
-            "Teona N/A"
+            "Teona Holy Binding Valkyrie",
+            "Holy Binding Valkyrie"
         ]
     },
     "JB_VAL_LAN_JUMP": {
         "iname": "JB_VAL_LAN_JUMP",
         "name": "Valkyrie: Dayfallᴶ",
-        "japan": "N/A",
+        "japan": "Sky Sinking Valkyrie\n天墜のヴァルキリー",
         "kanji": "天墜のヴァルキリー",
         "short description": "jump focused",
         "long description": "jump focused",
@@ -53002,13 +53009,14 @@
         "formula": "140% PATK",
         "link": "http://www.alchemistcodedb.com/jp/unit/achad#天墜のヴァルキリー",
         "inputs": [
-            "Valkyrie: Dayfall"
+            "Valkyrie: Dayfall",
+            "Sky Sinking Valkyrie"
         ]
     },
     "JB_BAR_HEAL": {
         "iname": "JB_BAR_HEAL",
         "name": "Bard: HEALᴶ",
-        "japan": "N/A",
+        "japan": "Bard of Dawn\n黎明の吟遊詩人",
         "kanji": "黎明の吟遊詩人",
         "short description": "",
         "long description": "",
@@ -53176,13 +53184,14 @@
         "formula": "60% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "link": "http://www.alchemistcodedb.com/jp/unit/gath#黎明の吟遊詩人",
         "inputs": [
-            "Bard: HEAL"
+            "Bard: HEAL",
+            "Bard of Dawn"
         ]
     },
     "JB_BAR_MDEF": {
         "iname": "JB_BAR_MDEF",
         "name": "Bard: MDEFᴶ",
-        "japan": "N/A",
+        "japan": "Bard of the Sun\n日輪の吟遊詩人",
         "kanji": "日輪の吟遊詩人",
         "short description": "",
         "long description": "",
@@ -53353,13 +53362,14 @@
         "formula": "60% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
         "link": "http://www.alchemistcodedb.com/jp/unit/alaia#日輪の吟遊詩人",
         "inputs": [
-            "Bard: MDEF"
+            "Bard: MDEF",
+            "Bard of the Sun"
         ]
     },
     "JB_BAR_DARK": {
         "iname": "JB_BAR_DARK",
         "name": "Bard: DARKᴶ",
-        "japan": "N/A",
+        "japan": "Bard of Twilight\n黄昏の吟遊詩人",
         "kanji": "黄昏の吟遊詩人",
         "short description": "",
         "long description": "",
@@ -53532,7 +53542,7 @@
         "link": "http://www.alchemistcodedb.com/jp/unit/chiruru#黄昏の吟遊詩人",
         "inputs": [
             "Bard: DARK",
-            "N/A"
+            "Bard of Twilight"
         ]
     }
 }

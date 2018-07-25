@@ -9425,7 +9425,7 @@
     },
     "AB_MIELIKKI_MA_01": {
         "name": "Master Ability",
-        "expr": "Raises Max HP & reduces cast time by 1/3"
+        "expr": "Raises Max HP & reduces cast time by 1/3"
     },
     "AB_ROSA_MA_01": {
         "name": "Master Ability",
@@ -11013,7 +11013,7 @@
     },
     "AB_MAFIA_GUN_IKAKU": {
         "name": "For EXFATE4_Warning Shot",
-        "expr": "Charge Interruption Techniques"
+        "expr": "Cast Interruption Techniques"
     },
     "AB_EN_YUTO_YOUHEI_CAP": {
         "name": "Yuto Encounter Mercenary Leader",
@@ -13485,7 +13485,7 @@
     },
     "AB_ARM_SHOCK_TO_KILL": {
         "name": "Shock to Kill",
-        "expr": "Tyrfing-Only Ability (Jewel Auto Charge effect added when equipped on Tyrfing Holy Cavalier [Ghia] when evolved to 5★)"
+        "expr": "Tyrfing-Only Ability"
     },
     "AB_ARMS_SWO_TYRHUNG": {
         "name": "Killing Gear",
@@ -13653,7 +13653,7 @@
     },
     "AB_AF_ARMS_DOC_04": {
         "name": "Hallucination",
-        "expr": "Recovers HP of ally units within area around self (no cast time) [Area: Diamond (5), Height Range: 2]"
+        "expr": "Recovers HP of ally units within area around self (no cast time) [Area: Diamond (5), Height Range: 2]"
     },
     "AB_AF_ACCS_SNOWMAN_HAT": {
         "name": "Present for You",
@@ -13773,7 +13773,7 @@
     },
     "AB_AF_ARMS_HUN_02": {
         "name": "Shower of Arrows",
-        "expr": "Inflicts Phys Dmg on units within target area & interrupts charging [Range: 4, Area: Cross (3), Height Range: Unlimited]"
+        "expr": "Inflicts Phys Dmg on units within target area & interrupts casting [Range: 4, Area: Cross (3), Height Range: Unlimited]"
     },
     "AB_AF_ARMO_GAUNTLET_02": {
         "name": "Guardian Soul",
@@ -14816,7 +14816,7 @@
         "expr": "[Map Effect Set]"
     },
     "AB_ME_KIL": {
-        "name": "Dark Assassin: Map Effect Ability",
+        "name": "Shadow Assassin: Map Effect Ability",
         "expr": "[Map Effect Set]"
     },
     "AB_ME_NIN": {
@@ -23063,7 +23063,7 @@
     },
     "SK_VIER_WIZ_SUPPORT_1": {
         "name": "Flower Concentrate",
-        "expr": "Raises MATK/charge speed & lowers HP",
+        "expr": "Raises MATK/cast speed & lowers HP",
         "mapeff": " "
     },
     "SK_ZYVA01_ATK": {
@@ -23753,7 +23753,7 @@
     },
     "SK_MIELIKKI_MA_01": {
         "name": "Atachi's Will",
-        "expr": "Raises Max HP & reduces cast time by 1/3",
+        "expr": "Raises Max HP & reduces cast time by 1/3",
         "mapeff": " "
     },
     "SK_ROSA_MA_01": {
@@ -23838,7 +23838,7 @@
     },
     "SK_DENEB_MA_01": {
         "name": "Wish to the First Star",
-        "expr": "Raises HP/AGI & reduces cast time by 1/3",
+        "expr": "Raises HP/AGI & reduces charge time by 1/3",
         "mapeff": " "
     },
     "SK_LUPINUS_MA_01": {
@@ -24058,7 +24058,7 @@
     },
     "SK_ARMS_DOC_04_WA": {
         "name": "Hallucination",
-        "expr": "Recovers HP of ally units within area around self (no cast time) [Area: Diamond (5), Height Range: 2]",
+        "expr": "Recovers HP of ally units within area around self (no charge time) [Area: Diamond (5), Height Range: 2]",
         "mapeff": " "
     },
     "SK_ACCS_SNOWMAN_HAT_WA": {
@@ -24218,7 +24218,7 @@
     },
     "SK_AF_ARMS_HUN_02_WA": {
         "name": "Shower of Arrows",
-        "expr": "Inflicts Phys Dmg on units within target area & interrupts charging [Range: 4, Area: Cross (3), Height Range: Unlimited]",
+        "expr": "Inflicts Phys Dmg on units within target area & interrupts casting [Range: 4, Area: Cross (3), Height Range: Unlimited]",
         "mapeff": " "
     },
     "SK_AF_ARMO_GAUNTLET_02_WA": {
@@ -29303,7 +29303,7 @@
     },
     "SK_BAA_JEWEL_DRAIN_WIDE_S": {
         "name": "Jewel Drain+ (revised)",
-        "expr": "Absorbs Jewels from target [Range: 5, Height Range: Unlimited] (No cast time ver.)",
+        "expr": "Absorbs Jewels from target [Range: 5, Height Range: Unlimited] (No charge time ver.)",
         "mapeff": " "
     },
     "SK_BLACK_KNIGHT_BOMB": {
@@ -30197,12 +30197,12 @@
         "mapeff": " "
     },
     "SK_POWER_WIZARD_MAGIC_03": {
-        "name": "Enhanced Magic Charge Countdown 2",
+        "name": "Enhanced Magic Casting Countdown 2",
         "expr": "Countdown 2",
         "mapeff": " "
     },
     "SK_POWER_WIZARD_MAGIC_04": {
-        "name": "Enhanced Magic Charge Countdown 1",
+        "name": "Enhanced Magic Casting Countdown 1",
         "expr": "Countdown 1: Activated on turn following this",
         "mapeff": " "
     },
@@ -40952,7 +40952,7 @@
         "mapeff": "<color=cyan>PDEF +20%</color>"
     },
     "SK_ME_TOWN_STR": {
-        "name": "[Unused: City] Sacred Brawler",
+        "name": "[Unused: City] Holy Brawler",
         "expr": "[Map Effect] PDEF +20%",
         "mapeff": "<color=cyan>PDEF +20%</color>"
     },
@@ -41037,7 +41037,7 @@
         "mapeff": "<color=cyan>Hit Rate +20%</color>"
     },
     "SK_ME_PLAIN_KIL": {
-        "name": "[Unused: Prairie] Dark Assassin",
+        "name": "[Unused: Prairie] Shadow Assassin",
         "expr": "[Map Effect] Hit Rate -20%",
         "mapeff": "<color=red>Hit Rate -20%</color>"
     },
@@ -41208,8 +41208,8 @@
     },
     "SK_ME_MAGIC_CASTLE_SYO": {
         "name": "[Unused: Magic City] Summoner",
-        "expr": "[Map Effect] Cast Time -20%",
-        "mapeff": "<color=cyan>Cast Time -20%</color>"
+        "expr": "[Map Effect] Cast Time -20%",
+        "mapeff": "<color=cyan>Cast Time -20%</color>"
     },
     "SK_ME_MAGIC_CASTLE_SEN": {
         "name": "[Unused: Magic City] Astrologer",
@@ -41223,8 +41223,8 @@
     },
     "SK_ME_MAGIC_CASTLE_LIES1": {
         "name": "[Unused: Magic City] Apprentice Witch",
-        "expr": "[Map Effect] Cast Time -20%",
-        "mapeff": "<color=cyan>Cast Time -20%</color>"
+        "expr": "[Map Effect] Cast Time -20%",
+        "mapeff": "<color=cyan>Cast Time -20%</color>"
     },
     "SK_ME_MAGIC_CASTLE_LIES2": {
         "name": "[Unused: Magic City] Witch",
@@ -41658,8 +41658,8 @@
     },
     "SK_ME_SNW_SUPPORT_QCAST": {
         "name": "[Map Effect] Snow Plains Support Group + Fast Charge",
-        "expr": "HP +20%, AGI +10%, Cast Time -20%",
-        "mapeff": "<color=cyan>HP +20%, AGI +10%, Cast Time -20%</color>"
+        "expr": "HP +20%, AGI +10%, Cast Time -20%",
+        "mapeff": "<color=cyan>HP +20%, AGI +10%, Cast Time -20%</color>"
     },
     "SK_ME_SNW_WIZARD": {
         "name": "[Map Effect] Snow Plains MATK Group",
@@ -41698,8 +41698,8 @@
     },
     "SK_ME_MAG_SUPPORT_QCAST": {
         "name": "[Map Effect] Magic City Support Group + Fast Charge",
-        "expr": "HP +20%, AGI +10%, Cast Time -20%",
-        "mapeff": "<color=cyan>HP +20%, AGI +10%, Cast Time -20%</color>"
+        "expr": "HP +20%, AGI +10%, Cast Time -20%",
+        "mapeff": "<color=cyan>HP +20%, AGI +10%, Cast Time -20%</color>"
     },
     "SK_ME_CEM_WARRIOR": {
         "name": "[Map Effect] Graveyard PATK Group",
@@ -46648,32 +46648,32 @@
     },
     "IT_EQ_SUTO_SAVER": {
         "name": "Guilty Scimitar",
-        "expr": "[Strie/Assassin+-Only Equipment] PATK +24, AGI +6, CRIT +20, Jewels Obtained +4, Max Jewels +6, Paralyze Res +8, Daze Res +8, Bind Res +8",
+        "expr": "[Strie/Shadow Assassin+-Only Equipment] PATK +24, AGI +6, CRIT +20, Jewels Obtained +4, Max Jewels +6, Paralyze Res +8, Daze Res +8, Bind Res +8",
         "flavor": "Strie's beloved scimitar. She claims that this is simply because it suits her so well, but it's far more than just a decoration--its blade is like her partner, and has seen her safely out of more than one tight spot."
     },
     "IT_EQ_SUTO_HAT": {
         "name": "Carmine Hat",
-        "expr": "[Strie/Assassin+-Only Equipment] PDEF +16, HP +30, DEX +16, Water Res +2, Paralyze Res +7",
+        "expr": "[Strie/Shadow Assassin+-Only Equipment] PDEF +16, HP +30, DEX +16, Water Res +2, Paralyze Res +7",
         "flavor": "The extravagant hat worn by Strie. She likes it so much that she actually purchased it through legal means. The only times she ever takes it off outside are in order to arrange her hair, or to thank her opponent when winning big at gambling."
     },
     "IT_EQ_SUTO_CLOTHES": {
         "name": "Risky Cross",
-        "expr": "[Strie/Assassin+-Only Equipment] PDEF +12, HP +40, AGI +4, Wind Res +2, Sleep Res +7",
+        "expr": "[Strie/Shadow Assassin+-Only Equipment] PDEF +12, HP +40, AGI +4, Wind Res +2, Sleep Res +7",
         "flavor": "The clothes worn by Strie for both work and battle. They're functional, but as Strie likes to be surrounded by luxurious and extravagant things at all times, they're naturally beautiful and gorgeous as well."
     },
     "IT_EQ_SUTO_COAT": {
         "name": "Carmine Coat",
-        "expr": "[Strie/Assassin+-Only Equipment] HP +40, PDEF +16, MDEF +6, Fire Res +2, Poison Res +10",
+        "expr": "[Strie/Shadow Assassin+-Only Equipment] HP +40, PDEF +16, MDEF +6, Fire Res +2, Poison Res +10",
         "flavor": "The coat worn by Strie. The first thing you notice is the vivid color of its lining, which is apparently worth more than a year's wage for a regular person on its own. It's also very useful when you need to hide your hands when doing something underhand..."
     },
     "IT_EQ_SUTO_TRUMP": {
         "name": "Risky Card",
-        "expr": "[Strie/Assassin+-Only Equipment] LCK +32, MDEF +8, DEX +14, Charm Res +7, Stop Res +11",
+        "expr": "[Strie/Shadow Assassin+-Only Equipment] LCK +32, MDEF +8, DEX +14, Charm Res +7, Stop Res +11",
         "flavor": "Strie carries these cards with her at all times. She throws them at her opponents to dazzle them and divert their attacks, and they're sharp enough to cut through soft objects. She says she doesn't use them to cheat at cards, but whether this is true or not is uncertain."
     },
     "IT_EQ_SUTO_ACCE": {
         "name": "Guilty Jewels",
-        "expr": "[Strie/Assassin+-Only Equipment] CRIT +36, MATK +16, AGI +4, Petrify Res +7, Stun Res +10",
+        "expr": "[Strie/Shadow Assassin+-Only Equipment] CRIT +36, MATK +16, AGI +4, Petrify Res +7, Stun Res +10",
         "flavor": "The jewels worn by Strie. Everything she wears is elegant, extravagant, and expensive. To Strie they signify her chasing her dream as a gambler, and they're worth far more to her than their monetary value."
     },
     "IT_EQ_FF15_NOCT": {
@@ -53812,7 +53812,7 @@
         "flavor": " "
     },
     "IT_SET_CADANOVA_01": {
-        "name": "Cadanova Equipment Set",
+        "name": "Cadanova Specific Equipment Set",
         "expr": "This set contains rare equipment required for Cadanova. (Jobs: Dragon Slayer, Dragon Knight, and Flame Dragon King.)",
         "flavor": " "
     },
@@ -54092,7 +54092,7 @@
         "flavor": " "
     },
     "IT_SET_KUDHANSTEIN_01": {
-        "name": "Kudan Equipment Set",
+        "name": "Kudan Specific Equipment Set",
         "expr": "This set contains rare equipment required for Kudanstein. (Jobs: Demonic Spearman, Martial Artist, and Dark Cavalier.)",
         "flavor": " "
     },
@@ -54492,7 +54492,7 @@
         "flavor": " "
     },
     "IT_SET_FENCER_01": {
-        "name": "Fencer Equipment Set",
+        "name": "Fencer Specific Equipment Set",
         "expr": "This set contains rare equipment required for Fencer units. (Jobs: Fencer, Illusory Swordsman, and Thunder Swordsman.)",
         "flavor": " "
     },
@@ -54562,12 +54562,12 @@
         "flavor": " "
     },
     "IT_SET_SEIDA_01": {
-        "name": "Seida Equipment Set",
+        "name": "Seida Specific Equipment Set",
         "expr": "This set contains rare equipment required for Seida. (Jobs: Venom Archer, Hunter, and Ninja.)",
         "flavor": " "
     },
     "IT_SET_MONZEIN_01": {
-        "name": "Monzein Equipment Set",
+        "name": "Monzein Specific Equipment Set",
         "expr": "This set contains rare equipment required for Monzein. (Jobs: Indomitable Axe Knight , Dragon Knight, and Holy Cavalier.)",
         "flavor": " "
     },
@@ -54807,12 +54807,12 @@
         "flavor": " "
     },
     "IT_SET_ZAYI_01": {
-        "name": "Zain Equipment Set",
+        "name": "Zain Specific Equipment Set",
         "expr": "This set contains rare equipment required for Zain. (Jobs: Lord Commander, Magic Swordsman, and Holy Cavalier.)",
         "flavor": " "
     },
     "IT_SET_YAUL_01": {
-        "name": "Yauras Equipment Set",
+        "name": "Yauras Specific Equipment Set",
         "expr": "This set contains rare equipment required for Yauras. (Jobs: Twin-Blade Knight, Martial Artist, and Twin-Blade Swordsman.)",
         "flavor": " "
     },
@@ -55212,7 +55212,7 @@
         "flavor": " "
     },
     "IT_SET_OTHI_01": {
-        "name": "Othima Equipment Set",
+        "name": "Othima Specific Equipment Set",
         "expr": "This set contains rare equipment required for Othima. (Jobs: Phantom Master, Enchanter, and Sage.)",
         "flavor": " "
     },
@@ -55433,7 +55433,7 @@
     },
     "IT_SET_CM_KAKUTOU": {
         "name": "CM Celebration Fighter Equipment Set [SP]",
-        "expr": "[TV Ad Celebration] This set contains job-specific equipment that is required for agility/martial arts jobs from Job Lv. 9-11. (Applicable jobs: Ninja, Dark Assassin, Beast Tamer, Martial Artist, Holy Brawler, and Samurai.) Special price to celebrate our TV ad airing!",
+        "expr": "[TV Ad Celebration] This set contains job-specific equipment that is required for agility/martial arts jobs from Job Lv. 9-11. (Applicable jobs: Ninja, Shadow Assassin, Beast Tamer, Martial Artist, Holy Brawler, and Samurai.) Special price to celebrate our TV ad airing!",
         "flavor": " "
     },
     "IT_SET_CM_SIHEN": {
@@ -55597,7 +55597,7 @@
         "flavor": " "
     },
     "IT_SET_SABER_01": {
-        "name": "Saber Equipment Set",
+        "name": "Saber Specific Equipment Set",
         "expr": "This set contains rare equipment required for the unit Saber. (Jobs: Saber, Holy Knight, and Valkyrie)",
         "flavor": " "
     },
@@ -55607,7 +55607,7 @@
         "flavor": " "
     },
     "IT_SET_TOSAKA_RINN_01": {
-        "name": "Rin Tohsaka Equipment Set",
+        "name": "Rin Tohsaka Specific Equipment Set",
         "expr": "This set contains rare equipment required for the unit Rin Tohsaka. (Jobs: Jewel Magician, Martial Artist, and Sage)",
         "flavor": " "
     },
@@ -55642,7 +55642,7 @@
         "flavor": " "
     },
     "IT_SET_IRIYA_01": {
-        "name": "Illya Equipment Set",
+        "name": "Illya Specific Equipment Set",
         "expr": "This set contains rare equipment required for the unit Illyasviel. (Jobs: Master Magician, Chronomancer, and Enchanter)",
         "flavor": " "
     },
@@ -56203,7 +56203,7 @@
     },
     "IT_SET_EQ_SOUL_TICKET_2017_02": {
         "name": "Missile-Type Combat Token Selector",
-        "expr": "[Mystic World Mobius Celebration] Use this ticket to summon six job change tokens for a job of your choice. (Applicable jobs: Martial Artist, Holy Brawler, Thief, Ninja, Bard, Dancer, Beast Tamer, Merchant, Dark Assassin, Samurai, Blademaster, Spy, Hunter, Ranger, Gunner, Sniper, Crafter, Machinist, Magia Gunslinger, and Wild Beast Tamer.)",
+        "expr": "[Mystic World Mobius Celebration] Use this ticket to summon six job change tokens for a job of your choice. (Applicable jobs: Martial Artist, Holy Brawler, Thief, Ninja, Bard, Dancer, Beast Tamer, Merchant, Shadow Assassin, Samurai, Blademaster, Spy, Hunter, Ranger, Gunner, Sniper, Crafter, Machinist, Magia Gunslinger, and Wild Beast Tamer.)",
         "flavor": " "
     },
     "IT_SET_EQ_SOUL_TICKET_2017_03": {
@@ -56418,7 +56418,7 @@
     },
     "IT_SET_VOTE_SETS02": {
         "name": "[Popular Vote] Setsuna Shadow Assassin Box",
-        "expr": "[The Alchemist Code Popularity Vote 1st Place Celebration] This set is packed with Setsuna Soul Shards, required equipment for Setsuna Job 3: Dark Assassin, 150 shards for recommended 4★ gear, and equipment that is required for training.",
+        "expr": "[The Alchemist Code Popularity Vote 1st Place Celebration] This set is packed with Setsuna Soul Shards, required equipment for Setsuna Job 3: Shadow Assassin, 150 shards for recommended 4★ gear, and equipment that is required for training.",
         "flavor": " "
     },
     "IT_SET_VOTE_SETS03": {
@@ -56883,7 +56883,7 @@
     },
     "IT_SET_FF15_INGI_01": {
         "name": "Ignis Equipment Set",
-        "expr": "This set contains rare equipment required for the collab unit Ignis. (Jobs: Prince's Advisor, Crafter, and Assassin)",
+        "expr": "This set contains rare equipment required for the collab unit Ignis. (Jobs: Prince's Advisor, Crafter, and Shadow Assassin)",
         "flavor": " "
     },
     "IT_SET_FF15_INGI_J": {
@@ -57363,7 +57363,7 @@
     },
     "IT_SET_VOTE_ASUW_01": {
         "name": "Aswald Shadow Assassin Box",
-        "expr": "[Character Skins Release Celebration] This set is packed with Aswald Soul Shards, required equipment for Aswald Job 1: Dark Assassin, 150 shards for recommended 4★ gear, and equipment that is required for training.",
+        "expr": "[Character Skins Release Celebration] This set is packed with Aswald Soul Shards, required equipment for Aswald Job 1: Shadow Assassin, 150 shards for recommended 4★ gear, and equipment that is required for training.",
         "flavor": " "
     },
     "IT_SET_VOTE_ASUW_02": {
@@ -57628,7 +57628,7 @@
     },
     "IT_SET_KAKUTOU_01": {
         "name": "Combat / Agility / Support Starter Kit",
-        "expr": "This great-value set contains items that are required for martial arts/agility/support-type jobs from Job Lv. 1-3. (Applicable jobs: Martial Artist, Holy Brawler, Thief, Dark Assassin, Ninja, Spy, Samurai, Blademaster, Bard, Dancer, Beast Tamer, Wild Beast Tamer, Merchant, Martial Master, and Blacksmith.)",
+        "expr": "This great-value set contains items that are required for martial arts/agility/support-type jobs from Job Lv. 1-3. (Applicable jobs: Martial Artist, Holy Brawler, Thief, Shadow Assassin, Ninja, Spy, Samurai, Blademaster, Bard, Dancer, Beast Tamer, Wild Beast Tamer, Merchant, Martial Master, and Blacksmith.)",
         "flavor": " "
     },
     "IT_SET_BIRG_01": {
@@ -60108,12 +60108,12 @@
     },
     "IT_SI_GL_5STAR_25SOUL_TICKET_FF15a": {
         "name": "[FFXV] Featured 5★ 25-Soul Shard Selector",
-        "expr": "Use this ticket to summon 25 5★ Soul Shards of your choice from Final Fantasy XV. (Noctis/Ignis)",
+        "expr": "Use this ticket to summon 25 5★ Soul Shards of your choice from FINAL FANTASY XV. (Noctis/Ignis)",
         "flavor": " "
     },
     "IT_US_GL_5STAR_10PER_TICKET_FF15a": {
         "name": "[FFXV] Featured Collaboration Unit 10% Summon Ticket",
-        "expr": "Use this ticket to summon a unit with a 10% chance of it being a Final Fantasy XV collaboration unit. (Noctis/Ignis)",
+        "expr": "Use this ticket to summon a unit with a 10% chance of it being a FINAL FANTASY XV collaboration unit. (Noctis/Ignis)",
         "flavor": " "
     },
     "IT_SU_GL_5STAR_UNIT_TICKET_EARLYBIRD": {
@@ -61068,37 +61068,37 @@
     },
     "IT_US_GL_5STAR_UNIT_TICKET_FF15_NOCTIS": {
         "name": "[FFXV] Noctis Summon Ticket",
-        "expr": "Use this ticket to summon Noctis from Final Fantasy XV.",
+        "expr": "Use this ticket to summon Noctis from FINAL FANTASY XV.",
         "flavor": " "
     },
     "IT_US_GL_5STAR_UNIT_TICKET_FF15_IGNIS": {
         "name": "[FFXV] Ignis Summon Ticket",
-        "expr": "Use this ticket to summon Ignis from Final Fantasy XV.",
+        "expr": "Use this ticket to summon Ignis from FINAL FANTASY XV.",
         "flavor": " "
     },
     "IT_US_GL_5STAR_UNIT_TICKET_FF15": {
         "name": "[FFXV] 5★ Unit Summon Ticket",
-        "expr": "Use this ticket to summon a 5★ unit from Final Fantasy XV.",
+        "expr": "Use this ticket to summon a 5★ unit from FINAL FANTASY XV.",
         "flavor": " "
     },
     "IT_US_GL_5STAR_UNIT_TICKET_FF15_ARANEA": {
         "name": "[FFXV] Aranea Summon Ticket",
-        "expr": "Use this ticket to summon Aranea from Final Fantasy XV.",
+        "expr": "Use this ticket to summon Aranea from FINAL FANTASY XV.",
         "flavor": " "
     },
     "IT_US_GL_5STAR_UNIT_TICKET_FF15_GLADIOLUS": {
         "name": "[FFXV] Gladiolus Summon Ticket",
-        "expr": "Use this ticket to summon Gladiolus from Final Fantasy XV.",
+        "expr": "Use this ticket to summon Gladiolus from FINAL FANTASY XV.",
         "flavor": " "
     },
     "IT_SI_GL_5STAR_25SOUL_TICKET_FF15b": {
         "name": "[FFXV] Featured 5★ 25-Soul Shard Selector",
-        "expr": "Use this ticket to summon 25 5★ Soul Shards of your choice from Final Fantasy XV. (Aranea/Gladiolus)",
+        "expr": "Use this ticket to summon 25 5★ Soul Shards of your choice from FINAL FANTASY XV. (Aranea/Gladiolus)",
         "flavor": " "
     },
     "IT_US_GL_5STAR_10PER_TICKET_FF15b": {
         "name": "[FFXV] Featured Collaboration Unit 10% Summon Ticket",
-        "expr": "Use this ticket to summon a unit with a 10% chance of it being a Final Fantasy XV collaboration unit. (Aranea/Gladiolus)",
+        "expr": "Use this ticket to summon a unit with a 10% chance of it being a FINAL FANTASY XV collaboration unit. (Aranea/Gladiolus)",
         "flavor": " "
     },
     "IT_US_GL_RARE_UNIT_TICKET_B14": {
@@ -61129,11 +61129,6 @@
     "IT_US_GL_5STAR_UNIT_TICKET_B14SS5": {
         "name": "5★ Unit Summon Ticket",
         "expr": "Use this ticket to summon one 5★ unit.",
-        "flavor": " "
-    },
-    "IT_US_GL_5STAR_10SOUL_TICKET_SS5b": {
-        "name": "[Sacred Stone Memories] 5★ Soul Shard 10-Summon Ticket",
-        "expr": "Use this Ticket to obtain 10 5★ Unit Soul Shards from Sacred Stone Memories. (Othima/Seida/Monzein)",
         "flavor": " "
     },
     "AF_EMPTY": {
@@ -62806,7 +62801,7 @@
     },
     "AF_ARMS_HUN_02": {
         "name": "Atomic Jaeger",
-        "expr": "Attributes: PATK Up, DEX Up, Hit Rate Up, Chance of AGI Down<br>Gear Ability: Inflicts Phys Dmg on units within target area & interrupts charging [Range: 4, Area: Cross (3), Height Range: Unlimited]",
+        "expr": "Attributes: PATK Up, DEX Up, Hit Rate Up, Chance of AGI Down<br>Gear Ability: Inflicts Phys Dmg on units within target area & interrupts casting [Range: 4, Area: Cross (3), Height Range: Unlimited]",
         "spec": "No requirements to equip",
         "flavor": "This special bow has been made using only materials that contain a high Alchemia concentration. It's also known as the \"One Shot Killer\" because it raises not only attack ability but also dexterity and accuracy. Naturally, it requires a high degree of skill to use effectively."
     },
@@ -72079,6 +72074,69 @@
     "GL_DAILY_FFXV_20180718_3": {
         "name": "[Limited Time] [FFXV] Daily Mission [Adv]"
     },
+    "GL_DAILY_FFXV_20180719_1": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Bgn]"
+    },
+    "GL_DAILY_FFXV_20180719_2": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Int]"
+    },
+    "GL_DAILY_FFXV_20180719_3": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Adv]"
+    },
+    "GL_DAILY_FFXV_20180720_1": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Bgn]"
+    },
+    "GL_DAILY_FFXV_20180720_2": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Int]"
+    },
+    "GL_DAILY_FFXV_20180720_3": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Adv]"
+    },
+    "GL_DAILY_FFXV_20180721_1": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Bgn]"
+    },
+    "GL_DAILY_FFXV_20180721_2": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Int]"
+    },
+    "GL_DAILY_FFXV_20180721_3": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Adv]"
+    },
+    "GL_DAILY_FFXV_20180722_1": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Bgn]"
+    },
+    "GL_DAILY_FFXV_20180722_2": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Int]"
+    },
+    "GL_DAILY_FFXV_20180722_3": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Adv]"
+    },
+    "GL_DAILY_FFXV_20180723_1": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Bgn]"
+    },
+    "GL_DAILY_FFXV_20180723_2": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Int]"
+    },
+    "GL_DAILY_FFXV_20180723_3": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Adv]"
+    },
+    "GL_DAILY_FFXV_20180724_1": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Bgn]"
+    },
+    "GL_DAILY_FFXV_20180724_2": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Int]"
+    },
+    "GL_DAILY_FFXV_20180724_3": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Adv]"
+    },
+    "GL_DAILY_FFXV_20180725_1": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Bgn]"
+    },
+    "GL_DAILY_FFXV_20180725_2": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Int]"
+    },
+    "GL_DAILY_FFXV_20180725_3": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Adv]"
+    },
     "CHALLENGE_01": {
         "name": "Clear Challenge Set No.1"
     },
@@ -72258,6 +72316,36 @@
     },
     "FF15_02_08": {
         "name": "Enhance Gear to Lv30"
+    },
+    "FF15_03": {
+        "name": "Clear Challenge Set"
+    },
+    "FF15_03_00": {
+        "name": "Clear FINAL FANTASY XV Collab [Hard]"
+    },
+    "FF15_03_01": {
+        "name": "Clear Apple Garden FINAL FANTASY XV"
+    },
+    "FF15_03_02": {
+        "name": "Defeat Deadeye"
+    },
+    "FF15_03_03": {
+        "name": "Raise Prompto's Level to 60"
+    },
+    "FF15_03_04": {
+        "name": "Change Prompto's Job"
+    },
+    "FF15_03_05": {
+        "name": "Limit Break Prompto 15 Times"
+    },
+    "FF15_03_06": {
+        "name": "Raise Prompto's \"Prince's Best Friend\" Job Level to 3"
+    },
+    "FF15_03_07": {
+        "name": "Raise Prompto's \"Prince's Best Friend\" Job Level to 6"
+    },
+    "FF15_03_08": {
+        "name": "Raise Prompto's \"Prince's Best Friend\" Job Level to 9"
     },
     "CHALLENGE_06": {
         "name": "Clear Challenge Set No.6"
@@ -74584,6 +74672,27 @@
     "GL_FF15_DAILY_JUL18": {
         "name": "[FFXV] Daily Mission"
     },
+    "GL_FF15_DAILY_JUL19": {
+        "name": "[FFXV] Daily Mission"
+    },
+    "GL_FF15_DAILY_JUL20": {
+        "name": "[FFXV] Daily Mission"
+    },
+    "GL_FF15_DAILY_JUL21": {
+        "name": "[FFXV] Daily Mission"
+    },
+    "GL_FF15_DAILY_JUL22": {
+        "name": "[FFXV] Daily Mission"
+    },
+    "GL_FF15_DAILY_JUL23": {
+        "name": "[FFXV] Daily Mission"
+    },
+    "GL_FF15_DAILY_JUL24": {
+        "name": "[FFXV] Daily Mission"
+    },
+    "GL_FF15_DAILY_JUL25": {
+        "name": "[FFXV] Daily Mission"
+    },
     "TR_MAP_POI_01": {
         "name": "Poison Grid",
         "expr": "Poison Status Grid (Disappears once activated)"
@@ -75862,6 +75971,21 @@
     "GL_MM_05_25June": {
         "name": "[Monday] Clear any quest with a mercenary once"
     },
+    "GL_MM_01_23July": {
+        "name": "[Monday] Level up any Unit"
+    },
+    "GL_MM_02_23July": {
+        "name": "[Monday] Level up any Ability"
+    },
+    "GL_MM_03_23July": {
+        "name": "[Monday] Raise any unit's Job Level once"
+    },
+    "GL_MM_04_23July": {
+        "name": "[Monday] Clear any Multiplay Quest once"
+    },
+    "GL_MM_05_23July": {
+        "name": "[Monday] Clear any quest with a mercenary once"
+    },
     "GL_SO_ZEKE_01_01": {
         "name": "Clear Blood Wolf by Any Other Name - Episode 1 [1]"
     },
@@ -76187,6 +76311,36 @@
         "expr": "Use this ticket to summon one 5★ unit.",
         "flavor": " "
     },
+    "IT_US_GL_5STAR_10SOUL_TICKET_SS5b": {
+        "name": "[Sacred Stone Memories] 5★ Soul Shard 10-Summon Ticket",
+        "expr": "Use this Ticket to obtain 10 5★ Unit Soul Shards from Sacred Stone Memories. (Othima/Seida/Monzein)",
+        "flavor": " "
+    },
+    "IT_US_GL_5STAR_10SOUL_TICKET_JULY2018a": {
+        "name": "Featured 5★ Soul Shard 10-Summon Ticket",
+        "expr": "Use this ticket to summon 10 Soul Shards. (Albea/Vivi/Setsuna)",
+        "flavor": " "
+    },
+    "IT_US_GL_5STAR_25SOUL_TICKET_JULY2018": {
+        "name": "Featured 5★ Soul Shard 25-Summon Ticket",
+        "expr": "Use this ticket to summon 25 Soul Shards. (Albea / Vivi / Margaret / Setsuna / Mei Fang / Dorothea)",
+        "flavor": " "
+    },
+    "IT_US_GL_5STAR_UNIT_TICKET_JULY2018": {
+        "name": "5★ Unit Summon Ticket",
+        "expr": "Use this ticket to summon one 5★ unit.",
+        "flavor": " "
+    },
+    "IT_SU_GL_5STAR_UNIT_TICKET_JULY2018": {
+        "name": "Featured 5★ Unit Selector",
+        "expr": "Use this ticket to summon the 5★ unit of your choice from a fixed pool of units. (Albea / Vivi / Margaret / Setsuna / Mei Fang / Dorothea)",
+        "flavor": " "
+    },
+    "IT_SI_GL_5STAR_50SOUL_TICKET_JULY2018": {
+        "name": "Featured 5★ 50-Soul Shard Selector",
+        "expr": "Use this ticket to summon the 50 Soul Shards of your choice for 5★ units from a fixed pool of units. (Albea / Vivi / Margaret / Setsuna / Mei Fang / Dorothea)",
+        "flavor": " "
+    },
     "IT_SU_GL_5STAR_UNIT_TICKET_SS5": {
         "name": "[Sacred Stone Memories] 5★ Unit Selector",
         "expr": "Use this ticket to summon the 5★ Sacred Stone Memories unit of your choice.",
@@ -76201,6 +76355,55 @@
         "name": "[Sacred Stone Memories] 5★ 25-Soul Shard Selector",
         "expr": "Use this ticket to summon the 25 Soul Shards of your choice for 5★ Sacred Stone Memories units.",
         "flavor": " "
+    },
+    "IT_SI_GL_5STAR_25SOUL_TICKET_FF15": {
+        "name": "[FFXV] 5★ 25-Soul Shard Selector",
+        "expr": "Use this ticket to summon 25 5★ Soul Shards of your choice from FINAL FANTASY XV. (Noctis/Ignis/Aranea/Gladiolus)",
+        "flavor": " "
+    },
+    "IT_SI_GL_5STAR_25SOUL_TICKET_FF15c": {
+        "name": "[FFXV] Featured 5★ 25-Soul Shard Selector",
+        "expr": "Use this ticket to summon 25 5★ Soul Shards of your choice from FINAL FANTASY XV. (Noctis/Aranea)",
+        "flavor": " "
+    },
+    "IT_US_GL_5STAR_25SOUL_TICKET_FF15": {
+        "name": "[FFXV] 5★ Soul Shard 25-Summon Ticket",
+        "expr": "Use this ticket to summon 25 Soul Shards. (Noctis/Ignis/Aranea/Gladiolus)",
+        "flavor": " "
+    },
+    "IT_US_GL_5STAR_UNIT_TICKET_B14FF15": {
+        "name": "5★ Unit Summon Ticket",
+        "expr": "Use this ticket to summon one 5★ unit.",
+        "flavor": " "
+    },
+    "IT_US_GL_4STAR_GEAR_TICKET_B14FF15": {
+        "name": "4★ Gear Summon Ticket",
+        "expr": "Use this ticket to summon a 4★ gear item.",
+        "flavor": " "
+    },
+    "IT_SI_GL_5STAR_50SOUL_TICKET_FF15": {
+        "name": "[FFXV] 5★ 50-Soul Shard Selector",
+        "expr": "Use this ticket to summon 50 5★ Soul Shards of your choice from FINAL FANTASY XV. (Noctis/Ignis/Aranea/Gladiolus)"
+    },
+    "IT_SA_GL_4STAR_GEAR_TICKET_B14FF15": {
+        "name": "4★ Gear Selector",
+        "expr": "Use this ticket to summon the 4★ gear item of your choice. (Some 4★ gear not available.)",
+        "flavor": " "
+    },
+    "IT_SU_GL_5STAR_UNIT_TICKET_FF15": {
+        "name": "[FFXV] 5★ Unit Selector",
+        "expr": "Use this ticket to summon the FINAL FANTASY XV 5★ unit of your choice. (Noctis/Ignis/Aranea/Gladiolus)",
+        "flavor": " "
+    },
+    "IT_US_GL_5STAR_10PER_TICKET_FF15": {
+        "name": "[FFXV] Collaboration Unit 10% Summon Ticket",
+        "expr": "Use this ticket to summon a unit with a 10% chance of it being a FINAL FANTASY XV collaboration unit. (Noctis/Ignis/Aranea/Gladiolus)",
+        "flavor": " "
+    },
+    "IT_US_GL_DAILY_TICKET": {
+        "name": "Daily Event Quest Skip Ticket",
+        "expr": "A ticket used to skip selected battles.",
+        "flavor": "This ticket-like item allows the user to sense the presence of hostile beings. The mark in its center glows red when detecting animosity, growing brighter according to the hostile being's proximity to the bearer, and allowing him or her to effectively avoid combat."
     },
     "IT_SA_GL_4STAR_GEAR_TICKET_S01": {
         "name": "4★ Gear Selector",
@@ -76720,7 +76923,7 @@
         "name": "Polish Lisbeth's skills!"
     },
     "RECORD_2016DEC_2_06": {
-        "name": "Stop the root of the problem!"
+        "name": "Get to the Root of the Problem!"
     },
     "RECORD_2016DEC_3_01": {
         "name": "Take out the flowers blocking your path!"

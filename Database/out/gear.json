@@ -2641,7 +2641,7 @@
         "ability": [
             {
                 "name": "Hallucination",
-                "expr": "Recovers HP of ally units within area around self (no cast time) [Area: Diamond (5), Height Range: 2]",
+                "expr": "Recovers HP of ally units within area around self (no charge time) [Area: Diamond (5), Height Range: 2]",
                 "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_ARMS_DOC_04_WA"
@@ -3932,7 +3932,7 @@
         "iname": "AF_ARMS_HUN_02",
         "type": "Weapon",
         "name": "Atomic Jaeger",
-        "expr": "Attributes: PATK Up, DEX Up, Hit Rate Up, Chance of AGI Down<br>Gear Ability: Inflicts Phys Dmg on units within target area & interrupts charging [Range: 4, Area: Cross (3), Height Range: Unlimited]",
+        "expr": "Attributes: PATK Up, DEX Up, Hit Rate Up, Chance of AGI Down<br>Gear Ability: Inflicts Phys Dmg on units within target area & interrupts casting [Range: 4, Area: Cross (3), Height Range: Unlimited]",
         "spec": "No requirements to equip",
         "flavor": "This special bow has been made using only materials that contain a high Alchemia concentration. It's also known as the \"One Shot Killer\" because it raises not only attack ability but also dexterity and accuracy. Naturally, it requires a high degree of skill to use effectively.",
         "tag": "Bow",
@@ -3945,7 +3945,7 @@
         "ability": [
             {
                 "name": "Shower of Arrows",
-                "expr": "Inflicts Phys Dmg on units within target area & interrupts charging [Range: 4, Area: Cross (3), Height Range: Unlimited]",
+                "expr": "Inflicts Phys Dmg on units within target area & interrupts casting [Range: 4, Area: Cross (3), Height Range: Unlimited]",
                 "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_AF_ARMS_HUN_02_WA"
@@ -6145,9 +6145,9 @@
             }
         ],
         "stats": {
-            "3": "+68 HP, +7 All Statuses, +14 Initial Jewels, +3 LUCK, +13 Max Jewels",
-            "4": "+84 HP, +8 All Statuses, +17 Initial Jewels, +4 LUCK, +14 Max Jewels",
-            "5": "+100 HP, +10 All Statuses, +20 Initial Jewels, +5 LUCK, +15 Max Jewels"
+            "3": "+68 HP, +7 All Status Res, +14 Initial Jewels, +3 LUCK, +13 Max Jewels",
+            "4": "+84 HP, +8 All Status Res, +17 Initial Jewels, +4 LUCK, +14 Max Jewels",
+            "5": "+100 HP, +10 All Status Res, +20 Initial Jewels, +5 LUCK, +15 Max Jewels"
         },
         "atk_buff": {}
     }

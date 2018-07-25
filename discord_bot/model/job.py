@@ -9,7 +9,7 @@ class Job(Model):
         embed = super(Job, self).to_embed(
             title_key=title_key, thumbnail_key=thumbnail_key, url_key=url_key, fields=fields
             )
-        embed.set_author(name=self.inputs[0], url=self.link)
+        embed.set_author(name=self.name, url=self.link)
 
         #embed.color = Unit.ELEMENT_COLOR.get(self.element, Unit.DEFAULT_ELEMENT_COLOR)
 

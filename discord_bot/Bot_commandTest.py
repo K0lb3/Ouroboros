@@ -1,5 +1,6 @@
 import os.path
 import asyncio
+import urllib.request
 import discord
 from discord.ext import commands
 
@@ -20,6 +21,7 @@ async def on_ready():
     print(bot.guilds)
     print('------')
 
+#log stuff
 @bot.event
 async def on_raw_reaction_add(payload):
     #message_id #int – The message ID that got or lost a reaction.
@@ -45,26 +47,6 @@ async def on_raw_reaction_add(payload):
 async def emoji(ctx):
     embed = discord.Embed(title="Emoji to Unicode", description='~emoji~', color=8355711)
     await ctx.send(embed=embed)
-
-@bot.command()
-async def test_old(ctx):
-    embed = discord.Embed(title="Collab Codes", description='Test1', color=8355711)
-    embed2 = discord.Embed(title="Collab Codes", description='Test2', color=0x00FF00)
-
-    msg = await ctx.send(embed=embed)
-    await msg.add_reaction(u"\u2B05")#('⬅️')
-    await msg.add_reaction(u"\u27A1")#('➡️')
-
-    def check(reaction, user):
-        return user == ctx.author and str(reaction.emoji) == (u"\u27A1")#'➡️'
-
-    try:
-        reaction, user = await bot.wait_for('reaction_add', timeout=10.0, check=check)
-
-        await msg.edit(embed=embed2)
-
-    except asyncio.TimeoutError:
-        await ctx.send('TimeoutError')
 
 BOT_TOKEN = os.environ.get('DISCORD_BOT_TOKEN')
 bot.run(BOT_TOKEN)
