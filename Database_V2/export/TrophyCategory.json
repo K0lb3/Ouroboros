@@ -11,8 +11,8 @@
     },
     "GL_MON_MISSION": {
         "iname": "GL_MON_MISSION",
-        "begin_at": "7/9/2018",
-        "end_at": "7/9/2018 11:59:59 PM",
+        "begin_at": "1/31/2016",
+        "end_at": "12/31/2016 11:59:59 PM",
         "category": "Other"
     },
     "GL_MON_MISSION_2": {
@@ -29,8 +29,8 @@
     },
     "GL_MON_MISSION_4": {
         "iname": "GL_MON_MISSION_4",
-        "begin_at": "1/31/2016",
-        "end_at": "12/31/2016 11:59:59 PM",
+        "begin_at": "7/30/2018",
+        "end_at": "7/30/2018 11:59:59 PM",
         "category": "Other"
     },
     "GL_MON_MISSION_5": {
@@ -966,6 +966,132 @@
         "end_at": "7/11/2018 11:59:00 PM",
         "category": "Other"
     },
+    "GL_FF15_DAILY_JUL12": {
+        "iname": "GL_FF15_DAILY_JUL12",
+        "begin_at": "7/12/2018",
+        "end_at": "7/12/2018 11:59:00 PM",
+        "category": "Other"
+    },
+    "GL_FF15_DAILY_JUL13": {
+        "iname": "GL_FF15_DAILY_JUL13",
+        "begin_at": "7/13/2018",
+        "end_at": "7/13/2018 11:59:00 PM",
+        "category": "Other"
+    },
+    "GL_FF15_DAILY_JUL14": {
+        "iname": "GL_FF15_DAILY_JUL14",
+        "begin_at": "7/14/2018",
+        "end_at": "7/14/2018 11:59:00 PM",
+        "category": "Other"
+    },
+    "GL_FF15_DAILY_JUL15": {
+        "iname": "GL_FF15_DAILY_JUL15",
+        "begin_at": "7/15/2018",
+        "end_at": "7/15/2018 11:59:00 PM",
+        "category": "Other"
+    },
+    "GL_FF15_DAILY_JUL16": {
+        "iname": "GL_FF15_DAILY_JUL16",
+        "begin_at": "7/16/2018",
+        "end_at": "7/16/2018 11:59:00 PM",
+        "category": "Other"
+    },
+    "GL_FF15_DAILY_JUL17": {
+        "iname": "GL_FF15_DAILY_JUL17",
+        "begin_at": "7/17/2018",
+        "end_at": "7/17/2018 11:59:00 PM",
+        "category": "Other"
+    },
+    "GL_FF15_DAILY_JUL18": {
+        "iname": "GL_FF15_DAILY_JUL18",
+        "begin_at": "7/18/2018",
+        "end_at": "7/18/2018 11:59:00 PM",
+        "category": "Other"
+    },
+    "GL_FF15_DAILY_JUL19": {
+        "iname": "GL_FF15_DAILY_JUL19",
+        "begin_at": "7/19/2018",
+        "end_at": "7/19/2018 11:59:00 PM",
+        "category": "Other"
+    },
+    "GL_FF15_DAILY_JUL20": {
+        "iname": "GL_FF15_DAILY_JUL20",
+        "begin_at": "7/20/2018",
+        "end_at": "7/20/2018 11:59:00 PM",
+        "category": "Other"
+    },
+    "GL_FF15_DAILY_JUL21": {
+        "iname": "GL_FF15_DAILY_JUL21",
+        "begin_at": "7/21/2018",
+        "end_at": "7/21/2018 11:59:00 PM",
+        "category": "Other"
+    },
+    "GL_FF15_DAILY_JUL22": {
+        "iname": "GL_FF15_DAILY_JUL22",
+        "begin_at": "7/22/2018",
+        "end_at": "7/22/2018 11:59:00 PM",
+        "category": "Other"
+    },
+    "GL_FF15_DAILY_JUL23": {
+        "iname": "GL_FF15_DAILY_JUL23",
+        "begin_at": "7/23/2018",
+        "end_at": "7/23/2018 11:59:00 PM",
+        "category": "Other"
+    },
+    "GL_FF15_DAILY_JUL24": {
+        "iname": "GL_FF15_DAILY_JUL24",
+        "begin_at": "7/24/2018",
+        "end_at": "7/24/2018 11:59:00 PM",
+        "category": "Other"
+    },
+    "GL_FF15_DAILY_JUL25": {
+        "iname": "GL_FF15_DAILY_JUL25",
+        "begin_at": "7/25/2018",
+        "end_at": "7/25/2018 11:59:00 PM",
+        "category": "Other"
+    },
+    "GL_FF15_DAILY_JUL26": {
+        "iname": "GL_FF15_DAILY_JUL26",
+        "begin_at": "7/26/2018",
+        "end_at": "7/26/2018 11:59:00 PM",
+        "category": "Other"
+    },
+    "GL_FF15_DAILY_JUL27": {
+        "iname": "GL_FF15_DAILY_JUL27",
+        "begin_at": "7/27/2018",
+        "end_at": "7/27/2018 11:59:00 PM",
+        "category": "Other"
+    },
+    "GL_FF15_DAILY_JUL28": {
+        "iname": "GL_FF15_DAILY_JUL28",
+        "begin_at": "7/28/2018",
+        "end_at": "7/28/2018 11:59:00 PM",
+        "category": "Other"
+    },
+    "GL_FF15_DAILY_JUL29": {
+        "iname": "GL_FF15_DAILY_JUL29",
+        "begin_at": "7/29/2018",
+        "end_at": "7/29/2018 11:59:00 PM",
+        "category": "Other"
+    },
+    "GL_FF15_DAILY_JUL30": {
+        "iname": "GL_FF15_DAILY_JUL30",
+        "begin_at": "7/30/2018",
+        "end_at": "7/30/2018 11:59:00 PM",
+        "category": "Other"
+    },
+    "GL_FF15_DAILY_JUL31": {
+        "iname": "GL_FF15_DAILY_JUL31",
+        "begin_at": "7/31/2018",
+        "end_at": "7/31/2018 11:59:00 PM",
+        "category": "Other"
+    },
+    "GL_FF15_DAILY_AUG1": {
+        "iname": "GL_FF15_DAILY_AUG1",
+        "begin_at": "8/1/2018",
+        "end_at": "8/1/2018 11:59:00 PM",
+        "category": "Other"
+    },
     "CUMULATIVE_LOGIN_BONUS": {
         "iname": "CUMULATIVE_LOGIN_BONUS",
         "is_not_pull": true,
@@ -1102,8 +1228,6 @@
     },
     "STORY_CHPT3_EP2": {
         "iname": "STORY_CHPT3_EP2",
-        "begin_at": "1/31/2016",
-        "end_at": "12/31/2017 11:59:59 PM",
         "category": "Story"
     },
     "STORY_CHPT3_EP3": {
@@ -1404,20 +1528,20 @@
     },
     "EV_MILIS_TROPHY": {
         "iname": "EV_MILIS_TROPHY",
-        "begin_at": "1/31/2016",
-        "end_at": "12/31/2017 11:59:59 PM",
+        "begin_at": "7/12/2018",
+        "end_at": "7/26/2018 11:59:59 PM",
         "category": "Event"
     },
     "EV_MILIS_TROPHY_EX": {
         "iname": "EV_MILIS_TROPHY_EX",
-        "begin_at": "1/31/2016",
-        "end_at": "12/31/2017 11:59:59 PM",
+        "begin_at": "7/12/2018",
+        "end_at": "7/26/2018 11:59:59 PM",
         "category": "Event"
     },
     "EV_MILIS_TROPHY_EX_MULTI": {
         "iname": "EV_MILIS_TROPHY_EX_MULTI",
-        "begin_at": "1/31/2016",
-        "end_at": "12/31/2017 11:59:59 PM",
+        "begin_at": "7/12/2018",
+        "end_at": "7/26/2018 11:59:59 PM",
         "category": "Multi"
     },
     "GL_SWIM_DILG_TROPHY": {
@@ -1556,20 +1680,20 @@
     },
     "SO_YUTO_TROPHY": {
         "iname": "SO_YUTO_TROPHY",
-        "begin_at": "1/31/2016",
-        "end_at": "12/31/2017 11:59:59 PM",
+        "begin_at": "7/19/2018",
+        "end_at": "8/2/2018 11:59:59 PM",
         "category": "Event"
     },
     "SO_YUTO_TROPHY_EX": {
         "iname": "SO_YUTO_TROPHY_EX",
-        "begin_at": "1/31/2016",
-        "end_at": "12/31/2017 11:59:59 PM",
+        "begin_at": "7/26/2018",
+        "end_at": "8/2/2018 11:59:59 PM",
         "category": "Event"
     },
     "SO_YUTO_TROPHY_EX_MULTI": {
         "iname": "SO_YUTO_TROPHY_EX_MULTI",
-        "begin_at": "1/31/2016",
-        "end_at": "12/31/2017 11:59:59 PM",
+        "begin_at": "7/26/2018",
+        "end_at": "8/2/2018 11:59:59 PM",
         "category": "Multi"
     },
     "TIHAYA_TROPHY_MULTI": {

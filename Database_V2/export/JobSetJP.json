@@ -5926,6 +5926,18 @@
             "lv": 11
         }
     },
+    "JS_GUILDFORD_04_GUIL_TEM": {
+        "iname": "JS_GUILDFORD_04_GUIL_TEM",
+        "job": "JB_GUIL_TEM",
+        "jobchange": "JS_TEM",
+        "target_unit": "UN_V2_GUILDFORD",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_TEM",
+            "lv": 11
+        }
+    },
     "JS_SHIRMA_02_KAK": {
         "iname": "JS_SHIRMA_02_KAK",
         "job": "JB_KAK",
@@ -6927,6 +6939,96 @@
         "lock_awakelv": 15,
         "lock_jobs": {
             "iname": "JB_DOC",
+            "lv": 11
+        }
+    },
+    "JS_ALMA01": {
+        "iname": "JS_ALMA01",
+        "job": "JB_ALMA01",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_ALMA_02_GEN": {
+        "iname": "JS_ALMA_02_GEN",
+        "job": "JB_GEN",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_ALMA01"
+        }
+    },
+    "JS_ALMA_03_KIL": {
+        "iname": "JS_ALMA_03_KIL",
+        "job": "JB_KIL",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_ALMA01"
+        }
+    },
+    "JS_ALMA_03_KIL_SCOUT": {
+        "iname": "JS_ALMA_03_KIL_SCOUT",
+        "job": "JB_KIL_SCOUT",
+        "jobchange": "JS_ALMA_03_KIL",
+        "target_unit": "UN_V2_ALMA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_KIL",
+            "lv": 11
+        }
+    },
+    "JS_REBECCA_02_MAD": {
+        "iname": "JS_REBECCA_02_MAD",
+        "job": "JB_MAD",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_WIZ"
+        }
+    },
+    "JS_REBECCA_03_WEA": {
+        "iname": "JS_REBECCA_03_WEA",
+        "job": "JB_WEA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_WIZ"
+        }
+    },
+    "JS_KAYA01": {
+        "iname": "JS_KAYA01",
+        "job": "JB_KAYA01",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_KAYA_02_ONM": {
+        "iname": "JS_KAYA_02_ONM",
+        "job": "JB_ONM",
+        "lock_rarity": 0,
+        "lock_awakelv": 5,
+        "lock_jobs": {
+            "iname": "JB_KAYA01"
+        }
+    },
+    "JS_KAYA_03_WED": {
+        "iname": "JS_KAYA_03_WED",
+        "job": "JB_WED_F",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_KAYA01"
+        }
+    },
+    "JS_KAYA_03_FIRE_WED_F": {
+        "iname": "JS_KAYA_03_FIRE_WED_F",
+        "job": "JB_FIRE_WED_F",
+        "jobchange": "JS_KAYA_03_WED",
+        "target_unit": "UN_V2_KAYA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_WED_F",
             "lv": 11
         }
     },
@@ -8286,6 +8388,18 @@
             "lv": 11
         }
     },
+    "JS_ROFIA_02_ENC_ANTI_BUFF": {
+        "iname": "JS_ROFIA_02_ENC_ANTI_BUFF",
+        "job": "JB_ENC_ANTI_BUFF",
+        "jobchange": "JS_ROFIA_02_ENC",
+        "target_unit": "UN_V2_ROFIA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_ENC",
+            "lv": 11
+        }
+    },
     "JS_SOPHIA_03_ENC_WATER": {
         "iname": "JS_SOPHIA_03_ENC_WATER",
         "job": "JB_ENC_WATER",
@@ -9366,6 +9480,90 @@
             "lv": 11
         }
     },
+    "JS_GATH_01_BAR_HEAL": {
+        "iname": "JS_GATH_01_BAR_HEAL",
+        "job": "JB_BAR_HEAL",
+        "jobchange": "JS_BAR",
+        "target_unit": "UN_V2_GATH",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_BAR",
+            "lv": 11
+        }
+    },
+    "JS_ANJOU_01_BAR_HEAL": {
+        "iname": "JS_ANJOU_01_BAR_HEAL",
+        "job": "JB_BAR_HEAL",
+        "jobchange": "JS_BAR",
+        "target_unit": "UN_V2_ANJOU",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_BAR",
+            "lv": 11
+        }
+    },
+    "JS_AYLLU_01_BAR_HEAL": {
+        "iname": "JS_AYLLU_01_BAR_HEAL",
+        "job": "JB_BAR_HEAL",
+        "jobchange": "JS_BAR",
+        "target_unit": "UN_V2_AYLLU",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_BAR",
+            "lv": 11
+        }
+    },
+    "JS_ALAIA_01_BAR_MDEF": {
+        "iname": "JS_ALAIA_01_BAR_MDEF",
+        "job": "JB_BAR_MDEF",
+        "jobchange": "JS_BAR",
+        "target_unit": "UN_V2_ALAIA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_BAR",
+            "lv": 11
+        }
+    },
+    "JS_LEAFA_02_BAR_MDEF": {
+        "iname": "JS_LEAFA_02_BAR_MDEF",
+        "job": "JB_BAR_MDEF",
+        "jobchange": "JS_LEAFA_02_BAR",
+        "target_unit": "UN_V2_LEAFA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_BAR",
+            "lv": 11
+        }
+    },
+    "JS_CHIRURU_02_BAR_DARK": {
+        "iname": "JS_CHIRURU_02_BAR_DARK",
+        "job": "JB_BAR_DARK",
+        "jobchange": "JS_CHIRURU_02_BAR",
+        "target_unit": "UN_V2_CHIRURU",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_BAR",
+            "lv": 11
+        }
+    },
+    "JS_AMIS_02_BAR_DARK": {
+        "iname": "JS_AMIS_02_BAR_DARK",
+        "job": "JB_BAR_DARK",
+        "jobchange": "JS_AMIS_02_BAR",
+        "target_unit": "UN_V2_AMIS",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_BAR",
+            "lv": 11
+        }
+    },
     "JS_SHEKINAH_RAN_ENE_WEP": {
         "iname": "JS_SHEKINAH_RAN_ENE_WEP",
         "job": "JB_SHEKINAH_RAN_ENE_WEP",
@@ -10071,6 +10269,30 @@
     "JS_STR_SPECTER_YOMI": {
         "iname": "JS_STR_SPECTER_YOMI",
         "job": "JB_STR_SPECTER_YOMI",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_JAM_HUMAN_RAN_MEBI": {
+        "iname": "JS_JAM_HUMAN_RAN_MEBI",
+        "job": "JB_RAN_TYPE_JEWELDAMEGE",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_JAM_HUMAN_MAJ_MEBI": {
+        "iname": "JS_JAM_HUMAN_MAJ_MEBI",
+        "job": "JB_MAJ_WIND",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_JAM_HUMAN_BAA_MEBI": {
+        "iname": "JS_JAM_HUMAN_BAA_MEBI",
+        "job": "JB_BAA_TYPE_ATTAK",
+        "lock_rarity": 0,
+        "lock_jobs": {}
+    },
+    "JS_JAM_HUMAN_KIL_MEBI": {
+        "iname": "JS_JAM_HUMAN_KIL_MEBI",
+        "job": "JB_KIL_SCOUT",
         "lock_rarity": 0,
         "lock_jobs": {}
     }

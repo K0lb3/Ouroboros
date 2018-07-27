@@ -521,6 +521,56 @@
             "Berserk"
         ]
     },
+    "AI_ENEMY_LOWSPEED": {
+        "iname": "AI_ENEMY_LOWSPEED",
+        "param": "Spd",
+        "param_prio": "Low",
+        "flags": [
+            "Positioning",
+            "DisableAvoid",
+            "CastSkillFriendlyFire",
+            "DisableJewelAttack"
+        ],
+        "heal_border": 0,
+        "buff_border": 0,
+        "cond_border": 10,
+        "safe_border": 2,
+        "DisableSupportActionHpBorder": 15,
+        "DisableSupportActionMemberBorder": 1,
+        "SkillCategoryPriorities": [
+            "Damage",
+            "Support",
+            "Heal",
+            "FailCondition",
+            "DisableCondition",
+            "CureCondition"
+        ],
+        "BuffPriorities": [
+            "Mag",
+            "Atk"
+        ],
+        "ConditionPriorities": [
+            "Stone",
+            "Stop",
+            "DisableAttack",
+            "Charm",
+            "Paralysed",
+            "Sleep",
+            "Fast",
+            "Slow",
+            "DisableSkill",
+            "DisableMove",
+            "Donsoku",
+            "Blindness",
+            "Poison",
+            "Stun",
+            "DeathSentence",
+            "DisableBuff",
+            "DisableDebuff",
+            "Rage",
+            "Berserk"
+        ]
+    },
     "AI_ENEMY_AB": {
         "iname": "AI_ENEMY_AB",
         "flags": [
@@ -3672,6 +3722,103 @@
             "Blindness",
             "Poison",
             "Stone",
+            "DeathSentence",
+            "DisableBuff",
+            "DisableDebuff",
+            "Rage",
+            "Berserk"
+        ]
+    },
+    "AI_PLAYER_ALMA01": {
+        "iname": "AI_PLAYER_ALMA01",
+        "flags": [
+            "Positioning",
+            "CastSkillFriendlyFire",
+            "DisableJewelAttack",
+            "DisableTargetPriority",
+            "UseOldSort"
+        ],
+        "heal_border": 50,
+        "buff_border": 0,
+        "cond_border": 10,
+        "safe_border": 2,
+        "DisableSupportActionHpBorder": 35,
+        "DisableSupportActionMemberBorder": 1,
+        "SkillCategoryPriorities": [
+            "Damage",
+            "Heal",
+            "FailCondition",
+            "DisableCondition",
+            "CureCondition"
+        ],
+        "BuffPriorities": [
+            "Mag",
+            "Spd"
+        ],
+        "ConditionPriorities": [
+            "Stone",
+            "Stop",
+            "DisableAttack",
+            "Charm",
+            "Paralysed",
+            "Sleep",
+            "Fast",
+            "Slow",
+            "DisableSkill",
+            "DisableMove",
+            "Donsoku",
+            "Blindness",
+            "Poison",
+            "Stun",
+            "DeathSentence",
+            "DisableBuff",
+            "DisableDebuff",
+            "Rage",
+            "Berserk"
+        ]
+    },
+    "AI_PLAYER_KAYA01": {
+        "iname": "AI_PLAYER_KAYA01",
+        "flags": [
+            "Positioning",
+            "Sneaking",
+            "CastSkillFriendlyFire",
+            "DisableJewelAttack",
+            "DisableTargetPriority",
+            "UseOldSort"
+        ],
+        "heal_border": 50,
+        "buff_border": 999,
+        "cond_border": 10,
+        "safe_border": 2,
+        "DisableSupportActionHpBorder": 35,
+        "DisableSupportActionMemberBorder": 1,
+        "SkillCategoryPriorities": [
+            "Damage",
+            "Heal",
+            "FailCondition",
+            "Support",
+            "CureCondition"
+        ],
+        "BuffPriorities": [
+            "Mag",
+            "Spd"
+        ],
+        "ConditionPriorities": [
+            "DisableAttack",
+            "Stop",
+            "Stone",
+            "Charm",
+            "Paralysed",
+            "Sleep",
+            "Fast",
+            "Slow",
+            "DisableSkill",
+            "DisableMove",
+            "Donsoku",
+            "Blindness",
+            "Poison",
+            "Stun",
             "DeathSentence",
             "DisableBuff",
             "DisableDebuff",
@@ -11958,6 +12105,58 @@
             "Blindness",
             "Poison",
             "Stone",
+            "DeathSentence",
+            "DisableBuff",
+            "DisableDebuff",
+            "Rage",
+            "Berserk"
+        ]
+    },
+    "AI_PLAYER_GEN3": {
+        "iname": "AI_PLAYER_GEN3",
+        "role": "Zenei",
+        "param": "HpMax",
+        "param_prio": "High",
+        "flags": [
+            "Positioning",
+            "Sneaking",
+            "CastSkillFriendlyFire",
+            "DisableJewelAttack",
+            "UseOldSort"
+        ],
+        "heal_border": 50,
+        "buff_border": 0,
+        "cond_border": 10,
+        "safe_border": 2,
+        "DisableSupportActionHpBorder": 10,
+        "DisableSupportActionMemberBorder": 1,
+        "SkillCategoryPriorities": [
+            "Support",
+            "FailCondition",
+            "DisableCondition",
+            "Damage",
+            "Heal",
+            "CureCondition"
+        ],
+        "BuffPriorities": [
+            "Mag",
+            "Def"
+        ],
+        "ConditionPriorities": [
+            "Stop",
+            "Fast",
+            "Slow",
+            "Stone",
+            "DisableAttack",
+            "Charm",
+            "Paralysed",
+            "Sleep",
+            "DisableSkill",
+            "DisableMove",
+            "Donsoku",
+            "Blindness",
+            "Poison",
+            "Stun",
             "DeathSentence",
             "DisableBuff",
             "DisableDebuff",

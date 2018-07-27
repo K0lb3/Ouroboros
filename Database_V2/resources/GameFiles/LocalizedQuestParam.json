@@ -3198,19 +3198,19 @@
     "QE_ST_NO_030031": {
         "name": "Lisbeth Encircling Net",
         "expr": "Episode 2: Act 1-1",
-        "cond": "Fight Off Teacher !",
+        "cond": "Fight off Teacher!",
         "title": "Ch 3: Ep 2 [1-1]"
     },
     "QE_ST_NO_030032": {
         "name": "Increased Support",
         "expr": "Episode 2: Act 1-2",
-        "cond": "Fight Off Teacher !",
+        "cond": "Fight off Teacher!",
         "title": "Ch 3: Ep 2 [1-2]"
     },
     "QE_ST_NO_030033": {
-        "name": "What's wrong with helping a friend?",
+        "name": "What's Wrong with Helping a Friend?",
         "expr": "Episode 2: Act 1-3",
-        "cond": "Fight Off Teacher !",
+        "cond": "Fight off Teacher!",
         "title": "Ch 3: Ep 2 [1-3]"
     },
     "QE_ST_NO_030034": {
@@ -3232,7 +3232,7 @@
         "title": "Ch 3: Ep 2 [1-6]"
     },
     "QE_ST_NO_030037": {
-        "name": "Stop the root of the problem!",
+        "name": "What's Wrong with Helping a Friend?",
         "expr": "Episode 2: Act 1-7",
         "cond": "Defeat all enemies!",
         "title": "Ch 3: Ep 2 [1-7]"
@@ -7581,7 +7581,7 @@
         "title": "Super Hard - Continue Unavailable"
     },
     "QE_EV_SEISEKI_DJ_6_01": {
-        "name": "Sacred Stone Memories 6-1 The Mountain Where the Legendary Craftsmen Lives",
+        "name": "Sacred Stone Memories 6-1 Where the Legendary Craftsmen Live",
         "expr": "Sacred Stone Ep 6 - Act 1",
         "cond": "Defeat all enemy units!",
         "title": "Unit Lv75 JobLv11 Recommended"
@@ -8622,55 +8622,55 @@
         "name": "FINAL FANTASY XV Collab [Hard]",
         "expr": "FFXV Collab Quest",
         "cond": "Defeat all enemy units!",
-        "title": "[Hard]"
+        "title": "[Limited Time]"
     },
     "QE_EV_FF15_EX_1": {
         "name": "FINAL FANTASY XV Collab [EX1]",
         "expr": "FFXV Collab Quest",
         "cond": "Defeat all foes except Mandragoras!",
-        "title": "Hard Quest"
+        "title": "[Limited Time]"
     },
     "QE_EV_FF15_EX_2": {
         "name": "FINAL FANTASY XV Collab [EX2]",
         "expr": "FFXV Collab Quest",
         "cond": "Defeat all enemy units!",
-        "title": "Hard Quest"
+        "title": "[Limited Time]"
     },
     "QE_EV_FF15_EX_3": {
         "name": "FINAL FANTASY XV Collab [EX3]",
         "expr": "FFXV Collab Quest",
         "cond": "Defeat all enemy units!",
-        "title": "Hard Quest"
+        "title": "[Limited Time]"
     },
     "QE_EV_FF15_EX_4": {
         "name": "FINAL FANTASY XV Collab [EX4]",
         "expr": "FFXV Collab Quest",
         "cond": "Defeat all enemy units!",
-        "title": "Hard Quest"
+        "title": "[Limited Time]"
     },
     "QE_EV_FF15_EX_SP_1": {
         "name": "FINAL FANTASY XV Collab [EX1+]",
         "expr": "FFXV Collab Quest",
         "cond": "Defeat all foes except Mandragoras!",
-        "title": "Super Hard Quest"
+        "title": "[Limited Time]"
     },
     "QE_EV_FF15_EX_SP_2": {
         "name": "FINAL FANTASY XV Collab [EX2+]",
         "expr": "FFXV Collab Quest",
         "cond": "Defeat all enemy units!",
-        "title": "Super Hard Quest"
+        "title": "[Limited Time]"
     },
     "QE_EV_FF15_EX_SP_3": {
         "name": "FINAL FANTASY XV Collab [EX3+]",
         "expr": "FFXV Collab Quest",
         "cond": "Defeat all enemy units!",
-        "title": "Super Hard Quest"
+        "title": "[Limited Time]"
     },
     "QE_EV_FF15_EX_SP_4": {
         "name": "FINAL FANTASY XV Collab [EX4+]",
         "expr": "FFXV Collab Quest",
         "cond": "Defeat all enemy units!",
-        "title": "Super Hard Quest"
+        "title": "[Limited Time]"
     },
     "QE_EV_3TITLE_1": {
         "name": "The Sun God and the Golden Key Episode 1",
@@ -8763,31 +8763,31 @@
         "title": "[Limited Time]"
     },
     "QE_WA_ZIN_1": {
-        "name": "Return to the Underworld Episode 1 Wind & Darkness",
+        "name": "Episode 1 Wind & Darkness",
         "expr": "Jin Gear 1",
         "cond": "Defeat all enemy units!",
         "title": "Unit Lv10 JobLv2 Recommended"
     },
     "QE_WA_ZIN_2": {
-        "name": "Return to the Underworld Episode 2 Spreading Darkness",
+        "name": "Episode 2 Spreading Darkness",
         "expr": "Jin Gear 2",
         "cond": "Defeat all enemy units!",
         "title": "Unit Lv20 JobLv4 Recommended"
     },
     "QE_WA_ZIN_3": {
-        "name": "Return to the Underworld Episode 3 In with Demons, out with Luck",
+        "name": "Episode 3 In with Demons, out with Luck",
         "expr": "Jin Gear 3",
         "cond": "Defeat all enemy units!",
         "title": "Unit Lv35 JobLv6 Recommended"
     },
     "QE_WA_ZIN_4": {
-        "name": "Return to the Underworld Episode 3 That Which Spoils",
+        "name": "Episode 4 That Which Spoils",
         "expr": "Jin Gear 4",
         "cond": "Defeat all enemy units!",
         "title": "Unit Lv55 JobLv9 Recommended"
     },
     "QE_WA_ZIN_5": {
-        "name": "Return to the Underworld Episode 4 Saving Darkness",
+        "name": "Episode 5 Saving Darkness",
         "expr": "Jin Gear 5",
         "cond": "Defeat all enemy units!",
         "title": "Unit Lv65 JobLv10 Recommended"
@@ -9256,7 +9256,7 @@
     },
     "QE_ARENA_27": {
         "name": "Arena [Ruins]",
-        "expr": "Thunder Units ATK Power +20%, Cast Time -30%",
+        "expr": "Thunder Units ATK Power +20%, Cast Time -30%",
         "cond": "Defeat all enemy units!",
         "title": "Arena"
     },
@@ -9322,7 +9322,7 @@
     },
     "QE_VS_08": {
         "name": "Ruins",
-        "expr": "Map Effect: Cast Time -30%",
+        "expr": "Map Effect: Cast Time -30%",
         "cond": "Defeat all enemy units!",
         "title": "Duel"
     },
@@ -9388,7 +9388,7 @@
     },
     "QE_VS_TOWER_02": {
         "name": "Ruins",
-        "expr": "Map Effect: Cast Time -30% & Dmg Dealt -50%",
+        "expr": "Map Effect: Cast Time -30% & Dmg Dealt -50%",
         "cond": "Defeat all enemy units!",
         "title": "Tower Match β"
     },

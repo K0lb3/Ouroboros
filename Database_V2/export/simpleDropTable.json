@@ -16499,8 +16499,8 @@
     "QE_EV_FF15_EX_2": {
         "iname": "QE_EV_FF15_EX_2",
         "dropList": [
-            "IT_EQ_DIAGRAMPIECE_FF15_GLAD",
-            "IT_AF_ARMS_FF15_GLAD_01",
+            "IT_EQ_DIAGRAMPIECE_FF15_NOCT",
+            "IT_AF_ARMS_FF15_NOCT_01",
             "IT_EQ_DIAGRAMPIECE_HOLYARMOR",
             "IT_EQ_DIAGRAMPIECE_GAUNTLET",
             "IT_EQ_PIECE_ARMOR",
@@ -16513,8 +16513,8 @@
     "QE_EV_MULTI_FF15_EX_2": {
         "iname": "QE_EV_MULTI_FF15_EX_2",
         "dropList": [
-            "IT_EQ_DIAGRAMPIECE_FF15_GLAD",
-            "IT_AF_ARMS_FF15_GLAD_01",
+            "IT_EQ_DIAGRAMPIECE_FF15_NOCT",
+            "IT_AF_ARMS_FF15_NOCT_01",
             "IT_EQ_DIAGRAMPIECE_HOLYARMOR",
             "IT_EQ_DIAGRAMPIECE_GAUNTLET",
             "IT_EQ_PIECE_ARMOR",
@@ -16527,7 +16527,7 @@
     "QE_EV_FF15_EX_2_BOSS1": {
         "iname": "QE_EV_FF15_EX_2_BOSS1",
         "dropList": [
-            "IT_EQ_DIAGRAMPIECE_FF15_GLAD"
+            "IT_EQ_DIAGRAMPIECE_FF15_NOCT"
         ],
         "beginAt": "2014/04/10 10:00:00",
         "endAt": "2114/04/12 10:00:00"
@@ -16535,7 +16535,7 @@
     "QE_EV_FF15_EX_2_BOSS2": {
         "iname": "QE_EV_FF15_EX_2_BOSS2",
         "dropList": [
-            "IT_AF_ARMS_FF15_GLAD_01"
+            "IT_AF_ARMS_FF15_NOCT_01"
         ],
         "beginAt": "2014/04/10 10:00:00",
         "endAt": "2114/04/12 10:00:00"
@@ -16543,8 +16543,8 @@
     "QE_EV_FF15_EX_3": {
         "iname": "QE_EV_FF15_EX_3",
         "dropList": [
-            "IT_EQ_DIAGRAMPIECE_FF15_NOCT",
-            "IT_AF_ARMS_FF15_NOCT_01",
+            "IT_EQ_DIAGRAMPIECE_FF15_GLAD",
+            "IT_AF_ARMS_FF15_GLAD_01",
             "IT_EQ_DIAGRAMPIECE_HWIZ_KABUTO",
             "IT_EQ_DIAGRAMPIECE_CSWORD",
             "IT_EQ_PIECE_SWORD",
@@ -16557,8 +16557,8 @@
     "QE_EV_MULTI_FF15_EX_3": {
         "iname": "QE_EV_MULTI_FF15_EX_3",
         "dropList": [
-            "IT_EQ_DIAGRAMPIECE_FF15_NOCT",
-            "IT_AF_ARMS_FF15_NOCT_01",
+            "IT_EQ_DIAGRAMPIECE_FF15_GLAD",
+            "IT_AF_ARMS_FF15_GLAD_01",
             "IT_EQ_DIAGRAMPIECE_HWIZ_KABUTO",
             "IT_EQ_DIAGRAMPIECE_CSWORD",
             "IT_EQ_PIECE_SWORD",
@@ -16571,7 +16571,7 @@
     "QE_EV_FF15_EX_3_BOSS1": {
         "iname": "QE_EV_FF15_EX_3_BOSS1",
         "dropList": [
-            "IT_EQ_DIAGRAMPIECE_FF15_NOCT"
+            "IT_EQ_DIAGRAMPIECE_FF15_GLAD"
         ],
         "beginAt": "2014/04/10 10:00:00",
         "endAt": "2114/04/12 10:00:00"
@@ -16579,7 +16579,7 @@
     "QE_EV_FF15_EX_3_BOSS2": {
         "iname": "QE_EV_FF15_EX_3_BOSS2",
         "dropList": [
-            "IT_AF_ARMS_FF15_NOCT_01"
+            "IT_AF_ARMS_FF15_GLAD_01"
         ],
         "beginAt": "2014/04/10 10:00:00",
         "endAt": "2114/04/12 10:00:00"
@@ -16645,8 +16645,8 @@
     "QE_EV_FF15_EX_SP_2": {
         "iname": "QE_EV_FF15_EX_SP_2",
         "dropList": [
-            "IT_EQ_DIAGRAMPIECE_FF15_GLAD",
-            "IT_AF_ARMS_FF15_GLAD_01",
+            "IT_EQ_DIAGRAMPIECE_FF15_NOCT",
+            "IT_AF_ARMS_FF15_NOCT_01",
             "IT_EQ_DIAGRAMPIECE_HOLYARMOR",
             "IT_EQ_DIAGRAMPIECE_GAUNTLET",
             "IT_EQ_PIECE_ARMOR",
@@ -16659,8 +16659,8 @@
     "QE_EV_FF15_EX_SP_3": {
         "iname": "QE_EV_FF15_EX_SP_3",
         "dropList": [
-            "IT_EQ_DIAGRAMPIECE_FF15_NOCT",
-            "IT_AF_ARMS_FF15_NOCT_01",
+            "IT_EQ_DIAGRAMPIECE_FF15_GLAD",
+            "IT_AF_ARMS_FF15_GLAD_01",
             "IT_EQ_DIAGRAMPIECE_HWIZ_KABUTO",
             "IT_EQ_DIAGRAMPIECE_CSWORD",
             "IT_EQ_PIECE_SWORD",
@@ -18530,7 +18530,7 @@
     "QE_SO_FUNG_100": {
         "iname": "QE_SO_FUNG_100",
         "dropList": [
-            "IT_PI_ALFRED"
+            "IT_PI_FUNGLIU"
         ],
         "beginAt": "2014/04/10 10:00:00",
         "endAt": "2114/04/12 10:00:00"
@@ -18554,7 +18554,7 @@
     "QE_SO_SUZU_100": {
         "iname": "QE_SO_SUZU_100",
         "dropList": [
-            "IT_PI_ISHUNA"
+            "IT_PI_SUZUKA"
         ],
         "beginAt": "2014/04/10 10:00:00",
         "endAt": "2114/04/12 10:00:00"
@@ -18602,7 +18602,7 @@
     "QE_SO_SHEN_100": {
         "iname": "QE_SO_SHEN_100",
         "dropList": [
-            "IT_PI_ALAIA"
+            "IT_PI_SHENMEI"
         ],
         "beginAt": "2014/04/10 10:00:00",
         "endAt": "2114/04/12 10:00:00"

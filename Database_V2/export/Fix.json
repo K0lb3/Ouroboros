@@ -100,7 +100,7 @@
         "VipCardDate": 30,
         "FreeGachaGoldMax": 5,
         "FreeGachaGoldCoolDownSec": 600,
-        "FreeGachaCoinCoolDownSec": 86400,
+        "FreeGachaCoinCoolDownSec": 259200,
         "BuyGoldCost": 10,
         "BuyGoldAmount": 25000,
         "SupportCost": 100,
@@ -222,7 +222,7 @@
         "FirstFriendMax": 0,
         "FirstFriendCoin": 250,
         "CombinationRate": 25,
-        "WeakUpRate": 50,
-        "ResistDownRate": -50
+        "WeakUpRate": 35,
+        "ResistDownRate": -35
     }
 ]

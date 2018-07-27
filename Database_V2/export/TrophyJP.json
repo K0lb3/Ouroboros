@@ -5035,6 +5035,791 @@
         "Artifacts": [],
         "ConceptCards": []
     },
+    "SO_ALMA_REBECCA_1_01": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_SO_ALMA_REBECCA_LV1"
+            ]
+        },
+        "iname": "SO_ALMA_REBECCA_1_01",
+        "Name": "第一話「春一番は唐突に」をクリア [1/5回]",
+        "Category": "【期間限定】残雪を踏む少女たち",
+        "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_ALMA_REBECCA_1_02": {
+        "RequiredTrophies": [
+            "SO_ALMA_REBECCA_1_01"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 3,
+            "sval": [
+                "QE_SO_ALMA_REBECCA_LV1"
+            ]
+        },
+        "iname": "SO_ALMA_REBECCA_1_02",
+        "Name": "第一話「春一番は唐突に」をクリア [3/5回]",
+        "Category": "【期間限定】残雪を踏む少女たち",
+        "Items": [
+            {
+                "iname": "IT_PI_REBECCA",
+                "num": 5
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_ALMA_REBECCA_1_03": {
+        "RequiredTrophies": [
+            "SO_ALMA_REBECCA_1_02"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 5,
+            "sval": [
+                "QE_SO_ALMA_REBECCA_LV1"
+            ]
+        },
+        "iname": "SO_ALMA_REBECCA_1_03",
+        "Name": "第一話「春一番は唐突に」をクリア [5/5回]",
+        "Category": "【期間限定】残雪を踏む少女たち",
+        "Items": [
+            {
+                "iname": "IT_PI_REBECCA",
+                "num": 15
+            },
+            {
+                "iname": "IT_UG_APPLE5",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_ALMA_REBECCA_2_01": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_SO_ALMA_REBECCA_LV2"
+            ]
+        },
+        "iname": "SO_ALMA_REBECCA_2_01",
+        "Name": "第二話「空の守護神再び」をクリア [1/5回]",
+        "Category": "【期間限定】残雪を踏む少女たち",
+        "Items": [
+            {
+                "iname": "IT_PI_REBECCA",
+                "num": 5
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_ALMA_REBECCA_2_02": {
+        "RequiredTrophies": [
+            "SO_ALMA_REBECCA_2_01"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 3,
+            "sval": [
+                "QE_SO_ALMA_REBECCA_LV2"
+            ]
+        },
+        "iname": "SO_ALMA_REBECCA_2_02",
+        "Name": "第二話「空の守護神再び」をクリア [3/5回]",
+        "Category": "【期間限定】残雪を踏む少女たち",
+        "Items": [
+            {
+                "iname": "IT_PI_ALMA",
+                "num": 5
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_ALMA_REBECCA_2_03": {
+        "RequiredTrophies": [
+            "SO_ALMA_REBECCA_2_02"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 5,
+            "sval": [
+                "QE_SO_ALMA_REBECCA_LV2"
+            ]
+        },
+        "iname": "SO_ALMA_REBECCA_2_03",
+        "Name": "第二話「空の守護神再び」をクリア [5/5回]",
+        "Category": "【期間限定】残雪を踏む少女たち",
+        "Items": [
+            {
+                "iname": "IT_PI_ALMA",
+                "num": 5
+            },
+            {
+                "iname": "IT_PI_REBECCA",
+                "num": 10
+            },
+            {
+                "iname": "IT_CV_GOLD3",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_ALMA_REBECCA_3_01": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_SO_ALMA_REBECCA_LV3"
+            ]
+        },
+        "iname": "SO_ALMA_REBECCA_3_01",
+        "Name": "第三話「古の女帝」をクリア [1/5回]",
+        "Category": "【期間限定】残雪を踏む少女たち",
+        "Items": [
+            {
+                "iname": "IT_PI_REBECCA",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_ALMA_REBECCA_3_02": {
+        "RequiredTrophies": [
+            "SO_ALMA_REBECCA_3_01"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 3,
+            "sval": [
+                "QE_SO_ALMA_REBECCA_LV3"
+            ]
+        },
+        "iname": "SO_ALMA_REBECCA_3_02",
+        "Name": "第三話「古の女帝」をクリア [3/5回]",
+        "Category": "【期間限定】残雪を踏む少女たち",
+        "Items": [
+            {
+                "iname": "IT_PI_ALMA",
+                "num": 5
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_ALMA_REBECCA_3_03": {
+        "RequiredTrophies": [
+            "SO_ALMA_REBECCA_3_02"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 5,
+            "sval": [
+                "QE_SO_ALMA_REBECCA_LV3"
+            ]
+        },
+        "iname": "SO_ALMA_REBECCA_3_03",
+        "Name": "第三話「古の女帝」をクリア [5/5回]",
+        "Category": "【期間限定】残雪を踏む少女たち",
+        "Items": [
+            {
+                "iname": "IT_PI_ALMA",
+                "num": 5
+            },
+            {
+                "iname": "IT_PI_REBECCA",
+                "num": 10
+            },
+            {
+                "iname": "IT_UG_APPLE5",
+                "num": 5
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_ALMA_REBECCA_4_01": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_SO_ALMA_REBECCA_LV4"
+            ]
+        },
+        "iname": "SO_ALMA_REBECCA_4_01",
+        "Name": "第四話「地獄より蘇った男」をクリア [1/5回]",
+        "Category": "【期間限定】残雪を踏む少女たち",
+        "Items": [
+            {
+                "iname": "IT_PI_REBECCA",
+                "num": 15
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_ALMA_REBECCA_4_02": {
+        "RequiredTrophies": [
+            "SO_ALMA_REBECCA_4_01"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 3,
+            "sval": [
+                "QE_SO_ALMA_REBECCA_LV4"
+            ]
+        },
+        "iname": "SO_ALMA_REBECCA_4_02",
+        "Name": "第四話「地獄より蘇った男」をクリア [3/5回]",
+        "Category": "【期間限定】残雪を踏む少女たち",
+        "Items": [
+            {
+                "iname": "IT_PI_ALMA",
+                "num": 5
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_ALMA_REBECCA_4_03": {
+        "RequiredTrophies": [
+            "SO_ALMA_REBECCA_4_02"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 5,
+            "sval": [
+                "QE_SO_ALMA_REBECCA_LV4"
+            ]
+        },
+        "iname": "SO_ALMA_REBECCA_4_03",
+        "Name": "第四話「地獄より蘇った男」をクリア [5/5回]",
+        "Category": "【期間限定】残雪を踏む少女たち",
+        "Items": [
+            {
+                "iname": "IT_PI_ALMA",
+                "num": 5
+            },
+            {
+                "iname": "IT_PI_REBECCA",
+                "num": 15
+            },
+            {
+                "iname": "IT_EQ_DIAGRAM_ALMA01",
+                "num": 1
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_ALMA_REBECCA_5_01": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_SO_ALMA_REBECCA_LV5"
+            ]
+        },
+        "iname": "SO_ALMA_REBECCA_5_01",
+        "Name": "第五話「見出した答え」をクリア [1/10回]",
+        "Category": "【期間限定】残雪を踏む少女たち",
+        "Items": [
+            {
+                "iname": "IT_PI_REBECCA",
+                "num": 15
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_ALMA_REBECCA_5_02": {
+        "RequiredTrophies": [
+            "SO_ALMA_REBECCA_5_01"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 3,
+            "sval": [
+                "QE_SO_ALMA_REBECCA_LV5"
+            ]
+        },
+        "iname": "SO_ALMA_REBECCA_5_02",
+        "Name": "第五話「見出した答え」をクリア [3/10回]",
+        "Category": "【期間限定】残雪を踏む少女たち",
+        "Items": [
+            {
+                "iname": "IT_PI_ALMA",
+                "num": 10
+            },
+            {
+                "iname": "IT_EQ_DIAGRAM_ALMA01",
+                "num": 1
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_ALMA_REBECCA_5_03": {
+        "RequiredTrophies": [
+            "SO_ALMA_REBECCA_5_02"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 5,
+            "sval": [
+                "QE_SO_ALMA_REBECCA_LV5"
+            ]
+        },
+        "iname": "SO_ALMA_REBECCA_5_03",
+        "Name": "第五話「見出した答え」をクリア [5/10回]",
+        "Category": "【期間限定】残雪を踏む少女たち",
+        "Items": [
+            {
+                "iname": "IT_PI_ALMA",
+                "num": 10
+            },
+            {
+                "iname": "IT_PI_REBECCA",
+                "num": 20
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_ALMA_REBECCA_5_04": {
+        "RequiredTrophies": [
+            "SO_ALMA_REBECCA_5_03"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 10,
+            "sval": [
+                "QE_SO_ALMA_REBECCA_LV5"
+            ]
+        },
+        "iname": "SO_ALMA_REBECCA_5_04",
+        "Name": "第五話「見出した答え」をクリア [10/10回]",
+        "Coin": 50,
+        "Category": "【期間限定】残雪を踏む少女たち",
+        "Items": [
+            {
+                "iname": "IT_PI_REBECCA",
+                "num": 30
+            },
+            {
+                "iname": "IT_EQ_DIAGRAM_ALMA01",
+                "num": 1
+            },
+            {
+                "iname": "IT_CV_GOLD3",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_ALMA_REBECCA_EX_1_01": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_SO_ALMA_REBECCA_EX_01"
+            ]
+        },
+        "iname": "SO_ALMA_REBECCA_EX_1_01",
+        "Name": "【EX1】残雪を踏む少女たちをクリア [1/10回]",
+        "Coin": 50,
+        "Category": "【期間限定】【EX】残雪を踏む少女たち",
+        "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_ALMA_REBECCA_EX_1_02": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 3,
+            "sval": [
+                "QE_SO_ALMA_REBECCA_EX_01"
+            ]
+        },
+        "iname": "SO_ALMA_REBECCA_EX_1_02",
+        "Name": "【EX1】残雪を踏む少女たちをクリア [3/10回]",
+        "Category": "【期間限定】【EX】残雪を踏む少女たち",
+        "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_ALMA_REBECCA_EX_1_03": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 5,
+            "sval": [
+                "QE_SO_ALMA_REBECCA_EX_01"
+            ]
+        },
+        "iname": "SO_ALMA_REBECCA_EX_1_03",
+        "Name": "【EX1】残雪を踏む少女たちをクリア [5/10回]",
+        "Category": "【期間限定】【EX】残雪を踏む少女たち",
+        "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_ALMA_REBECCA_EX_1_04": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 10,
+            "sval": [
+                "QE_SO_ALMA_REBECCA_EX_01"
+            ]
+        },
+        "iname": "SO_ALMA_REBECCA_EX_1_04",
+        "Name": "【EX1】残雪を踏む少女たちをクリア [10/10回]",
+        "Coin": 50,
+        "Exp": 250,
+        "Category": "【期間限定】【EX】残雪を踏む少女たち",
+        "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "MULTI_SO_ALMA_REBECCA_EX_1_01": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_MULTI_ALMA_REBECCA_EX_01"
+            ]
+        },
+        "iname": "MULTI_SO_ALMA_REBECCA_EX_1_01",
+        "Name": "【EX1】【マルチ】残雪を踏む少女たちをクリア [1/5回]",
+        "Coin": 50,
+        "Category": "【期間限定】【EX】【マルチ】残雪を踏む少女たち",
+        "Items": [
+            {
+                "iname": "IT_AF_ARMS_REVE_00",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "MULTI_SO_ALMA_REBECCA_EX_1_02": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 3,
+            "sval": [
+                "QE_MULTI_ALMA_REBECCA_EX_01"
+            ]
+        },
+        "iname": "MULTI_SO_ALMA_REBECCA_EX_1_02",
+        "Name": "【EX1】【マルチ】残雪を踏む少女たちをクリア [3/5回]",
+        "Category": "【期間限定】【EX】【マルチ】残雪を踏む少女たち",
+        "Items": [
+            {
+                "iname": "IT_AF_ARMS_REVE_00",
+                "num": 20
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "MULTI_SO_ALMA_REBECCA_EX_1_03": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 5,
+            "sval": [
+                "QE_MULTI_ALMA_REBECCA_EX_01"
+            ]
+        },
+        "iname": "MULTI_SO_ALMA_REBECCA_EX_1_03",
+        "Name": "【EX1】【マルチ】残雪を踏む少女たちをクリア [5/5回]",
+        "Coin": 50,
+        "Exp": 250,
+        "Category": "【期間限定】【EX】【マルチ】残雪を踏む少女たち",
+        "Items": [
+            {
+                "iname": "IT_AF_ARMS_REVE_00",
+                "num": 30
+            },
+            {
+                "iname": "IT_TB_KAKUSEI",
+                "num": 1
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_ALMA_REBECCA_EX_2_01": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_SO_ALMA_REBECCA_EX_02"
+            ]
+        },
+        "iname": "SO_ALMA_REBECCA_EX_2_01",
+        "Name": "【EX2】残雪を踏む少女たちをクリア[1/10回]",
+        "Coin": 50,
+        "Category": "【期間限定】【EX】残雪を踏む少女たち",
+        "Items": [
+            {
+                "iname": "IT_US_EXCOIN",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_ALMA_REBECCA_EX_2_02": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 3,
+            "sval": [
+                "QE_SO_ALMA_REBECCA_EX_02"
+            ]
+        },
+        "iname": "SO_ALMA_REBECCA_EX_2_02",
+        "Name": "【EX2】残雪を踏む少女たちをクリア[3/10回]",
+        "Category": "【期間限定】【EX】残雪を踏む少女たち",
+        "Items": [
+            {
+                "iname": "IT_US_EXCOIN",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_ALMA_REBECCA_EX_2_03": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 5,
+            "sval": [
+                "QE_SO_ALMA_REBECCA_EX_02"
+            ]
+        },
+        "iname": "SO_ALMA_REBECCA_EX_2_03",
+        "Name": "【EX2】残雪を踏む少女たちをクリア[5/10回]",
+        "Category": "【期間限定】【EX】残雪を踏む少女たち",
+        "Items": [
+            {
+                "iname": "IT_PI_ALMA",
+                "num": 5
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_ALMA_REBECCA_EX_2_04": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 7,
+            "sval": [
+                "QE_SO_ALMA_REBECCA_EX_02"
+            ]
+        },
+        "iname": "SO_ALMA_REBECCA_EX_2_04",
+        "Name": "【EX2】残雪を踏む少女たちをクリア[7/10回]",
+        "Category": "【期間限定】【EX】残雪を踏む少女たち",
+        "Items": [
+            {
+                "iname": "IT_US_EXCOIN",
+                "num": 20
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_ALMA_REBECCA_EX_2_05": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 10,
+            "sval": [
+                "QE_SO_ALMA_REBECCA_EX_02"
+            ]
+        },
+        "iname": "SO_ALMA_REBECCA_EX_2_05",
+        "Name": "【EX2】残雪を踏む少女たちをクリア[10/10回]",
+        "Coin": 50,
+        "Exp": 250,
+        "Category": "【期間限定】【EX】残雪を踏む少女たち",
+        "Items": [
+            {
+                "iname": "IT_PI_ALMA",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "MULTI_SO_ALMA_REBECCA_EX_2_01": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_MULTI_ALMA_REBECCA_EX_02"
+            ]
+        },
+        "iname": "MULTI_SO_ALMA_REBECCA_EX_2_01",
+        "Name": "【EX2】【マルチ】残雪を踏む少女たちをクリア [1/5回]",
+        "Coin": 50,
+        "Category": "【期間限定】【EX】【マルチ】残雪を踏む少女たち",
+        "Items": [
+            {
+                "iname": "IT_US_EXCOIN",
+                "num": 20
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "MULTI_SO_ALMA_REBECCA_EX_2_02": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 3,
+            "sval": [
+                "QE_MULTI_ALMA_REBECCA_EX_02"
+            ]
+        },
+        "iname": "MULTI_SO_ALMA_REBECCA_EX_2_02",
+        "Name": "【EX2】【マルチ】残雪を踏む少女たちをクリア [3/5回]",
+        "Category": "【期間限定】【EX】【マルチ】残雪を踏む少女たち",
+        "Items": [
+            {
+                "iname": "IT_PI_ALMA",
+                "num": 5
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "MULTI_SO_ALMA_REBECCA_EX_2_03": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 5,
+            "sval": [
+                "QE_MULTI_ALMA_REBECCA_EX_02"
+            ]
+        },
+        "iname": "MULTI_SO_ALMA_REBECCA_EX_2_03",
+        "Name": "【EX2】【マルチ】残雪を踏む少女たちをクリア [5/5回]",
+        "Coin": 50,
+        "Exp": 250,
+        "Category": "【期間限定】【EX】【マルチ】残雪を踏む少女たち",
+        "Items": [
+            {
+                "iname": "IT_PI_ALMA",
+                "num": 10
+            },
+            {
+                "iname": "IT_TB_KAKUSEI",
+                "num": 1
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_ALMA_REBECCA_EX_SP_01": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_SO_ALMA_REBECCA_EX_SP"
+            ]
+        },
+        "iname": "SO_ALMA_REBECCA_EX_SP_01",
+        "Name": "【EX・極】残雪を踏む少女たちをクリア [1/5回]",
+        "Category": "【期間限定】【EX】残雪を踏む少女たち",
+        "Items": [
+            {
+                "iname": "IT_PI_REBECCA",
+                "num": 25
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_ALMA_REBECCA_EX_SP_02": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 3,
+            "sval": [
+                "QE_SO_ALMA_REBECCA_EX_SP"
+            ]
+        },
+        "iname": "SO_ALMA_REBECCA_EX_SP_02",
+        "Name": "【EX・極】残雪を踏む少女たちをクリア [3/5回]",
+        "Category": "【期間限定】【EX】残雪を踏む少女たち",
+        "Items": [
+            {
+                "iname": "IT_PI_REBECCA",
+                "num": 50
+            },
+            {
+                "iname": "IT_PI_ALMA",
+                "num": 25
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_ALMA_REBECCA_EX_SP_03": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 5,
+            "sval": [
+                "QE_SO_ALMA_REBECCA_EX_SP"
+            ]
+        },
+        "iname": "SO_ALMA_REBECCA_EX_SP_03",
+        "Name": "【EX・極】残雪を踏む少女たちをクリア [5/5回]",
+        "Coin": 200,
+        "Category": "【期間限定】【EX】残雪を踏む少女たち",
+        "Items": [
+            {
+                "iname": "IT_PI_REBECCA",
+                "num": 50
+            },
+            {
+                "iname": "IT_PI_ALMA",
+                "num": 25
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
     "SO_CRYUNI_1_01": {
         "RequiredTrophies": [],
         "Objectives": {
@@ -8452,6 +9237,181 @@
                 "num": 5
             }
         ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "RECORD_2018HOMEWORK_1_01": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_EV_BABEL_1_10",
+                "QE_EV_BABEL_EA_1_10"
+            ]
+        },
+        "iname": "RECORD_2018HOMEWORK_1_01",
+        "Name": "【夏休みの宿題】ﾊﾞﾍﾞﾙ戦記(ｴﾝｳﾞｨﾘｱ編)の10話ｸﾘｱ(ﾉｰﾏﾙorｲｰｼﾞｰ)",
+        "Expr": "　",
+        "Category": "【期間限定】タガタメからの夏休みの宿題",
+        "Items": [
+            {
+                "iname": "IT_UG_APPLE5",
+                "num": 20
+            },
+            {
+                "iname": "IT_US_TICKET",
+                "num": 40
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "RECORD_2018HOMEWORK_1_02": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_EV_BABEL_2_10",
+                "QE_EV_BABEL_EA_2_10"
+            ]
+        },
+        "iname": "RECORD_2018HOMEWORK_1_02",
+        "Name": "【夏休みの宿題】ﾊﾞﾍﾞﾙ戦記(ﾗｰｽﾄﾘｽ編)の10話ｸﾘｱ(ﾉｰﾏﾙorｲｰｼﾞｰ)",
+        "Expr": "　",
+        "Category": "【期間限定】タガタメからの夏休みの宿題",
+        "Items": [
+            {
+                "iname": "IT_US_TS_TICKET",
+                "num": 5
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "RECORD_2018HOMEWORK_1_03": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_EV_BABEL_3_10",
+                "QE_EV_BABEL_EA_3_10"
+            ]
+        },
+        "iname": "RECORD_2018HOMEWORK_1_03",
+        "Name": "【夏休みの宿題】ﾊﾞﾍﾞﾙ戦記(砂漠編)の10話ｸﾘｱ(ﾉｰﾏﾙorｲｰｼﾞｰ)",
+        "Expr": "　",
+        "Category": "【期間限定】タガタメからの夏休みの宿題",
+        "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "RECORD_2018HOMEWORK_1_04": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_EV_BABEL_4_07",
+                "QE_EV_BABEL_EA_4_07"
+            ]
+        },
+        "iname": "RECORD_2018HOMEWORK_1_04",
+        "Name": "【夏休みの宿題】ﾊﾞﾍﾞﾙ戦記(ﾜﾀﾞﾂﾐ編)の7話ｸﾘｱ(ﾉｰﾏﾙorｲｰｼﾞｰ)",
+        "Expr": "　",
+        "Category": "【期間限定】タガタメからの夏休みの宿題",
+        "Items": [
+            {
+                "iname": "IT_PI_COMMON_ALL",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "RECORD_2018HOMEWORK_1_05": {
+        "RequiredTrophies": [
+            "RECORD_2018HOMEWORK_1_01",
+            "RECORD_2018HOMEWORK_1_02",
+            "RECORD_2018HOMEWORK_1_03",
+            "RECORD_2018HOMEWORK_1_04"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_EV_BABEL_4_07",
+                "QE_EV_BABEL_EA_4_07"
+            ]
+        },
+        "iname": "RECORD_2018HOMEWORK_1_05",
+        "Name": "【夏休みの宿題】全ミッション達成！",
+        "Expr": "　",
+        "Category": "【期間限定】タガタメからの夏休みの宿題",
+        "Items": [
+            {
+                "iname": "IT_US_BABEL_RARE5_TICKET01",
+                "num": 1
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "RECORD_2018HOMEWORK_DAILY_1_01": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winevent",
+            "ival": 1
+        },
+        "iname": "RECORD_2018HOMEWORK_DAILY_1_01",
+        "Name": "【夏休みの宿題】ｲﾍﾞﾝﾄｸｴｽﾄを1回ｸﾘｱする",
+        "Expr": "　",
+        "Exp": 500,
+        "Category": "【期間限定】タガタメからの夏休みの宿題（デイリーミッション）",
+        "Items": [
+            {
+                "iname": "IT_CV_GOLD3",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "RECORD_2018HOMEWORK_DAILY_1_02": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winevent",
+            "ival": 3
+        },
+        "iname": "RECORD_2018HOMEWORK_DAILY_1_02",
+        "Name": "【夏休みの宿題】ｲﾍﾞﾝﾄｸｴｽﾄを3回ｸﾘｱする",
+        "Expr": "　",
+        "Exp": 500,
+        "Category": "【期間限定】タガタメからの夏休みの宿題（デイリーミッション）",
+        "Items": [
+            {
+                "iname": "IT_US_TICKET",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "RECORD_2018HOMEWORK_DAILY_1_03": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winevent",
+            "ival": 5
+        },
+        "iname": "RECORD_2018HOMEWORK_DAILY_1_03",
+        "Name": "【夏休みの宿題】ｲﾍﾞﾝﾄｸｴｽﾄを5回ｸﾘｱする",
+        "Expr": "　",
+        "Coin": 10,
+        "Exp": 500,
+        "Category": "【期間限定】タガタメからの夏休みの宿題（デイリーミッション）",
+        "Items": [],
         "Artifacts": [],
         "ConceptCards": []
     },
@@ -17277,6 +18237,685 @@
         "Gold": 500000,
         "Category": "【ハガレンコラボ】デイリー討伐依頼　10/31",
         "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "DAILY_SUMMER_20180720_1": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 3
+        },
+        "iname": "DAILY_SUMMER_20180720_1",
+        "Name": "【サマーキャンペーン】ノーマルクエストをクリアしよう",
+        "Category": "【サマーキャンペーン】特別デイリーミッション 7/20",
+        "Items": [
+            {
+                "iname": "IT_PI_TERESA",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "DAILY_SUMMER_20180720_2": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winevent",
+            "ival": 3
+        },
+        "iname": "DAILY_SUMMER_20180720_2",
+        "Name": "【サマーキャンペーン】イベントクエストをクリアしよう",
+        "Category": "【サマーキャンペーン】特別デイリーミッション 7/20",
+        "Items": [
+            {
+                "iname": "IT_PI_TERESA",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "DAILY_SUMMER_20180720_3": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "multiplay",
+            "ival": 1
+        },
+        "iname": "DAILY_SUMMER_20180720_3",
+        "Name": "【サマーキャンペーン】マルチクエストをプレイしよう",
+        "Category": "【サマーキャンペーン】特別デイリーミッション 7/20",
+        "Items": [
+            {
+                "iname": "IT_PI_TERESA",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "DAILY_SUMMER_20180720_4": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquestsoldier",
+            "ival": 1
+        },
+        "iname": "DAILY_SUMMER_20180720_4",
+        "Name": "【サマーキャンペーン】傭兵を連れて1回クリアする",
+        "Category": "【サマーキャンペーン】特別デイリーミッション 7/20",
+        "Items": [
+            {
+                "iname": "IT_PI_TERESA",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "DAILY_SUMMER_20180720_5": {
+        "RequiredTrophies": [
+            "DAILY_SUMMER_20180720_1",
+            "DAILY_SUMMER_20180720_2",
+            "DAILY_SUMMER_20180720_3",
+            "DAILY_SUMMER_20180720_4"
+        ],
+        "Objectives": {
+            "type": "winquestsoldier",
+            "ival": 1
+        },
+        "iname": "DAILY_SUMMER_20180720_5",
+        "Name": "【サマーキャンペーン】特別デイリーミッションを全て達成する",
+        "Expr": "【サマーキャンペーン】特別デイリーミッションを全て達成する",
+        "Coin": 50,
+        "Category": "【サマーキャンペーン】特別デイリーミッション 7/20",
+        "Items": [
+            {
+                "iname": "IT_PI_TERESA",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "DAILY_SUMMER_20180721_1": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 3
+        },
+        "iname": "DAILY_SUMMER_20180721_1",
+        "Name": "【サマーキャンペーン】ノーマルクエストをクリアしよう",
+        "Category": "【サマーキャンペーン】特別デイリーミッション 7/21",
+        "Items": [
+            {
+                "iname": "IT_PI_MIELIKKI",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "DAILY_SUMMER_20180721_2": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winevent",
+            "ival": 3
+        },
+        "iname": "DAILY_SUMMER_20180721_2",
+        "Name": "【サマーキャンペーン】イベントクエストをクリアしよう",
+        "Category": "【サマーキャンペーン】特別デイリーミッション 7/21",
+        "Items": [
+            {
+                "iname": "IT_PI_MIELIKKI",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "DAILY_SUMMER_20180721_3": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "multiplay",
+            "ival": 1
+        },
+        "iname": "DAILY_SUMMER_20180721_3",
+        "Name": "【サマーキャンペーン】マルチクエストをプレイしよう",
+        "Category": "【サマーキャンペーン】特別デイリーミッション 7/21",
+        "Items": [
+            {
+                "iname": "IT_PI_MIELIKKI",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "DAILY_SUMMER_20180721_4": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquestsoldier",
+            "ival": 1
+        },
+        "iname": "DAILY_SUMMER_20180721_4",
+        "Name": "【サマーキャンペーン】傭兵を連れて1回クリアする",
+        "Category": "【サマーキャンペーン】特別デイリーミッション 7/21",
+        "Items": [
+            {
+                "iname": "IT_PI_MIELIKKI",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "DAILY_SUMMER_20180721_5": {
+        "RequiredTrophies": [
+            "DAILY_SUMMER_20180721_1",
+            "DAILY_SUMMER_20180721_2",
+            "DAILY_SUMMER_20180721_3",
+            "DAILY_SUMMER_20180721_4"
+        ],
+        "Objectives": {
+            "type": "winquestsoldier",
+            "ival": 1
+        },
+        "iname": "DAILY_SUMMER_20180721_5",
+        "Name": "【サマーキャンペーン】特別デイリーミッションを全て達成する",
+        "Expr": "【サマーキャンペーン】特別デイリーミッションを全て達成する",
+        "Coin": 50,
+        "Category": "【サマーキャンペーン】特別デイリーミッション 7/21",
+        "Items": [
+            {
+                "iname": "IT_PI_MIELIKKI",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "DAILY_SUMMER_20180722_1": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 3
+        },
+        "iname": "DAILY_SUMMER_20180722_1",
+        "Name": "【サマーキャンペーン】ノーマルクエストをクリアしよう",
+        "Category": "【サマーキャンペーン】特別デイリーミッション 7/22",
+        "Items": [
+            {
+                "iname": "IT_PI_TEONA",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "DAILY_SUMMER_20180722_2": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winevent",
+            "ival": 3
+        },
+        "iname": "DAILY_SUMMER_20180722_2",
+        "Name": "【サマーキャンペーン】イベントクエストをクリアしよう",
+        "Category": "【サマーキャンペーン】特別デイリーミッション 7/22",
+        "Items": [
+            {
+                "iname": "IT_PI_TEONA",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "DAILY_SUMMER_20180722_3": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "multiplay",
+            "ival": 1
+        },
+        "iname": "DAILY_SUMMER_20180722_3",
+        "Name": "【サマーキャンペーン】マルチクエストをプレイしよう",
+        "Category": "【サマーキャンペーン】特別デイリーミッション 7/22",
+        "Items": [
+            {
+                "iname": "IT_PI_TEONA",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "DAILY_SUMMER_20180722_4": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquestsoldier",
+            "ival": 1
+        },
+        "iname": "DAILY_SUMMER_20180722_4",
+        "Name": "【サマーキャンペーン】傭兵を連れて1回クリアする",
+        "Category": "【サマーキャンペーン】特別デイリーミッション 7/22",
+        "Items": [
+            {
+                "iname": "IT_PI_TEONA",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "DAILY_SUMMER_20180722_5": {
+        "RequiredTrophies": [
+            "DAILY_SUMMER_20180722_1",
+            "DAILY_SUMMER_20180722_2",
+            "DAILY_SUMMER_20180722_3",
+            "DAILY_SUMMER_20180722_4"
+        ],
+        "Objectives": {
+            "type": "winquestsoldier",
+            "ival": 1
+        },
+        "iname": "DAILY_SUMMER_20180722_5",
+        "Name": "【サマーキャンペーン】特別デイリーミッションを全て達成する",
+        "Expr": "【サマーキャンペーン】特別デイリーミッションを全て達成する",
+        "Coin": 50,
+        "Category": "【サマーキャンペーン】特別デイリーミッション 7/22",
+        "Items": [
+            {
+                "iname": "IT_PI_TEONA",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "DAILY_SUMMER_20180723_1": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 3
+        },
+        "iname": "DAILY_SUMMER_20180723_1",
+        "Name": "【サマーキャンペーン】ノーマルクエストをクリアしよう",
+        "Category": "【サマーキャンペーン】特別デイリーミッション 7/23",
+        "Items": [
+            {
+                "iname": "IT_PI_YAULAS",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "DAILY_SUMMER_20180723_2": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winevent",
+            "ival": 3
+        },
+        "iname": "DAILY_SUMMER_20180723_2",
+        "Name": "【サマーキャンペーン】イベントクエストをクリアしよう",
+        "Category": "【サマーキャンペーン】特別デイリーミッション 7/23",
+        "Items": [
+            {
+                "iname": "IT_PI_YAULAS",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "DAILY_SUMMER_20180723_3": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "multiplay",
+            "ival": 1
+        },
+        "iname": "DAILY_SUMMER_20180723_3",
+        "Name": "【サマーキャンペーン】マルチクエストをプレイしよう",
+        "Category": "【サマーキャンペーン】特別デイリーミッション 7/23",
+        "Items": [
+            {
+                "iname": "IT_PI_YAULAS",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "DAILY_SUMMER_20180723_4": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquestsoldier",
+            "ival": 1
+        },
+        "iname": "DAILY_SUMMER_20180723_4",
+        "Name": "【サマーキャンペーン】傭兵を連れて1回クリアする",
+        "Category": "【サマーキャンペーン】特別デイリーミッション 7/23",
+        "Items": [
+            {
+                "iname": "IT_PI_YAULAS",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "DAILY_SUMMER_20180723_5": {
+        "RequiredTrophies": [
+            "DAILY_SUMMER_20180723_1",
+            "DAILY_SUMMER_20180723_2",
+            "DAILY_SUMMER_20180723_3",
+            "DAILY_SUMMER_20180723_4"
+        ],
+        "Objectives": {
+            "type": "winquestsoldier",
+            "ival": 1
+        },
+        "iname": "DAILY_SUMMER_20180723_5",
+        "Name": "【サマーキャンペーン】特別デイリーミッションを全て達成する",
+        "Expr": "【サマーキャンペーン】特別デイリーミッションを全て達成する",
+        "Coin": 50,
+        "Category": "【サマーキャンペーン】特別デイリーミッション 7/23",
+        "Items": [
+            {
+                "iname": "IT_PI_YAULAS",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "DAILY_SUMMER_20180724_1": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 3
+        },
+        "iname": "DAILY_SUMMER_20180724_1",
+        "Name": "【サマーキャンペーン】ノーマルクエストをクリアしよう",
+        "Category": "【サマーキャンペーン】特別デイリーミッション 7/24",
+        "Items": [
+            {
+                "iname": "IT_PI_YOMI",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "DAILY_SUMMER_20180724_2": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winevent",
+            "ival": 3
+        },
+        "iname": "DAILY_SUMMER_20180724_2",
+        "Name": "【サマーキャンペーン】イベントクエストをクリアしよう",
+        "Category": "【サマーキャンペーン】特別デイリーミッション 7/24",
+        "Items": [
+            {
+                "iname": "IT_PI_YOMI",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "DAILY_SUMMER_20180724_3": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "multiplay",
+            "ival": 1
+        },
+        "iname": "DAILY_SUMMER_20180724_3",
+        "Name": "【サマーキャンペーン】マルチクエストをプレイしよう",
+        "Category": "【サマーキャンペーン】特別デイリーミッション 7/24",
+        "Items": [
+            {
+                "iname": "IT_PI_YOMI",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "DAILY_SUMMER_20180724_4": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquestsoldier",
+            "ival": 1
+        },
+        "iname": "DAILY_SUMMER_20180724_4",
+        "Name": "【サマーキャンペーン】傭兵を連れて1回クリアする",
+        "Category": "【サマーキャンペーン】特別デイリーミッション 7/24",
+        "Items": [
+            {
+                "iname": "IT_PI_YOMI",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "DAILY_SUMMER_20180724_5": {
+        "RequiredTrophies": [
+            "DAILY_SUMMER_20180724_1",
+            "DAILY_SUMMER_20180724_2",
+            "DAILY_SUMMER_20180724_3",
+            "DAILY_SUMMER_20180724_4"
+        ],
+        "Objectives": {
+            "type": "winquestsoldier",
+            "ival": 1
+        },
+        "iname": "DAILY_SUMMER_20180724_5",
+        "Name": "【サマーキャンペーン】特別デイリーミッションを全て達成する",
+        "Expr": "【サマーキャンペーン】特別デイリーミッションを全て達成する",
+        "Coin": 50,
+        "Category": "【サマーキャンペーン】特別デイリーミッション 7/24",
+        "Items": [
+            {
+                "iname": "IT_PI_YOMI",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "DAILY_SUMMER_20180725_1": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 3
+        },
+        "iname": "DAILY_SUMMER_20180725_1",
+        "Name": "【サマーキャンペーン】ノーマルクエストをクリアしよう",
+        "Category": "【サマーキャンペーン】特別デイリーミッション 7/25",
+        "Items": [
+            {
+                "iname": "IT_PI_VETTEL",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "DAILY_SUMMER_20180725_2": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winevent",
+            "ival": 3
+        },
+        "iname": "DAILY_SUMMER_20180725_2",
+        "Name": "【サマーキャンペーン】イベントクエストをクリアしよう",
+        "Category": "【サマーキャンペーン】特別デイリーミッション 7/25",
+        "Items": [
+            {
+                "iname": "IT_PI_VETTEL",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "DAILY_SUMMER_20180725_3": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "multiplay",
+            "ival": 1
+        },
+        "iname": "DAILY_SUMMER_20180725_3",
+        "Name": "【サマーキャンペーン】マルチクエストをプレイしよう",
+        "Category": "【サマーキャンペーン】特別デイリーミッション 7/25",
+        "Items": [
+            {
+                "iname": "IT_PI_VETTEL",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "DAILY_SUMMER_20180725_4": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquestsoldier",
+            "ival": 1
+        },
+        "iname": "DAILY_SUMMER_20180725_4",
+        "Name": "【サマーキャンペーン】傭兵を連れて1回クリアする",
+        "Category": "【サマーキャンペーン】特別デイリーミッション 7/25",
+        "Items": [
+            {
+                "iname": "IT_PI_VETTEL",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "DAILY_SUMMER_20180725_5": {
+        "RequiredTrophies": [
+            "DAILY_SUMMER_20180725_1",
+            "DAILY_SUMMER_20180725_2",
+            "DAILY_SUMMER_20180725_3",
+            "DAILY_SUMMER_20180725_4"
+        ],
+        "Objectives": {
+            "type": "winquestsoldier",
+            "ival": 1
+        },
+        "iname": "DAILY_SUMMER_20180725_5",
+        "Name": "【サマーキャンペーン】特別デイリーミッションを全て達成する",
+        "Expr": "【サマーキャンペーン】特別デイリーミッションを全て達成する",
+        "Coin": 50,
+        "Category": "【サマーキャンペーン】特別デイリーミッション 7/25",
+        "Items": [
+            {
+                "iname": "IT_PI_VETTEL",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "DAILY_SUMMER_20180726_1": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 3
+        },
+        "iname": "DAILY_SUMMER_20180726_1",
+        "Name": "【サマーキャンペーン】ノーマルクエストをクリアしよう",
+        "Category": "【サマーキャンペーン】特別デイリーミッション 7/26",
+        "Items": [
+            {
+                "iname": "IT_PI_ACHAD",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "DAILY_SUMMER_20180726_2": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winevent",
+            "ival": 3
+        },
+        "iname": "DAILY_SUMMER_20180726_2",
+        "Name": "【サマーキャンペーン】イベントクエストをクリアしよう",
+        "Category": "【サマーキャンペーン】特別デイリーミッション 7/26",
+        "Items": [
+            {
+                "iname": "IT_PI_ACHAD",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "DAILY_SUMMER_20180726_3": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "multiplay",
+            "ival": 1
+        },
+        "iname": "DAILY_SUMMER_20180726_3",
+        "Name": "【サマーキャンペーン】マルチクエストをプレイしよう",
+        "Category": "【サマーキャンペーン】特別デイリーミッション 7/26",
+        "Items": [
+            {
+                "iname": "IT_PI_ACHAD",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "DAILY_SUMMER_20180726_4": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquestsoldier",
+            "ival": 1
+        },
+        "iname": "DAILY_SUMMER_20180726_4",
+        "Name": "【サマーキャンペーン】傭兵を連れて1回クリアする",
+        "Category": "【サマーキャンペーン】特別デイリーミッション 7/26",
+        "Items": [
+            {
+                "iname": "IT_PI_ACHAD",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "DAILY_SUMMER_20180726_5": {
+        "RequiredTrophies": [
+            "DAILY_SUMMER_20180726_1",
+            "DAILY_SUMMER_20180726_2",
+            "DAILY_SUMMER_20180726_3",
+            "DAILY_SUMMER_20180726_4"
+        ],
+        "Objectives": {
+            "type": "winquestsoldier",
+            "ival": 1
+        },
+        "iname": "DAILY_SUMMER_20180726_5",
+        "Name": "【サマーキャンペーン】特別デイリーミッションを全て達成する",
+        "Expr": "【サマーキャンペーン】特別デイリーミッションを全て達成する",
+        "Coin": 50,
+        "Category": "【サマーキャンペーン】特別デイリーミッション 7/26",
+        "Items": [
+            {
+                "iname": "IT_PI_ACHAD",
+                "num": 3
+            }
+        ],
         "Artifacts": [],
         "ConceptCards": []
     },
@@ -60240,12 +61879,12 @@
             "ival": 1
         },
         "iname": "DAILY_2018MAY_FRENDP_01",
-        "Name": "【期間限定】フレンドにプレゼントを贈ろう！",
-        "Category": "【期間限定】フレンドプレゼントデイリーミッション",
+        "Name": "フレンドにプレゼントを贈ろう！",
+        "Category": "フレンドプレゼントデイリーミッション",
         "Items": [
             {
                 "iname": "IT_EVENT_FRIEND_COIN",
-                "num": 15
+                "num": 10
             }
         ],
         "Artifacts": [],
@@ -62922,6 +64561,23 @@
                 "num": 1
             }
         ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_STORY_5_2EX_01": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_EV_STORY_5_2EX"
+            ]
+        },
+        "iname": "SO_STORY_5_2EX_01",
+        "Name": "5章2話公開直前EXをクリア[1/1回]",
+        "Coin": 250,
+        "Category": "【期間限定】5章2話公開直前EX",
+        "Items": [],
         "Artifacts": [],
         "ConceptCards": []
     },
@@ -81170,6 +82826,729 @@
         "Artifacts": [],
         "ConceptCards": []
     },
+    "WINQUEST_548": {
+        "RequiredTrophies": [
+            "WINQUEST_547"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_050031"
+            ]
+        },
+        "iname": "WINQUEST_548",
+        "Name": "5章2話1-1をクリア",
+        "Coin": 50,
+        "Exp": 750,
+        "Category": "【ストーリー】5章2話",
+        "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_549": {
+        "RequiredTrophies": [
+            "WINQUEST_547"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_050032"
+            ]
+        },
+        "iname": "WINQUEST_549",
+        "Name": "5章2話1-2をクリア",
+        "Exp": 750,
+        "Category": "【ストーリー】5章2話",
+        "Items": [
+            {
+                "iname": "IT_PI_KAMUI",
+                "num": 5
+            },
+            {
+                "iname": "IT_UG_APPLE3",
+                "num": 15
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_550": {
+        "RequiredTrophies": [
+            "WINQUEST_547"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_050033"
+            ]
+        },
+        "iname": "WINQUEST_550",
+        "Name": "5章2話1-3をクリア",
+        "Coin": 50,
+        "Exp": 750,
+        "Category": "【ストーリー】5章2話",
+        "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_551": {
+        "RequiredTrophies": [
+            "WINQUEST_547"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_050034"
+            ]
+        },
+        "iname": "WINQUEST_551",
+        "Name": "5章2話1-4をクリア",
+        "Exp": 750,
+        "Category": "【ストーリー】5章2話",
+        "Items": [
+            {
+                "iname": "IT_EQ_HP_CIRCLET",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_ATK_LANCE",
+                "num": 1
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_552": {
+        "RequiredTrophies": [
+            "WINQUEST_547"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_050035"
+            ]
+        },
+        "iname": "WINQUEST_552",
+        "Name": "5章2話1-5をクリア",
+        "Coin": 50,
+        "Exp": 750,
+        "Category": "【ストーリー】5章2話",
+        "Items": [
+            {
+                "iname": "IT_US_APPLE_10TICKET",
+                "num": 1
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_553": {
+        "RequiredTrophies": [
+            "WINQUEST_547"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_050036"
+            ]
+        },
+        "iname": "WINQUEST_553",
+        "Name": "5章2話1-6をクリア",
+        "Exp": 750,
+        "Category": "【ストーリー】5章2話",
+        "Items": [
+            {
+                "iname": "IT_US_TICKET",
+                "num": 5
+            },
+            {
+                "iname": "IT_UG_APPLE3",
+                "num": 15
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_554": {
+        "RequiredTrophies": [
+            "WINQUEST_547"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_050037"
+            ]
+        },
+        "iname": "WINQUEST_554",
+        "Name": "5章2話1-7をクリア",
+        "Coin": 50,
+        "Exp": 750,
+        "Category": "【ストーリー】5章2話",
+        "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_555": {
+        "RequiredTrophies": [
+            "WINQUEST_547"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_050038"
+            ]
+        },
+        "iname": "WINQUEST_555",
+        "Name": "5章2話1-8をクリア",
+        "Exp": 750,
+        "Category": "【ストーリー】5章2話",
+        "Items": [
+            {
+                "iname": "IT_EQ_DEF_SHELM",
+                "num": 1
+            },
+            {
+                "iname": "IT_EQ_SPD_SHINOBI",
+                "num": 1
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_556": {
+        "RequiredTrophies": [
+            "WINQUEST_547"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_050039"
+            ]
+        },
+        "iname": "WINQUEST_556",
+        "Name": "5章2話1-9をクリア",
+        "Coin": 50,
+        "Exp": 750,
+        "Category": "【ストーリー】5章2話",
+        "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_557": {
+        "RequiredTrophies": [
+            "WINQUEST_547"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_050040"
+            ]
+        },
+        "iname": "WINQUEST_557",
+        "Name": "5章2話1-10をクリア",
+        "Exp": 750,
+        "Category": "【ストーリー】5章2話",
+        "Items": [
+            {
+                "iname": "IT_US_2016APR_ARTIFACT_TICKET",
+                "num": 5
+            },
+            {
+                "iname": "IT_EQ_ATK_AX",
+                "num": 1
+            },
+            {
+                "iname": "IT_UG_APPLE3",
+                "num": 25
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_558": {
+        "RequiredTrophies": [
+            "WINQUEST_557"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_050041"
+            ]
+        },
+        "iname": "WINQUEST_558",
+        "Name": "5章2話2-1をクリア",
+        "Coin": 50,
+        "Exp": 900,
+        "Category": "【ストーリー】5章2話",
+        "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_559": {
+        "RequiredTrophies": [
+            "WINQUEST_557"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_050042"
+            ]
+        },
+        "iname": "WINQUEST_559",
+        "Name": "5章2話2-2をクリア",
+        "Exp": 900,
+        "Category": "【ストーリー】5章2話",
+        "Items": [
+            {
+                "iname": "IT_PI_KAMUI",
+                "num": 5
+            },
+            {
+                "iname": "IT_UG_APPLE3",
+                "num": 20
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_560": {
+        "RequiredTrophies": [
+            "WINQUEST_557"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_050043"
+            ]
+        },
+        "iname": "WINQUEST_560",
+        "Name": "5章2話2-3をクリア",
+        "Coin": 50,
+        "Exp": 900,
+        "Category": "【ストーリー】5章2話",
+        "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_561": {
+        "RequiredTrophies": [
+            "WINQUEST_557"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_050044"
+            ]
+        },
+        "iname": "WINQUEST_561",
+        "Name": "5章2話2-4をクリア",
+        "Exp": 900,
+        "Category": "【ストーリー】5章2話",
+        "Items": [
+            {
+                "iname": "IT_EQ_LUK_TRUMP",
+                "num": 1
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_562": {
+        "RequiredTrophies": [
+            "WINQUEST_557"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_050045"
+            ]
+        },
+        "iname": "WINQUEST_562",
+        "Name": "5章2話2-5をクリア",
+        "Coin": 50,
+        "Exp": 900,
+        "Category": "【ストーリー】5章2話",
+        "Items": [
+            {
+                "iname": "IT_US_APPLE_10TICKET",
+                "num": 1
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_563": {
+        "RequiredTrophies": [
+            "WINQUEST_557"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_050046"
+            ]
+        },
+        "iname": "WINQUEST_563",
+        "Name": "5章2話2-6をクリア",
+        "Exp": 900,
+        "Category": "【ストーリー】5章2話",
+        "Items": [
+            {
+                "iname": "IT_US_TICKET",
+                "num": 5
+            },
+            {
+                "iname": "IT_UG_APPLE3",
+                "num": 20
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_564": {
+        "RequiredTrophies": [
+            "WINQUEST_557"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_050047"
+            ]
+        },
+        "iname": "WINQUEST_564",
+        "Name": "5章2話2-7をクリア",
+        "Coin": 50,
+        "Exp": 900,
+        "Category": "【ストーリー】5章2話",
+        "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_565": {
+        "RequiredTrophies": [
+            "WINQUEST_557"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_050048"
+            ]
+        },
+        "iname": "WINQUEST_565",
+        "Name": "5章2話2-8をクリア",
+        "Exp": 900,
+        "Category": "【ストーリー】5章2話",
+        "Items": [
+            {
+                "iname": "IT_EQ_MAG_MAGICWAND",
+                "num": 1
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_566": {
+        "RequiredTrophies": [
+            "WINQUEST_557"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_050049"
+            ]
+        },
+        "iname": "WINQUEST_566",
+        "Name": "5章2話2-9をクリア",
+        "Coin": 50,
+        "Exp": 900,
+        "Category": "【ストーリー】5章2話",
+        "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_567": {
+        "RequiredTrophies": [
+            "WINQUEST_557"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_050050"
+            ]
+        },
+        "iname": "WINQUEST_567",
+        "Name": "5章2話2-10をクリア",
+        "Exp": 900,
+        "Category": "【ストーリー】5章2話",
+        "Items": [
+            {
+                "iname": "IT_US_RARESOUBI_10TICKET",
+                "num": 1
+            },
+            {
+                "iname": "IT_UG_APPLE3",
+                "num": 30
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_568": {
+        "RequiredTrophies": [
+            "WINQUEST_567"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_050051"
+            ]
+        },
+        "iname": "WINQUEST_568",
+        "Name": "5章2話3-1をクリア",
+        "Coin": 50,
+        "Exp": 1200,
+        "Category": "【ストーリー】5章2話",
+        "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_569": {
+        "RequiredTrophies": [
+            "WINQUEST_567"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_050052"
+            ]
+        },
+        "iname": "WINQUEST_569",
+        "Name": "5章2話3-2をクリア",
+        "Exp": 1200,
+        "Category": "【ストーリー】5章2話",
+        "Items": [
+            {
+                "iname": "IT_PI_KAMUI",
+                "num": 5
+            },
+            {
+                "iname": "IT_UG_APPLE4",
+                "num": 5
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_570": {
+        "RequiredTrophies": [
+            "WINQUEST_567"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_050053"
+            ]
+        },
+        "iname": "WINQUEST_570",
+        "Name": "5章2話3-3をクリア",
+        "Coin": 50,
+        "Exp": 1200,
+        "Category": "【ストーリー】5章2話",
+        "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_571": {
+        "RequiredTrophies": [
+            "WINQUEST_567"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_050054"
+            ]
+        },
+        "iname": "WINQUEST_571",
+        "Name": "5章2話3-4をクリア",
+        "Exp": 1200,
+        "Category": "【ストーリー】5章2話",
+        "Items": [
+            {
+                "iname": "IT_EQ_DEX_NOTEBOOK",
+                "num": 1
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_572": {
+        "RequiredTrophies": [
+            "WINQUEST_567"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_050055"
+            ]
+        },
+        "iname": "WINQUEST_572",
+        "Name": "5章2話3-5をクリア",
+        "Coin": 50,
+        "Exp": 1200,
+        "Category": "【ストーリー】5章2話",
+        "Items": [
+            {
+                "iname": "IT_US_APPLE_10TICKET",
+                "num": 1
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_573": {
+        "RequiredTrophies": [
+            "WINQUEST_567"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_050056"
+            ]
+        },
+        "iname": "WINQUEST_573",
+        "Name": "5章2話3-6をクリア",
+        "Exp": 1200,
+        "Category": "【ストーリー】5章2話",
+        "Items": [
+            {
+                "iname": "IT_US_TICKET",
+                "num": 5
+            },
+            {
+                "iname": "IT_UG_APPLE4",
+                "num": 5
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_574": {
+        "RequiredTrophies": [
+            "WINQUEST_567"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_050057"
+            ]
+        },
+        "iname": "WINQUEST_574",
+        "Name": "5章2話3-7をクリア",
+        "Coin": 50,
+        "Exp": 1200,
+        "Category": "【ストーリー】5章2話",
+        "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_575": {
+        "RequiredTrophies": [
+            "WINQUEST_567"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_050058"
+            ]
+        },
+        "iname": "WINQUEST_575",
+        "Name": "5章2話3-8をクリア",
+        "Exp": 1200,
+        "Category": "【ストーリー】5章2話",
+        "Items": [
+            {
+                "iname": "IT_EQ_DEF_SHIELD",
+                "num": 1
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_576": {
+        "RequiredTrophies": [
+            "WINQUEST_567"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_050059"
+            ]
+        },
+        "iname": "WINQUEST_576",
+        "Name": "5章2話3-9をクリア",
+        "Coin": 50,
+        "Exp": 1200,
+        "Category": "【ストーリー】5章2話",
+        "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_577": {
+        "RequiredTrophies": [
+            "WINQUEST_567"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_050060"
+            ]
+        },
+        "iname": "WINQUEST_577",
+        "Name": "5章2話3-10をクリア",
+        "Exp": 1200,
+        "Category": "【ストーリー】5章2話",
+        "Items": [
+            {
+                "iname": "IT_US_2016APR_JOB_SOUBI_TICKET",
+                "num": 1
+            },
+            {
+                "iname": "IT_UG_APPLE4",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
     "WINQUEST_START01": {
         "RequiredTrophies": [],
         "Objectives": {
@@ -84014,6 +86393,29 @@
         "Artifacts": [],
         "ConceptCards": []
     },
+    "KAMUI_KAKERA_02": {
+        "RequiredTrophies": [
+            "KAMUI_KAKERA_01"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 2,
+            "sval": [
+                "QE_ST_HA_050002"
+            ]
+        },
+        "iname": "KAMUI_KAKERA_02",
+        "Name": "カムイ限界突破ルート・ハードクエスト［5章2話1-1］",
+        "Category": "【ハードクエスト】カムイ限界突破ルート",
+        "Items": [
+            {
+                "iname": "IT_PI_KAMUI",
+                "num": 2
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
     "EVENT_ZEN01": {
         "RequiredTrophies": [],
         "Objectives": {
@@ -86451,6 +88853,27 @@
         "Items": [
             {
                 "iname": "IT_KEY_QUEST_BABEL_LEAFA",
+                "num": 1
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_ALMA_LV85_GET_KEY": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "makeunitlevel",
+            "ival": 85,
+            "sval": [
+                "UN_V2_ALMA"
+            ]
+        },
+        "iname": "SO_ALMA_LV85_GET_KEY",
+        "Name": "アルマのレベルを上げよう",
+        "Category": "バベル戦技体得",
+        "Items": [
+            {
+                "iname": "IT_KEY_QUEST_BABEL_ALMA",
                 "num": 1
             }
         ],

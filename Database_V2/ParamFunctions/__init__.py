@@ -7,6 +7,7 @@ from ParamFunctions.BreakObjParam import BreakObjParam
 from ParamFunctions.BuffEffectParam import BuffEffectParam
 from ParamFunctions.ChallengeCategoryParam import ChallengeCategoryParam
 from ParamFunctions.ChapterParam import ChapterParam
+from ParamFunctions.ConceptCardParam import ConceptCardParam
 from ParamFunctions.CondEffectParam import CondEffectParam
 from ParamFunctions.EvaluationParam import EvaluationParam
 from ParamFunctions.FixParam import FixParam

@@ -440,6 +440,20 @@
         "mEffectName": "eff_p_mg_s_rh_ato_skill108_posion00",
         "mEffTarget": "EnemySide"
     },
+    "TR_SK_ART_TOWER_01": {
+        "mIname": "TR_SK_ART_TOWER_01",
+        "mName": "粘着トラップ",
+        "mExpr": "パネルの上に乗るとクロックダウン&素早さが大幅にダウン",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_ART_UPPER_2",
+        "mCondId": "CON_SLOW",
+        "mTarget": "EnemySide",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": true,
+        "mMarkerName": "cond",
+        "mEffectName": "eff_p_mg_s_mad_skill100_sm_def0",
+        "mEffTarget": "EnemySide"
+    },
     "TR_RH_ATO_SKILL_01B": {
         "mIname": "TR_RH_ATO_SKILL_01B",
         "mName": "炎星陣",
@@ -1973,6 +1987,18 @@
         "mMarkerName": "buff",
         "mEffTarget": "UnitAll"
     },
+    "TR_MAP_RM_PIERCE_TOWER_01": {
+        "mIname": "TR_MAP_RM_PIERCE_TOWER_01",
+        "mName": "刺突攻撃&刺突耐性アップパネル",
+        "mExpr": "パネル上に乗ると刺突ダメージ&刺突耐性&素早さが大幅にアップ",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_MAP_RM_PIERCE_TOWER_01",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": true,
+        "mMarkerName": "buff",
+        "mEffTarget": "UnitAll"
+    },
     "TR_MAP_RM_PIERCE_CRYUNI": {
         "mIname": "TR_MAP_RM_PIERCE_CRYUNI",
         "mName": "刺突攻撃アップパネル",
@@ -1994,6 +2020,111 @@
         "mVisualType": "ALL",
         "mIsNoOverWrite": true,
         "mMarkerName": "buff",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_GUTS": {
+        "mIname": "TR_MAP_GUTS",
+        "mName": "ガッツパネル",
+        "mExpr": "敵がパネルを踏むとガッツが発動する",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_GUTS_100_HAGAREN_EX3_01",
+        "mTarget": "SelfSide",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": false,
+        "mMarkerName": "buff",
+        "mEffTarget": "SelfSide"
+    },
+    "TR_MAP_RM_SHOT_MEBI": {
+        "mIname": "TR_MAP_RM_SHOT_MEBI",
+        "mName": "射撃攻撃アップパネル改",
+        "mExpr": "パネル上に乗ると射撃攻撃力アップ&射程+5",
+        "mDamageType": "NONE",
+        "mBuffId": "BUFF_MAP_RM_SHOT_MEBI",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": false,
+        "mMarkerName": "buff",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_ALMA_REBECCA_EX_SP": {
+        "mIname": "TR_MAP_ALMA_REBECCA_EX_SP",
+        "mName": "なにかが起こるパネル（敵）",
+        "mExpr": "特定のバタリオンが踏むとなにかが起こる・・・",
+        "mDamageType": "NONE",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": true,
+        "mMarkerName": "buff",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_MOBIUS40_01": {
+        "mIname": "TR_MAP_MOBIUS40_01",
+        "mName": "鬼の陣",
+        "mExpr": "特定の敵ユニットがスキルを発動",
+        "mDamageType": "NONE",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": true,
+        "mMarkerName": "buff",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_MOBIUS40_02": {
+        "mIname": "TR_MAP_MOBIUS40_02",
+        "mName": "黄金の陣",
+        "mExpr": "特定の敵ユニットがスキルを発動",
+        "mDamageType": "NONE",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": true,
+        "mMarkerName": "heal",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_MOBIUS40_03": {
+        "mIname": "TR_MAP_MOBIUS40_03",
+        "mName": "機械の陣",
+        "mExpr": "特定の敵ユニットがスキルを発動",
+        "mDamageType": "NONE",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": true,
+        "mMarkerName": "damage",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_MOBIUS40_04": {
+        "mIname": "TR_MAP_MOBIUS40_04",
+        "mName": "虫の陣",
+        "mExpr": "特定の敵ユニットがスキルを発動",
+        "mDamageType": "NONE",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": true,
+        "mMarkerName": "cond",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_MAP_MOBIUS40_05": {
+        "mIname": "TR_MAP_MOBIUS40_05",
+        "mName": "獣の陣",
+        "mExpr": "特定の敵ユニットがスキルを発動",
+        "mDamageType": "NONE",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": true,
+        "mMarkerName": "cond",
+        "mEffTarget": "UnitAll"
+    },
+    "TR_SK_DAMAGE_MOBIUS": {
+        "mIname": "TR_SK_DAMAGE_MOBIUS",
+        "mName": "激痛とらばさみ",
+        "mExpr": "乗ると大ダメージが発生するとらばさみ",
+        "mDamageType": "DAMAGE",
+        "mDamageVal": 9999,
+        "mCalcType": "Fixed",
+        "mCondId": "CON_DON",
+        "mTarget": "UnitAll",
+        "mVisualType": "ALL",
+        "mIsNoOverWrite": true,
+        "mMarkerName": "damage",
+        "mEffectName": "eff_p_mg_m_damage_leghold00",
         "mEffTarget": "UnitAll"
     }
 }

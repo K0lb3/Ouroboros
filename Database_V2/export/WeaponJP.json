@@ -558,5 +558,20 @@
         "iname": "WE_YOMI_KAM_WEP",
         "atk": 20,
         "formula": 16
+    },
+    "WE_MAG_FIST": {
+        "iname": "WE_MAG_FIST",
+        "atk": 17,
+        "formula": 13
+    },
+    "WE_MAG_FIST2": {
+        "iname": "WE_MAG_FIST2",
+        "atk": 15,
+        "formula": 2
+    },
+    "WE_KAYA01": {
+        "iname": "WE_KAYA01",
+        "atk": 15,
+        "formula": 2
     }
 }

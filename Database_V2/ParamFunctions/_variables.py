@@ -45,6 +45,7 @@ RAWBIRTH = {
     "ノーザンブライド": "Northern Pride",
     "グリードダイク": "Greed Dike",
     "グラトニー＝フォス": "Gluttony Foss",
+    "ロストブルー": "Lost Blue",
     '神戸あいしす':'Kobe Aisushi', #placeholder? only one Doro enemy and 8 buffs/conds
     '神戸IJ': 'Kobe IJ',
     'ラットン田崎': 'Tasaki Kobe',

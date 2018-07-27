@@ -5743,5 +5743,17 @@
             "iname": "JB_DIOS_ANK",
             "lv": 11
         }
+    },
+    "JS_LUCIA_04_LUCA_STR": {
+        "iname": "JS_LUCIA_04_LUCA_STR",
+        "job": "JB_LUCA_STR",
+        "jobchange": "JS_LUCIA_03_STR",
+        "target_unit": "UN_V2_LUCIA",
+        "lock_rarity": 0,
+        "lock_awakelv": 15,
+        "lock_jobs": {
+            "iname": "JB_STR",
+            "lv": 11
+        }
     }
 }

@@ -101,10 +101,11 @@ def JobParam(json):
             for rank in json['ranks']
         ]
     
-    #stat calc would be here, ignored for now
-    #if(master_param!=null)
-    #this.CreateBuffList(master_param)
+        this['abilities']=[]
+        for rank in this['ranks']:
+            if 'learnings' in rank:
+                this['abilities']+=rank['learnings']
+
     if 'unit_image' in json:
         this['unit_image'] = json['unit_image']
-    #returntrue
     return this

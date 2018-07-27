@@ -107,6 +107,7 @@ def convertSys(file):
     return sys
 
 def convertParam(file):
+    return file
     for main,tree in file.items():
         if type(tree)==list and type(tree[0]) == dict and 'iname' in tree[0]:
             new_tree={}

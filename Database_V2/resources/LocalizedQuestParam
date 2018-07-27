@@ -1904,15 +1904,15 @@ SRPG_QuestParam_QE_ST_NO_030030_COND	Defeat the beetles!
 SRPG_QuestParam_QE_ST_NO_030030_TITLE	Ch 3: Ep 1 [3-10]
 SRPG_QuestParam_QE_ST_NO_030031_NAME	Lisbeth Encircling Net
 SRPG_QuestParam_QE_ST_NO_030031_EXPR	Episode 2: Act 1-1
-SRPG_QuestParam_QE_ST_NO_030031_COND	Fight Off Teacher !
+SRPG_QuestParam_QE_ST_NO_030031_COND	Fight off Teacher!
 SRPG_QuestParam_QE_ST_NO_030031_TITLE	Ch 3: Ep 2 [1-1]
 SRPG_QuestParam_QE_ST_NO_030032_NAME	Increased Support
 SRPG_QuestParam_QE_ST_NO_030032_EXPR	Episode 2: Act 1-2
-SRPG_QuestParam_QE_ST_NO_030032_COND	Fight Off Teacher !
+SRPG_QuestParam_QE_ST_NO_030032_COND	Fight off Teacher!
 SRPG_QuestParam_QE_ST_NO_030032_TITLE	Ch 3: Ep 2 [1-2]
-SRPG_QuestParam_QE_ST_NO_030033_NAME	What's wrong with helping a friend?
+SRPG_QuestParam_QE_ST_NO_030033_NAME	What's Wrong with Helping a Friend?
 SRPG_QuestParam_QE_ST_NO_030033_EXPR	Episode 2: Act 1-3
-SRPG_QuestParam_QE_ST_NO_030033_COND	Fight Off Teacher !
+SRPG_QuestParam_QE_ST_NO_030033_COND	Fight off Teacher!
 SRPG_QuestParam_QE_ST_NO_030033_TITLE	Ch 3: Ep 2 [1-3]
 SRPG_QuestParam_QE_ST_NO_030034_NAME	Adult Issues
 SRPG_QuestParam_QE_ST_NO_030034_EXPR	Episode 2: Act 1-4
@@ -1926,7 +1926,7 @@ SRPG_QuestParam_QE_ST_NO_030036_NAME	Reach for the Sky
 SRPG_QuestParam_QE_ST_NO_030036_EXPR	Episode 2: Act 1-6
 SRPG_QuestParam_QE_ST_NO_030036_COND	Defeat all enemies!
 SRPG_QuestParam_QE_ST_NO_030036_TITLE	Ch 3: Ep 2 [1-6]
-SRPG_QuestParam_QE_ST_NO_030037_NAME	Stop the root of the problem!
+SRPG_QuestParam_QE_ST_NO_030037_NAME	What's Wrong with Helping a Friend?
 SRPG_QuestParam_QE_ST_NO_030037_EXPR	Episode 2: Act 1-7
 SRPG_QuestParam_QE_ST_NO_030037_COND	Defeat all enemies!
 SRPG_QuestParam_QE_ST_NO_030037_TITLE	Ch 3: Ep 2 [1-7]
@@ -4825,7 +4825,7 @@ SRPG_QuestParam_QE_EV_SEISEKI_DJ_5_EX2_NAME	[EX+] Fallen Sun
 SRPG_QuestParam_QE_EV_SEISEKI_DJ_5_EX2_EXPR	Sacred Stone Ep 5 - Extra+
 SRPG_QuestParam_QE_EV_SEISEKI_DJ_5_EX2_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_EV_SEISEKI_DJ_5_EX2_TITLE	Super Hard - Continue Unavailable
-SRPG_QuestParam_QE_EV_SEISEKI_DJ_6_01_NAME	Sacred Stone Memories 6-1 The Mountain Where the Legendary Craftsmen Lives
+SRPG_QuestParam_QE_EV_SEISEKI_DJ_6_01_NAME	Sacred Stone Memories 6-1 Where the Legendary Craftsmen Live
 SRPG_QuestParam_QE_EV_SEISEKI_DJ_6_01_EXPR	Sacred Stone Ep 6 - Act 1
 SRPG_QuestParam_QE_EV_SEISEKI_DJ_6_01_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_EV_SEISEKI_DJ_6_01_TITLE	Unit Lv75 JobLv11 Recommended
@@ -5520,39 +5520,39 @@ SRPG_QuestParam_QE_EV_FF15_10_TITLE	Unit Lv65 JobLv10 Recommended
 SRPG_QuestParam_QE_EV_FF15_HA_NAME	FINAL FANTASY XV Collab [Hard]
 SRPG_QuestParam_QE_EV_FF15_HA_EXPR	FFXV Collab Quest
 SRPG_QuestParam_QE_EV_FF15_HA_COND	Defeat all enemy units!
-SRPG_QuestParam_QE_EV_FF15_HA_TITLE	[Hard]
+SRPG_QuestParam_QE_EV_FF15_HA_TITLE	[Limited Time]
 SRPG_QuestParam_QE_EV_FF15_EX_1_NAME	FINAL FANTASY XV Collab [EX1]
 SRPG_QuestParam_QE_EV_FF15_EX_1_EXPR	FFXV Collab Quest
 SRPG_QuestParam_QE_EV_FF15_EX_1_COND	Defeat all foes except Mandragoras!
-SRPG_QuestParam_QE_EV_FF15_EX_1_TITLE	Hard Quest
+SRPG_QuestParam_QE_EV_FF15_EX_1_TITLE	[Limited Time]
 SRPG_QuestParam_QE_EV_FF15_EX_2_NAME	FINAL FANTASY XV Collab [EX2]
 SRPG_QuestParam_QE_EV_FF15_EX_2_EXPR	FFXV Collab Quest
 SRPG_QuestParam_QE_EV_FF15_EX_2_COND	Defeat all enemy units!
-SRPG_QuestParam_QE_EV_FF15_EX_2_TITLE	Hard Quest
+SRPG_QuestParam_QE_EV_FF15_EX_2_TITLE	[Limited Time]
 SRPG_QuestParam_QE_EV_FF15_EX_3_NAME	FINAL FANTASY XV Collab [EX3]
 SRPG_QuestParam_QE_EV_FF15_EX_3_EXPR	FFXV Collab Quest
 SRPG_QuestParam_QE_EV_FF15_EX_3_COND	Defeat all enemy units!
-SRPG_QuestParam_QE_EV_FF15_EX_3_TITLE	Hard Quest
+SRPG_QuestParam_QE_EV_FF15_EX_3_TITLE	[Limited Time]
 SRPG_QuestParam_QE_EV_FF15_EX_4_NAME	FINAL FANTASY XV Collab [EX4]
 SRPG_QuestParam_QE_EV_FF15_EX_4_EXPR	FFXV Collab Quest
 SRPG_QuestParam_QE_EV_FF15_EX_4_COND	Defeat all enemy units!
-SRPG_QuestParam_QE_EV_FF15_EX_4_TITLE	Hard Quest
+SRPG_QuestParam_QE_EV_FF15_EX_4_TITLE	[Limited Time]
 SRPG_QuestParam_QE_EV_FF15_EX_SP_1_NAME	FINAL FANTASY XV Collab [EX1+]
 SRPG_QuestParam_QE_EV_FF15_EX_SP_1_EXPR	FFXV Collab Quest
 SRPG_QuestParam_QE_EV_FF15_EX_SP_1_COND	Defeat all foes except Mandragoras!
-SRPG_QuestParam_QE_EV_FF15_EX_SP_1_TITLE	Super Hard Quest
+SRPG_QuestParam_QE_EV_FF15_EX_SP_1_TITLE	[Limited Time]
 SRPG_QuestParam_QE_EV_FF15_EX_SP_2_NAME	FINAL FANTASY XV Collab [EX2+]
 SRPG_QuestParam_QE_EV_FF15_EX_SP_2_EXPR	FFXV Collab Quest
 SRPG_QuestParam_QE_EV_FF15_EX_SP_2_COND	Defeat all enemy units!
-SRPG_QuestParam_QE_EV_FF15_EX_SP_2_TITLE	Super Hard Quest
+SRPG_QuestParam_QE_EV_FF15_EX_SP_2_TITLE	[Limited Time]
 SRPG_QuestParam_QE_EV_FF15_EX_SP_3_NAME	FINAL FANTASY XV Collab [EX3+]
 SRPG_QuestParam_QE_EV_FF15_EX_SP_3_EXPR	FFXV Collab Quest
 SRPG_QuestParam_QE_EV_FF15_EX_SP_3_COND	Defeat all enemy units!
-SRPG_QuestParam_QE_EV_FF15_EX_SP_3_TITLE	Super Hard Quest
+SRPG_QuestParam_QE_EV_FF15_EX_SP_3_TITLE	[Limited Time]
 SRPG_QuestParam_QE_EV_FF15_EX_SP_4_NAME	FINAL FANTASY XV Collab [EX4+]
 SRPG_QuestParam_QE_EV_FF15_EX_SP_4_EXPR	FFXV Collab Quest
 SRPG_QuestParam_QE_EV_FF15_EX_SP_4_COND	Defeat all enemy units!
-SRPG_QuestParam_QE_EV_FF15_EX_SP_4_TITLE	Super Hard Quest
+SRPG_QuestParam_QE_EV_FF15_EX_SP_4_TITLE	[Limited Time]
 SRPG_QuestParam_QE_EV_3TITLE_1_NAME	The Sun God and the Golden Key Episode 1
 SRPG_QuestParam_QE_EV_3TITLE_1_EXPR	3-Title Swimsuit Collab Quest
 SRPG_QuestParam_QE_EV_3TITLE_1_COND	Defeat all enemy units!
@@ -5613,23 +5613,23 @@ SRPG_QuestParam_QE_WA_CLOE_4_NAME	Call of the Scarlet Flame [Hard]
 SRPG_QuestParam_QE_WA_CLOE_4_EXPR	Chloe Gear 4
 SRPG_QuestParam_QE_WA_CLOE_4_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_WA_CLOE_4_TITLE	[Limited Time]
-SRPG_QuestParam_QE_WA_ZIN_1_NAME	Return to the Underworld Episode 1 Wind & Darkness
+SRPG_QuestParam_QE_WA_ZIN_1_NAME	Episode 1 Wind & Darkness
 SRPG_QuestParam_QE_WA_ZIN_1_EXPR	Jin Gear 1
 SRPG_QuestParam_QE_WA_ZIN_1_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_WA_ZIN_1_TITLE	Unit Lv10 JobLv2 Recommended
-SRPG_QuestParam_QE_WA_ZIN_2_NAME	Return to the Underworld Episode 2 Spreading Darkness
+SRPG_QuestParam_QE_WA_ZIN_2_NAME	Episode 2 Spreading Darkness
 SRPG_QuestParam_QE_WA_ZIN_2_EXPR	Jin Gear 2
 SRPG_QuestParam_QE_WA_ZIN_2_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_WA_ZIN_2_TITLE	Unit Lv20 JobLv4 Recommended
-SRPG_QuestParam_QE_WA_ZIN_3_NAME	Return to the Underworld Episode 3 In with Demons, out with Luck
+SRPG_QuestParam_QE_WA_ZIN_3_NAME	Episode 3 In with Demons, out with Luck
 SRPG_QuestParam_QE_WA_ZIN_3_EXPR	Jin Gear 3
 SRPG_QuestParam_QE_WA_ZIN_3_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_WA_ZIN_3_TITLE	Unit Lv35 JobLv6 Recommended
-SRPG_QuestParam_QE_WA_ZIN_4_NAME	Return to the Underworld Episode 3 That Which Spoils
+SRPG_QuestParam_QE_WA_ZIN_4_NAME	Episode 4 That Which Spoils
 SRPG_QuestParam_QE_WA_ZIN_4_EXPR	Jin Gear 4
 SRPG_QuestParam_QE_WA_ZIN_4_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_WA_ZIN_4_TITLE	Unit Lv55 JobLv9 Recommended
-SRPG_QuestParam_QE_WA_ZIN_5_NAME	Return to the Underworld Episode 4 Saving Darkness
+SRPG_QuestParam_QE_WA_ZIN_5_NAME	Episode 5 Saving Darkness
 SRPG_QuestParam_QE_WA_ZIN_5_EXPR	Jin Gear 5
 SRPG_QuestParam_QE_WA_ZIN_5_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_WA_ZIN_5_TITLE	Unit Lv65 JobLv10 Recommended
@@ -5942,7 +5942,7 @@ SRPG_QuestParam_QE_ARENA_26_EXPR	Water Units ATK Power +20%, Missile Dmg +30%
 SRPG_QuestParam_QE_ARENA_26_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_ARENA_26_TITLE	Arena
 SRPG_QuestParam_QE_ARENA_27_NAME	Arena [Ruins]
-SRPG_QuestParam_QE_ARENA_27_EXPR	Thunder Units ATK Power +20%, Cast Time -30%
+SRPG_QuestParam_QE_ARENA_27_EXPR	Thunder Units ATK Power +20%, Cast Time -30%
 SRPG_QuestParam_QE_ARENA_27_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_ARENA_27_TITLE	Arena
 SRPG_QuestParam_QE_ARENA_28_NAME	Arena [Canal]
@@ -5986,7 +5986,7 @@ SRPG_QuestParam_QE_VS_06_EXPR	Map Effect: HP +100% & Crit Rate +25%
 SRPG_QuestParam_QE_VS_06_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_VS_06_TITLE	Duel
 SRPG_QuestParam_QE_VS_08_NAME	Ruins
-SRPG_QuestParam_QE_VS_08_EXPR	Map Effect: Cast Time -30%
+SRPG_QuestParam_QE_VS_08_EXPR	Map Effect: Cast Time -30%
 SRPG_QuestParam_QE_VS_08_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_VS_08_TITLE	Duel
 SRPG_QuestParam_QE_VS_09_NAME	RuinsⅡ
@@ -6030,7 +6030,7 @@ SRPG_QuestParam_QE_VS_TOWER_01_EXPR	Map Effect: None
 SRPG_QuestParam_QE_VS_TOWER_01_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_VS_TOWER_01_TITLE	Tower Match β
 SRPG_QuestParam_QE_VS_TOWER_02_NAME	Ruins
-SRPG_QuestParam_QE_VS_TOWER_02_EXPR	Map Effect: Cast Time -30% & Dmg Dealt -50%
+SRPG_QuestParam_QE_VS_TOWER_02_EXPR	Map Effect: Cast Time -30% & Dmg Dealt -50%
 SRPG_QuestParam_QE_VS_TOWER_02_COND	Defeat all enemy units!
 SRPG_QuestParam_QE_VS_TOWER_02_TITLE	Tower Match β
 SRPG_QuestParam_QE_VS_TOWER_03_NAME	RuinsⅡ

@@ -610,7 +610,7 @@
         "mRecipeId": "TB_RECIPE_LUS_R5_THUNDER",
         "mSkillIname": "SK_DILGA_TB_3LUS",
         "mLearnAbilities": [],
-        "mOverwriteLeaderSkillIname": "SK_LS_20_U_SLASH_THUNDER_20_U",
+        "mOverwriteLeaderSkillIname": "SK_LS_30_U_SLASH_THUNDER_20_U",
         "mOverwriteLeaderSkillLevel": 6,
         "mPriority": 1
     },
@@ -1036,7 +1036,7 @@
         "mRecipeId": "TB_RECIPE_LUS_R5_WATER",
         "mSkillIname": "SK_LAMIA_TB_3LUS",
         "mLearnAbilities": [],
-        "mOverwriteLeaderSkillIname": "SK_LS_20_U_STAB_20_U_WATER",
+        "mOverwriteLeaderSkillIname": "SK_LS_30_U_STAB_20_U_WATER",
         "mOverwriteLeaderSkillLevel": 6,
         "mPriority": 1
     },
@@ -1107,7 +1107,7 @@
         "mRecipeId": "TB_RECIPE_LUS_R5_THUNDER",
         "mSkillIname": "SK_VANEKIS_TB_3LUS",
         "mLearnAbilities": [],
-        "mOverwriteLeaderSkillIname": "SK_LS_20_U_MAGIC_20_U_THUNDER",
+        "mOverwriteLeaderSkillIname": "SK_LS_30_U_MAGIC_20_U_THUNDER",
         "mOverwriteLeaderSkillLevel": 6,
         "mPriority": 1
     },
@@ -1391,7 +1391,7 @@
         "mRecipeId": "TB_RECIPE_LUS_R5_DARK",
         "mSkillIname": "SK_MARE_TB_3LUS",
         "mLearnAbilities": [],
-        "mOverwriteLeaderSkillIname": "SK_LS_20_U_MAGIC_20_U_DARK",
+        "mOverwriteLeaderSkillIname": "SK_LS_30_U_MAGIC_20_U_DARK",
         "mOverwriteLeaderSkillLevel": 6,
         "mPriority": 1
     },
@@ -1604,7 +1604,7 @@
         "mRecipeId": "TB_RECIPE_LUS_R5_SHINE",
         "mSkillIname": "SK_FREED_TB_3LUS",
         "mLearnAbilities": [],
-        "mOverwriteLeaderSkillIname": "SK_LS_20_U_STAB_ATK_20_U_SHINE",
+        "mOverwriteLeaderSkillIname": "SK_LS_30_U_STAB_ATK_20_U_SHINE",
         "mOverwriteLeaderSkillLevel": 6,
         "mPriority": 1
     },
@@ -1959,7 +1959,7 @@
         "mRecipeId": "TB_RECIPE_LUS_R5_WIND",
         "mSkillIname": "SK_LUCIA_TB_3LUS",
         "mLearnAbilities": [],
-        "mOverwriteLeaderSkillIname": "SK_LS_20_U_BLOW_20_U_WIND",
+        "mOverwriteLeaderSkillIname": "SK_LS_30_U_BLOW_20_U_WIND",
         "mOverwriteLeaderSkillLevel": 6,
         "mPriority": 1
     },
@@ -2456,7 +2456,7 @@
         "mRecipeId": "TB_RECIPE_LUS_R5_WIND",
         "mSkillIname": "SK_RAHU_TB_3LUS",
         "mLearnAbilities": [],
-        "mOverwriteLeaderSkillIname": "SK_LS_10_U_AVO_20_U_WIND",
+        "mOverwriteLeaderSkillIname": "SK_LS_10_U_AVO_30_U_WIND",
         "mOverwriteLeaderSkillLevel": 6,
         "mPriority": 1
     },
@@ -2598,7 +2598,7 @@
         "mRecipeId": "TB_RECIPE_LUS_R5_FIRE",
         "mSkillIname": "SK_SUTORIE_TB_3LUS",
         "mLearnAbilities": [],
-        "mOverwriteLeaderSkillIname": "SK_LS_20_U_SLASH_20_U_FIRE",
+        "mOverwriteLeaderSkillIname": "SK_LS_30_U_SLASH_20_U_FIRE",
         "mOverwriteLeaderSkillLevel": 6,
         "mPriority": 1
     },
@@ -4018,7 +4018,7 @@
         "mRecipeId": "TB_RECIPE_LUS_R5_FIRE",
         "mSkillIname": "SK_ZANGETSU_TB_3LUS",
         "mLearnAbilities": [],
-        "mOverwriteLeaderSkillIname": "SK_LS_20_U_STAB_20_U_FIRE",
+        "mOverwriteLeaderSkillIname": "SK_LS_30_U_STAB_20_U_FIRE",
         "mOverwriteLeaderSkillLevel": 6,
         "mPriority": 1
     },
@@ -4965,6 +4965,716 @@
     },
     {
         "mUnitIname": "UN_V2_RINN",
+        "mCategory": "Pride",
+        "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_LAVINA",
+        "mEnable": true,
+        "mCategory": "Unlock",
+        "mRecipeId": "TOBIRA_UNLOCK_RECIPE_R5_WATER_FURAI",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_LAVINA",
+        "mEnable": true,
+        "mCategory": "Envy",
+        "mRecipeId": "TB_RECIPE_ENV_R5_WATER",
+        "mSkillIname": "SK_LAVINA_TB_1ENV",
+        "mLearnAbilities": [
+            {
+                "mAbilityIname": "AB_LAVINA_TB_1",
+                "mLevel": 6,
+                "mAddType": 2
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_LAVINA",
+        "mEnable": true,
+        "mCategory": "Wrath",
+        "mRecipeId": "TB_RECIPE_SLO_R5_WATER",
+        "mSkillIname": "SK_LAVINA_TB_2SLO",
+        "mLearnAbilities": [
+            {
+                "mAbilityIname": "AB_LAVINA_TB_2",
+                "mLevel": 6,
+                "mAddType": 1,
+                "mAbilityOverwrite": "AB_MAJ_SUPPORT_01"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_LAVINA",
+        "mEnable": true,
+        "mCategory": "Sloth",
+        "mRecipeId": "TB_RECIPE_LUS_R5_WATER",
+        "mSkillIname": "SK_LAVINA_TB_3LUS",
+        "mLearnAbilities": [],
+        "mOverwriteLeaderSkillIname": "SK_LS_ELEM_WATER_30_U_HP_30_U_MAG_10_U_DFTHUNDER",
+        "mOverwriteLeaderSkillLevel": 6,
+        "mPriority": 1
+    },
+    {
+        "mUnitIname": "UN_V2_LAVINA",
+        "mCategory": "Lust",
+        "mRecipeId": "TB_TEST_RECIPE_4LUS_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_LAVINA",
+        "mCategory": "Gluttony",
+        "mRecipeId": "TB_TEST_RECIPE_5GLU_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_LAVINA",
+        "mCategory": "Greed",
+        "mRecipeId": "TB_TEST_RECIPE_6GRE_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_LAVINA",
+        "mCategory": "Pride",
+        "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_DAISY",
+        "mEnable": true,
+        "mCategory": "Unlock",
+        "mRecipeId": "TOBIRA_UNLOCK_RECIPE_R5_FIRE_KISHI",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_DAISY",
+        "mEnable": true,
+        "mCategory": "Envy",
+        "mRecipeId": "TB_RECIPE_ENV_R5_FIRE",
+        "mSkillIname": "SK_DAISY_TB_1ENV",
+        "mLearnAbilities": [
+            {
+                "mAbilityIname": "AB_DAISY_TB_1",
+                "mLevel": 6,
+                "mAddType": 2
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_DAISY",
+        "mEnable": true,
+        "mCategory": "Wrath",
+        "mRecipeId": "TB_RECIPE_SLO_R5_FIRE",
+        "mSkillIname": "SK_DAISY_TB_2SLO",
+        "mLearnAbilities": [
+            {
+                "mAbilityIname": "AB_DAISY_TB_2",
+                "mLevel": 6,
+                "mAddType": 1,
+                "mAbilityOverwrite": "AB_STR_GOUTAI"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_DAISY",
+        "mEnable": true,
+        "mCategory": "Sloth",
+        "mRecipeId": "TB_RECIPE_LUS_R5_FIRE",
+        "mSkillIname": "SK_DAISY_TB_3LUS",
+        "mLearnAbilities": [],
+        "mOverwriteLeaderSkillIname": "SK_LS_ELEM_FIRE_30_U_STAB_20_U_HP_10_U_HIT",
+        "mOverwriteLeaderSkillLevel": 6,
+        "mPriority": 1
+    },
+    {
+        "mUnitIname": "UN_V2_DAISY",
+        "mCategory": "Lust",
+        "mRecipeId": "TB_TEST_RECIPE_4LUS_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_DAISY",
+        "mCategory": "Gluttony",
+        "mRecipeId": "TB_TEST_RECIPE_5GLU_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_DAISY",
+        "mCategory": "Greed",
+        "mRecipeId": "TB_TEST_RECIPE_6GRE_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_DAISY",
+        "mCategory": "Pride",
+        "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_NOAH",
+        "mEnable": true,
+        "mCategory": "Unlock",
+        "mRecipeId": "TOBIRA_UNLOCK_RECIPE_R5_FIRE_JYUTSUSHI",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_NOAH",
+        "mEnable": true,
+        "mCategory": "Envy",
+        "mRecipeId": "TB_RECIPE_ENV_R5_FIRE",
+        "mSkillIname": "SK_NOAH_TB_1ENV",
+        "mLearnAbilities": [
+            {
+                "mAbilityIname": "AB_NOAH_TB_1",
+                "mLevel": 6,
+                "mAddType": 2
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_NOAH",
+        "mEnable": true,
+        "mCategory": "Wrath",
+        "mRecipeId": "TB_RECIPE_SLO_R5_FIRE",
+        "mSkillIname": "SK_NOAH_TB_2SLO",
+        "mLearnAbilities": [
+            {
+                "mAbilityIname": "AB_NOAH_TB_2",
+                "mLevel": 6,
+                "mAddType": 1,
+                "mAbilityOverwrite": "AB_HWIZ_SUPPORT_2"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_NOAH",
+        "mEnable": true,
+        "mCategory": "Sloth",
+        "mRecipeId": "TB_RECIPE_LUS_R5_FIRE",
+        "mSkillIname": "SK_NOAH_TB_3LUS",
+        "mLearnAbilities": [],
+        "mOverwriteLeaderSkillIname": "SK_LS_ELEM_FIRE_30_U_DEF_30_U_HP_10_U_DFTHUNDER",
+        "mOverwriteLeaderSkillLevel": 6,
+        "mPriority": 1
+    },
+    {
+        "mUnitIname": "UN_V2_NOAH",
+        "mCategory": "Lust",
+        "mRecipeId": "TB_TEST_RECIPE_4LUS_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_NOAH",
+        "mCategory": "Gluttony",
+        "mRecipeId": "TB_TEST_RECIPE_5GLU_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_NOAH",
+        "mCategory": "Greed",
+        "mRecipeId": "TB_TEST_RECIPE_6GRE_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_NOAH",
+        "mCategory": "Pride",
+        "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_ROFIA",
+        "mEnable": true,
+        "mCategory": "Unlock",
+        "mRecipeId": "TOBIRA_UNLOCK_RECIPE_R4_WATER_JYUTSUSHI",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_ROFIA",
+        "mEnable": true,
+        "mCategory": "Envy",
+        "mRecipeId": "TB_RECIPE_ENV_R5_WATER",
+        "mSkillIname": "SK_ROFIA_TB_1ENV",
+        "mLearnAbilities": [
+            {
+                "mAbilityIname": "AB_ROFIA_TB_1",
+                "mLevel": 6,
+                "mAddType": 2
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_ROFIA",
+        "mEnable": true,
+        "mCategory": "Wrath",
+        "mRecipeId": "TB_RECIPE_SLO_R5_WATER",
+        "mSkillIname": "SK_ROFIA_TB_2SLO",
+        "mLearnAbilities": [
+            {
+                "mAbilityIname": "AB_ROFIA_TB_2",
+                "mLevel": 6,
+                "mAddType": 1,
+                "mAbilityOverwrite": "AB_ENC_FAST_CHANT"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_ROFIA",
+        "mEnable": true,
+        "mCategory": "Sloth",
+        "mRecipeId": "TB_RECIPE_LUS_R5_WATER",
+        "mSkillIname": "SK_ROFIA_TB_3LUS",
+        "mLearnAbilities": [],
+        "mOverwriteLeaderSkillIname": "SK_LS_10_U_CAST_20_U_HP_20_U_WATER",
+        "mOverwriteLeaderSkillLevel": 6,
+        "mPriority": 1
+    },
+    {
+        "mUnitIname": "UN_V2_ROFIA",
+        "mCategory": "Lust",
+        "mRecipeId": "TB_TEST_RECIPE_4LUS_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_ROFIA",
+        "mCategory": "Gluttony",
+        "mRecipeId": "TB_TEST_RECIPE_5GLU_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_ROFIA",
+        "mCategory": "Greed",
+        "mRecipeId": "TB_TEST_RECIPE_6GRE_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_ROFIA",
+        "mCategory": "Pride",
+        "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_KURT",
+        "mEnable": true,
+        "mCategory": "Unlock",
+        "mRecipeId": "TOBIRA_UNLOCK_RECIPE_R5_FIRE_KISHI",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_KURT",
+        "mEnable": true,
+        "mCategory": "Envy",
+        "mRecipeId": "TB_RECIPE_ENV_R5_FIRE",
+        "mSkillIname": "SK_KURT_TB_1ENV",
+        "mLearnAbilities": [
+            {
+                "mAbilityIname": "AB_KURT_TB_1",
+                "mLevel": 6,
+                "mAddType": 2
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_KURT",
+        "mEnable": true,
+        "mCategory": "Wrath",
+        "mRecipeId": "TB_RECIPE_SLO_R5_FIRE",
+        "mSkillIname": "SK_KURT_TB_2SLO",
+        "mLearnAbilities": [
+            {
+                "mAbilityIname": "AB_KURT_TB_2",
+                "mLevel": 6,
+                "mAddType": 1,
+                "mAbilityOverwrite": "AB_DGN_SKY_HIGH_VRITRA"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_KURT",
+        "mEnable": true,
+        "mCategory": "Sloth",
+        "mRecipeId": "TB_RECIPE_LUS_R5_FIRE",
+        "mSkillIname": "SK_KURT_TB_3LUS",
+        "mLearnAbilities": [],
+        "mOverwriteLeaderSkillIname": "SK_LS_ELEM_FIRE_50_U_HP_20_U_FIRE",
+        "mOverwriteLeaderSkillLevel": 6,
+        "mPriority": 1
+    },
+    {
+        "mUnitIname": "UN_V2_KURT",
+        "mCategory": "Lust",
+        "mRecipeId": "TB_TEST_RECIPE_4LUS_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_KURT",
+        "mCategory": "Gluttony",
+        "mRecipeId": "TB_TEST_RECIPE_5GLU_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_KURT",
+        "mCategory": "Greed",
+        "mRecipeId": "TB_TEST_RECIPE_6GRE_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_KURT",
+        "mCategory": "Pride",
+        "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_TEONA",
+        "mEnable": true,
+        "mCategory": "Unlock",
+        "mRecipeId": "TOBIRA_UNLOCK_RECIPE_R5_THUNDER_KISHI",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_TEONA",
+        "mEnable": true,
+        "mCategory": "Envy",
+        "mRecipeId": "TB_RECIPE_ENV_R5_THUNDER",
+        "mSkillIname": "SK_TEONA_TB_1ENV",
+        "mLearnAbilities": [
+            {
+                "mAbilityIname": "AB_TEONA_TB_1",
+                "mLevel": 6,
+                "mAddType": 2
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_TEONA",
+        "mEnable": true,
+        "mCategory": "Wrath",
+        "mRecipeId": "TB_RECIPE_SLO_R5_THUNDER",
+        "mSkillIname": "SK_TEONA_TB_2SLO",
+        "mLearnAbilities": [
+            {
+                "mAbilityIname": "AB_TEONA_TB_2",
+                "mLevel": 6,
+                "mAddType": 1,
+                "mAbilityOverwrite": "AB_VAL_SUPPORT_01"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_TEONA",
+        "mEnable": true,
+        "mCategory": "Sloth",
+        "mRecipeId": "TB_RECIPE_LUS_R5_THUNDER",
+        "mSkillIname": "SK_TEONA_TB_3LUS",
+        "mLearnAbilities": [],
+        "mOverwriteLeaderSkillIname": "SK_LS_ELEM_THUNDER_30_U_HP_20_U_THUNDER_20_U_DEF",
+        "mOverwriteLeaderSkillLevel": 6,
+        "mPriority": 1
+    },
+    {
+        "mUnitIname": "UN_V2_TEONA",
+        "mCategory": "Lust",
+        "mRecipeId": "TB_TEST_RECIPE_4LUS_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_TEONA",
+        "mCategory": "Gluttony",
+        "mRecipeId": "TB_TEST_RECIPE_5GLU_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_TEONA",
+        "mCategory": "Greed",
+        "mRecipeId": "TB_TEST_RECIPE_6GRE_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_TEONA",
+        "mCategory": "Pride",
+        "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_MIELIKKI",
+        "mEnable": true,
+        "mCategory": "Unlock",
+        "mRecipeId": "TOBIRA_UNLOCK_RECIPE_R5_SHINE_JYUTSUSHI",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_MIELIKKI",
+        "mEnable": true,
+        "mCategory": "Envy",
+        "mRecipeId": "TB_RECIPE_ENV_R5_SHINE",
+        "mSkillIname": "SK_MIELIKKI_TB_1ENV",
+        "mLearnAbilities": [
+            {
+                "mAbilityIname": "AB_MIELIKKI_TB_1",
+                "mLevel": 6,
+                "mAddType": 2
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_MIELIKKI",
+        "mEnable": true,
+        "mCategory": "Wrath",
+        "mRecipeId": "TB_RECIPE_SLO_R5_SHINE",
+        "mSkillIname": "SK_MIELIKKI_TB_2SLO",
+        "mLearnAbilities": [
+            {
+                "mAbilityIname": "AB_MIELIKKI_TB_2",
+                "mLevel": 6,
+                "mAddType": 1,
+                "mAbilityOverwrite": "AB_ENC_FAST_CHANT"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_MIELIKKI",
+        "mEnable": true,
+        "mCategory": "Sloth",
+        "mRecipeId": "TB_RECIPE_LUS_R5_SHINE",
+        "mSkillIname": "SK_MIELIKKI_TB_3LUS",
+        "mLearnAbilities": [],
+        "mOverwriteLeaderSkillIname": "SK_LS_ELEM_SHINE_40_U_HP_20_U_SHINE_10_D_CHARGE_TIME",
+        "mOverwriteLeaderSkillLevel": 6,
+        "mPriority": 1
+    },
+    {
+        "mUnitIname": "UN_V2_MIELIKKI",
+        "mCategory": "Lust",
+        "mRecipeId": "TB_TEST_RECIPE_4LUS_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_MIELIKKI",
+        "mCategory": "Gluttony",
+        "mRecipeId": "TB_TEST_RECIPE_5GLU_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_MIELIKKI",
+        "mCategory": "Greed",
+        "mRecipeId": "TB_TEST_RECIPE_6GRE_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_MIELIKKI",
+        "mCategory": "Pride",
+        "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_CHALICE",
+        "mEnable": true,
+        "mCategory": "Unlock",
+        "mRecipeId": "TOBIRA_UNLOCK_RECIPE_R4_THUNDER_FURAI",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_CHALICE",
+        "mEnable": true,
+        "mCategory": "Envy",
+        "mRecipeId": "TB_RECIPE_ENV_R5_THUNDER",
+        "mSkillIname": "SK_CHALICE_TB_1ENV",
+        "mLearnAbilities": [
+            {
+                "mAbilityIname": "AB_CHALICE_TB_1",
+                "mLevel": 6,
+                "mAddType": 2
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_CHALICE",
+        "mEnable": true,
+        "mCategory": "Wrath",
+        "mRecipeId": "TB_RECIPE_SLO_R5_THUNDER",
+        "mSkillIname": "SK_CHALICE_TB_2SLO",
+        "mLearnAbilities": [
+            {
+                "mAbilityIname": "AB_CHALICE_TB_2",
+                "mLevel": 6,
+                "mAddType": 1,
+                "mAbilityOverwrite": "AB_LNC_MECHANIC_THUNDER"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_CHALICE",
+        "mEnable": true,
+        "mCategory": "Sloth",
+        "mRecipeId": "TB_RECIPE_LUS_R5_THUNDER",
+        "mSkillIname": "SK_CHALICE_TB_3LUS",
+        "mLearnAbilities": [],
+        "mOverwriteLeaderSkillIname": "SK_LS_30_U_SHOT_20_U_THUNDER",
+        "mOverwriteLeaderSkillLevel": 6,
+        "mPriority": 1
+    },
+    {
+        "mUnitIname": "UN_V2_CHALICE",
+        "mCategory": "Lust",
+        "mRecipeId": "TB_TEST_RECIPE_4LUS_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_CHALICE",
+        "mCategory": "Gluttony",
+        "mRecipeId": "TB_TEST_RECIPE_5GLU_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_CHALICE",
+        "mCategory": "Greed",
+        "mRecipeId": "TB_TEST_RECIPE_6GRE_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_CHALICE",
+        "mCategory": "Pride",
+        "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_POLLIN",
+        "mEnable": true,
+        "mCategory": "Unlock",
+        "mRecipeId": "TOBIRA_UNLOCK_RECIPE_R3_WIND_FURAI",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_POLLIN",
+        "mEnable": true,
+        "mCategory": "Envy",
+        "mRecipeId": "TB_RECIPE_ENV_R5_WIND",
+        "mSkillIname": "SK_POLLIN_TB_1ENV",
+        "mLearnAbilities": [
+            {
+                "mAbilityIname": "AB_POLLIN_TB_1",
+                "mLevel": 6,
+                "mAddType": 2
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_POLLIN",
+        "mEnable": true,
+        "mCategory": "Wrath",
+        "mRecipeId": "TB_RECIPE_SLO_R5_WIND",
+        "mSkillIname": "SK_POLLIN_TB_2SLO",
+        "mLearnAbilities": [
+            {
+                "mAbilityIname": "AB_POLLIN_TB_2",
+                "mLevel": 6,
+                "mAddType": 1,
+                "mAbilityOverwrite": "AB_BAR_LONG_TONE"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_POLLIN",
+        "mEnable": true,
+        "mCategory": "Sloth",
+        "mRecipeId": "TB_RECIPE_LUS_R5_WIND",
+        "mSkillIname": "SK_POLLIN_TB_3LUS",
+        "mLearnAbilities": [],
+        "mOverwriteLeaderSkillIname": "SK_LS_ELEM_WIND_50_U_HP_15_U_WIND_5_U_MPGET",
+        "mOverwriteLeaderSkillLevel": 6,
+        "mPriority": 1
+    },
+    {
+        "mUnitIname": "UN_V2_POLLIN",
+        "mCategory": "Lust",
+        "mRecipeId": "TB_TEST_RECIPE_4LUS_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_POLLIN",
+        "mCategory": "Gluttony",
+        "mRecipeId": "TB_TEST_RECIPE_5GLU_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_POLLIN",
+        "mCategory": "Greed",
+        "mRecipeId": "TB_TEST_RECIPE_6GRE_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_POLLIN",
+        "mCategory": "Pride",
+        "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_GUILDFORD",
+        "mEnable": true,
+        "mCategory": "Unlock",
+        "mRecipeId": "TOBIRA_UNLOCK_RECIPE_R5_FIRE_KISHI",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_GUILDFORD",
+        "mEnable": true,
+        "mCategory": "Envy",
+        "mRecipeId": "TB_RECIPE_ENV_R5_FIRE",
+        "mSkillIname": "SK_GUILDFORD_TB_1ENV",
+        "mLearnAbilities": [
+            {
+                "mAbilityIname": "AB_GUILDFORD_TB_1",
+                "mLevel": 6,
+                "mAddType": 2
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_GUILDFORD",
+        "mEnable": true,
+        "mCategory": "Wrath",
+        "mRecipeId": "TB_RECIPE_SLO_R5_FIRE",
+        "mSkillIname": "SK_GUILDFORD_TB_2SLO",
+        "mLearnAbilities": [
+            {
+                "mAbilityIname": "AB_GUILDFORD_TB_2",
+                "mLevel": 6,
+                "mAddType": 1,
+                "mAbilityOverwrite": "AB_BAA_OVER_SOUL"
+            }
+        ]
+    },
+    {
+        "mUnitIname": "UN_V2_GUILDFORD",
+        "mEnable": true,
+        "mCategory": "Sloth",
+        "mRecipeId": "TB_RECIPE_LUS_R5_FIRE",
+        "mSkillIname": "SK_GUILDFORD_TB_3LUS",
+        "mLearnAbilities": [],
+        "mOverwriteLeaderSkillIname": "SK_LS_20_U_HP_20_U_MND_10_U_ALLDEF",
+        "mOverwriteLeaderSkillLevel": 6,
+        "mPriority": 1
+    },
+    {
+        "mUnitIname": "UN_V2_GUILDFORD",
+        "mCategory": "Lust",
+        "mRecipeId": "TB_TEST_RECIPE_4LUS_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_GUILDFORD",
+        "mCategory": "Gluttony",
+        "mRecipeId": "TB_TEST_RECIPE_5GLU_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_GUILDFORD",
+        "mCategory": "Greed",
+        "mRecipeId": "TB_TEST_RECIPE_6GRE_R5",
+        "mLearnAbilities": []
+    },
+    {
+        "mUnitIname": "UN_V2_GUILDFORD",
         "mCategory": "Pride",
         "mRecipeId": "TB_TEST_RECIPE_7PRI_R5",
         "mLearnAbilities": []

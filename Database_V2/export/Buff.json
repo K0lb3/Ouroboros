@@ -53986,8 +53986,8 @@
         "buffs": [
             {
                 "type": "HpMax",
-                "value_ini": 40,
-                "value_max": 60,
+                "value_ini": 56,
+                "value_max": 84,
                 "value_one": 0,
                 "calc": "Add"
             },
@@ -54000,15 +54000,22 @@
             },
             {
                 "type": "Def",
-                "value_ini": 20,
-                "value_max": 30,
+                "value_ini": 30,
+                "value_max": 45,
                 "value_one": 0,
                 "calc": "Add"
             },
             {
                 "type": "Mnd",
-                "value_ini": 20,
-                "value_max": 30,
+                "value_ini": 22,
+                "value_max": 33,
+                "value_one": 0,
+                "calc": "Add"
+            },
+            {
+                "type": "Spd",
+                "value_ini": 1,
+                "value_max": 2,
                 "value_one": 0,
                 "calc": "Add"
             },
@@ -81564,8 +81571,8 @@
         "buffs": [
             {
                 "type": "HpMax",
-                "value_ini": 14,
-                "value_max": 14,
+                "value_ini": 22,
+                "value_max": 22,
                 "value_one": 0,
                 "calc": "Scale"
             },
@@ -130993,11 +131000,11 @@
                 "calc": "Add"
             },
             {
-                "type": "Assist_ConditionAll",
+                "type": "Resist_ConditionAll",
                 "value_ini": 2,
                 "value_max": 10,
                 "value_one": 0,
-                "calc": "Scale"
+                "calc": "Add"
             },
             {
                 "type": "MpIni",

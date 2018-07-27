@@ -178,7 +178,12 @@
         "Exp": 100,
         "Stamina": 100,
         "Category": "GL_PERM_DAILY_MISSION",
-        "Items": [],
+        "Items": [
+            {
+                "iname": "IT_US_GL_DAILY_TICKET",
+                "num": 1
+            }
+        ],
         "Artifacts": [],
         "ConceptCards": []
     },
@@ -196,6 +201,10 @@
             {
                 "iname": "IT_UG_APPLE4",
                 "num": 1
+            },
+            {
+                "iname": "IT_US_GL_DAILY_TICKET",
+                "num": 1
             }
         ],
         "Artifacts": [],
@@ -211,7 +220,12 @@
         "Name": "【Essential Daily Mission 3/5】Sparring in the Arena [1]",
         "Exp": 150,
         "Category": "GL_PERM_DAILY_MISSION",
-        "Items": [],
+        "Items": [
+            {
+                "iname": "IT_US_GL_DAILY_TICKET",
+                "num": 1
+            }
+        ],
         "Artifacts": [],
         "ConceptCards": []
     },
@@ -228,6 +242,10 @@
         "Items": [
             {
                 "iname": "IT_UG_APPLE4",
+                "num": 1
+            },
+            {
+                "iname": "IT_US_GL_DAILY_TICKET",
                 "num": 1
             }
         ],
@@ -246,6 +264,10 @@
         "Items": [
             {
                 "iname": "IT_CV_GOLD3",
+                "num": 1
+            },
+            {
+                "iname": "IT_US_GL_DAILY_TICKET",
                 "num": 1
             }
         ],
@@ -2478,7 +2500,7 @@
         },
         "iname": "GL_MM_01_2July",
         "Name": "[Monday Mission] Level up an unit 1 time",
-        "Category": "GL_MON_MISSION_5",
+        "Category": "GL_MON_MISSION_END",
         "Items": [
             {
                 "iname": "IT_UG_APPLE4",
@@ -2496,7 +2518,7 @@
         },
         "iname": "GL_MM_02_2July",
         "Name": "[Monday Mission] Raise any unit's ability 1 time",
-        "Category": "GL_MON_MISSION_5",
+        "Category": "GL_MON_MISSION_END",
         "Items": [
             {
                 "iname": "IT_CV_GOLD3",
@@ -2514,7 +2536,7 @@
         },
         "iname": "GL_MM_03_2July",
         "Name": "[Monday Mission] Raise any unit's job level 1 time",
-        "Category": "GL_MON_MISSION_5",
+        "Category": "GL_MON_MISSION_END",
         "Items": [
             {
                 "iname": "IT_SG_POT3",
@@ -2533,7 +2555,7 @@
         "iname": "GL_MM_04_2July",
         "Name": "[Monday Mission] Win any Multi Quest 1 time",
         "Stamina": 100,
-        "Category": "GL_MON_MISSION_5",
+        "Category": "GL_MON_MISSION_END",
         "Items": [],
         "Artifacts": [],
         "ConceptCards": []
@@ -2546,7 +2568,7 @@
         },
         "iname": "GL_MM_05_2July",
         "Name": "[Monday Mission] Win any quest using Mercenary 1 time",
-        "Category": "GL_MON_MISSION_5",
+        "Category": "GL_MON_MISSION_END",
         "Items": [
             {
                 "iname": "IT_PI_GL_SIEG",
@@ -2564,7 +2586,7 @@
         },
         "iname": "GL_MM_01_9July",
         "Name": "[Monday Mission] Level up an unit 1 time",
-        "Category": "GL_MON_MISSION",
+        "Category": "GL_MON_MISSION_END",
         "Items": [
             {
                 "iname": "IT_UG_APPLE4",
@@ -2586,7 +2608,7 @@
         },
         "iname": "GL_MM_02_9July",
         "Name": "[Monday Mission] Raise any unit's ability 1 time",
-        "Category": "GL_MON_MISSION",
+        "Category": "GL_MON_MISSION_END",
         "Items": [
             {
                 "iname": "IT_CV_GOLD3",
@@ -2604,7 +2626,7 @@
         },
         "iname": "GL_MM_03_9July",
         "Name": "[Monday Mission] Raise any unit's job level 1 time",
-        "Category": "GL_MON_MISSION",
+        "Category": "GL_MON_MISSION_END",
         "Items": [
             {
                 "iname": "IT_SG_POT3",
@@ -2623,7 +2645,7 @@
         "iname": "GL_MM_04_9July",
         "Name": "[Monday Mission] Win any Multi Quest 1 time",
         "Stamina": 100,
-        "Category": "GL_MON_MISSION",
+        "Category": "GL_MON_MISSION_END",
         "Items": [],
         "Artifacts": [],
         "ConceptCards": []
@@ -2636,10 +2658,292 @@
         },
         "iname": "GL_MM_05_9July",
         "Name": "[Monday Mission] Win any quest using Mercenary 1 time",
-        "Category": "GL_MON_MISSION",
+        "Category": "GL_MON_MISSION_END",
         "Items": [
             {
                 "iname": "IT_PI_FF15_NOCTIS",
+                "num": 5
+            },
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 150
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_MM_01_16July": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "upunitlevel",
+            "ival": 1
+        },
+        "iname": "GL_MM_01_16July",
+        "Name": "[Monday Mission] Level up an unit 1 time",
+        "Category": "GL_MON_MISSION_END",
+        "Items": [
+            {
+                "iname": "IT_UG_APPLE4",
+                "num": 5
+            },
+            {
+                "iname": "IT_UG_APPLE_FF15",
+                "num": 1
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_MM_02_16July": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "ability",
+            "ival": 1
+        },
+        "iname": "GL_MM_02_16July",
+        "Name": "[Monday Mission] Raise any unit's ability 1 time",
+        "Category": "GL_MON_MISSION_END",
+        "Items": [
+            {
+                "iname": "IT_CV_GOLD3",
+                "num": 2
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_MM_03_16July": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "upjoblevel",
+            "ival": 1
+        },
+        "iname": "GL_MM_03_16July",
+        "Name": "[Monday Mission] Raise any unit's job level 1 time",
+        "Category": "GL_MON_MISSION_END",
+        "Items": [
+            {
+                "iname": "IT_SG_POT3",
+                "num": 2
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_MM_04_16July": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winmulti",
+            "ival": 1
+        },
+        "iname": "GL_MM_04_16July",
+        "Name": "[Monday Mission] Win any Multi Quest 1 time",
+        "Stamina": 100,
+        "Category": "GL_MON_MISSION_END",
+        "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_MM_05_16July": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquestsoldier",
+            "ival": 1
+        },
+        "iname": "GL_MM_05_16July",
+        "Name": "[Monday Mission] Win any quest using Mercenary 1 time",
+        "Category": "GL_MON_MISSION_END",
+        "Items": [
+            {
+                "iname": "IT_PI_FF15_IGNIS",
+                "num": 5
+            },
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 150
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_MM_01_23July": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "upunitlevel",
+            "ival": 1
+        },
+        "iname": "GL_MM_01_23July",
+        "Name": "[Monday Mission] Level up an unit 1 time",
+        "Category": "GL_MON_MISSION_3",
+        "Items": [
+            {
+                "iname": "IT_UG_APPLE4",
+                "num": 5
+            },
+            {
+                "iname": "IT_UG_APPLE_FF15",
+                "num": 1
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_MM_02_23July": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "ability",
+            "ival": 1
+        },
+        "iname": "GL_MM_02_23July",
+        "Name": "[Monday Mission] Raise any unit's ability 1 time",
+        "Category": "GL_MON_MISSION_3",
+        "Items": [
+            {
+                "iname": "IT_CV_GOLD3",
+                "num": 2
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_MM_03_23July": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "upjoblevel",
+            "ival": 1
+        },
+        "iname": "GL_MM_03_23July",
+        "Name": "[Monday Mission] Raise any unit's job level 1 time",
+        "Category": "GL_MON_MISSION_3",
+        "Items": [
+            {
+                "iname": "IT_SG_POT3",
+                "num": 2
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_MM_04_23July": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winmulti",
+            "ival": 1
+        },
+        "iname": "GL_MM_04_23July",
+        "Name": "[Monday Mission] Win any Multi Quest 1 time",
+        "Stamina": 100,
+        "Category": "GL_MON_MISSION_3",
+        "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_MM_05_23July": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquestsoldier",
+            "ival": 1
+        },
+        "iname": "GL_MM_05_23July",
+        "Name": "[Monday Mission] Win any quest using Mercenary 1 time",
+        "Category": "GL_MON_MISSION_3",
+        "Items": [
+            {
+                "iname": "IT_PI_FF15_ARANEA",
+                "num": 5
+            },
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 150
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_MM_01_30July": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "upunitlevel",
+            "ival": 1
+        },
+        "iname": "GL_MM_01_30July",
+        "Name": "[Monday Mission] Level up an unit 1 time",
+        "Category": "GL_MON_MISSION_4",
+        "Items": [
+            {
+                "iname": "IT_UG_APPLE4",
+                "num": 5
+            },
+            {
+                "iname": "IT_UG_APPLE_FF15",
+                "num": 1
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_MM_02_30July": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "ability",
+            "ival": 1
+        },
+        "iname": "GL_MM_02_30July",
+        "Name": "[Monday Mission] Raise any unit's ability 1 time",
+        "Category": "GL_MON_MISSION_4",
+        "Items": [
+            {
+                "iname": "IT_CV_GOLD3",
+                "num": 2
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_MM_03_30July": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "upjoblevel",
+            "ival": 1
+        },
+        "iname": "GL_MM_03_30July",
+        "Name": "[Monday Mission] Raise any unit's job level 1 time",
+        "Category": "GL_MON_MISSION_4",
+        "Items": [
+            {
+                "iname": "IT_SG_POT3",
+                "num": 2
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_MM_04_30July": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winmulti",
+            "ival": 1
+        },
+        "iname": "GL_MM_04_30July",
+        "Name": "[Monday Mission] Win any Multi Quest 1 time",
+        "Stamina": 100,
+        "Category": "GL_MON_MISSION_4",
+        "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_MM_05_30July": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquestsoldier",
+            "ival": 1
+        },
+        "iname": "GL_MM_05_30July",
+        "Name": "[Monday Mission] Win any quest using Mercenary 1 time",
+        "Category": "GL_MON_MISSION_4",
+        "Items": [
+            {
+                "iname": "IT_PI_FF15_GLADIOLUS",
                 "num": 5
             },
             {
@@ -5448,6 +5752,1410 @@
         "Exp": 150,
         "Stamina": 100,
         "Category": "GL_FF15_DAILY_JUL11",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 30
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180712_1": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 3,
+            "sval": [
+                "UN_V2_EN_MANDRAGORA_YUJ_POI"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180712_1",
+        "Name": "[Limited Time] FFXV Daily Mission [Bgn]",
+        "Exp": 50,
+        "Stamina": 100,
+        "Category": "GL_FF15_DAILY_JUL12",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180712_2": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 2,
+            "sval": [
+                "UN_V2_EN_AJ4000"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180712_2",
+        "Name": "[Limited Time] FFXV Daily Mission [Int]",
+        "Exp": 50,
+        "Category": "GL_FF15_DAILY_JUL12",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180712_3": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 1,
+            "sval": [
+                "UN_V2_FF15_MAGIC_ARMOR"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180712_3",
+        "Name": "[Limited Time] FFXV Daily Mission [Adv]",
+        "Exp": 150,
+        "Stamina": 100,
+        "Category": "GL_FF15_DAILY_JUL12",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 30
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180713_1": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 3,
+            "sval": [
+                "UN_V2_FF15_MAGIC_SOL"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180713_1",
+        "Name": "[Limited Time] FFXV Daily Mission [Bgn]",
+        "Exp": 50,
+        "Stamina": 100,
+        "Category": "GL_FF15_DAILY_JUL13",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180713_2": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 2,
+            "sval": [
+                "UN_V2_FF15_METAL_CACTUAR"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180713_2",
+        "Name": "[Limited Time] FFXV Daily Mission [Int]",
+        "Exp": 50,
+        "Category": "GL_FF15_DAILY_JUL13",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180713_3": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 1,
+            "sval": [
+                "UN_V2_FF15_BEHEMOTH"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180713_3",
+        "Name": "[Limited Time] FFXV Daily Mission [Adv]",
+        "Exp": 150,
+        "Stamina": 100,
+        "Category": "GL_FF15_DAILY_JUL13",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 30
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180714_1": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "buyatshop",
+            "ival": 1
+        },
+        "iname": "GL_DAILY_FFXV_20180714_1",
+        "Name": "[Limited Time] FFXV Daily Mission [Bgn]",
+        "Category": "GL_FF15_DAILY_JUL14",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 50
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180714_2": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 2,
+            "sval": [
+                "QE_EV_FF15_3"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180714_2",
+        "Name": "[Limited Time] FFXV Daily Mission [Int]",
+        "Exp": 50,
+        "Stamina": 50,
+        "Category": "GL_FF15_DAILY_JUL14",
+        "Items": [
+            {
+                "iname": "IT_CV_GOLD3",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180714_3": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 3,
+            "sval": [
+                "QE_EV_FF15_4"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180714_3",
+        "Name": "[Limited Time] FFXV Daily Mission [Adv]",
+        "Exp": 200,
+        "Stamina": 150,
+        "Category": "GL_FF15_DAILY_JUL14",
+        "Items": [
+            {
+                "iname": "IT_UG_APPLE_FF15",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180715_1": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "buyatshop",
+            "ival": 1
+        },
+        "iname": "GL_DAILY_FFXV_20180715_1",
+        "Name": "[Limited Time] FFXV Daily Mission [Bgn]",
+        "Category": "GL_FF15_DAILY_JUL15",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 50
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180715_2": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 2,
+            "sval": [
+                "QE_EV_FF15_5"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180715_2",
+        "Name": "[Limited Time] FFXV Daily Mission [Int]",
+        "Exp": 50,
+        "Stamina": 50,
+        "Category": "GL_FF15_DAILY_JUL15",
+        "Items": [
+            {
+                "iname": "IT_CV_GOLD3",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180715_3": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 3,
+            "sval": [
+                "QE_EV_FF15_6"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180715_3",
+        "Name": "[Limited Time] FFXV Daily Mission [Adv]",
+        "Exp": 200,
+        "Stamina": 150,
+        "Category": "GL_FF15_DAILY_JUL15",
+        "Items": [
+            {
+                "iname": "IT_UG_APPLE_FF15",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180716_1": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 3,
+            "sval": [
+                "UN_V2_FF15_MAGIC_SOL"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180716_1",
+        "Name": "[Limited Time] FFXV Daily Mission [Bgn]",
+        "Exp": 50,
+        "Stamina": 100,
+        "Category": "GL_FF15_DAILY_JUL16",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180716_2": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 2,
+            "sval": [
+                "UN_V2_FF15_METAL_CACTUAR"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180716_2",
+        "Name": "[Limited Time] FFXV Daily Mission [Int]",
+        "Exp": 50,
+        "Category": "GL_FF15_DAILY_JUL16",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180716_3": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 1,
+            "sval": [
+                "UN_V2_FF15_BEHEMOTH"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180716_3",
+        "Name": "[Limited Time] FFXV Daily Mission [Adv]",
+        "Exp": 150,
+        "Stamina": 100,
+        "Category": "GL_FF15_DAILY_JUL16",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 30
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180717_1": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 3,
+            "sval": [
+                "UN_V2_EN_MANDRAGORA_YUJ_POI"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180717_1",
+        "Name": "[Limited Time] FFXV Daily Mission [Bgn]",
+        "Exp": 50,
+        "Stamina": 100,
+        "Category": "GL_FF15_DAILY_JUL17",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180717_2": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 2,
+            "sval": [
+                "UN_V2_EN_MACHINE_LAN"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180717_2",
+        "Name": "[Limited Time] FFXV Daily Mission [Int]",
+        "Exp": 50,
+        "Category": "GL_FF15_DAILY_JUL17",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180717_3": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 1,
+            "sval": [
+                "UN_V2_FF15_BEHEMOTH"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180717_3",
+        "Name": "[Limited Time] FFXV Daily Mission [Adv]",
+        "Exp": 150,
+        "Stamina": 100,
+        "Category": "GL_FF15_DAILY_JUL17",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 30
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180718_1": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 3,
+            "sval": [
+                "UN_V2_FF15_MAGIC_SOL"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180718_1",
+        "Name": "[Limited Time] FFXV Daily Mission [Bgn]",
+        "Exp": 50,
+        "Stamina": 100,
+        "Category": "GL_FF15_DAILY_JUL18",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180718_2": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 2,
+            "sval": [
+                "UN_V2_FF15_METAL_CACTUAR"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180718_2",
+        "Name": "[Limited Time] FFXV Daily Mission [Int]",
+        "Exp": 50,
+        "Category": "GL_FF15_DAILY_JUL18",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180718_3": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 1,
+            "sval": [
+                "UN_V2_FF15_MAGIC_ARMOR"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180718_3",
+        "Name": "[Limited Time] FFXV Daily Mission [Adv]",
+        "Exp": 150,
+        "Stamina": 100,
+        "Category": "GL_FF15_DAILY_JUL18",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 30
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180719_1": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 3,
+            "sval": [
+                "UN_V2_EN_MANDRAGORA_YUJ_POI"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180719_1",
+        "Name": "[Limited Time] FFXV Daily Mission [Bgn]",
+        "Exp": 50,
+        "Stamina": 100,
+        "Category": "GL_FF15_DAILY_JUL19",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180719_2": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 2,
+            "sval": [
+                "UN_V2_EN_SOUEN_KNIGHT"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180719_2",
+        "Name": "[Limited Time] FFXV Daily Mission [Int]",
+        "Exp": 50,
+        "Category": "GL_FF15_DAILY_JUL19",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180719_3": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 1,
+            "sval": [
+                "UN_V2_FF15_BEHEMOTH"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180719_3",
+        "Name": "[Limited Time] FFXV Daily Mission [Adv]",
+        "Exp": 150,
+        "Stamina": 100,
+        "Category": "GL_FF15_DAILY_JUL19",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 30
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180720_1": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 3,
+            "sval": [
+                "UN_V2_FF15_MAGIC_SOL"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180720_1",
+        "Name": "[Limited Time] FFXV Daily Mission [Bgn]",
+        "Exp": 50,
+        "Stamina": 100,
+        "Category": "GL_FF15_DAILY_JUL20",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180720_2": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 2,
+            "sval": [
+                "UN_V2_FF15_METAL_CACTUAR"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180720_2",
+        "Name": "[Limited Time] FFXV Daily Mission [Int]",
+        "Exp": 50,
+        "Category": "GL_FF15_DAILY_JUL20",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180720_3": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 1,
+            "sval": [
+                "UN_V2_FF15_BEHEMOTH"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180720_3",
+        "Name": "[Limited Time] FFXV Daily Mission [Adv]",
+        "Exp": 150,
+        "Stamina": 100,
+        "Category": "GL_FF15_DAILY_JUL20",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 30
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180721_1": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "buyatshop",
+            "ival": 1
+        },
+        "iname": "GL_DAILY_FFXV_20180721_1",
+        "Name": "[Limited Time] FFXV Daily Mission [Bgn]",
+        "Category": "GL_FF15_DAILY_JUL21",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 50
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180721_2": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 2,
+            "sval": [
+                "QE_EV_FF15_5"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180721_2",
+        "Name": "[Limited Time] FFXV Daily Mission [Int]",
+        "Exp": 50,
+        "Stamina": 50,
+        "Category": "GL_FF15_DAILY_JUL21",
+        "Items": [
+            {
+                "iname": "IT_CV_GOLD3",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180721_3": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 3,
+            "sval": [
+                "QE_EV_FF15_6"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180721_3",
+        "Name": "[Limited Time] FFXV Daily Mission [Adv]",
+        "Exp": 200,
+        "Stamina": 150,
+        "Category": "GL_FF15_DAILY_JUL21",
+        "Items": [
+            {
+                "iname": "IT_UG_APPLE_FF15",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180722_1": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "buyatshop",
+            "ival": 1
+        },
+        "iname": "GL_DAILY_FFXV_20180722_1",
+        "Name": "[Limited Time] FFXV Daily Mission [Bgn]",
+        "Category": "GL_FF15_DAILY_JUL22",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 50
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180722_2": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 2,
+            "sval": [
+                "QE_EV_FF15_7"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180722_2",
+        "Name": "[Limited Time] FFXV Daily Mission [Int]",
+        "Exp": 50,
+        "Stamina": 50,
+        "Category": "GL_FF15_DAILY_JUL22",
+        "Items": [
+            {
+                "iname": "IT_CV_GOLD3",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180722_3": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 3,
+            "sval": [
+                "QE_EV_FF15_8"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180722_3",
+        "Name": "[Limited Time] FFXV Daily Mission [Adv]",
+        "Exp": 200,
+        "Stamina": 150,
+        "Category": "GL_FF15_DAILY_JUL22",
+        "Items": [
+            {
+                "iname": "IT_UG_APPLE_FF15",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180723_1": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 3,
+            "sval": [
+                "UN_V2_FF15_MAGIC_SOL"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180723_1",
+        "Name": "[Limited Time] FFXV Daily Mission [Bgn]",
+        "Exp": 50,
+        "Stamina": 100,
+        "Category": "GL_FF15_DAILY_JUL23",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180723_2": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 2,
+            "sval": [
+                "UN_V2_FF15_METAL_CACTUAR"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180723_2",
+        "Name": "[Limited Time] FFXV Daily Mission [Int]",
+        "Exp": 50,
+        "Category": "GL_FF15_DAILY_JUL23",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180723_3": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 1,
+            "sval": [
+                "UN_V2_FF15_BEHEMOTH"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180723_3",
+        "Name": "[Limited Time] FFXV Daily Mission [Adv]",
+        "Exp": 150,
+        "Stamina": 100,
+        "Category": "GL_FF15_DAILY_JUL23",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 30
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180724_1": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 3,
+            "sval": [
+                "UN_V2_EN_MANDRAGORA_YUJ_POI"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180724_1",
+        "Name": "[Limited Time] FFXV Daily Mission [Bgn]",
+        "Exp": 50,
+        "Stamina": 100,
+        "Category": "GL_FF15_DAILY_JUL24",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180724_2": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 2,
+            "sval": [
+                "UN_V2_EN_MACHINE_LAN"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180724_2",
+        "Name": "[Limited Time] FFXV Daily Mission [Int]",
+        "Exp": 50,
+        "Category": "GL_FF15_DAILY_JUL24",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180724_3": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 1,
+            "sval": [
+                "UN_V2_FF15_BEHEMOTH"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180724_3",
+        "Name": "[Limited Time] FFXV Daily Mission [Adv]",
+        "Exp": 150,
+        "Stamina": 100,
+        "Category": "GL_FF15_DAILY_JUL24",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 30
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180725_1": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 3,
+            "sval": [
+                "UN_V2_FF15_MAGIC_SOL"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180725_1",
+        "Name": "[Limited Time] FFXV Daily Mission [Bgn]",
+        "Exp": 50,
+        "Stamina": 100,
+        "Category": "GL_FF15_DAILY_JUL25",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180725_2": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 2,
+            "sval": [
+                "UN_V2_FF15_METAL_CACTUAR"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180725_2",
+        "Name": "[Limited Time] FFXV Daily Mission [Int]",
+        "Exp": 50,
+        "Category": "GL_FF15_DAILY_JUL25",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180725_3": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 1,
+            "sval": [
+                "UN_V2_FF15_MAGIC_ARMOR"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180725_3",
+        "Name": "[Limited Time] FFXV Daily Mission [Adv]",
+        "Exp": 150,
+        "Stamina": 100,
+        "Category": "GL_FF15_DAILY_JUL25",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 30
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180726_1": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 3,
+            "sval": [
+                "UN_V2_EN_MANDRAGORA_YUJ_POI"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180726_1",
+        "Name": "[Limited Time] FFXV Daily Mission [Bgn]",
+        "Exp": 50,
+        "Stamina": 100,
+        "Category": "GL_FF15_DAILY_JUL26",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180726_2": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 2,
+            "sval": [
+                "UN_V2_EN_SOUEN_KNIGHT"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180726_2",
+        "Name": "[Limited Time] FFXV Daily Mission [Int]",
+        "Exp": 50,
+        "Category": "GL_FF15_DAILY_JUL26",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180726_3": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 1,
+            "sval": [
+                "UN_V2_FF15_BEHEMOTH"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180726_3",
+        "Name": "[Limited Time] FFXV Daily Mission [Adv]",
+        "Exp": 150,
+        "Stamina": 100,
+        "Category": "GL_FF15_DAILY_JUL26",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 30
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180727_1": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 3,
+            "sval": [
+                "UN_V2_FF15_MAGIC_SOL"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180727_1",
+        "Name": "[Limited Time] FFXV Daily Mission [Bgn]",
+        "Exp": 50,
+        "Stamina": 100,
+        "Category": "GL_FF15_DAILY_JUL27",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180727_2": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 2,
+            "sval": [
+                "UN_V2_FF15_METAL_CACTUAR"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180727_2",
+        "Name": "[Limited Time] FFXV Daily Mission [Int]",
+        "Exp": 50,
+        "Category": "GL_FF15_DAILY_JUL27",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180727_3": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 1,
+            "sval": [
+                "UN_V2_FF15_BEHEMOTH"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180727_3",
+        "Name": "[Limited Time] FFXV Daily Mission [Adv]",
+        "Exp": 150,
+        "Stamina": 100,
+        "Category": "GL_FF15_DAILY_JUL27",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 30
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180728_1": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "buyatshop",
+            "ival": 1
+        },
+        "iname": "GL_DAILY_FFXV_20180728_1",
+        "Name": "[Limited Time] FFXV Daily Mission [Bgn]",
+        "Category": "GL_FF15_DAILY_JUL28",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 50
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180728_2": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 2,
+            "sval": [
+                "QE_EV_FF15_7"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180728_2",
+        "Name": "[Limited Time] FFXV Daily Mission [Int]",
+        "Exp": 50,
+        "Stamina": 50,
+        "Category": "GL_FF15_DAILY_JUL28",
+        "Items": [
+            {
+                "iname": "IT_CV_GOLD3",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180728_3": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 3,
+            "sval": [
+                "QE_EV_FF15_8"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180728_3",
+        "Name": "[Limited Time] FFXV Daily Mission [Adv]",
+        "Exp": 200,
+        "Stamina": 150,
+        "Category": "GL_FF15_DAILY_JUL28",
+        "Items": [
+            {
+                "iname": "IT_UG_APPLE_FF15",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180729_1": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "buyatshop",
+            "ival": 1
+        },
+        "iname": "GL_DAILY_FFXV_20180729_1",
+        "Name": "[Limited Time] FFXV Daily Mission [Bgn]",
+        "Category": "GL_FF15_DAILY_JUL29",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 50
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180729_2": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 2,
+            "sval": [
+                "QE_EV_FF15_9"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180729_2",
+        "Name": "[Limited Time] FFXV Daily Mission [Int]",
+        "Exp": 50,
+        "Stamina": 50,
+        "Category": "GL_FF15_DAILY_JUL29",
+        "Items": [
+            {
+                "iname": "IT_CV_GOLD3",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180729_3": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 3,
+            "sval": [
+                "QE_EV_FF15_10"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180729_3",
+        "Name": "[Limited Time] FFXV Daily Mission [Adv]",
+        "Exp": 200,
+        "Stamina": 150,
+        "Category": "GL_FF15_DAILY_JUL29",
+        "Items": [
+            {
+                "iname": "IT_UG_APPLE_FF15",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180730_1": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 3,
+            "sval": [
+                "UN_V2_EN_MANDRAGORA_YUJ_POI"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180730_1",
+        "Name": "[Limited Time] FFXV Daily Mission [Bgn]",
+        "Exp": 50,
+        "Stamina": 100,
+        "Category": "GL_FF15_DAILY_JUL30",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180730_2": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 2,
+            "sval": [
+                "UN_V2_EN_AJ4000"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180730_2",
+        "Name": "[Limited Time] FFXV Daily Mission [Int]",
+        "Exp": 50,
+        "Category": "GL_FF15_DAILY_JUL30",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180730_3": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 1,
+            "sval": [
+                "UN_V2_FF15_MAGIC_ARMOR"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180730_3",
+        "Name": "[Limited Time] FFXV Daily Mission [Adv]",
+        "Exp": 150,
+        "Stamina": 100,
+        "Category": "GL_FF15_DAILY_JUL30",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 30
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180731_1": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 3,
+            "sval": [
+                "UN_V2_FF15_MAGIC_SOL"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180731_1",
+        "Name": "[Limited Time] FFXV Daily Mission [Bgn]",
+        "Exp": 50,
+        "Stamina": 100,
+        "Category": "GL_FF15_DAILY_JUL31",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180731_2": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 2,
+            "sval": [
+                "UN_V2_FF15_METAL_CACTUAR"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180731_2",
+        "Name": "[Limited Time] FFXV Daily Mission [Int]",
+        "Exp": 50,
+        "Category": "GL_FF15_DAILY_JUL31",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180731_3": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 1,
+            "sval": [
+                "UN_V2_FF15_BEHEMOTH"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180731_3",
+        "Name": "[Limited Time] FFXV Daily Mission [Adv]",
+        "Exp": 150,
+        "Stamina": 100,
+        "Category": "GL_FF15_DAILY_JUL31",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 30
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180801_1": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 3,
+            "sval": [
+                "UN_V2_EN_MANDRAGORA_YUJ_POI"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180801_1",
+        "Name": "[Limited Time] FFXV Daily Mission [Bgn]",
+        "Exp": 50,
+        "Stamina": 100,
+        "Category": "GL_FF15_DAILY_AUG1",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180801_2": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 2,
+            "sval": [
+                "UN_V2_EN_MACHINE_LAN"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180801_2",
+        "Name": "[Limited Time] FFXV Daily Mission [Int]",
+        "Exp": 50,
+        "Category": "GL_FF15_DAILY_AUG1",
+        "Items": [
+            {
+                "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "GL_DAILY_FFXV_20180801_3": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "killenemy",
+            "ival": 1,
+            "sval": [
+                "UN_V2_FF15_BEHEMOTH"
+            ]
+        },
+        "iname": "GL_DAILY_FFXV_20180801_3",
+        "Name": "[Limited Time] FFXV Daily Mission [Adv]",
+        "Exp": 150,
+        "Stamina": 100,
+        "Category": "GL_FF15_DAILY_AUG1",
         "Items": [
             {
                 "iname": "IT_EVENT_GL_LUCKYPENNY_JULY",
@@ -9059,6 +10767,406 @@
                 "num": 10
             }
         ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_YUTO_1_01": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_SO_YUTO_1"
+            ]
+        },
+        "iname": "SO_YUTO_1_01",
+        "Name": "森の護り人１話をクリア[1]",
+        "Category": "SO_YUTO_TROPHY",
+        "Items": [
+            {
+                "iname": "IT_PI_YUTO",
+                "num": 5
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_YUTO_1_02": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 3,
+            "sval": [
+                "QE_SO_YUTO_1"
+            ]
+        },
+        "iname": "SO_YUTO_1_02",
+        "Name": "森の護り人１話をクリア[2]",
+        "Category": "SO_YUTO_TROPHY",
+        "Items": [
+            {
+                "iname": "IT_PI_YUTO",
+                "num": 5
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_YUTO_1_03": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 5,
+            "sval": [
+                "QE_SO_YUTO_1"
+            ]
+        },
+        "iname": "SO_YUTO_1_03",
+        "Name": "森の護り人１話をクリア[3]",
+        "Category": "SO_YUTO_TROPHY",
+        "Items": [
+            {
+                "iname": "IT_PI_YUTO",
+                "num": 5
+            },
+            {
+                "iname": "IT_UG_APPLE5",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_YUTO_2_01": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_SO_YUTO_2"
+            ]
+        },
+        "iname": "SO_YUTO_2_01",
+        "Name": "森の護り人２話をクリア[1]",
+        "Category": "SO_YUTO_TROPHY",
+        "Items": [
+            {
+                "iname": "IT_PI_YUTO",
+                "num": 10
+            },
+            {
+                "iname": "IT_EQ_SOUL_SOL",
+                "num": 6
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_YUTO_2_02": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 3,
+            "sval": [
+                "QE_SO_YUTO_2"
+            ]
+        },
+        "iname": "SO_YUTO_2_02",
+        "Name": "森の護り人２話をクリア[2]",
+        "Category": "SO_YUTO_TROPHY",
+        "Items": [
+            {
+                "iname": "IT_PI_YUTO",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_YUTO_2_03": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 5,
+            "sval": [
+                "QE_SO_YUTO_2"
+            ]
+        },
+        "iname": "SO_YUTO_2_03",
+        "Name": "森の護り人２話をクリア[3]",
+        "Category": "SO_YUTO_TROPHY",
+        "Items": [
+            {
+                "iname": "IT_PI_YUTO",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_YUTO_2_04": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 10,
+            "sval": [
+                "QE_SO_YUTO_2"
+            ]
+        },
+        "iname": "SO_YUTO_2_04",
+        "Name": "森の護り人２話をクリア[4]",
+        "Category": "SO_YUTO_TROPHY",
+        "Items": [
+            {
+                "iname": "IT_PI_YUTO",
+                "num": 10
+            },
+            {
+                "iname": "IT_CV_GOLD3",
+                "num": 3
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_YUTO_3_01": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_SO_YUTO_3"
+            ]
+        },
+        "iname": "SO_YUTO_3_01",
+        "Name": "森の護り人３話をクリア[1]",
+        "Category": "SO_YUTO_TROPHY",
+        "Items": [
+            {
+                "iname": "IT_PI_YUTO",
+                "num": 15
+            },
+            {
+                "iname": "IT_UG_APPLE5",
+                "num": 5
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_YUTO_3_02": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 3,
+            "sval": [
+                "QE_SO_YUTO_3"
+            ]
+        },
+        "iname": "SO_YUTO_3_02",
+        "Name": "森の護り人３話をクリア[2]",
+        "Category": "SO_YUTO_TROPHY",
+        "Items": [
+            {
+                "iname": "IT_PI_YUTO",
+                "num": 15
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_YUTO_3_03": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 5,
+            "sval": [
+                "QE_SO_YUTO_3"
+            ]
+        },
+        "iname": "SO_YUTO_3_03",
+        "Name": "森の護り人３話をクリア[3]",
+        "Category": "SO_YUTO_TROPHY",
+        "Items": [
+            {
+                "iname": "IT_PI_YUTO",
+                "num": 15
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_YUTO_3_04": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 10,
+            "sval": [
+                "QE_SO_YUTO_3"
+            ]
+        },
+        "iname": "SO_YUTO_3_04",
+        "Name": "森の護り人３話をクリア[4]",
+        "Category": "SO_YUTO_TROPHY",
+        "Items": [
+            {
+                "iname": "IT_PI_YUTO",
+                "num": 15
+            },
+            {
+                "iname": "IT_CV_GOLD3",
+                "num": 5
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_YUTO_3_05": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 15,
+            "sval": [
+                "QE_SO_YUTO_3"
+            ]
+        },
+        "iname": "SO_YUTO_3_05",
+        "Name": "森の護り人３話をクリア[5]",
+        "Category": "SO_YUTO_TROPHY",
+        "Items": [
+            {
+                "iname": "IT_PI_YUTO",
+                "num": 15
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_YUTO_3_06": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 20,
+            "sval": [
+                "QE_SO_YUTO_3"
+            ]
+        },
+        "iname": "SO_YUTO_3_06",
+        "Name": "森の護り人３話をクリア[6]",
+        "Category": "SO_YUTO_TROPHY",
+        "Items": [
+            {
+                "iname": "IT_PI_YUTO",
+                "num": 20
+            },
+            {
+                "iname": "IT_EQ_SOUL_WOR",
+                "num": 6
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_YUTO_EX_01": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_SO_YUTO_EX_1"
+            ]
+        },
+        "iname": "SO_YUTO_EX_01",
+        "Name": "【エクストラ】森の護り人をクリア[1]",
+        "Category": "SO_YUTO_TROPHY_EX",
+        "Items": [
+            {
+                "iname": "IT_EQ_SOUL_LUCA_STR",
+                "num": 6
+            },
+            {
+                "iname": "IT_UG_APPLE5",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_YUTO_EX_02": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 5,
+            "sval": [
+                "QE_SO_YUTO_EX_1"
+            ]
+        },
+        "iname": "SO_YUTO_EX_02",
+        "Name": "【エクストラ】森の護り人をクリア[2]",
+        "Category": "SO_YUTO_TROPHY_EX",
+        "Items": [
+            {
+                "iname": "IT_EQ_DIAGRAMPIECE_LUCA_TWIN_SWORD",
+                "num": 10
+            },
+            {
+                "iname": "IT_EQ_DIAGRAMPIECE_LUCA_HOOD",
+                "num": 10
+            },
+            {
+                "iname": "IT_EQ_DIAGRAMPIECE_LUCA_SCARF",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "SO_YUTO_EX_03": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 10,
+            "sval": [
+                "QE_SO_YUTO_EX_1"
+            ]
+        },
+        "iname": "SO_YUTO_EX_03",
+        "Name": "【エクストラ】森の護り人をクリア[3]",
+        "Coin": 50,
+        "Exp": 250,
+        "Category": "SO_YUTO_TROPHY_EX",
+        "Items": [
+            {
+                "iname": "IT_EQ_DIAGRAMPIECE_LUCA_CLOTH",
+                "num": 10
+            },
+            {
+                "iname": "IT_EQ_DIAGRAMPIECE_LUCA_PANTS",
+                "num": 10
+            },
+            {
+                "iname": "IT_EQ_DIAGRAMPIECE_LUCA_SWORDS",
+                "num": 10
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "MULTI_SO_YUTO_EX_01": {
+        "RequiredTrophies": [],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_MULTI_SO_YUTO_EX_1"
+            ]
+        },
+        "iname": "MULTI_SO_YUTO_EX_01",
+        "Name": "【エクストラ】【マルチ】森の護り人をクリア",
+        "Coin": 50,
+        "Exp": 250,
+        "Category": "SO_YUTO_TROPHY_EX_MULTI",
+        "Items": [],
         "Artifacts": [],
         "ConceptCards": []
     },
@@ -18178,6 +20286,482 @@
             {
                 "iname": "IT_US_2016APR_JOB_SOUBI_TICKET",
                 "num": 1
+            },
+            {
+                "iname": "IT_UG_APPLE5",
+                "num": 7
+            },
+            {
+                "iname": "IT_SG_POT3",
+                "num": 1
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_291N": {
+        "RequiredTrophies": [
+            "WINQUEST_290N"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_030021"
+            ]
+        },
+        "iname": "WINQUEST_291N",
+        "Name": "3章1話3-1をクリア",
+        "Coin": 50,
+        "Exp": 700,
+        "Category": "STORY_CHPT3_EP1",
+        "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_292N": {
+        "RequiredTrophies": [
+            "WINQUEST_290N"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_030022"
+            ]
+        },
+        "iname": "WINQUEST_292N",
+        "Name": "3章1話3-2をクリア",
+        "Exp": 700,
+        "Category": "STORY_CHPT3_EP1",
+        "Items": [
+            {
+                "iname": "IT_PI_LIESBET",
+                "num": 5
+            },
+            {
+                "iname": "IT_UG_APPLE5",
+                "num": 5
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_293N": {
+        "RequiredTrophies": [
+            "WINQUEST_290N"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_030023"
+            ]
+        },
+        "iname": "WINQUEST_293N",
+        "Name": "3章1話3-3をクリア",
+        "Coin": 50,
+        "Exp": 700,
+        "Category": "STORY_CHPT3_EP1",
+        "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_294N": {
+        "RequiredTrophies": [
+            "WINQUEST_290N"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_030024"
+            ]
+        },
+        "iname": "WINQUEST_294N",
+        "Name": "3章1話3-4をクリア",
+        "Exp": 700,
+        "Category": "STORY_CHPT3_EP1",
+        "Items": [
+            {
+                "iname": "IT_EV_ARUKEMYI04",
+                "num": 1
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_295N": {
+        "RequiredTrophies": [
+            "WINQUEST_290N"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_030025"
+            ]
+        },
+        "iname": "WINQUEST_295N",
+        "Name": "3章1話3-5をクリア",
+        "Coin": 50,
+        "Exp": 700,
+        "Category": "STORY_CHPT3_EP1",
+        "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_296N": {
+        "RequiredTrophies": [
+            "WINQUEST_290N"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_030026"
+            ]
+        },
+        "iname": "WINQUEST_296N",
+        "Name": "3章1話3-6をクリア",
+        "Exp": 700,
+        "Category": "STORY_CHPT3_EP1",
+        "Items": [
+            {
+                "iname": "IT_US_TICKET",
+                "num": 10
+            },
+            {
+                "iname": "IT_UG_APPLE5",
+                "num": 5
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_297N": {
+        "RequiredTrophies": [
+            "WINQUEST_290N"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_030027"
+            ]
+        },
+        "iname": "WINQUEST_297N",
+        "Name": "3章1話3-7をクリア",
+        "Coin": 50,
+        "Exp": 700,
+        "Category": "STORY_CHPT3_EP1",
+        "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_298N": {
+        "RequiredTrophies": [
+            "WINQUEST_290N"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_030028"
+            ]
+        },
+        "iname": "WINQUEST_298N",
+        "Name": "3章1話3-8をクリア",
+        "Exp": 700,
+        "Category": "STORY_CHPT3_EP1",
+        "Items": [
+            {
+                "iname": "IT_EV_RAINBOW_S_GOLEM",
+                "num": 1
+            },
+            {
+                "iname": "IT_SG_POT3",
+                "num": 1
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_299N": {
+        "RequiredTrophies": [
+            "WINQUEST_290N"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_030029"
+            ]
+        },
+        "iname": "WINQUEST_299N",
+        "Name": "3章1話3-9をクリア",
+        "Coin": 50,
+        "Exp": 700,
+        "Category": "STORY_CHPT3_EP1",
+        "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_300N": {
+        "RequiredTrophies": [
+            "WINQUEST_290N"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_030030"
+            ]
+        },
+        "iname": "WINQUEST_300N",
+        "Name": "3章1話3-10をクリア",
+        "Exp": 1000,
+        "Category": "STORY_CHPT3_EP1",
+        "Items": [
+            {
+                "iname": "IT_US_APPLE_10TICKET",
+                "num": 1
+            },
+            {
+                "iname": "IT_UG_APPLE5",
+                "num": 7
+            },
+            {
+                "iname": "IT_CV_GOLD3",
+                "num": 25
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_301N": {
+        "RequiredTrophies": [
+            "WINQUEST_300N"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_030031"
+            ]
+        },
+        "iname": "WINQUEST_301N",
+        "Name": "3章2話1-1をクリア",
+        "Coin": 50,
+        "Exp": 1000,
+        "Category": "STORY_CHPT3_EP2",
+        "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_302N": {
+        "RequiredTrophies": [
+            "WINQUEST_300N"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_030032"
+            ]
+        },
+        "iname": "WINQUEST_302N",
+        "Name": "3章2話1-2をクリア",
+        "Exp": 1000,
+        "Category": "STORY_CHPT3_EP2",
+        "Items": [
+            {
+                "iname": "IT_PI_LIESBET",
+                "num": 5
+            },
+            {
+                "iname": "IT_UG_APPLE5",
+                "num": 5
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_303N": {
+        "RequiredTrophies": [
+            "WINQUEST_300N"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_030033"
+            ]
+        },
+        "iname": "WINQUEST_303N",
+        "Name": "3章2話1-3をクリア",
+        "Coin": 50,
+        "Exp": 1000,
+        "Category": "STORY_CHPT3_EP2",
+        "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_304N": {
+        "RequiredTrophies": [
+            "WINQUEST_300N"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_030034"
+            ]
+        },
+        "iname": "WINQUEST_304N",
+        "Name": "3章2話1-4をクリア",
+        "Exp": 1000,
+        "Category": "STORY_CHPT3_EP2",
+        "Items": [
+            {
+                "iname": "IT_EQ_DEF_SHIELD",
+                "num": 1
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_305N": {
+        "RequiredTrophies": [
+            "WINQUEST_300N"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_030035"
+            ]
+        },
+        "iname": "WINQUEST_305N",
+        "Name": "3章2話1-5をクリア",
+        "Coin": 50,
+        "Exp": 1000,
+        "Category": "STORY_CHPT3_EP2",
+        "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_306N": {
+        "RequiredTrophies": [
+            "WINQUEST_300N"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_030036"
+            ]
+        },
+        "iname": "WINQUEST_306N",
+        "Name": "3章2話1-6をクリア",
+        "Exp": 1000,
+        "Category": "STORY_CHPT3_EP2",
+        "Items": [
+            {
+                "iname": "IT_US_TICKET",
+                "num": 10
+            },
+            {
+                "iname": "IT_UG_APPLE5",
+                "num": 5
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_307N": {
+        "RequiredTrophies": [
+            "WINQUEST_300N"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_030037"
+            ]
+        },
+        "iname": "WINQUEST_307N",
+        "Name": "3章2話1-7をクリア",
+        "Coin": 50,
+        "Exp": 1000,
+        "Category": "STORY_CHPT3_EP2",
+        "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_308N": {
+        "RequiredTrophies": [
+            "WINQUEST_300N"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_030038"
+            ]
+        },
+        "iname": "WINQUEST_308N",
+        "Name": "3章2話1-8をクリア",
+        "Exp": 1000,
+        "Category": "STORY_CHPT3_EP2",
+        "Items": [
+            {
+                "iname": "IT_EQ_MAG_GEARROD",
+                "num": 1
+            }
+        ],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_309N": {
+        "RequiredTrophies": [
+            "WINQUEST_300N"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_030039"
+            ]
+        },
+        "iname": "WINQUEST_309N",
+        "Name": "3章2話1-9をクリア",
+        "Coin": 50,
+        "Exp": 1000,
+        "Category": "STORY_CHPT3_EP2",
+        "Items": [],
+        "Artifacts": [],
+        "ConceptCards": []
+    },
+    "WINQUEST_310N": {
+        "RequiredTrophies": [
+            "WINQUEST_300N"
+        ],
+        "Objectives": {
+            "type": "winquest",
+            "ival": 1,
+            "sval": [
+                "QE_ST_NO_030040"
+            ]
+        },
+        "iname": "WINQUEST_310N",
+        "Name": "3章2話1-10をクリア",
+        "Exp": 1000,
+        "Category": "STORY_CHPT3_EP2",
+        "Items": [
+            {
+                "iname": "IT_US_2016APR_ARTIFACT_TICKET",
+                "num": 5
             },
             {
                 "iname": "IT_UG_APPLE5",

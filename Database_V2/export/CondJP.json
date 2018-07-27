@@ -68,6 +68,20 @@
         ],
         "v_poison_rate": 25
     },
+    "CON_POI_SP_MEBI": {
+        "iname": "CON_POI_SP_MEBI",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 999,
+        "value_max": 999,
+        "rate_ini": 100,
+        "rate_max": 100,
+        "conditions": [
+            "Poison"
+        ],
+        "v_poison_rate": 25
+    },
     "CON_PAR": {
         "iname": "CON_PAR",
         "type": "FailCondition",
@@ -75,6 +89,19 @@
         "chk_timing": "ActionStart",
         "value_ini": 100,
         "value_max": 100,
+        "rate_ini": 100,
+        "rate_max": 100,
+        "conditions": [
+            "Paralysed"
+        ]
+    },
+    "CON_PAR_MEBI": {
+        "iname": "CON_PAR_MEBI",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 999,
+        "value_max": 999,
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
@@ -144,6 +171,19 @@
         "rate_max": 100,
         "turn_ini": 99,
         "turn_max": 99,
+        "conditions": [
+            "Charm"
+        ]
+    },
+    "CON_CHA_MEBI": {
+        "iname": "CON_CHA_MEBI",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 999,
+        "value_max": 999,
+        "rate_ini": 100,
+        "rate_max": 100,
         "conditions": [
             "Charm"
         ]
@@ -228,6 +268,19 @@
             "DisableSkill"
         ]
     },
+    "CON_DSK_MEBI": {
+        "iname": "CON_DSK_MEBI",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 999,
+        "value_max": 999,
+        "rate_ini": 100,
+        "rate_max": 100,
+        "conditions": [
+            "DisableSkill"
+        ]
+    },
     "CON_DSK_TIME": {
         "iname": "CON_DSK_TIME",
         "type": "FailCondition",
@@ -267,6 +320,19 @@
             "DisableMove"
         ]
     },
+    "CON_DMO_MEBI": {
+        "iname": "CON_DMO_MEBI",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 999,
+        "value_max": 999,
+        "rate_ini": 100,
+        "rate_max": 100,
+        "conditions": [
+            "DisableMove"
+        ]
+    },
     "CON_DAT": {
         "iname": "CON_DAT",
         "type": "FailCondition",
@@ -300,6 +366,19 @@
         "chk_timing": "ActionStart",
         "value_ini": 100,
         "value_max": 100,
+        "rate_ini": 100,
+        "rate_max": 100,
+        "conditions": [
+            "DeathSentence"
+        ]
+    },
+    "CON_DEA_MEBI": {
+        "iname": "CON_DEA_MEBI",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 999,
+        "value_max": 999,
         "rate_ini": 100,
         "rate_max": 100,
         "conditions": [
@@ -4100,6 +4179,19 @@
             "AutoJewel"
         ]
     },
+    "CON_PER25_STOP_1": {
+        "iname": "CON_PER25_STOP_1",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ClockCountUp",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 100,
+        "rate_max": 100,
+        "conditions": [
+            "Stop"
+        ]
+    },
     "CON_DOC_AUTO_HEALING": {
         "iname": "CON_DOC_AUTO_HEALING",
         "type": "FailCondition",
@@ -4329,6 +4421,25 @@
         "conditions": [
             "GoodSleep"
         ]
+    },
+    "CON_BAR_ASTRON": {
+        "iname": "CON_BAR_ASTRON",
+        "type": "ForcedFailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 400,
+        "value_max": 400,
+        "rate_ini": 100,
+        "rate_max": 100,
+        "turn_ini": 2,
+        "turn_max": 2,
+        "conditions": [
+            "Paralysed"
+        ],
+        "BuffIds": [
+            "BUFF_BAR_ASTRON"
+        ],
+        "v_paralyse_rate": 100
     },
     "CON_ODO_THROW_KISS": {
         "iname": "CON_ODO_THROW_KISS",
@@ -6065,6 +6176,23 @@
         "turn_max": 3,
         "conditions": [
             "Charm"
+        ]
+    },
+    "CON_SUTO_KIL_CC_01": {
+        "iname": "CON_SUTO_KIL_CC_01",
+        "type": "ForcedFailCondition",
+        "chk_target": "Target",
+        "chk_timing": "Eternal",
+        "value_ini": 999,
+        "value_max": 999,
+        "rate_ini": 100,
+        "rate_max": 100,
+        "curse": 1,
+        "conditions": [
+            "DisableHeal"
+        ],
+        "BuffIds": [
+            "BUFF_SUTO_KIL_CC_01"
         ]
     },
     "CON_XMA_TOUSEKI_STONE": {
@@ -11375,5 +11503,108 @@
             "AutoHeal"
         ],
         "v_auto_hp_heal": 10
+    },
+    "CON_ALMA01_UPPER_3": {
+        "iname": "CON_ALMA01_UPPER_3",
+        "type": "DisableCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionEnd",
+        "rate_ini": 100,
+        "rate_max": 100,
+        "turn_ini": 3,
+        "turn_max": 3,
+        "conditions": [
+            "DisableBuff"
+        ]
+    },
+    "CON_ALMA01_UPPER_2": {
+        "iname": "CON_ALMA01_UPPER_2",
+        "type": "DisableCondition",
+        "chk_target": "Target",
+        "rate_ini": 100,
+        "rate_max": 100,
+        "conditions": [
+            "DisableIncCT"
+        ]
+    },
+    "CON_ALMA01_LOWER_2": {
+        "iname": "CON_ALMA01_LOWER_2",
+        "type": "CureCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 100,
+        "rate_max": 100,
+        "conditions": [
+            "Poison",
+            "Paralysed",
+            "Stun",
+            "Sleep",
+            "Charm",
+            "Blindness",
+            "DisableSkill",
+            "DisableMove",
+            "DisableAttack",
+            "Donsoku",
+            "Stone",
+            "Zombie",
+            "Berserk",
+            "Stop",
+            "Rage",
+            "DeathSentence",
+            "Slow",
+            "DisableHeal"
+        ]
+    },
+    "CON_ALMA01_LOWER_4": {
+        "iname": "CON_ALMA01_LOWER_4",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 100,
+        "rate_max": 100,
+        "turn_ini": 4,
+        "turn_max": 4,
+        "conditions": [
+            "Paralysed",
+            "DisableAttack"
+        ]
+    },
+    "CON_KAYA01_LOWER_1": {
+        "iname": "CON_KAYA01_LOWER_1",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 100,
+        "rate_max": 100,
+        "turn_ini": 4,
+        "turn_max": 4,
+        "conditions": [
+            "DisableSkill",
+            "Blindness"
+        ],
+        "v_blink_hit": -50,
+        "v_blink_avo": -50
+    },
+    "CON_AF_ACCS_KAYA_01_WA": {
+        "iname": "CON_AF_ACCS_KAYA_01_WA",
+        "type": "FailCondition",
+        "chk_target": "Target",
+        "chk_timing": "ActionStart",
+        "value_ini": 100,
+        "value_max": 100,
+        "rate_ini": 100,
+        "rate_max": 100,
+        "turn_ini": 4,
+        "turn_max": 4,
+        "conditions": [
+            "Paralysed",
+            "Poison"
+        ]
     }
 }

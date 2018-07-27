@@ -255,7 +255,8 @@
             "IT_TB_BIRTH_WAD",
             "IT_TB_BIRTH_DES",
             "IT_TB_BIRTH_NOZ",
-            "IT_TB_BIRTH_LOS"
+            "IT_TB_BIRTH_LOS",
+            "IT_TB_BIRTH_ETC"
         ],
         "IniValRec": 100,
         "GuerrillaVal": 3,

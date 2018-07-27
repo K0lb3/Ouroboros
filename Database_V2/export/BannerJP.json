@@ -27,38 +27,45 @@
         "priority": 3,
         "message": "『機械』ユニット達を倒して豪華報酬をGETしよう！"
     },
-    "QE_EV_BABEL_4_01": {
-        "iname": "QE_EV_BABEL_4_01",
+    "QE_ALL600MAN_DL": {
+        "iname": "QE_ALL600MAN_DL",
         "type": "eventQuest",
-        "sval": "QE_EV_BABEL_4_01",
+        "sval": "QE_ALL600MAN_DL",
         "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_066_03",
-        "begin_at": "2018/07/01",
-        "end_at": "2018/07/12 14:59:59",
+        "banr_sprite": "Banner_Home_069_02",
+        "end_at": "2018/08/09 23:59:59",
         "priority": 4,
-        "message": "『亡国の乱、時代のころに咲く』開催中！"
+        "message": "『600万人突破記念クエスト』開催！豪華報酬をGETしよう！"
     },
-    "QE_EV_SIZUKU": {
-        "iname": "QE_EV_SIZUKU",
+    "QE_SO_ALMA_REBECCA_LV1": {
+        "iname": "QE_SO_ALMA_REBECCA_LV1",
         "type": "eventQuest",
-        "sval": "QE_EV_SIZUKU",
+        "sval": "QE_SO_ALMA_REBECCA_LV1",
         "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_067_00",
-        "begin_at": "2018/07/01",
-        "end_at": "2018/07/12 23:59:59",
+        "banr_sprite": "Banner_Home_068_02",
+        "end_at": "2018/08/09 14:59:59",
         "priority": 5,
-        "message": "1日1回挑戦！『精霊樹の森』でアルケミィの雫を手に入れよう！"
+        "message": "真理念装『レベッカは完璧、でも…』をGETしよう！"
     },
-    "QE_DM_01": {
-        "iname": "QE_DM_01",
-        "type": "pvp",
-        "sval": "QE_DM_01",
+    "QE_MULTI_ALMA_REBECCA_EX_01": {
+        "iname": "QE_MULTI_ALMA_REBECCA_EX_01",
+        "type": "eventQuest",
+        "sval": "QE_MULTI_ALMA_REBECCA_EX_01",
         "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_067_02",
-        "begin_at": "2018/07/01",
-        "end_at": "2018/07/11 23:59:59",
+        "banr_sprite": "Banner_Home_069_00",
+        "end_at": "2018/08/09 14:59:59",
         "priority": 6,
-        "message": "ドラフトマッチ開催中！"
+        "message": "『残雪を踏む少女たち』高難易度ステージ追加！"
+    },
+    "QE_SO_ALMA_REBECCA_EX_SP": {
+        "iname": "QE_SO_ALMA_REBECCA_EX_SP",
+        "type": "eventQuest",
+        "sval": "QE_SO_ALMA_REBECCA_EX_SP",
+        "banner": "Banners/BannerSprites",
+        "banr_sprite": "Banner_Home_069_01",
+        "end_at": "2018/08/09 14:59:59",
+        "priority": 7,
+        "message": "超高難度クエストをクリアして豪華報酬をGET！"
     },
     "QE_EV_VISION_CLEAR_CP_01": {
         "iname": "QE_EV_VISION_CLEAR_CP_01",
@@ -66,138 +73,78 @@
         "sval": "QE_EV_VISION_CLEAR_CP_01",
         "banner": "Banners/BannerSprites",
         "banr_sprite": "Banner_Home_057_01",
-        "end_at": "2018/07/12 23:59:59",
-        "priority": 7,
+        "end_at": "2018/07/31 23:59:59",
+        "priority": 8,
         "message": "特定の真理念装の錬金境界値が必ずアップ！"
     },
-    "BANR_SHOP_0630DLC": {
-        "iname": "BANR_SHOP_0630DLC",
+    "BANR_SHOP_0726DLC": {
+        "iname": "BANR_SHOP_0726DLC",
         "type": "shop",
         "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_067_01",
-        "end_at": "2018/07/12 14:59:59",
+        "banr_sprite": "Banner_Home_068_03",
+        "end_at": "2018/07/31 23:59:59",
+        "priority": 9,
+        "message": "全世界600万人突破！記念ショップOPEN！"
+    },
+    "QE_EV_ADVENT_1_MIUNA": {
+        "iname": "QE_EV_ADVENT_1_MIUNA",
+        "type": "eventQuest",
+        "sval": "QE_EV_ADVENT_1_MIUNA",
+        "banner": "Banners/BannerSprites",
+        "banr_sprite": "Banner_Home_050_03",
+        "end_at": "2018/07/27 23:59:00",
         "priority": 10,
-        "message": "バベル戦記公開記念ショップOPEN！"
+        "message": "今日は『ミウナの魂の欠片』をGET！"
     },
-    "QE_EV_ADVENT_1_YOMI": {
-        "iname": "QE_EV_ADVENT_1_YOMI",
+    "QE_EV_ADVENT_1_BALT": {
+        "iname": "QE_EV_ADVENT_1_BALT",
         "type": "eventQuest",
-        "sval": "QE_EV_ADVENT_1_YOMI",
+        "sval": "QE_EV_ADVENT_1_BALT",
         "banner": "Banners/BannerSprites",
         "banr_sprite": "Banner_Home_050_03",
-        "end_at": "2018/07/01 23:59:59",
+        "end_at": "2018/07/28 23:59:59",
         "priority": 11,
-        "message": "今日は『ヨミの魂の欠片』をGET！"
+        "message": "今日は『バルトの魂の欠片』をGET！"
     },
-    "QE_EV_ADVENT_1_ITSUKI": {
-        "iname": "QE_EV_ADVENT_1_ITSUKI",
+    "QE_EV_ADVENT_1_RAMESES": {
+        "iname": "QE_EV_ADVENT_1_RAMESES",
         "type": "eventQuest",
-        "sval": "QE_EV_ADVENT_1_ITSUKI",
+        "sval": "QE_EV_ADVENT_1_RAMESES",
         "banner": "Banners/BannerSprites",
         "banr_sprite": "Banner_Home_050_03",
-        "end_at": "2018/07/02 23:59:59",
+        "end_at": "2018/07/29 23:59:59",
         "priority": 12,
-        "message": "今日は『イツキの魂の欠片』をGET！"
+        "message": "今日は『ラメセスの魂の欠片』をGET！"
     },
-    "QE_EV_ADVENT_1_DECEL": {
-        "iname": "QE_EV_ADVENT_1_DECEL",
+    "QE_EV_ADVENT_1_NEICA": {
+        "iname": "QE_EV_ADVENT_1_NEICA",
         "type": "eventQuest",
-        "sval": "QE_EV_ADVENT_1_DECEL",
+        "sval": "QE_EV_ADVENT_1_NEICA",
         "banner": "Banners/BannerSprites",
         "banr_sprite": "Banner_Home_050_03",
-        "end_at": "2018/07/03 23:59:59",
+        "end_at": "2018/07/30 23:59:59",
         "priority": 13,
-        "message": "今日は『デセルの魂の欠片』をGET！"
+        "message": "今日は『ネイカの魂の欠片』をGET！"
     },
-    "QE_EV_ADVENT_1_DILGA": {
-        "iname": "QE_EV_ADVENT_1_DILGA",
+    "QE_EV_ADVENT_1_VIVI": {
+        "iname": "QE_EV_ADVENT_1_VIVI",
         "type": "eventQuest",
-        "sval": "QE_EV_ADVENT_1_DILGA",
+        "sval": "QE_EV_ADVENT_1_VIVI",
         "banner": "Banners/BannerSprites",
         "banr_sprite": "Banner_Home_050_03",
-        "end_at": "2018/07/04 23:59:59",
+        "end_at": "2018/07/31 23:59:59",
         "priority": 14,
-        "message": "今日は『ディルガの魂の欠片』をGET！"
+        "message": "今日は『ヴィヴィの魂の欠片』をGET！"
     },
-    "QE_EV_ADVENT_1_GLANZ": {
-        "iname": "QE_EV_ADVENT_1_GLANZ",
+    "QE_EV_ADVENT_1_MARE": {
+        "iname": "QE_EV_ADVENT_1_MARE",
         "type": "eventQuest",
-        "sval": "QE_EV_ADVENT_1_GLANZ",
+        "sval": "QE_EV_ADVENT_1_MARE",
         "banner": "Banners/BannerSprites",
         "banr_sprite": "Banner_Home_050_03",
-        "end_at": "2018/07/05 23:59:59",
+        "end_at": "2018/07/26 23:59:59",
         "priority": 15,
-        "message": "今日は『グランツの魂の欠片』をGET！"
-    },
-    "QE_EV_ADVENT_1_SEIDA": {
-        "iname": "QE_EV_ADVENT_1_SEIDA",
-        "type": "eventQuest",
-        "sval": "QE_EV_ADVENT_1_SEIDA",
-        "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_050_03",
-        "end_at": "2018/07/06 23:59:59",
-        "priority": 16,
-        "message": "今日は『セーダの魂の欠片』をGET！"
-    },
-    "QE_EV_ADVENT_1_ACHAD": {
-        "iname": "QE_EV_ADVENT_1_ACHAD",
-        "type": "eventQuest",
-        "sval": "QE_EV_ADVENT_1_ACHAD",
-        "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_050_03",
-        "end_at": "2018/07/07 23:59:59",
-        "priority": 17,
-        "message": "今日は『アハトの魂の欠片』をGET！"
-    },
-    "QE_EV_ADVENT_1_FUJICA": {
-        "iname": "QE_EV_ADVENT_1_FUJICA",
-        "type": "eventQuest",
-        "sval": "QE_EV_ADVENT_1_FUJICA",
-        "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_050_03",
-        "end_at": "2018/07/08 23:59:59",
-        "priority": 18,
-        "message": "今日は『フジカの魂の欠片』をGET！"
-    },
-    "QE_EV_ADVENT_1_FREED": {
-        "iname": "QE_EV_ADVENT_1_FREED",
-        "type": "eventQuest",
-        "sval": "QE_EV_ADVENT_1_FREED",
-        "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_050_03",
-        "end_at": "2018/07/09 23:59:59",
-        "priority": 19,
-        "message": "今日は『フリードの魂の欠片』をGET！"
-    },
-    "QE_EV_ADVENT_1_MONZEIN": {
-        "iname": "QE_EV_ADVENT_1_MONZEIN",
-        "type": "eventQuest",
-        "sval": "QE_EV_ADVENT_1_MONZEIN",
-        "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_050_03",
-        "end_at": "2018/07/10 23:59:59",
-        "priority": 20,
-        "message": "今日は『モンゼインの魂の欠片』をGET！"
-    },
-    "QE_EV_ADVENT_1_LUCIA": {
-        "iname": "QE_EV_ADVENT_1_LUCIA",
-        "type": "eventQuest",
-        "sval": "QE_EV_ADVENT_1_LUCIA",
-        "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_050_03",
-        "end_at": "2018/07/11 23:59:59",
-        "priority": 21,
-        "message": "今日は『ルシアの魂の欠片』をGET！"
-    },
-    "QE_EV_ADVENT_1_ARKILL": {
-        "iname": "QE_EV_ADVENT_1_ARKILL",
-        "type": "eventQuest",
-        "sval": "QE_EV_ADVENT_1_ARKILL",
-        "banner": "Banners/BannerSprites",
-        "banr_sprite": "Banner_Home_050_03",
-        "end_at": "2018/07/12 23:59:59",
-        "priority": 22,
-        "message": "今日は『アーキルの魂の欠片』をGET！"
+        "message": "今日は『メアの魂の欠片』をGET！"
     },
     "QE_WK_EJ_GUA": {
         "iname": "QE_WK_EJ_GUA",
@@ -206,7 +153,7 @@
         "banner": "Banners/BannerSprites",
         "banr_sprite": "Banner_Home_042_00",
         "begin_at": "2017/11/16 15:00:00",
-        "priority": 23,
+        "priority": 16,
         "message": "エンチャントジョブの装備品図片をGETしよう！"
     },
     "QE_WK_EJ_BLA": {
@@ -216,7 +163,7 @@
         "banner": "Banners/BannerSprites",
         "banr_sprite": "Banner_Home_042_01",
         "begin_at": "2017/11/16 15:00:00",
-        "priority": 24,
+        "priority": 17,
         "message": "エンチャントジョブの装備品図片をGETしよう！"
     },
     "QE_WK_EJ_RAN": {
@@ -226,7 +173,7 @@
         "banner": "Banners/BannerSprites",
         "banr_sprite": "Banner_Home_042_02",
         "begin_at": "2017/11/16 15:00:00",
-        "priority": 25,
+        "priority": 18,
         "message": "エンチャントジョブの装備品図片をGETしよう！"
     },
     "QE_WK_EJ_DOC": {
@@ -236,7 +183,7 @@
         "banner": "Banners/BannerSprites",
         "banr_sprite": "Banner_Home_042_03",
         "begin_at": "2017/11/16 15:00:00",
-        "priority": 26,
+        "priority": 19,
         "message": "エンチャントジョブの装備品図片をGETしよう！"
     },
     "BANR_BEGINNER_HOUSE": {
@@ -244,7 +191,7 @@
         "type": "beginner",
         "banner": "Banners/BannerSprites",
         "banr_sprite": "Banner_Home_066_00",
-        "priority": 27,
+        "priority": 20,
         "message": "まずはここをプレイしてタガタメを知ろう！",
         "is_not_home": true
     },
@@ -254,7 +201,7 @@
         "sval": "https://www.youtube.com/playlist?list=PLqe86jCIQ0R-YAoeaFmpy8O693yRTHWHB",
         "banner": "Banners/BannerSprites",
         "banr_sprite": "Banner_Home_054_02",
-        "priority": 28,
+        "priority": 21,
         "message": "攻略情報はこちらから！"
     },
     "BANR_LOBI": {
@@ -263,7 +210,7 @@
         "sval": "https://web.lobi.co/game/tagatameno_alchemist",
         "banner": "Banners/BannerSprites",
         "banr_sprite": "Banner_Home_054_01",
-        "priority": 29,
+        "priority": 22,
         "message": "タガタメ公認コミュニティ！"
     },
     "BANR_BEGINNER_GUIDE": {
@@ -273,7 +220,8 @@
         "banner": "Banners/BannerSprites",
         "banr_sprite": "Banner_Home_014_02",
         "begin_at": "2017/01/27 16:00:00",
-        "priority": 30,
+        "end_at": "2018/07/19 14:59:00",
+        "priority": 23,
         "message": "初心者の方は困ったらこちら！"
     }
 }

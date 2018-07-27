@@ -68,5 +68,23 @@
         "begin_at": false,
         "end_at": "2018/07/31 23:59:59",
         "prio": 14
+    },
+    "Challenge_Valentine": {
+        "iname": "Challenge_Valentine",
+        "begin_at": "2018/07/19 15:00:00",
+        "end_at": "2018/07/26 14:59:59",
+        "prio": 15
+    },
+    "Challenge_ALMA_REBECCA_Story": {
+        "iname": "Challenge_ALMA_REBECCA_Story",
+        "begin_at": false,
+        "end_at": "2018/08/09 23:59:59",
+        "prio": 16
+    },
+    "Challenge_ALMA_REBECCA_Kaiko": {
+        "iname": "Challenge_ALMA_REBECCA_Kaiko",
+        "begin_at": false,
+        "end_at": "2018/08/09 23:59:59",
+        "prio": 17
     }
 }

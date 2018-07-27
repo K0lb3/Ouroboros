@@ -268,5 +268,16 @@
         "qids": [
             "QE_EV_GET_SKILL_LEAFA_LV85"
         ]
+    },
+    "UD_ALMA01_UPPER_6": {
+        "iname": "UD_ALMA01_UPPER_6",
+        "uid": "UN_V2_ALMA",
+        "add": true,
+        "type": 1,
+        "new_id": "SK_ALMA01_UPPER_6",
+        "parent_id": "AB_ALMA01_UPPER",
+        "qids": [
+            "QE_EV_GET_SKILL_ALMA_LV85"
+        ]
     }
 }

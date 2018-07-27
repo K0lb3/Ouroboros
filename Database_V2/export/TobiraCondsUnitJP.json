@@ -643,5 +643,95 @@
         "mJobLevel": 11,
         "mCategory": 1,
         "mTobiraLv": 3
+    },
+    {
+        "mId": "TB_CNDS_ENV_2_LAVINA_MAJ_WATER",
+        "mLevel": 0,
+        "mAwakeLevel": 0,
+        "mJobIname": "JB_MAJ_WATER",
+        "mJobLevel": 11,
+        "mCategory": 1,
+        "mTobiraLv": 3
+    },
+    {
+        "mId": "TB_CNDS_ENV_2_DAISY_STR_FUDOU",
+        "mLevel": 0,
+        "mAwakeLevel": 0,
+        "mJobIname": "JB_STR_FUDOU",
+        "mJobLevel": 11,
+        "mCategory": 1,
+        "mTobiraLv": 3
+    },
+    {
+        "mId": "TB_CNDS_ENV_2_NOAH_HWIZ",
+        "mLevel": 0,
+        "mAwakeLevel": 0,
+        "mJobIname": "JB_NOAH_HWIZ",
+        "mJobLevel": 11,
+        "mCategory": 1,
+        "mTobiraLv": 3
+    },
+    {
+        "mId": "TB_CNDS_ENV_2_ROFIA_ENC_ANTI_BUFF",
+        "mLevel": 0,
+        "mAwakeLevel": 0,
+        "mJobIname": "JB_ENC_ANTI_BUFF",
+        "mJobLevel": 11,
+        "mCategory": 1,
+        "mTobiraLv": 3
+    },
+    {
+        "mId": "TB_CNDS_ENV_2_KURT_DGN_VRITRA",
+        "mLevel": 0,
+        "mAwakeLevel": 0,
+        "mJobIname": "JB_DGN_VRITRA",
+        "mJobLevel": 11,
+        "mCategory": 1,
+        "mTobiraLv": 3
+    },
+    {
+        "mId": "TB_CNDS_ENV_2_TEONA_VAL_DEF",
+        "mLevel": 0,
+        "mAwakeLevel": 0,
+        "mJobIname": "JB_VAL_DEF",
+        "mJobLevel": 11,
+        "mCategory": 1,
+        "mTobiraLv": 3
+    },
+    {
+        "mId": "TB_CNDS_ENV_2_MIELIKKI_ENC_ANTI_BUFF",
+        "mLevel": 0,
+        "mAwakeLevel": 0,
+        "mJobIname": "JB_ENC_ANTI_BUFF",
+        "mJobLevel": 11,
+        "mCategory": 1,
+        "mTobiraLv": 3
+    },
+    {
+        "mId": "TB_CNDS_ENV_2_CHALICE_LNC_THUNDER",
+        "mLevel": 0,
+        "mAwakeLevel": 0,
+        "mJobIname": "JB_LNC_THUNDER",
+        "mJobLevel": 11,
+        "mCategory": 1,
+        "mTobiraLv": 3
+    },
+    {
+        "mId": "TB_CNDS_ENV_2_POLLIN_BAR",
+        "mLevel": 0,
+        "mAwakeLevel": 0,
+        "mJobIname": "JB_POLLIN_BAR",
+        "mJobLevel": 11,
+        "mCategory": 1,
+        "mTobiraLv": 3
+    },
+    {
+        "mId": "TB_CNDS_ENV_2_GUILDFORD_BAA_TYPE_DRAIN",
+        "mLevel": 0,
+        "mAwakeLevel": 0,
+        "mJobIname": "JB_BAA_TYPE_DRAIN",
+        "mJobLevel": 11,
+        "mCategory": 1,
+        "mTobiraLv": 3
     }
 ]
