@@ -2695,12 +2695,12 @@
             "Bashosen",
             "Mikoto",
             "Thillie",
-            "Rena",
+            "Yuri SN",
             "Yunagi",
+            "Rena",
             "Etona DIS",
             "Ahato",
             "Celliers",
-            "Yuri SN",
             "Tethys",
             "D'Artagnan",
             "Mustang FA",
@@ -2906,12 +2906,12 @@
             "Ramses",
             "Elrike",
             "Mei Fang",
+            "Eros POTK",
             "Miuna",
             "Usalia DIS",
             "Ravina",
             "Chat Noir",
             "Celliers",
-            "Eros POTK",
             "Alphonse FA",
             "Freikugel POTK"
         ],
@@ -5388,9 +5388,9 @@
             "Yomi",
             "Reida",
             "Tamamo",
+            "Amaterasu SN",
             "Kyubi",
             "Fairily",
-            "Amaterasu SN",
             "Uzuma"
         ],
         "jobe": [
@@ -5751,10 +5751,10 @@
             "Albea",
             "Courage",
             "Bashosen",
+            "Eros POTK",
             "Justin",
             "Eruka RH",
             "Hugo",
-            "Eros POTK",
             "Hawkeye FA",
             "Black Killer Artemis POTK"
         ],
@@ -6102,8 +6102,8 @@
             "Masamune",
             "Yomi SN",
             "Eizan",
-            "Blanshett",
             "Jin",
+            "Blanshett",
             "Justin",
             "Priscilla",
             "Noin",
@@ -9178,8 +9178,8 @@
             "Carol",
             "Hazel",
             "Bashosen",
-            "Suiran",
             "Yuri SN",
+            "Suiran",
             "Pride FA",
             "Artemis POTK",
             "Shirma"
@@ -10825,8 +10825,8 @@
             "Vivi",
             "Neica",
             "Scheherazade",
-            "Chiruru",
             "Thillie",
+            "Chiruru",
             "Klima",
             "Raydo",
             "Ines",
@@ -11999,8 +11999,8 @@
             "Sakura SN",
             "Yuto",
             "Yunagi",
-            "Redmagnus DIS",
             "Jin",
+            "Redmagnus DIS",
             "Edwin",
             "Noin",
             "Tomas",
@@ -13643,8 +13643,8 @@
         "units": [
             "Setsuna",
             "Sakura SN",
-            "Etona DIS",
             "Yuri SN",
+            "Etona DIS",
             "Zuiva",
             "Edward FA",
             "Zenn",
@@ -17105,8 +17105,8 @@
         "origin": "Shrine Maiden",
         "units": [
             "Mikoto",
-            "Ato RH",
             "Amaterasu SN",
+            "Ato RH",
             "Ines"
         ],
         "jobe": [],
@@ -17252,6 +17252,180 @@
         "inputs": [
             "Priestess",
             "Miko"
+        ]
+    },
+    "JB_ONM": {
+        "iname": "JB_ONM",
+        "name": "Spy",
+        "japan": "Spy\n隠密",
+        "kanji": "隠密",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/onm.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ONM.png",
+        "origin": "Spy",
+        "units": [
+            "Jin",
+            "Olga",
+            "Stock RH",
+            "Priscilla",
+            "Won",
+            "Blitz",
+            "Itsuki",
+            "Kurt",
+            "Ren"
+        ],
+        "jobe": [
+            "Spy+ : Ronin"
+        ],
+        "main": {
+            "iname": "AB_ONM_UPPER",
+            "name": "Spy Technique",
+            "expr": "Spy techniques for use with this job type only",
+            "skills": [
+                {
+                    "name": "Hazy Shadow",
+                    "expr": "Greatly raises own Evasion Rate for one turn"
+                },
+                {
+                    "name": "Blinding Circle",
+                    "expr": "Strong Blind effect on area around self & move after use [MOVE: Diamond (9), JUMP: 2, Area: Square (3), Height Range: 2]"
+                },
+                {
+                    "name": "Transcendence",
+                    "expr": "Nullifies statuses cast on allies in area around self & move after use [MOVE: Diamond (9), JUMP: 2, Area: Cross (3), Height Range: 2]"
+                },
+                {
+                    "name": "Summon Python Storm",
+                    "expr": "Summons a python monster that inflicts Wind Phys Dmg on units within target area & lowers units' Wind Res for three turns [Range: 4, Area: Diamond (5), Height Range: 2]"
+                },
+                {
+                    "name": "Summon Toad Flow",
+                    "expr": "Summons a toad monster that inflicts Water Phys Dmg on target & lowers target's Water Res for three turns [Range: 4, Height Range: 2]"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_ONM_LOWER",
+            "name": "Basic Spy Technique",
+            "expr": "Spy techniques for use with all job types",
+            "skills": [
+                {
+                    "name": "Windmill Shuriken",
+                    "expr": "Inflicts Phys Dmg (Low) on target with chance of critical [Range: 4, Height Range: 2]"
+                },
+                {
+                    "name": "Flame Seal",
+                    "expr": "Inflicts Fire Phys Dmg (Medium) & lowers target's Pierce ATK for three turns [Range: 3, Height Range: 2]"
+                },
+                {
+                    "name": "Waterfall Seal",
+                    "expr": "Inflicts Water Phys Dmg (Medium) & lowers target's Slash ATK for three turns [Range: 3, Height Range: 2]"
+                },
+                {
+                    "name": "Storm Seal",
+                    "expr": "Inflicts Wind Phys Dmg (Medium) & lowers target's Missile ATK for three turns [Range: 3, Height Range: 2]"
+                },
+                {
+                    "name": "Electric Seal",
+                    "expr": "Inflicts Thunder Phys Dmg (Medium) & lowers target's Strike ATK for three turns [Range: 3, Height Range: 2]"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Immobilize Counter",
+                    "expr": "When Dmg is received, set chance of absorbing part of Dmg received back as HP & set chance of inflicting Stop on attacker"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Flying Ape",
+                    "expr": "MOVE +1 and JUMP +2"
+                },
+                {
+                    "name": "Hurricane",
+                    "expr": "Raises AGI/DEX"
+                }
+            ]
+        },
+        "weapon": "Kunai",
+        "modifiers": {
+            "HP": 4,
+            "Max Jewels": 0,
+            "Initial Jewels": 25,
+            "PATK": 0,
+            "PDEF": 10,
+            "MATK": 3,
+            "MDEF": 0,
+            "DEX": 15,
+            "AGI": 25,
+            "LUCK": 0,
+            "CRIT": 25,
+            "AVOID": 5
+        },
+        "job master buff": [
+            {
+                "type": "HP",
+                "value": 19,
+                "calc": "Scale"
+            },
+            {
+                "type": "PATK",
+                "value": 6,
+                "calc": "Scale"
+            },
+            {
+                "type": "DEX",
+                "value": 2,
+                "calc": "Scale"
+            },
+            {
+                "type": "AGI",
+                "value": 4,
+                "calc": "Scale"
+            }
+        ],
+        "stats": {
+            "Move": 4,
+            "Jump": 4,
+            "PATK": 298,
+            "PDEF": 123,
+            "DEX": 256,
+            "AGI": 35,
+            "MATK": 69,
+            "LUCK": 78,
+            "Jewels Obtained": 40,
+            "HP": 248,
+            "CRIT": 134,
+            "Fire Res": 7,
+            "Water Res": 5,
+            "Thunder Res": 3,
+            "Wind Res": 5,
+            "Stop Res": 24,
+            "Paralyze Res": 43,
+            "Daze Res": 28,
+            "Bind Res": 28,
+            "Stun Res": 25,
+            "Sleep Res": 15,
+            "Petrify Res": 15,
+            "MDEF": 28,
+            "Poison Res": 20,
+            "Charm Res": 10
+        },
+        "formula": "90% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
+        "link": "http://www.alchemistcodedb.com/unit/zin#spy",
+        "inputs": [
+            "Spy"
         ]
     },
     "JB_FEN": {
@@ -22008,180 +22182,6 @@
         "inputs": [
             "Rosa DIS Netherworld Witch",
             "Netherworld Witch"
-        ]
-    },
-    "JB_ONM": {
-        "iname": "JB_ONM",
-        "name": "Spy",
-        "japan": "Spy\n隠密",
-        "kanji": "隠密",
-        "short description": "",
-        "long description": "",
-        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/onm.png",
-        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ONM.png",
-        "origin": "Spy",
-        "units": [
-            "Jin",
-            "Olga",
-            "Stock RH",
-            "Priscilla",
-            "Won",
-            "Blitz",
-            "Itsuki",
-            "Kurt",
-            "Ren"
-        ],
-        "jobe": [
-            "Spy+ : Ronin"
-        ],
-        "main": {
-            "iname": "AB_ONM_UPPER",
-            "name": "Spy Technique",
-            "expr": "Spy techniques for use with this job type only",
-            "skills": [
-                {
-                    "name": "Hazy Shadow",
-                    "expr": "Greatly raises own Evasion Rate for one turn"
-                },
-                {
-                    "name": "Blinding Circle",
-                    "expr": "Strong Blind effect on area around self & move after use [MOVE: Diamond (9), JUMP: 2, Area: Square (3), Height Range: 2]"
-                },
-                {
-                    "name": "Transcendence",
-                    "expr": "Nullifies statuses cast on allies in area around self & move after use [MOVE: Diamond (9), JUMP: 2, Area: Cross (3), Height Range: 2]"
-                },
-                {
-                    "name": "Summon Python Storm",
-                    "expr": "Summons a python monster that inflicts Wind Phys Dmg on units within target area & lowers units' Wind Res for three turns [Range: 4, Area: Diamond (5), Height Range: 2]"
-                },
-                {
-                    "name": "Summon Toad Flow",
-                    "expr": "Summons a toad monster that inflicts Water Phys Dmg on target & lowers target's Water Res for three turns [Range: 4, Height Range: 2]"
-                }
-            ]
-        },
-        "sub": {
-            "iname": "AB_ONM_LOWER",
-            "name": "Basic Spy Technique",
-            "expr": "Spy techniques for use with all job types",
-            "skills": [
-                {
-                    "name": "Windmill Shuriken",
-                    "expr": "Inflicts Phys Dmg (Low) on target with chance of critical [Range: 4, Height Range: 2]"
-                },
-                {
-                    "name": "Flame Seal",
-                    "expr": "Inflicts Fire Phys Dmg (Medium) & lowers target's Pierce ATK for three turns [Range: 3, Height Range: 2]"
-                },
-                {
-                    "name": "Waterfall Seal",
-                    "expr": "Inflicts Water Phys Dmg (Medium) & lowers target's Slash ATK for three turns [Range: 3, Height Range: 2]"
-                },
-                {
-                    "name": "Storm Seal",
-                    "expr": "Inflicts Wind Phys Dmg (Medium) & lowers target's Missile ATK for three turns [Range: 3, Height Range: 2]"
-                },
-                {
-                    "name": "Electric Seal",
-                    "expr": "Inflicts Thunder Phys Dmg (Medium) & lowers target's Strike ATK for three turns [Range: 3, Height Range: 2]"
-                }
-            ]
-        },
-        "reactives": {
-            "iname": "",
-            "name": "Reactives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Immobilize Counter",
-                    "expr": "When Dmg is received, set chance of absorbing part of Dmg received back as HP & set chance of inflicting Stop on attacker"
-                }
-            ]
-        },
-        "passives": {
-            "iname": "",
-            "name": "Passives",
-            "expr": "",
-            "skills": [
-                {
-                    "name": "Flying Ape",
-                    "expr": "MOVE +1 and JUMP +2"
-                },
-                {
-                    "name": "Hurricane",
-                    "expr": "Raises AGI/DEX"
-                }
-            ]
-        },
-        "weapon": "Kunai",
-        "modifiers": {
-            "HP": 4,
-            "Max Jewels": 0,
-            "Initial Jewels": 25,
-            "PATK": 0,
-            "PDEF": 10,
-            "MATK": 3,
-            "MDEF": 0,
-            "DEX": 15,
-            "AGI": 25,
-            "LUCK": 0,
-            "CRIT": 25,
-            "AVOID": 5
-        },
-        "job master buff": [
-            {
-                "type": "HP",
-                "value": 19,
-                "calc": "Scale"
-            },
-            {
-                "type": "PATK",
-                "value": 6,
-                "calc": "Scale"
-            },
-            {
-                "type": "DEX",
-                "value": 2,
-                "calc": "Scale"
-            },
-            {
-                "type": "AGI",
-                "value": 4,
-                "calc": "Scale"
-            }
-        ],
-        "stats": {
-            "Move": 4,
-            "Jump": 4,
-            "PATK": 298,
-            "PDEF": 123,
-            "DEX": 256,
-            "AGI": 35,
-            "MATK": 69,
-            "LUCK": 78,
-            "Jewels Obtained": 40,
-            "HP": 248,
-            "CRIT": 134,
-            "Fire Res": 7,
-            "Water Res": 5,
-            "Thunder Res": 3,
-            "Wind Res": 5,
-            "Stop Res": 24,
-            "Paralyze Res": 43,
-            "Daze Res": 28,
-            "Bind Res": 28,
-            "Stun Res": 25,
-            "Sleep Res": 15,
-            "Petrify Res": 15,
-            "MDEF": 28,
-            "Poison Res": 20,
-            "Charm Res": 10
-        },
-        "formula": "90% (PATK + AGI/2 + AGI*LV/100 + DEX/4)",
-        "link": "http://www.alchemistcodedb.com/jp/unit/ren#隠密",
-        "inputs": [
-            "Spy"
         ]
     },
     "JB_WEA": {
@@ -46967,7 +46967,7 @@
             "Charm Res": 10
         },
         "formula": "65% (PATK + DEX)",
-        "link": "http://www.alchemistcodedb.com/jp/unit/pok-eros#レンジャー【狼】",
+        "link": "http://www.alchemistcodedb.com/unit/pokeros#ranger-[lupus]",
         "inputs": [
             "Ranger [Lupus]",
             "Ranger: Wolf"
@@ -48817,7 +48817,7 @@
             "Poison Res": 10
         },
         "formula": "150% PATK",
-        "link": "http://www.alchemistcodedb.com/jp/unit/yunagi#ダークナイト【ゲルニカ】",
+        "link": "http://www.alchemistcodedb.com/unit/yunagi#dark-cavalier-[guernica]",
         "inputs": [
             "Dark Cavalier [Guernica]",
             "Dark Knight: Gernika"

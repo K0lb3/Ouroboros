@@ -2010,7 +2010,7 @@
         "job 3": "Ninja",
         "jc 1": "Ranger [Lupus]ᴶ\n[bonus damage against monsters]",
         "jc 2": "",
-        "jc 3": "Ninja+ᴶ",
+        "jc 3": "Ninja+",
         "inputs": [
             "Yuan"
         ],
@@ -2724,7 +2724,7 @@
         "job 3": "Magic Swordsman",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "Magic Swordsman+ᴶ",
+        "jc 3": "Magic Swordsman+",
         "inputs": [
             "Arkil",
             "Aqil"
@@ -8584,7 +8584,7 @@
     },
     "UN_V2_THILLIE": {
         "iname": "UN_V2_THILLIE",
-        "name": "Thillieᴶ",
+        "name": "Thillie",
         "inofficial": "Thillie",
         "gender": "♀",
         "element": "Wind",
@@ -8597,7 +8597,7 @@
         ],
         "leader skill": "Wind: +30% HP",
         "master ability": "",
-        "link": "http://www.alchemistcodedb.com/jp/unit/thillie",
+        "link": "http://www.alchemistcodedb.com/unit/thillie",
         "job 1": "Beast Tamer",
         "job 2": "Sage",
         "job 3": "Ninja",
@@ -8608,7 +8608,7 @@
             "Thillie"
         ],
         "stats": {
-            "HP": 357,
+            "HP": 392,
             "Max Jewels": 166,
             "PATK": 115,
             "PDEF": 76,
@@ -10004,7 +10004,7 @@
     },
     "UN_V2_YUNAGI": {
         "iname": "UN_V2_YUNAGI",
-        "name": "Yunagiᴶ",
+        "name": "Yunagi",
         "inofficial": "Yuunagi",
         "gender": "♀",
         "element": "Water",
@@ -10017,7 +10017,7 @@
         ],
         "leader skill": "Water: +30% HP, +20% PATK",
         "master ability": "+300 HP, +40 Initial Jewels",
-        "link": "http://www.alchemistcodedb.com/jp/unit/yunagi",
+        "link": "http://www.alchemistcodedb.com/unit/yunagi",
         "job 1": "Dark Cavalier",
         "job 2": "Ninja",
         "job 3": "Warrior",
@@ -10029,7 +10029,7 @@
             "Yuunagi"
         ],
         "stats": {
-            "HP": 356,
+            "HP": 394,
             "Max Jewels": 154,
             "PATK": 134,
             "PDEF": 88,
@@ -10955,7 +10955,7 @@
     },
     "UN_V2_SUIRAN": {
         "iname": "UN_V2_SUIRAN",
-        "name": "Suiranᴶ",
+        "name": "Suiran",
         "inofficial": "Suiran",
         "gender": "♀",
         "element": "Wind",
@@ -10966,7 +10966,7 @@
         "farm": [],
         "leader skill": "Wind: +20 Strike ATK, +10% HP",
         "master ability": "",
-        "link": "http://www.alchemistcodedb.com/jp/unit/suiran",
+        "link": "http://www.alchemistcodedb.com/unit/suiran",
         "job 1": "Blacksmith",
         "job 2": "Beast Tamer",
         "job 3": "Machinist",
@@ -10977,7 +10977,7 @@
             "Suiran"
         ],
         "stats": {
-            "HP": 397,
+            "HP": 392,
             "Max Jewels": 161,
             "PATK": 141,
             "PDEF": 95,
@@ -11064,7 +11064,7 @@
     },
     "UN_V2_ZIN": {
         "iname": "UN_V2_ZIN",
-        "name": "Jinᴶ",
+        "name": "Jin",
         "inofficial": "Jin",
         "gender": "♂",
         "element": "Dark",
@@ -11075,7 +11075,7 @@
         "farm": [],
         "leader skill": "Dark: +40% HP, +5 Evasion Rate",
         "master ability": "",
-        "link": "http://www.alchemistcodedb.com/jp/unit/zin",
+        "link": "http://www.alchemistcodedb.com/unit/zin",
         "job 1": "Spy",
         "job 2": "Samurai",
         "job 3": "Warrior",
@@ -11086,7 +11086,7 @@
             "Jin"
         ],
         "stats": {
-            "HP": 396,
+            "HP": 432,
             "Max Jewels": 173,
             "PATK": 157,
             "PDEF": 92,
@@ -12438,7 +12438,7 @@
     },
     "UN_V2_POK_EROS": {
         "iname": "UN_V2_POK_EROS",
-        "name": "Erosᴶ",
+        "name": "Eros",
         "inofficial": "Eros",
         "gender": "♀",
         "element": "Light",
@@ -12449,7 +12449,7 @@
         "farm": [],
         "leader skill": "Light: +30 Missile ATK, +20% DEX",
         "master ability": "",
-        "link": "http://www.alchemistcodedb.com/jp/unit/pok-eros",
+        "link": "http://www.alchemistcodedb.com/unit/pok-eros",
         "job 1": "Ranger",
         "job 2": "Thief",
         "job 3": "Sniper",
@@ -12462,7 +12462,7 @@
             "POTK Eros"
         ],
         "stats": {
-            "HP": 387,
+            "HP": 430,
             "Max Jewels": 163,
             "PATK": 142,
             "PDEF": 100,
@@ -12499,7 +12499,7 @@
     },
     "UN_V2_S_AMATERASU": {
         "iname": "UN_V2_S_AMATERASU",
-        "name": "Amaterasuᴶ",
+        "name": "Amaterasu",
         "inofficial": "Amaterasu",
         "gender": "♀",
         "element": "Light",
@@ -12510,7 +12510,7 @@
         "farm": [],
         "leader skill": "Foreign World: +30% HP, +5 Jewels Obtained",
         "master ability": "",
-        "link": "http://www.alchemistcodedb.com/jp/unit/s-amaterasu",
+        "link": "http://www.alchemistcodedb.com/unit/s-amaterasu",
         "job 1": "Shrine Maiden",
         "job 2": "Professor",
         "job 3": "Priestess",
@@ -12523,7 +12523,7 @@
             "SN Amaterasu"
         ],
         "stats": {
-            "HP": 320,
+            "HP": 357,
             "Max Jewels": 144,
             "PATK": 99,
             "PDEF": 62,
@@ -12560,7 +12560,7 @@
     },
     "UN_V2_S_YURI": {
         "iname": "UN_V2_S_YURI",
-        "name": "Yuriᴶ",
+        "name": "Yuri",
         "inofficial": "Yuri",
         "gender": "♀",
         "element": "Thunder",
@@ -12571,7 +12571,7 @@
         "farm": [],
         "leader skill": "Thunder: +40% PATK, +5 Jewels Obtained",
         "master ability": "",
-        "link": "http://www.alchemistcodedb.com/jp/unit/s-yuri",
+        "link": "http://www.alchemistcodedb.com/unit/s-yuri",
         "job 1": "Blademaster",
         "job 2": "Ninja",
         "job 3": "Machinist",
@@ -12584,7 +12584,7 @@
             "SN Yuri"
         ],
         "stats": {
-            "HP": 378,
+            "HP": 403,
             "Max Jewels": 156,
             "PATK": 132,
             "PDEF": 87,
