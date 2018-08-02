@@ -2641,7 +2641,7 @@
         "ability": [
             {
                 "name": "Hallucination",
-                "expr": "Recovers HP of ally units within area around self (no charge time) [Area: Diamond (5), Height Range: 2]",
+                "expr": "Recovers HP of ally units within area around self (no cast time) [Area: Diamond (5), Height Range: 2]",
                 "mapeff": " ",
                 "restriction": "",
                 "iname": "SK_ARMS_DOC_04_WA"

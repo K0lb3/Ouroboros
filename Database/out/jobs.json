@@ -2976,7 +2976,7 @@
                     "expr": "Recovers HP of units within target area [Range: 3, Area: Cross (3), Height Range: 1]"
                 },
                 {
-                    "name": "Provoke",
+                    "name": "Taunt",
                     "expr": "Chance of inflicting Rage on target, therefore drawing enemy attacks towards self [Range: 4, Height Range: 2]"
                 }
             ]
@@ -9589,7 +9589,7 @@
                     "expr": "Recovers HP of units within target area [Range: 3, Area: Cross (3), Height Range: 1]"
                 },
                 {
-                    "name": "Provoke",
+                    "name": "Taunt",
                     "expr": "Chance of inflicting Rage on target, therefore drawing enemy attacks towards self [Range: 4, Height Range: 2]"
                 }
             ]
@@ -9698,10 +9698,12 @@
         "units": [
             "Eve",
             "Lucretia",
-            "Klima"
+            "Klima",
+            "Kaya"
         ],
         "jobe": [
             "Bride+",
+            "Fire Wed F",
             "Pure Bride"
         ],
         "main": {
@@ -10371,7 +10373,7 @@
                 },
                 {
                     "name": "Flashing Judgement",
-                    "expr": "Inflicts Phys Dmg (strong vs demons) on target & interrupts skill charge [Range: 3, Height Range: 2]"
+                    "expr": "Inflicts Phys Dmg (strong vs demons) on target & interrupts skill cast [Range: 3, Height Range: 2]"
                 },
                 {
                     "name": "Knight of Avalon",
@@ -12495,7 +12497,9 @@
         "units": [
             "Zain"
         ],
-        "jobe": [],
+        "jobe": [
+            "Zayi Lord Cc"
+        ],
         "main": {
             "iname": "AB_ZAYI_LORD_UPPER",
             "name": "Sun Blade",
@@ -17273,7 +17277,8 @@
             "Blitz",
             "Itsuki",
             "Kurt",
-            "Ren"
+            "Ren",
+            "Kaya"
         ],
         "jobe": [
             "Spy+ : Ronin"
@@ -23887,7 +23892,7 @@
             "skills": [
                 {
                     "name": "Cursed Wish Rapid",
-                    "expr": "Raises charge speed/MATK"
+                    "expr": "Raises cast speed/MATK"
                 }
             ]
         },
@@ -26331,7 +26336,9 @@
             "Guildford",
             "Leticia"
         ],
-        "jobe": [],
+        "jobe": [
+            "Guil Tem"
+        ],
         "main": {
             "iname": "AB_TEM_UPPER",
             "name": "Sacred Blade",
@@ -30722,7 +30729,7 @@
                 },
                 {
                     "name": "アルマ無双",
-                    "expr": "範囲内の対象に光属性の3連撃の打撃攻撃&対人特効[射程:3,範囲:幅1マスの直線,高低差:2]"
+                    "expr": "範囲内の対象に3連続の光属性打撃攻撃&対人特効[射程:3,範囲:幅1マスの直線,高低差:2]"
                 }
             ]
         },
@@ -30850,6 +30857,168 @@
             "Alma",
             "Alma Battle Witch",
             "Battle Witch"
+        ]
+    },
+    "JB_KAYA01": {
+        "iname": "JB_KAYA01",
+        "name": "Kaya01ᴶ",
+        "japan": "Crimson Dragoon Princess\n紅竜姫",
+        "kanji": "紅竜姫",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/kaya01.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_LUROB03.png",
+        "origin": "",
+        "units": [
+            "Kaya"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_KAYA01_UPPER",
+            "name": "紅竜技",
+            "expr": "ジョブ固有の紅竜技",
+            "skills": [
+                {
+                    "name": "機竜光灯・宙封じ",
+                    "expr": "敵に光属性の射撃魔法攻撃&ジャンプ中の相手に特効&ジャンプ中断[射程:5,高低差:3]"
+                },
+                {
+                    "name": "紅蓮機刻",
+                    "expr": "3ターン自身の素早さアップ&詠唱時間短縮"
+                },
+                {
+                    "name": "機竜炎灯・四皇集い",
+                    "expr": "自身を中心とした範囲内の対象に4連続の火属性射撃魔法攻撃&風属性特効[範囲:特殊(シカクロス),高低差:3]"
+                },
+                {
+                    "name": "機竜火灯・虚空墜とし",
+                    "expr": "範囲内の対象に火属性の魔法攻撃&浮遊特効&必中&CT半減[射程:4,範囲:菱形2マス,高低差:2]"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_KAYA01_LOWER",
+            "name": "基本紅竜技",
+            "expr": "ジョブ汎用の紅竜技",
+            "skills": [
+                {
+                    "name": "機竜潜灯・逢魔が時",
+                    "expr": "範囲内の対象に強力な暗闇効果&沈黙効果[射程:4,範囲:十字1マス,高低差:2]"
+                },
+                {
+                    "name": "機竜煌灯・月虹掛け",
+                    "expr": "敵に光属性の射撃魔法攻撃&与えたダメージ分吸収&1ターン自身の魔攻を大幅アップ[射程:5,高低差:3]"
+                },
+                {
+                    "name": "機竜火灯・滅赤放ち",
+                    "expr": "敵に火属性の射撃魔法攻撃&5ターン火属性耐性大幅ダウン[射程:5,高低差:3]"
+                },
+                {
+                    "name": "灼熱機竜の息吹",
+                    "expr": "自身のHPを大量に消費して、自身のジュエルを大幅に回復"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "機紅竜の逆鱗",
+                    "expr": "攻撃に対し先制反撃&スキル攻撃にも発動[射程:2,高低差:3]"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "真錬種",
+                    "expr": "魔攻・命中率アップ"
+                },
+                {
+                    "name": "紅竜姫の本気",
+                    "expr": "HP上限・素早さアップ"
+                }
+            ]
+        },
+        "weapon": "N/A",
+        "modifiers": {
+            "HP": 35,
+            "Max Jewels": 25,
+            "Initial Jewels": 75,
+            "PATK": 0,
+            "PDEF": 10,
+            "MATK": 30,
+            "MDEF": 20,
+            "DEX": 10,
+            "AGI": 10,
+            "LUCK": 25,
+            "CRIT": 10,
+            "AVOID": 0
+        },
+        "job master buff": [
+            {
+                "type": "HP",
+                "value": 20,
+                "calc": "Scale"
+            },
+            {
+                "type": "MATK",
+                "value": 6,
+                "calc": "Scale"
+            },
+            {
+                "type": "DEX",
+                "value": 4,
+                "calc": "Scale"
+            },
+            {
+                "type": "AGI",
+                "value": 2,
+                "calc": "Scale"
+            }
+        ],
+        "stats": {
+            "Move": 4,
+            "Jump": 2,
+            "MATK": 289,
+            "MDEF": 160,
+            "DEX": 130,
+            "AGI": 25,
+            "LUCK": 120,
+            "CRIT": 81,
+            "PDEF": 150,
+            "Jewels Obtained": 36,
+            "HP": 350,
+            "PATK": 61,
+            "Fire Res": 6,
+            "Water Res": 5,
+            "Thunder Res": 3,
+            "Wind Res": 12,
+            "Dark Res": 8,
+            "Petrify Res": 43,
+            "Stop Res": 42,
+            "Silence Res": 49,
+            "Stun Res": 25,
+            "Paralyze Res": 15,
+            "Sleep Res": 15,
+            "Blind Res": 10,
+            "Charm Res": 10,
+            "Poison Res": 10
+        },
+        "formula": "150% MATK",
+        "link": "http://www.alchemistcodedb.com/jp/unit/kaya#紅竜姫",
+        "inputs": [
+            "Kaya",
+            "Kaya Kaya01",
+            "Kaya01",
+            "Kaya",
+            "Kaya Crimson Dragoon Princess",
+            "Crimson Dragoon Princess"
         ]
     },
     "JB_KUDH_LAN2": {
@@ -37077,6 +37246,175 @@
             "Astrologist+"
         ]
     },
+    "JB_ZAYI_LORD_CC": {
+        "iname": "JB_ZAYI_LORD_CC",
+        "name": "Zayi Lord Ccᴶ",
+        "japan": "N/A",
+        "kanji": "世界を導く光",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/zayi_lord_cc.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_ZAYIN_LORD_CC.png",
+        "origin": "Lord Commander",
+        "units": [
+            "Zain"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_ZAYI_LORD_CC_UPPER",
+            "name": "陽剣技",
+            "expr": "ジョブ固有の陽剣技",
+            "skills": [
+                {
+                    "name": "ディバインセイバー",
+                    "expr": "敵に光属性の斬撃攻撃&3ターン光属性耐性大幅ダウン&3ターン自身の斬撃攻撃力アップ[射程:1,高低差:2]"
+                },
+                {
+                    "name": "ライトニングスパーク",
+                    "expr": "敵に雷属性の斬撃魔法攻撃&3ターン物攻・魔攻ダウン[射程:3,高低差:3]"
+                },
+                {
+                    "name": "Shining Flare",
+                    "expr": "Inflicts Fire Mag Dmg on enemy units within target area [Range: 3, Area: Diamond (5), Height Range: 2]"
+                },
+                {
+                    "name": "アルティメットノヴァ",
+                    "expr": "範囲内の敵に光属性の斬撃攻撃&闇属性特効&魔人特効[射程:2,範囲:幅3マスの直線,高低差:2]"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_ZAYI_LORD_CC_LOWER",
+            "name": "基本陽剣技",
+            "expr": "ジョブ汎用の陽剣技",
+            "skills": [
+                {
+                    "name": "Guardian of the Land",
+                    "expr": "Raises own Max HP for five turns"
+                },
+                {
+                    "name": "世界を導く光",
+                    "expr": "自身を中心とした範囲内の味方のHPを回復&3ターン物防・魔防アップ[範囲:正方形1マス,高低差:2]"
+                },
+                {
+                    "name": "Holy Jail",
+                    "expr": "Inflicts Phys Dmg (Low) with chance of inflicting Petrify [Range: 1, Height Range: 2]"
+                },
+                {
+                    "name": "Grand Blast",
+                    "expr": "Inflicts Wind Mag Dmg on enemy units within target area [Area: Square (3) around self, Height Range: 2]"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Oath of Determination",
+                    "expr": "Chance of raising PATK/MATK until next turn after Dmg is received"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Holy Blade of the White Night",
+                    "expr": "Raises Slash ATK"
+                }
+            ]
+        },
+        "weapon": "Sword",
+        "modifiers": {
+            "HP": 40,
+            "Max Jewels": 15,
+            "Initial Jewels": 25,
+            "PATK": 35,
+            "PDEF": 1,
+            "MATK": 30,
+            "MDEF": 8,
+            "DEX": 7,
+            "AGI": 35,
+            "LUCK": -1,
+            "CRIT": 4,
+            "AVOID": 0
+        },
+        "job master buff": [
+            {
+                "type": "HP",
+                "value": 8,
+                "calc": "Scale"
+            },
+            {
+                "type": "PATK",
+                "value": 3,
+                "calc": "Scale"
+            },
+            {
+                "type": "PDEF",
+                "value": 6,
+                "calc": "Scale"
+            },
+            {
+                "type": "MATK",
+                "value": 4,
+                "calc": "Scale"
+            },
+            {
+                "type": "AGI",
+                "value": 2,
+                "calc": "Scale"
+            },
+            {
+                "type": "HP",
+                "value": 100,
+                "calc": "Add"
+            }
+        ],
+        "stats": {
+            "Move": 4,
+            "Jump": 2,
+            "PATK": 320,
+            "PDEF": 178,
+            "DEX": 176,
+            "AGI": 17,
+            "CRIT": 100,
+            "HP": 277,
+            "MATK": 226,
+            "MDEF": 68,
+            "Jewels Obtained": 32,
+            "LUCK": 72,
+            "Fire Res": 8,
+            "Water Res": 6,
+            "Thunder Res": 3,
+            "Wind Res": 7,
+            "Light Res": 8,
+            "Dark Res": 7,
+            "Charm Res": 52,
+            "Sleep Res": 57,
+            "Slow Res": 34,
+            "Stun Res": 23,
+            "Paralyze Res": 23,
+            "Petrify Res": 23,
+            "Poison Res": 18,
+            "Silence Res": 36,
+            "Daze Res": 12,
+            "Bind Res": 12,
+            "Blind Res": 12
+        },
+        "formula": "90% (PATK + MATK)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/zayin#世界を導く光",
+        "inputs": [
+            "Zain Zayi Lord Cc",
+            "Zayi Lord Cc",
+            "Zain N/A",
+            "N/A"
+        ]
+    },
     "JB_SHN_FINANCIAL_KYARORU": {
         "iname": "JB_SHN_FINANCIAL_KYARORU",
         "name": "Merchant+  : Armored Battle Maidᴶ",
@@ -40639,6 +40977,169 @@
             "Dark Knight: Seele"
         ]
     },
+    "JB_GUIL_TEM": {
+        "iname": "JB_GUIL_TEM",
+        "name": "Guil Temᴶ",
+        "japan": "Judgment Knight\n断罪の騎士",
+        "kanji": "断罪の騎士",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/guil_tem.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_GUIL_TEM.png",
+        "origin": "Sacred Knight",
+        "units": [
+            "Guildford"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_GUIL_TEM_UPPER",
+            "name": "神殿剣",
+            "expr": "ジョブ固有の神殿剣",
+            "skills": [
+                {
+                    "name": "オールフォーワン",
+                    "expr": "自身のHPを消費して自身を中心とした範囲内の対象のHPを大回復&3ターン自身の斬撃攻撃力大幅アップ[範囲:自身の周囲1マス,高低差:2]"
+                },
+                {
+                    "name": "Trinity Shield",
+                    "expr": "Creates a barrier that greatly reduces Mag Dmg inflicted on target unit (three times) [Range: 2, Height Range: 2]"
+                },
+                {
+                    "name": "Sparkle Nova",
+                    "expr": "Inflicts Slash Dmg on units within target area [Range: 3, Area: Line (3), Height Range: 2]"
+                },
+                {
+                    "name": "Exceeding Blade",
+                    "expr": "Inflicts Slash Dmg on units within target area that ignores Elemental Res [Range: 4, Height Range: 2]"
+                },
+                {
+                    "name": "オーダースラッシュ",
+                    "expr": "敵に火属性の斬撃攻撃&風属性特効&必中[射程:4,高低差:3]"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_GUIL_TEM_LOWER",
+            "name": "基本神殿剣",
+            "expr": "ジョブ汎用の神殿剣",
+            "skills": [
+                {
+                    "name": "Exchange",
+                    "expr": "Swaps positions with ally unit [Range: 3, Height Range: 3]"
+                },
+                {
+                    "name": "Healing Wave",
+                    "expr": "Recovers HP of ally units within target area [Range: 3, Area: Diamond (5), Height Range: 2]"
+                },
+                {
+                    "name": "オーラブレイド",
+                    "expr": "範囲内の対象に光属性の斬撃魔法攻撃&1ターン対象の物攻・魔攻大幅ダウン[射程:4, 範囲:幅1マスの直線, 高低差:2]"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Oracle's Seal",
+                    "expr": "Casts Jewel Auto Charge on self when Mag Dmg is received (Also activated by skill attacks)"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Gospel of the Holy War",
+                    "expr": "Raises Slash ATK & Magic Res"
+                }
+            ]
+        },
+        "weapon": "Sword",
+        "modifiers": {
+            "HP": 25,
+            "Max Jewels": 5,
+            "Initial Jewels": 34,
+            "PATK": 30,
+            "PDEF": 30,
+            "MATK": 30,
+            "MDEF": 20,
+            "DEX": 15,
+            "AGI": 30,
+            "LUCK": 0,
+            "CRIT": -5,
+            "AVOID": 0
+        },
+        "job master buff": [
+            {
+                "type": "HP",
+                "value": 22,
+                "calc": "Scale"
+            },
+            {
+                "type": "PATK",
+                "value": 6,
+                "calc": "Scale"
+            },
+            {
+                "type": "MATK",
+                "value": 2,
+                "calc": "Scale"
+            },
+            {
+                "type": "MDEF",
+                "value": 4,
+                "calc": "Scale"
+            },
+            {
+                "type": "HP",
+                "value": 150,
+                "calc": "Add"
+            }
+        ],
+        "stats": {
+            "Move": 4,
+            "Jump": 2,
+            "MATK": 159,
+            "MDEF": 220,
+            "DEX": 176,
+            "AGI": 15,
+            "CRIT": 152,
+            "HP": 449,
+            "PATK": 212,
+            "PDEF": 166,
+            "Jewels Obtained": 41,
+            "LUCK": 111,
+            "Fire Res": 7,
+            "Water Res": 5,
+            "Thunder Res": 3,
+            "Wind Res": 7,
+            "Light Res": 5,
+            "Charm Res": 40,
+            "Sleep Res": 69,
+            "Slow Res": 52,
+            "Stun Res": 41,
+            "Paralyze Res": 51,
+            "Petrify Res": 41,
+            "Stop Res": 12,
+            "Max Jewels": 15,
+            "Poison Res": 36
+        },
+        "formula": "90% (PATK + MATK)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/guildford#断罪の騎士",
+        "inputs": [
+            "Guildford",
+            "Guildford Guil Tem",
+            "Guil Tem",
+            "Guildford",
+            "Guildford Judgment Knight",
+            "Judgment Knight"
+        ]
+    },
     "JB_BLA_TYPE_TK_MONS": {
         "iname": "JB_BLA_TYPE_TK_MONS",
         "name": "Martial Master [Beast]",
@@ -44192,6 +44693,176 @@
         "inputs": [
             "Professor [Aid]",
             "Professor: AID"
+        ]
+    },
+    "JB_FIRE_WED_F": {
+        "iname": "JB_FIRE_WED_F",
+        "name": "Fire Wed Fᴶ",
+        "japan": "Passionate Bride\n情熱の花嫁",
+        "kanji": "情熱の花嫁",
+        "short description": "",
+        "long description": "",
+        "icon": "http://cdn.alchemistcodedb.com/images/jobs/icons/wed00.png",
+        "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_WED_FIRE.png",
+        "origin": "Bride",
+        "units": [
+            "Kaya"
+        ],
+        "jobe": [],
+        "main": {
+            "iname": "AB_FIRE_WED_F_UPPER",
+            "name": "婚技",
+            "expr": "ジョブ固有の婚技",
+            "skills": [
+                {
+                    "name": "キャンドルフレイム",
+                    "expr": "敵に火属性の魔法攻撃&威力は使用者と対象の運により変動[射程:4,範囲:菱形2マス,高低差:2]"
+                },
+                {
+                    "name": "Love Bond",
+                    "expr": "Inflicts Wind Phys Dmg (strong vs opposite sex) on units within target area [Range: 3, Area: Cross (3), Height Range: 1]"
+                },
+                {
+                    "name": "Dress Change",
+                    "expr": "Raises own PDEF/MDEF for three turns"
+                },
+                {
+                    "name": "Champagne Shot",
+                    "expr": "Inflicts Water Mag Dmg on target (strong vs opposite sex) [Range: 4, Area: Line (4), Height Range: 2]"
+                }
+            ]
+        },
+        "sub": {
+            "iname": "AB_FIRE_WED_F_LOWER",
+            "name": "基本婚技",
+            "expr": "ジョブ汎用の婚技",
+            "skills": [
+                {
+                    "name": "Love Catch",
+                    "expr": "Absorbs Jewels from single target [Range: Diamond (7), Height Range: 2]"
+                },
+                {
+                    "name": "バーニングブーケトス",
+                    "expr": "敵に火属性の魔法攻撃&必中&移動禁止効果&威力は使用者と対象の運により変動&男性特効[射程:4,高低差:2]"
+                },
+                {
+                    "name": "Flower Shower",
+                    "expr": "Recovers small amount of HP of units within area around self [Area: Cross (3), Height Range: 2]"
+                },
+                {
+                    "name": "Marriage Cross",
+                    "expr": "Raises PATK/MATK of units within area around self [Area: Cross (3), Height Range: 2]"
+                }
+            ]
+        },
+        "reactives": {
+            "iname": "",
+            "name": "Reactives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "Snow White Charm",
+                    "expr": "When receiving Dmg, chance of performing counter & inflicting Charm on attacker [Range: 1, Height Range: 2]"
+                }
+            ]
+        },
+        "passives": {
+            "iname": "",
+            "name": "Passives",
+            "expr": "",
+            "skills": [
+                {
+                    "name": "キラースマイル",
+                    "expr": "自身の全攻撃に男性特効付与"
+                },
+                {
+                    "name": "Cheers of a Good Match",
+                    "expr": "Raises LUCK/Charm Res"
+                }
+            ]
+        },
+        "weapon": "Wedding Sword",
+        "modifiers": {
+            "HP": 10,
+            "Max Jewels": 2,
+            "Initial Jewels": 50,
+            "PATK": 17,
+            "PDEF": 4,
+            "MATK": 8,
+            "MDEF": 13,
+            "DEX": 5,
+            "AGI": 8,
+            "LUCK": 12,
+            "CRIT": 6,
+            "AVOID": 0
+        },
+        "job master buff": [
+            {
+                "type": "HP",
+                "value": 20,
+                "calc": "Scale"
+            },
+            {
+                "type": "PATK",
+                "value": 3,
+                "calc": "Scale"
+            },
+            {
+                "type": "MATK",
+                "value": 4,
+                "calc": "Scale"
+            },
+            {
+                "type": "DEX",
+                "value": 4,
+                "calc": "Scale"
+            },
+            {
+                "type": "AGI",
+                "value": 2,
+                "calc": "Scale"
+            },
+            {
+                "type": "HP",
+                "value": 125,
+                "calc": "Add"
+            }
+        ],
+        "stats": {
+            "Move": 3,
+            "Jump": 2,
+            "PATK": 231,
+            "PDEF": 102,
+            "LUCK": 185,
+            "AGI": 27,
+            "CRIT": 108,
+            "HP": 373,
+            "MATK": 209,
+            "DEX": 114,
+            "Jewels Obtained": 24,
+            "MDEF": 76,
+            "Fire Res": 4,
+            "Water Res": 4,
+            "Thunder Res": 3,
+            "Wind Res": 6,
+            "Blind Res": 28,
+            "Charm Res": 46,
+            "Sleep Res": 43,
+            "Slow Res": 28,
+            "Stun Res": 25,
+            "Paralyze Res": 15,
+            "Petrify Res": 25,
+            "Light Res": 2,
+            "Dark Res": 1,
+            "Poison Res": 10
+        },
+        "formula": "100% (PATK + MATK)",
+        "link": "http://www.alchemistcodedb.com/jp/unit/kaya#情熱の花嫁",
+        "inputs": [
+            "Kaya Fire Wed F",
+            "Fire Wed F",
+            "Kaya Passionate Bride",
+            "Passionate Bride"
         ]
     },
     "JB_SNI_LONG_RANGE": {
@@ -49634,7 +50305,8 @@
         "token": "http://cdn.alchemistcodedb.com/images/items/icons/IT_EQ_SOUL_SYO_AGA.png",
         "origin": "Summoner",
         "units": [
-            "Lupinus"
+            "Lupinus",
+            "Fier"
         ],
         "jobe": [],
         "main": {
@@ -49789,8 +50461,6 @@
         "formula": "90% MATK",
         "link": "http://www.alchemistcodedb.com/jp/unit/lupinus#アガルタの召喚師",
         "inputs": [
-            "Lupinus",
-            "Lupinus Summoner of Agartha",
             "Summoner of Agartha"
         ]
     },
@@ -51183,7 +51853,7 @@
             "skills": [
                 {
                     "name": "キラーウィンク",
-                    "expr": "自身の全攻撃に女性特攻付与"
+                    "expr": "自身の全攻撃に女性特効付与"
                 },
                 {
                     "name": "Cheers of a Good Match",
@@ -51273,8 +51943,7 @@
             "Veloz Passionate Bridegroom",
             "Passionate Bridegroom",
             "Veloz",
-            "Veloz Passionate Bride",
-            "Passionate Bride"
+            "Veloz Passionate Bride"
         ]
     },
     "JB_SHINE_WED_M": {
@@ -51359,7 +52028,7 @@
             "skills": [
                 {
                     "name": "キラーウィンク",
-                    "expr": "自身の全攻撃に女性特攻付与"
+                    "expr": "自身の全攻撃に女性特効付与"
                 },
                 {
                     "name": "Cheers of a Good Match",
@@ -51535,7 +52204,7 @@
             "skills": [
                 {
                     "name": "キラースマイル",
-                    "expr": "自身の全攻撃に男性特攻付与"
+                    "expr": "自身の全攻撃に男性特効付与"
                 },
                 {
                     "name": "Cheers of a Good Match",
@@ -53056,7 +53725,7 @@
                 },
                 {
                     "name": "暁光の詩",
-                    "expr": "範囲内の味方に1ターンの強制麻痺効果（麻痺中の物防・魔防10倍&必ず行動不可）[範囲:菱形3マス,高低差:4]"
+                    "expr": "範囲内の味方に1ターンの強制的に麻痺効果（麻痺中の物防・魔防10倍&必ず行動不可）&詠唱を強制中断[範囲:菱形3マス,高低差:4]"
                 }
             ]
         },
@@ -53230,7 +53899,7 @@
                 },
                 {
                     "name": "暁光の詩",
-                    "expr": "範囲内の味方に1ターンの強制麻痺効果（麻痺中の物防・魔防10倍&必ず行動不可）[範囲:菱形3マス,高低差:4]"
+                    "expr": "範囲内の味方に1ターンの強制的に麻痺効果（麻痺中の物防・魔防10倍&必ず行動不可）&詠唱を強制中断[範囲:菱形3マス,高低差:4]"
                 }
             ]
         },

@@ -3627,8 +3627,8 @@
             "job 1": "C",
             "job 2": "B",
             "job 3": "SS",
-            "jc": "",
-            "total": "SS"
+            "total": "SS",
+            "jc 3": "SS"
         }
     },
     "UN_V2_CHALICE": {
@@ -6599,7 +6599,7 @@
             "HP": 435,
             "Max Jewels": 154,
             "PATK": 138,
-            "PDEF": 85,
+            "PDEF": 116,
             "MATK": 116,
             "MDEF": 106,
             "DEX": 144,
@@ -7301,7 +7301,7 @@
         "job 1": "Lord Commander",
         "job 2": "Magic Swordsman",
         "job 3": "Holy Cavalier",
-        "jc 1": "",
+        "jc 1": "Zayi: Lord Cc",
         "jc 2": "",
         "jc 3": "Holy Cavalier [Ghia]ᴶ",
         "inputs": [
@@ -9302,7 +9302,7 @@
             "CRIT": 136,
             "LUCK": 125
         },
-        "profile": "Miuna is a descendant from the People of Ku, who forged Excalibur. Miuna inherited her father's trade as well, making her an excellent blacksmith. She can be quite emotional, but once you've earned her trust, she's a reliable ally who will never betray you. Miuna looks up to Zain and Cadanova like older brothers, since they often visited her father.",
+        "profile": "Miuna is a descendant from the People of Ku, who forged Excalibur. Miuna inherited her father's talent as well, making her an excellent blacksmith. She can be quite emotional, but once you've earned her trust, she's a reliable ally who will never betray you. Miuna looks up to Zain and Cadanova like older brothers, since they often visited her father.",
         "country": "Slothstein",
         "height": "154cm",
         "weight": "40kg",
@@ -9622,7 +9622,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/miko.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/miko-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "C",
+            "job 2": "C",
+            "job 3": "A",
+            "jc": "",
+            "total": "A"
+        }
     },
     "UN_V2_MARGARET": {
         "iname": "UN_V2_MARGARET",
@@ -10442,7 +10449,7 @@
             "CRIT": 121,
             "LUCK": 128
         },
-        "profile": "Chao is a young strategic genius from Greed Dike who is versed in a range of strategic military theory. He is heir to a great noble family, and perhaps as a result of his privileged upbringing, will often act snobbishly, boasting arrogantly of his intellect. In some ways he does act like you'd expect a child of his age to, though--his greatest dream is to become a \"cool guy who's good with weapons.\"",
+        "profile": "Chao is a young strategic genius from Greed Dike who is versed in a range of strategic military theory. He is heir to a great noble family, and perhaps as a result of his privileged upbringing, will often act snobbishly, boasting arrogantly of his intellect. In some ways he does act like you'd expect a child of his age to, though-his greatest dream is to become a \"cool guy who's good with weapons.\"",
         "country": "Greed Dike",
         "height": "153cm",
         "weight": "40kg",
@@ -10571,7 +10578,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/nasa.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/nasa-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "A",
+            "job 2": "A",
+            "job 3": "S",
+            "jc": "",
+            "total": "S"
+        }
     },
     "UN_V2_LIZARDMEN_HAT": {
         "iname": "UN_V2_LIZARDMEN_HAT",
@@ -11898,7 +11912,7 @@
         "job 3": "Summoner",
         "jc 1": "",
         "jc 2": "",
-        "jc 3": "",
+        "jc 3": "Summoner of Agarthaᴶ\n[strong non-elemental damage]",
         "inputs": [
             "Fier",
             "Vier",
@@ -12473,7 +12487,7 @@
             "CRIT": 135,
             "LUCK": 123
         },
-        "profile": "Eros is a \"Killer Princess\" of the Church of Ragnarok who was guided to this world from the continent of Ragna. She shares her Killium with the weapon of the same name. Her charm and beauty mean that everyone loves her--she's the sort of girl who can steal your heart instantly. She's very passionate, and proactive romantically, but also has a goofy side.",
+        "profile": "Eros is a \"Killer Princess\" of the Church of Ragnarok who was guided to this world from the continent of Ragna. She shares her Killium with the weapon of the same name. Her charm and beauty mean that everyone loves her-she's the sort of girl who can steal your heart instantly. She's very passionate, and proactive romantically, but also has a goofy side.",
         "country": "Ragna",
         "height": "156cm",
         "weight": "50kg",
@@ -12495,7 +12509,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/pok_eros_swim.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/pok_eros_swim-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "",
+            "job 2": "",
+            "job 3": "",
+            "jc": "",
+            "total": ""
+        }
     },
     "UN_V2_S_AMATERASU": {
         "iname": "UN_V2_S_AMATERASU",
@@ -12595,7 +12616,7 @@
             "CRIT": 148,
             "LUCK": 123
         },
-        "profile": "Yuri is a kunoichi born in the land of Crimson Summer who was guided to this world from Zipangu. She possesses great knowledge and experience, and everyone depends on her--she's the \"big sis\" of the kunoichi team both literally and figuratively. The one very unusual thing about her is the huge amount that she eats, and people are really starting to wonder where exactly all the nourishment she takes in is going...",
+        "profile": "Yuri is a kunoichi born in the land of Crimson Summer who was guided to this world from Zipangu. She possesses great knowledge and experience, and everyone depends on her-she's the \"big sis\" of the kunoichi team both literally and figuratively. The one very unusual thing about her is the huge amount that she eats, and people are really starting to wonder where exactly all the nourishment she takes in is going...",
         "country": "Zipangu",
         "height": "162cm",
         "weight": "46kg",
@@ -12617,7 +12638,14 @@
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/s_yuri_swim.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/s_yuri_swim-closeup.png"
             }
-        ]
+        ],
+        "tierlist": {
+            "job 1": "",
+            "job 2": "",
+            "job 3": "",
+            "jc": "",
+            "total": ""
+        }
     },
     "UN_V2_PRISCILA": {
         "iname": "UN_V2_PRISCILA",
@@ -14963,7 +14991,7 @@
         "job 1": "Sacred Knight",
         "job 2": "Battle Mage",
         "job 3": "Dark Cavalier",
-        "jc 1": "",
+        "jc 1": "Guil: Tem",
         "jc 2": "",
         "jc 3": "Dark Cavalier [Zeele]ᴶ\n[Drain Skills Bonus]",
         "inputs": [
@@ -16809,6 +16837,60 @@
                 "name": "default",
                 "full": "http://cdn.alchemistcodedb.com/images/units/artworks/reve.png",
                 "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/reve-closeup.png"
+            }
+        ]
+    },
+    "UN_V2_KAYA": {
+        "iname": "UN_V2_KAYA",
+        "name": "Kayaᴶ",
+        "inofficial": "Kaya",
+        "gender": "♀",
+        "element": "Fire",
+        "collab": "",
+        "collab short": "",
+        "rarity": "★★★★★",
+        "icon": "http://cdn.alchemistcodedb.com/images/units/profiles/kaya.png",
+        "farm": [],
+        "leader skill": "Fire: +50% HP, +30% MATK, +10 Hit Rate",
+        "master ability": "",
+        "link": "http://www.alchemistcodedb.com/jp/unit/kaya",
+        "job 1": "JB_KAYA01ᴶ",
+        "job 2": "Spy",
+        "job 3": "Bride",
+        "jc 1": "",
+        "jc 2": "",
+        "jc 3": "Fire: Wed F",
+        "inputs": [
+            "Kaya"
+        ],
+        "stats": {
+            "HP": 582,
+            "Max Jewels": 204,
+            "PATK": 106,
+            "PDEF": 118,
+            "MATK": 166,
+            "MDEF": 118,
+            "DEX": 147,
+            "AGI": 89,
+            "CRIT": 119,
+            "LUCK": 125
+        },
+        "profile": "聖教騎士団・第二騎士団長。膨大なアルケミィ、知識、及び戦闘能力を有する、騎士団内でも稀有の存在。だが物事への執着が薄く、何事も面倒そうに振る舞う。唯一興味を示すのは、遺跡や古文書といった“過去”にまつわるもの。",
+        "country": "スロウスシュタイン",
+        "height": "161cm",
+        "weight": "51kg",
+        "birth": "10月7日",
+        "zodiac": "火皇穹の月",
+        "blood": "Kn型",
+        "favorite": "歴史、好奇心",
+        "hobby": "調査メカの改良",
+        "illust": "RINZO",
+        "cv": "藤井ゆきよ",
+        "artworks": [
+            {
+                "name": "default",
+                "full": "http://cdn.alchemistcodedb.com/images/units/artworks/kaya.png",
+                "closeup": "http://cdn.alchemistcodedb.com/images/units/artworks/kaya-closeup.png"
             }
         ]
     },
