@@ -16917,7 +16917,7 @@
         "mapeff": " "
     },
     "SK_THI_PROVOKE": {
-        "name": "Provoke",
+        "name": "Taunt",
         "expr": "Chance of inflicting Rage on target, therefore drawing enemy attacks towards self [Range: 4, Height Range: 2]",
         "mapeff": " "
     },
@@ -16997,7 +16997,7 @@
         "mapeff": " "
     },
     "SK_ASS_PROVOKE": {
-        "name": "Provoke",
+        "name": "Taunt",
         "expr": "Chance of inflicting Rage on target, therefore drawing enemy attacks towards self [Range: 4, Height Range: 2]",
         "mapeff": " "
     },
@@ -19978,7 +19978,7 @@
     },
     "SK_CANO_LORD_LOWER_02": {
         "name": "Flashing Judgement",
-        "expr": "Inflicts Phys Dmg (strong vs demons) on target & interrupts skill charge [Range: 3, Height Range: 2]",
+        "expr": "Inflicts Phys Dmg (strong vs demons) on target & interrupts skill cast [Range: 3, Height Range: 2]",
         "mapeff": " "
     },
     "SK_CANO_LORD_LOWER_03": {
@@ -21162,7 +21162,7 @@
         "mapeff": " "
     },
     "SK_SAROMO_THI_PROVOKE": {
-        "name": "Provoke",
+        "name": "Taunt",
         "expr": "Chance of inflicting Rage on target, therefore drawing enemy attacks towards self [Range: 4, Height Range: 2]",
         "mapeff": " "
     },
@@ -23233,7 +23233,7 @@
     },
     "SK_FURY01_SUPPORT_1": {
         "name": "Cursed Wish Rapid",
-        "expr": "Raises charge speed/MATK",
+        "expr": "Raises cast speed/MATK",
         "mapeff": " "
     },
     "SK_TINA_ATK": {
@@ -23642,7 +23642,7 @@
         "mapeff": " "
     },
     "SK_LEGA_THI_PROVOKE": {
-        "name": "Provoke",
+        "name": "Taunt",
         "expr": "Chance of inflicting Rage on target, therefore drawing enemy attacks towards self [Range: 4, Height Range: 2]",
         "mapeff": " "
     },
@@ -24058,7 +24058,7 @@
     },
     "SK_ARMS_DOC_04_WA": {
         "name": "Hallucination",
-        "expr": "Recovers HP of ally units within area around self (no charge time) [Area: Diamond (5), Height Range: 2]",
+        "expr": "Recovers HP of ally units within area around self (no cast time) [Area: Diamond (5), Height Range: 2]",
         "mapeff": " "
     },
     "SK_ACCS_SNOWMAN_HAT_WA": {
@@ -25793,22 +25793,22 @@
     },
     "SK_MAN_YUJ_SLE_WIDE_HALL": {
         "name": "Reverse Major Sleep",
-        "expr": "Inflicts Sleep on all ally units (Charges)",
+        "expr": "Inflicts Sleep on all ally units (Casts)",
         "mapeff": " "
     },
     "SK_MAN_YUJ_CHA_WIDE_HALL": {
         "name": "Full-On Major Charm",
-        "expr": "Inflicts Charm on all ally units (Charges)",
+        "expr": "Inflicts Charm on all ally units (Casts)",
         "mapeff": " "
     },
     "SK_MAN_YUJ_STO_WIDE_HALL": {
         "name": "Full-On Grand Petrify",
-        "expr": "Inflicts Petrify on all enemy units (Charges)",
+        "expr": "Inflicts Petrify on all enemy units (Casts)",
         "mapeff": " "
     },
     "SK_MAN_YUJ_STO_RANDOM_HALL": {
         "name": "Full-On Pinpoint Petrify",
-        "expr": "Inflicts Petrify on all ally units (Charges)",
+        "expr": "Inflicts Petrify on all ally units (Casts)",
         "mapeff": " "
     },
     "SK_MAN_YUJ_BLI_WIDE_HALL": {
@@ -25858,7 +25858,7 @@
     },
     "SK_MAN_YUJ_STOP_WIDE_X_HALL": {
         "name": "Rowdy Major Stop",
-        "expr": "Inflicts Stop on all ally units (Charges; CT1-500)",
+        "expr": "Inflicts Stop on all ally units (Casts; CT1-500)",
         "mapeff": " "
     },
     "SK_MAN_YUJ_DON_WIDE_HALL": {
@@ -26386,6 +26386,16 @@
         "expr": "Inflicts Wind Dmg on units within target area [Range: 3] *Black Magic base dmg - slightly weak",
         "mapeff": " "
     },
+    "SK_MAN_WIZ_WIND4_FA_ATK_DOWN": {
+        "name": "Wind Spores III (ATK Down)",
+        "expr": "Inflicts Wind Dmg on units within target area [Range: 3] *Black Magic base dmg - slightly weak",
+        "mapeff": " "
+    },
+    "SK_MAN_WIZ_WIND4_FA": {
+        "name": "Wind Spores III (Def Down)",
+        "expr": "Inflicts Wind Dmg on units within target area [Range: 3] *Black Magic base dmg - slightly weak",
+        "mapeff": " "
+    },
     "SK_MAN_WIZ_THUNDER4": {
         "name": "Thunder Spores II",
         "expr": "Inflicts Thunder Dmg on units within target area [Range: 3] *Black Magic base dmg - slightly weak",
@@ -26578,22 +26588,22 @@
     },
     "SK_MAN_YUJ_SLE_WIDE": {
         "name": "Major Sleep",
-        "expr": "Inflicts Sleep on all enemy units (Charges)",
+        "expr": "Inflicts Sleep on all enemy units (Casts)",
         "mapeff": " "
     },
     "SK_MAN_YUJ_CHA_WIDE": {
         "name": "Major Charm",
-        "expr": "Inflicts Charm on all enemy units (Charges)",
+        "expr": "Inflicts Charm on all enemy units (Casts)",
         "mapeff": " "
     },
     "SK_MAN_YUJ_STO_WIDE": {
         "name": "Grand Petrify",
-        "expr": "Inflicts Petrify on all enemy units (Charges)",
+        "expr": "Inflicts Petrify on all enemy units (Castes)",
         "mapeff": " "
     },
     "SK_MAN_YUJ_STO_RANDOM": {
         "name": "Pinpoint Petrify",
-        "expr": "Inflicts Paralyze on all enemy units (Charges)",
+        "expr": "Inflicts Paralyze on all enemy units (Casts)",
         "mapeff": " "
     },
     "SK_MAN_YUJ_STO_NOMAL": {
@@ -26778,12 +26788,12 @@
     },
     "SK_MAN_YUJ_STOP_WIDE": {
         "name": "Major Stop",
-        "expr": "Inflicts Stop on all enemy units (Charges) (CT100)",
+        "expr": "Inflicts Stop on all enemy units (Casts) (CT100)",
         "mapeff": " "
     },
     "SK_MAN_YUJ_STOP_WIDE_X": {
         "name": "Major Stop",
-        "expr": "Inflicts Stop on all enemy units (Charges) (CT1-500)",
+        "expr": "Inflicts Stop on all enemy units (Casts) (CT1-500)",
         "mapeff": " "
     },
     "SK_MAN_YUJ_DON_WIDE": {
@@ -27353,7 +27363,7 @@
     },
     "SK_DMN_JEWEL_DRAIN_WIDE_S": {
         "name": "Reset Jewels!",
-        "expr": "Absorbs Jewels from target [Range: Whole Map, Height Range: Unlimited] Non-charging ver.",
+        "expr": "Absorbs Jewels from target [Range: Whole Map, Height Range: Unlimited] Non-casting ver.",
         "mapeff": " "
     },
     "SK_DMN_SHIELD_HP30000_ALL": {
@@ -27368,7 +27378,7 @@
     },
     "SK_DMN_JEWEL_DRAIN_WIDE_S_2": {
         "name": "Penalty!",
-        "expr": "Absorbs Jewels from target [Range: Whole Map, Height Range: Unlimited] Non-charging ver.",
+        "expr": "Absorbs Jewels from target [Range: Whole Map, Height Range: Unlimited] Non-casting ver.",
         "mapeff": " "
     },
     "SK_DMN_WIZ_GAT0_SKILL": {
@@ -27388,7 +27398,7 @@
     },
     "SK_RAT_JEWEL_DRAIN_WIDE_S": {
         "name": "Reset Jewels & Reduce Jewel Spending",
-        "expr": "Absorbs Jewels from target [Range: Whole Map, Height Range: Unlimited] Non-charging ver.",
+        "expr": "Absorbs Jewels from target [Range: Whole Map, Height Range: Unlimited] Non-casting ver.",
         "mapeff": " "
     },
     "SK_DMN_WIZ_THUNDER_MONS_HAZURE": {
@@ -29143,12 +29153,12 @@
     },
     "SK_DIAB_WIZ_ATK_FINAL_FAST": {
         "name": "Death Drop",
-        "expr": "Inflicts Death Sentence on units within target area [Area: Whole Map, Height Range: Unlimited] (Fast charging)",
+        "expr": "Inflicts Death Sentence on units within target area [Area: Whole Map, Height Range: Unlimited] (Fast casting)",
         "mapeff": " "
     },
     "SK_DIAB_WIZ_ATK_POI_FAST": {
         "name": "Venom Storm",
-        "expr": "Inflicts Poison on units within target area [Area: Whole Map, Height Range: Unlimited] (Fast charging)",
+        "expr": "Inflicts Poison on units within target area [Area: Whole Map, Height Range: Unlimited] (Fast casting)",
         "mapeff": " "
     },
     "SK_DIAB_WIZ_KAIHUKU": {
@@ -29298,12 +29308,12 @@
     },
     "SK_BAA_JEWEL_DRAIN_TOWER": {
         "name": "Jewel Drain+ [Scope: 6, Range: 3x3 Cross]",
-        "expr": "Absorbs Jewels from target [Range: 6, Height Range: Unlimited] Non-charging ver.",
+        "expr": "Absorbs Jewels from target [Range: 6, Height Range: Unlimited] Non-casting ver.",
         "mapeff": " "
     },
     "SK_BAA_JEWEL_DRAIN_WIDE_S": {
         "name": "Jewel Drain+ (revised)",
-        "expr": "Absorbs Jewels from target [Range: 5, Height Range: Unlimited] (No charge time ver.)",
+        "expr": "Absorbs Jewels from target [Range: 5, Height Range: Unlimited] (No cast time ver.)",
         "mapeff": " "
     },
     "SK_BLACK_KNIGHT_BOMB": {
@@ -30062,8 +30072,8 @@
         "mapeff": " "
     },
     "SK_MAFIA_GUN_IKAKU": {
-        "name": "Menacing Shot [Cancel Channeling]",
-        "expr": "Warning shot that interrupts charging",
+        "name": "Menacing Shot [Cancel Casting]",
+        "expr": "Warning shot that interrupts casting",
         "mapeff": " "
     },
     "SK_YOUHEI_CAP_STANBY": {
@@ -30192,17 +30202,17 @@
         "mapeff": " "
     },
     "SK_POWER_WIZARD_MAGIC_02": {
-        "name": "Enhanced Magic Charge Countdown 3",
+        "name": "Enhanced Magic Cast Countdown 3",
         "expr": "Countdown 3",
         "mapeff": " "
     },
     "SK_POWER_WIZARD_MAGIC_03": {
-        "name": "Enhanced Magic Casting Countdown 2",
+        "name": "Enhanced Magic Cast Countdown 2",
         "expr": "Countdown 2",
         "mapeff": " "
     },
     "SK_POWER_WIZARD_MAGIC_04": {
-        "name": "Enhanced Magic Casting Countdown 1",
+        "name": "Enhanced Magic Cast Countdown 1",
         "expr": "Countdown 1: Activated on turn following this",
         "mapeff": " "
     },
@@ -31312,13 +31322,13 @@
         "mapeff": " "
     },
     "SK_LS_5_D_CHARGE_TIME": {
-        "name": "Cast Time -5%",
-        "expr": "Reduces cast time by 5% for whole party",
+        "name": "Charge Time -5%",
+        "expr": "Reduces charge time by 5% for whole party",
         "mapeff": " "
     },
     "SK_LS_10_D_CHARGE_TIME": {
-        "name": "Cast Time -10%",
-        "expr": "Reduces cast time by 10% for whole party",
+        "name": "Charge Time -10%",
+        "expr": "Reduces charge time by 10% for whole party",
         "mapeff": " "
     },
     "SK_LS_5_U_CAST": {
@@ -31513,7 +31523,7 @@
     },
     "SK_LS_ELEM_WATER_150_P_HP_5_D_CHARGE_TIME": {
         "name": "Pure Water's Breath",
-        "expr": "Raises HP by 150 & reduces cast time by 5% for Water units",
+        "expr": "Raises HP by 150 & reduces charge time by 5% for Water units",
         "mapeff": " "
     },
     "SK_LS_ELEM_WATER_30_U_HP": {
@@ -31538,7 +31548,7 @@
     },
     "SK_LS_ELEM_WATER_40_U_HP_10_D_CHARGE_TIME": {
         "name": "Pure Water's Heartbeat",
-        "expr": "Raises HP by 40% & reduces cast time by 10% for Water units",
+        "expr": "Raises HP by 40% & reduces charge time by 10% for Water units",
         "mapeff": " "
     },
     "SK_LS_ELEM_WATER_40_U_HP_10_U_MP": {
@@ -31723,7 +31733,7 @@
     },
     "SK_LS_ELEM_WIND_40_U_HP_10_D_CHARGE_TIME": {
         "name": "Fresh Wind's Heartbeat",
-        "expr": "Raises HP by 40% & reduces cast time by 10% for Wind units",
+        "expr": "Raises HP by 40% & reduces charge ime by 10% for Wind units",
         "mapeff": " "
     },
     "SK_LS_ELEM_WIND_50_U_HP": {
@@ -31933,7 +31943,7 @@
     },
     "SK_LS_ELEM_SHINE_20_U_ATK_5_D_CHARGE_TIME": {
         "name": "Light of Dawn's Boon",
-        "expr": "Raises PATK by 20% & cast time by 5% for Light units",
+        "expr": "Raises PATK by 20% & charge time by 5% for Light units",
         "mapeff": " "
     },
     "SK_LS_ELEM_SHINE_50_U_ATK": {
@@ -32013,7 +32023,7 @@
     },
     "SK_LS_ELEM_SHINE_40_U_HP_10_D_CHARGE_TIME": {
         "name": "Light of Dawn's Heartbeat",
-        "expr": "Raises HP by 40% & reduces cast time by 10% for Light units",
+        "expr": "Raises HP by 40% & reduces charge time by 10% for Light units",
         "mapeff": " "
     },
     "SK_LS_ELEM_SHINE_30_U_HP_20_UP_SHINEDEF": {
@@ -32108,7 +32118,7 @@
     },
     "SK_LS_ELEM_DARK_40_U_HP_10_D_CHARGE_TIME": {
         "name": "Twilight's Heartbeat",
-        "expr": "Raises HP by 40% & reduces cast time by 10% for Dark units",
+        "expr": "Raises HP by 40% & reduces charge time by 10% for Dark units",
         "mapeff": " "
     },
     "SK_LS_ELEM_DARK_30_U_HP_20_U_ATK_20_U_DEF": {
@@ -34302,7 +34312,7 @@
         "mapeff": " "
     },
     "SK_EQ_ETON_CLOTHES": {
-        "name": "Etona's Imp Costume",
+        "name": "Etna's Imp Costume",
         "expr": "[Equipment Effect] HP +20, PATK +18, PDEF +18, DEX +16, Dark Res +2",
         "mapeff": " "
     },
@@ -41657,7 +41667,7 @@
         "mapeff": "<color=cyan>HP/PATK/MATK +20%</color>"
     },
     "SK_ME_SNW_SUPPORT_QCAST": {
-        "name": "[Map Effect] Snow Plains Support Group + Fast Charge",
+        "name": "[Map Effect] Snow Plains Support Group + Fast Cast",
         "expr": "HP +20%, AGI +10%, Cast Time -20%",
         "mapeff": "<color=cyan>HP +20%, AGI +10%, Cast Time -20%</color>"
     },
@@ -41687,7 +41697,7 @@
         "mapeff": "<color=cyan>HP +20%, AGI +10%</color>"
     },
     "SK_ME_MAG_WIZARD_QCAST": {
-        "name": "[Map Effect] Magic City MATK Group + Fast Charge",
+        "name": "[Map Effect] Magic City MATK Group + Fast Cast",
         "expr": "HP/MATK +20%, Cast Time -20%",
         "mapeff": "<color=cyan>HP/MATK +20%, Cast Time -20%</color>"
     },
@@ -41697,7 +41707,7 @@
         "mapeff": "<color=cyan>Initial CT Bonus</color>"
     },
     "SK_ME_MAG_SUPPORT_QCAST": {
-        "name": "[Map Effect] Magic City Support Group + Fast Charge",
+        "name": "[Map Effect] Magic City Support Group + Fast Cast",
         "expr": "HP +20%, AGI +10%, Cast Time -20%",
         "mapeff": "<color=cyan>HP +20%, AGI +10%, Cast Time -20%</color>"
     },
@@ -46537,7 +46547,7 @@
         "flavor": "These magic-infused garms are worn by the future Overlord so as to be presentable when meeting humans. What looks like a scarf is in fact his wings, transformed--as Overlord, he likes to always be able to show his wings off."
     },
     "IT_EQ_ETON_CLOTHES": {
-        "name": "Etona's Imp Costume",
+        "name": "Etna's Imp Costume",
         "expr": "[Etna/Demonic Retainer-Only Equipment] HP +20, PATK +18, PDEF +18, DEX +16, Dark Res +2, Charm Res +8, Sleep Res +8, Slow Res +8",
         "flavor": "This cute and devilish magic outfit is Etna's regular attire. She likes wearing it, but though she personally doesn't think anything of it, it's very exposing and tends to attract a lot of (mostly male) attention..."
     },
@@ -48467,8 +48477,8 @@
         "flavor": " "
     },
     "IT_EQ_DIAGRAM_ETON_CLOTHES": {
-        "name": "Etona's Imp Costume Diagram",
-        "expr": "Required in order to create: Etona's Imp Costume",
+        "name": "Etna's Imp Costume Diagram",
+        "expr": "Required in order to create: Etna's Imp Costume",
         "flavor": " "
     },
     "IT_EQ_DIAGRAM_PRIN1_BONE": {
@@ -50002,8 +50012,8 @@
         "flavor": " "
     },
     "IT_EQ_DIAGRAMPIECE_ETON_CLOTHES": {
-        "name": "Etona's Imp Costume Diagram Piece",
-        "expr": "Collect 80 of these to create: Etona's Imp Costume Diagram",
+        "name": "Etna's Imp Costume Diagram Piece",
+        "expr": "Collect 80 of these to create: Etna's Imp Costume Diagram",
         "flavor": " "
     },
     "IT_EQ_DIAGRAMPIECE_PRIN1_BONE": {
@@ -72137,6 +72147,69 @@
     "GL_DAILY_FFXV_20180725_3": {
         "name": "[Limited Time] [FFXV] Daily Mission [Adv]"
     },
+    "GL_DAILY_FFXV_20180726_1": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Bgn]"
+    },
+    "GL_DAILY_FFXV_20180726_2": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Int]"
+    },
+    "GL_DAILY_FFXV_20180726_3": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Adv]"
+    },
+    "GL_DAILY_FFXV_20180727_1": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Bgn]"
+    },
+    "GL_DAILY_FFXV_20180727_2": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Int]"
+    },
+    "GL_DAILY_FFXV_20180727_3": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Adv]"
+    },
+    "GL_DAILY_FFXV_20180728_1": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Bgn]"
+    },
+    "GL_DAILY_FFXV_20180728_2": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Int]"
+    },
+    "GL_DAILY_FFXV_20180728_3": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Adv]"
+    },
+    "GL_DAILY_FFXV_20180729_1": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Bgn]"
+    },
+    "GL_DAILY_FFXV_20180729_2": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Int]"
+    },
+    "GL_DAILY_FFXV_20180729_3": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Adv]"
+    },
+    "GL_DAILY_FFXV_20180730_1": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Bgn]"
+    },
+    "GL_DAILY_FFXV_20180730_2": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Int]"
+    },
+    "GL_DAILY_FFXV_20180730_3": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Adv]"
+    },
+    "GL_DAILY_FFXV_20180731_1": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Bgn]"
+    },
+    "GL_DAILY_FFXV_20180731_2": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Int]"
+    },
+    "GL_DAILY_FFXV_20180731_3": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Adv]"
+    },
+    "GL_DAILY_FFXV_20180801_1": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Bgn]"
+    },
+    "GL_DAILY_FFXV_20180801_2": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Int]"
+    },
+    "GL_DAILY_FFXV_20180801_3": {
+        "name": "[Limited Time] [FFXV] Daily Mission [Adv]"
+    },
     "CHALLENGE_01": {
         "name": "Clear Challenge Set No.1"
     },
@@ -74693,6 +74766,27 @@
     "GL_FF15_DAILY_JUL25": {
         "name": "[FFXV] Daily Mission"
     },
+    "GL_FF15_DAILY_JUL26": {
+        "name": "[FFXV] Daily Mission"
+    },
+    "GL_FF15_DAILY_JUL27": {
+        "name": "[FFXV] Daily Mission"
+    },
+    "GL_FF15_DAILY_JUL28": {
+        "name": "[FFXV] Daily Mission"
+    },
+    "GL_FF15_DAILY_JUL29": {
+        "name": "[FFXV] Daily Mission"
+    },
+    "GL_FF15_DAILY_JUL30": {
+        "name": "[FFXV] Daily Mission"
+    },
+    "GL_FF15_DAILY_JUL31": {
+        "name": "[FFXV] Daily Mission"
+    },
+    "GL_FF15_DAILY_AUG1": {
+        "name": "[FFXV] Daily Mission"
+    },
     "TR_MAP_POI_01": {
         "name": "Poison Grid",
         "expr": "Poison Status Grid (Disappears once activated)"
@@ -75986,6 +76080,21 @@
     "GL_MM_05_23July": {
         "name": "[Monday] Clear any quest with a mercenary once"
     },
+    "GL_MM_01_30July": {
+        "name": "[Monday] Level up any Unit"
+    },
+    "GL_MM_02_30July": {
+        "name": "[Monday] Level up any Ability"
+    },
+    "GL_MM_03_30July": {
+        "name": "[Monday] Raise any unit's Job Level once"
+    },
+    "GL_MM_04_30July": {
+        "name": "[Monday] Clear any Multiplay Quest once"
+    },
+    "GL_MM_05_30July": {
+        "name": "[Monday] Clear any quest with a mercenary once"
+    },
     "GL_SO_ZEKE_01_01": {
         "name": "Clear Blood Wolf by Any Other Name - Episode 1 [1]"
     },
@@ -76321,6 +76430,11 @@
         "expr": "Use this ticket to summon 10 Soul Shards. (Albea/Vivi/Setsuna)",
         "flavor": " "
     },
+    "IT_US_GL_5STAR_10SOUL_TICKET_JULY2018b": {
+        "name": "Featured 5★ Soul Shard 10-Summon Ticket",
+        "expr": "Use this ticket to summon 10 Soul Shards. (Setsuna / Mei Fang / Dorothea)",
+        "flavor": " "
+    },
     "IT_US_GL_5STAR_25SOUL_TICKET_JULY2018": {
         "name": "Featured 5★ Soul Shard 25-Summon Ticket",
         "expr": "Use this ticket to summon 25 Soul Shards. (Albea / Vivi / Margaret / Setsuna / Mei Fang / Dorothea)",
@@ -76384,6 +76498,41 @@
     "IT_SI_GL_5STAR_50SOUL_TICKET_FF15": {
         "name": "[FFXV] 5★ 50-Soul Shard Selector",
         "expr": "Use this ticket to summon 50 5★ Soul Shards of your choice from FINAL FANTASY XV. (Noctis/Ignis/Aranea/Gladiolus)"
+    },
+    "IT_SI_GL_5STAR_5SOUL_TICKET_FF15": {
+        "name": "[FFXV] 5★ 5-Soul Shard Selector",
+        "expr": "Use this ticket to summon 5 5★ Soul Shards of your choice from FINAL FANTASY XV. (Noctis/Ignis/Aranea/Gladiolus)",
+        "flavor": ""
+    },
+    "IT_US_GL_5STAR_25SOUL_TICKET_F15": {
+        "name": "Featured 5★ Soul Shard 25-Summon Ticket",
+        "expr": "Use this ticket to summon 25 Soul Shards.",
+        "flavor": ""
+    },
+    "IT_US_GL_5STAR_UNIT_TICKET_B15": {
+        "name": "5★ Unit Summon Ticket",
+        "expr": "Use this ticket to summon one 5★ unit.",
+        "flavor": ""
+    },
+    "IT_US_GL_4STAR_GEAR_TICKET_B15": {
+        "name": "4★ Gear Summon Ticket",
+        "expr": "Use this ticket to summon a 4★ gear item.",
+        "flavor": ""
+    },
+    "IT_SU_GL_5STAR_UNIT_TICKET_F15": {
+        "name": "Featured 5★ Unit Selector",
+        "expr": "Use this ticket to summon the 5★ unit of your choice.",
+        "flavor": ""
+    },
+    "IT_US_GL_5STAR_10EQ_TICKET_B15": {
+        "name": "5★ Equipment 10-Summon Ticket",
+        "expr": "Use this ticket to summon ten 5★ equipment items.",
+        "flavor": ""
+    },
+    "IT_SI_GL_5STAR_50SOUL_TICKET_F15": {
+        "name": "Featured 5★ 50-Soul Shard Selector",
+        "expr": "Use this ticket to summon the 50 Soul Shards of your choice for 5★ units.",
+        "flavor": ""
     },
     "IT_SA_GL_4STAR_GEAR_TICKET_B14FF15": {
         "name": "4★ Gear Selector",

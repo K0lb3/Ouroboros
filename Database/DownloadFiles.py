@@ -8,6 +8,7 @@ import urllib.request
 import re
 import zlib
 
+
 #global vars ############################
 access_token=""
 idfa=""
@@ -17,8 +18,8 @@ ticket=1
 #global
 api_gl={
     'con':"app.alcww.gumi.sg",
-    'device_id':"af4a61bd-e020-4260-8df0-8ed8241e00d0",
-    'secret_key':"9487b67b-a586-48db-894a-e6c2e93db44c",
+    'device_id':"96e99e87-cf69-4a16-b0f8-1a0deb751d60",
+    'secret_key':"f0877d98-f0fc-4bc5-b029-3e64a665580f",
     }
 
 api=api_gl

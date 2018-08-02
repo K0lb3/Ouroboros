@@ -1846,7 +1846,7 @@
         "cv": "武田玲奈"
     },
     "UN_V2_MIUNA": {
-        "profile": "Miuna is a descendant from the People of Ku, who forged Excalibur. Miuna inherited her father's trade as well, making her an excellent blacksmith. She can be quite emotional, but once you've earned her trust, she's a reliable ally who will never betray you. Miuna looks up to Zain and Cadanova like older brothers, since they often visited her father.",
+        "profile": "Miuna is a descendant from the People of Ku, who forged Excalibur. Miuna inherited her father's talent as well, making her an excellent blacksmith. She can be quite emotional, but once you've earned her trust, she's a reliable ally who will never betray you. Miuna looks up to Zain and Cadanova like older brothers, since they often visited her father.",
         "country": "Slothstein",
         "height": "154cm",
         "weight": "40kg",
@@ -2041,7 +2041,7 @@
         "cv": "渡辺知愛"
     },
     "UN_V2_CHAO": {
-        "profile": "Chao is a young strategic genius from Greed Dike who is versed in a range of strategic military theory. He is heir to a great noble family, and perhaps as a result of his privileged upbringing, will often act snobbishly, boasting arrogantly of his intellect. In some ways he does act like you'd expect a child of his age to, though--his greatest dream is to become a \"cool guy who's good with weapons.\"",
+        "profile": "Chao is a young strategic genius from Greed Dike who is versed in a range of strategic military theory. He is heir to a great noble family, and perhaps as a result of his privileged upbringing, will often act snobbishly, boasting arrogantly of his intellect. In some ways he does act like you'd expect a child of his age to, though-his greatest dream is to become a \"cool guy who's good with weapons.\"",
         "country": "Greed Dike",
         "height": "153cm",
         "weight": "40kg",
@@ -2496,7 +2496,7 @@
         "cv": "たなか久美"
     },
     "UN_V2_POK_EROS": {
-        "profile": "Eros is a \"Killer Princess\" of the Church of Ragnarok who was guided to this world from the continent of Ragna. She shares her Killium with the weapon of the same name. Her charm and beauty mean that everyone loves her--she's the sort of girl who can steal your heart instantly. She's very passionate, and proactive romantically, but also has a goofy side.",
+        "profile": "Eros is a \"Killer Princess\" of the Church of Ragnarok who was guided to this world from the continent of Ragna. She shares her Killium with the weapon of the same name. Her charm and beauty mean that everyone loves her-she's the sort of girl who can steal your heart instantly. She's very passionate, and proactive romantically, but also has a goofy side.",
         "country": "Ragna",
         "height": "156cm",
         "weight": "50kg",
@@ -2522,7 +2522,7 @@
         "cv": "加藤英美里"
     },
     "UN_V2_S_YURI": {
-        "profile": "Yuri is a kunoichi born in the land of Crimson Summer who was guided to this world from Zipangu. She possesses great knowledge and experience, and everyone depends on her--she's the \"big sis\" of the kunoichi team both literally and figuratively. The one very unusual thing about her is the huge amount that she eats, and people are really starting to wonder where exactly all the nourishment she takes in is going...",
+        "profile": "Yuri is a kunoichi born in the land of Crimson Summer who was guided to this world from Zipangu. She possesses great knowledge and experience, and everyone depends on her-she's the \"big sis\" of the kunoichi team both literally and figuratively. The one very unusual thing about her is the huge amount that she eats, and people are really starting to wonder where exactly all the nourishment she takes in is going...",
         "country": "Zipangu",
         "height": "162cm",
         "weight": "46kg",
@@ -3549,6 +3549,19 @@
         "hobby": "アフタヌーンティー",
         "illust": "RINZO",
         "cv": "氷青"
+    },
+    "UN_V2_KAYA": {
+        "profile": "聖教騎士団・第二騎士団長。膨大なアルケミィ、知識、及び戦闘能力を有する、騎士団内でも稀有の存在。だが物事への執着が薄く、何事も面倒そうに振る舞う。唯一興味を示すのは、遺跡や古文書といった“過去”にまつわるもの。",
+        "country": "スロウスシュタイン",
+        "height": "161cm",
+        "weight": "51kg",
+        "birth": "10月7日",
+        "zodiac": "火皇穹の月",
+        "blood": "Kn型",
+        "favorite": "歴史、好奇心",
+        "hobby": "調査メカの改良",
+        "illust": "RINZO",
+        "cv": "藤井ゆきよ"
     },
     "UN_V2_GL_SIEG": {
         "profile": "Siegfried was an orphan who showed great promise and was recruited into the Holy Guard. He excelled in the training but never got along with the rigid lifestyles and doctrines of the order. A visiting prodigy from Lustburg recognized his ability and offered him a chance to train under her. After he completed his training, he would lend his skills to the Holy Guard as a free agent. ",
